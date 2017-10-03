@@ -1,0 +1,21 @@
+{
+  "name": "sui-js",
+  "version": "0.4.10",
+  "description": "",
+  "main": "index.js",
+  "scripts": {},
+  "license": "UNLICENSED",
+  "private": true,
+  "keywords": [
+    "sui"
+  ],
+  "author": "Daniel Sipos",
+  "homepage": "https://trophymap.org",
+  "files": [
+    "app.min.js"
+  ],
+  "dependencies": {
+
+  },
+  "devDependencies": {}
+}
