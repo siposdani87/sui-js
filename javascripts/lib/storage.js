@@ -1,0 +1,144 @@
+goog.provide('SUI.lib.Storage');
+
+goog.require('SUI');
+goog.require('SUI.Object');
+goog.require('SUI.lib');
+
+/**
+ * @constructor
+ * @this {SUI.lib.Storage}
+ * @param {!Object} options
+ */
+SUI.lib.Storage = function(options) {
+  var _self = this;
+  _self.options = new SUI.Object({
+    type: 'local',
+    secret: '',
+    hours: 24 * 7,
+    interval: 60 * 1000
+  });
+  _self.options.merge(options);
+
+  this._init();
+};
+
+
+/**
+ * @private
+ * @returns {undefined}
+ */
+SUI.lib.Storage.prototype._init = function() {
+  this.storage = this.options.type === 'local' ? window.localStorage : window.sessionStorage;
+
+  setInterval(() => {
+    this._checkExpires();
+  }, this.options.interval);
+};
+
+/**
+ * @param {string} name
+ * @param {*} value
+ * @param {string|number|boolean|!Date=} opt_expires
+ * @returns {undefined}
+ */
+SUI.lib.Storage.prototype.set = function(name, value, opt_expires) {
+  var expires = this._getExpires(opt_expires);
+  var encrypted = expires + ';' + SUI.encrypt(value, this.options.secret);
+  this.storage.setItem(name, encrypted);
+};
+
+/**
+ * @param {string} name
+ * @returns {*}
+ */
+SUI.lib.Storage.prototype.get = function(name) {
+  var item = this.storage.getItem(name);
+  var result = null;
+  if (item && item.indexOf(';') !== -1) {
+    var encrypted = item.split(';', 2)[1] || SUI.encrypt(null, this.options.secret);
+    var decrypted = SUI.decrypt(encrypted, this.options.secret);
+    result = SUI.typeCast(decrypted);
+  }
+  return result;
+};
+
+/**
+ * @param {string} name
+ * @returns {undefined}
+ */
+SUI.lib.Storage.prototype.remove = function(name) {
+  this.storage.removeItem(name);
+};
+
+/**
+ * @returns {undefined}
+ */
+SUI.lib.Storage.prototype.clear = function(){
+  this.storage.clear();
+};
+
+/**
+ * @private
+ * @returns {undefined}
+ */
+SUI.lib.Storage.prototype._checkExpires = function() {
+  var keys = Object.keys(this.storage);
+  SUI.eachArray(keys, (name) => {
+    var isExpired = this._isExpired(name);
+    if (isExpired) {
+      this.remove(name);
+    }
+  });
+};
+
+/**
+ * @private
+ * @param {string} name
+ * @returns {boolean}
+ */
+SUI.lib.Storage.prototype._isExpired = function(name) {
+  var date = new Date();
+  var expireDate = this._getExpiresDate(name);
+  return !!expireDate && date.getTime() >= expireDate.getTime();
+};
+
+/**
+ * @private
+ * @param {string} name
+ * @returns {?Date}
+ */
+SUI.lib.Storage.prototype._getExpiresDate = function(name) {
+  var item = this.storage.getItem(name);
+  if (item) {
+    var utcString = item.split(';', 2)[0];
+    return new Date(utcString);
+  }
+  return null;
+};
+
+/**
+ * @private
+ * @param {string|number|boolean|!Date=} opt_expires
+ * @returns {string}
+ */
+SUI.lib.Storage.prototype._getExpires = function(opt_expires) {
+  var date = new Date();
+  if (opt_expires) {
+    switch (opt_expires.constructor) {
+      case Number:
+        date.setTime(date.getTime() + (opt_expires * 60 * 60 * 1000));
+        opt_expires = opt_expires === Infinity ? 'Fri, 31 Dec 9999 23:59:59 GMT' : date.toUTCString();
+        break;
+      case Date:
+        opt_expires = opt_expires.toUTCString();
+        break;
+      default:
+        break;
+    }
+  }
+  else {
+    date.setTime(date.getTime() + (this.options.hours * 60 * 60 * 1000));
+    opt_expires = date.toUTCString();
+  }
+  return /** @type {string} */ (opt_expires);
+};
