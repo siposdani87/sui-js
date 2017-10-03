@@ -121,7 +121,7 @@ SUI.coreRes = {
 /**
  * @define {boolean}
  */
-SUI.debug = false;
+SUI.debug = true;
 
 /**
  * @param {*} value
