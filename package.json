@@ -1,21 +1,28 @@
 {
   "name": "sui-js",
-  "version": "0.4.10",
+  "version": "0.0.2",
   "description": "",
   "main": "index.js",
   "scripts": {},
   "license": "UNLICENSED",
   "private": true,
   "keywords": [
-    "sui"
+    "sui-js"
   ],
   "author": "Daniel Sipos",
   "homepage": "https://trophymap.org",
   "files": [
-    "app.min.js"
+    "javascripts/*",
+    "sui.min.js",
+    "rails.js",
+    "index.js"
   ],
   "dependencies": {
-
+    "sui-externs": "file:../sui-externs"
   },
-  "devDependencies": {}
+  "devDependencies": {
+    "google-closure-compiler": "20170910.0.0",
+    "babel-eslint": "8.0.1",
+    "eslint": "4.8.0"
+  }
 }

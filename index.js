@@ -1,3 +1,3 @@
-import { default as SUI } from 'app.min.js'
+import { default as SUI } from './sui.min';
 
 export default SUI

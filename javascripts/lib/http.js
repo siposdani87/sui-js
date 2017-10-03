@@ -1,0 +1,147 @@
+goog.provide('SUI.lib.Http');
+
+goog.require('SUI.Deferred');
+goog.require('SUI.lib');
+goog.require('SUI.lib.Xhr');
+
+/**
+ * @constructor
+ * @this {SUI.lib.Http}
+ * @param {!Object} options
+ */
+SUI.lib.Http = function(options) {
+  this.options = options;
+  this._init();
+};
+
+/**
+ * @private
+ * @returns {undefined}
+ */
+SUI.lib.Http.prototype._init = function() {
+  this.username = null;
+  this.password = null;
+  this.token = null;
+};
+
+/**
+ * @param {string} username
+ * @param {string} password
+ * @returns {undefined}
+ */
+SUI.lib.Http.prototype.setBasicAuthorization = function(username, password) {
+  this.username = username;
+  this.password = password;
+};
+
+/**
+ * @param {string} token
+ */
+SUI.lib.Http.prototype.setBearerAuthorization = function(token) {
+  this.token = token;
+};
+
+/**
+ * @param {string} url
+ * @param {!Object=} opt_params
+ * @param {!Object=} opt_headers
+ * @returns {!SUI.Promise}
+ */
+SUI.lib.Http.prototype.get = function(url, opt_params, opt_headers) {
+  let http = this._getRequestHandler();
+  return this._getPromise(http.get(url, opt_params, opt_headers));
+};
+
+/**
+ * @param {string} url
+ * @param {!Object=} opt_data
+ * @param {!Object=} opt_params
+ * @param {!Object=} opt_headers
+ * @returns {!SUI.Promise}
+ */
+SUI.lib.Http.prototype.post = function(url, opt_data, opt_params, opt_headers) {
+  let http = this._getRequestHandler();
+  return this._getPromise(http.post(url, opt_data, opt_params, opt_headers));
+};
+
+/**
+ * @param {string} url
+ * @param {!Object=} opt_data
+ * @param {!Object=} opt_params
+ * @param {!Object=} opt_headers
+ * @returns {!SUI.Promise}
+ */
+SUI.lib.Http.prototype.put = function(url, opt_data, opt_params, opt_headers) {
+  let http = this._getRequestHandler();
+  return this._getPromise(http.put(url, opt_data, opt_params, opt_headers));
+};
+
+/**
+ * @param {string} url
+ * @param {!Object=} opt_data
+ * @param {!Object=} opt_params
+ * @param {!Object=} opt_headers
+ * @returns {!SUI.Promise}
+ */
+SUI.lib.Http.prototype.patch = function(url, opt_data, opt_params, opt_headers) {
+  let http = this._getRequestHandler();
+  return this._getPromise(http.patch(url, opt_data, opt_params, opt_headers));
+};
+
+/**
+ * @param {string} url
+ * @param {!Object=} opt_data
+ * @param {!Object=} opt_params
+ * @param {!Object=} opt_headers
+ * @returns {!SUI.Promise}
+ */
+SUI.lib.Http.prototype.delete = function(url, opt_data, opt_params, opt_headers) {
+  let http = this._getRequestHandler();
+  return this._getPromise(http.delete(url, opt_data, opt_params, opt_headers));
+};
+
+/**
+ * @private
+ * @returns {!SUI.lib.Xhr}
+ */
+SUI.lib.Http.prototype._getRequestHandler = function() {
+  let http = new SUI.lib.Xhr(this.options);
+  http.setBasicAuthorization(this.username, this.password);
+  http.setBearerAuthorization(this.token);
+  this.eventBeforeRequest(http);
+  return http;
+};
+
+/**
+ * @private
+ * @param {!SUI.Promise} promise
+ * @returns {!SUI.Promise}
+ */
+SUI.lib.Http.prototype._getPromise = function(promise) {
+  let deferred = new SUI.Deferred();
+  promise.then((...params) => {
+    this.eventAfterRequest.apply(this, params);
+    deferred.resolve.apply(deferred, [params]);
+  }, (...params) => {
+    this.eventAfterRequest.apply(this, params);
+    deferred.reject.apply(deferred, [params]);
+  });
+  return deferred.promise();
+};
+
+/**
+ * @param {!SUI.lib.Xhr} http
+ * @returns {undefined}
+ */
+SUI.lib.Http.prototype.eventBeforeRequest = function(http) {
+  console.warn('SUI.lib.Http.eventBeforeRequest', http);
+};
+
+/**
+ * @param {*} response
+ * @param {number} status
+ * @returns {undefined}
+ */
+SUI.lib.Http.prototype.eventAfterRequest = function(response, status) {
+  console.warn('SUI.lib.Http.eventAfterRequest', response, status);
+};

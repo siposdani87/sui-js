@@ -1,0 +1,11 @@
+{
+    "files.exclude": {
+        "**/.sonar": true,
+        "**/.vscode": true,
+        "**/node_modules": true,
+        "**/.*": true
+    },
+    "search.exclude": {}
+,
+"typescript.check.workspaceVersion": false
+}
