@@ -18,7 +18,7 @@ call java -jar node_modules/google-closure-compiler/compiler.jar^
  --js javascripts/core/*.js^
  --js javascripts/module/*.js^
  --js javascripts/widget/*.js^
- --output_manifest manifest.mf^
- --js_output_file sui.min.js
+ --output_manifest dist/sui.min.mf^
+ --js_output_file dist/sui.min.js
 
 ::call sass stylesheets/index.scss app.css --style expanded
