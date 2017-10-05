@@ -1,0 +1,46 @@
+.time {
+  position: relative;
+  height: 100%;
+  width: 100%;
+  background-color: $white;
+  border-radius: 50%;
+
+  .center-point {
+    position: absolute;
+    top: calc(50% - 3px);
+    left: calc(50% - 3px);
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background-color: $accent;
+  }
+
+  .pointer {
+    position: absolute;
+    top: calc(50% - 1px);
+    left: calc(50% - 1px);
+    width: calc(50% - 35px / 2);
+    height: 2px;
+    background-color: $accent;
+    transform-origin: 1px 1px;
+  }
+
+  .circle {
+    position: absolute;
+    width: 35px;
+    height: 35px;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+
+    &.selected {
+      background-color: $accent;
+    }
+    &:hover {
+      border: 1px solid $accent;
+    }
+
+  }
+}

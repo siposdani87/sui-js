@@ -1,0 +1,105 @@
+.nav-bar-header {
+  position: fixed;
+  width: 100%;
+  z-index: $zindex-nav-bar;
+  min-height: 50px;
+
+  #toggle-nav-bar{
+    position: absolute;
+    right: 10px;
+    top: 3px;
+    color: $white;
+    text-shadow: 1px 1px 5px rgba($black, .8);
+
+    &:hover{
+      color: $white-dark;
+    }
+
+    @include media-breakpoint-up(md) {
+      display: none;
+    }
+  }
+
+  #nav-bar {
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: center;
+    min-height: 50px;
+
+    &.open{
+      display: flex;
+      background-color: $brown;
+      opacity: .9;
+      box-shadow: 0 2px 20px 0 rgba($black, .75);
+      border-bottom: none;
+
+      @include media-breakpoint-up(md) {
+        border-bottom: 1px solid rgba($light-grey, .5);
+        box-shadow: none;
+        opacity: 1;
+        background-color: transparent;
+      }
+    }
+
+    &.shadow {
+      background-color: $brown;
+      opacity: .9;
+      box-shadow: 0 2px 20px 0 rgba($black, .75);
+      border-bottom: none;
+    }
+
+    @include media-breakpoint-up(sm) {
+      border-bottom: 1px solid rgba($light-grey, .5);
+    }
+
+    @include media-breakpoint-down(sm) {
+      flex-flow: column nowrap;
+      display: none;
+    }
+
+    a {
+      display: flex;
+      flex-flow: row nowrap;
+      align-items: center;
+      text-decoration: none;
+      padding: .5em .8em;
+      color: $white;
+      text-transform: uppercase;
+      font-size: .8em;
+
+      @include media-breakpoint-down(sm) {
+        justify-content: center;
+        border-bottom: 1px solid $brown-bright;
+      }
+
+      &:hover {
+        color: $white-dark;
+      }
+      &.active {
+        color: $white-dark;
+        padding: .5em .8em .3em .8em;
+        border-bottom: .2em solid $orange;
+        background-color: $brown-dark;
+      }
+
+      .image {
+        line-height: 0;
+
+        img, svg {
+          height: 36px;
+          width: 36px;
+        }
+      }
+
+      .image + .title {
+        margin-left: 0.5em;
+      }
+
+      &:last-child {
+        @include media-breakpoint-down(sm) {
+          border-bottom: none;
+        }
+      }
+    }
+  }
+}
