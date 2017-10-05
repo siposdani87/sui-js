@@ -1,0 +1,163 @@
+#footer {
+  position: absolute;
+  min-height: 3em;
+  width: 100%;
+  padding: 0 1em 0 1em;
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: space-between;
+  align-items: center;
+  background-color: $black-bright;
+  z-index: $zindex-footer;
+
+  @include media-breakpoint-down(sm) {
+    padding-top: 1em;
+    padding-bottom: 1em;
+    flex-flow: column nowrap;
+  }
+
+  .content {
+    color: $white;
+  }
+
+  #toggle-bottom-menu {
+    display: none;
+    color: $accent;
+  }
+
+  #bottom-menu {
+    display: flex;
+    flex-flow: row nowrap;
+    align-items: center;
+
+    @include media-breakpoint-down(sm) {
+      padding-top: 1em;
+    }
+
+    @include media-breakpoint-down(xs) {
+      flex-flow: column nowrap;
+    }
+
+    a {
+      display: flex;
+      align-items: center;
+      margin-left: 2em;
+      text-decoration: none;
+      color: $accent;
+
+      @include media-breakpoint-down(xs) {
+        margin-left: 0;
+        margin-top: .5em;
+      }
+
+      .image {
+        margin-right: .5em;
+        line-height: 0;
+
+        @include media-breakpoint-down(lg) {
+          display: none;
+        }
+
+        .material-icons {
+          font-size: 32px;
+        }
+      }
+      .title {
+
+      }
+      &:hover, &.active {
+        color: $accent-dark;
+      }
+    }
+  }
+
+  &.static {
+    position: fixed;
+    bottom: 0;
+    background-color: transparent;
+
+    .content {
+      color: $white;
+    }
+
+    &.open {
+      z-index: $zindex-footer-static;
+      @include media-breakpoint-down(sm) {
+        box-shadow: 0 2px 20px 0 rgba($black, .75);
+      }
+
+      @include media-breakpoint-down(sm) {
+        background-color: $black;
+        padding-top: 1em;
+        padding-bottom: 1em;
+        flex-flow: column nowrap;
+      }
+
+      .content {
+        color: $white;
+      }
+      #toggle-bottom-menu {
+        color: $accent;
+      }
+      #bottom-menu {
+        a {
+          color: $accent;
+          &:hover, &.active {
+            color: $accent-dark;
+          }
+        }
+      }
+    }
+
+    &.dark {
+      .content {
+        color: $black;
+      }
+      #toggle-bottom-menu {
+        color: $primary;
+      }
+      #bottom-menu {
+        a {
+          color: $primary;
+          &:hover, &.active {
+            color: $primary-dark;
+          }
+        }
+
+      }
+    }
+
+    &.open.dark {
+      @include media-breakpoint-down(sm) {
+        background-color: $light-grey;
+      }
+    }
+
+    @include media-breakpoint-down(sm) {
+      padding: 0 2em 0 2em;
+      flex-flow: row nowrap;
+    }
+
+    #toggle-bottom-menu {
+      @include media-breakpoint-down(sm) {
+        display: inline-block;
+      }
+    }
+
+    #bottom-menu {
+      @include media-breakpoint-down(sm) {
+        display: none;
+      }
+
+      a {
+        .image {
+
+        }
+        .title {
+
+        }
+      }
+    }
+
+  }
+}

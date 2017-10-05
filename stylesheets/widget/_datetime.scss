@@ -1,0 +1,52 @@
+.datetime-widget {
+
+  &.is-invalid {
+    .mdl-textfield__error {
+      visibility: visible;
+    }
+  }
+
+  > .material-icons {
+    vertical-align: middle;
+    cursor: pointer;
+    margin-left: -30px;
+  }
+
+  label {
+    margin-right: 10px;
+  }
+
+  .datetime-input {
+    display: inline-block;
+    padding: 2px 30px 2px 2px;
+    border: 1px solid $light-grey;
+    background-color: $light-grey-bright;
+    border-radius: 2px;
+    min-height: 28px;
+    vertical-align: middle;
+    cursor: pointer;
+
+    .tag {
+      position: relative;
+      display: inline-block;
+      padding: 1px 30px 1px 10px;
+      margin: 0 5px 0 0;
+      background-color: rgba($black, .12);
+      border-radius: 2px;
+
+      .material-icons {
+        position: absolute;
+        right: 5px;
+        top: 4px;
+      }
+
+    }
+
+  }
+
+  .datetime {
+    display: flex;
+    align-items: center;
+  }
+
+}

@@ -1,6 +1,6 @@
 {
   "name": "sui-js",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "description": "",
   "main": "index.js",
   "scripts": {},
@@ -13,8 +13,8 @@
   "homepage": "https://trophymap.org",
   "files": [
     "javascripts/*",
-    "dist/sui.min.js",
-    "dist/sui.min.css",
+    "stylesheets/*",
+    "dist/*",
     "rails.js",
     "index.js"
   ],

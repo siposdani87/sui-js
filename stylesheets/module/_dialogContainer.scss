@@ -1,0 +1,25 @@
+.dialog-container {
+  z-index: $zindex-dialog-container;
+  animation-name: slideInDown;
+  animation-duration: 1s;
+  max-width: 500px;
+  background-color: $white;
+  color: $black;
+  //background-color: rgba($brown, .8);
+  //color: $white;
+  box-shadow: 8px 8px 100px 0 rgba($black, .5);
+  padding: 1em;
+
+  h1 {
+    margin-top: 0;
+    font-size: $font-size-h3;
+
+    img {
+      vertical-align: middle;
+      margin-right: .5em;
+    }
+  }
+  .dialog-container-footer{
+
+  }
+}

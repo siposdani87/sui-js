@@ -1,0 +1,24 @@
+.url-widget {
+
+  position: relative;
+
+  &.is-focused {
+    .protocol {
+      display: block;
+    }
+
+    input {
+      //padding-left: 60px;
+    }
+  }
+
+  .protocol {
+    top: 20px;
+    width: 60px;
+    text-align: center;
+    display: none;
+    position: absolute;
+    background-color: $light-grey;
+    border-radius: 2px;
+  }
+}

@@ -1,0 +1,52 @@
+.tab-panel {
+  display: flex;
+  flex-flow: column nowrap;
+
+  .tabs {
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: space-around;
+    align-content: stretch;
+
+    a {
+      flex: 0 1 100%;
+      display: flex;
+      border-top: 4px solid $light-grey;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      background-color: $light-grey;
+      padding: 5px 10px 5px 10px;
+      text-decoration: none;
+      text-transform: uppercase;
+      font-weight: 500;
+      color: $grey;
+      font-family: $font-family-heading;
+
+      &:hover {
+        color: $primary;
+      }
+
+      &.active {
+        border-top: 4px solid $primary;
+        background-color: $white;
+        color: $primary;
+        z-index: 1;
+        box-shadow: 1px -2px 3px 0 rgba($black, .2);
+      }
+    }
+
+  }
+
+  .panel {
+    display: none;
+    padding: 10px;
+
+    &.active {
+      display: block;
+      box-shadow: 0 0 1px 0 rgba($black, .2);
+    }
+  }
+
+}
+

@@ -1,0 +1,28 @@
+.location-widget {
+
+  .pin-drop {
+    position: absolute;
+    right: 0;
+    top: 18px;
+  }
+
+  .map {
+    margin-top: 20px;
+    border: 1px solid $light-grey;
+    border-radius: 2px;
+    min-height: 200px;
+    height: 200px;
+    width: 100%;
+
+    label {
+      width: auto;
+      display: inline;
+    }
+    img {
+      max-width: none;
+      max-height: none;
+    }
+  }
+
+}
+
