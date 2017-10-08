@@ -378,7 +378,7 @@ SUI.widget.Select.prototype._drawSearchInput = function() {
   });
   searchParentNode.appendChild(searchNode);
 
-  var id = SUI.guid();
+  var id = SUI.generateId('select');
 
   this.searchInputNode = new SUI.Node('input');
   this.searchInputNode.setId(id);
@@ -391,7 +391,7 @@ SUI.widget.Select.prototype._drawSearchInput = function() {
   searchNode.appendChild(this.searchInputNode);
 
   var labelNode = new SUI.Node('label');
-  labelNode.setAttribute('for', id);
+  labelNode.setFor(id);
   labelNode.addClass('mdl-textfield__label');
   searchNode.appendChild(labelNode);
 

@@ -53,6 +53,7 @@ module/cardCollection.js
 module/time.js
 module/clock.js
 module/datetime.js
+module/dropdown.js
 module/widget.js
 widget/button.js
 widget/baseCheckbox.js
@@ -78,8 +79,8 @@ module/googleMap.js
 module/navigation.js
 module/pager.js
 module/progressStatus.js
-module/table.js
 module/tabPanel.js
+module/table.js
 module/treeView.js
 module/util.js
 test/container.js

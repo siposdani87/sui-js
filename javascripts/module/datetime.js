@@ -123,6 +123,13 @@ SUI.Datetime.prototype._initVariables = function() {
 };
 
 /**
+ * @returns {!Object}
+ */
+SUI.Datetime.prototype.getConfig = function() {
+  return this.config;
+};
+
+/**
  * @private
  * @param {string} value
  * @returns {undefined}

@@ -2,6 +2,7 @@ goog.provide('SUI.Table');
 
 goog.require('SUI');
 goog.require('SUI.Collection');
+goog.require('SUI.Dropdown');
 goog.require('SUI.Node');
 goog.require('SUI.Object');
 goog.require('SUI.Query');
@@ -69,7 +70,7 @@ SUI.Table.prototype._initSearch = function () {
 
     var labelNode = new SUI.Node('label');
     labelNode.addClass(['mdl-button', 'mdl-js-button', 'mdl-button--icon']);
-    labelNode.setAttribute('for', 'table-search');
+    labelNode.setFor('table-search');
     searchNode.appendChild(labelNode);
 
     var iconNode = new SUI.Node('i');
@@ -259,10 +260,11 @@ SUI.Table.prototype._resetSorting = function () {
 SUI.Table.prototype._addRow = function (item) {
   var tableRow = new SUI.Node('tr');
   this.tbody.appendChild(tableRow);
-  SUI.each(this.options.columns, function (column) {
-    var dataNode = this._getDataNode(item, column);
-    tableRow.appendChild(dataNode);
-  }.bind(this));
+  SUI.each(this.options.columns,  (column) => {
+    var tableDataNode = new SUI.Node('td');
+    tableRow.appendChild(tableDataNode);
+    this._renderDataNode(tableDataNode, item, column);
+  });
 };
 
 /**
@@ -275,17 +277,14 @@ SUI.Table.prototype.setActions = function (actions) {
 
 /**
  * @private
+ * @param {!SUI.Node} tableDataNode
  * @param {!SUI.Object} item
  * @param {string} column
- * @returns {!SUI.Node}
+ * @returns {undefined}
  */
-SUI.Table.prototype._getDataNode = function (item, column) {
-  var tableData = new SUI.Node('td');
+SUI.Table.prototype._renderDataNode = function (tableDataNode, item, column) {
   if (SUI.eq(column, 'actions')) {
-    var actionNodes = this._getActionNodes(item);
-    SUI.each(actionNodes, function (actionNode) {
-      tableData.appendChild(actionNode);
-    }.bind(this));
+    this._renderActions(tableDataNode, item);
   }
   else {
     var text = item.get(column);
@@ -293,9 +292,29 @@ SUI.Table.prototype._getDataNode = function (item, column) {
     if (SUI.isFunction(calculation)) {
       text = calculation(item);
     }
-    tableData.setHtml(/** @type {string} */ (text));
+    tableDataNode.setHtml(/** @type {string} */ (text));
   }
-  return tableData;
+};
+
+/**
+ * @private
+ * @param {!SUI.Node} tableDataNode
+ * @param {!SUI.Object} item
+ * @returns {undefined}
+ */
+SUI.Table.prototype._renderActions = function(tableDataNode, item){
+  if (this.actions.length > 3){
+    var dropdownNode = new SUI.Node('div');
+    dropdownNode.addClass('dropdown');
+    tableDataNode.appendChild(dropdownNode);
+    this._renderDropdownNode(dropdownNode, item);
+  }
+  else {
+  var actionNodes = this._getActionNodes(item);
+  SUI.each(actionNodes, (actionNode) => {
+    tableDataNode.appendChild(actionNode);
+  });
+}
 };
 
 /**
@@ -314,6 +333,17 @@ SUI.Table.prototype._getActionNodes = function (item) {
 
 /**
  * @private
+ * @param {!SUI.Node} dropdownNode
+ * @param {!SUI.Object} item
+ * @returns {undefined}
+ */
+SUI.Table.prototype._renderDropdownNode = function (dropdownNode, item) {
+  var dropdown = new SUI.Dropdown(dropdownNode);
+  dropdown.setActions(this.actions, item);
+};
+
+/**
+ * @private
  * @param {!Object} action
  * @param {!SUI.Object} item
  * @returns {!SUI.Node}
@@ -323,13 +353,12 @@ SUI.Table.prototype._createActionButton = function (action, item) {
   var buttonNode = new SUI.Node('button');
   buttonNode.addClass(['mdl-button', 'mdl-js-button', 'mdl-button--icon', 'mdl-button--primary']);
   if (style[1]) {
-    //TODO Firefox issues :(
     buttonNode.setAttribute('disabled');
   }
   else {
-    buttonNode.addEventListener('click', function (button) {
+    buttonNode.addEventListener('click',  () => {
       action.click(item);
-    }.bind(this));
+    });
   }
   var iconNode = new SUI.Node('i');
   iconNode.addClass('material-icons');
