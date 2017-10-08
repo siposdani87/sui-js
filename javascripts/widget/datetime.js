@@ -49,7 +49,7 @@ SUI.widget.Datetime.prototype._initInput = function() {
   this.format = this.input.getData('format');
 
   this.input.addEventListener('change', () => {
-    var value = this.getValue();
+    var value = this.getValue().toString();
     this.modelChange(value);
     this.checkValidity();
   });
@@ -57,7 +57,7 @@ SUI.widget.Datetime.prototype._initInput = function() {
   this.datetimeNode = new SUI.Node('div');
 
   var type = this.input.getAttribute('type');
-  var value = /** @type {string} */ (this.getValue());
+  var value = /** @type {string} */ (this.getValue().toString());
 
   this.datetime = new SUI.Datetime(this.datetimeNode, {
     value: value,
@@ -110,7 +110,7 @@ SUI.widget.Datetime.prototype.setValue = function(value) {
 SUI.widget.Datetime.prototype._setTag = function(value) {
   this.datetimeInput.removeChildren();
   if (value) {
-    var formattedValue = window['moment'](value)['format'](this.format);
+    var formattedValue = window['moment'](value, this.datetime.getConfig().format)['format'](this.format);
     var tagNode = new SUI.Node('div');
     tagNode.addClass('tag');
     tagNode.setHtml(formattedValue);

@@ -23,13 +23,13 @@ SUI.Tooltip.prototype._init = function(opt_message = ''){
 
   var id = this.element.getId();
   if (SUI.isNull(id)){
-    id = SUI.guid();
+    id = SUI.generateId('tooltip');
     this.element.setId(id);
   }
 
   this.tooltip = new SUI.Node('span');
   this.tooltip.addClass(['mdl-tooltip', 'mdl-tooltip--top']);
-  this.tooltip.setAttribute('for', id);
+  this.tooltip.setFor(/** @type {string} */ (id));
   this.element.insertAfter(this.tooltip);
 
   this.messageNode = new SUI.Node('span');

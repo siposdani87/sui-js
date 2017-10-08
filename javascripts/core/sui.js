@@ -742,7 +742,12 @@ SUI.mdl = function(node) {
   if (SUI.isFunction(element.getNode)) {
     element = element.getNode();
   }
-  window['componentHandler']['upgradeElement'](element);
+  if (node){
+    window['componentHandler']['upgradeElement'](element);
+  }
+  else {
+    window['componentHandler']['upgradeDom']();
+  }
 };
 
 /**
@@ -812,6 +817,15 @@ SUI.decrypt = function(item, passPhrase) {
  */
 SUI.md5 = function(str) {
   return window['CryptoJS']['MD5'](str);
+};
+
+/**
+ * @param {string} name
+ * @returns {string}
+ */
+SUI.generateId = function(name){
+  var guid = SUI.guid();
+  return [name, guid].join('-');
 };
 
 /**

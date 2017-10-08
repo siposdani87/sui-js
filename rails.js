@@ -60,6 +60,7 @@
 //= require sui-js/javascripts/module/test
 //= require sui-js/javascripts/module/navigation
 //= require sui-js/javascripts/module/tabPanel
+//= require sui-js/javascripts/module/dropdown
 //= require sui-js/javascripts/module/pager
 //= require sui-js/javascripts/module/table
 //= require sui-js/javascripts/module/cardCollection

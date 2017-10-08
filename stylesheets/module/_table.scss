@@ -1,18 +1,18 @@
 .table-responsive {
   width: 100%;
   margin-bottom: 15px;
-  overflow-y: hidden;
-  min-height: .01%;
-  overflow-x: auto;
+  //overflow-y: hidden;
+  //min-height: .01%;
+  //overflow-x: auto;
 }
 
 table {
   border-collapse: collapse;
   width: 100%;
 
-  @include media-breakpoint-down(sm) {
+  /*@include media-breakpoint-down(sm) {
     display: block;
-  }
+  }*/
 
   thead {
 
@@ -32,9 +32,9 @@ table {
           cursor: pointer;
         }
 
-        @include media-breakpoint-down(sm) {
+        /*@include media-breakpoint-down(sm) {
           display: inline-block;
-        }
+        }*/
 
         span {
           vertical-align: middle;
@@ -76,9 +76,9 @@ table {
       td {
         padding: 5px 10px;
 
-        @include media-breakpoint-down(sm) {
+        /*@include media-breakpoint-down(sm) {
           display: inline-block;
-        }
+        }*/
 
         .img-wrapper {
           width: 52px;

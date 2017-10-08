@@ -40,7 +40,7 @@ SUI.widget.Radiobutton.prototype._init = function() {
 SUI.widget.Radiobutton.prototype.render = function() {
   this.label.addClass(['mdl-radio', 'mdl-js-radio', 'mdl-js-ripple-effect']);
   let id = this.input.getId();
-  this.label.setAttribute('for', id);
+  this.label.setFor(/** @type {string} */ (id));
 
   let labelText = this.label.getHtml(true);
 

@@ -99,6 +99,22 @@ SUI.Node.prototype.setId = function(id) {
 };
 
 /**
+ * @param {boolean|number|string} htmlFor
+ * @returns {undefined}
+ */
+SUI.Node.prototype.setFor = function(htmlFor) {
+  this.node.htmlFor = htmlFor;
+  this.setAttribute('for', htmlFor);
+};
+
+/**
+ * @returns {string|null}
+ */
+SUI.Node.prototype.getFor = function() {
+  return this.node.htmlFor || this.getAttribute('for');
+};
+
+/**
  * @param {string} cssClass
  * @returns {boolean}
  */
