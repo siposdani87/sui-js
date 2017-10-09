@@ -782,7 +782,7 @@ SUI.mapLabel = function(marker, title) {
   let mapLabel = new window['MapLabel']({
     'text': title,
     'strokeWeight': 2,
-    'fontFamily': 'Raleway'
+    'fontFamily': 'sans-serif'
   });
 
   mapLabel['bindTo']('position', marker);
