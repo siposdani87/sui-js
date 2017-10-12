@@ -89,6 +89,23 @@
 
 }
 
+.mdl-checkbox{
+
+  input[required="required"] ~ .mdl-checkbox__box-outline{
+    border: 2px solid $red;
+  }
+
+  &.is-checked{
+    input[required="required"] ~ .mdl-checkbox__box-outline{
+      border: 2px solid $primary;
+    }
+  }
+}
+
+.mdl-tooltip{
+  font-size: 12px;
+}
+
 input[type="file"].mdl-textfield__input::-webkit-file-upload-button {
   opacity: 0;
   width: 0;
