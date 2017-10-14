@@ -949,5 +949,5 @@ SUI.getQueryString = function(opt_params) {
  */
 SUI.getExtensionName = function(url){
   let realUrl = url.split('?', 2)[0];
-  return realUrl.slice((Math.max(0, url.lastIndexOf('.')) || Infinity) + 1);
+  return realUrl.slice((Math.max(0, realUrl.lastIndexOf('.')) || Infinity) + 1);
 };
