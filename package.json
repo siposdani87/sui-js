@@ -1,6 +1,6 @@
 {
   "name": "sui-js",
-  "version": "0.0.4",
+  "version": "0.0.5",
   "description": "Powerfull Vanilla JavaScript framework for web and react(-native), based on Google Closure Compiler",
   "main": "index.js",
   "scripts": {},

@@ -774,7 +774,7 @@ SUI.reactUnmount = function(mountNode) {
 /**
  * @param {!Object} marker
  * @param {string} title
- * @returns {undefined}
+ * @returns {!Object}
  */
 SUI.mapLabel = function(marker, title) {
   //https://github.com/googlemaps/js-map-label/blob/gh-pages/src/maplabel.js
