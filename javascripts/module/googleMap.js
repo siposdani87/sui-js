@@ -199,7 +199,7 @@ SUI.GoogleMap.prototype.addPointsToPolygon = function (points) {
  */
 SUI.GoogleMap.prototype._convertPointsToPath = function (points) {
   let path = [];
-  SUI.each(points, function (point) {
+  SUI.each(points, (point) => {
     let vertex = new google.maps.LatLng(point.latitude, point.longitude);
     path.push(vertex);
   });
@@ -225,7 +225,7 @@ SUI.GoogleMap.prototype._setBoundsByPath = function (path) {
   this.bounds = null;
   if (path.length > 0) {
     this.bounds = new google.maps.LatLngBounds();
-    SUI.each(path, function (vertex) {
+    SUI.each(path, (vertex) => {
       this.bounds.extend(vertex);
     });
   }
@@ -262,7 +262,7 @@ SUI.GoogleMap.prototype._getPointsFromPolygon = function () {
   let path = this.polygon.getPath().getArray();
   this._setBoundsByPath(path);
   let points = [];
-  SUI.each(path, function (vertex) {
+  SUI.each(path, (vertex) => {
     points.push({
       latitude: vertex.lat(),
       longitude: vertex.lng()
