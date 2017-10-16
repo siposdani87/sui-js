@@ -1,9 +1,11 @@
 core/sui.js
-core/lib.js
-lib/appCache.js
+core/module.js
 core/object.js
 core/collection.js
 core/query.js
+module/test.js
+core/lib.js
+lib/appCache.js
 lib/bottomMenu.js
 lib/browser.js
 core/async.js
@@ -24,7 +26,6 @@ lib/xhr.js
 lib/http.js
 lib/leftMenu.js
 lib/loader.js
-lib/navBar.js
 lib/notification.js
 lib/progressBar.js
 lib/script.js
@@ -35,8 +36,6 @@ lib/style.js
 lib/template.js
 lib/topMenu.js
 lib/window.js
-core/module.js
-module/test.js
 core/app.js
 core/box.js
 core/item.js
@@ -44,6 +43,7 @@ core/router.js
 core/state.js
 core/test.js
 core/widget.js
+lib/navBar.js
 module/day.js
 module/month.js
 module/year.js
@@ -79,8 +79,8 @@ module/googleMap.js
 module/navigation.js
 module/pager.js
 module/progressStatus.js
-module/tabPanel.js
 module/table.js
+module/tabPanel.js
 module/treeView.js
 module/util.js
 test/container.js
