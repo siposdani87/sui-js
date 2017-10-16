@@ -472,6 +472,17 @@ SUI.GoogleMap.prototype.setCenter = function(latitude, longitude, opt_boundCheck
 };
 
 /**
+ * @returns {!Object}
+ */
+SUI.GoogleMap.prototype.getCenter = function() {
+  let mapCenter = this.map.getCenter();
+  return {
+    'latitude': mapCenter.lat(),
+    'longitude': mapCenter.lng()
+  };
+};
+
+/**
  * @returns {undefined}
  */
 SUI.GoogleMap.prototype.triggerResize = function() {
