@@ -9,10 +9,10 @@
   &:not(.is-upgraded).is-active:after {
     content: '';
   }
-}
 
-.mdl-spinner--single-color .mdl-spinner__layer-1{
-  border-color: $accent;
+  &.mdl-spinner--single-color .mdl-spinner__layer{
+    border-color: $accent;
+  }
 }
 
 .mdl-progress {
