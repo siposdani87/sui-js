@@ -11,6 +11,10 @@
   }
 }
 
+.mdl-spinner--single-color .mdl-spinner__layer-1{
+  border-color: $accent;
+}
+
 .mdl-progress {
   width: 100%;
 }

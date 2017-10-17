@@ -274,10 +274,16 @@ SUI.State.prototype.back = function() {
 
 /**
  * @param {string} url
+ * @param {boolean=} opt_inTab
  * @returns {undefined}
  */
-SUI.State.prototype.redirect = function(url) {
-  window.location.href = url;
+SUI.State.prototype.redirect = function(url, opt_inTab = false) {
+  if (opt_inTab){
+    window.open(url, '_blank');
+  }
+  else {
+    window.location.href = url;
+  }
 };
 
 /**

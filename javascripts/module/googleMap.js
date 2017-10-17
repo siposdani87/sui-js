@@ -146,10 +146,11 @@ SUI.GoogleMap.prototype.setPolygon = function (opt_options) {
  */
 SUI.GoogleMap.prototype._bindEventsToPolygon = function () {
   let path = this.polygon.getPath();
-
-  path.addListener('insert_at', this._callPolygonChangeEvent.bind(this));
-  path.addListener('set_at', this._callPolygonChangeEvent.bind(this));
-  path.addListener('remove_at', this._callPolygonChangeEvent.bind(this));
+  if (path) {
+    path.addListener('insert_at', this._callPolygonChangeEvent.bind(this));
+    path.addListener('set_at', this._callPolygonChangeEvent.bind(this));
+    path.addListener('remove_at', this._callPolygonChangeEvent.bind(this));
+  }
 };
 
 /**
@@ -234,7 +235,7 @@ SUI.GoogleMap.prototype._setBoundsByPath = function (path) {
 /**
  * @returns {{latitude: number, longitude: number}}
  */
-SUI.GoogleMap.prototype.getCenterOfPolygon = function(){
+SUI.GoogleMap.prototype.getCenterOfPolygon = function () {
   let vertex = this.bounds.getCenter();
   return {
     'latitude': vertex.lat(),
@@ -339,7 +340,7 @@ SUI.GoogleMap.prototype.addMarker = function (id, title, iconName, latitude, lon
  * @param {!Object} mapLabel
  */
 SUI.GoogleMap.prototype._bindEventsToMarker = function (marker, data, mapLabel) {
-  marker.addListener('click',  (event) => {
+  marker.addListener('click', (event) => {
     this.eventMarkerClick(data, event);
   });
 
@@ -347,7 +348,7 @@ SUI.GoogleMap.prototype._bindEventsToMarker = function (marker, data, mapLabel) 
     this.eventMarkerRightClick(data, event);
   });
 
-  marker.addListener('dragend',  (event) => {
+  marker.addListener('dragend', (event) => {
     if (this.markerOptions.draggable) {
       let vertex = marker.getPosition();
       let latitude = vertex.lat();
