@@ -25,21 +25,23 @@ SUI.lib.Helper.prototype._init = function() {
  * @param {string} selector
  * @param {!SUI.Node} dom
  * @param {!Function} callback
+ * @param {string=} opt_description
  * @param {boolean=} opt_allowAccess
  * @returns {undefined}
  */
-SUI.lib.Helper.prototype.link = function(selector, dom, callback, opt_allowAccess = true) {
+SUI.lib.Helper.prototype.link = function(selector, dom, callback, opt_description = '', opt_allowAccess = true) {
   var linkNode = new SUI.Query(selector, dom).getItem();
-  this.linkElement(linkNode, callback, opt_allowAccess);
+  this.linkElement(linkNode, callback, opt_description, opt_allowAccess);
 };
 
 /**
  * @param {!SUI.Node} linkNode
  * @param {!Function} callback
+ * @param {string=} opt_description
  * @param {boolean=} opt_allowAccess
  * @returns {undefined}
  */
-SUI.lib.Helper.prototype.linkElement = function(linkNode, callback, opt_allowAccess = true) {
+SUI.lib.Helper.prototype.linkElement = function(linkNode, callback, opt_description = '', opt_allowAccess = true) {
   if (!linkNode.isEmpty()) {
     if (opt_allowAccess) {
       var href = linkNode.getAttribute('href');
@@ -47,6 +49,8 @@ SUI.lib.Helper.prototype.linkElement = function(linkNode, callback, opt_allowAcc
       linkNode.addEventListener('click', function() {
         callback(href);
       });
+
+      new SUI.Tooltip(linkNode, opt_description);
     }
     else {
       linkNode.remove();
@@ -58,16 +62,20 @@ SUI.lib.Helper.prototype.linkElement = function(linkNode, callback, opt_allowAcc
  * @param {string} selector
  * @param {!SUI.Node} dom
  * @param {!Function} callback
+ * @param {string=} opt_description
  * @param {boolean=} opt_allowAccess
  * @param {!Array=} opt_cssClasses
  * @returns {undefined}
  */
-SUI.lib.Helper.prototype.button = function(selector, dom, callback, opt_allowAccess = true, opt_cssClasses = ['mdl-button--raised', 'mdl-button--primary']) {
+SUI.lib.Helper.prototype.button = function(selector, dom, callback, opt_description = '', opt_allowAccess = true, opt_cssClasses = ['mdl-button--raised', 'mdl-button--primary']) {
   var buttonNode = new SUI.Query(selector, dom).getItem();
   if (!buttonNode.isEmpty()) {
     if (opt_allowAccess) {
       buttonNode.addClass(['mdl-button', 'mdl-js-button', 'mdl-js-ripple-effect'].concat(opt_cssClasses));
       buttonNode.addEventListener('click', callback);
+
+      new SUI.Tooltip(buttonNode, opt_description);
+
       SUI.mdl(buttonNode);
     }
     else {
@@ -80,12 +88,12 @@ SUI.lib.Helper.prototype.button = function(selector, dom, callback, opt_allowAcc
  * @param {string} selector
  * @param {!SUI.Node} dom
  * @param {!Function} callback
- * @param {boolean=} opt_allowAccess
  * @param {string=} opt_description
+ * @param {boolean=} opt_allowAccess
  * @param {!Array=} opt_cssClasses
  * @returns {undefined}
  */
-SUI.lib.Helper.prototype.iconButton = function(selector, dom, callback, opt_allowAccess = true, opt_description = '', opt_cssClasses = ['mdl-button--accent', 'mdl-button--fab', 'mdl-button--mini-fab']) {
+SUI.lib.Helper.prototype.iconButton = function(selector, dom, callback, opt_description = '', opt_allowAccess = true, opt_cssClasses = ['mdl-button--accent', 'mdl-button--fab', 'mdl-button--mini-fab']) {
   var buttonNode = new SUI.Query(selector, dom).getItem();
   if (!buttonNode.isEmpty()) {
     if (opt_allowAccess) {
@@ -110,7 +118,7 @@ SUI.lib.Helper.prototype.iconButton = function(selector, dom, callback, opt_allo
  * @param {!Array=} opt_cssClasses
  * @returns {undefined}
  */
-SUI.lib.Helper.prototype.createIconButton = function(iconName, dom, callback, opt_description, opt_cssClasses = ['mdl-button--primary', 'mdl-button--fab', 'mdl-button--mini-fab']) {
+SUI.lib.Helper.prototype.createIconButton = function(iconName, dom, callback, opt_description = '', opt_cssClasses = ['mdl-button--primary', 'mdl-button--fab', 'mdl-button--mini-fab']) {
   var buttonNode = new SUI.Node('button');
   buttonNode.addClass(['mdl-button', 'mdl-js-button', 'mdl-js-ripple-effect'].concat(opt_cssClasses));
   buttonNode.addEventListener('click', callback);

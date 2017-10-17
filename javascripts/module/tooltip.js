@@ -46,7 +46,13 @@ SUI.Tooltip.prototype._init = function(opt_message = ''){
  */
 SUI.Tooltip.prototype.setMessage = function(opt_message = ''){
   if (!opt_message) {
-    opt_message = this.element.getAttribute('title') || '';
+    opt_message = this.element.getAttribute('desc') || '';
+    this.element.removeAttribute('desc');
+    if (opt_message){
+      this.tooltip.addClass('mdl-tooltip--large');
+    }
+
+    opt_message = this.element.getAttribute('title') || opt_message;
     this.element.removeAttribute('title');
   }
   this.messageNode.setHtml(/** @type {string} */ (opt_message));
