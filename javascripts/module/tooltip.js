@@ -20,7 +20,33 @@ SUI.Tooltip = function(element, opt_message = '') {
  * @returns {undefined}
  */
 SUI.Tooltip.prototype._init = function(opt_message = ''){
+  var message = this._getMessage(opt_message);
+  this._render(message);
+};
 
+/**
+ * @param {string=} opt_message
+ * @returns {string}
+ */
+SUI.Tooltip.prototype._getMessage = function(opt_message = ''){
+  if (!opt_message) {
+    opt_message = this.element.getAttribute('desc') || '';
+    this.element.removeAttribute('desc');
+    if (opt_message){
+      this.tooltip.addClass('mdl-tooltip--large');
+    }
+    opt_message = this.element.getAttribute('title') || opt_message;
+    this.element.removeAttribute('title');
+  }
+  return opt_message;
+};
+
+/**
+ * @private
+ * @param {string} message
+ * @returns {undefined}
+ */
+SUI.Tooltip.prototype._render = function(message){
   var id = this.element.getId();
   if (SUI.isNull(id)){
     id = SUI.generateId('tooltip');
@@ -32,10 +58,7 @@ SUI.Tooltip.prototype._init = function(opt_message = ''){
   this.tooltip.setFor(/** @type {string} */ (id));
   this.element.insertAfter(this.tooltip);
 
-  this.messageNode = new SUI.Node('span');
-  this.tooltip.insert(this.messageNode);
-
-  this.setMessage(opt_message);
+  this.setMessage(message);
 
   SUI.mdl(this.tooltip);
 };
@@ -45,17 +68,14 @@ SUI.Tooltip.prototype._init = function(opt_message = ''){
  * @returns {undefined}
  */
 SUI.Tooltip.prototype.setMessage = function(opt_message = ''){
-  if (!opt_message) {
-    opt_message = this.element.getAttribute('desc') || '';
-    this.element.removeAttribute('desc');
-    if (opt_message){
-      this.tooltip.addClass('mdl-tooltip--large');
-    }
-
-    opt_message = this.element.getAttribute('title') || opt_message;
-    this.element.removeAttribute('title');
+  if (opt_message){
+    this.tooltip.removeStyle(['display']);
+    this.tooltip.setHtml(/** @type {string} */ (opt_message));
   }
-  this.messageNode.setHtml(/** @type {string} */ (opt_message));
+  else {
+    this.tooltip.setStyle({
+      'display': 'none'
+    });
+    this.tooltip.setHtml('');
+  }
 };
-
-
