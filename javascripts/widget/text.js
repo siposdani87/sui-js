@@ -24,6 +24,8 @@ goog.inherits(SUI.widget.Text, SUI.Widget);
  * @returns {undefined}
  */
 SUI.widget.Text.prototype._init = function() {
+  this.inputBlock.addClass('text-widget');
+  this._initInfo();
 
   this.input.addEventListener('keyup', (input) => {
     var inputNode = input.getNode();
@@ -50,4 +52,3 @@ SUI.widget.Text.prototype.render = function() {
   }
   SUI.mdl(this.inputBlock);
 };
-

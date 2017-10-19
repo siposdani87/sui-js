@@ -26,7 +26,6 @@ goog.inherits(SUI.widget.Range, SUI.Widget);
  * @returns {undefined}
  */
 SUI.widget.Range.prototype._init = function() {
-
   this.inputBlock.addClass('range-widget');
 
   this.input.addEventListener('input', (input) => {

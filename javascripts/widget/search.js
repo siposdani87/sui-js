@@ -24,7 +24,7 @@ goog.inherits(SUI.widget.Search, SUI.Widget);
  * @returns {undefined}
  */
 SUI.widget.Search.prototype._init = function() {
-
+  
   this.input.addEventListener('keyup', (input, event) => {
     var inputNode = input.getNode();
     this.modelChange(inputNode.value);

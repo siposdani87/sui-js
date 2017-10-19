@@ -26,7 +26,6 @@ goog.inherits(SUI.widget.Location, SUI.Widget);
  */
 SUI.widget.Location.prototype._init = function() {
   this.inputBlock.addClass('location-widget');
-
   this._initButtons();
 
   this.icon = this.input.getData('icon');
@@ -69,7 +68,6 @@ SUI.widget.Location.prototype._initButtons = function() {
     this._search(address);
   });
   this.inputBlock.appendChild(upButton);
-
 };
 
 /**

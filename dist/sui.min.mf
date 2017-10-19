@@ -44,10 +44,6 @@ core/state.js
 core/test.js
 core/widget.js
 lib/navBar.js
-test/container.js
-test/deferred.js
-test/item.js
-test/object.js
 module/day.js
 module/month.js
 module/year.js
@@ -58,12 +54,12 @@ module/time.js
 module/clock.js
 module/datetime.js
 module/dropdown.js
+module/tooltip.js
 module/widget.js
 widget/button.js
 widget/baseCheckbox.js
 widget/checkbox.js
 module/popup.js
-module/tooltip.js
 widget/color.js
 widget/datetime.js
 widget/file.js
@@ -87,6 +83,10 @@ module/table.js
 module/tabPanel.js
 module/treeView.js
 module/util.js
+test/container.js
+test/deferred.js
+test/item.js
+test/object.js
 widget/autoComplete.js
 widget/datetimeRange.js
 widget/location.js
