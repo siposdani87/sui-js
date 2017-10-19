@@ -24,8 +24,8 @@ goog.inherits(SUI.widget.Textarea, SUI.Widget);
  * @returns {undefined}
  */
 SUI.widget.Textarea.prototype._init = function() {
-
   this.inputBlock.addClass('textarea-widget');
+  this._initInfo();
 
   this.input.addEventListener('keyup', (input) => {
     var inputNode = input.getNode();

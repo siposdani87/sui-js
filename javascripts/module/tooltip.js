@@ -20,6 +20,7 @@ SUI.Tooltip = function(element, opt_message = '') {
  * @returns {undefined}
  */
 SUI.Tooltip.prototype._init = function(opt_message = ''){
+  this._createTooltip();
   var message = this._getMessage(opt_message);
   this._render(message);
 };
@@ -43,10 +44,9 @@ SUI.Tooltip.prototype._getMessage = function(opt_message = ''){
 
 /**
  * @private
- * @param {string} message
  * @returns {undefined}
  */
-SUI.Tooltip.prototype._render = function(message){
+SUI.Tooltip.prototype._createTooltip = function(){
   var id = this.element.getId();
   if (SUI.isNull(id)){
     id = SUI.generateId('tooltip');
@@ -57,9 +57,15 @@ SUI.Tooltip.prototype._render = function(message){
   this.tooltip.addClass(['mdl-tooltip', 'mdl-tooltip--top']);
   this.tooltip.setFor(/** @type {string} */ (id));
   this.element.insertAfter(this.tooltip);
+};
 
+/**
+ * @private
+ * @param {string} message
+ * @returns {undefined}
+ */
+SUI.Tooltip.prototype._render = function(message){
   this.setMessage(message);
-
   SUI.mdl(this.tooltip);
 };
 
