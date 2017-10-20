@@ -2,11 +2,11 @@
     "files.exclude": {
         "**/.sonar": true,
         "**/.vscode": true,
-	"**/dist": true,
+	    "**/dist": true,
         "**/node_modules": true,
         "**/.*": true
     },
-    "search.exclude": {}
-,
-"typescript.check.workspaceVersion": false
+    "search.exclude": {},
+	"javascript.format.insertSpaceBeforeFunctionParenthesis": false,
+	"javascript.format.placeOpenBraceOnNewLineForControlBlocks": true
 }
