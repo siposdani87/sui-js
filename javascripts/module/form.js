@@ -25,7 +25,7 @@ goog.inherits(SUI.Form, SUI.Collection);
 
 /**
  * @private
- * @returns {undefined}
+ * @return {undefined}
  */
 SUI.Form.prototype._init = function() {
   this.model = new SUI.Object();
@@ -40,7 +40,7 @@ SUI.Form.prototype._init = function() {
 
 /**
  * @private
- * @returns {undefined}
+ * @return {undefined}
  */
 SUI.Form.prototype._initFormEvent = function() {
   this.form.addEventListener('keydown', function(node, event) {
@@ -56,7 +56,7 @@ SUI.Form.prototype._initFormEvent = function() {
 
 /**
  * @private
- * @returns {undefined}
+ * @return {undefined}
  */
 SUI.Form.prototype._initSubmitFormEvent = function() {
   this.form.addEventListener('submit', function(node, event) {
@@ -69,7 +69,7 @@ SUI.Form.prototype._initSubmitFormEvent = function() {
 
 /**
  * @private
- * @returns {undefined}
+ * @return {undefined}
  */
 SUI.Form.prototype._initResetFormEvent = function() {
   this.form.addEventListener('reset', function(node, event) {
@@ -80,7 +80,7 @@ SUI.Form.prototype._initResetFormEvent = function() {
 
 /**
  * @private
- * @returns {undefined}
+ * @return {undefined}
  */
 SUI.Form.prototype._initWidgets = function() {
   var widgets = new SUI.Query(this.widgetClasses.concat(this.buttonClasses).join(', '), this.form).getItems();
@@ -119,7 +119,7 @@ SUI.Form.prototype._initWidgets = function() {
 
 /**
  * @param {!SUI.Object} model
- * @returns {undefined}
+ * @return {undefined}
  */
 SUI.Form.prototype.setModel = function(model) {
   this.each((widget) => {
@@ -137,7 +137,7 @@ SUI.Form.prototype.setModel = function(model) {
  * @private
  * @param {string} name
  * @param {*} value
- * @returns {undefined}
+ * @return {undefined}
  */
 SUI.Form.prototype._setValue = function(name, value) {
   this.model.set(name, value);
@@ -145,7 +145,7 @@ SUI.Form.prototype._setValue = function(name, value) {
 
 /**
  * @param {!Object} data
- * @returns {undefined}
+ * @return {undefined}
  */
 SUI.Form.prototype.setErrors = function(data) {
   var errors = new SUI.Object(data);
@@ -158,7 +158,7 @@ SUI.Form.prototype.setErrors = function(data) {
 
 /**
  * @param {boolean=} opt_force
- * @returns {boolean}
+ * @return {boolean}
  */
 SUI.Form.prototype.checkValidity = function(opt_force = false) {
   this.each(function(widget) {
@@ -168,14 +168,14 @@ SUI.Form.prototype.checkValidity = function(opt_force = false) {
 };
 
 /**
- * @returns {boolean}
+ * @return {boolean}
  */
 SUI.Form.prototype.isValid = function(){
   return this.checkValidity(true);
 };
 
 /**
- * @returns {undefined}
+ * @return {undefined}
  */
 SUI.Form.prototype.refresh = function() {
   this.deleteAllByCondition(function(widget) {
@@ -193,7 +193,7 @@ SUI.Form.prototype.refresh = function() {
 
 /**
  * @param {string} value
- * @returns {!SUI.Widget}
+ * @return {!SUI.Widget}
  */
 SUI.Form.prototype.findByModel = function(value) {
   return this.findByCondition((item, i) => {
@@ -205,7 +205,7 @@ SUI.Form.prototype.findByModel = function(value) {
 /**
  * @param {!SUI.Object} model
  * @param {!SUI.Node} node
- * @returns {undefined}
+ * @return {undefined}
  */
 SUI.Form.prototype.eventSubmit = function(model, node) {
   console.warn('SUI.Form.eventSubmit()', model, node);
@@ -214,7 +214,7 @@ SUI.Form.prototype.eventSubmit = function(model, node) {
 /**
  * @param {!SUI.Object} model
  * @param {!SUI.Node} node
- * @returns {undefined}
+ * @return {undefined}
  */
 SUI.Form.prototype.eventReset = function(model, node) {
   console.warn('SUI.Form.eventReset()', model, node);
@@ -223,7 +223,7 @@ SUI.Form.prototype.eventReset = function(model, node) {
 /**
  * @param {!SUI.Object} model
  * @param {!SUI.Node} node
- * @returns {undefined}
+ * @return {undefined}
  */
 SUI.Form.prototype.eventButton = function(model, node) {
   console.warn('SUI.Form.eventButton()', model, node);

@@ -23,7 +23,7 @@ SUI.lib.Template = function(http, opt_options) {
 
 /**
  * @param {string} url
- * @returns {!SUI.Promise}
+ * @return {!SUI.Promise}
  */
 SUI.lib.Template.prototype.load = function(url) {
   var deferred = new SUI.Deferred();
@@ -39,7 +39,7 @@ SUI.lib.Template.prototype.load = function(url) {
 
 /**
  * @param {string} url
- * @returns {!SUI.Promise}
+ * @return {!SUI.Promise}
  */
 SUI.lib.Template.prototype.get = function(url) {
   var deferred = new SUI.Deferred();
@@ -59,7 +59,7 @@ SUI.lib.Template.prototype.get = function(url) {
 
 /**
  * @param {!Object} message
- * @returns {undefined}
+ * @return {undefined}
  */
 SUI.lib.Template.prototype.eventError = function(message) {
   console.warn('SUI.lib.Template.eventError()', message);

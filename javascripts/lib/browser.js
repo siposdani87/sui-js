@@ -14,7 +14,7 @@ SUI.lib.Browser = function() {
 
 /**
  * @private
- * @returns {undefined}
+ * @return {undefined}
  */
 SUI.lib.Browser.prototype._init = function() {
   this._detectBrowsers();
@@ -39,7 +39,7 @@ SUI.lib.Browser.prototype._detectMissingFeatures = function() {
 };
 
 /**
- * @returns {undefined}
+ * @return {undefined}
  */
 SUI.lib.Browser.prototype.detect = function() {
   if (!SUI.isEmpty(this.features)) {
@@ -60,7 +60,7 @@ SUI.lib.Browser.prototype._setFeature = function(name, value) {
 
 /**
  * @param {!Array} features
- * @returns {undefined}
+ * @return {undefined}
  */
 SUI.lib.Browser.prototype.eventMissingFeatures = function(features) {
   console.error('SUI.lib.Browser.eventMissingFeatures()', features);
@@ -68,7 +68,7 @@ SUI.lib.Browser.prototype.eventMissingFeatures = function(features) {
 
 /**
  * @private
- * @returns {undefined}
+ * @return {undefined}
  */
 SUI.lib.Browser.prototype._detectBrowsers = function() {
   this.webkit = 'WebkitAppearance' in document.documentElement.style;
@@ -89,7 +89,7 @@ SUI.lib.Browser.prototype._detectBrowsers = function() {
 
 /**
  * @param {number=} opt_version
- * @returns {boolean}
+ * @return {boolean}
  */
 SUI.lib.Browser.prototype.isInternetExplorer = function(opt_version) {
   var result = this.lteIE10 || this.gteIE10;
@@ -110,42 +110,42 @@ SUI.lib.Browser.prototype.isInternetExplorer = function(opt_version) {
 };
 
 /**
- * @returns {boolean}
+ * @return {boolean}
  */
 SUI.lib.Browser.prototype.isFirefox = function() {
   return this.firefox;
 };
 
 /**
- * @returns {boolean}
+ * @return {boolean}
  */
 SUI.lib.Browser.prototype.isChrome = function() {
   return this.chrome;
 };
 
 /**
- * @returns {boolean}
+ * @return {boolean}
  */
 SUI.lib.Browser.prototype.isOpera = function() {
   return this.opera;
 };
 
 /**
- * @returns {boolean}
+ * @return {boolean}
  */
 SUI.lib.Browser.prototype.isSafari = function() {
   return this.safari;
 };
 
 /**
- * @returns {boolean}
+ * @return {boolean}
  */
 SUI.lib.Browser.prototype.isWebkit = function() {
   return this.webkit;
 };
 
 /**
- * @returns {boolean}
+ * @return {boolean}
  */
 SUI.lib.Browser.prototype.isChromium = function() {
   return this.chromium;

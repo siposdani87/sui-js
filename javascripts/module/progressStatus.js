@@ -21,7 +21,7 @@ SUI.ProgressStatus = function(dom, opt_options, opt_selector = '.progress-status
 /**
  * @private
  * @param {!Object=} opt_options
- * @returns {undefined}
+ * @return {undefined}
  */
 SUI.ProgressStatus.prototype._setOptions = function(opt_options) {
   var _self = this;
@@ -34,7 +34,7 @@ SUI.ProgressStatus.prototype._setOptions = function(opt_options) {
 
 /**
  * @private
- * @returns {undefined}
+ * @return {undefined}
  */
 SUI.ProgressStatus.prototype._init = function() {
   this.textNode = new SUI.Query('.text', this.progressStatusNode).getItem();
@@ -44,7 +44,7 @@ SUI.ProgressStatus.prototype._init = function() {
  * @private
  * @param {string} cssClass
  * @param {string} text
- * @returns {undefined}
+ * @return {undefined}
  */
 SUI.ProgressStatus.prototype._setStatus = function(cssClass, text) {
   this.progressStatusNode.removeClass([this.options.errorStyle, this.options.successStyle]);
@@ -54,7 +54,7 @@ SUI.ProgressStatus.prototype._setStatus = function(cssClass, text) {
 
 /**
  * @param {string} text
- * @returns {undefined}
+ * @return {undefined}
  */
 SUI.ProgressStatus.prototype.setSuccess = function(text) {
   this._setStatus(this.options.successStyle, text);
@@ -62,7 +62,7 @@ SUI.ProgressStatus.prototype.setSuccess = function(text) {
 
 /**
  * @param {string} text
- * @returns {undefined}
+ * @return {undefined}
  */
 SUI.ProgressStatus.prototype.setError = function(text) {
   this._setStatus(this.options.errorStyle, text);

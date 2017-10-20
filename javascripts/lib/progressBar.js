@@ -19,7 +19,7 @@ SUI.lib.ProgressBar = function(opt_options) {
 /**
  * @param {!Object=} opt_options
  * @private
- * @returns {undefined}
+ * @return {undefined}
  */
 SUI.lib.ProgressBar.prototype._setOptions = function(opt_options) {
   var _self = this;
@@ -32,7 +32,7 @@ SUI.lib.ProgressBar.prototype._setOptions = function(opt_options) {
 
 /**
  * @private
- * @returns {undefined}
+ * @return {undefined}
  */
 SUI.lib.ProgressBar.prototype._init = function() {
   this.progressBarContainer = new SUI.Query('.main-container > .progress-bar').getItem();
@@ -92,7 +92,7 @@ SUI.lib.ProgressBar.prototype._init = function() {
 
 /**
  * @private
- * @returns {undefined}
+ * @return {undefined}
  */
 SUI.lib.ProgressBar.prototype._progress = function() {
   if (!this.options.get('lock')){
@@ -102,7 +102,7 @@ SUI.lib.ProgressBar.prototype._progress = function() {
 };
 
 /**
- * @returns {undefined}
+ * @return {undefined}
  */
 SUI.lib.ProgressBar.prototype.show = function() {
   this._progress();
@@ -113,7 +113,7 @@ SUI.lib.ProgressBar.prototype.show = function() {
 
 /**
  * @param {number} value
- * @returns {undefined}
+ * @return {undefined}
  */
 SUI.lib.ProgressBar.prototype.setProgress = function(value){
   this._progress();
@@ -123,7 +123,7 @@ SUI.lib.ProgressBar.prototype.setProgress = function(value){
 
 /**
  * @param {number} value
- * @returns {undefined}
+ * @return {undefined}
  */
 SUI.lib.ProgressBar.prototype.setBuffer = function(value){
   this._progress();
@@ -133,7 +133,7 @@ SUI.lib.ProgressBar.prototype.setBuffer = function(value){
 
 /**
  * @param {boolean=} opt_force
- * @returns {undefined}
+ * @return {undefined}
  */
 SUI.lib.ProgressBar.prototype.hide = function(opt_force) {
   this.options.counter--;
@@ -145,7 +145,7 @@ SUI.lib.ProgressBar.prototype.hide = function(opt_force) {
 };
 
 /**
- * @returns {undefined}
+ * @return {undefined}
  */
 SUI.lib.ProgressBar.prototype.lock = function(){
   this.options.set('lock', true);
@@ -153,7 +153,7 @@ SUI.lib.ProgressBar.prototype.lock = function(){
 
 
 /**
- * @returns {undefined}
+ * @return {undefined}
  */
 SUI.lib.ProgressBar.prototype.unlock = function(){
   this.options.set('lock', false);

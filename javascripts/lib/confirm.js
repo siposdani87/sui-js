@@ -21,7 +21,7 @@ SUI.lib.Confirm = function(opt_options) {
 /**
  * @param {!Object=} opt_options
  * @private
- * @returns {undefined}
+ * @return {undefined}
  */
 SUI.lib.Confirm.prototype._setOptions = function(opt_options) {
   var _self = this;
@@ -33,7 +33,7 @@ SUI.lib.Confirm.prototype._setOptions = function(opt_options) {
 
 /**
  * @private
- * @returns {undefined}
+ * @return {undefined}
  */
 SUI.lib.Confirm.prototype._init = function() {
   this.confirm = new SUI.Query(this.options.id).getItem();
@@ -49,7 +49,7 @@ SUI.lib.Confirm.prototype._init = function() {
 
 /**
  * @private
- * @returns {undefined}
+ * @return {undefined}
  */
 SUI.lib.Confirm.prototype._initButtons = function() {
   this._initCloseButton();
@@ -57,7 +57,7 @@ SUI.lib.Confirm.prototype._initButtons = function() {
 
 /**
  * @private
- * @returns {undefined}
+ * @return {undefined}
  */
 SUI.lib.Confirm.prototype._initCloseButton = function() {
   this.btnClose = new SUI.Query('.close', this.confirm).getItem();
@@ -68,7 +68,7 @@ SUI.lib.Confirm.prototype._initCloseButton = function() {
 };
 
 /**
- * @returns {undefined}
+ * @return {undefined}
  */
 SUI.lib.Confirm.prototype.open = function() {
   this.confirm.addClass('visible-flex');
@@ -77,7 +77,7 @@ SUI.lib.Confirm.prototype.open = function() {
 };
 
 /**
- * @returns {undefined}
+ * @return {undefined}
  */
 SUI.lib.Confirm.prototype.close = function() {
   this.confirm.addClass('hidden');
@@ -90,7 +90,7 @@ SUI.lib.Confirm.prototype.close = function() {
 
 /**
  * @param {string=} opt_title
- * @returns {undefined}
+ * @return {undefined}
  */
 SUI.lib.Confirm.prototype._setTitle = function(opt_title) {
   this.modalTitle.setHtml(opt_title);
@@ -104,7 +104,7 @@ SUI.lib.Confirm.prototype._setTitle = function(opt_title) {
 };
 
 /**
- * @returns {undefined}
+ * @return {undefined}
  */
 SUI.lib.Confirm.prototype._reset = function() {
   this.eventOK = SUI.noop();
@@ -113,7 +113,7 @@ SUI.lib.Confirm.prototype._reset = function() {
 
 
 /**
- * @returns {undefined}
+ * @return {undefined}
  */
 SUI.lib.Confirm.prototype._actionOK = function() {
   var async = new SUI.Async();
@@ -122,7 +122,7 @@ SUI.lib.Confirm.prototype._actionOK = function() {
 };
 
 /**
- * @returns {undefined}
+ * @return {undefined}
  */
 SUI.lib.Confirm.prototype._actionCancel = function() {
   var async = new SUI.Async();
@@ -171,7 +171,7 @@ SUI.lib.Confirm.prototype.load = function(message, okText, opt_cancelText = '', 
 /**
  * @param {number} width
  * @param {number} height
- * @returns {undefined}
+ * @return {undefined}
  */
 SUI.lib.Confirm.prototype.setSize = function(width, height) {
   this.windowWidth = width;
@@ -182,7 +182,7 @@ SUI.lib.Confirm.prototype.setSize = function(width, height) {
 
 /**
  * @private
- * @returns {undefined}
+ * @return {undefined}
  */
 SUI.lib.Confirm.prototype._handleCenterPosition = function() {
   var style = this.confirmWindow.getComputedStyle();

@@ -16,7 +16,7 @@ SUI.lib.Http = function(options) {
 
 /**
  * @private
- * @returns {undefined}
+ * @return {undefined}
  */
 SUI.lib.Http.prototype._init = function() {
   this.username = null;
@@ -27,7 +27,7 @@ SUI.lib.Http.prototype._init = function() {
 /**
  * @param {string} username
  * @param {string} password
- * @returns {undefined}
+ * @return {undefined}
  */
 SUI.lib.Http.prototype.setBasicAuthorization = function(username, password) {
   this.username = username;
@@ -45,7 +45,7 @@ SUI.lib.Http.prototype.setBearerAuthorization = function(token) {
  * @param {string} url
  * @param {!Object=} opt_params
  * @param {!Object=} opt_headers
- * @returns {!SUI.Promise}
+ * @return {!SUI.Promise}
  */
 SUI.lib.Http.prototype.get = function(url, opt_params, opt_headers) {
   let http = this._getRequestHandler();
@@ -57,7 +57,7 @@ SUI.lib.Http.prototype.get = function(url, opt_params, opt_headers) {
  * @param {!Object=} opt_data
  * @param {!Object=} opt_params
  * @param {!Object=} opt_headers
- * @returns {!SUI.Promise}
+ * @return {!SUI.Promise}
  */
 SUI.lib.Http.prototype.post = function(url, opt_data, opt_params, opt_headers) {
   let http = this._getRequestHandler();
@@ -69,7 +69,7 @@ SUI.lib.Http.prototype.post = function(url, opt_data, opt_params, opt_headers) {
  * @param {!Object=} opt_data
  * @param {!Object=} opt_params
  * @param {!Object=} opt_headers
- * @returns {!SUI.Promise}
+ * @return {!SUI.Promise}
  */
 SUI.lib.Http.prototype.put = function(url, opt_data, opt_params, opt_headers) {
   let http = this._getRequestHandler();
@@ -81,7 +81,7 @@ SUI.lib.Http.prototype.put = function(url, opt_data, opt_params, opt_headers) {
  * @param {!Object=} opt_data
  * @param {!Object=} opt_params
  * @param {!Object=} opt_headers
- * @returns {!SUI.Promise}
+ * @return {!SUI.Promise}
  */
 SUI.lib.Http.prototype.patch = function(url, opt_data, opt_params, opt_headers) {
   let http = this._getRequestHandler();
@@ -93,7 +93,7 @@ SUI.lib.Http.prototype.patch = function(url, opt_data, opt_params, opt_headers) 
  * @param {!Object=} opt_data
  * @param {!Object=} opt_params
  * @param {!Object=} opt_headers
- * @returns {!SUI.Promise}
+ * @return {!SUI.Promise}
  */
 SUI.lib.Http.prototype.delete = function(url, opt_data, opt_params, opt_headers) {
   let http = this._getRequestHandler();
@@ -102,7 +102,7 @@ SUI.lib.Http.prototype.delete = function(url, opt_data, opt_params, opt_headers)
 
 /**
  * @private
- * @returns {!SUI.lib.Xhr}
+ * @return {!SUI.lib.Xhr}
  */
 SUI.lib.Http.prototype._getRequestHandler = function() {
   let http = new SUI.lib.Xhr(this.options);
@@ -115,7 +115,7 @@ SUI.lib.Http.prototype._getRequestHandler = function() {
 /**
  * @private
  * @param {!SUI.Promise} promise
- * @returns {!SUI.Promise}
+ * @return {!SUI.Promise}
  */
 SUI.lib.Http.prototype._getPromise = function(promise) {
   let deferred = new SUI.Deferred();
@@ -131,7 +131,7 @@ SUI.lib.Http.prototype._getPromise = function(promise) {
 
 /**
  * @param {!SUI.lib.Xhr} http
- * @returns {undefined}
+ * @return {undefined}
  */
 SUI.lib.Http.prototype.eventBeforeRequest = function(http) {
   console.warn('SUI.lib.Http.eventBeforeRequest', http);
@@ -140,7 +140,7 @@ SUI.lib.Http.prototype.eventBeforeRequest = function(http) {
 /**
  * @param {*} response
  * @param {number} status
- * @returns {undefined}
+ * @return {undefined}
  */
 SUI.lib.Http.prototype.eventAfterRequest = function(response, status) {
   console.warn('SUI.lib.Http.eventAfterRequest', response, status);

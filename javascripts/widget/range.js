@@ -23,7 +23,7 @@ goog.inherits(SUI.widget.Range, SUI.Widget);
 
 /**
  * @private
- * @returns {undefined}
+ * @return {undefined}
  */
 SUI.widget.Range.prototype._init = function() {
   this.inputBlock.addClass('range-widget');
@@ -40,7 +40,7 @@ SUI.widget.Range.prototype._init = function() {
 
 /**
  * @override
- * @returns {undefined}
+ * @return {undefined}
  */
 SUI.widget.Range.prototype.render = function() {
   this.inputBlock.addClass(['mdl-textfield', 'mdl-js-textfield', 'mdl-sliderfield']);

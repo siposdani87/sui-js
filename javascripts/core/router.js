@@ -24,7 +24,7 @@ SUI.Router = function(route) {
 
 /**
  * @private
- * @returns {undefined}
+ * @return {undefined}
  */
 SUI.Router.prototype._init = function() {
   this.names = [];
@@ -39,7 +39,7 @@ SUI.Router.prototype._init = function() {
 
 /**
  * @param {!Object=} opt_params
- * @returns {string}
+ * @return {string}
  */
 SUI.Router.prototype.stringify = function(opt_params) {
   var route = this.route;
@@ -67,7 +67,7 @@ SUI.Router.prototype.stringify = function(opt_params) {
 
 /**
  * @param {string} url
- * @returns {?Array}
+ * @return {?Array}
  */
 SUI.Router.prototype.getMatches = function(url) {
   var question = url.indexOf('?');
@@ -79,7 +79,7 @@ SUI.Router.prototype.getMatches = function(url) {
 
 /**
  * @param {string} url
- * @returns {!Object}
+ * @return {!Object}
  */
 SUI.Router.prototype.parse = function(url) {
   var matches = this.getMatches(url);
@@ -98,7 +98,7 @@ SUI.Router.prototype.parse = function(url) {
 /**
  * @private
  * @param {string} url
- * @returns {!Object}
+ * @return {!Object}
  */
 SUI.Router.prototype._parseParams = function(url) {
   var params = {};

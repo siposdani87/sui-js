@@ -22,7 +22,7 @@ goog.inherits(SUI.widget.Location, SUI.Widget);
 
 /**
  * @private
- * @returns {undefined}
+ * @return {undefined}
  */
 SUI.widget.Location.prototype._init = function() {
   this.inputBlock.addClass('location-widget');
@@ -55,7 +55,7 @@ SUI.widget.Location.prototype._init = function() {
 
 /**
  * @private
- * @returns {undefined}
+ * @return {undefined}
  */
 SUI.widget.Location.prototype._initButtons = function() {
   var upButton = new SUI.Node('a');
@@ -73,7 +73,7 @@ SUI.widget.Location.prototype._initButtons = function() {
 /**
  * @private
  * @param {string} address
- * @returns {undefined}
+ * @return {undefined}
  */
 SUI.widget.Location.prototype._search = function(address) {
   this.map.searchAddress(address).then((locations) => {
@@ -97,7 +97,7 @@ SUI.widget.Location.prototype._search = function(address) {
 
 /**
  * @override
- * @returns {undefined}
+ * @return {undefined}
  */
 SUI.widget.Location.prototype.render = function() {
 
@@ -147,7 +147,7 @@ SUI.widget.Location.prototype.render = function() {
  * @private
  * @param {number|null} latitude
  * @param {number|null} longitude
- * @returns {undefined}
+ * @return {undefined}
  */
 SUI.widget.Location.prototype._updateValue = function(latitude, longitude) {
   var location = /** @type {!Object} */ (this.getValue());
@@ -159,7 +159,7 @@ SUI.widget.Location.prototype._updateValue = function(latitude, longitude) {
 /**
  * @override
  * @param {!Object|!Function|boolean|number|string|null|undefined} value
- * @returns {undefined}
+ * @return {undefined}
  */
 SUI.widget.Location.prototype.setValue = function(value) {
   this.input.setAttribute('value', value['address']);
@@ -169,7 +169,7 @@ SUI.widget.Location.prototype.setValue = function(value) {
 
 /**
  * @override
- * @returns {*}
+ * @return {*}
  */
 SUI.widget.Location.prototype.getValue = function() {
   var value = this.input.getData('value');

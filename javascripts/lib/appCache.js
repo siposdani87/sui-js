@@ -14,7 +14,7 @@ SUI.lib.AppCache = function() {
 
 /**
  * @private
- * @returns {undefined}
+ * @return {undefined}
  */
 SUI.lib.AppCache.prototype._init = function() {
 
@@ -25,7 +25,7 @@ SUI.lib.AppCache.prototype._init = function() {
 
 /**
  * @private
- * @returns {undefined}
+ * @return {undefined}
  */
 SUI.lib.AppCache.prototype._attachEvent = function() {
 
@@ -78,7 +78,7 @@ SUI.lib.AppCache.prototype._attachEvent = function() {
 };
 
 /**
- * @returns {string}
+ * @return {string}
  */
 SUI.lib.AppCache.prototype.getState = function() {
   var result;
@@ -109,21 +109,21 @@ SUI.lib.AppCache.prototype.getState = function() {
 };
 
 /**
- * @returns {undefined}
+ * @return {undefined}
  */
 SUI.lib.AppCache.prototype.update = function() {
   this.appCache.update();
 };
 
 /**
- * @returns {undefined}
+ * @return {undefined}
  */
 SUI.lib.AppCache.prototype.abort = function() {
   this.appCache.abort();
 };
 
 /**
- * @returns {undefined}
+ * @return {undefined}
  */
 SUI.lib.AppCache.prototype.swapCache = function() {
   this.appCache.swapCache();

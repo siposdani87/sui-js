@@ -15,7 +15,7 @@ SUI.lib.BottomMenu = function(footer) {
 
 /**
  * @private
- * @returns {undefined}
+ * @return {undefined}
  */
 SUI.lib.BottomMenu.prototype._init = function() {
   this.bottomMenu = new SUI.Query('#bottom-menu', this.footer.footerNode).getItem();
@@ -28,7 +28,7 @@ SUI.lib.BottomMenu.prototype._init = function() {
 };
 
 /**
- * @returns {undefined}
+ * @return {undefined}
  */
 SUI.lib.BottomMenu.prototype.toggle = function() {
   if (this._isOpened()) {
@@ -40,14 +40,14 @@ SUI.lib.BottomMenu.prototype.toggle = function() {
 };
 
 /**
- * @returns {boolean}
+ * @return {boolean}
  */
 SUI.lib.BottomMenu.prototype._isOpened = function() {
   return this.bottomMenu.hasClass('visible-flex');
 };
 
 /**
- * @returns {undefined}
+ * @return {undefined}
  */
 SUI.lib.BottomMenu.prototype.open = function() {
   this.bottomMenu.addClass('visible-flex');
@@ -55,7 +55,7 @@ SUI.lib.BottomMenu.prototype.open = function() {
 };
 
 /**
- * @returns {undefined}
+ * @return {undefined}
  */
 SUI.lib.BottomMenu.prototype.close = function() {
   this.bottomMenu.removeClass('visible-flex');
@@ -63,7 +63,7 @@ SUI.lib.BottomMenu.prototype.close = function() {
 };
 
 /**
- * @returns {!SUI.Node}
+ * @return {!SUI.Node}
  */
 SUI.lib.BottomMenu.prototype.getContainer  = function(){
   return this.bottomMenu;

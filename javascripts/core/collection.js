@@ -21,7 +21,7 @@ SUI.Collection = function(opt_items = [], opt_type = SUI.Object, opt_options = {
 /**
  * @param {!Object=} opt_options
  * @private
- * @returns {undefined}
+ * @return {undefined}
  */
 SUI.Collection.prototype._setOptions = function(opt_options = {}){
   var _self = this;
@@ -33,7 +33,7 @@ SUI.Collection.prototype._setOptions = function(opt_options = {}){
 
 /**
  * @param {!Array} items
- * @returns {undefined}
+ * @return {undefined}
  */
 SUI.Collection.prototype.load = function(items) {
   SUI.each(items, (item) => {
@@ -43,7 +43,7 @@ SUI.Collection.prototype.load = function(items) {
 
 /**
  * @param {!Array} items
- * @returns {undefined}
+ * @return {undefined}
  */
 SUI.Collection.prototype.reload = function(items){
   this.clear();
@@ -52,7 +52,7 @@ SUI.Collection.prototype.reload = function(items){
 
 /**
  * @param {!Object|!T} object
- * @returns {T}
+ * @return {T}
  */
 SUI.Collection.prototype.push = function(object) {
   var item = this._createItem(object);
@@ -63,7 +63,7 @@ SUI.Collection.prototype.push = function(object) {
 /**
  * @private
  * @param {!Object|!T} object
- * @returns {T}
+ * @return {T}
  */
 SUI.Collection.prototype._createItem = function(object) {
   var item = object;
@@ -76,7 +76,7 @@ SUI.Collection.prototype._createItem = function(object) {
 /**
  * @param {number} index
  * @param {!Object|!T} item
- * @returns {T}
+ * @return {T}
  */
 SUI.Collection.prototype.set = function(index, item) {
   var itemObject = item;
@@ -94,7 +94,7 @@ SUI.Collection.prototype.set = function(index, item) {
 
 /**
  * @param {!Object|!T} item
- * @returns {!T}
+ * @return {!T}
  */
 SUI.Collection.prototype.replace = function(item) {
   var oldItem = this.findById(item.get(this.options.id));
@@ -105,7 +105,7 @@ SUI.Collection.prototype.replace = function(item) {
 };
 
 /**
- * @returns {!Array<T>}
+ * @return {!Array<T>}
  */
 SUI.Collection.prototype.getItems = function() {
   return this.items;
@@ -115,7 +115,7 @@ SUI.Collection.prototype.getItems = function() {
  * @param {function(T)} callback
  * @param {function(T, number)} next
  * @param {!Array=} opt_items
- * @returns {!Array}
+ * @return {!Array}
  */
 SUI.Collection.prototype.iterator = function(callback, next, opt_items) {
   opt_items = opt_items || this.items;
@@ -131,7 +131,7 @@ SUI.Collection.prototype.iterator = function(callback, next, opt_items) {
 
 /**
  * @param {function(T, number)} next
- * @returns {undefined}
+ * @return {undefined}
  */
 SUI.Collection.prototype.each = function(next) {
   this.iterator(function() {
@@ -142,7 +142,7 @@ SUI.Collection.prototype.each = function(next) {
 /**
  * @param {number} index
  * @param {string=} opt_attribute
- * @returns {T|*}
+ * @return {T|*}
  */
 SUI.Collection.prototype.get = function(index, opt_attribute) {
   var value = null;
@@ -159,7 +159,7 @@ SUI.Collection.prototype.get = function(index, opt_attribute) {
 /**
  * @param {string|number} id
  * @param {string=} opt_attribute
- * @returns {T|*}
+ * @return {T|*}
  */
 SUI.Collection.prototype.getById = function(id, opt_attribute) {
   var item = this.findById(id);
@@ -170,7 +170,7 @@ SUI.Collection.prototype.getById = function(id, opt_attribute) {
 };
 
 /**
- * @returns {undefined}
+ * @return {undefined}
  */
 SUI.Collection.prototype.clear = function() {
   SUI.clear(this.items);
@@ -178,7 +178,7 @@ SUI.Collection.prototype.clear = function() {
 
 /**
  * @param {string|number} value
- * @returns {!T}
+ * @return {!T}
  */
 SUI.Collection.prototype.findById = function(value) {
   return this.findBy(this.options.id, value);
@@ -187,7 +187,7 @@ SUI.Collection.prototype.findById = function(value) {
 /**
  * @param {string} attribute
  * @param {*} value
- * @returns {!T}
+ * @return {!T}
  */
 SUI.Collection.prototype.findBy = function(attribute, value) {
   return this.findByCondition((item, i) => {
@@ -197,7 +197,7 @@ SUI.Collection.prototype.findBy = function(attribute, value) {
 
 /**
  * @param {!Function} conditionCallback
- * @returns {!T}
+ * @return {!T}
  */
 SUI.Collection.prototype.findByCondition = function(conditionCallback) {
   var i = 0;
@@ -210,7 +210,7 @@ SUI.Collection.prototype.findByCondition = function(conditionCallback) {
 /**
  * @param {string} attribute
  * @param {*} value
- * @returns {!Array}
+ * @return {!Array}
  */
 SUI.Collection.prototype.findAllBy = function(attribute, value) {
   return this.findAllByCondition((item, i) => {
@@ -220,7 +220,7 @@ SUI.Collection.prototype.findAllBy = function(attribute, value) {
 
 /**
  * @param {!Function} conditionCallback
- * @returns {!Array}
+ * @return {!Array}
  */
 SUI.Collection.prototype.findAllByCondition = function(conditionCallback) {
   var items = [];
@@ -234,7 +234,7 @@ SUI.Collection.prototype.findAllByCondition = function(conditionCallback) {
 
 /**
  * @param {string} value
- * @returns {!T}
+ * @return {!T}
  */
 SUI.Collection.prototype.deleteById = function(value) {
   return this.deleteBy(this.options.id, value);
@@ -243,7 +243,7 @@ SUI.Collection.prototype.deleteById = function(value) {
 /**
  * @param {string} attribute
  * @param {*} value
- * @returns {!T}
+ * @return {!T}
  */
 SUI.Collection.prototype.deleteBy = function(attribute, value) {
   return this.deleteByCondition((item, i) => {
@@ -253,7 +253,7 @@ SUI.Collection.prototype.deleteBy = function(attribute, value) {
 
 /**
  * @param {!Function} conditionCallback
- * @returns {!T}
+ * @return {!T}
  */
 SUI.Collection.prototype.deleteByCondition = function(conditionCallback) {
   var i = 0;
@@ -268,7 +268,7 @@ SUI.Collection.prototype.deleteByCondition = function(conditionCallback) {
 /**
  * @param {string} attribute
  * @param {*} value
- * @returns {!Array}
+ * @return {!Array}
  */
 SUI.Collection.prototype.deleteAllBy = function(attribute, value) {
   return this.deleteAllByCondition((item, i) => {
@@ -278,7 +278,7 @@ SUI.Collection.prototype.deleteAllBy = function(attribute, value) {
 
 /**
  * @param {!Function} conditionCallback
- * @returns {!Array}
+ * @return {!Array}
  */
 SUI.Collection.prototype.deleteAllByCondition = function(conditionCallback) {
   var items = [];
@@ -296,7 +296,7 @@ SUI.Collection.prototype.deleteAllByCondition = function(conditionCallback) {
 };
 
 /**
- * @returns {number}
+ * @return {number}
  */
 SUI.Collection.prototype.size = function() {
   return this.items.length;
@@ -305,7 +305,7 @@ SUI.Collection.prototype.size = function() {
 /**
  * @param {number} offset
  * @param {number=} opt_count
- * @returns {!Array}
+ * @return {!Array}
  */
 SUI.Collection.prototype.limit = function(offset, opt_count){
   return this.items.slice(offset, offset + opt_count);
@@ -313,7 +313,7 @@ SUI.Collection.prototype.limit = function(offset, opt_count){
 
 /**
  * @param {string} attribute
- * @returns {!Array}
+ * @return {!Array}
  */
 SUI.Collection.prototype.pluck = function(attribute) {
   return SUI.pluck(this.items, attribute);

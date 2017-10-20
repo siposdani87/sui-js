@@ -23,24 +23,24 @@ goog.require('SUI.widget.Textarea');
  * @this {SUI.FormWidget}
  * @extends {SUI.Widget}
  * @param {!SUI.Node} inputBlock
- * @returns {?SUI.Widget}
+ * @return {?SUI.Widget}
  */
 SUI.FormWidget = function(inputBlock) {
-  var input = inputBlock;
-  var label = null;
-  var error = null;
+  let input = inputBlock;
+  let label = null;
+  let error = null;
 
-  var selectedIndex = false;
-  var tagName = inputBlock.getTagName();
-  var tagType = inputBlock.getAttribute('type');
+  let selectedIndex = false;
+  let tagName = inputBlock.getTagName();
+  let tagType = inputBlock.getAttribute('type');
   if (SUI.eq(tagName, 'input') && !SUI.inArray(['hidden', 'reset', 'submit', 'button'], tagType)) {
     inputBlock = /** @type {!SUI.Node}*/ (inputBlock.getParent());
     selectedIndex = 0;
   }
   tagName = inputBlock.getTagName();
   if (SUI.eq(tagName, 'div')) {
-    var inputs = new SUI.Query('input, textarea, select', inputBlock).getItems();
-    var index = selectedIndex !== false ? /** @type {number} */ (selectedIndex) : inputs.length - 1;
+    let inputs = new SUI.Query('input, textarea, select', inputBlock).getItems();
+    let index = selectedIndex !== false ? /** @type {number} */ (selectedIndex) : inputs.length - 1;
     input = inputs[index];
 
     label = new SUI.Query('label', inputBlock).getItem();
@@ -58,13 +58,13 @@ SUI.FormWidget = function(inputBlock) {
  * @param {?SUI.Node} label
  * @param {?SUI.Node} error
  * @param {!SUI.Node} inputBlock
- * @returns {?SUI.Widget}
+ * @return {?SUI.Widget}
  */
 SUI.FormWidget.prototype._getWidget = function(input, label, error, inputBlock) {
   input.addClass('init-widget');
-  var dataType = input.getData('type');
-  var tagName = input.getTagName();
-  var result = null;
+  let dataType = input.getData('type');
+  let tagName = input.getTagName();
+  let result = null;
   if (SUI.eq(tagName, 'textarea')) {
     result = new SUI.widget.Textarea(input, /** @type {!SUI.Node} */ (label), /** @type {!SUI.Node} */ (error), inputBlock);
   }
@@ -72,7 +72,7 @@ SUI.FormWidget.prototype._getWidget = function(input, label, error, inputBlock) 
     result = new SUI.widget.Select(input, /** @type {!SUI.Node} */ (label), /** @type {!SUI.Node} */ (error), inputBlock);
   }
   else if (SUI.eq(tagName, 'input') || SUI.eq(tagName, 'button')) {
-    var type = input.get('type');
+    let type = input.get('type');
     switch (type) {
       case 'submit' :
         result = new SUI.widget.Submit(input);
@@ -90,10 +90,10 @@ SUI.FormWidget.prototype._getWidget = function(input, label, error, inputBlock) 
       case 'month':
       case 'week':
       case 'year':
-        var inputs = new SUI.Query('input', inputBlock);
+        let inputs = new SUI.Query('input', inputBlock);
         if (inputs.size() === 2) {
-          var handledInput = /** @type {!SUI.Node} */ (inputs.get(0));
-          var isStartInput = true;
+          let handledInput = /** @type {!SUI.Node} */ (inputs.get(0));
+          let isStartInput = true;
           if (handledInput.getAttribute('name') === input.getAttribute('name')) {
             handledInput = /** @type {!SUI.Node} */ (inputs.get(1));
             isStartInput = false;

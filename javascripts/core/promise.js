@@ -22,7 +22,7 @@ SUI.Promise = function(opt_options) {
 
 /**
  * @param {*=} opt_data
- * @returns {undefined}
+ * @return {undefined}
  */
 SUI.Promise.prototype._resolve = function(opt_data) {
   if (!SUI.isArray(opt_data)) {
@@ -40,7 +40,7 @@ SUI.Promise.prototype._resolve = function(opt_data) {
 
 /**
  * @param {*=} opt_data
- * @returns {undefined}
+ * @return {undefined}
  */
 SUI.Promise.prototype._reject = function(opt_data) {
   if (!SUI.isArray(opt_data)) {
@@ -60,7 +60,7 @@ SUI.Promise.prototype._reject = function(opt_data) {
  * @param {!Function} resolve
  * @param {!Function=} opt_reject
  * @param {!Function=} opt_complete
- * @returns {undefined}
+ * @return {undefined}
  */
 SUI.Promise.prototype.then = function(resolve, opt_reject, opt_complete) {
   var reject = opt_reject || SUI.noop();
@@ -86,7 +86,7 @@ SUI.Promise.prototype.then = function(resolve, opt_reject, opt_complete) {
 /**
  * @param {!SUI.Deferred} defer
  * @param {!Function=} opt_complete
- * @returns {undefined}
+ * @return {undefined}
  */
 SUI.Promise.prototype.defer = function(defer, opt_complete){
   this.then((...args) => {

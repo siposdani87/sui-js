@@ -22,7 +22,7 @@ SUI.lib.Script = function(progressBar, opt_options) {
 /**
  * @private
  * @param {!Object=} opt_options
- * @returns {undefined}
+ * @return {undefined}
  */
 SUI.lib.Script.prototype._setOptions = function(opt_options) {
   var _self = this;
@@ -32,7 +32,7 @@ SUI.lib.Script.prototype._setOptions = function(opt_options) {
 
 /**
  * @private
- * @returns {undefined}
+ * @return {undefined}
  */
 SUI.lib.Script.prototype._init = function() {
   this.head = new SUI.Query('head').getItem();
@@ -42,7 +42,7 @@ SUI.lib.Script.prototype._init = function() {
  * @param {string} id
  * @param {string} url
  * @param {!Object=} opt_params
- * @returns {!SUI.Promise}
+ * @return {!SUI.Promise}
  */
 SUI.lib.Script.prototype.load = function(id, url, opt_params) {
   this.progressBar.show();
@@ -74,7 +74,7 @@ SUI.lib.Script.prototype.load = function(id, url, opt_params) {
 
 /**
  * @param {string} id
- * @returns {undefined}
+ * @return {undefined}
  */
 SUI.lib.Script.prototype.remove = function(id){
   var script = new SUI.Query('#' + id).getItem();

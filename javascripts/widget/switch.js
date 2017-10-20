@@ -21,7 +21,7 @@ goog.inherits(SUI.widget.Switch, SUI.widget.BaseCheckbox);
 
 /**
  * @override
- * @returns {undefined}
+ * @return {undefined}
  */
 SUI.widget.Switch.prototype.render = function() {
   this.label.addClass(['mdl-switch', 'mdl-js-switch', 'mdl-js-ripple-effect']);

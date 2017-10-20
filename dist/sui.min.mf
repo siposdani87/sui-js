@@ -83,13 +83,13 @@ module/table.js
 module/tabPanel.js
 module/treeView.js
 module/util.js
-test/container.js
-test/deferred.js
-test/item.js
-test/object.js
 widget/autoComplete.js
 widget/datetimeRange.js
 widget/location.js
 widget/number.js
 widget/search.js
 widget/url.js
+test/container.js
+test/deferred.js
+test/item.js
+test/object.js

@@ -18,7 +18,7 @@ SUI.Object.prototype.constructor = SUI.Object;
 
 /**
  * @param {*} object
- * @returns {undefined}
+ * @return {undefined}
  */
 SUI.Object.prototype.merge = function(object) {
   if (SUI.isObject(object)) {
@@ -43,7 +43,7 @@ SUI.Object.prototype.merge = function(object) {
 /**
  * @param {*} object
  * @param {string} key
- * @returns {undefined}
+ * @return {undefined}
  */
 SUI.Object.prototype._convertObject = function(object, key) {
   SUI.each(object[key], function(obj, i) {
@@ -56,7 +56,7 @@ SUI.Object.prototype._convertObject = function(object, key) {
  * @param {string=} opt_attribute
  * @param {*=} opt_defaultValue
  * @param {boolean=} opt_isSafe
- * @returns {*}
+ * @return {*}
  */
 SUI.Object.prototype.speedGet = function(opt_attribute, opt_defaultValue, opt_isSafe = false) {
   let value = this;
@@ -82,7 +82,7 @@ SUI.Object.prototype.speedGet = function(opt_attribute, opt_defaultValue, opt_is
  * @param {string=} opt_attribute
  * @param {*=} opt_defaultValue
  * @param {boolean=} opt_isSafe
- * @returns {*}
+ * @return {*}
  */
 SUI.Object.prototype.get = function(opt_attribute, opt_defaultValue, opt_isSafe = false) {
   let value = this;
@@ -96,7 +96,7 @@ SUI.Object.prototype.get = function(opt_attribute, opt_defaultValue, opt_isSafe 
 /**
  * @param {!Object|!SUI.Object} object
  * @param {!Array} attributes
- * @returns {!Object|!SUI.Object|undefined}
+ * @return {!Object|!SUI.Object|undefined}
  */
 SUI.Object.prototype._get = function(object, attributes) {
   let result = undefined;
@@ -117,7 +117,7 @@ SUI.Object.prototype._get = function(object, attributes) {
  * @param {!Object|!SUI.Object} object
  * @param {!Array} attributes
  * @param {*} value
- * @returns {undefined}
+ * @return {undefined}
  */
 SUI.Object.prototype._set = function(object, attributes, value) {
   SUI.eachObject(object, function(oldValue, property) {
@@ -135,7 +135,7 @@ SUI.Object.prototype._set = function(object, attributes, value) {
 /**
  * @param {string} attribute
  * @param {*} value
- * @returns {undefined}
+ * @return {undefined}
  */
 SUI.Object.prototype.set = function(attribute, value) {
   let object = {};
@@ -147,7 +147,7 @@ SUI.Object.prototype.set = function(attribute, value) {
  * @param {string} attribute
  * @param {*} value
  * @param {boolean=} opt_isSafe
- * @returns {undefined}
+ * @return {undefined}
  */
 SUI.Object.prototype.setRaw = function(attribute, value, opt_isSafe = false) {
   this.set(attribute, null);
@@ -157,7 +157,7 @@ SUI.Object.prototype.setRaw = function(attribute, value, opt_isSafe = false) {
 
 /**
  * @param {string} attribute
- * @returns {undefined}
+ * @return {undefined}
  */
 SUI.Object.prototype.remove = function(attribute) {
   let attributes = attribute.split('.');
@@ -165,7 +165,7 @@ SUI.Object.prototype.remove = function(attribute) {
 };
 
 /**
- * @returns {undefined}
+ * @return {undefined}
  */
 SUI.Object.prototype.clear = function() {
   SUI.clear(this);
@@ -174,7 +174,7 @@ SUI.Object.prototype.clear = function() {
 /**
  * @param {!Object|!SUI.Object} object
  * @param {!Array} attributes
- * @returns {undefined}
+ * @return {undefined}
  */
 SUI.Object.prototype._remove = function(object, attributes) {
   for (let property in object) {
@@ -214,7 +214,7 @@ SUI.Object.prototype.each = function(next, opt_properties, opt_attributes) {
  * @param {!Object} object
  * @param {!Array} attributes
  * @param {*} value
- * @returns {!Object}
+ * @return {!Object}
  */
 SUI.Object.prototype._attributesToObject = function(object, attributes, value) {
   let lastAttribute = attributes.pop();
@@ -229,7 +229,7 @@ SUI.Object.prototype._attributesToObject = function(object, attributes, value) {
 
 /**
  * @param {boolean=} opt_isNative
- * @returns {!SUI.Object}
+ * @return {!SUI.Object}
  */
 SUI.Object.prototype.copy = function(opt_isNative) {
   let result = /** @type {!SUI.Object} */ (SUI.copy(this));
@@ -241,7 +241,7 @@ SUI.Object.prototype.copy = function(opt_isNative) {
 
 
 /**
- * @returns {boolean}
+ * @return {boolean}
  */
 SUI.Object.prototype.isEmpty = function(){
   return SUI.isEmpty(this);

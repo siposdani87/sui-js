@@ -17,7 +17,7 @@ SUI.Item = function(properties, parent) {
 /**
  * @param {string} attribute
  * @param {*} value
- * @returns {undefined}
+ * @return {undefined}
  */
 SUI.Item.prototype.set = function(attribute, value) {
   this.properties.set(attribute, value);
@@ -25,7 +25,7 @@ SUI.Item.prototype.set = function(attribute, value) {
 
 /**
  * @param {!Object} properties
- * @returns {undefined}
+ * @return {undefined}
  */
 SUI.Item.prototype.merge = function(properties) {
   this.properties.merge(properties);
@@ -33,7 +33,7 @@ SUI.Item.prototype.merge = function(properties) {
 
 /**
  * @param {string} attribute
- * @returns {*}
+ * @return {*}
  */
 SUI.Item.prototype.get = function(attribute) {
   return this.properties.get(attribute);

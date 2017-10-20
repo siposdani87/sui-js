@@ -19,7 +19,7 @@ SUI.Datetime = function(node, options) {
 /**
  * @private
  * @param {!Object} options
- * @returns {undefined}
+ * @return {undefined}
  */
 SUI.Datetime.prototype._setOptions = function(options) {
   this.options = options;
@@ -27,7 +27,7 @@ SUI.Datetime.prototype._setOptions = function(options) {
 
 /**
  * @private
- * @returns {undefined}
+ * @return {undefined}
  */
 SUI.Datetime.prototype._init = function() {
   this._initVariables();
@@ -37,7 +37,7 @@ SUI.Datetime.prototype._init = function() {
 
 /**
  * @private
- * @returns {undefined}
+ * @return {undefined}
  */
 SUI.Datetime.prototype._initStructure = function() {
   this._initDateTimeNode();
@@ -47,7 +47,7 @@ SUI.Datetime.prototype._initStructure = function() {
 
 /**
  * @private
- * @returns {undefined}
+ * @return {undefined}
  */
 SUI.Datetime.prototype._initDateTimeNode = function() {
   this.datetimeNode.addClass('datetime');
@@ -55,7 +55,7 @@ SUI.Datetime.prototype._initDateTimeNode = function() {
 
 /**
  * @private
- * @returns {undefined}
+ * @return {undefined}
  */
 SUI.Datetime.prototype._initCalendarNode = function() {
   if (this.config.calendar_type) {
@@ -67,7 +67,7 @@ SUI.Datetime.prototype._initCalendarNode = function() {
 
 /**
  * @private
- * @returns {undefined}
+ * @return {undefined}
  */
 SUI.Datetime.prototype._initClockNode = function() {
   if (this.config.clock_type) {
@@ -79,7 +79,7 @@ SUI.Datetime.prototype._initClockNode = function() {
 
 /**
  * @private
- * @returns {undefined}
+ * @return {undefined}
  */
 SUI.Datetime.prototype._initVariables = function() {
   this.types = {
@@ -123,7 +123,7 @@ SUI.Datetime.prototype._initVariables = function() {
 };
 
 /**
- * @returns {!Object}
+ * @return {!Object}
  */
 SUI.Datetime.prototype.getConfig = function() {
   return this.config;
@@ -132,7 +132,7 @@ SUI.Datetime.prototype.getConfig = function() {
 /**
  * @private
  * @param {string} value
- * @returns {undefined}
+ * @return {undefined}
  */
 SUI.Datetime.prototype._setValue = function(value) {
   value = value || window['moment']()['format'](this.config.format);
@@ -140,14 +140,14 @@ SUI.Datetime.prototype._setValue = function(value) {
 };
 
 /**
- * @returns {string}
+ * @return {string}
  */
 SUI.Datetime.prototype.getValue = function() {
   return this.value['format'](this.config.format);
 };
 
 /**
- * @returns {undefined}
+ * @return {undefined}
  */
 SUI.Datetime.prototype.draw = function() {
   this._drawCalendar();
@@ -156,7 +156,7 @@ SUI.Datetime.prototype.draw = function() {
 
 /**
  * @private
- * @returns {undefined}
+ * @return {undefined}
  */
 SUI.Datetime.prototype._drawCalendar = function() {
   if (this.config.calendar_type) {
@@ -177,7 +177,7 @@ SUI.Datetime.prototype._drawCalendar = function() {
 
 /**
  * @private
- * @returns {undefined}
+ * @return {undefined}
  */
 SUI.Datetime.prototype._drawClock = function() {
   if (this.config.clock_type) {
@@ -196,7 +196,7 @@ SUI.Datetime.prototype._drawClock = function() {
 
 /**
  * @private
- * @returns {undefined}
+ * @return {undefined}
  */
 SUI.Datetime.prototype._onClick = function() {
   var value = this.getValue();
@@ -205,7 +205,7 @@ SUI.Datetime.prototype._onClick = function() {
 
 /**
  * @param {string} value
- * @returns {undefined}
+ * @return {undefined}
  */
 SUI.Datetime.prototype.eventClick = function(value) {
   console.warn(value);

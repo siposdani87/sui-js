@@ -20,7 +20,7 @@ SUI.Dropdown = function (element, opt_options) {
 /**
  * @private
  * @param {!Object=} opt_options
- * @returns {undefined}
+ * @return {undefined}
  */
 SUI.Dropdown.prototype._setOptions = function (opt_options) {
   var _self = this;
@@ -32,7 +32,7 @@ SUI.Dropdown.prototype._setOptions = function (opt_options) {
 
 /**
  * @private
- * @returns {undefined}
+ * @return {undefined}
  */
 SUI.Dropdown.prototype._init = function () {
   this.collection = /** @type {!SUI.Collection<!SUI.Object>} */ (new SUI.Collection());
@@ -44,7 +44,7 @@ SUI.Dropdown.prototype._init = function () {
 
 /**
  * @private
- * @returns {undefined}
+ * @return {undefined}
  */
 SUI.Dropdown.prototype._appendButton = function() {
     this.buttonNode = new SUI.Node('button');
@@ -61,7 +61,7 @@ SUI.Dropdown.prototype._appendButton = function() {
 
 /**
  * @private
- * @returns {undefined}
+ * @return {undefined}
  */
 SUI.Dropdown.prototype._appendMenu = function() {
     this.menuNode = new SUI.Node('ul');
@@ -74,7 +74,7 @@ SUI.Dropdown.prototype._appendMenu = function() {
 /**
  * @param {!Array} actions
  * @param {!Object} item
- * @returns {undefined}
+ * @return {undefined}
  */
 SUI.Dropdown.prototype.setActions = function(actions, item){
     this.actions = actions;
@@ -86,7 +86,7 @@ SUI.Dropdown.prototype.setActions = function(actions, item){
 
 /**
  * @private
- * @returns {undefined}
+ * @return {undefined}
  */
 SUI.Dropdown.prototype._renderMenu = function(){
     SUI.eachArray(this.actions, (action) => {

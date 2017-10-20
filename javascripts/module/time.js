@@ -17,7 +17,7 @@ SUI.Time = function(node, options) {
 /**
  * @private
  * @param {!Object} options
- * @returns {undefined}
+ * @return {undefined}
  */
 SUI.Time.prototype._setOptions = function(options) {
   this.options = options;
@@ -25,7 +25,7 @@ SUI.Time.prototype._setOptions = function(options) {
 
 /**
  * @private
- * @returns {undefined}
+ * @return {undefined}
  */
 SUI.Time.prototype._init = function() {
   this._initCircleNode();
@@ -34,7 +34,7 @@ SUI.Time.prototype._init = function() {
 
 /**
  * @private
- * @returns {undefined}
+ * @return {undefined}
  */
 SUI.Time.prototype._initCircleNode = function() {
   var circleNode = new SUI.Node('div');
@@ -51,7 +51,7 @@ SUI.Time.prototype._initCircleNode = function() {
  * @private
  * @param {number} width
  * @param {number} height
- * @returns {undefined}
+ * @return {undefined}
  */
 SUI.Time.prototype._initSize = function(width, height) {
   var timeNodeStyle = window.getComputedStyle(this.timeNode.getNode());
@@ -64,7 +64,7 @@ SUI.Time.prototype._initSize = function(width, height) {
 
 /**
  * @private
- * @returns {undefined}
+ * @return {undefined}
  */
 SUI.Time.prototype._initPointerNode = function() {
   var centerPointNode = new SUI.Node('div');
@@ -81,7 +81,7 @@ SUI.Time.prototype._initPointerNode = function() {
  * @param {number} n
  * @param {number=} opt_j
  * @param {boolean=} opt_isClockWise
- * @returns {undefined}
+ * @return {undefined}
  */
 SUI.Time.prototype.draw = function(start, n, opt_j = 1, opt_isClockWise = true) {
   this._drawCircles(start, n, opt_j, opt_isClockWise);
@@ -93,7 +93,7 @@ SUI.Time.prototype.draw = function(start, n, opt_j = 1, opt_isClockWise = true) 
  * @param {number} n
  * @param {number=} opt_j
  * @param {boolean=} opt_isClockWise
- * @returns {undefined}
+ * @return {undefined}
  */
 SUI.Time.prototype._drawCircles = function(start, n, opt_j = 1, opt_isClockWise = true) {
   var k = 0;
@@ -115,7 +115,7 @@ SUI.Time.prototype._drawCircles = function(start, n, opt_j = 1, opt_isClockWise 
  * @private
  * @param {!SUI.Node} circle
  * @param {number} i
- * @returns {undefined}
+ * @return {undefined}
  */
 SUI.Time.prototype._setCircleEvent = function(circle, i) {
   circle.setData('index', i);
@@ -133,7 +133,7 @@ SUI.Time.prototype._setCircleEvent = function(circle, i) {
  * @param {number} i
  * @param {number=} opt_j
  * @param {boolean=} opt_isClockWise
- * @returns {undefined}
+ * @return {undefined}
  */
 SUI.Time.prototype._setCircleStyle = function(circle, start, n, i, opt_j = 1, opt_isClockWise = true) {
   var index = ((opt_j / 2) > (i % opt_j) ? i % opt_j : opt_j - (i % opt_j));

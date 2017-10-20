@@ -19,7 +19,7 @@ SUI.lib.Header = function(opt_options) {
 
 /**
  * @private
- * @returns {undefined}
+ * @return {undefined}
  */
 SUI.lib.Header.prototype._init = function() {
   this.headerNode = new SUI.Query('#header').getItem();
@@ -42,7 +42,7 @@ SUI.lib.Header.prototype._init = function() {
 };
 
 /**
- * @returns {undefined}
+ * @return {undefined}
  */
 SUI.lib.Header.prototype.eventLogoClick = function() {
   console.warn('SUI.lib.Header.eventLogoClick()');
@@ -50,7 +50,7 @@ SUI.lib.Header.prototype.eventLogoClick = function() {
 
 /**
  * @param {string} title
- * @returns {undefined}
+ * @return {undefined}
  */
 SUI.lib.Header.prototype.setTitle = function(title){
   this.brandNodeTitle.setHtml(title);
@@ -58,21 +58,21 @@ SUI.lib.Header.prototype.setTitle = function(title){
 
 /**
  * @param {string} imagePath
- * @returns {undefined}
+ * @return {undefined}
  */
 SUI.lib.Header.prototype.setImage = function(imagePath){
   this.brandNodeImage.setAttribute('src', imagePath);
 };
 
 /**
- * @returns {undefined}
+ * @return {undefined}
  */
 SUI.lib.Header.prototype.open = function() {
   this.headerNode.addClass('open');
 };
 
 /**
- * @returns {undefined}
+ * @return {undefined}
  */
 SUI.lib.Header.prototype.close = function() {
   this.headerNode.removeClass('open');
@@ -80,7 +80,7 @@ SUI.lib.Header.prototype.close = function() {
 
 
 /**
- * @returns {undefined}
+ * @return {undefined}
  */
 SUI.lib.Header.prototype.show = function() {
   this.headerNode.removeClass('hidden');
@@ -89,7 +89,7 @@ SUI.lib.Header.prototype.show = function() {
 };
 
 /**
- * @returns {undefined}
+ * @return {undefined}
  */
 SUI.lib.Header.prototype.hide = function() {
   this.headerNode.addClass('hidden');
@@ -98,42 +98,42 @@ SUI.lib.Header.prototype.hide = function() {
 };
 
 /**
- * @returns {undefined}
+ * @return {undefined}
  */
 SUI.lib.Header.prototype.showShadow = function() {
   this.headerNode.addClass('shadow');
 };
 
 /**
- * @returns {undefined}
+ * @return {undefined}
  */
 SUI.lib.Header.prototype.hideShadow = function() {
   this.headerNode.removeClass('shadow');
 };
 
 /**
- * @returns {undefined}
+ * @return {undefined}
  */
 SUI.lib.Header.prototype.showLeftMenuButton = function(){
   this.leftMenuButton.removeClass('hidden');
 };
 
 /**
- * @returns {undefined}
+ * @return {undefined}
  */
 SUI.lib.Header.prototype.hideLeftMenuButton = function(){
   this.leftMenuButton.addClass('hidden');
 };
 
 /**
- * @returns {undefined}
+ * @return {undefined}
  */
 SUI.lib.Header.prototype.showTopMenuButton = function(){
   this.topMenuButton.removeClass('hidden');
 };
 
 /**
- * @returns {undefined}
+ * @return {undefined}
  */
 SUI.lib.Header.prototype.hideTopMenuButton = function(){
   this.topMenuButton.addClass('hidden');

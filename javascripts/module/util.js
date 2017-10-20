@@ -38,7 +38,7 @@ SUI.Util.prototype._advancedDelayHandler = function (callback, duration, counter
 };
 
 /**
- * @returns {undefined}
+ * @return {undefined}
  */
 SUI.Util.prototype.stopAdvancedWaiting = function () {
   this.timeoutWaiting += 0.0001;
@@ -48,7 +48,7 @@ SUI.Util.prototype.stopAdvancedWaiting = function () {
 };
 
 /**
- * @returns {undefined}
+ * @return {undefined}
  */
 SUI.Util.prototype.startAdvancedWaiting = function () {
   clearInterval(this.intervall);

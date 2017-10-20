@@ -22,7 +22,7 @@ goog.inherits(SUI.widget.AutoComplete, SUI.Widget);
 
 /**
  * @private
- * @returns {undefined}
+ * @return {undefined}
  */
 SUI.widget.AutoComplete.prototype._init = function(){
 

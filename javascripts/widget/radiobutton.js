@@ -22,7 +22,7 @@ goog.inherits(SUI.widget.Radiobutton, SUI.Widget);
 
 /**
  * @private
- * @returns {undefined}
+ * @return {undefined}
  */
 SUI.widget.Radiobutton.prototype._init = function() {
 
@@ -35,7 +35,7 @@ SUI.widget.Radiobutton.prototype._init = function() {
 
 /**
  * @override
- * @returns {undefined}
+ * @return {undefined}
  */
 SUI.widget.Radiobutton.prototype.render = function() {
   this.label.addClass(['mdl-radio', 'mdl-js-radio', 'mdl-js-ripple-effect']);

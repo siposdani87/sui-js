@@ -17,7 +17,7 @@ SUI.Canvas = function(opt_selector) {
 /**
  * @private
  * @param {!SUI.Node|string=} opt_selector
- * @returns {undefined}
+ * @return {undefined}
  */
 SUI.Canvas.prototype._init = function(opt_selector) {
   this.canvasNode = /** @type {!SUI.Node} */ (opt_selector);
@@ -33,7 +33,7 @@ SUI.Canvas.prototype._init = function(opt_selector) {
 
 /**
  * @private
- * @returns {undefined}
+ * @return {undefined}
  */
 SUI.Canvas.prototype._initEvents = function() {
   this.canvasNode.addEventListener('mousemove', (canvasNode, event) => {
@@ -46,14 +46,14 @@ SUI.Canvas.prototype._initEvents = function() {
 
 /**
  * @param {number} width
- * @returns {undefined}
+ * @return {undefined}
  */
 SUI.Canvas.prototype.setWidth = function(width) {
   this.canvasRaw.width = width;
 };
 
 /**
- * @returns {number}
+ * @return {number}
  */
 SUI.Canvas.prototype.getWidth = function() {
   return this.canvasRaw.width;
@@ -61,14 +61,14 @@ SUI.Canvas.prototype.getWidth = function() {
 
 /**
  * @param {number} height
- * @returns {undefined}
+ * @return {undefined}
  */
 SUI.Canvas.prototype.setHeight = function(height) {
   this.canvasRaw.height = height;
 };
 
 /**
- * @returns {number}
+ * @return {number}
  */
 SUI.Canvas.prototype.getHeight = function() {
   return this.canvasRaw.height;
@@ -77,7 +77,7 @@ SUI.Canvas.prototype.getHeight = function() {
 /**
  * @param {number} width
  * @param {number} height
- * @returns {undefined}
+ * @return {undefined}
  */
 SUI.Canvas.prototype.setSize = function(width, height) {
   this.setWidth(width);
@@ -91,7 +91,7 @@ SUI.Canvas.prototype.setSize = function(width, height) {
  * @param {number} sides
  * @param {number} rotateAngle
  * @param {!Object} options
- * @returns {undefined}
+ * @return {undefined}
  */
 SUI.Canvas.prototype.drawPolygon = function(x, y, radius, sides, rotateAngle, options) {
   if (sides < 3) {
@@ -122,7 +122,7 @@ SUI.Canvas.prototype.drawPolygon = function(x, y, radius, sides, rotateAngle, op
  * @param {number} height
  * @param {number} rotateAngle
  * @param {!Object} options
- * @returns {undefined}
+ * @return {undefined}
  */
 SUI.Canvas.prototype.drawRectangle = function(x, y, width, height, rotateAngle, options) {
   this.context.save();
@@ -158,7 +158,7 @@ SUI.Canvas.prototype.drawImage = function(image, opt_width, opt_height){
 /**
  * @param {number} x
  * @param {number} y
- * @returns {!CanvasPixelArray}
+ * @return {!CanvasPixelArray}
  */
 SUI.Canvas.prototype.getImageDataXY = function(x, y){
   return this.context.getImageData(x, y, 1, 1).data;
@@ -167,14 +167,14 @@ SUI.Canvas.prototype.getImageDataXY = function(x, y){
 /**
  * @param {number} x
  * @param {number} y
- * @returns {undefined}
+ * @return {undefined}
  */
 SUI.Canvas.prototype.eventMouseMove = function(x, y){
 
 };
 
 /**
- * @returns {undefined}
+ * @return {undefined}
  */
 SUI.Canvas.prototype.clear = function(){
   this.context.clearRect(0, 0, this.getWidth(), this.getHeight());

@@ -21,7 +21,7 @@ goog.inherits(SUI.widget.Search, SUI.Widget);
 
 /**
  * @private
- * @returns {undefined}
+ * @return {undefined}
  */
 SUI.widget.Search.prototype._init = function() {
   
@@ -43,7 +43,7 @@ SUI.widget.Search.prototype._init = function() {
 
 /**
  * @override
- * @returns {undefined}
+ * @return {undefined}
  */
 SUI.widget.Search.prototype.render = function() {
 
@@ -70,7 +70,7 @@ SUI.widget.Search.prototype.render = function() {
 
 /**
  * @param {string} value
- * @returns {undefined}
+ * @return {undefined}
  */
 SUI.widget.Search.prototype.eventEnter = function(value) {
 

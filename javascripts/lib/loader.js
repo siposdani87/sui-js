@@ -18,7 +18,7 @@ SUI.lib.Loader = function(opt_options) {
 /**
  * @private
  * @param {!Object=} opt_options
- * @returns {undefined}
+ * @return {undefined}
  */
 SUI.lib.Loader.prototype._setOptions = function(opt_options) {
   var _self = this;
@@ -30,7 +30,7 @@ SUI.lib.Loader.prototype._setOptions = function(opt_options) {
 
 /**
  * @private
- * @returns {undefined}
+ * @return {undefined}
  */
 SUI.lib.Loader.prototype._init = function() {
   this.loader = new SUI.Query('#loader').getItem();
@@ -42,7 +42,7 @@ SUI.lib.Loader.prototype._init = function() {
 };
 
 /**
- * @returns {undefined}
+ * @return {undefined}
  */
 SUI.lib.Loader.prototype.show = function() {
   this.options.counter++;
@@ -52,7 +52,7 @@ SUI.lib.Loader.prototype.show = function() {
 
 /**
  * @param {boolean=} opt_force
- * @returns {undefined}
+ * @return {undefined}
  */
 SUI.lib.Loader.prototype.hide = function(opt_force) {
   this.options.counter--;

@@ -24,7 +24,7 @@ goog.inherits(SUI.widget.BaseCheckbox, SUI.Widget);
 
 /**
  * @protected
- * @returns {undefined}
+ * @return {undefined}
  */
 SUI.widget.BaseCheckbox.prototype._init = function() {
 
@@ -37,7 +37,7 @@ SUI.widget.BaseCheckbox.prototype._init = function() {
 
 /**
  * @private
- * @returns {undefined}
+ * @return {undefined}
  */
 SUI.widget.BaseCheckbox.prototype._change = function() {
   var value = this.getValue();
@@ -47,7 +47,7 @@ SUI.widget.BaseCheckbox.prototype._change = function() {
 
 /**
  * @override
- * @returns {*}
+ * @return {*}
  */
 SUI.widget.BaseCheckbox.prototype.getValue = function() {
   var checked = this.input.getNode().checked;

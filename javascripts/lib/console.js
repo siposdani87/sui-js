@@ -17,7 +17,7 @@ SUI.lib.Console = function(config, opt_options) {
 /**
  * @param {!Object=} opt_options
  * @private
- * @returns {undefined}
+ * @return {undefined}
  */
 SUI.lib.Console.prototype._setOptions = function(opt_options) {
   var _self = this;

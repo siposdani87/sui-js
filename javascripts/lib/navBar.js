@@ -13,7 +13,7 @@ SUI.lib.NavBar = function() {
 
 /**
  * @private
- * @returns {undefined}
+ * @return {undefined}
  */
 SUI.lib.NavBar.prototype._init = function() {
   this.navBarHeader = new SUI.Query('.nav-bar-header').getItem();
@@ -28,7 +28,7 @@ SUI.lib.NavBar.prototype._init = function() {
 };
 
 /**
- * @returns {undefined}
+ * @return {undefined}
  */
 SUI.lib.NavBar.prototype.toggle = function() {
   if (this._isOpened()) {
@@ -40,14 +40,14 @@ SUI.lib.NavBar.prototype.toggle = function() {
 };
 
 /**
- * @returns {boolean}
+ * @return {boolean}
  */
 SUI.lib.NavBar.prototype._isOpened = function() {
   return this.navBar.hasClass('open');
 };
 
 /**
- * @returns {undefined}
+ * @return {undefined}
  */
 SUI.lib.NavBar.prototype.open = function() {
   this.navBar.addClass('open');
@@ -55,7 +55,7 @@ SUI.lib.NavBar.prototype.open = function() {
 };
 
 /**
- * @returns {undefined}
+ * @return {undefined}
  */
 SUI.lib.NavBar.prototype.close = function() {
   this.navBar.removeClass('open');
@@ -63,35 +63,35 @@ SUI.lib.NavBar.prototype.close = function() {
 };
 
 /**
- * @returns {undefined}
+ * @return {undefined}
  */
 SUI.lib.NavBar.prototype.show = function() {
   this.navBarHeader.removeClass('hidden');
 };
 
 /**
- * @returns {undefined}
+ * @return {undefined}
  */
 SUI.lib.NavBar.prototype.hide = function() {
   this.navBarHeader.addClass('hidden');
 };
 
 /**
- * @returns {undefined}
+ * @return {undefined}
  */
 SUI.lib.NavBar.prototype.showShadow = function() {
   this.navBar.addClass('shadow');
 };
 
 /**
- * @returns {undefined}
+ * @return {undefined}
  */
 SUI.lib.NavBar.prototype.hideShadow = function() {
   this.navBar.removeClass('shadow');
 };
 
 /**
- * @returns {!SUI.Node}
+ * @return {!SUI.Node}
  */
 SUI.lib.NavBar.prototype.getContainer = function() {
   return this.navBar;

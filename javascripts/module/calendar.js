@@ -20,7 +20,7 @@ SUI.Calendar = function(node, options) {
 /**
  * @private
  * @param {!Object} options
- * @returns {undefined}
+ * @return {undefined}
  */
 SUI.Calendar.prototype._setOptions = function(options) {
   this.options = options;
@@ -28,7 +28,7 @@ SUI.Calendar.prototype._setOptions = function(options) {
 
 /**
  * @private
- * @returns {undefined}
+ * @return {undefined}
  */
 SUI.Calendar.prototype._init = function() {
   this.maxDays = 6 * 7;
@@ -49,7 +49,7 @@ SUI.Calendar.prototype._init = function() {
 
 /**
  * @private
- * @returns {undefined}
+ * @return {undefined}
  */
 SUI.Calendar.prototype._initStructure = function() {
   this._initHeaderNode();
@@ -63,7 +63,7 @@ SUI.Calendar.prototype._initStructure = function() {
 
 /**
  * @private
- * @returns {undefined}
+ * @return {undefined}
  */
 SUI.Calendar.prototype._initHeaderNode = function() {
   this.headerNode = new SUI.Node('div');
@@ -101,7 +101,7 @@ SUI.Calendar.prototype._initHeaderNode = function() {
 
 /**
  * @private
- * @returns {undefined}
+ * @return {undefined}
  */
 SUI.Calendar.prototype._initContentNode = function() {
   this.contentNode = new SUI.Node('div');
@@ -112,7 +112,7 @@ SUI.Calendar.prototype._initContentNode = function() {
 /**
  * @private
  * @param {number} direction
- * @returns {undefined}
+ * @return {undefined}
  */
 SUI.Calendar.prototype._changeMode = function(direction) {
   var mode = this._getMode(direction);
@@ -122,7 +122,7 @@ SUI.Calendar.prototype._changeMode = function(direction) {
 /**
  * @private
  * @param {number} direction
- * @returns {string}
+ * @return {string}
  */
 SUI.Calendar.prototype._getMode = function(direction) {
   var position = this.modes.indexOf(this.activeMode);
@@ -138,7 +138,7 @@ SUI.Calendar.prototype._getMode = function(direction) {
  * @param {!Function} dayFun
  * @param {!Function} monthFun
  * @param {!Function} yearFun
- * @returns {!Object}
+ * @return {!Object}
  */
 SUI.Calendar.prototype._switchMode = function(dayFun, monthFun, yearFun) {
   var result = null;
@@ -161,7 +161,7 @@ SUI.Calendar.prototype._switchMode = function(dayFun, monthFun, yearFun) {
 /**
  * @private
  * @param {string} mode
- * @returns {undefined}
+ * @return {undefined}
  */
 SUI.Calendar.prototype._initMode = function(mode) {
   this.contentNode.removeChildren();
@@ -171,7 +171,7 @@ SUI.Calendar.prototype._initMode = function(mode) {
 
 /**
  * @private
- * @returns {undefined}
+ * @return {undefined}
  */
 SUI.Calendar.prototype._initYearsMode = function() {
   this.yearsNode = new SUI.Node('div');
@@ -181,7 +181,7 @@ SUI.Calendar.prototype._initYearsMode = function() {
 
 /**
  * @private
- * @returns {undefined}
+ * @return {undefined}
  */
 SUI.Calendar.prototype._initMonthsMode = function() {
   this.monthsNode = new SUI.Node('div');
@@ -191,7 +191,7 @@ SUI.Calendar.prototype._initMonthsMode = function() {
 
 /**
  * @private
- * @returns {undefined}
+ * @return {undefined}
  */
 SUI.Calendar.prototype._initDaysMode = function() {
   this.weekDaysNode = new SUI.Node('div');
@@ -205,7 +205,7 @@ SUI.Calendar.prototype._initDaysMode = function() {
 
 /**
  * @private
- * @returns {undefined}
+ * @return {undefined}
  */
 SUI.Calendar.prototype._previous = function() {
   var date = this._switchMode(function() {
@@ -225,7 +225,7 @@ SUI.Calendar.prototype._previous = function() {
 
 /**
  * @private
- * @returns {undefined}
+ * @return {undefined}
  */
 SUI.Calendar.prototype._next = function() {
   var date = this._switchMode(function() {
@@ -242,7 +242,7 @@ SUI.Calendar.prototype._next = function() {
 /**
  * @private
  * @param {!Object} date
- * @returns {undefined}
+ * @return {undefined}
  */
 SUI.Calendar.prototype.setDate = function(date) {
   this._setVariables(date);
@@ -255,7 +255,7 @@ SUI.Calendar.prototype.setDate = function(date) {
 /**
  * @private
  * @param {!Object} date
- * @returns {undefined}
+ * @return {undefined}
  */
 SUI.Calendar.prototype._setVariables = function(date) {
   this.days = [];
@@ -278,7 +278,7 @@ SUI.Calendar.prototype._setVariables = function(date) {
 };
 
 /**
- * @returns {undefined}
+ * @return {undefined}
  */
 SUI.Calendar.prototype.draw = function() {
   this._switchMode(this._drawDaysStructure.bind(this), this._drawMonthsStructure.bind(this), this._drawYearsStructure.bind(this));
@@ -286,7 +286,7 @@ SUI.Calendar.prototype.draw = function() {
 
 /**
  * @private
- * @returns {undefined}
+ * @return {undefined}
  */
 SUI.Calendar.prototype._drawDaysStructure = function() {
   this._drawHeader('YYYY MMMM');
@@ -296,7 +296,7 @@ SUI.Calendar.prototype._drawDaysStructure = function() {
 
 /**
  * @private
- * @returns {undefined}
+ * @return {undefined}
  */
 SUI.Calendar.prototype._drawMonthsStructure = function() {
   this._drawHeader('YYYY');
@@ -305,7 +305,7 @@ SUI.Calendar.prototype._drawMonthsStructure = function() {
 
 /**
  * @private
- * @returns {undefined}
+ * @return {undefined}
  */
 SUI.Calendar.prototype._drawYearsStructure = function() {
   this._drawHeader(null);
@@ -315,7 +315,7 @@ SUI.Calendar.prototype._drawYearsStructure = function() {
 /**
  * @private
  * @param {string|null} format
- * @returns {undefined}
+ * @return {undefined}
  */
 SUI.Calendar.prototype._drawHeader = function(format) {
   this.currentModeNode.removeChildren();
@@ -325,7 +325,7 @@ SUI.Calendar.prototype._drawHeader = function(format) {
 
 /**
  * @private
- * @returns {undefined}
+ * @return {undefined}
  */
 SUI.Calendar.prototype._drawMonths = function() {
   this.monthsNode.removeChildren();
@@ -339,7 +339,7 @@ SUI.Calendar.prototype._drawMonths = function() {
 
 /**
  * @private
- * @returns {undefined}
+ * @return {undefined}
  */
 SUI.Calendar.prototype._drawYears = function() {
   this.yearsNode.removeChildren();
@@ -354,7 +354,7 @@ SUI.Calendar.prototype._drawYears = function() {
 
 /**
  * @private
- * @returns {undefined}
+ * @return {undefined}
  */
 SUI.Calendar.prototype._drawWeekDays = function() {
   this.weekDaysNode.removeChildren();
@@ -369,7 +369,7 @@ SUI.Calendar.prototype._drawWeekDays = function() {
 
 /**
  * @private
- * @returns {undefined}
+ * @return {undefined}
  */
 SUI.Calendar.prototype._drawDays = function() {
   this.daysNode.removeChildren();
@@ -385,7 +385,7 @@ SUI.Calendar.prototype._drawDays = function() {
  * @param {number} year
  * @param {number} month
  * @param {number} day
- * @returns {string}
+ * @return {string}
  */
 SUI.Calendar.prototype._getDate = function(year, month, day) {
   var results = [year, month + 1, day];
@@ -394,7 +394,7 @@ SUI.Calendar.prototype._getDate = function(year, month, day) {
 
 /**
  * @private
- * @returns {undefined}
+ * @return {undefined}
  */
 SUI.Calendar.prototype._setPreviousMonth = function() {
   var diffDays = this.previous.month['endOf']('month')['day']() - this.options.start_day;
@@ -410,7 +410,7 @@ SUI.Calendar.prototype._setPreviousMonth = function() {
 
 /**
  * @private
- * @returns {undefined}
+ * @return {undefined}
  */
 SUI.Calendar.prototype._setCurrentMonth = function() {
   for (var i = 1; i <= this.current.day['daysInMonth'](); i++) {
@@ -425,7 +425,7 @@ SUI.Calendar.prototype._setCurrentMonth = function() {
 
 /**
  * @private
- * @returns {undefined}
+ * @return {undefined}
  */
 SUI.Calendar.prototype._setNextMonth = function() {
   var numOfDays = this.days.length;
@@ -443,7 +443,7 @@ SUI.Calendar.prototype._setNextMonth = function() {
 /**
  * @private
  * @param {!Object} selectedDate
- * @returns {undefined}
+ * @return {undefined}
  */
 SUI.Calendar.prototype._setModeDate = function(selectedDate) {
   var date = this.current.day['clone']();
@@ -462,7 +462,7 @@ SUI.Calendar.prototype._setModeDate = function(selectedDate) {
 /**
  * @private
  * @param {!Object} selectedDate
- * @returns {undefined}
+ * @return {undefined}
  */
 SUI.Calendar.prototype._onClick = function(selectedDate) {
   this._setModeDate(selectedDate);
@@ -478,7 +478,7 @@ SUI.Calendar.prototype._onClick = function(selectedDate) {
 /**
  * @private
  * @param {!Object} date
- * @returns {undefined}
+ * @return {undefined}
  */
 SUI.Calendar.prototype._selectDate = function(date) {
   this.selectedDate = date;
@@ -486,7 +486,7 @@ SUI.Calendar.prototype._selectDate = function(date) {
 
 /**
  * @param {!Object} date
- * @returns {undefined}
+ * @return {undefined}
  */
 SUI.Calendar.prototype.eventClick = function(date) {
   console.warn('SUI.Calendar.eventClick()', date);

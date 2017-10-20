@@ -30,7 +30,7 @@ SUI.Widget.prototype.eventChange = function (value) {
 };
 
 /**
- * @returns {undefined}
+ * @return {undefined}
  */
 SUI.Widget.prototype.render = function () {
   console.warn('SUI.Widget.render()');
@@ -44,28 +44,28 @@ SUI.Widget.prototype.modelChange = function (value) {
 };
 
 /**
- * @returns {string}
+ * @return {string}
  */
 SUI.Widget.prototype.getName = function () {
-  var name = this.input.getAttribute('name');
+  let name = this.input.getAttribute('name');
   return this._getAttributeName(name);
 };
 
 /**
- * @returns {*}
+ * @return {*}
  */
 SUI.Widget.prototype.getValue = function () {
-  var value = this.input.getNode().value;
+  let value = this.input.getNode().value;
   return SUI.typeCast(value);
 };
 
 /**
  * @protected
  * @param {string|null} inputName
- * @returns {string}
+ * @return {string}
  */
 SUI.Widget.prototype._getAttributeName = function (inputName) {
-  var attribute = inputName || '';
+  let attribute = inputName || '';
   attribute = attribute.replace(/]/g, '');
   attribute = attribute.replace(/\[/g, '.');
   attribute = SUI.eq(attribute.slice(-1), '.') ? attribute.slice(0, -1) : attribute;
@@ -75,7 +75,7 @@ SUI.Widget.prototype._getAttributeName = function (inputName) {
 /**
  * @param {string=} opt_message
  * @param {boolean=} opt_isCustomError
- * @returns {undefined}
+ * @return {undefined}
  */
 SUI.Widget.prototype.setError = function (opt_message = '', opt_isCustomError = false) {
   if (this.error) {
@@ -89,11 +89,11 @@ SUI.Widget.prototype.setError = function (opt_message = '', opt_isCustomError = 
 
 /**
  * @param {boolean=} opt_force
- * @returns {undefined}
+ * @return {undefined}
  */
 SUI.Widget.prototype.checkValidity = function (opt_force = false) {
-  var node = this.input.getNode();
-  var isValid = node.validity.valid;
+  let node = this.input.getNode();
+  let isValid = node.validity.valid;
   if (isValid) {
     this.setError('');
   } else {
@@ -113,7 +113,7 @@ SUI.Widget.prototype.checkValidity = function (opt_force = false) {
 
 /**
  * @param {!Function|boolean|number|string|null|undefined} value
- * @returns {undefined}
+ * @return {undefined}
  */
 SUI.Widget.prototype.setValue = function (value) {
   this.input.getNode().value = value;
@@ -122,17 +122,17 @@ SUI.Widget.prototype.setValue = function (value) {
 };
 
 /**
- * @returns {boolean}
+ * @return {boolean}
  */
 SUI.Widget.prototype.exists = function () {
-  var existsInputBlock = !!this.inputBlock && this.inputBlock.exists();
-  var existsInput = !!this.input && this.input.exists();
+  let existsInputBlock = !!this.inputBlock && this.inputBlock.exists();
+  let existsInput = !!this.input && this.input.exists();
   return existsInputBlock || existsInput;
 };
 
 /**
  * @param {string} attribute
- * @returns {*}
+ * @return {*}
  */
 SUI.Widget.prototype.get = function (attribute) {
   if (attribute === 'model') {
@@ -143,7 +143,7 @@ SUI.Widget.prototype.get = function (attribute) {
 
 /**
  * @param {boolean} state
- * @returns {undefined}
+ * @return {undefined}
  */
 SUI.Widget.prototype.setRequired = function (state) {
   this.input.getNode().required = state;
@@ -151,7 +151,7 @@ SUI.Widget.prototype.setRequired = function (state) {
 
 /**
  * @param {boolean} state
- * @returns {undefined}
+ * @return {undefined}
  */
 SUI.Widget.prototype.setDisabled = function (state) {
   this.input.getNode().disabled = state;
@@ -159,21 +159,21 @@ SUI.Widget.prototype.setDisabled = function (state) {
 
 /**
  * @protected
- * @returns {undefined}
+ * @return {undefined}
  */
 SUI.Widget.prototype._initInfo = function () {
   if (this.label) {
     let title = this.label.getAttribute('title');
     let description = this.label.getAttribute('desc');
     if (title || description) {
-      var infoButton = new SUI.Node('a');
+      let infoButton = new SUI.Node('a');
       infoButton.setAttribute('title', title || '');
       infoButton.setAttribute('desc', description || '');
       infoButton.setAttribute('href', 'javascript:void(0)');
       infoButton.addClass(['info', 'material-icons']);
       infoButton.setHtml('info_outline');
       this.inputBlock.appendChild(infoButton);
-      new SUI.Tooltip(infoButton);
+      new SUI.Tooltip(infoButton, '', 'LEFT');
     }
   }
 };

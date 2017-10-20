@@ -19,7 +19,7 @@ SUI.lib.Document = function(options) {
 
 /**
  * @private
- * @returns {undefined}
+ * @return {undefined}
  */
 SUI.lib.Document.prototype._init = function() {
   this.document = document;
@@ -31,14 +31,14 @@ SUI.lib.Document.prototype._init = function() {
 
 /**
  * @param {string} title
- * @returns {undefined}
+ * @return {undefined}
  */
 SUI.lib.Document.prototype.setTitle = function(title) {
   this.document.title = title;
 };
 
 /**
- * @returns {string}
+ * @return {string}
  */
 SUI.lib.Document.prototype.getAppTitle = function() {
   return this.options.title;
@@ -47,7 +47,7 @@ SUI.lib.Document.prototype.getAppTitle = function() {
 /**
  * @param {!SUI.Node} target
  * @param {!Event} event
- * @returns {undefined}
+ * @return {undefined}
  */
 SUI.lib.Document.prototype.eventClick = function(target, event) {
   console.warn('Document.eventClick()', target, event);
@@ -57,7 +57,7 @@ SUI.lib.Document.prototype.eventClick = function(target, event) {
 /**
  * @param {string} email
  * @param {string=} opt_subject
- * @returns {undefined}
+ * @return {undefined}
  */
 SUI.lib.Document.prototype.mailTo = function(email, opt_subject = ''){
   this.document.location.href = 'mailto:' + email + '?subject=' + opt_subject;

@@ -13,7 +13,7 @@ SUI.lib.LeftMenu = function() {
 
 /**
  * @private
- * @returns {undefined}
+ * @return {undefined}
  */
 SUI.lib.LeftMenu.prototype._init = function() {
   this.body = new SUI.Query('body').getItem();
@@ -59,7 +59,7 @@ SUI.lib.LeftMenu.prototype._initEvents = function(){
 
 
 /**
- * @returns {undefined}
+ * @return {undefined}
  */
 SUI.lib.LeftMenu.prototype.open = function() {
   this.body.addClass('overflow-hidden');
@@ -67,7 +67,7 @@ SUI.lib.LeftMenu.prototype.open = function() {
 };
 
 /**
- * @returns {undefined}
+ * @return {undefined}
  */
 SUI.lib.LeftMenu.prototype.close = function() {
   this.body.removeClass('overflow-hidden');
@@ -75,7 +75,7 @@ SUI.lib.LeftMenu.prototype.close = function() {
 };
 
 /**
- * @returns {undefined}
+ * @return {undefined}
  */
 SUI.lib.LeftMenu.prototype.openSubMenu = function(){
   this.mainMenu.addClass('hidden');
@@ -83,7 +83,7 @@ SUI.lib.LeftMenu.prototype.openSubMenu = function(){
 };
 
 /**
- * @returns {undefined}
+ * @return {undefined}
  */
 SUI.lib.LeftMenu.prototype.closeSubMenu = function(){
   this.mainMenu.removeClass('hidden');
@@ -91,14 +91,14 @@ SUI.lib.LeftMenu.prototype.closeSubMenu = function(){
 };
 
 /**
- * @returns {!SUI.Node}
+ * @return {!SUI.Node}
  */
 SUI.lib.LeftMenu.prototype.getMainContainer  = function(){
   return this.mainContainer;
 };
 
 /**
- * @returns {!SUI.Node}
+ * @return {!SUI.Node}
  */
 SUI.lib.LeftMenu.prototype.getSubContainer  = function(){
   return this.subContainer;

@@ -20,7 +20,7 @@ SUI.Popup = function(opt_content, opt_parent, opt_withClose = false) {
 
 /**
  * @private
- * @returns {undefined}
+ * @return {undefined}
  */
 SUI.Popup.prototype._init = function() {
   this.container = new SUI.Query('.main-container').getItem();
@@ -38,7 +38,7 @@ SUI.Popup.prototype._init = function() {
 
 /**
  * @private
- * @returns {undefined}
+ * @return {undefined}
  */
 SUI.Popup.prototype._initCloseButton = function() {
   if (this.withClose) {
@@ -63,7 +63,7 @@ SUI.Popup.prototype._initCloseButton = function() {
 /**
  * @param {!SUI.Node} content
  * @param {boolean=} opt_withClose
- * @returns {undefined}
+ * @return {undefined}
  */
 SUI.Popup.prototype.draw = function(content, opt_withClose) {
   this.content = content;
@@ -73,7 +73,7 @@ SUI.Popup.prototype.draw = function(content, opt_withClose) {
 };
 
 /**
- * @returns {undefined}
+ * @return {undefined}
  */
 SUI.Popup.prototype.open = function() {
   this.closeAll();
@@ -82,7 +82,7 @@ SUI.Popup.prototype.open = function() {
 };
 
 /**
- * @returns {undefined}
+ * @return {undefined}
  */
 SUI.Popup.prototype.close = function() {
   this._closeNode(this.popupNode);
@@ -91,7 +91,7 @@ SUI.Popup.prototype.close = function() {
 /**
  * @private
  * @param {!SUI.Node} node
- * @returns {undefined}
+ * @return {undefined}
  */
 SUI.Popup.prototype._closeNode = function(node) {
   node.addClass('hidden');
@@ -104,7 +104,7 @@ SUI.Popup.prototype._closeNode = function(node) {
 };
 
 /**
- * @returns {undefined}
+ * @return {undefined}
  */
 SUI.Popup.prototype.toggle = function() {
   if (this.isOpened()) {
@@ -116,14 +116,14 @@ SUI.Popup.prototype.toggle = function() {
 };
 
 /**
- * @returns {boolean}
+ * @return {boolean}
  */
 SUI.Popup.prototype.isOpened = function() {
   return !this.popupNode.hasClass('hidden');
 };
 
 /**
- * @returns {undefined}
+ * @return {undefined}
  */
 SUI.Popup.prototype.closeAll = function() {
   var popups = new SUI.Query('.popup');
@@ -134,7 +134,7 @@ SUI.Popup.prototype.closeAll = function() {
 
 /**
  * @private
- * @returns {undefined}
+ * @return {undefined}
  */
 SUI.Popup.prototype._setPosition = function() {
   var containerNode = this.container.getNode();

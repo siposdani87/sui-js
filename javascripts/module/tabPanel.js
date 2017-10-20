@@ -21,7 +21,7 @@ SUI.TabPanel = function(dom, selected, opt_selector = '.tab-panel') {
 
 /**
  * @private
- * @returns {undefined}
+ * @return {undefined}
  */
 SUI.TabPanel.prototype._init = function() {
   this._initTabs();
@@ -31,7 +31,7 @@ SUI.TabPanel.prototype._init = function() {
 
 /**
  * @private
- * @returns {undefined}
+ * @return {undefined}
  */
 SUI.TabPanel.prototype._initTabs = function() {
   this.tabs = new SUI.Query('.tabs a', this.tabpanel);
@@ -47,7 +47,7 @@ SUI.TabPanel.prototype._initTabs = function() {
 
 /**
  * @private
- * @returns {undefined}
+ * @return {undefined}
  */
 SUI.TabPanel.prototype._initContents = function() {
   this.panels = new SUI.Query('.panel', this.tabpanel);
@@ -55,7 +55,7 @@ SUI.TabPanel.prototype._initContents = function() {
 
 /**
  * @param {string} panelId
- * @returns {undefined}
+ * @return {undefined}
  */
 SUI.TabPanel.prototype.setActive = function(panelId) {
   this.panels.each(function(panel) {
@@ -75,7 +75,7 @@ SUI.TabPanel.prototype.setActive = function(panelId) {
 
 /**
  * @param {string} panelId
- * @returns {undefined}
+ * @return {undefined}
  */
 SUI.TabPanel.prototype.eventChange = function(panelId) {
   console.warn('SUI.TabPanel.eventChange()', panelId);
@@ -84,7 +84,7 @@ SUI.TabPanel.prototype.eventChange = function(panelId) {
 /**
  * @private
  * @param {!SUI.Node} tab
- * @returns {undefined}
+ * @return {undefined}
  */
 SUI.TabPanel.prototype._setActiveTab = function(tab) {
   var panelId = tab.getData('panel');

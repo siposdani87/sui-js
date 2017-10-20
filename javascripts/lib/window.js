@@ -17,7 +17,7 @@ SUI.lib.Window = function(opt_options) {
 /**
  * @private
  * @param {!Object=} opt_options
- * @returns {undefined}
+ * @return {undefined}
  */
 SUI.lib.Window.prototype._setOptions = function(opt_options) {
   var _self = this;
@@ -29,7 +29,7 @@ SUI.lib.Window.prototype._setOptions = function(opt_options) {
 
 /**
  * @private
- * @returns {undefined}
+ * @return {undefined}
  */
 SUI.lib.Window.prototype._init = function() {
   this.window = window;
@@ -44,7 +44,7 @@ SUI.lib.Window.prototype._init = function() {
 
 /**
  * @private
- * @returns {undefined}
+ * @return {undefined}
  */
 SUI.lib.Window.prototype._initResizeEvent = function() {
   this.window.addEventListener('resize', SUI.debounce((event) => {
@@ -54,7 +54,7 @@ SUI.lib.Window.prototype._initResizeEvent = function() {
 
 /**
  * @private
- * @returns {undefined}
+ * @return {undefined}
  */
 SUI.lib.Window.prototype._initScrollEvent = function() {
   this.window.addEventListener('scroll', SUI.debounce((event) => {
@@ -64,7 +64,7 @@ SUI.lib.Window.prototype._initScrollEvent = function() {
 
 /**
  * @private
- * @returns {undefined}
+ * @return {undefined}
  */
 SUI.lib.Window.prototype._initOnlineEvent = function() {
   this.window.addEventListener('offline', function(event) {
@@ -78,7 +78,7 @@ SUI.lib.Window.prototype._initOnlineEvent = function() {
 
 /**
  * @param {!Event} event
- * @returns {undefined}
+ * @return {undefined}
  */
 SUI.lib.Window.prototype.eventOffline = function(event) {
   console.warn('SUI.Window.eventOffline()', event);
@@ -86,7 +86,7 @@ SUI.lib.Window.prototype.eventOffline = function(event) {
 
 /**
  * @param {!Event} event
- * @returns {undefined}
+ * @return {undefined}
  */
 SUI.lib.Window.prototype.eventOnline = function(event) {
   console.warn('SUI.Window.eventOffline()', event);
@@ -96,7 +96,7 @@ SUI.lib.Window.prototype.eventOnline = function(event) {
  * @param {number} width
  * @param {number} height
  * @param {!Event} event
- * @returns {undefined}
+ * @return {undefined}
  */
 SUI.lib.Window.prototype.eventResize = function(width, height, event) {
   console.warn('SUI.Window.eventResize()', width, height, event);
@@ -107,7 +107,7 @@ SUI.lib.Window.prototype.eventResize = function(width, height, event) {
  * @param {number} width
  * @param {number} height
  * @param {!Event} event
- * @returns {undefined}
+ * @return {undefined}
  */
 SUI.lib.Window.prototype.eventOrientationChange = function(orientation, width, height, event) {
   console.warn('SUI.Window.eventOrientationChange()', orientation, width, height, event);
@@ -116,7 +116,7 @@ SUI.lib.Window.prototype.eventOrientationChange = function(orientation, width, h
 /**
  * @param {number} scrollTop
  * @param {!Event} event
- * @returns {undefined}
+ * @return {undefined}
  */
 SUI.lib.Window.prototype.eventScroll = function(scrollTop, event) {
   console.warn('SUI.Window.eventScroll()', scrollTop, event);
@@ -125,7 +125,7 @@ SUI.lib.Window.prototype.eventScroll = function(scrollTop, event) {
 /**
  * @private
  * @param {!Event} event
- * @returns {undefined}
+ * @return {undefined}
  */
 SUI.lib.Window.prototype._resize = function(event) {
   this.eventResize(this.getWidth(), this.getHeight(), event);
@@ -140,35 +140,35 @@ SUI.lib.Window.prototype._resize = function(event) {
 /**
  * @private
  * @param {!Event} event
- * @returns {undefined}
+ * @return {undefined}
  */
 SUI.lib.Window.prototype._scroll = function(event) {
   this.eventScroll(this.getScrollTop(), event);
 };
 
 /**
- * @returns {number}
+ * @return {number}
  */
 SUI.lib.Window.prototype.getScrollTop = function() {
   return this.document.documentElement.scrollTop || this.document.body.scrollTop;
 };
 
 /**
- * @returns {number}
+ * @return {number}
  */
 SUI.lib.Window.prototype.getWidth = function() {
   return this.window.innerWidth;
 };
 
 /**
- * @returns {number}
+ * @return {number}
  */
 SUI.lib.Window.prototype.getHeight = function() {
   return this.window.innerHeight;
 };
 
 /**
- * @returns {string} landscape|portrait
+ * @return {string} landscape|portrait
  */
 SUI.lib.Window.prototype.getOrientation = function() {
   return SUI.gte(this.getWidth(), this.getHeight()) ? 'landscape' : 'portrait';

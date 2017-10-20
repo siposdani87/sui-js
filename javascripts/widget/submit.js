@@ -18,7 +18,7 @@ goog.inherits(SUI.widget.Submit, SUI.Widget);
 
 /**
  * @private
- * @returns {undefined}
+ * @return {undefined}
  */
 SUI.widget.Submit.prototype._init = function() {
   this.input.setAttribute('name', 'submit');
@@ -26,7 +26,7 @@ SUI.widget.Submit.prototype._init = function() {
 
 /**
  * @override
- * @returns {undefined}
+ * @return {undefined}
  */
 SUI.widget.Submit.prototype.render = function() {
   this.input.addClass(['mdl-button', 'mdl-js-button', 'mdl-button--raised', 'mdl-js-ripple-effect', 'mdl-button--primary']);

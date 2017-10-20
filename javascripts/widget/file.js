@@ -22,7 +22,7 @@ goog.inherits(SUI.widget.File, SUI.Widget);
 
 /**
  * @private
- * @returns {undefined}
+ * @return {undefined}
  */
 SUI.widget.File.prototype._init = function() {
   this.inputBlock.addClass('file-widget');
@@ -56,7 +56,7 @@ SUI.widget.File.prototype._init = function() {
 
 /**
  * @override
- * @returns {undefined}
+ * @return {undefined}
  */
 SUI.widget.File.prototype.render = function() {
   this.inputBlock.addClass(['mdl-textfield', 'mdl-js-textfield', 'mdl-textfield--floating-label']);
@@ -69,7 +69,7 @@ SUI.widget.File.prototype.render = function() {
 /**
  * @private
  * @param {!Blob} file
- * @returns {undefined}
+ * @return {undefined}
  */
 SUI.widget.File.prototype._read = function(file) {
   if (file) {
@@ -86,7 +86,7 @@ SUI.widget.File.prototype._read = function(file) {
 
 /**
  * @private
- * @returns {undefined}
+ * @return {undefined}
  */
 SUI.widget.File.prototype._remove = function(){
   this.input.getNode().value = '';

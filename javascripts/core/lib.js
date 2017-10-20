@@ -3,7 +3,7 @@ goog.provide('SUI.lib');
 goog.require('SUI');
 
 /**
- * @returns {undefined}
+ * @return {undefined}
  */
 SUI.lib = function() {
 };

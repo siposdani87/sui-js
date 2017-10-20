@@ -21,7 +21,7 @@ goog.inherits(SUI.widget.IconToggle, SUI.widget.BaseCheckbox);
 
 /**
  * @override
- * @returns {undefined}
+ * @return {undefined}
  */
 SUI.widget.IconToggle.prototype.render = function() {
   this.label.addClass(['mdl-icon-toggle', 'mdl-js-icon-toggle', 'mdl-js-ripple-effect']);

@@ -23,7 +23,7 @@ SUI.Module = function(app) {
 /**
  * @param {!Object} instances
  * @param {!Object} injections
- * @returns {undefined}
+ * @return {undefined}
  */
 SUI.Module.prototype.load = function(instances, injections) {
   this._instances = instances;
@@ -33,7 +33,7 @@ SUI.Module.prototype.load = function(instances, injections) {
 };
 
 /**
- * @returns {!Object}
+ * @return {!Object}
  */
 SUI.Module.prototype.getController = function() {
   return this._controller;
@@ -44,7 +44,7 @@ SUI.Module.prototype.getController = function() {
  * @param {!Array} injections
  * @param {!Function} callback
  * @param {string=} opt_extend
- * @returns {undefined}
+ * @return {undefined}
  */
 SUI.Module.prototype.add = function(name, injections, callback, opt_extend) {
   this._modules[name] = this._getDependencies(injections, callback, opt_extend);
@@ -55,7 +55,7 @@ SUI.Module.prototype.add = function(name, injections, callback, opt_extend) {
  * @param {!Array} injections
  * @param {!Function} callback
  * @param {string=} opt_extend
- * @returns {!Object}
+ * @return {!Object}
  */
 SUI.Module.prototype._getDependencies = function(injections, callback, opt_extend) {
   if (opt_extend){
@@ -71,7 +71,7 @@ SUI.Module.prototype._getDependencies = function(injections, callback, opt_exten
 /**
  * @private
  * @param {!Object} dependency
- * @returns {!Object}
+ * @return {!Object}
  */
 SUI.Module.prototype._resolveDependencies = function(dependency) {
   var args = [];
@@ -89,7 +89,7 @@ SUI.Module.prototype._resolveDependencies = function(dependency) {
 
 /**
  * @private
- * @returns {undefined}
+ * @return {undefined}
  */
 SUI.Module.prototype._orderServices = function() {
   for (var key in this._modules) {
@@ -113,7 +113,7 @@ SUI.Module.prototype._orderServices = function() {
 /**
  * @private
  * @param {string} value
- * @returns {boolean}
+ * @return {boolean}
  */
 SUI.Module.prototype._isModule = function(value) {
   var lastCharacters = value.substr(value.length - 7);
@@ -124,7 +124,7 @@ SUI.Module.prototype._isModule = function(value) {
  * @private
  * @param {string} service
  * @param {string} injection
- * @returns {undefined}
+ * @return {undefined}
  */
 SUI.Module.prototype._changeServices = function(service, injection) {
   if (this._dependencies.indexOf([injection, service].join('-')) !== -1) {
@@ -141,7 +141,7 @@ SUI.Module.prototype._changeServices = function(service, injection) {
 };
 
 /**
- * @returns {undefined}
+ * @return {undefined}
  */
 SUI.Module.prototype.handleServices = function() {
   this._orderServices();
@@ -172,7 +172,7 @@ SUI.Module.prototype.handleServices = function() {
 /**
  * @param {!Array} routes
  * @param {!Object} options
- * @returns {undefined}
+ * @return {undefined}
  */
 SUI.Module.prototype.handleRoutes = function(routes, options) {
   this._instances[this._injections.state] = new SUI.State(routes, options);
@@ -193,7 +193,7 @@ SUI.Module.prototype.handleRoutes = function(routes, options) {
 
 /**
  * @param {!SUI.Object} currentState
- * @returns {undefined}
+ * @return {undefined}
  */
 SUI.Module.prototype._handleStateChange = function(currentState){
   this.eventStateChange(currentState).then(function() {
@@ -217,7 +217,7 @@ SUI.Module.prototype._handleStateChange = function(currentState){
  * @private
  * @param {!SUI.Object} state
  * @param {!SUI.Node=} opt_dom
- * @returns {undefined}
+ * @return {undefined}
  */
 SUI.Module.prototype._initController = function(state, opt_dom) {
   this._instances[this._injections.dom] = opt_dom;
@@ -238,7 +238,7 @@ SUI.Module.prototype._initController = function(state, opt_dom) {
 
 /**
  * @param {!SUI.Node=} opt_dom
- * @returns {undefined}
+ * @return {undefined}
  */
 SUI.Module.prototype.eventControllerLoaded = function(opt_dom) {
   console.warn('SUI.Module.eventControllerLoaded()', opt_dom);
@@ -246,7 +246,7 @@ SUI.Module.prototype.eventControllerLoaded = function(opt_dom) {
 
 /**
  * @param {!SUI.Object} state
- * @returns {undefined}
+ * @return {undefined}
  */
 SUI.Module.prototype.eventModuleFailed = function(state) {
   console.warn('SUI.Module.eventModuleFailed()', state);
@@ -254,7 +254,7 @@ SUI.Module.prototype.eventModuleFailed = function(state) {
 
 /**
  * @param {!SUI.Object} state
- * @returns {undefined}
+ * @return {undefined}
  */
 SUI.Module.prototype.eventModuleLoaded = function(state) {
   console.warn('SUI.Module.eventModuleLoaded()', state);
@@ -262,7 +262,7 @@ SUI.Module.prototype.eventModuleLoaded = function(state) {
 
 /**
  * @param {!SUI.Object} state
- * @returns {!SUI.Promise}
+ * @return {!SUI.Promise}
  */
 SUI.Module.prototype.eventStateChange = function(state) {
   var deferred = new SUI.Deferred();
@@ -274,7 +274,7 @@ SUI.Module.prototype.eventStateChange = function(state) {
 /**
  * @param {!SUI.Object} state
  * @param {!SUI.Node=} opt_dom
- * @returns {!SUI.Promise}
+ * @return {!SUI.Promise}
  */
 SUI.Module.prototype.eventDomChange = function(state, opt_dom) {
   var deferred = new SUI.Deferred();
@@ -284,21 +284,21 @@ SUI.Module.prototype.eventDomChange = function(state, opt_dom) {
 };
 
 /**
- * @returns {undefined}
+ * @return {undefined}
  */
 SUI.Module.prototype.eventAfterInit = function() {
   console.warn('SUI.Module.eventAfterInit()');
 };
 
 /**
- * @returns {undefined}
+ * @return {undefined}
  */
 SUI.Module.prototype.eventServiceLoaded = function() {
   console.warn('SUI.Module.eventServiceLoaded()');
 };
 
 /**
- * @returns {undefined}
+ * @return {undefined}
  */
 SUI.Module.prototype.eventServiceFailed = function() {
   console.warn('SUI.Module.eventServiceFailed()');
