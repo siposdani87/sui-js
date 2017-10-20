@@ -2,7 +2,5 @@
 	"exclude": [
 		"node_modules",
 		"dist"
-	],
-	"javascript.format.insertSpaceBeforeFunctionParenthesis": false,
-	"javascript.format.placeOpenBraceOnNewLineForControlBlocks": true
+	]
 }
