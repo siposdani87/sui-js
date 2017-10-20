@@ -18,7 +18,7 @@ goog.inherits(SUI.widget.Hidden, SUI.Widget);
 
 /**
  * @private
- * @returns {undefined}
+ * @return {undefined}
  */
 SUI.widget.Hidden.prototype._init = function() {
 
@@ -31,7 +31,7 @@ SUI.widget.Hidden.prototype._init = function() {
 
 /**
  * @override
- * @returns {undefined}
+ * @return {undefined}
  */
 SUI.widget.Hidden.prototype.render = function() {
 

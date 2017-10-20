@@ -26,7 +26,7 @@ SUI.Node = function(node, opt_parent) {
 /**
  * @param {string} attribute
  * @param {boolean|number|string} value
- * @returns {undefined}
+ * @return {undefined}
  */
 SUI.Node.prototype.set = function(attribute, value) {
   if (SUI.eq(attribute, 'id')) {
@@ -39,7 +39,7 @@ SUI.Node.prototype.set = function(attribute, value) {
 
 /**
  * @param {!Object} properties
- * @returns {undefined}
+ * @return {undefined}
  */
 SUI.Node.prototype.merge = function(properties) {
   SUI.each(properties, function(value, attribute) {
@@ -49,7 +49,7 @@ SUI.Node.prototype.merge = function(properties) {
 
 /**
  * @param {string} attribute
- * @returns {string|null}
+ * @return {string|null}
  */
 SUI.Node.prototype.get = function(attribute) {
   if (SUI.eq(attribute, 'id')) {
@@ -59,7 +59,7 @@ SUI.Node.prototype.get = function(attribute) {
 };
 
 /**
- * @returns {!Element}
+ * @return {!Element}
  */
 SUI.Node.prototype.getNode = function() {
   return this.node;
@@ -67,7 +67,7 @@ SUI.Node.prototype.getNode = function() {
 
 /**
  * @param {boolean=} opt_isInner
- * @returns {string}
+ * @return {string}
  */
 SUI.Node.prototype.getHtml = function(opt_isInner = false) {
   if (this.node) {
@@ -77,14 +77,14 @@ SUI.Node.prototype.getHtml = function(opt_isInner = false) {
 };
 
 /**
- * @returns {string}
+ * @return {string}
  */
 SUI.Node.prototype.getTagName = function() {
   return this.node.tagName.toLowerCase();
 };
 
 /**
- * @returns {string|null}
+ * @return {string|null}
  */
 SUI.Node.prototype.getId = function() {
   return this.node.id || null;
@@ -92,7 +92,7 @@ SUI.Node.prototype.getId = function() {
 
 /**
  * @param {boolean|number|string} id
- * @returns {undefined}
+ * @return {undefined}
  */
 SUI.Node.prototype.setId = function(id) {
   this.node.id = id;
@@ -100,7 +100,7 @@ SUI.Node.prototype.setId = function(id) {
 
 /**
  * @param {boolean|number|string} htmlFor
- * @returns {undefined}
+ * @return {undefined}
  */
 SUI.Node.prototype.setFor = function(htmlFor) {
   this.node.htmlFor = htmlFor;
@@ -108,7 +108,7 @@ SUI.Node.prototype.setFor = function(htmlFor) {
 };
 
 /**
- * @returns {string|null}
+ * @return {string|null}
  */
 SUI.Node.prototype.getFor = function() {
   return this.node.htmlFor || this.getAttribute('for');
@@ -116,7 +116,7 @@ SUI.Node.prototype.getFor = function() {
 
 /**
  * @param {string} cssClass
- * @returns {boolean}
+ * @return {boolean}
  */
 SUI.Node.prototype.hasClass = function(cssClass) {
   return this.node.classList.contains(cssClass);
@@ -125,7 +125,7 @@ SUI.Node.prototype.hasClass = function(cssClass) {
 /**
  * @param {!Array|string} cssClasses
  * @param {!Function} callback
- * @returns {undefined}
+ * @return {undefined}
  */
 SUI.Node.prototype._handleClassList = function(cssClasses, callback) {
   if (SUI.isArray(cssClasses)) {
@@ -140,7 +140,7 @@ SUI.Node.prototype._handleClassList = function(cssClasses, callback) {
 
 /**
  * @param {!Array|string} cssClasses
- * @returns {undefined}
+ * @return {undefined}
  */
 SUI.Node.prototype.addClass = function(cssClasses) {
   this._handleClassList(cssClasses, (cssClass) => {
@@ -152,7 +152,7 @@ SUI.Node.prototype.addClass = function(cssClasses) {
 
 /**
  * @param {!Array|string} cssClasses
- * @returns {undefined}
+ * @return {undefined}
  */
 SUI.Node.prototype.removeClass = function(cssClasses) {
   this._handleClassList(cssClasses, (cssClass) => {
@@ -162,7 +162,7 @@ SUI.Node.prototype.removeClass = function(cssClasses) {
 
 /**
  * @param {!Array|string} cssClasses
- * @returns {undefined}
+ * @return {undefined}
  */
 SUI.Node.prototype.toggleClass = function(cssClasses) {
   this._handleClassList(cssClasses, (cssClass) => {
@@ -171,7 +171,7 @@ SUI.Node.prototype.toggleClass = function(cssClasses) {
 };
 
 /**
- * @returns {!Array}
+ * @return {!Array}
  */
 SUI.Node.prototype.getClasses = function() {
   return this.node.classList.value.split(' ');
@@ -180,7 +180,7 @@ SUI.Node.prototype.getClasses = function() {
 /**
  * @param {string} attribute
  * @param {!Function|boolean|number|string|null=} opt_value
- * @returns {undefined}
+ * @return {undefined}
  */
 SUI.Node.prototype.setAttribute = function(attribute, opt_value) {
   var value = SUI.isUndefined(opt_value) ? attribute : opt_value;
@@ -194,7 +194,7 @@ SUI.Node.prototype.setAttribute = function(attribute, opt_value) {
 
 /**
  * @param {string} attribute
- * @returns {string|null}
+ * @return {string|null}
  */
 SUI.Node.prototype.getAttribute = function(attribute) {
   return this.node.getAttribute(attribute) || null;
@@ -202,7 +202,7 @@ SUI.Node.prototype.getAttribute = function(attribute) {
 
 /**
  * @param {string} attribute
- * @returns {undefined}
+ * @return {undefined}
  */
 SUI.Node.prototype.removeAttribute = function(attribute) {
   this.node.removeAttribute(attribute);
@@ -211,7 +211,7 @@ SUI.Node.prototype.removeAttribute = function(attribute) {
 /**
  * @param {string} eventName
  * @param {!Function} callback
- * @returns {!Function}
+ * @return {!Function}
  */
 SUI.Node.prototype.addEventListener = function(eventName, callback) {
   var listener = function(event) {
@@ -227,7 +227,7 @@ SUI.Node.prototype.addEventListener = function(eventName, callback) {
 /**
  * @param {string} eventName
  * @param {!Function} listener
- * @returns {undefined}
+ * @return {undefined}
  */
 SUI.Node.prototype.removeEventListener = function(eventName, listener) {
   this.node.removeEventListener(eventName, listener);
@@ -235,7 +235,7 @@ SUI.Node.prototype.removeEventListener = function(eventName, listener) {
 
 /**
  * @param {!Event} event
- * @returns {undefined}
+ * @return {undefined}
  */
 SUI.Node.prototype.dispatchEvent = function(event) {
   this.node.dispatchEvent(event);
@@ -243,7 +243,7 @@ SUI.Node.prototype.dispatchEvent = function(event) {
 
 /**
  * @param {string} eventName
- * @returns {undefined}
+ * @return {undefined}
  */
 SUI.Node.prototype.trigger = function(eventName){
   // https://developer.mozilla.org/en-US/docs/Web/Guide/Events/Creating_and_triggering_events
@@ -253,7 +253,7 @@ SUI.Node.prototype.trigger = function(eventName){
 
 /**
  * @param {string} tagName
- * @returns {!SUI.Node}
+ * @return {!SUI.Node}
  */
 SUI.Node.prototype.createElement = function(tagName) {
   var node = document.createElement(tagName);
@@ -262,14 +262,14 @@ SUI.Node.prototype.createElement = function(tagName) {
 
 /**
  * @param {!SUI.Node} node
- * @returns {undefined}
+ * @return {undefined}
  */
 SUI.Node.prototype.appendChild = function(node) {
   this.node.appendChild(node.getNode());
 };
 
 /**
- * @returns {undefined}
+ * @return {undefined}
  */
 SUI.Node.prototype.removeChildren = function() {
   while (this.hasChildren()) {
@@ -278,7 +278,7 @@ SUI.Node.prototype.removeChildren = function() {
 };
 
 /**
- * @returns {boolean}
+ * @return {boolean}
  */
 SUI.Node.prototype.hasChildren = function(){
   return this.node.hasChildNodes();
@@ -286,7 +286,7 @@ SUI.Node.prototype.hasChildren = function(){
 
 /**
  * @param {!SUI.Node} node
- * @returns {undefined}
+ * @return {undefined}
  */
 SUI.Node.prototype.removeChild = function(node) {
   if (this.hasChildren()){
@@ -299,7 +299,7 @@ SUI.Node.prototype.removeChild = function(node) {
 };
 
 /**
- * @returns {undefined}
+ * @return {undefined}
  */
 SUI.Node.prototype.remove = function(){
   this.node.parentNode.removeChild(this.node);
@@ -307,7 +307,7 @@ SUI.Node.prototype.remove = function(){
 
 /**
  * @param {!SUI.Node} node
- * @returns {undefined}
+ * @return {undefined}
  */
 SUI.Node.prototype.insert = function(node) {
   this.removeChildren();
@@ -316,7 +316,7 @@ SUI.Node.prototype.insert = function(node) {
 
 /**
  * @param {!SUI.Node} node
- * @returns {undefined}
+ * @return {undefined}
  */
 SUI.Node.prototype.beforeChild = function(node) {
   var referenceNode = this.node.firstChild || this.node.firstElementChild;
@@ -325,7 +325,7 @@ SUI.Node.prototype.beforeChild = function(node) {
 
 /**
  * @param {!SUI.Node} node
- * @returns {undefined}
+ * @return {undefined}
  */
 SUI.Node.prototype.insertBefore = function(node){
   this.node.parentNode.insertBefore(node.getNode(), this.node);
@@ -340,7 +340,7 @@ SUI.Node.prototype.insertAfter = function(node) {
 };
 
 /**
- * @returns {string}
+ * @return {string}
  */
 SUI.Node.prototype.getText = function() {
   return this.node.textContent;
@@ -348,7 +348,7 @@ SUI.Node.prototype.getText = function() {
 
 /**
  * @param {!Element|string|number} text
- * @returns {undefined}
+ * @return {undefined}
  */
 SUI.Node.prototype.setHtml = function(text) {
   this.node.innerHTML = text;
@@ -356,7 +356,7 @@ SUI.Node.prototype.setHtml = function(text) {
 
 /**
  * @param {string} text
- * @returns {undefined}
+ * @return {undefined}
  */
 SUI.Node.prototype.setText = function(text) {
   this.node.nodeValue = text;
@@ -365,7 +365,7 @@ SUI.Node.prototype.setText = function(text) {
 /**
  * @param {string} name
  * @param {*} value
- * @returns {undefined}
+ * @return {undefined}
  */
 SUI.Node.prototype.setData = function(name, value) {
   var data = value;
@@ -378,7 +378,7 @@ SUI.Node.prototype.setData = function(name, value) {
 
 /**
  * @param {string} name
- * @returns {*}
+ * @return {*}
  */
 SUI.Node.prototype.getData = function(name) {
   var data = this.node.dataset[name];
@@ -389,7 +389,7 @@ SUI.Node.prototype.getData = function(name) {
 };
 
 /**
- * @returns {?SUI.Node}
+ * @return {?SUI.Node}
  */
 SUI.Node.prototype.getParent = function() {
   var parent = this.node.parentElement;
@@ -400,14 +400,14 @@ SUI.Node.prototype.getParent = function() {
 };
 
 /**
- * @returns {?CSSStyleDeclaration}
+ * @return {?CSSStyleDeclaration}
  */
 SUI.Node.prototype.getComputedStyle = function() {
   return window.getComputedStyle(this.node);
 };
 
 /**
- * @returns {!Object}
+ * @return {!Object}
  */
 SUI.Node.prototype.getStyle = function() {
   return this.node.style;
@@ -415,7 +415,7 @@ SUI.Node.prototype.getStyle = function() {
 
 /**
  * @param {!Object} properties
- * @returns {undefined}
+ * @return {undefined}
  */
 SUI.Node.prototype.setStyle = function(properties) {
   SUI.each(properties, function(value, propertyName) {
@@ -425,7 +425,7 @@ SUI.Node.prototype.setStyle = function(properties) {
 
 /**
  * @param {!Array} properties
- * @returns {undefined}
+ * @return {undefined}
  */
 SUI.Node.prototype.removeStyle = function(properties) {
   SUI.each(properties, function(property) {
@@ -434,14 +434,14 @@ SUI.Node.prototype.removeStyle = function(properties) {
 };
 
 /**
- * @returns {boolean}
+ * @return {boolean}
  */
 SUI.Node.prototype.isEmpty = function() {
   return !this.node;
 };
 
 /**
- * @returns {boolean}
+ * @return {boolean}
  */
 SUI.Node.prototype.exists = function() {
   return document.body.contains(this.node);
@@ -451,7 +451,7 @@ SUI.Node.prototype.exists = function() {
 /**
  * @override
  * @param {boolean=} opt_isRoot
- * @returns {string}
+ * @return {string}
  */
 SUI.Node.prototype.toString = function(opt_isRoot = true) {
   if (opt_isRoot) {

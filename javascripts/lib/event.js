@@ -16,7 +16,7 @@ SUI.lib.Event = function() {
 /**
  * @param {string} name
  * @param {!Function} callback
- * @returns {!Function}
+ * @return {!Function}
  */
 SUI.lib.Event.prototype.set = function(name, callback) {
   if (SUI.isFunction(callback)) {
@@ -51,7 +51,7 @@ SUI.lib.Event.prototype.pop = function(name){
 /**
  * @param {string} name
  * @param {!Array=} opt_args
- * @returns {!SUI.Promise}
+ * @return {!SUI.Promise}
  */
 SUI.lib.Event.prototype.call = function(name, opt_args = []) {
   var calls = /** @type {!Array<function()>} */ (this.eventContainer.get(name, [SUI.noop()]));
@@ -63,7 +63,7 @@ SUI.lib.Event.prototype.call = function(name, opt_args = []) {
  * @param {string} name
  * @param {!Array} args
  * @param {!Function} callback
- * @returns {!SUI.Promise}
+ * @return {!SUI.Promise}
  */
 SUI.lib.Event.prototype.override = function(name, args, callback) {
   var calls = /** @type {!Array<function()>} */ (this.eventContainer.get(name, [callback]));

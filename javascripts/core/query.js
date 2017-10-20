@@ -31,7 +31,7 @@ goog.inherits(SUI.Query, SUI.Collection);
 
 /**
  * @param {string} selector
- * @returns {!Array}
+ * @return {!Array}
  * @private
  */
 SUI.Query.prototype._querySelector = function(selector) {
@@ -62,7 +62,7 @@ SUI.Query.prototype._querySelector = function(selector) {
 };
 
 /**
- * @returns {!SUI.Node}
+ * @return {!SUI.Node}
  */
 SUI.Query.prototype.getItem = function() {
   var node = new SUI.Node(null);

@@ -3,7 +3,7 @@ goog.provide('SUI.box');
 goog.require('SUI');
 
 /**
- * @returns {undefined}
+ * @return {undefined}
  */
 SUI.box = function() {
 };

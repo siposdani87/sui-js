@@ -23,7 +23,7 @@ SUI.Table = function (dom, opt_options, opt_selector = 'table') {
 /**
  * @private
  * @param {!Object=} opt_options
- * @returns {undefined}
+ * @return {undefined}
  */
 SUI.Table.prototype._setOptions = function (opt_options) {
   var _self = this;
@@ -43,7 +43,7 @@ SUI.Table.prototype._setOptions = function (opt_options) {
 
 /**
  * @private
- * @returns {undefined}
+ * @return {undefined}
  */
 SUI.Table.prototype._init = function () {
   this.collection = /** @type {!SUI.Collection<!SUI.Object>} */ (new SUI.Collection());
@@ -60,7 +60,7 @@ SUI.Table.prototype._init = function () {
 
 /**
  * @private
- * @returns {undefined}
+ * @return {undefined}
  */
 SUI.Table.prototype._initSearch = function () {
   if (this.options.columns[this.options.columns.length - 1] === 'actions') {
@@ -104,7 +104,7 @@ SUI.Table.prototype._initSearch = function () {
 
 /**
  * @private
- * @returns {undefined}
+ * @return {undefined}
  */
 SUI.Table.prototype._initHeader = function () {
   this.heads = new SUI.Query('thead th', this.table);
@@ -138,7 +138,7 @@ SUI.Table.prototype._initHeader = function () {
 
 /**
  * @private
- * @returns {undefined}
+ * @return {undefined}
  */
 SUI.Table.prototype._initStructure = function () {
   this.tbody = new SUI.Node('tbody');
@@ -164,7 +164,7 @@ SUI.Table.prototype._initStructure = function () {
 /**
  * @private
  * @param {string} query
- * @returns {undefined}
+ * @return {undefined}
  */
 SUI.Table.prototype._setQuery = function (query) {
   this.query = query;
@@ -173,7 +173,7 @@ SUI.Table.prototype._setQuery = function (query) {
 
 /**
  * @param {number=} opt_page
- * @returns {undefined}
+ * @return {undefined}
  */
 SUI.Table.prototype.refresh = function (opt_page = -1) {
   if (opt_page > -1) {
@@ -191,7 +191,7 @@ SUI.Table.prototype.refresh = function (opt_page = -1) {
 
 /**
  * @param {!Object} params
- * @returns {undefined}
+ * @return {undefined}
  */
 SUI.Table.prototype.eventAction = function (params) {
   console.warn('SUI.Table.eventAction()', params);
@@ -200,7 +200,7 @@ SUI.Table.prototype.eventAction = function (params) {
 /**
  * @private
  * @param {string} columnWithOrder
- * @returns {undefined}
+ * @return {undefined}
  */
 SUI.Table.prototype._toggleSorting = function (columnWithOrder) {
   let [column, order] = columnWithOrder.split(':', 2);
@@ -213,7 +213,7 @@ SUI.Table.prototype._toggleSorting = function (columnWithOrder) {
 
 /**
  * @private
- * @returns {undefined}
+ * @return {undefined}
  */
 SUI.Table.prototype._updateSorting = function () {
   this._resetSorting();
@@ -233,7 +233,7 @@ SUI.Table.prototype._updateSorting = function () {
  * @private
  * @param {string} column
  * @param {string=} opt_order
- * @returns {undefined}
+ * @return {undefined}
  */
 SUI.Table.prototype._setSorting = function (column, opt_order = 'asc') {
   this.options.sort.column = column;
@@ -243,7 +243,7 @@ SUI.Table.prototype._setSorting = function (column, opt_order = 'asc') {
 
 /**
  * @private
- * @returns {undefined}
+ * @return {undefined}
  */
 SUI.Table.prototype._resetSorting = function () {
   var icons = new SUI.Query('thead th i', this.table);
@@ -255,7 +255,7 @@ SUI.Table.prototype._resetSorting = function () {
 /**
  * @private
  * @param {!SUI.Object} item
- * @returns {undefined}
+ * @return {undefined}
  */
 SUI.Table.prototype._addRow = function (item) {
   var tableRow = new SUI.Node('tr');
@@ -269,7 +269,7 @@ SUI.Table.prototype._addRow = function (item) {
 
 /**
  * @param {!Array} actions
- * @returns {undefined}
+ * @return {undefined}
  */
 SUI.Table.prototype.setActions = function (actions) {
   this.actions = actions;
@@ -280,7 +280,7 @@ SUI.Table.prototype.setActions = function (actions) {
  * @param {!SUI.Node} tableDataNode
  * @param {!SUI.Object} item
  * @param {string} column
- * @returns {undefined}
+ * @return {undefined}
  */
 SUI.Table.prototype._renderDataNode = function (tableDataNode, item, column) {
   if (SUI.eq(column, 'actions')) {
@@ -300,7 +300,7 @@ SUI.Table.prototype._renderDataNode = function (tableDataNode, item, column) {
  * @private
  * @param {!SUI.Node} tableDataNode
  * @param {!SUI.Object} item
- * @returns {undefined}
+ * @return {undefined}
  */
 SUI.Table.prototype._renderActions = function(tableDataNode, item){
   if (this.actions.length > 3){
@@ -320,7 +320,7 @@ SUI.Table.prototype._renderActions = function(tableDataNode, item){
 /**
  * @private
  * @param {!SUI.Object} item
- * @returns {!Array}
+ * @return {!Array}
  */
 SUI.Table.prototype._getActionNodes = function (item) {
   var nodes = [];
@@ -335,7 +335,7 @@ SUI.Table.prototype._getActionNodes = function (item) {
  * @private
  * @param {!SUI.Node} dropdownNode
  * @param {!SUI.Object} item
- * @returns {undefined}
+ * @return {undefined}
  */
 SUI.Table.prototype._renderDropdownNode = function (dropdownNode, item) {
   var dropdown = new SUI.Dropdown(dropdownNode);
@@ -346,7 +346,7 @@ SUI.Table.prototype._renderDropdownNode = function (dropdownNode, item) {
  * @private
  * @param {!Object} action
  * @param {!SUI.Object} item
- * @returns {!SUI.Node}
+ * @return {!SUI.Node}
  */
 SUI.Table.prototype._createActionButton = function (action, item) {
   var style = action.style(item);
@@ -369,7 +369,7 @@ SUI.Table.prototype._createActionButton = function (action, item) {
 
 /**
  * @param {!Array} items
- * @returns {undefined}
+ * @return {undefined}
  */
 SUI.Table.prototype.setData = function (items) {
   this.collection.reload(items);
@@ -378,7 +378,7 @@ SUI.Table.prototype.setData = function (items) {
 
 /**
  * @param {number} count
- * @returns {undefined}
+ * @return {undefined}
  */
 SUI.Table.prototype.setCount = function (count) {
   this.pager.setCount(count);
@@ -387,7 +387,7 @@ SUI.Table.prototype.setCount = function (count) {
 
 /**
  * @private
- * @returns {undefined}
+ * @return {undefined}
  */
 SUI.Table.prototype._draw = function () {
   this.tbody.removeChildren();
@@ -402,7 +402,7 @@ SUI.Table.prototype._draw = function () {
 };
 
 /**
- * @returns {undefined}
+ * @return {undefined}
  */
 SUI.Table.prototype.render = function () {
   this._updateSorting();

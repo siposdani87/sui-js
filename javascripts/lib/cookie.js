@@ -16,7 +16,7 @@ SUI.lib.Cookie = function(opt_options) {
 /**
  * @param {!Object=} opt_options
  * @private
- * @returns {undefined}
+ * @return {undefined}
  */
 SUI.lib.Cookie.prototype._setOptions = function(opt_options) {
   var _self = this;
@@ -33,7 +33,7 @@ SUI.lib.Cookie.prototype._setOptions = function(opt_options) {
  * @param {string=} opt_path
  * @param {string=} opt_domain
  * @param {boolean=} opt_secure
- * @returns {boolean}
+ * @return {boolean}
  */
 SUI.lib.Cookie.prototype.set = function(name, value, opt_expires, opt_path, opt_domain, opt_secure) {
   if (!name || /^(?:expires|max\-age|path|domain|secure)$/i.test(name)) {
@@ -62,7 +62,7 @@ SUI.lib.Cookie.prototype.set = function(name, value, opt_expires, opt_path, opt_
 
 /**
  * @param {string} name
- * @returns {*}
+ * @return {*}
  */
 SUI.lib.Cookie.prototype.get = function(name) {
   var regex = new RegExp('(?:(?:^|.*;)\\s*' + encodeURIComponent(name).replace(/[\-\.\+\*]/g, '\\$&') + '\\s*\\=\\s*([^;]*).*$)|^.*$');
@@ -73,7 +73,7 @@ SUI.lib.Cookie.prototype.get = function(name) {
  * @param {string} name
  * @param {string=} opt_path
  * @param {string=} opt_domain
- * @returns {boolean}
+ * @return {boolean}
  */
 SUI.lib.Cookie.prototype.remove = function(name, opt_path, opt_domain) {
   if (!this._has(name)) {
@@ -87,7 +87,7 @@ SUI.lib.Cookie.prototype.remove = function(name, opt_path, opt_domain) {
 /**
  * @private
  * @param {string} name
- * @returns {boolean}
+ * @return {boolean}
  */
 SUI.lib.Cookie.prototype._has = function(name) {
   var regex = new RegExp('(?:^|;\\s*)' + encodeURIComponent(name).replace(/[\-\.\+\*]/g, '\\$&') + '\\s*\\=');
@@ -96,7 +96,7 @@ SUI.lib.Cookie.prototype._has = function(name) {
 
 /**
  * @private
- * @returns {!Array}
+ * @return {!Array}
  */
 SUI.lib.Cookie.prototype._getKeys = function() {
   var keys = document.cookie.replace(/((?:^|\s*;)[^\=]+)(?=;|$)|^\s*|\s*(?:\=[^;]*)?(?:\1|$)/g, '').split(/\s*(?:\=[^;]*)?;\s*/);
@@ -107,7 +107,7 @@ SUI.lib.Cookie.prototype._getKeys = function() {
 };
 
 /**
- * @returns {undefined}
+ * @return {undefined}
  */
 SUI.lib.Cookie.prototype.clear = function() {
   var keys = this._getKeys();

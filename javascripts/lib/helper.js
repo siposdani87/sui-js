@@ -14,7 +14,7 @@ SUI.lib.Helper = function() {
 
 /**
  * @private
- * @returns {undefined}
+ * @return {undefined}
  */
 SUI.lib.Helper.prototype._init = function() {
 
@@ -27,7 +27,7 @@ SUI.lib.Helper.prototype._init = function() {
  * @param {!Function} callback
  * @param {string=} opt_description
  * @param {boolean=} opt_allowAccess
- * @returns {undefined}
+ * @return {undefined}
  */
 SUI.lib.Helper.prototype.link = function(selector, dom, callback, opt_description = '', opt_allowAccess = true) {
   var linkNode = new SUI.Query(selector, dom).getItem();
@@ -39,7 +39,7 @@ SUI.lib.Helper.prototype.link = function(selector, dom, callback, opt_descriptio
  * @param {!Function} callback
  * @param {string=} opt_description
  * @param {boolean=} opt_allowAccess
- * @returns {undefined}
+ * @return {undefined}
  */
 SUI.lib.Helper.prototype.linkElement = function(linkNode, callback, opt_description = '', opt_allowAccess = true) {
   if (!linkNode.isEmpty()) {
@@ -65,7 +65,7 @@ SUI.lib.Helper.prototype.linkElement = function(linkNode, callback, opt_descript
  * @param {string=} opt_description
  * @param {boolean=} opt_allowAccess
  * @param {!Array=} opt_cssClasses
- * @returns {undefined}
+ * @return {undefined}
  */
 SUI.lib.Helper.prototype.button = function(selector, dom, callback, opt_description = '', opt_allowAccess = true, opt_cssClasses = ['mdl-button--raised', 'mdl-button--primary']) {
   var buttonNode = new SUI.Query(selector, dom).getItem();
@@ -91,7 +91,7 @@ SUI.lib.Helper.prototype.button = function(selector, dom, callback, opt_descript
  * @param {string=} opt_description
  * @param {boolean=} opt_allowAccess
  * @param {!Array=} opt_cssClasses
- * @returns {undefined}
+ * @return {undefined}
  */
 SUI.lib.Helper.prototype.iconButton = function(selector, dom, callback, opt_description = '', opt_allowAccess = true, opt_cssClasses = ['mdl-button--accent', 'mdl-button--fab', 'mdl-button--mini-fab']) {
   var buttonNode = new SUI.Query(selector, dom).getItem();
@@ -116,7 +116,7 @@ SUI.lib.Helper.prototype.iconButton = function(selector, dom, callback, opt_desc
  * @param {!Function} callback
  * @param {string=} opt_description
  * @param {!Array=} opt_cssClasses
- * @returns {undefined}
+ * @return {undefined}
  */
 SUI.lib.Helper.prototype.createIconButton = function(iconName, dom, callback, opt_description = '', opt_cssClasses = ['mdl-button--primary', 'mdl-button--fab', 'mdl-button--mini-fab']) {
   var buttonNode = new SUI.Node('button');
@@ -135,7 +135,7 @@ SUI.lib.Helper.prototype.createIconButton = function(iconName, dom, callback, op
 /**
  * @param {string} iconName
  * @param {!SUI.Node} parentNode
- * @returns {undefined}
+ * @return {undefined}
  */
 SUI.lib.Helper.prototype.createIconNode = function(iconName, parentNode) {
   var iconNode = new SUI.Node('em');
@@ -151,7 +151,7 @@ SUI.lib.Helper.prototype.createIconNode = function(iconName, parentNode) {
  * @param {string} email
  * @param {number=} opt_size
  * @param {string=} opt_rating
- * @returns {undefined}
+ * @return {undefined}
  */
 SUI.lib.Helper.prototype.setGravatar = function(imageNode, defaultImageUrl, email, opt_size = 500, opt_rating = 'pg') {
   var src = SUI.format('https://www.gravatar.com/avatar/{0}?s={1}&r={2}&d=404', [SUI.md5(email), opt_size, opt_rating]);

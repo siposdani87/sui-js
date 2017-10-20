@@ -12,7 +12,7 @@ SUI.lib.GeoLocation = function() {
 
 /**
  * @private
- * @returns {undefined}
+ * @return {undefined}
  */
 SUI.lib.GeoLocation.prototype._init = function() {
   this.options = {
@@ -23,7 +23,7 @@ SUI.lib.GeoLocation.prototype._init = function() {
 };
 
 /**
- * @returns {undefined}
+ * @return {undefined}
  */
 SUI.lib.GeoLocation.prototype.setWatcher = function() {
   this.watcherId = navigator.geolocation.watchPosition((position) => {
@@ -35,7 +35,7 @@ SUI.lib.GeoLocation.prototype.setWatcher = function() {
 
 
 /**
- * @returns {!SUI.Promise}
+ * @return {!SUI.Promise}
  */
 SUI.lib.GeoLocation.prototype.getPosition = function() {
   var deferred = new SUI.Deferred();
@@ -48,7 +48,7 @@ SUI.lib.GeoLocation.prototype.getPosition = function() {
 };
 
 /**
- * @returns {undefined}
+ * @return {undefined}
  */
 SUI.lib.GeoLocation.prototype.clearWatcher = function() {
   navigator.geolocation.clearWatch(this.watcherId);
@@ -58,7 +58,7 @@ SUI.lib.GeoLocation.prototype.clearWatcher = function() {
  * @param {number} latitude
  * @param {number} longitude
  * @param {string} message
- * @returns {undefined}
+ * @return {undefined}
  */
 SUI.lib.GeoLocation.prototype.eventChange = function(latitude, longitude, message) {
   console.warn('SUI.lib.GeoLocation.eventChange()', latitude, longitude, message);
@@ -67,7 +67,7 @@ SUI.lib.GeoLocation.prototype.eventChange = function(latitude, longitude, messag
 /**
  * @private
  * @param {!Object} position
- * @returns {undefined}
+ * @return {undefined}
  */
 SUI.lib.GeoLocation.prototype._handlePosition = function(position) {
   var message = 'User allowed the request for GeoLocation.';
@@ -77,7 +77,7 @@ SUI.lib.GeoLocation.prototype._handlePosition = function(position) {
 /**
  * @private
  * @param {!Object} error
- * @returns {undefined}
+ * @return {undefined}
  */
 SUI.lib.GeoLocation.prototype._handleError = function(error) {
   switch (error.code) {
@@ -99,7 +99,7 @@ SUI.lib.GeoLocation.prototype._handleError = function(error) {
 /**
  * @param {string} message
  * @param {string} code
- * @returns {undefined}
+ * @return {undefined}
  */
 SUI.lib.GeoLocation.prototype.eventError = function(message, code) {
   console.warn('SUI.lib.GeoLocation.eventError()', message, code);

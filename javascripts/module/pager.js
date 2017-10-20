@@ -22,7 +22,7 @@ SUI.Pager = function(dom, opt_options, opt_selectors = ['.pager', '.pager-statis
 /**
  * @private
  * @param {!Object=} opt_options
- * @returns {undefined}
+ * @return {undefined}
  */
 SUI.Pager.prototype._setOptions = function(opt_options) {
   var _self = this;
@@ -35,7 +35,7 @@ SUI.Pager.prototype._setOptions = function(opt_options) {
 
 /**
  * @private
- * @returns {undefined}
+ * @return {undefined}
  */
 SUI.Pager.prototype._init = function() {
   this.count = this.options.row_count;
@@ -44,7 +44,7 @@ SUI.Pager.prototype._init = function() {
 
 /**
  * @private
- * @returns {undefined}
+ * @return {undefined}
  */
 SUI.Pager.prototype._drawPager = function() {
   this.pager.removeChildren();
@@ -56,7 +56,7 @@ SUI.Pager.prototype._drawPager = function() {
 
 /**
  * @private
- * @returns {undefined}
+ * @return {undefined}
  */
 SUI.Pager.prototype._drawStatistics = function() {
   var page = this.page - 1;
@@ -68,7 +68,7 @@ SUI.Pager.prototype._drawStatistics = function() {
 
 /**
  * @private
- * @returns {undefined}
+ * @return {undefined}
  */
 SUI.Pager.prototype._drawPreviousButton = function() {
   if (this.pageNum > 1) {
@@ -88,7 +88,7 @@ SUI.Pager.prototype._drawPreviousButton = function() {
 
 /**
  * @private
- * @returns {undefined}
+ * @return {undefined}
  */
 SUI.Pager.prototype._drawNextButton = function() {
   if (this.pageNum > 1) {
@@ -108,7 +108,7 @@ SUI.Pager.prototype._drawNextButton = function() {
 
 /**
  * @private
- * @returns {undefined}
+ * @return {undefined}
  */
 SUI.Pager.prototype._selectPager = function() {
   var node = new SUI.Query(SUI.format('button[data-page="{0}"]', [this.page]), this.pager).getItem();
@@ -119,7 +119,7 @@ SUI.Pager.prototype._selectPager = function() {
 
 /**
  * @private
- * @returns {undefined}
+ * @return {undefined}
  */
 SUI.Pager.prototype._drawPageNumbers = function() {
   var pagers = this._getPagers();
@@ -141,7 +141,7 @@ SUI.Pager.prototype._drawPageNumbers = function() {
 
 /**
  * @private
- * @returns {!Array}
+ * @return {!Array}
  */
 SUI.Pager.prototype._getPagers = function() {
   var part = Math.floor((this.page - 1) / this.options.pager_num);
@@ -173,7 +173,7 @@ SUI.Pager.prototype._getPagers = function() {
 
 /**
  * @private
- * @returns {undefined}
+ * @return {undefined}
  */
 SUI.Pager.prototype._next = function() {
   var page = this.page + 1;
@@ -185,7 +185,7 @@ SUI.Pager.prototype._next = function() {
 
 /**
  * @private
- * @returns {undefined}
+ * @return {undefined}
  */
 SUI.Pager.prototype._previous = function() {
   var page = this.page - 1;
@@ -197,7 +197,7 @@ SUI.Pager.prototype._previous = function() {
 
 /**
  * @param {number} count
- * @returns {undefined}
+ * @return {undefined}
  */
 SUI.Pager.prototype.setCount = function(count) {
   this.count = count;
@@ -206,7 +206,7 @@ SUI.Pager.prototype.setCount = function(count) {
 /**
  * @private
  * @param {number} page
- * @returns {undefined}
+ * @return {undefined}
  */
 SUI.Pager.prototype._go = function(page) {
   this.setPage(page);
@@ -215,7 +215,7 @@ SUI.Pager.prototype._go = function(page) {
 
 /**
  * @param {number} page
- * @returns {undefined}
+ * @return {undefined}
  */
 SUI.Pager.prototype.setPage = function(page) {
   this.page = page;
@@ -223,7 +223,7 @@ SUI.Pager.prototype.setPage = function(page) {
 };
 
 /**
- * @returns {undefined}
+ * @return {undefined}
  */
 SUI.Pager.prototype.draw = function() {
   this._drawStatistics();
@@ -234,7 +234,7 @@ SUI.Pager.prototype.draw = function() {
 /**
  * @param {number} offset
  * @param {number} count
- * @returns {undefined}
+ * @return {undefined}
  */
 SUI.Pager.prototype.eventAction = function(offset, count) {
   console.warn('SUI.Pager.eventAction()', offset, count);

@@ -25,7 +25,7 @@ SUI.lib.Storage = function(options) {
 
 /**
  * @private
- * @returns {undefined}
+ * @return {undefined}
  */
 SUI.lib.Storage.prototype._init = function() {
   this.storage = this.options.type === 'local' ? window.localStorage : window.sessionStorage;
@@ -39,7 +39,7 @@ SUI.lib.Storage.prototype._init = function() {
  * @param {string} name
  * @param {*} value
  * @param {string|number|boolean|!Date=} opt_expires
- * @returns {undefined}
+ * @return {undefined}
  */
 SUI.lib.Storage.prototype.set = function(name, value, opt_expires) {
   var expires = this._getExpires(opt_expires);
@@ -49,7 +49,7 @@ SUI.lib.Storage.prototype.set = function(name, value, opt_expires) {
 
 /**
  * @param {string} name
- * @returns {*}
+ * @return {*}
  */
 SUI.lib.Storage.prototype.get = function(name) {
   var item = this.storage.getItem(name);
@@ -64,14 +64,14 @@ SUI.lib.Storage.prototype.get = function(name) {
 
 /**
  * @param {string} name
- * @returns {undefined}
+ * @return {undefined}
  */
 SUI.lib.Storage.prototype.remove = function(name) {
   this.storage.removeItem(name);
 };
 
 /**
- * @returns {undefined}
+ * @return {undefined}
  */
 SUI.lib.Storage.prototype.clear = function(){
   this.storage.clear();
@@ -79,7 +79,7 @@ SUI.lib.Storage.prototype.clear = function(){
 
 /**
  * @private
- * @returns {undefined}
+ * @return {undefined}
  */
 SUI.lib.Storage.prototype._checkExpires = function() {
   var keys = Object.keys(this.storage);
@@ -94,7 +94,7 @@ SUI.lib.Storage.prototype._checkExpires = function() {
 /**
  * @private
  * @param {string} name
- * @returns {boolean}
+ * @return {boolean}
  */
 SUI.lib.Storage.prototype._isExpired = function(name) {
   var date = new Date();
@@ -105,7 +105,7 @@ SUI.lib.Storage.prototype._isExpired = function(name) {
 /**
  * @private
  * @param {string} name
- * @returns {?Date}
+ * @return {?Date}
  */
 SUI.lib.Storage.prototype._getExpiresDate = function(name) {
   var item = this.storage.getItem(name);
@@ -119,7 +119,7 @@ SUI.lib.Storage.prototype._getExpiresDate = function(name) {
 /**
  * @private
  * @param {string|number|boolean|!Date=} opt_expires
- * @returns {string}
+ * @return {string}
  */
 SUI.lib.Storage.prototype._getExpires = function(opt_expires) {
   var date = new Date();

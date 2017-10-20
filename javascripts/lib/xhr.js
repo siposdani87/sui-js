@@ -30,7 +30,7 @@ SUI.lib.Xhr = function(options) {
 
 /**
  * @private
- * @returns {undefined}
+ * @return {undefined}
  */
 SUI.lib.Xhr.prototype._init = function() {
   this.http = new XMLHttpRequest();
@@ -44,7 +44,7 @@ SUI.lib.Xhr.prototype._init = function() {
  * @private
  * @param {string} name
  * @param {!Array} value
- * @returns {undefined}
+ * @return {undefined}
  */
 SUI.lib.Xhr.prototype._setType = function(name, value) {
   this.types[name] = value;
@@ -53,7 +53,7 @@ SUI.lib.Xhr.prototype._setType = function(name, value) {
 /**
  * @private
  * @param {string} name
- * @returns {string}
+ * @return {string}
  */
 SUI.lib.Xhr.prototype._getContentType = function(name) {
   let typeSettings = this.types[name] || this.types['json'];
@@ -63,7 +63,7 @@ SUI.lib.Xhr.prototype._getContentType = function(name) {
 /**
  * @private
  * @param {string} name
- * @returns {string}
+ * @return {string}
  */
 SUI.lib.Xhr.prototype._getResponseType = function(name) {
   let typeSettings = this.types[name] || this.types['json'];
@@ -72,7 +72,7 @@ SUI.lib.Xhr.prototype._getResponseType = function(name) {
 
 /**
  * @private
- * @returns {!Function}
+ * @return {!Function}
  */
 SUI.lib.Xhr.prototype._onReadyStateChange = function() {
   return function() {
@@ -107,7 +107,7 @@ SUI.lib.Xhr.prototype._onReadyStateChange = function() {
  * @param {string} url
  * @param {!Object=} opt_params
  * @param {!Object=} opt_headers
- * @returns {!SUI.Promise}
+ * @return {!SUI.Promise}
  */
 SUI.lib.Xhr.prototype.get = function(url, opt_params, opt_headers) {
   return this._handleRequest('GET', url, {}, opt_params, opt_headers);
@@ -118,7 +118,7 @@ SUI.lib.Xhr.prototype.get = function(url, opt_params, opt_headers) {
  * @param {!Object=} opt_data
  * @param {!Object=} opt_params
  * @param {!Object=} opt_headers
- * @returns {!SUI.Promise}
+ * @return {!SUI.Promise}
  */
 SUI.lib.Xhr.prototype.post = function(url, opt_data, opt_params, opt_headers) {
   return this._handleRequest('POST', url, opt_data, opt_params, opt_headers);
@@ -129,7 +129,7 @@ SUI.lib.Xhr.prototype.post = function(url, opt_data, opt_params, opt_headers) {
  * @param {!Object=} opt_data
  * @param {!Object=} opt_params
  * @param {!Object=} opt_headers
- * @returns {!SUI.Promise}
+ * @return {!SUI.Promise}
  */
 SUI.lib.Xhr.prototype.put = function(url, opt_data, opt_params, opt_headers) {
   return this._handleRequest('PUT', url, opt_data, opt_params, opt_headers);
@@ -140,7 +140,7 @@ SUI.lib.Xhr.prototype.put = function(url, opt_data, opt_params, opt_headers) {
  * @param {!Object=} opt_data
  * @param {!Object=} opt_params
  * @param {!Object=} opt_headers
- * @returns {!SUI.Promise}
+ * @return {!SUI.Promise}
  */
 SUI.lib.Xhr.prototype.patch = function(url, opt_data, opt_params, opt_headers) {
   return this._handleRequest('PATCH', url, opt_data, opt_params, opt_headers);
@@ -151,7 +151,7 @@ SUI.lib.Xhr.prototype.patch = function(url, opt_data, opt_params, opt_headers) {
  * @param {!Object=} opt_data
  * @param {!Object=} opt_params
  * @param {!Object=} opt_headers
- * @returns {!SUI.Promise}
+ * @return {!SUI.Promise}
  */
 SUI.lib.Xhr.prototype.delete = function(url, opt_data, opt_params, opt_headers) {
   return this._handleRequest('DELETE', url, opt_data, opt_params, opt_headers);
@@ -161,7 +161,7 @@ SUI.lib.Xhr.prototype.delete = function(url, opt_data, opt_params, opt_headers) 
  * @private
  * @param {string} url
  * @param {!Object=} opt_params
- * @returns {string}
+ * @return {string}
  */
 SUI.lib.Xhr.prototype._getUrl = function(url, opt_params) {
   let urlWithQueryString = SUI.urlWithQueryString(url, opt_params);
@@ -175,7 +175,7 @@ SUI.lib.Xhr.prototype._getUrl = function(url, opt_params) {
  * @param {!Object=} opt_data
  * @param {!Object=} opt_params
  * @param {!Object=} opt_headers
- * @returns {!SUI.Promise}
+ * @return {!SUI.Promise}
  */
 SUI.lib.Xhr.prototype._handleRequest = function(type, url, opt_data, opt_params, opt_headers) {
   this.http.open(type, this._getUrl(url, opt_params), true);
@@ -187,7 +187,7 @@ SUI.lib.Xhr.prototype._handleRequest = function(type, url, opt_data, opt_params,
 /**
  * @private
  * @param {!Object=} opt_data
- * @returns {string}
+ * @return {string}
  */
 SUI.lib.Xhr.prototype._getRequestData = function(opt_data) {
   let result = '';
@@ -209,7 +209,7 @@ SUI.lib.Xhr.prototype._getRequestData = function(opt_data) {
  * @param {*} obj
  * @param {string} key
  * @param {string} stringKey
- * @returns {!Array}
+ * @return {!Array}
  */
 SUI.lib.Xhr.prototype._parseObject = function(obj, key, stringKey) {
   stringKey += stringKey ? '[' + key + ']' : key;
@@ -237,7 +237,7 @@ SUI.lib.Xhr.prototype._parseObject = function(obj, key, stringKey) {
 /**
  * @private
  * @param {!Object} obj
- * @returns {string}
+ * @return {string}
  */
 SUI.lib.Xhr.prototype._stringifyObject = function(obj) {
   let results = [];
@@ -253,7 +253,7 @@ SUI.lib.Xhr.prototype._stringifyObject = function(obj) {
 /**
  * @private
  * @param {*} data
- * @returns {!Array}
+ * @return {!Array}
  */
 SUI.lib.Xhr.prototype._getResponseData = function(data) {
   let type = this.http.getResponseHeader('Content-Type');
@@ -287,7 +287,7 @@ SUI.lib.Xhr.prototype._getResponseData = function(data) {
  * @private
  * @param {string} url
  * @param {!Object=} opt_headers
- * @returns {undefined}
+ * @return {undefined}
  */
 SUI.lib.Xhr.prototype._setRequestHeaders = function(url, opt_headers) {
   let contentType = SUI.getExtensionName(url);
@@ -312,7 +312,7 @@ SUI.lib.Xhr.prototype._setRequestHeaders = function(url, opt_headers) {
 /**
  * @param {string} name
  * @param {string} value
- * @returns {undefined}
+ * @return {undefined}
  */
 SUI.lib.Xhr.prototype.setHeader = function(name, value) {
   if (name && value) {
@@ -323,7 +323,7 @@ SUI.lib.Xhr.prototype.setHeader = function(name, value) {
 /**
  * @param {string} username
  * @param {string} password
- * @returns {undefined}
+ * @return {undefined}
  */
 SUI.lib.Xhr.prototype.setBasicAuthorization = function(username, password) {
   if (username && password) {
@@ -334,7 +334,7 @@ SUI.lib.Xhr.prototype.setBasicAuthorization = function(username, password) {
 
 /**
  * @param {string} token
- * @returns {undefined}
+ * @return {undefined}
  */
 SUI.lib.Xhr.prototype.setBearerAuthorization = function(token) {
   if (token) {

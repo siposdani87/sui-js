@@ -12,7 +12,7 @@ SUI.Deferred = function() {
 };
 
 /**
- * @returns {!SUI.Promise}
+ * @return {!SUI.Promise}
  */
 SUI.Deferred.prototype.promise = function() {
   return this._promise;
@@ -20,7 +20,7 @@ SUI.Deferred.prototype.promise = function() {
 
 /**
  * @param {*=} opt_object
- * @returns {undefined}
+ * @return {undefined}
  */
 SUI.Deferred.prototype.resolve = function(opt_object) {
   this._promise._resolve(opt_object);
@@ -28,7 +28,7 @@ SUI.Deferred.prototype.resolve = function(opt_object) {
 
 /**
  * @param {*=} opt_object
- * @returns {undefined}
+ * @return {undefined}
  */
 SUI.Deferred.prototype.reject = function(opt_object) {
   this._promise._reject(opt_object);

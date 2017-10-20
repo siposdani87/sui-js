@@ -19,7 +19,7 @@ SUI.Year = function (date, currentDate, options) {
 /**
  * @private
  * @param {!Object} options
- * @returns {undefined}
+ * @return {undefined}
  */
 SUI.Year.prototype._setOptions = function (options) {
     this.options = options;
@@ -27,7 +27,7 @@ SUI.Year.prototype._setOptions = function (options) {
 
 /**
  * @private
- * @returns {undefined}
+ * @return {undefined}
  */
 SUI.Year.prototype._init = function () {
     var current = this.date['format']('YYYY') === this.currentDate['format']('YYYY') ? 'current' : null;
@@ -36,7 +36,7 @@ SUI.Year.prototype._init = function () {
 };
 
 /**
- * @returns {!SUI.Node}
+ * @return {!SUI.Node}
  */
 SUI.Year.prototype.getNode = function () {
   var node = new SUI.Node('span');

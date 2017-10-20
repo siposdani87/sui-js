@@ -18,7 +18,7 @@ goog.inherits(SUI.widget.Button, SUI.Widget);
 
 /**
  * @private
- * @returns {undefined}
+ * @return {undefined}
  */
 SUI.widget.Button.prototype._init = function() {
   this.input.setAttribute('name', 'button');
@@ -26,7 +26,7 @@ SUI.widget.Button.prototype._init = function() {
 
 /**
  * @override
- * @returns {undefined}
+ * @return {undefined}
  */
 SUI.widget.Button.prototype.render = function() {
   this.input.addClass(['mdl-button', 'mdl-js-button', 'mdl-button--raised', 'mdl-js-ripple-effect', 'mdl-button--accent']);
@@ -40,7 +40,7 @@ SUI.widget.Button.prototype.render = function() {
 
 /**
  * @param {!SUI.Node} node
- * @returns {undefined}
+ * @return {undefined}
  */
 SUI.widget.Button.prototype.eventClick = function(node) {
   console.warn('SUI.widget.Button.eventClick()', node);

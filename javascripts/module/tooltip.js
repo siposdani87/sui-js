@@ -19,7 +19,7 @@ SUI.Tooltip = function (element, opt_message = '', opt_position = 'TOP') {
 /**
  * @private
  * @param {string=} opt_position
- * @returns {undefined}
+ * @return {undefined}
  */
 SUI.Tooltip.prototype._initOptions = function (opt_position = '') {
   this.positionCssClass = 'mdl-tooltip--top';
@@ -42,7 +42,7 @@ SUI.Tooltip.prototype._initOptions = function (opt_position = '') {
 /**
  * @private
  * @param {string=} opt_message
- * @returns {undefined}
+ * @return {undefined}
  */
 SUI.Tooltip.prototype._init = function (opt_message = '') {
   this._createTooltip();
@@ -52,7 +52,7 @@ SUI.Tooltip.prototype._init = function (opt_message = '') {
 
 /**
  * @param {string=} opt_message
- * @returns {string}
+ * @return {string}
  */
 SUI.Tooltip.prototype._getMessage = function (opt_message = '') {
   if (!opt_message) {
@@ -69,7 +69,7 @@ SUI.Tooltip.prototype._getMessage = function (opt_message = '') {
 
 /**
  * @private
- * @returns {undefined}
+ * @return {undefined}
  */
 SUI.Tooltip.prototype._createTooltip = function () {
   var id = this.element.getId();
@@ -87,7 +87,7 @@ SUI.Tooltip.prototype._createTooltip = function () {
 /**
  * @private
  * @param {string} message
- * @returns {undefined}
+ * @return {undefined}
  */
 SUI.Tooltip.prototype._render = function (message) {
   this.setMessage(message);
@@ -96,7 +96,7 @@ SUI.Tooltip.prototype._render = function (message) {
 
 /**
  * @param {string=} opt_message
- * @returns {undefined}
+ * @return {undefined}
  */
 SUI.Tooltip.prototype.setMessage = function (opt_message = '') {
   if (opt_message) {

@@ -21,7 +21,7 @@ goog.inherits(SUI.widget.Text, SUI.Widget);
 
 /**
  * @private
- * @returns {undefined}
+ * @return {undefined}
  */
 SUI.widget.Text.prototype._init = function() {
   this.inputBlock.addClass('text-widget');
@@ -42,7 +42,7 @@ SUI.widget.Text.prototype._init = function() {
 
 /**
  * @override
- * @returns {undefined}
+ * @return {undefined}
  */
 SUI.widget.Text.prototype.render = function() {
   this.inputBlock.addClass(['mdl-textfield', 'mdl-js-textfield', 'mdl-textfield--floating-label']);

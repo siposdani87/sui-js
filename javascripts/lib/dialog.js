@@ -24,7 +24,7 @@ SUI.lib.Dialog = function(http, opt_options) {
 /**
  * @param {!Object=} opt_options
  * @private
- * @returns {undefined}
+ * @return {undefined}
  */
 SUI.lib.Dialog.prototype._setOptions = function(opt_options) {
   var _self = this;
@@ -36,7 +36,7 @@ SUI.lib.Dialog.prototype._setOptions = function(opt_options) {
 
 /**
  * @private
- * @returns {undefined}
+ * @return {undefined}
  */
 SUI.lib.Dialog.prototype._init = function() {
   this.body = new SUI.Query('body').getItem();
@@ -53,7 +53,7 @@ SUI.lib.Dialog.prototype._init = function() {
 
 /**
  * @private
- * @returns {undefined}
+ * @return {undefined}
  */
 SUI.lib.Dialog.prototype._initButtons = function() {
   this._initCloseButton();
@@ -63,7 +63,7 @@ SUI.lib.Dialog.prototype._initButtons = function() {
 
 /**
  * @private
- * @returns {undefined}
+ * @return {undefined}
  */
 SUI.lib.Dialog.prototype._initMinimizeButton = function() {
   this.btnMinimize = new SUI.Query('.minimize', this.dialog).getItem();
@@ -75,7 +75,7 @@ SUI.lib.Dialog.prototype._initMinimizeButton = function() {
 
 /**
  * @private
- * @returns {undefined}
+ * @return {undefined}
  */
 SUI.lib.Dialog.prototype._initMaximizeButton = function() {
   this.btnMaximize = new SUI.Query('.maximize', this.dialog).getItem();
@@ -87,7 +87,7 @@ SUI.lib.Dialog.prototype._initMaximizeButton = function() {
 
 /**
  * @private
- * @returns {undefined}
+ * @return {undefined}
  */
 SUI.lib.Dialog.prototype._initCloseButton = function() {
   this.btnClose = new SUI.Query('.close', this.dialog).getItem();
@@ -98,7 +98,7 @@ SUI.lib.Dialog.prototype._initCloseButton = function() {
 };
 
 /**
- * @returns {undefined}
+ * @return {undefined}
  */
 SUI.lib.Dialog.prototype.open = function() {
   this.body.addClass('overflow-hidden');
@@ -108,7 +108,7 @@ SUI.lib.Dialog.prototype.open = function() {
 };
 
 /**
- * @returns {undefined}
+ * @return {undefined}
  */
 SUI.lib.Dialog.prototype.close = function() {
   this.body.removeClass('overflow-hidden');
@@ -121,7 +121,7 @@ SUI.lib.Dialog.prototype.close = function() {
 
 /**
  * @param {string} url
- * @returns {!SUI.Promise}
+ * @return {!SUI.Promise}
  */
 SUI.lib.Dialog.prototype.loadTemplate = function(url) {
   this._reset();
@@ -138,7 +138,7 @@ SUI.lib.Dialog.prototype.loadTemplate = function(url) {
 
 /**
  * @param {!SUI.Node} dom
- * @returns {!SUI.Node}
+ * @return {!SUI.Node}
  */
 SUI.lib.Dialog.prototype._handleMessage = function(dom) {
   var messageNode = new SUI.Query('#message', dom).getItem();
@@ -152,7 +152,7 @@ SUI.lib.Dialog.prototype._handleMessage = function(dom) {
 
 /**
  * @param {!SUI.Node} dom
- * @returns {!SUI.Node}
+ * @return {!SUI.Node}
  */
 SUI.lib.Dialog.prototype._handleDom = function(dom) {
   var titleNode = new SUI.Query('#title', dom).getItem();
@@ -171,7 +171,7 @@ SUI.lib.Dialog.prototype._handleDom = function(dom) {
 
 /**
  * @param {string=} opt_title
- * @returns {undefined}
+ * @return {undefined}
  */
 SUI.lib.Dialog.prototype._setTitle = function(opt_title) {
   this.modalTitle.setHtml(opt_title);
@@ -185,7 +185,7 @@ SUI.lib.Dialog.prototype._setTitle = function(opt_title) {
 };
 
 /**
- * @returns {undefined}
+ * @return {undefined}
  */
 SUI.lib.Dialog.prototype._reset = function() {
   this.eventOK = SUI.noop();
@@ -194,7 +194,7 @@ SUI.lib.Dialog.prototype._reset = function() {
 
 /**
  * @param {!SUI.Node} dom
- * @returns {undefined}
+ * @return {undefined}
  */
 SUI.lib.Dialog.prototype._handleActions = function(dom) {
   var actionNode = new SUI.Query('#action', dom).getItem();
@@ -222,7 +222,7 @@ SUI.lib.Dialog.prototype._handleActions = function(dom) {
 };
 
 /**
- * @returns {undefined}
+ * @return {undefined}
  */
 SUI.lib.Dialog.prototype._actionOK = function() {
   var async = new SUI.Async();
@@ -231,7 +231,7 @@ SUI.lib.Dialog.prototype._actionOK = function() {
 };
 
 /**
- * @returns {undefined}
+ * @return {undefined}
  */
 SUI.lib.Dialog.prototype._actionCancel = function() {
   var async = new SUI.Async();
@@ -240,14 +240,14 @@ SUI.lib.Dialog.prototype._actionCancel = function() {
 };
 
 /**
- * @returns {undefined}
+ * @return {undefined}
  */
 SUI.lib.Dialog.prototype._actionMinimize = function() {
 
 };
 
 /**
- * @returns {undefined}
+ * @return {undefined}
  */
 SUI.lib.Dialog.prototype._actionMaximize = function() {
 
@@ -256,7 +256,7 @@ SUI.lib.Dialog.prototype._actionMaximize = function() {
 /**
  * @param {number} width
  * @param {number} height
- * @returns {undefined}
+ * @return {undefined}
  */
 SUI.lib.Dialog.prototype.setSize = function(width, height) {
   this.windowWidth = width;
@@ -267,7 +267,7 @@ SUI.lib.Dialog.prototype.setSize = function(width, height) {
 
 /**
  * @private
- * @returns {undefined}
+ * @return {undefined}
  */
 SUI.lib.Dialog.prototype._handleCenterPosition = function() {
   var style = this.dialogWindow.getComputedStyle();

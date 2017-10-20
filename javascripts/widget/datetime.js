@@ -24,7 +24,7 @@ goog.inherits(SUI.widget.Datetime, SUI.Widget);
 
 /**
  * @private
- * @returns {undefined}
+ * @return {undefined}
  */
 SUI.widget.Datetime.prototype._init = function() {
 
@@ -43,7 +43,7 @@ SUI.widget.Datetime.prototype._init = function() {
 
 /**
  * @private
- * @returns {undefined}
+ * @return {undefined}
  */
 SUI.widget.Datetime.prototype._initInput = function() {
   this.format = this.input.getData('format');
@@ -77,7 +77,7 @@ SUI.widget.Datetime.prototype._initInput = function() {
 
 /**
  * @override
- * @returns {undefined}
+ * @return {undefined}
  */
 SUI.widget.Datetime.prototype.render = function() {
   this.datetime.draw();
@@ -94,7 +94,7 @@ SUI.widget.Datetime.prototype.render = function() {
 /**
  * @override
  * @param {!Function|boolean|number|string|null|undefined} value
- * @returns {undefined}
+ * @return {undefined}
  */
 SUI.widget.Datetime.prototype.setValue = function(value) {
   this._setTag(/** @type {string} */ (value));
@@ -105,7 +105,7 @@ SUI.widget.Datetime.prototype.setValue = function(value) {
 /**
  * @private
  * @param {string} value
- * @returns {undefined}
+ * @return {undefined}
  */
 SUI.widget.Datetime.prototype._setTag = function(value) {
   this.datetimeInput.removeChildren();

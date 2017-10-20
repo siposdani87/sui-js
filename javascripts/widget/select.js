@@ -26,7 +26,7 @@ goog.inherits(SUI.widget.Select, SUI.Widget);
 
 /**
  * @private
- * @returns {undefined}
+ * @return {undefined}
  */
 SUI.widget.Select.prototype._init = function() {
   this.isMultiple = !!this.input.getAttribute('multiple');
@@ -42,7 +42,7 @@ SUI.widget.Select.prototype._init = function() {
 
 /**
  * @private
- * @returns {undefined}
+ * @return {undefined}
  */
 SUI.widget.Select.prototype._initPopup = function() {
 
@@ -58,7 +58,7 @@ SUI.widget.Select.prototype._initPopup = function() {
 
 /**
  * @private
- * @returns {undefined}
+ * @return {undefined}
  */
 SUI.widget.Select.prototype._initChangeEvent = function() {
   this.input.addEventListener('change', () => {
@@ -68,7 +68,7 @@ SUI.widget.Select.prototype._initChangeEvent = function() {
 
 /**
  * @private
- * @returns {undefined}
+ * @return {undefined}
  */
 SUI.widget.Select.prototype._initOptions = function() {
 
@@ -89,7 +89,7 @@ SUI.widget.Select.prototype._initOptions = function() {
 
 /**
  * @override
- * @returns {undefined}
+ * @return {undefined}
  */
 SUI.widget.Select.prototype.render = function() {
   this.input.addClass('hidden');
@@ -113,7 +113,7 @@ SUI.widget.Select.prototype.render = function() {
 /**
  * @override
  * @param {!Array|!Function|boolean|number|string|null|undefined} value
- * @returns {undefined}
+ * @return {undefined}
  */
 SUI.widget.Select.prototype.setValue = function(value) {
   var ids = value;
@@ -125,7 +125,7 @@ SUI.widget.Select.prototype.setValue = function(value) {
 
 /**
  * @override
- * @returns {*}
+ * @return {*}
  */
 SUI.widget.Select.prototype.getValue = function() {
   var ids = this._getSelectedIds();
@@ -139,7 +139,7 @@ SUI.widget.Select.prototype.getValue = function() {
  * @param {!Array<!SUI.Object>} items
  * @param {string=} opt_value
  * @param {string=} opt_name
- * @returns {*}
+ * @return {*}
  */
 SUI.widget.Select.prototype.setOptions = function(items, opt_value = 'value', opt_name = 'name') {
 
@@ -167,7 +167,7 @@ SUI.widget.Select.prototype.setOptions = function(items, opt_value = 'value', op
 /**
  * @private
  * @param {boolean=} opt_force
- * @returns {undefined}
+ * @return {undefined}
  */
 SUI.widget.Select.prototype._change = function(opt_force = false) {
   var ids = this._getSelectedIds();
@@ -180,7 +180,7 @@ SUI.widget.Select.prototype._change = function(opt_force = false) {
 /**
  * @private
  * @param {!Array} ids
- * @returns {undefined}
+ * @return {undefined}
  */
 SUI.widget.Select.prototype._setSelectInput = function(ids) {
   if (this.isRequired && ids.length === 1 && ids[0] === '') {
@@ -196,7 +196,7 @@ SUI.widget.Select.prototype._setSelectInput = function(ids) {
 
 /**
  * @param {string} id
- * @returns {undefined}
+ * @return {undefined}
  * @private
  */
 SUI.widget.Select.prototype._setSimpleInput = function(id) {
@@ -216,7 +216,7 @@ SUI.widget.Select.prototype._setSimpleInput = function(id) {
 
 /**
  * @param {!Array} ids
- * @returns {undefined}
+ * @return {undefined}
  * @private
  */
 SUI.widget.Select.prototype._setMultipleInput = function(ids) {
@@ -277,7 +277,7 @@ SUI.widget.Select.prototype._setTags = function(tags) {
  * @private
  * @param {!Array} ids
  * @param {boolean=} opt_force
- * @returns {undefined}
+ * @return {undefined}
  */
 SUI.widget.Select.prototype._setSelectedIds = function(ids, opt_force = false) {
   this.options.each(function(option) {
@@ -291,7 +291,7 @@ SUI.widget.Select.prototype._setSelectedIds = function(ids, opt_force = false) {
 
 /**
  * @private
- * @returns {!Array}
+ * @return {!Array}
  */
 SUI.widget.Select.prototype._getSelectedIds = function() {
   var ids = [];
@@ -308,7 +308,7 @@ SUI.widget.Select.prototype._getSelectedIds = function() {
 
 /**
  * @param {number} id
- * @returns {undefined}
+ * @return {undefined}
  * @private
  */
 SUI.widget.Select.prototype._handleSelectedId = function(id) {
@@ -342,7 +342,7 @@ SUI.widget.Select.prototype._handleSelectedId = function(id) {
 /**
  * @private
  * @param {!Array} items
- * @returns {undefined}
+ * @return {undefined}
  */
 SUI.widget.Select.prototype._drawItems = function(items) {
   this.listNode.removeChildren();
@@ -364,7 +364,7 @@ SUI.widget.Select.prototype._drawItems = function(items) {
 
 /**
  * @private
- * @returns {undefined}
+ * @return {undefined}
  */
 SUI.widget.Select.prototype._drawSearchInput = function() {
   var searchParentNode = new SUI.Node('div');
@@ -399,7 +399,7 @@ SUI.widget.Select.prototype._drawSearchInput = function() {
 };
 
 /**
- * @returns {undefined}
+ * @return {undefined}
  */
 SUI.widget.Select.prototype.open = function() {
   this._search(this.query);
@@ -408,7 +408,7 @@ SUI.widget.Select.prototype.open = function() {
 };
 
 /**
- * @returns {undefined}
+ * @return {undefined}
  */
 SUI.widget.Select.prototype.close = function() {
   this.popup.close();
@@ -417,7 +417,7 @@ SUI.widget.Select.prototype.close = function() {
 /**
  * @private
  * @param {string} query
- * @returns {undefined}
+ * @return {undefined}
  */
 SUI.widget.Select.prototype._search = function(query) {
   this.query = query;

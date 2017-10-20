@@ -13,7 +13,7 @@ SUI.lib.ServiceWorker = function() {
 
 /**
  * @private
- * @returns {undefined}
+ * @return {undefined}
  */
 SUI.lib.ServiceWorker.prototype._init = function() {
   /*if ('serviceWorker' in navigator) {

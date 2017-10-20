@@ -29,7 +29,7 @@
  * @param {!Object} object
  * @param {!Array} attributes
  * @param {*} value
- * @returns {!Object}
+ * @return {!Object}
  */
 let _attributesToObject = function(object, attributes, value) {
   //TODO duplicated Object._attributesToObject function
@@ -125,7 +125,7 @@ SUI.debug = true;
 
 /**
  * @param {*} value
- * @returns {*}
+ * @return {*}
  */
 SUI.typeCast = function(value) {
   let result = value;
@@ -165,13 +165,13 @@ SUI.typeCast = function(value) {
  * @param {!Object} constructor
  * @param {!Array} args
  * @param {!Object=} opt_extendModule
- * @returns {!Object}
+ * @return {!Object}
  */
 SUI.invoke = function(constructor, args, opt_extendModule) {
   /**
    * @constructor
    * @this {SUI.Cls}
-   * @returns {!Object}
+   * @return {!Object}
    */
   SUI.Cls = function() {
     return constructor.apply(this, args);
@@ -191,7 +191,7 @@ SUI.invoke = function(constructor, args, opt_extendModule) {
 /**
  * @param {!Object} objA
  * @param {!Object} objB
- * @returns {!Object|undefined}
+ * @return {!Object|undefined}
  */
 SUI.merge = function(objA, objB) {
   let obj = SUI.copy(objA);
@@ -213,7 +213,7 @@ SUI.merge = function(objA, objB) {
  * @param {!Object|!Array=} opt_params
  * @param {string=} opt_prefix
  * @param {string=} opt_postfix
- * @returns {string}
+ * @return {string}
  */
 SUI.format = function(str, opt_params, opt_prefix = '\\{', opt_postfix = '\\}') {
   SUI.each(opt_params, (value, key) => {
@@ -226,7 +226,7 @@ SUI.format = function(str, opt_params, opt_prefix = '\\{', opt_postfix = '\\}') 
 /**
  * @param {*} value
  * @param {string} type
- * @returns {*}
+ * @return {*}
  */
 SUI.convert = function(value, type) {
   let result = value;
@@ -242,7 +242,7 @@ SUI.convert = function(value, type) {
 /**
  * @param {number} value
  * @param {string} type
- * @returns {number|string}
+ * @return {number|string}
  */
 SUI.convertNumber = function(value, type) {
   let result = value;
@@ -257,7 +257,7 @@ SUI.convertNumber = function(value, type) {
 /**
  * @param {string} value
  * @param {string} type
- * @returns {string|number}
+ * @return {string|number}
  */
 SUI.convertString = function(value, type) {
   let result = value;
@@ -275,7 +275,7 @@ SUI.convertString = function(value, type) {
 /**
  * @param {*} item
  * @param {*} value
- * @returns {*}
+ * @return {*}
  */
 
 SUI.defaultValue = function(item, value) {
@@ -284,7 +284,7 @@ SUI.defaultValue = function(item, value) {
 
 /**
  * @param {*=} opt_result
- * @returns {!Function}
+ * @return {!Function}
  */
 SUI.noop = function(opt_result) {
   return function() {
@@ -296,7 +296,7 @@ SUI.noop = function(opt_result) {
  * Equivalent
  * @param {*} a
  * @param {*} b
- * @returns {boolean}
+ * @return {boolean}
  */
 SUI.eq = function(a, b) {
   return a === b;
@@ -305,7 +305,7 @@ SUI.eq = function(a, b) {
 /**
  * @param {*} a
  * @param {*} b
- * @returns {boolean}
+ * @return {boolean}
  */
 SUI.neq = function(a, b) {
   return a !== b;
@@ -314,7 +314,7 @@ SUI.neq = function(a, b) {
 /**
  * @param {*} a
  * @param {*} b
- * @returns {boolean}
+ * @return {boolean}
  */
 SUI.gt = function(a, b) {
   return a > b;
@@ -323,7 +323,7 @@ SUI.gt = function(a, b) {
 /**
  * @param {*} a
  * @param {*} b
- * @returns {boolean}
+ * @return {boolean}
  */
 SUI.gte = function(a, b) {
   return a >= b;
@@ -332,7 +332,7 @@ SUI.gte = function(a, b) {
 /**
  * @param {*} a
  * @param {*} b
- * @returns {boolean}
+ * @return {boolean}
  */
 SUI.lt = function(a, b) {
   return a < b;
@@ -341,7 +341,7 @@ SUI.lt = function(a, b) {
 /**
  * @param {*} a
  * @param {*} b
- * @returns {boolean}
+ * @return {boolean}
  */
 SUI.lte = function(a, b) {
   return a <= b;
@@ -349,7 +349,7 @@ SUI.lte = function(a, b) {
 
 /**
  * @param {*} item
- * @returns {boolean}
+ * @return {boolean}
  */
 SUI.isArray = function(item) {
   return SUI.instanceOf(item, Array);
@@ -357,7 +357,7 @@ SUI.isArray = function(item) {
 
 /**
  * @param {*} item
- * @returns {boolean}
+ * @return {boolean}
  */
 SUI.isFunction = function(item) {
   return SUI.is(item, 'function');
@@ -365,7 +365,7 @@ SUI.isFunction = function(item) {
 
 /**
  * @param {*} item
- * @returns {boolean}
+ * @return {boolean}
  */
 SUI.isString = function(item) {
   return SUI.is(item, 'string');
@@ -373,7 +373,7 @@ SUI.isString = function(item) {
 
 /**
  * @param {*} item
- * @returns {boolean}
+ * @return {boolean}
  */
 SUI.isNumber = function(item) {
   return !isNaN(item);
@@ -381,7 +381,7 @@ SUI.isNumber = function(item) {
 
 /**
  * @param {*} item
- * @returns {boolean}
+ * @return {boolean}
  */
 SUI.isFloat = function(item) {
   return parseFloat(item) === item;
@@ -389,7 +389,7 @@ SUI.isFloat = function(item) {
 
 /**
  * @param {*} item
- * @returns {boolean}
+ * @return {boolean}
  */
 SUI.isInteger = function(item) {
   return parseInt(item, 0) === item;
@@ -397,7 +397,7 @@ SUI.isInteger = function(item) {
 
 /**
  * @param {*} item
- * @returns {boolean}
+ * @return {boolean}
  */
 SUI.isObject = function(item) {
   return SUI.is(item, 'object');
@@ -405,7 +405,7 @@ SUI.isObject = function(item) {
 
 /**
  * @param {*} item
- * @returns {boolean}
+ * @return {boolean}
  */
 SUI.isNull = function(item) {
   return (item === null);
@@ -413,7 +413,7 @@ SUI.isNull = function(item) {
 
 /**
  * @param {*} item
- * @returns {boolean}
+ * @return {boolean}
  */
 SUI.isUndefined = function(item) {
   return SUI.is(item, 'undefined');
@@ -421,7 +421,7 @@ SUI.isUndefined = function(item) {
 
 /**
  * @param {*} value
- * @returns {boolean}
+ * @return {boolean}
  */
 SUI.isFinite = function(value) {
   return isFinite(value);
@@ -430,7 +430,7 @@ SUI.isFinite = function(value) {
 /**
  * @param {*} item
  * @param {string} type
- * @returns {boolean}
+ * @return {boolean}
  */
 SUI.is = function(item, type) {
   return (typeof item === type);
@@ -439,7 +439,7 @@ SUI.is = function(item, type) {
 /**
  * @param {*} item
  * @param {!Object} object
- * @returns {boolean}
+ * @return {boolean}
  */
 SUI.instanceOf = function(item, object) {
   return item instanceof object;
@@ -450,7 +450,7 @@ SUI.instanceOf = function(item, object) {
  * @param {!Function} next
  * @param {number=} opt_start
  * @param {number=} opt_end
- * @returns {undefined}
+ * @return {undefined}
  */
 SUI.each = function(items, next, opt_start, opt_end) {
   if (SUI.isArray(items)) {
@@ -466,7 +466,7 @@ SUI.each = function(items, next, opt_start, opt_end) {
  * @param {!Function} next
  * @param {number=} opt_start
  * @param {number=} opt_end
- * @returns {undefined}
+ * @return {undefined}
  */
 SUI.eachArray = function(items, next, opt_start, opt_end) {
   opt_start = opt_start || 0;
@@ -479,7 +479,7 @@ SUI.eachArray = function(items, next, opt_start, opt_end) {
 /**
  * @param {!Object} object
  * @param {!Function} next
- * @returns {undefined}
+ * @return {undefined}
  */
 SUI.eachObject = function(object, next) {
   for (let key in object) {
@@ -494,7 +494,7 @@ SUI.eachObject = function(object, next) {
  * @param {number} i
  * @param {number} length
  * @param {number} duration
- * @returns {undefined}
+ * @return {undefined}
  */
 SUI.sleepEach = function(next, i, length, duration) {
   let loop = function() {
@@ -521,7 +521,7 @@ SUI.sleepEach = function(next, i, length, duration) {
 
 /**
  * @param {!Array|!Object} items
- * @returns {undefined}
+ * @return {undefined}
  */
 SUI.clear = function(items) {
   if (SUI.isArray(items)) {
@@ -534,7 +534,7 @@ SUI.clear = function(items) {
 
 /**
  * @param {!Array} items
- * @returns {undefined}
+ * @return {undefined}
  */
 SUI.clearArray = function(items) {
   items.splice(0, items.length);
@@ -542,7 +542,7 @@ SUI.clearArray = function(items) {
 
 /**
  * @param {!Object} items
- * @returns {undefined}
+ * @return {undefined}
  */
 SUI.clearObject = function(items) {
   for (let key in items) {
@@ -554,7 +554,7 @@ SUI.clearObject = function(items) {
 /**
  * @param {!Array} items
  * @param {*} item
- * @returns {boolean}
+ * @return {boolean}
  */
 SUI.inArray = function(items, item) {
   return items.indexOf(item) !== -1;
@@ -563,7 +563,7 @@ SUI.inArray = function(items, item) {
 /**
  * @param {string} str
  * @param {string} subStr
- * @returns {boolean}
+ * @return {boolean}
  */
 SUI.contain = function(str, subStr) {
   return str.indexOf(subStr) !== -1;
@@ -572,7 +572,7 @@ SUI.contain = function(str, subStr) {
 /**
  * @param {!Array} items
  * @param {*} item
- * @returns {undefined}
+ * @return {undefined}
  */
 SUI.remove = function(items, item) {
   let position = items.indexOf(item);
@@ -583,7 +583,7 @@ SUI.remove = function(items, item) {
 
 /**
  * @param {!Array|!Object} items
- * @returns {!Array|!Object|undefined}
+ * @return {!Array|!Object|undefined}
  */
 SUI.copy = function(items) {
   //TODO object, array copy
@@ -602,7 +602,7 @@ SUI.copy = function(items) {
 
 /**
  * @param {!Array|!Object} items
- * @returns {boolean}
+ * @return {boolean}
  */
 SUI.isEmpty = function(items) {
   let result = false;
@@ -622,7 +622,7 @@ SUI.isEmpty = function(items) {
 /**
  * @param {!Array} args
  * @param {!Function} callback
- * @returns {undefined}
+ * @return {undefined}
  */
 SUI.list = function(args, callback) {
   callback.apply(null, args);
@@ -632,7 +632,7 @@ SUI.list = function(args, callback) {
  * @param {number} min
  * @param {number} max
  * @param {boolean=} opt_onlyFloat
- * @returns {number}
+ * @return {number}
  */
 SUI.random = function(min, max, opt_onlyFloat) {
   let result;
@@ -647,7 +647,7 @@ SUI.random = function(min, max, opt_onlyFloat) {
 
 /**
  * @param {string} data
- * @returns {string}
+ * @return {string}
  */
 SUI.encodeBase64 = function(data) {
   return window.btoa(data);
@@ -655,7 +655,7 @@ SUI.encodeBase64 = function(data) {
 
 /**
  * @param {string} encodedData
- * @returns {string}
+ * @return {string}
  */
 SUI.decodeBase64 = function(encodedData) {
   return window.atob(encodedData);
@@ -663,7 +663,7 @@ SUI.decodeBase64 = function(encodedData) {
 
 /**
  * @param {string} str
- * @returns {string}
+ * @return {string}
  */
 SUI.capitalize = function(str) {
   return str.charAt(0).toUpperCase() + str.slice(1);
@@ -672,7 +672,7 @@ SUI.capitalize = function(str) {
 /**
  * @param {!Array} items
  * @param {string} attribute
- * @returns {!Array}
+ * @return {!Array}
  */
 SUI.pluck = function(items, attribute) {
   let results = [];
@@ -688,7 +688,7 @@ SUI.pluck = function(items, attribute) {
  * @param {string=} opt_delimiter
  * @param {string=} opt_separator
  * @param {number=} opt_precision
- * @returns {string}
+ * @return {string}
  */
 SUI.currency = function(price, opt_delimiter = ' ', opt_separator = ',', opt_precision = 0) {
   if (!price) {
@@ -709,7 +709,7 @@ SUI.currency = function(price, opt_delimiter = ' ', opt_separator = ',', opt_pre
 /**
  * @param {number} num
  * @param {number} exp
- * @returns {string}
+ * @return {string}
  */
 SUI.number = function(num, exp) {
   let si = [
@@ -735,7 +735,7 @@ SUI.number = function(num, exp) {
 
 /**
  * @param {!SUI.Node|!Element} node
- * @returns {undefined}
+ * @return {undefined}
  */
 SUI.mdl = function(node) {
   let element = node || document;
@@ -754,7 +754,7 @@ SUI.mdl = function(node) {
  * @param {string} type
  * @param {!Object} props
  * @param {!SUI.Node} mountNode
- * @returns {!Object}
+ * @return {!Object}
  */
 SUI.reactRender = function(type, props, mountNode) {
   return window['ReactDOM']['render'](
@@ -765,7 +765,7 @@ SUI.reactRender = function(type, props, mountNode) {
 
 /**
  * @param {!SUI.Node} mountNode
- * @returns {undefined}
+ * @return {undefined}
  */
 SUI.reactUnmount = function(mountNode) {
   window['ReactDOM']['unmountComponentAtNode'](mountNode.getNode());
@@ -774,7 +774,7 @@ SUI.reactUnmount = function(mountNode) {
 /**
  * @param {!Object} marker
  * @param {string} title
- * @returns {!Object}
+ * @return {!Object}
  */
 SUI.mapLabel = function(marker, title) {
   //https://github.com/googlemaps/js-map-label/blob/gh-pages/src/maplabel.js
@@ -794,7 +794,7 @@ SUI.mapLabel = function(marker, title) {
 /**
  * @param {*} value
  * @param {string} passPhrase
- * @returns {string}
+ * @return {string}
  */
 SUI.encrypt = function(value, passPhrase) {
   let item = JSON.stringify(value);
@@ -804,7 +804,7 @@ SUI.encrypt = function(value, passPhrase) {
 /**
  * @param {string} item
  * @param {string} passPhrase
- * @returns {*}
+ * @return {*}
  */
 SUI.decrypt = function(item, passPhrase) {
   let value = window['CryptoJS']['AES']['decrypt'](item, passPhrase)['toString'](window['CryptoJS']['enc']['Utf8']);
@@ -813,7 +813,7 @@ SUI.decrypt = function(item, passPhrase) {
 
 /**
  * @param {string} str
- * @returns {string}
+ * @return {string}
  */
 SUI.md5 = function(str) {
   return window['CryptoJS']['MD5'](str);
@@ -821,7 +821,7 @@ SUI.md5 = function(str) {
 
 /**
  * @param {string} name
- * @returns {string}
+ * @return {string}
  */
 SUI.generateId = function(name){
   var guid = SUI.guid();
@@ -831,7 +831,7 @@ SUI.generateId = function(name){
 /**
  * i6wolnd42rjg2nor7xdg5akv4p
  * https://github.com/LiosK/UUID.js
- * @returns {string}
+ * @return {string}
  */
 SUI.guid = function() {
   return Math.random().toString(36).substring(2, 15) + Math.random().toString(36).substring(2, 15);
@@ -840,7 +840,7 @@ SUI.guid = function() {
 /**
  * 778c4858-5a37-42c3-90e5-f9e4113fb97b
  * https://github.com/LiosK/UUID.js
- * @returns {string}
+ * @return {string}
  */
 SUI.uuid = function() {
   return [
@@ -857,7 +857,7 @@ SUI.uuid = function() {
  * @param {number} y
  * @param {number=} opt_duration
  * @param {number=} opt_step
- * @returns {undefined}
+ * @return {undefined}
  */
 SUI.scrollTo = function(x, y, opt_duration = 500, opt_step = 20) {
   clearInterval(SUI._scrollInterval);
@@ -883,7 +883,7 @@ SUI.scrollTo = function(x, y, opt_duration = 500, opt_step = 20) {
  * @param {string} selector
  * @param {number=} opt_duration
  * @param {number=} opt_step
- * @returns {undefined}
+ * @return {undefined}
  */
 SUI.scrollToElement = function(selector, opt_duration = 500, opt_step = 20) {
   let node = new SUI.Query(selector).getItem();
@@ -896,7 +896,7 @@ SUI.scrollToElement = function(selector, opt_duration = 500, opt_step = 20) {
  * @param {!Function} func
  * @param {number=} opt_wait
  * @param {boolean=} opt_immediate
- * @returns {!Function}
+ * @return {!Function}
  */
 SUI.debounce = function(func, opt_wait = 250, opt_immediate = false) {
   let timeout;
@@ -916,7 +916,7 @@ SUI.debounce = function(func, opt_wait = 250, opt_immediate = false) {
 /**
  * @param {string} url
  * @param {!Object=} opt_params
- * @returns {string}
+ * @return {string}
  */
 SUI.urlWithQueryString = function(url, opt_params) {
   let queryString = SUI.getQueryString(opt_params);
@@ -925,7 +925,7 @@ SUI.urlWithQueryString = function(url, opt_params) {
 
 /**
  * @param {!Object=} opt_params
- * @returns {string}
+ * @return {string}
  */
 SUI.getQueryString = function(opt_params) {
   let queries = [];
@@ -945,7 +945,7 @@ SUI.getQueryString = function(opt_params) {
 /**
  * @export
  * @param {string} url
- * @returns {string}
+ * @return {string}
  */
 SUI.getExtensionName = function(url){
   let realUrl = url.split('?', 2)[0];

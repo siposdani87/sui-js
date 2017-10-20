@@ -15,7 +15,7 @@ SUI.lib.TopMenu = function(header) {
 
 /**
  * @private
- * @returns {undefined}
+ * @return {undefined}
  */
 SUI.lib.TopMenu.prototype._init = function() {
   this.topMenu = new SUI.Query('#top-menu', this.header.headerNode).getItem();
@@ -28,7 +28,7 @@ SUI.lib.TopMenu.prototype._init = function() {
 };
 
 /**
- * @returns {undefined}
+ * @return {undefined}
  */
 SUI.lib.TopMenu.prototype.toggle = function() {
   if (this._isOpened()) {
@@ -40,14 +40,14 @@ SUI.lib.TopMenu.prototype.toggle = function() {
 };
 
 /**
- * @returns {boolean}
+ * @return {boolean}
  */
 SUI.lib.TopMenu.prototype._isOpened = function() {
   return this.topMenu.hasClass('visible-flex');
 };
 
 /**
- * @returns {undefined}
+ * @return {undefined}
  */
 SUI.lib.TopMenu.prototype.open = function() {
   this.header.open();
@@ -56,7 +56,7 @@ SUI.lib.TopMenu.prototype.open = function() {
 };
 
 /**
- * @returns {undefined}
+ * @return {undefined}
  */
 SUI.lib.TopMenu.prototype.close = function() {
   this.header.close();
@@ -65,7 +65,7 @@ SUI.lib.TopMenu.prototype.close = function() {
 };
 
 /**
- * @returns {!SUI.Node}
+ * @return {!SUI.Node}
  */
 SUI.lib.TopMenu.prototype.getContainer  = function(){
   return this.topMenu;

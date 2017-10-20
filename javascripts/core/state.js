@@ -28,7 +28,7 @@ SUI.State = function(routes, options) {
 /**
  * @private
  * @param {!Object} options
- * @returns {undefined}
+ * @return {undefined}
  */
 SUI.State.prototype._setOptions = function(options) {
   var _self = this;
@@ -51,7 +51,7 @@ SUI.State.prototype._setOptions = function(options) {
 
 /**
  * @private
- * @returns {undefined}
+ * @return {undefined}
  */
 SUI.State.prototype._init = function() {
   this._initPopstate();
@@ -60,7 +60,7 @@ SUI.State.prototype._init = function() {
 
 /**
  * @private
- * @returns {undefined}
+ * @return {undefined}
  */
 SUI.State.prototype._initPopstate = function() {
   window.addEventListener('popstate', function() {
@@ -78,7 +78,7 @@ SUI.State.prototype._initPopstate = function() {
 };
 
 /**
- * @returns {undefined}
+ * @return {undefined}
  */
 SUI.State.prototype.run = function() {
   this._triggerChange();
@@ -86,7 +86,7 @@ SUI.State.prototype.run = function() {
 
 /**
  * @private
- * @returns {undefined}
+ * @return {undefined}
  */
 SUI.State.prototype._parseHashTag = function() {
   var path = this.basePath === '#' ? window.location.hash : window.location.pathname.replace(this.basePath, '');
@@ -103,7 +103,7 @@ SUI.State.prototype._parseHashTag = function() {
  * @param {string} hashPath
  * @param {!Function} successCallback
  * @param {!Function} errorCallback
- * @returns {undefined}
+ * @return {undefined}
  */
 SUI.State.prototype._parseUrl = function(hashPath, successCallback, errorCallback) {
   var path = hashPath[0] === '#' ? hashPath.substr(1) : hashPath;
@@ -134,7 +134,7 @@ SUI.State.prototype._parseUrl = function(hashPath, successCallback, errorCallbac
  * @param {string} url
  * @param {!Object=} opt_params
  * @param {boolean=} opt_force
- * @returns {undefined}
+ * @return {undefined}
  */
 SUI.State.prototype._setHistory = function(state, url, opt_params, opt_force = false) {
   url = this.basePath + url;
@@ -158,7 +158,7 @@ SUI.State.prototype._setHistory = function(state, url, opt_params, opt_force = f
 
 /**
  * @private
- * @returns {undefined}
+ * @return {undefined}
  */
 SUI.State.prototype._triggerChange = function() {
   var currentState = /** @type {!SUI.Object} */ (this.getCurrent());
@@ -169,7 +169,7 @@ SUI.State.prototype._triggerChange = function() {
 /**
  * @private
  * @param {!SUI.Object} state
- * @returns {undefined}
+ * @return {undefined}
  */
 SUI.State.prototype._setCurrent = function(state) {
   this._previous = this._current;
@@ -178,7 +178,7 @@ SUI.State.prototype._setCurrent = function(state) {
 
 /**
  * @param {string=} opt_attribute
- * @returns {!SUI.Object|string}
+ * @return {!SUI.Object|string}
  */
 SUI.State.prototype.getCurrent = function(opt_attribute) {
   return /** @type {!SUI.Object|string} */ (this._current.get(opt_attribute));
@@ -186,7 +186,7 @@ SUI.State.prototype.getCurrent = function(opt_attribute) {
 
 /**
  * @param {string=} opt_attribute
- * @returns {!SUI.Object|string}
+ * @return {!SUI.Object|string}
  */
 SUI.State.prototype.getPrevious = function(opt_attribute) {
   return this._previous.get(opt_attribute);
@@ -196,7 +196,7 @@ SUI.State.prototype.getPrevious = function(opt_attribute) {
  * @param {string} id
  * @param {!Object=} opt_params
  * @param {boolean=} opt_force
- * @returns {undefined}
+ * @return {undefined}
  */
 SUI.State.prototype.go = function(id, opt_params, opt_force = false) {
   if (SUI.eq(id[0], '#') || SUI.eq(id[0], '/')) {
@@ -220,7 +220,7 @@ SUI.State.prototype.go = function(id, opt_params, opt_force = false) {
 /**
  * @param {!Object} state
  * @param {boolean=} opt_force
- * @returns {undefined}
+ * @return {undefined}
  */
 SUI.State.prototype.goState = function(state, opt_force = false) {
   this.go(state['id'], state['params'], opt_force);
@@ -228,7 +228,7 @@ SUI.State.prototype.goState = function(state, opt_force = false) {
 
 /**
  * @param {boolean=} opt_force
- * @returns {undefined}
+ * @return {undefined}
  */
 SUI.State.prototype.goHome = function(opt_force) {
   this.go(this.options.home.id, this.options.home.params, opt_force);
@@ -236,7 +236,7 @@ SUI.State.prototype.goHome = function(opt_force) {
 
 /**
  * @param {boolean=} opt_force
- * @returns {undefined}
+ * @return {undefined}
  */
 SUI.State.prototype.goRoot = function(opt_force) {
   this.go(this.options.root.id, this.options.root.params, opt_force);
@@ -244,7 +244,7 @@ SUI.State.prototype.goRoot = function(opt_force) {
 
 /**
  * @param {boolean=} opt_force
- * @returns {undefined}
+ * @return {undefined}
  */
 SUI.State.prototype.goMaintenance = function(opt_force) {
   this.go(this.options.maintenance.id, this.options.maintenance.params, opt_force);
@@ -254,7 +254,7 @@ SUI.State.prototype.goMaintenance = function(opt_force) {
  * @param {string} id
  * @param {!Object=} opt_params
  * @param {boolean=} opt_force
- * @returns {undefined}
+ * @return {undefined}
  */
 SUI.State.prototype.goBack = function(id, opt_params, opt_force = false){
   if (SUI.eq(window.history.length, 0)){
@@ -266,7 +266,7 @@ SUI.State.prototype.goBack = function(id, opt_params, opt_force = false){
 };
 
 /**
- * @returns {undefined}
+ * @return {undefined}
  */
 SUI.State.prototype.back = function() {
   window.history.back();
@@ -275,7 +275,7 @@ SUI.State.prototype.back = function() {
 /**
  * @param {string} url
  * @param {boolean=} opt_inTab
- * @returns {undefined}
+ * @return {undefined}
  */
 SUI.State.prototype.redirect = function(url, opt_inTab = false) {
   if (opt_inTab){
@@ -287,7 +287,7 @@ SUI.State.prototype.redirect = function(url, opt_inTab = false) {
 };
 
 /**
- * @returns {undefined}
+ * @return {undefined}
  */
 SUI.State.prototype.forward = function() {
   window.history.forward();
@@ -296,14 +296,14 @@ SUI.State.prototype.forward = function() {
 /**
  * @param {!SUI.Object} currentState
  * @param {!SUI.Object} previousState
- * @returns {undefined}
+ * @return {undefined}
  */
 SUI.State.prototype.eventChange = function(currentState, previousState) {
   console.warn('SUI.State.eventChange()', currentState, previousState);
 };
 
 /**
- * @returns {!SUI.Collection}
+ * @return {!SUI.Collection}
  */
 SUI.State.prototype.getRoutes = function() {
   return this.routes;
@@ -311,7 +311,7 @@ SUI.State.prototype.getRoutes = function() {
 
 /**
  * @param {!Object} properties
- * @returns {undefined}
+ * @return {undefined}
  */
 SUI.State.prototype.setParams = function(properties) {
   SUI.each(properties, function(value, name) {
@@ -322,7 +322,7 @@ SUI.State.prototype.setParams = function(properties) {
 /**
  * @param {string} name
  * @param {string} value
- * @returns {undefined}
+ * @return {undefined}
  */
 SUI.State.prototype.setParam = function(name, value) {
   var id = /** @type {string} */ (this.getCurrent('id'));
@@ -332,7 +332,7 @@ SUI.State.prototype.setParam = function(name, value) {
 };
 
 /**
- * @returns {!SUI.Object}
+ * @return {!SUI.Object}
  */
 SUI.State.prototype.getParams = function() {
   return /** @type {!SUI.Object} */ (this.getCurrent('params'));
@@ -341,7 +341,7 @@ SUI.State.prototype.getParams = function() {
 /**
  * @param {string} name
  * @param {*=} opt_defaultValue
- * @returns {string}
+ * @return {string}
  */
 SUI.State.prototype.getParam = function(name, opt_defaultValue) {
   var params = this.getParams();
@@ -349,14 +349,14 @@ SUI.State.prototype.getParam = function(name, opt_defaultValue) {
 };
 
 /**
- * @returns {undefined}
+ * @return {undefined}
  */
 SUI.State.prototype.reload = function() {
   window.location.reload();
 };
 
 /**
- * @returns {undefined}
+ * @return {undefined}
  */
 SUI.State.prototype.refresh = function() {
   this._triggerChange();

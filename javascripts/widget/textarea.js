@@ -21,7 +21,7 @@ goog.inherits(SUI.widget.Textarea, SUI.Widget);
 
 /**
  * @private
- * @returns {undefined}
+ * @return {undefined}
  */
 SUI.widget.Textarea.prototype._init = function() {
   this.inputBlock.addClass('textarea-widget');
@@ -42,7 +42,7 @@ SUI.widget.Textarea.prototype._init = function() {
 
 /**
  * @override
- * @returns {undefined}
+ * @return {undefined}
  */
 SUI.widget.Textarea.prototype.render = function() {
   this.inputBlock.addClass(['mdl-textfield', 'mdl-js-textfield', 'mdl-textfield--floating-label']);
@@ -57,7 +57,7 @@ SUI.widget.Textarea.prototype.render = function() {
 /**
  * @override
  * @param {!Function|boolean|number|string|null|undefined} value
- * @returns {undefined}
+ * @return {undefined}
  */
 SUI.widget.Textarea.prototype.setValue = function(value) {
   var inputNode = this.input.getNode();
@@ -67,7 +67,7 @@ SUI.widget.Textarea.prototype.setValue = function(value) {
 
 /**
  * @override
- * @returns {*}
+ * @return {*}
  */
 SUI.widget.Textarea.prototype.getValue = function() {
   var inputNode = this.input.getNode();

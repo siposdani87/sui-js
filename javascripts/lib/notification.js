@@ -17,7 +17,7 @@ SUI.lib.Notification = function(opt_options) {
 
 /**
  * @private
- * @returns {undefined}
+ * @return {undefined}
  */
 SUI.lib.Notification.prototype._init = function() {
   this.container = new SUI.Query(this.options.id).getItem();
@@ -26,7 +26,7 @@ SUI.lib.Notification.prototype._init = function() {
 /**
  * @private
  * @param {!Object=} opt_options
- * @returns {undefined}
+ * @return {undefined}
  */
 SUI.lib.Notification.prototype._setOptions = function(opt_options) {
   let _self = this;
@@ -44,7 +44,7 @@ SUI.lib.Notification.prototype._setOptions = function(opt_options) {
  * @param {number=} opt_duration
  * @param {?Function=} opt_closeCallback
  * @param {string=} opt_id
- * @returns {!SUI.Node}
+ * @return {!SUI.Node}
  */
 SUI.lib.Notification.prototype._getNotificationNode = function(type, message, opt_duration = 0, opt_closeCallback = null, opt_id = '') {
   let notificationNode = this.container.createElement('div');
@@ -63,7 +63,7 @@ SUI.lib.Notification.prototype._getNotificationNode = function(type, message, op
 /**
  * @param {!SUI.Node} notificationNode
  * @param {?Function=} opt_closeCallback
- * @returns {!SUI.Node}
+ * @return {!SUI.Node}
  */
 SUI.lib.Notification.prototype._getCloseButton = function(notificationNode, opt_closeCallback = null) {
   let buttonNode = notificationNode.createElement('button');
@@ -90,7 +90,7 @@ SUI.lib.Notification.prototype._getCloseButton = function(notificationNode, opt_
  * @param {number=} opt_duration
  * @param {?Function=} opt_closeCallback
  * @param {string=} opt_id
- * @returns {!SUI.Node}
+ * @return {!SUI.Node}
  */
 SUI.lib.Notification.prototype._add = function(type, message, opt_duration = 0, opt_closeCallback = null, opt_id = '') {
   this._removeNotificationNodes(opt_id);
@@ -124,7 +124,7 @@ SUI.lib.Notification.prototype._removeNotificationNodes = function(opt_id = '') 
 /**
  * @param {string} type
  * @param {?Function=} opt_closeCallback
- * @returns {boolean}
+ * @return {boolean}
  */
 SUI.lib.Notification.prototype._isCloseable = function(type, opt_closeCallback = null) {
   return this.options.closable.indexOf(type) !== -1 || SUI.isFunction(opt_closeCallback);
@@ -133,7 +133,7 @@ SUI.lib.Notification.prototype._isCloseable = function(type, opt_closeCallback =
 /**
  * @param {!SUI.Node} notification
  * @param {?Function=} opt_closeCallback
- * @returns {undefined}
+ * @return {undefined}
  */
 SUI.lib.Notification.prototype.remove = function(notification, opt_closeCallback = null) {
   if (SUI.isFunction(opt_closeCallback)) {
@@ -147,7 +147,7 @@ SUI.lib.Notification.prototype.remove = function(notification, opt_closeCallback
  * @param {number=} opt_duration
  * @param {?Function=} opt_closeCallback
  * @param {string=} opt_id
- * @returns {!SUI.Node}
+ * @return {!SUI.Node}
  */
 SUI.lib.Notification.prototype.addSuccess = function(message, opt_duration = 0, opt_closeCallback = null, opt_id = '') {
   return this._add('success', message, opt_duration, opt_closeCallback, opt_id);
@@ -158,7 +158,7 @@ SUI.lib.Notification.prototype.addSuccess = function(message, opt_duration = 0, 
  * @param {number=} opt_duration
  * @param {?Function=} opt_closeCallback
  * @param {string=} opt_id
- * @returns {!SUI.Node}
+ * @return {!SUI.Node}
  */
 SUI.lib.Notification.prototype.addInfo = function(message, opt_duration = 0, opt_closeCallback = null, opt_id = '') {
   return this._add('notice', message, opt_duration, opt_closeCallback, opt_id);
@@ -169,7 +169,7 @@ SUI.lib.Notification.prototype.addInfo = function(message, opt_duration = 0, opt
  * @param {number=} opt_duration
  * @param {?Function=} opt_closeCallback
  * @param {string=} opt_id
- * @returns {!SUI.Node}
+ * @return {!SUI.Node}
  */
 SUI.lib.Notification.prototype.addWarning = function(message, opt_duration = 0, opt_closeCallback = null, opt_id = '') {
   return this._add('warning', message, opt_duration, opt_closeCallback, opt_id);
@@ -180,7 +180,7 @@ SUI.lib.Notification.prototype.addWarning = function(message, opt_duration = 0, 
  * @param {number=} opt_duration
  * @param {?Function=} opt_closeCallback
  * @param {string=} opt_id
- * @returns {!SUI.Node}
+ * @return {!SUI.Node}
  */
 SUI.lib.Notification.prototype.addError = function(message, opt_duration = 0, opt_closeCallback = null, opt_id = '') {
   return this._add('error', message, opt_duration, opt_closeCallback, opt_id);
@@ -191,7 +191,7 @@ SUI.lib.Notification.prototype.addError = function(message, opt_duration = 0, op
  * @param {number=} opt_duration
  * @param {?Function=} opt_closeCallback
  * @param {string=} opt_id
- * @returns {undefined}
+ * @return {undefined}
  */
 SUI.lib.Notification.prototype.addMessage = function(message, opt_duration = 0, opt_closeCallback = null, opt_id = '') {
   if (SUI.isObject(message)) {
@@ -205,7 +205,7 @@ SUI.lib.Notification.prototype.addMessage = function(message, opt_duration = 0, 
  * @param {number=} opt_duration
  * @param {?Function=} opt_closeCallback
  * @param {string=} opt_id
- * @returns {!SUI.Node}
+ * @return {!SUI.Node}
  */
 SUI.lib.Notification.prototype.addContent = function(node, opt_duration = 0, opt_closeCallback = null, opt_id = '') {
   return this._add('', node.toString(), opt_duration, opt_closeCallback, opt_id);

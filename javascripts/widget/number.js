@@ -21,7 +21,7 @@ goog.inherits(SUI.widget.Number, SUI.Widget);
 
 /**
  * @private
- * @returns {undefined}
+ * @return {undefined}
  */
 SUI.widget.Number.prototype._init = function() {
   this.inputBlock.addClass('number-widget');
@@ -46,7 +46,7 @@ SUI.widget.Number.prototype._init = function() {
 
 /**
  * @private
- * @returns {undefined}
+ * @return {undefined}
  */
 SUI.widget.Number.prototype._initButtons = function() {
   var upButton = new SUI.Node('a');
@@ -76,7 +76,7 @@ SUI.widget.Number.prototype._initButtons = function() {
 
 /**
  * @private
- * @returns {undefined}
+ * @return {undefined}
  */
 SUI.widget.Number.prototype._checkValue = function() {
   var value = /** @type {number} */ (this.getValue());
@@ -92,7 +92,7 @@ SUI.widget.Number.prototype._checkValue = function() {
 
 /**
  * @private
- * @returns {number}
+ * @return {number}
  */
 SUI.widget.Number.prototype._getMax = function() {
   var max = this.input.getAttribute('max') || 9999999999;
@@ -101,7 +101,7 @@ SUI.widget.Number.prototype._getMax = function() {
 
 /**
  * @private
- * @returns {number}
+ * @return {number}
  */
 SUI.widget.Number.prototype._getMin = function() {
   var min = this.input.getAttribute('min') || 0;
@@ -110,7 +110,7 @@ SUI.widget.Number.prototype._getMin = function() {
 
 /**
  * @private
- * @returns {number}
+ * @return {number}
  */
 SUI.widget.Number.prototype._getStep = function() {
   var step = this.input.getAttribute('step') || 1;
@@ -120,7 +120,7 @@ SUI.widget.Number.prototype._getStep = function() {
 
 /**
  * @override
- * @returns {undefined}
+ * @return {undefined}
  */
 SUI.widget.Number.prototype.render = function() {
   this.inputBlock.addClass(['mdl-textfield', 'mdl-js-textfield', 'mdl-textfield--floating-label']);

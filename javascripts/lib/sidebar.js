@@ -15,7 +15,7 @@ SUI.lib.Sidebar = function(selector) {
 
 /**
  * @private
- * @returns {undefined}
+ * @return {undefined}
  */
 SUI.lib.Sidebar.prototype._init = function() {
   this.sidebar = new SUI.Query(this.selector).getItem();
@@ -27,7 +27,7 @@ SUI.lib.Sidebar.prototype._init = function() {
 };
 
 /**
- * @returns {undefined}
+ * @return {undefined}
  */
 SUI.lib.Sidebar.prototype.toggle = function() {
   var isOpened = this.sidebar.hasClass('open');
@@ -40,28 +40,28 @@ SUI.lib.Sidebar.prototype.toggle = function() {
 };
 
 /**
- * @returns {undefined}
+ * @return {undefined}
  */
 SUI.lib.Sidebar.prototype.open = function() {
   this.sidebar.addClass('open');
 };
 
 /**
- * @returns {undefined}
+ * @return {undefined}
  */
 SUI.lib.Sidebar.prototype.close = function() {
   this.sidebar.removeClass('open');
 };
 
 /**
- * @returns {undefined}
+ * @return {undefined}
  */
 SUI.lib.Sidebar.prototype.show = function() {
   this.sidebar.removeClass('hidden');
 };
 
 /**
- * @returns {undefined}
+ * @return {undefined}
  */
 SUI.lib.Sidebar.prototype.hide = function() {
   this.sidebar.addClass('hidden');
@@ -70,7 +70,7 @@ SUI.lib.Sidebar.prototype.hide = function() {
 /**
  * @param {number} scrollTop
  * @param {number} windowHeight
- * @returns {undefined}
+ * @return {undefined}
  */
 SUI.lib.Sidebar.prototype.setButtonPosition = function(scrollTop, windowHeight) {
   var height = Math.round(scrollTop + (windowHeight / 2));

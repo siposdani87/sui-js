@@ -19,7 +19,7 @@ SUI.Day = function (date, currentDate, options) {
 /**
  * @private
  * @param {!Object} options
- * @returns {undefined}
+ * @return {undefined}
  */
 SUI.Day.prototype._setOptions = function (options) {
     this.options = options;
@@ -27,7 +27,7 @@ SUI.Day.prototype._setOptions = function (options) {
 
 /**
  * @private
- * @returns {undefined}
+ * @return {undefined}
  */
 SUI.Day.prototype._init = function () {
     var current = window['moment'](this.date)['isSame'](this.currentDate['format']('YYYY-MM-DD')) ? 'current' : null;
@@ -36,7 +36,7 @@ SUI.Day.prototype._init = function () {
 };
 
 /**
- * @returns {!SUI.Node}
+ * @return {!SUI.Node}
  */
 SUI.Day.prototype.getNode = function () {
   var node = new SUI.Node('span');

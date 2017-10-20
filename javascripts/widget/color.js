@@ -26,7 +26,7 @@ goog.inherits(SUI.widget.Color, SUI.Widget);
 
 /**
  * @private
- * @returns {undefined}
+ * @return {undefined}
  */
 SUI.widget.Color.prototype._init = function() {
 
@@ -48,7 +48,7 @@ SUI.widget.Color.prototype.render = function() {
 
 /**
  * @private
- * @returns {undefined}
+ * @return {undefined}
  */
 SUI.widget.Color.prototype._initInput = function() {
   this.input.addClass('hidden');
@@ -65,7 +65,7 @@ SUI.widget.Color.prototype._initInput = function() {
 
 /**
  * @private
- * @returns {undefined}
+ * @return {undefined}
  */
 SUI.widget.Color.prototype._initPreview = function() {
   this.preview = new SUI.Node('div');
@@ -86,7 +86,7 @@ SUI.widget.Color.prototype._initPreview = function() {
 
 /**
  * @private
- * @returns {undefined}
+ * @return {undefined}
  */
 SUI.widget.Color.prototype._draw = function() {
   if (!this.image.isEmpty()) {
@@ -114,7 +114,7 @@ SUI.widget.Color.prototype._draw = function() {
 
 /**
  * @private
- * @returns {undefined}
+ * @return {undefined}
  */
 SUI.widget.Color.prototype._initImage = function() {
   this.image = new SUI.Query('img', this.inputBlock).getItem();
@@ -150,7 +150,7 @@ SUI.widget.Color.prototype._initImage = function() {
 
 /**
  * @param {number} c
- * @returns {string}
+ * @return {string}
  */
 SUI.widget.Color.prototype.componentToHex = function(c) {
   var hex = c.toString(16);
@@ -159,7 +159,7 @@ SUI.widget.Color.prototype.componentToHex = function(c) {
 
 /**
  * @param {!Array} rgb
- * @returns {string}
+ * @return {string}
  */
 SUI.widget.Color.prototype.rgbToHex = function(rgb) {
   var red = this.componentToHex(rgb[0]);
@@ -170,7 +170,7 @@ SUI.widget.Color.prototype.rgbToHex = function(rgb) {
 
 /**
  * @param {string} hex
- * @returns {!Object}
+ * @return {!Object}
  */
 SUI.widget.Color.prototype.hexToRgb = function(hex) {
   hex = hex.replace(/^#?([a-f\d])([a-f\d])([a-f\d])$/i, function(m, r, g, b) {
@@ -182,7 +182,7 @@ SUI.widget.Color.prototype.hexToRgb = function(hex) {
 
 /**
  * @private
- * @returns {undefined}
+ * @return {undefined}
  */
 SUI.widget.Color.prototype._setMaterialColors = function() {
 

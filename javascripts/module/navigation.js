@@ -21,7 +21,7 @@ SUI.Navigation = function(opt_http, opt_options) {
 /**
  * @private
  * @param {!Object=} opt_options
- * @returns {undefined}
+ * @return {undefined}
  */
 SUI.Navigation.prototype._setOptions = function(opt_options) {
   var _self = this;
@@ -31,7 +31,7 @@ SUI.Navigation.prototype._setOptions = function(opt_options) {
 
 /**
  * @private
- * @returns {undefined}
+ * @return {undefined}
  */
 SUI.Navigation.prototype._init = function() {
   this.container = /** @type {!SUI.Collection<!SUI.Object>} */ (new SUI.Collection());
@@ -39,7 +39,7 @@ SUI.Navigation.prototype._init = function() {
 
 /**
  * @param {!SUI.Object} item
- * @returns {undefined}
+ * @return {undefined}
  */
 SUI.Navigation.prototype.add = function(item) {
   var id = /** @type {string} */ (item.get('id'));
@@ -69,7 +69,7 @@ SUI.Navigation.prototype.add = function(item) {
  * @param {?string} title
  * @param {!Function} action
  * @param {!Object=} opt_data
- * @returns {undefined}
+ * @return {undefined}
  */
 SUI.Navigation.prototype.addIcon = function(id, icon, title, action, opt_data) {
   var item = this._setItem(id, title, action, opt_data);
@@ -91,7 +91,7 @@ SUI.Navigation.prototype.addIcon = function(id, icon, title, action, opt_data) {
  * @param {?string} title
  * @param {!Function} action
  * @param {!Object=} opt_data
- * @returns {undefined}
+ * @return {undefined}
  */
 SUI.Navigation.prototype.addImage = function(id, image, title, action, opt_data) {
   var item = this._setItem(id, title, action, opt_data);
@@ -123,7 +123,7 @@ SUI.Navigation.prototype.addImage = function(id, image, title, action, opt_data)
  * @param {string} title
  * @param {!Function} action
  * @param {!Object=} opt_data
- * @returns {undefined}
+ * @return {undefined}
  */
 SUI.Navigation.prototype.addText = function(id, title, action, opt_data) {
   this._setItem(id, title, action, opt_data);
@@ -135,7 +135,7 @@ SUI.Navigation.prototype.addText = function(id, title, action, opt_data) {
  * @param {?string} title
  * @param {!Function} action
  * @param {!Object=} opt_data
- * @returns {!SUI.Object}
+ * @return {!SUI.Object}
  */
 SUI.Navigation.prototype._setItem = function(id, title, action, opt_data) {
   var node = new SUI.Node('a');
@@ -165,7 +165,7 @@ SUI.Navigation.prototype._setItem = function(id, title, action, opt_data) {
 
 /**
  * @param {!Function} next
- * @returns {undefined}
+ * @return {undefined}
  */
 SUI.Navigation.prototype.each = function(next) {
   this.container.each(function(item){
@@ -175,7 +175,7 @@ SUI.Navigation.prototype.each = function(next) {
 
 /**
  * @param {!SUI.Node} containerNode
- * @returns {undefined}
+ * @return {undefined}
  */
 SUI.Navigation.prototype.bindToContainer = function(containerNode) {
   containerNode.removeChildren();
@@ -187,7 +187,7 @@ SUI.Navigation.prototype.bindToContainer = function(containerNode) {
 
 /**
  * @param {string} id
- * @returns {undefined}
+ * @return {undefined}
  */
 SUI.Navigation.prototype.setDisabled = function(id) {
   var item = this.container.findById(id);
@@ -199,7 +199,7 @@ SUI.Navigation.prototype.setDisabled = function(id) {
 /**
  * @private
  * @param {!SUI.Object} item
- * @returns {undefined}
+ * @return {undefined}
  */
 SUI.Navigation.prototype._disabled = function(item) {
   var node = item.get('node');
@@ -209,7 +209,7 @@ SUI.Navigation.prototype._disabled = function(item) {
 
 /**
  * @param {string} id
- * @returns {undefined}
+ * @return {undefined}
  */
 SUI.Navigation.prototype.setEnabled = function(id) {
   var item = this.container.findById(id);
@@ -221,7 +221,7 @@ SUI.Navigation.prototype.setEnabled = function(id) {
 /**
  * @private
  * @param {!SUI.Object} item
- * @returns {undefined}
+ * @return {undefined}
  */
 SUI.Navigation.prototype._enabled = function(item) {
   this._disabled(item);
@@ -233,7 +233,7 @@ SUI.Navigation.prototype._enabled = function(item) {
 
 /**
  * @param {string} id
- * @returns {undefined}
+ * @return {undefined}
  */
 SUI.Navigation.prototype.setActive = function(id) {
   this.each(function(item){
@@ -247,7 +247,7 @@ SUI.Navigation.prototype.setActive = function(id) {
 };
 
 /**
- * @returns {undefined}
+ * @return {undefined}
  */
 SUI.Navigation.prototype.setAllInactive = function() {
   this.each((item) => {
@@ -258,7 +258,7 @@ SUI.Navigation.prototype.setAllInactive = function() {
 
 /**
  * @param {string} id
- * @returns {undefined}
+ * @return {undefined}
  */
 SUI.Navigation.prototype.show = function(id) {
   var item = this.container.findById(id);
@@ -271,7 +271,7 @@ SUI.Navigation.prototype.show = function(id) {
 
 /**
  * @param {string} id
- * @returns {undefined}
+ * @return {undefined}
  */
 SUI.Navigation.prototype.hide = function(id) {
   var item = this.container.findById(id);

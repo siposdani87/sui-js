@@ -47,7 +47,7 @@ SUI.App = function(options, resources) {
 /**
  * @private
  * @param {!Object} options
- * @returns {undefined}
+ * @return {undefined}
  */
 SUI.App.prototype._setOptions = function(options) {
   let _self = this;
@@ -63,7 +63,7 @@ SUI.App.prototype._setOptions = function(options) {
 /**
  * @private
  * @param {!Object} resources
- * @returns {undefined}
+ * @return {undefined}
  */
 SUI.App.prototype._init = function(resources) {
 
@@ -115,7 +115,7 @@ SUI.App.prototype._init = function(resources) {
 
 /**
  * @private
- * @returns {string}
+ * @return {string}
  */
 SUI.App.prototype._getLanguage = function(){
   return this.options.locale.split('-', 2)[0];
@@ -123,7 +123,7 @@ SUI.App.prototype._getLanguage = function(){
 
 /**
  * @private
- * @returns {undefined}
+ * @return {undefined}
  */
 SUI.App.prototype._initModule = function() {
   this._module = new SUI.Module(this);
@@ -175,7 +175,7 @@ SUI.App.prototype._initModule = function() {
 
 /**
  * @private
- * @returns {undefined}
+ * @return {undefined}
  */
 SUI.App.prototype._handleModules = function() {
   this._module.load(this._instances, this._injections);
@@ -183,7 +183,7 @@ SUI.App.prototype._handleModules = function() {
 
 /**
  * @private
- * @returns {undefined}
+ * @return {undefined}
  */
 SUI.App.prototype._initScript = function(){
   this._instances[this._injections.script] = new SUI.lib.Script(this._instances[this._injections.progressBar]);
@@ -191,7 +191,7 @@ SUI.App.prototype._initScript = function(){
 
 /**
  * @private
- * @returns {undefined}
+ * @return {undefined}
  */
 SUI.App.prototype._initStyle = function() {
   this._instances[this._injections.style] = new SUI.lib.Style(this._instances[this._injections.progressBar]);
@@ -199,7 +199,7 @@ SUI.App.prototype._initStyle = function() {
 
 /**
  * @private
- * @returns {undefined}
+ * @return {undefined}
  */
 SUI.App.prototype._initConsole = function(){
   this._instances[this._injections.console] = new SUI.lib.Console(this._instances[this._injections.config]);
@@ -207,7 +207,7 @@ SUI.App.prototype._initConsole = function(){
 
 /**
  * @private
- * @returns {undefined}
+ * @return {undefined}
  */
 SUI.App.prototype._initConfig = function(){
   this._instances[this._injections.config] = this.options;
@@ -215,7 +215,7 @@ SUI.App.prototype._initConfig = function(){
 
 /**
  * @private
- * @returns {undefined}
+ * @return {undefined}
  */
 SUI.App.prototype._initGeoLocation = function() {
   this._instances[this._injections.geoLocation] = new SUI.lib.GeoLocation();
@@ -236,7 +236,7 @@ SUI.App.prototype._initGeoLocation = function() {
 
 /**
  * @private
- * @returns {undefined}
+ * @return {undefined}
  */
 SUI.App.prototype._initCookie = function() {
   this._instances[this._injections.cookie] = new SUI.lib.Cookie();
@@ -244,7 +244,7 @@ SUI.App.prototype._initCookie = function() {
 
 /**
  * @private
- * @returns {undefined}
+ * @return {undefined}
  */
 SUI.App.prototype._initLoader = function() {
   this._instances[this._injections.loader] = new SUI.lib.Loader();
@@ -252,7 +252,7 @@ SUI.App.prototype._initLoader = function() {
 
 /**
  * @private
- * @returns {undefined}
+ * @return {undefined}
  */
 SUI.App.prototype._initProgressBar = function() {
   this._instances[this._injections.progressBar] = new SUI.lib.ProgressBar();
@@ -260,7 +260,7 @@ SUI.App.prototype._initProgressBar = function() {
 
 /**
  * @private
- * @returns {undefined}
+ * @return {undefined}
  */
 SUI.App.prototype._initStorage = function() {
   this._instances[this._injections.localStorage] = new SUI.lib.Storage({
@@ -275,7 +275,7 @@ SUI.App.prototype._initStorage = function() {
 
 /**
  * @private
- * @returns {undefined}
+ * @return {undefined}
  */
 SUI.App.prototype._initHelper = function() {
   this._instances[this._injections.helper] = new SUI.lib.Helper();
@@ -283,7 +283,7 @@ SUI.App.prototype._initHelper = function() {
 
 /**
  * @private
- * @returns {undefined}
+ * @return {undefined}
  */
 SUI.App.prototype._initDocument = function() {
   let popup = new SUI.Popup();
@@ -296,7 +296,7 @@ SUI.App.prototype._initDocument = function() {
 
 /**
  * @private
- * @returns {undefined}
+ * @return {undefined}
  */
 SUI.App.prototype._initWindow = function() {
   this._instances[this._injections.window] = new SUI.lib.Window();
@@ -342,7 +342,7 @@ SUI.App.prototype._initWindow = function() {
 
 /**
  * @private
- * @returns {undefined}
+ * @return {undefined}
  */
 SUI.App.prototype._initEvent = function() {
   this._instances[this._injections.event] = new SUI.lib.Event();
@@ -350,7 +350,7 @@ SUI.App.prototype._initEvent = function() {
 
 /**
  * @private
- * @returns {undefined}
+ * @return {undefined}
  */
 SUI.App.prototype._initHttp = function() {
   this._instances[this._injections.http] = new SUI.lib.Http(this.options);
@@ -366,7 +366,7 @@ SUI.App.prototype._initHttp = function() {
 
 /**
  * @private
- * @returns {undefined}
+ * @return {undefined}
  */
 SUI.App.prototype._initTemplate = function() {
   this._instances[this._injections.template] = new SUI.lib.Template(this._instances[this._injections.http]);
@@ -378,7 +378,7 @@ SUI.App.prototype._initTemplate = function() {
 
 /**
  * @private
- * @returns {undefined}
+ * @return {undefined}
  */
 SUI.App.prototype._initNotification = function() {
   this._instances[this._injections.notification] = new SUI.lib.Notification();
@@ -386,7 +386,7 @@ SUI.App.prototype._initNotification = function() {
 
 /**
  * @private
- * @returns {undefined}
+ * @return {undefined}
  */
 SUI.App.prototype._initDialog = function() {
   this._instances[this._injections.dialog] = new SUI.lib.Dialog(this._instances[this._injections.http]);
@@ -394,7 +394,7 @@ SUI.App.prototype._initDialog = function() {
 
 /**
  * @private
- * @returns {undefined}
+ * @return {undefined}
  */
 SUI.App.prototype._initConfirm = function() {
   this._instances[this._injections.confirm] = new SUI.lib.Confirm();
@@ -402,7 +402,7 @@ SUI.App.prototype._initConfirm = function() {
 
 /**
  * @private
- * @returns {undefined}
+ * @return {undefined}
  */
 SUI.App.prototype._initHeader = function() {
   this._instances[this._injections.header] = new SUI.lib.Header();
@@ -410,7 +410,7 @@ SUI.App.prototype._initHeader = function() {
 
 /**
  * @private
- * @returns {undefined}
+ * @return {undefined}
  */
 SUI.App.prototype._initTopMenu = function() {
   this._instances[this._injections.topMenu] = new SUI.lib.TopMenu(this._instances[this._injections.header]);
@@ -418,7 +418,7 @@ SUI.App.prototype._initTopMenu = function() {
 
 /**
  * @private
- * @returns {undefined}
+ * @return {undefined}
  */
 SUI.App.prototype._initNavBar = function() {
   this._instances[this._injections.navBar] = new SUI.lib.NavBar();
@@ -426,7 +426,7 @@ SUI.App.prototype._initNavBar = function() {
 
 /**
  * @private
- * @returns {undefined}
+ * @return {undefined}
  */
 SUI.App.prototype._initBottomMenu = function() {
   this._instances[this._injections.bottomMenu] = new SUI.lib.BottomMenu(this._instances[this._injections.footer]);
@@ -434,7 +434,7 @@ SUI.App.prototype._initBottomMenu = function() {
 
 /**
  * @private
- * @returns {undefined}
+ * @return {undefined}
  */
 SUI.App.prototype._initSidebar = function() {
   this._instances[this._injections.leftSidebar] = new SUI.lib.Sidebar('#left-sidebar');
@@ -444,7 +444,7 @@ SUI.App.prototype._initSidebar = function() {
 
 /**
  * @private
- * @returns {undefined}
+ * @return {undefined}
  */
 SUI.App.prototype._initLeftMenu = function() {
   this._instances[this._injections.leftMenu] = new SUI.lib.LeftMenu();
@@ -452,7 +452,7 @@ SUI.App.prototype._initLeftMenu = function() {
 
 /**
  * @private
- * @returns {undefined}
+ * @return {undefined}
  */
 SUI.App.prototype._initFooter = function() {
   this._instances[this._injections.footer] = new SUI.lib.Footer();
@@ -460,7 +460,7 @@ SUI.App.prototype._initFooter = function() {
 
 /**
  * @private
- * @returns {undefined}
+ * @return {undefined}
  */
 SUI.App.prototype._initBrowser = function() {
   this._instances[this._injections.browser] = new SUI.lib.Browser();
@@ -471,7 +471,7 @@ SUI.App.prototype._initBrowser = function() {
 
 /**
  * @private
- * @returns {undefined}
+ * @return {undefined}
  */
 SUI.App.prototype._initAppCache = function() {
   this._instances[this._injections.appCache] = new SUI.lib.AppCache();
@@ -482,7 +482,7 @@ SUI.App.prototype._initAppCache = function() {
 
 /**
  * @private
- * @returns {undefined}
+ * @return {undefined}
  */
 SUI.App.prototype._initServiceWorker = function() {
   this._instances[this._injections.serviceWorker] = new SUI.lib.ServiceWorker();
@@ -493,7 +493,7 @@ SUI.App.prototype._initServiceWorker = function() {
 
 /**
  * @private
- * @returns {undefined}
+ * @return {undefined}
  */
 SUI.App.prototype._initRoutes = function() {
   this._routes = [];
@@ -507,7 +507,7 @@ SUI.App.prototype._initRoutes = function() {
  * @param {string} controller
  * @param {?string=} opt_template
  * @param {!Object=} opt_params
- * @returns {undefined}
+ * @return {undefined}
  */
 SUI.App.prototype.addState = function(id, title, url, controller, opt_template = null, opt_params = {}) {
   let state = new SUI.Object(opt_params);
@@ -522,7 +522,7 @@ SUI.App.prototype.addState = function(id, title, url, controller, opt_template =
 /**
  * @param {string} id
  * @param {!Object=} opt_params
- * @returns {undefined}
+ * @return {undefined}
  */
 SUI.App.prototype.setRootState = function(id, opt_params) {
   this._routeOptions.set('root.id', id);
@@ -532,7 +532,7 @@ SUI.App.prototype.setRootState = function(id, opt_params) {
 /**
  * @param {string} id
  * @param {!Object=} opt_params
- * @returns {undefined}
+ * @return {undefined}
  */
 SUI.App.prototype.setHomeState = function(id, opt_params) {
   this._routeOptions.set('home.id', id);
@@ -542,7 +542,7 @@ SUI.App.prototype.setHomeState = function(id, opt_params) {
 /**
  * @param {string} id
  * @param {!Object=} opt_params
- * @returns {undefined}
+ * @return {undefined}
  */
 SUI.App.prototype.setMaintenanceState = function(id, opt_params) {
   this._routeOptions.set('maintenance.id', id);
@@ -551,14 +551,14 @@ SUI.App.prototype.setMaintenanceState = function(id, opt_params) {
 
 /**
  * @param {string} name
- * @returns {?Object}
+ * @return {?Object}
  */
 SUI.App.prototype.getInstance = function(name){
   return this._instances[name];
 };
 
 /**
- * @returns {?Object}
+ * @return {?Object}
  */
 SUI.App.prototype.getController = function() {
   return this._module.getController();
@@ -566,7 +566,7 @@ SUI.App.prototype.getController = function() {
 
 /**
  * @export
- * @returns {undefined}
+ * @return {undefined}
  */
 SUI.App.prototype.run = function() {
   if (this.options.development) {

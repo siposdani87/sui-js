@@ -21,7 +21,7 @@ goog.inherits(SUI.widget.Url, SUI.Widget);
 
 /**
  * @private
- * @returns {undefined}
+ * @return {undefined}
  */
 SUI.widget.Url.prototype._init = function() {
   this.inputBlock.addClass('url-widget');
@@ -44,7 +44,7 @@ SUI.widget.Url.prototype._init = function() {
 
 /**
  * @override
- * @returns {undefined}
+ * @return {undefined}
  */
 SUI.widget.Url.prototype.render = function() {
   this.inputBlock.addClass(['mdl-textfield', 'mdl-js-textfield', 'mdl-textfield--floating-label']);

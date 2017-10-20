@@ -18,7 +18,7 @@ SUI.Clock = function(node, options) {
 /**
  * @private
  * @param {!Object} options
- * @returns {undefined}
+ * @return {undefined}
  */
 SUI.Clock.prototype._setOptions = function(options) {
   this.options = options;
@@ -26,7 +26,7 @@ SUI.Clock.prototype._setOptions = function(options) {
 
 /**
  * @private
- * @returns {undefined}
+ * @return {undefined}
  */
 SUI.Clock.prototype._init = function() {
   this.modes = ['HOUR', 'MINUTE'];
@@ -42,7 +42,7 @@ SUI.Clock.prototype._init = function() {
  * @private
  * @param {!Function} hourFun
  * @param {!Function} minuteFun
- * @returns {undefined}
+ * @return {undefined}
  */
 SUI.Clock.prototype._switchMode = function(hourFun, minuteFun) {
   var result = null;
@@ -61,7 +61,7 @@ SUI.Clock.prototype._switchMode = function(hourFun, minuteFun) {
 
 /**
  * @private
- * @returns {undefined}
+ * @return {undefined}
  */
 SUI.Clock.prototype._initStructure = function() {
   this._initHeaderNode();
@@ -73,7 +73,7 @@ SUI.Clock.prototype._initStructure = function() {
 
 /**
  * @private
- * @returns {undefined}
+ * @return {undefined}
  */
 SUI.Clock.prototype._initHeaderNode = function() {
   this.headerNode = new SUI.Node('div');
@@ -88,7 +88,7 @@ SUI.Clock.prototype._initHeaderNode = function() {
 
 /**
  * @private
- * @returns {undefined}
+ * @return {undefined}
  */
 SUI.Clock.prototype._initPeriodHeaderNode = function() {
   this.periodHeaderNode = new SUI.Node('div');
@@ -99,7 +99,7 @@ SUI.Clock.prototype._initPeriodHeaderNode = function() {
 
 /**
  * @private
- * @returns {undefined}
+ * @return {undefined}
  */
 SUI.Clock.prototype._togglePeriod = function() {
   if (this.period === 'pm') {
@@ -113,7 +113,7 @@ SUI.Clock.prototype._togglePeriod = function() {
 
 /**
  * @private
- * @returns {undefined}
+ * @return {undefined}
  */
 SUI.Clock.prototype._initMinutesHeaderNode = function() {
   this.minutesHeaderNode = new SUI.Node('div');
@@ -126,7 +126,7 @@ SUI.Clock.prototype._initMinutesHeaderNode = function() {
 
 /**
  * @private
- * @returns {undefined}
+ * @return {undefined}
  */
 SUI.Clock.prototype._initHoursHeaderNode = function() {
   this.hoursHeaderNode = new SUI.Node('div');
@@ -140,7 +140,7 @@ SUI.Clock.prototype._initHoursHeaderNode = function() {
 /**
  * @private
  * @param {string} mode
- * @returns {undefined}
+ * @return {undefined}
  */
 SUI.Clock.prototype._setMode = function(mode) {
   this._initMode(mode);
@@ -150,7 +150,7 @@ SUI.Clock.prototype._setMode = function(mode) {
 
 /**
  * @private
- * @returns {undefined}
+ * @return {undefined}
  */
 SUI.Clock.prototype._initSeparatorHeaderNode = function() {
   var separatorHeaderNode = new SUI.Node('div');
@@ -161,7 +161,7 @@ SUI.Clock.prototype._initSeparatorHeaderNode = function() {
 
 /**
  * @private
- * @returns {undefined}
+ * @return {undefined}
  */
 SUI.Clock.prototype._initContentNode = function() {
   this.contentNode = new SUI.Node('div');
@@ -171,7 +171,7 @@ SUI.Clock.prototype._initContentNode = function() {
 
 /**
  * @private
- * @returns {!SUI.Node}
+ * @return {!SUI.Node}
  */
 SUI.Clock.prototype._getTimeNode = function() {
   this.contentNode.removeChildren();
@@ -184,7 +184,7 @@ SUI.Clock.prototype._getTimeNode = function() {
 /**
  * @private
  * @param {number} hours
- * @returns {undefined}
+ * @return {undefined}
  */
 SUI.Clock.prototype._setHours = function(hours) {
   this.hours = hours;
@@ -198,7 +198,7 @@ SUI.Clock.prototype._setHours = function(hours) {
 /**
  * @private
  * @param {number} minutes
- * @returns {undefined}
+ * @return {undefined}
  */
 SUI.Clock.prototype._setMinutes = function(minutes) {
   this.minutes = minutes;
@@ -212,7 +212,7 @@ SUI.Clock.prototype._setMinutes = function(minutes) {
 /**
  * @private
  * @param {string} period
- * @returns {undefined}
+ * @return {undefined}
  */
 SUI.Clock.prototype._setPeriod = function(period) {
   this.period = period;
@@ -224,7 +224,7 @@ SUI.Clock.prototype._setPeriod = function(period) {
 
 /**
  * @param {!Object} time
- * @returns {undefined}
+ * @return {undefined}
  */
 SUI.Clock.prototype.setTime = function(time) {
   this.time = window['moment'](time);
@@ -242,7 +242,7 @@ SUI.Clock.prototype.setTime = function(time) {
 /**
  * @private
  * @param {string} mode
- * @returns {undefined}
+ * @return {undefined}
  */
 SUI.Clock.prototype._initMode = function(mode) {
   this.contentNode.removeChildren();
@@ -252,7 +252,7 @@ SUI.Clock.prototype._initMode = function(mode) {
 /**
  * @private
  * @param {number} direction
- * @returns {string}
+ * @return {string}
  */
 SUI.Clock.prototype._getMode = function(direction) {
   var position = this.modes.indexOf(this.activeMode);
@@ -266,7 +266,7 @@ SUI.Clock.prototype._getMode = function(direction) {
 /**
  * @private
  * @param {number} direction
- * @returns {undefined}
+ * @return {undefined}
  */
 SUI.Clock.prototype._changeMode = function(direction) {
   var mode = this._getMode(direction);
@@ -274,7 +274,7 @@ SUI.Clock.prototype._changeMode = function(direction) {
 };
 
 /**
- * @returns {undefined}
+ * @return {undefined}
  */
 SUI.Clock.prototype.draw = function() {
   var timeNode = this._getTimeNode();
@@ -289,7 +289,7 @@ SUI.Clock.prototype.draw = function() {
 /**
  * @private
  * @param {!SUI.Node} timeNode
- * @returns {undefined}
+ * @return {undefined}
  */
 SUI.Clock.prototype._drawMinutes = function(timeNode) {
   var timeMinutes = new SUI.Time(timeNode, {
@@ -307,7 +307,7 @@ SUI.Clock.prototype._drawMinutes = function(timeNode) {
 /**
  * @private
  * @param {!SUI.Node} timeNode
- * @returns {undefined}
+ * @return {undefined}
  */
 SUI.Clock.prototype._drawHours = function(timeNode) {
   var timeHours = new SUI.Time(timeNode, {
@@ -326,7 +326,7 @@ SUI.Clock.prototype._drawHours = function(timeNode) {
 /**
  * @private
  * @param {!Object} selectedTime
- * @returns {undefined}
+ * @return {undefined}
  */
 SUI.Clock.prototype._onClick = function(selectedTime) {
   this.setTime(selectedTime);
@@ -336,7 +336,7 @@ SUI.Clock.prototype._onClick = function(selectedTime) {
 
 /**
  * @param {!Object} time
- * @returns {undefined}
+ * @return {undefined}
  */
 SUI.Clock.prototype.eventClick = function(time) {
   console.warn('SUI.Clock.eventClick()', time);

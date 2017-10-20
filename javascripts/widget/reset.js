@@ -18,7 +18,7 @@ goog.inherits(SUI.widget.Reset, SUI.Widget);
 
 /**
  * @private
- * @returns {undefined}
+ * @return {undefined}
  */
 SUI.widget.Reset.prototype._init = function() {
   this.input.setAttribute('name', 'reset');
@@ -26,7 +26,7 @@ SUI.widget.Reset.prototype._init = function() {
 
 /**
  * @override
- * @returns {undefined}
+ * @return {undefined}
  */
 SUI.widget.Reset.prototype.render = function() {
   this.input.addClass(['mdl-button', 'mdl-js-button', 'mdl-js-ripple-effect']);

@@ -26,16 +26,16 @@
     "sui-externs": "file:../sui-externs"
   },
   "devDependencies": {
-    "google-closure-compiler": "20170910.0.0",
     "babel-eslint": "8.0.1",
     "eslint": "4.9.0",
     "eslint-config-google": "0.9.1",
+    "google-closure-compiler": "20170910.0.0",
     "gulp": "3.9.1",
     "gulp-cli": "1.4.0",
+    "gulp-insert": "0.5.0",
     "gulp-sass": "3.1.0",
     "merge-stream": "1.0.1",
     "object-assign": "4.1.1",
-    "gulp-insert": "0.5.0",
     "readdirsync2": "1.0.2"
   }
 }
