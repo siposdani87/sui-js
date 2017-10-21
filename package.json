@@ -26,7 +26,6 @@
     "sui-externs": "file:../sui-externs"
   },
   "devDependencies": {
-    "babel-eslint": "8.0.1",
     "eslint": "4.9.0",
     "eslint-config-google": "0.9.1",
     "google-closure-compiler": "20170910.0.0",
