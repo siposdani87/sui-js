@@ -55,7 +55,7 @@ SUI.App.prototype._setOptions = function(options) {
     title: '',
     backend: '',
     development: false,
-    locale: navigator.language
+    locale: navigator.language,
   });
   _self.options.merge(options);
 };
@@ -66,7 +66,6 @@ SUI.App.prototype._setOptions = function(options) {
  * @return {undefined}
  */
 SUI.App.prototype._init = function(resources) {
-
   let rootNode = new SUI.Query('html').getItem();
   rootNode.addClass('sui-js');
 
@@ -117,7 +116,7 @@ SUI.App.prototype._init = function(resources) {
  * @private
  * @return {string}
  */
-SUI.App.prototype._getLanguage = function(){
+SUI.App.prototype._getLanguage = function() {
   return this.options.locale.split('-', 2)[0];
 };
 
@@ -147,7 +146,7 @@ SUI.App.prototype._initModule = function() {
   }.bind(this));
 
   this._module.eventServiceLoaded = function() {
-    //this._instances[this._injections.geoLocation].setWatcher();
+    // this._instances[this._injections.geoLocation].setWatcher();
     this._instances[this._injections.browser].detect();
     this._instances[this._injections.event].call('module.serviceLoaded');
   }.bind(this);
@@ -168,7 +167,7 @@ SUI.App.prototype._initModule = function() {
     this._instances[this._injections.event].call('module.failed', [state]);
   }.bind(this);
 
-  this._module.eventControllerLoaded = /** @type {function(!SUI.Node=):undefined} */  ((opt_dom) => {
+  this._module.eventControllerLoaded = /** @type {function(!SUI.Node=):undefined} */ ((opt_dom) => {
     this._instances[this._injections.event].call('controller.loaded', [opt_dom]);
   });
 };
@@ -185,7 +184,7 @@ SUI.App.prototype._handleModules = function() {
  * @private
  * @return {undefined}
  */
-SUI.App.prototype._initScript = function(){
+SUI.App.prototype._initScript = function() {
   this._instances[this._injections.script] = new SUI.lib.Script(this._instances[this._injections.progressBar]);
 };
 
@@ -201,7 +200,7 @@ SUI.App.prototype._initStyle = function() {
  * @private
  * @return {undefined}
  */
-SUI.App.prototype._initConsole = function(){
+SUI.App.prototype._initConsole = function() {
   this._instances[this._injections.console] = new SUI.lib.Console(this._instances[this._injections.config]);
 };
 
@@ -209,7 +208,7 @@ SUI.App.prototype._initConsole = function(){
  * @private
  * @return {undefined}
  */
-SUI.App.prototype._initConfig = function(){
+SUI.App.prototype._initConfig = function() {
   this._instances[this._injections.config] = this.options;
 };
 
@@ -265,11 +264,11 @@ SUI.App.prototype._initProgressBar = function() {
 SUI.App.prototype._initStorage = function() {
   this._instances[this._injections.localStorage] = new SUI.lib.Storage({
     type: 'local',
-    secret: this.options.secret
+    secret: this.options.secret,
   });
   this._instances[this._injections.sessionStorage] = new SUI.lib.Storage({
     type: 'session',
-    secret: this.options.secret
+    secret: this.options.secret,
   });
 };
 
@@ -324,7 +323,7 @@ SUI.App.prototype._initWindow = function() {
   let notification = {
     node: null,
     message: 'Unable to connect to the Internet',
-    duration: Infinity
+    duration: Infinity,
   };
   this._instances[this._injections.window].eventOnline = function() {
     if (notification.node) {
@@ -337,7 +336,6 @@ SUI.App.prototype._initWindow = function() {
       notification.node = this._instances[this._injections.notification].addWarning(notification.message, notification.duration);
     }.bind(this));
   }.bind(this);
-
 };
 
 /**
@@ -475,9 +473,9 @@ SUI.App.prototype._initBrowser = function() {
  */
 SUI.App.prototype._initAppCache = function() {
   this._instances[this._injections.appCache] = new SUI.lib.AppCache();
-  /*this._instances[this._injections.appCache].eventMissingFeatures = function(features) {
+  /* this._instances[this._injections.appCache].eventMissingFeatures = function(features) {
    this._instances[this._injections.notification].addError(features.join(', '));
-   }.bind(this);*/
+   }.bind(this); */
 };
 
 /**
@@ -486,9 +484,9 @@ SUI.App.prototype._initAppCache = function() {
  */
 SUI.App.prototype._initServiceWorker = function() {
   this._instances[this._injections.serviceWorker] = new SUI.lib.ServiceWorker();
-  /*this._instances[this._injections.appCache].eventMissingFeatures = function(features) {
+  /* this._instances[this._injections.appCache].eventMissingFeatures = function(features) {
    this._instances[this._injections.notification].addError(features.join(', '));
-   }.bind(this);*/
+   }.bind(this); */
 };
 
 /**
@@ -553,7 +551,7 @@ SUI.App.prototype.setMaintenanceState = function(id, opt_params) {
  * @param {string} name
  * @return {?Object}
  */
-SUI.App.prototype.getInstance = function(name){
+SUI.App.prototype.getInstance = function(name) {
   return this._instances[name];
 };
 

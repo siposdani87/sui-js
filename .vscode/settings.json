@@ -7,6 +7,5 @@
         "**/.*": true
     },
     "search.exclude": {},
-	"javascript.format.insertSpaceBeforeFunctionParenthesis": false,
-	"javascript.format.placeOpenBraceOnNewLineForControlBlocks": true
+    "javascript.format.insertSpaceAfterFunctionKeywordForAnonymousFunctions": false
 }
