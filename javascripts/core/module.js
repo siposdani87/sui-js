@@ -16,7 +16,7 @@ SUI.Module = function(app) {
   this._services = [];
   this._controller = {
     enter: SUI.noop(),
-    exit: SUI.noop()
+    exit: SUI.noop(),
   };
 };
 
@@ -58,13 +58,13 @@ SUI.Module.prototype.add = function(name, injections, callback, opt_extend) {
  * @return {!Object}
  */
 SUI.Module.prototype._getDependencies = function(injections, callback, opt_extend) {
-  if (opt_extend){
+  if (opt_extend) {
     injections.push(opt_extend);
   }
   return {
     injections: injections,
     callback: callback,
-    extend: opt_extend
+    extend: opt_extend,
   };
 };
 
@@ -74,13 +74,13 @@ SUI.Module.prototype._getDependencies = function(injections, callback, opt_exten
  * @return {!Object}
  */
 SUI.Module.prototype._resolveDependencies = function(dependency) {
-  var args = [];
+  let args = [];
   SUI.each(dependency.injections, function(injection) {
     args.push(this._instances[injection]);
   }.bind(this));
 
-  var extendCallback;
-  if (this._modules[dependency.extend]){
+  let extendCallback;
+  if (this._modules[dependency.extend]) {
     extendCallback = this._modules[dependency.extend].callback;
   }
 
@@ -92,13 +92,13 @@ SUI.Module.prototype._resolveDependencies = function(dependency) {
  * @return {undefined}
  */
 SUI.Module.prototype._orderServices = function() {
-  for (var key in this._modules) {
+  for (let key in this._modules) {
     if (this._modules.hasOwnProperty(key) && this._isModule(key)) {
       if (this._services.indexOf(key) === -1) {
         this._services.push(key);
       }
-      var injections = this._modules[key].injections;
-      for (var j = 0; j < injections.length; j++) {
+      let injections = this._modules[key].injections;
+      for (let j = 0; j < injections.length; j++) {
         if (this._isModule(injections[j])) {
           if (this._services.indexOf(injections[j]) === -1) {
             this._services.push(injections[j]);
@@ -116,7 +116,7 @@ SUI.Module.prototype._orderServices = function() {
  * @return {boolean}
  */
 SUI.Module.prototype._isModule = function(value) {
-  var lastCharacters = value.substr(value.length - 7);
+  let lastCharacters = value.substr(value.length - 7);
   return SUI.eq(lastCharacters, 'Service') || SUI.eq(lastCharacters, 'Factory');
 };
 
@@ -131,10 +131,10 @@ SUI.Module.prototype._changeServices = function(service, injection) {
     console.error('SUI.Modules._changeServices()', 'Dependency injection circular loop', injection, '<=>', service);
   }
   this._dependencies.push([service, injection].join('-'));
-  var servicePosition = this._services.indexOf(service);
-  var injectionPosition = this._services.indexOf(injection);
+  let servicePosition = this._services.indexOf(service);
+  let injectionPosition = this._services.indexOf(injection);
   if (injectionPosition > servicePosition) {
-    var tmp = this._services[servicePosition];
+    let tmp = this._services[servicePosition];
     this._services[servicePosition] = this._services[injectionPosition];
     this._services[injectionPosition] = tmp;
   }
@@ -145,12 +145,12 @@ SUI.Module.prototype._changeServices = function(service, injection) {
  */
 SUI.Module.prototype.handleServices = function() {
   this._orderServices();
-  var calls = [];
+  let calls = [];
   SUI.each(this._services, function(serviceName) {
-    var moduleCall = function() {
+    let moduleCall = function() {
       this._instances[serviceName] = this._resolveDependencies(this._modules[serviceName]);
 
-      var enter = SUI.noop();
+      let enter = SUI.noop();
       if (SUI.isFunction(this._instances[serviceName].enter)) {
         enter = this._instances[serviceName].enter.bind(this._instances[serviceName]);
       }
@@ -160,7 +160,7 @@ SUI.Module.prototype.handleServices = function() {
   }.bind(this));
 
   this.eventAfterInit();
-  var async = new SUI.Async();
+  let async = new SUI.Async();
   async.serial(calls).then(function() {
     this.eventServiceLoaded();
     this._instances[this._injections.state].run();
@@ -177,17 +177,15 @@ SUI.Module.prototype.handleServices = function() {
 SUI.Module.prototype.handleRoutes = function(routes, options) {
   this._instances[this._injections.state] = new SUI.State(routes, options);
   this._instances[this._injections.state].eventChange = function(currentState, previousState) {
-
-    var exit = SUI.noop();
+    let exit = SUI.noop();
     if (!previousState.isEmpty() && SUI.isObject(this._controller) && SUI.isFunction(this._controller.exit)) {
       exit = this._controller.exit.bind(this._controller);
     }
 
-    var async = new SUI.Async();
-    async.serial([exit]).then(function(){
+    let async = new SUI.Async();
+    async.serial([exit]).then(function() {
       this._handleStateChange(currentState);
     }.bind(this));
-
   }.bind(this);
 };
 
@@ -195,16 +193,15 @@ SUI.Module.prototype.handleRoutes = function(routes, options) {
  * @param {!SUI.Object} currentState
  * @return {undefined}
  */
-SUI.Module.prototype._handleStateChange = function(currentState){
+SUI.Module.prototype._handleStateChange = function(currentState) {
   this.eventStateChange(currentState).then(function() {
     if (SUI.isString(currentState.get('template'))) {
-      var templateUrl = currentState.get('templateUrl');
+      let templateUrl = currentState.get('templateUrl');
       this._instances[this._injections.template].load(templateUrl).then(function(dom) {
         this.eventModuleLoaded(currentState);
         this._initController(currentState, dom);
       }.bind(this));
-    }
-    else {
+    } else {
       this.eventModuleLoaded(currentState);
       this._initController(currentState);
     }
@@ -221,16 +218,15 @@ SUI.Module.prototype._handleStateChange = function(currentState){
  */
 SUI.Module.prototype._initController = function(state, opt_dom) {
   this._instances[this._injections.dom] = opt_dom;
-  var controller = this._modules[state.get('controller')];
+  let controller = this._modules[state.get('controller')];
   this.eventDomChange(state, opt_dom).then(() => {
     this._controller = this._resolveDependencies(controller);
-    if (SUI.isObject(this._controller) && SUI.isFunction(this._controller.enter)){
-      var async = new SUI.Async();
+    if (SUI.isObject(this._controller) && SUI.isFunction(this._controller.enter)) {
+      let async = new SUI.Async();
       async.serial([this._controller.enter.bind(this._controller)]).then(() => {
         this.eventControllerLoaded(opt_dom);
       });
-    }
-    else {
+    } else {
       this.eventControllerLoaded(opt_dom);
     }
   });
@@ -265,7 +261,7 @@ SUI.Module.prototype.eventModuleLoaded = function(state) {
  * @return {!SUI.Promise}
  */
 SUI.Module.prototype.eventStateChange = function(state) {
-  var deferred = new SUI.Deferred();
+  let deferred = new SUI.Deferred();
   console.warn('SUI.Module.eventStateChange()', state);
   deferred.resolve();
   return deferred.promise();
@@ -277,7 +273,7 @@ SUI.Module.prototype.eventStateChange = function(state) {
  * @return {!SUI.Promise}
  */
 SUI.Module.prototype.eventDomChange = function(state, opt_dom) {
-  var deferred = new SUI.Deferred();
+  let deferred = new SUI.Deferred();
   console.warn('SUI.Module.eventDomChange()', state, opt_dom);
   deferred.resolve();
   return deferred.promise();

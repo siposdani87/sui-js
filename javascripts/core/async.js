@@ -62,11 +62,9 @@ SUI.Async.prototype._parallelWrapper = function(call, length, allowEvent, index,
     }, (object) => {
       this._parallelCaller(length, true, object, allowEvent, index, opt_args).defer(deferred);
     });
-  }
-  else if (promise || SUI.isUndefined(promise)) {
+  } else if (promise || SUI.isUndefined(promise)) {
     this._parallelCaller(length, false, promise, allowEvent, index, opt_args).defer(deferred);
-  }
-  else {
+  } else {
     this._parallelCaller(length, true, promise, allowEvent, index, opt_args).defer(deferred);
   }
   return deferred.promise();
@@ -95,15 +93,13 @@ SUI.Async.prototype._parallelCaller = function(length, isError, result, allowEve
     if (!this.call.isError) {
       if (allowEvent) {
         this.eventComplete(this.call.isError, results);
-      }
-      else {
+      } else {
         deferred.resolve(results);
       }
     } else {
       if (allowEvent) {
         this.eventComplete(this.call.isError, results);
-      }
-      else {
+      } else {
         deferred.reject(results);
       }
     }
@@ -158,8 +154,7 @@ SUI.Async.prototype.serial = function(calls, opt_args) {
     let results = opt_args || this.call.results;
     deferred.resolve(results);
     this._clear();
-  }
-  else {
+  } else {
     this._serialWrapper(calls, 0, opt_args).defer(deferred);
   }
   return deferred.promise();
@@ -184,11 +179,9 @@ SUI.Async.prototype._serialWrapper = function(calls, index, opt_args) {
       deferred.reject(results);
       this._clear();
     }.bind(this));
-  }
-  else if (promise || SUI.isUndefined(promise)) {
+  } else if (promise || SUI.isUndefined(promise)) {
     this._serialCaller(calls, index, promise, opt_args).defer(deferred);
-  }
-  else {
+  } else {
     let results = opt_args || this.call.results;
     deferred.reject(results);
     this._clear();
