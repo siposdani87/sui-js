@@ -32,31 +32,29 @@ SUI.lib.LeftMenu.prototype._init = function() {
 /**
  * @private
  */
-SUI.lib.LeftMenu.prototype._initEvents = function(){
+SUI.lib.LeftMenu.prototype._initEvents = function() {
   this.leftMenu.addEventListener('click', function() {
     this.close();
   }.bind(this));
 
-  var openLeftMenu = new SUI.Query('#open-left-menu').getItem();
+  let openLeftMenu = new SUI.Query('#open-left-menu').getItem();
   openLeftMenu.setAttribute('href', 'javascript:void(0)');
   openLeftMenu.addEventListener('click', function() {
     this.open();
   }.bind(this));
 
-  var closeLeftMenu = new SUI.Query('#close-left-menu', this.mainMenu).getItem();
+  let closeLeftMenu = new SUI.Query('#close-left-menu', this.mainMenu).getItem();
   closeLeftMenu.setAttribute('href', 'javascript:void(0)');
   closeLeftMenu.addEventListener('click', function() {
     this.close();
   }.bind(this));
 
-  var closeSubMenu = new SUI.Query('#close-sub-menu', this.subMenu).getItem();
+  let closeSubMenu = new SUI.Query('#close-sub-menu', this.subMenu).getItem();
   closeSubMenu.setAttribute('href', 'javascript:void(0)');
   closeSubMenu.addEventListener('click', function() {
     this.closeSubMenu();
   }.bind(this));
-
 };
-
 
 /**
  * @return {undefined}
@@ -77,7 +75,7 @@ SUI.lib.LeftMenu.prototype.close = function() {
 /**
  * @return {undefined}
  */
-SUI.lib.LeftMenu.prototype.openSubMenu = function(){
+SUI.lib.LeftMenu.prototype.openSubMenu = function() {
   this.mainMenu.addClass('hidden');
   this.subMenu.removeClass('hidden');
 };
@@ -85,7 +83,7 @@ SUI.lib.LeftMenu.prototype.openSubMenu = function(){
 /**
  * @return {undefined}
  */
-SUI.lib.LeftMenu.prototype.closeSubMenu = function(){
+SUI.lib.LeftMenu.prototype.closeSubMenu = function() {
   this.mainMenu.removeClass('hidden');
   this.subMenu.addClass('hidden');
 };
@@ -93,13 +91,13 @@ SUI.lib.LeftMenu.prototype.closeSubMenu = function(){
 /**
  * @return {!SUI.Node}
  */
-SUI.lib.LeftMenu.prototype.getMainContainer  = function(){
+SUI.lib.LeftMenu.prototype.getMainContainer = function() {
   return this.mainContainer;
 };
 
 /**
  * @return {!SUI.Node}
  */
-SUI.lib.LeftMenu.prototype.getSubContainer  = function(){
+SUI.lib.LeftMenu.prototype.getSubContainer = function() {
   return this.subContainer;
 };

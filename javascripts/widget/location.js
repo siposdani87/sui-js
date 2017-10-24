@@ -31,26 +31,24 @@ SUI.widget.Location.prototype._init = function() {
   this.icon = this.input.getData('icon');
 
   this.input.addEventListener('keyup', (input, event) => {
-    var inputNode = input.getNode();
-    var address = inputNode.value;
+    let inputNode = input.getNode();
+    let address = inputNode.value;
 
     if (SUI.eq(event.keyCode, 13)) {
       this._search(address);
-    }
-    else {
+    } else {
       input.trigger('change');
     }
   });
 
   this.input.addEventListener('change', (input) => {
-    var inputNode = input.getNode();
-    var address = inputNode.value;
-    var location = this.getValue();
+    let inputNode = input.getNode();
+    let address = inputNode.value;
+    let location = this.getValue();
     location['address'] = address;
     this.modelChange(location);
     this.checkValidity();
   });
-
 };
 
 /**
@@ -58,13 +56,13 @@ SUI.widget.Location.prototype._init = function() {
  * @return {undefined}
  */
 SUI.widget.Location.prototype._initButtons = function() {
-  var upButton = new SUI.Node('a');
+  let upButton = new SUI.Node('a');
   upButton.setAttribute('href', 'javascript:void(0)');
   upButton.addClass(['pin-drop', 'material-icons']);
   upButton.setHtml('pin_drop');
   upButton.addEventListener('click', () => {
-    var inputNode = this.input.getNode();
-    var address = inputNode.value;
+    let inputNode = this.input.getNode();
+    let address = inputNode.value;
     this._search(address);
   });
   this.inputBlock.appendChild(upButton);
@@ -77,11 +75,11 @@ SUI.widget.Location.prototype._initButtons = function() {
  */
 SUI.widget.Location.prototype._search = function(address) {
   this.map.searchAddress(address).then((locations) => {
-    var position = locations[0];
-    var location = {
+    let position = locations[0];
+    let location = {
       'address': address,
       'latitude': position['latitude'],
-      'longitude': position['longitude']
+      'longitude': position['longitude'],
     };
     this.setValue(location);
     this.modelChange(location);
@@ -90,7 +88,7 @@ SUI.widget.Location.prototype._search = function(address) {
     this.map.setCenter(position['latitude'], position['longitude']);
     this.checkValidity();
   }, () => {
-    //this.setError('No location', true);
+    // this.setError('No location', true);
   });
 };
 
@@ -100,7 +98,6 @@ SUI.widget.Location.prototype._search = function(address) {
  * @return {undefined}
  */
 SUI.widget.Location.prototype.render = function() {
-
   this.inputBlock.addClass(['mdl-textfield', 'mdl-js-textfield', 'mdl-textfield--floating-label']);
   this.input.addClass('mdl-textfield__input');
   if (this.label) {
@@ -108,14 +105,14 @@ SUI.widget.Location.prototype.render = function() {
   }
   SUI.mdl(this.inputBlock);
 
-  var mapNode = new SUI.Node('div');
+  let mapNode = new SUI.Node('div');
   mapNode.addClass('map');
 
   this.inputBlock.appendChild(mapNode);
 
   this.map = new SUI.GoogleMap(this.inputBlock);
   this.map.setMarkers({
-    'draggable': true
+    'draggable': true,
   });
   this.map.setMarkerIcon('marker', this.icon);
   this.map.eventMapClick = (latitude, longitude) => {
@@ -132,7 +129,7 @@ SUI.widget.Location.prototype.render = function() {
     this.map.updateMarker(0, '', 'marker', latitude, longitude);
   };
 
-  var location = /** @type {!Object} */ (this.getValue());
+  let location = /** @type {!Object} */ (this.getValue());
   if (!SUI.isNull(location['latitude']) && !SUI.isNull(location['longitude'])) {
     this.map.addMarker(0, '', 'marker', location['latitude'], location['longitude']);
   }
@@ -150,7 +147,7 @@ SUI.widget.Location.prototype.render = function() {
  * @return {undefined}
  */
 SUI.widget.Location.prototype._updateValue = function(latitude, longitude) {
-  var location = /** @type {!Object} */ (this.getValue());
+  let location = /** @type {!Object} */ (this.getValue());
   location['latitude'] = latitude;
   location['longitude'] = longitude;
   this.setValue(location);
@@ -172,6 +169,6 @@ SUI.widget.Location.prototype.setValue = function(value) {
  * @return {*}
  */
 SUI.widget.Location.prototype.getValue = function() {
-  var value = this.input.getData('value');
+  let value = this.input.getData('value');
   return SUI.typeCast(value);
 };

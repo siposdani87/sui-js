@@ -27,9 +27,9 @@ SUI.lib.Dialog = function(http, opt_options) {
  * @return {undefined}
  */
 SUI.lib.Dialog.prototype._setOptions = function(opt_options) {
-  var _self = this;
+  let _self = this;
   _self.options = new SUI.Object({
-    id: '#dialog'
+    id: '#dialog',
   });
   _self.options.merge(opt_options);
 };
@@ -125,12 +125,12 @@ SUI.lib.Dialog.prototype.close = function() {
  */
 SUI.lib.Dialog.prototype.loadTemplate = function(url) {
   this._reset();
-  var deferred = new SUI.Deferred();
+  let deferred = new SUI.Deferred();
   this.http.get(url).then(function(data) {
-    var node = this._handleDom(data);
+    let node = this._handleDom(data);
     deferred.resolve(node);
   }.bind(this), function(data) {
-    var node = this._handleMessage(data);
+    let node = this._handleMessage(data);
     deferred.reject(node);
   }.bind(this));
   return deferred.promise();
@@ -141,9 +141,9 @@ SUI.lib.Dialog.prototype.loadTemplate = function(url) {
  * @return {!SUI.Node}
  */
 SUI.lib.Dialog.prototype._handleMessage = function(dom) {
-  var messageNode = new SUI.Query('#message', dom).getItem();
-  //var title = messageNode.getNode().classList.toString();
-  //this._setTitle(title);
+  let messageNode = new SUI.Query('#message', dom).getItem();
+  // let title = messageNode.getNode().classList.toString();
+  // this._setTitle(title);
   this.modalBody.insert(messageNode);
   SUI.mdl(messageNode);
 
@@ -155,12 +155,12 @@ SUI.lib.Dialog.prototype._handleMessage = function(dom) {
  * @return {!SUI.Node}
  */
 SUI.lib.Dialog.prototype._handleDom = function(dom) {
-  var titleNode = new SUI.Query('#title', dom).getItem();
+  let titleNode = new SUI.Query('#title', dom).getItem();
   if (!titleNode.isEmpty()) {
     this._setTitle(titleNode.getText());
   }
 
-  var contentNode = new SUI.Query('#content', dom).getItem();
+  let contentNode = new SUI.Query('#content', dom).getItem();
   this.modalBody.insert(contentNode);
   SUI.mdl(contentNode);
 
@@ -178,8 +178,7 @@ SUI.lib.Dialog.prototype._setTitle = function(opt_title) {
 
   if (SUI.isString(opt_title) && opt_title.length > 0) {
     this.modalHeader.removeClass('hidden');
-  }
-  else {
+  } else {
     this.modalHeader.addClass('hidden');
   }
 };
@@ -197,26 +196,25 @@ SUI.lib.Dialog.prototype._reset = function() {
  * @return {undefined}
  */
 SUI.lib.Dialog.prototype._handleActions = function(dom) {
-  var actionNode = new SUI.Query('#action', dom).getItem();
+  let actionNode = new SUI.Query('#action', dom).getItem();
   if (!actionNode.isEmpty()) {
-    var buttons = new SUI.Query('button', actionNode);
-    var size = buttons.size();
-    var actions = [this._actionOK.bind(this)];
-    var cssClasses = ['mdl-button--primary'];
+    let buttons = new SUI.Query('button', actionNode);
+    let size = buttons.size();
+    let actions = [this._actionOK.bind(this)];
+    let cssClasses = ['mdl-button--primary'];
     if (size === 2) {
       actions = [this._actionCancel.bind(this), this._actionOK.bind(this)];
       cssClasses = ['mdl-button--accent', 'mdl-button--primary'];
     }
     buttons.each(function(button, i) {
-      var buttonClasses = ['mdl-button', 'mdl-js-button', 'mdl-js-ripple-effect'].concat([cssClasses[i]]);
+      let buttonClasses = ['mdl-button', 'mdl-js-button', 'mdl-js-ripple-effect'].concat([cssClasses[i]]);
       button.addClass(buttonClasses);
       button.addEventListener('click', actions[i]);
     });
 
     this.modalFooter.insert(actionNode);
     SUI.mdl(actionNode);
-  }
-  else {
+  } else {
     this.modalFooter.removeChildren();
   }
 };
@@ -225,8 +223,8 @@ SUI.lib.Dialog.prototype._handleActions = function(dom) {
  * @return {undefined}
  */
 SUI.lib.Dialog.prototype._actionOK = function() {
-  var async = new SUI.Async();
-  var calls = [this.eventOK.bind(this), this.close.bind(this)];
+  let async = new SUI.Async();
+  let calls = [this.eventOK.bind(this), this.close.bind(this)];
   async.serial(calls);
 };
 
@@ -234,8 +232,8 @@ SUI.lib.Dialog.prototype._actionOK = function() {
  * @return {undefined}
  */
 SUI.lib.Dialog.prototype._actionCancel = function() {
-  var async = new SUI.Async();
-  var calls = [this.eventCancel.bind(this), this.close.bind(this)];
+  let async = new SUI.Async();
+  let calls = [this.eventCancel.bind(this), this.close.bind(this)];
   async.serial(calls);
 };
 
@@ -270,18 +268,16 @@ SUI.lib.Dialog.prototype.setSize = function(width, height) {
  * @return {undefined}
  */
 SUI.lib.Dialog.prototype._handleCenterPosition = function() {
-  var style = this.dialogWindow.getComputedStyle();
-  var height = style.getPropertyValue('height');
+  let style = this.dialogWindow.getComputedStyle();
+  let height = style.getPropertyValue('height');
   if (SUI.contain(height, 'px')) {
     height = parseInt(height.slice(0, -2), 10);
     if (height > this.windowHeight) {
       this.dialog.removeClass('center');
-    }
-    else {
+    } else {
       this.dialog.addClass('center');
     }
-  }
-  else {
+  } else {
     this.dialog.addClass('center');
   }
 };

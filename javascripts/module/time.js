@@ -37,12 +37,12 @@ SUI.Time.prototype._init = function() {
  * @return {undefined}
  */
 SUI.Time.prototype._initCircleNode = function() {
-  var circleNode = new SUI.Node('div');
+  let circleNode = new SUI.Node('div');
   circleNode.addClass('circle');
   this.timeNode.appendChild(circleNode);
-  var circleNodeStyle = window.getComputedStyle(circleNode.getNode());
-  var width = parseInt(circleNodeStyle.width.slice(0, -2), 10);
-  var height = parseInt(circleNodeStyle.height.slice(0, -2), 10);
+  let circleNodeStyle = window.getComputedStyle(circleNode.getNode());
+  let width = parseInt(circleNodeStyle.width.slice(0, -2), 10);
+  let height = parseInt(circleNodeStyle.height.slice(0, -2), 10);
   this.timeNode.removeChild(circleNode);
   this._initSize(width, height);
 };
@@ -54,7 +54,7 @@ SUI.Time.prototype._initCircleNode = function() {
  * @return {undefined}
  */
 SUI.Time.prototype._initSize = function(width, height) {
-  var timeNodeStyle = window.getComputedStyle(this.timeNode.getNode());
+  let timeNodeStyle = window.getComputedStyle(this.timeNode.getNode());
   this.options.width = parseInt(timeNodeStyle.width.slice(0, -2), 10) - width;
   this.options.height = parseInt(timeNodeStyle.height.slice(0, -2), 10) - height;
 
@@ -67,7 +67,7 @@ SUI.Time.prototype._initSize = function(width, height) {
  * @return {undefined}
  */
 SUI.Time.prototype._initPointerNode = function() {
-  var centerPointNode = new SUI.Node('div');
+  let centerPointNode = new SUI.Node('div');
   centerPointNode.addClass('center-point');
   this.timeNode.appendChild(centerPointNode);
 
@@ -96,13 +96,13 @@ SUI.Time.prototype.draw = function(start, n, opt_j = 1, opt_isClockWise = true) 
  * @return {undefined}
  */
 SUI.Time.prototype._drawCircles = function(start, n, opt_j = 1, opt_isClockWise = true) {
-  var k = 0;
-  for (var i = start; i <= n; i++) {
-    var circle = new SUI.Node('div');
+  let k = 0;
+  for (let i = start; i <= n; i++) {
+    let circle = new SUI.Node('div');
     this.timeNode.appendChild(circle);
 
     if (i % opt_j === 0) {
-      var text = this.options.captions && this.options.captions[k] ? this.options.captions[k] : i;
+      let text = this.options.captions && this.options.captions[k] ? this.options.captions[k] : i;
       circle.setHtml(text);
       k++;
     }
@@ -120,7 +120,7 @@ SUI.Time.prototype._drawCircles = function(start, n, opt_j = 1, opt_isClockWise 
 SUI.Time.prototype._setCircleEvent = function(circle, i) {
   circle.setData('index', i);
   circle.addEventListener('click', function(circle) {
-    var index = /** @type {number} */ (circle.getData('index'));
+    let index = /** @type {number} */ (circle.getData('index'));
     this.eventClick(index);
   }.bind(this));
 };
@@ -136,24 +136,24 @@ SUI.Time.prototype._setCircleEvent = function(circle, i) {
  * @return {undefined}
  */
 SUI.Time.prototype._setCircleStyle = function(circle, start, n, i, opt_j = 1, opt_isClockWise = true) {
-  var index = ((opt_j / 2) > (i % opt_j) ? i % opt_j : opt_j - (i % opt_j));
-  var selected = this.options.selected === i ? 'selected' : null;
-  var top = this.options.radius_y + this.options.radius_y * Math.cos((360 / (n + 1 - start) / 180) * i * Math.PI) * -1;
-  var left = this.options.radius_x + this.options.radius_x * Math.sin((360 / (n + 1 - start) / 180) * i * Math.PI) * (opt_isClockWise ? 1 : -1);
+  let index = ((opt_j / 2) > (i % opt_j) ? i % opt_j : opt_j - (i % opt_j));
+  let selected = this.options.selected === i ? 'selected' : null;
+  let top = this.options.radius_y + this.options.radius_y * Math.cos((360 / (n + 1 - start) / 180) * i * Math.PI) * -1;
+  let left = this.options.radius_x + this.options.radius_x * Math.sin((360 / (n + 1 - start) / 180) * i * Math.PI) * (opt_isClockWise ? 1 : -1);
 
   circle.addClass(['circle', 'highlight' + index, selected]);
   circle.setStyle({
     'position': 'absolute',
     'z-index': 100 - index,
     'top': top + 'px',
-    'left': left + 'px'
+    'left': left + 'px',
   });
   if (selected) {
-    var radian = (360 / (n + 1 - start) / 180) * i * Math.PI;
-    var degrees = radian * (180 / Math.PI) - 90;
+    let radian = (360 / (n + 1 - start) / 180) * i * Math.PI;
+    let degrees = radian * (180 / Math.PI) - 90;
 
     this.pointerNode.setStyle({
-      'transform': 'rotate(' + degrees + 'deg)'
+      'transform': 'rotate(' + degrees + 'deg)',
     });
   }
 };

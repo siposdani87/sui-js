@@ -33,7 +33,7 @@ SUI.lib.Notification.prototype._setOptions = function(opt_options) {
   _self.options = new SUI.Object({
     id: '#notifications',
     duration: 4000,
-    closable: ['error']
+    closable: ['error'],
   });
   _self.options.merge(opt_options);
 };

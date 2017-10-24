@@ -21,9 +21,9 @@ SUI.lib.Loader = function(opt_options) {
  * @return {undefined}
  */
 SUI.lib.Loader.prototype._setOptions = function(opt_options) {
-  var _self = this;
+  let _self = this;
   _self.options = new SUI.Object({
-    counter: 0
+    counter: 0,
   });
   _self.options.merge(opt_options);
 };

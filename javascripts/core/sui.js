@@ -32,7 +32,7 @@
  * @return {!Object}
  */
 let _attributesToObject = function(object, attributes, value) {
-  //TODO duplicated Object._attributesToObject function
+  // TODO duplicated Object._attributesToObject function
   let lastAttribute = attributes.pop();
   let base = object;
   for (let i = 0; i < attributes.length; i++) {
@@ -48,17 +48,17 @@ const goog = {
   require: function(name) {
   },
   exportSymbol: function(publicPath, object) {
-    //window[publicPath] = object;
+    // window[publicPath] = object;
     _attributesToObject(window, publicPath.split('.'), object);
   },
   exportProperty: function(object, publicName, symbol) {
     object[publicName] = symbol;
-    //_attributesToObject(object, publicName.split('.'), symbol);
+    // attributesToObject(object, publicName.split('.'), symbol);
   },
   inherits: function(object, parentObject) {
     object.prototype = Object.create(parentObject.prototype);
     object.prototype.constructor = object;
-  }
+  },
 };
 
 goog.provide('SUI');
@@ -76,7 +76,7 @@ const SUI = {
   test: {},
   widget: {},
   coreRes: {},
-  _scrollInterval: null
+  _scrollInterval: null,
 };
 
 
@@ -115,7 +115,7 @@ SUI.coreRes = {
   instances: 'instances',
   console: 'console',
   appCache: 'appCache',
-  serviceWorker: 'serviceWorker'
+  serviceWorker: 'serviceWorker',
 };
 
 /**
@@ -129,31 +129,24 @@ SUI.debug = true;
  */
 SUI.typeCast = function(value) {
   let result = value;
-  if (SUI.isString(value) && !SUI.contain(/** @type {string} */ (value), ' ')) {
+  if (SUI.isString(value) && !SUI.contain(/** @type {string} */(value), ' ')) {
     let lowerCaseValue = value.toLowerCase();
     if (SUI.eq(lowerCaseValue, '')) {
       result = '';
-    }
-    else if (SUI.eq(lowerCaseValue, 'undefined')) {
+    } else if (SUI.eq(lowerCaseValue, 'undefined')) {
       result = undefined;
-    }
-    else if (SUI.eq(lowerCaseValue, 'null')) {
+    } else if (SUI.eq(lowerCaseValue, 'null')) {
       result = null;
-    }
-    else if (SUI.eq(lowerCaseValue, 'true')) {
+    } else if (SUI.eq(lowerCaseValue, 'true')) {
       result = true;
-    }
-    else if (SUI.eq(lowerCaseValue, 'false')) {
+    } else if (SUI.eq(lowerCaseValue, 'false')) {
       result = false;
-    }
-    else if (SUI.eq(lowerCaseValue, 'infinity')) {
+    } else if (SUI.eq(lowerCaseValue, 'infinity')) {
       result = Infinity;
-    }
-    else if (SUI.isNumber(lowerCaseValue)) {
+    } else if (SUI.isNumber(lowerCaseValue)) {
       if (SUI.neq(lowerCaseValue.indexOf('.'), -1)) {
         result = parseFloat(lowerCaseValue);
-      }
-      else {
+      } else {
         result = parseInt(lowerCaseValue, 0);
       }
     }
@@ -180,8 +173,7 @@ SUI.invoke = function(constructor, args, opt_extendModule) {
   if (opt_extendModule) {
     SUI.Cls.prototype = SUI.merge(opt_extendModule.prototype, constructor.prototype);
     SUI.Cls.prototype.constructor = SUI.Cls;
-  }
-  else {
+  } else {
     SUI.Cls.prototype = constructor.prototype;
   }
 
@@ -231,10 +223,9 @@ SUI.format = function(str, opt_params, opt_prefix = '\\{', opt_postfix = '\\}') 
 SUI.convert = function(value, type) {
   let result = value;
   if (SUI.isNumber(value)) {
-    result = SUI.convertNumber(/** @type {number} */ (value), type);
-  }
-  else if (SUI.isString(value)) {
-    result = SUI.convertString(/** @type {string} */ (value), type);
+    result = SUI.convertNumber(/** @type {number} */(value), type);
+  } else if (SUI.isString(value)) {
+    result = SUI.convertString(/** @type {string} */(value), type);
   }
   return result;
 };
@@ -262,10 +253,10 @@ SUI.convertNumber = function(value, type) {
 SUI.convertString = function(value, type) {
   let result = value;
   switch (type) {
-    case 'integer' :
+    case 'integer':
       result = parseInt(value, 10);
       break;
-    case 'float' :
+    case 'float':
       result = parseFloat(value);
       break;
   }
@@ -454,10 +445,9 @@ SUI.instanceOf = function(item, object) {
  */
 SUI.each = function(items, next, opt_start, opt_end) {
   if (SUI.isArray(items)) {
-    SUI.eachArray(/** @type {!Array} */ (items), next, opt_start, opt_end);
-  }
-  else if (SUI.isObject(items)) {
-    SUI.eachObject(/** @type {!Object} */ (items), next);
+    SUI.eachArray(/** @type {!Array} */(items), next, opt_start, opt_end);
+  } else if (SUI.isObject(items)) {
+    SUI.eachObject(/** @type {!Object} */(items), next);
   }
 };
 
@@ -525,10 +515,9 @@ SUI.sleepEach = function(next, i, length, duration) {
  */
 SUI.clear = function(items) {
   if (SUI.isArray(items)) {
-    SUI.clearArray(/** @type {!Array} */ (items));
-  }
-  else if (SUI.isObject(items)) {
-    SUI.clearObject(/** @type {!Object} */ (items));
+    SUI.clearArray(/** @type {!Array} */(items));
+  } else if (SUI.isObject(items)) {
+    SUI.clearObject(/** @type {!Object} */(items));
   }
 };
 
@@ -586,8 +575,8 @@ SUI.remove = function(items, item) {
  * @return {!Array|!Object|undefined}
  */
 SUI.copy = function(items) {
-  //TODO object, array copy
-  //return JSON.parse(JSON.stringify(items));
+  // TODO object, array copy
+  // return JSON.parse(JSON.stringify(items));
   let results;
   if (SUI.isArray(items)) {
     results = [].concat(items);
@@ -608,8 +597,7 @@ SUI.isEmpty = function(items) {
   let result = false;
   if (SUI.isArray(items)) {
     result = items.length === 0;
-  }
-  else if (SUI.isObject(items)) {
+  } else if (SUI.isObject(items)) {
     let counter = 0;
     SUI.each(items, function() {
       counter++;
@@ -638,8 +626,7 @@ SUI.random = function(min, max, opt_onlyFloat) {
   let result;
   if (opt_onlyFloat) {
     result = Math.random() * (max - min) + min;
-  }
-  else {
+  } else {
     result = Math.floor(Math.random() * (max - min + 1)) + min;
   }
   return result;
@@ -721,7 +708,7 @@ SUI.number = function(num, exp) {
     {value: 1E9, symbol: 'G'},
     {value: 1E6, symbol: 'M'},
     {value: 1E3, symbol: 'k'},
-    {value: 0, symbol: ''}
+    {value: 0, symbol: ''},
   ];
   let rx = /\.0+$|(\.[0-9]*[1-9])0+$/;
   let result = Math10.round(num, exp).toString().replace(rx, '$1');
@@ -742,10 +729,9 @@ SUI.mdl = function(node) {
   if (SUI.isFunction(element.getNode)) {
     element = element.getNode();
   }
-  if (node){
+  if (node) {
     window['componentHandler']['upgradeElement'](element);
-  }
-  else {
+  } else {
     window['componentHandler']['upgradeDom']();
   }
 };
@@ -777,12 +763,12 @@ SUI.reactUnmount = function(mountNode) {
  * @return {!Object}
  */
 SUI.mapLabel = function(marker, title) {
-  //https://github.com/googlemaps/js-map-label/blob/gh-pages/src/maplabel.js
-  //https://googlemaps.github.io/js-map-label/docs/reference.html
+  // https://github.com/googlemaps/js-map-label/blob/gh-pages/src/maplabel.js
+  // https://googlemaps.github.io/js-map-label/docs/reference.html
   let mapLabel = new window['MapLabel']({
     'text': title,
     'strokeWeight': 2,
-    'fontFamily': 'sans-serif'
+    'fontFamily': 'sans-serif',
   });
 
   mapLabel['bindTo']('position', marker);
@@ -823,8 +809,8 @@ SUI.md5 = function(str) {
  * @param {string} name
  * @return {string}
  */
-SUI.generateId = function(name){
-  var guid = SUI.guid();
+SUI.generateId = function(name) {
+  let guid = SUI.guid();
   return [name, guid].join('-');
 };
 
@@ -848,7 +834,7 @@ SUI.uuid = function() {
     Math.random().toString(16).slice(2, 6),
     (Math.random() * .0625 /* 0x.1 */ + .25 /* 0x.4 */).toString(16).slice(2, 6),
     (Math.random() * .25 /* 0x.4 */ + .5 /* 0x.8 */).toString(16).slice(2, 6),
-    Math.random().toString(16).slice(2, 14)
+    Math.random().toString(16).slice(2, 14),
   ].join('-');
 };
 
@@ -872,8 +858,7 @@ SUI.scrollTo = function(x, y, opt_duration = 500, opt_step = 20) {
         scrollStepY = y - window.scrollY;
       }
       window.scrollBy(scrollStepX, scrollStepY);
-    }
-    else {
+    } else {
       clearInterval(SUI._scrollInterval);
     }
   }, opt_step);
@@ -901,7 +886,8 @@ SUI.scrollToElement = function(selector, opt_duration = 500, opt_step = 20) {
 SUI.debounce = function(func, opt_wait = 250, opt_immediate = false) {
   let timeout;
   return function() {
-    let context = this, args = arguments;
+    let context = this;
+    let args = arguments;
     let later = function() {
       timeout = null;
       if (!opt_immediate) func.apply(context, args);
@@ -934,8 +920,7 @@ SUI.getQueryString = function(opt_params) {
       SUI.eachArray(param, (value) => {
         queries.push(SUI.format('{0}[]={1}', [key, value]));
       });
-    }
-    else {
+    } else {
       queries.push(SUI.format('{0}={1}', [key, param]));
     }
   });
@@ -947,7 +932,7 @@ SUI.getQueryString = function(opt_params) {
  * @param {string} url
  * @return {string}
  */
-SUI.getExtensionName = function(url){
+SUI.getExtensionName = function(url) {
   let realUrl = url.split('?', 2)[0];
   return realUrl.slice((Math.max(0, realUrl.lastIndexOf('.')) || Infinity) + 1);
 };

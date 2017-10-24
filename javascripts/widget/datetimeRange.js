@@ -31,7 +31,6 @@ goog.inherits(SUI.widget.DatetimeRange, SUI.Widget);
  * @return {undefined}
  */
 SUI.widget.DatetimeRange.prototype._init = function() {
-
   this.inputBlock.addClass('datetime-range-widget');
   this.input.addClass('hidden');
 
@@ -50,23 +49,21 @@ SUI.widget.DatetimeRange.prototype._init = function() {
  * @return {undefined}
  */
 SUI.widget.DatetimeRange.prototype._initInput = function() {
-
   this.format = this.input.getData('format');
 
   this.input.addEventListener('change', () => {
-    var value = this.getValue().toString();
+    let value = this.getValue().toString();
     this.modelChange(value);
     this.checkValidity();
   });
 
-
-  var type = this.input.getAttribute('type');
-  var value = /** @type {string} */ (this.getValue().toString());
+  let type = this.input.getAttribute('type');
+  let value = /** @type {string} */ (this.getValue().toString());
 
   this.datetimeNode = new SUI.Node('div');
   this.datetime = new SUI.Datetime(this.datetimeNode, {
     value: value,
-    type: type
+    type: type,
   });
   this.datetime.eventClick = function(value) {
     this.setValue(value);
@@ -75,7 +72,7 @@ SUI.widget.DatetimeRange.prototype._initInput = function() {
   this.popup = new SUI.Popup(this.datetimeNode, this.inputBlock);
 
   if (value) {
-    var formattedValue = this.datetime.getValue();
+    let formattedValue = this.datetime.getValue();
     this._setTag(formattedValue);
   }
 };
@@ -88,7 +85,7 @@ SUI.widget.DatetimeRange.prototype._initInput = function() {
 SUI.widget.DatetimeRange.prototype.render = function() {
   this.datetime.draw();
 
-  var iconNode = new SUI.Node('i');
+  let iconNode = new SUI.Node('i');
   iconNode.addClass(['material-icons', 'size-24']);
   if (this.isStartInput) {
     iconNode.setHtml('remove');
@@ -100,7 +97,6 @@ SUI.widget.DatetimeRange.prototype.render = function() {
   }.bind(this));
 
   this.datetimeInput.insertAfter(iconNode);
-
 };
 
 /**
@@ -109,7 +105,7 @@ SUI.widget.DatetimeRange.prototype.render = function() {
  * @return {undefined}
  */
 SUI.widget.DatetimeRange.prototype.setValue = function(value) {
-  this._setTag(/** @type {string} */ (value));
+  this._setTag(/** @type {string} */(value));
   this.input.setAttribute('value', value);
   this.input.trigger('change');
 };
@@ -122,13 +118,13 @@ SUI.widget.DatetimeRange.prototype.setValue = function(value) {
 SUI.widget.DatetimeRange.prototype._setTag = function(value) {
   this.datetimeInput.removeChildren();
   if (value) {
-    var formattedValue = window['moment'](value, this.datetime.getConfig().format)['format'](this.format);
-    var tagNode = new SUI.Node('div');
+    let formattedValue = window['moment'](value, this.datetime.getConfig().format)['format'](this.format);
+    let tagNode = new SUI.Node('div');
     tagNode.addClass('tag');
     tagNode.setHtml(formattedValue);
     this.datetimeInput.appendChild(tagNode);
 
-    var iconNode = new SUI.Node('i');
+    let iconNode = new SUI.Node('i');
     iconNode.addClass(['material-icons', 'size-18']);
     iconNode.setHtml('close');
     iconNode.addEventListener('click', () => {

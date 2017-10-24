@@ -10,13 +10,12 @@ goog.require('SUI');
  */
 SUI.Node = function(node, opt_parent) {
   if (SUI.isString(node)) {
-    if (SUI.contain(/** @type {string} */ (node), '<') && SUI.contain(/** @type {string} */ (node), '</')) {
-      var template = document.createElement('template');
+    if (SUI.contain(/** @type {string} */(node), '<') && SUI.contain(/** @type {string} */(node), '</')) {
+      let template = document.createElement('template');
       template.innerHTML = node;
       node = template.content.firstElementChild;
-    }
-    else {
-      node = document.createElement(/** @type {string} */ (node));
+    } else {
+      node = document.createElement(/** @type {string} */(node));
     }
   }
   this.node = /** @type {!Element} */ (node);
@@ -31,8 +30,7 @@ SUI.Node = function(node, opt_parent) {
 SUI.Node.prototype.set = function(attribute, value) {
   if (SUI.eq(attribute, 'id')) {
     this.setId(value);
-  }
-  else {
+  } else {
     this.setAttribute(attribute, value);
   }
 };
@@ -132,8 +130,7 @@ SUI.Node.prototype._handleClassList = function(cssClasses, callback) {
     SUI.each(cssClasses, function(cssClass) {
       callback(cssClass);
     });
-  }
-  else {
+  } else {
     callback(cssClasses);
   }
 };
@@ -183,12 +180,11 @@ SUI.Node.prototype.getClasses = function() {
  * @return {undefined}
  */
 SUI.Node.prototype.setAttribute = function(attribute, opt_value) {
-  var value = SUI.isUndefined(opt_value) ? attribute : opt_value;
-  if (SUI.isFunction(value)){
+  let value = SUI.isUndefined(opt_value) ? attribute : opt_value;
+  if (SUI.isFunction(value)) {
     this.node[attribute] = value;
-  }
-  else{
-    this.node.setAttribute(attribute, /** @type {string} */ (value));
+  } else {
+    this.node.setAttribute(attribute, /** @type {string} */(value));
   }
 };
 
@@ -214,8 +210,8 @@ SUI.Node.prototype.removeAttribute = function(attribute) {
  * @return {!Function}
  */
 SUI.Node.prototype.addEventListener = function(eventName, callback) {
-  var listener = function(event) {
-    var node = new SUI.Node(/** @type {!Element} */ (this));
+  let listener = function(event) {
+    let node = new SUI.Node(/** @type {!Element} */(this));
     callback(node, event);
     event.stopPropagation();
   };
@@ -245,9 +241,9 @@ SUI.Node.prototype.dispatchEvent = function(event) {
  * @param {string} eventName
  * @return {undefined}
  */
-SUI.Node.prototype.trigger = function(eventName){
+SUI.Node.prototype.trigger = function(eventName) {
   // https://developer.mozilla.org/en-US/docs/Web/Guide/Events/Creating_and_triggering_events
-  var event = new Event(eventName);
+  let event = new Event(eventName);
   this.dispatchEvent(event);
 };
 
@@ -256,7 +252,7 @@ SUI.Node.prototype.trigger = function(eventName){
  * @return {!SUI.Node}
  */
 SUI.Node.prototype.createElement = function(tagName) {
-  var node = document.createElement(tagName);
+  let node = document.createElement(tagName);
   return new SUI.Node(node, this.parent);
 };
 
@@ -280,7 +276,7 @@ SUI.Node.prototype.removeChildren = function() {
 /**
  * @return {boolean}
  */
-SUI.Node.prototype.hasChildren = function(){
+SUI.Node.prototype.hasChildren = function() {
   return this.node.hasChildNodes();
 };
 
@@ -289,10 +285,10 @@ SUI.Node.prototype.hasChildren = function(){
  * @return {undefined}
  */
 SUI.Node.prototype.removeChild = function(node) {
-  if (this.hasChildren()){
+  if (this.hasChildren()) {
     try {
       this.node.removeChild(node.getNode());
-    } catch(e) {
+    } catch (e) {
       console.warn(e);
     }
   }
@@ -301,7 +297,7 @@ SUI.Node.prototype.removeChild = function(node) {
 /**
  * @return {undefined}
  */
-SUI.Node.prototype.remove = function(){
+SUI.Node.prototype.remove = function() {
   this.node.parentNode.removeChild(this.node);
 };
 
@@ -319,7 +315,7 @@ SUI.Node.prototype.insert = function(node) {
  * @return {undefined}
  */
 SUI.Node.prototype.beforeChild = function(node) {
-  var referenceNode = this.node.firstChild || this.node.firstElementChild;
+  let referenceNode = this.node.firstChild || this.node.firstElementChild;
   this.node.insertBefore(node.getNode(), referenceNode);
 };
 
@@ -327,7 +323,7 @@ SUI.Node.prototype.beforeChild = function(node) {
  * @param {!SUI.Node} node
  * @return {undefined}
  */
-SUI.Node.prototype.insertBefore = function(node){
+SUI.Node.prototype.insertBefore = function(node) {
   this.node.parentNode.insertBefore(node.getNode(), this.node);
 };
 
@@ -335,7 +331,7 @@ SUI.Node.prototype.insertBefore = function(node){
  * @param {!SUI.Node} node
  */
 SUI.Node.prototype.insertAfter = function(node) {
-  var referenceNode = this.node.nextSibling || this.node.nextElementSibling;
+  let referenceNode = this.node.nextSibling || this.node.nextElementSibling;
   this.node.parentNode.insertBefore(node.getNode(), referenceNode);
 };
 
@@ -368,8 +364,8 @@ SUI.Node.prototype.setText = function(text) {
  * @return {undefined}
  */
 SUI.Node.prototype.setData = function(name, value) {
-  var data = value;
-  if (!SUI.isString(value)){
+  let data = value;
+  if (!SUI.isString(value)) {
     data = JSON.stringify(value);
   }
   this.node.dataset[name] = data;
@@ -381,8 +377,8 @@ SUI.Node.prototype.setData = function(name, value) {
  * @return {*}
  */
 SUI.Node.prototype.getData = function(name) {
-  var data = this.node.dataset[name];
-  if (data && (SUI.eq(data[0], '[') || SUI.eq(data[0], '{'))){
+  let data = this.node.dataset[name];
+  if (data && (SUI.eq(data[0], '[') || SUI.eq(data[0], '{'))) {
     data = JSON.parse(this.node.dataset[name]);
   }
   return SUI.typeCast(data);
@@ -392,7 +388,7 @@ SUI.Node.prototype.getData = function(name) {
  * @return {?SUI.Node}
  */
 SUI.Node.prototype.getParent = function() {
-  var parent = this.node.parentElement;
+  let parent = this.node.parentElement;
   if (parent) {
     return new SUI.Node(parent, this.parent);
   }

@@ -16,13 +16,13 @@ SUI.lib.ServiceWorker = function() {
  * @return {undefined}
  */
 SUI.lib.ServiceWorker.prototype._init = function() {
-  /*if ('serviceWorker' in navigator) {
+  /* if ('serviceWorker' in navigator) {
     navigator.serviceWorker
       .register('service-worker.js', {scope: './'})
       .then(function(registration) {
         console.log('Service Worker Registered', registration);
 
       });
-   }*/
+   } */
 };
 

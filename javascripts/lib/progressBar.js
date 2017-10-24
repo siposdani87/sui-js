@@ -22,10 +22,10 @@ SUI.lib.ProgressBar = function(opt_options) {
  * @return {undefined}
  */
 SUI.lib.ProgressBar.prototype._setOptions = function(opt_options) {
-  var _self = this;
+  let _self = this;
   _self.options = new SUI.Object({
     lock: false,
-    counter: 0
+    counter: 0,
   });
   _self.options.merge(opt_options);
 };
@@ -38,27 +38,25 @@ SUI.lib.ProgressBar.prototype._init = function() {
   this.progressBarContainer = new SUI.Query('.main-container > .progress-bar').getItem();
   this.progressBarHeader = new SUI.Query('#header > .progress-bar').getItem();
 
-  var async = new SUI.Async(2);
-  async.eventComplete = function(isError, nodes){
-
-    if (nodes[0]['MaterialProgress']){
+  let async = new SUI.Async(2);
+  async.eventComplete = function(isError, nodes) {
+    if (nodes[0]['MaterialProgress']) {
       this.mProgressContainer = nodes[0]['MaterialProgress'];
     }
-    if (nodes[1]['MaterialProgress']){
+    if (nodes[1]['MaterialProgress']) {
       this.mProgressHeader = nodes[1]['MaterialProgress'];
     }
 
-    if (this.progressValue){
+    if (this.progressValue) {
       this.setProgress(this.progressValue);
     }
     this.progressValue = 0;
 
-    if (this.bufferValue){
+    if (this.bufferValue) {
       this.setBuffer(this.bufferValue);
     }
     this.bufferValue = 0;
   }.bind(this);
-
 
   this.progressBarContainer.addClass('mdl-js-progress');
   this.progressBarHeader.addClass('mdl-js-progress');
@@ -67,27 +65,25 @@ SUI.lib.ProgressBar.prototype._init = function() {
   this.bufferValue = 0;
 
   this.mProgressContainer = this.mProgressHeader = {
-    setProgress: function(value){
+    setProgress: function(value) {
       this.progressValue = value;
     }.bind(this),
-    setBuffer: function(value){
+    setBuffer: function(value) {
       this.bufferValue = value;
-    }.bind(this)
+    }.bind(this),
   };
 
-  this.progressBarContainer.addEventListener('mdl-componentupgraded', function(node){
+  this.progressBarContainer.addEventListener('mdl-componentupgraded', (node) => {
     async.parallelFunction(function() {
       return node;
     });
-  }.bind(this));
+  });
 
-  this.progressBarHeader.addEventListener('mdl-componentupgraded', function(node) {
+  this.progressBarHeader.addEventListener('mdl-componentupgraded', (node) => {
     async.parallelFunction(function() {
       return node;
     });
-  }.bind(this));
-
-
+  });
 };
 
 /**
@@ -95,7 +91,7 @@ SUI.lib.ProgressBar.prototype._init = function() {
  * @return {undefined}
  */
 SUI.lib.ProgressBar.prototype._progress = function() {
-  if (!this.options.get('lock')){
+  if (!this.options.get('lock')) {
     this.progressBarContainer.addClass('mdl-progress');
     this.progressBarHeader.addClass('mdl-progress');
   }
@@ -115,7 +111,7 @@ SUI.lib.ProgressBar.prototype.show = function() {
  * @param {number} value
  * @return {undefined}
  */
-SUI.lib.ProgressBar.prototype.setProgress = function(value){
+SUI.lib.ProgressBar.prototype.setProgress = function(value) {
   this._progress();
   this.mProgressContainer.setProgress(value);
   this.mProgressHeader.setProgress(value);
@@ -125,7 +121,7 @@ SUI.lib.ProgressBar.prototype.setProgress = function(value){
  * @param {number} value
  * @return {undefined}
  */
-SUI.lib.ProgressBar.prototype.setBuffer = function(value){
+SUI.lib.ProgressBar.prototype.setBuffer = function(value) {
   this._progress();
   this.mProgressContainer.setBuffer(value);
   this.mProgressHeader.setBuffer(value);
@@ -147,7 +143,7 @@ SUI.lib.ProgressBar.prototype.hide = function(opt_force) {
 /**
  * @return {undefined}
  */
-SUI.lib.ProgressBar.prototype.lock = function(){
+SUI.lib.ProgressBar.prototype.lock = function() {
   this.options.set('lock', true);
 };
 
@@ -155,7 +151,7 @@ SUI.lib.ProgressBar.prototype.lock = function(){
 /**
  * @return {undefined}
  */
-SUI.lib.ProgressBar.prototype.unlock = function(){
+SUI.lib.ProgressBar.prototype.unlock = function() {
   this.options.set('lock', false);
 };
 

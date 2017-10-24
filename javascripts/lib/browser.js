@@ -92,7 +92,7 @@ SUI.lib.Browser.prototype._detectBrowsers = function() {
  * @return {boolean}
  */
 SUI.lib.Browser.prototype.isInternetExplorer = function(opt_version) {
-  var result = this.lteIE10 || this.gteIE10;
+  let result = this.lteIE10 || this.gteIE10;
   if (opt_version) {
     switch (opt_version) {
       case 11:

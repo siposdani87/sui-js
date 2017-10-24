@@ -25,10 +25,10 @@ SUI.Pager = function(dom, opt_options, opt_selectors = ['.pager', '.pager-statis
  * @return {undefined}
  */
 SUI.Pager.prototype._setOptions = function(opt_options) {
-  var _self = this;
+  let _self = this;
   _self.options = new SUI.Object({
     row_count: 10,
-    pager_num: 4
+    pager_num: 4,
   });
   _self.options.merge(opt_options);
 };
@@ -59,9 +59,9 @@ SUI.Pager.prototype._drawPager = function() {
  * @return {undefined}
  */
 SUI.Pager.prototype._drawStatistics = function() {
-  var page = this.page - 1;
-  var from = page * this.options.row_count + 1;
-  var to = page * this.options.row_count + this.options.row_count;
+  let page = this.page - 1;
+  let from = page * this.options.row_count + 1;
+  let to = page * this.options.row_count + this.options.row_count;
   to = to > this.count ? this.count : to;
   this.pagerStatistics.setHtml(SUI.format('{0}‒{1} / {2}', [from, to, this.count]));
 };
@@ -72,12 +72,12 @@ SUI.Pager.prototype._drawStatistics = function() {
  */
 SUI.Pager.prototype._drawPreviousButton = function() {
   if (this.pageNum > 1) {
-    var previousButton = new SUI.Node('button');
+    let previousButton = new SUI.Node('button');
     previousButton.addClass(['mdl-button', 'mdl-js-button', 'mdl-js-ripple-effect']);
     previousButton.addEventListener('click', () => {
       this._previous();
     });
-    var iconNode = new SUI.Node('i');
+    let iconNode = new SUI.Node('i');
     iconNode.addClass('material-icons');
     iconNode.setHtml('chevron_left');
     previousButton.appendChild(iconNode);
@@ -92,12 +92,12 @@ SUI.Pager.prototype._drawPreviousButton = function() {
  */
 SUI.Pager.prototype._drawNextButton = function() {
   if (this.pageNum > 1) {
-    var nextButton = new SUI.Node('button');
+    let nextButton = new SUI.Node('button');
     nextButton.addClass(['mdl-button', 'mdl-js-button', 'mdl-js-ripple-effect']);
     nextButton.addEventListener('click', () => {
       this._next();
     });
-    var iconNode = new SUI.Node('i');
+    let iconNode = new SUI.Node('i');
     iconNode.addClass('material-icons');
     iconNode.setHtml('chevron_right');
     nextButton.appendChild(iconNode);
@@ -111,7 +111,7 @@ SUI.Pager.prototype._drawNextButton = function() {
  * @return {undefined}
  */
 SUI.Pager.prototype._selectPager = function() {
-  var node = new SUI.Query(SUI.format('button[data-page="{0}"]', [this.page]), this.pager).getItem();
+  let node = new SUI.Query(SUI.format('button[data-page="{0}"]', [this.page]), this.pager).getItem();
   if (!node.isEmpty()) {
     node.addClass('mdl-button--accent');
   }
@@ -122,15 +122,15 @@ SUI.Pager.prototype._selectPager = function() {
  * @return {undefined}
  */
 SUI.Pager.prototype._drawPageNumbers = function() {
-  var pagers = this._getPagers();
+  let pagers = this._getPagers();
   if (pagers.length > 1) {
     SUI.each(pagers, (pager) => {
-      var pageNode = new SUI.Node('button');
+      let pageNode = new SUI.Node('button');
       pageNode.setAttribute('data-page', pager.page);
       pageNode.setHtml(pager.text);
       pageNode.addClass(['mdl-button', 'mdl-js-button', 'mdl-js-ripple-effect']);
       pageNode.addEventListener('click', (node) => {
-        var page = node.getData('page');
+        let page = node.getData('page');
         this._go(page);
       });
       SUI.mdl(pageNode);
@@ -144,27 +144,27 @@ SUI.Pager.prototype._drawPageNumbers = function() {
  * @return {!Array}
  */
 SUI.Pager.prototype._getPagers = function() {
-  var part = Math.floor((this.page - 1) / this.options.pager_num);
-  var pagers = [];
+  let part = Math.floor((this.page - 1) / this.options.pager_num);
+  let pagers = [];
   if (part > 0) {
     pagers.push({
       text: '...',
-      page: part * this.options.pager_num - 1
+      page: part * this.options.pager_num - 1,
     });
   }
-  for (var i = 1; i <= this.options.pager_num; i++) {
-    var page = part * this.options.pager_num + i;
+  for (let i = 1; i <= this.options.pager_num; i++) {
+    let page = part * this.options.pager_num + i;
     if (page <= this.pageNum) {
       pagers.push({
         text: page,
-        page: page
+        page: page,
       });
     }
   }
   if (this.pageNum > this.options.pager_num && part !== Math.floor(this.pageNum / this.options.pager_num)) {
     pagers.push({
       text: '...',
-      page: part * this.options.pager_num + this.options.pager_num + 1
+      page: part * this.options.pager_num + this.options.pager_num + 1,
     });
   }
   return pagers;
@@ -176,7 +176,7 @@ SUI.Pager.prototype._getPagers = function() {
  * @return {undefined}
  */
 SUI.Pager.prototype._next = function() {
-  var page = this.page + 1;
+  let page = this.page + 1;
   if (page > this.pageNum) {
     page = 1;
   }
@@ -188,7 +188,7 @@ SUI.Pager.prototype._next = function() {
  * @return {undefined}
  */
 SUI.Pager.prototype._previous = function() {
-  var page = this.page - 1;
+  let page = this.page - 1;
   if (page < 1) {
     page = this.pageNum;
   }

@@ -20,9 +20,9 @@ SUI.lib.Window = function(opt_options) {
  * @return {undefined}
  */
 SUI.lib.Window.prototype._setOptions = function(opt_options) {
-  var _self = this;
+  let _self = this;
   _self.options = new SUI.Object({
-    delay: 250
+    delay: 250,
   });
   _self.options.merge(opt_options);
 };
@@ -130,7 +130,7 @@ SUI.lib.Window.prototype.eventScroll = function(scrollTop, event) {
 SUI.lib.Window.prototype._resize = function(event) {
   this.eventResize(this.getWidth(), this.getHeight(), event);
 
-  var orientation = this.getOrientation();
+  let orientation = this.getOrientation();
   if (SUI.neq(this.orientation, orientation)) {
     this.orientation = orientation;
     this.eventOrientationChange(this.orientation, this.getWidth(), this.getHeight(), event);

@@ -34,22 +34,21 @@ SUI.widget.File.prototype._init = function() {
   if (this.imageTag.isEmpty()) {
     this.imageTag = new SUI.Node('img');
     this.inputBlock.beforeChild(this.imageTag);
-  }
-  else {
+  } else {
     this.defaultSrc = this.imageTag.getAttribute('src');
   }
 
-  this.imageTag.addEventListener('click', function(){
-   this._remove();
+  this.imageTag.addEventListener('click', function() {
+    this._remove();
   }.bind(this));
 
   this.label.setStyle({
-    'top': '0px'
+    'top': '0px',
   });
 
   this.input.addEventListener('change', function(inputNode) {
-    var input = inputNode.getNode();
-    var file = input.files[0];
+    let input = inputNode.getNode();
+    let file = input.files[0];
     this._read(file);
   }.bind(this));
 };
@@ -61,7 +60,7 @@ SUI.widget.File.prototype._init = function() {
 SUI.widget.File.prototype.render = function() {
   this.inputBlock.addClass(['mdl-textfield', 'mdl-js-textfield', 'mdl-textfield--floating-label']);
   this.input.addClass('mdl-textfield__input');
-  if (this.label){
+  if (this.label) {
     this.label.addClass('mdl-textfield__label');
   }
   SUI.mdl(this.inputBlock);
@@ -73,9 +72,9 @@ SUI.widget.File.prototype.render = function() {
  */
 SUI.widget.File.prototype._read = function(file) {
   if (file) {
-    var reader = new FileReader();
+    let reader = new FileReader();
     reader.onload = function(event) {
-      var source = /** @type {string} */ (event.target.result);
+      let source = /** @type {string} */ (event.target.result);
       this.imageTag.setAttribute('src', source);
       this.modelChange(source);
       this.checkValidity();
@@ -88,12 +87,11 @@ SUI.widget.File.prototype._read = function(file) {
  * @private
  * @return {undefined}
  */
-SUI.widget.File.prototype._remove = function(){
+SUI.widget.File.prototype._remove = function() {
   this.input.getNode().value = '';
   if (this.defaultSrc) {
     this.imageTag.setAttribute('src', this.defaultSrc);
-  }
-  else {
+  } else {
     this.imageTag.removeAttribute('src');
   }
   this.modelChange(null);

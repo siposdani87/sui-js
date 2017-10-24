@@ -41,7 +41,7 @@ SUI.Calendar.prototype._init = function() {
     'month': this.modes[1],
     'year': this.modes[0],
     'week': this.modes[2],
-    'range': this.modes[2]
+    'range': this.modes[2],
   };
 
   this._initStructure();
@@ -56,7 +56,7 @@ SUI.Calendar.prototype._initStructure = function() {
   this._initContentNode();
   this._initMode(this.types[this.options.type]);
 
-  var date = window['moment'](this.options.date);
+  let date = window['moment'](this.options.date);
   this._selectDate(date);
   this.setDate(date);
 };
@@ -70,10 +70,10 @@ SUI.Calendar.prototype._initHeaderNode = function() {
   this.headerNode.addClass('header');
   this.calendarNode.appendChild(this.headerNode);
 
-  var previousButton = new SUI.Node('a');
+  let previousButton = new SUI.Node('a');
   previousButton.setAttribute('href', 'javascript:void(0)');
   previousButton.addClass(['previous', 'mdl-button', 'mdl-js-button', 'mdl-button--icon']);
-  var prevIconNode = new SUI.Node('i');
+  let prevIconNode = new SUI.Node('i');
   prevIconNode.addClass('material-icons');
   prevIconNode.setHtml('chevron_left');
   previousButton.appendChild(prevIconNode);
@@ -88,10 +88,10 @@ SUI.Calendar.prototype._initHeaderNode = function() {
   }.bind(this));
   this.headerNode.appendChild(this.currentModeNode);
 
-  var nextButton = new SUI.Node('a');
+  let nextButton = new SUI.Node('a');
   nextButton.setAttribute('href', 'javascript:void(0)');
   nextButton.addClass(['previous', 'mdl-button', 'mdl-js-button', 'mdl-button--icon']);
-  var nextIconNode = new SUI.Node('i');
+  let nextIconNode = new SUI.Node('i');
   nextIconNode.addClass('material-icons');
   nextIconNode.setHtml('chevron_right');
   nextButton.appendChild(nextIconNode);
@@ -115,7 +115,7 @@ SUI.Calendar.prototype._initContentNode = function() {
  * @return {undefined}
  */
 SUI.Calendar.prototype._changeMode = function(direction) {
-  var mode = this._getMode(direction);
+  let mode = this._getMode(direction);
   this._initMode(mode);
 };
 
@@ -125,11 +125,11 @@ SUI.Calendar.prototype._changeMode = function(direction) {
  * @return {string}
  */
 SUI.Calendar.prototype._getMode = function(direction) {
-  var position = this.modes.indexOf(this.activeMode);
+  let position = this.modes.indexOf(this.activeMode);
   if (position !== -1) {
     position += direction;
   }
-  var mode = this.modes[position];
+  let mode = this.modes[position];
   return mode ? mode : this.types[this.options.type];
 };
 
@@ -141,15 +141,15 @@ SUI.Calendar.prototype._getMode = function(direction) {
  * @return {!Object}
  */
 SUI.Calendar.prototype._switchMode = function(dayFun, monthFun, yearFun) {
-  var result = null;
+  let result = null;
   switch (this.activeMode) {
-    case 'DAY' :
+    case 'DAY':
       result = dayFun();
       break;
-    case 'MONTH' :
+    case 'MONTH':
       result = monthFun();
       break;
-    case 'YEAR' :
+    case 'YEAR':
       result = yearFun();
       break;
     default:
@@ -208,12 +208,12 @@ SUI.Calendar.prototype._initDaysMode = function() {
  * @return {undefined}
  */
 SUI.Calendar.prototype._previous = function() {
-  var date = this._switchMode(function() {
+  let date = this._switchMode(function() {
     return this.previous.month;
   }.bind(this), function() {
     return this.previous.year;
   }.bind(this), function() {
-    var date = this.current.day['clone']()['subtract'](this.maxYears, 'years');
+    let date = this.current.day['clone']()['subtract'](this.maxYears, 'years');
     if (date['year']() < 0) {
       date = this.current.day['clone']();
     }
@@ -228,7 +228,7 @@ SUI.Calendar.prototype._previous = function() {
  * @return {undefined}
  */
 SUI.Calendar.prototype._next = function() {
-  var date = this._switchMode(function() {
+  let date = this._switchMode(function() {
     return this.next.month;
   }.bind(this), function() {
     return this.next.year;
@@ -263,17 +263,17 @@ SUI.Calendar.prototype._setVariables = function(date) {
   this.previous = {
     day: window['moment'](date)['subtract'](1, 'days'),
     month: window['moment'](date)['subtract'](1, 'months'),
-    year: window['moment'](date)['subtract'](1, 'years')
+    year: window['moment'](date)['subtract'](1, 'years'),
   };
 
   this.current = {
-    day: window['moment'](date)
+    day: window['moment'](date),
   };
 
   this.next = {
     day: window['moment'](date)['add'](1, 'days'),
     month: window['moment'](date)['add'](1, 'months'),
-    year: window['moment'](date)['add'](1, 'years')
+    year: window['moment'](date)['add'](1, 'years'),
   };
 };
 
@@ -319,7 +319,7 @@ SUI.Calendar.prototype._drawYearsStructure = function() {
  */
 SUI.Calendar.prototype._drawHeader = function(format) {
   this.currentModeNode.removeChildren();
-  var text = format ? this.current.day['format'](format) : '';
+  let text = format ? this.current.day['format'](format) : '';
   this.currentModeNode.setHtml(text);
 };
 
@@ -329,10 +329,10 @@ SUI.Calendar.prototype._drawHeader = function(format) {
  */
 SUI.Calendar.prototype._drawMonths = function() {
   this.monthsNode.removeChildren();
-  for (var i = 0; i < this.maxMonths; i++) {
-    var month = new SUI.Month(this.current.day['clone']()['month'](i), this.selectedDate, {});
+  for (let i = 0; i < this.maxMonths; i++) {
+    let month = new SUI.Month(this.current.day['clone']()['month'](i), this.selectedDate, {});
     month.eventClick = this._onClick.bind(this);
-    var node = month.getNode();
+    let node = month.getNode();
     this.monthsNode.appendChild(node);
   }
 };
@@ -343,11 +343,11 @@ SUI.Calendar.prototype._drawMonths = function() {
  */
 SUI.Calendar.prototype._drawYears = function() {
   this.yearsNode.removeChildren();
-  var startYear = this.current.day['year']() - (this.current.day['year']() % this.maxYears);
-  for (var i = startYear; i < (startYear + this.maxYears); i++) {
-    var year = new SUI.Year(this.current.day['clone']()['year'](i), this.selectedDate, {});
+  let startYear = this.current.day['year']() - (this.current.day['year']() % this.maxYears);
+  for (let i = startYear; i < (startYear + this.maxYears); i++) {
+    let year = new SUI.Year(this.current.day['clone']()['year'](i), this.selectedDate, {});
     year.eventClick = this._onClick.bind(this);
-    var node = year.getNode();
+    let node = year.getNode();
     this.yearsNode.appendChild(node);
   }
 };
@@ -358,10 +358,10 @@ SUI.Calendar.prototype._drawYears = function() {
  */
 SUI.Calendar.prototype._drawWeekDays = function() {
   this.weekDaysNode.removeChildren();
-  for (var i = this.options.start_day; i < this.options.start_day + 7; i++) {
-    var node = new SUI.Node('span');
+  for (let i = this.options.start_day; i < this.options.start_day + 7; i++) {
+    let node = new SUI.Node('span');
     node.addClass('day');
-    var text = window['moment']['weekdaysMin'](i % 7);
+    let text = window['moment']['weekdaysMin'](i % 7);
     node.setHtml(text);
     this.weekDaysNode.appendChild(node);
   }
@@ -373,9 +373,9 @@ SUI.Calendar.prototype._drawWeekDays = function() {
  */
 SUI.Calendar.prototype._drawDays = function() {
   this.daysNode.removeChildren();
-  for (var i = 0; i < this.days.length; i++) {
-    var day = this.days[i];
-    var node = day.getNode();
+  for (let i = 0; i < this.days.length; i++) {
+    let day = this.days[i];
+    let node = day.getNode();
     this.daysNode.appendChild(node);
   }
 };
@@ -388,7 +388,7 @@ SUI.Calendar.prototype._drawDays = function() {
  * @return {string}
  */
 SUI.Calendar.prototype._getDate = function(year, month, day) {
-  var results = [year, month + 1, day];
+  let results = [year, month + 1, day];
   return results.join('-');
 };
 
@@ -397,11 +397,11 @@ SUI.Calendar.prototype._getDate = function(year, month, day) {
  * @return {undefined}
  */
 SUI.Calendar.prototype._setPreviousMonth = function() {
-  var diffDays = this.previous.month['endOf']('month')['day']() - this.options.start_day;
-  for (var i = this.previous.month['daysInMonth']() - diffDays; i <= this.previous.month['daysInMonth'](); i++) {
-    var date = this._getDate(this.previous.month['year'](), this.previous.month['month'](), i);
-    var day = new SUI.Day(date, this.selectedDate, {
-      css_class: 'previous-month'
+  let diffDays = this.previous.month['endOf']('month')['day']() - this.options.start_day;
+  for (let i = this.previous.month['daysInMonth']() - diffDays; i <= this.previous.month['daysInMonth'](); i++) {
+    let date = this._getDate(this.previous.month['year'](), this.previous.month['month'](), i);
+    let day = new SUI.Day(date, this.selectedDate, {
+      css_class: 'previous-month',
     });
     day.eventClick = this._onClick.bind(this);
     this.days.push(day);
@@ -413,10 +413,10 @@ SUI.Calendar.prototype._setPreviousMonth = function() {
  * @return {undefined}
  */
 SUI.Calendar.prototype._setCurrentMonth = function() {
-  for (var i = 1; i <= this.current.day['daysInMonth'](); i++) {
-    var date = this._getDate(this.current.day['year'](), this.current.day['month'](), i);
-    var day = new SUI.Day(date, this.selectedDate, {
-      css_class: 'current-month'
+  for (let i = 1; i <= this.current.day['daysInMonth'](); i++) {
+    let date = this._getDate(this.current.day['year'](), this.current.day['month'](), i);
+    let day = new SUI.Day(date, this.selectedDate, {
+      css_class: 'current-month',
     });
     day.eventClick = this._onClick.bind(this);
     this.days.push(day);
@@ -428,12 +428,12 @@ SUI.Calendar.prototype._setCurrentMonth = function() {
  * @return {undefined}
  */
 SUI.Calendar.prototype._setNextMonth = function() {
-  var numOfDays = this.days.length;
-  var diffDays = this.maxDays - numOfDays;
-  for (var i = 1; i <= diffDays; i++) {
-    var date = this._getDate(this.next.month['year'](), this.next.month['month'](), i);
-    var day = new SUI.Day(date, this.selectedDate, {
-      css_class: 'next-month'
+  let numOfDays = this.days.length;
+  let diffDays = this.maxDays - numOfDays;
+  for (let i = 1; i <= diffDays; i++) {
+    let date = this._getDate(this.next.month['year'](), this.next.month['month'](), i);
+    let day = new SUI.Day(date, this.selectedDate, {
+      css_class: 'next-month',
     });
     day.eventClick = this._onClick.bind(this);
     this.days.push(day);
@@ -446,7 +446,7 @@ SUI.Calendar.prototype._setNextMonth = function() {
  * @return {undefined}
  */
 SUI.Calendar.prototype._setModeDate = function(selectedDate) {
-  var date = this.current.day['clone']();
+  let date = this.current.day['clone']();
   this._switchMode(function() {
     date['month'](selectedDate['month']());
     date['date'](selectedDate['date']());
@@ -467,7 +467,7 @@ SUI.Calendar.prototype._setModeDate = function(selectedDate) {
 SUI.Calendar.prototype._onClick = function(selectedDate) {
   this._setModeDate(selectedDate);
 
-  var mode = this.types[this.options.type];
+  let mode = this.types[this.options.type];
   if (this.activeMode !== mode) {
     this._changeMode(1);
   }

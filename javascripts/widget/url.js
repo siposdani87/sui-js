@@ -30,13 +30,13 @@ SUI.widget.Url.prototype._init = function() {
   this.protocol = this.input.getData('protocol');
 
   this.input.addEventListener('keyup', (input) => {
-    var inputNode = input.getNode();
+    let inputNode = input.getNode();
     this.modelChange(inputNode.value);
     this.checkValidity();
   });
 
   this.input.addEventListener('change', (input) => {
-    var inputNode = input.getNode();
+    let inputNode = input.getNode();
     this.modelChange(inputNode.value);
     this.checkValidity();
   });
@@ -54,7 +54,7 @@ SUI.widget.Url.prototype.render = function() {
   }
 
   if (this.protocol) {
-    var protocolNode = new SUI.Node('span');
+    let protocolNode = new SUI.Node('span');
     protocolNode.addClass('protocol');
     protocolNode.setHtml(this.protocol);
     this.input.insertAfter(protocolNode);
@@ -62,4 +62,3 @@ SUI.widget.Url.prototype.render = function() {
 
   SUI.mdl(this.inputBlock);
 };
-

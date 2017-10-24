@@ -8,7 +8,6 @@ goog.require('SUI.lib');
  * @this {SUI.lib.AppCache}
  */
 SUI.lib.AppCache = function() {
-
   this._init();
 };
 
@@ -17,7 +16,6 @@ SUI.lib.AppCache = function() {
  * @return {undefined}
  */
 SUI.lib.AppCache.prototype._init = function() {
-
   this.appCache = window.applicationCache;
 
   this._attachEvent();
@@ -28,7 +26,6 @@ SUI.lib.AppCache.prototype._init = function() {
  * @return {undefined}
  */
 SUI.lib.AppCache.prototype._attachEvent = function() {
-
   this.appCache.addEventListener('updateready', function() {
     if (this.appCache.status === this.appCache.UPDATEREADY) {
       // Browser downloaded a new app cache.
@@ -41,47 +38,46 @@ SUI.lib.AppCache.prototype._attachEvent = function() {
   }.bind(this));
 
 
-  var handleCacheEvent = function(e) {
-    //console.log(e);
+  let handleCacheEvent = function(e) {
+    // console.log(e);
   };
 
-  var handleCacheError = function(e) {
-    //alert('Error: Cache failed to update!');
+  let handleCacheError = function(e) {
+    // alert('Error: Cache failed to update!');
   };
 
-// Fired after the first cache of the manifest.
+  // Fired after the first cache of the manifest.
   this.appCache.addEventListener('cached', handleCacheEvent, false);
 
-// Checking for an update. Always the first event fired in the sequence.
+  // Checking for an update. Always the first event fired in the sequence.
   this.appCache.addEventListener('checking', handleCacheEvent, false);
 
-// An update was found. The browser is fetching resources.
+  // An update was found. The browser is fetching resources.
   this.appCache.addEventListener('downloading', handleCacheEvent, false);
 
-// The manifest returns 404 or 410, the download failed,
-// or the manifest changed while the download was in progress.
+  // The manifest returns 404 or 410, the download failed,
+  // or the manifest changed while the download was in progress.
   this.appCache.addEventListener('error', handleCacheError, false);
 
-// Fired after the first download of the manifest.
+  // Fired after the first download of the manifest.
   this.appCache.addEventListener('noupdate', handleCacheEvent, false);
 
-// Fired if the manifest file returns a 404 or 410.
-// This results in the application cache being deleted.
+  // Fired if the manifest file returns a 404 or 410.
+  // This results in the application cache being deleted.
   this.appCache.addEventListener('obsolete', handleCacheEvent, false);
 
-// Fired for each resource listed in the manifest as it is being fetched.
+  // Fired for each resource listed in the manifest as it is being fetched.
   this.appCache.addEventListener('progress', handleCacheEvent, false);
 
-// Fired when the manifest resources have been newly redownloaded.
+  // Fired when the manifest resources have been newly redownloaded.
   this.appCache.addEventListener('updateready', handleCacheEvent, false);
-
 };
 
 /**
  * @return {string}
  */
 SUI.lib.AppCache.prototype.getState = function() {
-  var result;
+  let result;
   switch (this.appCache.status) {
     case this.appCache.UNCACHED: // UNCACHED == 0
       result = 'UNCACHED';
@@ -95,7 +91,7 @@ SUI.lib.AppCache.prototype.getState = function() {
     case this.appCache.DOWNLOADING: // DOWNLOADING == 3
       result = 'DOWNLOADING';
       break;
-    case this.appCache.UPDATEREADY:  // UPDATEREADY == 4
+    case this.appCache.UPDATEREADY: // UPDATEREADY == 4
       result = 'UPDATEREADY';
       break;
     case this.appCache.OBSOLETE: // OBSOLETE == 5

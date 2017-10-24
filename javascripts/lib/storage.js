@@ -10,12 +10,12 @@ goog.require('SUI.lib');
  * @param {!Object} options
  */
 SUI.lib.Storage = function(options) {
-  var _self = this;
+  let _self = this;
   _self.options = new SUI.Object({
     type: 'local',
     secret: '',
     hours: 24 * 7,
-    interval: 60 * 1000
+    interval: 60 * 1000,
   });
   _self.options.merge(options);
 
@@ -42,8 +42,8 @@ SUI.lib.Storage.prototype._init = function() {
  * @return {undefined}
  */
 SUI.lib.Storage.prototype.set = function(name, value, opt_expires) {
-  var expires = this._getExpires(opt_expires);
-  var encrypted = expires + ';' + SUI.encrypt(value, this.options.secret);
+  let expires = this._getExpires(opt_expires);
+  let encrypted = expires + ';' + SUI.encrypt(value, this.options.secret);
   this.storage.setItem(name, encrypted);
 };
 
@@ -52,11 +52,11 @@ SUI.lib.Storage.prototype.set = function(name, value, opt_expires) {
  * @return {*}
  */
 SUI.lib.Storage.prototype.get = function(name) {
-  var item = this.storage.getItem(name);
-  var result = null;
+  let item = this.storage.getItem(name);
+  let result = null;
   if (item && item.indexOf(';') !== -1) {
-    var encrypted = item.split(';', 2)[1] || SUI.encrypt(null, this.options.secret);
-    var decrypted = SUI.decrypt(encrypted, this.options.secret);
+    let encrypted = item.split(';', 2)[1] || SUI.encrypt(null, this.options.secret);
+    let decrypted = SUI.decrypt(encrypted, this.options.secret);
     result = SUI.typeCast(decrypted);
   }
   return result;
@@ -73,7 +73,7 @@ SUI.lib.Storage.prototype.remove = function(name) {
 /**
  * @return {undefined}
  */
-SUI.lib.Storage.prototype.clear = function(){
+SUI.lib.Storage.prototype.clear = function() {
   this.storage.clear();
 };
 
@@ -82,9 +82,9 @@ SUI.lib.Storage.prototype.clear = function(){
  * @return {undefined}
  */
 SUI.lib.Storage.prototype._checkExpires = function() {
-  var keys = Object.keys(this.storage);
+  let keys = Object.keys(this.storage);
   SUI.eachArray(keys, (name) => {
-    var isExpired = this._isExpired(name);
+    let isExpired = this._isExpired(name);
     if (isExpired) {
       this.remove(name);
     }
@@ -97,8 +97,8 @@ SUI.lib.Storage.prototype._checkExpires = function() {
  * @return {boolean}
  */
 SUI.lib.Storage.prototype._isExpired = function(name) {
-  var date = new Date();
-  var expireDate = this._getExpiresDate(name);
+  let date = new Date();
+  let expireDate = this._getExpiresDate(name);
   return !!expireDate && date.getTime() >= expireDate.getTime();
 };
 
@@ -108,9 +108,9 @@ SUI.lib.Storage.prototype._isExpired = function(name) {
  * @return {?Date}
  */
 SUI.lib.Storage.prototype._getExpiresDate = function(name) {
-  var item = this.storage.getItem(name);
+  let item = this.storage.getItem(name);
   if (item) {
-    var utcString = item.split(';', 2)[0];
+    let utcString = item.split(';', 2)[0];
     return new Date(utcString);
   }
   return null;
@@ -122,7 +122,7 @@ SUI.lib.Storage.prototype._getExpiresDate = function(name) {
  * @return {string}
  */
 SUI.lib.Storage.prototype._getExpires = function(opt_expires) {
-  var date = new Date();
+  let date = new Date();
   if (opt_expires) {
     switch (opt_expires.constructor) {
       case Number:
@@ -135,8 +135,7 @@ SUI.lib.Storage.prototype._getExpires = function(opt_expires) {
       default:
         break;
     }
-  }
-  else {
+  } else {
     date.setTime(date.getTime() + (this.options.hours * 60 * 60 * 1000));
     opt_expires = date.toUTCString();
   }

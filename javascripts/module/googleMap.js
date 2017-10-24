@@ -11,7 +11,7 @@ goog.require('SUI.Object');
  * @param {string=} opt_selector
  * @param {!Object=} opt_options
  */
-SUI.GoogleMap = function (dom, opt_selector = '.map', opt_options = {}) {
+SUI.GoogleMap = function(dom, opt_selector = '.map', opt_options = {}) {
   this.mapNode = new SUI.Query(opt_selector, dom).getItem();
   this._setOptions(opt_options);
   this._init();
@@ -22,22 +22,22 @@ SUI.GoogleMap = function (dom, opt_selector = '.map', opt_options = {}) {
  * @param {!Object=} opt_options
  * @return {undefined}
  */
-SUI.GoogleMap.prototype._setOptions = function (opt_options) {
+SUI.GoogleMap.prototype._setOptions = function(opt_options) {
   let _self = this;
   _self.options = new SUI.Object({
     center: {
       lat: 47.6,
-      lng: 17.533333
+      lng: 17.533333,
     },
     zoom: 8,
     scrollwheel: false,
     streetViewControl: false,
-    //disableDefaultUI: true,
+    // disableDefaultUI: true,
     scaleControl: true,
     mapTypeControl: false,
     mapTypeControlOptions: {
-      mapTypeIds: [google.maps.MapTypeId.SATELLITE, google.maps.MapTypeId.TERRAIN] // 'custom'
-    }
+      mapTypeIds: [google.maps.MapTypeId.SATELLITE, google.maps.MapTypeId.TERRAIN], // 'custom'
+    },
   });
   this.options.merge(opt_options);
   this.options = this.options.copy(true);
@@ -47,23 +47,22 @@ SUI.GoogleMap.prototype._setOptions = function (opt_options) {
  * @return {!google.maps.StyledMapType}
  * @private
  */
-SUI.GoogleMap.prototype._getCustomMapType = function () {
-
+SUI.GoogleMap.prototype._getCustomMapType = function() {
   let mapType = new google.maps.StyledMapType([
     {
       stylers: [
-        //{hue: '#890000'},
-        { visibility: 'simplified' }
-        //{gamma: 0.5},
-        //{weight: 0.5}
-      ]
+        // {hue: '#890000'},
+        {visibility: 'simplified'},
+        // {gamma: 0.5},
+        // {weight: 0.5}
+      ],
     },
     {
       elementType: 'labels.icon',
       stylers: [
-        { visibility: 'off' }
-      ]
-    }/*,
+        {visibility: 'off'},
+      ],
+    }, /* ,
      {
      featureType: 'water',
      stylers: [
@@ -71,8 +70,9 @@ SUI.GoogleMap.prototype._getCustomMapType = function () {
      ]
      }*/
   ], {
-      name: 'Custom'
-    });
+      name: 'Custom',
+    }
+  );
 
   return mapType;
 };
@@ -81,7 +81,7 @@ SUI.GoogleMap.prototype._getCustomMapType = function () {
  * @private
  * @return {undefined}
  */
-SUI.GoogleMap.prototype._init = function () {
+SUI.GoogleMap.prototype._init = function() {
   this.markerIcons = {};
   this.markers = [];
   this.bounds = null;
@@ -103,14 +103,14 @@ SUI.GoogleMap.prototype._init = function () {
  * @param {number} computeArea
  * @param {{latitude: number, longitude: number}} center
  */
-SUI.GoogleMap.prototype.eventPolygonChanged = function (points, computeArea, center) {
+SUI.GoogleMap.prototype.eventPolygonChanged = function(points, computeArea, center) {
   console.warn('SUI.GoogleMap.eventPolygonChanged()', points, computeArea, center);
 };
 
 /**
  * @param {!Object=} opt_options
  */
-SUI.GoogleMap.prototype.setPolygon = function (opt_options) {
+SUI.GoogleMap.prototype.setPolygon = function(opt_options) {
   let options = new SUI.Object({
     geodesic: true,
     strokeColor: '#FF0000',
@@ -118,7 +118,7 @@ SUI.GoogleMap.prototype.setPolygon = function (opt_options) {
     strokeWeight: 2,
     fillColor: '#FF0000',
     fillOpacity: 0.2,
-    editable: false
+    editable: false,
   });
   options.merge(opt_options);
 
@@ -144,7 +144,7 @@ SUI.GoogleMap.prototype.setPolygon = function (opt_options) {
  * @private
  * @return {undefined}
  */
-SUI.GoogleMap.prototype._bindEventsToPolygon = function () {
+SUI.GoogleMap.prototype._bindEventsToPolygon = function() {
   let path = this.polygon.getPath();
   if (path) {
     path.addListener('insert_at', this._callPolygonChangeEvent.bind(this));
@@ -157,7 +157,7 @@ SUI.GoogleMap.prototype._bindEventsToPolygon = function () {
  * @private
  * @return {undefined}
  */
-SUI.GoogleMap.prototype._callPolygonChangeEvent = function () {
+SUI.GoogleMap.prototype._callPolygonChangeEvent = function() {
   let points = this._getPointsFromPolygon();
   this._setBoundsByPoints(points);
   this.eventPolygonChanged(points, this._getComputeArea(), this.getCenterOfPolygon());
@@ -168,7 +168,7 @@ SUI.GoogleMap.prototype._callPolygonChangeEvent = function () {
  * @param {number} longitude
  * @param {!Object} event
  */
-SUI.GoogleMap.prototype.eventPolygonClick = function (latitude, longitude, event) {
+SUI.GoogleMap.prototype.eventPolygonClick = function(latitude, longitude, event) {
 
 };
 
@@ -177,14 +177,14 @@ SUI.GoogleMap.prototype.eventPolygonClick = function (latitude, longitude, event
  * @param {number} longitude
  * @param {!Object} event
  */
-SUI.GoogleMap.prototype.eventMapClick = function (latitude, longitude, event) {
+SUI.GoogleMap.prototype.eventMapClick = function(latitude, longitude, event) {
 
 };
 
 /**
  * @param {!Array<{latitude: number, longitude: number}>} points
  */
-SUI.GoogleMap.prototype.addPointsToPolygon = function (points) {
+SUI.GoogleMap.prototype.addPointsToPolygon = function(points) {
   let path = this._convertPointsToPath(points);
   this.polygon.setPath(path);
   this._setBoundsByPath(path);
@@ -198,7 +198,7 @@ SUI.GoogleMap.prototype.addPointsToPolygon = function (points) {
  * @param {!Array<{latitude: number, longitude: number}>} points
  * @return {!Array<{google.maps.LatLng}>}
  */
-SUI.GoogleMap.prototype._convertPointsToPath = function (points) {
+SUI.GoogleMap.prototype._convertPointsToPath = function(points) {
   let path = [];
   SUI.each(points, (point) => {
     let vertex = new google.maps.LatLng(point.latitude, point.longitude);
@@ -212,7 +212,7 @@ SUI.GoogleMap.prototype._convertPointsToPath = function (points) {
  * @param {!Array<{latitude: number, longitude: number}>} points
  * @return {undefined}
  */
-SUI.GoogleMap.prototype._setBoundsByPoints = function (points) {
+SUI.GoogleMap.prototype._setBoundsByPoints = function(points) {
   let path = this._convertPointsToPath(points);
   this._setBoundsByPath(path);
 };
@@ -222,7 +222,7 @@ SUI.GoogleMap.prototype._setBoundsByPoints = function (points) {
  * @param {!Array<{google.maps.LatLng}>} path
  * @return {undefined}
  */
-SUI.GoogleMap.prototype._setBoundsByPath = function (path) {
+SUI.GoogleMap.prototype._setBoundsByPath = function(path) {
   this.bounds = null;
   if (path.length > 0) {
     this.bounds = new google.maps.LatLngBounds();
@@ -235,11 +235,11 @@ SUI.GoogleMap.prototype._setBoundsByPath = function (path) {
 /**
  * @return {{latitude: number, longitude: number}}
  */
-SUI.GoogleMap.prototype.getCenterOfPolygon = function () {
+SUI.GoogleMap.prototype.getCenterOfPolygon = function() {
   let vertex = this.bounds.getCenter();
   return {
     'latitude': vertex.lat(),
-    'longitude': vertex.lng()
+    'longitude': vertex.lng(),
   };
 };
 
@@ -247,7 +247,7 @@ SUI.GoogleMap.prototype.getCenterOfPolygon = function () {
  * @private
  * @return {undefined}
  */
-SUI.GoogleMap.prototype._fitBoundsToMap = function () {
+SUI.GoogleMap.prototype._fitBoundsToMap = function() {
   if (this.bounds) {
     let center = this.bounds.getCenter();
     this.map.setCenter(center);
@@ -259,14 +259,14 @@ SUI.GoogleMap.prototype._fitBoundsToMap = function () {
  * @private
  * @return {!Array<{latitude: number, longitude: number}>}
  */
-SUI.GoogleMap.prototype._getPointsFromPolygon = function () {
+SUI.GoogleMap.prototype._getPointsFromPolygon = function() {
   let path = this.polygon.getPath().getArray();
   this._setBoundsByPath(path);
   let points = [];
   SUI.each(path, (vertex) => {
     points.push({
       latitude: vertex.lat(),
-      longitude: vertex.lng()
+      longitude: vertex.lng(),
     });
   });
   return points;
@@ -276,7 +276,7 @@ SUI.GoogleMap.prototype._getPointsFromPolygon = function () {
  * @private
  * @return {number}
  */
-SUI.GoogleMap.prototype._getComputeArea = function () {
+SUI.GoogleMap.prototype._getComputeArea = function() {
   let path = this.polygon.getPath();
   return google.maps.geometry.spherical.computeArea(path);
 };
@@ -285,7 +285,7 @@ SUI.GoogleMap.prototype._getComputeArea = function () {
  * @param {number} latitude
  * @param {number} longitude
  */
-SUI.GoogleMap.prototype.addPointToPolygon = function (latitude, longitude) {
+SUI.GoogleMap.prototype.addPointToPolygon = function(latitude, longitude) {
   let path = this.polygon.getPath();
   path.push(new google.maps.LatLng(latitude, longitude));
 };
@@ -293,11 +293,11 @@ SUI.GoogleMap.prototype.addPointToPolygon = function (latitude, longitude) {
 /**
  * @param {!Object=} opt_options
  */
-SUI.GoogleMap.prototype.setMarkers = function (opt_options) {
+SUI.GoogleMap.prototype.setMarkers = function(opt_options) {
   this.markers = /** @type {!SUI.Collection<!SUI.Object>} */ (new SUI.Collection());
 
   this.markerOptions = new SUI.Object({
-    draggable: false
+    draggable: false,
   });
   this.markerOptions.merge(opt_options);
 };
@@ -310,7 +310,7 @@ SUI.GoogleMap.prototype.setMarkers = function (opt_options) {
  * @param {number} longitude
  * @param {!Object=} opt_data
  */
-SUI.GoogleMap.prototype.addMarker = function (id, title, iconName, latitude, longitude, opt_data) {
+SUI.GoogleMap.prototype.addMarker = function(id, title, iconName, latitude, longitude, opt_data) {
   let data = new SUI.Object(opt_data);
   data.set('id', id);
 
@@ -321,7 +321,7 @@ SUI.GoogleMap.prototype.addMarker = function (id, title, iconName, latitude, lon
     title: SUI.convert(title, 'string'),
     zIndex: this.markers.length,
     draggable: this.markerOptions.draggable,
-    map: this.map
+    map: this.map,
   });
 
   data.setRaw('marker', marker);
@@ -339,7 +339,7 @@ SUI.GoogleMap.prototype.addMarker = function (id, title, iconName, latitude, lon
  * @param {!SUI.Object} data
  * @param {!Object} mapLabel
  */
-SUI.GoogleMap.prototype._bindEventsToMarker = function (marker, data, mapLabel) {
+SUI.GoogleMap.prototype._bindEventsToMarker = function(marker, data, mapLabel) {
   marker.addListener('click', (event) => {
     this.eventMarkerClick(data, event);
   });
@@ -372,7 +372,7 @@ SUI.GoogleMap.prototype._bindEventsToMarker = function (marker, data, mapLabel) 
  * @param {number} longitude
  * @param {!SUI.Object=} opt_data
  */
-SUI.GoogleMap.prototype.updateMarker = function (id, title, iconName, latitude, longitude, opt_data) {
+SUI.GoogleMap.prototype.updateMarker = function(id, title, iconName, latitude, longitude, opt_data) {
   let text = SUI.convert(title, 'string');
 
   let data = this.getMarker(id);
@@ -398,14 +398,14 @@ SUI.GoogleMap.prototype.updateMarker = function (id, title, iconName, latitude, 
  * @param {string|number} id
  * @return {!SUI.Object}
  */
-SUI.GoogleMap.prototype.getMarker = function (id) {
+SUI.GoogleMap.prototype.getMarker = function(id) {
   return this.markers.findById(id);
 };
 
 /**
  * @param {string|number} id
  */
-SUI.GoogleMap.prototype.removeMarker = function (id) {
+SUI.GoogleMap.prototype.removeMarker = function(id) {
   let markerData = this.getMarker(id);
   if (markerData) {
     let marker = markerData.get('marker');
@@ -420,10 +420,10 @@ SUI.GoogleMap.prototype.removeMarker = function (id) {
  * @param {string} content
  * @return {undefined}
  */
-SUI.GoogleMap.prototype.openInfoWindow = function (data, content) {
+SUI.GoogleMap.prototype.openInfoWindow = function(data, content) {
   let marker = /** @type {!google.maps.MVCObject} */ (data.get('marker', null));
   let infoWindow = new google.maps.InfoWindow({
-    content: content
+    content: content,
   });
   infoWindow.open(this.map, marker);
 };
@@ -432,7 +432,7 @@ SUI.GoogleMap.prototype.openInfoWindow = function (data, content) {
  * @param {!Object} data
  * @param {!Object} event
  */
-SUI.GoogleMap.prototype.eventMarkerClick = function (data, event) {
+SUI.GoogleMap.prototype.eventMarkerClick = function(data, event) {
 
 };
 
@@ -440,7 +440,7 @@ SUI.GoogleMap.prototype.eventMarkerClick = function (data, event) {
  * @param {!Object} data
  * @param {!Object} event
  */
-SUI.GoogleMap.prototype.eventMarkerRightClick = function (data, event) {
+SUI.GoogleMap.prototype.eventMarkerRightClick = function(data, event) {
 
 };
 
@@ -450,7 +450,7 @@ SUI.GoogleMap.prototype.eventMarkerRightClick = function (data, event) {
  * @param {number} longitude
  * @param {!Object} event
  */
-SUI.GoogleMap.prototype.eventMarkerChanged = function (data, latitude, longitude, event) {
+SUI.GoogleMap.prototype.eventMarkerChanged = function(data, latitude, longitude, event) {
 
 };
 
@@ -458,23 +458,23 @@ SUI.GoogleMap.prototype.eventMarkerChanged = function (data, latitude, longitude
  * @param {string} name
  * @param {!Object} iconOptions
  */
-SUI.GoogleMap.prototype.setMarkerIcon = function (name, iconOptions) {
-  //https://developers.google.com/maps/documentation/javascript/examples/marker-symbol-custom
+SUI.GoogleMap.prototype.setMarkerIcon = function(name, iconOptions) {
+  // https://developers.google.com/maps/documentation/javascript/examples/marker-symbol-custom
   let icon = {
     url: iconOptions.url,
     size: new google.maps.Size(iconOptions.size[0], iconOptions.size[1]),
     origin: new google.maps.Point(iconOptions.origin[0], iconOptions.origin[1]),
-    anchor: new google.maps.Point(iconOptions.anchor[0], iconOptions.anchor[1])
+    anchor: new google.maps.Point(iconOptions.anchor[0], iconOptions.anchor[1]),
   };
 
   let shape = {
     coords: iconOptions.coords,
-    type: 'poly'
+    type: 'poly',
   };
 
   this.markerIcons[name] = {
     icon: icon,
-    shape: shape
+    shape: shape,
   };
 };
 
@@ -482,23 +482,22 @@ SUI.GoogleMap.prototype.setMarkerIcon = function (name, iconOptions) {
  * @param {string} query
  * @return {!SUI.Promise}
  */
-SUI.GoogleMap.prototype.searchAddress = function (query) {
+SUI.GoogleMap.prototype.searchAddress = function(query) {
   let deferred = new SUI.Deferred();
   let geoCoder = new google.maps.Geocoder();
-  geoCoder.geocode({ address: query }, (results, status) => {
+  geoCoder.geocode({address: query}, (results, status) => {
     if (status === google.maps.GeocoderStatus.OK && results.length > 0) {
       let points = [];
       SUI.each(results, (result) => {
         let point = {
           'address': result.formatted_address,
           'latitude': result.geometry.location.lat(),
-          'longitude': result.geometry.location.lng()
+          'longitude': result.geometry.location.lng(),
         };
         points.push(point);
       });
       deferred.resolve([points]);
-    }
-    else {
+    } else {
       deferred.reject();
     }
   });
@@ -511,14 +510,13 @@ SUI.GoogleMap.prototype.searchAddress = function (query) {
  * @param {boolean=} opt_boundCheck
  * @return {undefined}
  */
-SUI.GoogleMap.prototype.setCenter = function (latitude, longitude, opt_boundCheck = true) {
+SUI.GoogleMap.prototype.setCenter = function(latitude, longitude, opt_boundCheck = true) {
   let position = new google.maps.LatLng(latitude, longitude);
   if (opt_boundCheck) {
     if (!this.map.getBounds().contains(position)) {
       this.map.setCenter(position);
     }
-  }
-  else {
+  } else {
     this.map.setCenter(position);
   }
 };
@@ -526,17 +524,17 @@ SUI.GoogleMap.prototype.setCenter = function (latitude, longitude, opt_boundChec
 /**
  * @return {{latitude: number, longitude: number}}
  */
-SUI.GoogleMap.prototype.getCenter = function () {
+SUI.GoogleMap.prototype.getCenter = function() {
   let vertex = this.map.getCenter();
   return {
     'latitude': vertex.lat(),
-    'longitude': vertex.lng()
+    'longitude': vertex.lng(),
   };
 };
 
 /**
  * @return {undefined}
  */
-SUI.GoogleMap.prototype.triggerResize = function () {
+SUI.GoogleMap.prototype.triggerResize = function() {
   google.maps.event.trigger(this.map, 'resize');
 };

@@ -25,7 +25,6 @@ goog.inherits(SUI.widget.Radiobutton, SUI.Widget);
  * @return {undefined}
  */
 SUI.widget.Radiobutton.prototype._init = function() {
-
   this.label.addEventListener('click', () => {
     let value = this.input.getAttribute('value');
     this.modelChange(value);
@@ -40,7 +39,7 @@ SUI.widget.Radiobutton.prototype._init = function() {
 SUI.widget.Radiobutton.prototype.render = function() {
   this.label.addClass(['mdl-radio', 'mdl-js-radio', 'mdl-js-ripple-effect']);
   let id = this.input.getId();
-  this.label.setFor(/** @type {string} */ (id));
+  this.label.setFor(/** @type {string} */(id));
 
   let labelText = this.label.getHtml(true);
 

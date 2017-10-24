@@ -22,7 +22,7 @@ SUI.lib.Xhr = function(options) {
     backend: '',
     content_type: this._getContentType('json'),
     response_type: this._getResponseType('json'),
-    authorization: null
+    authorization: null,
   });
   _self.options.merge(options);
   this._init();
@@ -77,26 +77,25 @@ SUI.lib.Xhr.prototype._getResponseType = function(name) {
 SUI.lib.Xhr.prototype._onReadyStateChange = function() {
   return function() {
     switch (this.http.readyState) {
-      case 0 :
-        //request not initialized
-      case 1 :
-        // server connection established
-      case 2 :
-        // request received
-      case 3 :
+      case 0:
+      // request not initialized
+      case 1:
+      // server connection established
+      case 2:
+      // request received
+      case 3:
         // processing request
         break;
-      case 4 :
+      case 4:
         // Request finished and response is ready
         let response = this._getResponseData(this.http.response);
         if (SUI.eq(this.http.status, 200)) {
           this.deferred.resolve(response.concat([this.http.status]));
-        }
-        else {
+        } else {
           this.deferred.reject(response.concat([this.http.status]));
         }
         break;
-      default :
+      default:
         console.error('SUI.lib.Xhr._onReadyStateChange()', this.http.readyState);
         break;
     }
@@ -219,16 +218,14 @@ SUI.lib.Xhr.prototype._parseObject = function(obj, key, stringKey) {
     for (let i = 0; i < obj.length; i++) {
       results.push([stringKey, obj[i]].join('='));
     }
-  }
-  else if (typeof obj === 'object') {
+  } else if (typeof obj === 'object') {
     for (let j in obj) {
       if (obj.hasOwnProperty(j)) {
         let pairs = this._parseObject(obj[j], j, stringKey);
         results = results.concat(pairs);
       }
     }
-  }
-  else {
+  } else {
     results.push([stringKey, obj].join('='));
   }
   return results;
@@ -261,19 +258,19 @@ SUI.lib.Xhr.prototype._getResponseData = function(data) {
   if (type) {
     switch (type.split(';')[0]) {
       case this._getContentType('json'):
-        data = SUI.isString(data) ? JSON.parse(/** @type {string} */ (data) || 'null') : data;
+        data = SUI.isString(data) ? JSON.parse(/** @type {string} */(data) || 'null') : data;
         let object = new SUI.Object();
         object.merge(data);
         results = [object];
         break;
       case this._getContentType('html'):
-        //let parserHtml = new DOMParser();
-        //result = parserHtml.parseFromString(data, this._getContentType('html'));
+      // let parserHtml = new DOMParser();
+      // result = parserHtml.parseFromString(data, this._getContentType('html'));
       case this._getContentType('form'):
       case this._getContentType('svg'):
         break;
       default:
-        //result = new Blob([data], {'type': type});
+        // result = new Blob([data], {'type': type});
         let contentDisposition = this.http.getResponseHeader('Content-Disposition');
         let filename = contentDisposition.match(/filename="(.+)"/)[1];
         results = [data, filename];
@@ -302,8 +299,7 @@ SUI.lib.Xhr.prototype._setRequestHeaders = function(url, opt_headers) {
   SUI.each(opt_headers, (header, key) => {
     if (SUI.eq(key, 'responseType')) {
       this.http.responseType = header;
-    }
-    else {
+    } else {
       this.setHeader(key, header);
     }
   });

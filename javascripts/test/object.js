@@ -11,7 +11,6 @@ goog.require('SUI.Test');
  * @extends {SUI.Test}
  */
 SUI.test.Object = function() {
-  
   SUI.Test.call(this, 'Object');
 };
 goog.inherits(SUI.test.Object, SUI.Test);
@@ -20,7 +19,6 @@ goog.inherits(SUI.test.Object, SUI.Test);
  * @override
  */
 SUI.test.Object.prototype.init = function() {
-  
   this.testMerge();
   this.testGetTypedValue();
   this.testGet();
@@ -30,13 +28,12 @@ SUI.test.Object.prototype.init = function() {
 };
 
 SUI.test.Object.prototype.testMerge = function() {
-  
-  var options = new SUI.Object({
+  let options = new SUI.Object({
     attr: null,
     obj: {
       attr2: 1,
-      attr4: 3
-    }
+      attr4: 3,
+    },
   });
   if (options.attr !== null) {
     this.showError('merge', 1);
@@ -45,8 +42,8 @@ SUI.test.Object.prototype.testMerge = function() {
     attr: 'value1',
     obj: {
       attr2: 2,
-      attr3: null
-    }
+      attr3: null,
+    },
   });
   if (options.attr !== 'value1') {
     this.showError('merge', 2);
@@ -63,18 +60,17 @@ SUI.test.Object.prototype.testMerge = function() {
 };
 
 SUI.test.Object.prototype.testGetTypedValue = function() {
-  
-  var options = new SUI.Object({
+  let options = new SUI.Object({
     attr: 'null',
     obj: {
       attr2: '1',
-      attr3: '3.2'
+      attr3: '3.2',
     },
     attr4: 'false',
     attr5: 'true',
     attr6: 'string123,456.789',
     attr7: undefined,
-    attr8: null
+    attr8: null,
   });
   if (options.attr !== null) {
     this.showError('_getTypedValue', 0);
@@ -103,17 +99,16 @@ SUI.test.Object.prototype.testGetTypedValue = function() {
 };
 
 SUI.test.Object.prototype.testGet = function() {
-  
-  var options = new SUI.Object({
+  let options = new SUI.Object({
     attr: null,
     obj: {
       attr2: 1,
       obj2: {
         attr4: 2,
         attr3: 3.2,
-        attr5: 4.5
-      }
-    }
+        attr5: 4.5,
+      },
+    },
   });
   options.set('attr', null);
   if (options.get('attr') !== null) {
@@ -132,17 +127,15 @@ SUI.test.Object.prototype.testGet = function() {
   }
 };
 
-
 SUI.test.Object.prototype.testSet = function() {
-  
-  var options = new SUI.Object({
+  let options = new SUI.Object({
     attr: 0,
     obj: {
       attr2: 0,
       obj2: {
-        attr3: 0
-      }
-    }
+        attr3: 0,
+      },
+    },
   });
   options.set('attr', null);
   if (options.get('attr') !== null) {
@@ -163,15 +156,14 @@ SUI.test.Object.prototype.testSet = function() {
 };
 
 SUI.test.Object.prototype.testRemove = function() {
-  
-  var options = new SUI.Object({
+  let options = new SUI.Object({
     attr: 0,
     obj: {
       attr2: 0,
       obj2: {
-        attr3: 0
-      }
-    }
+        attr3: 0,
+      },
+    },
   });
   options.remove('attr');
   if (options.get('attr') !== undefined) {
@@ -192,18 +184,17 @@ SUI.test.Object.prototype.testRemove = function() {
 };
 
 SUI.test.Object.prototype.testCopy = function() {
-  
-  var options = new SUI.Object({
+  let options = new SUI.Object({
     attr: 0,
     obj: {
       attr2: 0,
       obj2: {
-        attr3: 0
-      }
-    }
+        attr3: 0,
+      },
+    },
   });
   options.set('obj.attr2', 0);
-  var optionsCopy = options.copy();
+  let optionsCopy = options.copy();
   optionsCopy.remove('obj.attr2');
   if (options.get('obj.attr2') !== 0) {
     this.showError('copy', 0);

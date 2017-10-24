@@ -11,10 +11,10 @@ goog.require('SUI.Object');
  * @param {!SUI.Node} element
  * @param {!Object=} opt_options
  */
-SUI.Dropdown = function (element, opt_options) {
-  this.dropdown = element;
-  this._setOptions(opt_options);
-  this._init();
+SUI.Dropdown = function(element, opt_options) {
+    this.dropdown = element;
+    this._setOptions(opt_options);
+    this._init();
 };
 
 /**
@@ -22,24 +22,24 @@ SUI.Dropdown = function (element, opt_options) {
  * @param {!Object=} opt_options
  * @return {undefined}
  */
-SUI.Dropdown.prototype._setOptions = function (opt_options) {
-  var _self = this;
-  _self.options = new SUI.Object({
-    id: SUI.generateId('dropdown')
-  });
-  _self.options.merge(opt_options);
+SUI.Dropdown.prototype._setOptions = function(opt_options) {
+    let _self = this;
+    _self.options = new SUI.Object({
+        id: SUI.generateId('dropdown'),
+    });
+    _self.options.merge(opt_options);
 };
 
 /**
  * @private
  * @return {undefined}
  */
-SUI.Dropdown.prototype._init = function () {
-  this.collection = /** @type {!SUI.Collection<!SUI.Object>} */ (new SUI.Collection());
-  this.actions = [];
-  this.item = null;
-  this._appendButton();
-  this._appendMenu();
+SUI.Dropdown.prototype._init = function() {
+    this.collection = /** @type {!SUI.Collection<!SUI.Object>} */ (new SUI.Collection());
+    this.actions = [];
+    this.item = null;
+    this._appendButton();
+    this._appendMenu();
 };
 
 /**
@@ -51,7 +51,7 @@ SUI.Dropdown.prototype._appendButton = function() {
     this.buttonNode.setId(this.options.id);
     this.buttonNode.addClass(['mdl-button', 'mdl-js-button', 'mdl-button--icon']);
 
-    var iconNode = new SUI.Node('i');
+    let iconNode = new SUI.Node('i');
     iconNode.addClass('material-icons');
     iconNode.setHtml('more_vert');
     this.buttonNode.appendChild(iconNode);
@@ -76,7 +76,7 @@ SUI.Dropdown.prototype._appendMenu = function() {
  * @param {!Object} item
  * @return {undefined}
  */
-SUI.Dropdown.prototype.setActions = function(actions, item){
+SUI.Dropdown.prototype.setActions = function(actions, item) {
     this.actions = actions;
     this.item = item;
     this._renderMenu();
@@ -88,13 +88,13 @@ SUI.Dropdown.prototype.setActions = function(actions, item){
  * @private
  * @return {undefined}
  */
-SUI.Dropdown.prototype._renderMenu = function(){
+SUI.Dropdown.prototype._renderMenu = function() {
     SUI.eachArray(this.actions, (action) => {
-        var [ icon, disabled, title ] = action.style(this.item);
+        let [icon, disabled, title] = action.style(this.item);
         let menuItemNode = new SUI.Node('li');
         menuItemNode.addClass('mdl-menu__item');
         menuItemNode.setHtml(title || icon);
-        if (disabled){
+        if (disabled) {
             menuItemNode.setAttribute('disabled');
         }
         menuItemNode.addEventListener('click', () => {

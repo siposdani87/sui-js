@@ -24,10 +24,10 @@ SUI.ProgressStatus = function(dom, opt_options, opt_selector = '.progress-status
  * @return {undefined}
  */
 SUI.ProgressStatus.prototype._setOptions = function(opt_options) {
-  var _self = this;
+  let _self = this;
   _self.options = new SUI.Object({
     errorStyle: 'error',
-    successStyle: 'success'
+    successStyle: 'success',
   });
   _self.options.merge(opt_options);
 };

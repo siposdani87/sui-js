@@ -18,7 +18,7 @@ SUI.lib.GeoLocation.prototype._init = function() {
   this.options = {
     enableHighAccuracy: true,
     timeout: 5000,
-    maximumAge: Infinity
+    maximumAge: Infinity,
   };
 };
 
@@ -38,7 +38,7 @@ SUI.lib.GeoLocation.prototype.setWatcher = function() {
  * @return {!SUI.Promise}
  */
 SUI.lib.GeoLocation.prototype.getPosition = function() {
-  var deferred = new SUI.Deferred();
+  let deferred = new SUI.Deferred();
   navigator.geolocation.getCurrentPosition((position) => {
     deferred.resolve([position.coords.latitude, position.coords.longitude]);
   }, (error) => {
@@ -70,7 +70,7 @@ SUI.lib.GeoLocation.prototype.eventChange = function(latitude, longitude, messag
  * @return {undefined}
  */
 SUI.lib.GeoLocation.prototype._handlePosition = function(position) {
-  var message = 'User allowed the request for GeoLocation.';
+  let message = 'User allowed the request for GeoLocation.';
   this.eventChange(position.coords.latitude, position.coords.longitude, message);
 };
 

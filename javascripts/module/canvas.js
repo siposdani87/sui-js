@@ -22,9 +22,8 @@ SUI.Canvas = function(opt_selector) {
 SUI.Canvas.prototype._init = function(opt_selector) {
   this.canvasNode = /** @type {!SUI.Node} */ (opt_selector);
   if (SUI.isString(opt_selector)) {
-    this.canvasNode = new SUI.Query(/** @type {string} */ (opt_selector)).getItem();
-  }
-  else if (SUI.isUndefined(opt_selector)){
+    this.canvasNode = new SUI.Query(/** @type {string} */(opt_selector)).getItem();
+  } else if (SUI.isUndefined(opt_selector)) {
     this.canvasNode = new SUI.Node('canvas');
   }
   this.canvasRaw = this.canvasNode.getNode();
@@ -37,9 +36,9 @@ SUI.Canvas.prototype._init = function(opt_selector) {
  */
 SUI.Canvas.prototype._initEvents = function() {
   this.canvasNode.addEventListener('mousemove', (canvasNode, event) => {
-    var rect = canvasNode.getNode().getBoundingClientRect();
-    var x= event.clientX - rect.left;
-    var y= event.clientY - rect.top;
+    let rect = canvasNode.getNode().getBoundingClientRect();
+    let x = event.clientX - rect.left;
+    let y = event.clientY - rect.top;
     this.eventMouseMove(x, y);
   });
 };
@@ -97,13 +96,13 @@ SUI.Canvas.prototype.drawPolygon = function(x, y, radius, sides, rotateAngle, op
   if (sides < 3) {
     return;
   }
-  var a = (Math.PI * 2) / sides;
+  let a = (Math.PI * 2) / sides;
   this.context.save();
   this.context.translate(x, y);
   this.context.beginPath();
   this.context.rotate(rotateAngle);
   this.context.moveTo(radius, 0);
-  for (var i = 1; i < sides; i++) {
+  for (let i = 1; i < sides; i++) {
     this.context.lineTo(radius * Math.cos(a * i), radius * Math.sin(a * i));
   }
   this.context.closePath();
@@ -147,9 +146,9 @@ SUI.Canvas.prototype.drawRectangle = function(x, y, width, height, rotateAngle, 
  * @param {number=} opt_width
  * @param {number=} opt_height
  */
-SUI.Canvas.prototype.drawImage = function(image, opt_width, opt_height){
-  var width = opt_width || SUI.typeCast(image.getAttribute('width'));
-  var height = opt_height || SUI.typeCast(image.getAttribute('height'));
+SUI.Canvas.prototype.drawImage = function(image, opt_width, opt_height) {
+  let width = opt_width || SUI.typeCast(image.getAttribute('width'));
+  let height = opt_height || SUI.typeCast(image.getAttribute('height'));
   this.context.save();
   this.context.drawImage(image.getNode(), 0, 0, width, height);
   this.context.restore();
@@ -160,7 +159,7 @@ SUI.Canvas.prototype.drawImage = function(image, opt_width, opt_height){
  * @param {number} y
  * @return {!CanvasPixelArray}
  */
-SUI.Canvas.prototype.getImageDataXY = function(x, y){
+SUI.Canvas.prototype.getImageDataXY = function(x, y) {
   return this.context.getImageData(x, y, 1, 1).data;
 };
 
@@ -169,13 +168,13 @@ SUI.Canvas.prototype.getImageDataXY = function(x, y){
  * @param {number} y
  * @return {undefined}
  */
-SUI.Canvas.prototype.eventMouseMove = function(x, y){
+SUI.Canvas.prototype.eventMouseMove = function(x, y) {
 
 };
 
 /**
  * @return {undefined}
  */
-SUI.Canvas.prototype.clear = function(){
+SUI.Canvas.prototype.clear = function() {
   this.context.clearRect(0, 0, this.getWidth(), this.getHeight());
 };

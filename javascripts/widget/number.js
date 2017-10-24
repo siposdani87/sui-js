@@ -26,19 +26,19 @@ goog.inherits(SUI.widget.Number, SUI.Widget);
 SUI.widget.Number.prototype._init = function() {
   this.inputBlock.addClass('number-widget');
   this._initInfo();
-  
+
   this._initButtons();
 
   this.input.addEventListener('keyup', (input) => {
     this._checkValue();
-    var value = this.getValue();
+    let value = this.getValue();
     this.modelChange(value);
     this.checkValidity();
   });
 
   this.input.addEventListener('change', (input) => {
     this._checkValue();
-    var value = this.getValue();
+    let value = this.getValue();
     this.modelChange(value);
     this.checkValidity();
   });
@@ -49,24 +49,24 @@ SUI.widget.Number.prototype._init = function() {
  * @return {undefined}
  */
 SUI.widget.Number.prototype._initButtons = function() {
-  var upButton = new SUI.Node('a');
+  let upButton = new SUI.Node('a');
   upButton.setAttribute('href', 'javascript:void(0)');
   upButton.addClass(['up-button', 'material-icons']);
   upButton.setHtml('keyboard_arrow_up');
   upButton.addEventListener('click', () => {
-    var value = /** @type {number} */ (this.getValue() || 0);
+    let value = /** @type {number} */ (this.getValue() || 0);
     value += this._getStep();
     this.setValue(value);
     this.checkValidity(true);
   });
   this.inputBlock.appendChild(upButton);
 
-  var downButton = new SUI.Node('a');
+  let downButton = new SUI.Node('a');
   downButton.setAttribute('href', 'javascript:void(0)');
   downButton.addClass(['down-button', 'material-icons']);
   downButton.setHtml('keyboard_arrow_down');
   downButton.addEventListener('click', () => {
-    var value = /** @type {number} */ (this.getValue() || 0);
+    let value = /** @type {number} */ (this.getValue() || 0);
     value -= this._getStep();
     this.setValue(value);
     this.checkValidity(true);
@@ -79,12 +79,12 @@ SUI.widget.Number.prototype._initButtons = function() {
  * @return {undefined}
  */
 SUI.widget.Number.prototype._checkValue = function() {
-  var value = /** @type {number} */ (this.getValue());
-  var min = this._getMin();
+  let value = /** @type {number} */ (this.getValue());
+  let min = this._getMin();
   if (value < min) {
     this.setValue(min);
   }
-  var max = this._getMax();
+  let max = this._getMax();
   if (value > max) {
     this.setValue(max);
   }
@@ -95,7 +95,7 @@ SUI.widget.Number.prototype._checkValue = function() {
  * @return {number}
  */
 SUI.widget.Number.prototype._getMax = function() {
-  var max = this.input.getAttribute('max') || 9999999999;
+  let max = this.input.getAttribute('max') || 9999999999;
   return /** @type {number} */ (SUI.typeCast(max));
 };
 
@@ -104,7 +104,7 @@ SUI.widget.Number.prototype._getMax = function() {
  * @return {number}
  */
 SUI.widget.Number.prototype._getMin = function() {
-  var min = this.input.getAttribute('min') || 0;
+  let min = this.input.getAttribute('min') || 0;
   return /** @type {number} */ (SUI.typeCast(min));
 };
 
@@ -113,7 +113,7 @@ SUI.widget.Number.prototype._getMin = function() {
  * @return {number}
  */
 SUI.widget.Number.prototype._getStep = function() {
-  var step = this.input.getAttribute('step') || 1;
+  let step = this.input.getAttribute('step') || 1;
   return /** @type {number} */ (SUI.typeCast(step));
 };
 

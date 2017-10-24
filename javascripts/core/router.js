@@ -12,8 +12,8 @@ SUI.Router = function(route) {
   this.route = route || '';
   this.param = new RegExp('([:*])(\\w+)', 'g');
 
-  var basePath = '#';
-  var baseMeta = new SUI.Query('base').getItem();
+  let basePath = '#';
+  let baseMeta = new SUI.Query('base').getItem();
   if (!baseMeta.isEmpty()) {
     basePath = baseMeta.getAttribute('href') || '';
   }
@@ -42,19 +42,17 @@ SUI.Router.prototype._init = function() {
  * @return {string}
  */
 SUI.Router.prototype.stringify = function(opt_params) {
-  var route = this.route;
+  let route = this.route;
   if (opt_params) {
-    for (var key in opt_params) {
+    for (let key in opt_params) {
       if (opt_params.hasOwnProperty(key)) {
-        var regex = new RegExp('[:*]' + key + '\\b');
+        let regex = new RegExp('[:*]' + key + '\\b');
         if (regex.test(route)) {
           route = route.replace(regex, opt_params[key]);
-        }
-        else {
+        } else {
           if (route.indexOf('?') === -1) {
             route += '?';
-          }
-          else {
+          } else {
             route += '&';
           }
           route += [key, opt_params[key]].join('=');
@@ -70,7 +68,7 @@ SUI.Router.prototype.stringify = function(opt_params) {
  * @return {?Array}
  */
 SUI.Router.prototype.getMatches = function(url) {
-  var question = url.indexOf('?');
+  let question = url.indexOf('?');
   if (question !== -1) {
     url = url.substring(0, question);
   }
@@ -82,14 +80,14 @@ SUI.Router.prototype.getMatches = function(url) {
  * @return {!Object}
  */
 SUI.Router.prototype.parse = function(url) {
-  var matches = this.getMatches(url);
+  let matches = this.getMatches(url);
   if (!matches) {
     return {};
   }
-  var params = this._parseParams(url);
-  var i = 0;
+  let params = this._parseParams(url);
+  let i = 0;
   while (i < this.names.length) {
-    var key = this.names[i++];
+    let key = this.names[i++];
     params[key] = SUI.typeCast(matches[i]);
   }
   return params;
@@ -101,12 +99,12 @@ SUI.Router.prototype.parse = function(url) {
  * @return {!Object}
  */
 SUI.Router.prototype._parseParams = function(url) {
-  var params = {};
-  var question = url.indexOf('?');
+  let params = {};
+  let question = url.indexOf('?');
   if (question !== -1) {
-    var pieces = url.substr(question + 1).split('&');
-    for (var i = 0; i < pieces.length; i++) {
-      var parts = pieces[i].replace('==', '&&').split('=');
+    let pieces = url.substr(question + 1).split('&');
+    for (let i = 0; i < pieces.length; i++) {
+      let parts = pieces[i].replace('==', '&&').split('=');
       if (parts.length < 2) {
         parts.push('');
       }

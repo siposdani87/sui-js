@@ -9,13 +9,13 @@ goog.require('SUI.Object');
  * @param {!Object=} opt_options
  */
 SUI.Promise = function(opt_options) {
-  var _self = this;
+  let _self = this;
   _self.options = new SUI.Object({
     status: null,
     data: null,
     resolve: null,
     reject: null,
-    complete: null
+    complete: null,
   });
   _self.options.merge(opt_options);
 };
@@ -31,8 +31,7 @@ SUI.Promise.prototype._resolve = function(opt_data) {
   if (SUI.isFunction(this.options.resolve) && SUI.isFunction(this.options.complete)) {
     this.options.resolve.apply(this, opt_data);
     this.options.complete.apply(this, opt_data);
-  }
-  else {
+  } else {
     this.options.data = opt_data;
     this.options.status = true;
   }
@@ -49,8 +48,7 @@ SUI.Promise.prototype._reject = function(opt_data) {
   if (SUI.isFunction(this.options.reject) && SUI.isFunction(this.options.complete)) {
     this.options.reject.apply(this, opt_data);
     this.options.complete.apply(this, opt_data);
-  }
-  else {
+  } else {
     this.options.data = opt_data;
     this.options.status = false;
   }
@@ -63,8 +61,8 @@ SUI.Promise.prototype._reject = function(opt_data) {
  * @return {undefined}
  */
 SUI.Promise.prototype.then = function(resolve, opt_reject, opt_complete) {
-  var reject = opt_reject || SUI.noop();
-  var complete = opt_complete || SUI.noop();
+  let reject = opt_reject || SUI.noop();
+  let complete = opt_complete || SUI.noop();
   switch (this.options.status) {
     case true:
       resolve.apply(this, this.options.data);
@@ -74,11 +72,11 @@ SUI.Promise.prototype.then = function(resolve, opt_reject, opt_complete) {
       reject.apply(this, this.options.data);
       complete.apply(this, this.options.data);
       break;
-    default :
+    default:
       this.options.merge({
         resolve: resolve,
         reject: reject,
-        complete: complete
+        complete: complete,
       });
   }
 };
@@ -88,7 +86,7 @@ SUI.Promise.prototype.then = function(resolve, opt_reject, opt_complete) {
  * @param {!Function=} opt_complete
  * @return {undefined}
  */
-SUI.Promise.prototype.defer = function(defer, opt_complete){
+SUI.Promise.prototype.defer = function(defer, opt_complete) {
   this.then((...args) => {
     defer.resolve(args);
   }, (...args) => {

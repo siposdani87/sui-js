@@ -27,14 +27,14 @@ SUI.CardCollection = function(dom, ctrl, opt_options, opt_selector = '.card-coll
  * @return {undefined}
  */
 SUI.CardCollection.prototype._setOptions = function(opt_options) {
-  var _self = this;
+  let _self = this;
   _self.options = new SUI.Object({
     row_count: 12,
     pager_num: 4,
     sort: {
       column: null,
-      order: 'asc'
-    }
+      order: 'asc',
+    },
   });
   _self.options.merge(opt_options);
 };
@@ -94,35 +94,32 @@ SUI.CardCollection.prototype._initTemplate = function() {
  * @return {!SUI.Node}
  */
 SUI.CardCollection.prototype._getCardNode = function(item) {
-  var regex = new RegExp('{{[a-zA-Z._,() ]*}}', 'g');
-  var matches = this.template.match(regex);
-  var cloneTemplate = this.template;
+  let regex = new RegExp('{{[a-zA-Z._,() ]*}}', 'g');
+  let matches = this.template.match(regex);
+  let cloneTemplate = this.template;
   SUI.each(matches, function(match) {
-    var expression = match.replace('{{', '').replace('}}', '');
+    let expression = match.replace('{{', '').replace('}}', '');
     if (SUI.contain(expression, 'ctrl.')) {
-      var paramsRegex = new RegExp('(([a-zA-Z._, ]*))', 'g');
-      var expressionMatches = expression.match(paramsRegex);
-      var fnName = expressionMatches[0].replace('ctrl.', '');
-      var fnKeys = expressionMatches[2].split(', ');
-      var fnParams = [];
-      SUI.each(fnKeys, function(key) {
+      let paramsRegex = new RegExp('(([a-zA-Z._, ]*))', 'g');
+      let expressionMatches = expression.match(paramsRegex);
+      let fnName = expressionMatches[0].replace('ctrl.', '');
+      let fnKeys = expressionMatches[2].split(', ');
+      let fnParams = [];
+      SUI.each(fnKeys, (key) => {
         if (key === 'item') {
           fnParams.push(item);
-        }
-        else {
+        } else {
           fnParams.push(item.get(key));
         }
-      }.bind(this));
-      var method = this.ctrl[fnName];
+      });
+      let method = this.ctrl[fnName];
       if (method) {
-        var result = method.apply(this.ctrl, fnParams);
+        let result = method.apply(this.ctrl, fnParams);
         cloneTemplate = cloneTemplate.replace(match, result);
-      }
-      else{
+      } else {
         console.warn(SUI.format('ctrl.{0}() missing', [fnName]));
       }
-    }
-    else {
+    } else {
       cloneTemplate = cloneTemplate.replace(match, item.get(expression));
     }
   }.bind(this));
@@ -147,12 +144,12 @@ SUI.CardCollection.prototype.refresh = function(opt_page = -1) {
   if (opt_page > -1) {
     this.pager.setPage(opt_page);
   }
-  var params = new SUI.Object({
+  let params = new SUI.Object({
     'query': this.query,
     'column': this.options.sort.column,
     'order': this.options.sort.order,
     'offset': this.pager.offset,
-    'limit': this.options.row_count
+    'limit': this.options.row_count,
   });
   this.eventAction(params);
 };
@@ -180,7 +177,7 @@ SUI.CardCollection.prototype.eventCardNode = function(cardNode, item) {
  * @return {undefined}
  */
 SUI.CardCollection.prototype._addCard = function(item) {
-  var cardNode = this._getCardNode(item);
+  let cardNode = this._getCardNode(item);
   this.body.appendChild(cardNode);
   this.eventCardNode(cardNode, item);
   SUI.mdl(cardNode);
@@ -210,7 +207,7 @@ SUI.CardCollection.prototype.setCount = function(count) {
  */
 SUI.CardCollection.prototype._draw = function() {
   this.body.removeChildren();
-  var items = this.collection.getItems();
+  let items = this.collection.getItems();
   if (this.collection.size() > this.options.row_count) {
     items = this.collection.limit(this.pager.offset, this.options.row_count);
   }
