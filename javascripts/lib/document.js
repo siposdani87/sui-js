@@ -10,7 +10,7 @@ goog.require('SUI.lib');
  * @param {!Object} options
  */
 SUI.lib.Document = function(options) {
-  var _self = this;
+  let _self = this;
   _self.options = new SUI.Object();
   _self.options.merge(options);
 
@@ -24,7 +24,7 @@ SUI.lib.Document = function(options) {
 SUI.lib.Document.prototype._init = function() {
   this.document = document;
   this.document.addEventListener('click', function(event) {
-    var target = new SUI.Node(event.target);
+    let target = new SUI.Node(event.target);
     this.eventClick(target, event);
   }.bind(this));
 };
@@ -59,6 +59,6 @@ SUI.lib.Document.prototype.eventClick = function(target, event) {
  * @param {string=} opt_subject
  * @return {undefined}
  */
-SUI.lib.Document.prototype.mailTo = function(email, opt_subject = ''){
+SUI.lib.Document.prototype.mailTo = function(email, opt_subject = '') {
   this.document.location.href = 'mailto:' + email + '?subject=' + opt_subject;
 };

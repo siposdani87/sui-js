@@ -20,12 +20,12 @@ SUI.test.Container.prototype.init = function() {
   this.container = /** @type {!SUI.Collection<!SUI.Object>} */ (new SUI.Collection([
     {
       id: 1,
-      text: 'text'
+      text: 'text',
     },
     {
       id: 2,
-      text: 'text2'
-    }
+      text: 'text2',
+    },
   ]));
 
   this.testInit();

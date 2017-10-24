@@ -21,9 +21,8 @@ goog.inherits(SUI.widget.Hidden, SUI.Widget);
  * @return {undefined}
  */
 SUI.widget.Hidden.prototype._init = function() {
-
   this.input.addEventListener('change', function(input) {
-    var inputNode = input.getNode();
+    let inputNode = input.getNode();
     this.modelChange(inputNode.value);
     this.checkValidity();
   }.bind(this));

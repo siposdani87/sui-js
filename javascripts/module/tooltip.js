@@ -10,7 +10,7 @@ goog.require('SUI');
  * @param {string=} opt_message
  * @param {string=} opt_position TOP|BOTTOM|LEFT|RIGHT
  */
-SUI.Tooltip = function (element, opt_message = '', opt_position = 'TOP') {
+SUI.Tooltip = function(element, opt_message = '', opt_position = 'TOP') {
   this.element = element;
   this._initOptions(opt_position);
   this._init(opt_message);
@@ -21,7 +21,7 @@ SUI.Tooltip = function (element, opt_message = '', opt_position = 'TOP') {
  * @param {string=} opt_position
  * @return {undefined}
  */
-SUI.Tooltip.prototype._initOptions = function (opt_position = '') {
+SUI.Tooltip.prototype._initOptions = function(opt_position = '') {
   this.positionCssClass = 'mdl-tooltip--top';
   switch (opt_position) {
     case 'TOP':
@@ -44,9 +44,9 @@ SUI.Tooltip.prototype._initOptions = function (opt_position = '') {
  * @param {string=} opt_message
  * @return {undefined}
  */
-SUI.Tooltip.prototype._init = function (opt_message = '') {
+SUI.Tooltip.prototype._init = function(opt_message = '') {
   this._createTooltip();
-  var message = this._getMessage(opt_message);
+  let message = this._getMessage(opt_message);
   this._render(message);
 };
 
@@ -54,7 +54,7 @@ SUI.Tooltip.prototype._init = function (opt_message = '') {
  * @param {string=} opt_message
  * @return {string}
  */
-SUI.Tooltip.prototype._getMessage = function (opt_message = '') {
+SUI.Tooltip.prototype._getMessage = function(opt_message = '') {
   if (!opt_message) {
     opt_message = this.element.getAttribute('desc') || '';
     this.element.removeAttribute('desc');
@@ -71,8 +71,8 @@ SUI.Tooltip.prototype._getMessage = function (opt_message = '') {
  * @private
  * @return {undefined}
  */
-SUI.Tooltip.prototype._createTooltip = function () {
-  var id = this.element.getId();
+SUI.Tooltip.prototype._createTooltip = function() {
+  let id = this.element.getId();
   if (SUI.isNull(id)) {
     id = SUI.generateId('tooltip');
     this.element.setId(id);
@@ -89,7 +89,7 @@ SUI.Tooltip.prototype._createTooltip = function () {
  * @param {string} message
  * @return {undefined}
  */
-SUI.Tooltip.prototype._render = function (message) {
+SUI.Tooltip.prototype._render = function(message) {
   this.setMessage(message);
   SUI.mdl(this.tooltip);
 };
@@ -98,14 +98,13 @@ SUI.Tooltip.prototype._render = function (message) {
  * @param {string=} opt_message
  * @return {undefined}
  */
-SUI.Tooltip.prototype.setMessage = function (opt_message = '') {
+SUI.Tooltip.prototype.setMessage = function(opt_message = '') {
   if (opt_message) {
     this.tooltip.removeStyle(['display']);
     this.tooltip.setHtml(/** @type {string} */(opt_message));
-  }
-  else {
+  } else {
     this.tooltip.setStyle({
-      'display': 'none'
+      'display': 'none',
     });
     this.tooltip.setHtml('');
   }

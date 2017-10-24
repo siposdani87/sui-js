@@ -30,11 +30,10 @@ SUI.lib.Sidebar.prototype._init = function() {
  * @return {undefined}
  */
 SUI.lib.Sidebar.prototype.toggle = function() {
-  var isOpened = this.sidebar.hasClass('open');
+  let isOpened = this.sidebar.hasClass('open');
   if (isOpened) {
     this.close();
-  }
-  else {
+  } else {
     this.open();
   }
 };
@@ -73,8 +72,8 @@ SUI.lib.Sidebar.prototype.hide = function() {
  * @return {undefined}
  */
 SUI.lib.Sidebar.prototype.setButtonPosition = function(scrollTop, windowHeight) {
-  var height = Math.round(scrollTop + (windowHeight / 2));
+  let height = Math.round(scrollTop + (windowHeight / 2));
   this.button.setStyle({
-    'top': height + 'px'
+    'top': height + 'px',
   });
 };

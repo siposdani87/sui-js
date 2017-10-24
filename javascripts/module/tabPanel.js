@@ -14,7 +14,7 @@ goog.require('SUI.Query');
 SUI.TabPanel = function(dom, selected, opt_selector = '.tab-panel') {
   this.tabpanel = new SUI.Query(opt_selector, dom).getItem();
   this.options = {
-    selected: selected
+    selected: selected,
   };
   this._init();
 };
@@ -36,7 +36,7 @@ SUI.TabPanel.prototype._init = function() {
 SUI.TabPanel.prototype._initTabs = function() {
   this.tabs = new SUI.Query('.tabs a', this.tabpanel);
   this.tabs.each(function(tab) {
-    var panelId = tab.getAttribute('href').substr(1);
+    let panelId = tab.getAttribute('href').substr(1);
     tab.setData('panel', panelId);
     tab.setAttribute('href', 'javascript:void(0)');
     tab.addEventListener('click', function(tabNode) {
@@ -87,14 +87,13 @@ SUI.TabPanel.prototype.eventChange = function(panelId) {
  * @return {undefined}
  */
 SUI.TabPanel.prototype._setActiveTab = function(tab) {
-  var panelId = tab.getData('panel');
+  let panelId = tab.getData('panel');
   if (!SUI.isNull(panelId)) {
-    var async = new SUI.Async();
+    let async = new SUI.Async();
     async.serial([() => {
-      return this.setActive(/** @type {string} */ (panelId));
+      return this.setActive(/** @type {string} */(panelId));
     }]).then(() => {
-      this.eventChange(/** @type {string} */ (panelId));
+      this.eventChange(/** @type {string} */(panelId));
     });
-
   }
 };

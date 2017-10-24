@@ -24,9 +24,8 @@ goog.inherits(SUI.widget.Search, SUI.Widget);
  * @return {undefined}
  */
 SUI.widget.Search.prototype._init = function() {
-  
   this.input.addEventListener('keyup', (input, event) => {
-    var inputNode = input.getNode();
+    let inputNode = input.getNode();
     this.modelChange(inputNode.value);
     this.checkValidity();
     if (SUI.eq(event.keyCode, 13)) {
@@ -35,7 +34,7 @@ SUI.widget.Search.prototype._init = function() {
   });
 
   this.input.addEventListener('change', (input) => {
-    var inputNode = input.getNode();
+    let inputNode = input.getNode();
     this.modelChange(inputNode.value);
     this.checkValidity();
   });
@@ -46,22 +45,21 @@ SUI.widget.Search.prototype._init = function() {
  * @return {undefined}
  */
 SUI.widget.Search.prototype.render = function() {
-
   this.inputBlock.addClass(['mdl-textfield', 'mdl-js-textfield', 'mdl-textfield--expandable']);
   this.input.addClass(['mdl-textfield__input']);
 
   this.label.addClass(['mdl-button', 'mdl-js-button', 'mdl-button--icon']);
-  var iconNode = new SUI.Node('i');
+  let iconNode = new SUI.Node('i');
   iconNode.addClass('material-icons');
   iconNode.setHtml('search');
   this.label.insert(iconNode);
 
-  var holderNode = new SUI.Node('div');
+  let holderNode = new SUI.Node('div');
   holderNode.addClass('mdl-textfield__expandable-holder');
   holderNode.appendChild(this.input);
   this.inputBlock.appendChild(holderNode);
 
-  var labelNode = new SUI.Node('label');
+  let labelNode = new SUI.Node('label');
   labelNode.addClass('mdl-textfield__label');
   holderNode.appendChild(labelNode);
 

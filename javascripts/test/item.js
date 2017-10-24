@@ -9,7 +9,6 @@ goog.require('SUI.Test');
  * @extends {SUI.Test}
  */
 SUI.test.Item = function() {
-  
   SUI.Test.call(this, 'Item');
 };
 goog.inherits(SUI.test.Item, SUI.Test);
@@ -18,12 +17,11 @@ goog.inherits(SUI.test.Item, SUI.Test);
  * @override
  */
 SUI.test.Item.prototype.init = function() {
-  
   this.item = new SUI.Item(this, {
     attr1: 2,
     obj1: {
-      attr2: 3.1
-    }
+      attr2: 3.1,
+    },
   });
 
   this.testGet();
@@ -32,8 +30,6 @@ SUI.test.Item.prototype.init = function() {
 };
 
 SUI.test.Item.prototype.testGet = function() {
-  
-
   this.item.set('attr1', 2);
   if (this.item.get('attr1') !== 2) {
     this.showError('get', 1);
@@ -42,13 +38,9 @@ SUI.test.Item.prototype.testGet = function() {
   if (this.item.get('obj1.attr2') !== 3.1) {
     this.showError('get', 2);
   }
-
 };
 
-
 SUI.test.Item.prototype.testSet = function() {
-  
-
   this.item.set('attr1', 3);
   if (this.item.get('attr1') !== 3) {
     this.showError('set', 1);
@@ -58,19 +50,17 @@ SUI.test.Item.prototype.testSet = function() {
   if (this.item.get('obj1.attr5') !== 5.34) {
     this.showError('set', 2);
   }
-
 };
 
 SUI.test.Item.prototype.testMerge = function() {
-  
   this.item.merge({
     attr1: 1,
     obj1: {
       obj2: {
-        attr4: null
-      }
+        attr4: null,
+      },
     },
-    attr3: null
+    attr3: null,
   });
 
   this.item.set('attr1', 1);
@@ -93,4 +83,3 @@ SUI.test.Item.prototype.testMerge = function() {
     this.showError('merge', 4);
   }
 };
-

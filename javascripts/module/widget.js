@@ -11,7 +11,7 @@ goog.require('SUI.Tooltip');
  * @param {!SUI.Node=} opt_error
  * @param {!SUI.Node=} opt_inputBlock
  */
-SUI.Widget = function (input, opt_label, opt_error, opt_inputBlock) {
+SUI.Widget = function(input, opt_label, opt_error, opt_inputBlock) {
   this.input = input;
   this.label = opt_label;
   this.error = opt_error;
@@ -25,28 +25,28 @@ SUI.Widget = function (input, opt_label, opt_error, opt_inputBlock) {
 /**
  * @param {*} value
  */
-SUI.Widget.prototype.eventChange = function (value) {
+SUI.Widget.prototype.eventChange = function(value) {
 
 };
 
 /**
  * @return {undefined}
  */
-SUI.Widget.prototype.render = function () {
+SUI.Widget.prototype.render = function() {
   console.warn('SUI.Widget.render()');
 };
 
 /**
  * @param {*} value
  */
-SUI.Widget.prototype.modelChange = function (value) {
+SUI.Widget.prototype.modelChange = function(value) {
   console.warn('SUI.Widget.modelChange()', value);
 };
 
 /**
  * @return {string}
  */
-SUI.Widget.prototype.getName = function () {
+SUI.Widget.prototype.getName = function() {
   let name = this.input.getAttribute('name');
   return this._getAttributeName(name);
 };
@@ -54,7 +54,7 @@ SUI.Widget.prototype.getName = function () {
 /**
  * @return {*}
  */
-SUI.Widget.prototype.getValue = function () {
+SUI.Widget.prototype.getValue = function() {
   let value = this.input.getNode().value;
   return SUI.typeCast(value);
 };
@@ -64,7 +64,7 @@ SUI.Widget.prototype.getValue = function () {
  * @param {string|null} inputName
  * @return {string}
  */
-SUI.Widget.prototype._getAttributeName = function (inputName) {
+SUI.Widget.prototype._getAttributeName = function(inputName) {
   let attribute = inputName || '';
   attribute = attribute.replace(/]/g, '');
   attribute = attribute.replace(/\[/g, '.');
@@ -77,7 +77,7 @@ SUI.Widget.prototype._getAttributeName = function (inputName) {
  * @param {boolean=} opt_isCustomError
  * @return {undefined}
  */
-SUI.Widget.prototype.setError = function (opt_message = '', opt_isCustomError = false) {
+SUI.Widget.prototype.setError = function(opt_message = '', opt_isCustomError = false) {
   if (this.error) {
     this.errorTooltip.setMessage(opt_message);
     this.error.setHtml(opt_message);
@@ -91,7 +91,7 @@ SUI.Widget.prototype.setError = function (opt_message = '', opt_isCustomError = 
  * @param {boolean=} opt_force
  * @return {undefined}
  */
-SUI.Widget.prototype.checkValidity = function (opt_force = false) {
+SUI.Widget.prototype.checkValidity = function(opt_force = false) {
   let node = this.input.getNode();
   let isValid = node.validity.valid;
   if (isValid) {
@@ -103,10 +103,8 @@ SUI.Widget.prototype.checkValidity = function (opt_force = false) {
     if (isValid) {
       this.inputBlock.removeClass('is-invalid');
       this.inputBlock.addClass('is-dirty');
-    }
-    else {
+    } else {
       this.inputBlock.addClass('is-invalid');
-
     }
   }
 };
@@ -115,7 +113,7 @@ SUI.Widget.prototype.checkValidity = function (opt_force = false) {
  * @param {!Function|boolean|number|string|null|undefined} value
  * @return {undefined}
  */
-SUI.Widget.prototype.setValue = function (value) {
+SUI.Widget.prototype.setValue = function(value) {
   this.input.getNode().value = value;
   this.input.setAttribute('value', value);
   this.input.trigger('change');
@@ -124,7 +122,7 @@ SUI.Widget.prototype.setValue = function (value) {
 /**
  * @return {boolean}
  */
-SUI.Widget.prototype.exists = function () {
+SUI.Widget.prototype.exists = function() {
   let existsInputBlock = !!this.inputBlock && this.inputBlock.exists();
   let existsInput = !!this.input && this.input.exists();
   return existsInputBlock || existsInput;
@@ -134,7 +132,7 @@ SUI.Widget.prototype.exists = function () {
  * @param {string} attribute
  * @return {*}
  */
-SUI.Widget.prototype.get = function (attribute) {
+SUI.Widget.prototype.get = function(attribute) {
   if (attribute === 'model') {
     return this.getName();
   }
@@ -145,7 +143,7 @@ SUI.Widget.prototype.get = function (attribute) {
  * @param {boolean} state
  * @return {undefined}
  */
-SUI.Widget.prototype.setRequired = function (state) {
+SUI.Widget.prototype.setRequired = function(state) {
   this.input.getNode().required = state;
 };
 
@@ -153,7 +151,7 @@ SUI.Widget.prototype.setRequired = function (state) {
  * @param {boolean} state
  * @return {undefined}
  */
-SUI.Widget.prototype.setDisabled = function (state) {
+SUI.Widget.prototype.setDisabled = function(state) {
   this.input.getNode().disabled = state;
 };
 
@@ -161,7 +159,7 @@ SUI.Widget.prototype.setDisabled = function (state) {
  * @protected
  * @return {undefined}
  */
-SUI.Widget.prototype._initInfo = function () {
+SUI.Widget.prototype._initInfo = function() {
   if (this.label) {
     let title = this.label.getAttribute('title');
     let description = this.label.getAttribute('desc');

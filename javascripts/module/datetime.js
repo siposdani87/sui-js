@@ -84,40 +84,40 @@ SUI.Datetime.prototype._initClockNode = function() {
 SUI.Datetime.prototype._initVariables = function() {
   this.types = {
     'datetime-local': {
-      format: 'YYYY-MM-DDTHH:mm:ss', //2016-05-26T11:25:00 (UTC)
+      format: 'YYYY-MM-DDTHH:mm:ss', // 2016-05-26T11:25:00 (UTC)
       calendar_type: 'date',
-      clock_type: 'hour'
+      clock_type: 'hour',
     },
     'datetime': {
-      format: '', //2016-05-26T13:25:00+02:00 (ISO 8601, Hungary)
+      format: '', // 2016-05-26T13:25:00+02:00 (ISO 8601, Hungary)
       calendar_type: 'date',
-      clock_type: 'hour'
+      clock_type: 'hour',
     },
     'date': {
-      format: 'YYYY-MM-DD', //2016-05-26
+      format: 'YYYY-MM-DD', // 2016-05-26
       calendar_type: 'date',
-      clock_type: ''
+      clock_type: '',
     },
     'time': {
-      format: 'HH:mm:ss', //13:25:00
+      format: 'HH:mm:ss', // 13:25:00
       calendar_type: '',
-      clock_type: 'hour'
+      clock_type: 'hour',
     },
     'month': {
       format: 'YYYY-MM', // 2016-05
       calendar_type: 'month',
-      clock_type: ''
+      clock_type: '',
     },
     'week': {
       format: 'YYYY-\\Www', // 2016-W22
       calendar_type: 'week',
-      clock_type: ''
+      clock_type: '',
     },
     'year': {
       format: 'YYYY', // 2016
       calendar_type: 'year',
-      clock_type: ''
-    }
+      clock_type: '',
+    },
   };
   this.config = this.types[this.options.type];
 };
@@ -160,10 +160,10 @@ SUI.Datetime.prototype.draw = function() {
  */
 SUI.Datetime.prototype._drawCalendar = function() {
   if (this.config.calendar_type) {
-    var calendar = new SUI.Calendar(this.calendarNode, {
+    let calendar = new SUI.Calendar(this.calendarNode, {
       date: this.value,
       type: this.config.calendar_type,
-      start_day: 1
+      start_day: 1,
     });
     calendar.eventClick = function(date) {
       this.value['year'](date['year']());
@@ -181,9 +181,9 @@ SUI.Datetime.prototype._drawCalendar = function() {
  */
 SUI.Datetime.prototype._drawClock = function() {
   if (this.config.clock_type) {
-    var clock = new SUI.Clock(this.clockNode, {
+    let clock = new SUI.Clock(this.clockNode, {
       time: this.value,
-      type: this.config.clock_type
+      type: this.config.clock_type,
     });
     clock.eventClick = function(date) {
       this.value['hour'](date['hour']());
@@ -199,7 +199,7 @@ SUI.Datetime.prototype._drawClock = function() {
  * @return {undefined}
  */
 SUI.Datetime.prototype._onClick = function() {
-  var value = this.getValue();
+  let value = this.getValue();
   this.eventClick(value);
 };
 

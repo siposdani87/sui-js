@@ -27,7 +27,6 @@ goog.inherits(SUI.widget.BaseCheckbox, SUI.Widget);
  * @return {undefined}
  */
 SUI.widget.BaseCheckbox.prototype._init = function() {
-
   this.hiddenInput = new SUI.Query('input[type=hidden]', this.inputBlock).getItem();
 
   this.label.addEventListener('click', function() {
@@ -40,7 +39,7 @@ SUI.widget.BaseCheckbox.prototype._init = function() {
  * @return {undefined}
  */
 SUI.widget.BaseCheckbox.prototype._change = function() {
-  var value = this.getValue();
+  let value = this.getValue();
   this.modelChange(value);
   this.checkValidity();
 };
@@ -50,8 +49,8 @@ SUI.widget.BaseCheckbox.prototype._change = function() {
  * @return {*}
  */
 SUI.widget.BaseCheckbox.prototype.getValue = function() {
-  var checked = this.input.getNode().checked;
-  var value = this.hiddenInput.getAttribute('value');
+  let checked = this.input.getNode().checked;
+  let value = this.hiddenInput.getAttribute('value');
   if (checked) {
     value = this.input.getAttribute('value');
   }
@@ -64,7 +63,7 @@ SUI.widget.BaseCheckbox.prototype.getValue = function() {
  * @param {!Function|boolean|number|string|null|undefined} value
  */
 SUI.widget.BaseCheckbox.prototype.setValue = function(value) {
-  var currentValue = SUI.typeCast(this.input.getAttribute('value'));
+  let currentValue = SUI.typeCast(this.input.getAttribute('value'));
   this.input.getNode().checked = currentValue === value;
   if (!this.input.getNode().checked) {
     this.input.removeAttribute('checked');

@@ -12,9 +12,9 @@ goog.require('SUI.lib');
  * @param {!Object=} opt_options
  */
 SUI.lib.Template = function(http, opt_options) {
-  var _self = this;
+  let _self = this;
   _self.options = new SUI.Object({
-    selector: '.template-view'
+    selector: '.template-view',
   });
   _self.options.merge(opt_options);
   this.http = http;
@@ -26,12 +26,12 @@ SUI.lib.Template = function(http, opt_options) {
  * @return {!SUI.Promise}
  */
 SUI.lib.Template.prototype.load = function(url) {
-  var deferred = new SUI.Deferred();
+  let deferred = new SUI.Deferred();
   this.get(url).then(function(data) {
-    var node = new SUI.Query('.page-content', data).getItem();
+    let node = new SUI.Query('.page-content', data).getItem();
     this.view.insert(node);
     deferred.resolve(node);
-  }.bind(this), function(){
+  }.bind(this), function() {
     deferred.reject();
   });
   return deferred.promise();
@@ -42,15 +42,15 @@ SUI.lib.Template.prototype.load = function(url) {
  * @return {!SUI.Promise}
  */
 SUI.lib.Template.prototype.get = function(url) {
-  var deferred = new SUI.Deferred();
+  let deferred = new SUI.Deferred();
   this.http.get(url).then(function(data) {
     deferred.resolve(data);
   }, function(data) {
     deferred.reject(data);
-    var messageItem = new SUI.Query('#message', data).getItem();
-    var message = {
+    let messageItem = new SUI.Query('#message', data).getItem();
+    let message = {
       'content': messageItem.getText(),
-      'type': messageItem.getAttribute('class')
+      'type': messageItem.getAttribute('class'),
     };
     this.eventError(message);
   }.bind(this));

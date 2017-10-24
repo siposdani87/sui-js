@@ -25,7 +25,7 @@ SUI.lib.Script = function(progressBar, opt_options) {
  * @return {undefined}
  */
 SUI.lib.Script.prototype._setOptions = function(opt_options) {
-  var _self = this;
+  let _self = this;
   _self.options = new SUI.Object();
   _self.options.merge(opt_options);
 };
@@ -46,23 +46,23 @@ SUI.lib.Script.prototype._init = function() {
  */
 SUI.lib.Script.prototype.load = function(id, url, opt_params) {
   this.progressBar.show();
-  var deferred = new SUI.Deferred();
-  var script = new SUI.Query('#' + id);
-  if (script.size() > 0){
+  let deferred = new SUI.Deferred();
+  let script = new SUI.Query('#' + id);
+  if (script.size() > 0) {
     this.progressBar.hide();
     deferred.resolve(true);
-  }else{
-    var node = new SUI.Node('script');
+  } else {
+    let node = new SUI.Node('script');
     node.setId(id);
-    var urlWithQueryString = SUI.urlWithQueryString(url, opt_params);
+    let urlWithQueryString = SUI.urlWithQueryString(url, opt_params);
     node.setAttribute('src', urlWithQueryString);
 
-    node.setAttribute('onload', function(){
+    node.setAttribute('onload', function() {
       this.progressBar.hide();
       deferred.resolve(true);
     }.bind(this));
 
-    node.setAttribute('onerror', function(){
+    node.setAttribute('onerror', function() {
       this.progressBar.hide();
       deferred.reject(false);
     }.bind(this));
@@ -76,9 +76,9 @@ SUI.lib.Script.prototype.load = function(id, url, opt_params) {
  * @param {string} id
  * @return {undefined}
  */
-SUI.lib.Script.prototype.remove = function(id){
-  var script = new SUI.Query('#' + id).getItem();
-  if (!script.isEmpty()){
+SUI.lib.Script.prototype.remove = function(id) {
+  let script = new SUI.Query('#' + id).getItem();
+  if (!script.isEmpty()) {
     script.remove();
   }
 };

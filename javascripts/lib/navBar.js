@@ -17,9 +17,9 @@ SUI.lib.NavBar = function() {
  */
 SUI.lib.NavBar.prototype._init = function() {
   this.navBarHeader = new SUI.Query('.nav-bar-header').getItem();
-  this.navBar =  new SUI.Query('#nav-bar', this.navBarHeader).getItem();
+  this.navBar = new SUI.Query('#nav-bar', this.navBarHeader).getItem();
 
-  var toggleNavBar = new SUI.Query('#toggle-nav-bar', this.navBarHeader).getItem();
+  let toggleNavBar = new SUI.Query('#toggle-nav-bar', this.navBarHeader).getItem();
   toggleNavBar.setAttribute('href', 'javascript:void(0)');
   toggleNavBar.addEventListener('click', () => {
     this.toggle();
@@ -33,8 +33,7 @@ SUI.lib.NavBar.prototype._init = function() {
 SUI.lib.NavBar.prototype.toggle = function() {
   if (this._isOpened()) {
     this.close();
-  }
-  else {
+  } else {
     this.open();
   }
 };

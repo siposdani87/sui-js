@@ -42,14 +42,14 @@ SUI.Popup.prototype._init = function() {
  */
 SUI.Popup.prototype._initCloseButton = function() {
   if (this.withClose) {
-    var btnClose = new SUI.Node('button');
+    let btnClose = new SUI.Node('button');
     btnClose.setAttribute('type', 'button');
     btnClose.addClass(['close', 'mdl-button', 'mdl-js-button', 'mdl-button--icon']);
     btnClose.addEventListener('click', function() {
       this.close();
     }.bind(this));
 
-    var icon = new SUI.Node('i');
+    let icon = new SUI.Node('i');
     icon.addClass('material-icons');
     icon.setHtml('close');
     btnClose.appendChild(icon);
@@ -99,7 +99,7 @@ SUI.Popup.prototype._closeNode = function(node) {
     'top': 'auto',
     'bottom': 'auto',
     'left': 'auto',
-    'right': 'auto'
+    'right': 'auto',
   });
 };
 
@@ -109,8 +109,7 @@ SUI.Popup.prototype._closeNode = function(node) {
 SUI.Popup.prototype.toggle = function() {
   if (this.isOpened()) {
     this.close();
-  }
-  else {
+  } else {
     this.open();
   }
 };
@@ -126,7 +125,7 @@ SUI.Popup.prototype.isOpened = function() {
  * @return {undefined}
  */
 SUI.Popup.prototype.closeAll = function() {
-  var popups = new SUI.Query('.popup');
+  let popups = new SUI.Query('.popup');
   popups.each(function(popupNode) {
     this._closeNode(popupNode);
   }.bind(this));
@@ -137,16 +136,16 @@ SUI.Popup.prototype.closeAll = function() {
  * @return {undefined}
  */
 SUI.Popup.prototype._setPosition = function() {
-  var containerNode = this.container.getNode();
+  let containerNode = this.container.getNode();
 
-  var top = containerNode.offsetHeight - containerNode.scrollHeight;
-  var absoluteTop = top === 0 ? 'auto' : top + 'px';
+  let top = containerNode.offsetHeight - containerNode.scrollHeight;
+  let absoluteTop = top === 0 ? 'auto' : top + 'px';
 
-  //var left = containerNode.offsetWidth - containerNode.scrollWidth;
-  //var absoluteLeft = left === 0 ? 'auto' : left + 'px';
+  // let left = containerNode.offsetWidth - containerNode.scrollWidth;
+  // let absoluteLeft = left === 0 ? 'auto' : left + 'px';
 
   this.popupNode.setStyle({
     'top': absoluteTop,
-    'left': 0 //absoluteLeft
+    'left': 0, // absoluteLeft
   });
 };

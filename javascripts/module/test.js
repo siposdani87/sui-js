@@ -23,9 +23,9 @@ SUI.Test.prototype.init = function() {
  * @return {undefined}
  */
 SUI.Test.prototype.run = function() {
-  for (var key in SUI.test) {
+  for (let key in SUI.test) {
     if (SUI.test.hasOwnProperty(key)) {
-      var test = new SUI.test[key]();
+      let test = new SUI.test[key]();
       test.init();
     }
   }
@@ -38,7 +38,7 @@ SUI.Test.prototype.run = function() {
  */
 SUI.Test.prototype.showError = function(message, object) {
   console.error(this.name + '.' + message, object);
-  //throw '';
+  // throw '';
 };
 
 /**

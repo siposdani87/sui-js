@@ -28,13 +28,13 @@ SUI.widget.Textarea.prototype._init = function() {
   this._initInfo();
 
   this.input.addEventListener('keyup', (input) => {
-    var inputNode = input.getNode();
+    let inputNode = input.getNode();
     this.modelChange(inputNode.value);
     this.checkValidity();
   });
 
   this.input.addEventListener('change', (input) => {
-    var inputNode = input.getNode();
+    let inputNode = input.getNode();
     this.modelChange(inputNode.value);
     this.checkValidity();
   });
@@ -60,7 +60,7 @@ SUI.widget.Textarea.prototype.render = function() {
  * @return {undefined}
  */
 SUI.widget.Textarea.prototype.setValue = function(value) {
-  var inputNode = this.input.getNode();
+  let inputNode = this.input.getNode();
   inputNode.value = value;
   this.input.trigger('change');
 };
@@ -70,7 +70,7 @@ SUI.widget.Textarea.prototype.setValue = function(value) {
  * @return {*}
  */
 SUI.widget.Textarea.prototype.getValue = function() {
-  var inputNode = this.input.getNode();
+  let inputNode = this.input.getNode();
   return SUI.typeCast(inputNode.value);
 };
 

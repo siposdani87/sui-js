@@ -32,7 +32,7 @@ SUI.Clock.prototype._init = function() {
   this.modes = ['HOUR', 'MINUTE'];
   this.types = {
     'hour': this.modes[0],
-    'minute': this.modes[1]
+    'minute': this.modes[1],
   };
 
   this._initStructure();
@@ -45,7 +45,7 @@ SUI.Clock.prototype._init = function() {
  * @return {undefined}
  */
 SUI.Clock.prototype._switchMode = function(hourFun, minuteFun) {
-  var result = null;
+  let result = null;
   switch (this.activeMode) {
     case 'HOUR':
       result = hourFun();
@@ -104,8 +104,7 @@ SUI.Clock.prototype._initPeriodHeaderNode = function() {
 SUI.Clock.prototype._togglePeriod = function() {
   if (this.period === 'pm') {
     this.time['subtract'](12, 'hours');
-  }
-  else {
+  } else {
     this.time['add'](12, 'hours');
   }
   this._onClick(this.time);
@@ -153,7 +152,7 @@ SUI.Clock.prototype._setMode = function(mode) {
  * @return {undefined}
  */
 SUI.Clock.prototype._initSeparatorHeaderNode = function() {
-  var separatorHeaderNode = new SUI.Node('div');
+  let separatorHeaderNode = new SUI.Node('div');
   separatorHeaderNode.addClass('separator');
   separatorHeaderNode.setHtml(':');
   this.headerNode.appendChild(separatorHeaderNode);
@@ -175,7 +174,7 @@ SUI.Clock.prototype._initContentNode = function() {
  */
 SUI.Clock.prototype._getTimeNode = function() {
   this.contentNode.removeChildren();
-  var hoursNode = new SUI.Node('div');
+  let hoursNode = new SUI.Node('div');
   hoursNode.addClass('time');
   this.contentNode.appendChild(hoursNode);
   return hoursNode;
@@ -188,10 +187,10 @@ SUI.Clock.prototype._getTimeNode = function() {
  */
 SUI.Clock.prototype._setHours = function(hours) {
   this.hours = hours;
-  var cssClass = this.activeMode === this.types.hour ? 'active' : null;
+  let cssClass = this.activeMode === this.types.hour ? 'active' : null;
   this.hoursHeaderNode.removeClass('active');
   this.hoursHeaderNode.addClass(['hours', cssClass]);
-  var text = hours < 10 ? '0' + hours : hours;
+  let text = hours < 10 ? '0' + hours : hours;
   this.hoursHeaderNode.setHtml(text);
 };
 
@@ -202,10 +201,10 @@ SUI.Clock.prototype._setHours = function(hours) {
  */
 SUI.Clock.prototype._setMinutes = function(minutes) {
   this.minutes = minutes;
-  var cssClass = this.activeMode === this.types.minute ? 'active' : null;
+  let cssClass = this.activeMode === this.types.minute ? 'active' : null;
   this.minutesHeaderNode.removeClass('active');
   this.minutesHeaderNode.addClass(['minutes', cssClass]);
-  var text = minutes < 10 ? '0' + minutes : minutes;
+  let text = minutes < 10 ? '0' + minutes : minutes;
   this.minutesHeaderNode.setHtml(text);
 };
 
@@ -218,7 +217,7 @@ SUI.Clock.prototype._setPeriod = function(period) {
   this.period = period;
   this.periodHeaderNode.removeClass(['am', 'pm']);
   this.periodHeaderNode.addClass(['period', this.period]);
-  var text = window['moment']['localeData']()['meridiem'](this.time['hour'](), this.time['minute'](), true);
+  let text = window['moment']['localeData']()['meridiem'](this.time['hour'](), this.time['minute'](), true);
   this.periodHeaderNode.setHtml(text);
 };
 
@@ -229,13 +228,13 @@ SUI.Clock.prototype._setPeriod = function(period) {
 SUI.Clock.prototype.setTime = function(time) {
   this.time = window['moment'](time);
 
-  var hours = this.time['hour']() % 12 || 12;
+  let hours = this.time['hour']() % 12 || 12;
   this._setHours(hours);
 
-  var minutes = this.time['minute']();
+  let minutes = this.time['minute']();
   this._setMinutes(minutes);
 
-  var period = this.time['hour']() > 12 ? 'pm' : 'am';
+  let period = this.time['hour']() > 12 ? 'pm' : 'am';
   this._setPeriod(period);
 };
 
@@ -255,11 +254,11 @@ SUI.Clock.prototype._initMode = function(mode) {
  * @return {string}
  */
 SUI.Clock.prototype._getMode = function(direction) {
-  var position = this.modes.indexOf(this.activeMode);
+  let position = this.modes.indexOf(this.activeMode);
   if (position !== -1) {
     position += direction;
   }
-  var mode = this.modes[position];
+  let mode = this.modes[position];
   return mode ? mode : this.types[this.options.type];
 };
 
@@ -269,7 +268,7 @@ SUI.Clock.prototype._getMode = function(direction) {
  * @return {undefined}
  */
 SUI.Clock.prototype._changeMode = function(direction) {
-  var mode = this._getMode(direction);
+  let mode = this._getMode(direction);
   this._initMode(mode);
 };
 
@@ -277,7 +276,7 @@ SUI.Clock.prototype._changeMode = function(direction) {
  * @return {undefined}
  */
 SUI.Clock.prototype.draw = function() {
-  var timeNode = this._getTimeNode();
+  let timeNode = this._getTimeNode();
 
   this._switchMode(function() {
     this._drawHours(timeNode);
@@ -292,13 +291,13 @@ SUI.Clock.prototype.draw = function() {
  * @return {undefined}
  */
 SUI.Clock.prototype._drawMinutes = function(timeNode) {
-  var timeMinutes = new SUI.Time(timeNode, {
+  let timeMinutes = new SUI.Time(timeNode, {
     selected: this.minutes,
-    captions: ['00', '05']
+    captions: ['00', '05'],
   });
   timeMinutes.eventClick = function(index) {
     this._changeMode(-1);
-    var time = this.time['minute'](index);
+    let time = this.time['minute'](index);
     this._onClick(time);
   }.bind(this);
   timeMinutes.draw(0, 59, 5, true);
@@ -310,14 +309,14 @@ SUI.Clock.prototype._drawMinutes = function(timeNode) {
  * @return {undefined}
  */
 SUI.Clock.prototype._drawHours = function(timeNode) {
-  var timeHours = new SUI.Time(timeNode, {
-    selected: this.hours
+  let timeHours = new SUI.Time(timeNode, {
+    selected: this.hours,
   });
   timeHours.eventClick = function(index) {
     this._changeMode(1);
-    var hour = this.period === 'pm' ? index + 12 : index;
+    let hour = this.period === 'pm' ? index + 12 : index;
     hour = hour === 24 ? 0 : hour;
-    var time = this.time['hour'](hour);
+    let time = this.time['hour'](hour);
     this._onClick(time);
   }.bind(this);
   timeHours.draw(1, 12, 1, true);

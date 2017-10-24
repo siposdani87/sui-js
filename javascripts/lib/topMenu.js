@@ -20,7 +20,7 @@ SUI.lib.TopMenu = function(header) {
 SUI.lib.TopMenu.prototype._init = function() {
   this.topMenu = new SUI.Query('#top-menu', this.header.headerNode).getItem();
 
-  var toggleTopMenu = new SUI.Query('#toggle-top-menu', this.header.headerNode).getItem();
+  let toggleTopMenu = new SUI.Query('#toggle-top-menu', this.header.headerNode).getItem();
   toggleTopMenu.setAttribute('href', 'javascript:void(0)');
   toggleTopMenu.addEventListener('click', function() {
     this.toggle();
@@ -33,8 +33,7 @@ SUI.lib.TopMenu.prototype._init = function() {
 SUI.lib.TopMenu.prototype.toggle = function() {
   if (this._isOpened()) {
     this.close();
-  }
-  else {
+  } else {
     this.open();
   }
 };
@@ -67,6 +66,6 @@ SUI.lib.TopMenu.prototype.close = function() {
 /**
  * @return {!SUI.Node}
  */
-SUI.lib.TopMenu.prototype.getContainer  = function(){
+SUI.lib.TopMenu.prototype.getContainer = function() {
   return this.topMenu;
 };

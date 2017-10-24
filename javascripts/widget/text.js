@@ -28,13 +28,13 @@ SUI.widget.Text.prototype._init = function() {
   this._initInfo();
 
   this.input.addEventListener('keyup', (input) => {
-    var inputNode = input.getNode();
+    let inputNode = input.getNode();
     this.modelChange(inputNode.value);
     this.checkValidity();
   });
 
   this.input.addEventListener('change', (input) => {
-    var inputNode = input.getNode();
+    let inputNode = input.getNode();
     this.modelChange(inputNode.value);
     this.checkValidity();
   });
@@ -47,7 +47,7 @@ SUI.widget.Text.prototype._init = function() {
 SUI.widget.Text.prototype.render = function() {
   this.inputBlock.addClass(['mdl-textfield', 'mdl-js-textfield', 'mdl-textfield--floating-label']);
   this.input.addClass(['mdl-textfield__input']);
-  if (this.label){
+  if (this.label) {
     this.label.addClass('mdl-textfield__label');
   }
   SUI.mdl(this.inputBlock);

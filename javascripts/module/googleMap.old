@@ -23,9 +23,9 @@ function GoogleMap(canvasID, mapType, mapCenter, mapConfig) {
 
   this.mapCenter = mapCenter || {auto: true};
 
-  var lat = this.mapCenter.lat || 0;
-  var lng = this.mapCenter.lng || 0;
-  var zoom = this.mapCenter.zoom || 1;
+  let lat = this.mapCenter.lat || 0;
+  let lng = this.mapCenter.lng || 0;
+  let zoom = this.mapCenter.zoom || 1;
 
   this.radius_px = this.mapCenter.radius_px || 100;
 
@@ -82,9 +82,9 @@ function GoogleMap(canvasID, mapType, mapCenter, mapConfig) {
     zoomControl: false
   };
 
-  var mapTypeId = typeof mapType === 'undefined' ? 'ROADMAP' : mapType.toUpperCase();
+  let mapTypeId = typeof mapType === 'undefined' ? 'ROADMAP' : mapType.toUpperCase();
 
-  var mapOptions = {
+  let mapOptions = {
     center: this.mapLatLng,
     zoom: this.mapZoom,
     mapTypeControlOptions: {
@@ -112,10 +112,10 @@ function GoogleMap(canvasID, mapType, mapCenter, mapConfig) {
     this.callbackMarkerClicked = function() {
     };
 
-    var that = this;
+    let that = this;
 
     /*google.maps.event.addDomListener(window, 'resize', function() {
-     var checkTimer;
+     let checkTimer;
 
      checkTimer = setInterval(function() {
      that.setMapCenter();
@@ -128,9 +128,9 @@ function GoogleMap(canvasID, mapType, mapCenter, mapConfig) {
     });
 
     google.maps.event.addListener(this.map, 'mouseover', function() {
-      for (var i in that.markers) {
+      for (let i in that.markers) {
         if (that.markers[i].edit) {
-          var position = that.markers[i].marker.getPosition();
+          let position = that.markers[i].marker.getPosition();
 
           if (!that.map.getBounds().contains(position)) {
             that.map.setCenter(position);
@@ -143,18 +143,18 @@ function GoogleMap(canvasID, mapType, mapCenter, mapConfig) {
 };
 
 GoogleMap.prototype.mergeObject = function(obj, obj2) {
-  for (var key in obj2) {
+  for (let key in obj2) {
     obj[key] = obj2[key];
   }
   return obj;
 };
 
 GoogleMap.prototype.getMergedObject = function(obj, obj2) {
-  var obj3 = {};
-  for (var key in obj) {
+  let obj3 = {};
+  for (let key in obj) {
     obj3[key] = obj[key];
   }
-  for (var key in obj2) {
+  for (let key in obj2) {
     obj3[key] = obj2[key];
   }
   return obj3;
@@ -162,7 +162,7 @@ GoogleMap.prototype.getMergedObject = function(obj, obj2) {
 
 GoogleMap.prototype.addLocation = function(lat, lng) {
 
-  var that = this;
+  let that = this;
 
   if (lat && lng) {
     that.setLocation(lat, lng);
@@ -179,8 +179,8 @@ GoogleMap.prototype.addLocation = function(lat, lng) {
 };
 
 GoogleMap.prototype.setLocationByAddress = function(address) {
-  var that = this;
-  var geocoder = new google.maps.Geocoder();
+  let that = this;
+  let geocoder = new google.maps.Geocoder();
   geocoder.geocode({address: address}, function(results, status) {
     if (status === google.maps.GeocoderStatus.OK) {
       that.map.fitBounds(results[0].geometry.viewport);
@@ -192,7 +192,7 @@ GoogleMap.prototype.setLocationByAddress = function(address) {
 
 GoogleMap.prototype.setLocation = function(lat, lng) {
 
-  var location = new google.maps.LatLng(lat, lng);
+  let location = new google.maps.LatLng(lat, lng);
 
   if (this.locations.length >= this.mapConfig.maxLocation) {
     this.locations[0].setMap(null);
@@ -235,12 +235,12 @@ GoogleMap.prototype.setMapCenter = function() {
 
 GoogleMap.prototype.addMarkerByXY = function(x, y, callback) {
 
-  var point = new google.maps.Point(x, y);
+  let point = new google.maps.Point(x, y);
 
-  var projection = this.overlay.getProjection();
-  var location = projection.fromContainerPixelToLatLng(point);
+  let projection = this.overlay.getProjection();
+  let location = projection.fromContainerPixelToLatLng(point);
 
-  var options = {
+  let options = {
     lat: location.lat(),
     lng: location.lng()
   };
@@ -249,15 +249,15 @@ GoogleMap.prototype.addMarkerByXY = function(x, y, callback) {
 };
 
 GoogleMap.prototype.addMarker = function(markerOptions, callback, highlightOptions) {
-  var that = this;
+  let that = this;
 
-  var lat = parseFloat(markerOptions.lat || 0);
-  var lng = parseFloat(markerOptions.lng || 0);
-  var position = new google.maps.LatLng(lat, lng);
+  let lat = parseFloat(markerOptions.lat || 0);
+  let lng = parseFloat(markerOptions.lng || 0);
+  let position = new google.maps.LatLng(lat, lng);
 
-  var geocoder = new google.maps.Geocoder();
+  let geocoder = new google.maps.Geocoder();
   geocoder.geocode({latLng: position}, function(results, status) {
-    var formatted_address;
+    let formatted_address;
     if (status === google.maps.GeocoderStatus.OK) {
       if (results[0]) {
         formatted_address = results[0].formatted_address;
@@ -270,10 +270,10 @@ GoogleMap.prototype.addMarker = function(markerOptions, callback, highlightOptio
       formatted_address = status;
     }
 
-    var title = markerOptions.title || formatted_address;
-    var comment = markerOptions.comment || '';
+    let title = markerOptions.title || formatted_address;
+    let comment = markerOptions.comment || '';
 
-    var marker = new google.maps.Marker({
+    let marker = new google.maps.Marker({
       position: position,
       map: that.map,
       title: title,
@@ -282,14 +282,14 @@ GoogleMap.prototype.addMarker = function(markerOptions, callback, highlightOptio
       zIndex: 1
     });
 
-    var circleOptions = {
+    let circleOptions = {
       map: that.map,
       editable: true,
       draggable: true,
       radius: markerOptions.radius || that.getDinamicRadius(that.radius_px)
     };
 
-    var circle = new google.maps.Circle(that.getMergedObject(that.circleDefault, circleOptions));
+    let circle = new google.maps.Circle(that.getMergedObject(that.circleDefault, circleOptions));
 
     circle.bindTo('center', marker, 'position');
 
@@ -298,9 +298,9 @@ GoogleMap.prototype.addMarker = function(markerOptions, callback, highlightOptio
       that.map.fitBounds(that.bounds);
     }
 
-    var proxyMarker = that.getProxyMarkerBy(markerOptions.id, comment, marker, circle);
+    let proxyMarker = that.getProxyMarkerBy(markerOptions.id, comment, marker, circle);
 
-    var markerAddons = {
+    let markerAddons = {
       marker: marker,
       circle: circle,
       edit: false
@@ -357,7 +357,7 @@ GoogleMap.prototype.setMarker = function(id, markerOptions) {
       this.markers[id].comment = markerOptions.comment;
     }
     if (markerOptions.lat !== undefined && markerOptions.lng !== undefined) {
-      var position = new google.maps.LatLng(markerOptions.lat, markerOptions.lng);
+      let position = new google.maps.LatLng(markerOptions.lat, markerOptions.lng);
       if (position !== this.markers[id].marker.getPosition()) {
         this.markers[id].marker.setPosition(position);
       }
@@ -382,7 +382,7 @@ GoogleMap.prototype.getProxyMarker = function(id, title, comment, lat, lng, radi
 
 GoogleMap.prototype.getProxyMarkerBy = function(id, comment, marker, circle) {
 
-  var position = marker.getPosition();
+  let position = marker.getPosition();
 
   return this.getProxyMarker(id, marker.getTitle(), comment, position.lat(), position.lng(), circle.getRadius());
 };
@@ -394,15 +394,15 @@ GoogleMap.prototype.getProxyMarkerById = function(id) {
 
 GoogleMap.prototype.getContentBy = function(id, infoWindowTemplate) {
 
-  var templateValues = {
+  let templateValues = {
     _ID_: id,
     _TITLE_: this.markers[id].marker.getTitle(),
     _COMMENT_: this.markers[id].comment
   };
 
-  var template = infoWindowTemplate;
+  let template = infoWindowTemplate;
 
-  for (var key in templateValues) {
+  for (let key in templateValues) {
 
     template = template.replace(key, templateValues[key]);
   }
@@ -411,7 +411,7 @@ GoogleMap.prototype.getContentBy = function(id, infoWindowTemplate) {
 
 GoogleMap.prototype.editMarker = function(id) {
 
-  for (var i in this.markers) {
+  for (let i in this.markers) {
     this.markers[i].edit = false;
   }
   this.markers[id].edit = true;
@@ -422,7 +422,7 @@ GoogleMap.prototype.editMarker = function(id) {
 
   this.infoWindowEdit.open(this.map, this.markers[id].marker);
 
-  var position = this.markers[id].marker.getPosition();
+  let position = this.markers[id].marker.getPosition();
 
   if (!this.map.getBounds().contains(position)) {
     this.map.setCenter(position);
@@ -438,9 +438,9 @@ GoogleMap.prototype.noteditMarker = function(id) {
 
 GoogleMap.prototype.eventMarker = function(id) {
 
-  var marker = this.markers[id].marker;
+  let marker = this.markers[id].marker;
 
-  var that = this;
+  let that = this;
 
   google.maps.event.addListener(marker, 'click', function() {
 
@@ -457,9 +457,9 @@ GoogleMap.prototype.eventMarker = function(id) {
 
 GoogleMap.prototype.eventCircle = function(id) {
 
-  var circle = this.markers[id].circle;
+  let circle = this.markers[id].circle;
 
-  var that = this;
+  let that = this;
 
   google.maps.event.addListener(circle, 'radius_changed', function() {
 
@@ -489,7 +489,7 @@ GoogleMap.prototype.setInfoWindow = function(editTemplate, viewTemplate, callbac
 GoogleMap.prototype.highlightMarker = function(id, type) {
 
   if (type >= this.highlight.SHOW_OR) {
-    for (var i in this.markers) {
+    for (let i in this.markers) {
       if (!this.markers[i].edit) {
         this.markers[i].marker.setIcon(this.markerIcon);
         this.markers[i].marker.setAnimation(null);
@@ -498,9 +498,9 @@ GoogleMap.prototype.highlightMarker = function(id, type) {
   }
   if (this.markers[id]) {
 
-    var marker = this.markers[id].marker;
+    let marker = this.markers[id].marker;
 
-    var that = this;
+    let that = this;
     that.bounds.union(this.markers[id].circle.getBounds());
     that.map.fitBounds(this.markers[id].circle.getBounds());
 
@@ -529,7 +529,7 @@ GoogleMap.prototype.highlightMarker = function(id, type) {
     }
   }
   else {
-    for (var i in this.markers) {
+    for (let i in this.markers) {
       if (!this.markers[i].edit) {
         this.markers[i].marker.setIcon(this.markerIcon);
         this.markers[i].marker.setAnimation(null);
@@ -575,19 +575,19 @@ GoogleMap.prototype.setCircleDefault = function(circleDefault) {
 
 GoogleMap.prototype.searchLocation = function(query, callback) {
 
-  var that = this;
+  let that = this;
 
-  var geocoder = new google.maps.Geocoder();
+  let geocoder = new google.maps.Geocoder();
   geocoder.geocode({address: query}, function(results, status) {
-    var proxyResults = [];
+    let proxyResults = [];
 
     if (status === google.maps.GeocoderStatus.OK) {
 
-      for (var i in results) {
+      for (let i in results) {
 
-        var position = results[i].geometry.location;
-        var formatted_address = results[i].formatted_address;
-        var radius = that.circleDefault.radius;
+        let position = results[i].geometry.location;
+        let formatted_address = results[i].formatted_address;
+        let radius = that.circleDefault.radius;
 
         proxyResults.push(that.getProxyMarker(0, formatted_address, '', position.lat(), position.lng(), radius));
       }
@@ -598,13 +598,13 @@ GoogleMap.prototype.searchLocation = function(query, callback) {
 
 GoogleMap.prototype.addMarkerByAddress = function(address, callback) {
 
-  var that = this;
+  let that = this;
 
   geocoder = new google.maps.Geocoder();
   geocoder.geocode({address: address}, function(results, status) {
     if (status === google.maps.GeocoderStatus.OK) {
       if (results[0]) {
-        var options = {
+        let options = {
           title: results[0].formatted_address,
           lat: results[0].geometry.location.lat(),
           lng: results[0].geometry.location.lng()
@@ -624,22 +624,22 @@ GoogleMap.prototype.closeInfoWindow = function(infoWindow) {
 
 GoogleMap.prototype.eventInfoWindow = function(infoWindow, callbackSave, callbackCancel, edit) {
 
-  var that = this;
+  let that = this;
 
   google.maps.event.addListener(infoWindow, 'domready', function() {
-    var div = infoWindow.B.contentNode.firstChild;
+    let div = infoWindow.B.contentNode.firstChild;
     that.removeInfoWindowCloseButton(div);
 
     if (edit) {
 
-      var btnSave = div.getElementsByTagName('a')[0];
-      var btnCancel = div.getElementsByTagName('a')[1];
+      let btnSave = div.getElementsByTagName('a')[0];
+      let btnCancel = div.getElementsByTagName('a')[1];
 
-      var id = parseInt(div.getAttribute('data-markerid'));
+      let id = parseInt(div.getAttribute('data-markerid'));
 
       google.maps.event.addDomListenerOnce(btnSave, 'click', function() {
 
-        var proxyMarker = that.getProxyMarkerById(id);
+        let proxyMarker = that.getProxyMarkerById(id);
 
         if (callbackSave !== undefined && typeof callbackSave === 'function') {
           callbackSave(div, proxyMarker, function(modifiedMarker) {
@@ -679,7 +679,7 @@ GoogleMap.prototype.getDinamicRadius = function(radius_px) {
   point1 = new google.maps.Point(0, 0);
   point2 = new google.maps.Point(radius_px, radius_px);
 
-  var projection = this.overlay.getProjection();
+  let projection = this.overlay.getProjection();
   location1 = projection.fromContainerPixelToLatLng(point1);
   location2 = projection.fromContainerPixelToLatLng(point2);
 
@@ -691,7 +691,7 @@ GoogleMap.prototype.getDinamicRadius = function(radius_px) {
 
 GoogleMap.prototype.setMarkerTitle = function(id, title) {
 
-  var proxyMarker = this.getProxyMarkerById(id);
+  let proxyMarker = this.getProxyMarkerById(id);
 
   proxyMarker.title = title;
 
@@ -706,11 +706,11 @@ GoogleMap.prototype.setMarkerTitle = function(id, title) {
 };
 
 GoogleMap.prototype.getLocation = function(value, callback) {
-  var _self = this;
+  let _self = this;
 
-  var geocoder = new google.maps.Geocoder();
+  let geocoder = new google.maps.Geocoder();
   geocoder.geocode({address: value}, function(results, status) {
-    var location = {
+    let location = {
       lat: 0,
       lng: 0
     };

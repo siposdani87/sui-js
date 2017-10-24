@@ -14,7 +14,7 @@ goog.require('SUI.Query');
  * @param {!Object=} opt_options
  * @param {string=} opt_selector
  */
-SUI.Table = function (dom, opt_options, opt_selector = 'table') {
+SUI.Table = function(dom, opt_options, opt_selector = 'table') {
   this.table = new SUI.Query(opt_selector, dom).getItem();
   this._setOptions(opt_options);
   this._init();
@@ -25,18 +25,18 @@ SUI.Table = function (dom, opt_options, opt_selector = 'table') {
  * @param {!Object=} opt_options
  * @return {undefined}
  */
-SUI.Table.prototype._setOptions = function (opt_options) {
-  var _self = this;
+SUI.Table.prototype._setOptions = function(opt_options) {
+  let _self = this;
   _self.options = new SUI.Object({
     row_count: 10,
     pager_num: 4,
     sort: {
       column: null,
-      order: 'desc'
+      order: 'desc',
     },
     columns: [],
     calculations: {},
-    sorted: []
+    sorted: [],
   });
   _self.options.merge(opt_options);
 };
@@ -45,7 +45,7 @@ SUI.Table.prototype._setOptions = function (opt_options) {
  * @private
  * @return {undefined}
  */
-SUI.Table.prototype._init = function () {
+SUI.Table.prototype._init = function() {
   this.collection = /** @type {!SUI.Collection<!SUI.Object>} */ (new SUI.Collection());
   this.query = '';
   this.actions = [];
@@ -62,39 +62,39 @@ SUI.Table.prototype._init = function () {
  * @private
  * @return {undefined}
  */
-SUI.Table.prototype._initSearch = function () {
+SUI.Table.prototype._initSearch = function() {
   if (this.options.columns[this.options.columns.length - 1] === 'actions') {
-    var searchNode = new SUI.Node('div');
+    let searchNode = new SUI.Node('div');
     searchNode.addClass(['mdl-textfield', 'mdl-js-textfield', 'mdl-textfield--expandable']);
     this.heads.get(this.heads.size() - 1).insert(searchNode);
 
-    var labelNode = new SUI.Node('label');
+    let labelNode = new SUI.Node('label');
     labelNode.addClass(['mdl-button', 'mdl-js-button', 'mdl-button--icon']);
     labelNode.setFor('table-search');
     searchNode.appendChild(labelNode);
 
-    var iconNode = new SUI.Node('i');
+    let iconNode = new SUI.Node('i');
     iconNode.addClass('material-icons');
     iconNode.setHtml('search');
     labelNode.appendChild(iconNode);
 
-    var inputBlock = new SUI.Node('div');
+    let inputBlock = new SUI.Node('div');
     inputBlock.addClass('mdl-textfield__expandable-holder');
     searchNode.appendChild(inputBlock);
 
-    var inputNode = new SUI.Node('input');
+    let inputNode = new SUI.Node('input');
     inputNode.setAttribute('type', 'text');
     inputNode.setId('table-search');
     inputNode.addClass('mdl-textfield__input');
-    inputNode.addEventListener('keypress', function (inputNode, event) {
+    inputNode.addEventListener('keypress', function(inputNode, event) {
       if (SUI.eq(event.keyCode, 13)) {
-        var value = inputNode.getNode().value;
+        let value = inputNode.getNode().value;
         this._setQuery(value);
       }
     }.bind(this));
     inputBlock.appendChild(inputNode);
 
-    var subLabelNode = new SUI.Node('label');
+    let subLabelNode = new SUI.Node('label');
     subLabelNode.addClass('mdl-textfield__label');
     inputBlock.appendChild(subLabelNode);
 
@@ -106,7 +106,7 @@ SUI.Table.prototype._initSearch = function () {
  * @private
  * @return {undefined}
  */
-SUI.Table.prototype._initHeader = function () {
+SUI.Table.prototype._initHeader = function() {
   this.heads = new SUI.Query('thead th', this.table);
   this.heads.each((head, i) => {
     let column = this.options.columns[i];
@@ -140,20 +140,20 @@ SUI.Table.prototype._initHeader = function () {
  * @private
  * @return {undefined}
  */
-SUI.Table.prototype._initStructure = function () {
+SUI.Table.prototype._initStructure = function() {
   this.tbody = new SUI.Node('tbody');
   this.table.appendChild(this.tbody);
 
   this.tfoot = new SUI.Node('tfoot');
   this.table.appendChild(this.tfoot);
 
-  var footerRow = new SUI.Node('tr');
+  let footerRow = new SUI.Node('tr');
 
-  var statisticsNode = new SUI.Node('td');
+  let statisticsNode = new SUI.Node('td');
   statisticsNode.addClass('pager-statistics');
   footerRow.appendChild(statisticsNode);
 
-  var pagerNode = new SUI.Node('td');
+  let pagerNode = new SUI.Node('td');
   pagerNode.addClass('pager');
   pagerNode.setAttribute('colspan', this.heads.size() - 1);
   footerRow.appendChild(pagerNode);
@@ -166,7 +166,7 @@ SUI.Table.prototype._initStructure = function () {
  * @param {string} query
  * @return {undefined}
  */
-SUI.Table.prototype._setQuery = function (query) {
+SUI.Table.prototype._setQuery = function(query) {
   this.query = query;
   this.refresh();
 };
@@ -175,16 +175,16 @@ SUI.Table.prototype._setQuery = function (query) {
  * @param {number=} opt_page
  * @return {undefined}
  */
-SUI.Table.prototype.refresh = function (opt_page = -1) {
+SUI.Table.prototype.refresh = function(opt_page = -1) {
   if (opt_page > -1) {
     this.pager.setPage(opt_page);
   }
-  var params = new SUI.Object({
+  let params = new SUI.Object({
     'query': this.query,
     'column': this.options.sort.column,
     'order': this.options.sort.order,
     'offset': this.pager.offset,
-    'limit': this.options.row_count
+    'limit': this.options.row_count,
   });
   this.eventAction(params);
 };
@@ -193,7 +193,7 @@ SUI.Table.prototype.refresh = function (opt_page = -1) {
  * @param {!Object} params
  * @return {undefined}
  */
-SUI.Table.prototype.eventAction = function (params) {
+SUI.Table.prototype.eventAction = function(params) {
   console.warn('SUI.Table.eventAction()', params);
 };
 
@@ -202,7 +202,7 @@ SUI.Table.prototype.eventAction = function (params) {
  * @param {string} columnWithOrder
  * @return {undefined}
  */
-SUI.Table.prototype._toggleSorting = function (columnWithOrder) {
+SUI.Table.prototype._toggleSorting = function(columnWithOrder) {
   let [column, order] = columnWithOrder.split(':', 2);
   order = order || 'desc';
   if (SUI.eq(this.options.sort.column, column) && SUI.eq(this.options.sort.order, order)) {
@@ -215,12 +215,12 @@ SUI.Table.prototype._toggleSorting = function (columnWithOrder) {
  * @private
  * @return {undefined}
  */
-SUI.Table.prototype._updateSorting = function () {
+SUI.Table.prototype._updateSorting = function() {
   this._resetSorting();
-  this.heads.each(function (head, i) {
-    var column = this.options.columns[i];
+  this.heads.each(function(head, i) {
+    let column = this.options.columns[i];
     if ((SUI.eq(this.options.sort.column, null) && SUI.eq(i, 0)) || SUI.eq(column, this.options.sort.column)) {
-      var iconNode = new SUI.Query(SUI.format('i.{0}', [this.options.sort.order]), head).getItem();
+      let iconNode = new SUI.Query(SUI.format('i.{0}', [this.options.sort.order]), head).getItem();
       if (!iconNode.isEmpty()) {
         iconNode.addClass('active');
       }
@@ -235,7 +235,7 @@ SUI.Table.prototype._updateSorting = function () {
  * @param {string=} opt_order
  * @return {undefined}
  */
-SUI.Table.prototype._setSorting = function (column, opt_order = 'asc') {
+SUI.Table.prototype._setSorting = function(column, opt_order = 'asc') {
   this.options.sort.column = column;
   this.options.sort.order = opt_order;
   this._updateSorting();
@@ -245,9 +245,9 @@ SUI.Table.prototype._setSorting = function (column, opt_order = 'asc') {
  * @private
  * @return {undefined}
  */
-SUI.Table.prototype._resetSorting = function () {
-  var icons = new SUI.Query('thead th i', this.table);
-  icons.each(function (icon) {
+SUI.Table.prototype._resetSorting = function() {
+  let icons = new SUI.Query('thead th i', this.table);
+  icons.each(function(icon) {
     icon.removeClass('active');
   });
 };
@@ -257,11 +257,11 @@ SUI.Table.prototype._resetSorting = function () {
  * @param {!SUI.Object} item
  * @return {undefined}
  */
-SUI.Table.prototype._addRow = function (item) {
-  var tableRow = new SUI.Node('tr');
+SUI.Table.prototype._addRow = function(item) {
+  let tableRow = new SUI.Node('tr');
   this.tbody.appendChild(tableRow);
-  SUI.each(this.options.columns,  (column) => {
-    var tableDataNode = new SUI.Node('td');
+  SUI.each(this.options.columns, (column) => {
+    let tableDataNode = new SUI.Node('td');
     tableRow.appendChild(tableDataNode);
     this._renderDataNode(tableDataNode, item, column);
   });
@@ -271,7 +271,7 @@ SUI.Table.prototype._addRow = function (item) {
  * @param {!Array} actions
  * @return {undefined}
  */
-SUI.Table.prototype.setActions = function (actions) {
+SUI.Table.prototype.setActions = function(actions) {
   this.actions = actions;
 };
 
@@ -282,17 +282,16 @@ SUI.Table.prototype.setActions = function (actions) {
  * @param {string} column
  * @return {undefined}
  */
-SUI.Table.prototype._renderDataNode = function (tableDataNode, item, column) {
+SUI.Table.prototype._renderDataNode = function(tableDataNode, item, column) {
   if (SUI.eq(column, 'actions')) {
     this._renderActions(tableDataNode, item);
-  }
-  else {
-    var text = item.get(column);
-    var calculation = this.options.calculations[column];
+  } else {
+    let text = item.get(column);
+    let calculation = this.options.calculations[column];
     if (SUI.isFunction(calculation)) {
       text = calculation(item);
     }
-    tableDataNode.setHtml(/** @type {string} */ (text));
+    tableDataNode.setHtml(/** @type {string} */(text));
   }
 };
 
@@ -302,19 +301,18 @@ SUI.Table.prototype._renderDataNode = function (tableDataNode, item, column) {
  * @param {!SUI.Object} item
  * @return {undefined}
  */
-SUI.Table.prototype._renderActions = function(tableDataNode, item){
-  if (this.actions.length > 3){
-    var dropdownNode = new SUI.Node('div');
+SUI.Table.prototype._renderActions = function(tableDataNode, item) {
+  if (this.actions.length > 3) {
+    let dropdownNode = new SUI.Node('div');
     dropdownNode.addClass('dropdown');
     tableDataNode.appendChild(dropdownNode);
     this._renderDropdownNode(dropdownNode, item);
+  } else {
+    let actionNodes = this._getActionNodes(item);
+    SUI.each(actionNodes, (actionNode) => {
+      tableDataNode.appendChild(actionNode);
+    });
   }
-  else {
-  var actionNodes = this._getActionNodes(item);
-  SUI.each(actionNodes, (actionNode) => {
-    tableDataNode.appendChild(actionNode);
-  });
-}
 };
 
 /**
@@ -322,10 +320,10 @@ SUI.Table.prototype._renderActions = function(tableDataNode, item){
  * @param {!SUI.Object} item
  * @return {!Array}
  */
-SUI.Table.prototype._getActionNodes = function (item) {
-  var nodes = [];
+SUI.Table.prototype._getActionNodes = function(item) {
+  let nodes = [];
   SUI.each(this.actions, (action) => {
-    var node = this._createActionButton(action, item);
+    let node = this._createActionButton(action, item);
     nodes.push(node);
   });
   return nodes;
@@ -337,8 +335,8 @@ SUI.Table.prototype._getActionNodes = function (item) {
  * @param {!SUI.Object} item
  * @return {undefined}
  */
-SUI.Table.prototype._renderDropdownNode = function (dropdownNode, item) {
-  var dropdown = new SUI.Dropdown(dropdownNode);
+SUI.Table.prototype._renderDropdownNode = function(dropdownNode, item) {
+  let dropdown = new SUI.Dropdown(dropdownNode);
   dropdown.setActions(this.actions, item);
 };
 
@@ -348,21 +346,20 @@ SUI.Table.prototype._renderDropdownNode = function (dropdownNode, item) {
  * @param {!SUI.Object} item
  * @return {!SUI.Node}
  */
-SUI.Table.prototype._createActionButton = function (action, item) {
-  var style = action.style(item);
-  var buttonNode = new SUI.Node('button');
+SUI.Table.prototype._createActionButton = function(action, item) {
+  let style = action.style(item);
+  let buttonNode = new SUI.Node('button');
   buttonNode.addClass(['mdl-button', 'mdl-js-button', 'mdl-button--icon', 'mdl-button--primary']);
   if (style[1]) {
     buttonNode.setAttribute('disabled');
-  }
-  else {
-    buttonNode.addEventListener('click',  () => {
+  } else {
+    buttonNode.addEventListener('click', () => {
       action.click(item);
     });
   }
-  var iconNode = new SUI.Node('i');
+  let iconNode = new SUI.Node('i');
   iconNode.addClass('material-icons');
-  iconNode.setHtml(/** @type {string} */ (style[0]));
+  iconNode.setHtml(/** @type {string} */(style[0]));
   buttonNode.appendChild(iconNode);
   return buttonNode;
 };
@@ -371,7 +368,7 @@ SUI.Table.prototype._createActionButton = function (action, item) {
  * @param {!Array} items
  * @return {undefined}
  */
-SUI.Table.prototype.setData = function (items) {
+SUI.Table.prototype.setData = function(items) {
   this.collection.reload(items);
   this._draw();
 };
@@ -380,7 +377,7 @@ SUI.Table.prototype.setData = function (items) {
  * @param {number} count
  * @return {undefined}
  */
-SUI.Table.prototype.setCount = function (count) {
+SUI.Table.prototype.setCount = function(count) {
   this.pager.setCount(count);
   this.pager.draw();
 };
@@ -389,21 +386,21 @@ SUI.Table.prototype.setCount = function (count) {
  * @private
  * @return {undefined}
  */
-SUI.Table.prototype._draw = function () {
+SUI.Table.prototype._draw = function() {
   this.tbody.removeChildren();
-  var items = this.collection.getItems();
+  let items = this.collection.getItems();
   if (this.collection.size() > this.options.row_count) {
     items = this.collection.limit(this.pager.offset, this.options.row_count);
   }
-  SUI.each(items, function (item) {
+  SUI.each(items, function(item) {
     this._addRow(item);
   }.bind(this));
-  SUI.mdl(/** @type {!SUI.Node} */ (this.tbody));
+  SUI.mdl(/** @type {!SUI.Node} */(this.tbody));
 };
 
 /**
  * @return {undefined}
  */
-SUI.Table.prototype.render = function () {
+SUI.Table.prototype.render = function() {
   this._updateSorting();
 };

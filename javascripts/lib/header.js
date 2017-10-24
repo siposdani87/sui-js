@@ -10,7 +10,7 @@ goog.require('SUI.lib');
  * @param {!Object=} opt_options
  */
 SUI.lib.Header = function(opt_options) {
-  var _self = this;
+  let _self = this;
   _self.options = new SUI.Object();
   _self.options.merge(opt_options);
 
@@ -52,7 +52,7 @@ SUI.lib.Header.prototype.eventLogoClick = function() {
  * @param {string} title
  * @return {undefined}
  */
-SUI.lib.Header.prototype.setTitle = function(title){
+SUI.lib.Header.prototype.setTitle = function(title) {
   this.brandNodeTitle.setHtml(title);
 };
 
@@ -60,7 +60,7 @@ SUI.lib.Header.prototype.setTitle = function(title){
  * @param {string} imagePath
  * @return {undefined}
  */
-SUI.lib.Header.prototype.setImage = function(imagePath){
+SUI.lib.Header.prototype.setImage = function(imagePath) {
   this.brandNodeImage.setAttribute('src', imagePath);
 };
 
@@ -114,28 +114,28 @@ SUI.lib.Header.prototype.hideShadow = function() {
 /**
  * @return {undefined}
  */
-SUI.lib.Header.prototype.showLeftMenuButton = function(){
+SUI.lib.Header.prototype.showLeftMenuButton = function() {
   this.leftMenuButton.removeClass('hidden');
 };
 
 /**
  * @return {undefined}
  */
-SUI.lib.Header.prototype.hideLeftMenuButton = function(){
+SUI.lib.Header.prototype.hideLeftMenuButton = function() {
   this.leftMenuButton.addClass('hidden');
 };
 
 /**
  * @return {undefined}
  */
-SUI.lib.Header.prototype.showTopMenuButton = function(){
+SUI.lib.Header.prototype.showTopMenuButton = function() {
   this.topMenuButton.removeClass('hidden');
 };
 
 /**
  * @return {undefined}
  */
-SUI.lib.Header.prototype.hideTopMenuButton = function(){
+SUI.lib.Header.prototype.hideTopMenuButton = function() {
   this.topMenuButton.addClass('hidden');
 };
 

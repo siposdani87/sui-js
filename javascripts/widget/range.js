@@ -29,13 +29,12 @@ SUI.widget.Range.prototype._init = function() {
   this.inputBlock.addClass('range-widget');
 
   this.input.addEventListener('input', (input) => {
-    var inputNode = input.getNode();
+    let inputNode = input.getNode();
     this.input.setAttribute('value', inputNode.value);
     this.tooltip.setMessage(inputNode.value);
     this.modelChange(inputNode.value);
     this.checkValidity();
   });
-
 };
 
 /**
@@ -50,9 +49,9 @@ SUI.widget.Range.prototype.render = function() {
   }
   SUI.mdl(this.input);
 
-  var containerNode = new SUI.Query('.mdl-slider__container', this.inputBlock).getItem();
+  let containerNode = new SUI.Query('.mdl-slider__container', this.inputBlock).getItem();
 
-  var value = /** @type {string} */ (this.getValue());
+  let value = /** @type {string} */ (this.getValue());
   this.tooltip = new SUI.Tooltip(containerNode, value);
 };
 
@@ -61,6 +60,6 @@ SUI.widget.Range.prototype.render = function() {
  * @param {!Function|boolean|number|string|null|undefined} value
  */
 SUI.widget.Range.prototype.setValue = function(value) {
-  var inputNode = this.input.getNode();
+  let inputNode = this.input.getNode();
   inputNode['MaterialSlider']['change'](value);
 };

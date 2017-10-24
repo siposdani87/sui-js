@@ -16,7 +16,7 @@ SUI.State = function(routes, options) {
   this._current = new SUI.Object();
 
   this.basePath = '#';
-  var baseMeta = new SUI.Query('base').getItem();
+  let baseMeta = new SUI.Query('base').getItem();
   if (!baseMeta.isEmpty()) {
     this.basePath = baseMeta.getAttribute('href') || '';
   }
@@ -31,20 +31,20 @@ SUI.State = function(routes, options) {
  * @return {undefined}
  */
 SUI.State.prototype._setOptions = function(options) {
-  var _self = this;
+  let _self = this;
   _self.options = new SUI.Object({
     root: {
       id: 'root',
-      params: undefined
+      params: undefined,
     },
     home: {
       id: 'home',
-      params: undefined
+      params: undefined,
     },
     maintenance: {
       id: 'maintenance',
-      params: undefined
-    }
+      params: undefined,
+    },
   });
   _self.options.merge(options);
 };
@@ -65,12 +65,11 @@ SUI.State.prototype._init = function() {
 SUI.State.prototype._initPopstate = function() {
   window.addEventListener('popstate', function() {
     if (window.history.state) {
-      var state = new SUI.Object();
+      let state = new SUI.Object();
       state.merge(window.history.state);
       this._setCurrent(state);
       this._triggerChange();
-    }
-    else {
+    } else {
       this._parseHashTag();
       this._triggerChange();
     }
@@ -89,11 +88,11 @@ SUI.State.prototype.run = function() {
  * @return {undefined}
  */
 SUI.State.prototype._parseHashTag = function() {
-  var path = this.basePath === '#' ? window.location.hash : window.location.pathname.replace(this.basePath, '');
+  let path = this.basePath === '#' ? window.location.hash : window.location.pathname.replace(this.basePath, '');
   this._parseUrl(path, function(state, path, params) {
     this._setHistory(state, path, params, true);
   }.bind(this), function() {
-    //console.warn('SUI.State._parseHashTag()', path, 'missing state from routes config');
+    // console.warn('SUI.State._parseHashTag()', path, 'missing state from routes config');
     this.goRoot(true);
   }.bind(this));
 };
@@ -106,24 +105,23 @@ SUI.State.prototype._parseHashTag = function() {
  * @return {undefined}
  */
 SUI.State.prototype._parseUrl = function(hashPath, successCallback, errorCallback) {
-  var path = hashPath[0] === '#' ? hashPath.substr(1) : hashPath;
-  var i = 0;
-  var state = null;
-  var params = null;
-  var items = this.routes.getItems();
-  var matches = null;
+  let path = hashPath[0] === '#' ? hashPath.substr(1) : hashPath;
+  let i = 0;
+  let state = null;
+  let params = null;
+  let items = this.routes.getItems();
+  let matches = null;
   while (i < items.length && SUI.isNull(matches)) {
     state = items[i];
-    var stateUrl = /** @type {string} */ (state.get('url'));
-    var router = new SUI.Router(stateUrl);
+    let stateUrl = /** @type {string} */ (state.get('url'));
+    let router = new SUI.Router(stateUrl);
     matches = router.getMatches(path);
     params = router.parse(path);
     i++;
   }
   if (state && params && matches) {
     successCallback(state, path, params);
-  }
-  else {
+  } else {
     errorCallback(state, path, params);
   }
 };
@@ -139,16 +137,15 @@ SUI.State.prototype._parseUrl = function(hashPath, successCallback, errorCallbac
 SUI.State.prototype._setHistory = function(state, url, opt_params, opt_force = false) {
   url = this.basePath + url;
   opt_params = opt_params || {};
-  var stateTemplate = /** @type {string} */ (state.get('template'));
-  var router = new SUI.Router(stateTemplate);
-  var templateUrl = router.stringify(opt_params);
+  let stateTemplate = /** @type {string} */ (state.get('template'));
+  let router = new SUI.Router(stateTemplate);
+  let templateUrl = router.stringify(opt_params);
   state.set('templateUrl', templateUrl);
   state.set('params', opt_params);
   if (opt_force) {
-    window.history.replaceState(state.get(), /** @type {string} */ (state.get('title', '')), url);
-  }
-  else {
-    window.history.pushState(state.get(), /** @type {string} */ (state.get('title', '')), url);
+    window.history.replaceState(state.get(), /** @type {string} */(state.get('title', '')), url);
+  } else {
+    window.history.pushState(state.get(), /** @type {string} */(state.get('title', '')), url);
   }
   this._setCurrent(state);
   if (!opt_force) {
@@ -161,8 +158,8 @@ SUI.State.prototype._setHistory = function(state, url, opt_params, opt_force = f
  * @return {undefined}
  */
 SUI.State.prototype._triggerChange = function() {
-  var currentState = /** @type {!SUI.Object} */ (this.getCurrent());
-  var previousState = /** @type {!SUI.Object} */ (this.getPrevious());
+  let currentState = /** @type {!SUI.Object} */ (this.getCurrent());
+  let previousState = /** @type {!SUI.Object} */ (this.getPrevious());
   this.eventChange(currentState, previousState);
 };
 
@@ -200,18 +197,17 @@ SUI.State.prototype.getPrevious = function(opt_attribute) {
  */
 SUI.State.prototype.go = function(id, opt_params, opt_force = false) {
   if (SUI.eq(id[0], '#') || SUI.eq(id[0], '/')) {
-    this._parseUrl(id, function(state, path, params) {
+    this._parseUrl(id, (state, path, params) => {
       this._setHistory(state, path, params, opt_force);
-    }.bind(this), function() {
+    }, () => {
 
-    }.bind(this));
-  }
-  else {
-    var state = this.routes.findById(id);
+    });
+  } else {
+    let state = this.routes.findById(id);
     if (state) {
-      var stateUrl = /** @type {string} */ (state.get('url'));
-      var router = new SUI.Router(stateUrl);
-      var path = router.stringify(opt_params);
+      let stateUrl = /** @type {string} */ (state.get('url'));
+      let router = new SUI.Router(stateUrl);
+      let path = router.stringify(opt_params);
       this._setHistory(state, path, opt_params, opt_force);
     }
   }
@@ -256,11 +252,10 @@ SUI.State.prototype.goMaintenance = function(opt_force) {
  * @param {boolean=} opt_force
  * @return {undefined}
  */
-SUI.State.prototype.goBack = function(id, opt_params, opt_force = false){
-  if (SUI.eq(window.history.length, 0)){
+SUI.State.prototype.goBack = function(id, opt_params, opt_force = false) {
+  if (SUI.eq(window.history.length, 0)) {
     this.go(id, opt_params, opt_force);
-  }
-  else{
+  } else {
     this.back();
   }
 };
@@ -278,10 +273,9 @@ SUI.State.prototype.back = function() {
  * @return {undefined}
  */
 SUI.State.prototype.redirect = function(url, opt_inTab = false) {
-  if (opt_inTab){
+  if (opt_inTab) {
     window.open(url, '_blank');
-  }
-  else {
+  } else {
     window.location.href = url;
   }
 };
@@ -325,8 +319,8 @@ SUI.State.prototype.setParams = function(properties) {
  * @return {undefined}
  */
 SUI.State.prototype.setParam = function(name, value) {
-  var id = /** @type {string} */ (this.getCurrent('id'));
-  var params = this.getParams();
+  let id = /** @type {string} */ (this.getCurrent('id'));
+  let params = this.getParams();
   params.set(name, value);
   this.go(id, params, true);
 };
@@ -344,7 +338,7 @@ SUI.State.prototype.getParams = function() {
  * @return {string}
  */
 SUI.State.prototype.getParam = function(name, opt_defaultValue) {
-  var params = this.getParams();
+  let params = this.getParams();
   return /** @type {string} */ (params.get(name, opt_defaultValue));
 };
 

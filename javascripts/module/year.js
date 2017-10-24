@@ -9,7 +9,7 @@ goog.require('SUI.Node');
  * @param {!Object} currentDate
  * @param {!Object} options
  */
-SUI.Year = function (date, currentDate, options) {
+SUI.Year = function(date, currentDate, options) {
     this.date = window['moment'](date, 'YYYY-MM-DD');
     this.currentDate = currentDate;
     this._setOptions(options);
@@ -21,7 +21,7 @@ SUI.Year = function (date, currentDate, options) {
  * @param {!Object} options
  * @return {undefined}
  */
-SUI.Year.prototype._setOptions = function (options) {
+SUI.Year.prototype._setOptions = function(options) {
     this.options = options;
 };
 
@@ -29,21 +29,21 @@ SUI.Year.prototype._setOptions = function (options) {
  * @private
  * @return {undefined}
  */
-SUI.Year.prototype._init = function () {
-    var current = this.date['format']('YYYY') === this.currentDate['format']('YYYY') ? 'current' : null;
-    var now = this.date['format']('YYYY') === window['moment']()['format']('YYYY') ? 'now' : null;
-  this.cssClasses = ['year', this.options.css_class, now, current];
+SUI.Year.prototype._init = function() {
+    let current = this.date['format']('YYYY') === this.currentDate['format']('YYYY') ? 'current' : null;
+    let now = this.date['format']('YYYY') === window['moment']()['format']('YYYY') ? 'now' : null;
+    this.cssClasses = ['year', this.options.css_class, now, current];
 };
 
 /**
  * @return {!SUI.Node}
  */
-SUI.Year.prototype.getNode = function () {
-  var node = new SUI.Node('span');
-  node.addClass(this.cssClasses);
-    var text = parseInt(this.date['format']('YYYY'), 10);
-  node.setHtml(text);
-    node.addEventListener('click', function () {
+SUI.Year.prototype.getNode = function() {
+    let node = new SUI.Node('span');
+    node.addClass(this.cssClasses);
+    let text = parseInt(this.date['format']('YYYY'), 10);
+    node.setHtml(text);
+    node.addEventListener('click', function() {
         this.eventClick(this.date);
     }.bind(this));
     return node;
@@ -52,6 +52,6 @@ SUI.Year.prototype.getNode = function () {
 /**
  * @param {!Object} date
  */
-SUI.Year.prototype.eventClick = function (date) {
+SUI.Year.prototype.eventClick = function(date) {
     console.warn('SUI.Year.eventClick()', date);
 };

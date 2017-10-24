@@ -25,7 +25,7 @@ SUI.lib.Style = function(progressBar, opt_options) {
  * @return {undefined}
  */
 SUI.lib.Style.prototype._setOptions = function(opt_options) {
-  var _self = this;
+  let _self = this;
   _self.options = new SUI.Object();
   _self.options.merge(opt_options);
 };
@@ -48,15 +48,15 @@ SUI.lib.Style.prototype._init = function() {
  */
 SUI.lib.Style.prototype.load = function(id, url, opt_params, opt_rel = 'stylesheet', opt_media = 'all') {
   this.progressBar.show();
-  var deferred = new SUI.Deferred();
-  var style = new SUI.Query('#' + id);
+  let deferred = new SUI.Deferred();
+  let style = new SUI.Query('#' + id);
   if (style.size() > 0) {
     this.progressBar.hide();
     deferred.resolve(true);
   } else {
-    var node = new SUI.Node('link');
+    let node = new SUI.Node('link');
     node.setId(id);
-    var urlWithQueryString = SUI.urlWithQueryString(url, opt_params);
+    let urlWithQueryString = SUI.urlWithQueryString(url, opt_params);
     node.setAttribute('href', urlWithQueryString);
     node.setAttribute('rel', opt_rel);
     node.setAttribute('media', opt_media);
@@ -81,7 +81,7 @@ SUI.lib.Style.prototype.load = function(id, url, opt_params, opt_rel = 'styleshe
  * @return {undefined}
  */
 SUI.lib.Style.prototype.remove = function(id) {
-  var style = new SUI.Query('#' + id).getItem();
+  let style = new SUI.Query('#' + id).getItem();
   if (!style.isEmpty()) {
     style.remove();
   }

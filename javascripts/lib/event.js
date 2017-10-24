@@ -20,7 +20,7 @@ SUI.lib.Event = function() {
  */
 SUI.lib.Event.prototype.set = function(name, callback) {
   if (SUI.isFunction(callback)) {
-    var events = this.eventContainer.get(name, []);
+    let events = this.eventContainer.get(name, []);
     events.push(callback);
     this.eventContainer.set(name, events);
   }
@@ -31,9 +31,9 @@ SUI.lib.Event.prototype.set = function(name, callback) {
  * @param {string} name
  * @param {!Function} callback
  */
-SUI.lib.Event.prototype.remove = function(name, callback){
-  var events = this.eventContainer.get(name, []);
-  var index = events.indexOf(callback);
+SUI.lib.Event.prototype.remove = function(name, callback) {
+  let events = this.eventContainer.get(name, []);
+  let index = events.indexOf(callback);
   if (index > -1) {
     events.splice(index, 1);
   }
@@ -42,8 +42,8 @@ SUI.lib.Event.prototype.remove = function(name, callback){
 /**
  * @param {string} name
  */
-SUI.lib.Event.prototype.pop = function(name){
-  var events = this.eventContainer.get(name, []);
+SUI.lib.Event.prototype.pop = function(name) {
+  let events = this.eventContainer.get(name, []);
   events.pop();
   this.eventContainer.set(name, events);
 };
@@ -54,8 +54,8 @@ SUI.lib.Event.prototype.pop = function(name){
  * @return {!SUI.Promise}
  */
 SUI.lib.Event.prototype.call = function(name, opt_args = []) {
-  var calls = /** @type {!Array<function()>} */ (this.eventContainer.get(name, [SUI.noop()]));
-  var async = new SUI.Async();
+  let calls = /** @type {!Array<function()>} */ (this.eventContainer.get(name, [SUI.noop()]));
+  let async = new SUI.Async();
   return async.serial(calls, opt_args);
 };
 
@@ -66,7 +66,7 @@ SUI.lib.Event.prototype.call = function(name, opt_args = []) {
  * @return {!SUI.Promise}
  */
 SUI.lib.Event.prototype.override = function(name, args, callback) {
-  var calls = /** @type {!Array<function()>} */ (this.eventContainer.get(name, [callback]));
-  var async = new SUI.Async();
+  let calls = /** @type {!Array<function()>} */ (this.eventContainer.get(name, [callback]));
+  let async = new SUI.Async();
   return async.serial(calls, args);
 };

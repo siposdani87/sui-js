@@ -20,7 +20,7 @@ SUI.lib.Footer = function(opt_options) {
  * @return {undefined}
  */
 SUI.lib.Footer.prototype._setOptions = function(opt_options) {
-  var _self = this;
+  let _self = this;
   _self.options = new SUI.Object();
   _self.options.merge(opt_options);
 };
@@ -40,13 +40,12 @@ SUI.lib.Footer.prototype._init = function() {
  */
 SUI.lib.Footer.prototype.show = function() {
   this.footerNode.removeClass(['static', 'hidden', 'has-footer']);
-  var contentNode = new SUI.Query('.page-content.fullscreen', this.templateViewNode).getItem();
+  let contentNode = new SUI.Query('.page-content.fullscreen', this.templateViewNode).getItem();
   if (contentNode && !contentNode.isEmpty()) {
-    var isLightContent = contentNode.hasClass('light');
-    if (isLightContent){
+    let isLightContent = contentNode.hasClass('light');
+    if (isLightContent) {
       this.footerNode.addClass('dark');
-    }
-    else{
+    } else {
       this.footerNode.removeClass('dark');
     }
     this.footerNode.addClass('static');
@@ -74,14 +73,14 @@ SUI.lib.Footer.prototype.setContent = function(content) {
 /**
  * @return {undefined}
  */
-SUI.lib.Footer.prototype.open = function(){
+SUI.lib.Footer.prototype.open = function() {
   this.footerNode.addClass('open');
 };
 
 /**
  * @return {undefined}
  */
-SUI.lib.Footer.prototype.close = function(){
+SUI.lib.Footer.prototype.close = function() {
   this.footerNode.removeClass('open');
 };
 

@@ -45,7 +45,6 @@ SUI.widget.Select.prototype._init = function() {
  * @return {undefined}
  */
 SUI.widget.Select.prototype._initPopup = function() {
-
   this.containerNode = new SUI.Node('div');
   this._drawSearchInput();
 
@@ -71,16 +70,15 @@ SUI.widget.Select.prototype._initChangeEvent = function() {
  * @return {undefined}
  */
 SUI.widget.Select.prototype._initOptions = function() {
-
   this.options = /** @type {!SUI.Collection<!SUI.Object>} */ (new SUI.Collection());
 
-  var optionNodes = new SUI.Query('option', this.input);
+  let optionNodes = new SUI.Query('option', this.input);
   optionNodes.each((optionNode) => {
-    var value = optionNode.getAttribute('value') || '';
-    var text = optionNode.getText() || '';
-    var item = new SUI.Object({
+    let value = optionNode.getAttribute('value') || '';
+    let text = optionNode.getText() || '';
+    let item = new SUI.Object({
       'id': value,
-      'name': text
+      'name': text,
     });
     item.setRaw('option_node', optionNode);
     this.options.push(item);
@@ -98,7 +96,7 @@ SUI.widget.Select.prototype.render = function() {
   this.selectNode.addClass('select-input');
   this.input.insertAfter(this.selectNode);
 
-  var iconNode = new SUI.Node('i');
+  let iconNode = new SUI.Node('i');
   iconNode.addClass(['material-icons', 'size-24']);
   iconNode.setHtml('expand_more');
   iconNode.addEventListener('click', () => {
@@ -106,7 +104,7 @@ SUI.widget.Select.prototype.render = function() {
   });
   this.selectNode.insertAfter(iconNode);
 
-  var ids = this._getSelectedIds();
+  let ids = this._getSelectedIds();
   this._setSelectInput(ids);
 };
 
@@ -116,11 +114,11 @@ SUI.widget.Select.prototype.render = function() {
  * @return {undefined}
  */
 SUI.widget.Select.prototype.setValue = function(value) {
-  var ids = value;
+  let ids = value;
   if (!SUI.isArray(value)) {
     ids = [value];
   }
-  this._setSelectedIds(/** @type {!Array} */ (ids));
+  this._setSelectedIds(/** @type {!Array} */(ids));
 };
 
 /**
@@ -128,7 +126,7 @@ SUI.widget.Select.prototype.setValue = function(value) {
  * @return {*}
  */
 SUI.widget.Select.prototype.getValue = function() {
-  var ids = this._getSelectedIds();
+  let ids = this._getSelectedIds();
   ids = ids.filter((id) => {
     return !SUI.eq(id, '');
   });
@@ -139,11 +137,10 @@ SUI.widget.Select.prototype.getValue = function() {
  * @param {!Array<!SUI.Object>} items
  * @param {string=} opt_value
  * @param {string=} opt_name
- * @return {*}
+ * @return {undefined}
  */
 SUI.widget.Select.prototype.setOptions = function(items, opt_value = 'value', opt_name = 'name') {
-
-  var optionNodes = new SUI.Query('option', this.input);
+  let optionNodes = new SUI.Query('option', this.input);
   optionNodes.each((optionNode) => {
     if (optionNode.getAttribute('value')) {
       optionNode.remove();
@@ -151,10 +148,10 @@ SUI.widget.Select.prototype.setOptions = function(items, opt_value = 'value', op
   });
 
   SUI.each(items, (item) => {
-    var value = item.get(opt_value);
-    var name = item.get(opt_name);
+    let value = item.get(opt_value);
+    let name = item.get(opt_name);
 
-    var optionNode = new SUI.Node('option');
+    let optionNode = new SUI.Node('option');
     optionNode.setAttribute('value', value);
     optionNode.setHtml(name);
     this.input.appendChild(optionNode);
@@ -170,9 +167,9 @@ SUI.widget.Select.prototype.setOptions = function(items, opt_value = 'value', op
  * @return {undefined}
  */
 SUI.widget.Select.prototype._change = function(opt_force = false) {
-  var ids = this._getSelectedIds();
+  let ids = this._getSelectedIds();
   this._setSelectInput(ids);
-  var value = this.getValue();
+  let value = this.getValue();
   this.modelChange(value);
   this.checkValidity(opt_force);
 };
@@ -188,8 +185,7 @@ SUI.widget.Select.prototype._setSelectInput = function(ids) {
   }
   if (this.isMultiple) {
     this._setMultipleInput(ids);
-  }
-  else {
+  } else {
     this._setSimpleInput(ids[0]);
   }
 };
@@ -200,15 +196,13 @@ SUI.widget.Select.prototype._setSelectInput = function(ids) {
  * @private
  */
 SUI.widget.Select.prototype._setSimpleInput = function(id) {
-  var item = this.options.findById(id);
+  let item = this.options.findById(id);
   if (this.isRequired) {
     this._setTags(item);
-  }
-  else {
+  } else {
     if (id) {
       this._setTags(item);
-    }
-    else {
+    } else {
       this._setTags([]);
     }
   }
@@ -220,21 +214,19 @@ SUI.widget.Select.prototype._setSimpleInput = function(id) {
  * @private
  */
 SUI.widget.Select.prototype._setMultipleInput = function(ids) {
-  var items = [];
+  let items = [];
   SUI.each(ids, (id) => {
-    var item = this.options.findById(id);
+    let item = this.options.findById(id);
     if (item) {
       items.push(item);
     }
   });
   if (SUI.neq(items.length, 0)) {
     this._setTags(items);
-  }
-  else if (this.isRequired) {
-    var item = this.options.get(0);
+  } else if (this.isRequired) {
+    let item = this.options.get(0);
     this._setTags(item);
-  }
-  else if (SUI.eq(ids.length, 0)) {
+  } else if (SUI.eq(ids.length, 0)) {
     this._setTags([]);
   }
 };
@@ -250,22 +242,22 @@ SUI.widget.Select.prototype._setTags = function(tags) {
   this.selectNode.removeChildren();
 
   SUI.each(tags, (tag) => {
-    var tagNode = new SUI.Node('div');
+    let tagNode = new SUI.Node('div');
     tagNode.addClass('tag');
     tagNode.setHtml(tag.get('name'));
     tagNode.addEventListener('click', () => {
-        this.open();
+      this.open();
     });
     this.selectNode.appendChild(tagNode);
 
-    var id = tag.get('id');
+    let id = tag.get('id');
     if (SUI.neq(id, '')) {
-      var iconNode = new SUI.Node('i');
+      let iconNode = new SUI.Node('i');
       iconNode.addClass(['material-icons', 'size-18']);
       iconNode.setHtml('close');
       iconNode.setData('id', id);
       iconNode.addEventListener('click', function(iconNode) {
-        var id = iconNode.getData('id');
+        let id = iconNode.getData('id');
         this._handleSelectedId(id);
       }.bind(this));
       tagNode.appendChild(iconNode);
@@ -281,9 +273,9 @@ SUI.widget.Select.prototype._setTags = function(tags) {
  */
 SUI.widget.Select.prototype._setSelectedIds = function(ids, opt_force = false) {
   this.options.each(function(option) {
-    var id = option.get('id');
-    var optionNode = option.get('option_node');
-    var node = optionNode.getNode();
+    let id = option.get('id');
+    let optionNode = option.get('option_node');
+    let node = optionNode.getNode();
     node.selected = SUI.inArray(ids, id);
   });
   this._change(opt_force);
@@ -294,12 +286,12 @@ SUI.widget.Select.prototype._setSelectedIds = function(ids, opt_force = false) {
  * @return {!Array}
  */
 SUI.widget.Select.prototype._getSelectedIds = function() {
-  var ids = [];
+  let ids = [];
   this.options.each(function(option) {
-    var optionNode = option.get('option_node');
-    var node = optionNode.getNode();
+    let optionNode = option.get('option_node');
+    let node = optionNode.getNode();
     if (node.selected) {
-      var id = option.get('id');
+      let id = option.get('id');
       ids.push(id);
     }
   });
@@ -312,26 +304,23 @@ SUI.widget.Select.prototype._getSelectedIds = function() {
  * @private
  */
 SUI.widget.Select.prototype._handleSelectedId = function(id) {
-  var ids = this._getSelectedIds();
+  let ids = this._getSelectedIds();
   if (this.isMultiple) {
     if (SUI.eq(id, '') || SUI.eq(ids[0], '')) {
       SUI.clear(ids);
     }
     if (SUI.inArray(ids, id)) {
       SUI.remove(ids, id);
-    }
-    else {
+    } else {
       ids.push(id);
     }
     if (ids.length === 0) {
       ids = [''];
     }
-  }
-  else {
+  } else {
     if (SUI.inArray(ids, id)) {
       ids = [''];
-    }
-    else {
+    } else {
       ids = [id];
     }
   }
@@ -346,10 +335,10 @@ SUI.widget.Select.prototype._handleSelectedId = function(id) {
  */
 SUI.widget.Select.prototype._drawItems = function(items) {
   this.listNode.removeChildren();
-  var ids = this._getSelectedIds();
+  let ids = this._getSelectedIds();
   SUI.each(items, function(item) {
-    var id = item.get('id');
-    var listItem = new SUI.Node('a');
+    let id = item.get('id');
+    let listItem = new SUI.Node('a');
     listItem.setAttribute('href', 'javascript:void(0)');
     if (SUI.inArray(ids, id)) {
       listItem.addClass('selected');
@@ -367,30 +356,30 @@ SUI.widget.Select.prototype._drawItems = function(items) {
  * @return {undefined}
  */
 SUI.widget.Select.prototype._drawSearchInput = function() {
-  var searchParentNode = new SUI.Node('div');
+  let searchParentNode = new SUI.Node('div');
   searchParentNode.addClass('search-box');
   this.containerNode.appendChild(searchParentNode);
 
-  var searchNode = new SUI.Node('div');
+  let searchNode = new SUI.Node('div');
   searchNode.addClass(['mdl-textfield', 'mdl-js-textfield']);
   searchNode.addEventListener('click', () => {
 
   });
   searchParentNode.appendChild(searchNode);
 
-  var id = SUI.generateId('select');
+  let id = SUI.generateId('select');
 
   this.searchInputNode = new SUI.Node('input');
   this.searchInputNode.setId(id);
   this.searchInputNode.setAttribute('type', 'text');
   this.searchInputNode.addClass('mdl-textfield__input');
   this.searchInputNode.addEventListener('keyup', function(input) {
-    var node = input.getNode();
+    let node = input.getNode();
     this._search(node.value);
   }.bind(this));
   searchNode.appendChild(this.searchInputNode);
 
-  var labelNode = new SUI.Node('label');
+  let labelNode = new SUI.Node('label');
   labelNode.setFor(id);
   labelNode.addClass('mdl-textfield__label');
   searchNode.appendChild(labelNode);
@@ -421,10 +410,10 @@ SUI.widget.Select.prototype.close = function() {
  */
 SUI.widget.Select.prototype._search = function(query) {
   this.query = query;
-  var regExp = new RegExp(query, 'i');
-  var items = [];
+  let regExp = new RegExp(query, 'i');
+  let items = [];
   this.options.each(function(option) {
-    var name = option.get('name');
+    let name = option.get('name');
     if (regExp.test(name)) {
       items.push(option);
     }
