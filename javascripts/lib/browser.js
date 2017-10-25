@@ -23,6 +23,7 @@ SUI.lib.Browser.prototype._init = function() {
 
 /**
  * @private
+ * @return {undefined}
  */
 SUI.lib.Browser.prototype._detectMissingFeatures = function() {
   this.features = [];
@@ -49,9 +50,10 @@ SUI.lib.Browser.prototype.detect = function() {
 };
 
 /**
+ * @private
  * @param {string} name
  * @param {*} value
- * @private
+ * @return {undefined}
  */
 SUI.lib.Browser.prototype._setFeature = function(name, value) {
   if (SUI.eq(!!value, false)) {
