@@ -27,9 +27,10 @@ SUI.lib.Browser.prototype._init = function() {
 SUI.lib.Browser.prototype._detectMissingFeatures = function() {
   this.features = [];
 
-  this._setFeature('navigator.geolocation', navigator.geolocation);
+  this._setFeature('navigator.geolocation', navigator && navigator.geolocation);
   this._setFeature('window.history', window.history);
   this._setFeature('window.localStorage', window.localStorage);
+  this._setFeature('window.sessionStorage', window.sessionStorage);
   this._setFeature('window.btoa', window.btoa);
   this._setFeature('window.atob', window.atob);
   this._setFeature('console.log', console.log);
@@ -71,20 +72,22 @@ SUI.lib.Browser.prototype.eventMissingFeatures = function(features) {
  * @return {undefined}
  */
 SUI.lib.Browser.prototype._detectBrowsers = function() {
-  this.webkit = 'WebkitAppearance' in document.documentElement.style;
-  this.chromium = !!window.chrome;
-  this.chrome = !!window.chrome && !!window.chrome.webstore;
+  this.browsers = {};
 
-  this.opera = !!window.opera || /opera|opr/i.test(navigator.userAgent);
+  this.browsers.webkit = 'WebkitAppearance' in document.documentElement.style;
+  this.browsers.chromium = !!window.chrome;
+  this.browsers.chrome = !!window.chrome && !!window.chrome.webstore;
 
-  this.firefox = 'MozAppearance' in document.documentElement.style;
+  this.browsers.opera = !!window.opera || /opera|opr/i.test(navigator.userAgent);
 
-  this.safari = /constructor/i.test(window.HTMLElement);
+  this.browsers.firefox = 'MozAppearance' in document.documentElement.style;
 
-  this.IE10 = 'behavior' in document.documentElement.style && '-ms-user-select' in document.documentElement.style;
-  this.lteIE10 = /*@cc_on!@*/false;
-  this.gteIE10 = document.body.style.msTouchAction !== undefined;
-  this.IE11 = '-ms-scroll-limit' in document.documentElement.style && '-ms-ime-align' in document.documentElement.style;
+  this.browsers.safari = /constructor/i.test(window.HTMLElement);
+
+  this.browsers.IE10 = 'behavior' in document.documentElement.style && '-ms-user-select' in document.documentElement.style;
+  this.browsers.lteIE10 = /*@cc_on!@*/false;
+  this.browsers.gteIE10 = document.body.style.msTouchAction !== undefined;
+  this.browsers.IE11 = '-ms-scroll-limit' in document.documentElement.style && '-ms-ime-align' in document.documentElement.style;
 };
 
 /**
@@ -92,17 +95,17 @@ SUI.lib.Browser.prototype._detectBrowsers = function() {
  * @return {boolean}
  */
 SUI.lib.Browser.prototype.isInternetExplorer = function(opt_version) {
-  let result = this.lteIE10 || this.gteIE10;
+  let result = this.browsers.lteIE10 || this.browsers.gteIE10;
   if (opt_version) {
     switch (opt_version) {
       case 11:
-        result = this.IE11;
+        result = this.browsers.IE11;
         break;
       case 10:
-        result = this.IE10;
+        result = this.browsers.IE10;
         break;
       default:
-        result = this.lteIE10;
+        result = this.browsers.lteIE10;
         break;
     }
   }
@@ -113,40 +116,40 @@ SUI.lib.Browser.prototype.isInternetExplorer = function(opt_version) {
  * @return {boolean}
  */
 SUI.lib.Browser.prototype.isFirefox = function() {
-  return this.firefox;
+  return this.browsers.firefox;
 };
 
 /**
  * @return {boolean}
  */
 SUI.lib.Browser.prototype.isChrome = function() {
-  return this.chrome;
+  return this.browsers.chrome;
 };
 
 /**
  * @return {boolean}
  */
 SUI.lib.Browser.prototype.isOpera = function() {
-  return this.opera;
+  return this.browsers.opera;
 };
 
 /**
  * @return {boolean}
  */
 SUI.lib.Browser.prototype.isSafari = function() {
-  return this.safari;
+  return this.browsers.safari;
 };
 
 /**
  * @return {boolean}
  */
 SUI.lib.Browser.prototype.isWebkit = function() {
-  return this.webkit;
+  return this.browsers.webkit;
 };
 
 /**
  * @return {boolean}
  */
 SUI.lib.Browser.prototype.isChromium = function() {
-  return this.chromium;
+  return this.browsers.chromium;
 };
