@@ -17,8 +17,19 @@ SUI.lib.AppCache = function() {
  */
 SUI.lib.AppCache.prototype._init = function() {
   this.appCache = window.applicationCache;
+  if (this.appCache) {
+    this._attachEvent();
+  } else {
+    this.eventMissingFeatures(['window.applicationCache']);
+  }
+};
 
-  this._attachEvent();
+/**
+ * @param {!Array} features
+ * @return {undefined}
+ */
+SUI.lib.AppCache.prototype.eventMissingFeatures = function(features) {
+  console.warn('SUI.lib.AppCache.eventMissingFeatures()', features);
 };
 
 /**

@@ -462,9 +462,9 @@ SUI.App.prototype._initFooter = function() {
  */
 SUI.App.prototype._initBrowser = function() {
   this._instances[this._injections.browser] = new SUI.lib.Browser();
-  this._instances[this._injections.browser].eventMissingFeatures = function(features) {
+  this._instances[this._injections.browser].eventMissingFeatures = (features) => {
     this._instances[this._injections.notification].addError(features.join(', '));
-  }.bind(this);
+  };
 };
 
 /**
@@ -473,9 +473,9 @@ SUI.App.prototype._initBrowser = function() {
  */
 SUI.App.prototype._initAppCache = function() {
   this._instances[this._injections.appCache] = new SUI.lib.AppCache();
-  /* this._instances[this._injections.appCache].eventMissingFeatures = function(features) {
-   this._instances[this._injections.notification].addError(features.join(', '));
-   }.bind(this); */
+  this._instances[this._injections.appCache].eventMissingFeatures = (features) => {
+    this._instances[this._injections.notification].addError(features.join(', '));
+  };
 };
 
 /**
@@ -484,9 +484,9 @@ SUI.App.prototype._initAppCache = function() {
  */
 SUI.App.prototype._initServiceWorker = function() {
   this._instances[this._injections.serviceWorker] = new SUI.lib.ServiceWorker();
-  /* this._instances[this._injections.appCache].eventMissingFeatures = function(features) {
-   this._instances[this._injections.notification].addError(features.join(', '));
-   }.bind(this); */
+  this._instances[this._injections.serviceWorker].eventMissingFeatures = (features) => {
+    this._instances[this._injections.notification].addError(features.join(', '));
+  };
 };
 
 /**

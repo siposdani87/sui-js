@@ -16,13 +16,21 @@ SUI.lib.ServiceWorker = function() {
  * @return {undefined}
  */
 SUI.lib.ServiceWorker.prototype._init = function() {
-  /* if ('serviceWorker' in navigator) {
+  if ('serviceWorker' in navigator) {
     navigator.serviceWorker
       .register('service-worker.js', {scope: './'})
-      .then(function(registration) {
-        console.log('Service Worker Registered', registration);
-
+      .then((registration) => {
+        console.info('Service Worker Registered', registration);
       });
-   } */
+  } else {
+    this.eventMissingFeatures(['navigator.serviceWorker']);
+  }
 };
 
+/**
+ * @param {!Array} features
+ * @return {undefined}
+ */
+SUI.lib.ServiceWorker.prototype.eventMissingFeatures = function(features) {
+  console.warn('SUI.lib.ServiceWorker.eventMissingFeatures()', features);
+};
