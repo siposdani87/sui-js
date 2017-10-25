@@ -18,6 +18,12 @@
 
   .content {
     color: $white;
+    a {
+      color: $accent;
+      &:hover, &.active{
+        color: $accent-dark;
+      }
+    }
   }
 
   #toggle-bottom-menu {
@@ -78,6 +84,12 @@
 
     .content {
       color: $white;
+      a {
+        color: $accent;
+        &:hover, &.active{
+          color: $accent-dark;
+        }
+      }
     }
 
     &.open {
@@ -95,6 +107,12 @@
 
       .content {
         color: $white;
+        a {
+          color: $accent;
+          &:hover, &.active{
+            color: $accent-dark;
+          }
+        }
       }
       #toggle-bottom-menu {
         color: $accent;
@@ -112,6 +130,12 @@
     &.dark {
       .content {
         color: $black;
+        a {
+          color: $primary;
+          &:hover, &.active{
+            color: $primary-dark;
+          }
+        }
       }
       #toggle-bottom-menu {
         color: $primary;
@@ -158,6 +182,5 @@
         }
       }
     }
-
   }
 }
