@@ -92,17 +92,21 @@ SUI.widget.Select.prototype._initOptions = function() {
 SUI.widget.Select.prototype.render = function() {
   this.input.addClass('hidden');
 
+  this.selectContainerNode = new SUI.Node('div');
+  this.selectContainerNode.addClass('select-container');
+  this.input.insertAfter(this.selectContainerNode);
+
   this.selectNode = new SUI.Node('div');
   this.selectNode.addClass('select-input');
-  this.input.insertAfter(this.selectNode);
+  this.selectContainerNode.appendChild(this.selectNode);
 
   let iconNode = new SUI.Node('i');
-  iconNode.addClass(['material-icons', 'size-24']);
+  iconNode.addClass(['material-icons', 'size-24', 'expander']);
   iconNode.setHtml('expand_more');
   iconNode.addEventListener('click', () => {
     this.open();
   });
-  this.selectNode.insertAfter(iconNode);
+  this.selectContainerNode.appendChild(iconNode);
 
   let ids = this._getSelectedIds();
   this._setSelectInput(ids);
