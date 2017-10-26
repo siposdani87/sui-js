@@ -1,5 +1,5 @@
 .select-widget {
-
+  
   &.is-invalid {
     .mdl-textfield__error {
       visibility: visible;
@@ -9,24 +9,30 @@
     }
   }
 
-  > .material-icons {
-    vertical-align: middle;
+  .select-container{
+    position: relative;
+    display: inline-block;
+  }
+
+  .expander {
+    position: absolute;
     cursor: pointer;
-    margin-left: -30px;
+    right: 5px;
+    top: 4px;
   }
 
   label {
     margin-right: 10px;
+    font-size: 14px;
   }
 
   .select-input {
-    display: inline-block;
+    display: block;
     padding: 2px 30px 0 2px;
     border: 1px solid $light-grey;
     background-color: $light-grey-bright;
     border-radius: 2px;
     min-height: 28px;
-    vertical-align: middle;
     cursor: pointer;
 
 
