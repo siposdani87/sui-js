@@ -20,7 +20,7 @@ SUI.lib.ServiceWorker.prototype._init = function() {
     navigator.serviceWorker
       .register('service-worker.js', {scope: './'})
       .then((registration) => {
-        console.info('Service Worker Registered', registration);
+        console.info('Service Worker Registered', registration.scope);
       });
   } else {
     this.eventMissingFeatures(['navigator.serviceWorker']);
