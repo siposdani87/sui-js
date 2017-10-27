@@ -108,6 +108,7 @@ SUI.App.prototype._init = function(resources) {
   this._initConsole();
   this._initAppCache();
   this._initServiceWorker();
+  this._initActionCable();
 
   this._handleModules();
 };
@@ -138,6 +139,7 @@ SUI.App.prototype._initModule = function() {
     this._instances[this._injections.loader].show();
     this._instances[this._injections.dialog].close();
     this._instances[this._injections.confirm].close();
+    this._instances[this._injections.actionCable].unsubscribeAll();
     return this._instances[this._injections.event].call('state.change', [currentState]);
   }.bind(this));
 
@@ -487,6 +489,14 @@ SUI.App.prototype._initServiceWorker = function() {
   this._instances[this._injections.serviceWorker].eventMissingFeatures = (features) => {
     this._instances[this._injections.notification].addError(features.join(', '));
   };
+};
+
+/**
+ * @private
+ * @return {undefined}
+ */
+SUI.App.prototype._initActionCable = function() {
+  this._instances[this._injections.actionCable] = new SUI.lib.ActionCable();
 };
 
 /**
