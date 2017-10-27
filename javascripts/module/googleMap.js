@@ -85,6 +85,17 @@ SUI.GoogleMap.prototype._init = function() {
   this.markerIcons = {};
   this.markers = [];
   this.bounds = null;
+
+  this._initMap();
+  this._initOverlay();
+  this.setMarkers();
+};
+
+/**
+ * @private
+ * @return {undefined}
+ */
+SUI.GoogleMap.prototype._initMap = function() {
   this.map = new google.maps.Map(this.mapNode.getNode(), this.options);
 
   let customMapType = this._getCustomMapType();
@@ -94,8 +105,17 @@ SUI.GoogleMap.prototype._init = function() {
     let vertex = event.latLng;
     this.eventMapClick(vertex.lat(), vertex.lng(), event);
   });
+};
 
-  this.setMarkers();
+/**
+ * @private
+ * @return {undefined}
+ */
+SUI.GoogleMap.prototype._initOverlay = function() {
+  this.overlay = new google.maps.OverlayView();
+  this.overlay.draw = function() {
+  };
+  this.overlay.setMap(this.map);
 };
 
 /**
@@ -310,7 +330,7 @@ SUI.GoogleMap.prototype.setMarkers = function(opt_options) {
  * @param {number} longitude
  * @param {!Object=} opt_data
  */
-SUI.GoogleMap.prototype.addMarker = function(id, title, iconName, latitude, longitude, opt_data) {
+SUI.GoogleMap.prototype.createMarker = function(id, title, iconName, latitude, longitude, opt_data) {
   let data = new SUI.Object(opt_data);
   data.set('id', id);
 
@@ -332,6 +352,22 @@ SUI.GoogleMap.prototype.addMarker = function(id, title, iconName, latitude, long
   this.markers.push(data);
 
   this._bindEventsToMarker(marker, data, mapLabel);
+};
+
+/**
+ * @param {string|number} id
+ * @param {string} title
+ * @param {string} iconName
+ * @param {number} x
+ * @param {number} y
+ * @param {!Object=} opt_data
+ */
+SUI.GoogleMap.prototype.createMarkerByXY = function(id, title, iconName, x, y, opt_data) {
+  let point = new google.maps.Point(x, y);
+  let projection = this.overlay.getProjection();
+  let location = projection.fromContainerPixelToLatLng(point);
+
+  this.createMarker(id, title, iconName, location.lat(), location.lng(), opt_data);
 };
 
 /**
@@ -537,4 +573,22 @@ SUI.GoogleMap.prototype.getCenter = function() {
  */
 SUI.GoogleMap.prototype.triggerResize = function() {
   google.maps.event.trigger(this.map, 'resize');
+};
+
+/**
+ * @param {number} radiusPx
+ * @return {number}
+ */
+SUI.GoogleMap.prototype.getDinamicRadius = function(radiusPx) {
+  let point1 = new google.maps.Point(0, 0);
+  let point2 = new google.maps.Point(radiusPx, radiusPx);
+
+  let projection = this.overlay.getProjection();
+  let location1 = projection.fromContainerPixelToLatLng(point1);
+  let location2 = projection.fromContainerPixelToLatLng(point2);
+
+  let latLng1 = new google.maps.LatLng(location1.lat(), location1.lng());
+  let latLng2 = new google.maps.LatLng(location2.lat(), location2.lng());
+
+  return google.maps.geometry.spherical.computeDistanceBetween(latLng1, latLng2);
 };
