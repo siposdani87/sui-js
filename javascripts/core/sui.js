@@ -116,6 +116,7 @@ SUI.coreRes = {
   console: 'console',
   appCache: 'appCache',
   serviceWorker: 'serviceWorker',
+  actionCable: 'actionCable',
 };
 
 /**

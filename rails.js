@@ -47,6 +47,8 @@
 //= require sui-js/javascripts/lib/console
 //= require sui-js/javascripts/lib/appCache
 //= require sui-js/javascripts/lib/serviceWorker
+//= require sui-js/javascripts/lib/actionCableClient
+//= require sui-js/javascripts/lib/actionCable
 
 
 //= require sui-js/javascripts/module/util
