@@ -84,7 +84,7 @@ SUI.widget.Location.prototype._search = function(address) {
     this.setValue(location);
     this.modelChange(location);
     this.map.removeMarker(0);
-    this.map.addMarker(0, '', 'marker', position['latitude'], position['longitude']);
+    this.map.createMarker(0, '', 'marker', position['latitude'], position['longitude']);
     this.map.setCenter(position['latitude'], position['longitude']);
     this.checkValidity();
   }, () => {
@@ -118,7 +118,7 @@ SUI.widget.Location.prototype.render = function() {
   this.map.eventMapClick = (latitude, longitude) => {
     this._updateValue(latitude, longitude);
     this.map.removeMarker(0);
-    this.map.addMarker(0, '', 'marker', latitude, longitude);
+    this.map.createMarker(0, '', 'marker', latitude, longitude);
   };
   this.map.eventMarkerRightClick = () => {
     this._updateValue(null, null);
@@ -131,7 +131,7 @@ SUI.widget.Location.prototype.render = function() {
 
   let location = /** @type {!Object} */ (this.getValue());
   if (!SUI.isNull(location['latitude']) && !SUI.isNull(location['longitude'])) {
-    this.map.addMarker(0, '', 'marker', location['latitude'], location['longitude']);
+    this.map.createMarker(0, '', 'marker', location['latitude'], location['longitude']);
   }
 
   setTimeout(() => {
