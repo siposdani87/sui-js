@@ -330,7 +330,24 @@ SUI.GoogleMap.prototype.setMarkers = function(opt_options) {
  * @param {number} longitude
  * @param {!Object=} opt_data
  */
-SUI.GoogleMap.prototype.createMarker = function(id, title, iconName, latitude, longitude, opt_data) {
+SUI.GoogleMap.prototype.createOrUpdateMarker = function(id, title, iconName, latitude, longitude, opt_data = {}) {
+  let marker = this.getMarker(id);
+  if (marker) {
+    this.updateMarker(id, title, iconName, latitude, longitude, opt_data);
+  } else {
+    this.createMarker(id, title, iconName, latitude, longitude, opt_data);
+  }
+};
+
+/**
+ * @param {string|number} id
+ * @param {string} title
+ * @param {string} iconName
+ * @param {number} latitude
+ * @param {number} longitude
+ * @param {!Object=} opt_data
+ */
+SUI.GoogleMap.prototype.createMarker = function(id, title, iconName, latitude, longitude, opt_data = {}) {
   let data = new SUI.Object(opt_data);
   data.set('id', id);
 
@@ -362,7 +379,7 @@ SUI.GoogleMap.prototype.createMarker = function(id, title, iconName, latitude, l
  * @param {number} y
  * @param {!Object=} opt_data
  */
-SUI.GoogleMap.prototype.createMarkerByXY = function(id, title, iconName, x, y, opt_data) {
+SUI.GoogleMap.prototype.createMarkerByXY = function(id, title, iconName, x, y, opt_data = {}) {
   let point = new google.maps.Point(x, y);
   let projection = this.overlay.getProjection();
   let location = projection.fromContainerPixelToLatLng(point);
@@ -406,9 +423,9 @@ SUI.GoogleMap.prototype._bindEventsToMarker = function(marker, data, mapLabel) {
  * @param {string} iconName
  * @param {number} latitude
  * @param {number} longitude
- * @param {!SUI.Object=} opt_data
+ * @param {!Object=} opt_data
  */
-SUI.GoogleMap.prototype.updateMarker = function(id, title, iconName, latitude, longitude, opt_data) {
+SUI.GoogleMap.prototype.updateMarker = function(id, title, iconName, latitude, longitude, opt_data = {}) {
   let text = SUI.convert(title, 'string');
 
   let data = this.getMarker(id);
