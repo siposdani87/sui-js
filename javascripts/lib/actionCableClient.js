@@ -6,12 +6,13 @@ goog.require('SUI.lib');
 
 /**
  * @constructor
- * @param {!Object} cable
+ * @param {!SUI.lib.ActionCable} parent
  * @param {!Object} options
  * @this {SUI.lib.ActionCableClient}
  */
-SUI.lib.ActionCableClient = function(cable, options) {
-    this.cable = cable;
+SUI.lib.ActionCableClient = function(parent, options) {
+    this.parent = parent;
+    this.cable = parent.cable;
     this._init(options);
 };
 
