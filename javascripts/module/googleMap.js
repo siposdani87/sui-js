@@ -229,7 +229,7 @@ SUI.GoogleMap.prototype.eventMapClick = function(latitude, longitude, event) {
  */
 SUI.GoogleMap.prototype.addPointsToPolygon = function(polygon, points) {
   let path = this._convertPointsToPath(points);
-  polygon.setPath(/** @type {!Array<google.maps.LatLng>} */ (path));
+  polygon.setPath(path);
   this._setBoundsByPath(path);
   this._fitBoundsToMap();
 
