@@ -17,11 +17,11 @@ SUI.lib.ServiceWorker = function() {
  */
 SUI.lib.ServiceWorker.prototype._init = function() {
   if ('serviceWorker' in navigator) {
-    navigator.serviceWorker
+    /* navigator.serviceWorker
       .register('service-worker.js', {scope: './'})
       .then((registration) => {
         console.info('Service Worker Registered', registration.scope);
-      });
+      });*/
   } else {
     this.eventMissingFeatures(['navigator.serviceWorker']);
   }

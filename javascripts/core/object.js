@@ -194,6 +194,7 @@ SUI.Object.prototype._remove = function(object, attributes) {
  * @param {!Function} next
  * @param {!Object=} opt_properties
  * @param {!Array=} opt_attributes
+ * @return {undefined}
  */
 SUI.Object.prototype.each = function(next, opt_properties, opt_attributes) {
   let properties = opt_properties || this;
@@ -243,7 +244,7 @@ SUI.Object.prototype.copy = function(opt_isNative) {
 /**
  * @return {boolean}
  */
-SUI.Object.prototype.isEmpty = function(){
+SUI.Object.prototype.isEmpty = function() {
   return SUI.isEmpty(this);
 };
 
