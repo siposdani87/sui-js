@@ -63,7 +63,7 @@ SUI.Table.prototype._init = function() {
  * @return {undefined}
  */
 SUI.Table.prototype._initSearch = function() {
-  if (this.options.columns[this.options.columns.length - 1] === 'actions') {
+  if (this.options.columns[this.options.columns.length - 1] === 'search') {
     let searchNode = new SUI.Node('div');
     searchNode.addClass(['mdl-textfield', 'mdl-js-textfield', 'mdl-textfield--expandable']);
     this.heads.get(this.heads.size() - 1).insert(searchNode);
@@ -273,7 +273,7 @@ SUI.Table.prototype.setActions = function(actions) {
  * @return {undefined}
  */
 SUI.Table.prototype._renderDataNode = function(tableDataNode, item, column) {
-  if (SUI.eq(column, 'actions')) {
+  if (SUI.inArray(['search', 'actions'], column)) {
     this._renderActions(tableDataNode, item);
   } else {
     let text = item.get(column);
