@@ -201,15 +201,15 @@ SUI.widget.Select.prototype._setSelectInput = function(ids) {
  */
 SUI.widget.Select.prototype._setSimpleInput = function(id) {
   let item = this.options.findById(id);
-  if (this.isRequired) {
+  // if (this.isRequired) {
     this._setTags(item);
-  } else {
-    if (id) {
-      this._setTags(item);
-    } else {
-      this._setTags([]);
-    }
-  }
+  // } else {
+    // if (id) {
+    //   this._setTags(item);
+    // } else {
+    //   this._setTags([]);
+    // }
+  // }
 };
 
 /**
