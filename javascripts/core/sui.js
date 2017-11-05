@@ -921,7 +921,7 @@ SUI.getQueryString = function(opt_params) {
       SUI.eachArray(param, (value) => {
         queries.push(SUI.format('{0}[]={1}', [key, value]));
       });
-    } else {
+    } else if (!SUI.isUndefined(param)) {
       queries.push(SUI.format('{0}={1}', [key, param]));
     }
   });

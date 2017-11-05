@@ -50,7 +50,7 @@ SUI.CardCollection.prototype._init = function() {
   this._initTemplate();
   this.pager = new SUI.Pager(this.cardCollection, this.options);
   this.pager.eventAction = () => {
-    this.refresh();
+    this.refresh(1);
   };
 };
 
@@ -124,16 +124,6 @@ SUI.CardCollection.prototype._getCardNode = function(item) {
     }
   }.bind(this));
   return new SUI.Node(cloneTemplate);
-};
-
-
-/**
- * @param {string} query
- * @return {undefined}
- */
-SUI.CardCollection.prototype.setQuery = function(query) {
-  this.query = query;
-  this.refresh();
 };
 
 /**

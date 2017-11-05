@@ -54,7 +54,7 @@ SUI.Table.prototype._init = function() {
   this._initStructure();
   this.pager = new SUI.Pager(this.tfoot, this.options);
   this.pager.eventAction = () => {
-    this.refresh();
+    this.refresh(1);
   };
 };
 
@@ -88,8 +88,8 @@ SUI.Table.prototype._initSearch = function() {
     inputNode.addClass('mdl-textfield__input');
     inputNode.addEventListener('keypress', function(inputNode, event) {
       if (SUI.eq(event.keyCode, 13)) {
-        let value = inputNode.getNode().value;
-        this._setQuery(value);
+        this.query = inputNode.getNode().value;
+        this.refresh(1);
       }
     }.bind(this));
     inputBlock.appendChild(inputNode);
@@ -159,16 +159,6 @@ SUI.Table.prototype._initStructure = function() {
   footerRow.appendChild(pagerNode);
 
   this.tfoot.appendChild(footerRow);
-};
-
-/**
- * @private
- * @param {string} query
- * @return {undefined}
- */
-SUI.Table.prototype._setQuery = function(query) {
-  this.query = query;
-  this.refresh();
 };
 
 /**
