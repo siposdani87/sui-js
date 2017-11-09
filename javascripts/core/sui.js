@@ -887,15 +887,14 @@ SUI.scrollToElement = function(selector, opt_duration = 500, opt_step = 20) {
 SUI.debounce = function(func, opt_wait = 250, opt_immediate = false) {
   let timeout;
   return function(...args) {
-    let context = this;
     let later = function() {
       timeout = null;
-      if (!opt_immediate) func.apply(context, args);
+      if (!opt_immediate) func(...args);
     };
     let callNow = opt_immediate && !timeout;
     clearTimeout(timeout);
     timeout = setTimeout(later, opt_wait);
-    if (callNow) func.apply(context, args);
+    if (callNow) func(...args);
   };
 };
 

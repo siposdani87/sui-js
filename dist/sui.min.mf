@@ -46,10 +46,6 @@ core/widget.js
 lib/actionCableClient.js
 lib/actionCable.js
 lib/navBar.js
-test/container.js
-test/deferred.js
-test/item.js
-test/object.js
 module/day.js
 module/month.js
 module/year.js
@@ -85,10 +81,14 @@ module/googleMap.js
 module/navigation.js
 module/pager.js
 module/progressStatus.js
-module/table.js
 module/tabPanel.js
+module/table.js
 module/treeView.js
 module/util.js
+test/container.js
+test/deferred.js
+test/item.js
+test/object.js
 widget/autoComplete.js
 widget/datetimeRange.js
 widget/location.js

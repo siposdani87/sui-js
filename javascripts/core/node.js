@@ -210,9 +210,9 @@ SUI.Node.prototype.removeAttribute = function(attribute) {
  * @return {!Function}
  */
 SUI.Node.prototype.addEventListener = function(eventName, callback) {
-  let listener = function(event) {
-    let node = new SUI.Node(/** @type {!Element} */(this));
-    callback(node, event);
+  let listener = (event) => {
+    // let node = new SUI.Node(/** @type {!Element} */(this));
+    callback(this, event);
     event.stopPropagation();
   };
   this.node.addEventListener(eventName, listener);

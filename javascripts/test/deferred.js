@@ -61,35 +61,35 @@ SUI.test.Deferred.prototype.testPromise = function() {
 
 
 SUI.test.Deferred.prototype.testResolve = function() {
-  this.ajaxResolve().then(function(value) {
+  this.ajaxResolve().then((value) => {
     if (value !== 1) {
       this.showError('resolve', 1);
     }
-  }, function() {
+  }, () => {
     this.showError('resolve', 2);
   });
 
-  this.funcResolve().then(function(value) {
+  this.funcResolve().then((value) => {
     if (value !== 2) {
       this.showError('resolve', 3);
     }
-  }, function() {
+  }, () => {
     this.showError('resolve', 4);
   });
 };
 
 SUI.test.Deferred.prototype.testReject = function() {
-  this.ajaxReject().then(function() {
+  this.ajaxReject().then(() => {
     this.showError('reject', 1);
-  }, function(value) {
+  }, (value) => {
     if (value !== 1) {
       this.showError('reject', 2);
     }
   });
 
-  this.funcReject().then(function() {
+  this.funcReject().then(() => {
     this.showError('reject', 3);
-  }, function(value) {
+  }, (value) => {
     if (value !== 2) {
       this.showError('reject', 4);
     }
