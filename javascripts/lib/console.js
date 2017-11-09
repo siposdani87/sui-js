@@ -30,7 +30,7 @@ SUI.lib.Console.prototype._setOptions = function(opt_options) {
  */
 SUI.lib.Console.prototype.log = function(...message) {
   if (this.config.get('development')) {
-    console.log.apply(console, message);
+    console.log(...message);
   }
 };
 
@@ -39,7 +39,7 @@ SUI.lib.Console.prototype.log = function(...message) {
  */
 SUI.lib.Console.prototype.warn = function(...message) {
   if (this.config.get('development')) {
-    console.warn.apply(console, message);
+    console.warn(...message);
   }
 };
 
@@ -48,7 +48,7 @@ SUI.lib.Console.prototype.warn = function(...message) {
  */
 SUI.lib.Console.prototype.info = function(...message) {
   if (this.config.get('development')) {
-    console.info.apply(console, message);
+    console.info(...message);
   }
 };
 
@@ -57,6 +57,6 @@ SUI.lib.Console.prototype.info = function(...message) {
  */
 SUI.lib.Console.prototype.error = function(...message) {
   if (this.config.get('development')) {
-    console.error.apply(console, message);
+    console.error(...message);
   }
 };

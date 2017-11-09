@@ -16,7 +16,7 @@ let closureOptions = {
     language_in: 'ECMASCRIPT_2017',
     language_out: 'ECMASCRIPT5_STRICT',
     warning_level: 'VERBOSE',
-    externs: readdirSync('node_modules/sui-externs', { ignoreName: ['package.json', 'README.md', 'index.js'] }),
+    externs: readdirSync('node_modules/sui-externs', {ignoreName: ['package.json', 'README.md', 'index.js']}),
     formatting: 'SINGLE_QUOTES',
     summary_detail_level: 3,
     jscomp_error: '*',
@@ -38,7 +38,7 @@ gulp.task('compile:scripts', [], function() {
     let stream = gulp.src(['javascripts/**/*.js']).pipe(closureCompiler(objectAssign(closureOptions, {
         // externs: [compilerPackage.compiler.CONTRIB_PATH + '/externs/empty.js'],
         output_manifest: 'dist/sui.min.mf',
-        js_output_file: 'sui.min.js'
+        js_output_file: 'sui.min.js',
     }))).pipe(insert.append('export default window.SUI;')).pipe(gulp.dest('dist'));
 
     merged.add(stream);

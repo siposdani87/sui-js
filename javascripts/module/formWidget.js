@@ -70,14 +70,13 @@ SUI.FormWidget.prototype._getWidget = function(input, label, error, inputBlock) 
   }
   if (SUI.eq(tagName, 'select')) {
     result = new SUI.widget.Select(input, /** @type {!SUI.Node} */ (label), /** @type {!SUI.Node} */ (error), inputBlock);
-  }
-  else if (SUI.eq(tagName, 'input') || SUI.eq(tagName, 'button')) {
+  } else if (SUI.eq(tagName, 'input') || SUI.eq(tagName, 'button')) {
     let type = input.get('type');
     switch (type) {
-      case 'submit' :
+      case 'submit':
         result = new SUI.widget.Submit(input);
         break;
-      case 'button' :
+      case 'button':
         result = new SUI.widget.Button(input);
         break;
       case 'reset':
@@ -99,8 +98,7 @@ SUI.FormWidget.prototype._getWidget = function(input, label, error, inputBlock) 
             isStartInput = false;
           }
           result = new SUI.widget.DatetimeRange(handledInput, /** @type {!SUI.Node} */ (label), /** @type {!SUI.Node} */ (error), inputBlock, isStartInput);
-        }
-        else {
+        } else {
           result = new SUI.widget.Datetime(input, /** @type {!SUI.Node} */ (label), /** @type {!SUI.Node} */ (error), inputBlock);
         }
         break;
@@ -110,11 +108,9 @@ SUI.FormWidget.prototype._getWidget = function(input, label, error, inputBlock) 
       case 'checkbox':
         if (SUI.eq(dataType, 'switch')) {
           result = new SUI.widget.Switch(input, /** @type {!SUI.Node} */ (label), /** @type {!SUI.Node} */ (error), inputBlock);
-        }
-        else if (SUI.eq(dataType, 'icon-toggle')) {
+        } else if (SUI.eq(dataType, 'icon-toggle')) {
           result = new SUI.widget.IconToggle(input, /** @type {!SUI.Node} */ (label), /** @type {!SUI.Node} */ (error), inputBlock);
-        }
-        else {
+        } else {
           result = new SUI.widget.Checkbox(input, /** @type {!SUI.Node} */ (label), /** @type {!SUI.Node} */ (error), inputBlock);
         }
         break;
@@ -142,12 +138,11 @@ SUI.FormWidget.prototype._getWidget = function(input, label, error, inputBlock) 
       case 'text':
         if (SUI.eq(dataType, 'location')) {
           result = new SUI.widget.Location(input, /** @type {!SUI.Node} */ (label), /** @type {!SUI.Node} */ (error), inputBlock);
-        }
-        else {
+        } else {
           result = new SUI.widget.Text(input, /** @type {!SUI.Node} */ (label), /** @type {!SUI.Node} */ (error), inputBlock);
         }
         break;
-      default :
+      default:
         result = new SUI.widget.Text(input, /** @type {!SUI.Node} */ (label), /** @type {!SUI.Node} */ (error), inputBlock);
         break;
     }

@@ -120,10 +120,10 @@ SUI.lib.Http.prototype._getRequestHandler = function() {
 SUI.lib.Http.prototype._getPromise = function(promise) {
   let deferred = new SUI.Deferred();
   promise.then((...params) => {
-    this.eventAfterRequest.apply(this, params);
+    this.eventAfterRequest(...params);
     deferred.resolve.apply(deferred, [params]);
   }, (...params) => {
-    this.eventAfterRequest.apply(this, params);
+    this.eventAfterRequest(...params);
     deferred.reject.apply(deferred, [params]);
   });
   return deferred.promise();
