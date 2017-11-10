@@ -195,19 +195,21 @@ SUI.GoogleMap.prototype.removePolygon = function(id) {
   if (polygonData) {
     let polygon = polygonData.get('polygon');
     polygon.setMap(null);
-
     this.polygons.deleteById(id);
   }
 };
 
 /**
+ * @param {!Function=} opt_callback
  * @return {undefined}
  */
-SUI.GoogleMap.prototype.removeAllPolygon = function() {
+SUI.GoogleMap.prototype.removeAllPolygon = function(opt_callback = SUI.noop) {
   this.polygons.each((polygonData) => {
-    let polygonId = polygonData.get('id');
-    this.removePolygon(polygonId);
+    let polygon = polygonData.get('polygon');
+    polygon.setMap(null);
+    opt_callback(polygonData);
   });
+  this.polygons.clear();
 };
 
 /**
@@ -584,19 +586,21 @@ SUI.GoogleMap.prototype.removeMarker = function(id) {
   if (markerData) {
     let marker = markerData.get('marker');
     marker.setMap(null);
-
     this.markers.deleteById(id);
   }
 };
 
 /**
+ * @param {!Function=} opt_callback
  * @return {undefined}
  */
-SUI.GoogleMap.prototype.removeAllMarker = function() {
+SUI.GoogleMap.prototype.removeAllMarker = function(opt_callback = SUI.noop) {
   this.markers.each((markerData) => {
-    let markerId = markerData.get('id');
-    this.removeMarker(markerId);
+    let marker = markerData.get('marker');
+    marker.setMap(null);
+    opt_callback(markerData);
   });
+  this.markers.clear();
 };
 
 /**
