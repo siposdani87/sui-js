@@ -201,6 +201,16 @@ SUI.GoogleMap.prototype.removePolygon = function(id) {
 };
 
 /**
+ * @return {undefined}
+ */
+SUI.GoogleMap.prototype.removeAllPolygon = function() {
+  this.polygons.each((polygonData) => {
+    let polygonId = polygonData.get('id');
+    this.removePolygon(polygonId);
+  });
+};
+
+/**
  * @private
  * @param {!google.maps.Polygon} polygon
  * @param {!SUI.Object} polygonData
@@ -577,6 +587,16 @@ SUI.GoogleMap.prototype.removeMarker = function(id) {
 
     this.markers.deleteById(id);
   }
+};
+
+/**
+ * @return {undefined}
+ */
+SUI.GoogleMap.prototype.removeAllMarker = function() {
+  this.markers.each((markerData) => {
+    let markerId = markerData.get('id');
+    this.removeMarker(markerId);
+  });
 };
 
 /**
