@@ -12,10 +12,10 @@
 	},
 	"extends": ["google"],
 	"rules": {
-		"linebreak-style": ["off"],
-		"max-len": ["off"],
-		"max-lines": ["off"],
-		"camelcase": ["off"]
+		"linebreak-style": "off",
+		"max-len": "off",
+		"max-lines": "off",
+		"camelcase": "off"
 	},
 	"overrides": [{
 			"files": ["rails.js", "javascripts/lib/browser.js"],
