@@ -623,7 +623,7 @@ SUI.list = function(args, callback) {
  * @param {boolean=} opt_onlyFloat
  * @return {number}
  */
-SUI.random = function(min, max, opt_onlyFloat) {
+SUI.random = function(min, max, opt_onlyFloat = false) {
   let result;
   if (opt_onlyFloat) {
     result = Math.random() * (max - min) + min;
