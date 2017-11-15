@@ -83,6 +83,10 @@
     .actions {
       text-align: right;
       height: 36px;
+
+      .mdl-button {
+        border-radius: 0;
+      }
     }
 
     .footer {
