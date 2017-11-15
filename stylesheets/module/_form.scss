@@ -16,6 +16,8 @@ form {
 
     label {
       display: inline-block;
+      font-size: 14px; 
+      
       &::first-letter {
         text-transform: capitalize;
       }
