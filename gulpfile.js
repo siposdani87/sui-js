@@ -16,7 +16,7 @@ let closureOptions = {
     language_in: 'ECMASCRIPT_2017',
     language_out: 'ECMASCRIPT5_STRICT',
     warning_level: 'VERBOSE',
-    externs: readdirSync('node_modules/sui-externs', {ignoreName: ['package.json', 'README.md', 'index.js']}),
+    externs: readdirSync('node_modules/sui-externs', {ignoreName: ['package.json', 'README.md', 'index.js', '.eslintrc.json', '.git', '.gitignore', '.vscode', 'node_modules']}),
     formatting: 'SINGLE_QUOTES',
     summary_detail_level: 3,
     jscomp_error: '*',
