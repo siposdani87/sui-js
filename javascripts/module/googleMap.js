@@ -471,7 +471,9 @@ SUI.GoogleMap.prototype.createOrUpdateMarker = function(id, title, iconName, lat
  */
 SUI.GoogleMap.prototype.createMarker = function(id, title, iconName, latitude, longitude, opt_markerData = {}) {
   let markerData = new SUI.Object(opt_markerData);
-  markerData.set('id', id);
+  if (!markerData.get('id')) {
+    markerData.set('id', id);
+  }
 
   let marker = new google.maps.Marker({
     position: new google.maps.LatLng(latitude, longitude),
