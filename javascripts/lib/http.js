@@ -121,10 +121,10 @@ SUI.lib.Http.prototype._getPromise = function(promise) {
   let deferred = new SUI.Deferred();
   promise.then((...params) => {
     this.eventAfterRequest(...params);
-    deferred.resolve.apply(deferred, [params]);
+    deferred.resolve.apply(deferred, [params.slice(1)]);
   }, (...params) => {
     this.eventAfterRequest(...params);
-    deferred.reject.apply(deferred, [params]);
+    deferred.reject.apply(deferred, [params.slice(1)]);
   });
   return deferred.promise();
 };
@@ -138,10 +138,10 @@ SUI.lib.Http.prototype.eventBeforeRequest = function(http) {
 };
 
 /**
+ * @param {!XMLHttpRequest} http
  * @param {*} response
- * @param {number} status
  * @return {undefined}
  */
-SUI.lib.Http.prototype.eventAfterRequest = function(response, status) {
-  console.warn('SUI.lib.Http.eventAfterRequest', response, status);
+SUI.lib.Http.prototype.eventAfterRequest = function(http, response) {
+  console.warn('SUI.lib.Http.eventAfterRequest', http, response);
 };
