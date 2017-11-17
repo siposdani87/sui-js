@@ -354,12 +354,12 @@ SUI.App.prototype._initEvent = function() {
  */
 SUI.App.prototype._initHttp = function() {
   this._instances[this._injections.http] = new SUI.lib.Http(this.options);
-  this._instances[this._injections.http].eventBeforeRequest = function(http) {
+  this._instances[this._injections.http].eventBeforeRequest = function(...params) {
     this._instances[this._injections.progressBar].show();
-    this._instances[this._injections.event].call('http.beforeRequest', [http]);
+    this._instances[this._injections.event].call('http.beforeRequest', params);
   }.bind(this);
-  this._instances[this._injections.http].eventAfterRequest = function(response, status) {
-    this._instances[this._injections.event].call('http.afterRequest', [response, status]);
+  this._instances[this._injections.http].eventAfterRequest = function(...params) {
+    this._instances[this._injections.event].call('http.afterRequest', params);
     this._instances[this._injections.progressBar].hide();
   }.bind(this);
 };

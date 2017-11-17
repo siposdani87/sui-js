@@ -78,11 +78,11 @@ SUI.lib.Xhr.prototype._onReadyStateChange = function() {
   return function() {
     switch (this.http.readyState) {
       case 0:
-      // request not initialized
+        // request not initialized
       case 1:
-      // server connection established
+        // server connection established
       case 2:
-      // request received
+        // request received
       case 3:
         // processing request
         break;
@@ -90,9 +90,9 @@ SUI.lib.Xhr.prototype._onReadyStateChange = function() {
         // Request finished and response is ready
         let response = this._getResponseData(this.http.response);
         if (SUI.eq(this.http.status, 200)) {
-          this.deferred.resolve(response.concat([this.http.status]));
+          this.deferred.resolve([this.http].concat(response));
         } else {
-          this.deferred.reject(response.concat([this.http.status]));
+          this.deferred.reject([this.http].concat(response));
         }
         break;
       default:
