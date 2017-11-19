@@ -110,9 +110,7 @@
 
   h1 {
     margin: .3em .5em;
-    // padding: 0 0 0 .5em;
     font-size: $font-size-h5;
-    // border-left: .2em solid $primary;
 
     a {
       &:after {
@@ -120,15 +118,6 @@
         padding: 0 .3em;
         color: $grey;
       }
-    }
-  }
-
-  h2 {
-    padding: .3em .5em;
-    font-size: $font-size-h6;
-
-    @include media-breakpoint-down(sm, portrait) {
-      order: 2;
     }
   }
 
@@ -168,9 +157,7 @@
 
   h2 {
     margin: .5em 0 .5em .5em;
-    // padding: 0 0 0 .5em;
-    font-size: $font-size-h4;
-    // border-left: .1em solid $primary;
+    font-size: $font-size-h5;
   }
 
   .actions {
