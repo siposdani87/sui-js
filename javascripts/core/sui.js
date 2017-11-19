@@ -935,3 +935,50 @@ SUI.getExtensionName = function(url) {
   let realUrl = url.split('?', 2)[0];
   return realUrl.slice((Math.max(0, realUrl.lastIndexOf('.')) || Infinity) + 1);
 };
+
+/**
+ * @param {string} hexColor
+ * @return {!Array}
+ */
+SUI.hexColorToRGB = function(hexColor) {
+  const red = parseInt(hexColor.substr(1, 2), 16);
+  const green = parseInt(hexColor.substr(3, 2), 16);
+  const blue = parseInt(hexColor.substr(5, 2), 16);
+  return [red, green, blue];
+};
+
+/**
+ * @param {string} hexColor
+ * @param {string=} opt_lightColor
+ * @param {string=} opt_darkColor
+ * @return {string}
+ */
+SUI.colorContrastYIQ = function(hexColor, opt_lightColor = '#FEFEFE', opt_darkColor = '#252525') {
+  const colors = SUI.hexColorToRGB(hexColor);
+  const yiq = ((colors[0] * 299) + (colors[1] * 587) + (colors[2] * 114)) / 1000;
+  return yiq >= 128 ? opt_darkColor : opt_lightColor;
+};
+
+/**
+ * @param {string} hexColor
+ * @param {number=} opt_diff
+ * @return {string}
+ */
+SUI.colorContras = function(hexColor, opt_diff = .5) {
+  const colors = SUI.hexColorToRGB(hexColor);
+  let i = 0;
+  while (i < colors.length) {
+    colors[i] += (colors[i] * diff);
+    if (colors[i] < 0) {
+      colors[i] = 0;
+    } else if (colors[i] > 255) {
+      colors[i] = 255;
+    } else if (colors[i] <= 16) {
+      colors[i] = '0' + colors[i].toString(16);
+    } else {
+      colors[i] = colors[i].toString(16);
+    }
+    i++;
+  }
+  return colors.join('');
+};
