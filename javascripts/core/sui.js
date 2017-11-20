@@ -968,7 +968,7 @@ SUI.colorContras = function(hexColor, opt_diff = .5) {
   const colors = SUI.hexColorToRGB(hexColor);
   let i = 0;
   while (i < colors.length) {
-    colors[i] += (colors[i] * diff);
+    colors[i] += (colors[i] * opt_diff);
     if (colors[i] < 0) {
       colors[i] = 0;
     } else if (colors[i] > 255) {
