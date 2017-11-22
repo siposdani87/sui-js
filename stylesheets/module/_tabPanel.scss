@@ -11,7 +11,7 @@
     a {
       flex: 0 1 100%;
       display: flex;
-      border-top: 4px solid $light-grey;
+      border-top: 4px solid $primary;
       align-items: center;
       justify-content: center;
       text-align: center;
@@ -28,11 +28,16 @@
       }
 
       &.active {
-        border-top: 4px solid $primary;
+        border-color: $accent;
         background-color: $white;
         color: $primary;
         z-index: 1;
         box-shadow: 1px -2px 3px 0 rgba($black, .2);
+      }
+
+      &.disabled {
+        border-color: $grey;
+        color: $grey-bright;
       }
     }
 
