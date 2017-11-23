@@ -11,7 +11,7 @@
     a {
       flex: 0 1 100%;
       display: flex;
-      border-top: 4px solid $primary;
+      border-top: 3px solid $primary;
       align-items: center;
       justify-content: center;
       text-align: center;
@@ -28,7 +28,7 @@
       }
 
       &.active {
-        border-color: $accent;
+        border-top: 4px solid $accent;
         background-color: $white;
         color: $primary;
         z-index: 1;

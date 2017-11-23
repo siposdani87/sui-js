@@ -180,3 +180,7 @@ input[type="file"].mdl-textfield__input::-webkit-file-upload-button {
 .mdl-typography--subhead-color-contrast {
     font-family: $font-family-body;
 }
+
+.mdl-list__item-avatar {
+    background-color: transparent;
+}
