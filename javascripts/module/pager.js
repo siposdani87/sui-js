@@ -63,7 +63,9 @@ SUI.Pager.prototype._drawStatistics = function() {
   let from = page * this.options.row_count + 1;
   let to = page * this.options.row_count + this.options.row_count;
   to = to > this.count ? this.count : to;
-  this.pagerStatistics.setHtml(SUI.format('{0}‒{1} / {2}', [from, to, this.count]));
+  if (to > 0) {
+    this.pagerStatistics.setHtml(SUI.format('{0}‒{1} / {2}', [from, to, this.count]));
+  }
 };
 
 /**
