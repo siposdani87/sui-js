@@ -44,13 +44,15 @@ SUI.lib.Helper.prototype.link = function(selector, dom, callback, opt_descriptio
 SUI.lib.Helper.prototype.linkElement = function(linkNode, callback, opt_description = '', opt_allowAccess = true) {
   if (!linkNode.isEmpty()) {
     if (opt_allowAccess) {
-      let href = linkNode.getAttribute('href');
-      linkNode.setAttribute('href', 'javascript:void(0)');
-      linkNode.addEventListener('click', function() {
-        callback(href);
-      });
-
-      new SUI.Tooltip(linkNode, opt_description);
+      if (!linkNode.getId()) {
+        linkNode.setId(SUI.generateId('link'));
+        linkNode.setAttribute('href', 'javascript:void(0)');
+        linkNode.addEventListener('click', function() {
+          let href = linkNode.getAttribute('href');
+          callback(href);
+        });
+        new SUI.Tooltip(linkNode, opt_description);
+      }
     } else {
       linkNode.remove();
     }
@@ -70,12 +72,15 @@ SUI.lib.Helper.prototype.button = function(selector, dom, callback, opt_descript
   let buttonNode = new SUI.Query(selector, dom).getItem();
   if (!buttonNode.isEmpty()) {
     if (opt_allowAccess) {
-      buttonNode.addClass(['mdl-button', 'mdl-js-button', 'mdl-js-ripple-effect'].concat(opt_cssClasses));
-      buttonNode.addEventListener('click', callback);
+      if (!buttonNode.getId()) {
+        buttonNode.setId(SUI.generateId('button'));
+        buttonNode.addClass(['mdl-button', 'mdl-js-button', 'mdl-js-ripple-effect'].concat(opt_cssClasses));
+        buttonNode.addEventListener('click', callback);
 
-      new SUI.Tooltip(buttonNode, opt_description);
+        new SUI.Tooltip(buttonNode, opt_description);
 
-      SUI.mdl(buttonNode);
+        SUI.mdl(buttonNode);
+      }
     } else {
       buttonNode.remove();
     }
@@ -95,12 +100,15 @@ SUI.lib.Helper.prototype.iconButton = function(selector, dom, callback, opt_desc
   let buttonNode = new SUI.Query(selector, dom).getItem();
   if (!buttonNode.isEmpty()) {
     if (opt_allowAccess) {
-      buttonNode.addClass(['mdl-button', 'mdl-js-button', 'mdl-js-ripple-effect'].concat(opt_cssClasses));
-      buttonNode.addEventListener('click', callback);
+      if (!buttonNode.getId()) {
+        buttonNode.setId(SUI.generateId('button'));
+        buttonNode.addClass(['mdl-button', 'mdl-js-button', 'mdl-js-ripple-effect'].concat(opt_cssClasses));
+        buttonNode.addEventListener('click', callback);
 
-      new SUI.Tooltip(buttonNode, opt_description);
+        new SUI.Tooltip(buttonNode, opt_description);
 
-      SUI.mdl(buttonNode);
+        SUI.mdl(buttonNode);
+      }
     } else {
       buttonNode.remove();
     }
