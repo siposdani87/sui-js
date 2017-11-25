@@ -46,9 +46,9 @@ SUI.lib.Helper.prototype.linkElement = function(linkNode, callback, opt_descript
     if (opt_allowAccess) {
       if (!linkNode.getId()) {
         linkNode.setId(SUI.generateId('link'));
+        let href = linkNode.getAttribute('href');
         linkNode.setAttribute('href', 'javascript:void(0)');
         linkNode.addEventListener('click', function() {
-          let href = linkNode.getAttribute('href');
           callback(href);
         });
         new SUI.Tooltip(linkNode, opt_description);
