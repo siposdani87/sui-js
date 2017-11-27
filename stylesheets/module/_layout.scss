@@ -134,6 +134,12 @@
       flex: 1 0 auto;
       padding: 0;
     }
+
+    .mdl-textfield--expandable{
+      label.mdl-button{
+        top: 0;
+      }
+    }
   }
 
   .actions {
