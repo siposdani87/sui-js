@@ -10,12 +10,14 @@ goog.require('SUI.Tooltip');
  * @param {!SUI.Node=} opt_label
  * @param {!SUI.Node=} opt_error
  * @param {!SUI.Node=} opt_inputBlock
+ * @param {!SUI.Form=} opt_form
  */
-SUI.Widget = function(input, opt_label, opt_error, opt_inputBlock) {
+SUI.Widget = function(input, opt_label, opt_error, opt_inputBlock, opt_form) {
   this.input = input;
   this.label = opt_label;
   this.error = opt_error;
   this.inputBlock = opt_inputBlock;
+  this.form = opt_form;
 
   if (this.error) {
     this.errorTooltip = new SUI.Tooltip(this.error);
@@ -102,7 +104,9 @@ SUI.Widget.prototype.checkValidity = function(opt_force = false) {
   if (opt_force && this.inputBlock) {
     if (isValid) {
       this.inputBlock.removeClass('is-invalid');
-      this.inputBlock.addClass('is-dirty');
+      if (this.getValue()) {
+        this.inputBlock.addClass('is-dirty');
+      }
     } else {
       this.inputBlock.addClass('is-invalid');
     }

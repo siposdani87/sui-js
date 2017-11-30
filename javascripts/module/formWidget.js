@@ -23,9 +23,10 @@ goog.require('SUI.widget.Textarea');
  * @this {SUI.FormWidget}
  * @extends {SUI.Widget}
  * @param {!SUI.Node} inputBlock
+ * @param {!SUI.Form} form
  * @return {?SUI.Widget}
  */
-SUI.FormWidget = function(inputBlock) {
+SUI.FormWidget = function(inputBlock, form) {
   let input = inputBlock;
   let label = null;
   let error = null;
@@ -50,7 +51,7 @@ SUI.FormWidget = function(inputBlock) {
     inputBlock.appendChild(error);
     inputBlock.addClass('init-widget');
   }
-  return this._getWidget(input, label, error, inputBlock);
+  return this._getWidget(input, label, error, inputBlock, form);
 };
 
 /**
@@ -58,9 +59,10 @@ SUI.FormWidget = function(inputBlock) {
  * @param {?SUI.Node} label
  * @param {?SUI.Node} error
  * @param {!SUI.Node} inputBlock
+ * @param {!SUI.Form} form
  * @return {?SUI.Widget}
  */
-SUI.FormWidget.prototype._getWidget = function(input, label, error, inputBlock) {
+SUI.FormWidget.prototype._getWidget = function(input, label, error, inputBlock, form) {
   input.addClass('init-widget');
   let dataType = input.getData('type');
   let tagName = input.getTagName();
@@ -115,7 +117,7 @@ SUI.FormWidget.prototype._getWidget = function(input, label, error, inputBlock) 
         }
         break;
       case 'radio':
-        result = new SUI.widget.Radiobutton(input, /** @type {!SUI.Node} */ (label), /** @type {!SUI.Node} */ (error), inputBlock);
+        result = new SUI.widget.Radiobutton(input, /** @type {!SUI.Node} */ (label), /** @type {!SUI.Node} */ (error), inputBlock, form);
         break;
       case 'range':
         result = new SUI.widget.Range(input, /** @type {!SUI.Node} */ (label), /** @type {!SUI.Node} */ (error), inputBlock);

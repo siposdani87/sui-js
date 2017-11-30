@@ -26,13 +26,18 @@
 }
 
 .mdl-textfield__label {
-    font-size: 14px;
+    font-size: 16px;
 }
 
 .mdl-textfield--floating-label {
   &.is-invalid, &.is-dirty, &.is-focused, &.has-placeholder {
     .mdl-textfield__label {
-        font-size: 14px;
+        font-size: 16px;
+    }
+  }
+  &.is-dirty, &.is-focused, &.has-placeholder {
+    .mdl-textfield__label {
+      top: 0;
     }
   }
 }
@@ -58,6 +63,8 @@
 .mdl-switch__label,
 .mdl-radio__label {
     display: inline-block;
+    font-size: 16px;
+
     &::first-letter {
         text-transform: capitalize;
     }
@@ -104,6 +111,17 @@
     }
     &.is-checked {
         input[required="required"]~.mdl-checkbox__box-outline {
+            border: 2px solid $primary;
+        }
+    }
+}
+
+.mdl-radio {
+    input[required="required"]~.mdl-radio__outer-circle {
+        border: 2px solid $red;
+    }
+    &.is-checked, &.is-other-checked {
+        input[required="required"]~.mdl-radio__outer-circle {
             border: 2px solid $primary;
         }
     }
