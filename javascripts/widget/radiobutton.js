@@ -13,9 +13,10 @@ goog.require('SUI.widget');
  * @param {!SUI.Node} label
  * @param {!SUI.Node} error
  * @param {!SUI.Node} inputBlock
+ * @param {!SUI.Form} form
  */
-SUI.widget.Radiobutton = function(input, label, error, inputBlock) {
-  SUI.Widget.call(this, input, label, error, inputBlock);
+SUI.widget.Radiobutton = function(input, label, error, inputBlock, form) {
+  SUI.Widget.call(this, input, label, error, inputBlock, form);
   this._init();
 };
 goog.inherits(SUI.widget.Radiobutton, SUI.Widget);
@@ -25,10 +26,21 @@ goog.inherits(SUI.widget.Radiobutton, SUI.Widget);
  * @return {undefined}
  */
 SUI.widget.Radiobutton.prototype._init = function() {
+  this.inputBlock.addClass('radiobutton-widget');
+
   this.label.addEventListener('click', () => {
     let value = this.input.getAttribute('value');
     this.modelChange(value);
     this.checkValidity();
+
+    const name = this.input.getAttribute('name');
+    let radioButtonInputs = new SUI.Query(SUI.format('input[name="{0}"]', [name]), this.form.formNode);
+    radioButtonInputs.each((radioButtonInput) => {
+      let labelNode = radioButtonInput.getParent();
+      labelNode.addClass('is-other-checked');
+      let inputBlockNode = labelNode.getParent();
+      inputBlockNode.removeClass('is-invalid');
+    });
   });
 };
 

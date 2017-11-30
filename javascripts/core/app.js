@@ -578,11 +578,11 @@ SUI.App.prototype.getController = function() {
  */
 SUI.App.prototype.run = function() {
   if (this.options.development) {
-    console.info('%cFrontend run in development environment...', 'font-weight:bold;font-size:14px;color:#795548;');
+    console.info('%cFrontend run in development environment...', 'font-weight:bold;font-size:12px;color:#795548;');
     let test = new SUI.Test();
     test.run();
   } else {
-    console.info('%cFrontend run in production environment...', 'font-weight:bold;font-size:14px;color:#795548;');
+    console.info('%cFrontend run in production environment...', 'font-weight:bold;font-size:12px;color:#795548;');
   }
   this._module.handleRoutes(this._routes, this._routeOptions);
   this._module.handleServices();

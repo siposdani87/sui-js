@@ -13,8 +13,8 @@ goog.require('SUI.Query');
  * @param {string=} opt_selector
  */
 SUI.Form = function(dom, opt_selector = 'form') {
-  this.form = new SUI.Query(opt_selector, dom).getItem();
-  this.form.setAttribute('novalidate');
+  this.formNode = new SUI.Query(opt_selector, dom).getItem();
+  this.formNode.setAttribute('novalidate');
 
   let options = {};
   SUI.Collection.call(this, [], SUI.FormWidget, options);
@@ -43,7 +43,7 @@ SUI.Form.prototype._init = function() {
  * @return {undefined}
  */
 SUI.Form.prototype._initFormEvent = function() {
-  this.form.addEventListener('keydown', function(node, event) {
+  this.formNode.addEventListener('keydown', function(node, event) {
     let textArea = /textarea/i.test((event.target || event.srcElement).tagName);
     if (!(textArea || (event.keyCode || event.which || event.charCode || 0) !== 13)) {
       event.preventDefault();
@@ -59,7 +59,7 @@ SUI.Form.prototype._initFormEvent = function() {
  * @return {undefined}
  */
 SUI.Form.prototype._initSubmitFormEvent = function() {
-  this.form.addEventListener('submit', function(node, event) {
+  this.formNode.addEventListener('submit', function(node, event) {
     event.preventDefault();
     if (this.checkValidity(true)) {
       this.eventSubmit(this.model, node);
@@ -72,7 +72,7 @@ SUI.Form.prototype._initSubmitFormEvent = function() {
  * @return {undefined}
  */
 SUI.Form.prototype._initResetFormEvent = function() {
-  this.form.addEventListener('reset', function(node, event) {
+  this.formNode.addEventListener('reset', function(node, event) {
     event.preventDefault();
     this.eventReset(this.model, node);
   }.bind(this));
@@ -83,7 +83,7 @@ SUI.Form.prototype._initResetFormEvent = function() {
  * @return {undefined}
  */
 SUI.Form.prototype._initWidgets = function() {
-  let widgets = new SUI.Query(this.widgetClasses.concat(this.buttonClasses).join(', '), this.form).getItems();
+  let widgets = new SUI.Query(this.widgetClasses.concat(this.buttonClasses).join(', '), this.formNode).getItems();
   this.load(widgets);
 
   let updatedWidgets = [];
@@ -163,7 +163,7 @@ SUI.Form.prototype.checkValidity = function(opt_force = false) {
   this.each(function(widget) {
     widget.checkValidity(opt_force);
   });
-  return this.form.getNode().checkValidity();
+  return this.formNode.getNode().checkValidity();
 };
 
 /**
