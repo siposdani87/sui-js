@@ -63,39 +63,39 @@
 .section {
   display: flex;
   flex-wrap: wrap;
-  margin: 1em 0 0 1em;
+  margin: 1.5em 0 0 1.5em;
 
   .box {
-    padding: 0 1em 1em 0;
+    padding: 0 1.5em 1.5em 0;
   }
 
   .flex-box {
     display: flex;
-    padding: 0 1em 1em 0;
+    padding: 0 1.5em 1.5em 0;
   }
 }
 
 .subsection {
   display: flex;
   flex-wrap: wrap;
-  margin: 0 -1em 0 0;
+  margin: 0 -1.5em 0 0;
 
   .box {
-    padding: 0 1em 0 0;
+    padding: 0 1.5em 0 0;
   }
 
   .flex-box {
     display: flex;
-    padding: 0 1em 0 0;
+    padding: 0 1.5em 0 0;
   }
 
   .subbox {
-    padding: 0 1em 1em 0;
+    padding: 0 1.5em 1.5em 0;
   }
 
   .flex-subbox {
     display: flex;
-    padding: 0 1em 1em 0;
+    padding: 0 1.5em 1.5em 0;
   }
 }
 
