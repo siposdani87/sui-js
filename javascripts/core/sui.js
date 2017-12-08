@@ -905,7 +905,8 @@ SUI.debounce = function(func, opt_wait = 250, opt_immediate = false) {
  */
 SUI.urlWithQueryString = function(url, opt_params) {
   let queryString = SUI.getQueryString(opt_params);
-  return url + queryString;
+  let separator = SUI.contain(url, '?') ? '&' : '?';
+  return url + (queryString ? separator + queryString : '');
 };
 
 /**
@@ -923,7 +924,7 @@ SUI.getQueryString = function(opt_params) {
       queries.push(SUI.format('{0}={1}', [key, param]));
     }
   });
-  return SUI.isEmpty(queries) ? '' : '?' + queries.join('&');
+  return SUI.isEmpty(queries) ? '' : queries.join('&');
 };
 
 /**
