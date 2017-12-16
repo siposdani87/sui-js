@@ -26,7 +26,7 @@ SUI.Promise = function(opt_options) {
  */
 SUI.Promise.prototype._resolve = function(opt_data) {
   if (!SUI.isArray(opt_data)) {
-    opt_data = opt_data ? [opt_data] : [];
+    opt_data = [opt_data];
   }
   if (SUI.isFunction(this.options.resolve) && SUI.isFunction(this.options.complete)) {
     this.options.resolve.apply(this, opt_data);
