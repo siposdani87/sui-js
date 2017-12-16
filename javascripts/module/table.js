@@ -276,12 +276,17 @@ SUI.Table.prototype._renderDataNode = function(tableDataNode, item, column) {
   if (SUI.inArray(['search', 'actions'], column)) {
     this._renderActions(tableDataNode, item);
   } else {
-    let text = item.get(column);
+    let data = item.get(column);
     let calculation = this.options.calculations[column];
     if (SUI.isFunction(calculation)) {
-      text = calculation(item);
+      data = calculation(item);
     }
-    tableDataNode.setHtml(/** @type {string} */(text));
+    if (SUI.is(data, 'SUI.Node')) {
+      tableDataNode.appendChild(/** @type {!SUI.Node} */ (data));
+    }
+    else {
+      tableDataNode.setHtml(/** @type {string} */ (data));
+    }
   }
 };
 
@@ -292,66 +297,65 @@ SUI.Table.prototype._renderDataNode = function(tableDataNode, item, column) {
  * @return {undefined}
  */
 SUI.Table.prototype._renderActions = function(tableDataNode, item) {
+  let containerNode = new SUI.Node('div');
+  tableDataNode.appendChild(containerNode);
   if (this.actions.length > 3) {
-    let dropdownNode = new SUI.Node('div');
-    dropdownNode.addClass('dropdown');
-    tableDataNode.appendChild(dropdownNode);
-    this._renderDropdownNode(dropdownNode, item);
+    containerNode.addClass('dropDown');
+    this._renderDropDownNode(containerNode, item);
   } else {
-    let actionNodes = this._getActionNodes(item);
-    SUI.each(actionNodes, (actionNode) => {
-      tableDataNode.appendChild(actionNode);
-    });
+    this._renderActionNodes(containerNode, item);
   }
 };
 
 /**
  * @private
- * @param {!SUI.Object} item
- * @return {!Array}
- */
-SUI.Table.prototype._getActionNodes = function(item) {
-  let nodes = [];
-  SUI.each(this.actions, (action) => {
-    let node = this._createActionButton(action, item);
-    nodes.push(node);
-  });
-  return nodes;
-};
-
-/**
- * @private
- * @param {!SUI.Node} dropdownNode
+ * @param {!SUI.Node} containerNode
  * @param {!SUI.Object} item
  * @return {undefined}
  */
-SUI.Table.prototype._renderDropdownNode = function(dropdownNode, item) {
-  let dropdown = new SUI.Dropdown(dropdownNode);
-  dropdown.setActions(this.actions, item);
+SUI.Table.prototype._renderActionNodes = function(containerNode, item) {
+  SUI.each(this.actions, (action) => {
+    this._createActionButton(containerNode, action, item);
+  });
 };
 
 /**
  * @private
+ * @param {!SUI.Node} dropDownNode
+ * @param {!SUI.Object} item
+ * @return {undefined}
+ */
+SUI.Table.prototype._renderDropDownNode = function(dropDownNode, item) {
+  let dropDown = new SUI.Dropdown(dropDownNode);
+  dropDown.setActions(this.actions, item);
+};
+
+/**
+ * @private
+ * @param {!SUI.Node} containerNode
  * @param {!Object} action
  * @param {!SUI.Object} item
- * @return {!SUI.Node}
+ * @return {undefined}
  */
-SUI.Table.prototype._createActionButton = function(action, item) {
-  let style = action.style(item);
+SUI.Table.prototype._createActionButton = function(containerNode, action, item) {
+  let [icon, title, disabled] = action.style(item);
   let buttonNode = new SUI.Node('button');
+  containerNode.appendChild(buttonNode);
   buttonNode.addClass(['mdl-button', 'mdl-js-button', 'mdl-button--icon', 'mdl-button--primary']);
-  if (style[1]) {
+  if (disabled) {
     buttonNode.setAttribute('disabled');
   } else {
     buttonNode.addEventListener('click', () => {
       action.click(item);
     });
   }
+  if (title) {
+    new SUI.Tooltip(buttonNode, title);
+  }
   let iconNode = new SUI.Node('i');
   iconNode.addClass('material-icons');
-  iconNode.setHtml(/** @type {string} */(style[0]));
+  iconNode.setHtml(/** @type {string} */(icon));
   buttonNode.appendChild(iconNode);
-  return buttonNode;
 };
 
 /**

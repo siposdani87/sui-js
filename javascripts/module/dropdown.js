@@ -90,7 +90,7 @@ SUI.Dropdown.prototype.setActions = function(actions, item) {
  */
 SUI.Dropdown.prototype._renderMenu = function() {
     SUI.eachArray(this.actions, (action) => {
-        let [icon, disabled, title] = action.style(this.item);
+        let [icon, title, disabled] = action.style(this.item);
         let menuItemNode = new SUI.Node('li');
         menuItemNode.addClass('mdl-menu__item');
         menuItemNode.setHtml(title || icon);
