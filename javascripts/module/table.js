@@ -281,7 +281,7 @@ SUI.Table.prototype._renderDataNode = function(tableDataNode, item, column) {
     if (SUI.isFunction(calculation)) {
       data = calculation(item);
     }
-    if (SUI.is(data, 'SUI.Node')) {
+    if (SUI.instanceOf(data, SUI.Node)) {
       tableDataNode.appendChild(/** @type {!SUI.Node} */ (data));
     }
     else {
@@ -338,24 +338,26 @@ SUI.Table.prototype._renderDropDownNode = function(dropDownNode, item) {
  * @return {undefined}
  */
 SUI.Table.prototype._createActionButton = function(containerNode, action, item) {
-  let [icon, title, disabled] = action.style(item);
-  let buttonNode = new SUI.Node('button');
-  containerNode.appendChild(buttonNode);
-  buttonNode.addClass(['mdl-button', 'mdl-js-button', 'mdl-button--icon', 'mdl-button--primary']);
-  if (disabled) {
-    buttonNode.setAttribute('disabled');
-  } else {
-    buttonNode.addEventListener('click', () => {
-      action.click(item);
-    });
+  let [icon, title, disabled, removed] = action.style(item);
+  if (!removed) {
+    let buttonNode = new SUI.Node('button');
+    containerNode.appendChild(buttonNode);
+    buttonNode.addClass(['mdl-button', 'mdl-js-button', 'mdl-button--icon', 'mdl-button--primary']);
+    if (disabled) {
+      buttonNode.setAttribute('disabled');
+    } else {
+      buttonNode.addEventListener('click', () => {
+        action.click(item);
+      });
+    }
+    if (title) {
+      new SUI.Tooltip(buttonNode, title);
+    }
+    let iconNode = new SUI.Node('i');
+    iconNode.addClass('material-icons');
+    iconNode.setHtml(/** @type {string} */(icon));
+    buttonNode.appendChild(iconNode);
   }
-  if (title) {
-    new SUI.Tooltip(buttonNode, title);
-  }
-  let iconNode = new SUI.Node('i');
-  iconNode.addClass('material-icons');
-  iconNode.setHtml(/** @type {string} */(icon));
-  buttonNode.appendChild(iconNode);
 };
 
 /**

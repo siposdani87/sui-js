@@ -46,16 +46,26 @@ SUI.Router.prototype.stringify = function(opt_params) {
   if (opt_params) {
     for (let key in opt_params) {
       if (opt_params.hasOwnProperty(key)) {
+        const param = opt_params[key];
         let regex = new RegExp('[:*]' + key + '\\b');
         if (regex.test(route)) {
-          route = route.replace(regex, opt_params[key]);
+          route = route.replace(regex, param);
         } else {
           if (route.indexOf('?') === -1) {
             route += '?';
           } else {
             route += '&';
           }
-          route += [key, opt_params[key]].join('=');
+          if (SUI.isArray(param)) {
+            SUI.eachArray(param, (value, index) => {
+              if (index > 0) {
+                route += '&';
+              }
+              route += SUI.format('{0}[]={1}', [key, value]);
+            });
+          } else if (!SUI.isUndefined(param)) {
+            route += SUI.format('{0}={1}', [key, param]);
+          }
         }
       }
     }
@@ -108,7 +118,20 @@ SUI.Router.prototype._parseParams = function(url) {
       if (parts.length < 2) {
         parts.push('');
       }
-      params[window.decodeURIComponent(parts[0])] = window.decodeURIComponent(parts[1].replace('&&', '=='));
+      const key = window.decodeURIComponent(parts[0]);
+      const value = SUI.typeCast(window.decodeURIComponent(parts[1].replace('&&', '==')));
+      if (SUI.contain(key, '[]')) {
+        const realKey = key.replace('[]', '');
+        if (!SUI.isArray(params[realKey])) {
+          params[realKey] = [value];
+        }
+        else {
+          params[realKey].push(value);
+        }
+      }
+      else {
+        params[key] = value;
+      }
     }
   }
   return params;
