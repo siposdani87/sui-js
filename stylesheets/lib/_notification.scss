@@ -22,12 +22,13 @@
       animation-duration: 1s;
       position: relative;
       pointer-events: visiblePainted;
-      clear: both;
       margin-bottom: 20px;
       padding: 10px 30px;
       box-shadow: 5px 5px 15px -5px rgba($black, .75);
       background-color: $light-grey-bright;
       border-radius: 3px;
+      min-height: 35px;
+      clear: both;
 
       &.closable {
         cursor: pointer;

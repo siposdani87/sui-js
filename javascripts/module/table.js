@@ -53,8 +53,8 @@ SUI.Table.prototype._init = function() {
   this._initSearch();
   this._initStructure();
   this.pager = new SUI.Pager(this.tfoot, this.options);
-  this.pager.eventAction = () => {
-    this.refresh(1);
+  this.pager.eventAction = (page) => {
+    this.refresh(page);
   };
 };
 
@@ -283,8 +283,7 @@ SUI.Table.prototype._renderDataNode = function(tableDataNode, item, column) {
     }
     if (SUI.instanceOf(data, SUI.Node)) {
       tableDataNode.appendChild(/** @type {!SUI.Node} */ (data));
-    }
-    else {
+    } else {
       tableDataNode.setHtml(/** @type {string} */ (data));
     }
   }

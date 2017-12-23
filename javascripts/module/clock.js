@@ -118,7 +118,7 @@ SUI.Clock.prototype._initMinutesHeaderNode = function() {
   this.minutesHeaderNode = new SUI.Node('div');
   this.minutesHeaderNode.addClass('minutes');
   this.minutesHeaderNode.addEventListener('click', function() {
-    this._setMode(this.types.minute);
+    this._setMode(this.types['minute']);
   }.bind(this));
   this.headerNode.appendChild(this.minutesHeaderNode);
 };
@@ -131,7 +131,7 @@ SUI.Clock.prototype._initHoursHeaderNode = function() {
   this.hoursHeaderNode = new SUI.Node('div');
   this.hoursHeaderNode.addClass('hours');
   this.hoursHeaderNode.addEventListener('click', function() {
-    this._setMode(this.types.hour);
+    this._setMode(this.types['hour']);
   }.bind(this));
   this.headerNode.appendChild(this.hoursHeaderNode);
 };
@@ -187,7 +187,7 @@ SUI.Clock.prototype._getTimeNode = function() {
  */
 SUI.Clock.prototype._setHours = function(hours) {
   this.hours = hours;
-  let cssClass = this.activeMode === this.types.hour ? 'active' : null;
+  let cssClass = this.activeMode === this.types['hour'] ? 'active' : null;
   this.hoursHeaderNode.removeClass('active');
   this.hoursHeaderNode.addClass(['hours', cssClass]);
   let text = hours < 10 ? '0' + hours : hours;
@@ -201,7 +201,7 @@ SUI.Clock.prototype._setHours = function(hours) {
  */
 SUI.Clock.prototype._setMinutes = function(minutes) {
   this.minutes = minutes;
-  let cssClass = this.activeMode === this.types.minute ? 'active' : null;
+  let cssClass = this.activeMode === this.types['minute'] ? 'active' : null;
   this.minutesHeaderNode.removeClass('active');
   this.minutesHeaderNode.addClass(['minutes', cssClass]);
   let text = minutes < 10 ? '0' + minutes : minutes;

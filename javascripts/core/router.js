@@ -124,12 +124,10 @@ SUI.Router.prototype._parseParams = function(url) {
         const realKey = key.replace('[]', '');
         if (!SUI.isArray(params[realKey])) {
           params[realKey] = [value];
-        }
-        else {
+        } else {
           params[realKey].push(value);
         }
-      }
-      else {
+      } else {
         params[key] = value;
       }
     }

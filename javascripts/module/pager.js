@@ -112,27 +112,19 @@ SUI.Pager.prototype._drawNextButton = function() {
  * @private
  * @return {undefined}
  */
-SUI.Pager.prototype._selectPager = function() {
-  let node = new SUI.Query(SUI.format('button[data-page="{0}"]', [this.page]), this.pager).getItem();
-  if (!node.isEmpty()) {
-    node.addClass('mdl-button--accent');
-  }
-};
-
-/**
- * @private
- * @return {undefined}
- */
 SUI.Pager.prototype._drawPageNumbers = function() {
   let pagers = this._getPagers();
   if (pagers.length > 1) {
     SUI.each(pagers, (pager) => {
       let pageNode = new SUI.Node('button');
-      pageNode.setAttribute('data-page', pager.page);
+      pageNode.setData('page', pager.page);
       pageNode.setHtml(pager.text);
       pageNode.addClass(['mdl-button', 'mdl-js-button', 'mdl-js-ripple-effect']);
+      if (this.page === pager.page) {
+        pageNode.addClass('mdl-button--accent');
+      }
       pageNode.addEventListener('click', (node) => {
-        let page = node.getData('page');
+        const page = node.getData('page');
         this._go(page);
       });
       SUI.mdl(pageNode);
@@ -151,7 +143,7 @@ SUI.Pager.prototype._getPagers = function() {
   if (part > 0) {
     pagers.push({
       text: '...',
-      page: part * this.options.pager_num - 1,
+      page: part * this.options.pager_num,
     });
   }
   for (let i = 1; i <= this.options.pager_num; i++) {
@@ -212,7 +204,7 @@ SUI.Pager.prototype.setCount = function(count) {
  */
 SUI.Pager.prototype._go = function(page) {
   this.setPage(page);
-  this.eventAction(this.offset, this.options.row_count);
+  this.eventAction(this.page);
 };
 
 /**
@@ -230,15 +222,13 @@ SUI.Pager.prototype.setPage = function(page) {
 SUI.Pager.prototype.draw = function() {
   this._drawStatistics();
   this._drawPager();
-  this._selectPager();
 };
 
 /**
- * @param {number} offset
- * @param {number} count
+ * @param {number} page
  * @return {undefined}
  */
-SUI.Pager.prototype.eventAction = function(offset, count) {
-  console.warn('SUI.Pager.eventAction()', offset, count);
+SUI.Pager.prototype.eventAction = function(page) {
+  console.warn('SUI.Pager.eventAction()', page);
 };
 
