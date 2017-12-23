@@ -49,8 +49,8 @@ SUI.CardCollection.prototype._init = function() {
   this._initStructure();
   this._initTemplate();
   this.pager = new SUI.Pager(this.cardCollection, this.options);
-  this.pager.eventAction = () => {
-    this.refresh(1);
+  this.pager.eventAction = (page) => {
+    this.refresh(page);
   };
 };
 
