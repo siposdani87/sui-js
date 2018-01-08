@@ -144,11 +144,25 @@ SUI.Widget.prototype.get = function(attribute) {
 };
 
 /**
+ * @return {boolean}
+ */
+SUI.Widget.prototype.getRequired = function() {
+  return this.input.getNode().required;
+};
+
+/**
  * @param {boolean} state
  * @return {undefined}
  */
 SUI.Widget.prototype.setRequired = function(state) {
   this.input.getNode().required = state;
+};
+
+/**
+ * @return {boolean}
+ */
+SUI.Widget.prototype.getDisabled = function() {
+  return this.input.getNode().disabled;
 };
 
 /**
