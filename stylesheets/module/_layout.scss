@@ -125,9 +125,9 @@
     display: flex;
     flex-flow: row nowrap;
 
-    @include media-breakpoint-down(sm, portrait) {
-      order: 2;
-      flex-flow: column nowrap;
+    @include media-breakpoint-down(xs, portrait) {
+      // order: 2;
+      // flex-flow: column nowrap;
     }
 
     .input-block {

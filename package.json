@@ -26,9 +26,9 @@
     "sui-externs": "file:../sui-externs"
   },
   "devDependencies": {
-    "eslint": "4.13.1",
+    "eslint": "4.15.0",
     "eslint-config-google": "0.9.1",
-    "google-closure-compiler": "20171203.0.0",
+    "google-closure-compiler": "20180101.0.0",
     "gulp": "3.9.1",
     "gulp-cli": "2.0.0",
     "gulp-insert": "0.5.0",
