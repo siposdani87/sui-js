@@ -43,9 +43,6 @@ core/router.js
 core/state.js
 core/test.js
 core/widget.js
-lib/actionCableClient.js
-lib/actionCable.js
-lib/navBar.js
 module/day.js
 module/month.js
 module/year.js
@@ -89,6 +86,9 @@ test/container.js
 test/deferred.js
 test/item.js
 test/object.js
+lib/actionCableClient.js
+lib/actionCable.js
+lib/navBar.js
 widget/autoComplete.js
 widget/datetimeRange.js
 widget/location.js
