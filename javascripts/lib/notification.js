@@ -161,7 +161,7 @@ SUI.lib.Notification.prototype.addSuccess = function(message, opt_duration = 0, 
  * @return {!SUI.Node}
  */
 SUI.lib.Notification.prototype.addInfo = function(message, opt_duration = 0, opt_closeCallback = null, opt_id = '') {
-  return this._add('notice', message, opt_duration, opt_closeCallback, opt_id);
+  return this._add('info', message, opt_duration, opt_closeCallback, opt_id);
 };
 
 /**
