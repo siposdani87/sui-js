@@ -29,9 +29,9 @@ goog.inherits(SUI.widget.BaseCheckbox, SUI.Widget);
 SUI.widget.BaseCheckbox.prototype._init = function() {
   this.hiddenInput = new SUI.Query('input[type=hidden]', this.inputBlock).getItem();
 
-  this.label.addEventListener('click', function() {
+  this.input.addEventListener('change', () => {
     this._change();
-  }.bind(this));
+  });
 };
 
 /**
@@ -61,6 +61,7 @@ SUI.widget.BaseCheckbox.prototype.getValue = function() {
 /**
  * @override
  * @param {!Function|boolean|number|string|null|undefined} value
+ * @return {undefined}
  */
 SUI.widget.BaseCheckbox.prototype.setValue = function(value) {
   let currentValue = SUI.typeCast(this.input.getAttribute('value'));

@@ -91,22 +91,23 @@ SUI.Widget.prototype.setError = function(opt_message = '', opt_isCustomError = f
 
 /**
  * @param {boolean=} opt_force
+ * @param {boolean=} opt_showMessage
  * @return {undefined}
  */
-SUI.Widget.prototype.checkValidity = function(opt_force = false) {
+SUI.Widget.prototype.checkValidity = function(opt_force = false, opt_showMessage = true) {
   let node = this.input.getNode();
   let isValid = node.validity.valid;
   if (isValid) {
     this.setError('');
-  } else {
+  } else if (opt_showMessage) {
     this.setError(node.validationMessage);
   }
   if (opt_force && this.inputBlock) {
+    if (this.getValue()) {
+      this.inputBlock.addClass('is-dirty');
+    }
     if (isValid) {
       this.inputBlock.removeClass('is-invalid');
-      if (this.getValue()) {
-        this.inputBlock.addClass('is-dirty');
-      }
     } else {
       this.inputBlock.addClass('is-invalid');
     }
@@ -156,6 +157,7 @@ SUI.Widget.prototype.getRequired = function() {
  */
 SUI.Widget.prototype.setRequired = function(state) {
   this.input.getNode().required = state;
+  this.checkValidity(true, false);
 };
 
 /**
@@ -171,6 +173,7 @@ SUI.Widget.prototype.getDisabled = function() {
  */
 SUI.Widget.prototype.setDisabled = function(state) {
   this.input.getNode().disabled = state;
+  this.checkValidity(true, false);
 };
 
 /**

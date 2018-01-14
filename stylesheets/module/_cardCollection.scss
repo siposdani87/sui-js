@@ -36,7 +36,7 @@
     }
 
     .header {
-      padding: 1.5em 0 0 0;
+      padding: 7em 0 0 0;
       background-color: $brown;
       border-bottom: 3px solid $accent;
       color: $white;
@@ -58,12 +58,20 @@
 
     .content {
 
+      &.section {
+        margin: 1em 0 0 1em;
+
+        .box {
+          padding: 0 1em 1em 0;
+        }
+      }
+
       .info {
         color: $primary;
 
         .material-icons {
           display: inline-block;
-          vertical-align: top;
+          vertical-align: sub;
           padding-top: 3px;
           margin-right: 8px;
           font-size: inherit;
@@ -75,7 +83,7 @@
       }
 
       .material-icons {
-        vertical-align: top;
+        vertical-align: sub;
       }
 
     }
