@@ -26,8 +26,10 @@ SUI.ProgressStatus = function(dom, opt_options, opt_selector = '.progress-status
 SUI.ProgressStatus.prototype._setOptions = function(opt_options) {
   let _self = this;
   _self.options = new SUI.Object({
-    errorStyle: 'error',
     successStyle: 'success',
+    infoStyle: 'info',
+    warningStyle: 'warning',
+    errorStyle: 'error',
   });
   _self.options.merge(opt_options);
 };
@@ -37,6 +39,7 @@ SUI.ProgressStatus.prototype._setOptions = function(opt_options) {
  * @return {undefined}
  */
 SUI.ProgressStatus.prototype._init = function() {
+  this.iconNode = new SUI.Query('.icon', this.progressStatusNode).getItem();
   this.textNode = new SUI.Query('.text', this.progressStatusNode).getItem();
 };
 
@@ -44,26 +47,50 @@ SUI.ProgressStatus.prototype._init = function() {
  * @private
  * @param {string} cssClass
  * @param {string} text
+ * @param {string=} opt_icon
  * @return {undefined}
  */
-SUI.ProgressStatus.prototype._setStatus = function(cssClass, text) {
+SUI.ProgressStatus.prototype._setStatus = function(cssClass, text, opt_icon = '') {
   this.progressStatusNode.removeClass([this.options.errorStyle, this.options.successStyle]);
   this.progressStatusNode.addClass(cssClass);
   this.textNode.setHtml(text);
+  if (opt_icon) {
+    this.iconNode.setHtml(opt_icon);
+  }
 };
 
 /**
  * @param {string} text
+ * @param {string=} opt_icon
  * @return {undefined}
  */
-SUI.ProgressStatus.prototype.setSuccess = function(text) {
-  this._setStatus(this.options.successStyle, text);
+SUI.ProgressStatus.prototype.setSuccess = function(text, opt_icon = '') {
+  this._setStatus(this.options.successStyle, text, opt_icon);
 };
 
 /**
  * @param {string} text
+ * @param {string=} opt_icon
  * @return {undefined}
  */
-SUI.ProgressStatus.prototype.setError = function(text) {
-  this._setStatus(this.options.errorStyle, text);
+SUI.ProgressStatus.prototype.setInfo = function(text, opt_icon = '') {
+  this._setStatus(this.options.infoStyle, text, opt_icon);
+};
+
+/**
+ * @param {string} text
+ * @param {string=} opt_icon
+ * @return {undefined}
+ */
+SUI.ProgressStatus.prototype.setWarning = function(text, opt_icon = '') {
+  this._setStatus(this.options.warningStyle, text, opt_icon);
+};
+
+/**
+ * @param {string} text
+ * @param {string=} opt_icon
+ * @return {undefined}
+ */
+SUI.ProgressStatus.prototype.setError = function(text, opt_icon = '') {
+  this._setStatus(this.options.errorStyle, text, opt_icon);
 };
