@@ -16,8 +16,10 @@ goog.require('SUI.Query');
  */
 SUI.Table = function(dom, opt_options, opt_selector = 'table') {
   this.table = new SUI.Query(opt_selector, dom).getItem();
-  this._setOptions(opt_options);
-  this._init();
+  if (!this.table.isEmpty()) {
+    this._setOptions(opt_options);
+    this._init();
+  }
 };
 
 /**
@@ -397,5 +399,7 @@ SUI.Table.prototype._draw = function() {
  * @return {undefined}
  */
 SUI.Table.prototype.render = function() {
-  this._updateSorting();
+  if (!this.table.isEmpty()) {
+    this._updateSorting();
+  }
 };

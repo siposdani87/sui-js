@@ -35,14 +35,17 @@ SUI.TabPanel.prototype._init = function() {
  */
 SUI.TabPanel.prototype._initTabs = function() {
   this.tabs = new SUI.Query('.tabs a', this.tabpanel);
-  this.tabs.each(function(tab) {
+  this.tabs.each((tab) => {
     let panelId = tab.getAttribute('href').substr(1);
+    if (this.tabs.size() === 1) {
+      tab.addClass('hidden');
+    }
     tab.setData('panel', panelId);
     tab.setAttribute('href', 'javascript:void(0)');
-    tab.addEventListener('click', function(tabNode) {
+    tab.addEventListener('click', (tabNode) => {
       this._setActiveTab(tab);
-    }.bind(this));
-  }.bind(this));
+    });
+  });
 };
 
 /**
