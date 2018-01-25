@@ -132,6 +132,7 @@ SUI.lib.Dialog.prototype.loadTemplate = function(url) {
   }.bind(this), function(data) {
     let node = this._handleMessage(data);
     deferred.reject(node);
+    this.open();
   }.bind(this));
   return deferred.promise();
 };
@@ -142,11 +143,10 @@ SUI.lib.Dialog.prototype.loadTemplate = function(url) {
  */
 SUI.lib.Dialog.prototype._handleMessage = function(dom) {
   let messageNode = new SUI.Query('#message', dom).getItem();
-  // let title = messageNode.getNode().classList.toString();
-  // this._setTitle(title);
+  let title = new SUI.Query('title', dom).getItem();
+  this._setTitle(title.getText());
   this.modalBody.insert(messageNode);
   SUI.mdl(messageNode);
-
   return messageNode;
 };
 
