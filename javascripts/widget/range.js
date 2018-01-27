@@ -58,6 +58,7 @@ SUI.widget.Range.prototype.render = function() {
 /**
  * @override
  * @param {!Function|boolean|number|string|null|undefined} value
+ * @return {undefined}
  */
 SUI.widget.Range.prototype.setValue = function(value) {
   let inputNode = this.input.getNode();

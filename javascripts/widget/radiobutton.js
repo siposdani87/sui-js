@@ -29,18 +29,26 @@ SUI.widget.Radiobutton.prototype._init = function() {
   this.inputBlock.addClass('radiobutton-widget');
 
   this.label.addEventListener('click', () => {
-    let value = this.input.getAttribute('value');
-    this.modelChange(value);
-    this.checkValidity();
+      this._triggerClick();
+  });
+};
 
-    const name = this.input.getAttribute('name');
-    let radioButtonInputs = new SUI.Query(SUI.format('input[name="{0}"]', [name]), this.form.formNode);
-    radioButtonInputs.each((radioButtonInput) => {
-      let labelNode = radioButtonInput.getParent();
-      labelNode.addClass('is-other-checked');
-      let inputBlockNode = labelNode.getParent();
-      inputBlockNode.removeClass('is-invalid');
-    });
+/**
+ * @private
+ * @return {undefined}
+ */
+SUI.widget.Radiobutton.prototype._triggerClick = function() {
+  let value = this.input.getAttribute('value');
+  this.modelChange(value);
+  this.checkValidity();
+
+  const name = this.input.getAttribute('name');
+  let radioButtonInputs = new SUI.Query(SUI.format('input[name="{0}"]', [name]), this.form.formNode);
+  radioButtonInputs.each((radioButtonInput) => {
+    let labelNode = radioButtonInput.getParent();
+    labelNode.addClass('is-other-checked');
+    let inputBlockNode = labelNode.getParent();
+    inputBlockNode.removeClass('is-invalid');
   });
 };
 
@@ -67,14 +75,15 @@ SUI.widget.Radiobutton.prototype.render = function() {
   SUI.mdl(this.label);
 };
 
-
 /**
  * @override
  * @param {!Function|boolean|number|string|null|undefined} value
+ * @return {undefined}
  */
 SUI.widget.Radiobutton.prototype.setValue = function(value) {
   if (this.getValue() === value) {
     this.input.getNode().checked = true;
     this.input.trigger('change');
+    this._triggerClick();
   }
 };
