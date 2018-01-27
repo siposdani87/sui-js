@@ -51,7 +51,7 @@ SUI.ProgressStatus.prototype._init = function() {
  * @return {undefined}
  */
 SUI.ProgressStatus.prototype._setStatus = function(cssClass, text, opt_icon = '') {
-  this.progressStatusNode.removeClass([this.options.errorStyle, this.options.successStyle]);
+  this.progressStatusNode.removeClass([this.options.errorStyle, this.options.successStyle, this.options.infoStyle, this.options.warningStyle]);
   this.progressStatusNode.addClass(cssClass);
   this.textNode.setHtml(text);
   if (opt_icon) {
