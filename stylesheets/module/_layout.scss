@@ -108,10 +108,18 @@
   background-color: $light-grey;
   color: $black;
 
+  @include media-breakpoint-down(xs, portrait) {
+    flex-flow: column wrap;
+  }
+
   h1 {
     margin: .3em .5em;
     font-size: $font-size-h5;
     font-weight: 500;
+
+    @include media-breakpoint-down(xs, portrait) {
+      order: 2;
+    }
 
     a {
       &:after {
@@ -127,8 +135,7 @@
     flex-flow: row nowrap;
 
     @include media-breakpoint-down(xs, portrait) {
-      // order: 2;
-      // flex-flow: column nowrap;
+      order: 3;
     }
 
     .input-block {
@@ -147,6 +154,11 @@
     padding: .5em 1em .5em .7em;
     display: flex;
     align-items: center;
+    align-self: flex-end;
+
+    @include media-breakpoint-down(xs, portrait) {
+      order: 1;
+    }
 
     .mdl-button--mini-fab {
       height: 1.5em;
