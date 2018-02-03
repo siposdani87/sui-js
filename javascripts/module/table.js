@@ -389,9 +389,9 @@ SUI.Table.prototype._draw = function() {
   if (this.collection.size() > this.options.row_count) {
     items = this.collection.limit(this.pager.offset, this.options.row_count);
   }
-  SUI.each(items, function(item) {
+  SUI.each(items, (item) => {
     this._addRow(item);
-  }.bind(this));
+  });
   SUI.mdl(/** @type {!SUI.Node} */(this.tbody));
 };
 

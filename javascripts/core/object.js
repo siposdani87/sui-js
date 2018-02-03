@@ -18,7 +18,7 @@ SUI.Object.prototype.constructor = SUI.Object;
 
 /**
  * @param {*} object
- * @return {undefined}
+ * @return {!SUI.Object}
  */
 SUI.Object.prototype.merge = function(object) {
   if (SUI.isObject(object)) {
@@ -38,6 +38,7 @@ SUI.Object.prototype.merge = function(object) {
       }
     }
   }
+  return this;
 };
 
 /**
