@@ -84,31 +84,32 @@
         .image {
           flex: 0 1 25%;
           padding-left: 1em;
+          width: 74px;
+          text-align: center;
+
+          @include media-breakpoint-down(sm, landscape) {
+            width: 36px;
+          }
 
           .material-icons {
-            font-size: 40px;
+            font-size: 32px;
 
             @include media-breakpoint-down(sm, landscape) {
-              font-size: 20px;
+              font-size: 16px;
             }
-
           }
 
           img, svg {
-            max-width: 40px;
             max-height: 40px;
 
             @include media-breakpoint-down(sm, landscape) {
-              max-width: 20px;
               max-height: 20px;
             }
-
           }
 
           svg, path {
             fill: $primary;
           }
-
         }
 
         .title {
