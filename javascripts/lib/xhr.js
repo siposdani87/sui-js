@@ -78,11 +78,11 @@ SUI.lib.Xhr.prototype._onReadyStateChange = function() {
   return function() {
     switch (this.http.readyState) {
       case 0:
-        // request not initialized
+      // request not initialized
       case 1:
-        // server connection established
+      // server connection established
       case 2:
-        // request received
+      // request received
       case 3:
         // processing request
         break;
@@ -108,7 +108,7 @@ SUI.lib.Xhr.prototype._onReadyStateChange = function() {
  * @param {!Object=} opt_headers
  * @return {!SUI.Promise}
  */
-SUI.lib.Xhr.prototype.get = function(url, opt_params, opt_headers) {
+SUI.lib.Xhr.prototype.get = function(url, opt_params, opt_headers = {}) {
   return this._handleRequest('GET', url, {}, opt_params, opt_headers);
 };
 
@@ -119,7 +119,7 @@ SUI.lib.Xhr.prototype.get = function(url, opt_params, opt_headers) {
  * @param {!Object=} opt_headers
  * @return {!SUI.Promise}
  */
-SUI.lib.Xhr.prototype.post = function(url, opt_data, opt_params, opt_headers) {
+SUI.lib.Xhr.prototype.post = function(url, opt_data, opt_params, opt_headers = {}) {
   return this._handleRequest('POST', url, opt_data, opt_params, opt_headers);
 };
 
@@ -130,7 +130,7 @@ SUI.lib.Xhr.prototype.post = function(url, opt_data, opt_params, opt_headers) {
  * @param {!Object=} opt_headers
  * @return {!SUI.Promise}
  */
-SUI.lib.Xhr.prototype.put = function(url, opt_data, opt_params, opt_headers) {
+SUI.lib.Xhr.prototype.put = function(url, opt_data, opt_params, opt_headers = {}) {
   return this._handleRequest('PUT', url, opt_data, opt_params, opt_headers);
 };
 
@@ -141,7 +141,7 @@ SUI.lib.Xhr.prototype.put = function(url, opt_data, opt_params, opt_headers) {
  * @param {!Object=} opt_headers
  * @return {!SUI.Promise}
  */
-SUI.lib.Xhr.prototype.patch = function(url, opt_data, opt_params, opt_headers) {
+SUI.lib.Xhr.prototype.patch = function(url, opt_data, opt_params, opt_headers = {}) {
   return this._handleRequest('PATCH', url, opt_data, opt_params, opt_headers);
 };
 
@@ -152,7 +152,7 @@ SUI.lib.Xhr.prototype.patch = function(url, opt_data, opt_params, opt_headers) {
  * @param {!Object=} opt_headers
  * @return {!SUI.Promise}
  */
-SUI.lib.Xhr.prototype.delete = function(url, opt_data, opt_params, opt_headers) {
+SUI.lib.Xhr.prototype.delete = function(url, opt_data, opt_params, opt_headers = {}) {
   return this._handleRequest('DELETE', url, opt_data, opt_params, opt_headers);
 };
 
@@ -176,7 +176,7 @@ SUI.lib.Xhr.prototype._getUrl = function(url, opt_params) {
  * @param {!Object=} opt_headers
  * @return {!SUI.Promise}
  */
-SUI.lib.Xhr.prototype._handleRequest = function(type, url, opt_data, opt_params, opt_headers) {
+SUI.lib.Xhr.prototype._handleRequest = function(type, url, opt_data, opt_params, opt_headers = {}) {
   this.http.open(type, this._getUrl(url, opt_params), true);
   this._setRequestHeaders(url, opt_headers);
   this.http.send(this._getRequestData(opt_data));
@@ -286,16 +286,11 @@ SUI.lib.Xhr.prototype._getResponseData = function(data) {
  * @param {!Object=} opt_headers
  * @return {undefined}
  */
-SUI.lib.Xhr.prototype._setRequestHeaders = function(url, opt_headers) {
+SUI.lib.Xhr.prototype._setRequestHeaders = function(url, opt_headers = {}) {
   let contentType = SUI.getExtensionName(url);
   this.options.content_type = this._getContentType(contentType);
   this.options.response_type = this._getResponseType(contentType);
   this.http.responseType = this.options.response_type;
-  this.setHeader('Accept-Language', this.options.locale);
-  this.setHeader('Content-Type', this.options.content_type);
-  if (this.options.authorization) {
-    this.setHeader('Authorization', this.options.authorization);
-  }
   SUI.each(opt_headers, (header, key) => {
     if (SUI.eq(key, 'responseType')) {
       this.http.responseType = header;
@@ -303,6 +298,15 @@ SUI.lib.Xhr.prototype._setRequestHeaders = function(url, opt_headers) {
       this.setHeader(key, header);
     }
   });
+  if (!opt_headers['Accept-Language']) {
+    this.setHeader('Accept-Language', this.options.locale);
+  }
+  if (!opt_headers['Content-Type']) {
+    this.setHeader('Content-Type', this.options.content_type);
+  }
+  if (this.options.authorization && !opt_headers['Authorization']) {
+    this.setHeader('Authorization', this.options.authorization);
+  }
 };
 
 /**
