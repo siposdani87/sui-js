@@ -93,7 +93,7 @@ SUI.lib.Notification.prototype._getCloseButton = function(notificationNode, opt_
  * @return {!SUI.Node}
  */
 SUI.lib.Notification.prototype._add = function(type, message, opt_duration = 0, opt_closeCallback = null, opt_id = '') {
-  this._removeNotificationNodes(opt_id);
+  this.removeNotificationNode(opt_id);
   let notificationNode = this._getNotificationNode(type, message, opt_duration, opt_closeCallback, opt_id);
   this.container.appendChild(notificationNode);
   if (!this._isCloseable(type, opt_closeCallback) && !SUI.eq(opt_duration, Infinity)) {
@@ -111,13 +111,13 @@ SUI.lib.Notification.prototype._add = function(type, message, opt_duration = 0, 
 /**
  * @param {string=} opt_id
  */
-SUI.lib.Notification.prototype._removeNotificationNodes = function(opt_id = '') {
+SUI.lib.Notification.prototype.removeNotificationNode = function(opt_id = '') {
   if (opt_id) {
     let selector = SUI.format('[data-id={0}]', [opt_id]);
     let notifications = new SUI.Query(selector, this.container);
-    notifications.each(function(notification) {
+    notifications.each((notification) => {
       this.container.removeChild(notification);
-    }.bind(this));
+    });
   }
 };
 

@@ -46,7 +46,6 @@ a{
 
 b, strong{
   font-weight: 700;
-  //color: $black-dark;
 }
 
 i, em {
@@ -157,6 +156,15 @@ address {
 
 .text-center {
   text-align: center;
+}
+
+
+.text-primary {
+  color: $primary;
+}
+
+.text-accent {
+  color: $accent;
 }
 
 .text-success {
