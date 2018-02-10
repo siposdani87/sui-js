@@ -20,11 +20,17 @@ SUI.lib.BottomMenu = function(footer) {
 SUI.lib.BottomMenu.prototype._init = function() {
   this.bottomMenu = new SUI.Query('#bottom-menu', this.footer.footerNode).getItem();
 
-  let toggleBottomMenu = new SUI.Query('#toggle-bottom-menu', this.footer.footerNode).getItem();
-  toggleBottomMenu.setAttribute('href', 'javascript:void(0)');
-  toggleBottomMenu.addEventListener('click', function() {
+  let openBottomMenu = new SUI.Query('#open-bottom-menu', this.footer.footerNode).getItem();
+  openBottomMenu.setAttribute('href', 'javascript:void(0)');
+  openBottomMenu.addEventListener('click', () => {
     this.toggle();
-  }.bind(this));
+  });
+
+  let closeBottomMenu = new SUI.Query('#close-bottom-menu', this.footer.footerNode).getItem();
+  closeBottomMenu.setAttribute('href', 'javascript:void(0)');
+  closeBottomMenu.addEventListener('click', () => {
+    this.toggle();
+  });
 };
 
 /**
@@ -39,6 +45,7 @@ SUI.lib.BottomMenu.prototype.toggle = function() {
 };
 
 /**
+ * @private
  * @return {boolean}
  */
 SUI.lib.BottomMenu.prototype._isOpened = function() {

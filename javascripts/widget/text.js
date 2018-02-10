@@ -52,3 +52,11 @@ SUI.widget.Text.prototype.render = function() {
   }
   SUI.mdl(this.inputBlock);
 };
+
+/**
+ * @override
+ * @return {*}
+ */
+SUI.widget.Text.prototype.getValue = function() {
+  return this.input.getNode().value;
+};

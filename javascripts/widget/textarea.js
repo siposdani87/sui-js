@@ -70,7 +70,6 @@ SUI.widget.Textarea.prototype.setValue = function(value) {
  * @return {*}
  */
 SUI.widget.Textarea.prototype.getValue = function() {
-  let inputNode = this.input.getNode();
-  return SUI.typeCast(inputNode.value);
+  return this.input.getNode().value;
 };
 
