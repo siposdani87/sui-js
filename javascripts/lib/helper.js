@@ -102,7 +102,7 @@ SUI.lib.Helper.prototype.iconButton = function(selector, dom, callback, opt_desc
     if (opt_allowAccess) {
       if (!buttonNode.getId()) {
         buttonNode.setId(SUI.generateId('button'));
-        buttonNode.addClass(['mdl-button', 'mdl-js-button', 'mdl-js-ripple-effect'].concat(opt_cssClasses));
+        buttonNode.addClass(['mdl-button', 'mdl-js-button', 'mdl-js-ripple-effect', 'mdl-button--icon'].concat(opt_cssClasses));
         buttonNode.addEventListener('click', callback);
 
         new SUI.Tooltip(buttonNode, opt_description);
@@ -125,7 +125,7 @@ SUI.lib.Helper.prototype.iconButton = function(selector, dom, callback, opt_desc
  */
 SUI.lib.Helper.prototype.createIconButton = function(iconName, dom, callback, opt_description = '', opt_cssClasses = ['mdl-button--primary', 'mdl-button--fab', 'mdl-button--mini-fab']) {
   let buttonNode = new SUI.Node('button');
-  buttonNode.addClass(['mdl-button', 'mdl-js-button', 'mdl-js-ripple-effect'].concat(opt_cssClasses));
+  buttonNode.addClass(['mdl-button', 'mdl-js-button', 'mdl-js-ripple-effect', 'mdl-button--icon'].concat(opt_cssClasses));
   buttonNode.addEventListener('click', callback);
 
   this.createIconNode(iconName, buttonNode);

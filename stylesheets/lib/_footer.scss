@@ -26,7 +26,7 @@
     }
   }
 
-  #toggle-bottom-menu {
+  #open-bottom-menu, #close-bottom-menu {
     display: none;
     color: $accent;
   }
@@ -100,7 +100,6 @@
 
       @include media-breakpoint-down(sm) {
         background-color: $black;
-        padding-top: 1em;
         padding-bottom: 1em;
         flex-flow: column nowrap;
       }
@@ -114,8 +113,14 @@
           }
         }
       }
-      #toggle-bottom-menu {
-        color: $accent;
+      #open-bottom-menu {
+        display: none;
+      }
+      #close-bottom-menu {
+        @include media-breakpoint-down(sm) {
+          display: inline-block;
+          color: $accent;
+        }
       }
       #bottom-menu {
         a {
@@ -137,7 +142,7 @@
           }
         }
       }
-      #toggle-bottom-menu {
+      #open-bottom-menu, #close-bottom-menu {
         color: $primary;
       }
       #bottom-menu {
@@ -162,9 +167,14 @@
       flex-flow: row nowrap;
     }
 
-    #toggle-bottom-menu {
+    #open-bottom-menu {
       @include media-breakpoint-down(sm) {
         display: inline-block;
+      }
+    }
+    #close-bottom-menu {
+      @include media-breakpoint-down(sm) {
+        display: none;
       }
     }
 

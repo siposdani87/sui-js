@@ -1,192 +1,200 @@
-html, body {
-  font-family: $font-family-body;
-  font-size: $font-size-root;
-  font-weight: 400;
-  box-sizing: border-box;
+html,
+body {
+    font-family: $font-family-body;
+    font-size: $font-size-root;
+    font-weight: 400;
+    box-sizing: border-box;
 }
 
-*, *:before, *:after {
-  box-sizing: border-box;
+*,
+*:before,
+*:after {
+    box-sizing: border-box;
 }
 
 body {
-  font-size: $font-size-base; /* 16 * 1rem = 16px */
-  line-height: $line-height;
-
-  @include media-breakpoint-up(xl) {
-    font-size: $font-size-xl;
-  }
-  @include media-breakpoint-down(sm) {
-    font-size: $font-size-sm;
-  }
-  @include media-breakpoint-down(xs) {
-    font-size: $font-size-xs;
-  }
-
-  p, ul, ol {
-    font-size: inherit;
-    line-height: inherit;
-  }
-
+    font-size: $font-size-base;
+    /* 16 * 1rem = 16px */
+    line-height: $line-height;
+    @include media-breakpoint-up(xl) {
+        font-size: $font-size-xl;
+    }
+    @include media-breakpoint-down(sm) {
+        font-size: $font-size-sm;
+    }
+    @include media-breakpoint-down(xs) {
+        font-size: $font-size-xs;
+    }
+    p,
+    ul,
+    ol {
+        font-size: inherit;
+        line-height: inherit;
+    }
 }
 
-a{
-  color: $primary;
-  text-decoration: none;
-
-  &:hover {
-    color: $primary-dark;
+a {
+    color: $primary;
     text-decoration: none;
-  }
-
-  &:focus {
-    outline: none;
-  }
+    &:hover {
+        color: $primary-dark;
+        text-decoration: none;
+    }
+    &:focus {
+        outline: none;
+    }
 }
 
-b, strong{
-  font-weight: 700;
+b,
+strong {
+    font-weight: 700;
 }
 
-i, em {
-  font-style: italic;
+i,
+em {
+    font-style: italic;
 }
 
 h1 {
-  font-size: $font-size-h1; /* 16 * 2.5rem = 64px */
-  font-weight: 300;
-  margin: .5em 0;
-  line-height: $line-height;
+    font-size: $font-size-h1;
+    /* 16 * 2.5rem = 64px */
+    font-weight: 300;
+    margin: .5em 0;
+    line-height: $line-height;
 }
 
 h2 {
-  font-size: $font-size-h2;
-  font-weight: 300;
-  margin: .5em 0;
-  line-height: $line-height;
+    font-size: $font-size-h2;
+    font-weight: 300;
+    margin: .5em 0;
+    line-height: $line-height;
 }
 
 h3 {
-  font-size: $font-size-h3;
-  font-weight: 400;
-  margin: .5em 0;
-  line-height: $line-height;
+    font-size: $font-size-h3;
+    font-weight: 400;
+    margin: .5em 0;
+    line-height: $line-height;
 }
 
 h4 {
-  font-size: $font-size-h4;
-  font-weight: 400;
-  margin: .5em 0;
-  line-height: $line-height;
+    font-size: $font-size-h4;
+    font-weight: 400;
+    margin: .5em 0;
+    line-height: $line-height;
 }
 
 h5 {
-  font-size: $font-size-h5;
-  font-weight: 500;
-  margin: .5em 0;
-  line-height: $line-height;
+    font-size: $font-size-h5;
+    font-weight: 500;
+    margin: .5em 0;
+    line-height: $line-height;
 }
 
 h6 {
-  font-size: $font-size-h6;
-  font-weight: 500;
-  margin: .5em 0;
-  line-height: $line-height;
+    font-size: $font-size-h6;
+    font-weight: 500;
+    margin: .5em 0;
+    line-height: $line-height;
 }
 
-h1, h2, h3, h4, h5, h6{
-  font-family: $font-family-heading;
-  letter-spacing: normal;
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    font-family: $font-family-heading;
+    letter-spacing: normal;
+    small {
+        font-family: $font-family-body;
+        margin-left: .5em;
+    }
+}
 
-  small{
+.app-title {
+    font-family: $font-family-app;
+    text-transform: uppercase;
+}
+
+blockquote {
     font-family: $font-family-body;
-    margin-left: .5em;
-  }
-}
-
-.app-title{
-  font-family: $font-family-app;
-  text-transform: uppercase;
-}
-
-blockquote{
-  font-family: $font-family-body;
 }
 
 address {
-  font-size: 1em;
+    font-size: 1em;
 }
 
 .visible {
-  display: block !important;
+    display: block !important;
 }
 
 .visible-flex {
-  display: flex !important;
+    display: flex !important;
 }
 
 .hidden {
-  display: none !important;
+    display: none !important;
 }
 
 .hidden-animate {
-  animation-name: fadeOut;
-  animation-duration: .5s;
+    animation-name: fadeOut;
+    animation-duration: .5s;
 }
 
 .map {
-  height: 100%;
-  width: 100%;
-  min-height: 300px;
+    height: 100%;
+    width: 100%;
+    min-height: 300px;
+    color: $black;
 }
 
 .truncate-container {
-  display: table;
-  table-layout: fixed;
-  width: 100%;
-  white-space: nowrap;
+    display: table;
+    table-layout: fixed;
+    width: 100%;
+    white-space: nowrap;
 }
 
 .text-truncate {
-  max-width: 100%;
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
+    max-width: 100%;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
 }
 
 .text-center {
-  text-align: center;
+    text-align: center;
 }
 
-
 .text-primary {
-  color: $primary;
+    color: $primary;
 }
 
 .text-accent {
-  color: $accent;
+    color: $accent;
 }
 
 .text-success {
-  color: $green;
+    color: $green;
 }
 
 .text-notice {
-  color: $blue;
+    color: $blue;
 }
 
 .text-warning {
-  color: $amber;
+    color: $amber;
 }
 
 .text-error {
-  color: $red;
+    color: $red;
 }
 
 .overflow-hidden {
-  overflow: hidden;
+    overflow: hidden;
 }
 
 .pre-line {
-  white-space: pre-line;
+    white-space: pre-line;
 }
