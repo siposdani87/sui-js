@@ -265,13 +265,13 @@ SUI.convertString = function(value, type) {
 };
 
 /**
- * @param {*} item
  * @param {*} value
+ * @param {*} default_value
  * @return {*}
  */
 
-SUI.defaultValue = function(item, value) {
-  return !SUI.isUndefined(item) ? item : value;
+SUI.defaultValue = function(value, default_value) {
+  return !SUI.isUndefined(value) ? value : default_value;
 };
 
 /**
@@ -340,75 +340,75 @@ SUI.lte = function(a, b) {
 };
 
 /**
- * @param {*} item
+ * @param {*} value
  * @return {boolean}
  */
-SUI.isArray = function(item) {
-  return SUI.instanceOf(item, Array);
+SUI.isArray = function(value) {
+  return SUI.instanceOf(value, Array);
 };
 
 /**
- * @param {*} item
+ * @param {*} value
  * @return {boolean}
  */
-SUI.isFunction = function(item) {
-  return SUI.is(item, 'function');
+SUI.isFunction = function(value) {
+  return SUI.is(value, 'function');
 };
 
 /**
- * @param {*} item
+ * @param {*} value
  * @return {boolean}
  */
-SUI.isString = function(item) {
-  return SUI.is(item, 'string');
+SUI.isString = function(value) {
+  return SUI.is(value, 'string');
 };
 
 /**
- * @param {*} item
+ * @param {*} value
  * @return {boolean}
  */
-SUI.isNumber = function(item) {
-  return !isNaN(item);
+SUI.isNumber = function(value) {
+  return !isNaN(value) && !SUI.inArray(['0', '+'], value[0]) ;
 };
 
 /**
- * @param {*} item
+ * @param {*} value
  * @return {boolean}
  */
-SUI.isFloat = function(item) {
-  return parseFloat(item) === item;
+SUI.isFloat = function(value) {
+  return parseFloat(value) === value;
 };
 
 /**
- * @param {*} item
+ * @param {*} value
  * @return {boolean}
  */
-SUI.isInteger = function(item) {
-  return parseInt(item, 0) === item;
+SUI.isInteger = function(value) {
+  return parseInt(value, 0) === value;
 };
 
 /**
- * @param {*} item
+ * @param {*} value
  * @return {boolean}
  */
-SUI.isObject = function(item) {
-  return SUI.is(item, 'object');
+SUI.isObject = function(value) {
+  return SUI.is(value, 'object');
 };
 
 /**
- * @param {*} item
+ * @param {*} value
  * @return {boolean}
  */
-SUI.isNull = function(item) {
-  return (item === null);
+SUI.isNull = function(value) {
+  return (value === null);
 };
 
 /**
- * @param {*} item
+ * @param {*} value
  * @return {boolean}
  */
-SUI.isUndefined = function(item) {
-  return SUI.is(item, 'undefined');
+SUI.isUndefined = function(value) {
+  return SUI.is(value, 'undefined');
 };
 
 /**
@@ -420,21 +420,21 @@ SUI.isFinite = function(value) {
 };
 
 /**
- * @param {*} item
+ * @param {*} value
  * @param {string} type
  * @return {boolean}
  */
-SUI.is = function(item, type) {
-  return (typeof item === type);
+SUI.is = function(value, type) {
+  return (typeof value === type);
 };
 
 /**
- * @param {*} item
+ * @param {*} value
  * @param {!Object} object
  * @return {boolean}
  */
-SUI.instanceOf = function(item, object) {
-  return item instanceof object;
+SUI.instanceOf = function(value, object) {
+  return value instanceof object;
 };
 
 /**
