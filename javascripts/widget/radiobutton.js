@@ -87,3 +87,20 @@ SUI.widget.Radiobutton.prototype.setValue = function(value) {
     this._triggerClick();
   }
 };
+
+/**
+ * @override
+ * @return {*}
+ */
+SUI.widget.Radiobutton.prototype.getValue = function() {
+  let value = null;
+  const name = this.input.getAttribute('name');
+  let radioButtonInputs = new SUI.Query(SUI.format('input[name="{0}"]', [name]), this.form.formNode);
+  radioButtonInputs.each((radioButtonInput) => {
+    let checked = radioButtonInput.getNode().checked;
+    if (checked) {
+      value = radioButtonInput.getAttribute('value');
+    }
+  });
+  return SUI.typeCast(value);
+};
