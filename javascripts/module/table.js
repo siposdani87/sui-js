@@ -16,6 +16,7 @@ goog.require('SUI.Query');
  */
 SUI.Table = function(dom, opt_options, opt_selector = 'table') {
   this.table = new SUI.Query(opt_selector, dom).getItem();
+  this.tableResponsive = this.table.getParent();
   if (!this.table.isEmpty()) {
     this._setOptions(opt_options);
     this._init();
@@ -39,6 +40,7 @@ SUI.Table.prototype._setOptions = function(opt_options) {
     columns: [],
     calculations: {},
     sorted: [],
+    field: null,
   });
   _self.options.merge(opt_options);
 };
@@ -54,10 +56,6 @@ SUI.Table.prototype._init = function() {
   this._initHeader();
   this._initSearch();
   this._initStructure();
-  this.pager = new SUI.Pager(this.tfoot, this.options);
-  this.pager.eventAction = (page) => {
-    this.refresh(page);
-  };
 };
 
 /**
@@ -109,33 +107,46 @@ SUI.Table.prototype._initSearch = function() {
  * @return {undefined}
  */
 SUI.Table.prototype._initHeader = function() {
+  this.headerTexts = [];
   this.heads = new SUI.Query('thead th', this.table);
   this.heads.each((head, i) => {
-    let column = this.options.columns[i];
-    let columnsWithOrder = this.options.sorted.filter((sort) => {
-      return SUI.contain(sort, column);
-    });
-    if (columnsWithOrder.length === 1) {
-      head.setData('column', columnsWithOrder[0]);
-      head.addEventListener('click', (head) => {
-        let column = head.getData('column');
-        this._toggleSorting(column);
-      });
-
-      let iconsNode = new SUI.Node('span');
-      head.appendChild(iconsNode);
-
-      let iconUp = new SUI.Node('i');
-      iconUp.addClass(['material-icons', 'asc']);
-      iconUp.setHtml('arrow_drop_up');
-      iconsNode.appendChild(iconUp);
-
-      let iconDown = new SUI.Node('i');
-      iconDown.addClass(['material-icons', 'desc']);
-      iconDown.setHtml('arrow_drop_down');
-      iconsNode.appendChild(iconDown);
-    }
+    let text = head.getHtml();
+    this.headerTexts.push(text);
+    this._renderHeader(head, i);
   });
+};
+
+/**
+ * @private
+ * @param {!SUI.Node} head
+ * @param {number} i
+ * @return {undefined}
+ */
+SUI.Table.prototype._renderHeader = function(head, i) {
+  let column = this.options.columns[i];
+  let columnsWithOrder = this.options.sorted.filter((sort) => {
+    return SUI.contain(sort, column);
+  });
+  if (columnsWithOrder.length === 1) {
+    head.setData('column', columnsWithOrder[0]);
+    head.addEventListener('click', (head) => {
+      let column = head.getData('column');
+      this._toggleSorting(column);
+    });
+
+    let iconsNode = new SUI.Node('span');
+    head.appendChild(iconsNode);
+
+    let iconUp = new SUI.Node('i');
+    iconUp.addClass(['material-icons', 'asc']);
+    iconUp.setHtml('arrow_drop_up');
+    iconsNode.appendChild(iconUp);
+
+    let iconDown = new SUI.Node('i');
+    iconDown.addClass(['material-icons', 'desc']);
+    iconDown.setHtml('arrow_drop_down');
+    iconsNode.appendChild(iconDown);
+  }
 };
 
 /**
@@ -161,6 +172,11 @@ SUI.Table.prototype._initStructure = function() {
   footerRow.appendChild(pagerNode);
 
   this.tfoot.appendChild(footerRow);
+
+  this.pager = new SUI.Pager(this.tfoot, this.options);
+  this.pager.eventAction = (page) => {
+    this.refresh(page);
+  };
 };
 
 /**
@@ -205,19 +221,29 @@ SUI.Table.prototype._toggleSorting = function(columnWithOrder) {
 
 /**
  * @private
+ * @param {!SUI.Node} head
+ * @param {number} i
+ * @return {undefined}
+ */
+SUI.Table.prototype._handleSortingColumn = function(head, i) {
+  let column = this.options.columns[i];
+  if ((SUI.eq(this.options.sort.column, null) && SUI.eq(i, 0)) || SUI.eq(column, this.options.sort.column)) {
+    let iconNode = new SUI.Query(SUI.format('i.{0}', [this.options.sort.order]), head).getItem();
+    if (!iconNode.isEmpty()) {
+      iconNode.addClass('active');
+    }
+  }
+};
+
+/**
+ * @private
  * @return {undefined}
  */
 SUI.Table.prototype._updateSorting = function() {
   this._resetSorting();
-  this.heads.each(function(head, i) {
-    let column = this.options.columns[i];
-    if ((SUI.eq(this.options.sort.column, null) && SUI.eq(i, 0)) || SUI.eq(column, this.options.sort.column)) {
-      let iconNode = new SUI.Query(SUI.format('i.{0}', [this.options.sort.order]), head).getItem();
-      if (!iconNode.isEmpty()) {
-        iconNode.addClass('active');
-      }
-    }
-  }.bind(this));
+  this.heads.each((head, i) => {
+    this._handleSortingColumn(head, i);
+  });
   this.refresh();
 };
 
@@ -249,13 +275,35 @@ SUI.Table.prototype._resetSorting = function() {
  * @param {!SUI.Object} item
  * @return {undefined}
  */
+SUI.Table.prototype._addHeaderRow = function(item) {
+  let headerRow = new SUI.Node('tr');
+  headerRow.addClass('header');
+  this.tbody.appendChild(headerRow);
+  let headerCell = new SUI.Node('td');
+  let dataNode = this._getDataNodeByItem(item, this.options.field || this.options.columns[0]);
+  headerCell.appendChild(dataNode);
+  headerCell.setAttribute('colspan', this.heads.size() - 1);
+  headerCell.addEventListener('click', (node) => {
+    node.toggleClass('active');
+    let dataNode = headerRow.getNextSibling();
+    dataNode.toggleClass('open');
+  });
+  headerRow.appendChild(headerCell);
+};
+
+/**
+ * @private
+ * @param {!SUI.Object} item
+ * @return {undefined}
+ */
 SUI.Table.prototype._addRow = function(item) {
   let tableRow = new SUI.Node('tr');
+  tableRow.addClass('data');
   this.tbody.appendChild(tableRow);
-  SUI.each(this.options.columns, (column) => {
+  SUI.each(this.options.columns, (column, index) => {
     let tableDataNode = new SUI.Node('td');
     tableRow.appendChild(tableDataNode);
-    this._renderDataNode(tableDataNode, item, column);
+    this._renderDataNode(tableDataNode, item, column, index);
   });
 };
 
@@ -269,25 +317,44 @@ SUI.Table.prototype.setActions = function(actions) {
 
 /**
  * @private
+ * @param {!SUI.Object} item
+ * @param {string} column
+ * @return {!SUI.Node}
+ */
+SUI.Table.prototype._getDataNodeByItem = function(item, column) {
+  let data = item.get(column);
+  let calculation = this.options.calculations[column];
+  if (SUI.isFunction(calculation)) {
+    data = calculation(item);
+  }
+  if (!SUI.instanceOf(data, SUI.Node)) {
+    let node = new SUI.Node('span');
+    node.setHtml(/** @type {string} */(data));
+    return node;
+  }
+  return /** @type {!SUI.Node} */ (data);
+};
+
+/**
+ * @private
  * @param {!SUI.Node} tableDataNode
  * @param {!SUI.Object} item
  * @param {string} column
+ * @param {number} index
  * @return {undefined}
  */
-SUI.Table.prototype._renderDataNode = function(tableDataNode, item, column) {
+SUI.Table.prototype._renderDataNode = function(tableDataNode, item, column, index) {
   if (SUI.inArray(['search', 'actions'], column)) {
     this._renderActions(tableDataNode, item);
   } else {
-    let data = item.get(column);
-    let calculation = this.options.calculations[column];
-    if (SUI.isFunction(calculation)) {
-      data = calculation(item);
-    }
-    if (SUI.instanceOf(data, SUI.Node)) {
-      tableDataNode.appendChild(/** @type {!SUI.Node} */ (data));
-    } else {
-      tableDataNode.setHtml(/** @type {string} */ (data));
-    }
+    let labelNode = new SUI.Node('span');
+    labelNode.addClass('label');
+    labelNode.setHtml(this.headerTexts[index]);
+    this._renderHeader(labelNode, index);
+    this._handleSortingColumn(labelNode, index);
+    tableDataNode.appendChild(labelNode);
+    let dataNode = this._getDataNodeByItem(item, column);
+    tableDataNode.appendChild(dataNode);
   }
 };
 
@@ -367,7 +434,7 @@ SUI.Table.prototype._createActionButton = function(containerNode, action, item) 
  */
 SUI.Table.prototype.setData = function(items) {
   this.collection.reload(items);
-  this._draw();
+  this._drawTable();
 };
 
 /**
@@ -381,15 +448,24 @@ SUI.Table.prototype.setCount = function(count) {
 
 /**
  * @private
- * @return {undefined}
+ * @return {!Array}
  */
-SUI.Table.prototype._draw = function() {
-  this.tbody.removeChildren();
+SUI.Table.prototype._getItems = function() {
   let items = this.collection.getItems();
   if (this.collection.size() > this.options.row_count) {
     items = this.collection.limit(this.pager.offset, this.options.row_count);
   }
-  SUI.each(items, (item) => {
+  return items;
+};
+
+/**
+ * @private
+ * @return {undefined}
+ */
+SUI.Table.prototype._drawTable = function() {
+  this.tbody.removeChildren();
+  SUI.each(this._getItems(), (item) => {
+    this._addHeaderRow(item);
     this._addRow(item);
   });
   SUI.mdl(/** @type {!SUI.Node} */(this.tbody));
