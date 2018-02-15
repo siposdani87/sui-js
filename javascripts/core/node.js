@@ -331,8 +331,16 @@ SUI.Node.prototype.insertBefore = function(node) {
  * @param {!SUI.Node} node
  */
 SUI.Node.prototype.insertAfter = function(node) {
+  let nextSiblingNode = this.getNextSibling();
+  this.node.parentNode.insertBefore(node.getNode(), nextSiblingNode.getNode());
+};
+
+/**
+ * @return {!SUI.Node}
+ */
+SUI.Node.prototype.getNextSibling = function() {
   let referenceNode = this.node.nextSibling || this.node.nextElementSibling;
-  this.node.parentNode.insertBefore(node.getNode(), referenceNode);
+  return new SUI.Node(/** @type {!Element} */ (referenceNode));
 };
 
 /**

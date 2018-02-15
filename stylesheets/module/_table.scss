@@ -1,111 +1,148 @@
 .table-responsive {
-  width: 100%;
-  margin-bottom: 15px;
-  //overflow-y: hidden;
-  //min-height: .01%;
-  //overflow-x: auto;
+    //width: 100%;
+    margin-bottom: 15px;
 }
 
 table {
-  border-collapse: collapse;
-  width: 100%;
-
-  /*@include media-breakpoint-down(sm) {
-    display: block;
-  }*/
-
-  thead {
-
-    tr {
-
-      th {
-        text-align: left;
-        padding: 0 10px;
-        text-transform: uppercase;
-        vertical-align: baseline;
-        font-weight: 400;
-        font-family: $font-family-heading;
-        border-bottom: 1px solid $grey;
-
-        &[data-column] {
-          font-weight: 700;
-          cursor: pointer;
-        }
-
-        /*@include media-breakpoint-down(sm) {
-          display: inline-block;
-        }*/
-
-        span {
-          vertical-align: middle;
-          display: inline-flex;
-          flex-flow: column wrap;
-          color: $grey;
-          width: 24px;
-          height: 24px;
-
-          .material-icons {
-            cursor: pointer;
+    border-collapse: collapse;
+    width: 100%;
+    @include media-breakpoint-down(sm) {
+        display: block;
+    }
+    thead {
+        @include media-breakpoint-down(sm) {
             display: none;
-
-            &.active {
-              display: inline-block;
-              color: $black-bright;
+        }
+        tr {
+            th {
+                text-align: left;
+                padding: 0 10px;
+                text-transform: uppercase;
+                vertical-align: baseline;
+                font-weight: 400;
+                font-family: $font-family-heading;
+                border-bottom: 1px solid $grey;
+                &[data-column] {
+                    font-weight: 700;
+                    cursor: pointer;
+                }
+                span {
+                    vertical-align: middle;
+                    display: inline-flex;
+                    flex-flow: column wrap;
+                    color: $grey;
+                    width: 24px;
+                    height: 24px;
+                    .material-icons {
+                        cursor: pointer;
+                        display: none;
+                        &.active {
+                            display: inline-block;
+                            color: $black-bright;
+                        }
+                    }
+                }
+                &:last-of-type {
+                    text-align: right;
+                }
             }
-          }
-
         }
-
-        &:last-of-type {
-          text-align: right;
-        }
-      }
     }
-  }
-
-  tbody {
-
-    tr {
-      border-top: 1px solid $light-grey;
-      border-bottom: 1px solid $light-grey;
-
-      &:nth-child(even) {
-        background-color: $white-dark;
-      }
-
-      td {
-        padding: 5px 10px;
-
-        /*@include media-breakpoint-down(sm) {
-          display: inline-block;
-        }*/
-
-        .img-wrapper {
-          width: 52px;
-          height: 52px;
-          padding: 2px;
+    tbody {
+        @include media-breakpoint-down(sm) {
+            display: block;
         }
-
-        &:last-of-type {
-          text-align: right;
+        tr {
+            @include media-breakpoint-down(sm) {
+                display: block;
+            }
+            border-top: 1px solid $light-grey;
+            border-bottom: 1px solid $light-grey;
+            &:nth-child(4) {
+                background-color: $white-dark;
+            }
+            &.header {
+                @include media-breakpoint-up(md) {
+                    display: none;
+                }
+                td {
+                    @include media-breakpoint-down(sm) {
+                        display: block;
+                        &:last-of-type {
+                            text-align: center;
+                            cursor: pointer;
+                        }
+                        &.active {
+                            font-weight: 700;
+                        }
+                    }
+                }
+            }
+            &.data {
+                @include media-breakpoint-down(sm) {
+                    display: none;
+                    &.open {
+                        display: block;
+                        td {
+                            display: block;
+                        }
+                    }
+                }
+                .label {
+                    padding: 0 10px;
+                    text-transform: uppercase;
+                    vertical-align: baseline;
+                    font-weight: 400;
+                    font-family: $font-family-heading;
+                    &[data-column] {
+                        font-weight: 700;
+                        cursor: pointer;
+                    }
+                    span {
+                        vertical-align: middle;
+                        display: inline-flex;
+                        flex-flow: column wrap;
+                        color: $grey;
+                        width: 24px;
+                        height: 24px;
+                        .material-icons {
+                            cursor: pointer;
+                            display: none;
+                            &.active {
+                                display: inline-block;
+                                color: $black-bright;
+                            }
+                        }
+                    }
+                }
+            }
+            td {
+                padding: 5px 10px;
+                .img-wrapper {
+                    width: 52px;
+                    height: 52px;
+                    padding: 2px;
+                }
+                &:last-of-type {
+                    text-align: right;
+                }
+                .label {
+                    display: none;
+                    @include media-breakpoint-down(sm) {
+                        display: inline-block;
+                    }
+                }
+            }
         }
-
-      }
     }
-
-  }
-
-  tfoot {
-    tr {
-
-      td:not(.pager) {
-        padding: 5px 10px;
-      }
-
-      td.pager {
-        text-align: right;
-      }
+    tfoot {
+        tr {
+            td:not(.pager) {
+                padding: 5px 10px;
+            }
+            td.pager {
+                text-align: right;
+            }
+        }
     }
-  }
-
 }
