@@ -50,10 +50,10 @@ table {
         }
     }
     tbody {
-        border: 1px solid $light-grey;
-        border-top: none;
         @include media-breakpoint-down(sm) {
             display: block;
+            border: 1px solid $light-grey;
+            border-top: none;
         }
         tr {
             @include media-breakpoint-down(sm) {
