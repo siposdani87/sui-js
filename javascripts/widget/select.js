@@ -100,13 +100,13 @@ SUI.widget.Select.prototype.render = function() {
   this.selectNode.addClass('select-input');
   this.selectContainerNode.appendChild(this.selectNode);
 
-  let iconNode = new SUI.Node('i');
-  iconNode.addClass(['material-icons', 'size-24', 'expander']);
-  iconNode.setHtml('expand_more');
-  iconNode.addEventListener('click', () => {
+  this.iconNode = new SUI.Node('i');
+  this.iconNode.addClass(['material-icons', 'size-24', 'expander']);
+  this.iconNode.setHtml('expand_more');
+  this.iconNode.addEventListener('click', () => {
     this.open();
   });
-  this.selectContainerNode.appendChild(iconNode);
+  this.selectContainerNode.appendChild(this.iconNode);
 
   let ids = this._getSelectedIds();
   this._setSelectInput(ids);
@@ -138,6 +138,23 @@ SUI.widget.Select.prototype.getValue = function() {
 };
 
 /**
+ * @return {undefined}
+ */
+SUI.widget.Select.prototype.showLoader = function() {
+  this.iconNode.setHtml('autorenew');
+  this.iconNode.addClass('rotate');
+};
+
+/**
+ * @private
+ * @return {undefined}
+ */
+SUI.widget.Select.prototype._hideLoader = function() {
+  this.iconNode.setHtml('expand_more');
+  this.iconNode.removeClass('rotate');
+};
+
+/**
  * @param {!Array<!SUI.Object>} items
  * @param {string=} opt_value
  * @param {string=} opt_name
@@ -162,6 +179,7 @@ SUI.widget.Select.prototype.setOptions = function(items, opt_value = 'value', op
   });
 
   this._initOptions();
+  this._hideLoader();
   this.setValue([]);
 };
 
