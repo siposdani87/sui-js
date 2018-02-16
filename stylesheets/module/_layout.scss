@@ -15,7 +15,8 @@
 }
 
 .template-view {
-  flex: 0 1 100%;
+  //flex: 0 1 100%;
+  width: 100vw;
 
   &.has-header .page-content.fullscreen {
     padding-bottom: 60px;
@@ -139,6 +140,7 @@
   form {
     display: flex;
     flex-flow: row nowrap;
+    margin: .3em .5em;
 
     .input-block {
       flex: 1 0 auto;
@@ -153,7 +155,7 @@
   }
 
   .actions {
-    padding: .5em 1em .5em .7em;
+    padding: .5em 1em .5em .1em;
     display: flex;
     align-items: center;
 
