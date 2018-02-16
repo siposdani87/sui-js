@@ -1,6 +1,6 @@
 .table-responsive {
-    //width: 100%;
     margin-bottom: 15px;
+    overflow-x: auto;
 }
 
 table {
@@ -16,7 +16,7 @@ table {
         tr {
             th {
                 text-align: left;
-                padding: 0 10px;
+                padding: 5px 10px;
                 text-transform: uppercase;
                 vertical-align: baseline;
                 font-weight: 400;
@@ -25,6 +25,7 @@ table {
                 &[data-column] {
                     font-weight: 700;
                     cursor: pointer;
+                    white-space: nowrap;
                 }
                 span {
                     vertical-align: middle;
@@ -49,6 +50,8 @@ table {
         }
     }
     tbody {
+        border: 1px solid $light-grey;
+        border-top: none;
         @include media-breakpoint-down(sm) {
             display: block;
         }
@@ -57,39 +60,70 @@ table {
                 display: block;
             }
             border-top: 1px solid $light-grey;
-            border-bottom: 1px solid $light-grey;
             &:nth-child(4) {
                 background-color: $white-dark;
             }
             &.header {
-                @include media-breakpoint-up(md) {
-                    display: none;
+                display: none;
+                cursor: pointer;
+                @include media-breakpoint-down(sm) {
+                    display: flex;
+                    flex-flow: row nowrap;
+                    justify-content: space-between;
+                    align-items: center;
                 }
-                td {
-                    @include media-breakpoint-down(sm) {
-                        display: block;
-                        &:last-of-type {
-                            text-align: center;
-                            cursor: pointer;
+                &:hover {
+                    background-color: $light-grey;
+                }
+                &.active {
+                    background-color: $light-grey;
+                    td:first-of-type {
+                        &:before {
+                            content: '\E316';
                         }
-                        &.active {
-                            font-weight: 700;
-                        }
+                    }
+                }
+                td:first-of-type {
+                    text-transform: uppercase;
+                    font-family: $font-family-heading;
+                    font-weight: 500;
+                    display: flex;
+                    align-items: center;
+                    &:before {
+                        font-family: 'Material Icons';
+                        font-size: 1.5em;
+                        vertical-align: middle;
+                        padding-right: 5px;
+                        content: '\E313';
                     }
                 }
             }
             &.data {
                 @include media-breakpoint-down(sm) {
                     display: none;
+                    background-color: $white-dark;
                     &.open {
                         display: block;
                         td {
-                            display: block;
+                            display: flex;
+                            flex-flow: row nowrap;
+                            justify-content: space-between;
+                            align-items: center;
+                            border-bottom: 1px solid $grey-bright;
+                            span {
+                                text-align: right;
+                            }
+                            &.actions {
+                                display: none;
+                            }
+                            span:not(.label){
+                                font-weight: 700;
+                            }
                         }
                     }
                 }
                 .label {
-                    padding: 0 10px;
+                    padding: 0 10px 0 0;
                     text-transform: uppercase;
                     vertical-align: baseline;
                     font-weight: 400;
@@ -97,6 +131,7 @@ table {
                     &[data-column] {
                         font-weight: 700;
                         cursor: pointer;
+                        white-space: nowrap;
                     }
                     span {
                         vertical-align: middle;
@@ -136,6 +171,9 @@ table {
         }
     }
     tfoot {
+        @include media-breakpoint-down(sm) {
+            display: block;
+        }
         tr {
             td:not(.pager) {
                 padding: 5px 10px;
