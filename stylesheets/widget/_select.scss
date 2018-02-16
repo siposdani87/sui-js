@@ -1,4 +1,12 @@
 .select-widget {
+  @keyframes rotation {
+		0% {
+				transform: rotate(0deg);
+		}
+		100% {
+				transform: rotate(359deg);
+		}
+  }
   
   &.is-invalid {
     .mdl-textfield__error {
@@ -19,6 +27,10 @@
     cursor: pointer;
     right: 5px;
     top: 4px;
+
+    &.rotate{
+      animation: rotation 2s infinite
+    }
   }
 
   label {
