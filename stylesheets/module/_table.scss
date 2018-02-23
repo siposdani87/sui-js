@@ -178,6 +178,9 @@ table {
             td:not(.pager) {
                 padding: 5px 10px;
             }
+            td.pager-statistics {
+                white-space: nowrap;
+            }
             td.pager {
                 text-align: right;
             }
