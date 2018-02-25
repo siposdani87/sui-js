@@ -368,7 +368,7 @@ SUI.isString = function(value) {
  * @return {boolean}
  */
 SUI.isNumber = function(value) {
-  return !isNaN(value) && !SUI.inArray(['0', '+'], value[0]) ;
+  return !isNaN(value) && !SUI.inArray(['0', '+'], value[0]);
 };
 
 /**
@@ -557,6 +557,26 @@ SUI.inArray = function(items, item) {
  */
 SUI.contain = function(str, subStr) {
   return str.indexOf(subStr) !== -1;
+};
+
+/**
+ * @param {*} a
+ * @param {*} b
+ * @return {boolean}
+ */
+SUI.isSame = function(a, b) {
+  const strA = JSON.stringify(a);
+  const strB = JSON.stringify(b);
+  if (SUI.isObject(a) && SUI.isObject(b) && SUI.eq(strA.length, strB.length)) {
+    let result = true;
+    SUI.eachObject(/** @type {!Object} */ (a), (value, key) => {
+      if (!SUI.isSame(b[key], value)) {
+        result = false;
+      }
+    });
+    return result;
+  }
+  return SUI.eq(strA, strB);
 };
 
 /**

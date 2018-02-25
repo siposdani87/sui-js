@@ -97,8 +97,7 @@ SUI.Form.prototype._initWidgets = function() {
       }
     } else {
       widget.modelChange = (value) => {
-        widget.eventChange(value);
-        this._setValue(widgetName, value);
+        this._widgetValueChange(widget, value);
       };
       widget.eventClick = (node) => {
         this.eventButton(this.model, node);
@@ -140,6 +139,30 @@ SUI.Form.prototype.setModel = function(model) {
  */
 SUI.Form.prototype._setValue = function(name, value) {
   this.model.set(name, value);
+};
+
+/**
+ * @private
+ * @param {string} name
+ * @return {*}
+ */
+SUI.Form.prototype._getValue = function(name) {
+  return this.model.get(name);
+};
+
+/**
+ * @private
+ * @param {!SUI.Widget} widget
+ * @param {*} value
+ * @return {undefined}
+ */
+SUI.Form.prototype._widgetValueChange = function(widget, value) {
+  let widgetName = widget.getName();
+  let oldValue = this._getValue(widgetName);
+  if (!SUI.isSame(value, oldValue)) {
+    widget.eventChange(value, oldValue);
+  }
+  this._setValue(widgetName, value);
 };
 
 /**

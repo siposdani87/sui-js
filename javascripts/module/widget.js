@@ -26,8 +26,9 @@ SUI.Widget = function(input, opt_label, opt_error, opt_inputBlock, opt_form) {
 
 /**
  * @param {*} value
+ * @param {*} oldValue
  */
-SUI.Widget.prototype.eventChange = function(value) {
+SUI.Widget.prototype.eventChange = function(value, oldValue) {
 
 };
 
@@ -115,7 +116,7 @@ SUI.Widget.prototype.checkValidity = function(opt_force = false, opt_showMessage
 };
 
 /**
- * @param {!Function|boolean|number|string|null|undefined} value
+ * @param {!Object|!Function|!Array|boolean|number|string|null|undefined} value
  * @return {undefined}
  */
 SUI.Widget.prototype.setValue = function(value) {
