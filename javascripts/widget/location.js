@@ -19,7 +19,6 @@ SUI.widget.Location = function(input, label, error, inputBlock) {
 };
 goog.inherits(SUI.widget.Location, SUI.Widget);
 
-
 /**
  * @private
  * @return {undefined}
@@ -32,10 +31,9 @@ SUI.widget.Location.prototype._init = function() {
 
   this.input.addEventListener('keyup', (input, event) => {
     let inputNode = input.getNode();
-    let address = inputNode.value;
 
     if (SUI.eq(event.keyCode, 13)) {
-      this._search(address);
+      this._search(inputNode.value);
     } else {
       input.trigger('change');
     }
@@ -43,9 +41,9 @@ SUI.widget.Location.prototype._init = function() {
 
   this.input.addEventListener('change', (input) => {
     let inputNode = input.getNode();
-    let address = inputNode.value;
     let location = this.getValue();
-    location['address'] = address;
+    location['address'] = SUI.typeCast(inputNode.value);
+    this._setDataValue(/** @type {!Object} */ (location));
     this.modelChange(location);
     this.checkValidity();
   });
@@ -62,8 +60,7 @@ SUI.widget.Location.prototype._initButtons = function() {
   upButton.setHtml('pin_drop');
   upButton.addEventListener('click', () => {
     let inputNode = this.input.getNode();
-    let address = inputNode.value;
-    this._search(address);
+    this._search(inputNode.value);
   });
   this.inputBlock.appendChild(upButton);
 };
@@ -77,21 +74,15 @@ SUI.widget.Location.prototype._search = function(address) {
   this.map.searchAddress(address).then((locations) => {
     let position = locations[0];
     let location = {
-      'address': address,
+      'address': SUI.typeCast(address),
       'latitude': position['latitude'],
       'longitude': position['longitude'],
     };
     this.setValue(location);
-    this.modelChange(location);
-    this.map.removeMarker(0);
-    this.map.createMarker(0, '', 'marker', position['latitude'], position['longitude']);
-    this.map.setCenter(position['latitude'], position['longitude']);
-    this.checkValidity();
   }, () => {
     // this.setError('No location', true);
   });
 };
-
 
 /**
  * @override
@@ -116,17 +107,13 @@ SUI.widget.Location.prototype.render = function() {
   });
   this.map.setMarkerIcon('marker', this.icon);
   this.map.eventMapClick = (latitude, longitude) => {
-    this._updateValue(latitude, longitude);
-    this.map.removeMarker(0);
-    this.map.createMarker(0, '', 'marker', latitude, longitude);
+    this.updatePosition(latitude, longitude);
   };
   this.map.eventMarkerRightClick = () => {
-    this._updateValue(null, null);
-    this.map.removeMarker(0);
+    this.updatePosition(null, null);
   };
   this.map.eventMarkerChanged = (data, latitude, longitude) => {
-    this._updateValue(latitude, longitude);
-    this.map.updateMarker(0, '', 'marker', latitude, longitude);
+    this.updatePosition(latitude, longitude);
   };
 
   let location = /** @type {!Object} */ (this.getValue());
@@ -141,12 +128,11 @@ SUI.widget.Location.prototype.render = function() {
 };
 
 /**
- * @private
  * @param {number|null} latitude
  * @param {number|null} longitude
  * @return {undefined}
  */
-SUI.widget.Location.prototype._updateValue = function(latitude, longitude) {
+SUI.widget.Location.prototype.updatePosition = function(latitude, longitude) {
   let location = /** @type {!Object} */ (this.getValue());
   location['latitude'] = latitude;
   location['longitude'] = longitude;
@@ -154,13 +140,31 @@ SUI.widget.Location.prototype._updateValue = function(latitude, longitude) {
 };
 
 /**
+ * @private
+ * @param {!Object} value
+ * @return {undefined}
+ */
+SUI.widget.Location.prototype._setDataValue = function(value) {
+  this.input.setAttribute('value', value['address']);
+  this.input.setData('value', value);
+};
+
+/**
  * @override
- * @param {!Object|!Function|boolean|number|string|null|undefined} value
+ * @param {!Object|!Function|!Array|boolean|number|string|null|undefined} value
  * @return {undefined}
  */
 SUI.widget.Location.prototype.setValue = function(value) {
-  this.input.setAttribute('value', value['address']);
-  this.input.setData('value', value);
+  this._setDataValue(/** @type {!Object} */ (value));
+  this.map.removeMarker(0);
+  if (!SUI.isNull(value['latitude']) && !SUI.isNull(value['longitude'])) {
+    if (this.map.getMarker(0)) {
+      this.map.updateMarker(0, '', 'marker', value['latitude'], value['longitude']);
+    } else {
+      this.map.createMarker(0, '', 'marker', value['latitude'], value['longitude']);
+    }
+    this.map.setCenter(value['latitude'], value['longitude']);
+  }
   this.input.trigger('change');
 };
 

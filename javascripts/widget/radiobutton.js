@@ -28,7 +28,11 @@ goog.inherits(SUI.widget.Radiobutton, SUI.Widget);
 SUI.widget.Radiobutton.prototype._init = function() {
   this.inputBlock.addClass('radiobutton-widget');
 
-  this.label.addEventListener('click', () => {
+  /* this.label.addEventListener('click', () => {
+      this._triggerClick();
+  });*/
+
+  this.input.addEventListener('change', () => {
       this._triggerClick();
   });
 };
@@ -77,14 +81,14 @@ SUI.widget.Radiobutton.prototype.render = function() {
 
 /**
  * @override
- * @param {!Function|boolean|number|string|null|undefined} value
+ * @param {!Object|!Function|!Array|boolean|number|string|null|undefined} value
  * @return {undefined}
  */
 SUI.widget.Radiobutton.prototype.setValue = function(value) {
   if (this.getValue() === value) {
     this.input.getNode().checked = true;
     this.input.trigger('change');
-    this._triggerClick();
+    // this._triggerClick();
   }
 };
 

@@ -56,7 +56,7 @@ SUI.widget.Textarea.prototype.render = function() {
 
 /**
  * @override
- * @param {!Function|boolean|number|string|null|undefined} value
+ * @param {!Object|!Function|!Array|boolean|number|string|null|undefined} value
  * @return {undefined}
  */
 SUI.widget.Textarea.prototype.setValue = function(value) {

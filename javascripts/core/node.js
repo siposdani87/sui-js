@@ -176,7 +176,7 @@ SUI.Node.prototype.getClasses = function() {
 
 /**
  * @param {string} attribute
- * @param {!Function|boolean|number|string|null=} opt_value
+ * @param {!Object|!Function|!Array|boolean|number|string|null=} opt_value
  * @return {undefined}
  */
 SUI.Node.prototype.setAttribute = function(attribute, opt_value) {

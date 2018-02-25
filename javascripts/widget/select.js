@@ -114,7 +114,7 @@ SUI.widget.Select.prototype.render = function() {
 
 /**
  * @override
- * @param {!Array|!Function|boolean|number|string|null|undefined} value
+ * @param {!Object|!Function|!Array|boolean|number|string|null|undefined} value
  * @return {undefined}
  */
 SUI.widget.Select.prototype.setValue = function(value) {

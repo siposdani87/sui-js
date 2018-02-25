@@ -57,7 +57,7 @@ SUI.widget.Range.prototype.render = function() {
 
 /**
  * @override
- * @param {!Function|boolean|number|string|null|undefined} value
+ * @param {!Object|!Function|!Array|boolean|number|string|null|undefined} value
  * @return {undefined}
  */
 SUI.widget.Range.prototype.setValue = function(value) {
