@@ -225,6 +225,7 @@ SUI.widget.Location.prototype._setDefaultValue = function() {
   let location = /** @type {!Object} */ (this.getValue());
   if (!SUI.isNull(location['latitude']) && !SUI.isNull(location['longitude'])) {
     this.map.createMarker(0, '', 'marker', location['latitude'], location['longitude']);
+    this._setDataValue(location);
   }
 
   setTimeout(() => {

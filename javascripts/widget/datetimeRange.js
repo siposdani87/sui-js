@@ -15,7 +15,6 @@ goog.require('SUI.widget');
  * @param {!SUI.Node} error
  * @param {!SUI.Node} inputBlock
  * @param {boolean} isStartInput
- *
  */
 SUI.widget.DatetimeRange = function(input, label, error, inputBlock, isStartInput) {
   SUI.Widget.call(this, input, label, error, inputBlock);
@@ -24,7 +23,6 @@ SUI.widget.DatetimeRange = function(input, label, error, inputBlock, isStartInpu
   this._init();
 };
 goog.inherits(SUI.widget.DatetimeRange, SUI.Widget);
-
 
 /**
  * @private
@@ -36,9 +34,10 @@ SUI.widget.DatetimeRange.prototype._init = function() {
 
   this.datetimeInput = new SUI.Node('div');
   this.datetimeInput.addClass('datetime-range-input');
-  this.datetimeInput.addEventListener('click', function() {
+  this.datetimeInput.addEventListener('click', () => {
+    this.datetimeInput.addClass('active');
     this.popup.open();
-  }.bind(this));
+  });
   this.inputBlock.appendChild(this.datetimeInput);
 
   this._initInput();
@@ -70,6 +69,9 @@ SUI.widget.DatetimeRange.prototype._initInput = function() {
   }.bind(this);
 
   this.popup = new SUI.Popup(this.datetimeNode, this.inputBlock);
+  this.popup.eventClose = () => {
+    this.datetimeInput.removeClass('active');
+  };
 
   if (value) {
     let formattedValue = this.datetime.getValue();
@@ -92,9 +94,10 @@ SUI.widget.DatetimeRange.prototype.render = function() {
   } else {
     iconNode.setHtml('date_range');
   }
-  iconNode.addEventListener('click', function() {
+  iconNode.addEventListener('click', () => {
+    this.datetimeInput.addClass('active');
     this.popup.open();
-  }.bind(this));
+  });
 
   this.datetimeInput.insertAfter(iconNode);
 };
@@ -133,4 +136,3 @@ SUI.widget.DatetimeRange.prototype._setTag = function(value) {
     tagNode.appendChild(iconNode);
   }
 };
-
