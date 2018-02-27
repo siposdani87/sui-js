@@ -32,7 +32,7 @@ SUI.Popup.prototype._init = function() {
     this.parent.addClass('popup-parent');
     this.parent.appendChild(this.popupNode);
 
-    this.draw(this.content, this.withClose);
+    this._draw(this.content, this.withClose);
   }
 };
 
@@ -61,11 +61,12 @@ SUI.Popup.prototype._initCloseButton = function() {
 };
 
 /**
+ * @private
  * @param {!SUI.Node} content
  * @param {boolean=} opt_withClose
  * @return {undefined}
  */
-SUI.Popup.prototype.draw = function(content, opt_withClose) {
+SUI.Popup.prototype._draw = function(content, opt_withClose) {
   this.content = content;
   this.withClose = opt_withClose;
   this._initCloseButton();
@@ -73,9 +74,10 @@ SUI.Popup.prototype.draw = function(content, opt_withClose) {
 };
 
 /**
+ * @param {!Function=} opt_closeCallback
  * @return {undefined}
  */
-SUI.Popup.prototype.open = function() {
+SUI.Popup.prototype.open = function(opt_closeCallback) {
   this.closeAll();
   this.popupNode.removeClass('hidden');
   this._setPosition();
@@ -106,6 +108,11 @@ SUI.Popup.prototype._closeNode = function(node) {
 /**
  * @return {undefined}
  */
+SUI.Popup.prototype.eventClose = function() {};
+
+/**
+ * @return {undefined}
+ */
 SUI.Popup.prototype.toggle = function() {
   if (this.isOpened()) {
     this.close();
@@ -126,9 +133,9 @@ SUI.Popup.prototype.isOpened = function() {
  */
 SUI.Popup.prototype.closeAll = function() {
   let popups = new SUI.Query('.popup');
-  popups.each(function(popupNode) {
+  popups.each((popupNode) => {
     this._closeNode(popupNode);
-  }.bind(this));
+  });
 };
 
 /**

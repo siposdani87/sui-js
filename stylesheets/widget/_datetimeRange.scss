@@ -31,6 +31,10 @@
     vertical-align: middle;
     cursor: pointer;
 
+    &.active {
+      background-color: $accent;
+    }
+
     &:first-of-type {
       border-right: none;
       border-top-right-radius: 0;
