@@ -43,7 +43,7 @@ SUI.widget.Location.prototype._init = function() {
     let inputNode = input.getNode();
     let location = this.getValue();
     location['address'] = SUI.typeCast(inputNode.value);
-    this._setDataValue(/** @type {!Object} */ (location));
+    this._setDataValue(/** @type {!Object} */(location));
     this.modelChange(location);
     this.checkValidity();
   });
@@ -54,15 +54,39 @@ SUI.widget.Location.prototype._init = function() {
  * @return {undefined}
  */
 SUI.widget.Location.prototype._initButtons = function() {
-  let upButton = new SUI.Node('a');
-  upButton.setAttribute('href', 'javascript:void(0)');
-  upButton.addClass(['pin-drop', 'material-icons']);
-  upButton.setHtml('pin_drop');
-  upButton.addEventListener('click', () => {
+  this._initSearchButton();
+  this._initAdvancedButton();
+};
+
+/**
+ * @private
+ * @return {undefined}
+ */
+SUI.widget.Location.prototype._initSearchButton = function() {
+  let searchButton = new SUI.Node('a');
+  searchButton.setAttribute('href', 'javascript:void(0)');
+  searchButton.addClass(['search-button', 'material-icons']);
+  searchButton.setHtml('pin_drop');
+  searchButton.addEventListener('click', () => {
     let inputNode = this.input.getNode();
     this._search(inputNode.value);
   });
-  this.inputBlock.appendChild(upButton);
+  this.inputBlock.appendChild(searchButton);
+};
+
+/**
+ * @private
+ * @return {undefined}
+ */
+SUI.widget.Location.prototype._initAdvancedButton = function() {
+  this.advancedButton = new SUI.Node('a');
+  this.advancedButton.setAttribute('href', 'javascript:void(0)');
+  this.advancedButton.addClass(['advanced-button', 'material-icons']);
+  this.advancedButton.setHtml('settings');
+  this.advancedButton.addEventListener('click', () => {
+    this._toggleAdvancedInputs();
+  });
+  this.inputBlock.appendChild(this.advancedButton);
 };
 
 /**
@@ -94,8 +118,84 @@ SUI.widget.Location.prototype.render = function() {
   if (this.label) {
     this.label.addClass('mdl-textfield__label');
   }
+  this._renderAdvancedInputs();
   SUI.mdl(this.inputBlock);
 
+  this._renderMap();
+  this._setDefaultValue();
+};
+
+/**
+ * @private
+ * @return {undefined}
+ */
+SUI.widget.Location.prototype._toggleAdvancedInputs = function() {
+  this.advancedButton.toggleClass('active');
+  this.advancedNode.toggleClass('hidden');
+};
+
+/**
+ * @private
+ * @return {undefined}
+ */
+SUI.widget.Location.prototype._renderAdvancedInputs = function() {
+  this.advancedNode = new SUI.Node('div');
+  this.advancedNode.addClass(['advanced', 'hidden']);
+  this.inputBlock.appendChild(this.advancedNode);
+
+  this._renderLatitudeInput();
+  this._renderLongitudeInput();
+};
+
+/**
+ * @private
+ * @return {undefined}
+ */
+SUI.widget.Location.prototype._renderLatitudeInput = function() {
+  let latitudeNode = new SUI.Node('div');
+  latitudeNode.addClass(['mdl-textfield', 'mdl-js-textfield', 'col-6']);
+  this.advancedNode.appendChild(latitudeNode);
+
+  this.latitudeInput = new SUI.Node('input');
+  this.latitudeInput.setAttribute('type', 'text');
+  this.latitudeInput.addClass('mdl-textfield__input');
+  latitudeNode.appendChild(this.latitudeInput);
+
+  this.latitudeInput.addEventListener('change', (inputNode) => {
+    let latitude = inputNode.getNode().value;
+    let location = /** @type {!Object} */ (this.getValue());
+    location['latitude'] = latitude;
+    this.setValue(location);
+  });
+};
+
+/**
+ * @private
+ * @return {undefined}
+ */
+SUI.widget.Location.prototype._renderLongitudeInput = function() {
+  let longitudeNode = new SUI.Node('div');
+  longitudeNode.addClass(['mdl-textfield', 'mdl-js-textfield', 'col-6']);
+  this.advancedNode.appendChild(longitudeNode);
+
+  this.longitudeInput = new SUI.Node('input');
+  this.longitudeInput.setAttribute('type', 'text');
+  this.longitudeInput.addClass('mdl-textfield__input');
+  longitudeNode.appendChild(this.longitudeInput);
+
+  this.longitudeInput.addEventListener('change', (inputNode) => {
+    let longitude = inputNode.getNode().value;
+    let location = /** @type {!Object} */ (this.getValue());
+    location['longitude'] = longitude;
+    this.setValue(location);
+  });
+};
+
+/**
+ * @private
+ * @return {undefined}
+ */
+SUI.widget.Location.prototype._renderMap = function() {
   let mapNode = new SUI.Node('div');
   mapNode.addClass('map');
 
@@ -115,7 +215,13 @@ SUI.widget.Location.prototype.render = function() {
   this.map.eventMarkerChanged = (data, latitude, longitude) => {
     this.updatePosition(latitude, longitude);
   };
+};
 
+/**
+ * @private
+ * @return {undefined}
+ */
+SUI.widget.Location.prototype._setDefaultValue = function() {
   let location = /** @type {!Object} */ (this.getValue());
   if (!SUI.isNull(location['latitude']) && !SUI.isNull(location['longitude'])) {
     this.map.createMarker(0, '', 'marker', location['latitude'], location['longitude']);
@@ -145,7 +251,9 @@ SUI.widget.Location.prototype.updatePosition = function(latitude, longitude) {
  * @return {undefined}
  */
 SUI.widget.Location.prototype._setDataValue = function(value) {
-  this.input.setAttribute('value', value['address']);
+  this.latitudeInput.getNode().value = value['latitude'] || '';
+  this.longitudeInput.getNode().value = value['longitude'] || '';
+  this.input.setAttribute('value', value['address'] || '');
   this.input.setData('value', value);
 };
 
@@ -155,7 +263,7 @@ SUI.widget.Location.prototype._setDataValue = function(value) {
  * @return {undefined}
  */
 SUI.widget.Location.prototype.setValue = function(value) {
-  this._setDataValue(/** @type {!Object} */ (value));
+  this._setDataValue(/** @type {!Object} */(value));
   this.map.removeMarker(0);
   if (!SUI.isNull(value['latitude']) && !SUI.isNull(value['longitude'])) {
     if (this.map.getMarker(0)) {

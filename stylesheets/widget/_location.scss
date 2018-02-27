@@ -1,9 +1,19 @@
 .location-widget {
 
-  .pin-drop {
+  .search-button {
+    position: absolute;
+    right: 30px;
+    top: 18px;
+  }
+
+  .advanced-button {
     position: absolute;
     right: 0;
     top: 18px;
+
+    &.active {
+      color: $accent;
+    }
   }
 
   .map {
