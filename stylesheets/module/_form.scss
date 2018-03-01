@@ -37,18 +37,9 @@ form {
   .action-block {
     margin-top: 1em;
 
-    button[type=submit] {
-      margin-left: 1em;
+    button[type=submit], button[type=button], button[type=reset] {
+      margin: 0 0 .5em 1em;
     }
-
-    button[type=button] {
-      margin-left: 1em;
-    }
-
-    button[type=reset] {
-      margin-left: 1em;
-    }
-
   }
 
   input:-webkit-autofill,
