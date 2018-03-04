@@ -85,7 +85,7 @@ SUI.widget.Radiobutton.prototype.render = function() {
  * @return {undefined}
  */
 SUI.widget.Radiobutton.prototype.setValue = function(value) {
-  if (this.getValue() === value) {
+  if (this.input.getAttribute('value') === value) {
     this.input.getNode().checked = true;
     this.input.trigger('change');
     // this._triggerClick();
