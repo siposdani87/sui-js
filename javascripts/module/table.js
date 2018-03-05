@@ -198,7 +198,7 @@ SUI.Table.prototype.refresh = function(opt_page = -1) {
 };
 
 /**
- * @param {!Object} params
+ * @param {!SUI.Object} params
  * @return {undefined}
  */
 SUI.Table.prototype.eventAction = function(params) {
