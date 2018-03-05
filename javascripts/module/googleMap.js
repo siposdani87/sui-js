@@ -298,6 +298,7 @@ SUI.GoogleMap.prototype._addPointsToPolygon = function(polygonData, points) {
   let polygon = /** @type {google.maps.Polygon} */ (polygonData.get('polygon'));
   let path = this._convertPointsToPath(points);
   polygon.setPath(path);
+  this._bindEventsToPolygonPath(polygon, polygonData);
   this._setBoundsByPath(polygonData, path);
 };
 
