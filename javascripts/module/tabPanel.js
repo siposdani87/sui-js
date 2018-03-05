@@ -26,7 +26,7 @@ SUI.TabPanel = function(dom, selected, opt_selector = '.tab-panel') {
 SUI.TabPanel.prototype._init = function() {
   this._initTabs();
   this._initContents();
-  this.setActive(this.options.selected);
+  this._setActiveTab(this.options.selected);
 };
 
 /**
@@ -43,7 +43,8 @@ SUI.TabPanel.prototype._initTabs = function() {
     tab.setData('panel', panelId);
     tab.setAttribute('href', 'javascript:void(0)');
     tab.addEventListener('click', (tabNode) => {
-      this._setActiveTab(tab);
+      const panelId = tab.getData('panel');
+      this.setActive(panelId);
     });
   });
 };
@@ -57,10 +58,11 @@ SUI.TabPanel.prototype._initContents = function() {
 };
 
 /**
+ * @private
  * @param {string} panelId
  * @return {undefined}
  */
-SUI.TabPanel.prototype.setActive = function(panelId) {
+SUI.TabPanel.prototype._setActiveTab = function(panelId) {
   this.panels.each(function(panel) {
     panel.removeClass('active');
     if (panel.getId() === panelId || panel.hasClass(panelId)) {
@@ -85,16 +87,14 @@ SUI.TabPanel.prototype.eventChange = function(panelId) {
 };
 
 /**
- * @private
- * @param {!SUI.Node} tab
+ * @param {string} panelId
  * @return {undefined}
  */
-SUI.TabPanel.prototype._setActiveTab = function(tab) {
-  let panelId = tab.getData('panel');
+SUI.TabPanel.prototype.setActive = function(panelId) {
   if (!SUI.isNull(panelId)) {
     let async = new SUI.Async();
     async.serial([() => {
-      return this.setActive(/** @type {string} */(panelId));
+      return this._setActiveTab(/** @type {string} */(panelId));
     }]).then(() => {
       this.eventChange(/** @type {string} */(panelId));
     });
