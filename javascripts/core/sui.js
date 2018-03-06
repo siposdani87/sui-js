@@ -985,7 +985,7 @@ SUI.colorContrastYIQ = function(hexColor, opt_lightColor = '#FEFEFE', opt_darkCo
  * @param {number=} opt_diff
  * @return {string}
  */
-SUI.colorContras = function(hexColor, opt_diff = .5) {
+SUI.colorContrast = function(hexColor, opt_diff = .5) {
   const colors = SUI.hexColorToRGB(hexColor);
   let i = 0;
   while (i < colors.length) {
