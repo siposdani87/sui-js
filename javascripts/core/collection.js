@@ -232,6 +232,16 @@ SUI.Collection.prototype.findAllByCondition = function(conditionCallback) {
 };
 
 /**
+ * @param {!Object|!T} value
+ * @return {!T}
+ */
+SUI.Collection.prototype.delete = function(value) {
+  return this.deleteByCondition((item) => {
+    return SUI.eq(item, value);
+  });
+};
+
+/**
  * @param {string} value
  * @return {!T}
  */

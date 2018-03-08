@@ -32,7 +32,9 @@
     cursor: pointer;
 
     &.active {
-      background-color: $accent;
+      .tag {
+        background-color: $accent;
+      }
     }
 
     &:first-of-type {

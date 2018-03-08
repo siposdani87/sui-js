@@ -2,17 +2,17 @@ goog.provide('SUI.Popup');
 
 goog.require('SUI');
 goog.require('SUI.Node');
-goog.require('SUI.Query');
+goog.require('SUI.PopupContainer');
 
 /**
  * @constructor
  * @this {SUI.Popup}
- * @param {!SUI.Node=} opt_content
+ * @param {!SUI.Node} content
  * @param {!SUI.Node=} opt_parent
  * @param {boolean=} opt_withClose
  */
-SUI.Popup = function(opt_content, opt_parent, opt_withClose = false) {
-  this.content = opt_content;
+SUI.Popup = function(content, opt_parent, opt_withClose = false) {
+  this.content = content;
   this.parent = opt_parent;
   this.withClose = opt_withClose;
   this._init();
@@ -23,18 +23,26 @@ SUI.Popup = function(opt_content, opt_parent, opt_withClose = false) {
  * @return {undefined}
  */
 SUI.Popup.prototype._init = function() {
-  this.container = new SUI.Query('.main-container').getItem();
-
-  if (this.content && this.parent) {
-    this.popupNode = new SUI.Node('div');
-    this.popupNode.addClass(['popup', 'hidden']);
-
-    this.parent.addClass('popup-parent');
-    this.parent.appendChild(this.popupNode);
-
-    this._draw(this.content, this.withClose);
-  }
+  this.popupContainer = new SUI.PopupContainer();
+  this._draw();
 };
+
+/**
+ * @private
+ * @return {undefined}
+ */
+SUI.Popup.prototype._draw = function() {
+  this.popupNode = new SUI.Node('div');
+  this.popupNode.addClass(['popup', 'hidden']);
+
+  this.parent.addClass('popup-parent');
+  this.parent.appendChild(this.popupNode);
+
+  this.popupNode.appendChild(this.content);
+
+  this._initCloseButton();
+};
+
 
 /**
  * @private
@@ -45,64 +53,38 @@ SUI.Popup.prototype._initCloseButton = function() {
     let btnClose = new SUI.Node('button');
     btnClose.setAttribute('type', 'button');
     btnClose.addClass(['close', 'mdl-button', 'mdl-js-button', 'mdl-button--icon']);
-    btnClose.addEventListener('click', function() {
+    btnClose.addEventListener('click', () => {
       this.close();
-    }.bind(this));
-
-    let icon = new SUI.Node('i');
-    icon.addClass('material-icons');
-    icon.setHtml('close');
-    btnClose.appendChild(icon);
-
+    });
     this.popupNode.appendChild(btnClose);
+
+    let iconNode = new SUI.Node('i');
+    iconNode.addClass('material-icons');
+    iconNode.setHtml('close');
+    btnClose.appendChild(iconNode);
 
     SUI.mdl(btnClose);
   }
 };
 
 /**
- * @private
- * @param {!SUI.Node} content
- * @param {boolean=} opt_withClose
  * @return {undefined}
  */
-SUI.Popup.prototype._draw = function(content, opt_withClose) {
-  this.content = content;
-  this.withClose = opt_withClose;
-  this._initCloseButton();
-  this.popupNode.appendChild(this.content);
-};
-
-/**
- * @param {!Function=} opt_closeCallback
- * @return {undefined}
- */
-SUI.Popup.prototype.open = function(opt_closeCallback) {
-  this.closeAll();
+SUI.Popup.prototype.open = function() {
+  this.popupContainer.closeAll();
+  this.popupContainer.push(SUI.Popup, this);
   this.popupNode.removeClass('hidden');
-  this._setPosition();
+  this.popupContainer.setPosition(this.popupNode);
 };
 
 /**
  * @return {undefined}
  */
 SUI.Popup.prototype.close = function() {
-  this._closeNode(this.popupNode);
-};
-
-/**
- * @private
- * @param {!SUI.Node} node
- * @return {undefined}
- */
-SUI.Popup.prototype._closeNode = function(node) {
-  node.addClass('hidden');
-  node.setStyle({
-    'top': 'auto',
-    'bottom': 'auto',
-    'left': 'auto',
-    'right': 'auto',
-  });
+  this.popupContainer.delete(this);
+  this.popupContainer.clearPosition(this.popupNode);
+  this.popupNode.addClass('hidden');
+  this.eventClose();
 };
 
 /**
@@ -126,33 +108,4 @@ SUI.Popup.prototype.toggle = function() {
  */
 SUI.Popup.prototype.isOpened = function() {
   return !this.popupNode.hasClass('hidden');
-};
-
-/**
- * @return {undefined}
- */
-SUI.Popup.prototype.closeAll = function() {
-  let popups = new SUI.Query('.popup');
-  popups.each((popupNode) => {
-    this._closeNode(popupNode);
-  });
-};
-
-/**
- * @private
- * @return {undefined}
- */
-SUI.Popup.prototype._setPosition = function() {
-  let containerNode = this.container.getNode();
-
-  let top = containerNode.offsetHeight - containerNode.scrollHeight;
-  let absoluteTop = top === 0 ? 'auto' : top + 'px';
-
-  // let left = containerNode.offsetWidth - containerNode.scrollWidth;
-  // let absoluteLeft = left === 0 ? 'auto' : left + 'px';
-
-  this.popupNode.setStyle({
-    'top': absoluteTop,
-    'left': 0, // absoluteLeft
-  });
 };

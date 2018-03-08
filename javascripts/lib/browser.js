@@ -77,8 +77,8 @@ SUI.lib.Browser.prototype._detectBrowsers = function() {
   this.browsers = {};
 
   this.browsers.webkit = 'WebkitAppearance' in document.documentElement.style;
-  this.browsers.chromium = !!window.chrome;
-  this.browsers.chrome = !!window.chrome && !!window.chrome.webstore;
+  this.browsers.chromium = !!window['chrome'];
+  this.browsers.chrome = !!window['chrome'] && !!window['chrome']['webstore'];
 
   this.browsers.opera = !!window.opera || /opera|opr/i.test(navigator.userAgent);
 
