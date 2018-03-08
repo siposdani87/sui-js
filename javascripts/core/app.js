@@ -287,10 +287,10 @@ SUI.App.prototype._initHelper = function() {
  * @return {undefined}
  */
 SUI.App.prototype._initDocument = function() {
-  let popup = new SUI.Popup();
+  let popupContainer = new SUI.PopupContainer();
   this._instances[this._injections.document] = new SUI.lib.Document(this.options);
   this._instances[this._injections.document].eventClick = function(target, event) {
-    popup.closeAll();
+    popupContainer.closeAll();
     this._instances[this._injections.event].call('document.click', [target, event]);
   }.bind(this);
 };

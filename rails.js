@@ -57,6 +57,7 @@
 //= require sui-js/javascripts/module/form
 //= require sui-js/javascripts/module/formWidget
 //= require sui-js/javascripts/module/widget
+//= require sui-js/javascripts/module/popupContainer
 //= require sui-js/javascripts/module/popup
 //= require sui-js/javascripts/module/tooltip
 //= require sui-js/javascripts/module/test
