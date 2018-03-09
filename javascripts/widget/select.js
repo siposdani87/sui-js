@@ -94,6 +94,9 @@ SUI.widget.Select.prototype.render = function() {
 
   this.selectContainerNode = new SUI.Node('div');
   this.selectContainerNode.addClass('select-container');
+  this.selectContainerNode.addEventListener('click', () => {
+    this.open();
+  });
   this.input.insertAfter(this.selectContainerNode);
 
   this.selectNode = new SUI.Node('div');
@@ -103,9 +106,6 @@ SUI.widget.Select.prototype.render = function() {
   this.iconNode = new SUI.Node('i');
   this.iconNode.addClass(['material-icons', 'size-24', 'expander']);
   this.iconNode.setHtml('expand_more');
-  this.iconNode.addEventListener('click', () => {
-    this.open();
-  });
   this.selectContainerNode.appendChild(this.iconNode);
 
   let ids = this._getSelectedIds();
