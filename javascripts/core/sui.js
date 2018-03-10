@@ -799,6 +799,22 @@ SUI.mapLabel = function(marker, title) {
 };
 
 /**
+ * @param {string} title
+ * @param {!Object} position
+ * @param {!Object} map
+ * @return {!Object}
+ */
+SUI.mapText = function(title, position, map) {
+  return new window['MapLabel']({
+    'text': title,
+    'strokeWeight': 2,
+    'fontFamily': 'sans-serif',
+    'position': position,
+    'map': map,
+  });
+};
+
+/**
  * @param {*} value
  * @param {string} passPhrase
  * @return {string}
