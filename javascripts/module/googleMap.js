@@ -458,6 +458,55 @@ SUI.GoogleMap.prototype.setMarkers = function(opt_options = {}) {
  * @param {!Object=} opt_options
  * @return {undefined}
  */
+SUI.GoogleMap.prototype.setHeatmap = function(opt_options = {}) {
+  let gradient = [
+    'rgba(0, 255, 255, 0)',
+    'rgba(0, 255, 255, 1)',
+    'rgba(0, 191, 255, 1)',
+    'rgba(0, 127, 255, 1)',
+    'rgba(0, 63, 255, 1)',
+    'rgba(0, 0, 255, 1)',
+    'rgba(0, 0, 223, 1)',
+    'rgba(0, 0, 191, 1)',
+    'rgba(0, 0, 159, 1)',
+    'rgba(0, 0, 127, 1)',
+    'rgba(63, 0, 91, 1)',
+    'rgba(127, 0, 63, 1)',
+    'rgba(191, 0, 31, 1)',
+    'rgba(255, 0, 0, 1)',
+  ];
+
+  this.heatmap = new google.maps.visualization.HeatmapLayer({
+    map: this.map,
+  });
+
+  this.heatmapOptions = new SUI.Object({
+    opacity: 0.2,
+    radius: 20,
+    gradient: gradient,
+  });
+  this.heatmapOptions.merge(opt_options);
+};
+
+/**
+ * @param {!Array<{latitude: number, longitude: number}>} points
+ * @param {!Object=} opt_heatmapOptions
+ * @return {undefined}
+ */
+SUI.GoogleMap.prototype.createHeatmap = function(points, opt_heatmapOptions = {}) {
+  let data = this._convertPointsToPath(points);
+  this.heatmap.set('data', data);
+
+  this.heatmapOptions.merge(opt_heatmapOptions);
+  SUI.eachObject(this.heatmapOptions, (value, property) => {
+    this.heatmap.set(property, value);
+  });
+};
+
+/**
+ * @param {!Object=} opt_options
+ * @return {undefined}
+ */
 SUI.GoogleMap.prototype.setPolygons = function(opt_options = {}) {
   this.polygons = /** @type {!SUI.Collection<!SUI.Object>} */ (new SUI.Collection());
 
@@ -472,7 +521,6 @@ SUI.GoogleMap.prototype.setPolygons = function(opt_options = {}) {
   });
   this.polygonOptions.merge(opt_options);
 };
-
 
 /**
  * @param {string|number} id
