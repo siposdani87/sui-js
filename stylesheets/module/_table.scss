@@ -60,7 +60,7 @@ table {
                 display: block;
             }
             border-top: 1px solid $light-grey;
-            &:nth-child(4) {
+            &:nth-child(4n+0) {
                 background-color: $white-dark;
             }
             &.header {
