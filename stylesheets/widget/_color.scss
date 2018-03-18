@@ -1,0 +1,22 @@
+.color-widget {
+
+  .preview {
+    margin-left: 10px;
+    display: inline-block;
+    width: 24px;
+    height: 24px;
+    vertical-align: middle;
+    border-radius: 50%;
+    border: 1px solid $black;
+
+    &:focus{
+      outline: none;
+    }
+  }
+
+  canvas {
+    vertical-align: middle;
+  }
+
+}
+

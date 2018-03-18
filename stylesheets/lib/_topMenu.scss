@@ -1,0 +1,51 @@
+#top-menu {
+  display: flex;
+  flex-flow: row wrap;
+
+  @include media-breakpoint-down(md) {
+    flex-flow: column wrap;
+    flex: 1 100%;
+    display: none;
+  }
+
+  a {
+    display: flex;
+    flex-flow: row nowrap;
+    align-items: center;
+    text-decoration: none;
+    height: 50px;
+    padding: 0 1em;
+    color: $primary-bright;
+
+    @include media-breakpoint-down(md) {
+      justify-content: space-between;
+      border-bottom: 1px solid $primary;
+    }
+
+    &:hover{
+      color: $light-grey;
+    }
+    &.active {
+      color: $light-grey;
+      background-color: $primary-bright;
+    }
+
+    .image {
+      margin-right: .5em;
+      line-height: 0;
+
+      img, svg {
+        height: 40px;
+        width: 40px;
+      }
+    }
+
+  }
+
+  @include media-breakpoint-down(md) {
+    a:last-child {
+      border-bottom: none;
+    }
+  }
+
+}

@@ -1,0 +1,102 @@
+.select-widget {
+  @keyframes rotation {
+		0% {
+				transform: rotate(0deg);
+		}
+		100% {
+				transform: rotate(359deg);
+		}
+  }
+  
+  &.is-invalid {
+    .mdl-textfield__error {
+      visibility: visible;
+    }
+    .select-input {
+      border-color: $red;
+    }
+  }
+
+  .select-container{
+    position: relative;
+    display: inline-block;
+  }
+
+  .expander {
+    position: absolute;
+    cursor: pointer;
+    right: 5px;
+    top: 4px;
+
+    &.rotate{
+      animation: rotation 2s infinite
+    }
+  }
+
+  label {
+    margin-right: 10px;
+    font-size: 16px;
+  }
+
+  .select-input {
+    display: block;
+    padding: 2px 30px 0 2px;
+    border: 1px solid $light-grey;
+    background-color: $light-grey-bright;
+    border-radius: 2px;
+    min-height: 28px;
+    cursor: pointer;
+
+
+    .tag {
+      position: relative;
+      display: inline-block;
+      padding: 1px 30px 1px 10px;
+      margin: 0 2px 2px 0;
+      background-color: rgba($black, .12);
+      border-radius: 2px;
+      white-space: nowrap;
+
+      .material-icons {
+        position: absolute;
+        right: 5px;
+        top: 4px;
+      }
+
+    }
+
+  }
+
+  .mdl-textfield__error{
+    display: block;
+  }
+
+  .search-box {
+    padding: 5px 10px;
+    margin: -20px 0 -15px 0;
+  }
+
+
+  .options-list {
+    max-height: 180px;
+    min-width: 250px;
+    overflow-y: auto;
+
+    a {
+      display: block;
+      color: $black;
+      text-decoration: none;
+      padding: 3px 8px;
+
+      &:hover {
+        background-color: $light-grey-bright;
+      }
+      &.selected {
+        background-color: $light-grey;
+      }
+
+    }
+
+  }
+
+}
