@@ -1,24 +1,24 @@
 ::windows batch
 cls
 
-call java -jar ../node_modules/google-closure-compiler/compiler.jar^
+call java -jar node_modules/google-closure-compiler/compiler.jar^
  --compilation_level ADVANCED_OPTIMIZATIONS^
  --language_in ECMASCRIPT_2017^
  --language_out ECMASCRIPT5_STRICT^
  --warning_level VERBOSE^
- --externs ../vendor/assets/javascripts/externs/*.js^
+ --externs node_modules/sui-externs/*.js^
  --formatting SINGLE_QUOTES^
  --summary_detail_level 3^
  --jscomp_error "*"^
  --jscomp_warning "*"^
  --generate_exports^
- --define "SUI.debug=true"^
- --js ../app/assets/javascripts/sui/*.js^
- --js ../app/assets/javascripts/sui/lib/*.js^
- --js ../app/assets/javascripts/sui/core/*.js^
- --js ../app/assets/javascripts/sui/module/*.js^
- --js ../app/assets/javascripts/sui/widget/*.js^
- --output_manifest manifest.mf^
- --js_output_file app.min.js
+ --define "SUI.debug=false"^
+ --js javascripts/*.js^
+ --js javascripts/lib/*.js^
+ --js javascripts/core/*.js^
+ --js javascripts/module/*.js^
+ --js javascripts/widget/*.js^
+ --output_manifest dist/sui.min.mf^
+ --js_output_file dist/sui.min.js
 
-call sass ../app/assets/stylesheets/app/index.scss app.css --style expanded
+::call sass stylesheets/index.scss app.css --style expanded

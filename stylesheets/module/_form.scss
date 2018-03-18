@@ -1,0 +1,52 @@
+form {
+
+  .caption{
+    margin: 1em 0 0.25em -0.5em;
+    color: $primary;
+
+    &:first-of-type{
+      margin: 0 0 0.25em -0.5em;
+    }
+  }
+
+  .input-block{
+    padding: 20px 0;
+    font-size: 16px;
+
+    img{
+      max-height: 100px;
+      min-height: 12px;
+    }
+
+    label {
+      display: inline-block;
+      font-size: 16px; 
+      
+      &::first-letter {
+        text-transform: capitalize;
+      }
+    }
+
+  }
+
+  .text-block {
+    padding: 22px 10px 22px 0;
+    font-size: 16px;
+  }
+
+  .action-block {
+    margin-top: 1em;
+
+    button[type=submit], button[type=button], button[type=reset] {
+      margin: 0 0 .5em 1em;
+    }
+  }
+
+  input:-webkit-autofill,
+  input:-webkit-autofill:hover,
+  input:-webkit-autofill:focus,
+  input:-webkit-autofill:active {
+    transition: background-color 5000s ease-in-out, color 5000s ease-in-out;
+  }
+
+}

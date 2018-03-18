@@ -1,0 +1,32 @@
+{
+	"env": {
+		"browser": true,
+		"es6": true
+	},
+	"parserOptions": {
+		"ecmaVersion": 7,
+		"sourceType": "module",
+		"ecmaFeatures": {
+			"jsx": false
+		}
+	},
+	"extends": ["google"],
+	"rules": {
+		"linebreak-style": "off",
+		"max-len": "off",
+		"max-lines": "off",
+		"camelcase": "off"
+	},
+	"overrides": [{
+			"files": ["rails.js", "javascripts/lib/browser.js"],
+			"rules": {
+				"spaced-comment": "off"
+			}
+		}, {
+			"files": "javascripts/core/sui.js",
+			"rules": {
+				"new-cap": "off"
+			}
+		}
+	]
+}

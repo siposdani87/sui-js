@@ -1,0 +1,120 @@
+.card-collection {
+  padding-bottom: 20px;
+
+  .cards {
+    display: flex;
+    flex-wrap: wrap;
+    flex: 0 0 100%;
+  }
+
+  .card-footer {
+    display: flex;
+    flex-flow: row wrap;
+    flex: 0 0 100%;
+    justify-content: space-between;
+  }
+
+  .card {
+    border-radius: 3px;
+    background-color: $light-grey-bright;
+    cursor: pointer;
+    display: flex;
+    flex-flow: column nowrap;
+    justify-content: space-between;
+
+    &:hover {
+      box-shadow: 0 4px 5px 0 rgba($black, .5);
+    }
+
+    .header {
+      padding: 7em 0 0 0;
+      background-color: $brown;
+      color: $white;
+      border-top-left-radius: 3px;
+      border-top-right-radius: 3px;
+      background-size: cover;
+      background-position: center;
+      text-shadow: 1px 1px 2px rgba($black, .75);
+
+      .title{
+        background-color: rgba($black, .7);
+        border-bottom: 3px solid $accent;
+      }
+    }
+
+    .title, .title-with-actions {
+      border-bottom: 1px solid $grey-bright;
+    }
+
+    .title {
+      padding: 0 .8em;
+      margin-bottom: 0;
+    }
+
+    .title-with-actions {
+      display: flex;
+      flex-flow: row nowrap;
+      justify-content: space-between;
+      align-items: center;
+      flex: 1 0 auto;
+
+      .title {
+        border-bottom: none;
+      }
+
+      .actions {
+        padding: 0 .8em;
+
+        .mdl-button{
+          border-radius: 50%;
+        }
+      }
+    }
+
+    .content {
+
+      &.section {
+        margin: 1em 0 0 1em;
+
+        .box {
+          padding: 0 1em 1em 0;
+        }
+      }
+
+      .info {
+        color: $primary;
+
+        .material-icons {
+          display: inline-block;
+          vertical-align: sub;
+          padding-top: 3px;
+          margin-right: 8px;
+          font-size: inherit;
+        }
+      }
+
+      .material-icons {
+        vertical-align: sub;
+      }
+
+    }
+
+    .footer {
+      text-align: right;
+      padding: .5em;
+
+      .caption {
+        display: inline-block;
+        font-size: .8em;
+        color: $grey;
+        margin-right: .5em;
+      }
+
+      img {
+        display: inline-block;
+        max-width: 30px;
+        max-height: 30px;
+      }
+    }
+  }
+}

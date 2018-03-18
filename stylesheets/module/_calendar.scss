@@ -1,0 +1,162 @@
+.calendar {
+  position: relative;
+  box-sizing: content-box;
+  width: 250px;
+  height: 290px;
+  background-color: $light-grey;
+
+  .header {
+    display: flex;
+    align-items: center;
+    height: 50px;
+    background-color: $primary;
+    color: $white;
+
+    .previous {
+      flex: 0 1 32px;
+    }
+
+    .next {
+      flex: 0 1 32px;
+    }
+
+    .current-mode {
+      display: inline-block;
+      flex: 1 1 auto;
+      text-align: center;
+
+      &:hover {
+        cursor: pointer;
+      }
+    }
+
+  }
+
+  .content {
+    .week-days {
+      background-color: $white;
+      height: 30px;
+      display: flex;
+      flex-flow: row wrap;
+
+      .day {
+        font-weight: 700;
+        flex: 0 1 14.285%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+
+    }
+
+    .days {
+      display: flex;
+      flex-flow: row wrap;
+      background-color: $white;
+      height: 210px;
+
+      .day {
+        flex: 0 1 14.285%;
+        border-radius: 50%;
+        border: 1px solid transparent;
+        cursor: pointer;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+        &:hover {
+          border: 1px solid $accent;
+        }
+        &.now {
+          background-color: $light-grey;
+        }
+        &.current {
+          background-color: $accent;
+        }
+
+        &.previous-month {
+          color: $light-grey-dark;
+
+          &.now {
+            color: $white;
+          }
+          &.current {
+            color: $white;
+          }
+        }
+
+        &.current-month {
+          color: $black;
+        }
+
+        &.next-month {
+          color: $light-grey-dark;
+
+          &.now {
+            color: $white;
+          }
+          &.current {
+            color: $white;
+          }
+        }
+
+      }
+
+    }
+
+    .months {
+      display: flex;
+      flex-flow: row wrap;
+      background-color: $white;
+      height: 240px;
+
+      .month {
+        flex: 0 1 25%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        cursor: pointer;
+        border: 1px solid transparent;
+
+        &:hover {
+          border: 1px solid $accent;
+        }
+        &.now {
+          background-color: $light-grey;
+        }
+        &.current {
+          background-color: $accent;
+        }
+      }
+
+    }
+
+    .years {
+      display: flex;
+      flex-flow: row wrap;
+      background-color: $white;
+      height: 240px;
+
+      .year {
+        flex: 0 1 25%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        cursor: pointer;
+        border: 1px solid transparent;
+
+        &:hover {
+          border: 1px solid $accent;
+        }
+        &.now {
+          background-color: $light-grey;
+        }
+        &.current {
+          background-color: $accent;
+        }
+      }
+    }
+
+  }
+
+}

@@ -1,0 +1,12 @@
+{
+    "files.exclude": {
+        "**/.sonar": true,
+        "**/.vscode": true,
+	"**/dist": true,
+        "**/node_modules": true,
+        "**/.*": true
+    },
+    "search.exclude": {},
+    "javascript.format.insertSpaceAfterFunctionKeywordForAnonymousFunctions": false,
+    "javascript.format.insertSpaceAfterOpeningAndBeforeClosingNonemptyBraces": false
+}
