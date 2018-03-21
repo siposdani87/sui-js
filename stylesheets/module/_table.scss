@@ -45,7 +45,6 @@ table {
                 }
                 &:last-of-type {
                     text-align: right;
-                    white-space: nowrap;
                 }
             }
         }
@@ -161,6 +160,7 @@ table {
                 }
                 &:last-of-type {
                     text-align: right;
+                    white-space: nowrap;
                 }
                 .label {
                     display: none;

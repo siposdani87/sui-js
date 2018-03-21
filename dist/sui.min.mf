@@ -1,16 +1,9 @@
 core/sui.js
+core/module.js
 core/object.js
 core/collection.js
-module/test.js
-test/container.js
-core/promise.js
-core/deferred.js
-test/deferred.js
-core/item.js
-test/item.js
-test/object.js
-core/module.js
 core/query.js
+module/test.js
 core/lib.js
 lib/appCache.js
 lib/bottomMenu.js
@@ -20,6 +13,8 @@ core/node.js
 lib/confirm.js
 lib/console.js
 lib/cookie.js
+core/promise.js
+core/deferred.js
 lib/dialog.js
 lib/document.js
 lib/event.js
@@ -43,6 +38,7 @@ lib/topMenu.js
 lib/window.js
 core/app.js
 core/box.js
+core/item.js
 core/router.js
 core/state.js
 core/test.js
@@ -90,6 +86,10 @@ module/table.js
 module/tabPanel.js
 module/treeView.js
 module/util.js
+test/container.js
+test/deferred.js
+test/item.js
+test/object.js
 widget/autoComplete.js
 widget/datetimeRange.js
 widget/location.js
