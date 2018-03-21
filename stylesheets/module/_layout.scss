@@ -129,6 +129,7 @@
     font-weight: 500;
 
     a {
+      white-space: nowrap;
       &:after {
         content: '/';
         padding: 0 .3em;
