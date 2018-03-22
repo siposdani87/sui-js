@@ -168,6 +168,10 @@ SUI.invoke = function(constructor, args, opt_extendModule) {
    * @return {!Object}
    */
   SUI.Cls = function() {
+    if (opt_extendModule) {
+      // TODO use opt_extendModuleArgs
+      opt_extendModule.apply(this, args);
+    }
     return constructor.apply(this, args);
   };
 
