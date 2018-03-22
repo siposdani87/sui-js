@@ -272,6 +272,14 @@ SUI.Table.prototype._resetSorting = function() {
 
 /**
  * @private
+ * @return {string}
+ */
+SUI.Table.prototype._getColumn = function() {
+  return this.options.column || this.options.columns[0];
+};
+
+/**
+ * @private
  * @param {!SUI.Object} item
  * @return {undefined}
  */
@@ -285,9 +293,8 @@ SUI.Table.prototype._addHeaderRow = function(item) {
   headerRow.addClass('header');
   this.tbody.appendChild(headerRow);
 
-  const column = this.options.column || this.options.columns[0];
   let headerNameCell = new SUI.Node('td');
-  let dataNode = this._getDataNodeByItem(item, column);
+  let dataNode = this.getDataNodeByItem(item, this._getColumn());
   headerNameCell.appendChild(dataNode);
   headerNameCell.setAttribute('colspan', this.heads.size() - 2);
   headerRow.appendChild(headerNameCell);
@@ -322,12 +329,11 @@ SUI.Table.prototype.setActions = function(actions) {
 };
 
 /**
- * @private
  * @param {!SUI.Object} item
  * @param {string} column
  * @return {!SUI.Node}
  */
-SUI.Table.prototype._getDataNodeByItem = function(item, column) {
+SUI.Table.prototype.getDataNodeByItem = function(item, column) {
   let data = item.get(column);
   let calculation = this.options.calculations[column];
   if (SUI.isFunction(calculation)) {
@@ -359,7 +365,7 @@ SUI.Table.prototype._renderDataNode = function(tableDataNode, item, column, inde
     this._renderHeader(labelNode, index);
     this._handleSortingColumn(labelNode, index);
     tableDataNode.appendChild(labelNode);
-    let dataNode = this._getDataNodeByItem(item, column);
+    let dataNode = this.getDataNodeByItem(item, column);
     tableDataNode.appendChild(dataNode);
   }
 };
