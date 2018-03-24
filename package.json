@@ -1,6 +1,6 @@
 {
   "name": "sui-js",
-  "version": "0.2.0",
+  "version": "0.3.0",
   "description": "Powerfull Vanilla JavaScript framework for web and react(-native), based on Google Closure Compiler",
   "main": "index.js",
   "scripts": {},
@@ -26,7 +26,7 @@
     "sui-externs": "file:../sui-externs"
   },
   "devDependencies": {
-    "eslint": "4.18.2",
+    "eslint": "4.19.0",
     "eslint-config-google": "0.9.1",
     "google-closure-compiler": "20180204.0.0",
     "gulp": "3.9.1",

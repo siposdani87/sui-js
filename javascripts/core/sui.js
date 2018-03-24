@@ -156,26 +156,30 @@ SUI.typeCast = function(value) {
 };
 
 /**
- * @param {!Object} constructor
- * @param {!Array} args
+ * @param {!Object} baseModule
+ * @param {!Array} baseModuleArgs
  * @param {!Object=} opt_extendModule
+ * @param {!Array=} opt_extendModuleArgs
  * @return {!Object}
  */
-SUI.invoke = function(constructor, args, opt_extendModule) {
+SUI.invoke = function(baseModule, baseModuleArgs, opt_extendModule, opt_extendModuleArgs) {
   /**
    * @constructor
    * @this {SUI.Cls}
    * @return {!Object}
    */
   SUI.Cls = function() {
-    return constructor.apply(this, args);
+    if (opt_extendModule) {
+      opt_extendModule.apply(this, opt_extendModuleArgs || baseModuleArgs);
+    }
+    return baseModule.apply(this, baseModuleArgs);
   };
 
   if (opt_extendModule) {
-    SUI.Cls.prototype = SUI.merge(opt_extendModule.prototype, constructor.prototype);
+    SUI.Cls.prototype = SUI.merge(opt_extendModule.prototype, baseModule.prototype);
     SUI.Cls.prototype.constructor = SUI.Cls;
   } else {
-    SUI.Cls.prototype = constructor.prototype;
+    SUI.Cls.prototype = baseModule.prototype;
   }
 
   return new SUI.Cls();
