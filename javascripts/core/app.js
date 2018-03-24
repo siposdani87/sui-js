@@ -590,30 +590,30 @@ SUI.App.prototype.run = function() {
 
 /**
  * @param {string} name
- * @param {!Array} injections
- * @param {!Function} callback
- * @param {string=} opt_extend
+ * @param {!Array} moduleInjections
+ * @param {!Function} moduleCallback
+ * @param {string=} opt_extendModule
  */
-SUI.App.prototype.controller = function(name, injections, callback, opt_extend) {
-  this._module.add(name, injections, callback, opt_extend);
+SUI.App.prototype.controller = function(name, moduleInjections, moduleCallback, opt_extendModule) {
+  this._module.add(name, moduleInjections, moduleCallback, opt_extendModule);
 };
 
 /**
  * @param {string} name
- * @param {!Array} injections
- * @param {!Function} callback
- * @param {string=} opt_extend
+ * @param {!Array} moduleInjections
+ * @param {!Function} moduleCallback
+ * @param {string=} opt_extendModule
  */
-SUI.App.prototype.service = function(name, injections, callback, opt_extend) {
-  this._module.add(name, injections, callback, opt_extend);
+SUI.App.prototype.service = function(name, moduleInjections, moduleCallback, opt_extendModule) {
+  this._module.add(name, moduleInjections, moduleCallback, opt_extendModule);
 };
 
 /**
  * @param {string} name
- * @param {!Array} injections
- * @param {!Function} callback
- * @param {string=} opt_extend
+ * @param {!Array} moduleInjections
+ * @param {!Function} moduleCallback
+ * @param {string=} opt_extendModule
  */
-SUI.App.prototype.factory = function(name, injections, callback, opt_extend) {
-  this._module.add(name, injections, callback, opt_extend);
+SUI.App.prototype.factory = function(name, moduleInjections, moduleCallback, opt_extendModule) {
+  this._module.add(name, moduleInjections, moduleCallback, opt_extendModule);
 };

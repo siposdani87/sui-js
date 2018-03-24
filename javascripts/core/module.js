@@ -41,30 +41,30 @@ SUI.Module.prototype.getController = function() {
 
 /**
  * @param {string} name
- * @param {!Array} injections
- * @param {!Function} callback
- * @param {string=} opt_extend
+ * @param {!Array} moduleInjections
+ * @param {!Function} moduleCallback
+ * @param {string=} opt_extendModule
  * @return {undefined}
  */
-SUI.Module.prototype.add = function(name, injections, callback, opt_extend) {
-  this._modules[name] = this._getDependencies(injections, callback, opt_extend);
+SUI.Module.prototype.add = function(name, moduleInjections, moduleCallback, opt_extendModule) {
+  this._modules[name] = this._getDependencies(moduleInjections, moduleCallback, opt_extendModule);
 };
 
 /**
  * @private
- * @param {!Array} injections
- * @param {!Function} callback
- * @param {string=} opt_extend
+ * @param {!Array} moduleInjections
+ * @param {!Function} moduleCallback
+ * @param {string=} opt_extendModule
  * @return {!Object}
  */
-SUI.Module.prototype._getDependencies = function(injections, callback, opt_extend) {
-  if (opt_extend) {
-    injections.push(opt_extend);
+SUI.Module.prototype._getDependencies = function(moduleInjections, moduleCallback, opt_extendModule) {
+  if (opt_extendModule) {
+    moduleInjections.push(opt_extendModule);
   }
   return {
-    injections: injections,
-    callback: callback,
-    extend: opt_extend,
+    moduleInjections: moduleInjections,
+    moduleCallback: moduleCallback,
+    extendModule: opt_extendModule,
   };
 };
 
@@ -74,17 +74,22 @@ SUI.Module.prototype._getDependencies = function(injections, callback, opt_exten
  * @return {!Object}
  */
 SUI.Module.prototype._resolveDependencies = function(dependency) {
-  let args = [];
-  SUI.each(dependency.injections, function(injection) {
-    args.push(this._instances[injection]);
-  }.bind(this));
+  let moduleArgs = [];
+  SUI.each(dependency.moduleInjections, (injection) => {
+    moduleArgs.push(this._instances[injection]);
+  });
 
   let extendCallback;
-  if (this._modules[dependency.extend]) {
-    extendCallback = this._modules[dependency.extend].callback;
+  let extendArgs;
+  if (this._modules[dependency.extendModule]) {
+    extendCallback = this._modules[dependency.extendModule].moduleCallback;
+    extendArgs = [];
+    SUI.each(this._modules[dependency.extendModule].moduleInjections, (injection) => {
+      extendArgs.push(this._instances[injection]);
+    });
   }
 
-  return SUI.invoke(dependency.callback, args, extendCallback);
+  return SUI.invoke(dependency.moduleCallback, moduleArgs, extendCallback, extendArgs);
 };
 
 /**
@@ -97,7 +102,7 @@ SUI.Module.prototype._orderServices = function() {
       if (this._services.indexOf(key) === -1) {
         this._services.push(key);
       }
-      let injections = this._modules[key].injections;
+      let injections = this._modules[key].moduleInjections;
       for (let j = 0; j < injections.length; j++) {
         if (this._isModule(injections[j])) {
           if (this._services.indexOf(injections[j]) === -1) {
