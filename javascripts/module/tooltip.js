@@ -109,3 +109,35 @@ SUI.Tooltip.prototype.setMessage = function(opt_message = '') {
     this.tooltip.setHtml('');
   }
 };
+
+/**
+ * @return {undefined}
+ */
+SUI.Tooltip.prototype.open = function() {
+  this.tooltip.addClass('is-active');
+};
+
+/**
+ * @return {undefined}
+ */
+SUI.Tooltip.prototype.close = function() {
+  this.tooltip.removeClass('is-active');
+};
+
+/**
+ * @return {boolean}
+ */
+SUI.Tooltip.prototype.isOpen = function() {
+  return this.tooltip.hasClass('is-active');
+};
+
+/**
+ * @return {undefined}
+ */
+SUI.Tooltip.prototype.toggle = function() {
+  if (this.isOpen()) {
+    this.close();
+  } else {
+    this.open();
+  }
+};
