@@ -12,6 +12,12 @@ body {
     box-sizing: border-box;
 }
 
+* {
+    &:focus {
+        outline: none;
+    }
+}
+
 body {
     font-size: $font-size-base;
     /* 16 * 1rem = 16px */
@@ -39,9 +45,6 @@ a {
     &:hover {
         color: $primary-dark;
         text-decoration: none;
-    }
-    &:focus {
-        outline: none;
     }
 }
 

@@ -26,13 +26,13 @@
     "sui-externs": "file:../sui-externs"
   },
   "devDependencies": {
-    "eslint": "4.19.0",
+    "eslint": "4.19.1",
     "eslint-config-google": "0.9.1",
-    "google-closure-compiler": "20180204.0.0",
+    "google-closure-compiler": "20180319.0.0",
     "gulp": "3.9.1",
     "gulp-cli": "2.0.1",
     "gulp-insert": "0.5.0",
-    "gulp-sass": "3.1.0",
+    "gulp-sass": "3.2.1",
     "merge-stream": "1.0.1",
     "object-assign": "4.1.1",
     "readdirsync2": "1.0.2"
