@@ -43,7 +43,7 @@ SUI.TabPanel.prototype._initTabs = function() {
     tab.setData('panel', panelId);
     tab.setAttribute('href', 'javascript:void(0)');
     tab.addEventListener('click', (tabNode) => {
-      const panelId = tab.getData('panel');
+      let panelId = tab.getData('panel');
       this.setActive(panelId);
     });
   });

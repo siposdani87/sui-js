@@ -46,7 +46,7 @@ SUI.Router.prototype.stringify = function(opt_params) {
   if (opt_params) {
     for (let key in opt_params) {
       if (opt_params.hasOwnProperty(key)) {
-        const param = opt_params[key];
+        let param = opt_params[key];
         let regex = new RegExp('[:*]' + key + '\\b');
         if (regex.test(route)) {
           route = route.replace(regex, param);
@@ -118,10 +118,10 @@ SUI.Router.prototype._parseParams = function(url) {
       if (parts.length < 2) {
         parts.push('');
       }
-      const key = window.decodeURIComponent(parts[0]);
-      const value = SUI.typeCast(window.decodeURIComponent(parts[1].replace('&&', '==')));
+      let key = window.decodeURIComponent(parts[0]);
+      let value = SUI.typeCast(window.decodeURIComponent(parts[1].replace('&&', '==')));
       if (SUI.contain(key, '[]')) {
-        const realKey = key.replace('[]', '');
+        let realKey = key.replace('[]', '');
         if (!SUI.isArray(params[realKey])) {
           params[realKey] = [value];
         } else {
