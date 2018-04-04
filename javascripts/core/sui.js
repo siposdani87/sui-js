@@ -569,8 +569,8 @@ SUI.contain = function(str, subStr) {
  * @return {boolean}
  */
 SUI.isSame = function(a, b) {
-  const strA = JSON.stringify(a);
-  const strB = JSON.stringify(b);
+  let strA = JSON.stringify(a);
+  let strB = JSON.stringify(b);
   if (SUI.isObject(a) && SUI.isObject(b) && SUI.eq(strA.length, strB.length)) {
     let result = true;
     SUI.eachObject(/** @type {!Object} */ (a), (value, key) => {
@@ -982,9 +982,9 @@ SUI.getExtensionName = function(url) {
  * @return {!Array}
  */
 SUI.hexColorToRGB = function(hexColor) {
-  const red = parseInt(hexColor.substr(1, 2), 16);
-  const green = parseInt(hexColor.substr(3, 2), 16);
-  const blue = parseInt(hexColor.substr(5, 2), 16);
+  let red = parseInt(hexColor.substr(1, 2), 16);
+  let green = parseInt(hexColor.substr(3, 2), 16);
+  let blue = parseInt(hexColor.substr(5, 2), 16);
   return [red, green, blue];
 };
 
@@ -995,8 +995,8 @@ SUI.hexColorToRGB = function(hexColor) {
  * @return {string}
  */
 SUI.colorContrastYIQ = function(hexColor, opt_lightColor = '#FEFEFE', opt_darkColor = '#252525') {
-  const colors = SUI.hexColorToRGB(hexColor);
-  const yiq = ((colors[0] * 299) + (colors[1] * 587) + (colors[2] * 114)) / 1000;
+  let colors = SUI.hexColorToRGB(hexColor);
+  let yiq = ((colors[0] * 299) + (colors[1] * 587) + (colors[2] * 114)) / 1000;
   return yiq >= 128 ? opt_darkColor : opt_lightColor;
 };
 
@@ -1006,7 +1006,7 @@ SUI.colorContrastYIQ = function(hexColor, opt_lightColor = '#FEFEFE', opt_darkCo
  * @return {string}
  */
 SUI.colorContrast = function(hexColor, opt_diff = .5) {
-  const colors = SUI.hexColorToRGB(hexColor);
+  let colors = SUI.hexColorToRGB(hexColor);
   let i = 0;
   while (i < colors.length) {
     colors[i] += (colors[i] * opt_diff);

@@ -126,7 +126,7 @@ SUI.Pager.prototype._drawPageNumbers = function() {
         pageNode.addClass('mdl-button--accent');
       }
       pageNode.addEventListener('click', (node) => {
-        const page = node.getData('page');
+        let page = node.getData('page');
         this._go(page);
       });
       SUI.mdl(pageNode);
