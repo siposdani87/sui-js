@@ -187,7 +187,7 @@ SUI.lib.Notification.prototype.addError = function(message, opt_duration = 0, op
 };
 
 /**
- * @param {!{type: string, content: string, closable: boolean}} message
+ * @param {{type: string, content: string, closable: boolean}} message
  * @param {number=} opt_duration
  * @param {?Function=} opt_closeCallback
  * @param {string=} opt_id
