@@ -46,7 +46,7 @@ SUI.widget.Radiobutton.prototype._triggerClick = function() {
   this.modelChange(value);
   this.checkValidity();
 
-  const name = this.input.getAttribute('name');
+  let name = this.input.getAttribute('name');
   let radioButtonInputs = new SUI.Query(SUI.format('input[name="{0}"]', [name]), this.form.formNode);
   radioButtonInputs.each((radioButtonInput) => {
     let labelNode = radioButtonInput.getParent();
@@ -98,7 +98,7 @@ SUI.widget.Radiobutton.prototype.setValue = function(value) {
  */
 SUI.widget.Radiobutton.prototype.getValue = function() {
   let value = null;
-  const name = this.input.getAttribute('name');
+  let name = this.input.getAttribute('name');
   let radioButtonInputs = new SUI.Query(SUI.format('input[name="{0}"]', [name]), this.form.formNode);
   radioButtonInputs.each((radioButtonInput) => {
     let checked = radioButtonInput.getNode().checked;
