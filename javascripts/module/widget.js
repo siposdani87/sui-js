@@ -22,6 +22,9 @@ SUI.Widget = function(input, opt_label, opt_error, opt_inputBlock, opt_form) {
   if (this.error) {
     this.errorTooltip = new SUI.Tooltip(this.error);
   }
+
+  this._initInfo();
+  this._initLabel();
 };
 
 /**
@@ -148,7 +151,7 @@ SUI.Widget.prototype.get = function(attribute) {
 /**
  * @return {boolean}
  */
-SUI.Widget.prototype.getRequired = function() {
+SUI.Widget.prototype.isRequired = function() {
   return this.input.getNode().required;
 };
 
@@ -164,7 +167,7 @@ SUI.Widget.prototype.setRequired = function(state) {
 /**
  * @return {boolean}
  */
-SUI.Widget.prototype.getDisabled = function() {
+SUI.Widget.prototype.isDisabled = function() {
   return this.input.getNode().disabled;
 };
 
@@ -182,7 +185,7 @@ SUI.Widget.prototype.setDisabled = function(state) {
  * @return {undefined}
  */
 SUI.Widget.prototype._initInfo = function() {
-  if (this.label) {
+  if (this.label && this.label.exists()) {
     let title = this.label.getAttribute('title');
     let description = this.label.getAttribute('desc');
     if (title || description) {
@@ -194,6 +197,21 @@ SUI.Widget.prototype._initInfo = function() {
       infoButton.setHtml('info_outline');
       this.inputBlock.appendChild(infoButton);
       new SUI.Tooltip(infoButton, '', 'LEFT');
+    }
+  }
+};
+
+/**
+ * @protected
+ * @return {undefined}
+ */
+SUI.Widget.prototype._initLabel = function() {
+  if (this.label && this.label.exists() && this.isRequired()) {
+    let requiredPostfix = ' *';
+    let labelText = this.label.getHtml(true);
+    if (labelText.substr(labelText.length - requiredPostfix.length) !== requiredPostfix){
+      labelText += requiredPostfix;
+      this.label.setHtml(labelText);
     }
   }
 };

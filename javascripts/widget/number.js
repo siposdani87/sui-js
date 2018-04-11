@@ -25,7 +25,6 @@ goog.inherits(SUI.widget.Number, SUI.Widget);
  */
 SUI.widget.Number.prototype._init = function() {
   this.inputBlock.addClass('number-widget');
-  this._initInfo();
 
   this._initButtons();
 

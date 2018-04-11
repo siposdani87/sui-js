@@ -25,7 +25,6 @@ goog.inherits(SUI.widget.Url, SUI.Widget);
  */
 SUI.widget.Url.prototype._init = function() {
   this.inputBlock.addClass('url-widget');
-  this._initInfo();
 
   this.protocol = this.input.getData('protocol');
 

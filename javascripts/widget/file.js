@@ -26,7 +26,6 @@ goog.inherits(SUI.widget.File, SUI.Widget);
  */
 SUI.widget.File.prototype._init = function() {
   this.inputBlock.addClass('file-widget');
-  this._initInfo();
 
   this.defaultSrc = null;
 
