@@ -21,7 +21,7 @@
   "dependencies": {
     "crypto-js": "3.1.9-1",
     "material-design-lite": "1.3.0",
-    "moment": "2.22.0",
+    "moment": "2.22.1",
     "normalize.css": "8.0.0",
     "sui-externs": "file:../sui-externs"
   },
