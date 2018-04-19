@@ -49,7 +49,7 @@ SUI.lib.Notification.prototype._setOptions = function(opt_options) {
 SUI.lib.Notification.prototype._getNotificationNode = function(type, message, opt_duration = 0, opt_closeCallback = null, opt_id = '') {
   let notificationNode = this.container.createElement('div');
   if (opt_id) {
-    notificationNode.setData('id', opt_id);
+    notificationNode.setAttribute('data-id', opt_id);
   }
   notificationNode.addClass(['notification', type]);
   notificationNode.setHtml(message);
