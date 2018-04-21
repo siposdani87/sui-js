@@ -30,7 +30,6 @@ goog.inherits(SUI.widget.Select, SUI.Widget);
  */
 SUI.widget.Select.prototype._init = function() {
   this.isMultiple = !!this.input.getAttribute('multiple');
-  this.isRequired = !!this.input.getAttribute('required');
 
   this.inputBlock.addClass('select-widget');
   this.query = '';
@@ -202,7 +201,7 @@ SUI.widget.Select.prototype._change = function(opt_force = false) {
  * @return {undefined}
  */
 SUI.widget.Select.prototype._setSelectInput = function(ids) {
-  if (this.isRequired && ids.length === 1 && ids[0] === '') {
+  if (this.isRequired() && ids.length === 1 && ids[0] === '') {
     this.inputBlock.addClass('is-invalid');
   }
   if (this.isMultiple) {
@@ -219,7 +218,7 @@ SUI.widget.Select.prototype._setSelectInput = function(ids) {
  */
 SUI.widget.Select.prototype._setSimpleInput = function(id) {
   let item = this.options.findById(id);
-  // if (this.isRequired) {
+  // if (this.isRequired()) {
     this._setTags(item);
   // } else {
     // if (id) {
@@ -245,7 +244,7 @@ SUI.widget.Select.prototype._setMultipleInput = function(ids) {
   });
   if (SUI.neq(items.length, 0)) {
     this._setTags(items);
-  } else if (this.isRequired) {
+  } else if (this.isRequired()) {
     let item = this.options.get(0);
     this._setTags(item);
   } else if (SUI.eq(ids.length, 0)) {
