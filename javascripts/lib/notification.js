@@ -49,7 +49,7 @@ SUI.lib.Notification.prototype._setOptions = function(opt_options) {
 SUI.lib.Notification.prototype._getNotificationNode = function(type, message, opt_duration = 0, opt_closeCallback = null, opt_id = '') {
   let notificationNode = this.container.createElement('div');
   if (opt_id) {
-    notificationNode.setData('id', opt_id);
+    notificationNode.setAttribute('data-id', opt_id);
   }
   notificationNode.addClass(['notification', type]);
   notificationNode.setHtml(message);
@@ -191,13 +191,14 @@ SUI.lib.Notification.prototype.addError = function(message, opt_duration = 0, op
  * @param {number=} opt_duration
  * @param {?Function=} opt_closeCallback
  * @param {string=} opt_id
- * @return {undefined}
+ * @return {!SUI.Node|null}
  */
 SUI.lib.Notification.prototype.addMessage = function(message, opt_duration = 0, opt_closeCallback = null, opt_id = '') {
   if (SUI.isObject(message)) {
     let closeCallback = message['closable'] ? SUI.noop : opt_closeCallback;
-    this._add(message['type'], message['content'], opt_duration, closeCallback, opt_id);
+    return this._add(message['type'], message['content'], opt_duration, closeCallback, opt_id);
   }
+  return null;
 };
 
 /**

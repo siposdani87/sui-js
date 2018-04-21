@@ -25,7 +25,6 @@ goog.inherits(SUI.widget.Text, SUI.Widget);
  */
 SUI.widget.Text.prototype._init = function() {
   this.inputBlock.addClass('text-widget');
-  this._initInfo();
 
   this.input.addEventListener('keyup', (input) => {
     let inputNode = input.getNode();
