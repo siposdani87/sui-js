@@ -28,11 +28,11 @@
   "devDependencies": {
     "eslint": "4.19.1",
     "eslint-config-google": "0.9.1",
-    "google-closure-compiler": "20180402.0.0",
+    "google-closure-compiler": "20180506.0.0",
     "gulp": "3.9.1",
     "gulp-cli": "2.0.1",
     "gulp-insert": "0.5.0",
-    "gulp-sass": "4.0.0",
+    "gulp-sass": "4.0.1",
     "merge-stream": "1.0.1",
     "object-assign": "4.1.1",
     "readdirsync2": "1.0.2"
