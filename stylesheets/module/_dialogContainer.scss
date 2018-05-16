@@ -2,7 +2,7 @@
   z-index: $zindex-dialog-container;
   animation-name: slideInDown;
   animation-duration: 1s;
-  max-width: 500px;
+  max-width: 520px;
   background-color: $white;
   color: $black;
   //background-color: rgba($brown, .8);
@@ -13,6 +13,7 @@
 
   h1 {
     margin-top: 0;
+    margin-right: 25px;
     font-size: $font-size-h3;
 
     img {
