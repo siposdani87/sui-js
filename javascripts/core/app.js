@@ -52,6 +52,7 @@ SUI.App = function(options, resources) {
 SUI.App.prototype._setOptions = function(options) {
   let _self = this;
   _self.options = new SUI.Object({
+    app_id: 'sui-app',
     title: '',
     backend: '',
     development: false,
@@ -69,15 +70,14 @@ SUI.App.prototype._init = function(resources) {
   let rootNode = new SUI.Query('html').getItem();
   rootNode.addClass('sui-js');
 
-  let language = this._getLanguage();
-  window['moment']['locale'](language);
+  let locale = this.getLocale();
+  window['moment']['locale'](locale);
 
   this.types = {};
-
   this._injections = resources;
-
   this._instances = {};
 
+  this._initApp();
   this._initRoutes();
   this._initModule();
   this._initEvent();
@@ -114,11 +114,32 @@ SUI.App.prototype._init = function(resources) {
 };
 
 /**
- * @private
  * @return {string}
  */
-SUI.App.prototype._getLanguage = function() {
-  return this.options.locale.split('-', 2)[0];
+SUI.App.prototype.getLanguage = function() {
+  let locale = this.getLocale();
+  return locale.split('-', 2)[0];
+};
+
+/**
+ * @return {string}
+ */
+SUI.App.prototype.getLocale = function() {
+  let locale = this._instances[this._injections.localStorage].get('app.locale');
+  if (!locale) {
+    locale = this.options.locale;
+  }
+  return locale;
+};
+
+/**
+ * @param {string} locale
+ * @return {undefined}
+ */
+SUI.App.prototype.setLocale = function(locale) {
+  this._instances[this._injections.localStorage].set('app.locale', locale);
+  this.options.locale = locale;
+  this._instances[this._injections.state].reload();
 };
 
 /**
@@ -126,7 +147,7 @@ SUI.App.prototype._getLanguage = function() {
  * @return {undefined}
  */
 SUI.App.prototype._initModule = function() {
-  this._module = new SUI.Module(this);
+  this._module = new SUI.Module();
 
   this._module.eventAfterInit = function() {
     this._instances[this._injections.progressBar].lock();
@@ -218,6 +239,14 @@ SUI.App.prototype._initConfig = function() {
  * @private
  * @return {undefined}
  */
+SUI.App.prototype._initApp = function() {
+  this._instances[this._injections.app] = this;
+};
+
+/**
+ * @private
+ * @return {undefined}
+ */
 SUI.App.prototype._initGeoLocation = function() {
   this._instances[this._injections.geoLocation] = new SUI.lib.GeoLocation();
 
@@ -266,10 +295,12 @@ SUI.App.prototype._initProgressBar = function() {
 SUI.App.prototype._initStorage = function() {
   this._instances[this._injections.localStorage] = new SUI.lib.Storage({
     type: 'local',
+    prefix: this.options.app_id,
     secret: this.options.secret,
   });
   this._instances[this._injections.sessionStorage] = new SUI.lib.Storage({
     type: 'session',
+    prefix: this.options.app_id,
     secret: this.options.secret,
   });
 };
