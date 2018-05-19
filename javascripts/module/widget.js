@@ -209,7 +209,7 @@ SUI.Widget.prototype._initLabel = function() {
   if (this.label && this.label.exists() && this.isRequired()) {
     let requiredPostfix = ' *';
     let labelText = this.label.getHtml(true);
-    if (labelText.substr(labelText.length - requiredPostfix.length) !== requiredPostfix){
+    if (labelText.substr(labelText.length - requiredPostfix.length) !== requiredPostfix) {
       labelText += requiredPostfix;
       this.label.setHtml(labelText);
     }

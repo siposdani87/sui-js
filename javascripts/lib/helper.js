@@ -97,7 +97,7 @@ SUI.lib.Helper.prototype.linkElement = function(linkNode, opt_callback, opt_desc
  * @param {!Array=} opt_cssClasses
  * @return {undefined}
  */
-SUI.lib.Helper.prototype.createButton = function(name, parentNode, callback, opt_description = '', opt_allowAccess = true, opt_cssClasses = ['mdl-button--primary', 'mdl-button--fab']) {
+SUI.lib.Helper.prototype.createButton = function(name, parentNode, callback, opt_description = '', opt_allowAccess = true, opt_cssClasses = ['mdl-button--primary']) {
   let buttonNode = new SUI.Node('button');
   buttonNode.setHtml(name);
   parentNode.appendChild(buttonNode);
@@ -110,7 +110,7 @@ SUI.lib.Helper.prototype.createButton = function(name, parentNode, callback, opt
  * @param {!Array=} opt_cssClasses
  * @return {undefined}
  */
-SUI.lib.Helper.prototype.multipleButton = function(selector, dom, opt_cssClasses = ['mdl-button--accent', 'mdl-button--fab', 'mdl-button--mini-fab']) {
+SUI.lib.Helper.prototype.multipleButton = function(selector, dom, opt_cssClasses = ['mdl-button--primary']) {
   let buttonNodes = new SUI.Query(selector, dom);
   buttonNodes.each((buttonNode) => {
     this.buttonElement(buttonNode, undefined, undefined, true, opt_cssClasses);
@@ -126,7 +126,7 @@ SUI.lib.Helper.prototype.multipleButton = function(selector, dom, opt_cssClasses
  * @param {!Array=} opt_cssClasses
  * @return {undefined}
  */
-SUI.lib.Helper.prototype.button = function(selector, dom, callback, opt_description = '', opt_allowAccess = true, opt_cssClasses = ['mdl-button--primary', 'mdl-button--fab']) {
+SUI.lib.Helper.prototype.button = function(selector, dom, callback, opt_description = '', opt_allowAccess = true, opt_cssClasses = ['mdl-button--primary']) {
   let buttonNode = new SUI.Query(selector, dom).getItem();
   this.buttonElement(buttonNode, callback, opt_description, opt_allowAccess, opt_cssClasses);
 };
@@ -139,7 +139,7 @@ SUI.lib.Helper.prototype.button = function(selector, dom, callback, opt_descript
  * @param {!Array=} opt_cssClasses
  * @return {undefined}
  */
-SUI.lib.Helper.prototype.buttonElement = function(buttonNode, opt_callback, opt_description = '', opt_allowAccess = true, opt_cssClasses = ['mdl-button--primary', 'mdl-button--fab']) {
+SUI.lib.Helper.prototype.buttonElement = function(buttonNode, opt_callback, opt_description = '', opt_allowAccess = true, opt_cssClasses = ['mdl-button--primary']) {
   if (!buttonNode.isEmpty()) {
     if (opt_allowAccess) {
       if (!buttonNode.getId()) {
