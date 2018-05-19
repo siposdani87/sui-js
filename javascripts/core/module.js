@@ -5,10 +5,8 @@ goog.require('SUI');
 /**
  * @constructor
  * @this {SUI.Module}
- * @param {!SUI.App} app
  */
-SUI.Module = function(app) {
-  this._app = app;
+SUI.Module = function() {
   this._modules = {};
   this._instances = {};
   this._injections = {};

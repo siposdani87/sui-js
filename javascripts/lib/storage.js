@@ -13,6 +13,7 @@ SUI.lib.Storage = function(options) {
   let _self = this;
   _self.options = new SUI.Object({
     type: 'local',
+    prefix: 'app',
     secret: '',
     hours: 24 * 7,
     interval: 60 * 1000,
@@ -36,6 +37,26 @@ SUI.lib.Storage.prototype._init = function() {
 };
 
 /**
+ * @private
+ * @param {string} name
+ * @return {string}
+ */
+SUI.lib.Storage.prototype._getPropertyName = function(name) {
+  return [this.options.prefix, name].join('.');
+};
+
+/**
+ * @private
+ * @param {string} propertyName
+ * @return {string}
+ */
+SUI.lib.Storage.prototype._getName = function(propertyName) {
+  let parts = propertyName.split('.');
+  parts.shift();
+  return parts.join('.');
+};
+
+/**
  * @param {string} name
  * @param {*} value
  * @param {string|number|boolean|!Date=} opt_expires
@@ -44,7 +65,8 @@ SUI.lib.Storage.prototype._init = function() {
 SUI.lib.Storage.prototype.set = function(name, value, opt_expires) {
   let expires = this._getExpires(opt_expires);
   let encrypted = expires + ';' + SUI.encrypt(value, this.options.secret);
-  this.storage.setItem(name, encrypted);
+  let propertyName = this._getPropertyName(name);
+  this.storage.setItem(propertyName, encrypted);
 };
 
 /**
@@ -52,7 +74,8 @@ SUI.lib.Storage.prototype.set = function(name, value, opt_expires) {
  * @return {*}
  */
 SUI.lib.Storage.prototype.get = function(name) {
-  let item = this.storage.getItem(name);
+  let propertyName = this._getPropertyName(name);
+  let item = this.storage.getItem(propertyName);
   let result = null;
   if (item && item.indexOf(';') !== -1) {
     let encrypted = item.split(';', 2)[1] || SUI.encrypt(null, this.options.secret);
@@ -67,7 +90,8 @@ SUI.lib.Storage.prototype.get = function(name) {
  * @return {undefined}
  */
 SUI.lib.Storage.prototype.remove = function(name) {
-  this.storage.removeItem(name);
+  let propertyName = this._getPropertyName(name);
+  this.storage.removeItem(propertyName);
 };
 
 /**
@@ -82,8 +106,9 @@ SUI.lib.Storage.prototype.clear = function() {
  * @return {undefined}
  */
 SUI.lib.Storage.prototype._checkExpires = function() {
-  let keys = Object.keys(this.storage);
-  SUI.eachArray(keys, (name) => {
+  let properyNames = Object.keys(this.storage);
+  SUI.eachArray(properyNames, (properyName) => {
+    let name = this._getName(properyName);
     let isExpired = this._isExpired(name);
     if (isExpired) {
       this.remove(name);
@@ -108,7 +133,8 @@ SUI.lib.Storage.prototype._isExpired = function(name) {
  * @return {?Date}
  */
 SUI.lib.Storage.prototype._getExpiresDate = function(name) {
-  let item = this.storage.getItem(name);
+  let propertyName = this._getPropertyName(name);
+  let item = this.storage.getItem(propertyName);
   if (item) {
     let utcString = item.split(';', 2)[0];
     return new Date(utcString);
