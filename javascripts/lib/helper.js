@@ -38,14 +38,12 @@ SUI.lib.Helper.prototype.createLink = function(name, parentNode, callback, opt_d
 /**
  * @param {string} selector
  * @param {!SUI.Node} dom
- * @param {string=} opt_description
- * @param {boolean=} opt_allowAccess
  * @return {undefined}
  */
-SUI.lib.Helper.prototype.multipleLink = function(selector, dom, opt_description = '', opt_allowAccess = true) {
+SUI.lib.Helper.prototype.multipleLink = function(selector, dom) {
   let linkNodes = new SUI.Query(selector, dom);
   linkNodes.each((linkNode) => {
-    this.linkElement(linkNode, undefined, opt_description, opt_allowAccess);
+    this.linkElement(linkNode);
   });
 };
 
@@ -109,15 +107,13 @@ SUI.lib.Helper.prototype.createButton = function(name, parentNode, callback, opt
 /**
  * @param {string} selector
  * @param {!SUI.Node} dom
- * @param {string=} opt_description
- * @param {boolean=} opt_allowAccess
  * @param {!Array=} opt_cssClasses
  * @return {undefined}
  */
-SUI.lib.Helper.prototype.multipleButton = function(selector, dom, opt_description = '', opt_allowAccess = true, opt_cssClasses = ['mdl-button--accent', 'mdl-button--fab', 'mdl-button--mini-fab']) {
+SUI.lib.Helper.prototype.multipleButton = function(selector, dom, opt_cssClasses = ['mdl-button--accent', 'mdl-button--fab', 'mdl-button--mini-fab']) {
   let buttonNodes = new SUI.Query(selector, dom);
   buttonNodes.each((buttonNode) => {
-    this.buttonElement(buttonNode, undefined, opt_description, opt_allowAccess, opt_cssClasses);
+    this.buttonElement(buttonNode, undefined, undefined, true, opt_cssClasses);
   });
 };
 
@@ -179,15 +175,13 @@ SUI.lib.Helper.prototype.createIconButton = function(iconName, parentNode, callb
 /**
  * @param {string} selector
  * @param {!SUI.Node} dom
- * @param {string=} opt_description
- * @param {boolean=} opt_allowAccess
  * @param {!Array=} opt_cssClasses
  * @return {undefined}
  */
-SUI.lib.Helper.prototype.multipleIconButton = function(selector, dom, opt_description = '', opt_allowAccess = true, opt_cssClasses = ['mdl-button--accent', 'mdl-button--fab', 'mdl-button--mini-fab']) {
+SUI.lib.Helper.prototype.multipleIconButton = function(selector, dom, opt_cssClasses = ['mdl-button--accent', 'mdl-button--fab', 'mdl-button--mini-fab']) {
   let buttonNodes = new SUI.Query(selector, dom);
   buttonNodes.each((buttonNode) => {
-    this.iconButtonElement(buttonNode, undefined, opt_description, opt_allowAccess, opt_cssClasses);
+    this.iconButtonElement(buttonNode, undefined, undefined, true, opt_cssClasses);
   });
 };
 
