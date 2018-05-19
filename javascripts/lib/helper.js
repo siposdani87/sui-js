@@ -18,45 +18,107 @@ SUI.lib.Helper = function() {
  */
 SUI.lib.Helper.prototype._init = function() {
 
+};
 
+/**
+ * @param {string} name
+ * @param {!SUI.Node} parentNode
+ * @param {!Function} callback
+ * @param {string=} opt_description
+ * @param {boolean=} opt_allowAccess
+ * @return {undefined}
+ */
+SUI.lib.Helper.prototype.createLink = function(name, parentNode, callback, opt_description = '', opt_allowAccess = true) {
+  let linkNode = new SUI.Node('a');
+  linkNode.setHtml(name);
+  parentNode.appendChild(linkNode);
+  this.linkElement(linkNode, callback, opt_description, opt_allowAccess);
 };
 
 /**
  * @param {string} selector
  * @param {!SUI.Node} dom
- * @param {!Function} callback
  * @param {string=} opt_description
  * @param {boolean=} opt_allowAccess
  * @return {undefined}
  */
-SUI.lib.Helper.prototype.link = function(selector, dom, callback, opt_description = '', opt_allowAccess = true) {
+SUI.lib.Helper.prototype.multipleLink = function(selector, dom, opt_description = '', opt_allowAccess = true) {
+  let linkNodes = new SUI.Query(selector, dom);
+  linkNodes.each((linkNode) => {
+    this.linkElement(linkNode, undefined, opt_description, opt_allowAccess);
+  });
+};
+
+/**
+ * @param {string} selector
+ * @param {!SUI.Node} dom
+ * @param {!Function=} opt_callback
+ * @param {string=} opt_description
+ * @param {boolean=} opt_allowAccess
+ * @return {undefined}
+ */
+SUI.lib.Helper.prototype.link = function(selector, dom, opt_callback, opt_description = '', opt_allowAccess = true) {
   let linkNode = new SUI.Query(selector, dom).getItem();
-  this.linkElement(linkNode, callback, opt_description, opt_allowAccess);
+  this.linkElement(linkNode, opt_callback, opt_description, opt_allowAccess);
 };
 
 /**
  * @param {!SUI.Node} linkNode
- * @param {!Function} callback
+ * @param {!Function=} opt_callback
  * @param {string=} opt_description
  * @param {boolean=} opt_allowAccess
  * @return {undefined}
  */
-SUI.lib.Helper.prototype.linkElement = function(linkNode, callback, opt_description = '', opt_allowAccess = true) {
+SUI.lib.Helper.prototype.linkElement = function(linkNode, opt_callback, opt_description = '', opt_allowAccess = true) {
   if (!linkNode.isEmpty()) {
     if (opt_allowAccess) {
       if (!linkNode.getId()) {
         linkNode.setId(SUI.generateId('link'));
-        let href = linkNode.getAttribute('href');
-        linkNode.setAttribute('href', 'javascript:void(0)');
-        linkNode.addEventListener('click', function() {
-          callback(href);
-        });
+        if (opt_callback) {
+          let href = linkNode.getAttribute('href');
+          linkNode.setAttribute('href', 'javascript:void(0)');
+          linkNode.addEventListener('click', function() {
+            opt_callback(href);
+          });
+        }
         new SUI.Tooltip(linkNode, opt_description);
+        SUI.mdl(linkNode);
       }
     } else {
       linkNode.remove();
     }
   }
+};
+
+/**
+ * @param {string} name
+ * @param {!SUI.Node} parentNode
+ * @param {!Function} callback
+ * @param {string=} opt_description
+ * @param {boolean=} opt_allowAccess
+ * @param {!Array=} opt_cssClasses
+ * @return {undefined}
+ */
+SUI.lib.Helper.prototype.createButton = function(name, parentNode, callback, opt_description = '', opt_allowAccess = true, opt_cssClasses = ['mdl-button--primary', 'mdl-button--fab']) {
+  let buttonNode = new SUI.Node('button');
+  buttonNode.setHtml(name);
+  parentNode.appendChild(buttonNode);
+  this.buttonElement(buttonNode, callback, opt_description, opt_allowAccess, opt_cssClasses);
+};
+
+/**
+ * @param {string} selector
+ * @param {!SUI.Node} dom
+ * @param {string=} opt_description
+ * @param {boolean=} opt_allowAccess
+ * @param {!Array=} opt_cssClasses
+ * @return {undefined}
+ */
+SUI.lib.Helper.prototype.multipleButton = function(selector, dom, opt_description = '', opt_allowAccess = true, opt_cssClasses = ['mdl-button--accent', 'mdl-button--fab', 'mdl-button--mini-fab']) {
+  let buttonNodes = new SUI.Query(selector, dom);
+  buttonNodes.each((buttonNode) => {
+    this.buttonElement(buttonNode, undefined, opt_description, opt_allowAccess, opt_cssClasses);
+  });
 };
 
 /**
@@ -68,23 +130,65 @@ SUI.lib.Helper.prototype.linkElement = function(linkNode, callback, opt_descript
  * @param {!Array=} opt_cssClasses
  * @return {undefined}
  */
-SUI.lib.Helper.prototype.button = function(selector, dom, callback, opt_description = '', opt_allowAccess = true, opt_cssClasses = ['mdl-button--raised', 'mdl-button--primary']) {
+SUI.lib.Helper.prototype.button = function(selector, dom, callback, opt_description = '', opt_allowAccess = true, opt_cssClasses = ['mdl-button--primary', 'mdl-button--fab']) {
   let buttonNode = new SUI.Query(selector, dom).getItem();
+  this.buttonElement(buttonNode, callback, opt_description, opt_allowAccess, opt_cssClasses);
+};
+
+/**
+ * @param {!SUI.Node} buttonNode
+ * @param {!Function=} opt_callback
+ * @param {string=} opt_description
+ * @param {boolean=} opt_allowAccess
+ * @param {!Array=} opt_cssClasses
+ * @return {undefined}
+ */
+SUI.lib.Helper.prototype.buttonElement = function(buttonNode, opt_callback, opt_description = '', opt_allowAccess = true, opt_cssClasses = ['mdl-button--primary', 'mdl-button--fab']) {
   if (!buttonNode.isEmpty()) {
     if (opt_allowAccess) {
       if (!buttonNode.getId()) {
         buttonNode.setId(SUI.generateId('button'));
-        buttonNode.addClass(['mdl-button', 'mdl-js-button', 'mdl-js-ripple-effect'].concat(opt_cssClasses));
-        buttonNode.addEventListener('click', callback);
+        buttonNode.addClass(['mdl-button', 'mdl-js-button', 'mdl-js-ripple-effect', 'mdl-button--raised'].concat(opt_cssClasses));
+        buttonNode.addEventListener('click', opt_callback);
 
         new SUI.Tooltip(buttonNode, opt_description);
-
         SUI.mdl(buttonNode);
       }
     } else {
       buttonNode.remove();
     }
   }
+};
+
+/**
+ * @param {string} iconName
+ * @param {!SUI.Node} parentNode
+ * @param {!Function} callback
+ * @param {string=} opt_description
+ * @param {boolean=} opt_allowAccess
+ * @param {!Array=} opt_cssClasses
+ * @return {undefined}
+ */
+SUI.lib.Helper.prototype.createIconButton = function(iconName, parentNode, callback, opt_description = '', opt_allowAccess = true, opt_cssClasses = ['mdl-button--accent', 'mdl-button--fab', 'mdl-button--mini-fab']) {
+  let buttonNode = new SUI.Node('button');
+  this._createIconNode(iconName, buttonNode);
+  parentNode.appendChild(buttonNode);
+  this.iconButtonElement(buttonNode, callback, opt_description, opt_allowAccess, opt_cssClasses);
+};
+
+/**
+ * @param {string} selector
+ * @param {!SUI.Node} dom
+ * @param {string=} opt_description
+ * @param {boolean=} opt_allowAccess
+ * @param {!Array=} opt_cssClasses
+ * @return {undefined}
+ */
+SUI.lib.Helper.prototype.multipleIconButton = function(selector, dom, opt_description = '', opt_allowAccess = true, opt_cssClasses = ['mdl-button--accent', 'mdl-button--fab', 'mdl-button--mini-fab']) {
+  let buttonNodes = new SUI.Query(selector, dom);
+  buttonNodes.each((buttonNode) => {
+    this.iconButtonElement(buttonNode, undefined, opt_description, opt_allowAccess, opt_cssClasses);
+  });
 };
 
 /**
@@ -98,15 +202,26 @@ SUI.lib.Helper.prototype.button = function(selector, dom, callback, opt_descript
  */
 SUI.lib.Helper.prototype.iconButton = function(selector, dom, callback, opt_description = '', opt_allowAccess = true, opt_cssClasses = ['mdl-button--accent', 'mdl-button--fab', 'mdl-button--mini-fab']) {
   let buttonNode = new SUI.Query(selector, dom).getItem();
+  this.iconButtonElement(buttonNode, callback, opt_description, opt_allowAccess, opt_cssClasses);
+};
+
+/**
+ * @param {!SUI.Node} buttonNode
+ * @param {!Function=} opt_callback
+ * @param {string=} opt_description
+ * @param {boolean=} opt_allowAccess
+ * @param {!Array=} opt_cssClasses
+ * @return {undefined}
+ */
+SUI.lib.Helper.prototype.iconButtonElement = function(buttonNode, opt_callback, opt_description = '', opt_allowAccess = true, opt_cssClasses = ['mdl-button--accent', 'mdl-button--fab', 'mdl-button--mini-fab']) {
   if (!buttonNode.isEmpty()) {
     if (opt_allowAccess) {
       if (!buttonNode.getId()) {
         buttonNode.setId(SUI.generateId('button'));
         buttonNode.addClass(['mdl-button', 'mdl-js-button', 'mdl-js-ripple-effect', 'mdl-button--icon'].concat(opt_cssClasses));
-        buttonNode.addEventListener('click', callback);
+        buttonNode.addEventListener('click', opt_callback);
 
         new SUI.Tooltip(buttonNode, opt_description);
-
         SUI.mdl(buttonNode);
       }
     } else {
@@ -116,37 +231,15 @@ SUI.lib.Helper.prototype.iconButton = function(selector, dom, callback, opt_desc
 };
 
 /**
- * @param {string} iconName
- * @param {!SUI.Node} dom
- * @param {!Function} callback
- * @param {string=} opt_description
- * @param {!Array=} opt_cssClasses
- * @return {undefined}
- */
-SUI.lib.Helper.prototype.createIconButton = function(iconName, dom, callback, opt_description = '', opt_cssClasses = ['mdl-button--primary', 'mdl-button--fab', 'mdl-button--mini-fab']) {
-  let buttonNode = new SUI.Node('button');
-  buttonNode.addClass(['mdl-button', 'mdl-js-button', 'mdl-js-ripple-effect', 'mdl-button--icon'].concat(opt_cssClasses));
-  buttonNode.addEventListener('click', callback);
-
-  this.createIconNode(iconName, buttonNode);
-
-  dom.appendChild(buttonNode);
-
-  new SUI.Tooltip(buttonNode, opt_description);
-
-  SUI.mdl(buttonNode);
-};
-
-/**
+ * @private
  * @param {string} iconName
  * @param {!SUI.Node} parentNode
  * @return {undefined}
  */
-SUI.lib.Helper.prototype.createIconNode = function(iconName, parentNode) {
+SUI.lib.Helper.prototype._createIconNode = function(iconName, parentNode) {
   let iconNode = new SUI.Node('em');
   iconNode.addClass('material-icons');
   iconNode.setHtml(iconName);
-
   parentNode.appendChild(iconNode);
 };
 
