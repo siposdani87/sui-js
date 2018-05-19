@@ -107,9 +107,7 @@ SUI.App.prototype._init = function(resources) {
   this._initServiceWorker();
   this._initActionCable();
 
-  let locale = this.getLocale();
-  window['moment']['locale'](locale);
-
+  this._handleLocale();
   this._handleModules();
 };
 
@@ -139,7 +137,25 @@ SUI.App.prototype.getLocale = function() {
 SUI.App.prototype.setLocale = function(locale) {
   this._instances[this._injections.localStorage].set('app.locale', locale);
   this.options.locale = locale;
+};
+
+/**
+ * @param {string} locale
+ * @return {undefined}
+ */
+SUI.App.prototype.setLocaleWithReload = function(locale) {
+  this.setLocale(locale);
   this._instances[this._injections.state].reload();
+};
+
+/**
+ * @private
+ * @return {undefined}
+ */
+SUI.App.prototype._handleLocale = function() {
+  let locale = this.getLocale();
+  window['moment']['locale'](locale);
+  this.setLocale(locale);
 };
 
 /**
