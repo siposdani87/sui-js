@@ -206,17 +206,18 @@ SUI.Node.prototype.removeAttribute = function(attribute) {
 
 /**
  * @param {string} eventName
- * @param {!Function} callback
+ * @param {!Function=} opt_callback
  * @return {!Function}
  */
-SUI.Node.prototype.addEventListener = function(eventName, callback) {
-  let listener = (event) => {
-    // let node = new SUI.Node(/** @type {!Element} */(this));
-    callback(this, event);
-    event.stopPropagation();
-  };
-  this.node.addEventListener(eventName, listener);
-
+SUI.Node.prototype.addEventListener = function(eventName, opt_callback) {
+  let listener = SUI.noop();
+  if (opt_callback) {
+    listener = (event) => {
+      opt_callback(this, event);
+      event.stopPropagation();
+    };
+    this.node.addEventListener(eventName, listener);
+  }
   return listener;
 };
 
@@ -340,7 +341,7 @@ SUI.Node.prototype.insertAfter = function(node) {
  */
 SUI.Node.prototype.getNextSibling = function() {
   let referenceNode = this.node.nextSibling || this.node.nextElementSibling;
-  return new SUI.Node(/** @type {!Element} */ (referenceNode));
+  return new SUI.Node(/** @type {!Element} */(referenceNode));
 };
 
 /**
