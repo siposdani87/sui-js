@@ -70,9 +70,6 @@ SUI.App.prototype._init = function(resources) {
   let rootNode = new SUI.Query('html').getItem();
   rootNode.addClass('sui-js');
 
-  let locale = this.getLocale();
-  window['moment']['locale'](locale);
-
   this.types = {};
   this._injections = resources;
   this._instances = {};
@@ -109,6 +106,9 @@ SUI.App.prototype._init = function(resources) {
   this._initAppCache();
   this._initServiceWorker();
   this._initActionCable();
+
+  let locale = this.getLocale();
+  window['moment']['locale'](locale);
 
   this._handleModules();
 };
