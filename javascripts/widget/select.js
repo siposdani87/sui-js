@@ -140,7 +140,7 @@ SUI.widget.Select.prototype.getValue = function() {
  * @return {undefined}
  */
 SUI.widget.Select.prototype.showLoader = function() {
-  this.iconNode.setHtml('autorenew');
+  this.iconNode.setHtml('refresh');
   this.iconNode.addClass('rotate');
 };
 
