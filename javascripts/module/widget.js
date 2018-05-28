@@ -25,6 +25,7 @@ SUI.Widget = function(input, opt_label, opt_error, opt_inputBlock, opt_form) {
 
   this._setInfo();
   this._setLabel();
+  this._setMutation();
 };
 
 /**
@@ -220,4 +221,28 @@ SUI.Widget.prototype._setLabel = function() {
         this.label.setHtml(labelText);
     }
   }
+};
+
+/**
+ * @private
+ * @return {undefined}
+ */
+SUI.Widget.prototype._setMutation = function() {
+  let observer = new MutationObserver((mutationsList) => {
+    for (let i = 0; i < mutationsList.length; i++) {
+      let mutation = mutationsList[i];
+      if (mutation.attributeName === 'disabled') {
+
+      } else if (mutation.attributeName === 'required') {
+
+      }
+      console.log('mutation: ', mutation);
+    }
+  });
+  // observer.disconnect();
+  observer.observe(this.input.getNode(), {
+    attributeFilter: ['disabled', 'required'],
+    attributes: true,
+    attributeOldValue: true,
+  });
 };
