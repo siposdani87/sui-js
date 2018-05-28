@@ -229,6 +229,7 @@ SUI.Widget.prototype._setLabel = function() {
  */
 SUI.Widget.prototype._setMutation = function() {
   let observer = new MutationObserver((mutationsList) => {
+    console.log(mutationsList);
     for (let i = 0; i < mutationsList.length; i++) {
       let mutation = mutationsList[i];
       if (mutation.attributeName === 'disabled') {
