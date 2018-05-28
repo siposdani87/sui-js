@@ -20,11 +20,11 @@ SUI.lib.TopMenu = function(header) {
 SUI.lib.TopMenu.prototype._init = function() {
   this.topMenu = new SUI.Query('#top-menu', this.header.headerNode).getItem();
 
-  let toggleTopMenu = new SUI.Query('#toggle-top-menu', this.header.headerNode).getItem();
-  toggleTopMenu.setAttribute('href', 'javascript:void(0)');
-  toggleTopMenu.addEventListener('click', function() {
+  this.toggleTopMenu = new SUI.Query('#toggle-top-menu', this.header.headerNode).getItem();
+  this.toggleTopMenu.setAttribute('href', 'javascript:void(0)');
+  this.toggleTopMenu.addEventListener('click', () => {
     this.toggle();
-  }.bind(this));
+  });
 };
 
 /**
@@ -51,6 +51,7 @@ SUI.lib.TopMenu.prototype._isOpened = function() {
 SUI.lib.TopMenu.prototype.open = function() {
   this.header.open();
   this.topMenu.addClass('visible-flex');
+  this.toggleTopMenu.addClass('active');
   this.header.showShadow();
 };
 
@@ -60,6 +61,7 @@ SUI.lib.TopMenu.prototype.open = function() {
 SUI.lib.TopMenu.prototype.close = function() {
   this.header.close();
   this.topMenu.removeClass('visible-flex');
+  this.toggleTopMenu.removeClass('active');
   this.header.hideShadow();
 };
 

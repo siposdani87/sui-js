@@ -28,7 +28,7 @@
 
     &.open{
       display: flex;
-      background-color: $brown;
+      background-color: $primary;
       opacity: .9;
       box-shadow: 0 2px 20px 0 rgba($black, .75);
       border-bottom: none;
@@ -42,7 +42,7 @@
     }
 
     &.shadow {
-      background-color: $brown;
+      background-color: $primary;
       opacity: .9;
       box-shadow: 0 2px 20px 0 rgba($black, .75);
       border-bottom: none;
@@ -69,7 +69,7 @@
 
       @include media-breakpoint-down(sm) {
         justify-content: center;
-        border-bottom: 1px solid $brown-bright;
+        border-bottom: 1px solid $primary-bright;
       }
 
       &:hover {
@@ -79,7 +79,7 @@
         color: $white-dark;
         padding: .5em .8em .3em .8em;
         border-bottom: .2em solid $accent;
-        background-color: $brown-dark;
+        background-color: $primary-dark;
       }
 
       .image {
