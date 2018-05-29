@@ -27,6 +27,9 @@ table {
                     cursor: pointer;
                     white-space: nowrap;
                 }
+                &.actions {
+                    text-align: right;
+                }
                 span {
                     vertical-align: middle;
                     display: inline-flex;
@@ -42,9 +45,6 @@ table {
                             color: $black-bright;
                         }
                     }
-                }
-                &:last-of-type {
-                    text-align: right;
                 }
             }
         }
@@ -153,14 +153,14 @@ table {
             }
             td {
                 padding: 5px 10px;
+                &.actions {
+                    text-align: right;
+                    white-space: nowrap;
+                }
                 .img-wrapper {
                     width: 52px;
                     height: 52px;
                     padding: 2px;
-                }
-                &:last-of-type {
-                    text-align: right;
-                    white-space: nowrap;
                 }
                 .label {
                     display: none;

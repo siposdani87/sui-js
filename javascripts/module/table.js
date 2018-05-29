@@ -66,7 +66,7 @@ SUI.Table.prototype._initSearch = function() {
   if (this.options.columns[this.options.columns.length - 1] === 'search') {
     let searchNode = new SUI.Node('div');
     searchNode.addClass(['mdl-textfield', 'mdl-js-textfield', 'mdl-textfield--expandable']);
-    this.heads.get(this.heads.size() - 1).insert(searchNode);
+    this.headerNodes.get(this.headerNodes.size() - 1).insert(searchNode);
 
     let labelNode = new SUI.Node('label');
     labelNode.addClass(['mdl-button', 'mdl-js-button', 'mdl-button--icon']);
@@ -108,34 +108,37 @@ SUI.Table.prototype._initSearch = function() {
  */
 SUI.Table.prototype._initHeader = function() {
   this.headerTexts = [];
-  this.heads = new SUI.Query('thead th', this.table);
-  this.heads.each((head, i) => {
-    let text = head.getHtml();
+  this.headerNodes = new SUI.Query('thead th', this.table);
+  this.headerNodes.each((headerNode, index) => {
+    let text = headerNode.getHtml();
     this.headerTexts.push(text);
-    this._renderHeader(head, i);
+    this._renderHeader(headerNode, index);
   });
 };
 
 /**
  * @private
- * @param {!SUI.Node} head
- * @param {number} i
+ * @param {!SUI.Node} headerNode
+ * @param {number} index
  * @return {undefined}
  */
-SUI.Table.prototype._renderHeader = function(head, i) {
-  let column = this.options.columns[i];
+SUI.Table.prototype._renderHeader = function(headerNode, index) {
+  let column = this.options.columns[index];
+  if (SUI.inArray(['search', 'actions'], column)) {
+    headerNode.addClass('actions');
+  }
   let columnsWithOrder = this.options.sorted.filter((sort) => {
     return SUI.contain(sort, column);
   });
   if (columnsWithOrder.length === 1) {
-    head.setData('column', columnsWithOrder[0]);
-    head.addEventListener('click', (head) => {
-      let column = head.getData('column');
+    headerNode.setData('column', columnsWithOrder[0]);
+    headerNode.addEventListener('click', (headerNode) => {
+      let column = headerNode.getData('column');
       this._toggleSorting(column);
     });
 
     let iconsNode = new SUI.Node('span');
-    head.appendChild(iconsNode);
+    headerNode.appendChild(iconsNode);
 
     let iconUp = new SUI.Node('i');
     iconUp.addClass(['material-icons', 'asc']);
@@ -168,7 +171,7 @@ SUI.Table.prototype._initStructure = function() {
 
   let pagerNode = new SUI.Node('td');
   pagerNode.addClass('pager');
-  pagerNode.setAttribute('colspan', this.heads.size() - 1);
+  pagerNode.setAttribute('colspan', this.headerNodes.size() - 1);
   footerRow.appendChild(pagerNode);
 
   this.tfoot.appendChild(footerRow);
@@ -241,7 +244,7 @@ SUI.Table.prototype._handleSortingColumn = function(head, i) {
  */
 SUI.Table.prototype._updateSorting = function() {
   this._resetSorting();
-  this.heads.each((head, i) => {
+  this.headerNodes.each((head, i) => {
     this._handleSortingColumn(head, i);
   });
   this.refresh();
@@ -296,7 +299,7 @@ SUI.Table.prototype._addHeaderRow = function(item) {
   let headerNameCell = new SUI.Node('td');
   let dataNode = this.getDataNodeByItem(item, this._getColumn());
   headerNameCell.appendChild(dataNode);
-  headerNameCell.setAttribute('colspan', this.heads.size() - 2);
+  headerNameCell.setAttribute('colspan', this.headerNodes.size() - 2);
   headerRow.appendChild(headerNameCell);
 
   let headerActionCell = new SUI.Node('td');
