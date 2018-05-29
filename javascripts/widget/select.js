@@ -140,7 +140,7 @@ SUI.widget.Select.prototype.getValue = function() {
  * @return {undefined}
  */
 SUI.widget.Select.prototype.showLoader = function() {
-  this.iconNode.setHtml('autorenew');
+  this.iconNode.setHtml('refresh');
   this.iconNode.addClass('rotate');
 };
 
@@ -218,15 +218,7 @@ SUI.widget.Select.prototype._setSelectInput = function(ids) {
  */
 SUI.widget.Select.prototype._setSimpleInput = function(id) {
   let item = this.options.findById(id);
-  // if (this.isRequired()) {
-    this._setTags(item);
-  // } else {
-    // if (id) {
-    //   this._setTags(item);
-    // } else {
-    //   this._setTags([]);
-    // }
-  // }
+  this._setTags(item);
 };
 
 /**
