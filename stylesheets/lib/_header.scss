@@ -23,7 +23,7 @@
     height: 50px;
     @include media-breakpoint-down(md) {
       flex: 1 100%;
-      border-bottom: 1px solid $brown;
+      border-bottom: 1px solid $primary;
     }
     a {
       display: flex;
@@ -59,6 +59,9 @@
       color: $light-grey;
       @include media-breakpoint-up(lg) {
         display: none;
+      }
+      &.active{
+        color: $accent;
       }
     }
   }

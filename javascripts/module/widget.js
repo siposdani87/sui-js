@@ -23,8 +23,9 @@ SUI.Widget = function(input, opt_label, opt_error, opt_inputBlock, opt_form) {
     this.errorTooltip = new SUI.Tooltip(this.error);
   }
 
-  this._initInfo();
-  this._initLabel();
+  this._setInfo();
+  this._setLabel();
+  this._setMutation();
 };
 
 /**
@@ -162,6 +163,7 @@ SUI.Widget.prototype.isRequired = function() {
 SUI.Widget.prototype.setRequired = function(state) {
   this.input.getNode().required = state;
   this.checkValidity(true, false);
+  this._setLabel();
 };
 
 /**
@@ -184,7 +186,7 @@ SUI.Widget.prototype.setDisabled = function(state) {
  * @protected
  * @return {undefined}
  */
-SUI.Widget.prototype._initInfo = function() {
+SUI.Widget.prototype._setInfo = function() {
   if (this.label && this.label.exists()) {
     let title = this.label.getAttribute('title');
     let description = this.label.getAttribute('desc');
@@ -205,13 +207,43 @@ SUI.Widget.prototype._initInfo = function() {
  * @protected
  * @return {undefined}
  */
-SUI.Widget.prototype._initLabel = function() {
-  if (this.label && this.label.exists() && this.isRequired()) {
+SUI.Widget.prototype._setLabel = function() {
+  if (this.label && this.label.exists()) {
     let requiredPostfix = ' *';
     let labelText = this.label.getHtml(true);
-    if (labelText.substr(labelText.length - requiredPostfix.length) !== requiredPostfix) {
-      labelText += requiredPostfix;
-      this.label.setHtml(labelText);
+    let postfix = labelText.substr(labelText.length - requiredPostfix.length);
+
+    if (this.isRequired() && postfix !== requiredPostfix) {
+        labelText += requiredPostfix;
+        this.label.setHtml(labelText);
+    } else if (!this.isRequired() && postfix === requiredPostfix) {
+        labelText = labelText.replace(requiredPostfix, '');
+        this.label.setHtml(labelText);
     }
   }
+};
+
+/**
+ * @private
+ * @return {undefined}
+ */
+SUI.Widget.prototype._setMutation = function() {
+  let observer = new MutationObserver((mutationsList) => {
+    console.log(mutationsList);
+    for (let i = 0; i < mutationsList.length; i++) {
+      let mutation = mutationsList[i];
+      if (mutation.attributeName === 'disabled') {
+
+      } else if (mutation.attributeName === 'required') {
+
+      }
+      console.log('mutation: ', mutation);
+    }
+  });
+  // observer.disconnect();
+  observer.observe(this.input.getNode(), {
+    attributeFilter: ['disabled', 'required'],
+    attributes: true,
+    attributeOldValue: true,
+  });
 };
