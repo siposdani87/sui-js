@@ -112,6 +112,9 @@ table {
                             border-bottom: 1px solid $grey-bright;
                             span {
                                 text-align: right;
+                                &.label {
+                                    text-align: right;
+                                }
                             }
                             &.actions {
                                 display: none;
