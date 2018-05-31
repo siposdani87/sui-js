@@ -18,15 +18,15 @@
             text-decoration: none;
             text-transform: uppercase;
             font-weight: 500;
-            color: $grey;
+            color: $primary;
             font-family: $font-family-heading;
             &:hover {
-                color: $primary;
+                color: $primary-dark;
             }
             &.active {
                 border-top: 4px solid $accent;
                 background-color: $white;
-                color: $primary;
+                color: $primary-dark;
                 z-index: 1;
                 box-shadow: 1px -2px 3px 0 rgba($black, .2);
             }
