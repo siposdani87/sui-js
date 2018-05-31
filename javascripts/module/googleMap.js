@@ -145,6 +145,9 @@ SUI.GoogleMap.prototype.eventPolygonChanged = function(polygonData, points, comp
  */
 SUI.GoogleMap.prototype.createPolygon = function(id, title, points, opt_polygonData = {}, opt_options = {}) {
   let polygonData = new SUI.Object(opt_polygonData);
+  if (!polygonData.get('id')) {
+    polygonData.set('id', id);
+  }
   let options = new SUI.Object(this.polygonOptions);
   options.merge(opt_options);
 
@@ -529,14 +532,15 @@ SUI.GoogleMap.prototype.setPolygons = function(opt_options = {}) {
  * @param {number} latitude
  * @param {number} longitude
  * @param {!Object=} opt_markerData
+ * @param {!Object=} opt_options
  * @return {undefined}
  */
-SUI.GoogleMap.prototype.createOrUpdateMarker = function(id, title, iconName, latitude, longitude, opt_markerData = {}) {
+SUI.GoogleMap.prototype.createOrUpdateMarker = function(id, title, iconName, latitude, longitude, opt_markerData = {}, opt_options = {}) {
   let marker = this.getMarker(id);
   if (marker) {
-    this.updateMarker(id, title, iconName, latitude, longitude, opt_markerData);
+    this.updateMarker(id, title, iconName, latitude, longitude, opt_markerData, opt_options);
   } else {
-    this.createMarker(id, title, iconName, latitude, longitude, opt_markerData);
+    this.createMarker(id, title, iconName, latitude, longitude, opt_markerData, opt_options);
   }
 };
 
@@ -547,23 +551,23 @@ SUI.GoogleMap.prototype.createOrUpdateMarker = function(id, title, iconName, lat
  * @param {number} latitude
  * @param {number} longitude
  * @param {!Object=} opt_markerData
+ * @param {!Object=} opt_options
  * @return {undefined}
  */
-SUI.GoogleMap.prototype.createMarker = function(id, title, iconName, latitude, longitude, opt_markerData = {}) {
+SUI.GoogleMap.prototype.createMarker = function(id, title, iconName, latitude, longitude, opt_markerData = {}, opt_options = {}) {
   let markerData = new SUI.Object(opt_markerData);
   if (!markerData.get('id')) {
     markerData.set('id', id);
   }
+  let options = new SUI.Object(this.markerOptions);
+  options.merge(opt_options);
 
-  let marker = new google.maps.Marker({
-    position: new google.maps.LatLng(latitude, longitude),
-    icon: this.markerIcons[iconName].icon,
-    shape: this.markerIcons[iconName].shape,
-    title: SUI.convert(title, 'string'),
-    zIndex: this.markers.length,
-    draggable: this.markerOptions.draggable,
-    map: this.map,
-  });
+  let marker = new google.maps.Marker(options.copy(true));
+  marker.setPosition(new google.maps.LatLng(latitude, longitude));
+  marker.setIcon(this.markerIcons[iconName].icon);
+  marker.setShape(this.markerIcons[iconName].shape);
+  marker.setTitle(/** @type {string} */ (SUI.convert(title, 'string')));
+  marker.setMap(this.map);
   markerData.setRaw('_marker', marker);
 
   let mapLabel = SUI.mapLabel(marker, title);
@@ -607,18 +611,16 @@ SUI.GoogleMap.prototype._bindEventsToMarker = function(marker, markerData, mapLa
   });
 
   marker.addListener('dragend', (event) => {
-    if (this.markerOptions.draggable) {
-      let vertex = marker.getPosition();
-      let latitude = vertex.lat();
-      let longitude = vertex.lng();
+    let vertex = marker.getPosition();
+    let latitude = vertex.lat();
+    let longitude = vertex.lng();
 
-      markerData.remove('_marker');
-      markerData.remove('_map_label');
-      let copyData = markerData.copy();
-      markerData.setRaw('_marker', marker);
-      markerData.setRaw('_map_label', mapLabel);
-      this.eventMarkerChanged(copyData, latitude, longitude, event);
-    }
+    markerData.remove('_marker');
+    markerData.remove('_map_label');
+    let copyData = markerData.copy();
+    markerData.setRaw('_marker', marker);
+    markerData.setRaw('_map_label', mapLabel);
+    this.eventMarkerChanged(copyData, latitude, longitude, event);
   });
 };
 
@@ -629,9 +631,10 @@ SUI.GoogleMap.prototype._bindEventsToMarker = function(marker, markerData, mapLa
  * @param {number} latitude
  * @param {number} longitude
  * @param {!Object=} opt_markerData
+ * @param {!Object=} opt_options
  * @return {undefined}
  */
-SUI.GoogleMap.prototype.updateMarker = function(id, title, iconName, latitude, longitude, opt_markerData = {}) {
+SUI.GoogleMap.prototype.updateMarker = function(id, title, iconName, latitude, longitude, opt_markerData = {}, opt_options = {}) {
   let markerData = this.getMarker(id);
   SUI.each(opt_markerData, (value, key) => {
     if (!SUI.inArray(['_map_label', '_marker'], key)) {
@@ -641,8 +644,9 @@ SUI.GoogleMap.prototype.updateMarker = function(id, title, iconName, latitude, l
   let text = /** @type {string} */ (SUI.convert(title, 'string'));
 
   let marker = /** @type {google.maps.Marker} */ (markerData.get('_marker'));
-  let markerIcon = this.markerIcons[iconName];
+  marker.setOptions(opt_options);
 
+  let markerIcon = this.markerIcons[iconName];
   marker.setIcon(markerIcon.icon);
   marker.setShape(markerIcon.shape);
   marker.setTitle(text);
