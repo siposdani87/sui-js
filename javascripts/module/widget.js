@@ -232,11 +232,11 @@ SUI.Widget.prototype._setMutation = function() {
     console.log(mutationsList);
     for (let i = 0; i < mutationsList.length; i++) {
       let mutation = mutationsList[i];
-      if (mutation.attributeName === 'disabled') {
+      /* if (mutation.attributeName === 'disabled') {
 
       } else if (mutation.attributeName === 'required') {
 
-      }
+      }*/
       console.log('mutation: ', mutation);
     }
   });
