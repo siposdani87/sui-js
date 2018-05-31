@@ -143,6 +143,23 @@ SUI.GoogleMap.prototype.eventPolygonChanged = function(polygonData, points, comp
  * @param {!Object=} opt_options
  * @return {undefined}
  */
+SUI.GoogleMap.prototype.createOrUpdatePolygon = function(id, title, points, opt_polygonData = {}, opt_options = {}) {
+  let polygon = this.getPolygon(id);
+  if (polygon) {
+    this.updatePolygon(id, title, points, opt_polygonData, opt_options);
+  } else {
+    this.createPolygon(id, title, points, opt_polygonData, opt_options);
+  }
+};
+
+/**
+ * @param {string|number} id
+ * @param {string} title
+ * @param {!Array<{latitude: number, longitude: number}>} points
+ * @param {!Object=} opt_polygonData
+ * @param {!Object=} opt_options
+ * @return {undefined}
+ */
 SUI.GoogleMap.prototype.createPolygon = function(id, title, points, opt_polygonData = {}, opt_options = {}) {
   let polygonData = new SUI.Object(opt_polygonData);
   if (!polygonData.get('id')) {
