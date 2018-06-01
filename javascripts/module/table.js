@@ -324,7 +324,7 @@ SUI.Table.prototype._addRow = function(item) {
 };
 
 /**
- * @param {!Array} actions
+ * @param {!Array<{style: !Function, click: !Function}>} actions
  * @return {undefined}
  */
 SUI.Table.prototype.setActions = function(actions) {
@@ -417,7 +417,7 @@ SUI.Table.prototype._renderDropDownNode = function(dropDownNode, item) {
 /**
  * @private
  * @param {!SUI.Node} containerNode
- * @param {!Object} action
+ * @param {{style: !Function, click: !Function}} action
  * @param {!SUI.Object} item
  * @return {undefined}
  */
