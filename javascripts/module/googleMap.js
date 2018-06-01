@@ -708,7 +708,7 @@ SUI.GoogleMap.prototype.removeAllMarker = function(opt_callback = SUI.noop) {
 };
 
 /**
- * @param {!Object} markerData
+ * @param {!SUI.Object} markerData
  * @param {string} content
  * @return {undefined}
  */
@@ -721,7 +721,7 @@ SUI.GoogleMap.prototype.openInfoWindow = function(markerData, content) {
 };
 
 /**
- * @param {!Object} markerData
+ * @param {!SUI.Object} markerData
  * @param {!Object} event
  * @return {undefined}
  */
@@ -730,7 +730,7 @@ SUI.GoogleMap.prototype.eventMarkerClick = function(markerData, event) {
 };
 
 /**
- * @param {!Object} markerData
+ * @param {!SUI.Object} markerData
  * @param {!Object} event
  * @return {undefined}
  */
