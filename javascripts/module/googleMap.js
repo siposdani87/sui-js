@@ -496,10 +496,6 @@ SUI.GoogleMap.prototype.setHeatmap = function(opt_options = {}) {
     'rgba(255, 0, 0, 1)',
   ];
 
-  this.heatmap = new google.maps.visualization.HeatmapLayer({
-    map: this.map,
-  });
-
   this.heatmapOptions = new SUI.Object({
     opacity: 0.2,
     radius: 20,
@@ -514,6 +510,10 @@ SUI.GoogleMap.prototype.setHeatmap = function(opt_options = {}) {
  * @return {undefined}
  */
 SUI.GoogleMap.prototype.createHeatmap = function(points, opt_heatmapOptions = {}) {
+  this.heatmap = new google.maps.visualization.HeatmapLayer({
+    map: this.map,
+  });
+
   let data = this._convertPointsToPath(points);
   this.heatmap.set('data', data);
 
@@ -521,6 +521,13 @@ SUI.GoogleMap.prototype.createHeatmap = function(points, opt_heatmapOptions = {}
   SUI.eachObject(this.heatmapOptions, (value, property) => {
     this.heatmap.set(property, value);
   });
+};
+
+/**
+ * @return {undefined}
+ */
+SUI.GoogleMap.prototype.removeHeatmap = function() {
+  this.heatmap.setMap(null);
 };
 
 /**
