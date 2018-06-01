@@ -26,7 +26,7 @@ SUI.TabPanel = function(dom, selected, opt_selector = '.tab-panel') {
  */
 SUI.TabPanel.prototype._init = function() {
   this._initTabs();
-  this._initContents();
+  this._initPanels();
   this._setActiveTab(this.options.selected);
 };
 
@@ -54,7 +54,7 @@ SUI.TabPanel.prototype._initTabs = function() {
  * @private
  * @return {undefined}
  */
-SUI.TabPanel.prototype._initContents = function() {
+SUI.TabPanel.prototype._initPanels = function() {
   this.panels = new SUI.Query('.panel', this.tabpanel);
 };
 
