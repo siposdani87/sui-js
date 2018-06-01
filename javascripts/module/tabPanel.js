@@ -2,6 +2,7 @@ goog.provide('SUI.TabPanel');
 
 goog.require('SUI');
 goog.require('SUI.Async');
+goog.require('SUI.Deferred');
 goog.require('SUI.Query');
 
 /**
@@ -88,15 +89,18 @@ SUI.TabPanel.prototype.eventChange = function(panelId) {
 
 /**
  * @param {string} panelId
- * @return {undefined}
+ * @return {!SUI.Promise}
  */
 SUI.TabPanel.prototype.setActive = function(panelId) {
+  let deferred = new SUI.Deferred();
   if (!SUI.isNull(panelId)) {
+    this._setActiveTab(/** @type {string} */(panelId));
     let async = new SUI.Async();
     async.serial([() => {
-      return this._setActiveTab(/** @type {string} */(panelId));
-    }]).then(() => {
-      this.eventChange(/** @type {string} */(panelId));
-    });
+      return this.eventChange(/** @type {string} */(panelId));
+    }]).defer(deferred);
+  } else {
+    deferred.reject();
   }
+  return deferred.promise();
 };
