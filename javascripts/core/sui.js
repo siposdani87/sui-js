@@ -989,6 +989,24 @@ SUI.hexColorToRGB = function(hexColor) {
 };
 
 /**
+ * @param {number} red
+ * @param {number} green
+ * @param {number} blue
+ * @return {string}
+ */
+SUI.RGBtoHexColor = function(red, green, blue) {
+  let colors = [red, green, blue];
+  for (let i = 0; i < colors.length; i++) {
+    if (colors[i] <= 16) {
+      colors[i] = '0' + colors[i].toString(16);
+    } else {
+      colors[i] = colors[i].toString(16);
+    }
+  }
+  return '#' + colors.join('');
+};
+
+/**
  * @param {string} hexColor
  * @param {string=} opt_lightColor
  * @param {string=} opt_darkColor
@@ -1007,19 +1025,13 @@ SUI.colorContrastYIQ = function(hexColor, opt_lightColor = '#FEFEFE', opt_darkCo
  */
 SUI.colorContrast = function(hexColor, opt_diff = .5) {
   let colors = SUI.hexColorToRGB(hexColor);
-  let i = 0;
-  while (i < colors.length) {
-    colors[i] += (colors[i] * opt_diff);
+  for (let i = 0; i < colors.length; i++) {
+    colors[i] += Math.round((colors[i] * opt_diff));
     if (colors[i] < 0) {
       colors[i] = 0;
     } else if (colors[i] > 255) {
       colors[i] = 255;
-    } else if (colors[i] <= 16) {
-      colors[i] = '0' + colors[i].toString(16);
-    } else {
-      colors[i] = colors[i].toString(16);
     }
-    i++;
   }
-  return '#' + colors.join('');
+  return SUI.RGBtoHexColor.apply(null, colors);
 };
