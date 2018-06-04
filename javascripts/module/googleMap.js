@@ -192,10 +192,8 @@ SUI.GoogleMap.prototype.createPolygon = function(id, title, points, opt_polygonD
  */
 SUI.GoogleMap.prototype.updatePolygon = function(id, title, points, opt_polygonData = {}, opt_options = {}) {
   let polygonData = this.getPolygon(id);
-  SUI.each(opt_polygonData, (value, key) => {
-    if (!SUI.inArray(['_polygon', '_bounds', '_map_text'], key)) {
+  SUI.each(this._cleanPolygonData(opt_polygonData), (value, key) => {
       polygonData.set(key, value);
-    }
   });
 
   let polygon = /** @type {google.maps.Polygon} */ (polygonData.get('_polygon'));
@@ -206,6 +204,20 @@ SUI.GoogleMap.prototype.updatePolygon = function(id, title, points, opt_polygonD
   let mapText = polygonData.get('_map_text');
   mapText.set('text', title);
   mapText.set('position', new google.maps.LatLng(latLng.latitude, latLng.longitude));
+};
+
+/**
+ * @param {!Object} polygonData
+ * @return {!SUI.Object}
+ */
+SUI.GoogleMap.prototype._cleanPolygonData = function(polygonData) {
+  let cleanData = new SUI.Object();
+  SUI.each(polygonData, (value, key) => {
+    if (!SUI.inArray(['_polygon', '_map_text', '_bounds'], key)) {
+      cleanData.set(key, value);
+    }
+  });
+  return cleanData;
 };
 
 /**
@@ -303,7 +315,8 @@ SUI.GoogleMap.prototype._callPolygonChangeEvent = function(polygon, polygonData)
   let mapText = polygonData.get('_map_text');
   mapText.set('position', new google.maps.LatLng(latLng.latitude, latLng.longitude));
 
-  this.eventPolygonChanged(polygonData, points, this._getComputeArea(polygon), latLng);
+  let cleanPolygonData = this._cleanPolygonData(polygonData);
+  this.eventPolygonChanged(cleanPolygonData, points, this._getComputeArea(polygon), latLng);
 };
 
 /**
@@ -599,7 +612,7 @@ SUI.GoogleMap.prototype.createMarker = function(id, title, iconName, latitude, l
 
   this.markers.push(markerData);
 
-  this._bindEventsToMarker(marker, markerData, mapLabel);
+  this._bindEventsToMarker(marker, markerData);
 };
 
 /**
@@ -622,29 +635,23 @@ SUI.GoogleMap.prototype.createMarkerByXY = function(id, title, iconName, x, y, m
 /**
  * @param {google.maps.Marker} marker
  * @param {!SUI.Object} markerData
- * @param {!Object} mapLabel
  * @return {undefined}
  */
-SUI.GoogleMap.prototype._bindEventsToMarker = function(marker, markerData, mapLabel) {
+SUI.GoogleMap.prototype._bindEventsToMarker = function(marker, markerData) {
+  let cleanMarkerData = this._cleanMarkerData(markerData);
   marker.addListener('click', (event) => {
-    this.eventMarkerClick(markerData, event);
+    this.eventMarkerClick(cleanMarkerData, event);
   });
 
   marker.addListener('rightclick', (event) => {
-    this.eventMarkerRightClick(markerData, event);
+    this.eventMarkerRightClick(cleanMarkerData, event);
   });
 
   marker.addListener('dragend', (event) => {
     let vertex = marker.getPosition();
     let latitude = vertex.lat();
     let longitude = vertex.lng();
-
-    markerData.remove('_marker');
-    markerData.remove('_map_label');
-    let copyData = markerData.copy();
-    markerData.setRaw('_marker', marker);
-    markerData.setRaw('_map_label', mapLabel);
-    this.eventMarkerChanged(copyData, latitude, longitude, event);
+    this.eventMarkerChanged(cleanMarkerData, latitude, longitude, event);
   });
 };
 
@@ -660,13 +667,10 @@ SUI.GoogleMap.prototype._bindEventsToMarker = function(marker, markerData, mapLa
  */
 SUI.GoogleMap.prototype.updateMarker = function(id, title, iconName, latitude, longitude, opt_markerData = {}, opt_options = {}) {
   let markerData = this.getMarker(id);
-  SUI.each(opt_markerData, (value, key) => {
-    if (!SUI.inArray(['_map_label', '_marker'], key)) {
-      markerData.set(key, value);
-    }
+  SUI.each(this._cleanMarkerData(opt_markerData), (value, key) => {
+    markerData.set(key, value);
   });
   let text = /** @type {string} */ (SUI.convert(title, 'string'));
-
   let marker = /** @type {google.maps.Marker} */ (markerData.get('_marker'));
   marker.setOptions(opt_options);
 
@@ -678,6 +682,20 @@ SUI.GoogleMap.prototype.updateMarker = function(id, title, iconName, latitude, l
 
   let mapLabel = markerData.get('_map_label');
   mapLabel.set('text', text);
+};
+
+/**
+ * @param {!Object} markerData
+ * @return {!SUI.Object}
+ */
+SUI.GoogleMap.prototype._cleanMarkerData = function(markerData) {
+  let cleanData = new SUI.Object();
+  SUI.each(markerData, (value, key) => {
+    if (!SUI.inArray(['_marker', '_map_label'], key)) {
+      cleanData.set(key, value);
+    }
+  });
+  return cleanData;
 };
 
 /**
