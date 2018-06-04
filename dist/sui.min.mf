@@ -43,15 +43,14 @@ core/router.js
 core/state.js
 core/test.js
 core/widget.js
-lib/actionCableClient.js
-lib/actionCable.js
-lib/navBar.js
 module/day.js
 module/month.js
 module/year.js
 module/calendar.js
 module/canvas.js
+module/pager.js
 module/cardCollection.js
+module/carousel.js
 module/time.js
 module/clock.js
 module/datetime.js
@@ -80,7 +79,6 @@ module/formWidget.js
 module/form.js
 module/googleMap.js
 module/navigation.js
-module/pager.js
 module/progressStatus.js
 module/table.js
 module/tabPanel.js
@@ -90,6 +88,9 @@ test/container.js
 test/deferred.js
 test/item.js
 test/object.js
+lib/actionCableClient.js
+lib/actionCable.js
+lib/navBar.js
 widget/autoComplete.js
 widget/datetimeRange.js
 widget/location.js

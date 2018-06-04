@@ -1021,5 +1021,5 @@ SUI.colorContrast = function(hexColor, opt_diff = .5) {
     }
     i++;
   }
-  return colors.join('');
+  return '#' + colors.join('');
 };
