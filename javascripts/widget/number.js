@@ -32,14 +32,14 @@ SUI.widget.Number.prototype._init = function() {
     this._checkValue();
     let value = this.getValue();
     this.modelChange(value);
-    this.checkValidity();
+    this.checkValidity(true);
   });
 
   this.input.addEventListener('change', (input) => {
     this._checkValue();
     let value = this.getValue();
     this.modelChange(value);
-    this.checkValidity();
+    this.checkValidity(true);
   });
 };
 
@@ -116,7 +116,6 @@ SUI.widget.Number.prototype._getStep = function() {
   return /** @type {number} */ (SUI.typeCast(step));
 };
 
-
 /**
  * @override
  * @return {undefined}
@@ -129,4 +128,3 @@ SUI.widget.Number.prototype.render = function() {
   }
   SUI.mdl(this.inputBlock);
 };
-

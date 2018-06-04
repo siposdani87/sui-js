@@ -372,7 +372,7 @@ SUI.isString = function(value) {
  * @return {boolean}
  */
 SUI.isNumber = function(value) {
-  return !isNaN(value) && !SUI.inArray(['0', '+'], value[0]);
+  return !isNaN(value) && (!SUI.inArray(['0', '+'], value[0]) || value === '0');
 };
 
 /**
