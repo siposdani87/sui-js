@@ -230,7 +230,7 @@ SUI.widget.Location.prototype._setDefaultValue = function() {
 
   setTimeout(() => {
     this.map.triggerResize();
-    this.map.setCenter(location['latitude'], location['longitude'], false);
+    this.map.setCenter(location['latitude'], location['longitude']);
   }, 500);
 };
 
