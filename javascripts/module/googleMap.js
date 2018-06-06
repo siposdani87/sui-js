@@ -831,7 +831,7 @@ SUI.GoogleMap.prototype.searchAddress = function(query) {
  * @param {boolean=} opt_boundCheck
  * @return {undefined}
  */
-SUI.GoogleMap.prototype.setCenter = function(latitude, longitude, opt_boundCheck = true) {
+SUI.GoogleMap.prototype.setCenter = function(latitude, longitude, opt_boundCheck = false) {
   let position = new google.maps.LatLng(latitude, longitude);
   if (opt_boundCheck) {
     if (!this.map.getBounds().contains(position)) {
