@@ -733,11 +733,12 @@ SUI.GoogleMap.prototype.removeAllMarker = function(opt_callback = SUI.noop) {
 };
 
 /**
- * @param {!SUI.Object} markerData
+ * @param {string|number} markerId
  * @param {string} content
  * @return {undefined}
  */
-SUI.GoogleMap.prototype.openInfoWindow = function(markerData, content) {
+SUI.GoogleMap.prototype.openInfoWindow = function(markerId, content) {
+  let markerData = this.getMarker(markerId);
   let marker = /** @type {google.maps.Marker} */ (markerData.get('_marker'));
   let infoWindow = new google.maps.InfoWindow({
     content: content,
