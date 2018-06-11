@@ -337,7 +337,7 @@ SUI.Table.prototype.setActions = function(actions) {
  * @return {!SUI.Node}
  */
 SUI.Table.prototype.getDataNodeByItem = function(item, column) {
-  let data = item.get(column);
+  let data = item.get(column, '');
   let calculation = this.options.calculations[column];
   if (SUI.isFunction(calculation)) {
     data = calculation(item);
