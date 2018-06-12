@@ -540,7 +540,9 @@ SUI.GoogleMap.prototype.createHeatmap = function(points, opt_heatmapOptions = {}
  * @return {undefined}
  */
 SUI.GoogleMap.prototype.removeHeatmap = function() {
-  this.heatmap.setMap(null);
+  if (this.heatmap) {
+    this.heatmap.setMap(null);
+  }
 };
 
 /**
