@@ -524,11 +524,9 @@ SUI.GoogleMap.prototype.setHeatmap = function(opt_options = {}) {
  */
 SUI.GoogleMap.prototype.createHeatmap = function(points, opt_heatmapOptions = {}) {
   this.heatmap = new google.maps.visualization.HeatmapLayer({
+    data: this._convertPointsToPath(points),
     map: this.map,
   });
-
-  let data = this._convertPointsToPath(points);
-  this.heatmap.set('data', data);
 
   this.heatmapOptions.merge(opt_heatmapOptions);
   SUI.eachObject(this.heatmapOptions, (value, property) => {
