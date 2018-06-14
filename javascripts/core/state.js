@@ -11,18 +11,29 @@ goog.require('SUI.Object');
  * @param {!Object} options
  */
 SUI.State = function(routes, options) {
-  this.routes = /** @type {!SUI.Collection<!SUI.Object>} */ (new SUI.Collection(routes));
+  this._setBasePath();
 
   this._current = new SUI.Object();
+  this.routes = /** @type {!SUI.Collection<!SUI.Object>} */ (new SUI.Collection(routes));
+  this.routes.each((route) => {
+    let realUrl = SUI.format('{0}{1}', [this.basePath === '#' ? '/#' : '', route.get('url')]);
+    route.set('realUrl', realUrl);
+  });
 
+  this._setOptions(options);
+  this._init();
+};
+
+/**
+ * @private
+ * @return {undefined}
+ */
+SUI.State.prototype._setBasePath = function() {
   this.basePath = '#';
   let baseMeta = new SUI.Query('base').getItem();
   if (!baseMeta.isEmpty()) {
     this.basePath = baseMeta.getAttribute('href') || '#';
   }
-
-  this._setOptions(options);
-  this._init();
 };
 
 /**
