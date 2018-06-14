@@ -307,6 +307,7 @@ SUI.lib.Xhr.prototype._setRequestHeaders = function(url, opt_headers = {}) {
   if (this.options.authorization && !opt_headers['Authorization']) {
     this.setHeader('Authorization', this.options.authorization);
   }
+  this.setHeader('X-Requested-With', 'XMLHttpRequest');
 };
 
 /**
