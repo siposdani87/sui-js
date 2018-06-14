@@ -18,7 +18,7 @@ SUI.State = function(routes, options) {
   this.basePath = '#';
   let baseMeta = new SUI.Query('base').getItem();
   if (!baseMeta.isEmpty()) {
-    this.basePath = baseMeta.getAttribute('href') || '';
+    this.basePath = baseMeta.getAttribute('href') || '#';
   }
 
   this._setOptions(options);
@@ -88,13 +88,13 @@ SUI.State.prototype.run = function() {
  * @return {undefined}
  */
 SUI.State.prototype._parseHashTag = function() {
-  let path = this.basePath === '#' ? window.location.hash : window.location.pathname.replace(this.basePath, '');
-  this._parseUrl(path, function(state, path, params) {
+  let path = this.basePath === '#' ? window.location.hash : window.location.pathname.replace(this.basePath, '/');
+  this._parseUrl(path, (state, path, params) => {
     this._setHistory(state, path, params, true);
-  }.bind(this), function() {
+  }, () => {
     // console.warn('SUI.State._parseHashTag()', path, 'missing state from routes config');
     this.goRoot(true);
-  }.bind(this));
+  });
 };
 
 /**
@@ -135,7 +135,7 @@ SUI.State.prototype._parseUrl = function(hashPath, successCallback, errorCallbac
  * @return {undefined}
  */
 SUI.State.prototype._setHistory = function(state, url, opt_params, opt_force = false) {
-  url = this.basePath + url;
+  url = this.basePath === '#' ? this.basePath + url : url;
   opt_params = opt_params || {};
   let stateTemplate = /** @type {string} */ (state.get('template'));
   let router = new SUI.Router(stateTemplate);
