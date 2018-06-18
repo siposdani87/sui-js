@@ -1,15 +1,17 @@
 .radiobutton-widget {
-  
-  &.is-invalid {
-    .mdl-textfield__error {
-      visibility: visible;
-      
+    position: relative;
+    &.is-invalid {
+        .mdl-textfield__error {
+            visibility: visible;
+        }
     }
-  }
-
-  .mdl-textfield__error{
-    margin-top: 5px;
-    margin-left: 10px;
-  }
-
+    .mdl-textfield__error {
+        margin-top: 5px;
+        margin-left: 10px;
+    }
+    .info {
+        position: absolute;
+        right: 0;
+        top: 22px;
+    }
 }
