@@ -1153,9 +1153,9 @@ glogg@^1.0.0:
   dependencies:
     sparkles "^1.0.0"
 
-google-closure-compiler@20180506.0.0:
-  version "20180506.0.0"
-  resolved "https://registry.yarnpkg.com/google-closure-compiler/-/google-closure-compiler-20180506.0.0.tgz#f59cc34dbf8c9a4f48fba3ebb2cf098d25e345ab"
+google-closure-compiler@20180610.0.2:
+  version "20180610.0.2"
+  resolved "https://registry.yarnpkg.com/google-closure-compiler/-/google-closure-compiler-20180610.0.2.tgz#120832f60ccad995e8e47c5e7512112d54c6ae8f"
   dependencies:
     chalk "^1.0.0"
     vinyl "^2.0.1"
@@ -2016,9 +2016,9 @@ mixin-deep@^1.2.0:
   dependencies:
     minimist "0.0.8"
 
-moment@2.22.1:
-  version "2.22.1"
-  resolved "https://registry.yarnpkg.com/moment/-/moment-2.22.1.tgz#529a2e9bf973f259c9643d237fda84de3a26e8ad"
+moment@2.22.2:
+  version "2.22.2"
+  resolved "https://registry.yarnpkg.com/moment/-/moment-2.22.2.tgz#3c257f9839fc0e93ff53149632239eb90783ff66"
 
 ms@2.0.0:
   version "2.0.0"
@@ -2913,8 +2913,9 @@ strip-json-comments@~2.0.1:
   version "2.0.1"
   resolved "https://registry.yarnpkg.com/strip-json-comments/-/strip-json-comments-2.0.1.tgz#3c531942e908c2697c0ec344858c286c7ca0a60a"
 
-"sui-externs@file:../sui-externs":
+"sui-externs@git+https://siposdani87:pTUa5kZeCCawnTzkYVUV@bitbucket.org/siposdani87/sui-externs.git#develop":
   version "0.0.1"
+  resolved "git+https://siposdani87:pTUa5kZeCCawnTzkYVUV@bitbucket.org/siposdani87/sui-externs.git#ffb8a31627a095b12bb9af983af962d3e353e340"
 
 super-trailing-slash@^1.0.1:
   version "1.0.2"
