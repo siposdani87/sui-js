@@ -50,29 +50,34 @@
     .modal-body:before {
       font-family: 'Material Icons';
       vertical-align: middle;
-      padding-right: 8px;
+      padding-right: .5em;
       font-size: 2em;
+      float: left;
     }
 
     &.error {
+      border-left: 3px solid $red;
       .modal-body:before {
         content: '\E000';
         color: $red;
       }
     }
     &.warning {
+      border-left: 3px solid $amber;
       .modal-body:before {
         content: '\E002';
         color: $amber;
       }
     }
     &.info {
+      border-left: 3px solid $blue;
       .modal-body:before {
         content: '\E88E';
         color: $blue;
       }
     }
     &.success {
+      border-left: 3px solid $green;
       .modal-body:before {
         content: '\E876';
         color: $green;
