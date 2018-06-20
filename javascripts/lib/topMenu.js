@@ -31,7 +31,7 @@ SUI.lib.TopMenu.prototype._init = function() {
  * @return {undefined}
  */
 SUI.lib.TopMenu.prototype.toggle = function() {
-  if (this._isOpened()) {
+  if (this.isOpened()) {
     this.close();
   } else {
     this.open();
@@ -41,7 +41,7 @@ SUI.lib.TopMenu.prototype.toggle = function() {
 /**
  * @return {boolean}
  */
-SUI.lib.TopMenu.prototype._isOpened = function() {
+SUI.lib.TopMenu.prototype.isOpened = function() {
   return this.topMenu.hasClass('visible-flex');
 };
 

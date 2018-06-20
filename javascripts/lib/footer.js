@@ -33,6 +33,7 @@ SUI.lib.Footer.prototype._init = function() {
   this.footerNode = new SUI.Query('#footer').getItem();
   this.templateViewNode = new SUI.Query('.template-view').getItem();
   this.contentNode = new SUI.Query('.content', this.footerNode).getItem();
+  this.localesNode = new SUI.Query('.locales', this.footerNode).getItem();
 };
 
 /**
@@ -63,11 +64,19 @@ SUI.lib.Footer.prototype.hide = function() {
 };
 
 /**
- * @param {string} content
+ * @param {!SUI.Node} contentNode
  * @return {undefined}
  */
-SUI.lib.Footer.prototype.setContent = function(content) {
-  this.contentNode.setHtml(content);
+SUI.lib.Footer.prototype.setContent = function(contentNode) {
+  this.contentNode.appendChild(contentNode);
+};
+
+/**
+ * @param {!SUI.Node} localesNode
+ * @return {undefined}
+ */
+SUI.lib.Footer.prototype.setLocales = function(localesNode) {
+  this.contentNode.appendChild(localesNode);
 };
 
 /**
@@ -84,3 +93,20 @@ SUI.lib.Footer.prototype.close = function() {
   this.footerNode.removeClass('open');
 };
 
+/**
+ * @return {boolean}
+ */
+SUI.lib.Footer.prototype.isOpened = function() {
+  return this.footerNode.hasClass('open');
+};
+
+/**
+ * @return {undefined}
+ */
+SUI.lib.Footer.prototype.toogle = function() {
+  if (this.isOpened()) {
+    this.close();
+  } else {
+    this.open();
+  }
+};
