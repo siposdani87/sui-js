@@ -76,7 +76,7 @@ SUI.lib.Footer.prototype.setContent = function(contentNode) {
  * @return {undefined}
  */
 SUI.lib.Footer.prototype.setLocales = function(localesNode) {
-  this.contentNode.appendChild(localesNode);
+  this.localesNode.appendChild(localesNode);
 };
 
 /**
