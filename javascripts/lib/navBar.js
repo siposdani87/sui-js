@@ -31,7 +31,7 @@ SUI.lib.NavBar.prototype._init = function() {
  * @return {undefined}
  */
 SUI.lib.NavBar.prototype.toggle = function() {
-  if (this._isOpened()) {
+  if (this.isOpened()) {
     this.close();
   } else {
     this.open();
@@ -41,7 +41,7 @@ SUI.lib.NavBar.prototype.toggle = function() {
 /**
  * @return {boolean}
  */
-SUI.lib.NavBar.prototype._isOpened = function() {
+SUI.lib.NavBar.prototype.isOpened = function() {
   return this.navBar.hasClass('open');
 };
 
