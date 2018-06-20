@@ -110,7 +110,7 @@
         flex-flow: column nowrap;
       }
 
-      .content {
+      .content, .locales {
         color: $white;
         a {
           color: $accent;
@@ -139,7 +139,7 @@
     }
 
     &.dark {
-      .content {
+      .content, .locales {
         color: $black;
         a {
           color: $primary;
