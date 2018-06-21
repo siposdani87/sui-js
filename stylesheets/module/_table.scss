@@ -30,7 +30,7 @@ table {
                 &.actions {
                     text-align: right;
                 }
-                span {
+                .icons {
                     vertical-align: middle;
                     display: inline-flex;
                     flex-flow: column wrap;
@@ -45,6 +45,13 @@ table {
                             color: $black-bright;
                         }
                     }
+                }
+                .info {
+                    color: $primary;
+                    vertical-align: sub;
+                    padding-left: .1em;
+                    font-size: 22px;
+                    cursor: pointer;
                 }
             }
         }

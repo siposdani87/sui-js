@@ -6,6 +6,7 @@ goog.require('SUI.Dropdown');
 goog.require('SUI.Node');
 goog.require('SUI.Object');
 goog.require('SUI.Query');
+goog.require('SUI.Tooltip');
 
 /**
  * @constructor
@@ -86,12 +87,12 @@ SUI.Table.prototype._initSearch = function() {
     inputNode.setAttribute('type', 'text');
     inputNode.setId('table-search');
     inputNode.addClass('mdl-textfield__input');
-    inputNode.addEventListener('keypress', function(inputNode, event) {
+    inputNode.addEventListener('keypress', (inputNode, event) => {
       if (SUI.eq(event.keyCode, 13)) {
         this.query = inputNode.getNode().value;
         this.refresh(1);
       }
-    }.bind(this));
+    });
     inputBlock.appendChild(inputNode);
 
     let subLabelNode = new SUI.Node('label');
@@ -138,6 +139,7 @@ SUI.Table.prototype._renderHeader = function(headerNode, index) {
     });
 
     let iconsNode = new SUI.Node('span');
+    iconsNode.addClass('icons');
     headerNode.appendChild(iconsNode);
 
     let iconUp = new SUI.Node('i');
@@ -149,6 +151,22 @@ SUI.Table.prototype._renderHeader = function(headerNode, index) {
     iconDown.addClass(['material-icons', 'desc']);
     iconDown.setHtml('arrow_drop_down');
     iconsNode.appendChild(iconDown);
+  }
+
+  let headerTitle = headerNode.getAttribute('title');
+  let headerDesc = headerNode.getAttribute('desc');
+  if (headerTitle || headerDesc) {
+    let iconInfo = new SUI.Node('i');
+    if (headerTitle) {
+      iconInfo.setAttribute('desc', headerTitle);
+    }
+    if (headerDesc) {
+      iconInfo.setAttribute('desc', headerDesc);
+    }
+    iconInfo.addClass(['material-icons', 'info']);
+    iconInfo.setHtml('info_outline');
+    headerNode.appendChild(iconInfo);
+    new SUI.Tooltip(iconInfo, '', 'BOTTOM');
   }
 };
 
@@ -231,7 +249,7 @@ SUI.Table.prototype._toggleSorting = function(columnWithOrder) {
 SUI.Table.prototype._handleSortingColumn = function(head, i) {
   let column = this.options.columns[i];
   if ((SUI.eq(this.options.sort.column, null) && SUI.eq(i, 0)) || SUI.eq(column, this.options.sort.column)) {
-    let iconNode = new SUI.Query(SUI.format('i.{0}', [this.options.sort.order]), head).getItem();
+    let iconNode = new SUI.Query(SUI.format('.icons i.{0}', [this.options.sort.order]), head).getItem();
     if (!iconNode.isEmpty()) {
       iconNode.addClass('active');
     }
@@ -267,7 +285,7 @@ SUI.Table.prototype._setSorting = function(column, opt_order = 'asc') {
  * @return {undefined}
  */
 SUI.Table.prototype._resetSorting = function() {
-  let icons = new SUI.Query('thead th i', this.table);
+  let icons = new SUI.Query('thead th .icons i', this.table);
   icons.each(function(icon) {
     icon.removeClass('active');
   });
