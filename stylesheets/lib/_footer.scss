@@ -74,9 +74,6 @@
           font-size: 32px;
         }
       }
-      .title {
-
-      }
       &:hover, &.active {
         color: $accent-dark;
       }
@@ -187,15 +184,6 @@
     #bottom-menu {
       @include media-breakpoint-down(sm) {
         display: none;
-      }
-
-      a {
-        .image {
-
-        }
-        .title {
-
-        }
       }
     }
   }
