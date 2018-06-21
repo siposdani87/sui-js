@@ -45,6 +45,8 @@
 
     .modal-body {
       padding: 20px 20px 0 20px;
+      display: flex;
+      align-items: center;
     }
 
     .modal-body:before {
@@ -52,7 +54,6 @@
       vertical-align: middle;
       padding-right: .5em;
       font-size: 2em;
-      float: left;
     }
 
     &.error {
