@@ -26,7 +26,14 @@
     }
   }
 
+  .content {
+    flex: 1;
+  }
+
   .locales {
+    flex: 0 1 auto;
+    display: flex;
+    justify-content: center;
     a {
       padding: 0 3px;
     }
@@ -38,9 +45,11 @@
   }
 
   #bottom-menu {
+    flex: 1;
     display: flex;
     flex-flow: row nowrap;
     align-items: center;
+    justify-content: flex-end;
 
     @include media-breakpoint-down(sm) {
       padding-top: 1em;
