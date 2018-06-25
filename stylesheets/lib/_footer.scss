@@ -35,7 +35,26 @@
     display: flex;
     justify-content: center;
     a {
-      padding: 0 3px;
+      padding: 0 .5em;
+      .image {
+        margin-right: .5em;
+        line-height: 0;
+
+        @include media-breakpoint-down(lg) {
+          display: none;
+          margin-right: 0;
+        }
+
+        img {
+          height: 25px;
+          width: 25px;
+        }
+      }
+      .title {
+        @include media-breakpoint-up(lg) {
+          display: none;
+        }
+      }
     }
   }
 
