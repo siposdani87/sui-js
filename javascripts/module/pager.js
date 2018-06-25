@@ -157,7 +157,7 @@ SUI.Pager.prototype._getPagers = function() {
       });
     }
   }
-  if (this.pageNum > this.options.pager_num && part !== Math.floor(this.pageNum / this.options.pager_num)) {
+  if (this.pageNum > this.options.pager_num && part !== Math.floor((this.pageNum - 1) / this.options.pager_num)) {
     pagers.push({
       text: '...',
       page: part * this.options.pager_num + this.options.pager_num + 1,
