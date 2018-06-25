@@ -36,23 +36,36 @@
     justify-content: center;
     a {
       padding: 0 .5em;
+
       .image {
         margin-right: .5em;
         line-height: 0;
 
-        @include media-breakpoint-down(lg) {
+        @include media-breakpoint-down(md) {
           display: none;
+        }
+
+        @include media-breakpoint-up(lg) {
           margin-right: 0;
         }
 
         img {
           height: 25px;
           width: 25px;
+          filter: grayscale(100%);
         }
       }
       .title {
         @include media-breakpoint-up(lg) {
           display: none;
+        }
+      }
+
+      &.active {
+        .image {
+          img {
+            filter: none;
+          }
         }
       }
     }
