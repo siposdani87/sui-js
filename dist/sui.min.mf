@@ -83,8 +83,8 @@ module/form.js
 module/googleMap.js
 module/navigation.js
 module/progressStatus.js
-module/tabPanel.js
 module/table.js
+module/tabPanel.js
 module/treeView.js
 module/util.js
 test/container.js

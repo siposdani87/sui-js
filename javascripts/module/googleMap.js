@@ -599,15 +599,16 @@ SUI.GoogleMap.prototype.createMarker = function(id, title, iconName, latitude, l
   let options = new SUI.Object(this.markerOptions);
   options.merge(opt_options);
 
+  let text = /** @type {string} */ (SUI.convert(title, 'string'));
   let marker = new google.maps.Marker(options.copy(true));
   marker.setPosition(new google.maps.LatLng(latitude, longitude));
   marker.setIcon(this.markerIcons[iconName].icon);
   marker.setShape(this.markerIcons[iconName].shape);
-  marker.setTitle(/** @type {string} */ (SUI.convert(title, 'string')));
+  marker.setTitle(text);
   marker.setMap(this.map);
   markerData.setRaw('_marker', marker);
 
-  let mapLabel = SUI.mapLabel(marker, title);
+  let mapLabel = SUI.mapLabel(marker, text);
   markerData.setRaw('_map_label', mapLabel);
 
   this.markers.push(markerData);
@@ -741,7 +742,7 @@ SUI.GoogleMap.prototype.openInfoWindow = function(markerId, content) {
   let markerData = this.getMarker(markerId);
   let marker = /** @type {google.maps.Marker} */ (markerData.get('_marker'));
   let infoWindow = new google.maps.InfoWindow({
-    content: content,
+    content: /** @type {string} */ (SUI.convert(content, 'string')),
   });
   infoWindow.open(this.map, marker);
 };
