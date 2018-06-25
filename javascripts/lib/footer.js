@@ -72,11 +72,10 @@ SUI.lib.Footer.prototype.setContent = function(contentNode) {
 };
 
 /**
- * @param {!SUI.Node} localesNode
- * @return {undefined}
+ * @return {!SUI.Node}
  */
-SUI.lib.Footer.prototype.setLocales = function(localesNode) {
-  this.localesNode.appendChild(localesNode);
+SUI.lib.Footer.prototype.getLocalesContainer = function() {
+  return this.localesNode;
 };
 
 /**
