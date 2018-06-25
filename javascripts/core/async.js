@@ -55,7 +55,8 @@ SUI.Async.prototype.parallelFunction = function(call, opt_args, opt_index) {
  */
 SUI.Async.prototype._parallelWrapper = function(call, length, allowEvent, index, opt_args) {
   let deferred = new SUI.Deferred();
-  let promise = call.apply(this, opt_args || []);
+  let args = opt_args || [];
+  let promise = call.apply(this, args);
   if (promise && SUI.isFunction(promise.then)) {
     promise.then((object) => {
       this._parallelCaller(length, false, object, allowEvent, index, opt_args).defer(deferred);
@@ -170,7 +171,9 @@ SUI.Async.prototype.serial = function(calls, opt_args) {
 SUI.Async.prototype._serialWrapper = function(calls, index, opt_args) {
   let deferred = new SUI.Deferred();
   let call = calls[index];
-  let promise = call.apply(this, opt_args);
+  let results = opt_args || this.call.results;
+  let args = (opt_args || []).concat(this.call.results);
+  let promise = call.apply(this, args);
   if (promise && SUI.isFunction(promise.then)) {
     promise.then(function(result) {
       this._serialCaller(calls, index, result, opt_args).defer(deferred);
@@ -182,7 +185,6 @@ SUI.Async.prototype._serialWrapper = function(calls, index, opt_args) {
   } else if (promise || SUI.isUndefined(promise)) {
     this._serialCaller(calls, index, promise, opt_args).defer(deferred);
   } else {
-    let results = opt_args || this.call.results;
     deferred.reject(results);
     this._clear();
   }
