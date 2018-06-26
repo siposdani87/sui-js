@@ -180,12 +180,12 @@ SUI.Widget.prototype.isRequired = function() {
  * @return {undefined}
  */
 SUI.Widget.prototype.setRequired = function(state) {
-  this.input.getNode().required = state;
   if (state) {
     this.input.setAttribute('required');
   } else {
     this.input.removeAttribute('required');
   }
+  this.input.getNode().required = state;
   this.checkValidity(true, false);
   this._setLabel();
 };
@@ -202,12 +202,12 @@ SUI.Widget.prototype.isDisabled = function() {
  * @return {undefined}
  */
 SUI.Widget.prototype.setDisabled = function(state) {
-  this.input.getNode().disabled = state;
   if (state) {
     this.input.setAttribute('disabled');
   } else {
     this.input.removeAttribute('disabled');
   }
+  this.input.getNode().disabled = state;
   this.checkValidity(true, false);
 };
 

@@ -92,6 +92,7 @@ SUI.Form.prototype._initWidgets = function() {
     let widgetName = widget.getName();
     if (SUI.inArray(this.initWidgets, widgetName)) {
       if (!SUI.inArray(updatedWidgets, widgetName)) {
+        widget.refresh();
         widget.setValue(widget.getValue());
         updatedWidgets.push(widgetName);
       }
