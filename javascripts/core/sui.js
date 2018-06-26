@@ -755,6 +755,7 @@ SUI.mdl = function(opt_node) {
     element = element.getNode();
   }
   if (opt_node) {
+    window['componentHandler']['downgradeElements'](element);
     window['componentHandler']['upgradeElement'](element);
   } else {
     window['componentHandler']['upgradeDom']();
