@@ -502,7 +502,7 @@ SUI.Table.prototype._drawTable = function() {
     this._addHeaderRow(item);
     this._addRow(item);
   });
-  SUI.mdl(/** @type {!SUI.Node} */(this.tbody));
+  SUI.mdl(this.tbody);
 };
 
 /**

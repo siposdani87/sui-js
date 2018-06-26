@@ -40,9 +40,9 @@ SUI.Node.prototype.set = function(attribute, value) {
  * @return {undefined}
  */
 SUI.Node.prototype.merge = function(properties) {
-  SUI.each(properties, function(value, attribute) {
+  SUI.each(properties, (value, attribute) => {
     this.set(attribute, value);
-  }.bind(this));
+  });
 };
 
 /**
@@ -141,7 +141,7 @@ SUI.Node.prototype._handleClassList = function(cssClasses, callback) {
  */
 SUI.Node.prototype.addClass = function(cssClasses) {
   this._handleClassList(cssClasses, (cssClass) => {
-    if (cssClass) {
+    if (cssClass && !this.hasClass(cssClass)) {
       this.node.classList.add(cssClass);
     }
   });
@@ -423,9 +423,9 @@ SUI.Node.prototype.getStyle = function() {
  * @return {undefined}
  */
 SUI.Node.prototype.setStyle = function(properties) {
-  SUI.each(properties, function(value, propertyName) {
+  SUI.each(properties, (value, propertyName) => {
     this.node.style.setProperty(propertyName, value, '');
-  }.bind(this));
+  });
 };
 
 /**
@@ -433,9 +433,9 @@ SUI.Node.prototype.setStyle = function(properties) {
  * @return {undefined}
  */
 SUI.Node.prototype.removeStyle = function(properties) {
-  SUI.each(properties, function(property) {
+  SUI.each(properties, (property) => {
     this.node.style.removeProperty(property);
-  }.bind(this));
+  });
 };
 
 /**

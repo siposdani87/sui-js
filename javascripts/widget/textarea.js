@@ -49,6 +49,13 @@ SUI.widget.Textarea.prototype.render = function() {
   if (this.label) {
     this.label.addClass('mdl-textfield__label');
   }
+  this.refresh();
+};
+
+/**
+ * @override
+ */
+SUI.widget.Textarea.prototype.refresh = function() {
   SUI.mdl(this.inputBlock);
 };
 

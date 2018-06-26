@@ -67,13 +67,13 @@ SUI.lib.Window.prototype._initScrollEvent = function() {
  * @return {undefined}
  */
 SUI.lib.Window.prototype._initOnlineEvent = function() {
-  this.window.addEventListener('offline', function(event) {
+  this.window.addEventListener('offline', (event) => {
     this.eventOffline(event);
-  }.bind(this), false);
+  }, false);
 
-  this.window.addEventListener('online', function(event) {
+  this.window.addEventListener('online', (event) => {
     this.eventOnline(event);
-  }.bind(this), false);
+  }, false);
 };
 
 /**

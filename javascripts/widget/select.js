@@ -29,14 +29,19 @@ goog.inherits(SUI.widget.Select, SUI.Widget);
  * @return {undefined}
  */
 SUI.widget.Select.prototype._init = function() {
-  this.isMultiple = !!this.input.getAttribute('multiple');
-
   this.inputBlock.addClass('select-widget');
   this.query = '';
 
   this._initOptions();
   this._initChangeEvent();
   this._initPopup();
+};
+
+/**
+ * @return {boolean}
+ */
+SUI.widget.Select.prototype.isMultiple = function() {
+  return !!this.input.getAttribute('multiple');
 };
 
 /**
@@ -113,6 +118,13 @@ SUI.widget.Select.prototype.render = function() {
 
 /**
  * @override
+ */
+SUI.widget.Select.prototype.refresh = function() {
+
+};
+
+/**
+ * @override
  * @param {!Object|!Function|!Array|boolean|number|string|null|undefined} value
  * @return {undefined}
  */
@@ -133,7 +145,7 @@ SUI.widget.Select.prototype.getValue = function() {
   ids = ids.filter((id) => {
     return !SUI.eq(id, '');
   });
-  return this.isMultiple ? ids : ids[0];
+  return this.isMultiple() ? ids : ids[0];
 };
 
 /**
@@ -204,7 +216,7 @@ SUI.widget.Select.prototype._setSelectInput = function(ids) {
   if (this.isRequired() && ids.length === 1 && ids[0] === '') {
     this.inputBlock.addClass('is-invalid');
   }
-  if (this.isMultiple) {
+  if (this.isMultiple()) {
     this._setMultipleInput(ids);
   } else {
     this._setSimpleInput(ids[0]);
@@ -269,10 +281,10 @@ SUI.widget.Select.prototype._setTags = function(tags) {
       iconNode.addClass(['material-icons', 'size-18']);
       iconNode.setHtml('close');
       iconNode.setData('id', id);
-      iconNode.addEventListener('click', function(iconNode) {
+      iconNode.addEventListener('click', (iconNode) => {
         let id = iconNode.getData('id');
         this._handleSelectedId(id);
-      }.bind(this));
+      });
       tagNode.appendChild(iconNode);
     }
   });
@@ -318,7 +330,7 @@ SUI.widget.Select.prototype._getSelectedIds = function() {
  */
 SUI.widget.Select.prototype._handleSelectedId = function(id) {
   let ids = this._getSelectedIds();
-  if (this.isMultiple) {
+  if (this.isMultiple()) {
     if (SUI.eq(id, '') || SUI.eq(ids[0], '')) {
       SUI.clear(ids);
     }
@@ -349,7 +361,7 @@ SUI.widget.Select.prototype._handleSelectedId = function(id) {
 SUI.widget.Select.prototype._drawItems = function(items) {
   this.listNode.removeChildren();
   let ids = this._getSelectedIds();
-  SUI.each(items, function(item) {
+  SUI.each(items, (item) => {
     let id = item.get('id');
     let listItem = new SUI.Node('a');
     listItem.setAttribute('href', 'javascript:void(0)');
@@ -357,11 +369,11 @@ SUI.widget.Select.prototype._drawItems = function(items) {
       listItem.addClass('selected');
     }
     listItem.setHtml(item.get('name'));
-    listItem.addEventListener('click', function() {
+    listItem.addEventListener('click', () => {
       this._handleSelectedId(id);
-    }.bind(this));
+    });
     this.listNode.appendChild(listItem);
-  }.bind(this));
+  });
 };
 
 /**
@@ -386,10 +398,10 @@ SUI.widget.Select.prototype._drawSearchInput = function() {
   this.searchInputNode.setId(id);
   this.searchInputNode.setAttribute('type', 'text');
   this.searchInputNode.addClass('mdl-textfield__input');
-  this.searchInputNode.addEventListener('keyup', function(input) {
+  this.searchInputNode.addEventListener('keyup', (input) => {
     let node = input.getNode();
     this._search(node.value);
-  }.bind(this));
+  });
   searchNode.appendChild(this.searchInputNode);
 
   let labelNode = new SUI.Node('label');

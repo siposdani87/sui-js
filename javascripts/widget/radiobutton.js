@@ -76,6 +76,13 @@ SUI.widget.Radiobutton.prototype.render = function() {
   this.label.insert(this.input);
   this.label.appendChild(this.spanLabel);
 
+  this.refresh();
+};
+
+/**
+ * @override
+ */
+SUI.widget.Radiobutton.prototype.refresh = function() {
   SUI.mdl(this.label);
 };
 

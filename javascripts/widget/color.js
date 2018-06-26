@@ -41,6 +41,13 @@ SUI.widget.Color.prototype._init = function() {
  * @override
  */
 SUI.widget.Color.prototype.render = function() {
+  this.refresh();
+};
+
+/**
+ * @override
+ */
+SUI.widget.Color.prototype.refresh = function() {
   let color = /** @type {string} */ (this.getValue() || '#000000');
   this.setValue(color);
 };
@@ -52,7 +59,7 @@ SUI.widget.Color.prototype.render = function() {
 SUI.widget.Color.prototype._initInput = function() {
   this.input.addClass('hidden');
 
-  this.input.addEventListener('change', function(input) {
+  this.input.addEventListener('change', (input) => {
     let inputNode = input.getNode();
     this.tooltip.setMessage(inputNode.value);
     this.preview.setStyle({
@@ -60,7 +67,7 @@ SUI.widget.Color.prototype._initInput = function() {
     });
     this.modelChange(inputNode.value);
     this.checkValidity();
-  }.bind(this));
+  });
 };
 
 /**
@@ -76,12 +83,12 @@ SUI.widget.Color.prototype._initPreview = function() {
 
   this.tooltip = new SUI.Tooltip(this.preview);
 
-  this.preview.addEventListener('click', function() {
+  this.preview.addEventListener('click', () => {
     if (!this.popup.isOpened()) {
       this._draw();
     }
     this.popup.toggle();
-  }.bind(this));
+  });
 };
 
 /**
@@ -127,7 +134,7 @@ SUI.widget.Color.prototype._initImage = function() {
 
   this.canvas = new SUI.Canvas();
 
-  this.canvas.canvasNode.addEventListener('click', function(image, e) {
+  this.canvas.canvasNode.addEventListener('click', (image, e) => {
     let x = 0;
     let y = 0;
     if (e.offsetX) {
@@ -142,7 +149,7 @@ SUI.widget.Color.prototype._initImage = function() {
 
     this.setValue(hex);
     this.popup.close();
-  }.bind(this));
+  });
 };
 
 /**
@@ -195,5 +202,3 @@ SUI.widget.Color.prototype._setMaterialColors = function() {
 
   this.colors = [colors500, colors50, colors100, colors200, colors300, colors400, colors500, colors600, colors700, colors800, colors900];
 };
-
-

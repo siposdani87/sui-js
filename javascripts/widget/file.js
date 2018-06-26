@@ -37,19 +37,19 @@ SUI.widget.File.prototype._init = function() {
     this.defaultSrc = this.imageTag.getAttribute('src');
   }
 
-  this.imageTag.addEventListener('click', function() {
+  this.imageTag.addEventListener('click', () => {
     this._remove();
-  }.bind(this));
+  });
 
   this.label.setStyle({
     'top': '0px',
   });
 
-  this.input.addEventListener('change', function(inputNode) {
+  this.input.addEventListener('change', (inputNode) => {
     let input = inputNode.getNode();
     let file = input.files[0];
     this._read(file);
-  }.bind(this));
+  });
 };
 
 /**
@@ -62,8 +62,16 @@ SUI.widget.File.prototype.render = function() {
   if (this.label) {
     this.label.addClass('mdl-textfield__label');
   }
+  this.refresh();
+};
+
+/**
+ * @override
+ */
+SUI.widget.File.prototype.refresh = function() {
   SUI.mdl(this.inputBlock);
 };
+
 /**
  * @private
  * @param {!Blob} file
@@ -72,12 +80,12 @@ SUI.widget.File.prototype.render = function() {
 SUI.widget.File.prototype._read = function(file) {
   if (file) {
     let reader = new FileReader();
-    reader.onload = function(event) {
+    reader.onload = (event) => {
       let source = /** @type {string} */ (event.target.result);
       this.imageTag.setAttribute('src', source);
       this.modelChange(source);
       this.checkValidity();
-    }.bind(this);
+    };
     reader.readAsDataURL(file);
   }
 };
@@ -96,4 +104,3 @@ SUI.widget.File.prototype._remove = function() {
   this.modelChange(null);
   this.checkValidity();
 };
-

@@ -43,9 +43,9 @@ SUI.Day.prototype.getNode = function() {
     node.addClass(this.cssClasses);
     let text = parseInt(this.date['format']('DD'), 10);
     node.setHtml(text);
-    node.addEventListener('click', function() {
+    node.addEventListener('click', () => {
         this.eventClick(this.date);
-    }.bind(this));
+    });
 
     return node;
 };

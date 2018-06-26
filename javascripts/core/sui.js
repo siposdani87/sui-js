@@ -746,15 +746,15 @@ SUI.number = function(num, exp) {
 };
 
 /**
- * @param {!SUI.Node|!Element} node
+ * @param {!SUI.Node|!Element=} opt_node
  * @return {undefined}
  */
-SUI.mdl = function(node) {
-  let element = node || document;
+SUI.mdl = function(opt_node) {
+  let element = opt_node || document;
   if (SUI.isFunction(element.getNode)) {
     element = element.getNode();
   }
-  if (node) {
+  if (opt_node) {
     window['componentHandler']['upgradeElement'](element);
   } else {
     window['componentHandler']['upgradeDom']();

@@ -62,9 +62,9 @@ SUI.lib.Confirm.prototype._initButtons = function() {
 SUI.lib.Confirm.prototype._initCloseButton = function() {
   this.btnClose = new SUI.Query('.close', this.confirm).getItem();
   this.btnClose.addClass(['mdl-button', 'mdl-js-button', 'mdl-button--icon']);
-  this.btnClose.addEventListener('click', function() {
+  this.btnClose.addEventListener('click', () => {
     this._actionCancel();
-  }.bind(this));
+  });
 };
 
 /**

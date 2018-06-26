@@ -20,6 +20,11 @@
 .mdl-textfield {
     width: 100%;
     font-size: inherit;
+    &.is-disabled {
+        .mdl-textfield__input{
+            color: $grey;
+        }
+    }
 }
 
 .mdl-textfield__input {

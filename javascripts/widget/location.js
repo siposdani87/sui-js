@@ -118,6 +118,13 @@ SUI.widget.Location.prototype.render = function() {
   if (this.label) {
     this.label.addClass('mdl-textfield__label');
   }
+  this.refresh();
+};
+
+/**
+ * @override
+ */
+SUI.widget.Location.prototype.refresh = function() {
   this._renderAdvancedInputs();
   SUI.mdl(this.inputBlock);
 
