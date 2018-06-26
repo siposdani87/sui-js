@@ -98,7 +98,7 @@ SUI.CardCollection.prototype._getCardNode = function(item) {
   let regex = new RegExp('{{[a-zA-Z._,() ]*}}', 'g');
   let matches = this.template.match(regex);
   let cloneTemplate = this.template;
-  SUI.each(matches, function(match) {
+  SUI.each(matches, (match) => {
     let expression = match.replace('{{', '').replace('}}', '');
     if (SUI.contain(expression, 'ctrl.')) {
       let paramsRegex = new RegExp('(([a-zA-Z._, ]*))', 'g');
@@ -123,7 +123,7 @@ SUI.CardCollection.prototype._getCardNode = function(item) {
     } else {
       cloneTemplate = cloneTemplate.replace(match, item.get(expression));
     }
-  }.bind(this));
+  });
   return new SUI.Node(cloneTemplate);
 };
 
@@ -202,9 +202,9 @@ SUI.CardCollection.prototype._draw = function() {
   if (this.collection.size() > this.options.row_count) {
     items = this.collection.limit(this.pager.offset, this.options.row_count);
   }
-  SUI.each(items, function(item) {
+  SUI.each(items, (item) => {
     this._addCard(item);
-  }.bind(this));
+  });
 };
 
 /**

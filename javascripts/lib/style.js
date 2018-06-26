@@ -61,15 +61,15 @@ SUI.lib.Style.prototype.load = function(id, url, opt_params, opt_rel = 'styleshe
     node.setAttribute('rel', opt_rel);
     node.setAttribute('media', opt_media);
 
-    node.setAttribute('onload', function() {
+    node.setAttribute('onload', () => {
       this.progressBar.hide();
       deferred.resolve(true);
-    }.bind(this));
+    });
 
-    node.setAttribute('onerror', function() {
+    node.setAttribute('onerror', () => {
       this.progressBar.hide();
       deferred.reject(false);
-    }.bind(this));
+    });
 
     this.head.appendChild(node);
   }

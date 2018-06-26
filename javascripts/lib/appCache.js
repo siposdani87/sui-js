@@ -37,7 +37,7 @@ SUI.lib.AppCache.prototype.eventMissingFeatures = function(features) {
  * @return {undefined}
  */
 SUI.lib.AppCache.prototype._attachEvent = function() {
-  this.appCache.addEventListener('updateready', function() {
+  this.appCache.addEventListener('updateready', () => {
     if (this.appCache.status === this.appCache.UPDATEREADY) {
       // Browser downloaded a new app cache.
       if (confirm('A new version of this site is available. Load it?')) {
@@ -46,14 +46,14 @@ SUI.lib.AppCache.prototype._attachEvent = function() {
     } else {
       // Manifest didn't changed. Nothing new to server.
     }
-  }.bind(this));
+  });
 
 
-  let handleCacheEvent = function(e) {
+  let handleCacheEvent = (e) => {
     // console.log(e);
   };
 
-  let handleCacheError = function(e) {
+  let handleCacheError = (e) => {
     // alert('Error: Cache failed to update!');
   };
 

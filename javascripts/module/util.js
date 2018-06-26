@@ -28,13 +28,13 @@ SUI.Util.prototype.advancedWaiting = function(callback, opt_duration) {
  */
 SUI.Util.prototype._advancedDelayHandler = function(callback, duration, counter) {
   this.timeoutWaiting += 0.0001;
-  setTimeout(function() {
+  setTimeout(() => {
     let prevCounter = this.timeoutWaiting - 0.0001;
     if (prevCounter.toFixed(4) === counter.toFixed(4)) {
       this.timeoutWaiting = 0;
       callback();
     }
-  }.bind(this), duration);
+  }, duration);
 };
 
 /**
@@ -42,9 +42,9 @@ SUI.Util.prototype._advancedDelayHandler = function(callback, duration, counter)
  */
 SUI.Util.prototype.stopAdvancedWaiting = function() {
   this.timeoutWaiting += 0.0001;
-  this.intervall = setInterval(function() {
+  this.intervall = setInterval(() => {
     this.timeoutWaiting += 0.0001;
-  }.bind(this), 1000);
+  }, 1000);
 };
 
 /**
@@ -72,11 +72,11 @@ SUI.Util.prototype.simpleWaiting = function(callback, opt_duration) {
  */
 SUI.Util.prototype._simpleDelayHandler = function(callback, duration, counter) {
   this.counter++;
-  setTimeout(function() {
+  setTimeout(() => {
     let prevCounter = this.counter - 1;
     if (counter === prevCounter) {
       this.counter = 0;
       callback();
     }
-  }.bind(this), duration);
+  }, duration);
 };

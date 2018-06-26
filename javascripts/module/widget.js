@@ -44,6 +44,13 @@ SUI.Widget.prototype.render = function() {
 };
 
 /**
+ * @return {undefined}
+ */
+SUI.Widget.prototype.refresh = function() {
+  console.warn('SUI.Widget.refresh()');
+};
+
+/**
  * @param {*} value
  */
 SUI.Widget.prototype.modelChange = function(value) {
@@ -133,9 +140,21 @@ SUI.Widget.prototype.setValue = function(value) {
  * @return {boolean}
  */
 SUI.Widget.prototype.exists = function() {
-  let existsInputBlock = !!this.inputBlock && this.inputBlock.exists();
-  let existsInput = !!this.input && this.input.exists();
-  return existsInputBlock || existsInput;
+  return this.existsInputBlock() || this.existsInput();
+};
+
+/**
+ * @return {boolean}
+ */
+SUI.Widget.prototype.existsInput = function() {
+  return !!this.input && this.input.exists();
+};
+
+/**
+ * @return {boolean}
+ */
+SUI.Widget.prototype.existsInputBlock = function() {
+  return !!this.inputBlock && this.inputBlock.exists();
 };
 
 /**
@@ -162,6 +181,11 @@ SUI.Widget.prototype.isRequired = function() {
  */
 SUI.Widget.prototype.setRequired = function(state) {
   this.input.getNode().required = state;
+  if (state) {
+    this.input.setAttribute('required');
+  } else {
+    this.input.removeAttribute('required');
+  }
   this.checkValidity(true, false);
   this._setLabel();
 };
@@ -179,6 +203,11 @@ SUI.Widget.prototype.isDisabled = function() {
  */
 SUI.Widget.prototype.setDisabled = function(state) {
   this.input.getNode().disabled = state;
+  if (state) {
+    this.input.setAttribute('disabled');
+  } else {
+    this.input.removeAttribute('disabled');
+  }
   this.checkValidity(true, false);
 };
 
@@ -232,9 +261,11 @@ SUI.Widget.prototype._setMutation = function() {
     for (let i = 0; i < mutationsList.length; i++) {
       let mutation = mutationsList[i];
       if (mutation.attributeName === 'disabled') {
-        console.log('mutation: ', mutation);
+        console.log('mutation: disabled', mutation);
+        this.refresh();
       } else if (mutation.attributeName === 'required') {
-        console.log('mutation: ', mutation);
+        console.log('mutation: required', mutation);
+        this.refresh();
       }
     }
   });

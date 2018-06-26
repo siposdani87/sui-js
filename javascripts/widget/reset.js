@@ -30,5 +30,12 @@ SUI.widget.Reset.prototype._init = function() {
  */
 SUI.widget.Reset.prototype.render = function() {
   this.input.addClass(['mdl-button', 'mdl-js-button', 'mdl-js-ripple-effect']);
+  this.refresh();
+};
+
+/**
+ * @override
+ */
+SUI.widget.Reset.prototype.refresh = function() {
   SUI.mdl(this.input);
 };

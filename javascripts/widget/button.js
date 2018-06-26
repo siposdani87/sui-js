@@ -31,10 +31,17 @@ SUI.widget.Button.prototype._init = function() {
 SUI.widget.Button.prototype.render = function() {
   this.input.addClass(['mdl-button', 'mdl-js-button', 'mdl-button--raised', 'mdl-js-ripple-effect', 'mdl-button--accent']);
 
-  this.input.addEventListener('click', function(node) {
+  this.input.addEventListener('click', (node) => {
     this.eventClick(node);
-  }.bind(this));
+  });
 
+  this.refresh();
+};
+
+/**
+ * @override
+ */
+SUI.widget.Button.prototype.refresh = function() {
   SUI.mdl(this.input);
 };
 

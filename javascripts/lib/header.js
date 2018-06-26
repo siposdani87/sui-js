@@ -29,9 +29,9 @@ SUI.lib.Header.prototype._init = function() {
 
   this.brandNode = new SUI.Query('.brand', this.headerNode).getItem();
   this.brandNode.setAttribute('href', 'javascript:void(0)');
-  this.brandNode.addEventListener('click', function() {
+  this.brandNode.addEventListener('click', () => {
     this.eventLogoClick();
-  }.bind(this));
+  });
 
   this.brandNodeImage = new SUI.Query('.brand img', this.brandNode).getItem();
   this.brandNodeTitle = new SUI.Query('.brand .app-title', this.brandNode).getItem();

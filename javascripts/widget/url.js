@@ -59,5 +59,12 @@ SUI.widget.Url.prototype.render = function() {
     this.input.insertAfter(protocolNode);
   }
 
+  this.refresh();
+};
+
+/**
+ * @override
+ */
+SUI.widget.Url.prototype.refresh = function() {
   SUI.mdl(this.inputBlock);
 };

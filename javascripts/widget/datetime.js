@@ -31,9 +31,9 @@ SUI.widget.Datetime.prototype._init = function() {
 
   this.datetimeInput = new SUI.Node('div');
   this.datetimeInput.addClass('datetime-input');
-  this.datetimeInput.addEventListener('click', function() {
+  this.datetimeInput.addEventListener('click', () => {
     this.popup.open();
-  }.bind(this));
+  });
   this.inputBlock.appendChild(this.datetimeInput);
 
   this._initInput();
@@ -61,9 +61,9 @@ SUI.widget.Datetime.prototype._initInput = function() {
     value: value,
     type: type,
   });
-  this.datetime.eventClick = function(value) {
+  this.datetime.eventClick = (value) => {
     this.setValue(value);
-  }.bind(this);
+  };
 
   this.popup = new SUI.Popup(this.datetimeNode, this.inputBlock);
 
@@ -78,15 +78,22 @@ SUI.widget.Datetime.prototype._initInput = function() {
  * @return {undefined}
  */
 SUI.widget.Datetime.prototype.render = function() {
-  this.datetime.draw();
-
   let iconNode = new SUI.Node('i');
   iconNode.addClass(['material-icons', 'size-24']);
   iconNode.setHtml('date_range');
-  iconNode.addEventListener('click', function() {
+  iconNode.addEventListener('click', () => {
     this.popup.open();
-  }.bind(this));
+  });
   this.datetimeInput.insertAfter(iconNode);
+
+  this.refresh();
+};
+
+/**
+ * @override
+ */
+SUI.widget.Datetime.prototype.refresh = function() {
+  this.datetime.draw();
 };
 
 /**

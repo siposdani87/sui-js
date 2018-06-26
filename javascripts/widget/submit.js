@@ -30,5 +30,12 @@ SUI.widget.Submit.prototype._init = function() {
  */
 SUI.widget.Submit.prototype.render = function() {
   this.input.addClass(['mdl-button', 'mdl-js-button', 'mdl-button--raised', 'mdl-js-ripple-effect', 'mdl-button--primary']);
+  this.refresh();
+};
+
+/**
+ * @override
+ */
+SUI.widget.Submit.prototype.refresh = function() {
   SUI.mdl(this.input);
 };

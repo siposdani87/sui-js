@@ -165,12 +165,12 @@ SUI.Datetime.prototype._drawCalendar = function() {
       type: this.config.calendar_type,
       start_day: 1,
     });
-    calendar.eventClick = function(date) {
+    calendar.eventClick = (date) => {
       this.value['year'](date['year']());
       this.value['month'](date['month']());
       this.value['date'](date['date']());
       this._onClick();
-    }.bind(this);
+    };
     calendar.draw();
   }
 };
@@ -185,11 +185,11 @@ SUI.Datetime.prototype._drawClock = function() {
       time: this.value,
       type: this.config.clock_type,
     });
-    clock.eventClick = function(date) {
+    clock.eventClick = (date) => {
       this.value['hour'](date['hour']());
       this.value['minute'](date['minute']());
       this._onClick();
-    }.bind(this);
+    };
     clock.draw();
   }
 };

@@ -63,6 +63,13 @@ SUI.widget.Search.prototype.render = function() {
   labelNode.addClass('mdl-textfield__label');
   holderNode.appendChild(labelNode);
 
+  this.refresh();
+};
+
+/**
+ * @override
+ */
+SUI.widget.Search.prototype.refresh = function() {
   SUI.mdl(this.inputBlock);
 };
 

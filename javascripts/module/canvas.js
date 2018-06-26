@@ -106,9 +106,9 @@ SUI.Canvas.prototype.drawPolygon = function(x, y, radius, sides, rotateAngle, op
     this.context.lineTo(radius * Math.cos(a * i), radius * Math.sin(a * i));
   }
   this.context.closePath();
-  SUI.each(options, function(value, key) {
+  SUI.each(options, (value, key) => {
     this.context[key] = value;
-  }.bind(this));
+  });
   this.context.fill();
   this.context.stroke();
   this.context.restore();
@@ -129,9 +129,9 @@ SUI.Canvas.prototype.drawRectangle = function(x, y, width, height, rotateAngle, 
   this.context.beginPath();
   this.context.rotate(rotateAngle);
   this.context.rect(0, 0, width, height);
-  SUI.each(options, function(value, key) {
+  SUI.each(options, (value, key) => {
     this.context[key] = value;
-  }.bind(this));
+  });
   if (options['fillStyle']) {
     this.context.fill();
   }

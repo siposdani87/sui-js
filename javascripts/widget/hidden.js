@@ -21,11 +21,11 @@ goog.inherits(SUI.widget.Hidden, SUI.Widget);
  * @return {undefined}
  */
 SUI.widget.Hidden.prototype._init = function() {
-  this.input.addEventListener('change', function(input) {
+  this.input.addEventListener('change', (input) => {
     let inputNode = input.getNode();
     this.modelChange(inputNode.value);
     this.checkValidity();
-  }.bind(this));
+  });
 };
 
 /**
@@ -36,3 +36,9 @@ SUI.widget.Hidden.prototype.render = function() {
 
 };
 
+/**
+ * @override
+ */
+SUI.widget.Hidden.prototype.refresh = function() {
+
+};

@@ -59,12 +59,12 @@ SUI.Form.prototype._initFormEvent = function() {
  * @return {undefined}
  */
 SUI.Form.prototype._initSubmitFormEvent = function() {
-  this.formNode.addEventListener('submit', function(node, event) {
+  this.formNode.addEventListener('submit', (node, event) => {
     event.preventDefault();
     if (this.checkValidity(true)) {
       this.eventSubmit(this.model, node);
     }
-  }.bind(this));
+  });
 };
 
 /**
@@ -72,10 +72,10 @@ SUI.Form.prototype._initSubmitFormEvent = function() {
  * @return {undefined}
  */
 SUI.Form.prototype._initResetFormEvent = function() {
-  this.formNode.addEventListener('reset', function(node, event) {
+  this.formNode.addEventListener('reset', (node, event) => {
     event.preventDefault();
     this.eventReset(this.model, node);
-  }.bind(this));
+  });
 };
 
 /**
@@ -200,7 +200,7 @@ SUI.Form.prototype.isValid = function() {
  * @return {undefined}
  */
 SUI.Form.prototype.refresh = function() {
-  this.deleteAllByCondition(function(widget) {
+  this.deleteAllByCondition((widget) => {
     let exists = widget.exists();
     if (!exists) {
       let widgetName = widget.getName();
@@ -208,7 +208,7 @@ SUI.Form.prototype.refresh = function() {
       SUI.remove(this.initWidgets, widgetName);
     }
     return !exists;
-  }.bind(this));
+  });
 
   this._initWidgets();
 };

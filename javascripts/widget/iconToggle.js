@@ -44,5 +44,12 @@ SUI.widget.IconToggle.prototype.render = function() {
   this.label.appendChild(this.icon);
   this.label.appendChild(this.spanLabel);
 
+  this.refresh();
+};
+
+/**
+ * @override
+ */
+SUI.widget.IconToggle.prototype.refresh = function() {
   SUI.mdl(this.label);
 };

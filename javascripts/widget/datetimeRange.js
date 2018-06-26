@@ -64,9 +64,9 @@ SUI.widget.DatetimeRange.prototype._initInput = function() {
     value: value,
     type: type,
   });
-  this.datetime.eventClick = function(value) {
+  this.datetime.eventClick = (value) => {
     this.setValue(value);
-  }.bind(this);
+  };
 
   this.popup = new SUI.Popup(this.datetimeNode, this.inputBlock);
   this.popup.eventClose = () => {
@@ -79,14 +79,11 @@ SUI.widget.DatetimeRange.prototype._initInput = function() {
   }
 };
 
-
 /**
  * @override
  * @return {undefined}
  */
 SUI.widget.DatetimeRange.prototype.render = function() {
-  this.datetime.draw();
-
   let iconNode = new SUI.Node('i');
   iconNode.addClass(['material-icons', 'size-24']);
   if (this.isStartInput) {
@@ -98,8 +95,16 @@ SUI.widget.DatetimeRange.prototype.render = function() {
     this.datetimeInput.addClass('active');
     this.popup.open();
   });
-
   this.datetimeInput.insertAfter(iconNode);
+
+  this.refresh();
+};
+
+/**
+ * @override
+ */
+SUI.widget.DatetimeRange.prototype.refresh = function() {
+  this.datetime.draw();
 };
 
 /**

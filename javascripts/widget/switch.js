@@ -37,5 +37,12 @@ SUI.widget.Switch.prototype.render = function() {
   this.label.insert(this.input);
   this.label.appendChild(this.spanLabel);
 
+  this.refresh();
+};
+
+/**
+ * @override
+ */
+SUI.widget.Switch.prototype.refresh = function() {
   SUI.mdl(this.label);
 };

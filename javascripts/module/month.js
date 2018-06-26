@@ -44,9 +44,9 @@ SUI.Month.prototype.getNode = function() {
     let i = this.date['month']();
     let text = window['moment']['monthsShort'](i);
     node.setHtml(text);
-    node.addEventListener('click', function() {
+    node.addEventListener('click', () => {
         this.eventClick(this.date);
-    }.bind(this));
+    });
     return node;
 };
 

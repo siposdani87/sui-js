@@ -74,7 +74,7 @@ SUI.State.prototype._init = function() {
  * @return {undefined}
  */
 SUI.State.prototype._initPopstate = function() {
-  window.addEventListener('popstate', function() {
+  window.addEventListener('popstate', () => {
     if (window.history.state) {
       let state = new SUI.Object();
       state.merge(window.history.state);
@@ -84,7 +84,7 @@ SUI.State.prototype._initPopstate = function() {
       this._parseHashTag();
       this._triggerChange();
     }
-  }.bind(this));
+  });
 };
 
 /**
@@ -319,9 +319,9 @@ SUI.State.prototype.getRoutes = function() {
  * @return {undefined}
  */
 SUI.State.prototype.setParams = function(properties) {
-  SUI.each(properties, function(value, name) {
+  SUI.each(properties, (value, name) => {
     this.setParam(name, value);
-  }.bind(this));
+  });
 };
 
 /**

@@ -75,7 +75,7 @@ SUI.lib.Xhr.prototype._getResponseType = function(name) {
  * @return {!Function}
  */
 SUI.lib.Xhr.prototype._onReadyStateChange = function() {
-  return function() {
+  return () => {
     switch (this.http.readyState) {
       case 0:
       // request not initialized
@@ -99,7 +99,7 @@ SUI.lib.Xhr.prototype._onReadyStateChange = function() {
         console.error('SUI.lib.Xhr._onReadyStateChange()', this.http.readyState);
         break;
     }
-  }.bind(this);
+  };
 };
 
 /**

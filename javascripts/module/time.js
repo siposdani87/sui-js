@@ -119,10 +119,10 @@ SUI.Time.prototype._drawCircles = function(start, n, opt_j = 1, opt_isClockWise 
  */
 SUI.Time.prototype._setCircleEvent = function(circle, i) {
   circle.setData('index', i);
-  circle.addEventListener('click', function(circle) {
+  circle.addEventListener('click', (circle) => {
     let index = /** @type {number} */ (circle.getData('index'));
     this.eventClick(index);
-  }.bind(this));
+  });
 };
 
 /**

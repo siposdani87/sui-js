@@ -27,11 +27,11 @@ SUI.lib.Template = function(http, opt_options) {
  */
 SUI.lib.Template.prototype.load = function(url) {
   let deferred = new SUI.Deferred();
-  this.get(url).then(function(data) {
+  this.get(url).then((data) => {
     let node = new SUI.Query('.page-content', data).getItem();
     this.view.insert(node);
     deferred.resolve(node);
-  }.bind(this), function() {
+  }, () => {
     deferred.reject();
   });
   return deferred.promise();
@@ -43,9 +43,9 @@ SUI.lib.Template.prototype.load = function(url) {
  */
 SUI.lib.Template.prototype.get = function(url) {
   let deferred = new SUI.Deferred();
-  this.http.get(url).then(function(data) {
+  this.http.get(url).then((data) => {
     deferred.resolve(data);
-  }, function(data) {
+  }, (data) => {
     deferred.reject(data);
     let messageItem = new SUI.Query('#message', data).getItem();
     let message = {
@@ -53,7 +53,7 @@ SUI.lib.Template.prototype.get = function(url) {
       'type': messageItem.getAttribute('class'),
     };
     this.eventError(message);
-  }.bind(this));
+  });
   return deferred.promise();
 };
 
