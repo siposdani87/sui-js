@@ -17,7 +17,7 @@ goog.require('SUI.Tooltip');
  */
 SUI.Table = function(dom, opt_options, opt_selector = 'table') {
   this.table = new SUI.Query(opt_selector, dom).getItem();
-  this.tableResponsive = this.table.getParent();
+  this.tableResponsive = this.table.getParentNode();
   if (!this.table.isEmpty()) {
     this._setOptions(opt_options);
     this._init();
@@ -315,7 +315,7 @@ SUI.Table.prototype._addHeaderRow = function(item) {
   this.tbody.appendChild(headerRow);
 
   let headerNameCell = new SUI.Node('td');
-  let dataNode = this.getDataNodeByItem(item, this._getColumn());
+  let dataNode = this.getDataNodeByItem(item, this._getColumn(), headerNameCell);
   headerNameCell.appendChild(dataNode);
   headerNameCell.setAttribute('colspan', this.headerNodes.size() - 2);
   headerRow.appendChild(headerNameCell);
@@ -352,13 +352,14 @@ SUI.Table.prototype.setActions = function(actions) {
 /**
  * @param {!SUI.Object} item
  * @param {string} column
+ * @param {!SUI.Node} parentNode
  * @return {!SUI.Node}
  */
-SUI.Table.prototype.getDataNodeByItem = function(item, column) {
+SUI.Table.prototype.getDataNodeByItem = function(item, column, parentNode) {
   let data = item.get(column, '');
   let calculation = this.options.calculations[column];
   if (SUI.isFunction(calculation)) {
-    data = calculation(item);
+    data = calculation(item, parentNode);
   }
   if (!SUI.instanceOf(data, SUI.Node)) {
     let node = new SUI.Node('span');
@@ -386,7 +387,7 @@ SUI.Table.prototype._renderDataNode = function(tableDataNode, item, column, inde
     this._renderHeader(labelNode, index);
     this._handleSortingColumn(labelNode, index);
     tableDataNode.appendChild(labelNode);
-    let dataNode = this.getDataNodeByItem(item, column);
+    let dataNode = this.getDataNodeByItem(item, column, tableDataNode);
     tableDataNode.appendChild(dataNode);
   }
 };

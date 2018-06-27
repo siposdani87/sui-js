@@ -49,9 +49,9 @@ SUI.widget.Radiobutton.prototype._triggerClick = function() {
   let name = this.input.getAttribute('name');
   let radioButtonInputs = new SUI.Query(SUI.format('input[name="{0}"]', [name]), this.form.formNode);
   radioButtonInputs.each((radioButtonInput) => {
-    let labelNode = radioButtonInput.getParent();
+    let labelNode = radioButtonInput.getParentNode();
     labelNode.addClass('is-other-checked');
-    let inputBlockNode = labelNode.getParent();
+    let inputBlockNode = labelNode.getParentNode();
     inputBlockNode.removeClass('is-invalid');
   });
 };

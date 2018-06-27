@@ -35,7 +35,7 @@ SUI.FormWidget = function(inputBlock, form) {
   let tagName = inputBlock.getTagName();
   let tagType = inputBlock.getAttribute('type');
   if (SUI.eq(tagName, 'input') && !SUI.inArray(['hidden', 'reset', 'submit', 'button'], tagType)) {
-    inputBlock = /** @type {!SUI.Node}*/ (inputBlock.getParent());
+    inputBlock = /** @type {!SUI.Node}*/ (inputBlock.getParentNode());
     selectedIndex = 0;
   }
   tagName = inputBlock.getTagName();

@@ -27,6 +27,7 @@ SUI.Collection.prototype._setOptions = function(opt_options = {}) {
   let _self = this;
   _self.options = new SUI.Object({
     id: 'id',
+    parent: undefined,
   });
   _self.options.merge(opt_options);
 };
@@ -68,7 +69,8 @@ SUI.Collection.prototype.push = function(object) {
 SUI.Collection.prototype._createItem = function(object) {
   let item = object;
   if (!SUI.instanceOf(object, this.Type)) {
-    item = new this.Type(object, this);
+    let parent = !SUI.isUndefined(this.options.parent) ? this.options.parent : this;
+    item = new this.Type(object, parent);
   }
   return item;
 };
