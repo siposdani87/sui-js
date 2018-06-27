@@ -68,7 +68,7 @@ SUI.Node.prototype.getNode = function() {
  * @return {string}
  */
 SUI.Node.prototype.getHtml = function(opt_isInner = false) {
-  if (this.node) {
+  if (!this.isEmpty()) {
     return opt_isInner ? this.node.innerHTML : this.node.outerHTML;
   }
   return '';
@@ -299,7 +299,9 @@ SUI.Node.prototype.removeChild = function(node) {
  * @return {undefined}
  */
 SUI.Node.prototype.remove = function() {
-  this.node.parentNode.removeChild(this.node);
+  if (!this.isEmpty()) {
+    this.node.parentNode.removeChild(this.node);
+  }
 };
 
 /**
@@ -330,6 +332,7 @@ SUI.Node.prototype.insertBefore = function(node) {
 
 /**
  * @param {!SUI.Node} node
+ * @return {undefined}
  */
 SUI.Node.prototype.insertAfter = function(node) {
   let nextSiblingNode = this.getNextSibling();
@@ -342,6 +345,14 @@ SUI.Node.prototype.insertAfter = function(node) {
 SUI.Node.prototype.getNextSibling = function() {
   let referenceNode = this.node.nextSibling || this.node.nextElementSibling;
   return new SUI.Node(/** @type {!Element} */(referenceNode));
+};
+
+/**
+ * @param {!SUI.Node} node
+ * @return {undefined}
+ */
+SUI.Node.prototype.replaceChild = function(node) {
+  this.node.parentNode.replaceChild(node.getNode(), this.node);
 };
 
 /**
@@ -452,7 +463,6 @@ SUI.Node.prototype.exists = function() {
   return document.body.contains(this.node);
 };
 
-
 /**
  * @override
  * @param {boolean=} opt_isRoot
@@ -463,4 +473,27 @@ SUI.Node.prototype.toString = function(opt_isRoot = true) {
     return this.node.outerHTML;
   }
   return this.node.innerHTML;
+};
+
+/**
+ * @param {boolean=} opt_deep
+ * @return {SUI.Node}
+ */
+SUI.Node.prototype.cloneNode = function(opt_deep = false) {
+  if (!this.isEmpty()) {
+    let cloneNode = this.node.cloneNode(opt_deep);
+    return new SUI.Node(cloneNode, this.parent);
+  }
+  return null;
+};
+
+/**
+ * @return {undefined}
+ */
+SUI.Node.prototype.clearNode = function() {
+  let cloneNode = this.cloneNode(true);
+  if (cloneNode) {
+    this.replaceChild(cloneNode);
+    this.node = cloneNode;
+  }
 };

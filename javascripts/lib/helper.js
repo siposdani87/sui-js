@@ -72,16 +72,22 @@ SUI.lib.Helper.prototype.linkElement = function(linkNode, opt_callback, opt_desc
     if (opt_allowAccess) {
       if (!linkNode.getId()) {
         linkNode.setId(SUI.generateId('link'));
-        if (opt_callback) {
+      } else {
+        let oldHref = /** @type {string} */ (linkNode.getData('href'));
+        linkNode.setAttribute('href', oldHref);
+        linkNode.clearNode();
+      }
+      if (opt_callback) {
           let href = linkNode.getAttribute('href');
+          linkNode.setData('href', href);
           linkNode.setAttribute('href', 'javascript:void(0)');
           linkNode.addEventListener('click', function() {
             opt_callback(href);
           });
-        }
-        new SUI.Tooltip(linkNode, opt_description);
-        SUI.mdl(linkNode);
       }
+
+      new SUI.Tooltip(linkNode, opt_description);
+      SUI.mdl(linkNode);
     } else {
       linkNode.remove();
     }
@@ -144,12 +150,18 @@ SUI.lib.Helper.prototype.buttonElement = function(buttonNode, opt_callback, opt_
     if (opt_allowAccess) {
       if (!buttonNode.getId()) {
         buttonNode.setId(SUI.generateId('button'));
-        buttonNode.addClass(['mdl-button', 'mdl-js-button', 'mdl-js-ripple-effect', 'mdl-button--raised'].concat(opt_cssClasses));
-        buttonNode.addEventListener('click', opt_callback);
-
-        new SUI.Tooltip(buttonNode, opt_description);
-        SUI.mdl(buttonNode);
+      } else {
+        let oldCssClasses = /** @type {!Array} */ (buttonNode.getData('css-classes'));
+        buttonNode.removeClass(oldCssClasses);
+        buttonNode.clearNode();
       }
+      let cssClasses = ['mdl-button', 'mdl-js-button', 'mdl-js-ripple-effect', 'mdl-button--raised'].concat(opt_cssClasses);
+      buttonNode.setData('css-classes', cssClasses);
+      buttonNode.addClass(cssClasses);
+      buttonNode.addEventListener('click', opt_callback);
+
+      new SUI.Tooltip(buttonNode, opt_description);
+      SUI.mdl(buttonNode);
     } else {
       buttonNode.remove();
     }
@@ -212,12 +224,18 @@ SUI.lib.Helper.prototype.iconButtonElement = function(buttonNode, opt_callback, 
     if (opt_allowAccess) {
       if (!buttonNode.getId()) {
         buttonNode.setId(SUI.generateId('button'));
-        buttonNode.addClass(['mdl-button', 'mdl-js-button', 'mdl-js-ripple-effect', 'mdl-button--icon'].concat(opt_cssClasses));
-        buttonNode.addEventListener('click', opt_callback);
-
-        new SUI.Tooltip(buttonNode, opt_description);
-        SUI.mdl(buttonNode);
+      } else {
+        let oldCssClasses = /** @type {!Array} */ (buttonNode.getData('css-classes'));
+        buttonNode.removeClass(oldCssClasses);
+        buttonNode.clearNode();
       }
+      let cssClasses = ['mdl-button', 'mdl-js-button', 'mdl-js-ripple-effect', 'mdl-button--icon'].concat(opt_cssClasses);
+      buttonNode.setData('css-classes', cssClasses);
+      buttonNode.addClass(cssClasses);
+      buttonNode.addEventListener('click', opt_callback);
+
+      new SUI.Tooltip(buttonNode, opt_description);
+      SUI.mdl(buttonNode);
     } else {
       buttonNode.remove();
     }
