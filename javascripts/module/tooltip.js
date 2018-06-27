@@ -12,7 +12,7 @@ goog.require('SUI');
  */
 SUI.Tooltip = function(element, opt_message = '', opt_position = 'TOP') {
   this.element = element;
-  this._initOptions(opt_position);
+  this._initPositions(opt_position);
   this._init(opt_message);
 };
 
@@ -21,7 +21,7 @@ SUI.Tooltip = function(element, opt_message = '', opt_position = 'TOP') {
  * @param {string=} opt_position
  * @return {undefined}
  */
-SUI.Tooltip.prototype._initOptions = function(opt_position = '') {
+SUI.Tooltip.prototype._initPositions = function(opt_position = '') {
   this.positionCssClass = 'mdl-tooltip--top';
   switch (opt_position) {
     case 'TOP':
