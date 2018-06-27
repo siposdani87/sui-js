@@ -1,13 +1,11 @@
 core/sui.js
+core/module.js
 core/object.js
-core/promise.js
-core/deferred.js
-core/lib.js
-lib/actionCableClient.js
-lib/actionCable.js
-lib/appCache.js
 core/collection.js
 core/query.js
+module/test.js
+core/lib.js
+lib/appCache.js
 lib/bottomMenu.js
 lib/browser.js
 core/async.js
@@ -15,6 +13,8 @@ core/node.js
 lib/confirm.js
 lib/console.js
 lib/cookie.js
+core/promise.js
+core/deferred.js
 lib/dialog.js
 lib/document.js
 lib/event.js
@@ -26,7 +26,6 @@ lib/xhr.js
 lib/http.js
 lib/leftMenu.js
 lib/loader.js
-lib/navBar.js
 lib/notification.js
 lib/progressBar.js
 lib/script.js
@@ -37,8 +36,6 @@ lib/style.js
 lib/template.js
 lib/topMenu.js
 lib/window.js
-core/module.js
-module/test.js
 core/app.js
 core/box.js
 core/item.js
@@ -46,10 +43,9 @@ core/router.js
 core/state.js
 core/test.js
 core/widget.js
-test/container.js
-test/deferred.js
-test/item.js
-test/object.js
+lib/actionCableClient.js
+lib/actionCable.js
+lib/navBar.js
 module/day.js
 module/month.js
 module/year.js
@@ -87,8 +83,8 @@ module/form.js
 module/googleMap.js
 module/navigation.js
 module/progressStatus.js
-module/table.js
 module/tabPanel.js
+module/table.js
 module/treeView.js
 module/util.js
 widget/autoComplete.js
@@ -97,3 +93,7 @@ widget/location.js
 widget/number.js
 widget/search.js
 widget/url.js
+test/container.js
+test/deferred.js
+test/item.js
+test/object.js

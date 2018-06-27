@@ -315,10 +315,10 @@ SUI.Table.prototype._addHeaderRow = function(item) {
   this.tbody.appendChild(headerRow);
 
   let headerNameCell = new SUI.Node('td');
+  headerRow.appendChild(headerNameCell);
   let dataNode = this.getDataNodeByItem(item, this._getColumn(), headerNameCell);
   headerNameCell.appendChild(dataNode);
   headerNameCell.setAttribute('colspan', this.headerNodes.size() - 2);
-  headerRow.appendChild(headerNameCell);
 
   let headerActionCell = new SUI.Node('td');
   headerRow.appendChild(headerActionCell);
