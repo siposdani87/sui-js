@@ -29,6 +29,7 @@ goog.inherits(SUI.widget.Select, SUI.Widget);
  * @return {undefined}
  */
 SUI.widget.Select.prototype._init = function() {
+  this.input.addClass('hidden');
   this.inputBlock.addClass('select-widget');
   this.query = '';
 
@@ -94,13 +95,29 @@ SUI.widget.Select.prototype._initOptions = function() {
  * @return {undefined}
  */
 SUI.widget.Select.prototype.render = function() {
-  this.input.addClass('hidden');
+  this.refresh();
+};
+
+/**
+ * @override
+ */
+SUI.widget.Select.prototype.refresh = function() {
+  let selectContainerNode = new SUI.Query('.select-container', this.inputBlock).getItem();
+  selectContainerNode.remove();
+
+  if (this.isDisabled()) {
+    this.inputBlock.addClass('is-disabled');
+  } else {
+    this.inputBlock.removeClass('is-disabled');
+  }
 
   this.selectContainerNode = new SUI.Node('div');
   this.selectContainerNode.addClass('select-container');
-  this.selectContainerNode.addEventListener('click', () => {
-    this.open();
-  });
+  if (!this.isDisabled()) {
+    this.selectContainerNode.addEventListener('click', () => {
+      this.open();
+    });
+  }
   this.input.insertAfter(this.selectContainerNode);
 
   this.selectNode = new SUI.Node('div');
@@ -109,18 +126,15 @@ SUI.widget.Select.prototype.render = function() {
 
   this.iconNode = new SUI.Node('i');
   this.iconNode.addClass(['material-icons', 'size-24', 'expander']);
-  this.iconNode.setHtml('expand_more');
+  if (this.isDisabled()) {
+    this.iconNode.setHtml('block');
+  } else {
+    this.iconNode.setHtml('expand_more');
+  }
   this.selectContainerNode.appendChild(this.iconNode);
 
   let ids = this._getSelectedIds();
   this._setSelectInput(ids);
-};
-
-/**
- * @override
- */
-SUI.widget.Select.prototype.refresh = function() {
-
 };
 
 /**
@@ -270,13 +284,15 @@ SUI.widget.Select.prototype._setTags = function(tags) {
     let tagNode = new SUI.Node('div');
     tagNode.addClass('tag');
     tagNode.setHtml(tag.get('name'));
-    tagNode.addEventListener('click', () => {
-      this.open();
-    });
+    if (!this.isDisabled()) {
+      tagNode.addEventListener('click', () => {
+        this.open();
+      });
+    }
     this.selectNode.appendChild(tagNode);
 
     let id = tag.get('id');
-    if (SUI.neq(id, '')) {
+    if (SUI.neq(id, '') && !this.isDisabled()) {
       let iconNode = new SUI.Node('i');
       iconNode.addClass(['material-icons', 'size-18']);
       iconNode.setHtml('close');

@@ -20,6 +20,7 @@ SUI.Node = function(node, opt_parent) {
   }
   this.node = /** @type {!Element} */ (node);
   this.parent = opt_parent;
+  this.listenerStoreKey = '_listeners';
 };
 
 /**
@@ -217,8 +218,37 @@ SUI.Node.prototype.addEventListener = function(eventName, opt_callback) {
       event.stopPropagation();
     };
     this.node.addEventListener(eventName, listener);
+    this._addListenerToStore(eventName, listener);
   }
   return listener;
+};
+
+/**
+ * @private
+ * @param {string} eventName
+ * @param {!Function=} listener
+ * @return {undefined}
+ */
+SUI.Node.prototype._addListenerToStore = function(eventName, listener) {
+  if (!this.node[this.listenerStoreKey]) {
+    this.node[this.listenerStoreKey] = {};
+  }
+  if (!this.node[this.listenerStoreKey][eventName]) {
+    this.node[this.listenerStoreKey][eventName] = [];
+  }
+  this.node[this.listenerStoreKey][eventName].push(listener);
+};
+
+/**
+ * @private
+ * @param {string} eventName
+ * @return {!Array}
+ */
+SUI.Node.prototype._getListenerToStore = function(eventName) {
+  if (this.node[this.listenerStoreKey] || this.node[this.listenerStoreKey][eventName]) {
+    return this.node[this.listenerStoreKey][eventName];
+  }
+  return [];
 };
 
 /**
@@ -228,6 +258,17 @@ SUI.Node.prototype.addEventListener = function(eventName, opt_callback) {
  */
 SUI.Node.prototype.removeEventListener = function(eventName, listener) {
   this.node.removeEventListener(eventName, listener);
+};
+
+/**
+ * @param {string} eventName
+ * @return {undefined}
+ */
+SUI.Node.prototype.removeEventListeners = function(eventName) {
+  let listeners = this._getListenerToStore(eventName);
+  SUI.eachArray(listeners, (listener) => {
+    this.removeEventListener(eventName, listener);
+  });
 };
 
 /**
@@ -384,13 +425,14 @@ SUI.Node.prototype.setText = function(text) {
  * @return {undefined}
  */
 SUI.Node.prototype.setData = function(name, value) {
-  let data = value;
-  if (!SUI.isString(value)) {
-    data = JSON.stringify(value);
+  if (!this.isEmpty()) {
+    let data = value;
+    if (!SUI.isString(value)) {
+      data = JSON.stringify(value);
+    }
+    this.node.dataset[name] = data;
   }
-  this.node.dataset[name] = data;
 };
-
 
 /**
  * @param {string} name
@@ -494,6 +536,6 @@ SUI.Node.prototype.clearNode = function() {
   let cloneNode = this.cloneNode(true);
   if (cloneNode) {
     this.replaceChild(cloneNode);
-    this.node = cloneNode;
+    this.node = cloneNode.getNode();
   }
 };

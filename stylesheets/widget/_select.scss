@@ -17,6 +17,18 @@
     }
   }
 
+  &.is-disabled {
+    .expander {
+      color: $grey;
+    }
+
+    .select-input {
+      .tag {
+        color: $grey;
+      }
+    }
+  }
+
   .select-container{
     position: relative;
     // display: inline-block;

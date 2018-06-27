@@ -75,7 +75,7 @@ SUI.lib.Helper.prototype.linkElement = function(linkNode, opt_callback, opt_desc
       } else {
         let oldHref = /** @type {string} */ (linkNode.getData('href'));
         linkNode.setAttribute('href', oldHref);
-        linkNode.clearNode();
+        linkNode.removeEventListeners('click');
       }
       if (opt_callback) {
           let href = linkNode.getAttribute('href');
@@ -151,12 +151,12 @@ SUI.lib.Helper.prototype.buttonElement = function(buttonNode, opt_callback, opt_
       if (!buttonNode.getId()) {
         buttonNode.setId(SUI.generateId('button'));
       } else {
-        let oldCssClasses = /** @type {!Array} */ (buttonNode.getData('css-classes'));
+        let oldCssClasses = /** @type {!Array} */ (buttonNode.getData('cssClasses'));
         buttonNode.removeClass(oldCssClasses);
-        buttonNode.clearNode();
+        buttonNode.removeEventListeners('click');
       }
       let cssClasses = ['mdl-button', 'mdl-js-button', 'mdl-js-ripple-effect', 'mdl-button--raised'].concat(opt_cssClasses);
-      buttonNode.setData('css-classes', cssClasses);
+      buttonNode.setData('cssClasses', cssClasses);
       buttonNode.addClass(cssClasses);
       buttonNode.addEventListener('click', opt_callback);
 
@@ -225,12 +225,12 @@ SUI.lib.Helper.prototype.iconButtonElement = function(buttonNode, opt_callback, 
       if (!buttonNode.getId()) {
         buttonNode.setId(SUI.generateId('button'));
       } else {
-        let oldCssClasses = /** @type {!Array} */ (buttonNode.getData('css-classes'));
+        let oldCssClasses = /** @type {!Array} */ (buttonNode.getData('cssClasses'));
         buttonNode.removeClass(oldCssClasses);
-        buttonNode.clearNode();
+        buttonNode.removeEventListeners('click');
       }
       let cssClasses = ['mdl-button', 'mdl-js-button', 'mdl-js-ripple-effect', 'mdl-button--icon'].concat(opt_cssClasses);
-      buttonNode.setData('css-classes', cssClasses);
+      buttonNode.setData('cssClasses', cssClasses);
       buttonNode.addClass(cssClasses);
       buttonNode.addEventListener('click', opt_callback);
 
