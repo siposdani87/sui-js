@@ -77,9 +77,12 @@ SUI.Tooltip.prototype._createTooltip = function() {
     id = SUI.generateId('tooltip');
     this.element.setId(id);
   }
+  let oldElement = new SUI.Query(SUI.format('[for="{0}"]', [id]), this.element).getItem();
+  oldElement.remove();
 
+  let cssClasses = ['mdl-tooltip', this.positionCssClass];
   this.tooltip = new SUI.Node('span');
-  this.tooltip.addClass(['mdl-tooltip', this.positionCssClass]);
+  this.tooltip.addClass(cssClasses);
   this.tooltip.setFor(/** @type {string} */(id));
   this.element.insertAfter(this.tooltip);
 };
