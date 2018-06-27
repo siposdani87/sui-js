@@ -2,7 +2,6 @@ goog.provide('SUI.Query');
 
 goog.require('SUI');
 goog.require('SUI.Collection');
-goog.require('SUI.Object');
 
 /**
  * @constructor
@@ -10,22 +9,17 @@ goog.require('SUI.Object');
  * @extends {SUI.Collection}
  * @param {string} selector
  * @param {!Element|!SUI.Node=} opt_element
- * @param {!Object=} opt_options
  */
-SUI.Query = function(selector, opt_element, opt_options) {
-  let _self = this;
-  _self.options = new SUI.Object({
-    type: 'Node',
-  });
-  _self.options.merge(opt_options);
-
+SUI.Query = function(selector, opt_element) {
   this.element = opt_element || document;
   if (SUI.isFunction(this.element.getNode)) {
     this.element = this.element.getNode();
   }
 
   let items = this._querySelector(selector);
-  SUI.Collection.call(this, items, SUI.Node, this.options);
+  SUI.Collection.call(this, items, SUI.Node, {
+    parent: null,
+  });
 };
 goog.inherits(SUI.Query, SUI.Collection);
 
@@ -62,6 +56,9 @@ SUI.Query.prototype._querySelector = function(selector) {
  * @return {!SUI.Node}
  */
 SUI.Query.prototype.getItem = function() {
-  let node = new SUI.Node(null);
-  return /** @type {!SUI.Node} */ (this.get(0) || node);
+  let firstNode = /** @type {!SUI.Node} */ (this.get(0));
+  if (!firstNode) {
+    firstNode = new SUI.Node(null);
+  }
+  return firstNode;
 };

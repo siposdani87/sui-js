@@ -261,10 +261,10 @@ SUI.Widget.prototype._setMutation = function() {
     for (let i = 0; i < mutationsList.length; i++) {
       let mutation = mutationsList[i];
       if (mutation.attributeName === 'disabled') {
-        console.log('mutation: disabled', mutation);
+        // console.log('mutation: disabled', mutation);
         this.refresh();
       } else if (mutation.attributeName === 'required') {
-        console.log('mutation: required', mutation);
+        // console.log('mutation: required', mutation);
         this.refresh();
       }
     }

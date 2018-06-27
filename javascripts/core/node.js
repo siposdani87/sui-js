@@ -6,9 +6,9 @@ goog.require('SUI');
  * @constructor
  * @this {SUI.Node}
  * @param {?Element|string} node
- * @param {!SUI.Query=} opt_parent
+ * @param {!SUI.Node=} opt_parentNode
  */
-SUI.Node = function(node, opt_parent) {
+SUI.Node = function(node, opt_parentNode) {
   if (SUI.isString(node)) {
     if (SUI.contain(/** @type {string} */(node), '<') && SUI.contain(/** @type {string} */(node), '</')) {
       let template = document.createElement('template');
@@ -19,7 +19,7 @@ SUI.Node = function(node, opt_parent) {
     }
   }
   this.node = /** @type {!Element} */ (node);
-  this.parent = opt_parent;
+  this.parentNode = opt_parentNode;
   this.listenerStoreKey = '_listeners';
 };
 
@@ -295,7 +295,7 @@ SUI.Node.prototype.trigger = function(eventName) {
  */
 SUI.Node.prototype.createElement = function(tagName) {
   let node = document.createElement(tagName);
-  return new SUI.Node(node, this.parent);
+  return new SUI.Node(node, this.parentNode);
 };
 
 /**
@@ -340,8 +340,9 @@ SUI.Node.prototype.removeChild = function(node) {
  * @return {undefined}
  */
 SUI.Node.prototype.remove = function() {
-  if (!this.isEmpty()) {
-    this.node.parentNode.removeChild(this.node);
+  let parentElement = this._getParentElement();
+  if (!this.isEmpty() && parentElement) {
+    parentElement.removeChild(this.node);
   }
 };
 
@@ -367,8 +368,22 @@ SUI.Node.prototype.beforeChild = function(node) {
  * @param {!SUI.Node} node
  * @return {undefined}
  */
+SUI.Node.prototype.afterChild = function(node) {
+  let parentElement = this._getParentElement();
+  if (parentElement) {
+    parentElement.appendChild(node.getNode());
+  }
+};
+
+/**
+ * @param {!SUI.Node} node
+ * @return {undefined}
+ */
 SUI.Node.prototype.insertBefore = function(node) {
-  this.node.parentNode.insertBefore(node.getNode(), this.node);
+  let parentElement = this._getParentElement();
+  if (parentElement) {
+    parentElement.insertBefore(node.getNode(), this.node);
+  }
 };
 
 /**
@@ -377,7 +392,10 @@ SUI.Node.prototype.insertBefore = function(node) {
  */
 SUI.Node.prototype.insertAfter = function(node) {
   let nextSiblingNode = this.getNextSibling();
-  this.node.parentNode.insertBefore(node.getNode(), nextSiblingNode.getNode());
+  let parentElement = this._getParentElement();
+  if (parentElement) {
+    parentElement.insertBefore(node.getNode(), nextSiblingNode.getNode());
+  }
 };
 
 /**
@@ -393,7 +411,10 @@ SUI.Node.prototype.getNextSibling = function() {
  * @return {undefined}
  */
 SUI.Node.prototype.replaceChild = function(node) {
-  this.node.parentNode.replaceChild(node.getNode(), this.node);
+  let parentElement = this._getParentElement();
+  if (parentElement) {
+    parentElement.replaceChild(node.getNode(), this.node);
+  }
 };
 
 /**
@@ -449,10 +470,22 @@ SUI.Node.prototype.getData = function(name) {
 /**
  * @return {?SUI.Node}
  */
-SUI.Node.prototype.getParent = function() {
-  let parent = this.node.parentElement;
-  if (parent) {
-    return new SUI.Node(parent, this.parent);
+SUI.Node.prototype.getParentNode = function() {
+  let parentElement = this._getParentElement();
+  if (parentElement) {
+    return new SUI.Node(parentElement, this.parentNode);
+  }
+  return null;
+};
+
+/**
+ * @return {?Element}
+ */
+SUI.Node.prototype._getParentElement = function() {
+  if (this.parentNode && !this.parentNode.isEmpty()) {
+    return this.parentNode.getNode();
+  } else if (this.node) {
+    return this.node.parentElement; // this.node.parentNode
   }
   return null;
 };
@@ -519,12 +552,12 @@ SUI.Node.prototype.toString = function(opt_isRoot = true) {
 
 /**
  * @param {boolean=} opt_deep
- * @return {SUI.Node}
+ * @return {?SUI.Node}
  */
 SUI.Node.prototype.cloneNode = function(opt_deep = false) {
   if (!this.isEmpty()) {
     let cloneNode = this.node.cloneNode(opt_deep);
-    return new SUI.Node(cloneNode, this.parent);
+    return new SUI.Node(cloneNode, this.parentNode);
   }
   return null;
 };

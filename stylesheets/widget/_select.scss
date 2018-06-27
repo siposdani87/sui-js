@@ -18,11 +18,18 @@
   }
 
   &.is-disabled {
+    label {
+      color: $light-grey-dark;
+    }
     .expander {
       color: $grey;
+      cursor: default;
     }
 
     .select-input {
+      border-style: dotted;
+      cursor: default;
+      
       .tag {
         color: $grey;
       }

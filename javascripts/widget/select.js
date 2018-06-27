@@ -126,11 +126,7 @@ SUI.widget.Select.prototype.refresh = function() {
 
   this.iconNode = new SUI.Node('i');
   this.iconNode.addClass(['material-icons', 'size-24', 'expander']);
-  if (this.isDisabled()) {
-    this.iconNode.setHtml('block');
-  } else {
-    this.iconNode.setHtml('expand_more');
-  }
+  this.iconNode.setHtml('expand_more');
   this.selectContainerNode.appendChild(this.iconNode);
 
   let ids = this._getSelectedIds();
