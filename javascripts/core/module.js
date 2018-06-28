@@ -197,20 +197,20 @@ SUI.Module.prototype.handleRoutes = function(routes, options) {
  * @return {undefined}
  */
 SUI.Module.prototype._handleStateChange = function(currentState) {
-  this.eventStateChange(currentState).then(function() {
+  this.eventStateChange(currentState).then(() => {
     if (SUI.isString(currentState.get('template'))) {
       let templateUrl = currentState.get('templateUrl');
-      this._instances[this._injections.template].load(templateUrl).then(function(dom) {
+      this._instances[this._injections.template].load(templateUrl).then((dom) => {
         this.eventModuleLoaded(currentState);
         this._initController(currentState, dom);
-      }.bind(this));
+      });
     } else {
       this.eventModuleLoaded(currentState);
       this._initController(currentState);
     }
-  }.bind(this), function() {
+  }, () => {
     this.eventModuleFailed(currentState);
-  }.bind(this));
+  });
 };
 
 /**

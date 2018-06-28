@@ -368,8 +368,10 @@ SUI.Table.prototype._renderDataNodeByItem = function(item, column, parentNode) {
     dataNode = node;
   }
   parentNode.appendChild(/** @type {!SUI.Node} */ (dataNode));
-  let tooltip = new SUI.Tooltip(/** @type {!SUI.Node} */ (dataNode));
-  tooltip.render();
+  if (dataNode.getAttribute('title') || dataNode.getAttribute('desc')) {
+    let tooltip = new SUI.Tooltip(/** @type {!SUI.Node} */ (dataNode));
+    tooltip.render();
+  }
 };
 
 /**
