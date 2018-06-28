@@ -188,12 +188,6 @@ input[type="file"].mdl-textfield__input::-webkit-file-upload-button {
     }
 }
 
-.mdl-list__item-secondary-action {
-    .mdl-button {
-        margin-left: 10px;
-    }
-}
-
 .mdl-typography--display-4,
 .mdl-typography--display-4-color-contrast,
 .mdl-typography--display-3,
@@ -220,6 +214,16 @@ input[type="file"].mdl-textfield__input::-webkit-file-upload-button {
     font-family: $font-family-body;
 }
 
+.mdl-list__item-secondary-action {
+    .mdl-button {
+        margin-left: 10px;
+    }
+}
+
 .mdl-list__item-avatar {
     background-color: transparent;
+}
+
+.mdl-list__item {
+    font-family: $font-family-body;
 }

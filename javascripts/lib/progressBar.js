@@ -49,17 +49,16 @@ SUI.lib.ProgressBar.prototype._init = function() {
 
   this.async = new SUI.Async(4);
   this.async.eventComplete = (isError, nodes) => {
-    console.log(nodes);
-    if (nodes[0] && nodes[0]['MaterialProgress']) {
+    if (nodes[0]['MaterialProgress']) {
       this.mProgressContainer = nodes[0]['MaterialProgress'];
     }
-    if (nodes[1] && nodes[1]['MaterialProgress']) {
+    if (nodes[1]['MaterialProgress']) {
       this.mProgressHeader = nodes[1]['MaterialProgress'];
     }
-    if (nodes[2] && nodes[2]['MaterialProgress']) {
+    if (nodes[2]['MaterialProgress']) {
       this.mProgressDialog = nodes[2]['MaterialProgress'];
     }
-    if (nodes[3] && nodes[3]['MaterialProgress']) {
+    if (nodes[3]['MaterialProgress']) {
       this.mProgressConfirm = nodes[3]['MaterialProgress'];
     }
 
@@ -140,9 +139,21 @@ SUI.lib.ProgressBar.prototype.show = function() {
   this._progress();
   this.options.counter++;
   this.progressBarContainer.addClass('mdl-progress__indeterminate');
-  this.progressBarHeader.addClass('mdl-progress__indeterminate');
-  this.progressBarDialog.addClass('mdl-progress__indeterminate');
-  this.progressBarConfirm.addClass('mdl-progress__indeterminate');
+  if (!this.dialog.isOpened() && !this.confirm.isOpened()) {
+    this.progressBarHeader.addClass('mdl-progress__indeterminate');
+  } else {
+    this.progressBarHeader.removeClass('mdl-progress__indeterminate');
+  }
+  if (this.dialog.isOpened()) {
+    this.progressBarDialog.addClass('mdl-progress__indeterminate');
+  } else {
+    this.progressBarDialog.removeClass('mdl-progress__indeterminate');
+  }
+  if (this.confirm.isOpened()) {
+    this.progressBarConfirm.addClass('mdl-progress__indeterminate');
+  } else {
+    this.progressBarConfirm.removeClass('mdl-progress__indeterminate');
+  }
 };
 
 /**
