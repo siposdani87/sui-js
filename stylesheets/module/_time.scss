@@ -3,7 +3,7 @@
   height: 100%;
   width: 100%;
   background-color: $white;
-  border-radius: 50%;
+  @include border-radius(50%);
 
   .center-point {
     position: absolute;
@@ -11,7 +11,7 @@
     left: calc(50% - 3px);
     width: 6px;
     height: 6px;
-    border-radius: 50%;
+    @include border-radius(50%);
     background-color: $accent;
   }
 
@@ -29,8 +29,8 @@
     position: absolute;
     width: 35px;
     height: 35px;
-    border-radius: 50%;
-    display: flex;
+    @include border-radius(50%);
+    @include display-flex();
     justify-content: center;
     align-items: center;
     cursor: pointer;

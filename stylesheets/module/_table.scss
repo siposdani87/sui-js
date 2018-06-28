@@ -74,7 +74,7 @@ table {
                 display: none;
                 cursor: pointer;
                 @include media-breakpoint-down(sm) {
-                    display: flex;
+                    @include display-flex();
                     flex-flow: row nowrap;
                     justify-content: space-between;
                     align-items: center;
@@ -94,7 +94,7 @@ table {
                     text-transform: uppercase;
                     font-family: $font-family-heading;
                     font-weight: 500;
-                    display: flex;
+                    @include display-flex();
                     align-items: center;
                     &:before {
                         font-family: 'Material Icons';
@@ -112,7 +112,7 @@ table {
                     &.open {
                         display: block;
                         td {
-                            display: flex;
+                            @include display-flex();
                             flex-flow: row nowrap;
                             justify-content: space-between;
                             align-items: center;

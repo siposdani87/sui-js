@@ -166,7 +166,8 @@ SUI.Table.prototype._renderHeader = function(headerNode, index) {
     iconInfo.addClass(['material-icons', 'info']);
     iconInfo.setHtml('info_outline');
     headerNode.appendChild(iconInfo);
-    new SUI.Tooltip(iconInfo, '', 'BOTTOM');
+    let tooltip = new SUI.Tooltip(iconInfo, 'BOTTOM');
+    tooltip.render();
   }
 };
 
@@ -316,8 +317,7 @@ SUI.Table.prototype._addHeaderRow = function(item) {
 
   let headerNameCell = new SUI.Node('td');
   headerRow.appendChild(headerNameCell);
-  let dataNode = this.getDataNodeByItem(item, this._getColumn(), headerNameCell);
-  headerNameCell.appendChild(dataNode);
+  this._renderDataNodeByItem(item, this._getColumn(), headerNameCell);
   headerNameCell.setAttribute('colspan', this.headerNodes.size() - 2);
 
   let headerActionCell = new SUI.Node('td');
@@ -350,23 +350,26 @@ SUI.Table.prototype.setActions = function(actions) {
 };
 
 /**
+ * @private
  * @param {!SUI.Object} item
  * @param {string} column
  * @param {!SUI.Node} parentNode
- * @return {!SUI.Node}
+ * @return {undefined}
  */
-SUI.Table.prototype.getDataNodeByItem = function(item, column, parentNode) {
-  let data = item.get(column, '');
+SUI.Table.prototype._renderDataNodeByItem = function(item, column, parentNode) {
+  let dataNode = item.get(column, '');
   let calculation = this.options.calculations[column];
   if (SUI.isFunction(calculation)) {
-    data = calculation(item, parentNode);
+    dataNode = calculation(item, parentNode);
   }
-  if (!SUI.instanceOf(data, SUI.Node)) {
+  if (!SUI.instanceOf(dataNode, SUI.Node)) {
     let node = new SUI.Node('span');
-    node.setHtml(/** @type {string} */(data));
-    return node;
+    node.setHtml(/** @type {string} */(dataNode));
+    dataNode = node;
   }
-  return /** @type {!SUI.Node} */ (data);
+  parentNode.appendChild(/** @type {!SUI.Node} */ (dataNode));
+  let tooltip = new SUI.Tooltip(/** @type {!SUI.Node} */ (dataNode));
+  tooltip.render();
 };
 
 /**
@@ -387,8 +390,7 @@ SUI.Table.prototype._renderDataNode = function(tableDataNode, item, column, inde
     this._renderHeader(labelNode, index);
     this._handleSortingColumn(labelNode, index);
     tableDataNode.appendChild(labelNode);
-    let dataNode = this.getDataNodeByItem(item, column, tableDataNode);
-    tableDataNode.appendChild(dataNode);
+    this._renderDataNodeByItem(item, column, tableDataNode);
   }
 };
 
@@ -454,7 +456,8 @@ SUI.Table.prototype._createActionButton = function(containerNode, action, item) 
       });
     }
     if (title) {
-      new SUI.Tooltip(buttonNode, title);
+      let tooltip = new SUI.Tooltip(buttonNode);
+      tooltip.render(title);
     }
     let iconNode = new SUI.Node('i');
     iconNode.addClass('material-icons');

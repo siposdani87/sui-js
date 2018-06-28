@@ -38,7 +38,7 @@
 }
 
 @mixin make-row($gutters: $grid-gutter-widths) {
-  display: flex;
+  @include display-flex();
   flex-wrap: wrap;
 
   @each $breakpoint in map-keys($gutters) {
@@ -68,7 +68,7 @@
 }
 
 @mixin make-col($size, $columns: $grid-columns) {
-  flex: 0 0 percentage($size / $columns);
+  @include flex(0 0 percentage($size / $columns));
   // width: percentage($size / $columns);
   // Add a `max-width` to ensure content within each column does not blow out
   // the width of the column. Applies to IE10+ and Firefox. Chrome and Safari

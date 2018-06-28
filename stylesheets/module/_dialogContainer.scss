@@ -5,9 +5,7 @@
   max-width: 520px;
   background-color: $white;
   color: $black;
-  //background-color: rgba($primary, .8);
-  //color: $white;
-  box-shadow: 8px 8px 100px 0 rgba($black, .5);
+  @include box-shadow(8px 8px 100px 0 rgba($black, .5));
   padding: 1.5em;
   position: relative;
 
@@ -30,6 +28,6 @@
   }
 
   .dialog-container-footer{
-
+    background-color: $white;
   }
 }

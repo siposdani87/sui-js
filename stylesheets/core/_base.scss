@@ -134,7 +134,7 @@ address {
 }
 
 .visible-flex {
-    display: flex !important;
+    @include display-flex(!important);
 }
 
 .hidden {
@@ -209,4 +209,8 @@ address {
 
 .pre-line {
     white-space: pre-line;
+}
+
+.has-tooltip {
+    cursor: pointer;
 }
