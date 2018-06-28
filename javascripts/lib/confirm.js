@@ -36,6 +36,7 @@ SUI.lib.Confirm.prototype._setOptions = function(opt_options) {
  * @return {undefined}
  */
 SUI.lib.Confirm.prototype._init = function() {
+  this.body = new SUI.Query('body').getItem();
   this.confirm = new SUI.Query(this.options.id).getItem();
   this.confirmWindow = new SUI.Query('#confirm-window', this.confirm).getItem();
   this.modalHeader = new SUI.Query('.modal-header', this.confirm).getItem();
@@ -68,9 +69,17 @@ SUI.lib.Confirm.prototype._initCloseButton = function() {
 };
 
 /**
+ * @return {boolean}
+ */
+SUI.lib.Confirm.prototype.isOpened = function() {
+  return this.confirm.hasClass('visible-flex');
+};
+
+/**
  * @return {undefined}
  */
 SUI.lib.Confirm.prototype.open = function() {
+  this.body.addClass('overflow-hidden');
   this.confirm.addClass('visible-flex');
   this.confirm.removeClass('hidden');
   this._handleCenterPosition();
@@ -80,13 +89,13 @@ SUI.lib.Confirm.prototype.open = function() {
  * @return {undefined}
  */
 SUI.lib.Confirm.prototype.close = function() {
+  this.body.removeClass('overflow-hidden');
   this.confirm.addClass('hidden');
   this.confirm.removeClass('visible-flex');
   this.modalTitle.removeChildren();
   this.modalBody.removeChildren();
   this.modalFooter.removeChildren();
 };
-
 
 /**
  * @param {string=} opt_title

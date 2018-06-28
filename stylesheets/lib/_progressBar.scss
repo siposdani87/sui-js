@@ -6,3 +6,13 @@
 #header > .progress-bar {
   @include flex(1 100%);
 }
+
+#dialog-window > .prograss-bar{
+  position: absolute;
+  top: 0;
+}
+
+#confirm-window > .prograss-bar{
+  position: absolute;
+  top: 0;
+}
