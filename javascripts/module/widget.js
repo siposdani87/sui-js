@@ -227,7 +227,8 @@ SUI.Widget.prototype._setInfo = function() {
       infoButton.addClass(['info', 'material-icons']);
       infoButton.setHtml('info_outline');
       this.inputBlock.appendChild(infoButton);
-      new SUI.Tooltip(infoButton, '', 'LEFT');
+      let tooltip = new SUI.Tooltip(infoButton, 'LEFT');
+      tooltip.render();
     }
   }
 };

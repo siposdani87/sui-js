@@ -7,7 +7,7 @@
     height: 50px;
     background-color: $primary;
     color: $grey;
-    display: flex;
+    @include display-flex();
     justify-content: center;
     align-items: center;
     font-size: 2em;

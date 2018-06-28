@@ -34,7 +34,7 @@
         max-width: 100%;
       }
       .col#{$infix}-auto {
-        flex: 0 0 auto;
+        @include flex(0 0 auto);
         width: auto;
       }
 

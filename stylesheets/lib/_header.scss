@@ -2,14 +2,14 @@
   background-color: $primary-dark;
   position: fixed;
   width: 100%;
-  display: flex;
+  @include display-flex();
   flex-flow: row wrap;
   justify-content: space-between;
   z-index: $zindex-header;
   color: $white;
 
   &.shadow{
-    box-shadow: 0 2px 20px 0 rgba($black, .75);
+    @include box-shadow(0 2px 20px 0 rgba($black, .75));
   }
 
   &.open {
@@ -17,16 +17,16 @@
   }
 
   .menu {
-    display: flex;
+    @include display-flex();
     flex-flow: row nowrap;
     justify-content: space-between;
     height: 50px;
     @include media-breakpoint-down(md) {
-      flex: 1 100%;
+      @include flex(1 100%);
       border-bottom: 1px solid $primary;
     }
     a {
-      display: flex;
+      @include display-flex();
       flex-flow: row nowrap;
       align-items: center;
       text-decoration: none;

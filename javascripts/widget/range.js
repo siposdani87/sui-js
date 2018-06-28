@@ -49,7 +49,8 @@ SUI.widget.Range.prototype.render = function() {
   }
   let containerNode = new SUI.Query('.mdl-slider__container', this.inputBlock).getItem();
   let value = /** @type {string} */ (this.getValue());
-  this.tooltip = new SUI.Tooltip(containerNode, value);
+  this.tooltip = new SUI.Tooltip(containerNode);
+  this.tooltip.render(value);
 
   this.refresh();
 };

@@ -2,28 +2,28 @@
   padding-bottom: 20px;
 
   .cards {
-    display: flex;
+    @include display-flex();
     flex-wrap: wrap;
-    flex: 0 0 100%;
+    @include flex(0 0 100%);
   }
 
   .card-footer {
-    display: flex;
+    @include display-flex();
     flex-flow: row wrap;
-    flex: 0 0 100%;
+    @include flex(0 0 100%);
     justify-content: space-between;
   }
 
   .card {
-    border-radius: 3px;
+    @include border-radius(3px);
     background-color: $light-grey-bright;
     cursor: pointer;
-    display: flex;
+    @include display-flex();
     flex-flow: column nowrap;
     justify-content: space-between;
 
     &:hover {
-      box-shadow: 0 4px 5px 0 rgba($black, .5);
+      @include box-shadow(0 4px 5px 0 rgba($black, .5));
       background-color: $light-grey;
     }
 
@@ -53,11 +53,11 @@
     }
 
     .title-with-actions {
-      display: flex;
+      @include display-flex();
       flex-flow: row nowrap;
       justify-content: space-between;
       align-items: center;
-      flex: 1 0 auto;
+      @include flex(1 0 auto);
 
       .title {
         border-bottom: none;
@@ -67,7 +67,7 @@
         padding: 0 .8em;
 
         .mdl-button{
-          border-radius: 50%;
+          @include border-radius(50%);
         }
       }
     }

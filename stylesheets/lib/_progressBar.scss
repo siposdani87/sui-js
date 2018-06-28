@@ -4,5 +4,5 @@
 }
 
 #header > .progress-bar {
-  flex: 1 100%;
+  @include flex(1 100%);
 }

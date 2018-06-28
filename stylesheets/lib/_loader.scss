@@ -2,7 +2,7 @@
   z-index: $zindex-loader;
   position: fixed;
   width: 100%;
-  display: flex;
+  @include display-flex();
   margin-top: 2px;
   justify-content: center;
 }

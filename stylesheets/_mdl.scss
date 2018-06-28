@@ -3,8 +3,8 @@
 .mdl-spinner {
     width: 3em;
     height: 3em;
-    border-radius: 50%;
-    box-shadow: 2px 2px 10px 0 rgba($black, 0.6);
+    @include border-radius(50%);
+    @include box-shadow(2px 2px 10px 0 rgba($black, 0.6));
     &:not(.is-upgraded).is-active:after {
         content: '';
     }
@@ -106,14 +106,14 @@
 }
 
 .mdl-sliderfield {
-    display: flex;
+    @include display-flex();
     .mdl-textfield__label {
         color: inherit;
         position: initial;
         width: auto;
     }
     .mdl-slider__container {
-        flex: 1 0 auto;
+        @include flex(1 0 auto);
         height: auto;
     }
 }
@@ -181,7 +181,7 @@ input[type="file"].mdl-textfield__input::-webkit-file-upload-button {
 .mdl-button {
     font-family: $font-family-body;
     &:not(.mdl-button--fab) {
-        border-radius: 20px;
+        @include border-radius(20px);
     }
     .icon {
         margin-right: 10px;

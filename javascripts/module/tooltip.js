@@ -7,13 +7,12 @@ goog.require('SUI');
  * @constructor
  * @this {SUI.Tooltip}
  * @param {!SUI.Node} element
- * @param {string=} opt_message
  * @param {string=} opt_position TOP|BOTTOM|LEFT|RIGHT
  */
-SUI.Tooltip = function(element, opt_message = '', opt_position = 'TOP') {
+SUI.Tooltip = function(element, opt_position = 'TOP') {
   this.element = element;
   this._initPositions(opt_position);
-  this._init(opt_message);
+  this._init();
 };
 
 /**
@@ -41,13 +40,10 @@ SUI.Tooltip.prototype._initPositions = function(opt_position = '') {
 
 /**
  * @private
- * @param {string=} opt_message
  * @return {undefined}
  */
-SUI.Tooltip.prototype._init = function(opt_message = '') {
+SUI.Tooltip.prototype._init = function() {
   this._createTooltip();
-  let message = this._getMessage(opt_message);
-  this._render(message);
 };
 
 /**
@@ -76,23 +72,24 @@ SUI.Tooltip.prototype._createTooltip = function() {
   if (SUI.isNull(id)) {
     id = SUI.generateId('tooltip');
     this.element.setId(id);
+    this.element.addClass('has-tooltip');
   }
   let oldElement = new SUI.Query(SUI.format('[for="{0}"]', [id]), this.element).getItem();
   oldElement.remove();
 
   let cssClasses = ['mdl-tooltip', this.positionCssClass];
-  this.tooltip = new SUI.Node('span');
+  this.tooltip = new SUI.Node('span', /** @type {!SUI.Node} */ (this.element.getParentNode()));
   this.tooltip.addClass(cssClasses);
   this.tooltip.setFor(/** @type {string} */(id));
   this.element.insertAfter(this.tooltip);
 };
 
 /**
- * @private
- * @param {string} message
+ * @param {string=} opt_message
  * @return {undefined}
  */
-SUI.Tooltip.prototype._render = function(message) {
+SUI.Tooltip.prototype.render = function(opt_message) {
+  let message = this._getMessage(opt_message);
   this.setMessage(message);
   SUI.mdl(this.tooltip);
 };

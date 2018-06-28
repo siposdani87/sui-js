@@ -21,7 +21,7 @@
     padding: 2px 30px 2px 2px;
     border: 1px solid $light-grey;
     background-color: $light-grey-bright;
-    border-radius: 2px;
+    @include border-radius(2px);
     min-height: 28px;
     vertical-align: middle;
     cursor: pointer;
@@ -32,7 +32,7 @@
       padding: 1px 30px 1px 10px;
       margin: 0 5px 0 0;
       background-color: rgba($black, .12);
-      border-radius: 2px;
+      @include border-radius(2px);
 
       .material-icons {
         position: absolute;
@@ -45,7 +45,7 @@
   }
 
   .datetime {
-    display: flex;
+    @include display-flex();
     align-items: center;
   }
 

@@ -86,7 +86,8 @@ SUI.lib.Helper.prototype.linkElement = function(linkNode, opt_callback, opt_desc
           });
       }
 
-      new SUI.Tooltip(linkNode, opt_description);
+      let tooltip = new SUI.Tooltip(linkNode);
+      tooltip.render(opt_description);
       SUI.mdl(linkNode);
     } else {
       linkNode.remove();
@@ -160,7 +161,8 @@ SUI.lib.Helper.prototype.buttonElement = function(buttonNode, opt_callback, opt_
       buttonNode.addClass(cssClasses);
       buttonNode.addEventListener('click', opt_callback);
 
-      new SUI.Tooltip(buttonNode, opt_description);
+      let tooltip = new SUI.Tooltip(buttonNode);
+      tooltip.render(opt_description);
       SUI.mdl(buttonNode);
     } else {
       buttonNode.remove();
@@ -234,7 +236,8 @@ SUI.lib.Helper.prototype.iconButtonElement = function(buttonNode, opt_callback, 
       buttonNode.addClass(cssClasses);
       buttonNode.addEventListener('click', opt_callback);
 
-      new SUI.Tooltip(buttonNode, opt_description);
+      let tooltip = new SUI.Tooltip(buttonNode);
+      tooltip.render(opt_description);
       SUI.mdl(buttonNode);
     } else {
       buttonNode.remove();
