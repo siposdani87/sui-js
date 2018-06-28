@@ -30,12 +30,18 @@ SUI.lib.Sidebar.prototype._init = function() {
  * @return {undefined}
  */
 SUI.lib.Sidebar.prototype.toggle = function() {
-  let isOpened = this.sidebar.hasClass('open');
-  if (isOpened) {
+  if (this.isOpened()) {
     this.close();
   } else {
     this.open();
   }
+};
+
+/**
+ * @return {boolean}
+ */
+SUI.lib.Sidebar.prototype.isOpened = function() {
+  return this.sidebar.hasClass('open');
 };
 
 /**

@@ -79,14 +79,14 @@ SUI.App.prototype._init = function(resources) {
   this._initModule();
   this._initEvent();
   this._initLoader();
+  this._initHttp();
+  this._initDialog();
+  this._initConfirm();
   this._initProgressBar();
   this._initCookie();
   this._initStorage();
-  this._initHttp();
   this._initNotification();
   this._initTemplate();
-  this._initDialog();
-  this._initConfirm();
   this._initDocument();
   this._initWindow();
   this._initHelper();
@@ -301,7 +301,7 @@ SUI.App.prototype._initLoader = function() {
  * @return {undefined}
  */
 SUI.App.prototype._initProgressBar = function() {
-  this._instances[this._injections.progressBar] = new SUI.lib.ProgressBar();
+  this._instances[this._injections.progressBar] = new SUI.lib.ProgressBar(this._instances[this._injections.dialog], this._instances[this._injections.confirm]);
 };
 
 /**

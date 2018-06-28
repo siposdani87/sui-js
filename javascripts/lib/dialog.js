@@ -40,7 +40,7 @@ SUI.lib.Dialog.prototype._setOptions = function(opt_options) {
  */
 SUI.lib.Dialog.prototype._init = function() {
   this.body = new SUI.Query('body').getItem();
-  this.dialog = new SUI.Query(this.options.id).getItem();
+  this.dialog = new SUI.Query(this.options.id, this.body).getItem();
   this.dialogWindow = new SUI.Query('#dialog-window', this.dialog).getItem();
   this.modalHeader = new SUI.Query('.modal-header', this.dialog).getItem();
   this.modalTitle = new SUI.Query('.modal-title', this.modalHeader).getItem();
@@ -95,6 +95,13 @@ SUI.lib.Dialog.prototype._initCloseButton = function() {
   this.btnClose.addEventListener('click', function() {
     this._actionCancel();
   }.bind(this));
+};
+
+/**
+ * @return {boolean}
+ */
+SUI.lib.Dialog.prototype.isOpened = function() {
+  return this.dialog.hasClass('visible-flex');
 };
 
 /**
