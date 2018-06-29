@@ -11,6 +11,25 @@
     }
   }
 
+  &.is-disabled {
+    label {
+      color: $light-grey-dark;
+    }
+    .expander {
+      color: $grey;
+      cursor: default;
+    }
+
+    .datetime-input {
+      border-style: dotted;
+      cursor: default;
+      
+      .tag {
+        color: $grey;
+      }
+    }
+  }
+
   > .material-icons {
     vertical-align: middle;
     cursor: pointer;
