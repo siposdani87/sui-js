@@ -35,8 +35,10 @@ SUI.widget.DatetimeRange.prototype._init = function() {
   this.datetimeInput = new SUI.Node('div');
   this.datetimeInput.addClass('datetime-range-input');
   this.datetimeInput.addEventListener('click', () => {
-    this.datetimeInput.addClass('active');
-    this.popup.open();
+    if (!this.isDisabled()) {
+      this.datetimeInput.addClass('active');
+      this.popup.open();
+    }
   });
   this.inputBlock.appendChild(this.datetimeInput);
 
@@ -85,15 +87,17 @@ SUI.widget.DatetimeRange.prototype._initInput = function() {
  */
 SUI.widget.DatetimeRange.prototype.render = function() {
   let iconNode = new SUI.Node('i');
-  iconNode.addClass(['material-icons', 'size-24']);
+  iconNode.addClass(['material-icons', 'size-24', 'expander']);
   if (this.isStartInput) {
     iconNode.setHtml('remove');
   } else {
     iconNode.setHtml('date_range');
   }
   iconNode.addEventListener('click', () => {
-    this.datetimeInput.addClass('active');
-    this.popup.open();
+    if (!this.isDisabled()) {
+      this.datetimeInput.addClass('active');
+      this.popup.open();
+    }
   });
   this.datetimeInput.insertAfter(iconNode);
 
@@ -104,6 +108,12 @@ SUI.widget.DatetimeRange.prototype.render = function() {
  * @override
  */
 SUI.widget.DatetimeRange.prototype.refresh = function() {
+  if (this.isDisabled()) {
+    this.inputBlock.addClass('is-disabled');
+  } else {
+    this.inputBlock.removeClass('is-disabled');
+  }
+
   this.datetime.draw();
 };
 
