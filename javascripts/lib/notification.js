@@ -10,7 +10,7 @@ goog.require('SUI.lib');
  * @this {SUI.lib.Notification}
  * @param {!Object=} opt_options
  */
-SUI.lib.Notification = function(opt_options) {
+SUI.lib.Notification = function(opt_options = {}) {
   this._setOptions(opt_options);
   this._init();
 };
@@ -28,7 +28,7 @@ SUI.lib.Notification.prototype._init = function() {
  * @param {!Object=} opt_options
  * @return {undefined}
  */
-SUI.lib.Notification.prototype._setOptions = function(opt_options) {
+SUI.lib.Notification.prototype._setOptions = function(opt_options = {}) {
   let _self = this;
   _self.options = new SUI.Object({
     id: '#notifications',

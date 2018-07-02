@@ -15,13 +15,10 @@ goog.require('SUI.Tooltip');
  * @param {string=} opt_selector
  * @param {!Object=} opt_options
  */
-SUI.Table = function(dom, opt_selector = 'table', opt_options) {
-  this.table = new SUI.Query(opt_selector, dom).getItem();
-  this.tableResponsive = this.table.getParentNode();
-  if (!this.table.isEmpty()) {
-    this._setOptions(opt_options);
-    this._init();
-  }
+SUI.Table = function(dom, opt_selector = 'table', opt_options = {}) {
+  this.tableNode = new SUI.Query(opt_selector, dom).getItem();
+  this._setOptions(opt_options);
+  this._init();
 };
 
 /**
@@ -29,7 +26,7 @@ SUI.Table = function(dom, opt_selector = 'table', opt_options) {
  * @param {!Object=} opt_options
  * @return {undefined}
  */
-SUI.Table.prototype._setOptions = function(opt_options) {
+SUI.Table.prototype._setOptions = function(opt_options = {}) {
   let _self = this;
   _self.options = new SUI.Object({
     row_count: 10,
@@ -109,7 +106,7 @@ SUI.Table.prototype._initSearch = function() {
  */
 SUI.Table.prototype._initHeader = function() {
   this.headerTexts = [];
-  this.headerNodes = new SUI.Query('thead th', this.table);
+  this.headerNodes = new SUI.Query('thead th', this.tableNode);
   this.headerNodes.each((headerNode, index) => {
     let text = headerNode.getHtml();
     this.headerTexts.push(text);
@@ -177,10 +174,10 @@ SUI.Table.prototype._renderHeader = function(headerNode, index) {
  */
 SUI.Table.prototype._initStructure = function() {
   this.tbody = new SUI.Node('tbody');
-  this.table.appendChild(this.tbody);
+  this.tableNode.appendChild(this.tbody);
 
   this.tfoot = new SUI.Node('tfoot');
-  this.table.appendChild(this.tfoot);
+  this.tableNode.appendChild(this.tfoot);
 
   let footerRow = new SUI.Node('tr');
 
@@ -286,7 +283,7 @@ SUI.Table.prototype._setSorting = function(column, opt_order = 'asc') {
  * @return {undefined}
  */
 SUI.Table.prototype._resetSorting = function() {
-  let icons = new SUI.Query('thead th .icons i', this.table);
+  let icons = new SUI.Query('thead th .icons i', this.tableNode);
   icons.each(function(icon) {
     icon.removeClass('active');
   });
@@ -515,7 +512,7 @@ SUI.Table.prototype._drawTable = function() {
  * @return {undefined}
  */
 SUI.Table.prototype.render = function() {
-  if (!this.table.isEmpty()) {
+  if (!this.tableNode.isEmpty()) {
     this._updateSorting();
   }
 };

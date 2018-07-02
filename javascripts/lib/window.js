@@ -9,7 +9,7 @@ goog.require('SUI.lib');
  * @this {SUI.lib.Window}
  * @param {!Object=} opt_options
  */
-SUI.lib.Window = function(opt_options) {
+SUI.lib.Window = function(opt_options = {}) {
   this._setOptions(opt_options);
   this._init();
 };
@@ -19,7 +19,7 @@ SUI.lib.Window = function(opt_options) {
  * @param {!Object=} opt_options
  * @return {undefined}
  */
-SUI.lib.Window.prototype._setOptions = function(opt_options) {
+SUI.lib.Window.prototype._setOptions = function(opt_options = {}) {
   let _self = this;
   _self.options = new SUI.Object({
     delay: 250,

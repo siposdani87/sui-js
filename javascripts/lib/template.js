@@ -11,7 +11,7 @@ goog.require('SUI.lib');
  * @param {!SUI.lib.Http} http
  * @param {!Object=} opt_options
  */
-SUI.lib.Template = function(http, opt_options) {
+SUI.lib.Template = function(http, opt_options = {}) {
   let _self = this;
   _self.options = new SUI.Object({
     selector: '.template-view',

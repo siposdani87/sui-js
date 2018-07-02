@@ -16,7 +16,7 @@ goog.require('SUI.Query');
  * @param {!Object=} opt_options
  */
 SUI.CardCollection = function(dom, opt_selector = '.card-collection', opt_ctrl = null, opt_options = {}) {
-  this.cardCollection = new SUI.Query(opt_selector, dom).getItem();
+  this.cardCollectionNode = new SUI.Query(opt_selector, dom).getItem();
   this.ctrl = opt_ctrl;
   this._setOptions(opt_options);
   this._init();
@@ -27,7 +27,7 @@ SUI.CardCollection = function(dom, opt_selector = '.card-collection', opt_ctrl =
  * @param {!Object=} opt_options
  * @return {undefined}
  */
-SUI.CardCollection.prototype._setOptions = function(opt_options) {
+SUI.CardCollection.prototype._setOptions = function(opt_options = {}) {
   let _self = this;
   _self.options = new SUI.Object({
     row_count: 12,
@@ -49,7 +49,7 @@ SUI.CardCollection.prototype._init = function() {
   this.query = '';
   this._initStructure();
   this._initTemplate();
-  this.pager = new SUI.Pager(this.cardCollection, ['.pager', '.pager-statistics'], this.options);
+  this.pager = new SUI.Pager(this.cardCollectionNode, ['.pager', '.pager-statistics'], this.options);
   this.pager.eventAction = (page) => {
     this.refresh(page);
   };
@@ -60,15 +60,15 @@ SUI.CardCollection.prototype._init = function() {
  * @return {undefined}
  */
 SUI.CardCollection.prototype._initStructure = function() {
-  this.cardCollection.addClass('card-collection');
+  this.cardCollectionNode.addClass('card-collection');
 
   this.body = new SUI.Node('div');
   this.body.addClass('cards');
-  this.cardCollection.appendChild(this.body);
+  this.cardCollectionNode.appendChild(this.body);
 
   this.cardFooterNode = new SUI.Node('div');
   this.cardFooterNode.addClass('card-footer');
-  this.cardCollection.appendChild(this.cardFooterNode);
+  this.cardCollectionNode.appendChild(this.cardFooterNode);
 
   this.pagerNode = new SUI.Node('div');
   this.pagerNode.addClass('pager-statistics');
@@ -84,7 +84,7 @@ SUI.CardCollection.prototype._initStructure = function() {
  * @return {undefined}
  */
 SUI.CardCollection.prototype._initTemplate = function() {
-  this.cardTemplate = new SUI.Query('template', this.cardCollection).getItem();
+  this.cardTemplate = new SUI.Query('template', this.cardCollectionNode).getItem();
   this.cardTemplate.remove();
   this.template = this.cardTemplate.toString(false);
 };

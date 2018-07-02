@@ -23,7 +23,7 @@ SUI.ProgressStatus = function(dom, opt_selector = '.progress-status', opt_option
  * @param {!Object=} opt_options
  * @return {undefined}
  */
-SUI.ProgressStatus.prototype._setOptions = function(opt_options) {
+SUI.ProgressStatus.prototype._setOptions = function(opt_options = {}) {
   let _self = this;
   _self.options = new SUI.Object({
     successStyle: 'success',
