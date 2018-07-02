@@ -9,10 +9,10 @@ goog.require('SUI.Query');
  * @constructor
  * @this {SUI.Pager}
  * @param {!SUI.Node} dom
- * @param {!Object=} opt_options
  * @param {!Array=} opt_selectors
+ * @param {!Object=} opt_options
  */
-SUI.Pager = function(dom, opt_options, opt_selectors = ['.pager', '.pager-statistics']) {
+SUI.Pager = function(dom, opt_selectors = ['.pager', '.pager-statistics'], opt_options = {}) {
   this.pager = new SUI.Query(opt_selectors[0], dom).getItem();
   this.pagerStatistics = new SUI.Query(opt_selectors[1], dom).getItem();
   this._setOptions(opt_options);

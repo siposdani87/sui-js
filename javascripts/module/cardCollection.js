@@ -11,13 +11,13 @@ goog.require('SUI.Query');
  * @constructor
  * @this {SUI.CardCollection}
  * @param {!SUI.Node} dom
- * @param {!Object} ctrl
- * @param {!Object=} opt_options
  * @param {string=} opt_selector
+ * @param {?Object=} opt_ctrl
+ * @param {!Object=} opt_options
  */
-SUI.CardCollection = function(dom, ctrl, opt_options, opt_selector = '.card-collection') {
+SUI.CardCollection = function(dom, opt_selector = '.card-collection', opt_ctrl = null, opt_options = {}) {
   this.cardCollection = new SUI.Query(opt_selector, dom).getItem();
-  this.ctrl = ctrl;
+  this.ctrl = opt_ctrl;
   this._setOptions(opt_options);
   this._init();
 };
@@ -49,7 +49,7 @@ SUI.CardCollection.prototype._init = function() {
   this.query = '';
   this._initStructure();
   this._initTemplate();
-  this.pager = new SUI.Pager(this.cardCollection, this.options);
+  this.pager = new SUI.Pager(this.cardCollection, ['.pager', '.pager-statistics'], this.options);
   this.pager.eventAction = (page) => {
     this.refresh(page);
   };
@@ -113,12 +113,14 @@ SUI.CardCollection.prototype._getCardNode = function(item) {
           fnParams.push(item.get(key));
         }
       });
-      let method = this.ctrl[fnName];
-      if (method) {
-        let result = method.apply(this.ctrl, fnParams);
-        cloneTemplate = cloneTemplate.replace(match, result);
-      } else {
-        console.warn(SUI.format('ctrl.{0}() missing', [fnName]));
+      if (this.ctrl) {
+        let method = this.ctrl[fnName];
+        if (method) {
+          let result = method.apply(this.ctrl, fnParams);
+          cloneTemplate = cloneTemplate.replace(match, result);
+        } else {
+          console.warn(SUI.format('ctrl.{0}() missing', [fnName]));
+        }
       }
     } else {
       cloneTemplate = cloneTemplate.replace(match, item.get(expression));

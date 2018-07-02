@@ -9,13 +9,13 @@ goog.require('SUI.Query');
  * @constructor
  * @this {SUI.TabPanel}
  * @param {!SUI.Node} dom
- * @param {string} selected
  * @param {string=} opt_selector
+ * @param {string=} opt_selected
  */
-SUI.TabPanel = function(dom, selected, opt_selector = '.tab-panel') {
+SUI.TabPanel = function(dom, opt_selector = '.tab-panel', opt_selected = '') {
   this.tabpanel = new SUI.Query(opt_selector, dom).getItem();
   this.options = {
-    selected: selected,
+    selected: opt_selected,
   };
   this._init();
 };

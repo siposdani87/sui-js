@@ -9,10 +9,10 @@ goog.require('SUI.Query');
  * @constructor
  * @this {SUI.ProgressStatus}
  * @param {!SUI.Node} dom
- * @param {!Object=} opt_options
  * @param {string=} opt_selector
+ * @param {!Object=} opt_options
  */
-SUI.ProgressStatus = function(dom, opt_options, opt_selector = '.progress-status') {
+SUI.ProgressStatus = function(dom, opt_selector = '.progress-status', opt_options = {}) {
   this.progressStatusNode = new SUI.Query(opt_selector, dom).getItem();
   this._setOptions(opt_options);
   this._init();
