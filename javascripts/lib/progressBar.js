@@ -15,7 +15,7 @@ goog.require('SUI.lib.Dialog');
  * @param {!SUI.lib.Confirm} confirm
  * @param {!Object=} opt_options
  */
-SUI.lib.ProgressBar = function(dialog, confirm, opt_options) {
+SUI.lib.ProgressBar = function(dialog, confirm, opt_options = {}) {
   this.dialog = dialog;
   this.confirm = confirm;
 
@@ -28,7 +28,7 @@ SUI.lib.ProgressBar = function(dialog, confirm, opt_options) {
  * @private
  * @return {undefined}
  */
-SUI.lib.ProgressBar.prototype._setOptions = function(opt_options) {
+SUI.lib.ProgressBar.prototype._setOptions = function(opt_options = {}) {
   let _self = this;
   _self.options = new SUI.Object({
     lock: false,

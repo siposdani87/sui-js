@@ -14,7 +14,7 @@ goog.require('SUI.lib');
  * @param {!SUI.lib.Http} http
  * @param {!Object=} opt_options
  */
-SUI.lib.Dialog = function(http, opt_options) {
+SUI.lib.Dialog = function(http, opt_options = {}) {
   this.http = http;
   this._setOptions(opt_options);
   this._init();
@@ -26,7 +26,7 @@ SUI.lib.Dialog = function(http, opt_options) {
  * @private
  * @return {undefined}
  */
-SUI.lib.Dialog.prototype._setOptions = function(opt_options) {
+SUI.lib.Dialog.prototype._setOptions = function(opt_options = {}) {
   let _self = this;
   _self.options = new SUI.Object({
     id: '#dialog',

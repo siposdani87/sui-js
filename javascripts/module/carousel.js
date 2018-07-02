@@ -23,7 +23,7 @@ SUI.Carousel = function(dom, opt_selector = '.carousel', opt_options = {}) {
  * @param {!Object=} opt_options
  * @return {undefined}
  */
-SUI.Carousel.prototype._setOptions = function(opt_options) {
+SUI.Carousel.prototype._setOptions = function(opt_options = {}) {
   let _self = this;
   _self.options = new SUI.Object({});
   _self.options.merge(opt_options);

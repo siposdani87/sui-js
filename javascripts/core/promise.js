@@ -8,7 +8,7 @@ goog.require('SUI.Object');
  * @this {SUI.Promise}
  * @param {!Object=} opt_options
  */
-SUI.Promise = function(opt_options) {
+SUI.Promise = function(opt_options = {}) {
   let _self = this;
   _self.options = new SUI.Object({
     status: null,

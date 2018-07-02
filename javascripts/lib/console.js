@@ -9,7 +9,7 @@ goog.require('SUI.lib');
  * @param {!SUI.Object} config
  * @param {!Object=} opt_options
  */
-SUI.lib.Console = function(config, opt_options) {
+SUI.lib.Console = function(config, opt_options = {}) {
   this.config = config;
   this._setOptions(opt_options);
 };
@@ -19,7 +19,7 @@ SUI.lib.Console = function(config, opt_options) {
  * @private
  * @return {undefined}
  */
-SUI.lib.Console.prototype._setOptions = function(opt_options) {
+SUI.lib.Console.prototype._setOptions = function(opt_options = {}) {
   let _self = this;
   _self.options = new SUI.Object();
   _self.options.merge(opt_options);

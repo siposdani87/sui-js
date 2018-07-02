@@ -11,7 +11,7 @@ goog.require('SUI.Object');
  * @param {!SUI.Node} element
  * @param {!Object=} opt_options
  */
-SUI.Dropdown = function(element, opt_options) {
+SUI.Dropdown = function(element, opt_options = {}) {
     this.dropdown = element;
     this._setOptions(opt_options);
     this._init();
@@ -22,7 +22,7 @@ SUI.Dropdown = function(element, opt_options) {
  * @param {!Object=} opt_options
  * @return {undefined}
  */
-SUI.Dropdown.prototype._setOptions = function(opt_options) {
+SUI.Dropdown.prototype._setOptions = function(opt_options = {}) {
     let _self = this;
     _self.options = new SUI.Object({
         id: SUI.generateId('dropdown'),

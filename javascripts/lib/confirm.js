@@ -12,7 +12,7 @@ goog.require('SUI.lib');
  * @this {SUI.lib.Confirm}
  * @param {!Object=} opt_options
  */
-SUI.lib.Confirm = function(opt_options) {
+SUI.lib.Confirm = function(opt_options = {}) {
   this._setOptions(opt_options);
   this._init();
   this._initButtons();
@@ -23,7 +23,7 @@ SUI.lib.Confirm = function(opt_options) {
  * @private
  * @return {undefined}
  */
-SUI.lib.Confirm.prototype._setOptions = function(opt_options) {
+SUI.lib.Confirm.prototype._setOptions = function(opt_options = {}) {
   let _self = this;
   _self.options = new SUI.Object({
     id: '#confirm',

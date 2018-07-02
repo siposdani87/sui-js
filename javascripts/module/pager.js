@@ -24,7 +24,7 @@ SUI.Pager = function(dom, opt_selectors = ['.pager', '.pager-statistics'], opt_o
  * @param {!Object=} opt_options
  * @return {undefined}
  */
-SUI.Pager.prototype._setOptions = function(opt_options) {
+SUI.Pager.prototype._setOptions = function(opt_options = {}) {
   let _self = this;
   _self.options = new SUI.Object({
     row_count: 10,

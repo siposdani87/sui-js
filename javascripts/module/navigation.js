@@ -12,7 +12,7 @@ goog.require('SUI.Query');
  * @param {!SUI.lib.Http=} opt_http
  * @param {!Object=} opt_options
  */
-SUI.Navigation = function(opt_http, opt_options) {
+SUI.Navigation = function(opt_http, opt_options = {}) {
   this.http = opt_http;
   this._setOptions(opt_options);
   this._init();
@@ -23,7 +23,7 @@ SUI.Navigation = function(opt_http, opt_options) {
  * @param {!Object=} opt_options
  * @return {undefined}
  */
-SUI.Navigation.prototype._setOptions = function(opt_options) {
+SUI.Navigation.prototype._setOptions = function(opt_options = {}) {
   let _self = this;
   _self.options = new SUI.Object();
   _self.options.merge(opt_options);

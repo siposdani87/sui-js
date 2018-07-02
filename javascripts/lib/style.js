@@ -13,7 +13,7 @@ goog.require('SUI.lib');
  * @param {!SUI.lib.ProgressBar} progressBar
  * @param {!Object=} opt_options
  */
-SUI.lib.Style = function(progressBar, opt_options) {
+SUI.lib.Style = function(progressBar, opt_options = {}) {
   this.progressBar = progressBar;
   this._setOptions(opt_options);
   this._init();
@@ -24,7 +24,7 @@ SUI.lib.Style = function(progressBar, opt_options) {
  * @param {!Object=} opt_options
  * @return {undefined}
  */
-SUI.lib.Style.prototype._setOptions = function(opt_options) {
+SUI.lib.Style.prototype._setOptions = function(opt_options = {}) {
   let _self = this;
   _self.options = new SUI.Object();
   _self.options.merge(opt_options);

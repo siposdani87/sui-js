@@ -10,7 +10,7 @@ goog.require('SUI.lib');
  * @this {SUI.lib.Loader}
  * @param {!Object=} opt_options
  */
-SUI.lib.Loader = function(opt_options) {
+SUI.lib.Loader = function(opt_options = {}) {
   this._setOptions(opt_options);
   this._init();
 };
@@ -20,7 +20,7 @@ SUI.lib.Loader = function(opt_options) {
  * @param {!Object=} opt_options
  * @return {undefined}
  */
-SUI.lib.Loader.prototype._setOptions = function(opt_options) {
+SUI.lib.Loader.prototype._setOptions = function(opt_options = {}) {
   let _self = this;
   _self.options = new SUI.Object({
     counter: 0,
