@@ -9,10 +9,10 @@ goog.require('SUI.Query');
  * @constructor
  * @this {SUI.Carousel}
  * @param {!SUI.Node} dom
- * @param {!Object=} opt_options
  * @param {string=} opt_selector
+ * @param {!Object=} opt_options
  */
-SUI.Carousel = function(dom, opt_options, opt_selector = '.carousel') {
+SUI.Carousel = function(dom, opt_selector = '.carousel', opt_options = {}) {
   this.carouselNode = new SUI.Query(opt_selector, dom).getItem();
   this._setOptions(opt_options);
   this._init();

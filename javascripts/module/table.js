@@ -12,10 +12,10 @@ goog.require('SUI.Tooltip');
  * @constructor
  * @this {SUI.Table}
  * @param {!SUI.Node} dom
- * @param {!Object=} opt_options
  * @param {string=} opt_selector
+ * @param {!Object=} opt_options
  */
-SUI.Table = function(dom, opt_options, opt_selector = 'table') {
+SUI.Table = function(dom, opt_selector = 'table', opt_options) {
   this.table = new SUI.Query(opt_selector, dom).getItem();
   this.tableResponsive = this.table.getParentNode();
   if (!this.table.isEmpty()) {
@@ -195,7 +195,7 @@ SUI.Table.prototype._initStructure = function() {
 
   this.tfoot.appendChild(footerRow);
 
-  this.pager = new SUI.Pager(this.tfoot, this.options);
+  this.pager = new SUI.Pager(this.tfoot, ['.pager', '.pager-statistics'], this.options);
   this.pager.eventAction = (page) => {
     this.refresh(page);
   };
