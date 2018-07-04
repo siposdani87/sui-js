@@ -2,6 +2,7 @@ goog.provide('SUI.Table');
 
 goog.require('SUI');
 goog.require('SUI.Collection');
+goog.require('SUI.ContentHandler');
 goog.require('SUI.Dropdown');
 goog.require('SUI.Node');
 goog.require('SUI.Object');
@@ -29,6 +30,10 @@ SUI.Table = function(dom, opt_selector = 'table', opt_options = {}) {
 SUI.Table.prototype._setOptions = function(opt_options = {}) {
   let _self = this;
   _self.options = new SUI.Object({
+    no_content: {
+      image_url: null,
+      text: '',
+    },
     row_count: 10,
     pager_num: 4,
     sort: {
@@ -51,9 +56,18 @@ SUI.Table.prototype._init = function() {
   this.collection = /** @type {!SUI.Collection<!SUI.Object>} */ (new SUI.Collection());
   this.query = '';
   this.actions = [];
+  this._initContentHandler();
   this._initHeader();
   this._initSearch();
   this._initStructure();
+};
+
+/**
+ * @private
+ * @return {undefined}
+ */
+SUI.Table.prototype._initContentHandler = function() {
+  this.contentHandler = new SUI.ContentHandler(this.tableNode, this.options.no_content);
 };
 
 /**
@@ -471,7 +485,12 @@ SUI.Table.prototype._createActionButton = function(containerNode, action, item) 
  */
 SUI.Table.prototype.setData = function(items) {
   this.collection.reload(items);
-  this._drawTable();
+  if (this.collection.size() === 0) {
+    this.contentHandler.show();
+  } else {
+    this.contentHandler.hide();
+    this._draw();
+  }
 };
 
 /**
@@ -499,7 +518,7 @@ SUI.Table.prototype._getItems = function() {
  * @private
  * @return {undefined}
  */
-SUI.Table.prototype._drawTable = function() {
+SUI.Table.prototype._draw = function() {
   this.tbody.removeChildren();
   SUI.each(this._getItems(), (item) => {
     this._addHeaderRow(item);

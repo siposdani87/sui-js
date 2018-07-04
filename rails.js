@@ -68,6 +68,7 @@
 //= require sui-js/javascripts/module/table
 //= require sui-js/javascripts/module/cardCollection
 //= require sui-js/javascripts/module/progressStatus
+//= require sui-js/javascripts/module/contentHandler
 
 //= require sui-js/javascripts/module/time
 //= require sui-js/javascripts/module/clock

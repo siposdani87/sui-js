@@ -2,6 +2,7 @@ goog.provide('SUI.CardCollection');
 
 goog.require('SUI');
 goog.require('SUI.Collection');
+goog.require('SUI.ContentHandler');
 goog.require('SUI.Node');
 goog.require('SUI.Object');
 goog.require('SUI.Pager');
@@ -30,6 +31,10 @@ SUI.CardCollection = function(dom, opt_selector = '.card-collection', opt_ctrl =
 SUI.CardCollection.prototype._setOptions = function(opt_options = {}) {
   let _self = this;
   _self.options = new SUI.Object({
+    no_content: {
+      image_url: null,
+      text: '',
+    },
     row_count: 12,
     pager_num: 4,
     sort: {
@@ -47,12 +52,21 @@ SUI.CardCollection.prototype._setOptions = function(opt_options = {}) {
 SUI.CardCollection.prototype._init = function() {
   this.collection = /** @type {!SUI.Collection<!SUI.Object>} */ (new SUI.Collection());
   this.query = '';
+  this._initContentHandler();
   this._initStructure();
   this._initTemplate();
   this.pager = new SUI.Pager(this.cardCollectionNode, ['.pager', '.pager-statistics'], this.options);
   this.pager.eventAction = (page) => {
     this.refresh(page);
   };
+};
+
+/**
+ * @private
+ * @return {undefined}
+ */
+SUI.CardCollection.prototype._initContentHandler = function() {
+  this.contentHandler = new SUI.ContentHandler(this.cardCollectionNode, this.options.no_content);
 };
 
 /**
@@ -182,7 +196,12 @@ SUI.CardCollection.prototype._addCard = function(item) {
  */
 SUI.CardCollection.prototype.setData = function(items) {
   this.collection.reload(items);
-  this._draw();
+  if (this.collection.size() === 0) {
+    this.contentHandler.show();
+  } else {
+    this.contentHandler.hide();
+    this._draw();
+  }
 };
 
 /**
@@ -196,17 +215,26 @@ SUI.CardCollection.prototype.setCount = function(count) {
 
 /**
  * @private
- * @return {undefined}
+ * @return {!Array}
  */
-SUI.CardCollection.prototype._draw = function() {
-  this.body.removeChildren();
+SUI.CardCollection.prototype._getItems = function() {
   let items = this.collection.getItems();
   if (this.collection.size() > this.options.row_count) {
     items = this.collection.limit(this.pager.offset, this.options.row_count);
   }
-  SUI.each(items, (item) => {
+  return items;
+};
+
+/**
+ * @private
+ * @return {undefined}
+ */
+SUI.CardCollection.prototype._draw = function() {
+  this.body.removeChildren();
+  SUI.each(this._getItems(), (item) => {
     this._addCard(item);
   });
+  SUI.mdl(this.body);
 };
 
 /**
