@@ -252,3 +252,23 @@ SUI.Form.prototype.eventButton = function(model, node) {
   console.warn('SUI.Form.eventButton()', model, node);
 };
 
+/**
+ * @return {undefined}
+ */
+SUI.Form.prototype.lock = function() {
+  this.each((widget) => {
+    widget.disabled = widget.isDisabled();
+  });
+  this.each((widget) => {
+    widget.setDisabled(true);
+  });
+};
+
+/**
+ * @return {undefined}
+ */
+SUI.Form.prototype.unlock = function() {
+  this.each((widget) => {
+    widget.setDisabled(widget.disabled);
+  });
+};

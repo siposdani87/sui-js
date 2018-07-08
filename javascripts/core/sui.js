@@ -747,15 +747,18 @@ SUI.number = function(num, exp) {
 
 /**
  * @param {!SUI.Node|!Element=} opt_node
+ * @param {boolean=} opt_forceDowngrade
  * @return {undefined}
  */
-SUI.mdl = function(opt_node) {
+SUI.mdl = function(opt_node, opt_forceDowngrade = true) {
   let element = opt_node || document;
   if (SUI.isFunction(element.getNode)) {
     element = element.getNode();
   }
   if (opt_node) {
-    window['componentHandler']['downgradeElements'](element);
+    if (opt_forceDowngrade) {
+      window['componentHandler']['downgradeElements'](element);
+    }
     window['componentHandler']['upgradeElement'](element);
   } else {
     window['componentHandler']['upgradeDom']();

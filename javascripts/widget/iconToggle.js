@@ -51,5 +51,5 @@ SUI.widget.IconToggle.prototype.render = function() {
  * @override
  */
 SUI.widget.IconToggle.prototype.refresh = function() {
-  SUI.mdl(this.label);
+  SUI.mdl(this.label, false);
 };

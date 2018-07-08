@@ -44,5 +44,5 @@ SUI.widget.Switch.prototype.render = function() {
  * @override
  */
 SUI.widget.Switch.prototype.refresh = function() {
-  SUI.mdl(this.label);
+  SUI.mdl(this.label, false);
 };
