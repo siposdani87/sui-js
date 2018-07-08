@@ -132,9 +132,9 @@ SUI.Widget.prototype.checkValidity = function(opt_force = false, opt_showMessage
  * @return {!SUI.Node}
  */
 SUI.Widget.prototype._getUpgradedNode = function() {
-  if (this.label && this.label.exists() && this.label.getAttribute('data-upgraded')) {
+  /* if (this.label && this.label.exists() && this.label.getAttribute('data-upgraded')) {
     return this.label;
-  }
+  }*/
   return /** @type {!SUI.Node} */ (this.inputBlock);
 };
 
