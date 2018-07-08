@@ -114,16 +114,28 @@ SUI.Widget.prototype.checkValidity = function(opt_force = false, opt_showMessage
   } else if (opt_showMessage) {
     this.setError(node.validationMessage);
   }
-  if (opt_force && this.inputBlock) {
+  let upgradedNode = this._getUpgradedNode();
+  if (opt_force && upgradedNode) {
     if (this.getValue()) {
-      this.inputBlock.addClass('is-dirty');
+      upgradedNode.addClass('is-dirty');
     }
     if (isValid) {
-      this.inputBlock.removeClass('is-invalid');
+      upgradedNode.removeClass('is-invalid');
     } else {
-      this.inputBlock.addClass('is-invalid');
+      upgradedNode.addClass('is-invalid');
     }
   }
+};
+
+/**
+ * @private
+ * @return {!SUI.Node}
+ */
+SUI.Widget.prototype._getUpgradedNode = function() {
+  if (this.label && this.label.exists() && this.label.getAttribute('data-upgraded')) {
+    return this.label;
+  }
+  return /** @type {!SUI.Node} */ (this.inputBlock);
 };
 
 /**
@@ -239,18 +251,26 @@ SUI.Widget.prototype._setInfo = function() {
  */
 SUI.Widget.prototype._setLabel = function() {
   if (this.label && this.label.exists()) {
-    let requiredPostfix = ' *';
-    let labelText = this.label.getHtml(true);
-    let postfix = labelText.substr(labelText.length - requiredPostfix.length);
-
-    if (this.isRequired() && postfix !== requiredPostfix) {
-        labelText += requiredPostfix;
-        this.label.setHtml(labelText);
-    } else if (!this.isRequired() && postfix === requiredPostfix) {
-        labelText = labelText.replace(requiredPostfix, '');
-        this.label.setHtml(labelText);
-    }
+    let labelText = this._getLabelRequiredText(this.label.getHtml(true));
+    this.label.setHtml(labelText);
   }
+};
+
+/**
+ * @protected
+ * @param {string} labelText
+ * @return {string}
+ */
+SUI.Widget.prototype._getLabelRequiredText = function(labelText) {
+  let requiredPostfix = ' *';
+  let postfix = labelText.substr(labelText.length - requiredPostfix.length);
+
+  if (this.isRequired() && postfix !== requiredPostfix) {
+    labelText += requiredPostfix;
+  } else if (!this.isRequired() && postfix === requiredPostfix) {
+    labelText = labelText.replace(requiredPostfix, '');
+  }
+  return labelText;
 };
 
 /**

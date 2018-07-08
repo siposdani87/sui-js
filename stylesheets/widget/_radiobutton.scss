@@ -15,4 +15,19 @@
         top: 22px;
         z-index: 1;
     }
+
+    .label {
+        position: absolute;
+        top: -22px;
+        left: 0;
+        display: inline-block;
+        &::first-letter {
+            text-transform: capitalize;
+        }
+    }
+    .is-disabled {
+        .label {
+            color: $light-grey-dark !important;
+        }
+    }
 }
