@@ -118,6 +118,11 @@ SUI.widget.Location.prototype.render = function() {
   if (this.label) {
     this.label.addClass('mdl-textfield__label');
   }
+
+  this._renderAdvancedInputs();
+  this._renderMap();
+  this._setDefaultValue();
+
   this.refresh();
 };
 
@@ -125,11 +130,7 @@ SUI.widget.Location.prototype.render = function() {
  * @override
  */
 SUI.widget.Location.prototype.refresh = function() {
-  this._renderAdvancedInputs();
   SUI.mdl(this.inputBlock);
-
-  this._renderMap();
-  this._setDefaultValue();
 };
 
 /**
@@ -231,13 +232,13 @@ SUI.widget.Location.prototype._renderMap = function() {
 SUI.widget.Location.prototype._setDefaultValue = function() {
   let location = /** @type {!Object} */ (this.getValue());
   if (!SUI.isNull(location['latitude']) && !SUI.isNull(location['longitude'])) {
+    this.map.setCenter(location['latitude'], location['longitude']);
     this.map.createMarker(0, '', 'marker', location['latitude'], location['longitude']);
     this._setDataValue(location);
   }
 
   setTimeout(() => {
     this.map.triggerResize();
-    this.map.setCenter(location['latitude'], location['longitude']);
   }, 500);
 };
 
@@ -274,12 +275,12 @@ SUI.widget.Location.prototype.setValue = function(value) {
   this._setDataValue(/** @type {!Object} */(value));
   this.map.removeMarker(0);
   if (!SUI.isNull(value['latitude']) && !SUI.isNull(value['longitude'])) {
+    this.map.setCenter(value['latitude'], value['longitude']);
     if (this.map.getMarker(0)) {
       this.map.updateMarker(0, '', 'marker', value['latitude'], value['longitude']);
     } else {
       this.map.createMarker(0, '', 'marker', value['latitude'], value['longitude']);
     }
-    this.map.setCenter(value['latitude'], value['longitude']);
   }
   this.input.trigger('change');
 };
