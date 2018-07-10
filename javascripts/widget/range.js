@@ -47,10 +47,6 @@ SUI.widget.Range.prototype.render = function() {
   if (this.label) {
     this.label.addClass('mdl-textfield__label');
   }
-  let containerNode = new SUI.Query('.mdl-slider__container', this.inputBlock).getItem();
-  let value = /** @type {string} */ (this.getValue());
-  this.tooltip = new SUI.Tooltip(containerNode);
-  this.tooltip.render(value);
 
   this.refresh();
 };
@@ -60,6 +56,11 @@ SUI.widget.Range.prototype.render = function() {
  */
 SUI.widget.Range.prototype.refresh = function() {
   SUI.mdl(this.input);
+
+  let containerNode = new SUI.Query('.mdl-slider__container', this.inputBlock).getItem();
+  let value = /** @type {string} */ (this.getValue());
+  this.tooltip = new SUI.Tooltip(containerNode);
+  this.tooltip.render(value);
 };
 
 /**
@@ -70,4 +71,5 @@ SUI.widget.Range.prototype.refresh = function() {
 SUI.widget.Range.prototype.setValue = function(value) {
   let inputNode = this.input.getNode();
   inputNode['MaterialSlider']['change'](value);
+  this.tooltip.render(value);
 };
