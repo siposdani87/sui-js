@@ -45,6 +45,12 @@
     vertical-align: middle;
     cursor: pointer;
 
+    &.active {
+      .tag {
+        background-color: $accent;
+      }
+    }
+
     .tag {
       position: relative;
       display: inline-block;

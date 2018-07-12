@@ -31,50 +31,8 @@ SUI.Datetime.prototype._setOptions = function(options) {
  */
 SUI.Datetime.prototype._init = function() {
   this._initVariables();
-  this._setValue(this.options.value);
   this._initStructure();
-};
-
-/**
- * @private
- * @return {undefined}
- */
-SUI.Datetime.prototype._initStructure = function() {
-  this._initDateTimeNode();
-  this._initCalendarNode();
-  this._initClockNode();
-};
-
-/**
- * @private
- * @return {undefined}
- */
-SUI.Datetime.prototype._initDateTimeNode = function() {
-  this.datetimeNode.addClass('datetime');
-};
-
-/**
- * @private
- * @return {undefined}
- */
-SUI.Datetime.prototype._initCalendarNode = function() {
-  if (this.config.calendar_type) {
-    this.calendarNode = new SUI.Node('div');
-    this.calendarNode.addClass('calendar');
-    this.datetimeNode.appendChild(this.calendarNode);
-  }
-};
-
-/**
- * @private
- * @return {undefined}
- */
-SUI.Datetime.prototype._initClockNode = function() {
-  if (this.config.clock_type) {
-    this.clockNode = new SUI.Node('div');
-    this.clockNode.addClass('clock');
-    this.datetimeNode.appendChild(this.clockNode);
-  }
+  this._setValue(this.options.value);
 };
 
 /**
@@ -123,6 +81,49 @@ SUI.Datetime.prototype._initVariables = function() {
 };
 
 /**
+ * @private
+ * @return {undefined}
+ */
+SUI.Datetime.prototype._initStructure = function() {
+  this._initDateTimeNode();
+  this._initCalendarNode();
+  this._initClockNode();
+};
+
+/**
+ * @private
+ * @return {undefined}
+ */
+SUI.Datetime.prototype._initDateTimeNode = function() {
+  this.datetimeNode.addClass('datetime');
+  this.datetimeNode.removeChildren();
+};
+
+/**
+ * @private
+ * @return {undefined}
+ */
+SUI.Datetime.prototype._initCalendarNode = function() {
+  if (this.config.calendar_type) {
+    this.calendarNode = new SUI.Node('div');
+    this.calendarNode.addClass('calendar');
+    this.datetimeNode.appendChild(this.calendarNode);
+  }
+};
+
+/**
+ * @private
+ * @return {undefined}
+ */
+SUI.Datetime.prototype._initClockNode = function() {
+  if (this.config.clock_type) {
+    this.clockNode = new SUI.Node('div');
+    this.clockNode.addClass('clock');
+    this.datetimeNode.appendChild(this.clockNode);
+  }
+};
+
+/**
  * @return {!Object}
  */
 SUI.Datetime.prototype.getConfig = function() {
@@ -137,6 +138,16 @@ SUI.Datetime.prototype.getConfig = function() {
 SUI.Datetime.prototype._setValue = function(value) {
   value = value || window['moment']()['format'](this.config.format);
   this.value = window['moment'](value, this.config.format);
+};
+
+/**
+ * @param {string} value
+ * @return {undefined}
+ */
+SUI.Datetime.prototype.setValue = function(value) {
+  this._initStructure();
+  this._setValue(value);
+  this.draw();
 };
 
 /**
