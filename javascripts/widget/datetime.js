@@ -31,11 +31,7 @@ SUI.widget.Datetime.prototype._init = function() {
 
   this.datetimeInput = new SUI.Node('div');
   this.datetimeInput.addClass('datetime-input');
-  this.datetimeInput.addEventListener('click', () => {
-    if (!this.isDisabled()) {
-      this.popup.open();
-    }
-  });
+  this.datetimeInput.addEventListener('click', this._onClick.bind(this));
   this.inputBlock.appendChild(this.datetimeInput);
 
   this._initInput();
@@ -68,6 +64,9 @@ SUI.widget.Datetime.prototype._initInput = function() {
   };
 
   this.popup = new SUI.Popup(this.datetimeNode, this.inputBlock);
+  this.popup.eventClose = () => {
+    this.datetimeInput.removeClass('active');
+  };
 
   if (value) {
     let formattedValue = this.datetime.getValue();
@@ -83,11 +82,7 @@ SUI.widget.Datetime.prototype.render = function() {
   let iconNode = new SUI.Node('i');
   iconNode.addClass(['material-icons', 'size-24', 'expander']);
   iconNode.setHtml('date_range');
-  iconNode.addEventListener('click', () => {
-    if (!this.isDisabled()) {
-      this.popup.open();
-    }
-  });
+  iconNode.addEventListener('click', this._onClick.bind(this));
   this.datetimeInput.insertAfter(iconNode);
 
   this.refresh();
@@ -102,7 +97,6 @@ SUI.widget.Datetime.prototype.refresh = function() {
   } else {
     this.inputBlock.removeClass('is-disabled');
   }
-
   this.datetime.draw();
 };
 
@@ -115,6 +109,7 @@ SUI.widget.Datetime.prototype.setValue = function(value) {
   this._setTag(/** @type {string} */(value));
   this.input.setAttribute('value', value);
   this.input.trigger('change');
+  this.datetime.setValue(value);
 };
 
 /**
@@ -138,5 +133,16 @@ SUI.widget.Datetime.prototype._setTag = function(value) {
       this.setValue('');
     });
     tagNode.appendChild(iconNode);
+  }
+};
+
+/**
+ * @private
+ * @return {undefined}
+ */
+SUI.widget.Datetime.prototype._onClick = function() {
+  if (!this.isDisabled()) {
+    this.datetimeInput.addClass('active');
+    this.popup.toggle();
   }
 };

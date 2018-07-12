@@ -57,8 +57,7 @@ SUI.Calendar.prototype._initStructure = function() {
   this._initMode(this.types[this.options.type]);
 
   let date = window['moment'](this.options.date);
-  this._selectDate(date);
-  this.setDate(date);
+  this._setDate(date);
 };
 
 /**
@@ -82,10 +81,10 @@ SUI.Calendar.prototype._initHeaderNode = function() {
 
   this.currentModeNode = new SUI.Node('span');
   this.currentModeNode.addClass('current-mode');
-  this.currentModeNode.addEventListener('click', function() {
+  this.currentModeNode.addEventListener('click', () => {
     this._changeMode(-1);
     this.draw();
-  }.bind(this));
+  });
   this.headerNode.appendChild(this.currentModeNode);
 
   let nextButton = new SUI.Node('a');
@@ -208,18 +207,18 @@ SUI.Calendar.prototype._initDaysMode = function() {
  * @return {undefined}
  */
 SUI.Calendar.prototype._previous = function() {
-  let date = this._switchMode(function() {
+  let date = this._switchMode(() => {
     return this.previous.month;
-  }.bind(this), function() {
+  }, () => {
     return this.previous.year;
-  }.bind(this), function() {
+  }, () => {
     let date = this.current.day['clone']()['subtract'](this.maxYears, 'years');
     if (date['year']() < 0) {
       date = this.current.day['clone']();
     }
     return date;
-  }.bind(this));
-  this.setDate(date);
+  });
+  this._setDate(date);
   this.draw();
 };
 
@@ -228,14 +227,14 @@ SUI.Calendar.prototype._previous = function() {
  * @return {undefined}
  */
 SUI.Calendar.prototype._next = function() {
-  let date = this._switchMode(function() {
+  let date = this._switchMode(() => {
     return this.next.month;
-  }.bind(this), function() {
+  }, () => {
     return this.next.year;
-  }.bind(this), function() {
+  }, () => {
     return this.current.day['clone']()['add'](this.maxYears, 'years');
-  }.bind(this));
-  this.setDate(date);
+  });
+  this._setDate(date);
   this.draw();
 };
 
@@ -244,7 +243,8 @@ SUI.Calendar.prototype._next = function() {
  * @param {!Object} date
  * @return {undefined}
  */
-SUI.Calendar.prototype.setDate = function(date) {
+SUI.Calendar.prototype._setDate = function(date) {
+  this._setSelectedDate(date);
   this._setVariables(date);
 
   this._setPreviousMonth();
@@ -447,16 +447,15 @@ SUI.Calendar.prototype._setNextMonth = function() {
  */
 SUI.Calendar.prototype._setModeDate = function(selectedDate) {
   let date = this.current.day['clone']();
-  this._switchMode(function() {
+  this._switchMode(() => {
     date['month'](selectedDate['month']());
     date['date'](selectedDate['date']());
-  }, function() {
+  }, () => {
     date['month'](selectedDate['month']());
-  }, function() {
+  }, () => {
     date['year'](selectedDate['year']());
   });
-  this._selectDate(date);
-  this.setDate(date);
+  this._setDate(date);
 };
 
 /**
@@ -480,7 +479,7 @@ SUI.Calendar.prototype._onClick = function(selectedDate) {
  * @param {!Object} date
  * @return {undefined}
  */
-SUI.Calendar.prototype._selectDate = function(date) {
+SUI.Calendar.prototype._setSelectedDate = function(date) {
   this.selectedDate = date;
 };
 

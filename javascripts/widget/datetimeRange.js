@@ -33,13 +33,8 @@ SUI.widget.DatetimeRange.prototype._init = function() {
   this.input.addClass('hidden');
 
   this.datetimeInput = new SUI.Node('div');
-  this.datetimeInput.addClass('datetime-range-input');
-  this.datetimeInput.addEventListener('click', () => {
-    if (!this.isDisabled()) {
-      this.datetimeInput.addClass('active');
-      this.popup.open();
-    }
-  });
+  this.datetimeInput.addClass('datetime-input');
+  this.datetimeInput.addEventListener('click', this._onClick.bind(this));
   this.inputBlock.appendChild(this.datetimeInput);
 
   this._initInput();
@@ -93,12 +88,7 @@ SUI.widget.DatetimeRange.prototype.render = function() {
   } else {
     iconNode.setHtml('date_range');
   }
-  iconNode.addEventListener('click', () => {
-    if (!this.isDisabled()) {
-      this.datetimeInput.addClass('active');
-      this.popup.open();
-    }
-  });
+  iconNode.addEventListener('click', this._onClick.bind(this));
   this.datetimeInput.insertAfter(iconNode);
 
   this.refresh();
@@ -113,7 +103,6 @@ SUI.widget.DatetimeRange.prototype.refresh = function() {
   } else {
     this.inputBlock.removeClass('is-disabled');
   }
-
   this.datetime.draw();
 };
 
@@ -126,6 +115,7 @@ SUI.widget.DatetimeRange.prototype.setValue = function(value) {
   this._setTag(/** @type {string} */(value));
   this.input.setAttribute('value', value);
   this.input.trigger('change');
+  this.datetime.setValue(value);
 };
 
 /**
@@ -149,5 +139,16 @@ SUI.widget.DatetimeRange.prototype._setTag = function(value) {
       this.setValue('');
     });
     tagNode.appendChild(iconNode);
+  }
+};
+
+/**
+ * @private
+ * @return {undefined}
+ */
+SUI.widget.DatetimeRange.prototype._onClick = function() {
+  if (!this.isDisabled()) {
+    this.datetimeInput.addClass('active');
+    this.popup.toggle();
   }
 };

@@ -1,6 +1,6 @@
 /**
  * @license
- * Copyright 2016 Daniel Sipos (siposdani87@gmail.com),
+ * Copyright 2015 Daniel Sipos (siposdani87@gmail.com),
  * SUI-JS
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
@@ -32,7 +32,7 @@
  * @return {!Object}
  */
 let _attributesToObject = function(object, attributes, value) {
-  // TODO duplicated Object._attributesToObject function
+  // TODO duplicated on Object._attributesToObject function
   let lastAttribute = attributes.pop();
   let base = object;
   for (let i = 0; i < attributes.length; i++) {

@@ -117,9 +117,9 @@ SUI.Clock.prototype._togglePeriod = function() {
 SUI.Clock.prototype._initMinutesHeaderNode = function() {
   this.minutesHeaderNode = new SUI.Node('div');
   this.minutesHeaderNode.addClass('minutes');
-  this.minutesHeaderNode.addEventListener('click', function() {
+  this.minutesHeaderNode.addEventListener('click', () => {
     this._setMode(this.types['minute']);
-  }.bind(this));
+  });
   this.headerNode.appendChild(this.minutesHeaderNode);
 };
 
@@ -130,9 +130,9 @@ SUI.Clock.prototype._initMinutesHeaderNode = function() {
 SUI.Clock.prototype._initHoursHeaderNode = function() {
   this.hoursHeaderNode = new SUI.Node('div');
   this.hoursHeaderNode.addClass('hours');
-  this.hoursHeaderNode.addEventListener('click', function() {
+  this.hoursHeaderNode.addEventListener('click', () => {
     this._setMode(this.types['hour']);
-  }.bind(this));
+  });
   this.headerNode.appendChild(this.hoursHeaderNode);
 };
 
@@ -278,11 +278,11 @@ SUI.Clock.prototype._changeMode = function(direction) {
 SUI.Clock.prototype.draw = function() {
   let timeNode = this._getTimeNode();
 
-  this._switchMode(function() {
+  this._switchMode(() => {
     this._drawHours(timeNode);
-  }.bind(this), function() {
+  }, () => {
     this._drawMinutes(timeNode);
-  }.bind(this));
+  });
 };
 
 /**
@@ -295,11 +295,11 @@ SUI.Clock.prototype._drawMinutes = function(timeNode) {
     selected: this.minutes,
     captions: ['00', '05'],
   });
-  timeMinutes.eventClick = function(index) {
+  timeMinutes.eventClick = (index) => {
     this._changeMode(-1);
     let time = this.time['minute'](index);
     this._onClick(time);
-  }.bind(this);
+  };
   timeMinutes.draw(0, 59, 5, true);
 };
 
@@ -312,13 +312,13 @@ SUI.Clock.prototype._drawHours = function(timeNode) {
   let timeHours = new SUI.Time(timeNode, {
     selected: this.hours,
   });
-  timeHours.eventClick = function(index) {
+  timeHours.eventClick = (index) => {
     this._changeMode(1);
     let hour = this.period === 'pm' ? index + 12 : index;
     hour = hour === 24 ? 0 : hour;
     let time = this.time['hour'](hour);
     this._onClick(time);
-  }.bind(this);
+  };
   timeHours.draw(1, 12, 1, true);
 };
 
