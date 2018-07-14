@@ -45,7 +45,7 @@ SUI.widget.Search.prototype._init = function() {
  * @return {undefined}
  */
 SUI.widget.Search.prototype.render = function() {
-  this.inputBlock.addClass(['mdl-textfield', 'mdl-js-textfield', 'mdl-textfield--expandable']);
+  this.inputBlock.addClass(['search-widget', 'mdl-textfield', 'mdl-js-textfield', 'mdl-textfield--expandable']);
   this.input.addClass(['mdl-textfield__input']);
 
   this.label.addClass(['mdl-button', 'mdl-js-button', 'mdl-button--icon']);

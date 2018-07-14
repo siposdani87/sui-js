@@ -178,21 +178,56 @@
 }
 
 .page-subheader {
-  position: relative;
-  padding: .1em 0 .1em 0;
+  @include display-flex();
+  flex-flow: row wrap;
+  padding: .1em;
+  justify-content: space-between;
+  align-items: center;
   background-color: $light-grey;
+  color: $black;
+
+  @include media-breakpoint-down(sm) {
+    flex-flow: column wrap;
+  }
 
   h2 {
-    margin: .5em .5em .5em 1em;
+    @include flex(1);
+    margin: .3em 1em;
     font-size: $font-size-h5;
     font-weight: 400;
+
+    a {
+      white-space: nowrap;
+      &:after {
+        content: '/';
+        padding: 0 .3em;
+        color: $grey;
+      }
+    }
+  }
+
+  form {
+    @include flex(0 1 auto);
+    @include display-flex();
+    flex-flow: row nowrap;
+    margin: .3em .5em;
+
+    .input-block {
+      @include flex(1);
+      padding: 0;
+    }
+
+    .mdl-textfield--expandable{
+      label.mdl-button{
+        top: 0;
+      }
+    }
   }
 
   .actions {
-    position: absolute;
-    right: 1em;
-    top: 0;
-    bottom: 0;
+    @include flex(1);
+    justify-content: flex-end;
+    padding: .5em 1em .5em .1em;
     @include display-flex();
     align-items: center;
 
