@@ -150,7 +150,7 @@ SUI.lib.Confirm.prototype.load = function(message, okText, opt_cancelText = '', 
   this._reset();
   this._setTitle(opt_title);
 
-  this.confirmWindow.removeClass(['normal', 'info', 'warning', 'error', 'success']);
+  this.confirmWindow.removeClass(['normal', 'info', 'warning', 'error', 'success', 'choice']);
   this.confirmWindow.addClass(opt_type);
 
   this.modalBody.setHtml(message);
@@ -158,18 +158,21 @@ SUI.lib.Confirm.prototype.load = function(message, okText, opt_cancelText = '', 
   this.modalFooter.removeChildren();
 
   if (opt_cancelText) {
+    let cancelCssClasses = ['mdl-button', 'mdl-js-button', 'mdl-js-ripple-effect'];
+    cancelCssClasses.push(opt_type === 'choice' ? 'mdl-button--primary': 'mdl-button--accent');
     let cancelButton = new SUI.Node('button');
     cancelButton.setAttribute('type', 'button');
     cancelButton.setHtml(opt_cancelText);
-    cancelButton.addClass(['mdl-button', 'mdl-js-button', 'mdl-js-ripple-effect', 'mdl-button--accent']);
+    cancelButton.addClass(cancelCssClasses);
     cancelButton.addEventListener('click', this._actionCancel.bind(this));
     this.modalFooter.appendChild(cancelButton);
   }
 
+  let okCssClasses = ['mdl-button', 'mdl-js-button', 'mdl-js-ripple-effect', 'mdl-button--primary'];
   let okButton = new SUI.Node('button');
   okButton.setAttribute('type', 'button');
   okButton.setHtml(okText);
-  okButton.addClass(['mdl-button', 'mdl-js-button', 'mdl-js-ripple-effect', 'mdl-button--primary']);
+  okButton.addClass(okCssClasses);
   okButton.addEventListener('click', this._actionOK.bind(this));
   this.modalFooter.appendChild(okButton);
 

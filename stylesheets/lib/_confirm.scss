@@ -89,6 +89,10 @@
       }
     }
 
+    &.choice {
+      border-left: 3px solid $accent;
+    }
+
     .modal-footer {
       clear: both;
       float: right;
