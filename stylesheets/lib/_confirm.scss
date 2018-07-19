@@ -20,7 +20,7 @@
     background-color: $white;
     color: $black;
     @include box-shadow(8px 8px 100px 0 rgba($black, .5));
-    min-width: 320px;
+    min-width: 360px;
     max-width: 640px;
 
     .modal-header {
