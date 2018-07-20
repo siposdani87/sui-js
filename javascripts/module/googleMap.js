@@ -805,7 +805,7 @@ SUI.GoogleMap.prototype.setMarkerIcon = function(name, iconOptions) {
 SUI.GoogleMap.prototype.searchAddress = function(query) {
   let deferred = new SUI.Deferred();
   let geoCoder = new google.maps.Geocoder();
-  geoCoder.geocode({address: query}, (results, status) => {
+  geoCoder.geocode({address: SUI.convert(query, 'string')}, (results, status) => {
     if (status === google.maps.GeocoderStatus.OK && results.length > 0) {
       let points = [];
       SUI.each(results, (result) => {
