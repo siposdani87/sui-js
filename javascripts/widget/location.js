@@ -33,7 +33,7 @@ SUI.widget.Location.prototype._init = function() {
     let inputNode = input.getNode();
 
     if (SUI.eq(event.keyCode, 13)) {
-      this._search(inputNode.value);
+      this.eventSearch(inputNode.value);
     } else {
       input.trigger('change');
     }
@@ -66,10 +66,10 @@ SUI.widget.Location.prototype._initSearchButton = function() {
   let searchButton = new SUI.Node('a');
   searchButton.setAttribute('href', 'javascript:void(0)');
   searchButton.addClass(['search-button', 'material-icons']);
-  searchButton.setHtml('pin_drop');
+  searchButton.setHtml('search');
   searchButton.addEventListener('click', () => {
     let inputNode = this.input.getNode();
-    this._search(inputNode.value);
+    this.eventSearch(inputNode.value);
   });
   this.inputBlock.appendChild(searchButton);
 };
@@ -90,11 +90,10 @@ SUI.widget.Location.prototype._initAdvancedButton = function() {
 };
 
 /**
- * @private
  * @param {string} address
  * @return {undefined}
  */
-SUI.widget.Location.prototype._search = function(address) {
+SUI.widget.Location.prototype.search = function(address) {
   this.map.searchAddress(address).then((locations) => {
     let position = locations[0];
     let location = {
@@ -148,7 +147,7 @@ SUI.widget.Location.prototype._toggleAdvancedInputs = function() {
  */
 SUI.widget.Location.prototype._renderAdvancedInputs = function() {
   this.advancedNode = new SUI.Node('div');
-  this.advancedNode.addClass(['advanced', 'hidden']);
+  this.advancedNode.addClass(['advanced', 'row', 'hidden']);
   this.inputBlock.appendChild(this.advancedNode);
 
   this._renderLatitudeInput();
@@ -160,11 +159,24 @@ SUI.widget.Location.prototype._renderAdvancedInputs = function() {
  * @return {undefined}
  */
 SUI.widget.Location.prototype._renderLatitudeInput = function() {
+  let id = SUI.generateId('latitude');
+
+  let latitudeBlockNode = new SUI.Node('div');
+  latitudeBlockNode.addClass('col-6');
+  this.advancedNode.appendChild(latitudeBlockNode);
+
   let latitudeNode = new SUI.Node('div');
-  latitudeNode.addClass(['mdl-textfield', 'mdl-js-textfield', 'col-6']);
-  this.advancedNode.appendChild(latitudeNode);
+  latitudeNode.addClass(['mdl-textfield', 'mdl-js-textfield', 'mdl-textfield--floating-label']);
+  latitudeBlockNode.appendChild(latitudeNode);
+
+  this.latitudeLabel = new SUI.Node('label');
+  this.latitudeLabel.setFor(id);
+  this.latitudeLabel.addClass('mdl-textfield__label');
+  this.latitudeLabel.setHtml(/** @type {string} */ (this.input.getData('latitude')));
+  latitudeNode.appendChild(this.latitudeLabel);
 
   this.latitudeInput = new SUI.Node('input');
+  this.latitudeInput.setId(id);
   this.latitudeInput.setAttribute('type', 'text');
   this.latitudeInput.addClass('mdl-textfield__input');
   latitudeNode.appendChild(this.latitudeInput);
@@ -182,11 +194,24 @@ SUI.widget.Location.prototype._renderLatitudeInput = function() {
  * @return {undefined}
  */
 SUI.widget.Location.prototype._renderLongitudeInput = function() {
+  let id = SUI.generateId('longitude');
+
+  let longitudeBlockNode = new SUI.Node('div');
+  longitudeBlockNode.addClass('col-6');
+  this.advancedNode.appendChild(longitudeBlockNode);
+
   let longitudeNode = new SUI.Node('div');
-  longitudeNode.addClass(['mdl-textfield', 'mdl-js-textfield', 'col-6']);
-  this.advancedNode.appendChild(longitudeNode);
+  longitudeNode.addClass(['mdl-textfield', 'mdl-js-textfield', 'mdl-textfield--floating-label']);
+  longitudeBlockNode.appendChild(longitudeNode);
+
+  this.longitudeLabel = new SUI.Node('label');
+  this.longitudeLabel.setFor(id);
+  this.longitudeLabel.addClass('mdl-textfield__label');
+  this.longitudeLabel.setHtml(/** @type {string} */ (this.input.getData('longitude')));
+  longitudeNode.appendChild(this.longitudeLabel);
 
   this.longitudeInput = new SUI.Node('input');
+  this.longitudeInput.setId(id);
   this.longitudeInput.setAttribute('type', 'text');
   this.longitudeInput.addClass('mdl-textfield__input');
   longitudeNode.appendChild(this.longitudeInput);
@@ -209,7 +234,10 @@ SUI.widget.Location.prototype._renderMap = function() {
 
   this.inputBlock.appendChild(mapNode);
 
-  this.map = new SUI.GoogleMap(this.inputBlock);
+  this.map = new SUI.GoogleMap(this.inputBlock, '.map', {
+    zoom: 12,
+    scrollwheel: true,
+  });
   this.map.setMarkers({
     'draggable': true,
   });
@@ -236,10 +264,9 @@ SUI.widget.Location.prototype._setDefaultValue = function() {
     this.map.createMarker(0, '', 'marker', location['latitude'], location['longitude']);
     this._setDataValue(location);
   }
-
-  setTimeout(() => {
+  /* setTimeout(() => {
     this.map.triggerResize();
-  }, 500);
+  }, 500);*/
 };
 
 /**
@@ -292,4 +319,12 @@ SUI.widget.Location.prototype.setValue = function(value) {
 SUI.widget.Location.prototype.getValue = function() {
   let value = this.input.getData('value');
   return SUI.typeCast(value);
+};
+
+/**
+ * @param {string} address
+ * @return {undefined}
+ */
+SUI.widget.Location.prototype.eventSearch = function(address) {
+
 };
