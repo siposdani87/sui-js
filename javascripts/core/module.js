@@ -137,9 +137,9 @@ SUI.Module.prototype._changeServices = function(service, injection) {
   let servicePosition = this._services.indexOf(service);
   let injectionPosition = this._services.indexOf(injection);
   if (injectionPosition > servicePosition) {
-    let tmp = this._services[servicePosition];
-    this._services[servicePosition] = this._services[injectionPosition];
-    this._services[injectionPosition] = tmp;
+    let tmpService = this._services[servicePosition];
+    this._services.splice(servicePosition, 1);
+    this._services.push(tmpService);
   }
 };
 
