@@ -66,7 +66,7 @@ SUI.widget.Location.prototype._initSearchButton = function() {
   let searchButton = new SUI.Node('a');
   searchButton.setAttribute('href', 'javascript:void(0)');
   searchButton.addClass(['search-button', 'material-icons']);
-  searchButton.setHtml('search');
+  searchButton.setHtml('pin_drop');
   searchButton.addEventListener('click', () => {
     let inputNode = this.input.getNode();
     this.eventSearch(inputNode.value);
