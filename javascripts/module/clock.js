@@ -40,18 +40,18 @@ SUI.Clock.prototype._init = function() {
 
 /**
  * @private
- * @param {!Function} hourFun
- * @param {!Function} minuteFun
+ * @param {!Function} hourCallback
+ * @param {!Function} minuteCallback
  * @return {undefined}
  */
-SUI.Clock.prototype._switchMode = function(hourFun, minuteFun) {
+SUI.Clock.prototype._switchMode = function(hourCallback, minuteCallback) {
   let result = null;
   switch (this.activeMode) {
     case 'HOUR':
-      result = hourFun();
+      result = hourCallback();
       break;
     case 'MINUTE':
-      result = minuteFun();
+      result = minuteCallback();
       break;
     default:
       break;
