@@ -1,16 +1,16 @@
 .location-widget {
 
-  .search-button {
-    position: absolute;
-    right: 30px;
-    top: 22px;
-  }
-
-  .advanced-button {
+  .buttons {
     position: absolute;
     right: 0;
     top: 22px;
+  }
 
+  .search-button {
+    margin-right: 6px;
+  }
+
+  .advanced-button {
     &.active {
       color: $accent;
     }
