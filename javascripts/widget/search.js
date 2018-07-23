@@ -54,15 +54,16 @@ SUI.widget.Search.prototype.render = function() {
   iconNode.setHtml('search');
   this.label.insert(iconNode);
 
-  let holderNode = new SUI.Node('div');
-  holderNode.addClass('mdl-textfield__expandable-holder');
-  holderNode.appendChild(this.input);
-  this.inputBlock.appendChild(holderNode);
+  this.holderNode = new SUI.Node('div');
+  this.holderNode.addClass('mdl-textfield__expandable-holder');
+  this.holderNode.appendChild(this.input);
+  this.inputBlock.appendChild(this.holderNode);
 
   let labelNode = new SUI.Node('label');
   labelNode.addClass('mdl-textfield__label');
-  holderNode.appendChild(labelNode);
+  this.holderNode.appendChild(labelNode);
 
+  this._initClearButton();
   this.refresh();
 };
 
@@ -74,10 +75,26 @@ SUI.widget.Search.prototype.refresh = function() {
 };
 
 /**
+ * @private
+ * @return {undefined}
+ */
+SUI.widget.Search.prototype._initClearButton = function() {
+  let clearButton = new SUI.Node('a');
+  clearButton.setAttribute('href', 'javascript:void(0)');
+  clearButton.addClass(['clear-button', 'material-icons']);
+  clearButton.setHtml('clear');
+  clearButton.addEventListener('click', () => {
+    this.inputBlock.removeClass(['is-dirty', 'is-focused']);
+    this.setValue('');
+    this.eventEnter('');
+  });
+  this.holderNode.appendChild(clearButton);
+};
+
+/**
  * @param {string} value
  * @return {undefined}
  */
 SUI.widget.Search.prototype.eventEnter = function(value) {
 
 };
-
