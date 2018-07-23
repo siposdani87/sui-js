@@ -115,6 +115,14 @@
         background-color: $light-grey;
       }
 
+
+      img {
+        display: inline-block;
+        max-width: 30px;
+        height: auto;
+        margin-right: 10px;
+        border-radius: 50%;
+      }
     }
 
   }

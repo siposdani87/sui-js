@@ -80,10 +80,12 @@ SUI.widget.Select.prototype._initOptions = function() {
   let optionNodes = new SUI.Query('option', this.input);
   optionNodes.each((optionNode) => {
     let value = optionNode.getAttribute('value') || '';
+    let image = optionNode.getData('image') || '';
     let text = optionNode.getText() || '';
     let item = new SUI.Object({
       'id': value,
       'name': text,
+      'image': image,
     });
     item.setRaw('option_node', optionNode);
     this.options.push(item);
@@ -179,9 +181,10 @@ SUI.widget.Select.prototype._hideLoader = function() {
  * @param {!Array<!SUI.Object>} items
  * @param {string=} opt_value
  * @param {string=} opt_name
+ * @param {string=} opt_image
  * @return {undefined}
  */
-SUI.widget.Select.prototype.setOptions = function(items, opt_value = 'value', opt_name = 'name') {
+SUI.widget.Select.prototype.setOptions = function(items, opt_value = 'value', opt_name = 'name', opt_image = '') {
   let optionNodes = new SUI.Query('option', this.input);
   optionNodes.each((optionNode) => {
     if (optionNode.getAttribute('value')) {
@@ -192,9 +195,11 @@ SUI.widget.Select.prototype.setOptions = function(items, opt_value = 'value', op
   SUI.each(items, (item) => {
     let value = item.get(opt_value);
     let name = item.get(opt_name);
+    let image = item.get(opt_image);
 
     let optionNode = new SUI.Node('option');
     optionNode.setAttribute('value', value);
+    optionNode.setData('image', image);
     optionNode.setHtml(name);
     this.input.appendChild(optionNode);
   });
@@ -380,11 +385,22 @@ SUI.widget.Select.prototype._drawItems = function(items) {
     if (SUI.inArray(ids, id)) {
       listItem.addClass('selected');
     }
-    listItem.setHtml(item.get('name'));
     listItem.addEventListener('click', () => {
       this._handleSelectedId(id);
     });
     this.listNode.appendChild(listItem);
+
+    let image = item.get('image');
+    if (image) {
+      let imageNode = new SUI.Node('img');
+      imageNode.setAttribute('src', image);
+      listItem.appendChild(imageNode);
+    }
+
+    let name = item.get('name');
+    let nameNode = new SUI.Node('span');
+    nameNode.setHtml(name);
+    listItem.appendChild(nameNode);
   });
 };
 
