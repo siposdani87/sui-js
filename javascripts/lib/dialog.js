@@ -6,6 +6,7 @@ goog.require('SUI.Deferred');
 goog.require('SUI.Node');
 goog.require('SUI.Object');
 goog.require('SUI.Query');
+goog.require('SUI.Tooltip');
 goog.require('SUI.lib');
 
 /**
@@ -68,9 +69,9 @@ SUI.lib.Dialog.prototype._initButtons = function() {
 SUI.lib.Dialog.prototype._initMinimizeButton = function() {
   this.btnMinimize = new SUI.Query('.minimize', this.dialog).getItem();
   this.btnMinimize.addClass(['mdl-button', 'mdl-js-button', 'mdl-button--icon']);
-  this.btnMinimize.addEventListener('click', function() {
+  this.btnMinimize.addEventListener('click', () => {
     this._actionMinimize();
-  }.bind(this));
+  });
 };
 
 /**
@@ -80,9 +81,9 @@ SUI.lib.Dialog.prototype._initMinimizeButton = function() {
 SUI.lib.Dialog.prototype._initMaximizeButton = function() {
   this.btnMaximize = new SUI.Query('.maximize', this.dialog).getItem();
   this.btnMaximize.addClass(['mdl-button', 'mdl-js-button', 'mdl-button--icon']);
-  this.btnMaximize.addEventListener('click', function() {
+  this.btnMaximize.addEventListener('click', () => {
     this._actionMaximize();
-  }.bind(this));
+  });
 };
 
 /**
@@ -92,9 +93,9 @@ SUI.lib.Dialog.prototype._initMaximizeButton = function() {
 SUI.lib.Dialog.prototype._initCloseButton = function() {
   this.btnClose = new SUI.Query('.close', this.dialog).getItem();
   this.btnClose.addClass(['mdl-button', 'mdl-js-button', 'mdl-button--icon']);
-  this.btnClose.addEventListener('click', function() {
+  this.btnClose.addEventListener('click', () => {
     this._actionCancel();
-  }.bind(this));
+  });
 };
 
 /**
@@ -133,14 +134,14 @@ SUI.lib.Dialog.prototype.close = function() {
 SUI.lib.Dialog.prototype.loadTemplate = function(url) {
   this._reset();
   let deferred = new SUI.Deferred();
-  this.http.get(url).then(function(data) {
+  this.http.get(url).then((data) => {
     let node = this._handleDom(data);
     deferred.resolve(node);
-  }.bind(this), function(data) {
+  }, (data) => {
     let node = this._handleMessage(data);
     deferred.reject(node);
     this.open();
-  }.bind(this));
+  });
   return deferred.promise();
 };
 
@@ -188,6 +189,8 @@ SUI.lib.Dialog.prototype._setTitle = function(opt_title) {
   } else {
     this.modalHeader.addClass('hidden');
   }
+  let tooltip = new SUI.Tooltip(this.modalTitle);
+  tooltip.render(opt_title);
 };
 
 /**

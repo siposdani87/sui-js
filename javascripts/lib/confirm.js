@@ -5,6 +5,7 @@ goog.require('SUI.Async');
 goog.require('SUI.Node');
 goog.require('SUI.Object');
 goog.require('SUI.Query');
+goog.require('SUI.Tooltip');
 goog.require('SUI.lib');
 
 /**
@@ -109,6 +110,8 @@ SUI.lib.Confirm.prototype._setTitle = function(opt_title) {
   } else {
     this.modalHeader.addClass('hidden');
   }
+  let tooltip = new SUI.Tooltip(this.modalTitle);
+  tooltip.render(opt_title);
 };
 
 /**
