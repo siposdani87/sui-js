@@ -80,7 +80,7 @@ SUI.widget.Select.prototype._initOptions = function() {
   let optionNodes = new SUI.Query('option', this.input);
   optionNodes.each((optionNode) => {
     let value = optionNode.getAttribute('value') || '';
-    let image = optionNode.getData('image') || '';
+    let image = optionNode.getAttribute('data-image') || '';
     let text = optionNode.getText() || '';
     let item = new SUI.Object({
       'id': value,
@@ -199,7 +199,7 @@ SUI.widget.Select.prototype.setOptions = function(items, opt_value = 'value', op
 
     let optionNode = new SUI.Node('option');
     optionNode.setAttribute('value', value);
-    optionNode.setData('image', image);
+    optionNode.setAttribute('data-image', image);
     optionNode.setHtml(name);
     this.input.appendChild(optionNode);
   });
@@ -297,9 +297,7 @@ SUI.widget.Select.prototype._setTags = function(tags) {
       let iconNode = new SUI.Node('i');
       iconNode.addClass(['material-icons', 'size-18']);
       iconNode.setHtml('close');
-      iconNode.setData('id', id);
       iconNode.addEventListener('click', (iconNode) => {
-        let id = iconNode.getData('id');
         this._handleSelectedId(id);
       });
       tagNode.appendChild(iconNode);
