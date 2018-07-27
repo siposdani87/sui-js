@@ -7,6 +7,10 @@
 				transform: rotate(359deg);
 		}
   }
+
+  .popup {
+    width: 100%;
+  }
   
   &.is-invalid {
     .mdl-textfield__error {
@@ -96,7 +100,6 @@
     margin: -20px 0 -15px 0;
   }
 
-
   .options-list {
     max-height: 180px;
     min-width: 250px;
@@ -118,10 +121,10 @@
 
       img {
         display: inline-block;
-        max-width: 30px;
-        height: auto;
+        max-height: 30px;
+        width: auto;
         margin-right: 10px;
-        border-radius: 50%;
+        padding: 2px;
       }
     }
 
