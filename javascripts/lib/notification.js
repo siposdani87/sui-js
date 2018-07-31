@@ -202,12 +202,12 @@ SUI.lib.Notification.prototype.addMessage = function(message, opt_duration = 0, 
 };
 
 /**
- * @param {!SUI.Node} node
+ * @param {string} message
  * @param {number=} opt_duration
  * @param {?Function=} opt_closeCallback
  * @param {string=} opt_id
  * @return {!SUI.Node}
  */
-SUI.lib.Notification.prototype.addContent = function(node, opt_duration = 0, opt_closeCallback = null, opt_id = '') {
-  return this._add('', node.toString(), opt_duration, opt_closeCallback, opt_id);
+SUI.lib.Notification.prototype.addDefault = function(message, opt_duration = 0, opt_closeCallback = null, opt_id = '') {
+  return this._add('default', message, opt_duration, opt_closeCallback, opt_id);
 };
