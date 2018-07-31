@@ -50,6 +50,9 @@ SUI.lib.Dialog.prototype._init = function() {
 
   this.windowWidth = 0;
   this.windowHeight = 0;
+
+  this.tooltip = new SUI.Tooltip(this.modalTitle);
+  this.tooltip.render();
 };
 
 /**
@@ -189,8 +192,7 @@ SUI.lib.Dialog.prototype._setTitle = function(opt_title) {
   } else {
     this.modalHeader.addClass('hidden');
   }
-  let tooltip = new SUI.Tooltip(this.modalTitle);
-  tooltip.render(opt_title);
+  this.tooltip.setMessage(opt_title);
 };
 
 /**
