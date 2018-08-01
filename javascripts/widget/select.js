@@ -195,8 +195,10 @@ SUI.widget.Select.prototype.setOptions = function(items, opt_value = 'value', op
   SUI.each(items, (item) => {
     let value = item.get(opt_value);
     let name = item.get(opt_name);
-    let image = item.get(opt_image);
-
+    let image = '';
+    if (opt_image) {
+      image = item.get(opt_image);
+    }
     let optionNode = new SUI.Node('option');
     optionNode.setAttribute('value', value);
     optionNode.setAttribute('data-image', image);
