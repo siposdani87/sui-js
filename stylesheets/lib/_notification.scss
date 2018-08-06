@@ -23,12 +23,13 @@
       position: relative;
       pointer-events: visiblePainted;
       margin-bottom: 20px;
-      padding: 10px 30px;
+      padding: 15px 30px;
       @include box-shadow(5px 5px 15px -5px rgba($black, .75));
       background-color: $light-grey-bright;
       @include border-radius(3px);
       min-height: 35px;
       clear: both;
+      border-top: 5px solid $grey;
 
       &.closable {
         cursor: pointer;
@@ -41,19 +42,19 @@
       }
 
       &.success {
-        background-color: $green;
+        border-color: $green;
       }
 
       &.info {
-        background-color: $blue;
+        border-color: $blue;
       }
 
       &.warning {
-        background-color: $amber;
+        border-color: $amber;
       }
 
       &.error {
-        background-color: $red;
+        border-color: $red;
       }
     }
   }
