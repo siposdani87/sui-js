@@ -1,6 +1,6 @@
 /**
  * @license
- * Copyright 2015 Daniel Sipos (siposdani87@gmail.com),
+ * Copyright 2015 Dániel Sipos (siposdani87@gmail.com),
  * SUI-JS
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
@@ -21,7 +21,7 @@
  * A component handler interface using the revealing module design pattern.
  * More details on this design pattern here
  *
- * @author Daniel Sipos
+ * @author Dániel Sipos
  */
 
 /**
