@@ -41,10 +41,6 @@ SUI.widget.File.prototype._init = function() {
     this._remove();
   });
 
-  this.label.setStyle({
-    'top': '0px',
-  });
-
   this.input.addEventListener('change', (inputNode) => {
     let input = inputNode.getNode();
     let file = input.files[0];
@@ -82,7 +78,9 @@ SUI.widget.File.prototype._read = function(file) {
     let reader = new FileReader();
     reader.onload = (event) => {
       let source = /** @type {string} */ (event.target.result);
-      this.imageTag.setAttribute('src', source);
+      if (!this.imageTag.isEmpty()) {
+        this.imageTag.setAttribute('src', source);
+      }
       this.modelChange(source);
       this.checkValidity();
     };

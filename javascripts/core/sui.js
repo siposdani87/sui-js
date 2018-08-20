@@ -1004,7 +1004,7 @@ SUI.RGBtoHexColor = function(red, green, blue) {
     if (colors[i] <= 16) {
       colors[i] = '0' + colors[i].toString(16);
     } else {
-      colors[i] = colors[i].toString(16);
+      colors[i] = '' + colors[i].toString(16);
     }
   }
   return '#' + colors.join('');
