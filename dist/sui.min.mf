@@ -44,13 +44,13 @@ core/router.js
 core/state.js
 core/test.js
 core/widget.js
-lib/actionCableClient.js
-lib/actionCable.js
-lib/navBar.js
 test/container.js
 test/deferred.js
 test/item.js
 test/object.js
+lib/actionCableClient.js
+lib/actionCable.js
+lib/navBar.js
 module/day.js
 module/month.js
 module/year.js
@@ -88,8 +88,8 @@ module/form.js
 module/googleMap.js
 module/navigation.js
 module/progressStatus.js
-module/tabPanel.js
 module/table.js
+module/tabPanel.js
 module/treeView.js
 module/util.js
 widget/autoComplete.js

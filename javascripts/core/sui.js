@@ -125,6 +125,7 @@ SUI.coreRes = {
 SUI.debug = true;
 
 /**
+ * @export
  * @param {*} value
  * @return {*}
  */
@@ -186,6 +187,7 @@ SUI.invoke = function(baseModule, baseModuleArgs, opt_extendModule, opt_extendMo
 };
 
 /**
+ * @export
  * @param {!Object} objA
  * @param {!Object} objB
  * @return {!Object|undefined}
@@ -289,7 +291,6 @@ SUI.noop = function(opt_result) {
 };
 
 /**
- * Equivalent
  * @param {*} a
  * @param {*} b
  * @return {boolean}
@@ -344,6 +345,7 @@ SUI.lte = function(a, b) {
 };
 
 /**
+ * @export
  * @param {*} value
  * @return {boolean}
  */
@@ -352,6 +354,7 @@ SUI.isArray = function(value) {
 };
 
 /**
+ * @export
  * @param {*} value
  * @return {boolean}
  */
@@ -360,6 +363,7 @@ SUI.isFunction = function(value) {
 };
 
 /**
+ * @export
  * @param {*} value
  * @return {boolean}
  */
@@ -368,6 +372,7 @@ SUI.isString = function(value) {
 };
 
 /**
+ * @export
  * @param {*} value
  * @return {boolean}
  */
@@ -376,6 +381,7 @@ SUI.isNumber = function(value) {
 };
 
 /**
+ * @export
  * @param {*} value
  * @return {boolean}
  */
@@ -384,6 +390,7 @@ SUI.isFloat = function(value) {
 };
 
 /**
+ * @export
  * @param {*} value
  * @return {boolean}
  */
@@ -392,6 +399,7 @@ SUI.isInteger = function(value) {
 };
 
 /**
+ * @export
  * @param {*} value
  * @return {boolean}
  */
@@ -400,6 +408,7 @@ SUI.isObject = function(value) {
 };
 
 /**
+ * @export
  * @param {*} value
  * @return {boolean}
  */
@@ -408,6 +417,7 @@ SUI.isNull = function(value) {
 };
 
 /**
+ * @export
  * @param {*} value
  * @return {boolean}
  */
@@ -416,6 +426,7 @@ SUI.isUndefined = function(value) {
 };
 
 /**
+ * @export
  * @param {*} value
  * @return {boolean}
  */
@@ -424,6 +435,7 @@ SUI.isFinite = function(value) {
 };
 
 /**
+ * @export
  * @param {*} value
  * @param {string} type
  * @return {boolean}
@@ -433,6 +445,7 @@ SUI.is = function(value, type) {
 };
 
 /**
+ * @export
  * @param {*} value
  * @param {!Object} object
  * @return {boolean}
@@ -442,6 +455,7 @@ SUI.instanceOf = function(value, object) {
 };
 
 /**
+ * @export
  * @param {*} items
  * @param {!Function} next
  * @param {number=} opt_start
@@ -457,6 +471,7 @@ SUI.each = function(items, next, opt_start, opt_end) {
 };
 
 /**
+ * @export
  * @param {!Array} items
  * @param {!Function} next
  * @param {number=} opt_start
@@ -472,6 +487,7 @@ SUI.eachArray = function(items, next, opt_start, opt_end) {
 };
 
 /**
+ * @export
  * @param {!Object} object
  * @param {!Function} next
  * @return {undefined}
@@ -485,6 +501,7 @@ SUI.eachObject = function(object, next) {
 };
 
 /**
+ * @export
  * @param {function(number):*} next
  * @param {number} i
  * @param {number} length
@@ -515,6 +532,7 @@ SUI.sleepEach = function(next, i, length, duration) {
  */
 
 /**
+ * @export
  * @param {!Array|!Object} items
  * @return {undefined}
  */
@@ -527,6 +545,7 @@ SUI.clear = function(items) {
 };
 
 /**
+ * @export
  * @param {!Array} items
  * @return {undefined}
  */
@@ -535,6 +554,7 @@ SUI.clearArray = function(items) {
 };
 
 /**
+ * @export
  * @param {!Object} items
  * @return {undefined}
  */
@@ -546,6 +566,7 @@ SUI.clearObject = function(items) {
   }
 };
 /**
+ * @export
  * @param {!Array} items
  * @param {*} item
  * @return {boolean}
@@ -555,6 +576,7 @@ SUI.inArray = function(items, item) {
 };
 
 /**
+ * @export
  * @param {string} str
  * @param {string} subStr
  * @return {boolean}
@@ -564,6 +586,7 @@ SUI.contain = function(str, subStr) {
 };
 
 /**
+ * @export
  * @param {*} a
  * @param {*} b
  * @return {boolean}
@@ -584,6 +607,7 @@ SUI.isSame = function(a, b) {
 };
 
 /**
+ * @export
  * @param {!Array} items
  * @param {*} item
  * @return {undefined}
@@ -596,6 +620,7 @@ SUI.remove = function(items, item) {
 };
 
 /**
+ * @export
  * @param {!Array|!Object} items
  * @return {!Array|!Object|undefined}
  */
@@ -615,6 +640,7 @@ SUI.copy = function(items) {
 };
 
 /**
+ * @export
  * @param {!Array|!Object} items
  * @return {boolean}
  */
@@ -642,6 +668,7 @@ SUI.list = function(args, callback) {
 };
 
 /**
+ * @export
  * @param {number} min
  * @param {number} max
  * @param {boolean=} opt_onlyFloat
@@ -658,6 +685,7 @@ SUI.random = function(min, max, opt_onlyFloat = false) {
 };
 
 /**
+ * @export
  * @param {string} data
  * @return {string}
  */
@@ -666,6 +694,7 @@ SUI.encodeBase64 = function(data) {
 };
 
 /**
+ * @export
  * @param {string} encodedData
  * @return {string}
  */
@@ -674,6 +703,7 @@ SUI.decodeBase64 = function(encodedData) {
 };
 
 /**
+ * @export
  * @param {string} str
  * @return {string}
  */
@@ -682,6 +712,7 @@ SUI.capitalize = function(str) {
 };
 
 /**
+ * @export
  * @param {!Array} items
  * @param {string} attribute
  * @return {!Array}
@@ -823,6 +854,7 @@ SUI.mapText = function(title, position, map) {
 };
 
 /**
+ * @export
  * @param {*} value
  * @param {string} passPhrase
  * @return {string}
@@ -833,6 +865,7 @@ SUI.encrypt = function(value, passPhrase) {
 };
 
 /**
+ * @export
  * @param {string} item
  * @param {string} passPhrase
  * @return {*}
@@ -843,6 +876,7 @@ SUI.decrypt = function(item, passPhrase) {
 };
 
 /**
+ * @export
  * @param {string} str
  * @return {string}
  */
@@ -851,6 +885,7 @@ SUI.md5 = function(str) {
 };
 
 /**
+ * @export
  * @param {string} name
  * @return {string}
  */
@@ -862,6 +897,7 @@ SUI.generateId = function(name) {
 /**
  * i6wolnd42rjg2nor7xdg5akv4p
  * https://github.com/LiosK/UUID.js
+ * @export
  * @return {string}
  */
 SUI.guid = function() {
@@ -871,6 +907,7 @@ SUI.guid = function() {
 /**
  * 778c4858-5a37-42c3-90e5-f9e4113fb97b
  * https://github.com/LiosK/UUID.js
+ * @export
  * @return {string}
  */
 SUI.uuid = function() {
@@ -943,6 +980,7 @@ SUI.debounce = function(func, opt_wait = 250, opt_immediate = false) {
 };
 
 /**
+ * @export
  * @param {string} url
  * @param {!Object=} opt_params
  * @return {string}
@@ -982,6 +1020,7 @@ SUI.getExtensionName = function(url) {
 };
 
 /**
+ * @export
  * @param {string} hexColor
  * @return {!Array}
  */
@@ -993,6 +1032,7 @@ SUI.hexColorToRGB = function(hexColor) {
 };
 
 /**
+ * @export
  * @param {number} red
  * @param {number} green
  * @param {number} blue
@@ -1011,6 +1051,7 @@ SUI.RGBtoHexColor = function(red, green, blue) {
 };
 
 /**
+ * @export
  * @param {string} hexColor
  * @param {string=} opt_lightColor
  * @param {string=} opt_darkColor
@@ -1023,6 +1064,7 @@ SUI.colorContrastYIQ = function(hexColor, opt_lightColor = '#FEFEFE', opt_darkCo
 };
 
 /**
+ * @export
  * @param {string} hexColor
  * @param {number=} opt_diff
  * @return {string}
