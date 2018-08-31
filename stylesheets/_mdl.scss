@@ -57,7 +57,7 @@
 
 .mdl-textfield__label,
 .mdl-textfield__error {
-    display: inline-block;
+    display: block;
     &::first-letter {
         text-transform: capitalize;
     }
