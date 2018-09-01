@@ -53,7 +53,7 @@ SUI.lib.Notification.prototype._getNotificationNode = function(type, message, op
   }
   notificationNode.addClass(['notification', type]);
   notificationNode.setHtml(message);
-  if (this._isCloseable(type, opt_closeCallback) && !SUI.eq(opt_duration, Infinity)) {
+  if (this._isClosable(type, opt_closeCallback) && !SUI.eq(opt_duration, Infinity)) {
     let buttonNode = this._getCloseButton(notificationNode, opt_closeCallback);
     notificationNode.beforeChild(buttonNode);
   }
@@ -96,7 +96,7 @@ SUI.lib.Notification.prototype._add = function(type, message, opt_duration = 0, 
   this.removeNotificationNode(opt_id);
   let notificationNode = this._getNotificationNode(type, message, opt_duration, opt_closeCallback, opt_id);
   this.container.appendChild(notificationNode);
-  if (!this._isCloseable(type, opt_closeCallback) && !SUI.eq(opt_duration, Infinity)) {
+  if (!this._isClosable(type, opt_closeCallback) && !SUI.eq(opt_duration, Infinity)) {
     notificationNode.addClass('closable');
     notificationNode.addEventListener('click', () => {
       this.remove(notificationNode, opt_closeCallback);
@@ -126,7 +126,7 @@ SUI.lib.Notification.prototype.removeNotificationNode = function(opt_id = '') {
  * @param {?Function=} opt_closeCallback
  * @return {boolean}
  */
-SUI.lib.Notification.prototype._isCloseable = function(type, opt_closeCallback = null) {
+SUI.lib.Notification.prototype._isClosable = function(type, opt_closeCallback = null) {
   return this.options.closable.indexOf(type) !== -1 || SUI.isFunction(opt_closeCallback);
 };
 
