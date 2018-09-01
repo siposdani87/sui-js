@@ -223,6 +223,7 @@ SUI.format = function(str, opt_params, opt_prefix = '\\{', opt_postfix = '\\}') 
 };
 
 /**
+ * @export
  * @param {*} value
  * @param {string} type
  * @return {*}
@@ -238,6 +239,7 @@ SUI.convert = function(value, type) {
 };
 
 /**
+ * @export
  * @param {number} value
  * @param {string} type
  * @return {number|string}
@@ -253,6 +255,7 @@ SUI.convertNumber = function(value, type) {
 };
 
 /**
+ * @export
  * @param {string} value
  * @param {string} type
  * @return {string|number}
@@ -271,6 +274,7 @@ SUI.convertString = function(value, type) {
 };
 
 /**
+ * @export
  * @param {*} value
  * @param {*} default_value
  * @return {*}
@@ -281,6 +285,7 @@ SUI.defaultValue = function(value, default_value) {
 };
 
 /**
+ * @export
  * @param {*=} opt_result
  * @return {!Function}
  */
@@ -291,6 +296,7 @@ SUI.noop = function(opt_result) {
 };
 
 /**
+ * @export
  * @param {*} a
  * @param {*} b
  * @return {boolean}
@@ -300,6 +306,7 @@ SUI.eq = function(a, b) {
 };
 
 /**
+ * @export
  * @param {*} a
  * @param {*} b
  * @return {boolean}
@@ -309,6 +316,7 @@ SUI.neq = function(a, b) {
 };
 
 /**
+ * @export
  * @param {*} a
  * @param {*} b
  * @return {boolean}
@@ -318,6 +326,7 @@ SUI.gt = function(a, b) {
 };
 
 /**
+ * @export
  * @param {*} a
  * @param {*} b
  * @return {boolean}
@@ -327,6 +336,7 @@ SUI.gte = function(a, b) {
 };
 
 /**
+ * @export
  * @param {*} a
  * @param {*} b
  * @return {boolean}
@@ -336,6 +346,7 @@ SUI.lt = function(a, b) {
 };
 
 /**
+ * @export
  * @param {*} a
  * @param {*} b
  * @return {boolean}
@@ -519,18 +530,6 @@ SUI.sleepEach = function(next, i, length, duration) {
   loop();
 };
 
-/*
- SUI.iterator = function(items, callback, next){
- };
- SUI.while = function(items, callback){
- let i = 0;
- while (i < items.length && callback(items[i], i)){
- i++;
- }
- return
- };
- */
-
 /**
  * @export
  * @param {!Array|!Object} items
@@ -659,6 +658,7 @@ SUI.isEmpty = function(items) {
 };
 
 /**
+ * @export
  * @param {!Array} args
  * @param {!Function} callback
  * @return {undefined}
@@ -727,6 +727,7 @@ SUI.pluck = function(items, attribute) {
 };
 
 /**
+ * @export
  * @param {number} price
  * @param {string=} opt_delimiter
  * @param {string=} opt_separator
@@ -750,6 +751,7 @@ SUI.currency = function(price, opt_delimiter = ' ', opt_separator = ',', opt_pre
 };
 
 /**
+ * @export
  * @param {number} num
  * @param {number} exp
  * @return {string}
@@ -777,6 +779,7 @@ SUI.number = function(num, exp) {
 };
 
 /**
+ * @export
  * @param {!SUI.Node|!Element=} opt_node
  * @param {boolean=} opt_forceDowngrade
  * @return {undefined}
@@ -797,6 +800,7 @@ SUI.mdl = function(opt_node, opt_forceDowngrade = true) {
 };
 
 /**
+ * @export
  * @param {string} type
  * @param {!Object} props
  * @param {!SUI.Node} mountNode
@@ -810,6 +814,7 @@ SUI.reactRender = function(type, props, mountNode) {
 };
 
 /**
+ * @export
  * @param {!SUI.Node} mountNode
  * @return {undefined}
  */
@@ -818,6 +823,7 @@ SUI.reactUnmount = function(mountNode) {
 };
 
 /**
+ * @export
  * @param {!Object} marker
  * @param {string} title
  * @return {!Object}
@@ -838,6 +844,7 @@ SUI.mapLabel = function(marker, title) {
 };
 
 /**
+ * @export
  * @param {string} title
  * @param {!Object} position
  * @param {!Object} map
@@ -921,6 +928,7 @@ SUI.uuid = function() {
 };
 
 /**
+ * @export
  * @param {number} x
  * @param {number} y
  * @param {number=} opt_duration
@@ -947,6 +955,7 @@ SUI.scrollTo = function(x, y, opt_duration = 500, opt_step = 20) {
 };
 
 /**
+ * @export
  * @param {string} selector
  * @param {number=} opt_duration
  * @param {number=} opt_step
@@ -960,6 +969,7 @@ SUI.scrollToElement = function(selector, opt_duration = 500, opt_step = 20) {
 };
 
 /**
+ * @export
  * @param {!Function} func
  * @param {number=} opt_wait
  * @param {boolean=} opt_immediate
@@ -992,6 +1002,7 @@ SUI.urlWithQueryString = function(url, opt_params) {
 };
 
 /**
+ * @export
  * @param {!Object=} opt_params
  * @return {string}
  */
