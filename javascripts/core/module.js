@@ -206,7 +206,7 @@ SUI.Module.prototype._handleStateChange = function(currentState) {
       });
     } else {
       this.eventModuleLoaded(currentState);
-      this._initController(currentState);
+      this._initController(currentState, this._instances[this._injections.template].getViewNode());
     }
   }, () => {
     this.eventModuleFailed(currentState);
@@ -216,31 +216,31 @@ SUI.Module.prototype._handleStateChange = function(currentState) {
 /**
  * @private
  * @param {!SUI.Object} state
- * @param {!SUI.Node=} opt_dom
+ * @param {!SUI.Node} dom
  * @return {undefined}
  */
-SUI.Module.prototype._initController = function(state, opt_dom) {
-  this._instances[this._injections.dom] = opt_dom;
+SUI.Module.prototype._initController = function(state, dom) {
+  this._instances[this._injections.dom] = dom;
   let controller = this._modules[state.get('controller')];
-  this.eventDomChange(state, opt_dom).then(() => {
+  this.eventDomChange(state, dom).then(() => {
     this._controller = this._resolveDependencies(controller);
     if (SUI.isObject(this._controller) && SUI.isFunction(this._controller.enter)) {
       let async = new SUI.Async();
       async.serial([this._controller.enter.bind(this._controller)]).then(() => {
-        this.eventControllerLoaded(opt_dom);
+        this.eventControllerLoaded(dom);
       });
     } else {
-      this.eventControllerLoaded(opt_dom);
+      this.eventControllerLoaded(dom);
     }
   });
 };
 
 /**
- * @param {!SUI.Node=} opt_dom
+ * @param {!SUI.Node} dom
  * @return {undefined}
  */
-SUI.Module.prototype.eventControllerLoaded = function(opt_dom) {
-  console.warn('SUI.Module.eventControllerLoaded()', opt_dom);
+SUI.Module.prototype.eventControllerLoaded = function(dom) {
+  console.warn('SUI.Module.eventControllerLoaded()', dom);
 };
 
 /**
@@ -272,12 +272,12 @@ SUI.Module.prototype.eventStateChange = function(state) {
 
 /**
  * @param {!SUI.Object} state
- * @param {!SUI.Node=} opt_dom
+ * @param {!SUI.Node} dom
  * @return {!SUI.Promise}
  */
-SUI.Module.prototype.eventDomChange = function(state, opt_dom) {
+SUI.Module.prototype.eventDomChange = function(state, dom) {
   let deferred = new SUI.Deferred();
-  console.warn('SUI.Module.eventDomChange()', state, opt_dom);
+  console.warn('SUI.Module.eventDomChange()', state, dom);
   deferred.resolve();
   return deferred.promise();
 };
