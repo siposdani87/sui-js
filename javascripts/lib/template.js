@@ -18,7 +18,14 @@ SUI.lib.Template = function(http, opt_options = {}) {
   });
   _self.options.merge(opt_options);
   this.http = http;
-  this.view = new SUI.Query(this.options.selector).getItem();
+  this.viewNode = new SUI.Query(this.options.selector).getItem();
+};
+
+/**
+ * @return {!SUI.Node}
+ */
+SUI.lib.Template.prototype.getViewNode = function() {
+  return this.viewNode;
 };
 
 /**
@@ -27,9 +34,9 @@ SUI.lib.Template = function(http, opt_options = {}) {
  */
 SUI.lib.Template.prototype.load = function(url) {
   let deferred = new SUI.Deferred();
-  this.get(url).then((data) => {
+  this._get(url).then((data) => {
     let node = new SUI.Query('.page-content', data).getItem();
-    this.view.insert(node);
+    this.viewNode.insert(node);
     deferred.resolve(node);
   }, () => {
     deferred.reject();
@@ -38,10 +45,11 @@ SUI.lib.Template.prototype.load = function(url) {
 };
 
 /**
+ * @private
  * @param {string} url
  * @return {!SUI.Promise}
  */
-SUI.lib.Template.prototype.get = function(url) {
+SUI.lib.Template.prototype._get = function(url) {
   let deferred = new SUI.Deferred();
   this.http.get(url).then((data) => {
     deferred.resolve(data);
