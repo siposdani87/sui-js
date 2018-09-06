@@ -180,8 +180,8 @@ SUI.App.prototype._initModule = function() {
     return this._instances[this._injections.event].call('state.change', [currentState]);
   }.bind(this));
 
-  this._module.eventDomChange = /** @type {function(!SUI.Object, !SUI.Node=):!SUI.Promise} */ (function(state, opt_dom) {
-    return this._instances[this._injections.event].call('dom.change', [state, opt_dom]);
+  this._module.eventDomChange = /** @type {function(!SUI.Object, !SUI.Node):!SUI.Promise} */ (function(state, dom) {
+    return this._instances[this._injections.event].call('dom.change', [state, dom]);
   }.bind(this));
 
   this._module.eventServiceLoaded = function() {
@@ -206,8 +206,8 @@ SUI.App.prototype._initModule = function() {
     this._instances[this._injections.event].call('module.failed', [state]);
   }.bind(this);
 
-  this._module.eventControllerLoaded = /** @type {function(!SUI.Node=):undefined} */ ((opt_dom) => {
-    this._instances[this._injections.event].call('controller.loaded', [opt_dom]);
+  this._module.eventControllerLoaded = /** @type {function(!SUI.Node):undefined} */ ((dom) => {
+    this._instances[this._injections.event].call('controller.loaded', [dom]);
   });
 };
 
