@@ -12,7 +12,6 @@ SUI.Object = function(opt_object) {
   Object.call(this, opt_object);
   this.merge(opt_object);
 };
-
 SUI.Object.prototype = Object.create(/** @type {!Object} */ (Object.prototype));
 SUI.Object.prototype.constructor = SUI.Object;
 
@@ -113,7 +112,6 @@ SUI.Object.prototype._get = function(object, attributes) {
   return result;
 };
 
-
 /**
  * @param {!Object|!SUI.Object} object
  * @param {!Array} attributes
@@ -131,7 +129,6 @@ SUI.Object.prototype._set = function(object, attributes, value) {
     }
   }.bind(this));
 };
-
 
 /**
  * @param {string} attribute
@@ -228,12 +225,11 @@ SUI.Object.prototype._attributesToObject = function(object, attributes, value) {
   return object;
 };
 
-
 /**
  * @param {boolean=} opt_isNative
  * @return {!SUI.Object}
  */
-SUI.Object.prototype.copy = function(opt_isNative) {
+SUI.Object.prototype.copy = function(opt_isNative = false) {
   let result = /** @type {!SUI.Object} */ (SUI.copy(this));
   if (!opt_isNative) {
     result = new SUI.Object(result);
@@ -241,11 +237,9 @@ SUI.Object.prototype.copy = function(opt_isNative) {
   return result;
 };
 
-
 /**
  * @return {boolean}
  */
 SUI.Object.prototype.isEmpty = function() {
   return SUI.isEmpty(this);
 };
-
