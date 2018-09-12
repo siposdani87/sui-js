@@ -1092,3 +1092,44 @@ SUI.colorContrast = function(hexColor, opt_diff = .5) {
   }
   return SUI.RGBtoHexColor.apply(null, colors);
 };
+
+/**
+ * @export
+ * @param {!Object} obj
+ * @param {!Array} keys
+ * @return {!Object}
+ */
+SUI.allowKeys = function(obj, keys) {
+  return SUI.filterKeys(obj, (key) => {
+    return SUI.inArray(keys, key);
+  });
+};
+
+/**
+ * @export
+ * @param {!Object} obj
+ * @param {!Array} keys
+ * @return {!Object}
+ */
+SUI.denyKeys = function(obj, keys) {
+  return SUI.filterKeys(obj, (key) => {
+    return !SUI.inArray(keys, key);
+  });
+};
+
+/**
+ * @export
+ * @param {!Object} obj
+ * @param {!Function} condition
+ * @return {!Object}
+ */
+SUI.filterKeys = function(obj, condition) {
+  let copyObj = new SUI.Object(obj).copy();
+  let resultObj = new SUI.Object();
+  copyObj.each((value, key) => {
+    if (condition(key)) {
+      resultObj.set(key, value);
+    }
+  });
+  return resultObj;
+};
