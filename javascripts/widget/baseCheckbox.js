@@ -21,14 +21,13 @@ SUI.widget.BaseCheckbox = function(input, label, error, inputBlock) {
 };
 goog.inherits(SUI.widget.BaseCheckbox, SUI.Widget);
 
-
 /**
  * @protected
  * @return {undefined}
  */
 SUI.widget.BaseCheckbox.prototype._init = function() {
-this.hiddenInput = new SUI.Query('input[type=hidden]', this.inputBlock).getItem();
-this.inputBlock.addClass('checkbox-widget');
+  this.hiddenInput = new SUI.Query('input[type=hidden]', this.inputBlock).getItem();
+  this.inputBlock.addClass('checkbox-widget');
 
   /* this.label.addEventListener('click', () => {
     this._change();
@@ -61,7 +60,6 @@ SUI.widget.BaseCheckbox.prototype.getValue = function() {
   }
   return SUI.typeCast(value);
 };
-
 
 /**
  * @override
