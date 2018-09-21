@@ -50,6 +50,7 @@
         flex-flow: row nowrap;
         align-items: center;
         color: $primary;
+        font-weight: 400;
 
         &:hover{
           background-color: $light-grey-bright;
@@ -57,6 +58,7 @@
 
         &.active {
           color: $primary-dark;
+          font-weight: 500;
           background-color: $light-grey;
 
           .image{
