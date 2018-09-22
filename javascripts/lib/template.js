@@ -35,13 +35,22 @@ SUI.lib.Template.prototype.getViewNode = function() {
 SUI.lib.Template.prototype.load = function(url) {
   let deferred = new SUI.Deferred();
   this._get(url).then((data) => {
-    let node = new SUI.Query('.page-content', data).getItem();
-    this.viewNode.insert(node);
-    deferred.resolve(node);
-  }, () => {
-    deferred.reject();
+    deferred.resolve(this._setData(data));
+  }, (data) => {
+    deferred.reject(this._setData(data));
   });
   return deferred.promise();
+};
+
+/**
+ * @private
+ * @param {!SUI.Node} data
+ * @return {!SUI.Node}
+ */
+SUI.lib.Template.prototype._setData = function(data) {
+  let node = new SUI.Query('.page-content', data).getItem();
+  this.viewNode.insert(node);
+  return node;
 };
 
 /**
