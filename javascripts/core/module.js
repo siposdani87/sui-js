@@ -203,6 +203,8 @@ SUI.Module.prototype._handleStateChange = function(currentState) {
       this._instances[this._injections.template].load(templateUrl).then((dom) => {
         this.eventModuleLoaded(currentState);
         this._initController(currentState, dom);
+      }, () => {
+        this.eventModuleFailed(currentState);
       });
     } else {
       this.eventModuleLoaded(currentState);
