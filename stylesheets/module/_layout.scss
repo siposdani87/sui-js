@@ -128,7 +128,7 @@
   }
 
   h1 {
-    //@include flex(1);
+    @include flex(1);
     margin: .3em 1em;
     font-size: $font-size-h5;
     font-weight: 500;
@@ -144,7 +144,7 @@
   }
 
   form {
-    //@include flex(0 1 auto);
+    @include flex(0 1 auto);
     @include display-flex();
     flex-flow: row nowrap;
     margin: .3em .5em;
@@ -162,7 +162,7 @@
   }
 
   .actions {
-    //@include flex(1);
+    @include flex(1);
     justify-content: flex-end;
     padding: .5em 1em .5em .1em;
     @include display-flex();
