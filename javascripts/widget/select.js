@@ -102,6 +102,7 @@ SUI.widget.Select.prototype.render = function() {
 
 /**
  * @override
+ * @return {undefined}
  */
 SUI.widget.Select.prototype.refresh = function() {
   let selectContainerNode = new SUI.Query('.select-container', this.inputBlock).getItem();
