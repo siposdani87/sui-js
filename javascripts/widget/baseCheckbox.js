@@ -75,3 +75,20 @@ SUI.widget.BaseCheckbox.prototype.setValue = function(value) {
   this.input.trigger('change');
   // this._change();
 };
+
+/**
+ * @override
+ * @param {boolean} state
+ * @return {undefined}
+ */
+SUI.widget.BaseCheckbox.prototype.setDisabled = function(state) {
+  if (state) {
+    this.input.setAttribute('disabled');
+    this.label.addClass('is-disabled');
+  } else {
+    this.input.removeAttribute('disabled');
+    this.label.removeClass('is-disabled');
+  }
+  this.input.getNode().disabled = state;
+  this.checkValidity(true, false);
+};
