@@ -728,6 +728,22 @@ SUI.pluck = function(items, attribute) {
 
 /**
  * @export
+ * @param {!Object} obj
+ * @param {!Function} condition
+ * @return {!Array}
+ */
+SUI.pluckKeys = function(obj, condition) {
+  let results = [];
+  SUI.eachObject(obj, (value, key) => {
+    if (condition(value)) {
+      results.push(key);
+    }
+  });
+  return results;
+};
+
+/**
+ * @export
  * @param {number} price
  * @param {string=} opt_delimiter
  * @param {string=} opt_separator
