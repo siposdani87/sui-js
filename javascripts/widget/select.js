@@ -300,7 +300,7 @@ SUI.widget.Select.prototype._setTags = function(tags) {
       let iconNode = new SUI.Node('i');
       iconNode.addClass(['material-icons', 'size-18']);
       iconNode.setHtml('close');
-      iconNode.addEventListener('click', (iconNode) => {
+      iconNode.addEventListener('click', () => {
         this._handleSelectedId(id);
       });
       tagNode.appendChild(iconNode);
@@ -367,6 +367,7 @@ SUI.widget.Select.prototype._handleSelectedId = function(id) {
       ids = [id];
     }
   }
+  this.query = '';
   this._setSelectedIds(ids, true);
   this.close();
 };

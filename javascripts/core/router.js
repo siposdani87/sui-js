@@ -15,7 +15,7 @@ SUI.Router = function(route) {
   let basePath = '#';
   let baseMeta = new SUI.Query('base').getItem();
   if (!baseMeta.isEmpty()) {
-    basePath = baseMeta.getAttribute('href') || '';
+    basePath = baseMeta.getAttribute('href') || '/';
   }
   this.escape = new RegExp('[-[]{}()+?.,^' + basePath + 's]', 'g');
 
