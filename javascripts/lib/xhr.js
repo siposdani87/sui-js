@@ -164,7 +164,7 @@ SUI.lib.Xhr.prototype.delete = function(url, opt_data, opt_params, opt_headers =
  */
 SUI.lib.Xhr.prototype._getUrl = function(url, opt_params) {
   let urlWithQueryString = SUI.urlWithQueryString(url, opt_params);
-  return this.options.backend + urlWithQueryString;
+  return url[0] === '/' ? this.options.backend + urlWithQueryString : urlWithQueryString;
 };
 
 /**
