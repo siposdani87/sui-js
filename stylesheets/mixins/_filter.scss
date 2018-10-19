@@ -1,0 +1,7 @@
+@mixin filter-grayscale($rate: 100%) {
+    -webkit-filter: grayscale($important);
+       -moz-filter: grayscale($important);
+         -o-filter: grayscale($important);
+        -ms-filter: grayscale($important);
+            filter: grayscale($important); 
+}

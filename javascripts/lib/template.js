@@ -64,7 +64,7 @@ SUI.lib.Template.prototype._get = function(url) {
     deferred.resolve(data);
   }, (data) => {
     deferred.reject(data);
-    let messageItem = new SUI.Query('#message', data).getItem();
+    let messageItem = new SUI.Query('.message', data).getItem();
     let message = {
       'content': messageItem.getText(),
       'type': messageItem.getAttribute('class'),

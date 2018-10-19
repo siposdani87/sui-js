@@ -153,7 +153,7 @@ SUI.lib.Dialog.prototype.loadTemplate = function(url) {
  * @return {!SUI.Node}
  */
 SUI.lib.Dialog.prototype._handleMessage = function(dom) {
-  let messageNode = new SUI.Query('#message', dom).getItem();
+  let messageNode = new SUI.Query('.message', dom).getItem();
   let title = new SUI.Query('title', dom).getItem();
   this._setTitle(title.getText());
   this.modalBody.insert(messageNode);
