@@ -120,6 +120,8 @@ h6 {
 .app-title {
     font-family: $font-family-app;
     text-transform: uppercase;
+    white-space: nowrap;
+    word-break: keep-all;
 }
 
 blockquote {
