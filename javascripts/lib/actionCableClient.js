@@ -11,9 +11,9 @@ goog.require('SUI.lib');
  * @this {SUI.lib.ActionCableClient}
  */
 SUI.lib.ActionCableClient = function(parent, options) {
-    this.parent = parent;
-    this.cable = parent.cable;
-    this._init(options);
+  this.parent = parent;
+  this.cable = parent.cable;
+  this._init(options);
 };
 
 /**
@@ -22,7 +22,7 @@ SUI.lib.ActionCableClient = function(parent, options) {
  * @return {undefined}
  */
 SUI.lib.ActionCableClient.prototype._init = function(options) {
-    this.subscription = this._getSubscription(options);
+  this.subscription = this._getSubscription(options);
 };
 
 /**
@@ -31,21 +31,21 @@ SUI.lib.ActionCableClient.prototype._init = function(options) {
  * @return {!SUI.Promise}
  */
 SUI.lib.ActionCableClient.prototype._getSubscription = function(options) {
-    let deferred = new SUI.Deferred();
-    this.client = this.cable['subscriptions']['create'](options, {
-        received: (payload) => {
-            let response = new SUI.Object(/** @type {!Object} */ (JSON.parse(payload['message'])));
-            deferred.resolve(response);
-        },
-    });
-    return deferred.promise();
+  let deferred = new SUI.Deferred();
+  this.client = this.cable['subscriptions']['create'](options, {
+    received: (payload) => {
+      let response = new SUI.Object(/** @type {!Object} */ (JSON.parse(payload['message'])));
+      deferred.resolve(response);
+    },
+  });
+  return deferred.promise();
 };
 
 /**
  * @return {!SUI.Promise}
  */
 SUI.lib.ActionCableClient.prototype.subscribe = function() {
-    return this.subscription;
+  return this.subscription;
 };
 
 /**
@@ -54,13 +54,13 @@ SUI.lib.ActionCableClient.prototype.subscribe = function() {
  * @return {undefined}
  */
 SUI.lib.ActionCableClient.prototype.send = function(message, opt_data = {}) {
-    opt_data['message'] = message;
-    this.client['send'](opt_data);
+  opt_data['message'] = message;
+  this.client['send'](opt_data);
 };
 
 /**
  * @return {undefined}
  */
 SUI.lib.ActionCableClient.prototype.unsubscribe = function() {
-    this.client['unsubscribe']();
+  this.client['unsubscribe']();
 };

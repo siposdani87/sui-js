@@ -78,12 +78,12 @@ SUI.lib.Helper.prototype.linkElement = function(linkNode, opt_callback, opt_desc
         linkNode.removeEventListeners('click');
       }
       if (opt_callback) {
-          let href = linkNode.getAttribute('href');
-          linkNode.setData('href', href);
-          linkNode.setAttribute('href', 'javascript:void(0)');
-          linkNode.addEventListener('click', function() {
-            opt_callback(href);
-          });
+        let href = linkNode.getAttribute('href');
+        linkNode.setData('href', href);
+        linkNode.setAttribute('href', 'javascript:void(0)');
+        linkNode.addEventListener('click', function() {
+          opt_callback(href);
+        });
       }
 
       let tooltip = new SUI.Tooltip(linkNode);

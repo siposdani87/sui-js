@@ -823,10 +823,7 @@ SUI.mdl = function(opt_node, opt_forceDowngrade = true) {
  * @return {!Object}
  */
 SUI.reactRender = function(type, props, mountNode) {
-  return window['ReactDOM']['render'](
-    window['React']['createElement'](window[type], props),
-    mountNode.getNode()
-  );
+  return window['ReactDOM']['render'](window['React']['createElement'](window[type], props), mountNode.getNode());
 };
 
 /**

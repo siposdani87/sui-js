@@ -70,8 +70,8 @@ SUI.GoogleMap.prototype._getCustomMapType = function() {
      ]
      }*/
   ], {
-      name: 'Custom',
-    }
+    name: 'Custom',
+  }
   );
 };
 

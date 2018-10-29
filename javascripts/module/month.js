@@ -10,10 +10,10 @@ goog.require('SUI.Node');
  * @param {!Object} options
  */
 SUI.Month = function(date, currentDate, options) {
-    this.date = window['moment'](date, 'YYYY-MM-DD');
-    this.currentDate = currentDate;
-    this._setOptions(options);
-    this._init();
+  this.date = window['moment'](date, 'YYYY-MM-DD');
+  this.currentDate = currentDate;
+  this._setOptions(options);
+  this._init();
 };
 
 /**
@@ -22,7 +22,7 @@ SUI.Month = function(date, currentDate, options) {
  * @return {undefined}
  */
 SUI.Month.prototype._setOptions = function(options) {
-    this.options = options;
+  this.options = options;
 };
 
 /**
@@ -30,29 +30,29 @@ SUI.Month.prototype._setOptions = function(options) {
  * @return {undefined}
  */
 SUI.Month.prototype._init = function() {
-    let current = this.date['format']('YYYY-MM') === this.currentDate['format']('YYYY-MM') ? 'current' : null;
-    let now = this.date['format']('YYYY-MM') === window['moment']()['format']('YYYY-MM') ? 'now' : null;
-    this.cssClasses = ['month', this.options.css_class, now, current];
+  let current = this.date['format']('YYYY-MM') === this.currentDate['format']('YYYY-MM') ? 'current' : null;
+  let now = this.date['format']('YYYY-MM') === window['moment']()['format']('YYYY-MM') ? 'now' : null;
+  this.cssClasses = ['month', this.options.css_class, now, current];
 };
 
 /**
  * @return {!SUI.Node}
  */
 SUI.Month.prototype.getNode = function() {
-    let node = new SUI.Node('span');
-    node.addClass(this.cssClasses);
-    let i = this.date['month']();
-    let text = window['moment']['monthsShort'](i);
-    node.setHtml(text);
-    node.addEventListener('click', () => {
-        this.eventClick(this.date);
-    });
-    return node;
+  let node = new SUI.Node('span');
+  node.addClass(this.cssClasses);
+  let i = this.date['month']();
+  let text = window['moment']['monthsShort'](i);
+  node.setHtml(text);
+  node.addEventListener('click', () => {
+    this.eventClick(this.date);
+  });
+  return node;
 };
 
 /**
  * @param {!Object} date
  */
 SUI.Month.prototype.eventClick = function(date) {
-    console.warn('SUI.Month.eventClick()', date);
+  console.warn('SUI.Month.eventClick()', date);
 };
