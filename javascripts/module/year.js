@@ -10,10 +10,10 @@ goog.require('SUI.Node');
  * @param {!Object} options
  */
 SUI.Year = function(date, currentDate, options) {
-    this.date = window['moment'](date, 'YYYY-MM-DD');
-    this.currentDate = currentDate;
-    this._setOptions(options);
-    this._init();
+  this.date = window['moment'](date, 'YYYY-MM-DD');
+  this.currentDate = currentDate;
+  this._setOptions(options);
+  this._init();
 };
 
 /**
@@ -22,7 +22,7 @@ SUI.Year = function(date, currentDate, options) {
  * @return {undefined}
  */
 SUI.Year.prototype._setOptions = function(options) {
-    this.options = options;
+  this.options = options;
 };
 
 /**
@@ -30,28 +30,28 @@ SUI.Year.prototype._setOptions = function(options) {
  * @return {undefined}
  */
 SUI.Year.prototype._init = function() {
-    let current = this.date['format']('YYYY') === this.currentDate['format']('YYYY') ? 'current' : null;
-    let now = this.date['format']('YYYY') === window['moment']()['format']('YYYY') ? 'now' : null;
-    this.cssClasses = ['year', this.options.css_class, now, current];
+  let current = this.date['format']('YYYY') === this.currentDate['format']('YYYY') ? 'current' : null;
+  let now = this.date['format']('YYYY') === window['moment']()['format']('YYYY') ? 'now' : null;
+  this.cssClasses = ['year', this.options.css_class, now, current];
 };
 
 /**
  * @return {!SUI.Node}
  */
 SUI.Year.prototype.getNode = function() {
-    let node = new SUI.Node('span');
-    node.addClass(this.cssClasses);
-    let text = parseInt(this.date['format']('YYYY'), 10);
-    node.setHtml(text);
-    node.addEventListener('click', () => {
-        this.eventClick(this.date);
-    });
-    return node;
+  let node = new SUI.Node('span');
+  node.addClass(this.cssClasses);
+  let text = parseInt(this.date['format']('YYYY'), 10);
+  node.setHtml(text);
+  node.addEventListener('click', () => {
+    this.eventClick(this.date);
+  });
+  return node;
 };
 
 /**
  * @param {!Object} date
  */
 SUI.Year.prototype.eventClick = function(date) {
-    console.warn('SUI.Year.eventClick()', date);
+  console.warn('SUI.Year.eventClick()', date);
 };
