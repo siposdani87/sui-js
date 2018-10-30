@@ -31,10 +31,10 @@ SUI.lib.ActionCableClient.prototype._init = function(options) {
  * @return {!SUI.Promise}
  */
 SUI.lib.ActionCableClient.prototype._getSubscription = function(options) {
-  let deferred = new SUI.Deferred();
+  const deferred = new SUI.Deferred();
   this.client = this.cable['subscriptions']['create'](options, {
     received: (payload) => {
-      let response = new SUI.Object(/** @type {!Object} */ (JSON.parse(payload['message'])));
+      const response = new SUI.Object(/** @type {!Object} */ (JSON.parse(payload['message'])));
       deferred.resolve(response);
     },
   });
