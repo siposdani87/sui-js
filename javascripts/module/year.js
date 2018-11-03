@@ -30,8 +30,8 @@ SUI.Year.prototype._setOptions = function(options) {
  * @return {undefined}
  */
 SUI.Year.prototype._init = function() {
-  let current = this.date['format']('YYYY') === this.currentDate['format']('YYYY') ? 'current' : null;
-  let now = this.date['format']('YYYY') === window['moment']()['format']('YYYY') ? 'now' : null;
+  const current = this.date['format']('YYYY') === this.currentDate['format']('YYYY') ? 'current' : null;
+  const now = this.date['format']('YYYY') === window['moment']()['format']('YYYY') ? 'now' : null;
   this.cssClasses = ['year', this.options.css_class, now, current];
 };
 
@@ -39,9 +39,9 @@ SUI.Year.prototype._init = function() {
  * @return {!SUI.Node}
  */
 SUI.Year.prototype.getNode = function() {
-  let node = new SUI.Node('span');
+  const node = new SUI.Node('span');
   node.addClass(this.cssClasses);
-  let text = parseInt(this.date['format']('YYYY'), 10);
+  const text = parseInt(this.date['format']('YYYY'), 10);
   node.setHtml(text);
   node.addEventListener('click', () => {
     this.eventClick(this.date);

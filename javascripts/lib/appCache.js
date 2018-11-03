@@ -49,11 +49,11 @@ SUI.lib.AppCache.prototype._attachEvent = function() {
   });
 
 
-  let handleCacheEvent = (e) => {
+  const handleCacheEvent = (e) => {
     // console.log(e);
   };
 
-  let handleCacheError = (e) => {
+  const handleCacheError = (e) => {
     // alert('Error: Cache failed to update!');
   };
 

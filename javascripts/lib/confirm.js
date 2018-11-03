@@ -25,7 +25,7 @@ SUI.lib.Confirm = function(opt_options = {}) {
  * @return {undefined}
  */
 SUI.lib.Confirm.prototype._setOptions = function(opt_options = {}) {
-  let _self = this;
+  const _self = this;
   _self.options = new SUI.Object({
     id: '#confirm',
   });
@@ -129,8 +129,8 @@ SUI.lib.Confirm.prototype._reset = function() {
  * @return {undefined}
  */
 SUI.lib.Confirm.prototype._actionOK = function() {
-  let async = new SUI.Async();
-  let calls = [this.eventOK.bind(this), this.close.bind(this)];
+  const async = new SUI.Async();
+  const calls = [this.eventOK.bind(this), this.close.bind(this)];
   async.serial(calls);
 };
 
@@ -138,8 +138,8 @@ SUI.lib.Confirm.prototype._actionOK = function() {
  * @return {undefined}
  */
 SUI.lib.Confirm.prototype._actionCancel = function() {
-  let async = new SUI.Async();
-  let calls = [this.eventCancel.bind(this), this.close.bind(this)];
+  const async = new SUI.Async();
+  const calls = [this.eventCancel.bind(this), this.close.bind(this)];
   async.serial(calls);
 };
 
@@ -163,9 +163,9 @@ SUI.lib.Confirm.prototype.load = function(message, okText, opt_cancelText = '', 
   this.modalFooter.removeChildren();
 
   if (opt_cancelText) {
-    let cancelCssClasses = ['mdl-button', 'mdl-js-button', 'mdl-js-ripple-effect'];
+    const cancelCssClasses = ['mdl-button', 'mdl-js-button', 'mdl-js-ripple-effect'];
     cancelCssClasses.push(opt_type === 'choice' ? 'mdl-button--primary': 'mdl-button--accent');
-    let cancelButton = new SUI.Node('button');
+    const cancelButton = new SUI.Node('button');
     cancelButton.setAttribute('type', 'button');
     cancelButton.setHtml(opt_cancelText);
     cancelButton.addClass(cancelCssClasses);
@@ -173,8 +173,8 @@ SUI.lib.Confirm.prototype.load = function(message, okText, opt_cancelText = '', 
     this.modalFooter.appendChild(cancelButton);
   }
 
-  let okCssClasses = ['mdl-button', 'mdl-js-button', 'mdl-js-ripple-effect', 'mdl-button--primary'];
-  let okButton = new SUI.Node('button');
+  const okCssClasses = ['mdl-button', 'mdl-js-button', 'mdl-js-ripple-effect', 'mdl-button--primary'];
+  const okButton = new SUI.Node('button');
   okButton.setAttribute('type', 'button');
   okButton.setHtml(okText);
   okButton.addClass(okCssClasses);
@@ -201,7 +201,7 @@ SUI.lib.Confirm.prototype.setSize = function(width, height) {
  * @return {undefined}
  */
 SUI.lib.Confirm.prototype._handleCenterPosition = function() {
-  let style = this.confirmWindow.getComputedStyle();
+  const style = this.confirmWindow.getComputedStyle();
   let height = style.getPropertyValue('height');
   if (SUI.contain(height, 'px')) {
     height = parseInt(height.slice(0, -2), 10);

@@ -33,15 +33,15 @@ SUI.FormWidget = function(inputBlock, form) {
 
   let selectedIndex = false;
   let tagName = inputBlock.getTagName();
-  let tagType = inputBlock.getAttribute('type');
+  const tagType = inputBlock.getAttribute('type');
   if (SUI.eq(tagName, 'input') && !SUI.inArray(['hidden', 'reset', 'submit', 'button'], tagType)) {
     inputBlock = /** @type {!SUI.Node}*/ (inputBlock.getParentNode());
     selectedIndex = 0;
   }
   tagName = inputBlock.getTagName();
   if (SUI.eq(tagName, 'div')) {
-    let inputs = new SUI.Query('input, textarea, select', inputBlock).getItems();
-    let index = selectedIndex !== false ? /** @type {number} */ (selectedIndex) : inputs.length - 1;
+    const inputs = new SUI.Query('input, textarea, select', inputBlock).getItems();
+    const index = selectedIndex !== false ? /** @type {number} */ (selectedIndex) : inputs.length - 1;
     input = inputs[index];
 
     label = new SUI.Query('label', inputBlock).getItem();
@@ -64,8 +64,8 @@ SUI.FormWidget = function(inputBlock, form) {
  */
 SUI.FormWidget.prototype._getWidget = function(input, label, error, inputBlock, form) {
   input.addClass('init-widget');
-  let dataType = input.getData('type');
-  let tagName = input.getTagName();
+  const dataType = input.getData('type');
+  const tagName = input.getTagName();
   let result = null;
   if (SUI.eq(tagName, 'textarea')) {
     result = new SUI.widget.Textarea(input, /** @type {!SUI.Node} */ (label), /** @type {!SUI.Node} */ (error), inputBlock);
@@ -73,7 +73,7 @@ SUI.FormWidget.prototype._getWidget = function(input, label, error, inputBlock, 
   if (SUI.eq(tagName, 'select')) {
     result = new SUI.widget.Select(input, /** @type {!SUI.Node} */ (label), /** @type {!SUI.Node} */ (error), inputBlock);
   } else if (SUI.eq(tagName, 'input') || SUI.eq(tagName, 'button')) {
-    let type = input.get('type');
+    const type = input.get('type');
     switch (type) {
       case 'submit':
         result = new SUI.widget.Submit(input);
@@ -91,7 +91,7 @@ SUI.FormWidget.prototype._getWidget = function(input, label, error, inputBlock, 
       case 'month':
       case 'week':
       case 'year':
-        let inputs = new SUI.Query('input', inputBlock);
+        const inputs = new SUI.Query('input', inputBlock);
         if (inputs.size() === 2) {
           let handledInput = /** @type {!SUI.Node} */ (inputs.get(0));
           let isStartInput = true;

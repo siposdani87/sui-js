@@ -50,7 +50,7 @@ SUI.Popup.prototype._draw = function() {
  */
 SUI.Popup.prototype._initCloseButton = function() {
   if (this.withClose) {
-    let btnClose = new SUI.Node('button');
+    const btnClose = new SUI.Node('button');
     btnClose.setAttribute('type', 'button');
     btnClose.addClass(['close', 'mdl-button', 'mdl-js-button', 'mdl-button--icon']);
     btnClose.addEventListener('click', () => {
@@ -58,7 +58,7 @@ SUI.Popup.prototype._initCloseButton = function() {
     });
     this.popupNode.appendChild(btnClose);
 
-    let iconNode = new SUI.Node('i');
+    const iconNode = new SUI.Node('i');
     iconNode.addClass('material-icons');
     iconNode.setHtml('close');
     btnClose.appendChild(iconNode);

@@ -171,7 +171,7 @@ SUI.Datetime.prototype.draw = function() {
  */
 SUI.Datetime.prototype._drawCalendar = function() {
   if (this.config.calendar_type) {
-    let calendar = new SUI.Calendar(this.calendarNode, {
+    const calendar = new SUI.Calendar(this.calendarNode, {
       date: this.value,
       type: this.config.calendar_type,
       start_day: 1,
@@ -192,7 +192,7 @@ SUI.Datetime.prototype._drawCalendar = function() {
  */
 SUI.Datetime.prototype._drawClock = function() {
   if (this.config.clock_type) {
-    let clock = new SUI.Clock(this.clockNode, {
+    const clock = new SUI.Clock(this.clockNode, {
       time: this.value,
       type: this.config.clock_type,
     });
@@ -210,7 +210,7 @@ SUI.Datetime.prototype._drawClock = function() {
  * @return {undefined}
  */
 SUI.Datetime.prototype._onClick = function() {
-  let value = this.getValue();
+  const value = this.getValue();
   this.eventClick(value);
 };
 

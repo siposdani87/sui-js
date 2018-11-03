@@ -1,17 +1,17 @@
-let gulp = require('gulp');
-let sass = require('gulp-sass');
-let compilerPackage = require('google-closure-compiler');
-let closureCompiler = compilerPackage.gulp({
+const gulp = require('gulp');
+const sass = require('gulp-sass');
+const compilerPackage = require('google-closure-compiler');
+const closureCompiler = compilerPackage.gulp({
   requireStreamInput: true,
 });
-let merge = require('merge-stream');
-let objectAssign = require('object-assign');
-let insert = require('gulp-insert');
-let readdirSync = require('readdirsync2');
+const merge = require('merge-stream');
+const objectAssign = require('object-assign');
+const insert = require('gulp-insert');
+const readdirSync = require('readdirsync2');
 
 // let files = ['javascripts/lib/*.js', 'javascripts/core/*.js', 'javascripts/module/*.js', 'javascripts/widget/*.js'];
 
-let closureOptions = {
+const closureOptions = {
   compilation_level: 'ADVANCED_OPTIMIZATIONS', // SIMPLE_OPTIMIZATIONS, WHITESPACE_ONLY, ADVANCED_OPTIMIZATIONS
   language_in: 'ECMASCRIPT_2017',
   language_out: 'ECMASCRIPT5_STRICT',
@@ -25,7 +25,7 @@ let closureOptions = {
   define: 'SUI.debug=false',
 };
 
-let sassOptions = {
+const sassOptions = {
   outputStyle: 'compressed',
 };
 
@@ -34,8 +34,8 @@ gulp.task('compile:styles', [], function() {
 });
 
 gulp.task('compile:scripts', [], function() {
-  let merged = merge();
-  let stream = gulp.src(['javascripts/**/*.js']).pipe(closureCompiler(objectAssign(closureOptions, {
+  const merged = merge();
+  const stream = gulp.src(['javascripts/**/*.js']).pipe(closureCompiler(objectAssign(closureOptions, {
     // externs: [compilerPackage.compiler.CONTRIB_PATH + '/externs/empty.js'],
     output_manifest: 'dist/sui.min.mf',
     js_output_file: 'sui.min.js',

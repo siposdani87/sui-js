@@ -16,7 +16,7 @@ SUI.Query = function(selector, opt_element) {
     this.element = this.element.getNode();
   }
 
-  let items = this._querySelector(selector);
+  const items = this._querySelector(selector);
   SUI.Collection.call(this, items, SUI.Node, {
     parent: null,
   });
@@ -36,14 +36,14 @@ SUI.Query.prototype._querySelector = function(selector) {
     if (!SUI.isFunction(this.element.getElementById)) {
       this.element = document;
     }
-    let node = this.element.getElementById(selector.replace('#', ''));
+    const node = this.element.getElementById(selector.replace('#', ''));
     nodeList.push(node);
   } else if (selector.indexOf('.') === 0) {
     nodeList = this.element.getElementsByClassName(selector.replace('.', ''));
   } else {
     nodeList = this.element.getElementsByTagName(selector);
   }
-  let nodes = [];
+  const nodes = [];
   for (let i = 0; i < nodeList.length; i++) {
     if (nodeList[i]) {
       nodes.push(nodeList[i]);

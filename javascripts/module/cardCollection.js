@@ -29,7 +29,7 @@ SUI.CardCollection = function(dom, opt_selector = '.card-collection', opt_ctrl =
  * @return {undefined}
  */
 SUI.CardCollection.prototype._setOptions = function(opt_options = {}) {
-  let _self = this;
+  const _self = this;
   _self.options = new SUI.Object({
     no_content: {
       image_url: null,
@@ -109,17 +109,17 @@ SUI.CardCollection.prototype._initTemplate = function() {
  * @return {!SUI.Node}
  */
 SUI.CardCollection.prototype._getCardNode = function(item) {
-  let regex = new RegExp('{{[a-zA-Z._,() ]*}}', 'g');
-  let matches = this.template.match(regex);
+  const regex = new RegExp('{{[a-zA-Z._,() ]*}}', 'g');
+  const matches = this.template.match(regex);
   let cloneTemplate = this.template;
   SUI.each(matches, (match) => {
-    let expression = match.replace('{{', '').replace('}}', '');
+    const expression = match.replace('{{', '').replace('}}', '');
     if (SUI.contain(expression, 'ctrl.')) {
-      let paramsRegex = new RegExp('(([a-zA-Z._, ]*))', 'g');
-      let expressionMatches = expression.match(paramsRegex);
-      let fnName = expressionMatches[0].replace('ctrl.', '');
-      let fnKeys = expressionMatches[2].split(', ');
-      let fnParams = [];
+      const paramsRegex = new RegExp('(([a-zA-Z._, ]*))', 'g');
+      const expressionMatches = expression.match(paramsRegex);
+      const fnName = expressionMatches[0].replace('ctrl.', '');
+      const fnKeys = expressionMatches[2].split(', ');
+      const fnParams = [];
       SUI.each(fnKeys, (key) => {
         if (key === 'item') {
           fnParams.push(item);
@@ -128,9 +128,9 @@ SUI.CardCollection.prototype._getCardNode = function(item) {
         }
       });
       if (this.ctrl) {
-        let method = this.ctrl[fnName];
+        const method = this.ctrl[fnName];
         if (method) {
-          let result = method.apply(this.ctrl, fnParams);
+          const result = method.apply(this.ctrl, fnParams);
           cloneTemplate = cloneTemplate.replace(match, result);
         } else {
           console.warn(SUI.format('ctrl.{0}() missing', [fnName]));
@@ -151,7 +151,7 @@ SUI.CardCollection.prototype.refresh = function(opt_page = -1) {
   if (opt_page > -1) {
     this.pager.setPage(opt_page);
   }
-  let params = new SUI.Object({
+  const params = new SUI.Object({
     'query': this.query,
     'column': this.options.sort.column,
     'order': this.options.sort.order,
@@ -184,7 +184,7 @@ SUI.CardCollection.prototype.eventCardNode = function(cardNode, item) {
  * @return {undefined}
  */
 SUI.CardCollection.prototype._addCard = function(item) {
-  let cardNode = this._getCardNode(item);
+  const cardNode = this._getCardNode(item);
   this.body.appendChild(cardNode);
   this.eventCardNode(cardNode, item);
   SUI.mdl(cardNode);

@@ -44,7 +44,7 @@ SUI.Form.prototype._init = function() {
  */
 SUI.Form.prototype._initFormEvent = function() {
   this.formNode.addEventListener('keydown', function(node, event) {
-    let textArea = /textarea/i.test((event.target || event.srcElement).tagName);
+    const textArea = /textarea/i.test((event.target || event.srcElement).tagName);
     if (!(textArea || (event.keyCode || event.which || event.charCode || 0) !== 13)) {
       event.preventDefault();
     }
@@ -83,13 +83,13 @@ SUI.Form.prototype._initResetFormEvent = function() {
  * @return {undefined}
  */
 SUI.Form.prototype._initWidgets = function() {
-  let widgets = new SUI.Query(this.widgetClasses.concat(this.buttonClasses).join(', '), this.formNode).getItems();
+  const widgets = new SUI.Query(this.widgetClasses.concat(this.buttonClasses).join(', '), this.formNode).getItems();
   this.load(widgets);
 
-  let updatedWidgets = [];
-  let initWidgets = [];
+  const updatedWidgets = [];
+  const initWidgets = [];
   this.each((widget) => {
-    let widgetName = widget.getName();
+    const widgetName = widget.getName();
     if (SUI.inArray(this.initWidgets, widgetName)) {
       if (!SUI.inArray(updatedWidgets, widgetName)) {
         widget.refresh();
@@ -122,8 +122,8 @@ SUI.Form.prototype._initWidgets = function() {
  */
 SUI.Form.prototype.setModel = function(model) {
   this.each((widget) => {
-    let name = widget.getName();
-    let value = model.get(name);
+    const name = widget.getName();
+    const value = model.get(name);
     if (!SUI.isUndefined(value)) {
       widget.setValue(value);
       widget.checkValidity(true);
@@ -158,8 +158,8 @@ SUI.Form.prototype._getValue = function(name) {
  * @return {undefined}
  */
 SUI.Form.prototype._widgetValueChange = function(widget, value) {
-  let widgetName = widget.getName();
-  let oldValue = this._getValue(widgetName);
+  const widgetName = widget.getName();
+  const oldValue = this._getValue(widgetName);
   if (!SUI.isSame(value, oldValue)) {
     widget.eventChange(value, oldValue);
   }
@@ -171,10 +171,10 @@ SUI.Form.prototype._widgetValueChange = function(widget, value) {
  * @return {undefined}
  */
 SUI.Form.prototype.setErrors = function(data) {
-  let errors = new SUI.Object(data);
+  const errors = new SUI.Object(data);
   this.each(function(widget) {
-    let name = widget.getName();
-    let error = errors.get(name, []);
+    const name = widget.getName();
+    const error = errors.get(name, []);
     widget.setError(error.join(', '), true);
   });
 };
@@ -202,9 +202,9 @@ SUI.Form.prototype.isValid = function() {
  */
 SUI.Form.prototype.refresh = function() {
   this.deleteAllByCondition((widget) => {
-    let exists = widget.exists();
+    const exists = widget.exists();
     if (!exists) {
-      let widgetName = widget.getName();
+      const widgetName = widget.getName();
       this.model.remove(widgetName);
       SUI.remove(this.initWidgets, widgetName);
     }
@@ -220,7 +220,7 @@ SUI.Form.prototype.refresh = function() {
  */
 SUI.Form.prototype.findByModel = function(value) {
   return this.findByCondition((item, i) => {
-    let modelName = this.get(i, 'model');
+    const modelName = this.get(i, 'model');
     return modelName === value;
   });
 };

@@ -29,7 +29,7 @@ SUI.lib.ProgressBar = function(dialog, confirm, opt_options = {}) {
  * @return {undefined}
  */
 SUI.lib.ProgressBar.prototype._setOptions = function(opt_options = {}) {
-  let _self = this;
+  const _self = this;
   _self.options = new SUI.Object({
     lock: false,
     counter: 0,

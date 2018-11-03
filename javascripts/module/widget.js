@@ -61,7 +61,7 @@ SUI.Widget.prototype.modelChange = function(value) {
  * @return {string}
  */
 SUI.Widget.prototype.getName = function() {
-  let name = this.input.getAttribute('name');
+  const name = this.input.getAttribute('name');
   return this._getAttributeName(name);
 };
 
@@ -69,7 +69,7 @@ SUI.Widget.prototype.getName = function() {
  * @return {*}
  */
 SUI.Widget.prototype.getValue = function() {
-  let value = this.input.getNode().value;
+  const value = this.input.getNode().value;
   return SUI.typeCast(value);
 };
 
@@ -107,14 +107,14 @@ SUI.Widget.prototype.setError = function(opt_message = '', opt_isCustomError = f
  * @return {undefined}
  */
 SUI.Widget.prototype.checkValidity = function(opt_force = false, opt_showMessage = true) {
-  let node = this.input.getNode();
-  let isValid = node.validity.valid;
+  const node = this.input.getNode();
+  const isValid = node.validity.valid;
   if (isValid) {
     this.setError('');
   } else if (opt_showMessage) {
     this.setError(node.validationMessage);
   }
-  let upgradedNode = this._getUpgradedNode();
+  const upgradedNode = this._getUpgradedNode();
   if (opt_force && upgradedNode) {
     if (this.getValue()) {
       upgradedNode.addClass('is-dirty');
@@ -229,17 +229,17 @@ SUI.Widget.prototype.setDisabled = function(state) {
  */
 SUI.Widget.prototype._setInfo = function() {
   if (this.label && this.label.exists()) {
-    let title = this.label.getAttribute('title');
-    let description = this.label.getAttribute('desc');
+    const title = this.label.getAttribute('title');
+    const description = this.label.getAttribute('desc');
     if (title || description) {
-      let infoButton = new SUI.Node('a');
+      const infoButton = new SUI.Node('a');
       infoButton.setAttribute('title', title || '');
       infoButton.setAttribute('desc', description || '');
       infoButton.setAttribute('href', 'javascript:void(0)');
       infoButton.addClass(['info', 'material-icons']);
       infoButton.setHtml('info_outline');
       this.inputBlock.appendChild(infoButton);
-      let tooltip = new SUI.Tooltip(infoButton, 'LEFT');
+      const tooltip = new SUI.Tooltip(infoButton, 'LEFT');
       tooltip.render();
     }
   }
@@ -251,7 +251,7 @@ SUI.Widget.prototype._setInfo = function() {
  */
 SUI.Widget.prototype._setLabel = function() {
   if (this.label && this.label.exists()) {
-    let labelText = this._getLabelRequiredText(this.label.getHtml(true));
+    const labelText = this._getLabelRequiredText(this.label.getHtml(true));
     this.label.setHtml(labelText);
   }
 };
@@ -262,8 +262,8 @@ SUI.Widget.prototype._setLabel = function() {
  * @return {string}
  */
 SUI.Widget.prototype._getLabelRequiredText = function(labelText) {
-  let requiredPostfix = ' *';
-  let postfix = labelText.substr(labelText.length - requiredPostfix.length);
+  const requiredPostfix = ' *';
+  const postfix = labelText.substr(labelText.length - requiredPostfix.length);
 
   if (this.isRequired() && postfix !== requiredPostfix) {
     labelText += requiredPostfix;
@@ -278,9 +278,9 @@ SUI.Widget.prototype._getLabelRequiredText = function(labelText) {
  * @return {undefined}
  */
 SUI.Widget.prototype._setMutation = function() {
-  let observer = new MutationObserver((mutationsList) => {
+  const observer = new MutationObserver((mutationsList) => {
     for (let i = 0; i < mutationsList.length; i++) {
-      let mutation = mutationsList[i];
+      const mutation = mutationsList[i];
       if (mutation.attributeName === 'disabled') {
         // console.log('mutation: disabled', mutation);
         this.refresh();

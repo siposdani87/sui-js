@@ -10,7 +10,7 @@ goog.require('SUI.lib');
  * @param {!Object} options
  */
 SUI.lib.Storage = function(options) {
-  let _self = this;
+  const _self = this;
   _self.options = new SUI.Object({
     type: 'local',
     prefix: 'app',
@@ -51,7 +51,7 @@ SUI.lib.Storage.prototype._getPropertyName = function(name) {
  * @return {string}
  */
 SUI.lib.Storage.prototype._getName = function(propertyName) {
-  let parts = propertyName.split('.');
+  const parts = propertyName.split('.');
   parts.shift();
   return parts.join('.');
 };
@@ -63,9 +63,9 @@ SUI.lib.Storage.prototype._getName = function(propertyName) {
  * @return {undefined}
  */
 SUI.lib.Storage.prototype.set = function(name, value, opt_expires) {
-  let expires = this._getExpires(opt_expires);
-  let encrypted = expires + ';' + SUI.encrypt(value, this.options.secret);
-  let propertyName = this._getPropertyName(name);
+  const expires = this._getExpires(opt_expires);
+  const encrypted = expires + ';' + SUI.encrypt(value, this.options.secret);
+  const propertyName = this._getPropertyName(name);
   this.storage.setItem(propertyName, encrypted);
 };
 
@@ -74,12 +74,12 @@ SUI.lib.Storage.prototype.set = function(name, value, opt_expires) {
  * @return {*}
  */
 SUI.lib.Storage.prototype.get = function(name) {
-  let propertyName = this._getPropertyName(name);
-  let item = this.storage.getItem(propertyName);
+  const propertyName = this._getPropertyName(name);
+  const item = this.storage.getItem(propertyName);
   let result = null;
   if (item && item.indexOf(';') !== -1) {
-    let encrypted = item.split(';', 2)[1] || SUI.encrypt(null, this.options.secret);
-    let decrypted = SUI.decrypt(encrypted, this.options.secret);
+    const encrypted = item.split(';', 2)[1] || SUI.encrypt(null, this.options.secret);
+    const decrypted = SUI.decrypt(encrypted, this.options.secret);
     result = SUI.typeCast(decrypted);
   }
   return result;
@@ -90,7 +90,7 @@ SUI.lib.Storage.prototype.get = function(name) {
  * @return {undefined}
  */
 SUI.lib.Storage.prototype.remove = function(name) {
-  let propertyName = this._getPropertyName(name);
+  const propertyName = this._getPropertyName(name);
   this.storage.removeItem(propertyName);
 };
 
@@ -106,10 +106,10 @@ SUI.lib.Storage.prototype.clear = function() {
  * @return {undefined}
  */
 SUI.lib.Storage.prototype._checkExpires = function() {
-  let properyNames = Object.keys(this.storage);
+  const properyNames = Object.keys(this.storage);
   SUI.eachArray(properyNames, (properyName) => {
-    let name = this._getName(properyName);
-    let isExpired = this._isExpired(name);
+    const name = this._getName(properyName);
+    const isExpired = this._isExpired(name);
     if (isExpired) {
       this.remove(name);
     }
@@ -122,8 +122,8 @@ SUI.lib.Storage.prototype._checkExpires = function() {
  * @return {boolean}
  */
 SUI.lib.Storage.prototype._isExpired = function(name) {
-  let date = new Date();
-  let expireDate = this._getExpiresDate(name);
+  const date = new Date();
+  const expireDate = this._getExpiresDate(name);
   return !!expireDate && date.getTime() >= expireDate.getTime();
 };
 
@@ -133,10 +133,10 @@ SUI.lib.Storage.prototype._isExpired = function(name) {
  * @return {?Date}
  */
 SUI.lib.Storage.prototype._getExpiresDate = function(name) {
-  let propertyName = this._getPropertyName(name);
-  let item = this.storage.getItem(propertyName);
+  const propertyName = this._getPropertyName(name);
+  const item = this.storage.getItem(propertyName);
   if (item) {
-    let utcString = item.split(';', 2)[0];
+    const utcString = item.split(';', 2)[0];
     return new Date(utcString);
   }
   return null;
@@ -148,7 +148,7 @@ SUI.lib.Storage.prototype._getExpiresDate = function(name) {
  * @return {string}
  */
 SUI.lib.Storage.prototype._getExpires = function(opt_expires) {
-  let date = new Date();
+  const date = new Date();
   if (opt_expires) {
     switch (opt_expires.constructor) {
       case Number:

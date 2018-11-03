@@ -48,13 +48,13 @@ SUI.widget.DatetimeRange.prototype._initInput = function() {
   this.format = this.input.getData('format');
 
   this.input.addEventListener('change', () => {
-    let value = this.getValue().toString();
+    const value = this.getValue().toString();
     this.modelChange(value);
     this.checkValidity();
   });
 
-  let type = this.input.getAttribute('type');
-  let value = /** @type {string} */ (this.getValue().toString());
+  const type = this.input.getAttribute('type');
+  const value = /** @type {string} */ (this.getValue().toString());
 
   this.datetimeNode = new SUI.Node('div');
   this.datetime = new SUI.Datetime(this.datetimeNode, {
@@ -71,7 +71,7 @@ SUI.widget.DatetimeRange.prototype._initInput = function() {
   };
 
   if (value) {
-    let formattedValue = this.datetime.getValue();
+    const formattedValue = this.datetime.getValue();
     this._setTag(formattedValue);
   }
 };
@@ -81,7 +81,7 @@ SUI.widget.DatetimeRange.prototype._initInput = function() {
  * @return {undefined}
  */
 SUI.widget.DatetimeRange.prototype.render = function() {
-  let iconNode = new SUI.Node('i');
+  const iconNode = new SUI.Node('i');
   iconNode.addClass(['material-icons', 'size-24', 'expander']);
   if (this.isStartInput) {
     iconNode.setHtml('remove');
@@ -126,13 +126,13 @@ SUI.widget.DatetimeRange.prototype.setValue = function(value) {
 SUI.widget.DatetimeRange.prototype._setTag = function(value) {
   this.datetimeInput.removeChildren();
   if (value) {
-    let formattedValue = window['moment'](value, this.datetime.getConfig().format)['format'](this.format);
-    let tagNode = new SUI.Node('div');
+    const formattedValue = window['moment'](value, this.datetime.getConfig().format)['format'](this.format);
+    const tagNode = new SUI.Node('div');
     tagNode.addClass('tag');
     tagNode.setHtml(formattedValue);
     this.datetimeInput.appendChild(tagNode);
 
-    let iconNode = new SUI.Node('i');
+    const iconNode = new SUI.Node('i');
     iconNode.addClass(['material-icons', 'size-18']);
     iconNode.setHtml('close');
     iconNode.addEventListener('click', () => {

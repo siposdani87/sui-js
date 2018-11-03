@@ -43,7 +43,7 @@ SUI.widget.BaseCheckbox.prototype._init = function() {
  * @return {undefined}
  */
 SUI.widget.BaseCheckbox.prototype._change = function() {
-  let value = this.getValue();
+  const value = this.getValue();
   this.modelChange(value);
   this.checkValidity();
 };
@@ -53,7 +53,7 @@ SUI.widget.BaseCheckbox.prototype._change = function() {
  * @return {*}
  */
 SUI.widget.BaseCheckbox.prototype.getValue = function() {
-  let checked = this.input.getNode().checked;
+  const checked = this.input.getNode().checked;
   let value = this.hiddenInput.getAttribute('value');
   if (checked) {
     value = this.input.getAttribute('value');
@@ -67,7 +67,7 @@ SUI.widget.BaseCheckbox.prototype.getValue = function() {
  * @return {undefined}
  */
 SUI.widget.BaseCheckbox.prototype.setValue = function(value) {
-  let currentValue = SUI.typeCast(this.input.getAttribute('value'));
+  const currentValue = SUI.typeCast(this.input.getAttribute('value'));
   this.input.getNode().checked = currentValue === value;
   if (!this.input.getNode().checked) {
     this.input.removeAttribute('checked');

@@ -30,7 +30,7 @@ SUI.widget.Location.prototype._init = function() {
   this.icon = this.input.getData('icon');
 
   this.input.addEventListener('keyup', (input, event) => {
-    let inputNode = input.getNode();
+    const inputNode = input.getNode();
 
     if (SUI.eq(event.keyCode, 13)) {
       this.eventSearch(inputNode.value);
@@ -40,8 +40,8 @@ SUI.widget.Location.prototype._init = function() {
   });
 
   this.input.addEventListener('change', (input) => {
-    let inputNode = input.getNode();
-    let location = this.getValue();
+    const inputNode = input.getNode();
+    const location = this.getValue();
     location['address'] = SUI.typeCast(inputNode.value);
     this._setDataValue(/** @type {!Object} */(location));
     this.modelChange(location);
@@ -67,12 +67,12 @@ SUI.widget.Location.prototype._initButtons = function() {
  * @return {undefined}
  */
 SUI.widget.Location.prototype._initSearchButton = function() {
-  let searchButton = new SUI.Node('a');
+  const searchButton = new SUI.Node('a');
   searchButton.setAttribute('href', 'javascript:void(0)');
   searchButton.addClass(['search-button', 'material-icons']);
   searchButton.setHtml('pin_drop');
   searchButton.addEventListener('click', () => {
-    let inputNode = this.input.getNode();
+    const inputNode = this.input.getNode();
     this.eventSearch(inputNode.value);
   });
   this.buttonGroupNode.appendChild(searchButton);
@@ -99,8 +99,8 @@ SUI.widget.Location.prototype._initAdvancedButton = function() {
  */
 SUI.widget.Location.prototype.search = function(address) {
   this.map.searchAddress(address).then((locations) => {
-    let position = locations[0];
-    let location = {
+    const position = locations[0];
+    const location = {
       'address': SUI.typeCast(address),
       'latitude': position['latitude'],
       'longitude': position['longitude'],
@@ -163,13 +163,13 @@ SUI.widget.Location.prototype._renderAdvancedInputs = function() {
  * @return {undefined}
  */
 SUI.widget.Location.prototype._renderLatitudeInput = function() {
-  let id = SUI.generateId('latitude');
+  const id = SUI.generateId('latitude');
 
-  let latitudeBlockNode = new SUI.Node('div');
+  const latitudeBlockNode = new SUI.Node('div');
   latitudeBlockNode.addClass('col-6');
   this.advancedNode.appendChild(latitudeBlockNode);
 
-  let latitudeNode = new SUI.Node('div');
+  const latitudeNode = new SUI.Node('div');
   latitudeNode.addClass(['mdl-textfield', 'mdl-js-textfield', 'mdl-textfield--floating-label']);
   latitudeBlockNode.appendChild(latitudeNode);
 
@@ -186,8 +186,8 @@ SUI.widget.Location.prototype._renderLatitudeInput = function() {
   latitudeNode.appendChild(this.latitudeInput);
 
   this.latitudeInput.addEventListener('change', (inputNode) => {
-    let latitude = inputNode.getNode().value;
-    let location = /** @type {!Object} */ (this.getValue());
+    const latitude = inputNode.getNode().value;
+    const location = /** @type {!Object} */ (this.getValue());
     location['latitude'] = latitude;
     this.setValue(location);
   });
@@ -198,13 +198,13 @@ SUI.widget.Location.prototype._renderLatitudeInput = function() {
  * @return {undefined}
  */
 SUI.widget.Location.prototype._renderLongitudeInput = function() {
-  let id = SUI.generateId('longitude');
+  const id = SUI.generateId('longitude');
 
-  let longitudeBlockNode = new SUI.Node('div');
+  const longitudeBlockNode = new SUI.Node('div');
   longitudeBlockNode.addClass('col-6');
   this.advancedNode.appendChild(longitudeBlockNode);
 
-  let longitudeNode = new SUI.Node('div');
+  const longitudeNode = new SUI.Node('div');
   longitudeNode.addClass(['mdl-textfield', 'mdl-js-textfield', 'mdl-textfield--floating-label']);
   longitudeBlockNode.appendChild(longitudeNode);
 
@@ -221,8 +221,8 @@ SUI.widget.Location.prototype._renderLongitudeInput = function() {
   longitudeNode.appendChild(this.longitudeInput);
 
   this.longitudeInput.addEventListener('change', (inputNode) => {
-    let longitude = inputNode.getNode().value;
-    let location = /** @type {!Object} */ (this.getValue());
+    const longitude = inputNode.getNode().value;
+    const location = /** @type {!Object} */ (this.getValue());
     location['longitude'] = longitude;
     this.setValue(location);
   });
@@ -233,7 +233,7 @@ SUI.widget.Location.prototype._renderLongitudeInput = function() {
  * @return {undefined}
  */
 SUI.widget.Location.prototype._renderMap = function() {
-  let mapNode = new SUI.Node('div');
+  const mapNode = new SUI.Node('div');
   mapNode.addClass('map');
 
   this.inputBlock.appendChild(mapNode);
@@ -262,7 +262,7 @@ SUI.widget.Location.prototype._renderMap = function() {
  * @return {undefined}
  */
 SUI.widget.Location.prototype._setDefaultValue = function() {
-  let location = /** @type {!Object} */ (this.getValue());
+  const location = /** @type {!Object} */ (this.getValue());
   if (!SUI.isNull(location['latitude']) && !SUI.isNull(location['longitude'])) {
     this.map.setCenter(location['latitude'], location['longitude']);
     this.map.createMarker(0, '', 'marker', location['latitude'], location['longitude']);
@@ -279,7 +279,7 @@ SUI.widget.Location.prototype._setDefaultValue = function() {
  * @return {undefined}
  */
 SUI.widget.Location.prototype.updatePosition = function(latitude, longitude) {
-  let location = /** @type {!Object} */ (this.getValue());
+  const location = /** @type {!Object} */ (this.getValue());
   location['latitude'] = latitude;
   location['longitude'] = longitude;
   this.setValue(location);
@@ -321,7 +321,7 @@ SUI.widget.Location.prototype.setValue = function(value) {
  * @return {*}
  */
 SUI.widget.Location.prototype.getValue = function() {
-  let value = this.input.getData('value');
+  const value = this.input.getData('value');
   return SUI.typeCast(value);
 };
 

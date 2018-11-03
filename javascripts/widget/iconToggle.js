@@ -26,7 +26,7 @@ goog.inherits(SUI.widget.IconToggle, SUI.widget.BaseCheckbox);
 SUI.widget.IconToggle.prototype.render = function() {
   this.label.addClass(['mdl-icon-toggle', 'mdl-js-icon-toggle', 'mdl-js-ripple-effect']);
 
-  let icon = /** @type {string} */ (this.input.getData('icon'));
+  const icon = /** @type {string} */ (this.input.getData('icon'));
 
   this.icon = new SUI.Node('i');
   this.icon.addClass(['mdl-icon-toggle__label', 'material-icons']);
@@ -34,7 +34,7 @@ SUI.widget.IconToggle.prototype.render = function() {
 
   this.input.addClass('mdl-icon-toggle__input');
 
-  let labelText = this.label.getText();
+  const labelText = this.label.getText();
 
   this.spanLabel = new SUI.Node('span');
   this.spanLabel.addClass('mdl-icon__label');

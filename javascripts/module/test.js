@@ -23,9 +23,9 @@ SUI.Test.prototype.init = function() {
  * @return {undefined}
  */
 SUI.Test.prototype.run = function() {
-  for (let key in SUI.test) {
+  for (const key in SUI.test) {
     if (SUI.test.hasOwnProperty(key)) {
-      let test = new SUI.test[key]();
+      const test = new SUI.test[key]();
       test.init();
     }
   }

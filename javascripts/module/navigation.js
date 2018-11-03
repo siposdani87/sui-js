@@ -24,7 +24,7 @@ SUI.Navigation = function(opt_http, opt_options = {}) {
  * @return {undefined}
  */
 SUI.Navigation.prototype._setOptions = function(opt_options = {}) {
-  let _self = this;
+  const _self = this;
   _self.options = new SUI.Object();
   _self.options.merge(opt_options);
 };
@@ -42,12 +42,12 @@ SUI.Navigation.prototype._init = function() {
  * @return {undefined}
  */
 SUI.Navigation.prototype.add = function(item) {
-  let id = /** @type {string} */ (item.get('id'));
-  let image = /** @type {string} */ (item.get('image'));
-  let icon = /** @type {string} */ (item.get('icon'));
-  let title = /** @type {string} */ (item.get('title'));
-  let action = /** @type {!Function} */ (item.get('action'));
-  let disabled = /** @type {boolean} */ (item.get('disabled'));
+  const id = /** @type {string} */ (item.get('id'));
+  const image = /** @type {string} */ (item.get('image'));
+  const icon = /** @type {string} */ (item.get('icon'));
+  const title = /** @type {string} */ (item.get('title'));
+  const action = /** @type {!Function} */ (item.get('action'));
+  const disabled = /** @type {boolean} */ (item.get('disabled'));
 
   if (image) {
     this.addImage(id, image, title, action, item);
@@ -71,16 +71,16 @@ SUI.Navigation.prototype.add = function(item) {
  * @return {undefined}
  */
 SUI.Navigation.prototype.addIcon = function(id, icon, title, action, opt_data) {
-  let item = this._setItem(id, title, action, opt_data);
-  let iconNode = new SUI.Node('i');
+  const item = this._setItem(id, title, action, opt_data);
+  const iconNode = new SUI.Node('i');
   iconNode.addClass(['material-icons']);
   iconNode.setHtml(icon);
 
-  let imageSpan = new SUI.Node('span');
+  const imageSpan = new SUI.Node('span');
   imageSpan.addClass('image');
   imageSpan.appendChild(iconNode);
 
-  let node = item.get('node');
+  const node = item.get('node');
   node.beforeChild(imageSpan);
 };
 
@@ -93,18 +93,18 @@ SUI.Navigation.prototype.addIcon = function(id, icon, title, action, opt_data) {
  * @return {undefined}
  */
 SUI.Navigation.prototype.addImage = function(id, image, title, action, opt_data) {
-  let item = this._setItem(id, title, action, opt_data);
+  const item = this._setItem(id, title, action, opt_data);
 
-  let imageSpan = new SUI.Node('span');
+  const imageSpan = new SUI.Node('span');
   imageSpan.addClass('image');
 
   if (image.indexOf('.svg') !== -1) {
     this.http.get(image).then(function(data) {
-      let svgTag = new SUI.Query('svg', data).getItem();
+      const svgTag = new SUI.Query('svg', data).getItem();
       imageSpan.appendChild(svgTag);
     });
   } else {
-    let imageTag = new SUI.Node('img');
+    const imageTag = new SUI.Node('img');
     imageTag.setAttribute('src', image);
     if (title) {
       imageTag.setAttribute('alt', title);
@@ -112,7 +112,7 @@ SUI.Navigation.prototype.addImage = function(id, image, title, action, opt_data)
     imageSpan.appendChild(imageTag);
   }
 
-  let node = item.get('node');
+  const node = item.get('node');
   node.beforeChild(imageSpan);
 };
 
@@ -136,18 +136,18 @@ SUI.Navigation.prototype.addText = function(id, title, action, opt_data) {
  * @return {!SUI.Object}
  */
 SUI.Navigation.prototype._setItem = function(id, title, action, opt_data) {
-  let node = new SUI.Node('a');
+  const node = new SUI.Node('a');
   if (title) {
-    let titleSpan = new SUI.Node('span');
+    const titleSpan = new SUI.Node('span');
     titleSpan.addClass('title');
     titleSpan.setHtml(title);
     node.appendChild(titleSpan);
   }
   node.setAttribute('href', 'javascript:void(0)');
 
-  let listener = node.addEventListener('click', action);
+  const listener = node.addEventListener('click', action);
 
-  let item = new SUI.Object(opt_data);
+  const item = new SUI.Object(opt_data);
   item.merge({
     'id': id,
     'title': title,
@@ -178,7 +178,7 @@ SUI.Navigation.prototype.each = function(next) {
 SUI.Navigation.prototype.bindToContainer = function(containerNode) {
   containerNode.removeChildren();
   this.each((item) => {
-    let node = item.get('node');
+    const node = item.get('node');
     containerNode.appendChild(node);
   });
 };
@@ -188,7 +188,7 @@ SUI.Navigation.prototype.bindToContainer = function(containerNode) {
  * @return {undefined}
  */
 SUI.Navigation.prototype.setDisabled = function(id) {
-  let item = this.container.findById(id);
+  const item = this.container.findById(id);
   if (item) {
     this._disabled(item);
   }
@@ -200,7 +200,7 @@ SUI.Navigation.prototype.setDisabled = function(id) {
  * @return {undefined}
  */
 SUI.Navigation.prototype._disabled = function(item) {
-  let node = item.get('node');
+  const node = item.get('node');
   node.addClass('disabled');
   node.removeEventListener('click', item.get('listener'));
 };
@@ -210,7 +210,7 @@ SUI.Navigation.prototype._disabled = function(item) {
  * @return {undefined}
  */
 SUI.Navigation.prototype.setEnabled = function(id) {
-  let item = this.container.findById(id);
+  const item = this.container.findById(id);
   if (item) {
     this._enabled(item);
   }
@@ -223,9 +223,9 @@ SUI.Navigation.prototype.setEnabled = function(id) {
  */
 SUI.Navigation.prototype._enabled = function(item) {
   this._disabled(item);
-  let node = item.get('node');
+  const node = item.get('node');
   node.removeClass('disabled');
-  let listener = node.addEventListener('click', item.get('action'));
+  const listener = node.addEventListener('click', item.get('action'));
   item.set('listener', listener);
 };
 
@@ -235,9 +235,9 @@ SUI.Navigation.prototype._enabled = function(item) {
  */
 SUI.Navigation.prototype.setActive = function(id) {
   this.each(function(item) {
-    let node = item.get('node');
+    const node = item.get('node');
     node.removeClass('active');
-    let itemId = item.get('id');
+    const itemId = item.get('id');
     if (itemId[itemId.length - 1] === '.' && SUI.contain(id, itemId) || SUI.eq(id, itemId)) {
       node.addClass('active');
     }
@@ -249,7 +249,7 @@ SUI.Navigation.prototype.setActive = function(id) {
  */
 SUI.Navigation.prototype.setAllInactive = function() {
   this.each((item) => {
-    let node = item.get('node');
+    const node = item.get('node');
     node.removeClass('active');
   });
 };
@@ -259,9 +259,9 @@ SUI.Navigation.prototype.setAllInactive = function() {
  * @return {undefined}
  */
 SUI.Navigation.prototype.show = function(id) {
-  let item = this.container.findById(id);
+  const item = this.container.findById(id);
   if (item) {
-    let node = item.get('node');
+    const node = item.get('node');
     node.removeClass('hidden');
     this._enabled(item);
   }
@@ -272,9 +272,9 @@ SUI.Navigation.prototype.show = function(id) {
  * @return {undefined}
  */
 SUI.Navigation.prototype.hide = function(id) {
-  let item = this.container.findById(id);
+  const item = this.container.findById(id);
   if (item) {
-    let node = item.get('node');
+    const node = item.get('node');
     node.addClass('hidden');
     this._disabled(item);
   }

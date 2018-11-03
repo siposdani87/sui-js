@@ -31,9 +31,9 @@
  * @param {*} value
  * @return {!Object}
  */
-let _attributesToObject = function(object, attributes, value) {
+const _attributesToObject = function(object, attributes, value) {
   // TODO duplicated on Object._attributesToObject function
-  let lastAttribute = attributes.pop();
+  const lastAttribute = attributes.pop();
   let base = object;
   for (let i = 0; i < attributes.length; i++) {
     base = base[attributes[i]] = base[attributes[i]] || {};
@@ -132,7 +132,7 @@ SUI.debug = true;
 SUI.typeCast = function(value) {
   let result = value;
   if (SUI.isString(value) && !SUI.contain(/** @type {string} */(value), ' ')) {
-    let lowerCaseValue = value.toLowerCase();
+    const lowerCaseValue = value.toLowerCase();
     if (SUI.eq(lowerCaseValue, '')) {
       result = '';
     } else if (SUI.eq(lowerCaseValue, 'undefined')) {
@@ -193,8 +193,8 @@ SUI.invoke = function(baseModule, baseModuleArgs, opt_extendModule, opt_extendMo
  * @return {!Object|undefined}
  */
 SUI.merge = function(objA, objB) {
-  let obj = SUI.copy(objA);
-  for (let key in objB) {
+  const obj = SUI.copy(objA);
+  for (const key in objB) {
     if (objB.hasOwnProperty(key)) {
       if (SUI.isObject(objB[key].constructor)) {
         obj[key] = SUI.merge(obj[key], objB[key]);
@@ -216,7 +216,7 @@ SUI.merge = function(objA, objB) {
  */
 SUI.format = function(str, opt_params, opt_prefix = '\\{', opt_postfix = '\\}') {
   SUI.each(opt_params, (value, key) => {
-    let regex = new RegExp(opt_prefix + key + opt_postfix, 'gm');
+    const regex = new RegExp(opt_prefix + key + opt_postfix, 'gm');
     str = str.replace(regex, value);
   });
   return str;
@@ -504,7 +504,7 @@ SUI.eachArray = function(items, next, opt_start, opt_end) {
  * @return {undefined}
  */
 SUI.eachObject = function(object, next) {
-  for (let key in object) {
+  for (const key in object) {
     if (object.hasOwnProperty(key)) {
       next(object[key], key);
     }
@@ -520,7 +520,7 @@ SUI.eachObject = function(object, next) {
  * @return {undefined}
  */
 SUI.sleepEach = function(next, i, length, duration) {
-  let loop = function() {
+  const loop = function() {
     next(i);
     i++;
     if (i < length) {
@@ -558,7 +558,7 @@ SUI.clearArray = function(items) {
  * @return {undefined}
  */
 SUI.clearObject = function(items) {
-  for (let key in items) {
+  for (const key in items) {
     if (items.hasOwnProperty(key)) {
       delete items[key];
     }
@@ -591,8 +591,8 @@ SUI.contain = function(str, subStr) {
  * @return {boolean}
  */
 SUI.isSame = function(a, b) {
-  let strA = JSON.stringify(a);
-  let strB = JSON.stringify(b);
+  const strA = JSON.stringify(a);
+  const strB = JSON.stringify(b);
   if (SUI.isObject(a) && SUI.isObject(b) && SUI.eq(strA.length, strB.length)) {
     let result = true;
     SUI.eachObject(/** @type {!Object} */ (a), (value, key) => {
@@ -612,7 +612,7 @@ SUI.isSame = function(a, b) {
  * @return {undefined}
  */
 SUI.remove = function(items, item) {
-  let position = items.indexOf(item);
+  const position = items.indexOf(item);
   if (SUI.neq(position, -1)) {
     items.splice(position, 1);
   }
@@ -718,9 +718,9 @@ SUI.capitalize = function(str) {
  * @return {!Array}
  */
 SUI.pluck = function(items, attribute) {
-  let results = [];
+  const results = [];
   SUI.each(items, (item) => {
-    let result = item.get(attribute);
+    const result = item.get(attribute);
     results.push(result);
   });
   return results;
@@ -733,7 +733,7 @@ SUI.pluck = function(items, attribute) {
  * @return {!Array}
  */
 SUI.pluckKeys = function(obj, condition) {
-  let results = [];
+  const results = [];
   SUI.eachObject(obj, (value, key) => {
     if (condition(value)) {
       results.push(key);
@@ -755,8 +755,8 @@ SUI.currency = function(price, opt_delimiter = ' ', opt_separator = ',', opt_pre
     price = 0;
   }
   price = Math10.round(price, opt_precision * -1);
-  let parts = price.toFixed(opt_precision).toString().split('.');
-  let decimal = parts[1];
+  const parts = price.toFixed(opt_precision).toString().split('.');
+  const decimal = parts[1];
   let currency = parts[0].split('').reverse().map((char, index) => {
     return !(index % 3) && index ? char + opt_delimiter : char;
   }).reverse().join('');
@@ -773,7 +773,7 @@ SUI.currency = function(price, opt_delimiter = ' ', opt_separator = ',', opt_pre
  * @return {string}
  */
 SUI.number = function(num, exp) {
-  let si = [
+  const si = [
     {value: 1E24, symbol: 'Y'},
     {value: 1E21, symbol: 'Z'},
     {value: 1E18, symbol: 'E'},
@@ -784,7 +784,7 @@ SUI.number = function(num, exp) {
     {value: 1E3, symbol: 'k'},
     {value: 0, symbol: ''},
   ];
-  let rx = /\.0+$|(\.[0-9]*[1-9])0+$/;
+  const rx = /\.0+$|(\.[0-9]*[1-9])0+$/;
   let result = Math10.round(num, exp).toString().replace(rx, '$1');
   let i = 0;
   while (i < si.length && num < si[i].value) {
@@ -844,7 +844,7 @@ SUI.reactUnmount = function(mountNode) {
 SUI.mapLabel = function(marker, title) {
   // https://github.com/googlemaps/js-map-label/blob/gh-pages/src/maplabel.js
   // https://googlemaps.github.io/js-map-label/docs/reference.html
-  let mapLabel = new window['MapLabel']({
+  const mapLabel = new window['MapLabel']({
     'text': title,
     'strokeWeight': 2,
     'fontFamily': 'sans-serif',
@@ -880,7 +880,7 @@ SUI.mapText = function(title, position, map) {
  * @return {string}
  */
 SUI.encrypt = function(value, passPhrase) {
-  let item = JSON.stringify(value);
+  const item = JSON.stringify(value);
   return window['CryptoJS']['AES']['encrypt'](item, passPhrase);
 };
 
@@ -891,7 +891,7 @@ SUI.encrypt = function(value, passPhrase) {
  * @return {*}
  */
 SUI.decrypt = function(item, passPhrase) {
-  let value = window['CryptoJS']['AES']['decrypt'](item, passPhrase)['toString'](window['CryptoJS']['enc']['Utf8']);
+  const value = window['CryptoJS']['AES']['decrypt'](item, passPhrase)['toString'](window['CryptoJS']['enc']['Utf8']);
   return JSON.parse(value || 'null');
 };
 
@@ -910,7 +910,7 @@ SUI.md5 = function(str) {
  * @return {string}
  */
 SUI.generateId = function(name) {
-  let guid = SUI.guid();
+  const guid = SUI.guid();
   return [name, guid].join('-');
 };
 
@@ -975,9 +975,9 @@ SUI.scrollTo = function(x, y, opt_duration = 500, opt_step = 20) {
  * @return {undefined}
  */
 SUI.scrollToElement = function(selector, opt_duration = 500, opt_step = 20) {
-  let node = new SUI.Query(selector).getItem();
-  let element = node.getNode();
-  let y = element.offsetTop;
+  const node = new SUI.Query(selector).getItem();
+  const element = node.getNode();
+  const y = element.offsetTop;
   SUI.scrollTo(0, y, opt_duration, opt_step);
 };
 
@@ -991,11 +991,11 @@ SUI.scrollToElement = function(selector, opt_duration = 500, opt_step = 20) {
 SUI.debounce = function(func, opt_wait = 250, opt_immediate = false) {
   let timeout;
   return function(...args) {
-    let later = function() {
+    const later = function() {
       timeout = null;
       if (!opt_immediate) func(...args);
     };
-    let callNow = opt_immediate && !timeout;
+    const callNow = opt_immediate && !timeout;
     clearTimeout(timeout);
     timeout = setTimeout(later, opt_wait);
     if (callNow) func(...args);
@@ -1009,8 +1009,8 @@ SUI.debounce = function(func, opt_wait = 250, opt_immediate = false) {
  * @return {string}
  */
 SUI.urlWithQueryString = function(url, opt_params) {
-  let queryString = SUI.getQueryString(opt_params);
-  let separator = SUI.contain(url, '?') ? '&' : '?';
+  const queryString = SUI.getQueryString(opt_params);
+  const separator = SUI.contain(url, '?') ? '&' : '?';
   return url + (queryString ? separator + queryString : '');
 };
 
@@ -1020,7 +1020,7 @@ SUI.urlWithQueryString = function(url, opt_params) {
  * @return {string}
  */
 SUI.getQueryString = function(opt_params) {
-  let queries = [];
+  const queries = [];
   SUI.each(opt_params, function(param, key) {
     if (SUI.isArray(param)) {
       SUI.eachArray(param, (value) => {
@@ -1039,7 +1039,7 @@ SUI.getQueryString = function(opt_params) {
  * @return {string}
  */
 SUI.getExtensionName = function(url) {
-  let realUrl = url.split('?', 2)[0];
+  const realUrl = url.split('?', 2)[0];
   return realUrl.slice((Math.max(0, realUrl.lastIndexOf('.')) || Infinity) + 1);
 };
 
@@ -1049,9 +1049,9 @@ SUI.getExtensionName = function(url) {
  * @return {!Array}
  */
 SUI.hexColorToRGB = function(hexColor) {
-  let red = parseInt(hexColor.substr(1, 2), 16);
-  let green = parseInt(hexColor.substr(3, 2), 16);
-  let blue = parseInt(hexColor.substr(5, 2), 16);
+  const red = parseInt(hexColor.substr(1, 2), 16);
+  const green = parseInt(hexColor.substr(3, 2), 16);
+  const blue = parseInt(hexColor.substr(5, 2), 16);
   return [red, green, blue];
 };
 
@@ -1063,7 +1063,7 @@ SUI.hexColorToRGB = function(hexColor) {
  * @return {string}
  */
 SUI.RGBtoHexColor = function(red, green, blue) {
-  let colors = [red, green, blue];
+  const colors = [red, green, blue];
   for (let i = 0; i < colors.length; i++) {
     if (colors[i] <= 16) {
       colors[i] = '0' + colors[i].toString(16);
@@ -1082,8 +1082,8 @@ SUI.RGBtoHexColor = function(red, green, blue) {
  * @return {string}
  */
 SUI.colorContrastYIQ = function(hexColor, opt_lightColor = '#FEFEFE', opt_darkColor = '#252525') {
-  let colors = SUI.hexColorToRGB(hexColor);
-  let yiq = ((colors[0] * 299) + (colors[1] * 587) + (colors[2] * 114)) / 1000;
+  const colors = SUI.hexColorToRGB(hexColor);
+  const yiq = ((colors[0] * 299) + (colors[1] * 587) + (colors[2] * 114)) / 1000;
   return yiq >= 128 ? opt_darkColor : opt_lightColor;
 };
 
@@ -1094,7 +1094,7 @@ SUI.colorContrastYIQ = function(hexColor, opt_lightColor = '#FEFEFE', opt_darkCo
  * @return {string}
  */
 SUI.colorContrast = function(hexColor, opt_diff = .5) {
-  let colors = SUI.hexColorToRGB(hexColor);
+  const colors = SUI.hexColorToRGB(hexColor);
   for (let i = 0; i < colors.length; i++) {
     colors[i] += Math.round((colors[i] * opt_diff));
     if (colors[i] < 0) {
@@ -1137,8 +1137,8 @@ SUI.denyKeys = function(obj, keys) {
  * @return {!Object}
  */
 SUI.filterKeys = function(obj, condition) {
-  let copyObj = new SUI.Object(obj).copy();
-  let resultObj = new SUI.Object();
+  const copyObj = new SUI.Object(obj).copy();
+  const resultObj = new SUI.Object();
   copyObj.each((value, key) => {
     if (condition(key)) {
       resultObj.set(key, value);

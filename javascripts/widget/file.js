@@ -42,8 +42,8 @@ SUI.widget.File.prototype._init = function() {
   });
 
   this.input.addEventListener('change', (inputNode) => {
-    let input = inputNode.getNode();
-    let file = input.files[0];
+    const input = inputNode.getNode();
+    const file = input.files[0];
     this._read(file);
   });
 };
@@ -75,9 +75,9 @@ SUI.widget.File.prototype.refresh = function() {
  */
 SUI.widget.File.prototype._read = function(file) {
   if (file) {
-    let reader = new FileReader();
+    const reader = new FileReader();
     reader.onload = (event) => {
-      let source = /** @type {string} */ (event.target.result);
+      const source = /** @type {string} */ (event.target.result);
       if (!this.imageTag.isEmpty()) {
         this.imageTag.setAttribute('src', source);
       }

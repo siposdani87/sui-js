@@ -28,7 +28,7 @@ SUI.Table = function(dom, opt_selector = 'table', opt_options = {}) {
  * @return {undefined}
  */
 SUI.Table.prototype._setOptions = function(opt_options = {}) {
-  let _self = this;
+  const _self = this;
   _self.options = new SUI.Object({
     no_content: {
       image_url: null,
@@ -76,25 +76,25 @@ SUI.Table.prototype._initContentHandler = function() {
  */
 SUI.Table.prototype._initSearch = function() {
   if (this.options.columns[this.options.columns.length - 1] === 'search') {
-    let searchNode = new SUI.Node('div');
+    const searchNode = new SUI.Node('div');
     searchNode.addClass(['mdl-textfield', 'mdl-js-textfield', 'mdl-textfield--expandable']);
     this.headerNodes.get(this.headerNodes.size() - 1).insert(searchNode);
 
-    let labelNode = new SUI.Node('label');
+    const labelNode = new SUI.Node('label');
     labelNode.addClass(['mdl-button', 'mdl-js-button', 'mdl-button--icon']);
     labelNode.setFor('table-search');
     searchNode.appendChild(labelNode);
 
-    let iconNode = new SUI.Node('i');
+    const iconNode = new SUI.Node('i');
     iconNode.addClass('material-icons');
     iconNode.setHtml('search');
     labelNode.appendChild(iconNode);
 
-    let inputBlock = new SUI.Node('div');
+    const inputBlock = new SUI.Node('div');
     inputBlock.addClass('mdl-textfield__expandable-holder');
     searchNode.appendChild(inputBlock);
 
-    let inputNode = new SUI.Node('input');
+    const inputNode = new SUI.Node('input');
     inputNode.setAttribute('type', 'text');
     inputNode.setId('table-search');
     inputNode.addClass('mdl-textfield__input');
@@ -106,7 +106,7 @@ SUI.Table.prototype._initSearch = function() {
     });
     inputBlock.appendChild(inputNode);
 
-    let subLabelNode = new SUI.Node('label');
+    const subLabelNode = new SUI.Node('label');
     subLabelNode.addClass('mdl-textfield__label');
     inputBlock.appendChild(subLabelNode);
 
@@ -122,7 +122,7 @@ SUI.Table.prototype._initHeader = function() {
   this.headerTexts = [];
   this.headerNodes = new SUI.Query('thead th', this.tableNode);
   this.headerNodes.each((headerNode, index) => {
-    let text = headerNode.getHtml();
+    const text = headerNode.getHtml();
     this.headerTexts.push(text);
     this._renderHeader(headerNode, index);
   });
@@ -135,39 +135,39 @@ SUI.Table.prototype._initHeader = function() {
  * @return {undefined}
  */
 SUI.Table.prototype._renderHeader = function(headerNode, index) {
-  let column = this.options.columns[index];
+  const column = this.options.columns[index];
   if (SUI.inArray(['search', 'actions'], column)) {
     headerNode.addClass('actions');
   }
-  let columnsWithOrder = this.options.sorted.filter((sort) => {
+  const columnsWithOrder = this.options.sorted.filter((sort) => {
     return SUI.contain(sort, column);
   });
   if (columnsWithOrder.length === 1) {
     headerNode.setData('column', columnsWithOrder[0]);
     headerNode.addEventListener('click', (headerNode) => {
-      let column = headerNode.getData('column');
+      const column = headerNode.getData('column');
       this._toggleSorting(column);
     });
 
-    let iconsNode = new SUI.Node('span');
+    const iconsNode = new SUI.Node('span');
     iconsNode.addClass('icons');
     headerNode.appendChild(iconsNode);
 
-    let iconUp = new SUI.Node('i');
+    const iconUp = new SUI.Node('i');
     iconUp.addClass(['material-icons', 'asc']);
     iconUp.setHtml('arrow_drop_up');
     iconsNode.appendChild(iconUp);
 
-    let iconDown = new SUI.Node('i');
+    const iconDown = new SUI.Node('i');
     iconDown.addClass(['material-icons', 'desc']);
     iconDown.setHtml('arrow_drop_down');
     iconsNode.appendChild(iconDown);
   }
 
-  let headerTitle = headerNode.getAttribute('title');
-  let headerDesc = headerNode.getAttribute('desc');
+  const headerTitle = headerNode.getAttribute('title');
+  const headerDesc = headerNode.getAttribute('desc');
   if (headerTitle || headerDesc) {
-    let iconInfo = new SUI.Node('i');
+    const iconInfo = new SUI.Node('i');
     if (headerTitle) {
       iconInfo.setAttribute('desc', headerTitle);
     }
@@ -177,7 +177,7 @@ SUI.Table.prototype._renderHeader = function(headerNode, index) {
     iconInfo.addClass(['material-icons', 'info']);
     iconInfo.setHtml('info_outline');
     headerNode.appendChild(iconInfo);
-    let tooltip = new SUI.Tooltip(iconInfo, 'BOTTOM');
+    const tooltip = new SUI.Tooltip(iconInfo, 'BOTTOM');
     tooltip.render();
   }
 };
@@ -193,13 +193,13 @@ SUI.Table.prototype._initStructure = function() {
   this.tfoot = new SUI.Node('tfoot');
   this.tableNode.appendChild(this.tfoot);
 
-  let footerRow = new SUI.Node('tr');
+  const footerRow = new SUI.Node('tr');
 
-  let statisticsNode = new SUI.Node('td');
+  const statisticsNode = new SUI.Node('td');
   statisticsNode.addClass('pager-statistics');
   footerRow.appendChild(statisticsNode);
 
-  let pagerNode = new SUI.Node('td');
+  const pagerNode = new SUI.Node('td');
   pagerNode.addClass('pager');
   pagerNode.setAttribute('colspan', this.headerNodes.size() - 1);
   footerRow.appendChild(pagerNode);
@@ -220,7 +220,7 @@ SUI.Table.prototype.refresh = function(opt_page = -1) {
   if (opt_page > -1) {
     this.pager.setPage(opt_page);
   }
-  let params = new SUI.Object({
+  const params = new SUI.Object({
     'query': this.query,
     'column': this.options.sort.column,
     'order': this.options.sort.order,
@@ -259,9 +259,9 @@ SUI.Table.prototype._toggleSorting = function(columnWithOrder) {
  * @return {undefined}
  */
 SUI.Table.prototype._handleSortingColumn = function(head, i) {
-  let column = this.options.columns[i];
+  const column = this.options.columns[i];
   if ((SUI.eq(this.options.sort.column, null) && SUI.eq(i, 0)) || SUI.eq(column, this.options.sort.column)) {
-    let iconNode = new SUI.Query(SUI.format('.icons i.{0}', [this.options.sort.order]), head).getItem();
+    const iconNode = new SUI.Query(SUI.format('.icons i.{0}', [this.options.sort.order]), head).getItem();
     if (!iconNode.isEmpty()) {
       iconNode.addClass('active');
     }
@@ -297,7 +297,7 @@ SUI.Table.prototype._setSorting = function(column, opt_order = 'asc') {
  * @return {undefined}
  */
 SUI.Table.prototype._resetSorting = function() {
-  let icons = new SUI.Query('thead th .icons i', this.tableNode);
+  const icons = new SUI.Query('thead th .icons i', this.tableNode);
   icons.each(function(icon) {
     icon.removeClass('active');
   });
@@ -317,21 +317,21 @@ SUI.Table.prototype._getColumn = function() {
  * @return {undefined}
  */
 SUI.Table.prototype._addHeaderRow = function(item) {
-  let headerRow = new SUI.Node('tr');
+  const headerRow = new SUI.Node('tr');
   headerRow.addEventListener('click', (node) => {
     node.toggleClass('active');
-    let dataRow = headerRow.getNextSibling();
+    const dataRow = headerRow.getNextSibling();
     dataRow.toggleClass('open');
   });
   headerRow.addClass('header');
   this.tbody.appendChild(headerRow);
 
-  let headerNameCell = new SUI.Node('td');
+  const headerNameCell = new SUI.Node('td');
   headerRow.appendChild(headerNameCell);
   this._renderDataNodeByItem(item, this._getColumn(), headerNameCell);
   headerNameCell.setAttribute('colspan', this.headerNodes.size() - 2);
 
-  let headerActionCell = new SUI.Node('td');
+  const headerActionCell = new SUI.Node('td');
   headerRow.appendChild(headerActionCell);
   this._renderActions(headerActionCell, item);
 };
@@ -342,11 +342,11 @@ SUI.Table.prototype._addHeaderRow = function(item) {
  * @return {undefined}
  */
 SUI.Table.prototype._addRow = function(item) {
-  let tableRow = new SUI.Node('tr');
+  const tableRow = new SUI.Node('tr');
   tableRow.addClass('data');
   this.tbody.appendChild(tableRow);
   SUI.each(this.options.columns, (column, index) => {
-    let tableDataNode = new SUI.Node('td');
+    const tableDataNode = new SUI.Node('td');
     tableRow.appendChild(tableDataNode);
     this._renderDataNode(tableDataNode, item, column, index);
   });
@@ -369,18 +369,18 @@ SUI.Table.prototype.setActions = function(actions) {
  */
 SUI.Table.prototype._renderDataNodeByItem = function(item, column, parentNode) {
   let dataNode = item.get(column, '');
-  let calculation = this.options.calculations[column];
+  const calculation = this.options.calculations[column];
   if (SUI.isFunction(calculation)) {
     dataNode = calculation(item, parentNode);
   }
   if (!SUI.instanceOf(dataNode, SUI.Node)) {
-    let node = new SUI.Node('span');
+    const node = new SUI.Node('span');
     node.setHtml(/** @type {string} */(dataNode));
     dataNode = node;
   }
   parentNode.appendChild(/** @type {!SUI.Node} */ (dataNode));
   if (dataNode.getAttribute('title') || dataNode.getAttribute('desc')) {
-    let tooltip = new SUI.Tooltip(/** @type {!SUI.Node} */ (dataNode));
+    const tooltip = new SUI.Tooltip(/** @type {!SUI.Node} */ (dataNode));
     tooltip.render();
   }
 };
@@ -397,7 +397,7 @@ SUI.Table.prototype._renderDataNode = function(tableDataNode, item, column, inde
   if (SUI.inArray(['search', 'actions'], column)) {
     this._renderActions(tableDataNode, item);
   } else {
-    let labelNode = new SUI.Node('span');
+    const labelNode = new SUI.Node('span');
     labelNode.addClass('label');
     labelNode.setHtml(this.headerTexts[index]);
     this._renderHeader(labelNode, index);
@@ -414,7 +414,7 @@ SUI.Table.prototype._renderDataNode = function(tableDataNode, item, column, inde
  * @return {undefined}
  */
 SUI.Table.prototype._renderActions = function(tableDataNode, item) {
-  let containerNode = new SUI.Node('div');
+  const containerNode = new SUI.Node('div');
   tableDataNode.addClass('actions');
   tableDataNode.appendChild(containerNode);
   if (this.actions.length > 3) {
@@ -444,7 +444,7 @@ SUI.Table.prototype._renderActionNodes = function(containerNode, item) {
  * @return {undefined}
  */
 SUI.Table.prototype._renderDropDownNode = function(dropDownNode, item) {
-  let dropDown = new SUI.Dropdown(dropDownNode);
+  const dropDown = new SUI.Dropdown(dropDownNode);
   dropDown.setActions(this.actions, item);
 };
 
@@ -456,9 +456,9 @@ SUI.Table.prototype._renderDropDownNode = function(dropDownNode, item) {
  * @return {undefined}
  */
 SUI.Table.prototype._createActionButton = function(containerNode, action, item) {
-  let [icon, title, disabled, removed] = action.style(item);
+  const [icon, title, disabled, removed] = action.style(item);
   if (!removed) {
-    let buttonNode = new SUI.Node('button');
+    const buttonNode = new SUI.Node('button');
     containerNode.appendChild(buttonNode);
     buttonNode.addClass(['mdl-button', 'mdl-js-button', 'mdl-button--icon', 'mdl-button--primary']);
     if (disabled) {
@@ -469,10 +469,10 @@ SUI.Table.prototype._createActionButton = function(containerNode, action, item) 
       });
     }
     if (title) {
-      let tooltip = new SUI.Tooltip(buttonNode);
+      const tooltip = new SUI.Tooltip(buttonNode);
       tooltip.render(title);
     }
-    let iconNode = new SUI.Node('i');
+    const iconNode = new SUI.Node('i');
     iconNode.addClass('material-icons');
     iconNode.setHtml(/** @type {string} */(icon));
     buttonNode.appendChild(iconNode);

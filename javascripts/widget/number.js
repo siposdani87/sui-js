@@ -30,14 +30,14 @@ SUI.widget.Number.prototype._init = function() {
 
   this.input.addEventListener('keyup', (input) => {
     this._checkValue();
-    let value = this.getValue();
+    const value = this.getValue();
     this.modelChange(value);
     this.checkValidity(true);
   });
 
   this.input.addEventListener('change', (input) => {
     this._checkValue();
-    let value = this.getValue();
+    const value = this.getValue();
     this.modelChange(value);
     this.checkValidity(true);
   });
@@ -48,7 +48,7 @@ SUI.widget.Number.prototype._init = function() {
  * @return {undefined}
  */
 SUI.widget.Number.prototype._initButtons = function() {
-  let upButton = new SUI.Node('a');
+  const upButton = new SUI.Node('a');
   upButton.setAttribute('href', 'javascript:void(0)');
   upButton.addClass(['up-button', 'material-icons']);
   upButton.setHtml('keyboard_arrow_up');
@@ -60,7 +60,7 @@ SUI.widget.Number.prototype._initButtons = function() {
   });
   this.inputBlock.appendChild(upButton);
 
-  let downButton = new SUI.Node('a');
+  const downButton = new SUI.Node('a');
   downButton.setAttribute('href', 'javascript:void(0)');
   downButton.addClass(['down-button', 'material-icons']);
   downButton.setHtml('keyboard_arrow_down');
@@ -78,12 +78,12 @@ SUI.widget.Number.prototype._initButtons = function() {
  * @return {undefined}
  */
 SUI.widget.Number.prototype._checkValue = function() {
-  let value = /** @type {number} */ (this.getValue());
-  let min = this._getMin();
+  const value = /** @type {number} */ (this.getValue());
+  const min = this._getMin();
   if (value < min) {
     this.setValue(min);
   }
-  let max = this._getMax();
+  const max = this._getMax();
   if (value > max) {
     this.setValue(max);
   }
@@ -94,7 +94,7 @@ SUI.widget.Number.prototype._checkValue = function() {
  * @return {number}
  */
 SUI.widget.Number.prototype._getMax = function() {
-  let max = this.input.getAttribute('max') || 9999999999;
+  const max = this.input.getAttribute('max') || 9999999999;
   return /** @type {number} */ (SUI.typeCast(max));
 };
 
@@ -103,7 +103,7 @@ SUI.widget.Number.prototype._getMax = function() {
  * @return {number}
  */
 SUI.widget.Number.prototype._getMin = function() {
-  let min = this.input.getAttribute('min') || 0;
+  const min = this.input.getAttribute('min') || 0;
   return /** @type {number} */ (SUI.typeCast(min));
 };
 
@@ -112,7 +112,7 @@ SUI.widget.Number.prototype._getMin = function() {
  * @return {number}
  */
 SUI.widget.Number.prototype._getStep = function() {
-  let step = this.input.getAttribute('step') || 1;
+  const step = this.input.getAttribute('step') || 1;
   return /** @type {number} */ (SUI.typeCast(step));
 };
 

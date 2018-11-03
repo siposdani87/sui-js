@@ -70,10 +70,10 @@ SUI.PopupContainer.prototype.closeAll = function() {
  * @return {undefined}
  */
 SUI.PopupContainer.prototype.setPosition = function(popupNode) {
-  let containerNode = this.container.getNode();
+  const containerNode = this.container.getNode();
 
-  let top = containerNode.offsetHeight - containerNode.scrollHeight;
-  let absoluteTop = top === 0 ? 'auto' : top + 'px';
+  const top = containerNode.offsetHeight - containerNode.scrollHeight;
+  const absoluteTop = top === 0 ? 'auto' : top + 'px';
 
   // let left = containerNode.offsetWidth - containerNode.scrollWidth;
   // let absoluteLeft = left === 0 ? 'auto' : left + 'px';

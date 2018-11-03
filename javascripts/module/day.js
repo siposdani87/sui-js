@@ -30,8 +30,8 @@ SUI.Day.prototype._setOptions = function(options) {
  * @return {undefined}
  */
 SUI.Day.prototype._init = function() {
-  let current = window['moment'](this.date)['isSame'](this.currentDate['format']('YYYY-MM-DD')) ? 'current' : null;
-  let now = window['moment'](this.date)['isSame'](window['moment']()['format']('YYYY-MM-DD')) ? 'now' : null;
+  const current = window['moment'](this.date)['isSame'](this.currentDate['format']('YYYY-MM-DD')) ? 'current' : null;
+  const now = window['moment'](this.date)['isSame'](window['moment']()['format']('YYYY-MM-DD')) ? 'now' : null;
   this.cssClasses = ['day', this.options.css_class, now, current];
 };
 
@@ -39,9 +39,9 @@ SUI.Day.prototype._init = function() {
  * @return {!SUI.Node}
  */
 SUI.Day.prototype.getNode = function() {
-  let node = new SUI.Node('span');
+  const node = new SUI.Node('span');
   node.addClass(this.cssClasses);
-  let text = parseInt(this.date['format']('DD'), 10);
+  const text = parseInt(this.date['format']('DD'), 10);
   node.setHtml(text);
   node.addEventListener('click', () => {
     this.eventClick(this.date);

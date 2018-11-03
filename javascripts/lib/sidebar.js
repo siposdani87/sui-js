@@ -78,7 +78,7 @@ SUI.lib.Sidebar.prototype.hide = function() {
  * @return {undefined}
  */
 SUI.lib.Sidebar.prototype.setButtonPosition = function(scrollTop, windowHeight) {
-  let height = Math.round(scrollTop + (windowHeight / 2));
+  const height = Math.round(scrollTop + (windowHeight / 2));
   this.button.setStyle({
     'top': height + 'px',
   });

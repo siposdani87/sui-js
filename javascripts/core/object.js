@@ -21,7 +21,7 @@ SUI.Object.prototype.constructor = SUI.Object;
  */
 SUI.Object.prototype.merge = function(object) {
   if (SUI.isObject(object)) {
-    for (let key in object) {
+    for (const key in object) {
       if (object.hasOwnProperty(key)) {
         if (!SUI.isNull(object[key]) && SUI.isObject(object[key]) && !SUI.isArray(object[key])) {
           if (!SUI.instanceOf(this[key], SUI.Object)) {
@@ -62,7 +62,7 @@ SUI.Object.prototype.speedGet = function(opt_attribute, opt_defaultValue, opt_is
   let value = this;
   if (opt_attribute) {
     value = this[opt_attribute];
-    let attributes = opt_isSafe ? [opt_attribute] : opt_attribute.split('.');
+    const attributes = opt_isSafe ? [opt_attribute] : opt_attribute.split('.');
     if (attributes.length > 1) {
       let properties = this;
       let i = 0;
@@ -87,7 +87,7 @@ SUI.Object.prototype.speedGet = function(opt_attribute, opt_defaultValue, opt_is
 SUI.Object.prototype.get = function(opt_attribute, opt_defaultValue, opt_isSafe = false) {
   let value = this;
   if (opt_attribute) {
-    let attributes = opt_isSafe ? [opt_attribute] : opt_attribute.split('.');
+    const attributes = opt_isSafe ? [opt_attribute] : opt_attribute.split('.');
     value = this._get(this, attributes);
   }
   return !SUI.isUndefined(value) ? value : opt_defaultValue;
@@ -104,7 +104,7 @@ SUI.Object.prototype._get = function(object, attributes) {
     if (attributes.length === 1 && property === attributes[0]) {
       result = object[property];
     } else if (property === attributes[0] && !SUI.isNull(object[property]) && SUI.isObject(object[property])) {
-      let copyAttributes = SUI.copy(attributes);
+      const copyAttributes = SUI.copy(attributes);
       copyAttributes.shift();
       result = this._get(object[property], copyAttributes);
     }
@@ -123,7 +123,7 @@ SUI.Object.prototype._set = function(object, attributes, value) {
     if (attributes.length === 1 && property === attributes[0]) {
       object[property] = value;
     } else if (property === attributes[0] && !SUI.isNull(object[property]) && SUI.isObject(object[property])) {
-      let copyAttributes = SUI.copy(attributes);
+      const copyAttributes = SUI.copy(attributes);
       copyAttributes.shift();
       this._set(object[property], copyAttributes, value);
     }
@@ -149,7 +149,7 @@ SUI.Object.prototype.set = function(attribute, value) {
  */
 SUI.Object.prototype.setRaw = function(attribute, value, opt_isSafe = false) {
   this.set(attribute, null);
-  let attributes = opt_isSafe ? [attribute] : attribute.split('.');
+  const attributes = opt_isSafe ? [attribute] : attribute.split('.');
   this._set(this, attributes, value);
 };
 
@@ -158,7 +158,7 @@ SUI.Object.prototype.setRaw = function(attribute, value, opt_isSafe = false) {
  * @return {undefined}
  */
 SUI.Object.prototype.remove = function(attribute) {
-  let attributes = attribute.split('.');
+  const attributes = attribute.split('.');
   this._remove(this, attributes);
 };
 
@@ -175,12 +175,12 @@ SUI.Object.prototype.clear = function() {
  * @return {undefined}
  */
 SUI.Object.prototype._remove = function(object, attributes) {
-  for (let property in object) {
+  for (const property in object) {
     if (object.hasOwnProperty(property)) {
       if (attributes.length === 1 && property === attributes[0]) {
         delete object[property];
       } else if (property === attributes[0] && !SUI.isNull(object[property]) && SUI.isObject(object[property])) {
-        let copyAttributes = SUI.copy(attributes);
+        const copyAttributes = SUI.copy(attributes);
         copyAttributes.shift();
         this._remove(object[property], copyAttributes);
       }
@@ -195,12 +195,12 @@ SUI.Object.prototype._remove = function(object, attributes) {
  * @return {undefined}
  */
 SUI.Object.prototype.each = function(next, opt_properties, opt_attributes) {
-  let properties = opt_properties || this;
-  let attributes = opt_attributes || [];
+  const properties = opt_properties || this;
+  const attributes = opt_attributes || [];
 
   SUI.eachObject(properties, function(value, property) {
     if (!SUI.isNull(value) && SUI.isObject(value)) {
-      let attributesCopy = SUI.copy(attributes);
+      const attributesCopy = SUI.copy(attributes);
       attributesCopy.push(property);
       this.each(next, value, attributesCopy);
     } else {
@@ -216,7 +216,7 @@ SUI.Object.prototype.each = function(next, opt_properties, opt_attributes) {
  * @return {!Object}
  */
 SUI.Object.prototype._attributesToObject = function(object, attributes, value) {
-  let lastAttribute = attributes.pop();
+  const lastAttribute = attributes.pop();
   let base = object;
   for (let i = 0; i < attributes.length; i++) {
     base = base[attributes[i]] = base[attributes[i]] || {};

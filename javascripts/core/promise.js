@@ -9,7 +9,7 @@ goog.require('SUI.Object');
  * @param {!Object=} opt_options
  */
 SUI.Promise = function(opt_options = {}) {
-  let _self = this;
+  const _self = this;
   _self.options = new SUI.Object({
     status: null,
     data: null,
@@ -61,8 +61,8 @@ SUI.Promise.prototype._reject = function(opt_data) {
  * @return {undefined}
  */
 SUI.Promise.prototype.then = function(resolve, opt_reject, opt_complete) {
-  let reject = opt_reject || SUI.noop();
-  let complete = opt_complete || SUI.noop();
+  const reject = opt_reject || SUI.noop();
+  const complete = opt_complete || SUI.noop();
   switch (this.options.status) {
     case true:
       resolve.apply(this, this.options.data);
