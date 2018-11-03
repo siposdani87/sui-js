@@ -23,7 +23,7 @@ SUI.Dropdown = function(element, opt_options = {}) {
  * @return {undefined}
  */
 SUI.Dropdown.prototype._setOptions = function(opt_options = {}) {
-  let _self = this;
+  const _self = this;
   _self.options = new SUI.Object({
     id: SUI.generateId('dropdown'),
   });
@@ -51,7 +51,7 @@ SUI.Dropdown.prototype._appendButton = function() {
   this.buttonNode.setId(this.options.id);
   this.buttonNode.addClass(['mdl-button', 'mdl-js-button', 'mdl-button--icon']);
 
-  let iconNode = new SUI.Node('i');
+  const iconNode = new SUI.Node('i');
   iconNode.addClass('material-icons');
   iconNode.setHtml('more_vert');
   this.buttonNode.appendChild(iconNode);
@@ -90,9 +90,9 @@ SUI.Dropdown.prototype.setActions = function(actions, item) {
  */
 SUI.Dropdown.prototype._renderMenu = function() {
   SUI.eachArray(this.actions, (action) => {
-    let [icon, title, disabled, removed] = action.style(this.item);
+    const [icon, title, disabled, removed] = action.style(this.item);
     if (!removed) {
-      let menuItemNode = new SUI.Node('li');
+      const menuItemNode = new SUI.Node('li');
       menuItemNode.addClass('mdl-menu__item');
       menuItemNode.setHtml(title || icon);
       if (disabled) {

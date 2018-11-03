@@ -74,10 +74,10 @@ SUI.Tooltip.prototype._createTooltip = function() {
     this.element.setId(id);
     this.element.addClass('has-tooltip');
   }
-  let oldElement = new SUI.Query(SUI.format('[for="{0}"]', [id]), this.element).getItem();
+  const oldElement = new SUI.Query(SUI.format('[for="{0}"]', [id]), this.element).getItem();
   oldElement.remove();
 
-  let cssClasses = ['mdl-tooltip', this.positionCssClass];
+  const cssClasses = ['mdl-tooltip', this.positionCssClass];
   this.tooltip = new SUI.Node('span', /** @type {!SUI.Node} */ (this.element.getParentNode()));
   this.tooltip.addClass(cssClasses);
   this.tooltip.setFor(/** @type {string} */(id));
@@ -89,7 +89,7 @@ SUI.Tooltip.prototype._createTooltip = function() {
  * @return {undefined}
  */
 SUI.Tooltip.prototype.render = function(opt_message) {
-  let message = this._getMessage(opt_message);
+  const message = this._getMessage(opt_message);
   this.setMessage(message);
   SUI.mdl(this.tooltip);
 };

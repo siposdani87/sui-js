@@ -29,7 +29,7 @@ SUI.lib.Helper.prototype._init = function() {
  * @return {undefined}
  */
 SUI.lib.Helper.prototype.createLink = function(name, parentNode, callback, opt_description = '', opt_allowAccess = true) {
-  let linkNode = new SUI.Node('a');
+  const linkNode = new SUI.Node('a');
   linkNode.setHtml(name);
   parentNode.appendChild(linkNode);
   this.linkElement(linkNode, callback, opt_description, opt_allowAccess);
@@ -41,7 +41,7 @@ SUI.lib.Helper.prototype.createLink = function(name, parentNode, callback, opt_d
  * @return {undefined}
  */
 SUI.lib.Helper.prototype.multipleLink = function(selector, dom) {
-  let linkNodes = new SUI.Query(selector, dom);
+  const linkNodes = new SUI.Query(selector, dom);
   linkNodes.each((linkNode) => {
     this.linkElement(linkNode);
   });
@@ -56,7 +56,7 @@ SUI.lib.Helper.prototype.multipleLink = function(selector, dom) {
  * @return {undefined}
  */
 SUI.lib.Helper.prototype.link = function(selector, dom, opt_callback, opt_description = '', opt_allowAccess = true) {
-  let linkNode = new SUI.Query(selector, dom).getItem();
+  const linkNode = new SUI.Query(selector, dom).getItem();
   this.linkElement(linkNode, opt_callback, opt_description, opt_allowAccess);
 };
 
@@ -73,12 +73,12 @@ SUI.lib.Helper.prototype.linkElement = function(linkNode, opt_callback, opt_desc
       if (!linkNode.getId()) {
         linkNode.setId(SUI.generateId('link'));
       } else {
-        let oldHref = /** @type {string} */ (linkNode.getData('href'));
+        const oldHref = /** @type {string} */ (linkNode.getData('href'));
         linkNode.setAttribute('href', oldHref);
         linkNode.removeEventListeners('click');
       }
       if (opt_callback) {
-        let href = linkNode.getAttribute('href');
+        const href = linkNode.getAttribute('href');
         linkNode.setData('href', href);
         linkNode.setAttribute('href', 'javascript:void(0)');
         linkNode.addEventListener('click', function() {
@@ -86,7 +86,7 @@ SUI.lib.Helper.prototype.linkElement = function(linkNode, opt_callback, opt_desc
         });
       }
 
-      let tooltip = new SUI.Tooltip(linkNode);
+      const tooltip = new SUI.Tooltip(linkNode);
       tooltip.render(opt_description);
       SUI.mdl(linkNode);
     } else {
@@ -105,7 +105,7 @@ SUI.lib.Helper.prototype.linkElement = function(linkNode, opt_callback, opt_desc
  * @return {undefined}
  */
 SUI.lib.Helper.prototype.createButton = function(name, parentNode, callback, opt_description = '', opt_allowAccess = true, opt_cssClasses = ['mdl-button--primary']) {
-  let buttonNode = new SUI.Node('button');
+  const buttonNode = new SUI.Node('button');
   buttonNode.setHtml(name);
   parentNode.appendChild(buttonNode);
   this.buttonElement(buttonNode, callback, opt_description, opt_allowAccess, opt_cssClasses);
@@ -118,7 +118,7 @@ SUI.lib.Helper.prototype.createButton = function(name, parentNode, callback, opt
  * @return {undefined}
  */
 SUI.lib.Helper.prototype.multipleButton = function(selector, dom, opt_cssClasses = ['mdl-button--primary']) {
-  let buttonNodes = new SUI.Query(selector, dom);
+  const buttonNodes = new SUI.Query(selector, dom);
   buttonNodes.each((buttonNode) => {
     this.buttonElement(buttonNode, undefined, undefined, true, opt_cssClasses);
   });
@@ -134,7 +134,7 @@ SUI.lib.Helper.prototype.multipleButton = function(selector, dom, opt_cssClasses
  * @return {undefined}
  */
 SUI.lib.Helper.prototype.button = function(selector, dom, callback, opt_description = '', opt_allowAccess = true, opt_cssClasses = ['mdl-button--primary']) {
-  let buttonNode = new SUI.Query(selector, dom).getItem();
+  const buttonNode = new SUI.Query(selector, dom).getItem();
   this.buttonElement(buttonNode, callback, opt_description, opt_allowAccess, opt_cssClasses);
 };
 
@@ -152,16 +152,16 @@ SUI.lib.Helper.prototype.buttonElement = function(buttonNode, opt_callback, opt_
       if (!buttonNode.getId()) {
         buttonNode.setId(SUI.generateId('button'));
       } else {
-        let oldCssClasses = /** @type {!Array} */ (buttonNode.getData('cssClasses'));
+        const oldCssClasses = /** @type {!Array} */ (buttonNode.getData('cssClasses'));
         buttonNode.removeClass(oldCssClasses);
         buttonNode.removeEventListeners('click');
       }
-      let cssClasses = ['mdl-button', 'mdl-js-button', 'mdl-js-ripple-effect', 'mdl-button--raised'].concat(opt_cssClasses);
+      const cssClasses = ['mdl-button', 'mdl-js-button', 'mdl-js-ripple-effect', 'mdl-button--raised'].concat(opt_cssClasses);
       buttonNode.setData('cssClasses', cssClasses);
       buttonNode.addClass(cssClasses);
       buttonNode.addEventListener('click', opt_callback);
 
-      let tooltip = new SUI.Tooltip(buttonNode);
+      const tooltip = new SUI.Tooltip(buttonNode);
       tooltip.render(opt_description);
       SUI.mdl(buttonNode);
     } else {
@@ -180,7 +180,7 @@ SUI.lib.Helper.prototype.buttonElement = function(buttonNode, opt_callback, opt_
  * @return {undefined}
  */
 SUI.lib.Helper.prototype.createIconButton = function(iconName, parentNode, callback, opt_description = '', opt_allowAccess = true, opt_cssClasses = ['mdl-button--accent', 'mdl-button--fab', 'mdl-button--mini-fab']) {
-  let buttonNode = new SUI.Node('button');
+  const buttonNode = new SUI.Node('button');
   this._createIconNode(iconName, buttonNode);
   parentNode.appendChild(buttonNode);
   this.iconButtonElement(buttonNode, callback, opt_description, opt_allowAccess, opt_cssClasses);
@@ -193,7 +193,7 @@ SUI.lib.Helper.prototype.createIconButton = function(iconName, parentNode, callb
  * @return {undefined}
  */
 SUI.lib.Helper.prototype.multipleIconButton = function(selector, dom, opt_cssClasses = ['mdl-button--accent', 'mdl-button--fab', 'mdl-button--mini-fab']) {
-  let buttonNodes = new SUI.Query(selector, dom);
+  const buttonNodes = new SUI.Query(selector, dom);
   buttonNodes.each((buttonNode) => {
     this.iconButtonElement(buttonNode, undefined, undefined, true, opt_cssClasses);
   });
@@ -209,7 +209,7 @@ SUI.lib.Helper.prototype.multipleIconButton = function(selector, dom, opt_cssCla
  * @return {undefined}
  */
 SUI.lib.Helper.prototype.iconButton = function(selector, dom, callback, opt_description = '', opt_allowAccess = true, opt_cssClasses = ['mdl-button--accent', 'mdl-button--fab', 'mdl-button--mini-fab']) {
-  let buttonNode = new SUI.Query(selector, dom).getItem();
+  const buttonNode = new SUI.Query(selector, dom).getItem();
   this.iconButtonElement(buttonNode, callback, opt_description, opt_allowAccess, opt_cssClasses);
 };
 
@@ -227,16 +227,16 @@ SUI.lib.Helper.prototype.iconButtonElement = function(buttonNode, opt_callback, 
       if (!buttonNode.getId()) {
         buttonNode.setId(SUI.generateId('button'));
       } else {
-        let oldCssClasses = /** @type {!Array} */ (buttonNode.getData('cssClasses'));
+        const oldCssClasses = /** @type {!Array} */ (buttonNode.getData('cssClasses'));
         buttonNode.removeClass(oldCssClasses);
         buttonNode.removeEventListeners('click');
       }
-      let cssClasses = ['mdl-button', 'mdl-js-button', 'mdl-js-ripple-effect', 'mdl-button--icon'].concat(opt_cssClasses);
+      const cssClasses = ['mdl-button', 'mdl-js-button', 'mdl-js-ripple-effect', 'mdl-button--icon'].concat(opt_cssClasses);
       buttonNode.setData('cssClasses', cssClasses);
       buttonNode.addClass(cssClasses);
       buttonNode.addEventListener('click', opt_callback);
 
-      let tooltip = new SUI.Tooltip(buttonNode);
+      const tooltip = new SUI.Tooltip(buttonNode);
       tooltip.render(opt_description);
       SUI.mdl(buttonNode);
     } else {
@@ -252,7 +252,7 @@ SUI.lib.Helper.prototype.iconButtonElement = function(buttonNode, opt_callback, 
  * @return {undefined}
  */
 SUI.lib.Helper.prototype._createIconNode = function(iconName, parentNode) {
-  let iconNode = new SUI.Node('em');
+  const iconNode = new SUI.Node('em');
   iconNode.addClass('material-icons');
   iconNode.setHtml(iconName);
   parentNode.appendChild(iconNode);
@@ -267,7 +267,7 @@ SUI.lib.Helper.prototype._createIconNode = function(iconName, parentNode) {
  * @return {undefined}
  */
 SUI.lib.Helper.prototype.setGravatar = function(imageNode, defaultImageUrl, email, opt_size = 500, opt_rating = 'pg') {
-  let src = SUI.format('https://www.gravatar.com/avatar/{0}?s={1}&r={2}&d=404', [SUI.md5(email), opt_size, opt_rating]);
+  const src = SUI.format('https://www.gravatar.com/avatar/{0}?s={1}&r={2}&d=404', [SUI.md5(email), opt_size, opt_rating]);
   imageNode.setAttribute('src', src);
   imageNode.setAttribute('onError', SUI.format('this.onerror=null;this.src=\'{0}\';', [defaultImageUrl]));
 };

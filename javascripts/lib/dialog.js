@@ -28,7 +28,7 @@ SUI.lib.Dialog = function(http, opt_options = {}) {
  * @return {undefined}
  */
 SUI.lib.Dialog.prototype._setOptions = function(opt_options = {}) {
-  let _self = this;
+  const _self = this;
   _self.options = new SUI.Object({
     id: '#dialog',
   });
@@ -136,12 +136,12 @@ SUI.lib.Dialog.prototype.close = function() {
  */
 SUI.lib.Dialog.prototype.loadTemplate = function(url) {
   this._reset();
-  let deferred = new SUI.Deferred();
+  const deferred = new SUI.Deferred();
   this.http.get(url).then((data) => {
-    let node = this._handleDom(data);
+    const node = this._handleDom(data);
     deferred.resolve(node);
   }, (data) => {
-    let node = this._handleMessage(data);
+    const node = this._handleMessage(data);
     deferred.reject(node);
     this.open();
   });
@@ -153,8 +153,8 @@ SUI.lib.Dialog.prototype.loadTemplate = function(url) {
  * @return {!SUI.Node}
  */
 SUI.lib.Dialog.prototype._handleMessage = function(dom) {
-  let messageNode = new SUI.Query('.message', dom).getItem();
-  let title = new SUI.Query('title', dom).getItem();
+  const messageNode = new SUI.Query('.message', dom).getItem();
+  const title = new SUI.Query('title', dom).getItem();
   this._setTitle(title.getText());
   this.modalBody.insert(messageNode);
   SUI.mdl(messageNode);
@@ -166,12 +166,12 @@ SUI.lib.Dialog.prototype._handleMessage = function(dom) {
  * @return {!SUI.Node}
  */
 SUI.lib.Dialog.prototype._handleDom = function(dom) {
-  let titleNode = new SUI.Query('#title', dom).getItem();
+  const titleNode = new SUI.Query('#title', dom).getItem();
   if (!titleNode.isEmpty()) {
     this._setTitle(titleNode.getText());
   }
 
-  let contentNode = new SUI.Query('#content', dom).getItem();
+  const contentNode = new SUI.Query('#content', dom).getItem();
   this.modalBody.insert(contentNode);
   SUI.mdl(contentNode);
 
@@ -208,10 +208,10 @@ SUI.lib.Dialog.prototype._reset = function() {
  * @return {undefined}
  */
 SUI.lib.Dialog.prototype._handleActions = function(dom) {
-  let actionNode = new SUI.Query('#action', dom).getItem();
+  const actionNode = new SUI.Query('#action', dom).getItem();
   if (!actionNode.isEmpty()) {
-    let buttons = new SUI.Query('button', actionNode);
-    let size = buttons.size();
+    const buttons = new SUI.Query('button', actionNode);
+    const size = buttons.size();
     let actions = [this._actionOK.bind(this)];
     let cssClasses = ['mdl-button--primary'];
     if (size === 2) {
@@ -219,7 +219,7 @@ SUI.lib.Dialog.prototype._handleActions = function(dom) {
       cssClasses = ['mdl-button--accent', 'mdl-button--primary'];
     }
     buttons.each(function(button, i) {
-      let buttonClasses = ['mdl-button', 'mdl-js-button', 'mdl-js-ripple-effect'].concat([cssClasses[i]]);
+      const buttonClasses = ['mdl-button', 'mdl-js-button', 'mdl-js-ripple-effect'].concat([cssClasses[i]]);
       button.addClass(buttonClasses);
       button.addEventListener('click', actions[i]);
     });
@@ -235,8 +235,8 @@ SUI.lib.Dialog.prototype._handleActions = function(dom) {
  * @return {undefined}
  */
 SUI.lib.Dialog.prototype._actionOK = function() {
-  let async = new SUI.Async();
-  let calls = [this.eventOK.bind(this), this.close.bind(this)];
+  const async = new SUI.Async();
+  const calls = [this.eventOK.bind(this), this.close.bind(this)];
   async.serial(calls);
 };
 
@@ -244,8 +244,8 @@ SUI.lib.Dialog.prototype._actionOK = function() {
  * @return {undefined}
  */
 SUI.lib.Dialog.prototype._actionCancel = function() {
-  let async = new SUI.Async();
-  let calls = [this.eventCancel.bind(this), this.close.bind(this)];
+  const async = new SUI.Async();
+  const calls = [this.eventCancel.bind(this), this.close.bind(this)];
   async.serial(calls);
 };
 
@@ -280,7 +280,7 @@ SUI.lib.Dialog.prototype.setSize = function(width, height) {
  * @return {undefined}
  */
 SUI.lib.Dialog.prototype._handleCenterPosition = function() {
-  let style = this.dialogWindow.getComputedStyle();
+  const style = this.dialogWindow.getComputedStyle();
   let height = style.getPropertyValue('height');
   if (SUI.contain(height, 'px')) {
     height = parseInt(height.slice(0, -2), 10);

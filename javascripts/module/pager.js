@@ -25,7 +25,7 @@ SUI.Pager = function(dom, opt_selectors = ['.pager', '.pager-statistics'], opt_o
  * @return {undefined}
  */
 SUI.Pager.prototype._setOptions = function(opt_options = {}) {
-  let _self = this;
+  const _self = this;
   _self.options = new SUI.Object({
     row_count: 10,
     pager_num: 4,
@@ -59,8 +59,8 @@ SUI.Pager.prototype._drawPager = function() {
  * @return {undefined}
  */
 SUI.Pager.prototype._drawStatistics = function() {
-  let page = this.page - 1;
-  let from = page * this.options.row_count + 1;
+  const page = this.page - 1;
+  const from = page * this.options.row_count + 1;
   let to = page * this.options.row_count + this.options.row_count;
   to = to > this.count ? this.count : to;
   if (to > 0) {
@@ -76,12 +76,12 @@ SUI.Pager.prototype._drawStatistics = function() {
  */
 SUI.Pager.prototype._drawPreviousButton = function() {
   if (this.pageNum > 1) {
-    let previousButton = new SUI.Node('button');
+    const previousButton = new SUI.Node('button');
     previousButton.addClass(['mdl-button', 'mdl-js-button', 'mdl-js-ripple-effect']);
     previousButton.addEventListener('click', () => {
       this._previous();
     });
-    let iconNode = new SUI.Node('i');
+    const iconNode = new SUI.Node('i');
     iconNode.addClass('material-icons');
     iconNode.setHtml('chevron_left');
     previousButton.appendChild(iconNode);
@@ -96,12 +96,12 @@ SUI.Pager.prototype._drawPreviousButton = function() {
  */
 SUI.Pager.prototype._drawNextButton = function() {
   if (this.pageNum > 1) {
-    let nextButton = new SUI.Node('button');
+    const nextButton = new SUI.Node('button');
     nextButton.addClass(['mdl-button', 'mdl-js-button', 'mdl-js-ripple-effect']);
     nextButton.addEventListener('click', () => {
       this._next();
     });
-    let iconNode = new SUI.Node('i');
+    const iconNode = new SUI.Node('i');
     iconNode.addClass('material-icons');
     iconNode.setHtml('chevron_right');
     nextButton.appendChild(iconNode);
@@ -115,10 +115,10 @@ SUI.Pager.prototype._drawNextButton = function() {
  * @return {undefined}
  */
 SUI.Pager.prototype._drawPageNumbers = function() {
-  let pagers = this._getPagers();
+  const pagers = this._getPagers();
   if (pagers.length > 1) {
     SUI.each(pagers, (pager) => {
-      let pageNode = new SUI.Node('button');
+      const pageNode = new SUI.Node('button');
       pageNode.setData('page', pager.page);
       pageNode.setHtml(pager.text);
       pageNode.addClass(['mdl-button', 'mdl-js-button', 'mdl-js-ripple-effect']);
@@ -126,7 +126,7 @@ SUI.Pager.prototype._drawPageNumbers = function() {
         pageNode.addClass('mdl-button--accent');
       }
       pageNode.addEventListener('click', (node) => {
-        let page = node.getData('page');
+        const page = node.getData('page');
         this._go(page);
       });
       SUI.mdl(pageNode);
@@ -140,8 +140,8 @@ SUI.Pager.prototype._drawPageNumbers = function() {
  * @return {!Array}
  */
 SUI.Pager.prototype._getPagers = function() {
-  let part = Math.floor((this.page - 1) / this.options.pager_num);
-  let pagers = [];
+  const part = Math.floor((this.page - 1) / this.options.pager_num);
+  const pagers = [];
   if (part > 0) {
     pagers.push({
       text: '...',
@@ -149,7 +149,7 @@ SUI.Pager.prototype._getPagers = function() {
     });
   }
   for (let i = 1; i <= this.options.pager_num; i++) {
-    let page = part * this.options.pager_num + i;
+    const page = part * this.options.pager_num + i;
     if (page <= this.pageNum) {
       pagers.push({
         text: page,

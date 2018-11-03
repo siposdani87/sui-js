@@ -37,14 +37,14 @@ SUI.TabPanel.prototype._init = function() {
 SUI.TabPanel.prototype._initTabs = function() {
   this.tabs = new SUI.Query('.tabs a', this.tabpanel);
   this.tabs.each((tab) => {
-    let panelId = tab.getAttribute('href').substr(1);
+    const panelId = tab.getAttribute('href').substr(1);
     if (this.tabs.size() === 1) {
       tab.addClass('hidden');
     }
     tab.setData('panel', panelId);
     tab.setAttribute('href', 'javascript:void(0)');
     tab.addEventListener('click', (tabNode) => {
-      let panelId = tab.getData('panel');
+      const panelId = tab.getData('panel');
       this.setActive(panelId);
     });
   });
@@ -92,10 +92,10 @@ SUI.TabPanel.prototype.eventChange = function(panelId) {
  * @return {!SUI.Promise}
  */
 SUI.TabPanel.prototype.setActive = function(panelId) {
-  let deferred = new SUI.Deferred();
+  const deferred = new SUI.Deferred();
   if (!SUI.isNull(panelId)) {
     this._setActiveTab(/** @type {string} */(panelId));
-    let async = new SUI.Async();
+    const async = new SUI.Async();
     async.serial([() => {
       return this.eventChange(/** @type {string} */(panelId));
     }]).defer(deferred);

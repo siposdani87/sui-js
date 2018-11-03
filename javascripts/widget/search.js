@@ -25,7 +25,7 @@ goog.inherits(SUI.widget.Search, SUI.Widget);
  */
 SUI.widget.Search.prototype._init = function() {
   this.input.addEventListener('keyup', (input, event) => {
-    let inputNode = input.getNode();
+    const inputNode = input.getNode();
     this.modelChange(inputNode.value);
     this.checkValidity();
     if (SUI.eq(event.keyCode, 13)) {
@@ -34,7 +34,7 @@ SUI.widget.Search.prototype._init = function() {
   });
 
   this.input.addEventListener('change', (input) => {
-    let inputNode = input.getNode();
+    const inputNode = input.getNode();
     this.modelChange(inputNode.value);
     this.checkValidity();
   });
@@ -49,7 +49,7 @@ SUI.widget.Search.prototype.render = function() {
   this.input.addClass(['mdl-textfield__input']);
 
   this.label.addClass(['mdl-button', 'mdl-js-button', 'mdl-button--icon']);
-  let iconNode = new SUI.Node('i');
+  const iconNode = new SUI.Node('i');
   iconNode.addClass('material-icons');
   iconNode.setHtml('search');
   this.label.insert(iconNode);
@@ -59,7 +59,7 @@ SUI.widget.Search.prototype.render = function() {
   this.holderNode.appendChild(this.input);
   this.inputBlock.appendChild(this.holderNode);
 
-  let labelNode = new SUI.Node('label');
+  const labelNode = new SUI.Node('label');
   labelNode.addClass('mdl-textfield__label');
   this.holderNode.appendChild(labelNode);
 
@@ -79,7 +79,7 @@ SUI.widget.Search.prototype.refresh = function() {
  * @return {undefined}
  */
 SUI.widget.Search.prototype._initClearButton = function() {
-  let clearButton = new SUI.Node('a');
+  const clearButton = new SUI.Node('a');
   clearButton.setAttribute('href', 'javascript:void(0)');
   clearButton.addClass(['clear-button', 'material-icons']);
   clearButton.setHtml('clear');

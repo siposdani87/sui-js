@@ -11,7 +11,7 @@ goog.require('SUI');
 SUI.Node = function(node, opt_parentNode) {
   if (SUI.isString(node)) {
     if (SUI.contain(/** @type {string} */(node), '<') && SUI.contain(/** @type {string} */(node), '</')) {
-      let template = document.createElement('template');
+      const template = document.createElement('template');
       template.innerHTML = node;
       node = template.content.firstElementChild;
     } else {
@@ -181,7 +181,7 @@ SUI.Node.prototype.getClasses = function() {
  * @return {undefined}
  */
 SUI.Node.prototype.setAttribute = function(attribute, opt_value) {
-  let value = SUI.isUndefined(opt_value) ? attribute : opt_value;
+  const value = SUI.isUndefined(opt_value) ? attribute : opt_value;
   if (SUI.isFunction(value)) {
     this.node[attribute] = value;
   } else {
@@ -265,7 +265,7 @@ SUI.Node.prototype.removeEventListener = function(eventName, listener) {
  * @return {undefined}
  */
 SUI.Node.prototype.removeEventListeners = function(eventName) {
-  let listeners = this._getListenerToStore(eventName);
+  const listeners = this._getListenerToStore(eventName);
   SUI.eachArray(listeners, (listener) => {
     this.removeEventListener(eventName, listener);
   });
@@ -285,7 +285,7 @@ SUI.Node.prototype.dispatchEvent = function(event) {
  */
 SUI.Node.prototype.trigger = function(eventName) {
   // https://developer.mozilla.org/en-US/docs/Web/Guide/Events/Creating_and_triggering_events
-  let event = new Event(eventName);
+  const event = new Event(eventName);
   this.dispatchEvent(event);
 };
 
@@ -294,7 +294,7 @@ SUI.Node.prototype.trigger = function(eventName) {
  * @return {!SUI.Node}
  */
 SUI.Node.prototype.createElement = function(tagName) {
-  let node = document.createElement(tagName);
+  const node = document.createElement(tagName);
   return new SUI.Node(node, this.parentNode);
 };
 
@@ -340,7 +340,7 @@ SUI.Node.prototype.removeChild = function(node) {
  * @return {undefined}
  */
 SUI.Node.prototype.remove = function() {
-  let parentElement = this._getParentElement();
+  const parentElement = this._getParentElement();
   if (!this.isEmpty() && parentElement) {
     parentElement.removeChild(this.node);
   }
@@ -360,7 +360,7 @@ SUI.Node.prototype.insert = function(node) {
  * @return {undefined}
  */
 SUI.Node.prototype.beforeChild = function(node) {
-  let referenceNode = this.node.firstChild || this.node.firstElementChild;
+  const referenceNode = this.node.firstChild || this.node.firstElementChild;
   this.node.insertBefore(node.getNode(), referenceNode);
 };
 
@@ -369,7 +369,7 @@ SUI.Node.prototype.beforeChild = function(node) {
  * @return {undefined}
  */
 SUI.Node.prototype.afterChild = function(node) {
-  let parentElement = this._getParentElement();
+  const parentElement = this._getParentElement();
   if (parentElement) {
     parentElement.appendChild(node.getNode());
   }
@@ -380,7 +380,7 @@ SUI.Node.prototype.afterChild = function(node) {
  * @return {undefined}
  */
 SUI.Node.prototype.insertBefore = function(node) {
-  let parentElement = this._getParentElement();
+  const parentElement = this._getParentElement();
   if (parentElement) {
     parentElement.insertBefore(node.getNode(), this.node);
   }
@@ -391,8 +391,8 @@ SUI.Node.prototype.insertBefore = function(node) {
  * @return {undefined}
  */
 SUI.Node.prototype.insertAfter = function(node) {
-  let nextSiblingNode = this.getNextSibling();
-  let parentElement = this._getParentElement();
+  const nextSiblingNode = this.getNextSibling();
+  const parentElement = this._getParentElement();
   if (parentElement) {
     parentElement.insertBefore(node.getNode(), nextSiblingNode.getNode());
   }
@@ -402,7 +402,7 @@ SUI.Node.prototype.insertAfter = function(node) {
  * @return {!SUI.Node}
  */
 SUI.Node.prototype.getNextSibling = function() {
-  let referenceNode = this.node.nextSibling || this.node.nextElementSibling;
+  const referenceNode = this.node.nextSibling || this.node.nextElementSibling;
   return new SUI.Node(/** @type {!Element} */(referenceNode));
 };
 
@@ -411,7 +411,7 @@ SUI.Node.prototype.getNextSibling = function() {
  * @return {undefined}
  */
 SUI.Node.prototype.replaceChild = function(node) {
-  let parentElement = this._getParentElement();
+  const parentElement = this._getParentElement();
   if (parentElement) {
     parentElement.replaceChild(node.getNode(), this.node);
   }
@@ -471,7 +471,7 @@ SUI.Node.prototype.getData = function(name) {
  * @return {?SUI.Node}
  */
 SUI.Node.prototype.getParentNode = function() {
-  let parentElement = this._getParentElement();
+  const parentElement = this._getParentElement();
   if (parentElement) {
     return new SUI.Node(parentElement, this.parentNode);
   }
@@ -556,7 +556,7 @@ SUI.Node.prototype.toString = function(opt_isRoot = true) {
  */
 SUI.Node.prototype.cloneNode = function(opt_deep = false) {
   if (!this.isEmpty()) {
-    let cloneNode = this.node.cloneNode(opt_deep);
+    const cloneNode = this.node.cloneNode(opt_deep);
     return new SUI.Node(cloneNode, this.parentNode);
   }
   return null;
@@ -566,7 +566,7 @@ SUI.Node.prototype.cloneNode = function(opt_deep = false) {
  * @return {undefined}
  */
 SUI.Node.prototype.clearNode = function() {
-  let cloneNode = this.cloneNode(true);
+  const cloneNode = this.cloneNode(true);
   if (cloneNode) {
     this.replaceChild(cloneNode);
     this.node = cloneNode.getNode();

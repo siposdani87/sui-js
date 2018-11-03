@@ -37,19 +37,19 @@ SUI.lib.LeftMenu.prototype._initEvents = function() {
     this.close();
   }.bind(this));
 
-  let openLeftMenu = new SUI.Query('#open-left-menu').getItem();
+  const openLeftMenu = new SUI.Query('#open-left-menu').getItem();
   openLeftMenu.setAttribute('href', 'javascript:void(0)');
   openLeftMenu.addEventListener('click', function() {
     this.open();
   }.bind(this));
 
-  let closeLeftMenu = new SUI.Query('#close-left-menu', this.mainMenu).getItem();
+  const closeLeftMenu = new SUI.Query('#close-left-menu', this.mainMenu).getItem();
   closeLeftMenu.setAttribute('href', 'javascript:void(0)');
   closeLeftMenu.addEventListener('click', function() {
     this.close();
   }.bind(this));
 
-  let closeSubMenu = new SUI.Query('#close-sub-menu', this.subMenu).getItem();
+  const closeSubMenu = new SUI.Query('#close-sub-menu', this.subMenu).getItem();
   closeSubMenu.setAttribute('href', 'javascript:void(0)');
   closeSubMenu.addEventListener('click', function() {
     this.closeSubMenu();

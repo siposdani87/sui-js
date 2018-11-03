@@ -19,7 +19,7 @@ goog.inherits(SUI.test.Deferred, SUI.Test);
  */
 SUI.test.Deferred.prototype.init = function() {
   this.ajaxResolve = function() {
-    let deferred = new SUI.Deferred();
+    const deferred = new SUI.Deferred();
     window.setTimeout(function() {
       deferred.resolve(1);
     }, 100);
@@ -27,13 +27,13 @@ SUI.test.Deferred.prototype.init = function() {
   };
 
   this.funcResolve = function() {
-    let deferred = new SUI.Deferred();
+    const deferred = new SUI.Deferred();
     deferred.resolve(2);
     return deferred.promise();
   };
 
   this.ajaxReject = function() {
-    let deferred = new SUI.Deferred();
+    const deferred = new SUI.Deferred();
     window.setTimeout(function() {
       deferred.reject(1);
     }, 100);
@@ -41,7 +41,7 @@ SUI.test.Deferred.prototype.init = function() {
   };
 
   this.funcReject = function() {
-    let deferred = new SUI.Deferred();
+    const deferred = new SUI.Deferred();
     deferred.reject(2);
     return deferred.promise();
   };
@@ -52,8 +52,8 @@ SUI.test.Deferred.prototype.init = function() {
 };
 
 SUI.test.Deferred.prototype.testPromise = function() {
-  let deferred = new SUI.Deferred();
-  let promise = deferred.promise();
+  const deferred = new SUI.Deferred();
+  const promise = deferred.promise();
   if (!(promise instanceof SUI.Promise)) {
     this.showError('promise', 1);
   }

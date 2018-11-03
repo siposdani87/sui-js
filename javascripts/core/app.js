@@ -50,7 +50,7 @@ SUI.App = function(options, resources) {
  * @return {undefined}
  */
 SUI.App.prototype._setOptions = function(options) {
-  let _self = this;
+  const _self = this;
   _self.options = new SUI.Object({
     app_id: 'sui-app',
     title: '',
@@ -67,7 +67,7 @@ SUI.App.prototype._setOptions = function(options) {
  * @return {undefined}
  */
 SUI.App.prototype._init = function(resources) {
-  let rootNode = new SUI.Query('html').getItem();
+  const rootNode = new SUI.Query('html').getItem();
   rootNode.addClass('sui-js');
 
   this.types = {};
@@ -115,7 +115,7 @@ SUI.App.prototype._init = function(resources) {
  * @return {string}
  */
 SUI.App.prototype.getLanguage = function() {
-  let locale = this.getLocale();
+  const locale = this.getLocale();
   return locale.split('-', 2)[0];
 };
 
@@ -153,7 +153,7 @@ SUI.App.prototype.setLocaleWithReload = function(locale) {
  * @return {undefined}
  */
 SUI.App.prototype._handleLocale = function() {
-  let locale = this.getLocale();
+  const locale = this.getLocale();
   window['moment']['locale'](locale);
   this.setLocale(locale);
 };
@@ -334,7 +334,7 @@ SUI.App.prototype._initHelper = function() {
  * @return {undefined}
  */
 SUI.App.prototype._initDocument = function() {
-  let popupContainer = new SUI.PopupContainer();
+  const popupContainer = new SUI.PopupContainer();
   this._instances[this._injections.document] = new SUI.lib.Document(this.options);
   this._instances[this._injections.document].eventClick = function(target, event) {
     popupContainer.closeAll();
@@ -348,8 +348,8 @@ SUI.App.prototype._initDocument = function() {
  */
 SUI.App.prototype._initWindow = function() {
   this._instances[this._injections.window] = new SUI.lib.Window();
-  let width = this._instances[this._injections.window].getWidth();
-  let height = this._instances[this._injections.window].getHeight();
+  const width = this._instances[this._injections.window].getWidth();
+  const height = this._instances[this._injections.window].getHeight();
   this._instances[this._injections.dialog].setSize(width, height);
   this._instances[this._injections.confirm].setSize(width, height);
 
@@ -369,7 +369,7 @@ SUI.App.prototype._initWindow = function() {
     this._instances[this._injections.event].call('window.scroll', [scrollTop, event]);
   }.bind(this);
 
-  let notification = {
+  const notification = {
     node: null,
     message: 'Unable to connect to the Internet',
     duration: Infinity,
@@ -565,7 +565,7 @@ SUI.App.prototype._initRoutes = function() {
  * @return {undefined}
  */
 SUI.App.prototype.addState = function(id, title, url, controller, opt_template = null, opt_params = {}) {
-  let state = new SUI.Object(opt_params);
+  const state = new SUI.Object(opt_params);
   state.set('id', id);
   state.set('title', title);
   state.set('url', url);
@@ -626,7 +626,7 @@ SUI.App.prototype.getController = function() {
 SUI.App.prototype.run = function() {
   if (this.options.development) {
     console.info('%cFrontend run in development environment...', 'font-weight:bold;color:#795548;');
-    let test = new SUI.Test();
+    const test = new SUI.Test();
     test.run();
   } else {
     console.info('%cFrontend run in production environment...', 'font-weight:bold;color:#795548;');

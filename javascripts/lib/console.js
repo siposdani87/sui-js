@@ -20,7 +20,7 @@ SUI.lib.Console = function(config, opt_options = {}) {
  * @return {undefined}
  */
 SUI.lib.Console.prototype._setOptions = function(opt_options = {}) {
-  let _self = this;
+  const _self = this;
   _self.options = new SUI.Object();
   _self.options.merge(opt_options);
 };

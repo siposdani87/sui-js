@@ -16,7 +16,7 @@ SUI.State = function(routes, options) {
   this._current = new SUI.Object();
   this.routes = /** @type {!SUI.Collection<!SUI.Object>} */ (new SUI.Collection(routes));
   this.routes.each((route) => {
-    let realUrl = SUI.format('{0}{1}', [this.basePath === '#' ? '/#' : '', route.get('url')]);
+    const realUrl = SUI.format('{0}{1}', [this.basePath === '#' ? '/#' : '', route.get('url')]);
     route.set('realUrl', realUrl);
   });
 
@@ -30,7 +30,7 @@ SUI.State = function(routes, options) {
  */
 SUI.State.prototype._setBasePath = function() {
   this.basePath = '#';
-  let baseMeta = new SUI.Query('base').getItem();
+  const baseMeta = new SUI.Query('base').getItem();
   if (!baseMeta.isEmpty()) {
     this.basePath = baseMeta.getAttribute('href') || '#';
   }
@@ -42,7 +42,7 @@ SUI.State.prototype._setBasePath = function() {
  * @return {undefined}
  */
 SUI.State.prototype._setOptions = function(options) {
-  let _self = this;
+  const _self = this;
   _self.options = new SUI.Object({
     root: {
       id: 'root',
@@ -76,7 +76,7 @@ SUI.State.prototype._init = function() {
 SUI.State.prototype._initPopstate = function() {
   window.addEventListener('popstate', () => {
     if (window.history.state) {
-      let state = new SUI.Object();
+      const state = new SUI.Object();
       state.merge(window.history.state);
       this._setCurrent(state);
       this._triggerChange();
@@ -99,7 +99,7 @@ SUI.State.prototype.run = function() {
  * @return {undefined}
  */
 SUI.State.prototype._parseHashTag = function() {
-  let path = this.basePath === '#' ? window.location.hash : window.location.pathname.replace(this.basePath, '/');
+  const path = this.basePath === '#' ? window.location.hash : window.location.pathname.replace(this.basePath, '/');
   this._parseUrl(path, (state, path, params) => {
     this._setHistory(state, path, params, true);
   }, () => {
@@ -116,16 +116,16 @@ SUI.State.prototype._parseHashTag = function() {
  * @return {undefined}
  */
 SUI.State.prototype._parseUrl = function(hashPath, successCallback, errorCallback) {
-  let path = hashPath[0] === '#' ? hashPath.substr(1) : hashPath;
+  const path = hashPath[0] === '#' ? hashPath.substr(1) : hashPath;
   let i = 0;
   let state = null;
   let params = null;
-  let items = this.routes.getItems();
+  const items = this.routes.getItems();
   let matches = null;
   while (i < items.length && SUI.isNull(matches)) {
     state = items[i];
-    let stateUrl = /** @type {string} */ (state.get('url'));
-    let router = new SUI.Router(stateUrl);
+    const stateUrl = /** @type {string} */ (state.get('url'));
+    const router = new SUI.Router(stateUrl);
     matches = router.getMatches(path);
     params = router.parse(path);
     i++;
@@ -148,9 +148,9 @@ SUI.State.prototype._parseUrl = function(hashPath, successCallback, errorCallbac
 SUI.State.prototype._setHistory = function(state, url, opt_params, opt_force = false) {
   url = this.basePath === '#' ? this.basePath + url : url;
   opt_params = opt_params || {};
-  let stateTemplate = /** @type {string} */ (state.get('template'));
-  let router = new SUI.Router(stateTemplate);
-  let templateUrl = router.stringify(opt_params);
+  const stateTemplate = /** @type {string} */ (state.get('template'));
+  const router = new SUI.Router(stateTemplate);
+  const templateUrl = router.stringify(opt_params);
   state.set('templateUrl', templateUrl);
   state.set('params', opt_params);
   if (opt_force) {
@@ -169,8 +169,8 @@ SUI.State.prototype._setHistory = function(state, url, opt_params, opt_force = f
  * @return {undefined}
  */
 SUI.State.prototype._triggerChange = function() {
-  let currentState = /** @type {!SUI.Object} */ (this.getCurrent());
-  let previousState = /** @type {!SUI.Object} */ (this.getPrevious());
+  const currentState = /** @type {!SUI.Object} */ (this.getCurrent());
+  const previousState = /** @type {!SUI.Object} */ (this.getPrevious());
   this.eventChange(currentState, previousState);
 };
 
@@ -214,11 +214,11 @@ SUI.State.prototype.go = function(id, opt_params, opt_force = false) {
 
     });
   } else {
-    let state = this.routes.findById(id);
+    const state = this.routes.findById(id);
     if (state) {
-      let stateUrl = /** @type {string} */ (state.get('url'));
-      let router = new SUI.Router(stateUrl);
-      let path = router.stringify(opt_params);
+      const stateUrl = /** @type {string} */ (state.get('url'));
+      const router = new SUI.Router(stateUrl);
+      const path = router.stringify(opt_params);
       this._setHistory(state, path, opt_params, opt_force);
     }
   }
@@ -330,8 +330,8 @@ SUI.State.prototype.setParams = function(properties) {
  * @return {undefined}
  */
 SUI.State.prototype.setParam = function(name, value) {
-  let id = /** @type {string} */ (this.getCurrent('id'));
-  let params = this.getParams();
+  const id = /** @type {string} */ (this.getCurrent('id'));
+  const params = this.getParams();
   params.set(name, value);
   this.go(id, params, true);
 };
@@ -349,7 +349,7 @@ SUI.State.prototype.getParams = function() {
  * @return {string}
  */
 SUI.State.prototype.getParam = function(name, opt_defaultValue) {
-  let params = this.getParams();
+  const params = this.getParams();
   return /** @type {string} */ (params.get(name, opt_defaultValue));
 };
 

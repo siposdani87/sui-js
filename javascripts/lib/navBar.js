@@ -19,7 +19,7 @@ SUI.lib.NavBar.prototype._init = function() {
   this.navBarHeader = new SUI.Query('.nav-bar-header').getItem();
   this.navBar = new SUI.Query('#nav-bar', this.navBarHeader).getItem();
 
-  let toggleNavBar = new SUI.Query('#toggle-nav-bar', this.navBarHeader).getItem();
+  const toggleNavBar = new SUI.Query('#toggle-nav-bar', this.navBarHeader).getItem();
   toggleNavBar.setAttribute('href', 'javascript:void(0)');
   toggleNavBar.addEventListener('click', () => {
     this.toggle();

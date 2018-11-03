@@ -13,7 +13,7 @@ SUI.Router = function(route) {
   this.param = new RegExp('([:*])(\\w+)', 'g');
 
   let basePath = '#';
-  let baseMeta = new SUI.Query('base').getItem();
+  const baseMeta = new SUI.Query('base').getItem();
   if (!baseMeta.isEmpty()) {
     basePath = baseMeta.getAttribute('href') || '/';
   }
@@ -44,10 +44,10 @@ SUI.Router.prototype._init = function() {
 SUI.Router.prototype.stringify = function(opt_params) {
   let route = this.route;
   if (opt_params) {
-    for (let key in opt_params) {
+    for (const key in opt_params) {
       if (opt_params.hasOwnProperty(key)) {
-        let param = opt_params[key];
-        let regex = new RegExp('[:*]' + key + '\\b');
+        const param = opt_params[key];
+        const regex = new RegExp('[:*]' + key + '\\b');
         if (regex.test(route)) {
           route = route.replace(regex, param);
         } else {
@@ -74,7 +74,7 @@ SUI.Router.prototype.stringify = function(opt_params) {
  * @return {?Array}
  */
 SUI.Router.prototype.getMatches = function(url) {
-  let question = url.indexOf('?');
+  const question = url.indexOf('?');
   if (question !== -1) {
     url = url.substring(0, question);
   }
@@ -86,14 +86,14 @@ SUI.Router.prototype.getMatches = function(url) {
  * @return {!Object}
  */
 SUI.Router.prototype.parse = function(url) {
-  let matches = this.getMatches(url);
+  const matches = this.getMatches(url);
   if (!matches) {
     return {};
   }
-  let params = this._parseParams(url);
+  const params = this._parseParams(url);
   let i = 0;
   while (i < this.names.length) {
-    let key = this.names[i++];
+    const key = this.names[i++];
     params[key] = SUI.typeCast(matches[i]);
   }
   return params;
@@ -105,19 +105,19 @@ SUI.Router.prototype.parse = function(url) {
  * @return {!Object}
  */
 SUI.Router.prototype._parseParams = function(url) {
-  let params = {};
-  let question = url.indexOf('?');
+  const params = {};
+  const question = url.indexOf('?');
   if (question !== -1) {
-    let pieces = url.substr(question + 1).split('&');
+    const pieces = url.substr(question + 1).split('&');
     for (let i = 0; i < pieces.length; i++) {
-      let parts = pieces[i].replace('==', '&&').split('=');
+      const parts = pieces[i].replace('==', '&&').split('=');
       if (parts.length < 2) {
         parts.push('');
       }
-      let key = window.decodeURIComponent(parts[0]);
-      let value = SUI.typeCast(window.decodeURIComponent(parts[1].replace('&&', '==')));
+      const key = window.decodeURIComponent(parts[0]);
+      const value = SUI.typeCast(window.decodeURIComponent(parts[1].replace('&&', '==')));
       if (SUI.contain(key, '[]')) {
-        let realKey = key.replace('[]', '');
+        const realKey = key.replace('[]', '');
         if (!SUI.isArray(params[realKey])) {
           params[realKey] = [value];
         } else {

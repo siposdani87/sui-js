@@ -25,10 +25,10 @@ goog.inherits(SUI.widget.Checkbox, SUI.widget.BaseCheckbox);
  */
 SUI.widget.Checkbox.prototype.render = function() {
   this.label.addClass(['mdl-checkbox', 'mdl-js-checkbox', 'mdl-js-ripple-effect']);
-  let id = this.input.getId();
+  const id = this.input.getId();
   this.label.setFor(/** @type {string} */(id));
 
-  let labelText = this.label.getHtml(true);
+  const labelText = this.label.getHtml(true);
 
   this.spanLabel = new SUI.Node('span');
   this.spanLabel.addClass('mdl-checkbox__label');

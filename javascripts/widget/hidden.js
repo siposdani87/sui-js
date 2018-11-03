@@ -22,7 +22,7 @@ goog.inherits(SUI.widget.Hidden, SUI.Widget);
  */
 SUI.widget.Hidden.prototype._init = function() {
   this.input.addEventListener('change', (input) => {
-    let inputNode = input.getNode();
+    const inputNode = input.getNode();
     this.modelChange(inputNode.value);
     this.checkValidity();
   });

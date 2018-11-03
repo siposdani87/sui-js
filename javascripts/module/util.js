@@ -16,7 +16,7 @@ SUI.Util = function() {
  * @param {number=} opt_duration
  */
 SUI.Util.prototype.advancedWaiting = function(callback, opt_duration) {
-  let duration = opt_duration || 3000;
+  const duration = opt_duration || 3000;
   this._advancedDelayHandler(callback, duration, this.timeoutWaiting);
 };
 
@@ -29,7 +29,7 @@ SUI.Util.prototype.advancedWaiting = function(callback, opt_duration) {
 SUI.Util.prototype._advancedDelayHandler = function(callback, duration, counter) {
   this.timeoutWaiting += 0.0001;
   setTimeout(() => {
-    let prevCounter = this.timeoutWaiting - 0.0001;
+    const prevCounter = this.timeoutWaiting - 0.0001;
     if (prevCounter.toFixed(4) === counter.toFixed(4)) {
       this.timeoutWaiting = 0;
       callback();
@@ -60,7 +60,7 @@ SUI.Util.prototype.startAdvancedWaiting = function() {
  * @param {number=} opt_duration
  */
 SUI.Util.prototype.simpleWaiting = function(callback, opt_duration) {
-  let duration = opt_duration || 3000;
+  const duration = opt_duration || 3000;
   this._simpleDelayHandler(callback, duration, this.counter);
 };
 
@@ -73,7 +73,7 @@ SUI.Util.prototype.simpleWaiting = function(callback, opt_duration) {
 SUI.Util.prototype._simpleDelayHandler = function(callback, duration, counter) {
   this.counter++;
   setTimeout(() => {
-    let prevCounter = this.counter - 1;
+    const prevCounter = this.counter - 1;
     if (counter === prevCounter) {
       this.counter = 0;
       callback();

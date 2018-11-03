@@ -28,7 +28,7 @@ SUI.test.Object.prototype.init = function() {
 };
 
 SUI.test.Object.prototype.testMerge = function() {
-  let options = new SUI.Object({
+  const options = new SUI.Object({
     attr: null,
     obj: {
       attr2: 1,
@@ -60,7 +60,7 @@ SUI.test.Object.prototype.testMerge = function() {
 };
 
 SUI.test.Object.prototype.testGetTypedValue = function() {
-  let options = new SUI.Object({
+  const options = new SUI.Object({
     attr: 'null',
     obj: {
       attr2: '1',
@@ -99,7 +99,7 @@ SUI.test.Object.prototype.testGetTypedValue = function() {
 };
 
 SUI.test.Object.prototype.testGet = function() {
-  let options = new SUI.Object({
+  const options = new SUI.Object({
     attr: null,
     obj: {
       attr2: 1,
@@ -128,7 +128,7 @@ SUI.test.Object.prototype.testGet = function() {
 };
 
 SUI.test.Object.prototype.testSet = function() {
-  let options = new SUI.Object({
+  const options = new SUI.Object({
     attr: 0,
     obj: {
       attr2: 0,
@@ -156,7 +156,7 @@ SUI.test.Object.prototype.testSet = function() {
 };
 
 SUI.test.Object.prototype.testRemove = function() {
-  let options = new SUI.Object({
+  const options = new SUI.Object({
     attr: 0,
     obj: {
       attr2: 0,
@@ -184,7 +184,7 @@ SUI.test.Object.prototype.testRemove = function() {
 };
 
 SUI.test.Object.prototype.testCopy = function() {
-  let options = new SUI.Object({
+  const options = new SUI.Object({
     attr: 0,
     obj: {
       attr2: 0,
@@ -194,7 +194,7 @@ SUI.test.Object.prototype.testCopy = function() {
     },
   });
   options.set('obj.attr2', 0);
-  let optionsCopy = options.copy();
+  const optionsCopy = options.copy();
   optionsCopy.remove('obj.attr2');
   if (options.get('obj.attr2') !== 0) {
     this.showError('copy', 0);

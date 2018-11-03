@@ -77,12 +77,12 @@ SUI.widget.Select.prototype._initChangeEvent = function() {
 SUI.widget.Select.prototype._initOptions = function() {
   this.options = /** @type {!SUI.Collection<!SUI.Object>} */ (new SUI.Collection());
 
-  let optionNodes = new SUI.Query('option', this.input);
+  const optionNodes = new SUI.Query('option', this.input);
   optionNodes.each((optionNode) => {
-    let value = optionNode.getAttribute('value') || '';
-    let image = optionNode.getAttribute('data-image') || '';
-    let text = optionNode.getText() || '';
-    let item = new SUI.Object({
+    const value = optionNode.getAttribute('value') || '';
+    const image = optionNode.getAttribute('data-image') || '';
+    const text = optionNode.getText() || '';
+    const item = new SUI.Object({
       'id': value,
       'name': text,
       'image': image,
@@ -105,7 +105,7 @@ SUI.widget.Select.prototype.render = function() {
  * @return {undefined}
  */
 SUI.widget.Select.prototype.refresh = function() {
-  let selectContainerNode = new SUI.Query('.select-container', this.inputBlock).getItem();
+  const selectContainerNode = new SUI.Query('.select-container', this.inputBlock).getItem();
   selectContainerNode.remove();
 
   if (this.isDisabled()) {
@@ -132,7 +132,7 @@ SUI.widget.Select.prototype.refresh = function() {
   this.iconNode.setHtml('expand_more');
   this.selectContainerNode.appendChild(this.iconNode);
 
-  let ids = this._getSelectedIds();
+  const ids = this._getSelectedIds();
   this._setSelectInput(ids);
 };
 
@@ -186,7 +186,7 @@ SUI.widget.Select.prototype._hideLoader = function() {
  * @return {undefined}
  */
 SUI.widget.Select.prototype.setOptions = function(items, opt_value = 'value', opt_name = 'name', opt_image = '') {
-  let optionNodes = new SUI.Query('option', this.input);
+  const optionNodes = new SUI.Query('option', this.input);
   optionNodes.each((optionNode) => {
     if (optionNode.getAttribute('value')) {
       optionNode.remove();
@@ -194,13 +194,13 @@ SUI.widget.Select.prototype.setOptions = function(items, opt_value = 'value', op
   });
 
   SUI.each(items, (item) => {
-    let value = item.get(opt_value);
-    let name = item.get(opt_name);
+    const value = item.get(opt_value);
+    const name = item.get(opt_name);
     let image = '';
     if (opt_image) {
       image = item.get(opt_image);
     }
-    let optionNode = new SUI.Node('option');
+    const optionNode = new SUI.Node('option');
     optionNode.setAttribute('value', value);
     optionNode.setAttribute('data-image', image);
     optionNode.setHtml(name);
@@ -218,9 +218,9 @@ SUI.widget.Select.prototype.setOptions = function(items, opt_value = 'value', op
  * @return {undefined}
  */
 SUI.widget.Select.prototype._change = function(opt_force = false) {
-  let ids = this._getSelectedIds();
+  const ids = this._getSelectedIds();
   this._setSelectInput(ids);
-  let value = this.getValue();
+  const value = this.getValue();
   this.modelChange(value);
   this.checkValidity(opt_force);
 };
@@ -247,7 +247,7 @@ SUI.widget.Select.prototype._setSelectInput = function(ids) {
  * @private
  */
 SUI.widget.Select.prototype._setSimpleInput = function(id) {
-  let item = this.options.findById(id);
+  const item = this.options.findById(id);
   this._setTags(item);
 };
 
@@ -257,9 +257,9 @@ SUI.widget.Select.prototype._setSimpleInput = function(id) {
  * @private
  */
 SUI.widget.Select.prototype._setMultipleInput = function(ids) {
-  let items = [];
+  const items = [];
   SUI.each(ids, (id) => {
-    let item = this.options.findById(id);
+    const item = this.options.findById(id);
     if (item) {
       items.push(item);
     }
@@ -267,7 +267,7 @@ SUI.widget.Select.prototype._setMultipleInput = function(ids) {
   if (SUI.neq(items.length, 0)) {
     this._setTags(items);
   } else if (this.isRequired()) {
-    let item = this.options.get(0);
+    const item = this.options.get(0);
     this._setTags(item);
   } else if (SUI.eq(ids.length, 0)) {
     this._setTags([]);
@@ -285,7 +285,7 @@ SUI.widget.Select.prototype._setTags = function(tags) {
   this.selectNode.removeChildren();
 
   SUI.each(tags, (tag) => {
-    let tagNode = new SUI.Node('div');
+    const tagNode = new SUI.Node('div');
     tagNode.addClass('tag');
     tagNode.setHtml(tag.get('name'));
     if (!this.isDisabled()) {
@@ -295,9 +295,9 @@ SUI.widget.Select.prototype._setTags = function(tags) {
     }
     this.selectNode.appendChild(tagNode);
 
-    let id = tag.get('id');
+    const id = tag.get('id');
     if (SUI.neq(id, '') && !this.isDisabled()) {
-      let iconNode = new SUI.Node('i');
+      const iconNode = new SUI.Node('i');
       iconNode.addClass(['material-icons', 'size-18']);
       iconNode.setHtml('close');
       iconNode.addEventListener('click', () => {
@@ -316,9 +316,9 @@ SUI.widget.Select.prototype._setTags = function(tags) {
  */
 SUI.widget.Select.prototype._setSelectedIds = function(ids, opt_force = false) {
   this.options.each(function(option) {
-    let id = option.get('id');
-    let optionNode = option.get('option_node');
-    let node = optionNode.getNode();
+    const id = option.get('id');
+    const optionNode = option.get('option_node');
+    const node = optionNode.getNode();
     node.selected = SUI.inArray(ids, id);
   });
   this._change(opt_force);
@@ -329,12 +329,12 @@ SUI.widget.Select.prototype._setSelectedIds = function(ids, opt_force = false) {
  * @return {!Array}
  */
 SUI.widget.Select.prototype._getSelectedIds = function() {
-  let ids = [];
+  const ids = [];
   this.options.each(function(option) {
-    let optionNode = option.get('option_node');
-    let node = optionNode.getNode();
+    const optionNode = option.get('option_node');
+    const node = optionNode.getNode();
     if (node.selected) {
-      let id = option.get('id');
+      const id = option.get('id');
       ids.push(id);
     }
   });
@@ -379,10 +379,10 @@ SUI.widget.Select.prototype._handleSelectedId = function(id) {
  */
 SUI.widget.Select.prototype._drawItems = function(items) {
   this.listNode.removeChildren();
-  let ids = this._getSelectedIds();
+  const ids = this._getSelectedIds();
   SUI.each(items, (item) => {
-    let id = item.get('id');
-    let listItem = new SUI.Node('a');
+    const id = item.get('id');
+    const listItem = new SUI.Node('a');
     listItem.setAttribute('href', 'javascript:void(0)');
     if (SUI.inArray(ids, id)) {
       listItem.addClass('selected');
@@ -392,15 +392,15 @@ SUI.widget.Select.prototype._drawItems = function(items) {
     });
     this.listNode.appendChild(listItem);
 
-    let image = item.get('image');
+    const image = item.get('image');
     if (image) {
-      let imageNode = new SUI.Node('img');
+      const imageNode = new SUI.Node('img');
       imageNode.setAttribute('src', image);
       listItem.appendChild(imageNode);
     }
 
-    let name = item.get('name');
-    let nameNode = new SUI.Node('span');
+    const name = item.get('name');
+    const nameNode = new SUI.Node('span');
     nameNode.setHtml(name);
     listItem.appendChild(nameNode);
   });
@@ -411,30 +411,30 @@ SUI.widget.Select.prototype._drawItems = function(items) {
  * @return {undefined}
  */
 SUI.widget.Select.prototype._drawSearchInput = function() {
-  let searchParentNode = new SUI.Node('div');
+  const searchParentNode = new SUI.Node('div');
   searchParentNode.addClass('search-box');
   this.containerNode.appendChild(searchParentNode);
 
-  let searchNode = new SUI.Node('div');
+  const searchNode = new SUI.Node('div');
   searchNode.addClass(['mdl-textfield', 'mdl-js-textfield']);
   searchNode.addEventListener('click', () => {
 
   });
   searchParentNode.appendChild(searchNode);
 
-  let id = SUI.generateId('select');
+  const id = SUI.generateId('select');
 
   this.searchInputNode = new SUI.Node('input');
   this.searchInputNode.setId(id);
   this.searchInputNode.setAttribute('type', 'text');
   this.searchInputNode.addClass('mdl-textfield__input');
   this.searchInputNode.addEventListener('keyup', (input) => {
-    let node = input.getNode();
+    const node = input.getNode();
     this._search(node.value);
   });
   searchNode.appendChild(this.searchInputNode);
 
-  let labelNode = new SUI.Node('label');
+  const labelNode = new SUI.Node('label');
   labelNode.setFor(id);
   labelNode.addClass('mdl-textfield__label');
   searchNode.appendChild(labelNode);
@@ -465,10 +465,11 @@ SUI.widget.Select.prototype.close = function() {
  */
 SUI.widget.Select.prototype._search = function(query) {
   this.query = query;
-  let regExp = new RegExp(query, 'i');
-  let items = [];
+  this.searchInputNode.setValue(query);
+  const regExp = new RegExp(query, 'i');
+  const items = [];
   this.options.each(function(option) {
-    let name = option.get('name');
+    const name = option.get('name');
     if (regExp.test(name)) {
       items.push(option);
     }

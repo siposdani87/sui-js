@@ -22,7 +22,7 @@ SUI.ContentHandler = function(containerNode, opt_options = {}) {
  * @return {undefined}
  */
 SUI.ContentHandler.prototype._setOptions = function(opt_options = {}) {
-  let _self = this;
+  const _self = this;
   _self.options = new SUI.Object({
     image_url: null,
     text: '',
@@ -40,12 +40,12 @@ SUI.ContentHandler.prototype._init = function() {
   this.containerNode.insertAfter(this.contentNode);
 
   if (this.options.image_url) {
-    let imageNode = new SUI.Node('img');
+    const imageNode = new SUI.Node('img');
     imageNode.setAttribute('src', this.options.image_url);
     this.contentNode.appendChild(imageNode);
   }
   if (this.options.text) {
-    let textNode = new SUI.Node('p');
+    const textNode = new SUI.Node('p');
     textNode.setHtml(this.options.text);
     this.contentNode.appendChild(textNode);
   }

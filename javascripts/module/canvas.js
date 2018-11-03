@@ -36,9 +36,9 @@ SUI.Canvas.prototype._init = function(opt_selector) {
  */
 SUI.Canvas.prototype._initEvents = function() {
   this.canvasNode.addEventListener('mousemove', (canvasNode, event) => {
-    let rect = canvasNode.getNode().getBoundingClientRect();
-    let x = event.clientX - rect.left;
-    let y = event.clientY - rect.top;
+    const rect = canvasNode.getNode().getBoundingClientRect();
+    const x = event.clientX - rect.left;
+    const y = event.clientY - rect.top;
     this.eventMouseMove(x, y);
   });
 };
@@ -96,7 +96,7 @@ SUI.Canvas.prototype.drawPolygon = function(x, y, radius, sides, rotateAngle, op
   if (sides < 3) {
     return;
   }
-  let a = (Math.PI * 2) / sides;
+  const a = (Math.PI * 2) / sides;
   this.context.save();
   this.context.translate(x, y);
   this.context.beginPath();
@@ -147,8 +147,8 @@ SUI.Canvas.prototype.drawRectangle = function(x, y, width, height, rotateAngle, 
  * @param {number=} opt_height
  */
 SUI.Canvas.prototype.drawImage = function(image, opt_width, opt_height) {
-  let width = opt_width || SUI.typeCast(image.getAttribute('width'));
-  let height = opt_height || SUI.typeCast(image.getAttribute('height'));
+  const width = opt_width || SUI.typeCast(image.getAttribute('width'));
+  const height = opt_height || SUI.typeCast(image.getAttribute('height'));
   this.context.save();
   this.context.drawImage(image.getNode(), 0, 0, width, height);
   this.context.restore();

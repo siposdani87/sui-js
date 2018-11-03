@@ -42,16 +42,16 @@ SUI.widget.Radiobutton.prototype._init = function() {
  * @return {undefined}
  */
 SUI.widget.Radiobutton.prototype._change = function() {
-  let value = this.input.getAttribute('value');
+  const value = this.input.getAttribute('value');
   this.modelChange(value);
   this.checkValidity();
 
-  let name = this.input.getAttribute('name');
-  let radioButtonInputs = new SUI.Query(SUI.format('input[name="{0}"]', [name]), this.form.formNode);
+  const name = this.input.getAttribute('name');
+  const radioButtonInputs = new SUI.Query(SUI.format('input[name="{0}"]', [name]), this.form.formNode);
   radioButtonInputs.each((radioButtonInput) => {
-    let labelNode = radioButtonInput.getParentNode();
+    const labelNode = radioButtonInput.getParentNode();
     labelNode.addClass('is-other-checked');
-    let inputBlockNode = labelNode.getParentNode();
+    const inputBlockNode = labelNode.getParentNode();
     inputBlockNode.removeClass('is-invalid');
   });
 };
@@ -62,12 +62,12 @@ SUI.widget.Radiobutton.prototype._change = function() {
  */
 SUI.widget.Radiobutton.prototype.render = function() {
   this.label.addClass(['mdl-radio', 'mdl-js-radio', 'mdl-js-ripple-effect']);
-  let id = this.input.getId();
+  const id = this.input.getId();
   this.label.setFor(/** @type {string} */(id));
 
-  let labelText = this.label.getHtml(true);
+  const labelText = this.label.getHtml(true);
 
-  let spanLabel = new SUI.Node('span');
+  const spanLabel = new SUI.Node('span');
   spanLabel.addClass('mdl-radio__label');
   spanLabel.setHtml(labelText);
 
@@ -87,9 +87,9 @@ SUI.widget.Radiobutton.prototype.render = function() {
  * @override
  */
 SUI.widget.Radiobutton.prototype.refresh = function() {
-  let dataLabelText = this.label.getAttribute('data-label');
+  const dataLabelText = this.label.getAttribute('data-label');
   if (dataLabelText) {
-    let labelText = this._getLabelRequiredText(dataLabelText);
+    const labelText = this._getLabelRequiredText(dataLabelText);
     this.dataLabelNode.setHtml(labelText);
   } else {
     this.dataLabelNode.setHtml('');
@@ -118,7 +118,7 @@ SUI.widget.Radiobutton.prototype.setValue = function(value) {
 SUI.widget.Radiobutton.prototype.getValue = function() {
   let value = null;
   this._getRadioButtonInputs().each((radioButtonInput) => {
-    let checked = radioButtonInput.getNode().checked;
+    const checked = radioButtonInput.getNode().checked;
     if (checked) {
       value = radioButtonInput.getAttribute('value');
     }
@@ -163,6 +163,6 @@ SUI.widget.Radiobutton.prototype.isDisabled = function() {
  * @return {!SUI.Query}
  */
 SUI.widget.Radiobutton.prototype._getRadioButtonInputs = function() {
-  let name = this.input.getAttribute('name');
+  const name = this.input.getAttribute('name');
   return new SUI.Query(SUI.format('input[name="{0}"]', [name]), this.form.formNode);
 };

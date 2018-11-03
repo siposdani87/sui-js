@@ -152,7 +152,7 @@ SUI.Clock.prototype._setMode = function(mode) {
  * @return {undefined}
  */
 SUI.Clock.prototype._initSeparatorHeaderNode = function() {
-  let separatorHeaderNode = new SUI.Node('div');
+  const separatorHeaderNode = new SUI.Node('div');
   separatorHeaderNode.addClass('separator');
   separatorHeaderNode.setHtml(':');
   this.headerNode.appendChild(separatorHeaderNode);
@@ -174,7 +174,7 @@ SUI.Clock.prototype._initContentNode = function() {
  */
 SUI.Clock.prototype._getTimeNode = function() {
   this.contentNode.removeChildren();
-  let hoursNode = new SUI.Node('div');
+  const hoursNode = new SUI.Node('div');
   hoursNode.addClass('time');
   this.contentNode.appendChild(hoursNode);
   return hoursNode;
@@ -187,10 +187,10 @@ SUI.Clock.prototype._getTimeNode = function() {
  */
 SUI.Clock.prototype._setHours = function(hours) {
   this.hours = hours;
-  let cssClass = this.activeMode === this.types['hour'] ? 'active' : null;
+  const cssClass = this.activeMode === this.types['hour'] ? 'active' : null;
   this.hoursHeaderNode.removeClass('active');
   this.hoursHeaderNode.addClass(['hours', cssClass]);
-  let text = hours < 10 ? '0' + hours : hours;
+  const text = hours < 10 ? '0' + hours : hours;
   this.hoursHeaderNode.setHtml(text);
 };
 
@@ -201,10 +201,10 @@ SUI.Clock.prototype._setHours = function(hours) {
  */
 SUI.Clock.prototype._setMinutes = function(minutes) {
   this.minutes = minutes;
-  let cssClass = this.activeMode === this.types['minute'] ? 'active' : null;
+  const cssClass = this.activeMode === this.types['minute'] ? 'active' : null;
   this.minutesHeaderNode.removeClass('active');
   this.minutesHeaderNode.addClass(['minutes', cssClass]);
-  let text = minutes < 10 ? '0' + minutes : minutes;
+  const text = minutes < 10 ? '0' + minutes : minutes;
   this.minutesHeaderNode.setHtml(text);
 };
 
@@ -217,7 +217,7 @@ SUI.Clock.prototype._setPeriod = function(period) {
   this.period = period;
   this.periodHeaderNode.removeClass(['am', 'pm']);
   this.periodHeaderNode.addClass(['period', this.period]);
-  let text = window['moment']['localeData']()['meridiem'](this.time['hour'](), this.time['minute'](), true);
+  const text = window['moment']['localeData']()['meridiem'](this.time['hour'](), this.time['minute'](), true);
   this.periodHeaderNode.setHtml(text);
 };
 
@@ -228,13 +228,13 @@ SUI.Clock.prototype._setPeriod = function(period) {
 SUI.Clock.prototype.setTime = function(time) {
   this.time = window['moment'](time);
 
-  let hours = this.time['hour']() % 12 || 12;
+  const hours = this.time['hour']() % 12 || 12;
   this._setHours(hours);
 
-  let minutes = this.time['minute']();
+  const minutes = this.time['minute']();
   this._setMinutes(minutes);
 
-  let period = this.time['hour']() > 12 ? 'pm' : 'am';
+  const period = this.time['hour']() > 12 ? 'pm' : 'am';
   this._setPeriod(period);
 };
 
@@ -258,7 +258,7 @@ SUI.Clock.prototype._getMode = function(direction) {
   if (position !== -1) {
     position += direction;
   }
-  let mode = this.modes[position];
+  const mode = this.modes[position];
   return mode ? mode : this.types[this.options.type];
 };
 
@@ -268,7 +268,7 @@ SUI.Clock.prototype._getMode = function(direction) {
  * @return {undefined}
  */
 SUI.Clock.prototype._changeMode = function(direction) {
-  let mode = this._getMode(direction);
+  const mode = this._getMode(direction);
   this._initMode(mode);
 };
 
@@ -276,7 +276,7 @@ SUI.Clock.prototype._changeMode = function(direction) {
  * @return {undefined}
  */
 SUI.Clock.prototype.draw = function() {
-  let timeNode = this._getTimeNode();
+  const timeNode = this._getTimeNode();
 
   this._switchMode(() => {
     this._drawHours(timeNode);
@@ -291,13 +291,13 @@ SUI.Clock.prototype.draw = function() {
  * @return {undefined}
  */
 SUI.Clock.prototype._drawMinutes = function(timeNode) {
-  let timeMinutes = new SUI.Time(timeNode, {
+  const timeMinutes = new SUI.Time(timeNode, {
     selected: this.minutes,
     captions: ['00', '05'],
   });
   timeMinutes.eventClick = (index) => {
     this._changeMode(-1);
-    let time = this.time['minute'](index);
+    const time = this.time['minute'](index);
     this._onClick(time);
   };
   timeMinutes.draw(0, 59, 5, true);
@@ -309,14 +309,14 @@ SUI.Clock.prototype._drawMinutes = function(timeNode) {
  * @return {undefined}
  */
 SUI.Clock.prototype._drawHours = function(timeNode) {
-  let timeHours = new SUI.Time(timeNode, {
+  const timeHours = new SUI.Time(timeNode, {
     selected: this.hours,
   });
   timeHours.eventClick = (index) => {
     this._changeMode(1);
     let hour = this.period === 'pm' ? index + 12 : index;
     hour = hour === 24 ? 0 : hour;
-    let time = this.time['hour'](hour);
+    const time = this.time['hour'](hour);
     this._onClick(time);
   };
   timeHours.draw(1, 12, 1, true);

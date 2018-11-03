@@ -17,7 +17,7 @@ SUI.lib.Xhr = function(options) {
   this._setType('form', ['application/x-www-form-urlencoded', 'json']);
   this._setType('svg', ['image/svg+xml', 'document']);
 
-  let _self = this;
+  const _self = this;
   _self.options = new SUI.Object({
     backend: '',
     content_type: this._getContentType('json'),
@@ -56,7 +56,7 @@ SUI.lib.Xhr.prototype._setType = function(name, value) {
  * @return {string}
  */
 SUI.lib.Xhr.prototype._getContentType = function(name) {
-  let typeSettings = this.types[name] || this.types['json'];
+  const typeSettings = this.types[name] || this.types['json'];
   return typeSettings[0];
 };
 
@@ -66,7 +66,7 @@ SUI.lib.Xhr.prototype._getContentType = function(name) {
  * @return {string}
  */
 SUI.lib.Xhr.prototype._getResponseType = function(name) {
-  let typeSettings = this.types[name] || this.types['json'];
+  const typeSettings = this.types[name] || this.types['json'];
   return typeSettings[1];
 };
 
@@ -88,7 +88,7 @@ SUI.lib.Xhr.prototype._onReadyStateChange = function() {
         break;
       case 4:
         // Request finished and response is ready
-        let response = this._getResponseData(this.http.response);
+        const response = this._getResponseData(this.http.response);
         if (SUI.eq(this.http.status, 200)) {
           this.deferred.resolve([this.http].concat(response));
         } else {
@@ -163,7 +163,7 @@ SUI.lib.Xhr.prototype.delete = function(url, opt_data, opt_params, opt_headers =
  * @return {string}
  */
 SUI.lib.Xhr.prototype._getUrl = function(url, opt_params) {
-  let urlWithQueryString = SUI.urlWithQueryString(url, opt_params);
+  const urlWithQueryString = SUI.urlWithQueryString(url, opt_params);
   return url[0] === '/' ? this.options.backend + urlWithQueryString : urlWithQueryString;
 };
 
@@ -219,9 +219,9 @@ SUI.lib.Xhr.prototype._parseObject = function(obj, key, stringKey) {
       results.push([stringKey, obj[i]].join('='));
     }
   } else if (typeof obj === 'object') {
-    for (let j in obj) {
+    for (const j in obj) {
       if (obj.hasOwnProperty(j)) {
-        let pairs = this._parseObject(obj[j], j, stringKey);
+        const pairs = this._parseObject(obj[j], j, stringKey);
         results = results.concat(pairs);
       }
     }
@@ -238,9 +238,9 @@ SUI.lib.Xhr.prototype._parseObject = function(obj, key, stringKey) {
  */
 SUI.lib.Xhr.prototype._stringifyObject = function(obj) {
   let results = [];
-  for (let key in obj) {
+  for (const key in obj) {
     if (obj.hasOwnProperty(key)) {
-      let pair = this._parseObject(obj[key], key, '');
+      const pair = this._parseObject(obj[key], key, '');
       results = results.concat(pair);
     }
   }
@@ -253,13 +253,13 @@ SUI.lib.Xhr.prototype._stringifyObject = function(obj) {
  * @return {!Array}
  */
 SUI.lib.Xhr.prototype._getResponseData = function(data) {
-  let type = this.http.getResponseHeader('Content-Type');
+  const type = this.http.getResponseHeader('Content-Type');
   let results = [data];
   if (type) {
     switch (type.split(';')[0]) {
       case this._getContentType('json'):
         data = SUI.isString(data) ? JSON.parse(/** @type {string} */(data) || 'null') : data;
-        let object = new SUI.Object();
+        const object = new SUI.Object();
         object.merge(data);
         results = [object];
         break;
@@ -271,8 +271,8 @@ SUI.lib.Xhr.prototype._getResponseData = function(data) {
         break;
       default:
         // result = new Blob([data], {'type': type});
-        let contentDisposition = this.http.getResponseHeader('Content-Disposition');
-        let filename = contentDisposition.match(/filename="(.+)"/)[1];
+        const contentDisposition = this.http.getResponseHeader('Content-Disposition');
+        const filename = contentDisposition.match(/filename="(.+)"/)[1];
         results = [data, filename];
         break;
     }
@@ -287,7 +287,7 @@ SUI.lib.Xhr.prototype._getResponseData = function(data) {
  * @return {undefined}
  */
 SUI.lib.Xhr.prototype._setRequestHeaders = function(url, opt_headers = {}) {
-  let contentType = SUI.getExtensionName(url);
+  const contentType = SUI.getExtensionName(url);
   this.options.content_type = this._getContentType(contentType);
   this.options.response_type = this._getResponseType(contentType);
   this.http.responseType = this.options.response_type;
@@ -328,7 +328,7 @@ SUI.lib.Xhr.prototype.setHeader = function(name, value) {
  */
 SUI.lib.Xhr.prototype.setBasicAuthorization = function(username, password) {
   if (username && password) {
-    let hash = [username, password].join(':');
+    const hash = [username, password].join(':');
     this.options.authorization = 'Basic ' + SUI.encodeBase64(hash);
   }
 };

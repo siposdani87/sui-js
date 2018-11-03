@@ -29,16 +29,16 @@ SUI.lib.ActionCable.prototype._init = function() {
  * @return {!SUI.Promise}
  */
 SUI.lib.ActionCable.prototype.subscribe = function(channel, room) {
-  let options = {channel, room};
-  let identifier = this._generateIdentifier(options);
+  const options = {channel, room};
+  const identifier = this._generateIdentifier(options);
   if (!SUI.inArray(this.identifiers, identifier)) {
     this.identifiers.push(identifier);
-    let client = new SUI.lib.ActionCableClient(this, options);
+    const client = new SUI.lib.ActionCableClient(this, options);
     client.identifier = identifier;
     this.clients.push(client);
     return client.subscribe();
   }
-  let deferred = new SUI.Deferred();
+  const deferred = new SUI.Deferred();
   return deferred.promise();
 };
 
@@ -59,7 +59,7 @@ SUI.lib.ActionCable.prototype.unsubscribeAll = function() {
  * @return {string}
  */
 SUI.lib.ActionCable.prototype._generateIdentifier = function(options) {
-  let values = [];
+  const values = [];
   SUI.eachObject(options, (value) => {
     values.push(value);
   });

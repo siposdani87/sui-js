@@ -27,13 +27,13 @@ SUI.widget.Textarea.prototype._init = function() {
   this.inputBlock.addClass('textarea-widget');
 
   this.input.addEventListener('keyup', (input) => {
-    let inputNode = input.getNode();
+    const inputNode = input.getNode();
     this.modelChange(inputNode.value);
     this.checkValidity();
   });
 
   this.input.addEventListener('change', (input) => {
-    let inputNode = input.getNode();
+    const inputNode = input.getNode();
     this.modelChange(inputNode.value);
     this.checkValidity();
   });
@@ -66,7 +66,7 @@ SUI.widget.Textarea.prototype.refresh = function() {
  * @return {undefined}
  */
 SUI.widget.Textarea.prototype.setValue = function(value) {
-  let inputNode = this.input.getNode();
+  const inputNode = this.input.getNode();
   inputNode.value = value;
   this.input.trigger('change');
 };

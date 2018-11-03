@@ -18,9 +18,9 @@ SUI.Async = function(opt_sum) {
  * @return {!SUI.Promise}
  */
 SUI.Async.prototype.parallel = function(calls, opt_args) {
-  let deferred = new SUI.Deferred();
+  const deferred = new SUI.Deferred();
   if (calls.length === 0) {
-    let results = opt_args || this.call.results;
+    const results = opt_args || this.call.results;
     deferred.resolve(results);
     this._clear();
   } else {
@@ -39,7 +39,7 @@ SUI.Async.prototype.parallel = function(calls, opt_args) {
  * @return {undefined}
  */
 SUI.Async.prototype.parallelFunction = function(call, opt_args, opt_index) {
-  let index = !SUI.isUndefined(opt_index) ? /** @type {number} */ (opt_index) : this.call.counter++;
+  const index = !SUI.isUndefined(opt_index) ? /** @type {number} */ (opt_index) : this.call.counter++;
   this.call.results[index] = null;
   this._parallelWrapper(call, this.sum, true, index, opt_args);
 };
@@ -54,9 +54,9 @@ SUI.Async.prototype.parallelFunction = function(call, opt_args, opt_index) {
  * @return {!SUI.Promise}
  */
 SUI.Async.prototype._parallelWrapper = function(call, length, allowEvent, index, opt_args) {
-  let deferred = new SUI.Deferred();
-  let args = opt_args || [];
-  let promise = call.apply(this, args);
+  const deferred = new SUI.Deferred();
+  const args = opt_args || [];
+  const promise = call.apply(this, args);
   if (promise && SUI.isFunction(promise.then)) {
     promise.then((object) => {
       this._parallelCaller(length, false, object, allowEvent, index, opt_args).defer(deferred);
@@ -82,14 +82,14 @@ SUI.Async.prototype._parallelWrapper = function(call, length, allowEvent, index,
  * @return {!SUI.Promise}
  */
 SUI.Async.prototype._parallelCaller = function(length, isError, result, allowEvent, index, opt_args) {
-  let deferred = new SUI.Deferred();
+  const deferred = new SUI.Deferred();
   this.call.results[index] = result;
   if (isError) {
     this.call.isError = isError;
   }
   this.call.sum++;
   if (SUI.eq(this.call.sum, length)) {
-    let results = opt_args || /** @type {!Array} */ (SUI.copy(this.call.results));
+    const results = opt_args || /** @type {!Array} */ (SUI.copy(this.call.results));
     this._clear();
     if (!this.call.isError) {
       if (allowEvent) {
@@ -150,9 +150,9 @@ SUI.Async.prototype.eventComplete = function(isError, results) {
  * @return {!SUI.Promise}
  */
 SUI.Async.prototype.serial = function(calls, opt_args) {
-  let deferred = new SUI.Deferred();
+  const deferred = new SUI.Deferred();
   if (calls.length === 0) {
-    let results = opt_args || this.call.results;
+    const results = opt_args || this.call.results;
     deferred.resolve(results);
     this._clear();
   } else {
@@ -169,16 +169,16 @@ SUI.Async.prototype.serial = function(calls, opt_args) {
  * @return {!SUI.Promise}
  */
 SUI.Async.prototype._serialWrapper = function(calls, index, opt_args) {
-  let deferred = new SUI.Deferred();
-  let call = calls[index];
-  let results = opt_args || this.call.results;
-  let args = (opt_args || []).concat(this.call.results);
-  let promise = call.apply(this, args);
+  const deferred = new SUI.Deferred();
+  const call = calls[index];
+  const results = opt_args || this.call.results;
+  const args = (opt_args || []).concat(this.call.results);
+  const promise = call.apply(this, args);
   if (promise && SUI.isFunction(promise.then)) {
     promise.then(function(result) {
       this._serialCaller(calls, index, result, opt_args).defer(deferred);
     }.bind(this), function() {
-      let results = opt_args || this.call.results;
+      const results = opt_args || this.call.results;
       deferred.reject(results);
       this._clear();
     }.bind(this));
@@ -200,13 +200,13 @@ SUI.Async.prototype._serialWrapper = function(calls, index, opt_args) {
  * @return {!SUI.Promise}
  */
 SUI.Async.prototype._serialCaller = function(calls, index, result, opt_args) {
-  let deferred = new SUI.Deferred();
+  const deferred = new SUI.Deferred();
   this.call.results[index] = result;
-  let nextIndex = index + 1;
+  const nextIndex = index + 1;
   if (nextIndex < calls.length) {
     this._serialWrapper(calls, nextIndex, opt_args).defer(deferred);
   } else {
-    let results = opt_args || this.call.results;
+    const results = opt_args || this.call.results;
     deferred.resolve(results);
     this._clear();
   }

@@ -72,7 +72,7 @@ SUI.Module.prototype._getDependencies = function(moduleInjections, moduleCallbac
  * @return {!Object}
  */
 SUI.Module.prototype._resolveDependencies = function(dependency) {
-  let moduleArgs = [];
+  const moduleArgs = [];
   SUI.each(dependency.moduleInjections, (injection) => {
     moduleArgs.push(this._instances[injection]);
   });
@@ -95,12 +95,12 @@ SUI.Module.prototype._resolveDependencies = function(dependency) {
  * @return {undefined}
  */
 SUI.Module.prototype._orderServices = function() {
-  for (let key in this._modules) {
+  for (const key in this._modules) {
     if (this._modules.hasOwnProperty(key) && this._isModule(key)) {
       if (this._services.indexOf(key) === -1) {
         this._services.push(key);
       }
-      let injections = this._modules[key].moduleInjections;
+      const injections = this._modules[key].moduleInjections;
       for (let j = 0; j < injections.length; j++) {
         if (this._isModule(injections[j])) {
           if (this._services.indexOf(injections[j]) === -1) {
@@ -119,7 +119,7 @@ SUI.Module.prototype._orderServices = function() {
  * @return {boolean}
  */
 SUI.Module.prototype._isModule = function(value) {
-  let lastCharacters = value.substr(value.length - 7);
+  const lastCharacters = value.substr(value.length - 7);
   return SUI.eq(lastCharacters, 'Service') || SUI.eq(lastCharacters, 'Factory');
 };
 
@@ -134,10 +134,10 @@ SUI.Module.prototype._changeServices = function(service, injection) {
     console.error('SUI.Modules._changeServices()', 'Dependency injection circular loop', injection, '<=>', service);
   }
   this._dependencies.push([service, injection].join('-'));
-  let servicePosition = this._services.indexOf(service);
-  let injectionPosition = this._services.indexOf(injection);
+  const servicePosition = this._services.indexOf(service);
+  const injectionPosition = this._services.indexOf(injection);
   if (injectionPosition > servicePosition) {
-    let tmpService = this._services[servicePosition];
+    const tmpService = this._services[servicePosition];
     this._services.splice(servicePosition, 1);
     this._services.push(tmpService);
   }
@@ -148,9 +148,9 @@ SUI.Module.prototype._changeServices = function(service, injection) {
  */
 SUI.Module.prototype.handleServices = function() {
   this._orderServices();
-  let calls = [];
+  const calls = [];
   SUI.each(this._services, function(serviceName) {
-    let moduleCall = function() {
+    const moduleCall = function() {
       this._instances[serviceName] = this._resolveDependencies(this._modules[serviceName]);
 
       let enter = SUI.noop();
@@ -163,7 +163,7 @@ SUI.Module.prototype.handleServices = function() {
   }.bind(this));
 
   this.eventAfterInit();
-  let async = new SUI.Async();
+  const async = new SUI.Async();
   async.serial(calls).then(function() {
     this.eventServiceLoaded();
     this._instances[this._injections.state].run();
@@ -185,7 +185,7 @@ SUI.Module.prototype.handleRoutes = function(routes, options) {
       exit = this._controller.exit.bind(this._controller);
     }
 
-    let async = new SUI.Async();
+    const async = new SUI.Async();
     async.serial([exit]).then(function() {
       this._handleStateChange(currentState);
     }.bind(this));
@@ -199,7 +199,7 @@ SUI.Module.prototype.handleRoutes = function(routes, options) {
 SUI.Module.prototype._handleStateChange = function(currentState) {
   this.eventStateChange(currentState).then(() => {
     if (SUI.isString(currentState.get('template'))) {
-      let templateUrl = currentState.get('templateUrl');
+      const templateUrl = currentState.get('templateUrl');
       this._instances[this._injections.template].load(templateUrl).then((dom) => {
         this.eventModuleLoaded(currentState);
         this._initController(currentState, dom);
@@ -223,11 +223,11 @@ SUI.Module.prototype._handleStateChange = function(currentState) {
  */
 SUI.Module.prototype._initController = function(state, dom) {
   this._instances[this._injections.dom] = dom;
-  let controller = this._modules[state.get('controller')];
+  const controller = this._modules[state.get('controller')];
   this.eventDomChange(state, dom).then(() => {
     this._controller = this._resolveDependencies(controller);
     if (SUI.isObject(this._controller) && SUI.isFunction(this._controller.enter)) {
-      let async = new SUI.Async();
+      const async = new SUI.Async();
       async.serial([this._controller.enter.bind(this._controller)]).then(() => {
         this.eventControllerLoaded(dom);
       });
@@ -266,7 +266,7 @@ SUI.Module.prototype.eventModuleLoaded = function(state) {
  * @return {!SUI.Promise}
  */
 SUI.Module.prototype.eventStateChange = function(state) {
-  let deferred = new SUI.Deferred();
+  const deferred = new SUI.Deferred();
   console.warn('SUI.Module.eventStateChange()', state);
   deferred.resolve();
   return deferred.promise();
@@ -278,7 +278,7 @@ SUI.Module.prototype.eventStateChange = function(state) {
  * @return {!SUI.Promise}
  */
 SUI.Module.prototype.eventDomChange = function(state, dom) {
-  let deferred = new SUI.Deferred();
+  const deferred = new SUI.Deferred();
   console.warn('SUI.Module.eventDomChange()', state, dom);
   deferred.resolve();
   return deferred.promise();

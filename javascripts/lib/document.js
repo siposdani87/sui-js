@@ -20,7 +20,7 @@ SUI.lib.Document = function(options) {
  * @return {undefined}
  */
 SUI.lib.Document.prototype._setOptions = function(options) {
-  let _self = this;
+  const _self = this;
   _self.options = new SUI.Object();
   _self.options.merge(options);
 };
@@ -32,7 +32,7 @@ SUI.lib.Document.prototype._setOptions = function(options) {
 SUI.lib.Document.prototype._init = function() {
   this.document = document;
   this.document.addEventListener('click', (event) => {
-    let target = new SUI.Node(/** @type {!Element} */ (event.target));
+    const target = new SUI.Node(/** @type {!Element} */ (event.target));
     this.eventClick(target, event);
   });
 };

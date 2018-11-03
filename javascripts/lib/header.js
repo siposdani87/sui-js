@@ -10,7 +10,7 @@ goog.require('SUI.lib');
  * @param {!Object=} opt_options
  */
 SUI.lib.Header = function(opt_options = {}) {
-  let _self = this;
+  const _self = this;
   _self.options = new SUI.Object();
   _self.options.merge(opt_options);
 

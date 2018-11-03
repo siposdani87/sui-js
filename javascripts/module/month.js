@@ -30,8 +30,8 @@ SUI.Month.prototype._setOptions = function(options) {
  * @return {undefined}
  */
 SUI.Month.prototype._init = function() {
-  let current = this.date['format']('YYYY-MM') === this.currentDate['format']('YYYY-MM') ? 'current' : null;
-  let now = this.date['format']('YYYY-MM') === window['moment']()['format']('YYYY-MM') ? 'now' : null;
+  const current = this.date['format']('YYYY-MM') === this.currentDate['format']('YYYY-MM') ? 'current' : null;
+  const now = this.date['format']('YYYY-MM') === window['moment']()['format']('YYYY-MM') ? 'now' : null;
   this.cssClasses = ['month', this.options.css_class, now, current];
 };
 
@@ -39,10 +39,10 @@ SUI.Month.prototype._init = function() {
  * @return {!SUI.Node}
  */
 SUI.Month.prototype.getNode = function() {
-  let node = new SUI.Node('span');
+  const node = new SUI.Node('span');
   node.addClass(this.cssClasses);
-  let i = this.date['month']();
-  let text = window['moment']['monthsShort'](i);
+  const i = this.date['month']();
+  const text = window['moment']['monthsShort'](i);
   node.setHtml(text);
   node.addEventListener('click', () => {
     this.eventClick(this.date);

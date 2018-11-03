@@ -20,13 +20,13 @@ SUI.lib.BottomMenu = function(footer) {
 SUI.lib.BottomMenu.prototype._init = function() {
   this.bottomMenu = new SUI.Query('#bottom-menu', this.footer.footerNode).getItem();
 
-  let openBottomMenu = new SUI.Query('#open-bottom-menu', this.footer.footerNode).getItem();
+  const openBottomMenu = new SUI.Query('#open-bottom-menu', this.footer.footerNode).getItem();
   openBottomMenu.setAttribute('href', 'javascript:void(0)');
   openBottomMenu.addEventListener('click', () => {
     this.toggle();
   });
 
-  let closeBottomMenu = new SUI.Query('#close-bottom-menu', this.footer.footerNode).getItem();
+  const closeBottomMenu = new SUI.Query('#close-bottom-menu', this.footer.footerNode).getItem();
   closeBottomMenu.setAttribute('href', 'javascript:void(0)');
   closeBottomMenu.addEventListener('click', () => {
     this.toggle();

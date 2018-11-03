@@ -24,7 +24,7 @@ SUI.Collection = function(opt_items = [], opt_type = SUI.Object, opt_options = {
  * @return {undefined}
  */
 SUI.Collection.prototype._setOptions = function(opt_options = {}) {
-  let _self = this;
+  const _self = this;
   _self.options = new SUI.Object({
     id: 'id',
     parent: undefined,
@@ -56,7 +56,7 @@ SUI.Collection.prototype.reload = function(items) {
  * @return {T}
  */
 SUI.Collection.prototype.push = function(object) {
-  let item = this._createItem(object);
+  const item = this._createItem(object);
   this.items.push(item);
   return item;
 };
@@ -69,7 +69,7 @@ SUI.Collection.prototype.push = function(object) {
 SUI.Collection.prototype._createItem = function(object) {
   let item = object;
   if (!SUI.instanceOf(object, this.Type)) {
-    let parent = !SUI.isUndefined(this.options.parent) ? this.options.parent : this;
+    const parent = !SUI.isUndefined(this.options.parent) ? this.options.parent : this;
     item = new this.Type(object, parent);
   }
   return item;
@@ -98,7 +98,7 @@ SUI.Collection.prototype.set = function(index, item) {
  * @return {!T}
  */
 SUI.Collection.prototype.replace = function(item) {
-  let oldItem = this.findById(item.get(this.options.id));
+  const oldItem = this.findById(item.get(this.options.id));
   if (oldItem) {
     oldItem.merge(item);
   }
@@ -120,7 +120,7 @@ SUI.Collection.prototype.getItems = function() {
  */
 SUI.Collection.prototype.iterator = function(callback, next, opt_items) {
   opt_items = opt_items || this.items;
-  let results = [];
+  const results = [];
   SUI.each(opt_items, (item, index) => {
     if (callback(item)) {
       next(item, index);
@@ -148,7 +148,7 @@ SUI.Collection.prototype.each = function(next) {
 SUI.Collection.prototype.get = function(index, opt_attribute) {
   let value = null;
   if (index >= 0 && index < this.items.length) {
-    let item = this.items[index];
+    const item = this.items[index];
     value = item;
     if (opt_attribute) {
       value = item.get(opt_attribute);
@@ -163,7 +163,7 @@ SUI.Collection.prototype.get = function(index, opt_attribute) {
  * @return {T|*}
  */
 SUI.Collection.prototype.getById = function(id, opt_attribute) {
-  let item = this.findById(id);
+  const item = this.findById(id);
   if (item && opt_attribute) {
     return item.get(opt_attribute);
   }
@@ -224,7 +224,7 @@ SUI.Collection.prototype.findAllBy = function(attribute, value) {
  * @return {!Array}
  */
 SUI.Collection.prototype.findAllByCondition = function(conditionCallback) {
-  let items = [];
+  const items = [];
   SUI.each(this.items, (item, i) => {
     if (conditionCallback(item, i)) {
       items.push(this.get(i));
@@ -271,7 +271,7 @@ SUI.Collection.prototype.deleteByCondition = function(conditionCallback) {
   while (i < this.items.length && !conditionCallback(this.items[i], i)) {
     i++;
   }
-  let item = this.get(i);
+  const item = this.get(i);
   this.items.splice(i, 1);
   return item;
 };
@@ -292,8 +292,8 @@ SUI.Collection.prototype.deleteAllBy = function(attribute, value) {
  * @return {!Array}
  */
 SUI.Collection.prototype.deleteAllByCondition = function(conditionCallback) {
-  let items = [];
-  let deletedItems = [];
+  const items = [];
+  const deletedItems = [];
   SUI.each(this.items, (item, i) => {
     if (conditionCallback(item, i)) {
       deletedItems.push(this.get(i));

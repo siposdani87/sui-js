@@ -48,7 +48,7 @@ SUI.lib.Http.prototype.setBearerAuthorization = function(token) {
  * @return {!SUI.Promise}
  */
 SUI.lib.Http.prototype.get = function(url, opt_params, opt_headers) {
-  let http = this._getRequestHandler();
+  const http = this._getRequestHandler();
   return this._getPromise(http.get(url, opt_params, opt_headers));
 };
 
@@ -60,7 +60,7 @@ SUI.lib.Http.prototype.get = function(url, opt_params, opt_headers) {
  * @return {!SUI.Promise}
  */
 SUI.lib.Http.prototype.post = function(url, opt_data, opt_params, opt_headers) {
-  let http = this._getRequestHandler();
+  const http = this._getRequestHandler();
   return this._getPromise(http.post(url, opt_data, opt_params, opt_headers));
 };
 
@@ -72,7 +72,7 @@ SUI.lib.Http.prototype.post = function(url, opt_data, opt_params, opt_headers) {
  * @return {!SUI.Promise}
  */
 SUI.lib.Http.prototype.put = function(url, opt_data, opt_params, opt_headers) {
-  let http = this._getRequestHandler();
+  const http = this._getRequestHandler();
   return this._getPromise(http.put(url, opt_data, opt_params, opt_headers));
 };
 
@@ -84,7 +84,7 @@ SUI.lib.Http.prototype.put = function(url, opt_data, opt_params, opt_headers) {
  * @return {!SUI.Promise}
  */
 SUI.lib.Http.prototype.patch = function(url, opt_data, opt_params, opt_headers) {
-  let http = this._getRequestHandler();
+  const http = this._getRequestHandler();
   return this._getPromise(http.patch(url, opt_data, opt_params, opt_headers));
 };
 
@@ -96,7 +96,7 @@ SUI.lib.Http.prototype.patch = function(url, opt_data, opt_params, opt_headers) 
  * @return {!SUI.Promise}
  */
 SUI.lib.Http.prototype.delete = function(url, opt_data, opt_params, opt_headers) {
-  let http = this._getRequestHandler();
+  const http = this._getRequestHandler();
   return this._getPromise(http.delete(url, opt_data, opt_params, opt_headers));
 };
 
@@ -105,7 +105,7 @@ SUI.lib.Http.prototype.delete = function(url, opt_data, opt_params, opt_headers)
  * @return {!SUI.lib.Xhr}
  */
 SUI.lib.Http.prototype._getRequestHandler = function() {
-  let http = new SUI.lib.Xhr(this.options);
+  const http = new SUI.lib.Xhr(this.options);
   http.setBasicAuthorization(this.username, this.password);
   http.setBearerAuthorization(this.token);
   this.eventBeforeRequest(http);
@@ -118,7 +118,7 @@ SUI.lib.Http.prototype._getRequestHandler = function() {
  * @return {!SUI.Promise}
  */
 SUI.lib.Http.prototype._getPromise = function(promise) {
-  let deferred = new SUI.Deferred();
+  const deferred = new SUI.Deferred();
   promise.then((...params) => {
     this.eventAfterRequest(...params);
     deferred.resolve.apply(deferred, [params.slice(1)]);

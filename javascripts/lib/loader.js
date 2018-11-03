@@ -21,7 +21,7 @@ SUI.lib.Loader = function(opt_options = {}) {
  * @return {undefined}
  */
 SUI.lib.Loader.prototype._setOptions = function(opt_options = {}) {
-  let _self = this;
+  const _self = this;
   _self.options = new SUI.Object({
     counter: 0,
   });
