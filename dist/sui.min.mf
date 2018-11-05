@@ -44,6 +44,10 @@ core/router.js
 core/state.js
 core/test.js
 core/widget.js
+test/container.js
+test/deferred.js
+test/item.js
+test/object.js
 lib/actionCableClient.js
 lib/actionCable.js
 lib/navBar.js
@@ -88,10 +92,6 @@ module/tabPanel.js
 module/table.js
 module/treeView.js
 module/util.js
-test/container.js
-test/deferred.js
-test/item.js
-test/object.js
 widget/autoComplete.js
 widget/datetimeRange.js
 widget/location.js

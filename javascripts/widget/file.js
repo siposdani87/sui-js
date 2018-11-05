@@ -28,7 +28,6 @@ SUI.widget.File.prototype._init = function() {
   this.inputBlock.addClass('file-widget');
 
   this.defaultSrc = null;
-
   this.imageTag = new SUI.Query('img', this.inputBlock).getItem();
   if (this.imageTag.isEmpty()) {
     this.imageTag = new SUI.Node('img');
@@ -78,7 +77,7 @@ SUI.widget.File.prototype._read = function(file) {
     const reader = new FileReader();
     reader.onload = (event) => {
       const source = /** @type {string} */ (event.target.result);
-      if (!this.imageTag.isEmpty()) {
+      if (SUI.contain(file.type, 'image/') && !this.imageTag.isEmpty()) {
         this.imageTag.setAttribute('src', source);
       }
       this.modelChange(source);
