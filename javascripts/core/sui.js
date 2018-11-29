@@ -1146,3 +1146,12 @@ SUI.filterKeys = function(obj, condition) {
   });
   return resultObj;
 };
+
+/**
+ * @export
+ * @param {string} str
+ * @return {string}
+ */
+SUI.normalize = function(str) {
+  return str.normalize('NFD').replace(/[\u0300-\u036f]/g, '');
+};
