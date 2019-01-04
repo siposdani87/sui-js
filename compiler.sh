@@ -1,7 +1,7 @@
 #!/bin/bash
 clear
 
-java -jar node_modules/google-closure-compiler/compiler.jar \
+java -jar node_modules/google-closure-compiler-java/compiler.jar \
 --compilation_level ADVANCED_OPTIMIZATIONS \
 --language_in ECMASCRIPT_2017 \
 --language_out ECMASCRIPT5_STRICT \

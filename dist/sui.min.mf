@@ -48,9 +48,6 @@ test/container.js
 test/deferred.js
 test/item.js
 test/object.js
-lib/actionCableClient.js
-lib/actionCable.js
-lib/navBar.js
 module/day.js
 module/month.js
 module/year.js
@@ -98,3 +95,6 @@ widget/location.js
 widget/number.js
 widget/search.js
 widget/url.js
+lib/actionCableClient.js
+lib/actionCable.js
+lib/navBar.js
