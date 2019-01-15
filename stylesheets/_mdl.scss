@@ -119,6 +119,8 @@
 }
 
 .mdl-checkbox {
+    height: auto;
+
     input[required="required"]~.mdl-checkbox__box-outline {
         border: 2px solid $red;
     }
