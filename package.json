@@ -26,7 +26,7 @@
     "sui-externs": "git+https://siposdani87:pTUa5kZeCCawnTzkYVUV@bitbucket.org/siposdani87/sui-externs.git#develop"
   },
   "devDependencies": {
-    "eslint": "5.11.1",
+    "eslint": "5.12.0",
     "eslint-config-google": "0.11.0",
     "google-closure-compiler": "20181210.0.0",
     "gulp": "3.9.1",
