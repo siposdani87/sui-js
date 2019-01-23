@@ -133,6 +133,17 @@ SUI.Form.prototype.setModel = function(model) {
 };
 
 /**
+ * @return {undefined}
+ */
+SUI.Form.prototype.reset = function() {
+  this.each((widget) => {
+    widget.setValue();
+    widget.checkValidity(true);
+  });
+  this.model.clear();
+};
+
+/**
  * @private
  * @param {string} name
  * @param {*} value
