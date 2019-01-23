@@ -32,6 +32,7 @@ SUI.widget.Select.prototype._init = function() {
   this.input.addClass('hidden');
   this.inputBlock.addClass('select-widget');
   this.query = '';
+  this.ids = [];
 
   this._initOptions();
   this._initChangeEvent();
@@ -133,7 +134,7 @@ SUI.widget.Select.prototype.refresh = function() {
   this.selectContainerNode.appendChild(this.iconNode);
 
   const ids = this._getSelectedIds();
-  this._setSelectInput(ids);
+  this._setSelectTags(ids);
 };
 
 /**
@@ -142,11 +143,11 @@ SUI.widget.Select.prototype.refresh = function() {
  * @return {undefined}
  */
 SUI.widget.Select.prototype.setValue = function(value) {
-  let ids = value;
+  this.ids = value;
   if (!SUI.isArray(value)) {
-    ids = [value];
+    this.ids = [value];
   }
-  this._setSelectedIds(/** @type {!Array} */(ids));
+  this._setSelectedIds(/** @type {!Array} */(this.ids));
 };
 
 /**
@@ -209,7 +210,7 @@ SUI.widget.Select.prototype.setOptions = function(items, opt_value = 'value', op
 
   this._initOptions();
   this._hideLoader();
-  this.setValue([]);
+  this.setValue(this.ids);
 };
 
 /**
@@ -219,7 +220,7 @@ SUI.widget.Select.prototype.setOptions = function(items, opt_value = 'value', op
  */
 SUI.widget.Select.prototype._change = function(opt_force = false) {
   const ids = this._getSelectedIds();
-  this._setSelectInput(ids);
+  this._setSelectTags(ids);
   const value = this.getValue();
   this.modelChange(value);
   this.checkValidity(opt_force);
@@ -230,14 +231,14 @@ SUI.widget.Select.prototype._change = function(opt_force = false) {
  * @param {!Array} ids
  * @return {undefined}
  */
-SUI.widget.Select.prototype._setSelectInput = function(ids) {
+SUI.widget.Select.prototype._setSelectTags = function(ids) {
   if (this.isRequired() && ids.length === 1 && ids[0] === '') {
     this.inputBlock.addClass('is-invalid');
   }
   if (this.isMultiple()) {
-    this._setMultipleInput(ids);
+    this._setMultipleTag(ids);
   } else {
-    this._setSimpleInput(ids[0]);
+    this._setSimpleTag(ids[0]);
   }
 };
 
@@ -246,7 +247,7 @@ SUI.widget.Select.prototype._setSelectInput = function(ids) {
  * @return {undefined}
  * @private
  */
-SUI.widget.Select.prototype._setSimpleInput = function(id) {
+SUI.widget.Select.prototype._setSimpleTag = function(id) {
   const item = this.options.findById(id);
   this._setTags(item);
 };
@@ -256,7 +257,7 @@ SUI.widget.Select.prototype._setSimpleInput = function(id) {
  * @return {undefined}
  * @private
  */
-SUI.widget.Select.prototype._setMultipleInput = function(ids) {
+SUI.widget.Select.prototype._setMultipleTag = function(ids) {
   const items = [];
   SUI.each(ids, (id) => {
     const item = this.options.findById(id);
