@@ -70,6 +70,7 @@ const SUI = {
   title: 'SUI.Frontend',
   description: 'A frontend framework, these help you build fast, modern applications',
   version: '0.4.10',
+  const: {},
   config: {},
   res: {},
   lib: {},
