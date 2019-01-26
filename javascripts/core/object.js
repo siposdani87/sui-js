@@ -198,15 +198,15 @@ SUI.Object.prototype.each = function(next, opt_properties, opt_attributes) {
   const properties = opt_properties || this;
   const attributes = opt_attributes || [];
 
-  SUI.eachObject(properties, function(value, property) {
+  SUI.eachObject(properties, (value, property) => {
+    let attributesCopy = SUI.copy(attributes);
+    attributesCopy.push(property);
     if (!SUI.isNull(value) && SUI.isObject(value)) {
-      const attributesCopy = SUI.copy(attributes);
-      attributesCopy.push(property);
       this.each(next, value, attributesCopy);
     } else {
-      next(value, attributes.join('.'));
+      next(value, attributesCopy.join('.'));
     }
-  }.bind(this));
+  });
 };
 
 /**
