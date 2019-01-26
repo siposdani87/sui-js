@@ -565,6 +565,7 @@ SUI.clearObject = function(items) {
     }
   }
 };
+
 /**
  * @export
  * @param {!Array} items
@@ -583,6 +584,20 @@ SUI.inArray = function(items, item) {
  */
 SUI.contain = function(str, subStr) {
   return str.indexOf(subStr) !== -1;
+};
+
+/**
+ * @export
+ * @param {!Array} items
+ * @param {*} item
+ * @return {boolean}
+ */
+SUI.inContainArray = function(items, item){
+  let i = 0;
+  while (i < items.length && !SUI.contain(/** @type {string} */(item), items[i])) {
+    i++;
+  }
+  return i < items.length;
 };
 
 /**
@@ -1115,7 +1130,7 @@ SUI.colorContrast = function(hexColor, opt_diff = .5) {
  */
 SUI.allowKeys = function(obj, keys) {
   return SUI.filterKeys(obj, (key) => {
-    return SUI.inArray(keys, key);
+    return SUI.inContainArray(keys, key);
   });
 };
 
@@ -1127,7 +1142,7 @@ SUI.allowKeys = function(obj, keys) {
  */
 SUI.denyKeys = function(obj, keys) {
   return SUI.filterKeys(obj, (key) => {
-    return !SUI.inArray(keys, key);
+    return !SUI.inContainArray(keys, key);
   });
 };
 
@@ -1138,7 +1153,7 @@ SUI.denyKeys = function(obj, keys) {
  * @return {!Object}
  */
 SUI.filterKeys = function(obj, condition) {
-  const copyObj = new SUI.Object(obj).copy();
+  const copyObj = new SUI.Object(obj);
   const resultObj = new SUI.Object();
   copyObj.each((value, key) => {
     if (condition(key)) {
