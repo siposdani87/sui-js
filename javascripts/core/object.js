@@ -199,7 +199,7 @@ SUI.Object.prototype.each = function(next, opt_properties, opt_attributes) {
   const attributes = opt_attributes || [];
 
   SUI.eachObject(properties, (value, property) => {
-    let attributesCopy = SUI.copy(attributes);
+    const attributesCopy = SUI.copy(attributes);
     attributesCopy.push(property);
     if (!SUI.isNull(value) && SUI.isObject(value)) {
       this.each(next, value, attributesCopy);
