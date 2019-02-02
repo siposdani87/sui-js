@@ -592,7 +592,7 @@ SUI.contain = function(str, subStr) {
  * @param {*} item
  * @return {boolean}
  */
-SUI.inContainArray = function(items, item){
+SUI.inContainArray = function(items, item) {
   let i = 0;
   while (i < items.length && !SUI.contain(/** @type {string} */(item), items[i])) {
     i++;
