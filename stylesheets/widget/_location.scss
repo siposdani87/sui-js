@@ -39,5 +39,14 @@
     }
   }
 
-}
+  &.is-disabled {
+    cursor: not-allowed;
 
+    label {
+      color: $light-grey-dark;
+    }
+    .search-button, .advanced-button {
+      color: $grey;
+    }
+  }
+}

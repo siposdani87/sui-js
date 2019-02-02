@@ -159,7 +159,7 @@ SUI.widget.Select.prototype.getValue = function() {
   ids = ids.filter((id) => {
     return !SUI.eq(id, '');
   });
-  return this.isMultiple() ? ids : ids[0];
+  return this.isMultiple() ? ids : (ids[0] || null);
 };
 
 /**
