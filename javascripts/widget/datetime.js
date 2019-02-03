@@ -86,6 +86,7 @@ SUI.widget.Datetime.prototype.render = function() {
   this.datetimeInput.insertAfter(iconNode);
 
   this.refresh();
+  this.datetime.draw();
 };
 
 /**
@@ -97,7 +98,6 @@ SUI.widget.Datetime.prototype.refresh = function() {
   } else {
     this.inputBlock.removeClass('is-disabled');
   }
-  this.datetime.draw();
 };
 
 /**

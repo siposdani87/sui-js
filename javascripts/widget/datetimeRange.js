@@ -92,6 +92,7 @@ SUI.widget.DatetimeRange.prototype.render = function() {
   this.datetimeInput.insertAfter(iconNode);
 
   this.refresh();
+  this.datetime.draw();
 };
 
 /**
@@ -103,7 +104,6 @@ SUI.widget.DatetimeRange.prototype.refresh = function() {
   } else {
     this.inputBlock.removeClass('is-disabled');
   }
-  this.datetime.draw();
 };
 
 /**
