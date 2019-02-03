@@ -68,7 +68,7 @@ goog.provide('SUI');
  */
 const SUI = {
   title: 'SUI.Frontend',
-  description: 'A frontend framework, these help you build fast, modern applications',
+  description: 'A frontend framework, help you to build fast, modern applications',
   version: '0.4.10',
   const: {},
   config: {},
@@ -91,6 +91,7 @@ SUI.coreRes = {
   template: 'template',
   dialog: 'dialog',
   confirm: 'confirm',
+  viewer: 'viewer',
   header: 'header',
   topMenu: 'topMenu',
   leftMenu: 'leftMenu',
@@ -389,7 +390,7 @@ SUI.isString = function(value) {
  * @return {boolean}
  */
 SUI.isNumber = function(value) {
-  return !isNaN(value) && (!SUI.inArray(['0', '+'], value[0]) || value === '0');
+  return value !== '' && !isNaN(value) && (!SUI.inArray(['0', '+'], value[0]) || value === '0');
 };
 
 /**

@@ -31,6 +31,7 @@ goog.require('SUI.lib.Storage');
 goog.require('SUI.lib.Style');
 goog.require('SUI.lib.Template');
 goog.require('SUI.lib.TopMenu');
+goog.require('SUI.lib.Viewer');
 goog.require('SUI.lib.Window');
 
 /**
@@ -82,6 +83,7 @@ SUI.App.prototype._init = function(resources) {
   this._initHttp();
   this._initDialog();
   this._initConfirm();
+  this._initViewer();
   this._initProgressBar();
   this._initCookie();
   this._initStorage();
@@ -352,16 +354,19 @@ SUI.App.prototype._initWindow = function() {
   const height = this._instances[this._injections.window].getHeight();
   this._instances[this._injections.dialog].setSize(width, height);
   this._instances[this._injections.confirm].setSize(width, height);
+  this._instances[this._injections.viewer].setSize(width, height);
 
   this._instances[this._injections.window].eventResize = function(width, height, event) {
     this._instances[this._injections.dialog].setSize(width, height);
     this._instances[this._injections.confirm].setSize(width, height);
+    this._instances[this._injections.viewer].setSize(width, height);
     this._instances[this._injections.event].call('window.resize', [width, height, event]);
   }.bind(this);
 
   this._instances[this._injections.window].eventOrientationChange = function(orientation, width, height, event) {
     this._instances[this._injections.dialog].setSize(width, height);
     this._instances[this._injections.confirm].setSize(width, height);
+    this._instances[this._injections.viewer].setSize(width, height);
     this._instances[this._injections.event].call('window.orientationChange', [orientation, width, height, event]);
   }.bind(this);
 
@@ -445,6 +450,14 @@ SUI.App.prototype._initDialog = function() {
  */
 SUI.App.prototype._initConfirm = function() {
   this._instances[this._injections.confirm] = new SUI.lib.Confirm();
+};
+
+/**
+ * @private
+ * @return {undefined}
+ */
+SUI.App.prototype._initViewer = function() {
+  this._instances[this._injections.viewer] = new SUI.lib.Viewer();
 };
 
 /**

@@ -1,16 +1,17 @@
 goog.provide('SUI.lib.Dialog');
 
 goog.require('SUI');
-goog.require('SUI.Async');
 goog.require('SUI.Deferred');
 goog.require('SUI.Node');
 goog.require('SUI.Object');
 goog.require('SUI.Query');
 goog.require('SUI.Tooltip');
 goog.require('SUI.lib');
+goog.require('SUI.lib.BaseModal');
 
 /**
  * @constructor
+ * @extends {SUI.lib.BaseModal}
  * @this {SUI.lib.Dialog}
  * @param {!SUI.lib.Http} http
  * @param {!Object=} opt_options
@@ -21,6 +22,7 @@ SUI.lib.Dialog = function(http, opt_options = {}) {
   this._init();
   this._initButtons();
 };
+goog.inherits(SUI.lib.Dialog, SUI.lib.BaseModal);
 
 /**
  * @param {!Object=} opt_options
@@ -41,93 +43,15 @@ SUI.lib.Dialog.prototype._setOptions = function(opt_options = {}) {
  */
 SUI.lib.Dialog.prototype._init = function() {
   this.body = new SUI.Query('body').getItem();
-  this.dialog = new SUI.Query(this.options.id, this.body).getItem();
-  this.dialogWindow = new SUI.Query('#dialog-window', this.dialog).getItem();
-  this.modalHeader = new SUI.Query('.modal-header', this.dialog).getItem();
+  this.modal = new SUI.Query(this.options.id, this.body).getItem();
+  this.modalWindow = new SUI.Query('#dialog-window', this.modal).getItem();
+  this.modalHeader = new SUI.Query('.modal-header', this.modal).getItem();
   this.modalTitle = new SUI.Query('.modal-title', this.modalHeader).getItem();
-  this.modalBody = new SUI.Query('.modal-body', this.dialog).getItem();
-  this.modalFooter = new SUI.Query('.modal-footer', this.dialog).getItem();
-
-  this.windowWidth = 0;
-  this.windowHeight = 0;
+  this.modalBody = new SUI.Query('.modal-body', this.modal).getItem();
+  this.modalFooter = new SUI.Query('.modal-footer', this.modal).getItem();
 
   this.tooltip = new SUI.Tooltip(this.modalTitle);
   this.tooltip.render();
-};
-
-/**
- * @private
- * @return {undefined}
- */
-SUI.lib.Dialog.prototype._initButtons = function() {
-  this._initCloseButton();
-  this._initMinimizeButton();
-  this._initMaximizeButton();
-};
-
-/**
- * @private
- * @return {undefined}
- */
-SUI.lib.Dialog.prototype._initMinimizeButton = function() {
-  this.btnMinimize = new SUI.Query('.minimize', this.dialog).getItem();
-  this.btnMinimize.addClass(['mdl-button', 'mdl-js-button', 'mdl-button--icon']);
-  this.btnMinimize.addEventListener('click', () => {
-    this._actionMinimize();
-  });
-};
-
-/**
- * @private
- * @return {undefined}
- */
-SUI.lib.Dialog.prototype._initMaximizeButton = function() {
-  this.btnMaximize = new SUI.Query('.maximize', this.dialog).getItem();
-  this.btnMaximize.addClass(['mdl-button', 'mdl-js-button', 'mdl-button--icon']);
-  this.btnMaximize.addEventListener('click', () => {
-    this._actionMaximize();
-  });
-};
-
-/**
- * @private
- * @return {undefined}
- */
-SUI.lib.Dialog.prototype._initCloseButton = function() {
-  this.btnClose = new SUI.Query('.close', this.dialog).getItem();
-  this.btnClose.addClass(['mdl-button', 'mdl-js-button', 'mdl-button--icon']);
-  this.btnClose.addEventListener('click', () => {
-    this._actionCancel();
-  });
-};
-
-/**
- * @return {boolean}
- */
-SUI.lib.Dialog.prototype.isOpened = function() {
-  return this.dialog.hasClass('visible-flex');
-};
-
-/**
- * @return {undefined}
- */
-SUI.lib.Dialog.prototype.open = function() {
-  this.body.addClass('overflow-hidden');
-  this.dialog.addClass('visible-flex');
-  this.dialog.removeClass('hidden');
-  this._handleCenterPosition();
-};
-
-/**
- * @return {undefined}
- */
-SUI.lib.Dialog.prototype.close = function() {
-  this.body.removeClass('overflow-hidden');
-  this.dialog.addClass('hidden');
-  this.dialog.removeClass('visible-flex');
-  this.modalTitle.removeChildren();
-  this.modalBody.removeChildren();
-  this.modalFooter.removeChildren();
 };
 
 /**
@@ -181,29 +105,6 @@ SUI.lib.Dialog.prototype._handleDom = function(dom) {
 };
 
 /**
- * @param {string=} opt_title
- * @return {undefined}
- */
-SUI.lib.Dialog.prototype._setTitle = function(opt_title) {
-  this.modalTitle.setHtml(opt_title);
-
-  if (SUI.isString(opt_title) && opt_title.length > 0) {
-    this.modalHeader.removeClass('hidden');
-  } else {
-    this.modalHeader.addClass('hidden');
-  }
-  this.tooltip.setMessage(opt_title);
-};
-
-/**
- * @return {undefined}
- */
-SUI.lib.Dialog.prototype._reset = function() {
-  this.eventOK = SUI.noop();
-  this.eventCancel = SUI.noop();
-};
-
-/**
  * @param {!SUI.Node} dom
  * @return {undefined}
  */
@@ -228,68 +129,5 @@ SUI.lib.Dialog.prototype._handleActions = function(dom) {
     SUI.mdl(actionNode);
   } else {
     this.modalFooter.removeChildren();
-  }
-};
-
-/**
- * @return {undefined}
- */
-SUI.lib.Dialog.prototype._actionOK = function() {
-  const async = new SUI.Async();
-  const calls = [this.eventOK.bind(this), this.close.bind(this)];
-  async.serial(calls);
-};
-
-/**
- * @return {undefined}
- */
-SUI.lib.Dialog.prototype._actionCancel = function() {
-  const async = new SUI.Async();
-  const calls = [this.eventCancel.bind(this), this.close.bind(this)];
-  async.serial(calls);
-};
-
-/**
- * @return {undefined}
- */
-SUI.lib.Dialog.prototype._actionMinimize = function() {
-
-};
-
-/**
- * @return {undefined}
- */
-SUI.lib.Dialog.prototype._actionMaximize = function() {
-
-};
-
-/**
- * @param {number} width
- * @param {number} height
- * @return {undefined}
- */
-SUI.lib.Dialog.prototype.setSize = function(width, height) {
-  this.windowWidth = width;
-  this.windowHeight = height;
-  this._handleCenterPosition();
-};
-
-
-/**
- * @private
- * @return {undefined}
- */
-SUI.lib.Dialog.prototype._handleCenterPosition = function() {
-  const style = this.dialogWindow.getComputedStyle();
-  let height = style.getPropertyValue('height');
-  if (SUI.contain(height, 'px')) {
-    height = parseInt(height.slice(0, -2), 10);
-    if (height > this.windowHeight) {
-      this.dialog.removeClass('center');
-    } else {
-      this.dialog.addClass('center');
-    }
-  } else {
-    this.dialog.addClass('center');
   }
 };

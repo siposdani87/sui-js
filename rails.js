@@ -23,8 +23,10 @@
 //= require sui-js/javascripts/lib/xhr
 //= require sui-js/javascripts/lib/http
 //= require sui-js/javascripts/lib/template
+//= require sui-js/javascripts/lib/baseModal
 //= require sui-js/javascripts/lib/dialog
 //= require sui-js/javascripts/lib/confirm
+//= require sui-js/javascripts/lib/viewer
 //= require sui-js/javascripts/lib/notification
 //= require sui-js/javascripts/lib/document
 //= require sui-js/javascripts/lib/window
