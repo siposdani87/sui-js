@@ -48,6 +48,12 @@ SUI.widget.Color.prototype.render = function() {
  * @override
  */
 SUI.widget.Color.prototype.refresh = function() {
+  if (this.isDisabled()) {
+    this.inputBlock.addClass('is-disabled');
+  } else {
+    this.inputBlock.removeClass('is-disabled');
+  }
+
   const color = /** @type {string} */ (this.getValue() || '#000000');
   this.setValue(color);
 };
@@ -84,7 +90,7 @@ SUI.widget.Color.prototype._initPreview = function() {
   this.tooltip = new SUI.Tooltip(this.preview);
 
   this.preview.addEventListener('click', () => {
-    if (!this.popup.isOpened()) {
+    if (!this.isDisabled() && !this.popup.isOpened()) {
       this._draw();
     }
     this.popup.toggle();
@@ -126,15 +132,9 @@ SUI.widget.Color.prototype._initImage = function() {
   if (!this.image.isEmpty()) {
     this.image.addClass('hidden');
   }
-  /* let img = new Image();
-   img.onload = function() {
-   ctx.drawImage(img, 20, 20);
-   }
-   img.src = url; */
 
   this.canvas = new SUI.Canvas();
-
-  this.canvas.canvasNode.addEventListener('click', (image, e) => {
+  this.canvas.canvasNode.addEventListener('click', (_image, e) => {
     let x = 0;
     let y = 0;
     if (e.offsetX) {
@@ -145,43 +145,11 @@ SUI.widget.Color.prototype._initImage = function() {
       y = e.layerY;
     }
     const rgb = this.canvas.getImageDataXY(x, y);
-    const hex = this.rgbToHex(/** @type {!Array} */(rgb));
+    const hex = SUI.RGBtoHexColor.apply(null, /** @type {!Array} */(rgb));
 
     this.setValue(hex);
     this.popup.close();
   });
-};
-
-/**
- * @param {number} c
- * @return {string}
- */
-SUI.widget.Color.prototype.componentToHex = function(c) {
-  const hex = c.toString(16);
-  return hex.length === 1 ? '0' + hex : hex;
-};
-
-/**
- * @param {!Array} rgb
- * @return {string}
- */
-SUI.widget.Color.prototype.rgbToHex = function(rgb) {
-  const red = this.componentToHex(rgb[0]);
-  const green = this.componentToHex(rgb[1]);
-  const blue = this.componentToHex(rgb[2]);
-  return '#' + red + green + blue;
-};
-
-/**
- * @param {string} hex
- * @return {!Object}
- */
-SUI.widget.Color.prototype.hexToRgb = function(hex) {
-  hex = hex.replace(/^#?([a-f\d])([a-f\d])([a-f\d])$/i, function(m, r, g, b) {
-    return r + r + g + g + b + b;
-  });
-  const result = /^#?([a-f\d]{2})([a-f\d]{2})([a-f\d]{2})$/i.exec(hex);
-  return result ? [parseInt(result[1], 16), parseInt(result[2], 16), parseInt(result[3], 16)] : [0, 0, 0];
 };
 
 /**
