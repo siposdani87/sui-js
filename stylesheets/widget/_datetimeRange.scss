@@ -12,9 +12,12 @@
   }
 
   &.is-disabled {
+    cursor: not-allowed;
+
     label {
       color: $light-grey-dark;
     }
+    
     .expander {
       color: $grey;
       cursor: default;
