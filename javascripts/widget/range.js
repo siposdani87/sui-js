@@ -48,6 +48,9 @@ SUI.widget.Range.prototype.render = function() {
     this.label.addClass('mdl-textfield__label');
   }
 
+  const containerNode = new SUI.Query('.mdl-slider__container', this.inputBlock).getItem();
+  this.tooltip = new SUI.Tooltip(containerNode);
+
   this.refresh();
 };
 
@@ -57,9 +60,13 @@ SUI.widget.Range.prototype.render = function() {
 SUI.widget.Range.prototype.refresh = function() {
   SUI.mdl(this.input);
 
-  const containerNode = new SUI.Query('.mdl-slider__container', this.inputBlock).getItem();
+  if (this.isDisabled()) {
+    this.inputBlock.addClass('is-disabled');
+  } else {
+    this.inputBlock.removeClass('is-disabled');
+  }
+
   const value = /** @type {string} */ (this.getValue());
-  this.tooltip = new SUI.Tooltip(containerNode);
   this.tooltip.render(value);
 };
 
