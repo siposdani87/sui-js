@@ -46,6 +46,9 @@ core/router.js
 core/state.js
 core/test.js
 core/widget.js
+lib/actionCableClient.js
+lib/actionCable.js
+lib/navBar.js
 test/container.js
 test/deferred.js
 test/item.js
@@ -97,6 +100,3 @@ widget/location.js
 widget/number.js
 widget/search.js
 widget/url.js
-lib/actionCableClient.js
-lib/actionCable.js
-lib/navBar.js

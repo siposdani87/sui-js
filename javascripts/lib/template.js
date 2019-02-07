@@ -55,7 +55,7 @@ SUI.lib.Template.prototype._handleData = function(error, data) {
     const messageItem = new SUI.Query('.message', this.viewNode).getItem();
     const message = {
       'content': messageItem.getText(),
-      'type': messageItem.getAttribute('class'),
+      'type': messageItem.getAttribute('class').split(' ')[1],
     };
     this.eventError(message);
   }
