@@ -214,14 +214,37 @@ SUI.State.prototype.go = function(id, opt_params, opt_force = false) {
 
     });
   } else {
-    const state = this.routes.findById(id);
-    if (state) {
-      const stateUrl = /** @type {string} */ (state.get('url'));
-      const router = new SUI.Router(stateUrl);
-      const path = router.stringify(opt_params);
-      this._setHistory(state, path, opt_params, opt_force);
+    const [state, path] = this._resolvePathWithState(id, opt_params);
+    if (state && path) {
+      this._setHistory(/** @type {!SUI.Object} */ (state), path, opt_params, opt_force);
     }
   }
+};
+
+/**
+ * @private
+ * @param {string} id
+ * @param {!Object=} opt_params
+ * @return {!Array}
+ */
+SUI.State.prototype._resolvePathWithState = function(id, opt_params) {
+  const state = this.routes.findById(id);
+  let path = '';
+  if (state) {
+    const stateUrl = /** @type {string} */ (state.get('url'));
+    const router = new SUI.Router(stateUrl);
+    path = router.stringify(opt_params);
+  }
+  return [state, path];
+};
+
+/**
+ * @param {string} id
+ * @param {!Object=} opt_params
+ * @return {string}
+ */
+SUI.State.prototype.resolveUrl = function(id, opt_params) {
+  return /** @type {string} */ ('/#' + this._resolvePathWithState(id, opt_params)[1]);
 };
 
 /**
