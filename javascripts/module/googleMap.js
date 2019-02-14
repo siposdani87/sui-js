@@ -99,6 +99,7 @@ SUI.GoogleMap.prototype._initMap = function() {
   const customMapType = this._getCustomMapType();
   this.map.mapTypes.set('custom', customMapType);
 
+  this._unbindEventsToMap();
   this._bindEventsToMap();
 };
 
@@ -111,6 +112,14 @@ SUI.GoogleMap.prototype._bindEventsToMap = function() {
     const vertex = event.latLng;
     this.eventMapClick(vertex.lat(), vertex.lng(), event);
   });
+};
+
+/**
+ * @private
+ * @return {undefined}
+ */
+SUI.GoogleMap.prototype._unbindEventsToMap = function() {
+  google.maps.event.clearInstanceListeners(this.map);
 };
 
 /**
@@ -235,8 +244,11 @@ SUI.GoogleMap.prototype.getPolygon = function(id) {
 SUI.GoogleMap.prototype.removePolygon = function(id) {
   const polygonData = this.getPolygon(id);
   if (polygonData) {
-    const polygon = polygonData.get('_polygon');
+    const polygon = /** @type {!google.maps.Polygon} */ (polygonData.get('_polygon'));
     polygon.setMap(null);
+    const mapText = polygonData.get('_map_text');
+    mapText.set('map', null);
+    this._unbindEventsToPolygon(polygon);
     this.polygons.deleteById(id);
   }
 };
@@ -247,8 +259,11 @@ SUI.GoogleMap.prototype.removePolygon = function(id) {
  */
 SUI.GoogleMap.prototype.removeAllPolygon = function(opt_callback = SUI.noop) {
   this.polygons.each((polygonData) => {
-    const polygon = polygonData.get('_polygon');
+    const polygon = /** @type {!google.maps.Polygon} */ (polygonData.get('_polygon'));
     polygon.setMap(null);
+    const mapText = polygonData.get('_map_text');
+    mapText.set('map', null);
+    this._unbindEventsToPolygon(polygon);
     opt_callback(polygonData);
   });
   this.polygons.clear();
@@ -282,12 +297,21 @@ SUI.GoogleMap.prototype._bindEventsToPolygon = function(polygon, polygonData) {
 /**
  * @private
  * @param {!google.maps.Polygon} polygon
+ * @return {undefined}
+ */
+SUI.GoogleMap.prototype._unbindEventsToPolygon = function(polygon) {
+  google.maps.event.clearInstanceListeners(polygon);
+  this._unbindEventsToPolygonPath(polygon);
+};
+
+/**
+ * @private
+ * @param {!google.maps.Polygon} polygon
  * @param {!SUI.Object} polygonData
  * @return {undefined}
  */
 SUI.GoogleMap.prototype._bindEventsToPolygonPath = function(polygon, polygonData) {
   const path = polygon.getPath();
-
   if (path) {
     path.addListener('insert_at', () => {
       this._callPolygonChangeEvent(polygon, polygonData);
@@ -298,6 +322,18 @@ SUI.GoogleMap.prototype._bindEventsToPolygonPath = function(polygon, polygonData
     path.addListener('remove_at', () => {
       this._callPolygonChangeEvent(polygon, polygonData);
     });
+  }
+};
+
+/**
+ * @private
+ * @param {!google.maps.Polygon} polygon
+ * @return {undefined}
+ */
+SUI.GoogleMap.prototype._unbindEventsToPolygonPath = function(polygon) {
+  const path = polygon.getPath();
+  if (path) {
+    google.maps.event.clearInstanceListeners(path);
   }
 };
 
@@ -654,6 +690,14 @@ SUI.GoogleMap.prototype._bindEventsToMarker = function(marker, markerData) {
 };
 
 /**
+ * @param {!google.maps.Marker} marker
+ * @return {undefined}
+ */
+SUI.GoogleMap.prototype._unbindEventsToMarker = function(marker) {
+  google.maps.event.clearInstanceListeners(marker);
+};
+
+/**
  * @param {string|number} id
  * @param {string} title
  * @param {string} iconName
@@ -711,8 +755,9 @@ SUI.GoogleMap.prototype.getMarker = function(id) {
 SUI.GoogleMap.prototype.removeMarker = function(id) {
   const markerData = this.getMarker(id);
   if (markerData) {
-    const marker = markerData.get('_marker');
+    const marker = /** @type {!google.maps.Marker} */ (markerData.get('_marker'));
     marker.setMap(null);
+    this._unbindEventsToMarker(marker);
     this.markers.deleteById(id);
   }
 };
@@ -723,8 +768,9 @@ SUI.GoogleMap.prototype.removeMarker = function(id) {
  */
 SUI.GoogleMap.prototype.removeAllMarker = function(opt_callback = SUI.noop) {
   this.markers.each((markerData) => {
-    const marker = markerData.get('_marker');
+    const marker = /** @type {!google.maps.Marker} */ (markerData.get('_marker'));
     marker.setMap(null);
+    this._unbindEventsToMarker(marker);
     opt_callback(markerData);
   });
   this.markers.clear();
