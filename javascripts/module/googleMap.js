@@ -403,13 +403,19 @@ SUI.GoogleMap.prototype._addPointsToPolygon = function(polygonData, points) {
 
 /**
  * @private
- * @param {!Array<{latitude: number, longitude: number}>} points
+ * @param {!Array<{latitude: number, longitude: number, weight: (number|undefined)}>} points
  * @return {!Array<!google.maps.LatLng>}
  */
 SUI.GoogleMap.prototype._convertPointsToPath = function(points) {
   const path = [];
   SUI.each(points, (point) => {
-    const vertex = new google.maps.LatLng(point.latitude, point.longitude);
+    let vertex = new google.maps.LatLng(point.latitude, point.longitude);
+    if (!SUI.isUndefined(point.weight)) {
+      vertex = {
+        'location': vertex,
+        'weight': point.weight,
+      };
+    }
     path.push(vertex);
   });
   return path;
@@ -551,7 +557,7 @@ SUI.GoogleMap.prototype.setHeatmap = function(opt_options = {}) {
 };
 
 /**
- * @param {!Array<{latitude: number, longitude: number}>} points
+ * @param {!Array<{latitude: number, longitude: number, weight: (number|undefined)}>} points
  * @param {!Object=} opt_heatmapOptions
  * @return {undefined}
  */
