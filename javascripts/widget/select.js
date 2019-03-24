@@ -82,14 +82,16 @@ SUI.widget.Select.prototype._initOptions = function() {
   optionNodes.each((optionNode) => {
     const value = optionNode.getAttribute('value') || '';
     const image = optionNode.getAttribute('data-image') || '';
+    const item = JSON.parse(optionNode.getAttribute('data-item') || '{}');
     const text = optionNode.getText() || '';
-    const item = new SUI.Object({
+    const option = new SUI.Object({
       'id': value,
       'name': text,
       'image': image,
+      'item': item,
     });
     item.setRaw('option_node', optionNode);
-    this.options.push(item);
+    this.options.push(option);
   });
 };
 
@@ -163,6 +165,19 @@ SUI.widget.Select.prototype.getValue = function() {
 };
 
 /**
+ * @param {string=} opt_attribute
+ * @return {*}
+ */
+SUI.widget.Select.prototype.getOptionValue = function(opt_attribute) {
+  const value = this.getValue();
+  if (value) {
+    const option = this.options.findById(value);
+    return opt_attribute ? option.get(SUI.format('item.{0}', [opt_attribute])) : option;
+  }
+  return value;
+};
+
+/**
  * @return {undefined}
  */
 SUI.widget.Select.prototype.showLoader = function() {
@@ -204,6 +219,7 @@ SUI.widget.Select.prototype.setOptions = function(items, opt_value = 'value', op
     const optionNode = new SUI.Node('option');
     optionNode.setAttribute('value', value);
     optionNode.setAttribute('data-image', image);
+    optionNode.setAttribute('data-item', item);
     optionNode.setHtml(name);
     this.input.appendChild(optionNode);
   });
@@ -248,8 +264,8 @@ SUI.widget.Select.prototype._setSelectTags = function(ids) {
  * @private
  */
 SUI.widget.Select.prototype._setSimpleTag = function(id) {
-  const item = this.options.findById(id);
-  this._setTags(item);
+  const option = this.options.findById(id);
+  this._setTags(option);
 };
 
 /**
@@ -258,18 +274,18 @@ SUI.widget.Select.prototype._setSimpleTag = function(id) {
  * @private
  */
 SUI.widget.Select.prototype._setMultipleTag = function(ids) {
-  const items = [];
+  const options = [];
   SUI.each(ids, (id) => {
-    const item = this.options.findById(id);
-    if (item) {
-      items.push(item);
+    const option = this.options.findById(id);
+    if (option) {
+      options.push(option);
     }
   });
-  if (SUI.neq(items.length, 0)) {
-    this._setTags(items);
+  if (SUI.neq(options.length, 0)) {
+    this._setTags(options);
   } else if (this.isRequired()) {
-    const item = this.options.get(0);
-    this._setTags(item);
+    const option = this.options.get(0);
+    this._setTags(option);
   } else if (SUI.eq(ids.length, 0)) {
     this._setTags([]);
   }
