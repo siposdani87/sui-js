@@ -108,3 +108,4 @@
 //= require sui-js/javascripts/test/item
 //= require sui-js/javascripts/test/container
 //= require sui-js/javascripts/test/deferred
+//= require sui-js/javascripts/test/node

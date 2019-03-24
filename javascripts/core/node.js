@@ -48,7 +48,7 @@ SUI.Node.prototype.merge = function(properties) {
 
 /**
  * @param {string} attribute
- * @return {string|null}
+ * @return {*}
  */
 SUI.Node.prototype.get = function(attribute) {
   if (SUI.eq(attribute, 'id')) {
@@ -110,7 +110,7 @@ SUI.Node.prototype.setFor = function(htmlFor) {
  * @return {string|null}
  */
 SUI.Node.prototype.getFor = function() {
-  return this.node.htmlFor || this.getAttribute('for');
+  return this.node.htmlFor || /** @type {string} */ (this.getAttribute('for'));
 };
 
 /**
@@ -177,13 +177,15 @@ SUI.Node.prototype.getClasses = function() {
 
 /**
  * @param {string} attribute
- * @param {!Object|!Function|!Array|boolean|number|string|null=} opt_value
+ * @param {!Object|!Function|!Array|boolean|number|string|null|undefined=} opt_value
  * @return {undefined}
  */
 SUI.Node.prototype.setAttribute = function(attribute, opt_value) {
   const value = SUI.isUndefined(opt_value) ? attribute : opt_value;
   if (SUI.isFunction(value)) {
     this.node[attribute] = value;
+  } else if (SUI.contain(attribute, 'data-') && SUI.isObject(value)) {
+    this.node.setAttribute(attribute, JSON.stringify(value));
   } else {
     this.node.setAttribute(attribute, /** @type {string} */(value));
   }
@@ -191,10 +193,14 @@ SUI.Node.prototype.setAttribute = function(attribute, opt_value) {
 
 /**
  * @param {string} attribute
- * @return {string|null}
+ * @return {*}
  */
 SUI.Node.prototype.getAttribute = function(attribute) {
-  return this.node.getAttribute(attribute) || null;
+  const data = this.node.getAttribute(attribute);
+  if (SUI.contain(attribute, 'data-') && data && (SUI.eq(data[0], '[') || SUI.eq(data[0], '{'))) {
+    return JSON.parse(data) || null;
+  }
+  return SUI.typeCast(data || null);
 };
 
 /**
@@ -462,7 +468,7 @@ SUI.Node.prototype.setData = function(name, value) {
 SUI.Node.prototype.getData = function(name) {
   let data = this.node.dataset[name];
   if (data && (SUI.eq(data[0], '[') || SUI.eq(data[0], '{'))) {
-    data = JSON.parse(this.node.dataset[name]);
+    data = JSON.parse(data);
   }
   return SUI.typeCast(data);
 };

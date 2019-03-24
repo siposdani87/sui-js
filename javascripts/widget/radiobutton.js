@@ -87,7 +87,7 @@ SUI.widget.Radiobutton.prototype.render = function() {
  * @override
  */
 SUI.widget.Radiobutton.prototype.refresh = function() {
-  const dataLabelText = this.label.getAttribute('data-label');
+  const dataLabelText = /** @type {string} */ (this.label.getAttribute('data-label'));
   if (dataLabelText) {
     const labelText = this._getLabelRequiredText(dataLabelText);
     this.dataLabelNode.setHtml(labelText);
