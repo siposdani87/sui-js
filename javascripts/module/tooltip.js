@@ -52,12 +52,12 @@ SUI.Tooltip.prototype._init = function() {
  */
 SUI.Tooltip.prototype._getMessage = function(opt_message = '') {
   if (!opt_message) {
-    opt_message = this.element.getAttribute('desc') || '';
+    opt_message = /** @type {string} */ (this.element.getAttribute('desc')) || '';
     this.element.removeAttribute('desc');
     if (opt_message) {
       this.tooltip.addClass('mdl-tooltip--large');
     }
-    opt_message = this.element.getAttribute('title') || opt_message;
+    opt_message = /** @type {string} */ (this.element.getAttribute('title')) || opt_message;
     this.element.removeAttribute('title');
   }
   return opt_message;

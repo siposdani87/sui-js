@@ -61,7 +61,7 @@ SUI.Widget.prototype.modelChange = function(value) {
  * @return {string}
  */
 SUI.Widget.prototype.getName = function() {
-  const name = this.input.getAttribute('name');
+  const name = /** @type {string} */ (this.input.getAttribute('name'));
   return this._getAttributeName(name);
 };
 
@@ -75,7 +75,7 @@ SUI.Widget.prototype.getValue = function() {
 
 /**
  * @protected
- * @param {string|null} inputName
+ * @param {string} inputName
  * @return {string}
  */
 SUI.Widget.prototype._getAttributeName = function(inputName) {
@@ -229,8 +229,8 @@ SUI.Widget.prototype.setDisabled = function(state) {
  */
 SUI.Widget.prototype._setInfo = function() {
   if (this.label && this.label.exists()) {
-    const title = this.label.getAttribute('title');
-    const description = this.label.getAttribute('desc');
+    const title = /** @type {string} */ (this.label.getAttribute('title'));
+    const description = /** @type {string} */ (this.label.getAttribute('desc'));
     if (title || description) {
       const infoButton = new SUI.Node('a');
       infoButton.setAttribute('title', title || '');

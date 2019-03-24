@@ -2,7 +2,6 @@ goog.provide('SUI.Test');
 
 goog.require('SUI');
 
-
 /**
  * @constructor
  * @this {SUI.Test}
@@ -27,6 +26,7 @@ SUI.Test.prototype.run = function() {
     if (SUI.test.hasOwnProperty(key)) {
       const test = new SUI.test[key]();
       test.init();
+      console.info(`SUI.test.${key}.init()`);
     }
   }
 };
@@ -38,7 +38,6 @@ SUI.Test.prototype.run = function() {
  */
 SUI.Test.prototype.showError = function(message, object) {
   console.error(this.name + '.' + message, object);
-  // throw '';
 };
 
 /**

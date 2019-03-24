@@ -164,8 +164,8 @@ SUI.Table.prototype._renderHeader = function(headerNode, index) {
     iconsNode.appendChild(iconDown);
   }
 
-  const headerTitle = headerNode.getAttribute('title');
-  const headerDesc = headerNode.getAttribute('desc');
+  const headerTitle = /** @type {string} */ (headerNode.getAttribute('title'));
+  const headerDesc = /** @type {string} */ (headerNode.getAttribute('desc'));
   if (headerTitle || headerDesc) {
     const iconInfo = new SUI.Node('i');
     if (headerTitle) {

@@ -82,7 +82,7 @@ SUI.widget.Select.prototype._initOptions = function() {
   optionNodes.each((optionNode) => {
     const value = optionNode.getAttribute('value') || '';
     const image = optionNode.getAttribute('data-image') || '';
-    const item = JSON.parse(optionNode.getAttribute('data-item') || '{}');
+    const item = optionNode.getAttribute('data-item') || {};
     const text = optionNode.getText() || '';
     const option = new SUI.Object({
       'id': value,
