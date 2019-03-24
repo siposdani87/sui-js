@@ -90,7 +90,7 @@ SUI.widget.Select.prototype._initOptions = function() {
       'image': image,
       'item': item,
     });
-    item.setRaw('option_node', optionNode);
+    option.setRaw('option_node', optionNode);
     this.options.push(option);
   });
 };
