@@ -969,14 +969,20 @@ SUI.scrollTo = function(x, y, opt_duration = 500, opt_step = 20) {
   clearInterval(SUI._scrollInterval);
   let scrollStepX = -(window.scrollX - x) / (opt_duration / opt_step);
   let scrollStepY = -(window.scrollY - y) / (opt_duration / opt_step);
+  let previousScrollStepX = null;
+  let previousScrollStepY = null;
   SUI._scrollInterval = setInterval(() => {
-    if (window.scrollX !== x || window.scrollY !== y) {
-      if ((scrollStepX > 0 && window.scrollX + scrollStepX > x) || (scrollStepX < 0 && window.scrollX + scrollStepX < x)) {
-        scrollStepX = x - window.scrollX;
-      }
-      if ((scrollStepY > 0 && window.scrollY + scrollStepY > y) || (scrollStepY < 0 && window.scrollY + scrollStepY < y)) {
-        scrollStepY = y - window.scrollY;
-      }
+    if ((scrollStepX > 0 && window.scrollX + scrollStepX > x) || (scrollStepX < 0 && window.scrollX + scrollStepX < x)) {
+      scrollStepX = x - window.scrollX;
+    }
+    if ((scrollStepY > 0 && window.scrollY + scrollStepY > y) || (scrollStepY < 0 && window.scrollY + scrollStepY < y)) {
+      scrollStepY = y - window.scrollY;
+    }
+    if (scrollStepX === previousScrollStepX && scrollStepY === previousScrollStepY) {
+      clearInterval(SUI._scrollInterval);
+    } else if (window.scrollX !== x || window.scrollY !== y) {
+      previousScrollStepX = scrollStepX;
+      previousScrollStepY = scrollStepY;
       window.scrollBy(scrollStepX, scrollStepY);
     } else {
       clearInterval(SUI._scrollInterval);
@@ -994,8 +1000,9 @@ SUI.scrollTo = function(x, y, opt_duration = 500, opt_step = 20) {
 SUI.scrollToElement = function(selector, opt_duration = 500, opt_step = 20) {
   const node = new SUI.Query(selector).getItem();
   const element = node.getNode();
+  const x = element.offsetLeft;
   const y = element.offsetTop;
-  SUI.scrollTo(0, y, opt_duration, opt_step);
+  SUI.scrollTo(x, y, opt_duration, opt_step);
 };
 
 /**
