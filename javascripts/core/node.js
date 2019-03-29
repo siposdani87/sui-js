@@ -198,7 +198,7 @@ SUI.Node.prototype.setAttribute = function(attribute, opt_value) {
 SUI.Node.prototype.getAttribute = function(attribute) {
   const data = this.node.getAttribute(attribute);
   if (SUI.contain(attribute, 'data-') && data && (SUI.eq(data[0], '[') || SUI.eq(data[0], '{'))) {
-    return JSON.parse(data) || null;
+    return JSON.parse(data.replace(/&quot;/g, '"')) || null;
   }
   return SUI.typeCast(data || null);
 };
@@ -468,7 +468,7 @@ SUI.Node.prototype.setData = function(name, value) {
 SUI.Node.prototype.getData = function(name) {
   let data = this.node.dataset[name];
   if (data && (SUI.eq(data[0], '[') || SUI.eq(data[0], '{'))) {
-    data = JSON.parse(data);
+    data = JSON.parse(data.replace(/&quot;/g, '"'));
   }
   return SUI.typeCast(data);
 };
