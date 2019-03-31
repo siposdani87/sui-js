@@ -38,7 +38,7 @@
 }
 
 @mixin make-row($gutters: $grid-gutter-widths) {
-  @include display-flex();
+  @include display-flex;
   flex-wrap: wrap;
 
   @each $breakpoint in map-keys($gutters) {

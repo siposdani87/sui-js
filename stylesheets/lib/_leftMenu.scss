@@ -11,7 +11,8 @@
     height: 100%;
   }
 
-  .main-menu, .sub-menu {
+  .main-menu,
+  .sub-menu {
     animation-name: slideInLeft;
     animation-duration: .5s;
     background-color: $white;
@@ -29,7 +30,7 @@
 
     .header {
       height: 50px;
-      @include display-flex();
+      @include display-flex;
       flex-flow: row nowrap;
       align-items: center;
       padding: 0 .5em;
@@ -38,7 +39,7 @@
     .menu-container {
       padding-bottom: 53px;
       height: 100%;
-      @include display-flex();
+      @include display-flex;
       flex-flow: column nowrap;
       align-items: stretch;
       justify-content: space-between;
@@ -46,13 +47,13 @@
       a {
         @include flex(1);
         text-decoration: none;
-        @include display-flex();
+        @include display-flex;
         flex-flow: row nowrap;
         align-items: center;
         color: $primary;
         font-weight: 400;
 
-        &:hover{
+        &:hover {
           background-color: $light-grey-bright;
         }
 
@@ -61,23 +62,27 @@
           font-weight: 500;
           background-color: $light-grey;
 
-          .image{
-            svg, path {
+          .image {
+
+            svg,
+            path {
               fill: $primary-dark;
             }
           }
         }
 
-        &.disabled{
+        &.disabled {
           background-color: $white;
           color: $grey;
           cursor: default;
 
-          .image{
+          .image {
             img {
               opacity: .3;
             }
-            svg, path {
+
+            svg,
+            path {
               fill: $grey;
             }
           }
@@ -101,7 +106,8 @@
             }
           }
 
-          img, svg {
+          img,
+          svg {
             max-height: 40px;
 
             @include media-breakpoint-down(sm, landscape) {
@@ -109,7 +115,8 @@
             }
           }
 
-          svg, path {
+          svg,
+          path {
             fill: $primary;
           }
         }

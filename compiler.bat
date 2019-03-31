@@ -21,4 +21,5 @@ call java -jar node_modules/google-closure-compiler-java/compiler.jar^
  --output_manifest dist/sui.min.mf^
  --js_output_file dist/sui.min.js
 
-::call sass stylesheets/index.scss app.css --style expanded
+call sass-lint --verbose --no-exit
+call sass stylesheets/index.scss dist/sui.css --style expanded

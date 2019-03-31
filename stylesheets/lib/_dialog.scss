@@ -26,7 +26,7 @@
 
     .modal-header {
       padding: 0 10px 0 20px;
-      @include display-flex();
+      @include display-flex;
       flex-flow: row nowrap;
 
       .modal-title {
@@ -42,14 +42,14 @@
         @include flex(0 1 20%);
         align-self: flex-start;
         margin-top: .5em;
-        @include display-flex();
+        @include display-flex;
         flex-flow: row nowrap;
         justify-content: flex-end;
       }
     }
 
     .modal-body {
-      padding: 20px 20px 0 20px;
+      padding: 20px 20px 0;
     }
 
     .modal-footer {
@@ -61,6 +61,5 @@
         margin-left: 5px;
       }
     }
-
   }
 }

@@ -1,8 +1,10 @@
 .datetime-range-widget {
 
-  .mdl-textfield__error:last-of-type {
-    width: 100%;
-    text-align: right;
+  .mdl-textfield__error {
+    &:last-of-type {
+      width: 100%;
+      text-align: right;
+    }
   }
 
   &.is-invalid {
@@ -17,7 +19,7 @@
     label {
       color: $light-grey-dark;
     }
-    
+
     .expander {
       color: $grey;
       cursor: default;
@@ -26,14 +28,14 @@
     .datetime-input {
       border-style: dotted;
       cursor: default;
-      
+
       .tag {
         color: $grey;
       }
     }
   }
 
-  > .material-icons {
+  >.material-icons {
     vertical-align: middle;
     cursor: pointer;
     margin-left: -30px;
@@ -60,13 +62,13 @@
     }
 
     &:first-of-type {
-      border-right: none;
+      border-right: 0;
       border-top-right-radius: 0;
       border-bottom-right-radius: 0;
     }
 
     &:last-of-type {
-      border-left: none;
+      border-left: 0;
       border-top-left-radius: 0;
       border-bottom-left-radius: 0;
     }
@@ -90,7 +92,7 @@
   }
 
   .datetime {
-    @include display-flex();
+    @include display-flex;
     align-items: center;
   }
 

@@ -1,7 +1,7 @@
 @mixin filter-grayscale($rate: 100%) {
-    -webkit-filter: grayscale($rate);
-       -moz-filter: grayscale($rate);
-         -o-filter: grayscale($rate);
-        -ms-filter: grayscale($rate);
-            filter: grayscale($rate); 
+  -webkit-filter: grayscale($rate);
+  -moz-filter: grayscale($rate);
+  -o-filter: grayscale($rate);
+  -ms-filter: grayscale($rate);
+  filter: grayscale($rate);
 }

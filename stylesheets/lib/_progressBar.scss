@@ -1,18 +1,18 @@
-.main-container > .progress-bar {
+.main-container>.progress-bar {
   position: fixed;
   z-index: $zindex-progress-bar;
 }
 
-#header > .progress-bar {
+#header>.progress-bar {
   @include flex(1 100%);
 }
 
-#dialog-window > .prograss-bar{
+#dialog-window>.prograss-bar {
   position: absolute;
   top: 0;
 }
 
-#confirm-window > .prograss-bar{
+#confirm-window>.prograss-bar {
   position: absolute;
   top: 0;
 }

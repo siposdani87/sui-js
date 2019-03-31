@@ -1,23 +1,24 @@
 .search-widget {
-    ::-ms-clear {
-        display: none;
-    }
-    ::-webkit-search-decoration,
-    ::-webkit-search-cancel-button,
-    ::-webkit-search-results-button,
-    ::-webkit-search-results-decoration {
-        display: none;
-    }
+  ::-ms-clear,
+  ::-webkit-search-decoration,
+  ::-webkit-search-cancel-button,
+  ::-webkit-search-results-button,
+  ::-webkit-search-results-decoration {
+    display: none;
+  }
+
+  .clear-button {
+    display: none;
+    position: absolute;
+    right: 0;
+    top: 4px;
+    color: $black;
+  }
+
+  &.is-focused,
+  &.is-dirty {
     .clear-button {
-        display: none;
-        position: absolute;
-        right: 0;
-        top: 4px;
-        color: $black;
+      display: inline-block;
     }
-    &.is-focused, &.is-dirty {
-        .clear-button {
-            display: inline-block;
-        }
-    }
+  }
 }

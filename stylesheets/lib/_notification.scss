@@ -2,7 +2,7 @@
   z-index: $zindex-notification;
   position: fixed;
   width: 100%;
-  @include display-flex();
+  @include display-flex;
   margin-top: 80px;
   justify-content: center;
   pointer-events: none;
@@ -10,10 +10,11 @@
   #notifications {
     width: 480px;
 
-    @include media-breakpoint-down(sm){
+    @include media-breakpoint-down(sm) {
       width: 320px;
     }
-    @include media-breakpoint-down(xs){
+
+    @include media-breakpoint-down(xs) {
       width: 90%;
     }
 
@@ -59,4 +60,3 @@
     }
   }
 }
-

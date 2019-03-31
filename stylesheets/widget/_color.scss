@@ -9,7 +9,7 @@
     @include border-radius(50%);
     border: 1px solid $black;
 
-    &:focus{
+    &:focus {
       outline: none;
     }
   }
@@ -24,7 +24,7 @@
     label {
       color: $light-grey-dark;
     }
-    
+
     .preview {
       opacity: .3;
       border-color: $grey;
@@ -32,4 +32,3 @@
   }
 
 }
-

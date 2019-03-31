@@ -26,7 +26,7 @@
 
     .modal-header {
       padding: 0 10px 0 20px;
-      @include display-flex();
+      @include display-flex;
       flex-flow: row nowrap;
 
       .modal-title {
@@ -42,7 +42,7 @@
         @include flex(0 1 20%);
         align-self: flex-start;
         margin-top: .5em;
-        @include display-flex();
+        @include display-flex;
         flex-flow: row nowrap;
         justify-content: flex-end;
       }
@@ -50,43 +50,58 @@
 
     .modal-body {
       padding: 20px;
-      @include display-flex();
+      @include display-flex;
       align-items: center;
-    }
 
-    .modal-body:before {
-      font-family: 'Material Icons';
-      vertical-align: middle;
-      padding-right: .5em;
-      font-size: 2em;
+      &::before {
+        font-family: 'Material Icons';
+        vertical-align: middle;
+        padding-right: .5em;
+        font-size: 2em;
+      }
     }
 
     &.error {
       border-top: 3px solid $red;
-      .modal-body:before {
-        content: '\E000';
-        color: $red;
+
+      .modal-body {
+        &::before {
+          content: '\E000';
+          color: $red;
+        }
       }
     }
+
     &.warning {
       border-top: 3px solid $amber;
-      .modal-body:before {
-        content: '\E002';
-        color: $amber;
+
+      .modal-body {
+        &::before {
+          content: '\E002';
+          color: $amber;
+        }
       }
     }
+
     &.info {
       border-top: 3px solid $blue;
-      .modal-body:before {
-        content: '\E88E';
-        color: $blue;
+
+      .modal-body {
+        &::before {
+          content: '\E88E';
+          color: $blue;
+        }
       }
     }
+
     &.success {
       border-top: 3px solid $green;
-      .modal-body:before {
-        content: '\E876';
-        color: $green;
+
+      .modal-body {
+        &::before {
+          content: '\E876';
+          color: $green;
+        }
       }
     }
 
@@ -103,6 +118,5 @@
         margin-left: 5px;
       }
     }
-
   }
 }
