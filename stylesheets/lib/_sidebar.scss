@@ -1,4 +1,4 @@
-.sidebar{
+.sidebar {
   //position:relative;
   //border: 1px solid $accent;
   //@include flex(0 1 auto);
@@ -8,11 +8,11 @@
   height: 100%;
 }
 
-.template-view.has-footer ~ .sidebar {
+.template-view.has-footer~.sidebar {
   //height: calc(100vh - 3rem - 62px);
 }
 
-.template-view.has-footer + .sidebar {
+.template-view.has-footer+.sidebar {
   //height: calc(100vh - 3rem - 62px);
 }
 
@@ -21,14 +21,15 @@
 }
 
 .sidebar.open .content {
-  @include display-flex();
+  @include display-flex;
 }
-.sidebar .content{
-  display:none;
+
+.sidebar .content {
+  display: none;
 }
 
 .sidebar a {
-  position:absolute;
+  position: absolute;
   top: 50%;
 }
 

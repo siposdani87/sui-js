@@ -1,27 +1,27 @@
 form {
 
-  .caption{
-    margin: 1em 0 0.25em -0.5em;
+  .caption {
+    margin: 1em 0 .25em -.5em;
     color: $primary;
 
-    &:first-of-type{
-      margin: 0 0 0.25em -0.5em;
+    &:first-of-type {
+      margin: 0 0 .25em -.5em;
     }
   }
 
-  .input-block{
+  .input-block {
     padding: 20px 0;
     font-size: 16px;
 
-    img{
+    img {
       max-height: 100px;
       min-height: 12px;
     }
 
     label {
       display: inline-block;
-      font-size: 16px; 
-      
+      font-size: 16px;
+
       &::first-letter {
         text-transform: capitalize;
       }
@@ -37,16 +37,22 @@ form {
   .action-block {
     margin-top: 1em;
 
-    button[type=submit], button[type=button], button[type=reset] {
+    button[type='submit'],
+    button[type='button'],
+    button[type='reset'] {
       margin: 0 0 .5em 1em;
     }
   }
 
-  input:-webkit-autofill,
-  input:-webkit-autofill:hover,
-  input:-webkit-autofill:focus,
-  input:-webkit-autofill:active {
-    transition: background-color 5000s ease-in-out, color 5000s ease-in-out;
-  }
+  input {
+    &:-webkit-autofill {
+      transition: background-color 5000s ease-in-out, color 5000s ease-in-out;
 
+      &:hover,
+      &:focus,
+      &:active {
+        transition: background-color 5000s ease-in-out, color 5000s ease-in-out;
+      }
+    }
+  }
 }

@@ -1,5 +1,5 @@
 .location-widget {
-  padding: 20px 0 0 0 !important;
+  padding: 20px 0 0 !important;
 
   .buttons {
     position: absolute;
@@ -34,6 +34,7 @@
       width: auto;
       display: inline;
     }
+
     img {
       max-width: none;
       max-height: none;
@@ -46,8 +47,9 @@
     label {
       color: $light-grey-dark;
     }
-    
-    .search-button, .advanced-button {
+
+    .search-button,
+    .advanced-button {
       color: $grey;
     }
   }

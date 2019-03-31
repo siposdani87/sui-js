@@ -1,48 +1,56 @@
 .tab-panel {
-    @include display-flex();
-    flex-flow: column nowrap;
-    .tabs {
-        @include display-flex();
-        flex-flow: row nowrap;
-        justify-content: space-around;
-        align-content: stretch;
-        a {
-            @include flex(0 1 100%);
-            @include display-flex();
-            border-top: 4px solid $light-grey-dark;
-            align-items: center;
-            justify-content: center;
-            text-align: center;
-            background-color: $light-grey-bright;
-            padding: 5px 10px 5px 10px;
-            text-decoration: none;
-            text-transform: uppercase;
-            font-weight: 500;
-            color: $primary;
-            font-family: $font-family-heading;
-            &:hover {
-                color: $primary-dark;
-            }
-            &.active {
-                border-top-color: $accent;
-                background-color: $white;
-                color: $primary-dark;
-                z-index: 1;
-                @include box-shadow(1px -2px 3px 0 rgba($black, .2));
-            }
-            &:not(.active) {
-                border-top-color: $light-grey-bright;
-                @include box-shadow(0 0 1px 0 rgba($black, .2));
-            }
-            &.disabled {
-                color: $grey-bright;
-            }
-        }
+  @include display-flex;
+  flex-flow: column nowrap;
+
+  .tabs {
+    @include display-flex;
+    flex-flow: row nowrap;
+    justify-content: space-around;
+    align-content: stretch;
+
+    a {
+      @include flex(0 1 100%);
+      @include display-flex;
+      border-top: 4px solid $light-grey-dark;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      background-color: $light-grey-bright;
+      padding: 5px 10px;
+      text-decoration: none;
+      text-transform: uppercase;
+      font-weight: 500;
+      color: $primary;
+      font-family: $font-family-heading;
+
+      &:hover {
+        color: $primary-dark;
+      }
+
+      &.active {
+        border-top-color: $accent;
+        background-color: $white;
+        color: $primary-dark;
+        z-index: 1;
+        @include box-shadow(1px -2px 3px 0 rgba($black, .2));
+      }
+
+      &:not(.active) {
+        border-top-color: $light-grey-bright;
+        @include box-shadow(0 0 1px 0 rgba($black, .2));
+      }
+
+      &.disabled {
+        color: $grey-bright;
+      }
     }
-    .panel {
-        display: none;
-        &.active {
-            display: block;
-        }
+  }
+
+  .panel {
+    display: none;
+
+    &.active {
+      display: block;
     }
+  }
 }

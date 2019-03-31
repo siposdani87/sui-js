@@ -1,5 +1,5 @@
 #top-menu {
-  @include display-flex();
+  @include display-flex;
   flex-flow: row wrap;
 
   @include media-breakpoint-down(md) {
@@ -9,7 +9,7 @@
   }
 
   a {
-    @include display-flex();
+    @include display-flex;
     flex-flow: row nowrap;
     align-items: center;
     text-decoration: none;
@@ -22,9 +22,10 @@
       border-bottom: 1px solid $primary;
     }
 
-    &:hover{
+    &:hover {
       color: $light-grey;
     }
+
     &.active {
       color: $light-grey;
       background-color: $primary-bright;
@@ -34,18 +35,19 @@
       margin-right: .5em;
       line-height: 0;
 
-      img, svg {
+      img,
+      svg {
         height: 40px;
         width: 40px;
       }
     }
-
   }
 
   @include media-breakpoint-down(md) {
-    a:last-child {
-      border-bottom: none;
+    a {
+      &:last-child {
+        border-bottom: 0;
+      }
     }
   }
-
 }

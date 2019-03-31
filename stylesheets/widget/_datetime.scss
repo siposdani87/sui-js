@@ -10,7 +10,7 @@
     label {
       color: $light-grey-dark;
     }
-    
+
     .expander {
       color: $grey;
       cursor: default;
@@ -19,14 +19,14 @@
     .datetime-input {
       border-style: dotted;
       cursor: default;
-      
+
       .tag {
         color: $grey;
       }
     }
   }
 
-  > .material-icons {
+  >.material-icons {
     vertical-align: middle;
     cursor: pointer;
     margin-left: -30px;
@@ -71,7 +71,7 @@
   }
 
   .datetime {
-    @include display-flex();
+    @include display-flex;
     align-items: center;
   }
 

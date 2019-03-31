@@ -4,14 +4,14 @@
   z-index: $zindex-nav-bar;
   min-height: 50px;
 
-  #toggle-nav-bar{
+  #toggle-nav-bar {
     position: absolute;
     right: 10px;
     top: 3px;
     color: $white;
     text-shadow: 1px 1px 5px rgba($black, .8);
 
-    &:hover{
+    &:hover {
       color: $white-dark;
     }
 
@@ -21,17 +21,17 @@
   }
 
   #nav-bar {
-    @include display-flex();
+    @include display-flex;
     flex-flow: row wrap;
     justify-content: center;
     min-height: 50px;
 
-    &.open{
-      @include display-flex();
+    &.open {
+      @include display-flex;
       background-color: $primary;
       opacity: .9;
       @include box-shadow(0 2px 20px 0 rgba($black, .75));
-      border-bottom: none;
+      border-bottom: 0;
 
       @include media-breakpoint-up(md) {
         border-bottom: 1px solid rgba($light-grey, .5);
@@ -45,7 +45,7 @@
       background-color: $primary;
       opacity: .9;
       @include box-shadow(0 2px 20px 0 rgba($black, .75));
-      border-bottom: none;
+      border-bottom: 0;
     }
 
     @include media-breakpoint-up(sm) {
@@ -58,7 +58,7 @@
     }
 
     a {
-      @include display-flex();
+      @include display-flex;
       flex-flow: row nowrap;
       align-items: center;
       text-decoration: none;
@@ -75,9 +75,10 @@
       &:hover {
         color: $white-dark;
       }
+
       &.active {
         color: $white-dark;
-        padding: .5em .8em .3em .8em;
+        padding: .5em .8em .3em;
         border-bottom: .2em solid $accent;
         background-color: $primary-dark;
       }
@@ -85,19 +86,20 @@
       .image {
         line-height: 0;
 
-        img, svg {
+        img,
+        svg {
           height: 36px;
           width: 36px;
         }
       }
 
-      .image + .title {
-        margin-left: 0.5em;
+      .image+.title {
+        margin-left: .5em;
       }
 
       &:last-child {
         @include media-breakpoint-down(sm) {
-          border-bottom: none;
+          border-bottom: 0;
         }
       }
     }

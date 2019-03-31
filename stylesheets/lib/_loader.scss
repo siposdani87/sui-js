@@ -1,8 +1,8 @@
-#loader{
+#loader {
   z-index: $zindex-loader;
   position: fixed;
   width: 100%;
-  @include display-flex();
+  @include display-flex;
   margin-top: 2px;
   justify-content: center;
 }

@@ -1,28 +1,28 @@
-.progress-status{
+.progress-status {
   height: 100%;
-  @include display-flex();
+  @include display-flex;
   align-items: center;
   justify-content: center;
   flex-flow: column nowrap;
   text-align: center;
 
-  &.success{
+  &.success {
     color: $green;
   }
 
-  &.info{
+  &.info {
     color: $blue;
   }
 
-  &.warning{
+  &.warning {
     color: $amber;
   }
 
-  &.error{
+  &.error {
     color: $red;
   }
 
-  .material-icons{
+  .material-icons {
     font-size: 10em;
   }
 }

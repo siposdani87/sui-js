@@ -1,29 +1,33 @@
 .radiobutton-widget {
-    position: relative;
-    &.is-invalid {
-        .mdl-textfield__error {
-            visibility: visible;
-        }
-    }
-    .info {
-        position: absolute;
-        right: 0;
-        top: 22px;
-        z-index: 1;
-    }
+  position: relative;
 
+  &.is-invalid {
+    .mdl-textfield__error {
+      visibility: visible;
+    }
+  }
+
+  .info {
+    position: absolute;
+    right: 0;
+    top: 22px;
+    z-index: 1;
+  }
+
+  .label {
+    position: absolute;
+    top: -22px;
+    left: 0;
+    display: inline-block;
+
+    &::first-letter {
+      text-transform: capitalize;
+    }
+  }
+
+  .is-disabled {
     .label {
-        position: absolute;
-        top: -22px;
-        left: 0;
-        display: inline-block;
-        &::first-letter {
-            text-transform: capitalize;
-        }
+      color: $light-grey-dark !important;
     }
-    .is-disabled {
-        .label {
-            color: $light-grey-dark !important;
-        }
-    }
+  }
 }

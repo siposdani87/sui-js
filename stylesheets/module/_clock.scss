@@ -7,7 +7,7 @@
     height: 50px;
     background-color: $primary;
     color: $grey;
-    @include display-flex();
+    @include display-flex;
     justify-content: center;
     align-items: center;
     font-size: 2em;
@@ -15,6 +15,7 @@
 
     .hours {
       cursor: pointer;
+
       &.active {
         color: $white;
       }
@@ -26,6 +27,7 @@
 
     .minutes {
       cursor: pointer;
+
       &.active {
         color: $white;
       }
@@ -41,6 +43,7 @@
       &.pm {
         align-self: flex-start;
       }
+
       &.am {
         align-self: flex-end;
       }
@@ -60,4 +63,3 @@
   }
 
 }
-    

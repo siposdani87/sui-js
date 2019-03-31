@@ -4,6 +4,7 @@
 // any value of `$grid-columns`.
 
 @mixin make-grid-columns($columns: $grid-columns, $gutters: $grid-gutter-widths, $breakpoints: $grid-breakpoints) {
+
   // Common properties for all breakpoints
   %grid-column {
     position: relative;
@@ -22,17 +23,20 @@
         @extend %grid-column;
       }
     }
+
     .col#{$infix} {
       @extend %grid-column;
     }
 
     @include media-breakpoint-up($breakpoint, false, $breakpoints) {
+
       // Provide basic `.col-{bp}` classes for equal-width flexbox columns
       .col#{$infix} {
         flex-basis: 0;
         flex-grow: 1;
         max-width: 100%;
       }
+
       .col#{$infix}-auto {
         @include flex(0 0 auto);
         width: auto;
@@ -54,7 +58,9 @@
 
       // `$columns - 1` because offsetting by the width of an entire row isn't possible
       @for $i from 0 through ($columns - 1) {
-        @if not ($infix == "" and $i == 0) { // Avoid emitting useless .offset-xs-0
+        @if not ($infix == '' and $i == 0) {
+
+          // Avoid emitting useless .offset-xs-0
           .offset#{$infix}-#{$i} {
             @include make-col-modifier(offset, $i, $columns)
           }

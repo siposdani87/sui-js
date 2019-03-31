@@ -1,22 +1,22 @@
 .checkbox-widget {
-    position: relative;
+  position: relative;
 
-    &.is-invalid {
-        .mdl-textfield__error {
-            visibility: visible;
-        }
+  &.is-invalid {
+    .mdl-textfield__error {
+      visibility: visible;
     }
+  }
 
-    .info {
-        position: absolute;
-        right: 0;
-        top: 22px;
-        z-index: 1;
-    }
+  .info {
+    position: absolute;
+    right: 0;
+    top: 22px;
+    z-index: 1;
+  }
 
-    .is-disabled {
-        .mdl-icon__label {
-            color: $light-grey-dark !important;
-        }
+  .is-disabled {
+    .mdl-icon__label {
+      color: $light-grey-dark !important;
     }
+  }
 }
