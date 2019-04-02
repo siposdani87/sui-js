@@ -137,7 +137,8 @@
     font-size: $font-size-h5;
     font-weight: 500;
 
-    a {
+    a,
+    span {
       white-space: nowrap;
 
       &::after {
