@@ -22,4 +22,4 @@ java -jar node_modules/google-closure-compiler-java/compiler.jar \
 --js_output_file dist/sui.min.js \
 
 sass-lint --verbose --no-exit
-sass stylesheets/index.scss dist/sui.css --style expanded
+sass stylesheets/sui.min.scss dist/sui.css --style expanded

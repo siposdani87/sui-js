@@ -317,7 +317,7 @@ SUI.Collection.prototype.size = function() {
  * @param {number=} opt_count
  * @return {!Array}
  */
-SUI.Collection.prototype.limit = function(offset, opt_count) {
+SUI.Collection.prototype.limit = function(offset, opt_count = 10) {
   return this.items.slice(offset, offset + opt_count);
 };
 
@@ -328,4 +328,3 @@ SUI.Collection.prototype.limit = function(offset, opt_count) {
 SUI.Collection.prototype.pluck = function(attribute) {
   return SUI.pluck(this.items, attribute);
 };
-

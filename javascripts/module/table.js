@@ -121,21 +121,21 @@ SUI.Table.prototype._initSearch = function() {
 SUI.Table.prototype._initHeader = function() {
   this.headerTexts = [];
   this.headerNodes = new SUI.Query('thead th', this.tableNode);
-  this.headerNodes.each((headerNode, index) => {
+  this.headerNodes.each((headerNode, columnIndex) => {
     const text = headerNode.getHtml();
     this.headerTexts.push(text);
-    this._renderHeader(headerNode, index);
+    this._renderHeader(headerNode, columnIndex);
   });
 };
 
 /**
  * @private
  * @param {!SUI.Node} headerNode
- * @param {number} index
+ * @param {number} columnIndex
  * @return {undefined}
  */
-SUI.Table.prototype._renderHeader = function(headerNode, index) {
-  const column = this.options.columns[index];
+SUI.Table.prototype._renderHeader = function(headerNode, columnIndex) {
+  const column = this.options.columns[columnIndex];
   if (SUI.inArray(['search', 'actions'], column)) {
     headerNode.addClass('actions');
   }
@@ -314,9 +314,10 @@ SUI.Table.prototype._getColumn = function() {
 /**
  * @private
  * @param {!SUI.Object} item
+ * @param {number} rowIndex
  * @return {undefined}
  */
-SUI.Table.prototype._addHeaderRow = function(item) {
+SUI.Table.prototype._addHeaderRow = function(item, rowIndex) {
   const headerRow = new SUI.Node('tr');
   headerRow.addEventListener('click', (node) => {
     node.toggleClass('active');
@@ -328,7 +329,7 @@ SUI.Table.prototype._addHeaderRow = function(item) {
 
   const headerNameCell = new SUI.Node('td');
   headerRow.appendChild(headerNameCell);
-  this._renderDataNodeByItem(item, this._getColumn(), headerNameCell);
+  this._renderDataNodeByItem(item, rowIndex, this._getColumn(), headerNameCell);
   headerNameCell.setAttribute('colspan', this.headerNodes.size() - 2);
 
   const headerActionCell = new SUI.Node('td');
@@ -339,16 +340,17 @@ SUI.Table.prototype._addHeaderRow = function(item) {
 /**
  * @private
  * @param {!SUI.Object} item
+ * @param {number} rowIndex
  * @return {undefined}
  */
-SUI.Table.prototype._addRow = function(item) {
+SUI.Table.prototype._addRow = function(item, rowIndex) {
   const tableRow = new SUI.Node('tr');
   tableRow.addClass('data');
   this.tbody.appendChild(tableRow);
-  SUI.each(this.options.columns, (column, index) => {
+  SUI.each(this.options.columns, (column, columnIndex) => {
     const tableDataNode = new SUI.Node('td');
     tableRow.appendChild(tableDataNode);
-    this._renderDataNode(tableDataNode, item, column, index);
+    this._renderDataNode(tableDataNode, item, rowIndex, column, columnIndex);
   });
 };
 
@@ -363,15 +365,16 @@ SUI.Table.prototype.setActions = function(actions) {
 /**
  * @private
  * @param {!SUI.Object} item
+ * @param {number} rowIndex
  * @param {string} column
  * @param {!SUI.Node} parentNode
  * @return {undefined}
  */
-SUI.Table.prototype._renderDataNodeByItem = function(item, column, parentNode) {
+SUI.Table.prototype._renderDataNodeByItem = function(item, rowIndex, column, parentNode) {
   let dataNode = item.get(column, '');
   const calculation = this.options.calculations[column];
   if (SUI.isFunction(calculation)) {
-    dataNode = calculation(item, parentNode);
+    dataNode = calculation(item, this.pager.offset + rowIndex);
   }
   if (!SUI.instanceOf(dataNode, SUI.Node)) {
     const node = new SUI.Node('span');
@@ -389,21 +392,22 @@ SUI.Table.prototype._renderDataNodeByItem = function(item, column, parentNode) {
  * @private
  * @param {!SUI.Node} tableDataNode
  * @param {!SUI.Object} item
+ * @param {number} rowIndex
  * @param {string} column
- * @param {number} index
+ * @param {number} columnIndex
  * @return {undefined}
  */
-SUI.Table.prototype._renderDataNode = function(tableDataNode, item, column, index) {
+SUI.Table.prototype._renderDataNode = function(tableDataNode, item, rowIndex, column, columnIndex) {
   if (SUI.inArray(['search', 'actions'], column)) {
     this._renderActions(tableDataNode, item);
   } else {
     const labelNode = new SUI.Node('span');
     labelNode.addClass('label');
-    labelNode.setHtml(this.headerTexts[index]);
-    this._renderHeader(labelNode, index);
-    this._handleSortingColumn(labelNode, index);
+    labelNode.setHtml(this.headerTexts[columnIndex]);
+    this._renderHeader(labelNode, columnIndex);
+    this._handleSortingColumn(labelNode, columnIndex);
     tableDataNode.appendChild(labelNode);
-    this._renderDataNodeByItem(item, column, tableDataNode);
+    this._renderDataNodeByItem(item, rowIndex, column, tableDataNode);
   }
 };
 
@@ -520,9 +524,9 @@ SUI.Table.prototype._getItems = function() {
  */
 SUI.Table.prototype._draw = function() {
   this.tbody.removeChildren();
-  SUI.each(this._getItems(), (item) => {
-    this._addHeaderRow(item);
-    this._addRow(item);
+  SUI.each(this._getItems(), (item, rowIndex) => {
+    this._addHeaderRow(item, rowIndex);
+    this._addRow(item, rowIndex);
   });
   SUI.mdl(this.tbody);
 };
