@@ -1,10 +1,16 @@
 .search-widget {
-  ::-ms-clear,
-  ::-webkit-search-decoration,
-  ::-webkit-search-cancel-button,
-  ::-webkit-search-results-button,
-  ::-webkit-search-results-decoration {
-    display: none;
+  input[type='search'] {
+    &::-ms-clear,
+    &::-ms-reveal,
+    &::-webkit-search-decoration,
+    &::-webkit-search-cancel-button,
+    &::-webkit-search-results-button,
+    &::-webkit-search-results-decoration {
+      display: none;
+      width: 0; 
+      height: 0;
+      -webkit-appearance: none;
+    }
   }
 
   .clear-button {
