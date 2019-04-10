@@ -135,10 +135,10 @@ SUI.widget.Radiobutton.prototype.setDisabled = function(state) {
   this._getRadioButtonInputs().each((radioButtonInput) => {
     if (state) {
       radioButtonInput.setAttribute('disabled');
-      this.label.addClass('is-disabled');
+      radioButtonInput.getParentNode().addClass('is-disabled');
     } else {
       radioButtonInput.removeAttribute('disabled');
-      this.label.removeClass('is-disabled');
+      radioButtonInput.getParentNode().removeClass('is-disabled');
     }
     radioButtonInput.getNode().disabled = state;
   });
