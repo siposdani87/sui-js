@@ -28,6 +28,7 @@
 }
 .mdl-textfield.is-disabled .mdl-textfield__input {
   color: #9e9e9e;
+  border: 1px dotted #e5e5e5;
   border-bottom: 1px dotted #e5e5e5;
 }
 .mdl-textfield.is-invalid .mdl-textfield__input {
@@ -2585,6 +2586,12 @@ table tbody tr td .img-wrapper {
   width: 50px;
   height: 50px;
   padding: 3px;
+}
+table tbody tr td a::after {
+  content: ', ';
+}
+table tbody tr td a:last-child:after {
+  content: '';
 }
 table tbody tr td .label {
   display: none;
