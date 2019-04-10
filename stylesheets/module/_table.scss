@@ -213,6 +213,16 @@ table {
           padding: 3px;
         }
 
+        a {
+          &::after {
+            content: ', ';
+          }
+
+          &:last-child:after {
+            content: '';
+          }
+        }
+
         .label {
           display: none;
 
