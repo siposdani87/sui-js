@@ -37,20 +37,29 @@
       border-bottom: 1px dotted $light-grey;
     }
   }
+
+  &.is-invalid {
+    .mdl-textfield__input {
+      border: 1px solid $grey-bright;
+      border-bottom: 1px solid $red;
+    }
+  }
 }
 
 .mdl-textfield__input {
   font-size: inherit;
-  padding: 9px 0 4px;
+  padding: 8px 10px 4px;
+  border: 1px solid $grey-bright;
+  border-radius: 3px;
 }
 
 .mdl-textfield__label {
   font-size: 16px;
   color: $black;
+  top: -4px;
 }
 
 .mdl-textfield--floating-label {
-
   &.is-invalid,
   &.is-dirty,
   &.is-focused,
@@ -65,7 +74,7 @@
   &.is-focused,
   &.has-placeholder {
     .mdl-textfield__label {
-      top: 0;
+      top: -4px;
     }
   }
 }
