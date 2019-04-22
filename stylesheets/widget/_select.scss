@@ -45,7 +45,6 @@
 
   .select-container {
     position: relative;
-    // display: inline-block;
   }
 
   .expander {
@@ -53,6 +52,7 @@
     cursor: pointer;
     right: 5px;
     top: 4px;
+    color: $primary;
 
     &.rotate {
       animation: rotation 2s infinite;
@@ -69,8 +69,7 @@
   .select-input {
     display: block;
     padding: 2px 30px 0 2px;
-    border: 1px solid $light-grey;
-    background-color: $light-grey-bright;
+    border: 1px solid $grey-bright;
     @include border-radius(2px);
     min-height: 28px;
     cursor: pointer;
@@ -131,7 +130,5 @@
         padding: 2px;
       }
     }
-
   }
-
 }

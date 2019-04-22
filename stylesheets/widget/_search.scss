@@ -16,9 +16,9 @@
   .clear-button {
     display: none;
     position: absolute;
-    right: 0;
+    right: 5px;
     top: 4px;
-    color: $black;
+    color: $primary;
   }
 
   &.is-focused,
@@ -26,5 +26,9 @@
     .clear-button {
       display: inline-block;
     }
+  }
+
+  .mdl-button--icon {
+    color: $primary;
   }
 }
