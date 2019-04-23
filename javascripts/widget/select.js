@@ -334,9 +334,11 @@ SUI.widget.Select.prototype._setTags = function(tags) {
 SUI.widget.Select.prototype._setSelectedIds = function(ids, opt_force = false) {
   this.options.each(function(option) {
     const id = option.get('id');
+    const selected = SUI.inArray(ids, id);
     const optionNode = option.get('option_node');
     const node = optionNode.getNode();
-    node.selected = SUI.inArray(ids, id);
+    node.setAttribute('selected', selected);
+    node.selected = selected;
   });
   this._change(opt_force);
 };
