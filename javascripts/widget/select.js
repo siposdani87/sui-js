@@ -337,7 +337,11 @@ SUI.widget.Select.prototype._setSelectedIds = function(ids, opt_force = false) {
     const selected = SUI.inArray(ids, id);
     const optionNode = option.get('option_node');
     const node = optionNode.getNode();
-    node.setAttribute('selected', selected);
+    if (selected){
+      node.setAttribute('selected', selected);
+    } else {
+      node.removeAttribute('selected');
+    }
     node.selected = selected;
   });
   this._change(opt_force);
