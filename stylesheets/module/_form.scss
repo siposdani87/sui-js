@@ -1,3 +1,18 @@
+::-ms-clear{
+  display: none;
+}
+
+::-ms-reveal{
+  display: none;
+}
+
+::-webkit-search-decoration,
+::-webkit-search-cancel-button,
+::-webkit-search-results-button,
+::-webkit-search-results-decoration { 
+  display: none; 
+}
+
 form {
 
   .caption {
