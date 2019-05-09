@@ -3,6 +3,7 @@ goog.provide('SUI.Object');
 goog.require('SUI');
 
 /**
+ * @export
  * @constructor
  * @this {SUI.Object}
  * @param {!Object=} opt_object
@@ -16,6 +17,7 @@ SUI.Object.prototype = Object.create(/** @type {!Object} */ (Object.prototype));
 SUI.Object.prototype.constructor = SUI.Object;
 
 /**
+ * @export
  * @param {*} object
  * @return {!SUI.Object}
  */
@@ -79,6 +81,7 @@ SUI.Object.prototype.speedGet = function(opt_attribute, opt_defaultValue, opt_is
 };
 
 /**
+ * @export
  * @param {string=} opt_attribute
  * @param {*=} opt_defaultValue
  * @param {boolean=} opt_isSafe
@@ -131,6 +134,7 @@ SUI.Object.prototype._set = function(object, attributes, value) {
 };
 
 /**
+ * @export
  * @param {string} attribute
  * @param {*} value
  * @return {undefined}
@@ -142,6 +146,7 @@ SUI.Object.prototype.set = function(attribute, value) {
 };
 
 /**
+ * @export
  * @param {string} attribute
  * @param {*} value
  * @param {boolean=} opt_isSafe
@@ -154,6 +159,7 @@ SUI.Object.prototype.setRaw = function(attribute, value, opt_isSafe = false) {
 };
 
 /**
+ * @export
  * @param {string} attribute
  * @return {undefined}
  */
@@ -163,6 +169,7 @@ SUI.Object.prototype.remove = function(attribute) {
 };
 
 /**
+ * @export
  * @return {undefined}
  */
 SUI.Object.prototype.clear = function() {
@@ -189,6 +196,7 @@ SUI.Object.prototype._remove = function(object, attributes) {
 };
 
 /**
+ * @export
  * @param {!Function} next
  * @param {!Object=} opt_properties
  * @param {!Array=} opt_attributes
@@ -226,6 +234,7 @@ SUI.Object.prototype._attributesToObject = function(object, attributes, value) {
 };
 
 /**
+ * @export
  * @param {boolean=} opt_isNative
  * @return {!SUI.Object}
  */
@@ -238,6 +247,7 @@ SUI.Object.prototype.copy = function(opt_isNative = false) {
 };
 
 /**
+ * @export
  * @return {boolean}
  */
 SUI.Object.prototype.isEmpty = function() {
