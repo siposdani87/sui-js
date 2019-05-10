@@ -17,6 +17,16 @@ SUI.lib.Xhr = function(options) {
   this._setType('form', ['application/x-www-form-urlencoded', 'json']);
   this._setType('svg', ['image/svg+xml', 'document']);
 
+  this._setOptions(options);
+  this._init();
+};
+
+/**
+ * @param {!Object=} opt_options
+ * @private
+ * @return {undefined}
+ */
+SUI.lib.Xhr.prototype._setOptions = function(opt_options = {}) {
   const _self = this;
   _self.options = new SUI.Object({
     backend: '',
@@ -24,8 +34,7 @@ SUI.lib.Xhr = function(options) {
     response_type: this._getResponseType('json'),
     authorization: null,
   });
-  _self.options.merge(options);
-  this._init();
+  _self.options.merge(opt_options);
 };
 
 /**
