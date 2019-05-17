@@ -7,17 +7,12 @@ goog.require('SUI.Query');
  * @constructor
  * @this {SUI.Router}
  * @param {string} route
+ * @param {string=} opt_basePath
  */
-SUI.Router = function(route) {
-  this.route = route || '';
+SUI.Router = function(route, opt_basePath = '#') {
+  this.route = route;
   this.param = new RegExp('([:*])(\\w+)', 'g');
-
-  let basePath = '#';
-  const baseMeta = new SUI.Query('base').getItem();
-  if (!baseMeta.isEmpty()) {
-    basePath = baseMeta.getAttribute('href') || '/';
-  }
-  this.escape = new RegExp('[-[]{}()+?.,^' + basePath + 's]', 'g');
+  this.escape = new RegExp('[-[]{}()+?.,^' + opt_basePath + 's]', 'g');
 
   this._init();
 };
@@ -41,27 +36,25 @@ SUI.Router.prototype._init = function() {
  * @param {!Object=} opt_params
  * @return {string}
  */
-SUI.Router.prototype.stringify = function(opt_params) {
+SUI.Router.prototype.stringify = function(opt_params = {}) {
   let route = this.route;
-  if (opt_params) {
-    for (const key in opt_params) {
-      if (opt_params.hasOwnProperty(key)) {
-        const param = opt_params[key];
-        const regex = new RegExp('[:*]' + key + '\\b');
-        if (regex.test(route)) {
-          route = route.replace(regex, param);
-        } else {
-          route += route.indexOf('?') === -1 ? '?': '&';
-          if (SUI.isArray(param)) {
-            SUI.eachArray(param, (value, index) => {
-              if (index > 0) {
-                route += '&';
-              }
-              route += SUI.format('{0}[]={1}', [key, value]);
-            });
-          } else if (!SUI.isUndefined(param)) {
-            route += SUI.format('{0}={1}', [key, param]);
-          }
+  for (const key in opt_params) {
+    if (opt_params.hasOwnProperty(key)) {
+      const param = opt_params[key];
+      const regex = new RegExp('[:*]' + key + '\\b');
+      if (regex.test(route)) {
+        route = route.replace(regex, param);
+      } else {
+        route += route.indexOf('?') === -1 ? '?' : '&';
+        if (SUI.isArray(param)) {
+          SUI.eachArray(param, (value, index) => {
+            if (index > 0) {
+              route += '&';
+            }
+            route += SUI.format('{0}[]={1}', [key, value]);
+          });
+        } else if (!SUI.isUndefined(param)) {
+          route += SUI.format('{0}={1}', [key, param]);
         }
       }
     }
@@ -74,9 +67,9 @@ SUI.Router.prototype.stringify = function(opt_params) {
  * @return {?Array}
  */
 SUI.Router.prototype.getMatches = function(url) {
-  const question = url.indexOf('?');
-  if (question !== -1) {
-    url = url.substring(0, question);
+  const questionMark = url.indexOf('?');
+  if (questionMark !== -1) {
+    url = url.substring(0, questionMark);
   }
   return url.match(this.regex);
 };
@@ -91,9 +84,8 @@ SUI.Router.prototype.parse = function(url) {
     return {};
   }
   const params = this._parseParams(url);
-  let i = 0;
-  while (i < this.names.length) {
-    const key = this.names[i++];
+  for (let i = 0; i < this.names.length; i++) {
+    const key = this.names[i];
     params[key] = SUI.typeCast(matches[i]);
   }
   return params;
