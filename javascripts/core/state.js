@@ -25,7 +25,7 @@ SUI.State = function(routes, options) {
  */
 SUI.State.prototype._setRealUrls = function() {
   this.routes.each((route) => {
-    const url = route.get('url');
+    const url = /** @type {string} */ (route.get('url'));
     const realUrl = this._getRealUrl(url);
     route.set('realUrl', realUrl);
   });
@@ -93,7 +93,7 @@ SUI.State.prototype._init = function() {
   this._setRealUrls();
 
   this._initPopstate();
-  this._parseHashTag();
+  this._parseUrl();
 };
 
 /**
@@ -108,7 +108,7 @@ SUI.State.prototype._initPopstate = function() {
       this._setCurrent(state);
       this._triggerChange();
     } else {
-      this._parseHashTag();
+      this._parseUrl();
       this._triggerChange();
     }
   });
@@ -125,25 +125,25 @@ SUI.State.prototype.run = function() {
  * @private
  * @return {undefined}
  */
-SUI.State.prototype._parseHashTag = function() {
-  const path = this.basePath === '#' ? window.location.hash : window.location.pathname.replace(this.basePath, '/') + window.location.search;
-  this._parseUrl(path, (state, path, params) => {
+SUI.State.prototype._parseUrl = function() {
+  const path = window.location.hash ? window.location.hash : window.location.pathname.replace(this.basePath, '/') + window.location.search;
+  this._parsePath(path, (state, path, params) => {
     this._setHistory(state, path, params, true);
   }, () => {
-    // console.warn('SUI.State._parseHashTag()', path, 'missing state from routes config');
+    // console.warn('SUI.State._parseUrl()', path, 'missing state from routes config');
     this.goRoot(true);
   });
 };
 
 /**
  * @private
- * @param {string} hashPath
+ * @param {string} urlPath
  * @param {!Function} successCallback
  * @param {!Function} errorCallback
  * @return {undefined}
  */
-SUI.State.prototype._parseUrl = function(hashPath, successCallback, errorCallback) {
-  const path = hashPath[0] === '#' ? hashPath.substr(1) : hashPath;
+SUI.State.prototype._parsePath = function(urlPath, successCallback, errorCallback) {
+  const path = urlPath[0] === '#' ? urlPath.substr(1) : urlPath;
   const items = this.routes.getItems();
 
   let state = null;
@@ -236,7 +236,7 @@ SUI.State.prototype.getPrevious = function(opt_attribute) {
  */
 SUI.State.prototype.go = function(id, opt_params, opt_force = false) {
   if (SUI.eq(id[0], '#') || SUI.eq(id[0], '/')) {
-    this._parseUrl(id, (state, path, params) => {
+    this._parsePath(id, (state, path, params) => {
       this._setHistory(state, path, params, opt_force);
     }, () => {
 
