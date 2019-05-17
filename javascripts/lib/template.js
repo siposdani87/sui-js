@@ -55,7 +55,7 @@ SUI.lib.Template.prototype.load = function(url) {
   const deferred = new SUI.Deferred();
   const templateUrl = this.viewNode.getAttribute('data-template-url');
   const locale = this.viewNode.getAttribute('data-locale');
-  if (locale === this.options.locale && templateUrl === url) {
+  if (SUI.contain(this.options.locale, locale) && templateUrl === url) {
     this.viewNode.removeAttribute('data-locale');
     const node = new SUI.Query('.page-content', this.viewNode).getItem();
     deferred.resolve(node);
