@@ -1,7 +1,6 @@
 goog.provide('SUI.Router');
 
 goog.require('SUI');
-goog.require('SUI.Query');
 
 /**
  * @constructor
