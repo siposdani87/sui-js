@@ -12,12 +12,31 @@ goog.require('SUI.lib');
  * @param {!Object=} opt_options
  */
 SUI.lib.Template = function(http, opt_options = {}) {
+  this.http = http;
+
+  this._setOptions(opt_options);
+  this._init();
+};
+
+/**
+ * @private
+ * @param {!Object=} opt_options
+ * @return {undefined}
+ */
+SUI.lib.Template.prototype._setOptions = function(opt_options) {
   const _self = this;
   _self.options = new SUI.Object({
     selector: '.template-view',
+    locale: navigator.language,
   });
   _self.options.merge(opt_options);
-  this.http = http;
+};
+
+/**
+ * @private
+ * @return {undefined}
+ */
+SUI.lib.Template.prototype._init = function() {
   this.viewNode = new SUI.Query(this.options.selector).getItem();
 };
 
@@ -34,21 +53,30 @@ SUI.lib.Template.prototype.getViewNode = function() {
  */
 SUI.lib.Template.prototype.load = function(url) {
   const deferred = new SUI.Deferred();
-  this.http.get(url).then((data) => {
-    deferred.resolve(this._handleData(false, data));
-  }, (data) => {
-    deferred.reject(this._handleData(true, data));
-  });
+  const templateUrl = this.viewNode.getAttribute('data-template-url');
+  const locale = this.viewNode.getAttribute('data-locale');
+  if (locale === this.options.locale && templateUrl === url) {
+    this.viewNode.removeAttribute('data-locale');
+    const node = new SUI.Query('.page-content', this.viewNode).getItem();
+    deferred.resolve(node);
+  } else {
+    this.viewNode.setAttribute('data-template-url', url);
+    this.http.get(url).then((data) => {
+      deferred.resolve(this._handleData(data, false));
+    }, (data) => {
+      deferred.reject(this._handleData(data, true));
+    });
+  }
   return deferred.promise();
 };
 
 /**
  * @private
- * @param {boolean} error
  * @param {!SUI.Node} data
+ * @param {boolean} error
  * @return {!SUI.Node}
  */
-SUI.lib.Template.prototype._handleData = function(error, data) {
+SUI.lib.Template.prototype._handleData = function(data, error) {
   const node = new SUI.Query('.page-content', data).getItem();
   this.viewNode.insert(node);
   if (error) {
