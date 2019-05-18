@@ -154,7 +154,7 @@ SUI.State.prototype._parsePath = function(urlPath, successCallback, errorCallbac
   while (i < items.length && SUI.isNull(matches)) {
     state = items[i];
     const stateUrl = /** @type {string} */ (state.get('url'));
-    const router = new SUI.Router(stateUrl, this.basePath);
+    const router = new SUI.Router(stateUrl);
     matches = router.getMatches(path);
     params = router.parse(path);
     i++;
@@ -177,7 +177,7 @@ SUI.State.prototype._parsePath = function(urlPath, successCallback, errorCallbac
 SUI.State.prototype._setHistory = function(state, url, opt_params = {}, opt_force = false) {
   url = this.basePath === '#' ? this.basePath + url : url;
   const stateTemplate = /** @type {string} */ (state.get('template'));
-  const router = new SUI.Router(stateTemplate, this.basePath);
+  const router = new SUI.Router(stateTemplate);
   const templateUrl = router.stringify(opt_params);
   state.set('templateUrl', templateUrl);
   state.set('params', opt_params);
@@ -260,7 +260,7 @@ SUI.State.prototype.resolveUrlWithState = function(id, opt_params) {
   let url = '';
   if (state) {
     const stateUrl = /** @type {string} */ (state.get('url'));
-    const router = new SUI.Router(stateUrl, this.basePath);
+    const router = new SUI.Router(stateUrl);
     url = router.stringify(opt_params);
   }
   return [url, state];
