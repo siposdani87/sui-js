@@ -92,12 +92,12 @@ test/deferred.js
 test/item.js
 test/node.js
 test/object.js
-lib/actionCableClient.js
-lib/actionCable.js
-lib/navBar.js
 widget/autoComplete.js
 widget/datetimeRange.js
 widget/location.js
 widget/number.js
 widget/search.js
 widget/url.js
+lib/actionCableClient.js
+lib/actionCable.js
+lib/navBar.js

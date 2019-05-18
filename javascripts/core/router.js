@@ -6,12 +6,11 @@ goog.require('SUI');
  * @constructor
  * @this {SUI.Router}
  * @param {string} route
- * @param {string=} opt_basePath
  */
-SUI.Router = function(route, opt_basePath = '#') {
+SUI.Router = function(route) {
   this.route = route;
   this.param = new RegExp('([:*])(\\w+)', 'g');
-  this.escape = new RegExp('[-[]{}()+?.,^' + opt_basePath + 's]', 'g');
+  this.escape = new RegExp('[-[]{}()+?.,]', 'g');
 
   this._init();
 };
@@ -21,11 +20,11 @@ SUI.Router = function(route, opt_basePath = '#') {
  * @return {undefined}
  */
 SUI.Router.prototype._init = function() {
-  this.names = [];
+  this.paramNames = [];
   this.regex = this.route;
   this.regex = this.regex.replace(this.escape, '\\$&');
-  this.regex = this.regex.replace(this.param, (param, mode, name) => {
-    this.names.push(name);
+  this.regex = this.regex.replace(this.param, (param, mode, paramName) => {
+    this.paramNames.push(paramName);
     return mode === ':' ? '([^/]*)' : '(.*)';
   });
   this.regex = new RegExp('^' + this.regex + '$');
@@ -83,9 +82,9 @@ SUI.Router.prototype.parse = function(url) {
     return {};
   }
   const params = this._parseParams(url);
-  for (let i = 0; i < this.names.length; i++) {
-    const key = this.names[i];
-    params[key] = SUI.typeCast(matches[i]);
+  for (let i = 0; i < this.paramNames.length; i++) {
+    const key = this.paramNames[i];
+    params[key] = SUI.typeCast(matches[i+1]);
   }
   return params;
 };
