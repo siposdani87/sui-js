@@ -7,11 +7,25 @@ goog.require('SUI.lib.Xhr');
 /**
  * @constructor
  * @this {SUI.lib.Http}
- * @param {!Object} options
+ * @param {!Object=} opt_options
  */
-SUI.lib.Http = function(options) {
-  this.options = options;
+SUI.lib.Http = function(opt_options = {}) {
+  this._setOptions(opt_options);
   this._init();
+};
+
+/**
+ * @private
+ * @param {!Object=} opt_options
+ * @return {undefined}
+ */
+SUI.lib.Http.prototype._setOptions = function(opt_options = {}) {
+  const _self = this;
+  _self.options = new SUI.Object({
+    backend: '',
+    locale: '',
+  });
+  _self.options.merge(opt_options);
 };
 
 /**
