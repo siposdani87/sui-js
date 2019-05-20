@@ -8,31 +8,23 @@ goog.require('SUI.lib');
 /**
  * @constructor
  * @this {SUI.lib.Xhr}
- * @param {!Object} options
+ * @param {!Object=} opt_options
  */
-SUI.lib.Xhr = function(options) {
-  this.types = {};
-  this._setType('json', ['application/json', 'json']);
-  this._setType('html', ['text/html', 'document']);
-  this._setType('form', ['application/x-www-form-urlencoded', 'json']);
-  this._setType('svg', ['image/svg+xml', 'document']);
-
-  this._setOptions(options);
+SUI.lib.Xhr = function(opt_options = {}) {
+  this._setOptions(opt_options);
   this._init();
 };
 
 /**
- * @param {!Object=} opt_options
  * @private
+ * @param {!Object=} opt_options
  * @return {undefined}
  */
 SUI.lib.Xhr.prototype._setOptions = function(opt_options = {}) {
   const _self = this;
   _self.options = new SUI.Object({
     backend: '',
-    content_type: this._getContentType('json'),
-    response_type: this._getResponseType('json'),
-    authorization: null,
+    locale: '',
   });
   _self.options.merge(opt_options);
 };
@@ -42,11 +34,30 @@ SUI.lib.Xhr.prototype._setOptions = function(opt_options = {}) {
  * @return {undefined}
  */
 SUI.lib.Xhr.prototype._init = function() {
+  this.requestHeaders = [];
+  this.authorization = null;
+  this.types = {};
+
+  this._setTypes();
+
   this.http = new XMLHttpRequest();
-  this.http.withCredentials = true;
   this.http.onreadystatechange = this._onReadyStateChange();
 
   this.deferred = new SUI.Deferred();
+};
+
+/**
+ * @private
+ * @return {undefined}
+ */
+SUI.lib.Xhr.prototype._setTypes = function() {
+  this._setType('json', ['application/json', 'json', 'application/json']);
+  this._setType('form', ['application/x-www-form-urlencoded', 'json', 'application/json']);
+
+  this._setType('txt', ['', 'text', 'plain/text']);
+  this._setType('html', ['', 'document', 'text/html']);
+  this._setType('svg', ['', 'document', 'image/svg-xml']);
+  this._setType('xml', ['', 'document', 'application/xml']);
 };
 
 /**
@@ -62,11 +73,19 @@ SUI.lib.Xhr.prototype._setType = function(name, value) {
 /**
  * @private
  * @param {string} name
+ * @return {!Array}
+ */
+SUI.lib.Xhr.prototype._getType = function(name) {
+  return this.types[name] || this.types['txt'];
+};
+
+/**
+ * @private
+ * @param {string} name
  * @return {string}
  */
 SUI.lib.Xhr.prototype._getContentType = function(name) {
-  const typeSettings = this.types[name] || this.types['json'];
-  return typeSettings[0];
+  return this._getType(name)[0];
 };
 
 /**
@@ -75,8 +94,16 @@ SUI.lib.Xhr.prototype._getContentType = function(name) {
  * @return {string}
  */
 SUI.lib.Xhr.prototype._getResponseType = function(name) {
-  const typeSettings = this.types[name] || this.types['json'];
-  return typeSettings[1];
+  return this._getType(name)[1];
+};
+
+/**
+ * @private
+ * @param {string} name
+ * @return {string}
+ */
+SUI.lib.Xhr.prototype._getAccept = function(name) {
+  return this._getType(name)[2];
 };
 
 /**
@@ -87,11 +114,11 @@ SUI.lib.Xhr.prototype._onReadyStateChange = function() {
   return () => {
     switch (this.http.readyState) {
       case 0:
-      // request not initialized
+        // request not initialized
       case 1:
-      // server connection established
+        // server connection established
       case 2:
-      // request received
+        // request received
       case 3:
         // processing request
         break;
@@ -187,7 +214,9 @@ SUI.lib.Xhr.prototype._getUrl = function(url, opt_params) {
  */
 SUI.lib.Xhr.prototype._handleRequest = function(type, url, opt_data, opt_params, opt_headers = {}) {
   this.http.open(type, this._getUrl(url, opt_params), true);
-  this._setRequestHeaders(url, opt_headers);
+  const urlType = SUI.getExtensionName(url);
+  this._setRequestHeaders(urlType, opt_headers);
+  this._setRequestAdditionals(urlType);
   this.http.send(this._getRequestData(opt_data));
   return this.deferred.promise();
 };
@@ -200,7 +229,7 @@ SUI.lib.Xhr.prototype._handleRequest = function(type, url, opt_data, opt_params,
 SUI.lib.Xhr.prototype._getRequestData = function(opt_data) {
   let result = '';
   if (opt_data) {
-    switch (this.options.content_type) {
+    switch (this.getHeader('Content-Type')) {
       case this._getContentType('json'):
         result = JSON.stringify(opt_data);
         break;
@@ -262,44 +291,40 @@ SUI.lib.Xhr.prototype._stringifyObject = function(obj) {
  * @return {!Array}
  */
 SUI.lib.Xhr.prototype._getResponseData = function(data) {
-  const type = this.http.getResponseHeader('Content-Type');
-  let results = [data];
-  if (type) {
-    switch (type.split(';')[0]) {
-      case this._getContentType('json'):
+  const contentType = this.http.getResponseHeader('Content-Type');
+  let result = data;
+  if (contentType) {
+    switch (contentType.split(';')[0]) {
+      case 'application/json':
         data = SUI.isString(data) ? JSON.parse(/** @type {string} */(data) || 'null') : data;
         const object = new SUI.Object();
         object.merge(data);
-        results = [object];
-        break;
-      case this._getContentType('html'):
-      // let parserHtml = new DOMParser();
-      // result = parserHtml.parseFromString(data, this._getContentType('html'));
-      case this._getContentType('form'):
-      case this._getContentType('svg'):
+        result = object;
         break;
       default:
-        // result = new Blob([data], {'type': type});
-        const contentDisposition = this.http.getResponseHeader('Content-Disposition');
-        const filename = contentDisposition.match(/filename="(.+)"/)[1];
-        results = [data, filename];
+        // let parserHtml = new DOMParser();
+        // result = parserHtml.parseFromString(data, 'text/html');
+        // result = new Blob([data], {'type': contentType});
+        // result = data;
         break;
     }
   }
-  return results;
+  let filename = '';
+  const contentDisposition = this.http.getResponseHeader('Content-Disposition');
+  if (contentDisposition) {
+    filename = contentDisposition.match(/filename="(.+)"/)[1];
+  }
+  return [result, filename];
 };
 
 /**
  * @private
- * @param {string} url
+ * @param {string} urlType
  * @param {!Object=} opt_headers
  * @return {undefined}
  */
-SUI.lib.Xhr.prototype._setRequestHeaders = function(url, opt_headers = {}) {
-  const contentType = SUI.getExtensionName(url);
-  this.options.content_type = this._getContentType(contentType);
-  this.options.response_type = this._getResponseType(contentType);
-  this.http.responseType = this.options.response_type;
+SUI.lib.Xhr.prototype._setRequestHeaders = function(urlType, opt_headers = {}) {
+  this.requestHeaders = [];
   SUI.each(opt_headers, (header, key) => {
     if (SUI.eq(key, 'responseType')) {
       this.http.responseType = header;
@@ -307,16 +332,30 @@ SUI.lib.Xhr.prototype._setRequestHeaders = function(url, opt_headers = {}) {
       this.setHeader(key, header);
     }
   });
+  if (!opt_headers['Accept']) {
+    this.setHeader('Accept', this._getAccept(urlType));
+  }
   if (!opt_headers['Accept-Language']) {
     this.setHeader('Accept-Language', this.options.locale);
   }
   if (!opt_headers['Content-Type']) {
-    this.setHeader('Content-Type', this.options.content_type);
+    this.setHeader('Content-Type', this._getContentType(urlType));
   }
-  if (this.options.authorization && !opt_headers['Authorization']) {
-    this.setHeader('Authorization', this.options.authorization);
+  if (this.authorization && !opt_headers['Authorization']) {
+    this.setHeader('Authorization', this.authorization);
   }
   this.setHeader('X-Requested-With', 'XMLHttpRequest');
+};
+
+/**
+ * @private
+ * @param {string} urlType
+ * @param {!Object=} opt_headers
+ * @return {undefined}
+ */
+SUI.lib.Xhr.prototype._setRequestAdditionals = function(urlType, opt_headers = {}) {
+  this.http.responseType = this._getResponseType(urlType);
+  this.http.withCredentials = true;
 };
 
 /**
@@ -327,7 +366,16 @@ SUI.lib.Xhr.prototype._setRequestHeaders = function(url, opt_headers = {}) {
 SUI.lib.Xhr.prototype.setHeader = function(name, value) {
   if (name && value) {
     this.http.setRequestHeader(name, value);
+    this.requestHeaders[name] = value;
   }
+};
+
+/**
+ * @param {string} name
+ * @return {string|null}
+ */
+SUI.lib.Xhr.prototype.getHeader = function(name) {
+  return this.requestHeaders[name];
 };
 
 /**
@@ -338,7 +386,7 @@ SUI.lib.Xhr.prototype.setHeader = function(name, value) {
 SUI.lib.Xhr.prototype.setBasicAuthorization = function(username, password) {
   if (username && password) {
     const hash = [username, password].join(':');
-    this.options.authorization = 'Basic ' + SUI.encodeBase64(hash);
+    this.authorization = 'Basic ' + SUI.encodeBase64(hash);
   }
 };
 
@@ -348,6 +396,6 @@ SUI.lib.Xhr.prototype.setBasicAuthorization = function(username, password) {
  */
 SUI.lib.Xhr.prototype.setBearerAuthorization = function(token) {
   if (token) {
-    this.options.authorization = 'Bearer ' + token;
+    this.authorization = 'Bearer ' + token;
   }
 };
