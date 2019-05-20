@@ -99,7 +99,9 @@ SUI.Navigation.prototype.addImage = function(id, image, title, action, opt_data)
   imageSpan.addClass('image');
 
   if (image.indexOf('.svg') !== -1) {
-    this.http.get(image).then(function(data) {
+    this.http.get(image, {}, {
+      'Authorization': '',
+    }).then(function(data) {
       const svgTag = new SUI.Query('svg', data).getItem();
       imageSpan.appendChild(svgTag);
     });
@@ -279,4 +281,3 @@ SUI.Navigation.prototype.hide = function(id) {
     this._disabled(item);
   }
 };
-

@@ -54,7 +54,6 @@ SUI.lib.Xhr.prototype._setTypes = function() {
   this._setType('json', ['application/json', 'json', 'application/json']);
   this._setType('form', ['application/x-www-form-urlencoded', 'json', 'application/json']);
 
-  this._setType('txt', ['', 'text', 'plain/text']);
   this._setType('html', ['', 'document', 'text/html']);
   this._setType('svg', ['', 'document', 'image/svg-xml']);
   this._setType('xml', ['', 'document', 'application/xml']);
@@ -76,7 +75,7 @@ SUI.lib.Xhr.prototype._setType = function(name, value) {
  * @return {!Array}
  */
 SUI.lib.Xhr.prototype._getType = function(name) {
-  return this.types[name] || this.types['txt'];
+  return this.types[name] || [];
 };
 
 /**
@@ -85,7 +84,7 @@ SUI.lib.Xhr.prototype._getType = function(name) {
  * @return {string}
  */
 SUI.lib.Xhr.prototype._getContentType = function(name) {
-  return this._getType(name)[0];
+  return this._getType(name)[0] || '';
 };
 
 /**
@@ -94,7 +93,7 @@ SUI.lib.Xhr.prototype._getContentType = function(name) {
  * @return {string}
  */
 SUI.lib.Xhr.prototype._getResponseType = function(name) {
-  return this._getType(name)[1];
+  return this._getType(name)[1] || 'text';
 };
 
 /**
@@ -103,7 +102,7 @@ SUI.lib.Xhr.prototype._getResponseType = function(name) {
  * @return {string}
  */
 SUI.lib.Xhr.prototype._getAccept = function(name) {
-  return this._getType(name)[2];
+  return this._getType(name)[2] || '*/*';
 };
 
 /**
@@ -215,8 +214,8 @@ SUI.lib.Xhr.prototype._getUrl = function(url, opt_params) {
 SUI.lib.Xhr.prototype._handleRequest = function(type, url, opt_data, opt_params, opt_headers = {}) {
   this.http.open(type, this._getUrl(url, opt_params), true);
   const urlType = SUI.getExtensionName(url);
-  this._setRequestHeaders(urlType, opt_headers);
   this._setRequestAdditionals(urlType);
+  this._setRequestHeaders(urlType, opt_headers);
   this.http.send(this._getRequestData(opt_data));
   return this.deferred.promise();
 };
@@ -325,26 +324,30 @@ SUI.lib.Xhr.prototype._getResponseData = function(data) {
  */
 SUI.lib.Xhr.prototype._setRequestHeaders = function(urlType, opt_headers = {}) {
   this.requestHeaders = [];
-  SUI.each(opt_headers, (header, key) => {
+
+  SUI.eachObject(opt_headers, (value, key) => {
     if (SUI.eq(key, 'responseType')) {
-      this.http.responseType = header;
+      this.http.responseType = value;
     } else {
-      this.setHeader(key, header);
+      this.setHeader(key, value);
     }
   });
-  if (!opt_headers['Accept']) {
+
+  if (SUI.isUndefined(this.requestHeaders['Accept'])) {
     this.setHeader('Accept', this._getAccept(urlType));
   }
-  if (!opt_headers['Accept-Language']) {
+  if (SUI.isUndefined(this.requestHeaders['Accept-Language'])) {
     this.setHeader('Accept-Language', this.options.locale);
   }
-  if (!opt_headers['Content-Type']) {
+  if (SUI.isUndefined(this.requestHeaders['Content-Type'])) {
     this.setHeader('Content-Type', this._getContentType(urlType));
   }
-  if (this.authorization && !opt_headers['Authorization']) {
+  if (SUI.isUndefined(this.requestHeaders['Authorization']) && this.authorization) {
     this.setHeader('Authorization', this.authorization);
   }
-  this.setHeader('X-Requested-With', 'XMLHttpRequest');
+  if (SUI.isUndefined(this.requestHeaders['X-Requested-With'])) {
+    this.setHeader('X-Requested-With', 'XMLHttpRequest');
+  }
 };
 
 /**
@@ -366,8 +369,8 @@ SUI.lib.Xhr.prototype._setRequestAdditionals = function(urlType, opt_headers = {
 SUI.lib.Xhr.prototype.setHeader = function(name, value) {
   if (name && value) {
     this.http.setRequestHeader(name, value);
-    this.requestHeaders[name] = value;
   }
+  this.requestHeaders[name] = value;
 };
 
 /**
