@@ -14,8 +14,8 @@ SUI.lib.Cookie = function(opt_options = {}) {
 };
 
 /**
- * @param {!Object=} opt_options
  * @private
+ * @param {!Object=} opt_options
  * @return {undefined}
  */
 SUI.lib.Cookie.prototype._setOptions = function(opt_options = {}) {
@@ -33,9 +33,9 @@ SUI.lib.Cookie.prototype._setOptions = function(opt_options = {}) {
  * @param {string=} opt_path
  * @param {string=} opt_domain
  * @param {boolean=} opt_secure
- * @return {boolean}
+ * @return {undefined}
  */
-SUI.lib.Cookie.prototype.set = function(name, value, opt_expires, opt_path, opt_domain, opt_secure) {
+SUI.lib.Cookie.prototype.set = function(name, value, opt_expires = '', opt_path = '', opt_domain = '', opt_secure = false) {
   if (!name || /^(?:expires|max\-age|path|domain|secure)$/i.test(name)) {
     return false;
   }
@@ -56,7 +56,6 @@ SUI.lib.Cookie.prototype.set = function(name, value, opt_expires, opt_path, opt_
     opt_expires = '; expires=' + date.toUTCString();
   }
   document.cookie = encodeURIComponent(name) + '=' + encodeURIComponent(value) + opt_expires + (opt_domain ? '; domain=' + opt_domain : '') + (opt_path ? '; path=' + opt_path : '') + (opt_secure ? '; secure' : '');
-  return true;
 };
 
 /**
@@ -72,15 +71,13 @@ SUI.lib.Cookie.prototype.get = function(name) {
  * @param {string} name
  * @param {string=} opt_path
  * @param {string=} opt_domain
- * @return {boolean}
+ * @return {undefined}
  */
-SUI.lib.Cookie.prototype.remove = function(name, opt_path, opt_domain) {
-  if (!this._has(name)) {
-    return false;
+SUI.lib.Cookie.prototype.remove = function(name, opt_path = '', opt_domain = '') {
+  if (this._has(name)) {
+    const expires = new Date(1970, 0, 1);
+    this.set(name, '', expires, opt_path, opt_domain);
   }
-  const expires = new Date(1970, 0, 1);
-  this.set(name, '', expires, opt_path, opt_domain);
-  return true;
 };
 
 /**
