@@ -34,7 +34,7 @@ SUI.lib.Xhr.prototype._setOptions = function(opt_options = {}) {
  * @return {undefined}
  */
 SUI.lib.Xhr.prototype._init = function() {
-  this.requestHeaders = [];
+  this.requestHeaders = {};
   this.authorization = null;
   this.types = {};
 
@@ -323,8 +323,6 @@ SUI.lib.Xhr.prototype._getResponseData = function(data) {
  * @return {undefined}
  */
 SUI.lib.Xhr.prototype._setRequestHeaders = function(urlType, opt_headers = {}) {
-  this.requestHeaders = [];
-
   SUI.eachObject(opt_headers, (value, key) => {
     if (SUI.eq(key, 'responseType')) {
       this.http.responseType = value;
@@ -333,19 +331,19 @@ SUI.lib.Xhr.prototype._setRequestHeaders = function(urlType, opt_headers = {}) {
     }
   });
 
-  if (SUI.isUndefined(this.requestHeaders['Accept'])) {
+  if (SUI.isUndefined(this.getHeader('Accept'))) {
     this.setHeader('Accept', this._getAccept(urlType));
   }
-  if (SUI.isUndefined(this.requestHeaders['Accept-Language'])) {
+  if (SUI.isUndefined(this.getHeader('Accept-Language'))) {
     this.setHeader('Accept-Language', this.options.locale);
   }
-  if (SUI.isUndefined(this.requestHeaders['Content-Type'])) {
+  if (SUI.isUndefined(this.getHeader('Content-Type'))) {
     this.setHeader('Content-Type', this._getContentType(urlType));
   }
-  if (SUI.isUndefined(this.requestHeaders['Authorization']) && this.authorization) {
+  if (SUI.isUndefined(this.getHeader('Authorization')) && this.authorization) {
     this.setHeader('Authorization', this.authorization);
   }
-  if (SUI.isUndefined(this.requestHeaders['X-Requested-With'])) {
+  if (SUI.isUndefined(this.getHeader('X-Requested-With'))) {
     this.setHeader('X-Requested-With', 'XMLHttpRequest');
   }
 };
