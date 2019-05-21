@@ -37,7 +37,7 @@ SUI.lib.Cookie.prototype._setOptions = function(opt_options = {}) {
  */
 SUI.lib.Cookie.prototype.set = function(name, value, opt_expires = '', opt_path = '', opt_domain = '', opt_secure = false) {
   if (!name || /^(?:expires|max\-age|path|domain|secure)$/i.test(name)) {
-    return false;
+    return;
   }
   if (opt_expires) {
     switch (opt_expires.constructor) {
