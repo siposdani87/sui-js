@@ -17,14 +17,15 @@ SUI.lib.LeftMenu = function() {
  */
 SUI.lib.LeftMenu.prototype._init = function() {
   this.body = new SUI.Query('body').getItem();
+  this.mainContainerNode = new SUI.Query('.main-container').getItem();
   this.leftMenu = new SUI.Query('#left-menu').getItem();
 
   this.mainMenu = new SUI.Query('.main-menu', this.leftMenu).getItem();
   this.subMenu = new SUI.Query('.sub-menu', this.leftMenu).getItem();
   this.subMenu.addClass('hidden');
 
-  this.mainContainer = new SUI.Query('.menu-container', this.mainMenu).getItem();
-  this.subContainer = new SUI.Query('.menu-container', this.subMenu).getItem();
+  this.mainMenuContainer = new SUI.Query('.menu-container', this.mainMenu).getItem();
+  this.subMenuContainer = new SUI.Query('.menu-container', this.subMenu).getItem();
 
   this._initEvents();
 };
@@ -61,6 +62,8 @@ SUI.lib.LeftMenu.prototype._initEvents = function() {
  */
 SUI.lib.LeftMenu.prototype.open = function() {
   this.body.addClass('overflow-hidden');
+  this.mainContainerNode.addClass('blur');
+
   this.leftMenu.addClass('visible');
 };
 
@@ -69,6 +72,8 @@ SUI.lib.LeftMenu.prototype.open = function() {
  */
 SUI.lib.LeftMenu.prototype.close = function() {
   this.body.removeClass('overflow-hidden');
+  this.mainContainerNode.removeClass('blur');
+
   this.leftMenu.removeClass('visible');
 };
 
@@ -92,12 +97,12 @@ SUI.lib.LeftMenu.prototype.closeSubMenu = function() {
  * @return {!SUI.Node}
  */
 SUI.lib.LeftMenu.prototype.getMainContainer = function() {
-  return this.mainContainer;
+  return this.mainMenuContainer;
 };
 
 /**
  * @return {!SUI.Node}
  */
 SUI.lib.LeftMenu.prototype.getSubContainer = function() {
-  return this.subContainer;
+  return this.subMenuContainer;
 };
