@@ -37,7 +37,7 @@ SUI.lib.Header.prototype._init = function() {
   this.brandNodeTitle = new SUI.Query('.brand .app-title', this.brandNode).getItem();
 
 
-  this.containerNode = new SUI.Query('.main-container').getItem();
+  this.mainContainerNode = new SUI.Query('.main-container').getItem();
   this.templateViewNode = new SUI.Query('.template-view').getItem();
 };
 
@@ -84,7 +84,7 @@ SUI.lib.Header.prototype.close = function() {
  */
 SUI.lib.Header.prototype.show = function() {
   this.headerNode.removeClass('hidden');
-  this.containerNode.addClass('header-padding');
+  this.mainContainerNode.addClass('header-padding');
   this.templateViewNode.addClass('has-header');
 };
 
@@ -93,7 +93,7 @@ SUI.lib.Header.prototype.show = function() {
  */
 SUI.lib.Header.prototype.hide = function() {
   this.headerNode.addClass('hidden');
-  this.containerNode.removeClass('header-padding');
+  this.mainContainerNode.removeClass('header-padding');
   this.templateViewNode.removeClass('has-header');
 };
 
@@ -138,4 +138,3 @@ SUI.lib.Header.prototype.showTopMenuButton = function() {
 SUI.lib.Header.prototype.hideTopMenuButton = function() {
   this.topMenuButton.addClass('hidden');
 };
-

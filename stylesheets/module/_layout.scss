@@ -1,7 +1,22 @@
 .main-container {
 
+  @keyframes blur {
+    0% {
+      filter: blur(0);
+    }
+
+    100% {
+      filter: blur(2px);
+    }
+  }
+
   &.header-padding {
     padding-top: 50px;
+  }
+
+  &.blur {
+    animation-name: blur;
+    animation-duration: .5s;
   }
 }
 

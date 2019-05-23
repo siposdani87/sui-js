@@ -10,12 +10,23 @@ goog.require('SUI.lib');
  * @this {SUI.lib.BaseModal}
  */
 SUI.lib.BaseModal = function() {
-  this.windowWidth = 0;
-  this.windowHeight = 0;
 };
 
 /**
  * @protected
+ * @return {undefined}
+ */
+SUI.lib.BaseModal.prototype._initBase = function() {
+  this.windowWidth = 0;
+  this.windowHeight = 0;
+
+  this.mainContainerNode = new SUI.Query('.main-container').getItem();
+
+  this._initButtons();
+};
+
+/**
+ * @private
  * @return {undefined}
  */
 SUI.lib.BaseModal.prototype._initButtons = function() {
@@ -77,9 +88,12 @@ SUI.lib.BaseModal.prototype.isOpened = function() {
  * @return {undefined}
  */
 SUI.lib.BaseModal.prototype.open = function() {
+  this.mainContainerNode.addClass('blur');
+
   this.body.addClass('overflow-hidden');
   this.modal.addClass('visible-flex');
   this.modal.removeClass('hidden');
+
   this._handleCenterPosition();
 };
 
@@ -87,9 +101,12 @@ SUI.lib.BaseModal.prototype.open = function() {
  * @return {undefined}
  */
 SUI.lib.BaseModal.prototype.close = function() {
+  this.mainContainerNode.removeClass('blur');
+
   this.body.removeClass('overflow-hidden');
   this.modal.addClass('hidden');
   this.modal.removeClass('visible-flex');
+
   this.modalTitle.removeChildren();
   this.modalBody.removeChildren();
   this.modalFooter.removeChildren();

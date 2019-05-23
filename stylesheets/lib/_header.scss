@@ -2,6 +2,7 @@
   background-color: $primary-dark;
   position: fixed;
   width: 100%;
+  top: 0;
   @include display-flex;
   flex-flow: row wrap;
   justify-content: space-between;

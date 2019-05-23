@@ -67,7 +67,7 @@ goog.provide('SUI');
  * @struct
  */
 const SUI = {
-  title: 'SUI.Frontend',
+  title: 'SUI-JS',
   description: 'A frontend framework, help you to build fast, modern applications',
   version: '0.4.10',
   const: {},
