@@ -17,6 +17,7 @@
   &.blur {
     animation-name: blur;
     animation-duration: .5s;
+    animation-fill-mode: forwards;
   }
 }
 
