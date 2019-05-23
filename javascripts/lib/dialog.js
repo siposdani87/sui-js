@@ -20,7 +20,7 @@ SUI.lib.Dialog = function(http, opt_options = {}) {
   this.http = http;
   this._setOptions(opt_options);
   this._init();
-  this._initButtons();
+  this._initBase();
 };
 goog.inherits(SUI.lib.Dialog, SUI.lib.BaseModal);
 

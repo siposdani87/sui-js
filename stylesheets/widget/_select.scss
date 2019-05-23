@@ -55,7 +55,9 @@
     color: $primary;
 
     &.rotate {
-      animation: rotation 2s infinite;
+      animation-name: rotation;
+      animation-duration: 2s;
+      animation-iteration-count: infinite;
     }
   }
 

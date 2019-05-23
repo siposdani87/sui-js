@@ -17,7 +17,7 @@ goog.require('SUI.lib.BaseModal');
 SUI.lib.Viewer = function(opt_options = {}) {
   this._setOptions(opt_options);
   this._init();
-  this._initButtons();
+  this._initBase();
 };
 goog.inherits(SUI.lib.Viewer, SUI.lib.BaseModal);
 
