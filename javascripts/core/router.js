@@ -5,10 +5,10 @@ goog.require('SUI');
 /**
  * @constructor
  * @this {SUI.Router}
- * @param {string} route
+ * @param {string=} opt_route
  */
-SUI.Router = function(route) {
-  this.route = route;
+SUI.Router = function(opt_route = '') {
+  this.route = opt_route;
   this.param = new RegExp('([:*])(\\w+)', 'g');
   this.escape = new RegExp('[-[]{}()+?.,]', 'g');
 
