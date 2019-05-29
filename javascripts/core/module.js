@@ -198,8 +198,9 @@ SUI.Module.prototype.handleRoutes = function(routes, options) {
  */
 SUI.Module.prototype._handleStateChange = function(currentState) {
   this.eventStateChange(currentState).then(() => {
-    const templateUrl = currentState.get('templateUrl');
-    if (templateUrl) {
+    const template = currentState.get('template');
+    if (template) {
+      const templateUrl = currentState.get('templateUrl');
       this._instances[this._injections.template].load(templateUrl).then((dom) => {
         this.eventModuleLoaded(currentState);
         this._initController(currentState, dom);

@@ -176,8 +176,8 @@ SUI.State.prototype._parsePath = function(urlPath, successCallback, errorCallbac
  */
 SUI.State.prototype._setHistory = function(state, url, opt_params = {}, opt_force = false) {
   url = this.basePath === '#' ? this.basePath + url : url;
-  const stateTemplate = /** @type {string} */ (state.get('template'));
-  const router = new SUI.Router(stateTemplate);
+  const template = /** @type {string} */ (state.get('template'));
+  const router = new SUI.Router(template);
   state.set('templateUrl', router.stringify(opt_params));
   state.set('params', opt_params);
   if (opt_force) {
