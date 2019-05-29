@@ -178,8 +178,7 @@ SUI.State.prototype._setHistory = function(state, url, opt_params = {}, opt_forc
   url = this.basePath === '#' ? this.basePath + url : url;
   const stateTemplate = /** @type {string} */ (state.get('template'));
   const router = new SUI.Router(stateTemplate);
-  const templateUrl = router.stringify(opt_params);
-  state.set('templateUrl', templateUrl);
+  state.set('templateUrl', router.stringify(opt_params));
   state.set('params', opt_params);
   if (opt_force) {
     window.history.replaceState(state.get(), /** @type {string} */(state.get('title', '')), url);

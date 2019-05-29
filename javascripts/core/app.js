@@ -575,11 +575,11 @@ SUI.App.prototype._initRoutes = function() {
  * @param {string} title
  * @param {string} url
  * @param {string} controller
- * @param {?string=} opt_template
+ * @param {string=} opt_template
  * @param {!Object=} opt_params
  * @return {undefined}
  */
-SUI.App.prototype.addState = function(id, title, url, controller, opt_template = null, opt_params = {}) {
+SUI.App.prototype.addState = function(id, title, url, controller, opt_template = '', opt_params = {}) {
   const state = new SUI.Object(opt_params);
   state.set('id', id);
   state.set('title', title);
