@@ -13,10 +13,10 @@ body {
 
 .dark-theme {
   a {
-    color: $primary;
+    color: $primary-bright;
 
     &:hover {
-      color: $primary-bright;
+      color: $primary;
     }
   }
 
