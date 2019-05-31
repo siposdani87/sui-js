@@ -16,6 +16,10 @@ $light-grey-bright: #f0f0f0;
 $light-grey: #e5e5e5;
 $light-grey-dark: #d0d0d0;
 
+$deep-grey-bright: darken($light-grey-bright, 20%);
+$deep-grey: darken($light-grey, 20%);
+$deep-grey-dark: darken($light-grey-dark, 20%);
+
 // Material Design Palette
 
 $red-bright: #e57373;

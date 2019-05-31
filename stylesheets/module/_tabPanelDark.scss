@@ -1,0 +1,29 @@
+.dark-theme {
+  .tab-panel {
+    .tabs {
+      a {
+        border-top-color: $deep-grey-dark;
+        background-color: $deep-grey-bright;
+        color: $primary;
+        
+        &:hover {
+          color: $primary-dark;
+        }
+
+        &.active {
+          border-top-color: $accent;
+          background-color: $black;
+          color: $primary-dark;
+        }
+
+        &:not(.active) {
+          border-top-color: $deep-grey-bright;
+        }
+
+        &.disabled {
+          color: $grey-bright;
+        }
+      }
+    }
+  }
+}
