@@ -72,7 +72,7 @@
         }
 
         &.disabled {
-          background-color: $white;
+          background-color: transparent;
           color: $grey;
           cursor: default;
 
@@ -123,6 +123,69 @@
 
         .title {
           @include flex(0 1 75%);
+        }
+      }
+    }
+  }
+}
+
+.dark-theme {
+  #left-menu {
+    &.black {
+      background-color: rgba($black, .9);
+    }
+  
+    .main-menu,
+    .sub-menu {
+      background-color: $black;
+      @include box-shadow(2px 0 20px 0 rgba($black, 1));
+  
+      a {
+        color: $white;
+      }
+      
+      .menu-container {
+        a {
+          color: $primary;
+  
+          &:hover {
+            background-color: $deep-grey-bright;
+          }
+  
+          &.active {
+            color: $primary-dark;
+            background-color: $deep-grey;
+  
+            .image {
+  
+              svg,
+              path {
+                fill: $primary-dark;
+              }
+            }
+          }
+  
+          &.disabled {
+            color: $grey;
+            
+            .image {
+              img {
+                opacity: .3;
+              }
+  
+              svg,
+              path {
+                fill: $grey;
+              }
+            }
+          }
+  
+          .image {
+            svg,
+            path {
+              fill: $primary;
+            }
+          }
         }
       }
     }
