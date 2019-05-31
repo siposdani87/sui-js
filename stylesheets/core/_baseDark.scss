@@ -1,0 +1,26 @@
+html,
+body {
+  &.dark-theme {
+    color: $white;
+  }
+}
+
+body {
+  &.dark-theme {
+    background-color: $black;
+  }
+}
+
+.dark-theme {
+  a {
+    color: $primary;
+
+    &:hover {
+      color: $primary-bright;
+    }
+  }
+
+  .text-default {
+    color: $white;
+  }
+}
