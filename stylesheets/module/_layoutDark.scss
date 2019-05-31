@@ -1,0 +1,43 @@
+.dark-theme {
+  .page-content {
+    &.fullscreen {
+      @include display-flex;
+      background-color: $black-bright;
+      color: $white;
+
+      &.light {
+        background-color: inherit;
+        color: inherit;
+      }
+    }
+  }
+
+  .page-header {
+    background-color: $black-dark;
+    color: $white;
+
+    h1 {
+      
+      a,
+      span {
+        &::after {
+          color: $grey;
+        }
+      }
+    }
+  }
+
+  .page-subheader {
+    background-color: $black-dark;
+    color: $white;
+
+    h2 {
+      
+      a {
+        &::after {
+          color: $grey;
+        }
+      }
+    }
+  }
+}
