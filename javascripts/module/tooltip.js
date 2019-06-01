@@ -78,7 +78,7 @@ SUI.Tooltip.prototype._createTooltip = function() {
   oldElement.remove();
 
   const cssClasses = ['mdl-tooltip', this.positionCssClass];
-  this.tooltip = new SUI.Node('span', /** @type {!SUI.Node} */ (this.element.getParentNode()));
+  this.tooltip = new SUI.Node('span');
   this.tooltip.addClass(cssClasses);
   this.tooltip.setFor(/** @type {string} */(id));
   this.element.insertAfter(this.tooltip);

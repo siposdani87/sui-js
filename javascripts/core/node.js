@@ -65,17 +65,6 @@ SUI.Node.prototype.getNode = function() {
 };
 
 /**
- * @param {boolean=} opt_isInner
- * @return {string}
- */
-SUI.Node.prototype.getHtml = function(opt_isInner = false) {
-  if (!this.isEmpty()) {
-    return opt_isInner ? this.node.innerHTML : this.node.outerHTML;
-  }
-  return '';
-};
-
-/**
  * @return {string}
  */
 SUI.Node.prototype.getTagName = function() {
@@ -301,7 +290,7 @@ SUI.Node.prototype.trigger = function(eventName) {
  */
 SUI.Node.prototype.createElement = function(tagName) {
   const node = document.createElement(tagName);
-  return new SUI.Node(node, this.parentNode);
+  return new SUI.Node(node, this);
 };
 
 /**
@@ -424,13 +413,6 @@ SUI.Node.prototype.replaceChild = function(node) {
 };
 
 /**
- * @return {string}
- */
-SUI.Node.prototype.getText = function() {
-  return this.node.textContent;
-};
-
-/**
  * @param {!Element|string|number} text
  * @return {undefined}
  */
@@ -439,11 +421,29 @@ SUI.Node.prototype.setHtml = function(text) {
 };
 
 /**
+ * @param {boolean=} opt_isInner
+ * @return {string}
+ */
+SUI.Node.prototype.getHtml = function(opt_isInner = false) {
+  if (!this.isEmpty()) {
+    return opt_isInner ? this.node.innerHTML : this.node.outerHTML;
+  }
+  return '';
+};
+
+/**
  * @param {string} text
  * @return {undefined}
  */
 SUI.Node.prototype.setText = function(text) {
   this.node.nodeValue = text;
+};
+
+/**
+ * @return {string}
+ */
+SUI.Node.prototype.getText = function() {
+  return this.node.textContent;
 };
 
 /**
@@ -479,7 +479,7 @@ SUI.Node.prototype.getData = function(name) {
 SUI.Node.prototype.getParentNode = function() {
   const parentElement = this._getParentElement();
   if (parentElement) {
-    return new SUI.Node(parentElement, this.parentNode);
+    return new SUI.Node(parentElement);
   }
   return null;
 };
@@ -491,7 +491,7 @@ SUI.Node.prototype._getParentElement = function() {
   if (this.parentNode && !this.parentNode.isEmpty()) {
     return this.parentNode.getNode();
   } else if (this.node) {
-    return this.node.parentElement; // this.node.parentNode
+    return this.node.parentElement;
   }
   return null;
 };
