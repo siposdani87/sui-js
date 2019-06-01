@@ -329,7 +329,7 @@ SUI.Table.prototype._addHeaderRow = function(item, rowIndex) {
 
   const headerNameCell = new SUI.Node('td');
   headerRow.appendChild(headerNameCell);
-  this._renderDataNodeByItem(item, rowIndex, this._getColumn(), headerNameCell);
+  this._renderDataNodeByItem(item, rowIndex, this._getColumn(), headerNameCell, headerRow);
   headerNameCell.setAttribute('colspan', this.headerNodes.size() - 2);
 
   const headerActionCell = new SUI.Node('td');
@@ -350,7 +350,7 @@ SUI.Table.prototype._addRow = function(item, rowIndex) {
   SUI.each(this.options.columns, (column, columnIndex) => {
     const tableDataNode = new SUI.Node('td');
     tableRow.appendChild(tableDataNode);
-    this._renderDataNode(tableDataNode, item, rowIndex, column, columnIndex);
+    this._renderDataNode(tableDataNode, item, rowIndex, column, columnIndex, tableRow);
   });
 };
 
@@ -368,13 +368,14 @@ SUI.Table.prototype.setActions = function(actions) {
  * @param {number} rowIndex
  * @param {string} column
  * @param {!SUI.Node} parentNode
+ * @param {!SUI.Node} tableRow
  * @return {undefined}
  */
-SUI.Table.prototype._renderDataNodeByItem = function(item, rowIndex, column, parentNode) {
+SUI.Table.prototype._renderDataNodeByItem = function(item, rowIndex, column, parentNode, tableRow) {
   let dataNode = item.get(column, '');
   const calculation = this.options.calculations[column];
   if (SUI.isFunction(calculation)) {
-    dataNode = calculation(item, this.pager.offset + rowIndex);
+    dataNode = calculation(item, this.pager.offset + rowIndex, tableRow);
   }
   if (!SUI.instanceOf(dataNode, SUI.Node)) {
     const node = new SUI.Node('span');
@@ -395,9 +396,10 @@ SUI.Table.prototype._renderDataNodeByItem = function(item, rowIndex, column, par
  * @param {number} rowIndex
  * @param {string} column
  * @param {number} columnIndex
+ * @param {!SUI.Node} tableRow
  * @return {undefined}
  */
-SUI.Table.prototype._renderDataNode = function(tableDataNode, item, rowIndex, column, columnIndex) {
+SUI.Table.prototype._renderDataNode = function(tableDataNode, item, rowIndex, column, columnIndex, tableRow) {
   if (SUI.inArray(['search', 'actions'], column)) {
     this._renderActions(tableDataNode, item);
   } else {
@@ -407,7 +409,7 @@ SUI.Table.prototype._renderDataNode = function(tableDataNode, item, rowIndex, co
     this._renderHeader(labelNode, columnIndex);
     this._handleSortingColumn(labelNode, columnIndex);
     tableDataNode.appendChild(labelNode);
-    this._renderDataNodeByItem(item, rowIndex, column, tableDataNode);
+    this._renderDataNodeByItem(item, rowIndex, column, tableDataNode, tableRow);
   }
 };
 
