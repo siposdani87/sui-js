@@ -138,7 +138,7 @@
     .main-menu,
     .sub-menu {
       background-color: $black;
-      @include box-shadow(2px 0 20px 0 rgba($black, .8));
+      @include box-shadow(2px 0 20px 0 rgba($black-dark, .3));
   
       a {
         color: $white;
@@ -153,14 +153,14 @@
           }
   
           &.active {
-            color: $primary-dark;
+            color: $primary-bright;
             background-color: $deep-grey;
   
             .image {
   
               svg,
               path {
-                fill: $primary-dark;
+                fill: $primary-bright;
               }
             }
           }

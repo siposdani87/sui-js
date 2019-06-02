@@ -11,9 +11,8 @@
         }
 
         &.active {
-          border-top-color: $accent;
           background-color: $black;
-          color: $primary-dark;
+          color: $primary-bright;
         }
 
         &:not(.active) {
