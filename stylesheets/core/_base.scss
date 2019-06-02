@@ -229,3 +229,12 @@ address {
 .has-tooltip {
   cursor: pointer;
 }
+
+h3.caption {
+  margin: 1em 0 .25em -.5em;
+  color: $primary;
+
+  &:first-of-type {
+    margin: 0 0 .25em -.5em;
+  }
+}
