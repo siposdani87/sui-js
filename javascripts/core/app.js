@@ -68,12 +68,12 @@ SUI.App.prototype._setOptions = function(options) {
  * @return {undefined}
  */
 SUI.App.prototype._init = function(resources) {
-  const rootNode = new SUI.Query('html').getItem();
-  rootNode.addClass('sui-js');
-
   this.types = {};
   this._injections = resources;
   this._instances = {};
+
+  this._handleCertificate();
+  this._handleLocale();
 
   this._initApp();
   this._initRoutes();
@@ -109,8 +109,7 @@ SUI.App.prototype._init = function(resources) {
   this._initServiceWorker();
   this._initActionCable();
 
-  this._handleLocale();
-  this._handleModules();
+  this._loadModules();
 };
 
 /**
@@ -158,6 +157,15 @@ SUI.App.prototype._handleLocale = function() {
   const locale = this.getLocale();
   window['moment']['locale'](locale);
   this.setLocale(locale);
+};
+
+/**
+ * @private
+ * @return {undefined}
+ */
+SUI.App.prototype._handleCertificate = function() {
+  const rootNode = new SUI.Query('html').getItem();
+  rootNode.addClass('sui-js');
 };
 
 /**
@@ -217,7 +225,7 @@ SUI.App.prototype._initModule = function() {
  * @private
  * @return {undefined}
  */
-SUI.App.prototype._handleModules = function() {
+SUI.App.prototype._loadModules = function() {
   this._module.load(this._instances, this._injections);
 };
 

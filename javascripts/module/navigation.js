@@ -101,6 +101,7 @@ SUI.Navigation.prototype.addImage = function(id, image, title, action, opt_data)
   if (image.indexOf('.svg') !== -1) {
     this.http.get(image, {}, {
       'Authorization': '',
+      'X-Requested-With': '',
     }).then(function(data) {
       const svgTag = new SUI.Query('svg', data).getItem();
       imageSpan.appendChild(svgTag);

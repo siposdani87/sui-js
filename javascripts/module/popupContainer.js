@@ -70,16 +70,16 @@ SUI.PopupContainer.prototype.closeAll = function() {
  * @return {undefined}
  */
 SUI.PopupContainer.prototype.setPosition = function(popupNode) {
-  const containerNode = this.container.getNode();
+  // const containerNode = this.container.getNode();
 
-  const top = containerNode.offsetHeight - containerNode.scrollHeight;
-  const absoluteTop = top === 0 ? 'auto' : top + 'px';
+  // const top = containerNode.offsetHeight - containerNode.scrollHeight;
+  // const absoluteTop = top === 0 ? 'auto' : top + 'px';
 
   // let left = containerNode.offsetWidth - containerNode.scrollWidth;
   // let absoluteLeft = left === 0 ? 'auto' : left + 'px';
 
   popupNode.setStyle({
-    'top': absoluteTop,
+    'top': 0, // absoluteTop,
     'left': 0, // absoluteLeft
   });
 };
