@@ -72,11 +72,11 @@ SUI.App.prototype._init = function(resources) {
   this._injections = resources;
   this._instances = {};
 
-  this._handleCertificate();
-  this._handleLocale();
-
+  this._initCertificate();
   this._initApp();
   this._initRoutes();
+  this._initStorage();
+  this._initLocale();
   this._initModule();
   this._initEvent();
   this._initLoader();
@@ -86,7 +86,6 @@ SUI.App.prototype._init = function(resources) {
   this._initViewer();
   this._initProgressBar();
   this._initCookie();
-  this._initStorage();
   this._initNotification();
   this._initTemplate();
   this._initDocument();
@@ -153,7 +152,7 @@ SUI.App.prototype.setLocaleWithReload = function(locale) {
  * @private
  * @return {undefined}
  */
-SUI.App.prototype._handleLocale = function() {
+SUI.App.prototype._initLocale = function() {
   const locale = this.getLocale();
   window['moment']['locale'](locale);
   this.setLocale(locale);
@@ -163,7 +162,7 @@ SUI.App.prototype._handleLocale = function() {
  * @private
  * @return {undefined}
  */
-SUI.App.prototype._handleCertificate = function() {
+SUI.App.prototype._initCertificate = function() {
   const rootNode = new SUI.Query('html').getItem();
   rootNode.addClass('sui-js');
 };
