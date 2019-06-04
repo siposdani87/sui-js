@@ -294,7 +294,9 @@ SUI.App.prototype._initGeoLocation = function() {
  * @return {undefined}
  */
 SUI.App.prototype._initCookie = function() {
-  this._instances[this._injections.cookie] = new SUI.lib.Cookie();
+  this._instances[this._injections.cookie] = new SUI.lib.Cookie({
+    prefix: this.options.app_id,
+  });
 };
 
 /**

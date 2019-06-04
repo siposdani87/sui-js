@@ -467,6 +467,36 @@ address {
   cursor: pointer;
 }
 
+h3.caption {
+  margin: 1em 0 .25em -.5em;
+  color: #3f51b5;
+}
+h3.caption:first-of-type {
+  margin: 0 0 .25em -.5em;
+}
+
+html.dark-theme,
+body.dark-theme {
+  color: #fefefe;
+}
+
+body.dark-theme {
+  background-color: #252525;
+}
+
+.dark-theme a {
+  color: #7986cb;
+}
+.dark-theme a:hover {
+  color: #3f51b5;
+}
+.dark-theme .text-default {
+  color: #fefefe;
+}
+.dark-theme h3.caption {
+  color: #7986cb;
+}
+
 ::-ms-clear {
   display: none;
 }
@@ -482,13 +512,6 @@ address {
   display: none;
 }
 
-form .caption {
-  margin: 1em 0 .25em -.5em;
-  color: #3f51b5;
-}
-form .caption:first-of-type {
-  margin: 0 0 .25em -.5em;
-}
 form .input-block {
   padding: 20px 0;
   font-size: 16px;
@@ -2140,7 +2163,6 @@ form input:-webkit-autofill:hover, form input:-webkit-autofill:focus, form input
   display: -webkit-flex;
   display: flex;
   width: 100%;
-  height: 100vh;
   background-position: center;
   background-size: cover;
   background-color: #404040;
@@ -2377,6 +2399,34 @@ form input:-webkit-autofill:hover, form input:-webkit-autofill:focus, form input
 #captcha {
   margin-left: calc((100% - 304px) / 2);
   margin-bottom: 1em;
+}
+
+.dark-theme .page-content.fullscreen {
+  display: -ms-flexbox;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: flex;
+  background-color: #404040;
+  color: #fefefe;
+}
+.dark-theme .page-content.fullscreen.light {
+  background-color: #303030;
+  color: inherit;
+}
+.dark-theme .page-header {
+  background-color: #404040;
+  color: #fefefe;
+}
+.dark-theme .page-header h1 a::after,
+.dark-theme .page-header h1 span::after {
+  color: #9e9e9e;
+}
+.dark-theme .page-subheader {
+  background-color: #404040;
+  color: #fefefe;
+}
+.dark-theme .page-subheader h2 a::after {
+  color: #9e9e9e;
 }
 
 .dialog-container {
@@ -2710,6 +2760,25 @@ table tfoot tr td.pager {
 }
 .tab-panel .panel.active {
   display: block;
+}
+
+.dark-theme .tab-panel .tabs a {
+  border-top-color: #1b1b1b;
+  background-color: #3b3b3b;
+  color: #3f51b5;
+}
+.dark-theme .tab-panel .tabs a:hover {
+  color: #7986cb;
+}
+.dark-theme .tab-panel .tabs a.active {
+  background-color: #252525;
+  color: #7986cb;
+}
+.dark-theme .tab-panel .tabs a:not(.active) {
+  border-top-color: #3b3b3b;
+}
+.dark-theme .tab-panel .tabs a.disabled {
+  color: #e0e0e0;
 }
 
 .time {
@@ -3904,6 +3973,61 @@ table tfoot tr td.pager {
   -webkit-box-flex: 0 1 75%;
   -webkit-flex: 0 1 75%;
   flex: 0 1 75%;
+}
+
+.dark-theme #left-menu.black {
+  background-color: rgba(37, 37, 37, 0.9);
+}
+.dark-theme #left-menu .main-menu,
+.dark-theme #left-menu .sub-menu {
+  background-color: #252525;
+  -webkit-box-shadow: 2px 0 20px 0 rgba(0, 0, 0, 0.3);
+  -moz-box-shadow: 2px 0 20px 0 rgba(0, 0, 0, 0.3);
+  box-shadow: 2px 0 20px 0 rgba(0, 0, 0, 0.3);
+}
+.dark-theme #left-menu .main-menu a,
+.dark-theme #left-menu .sub-menu a {
+  color: #fefefe;
+}
+.dark-theme #left-menu .main-menu .menu-container a,
+.dark-theme #left-menu .sub-menu .menu-container a {
+  color: #3f51b5;
+}
+.dark-theme #left-menu .main-menu .menu-container a:hover,
+.dark-theme #left-menu .sub-menu .menu-container a:hover {
+  background-color: #3b3b3b;
+}
+.dark-theme #left-menu .main-menu .menu-container a.active,
+.dark-theme #left-menu .sub-menu .menu-container a.active {
+  color: #7986cb;
+  background-color: #303030;
+}
+.dark-theme #left-menu .main-menu .menu-container a.active .image svg,
+.dark-theme #left-menu .main-menu .menu-container a.active .image path,
+.dark-theme #left-menu .sub-menu .menu-container a.active .image svg,
+.dark-theme #left-menu .sub-menu .menu-container a.active .image path {
+  fill: #7986cb;
+}
+.dark-theme #left-menu .main-menu .menu-container a.disabled,
+.dark-theme #left-menu .sub-menu .menu-container a.disabled {
+  background-color: #252525;
+  color: #9e9e9e;
+}
+.dark-theme #left-menu .main-menu .menu-container a.disabled .image img,
+.dark-theme #left-menu .sub-menu .menu-container a.disabled .image img {
+  opacity: .3;
+}
+.dark-theme #left-menu .main-menu .menu-container a.disabled .image svg,
+.dark-theme #left-menu .main-menu .menu-container a.disabled .image path,
+.dark-theme #left-menu .sub-menu .menu-container a.disabled .image svg,
+.dark-theme #left-menu .sub-menu .menu-container a.disabled .image path {
+  fill: #9e9e9e;
+}
+.dark-theme #left-menu .main-menu .menu-container a .image svg,
+.dark-theme #left-menu .main-menu .menu-container a .image path,
+.dark-theme #left-menu .sub-menu .menu-container a .image svg,
+.dark-theme #left-menu .sub-menu .menu-container a .image path {
+  fill: #3f51b5;
 }
 
 .nav-bar-header {
