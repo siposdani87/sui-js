@@ -33,7 +33,7 @@ SUI.lib.Cookie.prototype._setOptions = function(opt_options = {}) {
  * @return {string}
  */
 SUI.lib.Cookie.prototype._getPropertyName = function(name) {
-  return [this.options.prefix, name].join('.').replace(/./g, '_');
+  return [this.options.prefix, name].join('.').replace(/\./g, '_');
 };
 
 /**
@@ -67,7 +67,7 @@ SUI.lib.Cookie.prototype.set = function(name, value, opt_expires = '', opt_path 
         opt_expires = opt_expires === Infinity ? '; expires=Fri, 31 Dec 9999 23:59:59 GMT' : '; max-age=' + (opt_expires * 60 * 60);
         break;
       case Date:
-        opt_expires = '; expires=' + opt_expires.toUTCString();
+        opt_expires = '; expires=' + opt_expires.toGMTString();
         break;
       default:
         break;
@@ -75,7 +75,7 @@ SUI.lib.Cookie.prototype.set = function(name, value, opt_expires = '', opt_path 
   } else {
     const date = new Date();
     date.setTime(date.getTime() + (this.options.hours * 60 * 60 * 1000));
-    opt_expires = '; expires=' + date.toUTCString();
+    opt_expires = '; expires=' + date.toGMTString();
   }
   document.cookie = encodeURIComponent(propertyName) + '=' + encodeURIComponent(value) + opt_expires + (opt_domain ? '; domain=' + opt_domain : '') + (opt_path ? '; path=' + opt_path : '') + (opt_secure ? '; secure' : '');
 };
