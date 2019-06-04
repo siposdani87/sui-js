@@ -56,7 +56,7 @@ SUI.lib.Cookie.prototype._getName = function(propertyName) {
  * @param {boolean=} opt_secure
  * @return {undefined}
  */
-SUI.lib.Cookie.prototype.set = function(name, value, opt_expires = '', opt_path = '', opt_domain = '', opt_secure = false) {
+SUI.lib.Cookie.prototype.set = function(name, value, opt_expires = '', opt_path = '/', opt_domain = '', opt_secure = false) {
   const propertyName = this._getPropertyName(name);
   if (/^(?:expires|max\-age|path|domain|secure)$/i.test(propertyName)) {
     return;
