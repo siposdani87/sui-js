@@ -218,8 +218,10 @@ table {
             content: ', ';
           }
 
-          &:last-child:after {
-            content: '';
+          &:last-child {
+            &::after {
+              content: '';
+            }
           }
         }
 
