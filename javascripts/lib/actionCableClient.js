@@ -12,7 +12,6 @@ goog.require('SUI.lib');
  */
 SUI.lib.ActionCableClient = function(parent, options) {
   this.parent = parent;
-  this.cable = parent.cable;
   this._init(options);
 };
 
@@ -32,7 +31,7 @@ SUI.lib.ActionCableClient.prototype._init = function(options) {
  */
 SUI.lib.ActionCableClient.prototype._getSubscription = function(options) {
   const deferred = new SUI.Deferred();
-  this.client = this.cable['subscriptions']['create'](options, {
+  this.client = this.parent.cable['subscriptions']['create'](options, {
     received: (payload) => {
       const response = new SUI.Object(/** @type {!Object} */ (JSON.parse(payload['message'])));
       deferred.resolve(response);

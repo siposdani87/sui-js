@@ -24,6 +24,18 @@ SUI.lib.ActionCable.prototype._init = function() {
 };
 
 /**
+ * @return {string}
+ */
+SUI.lib.ActionCable.prototype.getUrl = function() {
+  let url = '';
+  const cableMeta = new SUI.Query('meta[name="action-cable-url"]').getItem();
+  if (!cableMeta.isEmpty()) {
+    url = /** @type {string} */ (cableMeta.getAttribute('content'));
+  }
+  return url;
+};
+
+/**
  * @param {string} channel
  * @param {string} room
  * @return {!SUI.Promise}
@@ -59,9 +71,5 @@ SUI.lib.ActionCable.prototype.unsubscribeAll = function() {
  * @return {string}
  */
 SUI.lib.ActionCable.prototype._generateIdentifier = function(options) {
-  const values = [];
-  SUI.eachObject(options, (value) => {
-    values.push(value);
-  });
-  return values.join('-');
+  return SUI.md5(JSON.stringify(options));
 };
