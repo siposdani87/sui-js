@@ -10,13 +10,13 @@
             
             .material-icons {
               &.active {
-                color: $black-bright;
+                color: $black;
               }
             }
           }
 
           .info {
-            color: $primary;
+            color: $primary-bright;
           }
         }
       }
@@ -24,11 +24,11 @@
 
     tbody {
       @include media-breakpoint-down(sm) {
-        border: 1px solid $light-grey;
+        border: 1px solid $deep-grey;
       }
 
       tr {
-        border-top: 1px solid $light-grey;
+        border-top: 1px solid $deep-grey;
 
         &:nth-child(4n+0) {
           background-color: $white-dark;
@@ -36,11 +36,11 @@
 
         &.header {
           &:hover {
-            background-color: $light-grey;
+            background-color: $deep-grey;
           }
 
           &.active {
-            background-color: $light-grey;
+            background-color: $deep-grey;
           }
         }
 
@@ -61,7 +61,7 @@
               
               .material-icons {
                 &.active {
-                  color: $black-bright;
+                  color: $white;
                 }
               }
             }

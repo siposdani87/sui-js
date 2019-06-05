@@ -220,6 +220,7 @@ input[type='file'] {
 
 .mdl-button {
   font-family: $font-family-body;
+  color: $black;
 
   &:not(.mdl-button--fab) {
     @include border-radius(20px);
@@ -286,13 +287,13 @@ input[type='file'] {
   
     &.is-invalid {
       .mdl-textfield__input {
-        border: 1px solid $grey-bright;
+        border: 1px solid $light-grey-dark;
       }
     }
   }
   
   .mdl-textfield__input {
-    border: 1px solid $grey-bright;
+    border: 1px solid $light-grey-dark;
   }
   
   .mdl-textfield__label {
@@ -308,5 +309,9 @@ input[type='file'] {
         color: $white;
       }
     }
+  }
+
+  .mdl-button {
+    color: $white;
   }
 }
