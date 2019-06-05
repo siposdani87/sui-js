@@ -269,3 +269,44 @@ input[type='file'] {
 .mdl-list__item {
   font-family: $font-family-body;
 }
+
+.dark-theme {
+  .mdl-textfield {
+    &.is-disabled {
+      .mdl-textfield__label {
+        color: $deep-grey-dark !important;
+      }
+  
+      .mdl-textfield__input {
+        color: $grey;
+        border: 1px dotted $deep-grey;
+        border-bottom: 1px dotted $deep-grey;
+      }
+    }
+  
+    &.is-invalid {
+      .mdl-textfield__input {
+        border: 1px solid $grey-bright;
+      }
+    }
+  }
+  
+  .mdl-textfield__input {
+    border: 1px solid $grey-bright;
+  }
+  
+  .mdl-textfield__label {
+    color: $white;
+  }
+  
+  .mdl-textfield--floating-label {
+    &.is-invalid,
+    &.is-dirty,
+    &.is-focused,
+    &.has-placeholder {
+      .mdl-textfield__label {
+        color: $white;
+      }
+    }
+  }
+}

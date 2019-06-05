@@ -1,0 +1,10 @@
+.dark-theme {
+  .dialog-container {
+    background-color: $black;
+    color: $white;
+
+    .dialog-container-footer {
+      background-color: $black;
+    }
+  }
+}
