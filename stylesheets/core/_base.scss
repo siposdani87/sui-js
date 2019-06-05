@@ -163,6 +163,12 @@ address {
   color: $black;
 }
 
+.block-center {
+  @include display-flex;
+  justify-content: center;
+  align-items: center;
+}
+
 .truncate-container {
   display: table;
   table-layout: fixed;
