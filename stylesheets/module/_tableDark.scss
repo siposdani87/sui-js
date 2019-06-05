@@ -1,0 +1,73 @@
+.dark-theme {
+  table {
+    thead {
+      tr {
+        th {
+          border-bottom: 1px solid $grey;
+
+          .icons {
+            color: $grey;
+            
+            .material-icons {
+              &.active {
+                color: $black-bright;
+              }
+            }
+          }
+
+          .info {
+            color: $primary;
+          }
+        }
+      }
+    }
+
+    tbody {
+      @include media-breakpoint-down(sm) {
+        border: 1px solid $light-grey;
+      }
+
+      tr {
+        border-top: 1px solid $light-grey;
+
+        &:nth-child(4n+0) {
+          background-color: $white-dark;
+        }
+
+        &.header {
+          &:hover {
+            background-color: $light-grey;
+          }
+
+          &.active {
+            background-color: $light-grey;
+          }
+        }
+
+        &.data {
+          @include media-breakpoint-down(sm) {
+            background-color: $white-dark;
+
+            &.open {
+              td {
+                border-bottom: 1px solid $grey-bright;
+              }
+            }
+          }
+
+          .label {
+            span {
+              color: $grey;
+              
+              .material-icons {
+                &.active {
+                  color: $black-bright;
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
