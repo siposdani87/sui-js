@@ -34,6 +34,12 @@
       flex-flow: row nowrap;
       align-items: center;
       padding: 0 .5em;
+
+      h3 {
+        width: 100%;
+        text-align: center;
+        margin-left: -40px;
+      }
     }
 
     .menu-container {
