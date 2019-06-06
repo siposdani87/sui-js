@@ -7,12 +7,9 @@
       color: $white;
     }
 
-
     .content {
       .week-days {
         background-color: $black;
-
-
       }
 
       .days {
@@ -20,7 +17,7 @@
 
         .day {
           &:hover {
-            border: 1px solid $accent;
+            border-color: $accent;
           }
 
           &.now {
@@ -44,7 +41,7 @@
           }
 
           &.current-month {
-            color: $black;
+            color: $white;
           }
 
           &.next-month {
@@ -58,18 +55,15 @@
               color: $white;
             }
           }
-
         }
-
       }
 
       .months {
         background-color: $black;
 
         .month {
-
           &:hover {
-            border: 1px solid $accent;
+            border-color: $accent;
           }
 
           &.now {
@@ -80,16 +74,14 @@
             background-color: $accent;
           }
         }
-
       }
 
       .years {
-        background-color: $white;
+        background-color: $black;
 
         .year {
-
           &:hover {
-            border: 1px solid $accent;
+            border-color: $accent;
           }
 
           &.now {
@@ -101,8 +93,6 @@
           }
         }
       }
-
     }
-
   }
 }

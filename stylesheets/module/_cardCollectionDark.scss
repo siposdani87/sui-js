@@ -20,28 +20,19 @@
 
       .title,
       .title-with-actions {
-        border-bottom: 1px solid $grey-bright;
+        border-bottom-color: $grey-bright;
       }
 
-      
-
-      
-
       .content {
-
-        
-
         .info {
           color: $primary-bright;
         }
       }
 
       .footer {
-
         .caption {
           color: $grey;
         }
-
       }
     }
   }
