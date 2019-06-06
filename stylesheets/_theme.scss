@@ -18,7 +18,9 @@
 @import 'module/time';
 @import 'module/clock';
 @import 'module/calendar';
+@import 'module/calendarDark';
 @import 'module/cardCollection';
+@import 'module/cardCollectionDark';
 @import 'module/progressStatus';
 @import 'module/contentHandler';
 
@@ -49,6 +51,7 @@
 @import 'lib/confirm';
 @import 'lib/confirmDark';
 @import 'lib/notification';
+@import 'lib/notificationDark';
 @import 'lib/progressBar';
 @import 'lib/loader';
 @import 'lib/viewer';

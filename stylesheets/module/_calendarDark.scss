@@ -1,0 +1,108 @@
+.dark-theme {
+  .calendar {
+    background-color: $deep-grey;
+
+    .header {
+      background-color: $primary;
+      color: $white;
+    }
+
+
+    .content {
+      .week-days {
+        background-color: $black;
+
+
+      }
+
+      .days {
+        background-color: $black;
+
+        .day {
+          &:hover {
+            border: 1px solid $accent;
+          }
+
+          &.now {
+            background-color: $deep-grey;
+          }
+
+          &.current {
+            background-color: $accent;
+          }
+
+          &.previous-month {
+            color: $deep-grey-dark;
+
+            &.now {
+              color: $white;
+            }
+
+            &.current {
+              color: $white;
+            }
+          }
+
+          &.current-month {
+            color: $black;
+          }
+
+          &.next-month {
+            color: $deep-grey-dark;
+
+            &.now {
+              color: $white;
+            }
+
+            &.current {
+              color: $white;
+            }
+          }
+
+        }
+
+      }
+
+      .months {
+        background-color: $black;
+
+        .month {
+
+          &:hover {
+            border: 1px solid $accent;
+          }
+
+          &.now {
+            background-color: $deep-grey;
+          }
+
+          &.current {
+            background-color: $accent;
+          }
+        }
+
+      }
+
+      .years {
+        background-color: $white;
+
+        .year {
+
+          &:hover {
+            border: 1px solid $accent;
+          }
+
+          &.now {
+            background-color: $deep-grey;
+          }
+
+          &.current {
+            background-color: $accent;
+          }
+        }
+      }
+
+    }
+
+  }
+}
