@@ -10,7 +10,7 @@
             
             .material-icons {
               &.active {
-                color: $black;
+                color: $white;
               }
             }
           }
@@ -31,7 +31,7 @@
         border-top: 1px solid $deep-grey;
 
         &:nth-child(4n+0) {
-          background-color: $white-dark;
+          background-color: $black-bright;
         }
 
         &.header {
@@ -46,7 +46,7 @@
 
         &.data {
           @include media-breakpoint-down(sm) {
-            background-color: $white-dark;
+            background-color: $black-bright;
 
             &.open {
               td {
