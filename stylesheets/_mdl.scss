@@ -287,13 +287,13 @@ input[type='file'] {
   
     &.is-invalid {
       .mdl-textfield__input {
-        border: 1px solid $light-grey-dark;
+        border: 1px solid $deep-grey-dark;
       }
     }
   }
   
   .mdl-textfield__input {
-    border: 1px solid $light-grey-dark;
+    border: 1px solid $deep-grey-dark;
   }
   
   .mdl-textfield__label {
@@ -313,5 +313,13 @@ input[type='file'] {
 
   .mdl-button {
     color: $white;
+  }
+
+  .mdl-button--primary {
+    color: $primary;
+  }
+
+  .mdl-button--accent {
+    color: $accent;
   }
 }
