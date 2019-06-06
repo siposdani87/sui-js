@@ -37,27 +37,30 @@ SUI.lib.LeftMenu.prototype._init = function() {
  * @private
  */
 SUI.lib.LeftMenu.prototype._initEvents = function() {
-  this.leftMenu.addEventListener('click', function() {
+  this.leftMenu.addEventListener('click', () => {
     this.close();
-  }.bind(this));
+  });
+
+  this.mainMenuContainer.addEventListener('click', SUI.noop());
+  this.subMenuContainer.addEventListener('click', SUI.noop());
 
   const openLeftMenu = new SUI.Query('#open-left-menu').getItem();
   openLeftMenu.setAttribute('href', 'javascript:void(0)');
-  openLeftMenu.addEventListener('click', function() {
+  openLeftMenu.addEventListener('click', () => {
     this.open();
-  }.bind(this));
+  });
 
   const closeLeftMenu = new SUI.Query('#close-left-menu', this.mainMenu).getItem();
   closeLeftMenu.setAttribute('href', 'javascript:void(0)');
-  closeLeftMenu.addEventListener('click', function() {
+  closeLeftMenu.addEventListener('click', () => {
     this.close();
-  }.bind(this));
+  });
 
   const closeSubMenu = new SUI.Query('#close-sub-menu', this.subMenu).getItem();
   closeSubMenu.setAttribute('href', 'javascript:void(0)');
-  closeSubMenu.addEventListener('click', function() {
+  closeSubMenu.addEventListener('click', () => {
     this.closeSubMenu();
-  }.bind(this));
+  });
 };
 
 /**

@@ -21,6 +21,19 @@
 
 .mdl-progress {
   width: 100%;
+
+  &>.progressbar {
+    background-color: $primary-bright;
+  }
+
+  &>.bufferbar {
+    background-image: linear-gradient(to right,rgba($white,.7),rgba($white,1)),linear-gradient(to right,$primary-bright,$primary-bright);
+  }
+
+  &:not(.mdl-progress__indeterminate)>.auxbar,
+  &:not(.mdl-progress--indeterminate)>.auxbar {
+    background-image: linear-gradient(to right,rgba($white,.7),rgba($white,.7)),linear-gradient(to right,$primary-bright,$primary-bright);
+  }
 }
 
 .mdl-textfield {
@@ -151,26 +164,34 @@
 .mdl-checkbox {
   height: auto;
 
+  .mdl-checkbox__box-outline {
+    border-color: $black;
+  }
+
   input[required='required']~.mdl-checkbox__box-outline {
-    border: 2px solid $red;
+    border-color: $red;
   }
 
   &.is-checked {
     input[required='required']~.mdl-checkbox__box-outline {
-      border: 2px solid $primary;
+      border-color: $primary;
     }
   }
 }
 
 .mdl-radio {
+  .mdl-radio__outer-circle {
+    border-color: $black;
+  }
+
   input[required='required']~.mdl-radio__outer-circle {
-    border: 2px solid $red;
+    border-color: $red;
   }
 
   &.is-checked,
   &.is-other-checked {
     input[required='required']~.mdl-radio__outer-circle {
-      border: 2px solid $primary;
+      border-color: $primary;
     }
   }
 }
@@ -272,6 +293,18 @@ input[type='file'] {
 }
 
 .dark-theme {
+  .mdl-checkbox {
+    .mdl-checkbox__box-outline {
+      border-color: $white;
+    }
+  }
+
+  .mdl-radio {
+    .mdl-radio__outer-circle {
+      border-color: $white;
+    }
+  }
+
   .mdl-textfield {
     &.is-disabled {
       .mdl-textfield__label {
@@ -287,13 +320,13 @@ input[type='file'] {
   
     &.is-invalid {
       .mdl-textfield__input {
-        border: 1px solid $deep-grey-bright;
+        border: 1px solid $black-bright;
       }
     }
   }
   
   .mdl-textfield__input {
-    border: 1px solid $deep-grey-bright;
+    border: 1px solid $black-bright;
   }
   
   .mdl-textfield__label {
