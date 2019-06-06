@@ -1,0 +1,23 @@
+.dark-theme {
+  .time {
+    background-color: $black;
+
+    .center-point {
+      background-color: $accent;
+    }
+
+    .pointer {
+      background-color: $accent;
+    }
+
+    .circle {
+      &.selected {
+        background-color: $accent;
+      }
+
+      &:hover {
+        border-color: $accent;
+      }
+    }
+  }
+}
