@@ -27,12 +27,12 @@
   }
 
   &>.bufferbar {
-    background-image: linear-gradient(to right,rgba($white,.7),rgba($white,1)),linear-gradient(to right,$primary-bright,$primary-bright);
+    background-image: linear-gradient(to right, rgba($white, .7), rgba($white, 1)), linear-gradient(to right, $primary-bright, $primary-bright);
   }
 
   &:not(.mdl-progress__indeterminate)>.auxbar,
   &:not(.mdl-progress--indeterminate)>.auxbar {
-    background-image: linear-gradient(to right,rgba($white,.7),rgba($white,.7)),linear-gradient(to right,$primary-bright,$primary-bright);
+    background-image: linear-gradient(to right, rgba($white, .7), rgba($white, .7)), linear-gradient(to right, $primary-bright, $primary-bright);
   }
 }
 
@@ -74,6 +74,7 @@
 }
 
 .mdl-textfield--floating-label {
+
   &.is-invalid,
   &.is-dirty,
   &.is-focused,
@@ -166,6 +167,7 @@
 
   .mdl-checkbox__box-outline {
     border-color: $black;
+    background-color: $black;
   }
 
   input[required='required']~.mdl-checkbox__box-outline {
@@ -173,6 +175,14 @@
   }
 
   &.is-checked {
+    .mdl-checkbox__outer-circle {
+      border-color: $primary;
+    }
+
+    .mdl-checkbox__tick-outline {
+      background-color: $primary;
+    }
+
     input[required='required']~.mdl-checkbox__box-outline {
       border-color: $primary;
     }
@@ -186,6 +196,16 @@
 
   input[required='required']~.mdl-radio__outer-circle {
     border-color: $red;
+  }
+
+  &.is-checked {
+    .mdl-radio__outer-circle {
+      border-color: $black;
+    }
+
+    .mdl-radio__inner-circle {
+      background-color: $primary-bright;
+    }
   }
 
   &.is-checked,
@@ -296,9 +316,18 @@ input[type='file'] {
   .mdl-checkbox {
     .mdl-checkbox__box-outline {
       border-color: $white;
+      background-color: $white;
     }
 
     &.is-checked {
+      .mdl-checkbox__outer-circle {
+        border-color: $primary-bright;
+      }
+
+      .mdl-checkbox__tick-outline {
+        background-color: $primary-bright;
+      }
+
       input[required='required']~.mdl-checkbox__box-outline {
         border-color: $primary-bright;
       }
@@ -308,6 +337,16 @@ input[type='file'] {
   .mdl-radio {
     .mdl-radio__outer-circle {
       border-color: $white;
+    }
+
+    &.is-checked {
+      .mdl-radio__outer-circle {
+        border-color: $primary-bright;
+      }
+
+      .mdl-radio__inner-circle {
+        background-color: $primary-bright;
+      }
     }
 
     &.is-checked,
@@ -321,32 +360,34 @@ input[type='file'] {
   .mdl-textfield {
     &.is-disabled {
       .mdl-textfield__label {
-        color: $deep-grey-dark !important;
+        color: $deep-grey-bright !important;
       }
-  
+
       .mdl-textfield__input {
         color: $grey;
-        border: 1px dotted $deep-grey;
-        border-bottom: 1px dotted $deep-grey;
+        border-color: $deep-grey;
+        border-bottom-color: $deep-grey;
       }
     }
-  
+
     &.is-invalid {
       .mdl-textfield__input {
-        border: 1px solid $black-bright;
+        border-color: $black-bright;
+        border-bottom-color: $red;
       }
     }
   }
-  
+
   .mdl-textfield__input {
-    border: 1px solid $black-bright;
+    border-color: $black-bright;
   }
-  
+
   .mdl-textfield__label {
     color: $white;
   }
-  
+
   .mdl-textfield--floating-label {
+
     &.is-invalid,
     &.is-dirty,
     &.is-focused,
