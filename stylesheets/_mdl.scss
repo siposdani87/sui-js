@@ -166,7 +166,7 @@
   height: auto;
 
   .mdl-checkbox__box-outline {
-    border-color: $black;
+    border-color: $primary;
     background-color: $black;
   }
 
@@ -175,6 +175,10 @@
   }
 
   &.is-checked {
+    .mdl-checkbox__box-outline {
+      border-color: $primary;
+    }
+
     .mdl-checkbox__outer-circle {
       border-color: $primary;
     }
@@ -187,11 +191,15 @@
       border-color: $primary;
     }
   }
+
+  &.is-disabled {
+    
+  }
 }
 
 .mdl-radio {
   .mdl-radio__outer-circle {
-    border-color: $black;
+    border-color: $primary;
   }
 
   input[required='required']~.mdl-radio__outer-circle {
@@ -200,11 +208,11 @@
 
   &.is-checked {
     .mdl-radio__outer-circle {
-      border-color: $black;
+      border-color: $primary;
     }
 
     .mdl-radio__inner-circle {
-      background-color: $primary-bright;
+      background-color: $primary;
     }
   }
 
@@ -213,6 +221,10 @@
     input[required='required']~.mdl-radio__outer-circle {
       border-color: $primary;
     }
+  }
+
+  &.is-disabled {
+
   }
 }
 
@@ -315,11 +327,15 @@ input[type='file'] {
 .dark-theme {
   .mdl-checkbox {
     .mdl-checkbox__box-outline {
-      border-color: $white;
+      border-color: $primary-bright;
       background-color: $white;
     }
 
     &.is-checked {
+      .mdl-checkbox__box-outline {
+        border-color: $primary-bright;
+      }
+
       .mdl-checkbox__outer-circle {
         border-color: $primary-bright;
       }
@@ -332,11 +348,15 @@ input[type='file'] {
         border-color: $primary-bright;
       }
     }
+
+    &.is-disabled {
+    
+    }
   }
 
   .mdl-radio {
     .mdl-radio__outer-circle {
-      border-color: $white;
+      border-color: $primary-bright;
     }
 
     &.is-checked {
@@ -354,6 +374,10 @@ input[type='file'] {
       input[required='required']~.mdl-radio__outer-circle {
         border-color: $primary-bright;
       }
+    }
+
+    &.is-disabled {
+    
     }
   }
 
