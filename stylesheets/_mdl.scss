@@ -74,7 +74,6 @@
 }
 
 .mdl-textfield--floating-label {
-
   &.is-invalid,
   &.is-dirty,
   &.is-focused,
@@ -166,7 +165,7 @@
   height: auto;
 
   .mdl-checkbox__box-outline {
-    border-color: $primary;
+    border-color: $grey-bright;
     background-color: $white;
   }
 
@@ -199,7 +198,7 @@
 
 .mdl-radio {
   .mdl-radio__outer-circle {
-    border-color: $primary;
+    border-color: $grey-bright;
   }
 
   input[required='required']~.mdl-radio__outer-circle {
@@ -327,7 +326,7 @@ input[type='file'] {
 .dark-theme {
   .mdl-checkbox {
     .mdl-checkbox__box-outline {
-      border-color: $primary-bright;
+      border-color: $black-bright;
       background-color: $white;
     }
 
@@ -356,7 +355,7 @@ input[type='file'] {
 
   .mdl-radio {
     .mdl-radio__outer-circle {
-      border-color: $primary-bright;
+      border-color: $black-bright;
     }
 
     &.is-checked {
