@@ -214,7 +214,7 @@ SUI.lib.Xhr.prototype._getUrl = function(url, opt_params) {
 SUI.lib.Xhr.prototype._handleRequest = function(type, url, opt_data, opt_params, opt_headers = {}) {
   this.http.open(type, this._getUrl(url, opt_params), true);
   const urlType = SUI.getExtensionName(url);
-  this._setRequestAdditionals(urlType);
+  this._setResponseType(urlType);
   this._setRequestHeaders(urlType, opt_headers);
   this.http.send(this._getRequestData(opt_data));
   return this.deferred.promise();
@@ -342,6 +342,7 @@ SUI.lib.Xhr.prototype._setRequestHeaders = function(urlType, opt_headers = {}) {
   }
   if (SUI.isUndefined(this.getHeader('Authorization')) && this.authorization) {
     this.setHeader('Authorization', this.authorization);
+    this.http.withCredentials = true;
   }
   if (SUI.isUndefined(this.getHeader('X-Requested-With'))) {
     this.setHeader('X-Requested-With', 'XMLHttpRequest');
@@ -354,9 +355,8 @@ SUI.lib.Xhr.prototype._setRequestHeaders = function(urlType, opt_headers = {}) {
  * @param {!Object=} opt_headers
  * @return {undefined}
  */
-SUI.lib.Xhr.prototype._setRequestAdditionals = function(urlType, opt_headers = {}) {
+SUI.lib.Xhr.prototype._setResponseType = function(urlType, opt_headers = {}) {
   this.http.responseType = this._getResponseType(urlType);
-  this.http.withCredentials = true;
 };
 
 /**
