@@ -133,6 +133,13 @@ SUI.Form.prototype.setModel = function(model) {
 };
 
 /**
+ * @return {!SUI.Object}
+ */
+SUI.Form.prototype.getModel = function() {
+  return this.model;
+};
+
+/**
  * @return {undefined}
  */
 SUI.Form.prototype.reset = function() {
