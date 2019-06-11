@@ -178,10 +178,10 @@ SUI.Form.prototype._getValue = function(name) {
 SUI.Form.prototype._widgetValueChange = function(widget, value) {
   const widgetName = widget.getName();
   const oldValue = this._getValue(widgetName);
+  this._setValue(widgetName, value);
   if (!SUI.isSame(value, oldValue)) {
     widget.eventChange(value, oldValue);
   }
-  this._setValue(widgetName, value);
 };
 
 /**
