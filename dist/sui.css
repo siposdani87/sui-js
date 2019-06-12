@@ -141,11 +141,14 @@
   height: auto;
 }
 .mdl-checkbox .mdl-checkbox__box-outline {
-  border-color: #252525;
-  background-color: #252525;
+  border-color: #e0e0e0;
+  background-color: #fefefe;
 }
 .mdl-checkbox input[required='required'] ~ .mdl-checkbox__box-outline {
   border-color: #f44336;
+}
+.mdl-checkbox.is-checked .mdl-checkbox__box-outline {
+  border-color: #3f51b5;
 }
 .mdl-checkbox.is-checked .mdl-checkbox__outer-circle {
   border-color: #3f51b5;
@@ -158,16 +161,16 @@
 }
 
 .mdl-radio .mdl-radio__outer-circle {
-  border-color: #252525;
+  border-color: #e0e0e0;
 }
 .mdl-radio input[required='required'] ~ .mdl-radio__outer-circle {
   border-color: #f44336;
 }
 .mdl-radio.is-checked .mdl-radio__outer-circle {
-  border-color: #252525;
+  border-color: #3f51b5;
 }
 .mdl-radio.is-checked .mdl-radio__inner-circle {
-  background-color: #7986cb;
+  background-color: #3f51b5;
 }
 .mdl-radio.is-checked input[required='required'] ~ .mdl-radio__outer-circle, .mdl-radio.is-other-checked input[required='required'] ~ .mdl-radio__outer-circle {
   border-color: #3f51b5;
@@ -262,8 +265,11 @@ input[type='file'].mdl-textfield__input::-webkit-file-upload-button {
 }
 
 .dark-theme .mdl-checkbox .mdl-checkbox__box-outline {
-  border-color: #fefefe;
+  border-color: #404040;
   background-color: #fefefe;
+}
+.dark-theme .mdl-checkbox.is-checked .mdl-checkbox__box-outline {
+  border-color: #7986cb;
 }
 .dark-theme .mdl-checkbox.is-checked .mdl-checkbox__outer-circle {
   border-color: #7986cb;
@@ -275,7 +281,7 @@ input[type='file'].mdl-textfield__input::-webkit-file-upload-button {
   border-color: #7986cb;
 }
 .dark-theme .mdl-radio .mdl-radio__outer-circle {
-  border-color: #fefefe;
+  border-color: #404040;
 }
 .dark-theme .mdl-radio.is-checked .mdl-radio__outer-circle {
   border-color: #7986cb;
@@ -4265,9 +4271,9 @@ table tfoot tr td.pager {
 .dark-theme #left-menu .main-menu,
 .dark-theme #left-menu .sub-menu {
   background-color: #252525;
-  -webkit-box-shadow: 2px 0 20px 0 rgba(0, 0, 0, 0.3);
-  -moz-box-shadow: 2px 0 20px 0 rgba(0, 0, 0, 0.3);
-  box-shadow: 2px 0 20px 0 rgba(0, 0, 0, 0.3);
+  -webkit-box-shadow: 2px 0 20px 0 rgba(254, 254, 254, 0.2);
+  -moz-box-shadow: 2px 0 20px 0 rgba(254, 254, 254, 0.2);
+  box-shadow: 2px 0 20px 0 rgba(254, 254, 254, 0.2);
 }
 .dark-theme #left-menu .main-menu a,
 .dark-theme #left-menu .sub-menu a {
