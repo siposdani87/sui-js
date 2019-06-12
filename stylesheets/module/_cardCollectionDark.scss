@@ -2,7 +2,7 @@
   .card-collection {
     .card {
       background-color: $deep-grey-bright;
-      
+
       &:hover {
         @include box-shadow(0 4px 5px 0 rgba($black, .5));
         background-color: $deep-grey;
@@ -11,7 +11,7 @@
       .header {
         background-color: $primary-bright;
         color: $white;
-        
+
         .title {
           background-color: rgba($black, .7);
           border-bottom-color: $accent-bright;

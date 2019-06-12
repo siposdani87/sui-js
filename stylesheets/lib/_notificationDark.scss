@@ -2,6 +2,7 @@
   .notification-container {
     #notifications {
       .notification {
+        @include box-shadow(5px 5px 15px -5px rgba($white, .2));
         background-color: $deep-grey-dark;
       }
     }

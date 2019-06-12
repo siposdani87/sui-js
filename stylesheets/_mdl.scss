@@ -74,6 +74,7 @@
 }
 
 .mdl-textfield--floating-label {
+
   &.is-invalid,
   &.is-dirty,
   &.is-focused,
@@ -191,9 +192,7 @@
     }
   }
 
-  &.is-disabled {
-    
-  }
+  &.is-disabled {}
 }
 
 .mdl-radio {
@@ -222,9 +221,7 @@
     }
   }
 
-  &.is-disabled {
-
-  }
+  &.is-disabled {}
 }
 
 .mdl-tooltip {
@@ -348,9 +345,7 @@ input[type='file'] {
       }
     }
 
-    &.is-disabled {
-    
-    }
+    &.is-disabled {}
   }
 
   .mdl-radio {
@@ -375,9 +370,7 @@ input[type='file'] {
       }
     }
 
-    &.is-disabled {
-    
-    }
+    &.is-disabled {}
   }
 
   .mdl-textfield {
