@@ -118,10 +118,10 @@ $label-disabled-light: $light-grey-dark;
 $label-default-dark: $white;
 $label-disabled-dark: $deep-grey-bright;
 
+$input-active-light: $black;
 $input-default-light: $grey-bright;
-$input-active-light: $grey-bright;
-$input-disabled-light: $grey-bright;
+$input-disabled-light: $light-grey-dark;
 
+$input-active-dark: $white;
 $input-default-dark: $black-bright;
-$input-active-dark: $black-bright;
-$input-disabled-dark: $black-bright;
+$input-disabled-dark: $deep-grey-bright;

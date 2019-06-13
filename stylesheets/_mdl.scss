@@ -74,7 +74,6 @@
 }
 
 .mdl-textfield--floating-label {
-
   &.is-invalid,
   &.is-dirty,
   &.is-focused,
@@ -112,8 +111,8 @@
 }
 
 .mdl-icon__label,
-.mdl-checkbox__label,
 .mdl-switch__label,
+.mdl-checkbox__label,
 .mdl-radio__label {
   display: inline-block;
   font-size: 16px;
@@ -192,7 +191,11 @@
     }
   }
 
-  &.is-disabled {}
+  &.is-disabled {
+    .mdl-checkbox__label{
+      color: $label-disabled-light !important;
+    }
+  }
 }
 
 .mdl-radio {
@@ -221,7 +224,11 @@
     }
   }
 
-  &.is-disabled {}
+  &.is-disabled {
+    .mdl-radio__label {
+      color: $label-disabled-light !important;
+    }
+  }
 }
 
 .mdl-tooltip {
@@ -345,7 +352,11 @@ input[type='file'] {
       }
     }
 
-    &.is-disabled {}
+    &.is-disabled {
+      .mdl-checkbox__label {
+        color: $label-disabled-dark !important;
+      }
+    }
   }
 
   .mdl-radio {
@@ -370,13 +381,17 @@ input[type='file'] {
       }
     }
 
-    &.is-disabled {}
+    &.is-disabled {
+      .mdl-radio__label {
+        color: $label-disabled-dark !important;
+      }
+    }
   }
 
   .mdl-textfield {
     &.is-disabled {
       .mdl-textfield__label {
-        color: $deep-grey-bright !important;
+        color: $label-disabled-dark !important;
       }
 
       .mdl-textfield__input {
@@ -399,17 +414,16 @@ input[type='file'] {
   }
 
   .mdl-textfield__label {
-    color: $white;
+    color: $label-default-dark;
   }
 
   .mdl-textfield--floating-label {
-
     &.is-invalid,
     &.is-dirty,
     &.is-focused,
     &.has-placeholder {
       .mdl-textfield__label {
-        color: $white;
+        color: $label-default-dark;
       }
     }
   }
