@@ -2,7 +2,7 @@
 clear
 
 java -jar node_modules/google-closure-compiler-java/compiler.jar \
---compilation_level ADVANCED_OPTIMIZATIONS \
+--compilation_level SIMPLE_OPTIMIZATIONS \
 --language_in ECMASCRIPT_2017 \
 --language_out ECMASCRIPT5_STRICT \
 --warning_level VERBOSE \
@@ -18,8 +18,8 @@ java -jar node_modules/google-closure-compiler-java/compiler.jar \
 --js javascripts/core/*.js \
 --js javascripts/module/*.js \
 --js javascripts/widget/*.js \
---output_manifest dist/sui.min.mf \
---js_output_file dist/sui.min.js \
+--output_manifest dist/sui.mf \
+--js_output_file dist/sui.js \
 
 sass-lint --verbose --no-exit
 sass stylesheets/sui.min.scss dist/sui.css --style expanded

@@ -84,15 +84,15 @@
 }
 
 .mdl-icon__label,
-.mdl-checkbox__label,
 .mdl-switch__label,
+.mdl-checkbox__label,
 .mdl-radio__label {
   display: inline-block;
   font-size: 16px;
 }
 .mdl-icon__label::first-letter,
-.mdl-checkbox__label::first-letter,
 .mdl-switch__label::first-letter,
+.mdl-checkbox__label::first-letter,
 .mdl-radio__label::first-letter {
   text-transform: capitalize;
 }
@@ -159,6 +159,9 @@
 .mdl-checkbox.is-checked input[required='required'] ~ .mdl-checkbox__box-outline {
   border-color: #3f51b5;
 }
+.mdl-checkbox.is-disabled .mdl-checkbox__label {
+  color: #d0d0d0 !important;
+}
 
 .mdl-radio .mdl-radio__outer-circle {
   border-color: #e0e0e0;
@@ -174,6 +177,9 @@
 }
 .mdl-radio.is-checked input[required='required'] ~ .mdl-radio__outer-circle, .mdl-radio.is-other-checked input[required='required'] ~ .mdl-radio__outer-circle {
   border-color: #3f51b5;
+}
+.mdl-radio.is-disabled .mdl-radio__label {
+  color: #d0d0d0 !important;
 }
 
 .mdl-tooltip {
@@ -280,6 +286,9 @@ input[type='file'].mdl-textfield__input::-webkit-file-upload-button {
 .dark-theme .mdl-checkbox.is-checked input[required='required'] ~ .mdl-checkbox__box-outline {
   border-color: #7986cb;
 }
+.dark-theme .mdl-checkbox.is-disabled .mdl-checkbox__label {
+  color: #3b3b3b !important;
+}
 .dark-theme .mdl-radio .mdl-radio__outer-circle {
   border-color: #404040;
 }
@@ -291,6 +300,9 @@ input[type='file'].mdl-textfield__input::-webkit-file-upload-button {
 }
 .dark-theme .mdl-radio.is-checked input[required='required'] ~ .mdl-radio__outer-circle, .dark-theme .mdl-radio.is-other-checked input[required='required'] ~ .mdl-radio__outer-circle {
   border-color: #7986cb;
+}
+.dark-theme .mdl-radio.is-disabled .mdl-radio__label {
+  color: #3b3b3b !important;
 }
 .dark-theme .mdl-textfield.is-disabled .mdl-textfield__label {
   color: #3b3b3b !important;
@@ -3585,7 +3597,7 @@ table tfoot tr td.pager {
   display: inline-block;
   padding: 1px 30px 1px 10px;
   margin: 0 2px 2px 0;
-  background-color: rgba(37, 37, 37, 0.12);
+  background-color: #e0e0e0;
   border-radius: 2px;
   -webkit-border-radius: 2px;
   -moz-border-radius: 2px;
@@ -3704,7 +3716,7 @@ table tfoot tr td.pager {
   display: inline-block;
   padding: 1px 30px 1px 10px;
   margin: 0 5px 0 0;
-  background-color: rgba(37, 37, 37, 0.12);
+  background-color: #e0e0e0;
   border-radius: 2px;
   -webkit-border-radius: 2px;
   -moz-border-radius: 2px;
@@ -3784,7 +3796,7 @@ table tfoot tr td.pager {
   display: inline-block;
   padding: 1px 30px 1px 10px;
   margin: 0 5px 0 0;
-  background-color: rgba(37, 37, 37, 0.12);
+  background-color: #e0e0e0;
   border-radius: 2px;
   -webkit-border-radius: 2px;
   -moz-border-radius: 2px;
@@ -5008,6 +5020,9 @@ table tfoot tr td.pager {
 }
 
 .dark-theme .notification-container #notifications .notification {
+  -webkit-box-shadow: 5px 5px 15px -5px rgba(254, 254, 254, 0.2);
+  -moz-box-shadow: 5px 5px 15px -5px rgba(254, 254, 254, 0.2);
+  box-shadow: 5px 5px 15px -5px rgba(254, 254, 254, 0.2);
   background-color: #1b1b1b;
 }
 
