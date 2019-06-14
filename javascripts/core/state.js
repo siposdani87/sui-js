@@ -12,6 +12,7 @@ goog.require('SUI.Object');
  */
 SUI.State = function(routes, options) {
   this._current = new SUI.Object();
+  this._previous = this._current;
 
   this.routes = /** @type {!SUI.Collection<!SUI.Object>} */ (new SUI.Collection(routes));
 
@@ -224,7 +225,7 @@ SUI.State.prototype.getCurrent = function(opt_attribute) {
  * @return {!SUI.Object|string}
  */
 SUI.State.prototype.getPrevious = function(opt_attribute) {
-  return this._previous.get(opt_attribute);
+  return /** @type {!SUI.Object|string} */ (this._previous.get(opt_attribute));
 };
 
 /**

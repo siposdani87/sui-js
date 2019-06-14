@@ -225,17 +225,21 @@ SUI.Module.prototype._handleStateChange = function(currentState) {
 SUI.Module.prototype._initController = function(state, dom) {
   this._instances[this._injections.dom] = dom;
   const controller = this._modules[state.get('controller')];
-  this.eventDomChange(state, dom).then(() => {
-    this._controller = this._resolveDependencies(controller);
-    if (SUI.isObject(this._controller) && SUI.isFunction(this._controller.enter)) {
-      const async = new SUI.Async();
-      async.serial([this._controller.enter.bind(this._controller)]).then(() => {
+  if (controller) {
+    this.eventDomChange(state, dom).then(() => {
+      this._controller = this._resolveDependencies(controller);
+      if (SUI.isObject(this._controller) && SUI.isFunction(this._controller.enter)) {
+        const async = new SUI.Async();
+        async.serial([this._controller.enter.bind(this._controller)]).then(() => {
+          this.eventControllerLoaded(dom);
+        });
+      } else {
         this.eventControllerLoaded(dom);
-      });
-    } else {
-      this.eventControllerLoaded(dom);
-    }
-  });
+      }
+    });
+  } else {
+    this.eventControllerFailed();
+  }
 };
 
 /**
@@ -244,6 +248,13 @@ SUI.Module.prototype._initController = function(state, dom) {
  */
 SUI.Module.prototype.eventControllerLoaded = function(dom) {
   console.warn('SUI.Module.eventControllerLoaded()', dom);
+};
+
+/**
+ * @return {undefined}
+ */
+SUI.Module.prototype.eventControllerFailed = function() {
+  console.warn('SUI.Module.eventControllerFailed()');
 };
 
 /**

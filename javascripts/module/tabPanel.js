@@ -41,10 +41,8 @@ SUI.TabPanel.prototype._initTabs = function() {
     if (this.tabs.size() === 1) {
       tab.addClass('hidden');
     }
-    tab.setData('panel', panelId);
     tab.setAttribute('href', 'javascript:void(0)');
     tab.addEventListener('click', (tabNode) => {
-      const panelId = tab.getData('panel');
       this.setActive(panelId);
     });
   });

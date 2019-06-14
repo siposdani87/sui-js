@@ -474,6 +474,17 @@ SUI.Node.prototype.getData = function(name) {
 };
 
 /**
+ * @param {string} name
+ * @return {undefined}
+ */
+SUI.Node.prototype.removeData = function(name) {
+  if (!this.isEmpty()) {
+    delete this.node.dataset[name];
+    this.node.removeAttribute('data-' + name);
+  }
+};
+
+/**
  * @return {?SUI.Node}
  */
 SUI.Node.prototype.getParentNode = function() {

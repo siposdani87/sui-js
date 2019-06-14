@@ -1,3 +1,16 @@
+.material-icons {
+  vertical-align: middle;
+}
+.material-icons.size-18 {
+  font-size: 18px;
+}
+.material-icons.size-40 {
+  font-size: 40px;
+}
+.material-icons.size-48 {
+  font-size: 48px;
+}
+
 .mdl-spinner {
   width: 3em;
   height: 3em;

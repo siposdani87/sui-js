@@ -174,49 +174,53 @@ SUI.App.prototype._initCertificate = function() {
 SUI.App.prototype._initModule = function() {
   this._module = new SUI.Module();
 
-  this._module.eventAfterInit = function() {
+  this._module.eventAfterInit = () => {
     this._instances[this._injections.progressBar].lock();
     this._instances[this._injections.loader].show();
     this._instances[this._injections.event].call('module.afterInit');
-  }.bind(this);
+  };
 
-  this._module.eventStateChange = /** @type {function(!SUI.Object):!SUI.Promise} */ (function(currentState) {
+  this._module.eventStateChange = /** @type {function(!SUI.Object):!SUI.Promise} */ ((currentState) => {
     this._instances[this._injections.progressBar].lock();
     this._instances[this._injections.loader].show();
     this._instances[this._injections.dialog].close();
     this._instances[this._injections.confirm].close();
     this._instances[this._injections.actionCable].unsubscribeAll();
     return this._instances[this._injections.event].call('state.change', [currentState]);
-  }.bind(this));
+  });
 
-  this._module.eventDomChange = /** @type {function(!SUI.Object, !SUI.Node):!SUI.Promise} */ (function(state, dom) {
+  this._module.eventDomChange = /** @type {function(!SUI.Object, !SUI.Node):!SUI.Promise} */ ((state, dom) => {
     return this._instances[this._injections.event].call('dom.change', [state, dom]);
-  }.bind(this));
+  });
 
-  this._module.eventServiceLoaded = function() {
+  this._module.eventServiceLoaded = () => {
     // this._instances[this._injections.geoLocation].setWatcher();
     this._instances[this._injections.browser].detect();
     this._instances[this._injections.event].call('module.serviceLoaded');
-  }.bind(this);
+  };
 
-  this._module.eventServiceFailed = function() {
+  this._module.eventServiceFailed = () => {
     this._instances[this._injections.event].call('module.serviceFailed');
-  }.bind(this);
+  };
 
-  this._module.eventModuleLoaded = function(state) {
+  this._module.eventModuleLoaded = /** @type {function(!SUI.Object):undefined} */ ((state) => {
     this._instances[this._injections.progressBar].unlock();
     this._instances[this._injections.loader].hide(true);
     this._instances[this._injections.event].call('module.loaded', [state]);
-  }.bind(this);
+  });
 
-  this._module.eventModuleFailed = function(state) {
+  this._module.eventModuleFailed = /** @type {function(!SUI.Object):undefined} */ ((state) => {
     this._instances[this._injections.progressBar].unlock();
     this._instances[this._injections.loader].hide(true);
     this._instances[this._injections.event].call('module.failed', [state]);
-  }.bind(this);
+  });
 
   this._module.eventControllerLoaded = /** @type {function(!SUI.Node):undefined} */ ((dom) => {
     this._instances[this._injections.event].call('controller.loaded', [dom]);
+  });
+
+  this._module.eventControllerFailed = /** @type {function():undefined} */ (() => {
+    this._instances[this._injections.event].call('controller.failed', []);
   });
 };
 

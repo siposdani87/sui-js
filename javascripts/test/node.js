@@ -48,6 +48,7 @@ SUI.test.Node.prototype.testAttributeData = function() {
       this.showError('getAttribute(data-value)', value);
     }
   }
+  this.node.removeAttribute('data-value');
 };
 
 SUI.test.Node.prototype.testData = function() {
@@ -61,4 +62,5 @@ SUI.test.Node.prototype.testData = function() {
       this.showError('getData(value)', value);
     }
   }
+  this.node.removeData('value');
 };

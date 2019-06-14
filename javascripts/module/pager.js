@@ -233,4 +233,3 @@ SUI.Pager.prototype.draw = function() {
 SUI.Pager.prototype.eventAction = function(page) {
   console.warn('SUI.Pager.eventAction()', page);
 };
-
