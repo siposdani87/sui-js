@@ -12,7 +12,7 @@ call java -jar node_modules/google-closure-compiler-java/compiler.jar^
  --jscomp_error "*"^
  --jscomp_warning "*"^
  --generate_exports^
- --define "SUI.debug=false"^
+ --define "SUI.debug=true"^
  --js javascripts/*.js^
  --js javascripts/lib/*.js^
  --js javascripts/core/*.js^

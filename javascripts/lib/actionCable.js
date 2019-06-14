@@ -18,7 +18,9 @@ SUI.lib.ActionCable = function() {
  * @return {undefined}
  */
 SUI.lib.ActionCable.prototype._init = function() {
-  this.cable = window['ActionCable']['createConsumer']();
+  if (window['ActionCable']) {
+    this.cable = window['ActionCable']['createConsumer']();
+  }
   this.clients = [];
   this.identifiers = [];
 };
