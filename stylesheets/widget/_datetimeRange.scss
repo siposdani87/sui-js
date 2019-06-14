@@ -7,34 +7,6 @@
     }
   }
 
-  &.is-invalid {
-    .mdl-textfield__error {
-      visibility: visible;
-    }
-  }
-
-  &.is-disabled {
-    cursor: not-allowed;
-
-    label {
-      color: $light-grey-dark;
-    }
-
-    .expander {
-      color: $grey;
-      cursor: default;
-    }
-
-    .datetime-input {
-      border-style: dotted;
-      cursor: default;
-
-      .tag {
-        color: $grey;
-      }
-    }
-  }
-
   >.material-icons {
     vertical-align: middle;
     cursor: pointer;
@@ -61,16 +33,19 @@
       }
     }
 
-    &:first-of-type {
-      border-right: 0;
-      border-top-right-radius: 0;
-      border-bottom-right-radius: 0;
-    }
-
     &:nth-of-type(1n) {
       border-left: 0;
       border-top-left-radius: 0;
       border-bottom-left-radius: 0;
+    }
+
+    &:first-of-type {
+      border-left: 1px solid $light-grey;
+      border-right: 0;
+      border-top-right-radius: 0;
+      border-bottom-right-radius: 0;
+      border-top-left-radius: 2px;
+      border-bottom-left-radius: 2px;
     }
 
     .tag {
@@ -92,5 +67,33 @@
   .datetime {
     @include display-flex;
     align-items: center;
+  }
+
+  &.is-invalid {
+    .mdl-textfield__error {
+      visibility: visible;
+    }
+  }
+
+  &.is-disabled {
+    cursor: not-allowed;
+
+    label {
+      color: $light-grey-dark;
+    }
+
+    .expander {
+      color: $grey;
+      cursor: default;
+    }
+
+    .datetime-input {
+      border-style: dotted;
+      cursor: default;
+
+      .tag {
+        color: $grey;
+      }
+    }
   }
 }

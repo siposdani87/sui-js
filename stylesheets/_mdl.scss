@@ -70,8 +70,8 @@
 
   &.is-invalid {
     .mdl-textfield__input {
-      border: 1px solid $grey-bright;
-      border-bottom: 1px solid $red;
+      border-color: $grey-bright;
+      border-bottom-color: $red;
     }
   }
 }
@@ -156,21 +156,6 @@
   line-height: 24px;
   margin: 0;
   left: 5px;
-}
-
-.mdl-sliderfield {
-  @include display-flex;
-
-  .mdl-textfield__label {
-    color: inherit;
-    position: initial;
-    width: auto;
-  }
-
-  .mdl-slider__container {
-    @include flex(1 0 auto);
-    height: auto;
-  }
 }
 
 .mdl-switch {

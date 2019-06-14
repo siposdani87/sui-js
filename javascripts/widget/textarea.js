@@ -56,9 +56,12 @@ SUI.widget.Textarea.prototype.render = function() {
  * @override
  */
 SUI.widget.Textarea.prototype.refresh = function() {
+  if (this.isRequired() && this.getValue() === '') {
+    this.inputBlock.addClass('is-invalid');
+  }
+
   SUI.mdl(this.inputBlock);
 };
-
 
 /**
  * @override
