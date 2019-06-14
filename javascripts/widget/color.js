@@ -48,6 +48,10 @@ SUI.widget.Color.prototype.render = function() {
  * @override
  */
 SUI.widget.Color.prototype.refresh = function() {
+  if (this.isRequired() && this.getValue() === '') {
+    this.inputBlock.addClass('is-invalid');
+  }
+
   if (this.isDisabled()) {
     this.inputBlock.addClass('is-disabled');
   } else {

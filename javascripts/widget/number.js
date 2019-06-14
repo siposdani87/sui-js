@@ -133,5 +133,9 @@ SUI.widget.Number.prototype.render = function() {
  * @override
  */
 SUI.widget.Number.prototype.refresh = function() {
+  if (this.isRequired() && this.getValue() === '') {
+    this.inputBlock.addClass('is-invalid');
+  }
+
   SUI.mdl(this.inputBlock);
 };

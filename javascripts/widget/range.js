@@ -55,15 +55,19 @@ SUI.widget.Range.prototype.render = function() {
  * @override
  */
 SUI.widget.Range.prototype.refresh = function() {
+  if (this.isRequired() && this.getValue() === '') {
+    this.inputBlock.addClass('is-invalid');
+  }
+
   SUI.mdl(this.input);
 
-  const containerNode = new SUI.Query('.mdl-slider__container', this.inputBlock).getItem();
   if (this.isDisabled()) {
     this.inputBlock.addClass('is-disabled');
   } else {
     this.inputBlock.removeClass('is-disabled');
   }
 
+  const containerNode = new SUI.Query('.mdl-slider__container', this.inputBlock).getItem();
   const value = /** @type {string} */ (this.getValue());
   this.tooltip = new SUI.Tooltip(containerNode);
   this.tooltip.render(value);

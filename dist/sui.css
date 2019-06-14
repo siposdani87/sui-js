@@ -54,8 +54,7 @@
   border-bottom: 1px dotted #e5e5e5;
 }
 .mdl-textfield.is-invalid .mdl-textfield__input {
-  border: 1px solid #e0e0e0;
-  border-bottom: 1px solid #f44336;
+  border-bottom-color: #f44336;
 }
 
 .mdl-textfield__input {
@@ -125,25 +124,6 @@
   line-height: 24px;
   margin: 0;
   left: 5px;
-}
-
-.mdl-sliderfield {
-  display: -ms-flexbox;
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: flex;
-}
-.mdl-sliderfield .mdl-textfield__label {
-  color: inherit;
-  position: initial;
-  width: auto;
-}
-.mdl-sliderfield .mdl-slider__container {
-  -ms-flex: 1 0 auto;
-  -webkit-box-flex: 1 0 auto;
-  -webkit-flex: 1 0 auto;
-  flex: 1 0 auto;
-  height: auto;
 }
 
 .mdl-switch {
@@ -3916,10 +3896,24 @@ table tfoot tr td.pager {
   font-size: 16px;
   visibility: visible !important;
 }
+.range-widget .mdl-sliderfield {
+  /*.mdl-textfield__label {
+    color: inherit;
+    position: initial;
+    width: auto;
+  }*/
+}
+.range-widget .mdl-slider__container {
+  height: 32px;
+}
+.range-widget .mdl-slider {
+  background-color: #9e9e9e;
+  margin: 0;
+}
 .range-widget.is-disabled {
   cursor: not-allowed;
 }
-.range-widget.is-disabled label {
+.range-widget.is-disabled .mdl-textfield__label {
   color: #d0d0d0;
 }
 

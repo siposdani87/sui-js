@@ -5,10 +5,30 @@
     visibility: visible !important;
   }
 
+  .mdl-sliderfield {
+    //@include display-flex;
+  
+    /*.mdl-textfield__label {
+      color: inherit;
+      position: initial;
+      width: auto;
+    }*/
+  }
+
+  .mdl-slider__container {
+    //@include flex(1 0 auto);
+    height: 32px;
+  }
+
+  .mdl-slider {
+    background-color: $grey;
+    margin: 0;
+  }
+
   &.is-disabled {
     cursor: not-allowed;
 
-    label {
+    .mdl-textfield__label {
       color: $light-grey-dark;
     }
   }

@@ -57,6 +57,10 @@ SUI.widget.Text.prototype.render = function() {
  * @return {undefined}
  */
 SUI.widget.Text.prototype.refresh = function() {
+  if (this.isRequired() && this.getValue() === '') {
+    this.inputBlock.addClass('is-invalid');
+  }
+
   SUI.mdl(this.inputBlock);
 };
 
