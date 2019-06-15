@@ -1,0 +1,18 @@
+.mdl-spinner {
+  width: 3em;
+  height: 3em;
+  @include border-radius(50%);
+  @include box-shadow(2px 2px 10px 0 rgba($black, .6));
+
+  &:not(.is-upgraded) {
+    &.is-active {
+      &::after {
+        content: '';
+      }
+    }
+  }
+
+  &.mdl-spinner--single-color .mdl-spinner__layer {
+    border-color: $accent;
+  }
+}

@@ -1,0 +1,29 @@
+.dark-theme {
+  .mdl-checkbox {
+    .mdl-checkbox__box-outline {
+      border-color: $black-bright;
+      background-color: $white;
+    }
+
+    &.is-checked {
+      .mdl-checkbox__box-outline {
+        border-color: $primary-bright;
+      }
+
+      .mdl-checkbox__outer-circle {
+        border-color: $primary-bright;
+      }
+
+      .mdl-checkbox__tick-outline {
+        background-color: $primary-bright;
+      }
+
+      input[required]~.mdl-checkbox__box-outline {
+        border-color: $primary-bright;
+      }
+    }
+
+    &.is-disabled {
+    }
+  }
+}

@@ -41,6 +41,7 @@ SUI.TabPanel.prototype._initTabs = function() {
     if (this.tabs.size() === 1) {
       tab.addClass('hidden');
     }
+    tab.setData('panel', panelId);
     tab.setAttribute('href', 'javascript:void(0)');
     tab.addEventListener('click', (tabNode) => {
       this.setActive(panelId);
@@ -62,14 +63,14 @@ SUI.TabPanel.prototype._initPanels = function() {
  * @return {undefined}
  */
 SUI.TabPanel.prototype._setActiveTab = function(panelId) {
-  this.panels.each(function(panel) {
+  this.panels.each((panel) => {
     panel.removeClass('active');
     if (panel.getId() === panelId || panel.hasClass(panelId)) {
       panel.addClass('active');
     }
   });
 
-  this.tabs.each(function(tab) {
+  this.tabs.each((tab) => {
     tab.removeClass('active');
     if (tab.getData('panel') === panelId) {
       tab.addClass('active');

@@ -1,0 +1,62 @@
+.dark-theme {
+  .datetime-range-widget {
+
+
+    >.material-icons {
+      color: $primary;
+    }
+
+    .widget-label {
+      color: $label-default-dark;
+    }
+
+    .datetime-input {
+      border: 1px solid $light-grey;
+      
+
+      &.active {
+        .tag {
+          background-color: $accent;
+        }
+      }
+
+      
+
+      &:first-of-type {
+        border-left: 1px solid $light-grey;
+        
+      }
+
+      .tag {
+        background-color: $grey-bright;
+        
+      }
+    }
+
+    
+
+    &.is-invalid {
+      .mdl-textfield__error {
+        
+      }
+    }
+
+    &.is-disabled {
+      
+      .widget-label {
+        color: $label-disabled-dark;
+      }
+
+      .expander {
+        color: $grey;
+      }
+
+      .datetime-input {
+        
+        .tag {
+          color: $grey;
+        }
+      }
+    }
+  }
+}

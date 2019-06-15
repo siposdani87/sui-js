@@ -26,10 +26,6 @@
   }
 
   &.is-disabled {
-    cursor: not-allowed;
-
-    .mdl-textfield__label {
-      color: $light-grey-dark;
-    }
+    
   }
 }

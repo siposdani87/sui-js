@@ -1,7 +1,7 @@
 .color-widget {
 
   .preview {
-    margin-left: 10px;
+    margin-right: 10px;
     display: inline-block;
     width: 24px;
     height: 24px;
@@ -14,15 +14,22 @@
     }
   }
 
+  input[required] ~ .preview {
+    border-color: $red;
+  }
+
   canvas {
     vertical-align: middle;
   }
 
-  &.is-disabled {
-    cursor: not-allowed;
+  .widget-label {
+    color: $label-default-light;
+  }
 
-    label {
-      color: $light-grey-dark;
+  &.is-disabled {
+
+    .widget-label {
+      color: $label-disabled-light;
     }
 
     .preview {

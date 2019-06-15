@@ -201,6 +201,14 @@ SUI.Node.prototype.removeAttribute = function(attribute) {
 };
 
 /**
+ * @param {string} attribute
+ * @return {boolean}
+ */
+SUI.Node.prototype.hasAttribute = function(attribute) {
+  return this.node.hasAttribute(attribute);
+};
+
+/**
  * @param {string} eventName
  * @param {!Function=} opt_callback
  * @return {!Function}

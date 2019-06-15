@@ -13,36 +13,6 @@
     width: 100%;
   }
 
-  &.is-invalid {
-    .mdl-textfield__error {
-      visibility: visible;
-    }
-
-    .select-input {
-      border-color: $red;
-    }
-  }
-
-  &.is-disabled {
-    cursor: not-allowed;
-
-    label {
-      color: $light-grey-dark;
-    }
-
-    .expander {
-      color: $grey;
-    }
-
-    .select-input {
-      border-style: dotted;
-
-      .tag {
-        color: $grey;
-      }
-    }
-  }
-
   .select-container {
     position: relative;
   }
@@ -61,11 +31,12 @@
     }
   }
 
-  label {
+  .widget-label {
     margin-right: 10px;
     font-size: 16px;
     position: absolute;
     top: -2px;
+    color: $label-default-light;
   }
 
   .select-input {
@@ -127,6 +98,36 @@
         width: auto;
         margin-right: 10px;
         padding: 2px;
+      }
+    }
+  }
+
+  &.is-invalid {
+    .mdl-textfield__error {
+      visibility: visible;
+    }
+
+    .select-input {
+      border-color: $red;
+    }
+  }
+
+  &.is-disabled {
+    
+
+    .widget-label {
+      color: $label-disabled-light;
+    }
+
+    .expander {
+      color: $grey;
+    }
+
+    .select-input {
+      border-style: dotted;
+
+      .tag {
+        color: $grey;
       }
     }
   }

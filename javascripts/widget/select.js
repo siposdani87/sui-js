@@ -43,7 +43,7 @@ SUI.widget.Select.prototype._init = function() {
  * @return {boolean}
  */
 SUI.widget.Select.prototype.isMultiple = function() {
-  return !!this.input.getAttribute('multiple');
+  return this.input.hasAttribute('multiple');
 };
 
 /**
@@ -100,6 +100,10 @@ SUI.widget.Select.prototype._initOptions = function() {
  * @return {undefined}
  */
 SUI.widget.Select.prototype.render = function() {
+  if (this.label) {
+    this.label.addClass('widget-label');
+  }
+
   this.refresh();
 };
 

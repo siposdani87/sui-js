@@ -18,6 +18,12 @@ form {
     padding: 20px 0;
     font-size: 16px;
 
+    &.is-disabled {
+      * {
+        cursor: not-allowed;
+      }
+    }
+
     label {
       display: inline-block;
       font-size: 16px;
@@ -26,7 +32,6 @@ form {
         text-transform: capitalize;
       }
     }
-
   }
 
   .text-block {

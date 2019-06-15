@@ -3,7 +3,7 @@
     background-color: $deep-grey;
 
     .header {
-      background-color: $primary;
+      background-color: $primary-dark;
       color: $white;
     }
 
@@ -29,7 +29,7 @@
           }
 
           &.previous-month {
-            color: $deep-grey-dark;
+            color: $deep-grey-bright;
 
             &.now {
               color: $white;
@@ -45,7 +45,7 @@
           }
 
           &.next-month {
-            color: $deep-grey-dark;
+            color: $deep-grey-bright;
 
             &.now {
               color: $white;

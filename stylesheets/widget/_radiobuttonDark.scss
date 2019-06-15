@@ -1,0 +1,13 @@
+.dark-theme {
+  .radiobutton-widget {
+    .widget-label {
+      color: $label-default-dark;
+    }
+
+    .is-disabled {
+      .widget-label {
+        color: $label-disabled-dark;
+      }
+    }
+  }
+}
