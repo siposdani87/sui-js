@@ -23,3 +23,5 @@ java -jar node_modules/google-closure-compiler-java/compiler.jar \
 
 sass-lint --verbose --no-exit
 sass stylesheets/sui.min.scss dist/sui.css --style expanded
+
+gulp

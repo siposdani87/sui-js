@@ -1,0 +1,31 @@
+.dark-theme {
+  .mdl-textfield {
+
+    .mdl-textfield__input {
+      color: $content-default-dark;
+      border: 1px solid $input-default-dark;
+    }
+
+    &.is-disabled {
+
+      .mdl-textfield__input {
+        color: $content-disabled-dark;
+        border: 1px dotted $input-disabled-dark;
+      }
+    }
+
+    &.is-invalid {
+      .mdl-textfield__input {
+        border-color: $error-default-dark;
+      }
+    }
+
+    &.is-disabled {
+      &.is-invalid {
+        .mdl-textfield__input {
+          border-color: $error-disabled-dark;
+        }
+      }
+    }
+  }
+}

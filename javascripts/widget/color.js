@@ -41,6 +41,10 @@ SUI.widget.Color.prototype._init = function() {
  * @override
  */
 SUI.widget.Color.prototype.render = function() {
+  if (this.label) {
+    this.label.addClass('widget-label');
+  }
+
   this.refresh();
 };
 

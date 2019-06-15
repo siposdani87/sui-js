@@ -1,0 +1,33 @@
+.mdl-radio {
+  .mdl-radio__outer-circle {
+    border-color: $grey-bright;
+  }
+
+  &.is-checked {
+    .mdl-radio__outer-circle {
+      border-color: $primary;
+    }
+
+    .mdl-radio__inner-circle {
+      background-color: $primary;
+    }
+  }
+
+  &.is-checked,
+  &.is-other-checked {
+    input[required]~.mdl-radio__outer-circle {
+      border-color: $primary;
+    }
+  }
+
+  input[required]~.mdl-radio__outer-circle {
+    border-color: $red;
+  }
+
+  &.is-disabled {
+
+    input[required]~.mdl-radio__outer-circle {
+      border-style: dotted;
+    }
+  }
+}

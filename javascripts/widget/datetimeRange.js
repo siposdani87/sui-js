@@ -81,6 +81,10 @@ SUI.widget.DatetimeRange.prototype._initInput = function() {
  * @return {undefined}
  */
 SUI.widget.DatetimeRange.prototype.render = function() {
+  if (this.label) {
+    this.label.addClass('widget-label');
+  }
+
   const iconNode = new SUI.Node('i');
   iconNode.addClass(['material-icons', 'size-24', 'expander']);
   if (this.isStartInput) {

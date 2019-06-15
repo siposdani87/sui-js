@@ -79,6 +79,10 @@ SUI.widget.Datetime.prototype._initInput = function() {
  * @return {undefined}
  */
 SUI.widget.Datetime.prototype.render = function() {
+  if (this.label) {
+    this.label.addClass('widget-label');
+  }
+
   const iconNode = new SUI.Node('i');
   iconNode.addClass(['material-icons', 'size-24', 'expander']);
   iconNode.setHtml('date_range');

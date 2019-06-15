@@ -11,7 +11,7 @@
   <title>SUI-JS</title>
 
   <link rel="stylesheet"
-    href="https://fonts.googleapis.com/css?family=Roboto:regular,bold,italic,thin,light,bolditalic,black,medium&amp;lang=en">
+    href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&subset=latin-ext">
   <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
   <link rel="stylesheet" href="node_modules/normalize.css/normalize.css">
   <link rel="stylesheet" href="node_modules/material-design-lite/dist/material.indigo-pink.min.css">
@@ -19,12 +19,14 @@
   <style>
     .dark-theme {
       padding: 20px;
+      border: 1px solid #aaa;
       background-color: #252525;
       color: #fefefe;
     }
 
     .light-theme {
       padding: 20px;
+      border: 1px solid #aaa;
       background-color: #fefefe;
       color: #252525;
     }
@@ -222,28 +224,28 @@
                         <div class="input-block">
                           <label for="light-input-url-default">light-input-url-default</label>
                           <input id="light-input-url-default" name="light-input-url-default" type="url"
-                            value="https://google.com" data-protocol="https" />
+                            value="https://google.com" data-protocol="https://" />
                         </div>
                       </div>
                       <div class="mdl-cell mdl-cell--6-col">
                         <div class="input-block">
                           <label for="light-input-url-disabled">light-input-url-disabled</label>
                           <input id="light-input-url-disabled" name="light-input-url-disabled" type="url"
-                            value="https://google.com" disabled data-protocol="https" />
+                            value="https://google.com" disabled data-protocol="https://" />
                         </div>
                       </div>
                       <div class="mdl-cell mdl-cell--6-col">
                         <div class="input-block">
                           <label for="light-input-url-required">light-input-url-required</label>
                           <input id="light-input-url-required" name="light-input-url-required" type="url" value=""
-                            required data-protocol="https" />
+                            required data-protocol="https://" />
                         </div>
                       </div>
                       <div class="mdl-cell mdl-cell--6-col">
                         <div class="input-block">
                           <label for="light-input-url-disabled-required">light-input-url-disabled-required</label>
                           <input id="light-input-url-disabled-required" name="light-input-url-disabled-required"
-                            type="url" value="" disabled required data-protocol="https" />
+                            type="url" value="" disabled required data-protocol="https://" />
                         </div>
                       </div>
                     </div>
@@ -816,6 +818,10 @@
   <script src="node_modules/moment/min/moment-with-locales.min.js"></script>
   <script src="dist/sui.js"></script>
   <script>
+    var lightThemeNode = new SUI.Query('.light-theme').getItem()
+    var darkThemeNode = new SUI.Query('.dark-theme').getItem();
+    darkThemeNode.setHtml(lightThemeNode.getHtml(true).replace(/light-/g, 'dark-'));
+
     SUI.config = new SUI.Object({
       app_id: 'sui-app',
       title: 'application.name',

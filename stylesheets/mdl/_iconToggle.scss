@@ -1,0 +1,12 @@
+.mdl-icon-toggle {
+
+  input[required]~.mdl-icon-toggle__label {
+    border: 2px solid $red;
+  }
+
+  &.is-disabled {
+    input[required]~.mdl-icon-toggle__label { 
+      border-style: dotted;
+    }
+  }
+}

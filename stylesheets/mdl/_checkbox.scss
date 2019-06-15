@@ -1,0 +1,42 @@
+.mdl-checkbox {
+  height: auto;
+
+  .mdl-checkbox__box-outline {
+    border-color: $grey-bright;
+    background-color: $white;
+  }
+
+  &.is-checked {
+    .mdl-checkbox__box-outline {
+      border-color: $primary;
+    }
+
+    .mdl-checkbox__outer-circle {
+      border-color: $primary;
+    }
+
+    .mdl-checkbox__tick-outline {
+      background-color: $primary;
+    }
+
+    input[required]~.mdl-checkbox__box-outline {
+      border-color: $primary;
+    }
+  }
+
+  input[required]~.mdl-checkbox__box-outline {
+    border-color: $red;
+  }
+
+  &.is-disabled {
+
+    .mdl-checkbox__box-outline {
+      border-color: $input-disabled-light;
+    }
+
+    input[required]~.mdl-checkbox__box-outline {
+      border-color: $red;
+      border-style: dotted;
+    }
+  }
+}

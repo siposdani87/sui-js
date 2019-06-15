@@ -1,33 +1,5 @@
 .datetime-widget {
 
-  &.is-invalid {
-    .mdl-textfield__error {
-      visibility: visible;
-    }
-  }
-
-  &.is-disabled {
-    cursor: not-allowed;
-
-    label {
-      color: $light-grey-dark;
-    }
-
-    .expander {
-      color: $grey;
-      cursor: default;
-    }
-
-    .datetime-input {
-      border-style: dotted;
-      cursor: default;
-
-      .tag {
-        color: $grey;
-      }
-    }
-  }
-
   >.material-icons {
     vertical-align: middle;
     cursor: pointer;
@@ -35,8 +7,9 @@
     color: $primary;
   }
 
-  label {
+  .widget-label {
     margin-right: 10px;
+    color: $label-default-light;
   }
 
   .datetime-input {
@@ -75,6 +48,34 @@
   .datetime {
     @include display-flex;
     align-items: center;
+  }
+
+  &.is-invalid {
+    .mdl-textfield__error {
+      visibility: visible;
+    }
+  }
+
+  &.is-disabled {
+    
+
+    .widget-label {
+      color: $label-disabled-light;
+    }
+
+    .expander {
+      color: $grey;
+      cursor: default;
+    }
+
+    .datetime-input {
+      border-style: dotted;
+      cursor: default;
+
+      .tag {
+        color: $grey;
+      }
+    }
   }
 
 }

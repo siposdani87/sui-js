@@ -1,0 +1,11 @@
+.dark-theme {
+  .mdl-textfield__error {
+    color: $error-default-dark;
+  }
+
+  .is-disabled {
+    .mdl-textfield__error {
+      color: $error-disabled-dark;
+    }
+  }
+}

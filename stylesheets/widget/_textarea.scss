@@ -1,1 +1,6 @@
-.textarea-widget {}
+.textarea-widget {
+
+  .mdl-textarea__input {
+    resize: none;
+  }
+}

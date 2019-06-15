@@ -1,0 +1,61 @@
+.dark-theme {
+  .select-widget {
+    
+    .expander {
+      color: $primary;
+    }
+
+    .widget-label {
+      color: $label-default-dark;
+    }
+
+    .select-input {
+      border: 1px solid $grey-bright;
+      
+      .tag {
+        background-color: $grey-bright;
+        
+      }
+    }
+    
+    .options-list {
+      
+      a {
+        color: $black;
+        
+        &:hover {
+          background-color: $light-grey-bright;
+        }
+
+        &.selected {
+          background-color: $light-grey;
+        }
+
+        
+      }
+    }
+
+    &.is-invalid {
+      .select-input {
+        border-color: $red;
+      }
+    }
+
+    &.is-disabled {
+      
+      .widget-label {
+        color: $label-disabled-dark;
+      }
+
+      .expander {
+        color: $grey;
+      }
+
+      .select-input {
+        .tag {
+          color: $grey;
+        }
+      }
+    }
+  }
+}

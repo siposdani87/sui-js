@@ -77,7 +77,7 @@ SUI.widget.Radiobutton.prototype.render = function() {
   this.label.appendChild(spanLabel);
 
   this.dataLabelNode = new SUI.Node('span');
-  this.dataLabelNode.addClass('label');
+  this.dataLabelNode.addClass('widget-label');
   this.label.beforeChild(this.dataLabelNode);
 
   this.refresh();

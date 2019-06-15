@@ -1,0 +1,13 @@
+.mdl-switch {
+  height: auto;
+
+  input[required]~.mdl-switch__thumb {
+    border: 2px solid $red;
+  }
+
+  &.is-disabled {
+    input[required]~.mdl-switch__thumb { 
+      border-style: dotted;
+    }
+  }
+}

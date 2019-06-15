@@ -14,8 +14,9 @@
     color: $primary;
   }
 
-  label {
+  .widget-label {
     margin-right: 10px;
+    color: $label-default-light;
   }
 
   .datetime-input {
@@ -76,10 +77,10 @@
   }
 
   &.is-disabled {
-    cursor: not-allowed;
+    
 
-    label {
-      color: $light-grey-dark;
+    .widget-label {
+      color: $label-disabled-light;
     }
 
     .expander {
