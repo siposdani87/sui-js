@@ -2,7 +2,7 @@
   .select-widget {
     
     .expander {
-      color: $primary;
+      color: $primary-default-dark;
     }
 
     .widget-label {
@@ -10,34 +10,26 @@
     }
 
     .select-input {
-      border: 1px solid $grey-bright;
+      border-color: $input-default-dark;
       
       .tag {
-        background-color: $grey-bright;
-        
+        background-color: $input-default-dark;
+        color: $content-default-dark;
       }
     }
     
     .options-list {
       
       a {
-        color: $black;
+        color: $white;
         
         &:hover {
-          background-color: $light-grey-bright;
+          background-color: $input-disabled-dark;
         }
-
+  
         &.selected {
-          background-color: $light-grey;
+          background-color: $input-default-dark;
         }
-
-        
-      }
-    }
-
-    &.is-invalid {
-      .select-input {
-        border-color: $red;
       }
     }
 
@@ -48,12 +40,30 @@
       }
 
       .expander {
-        color: $grey;
+        color: $primary-disabled-dark;
       }
 
       .select-input {
+        border-color: $input-disabled-dark;
+
         .tag {
-          color: $grey;
+          background-color: $input-disabled-dark;
+          color: $content-disabled-dark;
+        }
+      }
+    }
+
+
+    &.is-invalid {
+      .select-input {
+        border-color: $error-default-dark;
+      }
+    }
+
+    &.is-disabled {
+      &.is-invalid {
+        .select-input {
+          border-color: $error-disabled-dark;
         }
       }
     }

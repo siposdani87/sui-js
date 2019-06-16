@@ -1,10 +1,10 @@
 .datetime-widget {
 
-  >.material-icons {
+  .expander {
     vertical-align: middle;
     cursor: pointer;
     margin-left: -30px;
-    color: $primary;
+    color: $primary-default-light;
   }
 
   .widget-label {
@@ -15,24 +15,19 @@
   .datetime-input {
     display: inline-block;
     padding: 2px 30px 2px 2px;
-    border: 1px solid $grey-bright;
+    border: 1px solid $input-default-light;
     @include border-radius(2px);
     min-height: 28px;
     vertical-align: middle;
     cursor: pointer;
-
-    &.active {
-      .tag {
-        background-color: $accent;
-      }
-    }
 
     .tag {
       position: relative;
       display: inline-block;
       padding: 1px 30px 1px 10px;
       margin: 0 5px 0 0;
-      background-color: $grey-bright;
+      background-color: $input-default-light;
+      color: $content-default-light;
       @include border-radius(2px);
 
       .material-icons {
@@ -43,6 +38,12 @@
 
     }
 
+    &.active {
+      .tag {
+        background-color: $accent-default-light;
+      }
+    }
+
   }
 
   .datetime {
@@ -50,30 +51,23 @@
     align-items: center;
   }
 
-  &.is-invalid {
-    .mdl-textfield__error {
-      visibility: visible;
-    }
-  }
-
   &.is-disabled {
-    
 
     .widget-label {
       color: $label-disabled-light;
     }
 
     .expander {
-      color: $grey;
-      cursor: default;
+      color: $primary-disabled-light;
     }
 
     .datetime-input {
       border-style: dotted;
-      cursor: default;
+      border-color: $input-disabled-light;
 
       .tag {
-        color: $grey;
+        color: $content-disabled-light;
+        background-color: $input-disabled-light;
       }
     }
   }

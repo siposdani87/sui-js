@@ -11,4 +11,10 @@
       color: $error-disabled-light;
     }
   }
+
+  &.is-invalid {
+    .mdl-textfield__error {
+      visibility: visible;
+    }
+  }
 }

@@ -1,12 +1,6 @@
 .radiobutton-widget {
   position: relative;
 
-  &.is-invalid {
-    .mdl-textfield__error {
-      visibility: visible;
-    }
-  }
-
   .info {
     position: absolute;
     right: 5px;

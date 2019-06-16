@@ -216,6 +216,13 @@ SUI.Form.prototype.isValid = function() {
 };
 
 /**
+ * @return {boolean}
+ */
+SUI.Form.prototype.isInvalid = function() {
+  return !this.isValid();
+};
+
+/**
  * @return {undefined}
  */
 SUI.Form.prototype.refresh = function() {

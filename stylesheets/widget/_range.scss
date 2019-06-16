@@ -1,31 +1,48 @@
 .range-widget {
 
-  .mdl-textfield__label {
-    font-size: 16px;
-    visibility: visible !important;
-  }
-
-  .mdl-sliderfield {
-    //@include display-flex;
-  
-    /*.mdl-textfield__label {
-      color: inherit;
-      position: initial;
-      width: auto;
-    }*/
-  }
-
   .mdl-slider__container {
-    //@include flex(1 0 auto);
     height: 32px;
   }
 
   .mdl-slider {
-    background-color: $grey;
+    background-color: $input-default-light;
     margin: 0;
   }
 
+  .mdl-slider::-webkit-slider-thumb,
+  .mdl-slider:active::-webkit-slider-thumb {
+    background: $primary-default-light;
+  }
+
+  .mdl-slider::-moz-range-thumb,
+  .mdl-slider:active::-moz-range-thumb {
+    background: $primary-default-light;
+  }
+
+  .mdl-slider::-ms-thumb,
+  .mdl-slider:active::-ms-thumb {
+    background: $primary-default-light;
+  }
+
   &.is-disabled {
-    
+    .mdl-slider {
+      background-color: $input-disabled-light;
+    }
+
+    .mdl-slider::-webkit-slider-thumb,
+    .mdl-slider:active::-webkit-slider-thumb {
+      background: $primary-disabled-light;
+    }
+
+    .mdl-slider::-moz-range-thumb,
+    .mdl-slider:active::-moz-range-thumb {
+      background: $primary-disabled-light;
+    }
+
+    .mdl-slider::-ms-thumb,
+    .mdl-slider:active::-ms-thumb {
+      background: $primary-disabled-light;
+    }
+
   }
 }

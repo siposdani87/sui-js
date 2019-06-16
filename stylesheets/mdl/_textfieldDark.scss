@@ -10,7 +10,8 @@
 
       .mdl-textfield__input {
         color: $content-disabled-dark;
-        border: 1px dotted $input-disabled-dark;
+        border-style: dotted;
+        border-color: $input-disabled-dark;
       }
     }
 

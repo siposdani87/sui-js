@@ -76,7 +76,7 @@ SUI.widget.Color.prototype._initInput = function() {
   this.input.addEventListener('change', (input) => {
     const inputNode = input.getNode();
     this.tooltip.setMessage(inputNode.value);
-    this.preview.setStyle({
+    this.previewNode.setStyle({
       'background': inputNode.value,
     });
     this.modelChange(inputNode.value);
@@ -89,19 +89,23 @@ SUI.widget.Color.prototype._initInput = function() {
  * @return {undefined}
  */
 SUI.widget.Color.prototype._initPreview = function() {
-  this.preview = new SUI.Node('div');
-  this.preview.addClass('preview');
-  this.inputBlock.appendChild(this.preview);
+  this.previewNode = new SUI.Node('div');
+  this.previewNode.addClass('preview');
+  this.inputBlock.appendChild(this.previewNode);
+
+  this.colorNode = new SUI.Node('div');
+  this.colorNode.addClass('color');
+  this.previewNode.appendChild(this.colorNode);
 
   this.popup = new SUI.Popup(this.canvas.canvasNode, this.inputBlock);
 
-  this.tooltip = new SUI.Tooltip(this.preview);
+  this.tooltip = new SUI.Tooltip(this.previewNode);
 
-  this.preview.addEventListener('click', () => {
-    if (!this.isDisabled() && !this.popup.isOpened()) {
+  this.previewNode.addEventListener('click', () => {
+    if (this.isEnabled()) {
       this._draw();
+      this.popup.open();
     }
-    this.popup.toggle();
   });
 };
 
