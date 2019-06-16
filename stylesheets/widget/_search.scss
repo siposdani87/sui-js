@@ -1,10 +1,22 @@
 .search-widget {
+
+  &.mdl-textfield--expandable .mdl-button--icon {
+    top: 20px;
+  }
+
+  .mdl-textfield__error{
+    bottom: 0;
+  }
+
   .clear-button {
     display: none;
     position: absolute;
     right: 5px;
     top: 4px;
-    color: $primary;
+  }
+
+  .material-icons {
+    color: $primary-default-light;
   }
 
   &.is-focused,
@@ -14,7 +26,9 @@
     }
   }
 
-  .mdl-button--icon {
-    color: $primary;
+  &.is-disabled {
+    .material-icons {
+      color: $primary-disabled-light;
+    }
   }
 }

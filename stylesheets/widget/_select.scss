@@ -22,7 +22,7 @@
     cursor: pointer;
     right: 5px;
     top: 4px;
-    color: $primary;
+    color: $primary-default-light;
 
     &.rotate {
       animation-name: rotation;
@@ -42,7 +42,7 @@
   .select-input {
     display: block;
     padding: 2px 30px 0 2px;
-    border: 1px solid $grey-bright;
+    border: 1px solid $input-default-light;
     @include border-radius(2px);
     min-height: 28px;
     cursor: pointer;
@@ -52,7 +52,8 @@
       display: inline-block;
       padding: 1px 30px 1px 10px;
       margin: 0 2px 2px 0;
-      background-color: $grey-bright;
+      background-color: $input-default-light;
+      color: $content-default-light;
       @include border-radius(2px);
       white-space: nowrap;
 
@@ -62,10 +63,6 @@
         top: 4px;
       }
     }
-  }
-
-  .mdl-textfield__error {
-    display: block;
   }
 
   .search-box {
@@ -85,11 +82,11 @@
       padding: 3px 8px;
 
       &:hover {
-        background-color: $light-grey-bright;
+        background-color: $input-disabled-light;
       }
 
       &.selected {
-        background-color: $light-grey;
+        background-color: $input-default-light;
       }
 
       img {
@@ -102,32 +99,36 @@
     }
   }
 
-  &.is-invalid {
-    .mdl-textfield__error {
-      visibility: visible;
-    }
-
-    .select-input {
-      border-color: $red;
-    }
-  }
-
   &.is-disabled {
-    
-
     .widget-label {
       color: $label-disabled-light;
     }
 
     .expander {
-      color: $grey;
+      color: $primary-disabled-light;
     }
 
     .select-input {
       border-style: dotted;
+      border-color: $input-disabled-light;
 
       .tag {
-        color: $grey;
+        background-color: $input-disabled-light;
+        color: $content-disabled-light;
+      }
+    }
+  }
+
+  &.is-invalid {
+    .select-input {
+      border-color: $error-default-light;
+    }
+  }
+
+  &.is-disabled {
+    &.is-invalid {
+      .select-input {
+        border-color: $error-disabled-light;
       }
     }
   }

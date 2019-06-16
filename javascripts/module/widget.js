@@ -205,6 +205,13 @@ SUI.Widget.prototype.setRequired = function(state) {
 /**
  * @return {boolean}
  */
+SUI.Widget.prototype.isEnabled = function() {
+  return !this.isDisabled();
+};
+
+/**
+ * @return {boolean}
+ */
 SUI.Widget.prototype.isDisabled = function() {
   return this.input.getNode().disabled;
 };

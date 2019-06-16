@@ -1,0 +1,14 @@
+.dark-theme {
+  .search-widget {
+
+    .material-icons {
+      color: $primary-default-dark;
+    }
+
+    &.is-disabled {
+      .material-icons {
+        color: $primary-disabled-dark;
+      }
+    }
+  }
+}

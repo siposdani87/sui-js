@@ -1,29 +1,49 @@
 .dark-theme {
   .mdl-checkbox {
     .mdl-checkbox__box-outline {
-      border-color: $black-bright;
-      background-color: $white;
+      border-color: $content-default-dark;
+    }
+
+    input[required]~.mdl-checkbox__box-outline {
+      border-color: $error-default-dark;
     }
 
     &.is-checked {
       .mdl-checkbox__box-outline {
-        border-color: $primary-bright;
-      }
-
-      .mdl-checkbox__outer-circle {
-        border-color: $primary-bright;
+        border-color: $primary-default-dark;
       }
 
       .mdl-checkbox__tick-outline {
-        background-color: $primary-bright;
+        background-color: $primary-default-dark;
       }
 
       input[required]~.mdl-checkbox__box-outline {
-        border-color: $primary-bright;
+        border-color: $primary-default-dark;
       }
     }
 
     &.is-disabled {
+
+      .mdl-checkbox__box-outline {
+        border-color: $content-disabled-dark;
+      }
+
+      input[required]~.mdl-checkbox__box-outline {
+        border-color: $error-disabled-dark;
+      }
+
+    }
+
+    &.is-disabled {
+      &.is-checked {
+        .mdl-checkbox__box-outline {
+          border-color: $primary-disabled-dark;
+        }
+
+        .mdl-checkbox__tick-outline {
+          background-color: $primary-disabled-dark;
+        }
+      }
     }
   }
 }

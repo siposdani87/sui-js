@@ -53,10 +53,12 @@ SUI.widget.Number.prototype._initButtons = function() {
   upButton.addClass(['up-button', 'material-icons']);
   upButton.setHtml('keyboard_arrow_up');
   upButton.addEventListener('click', () => {
-    let value = /** @type {number} */ (this.getValue() || 0);
-    value += this._getStep();
-    this.setValue(value);
-    this.checkValidity(true);
+    if (this.isEnabled()){
+      let value = /** @type {number} */ (this.getValue() || 0);
+      value += this._getStep();
+      this.setValue(value);
+      this.checkValidity(true);
+    }
   });
   this.inputBlock.appendChild(upButton);
 
@@ -65,10 +67,12 @@ SUI.widget.Number.prototype._initButtons = function() {
   downButton.addClass(['down-button', 'material-icons']);
   downButton.setHtml('keyboard_arrow_down');
   downButton.addEventListener('click', () => {
-    let value = /** @type {number} */ (this.getValue() || 0);
-    value -= this._getStep();
-    this.setValue(value);
-    this.checkValidity(true);
+    if (this.isEnabled()){
+      let value = /** @type {number} */ (this.getValue() || 0);
+      value -= this._getStep();
+      this.setValue(value);
+      this.checkValidity(true);
+    }
   });
   this.inputBlock.appendChild(downButton);
 };

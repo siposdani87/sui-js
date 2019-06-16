@@ -1,0 +1,47 @@
+.dark-theme {
+  .range-widget {
+
+    
+
+    .mdl-slider {
+      background-color: $input-default-dark;
+    }
+
+    .mdl-slider::-webkit-slider-thumb,
+    .mdl-slider:active::-webkit-slider-thumb {
+      background: $primary-default-dark;
+    }
+
+    .mdl-slider::-moz-range-thumb,
+    .mdl-slider:active::-moz-range-thumb {
+      background: $primary-default-dark;
+    }
+
+    .mdl-slider::-ms-thumb,
+    .mdl-slider:active::-ms-thumb {
+      background: $primary-default-dark;
+    }
+
+    &.is-disabled {
+      .mdl-slider {
+        background-color: $input-disabled-dark;
+      }
+
+      .mdl-slider::-webkit-slider-thumb,
+      .mdl-slider:active::-webkit-slider-thumb {
+        background: $primary-disabled-dark;
+      }
+
+      .mdl-slider::-moz-range-thumb,
+      .mdl-slider:active::-moz-range-thumb {
+        background: $primary-disabled-dark;
+      }
+
+      .mdl-slider::-ms-thumb,
+      .mdl-slider:active::-ms-thumb {
+        background: $primary-disabled-dark;
+      }
+
+    }
+  }
+}

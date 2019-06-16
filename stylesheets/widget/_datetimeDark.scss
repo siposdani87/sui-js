@@ -1,8 +1,8 @@
 .dark-theme {
   .datetime-widget {
 
-    >.material-icons {
-      color: $primary;
+    .expander {
+      color: $primary-default-dark;
     }
 
     .widget-label {
@@ -10,48 +10,39 @@
     }
 
     .datetime-input {
-      border: 1px solid $grey-bright;
-      
+      border-color: $input-default-dark;
+
+      .tag {
+        background-color: $input-default-dark;
+        color: $content-default-dark;
+      }
 
       &.active {
         .tag {
-          background-color: $accent;
+          background-color: $accent-default-dark;
         }
       }
 
-      .tag {
-        background-color: $grey-bright;
-        
-
-      }
-
-    }
-
-    
-
-    &.is-invalid {
-      .mdl-textfield__error {
-        
-      }
     }
 
     &.is-disabled {
-      
+
       .widget-label {
         color: $label-disabled-dark;
       }
 
       .expander {
-        color: $grey;
+        color: $primary-disabled-dark;
       }
 
       .datetime-input {
-        
+        border-color: $input-disabled-dark;
+
         .tag {
-          color: $grey;
+          background-color: $input-disabled-dark;
+          color: $content-disabled-dark;
         }
       }
     }
-
   }
 }

@@ -136,13 +136,15 @@ SUI.widget.DatetimeRange.prototype._setTag = function(value) {
     tagNode.setHtml(formattedValue);
     this.datetimeInput.appendChild(tagNode);
 
-    const iconNode = new SUI.Node('i');
-    iconNode.addClass(['material-icons', 'size-18']);
-    iconNode.setHtml('close');
-    iconNode.addEventListener('click', () => {
-      this.setValue('');
-    });
-    tagNode.appendChild(iconNode);
+    if (this.isEnabled()){
+      const iconNode = new SUI.Node('i');
+      iconNode.addClass(['material-icons', 'size-18']);
+      iconNode.setHtml('close');
+      iconNode.addEventListener('click', () => {
+        this.setValue('');
+      });
+      tagNode.appendChild(iconNode);
+    }
   }
 };
 
@@ -151,7 +153,7 @@ SUI.widget.DatetimeRange.prototype._setTag = function(value) {
  * @return {undefined}
  */
 SUI.widget.DatetimeRange.prototype._onClick = function() {
-  if (!this.isDisabled()) {
+  if (this.isEnabled()) {
     this.datetimeInput.addClass('active');
     this.popup.toggle();
   }

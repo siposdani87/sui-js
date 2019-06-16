@@ -1,13 +1,21 @@
 .number-widget {
   .up-button {
+    color: $primary-default-light;
     position: absolute;
     right: 5px;
     top: 16px;
   }
 
   .down-button {
+    color: $primary-default-light;
     position: absolute;
     right: 5px;
     bottom: 16px;
+  }
+
+  &.is-disabled {
+    .up-button, .down-button {
+      color: $primary-disabled-light;
+    }
   }
 }

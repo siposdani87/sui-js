@@ -123,7 +123,7 @@ SUI.widget.Select.prototype.refresh = function() {
 
   this.selectContainerNode = new SUI.Node('div');
   this.selectContainerNode.addClass('select-container');
-  if (!this.isDisabled()) {
+  if (this.isEnabled()) {
     this.selectContainerNode.addEventListener('click', () => {
       this.open();
     });
@@ -309,7 +309,7 @@ SUI.widget.Select.prototype._setTags = function(tags) {
     const tagNode = new SUI.Node('div');
     tagNode.addClass('tag');
     tagNode.setHtml(tag.get('name'));
-    if (!this.isDisabled()) {
+    if (this.isEnabled()) {
       tagNode.addEventListener('click', () => {
         this.open();
       });
@@ -317,7 +317,7 @@ SUI.widget.Select.prototype._setTags = function(tags) {
     this.selectNode.appendChild(tagNode);
 
     const id = tag.get('id');
-    if (SUI.neq(id, '') && !this.isDisabled()) {
+    if (SUI.neq(id, '') && this.isEnabled()) {
       const iconNode = new SUI.Node('i');
       iconNode.addClass(['material-icons', 'size-18']);
       iconNode.setHtml('close');

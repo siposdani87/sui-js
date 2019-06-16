@@ -14,7 +14,8 @@
   &.is-disabled {
     .mdl-textfield__input {
       color: $content-disabled-light;
-      border: 1px dotted $input-disabled-light;
+      border-style: dotted; 
+      border-color: $input-disabled-light;
     }
   }
 
@@ -32,9 +33,3 @@
     }
   }
 }
-
-.mdl-textfield--expandable .mdl-button--icon {
-  top: 20px;
-}
-
-

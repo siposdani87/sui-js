@@ -1,13 +1,56 @@
 .mdl-switch {
   height: auto;
 
+  .mdl-switch__track {
+    background-color: rgba($content-default-light, .5);
+  }
+
+  .mdl-switch__thumb {
+    background-color: $content-default-light;
+  }
+
   input[required]~.mdl-switch__thumb {
-    border: 2px solid $red;
+    border: 2px solid $error-default-light;
   }
 
   &.is-disabled {
+    .mdl-switch__track {
+      background-color: rgba($content-disabled-light, .5);
+    }
+
+    .mdl-switch__thumb {
+      background-color: $content-disabled-light;
+    }
+
     input[required]~.mdl-switch__thumb { 
       border-style: dotted;
+      border-color: $error-disabled-light;
+    }
+  }
+
+  &.is-checked {
+    .mdl-switch__track {
+      background-color: rgba($primary-default-light, .5);
+    }
+
+    .mdl-switch__thumb {
+      background-color: $primary-default-light;
+    }
+
+    input[required]~.mdl-switch__thumb { 
+      border-color: transparent;
+    }
+  }
+
+  &.is-disabled {
+    &.is-checked {
+      .mdl-switch__track {
+        background-color: rgba($primary-disabled-light, .5);
+      }
+
+      .mdl-switch__thumb {
+        background-color: $primary-disabled-light;
+      }
     }
   }
 }

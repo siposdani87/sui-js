@@ -1,19 +1,10 @@
 .checkbox-widget {
   position: relative;
 
-  &.is-invalid {
-    .mdl-textfield__error {
-      visibility: visible;
-    }
-  }
-
   .info {
     position: absolute;
     right: 5px;
     top: 22px;
     z-index: 1;
-  }
-
-  .is-disabled {
   }
 }
