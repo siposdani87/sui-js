@@ -2,8 +2,13 @@
   font-size: 16px;
   color: $label-default-light;
   top: -4px;
+  display: block;
 
-  &:after {
+  &::first-letter {
+    text-transform: capitalize;
+  }
+
+  &::after {
     background-color: $primary-default-light;
   }
 }
@@ -27,13 +32,19 @@
       top: -4px;
     }
   }
-}
 
-.mdl-textfield__label {
-  display: block;
+  &.is-disabled {
+    .mdl-textfield__label {
+      color: $label-disabled-light !important;
+    }
+  }
 
-  &::first-letter {
-    text-transform: capitalize;
+  &.is-invalid {
+    .mdl-textfield__label {
+      &::after {
+        background-color: $error-default-light;
+      }
+    }
   }
 }
 
@@ -68,23 +79,6 @@
   line-height: 24px;
   margin: 0;
   left: 5px;
-}
-
-.mdl-textfield {
-
-  &.is-disabled {
-    .mdl-textfield__label {
-      color: $label-disabled-light !important;
-    }
-  }
-
-  &.is-invalid {
-    .mdl-textfield__label {
-      &:after {
-        background-color: $error-default-light;
-      }
-    }
-  }
 }
 
 label {

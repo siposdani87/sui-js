@@ -5,9 +5,9 @@
       border: 1px solid $input-default-dark;
     }
 
-    /*input[required] ~ .preview {
-      border-color: $error-default-dark;
-    }*/
+    // input[required] ~ .preview {
+    //   border-color: $error-default-dark;
+    // }
 
     .widget-label {
       color: $label-default-dark;
@@ -23,9 +23,9 @@
         border-color: $input-disabled-dark;
       }
 
-      /*input[required] ~ .preview {
-        border-color: $error-disabled-dark;
-      }*/
+      // input[required] ~ .preview {
+      //   border-color: $error-disabled-dark;
+      // }
     }
   }
 }

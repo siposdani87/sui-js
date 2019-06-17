@@ -9,7 +9,9 @@
     }
 
     &.is-disabled {
-      .up-button, .down-button {
+
+      .up-button,
+      .down-button {
         color: $primary-disabled-dark;
       }
     }

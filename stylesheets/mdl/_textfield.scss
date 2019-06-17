@@ -1,4 +1,3 @@
-
 .mdl-textfield {
   width: 100%;
   font-size: inherit;
@@ -11,14 +10,6 @@
     color: $content-default-light;
   }
 
-  &.is-disabled {
-    .mdl-textfield__input {
-      color: $content-disabled-light;
-      border-style: dotted; 
-      border-color: $input-disabled-light;
-    }
-  }
-
   &.is-invalid {
     .mdl-textfield__input {
       border-color: $error-default-light;
@@ -26,6 +17,12 @@
   }
 
   &.is-disabled {
+    .mdl-textfield__input {
+      color: $content-disabled-light;
+      border-style: dotted;
+      border-color: $input-disabled-light;
+    }
+
     &.is-invalid {
       .mdl-textfield__input {
         border-color: $error-disabled-light;

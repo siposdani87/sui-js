@@ -1,6 +1,6 @@
 .dark-theme {
   .select-widget {
-    
+
     .expander {
       color: $primary-default-dark;
     }
@@ -11,30 +11,34 @@
 
     .select-input {
       border-color: $input-default-dark;
-      
+
       .tag {
         background-color: $input-default-dark;
         color: $content-default-dark;
       }
     }
-    
+
     .options-list {
-      
       a {
         color: $white;
-        
+
         &:hover {
           background-color: $input-disabled-dark;
         }
-  
+
         &.selected {
           background-color: $input-default-dark;
         }
       }
     }
 
+    &.is-invalid {
+      .select-input {
+        border-color: $error-default-dark;
+      }
+    }
+
     &.is-disabled {
-      
       .widget-label {
         color: $label-disabled-dark;
       }
@@ -51,16 +55,7 @@
           color: $content-disabled-dark;
         }
       }
-    }
 
-
-    &.is-invalid {
-      .select-input {
-        border-color: $error-default-dark;
-      }
-    }
-
-    &.is-disabled {
       &.is-invalid {
         .select-input {
           border-color: $error-disabled-dark;

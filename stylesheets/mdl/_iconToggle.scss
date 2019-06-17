@@ -10,17 +10,17 @@
   }
 
   &.is-checked {
-    input[required]~.mdl-icon-toggle__label { 
+    input[required]~.mdl-icon-toggle__label {
       border-color: transparent;
     }
-    
+
     .mdl-icon-toggle__label {
       color: $primary-default-light;
     }
   }
 
   &.is-disabled {
-    input[required]~.mdl-icon-toggle__label { 
+    input[required]~.mdl-icon-toggle__label {
       border-style: dotted;
       border-color: $error-disabled-light;
     }
@@ -28,9 +28,7 @@
     .mdl-icon-toggle__label {
       color: $content-disabled-light;
     }
-  }
 
-  &.is-disabled {
     &.is-checked {
       .mdl-icon-toggle__label {
         color: $primary-disabled-light;
