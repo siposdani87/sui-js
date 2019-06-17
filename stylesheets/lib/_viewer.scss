@@ -47,6 +47,10 @@
         @include display-flex;
         flex-flow: row nowrap;
         justify-content: flex-end;
+
+        .close {
+          color: $white;
+        }
       }
     }
 
