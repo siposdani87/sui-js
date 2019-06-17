@@ -11,7 +11,7 @@
 
     .datetime-input {
       border-color: $input-default-dark;
-      
+
       &:first-of-type {
         border-left-color: $input-default-dark;
       }
@@ -29,7 +29,7 @@
     }
 
     &.is-disabled {
-      
+
       .widget-label {
         color: $label-disabled-dark;
       }

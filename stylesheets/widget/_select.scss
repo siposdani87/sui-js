@@ -99,6 +99,12 @@
     }
   }
 
+  &.is-invalid {
+    .select-input {
+      border-color: $error-default-light;
+    }
+  }
+
   &.is-disabled {
     .widget-label {
       color: $label-disabled-light;
@@ -117,15 +123,7 @@
         color: $content-disabled-light;
       }
     }
-  }
 
-  &.is-invalid {
-    .select-input {
-      border-color: $error-default-light;
-    }
-  }
-
-  &.is-disabled {
     &.is-invalid {
       .select-input {
         border-color: $error-disabled-light;

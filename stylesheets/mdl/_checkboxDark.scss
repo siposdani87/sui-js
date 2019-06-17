@@ -32,9 +32,6 @@
         border-color: $error-disabled-dark;
       }
 
-    }
-
-    &.is-disabled {
       &.is-checked {
         .mdl-checkbox__box-outline {
           border-color: $primary-disabled-dark;

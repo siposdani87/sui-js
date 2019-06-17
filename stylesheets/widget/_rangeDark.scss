@@ -1,8 +1,5 @@
 .dark-theme {
   .range-widget {
-
-    
-
     .mdl-slider {
       background-color: $input-default-dark;
     }
@@ -41,7 +38,6 @@
       .mdl-slider:active::-ms-thumb {
         background: $primary-disabled-dark;
       }
-
     }
   }
 }

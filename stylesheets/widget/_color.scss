@@ -14,9 +14,9 @@
     }
   }
 
-  /*input[required] ~ .preview {
-    border-color: $error-default-light;
-  }*/
+  // input[required] ~ .preview {
+  //   border-color: $error-default-light;
+  // }
 
   canvas {
     vertical-align: middle;
@@ -34,14 +34,14 @@
 
     .preview {
       border: 1px dotted $input-disabled-light;
+
       .color {
         opacity: .3;
       }
     }
 
-    /*input[required] ~ .preview {
-      border-color: $error-disabled-light;
-    }*/
+    // input[required] ~ .preview {
+    //   border-color: $error-disabled-light;
+    // }
   }
-
 }

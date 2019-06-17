@@ -7,6 +7,12 @@
     border-color: $error-default-light;
   }
 
+  &.is-other-checked {
+    input[required]~.mdl-radio__outer-circle {
+      border-color: $content-default-light;
+    }
+  }
+
   &.is-checked {
     .mdl-radio__outer-circle {
       border-color: $primary-default-light;
@@ -15,10 +21,7 @@
     .mdl-radio__inner-circle {
       background-color: $primary-default-light;
     }
-  }
 
-  &.is-checked,
-  &.is-other-checked {
     input[required]~.mdl-radio__outer-circle {
       border-color: $primary-default-light;
     }
@@ -33,10 +36,8 @@
       border-style: dotted;
       border-color: $error-disabled-light;
     }
-  }
 
-  &.is-checked{
-    &.is-disabled {
+    &.is-checked {
       .mdl-radio__outer-circle {
         border-color: $primary-disabled-light;
       }

@@ -88,9 +88,11 @@ SUI.widget.Search.prototype._initClearButton = function() {
   clearButton.addClass(['clear-button', 'material-icons']);
   clearButton.setHtml('clear');
   clearButton.addEventListener('click', () => {
-    this.inputBlock.removeClass(['is-dirty', 'is-focused']);
-    this.setValue('');
-    this.eventEnter('');
+    if (this.isEnabled()) {
+      this.inputBlock.removeClass(['is-dirty', 'is-focused']);
+      this.setValue('');
+      this.eventEnter('');
+    }
   });
   this.holderNode.appendChild(clearButton);
 };

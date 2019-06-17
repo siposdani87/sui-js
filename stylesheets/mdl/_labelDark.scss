@@ -2,20 +2,8 @@
   .mdl-textfield__label {
     color: $label-default-dark;
 
-    &:after {
+    &::after {
       background-color: $primary-default-dark;
-    }
-  }
-
-  .mdl-textfield {
-
-    &.is-invalid,
-    &.is-dirty,
-    &.is-focused,
-    &.has-placeholder {
-      .mdl-textfield__label {
-        color: $label-default-dark;
-      }
     }
   }
 
@@ -28,6 +16,15 @@
 
   .mdl-textfield {
 
+    &.is-invalid,
+    &.is-dirty,
+    &.is-focused,
+    &.has-placeholder {
+      .mdl-textfield__label {
+        color: $label-default-dark;
+      }
+    }
+
     &.is-disabled {
       .mdl-textfield__label {
         color: $label-disabled-dark !important;
@@ -36,7 +33,7 @@
 
     &.is-invalid {
       .mdl-textfield__label {
-        &:after {
+        &::after {
           background-color: $error-default-dark;
         }
       }

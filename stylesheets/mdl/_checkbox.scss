@@ -32,9 +32,7 @@
       border-color: $error-disabled-light;
       border-style: dotted;
     }
-  }
 
-  &.is-disabled {
     &.is-checked {
       .mdl-checkbox__box-outline  {
         border-color: $primary-disabled-light;
