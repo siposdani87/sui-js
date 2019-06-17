@@ -100,7 +100,7 @@ SUI.widget.Select.prototype._initOptions = function() {
  * @return {undefined}
  */
 SUI.widget.Select.prototype.render = function() {
-  if (this.label) {
+  if (this.label && this.label.exists()) {
     this.label.addClass('widget-label');
   }
 

@@ -53,7 +53,7 @@ SUI.widget.Number.prototype._initButtons = function() {
   upButton.addClass(['up-button', 'material-icons']);
   upButton.setHtml('keyboard_arrow_up');
   upButton.addEventListener('click', () => {
-    if (this.isEnabled()){
+    if (this.isEnabled()) {
       let value = /** @type {number} */ (this.getValue() || 0);
       value += this._getStep();
       this.setValue(value);
@@ -67,7 +67,7 @@ SUI.widget.Number.prototype._initButtons = function() {
   downButton.addClass(['down-button', 'material-icons']);
   downButton.setHtml('keyboard_arrow_down');
   downButton.addEventListener('click', () => {
-    if (this.isEnabled()){
+    if (this.isEnabled()) {
       let value = /** @type {number} */ (this.getValue() || 0);
       value -= this._getStep();
       this.setValue(value);
@@ -127,7 +127,7 @@ SUI.widget.Number.prototype._getStep = function() {
 SUI.widget.Number.prototype.render = function() {
   this.inputBlock.addClass(['mdl-textfield', 'mdl-js-textfield', 'mdl-textfield--floating-label']);
   this.input.addClass(['mdl-textfield__input']);
-  if (this.label) {
+  if (this.label && this.label.exists()) {
     this.label.addClass('mdl-textfield__label');
   }
   this.refresh();

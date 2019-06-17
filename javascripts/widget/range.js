@@ -44,7 +44,7 @@ SUI.widget.Range.prototype._init = function() {
 SUI.widget.Range.prototype.render = function() {
   this.inputBlock.addClass(['mdl-textfield', 'mdl-js-textfield', 'mdl-sliderfield']);
   this.input.addClass(['mdl-slider', 'mdl-js-slider']);
-  if (this.label) {
+  if (this.label && this.label.exists()) {
     this.label.addClass('mdl-textfield__label');
   }
 

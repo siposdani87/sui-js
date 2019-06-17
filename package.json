@@ -34,8 +34,9 @@
     "gulp-cli": "2.1.0",
     "gulp-insert": "0.5.0",
     "gulp-sass": "4.0.2",
-    "merge-stream": "1.0.1",
     "object-assign": "4.1.1",
-    "readdirsync2": "1.0.2"
+    "readdirsync2": "1.0.2",
+    "browser-sync": "2.26.7",
+    "connect-modrewrite": "0.10.2"
   }
 }

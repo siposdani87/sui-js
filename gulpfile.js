@@ -4,10 +4,11 @@ const compilerPackage = require('google-closure-compiler');
 const closureCompiler = compilerPackage.gulp({
   requireStreamInput: true,
 });
-const merge = require('merge-stream');
 const objectAssign = require('object-assign');
 const insert = require('gulp-insert');
 const readdirSync = require('readdirsync2');
+const browserSync = require('browser-sync').create();
+const modRewrite = require('connect-modrewrite');
 
 // let files = ['javascripts/lib/*.js', 'javascripts/core/*.js', 'javascripts/module/*.js', 'javascripts/widget/*.js'];
 
@@ -34,23 +35,46 @@ gulp.task('compile:styles', [], function() {
 });
 
 gulp.task('compile:scripts', [], function() {
-  const merged = merge();
-  const stream = gulp.src(['javascripts/**/*.js']).pipe(closureCompiler(objectAssign(closureOptions, {
-    // externs: [compilerPackage.compiler.CONTRIB_PATH + '/externs/empty.js'],
+  return gulp.src(['javascripts/**/*.js']).pipe(closureCompiler(objectAssign(closureOptions, {
     output_manifest: 'dist/sui.min.mf',
     js_output_file: 'sui.min.js',
   }))).pipe(insert.append('export default window.SUI;')).pipe(gulp.dest('dist'));
-
-  merged.add(stream);
-
-  return merged;
 });
 
-gulp.task('watcher', ['compile:styles', 'compile:scripts'], function() {
+gulp.task('compile:scripts:simple', [], function() {
+  return gulp.src(['javascripts/**/*.js']).pipe(closureCompiler(objectAssign(closureOptions, {
+    compilation_level: 'SIMPLE_OPTIMIZATIONS',
+    define: 'SUI.debug=true',
+    output_manifest: 'dist/sui.mf',
+    js_output_file: 'sui.js',
+  }))).pipe(gulp.dest('dist'));
+});
+
+gulp.task('watcher', ['compile:styles', 'compile:scripts:simple'], function() {
   gulp.watch('stylesheets/**/*.scss', ['compile:styles']);
-  gulp.watch('javascripts/**/*.js', ['compile:scripts']);
+  gulp.watch('javascripts/**/*.js', ['compile:scripts:simple']);
 });
 
 gulp.task('default', ['compile:styles', 'compile:scripts'], function() {
 
+});
+
+gulp.task('serve', ['watcher'], function() {
+  browserSync.init({
+    port: 4000,
+    startPath: '/index.html',
+    server: {
+      baseDir: './',
+      middleware: [
+        modRewrite([
+          '^[^\\.]*$ /index.html [L]',
+        ]),
+      ],
+    },
+    browser: 'default',
+  });
+
+  gulp.watch('stylesheets/**/*.scss').on('change', browserSync.reload);
+  gulp.watch('javascripts/**/*.js').on('change', browserSync.reload);
+  gulp.watch('index.html').on('change', browserSync.reload);
 });
