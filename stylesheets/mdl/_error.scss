@@ -5,16 +5,16 @@
   &::first-letter {
     text-transform: capitalize;
   }
+}
 
-  .is-disabled {
-    .mdl-textfield__error {
-      color: $error-disabled-light;
-    }
+.is-disabled {
+  .mdl-textfield__error {
+    color: $error-disabled-light;
   }
+}
 
-  &.is-invalid {
-    .mdl-textfield__error {
-      visibility: visible;
-    }
+.is-invalid {
+  .mdl-textfield__error {
+    visibility: visible;
   }
 }

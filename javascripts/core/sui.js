@@ -80,7 +80,6 @@ const SUI = {
   _scrollInterval: null,
 };
 
-
 SUI.coreRes = {
   // CORE
   app: 'app',

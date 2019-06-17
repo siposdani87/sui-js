@@ -54,7 +54,7 @@ SUI.widget.File.prototype._init = function() {
 SUI.widget.File.prototype.render = function() {
   this.inputBlock.addClass(['mdl-textfield', 'mdl-js-textfield', 'mdl-textfield--floating-label']);
   this.input.addClass('mdl-textfield__input');
-  if (this.label) {
+  if (this.label && this.label.exists()) {
     this.label.addClass('mdl-textfield__label');
   }
   this.refresh();

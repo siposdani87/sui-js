@@ -118,7 +118,7 @@ SUI.widget.Location.prototype.search = function(address) {
 SUI.widget.Location.prototype.render = function() {
   this.inputBlock.addClass(['mdl-textfield', 'mdl-js-textfield', 'mdl-textfield--floating-label']);
   this.input.addClass('mdl-textfield__input');
-  if (this.label) {
+  if (this.label && this.label.exists()) {
     this.label.addClass('mdl-textfield__label');
   }
 

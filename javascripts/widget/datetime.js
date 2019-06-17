@@ -79,7 +79,7 @@ SUI.widget.Datetime.prototype._initInput = function() {
  * @return {undefined}
  */
 SUI.widget.Datetime.prototype.render = function() {
-  if (this.label) {
+  if (this.label && this.label.exists()) {
     this.label.addClass('widget-label');
   }
 
@@ -130,7 +130,7 @@ SUI.widget.Datetime.prototype._setTag = function(value) {
     tagNode.setHtml(formattedValue);
     this.datetimeInput.appendChild(tagNode);
 
-    if (this.isEnabled()){
+    if (this.isEnabled()) {
       const iconNode = new SUI.Node('i');
       iconNode.addClass(['material-icons', 'size-18']);
       iconNode.setHtml('close');

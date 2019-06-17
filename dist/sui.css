@@ -242,10 +242,12 @@ label.is-disabled .mdl-radio__label {
 .mdl-textfield__error::first-letter {
   text-transform: capitalize;
 }
-.mdl-textfield__error .is-disabled .mdl-textfield__error {
+
+.is-disabled .mdl-textfield__error {
   color: #d32f2f;
 }
-.mdl-textfield__error.is-invalid .mdl-textfield__error {
+
+.is-invalid .mdl-textfield__error {
   visibility: visible;
 }
 

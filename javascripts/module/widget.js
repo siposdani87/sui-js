@@ -107,12 +107,11 @@ SUI.Widget.prototype.setError = function(opt_message = '', opt_isCustomError = f
  * @return {undefined}
  */
 SUI.Widget.prototype.checkValidity = function(opt_force = false, opt_showMessage = true) {
-  const node = this.input.getNode();
-  const isValid = node.validity.valid;
+  const isValid = this.isValid();
   if (isValid) {
     this.setError('');
   } else if (opt_showMessage) {
-    this.setError(node.validationMessage);
+    this.setError(this.input.getNode().validationMessage);
   }
   const upgradedNode = this._getUpgradedNode();
   if (opt_force && upgradedNode) {
@@ -128,13 +127,25 @@ SUI.Widget.prototype.checkValidity = function(opt_force = false, opt_showMessage
 };
 
 /**
+ * @return {boolean}
+ */
+SUI.Widget.prototype.isValidityValid = function() {
+  const node = this.input.getNode();
+  return node.validity.valid;
+};
+
+/**
+ * @return {boolean}
+ */
+SUI.Widget.prototype.isValid = function() {
+  return this.isValidityValid();
+};
+
+/**
  * @private
  * @return {!SUI.Node}
  */
 SUI.Widget.prototype._getUpgradedNode = function() {
-  /* if (this.label && this.label.exists() && this.label.getAttribute('data-upgraded')) {
-    return this.label;
-  }*/
   return /** @type {!SUI.Node} */ (this.inputBlock);
 };
 
