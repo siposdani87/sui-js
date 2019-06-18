@@ -24,10 +24,6 @@
             background-color: $deep-grey;
           }
 
-          &.current {
-            background-color: $accent;
-          }
-
           &.previous-month {
             color: $deep-grey-bright;
 
@@ -54,6 +50,11 @@
             &.current {
               color: $white;
             }
+          }
+
+          &.current {
+            background-color: $accent;
+            color: $accent-text;
           }
         }
       }

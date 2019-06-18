@@ -24,7 +24,7 @@
 
   .map {
     margin-top: 20px;
-    border: 1px solid $light-grey;
+    border: 1px solid $input-default-light;
     @include border-radius(2px);
     min-height: 200px;
     height: 200px;
@@ -43,12 +43,12 @@
 
   &.is-disabled {
     label {
-      color: $light-grey-dark;
+      color: $label-disabled-light;
     }
 
     .search-button,
     .advanced-button {
-      color: $grey;
+      color: $primary-disabled-light;
     }
   }
 }

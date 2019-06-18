@@ -254,7 +254,7 @@ SUI.Widget.prototype._setInfo = function() {
       infoButton.setAttribute('title', title || '');
       infoButton.setAttribute('desc', description || '');
       infoButton.setAttribute('href', 'javascript:void(0)');
-      infoButton.addClass(['info', 'material-icons']);
+      infoButton.addClass(['info-button', 'material-icons']);
       infoButton.setHtml('info_outline');
       this.inputBlock.appendChild(infoButton);
       const tooltip = new SUI.Tooltip(infoButton, 'LEFT');

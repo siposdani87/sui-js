@@ -13,6 +13,7 @@
     .circle {
       &.selected {
         background-color: $accent;
+        color: $accent-text;
       }
 
       &:hover {
