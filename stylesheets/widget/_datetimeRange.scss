@@ -62,6 +62,7 @@
     &.active {
       .tag {
         background-color: $accent-default-light;
+        color: $accent-text;
       }
     }
   }

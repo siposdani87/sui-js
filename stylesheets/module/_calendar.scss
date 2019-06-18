@@ -72,10 +72,6 @@
           background-color: $light-grey;
         }
 
-        &.current {
-          background-color: $accent;
-        }
-
         &.previous-month {
           color: $light-grey-dark;
 
@@ -104,8 +100,11 @@
           }
         }
 
+        &.current {
+          background-color: $accent;
+          color: $accent-text;
+        }
       }
-
     }
 
     .months {
@@ -132,6 +131,7 @@
 
         &.current {
           background-color: $accent;
+          color: $accent-text;
         }
       }
 
@@ -161,6 +161,7 @@
 
         &.current {
           background-color: $accent;
+          color: $accent-text;
         }
       }
     }

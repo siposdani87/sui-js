@@ -79,7 +79,7 @@ SUI.PopupContainer.prototype.setPosition = function(popupNode) {
   // let absoluteLeft = left === 0 ? 'auto' : left + 'px';
 
   popupNode.setStyle({
-    'top': 0, // absoluteTop,
+    // 'top': 0, // absoluteTop,
     'left': 0, // absoluteLeft
   });
 };

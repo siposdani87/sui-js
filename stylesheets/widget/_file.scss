@@ -1,15 +1,4 @@
 .file-widget {
-
-  .mdl-textfield__label {
-    font-size: 16px;
-    top: 0;
-  }
-
-  img {
-    max-height: 100px;
-    min-height: 12px;
-  }
-
   input[type='file'] {
     &.mdl-textfield__input {
       &::-webkit-file-upload-button {
@@ -18,8 +7,19 @@
         padding: 0;
         margin: 0;
         border: 0;
-        color: rgba($black, .26);
+        color: $content-default-light;
       }
+    }
+  }
+  img {
+    max-height: 100px;
+    min-height: 12px;
+  }
+
+  &.is-disabled {
+    img {
+      @include filter-grayscale(100%);
+      opacity: .5;
     }
   }
 }

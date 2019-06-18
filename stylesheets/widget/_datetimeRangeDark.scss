@@ -24,6 +24,7 @@
       &.active {
         .tag {
           background-color: $accent-default-dark;
+          color: $accent-text;
         }
       }
     }

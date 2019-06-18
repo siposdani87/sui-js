@@ -72,8 +72,10 @@ SUI.widget.Location.prototype._initSearchButton = function() {
   searchButton.addClass(['search-button', 'material-icons']);
   searchButton.setHtml('pin_drop');
   searchButton.addEventListener('click', () => {
-    const inputNode = this.input.getNode();
-    this.eventSearch(inputNode.value);
+    if (this.isEnabled()) {
+      const inputNode = this.input.getNode();
+      this.eventSearch(inputNode.value);
+    }
   });
   this.buttonGroupNode.appendChild(searchButton);
 };
@@ -88,7 +90,9 @@ SUI.widget.Location.prototype._initAdvancedButton = function() {
   this.advancedButton.addClass(['advanced-button', 'material-icons']);
   this.advancedButton.setHtml('settings');
   this.advancedButton.addEventListener('click', () => {
-    this._toggleAdvancedInputs();
+    if (this.isEnabled()) {
+      this._toggleAdvancedInputs();
+    }
   });
   this.buttonGroupNode.appendChild(this.advancedButton);
 };
@@ -252,7 +256,7 @@ SUI.widget.Location.prototype._renderMap = function() {
   this.map.eventMarkerRightClick = () => {
     this.updatePosition(null, null);
   };
-  this.map.eventMarkerChanged = (data, latitude, longitude) => {
+  this.map.eventMarkerChanged = (_data, latitude, longitude) => {
     this.updatePosition(latitude, longitude);
   };
 };

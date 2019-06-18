@@ -10,8 +10,7 @@
   <!--<base href="/">-->
   <title>SUI-JS</title>
 
-  <link rel="stylesheet"
-    href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&subset=latin-ext">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&subset=latin-ext">
   <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
   <link rel="stylesheet" href="node_modules/normalize.css/normalize.css">
   <link rel="stylesheet" href="node_modules/material-design-lite/dist/material.indigo-pink.min.css">
@@ -94,9 +93,8 @@
   <div class="main-container">
     <header class="hidden" id="header">
       <div class="menu">
-        <a id="open-left-menu"><i class="material-icons size-40">menu</i></a><a class="brand"><img alt="TrophyMap"
-            src="/assets/favicons/trophymap-41bc8407b5ee0469f2f6f5acb1ed3aa41e6558e62c516e57a02229f201e3c13f.svg"><span
-            class="app-title">TrophyMap</span></a><a id="toggle-top-menu"><i
+        <a id="open-left-menu"><i class="material-icons size-40">menu</i></a><a class="brand"><img alt="SUI-JS"
+            src="/images/sui_2.png"><span class="app-title">TrophyMap</span></a><a id="toggle-top-menu"><i
             class="material-icons size-40">more_vert</i></a>
       </div>
       <div id="top-menu"></div>
@@ -150,9 +148,73 @@
                       </div>
                       <div class="mdl-cell mdl-cell--6-col">
                         <div class="input-block">
-                          <label for="light-input-text-disabled-required">light-input-text-disabled-required</label>
+                          <label for="light-input-text-disabled-required"
+                            desc="Description of input">light-input-text-disabled-required</label>
                           <input id="light-input-text-disabled-required" name="light-input-text-disabled-required"
                             type="text" value="" disabled required />
+                        </div>
+                      </div>
+                    </div>
+                    <h4>light-input-email</h4>
+                    <div class="mdl-grid">
+                      <div class="mdl-cell mdl-cell--6-col">
+                        <div class="input-block">
+                          <label for="light-input-email-default">light-input-email-default</label>
+                          <input id="light-input-email-default" name="light-input-email-default" type="email"
+                            value="siposdani87@gmail.com" />
+                        </div>
+                      </div>
+                      <div class="mdl-cell mdl-cell--6-col">
+                        <div class="input-block">
+                          <label for="light-input-email-disabled">light-input-email-disabled</label>
+                          <input id="light-input-email-disabled" name="light-input-email-disabled" type="email"
+                            value="light-input-email-disabled" disabled />
+                        </div>
+                      </div>
+                      <div class="mdl-cell mdl-cell--6-col">
+                        <div class="input-block">
+                          <label for="light-input-email-required">light-input-email-required</label>
+                          <input id="light-input-email-required" name="light-input-email-required" type="email" value=""
+                            required />
+                        </div>
+                      </div>
+                      <div class="mdl-cell mdl-cell--6-col">
+                        <div class="input-block">
+                          <label for="light-input-email-disabled-required">light-input-email-disabled-required</label>
+                          <input id="light-input-email-disabled-required" name="light-input-email-disabled-required"
+                            type="email" value="" disabled required />
+                        </div>
+                      </div>
+                    </div>
+                    <h4>light-input-password</h4>
+                    <div class="mdl-grid">
+                      <div class="mdl-cell mdl-cell--6-col">
+                        <div class="input-block">
+                          <label for="light-input-password-default">light-input-password-default</label>
+                          <input id="light-input-password-default" name="light-input-password-default" type="password"
+                            value="light-input-password-default" />
+                        </div>
+                      </div>
+                      <div class="mdl-cell mdl-cell--6-col">
+                        <div class="input-block">
+                          <label for="light-input-password-disabled">light-input-password-disabled</label>
+                          <input id="light-input-password-disabled" name="light-input-password-disabled" type="password"
+                            value="light-input-password-disabled" disabled />
+                        </div>
+                      </div>
+                      <div class="mdl-cell mdl-cell--6-col">
+                        <div class="input-block">
+                          <label for="light-input-password-required">light-input-password-required</label>
+                          <input id="light-input-password-required" name="light-input-password-required" type="password"
+                            value="" required />
+                        </div>
+                      </div>
+                      <div class="mdl-cell mdl-cell--6-col">
+                        <div class="input-block">
+                          <label
+                            for="light-input-password-disabled-required">light-input-password-disabled-required</label>
+                          <input id="light-input-password-disabled-required"
+                            name="light-input-password-disabled-required" type="password" value="" disabled required />
                         </div>
                       </div>
                     </div>
@@ -254,28 +316,31 @@
                       <div class="mdl-cell mdl-cell--6-col">
                         <div class="input-block">
                           <label for="light-input-file-default">light-input-file-default</label>
-                          <input id="light-input-file-default" name="light-input-file-default" type="file" value="" />
+                          <img src="/images/sui_2.png" />
+                          <input id="light-input-file-default" name="light-input-file-default" type="file" value=""
+                            accept=".jpg" />
                         </div>
                       </div>
                       <div class="mdl-cell mdl-cell--6-col">
                         <div class="input-block">
                           <label for="light-input-file-disabled">light-input-file-disabled</label>
+                          <img src="/images/sui_2.png" />
                           <input id="light-input-file-disabled" name="light-input-file-disabled" type="file" value=""
-                            disabled />
+                          accept=".jpg" disabled />
                         </div>
                       </div>
                       <div class="mdl-cell mdl-cell--6-col">
                         <div class="input-block">
                           <label for="light-input-file-required">light-input-file-required</label>
                           <input id="light-input-file-required" name="light-input-file-required" type="file" value=""
-                            required />
+                          accept=".xlsx" required />
                         </div>
                       </div>
                       <div class="mdl-cell mdl-cell--6-col">
                         <div class="input-block">
                           <label for="light-input-file-disabled-required">light-input-file-disabled-required</label>
                           <input id="light-input-file-disabled-required" name="light-input-file-disabled-required"
-                            type="file" value="" disabled required />
+                            type="file" value="" accept=".xlsx" disabled required />
                         </div>
                       </div>
                     </div>
@@ -779,6 +844,53 @@
                         </div>
                       </div>
                     </div>
+                    <h4>light-location</h4>
+                    <div class="mdl-grid">
+                      <div class="mdl-cell mdl-cell--6-col">
+                        <div class="input-block">
+                          <label for="light-location-default">light-location-default</label>
+                          <input 
+                            data-value="{&quot;latitude&quot;:17.14,&quot;longitude&quot;:47.32,&quot;address&quot;:&quot;9153 Öttevény&quot;}"
+                            data-type="location"
+                            data-icon="{&quot;url&quot;:&quot;images/location.png&quot;,&quot;size&quot;:[48,48],&quot;origin&quot;:[0,0],&quot;anchor&quot;:[24,48],&quot;coords&quot;:[0,0,0,48,48,48,48,0]}"
+                            data-latitude="latitude" data-longitude="longitude" type="text"
+                            name="light-location-default" id="light-location-default" />
+                        </div>
+                      </div>
+                      <div class="mdl-cell mdl-cell--6-col">
+                        <div class="input-block">
+                          <label for="light-location-disabled">light-location-disabled</label>
+                          <input 
+                            data-value="{&quot;latitude&quot;:17.14,&quot;longitude&quot;:47.32,&quot;address&quot;:&quot;9153 Öttevény&quot;}"
+                            data-type="location"
+                            data-icon="{&quot;url&quot;:&quot;images/location.png&quot;,&quot;size&quot;:[48,48],&quot;origin&quot;:[0,0],&quot;anchor&quot;:[24,48],&quot;coords&quot;:[0,0,0,48,48,48,48,0]}"
+                            data-latitude="latitude" data-longitude="longitude" type="text"
+                            name="light-location-disabled" id="light-location-disabled" disabled />
+                        </div>
+                      </div>
+                      <div class="mdl-cell mdl-cell--6-col">
+                        <div class="input-block">
+                          <label for="light-location-required">light-location-required</label>
+                          <input 
+                            data-value="{&quot;latitude&quot;:0,&quot;longitude&quot;:0,&quot;address&quot;:&quot;&quot;}"
+                            data-type="location"
+                            data-icon="{&quot;url&quot;:&quot;images/location.png&quot;,&quot;size&quot;:[48,48],&quot;origin&quot;:[0,0],&quot;anchor&quot;:[24,48],&quot;coords&quot;:[0,0,0,48,48,48,48,0]}"
+                            data-latitude="latitude" data-longitude="longitude" type="text"
+                            name="light-location-required" id="light-location-required" required />
+                        </div>
+                      </div>
+                      <div class="mdl-cell mdl-cell--6-col">
+                        <div class="input-block">
+                          <label for="light-location-disabled-required">light-location-disabled-required</label>
+                          <input 
+                            data-value="{&quot;latitude&quot;:0,&quot;longitude&quot;:0,&quot;address&quot;:&quot;&quot;}"
+                            data-type="location"
+                            data-icon="{&quot;url&quot;:&quot;images/location.png&quot;,&quot;size&quot;:[48,48],&quot;origin&quot;:[0,0],&quot;anchor&quot;:[24,48],&quot;coords&quot;:[0,0,0,48,48,48,48,0]}"
+                            data-latitude="latitude" data-longitude="longitude" type="text"
+                            name="light-location-disabled-required" id="light-location-disabled-required" disabled required />
+                        </div>
+                      </div>
+                    </div>
                     <div class="action-block text-right">
                       <button type="reset">Cancel</button>
                       <button type="button">Delete</button>
@@ -821,6 +933,7 @@
   <script src="node_modules/crypto-js/aes.js"></script>
   <script src="node_modules/material-design-lite/dist/material.min.js"></script>
   <script src="node_modules/moment/min/moment-with-locales.min.js"></script>
+  <script src="vendors/mapLabel.min.js"></script>
   <script src="dist/sui.js"></script>
   <script>
     var lightThemeNode = new SUI.Query('.light-theme').getItem()
