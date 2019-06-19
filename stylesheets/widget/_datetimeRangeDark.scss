@@ -12,10 +12,6 @@
     .datetime-input {
       border-color: $input-default-dark;
 
-      &:first-of-type {
-        border-left-color: $input-default-dark;
-      }
-
       .tag {
         background-color: $input-default-dark;
         color: $content-default-dark;

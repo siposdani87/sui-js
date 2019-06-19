@@ -16,31 +16,35 @@
 
   .widget-label {
     margin-right: 10px;
+    font-size: 16px;
+    position: absolute;
+    top: -2px;
     color: $label-default-light;
   }
 
+  .datetime-container {
+    position: relative;
+  }
+
   .datetime-input {
+    width: 50%;
     display: inline-block;
     padding: 2px 30px 2px 2px;
     border: 1px solid $input-default-light;
     @include border-radius(2px);
-    min-height: 28px;
-    vertical-align: middle;
+    min-height: 32px;
     cursor: pointer;
 
-    &:nth-of-type(1n) {
+    &:nth-of-type(2n) {
       border-left: 0;
       border-top-left-radius: 0;
       border-bottom-left-radius: 0;
     }
 
-    &:first-of-type {
-      border-left: 1px solid $input-default-light;
+    &:nth-of-type(odd) {
       border-right: 0;
       border-top-right-radius: 0;
       border-bottom-right-radius: 0;
-      border-top-left-radius: 2px;
-      border-bottom-left-radius: 2px;
     }
 
     .tag {

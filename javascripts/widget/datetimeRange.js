@@ -32,10 +32,17 @@ SUI.widget.DatetimeRange.prototype._init = function() {
   this.inputBlock.addClass('datetime-range-widget');
   this.input.addClass('hidden');
 
+  this.datetimeContainer = new SUI.Query('.datetime-container', this.inputBlock).getItem();
+  if (this.isStartInput){
+    this.datetimeContainer = new SUI.Node('div');
+    this.datetimeContainer.addClass('datetime-container');
+    this.input.insertAfter(this.datetimeContainer);
+  }
+
   this.datetimeInput = new SUI.Node('div');
   this.datetimeInput.addClass('datetime-input');
   this.datetimeInput.addEventListener('click', this._onClick.bind(this));
-  this.inputBlock.appendChild(this.datetimeInput);
+  this.datetimeContainer.appendChild(this.datetimeInput);
 
   this._initInput();
 };
@@ -90,11 +97,13 @@ SUI.widget.DatetimeRange.prototype.render = function() {
   iconNode.addClass(['material-icons', 'size-24', 'expander']);
   if (this.isStartInput) {
     iconNode.setHtml('remove');
+    this.datetimeInput.insertAfter(iconNode);
   } else {
     iconNode.setHtml('date_range');
+    this.infoContainerNode.appendChild(iconNode);
   }
   iconNode.addEventListener('click', this._onClick.bind(this));
-  this.datetimeInput.insertAfter(iconNode);
+  
 
   this.refresh();
   this.datetime.draw();
