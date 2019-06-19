@@ -54,10 +54,6 @@ SUI.widget.Location.prototype._init = function() {
  * @return {undefined}
  */
 SUI.widget.Location.prototype._initButtons = function() {
-  this.buttonGroupNode = new SUI.Node('div');
-  this.buttonGroupNode.addClass('buttons');
-  this.inputBlock.appendChild(this.buttonGroupNode);
-
   this._initSearchButton();
   this._initAdvancedButton();
 };
@@ -77,7 +73,7 @@ SUI.widget.Location.prototype._initSearchButton = function() {
       this.eventSearch(inputNode.value);
     }
   });
-  this.buttonGroupNode.appendChild(searchButton);
+  this.infoContainerNode.appendChild(searchButton);
 };
 
 /**
@@ -94,7 +90,7 @@ SUI.widget.Location.prototype._initAdvancedButton = function() {
       this._toggleAdvancedInputs();
     }
   });
-  this.buttonGroupNode.appendChild(this.advancedButton);
+  this.infoContainerNode.appendChild(this.advancedButton);
 };
 
 /**

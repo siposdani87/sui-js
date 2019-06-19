@@ -123,21 +123,22 @@ SUI.widget.Select.prototype.refresh = function() {
 
   this.selectContainerNode = new SUI.Node('div');
   this.selectContainerNode.addClass('select-container');
-  if (this.isEnabled()) {
-    this.selectContainerNode.addEventListener('click', () => {
+  this.selectContainerNode.addEventListener('click', () => {
+    if (this.isEnabled()) {
       this.open();
-    });
-  }
+    }
+  });
   this.input.insertAfter(this.selectContainerNode);
 
   this.selectNode = new SUI.Node('div');
   this.selectNode.addClass('select-input');
   this.selectContainerNode.appendChild(this.selectNode);
 
-  this.iconNode = new SUI.Node('i');
+  this.iconNode = new SUI.Node('a');
+  this.iconNode.setAttribute('href', 'javascript:void(0)');
   this.iconNode.addClass(['material-icons', 'size-24', 'expander']);
   this.iconNode.setHtml('expand_more');
-  this.selectContainerNode.appendChild(this.iconNode);
+  this.infoContainerNode.appendChild(this.iconNode);
 
   const ids = this._getSelectedIds();
   this._setSelectTags(ids);

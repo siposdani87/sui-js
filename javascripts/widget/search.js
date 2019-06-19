@@ -50,7 +50,7 @@ SUI.widget.Search.prototype.render = function() {
 
   this.label.addClass(['mdl-button', 'mdl-js-button', 'mdl-button--icon']);
   const iconNode = new SUI.Node('i');
-  iconNode.addClass('material-icons');
+  iconNode.addClass(['material-icons', 'search-button']);
   iconNode.setHtml('search');
   this.label.insert(iconNode);
 
@@ -85,7 +85,7 @@ SUI.widget.Search.prototype.refresh = function() {
 SUI.widget.Search.prototype._initClearButton = function() {
   const clearButton = new SUI.Node('a');
   clearButton.setAttribute('href', 'javascript:void(0)');
-  clearButton.addClass(['clear-button', 'material-icons']);
+  clearButton.addClass(['material-icons', 'clear-button']);
   clearButton.setHtml('clear');
   clearButton.addEventListener('click', () => {
     if (this.isEnabled()) {

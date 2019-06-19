@@ -13,10 +13,11 @@
     position: absolute;
     right: 5px;
     top: 4px;
+    color: $primary-default-light;
   }
 
-  .material-icons {
-    color: $primary-default-light;
+  .search-button {
+      color: $primary-default-light;
   }
 
   &.is-focused,
@@ -27,7 +28,8 @@
   }
 
   &.is-disabled {
-    .material-icons {
+    .clear-button,
+    .search-button {
       color: $primary-disabled-light;
     }
   }

@@ -1,5 +1,4 @@
 .url-widget {
-  position: relative;
 
   // &.is-focused {
   //   .protocol {
@@ -13,7 +12,7 @@
     text-align: center;
     display: none;
     position: absolute;
-    background-color: $light-grey;
+    background-color: $input-default-light;
     @include border-radius(2px);
   }
 }

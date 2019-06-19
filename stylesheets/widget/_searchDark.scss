@@ -1,12 +1,17 @@
 .dark-theme {
   .search-widget {
 
-    .material-icons {
+    .clear-button {
+      color: $primary-default-dark;
+    }
+
+    .search-button {
       color: $primary-default-dark;
     }
 
     &.is-disabled {
-      .material-icons {
+      .clear-button,
+      .search-button {
         color: $primary-disabled-dark;
       }
     }
