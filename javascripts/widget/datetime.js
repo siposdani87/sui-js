@@ -29,10 +29,14 @@ SUI.widget.Datetime.prototype._init = function() {
   this.inputBlock.addClass('datetime-widget');
   this.input.addClass('hidden');
 
+  this.datetimeContainer = new SUI.Node('div');
+  this.datetimeContainer.addClass('datetime-container');
+  this.input.insertAfter(this.datetimeContainer);
+
   this.datetimeInput = new SUI.Node('div');
   this.datetimeInput.addClass('datetime-input');
   this.datetimeInput.addEventListener('click', this._onClick.bind(this));
-  this.inputBlock.appendChild(this.datetimeInput);
+  this.datetimeContainer.appendChild(this.datetimeInput);
 
   this._initInput();
 };
@@ -87,7 +91,7 @@ SUI.widget.Datetime.prototype.render = function() {
   iconNode.addClass(['material-icons', 'size-24', 'expander']);
   iconNode.setHtml('date_range');
   iconNode.addEventListener('click', this._onClick.bind(this));
-  this.datetimeInput.insertAfter(iconNode);
+  this.infoContainerNode.appendChild(iconNode);
 
   this.refresh();
   this.datetime.draw();
