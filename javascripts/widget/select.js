@@ -324,6 +324,7 @@ SUI.widget.Select.prototype._setTags = function(tags) {
       iconNode.addEventListener('click', () => {
         this._handleSelectedId(id);
       });
+      tagNode.addClass('tag-with-action');
       tagNode.appendChild(iconNode);
     }
   });

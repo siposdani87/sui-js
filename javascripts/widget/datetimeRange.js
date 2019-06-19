@@ -143,6 +143,7 @@ SUI.widget.DatetimeRange.prototype._setTag = function(value) {
       iconNode.addEventListener('click', () => {
         this.setValue('');
       });
+      tagNode.addClass('tag-with-action');
       tagNode.appendChild(iconNode);
     }
   }

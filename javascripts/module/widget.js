@@ -23,8 +23,7 @@ SUI.Widget = function(input, opt_label, opt_error, opt_inputBlock, opt_form) {
     this.errorTooltip = new SUI.Tooltip(this.error);
   }
 
-  this._setInfo();
-  this._setLabel();
+  this._setLabel(this.label);
   this._setMutation();
 };
 
@@ -210,7 +209,7 @@ SUI.Widget.prototype.setRequired = function(state) {
   }
   this.input.getNode().required = state;
   this.checkValidity(true, false);
-  this._setLabel();
+  this._setLabel(this.label);
 };
 
 /**
@@ -242,35 +241,40 @@ SUI.Widget.prototype.setDisabled = function(state) {
 };
 
 /**
- * @protected
+ * @private
+ * @param {!SUI.Node} label
  * @return {undefined}
  */
-SUI.Widget.prototype._setInfo = function() {
-  if (this.label && this.label.exists()) {
-    const title = /** @type {string} */ (this.label.getAttribute('title'));
-    const description = /** @type {string} */ (this.label.getAttribute('desc'));
-    if (title || description) {
-      const infoButton = new SUI.Node('a');
-      infoButton.setAttribute('title', title || '');
-      infoButton.setAttribute('desc', description || '');
-      infoButton.setAttribute('href', 'javascript:void(0)');
-      infoButton.addClass(['info-button', 'material-icons']);
-      infoButton.setHtml('info_outline');
-      this.inputBlock.appendChild(infoButton);
-      const tooltip = new SUI.Tooltip(infoButton, 'LEFT');
-      tooltip.render();
+SUI.Widget.prototype._setInfo = function(label) {
+  const title = /** @type {string} */ (label.getAttribute('title'));
+  const description = /** @type {string} */ (label.getAttribute('desc'));
+  if (title || description) {
+    let infoButton = new SUI.Query('a.info-button', this.inputBlock).getItem();
+    if (!infoButton.isEmpty()) {
+      infoButton.remove();
     }
+    infoButton = new SUI.Node('a');
+    infoButton.setAttribute('title', title || '');
+    infoButton.setAttribute('desc', description || '');
+    infoButton.setAttribute('href', 'javascript:void(0)');
+    infoButton.addClass(['info-button', 'material-icons']);
+    infoButton.setHtml('info_outline');
+    this.inputBlock.appendChild(infoButton);
+    const tooltip = new SUI.Tooltip(infoButton, 'LEFT');
+    tooltip.render();
   }
 };
 
 /**
  * @protected
+ * @param {!SUI.Node|undefined} label
  * @return {undefined}
  */
-SUI.Widget.prototype._setLabel = function() {
-  if (this.label && this.label.exists()) {
-    const labelText = this._getLabelRequiredText(this.label.getHtml(true));
-    this.label.setHtml(labelText);
+SUI.Widget.prototype._setLabel = function(label) {
+  if (label && label.exists()) {
+    const labelText = this._getLabelRequiredText(label.getHtml(true));
+    label.setHtml(labelText);
+    this._setInfo(label);
   }
 };
 
