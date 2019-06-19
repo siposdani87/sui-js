@@ -85,7 +85,8 @@ SUI.widget.DatetimeRange.prototype.render = function() {
     this.label.addClass('widget-label');
   }
 
-  const iconNode = new SUI.Node('i');
+  const iconNode = new SUI.Node('a');
+  iconNode.setAttribute('href', 'javascript:void(0)');
   iconNode.addClass(['material-icons', 'size-24', 'expander']);
   if (this.isStartInput) {
     iconNode.setHtml('remove');

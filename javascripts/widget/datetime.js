@@ -50,11 +50,10 @@ SUI.widget.Datetime.prototype._initInput = function() {
     this.checkValidity();
   });
 
-  this.datetimeNode = new SUI.Node('div');
-
   const type = this.input.getAttribute('type');
   const value = /** @type {string} */ (this.getValue().toString());
 
+  this.datetimeNode = new SUI.Node('div');
   this.datetime = new SUI.Datetime(this.datetimeNode, {
     value: value,
     type: type,
@@ -83,7 +82,8 @@ SUI.widget.Datetime.prototype.render = function() {
     this.label.addClass('widget-label');
   }
 
-  const iconNode = new SUI.Node('i');
+  const iconNode = new SUI.Node('a');
+  iconNode.setAttribute('href', 'javascript:void(0)');
   iconNode.addClass(['material-icons', 'size-24', 'expander']);
   iconNode.setHtml('date_range');
   iconNode.addEventListener('click', this._onClick.bind(this));

@@ -23,8 +23,9 @@ SUI.Widget = function(input, opt_label, opt_error, opt_inputBlock, opt_form) {
     this.errorTooltip = new SUI.Tooltip(this.error);
   }
 
-  this._setLabel(this.label);
+  this._setInfoContainer();
   this._setMutation();
+  this._setLabel(this.label);
 };
 
 /**
@@ -242,6 +243,18 @@ SUI.Widget.prototype.setDisabled = function(state) {
 
 /**
  * @private
+ * @return {undefined}
+ */
+SUI.Widget.prototype._setInfoContainer = function() {
+  if (this.inputBlock && !this.inputBlock.isEmpty()) {
+    this.infoContainerNode = new SUI.Node('div');
+    this.infoContainerNode.addClass(['info-container']);
+    this.inputBlock.appendChild(this.infoContainerNode);
+  }
+};
+
+/**
+ * @private
  * @param {!SUI.Node} label
  * @return {undefined}
  */
@@ -249,7 +262,7 @@ SUI.Widget.prototype._setInfo = function(label) {
   const title = /** @type {string} */ (label.getAttribute('title'));
   const description = /** @type {string} */ (label.getAttribute('desc'));
   if (title || description) {
-    let infoButton = new SUI.Query('a.info-button', this.inputBlock).getItem();
+    let infoButton = new SUI.Query('a.info-button', this.infoContainerNode).getItem();
     if (!infoButton.isEmpty()) {
       infoButton.remove();
     }
@@ -259,7 +272,7 @@ SUI.Widget.prototype._setInfo = function(label) {
     infoButton.setAttribute('href', 'javascript:void(0)');
     infoButton.addClass(['info-button', 'material-icons']);
     infoButton.setHtml('info_outline');
-    this.inputBlock.appendChild(infoButton);
+    this.infoContainerNode.appendChild(infoButton);
     const tooltip = new SUI.Tooltip(infoButton, 'LEFT');
     tooltip.render();
   }

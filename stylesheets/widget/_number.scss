@@ -1,16 +1,23 @@
 .number-widget {
+
+  .step-change {
+    position: relative;
+    display: inline-block;
+    width: 24px;
+    height: 24px;
+    margin-left: 2px;
+  }
+
   .up-button {
     color: $primary-default-light;
     position: absolute;
-    right: 5px;
-    top: 16px;
+    top: -7px;
   }
 
   .down-button {
     color: $primary-default-light;
     position: absolute;
-    right: 5px;
-    bottom: 16px;
+    top: 7px;
   }
 
   &.is-disabled {

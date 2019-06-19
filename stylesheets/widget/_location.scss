@@ -1,22 +1,15 @@
 .location-widget {
   padding: 20px 0 0 !important;
 
-  .buttons {
-    position: absolute;
-    right: 5px;
-    top: 24px;
-  }
-
-  .search-button {
-    margin-right: 6px;
-  }
-
+  .search-button,
   .advanced-button {
+    color: $primary-default-light;
+
     &.active {
-      color: $accent;
+      color: $accent-default-light;
     }
   }
-  
+
   .advanced {
     margin-top: 20px;
     margin-bottom: -20px;

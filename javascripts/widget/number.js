@@ -48,6 +48,10 @@ SUI.widget.Number.prototype._init = function() {
  * @return {undefined}
  */
 SUI.widget.Number.prototype._initButtons = function() {
+  const actionNode = new SUI.Node('span');
+  actionNode.addClass('step-change');
+  this.infoContainerNode.appendChild(actionNode);
+
   const upButton = new SUI.Node('a');
   upButton.setAttribute('href', 'javascript:void(0)');
   upButton.addClass(['up-button', 'material-icons']);
@@ -60,7 +64,7 @@ SUI.widget.Number.prototype._initButtons = function() {
       this.checkValidity(true);
     }
   });
-  this.inputBlock.appendChild(upButton);
+  actionNode.appendChild(upButton);
 
   const downButton = new SUI.Node('a');
   downButton.setAttribute('href', 'javascript:void(0)');
@@ -74,7 +78,7 @@ SUI.widget.Number.prototype._initButtons = function() {
       this.checkValidity(true);
     }
   });
-  this.inputBlock.appendChild(downButton);
+  actionNode.appendChild(downButton);
 };
 
 /**
