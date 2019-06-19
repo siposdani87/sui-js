@@ -158,78 +158,52 @@ SUI.widget.Location.prototype._renderAdvancedInputs = function() {
   this.advancedNode.addClass(['advanced', 'row', 'hidden']);
   this.inputBlock.appendChild(this.advancedNode);
 
-  this._renderLatitudeInput();
-  this._renderLongitudeInput();
-};
-
-/**
- * @private
- * @return {undefined}
- */
-SUI.widget.Location.prototype._renderLatitudeInput = function() {
-  const id = SUI.generateId('latitude');
-
-  const latitudeBlockNode = new SUI.Node('div');
-  latitudeBlockNode.addClass('col-6');
-  this.advancedNode.appendChild(latitudeBlockNode);
-
-  const latitudeNode = new SUI.Node('div');
-  latitudeNode.addClass(['mdl-textfield', 'mdl-js-textfield', 'mdl-textfield--floating-label']);
-  latitudeBlockNode.appendChild(latitudeNode);
-
-  this.latitudeLabel = new SUI.Node('label');
-  this.latitudeLabel.setFor(id);
-  this.latitudeLabel.addClass('mdl-textfield__label');
-  this.latitudeLabel.setHtml(/** @type {string} */ (this.input.getData('latitude')));
-  latitudeNode.appendChild(this.latitudeLabel);
-
-  this.latitudeInput = new SUI.Node('input');
-  this.latitudeInput.setId(id);
-  this.latitudeInput.setAttribute('type', 'text');
-  this.latitudeInput.addClass('mdl-textfield__input');
-  latitudeNode.appendChild(this.latitudeInput);
-
-  this.latitudeInput.addEventListener('change', (inputNode) => {
-    const latitude = inputNode.getNode().value;
+  this.latitudeInput = this._renderAdvancedInput(SUI.generateId('latitude'), /** @type {string} */ (this.input.getData('latitude')), (inputNode) => {
     const location = /** @type {!Object} */ (this.getValue());
+    const latitude = inputNode.getNode().value;
     location['latitude'] = latitude;
     this.setValue(location);
   });
+  this.longitudeInput = this._renderAdvancedInput(SUI.generateId('longitude'), /** @type {string} */ (this.input.getData('longitude')), (inputNode) => {
+    const location = /** @type {!Object} */ (this.getValue());
+    const longitude = inputNode.getNode().value;
+    location['longitude'] = longitude;
+    this.setValue(location);
+  });
 };
 
 /**
  * @private
- * @return {undefined}
+ * @param {string} id
+ * @param {string} labelText
+ * @param {function(!SUI.Node):undefined} callback
+ * @return {!SUI.Node}
  */
-SUI.widget.Location.prototype._renderLongitudeInput = function() {
-  const id = SUI.generateId('longitude');
+SUI.widget.Location.prototype._renderAdvancedInput = function(id, labelText, callback) {
+  const blockNode = new SUI.Node('div');
+  blockNode.addClass('col-6');
+  this.advancedNode.appendChild(blockNode);
 
-  const longitudeBlockNode = new SUI.Node('div');
-  longitudeBlockNode.addClass('col-6');
-  this.advancedNode.appendChild(longitudeBlockNode);
+  const boxNode = new SUI.Node('div');
+  boxNode.addClass(['mdl-textfield', 'mdl-js-textfield', 'mdl-textfield--floating-label']);
+  blockNode.appendChild(boxNode);
 
-  const longitudeNode = new SUI.Node('div');
-  longitudeNode.addClass(['mdl-textfield', 'mdl-js-textfield', 'mdl-textfield--floating-label']);
-  longitudeBlockNode.appendChild(longitudeNode);
+  const advancedLabel = new SUI.Node('label');
+  advancedLabel.setFor(id);
+  advancedLabel.addClass('mdl-textfield__label');
+  advancedLabel.setHtml(labelText);
+  boxNode.appendChild(advancedLabel);
 
-  this.longitudeLabel = new SUI.Node('label');
-  this.longitudeLabel.setFor(id);
-  this.longitudeLabel.addClass('mdl-textfield__label');
-  this.longitudeLabel.setHtml(/** @type {string} */ (this.input.getData('longitude')));
-  longitudeNode.appendChild(this.longitudeLabel);
+  const advancedInput = new SUI.Node('input');
+  advancedInput.setId(id);
+  advancedInput.setAttribute('type', 'number');
+  advancedInput.addClass('mdl-textfield__input');
+  boxNode.appendChild(advancedInput);
 
-  this.longitudeInput = new SUI.Node('input');
-  this.longitudeInput.setId(id);
-  this.longitudeInput.setAttribute('type', 'text');
-  this.longitudeInput.addClass('mdl-textfield__input');
-  longitudeNode.appendChild(this.longitudeInput);
+  this._setLabel(advancedLabel);
+  advancedInput.addEventListener('change', callback.bind(this));
 
-  this.longitudeInput.addEventListener('change', (inputNode) => {
-    const longitude = inputNode.getNode().value;
-    const location = /** @type {!Object} */ (this.getValue());
-    location['longitude'] = longitude;
-    this.setValue(location);
-  });
+  return advancedInput;
 };
 
 /**
