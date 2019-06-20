@@ -104,6 +104,17 @@ SUI.widget.Select.prototype.render = function() {
     this.label.addClass('widget-label');
   }
 
+  this.iconNode = new SUI.Node('a');
+  this.iconNode.setAttribute('href', 'javascript:void(0)');
+  this.iconNode.addClass(['material-icons', 'size-24', 'expander']);
+  this.iconNode.setHtml('expand_more');
+  this.iconNode.addEventListener('click', () => {
+    if (this.isEnabled()) {
+      this.open();
+    }
+  });
+  this.infoContainerNode.appendChild(this.iconNode);
+
   this.refresh();
 };
 
@@ -133,17 +144,6 @@ SUI.widget.Select.prototype.refresh = function() {
   this.selectNode = new SUI.Node('div');
   this.selectNode.addClass('select-input');
   this.selectContainerNode.appendChild(this.selectNode);
-
-  this.iconNode = new SUI.Node('a');
-  this.iconNode.setAttribute('href', 'javascript:void(0)');
-  this.iconNode.addClass(['material-icons', 'size-24', 'expander']);
-  this.iconNode.setHtml('expand_more');
-  this.iconNode.addEventListener('click', () => {
-    if (this.isEnabled()) {
-      this.open();
-    }
-  });
-  this.infoContainerNode.appendChild(this.iconNode);
 
   const ids = this._getSelectedIds();
   this._setSelectTags(ids);
