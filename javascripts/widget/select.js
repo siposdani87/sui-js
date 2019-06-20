@@ -138,6 +138,11 @@ SUI.widget.Select.prototype.refresh = function() {
   this.iconNode.setAttribute('href', 'javascript:void(0)');
   this.iconNode.addClass(['material-icons', 'size-24', 'expander']);
   this.iconNode.setHtml('expand_more');
+  this.iconNode.addEventListener('click', () => {
+    if (this.isEnabled()) {
+      this.open();
+    }
+  });
   this.infoContainerNode.appendChild(this.iconNode);
 
   const ids = this._getSelectedIds();
@@ -319,7 +324,8 @@ SUI.widget.Select.prototype._setTags = function(tags) {
 
     const id = tag.get('id');
     if (SUI.neq(id, '') && this.isEnabled()) {
-      const iconNode = new SUI.Node('i');
+      const iconNode = new SUI.Node('a');
+      iconNode.setAttribute('href', 'javascript:void(0)');
       iconNode.addClass(['material-icons', 'size-18']);
       iconNode.setHtml('close');
       iconNode.addEventListener('click', () => {

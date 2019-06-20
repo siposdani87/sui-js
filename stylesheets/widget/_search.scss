@@ -17,7 +17,7 @@
   }
 
   .search-button {
-      color: $primary-default-light;
+    color: $primary-default-light;
   }
 
   &.is-focused,
@@ -28,6 +28,7 @@
   }
 
   &.is-disabled {
+
     .clear-button,
     .search-button {
       color: $primary-disabled-light;

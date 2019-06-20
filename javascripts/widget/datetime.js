@@ -135,7 +135,8 @@ SUI.widget.Datetime.prototype._setTag = function(value) {
     this.datetimeInput.appendChild(tagNode);
 
     if (this.isEnabled()) {
-      const iconNode = new SUI.Node('i');
+      const iconNode = new SUI.Node('a');
+      iconNode.setAttribute('href', 'javascript:void(0)');
       iconNode.addClass(['material-icons', 'size-18']);
       iconNode.setHtml('close');
       iconNode.addEventListener('click', () => {
