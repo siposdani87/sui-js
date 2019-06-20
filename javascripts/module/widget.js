@@ -247,9 +247,12 @@ SUI.Widget.prototype.setDisabled = function(state) {
  */
 SUI.Widget.prototype._setInfoContainer = function() {
   if (this.inputBlock && !this.inputBlock.isEmpty()) {
-    this.infoContainerNode = new SUI.Node('div');
-    this.infoContainerNode.addClass(['info-container']);
-    this.inputBlock.appendChild(this.infoContainerNode);
+    this.infoContainerNode = new SUI.Query('.info-container', this.inputBlock).getItem();
+    if (this.infoContainerNode.isEmpty()) {
+      this.infoContainerNode = new SUI.Node('div');
+      this.infoContainerNode.addClass(['info-container']);
+      this.inputBlock.appendChild(this.infoContainerNode);
+    }
   }
 };
 
