@@ -33,7 +33,7 @@ SUI.widget.DatetimeRange.prototype._init = function() {
   this.input.addClass('hidden');
 
   this.datetimeContainer = new SUI.Query('.datetime-container', this.inputBlock).getItem();
-  if (this.isStartInput){
+  if (this.isStartInput) {
     this.datetimeContainer = new SUI.Node('div');
     this.datetimeContainer.addClass('datetime-container');
     this.input.insertAfter(this.datetimeContainer);
@@ -103,7 +103,6 @@ SUI.widget.DatetimeRange.prototype.render = function() {
     this.infoContainerNode.appendChild(iconNode);
   }
   iconNode.addEventListener('click', this._onClick.bind(this));
-  
 
   this.refresh();
   this.datetime.draw();
