@@ -326,7 +326,7 @@ SUI.widget.Select.prototype._setTags = function(tags) {
     if (SUI.neq(id, '') && this.isEnabled()) {
       const iconNode = new SUI.Node('a');
       iconNode.setAttribute('href', 'javascript:void(0)');
-      iconNode.addClass(['material-icons', 'size-18']);
+      iconNode.addClass(['material-icons', 'size-18', 'close']);
       iconNode.setHtml('close');
       iconNode.addEventListener('click', () => {
         this._handleSelectedId(id);

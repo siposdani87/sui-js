@@ -57,7 +57,8 @@ SUI.Router.prototype.stringify = function(opt_params = {}) {
       }
     }
   }
-  return route.replace(this.param, '');
+  route = route.replace(this.param, '');
+  return route[route.length - 1] === '?' ? route.substring(0, route.length - 1) : route;
 };
 
 /**

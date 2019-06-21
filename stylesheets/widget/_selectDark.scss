@@ -15,6 +15,13 @@
       .tag {
         background-color: $input-default-dark;
         color: $content-default-dark;
+
+        .close {
+          color: $primary-default-dark;
+          &:hover {
+            color: $primary-default-dark;
+          }
+        }
       }
     }
 
@@ -53,6 +60,13 @@
         .tag {
           background-color: $input-disabled-dark;
           color: $content-disabled-dark;
+
+          .close {
+            color: $primary-disabled-dark;
+            &:hover {
+              color: $primary-disabled-dark;
+            }
+          }
         }
       }
 
