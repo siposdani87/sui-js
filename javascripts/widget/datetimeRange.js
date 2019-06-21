@@ -148,7 +148,7 @@ SUI.widget.DatetimeRange.prototype._setTag = function(value) {
     if (this.isEnabled()) {
       const iconNode = new SUI.Node('a');
       iconNode.setAttribute('href', 'javascript:void(0)');
-      iconNode.addClass(['material-icons', 'size-18']);
+      iconNode.addClass(['material-icons', 'size-18', 'close']);
       iconNode.setHtml('close');
       iconNode.addEventListener('click', () => {
         this.setValue('');

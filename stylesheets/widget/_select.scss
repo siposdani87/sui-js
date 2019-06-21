@@ -58,10 +58,14 @@
         padding-right: 30px;
       }
 
-      .material-icons {
+      .close {
         position: absolute;
         right: 5px;
         top: 4px;
+        color: $primary-default-light;
+        &:hover {
+          color: $primary-default-light;
+        }
       }
     }
   }
@@ -122,6 +126,13 @@
       .tag {
         background-color: $input-disabled-light;
         color: $content-disabled-light;
+
+        .close {
+          color: $primary-disabled-light;
+          &:hover {
+            color: $primary-disabled-light;
+          }
+        }
       }
     }
 
