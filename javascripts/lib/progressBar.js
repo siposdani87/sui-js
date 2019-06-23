@@ -117,7 +117,7 @@ SUI.lib.ProgressBar.prototype._getProgressBar = function(node) {
 SUI.lib.ProgressBar.prototype._separateProgressBars = function(containerCallback, headerCallback, dialogCallback, confirmCallback) {
   containerCallback(!this.dialog.isOpened() && !this.confirm.isOpened());
   headerCallback(!this.dialog.isOpened() && !this.confirm.isOpened());
-  dialogCallback(this.dialog.isOpened());
+  dialogCallback(this.dialog.isOpened() && !this.confirm.isOpened());
   confirmCallback(this.confirm.isOpened());
 };
 
