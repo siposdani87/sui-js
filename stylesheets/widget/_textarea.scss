@@ -2,5 +2,10 @@
 
   .mdl-textarea__input {
     resize: none;
+    min-height: 150px;
+  }
+
+  .textbox {
+    display: inline-block;
   }
 }
