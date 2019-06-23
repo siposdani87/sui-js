@@ -133,6 +133,11 @@ SUI.widget.Location.prototype.render = function() {
  * @override
  */
 SUI.widget.Location.prototype.refresh = function() {
+  if (this.isDisabled()){
+    this.mapLockNode.addClass('map-lock');
+  } else {
+    this.mapLockNode.removeClass('map-lock');
+  }
   SUI.mdl(this.inputBlock);
 };
 
@@ -192,7 +197,7 @@ SUI.widget.Location.prototype._renderAdvancedInput = function(id, labelText, cal
 
   const advancedInput = new SUI.Node('input');
   advancedInput.setId(id);
-  advancedInput.setAttribute('type', 'number');
+  advancedInput.setAttribute('type', 'text');
   advancedInput.addClass('mdl-textfield__input');
   boxNode.appendChild(advancedInput);
 
@@ -209,8 +214,11 @@ SUI.widget.Location.prototype._renderAdvancedInput = function(id, labelText, cal
 SUI.widget.Location.prototype._renderMap = function() {
   const mapNode = new SUI.Node('div');
   mapNode.addClass('map');
-
   this.inputBlock.appendChild(mapNode);
+
+  this.mapLockNode = new SUI.Node('div');
+  this.mapLockNode.addClass('map-lock');
+  this.inputBlock.appendChild(this.mapLockNode);
 
   this.map = new SUI.GoogleMap(this.inputBlock, '.map', {
     zoom: 12,

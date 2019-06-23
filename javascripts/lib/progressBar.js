@@ -48,7 +48,7 @@ SUI.lib.ProgressBar.prototype._init = function() {
   this.progressBarConfirm = new SUI.Query('#confirm-window > .progress-bar').getItem();
 
   this.async = new SUI.Async(4);
-  this.async.eventComplete = (isError, nodes) => {
+  this.async.eventComplete = (_isError, nodes) => {
     if (nodes[0]['MaterialProgress']) {
       this.mProgressContainer = nodes[0]['MaterialProgress'];
     }
