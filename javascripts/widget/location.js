@@ -133,7 +133,7 @@ SUI.widget.Location.prototype.render = function() {
  * @override
  */
 SUI.widget.Location.prototype.refresh = function() {
-  if (this.isDisabled()){
+  if (this.isDisabled()) {
     this.mapLockNode.addClass('map-lock');
   } else {
     this.mapLockNode.removeClass('map-lock');
