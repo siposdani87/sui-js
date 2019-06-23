@@ -378,7 +378,7 @@ SUI.State.prototype.setParams = function(properties) {
 
 /**
  * @param {string} name
- * @param {string} value
+ * @param {*} value
  * @return {undefined}
  */
 SUI.State.prototype.setParam = function(name, value) {
