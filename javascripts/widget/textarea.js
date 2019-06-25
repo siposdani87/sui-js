@@ -53,6 +53,9 @@ SUI.widget.Textarea.prototype.render = function() {
 
   this.textboxNode = new SUI.Node('div');
   this.textboxNode.addClass(['mdl-textfield__input', 'mdl-textarea__input', 'textbox']);
+  let value = /** @type {string} */ (this.getValue());
+  value = value.indexOf('<p>') === 0 ? value : `<p>${value || '<br />'}</p>`;
+  this.textboxNode.setHtml(value);
   this.input.insertAfter(this.textboxNode);
   this.oDoc = this.textboxNode.getNode();
   this.oDoc.contentEditable = 'true';
@@ -62,10 +65,10 @@ SUI.widget.Textarea.prototype.render = function() {
     }
   });
   this.textboxNode.addEventListener('keyup', (node) => {
-    this.setValue(node.getHtml(true));
+    this._setValue(node.getHtml(true));
   });
 
-  /*const toolbarNode = new SUI.Node('div');
+  const toolbarNode = new SUI.Node('div');
   toolbarNode.addClass('toolbar');
   this.input.insertBefore(toolbarNode);
 
@@ -76,7 +79,7 @@ SUI.widget.Textarea.prototype.render = function() {
   boldButtonNode.addEventListener('click', () => {
     this._formatDoc('bold');
   });
-  toolbarNode.appendChild(boldButtonNode);
+  // toolbarNode.appendChild(boldButtonNode);
 
   const codeButtonNode = new SUI.Node('a');
   codeButtonNode.setAttribute('href', 'javascript:void(0)');
@@ -85,7 +88,7 @@ SUI.widget.Textarea.prototype.render = function() {
   codeButtonNode.addEventListener('click', () => {
     this._setHtmlMode(!this._isHtmlMode());
   });
-  toolbarNode.appendChild(codeButtonNode);*/
+  // toolbarNode.appendChild(codeButtonNode);
 
   this.refresh();
 };
@@ -111,15 +114,15 @@ SUI.widget.Textarea.prototype._isHtmlMode = function() {
 /**
  * @private
  * @param {string} sCmd
- * @param {*} sValue
+ * @param {*=} opt_sValue
  * @return {undefined}
  */
-SUI.widget.Textarea.prototype._formatDoc = function(sCmd, sValue) {
+SUI.widget.Textarea.prototype._formatDoc = function(sCmd, opt_sValue) {
   if (!this._isHtmlMode()) { 
-    this.oDoc.focus();
-    document.execCommand(sCmd, false, sValue);
-    this.setValue(this.oDoc.innerHTML);
-    this.oDoc.focus();
+    //this.oDoc.focus();
+    document.execCommand(sCmd, false, opt_sValue);
+    this._setValue(this.oDoc.innerHTML);
+    //this.oDoc.focus();
   }
 };
 
@@ -147,7 +150,22 @@ SUI.widget.Textarea.prototype.refresh = function() {
     this.inputBlock.addClass('is-invalid');
   }
 
+  if (this.isDisabled()){
+    this.oDoc.contentEditable = 'false';
+  }
+
   SUI.mdl(this.inputBlock);
+};
+
+/**
+ * @private
+ * @param {!Object|!Function|!Array|boolean|number|string|null|undefined} value
+ * @return {undefined}
+ */
+SUI.widget.Textarea.prototype._setValue = function(value) {
+  const inputNode = this.input.getNode();
+  inputNode.value = value;
+  this.input.trigger('change');
 };
 
 /**
@@ -156,9 +174,8 @@ SUI.widget.Textarea.prototype.refresh = function() {
  * @return {undefined}
  */
 SUI.widget.Textarea.prototype.setValue = function(value) {
-  const inputNode = this.input.getNode();
-  inputNode.value = value;
-  this.input.trigger('change');
+  this.oDoc.innerHTML = value;
+  this._setValue(value);
 };
 
 /**
