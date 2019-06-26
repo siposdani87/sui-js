@@ -291,6 +291,7 @@ SUI.lib.Xhr.prototype._stringifyObject = function(obj) {
  */
 SUI.lib.Xhr.prototype._getResponseData = function(data) {
   const contentType = this.http.getResponseHeader('Content-Type');
+  let filename = '';
   let result = data;
   if (contentType) {
     switch (contentType.split(';')[0]) {
@@ -307,11 +308,12 @@ SUI.lib.Xhr.prototype._getResponseData = function(data) {
         // result = data;
         break;
     }
-  }
-  let filename = '';
-  const contentDisposition = this.http.getResponseHeader('Content-Disposition');
-  if (contentDisposition) {
-    filename = contentDisposition.match(/filename="(.+)"/)[1];
+    if (this.http.responseType === 'blob') {
+      const contentDisposition = this.http.getResponseHeader('Content-Disposition');
+      if (contentDisposition) {
+        filename = contentDisposition.match(/filename="(.+)"/)[1];
+      }
+    }
   }
   return [result, filename];
 };
