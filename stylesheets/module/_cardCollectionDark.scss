@@ -2,6 +2,7 @@
   .card-collection {
     .card {
       background-color: $deep-grey-bright;
+      border-color: $deep-grey-bright;
 
       &:hover {
         @include box-shadow(0 4px 5px 0 rgba($black, .5));
