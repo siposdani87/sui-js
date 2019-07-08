@@ -50,22 +50,22 @@ SUI.lib.Script.prototype.load = function(id, url, opt_params) {
   const script = new SUI.Query('#' + id);
   if (script.size() > 0) {
     this.progressBar.hide();
-    deferred.resolve(true);
+    deferred.resolve();
   } else {
     const node = new SUI.Node('script');
     node.setId(id);
     const urlWithQueryString = SUI.urlWithQueryString(url, opt_params);
     node.setAttribute('src', urlWithQueryString);
 
-    node.setAttribute('onload', function() {
+    node.setAttribute('onload', () => {
       this.progressBar.hide();
-      deferred.resolve(true);
-    }.bind(this));
+      deferred.resolve();
+    });
 
-    node.setAttribute('onerror', function() {
+    node.setAttribute('onerror', () => {
       this.progressBar.hide();
-      deferred.reject(false);
-    }.bind(this));
+      deferred.reject();
+    });
 
     this.head.appendChild(node);
   }
