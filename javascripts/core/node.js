@@ -217,8 +217,10 @@ SUI.Node.prototype.addEventListener = function(eventName, opt_callback) {
   let listener = SUI.noop();
   if (opt_callback) {
     listener = (event) => {
-      opt_callback(this, event);
-      event.stopPropagation();
+      if (!opt_callback(this, event)) {
+        event.stopPropagation();
+        event.preventDefault();
+      }
     };
     this.node.addEventListener(eventName, listener);
     this._addListenerToStore(eventName, listener);
