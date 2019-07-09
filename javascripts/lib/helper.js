@@ -24,15 +24,16 @@ SUI.lib.Helper.prototype._init = function() {
  * @param {string} name
  * @param {!SUI.Node} parentNode
  * @param {!Function} callback
+ * @param {string=} opt_href
  * @param {string=} opt_description
  * @param {boolean=} opt_allowAccess
  * @return {undefined}
  */
-SUI.lib.Helper.prototype.createLink = function(name, parentNode, callback, opt_description = '', opt_allowAccess = true) {
+SUI.lib.Helper.prototype.createLink = function(name, parentNode, callback, opt_href = '', opt_description = '', opt_allowAccess = true) {
   const linkNode = new SUI.Node('a');
   linkNode.setHtml(name);
   parentNode.appendChild(linkNode);
-  this.linkElement(linkNode, callback, opt_description, opt_allowAccess);
+  this.linkElement(linkNode, callback, opt_href, opt_description, opt_allowAccess);
 };
 
 /**
@@ -51,29 +52,34 @@ SUI.lib.Helper.prototype.multipleLink = function(selector, dom) {
  * @param {string} selector
  * @param {!SUI.Node} dom
  * @param {!Function=} opt_callback
+ * @param {string=} opt_href
  * @param {string=} opt_description
  * @param {boolean=} opt_allowAccess
  * @return {undefined}
  */
-SUI.lib.Helper.prototype.link = function(selector, dom, opt_callback, opt_description = '', opt_allowAccess = true) {
+SUI.lib.Helper.prototype.link = function(selector, dom, opt_callback, opt_href = '', opt_description = '', opt_allowAccess = true) {
   const linkNode = new SUI.Query(selector, dom).getItem();
-  this.linkElement(linkNode, opt_callback, opt_description, opt_allowAccess);
+  this.linkElement(linkNode, opt_callback, opt_href, opt_description, opt_allowAccess);
 };
 
 /**
  * @param {!SUI.Node} linkNode
  * @param {!Function=} opt_callback
+ * @param {string=} opt_href
  * @param {string=} opt_description
  * @param {boolean=} opt_allowAccess
  * @return {undefined}
  */
-SUI.lib.Helper.prototype.linkElement = function(linkNode, opt_callback, opt_description = '', opt_allowAccess = true) {
+SUI.lib.Helper.prototype.linkElement = function(linkNode, opt_callback, opt_href = '', opt_description = '', opt_allowAccess = true) {
   if (!linkNode.isEmpty()) {
     if (opt_allowAccess) {
       if (!linkNode.getId()) {
         linkNode.setId(SUI.generateId('link'));
       } else {
         linkNode.removeEventListeners('click');
+      }
+      if (opt_href) {
+        linkNode.setAttribute('href', opt_href);
       }
       if (opt_callback) {
         const href = linkNode.getAttribute('href');
