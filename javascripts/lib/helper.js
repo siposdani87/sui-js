@@ -73,14 +73,10 @@ SUI.lib.Helper.prototype.linkElement = function(linkNode, opt_callback, opt_desc
       if (!linkNode.getId()) {
         linkNode.setId(SUI.generateId('link'));
       } else {
-        const oldHref = /** @type {string} */ (linkNode.getData('href'));
-        linkNode.setAttribute('href', oldHref);
         linkNode.removeEventListeners('click');
       }
       if (opt_callback) {
         const href = linkNode.getAttribute('href');
-        linkNode.setData('href', href);
-        linkNode.setAttribute('href', 'javascript:void(0)');
         linkNode.addEventListener('click', function() {
           opt_callback(href);
         });
