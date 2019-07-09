@@ -3,7 +3,7 @@
   position: fixed;
   width: 100%;
   height: 100%;
-  background-color: rgba($black, .75);
+  background-color: rgba($black, .9);
   justify-content: center;
   overflow-y: auto;
 
@@ -17,15 +17,15 @@
 
   #viewer-window {
     position: absolute;
-    background-color: rgba($black, .8);
     color: $white;
     width: 100vw;
-    min-height: 100vh;
-    display: flex;
+    height: 100vh;
+    @include display-flex;
     flex-flow: column;
     justify-content: space-between;
 
     .modal-header {
+      @include flex(0);
       padding: 0 10px 0 20px;
       min-height: 50px;
       @include display-flex;
@@ -55,8 +55,9 @@
     }
 
     .modal-body {
+      @include flex(1 0 auto);
       padding: 20px;
-      display: flex;
+      @include display-flex;
       align-items: center;
       justify-content: center;
 
@@ -68,14 +69,9 @@
     }
 
     .modal-footer {
-      clear: both;
-      float: right;
+      @include flex(0);
       padding: 10px 20px;
       min-height: 50px;
-
-      button {
-        margin-left: 5px;
-      }
     }
   }
 }
