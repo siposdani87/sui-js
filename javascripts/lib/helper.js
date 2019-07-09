@@ -22,18 +22,17 @@ SUI.lib.Helper.prototype._init = function() {
 
 /**
  * @param {string} name
- * @param {!SUI.Node} parentNode
  * @param {!Function} callback
  * @param {string=} opt_href
  * @param {string=} opt_description
  * @param {boolean=} opt_allowAccess
- * @return {undefined}
+ * @return {!SUI.Node}
  */
-SUI.lib.Helper.prototype.createLink = function(name, parentNode, callback, opt_href = '', opt_description = '', opt_allowAccess = true) {
+SUI.lib.Helper.prototype.createLink = function(name, callback, opt_href = '', opt_description = '', opt_allowAccess = true) {
   const linkNode = new SUI.Node('a');
   linkNode.setHtml(name);
-  parentNode.appendChild(linkNode);
   this.linkElement(linkNode, callback, opt_href, opt_description, opt_allowAccess);
+  return linkNode;
 };
 
 /**
@@ -99,18 +98,17 @@ SUI.lib.Helper.prototype.linkElement = function(linkNode, opt_callback, opt_href
 
 /**
  * @param {string} name
- * @param {!SUI.Node} parentNode
  * @param {!Function} callback
  * @param {string=} opt_description
  * @param {boolean=} opt_allowAccess
  * @param {!Array=} opt_cssClasses
- * @return {undefined}
+ * @return {!SUI.Node}
  */
-SUI.lib.Helper.prototype.createButton = function(name, parentNode, callback, opt_description = '', opt_allowAccess = true, opt_cssClasses = ['mdl-button--primary']) {
+SUI.lib.Helper.prototype.createButton = function(name, callback, opt_description = '', opt_allowAccess = true, opt_cssClasses = ['mdl-button--primary']) {
   const buttonNode = new SUI.Node('button');
   buttonNode.setHtml(name);
-  parentNode.appendChild(buttonNode);
   this.buttonElement(buttonNode, callback, opt_description, opt_allowAccess, opt_cssClasses);
+  return buttonNode;
 };
 
 /**
@@ -174,18 +172,17 @@ SUI.lib.Helper.prototype.buttonElement = function(buttonNode, opt_callback, opt_
 
 /**
  * @param {string} iconName
- * @param {!SUI.Node} parentNode
  * @param {!Function} callback
  * @param {string=} opt_description
  * @param {boolean=} opt_allowAccess
  * @param {!Array=} opt_cssClasses
- * @return {undefined}
+ * @return {!SUI.Node}
  */
-SUI.lib.Helper.prototype.createIconButton = function(iconName, parentNode, callback, opt_description = '', opt_allowAccess = true, opt_cssClasses = ['mdl-button--accent', 'mdl-button--fab', 'mdl-button--mini-fab']) {
+SUI.lib.Helper.prototype.createIconButton = function(iconName, callback, opt_description = '', opt_allowAccess = true, opt_cssClasses = ['mdl-button--accent', 'mdl-button--fab', 'mdl-button--mini-fab']) {
   const buttonNode = new SUI.Node('button');
   this._createIconNode(iconName, buttonNode);
-  parentNode.appendChild(buttonNode);
   this.iconButtonElement(buttonNode, callback, opt_description, opt_allowAccess, opt_cssClasses);
+  return buttonNode;
 };
 
 /**
