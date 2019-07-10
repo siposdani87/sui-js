@@ -34,6 +34,7 @@ SUI.widget.Radiobutton.prototype._init = function() {
 
   this.input.addEventListener('change', () => {
     this._change();
+    return true;
   });
 };
 

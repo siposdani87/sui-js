@@ -48,6 +48,7 @@ SUI.Form.prototype._initFormEvent = function() {
     if (!(textArea || (event.keyCode || event.which || event.charCode || 0) !== 13)) {
       event.preventDefault();
     }
+    return true;
   });
 
   this._initSubmitFormEvent();

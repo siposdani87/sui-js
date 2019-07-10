@@ -44,6 +44,7 @@ SUI.widget.File.prototype._init = function() {
     const input = inputNode.getNode();
     const file = input.files[0];
     this._read(file);
+    return true;
   });
 };
 

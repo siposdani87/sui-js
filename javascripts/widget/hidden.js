@@ -25,6 +25,7 @@ SUI.widget.Hidden.prototype._init = function() {
     const inputNode = input.getNode();
     this.modelChange(inputNode.value);
     this.checkValidity();
+    return true;
   });
 };
 

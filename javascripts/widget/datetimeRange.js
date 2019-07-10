@@ -58,6 +58,7 @@ SUI.widget.DatetimeRange.prototype._initInput = function() {
     const value = this.getValue().toString();
     this.modelChange(value);
     this.checkValidity();
+    return true;
   });
 
   const type = this.input.getAttribute('type');
