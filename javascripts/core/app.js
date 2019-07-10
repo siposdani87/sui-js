@@ -438,6 +438,7 @@ SUI.App.prototype._initTemplate = function() {
     locale: this.getLocale(),
   });
   this._instances[this._injections.template].eventError = function(message) {
+    this._instances[this._injections.state].back();
     this._instances[this._injections.loader].hide();
     this._instances[this._injections.notification].addMessage(message);
   }.bind(this);
