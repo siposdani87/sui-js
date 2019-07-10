@@ -79,7 +79,7 @@ SUI.lib.Template.prototype.load = function(url) {
 SUI.lib.Template.prototype._handleData = function(data, error) {
   const node = new SUI.Query('.page-content', data).getItem();
   if (error) {
-    const messageItem = new SUI.Query('.message', this.viewNode).getItem();
+    const messageItem = new SUI.Query('.message', node).getItem();
     const message = {
       'content': messageItem.getText(),
       'type': messageItem.getAttribute('class').split(' ')[1],
