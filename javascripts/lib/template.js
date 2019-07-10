@@ -78,7 +78,6 @@ SUI.lib.Template.prototype.load = function(url) {
  */
 SUI.lib.Template.prototype._handleData = function(data, error) {
   const node = new SUI.Query('.page-content', data).getItem();
-  this.viewNode.insert(node);
   if (error) {
     const messageItem = new SUI.Query('.message', this.viewNode).getItem();
     const message = {
@@ -86,6 +85,8 @@ SUI.lib.Template.prototype._handleData = function(data, error) {
       'type': messageItem.getAttribute('class').split(' ')[1],
     };
     this.eventError(message);
+  } else {
+    this.viewNode.insert(node);
   }
   return node;
 };
