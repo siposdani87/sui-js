@@ -46,15 +46,16 @@ SUI.Navigation.prototype.add = function(item) {
   const image = /** @type {string} */ (item.get('image'));
   const icon = /** @type {string} */ (item.get('icon'));
   const title = /** @type {string} */ (item.get('title'));
+  const href = /** @type {string} */ (item.get('href'));
   const action = /** @type {!Function} */ (item.get('action'));
   const disabled = /** @type {boolean} */ (item.get('disabled'));
 
   if (image) {
-    this.addImage(id, image, title, action, item);
+    this.addImage(id, image, title, action, href, item);
   } else if (icon) {
-    this.addIcon(id, icon, title, action, item);
+    this.addIcon(id, icon, title, action, href, item);
   } else {
-    this.addText(id, title, action, item);
+    this.addText(id, title, action, href, item);
   }
 
   if (disabled) {
@@ -67,11 +68,12 @@ SUI.Navigation.prototype.add = function(item) {
  * @param {string} icon
  * @param {?string} title
  * @param {!Function} action
+ * @param {string=} opt_href
  * @param {!Object=} opt_data
  * @return {undefined}
  */
-SUI.Navigation.prototype.addIcon = function(id, icon, title, action, opt_data) {
-  const item = this._setItem(id, title, action, opt_data);
+SUI.Navigation.prototype.addIcon = function(id, icon, title, action, opt_href = '', opt_data = {}) {
+  const item = this._setItem(id, title, action, opt_href, opt_data);
   const iconNode = new SUI.Node('i');
   iconNode.addClass(['material-icons']);
   iconNode.setHtml(icon);
@@ -89,11 +91,12 @@ SUI.Navigation.prototype.addIcon = function(id, icon, title, action, opt_data) {
  * @param {string} image
  * @param {?string} title
  * @param {!Function} action
+ * @param {string=} opt_href
  * @param {!Object=} opt_data
  * @return {undefined}
  */
-SUI.Navigation.prototype.addImage = function(id, image, title, action, opt_data) {
-  const item = this._setItem(id, title, action, opt_data);
+SUI.Navigation.prototype.addImage = function(id, image, title, action, opt_href = '', opt_data = {}) {
+  const item = this._setItem(id, title, action, opt_href, opt_data);
 
   const imageSpan = new SUI.Node('span');
   imageSpan.addClass('image');
@@ -123,11 +126,12 @@ SUI.Navigation.prototype.addImage = function(id, image, title, action, opt_data)
  * @param {string} id
  * @param {string} title
  * @param {!Function} action
+ * @param {string=} opt_href
  * @param {!Object=} opt_data
  * @return {undefined}
  */
-SUI.Navigation.prototype.addText = function(id, title, action, opt_data) {
-  this._setItem(id, title, action, opt_data);
+SUI.Navigation.prototype.addText = function(id, title, action, opt_href = '', opt_data = {}) {
+  this._setItem(id, title, action, opt_href, opt_data);
 };
 
 /**
@@ -135,10 +139,11 @@ SUI.Navigation.prototype.addText = function(id, title, action, opt_data) {
  * @param {string} id
  * @param {?string} title
  * @param {!Function} action
+ * @param {string=} opt_href
  * @param {!Object=} opt_data
  * @return {!SUI.Object}
  */
-SUI.Navigation.prototype._setItem = function(id, title, action, opt_data) {
+SUI.Navigation.prototype._setItem = function(id, title, action, opt_href = '', opt_data = {}) {
   const node = new SUI.Node('a');
   if (title) {
     const titleSpan = new SUI.Node('span');
@@ -146,7 +151,7 @@ SUI.Navigation.prototype._setItem = function(id, title, action, opt_data) {
     titleSpan.setHtml(title);
     node.appendChild(titleSpan);
   }
-  node.setAttribute('href', 'javascript:void(0)');
+  node.setAttribute('href', opt_href || 'javascript:void(0)');
 
   const listener = node.addEventListener('click', action);
 
