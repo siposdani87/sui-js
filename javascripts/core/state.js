@@ -327,7 +327,7 @@ SUI.State.prototype.goBack = function(id, opt_params, opt_force = false) {
  * @return {undefined}
  */
 SUI.State.prototype.back = function() {
-  window.history.back();
+  window.history.go(-1);
 };
 
 /**
