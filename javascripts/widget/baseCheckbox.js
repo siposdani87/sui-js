@@ -35,6 +35,7 @@ SUI.widget.BaseCheckbox.prototype._init = function() {
 
   this.input.addEventListener('change', () => {
     this._change();
+    return true;
   });
 };
 

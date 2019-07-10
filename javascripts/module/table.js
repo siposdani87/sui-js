@@ -103,6 +103,7 @@ SUI.Table.prototype._initSearch = function() {
         this.query = inputNode.getNode().value;
         this.refresh(1);
       }
+      return true;
     });
     inputBlock.appendChild(inputNode);
 

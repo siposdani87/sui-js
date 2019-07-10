@@ -31,12 +31,14 @@ SUI.widget.Search.prototype._init = function() {
     if (SUI.eq(event.keyCode, 13)) {
       this.eventEnter(inputNode.value);
     }
+    return true;
   });
 
   this.input.addEventListener('change', (input) => {
     const inputNode = input.getNode();
     this.modelChange(inputNode.value);
     this.checkValidity();
+    return true;
   });
 };
 

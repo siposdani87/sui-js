@@ -33,13 +33,15 @@ SUI.widget.Number.prototype._init = function() {
     const value = this.getValue();
     this.modelChange(value);
     this.checkValidity(true);
+    return true;
   });
 
-  this.input.addEventListener('change', (input) => {
+  this.input.addEventListener('change', () => {
     this._checkValue();
     const value = this.getValue();
     this.modelChange(value);
     this.checkValidity(true);
+    return true;
   });
 };
 

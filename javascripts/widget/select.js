@@ -68,6 +68,7 @@ SUI.widget.Select.prototype._initPopup = function() {
 SUI.widget.Select.prototype._initChangeEvent = function() {
   this.input.addEventListener('change', () => {
     this._change(true);
+    return true;
   });
 };
 
@@ -466,6 +467,7 @@ SUI.widget.Select.prototype._drawSearchInput = function() {
   this.searchInputNode.addEventListener('keyup', (input) => {
     const node = input.getNode();
     this._search(node.value);
+    return true;
   });
   searchNode.appendChild(this.searchInputNode);
 

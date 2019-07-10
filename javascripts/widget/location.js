@@ -37,6 +37,7 @@ SUI.widget.Location.prototype._init = function() {
     } else {
       input.trigger('change');
     }
+    return true;
   });
 
   this.input.addEventListener('change', (input) => {
@@ -46,6 +47,7 @@ SUI.widget.Location.prototype._init = function() {
     this._setDataValue(/** @type {!Object} */(location));
     this.modelChange(location);
     this.checkValidity();
+    return true;
   });
 };
 
@@ -202,7 +204,10 @@ SUI.widget.Location.prototype._renderAdvancedInput = function(id, labelText, cal
   boxNode.appendChild(advancedInput);
 
   this._setLabel(advancedLabel);
-  advancedInput.addEventListener('change', callback.bind(this));
+  advancedInput.addEventListener('change', (input) => {
+    callback(input);
+    return true;
+  });
 
   return advancedInput;
 };

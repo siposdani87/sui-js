@@ -81,6 +81,7 @@ SUI.widget.Color.prototype._initInput = function() {
     });
     this.modelChange(inputNode.value);
     this.checkValidity();
+    return true;
   });
 };
 
