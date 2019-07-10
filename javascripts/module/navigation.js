@@ -35,6 +35,8 @@ SUI.Navigation.prototype._setOptions = function(opt_options = {}) {
  */
 SUI.Navigation.prototype._init = function() {
   this.container = /** @type {!SUI.Collection<!SUI.Object>} */ (new SUI.Collection());
+
+  this.linkNodeKey = 'node';
 };
 
 /**
@@ -82,8 +84,8 @@ SUI.Navigation.prototype.addIcon = function(id, icon, title, action, opt_href = 
   imageSpan.addClass('image');
   imageSpan.appendChild(iconNode);
 
-  const node = item.get('node');
-  node.beforeChild(imageSpan);
+  const linkNode = item.get(this.linkNodeKey);
+  linkNode.beforeChild(imageSpan);
 };
 
 /**
@@ -118,8 +120,8 @@ SUI.Navigation.prototype.addImage = function(id, image, title, action, opt_href 
     imageSpan.appendChild(imageTag);
   }
 
-  const node = item.get('node');
-  node.beforeChild(imageSpan);
+  const linkNode = item.get(this.linkNodeKey);
+  linkNode.beforeChild(imageSpan);
 };
 
 /**
@@ -144,16 +146,20 @@ SUI.Navigation.prototype.addText = function(id, title, action, opt_href = '', op
  * @return {!SUI.Object}
  */
 SUI.Navigation.prototype._setItem = function(id, title, action, opt_href = '', opt_data = {}) {
-  const node = new SUI.Node('a');
+  const linkNode = new SUI.Node('a');
   if (title) {
     const titleSpan = new SUI.Node('span');
     titleSpan.addClass('title');
     titleSpan.setHtml(title);
-    node.appendChild(titleSpan);
+    linkNode.appendChild(titleSpan);
   }
-  node.setAttribute('href', opt_href || 'javascript:void(0)');
+  linkNode.setAttribute('href', opt_href || 'javascript:void(0)');
 
-  const listener = node.addEventListener('click', action);
+
+  const listener = linkNode.addEventListener('click', (node) => {
+    const href = node.getAttribute('href');
+    action(href);
+  });
 
   const item = new SUI.Object(opt_data);
   item.merge({
@@ -162,7 +168,7 @@ SUI.Navigation.prototype._setItem = function(id, title, action, opt_href = '', o
     'action': action,
     'listener': listener,
   });
-  item.setRaw('node', node);
+  item.setRaw(this.linkNodeKey, linkNode);
 
   this.container.push(item);
 
@@ -186,8 +192,8 @@ SUI.Navigation.prototype.each = function(next) {
 SUI.Navigation.prototype.bindToContainer = function(containerNode) {
   containerNode.removeChildren();
   this.each((item) => {
-    const node = item.get('node');
-    containerNode.appendChild(node);
+    const linkNode = item.get(this.linkNodeKey);
+    containerNode.appendChild(linkNode);
   });
 };
 
@@ -208,9 +214,9 @@ SUI.Navigation.prototype.setDisabled = function(id) {
  * @return {undefined}
  */
 SUI.Navigation.prototype._disabled = function(item) {
-  const node = item.get('node');
-  node.addClass('disabled');
-  node.removeEventListener('click', item.get('listener'));
+  const linkNode = item.get(this.linkNodeKey);
+  linkNode.addClass('disabled');
+  linkNode.removeEventListener('click', item.get('listener'));
 };
 
 /**
@@ -231,9 +237,13 @@ SUI.Navigation.prototype.setEnabled = function(id) {
  */
 SUI.Navigation.prototype._enabled = function(item) {
   this._disabled(item);
-  const node = item.get('node');
-  node.removeClass('disabled');
-  const listener = node.addEventListener('click', item.get('action'));
+  const linkNode = item.get(this.linkNodeKey);
+  linkNode.removeClass('disabled');
+  const listener = linkNode.addEventListener('click', (node) => {
+    const action = /** @type {function(string):undefined} */ (item.get('action'));
+    const href = node.getAttribute('href');
+    action(href);
+  });
   item.set('listener', listener);
 };
 
@@ -242,12 +252,12 @@ SUI.Navigation.prototype._enabled = function(item) {
  * @return {undefined}
  */
 SUI.Navigation.prototype.setActive = function(id) {
-  this.each(function(item) {
-    const node = item.get('node');
-    node.removeClass('active');
+  this.each((item) => {
+    const linkNode = item.get(this.linkNodeKey);
+    linkNode.removeClass('active');
     const itemId = item.get('id');
     if (itemId[itemId.length - 1] === '.' && SUI.contain(id, itemId) || SUI.eq(id, itemId)) {
-      node.addClass('active');
+      linkNode.addClass('active');
     }
   });
 };
@@ -257,8 +267,8 @@ SUI.Navigation.prototype.setActive = function(id) {
  */
 SUI.Navigation.prototype.setAllInactive = function() {
   this.each((item) => {
-    const node = item.get('node');
-    node.removeClass('active');
+    const linkNode = item.get(this.linkNodeKey);
+    linkNode.removeClass('active');
   });
 };
 
@@ -269,8 +279,8 @@ SUI.Navigation.prototype.setAllInactive = function() {
 SUI.Navigation.prototype.show = function(id) {
   const item = this.container.findById(id);
   if (item) {
-    const node = item.get('node');
-    node.removeClass('hidden');
+    const linkNode = item.get(this.linkNodeKey);
+    linkNode.removeClass('hidden');
     this._enabled(item);
   }
 };
@@ -282,8 +292,8 @@ SUI.Navigation.prototype.show = function(id) {
 SUI.Navigation.prototype.hide = function(id) {
   const item = this.container.findById(id);
   if (item) {
-    const node = item.get('node');
-    node.addClass('hidden');
+    const linkNode = item.get(this.linkNodeKey);
+    linkNode.addClass('hidden');
     this._disabled(item);
   }
 };
