@@ -41,8 +41,14 @@ SUI.lib.LeftMenu.prototype._initEvents = function() {
     this.close();
   });
 
-  this.mainMenuContainer.addEventListener('click', SUI.noop());
-  this.subMenuContainer.addEventListener('click', SUI.noop());
+  this.mainMenuContainer.addEventListener('click', () => {
+    SUI.noop();
+    return true;
+  });
+  this.subMenuContainer.addEventListener('click', () => {
+    SUI.noop();
+    return true;
+  });
 
   const openLeftMenu = new SUI.Query('#open-left-menu').getItem();
   openLeftMenu.setAttribute('href', 'javascript:void(0)');
