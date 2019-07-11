@@ -25,7 +25,7 @@ SUI.Widget = function(input, opt_label, opt_error, opt_inputBlock, opt_form) {
 
   this._setInfoContainer();
   this._setMutation();
-  this._setLabel(this.label);
+  this._setAdditionalLabel(this.label);
 };
 
 /**
@@ -210,7 +210,7 @@ SUI.Widget.prototype.setRequired = function(state) {
   }
   this.input.getNode().required = state;
   this.checkValidity(true, false);
-  this._setLabel(this.label);
+  this._setAdditionalLabel(this.label);
 };
 
 /**
@@ -239,6 +239,17 @@ SUI.Widget.prototype.setDisabled = function(state) {
   }
   this.input.getNode().disabled = state;
   this.checkValidity(true, false);
+};
+
+/**
+ * @param {string} text
+ * @return {undefined}
+ */
+SUI.Widget.prototype.setLabel = function(text) {
+  if (this.label && !this.label.isEmpty()) {
+    this.label.setHtml(text);
+    this._setAdditionalLabel(this.label);
+  }
 };
 
 /**
@@ -286,7 +297,7 @@ SUI.Widget.prototype._setInfo = function(label) {
  * @param {!SUI.Node|undefined} label
  * @return {undefined}
  */
-SUI.Widget.prototype._setLabel = function(label) {
+SUI.Widget.prototype._setAdditionalLabel = function(label) {
   if (label && label.exists()) {
     const labelText = this._getLabelRequiredText(label.getHtml(true));
     label.setHtml(labelText);

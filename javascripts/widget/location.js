@@ -203,7 +203,7 @@ SUI.widget.Location.prototype._renderAdvancedInput = function(id, labelText, cal
   advancedInput.addClass('mdl-textfield__input');
   boxNode.appendChild(advancedInput);
 
-  this._setLabel(advancedLabel);
+  this._setAdditionalLabel(advancedLabel);
   advancedInput.addEventListener('change', (input) => {
     callback(input);
     return true;
