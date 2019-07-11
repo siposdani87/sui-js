@@ -105,19 +105,7 @@
     .footer {
       text-align: right;
       padding: .5em;
-
-      .caption {
-        display: inline-block;
-        font-size: .8em;
-        color: $grey;
-        margin-right: .5em;
-      }
-
-      img {
-        display: inline-block;
-        max-width: 30px;
-        max-height: 30px;
-      }
+      min-height: calc(30px + 1em);
     }
   }
 }
