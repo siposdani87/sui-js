@@ -18,6 +18,14 @@ body {
     &:hover {
       color: $primary;
     }
+
+    &.link {
+      border-bottom-color: $primary-bright;
+  
+      &:hover {
+        border-bottom-color: $primary;
+      }
+    }
   }
 
   .text-default {

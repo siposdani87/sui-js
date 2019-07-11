@@ -54,6 +54,14 @@ a {
     color: $primary-dark;
     text-decoration: none;
   }
+
+  &.link {
+    border-bottom: 1px dotted $primary;
+
+    &:hover {
+      border-bottom: 1px solid $primary-dark;
+    }
+  }
 }
 
 p {
