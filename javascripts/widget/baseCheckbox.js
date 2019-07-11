@@ -93,3 +93,15 @@ SUI.widget.BaseCheckbox.prototype.setDisabled = function(state) {
   this.input.getNode().disabled = state;
   this.checkValidity(true, false);
 };
+
+/**
+ * @override
+ * @param {string} text
+ * @return {undefined}
+ */
+SUI.widget.BaseCheckbox.prototype.setLabel = function(text) {
+  if (this.spanLabel && !this.spanLabel.isEmpty()) {
+    this.spanLabel.setHtml(text);
+    this._setAdditionalLabel(this.spanLabel);
+  }
+};

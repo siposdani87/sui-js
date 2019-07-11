@@ -167,3 +167,15 @@ SUI.widget.Radiobutton.prototype._getRadioButtonInputs = function() {
   const name = this.input.getAttribute('name');
   return new SUI.Query(SUI.format('input[name="{0}"]', [name]), this.form.formNode);
 };
+
+/**
+ * @override
+ * @param {string} text
+ * @return {undefined}
+ */
+SUI.widget.Radiobutton.prototype.setLabel = function(text) {
+  if (this.dataLabelNode && !this.dataLabelNode.isEmpty()) {
+    this.dataLabelNode.setHtml(text);
+    this._setAdditionalLabel(this.dataLabelNode);
+  }
+};
