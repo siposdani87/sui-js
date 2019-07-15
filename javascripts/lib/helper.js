@@ -54,11 +54,12 @@ SUI.lib.Helper.prototype.multipleLink = function(selector, dom) {
  * @param {string=} opt_href
  * @param {string=} opt_description
  * @param {boolean=} opt_allowAccess
- * @return {undefined}
+ * @return {!SUI.Node}
  */
 SUI.lib.Helper.prototype.link = function(selector, dom, opt_callback, opt_href = '', opt_description = '', opt_allowAccess = true) {
   const linkNode = new SUI.Query(selector, dom).getItem();
   this.linkElement(linkNode, opt_callback, opt_href, opt_description, opt_allowAccess);
+  return linkNode;
 };
 
 /**
@@ -131,11 +132,12 @@ SUI.lib.Helper.prototype.multipleButton = function(selector, dom, opt_cssClasses
  * @param {string=} opt_description
  * @param {boolean=} opt_allowAccess
  * @param {!Array=} opt_cssClasses
- * @return {undefined}
+ * @return {!SUI.Node}
  */
 SUI.lib.Helper.prototype.button = function(selector, dom, callback, opt_description = '', opt_allowAccess = true, opt_cssClasses = ['mdl-button--primary']) {
   const buttonNode = new SUI.Query(selector, dom).getItem();
   this.buttonElement(buttonNode, callback, opt_description, opt_allowAccess, opt_cssClasses);
+  return buttonNode;
 };
 
 /**
@@ -205,11 +207,12 @@ SUI.lib.Helper.prototype.multipleIconButton = function(selector, dom, opt_cssCla
  * @param {string=} opt_description
  * @param {boolean=} opt_allowAccess
  * @param {!Array=} opt_cssClasses
- * @return {undefined}
+ * @return {!SUI.Node}
  */
 SUI.lib.Helper.prototype.iconButton = function(selector, dom, callback, opt_description = '', opt_allowAccess = true, opt_cssClasses = ['mdl-button--accent', 'mdl-button--fab', 'mdl-button--mini-fab']) {
   const buttonNode = new SUI.Query(selector, dom).getItem();
   this.iconButtonElement(buttonNode, callback, opt_description, opt_allowAccess, opt_cssClasses);
+  return buttonNode;
 };
 
 /**
