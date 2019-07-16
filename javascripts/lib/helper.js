@@ -22,16 +22,16 @@ SUI.lib.Helper.prototype._init = function() {
 
 /**
  * @param {string} name
- * @param {!Function} callback
+ * @param {!Function=} opt_callback
  * @param {string=} opt_href
  * @param {string=} opt_description
  * @param {boolean=} opt_allowAccess
  * @return {!SUI.Node}
  */
-SUI.lib.Helper.prototype.createLink = function(name, callback, opt_href = '', opt_description = '', opt_allowAccess = true) {
+SUI.lib.Helper.prototype.createLink = function(name, opt_callback, opt_href = '', opt_description = '', opt_allowAccess = true) {
   const linkNode = new SUI.Node('a');
   linkNode.setHtml(name);
-  this.linkElement(linkNode, callback, opt_href, opt_description, opt_allowAccess);
+  this.linkElement(linkNode, opt_callback, opt_href, opt_description, opt_allowAccess);
   return linkNode;
 };
 
@@ -161,7 +161,9 @@ SUI.lib.Helper.prototype.buttonElement = function(buttonNode, opt_callback, opt_
       const cssClasses = ['mdl-button', 'mdl-js-button', 'mdl-js-ripple-effect', 'mdl-button--raised'].concat(opt_cssClasses);
       buttonNode.setData('cssClasses', cssClasses);
       buttonNode.addClass(cssClasses);
-      buttonNode.addEventListener('click', opt_callback);
+      if (opt_callback) {
+        buttonNode.addEventListener('click', opt_callback);
+      }
 
       const tooltip = new SUI.Tooltip(buttonNode);
       tooltip.render(opt_description);
