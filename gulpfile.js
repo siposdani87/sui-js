@@ -1,4 +1,5 @@
 const gulp = require('gulp');
+const jsdoc = require('gulp-jsdoc3');
 const sass = require('gulp-sass');
 const compilerPackage = require('google-closure-compiler');
 const closureCompiler = compilerPackage.gulp({
@@ -14,7 +15,7 @@ const modRewrite = require('connect-modrewrite');
 
 const closureOptions = {
   compilation_level: 'ADVANCED_OPTIMIZATIONS', // SIMPLE_OPTIMIZATIONS, WHITESPACE_ONLY, ADVANCED_OPTIMIZATIONS
-  language_in: 'ECMASCRIPT_2017',
+  language_in: 'ECMASCRIPT_2019',
   language_out: 'ECMASCRIPT5_STRICT',
   warning_level: 'VERBOSE',
   externs: readdirSync('node_modules/sui-externs', {ignoreName: ['package.json', 'README.md', 'index.js', '.eslintrc.json', '.git', '.gitignore', '.vscode', 'node_modules', 'yarn.lock', 'package-lock.json']}),
@@ -57,6 +58,10 @@ gulp.task('watcher', ['compile:styles', 'compile:scripts:simple'], function() {
 
 gulp.task('default', ['compile:styles', 'compile:scripts'], function() {
 
+});
+
+gulp.task('doc', [], function(cb) {
+  gulp.src(['README.md', 'javascripts/**/*.js'], {read: false}).pipe(jsdoc(cb));
 });
 
 gulp.task('serve', ['watcher'], function() {

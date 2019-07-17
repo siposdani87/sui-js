@@ -3,7 +3,7 @@ clear
 
 java -jar node_modules/google-closure-compiler-java/compiler.jar \
 --compilation_level SIMPLE_OPTIMIZATIONS \
---language_in ECMASCRIPT_2017 \
+--language_in ECMASCRIPT_2019 \
 --language_out ECMASCRIPT5_STRICT \
 --warning_level VERBOSE \
 --externs node_modules/sui-externs/*.js \
