@@ -38,12 +38,13 @@ SUI.lib.Helper.prototype.createLink = function(name, opt_callback, opt_href = ''
 /**
  * @param {string} selector
  * @param {!SUI.Node} dom
+ * @param {!Function=} opt_callback
  * @return {undefined}
  */
-SUI.lib.Helper.prototype.multipleLink = function(selector, dom) {
+SUI.lib.Helper.prototype.multipleLink = function(selector, dom, opt_callback) {
   const linkNodes = new SUI.Query(selector, dom);
   linkNodes.each((linkNode) => {
-    this.linkElement(linkNode);
+    this.linkElement(linkNode, opt_callback);
   });
 };
 
