@@ -4,7 +4,6 @@ javascripts/core/promise.js
 javascripts/core/deferred.js
 javascripts/core/lib.js
 javascripts/lib/actionCableClient.js
-javascripts/lib/actionCable.js
 javascripts/core/module.js
 javascripts/core/collection.js
 javascripts/core/query.js
@@ -50,7 +49,9 @@ javascripts/module/widget.js
 javascripts/core/widget.js
 javascripts/widget/autoComplete.js
 node_modules/sui-externs/index.js
+javascripts/lib/actionCable.js
 javascripts/lib/navBar.js
+javascripts/lib/scheduler.js
 javascripts/core/box.js
 javascripts/core/item.js
 javascripts/core/router.js
@@ -88,10 +89,10 @@ javascripts/module/form.js
 javascripts/module/googleMap.js
 javascripts/module/navigation.js
 javascripts/module/progressStatus.js
-javascripts/module/tabPanel.js
 javascripts/module/table.js
+javascripts/module/tabPanel.js
 javascripts/module/treeView.js
-javascripts/module/util.js
+javascripts/module/waiter.js
 javascripts/widget/datetimeRange.js
 javascripts/widget/location.js
 javascripts/widget/number.js
