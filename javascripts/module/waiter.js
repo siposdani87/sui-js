@@ -1,12 +1,12 @@
-goog.provide('SUI.Util');
+goog.provide('SUI.Waiter');
 
 goog.require('SUI');
 
 /**
  * @constructor
- * @this {SUI.Util}
+ * @this {SUI.Waiter}
  */
-SUI.Util = function() {
+SUI.Waiter = function() {
   this.timeoutWaiting = 0;
   this.counter = 0;
 };
@@ -15,7 +15,7 @@ SUI.Util = function() {
  * @param {!Function} callback
  * @param {number=} opt_duration
  */
-SUI.Util.prototype.advancedWaiting = function(callback, opt_duration) {
+SUI.Waiter.prototype.advancedWaiting = function(callback, opt_duration) {
   const duration = opt_duration || 3000;
   this._advancedDelayHandler(callback, duration, this.timeoutWaiting);
 };
@@ -26,7 +26,7 @@ SUI.Util.prototype.advancedWaiting = function(callback, opt_duration) {
  * @param {number} counter
  * @private
  */
-SUI.Util.prototype._advancedDelayHandler = function(callback, duration, counter) {
+SUI.Waiter.prototype._advancedDelayHandler = function(callback, duration, counter) {
   this.timeoutWaiting += 0.0001;
   setTimeout(() => {
     const prevCounter = this.timeoutWaiting - 0.0001;
@@ -40,7 +40,7 @@ SUI.Util.prototype._advancedDelayHandler = function(callback, duration, counter)
 /**
  * @return {undefined}
  */
-SUI.Util.prototype.stopAdvancedWaiting = function() {
+SUI.Waiter.prototype.stopAdvancedWaiting = function() {
   this.timeoutWaiting += 0.0001;
   this.intervall = setInterval(() => {
     this.timeoutWaiting += 0.0001;
@@ -50,7 +50,7 @@ SUI.Util.prototype.stopAdvancedWaiting = function() {
 /**
  * @return {undefined}
  */
-SUI.Util.prototype.startAdvancedWaiting = function() {
+SUI.Waiter.prototype.startAdvancedWaiting = function() {
   clearInterval(this.intervall);
   this.timeoutWaiting -= 0.0001;
 };
@@ -59,7 +59,7 @@ SUI.Util.prototype.startAdvancedWaiting = function() {
  * @param {!Function} callback
  * @param {number=} opt_duration
  */
-SUI.Util.prototype.simpleWaiting = function(callback, opt_duration) {
+SUI.Waiter.prototype.simpleWaiting = function(callback, opt_duration) {
   const duration = opt_duration || 3000;
   this._simpleDelayHandler(callback, duration, this.counter);
 };
@@ -70,7 +70,7 @@ SUI.Util.prototype.simpleWaiting = function(callback, opt_duration) {
  * @param {number} counter
  * @private
  */
-SUI.Util.prototype._simpleDelayHandler = function(callback, duration, counter) {
+SUI.Waiter.prototype._simpleDelayHandler = function(callback, duration, counter) {
   this.counter++;
   setTimeout(() => {
     const prevCounter = this.counter - 1;

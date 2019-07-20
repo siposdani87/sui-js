@@ -79,6 +79,7 @@ SUI.App.prototype._init = function(resources) {
   this._initLocale();
   this._initModule();
   this._initEvent();
+  this._initScheduler();
   this._initLoader();
   this._initHttp();
   this._initDialog();
@@ -411,6 +412,14 @@ SUI.App.prototype._initWindow = function() {
  */
 SUI.App.prototype._initEvent = function() {
   this._instances[this._injections.event] = new SUI.lib.Event();
+};
+
+/**
+ * @private
+ * @return {undefined}
+ */
+SUI.App.prototype._initScheduler = function() {
+  this._instances[this._injections.scheduler] = new SUI.lib.Scheduler();
 };
 
 /**

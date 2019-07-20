@@ -20,6 +20,7 @@
 
 
 //= require sui-js/javascripts/lib/event
+//= require sui-js/javascripts/lib/scheduler
 //= require sui-js/javascripts/lib/xhr
 //= require sui-js/javascripts/lib/http
 //= require sui-js/javascripts/lib/template
@@ -53,7 +54,7 @@
 //= require sui-js/javascripts/lib/actionCable
 
 
-//= require sui-js/javascripts/module/util
+//= require sui-js/javascripts/module/waiter
 //= require sui-js/javascripts/module/googleMap
 //= require sui-js/javascripts/module/canvas
 //= require sui-js/javascripts/module/form

@@ -84,6 +84,7 @@ SUI.coreRes = {
   app: 'app',
   config: 'config',
   event: 'event',
+  scheduler: 'scheduler',
   http: 'http',
   notification: 'notification',
   template: 'template',
