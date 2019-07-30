@@ -1,7 +1,7 @@
 .dark-theme {
   .mdl-radio {
     .mdl-radio__outer-circle {
-      border-color: $content-default-dark;
+      border-color: $input-default-dark;
     }
 
     input[required]~.mdl-radio__outer-circle {
@@ -10,7 +10,7 @@
 
     &.is-other-checked {
       input[required]~.mdl-radio__outer-circle {
-        border-color: $content-default-dark;
+        border-color: $input-default-dark;
       }
     }
 
