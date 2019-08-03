@@ -54,10 +54,12 @@ SUI.App.prototype._setOptions = function(options) {
   const _self = this;
   _self.options = new SUI.Object({
     app_id: 'sui-app',
-    title: '',
-    backend: '',
-    development: false,
+    title: 'SUI-APP',
     locale: navigator.language,
+    backend: '',
+    development: true,
+    secret: 'f74pej3qpb9qmpvregu7ef33m5w6f6qz',
+    log_color: '#3f51b5',
   });
   _self.options.merge(options);
 };
@@ -663,11 +665,11 @@ SUI.App.prototype.getController = function() {
  */
 SUI.App.prototype.run = function() {
   if (this.options.development) {
-    console.info('%cFrontend run in development environment...', 'font-weight:bold;color:#795548;');
+    console.info('%cApplication run in development environment...', `font-weight:bold;color:${this.options.log_color};`);
     const test = new SUI.Test();
     test.run();
   } else {
-    console.info('%cFrontend run in production environment...', 'font-weight:bold;color:#795548;');
+    console.info('%cApplication run in production environment...', `font-weight:bold;color:${this.options.log_color};`);
   }
   this._module.handleRoutes(this._routes, this._routeOptions);
   this._module.handleServices();
