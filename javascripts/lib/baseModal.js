@@ -46,6 +46,7 @@ SUI.lib.BaseModal.prototype._initMinimizeButton = function() {
     btnMinimize.addEventListener('click', () => {
       this._actionMinimize();
     });
+    this.btnMinimize = btnMinimize;
   }
 };
 
@@ -60,6 +61,7 @@ SUI.lib.BaseModal.prototype._initMaximizeButton = function() {
     btnMaximize.addEventListener('click', () => {
       this._actionMaximize();
     });
+    this.btnMaximize = btnMaximize;
   }
 };
 
@@ -74,6 +76,7 @@ SUI.lib.BaseModal.prototype._initCloseButton = function() {
     btnClose.addEventListener('click', () => {
       this._actionCancel();
     });
+    this.btnClose = btnClose;
   }
 };
 
@@ -85,15 +88,32 @@ SUI.lib.BaseModal.prototype.isOpened = function() {
 };
 
 /**
+ * @private
+ * @param {boolean=} opt_allowClose
  * @return {undefined}
  */
-SUI.lib.BaseModal.prototype.open = function() {
+SUI.lib.BaseModal.prototype._handleCloseButton = function(opt_allowClose = true) {
+  if (this.btnClose) {
+    if (opt_allowClose) {
+      this.btnClose.removeClass('hidden');
+    } else {
+      this.btnClose.addClass('hidden');
+    }
+  }
+};
+
+/**
+ * @param {boolean=} opt_allowClose
+ * @return {undefined}
+ */
+SUI.lib.BaseModal.prototype.open = function(opt_allowClose = true) {
   this.mainContainerNode.addClass('blur');
 
   this.body.addClass('overflow-hidden');
   this.modal.addClass('visible-flex');
   this.modal.removeClass('hidden');
 
+  this._handleCloseButton(opt_allowClose);
   this._handleCenterPosition();
 };
 
