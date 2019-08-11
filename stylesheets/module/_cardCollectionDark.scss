@@ -3,6 +3,7 @@
     .card {
       background-color: $deep-grey-bright;
       border-color: $deep-grey-bright;
+      @include box-shadow(0 2px 3px 0 rgba($black, .3));
 
       &:hover {
         @include box-shadow(0 4px 5px 0 rgba($black, .5));
