@@ -48,6 +48,7 @@ SUI.Navigation.prototype.add = function(item) {
   const image = /** @type {string} */ (item.get('image'));
   const icon = /** @type {string} */ (item.get('icon'));
   const title = /** @type {string} */ (item.get('title'));
+  const counter = /** @type {string} */ (item.get('counter'));
   const href = /** @type {string} */ (item.get('href'));
   const action = /** @type {!Function} */ (item.get('action'));
   const disabled = /** @type {boolean} */ (item.get('disabled'));
@@ -56,6 +57,8 @@ SUI.Navigation.prototype.add = function(item) {
     this.addImage(id, image, title, action, href, item);
   } else if (icon) {
     this.addIcon(id, icon, title, action, href, item);
+  } else if (!SUI.isUndefined(counter)) {
+    this.addCounter(id, counter, title, action, href, item);
   } else {
     this.addText(id, title, action, href, item);
   }
@@ -63,6 +66,25 @@ SUI.Navigation.prototype.add = function(item) {
   if (disabled) {
     this.setDisabled(id);
   }
+};
+
+/**
+ * @param {string} id
+ * @param {string} counter
+ * @param {?string} title
+ * @param {!Function} action
+ * @param {string=} opt_href
+ * @param {!Object=} opt_data
+ * @return {undefined}
+ */
+SUI.Navigation.prototype.addCounter = function(id, counter, title, action, opt_href = '', opt_data = {}) {
+  const item = this._setItem(id, title, action, opt_href, opt_data);
+  const counterSpan = new SUI.Node('span');
+  counterSpan.addClass('counter');
+  counterSpan.setHtml(counter);
+
+  const linkNode = item.get(this.linkNodeKey);
+  linkNode.beforeChild(counterSpan);
 };
 
 /**
