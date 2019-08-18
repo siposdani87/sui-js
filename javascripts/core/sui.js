@@ -210,12 +210,12 @@ SUI.merge = function(objA, objB) {
 /**
  * @export
  * @param {string} str
- * @param {!Object|!Array=} opt_params
+ * @param {!Object|!Array|null=} opt_params
  * @param {string=} opt_prefix
  * @param {string=} opt_postfix
  * @return {string}
  */
-SUI.format = function(str, opt_params, opt_prefix = '\\{', opt_postfix = '\\}') {
+SUI.format = function(str, opt_params = null, opt_prefix = '\\{', opt_postfix = '\\}') {
   SUI.each(opt_params, (value, key) => {
     const regex = new RegExp(opt_prefix + key + opt_postfix, 'gm');
     str = str.replace(regex, value);
