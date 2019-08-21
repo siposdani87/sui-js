@@ -10,12 +10,14 @@ goog.require('SUI.Query');
  * @this {SUI.TabPanel}
  * @param {!SUI.Node} dom
  * @param {string=} opt_selector
- * @param {string=} opt_selected
+ * @param {string=} opt_selectedTab
+ * @param {string=} opt_defaultTab
  */
-SUI.TabPanel = function(dom, opt_selector = '.tab-panel', opt_selected = '') {
+SUI.TabPanel = function(dom, opt_selector = '.tab-panel', opt_selectedTab = '', opt_defaultTab = '') {
   this.tabpanel = new SUI.Query(opt_selector, dom).getItem();
   this.options = {
-    selected: opt_selected,
+    selected_tab: opt_selectedTab,
+    default_tab: opt_defaultTab || opt_selectedTab,
   };
   this._init();
 };
@@ -27,7 +29,9 @@ SUI.TabPanel = function(dom, opt_selector = '.tab-panel', opt_selected = '') {
 SUI.TabPanel.prototype._init = function() {
   this._initTabs();
   this._initPanels();
-  this._setActiveTab(this.options.selected);
+
+  this.activeTab = this.options.selected_tab;
+  this._setActive(this.activeTab);
 };
 
 /**
@@ -62,11 +66,14 @@ SUI.TabPanel.prototype._initPanels = function() {
  * @param {string} panelId
  * @return {undefined}
  */
-SUI.TabPanel.prototype._setActiveTab = function(panelId) {
+SUI.TabPanel.prototype._setActive = function(panelId) {
+  let activeTab = this.options.default_tab;
+
   this.panels.each((panel) => {
     panel.removeClass('active');
     if (panel.getId() === panelId || panel.hasClass(panelId)) {
       panel.addClass('active');
+      activeTab = panelId;
     }
   });
 
@@ -76,6 +83,8 @@ SUI.TabPanel.prototype._setActiveTab = function(panelId) {
       tab.addClass('active');
     }
   });
+
+  this.activeTab = activeTab;
 };
 
 /**
@@ -93,13 +102,20 @@ SUI.TabPanel.prototype.eventChange = function(panelId) {
 SUI.TabPanel.prototype.setActive = function(panelId) {
   const deferred = new SUI.Deferred();
   if (!SUI.isNull(panelId)) {
-    this._setActiveTab(/** @type {string} */(panelId));
+    this._setActive(/** @type {string} */(panelId));
     const async = new SUI.Async();
     async.serial([() => {
-      return this.eventChange(/** @type {string} */(panelId));
+      return this.eventChange(this.getActive());
     }]).defer(deferred);
   } else {
     deferred.reject();
   }
   return deferred.promise();
+};
+
+/**
+ * @return {string}
+ */
+SUI.TabPanel.prototype.getActive = function() {
+  return this.activeTab;
 };
