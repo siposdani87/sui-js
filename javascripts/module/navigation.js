@@ -176,10 +176,9 @@ SUI.Navigation.prototype._setItem = function(id, title, action, opt_href = '', o
     linkNode.appendChild(titleSpan);
   }
   linkNode.setAttribute('href', opt_href || 'javascript:void(0)');
+  const href = linkNode.getAttribute('href');
 
-
-  const listener = linkNode.addEventListener('click', (node) => {
-    const href = node.getAttribute('href');
+  const listener = linkNode.addEventListener('click', () => {
     action(href);
   });
 
@@ -187,6 +186,7 @@ SUI.Navigation.prototype._setItem = function(id, title, action, opt_href = '', o
   item.merge({
     'id': id,
     'title': title,
+    'href': href,
     'action': action,
     'listener': listener,
   });
@@ -239,6 +239,7 @@ SUI.Navigation.prototype._disabled = function(item) {
   const linkNode = item.get(this.linkNodeKey);
   linkNode.addClass('disabled');
   linkNode.removeEventListener('click', item.get('listener'));
+  linkNode.setAttribute('href', 'javascript:void(0)');
 };
 
 /**
@@ -261,9 +262,10 @@ SUI.Navigation.prototype._enabled = function(item) {
   this._disabled(item);
   const linkNode = item.get(this.linkNodeKey);
   linkNode.removeClass('disabled');
-  const listener = linkNode.addEventListener('click', (node) => {
-    const action = /** @type {function(string):undefined} */ (item.get('action'));
-    const href = node.getAttribute('href');
+  const action = /** @type {function(string):undefined} */ (item.get('action'));
+  const href = /** @type {string} */ (item.get('href'));
+  linkNode.setAttribute('href', href);
+  const listener = linkNode.addEventListener('click', () => {
     action(href);
   });
   item.set('listener', listener);
