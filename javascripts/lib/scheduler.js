@@ -19,7 +19,7 @@ SUI.lib.Scheduler = function() {
  * @return {undefined}
  */
 SUI.lib.Scheduler.prototype._callRunner = function() {
-  /*setTimeout(() => {
+  /* setTimeout(() => {
     SUI.eachObject(this.schedulerContainer, (schedulerCallbacks, timeKey) => {
 
     });
