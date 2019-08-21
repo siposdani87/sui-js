@@ -10,20 +10,21 @@
         background-color: $deep-grey;
       }
 
+      .title,
+      .title-with-actions {
+        color: $white;
+        border-bottom-color: $grey-dark;
+      }
+
       .header {
         background-color: $primary-bright;
         color: $white;
 
         .title {
+          color: $white;
           background-color: rgba($black, .7);
           border-bottom-color: $accent-bright;
         }
-      }
-
-      .title,
-      .title-with-actions {
-        color: $white;
-        border-bottom-color: $grey-dark;
       }
 
       .content {
