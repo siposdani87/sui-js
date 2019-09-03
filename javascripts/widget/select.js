@@ -502,7 +502,9 @@ SUI.widget.Select.prototype.close = function() {
  */
 SUI.widget.Select.prototype._search = function(query) {
   this.query = query;
+  this.searchInputNode.getNode().value = query;
   this.searchInputNode.set('value', query);
+
   const regExp = new RegExp(query, 'i');
   const items = [];
   this.options.each(function(option) {
