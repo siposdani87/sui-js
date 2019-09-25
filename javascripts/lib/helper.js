@@ -271,7 +271,7 @@ SUI.lib.Helper.prototype._createIconNode = function(iconName, parentNode) {
  * @param {string=} opt_rating
  * @return {undefined}
  */
-SUI.lib.Helper.prototype.setGravatar = function(imageNode, defaultImageUrl, email, opt_size = 500, opt_rating = 'pg') {
+SUI.lib.Helper.prototype.setGravatar = function(imageNode, defaultImageUrl, email, opt_size = 500, opt_rating = 'g') {
   const src = SUI.format('https://www.gravatar.com/avatar/{0}?s={1}&r={2}&d=404', [SUI.md5(email), opt_size, opt_rating]);
   imageNode.setAttribute('src', src);
   imageNode.setAttribute('onError', SUI.format('this.onerror=null;this.src=\'{0}\';', [defaultImageUrl]));
