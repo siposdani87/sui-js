@@ -2,7 +2,7 @@
   .mdl-icon-toggle {
 
     .mdl-icon-toggle__label {
-      color: $input-default-dark;
+      color: $checkbox-default-dark;
     }
 
     input[required]~.mdl-icon-toggle__label {
@@ -26,7 +26,7 @@
       }
 
       .mdl-icon-toggle__label {
-        color: $content-disabled-dark;
+        color: $checkbox-disabled-dark;
       }
 
       &.is-checked {

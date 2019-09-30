@@ -1,7 +1,7 @@
 .mdl-icon-toggle {
 
   .mdl-icon-toggle__label {
-    color: $input-default-light;
+    color: $checkbox-default-light;
     border: 2px solid transparent;
   }
 
@@ -26,7 +26,7 @@
     }
 
     .mdl-icon-toggle__label {
-      color: $content-disabled-light;
+      color: $checkbox-disabled-light;
     }
 
     &.is-checked {
