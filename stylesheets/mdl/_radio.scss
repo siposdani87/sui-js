@@ -1,6 +1,6 @@
 .mdl-radio {
   .mdl-radio__outer-circle {
-    border-color: $input-default-light;
+    border-color: $checkbox-default-light;
   }
 
   input[required]~.mdl-radio__outer-circle {
@@ -9,7 +9,7 @@
 
   &.is-other-checked {
     input[required]~.mdl-radio__outer-circle {
-      border-color: $input-default-light;
+      border-color: $checkbox-default-light;
     }
   }
 
@@ -29,7 +29,7 @@
 
   &.is-disabled {
     .mdl-radio__outer-circle {
-      border-color: $content-disabled-light;
+      border-color: $checkbox-disabled-light;
     }
 
     input[required]~.mdl-radio__outer-circle {

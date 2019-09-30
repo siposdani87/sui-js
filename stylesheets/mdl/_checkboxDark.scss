@@ -1,7 +1,7 @@
 .dark-theme {
   .mdl-checkbox {
     .mdl-checkbox__box-outline {
-      border-color: $input-default-dark;
+      border-color: $checkbox-default-dark;
     }
 
     input[required]~.mdl-checkbox__box-outline {
@@ -25,7 +25,7 @@
     &.is-disabled {
 
       .mdl-checkbox__box-outline {
-        border-color: $content-disabled-dark;
+        border-color: $checkbox-disabled-dark;
       }
 
       input[required]~.mdl-checkbox__box-outline {

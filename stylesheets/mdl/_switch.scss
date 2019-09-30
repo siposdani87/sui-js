@@ -6,7 +6,7 @@
   }
 
   .mdl-switch__thumb {
-    background-color: $input-default-light;
+    background-color: $checkbox-default-light;
   }
 
   input[required]~.mdl-switch__thumb {
@@ -33,7 +33,7 @@
     }
 
     .mdl-switch__thumb {
-      background-color: $content-disabled-light;
+      background-color: $checkbox-disabled-light;
     }
 
     input[required]~.mdl-switch__thumb {
