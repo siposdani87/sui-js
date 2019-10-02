@@ -28,7 +28,7 @@ SUI.lib.Helper.prototype._init = function() {
  * @param {boolean=} opt_allowAccess
  * @return {!SUI.Node}
  */
-SUI.lib.Helper.prototype.createLink = function(name, opt_callback, opt_href = '', opt_description = '', opt_allowAccess = true) {
+SUI.lib.Helper.prototype.createLink = function(name, opt_callback, opt_href = 'javascript:void(0)', opt_description = '', opt_allowAccess = true) {
   const linkNode = new SUI.Node('a');
   linkNode.setHtml(name);
   this.linkElement(linkNode, opt_callback, opt_href, opt_description, opt_allowAccess);
