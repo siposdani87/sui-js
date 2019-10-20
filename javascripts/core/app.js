@@ -57,7 +57,7 @@ SUI.App.prototype._setOptions = function(options) {
     title: 'SUI-APP',
     locale: navigator.language,
     backend: '',
-    development: true,
+    production: false,
     secret: 'f74pej3qpb9qmpvregu7ef33m5w6f6qz',
     log_color: '#3f51b5',
   });
@@ -664,12 +664,12 @@ SUI.App.prototype.getController = function() {
  * @return {undefined}
  */
 SUI.App.prototype.run = function() {
-  if (this.options.development) {
+  if (this.options.production) {
+    console.info('%cApplication run in production environment...', `font-weight:bold;color:${this.options.log_color};`);
+  } else {
     console.info('%cApplication run in development environment...', `font-weight:bold;color:${this.options.log_color};`);
     const test = new SUI.Test();
     test.run();
-  } else {
-    console.info('%cApplication run in production environment...', `font-weight:bold;color:${this.options.log_color};`);
   }
   this._module.handleRoutes(this._routes, this._routeOptions);
   this._module.handleServices();
