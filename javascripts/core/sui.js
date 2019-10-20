@@ -123,7 +123,7 @@ SUI.coreRes = {
 /**
  * @define {boolean}
  */
-SUI.debug = true;
+SUI.production = false;
 
 /**
  * @export

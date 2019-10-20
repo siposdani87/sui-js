@@ -24,7 +24,7 @@ const closureOptions = {
   jscomp_error: '*',
   jscomp_warning: '*',
   generate_exports: true,
-  define: 'SUI.debug=false',
+  define: 'SUI.production=true',
 };
 
 const sassOptions = {
@@ -45,7 +45,7 @@ gulp.task('compile:scripts', [], function() {
 gulp.task('compile:scripts:simple', [], function() {
   return gulp.src(['javascripts/**/*.js']).pipe(closureCompiler(objectAssign(closureOptions, {
     compilation_level: 'SIMPLE_OPTIMIZATIONS',
-    define: 'SUI.debug=true',
+    define: 'SUI.production=true',
     output_manifest: 'dist/sui.mf',
     js_output_file: 'sui.js',
   }))).pipe(gulp.dest('dist'));

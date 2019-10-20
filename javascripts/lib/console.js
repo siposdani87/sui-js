@@ -29,7 +29,7 @@ SUI.lib.Console.prototype._setOptions = function(opt_options = {}) {
  * @param {...*} message
  */
 SUI.lib.Console.prototype.log = function(...message) {
-  if (this.config.get('development')) {
+  if (!this.config.get('production')) {
     console.log(...message);
   }
 };
@@ -38,7 +38,7 @@ SUI.lib.Console.prototype.log = function(...message) {
  * @param {...*} message
  */
 SUI.lib.Console.prototype.warn = function(...message) {
-  if (this.config.get('development')) {
+  if (!this.config.get('production')) {
     console.warn(...message);
   }
 };
@@ -47,7 +47,7 @@ SUI.lib.Console.prototype.warn = function(...message) {
  * @param {...*} message
  */
 SUI.lib.Console.prototype.info = function(...message) {
-  if (this.config.get('development')) {
+  if (!this.config.get('production')) {
     console.info(...message);
   }
 };
@@ -56,7 +56,7 @@ SUI.lib.Console.prototype.info = function(...message) {
  * @param {...*} message
  */
 SUI.lib.Console.prototype.error = function(...message) {
-  if (this.config.get('development')) {
+  if (!this.config.get('production')) {
     console.error(...message);
   }
 };
