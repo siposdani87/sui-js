@@ -45,7 +45,7 @@ gulp.task('compile:scripts', [], function() {
 gulp.task('compile:scripts:simple', [], function() {
   return gulp.src(['javascripts/**/*.js']).pipe(closureCompiler(objectAssign(closureOptions, {
     compilation_level: 'SIMPLE_OPTIMIZATIONS',
-    define: 'SUI.production=true',
+    define: 'SUI.production=false',
     output_manifest: 'dist/sui.mf',
     js_output_file: 'sui.js',
   }))).pipe(gulp.dest('dist'));
