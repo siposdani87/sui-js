@@ -112,7 +112,6 @@ table {
 
         td {
           &:first-of-type {
-            text-transform: uppercase;
             font-family: $font-family-heading;
             font-weight: 500;
             @include display-flex;
