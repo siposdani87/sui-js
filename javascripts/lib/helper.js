@@ -26,12 +26,13 @@ SUI.lib.Helper.prototype._init = function() {
  * @param {string=} opt_href
  * @param {string=} opt_description
  * @param {boolean=} opt_allowAccess
+ * @param {!Array=} opt_cssClasses
  * @return {!SUI.Node}
  */
-SUI.lib.Helper.prototype.createLink = function(name, opt_callback, opt_href = 'javascript:void(0)', opt_description = '', opt_allowAccess = true) {
+SUI.lib.Helper.prototype.createLink = function(name, opt_callback, opt_href = 'javascript:void(0)', opt_description = '', opt_allowAccess = true, opt_cssClasses = []) {
   const linkNode = new SUI.Node('a');
   linkNode.setHtml(name);
-  this.linkElement(linkNode, opt_callback, opt_href, opt_description, opt_allowAccess);
+  this.linkElement(linkNode, opt_callback, opt_href, opt_description, opt_allowAccess, opt_cssClasses);
   return linkNode;
 };
 
@@ -39,12 +40,13 @@ SUI.lib.Helper.prototype.createLink = function(name, opt_callback, opt_href = 'j
  * @param {string} selector
  * @param {!SUI.Node} dom
  * @param {!Function=} opt_callback
+ * @param {!Array=} opt_cssClasses
  * @return {undefined}
  */
-SUI.lib.Helper.prototype.multipleLink = function(selector, dom, opt_callback) {
+SUI.lib.Helper.prototype.multipleLink = function(selector, dom, opt_callback, opt_cssClasses = []) {
   const linkNodes = new SUI.Query(selector, dom);
   linkNodes.each((linkNode) => {
-    this.linkElement(linkNode, opt_callback);
+    this.linkElement(linkNode, opt_callback, '', '', true, opt_cssClasses);
   });
 };
 
@@ -55,11 +57,12 @@ SUI.lib.Helper.prototype.multipleLink = function(selector, dom, opt_callback) {
  * @param {string=} opt_href
  * @param {string=} opt_description
  * @param {boolean=} opt_allowAccess
+ * @param {!Array=} opt_cssClasses
  * @return {!SUI.Node}
  */
-SUI.lib.Helper.prototype.link = function(selector, dom, opt_callback, opt_href = '', opt_description = '', opt_allowAccess = true) {
+SUI.lib.Helper.prototype.link = function(selector, dom, opt_callback, opt_href = '', opt_description = '', opt_allowAccess = true, opt_cssClasses = []) {
   const linkNode = new SUI.Query(selector, dom).getItem();
-  this.linkElement(linkNode, opt_callback, opt_href, opt_description, opt_allowAccess);
+  this.linkElement(linkNode, opt_callback, opt_href, opt_description, opt_allowAccess, opt_cssClasses);
   return linkNode;
 };
 
@@ -69,11 +72,14 @@ SUI.lib.Helper.prototype.link = function(selector, dom, opt_callback, opt_href =
  * @param {string=} opt_href
  * @param {string=} opt_description
  * @param {boolean=} opt_allowAccess
+ * @param {!Array=} opt_cssClasses
  * @return {undefined}
  */
-SUI.lib.Helper.prototype.linkElement = function(linkNode, opt_callback, opt_href = '', opt_description = '', opt_allowAccess = true) {
+SUI.lib.Helper.prototype.linkElement = function(linkNode, opt_callback, opt_href = '', opt_description = '', opt_allowAccess = true, opt_cssClasses = []) {
   if (!linkNode.isEmpty()) {
     if (opt_allowAccess) {
+      linkNode.addClass(opt_cssClasses);
+
       if (!linkNode.getId()) {
         linkNode.setId(SUI.generateId('link'));
       } else {
@@ -122,7 +128,7 @@ SUI.lib.Helper.prototype.createButton = function(name, callback, opt_description
 SUI.lib.Helper.prototype.multipleButton = function(selector, dom, opt_cssClasses = ['mdl-button--primary']) {
   const buttonNodes = new SUI.Query(selector, dom);
   buttonNodes.each((buttonNode) => {
-    this.buttonElement(buttonNode, undefined, undefined, true, opt_cssClasses);
+    this.buttonElement(buttonNode, undefined, '', true, opt_cssClasses);
   });
 };
 
