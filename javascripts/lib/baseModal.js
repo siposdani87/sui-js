@@ -114,13 +114,19 @@ SUI.lib.BaseModal.prototype.open = function(opt_allowClose = true) {
   this.modal.removeClass('hidden');
 
   this._handleCloseButton(opt_allowClose);
+
   this._handleCenterPosition();
+  this.interval = setInterval(() => {
+    this._handleCenterPosition();
+  }, 1000);
 };
 
 /**
  * @return {undefined}
  */
 SUI.lib.BaseModal.prototype.close = function() {
+  clearInterval(this.interval);
+
   this.mainContainerNode.removeClass('blur');
 
   this.body.removeClass('overflow-hidden');
