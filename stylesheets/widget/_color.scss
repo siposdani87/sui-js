@@ -6,7 +6,7 @@
     width: 24px;
     height: 24px;
     vertical-align: middle;
-    @include border-radius(50%);
+    border-radius: 50%;
     border: 1px solid $input-default-light;
 
     &:focus {

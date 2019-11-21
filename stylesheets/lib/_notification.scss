@@ -2,7 +2,7 @@
   z-index: $zindex-notification;
   position: fixed;
   width: 100%;
-  @include display-flex;
+  display: flex;
   margin-top: 80px;
   justify-content: center;
   pointer-events: none;
@@ -25,9 +25,9 @@
       pointer-events: visiblePainted;
       margin-bottom: 20px;
       padding: 15px 30px;
-      @include box-shadow(5px 5px 15px -5px rgba($black, .75));
+      box-shadow: 5px 5px 15px -5px rgba($black, .75);
       background-color: $light-grey-bright;
-      @include border-radius(3px);
+      border-radius: 3px;
       min-height: 45px;
       clear: both;
       border-top: 5px solid $grey;

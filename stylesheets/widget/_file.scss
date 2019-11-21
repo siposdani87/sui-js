@@ -18,7 +18,7 @@
 
   &.is-disabled {
     img {
-      @include filter-grayscale(100%);
+      filter: grayscale(100%);
       opacity: .5;
     }
   }

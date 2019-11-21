@@ -1,7 +1,7 @@
 .sidebar {
   //position:relative;
   //border: 1px solid $accent;
-  //@include flex(0 1 auto);
+  //flex: 0 1 auto;
   position: fixed;
   z-index: $zindex-sidebar;
   background-color: $white;
@@ -17,11 +17,11 @@
 }
 
 .sidebar.open {
-  @include flex(0 1 auto);
+  flex: 0 1 auto;
 }
 
 .sidebar.open .content {
-  @include display-flex;
+  display: flex;
 }
 
 .sidebar .content {

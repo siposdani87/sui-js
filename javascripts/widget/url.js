@@ -26,7 +26,11 @@ goog.inherits(SUI.widget.Url, SUI.Widget);
 SUI.widget.Url.prototype._init = function() {
   this.inputBlock.addClass('url-widget');
 
-  this.protocol = this.input.getData('protocol');
+  /**
+   * @private
+   * @const {string}
+   */
+  this.protocol = /** @type {string} */(this.input.getData('protocol'));
 
   this.input.addEventListener('keyup', (input) => {
     const inputNode = input.getNode();

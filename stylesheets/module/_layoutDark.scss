@@ -1,7 +1,7 @@
 .dark-theme {
   .page-content {
     &.fullscreen {
-      @include display-flex;
+      display: flex;
       background-color: $black-bright;
       color: $white;
 
