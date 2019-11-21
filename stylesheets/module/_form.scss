@@ -33,7 +33,7 @@ form {
       position: absolute;
       right: 5px;
       top: 24px;
-      @include display-flex;
+      display: flex;
       z-index: 1;
 
       > a {

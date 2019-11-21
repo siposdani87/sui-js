@@ -6,23 +6,23 @@
   background-color: $light-grey;
 
   .header {
-    @include display-flex;
+    display: flex;
     align-items: center;
     height: 50px;
     background-color: $primary;
     color: $white;
 
     .previous {
-      @include flex(0 1 32px);
+      flex: 0 1 32px;
     }
 
     .next {
-      @include flex(0 1 32px);
+      flex: 0 1 32px;
     }
 
     .current-mode {
       display: inline-block;
-      @include flex(1 1 auto);
+      flex: 1 1 auto;
       text-align: center;
 
       &:hover {
@@ -36,13 +36,13 @@
     .week-days {
       background-color: $white;
       height: 30px;
-      @include display-flex;
+      display: flex;
       flex-flow: row wrap;
 
       .day {
         font-weight: 700;
-        @include flex(0 1 14.285%);
-        @include display-flex;
+        flex: 0 1 14.285%;
+        display: flex;
         align-items: center;
         justify-content: center;
       }
@@ -50,17 +50,17 @@
     }
 
     .days {
-      @include display-flex;
+      display: flex;
       flex-flow: row wrap;
       background-color: $white;
       height: 210px;
 
       .day {
-        @include flex(0 1 14.285%);
-        @include border-radius(50%);
+        flex: 0 1 14.285%;
+        border-radius: 50%;
         border: 1px solid transparent;
         cursor: pointer;
-        @include display-flex;
+        display: flex;
         align-items: center;
         justify-content: center;
 
@@ -108,14 +108,14 @@
     }
 
     .months {
-      @include display-flex;
+      display: flex;
       flex-flow: row wrap;
       background-color: $white;
       height: 240px;
 
       .month {
-        @include flex(0 1 25%);
-        @include display-flex;
+        flex: 0 1 25%;
+        display: flex;
         align-items: center;
         justify-content: center;
         cursor: pointer;
@@ -138,14 +138,14 @@
     }
 
     .years {
-      @include display-flex;
+      display: flex;
       flex-flow: row wrap;
       background-color: $white;
       height: 240px;
 
       .year {
-        @include flex(0 1 25%);
-        @include display-flex;
+        flex: 0 1 25%;
+        display: flex;
         align-items: center;
         justify-content: center;
         cursor: pointer;

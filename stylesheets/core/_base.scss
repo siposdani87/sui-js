@@ -156,7 +156,7 @@ address {
 }
 
 .visible-flex {
-  @include display-flex(!important);
+  display: flex !important;
 }
 
 .hidden {
@@ -176,7 +176,7 @@ address {
 }
 
 .block-center {
-  @include display-flex;
+  display: flex;
   justify-content: center;
   align-items: center;
 }

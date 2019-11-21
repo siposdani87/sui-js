@@ -1,6 +1,6 @@
 .progress-status {
   height: 100%;
-  @include display-flex;
+  display: flex;
   align-items: center;
   justify-content: center;
   flex-flow: column nowrap;

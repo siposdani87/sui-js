@@ -13,6 +13,6 @@
     display: none;
     position: absolute;
     background-color: $input-default-light;
-    @include border-radius(2px);
+    border-radius: 2px;
   }
 }

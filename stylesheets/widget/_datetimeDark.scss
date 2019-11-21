@@ -18,6 +18,7 @@
 
         .close {
           color: $primary-default-dark;
+
           &:hover {
             color: $primary-default-dark;
           }
@@ -51,6 +52,7 @@
 
           .close {
             color: $primary-disabled-dark;
+
             &:hover {
               color: $primary-disabled-dark;
             }

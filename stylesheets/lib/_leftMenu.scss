@@ -18,7 +18,7 @@
     background-color: $white;
     width: 360px;
     height: 100%;
-    @include box-shadow(2px 0 20px 0 rgba($black, .75));
+    box-shadow: 2px 0 20px 0 rgba($black, .75);
 
     a {
       color: $black;
@@ -30,7 +30,7 @@
 
     .header {
       height: 50px;
-      @include display-flex;
+      display: flex;
       flex-flow: row nowrap;
       align-items: center;
       padding: 0 .5em;
@@ -49,15 +49,15 @@
     .menu-container {
       padding-bottom: 53px;
       height: 100%;
-      @include display-flex;
+      display: flex;
       flex-flow: column nowrap;
       align-items: stretch;
       justify-content: space-between;
 
       a {
-        @include flex(1);
+        flex: 1;
         text-decoration: none;
-        @include display-flex;
+        display: flex;
         flex-flow: row nowrap;
         align-items: center;
         color: $primary;
@@ -99,7 +99,7 @@
         }
 
         .image {
-          @include flex(0 1 25%);
+          flex: 0 1 25%;
           padding-left: 1em;
           width: 74px;
           text-align: center;
@@ -132,7 +132,7 @@
         }
 
         .title {
-          @include flex(0 1 75%);
+          flex: 0 1 75%;
         }
       }
     }

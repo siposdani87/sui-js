@@ -1,16 +1,16 @@
 .tab-panel {
-  @include display-flex;
+  display: flex;
   flex-flow: column nowrap;
 
   .tabs {
-    @include display-flex;
+    display: flex;
     flex-flow: row nowrap;
     justify-content: space-around;
     align-content: stretch;
 
     a {
-      @include flex(0 1 100%);
-      @include display-flex;
+      flex: 0 1 100%;
+      display: flex;
       border-top: 4px solid $light-grey-dark;
       align-items: center;
       justify-content: center;
@@ -32,12 +32,12 @@
         background-color: $white;
         color: $primary-dark;
         z-index: 1;
-        @include box-shadow(1px -2px 3px 0 rgba($black, .2));
+        box-shadow: 1px -2px 3px 0 rgba($black, .2);
       }
 
       &:not(.active) {
         border-top-color: $light-grey-bright;
-        @include box-shadow(0 0 1px 0 rgba($black, .2));
+        box-shadow: 0 0 1px 0 rgba($black, .2);
       }
 
       &.disabled {
