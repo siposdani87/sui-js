@@ -702,20 +702,22 @@ SUI.random = function(min, max, opt_onlyFloat = false) {
 
 /**
  * @export
- * @param {string} data
+ * @param {string} text
  * @return {string}
  */
-SUI.encodeBase64 = function(data) {
-  return window.btoa(data);
+SUI.encodeBase64 = function(text) {
+  const words = window['CryptoJS']['enc']['Utf8']['parse'](text);
+  return window['CryptoJS']['enc']['Base64']['stringify'](words);
 };
 
 /**
  * @export
- * @param {string} encodedData
+ * @param {string} encodedText
  * @return {string}
  */
-SUI.decodeBase64 = function(encodedData) {
-  return window.atob(encodedData);
+SUI.decodeBase64 = function(encodedText) {
+  const words = window['CryptoJS']['enc']['Base64']['parse'](encodedText);
+  return window['CryptoJS']['enc']['Utf8']['stringify'](words);
 };
 
 /**

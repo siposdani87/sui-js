@@ -113,6 +113,9 @@
       .image {
         margin-right: .5em;
         line-height: 0;
+        display: block;
+        box-shadow: 0px 0px 5px rgba($black-dark,.8);
+        border-radius: 50%;
 
         @include media-breakpoint-down(lg) {
           display: none;
