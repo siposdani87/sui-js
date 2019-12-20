@@ -1,7 +1,9 @@
 .dark-theme {
   #footer {
+    background-color: $black;
 
     &.static {
+      background-color: transparent;
 
       &.dark {
 

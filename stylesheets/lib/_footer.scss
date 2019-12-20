@@ -114,7 +114,7 @@
         margin-right: .5em;
         line-height: 0;
         display: block;
-        box-shadow: 0px 0px 5px rgba($black-dark,.8);
+        box-shadow: 0px 0px 5px rgba($black,.75);
         border-radius: 50%;
 
         @include media-breakpoint-down(lg) {
@@ -136,8 +136,7 @@
   &.static {
     position: fixed;
     bottom: 0;
-    text-shadow: 1px 1px 2px rgba($black-dark,.2);
-    background-color: rgba($black,.5);
+    background-color: transparent;
 
     .content,
     .locales {
