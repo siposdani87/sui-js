@@ -3,7 +3,7 @@
     thead {
       tr {
         th {
-          border-bottom: 1px solid $deep-grey-bright;
+          border-bottom-color: $deep-grey-bright;
 
           .icons {
             color: $deep-grey-bright;
@@ -24,14 +24,14 @@
 
     tbody {
       @include media-breakpoint-down(sm) {
-        border: 1px solid $deep-grey;
+        border-color: $deep-grey;
       }
 
       tr {
-        border-top: 1px solid $deep-grey;
+        border-top-color: $deep-grey;
 
         &:nth-child(4n+0) {
-          background-color: $deep-grey-dark;
+          background-color: $black;
         }
 
         &.header {
@@ -50,7 +50,7 @@
 
             &.open {
               td {
-                border-bottom: 1px solid $light-grey;
+                border-bottom-color: $light-grey;
               }
             }
           }

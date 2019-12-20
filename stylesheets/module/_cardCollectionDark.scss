@@ -1,19 +1,19 @@
 .dark-theme {
   .card-collection {
     .card {
-      background-color: $deep-grey-bright;
-      border-color: $deep-grey-bright;
+      background-color: $black-bright;
+      border-color: $black-bright;
       box-shadow: 0 2px 3px 0 rgba($black, .3);
 
       &:hover {
-        box-shadow: 0 4px 5px 0 rgba($black, .5);
-        background-color: $deep-grey;
+        box-shadow: 0 4px 5px 0 rgba($black, .75);
+        background-color: $black;
       }
 
       .title,
       .title-with-actions {
         color: $white;
-        border-bottom-color: $deep-grey-dark;
+        border-bottom-color: $black-dark;
       }
 
       .header {
@@ -35,7 +35,7 @@
 
       .footer {
         .caption {
-          color: $deep-grey-bright;
+          color: $black-bright;
         }
       }
     }

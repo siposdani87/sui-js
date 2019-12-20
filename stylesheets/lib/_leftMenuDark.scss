@@ -2,7 +2,7 @@
   #left-menu {
     .main-menu,
     .sub-menu {
-      background-color: $black;
+      background-color: $black-dark;
       box-shadow: 2px 0 20px 0 rgba($white, .2);
 
       a {
@@ -14,12 +14,12 @@
           color: $primary;
 
           &:hover {
-            background-color: $deep-grey-bright;
+            background-color: $black;
           }
 
           &.active {
             color: $primary-bright;
-            background-color: $deep-grey;
+            background-color: $black-bright;
 
             .image {
 
@@ -31,8 +31,8 @@
           }
 
           &.disabled {
-            background-color: $black;
-            color: $deep-grey-bright;
+            background-color: $black-dark;
+            color: $black-bright;
 
             .image {
               img {
@@ -41,7 +41,7 @@
 
               svg,
               path {
-                fill: $deep-grey-bright;
+                fill: $black-bright;
               }
             }
           }
