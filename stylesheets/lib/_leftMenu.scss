@@ -83,7 +83,7 @@
 
         &.disabled {
           background-color: $white;
-          color: $grey;
+          color: $deep-grey-bright;
           cursor: default;
 
           .image {
@@ -93,7 +93,7 @@
 
             svg,
             path {
-              fill: $grey;
+              fill: $deep-grey-bright;
             }
           }
         }
