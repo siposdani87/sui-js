@@ -24,7 +24,7 @@ table {
         vertical-align: baseline;
         font-weight: 400;
         font-family: $font-family-heading;
-        border-bottom: 1px solid $grey;
+        border-bottom: 1px solid $deep-grey-bright;
 
         &[data-column] {
           font-weight: 700;
@@ -40,7 +40,7 @@ table {
           vertical-align: middle;
           display: inline-flex;
           flex-flow: column wrap;
-          color: $grey;
+          color: $deep-grey-bright;
           width: 24px;
           height: 24px;
 
@@ -141,7 +141,7 @@ table {
               flex-flow: row nowrap;
               justify-content: space-between;
               align-items: center;
-              border-bottom: 1px solid $grey-bright;
+              border-bottom: 1px solid $light-grey;
 
               span {
                 text-align: right;
@@ -181,7 +181,7 @@ table {
             vertical-align: middle;
             display: inline-flex;
             flex-flow: column wrap;
-            color: $grey;
+            color: $deep-grey-bright;
             width: 24px;
             height: 24px;
 

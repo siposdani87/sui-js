@@ -32,7 +32,7 @@
 
           &.disabled {
             background-color: $black;
-            color: $grey;
+            color: $deep-grey-bright;
 
             .image {
               img {
@@ -41,7 +41,7 @@
 
               svg,
               path {
-                fill: $grey;
+                fill: $deep-grey-bright;
               }
             }
           }

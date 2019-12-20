@@ -3,10 +3,10 @@
     thead {
       tr {
         th {
-          border-bottom: 1px solid $grey;
+          border-bottom: 1px solid $deep-grey-bright;
 
           .icons {
-            color: $grey;
+            color: $deep-grey-bright;
 
             .material-icons {
               &.active {
@@ -50,14 +50,14 @@
 
             &.open {
               td {
-                border-bottom: 1px solid $grey-bright;
+                border-bottom: 1px solid $light-grey;
               }
             }
           }
 
           .label {
             span {
-              color: $grey;
+              color: $deep-grey-bright;
 
               .material-icons {
                 &.active {

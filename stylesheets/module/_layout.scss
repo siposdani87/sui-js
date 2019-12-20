@@ -140,7 +140,7 @@
   padding: .1em;
   justify-content: space-between;
   align-items: center;
-  background-color: $grey-bright;
+  background-color: $light-grey;
   color: $black;
 
   @include media-breakpoint-down(sm) {
@@ -160,7 +160,7 @@
       &::after {
         content: '/';
         padding: 0 .3em;
-        color: $grey;
+        color: $deep-grey-bright;
       }
     }
   }
@@ -209,7 +209,7 @@
   padding: .1em;
   justify-content: space-between;
   align-items: center;
-  background-color: $grey-bright;
+  background-color: $light-grey;
   color: $black;
 
   @include media-breakpoint-down(sm) {
@@ -228,7 +228,7 @@
       &::after {
         content: '/';
         padding: 0 .3em;
-        color: $grey;
+        color: $deep-grey-bright;
       }
     }
   }
