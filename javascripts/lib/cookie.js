@@ -64,7 +64,7 @@ SUI.lib.Cookie.prototype.set = function(name, value, opt_expires = '', opt_path 
   if (opt_expires) {
     switch (opt_expires.constructor) {
       case Number:
-        opt_expires = opt_expires === Infinity ? '; expires=Fri, 31 Dec 9999 23:59:59 GMT' : '; max-age=' + (opt_expires * 60 * 60);
+        opt_expires = opt_expires === Infinity ? '; expires=Fri, 31 Dec 9999 23:59:59 GMT' : '; max-age=' + (/** @type {number} */ (opt_expires) * 60 * 60);
         break;
       case Date:
         opt_expires = '; expires=' + opt_expires.toGMTString();

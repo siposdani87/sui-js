@@ -14,8 +14,8 @@ const modRewrite = require('connect-modrewrite');
 // let files = ['javascripts/lib/*.js', 'javascripts/core/*.js', 'javascripts/module/*.js', 'javascripts/widget/*.js'];
 
 const closureOptions = {
-  compilation_level: 'ADVANCED_OPTIMIZATIONS', // SIMPLE_OPTIMIZATIONS, WHITESPACE_ONLY, ADVANCED_OPTIMIZATIONS
-  language_in: 'ECMASCRIPT_2019',
+  compilation_level: 'ADVANCED',
+  language_in: 'ECMASCRIPT_NEXT',
   language_out: 'ECMASCRIPT5_STRICT',
   warning_level: 'VERBOSE',
   externs: readdirSync('node_modules/sui-externs', {ignoreName: ['package.json', 'README.md', 'index.js', '.eslintrc.json', '.git', '.gitignore', '.vscode', 'node_modules', 'yarn.lock', 'package-lock.json']}),
@@ -23,6 +23,8 @@ const closureOptions = {
   summary_detail_level: 3,
   jscomp_error: '*',
   jscomp_warning: '*',
+  jscomp_off: 'strictMissingProperties',
+  hide_warnings_for: 'node_modules/sui-externs',
   generate_exports: true,
   define: 'SUI.production=true',
 };
@@ -44,7 +46,7 @@ gulp.task('compile:scripts', function() {
 
 gulp.task('compile:scripts:simple', function() {
   return gulp.src(['javascripts/**/*.js']).pipe(closureCompiler(objectAssign(closureOptions, {
-    compilation_level: 'SIMPLE_OPTIMIZATIONS',
+    compilation_level: 'SIMPLE',
     define: 'SUI.production=false',
     output_manifest: 'dist/sui.mf',
     js_output_file: 'sui.js',

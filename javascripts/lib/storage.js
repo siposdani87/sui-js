@@ -152,7 +152,7 @@ SUI.lib.Storage.prototype._getExpires = function(opt_expires) {
   if (opt_expires) {
     switch (opt_expires.constructor) {
       case Number:
-        date.setTime(date.getTime() + (opt_expires * 60 * 60 * 1000));
+        date.setTime(date.getTime() + (/** @type {number} */ (opt_expires) * 60 * 60 * 1000));
         opt_expires = opt_expires === Infinity ? 'Fri, 31 Dec 9999 23:59:59 GMT' : date.toUTCString();
         break;
       case Date:
