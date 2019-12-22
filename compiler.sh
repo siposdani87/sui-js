@@ -2,8 +2,8 @@
 clear
 
 java -jar node_modules/google-closure-compiler-java/compiler.jar \
---compilation_level SIMPLE_OPTIMIZATIONS \
---language_in ECMASCRIPT_2019 \
+--compilation_level SIMPLE \
+--language_in ECMASCRIPT_NEXT \
 --language_out ECMASCRIPT5_STRICT \
 --warning_level VERBOSE \
 --externs node_modules/sui-externs/*.js \
@@ -11,6 +11,8 @@ java -jar node_modules/google-closure-compiler-java/compiler.jar \
 --summary_detail_level 3 \
 --jscomp_error "*" \
 --jscomp_warning "*" \
+--jscomp_off "strictMissingProperties" \
+--hide_warnings_for=node_modules/sui-externs \
 --generate_exports \
 --define "SUI.production=false" \
 --js javascripts/*.js \
