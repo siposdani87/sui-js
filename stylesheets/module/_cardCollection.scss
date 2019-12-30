@@ -27,6 +27,11 @@
     &:hover {
       box-shadow: 0 4px 5px 0 rgba($black, .75);
       background-color: $light-grey;
+
+      .title,
+      .title-with-actions {
+        border-bottom-color: $light-grey-dark;
+      }
     }
 
     .title,
