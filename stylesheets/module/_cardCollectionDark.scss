@@ -8,6 +8,11 @@
       &:hover {
         box-shadow: 0 4px 5px 0 rgba($black, .75);
         background-color: $black;
+
+        .title,
+        .title-with-actions {
+          border-bottom-color: $black-bright;
+        }
       }
 
       .title,
