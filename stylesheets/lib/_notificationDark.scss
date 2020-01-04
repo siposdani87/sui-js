@@ -5,6 +5,22 @@
         box-shadow: 5px 5px 15px -5px rgba($white, .2);
         background-color: $black;
         border-top-color: $black-dark;
+
+        &.success {
+          border-color: $green-bright;
+        }
+  
+        &.info {
+          border-color: $blue-bright;
+        }
+  
+        &.warning {
+          border-color: $amber-bright;
+        }
+  
+        &.error {
+          border-color: $red-bright;
+        }
       }
     }
   }
