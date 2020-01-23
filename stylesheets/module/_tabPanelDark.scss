@@ -2,7 +2,7 @@
   .tab-panel {
     .tabs {
       a {
-        border-top-color: $black-bright;
+        border-bottom-color: $black-bright;
         background-color: $black;
         color: $primary;
 
@@ -11,13 +11,13 @@
         }
 
         &.active {
-          border-top-color: $accent-bright;
-          background-color: $black-dark;
+          border-bottom-color: $accent-bright;
+          // background-color: $black-dark;
           color: $primary-bright;
         }
 
         &:not(.active) {
-          border-top-color: $black;
+          border-bottom-color: $black;
         }
 
         &.disabled {
