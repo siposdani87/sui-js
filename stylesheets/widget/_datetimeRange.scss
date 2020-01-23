@@ -57,6 +57,7 @@
       background-color: $input-default-light;
       color: $content-default-light;
       border-radius: 2px;
+      white-space: nowrap;
 
       &.tag-with-action {
         padding-right: 30px;
