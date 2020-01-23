@@ -11,7 +11,7 @@
     a {
       flex: 0 1 100%;
       display: flex;
-      border-top: 4px solid $light-grey-dark;
+      border-bottom: 4px solid $light-grey-dark;
       align-items: center;
       justify-content: center;
       text-align: center;
@@ -28,16 +28,16 @@
       }
 
       &.active {
-        border-top-color: $accent;
-        background-color: $white;
+        border-bottom-color: $accent;
+        // background-color: $white;
         color: $primary-dark;
         z-index: 1;
-        box-shadow: 1px -2px 3px 0 rgba($black, .2);
+        // box-shadow: 1px -2px 3px 0 rgba($black, .2);
       }
 
       &:not(.active) {
-        border-top-color: $light-grey-bright;
-        box-shadow: 0 0 1px 0 rgba($black, .2);
+        border-bottom-color: $light-grey-bright;
+        // box-shadow: 0 0 1px 0 rgba($black, .2);
       }
 
       &.disabled {
