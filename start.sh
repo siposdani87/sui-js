@@ -1,6 +1,6 @@
 #!/bin/bash
 
-yarn install
-yarn outdated
+npm install
+npm outdated
 
 gulp serve

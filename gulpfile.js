@@ -53,11 +53,11 @@ gulp.task('compile:scripts:simple', function() {
   }))).pipe(gulp.dest('dist'));
 });
 
-gulp.task('watcher', gulp.parallel('compile:styles', 'compile:scripts:simple', function(done) {
-  gulp.watch('stylesheets/**/*.scss', ['compile:styles']);
-  gulp.watch('javascripts/**/*.js', ['compile:scripts:simple']);
+gulp.task('watcher', function(done) {
+  gulp.watch('stylesheets/**/*.scss', gulp.series(['compile:styles']));
+  gulp.watch('javascripts/**/*.js', gulp.series(['compile:scripts:simple']));
   done();
-}));
+});
 
 gulp.task('default', gulp.parallel('compile:styles', 'compile:scripts', function(done) {
   done();

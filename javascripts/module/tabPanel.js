@@ -14,7 +14,7 @@ goog.require('SUI.Query');
  * @param {string=} opt_defaultTab
  */
 SUI.TabPanel = function(dom, opt_selector = '.tab-panel', opt_selectedTab = '', opt_defaultTab = '') {
-  this.tabpanel = new SUI.Query(opt_selector, dom).getItem();
+  this.tabPanel = new SUI.Query(opt_selector, dom).getItem();
   this.options = {
     selected_tab: opt_selectedTab,
     default_tab: opt_defaultTab || opt_selectedTab,
@@ -39,7 +39,7 @@ SUI.TabPanel.prototype._init = function() {
  * @return {undefined}
  */
 SUI.TabPanel.prototype._initTabs = function() {
-  this.tabs = new SUI.Query('.tabs a', this.tabpanel);
+  this.tabs = new SUI.Query('.tabs a', this.tabPanel);
   this.tabs.each((tab) => {
     const panelId = tab.getAttribute('href').substr(1);
     if (this.tabs.size() === 1) {
@@ -58,7 +58,7 @@ SUI.TabPanel.prototype._initTabs = function() {
  * @return {undefined}
  */
 SUI.TabPanel.prototype._initPanels = function() {
-  this.panels = new SUI.Query('.panel', this.tabpanel);
+  this.panels = new SUI.Query('.panel', this.tabPanel);
 };
 
 /**
