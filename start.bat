@@ -1,6 +1,6 @@
 ::windows batch
 
-call yarn install
-call yarn outdated
+call npm install
+call npm outdated
 
 call gulp serve
