@@ -646,8 +646,8 @@ SUI.GoogleMap.prototype.setHeatmap = function(opt_options = {}) {
   ];
 
   this.heatmapOptions = new SUI.Object({
-    opacity: 0.2,
-    radius: 20,
+    opacity: 0.6,
+    radius: null,
     gradient: gradient,
   });
   this.heatmapOptions.merge(opt_options);
