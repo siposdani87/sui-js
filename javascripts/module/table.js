@@ -56,10 +56,15 @@ SUI.Table.prototype._init = function() {
   this.collection = /** @type {!SUI.Collection<!SUI.Object>} */ (new SUI.Collection());
   this.query = '';
   this.actions = [];
-  this._initContentHandler();
-  this._initHeader();
-  this._initSearch();
-  this._initStructure();
+  if (!this.tableNode.getId()) {
+    this.tableNode.setId(SUI.generateId('table'));
+    this._initContentHandler();
+    this._initHeader();
+    this._initSearch();
+    this._initStructure();
+  } else {
+    // TODO: reinit other components of table
+  }
 };
 
 /**
