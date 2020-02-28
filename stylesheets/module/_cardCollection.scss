@@ -16,28 +16,28 @@
 
   .card {
     border-radius: 3px;
-    background-color: $light-grey-bright;
+    background-color: $white-bright;
     cursor: pointer;
     display: flex;
     flex-flow: column nowrap;
     justify-content: space-between;
     border: 1px solid $light-grey-bright;
-    box-shadow: 0 2px 3px 0 rgba($black, .3);
+    box-shadow: 0 0 5px 0 rgba($black, .2);
 
     &:hover {
-      box-shadow: 0 4px 5px 0 rgba($black, .75);
-      background-color: $light-grey;
+      box-shadow: 0 0 5px 0 rgba($black, .3);
+      background-color: $light-grey-bright;
 
       .title,
       .title-with-actions {
-        border-bottom-color: $light-grey-dark;
+        border-bottom-color: $light-grey;
       }
     }
 
     .title,
     .title-with-actions {
       color: $black;
-      border-bottom: 1px solid $light-grey;
+      border-bottom: 1px solid $light-grey-bright;
     }
 
     .header {
