@@ -3,10 +3,10 @@
     .card {
       background-color: $black-bright;
       border-color: $black;
-      box-shadow: 0 2px 3px 0 rgba($black, .3);
+      box-shadow: 0 0 5px 0 rgba($black, .2);
 
       &:hover {
-        box-shadow: 0 4px 5px 0 rgba($black, .75);
+        box-shadow: 0 0 5px 0 rgba($black, .3);
         background-color: $black;
 
         .title,
