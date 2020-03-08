@@ -2,8 +2,9 @@
   table {
     thead {
       tr {
+        border-bottom-color: $deep-grey-bright;
+
         th {
-          border-bottom-color: $deep-grey-bright;
 
           .icons {
             color: $deep-grey-bright;
