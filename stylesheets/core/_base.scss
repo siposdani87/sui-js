@@ -250,6 +250,10 @@ address {
 h3.caption {
   margin: 1em 0 .25em;
   color: $primary;
+
+  &::first-letter {
+    text-transform: capitalize;
+  }
 }
 
 form {
