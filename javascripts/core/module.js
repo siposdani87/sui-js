@@ -179,7 +179,7 @@ SUI.Module.prototype.handleServices = function() {
  */
 SUI.Module.prototype.handleRoutes = function(routes, options) {
   this._instances[this._injections.state] = new SUI.State(routes, options);
-  this._instances[this._injections.state].eventChange = function(currentState, previousState) {
+  this._instances[this._injections.state].eventChange = function(currentState, previousState, force) {
     let exit = SUI.noop();
     if (!previousState.isEmpty() && SUI.isObject(this._controller) && SUI.isFunction(this._controller.exit)) {
       exit = this._controller.exit.bind(this._controller);
@@ -187,21 +187,22 @@ SUI.Module.prototype.handleRoutes = function(routes, options) {
 
     const async = new SUI.Async();
     async.serial([exit]).then(function() {
-      this._handleStateChange(currentState);
+      this._handleStateChange(currentState, force);
     }.bind(this));
   }.bind(this);
 };
 
 /**
  * @param {!SUI.Object} currentState
+ * @param {boolean=} opt_force
  * @return {undefined}
  */
-SUI.Module.prototype._handleStateChange = function(currentState) {
+SUI.Module.prototype._handleStateChange = function(currentState, opt_force = false) {
   this.eventStateChange(currentState).then(() => {
     const template = currentState.get('template');
     if (template) {
       const templateUrl = currentState.get('templateUrl');
-      this._instances[this._injections.template].load(templateUrl).then((dom) => {
+      this._instances[this._injections.template].load(templateUrl, opt_force).then((dom) => {
         this.eventModuleLoaded(currentState);
         this._initController(currentState, dom);
       }, () => {
