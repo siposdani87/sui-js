@@ -49,13 +49,14 @@ SUI.lib.Template.prototype.getViewNode = function() {
 
 /**
  * @param {string} url
+ * @param {boolean=} opt_force
  * @return {!SUI.Promise}
  */
-SUI.lib.Template.prototype.load = function(url) {
+SUI.lib.Template.prototype.load = function(url, opt_force = false) {
   const deferred = new SUI.Deferred();
   const templateUrl = this.viewNode.getAttribute('data-template-url');
   const locale = this.viewNode.getAttribute('data-locale');
-  if (SUI.contain(this.options.locale, locale) && templateUrl === url) {
+  if (!opt_force && SUI.contain(this.options.locale, locale) && templateUrl === url) {
     this.viewNode.removeAttribute('data-locale');
     const node = new SUI.Query('.page-content', this.viewNode).getItem();
     deferred.resolve(node);

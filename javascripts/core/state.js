@@ -172,34 +172,36 @@ SUI.State.prototype._parsePath = function(urlPath, successCallback, errorCallbac
  * @param {!SUI.Object} state
  * @param {string} url
  * @param {!Object=} opt_params
+ * @param {boolean=} opt_overwrite
  * @param {boolean=} opt_force
  * @return {undefined}
  */
-SUI.State.prototype._setHistory = function(state, url, opt_params = {}, opt_force = false) {
+SUI.State.prototype._setHistory = function(state, url, opt_params = {}, opt_overwrite = false, opt_force = false) {
   url = this.basePath === '#' ? this.basePath + url : url;
   const template = /** @type {string} */ (state.get('template'));
   const router = new SUI.Router(template);
   state.set('templateUrl', router.stringify(opt_params));
   state.set('params', opt_params);
-  if (opt_force) {
+  if (opt_overwrite) {
     window.history.replaceState(state.get(), /** @type {string} */(state.get('title', '')), url);
   } else {
     window.history.pushState(state.get(), /** @type {string} */(state.get('title', '')), url);
   }
   this._setCurrent(state);
-  if (!opt_force) {
-    this._triggerChange();
+  if (!opt_overwrite) {
+    this._triggerChange(opt_force);
   }
 };
 
 /**
  * @private
+ * @param {boolean=} opt_force
  * @return {undefined}
  */
-SUI.State.prototype._triggerChange = function() {
+SUI.State.prototype._triggerChange = function(opt_force = false) {
   const currentState = /** @type {!SUI.Object} */ (this.getCurrent());
   const previousState = /** @type {!SUI.Object} */ (this.getPrevious());
-  this.eventChange(currentState, previousState);
+  this.eventChange(currentState, previousState, opt_force);
 };
 
 /**
@@ -231,20 +233,21 @@ SUI.State.prototype.getPrevious = function(opt_attribute) {
 /**
  * @param {string} id
  * @param {!Object=} opt_params
+ * @param {boolean=} opt_overwrite
  * @param {boolean=} opt_force
  * @return {undefined}
  */
-SUI.State.prototype.go = function(id, opt_params, opt_force = false) {
+SUI.State.prototype.go = function(id, opt_params = undefined, opt_overwrite = false, opt_force = false) {
   if (SUI.eq(id[0], '#') || SUI.eq(id[0], '/')) {
     this._parsePath(id, (state, path, params) => {
-      this._setHistory(state, path, params, opt_force);
+      this._setHistory(state, path, params, opt_overwrite, opt_force);
     }, () => {
 
     });
   } else {
     const [url, state] = this.resolveUrlWithState(id, opt_params);
     if (url && state) {
-      this._setHistory(/** @type {!SUI.Object} */ (state), url, opt_params, opt_force);
+      this._setHistory(/** @type {!SUI.Object} */ (state), url, opt_params, opt_overwrite, opt_force);
     }
   }
 };
@@ -255,7 +258,7 @@ SUI.State.prototype.go = function(id, opt_params, opt_force = false) {
  * @param {!Object=} opt_params
  * @return {!Array}
  */
-SUI.State.prototype.resolveUrlWithState = function(id, opt_params) {
+SUI.State.prototype.resolveUrlWithState = function(id, opt_params = undefined) {
   const state = this.routes.findById(id);
   let url = '';
   if (state) {
@@ -271,53 +274,58 @@ SUI.State.prototype.resolveUrlWithState = function(id, opt_params) {
  * @param {!Object=} opt_params
  * @return {string}
  */
-SUI.State.prototype.resolveUrl = function(id, opt_params) {
+SUI.State.prototype.resolveUrl = function(id, opt_params = undefined) {
   const url = /** @type {string} */ (this.resolveUrlWithState(id, opt_params)[0]);
   return this._getRealUrl(url);
 };
 
 /**
  * @param {!Object} state
+ * @param {boolean=} opt_overwrite
  * @param {boolean=} opt_force
  * @return {undefined}
  */
-SUI.State.prototype.goState = function(state, opt_force = false) {
-  this.go(state['id'], state['params'], opt_force);
+SUI.State.prototype.goState = function(state, opt_overwrite = false, opt_force = false) {
+  this.go(state['id'], state['params'], opt_overwrite, opt_force);
 };
 
 /**
+ * @param {boolean=} opt_overwrite
  * @param {boolean=} opt_force
  * @return {undefined}
  */
-SUI.State.prototype.goHome = function(opt_force) {
-  this.go(this.options.home.id, this.options.home.params, opt_force);
+SUI.State.prototype.goHome = function(opt_overwrite = false, opt_force = false) {
+  this.go(this.options.home.id, this.options.home.params, opt_overwrite, opt_force);
 };
 
 /**
+ * @param {boolean=} opt_overwrite
  * @param {boolean=} opt_force
  * @return {undefined}
  */
-SUI.State.prototype.goRoot = function(opt_force) {
-  this.go(this.options.root.id, this.options.root.params, opt_force);
+SUI.State.prototype.goRoot = function(opt_overwrite = false, opt_force = false) {
+  this.go(this.options.root.id, this.options.root.params, opt_overwrite, opt_force);
 };
 
 /**
+ * @param {boolean=} opt_overwrite
  * @param {boolean=} opt_force
  * @return {undefined}
  */
-SUI.State.prototype.goMaintenance = function(opt_force) {
-  this.go(this.options.maintenance.id, this.options.maintenance.params, opt_force);
+SUI.State.prototype.goMaintenance = function(opt_overwrite = false, opt_force = false) {
+  this.go(this.options.maintenance.id, this.options.maintenance.params, opt_overwrite, opt_force);
 };
 
 /**
  * @param {string} id
  * @param {!Object=} opt_params
+ * @param {boolean=} opt_overwrite
  * @param {boolean=} opt_force
  * @return {undefined}
  */
-SUI.State.prototype.goBack = function(id, opt_params, opt_force = false) {
+SUI.State.prototype.goBack = function(id, opt_params, opt_overwrite = false, opt_force = false) {
   if (SUI.eq(window.history.length, 0)) {
-    this.go(id, opt_params, opt_force);
+    this.go(id, opt_params, opt_overwrite, opt_force);
   } else {
     this.back();
   }
@@ -353,10 +361,11 @@ SUI.State.prototype.forward = function() {
 /**
  * @param {!SUI.Object} currentState
  * @param {!SUI.Object} previousState
+ * @param {boolean=} opt_force
  * @return {undefined}
  */
-SUI.State.prototype.eventChange = function(currentState, previousState) {
-  console.warn('SUI.State.eventChange()', currentState, previousState);
+SUI.State.prototype.eventChange = function(currentState, previousState, opt_force = false) {
+  console.warn('SUI.State.eventChange()', currentState, previousState, opt_force);
 };
 
 /**
@@ -413,8 +422,9 @@ SUI.State.prototype.reload = function() {
 };
 
 /**
+ * @param {boolean=} opt_force
  * @return {undefined}
  */
-SUI.State.prototype.refresh = function() {
-  this._triggerChange();
+SUI.State.prototype.refresh = function(opt_force = false) {
+  this._triggerChange(opt_force);
 };
