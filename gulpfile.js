@@ -38,14 +38,14 @@ gulp.task('compile:styles', function() {
 });
 
 gulp.task('compile:scripts', function() {
-  return gulp.src(['javascripts/**/*.js']).pipe(closureCompiler(objectAssign(closureOptions, {
+  return gulp.src(['node_modules/google-closure-library/closure/goog/base.js', 'javascripts/**/*.js']).pipe(closureCompiler(objectAssign(closureOptions, {
     output_manifest: 'dist/sui.min.mf',
     js_output_file: 'sui.min.js',
   }))).pipe(insert.append('export default window.SUI;')).pipe(gulp.dest('dist'));
 });
 
 gulp.task('compile:scripts:simple', function() {
-  return gulp.src(['javascripts/**/*.js']).pipe(closureCompiler(objectAssign(closureOptions, {
+  return gulp.src(['node_modules/google-closure-library/closure/goog/base.js', 'javascripts/**/*.js']).pipe(closureCompiler(objectAssign(closureOptions, {
     compilation_level: 'SIMPLE',
     define: 'SUI.production=false',
     output_manifest: 'dist/sui.mf',

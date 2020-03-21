@@ -23,43 +23,6 @@
  * @author Dániel Sipos
  */
 
-/**
- * @private
- * @param {!Object} object
- * @param {!Array} attributes
- * @param {*} value
- * @return {!Object}
- */
-const _attributesToObject = function(object, attributes, value) {
-  // TODO duplicated on Object._attributesToObject function
-  const lastAttribute = attributes.pop();
-  let base = object;
-  for (let i = 0; i < attributes.length; i++) {
-    base = base[attributes[i]] = base[attributes[i]] || {};
-  }
-  base[lastAttribute] = value;
-  return object;
-};
-
-const goog = {
-  provide: function(name) {
-  },
-  require: function(name) {
-  },
-  exportSymbol: function(publicPath, object) {
-    // window[publicPath] = object;
-    _attributesToObject(window, publicPath.split('.'), object);
-  },
-  exportProperty: function(object, publicName, symbol) {
-    object[publicName] = symbol;
-    // attributesToObject(object, publicName.split('.'), symbol);
-  },
-  inherits: function(object, parentObject) {
-    object.prototype = Object.create(parentObject.prototype);
-    object.prototype.constructor = object;
-  },
-};
-
 goog.provide('SUI');
 
 /**
@@ -1174,3 +1137,5 @@ SUI.filterKeys = function(obj, condition) {
 SUI.normalize = function(str) {
   return str.normalize('NFD').replace(/[\u0300-\u036f]/g, '');
 };
+
+// exports = SUI;
