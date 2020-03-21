@@ -1,3 +1,4 @@
+node_modules/google-closure-library/closure/goog/base.js
 javascripts/core/sui.js
 javascripts/core/object.js
 javascripts/core/promise.js

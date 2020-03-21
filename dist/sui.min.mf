@@ -1,3 +1,4 @@
+base.js
 core/sui.js
 core/module.js
 core/object.js
@@ -91,14 +92,14 @@ module/tabPanel.js
 module/table.js
 module/treeView.js
 module/waiter.js
+test/container.js
+test/deferred.js
+test/item.js
+test/node.js
+test/object.js
 widget/autoComplete.js
 widget/datetimeRange.js
 widget/location.js
 widget/number.js
 widget/search.js
 widget/url.js
-test/container.js
-test/deferred.js
-test/item.js
-test/node.js
-test/object.js
