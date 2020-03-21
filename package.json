@@ -16,7 +16,8 @@
     "stylesheets/*",
     "dist/*",
     "rails.js",
-    "index.js"
+    "index.js",
+    "package.json"
   ],
   "dependencies": {
     "crypto-js": "4.0.0",
