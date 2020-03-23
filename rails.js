@@ -1,8 +1,8 @@
 
 //= require sui-js/javascripts/core/sui
 //= require sui-js/javascripts/core/lib
-//= require sui-js/javascripts/core/test
 //= require sui-js/javascripts/core/widget
+//= require sui-js/javascripts/core/test
 
 //= require sui-js/javascripts/core/object
 //= require sui-js/javascripts/core/item
@@ -21,6 +21,61 @@
 
 //= require sui-js/javascripts/core/module
 //= require sui-js/javascripts/core/app
+
+//= require sui-js/javascripts/widget/text
+//= require sui-js/javascripts/widget/select
+//= require sui-js/javascripts/widget/submit
+//= require sui-js/javascripts/widget/reset
+//= require sui-js/javascripts/widget/button
+//= require sui-js/javascripts/widget/file
+//= require sui-js/javascripts/widget/baseCheckbox
+//= require sui-js/javascripts/widget/checkbox
+//= require sui-js/javascripts/widget/hidden
+//= require sui-js/javascripts/widget/textarea
+//= require sui-js/javascripts/widget/range
+//= require sui-js/javascripts/widget/switch
+//= require sui-js/javascripts/widget/radiobutton
+//= require sui-js/javascripts/widget/iconToggle
+//= require sui-js/javascripts/widget/color
+//= require sui-js/javascripts/widget/datetime
+//= require sui-js/javascripts/widget/datetimeRange
+//= require sui-js/javascripts/widget/location
+//= require sui-js/javascripts/widget/number
+//= require sui-js/javascripts/widget/url
+//= require sui-js/javascripts/widget/search
+
+//= require sui-js/javascripts/module/waiter
+//= require sui-js/javascripts/module/googleMap
+//= require sui-js/javascripts/module/canvas
+//= require sui-js/javascripts/module/form
+//= require sui-js/javascripts/module/formWidget
+//= require sui-js/javascripts/module/widget
+//= require sui-js/javascripts/module/popupContainer
+//= require sui-js/javascripts/module/popup
+//= require sui-js/javascripts/module/tooltip
+//= require sui-js/javascripts/module/test
+//= require sui-js/javascripts/module/navigation
+//= require sui-js/javascripts/module/tabPanel
+//= require sui-js/javascripts/module/dropdown
+//= require sui-js/javascripts/module/pager
+//= require sui-js/javascripts/module/table
+//= require sui-js/javascripts/module/cardCollection
+//= require sui-js/javascripts/module/progressStatus
+//= require sui-js/javascripts/module/contentHandler
+
+//= require sui-js/javascripts/module/time
+//= require sui-js/javascripts/module/clock
+//= require sui-js/javascripts/module/day
+//= require sui-js/javascripts/module/year
+//= require sui-js/javascripts/module/month
+//= require sui-js/javascripts/module/calendar
+//= require sui-js/javascripts/module/datetime
+
+//= require sui-js/javascripts/test/object
+//= require sui-js/javascripts/test/item
+//= require sui-js/javascripts/test/container
+//= require sui-js/javascripts/test/deferred
+//= require sui-js/javascripts/test/node
 
 
 //= require sui-js/javascripts/lib/event
@@ -56,61 +111,3 @@
 //= require sui-js/javascripts/lib/serviceWorker
 //= require sui-js/javascripts/lib/actionCableClient
 //= require sui-js/javascripts/lib/actionCable
-
-
-//= require sui-js/javascripts/module/waiter
-//= require sui-js/javascripts/module/googleMap
-//= require sui-js/javascripts/module/canvas
-//= require sui-js/javascripts/module/form
-//= require sui-js/javascripts/module/formWidget
-//= require sui-js/javascripts/module/widget
-//= require sui-js/javascripts/module/popupContainer
-//= require sui-js/javascripts/module/popup
-//= require sui-js/javascripts/module/tooltip
-//= require sui-js/javascripts/module/test
-//= require sui-js/javascripts/module/navigation
-//= require sui-js/javascripts/module/tabPanel
-//= require sui-js/javascripts/module/dropdown
-//= require sui-js/javascripts/module/pager
-//= require sui-js/javascripts/module/table
-//= require sui-js/javascripts/module/cardCollection
-//= require sui-js/javascripts/module/progressStatus
-//= require sui-js/javascripts/module/contentHandler
-
-//= require sui-js/javascripts/module/time
-//= require sui-js/javascripts/module/clock
-//= require sui-js/javascripts/module/day
-//= require sui-js/javascripts/module/year
-//= require sui-js/javascripts/module/month
-//= require sui-js/javascripts/module/calendar
-//= require sui-js/javascripts/module/datetime
-
-
-//= require sui-js/javascripts/widget/text
-//= require sui-js/javascripts/widget/select
-//= require sui-js/javascripts/widget/submit
-//= require sui-js/javascripts/widget/reset
-//= require sui-js/javascripts/widget/button
-//= require sui-js/javascripts/widget/file
-//= require sui-js/javascripts/widget/baseCheckbox
-//= require sui-js/javascripts/widget/checkbox
-//= require sui-js/javascripts/widget/hidden
-//= require sui-js/javascripts/widget/textarea
-//= require sui-js/javascripts/widget/range
-//= require sui-js/javascripts/widget/switch
-//= require sui-js/javascripts/widget/radiobutton
-//= require sui-js/javascripts/widget/iconToggle
-//= require sui-js/javascripts/widget/color
-//= require sui-js/javascripts/widget/datetime
-//= require sui-js/javascripts/widget/datetimeRange
-//= require sui-js/javascripts/widget/location
-//= require sui-js/javascripts/widget/number
-//= require sui-js/javascripts/widget/url
-//= require sui-js/javascripts/widget/search
-
-
-//= require sui-js/javascripts/test/object
-//= require sui-js/javascripts/test/item
-//= require sui-js/javascripts/test/container
-//= require sui-js/javascripts/test/deferred
-//= require sui-js/javascripts/test/node
