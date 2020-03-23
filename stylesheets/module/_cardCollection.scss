@@ -83,6 +83,7 @@
     }
 
     .content {
+      color: $black;
 
       &.section {
         margin: 1em 0 0 1em;
@@ -93,9 +94,8 @@
       }
 
       .info {
-        color: $primary;
-
         .material-icons {
+          color: $primary;
           display: inline-block;
           vertical-align: sub;
           padding-top: 3px;

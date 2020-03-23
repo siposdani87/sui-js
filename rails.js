@@ -1,5 +1,9 @@
 
 //= require sui-js/javascripts/core/sui
+//= require sui-js/javascripts/core/lib
+//= require sui-js/javascripts/core/test
+//= require sui-js/javascripts/core/widget
+
 //= require sui-js/javascripts/core/object
 //= require sui-js/javascripts/core/item
 //= require sui-js/javascripts/core/collection
