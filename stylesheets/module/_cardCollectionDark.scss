@@ -33,8 +33,12 @@
       }
 
       .content {
+        color: $white;
+        
         .info {
-          color: $primary-bright;
+          .material-icons {
+            color: $primary-bright;
+          }
         }
       }
 
