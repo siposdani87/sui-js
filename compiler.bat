@@ -13,6 +13,7 @@ call java -jar node_modules/google-closure-compiler-java/compiler.jar^
  --jscomp_warning "*"^
  --jscomp_off "strictMissingProperties"^
  --hide_warnings_for node_modules/sui-externs^
+ --hide_warnings_for node_modules/google-closure-library^
  --generate_exports^
  --define "SUI.production=false"^
  --js node_modules/google-closure-library/closure/goog/base.js^

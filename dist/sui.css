@@ -2813,7 +2813,7 @@ table tfoot tr td.pager {
   align-items: center;
   justify-content: center;
   text-align: center;
-  background-color: #eeeeee;
+  background-color: #eee;
   padding: 5px 10px;
   text-decoration: none;
   text-transform: uppercase;
@@ -2830,7 +2830,7 @@ table tfoot tr td.pager {
   z-index: 1;
 }
 .tab-panel .tabs a:not(.active) {
-  border-bottom-color: #eeeeee;
+  border-bottom-color: #eee;
 }
 .tab-panel .tabs a.disabled {
   color: #e0e0e0;
@@ -3212,12 +3212,12 @@ table tfoot tr td.pager {
   display: flex;
   flex-flow: column nowrap;
   justify-content: space-between;
-  border: 1px solid #eeeeee;
+  border: 1px solid #eee;
   box-shadow: 0 0 5px 0 rgba(33, 33, 33, 0.2);
 }
 .card-collection .card:hover {
   box-shadow: 0 0 5px 0 rgba(33, 33, 33, 0.3);
-  background-color: #eeeeee;
+  background-color: #eee;
 }
 .card-collection .card:hover .title,
 .card-collection .card:hover .title-with-actions {
@@ -3226,7 +3226,7 @@ table tfoot tr td.pager {
 .card-collection .card .title,
 .card-collection .card .title-with-actions {
   color: #212121;
-  border-bottom: 1px solid #eeeeee;
+  border-bottom: 1px solid #eee;
 }
 .card-collection .card .header {
   padding: 7em 0 0;
@@ -3263,16 +3263,17 @@ table tfoot tr td.pager {
 .card-collection .card .title-with-actions .actions .mdl-button {
   border-radius: 50%;
 }
+.card-collection .card .content {
+  color: #212121;
+}
 .card-collection .card .content.section {
   margin: 1em 0 0 1em;
 }
 .card-collection .card .content.section .box {
   padding: 0 1em 1em 0;
 }
-.card-collection .card .content .info {
-  color: #3f51b5;
-}
 .card-collection .card .content .info .material-icons {
+  color: #3f51b5;
   display: inline-block;
   vertical-align: sub;
   padding-top: 3px;
@@ -3315,7 +3316,10 @@ table tfoot tr td.pager {
   background-color: rgba(33, 33, 33, 0.7);
   border-bottom-color: #f06292;
 }
-.dark-theme .card-collection .card .content .info {
+.dark-theme .card-collection .card .content {
+  color: #fafafa;
+}
+.dark-theme .card-collection .card .content .info .material-icons {
   color: #7986cb;
 }
 .dark-theme .card-collection .card .footer .caption {
@@ -4281,7 +4285,7 @@ table tfoot tr td.pager {
 }
 #left-menu .main-menu .menu-container a:hover,
 #left-menu .sub-menu .menu-container a:hover {
-  background-color: #eeeeee;
+  background-color: #eee;
 }
 #left-menu .main-menu .menu-container a.active,
 #left-menu .sub-menu .menu-container a.active {
@@ -4660,7 +4664,7 @@ table tfoot tr td.pager {
   margin-right: 0.5em;
   line-height: 0;
   display: block;
-  box-shadow: 0px 0px 5px rgba(33, 33, 33, 0.75);
+  box-shadow: 0 0 5px rgba(33, 33, 33, 0.75);
   border-radius: 50%;
 }
 @media (max-width: 1199px) {
@@ -5015,7 +5019,7 @@ table tfoot tr td.pager {
   margin-bottom: 20px;
   padding: 15px 30px;
   box-shadow: 5px 5px 15px -5px rgba(33, 33, 33, 0.75);
-  background-color: #eeeeee;
+  background-color: #eee;
   border-radius: 3px;
   min-height: 45px;
   clear: both;

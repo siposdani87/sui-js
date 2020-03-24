@@ -24,7 +24,6 @@ const closureOptions = {
   jscomp_error: '*',
   jscomp_warning: '*',
   jscomp_off: 'strictMissingProperties',
-  hide_warnings_for: 'node_modules/sui-externs',
   generate_exports: true,
   define: 'SUI.production=true',
 };
