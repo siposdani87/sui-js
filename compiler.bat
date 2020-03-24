@@ -22,7 +22,8 @@ call java -jar node_modules/google-closure-compiler-java/compiler.jar^
  --js javascripts/core/*.js^
  --js javascripts/module/*.js^
  --js javascripts/widget/*.js^
- --output_manifest dist/sui.mf^
+ --output_manifest dist/sui.js.mf^
+ --create_source_map dist/sui.js.map^
  --js_output_file dist/sui.js
 
 call sass-lint --verbose --no-exit

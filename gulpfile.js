@@ -10,6 +10,9 @@ const insert = require('gulp-insert');
 const readdirSync = require('readdirsync2');
 const browserSync = require('browser-sync').create();
 const modRewrite = require('connect-modrewrite');
+const sourcemaps = require('gulp-sourcemaps');
+const change = require('gulp-change');
+const rename = require('gulp-rename');
 
 // let files = ['javascripts/lib/*.js', 'javascripts/core/*.js', 'javascripts/module/*.js', 'javascripts/widget/*.js'];
 
@@ -33,24 +36,39 @@ const sassOptions = {
 };
 
 gulp.task('compile:styles', function() {
-  return gulp.src('stylesheets/**/*.scss').pipe(sass(sassOptions).on('error', sass.logError)).pipe(gulp.dest('dist'));
+  return gulp.src('stylesheets/**/*.scss').pipe(sourcemaps.init()).pipe(sass(sassOptions).on('error', sass.logError)).pipe(sourcemaps.write('/')).pipe(gulp.dest('dist'));
 });
 
 gulp.task('compile:scripts', function() {
   return gulp.src(['node_modules/google-closure-library/closure/goog/base.js', 'javascripts/**/*.js']).pipe(closureCompiler(objectAssign(closureOptions, {
-    output_manifest: 'dist/sui.min.mf',
+    output_manifest: 'dist/sui.min.js.mf',
+    // create_source_map: 'dist/sui.min.js.map',
     js_output_file: 'sui.min.js',
-  }))).pipe(insert.append('export default window.SUI;')).pipe(gulp.dest('dist'));
+  }), {
+    platform: ['java'],
+  })).pipe(insert.append('export default window.SUI;')).pipe(sourcemaps.write('/')).pipe(gulp.dest('dist'));
 });
 
 gulp.task('compile:scripts:simple', function() {
   return gulp.src(['node_modules/google-closure-library/closure/goog/base.js', 'javascripts/**/*.js']).pipe(closureCompiler(objectAssign(closureOptions, {
     compilation_level: 'SIMPLE',
     define: 'SUI.production=false',
-    output_manifest: 'dist/sui.mf',
+    output_manifest: 'dist/sui.js.mf',
+    // create_source_map: 'dist/sui.js.map',
     js_output_file: 'sui.js',
-  }))).pipe(gulp.dest('dist'));
+  }), {
+    platform: ['java'],
+  })).pipe(sourcemaps.write('/')).pipe(gulp.dest('dist'));
 });
+
+gulp.task('create:rails', gulp.parallel('compile:styles', 'compile:scripts:simple', 'compile:scripts', function() {
+  return gulp.src('dist/sui.js.mf')
+      .pipe(change((content) => {
+        return content.replace(/node_modules\//g, '//= require ').replace(/javascripts\//g, '//= require sui-js/javascripts/').replace(/\.js/g, '');
+      }))
+      .pipe(rename('rails.js'))
+      .pipe(gulp.dest('.'));
+}));
 
 gulp.task('watcher', function(done) {
   gulp.watch('stylesheets/**/*.scss', gulp.series(['compile:styles']));
@@ -58,7 +76,7 @@ gulp.task('watcher', function(done) {
   done();
 });
 
-gulp.task('default', gulp.parallel('compile:styles', 'compile:scripts', function(done) {
+gulp.task('default', gulp.series('create:rails', function(done) {
   done();
 }));
 
