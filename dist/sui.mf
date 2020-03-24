@@ -1,14 +1,11 @@
 node_modules/google-closure-library/closure/goog/base.js
 javascripts/core/sui.js
-javascripts/core/object.js
-javascripts/core/promise.js
-javascripts/core/deferred.js
-javascripts/core/lib.js
-javascripts/lib/actionCableClient.js
 javascripts/core/module.js
+javascripts/core/object.js
 javascripts/core/collection.js
 javascripts/core/query.js
 javascripts/module/test.js
+javascripts/core/lib.js
 javascripts/lib/appCache.js
 javascripts/lib/bottomMenu.js
 javascripts/lib/browser.js
@@ -19,6 +16,8 @@ javascripts/lib/baseModal.js
 javascripts/lib/confirm.js
 javascripts/lib/console.js
 javascripts/lib/cookie.js
+javascripts/core/promise.js
+javascripts/core/deferred.js
 javascripts/lib/dialog.js
 javascripts/lib/document.js
 javascripts/lib/event.js
@@ -41,7 +40,9 @@ javascripts/lib/template.js
 javascripts/lib/topMenu.js
 javascripts/lib/viewer.js
 javascripts/lib/window.js
-javascripts/core/app.js
+javascripts/app.js
+javascripts/lib/actionCableClient.js
+javascripts/lib/actionCable.js
 javascripts/module/day.js
 javascripts/module/month.js
 javascripts/module/year.js
@@ -50,10 +51,8 @@ javascripts/module/widget.js
 javascripts/core/widget.js
 javascripts/widget/autoComplete.js
 node_modules/sui-externs/platform.ext.js
-javascripts/lib/actionCable.js
 javascripts/lib/navBar.js
 javascripts/lib/scheduler.js
-javascripts/core/box.js
 javascripts/core/item.js
 javascripts/core/router.js
 javascripts/core/state.js
@@ -90,8 +89,8 @@ javascripts/module/form.js
 javascripts/module/googleMap.js
 javascripts/module/navigation.js
 javascripts/module/progressStatus.js
-javascripts/module/table.js
 javascripts/module/tabPanel.js
+javascripts/module/table.js
 javascripts/module/treeView.js
 javascripts/module/waiter.js
 javascripts/widget/datetimeRange.js

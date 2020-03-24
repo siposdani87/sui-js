@@ -40,8 +40,7 @@ lib/template.js
 lib/topMenu.js
 lib/viewer.js
 lib/window.js
-core/app.js
-core/box.js
+app.js
 core/item.js
 core/router.js
 core/state.js
@@ -51,6 +50,11 @@ lib/actionCableClient.js
 lib/actionCable.js
 lib/navBar.js
 lib/scheduler.js
+test/container.js
+test/deferred.js
+test/item.js
+test/node.js
+test/object.js
 module/day.js
 module/month.js
 module/year.js
@@ -92,11 +96,6 @@ module/tabPanel.js
 module/table.js
 module/treeView.js
 module/waiter.js
-test/container.js
-test/deferred.js
-test/item.js
-test/node.js
-test/object.js
 widget/autoComplete.js
 widget/datetimeRange.js
 widget/location.js

@@ -20,7 +20,6 @@
 //= require sui-js/javascripts/core/deferred
 
 //= require sui-js/javascripts/core/module
-//= require sui-js/javascripts/core/app
 
 //= require sui-js/javascripts/widget/text
 //= require sui-js/javascripts/widget/select
@@ -111,3 +110,5 @@
 //= require sui-js/javascripts/lib/serviceWorker
 //= require sui-js/javascripts/lib/actionCableClient
 //= require sui-js/javascripts/lib/actionCable
+
+//= require sui-js/javascripts/app
