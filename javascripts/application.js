@@ -702,5 +702,5 @@ SUI.Application.prototype.service = function(name, moduleInjections, moduleCallb
  * @param {string=} opt_extendModule
  */
 SUI.Application.prototype.factory = function(name, moduleInjections, moduleCallback, opt_extendModule) {
-  this._module.add(name, moduleInjections, moduleCallback, opt_extendModule);
+  this.service(name, moduleInjections, moduleCallback, opt_extendModule);
 };
