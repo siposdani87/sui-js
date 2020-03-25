@@ -40,7 +40,7 @@
 //= require sui-js/javascripts/lib/topMenu
 //= require sui-js/javascripts/lib/viewer
 //= require sui-js/javascripts/lib/window
-//= require sui-js/javascripts/app
+//= require sui-js/javascripts/application
 //= require sui-js/javascripts/lib/actionCableClient
 //= require sui-js/javascripts/lib/actionCable
 //= require sui-js/javascripts/module/day

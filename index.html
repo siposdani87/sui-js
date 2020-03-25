@@ -967,14 +967,14 @@
     darkThemeNode.setHtml(lightThemeNode.getHtml(true).replace(/light-/g, 'dark-'));
 
     SUI.config = new SUI.Object({
-      app_id: 'sui-app',
+      app_id: 'sui-js',
       title: 'application.name',
       locale: 'en-GB',
       backend: window.location.origin,
       production: SUI.production,
       secret: '484xlj8y4jjöyéö57hk5ghrkleéjx',
     });
-    var app = new SUI.App(SUI.config, SUI.coreRes);
+    var app = new SUI.Application(SUI.config, SUI.coreRes);
     app.run();
 
     var form = new SUI.Form();

@@ -1,4 +1,4 @@
-goog.provide('SUI.App');
+goog.provide('SUI.Application');
 
 goog.require('SUI');
 goog.require('SUI.Module');
@@ -36,11 +36,11 @@ goog.require('SUI.lib.Window');
 
 /**
  * @constructor
- * @this {SUI.App}
+ * @this {SUI.Application}
  * @param {!Object} options
  * @param {!Object} resources
  */
-SUI.App = function(options, resources) {
+SUI.Application = function(options, resources) {
   this._setOptions(options);
   this._init(resources);
 };
@@ -50,7 +50,7 @@ SUI.App = function(options, resources) {
  * @param {!Object} options
  * @return {undefined}
  */
-SUI.App.prototype._setOptions = function(options) {
+SUI.Application.prototype._setOptions = function(options) {
   const _self = this;
   _self.options = new SUI.Object({
     app_id: 'sui-app',
@@ -69,7 +69,7 @@ SUI.App.prototype._setOptions = function(options) {
  * @param {!Object} resources
  * @return {undefined}
  */
-SUI.App.prototype._init = function(resources) {
+SUI.Application.prototype._init = function(resources) {
   this.types = {};
   this._injections = resources;
   this._instances = {};
@@ -117,7 +117,7 @@ SUI.App.prototype._init = function(resources) {
 /**
  * @return {string}
  */
-SUI.App.prototype.getLanguage = function() {
+SUI.Application.prototype.getLanguage = function() {
   const locale = this.getLocale();
   return locale.split('-', 2)[0];
 };
@@ -125,7 +125,7 @@ SUI.App.prototype.getLanguage = function() {
 /**
  * @return {string}
  */
-SUI.App.prototype.getLocale = function() {
+SUI.Application.prototype.getLocale = function() {
   let locale = this._instances[this._injections.localStorage].get('app.locale');
   if (!locale) {
     locale = this.options.locale;
@@ -137,7 +137,7 @@ SUI.App.prototype.getLocale = function() {
  * @param {string} locale
  * @return {undefined}
  */
-SUI.App.prototype.setLocale = function(locale) {
+SUI.Application.prototype.setLocale = function(locale) {
   this._instances[this._injections.localStorage].set('app.locale', locale);
   this.options.locale = locale;
 };
@@ -146,7 +146,7 @@ SUI.App.prototype.setLocale = function(locale) {
  * @param {string} locale
  * @return {undefined}
  */
-SUI.App.prototype.setLocaleWithReload = function(locale) {
+SUI.Application.prototype.setLocaleWithReload = function(locale) {
   this.setLocale(locale);
   this._instances[this._injections.state].reload();
 };
@@ -155,7 +155,7 @@ SUI.App.prototype.setLocaleWithReload = function(locale) {
  * @private
  * @return {undefined}
  */
-SUI.App.prototype._initLocale = function() {
+SUI.Application.prototype._initLocale = function() {
   const locale = this.getLocale();
   window['moment']['locale'](locale);
   this.setLocale(locale);
@@ -165,7 +165,7 @@ SUI.App.prototype._initLocale = function() {
  * @private
  * @return {undefined}
  */
-SUI.App.prototype._initCertificate = function() {
+SUI.Application.prototype._initCertificate = function() {
   const rootNode = new SUI.Query('html').getItem();
   rootNode.addClass('sui-js');
 };
@@ -174,7 +174,7 @@ SUI.App.prototype._initCertificate = function() {
  * @private
  * @return {undefined}
  */
-SUI.App.prototype._initModule = function() {
+SUI.Application.prototype._initModule = function() {
   this._module = new SUI.Module();
 
   this._module.eventAfterInit = () => {
@@ -231,7 +231,7 @@ SUI.App.prototype._initModule = function() {
  * @private
  * @return {undefined}
  */
-SUI.App.prototype._loadModules = function() {
+SUI.Application.prototype._loadModules = function() {
   this._module.load(this._instances, this._injections);
 };
 
@@ -239,7 +239,7 @@ SUI.App.prototype._loadModules = function() {
  * @private
  * @return {undefined}
  */
-SUI.App.prototype._initScript = function() {
+SUI.Application.prototype._initScript = function() {
   this._instances[this._injections.script] = new SUI.lib.Script(this._instances[this._injections.progressBar]);
 };
 
@@ -247,7 +247,7 @@ SUI.App.prototype._initScript = function() {
  * @private
  * @return {undefined}
  */
-SUI.App.prototype._initStyle = function() {
+SUI.Application.prototype._initStyle = function() {
   this._instances[this._injections.style] = new SUI.lib.Style(this._instances[this._injections.progressBar]);
 };
 
@@ -255,7 +255,7 @@ SUI.App.prototype._initStyle = function() {
  * @private
  * @return {undefined}
  */
-SUI.App.prototype._initConsole = function() {
+SUI.Application.prototype._initConsole = function() {
   this._instances[this._injections.console] = new SUI.lib.Console(this._instances[this._injections.config]);
 };
 
@@ -263,7 +263,7 @@ SUI.App.prototype._initConsole = function() {
  * @private
  * @return {undefined}
  */
-SUI.App.prototype._initConfig = function() {
+SUI.Application.prototype._initConfig = function() {
   this._instances[this._injections.config] = this.options;
 };
 
@@ -271,7 +271,7 @@ SUI.App.prototype._initConfig = function() {
  * @private
  * @return {undefined}
  */
-SUI.App.prototype._initApp = function() {
+SUI.Application.prototype._initApp = function() {
   this._instances[this._injections.app] = this;
 };
 
@@ -279,7 +279,7 @@ SUI.App.prototype._initApp = function() {
  * @private
  * @return {undefined}
  */
-SUI.App.prototype._initGeoLocation = function() {
+SUI.Application.prototype._initGeoLocation = function() {
   this._instances[this._injections.geoLocation] = new SUI.lib.GeoLocation();
 
   this._instances[this._injections.geoLocation].eventChange = (latitude, longitude, message) => {
@@ -300,7 +300,7 @@ SUI.App.prototype._initGeoLocation = function() {
  * @private
  * @return {undefined}
  */
-SUI.App.prototype._initCookie = function() {
+SUI.Application.prototype._initCookie = function() {
   this._instances[this._injections.cookie] = new SUI.lib.Cookie({
     prefix: this.options.app_id,
   });
@@ -310,7 +310,7 @@ SUI.App.prototype._initCookie = function() {
  * @private
  * @return {undefined}
  */
-SUI.App.prototype._initLoader = function() {
+SUI.Application.prototype._initLoader = function() {
   this._instances[this._injections.loader] = new SUI.lib.Loader();
 };
 
@@ -318,7 +318,7 @@ SUI.App.prototype._initLoader = function() {
  * @private
  * @return {undefined}
  */
-SUI.App.prototype._initProgressBar = function() {
+SUI.Application.prototype._initProgressBar = function() {
   this._instances[this._injections.progressBar] = new SUI.lib.ProgressBar(this._instances[this._injections.dialog], this._instances[this._injections.confirm]);
 };
 
@@ -326,7 +326,7 @@ SUI.App.prototype._initProgressBar = function() {
  * @private
  * @return {undefined}
  */
-SUI.App.prototype._initStorage = function() {
+SUI.Application.prototype._initStorage = function() {
   this._instances[this._injections.localStorage] = new SUI.lib.Storage({
     type: 'local',
     prefix: this.options.app_id,
@@ -343,7 +343,7 @@ SUI.App.prototype._initStorage = function() {
  * @private
  * @return {undefined}
  */
-SUI.App.prototype._initHelper = function() {
+SUI.Application.prototype._initHelper = function() {
   this._instances[this._injections.helper] = new SUI.lib.Helper();
 };
 
@@ -351,7 +351,7 @@ SUI.App.prototype._initHelper = function() {
  * @private
  * @return {undefined}
  */
-SUI.App.prototype._initDocument = function() {
+SUI.Application.prototype._initDocument = function() {
   const popupContainer = new SUI.PopupContainer();
   this._instances[this._injections.document] = new SUI.lib.Document(this.options);
   this._instances[this._injections.document].eventClick = function(target, event) {
@@ -364,7 +364,7 @@ SUI.App.prototype._initDocument = function() {
  * @private
  * @return {undefined}
  */
-SUI.App.prototype._initWindow = function() {
+SUI.Application.prototype._initWindow = function() {
   this._instances[this._injections.window] = new SUI.lib.Window();
   const width = this._instances[this._injections.window].getWidth();
   const height = this._instances[this._injections.window].getHeight();
@@ -412,7 +412,7 @@ SUI.App.prototype._initWindow = function() {
  * @private
  * @return {undefined}
  */
-SUI.App.prototype._initEvent = function() {
+SUI.Application.prototype._initEvent = function() {
   this._instances[this._injections.event] = new SUI.lib.Event();
 };
 
@@ -420,7 +420,7 @@ SUI.App.prototype._initEvent = function() {
  * @private
  * @return {undefined}
  */
-SUI.App.prototype._initScheduler = function() {
+SUI.Application.prototype._initScheduler = function() {
   this._instances[this._injections.scheduler] = new SUI.lib.Scheduler();
 };
 
@@ -428,7 +428,7 @@ SUI.App.prototype._initScheduler = function() {
  * @private
  * @return {undefined}
  */
-SUI.App.prototype._initHttp = function() {
+SUI.Application.prototype._initHttp = function() {
   this._instances[this._injections.http] = new SUI.lib.Http(this.options);
   this._instances[this._injections.http].eventBeforeRequest = function(...params) {
     this._instances[this._injections.progressBar].show();
@@ -444,7 +444,7 @@ SUI.App.prototype._initHttp = function() {
  * @private
  * @return {undefined}
  */
-SUI.App.prototype._initTemplate = function() {
+SUI.Application.prototype._initTemplate = function() {
   this._instances[this._injections.template] = new SUI.lib.Template(this._instances[this._injections.http], {
     locale: this.getLocale(),
   });
@@ -459,7 +459,7 @@ SUI.App.prototype._initTemplate = function() {
  * @private
  * @return {undefined}
  */
-SUI.App.prototype._initNotification = function() {
+SUI.Application.prototype._initNotification = function() {
   this._instances[this._injections.notification] = new SUI.lib.Notification();
 };
 
@@ -467,7 +467,7 @@ SUI.App.prototype._initNotification = function() {
  * @private
  * @return {undefined}
  */
-SUI.App.prototype._initDialog = function() {
+SUI.Application.prototype._initDialog = function() {
   this._instances[this._injections.dialog] = new SUI.lib.Dialog(this._instances[this._injections.http]);
 };
 
@@ -475,7 +475,7 @@ SUI.App.prototype._initDialog = function() {
  * @private
  * @return {undefined}
  */
-SUI.App.prototype._initConfirm = function() {
+SUI.Application.prototype._initConfirm = function() {
   this._instances[this._injections.confirm] = new SUI.lib.Confirm();
 };
 
@@ -483,7 +483,7 @@ SUI.App.prototype._initConfirm = function() {
  * @private
  * @return {undefined}
  */
-SUI.App.prototype._initViewer = function() {
+SUI.Application.prototype._initViewer = function() {
   this._instances[this._injections.viewer] = new SUI.lib.Viewer();
 };
 
@@ -491,7 +491,7 @@ SUI.App.prototype._initViewer = function() {
  * @private
  * @return {undefined}
  */
-SUI.App.prototype._initHeader = function() {
+SUI.Application.prototype._initHeader = function() {
   this._instances[this._injections.header] = new SUI.lib.Header();
 };
 
@@ -499,7 +499,7 @@ SUI.App.prototype._initHeader = function() {
  * @private
  * @return {undefined}
  */
-SUI.App.prototype._initTopMenu = function() {
+SUI.Application.prototype._initTopMenu = function() {
   this._instances[this._injections.topMenu] = new SUI.lib.TopMenu(this._instances[this._injections.header]);
 };
 
@@ -507,7 +507,7 @@ SUI.App.prototype._initTopMenu = function() {
  * @private
  * @return {undefined}
  */
-SUI.App.prototype._initNavBar = function() {
+SUI.Application.prototype._initNavBar = function() {
   this._instances[this._injections.navBar] = new SUI.lib.NavBar();
 };
 
@@ -515,7 +515,7 @@ SUI.App.prototype._initNavBar = function() {
  * @private
  * @return {undefined}
  */
-SUI.App.prototype._initBottomMenu = function() {
+SUI.Application.prototype._initBottomMenu = function() {
   this._instances[this._injections.bottomMenu] = new SUI.lib.BottomMenu(this._instances[this._injections.footer]);
 };
 
@@ -523,7 +523,7 @@ SUI.App.prototype._initBottomMenu = function() {
  * @private
  * @return {undefined}
  */
-SUI.App.prototype._initSidebar = function() {
+SUI.Application.prototype._initSidebar = function() {
   this._instances[this._injections.leftSidebar] = new SUI.lib.Sidebar('#left-sidebar');
 
   this._instances[this._injections.rightSidebar] = new SUI.lib.Sidebar('#right-sidebar');
@@ -533,7 +533,7 @@ SUI.App.prototype._initSidebar = function() {
  * @private
  * @return {undefined}
  */
-SUI.App.prototype._initLeftMenu = function() {
+SUI.Application.prototype._initLeftMenu = function() {
   this._instances[this._injections.leftMenu] = new SUI.lib.LeftMenu();
 };
 
@@ -541,7 +541,7 @@ SUI.App.prototype._initLeftMenu = function() {
  * @private
  * @return {undefined}
  */
-SUI.App.prototype._initFooter = function() {
+SUI.Application.prototype._initFooter = function() {
   this._instances[this._injections.footer] = new SUI.lib.Footer();
 };
 
@@ -549,7 +549,7 @@ SUI.App.prototype._initFooter = function() {
  * @private
  * @return {undefined}
  */
-SUI.App.prototype._initBrowser = function() {
+SUI.Application.prototype._initBrowser = function() {
   this._instances[this._injections.browser] = new SUI.lib.Browser();
   this._instances[this._injections.browser].eventMissingFeatures = (features) => {
     this._instances[this._injections.notification].addError(features.join(', '));
@@ -560,7 +560,7 @@ SUI.App.prototype._initBrowser = function() {
  * @private
  * @return {undefined}
  */
-SUI.App.prototype._initAppCache = function() {
+SUI.Application.prototype._initAppCache = function() {
   this._instances[this._injections.appCache] = new SUI.lib.AppCache();
   this._instances[this._injections.appCache].eventMissingFeatures = (features) => {
     this._instances[this._injections.notification].addError(features.join(', '));
@@ -571,7 +571,7 @@ SUI.App.prototype._initAppCache = function() {
  * @private
  * @return {undefined}
  */
-SUI.App.prototype._initServiceWorker = function() {
+SUI.Application.prototype._initServiceWorker = function() {
   this._instances[this._injections.serviceWorker] = new SUI.lib.ServiceWorker();
   this._instances[this._injections.serviceWorker].eventMissingFeatures = (features) => {
     this._instances[this._injections.notification].addError(features.join(', '));
@@ -582,7 +582,7 @@ SUI.App.prototype._initServiceWorker = function() {
  * @private
  * @return {undefined}
  */
-SUI.App.prototype._initActionCable = function() {
+SUI.Application.prototype._initActionCable = function() {
   this._instances[this._injections.actionCable] = new SUI.lib.ActionCable();
 };
 
@@ -590,7 +590,7 @@ SUI.App.prototype._initActionCable = function() {
  * @private
  * @return {undefined}
  */
-SUI.App.prototype._initRoutes = function() {
+SUI.Application.prototype._initRoutes = function() {
   this._routes = [];
   this._routeOptions = new SUI.Object();
 };
@@ -604,7 +604,7 @@ SUI.App.prototype._initRoutes = function() {
  * @param {!Object=} opt_params
  * @return {undefined}
  */
-SUI.App.prototype.addState = function(id, title, url, controller, opt_template = '', opt_params = {}) {
+SUI.Application.prototype.addState = function(id, title, url, controller, opt_template = '', opt_params = {}) {
   const state = new SUI.Object(opt_params);
   state.set('id', id);
   state.set('title', title);
@@ -619,7 +619,7 @@ SUI.App.prototype.addState = function(id, title, url, controller, opt_template =
  * @param {!Object=} opt_params
  * @return {undefined}
  */
-SUI.App.prototype.setRootState = function(id, opt_params) {
+SUI.Application.prototype.setRootState = function(id, opt_params) {
   this._routeOptions.set('root.id', id);
   this._routeOptions.set('root.params', opt_params);
 };
@@ -629,7 +629,7 @@ SUI.App.prototype.setRootState = function(id, opt_params) {
  * @param {!Object=} opt_params
  * @return {undefined}
  */
-SUI.App.prototype.setHomeState = function(id, opt_params) {
+SUI.Application.prototype.setHomeState = function(id, opt_params) {
   this._routeOptions.set('home.id', id);
   this._routeOptions.set('home.params', opt_params);
 };
@@ -639,7 +639,7 @@ SUI.App.prototype.setHomeState = function(id, opt_params) {
  * @param {!Object=} opt_params
  * @return {undefined}
  */
-SUI.App.prototype.setMaintenanceState = function(id, opt_params) {
+SUI.Application.prototype.setMaintenanceState = function(id, opt_params) {
   this._routeOptions.set('maintenance.id', id);
   this._routeOptions.set('maintenance.params', opt_params);
 };
@@ -648,14 +648,14 @@ SUI.App.prototype.setMaintenanceState = function(id, opt_params) {
  * @param {string} name
  * @return {?Object}
  */
-SUI.App.prototype.getInstance = function(name) {
+SUI.Application.prototype.getInstance = function(name) {
   return this._instances[name];
 };
 
 /**
  * @return {?Object}
  */
-SUI.App.prototype.getController = function() {
+SUI.Application.prototype.getController = function() {
   return this._module.getController();
 };
 
@@ -663,7 +663,7 @@ SUI.App.prototype.getController = function() {
  * @export
  * @return {undefined}
  */
-SUI.App.prototype.run = function() {
+SUI.Application.prototype.run = function() {
   if (this.options.production) {
     console.info('%cApplication run in production environment...', `font-weight:bold;color:${this.options.log_color};`);
   } else {
@@ -681,7 +681,7 @@ SUI.App.prototype.run = function() {
  * @param {!Function} moduleCallback
  * @param {string=} opt_extendModule
  */
-SUI.App.prototype.controller = function(name, moduleInjections, moduleCallback, opt_extendModule) {
+SUI.Application.prototype.controller = function(name, moduleInjections, moduleCallback, opt_extendModule) {
   this._module.add(name, moduleInjections, moduleCallback, opt_extendModule);
 };
 
@@ -691,7 +691,7 @@ SUI.App.prototype.controller = function(name, moduleInjections, moduleCallback, 
  * @param {!Function} moduleCallback
  * @param {string=} opt_extendModule
  */
-SUI.App.prototype.service = function(name, moduleInjections, moduleCallback, opt_extendModule) {
+SUI.Application.prototype.service = function(name, moduleInjections, moduleCallback, opt_extendModule) {
   this._module.add(name, moduleInjections, moduleCallback, opt_extendModule);
 };
 
@@ -701,6 +701,6 @@ SUI.App.prototype.service = function(name, moduleInjections, moduleCallback, opt
  * @param {!Function} moduleCallback
  * @param {string=} opt_extendModule
  */
-SUI.App.prototype.factory = function(name, moduleInjections, moduleCallback, opt_extendModule) {
+SUI.Application.prototype.factory = function(name, moduleInjections, moduleCallback, opt_extendModule) {
   this._module.add(name, moduleInjections, moduleCallback, opt_extendModule);
 };

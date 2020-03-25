@@ -40,7 +40,7 @@ javascripts/lib/template.js
 javascripts/lib/topMenu.js
 javascripts/lib/viewer.js
 javascripts/lib/window.js
-javascripts/app.js
+javascripts/application.js
 javascripts/lib/actionCableClient.js
 javascripts/lib/actionCable.js
 javascripts/module/day.js
