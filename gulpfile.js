@@ -44,7 +44,7 @@ gulp.task('compile:scripts', function() {
     output_manifest: 'dist/sui.min.js.mf',
     // create_source_map: 'dist/sui.min.js.map',
     js_output_file: 'sui.min.js',
-  }))).pipe(insert.append('export default window.SUI;')).pipe(sourcemaps.write('/')).pipe(gulp.dest('dist'));
+  }))).pipe(insert.append('export default SUI;')).pipe(sourcemaps.write('/')).pipe(gulp.dest('dist'));
 });
 
 gulp.task('compile:scripts:simple', function() {
@@ -54,7 +54,7 @@ gulp.task('compile:scripts:simple', function() {
     output_manifest: 'dist/sui.js.mf',
     // create_source_map: 'dist/sui.js.map',
     js_output_file: 'sui.js',
-  }))).pipe(sourcemaps.write('/')).pipe(gulp.dest('dist'));
+  }))).pipe(insert.append('export default SUI;')).pipe(sourcemaps.write('/')).pipe(gulp.dest('dist'));
 });
 
 gulp.task('create:rails', gulp.parallel('compile:styles', 'compile:scripts:simple', 'compile:scripts', function() {
