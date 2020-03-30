@@ -1,18 +1,13 @@
 const gulp = require('gulp');
 const jsdoc = require('gulp-jsdoc3');
 const sass = require('gulp-sass');
-const compilerPackage = require('google-closure-compiler');
-const closureCompiler = compilerPackage.gulp({
-  requireStreamInput: true,
-});
+const closureCompiler = require('google-closure-compiler');
 const objectAssign = require('object-assign');
 const insert = require('gulp-insert');
 const readdirSync = require('readdirsync2');
 const browserSync = require('browser-sync').create();
 const modRewrite = require('connect-modrewrite');
 const sourcemaps = require('gulp-sourcemaps');
-const change = require('gulp-change');
-const rename = require('gulp-rename');
 
 // let files = ['javascripts/lib/*.js', 'javascripts/core/*.js', 'javascripts/module/*.js', 'javascripts/widget/*.js'];
 
@@ -40,7 +35,9 @@ gulp.task('compile:styles', function() {
 });
 
 gulp.task('compile:scripts', function() {
-  return gulp.src(['node_modules/google-closure-library/closure/goog/base.js', 'javascripts/**/*.js']).pipe(closureCompiler(objectAssign(closureOptions, {
+  return gulp.src(['node_modules/google-closure-library/closure/goog/base.js', 'javascripts/**/*.js']).pipe(closureCompiler.gulp({
+    requireStreamInput: true,
+  })(objectAssign(closureOptions, {
     output_manifest: 'dist/sui.min.js.mf',
     // create_source_map: 'dist/sui.min.js.map',
     js_output_file: 'sui.min.js',
@@ -48,7 +45,9 @@ gulp.task('compile:scripts', function() {
 });
 
 gulp.task('compile:scripts:simple', function() {
-  return gulp.src(['node_modules/google-closure-library/closure/goog/base.js', 'javascripts/**/*.js']).pipe(closureCompiler(objectAssign(closureOptions, {
+  return gulp.src(['node_modules/google-closure-library/closure/goog/base.js', 'javascripts/**/*.js']).pipe(closureCompiler.gulp({
+    requireStreamInput: true,
+  })(objectAssign(closureOptions, {
     compilation_level: 'SIMPLE',
     define: 'SUI.production=false',
     output_manifest: 'dist/sui.js.mf',
@@ -57,22 +56,13 @@ gulp.task('compile:scripts:simple', function() {
   }))).pipe(insert.append('export default SUI;')).pipe(sourcemaps.write('/')).pipe(gulp.dest('dist'));
 });
 
-gulp.task('create:rails', gulp.parallel('compile:styles', 'compile:scripts:simple', 'compile:scripts', function() {
-  return gulp.src('dist/sui.js.mf')
-      .pipe(change((content) => {
-        return content.replace(/node_modules\//g, '//= require ').replace(/javascripts\//g, '//= require sui-js/javascripts/').replace(/\.js/g, '');
-      }))
-      .pipe(rename('rails.js'))
-      .pipe(gulp.dest('.'));
-}));
-
 gulp.task('watcher', function(done) {
   gulp.watch('stylesheets/**/*.scss', gulp.series(['compile:styles']));
   gulp.watch('javascripts/**/*.js', gulp.series(['compile:scripts:simple']));
   done();
 });
 
-gulp.task('default', gulp.series('create:rails', function(done) {
+gulp.task('default', gulp.parallel('compile:styles', 'compile:scripts', function(done) {
   done();
 }));
 
