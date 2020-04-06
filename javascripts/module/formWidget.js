@@ -6,17 +6,22 @@ goog.require('SUI.widget.Button');
 goog.require('SUI.widget.Checkbox');
 goog.require('SUI.widget.Color');
 goog.require('SUI.widget.Datetime');
+goog.require('SUI.widget.DatetimeRange');
 goog.require('SUI.widget.File');
 goog.require('SUI.widget.Hidden');
 goog.require('SUI.widget.IconToggle');
+goog.require('SUI.widget.Location');
+goog.require('SUI.widget.Number');
 goog.require('SUI.widget.Radiobutton');
 goog.require('SUI.widget.Range');
 goog.require('SUI.widget.Reset');
+goog.require('SUI.widget.Search');
 goog.require('SUI.widget.Select');
 goog.require('SUI.widget.Submit');
 goog.require('SUI.widget.Switch');
 goog.require('SUI.widget.Text');
 goog.require('SUI.widget.Textarea');
+goog.require('SUI.widget.Url');
 
 /**
  * @constructor
