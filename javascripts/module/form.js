@@ -31,8 +31,8 @@ SUI.Form.prototype._init = function() {
   this.model = new SUI.Object();
   this.initWidgets = [];
 
-  this.buttonClasses = ['input[type=submit]:not(.init-widget)', 'input[type=reset]:not(.init-widget)', 'button:not(.init-widget)'];
-  this.widgetClasses = ['.input-block input:not([type="hidden"])+input:not([type="hidden"])', '.input-block:not(.init-widget)', 'input[type=hidden]:not(.init-widget)'];
+  this.buttonClasses = ['input[type=submit]:not(.init-widget)', 'input[type=button]:not(.init-widget)', 'input[type=reset]:not(.init-widget)', 'button:not(.init-widget)'];
+  this.widgetClasses = ['.input-block:not(.init-widget)', 'form > input[type=hidden]:not(.init-widget)'];
 
   this._initWidgets();
   this._initFormEvent();
