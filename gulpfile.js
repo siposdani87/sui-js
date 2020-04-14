@@ -53,7 +53,7 @@ gulp.task('compile:scripts:simple', function() {
     output_manifest: 'dist/sui.js.mf',
     // create_source_map: 'dist/sui.js.map',
     js_output_file: 'sui.js',
-  }))).pipe(insert.append('export default SUI;')).pipe(sourcemaps.write('/')).pipe(gulp.dest('dist'));
+  }))).pipe(insert.append('/*export default SUI;*/')).pipe(sourcemaps.write('/')).pipe(gulp.dest('dist'));
 });
 
 gulp.task('watcher', function(done) {
