@@ -123,12 +123,13 @@ SUI.lib.Xhr.prototype._onReadyStateChange = function() {
         break;
       case 4:
         // Request finished and response is ready
-        const response = this._getResponseData(this.http.response);
-        if (SUI.eq(this.http.status, 200)) {
-          this.deferred.resolve([this.http].concat(response));
-        } else {
-          this.deferred.reject([this.http].concat(response));
-        }
+        this._getResponseData(this.http.response).then((response) => {
+          if (SUI.eq(this.http.status, 200)) {
+            this.deferred.resolve([this.http].concat(response));
+          } else {
+            this.deferred.reject([this.http].concat(response));
+          }
+        });
         break;
       default:
         console.error('SUI.lib.Xhr._onReadyStateChange()', this.http.readyState);
@@ -287,35 +288,47 @@ SUI.lib.Xhr.prototype._stringifyObject = function(obj) {
 /**
  * @private
  * @param {*} data
- * @return {!Array}
+ * @return {!SUI.Promise}
  */
 SUI.lib.Xhr.prototype._getResponseData = function(data) {
+  const deferred = new SUI.Deferred();
   const contentType = this.http.getResponseHeader('Content-Type');
+
+  const contentDisposition = this.http.getResponseHeader('Content-Disposition');
   let filename = '';
-  let result = data;
+  if (contentDisposition) {
+    filename = contentDisposition.match(/filename="(.+)"/)[1];
+  }
+
   if (contentType) {
     switch (contentType.split(';')[0]) {
       case 'application/json':
-        data = SUI.isString(data) ? JSON.parse(/** @type {string} */(data) || 'null') : data;
-        const object = new SUI.Object();
-        object.merge(data);
-        result = object;
+        if (SUI.instanceOf(data, Blob)) {
+          const reader = new FileReader();
+          reader.addEventListener('loadend', (e) => {
+            data = JSON.parse(/** @type {string} */(e.srcElement.result) || 'null');
+            const object = new SUI.Object();
+            object.merge(data);
+            deferred.resolve([[object, filename]]);
+          });
+          reader.readAsText(/** @type {!Blob} */(data));
+        } else {
+          data = SUI.isString(data) ? JSON.parse(/** @type {string} */(data) || 'null') : data;
+          const object = new SUI.Object();
+          object.merge(data);
+          deferred.resolve([[object, filename]]);
+        }
         break;
       default:
         // let parserHtml = new DOMParser();
         // result = parserHtml.parseFromString(data, 'text/html');
         // result = new Blob([data], {'type': contentType});
         // result = data;
+        deferred.resolve([[data, filename]]);
         break;
     }
-    if (this.http.responseType === 'blob') {
-      const contentDisposition = this.http.getResponseHeader('Content-Disposition');
-      if (contentDisposition) {
-        filename = contentDisposition.match(/filename="(.+)"/)[1];
-      }
-    }
   }
-  return [result, filename];
+  return deferred.promise();
 };
 
 /**
