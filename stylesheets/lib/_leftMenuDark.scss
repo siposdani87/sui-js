@@ -18,17 +18,8 @@
           }
 
           &.active {
-            color: $accent;
             background-color: $black-dark;
             border-right-color: $accent;
-
-            .image {
-
-              svg,
-              path {
-                fill: $accent;
-              }
-            }
           }
 
           &.disabled {
