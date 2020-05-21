@@ -12,6 +12,7 @@ call java -jar node_modules/google-closure-compiler-java/compiler.jar^
  --jscomp_error "*"^
  --jscomp_warning "*"^
  --jscomp_off "strictMissingProperties"^
+ --jscomp_off "useOfGoogProvide"^
  --hide_warnings_for node_modules/sui-externs^
  --hide_warnings_for node_modules/google-closure-library^
  --generate_exports^

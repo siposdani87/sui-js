@@ -21,7 +21,7 @@ const closureOptions = {
   summary_detail_level: 3,
   jscomp_error: '*',
   jscomp_warning: '*',
-  jscomp_off: 'strictMissingProperties',
+  jscomp_off: ['strictMissingProperties', 'useOfGoogProvide'],
   generate_exports: true,
   define: 'SUI.production=true',
 };

@@ -4289,16 +4289,9 @@ table tfoot tr td.pager {
 }
 #left-menu .main-menu .menu-container a.active,
 #left-menu .sub-menu .menu-container a.active {
-  color: #c2185b;
   font-weight: 500;
   background-color: #e0e0e0;
   border-right-color: #c2185b;
-}
-#left-menu .main-menu .menu-container a.active .image svg,
-#left-menu .main-menu .menu-container a.active .image path,
-#left-menu .sub-menu .menu-container a.active .image svg,
-#left-menu .sub-menu .menu-container a.active .image path {
-  fill: #c2185b;
 }
 #left-menu .main-menu .menu-container a.disabled,
 #left-menu .sub-menu .menu-container a.disabled {
@@ -4383,15 +4376,8 @@ table tfoot tr td.pager {
 }
 .dark-theme #left-menu .main-menu .menu-container a.active,
 .dark-theme #left-menu .sub-menu .menu-container a.active {
-  color: #e91e63;
   background-color: #000;
   border-right-color: #e91e63;
-}
-.dark-theme #left-menu .main-menu .menu-container a.active .image svg,
-.dark-theme #left-menu .main-menu .menu-container a.active .image path,
-.dark-theme #left-menu .sub-menu .menu-container a.active .image svg,
-.dark-theme #left-menu .sub-menu .menu-container a.active .image path {
-  fill: #e91e63;
 }
 .dark-theme #left-menu .main-menu .menu-container a.disabled,
 .dark-theme #left-menu .sub-menu .menu-container a.disabled {
