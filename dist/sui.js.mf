@@ -42,7 +42,6 @@ javascripts/lib/viewer.js
 javascripts/lib/window.js
 javascripts/application.js
 javascripts/lib/actionCableClient.js
-javascripts/lib/actionCable.js
 javascripts/module/day.js
 javascripts/module/month.js
 javascripts/module/year.js
@@ -51,6 +50,7 @@ javascripts/module/widget.js
 javascripts/core/widget.js
 javascripts/widget/autoComplete.js
 node_modules/sui-externs/platform.ext.js
+javascripts/lib/actionCable.js
 javascripts/lib/navBar.js
 javascripts/lib/scheduler.js
 javascripts/core/item.js
@@ -94,7 +94,7 @@ javascripts/module/form.js
 javascripts/module/googleMap.js
 javascripts/module/navigation.js
 javascripts/module/progressStatus.js
-javascripts/module/tabPanel.js
 javascripts/module/table.js
+javascripts/module/tabPanel.js
 javascripts/module/treeView.js
 javascripts/module/waiter.js
