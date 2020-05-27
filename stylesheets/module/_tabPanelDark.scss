@@ -4,7 +4,7 @@
       a {
         border-bottom-color: $black-bright;
         background-color: $black;
-        color: $primary;
+        color: $grey;
 
         &:hover {
           color: $primary-bright;
@@ -21,7 +21,7 @@
         }
 
         &.disabled {
-          color: $light-grey;
+          color: $deep-grey;
         }
       }
     }
