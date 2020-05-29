@@ -148,7 +148,7 @@
     flex-flow: column wrap;
   }
 
-  &.mdl-button {
+  > .mdl-button {
     margin-right: .5em;
   }
 
@@ -197,6 +197,10 @@
     justify-content: flex-end;
     display: flex;
     align-items: center;
+
+    .mdl-button {
+      margin-left: .25em;
+    }
   }
 }
 
@@ -253,6 +257,10 @@
     justify-content: flex-end;
     display: flex;
     align-items: center;
+
+    .mdl-button {
+      margin-left: .25em;
+    }
   }
 
 }
