@@ -137,7 +137,7 @@
 .page-header {
   display: flex;
   flex-flow: row wrap;
-  padding: .1em;
+  padding: .1em 1em;
   justify-content: space-between;
   align-items: center;
   background-color: $light-grey;
@@ -149,7 +149,7 @@
 
   h1 {
     flex: 1;
-    margin: .3em 1em;
+    margin: .3em 0;
     font-size: $font-size-h5;
     font-weight: 500;
 
@@ -169,7 +169,7 @@
     flex: 0 1 auto;
     display: flex;
     flex-flow: row nowrap;
-    margin: .3em .5em;
+    margin: .3em 0;
 
     .input-block {
       flex: 1;
@@ -190,16 +190,10 @@
   .actions {
     flex: 1;
     justify-content: flex-end;
-    padding: .5em 1em .5em .1em;
+    padding: .5em 0;
     display: flex;
     align-items: center;
-
-    .mdl-button--mini-fab {
-      height: 1.5em;
-      width: 1.5em;
-      min-width: 1.5em;
-      margin-left: .3em;
-    }
+    min-height: 56px;
   }
 }
 
@@ -257,13 +251,6 @@
     padding: .5em 1em .5em .1em;
     display: flex;
     align-items: center;
-
-    .mdl-button--mini-fab {
-      height: 1.5em;
-      width: 1.5em;
-      min-width: 1.5em;
-      margin-left: .3em;
-    }
   }
 
 }
