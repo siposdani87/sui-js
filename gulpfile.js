@@ -31,11 +31,11 @@ const sassOptions = {
 };
 
 gulp.task('compile:styles:minify', function() {
-  return gulp.src('stylesheets/**/*.scss').pipe(sourcemaps.init()).pipe(sass(sassOptions).on('error', sass.logError)).pipe(sourcemaps.write('/')).pipe(gulp.dest('dist'));
+  return gulp.src('stylesheets/**/sui.min.scss').pipe(sourcemaps.init()).pipe(sass(sassOptions).on('error', sass.logError)).pipe(sourcemaps.write('/')).pipe(gulp.dest('dist'));
 });
 
 gulp.task('compile:styles', function() {
-  return gulp.src('stylesheets/**/*.scss').pipe(sourcemaps.init()).pipe(sass(objectAssign(sassOptions, {
+  return gulp.src('stylesheets/**/sui.scss').pipe(sourcemaps.init()).pipe(sass(objectAssign(sassOptions, {
     outputStyle: 'expanded',
   })).on('error', sass.logError)).pipe(sourcemaps.write('/')).pipe(gulp.dest('dist'));
 });
