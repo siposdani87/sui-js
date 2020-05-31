@@ -30,8 +30,8 @@ goog.provide('SUI');
  */
 const SUI = {
   title: 'SUI-JS',
-  description: 'A frontend framework, help you to build fast, modern applications',
-  version: '0.4.10',
+  description: 'Frontend framework helps to build fast and modern web applications',
+  version: '0.5.0',
   const: {},
   config: {},
   res: {},
@@ -42,6 +42,10 @@ const SUI = {
   _scrollInterval: null,
 };
 
+
+/**
+ * @export
+ */
 SUI.coreRes = {
   // CORE
   app: 'app',
@@ -84,6 +88,7 @@ SUI.coreRes = {
 };
 
 /**
+ * @export
  * @define {boolean}
  */
 SUI.production = false;

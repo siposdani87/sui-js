@@ -5,6 +5,7 @@ goog.require('SUI.Collection');
 
 /**
  * @constructor
+ * @export
  * @this {SUI.Query}
  * @extends {SUI.Collection}
  * @param {string} selector
@@ -53,6 +54,7 @@ SUI.Query.prototype._querySelector = function(selector) {
 };
 
 /**
+ * @export
  * @return {!SUI.Node}
  */
 SUI.Query.prototype.getItem = function() {

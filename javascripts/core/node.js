@@ -423,6 +423,7 @@ SUI.Node.prototype.replaceChild = function(node) {
 };
 
 /**
+ * @export
  * @param {!Element|string|number} text
  * @return {undefined}
  */
@@ -431,6 +432,7 @@ SUI.Node.prototype.setHtml = function(text) {
 };
 
 /**
+ * @export
  * @param {boolean=} opt_isInner
  * @return {string}
  */

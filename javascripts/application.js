@@ -36,6 +36,7 @@ goog.require('SUI.lib.Window');
 
 /**
  * @constructor
+ * @export
  * @this {SUI.Application}
  * @param {!Object} options
  * @param {!Object} resources
