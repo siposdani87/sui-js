@@ -30,21 +30,27 @@ const sassOptions = {
   outputStyle: 'compressed',
 };
 
-gulp.task('compile:styles', function() {
+gulp.task('compile:styles:minify', function() {
   return gulp.src('stylesheets/**/*.scss').pipe(sourcemaps.init()).pipe(sass(sassOptions).on('error', sass.logError)).pipe(sourcemaps.write('/')).pipe(gulp.dest('dist'));
 });
 
-gulp.task('compile:scripts', function() {
+gulp.task('compile:styles', function() {
+  return gulp.src('stylesheets/**/*.scss').pipe(sourcemaps.init()).pipe(sass(objectAssign(sassOptions, {
+    outputStyle: 'expanded',
+  })).on('error', sass.logError)).pipe(sourcemaps.write('/')).pipe(gulp.dest('dist'));
+});
+
+gulp.task('compile:scripts:minify', function() {
   return gulp.src(['node_modules/google-closure-library/closure/goog/base.js', 'javascripts/**/*.js']).pipe(closureCompiler.gulp({
     requireStreamInput: true,
   })(objectAssign(closureOptions, {
     output_manifest: 'dist/sui.min.js.mf',
     // create_source_map: 'dist/sui.min.js.map',
     js_output_file: 'sui.min.js',
-  }))).pipe(insert.append('export default SUI;')).pipe(sourcemaps.write('/')).pipe(gulp.dest('dist'));
+  }))).pipe(insert.append('/*export default SUI;*/')).pipe(sourcemaps.write('/')).pipe(gulp.dest('dist'));
 });
 
-gulp.task('compile:scripts:simple', function() {
+gulp.task('compile:scripts', function() {
   return gulp.src(['node_modules/google-closure-library/closure/goog/base.js', 'javascripts/**/*.js']).pipe(closureCompiler.gulp({
     requireStreamInput: true,
   })(objectAssign(closureOptions, {
@@ -53,16 +59,16 @@ gulp.task('compile:scripts:simple', function() {
     output_manifest: 'dist/sui.js.mf',
     // create_source_map: 'dist/sui.js.map',
     js_output_file: 'sui.js',
-  }))).pipe(insert.append('/*export default SUI;*/')).pipe(sourcemaps.write('/')).pipe(gulp.dest('dist'));
+  }))).pipe(insert.append('export default SUI;')).pipe(sourcemaps.write('/')).pipe(gulp.dest('dist'));
 });
 
 gulp.task('watcher', function(done) {
-  gulp.watch('stylesheets/**/*.scss', gulp.series(['compile:styles']));
-  gulp.watch('javascripts/**/*.js', gulp.series(['compile:scripts:simple']));
+  gulp.watch('stylesheets/**/*.scss', gulp.series(['compile:styles:minify']));
+  gulp.watch('javascripts/**/*.js', gulp.series(['compile:scripts:minify']));
   done();
 });
 
-gulp.task('default', gulp.parallel('compile:styles', 'compile:scripts', function(done) {
+gulp.task('default', gulp.series('compile:styles:minify', 'compile:styles', 'compile:scripts:minify', 'compile:scripts', function(done) {
   done();
 }));
 

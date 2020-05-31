@@ -7,6 +7,7 @@ goog.require('SUI.Query');
 
 /**
  * @constructor
+ * @export
  * @this {SUI.Form}
  * @extends {SUI.Collection}
  * @param {!SUI.Node} dom

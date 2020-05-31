@@ -7,6 +7,7 @@ goog.require('SUI.Query');
 
 /**
  * @constructor
+ * @export
  * @this {SUI.TabPanel}
  * @param {!SUI.Node} dom
  * @param {string=} opt_selector
