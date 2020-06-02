@@ -2343,7 +2343,7 @@ form input:-webkit-autofill:hover, form input:-webkit-autofill:focus, form input
 }
 
 .page-header form {
-  flex: 0 1 auto;
+  flex: 1;
   display: flex;
   flex-flow: row nowrap;
   margin: 0;
