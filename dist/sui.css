@@ -4540,11 +4540,11 @@ table tfoot tr td.pager {
 }
 
 #top-menu a:hover {
-  color: #e0e0e0;
+  color: #fafafa;
 }
 
 #top-menu a.active {
-  color: #e0e0e0;
+  color: #fafafa;
   background-color: #7986cb;
 }
 
