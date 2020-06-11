@@ -39,7 +39,7 @@ SUI.lib.Window.prototype._init = function() {
 
   this._initResizeEvent();
   this._initScrollEvent();
-  this._initOnlineEvent();
+  this._initConnectionEvent();
 };
 
 /**
@@ -66,13 +66,13 @@ SUI.lib.Window.prototype._initScrollEvent = function() {
  * @private
  * @return {undefined}
  */
-SUI.lib.Window.prototype._initOnlineEvent = function() {
-  this.window.addEventListener('offline', (event) => {
-    this.eventOffline(event);
-  }, false);
-
+SUI.lib.Window.prototype._initConnectionEvent = function() {
   this.window.addEventListener('online', (event) => {
     this.eventOnline(event);
+  }, false);
+
+  this.window.addEventListener('offline', (event) => {
+    this.eventOffline(event);
   }, false);
 };
 
