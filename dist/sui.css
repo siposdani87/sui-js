@@ -4198,12 +4198,26 @@ table tfoot tr td.pager {
 }
 
 .file-widget img {
-  max-height: 100px;
+  height: 100px;
+  width: auto;
+  margin-bottom: 5px;
+}
+
+.file-widget .info-container {
+  top: 130px !important;
+}
+
+.file-widget .browse-button {
+  margin-left: 2px;
 }
 
 .file-widget.is-disabled img {
   filter: grayscale(100%);
   opacity: .5;
+}
+
+.file-widget.is-disabled .browse-button {
+  color: #bdbdbd;
 }
 
 .dark-theme .file-widget input[type='file'].mdl-textfield__input::-webkit-file-upload-button {
@@ -4212,6 +4226,10 @@ table tfoot tr td.pager {
 
 .dark-theme .file-widget.is-disabled img {
   opacity: .2;
+}
+
+.dark-theme .file-widget.is-disabled .browse-button {
+  color: #757575;
 }
 
 .number-widget .step-change {

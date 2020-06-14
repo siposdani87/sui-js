@@ -636,16 +636,6 @@ SUI.Application.prototype.setHomeState = function(id, opt_params) {
 };
 
 /**
- * @param {string} id
- * @param {!Object=} opt_params
- * @return {undefined}
- */
-SUI.Application.prototype.setMaintenanceState = function(id, opt_params) {
-  this._routeOptions.set('maintenance.id', id);
-  this._routeOptions.set('maintenance.params', opt_params);
-};
-
-/**
  * @param {string} name
  * @return {?Object}
  */
