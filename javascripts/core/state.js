@@ -77,10 +77,6 @@ SUI.State.prototype._setOptions = function(options) {
       id: 'home',
       params: undefined,
     },
-    maintenance: {
-      id: 'maintenance',
-      params: undefined,
-    },
   });
   _self.options.merge(options);
 };
@@ -305,15 +301,6 @@ SUI.State.prototype.goHome = function(opt_overwrite = false, opt_force = false) 
  */
 SUI.State.prototype.goRoot = function(opt_overwrite = false, opt_force = false) {
   this.go(this.options.root.id, this.options.root.params, opt_overwrite, opt_force);
-};
-
-/**
- * @param {boolean=} opt_overwrite
- * @param {boolean=} opt_force
- * @return {undefined}
- */
-SUI.State.prototype.goMaintenance = function(opt_overwrite = false, opt_force = false) {
-  this.go(this.options.maintenance.id, this.options.maintenance.params, opt_overwrite, opt_force);
 };
 
 /**

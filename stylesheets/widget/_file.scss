@@ -13,14 +13,27 @@
   }
 
   img {
-    max-height: 100px;
+    height: 100px;
+    width: auto;
     margin-bottom: 5px;
+  }
+
+  .info-container{
+    top: 130px !important;
+  }
+
+  .browse-button {
+    margin-left: 2px;
   }
 
   &.is-disabled {
     img {
       filter: grayscale(100%);
       opacity: .5;
+    }
+
+    .browse-button {
+      color: $primary-disabled-light;
     }
   }
 }

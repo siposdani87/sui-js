@@ -27,6 +27,8 @@ goog.inherits(SUI.widget.File, SUI.Widget);
 SUI.widget.File.prototype._init = function() {
   this.inputBlock.addClass('file-widget');
 
+  this._initButtons();
+
   this.defaultSrc = null;
   this.imageTag = new SUI.Query('img', this.inputBlock).getItem();
   if (this.imageTag.isEmpty()) {
@@ -46,6 +48,23 @@ SUI.widget.File.prototype._init = function() {
     this._read(file);
     return true;
   });
+};
+
+/**
+ * @private
+ * @return {undefined}
+ */
+SUI.widget.File.prototype._initButtons = function() {
+  const browseButton = new SUI.Node('a');
+  browseButton.setAttribute('href', 'javascript:void(0)');
+  browseButton.addClass(['browse-button', 'material-icons']);
+  browseButton.setHtml('collections');
+  browseButton.addEventListener('click', () => {
+    if (this.isEnabled()) {
+      this.input.getNode().click();
+    }
+  });
+  this.infoContainerNode.appendChild(browseButton);
 };
 
 /**
