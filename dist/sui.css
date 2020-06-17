@@ -2313,12 +2313,6 @@ form input:-webkit-autofill:hover, form input:-webkit-autofill:focus, form input
   min-height: 50px;
 }
 
-@media (max-width: 767px) {
-  .page-header {
-    flex-flow: column wrap;
-  }
-}
-
 .page-header > .mdl-button {
   margin-right: .5em;
 }
