@@ -8,4 +8,19 @@
   .textbox {
     display: inline-block;
   }
+
+  .toolbar {
+    a {
+      font-size: 20px;
+      margin: 0 4px 2px 0;
+    }
+  }
+
+  &.is-disabled {
+    .toolbar {
+      a {
+        color: $label-disabled-light !important;
+      }
+    }
+  }
 }
