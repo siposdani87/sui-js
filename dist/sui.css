@@ -4273,6 +4273,15 @@ table tfoot tr td.pager {
   display: inline-block;
 }
 
+.textarea-widget .toolbar a {
+  font-size: 20px;
+  margin: 0 4px 2px 0;
+}
+
+.textarea-widget.is-disabled .toolbar a {
+  color: #bdbdbd !important;
+}
+
 .dark-theme .textarea-widget .mdl-textarea__input {
   resize: none;
 }

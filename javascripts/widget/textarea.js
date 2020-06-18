@@ -72,29 +72,63 @@ SUI.widget.Textarea.prototype.render = function() {
     return true;
   });
 
-  const toolbarNode = new SUI.Node('div');
-  toolbarNode.addClass('toolbar');
-  this.input.insertBefore(toolbarNode);
+  this._renderToolbarButtons();
+  this.refresh();
+};
 
+/**
+ * @private
+ * @return {undefined}
+ */
+SUI.widget.Textarea.prototype._renderToolbarButtons = function() {
+  this.toolbarNode = new SUI.Node('div');
+  this.toolbarNode.addClass('toolbar');
+  this.input.insertBefore(this.toolbarNode);
+
+  this._renderToolbarButton('format_bold', () => {
+    this._formatDoc('bold');
+  });
+
+  this._renderToolbarButton('format_italic', () => {
+    this._formatDoc('italic');
+  });
+
+  this._renderToolbarButton('format_underline', () => {
+    this._formatDoc('underline');
+  });
+
+  this._renderToolbarButton('format_list_bulleted', () => {
+    this._formatDoc('insertunorderedlist');
+  });
+
+  this._renderToolbarButton('format_list_numbered', () => {
+    this._formatDoc('insertorderedlist');
+  });
+
+  this._renderToolbarButton('format_clear', () => {
+    this._formatDoc('removeFormat');
+  });
+
+  this._renderToolbarButton('code', () => {
+    this._setHtmlMode(!this._isHtmlMode());
+  });
+};
+
+/**
+ * @private
+ * @param {string} iconName
+ * @param {!Function} action
+ * @return {undefined}
+ */
+SUI.widget.Textarea.prototype._renderToolbarButton = function(iconName, action) {
   const boldButtonNode = new SUI.Node('a');
   boldButtonNode.setAttribute('href', 'javascript:void(0)');
   boldButtonNode.addClass('material-icons');
-  boldButtonNode.setHtml('format_bold');
+  boldButtonNode.setHtml(iconName);
   boldButtonNode.addEventListener('click', () => {
-    this._formatDoc('bold');
+    action();
   });
-  // toolbarNode.appendChild(boldButtonNode);
-
-  const codeButtonNode = new SUI.Node('a');
-  codeButtonNode.setAttribute('href', 'javascript:void(0)');
-  codeButtonNode.addClass('material-icons');
-  codeButtonNode.setHtml('code');
-  codeButtonNode.addEventListener('click', () => {
-    this._setHtmlMode(!this._isHtmlMode());
-  });
-  // toolbarNode.appendChild(codeButtonNode);
-
-  this.refresh();
+  this.toolbarNode.appendChild(boldButtonNode);
 };
 
 /**
