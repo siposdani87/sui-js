@@ -85,6 +85,14 @@ SUI.widget.Textarea.prototype._renderToolbarButtons = function() {
   this.toolbarNode.addClass('toolbar');
   this.input.insertBefore(this.toolbarNode);
 
+  this._renderToolbarButton('undo', () => {
+    this._formatDoc('undo');
+  });
+
+  this._renderToolbarButton('redo', () => {
+    this._formatDoc('redo');
+  });
+
   this._renderToolbarButton('format_bold', () => {
     this._formatDoc('bold');
   });
