@@ -3572,7 +3572,7 @@ table tfoot tr td.pager {
   display: inline-block;
   padding: 2px 30px 0 2px;
   border: 1px solid #bdbdbd;
-  border-radius: 2px;
+  border-radius: 3px;
   min-height: 32px;
   cursor: pointer;
 }
@@ -3584,7 +3584,7 @@ table tfoot tr td.pager {
   margin: 0 2px 2px 0;
   background-color: #bdbdbd;
   color: #212121;
-  border-radius: 2px;
+  border-radius: 3px;
   white-space: nowrap;
 }
 
@@ -3817,7 +3817,7 @@ table tfoot tr td.pager {
   display: inline-block;
   padding: 2px 30px 0 2px;
   border: 1px solid #bdbdbd;
-  border-radius: 2px;
+  border-radius: 3px;
   min-height: 32px;
   cursor: pointer;
 }
@@ -3829,7 +3829,7 @@ table tfoot tr td.pager {
   margin: 0 2px 2px 0;
   background-color: #bdbdbd;
   color: #212121;
-  border-radius: 2px;
+  border-radius: 3px;
   white-space: nowrap;
 }
 
@@ -3970,7 +3970,7 @@ table tfoot tr td.pager {
   display: inline-block;
   padding: 2px 30px 0 2px;
   border: 1px solid #bdbdbd;
-  border-radius: 2px;
+  border-radius: 3px;
   min-height: 32px;
   cursor: pointer;
 }
@@ -3994,7 +3994,7 @@ table tfoot tr td.pager {
   margin: 0 2px 2px 0;
   background-color: #bdbdbd;
   color: #212121;
-  border-radius: 2px;
+  border-radius: 3px;
   white-space: nowrap;
 }
 
@@ -4130,7 +4130,7 @@ table tfoot tr td.pager {
 .location-widget .map {
   margin-top: 20px;
   border: 1px solid #bdbdbd;
-  border-radius: 2px;
+  border-radius: 3px;
   min-height: 200px;
   height: 200px;
   width: 100%;
@@ -4293,7 +4293,7 @@ table tfoot tr td.pager {
   display: none;
   position: absolute;
   background-color: #bdbdbd;
-  border-radius: 2px;
+  border-radius: 3px;
 }
 
 .dark-theme .url-widget .protocol {
