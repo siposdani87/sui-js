@@ -57,6 +57,7 @@ SUI.Calendar.prototype._initStructure = function() {
   this._initMode(this.types[this.options.type]);
 
   const date = window['moment'](this.options.date);
+  this._setSelectedDate(date);
   this._setDate(date);
 };
 
@@ -244,7 +245,6 @@ SUI.Calendar.prototype._next = function() {
  * @return {undefined}
  */
 SUI.Calendar.prototype._setDate = function(date) {
-  this._setSelectedDate(date);
   this._setVariables(date);
 
   this._setPreviousMonth();
@@ -455,6 +455,7 @@ SUI.Calendar.prototype._setModeDate = function(selectedDate) {
   }, () => {
     date['year'](selectedDate['year']());
   });
+  this._setSelectedDate(date);
   this._setDate(date);
 };
 
