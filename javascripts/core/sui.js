@@ -1143,4 +1143,21 @@ SUI.normalize = function(str) {
   return str.normalize('NFD').replace(/[\u0300-\u036f]/g, '');
 };
 
+/**
+ * @export
+ * @param {string} str
+ * @return {undefined}
+ */
+SUI.copyToClipboard = function(str) {
+  const textareaElement = document.createElement('textarea');
+  textareaElement.value = str;
+  textareaElement.setAttribute('readonly', '');
+  textareaElement.style.position = 'absolute';
+  textareaElement.style.left = '-9999px';
+  document.body.appendChild(textareaElement);
+  textareaElement.select();
+  document.execCommand('copy');
+  document.body.removeChild(textareaElement);
+};
+
 // exports = SUI;
