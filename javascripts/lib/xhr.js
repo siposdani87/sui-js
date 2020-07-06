@@ -293,17 +293,16 @@ SUI.lib.Xhr.prototype._stringifyObject = function(obj) {
 SUI.lib.Xhr.prototype._getResponseData = function(data) {
   const deferred = new SUI.Deferred();
   const contentType = this.http.getResponseHeader('Content-Type');
-
-  const contentDisposition = this.http.getResponseHeader('Content-Disposition');
   let filename = '';
-  if (contentDisposition) {
-    filename = contentDisposition.match(/filename="(.+)"/)[1];
-  }
 
   if (contentType) {
     switch (contentType.split(';')[0]) {
       case 'application/json':
         if (SUI.instanceOf(data, Blob)) {
+          const contentDisposition = this.http.getResponseHeader('Content-Disposition');
+          if (contentDisposition) {
+            filename = contentDisposition.match(/filename="(.+)"/)[1];
+          }
           const reader = new FileReader();
           reader.addEventListener('loadend', (e) => {
             data = JSON.parse(/** @type {string} */(e.srcElement.result) || 'null');
