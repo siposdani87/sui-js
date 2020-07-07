@@ -253,3 +253,42 @@ SUI.Object.prototype.copy = function(opt_isNative = false) {
 SUI.Object.prototype.isEmpty = function() {
   return SUI.isEmpty(this);
 };
+
+
+/**
+ * @export
+ * @param {!Array} keys
+ * @return {!Object}
+ */
+SUI.Object.prototype.allowKeys = function(keys) {
+  return this.filterKeys(this, (key) => {
+    return SUI.inContainArray(keys, key);
+  });
+};
+
+/**
+ * @export
+ * @param {!Array} keys
+ * @return {!Object}
+ */
+SUI.Object.prototype.denyKeys = function(keys) {
+  return this.filterKeys(this, (key) => {
+    return !SUI.inContainArray(keys, key);
+  });
+};
+
+/**
+ * @export
+ * @param {!SUI.Object} obj
+ * @param {!Function} condition
+ * @return {!Object}
+ */
+SUI.Object.prototype.filterKeys = function(obj, condition) {
+  const resultObj = new SUI.Object();
+  obj.each((value, key) => {
+    if (condition(key)) {
+      resultObj.set(key, value);
+    }
+  });
+  return resultObj;
+};

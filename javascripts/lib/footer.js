@@ -1,5 +1,6 @@
 goog.provide('SUI.lib.Footer');
 
+goog.require('SUI.Node');
 goog.require('SUI.Object');
 goog.require('SUI.Query');
 goog.require('SUI.lib');

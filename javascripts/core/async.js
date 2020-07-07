@@ -1,6 +1,8 @@
 goog.provide('SUI.Async');
 
 goog.require('SUI');
+goog.require('SUI.Deferred');
+goog.require('SUI.Promise');
 
 /**
  * @constructor

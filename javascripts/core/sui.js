@@ -25,6 +25,8 @@
 
 goog.provide('SUI');
 
+goog.requireType('SUI.Node');
+
 /**
  * @struct
  */
@@ -961,8 +963,8 @@ SUI.scrollTo = function(x, y, opt_duration = 500, opt_step = 20) {
  * @return {undefined}
  */
 SUI.scrollToElement = function(selector, opt_duration = 500, opt_step = 20) {
-  const node = new SUI.Query(selector).getItem();
-  const element = node.getNode();
+  const nodeList = document.querySelectorAll(selector);
+  const element = nodeList[0];
   const x = element.offsetLeft;
   const y = element.offsetTop;
   SUI.scrollTo(x, y, opt_duration, opt_step);
@@ -1091,47 +1093,6 @@ SUI.colorContrast = function(hexColor, opt_diff = .5) {
     }
   }
   return SUI.RGBtoHexColor.apply(null, colors);
-};
-
-/**
- * @export
- * @param {!Object} obj
- * @param {!Array} keys
- * @return {!Object}
- */
-SUI.allowKeys = function(obj, keys) {
-  return SUI.filterKeys(obj, (key) => {
-    return SUI.inContainArray(keys, key);
-  });
-};
-
-/**
- * @export
- * @param {!Object} obj
- * @param {!Array} keys
- * @return {!Object}
- */
-SUI.denyKeys = function(obj, keys) {
-  return SUI.filterKeys(obj, (key) => {
-    return !SUI.inContainArray(keys, key);
-  });
-};
-
-/**
- * @export
- * @param {!Object} obj
- * @param {!Function} condition
- * @return {!Object}
- */
-SUI.filterKeys = function(obj, condition) {
-  const copyObj = new SUI.Object(obj);
-  const resultObj = new SUI.Object();
-  copyObj.each((value, key) => {
-    if (condition(key)) {
-      resultObj.set(key, value);
-    }
-  });
-  return resultObj;
 };
 
 /**

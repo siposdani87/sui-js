@@ -1,5 +1,7 @@
 goog.provide('SUI.Promise');
 
+goog.requireType('SUI.Deferred');
+
 goog.require('SUI');
 goog.require('SUI.Object');
 

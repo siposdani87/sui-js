@@ -1,5 +1,6 @@
 goog.provide('SUI.lib.NavBar');
 
+goog.require('SUI.Node');
 goog.require('SUI.Query');
 goog.require('SUI.lib');
 

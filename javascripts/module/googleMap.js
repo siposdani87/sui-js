@@ -2,7 +2,11 @@ goog.provide('SUI.GoogleMap');
 
 goog.require('SUI');
 goog.require('SUI.Collection');
+goog.require('SUI.Deferred');
+goog.require('SUI.Node');
 goog.require('SUI.Object');
+goog.require('SUI.Promise');
+goog.require('SUI.Query');
 
 /**
  * @constructor

@@ -2,6 +2,7 @@ goog.provide('SUI.Query');
 
 goog.require('SUI');
 goog.require('SUI.Collection');
+goog.require('SUI.Node');
 
 /**
  * @constructor

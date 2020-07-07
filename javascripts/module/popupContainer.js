@@ -1,5 +1,7 @@
 goog.provide('SUI.PopupContainer');
 
+goog.requireType('SUI.Popup');
+
 goog.require('SUI');
 goog.require('SUI.Collection');
 goog.require('SUI.Node');

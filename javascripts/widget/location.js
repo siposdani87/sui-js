@@ -1,6 +1,8 @@
 goog.provide('SUI.widget.Location');
 
 goog.require('SUI');
+goog.require('SUI.GoogleMap');
+goog.require('SUI.Node');
 goog.require('SUI.Widget');
 goog.require('SUI.widget');
 

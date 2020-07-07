@@ -1,6 +1,12 @@
 goog.provide('SUI.Module');
 
 goog.require('SUI');
+goog.require('SUI.Async');
+goog.require('SUI.Deferred');
+goog.require('SUI.Node');
+goog.require('SUI.Object');
+goog.require('SUI.Promise');
+goog.require('SUI.State');
 
 /**
  * @constructor

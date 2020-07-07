@@ -1,6 +1,10 @@
 goog.provide('SUI.Widget');
 
+goog.requireType('SUI.Form');
+
 goog.require('SUI');
+goog.require('SUI.Node');
+goog.require('SUI.Query');
 goog.require('SUI.Tooltip');
 
 /**

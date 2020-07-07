@@ -1,11 +1,15 @@
 goog.provide('SUI.Application');
 
 goog.require('SUI');
+goog.require('SUI.PopupContainer');
 goog.require('SUI.Module');
+goog.require('SUI.Node');
 goog.require('SUI.Object');
+goog.require('SUI.Promise');
 goog.require('SUI.Query');
 goog.require('SUI.Test');
 
+goog.require('SUI.lib.ActionCable');
 goog.require('SUI.lib.AppCache');
 goog.require('SUI.lib.BottomMenu');
 goog.require('SUI.lib.Browser');
@@ -22,8 +26,10 @@ goog.require('SUI.lib.Helper');
 goog.require('SUI.lib.Http');
 goog.require('SUI.lib.LeftMenu');
 goog.require('SUI.lib.Loader');
+goog.require('SUI.lib.NavBar');
 goog.require('SUI.lib.Notification');
 goog.require('SUI.lib.ProgressBar');
+goog.require('SUI.lib.Scheduler');
 goog.require('SUI.lib.Script');
 goog.require('SUI.lib.ServiceWorker');
 goog.require('SUI.lib.Sidebar');

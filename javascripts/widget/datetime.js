@@ -3,6 +3,7 @@ goog.provide('SUI.widget.Datetime');
 goog.require('SUI');
 goog.require('SUI.Datetime');
 goog.require('SUI.Node');
+goog.require('SUI.Popup');
 goog.require('SUI.Widget');
 goog.require('SUI.widget');
 

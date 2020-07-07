@@ -1,6 +1,8 @@
 goog.provide('SUI.lib.Http');
 
 goog.require('SUI.Deferred');
+goog.require('SUI.Object');
+goog.require('SUI.Promise');
 goog.require('SUI.lib');
 goog.require('SUI.lib.Xhr');
 

@@ -4,6 +4,7 @@ goog.require('SUI');
 goog.require('SUI.Async');
 goog.require('SUI.Object');
 goog.require('SUI.Query');
+goog.require('SUI.Node');
 goog.require('SUI.lib');
 goog.require('SUI.lib.Confirm');
 goog.require('SUI.lib.Dialog');

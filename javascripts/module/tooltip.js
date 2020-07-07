@@ -1,6 +1,8 @@
 goog.provide('SUI.Tooltip');
 
 goog.require('SUI');
+goog.require('SUI.Node');
+goog.require('SUI.Query');
 
 /**
  * https://www.getmdl.io/components/index.html#tooltips-section
