@@ -2,7 +2,6 @@ const gulp = require('gulp');
 const jsdoc = require('gulp-jsdoc3');
 const sass = require('gulp-sass');
 const closureCompiler = require('google-closure-compiler');
-const objectAssign = require('object-assign');
 const insert = require('gulp-insert');
 const readdirSync = require('readdirsync2');
 const browserSync = require('browser-sync').create();
@@ -21,7 +20,7 @@ const closureOptions = {
   summary_detail_level: 3,
   jscomp_error: '*',
   jscomp_warning: '*',
-  jscomp_off: ['strictMissingProperties', 'useOfGoogProvide'],
+  jscomp_off: ['strictMissingProperties', 'useOfGoogProvide', 'deprecated'],
   generate_exports: true,
   define: 'SUI.production=true',
 };
@@ -35,7 +34,7 @@ gulp.task('compile:styles:minify', function() {
 });
 
 gulp.task('compile:styles', function() {
-  return gulp.src('stylesheets/**/sui.scss').pipe(sourcemaps.init()).pipe(sass(objectAssign(sassOptions, {
+  return gulp.src('stylesheets/**/sui.scss').pipe(sourcemaps.init()).pipe(sass(Object.assign(sassOptions, {
     outputStyle: 'expanded',
   })).on('error', sass.logError)).pipe(sourcemaps.write('/')).pipe(gulp.dest('dist'));
 });
@@ -43,7 +42,7 @@ gulp.task('compile:styles', function() {
 gulp.task('compile:scripts:minify', function() {
   return gulp.src(['node_modules/google-closure-library/closure/goog/base.js', 'javascripts/**/*.js']).pipe(closureCompiler.gulp({
     requireStreamInput: true,
-  })(objectAssign(closureOptions, {
+  })(Object.assign(closureOptions, {
     output_manifest: 'dist/sui.min.js.mf',
     // create_source_map: 'dist/sui.min.js.map',
     js_output_file: 'sui.min.js',
@@ -53,7 +52,7 @@ gulp.task('compile:scripts:minify', function() {
 gulp.task('compile:scripts', function() {
   return gulp.src(['node_modules/google-closure-library/closure/goog/base.js', 'javascripts/**/*.js']).pipe(closureCompiler.gulp({
     requireStreamInput: true,
-  })(objectAssign(closureOptions, {
+  })(Object.assign(closureOptions, {
     compilation_level: 'SIMPLE',
     define: 'SUI.production=false',
     output_manifest: 'dist/sui.js.mf',

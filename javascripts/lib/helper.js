@@ -1,6 +1,8 @@
 goog.provide('SUI.lib.Helper');
 
 goog.require('SUI');
+goog.require('SUI.Tooltip');
+goog.require('SUI.Node');
 goog.require('SUI.Query');
 goog.require('SUI.lib');
 

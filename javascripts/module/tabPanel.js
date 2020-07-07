@@ -3,6 +3,8 @@ goog.provide('SUI.TabPanel');
 goog.require('SUI');
 goog.require('SUI.Async');
 goog.require('SUI.Deferred');
+goog.require('SUI.Node');
+goog.require('SUI.Promise');
 goog.require('SUI.Query');
 
 /**

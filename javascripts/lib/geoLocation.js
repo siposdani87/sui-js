@@ -1,5 +1,7 @@
 goog.provide('SUI.lib.GeoLocation');
 
+goog.require('SUI.Deferred');
+goog.require('SUI.Promise');
 goog.require('SUI.lib');
 
 /**

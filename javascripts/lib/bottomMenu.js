@@ -1,7 +1,9 @@
 goog.provide('SUI.lib.BottomMenu');
 
+goog.require('SUI.Node');
 goog.require('SUI.Query');
 goog.require('SUI.lib');
+goog.require('SUI.lib.Footer');
 
 /**
  * @constructor

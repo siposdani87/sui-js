@@ -2,6 +2,8 @@ goog.provide('SUI.lib.ActionCable');
 
 goog.require('SUI');
 goog.require('SUI.Deferred');
+goog.require('SUI.Promise');
+goog.require('SUI.Query');
 goog.require('SUI.lib');
 goog.require('SUI.lib.ActionCableClient');
 

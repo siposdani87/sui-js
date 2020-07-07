@@ -1,6 +1,7 @@
 goog.provide('SUI.widget.Range');
 
 goog.require('SUI');
+goog.require('SUI.Node');
 goog.require('SUI.Query');
 goog.require('SUI.Tooltip');
 goog.require('SUI.Widget');

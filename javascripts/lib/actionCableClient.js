@@ -1,7 +1,10 @@
 goog.provide('SUI.lib.ActionCableClient');
 
+goog.requireType('SUI.lib.ActionCable');
+
 goog.require('SUI.Deferred');
 goog.require('SUI.Object');
+goog.require('SUI.Promise');
 goog.require('SUI.lib');
 
 /**

@@ -1,7 +1,11 @@
 goog.provide('SUI.FormWidget');
 
+goog.requireType('SUI.Form');
+
 goog.require('SUI');
 goog.require('SUI.Query');
+goog.require('SUI.Node');
+goog.require('SUI.Widget');
 goog.require('SUI.widget.Button');
 goog.require('SUI.widget.Checkbox');
 goog.require('SUI.widget.Color');

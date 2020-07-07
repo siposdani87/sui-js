@@ -1,9 +1,13 @@
 goog.provide('SUI.lib.Template');
 
+goog.require('SUI');
 goog.require('SUI.Deferred');
 goog.require('SUI.Object');
+goog.require('SUI.Promise');
 goog.require('SUI.Query');
+goog.require('SUI.Node');
 goog.require('SUI.lib');
+goog.require('SUI.lib.Http');
 
 /**
  * @constructor

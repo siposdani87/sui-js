@@ -6,6 +6,7 @@ goog.require('SUI.ContentHandler');
 goog.require('SUI.Dropdown');
 goog.require('SUI.Node');
 goog.require('SUI.Object');
+goog.require('SUI.Pager');
 goog.require('SUI.Query');
 goog.require('SUI.Tooltip');
 

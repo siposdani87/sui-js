@@ -1,6 +1,7 @@
 goog.provide('SUI.widget.Text');
 
 goog.require('SUI');
+goog.require('SUI.Node');
 goog.require('SUI.Widget');
 goog.require('SUI.widget');
 

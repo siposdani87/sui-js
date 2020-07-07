@@ -3,6 +3,8 @@ goog.provide('SUI.State');
 goog.require('SUI');
 goog.require('SUI.Collection');
 goog.require('SUI.Object');
+goog.require('SUI.Query');
+goog.require('SUI.Router');
 
 /**
  * @constructor

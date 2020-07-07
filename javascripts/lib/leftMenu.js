@@ -1,5 +1,7 @@
 goog.provide('SUI.lib.LeftMenu');
 
+goog.require('SUI');
+goog.require('SUI.Node');
 goog.require('SUI.Query');
 goog.require('SUI.lib');
 

@@ -1,6 +1,7 @@
 goog.provide('SUI.lib.Notification');
 
 goog.require('SUI');
+goog.require('SUI.Node');
 goog.require('SUI.Object');
 goog.require('SUI.Query');
 goog.require('SUI.lib');

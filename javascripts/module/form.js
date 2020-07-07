@@ -1,9 +1,12 @@
 goog.provide('SUI.Form');
 
 goog.require('SUI');
+goog.require('SUI.Collection');
 goog.require('SUI.FormWidget');
+goog.require('SUI.Node');
 goog.require('SUI.Object');
 goog.require('SUI.Query');
+goog.require('SUI.Widget');
 
 /**
  * @constructor

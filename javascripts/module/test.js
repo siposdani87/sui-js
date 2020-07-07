@@ -1,6 +1,7 @@
 goog.provide('SUI.Test');
 
 goog.require('SUI');
+goog.require('SUI.test');
 
 /**
  * @constructor
