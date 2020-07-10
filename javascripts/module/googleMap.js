@@ -564,17 +564,21 @@ SUI.GoogleMap.prototype._getCenterOfPolygon = function(polygonData) {
 };
 
 /**
- * @param {!SUI.Object} polygonData
+ * @param {string|number} polygonId
  * @return {undefined}
  */
-SUI.GoogleMap.prototype.fitPolygonToMap = function(polygonData) {
-  const bounds = /** @type {!google.maps.LatLngBounds} */ (polygonData.get('_bounds'));
-  if (bounds) {
-    const center = bounds.getCenter();
-    this.map.setCenter(center);
-    this.map.fitBounds(bounds);
+SUI.GoogleMap.prototype.fitPolygonToMap = function(polygonId) {
+  const polygonData = this.getPolygon(polygonId);
+  if (polygonData) {
+    const bounds = /** @type {!google.maps.LatLngBounds} */ (polygonData.get('_bounds'));
+    if (bounds) {
+      const center = bounds.getCenter();
+      this.map.setCenter(center);
+      this.map.fitBounds(bounds);
+    }
   }
 };
+
 
 /**
  * @private
@@ -881,6 +885,21 @@ SUI.GoogleMap.prototype.removeAllMarker = function(opt_callback = SUI.noop) {
     opt_callback(markerData);
   });
   this.markers.clear();
+};
+
+/**
+ * @param {string|number} markerId
+ * @return {undefined}
+ */
+SUI.GoogleMap.prototype.fitMarkerToMap = function(markerId) {
+  const markerData = this.getMarker(markerId);
+  if (markerData) {
+    const marker = /** @type {!google.maps.Marker} */ (markerData.get('_marker'));
+    const vertex = marker.getPosition();
+    const latitude = vertex.lat();
+    const longitude = vertex.lng();
+    this.setCenter(latitude, longitude);
+  }
 };
 
 /**
