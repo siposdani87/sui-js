@@ -246,6 +246,31 @@ SUI.Widget.prototype.setDisabled = function(state) {
 };
 
 /**
+ * @return {boolean}
+ */
+SUI.Widget.prototype.isVisible = function() {
+  return !this.inputBlock.hasClass('hidden');
+};
+
+/**
+ * @return {undefined}
+ */
+SUI.Widget.prototype.show = function() {
+  if (!this.isVisible()) {
+    this.inputBlock.removeClass('hidden');
+  }
+};
+
+/**
+ * @return {undefined}
+ */
+SUI.Widget.prototype.hide = function() {
+  if (this.isVisible()) {
+    this.inputBlock.addClass('hidden');
+  }
+};
+
+/**
  * @param {string} text
  * @return {undefined}
  */
