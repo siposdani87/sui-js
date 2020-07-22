@@ -253,6 +253,18 @@ SUI.Widget.prototype.isVisible = function() {
 };
 
 /**
+ * @param {boolean} state
+ * @return {undefined}
+ */
+SUI.Widget.prototype.setVisibility = function(state) {
+  if (state) {
+    this.show();
+  } else {
+    this.hide();
+  }
+};
+
+/**
  * @return {undefined}
  */
 SUI.Widget.prototype.show = function() {
