@@ -3,6 +3,7 @@
   color: $label-default-light;
   top: -4px;
   display: block;
+  text-overflow: ellipsis;
 
   &::first-letter {
     text-transform: capitalize;
@@ -14,7 +15,6 @@
 }
 
 .mdl-textfield {
-
   &.is-invalid,
   &.is-dirty,
   &.is-focused,
@@ -83,7 +83,6 @@
 
 label {
   &.is-disabled {
-
     .mdl-icon__label,
     .mdl-switch__label,
     .mdl-checkbox__label,
