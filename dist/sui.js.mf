@@ -96,9 +96,9 @@ module/tabPanel.js
 module/table.js
 module/treeView.js
 module/waiter.js
+widget/autoComplete.js
 test/container.js
 test/deferred.js
 test/item.js
 test/node.js
 test/object.js
-widget/autoComplete.js

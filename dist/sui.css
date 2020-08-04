@@ -2881,6 +2881,7 @@ table tfoot tr td.pager {
   border-bottom-color: #e91e63;
   color: #303f9f;
   z-index: 1;
+  font-weight: 700;
 }
 
 .tab-panel .tabs a:not(.active) {
