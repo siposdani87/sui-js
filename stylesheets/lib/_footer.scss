@@ -104,6 +104,7 @@
       margin-left: 2em;
       text-decoration: none;
       color: $accent;
+      line-height: 1.1;
 
       @include media-breakpoint-down(xs) {
         margin-left: 0;
