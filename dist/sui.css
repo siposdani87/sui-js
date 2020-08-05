@@ -5074,6 +5074,7 @@ table tfoot tr td.pager {
   margin-left: 2em;
   text-decoration: none;
   color: #e91e63;
+  line-height: 1.1;
 }
 
 @media (max-width: 575px) {
