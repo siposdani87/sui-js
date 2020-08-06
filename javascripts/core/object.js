@@ -13,7 +13,7 @@ SUI.Object = function(opt_object) {
   Object.call(this, opt_object);
   this.merge(opt_object);
 };
-SUI.Object.prototype = Object.create(/** @type {!Object} */ (Object.prototype));
+SUI.Object.prototype = Object.create(/** @type {!Object} */(Object.prototype));
 SUI.Object.prototype.constructor = SUI.Object;
 
 /**
@@ -103,15 +103,15 @@ SUI.Object.prototype.get = function(opt_attribute, opt_defaultValue, opt_isSafe 
  */
 SUI.Object.prototype._get = function(object, attributes) {
   let result = undefined;
-  SUI.eachObject(object, function(value, property) {
-    if (attributes.length === 1 && property === attributes[0]) {
+  SUI.each(object, (_value, property) => {
+    if (attributes.length === 1 && property.toString() === attributes[0]) {
       result = object[property];
-    } else if (property === attributes[0] && !SUI.isNull(object[property]) && SUI.isObject(object[property])) {
+    } else if (property.toString() === attributes[0] && !SUI.isNull(object[property]) && SUI.isObject(object[property])) {
       const copyAttributes = SUI.copy(attributes);
       copyAttributes.shift();
       result = this._get(object[property], copyAttributes);
     }
-  }.bind(this));
+  });
   return result;
 };
 
@@ -122,7 +122,7 @@ SUI.Object.prototype._get = function(object, attributes) {
  * @return {undefined}
  */
 SUI.Object.prototype._set = function(object, attributes, value) {
-  SUI.eachObject(object, function(oldValue, property) {
+  SUI.eachObject(object, (_oldValue, property) => {
     if (attributes.length === 1 && property === attributes[0]) {
       object[property] = value;
     } else if (property === attributes[0] && !SUI.isNull(object[property]) && SUI.isObject(object[property])) {
@@ -130,7 +130,7 @@ SUI.Object.prototype._set = function(object, attributes, value) {
       copyAttributes.shift();
       this._set(object[property], copyAttributes, value);
     }
-  }.bind(this));
+  });
 };
 
 /**
