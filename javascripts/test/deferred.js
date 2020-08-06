@@ -1,18 +1,19 @@
 goog.provide('SUI.test.Deferred');
 
+goog.require('SUI.test');
 goog.require('SUI.Deferred');
 goog.require('SUI.Promise');
-goog.require('SUI.Test');
+goog.require('SUI.BaseTest');
 
 /**
  * @constructor
  * @this {SUI.test.Deferred}
- * @extends {SUI.Test}
+ * @extends {SUI.BaseTest}
  */
 SUI.test.Deferred = function() {
-  SUI.Test.call(this, 'Deferred');
+  SUI.BaseTest.call(this, 'Deferred');
 };
-goog.inherits(SUI.test.Deferred, SUI.Test);
+goog.inherits(SUI.test.Deferred, SUI.BaseTest);
 
 /**
  * @override

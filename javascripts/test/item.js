@@ -1,17 +1,18 @@
 goog.provide('SUI.test.Item');
 
+goog.require('SUI.test');
 goog.require('SUI.Item');
-goog.require('SUI.Test');
+goog.require('SUI.BaseTest');
 
 /**
  * @constructor
  * @this {SUI.test.Item}
- * @extends {SUI.Test}
+ * @extends {SUI.BaseTest}
  */
 SUI.test.Item = function() {
-  SUI.Test.call(this, 'Item');
+  SUI.BaseTest.call(this, 'Item');
 };
-goog.inherits(SUI.test.Item, SUI.Test);
+goog.inherits(SUI.test.Item, SUI.BaseTest);
 
 /**
  * @override

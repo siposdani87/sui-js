@@ -1,21 +1,17 @@
 goog.provide('SUI.Test');
 
 goog.require('SUI');
-goog.require('SUI.test');
+goog.require('SUI.test.Container');
+goog.require('SUI.test.Deferred');
+goog.require('SUI.test.Item');
+goog.require('SUI.test.Node');
+goog.require('SUI.test.Object');
 
 /**
  * @constructor
  * @this {SUI.Test}
- * @param {string=} opt_name
  */
-SUI.Test = function(opt_name) {
-  this.name = opt_name;
-};
-
-/**
- * @return {undefined}
- */
-SUI.Test.prototype.init = function() {
+SUI.Test = function() {
 
 };
 
@@ -23,12 +19,16 @@ SUI.Test.prototype.init = function() {
  * @return {undefined}
  */
 SUI.Test.prototype.run = function() {
-  for (const key in SUI.test) {
-    if (SUI.test.hasOwnProperty(key)) {
-      const test = new SUI.test[key]();
-      test.init();
-      console.info(`SUI.test.${key}.init()`);
-    }
+  const tests = [
+    new SUI.test.Container(),
+    new SUI.test.Deferred(),
+    new SUI.test.Item(),
+    new SUI.test.Node(),
+    new SUI.test.Object(),
+  ];
+  for (const test of tests) {
+    test.init();
+    console.info(`SUI.test.${test.name}.init()`);
   }
 };
 

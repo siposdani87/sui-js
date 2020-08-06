@@ -2,18 +2,19 @@
 
 goog.provide('SUI.test.Object');
 
+goog.require('SUI.test');
 goog.require('SUI.Object');
-goog.require('SUI.Test');
+goog.require('SUI.BaseTest');
 
 /**
  * @constructor
  * @this {SUI.test.Object}
- * @extends {SUI.Test}
+ * @extends {SUI.BaseTest}
  */
 SUI.test.Object = function() {
-  SUI.Test.call(this, 'Object');
+  SUI.BaseTest.call(this, 'Object');
 };
-goog.inherits(SUI.test.Object, SUI.Test);
+goog.inherits(SUI.test.Object, SUI.BaseTest);
 
 /**
  * @override
@@ -109,6 +110,9 @@ SUI.test.Object.prototype.testGet = function() {
         attr5: 4.5,
       },
     },
+    arr: [{
+      attr1: -4,
+    }],
   });
   options.set('attr', null);
   if (options.get('attr') !== null) {
@@ -124,6 +128,9 @@ SUI.test.Object.prototype.testGet = function() {
   }
   if (options.get('obj.obj3') !== undefined) {
     this.showError('get', 3);
+  }
+  if (options.get('arr.0.attr1') !== -4) {
+    this.showError('get', 4);
   }
 };
 
