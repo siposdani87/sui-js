@@ -37,13 +37,12 @@ const SUI = {
   const: {},
   config: {},
   res: {},
-  lib: {},
-  test: {},
-  widget: {},
+  // lib: {},
+  // test: {},
+  // widget: {},
   coreRes: {},
   _scrollInterval: null,
 };
-
 
 /**
  * @export
