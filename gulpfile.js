@@ -49,6 +49,22 @@ gulp.task('compile:scripts:minify', function() {
   }))).pipe(insert.append('/*export default SUI;*/')).pipe(sourcemaps.write('/')).pipe(gulp.dest('dist'));
 });
 
+gulp.task('compile:scripts:debug', function() {
+  return gulp.src(['node_modules/google-closure-library/closure/goog/base.js', 'javascripts/**/*.js']).pipe(closureCompiler.gulp({
+    requireStreamInput: true,
+  })(Object.assign(closureOptions, {
+    compilation_level: 'WHITESPACE_ONLY',
+    dependency_mode: 'SORT_ONLY',
+    language_out: 'ECMASCRIPT_2016',
+    debug: true,
+    generate_exports: false,
+    define: 'SUI.production=false',
+    output_manifest: 'dist/sui.debug.js.mf',
+    // create_source_map: 'dist/sui.debug.js.map',
+    js_output_file: 'sui.debug.js',
+  }))).pipe(insert.append('/*export default SUI;*/')).pipe(sourcemaps.write('/')).pipe(gulp.dest('dist'));
+});
+
 gulp.task('compile:scripts', function() {
   return gulp.src(['node_modules/google-closure-library/closure/goog/base.js', 'javascripts/**/*.js']).pipe(closureCompiler.gulp({
     requireStreamInput: true,
@@ -63,11 +79,11 @@ gulp.task('compile:scripts', function() {
 
 gulp.task('watcher', function(done) {
   gulp.watch('stylesheets/**/*.scss', gulp.series(['compile:styles:minify']));
-  gulp.watch('javascripts/**/*.js', gulp.series(['compile:scripts:minify']));
+  gulp.watch('javascripts/**/*.js', gulp.series(['compile:scripts:debug']));
   done();
 });
 
-gulp.task('default', gulp.series('compile:styles:minify', 'compile:styles', 'compile:scripts:minify', 'compile:scripts', function(done) {
+gulp.task('default', gulp.series('compile:styles:minify', 'compile:styles', 'compile:scripts:minify', 'compile:scripts:debug', 'compile:scripts', function(done) {
   done();
 }));
 
