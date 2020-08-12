@@ -49,10 +49,22 @@ SUI.widget.Textarea.prototype._init = function() {
  */
 SUI.widget.Textarea.prototype.render = function() {
   this.inputBlock.addClass(['mdl-textfield', 'mdl-js-textfield', 'mdl-textfield--floating-label']);
-  this.input.addClass(['mdl-textfield__input', 'mdl-textarea__input', 'hidden']);
+  this.input.addClass(['mdl-textfield__input', 'mdl-textarea__input']);
   if (this.label && this.label.exists()) {
     this.label.addClass('mdl-textfield__label');
   }
+
+  if (this._isRichText()) {
+    this._renderRichText();
+  }
+  this.refresh();
+};
+
+/**
+ * @return {undefined}
+ */
+SUI.widget.Textarea.prototype._renderRichText = function() {
+  this.input.addClass('hidden');
 
   this.textboxNode = new SUI.Node('div');
   this.textboxNode.addClass(['mdl-textfield__input', 'mdl-textarea__input', 'textbox']);
@@ -74,7 +86,14 @@ SUI.widget.Textarea.prototype.render = function() {
   });
 
   this._renderToolbarButtons();
-  this.refresh();
+};
+
+/**
+ * @private
+ * @return {boolean}
+ */
+SUI.widget.Textarea.prototype._isRichText = function() {
+  return !!this.input.getAttribute('data-rich-text');
 };
 
 /**
@@ -197,7 +216,7 @@ SUI.widget.Textarea.prototype.refresh = function() {
     this.inputBlock.addClass('is-invalid');
   }
 
-  if (this.isDisabled()) {
+  if (this._isRichText() && this.isDisabled()) {
     this.oDoc.contentEditable = 'false';
   }
 
