@@ -14,6 +14,7 @@ call java -jar node_modules/google-closure-compiler-java/compiler.jar^
  --jscomp_off "strictMissingProperties"^
  --jscomp_off "useOfGoogProvide"^
  --jscomp_off "deprecated"^
+ --hide_warnings_for javascripts/test^
  --hide_warnings_for node_modules/sui-externs^
  --hide_warnings_for node_modules/google-closure-library^
  --generate_exports^
@@ -24,6 +25,7 @@ call java -jar node_modules/google-closure-compiler-java/compiler.jar^
  --js javascripts/core/*.js^
  --js javascripts/module/*.js^
  --js javascripts/widget/*.js^
+ --js javascripts/test/*.js^
  --output_manifest dist/sui.min.js.mf^
  --create_source_map dist/sui.min.js.map^
  --js_output_file dist/sui.min.js
