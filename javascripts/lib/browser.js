@@ -17,6 +17,7 @@ SUI.lib.Browser = function() {
  * @return {undefined}
  */
 SUI.lib.Browser.prototype._init = function() {
+  this._detectOS();
   this._detectBrowsers();
   this._detectMissingFeatures();
 };
@@ -76,6 +77,8 @@ SUI.lib.Browser.prototype.eventMissingFeatures = function(features) {
 SUI.lib.Browser.prototype._detectBrowsers = function() {
   this.browsers = {};
 
+  const userAgent = window.navigator.userAgent.toLowerCase();
+
   this.browsers.webkit = 'WebkitAppearance' in document.documentElement.style;
   this.browsers.chromium = !!window['chrome'];
   this.browsers.chrome = !!window['chrome'] && !!window['chrome']['webstore'];
@@ -90,6 +93,69 @@ SUI.lib.Browser.prototype._detectBrowsers = function() {
   this.browsers.lteIE10 = /*@cc_on!@*/false;
   this.browsers.gteIE10 = document.body.style.msTouchAction !== undefined;
   this.browsers.IE11 = '-ms-scroll-limit' in document.documentElement.style && '-ms-ime-align' in document.documentElement.style;
+  this.browsers.edge = userAgent.indexOf('edge') !== -1;
+  this.browsers.chromiumEdge = userAgent.indexOf('edge') === -1 && userAgent.indexOf('edg') !== -1;
+};
+
+/**
+ * @private
+ * @return {undefined}
+ */
+SUI.lib.Browser.prototype._detectOS = function() {
+  this.os = null;
+
+  const userAgent = window.navigator.userAgent;
+  const platform = window.navigator.platform;
+  const macosPlatforms = ['Macintosh', 'MacIntel', 'MacPPC', 'Mac68K', 'darwin'];
+  const windowsPlatforms = ['Win32', 'Win64', 'Windows', 'WinCE'];
+  const iosPlatforms = ['iPhone', 'iPad', 'iPod'];
+
+  if (macosPlatforms.indexOf(platform) !== -1) {
+    this.os = 'macOS';
+  } else if (iosPlatforms.indexOf(platform) !== -1) {
+    this.os = 'iOS';
+  } else if (windowsPlatforms.indexOf(platform) !== -1) {
+    this.os = 'Windows';
+  } else if (/Android/.test(userAgent)) {
+    this.os = 'Android';
+  } else if (/Linux/.test(platform)) {
+    this.os = 'Linux';
+  }
+};
+
+/**
+ * @return {boolean}
+ */
+SUI.lib.Browser.prototype.isMacOS = function() {
+  return this.os === 'macOS';
+};
+
+/**
+ * @return {boolean}
+ */
+SUI.lib.Browser.prototype.isIOS = function() {
+  return this.os === 'iOS';
+};
+
+/**
+ * @return {boolean}
+ */
+SUI.lib.Browser.prototype.isWindows = function() {
+  return this.os === 'Windows';
+};
+
+/**
+ * @return {boolean}
+ */
+SUI.lib.Browser.prototype.isAndroid = function() {
+  return this.os === 'Android';
+};
+
+/**
+ * @return {boolean}
+ */
+SUI.lib.Browser.prototype.isLinux = function() {
+  return this.os === 'Linux';
 };
 
 /**
@@ -112,6 +178,20 @@ SUI.lib.Browser.prototype.isInternetExplorer = function(opt_version) {
     }
   }
   return result;
+};
+
+/**
+ * @return {boolean}
+ */
+SUI.lib.Browser.prototype.isEdge = function() {
+  return this.browsers.edge;
+};
+
+/**
+ * @return {boolean}
+ */
+SUI.lib.Browser.prototype.isChromiumEdge = function() {
+  return this.browsers.chromiumEdge;
 };
 
 /**
