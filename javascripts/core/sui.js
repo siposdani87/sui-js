@@ -83,7 +83,6 @@ SUI.coreRes = {
   geoLocation: 'geoLocation',
   instances: 'instances',
   console: 'console',
-  appCache: 'appCache',
   serviceWorker: 'serviceWorker',
   actionCable: 'actionCable',
 };
