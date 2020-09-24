@@ -23,7 +23,6 @@ module/test.js
 core/lib.js
 lib/actionCableClient.js
 lib/actionCable.js
-lib/appCache.js
 lib/footer.js
 lib/bottomMenu.js
 lib/browser.js

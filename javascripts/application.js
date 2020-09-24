@@ -10,7 +10,6 @@ goog.require('SUI.Query');
 goog.require('SUI.Test');
 
 goog.require('SUI.lib.ActionCable');
-goog.require('SUI.lib.AppCache');
 goog.require('SUI.lib.BottomMenu');
 goog.require('SUI.lib.Browser');
 goog.require('SUI.lib.Confirm');
@@ -114,7 +113,6 @@ SUI.Application.prototype._init = function(resources) {
   this._initStyle();
   this._initConfig();
   this._initConsole();
-  this._initAppCache();
   this._initServiceWorker();
   this._initActionCable();
 
@@ -559,17 +557,6 @@ SUI.Application.prototype._initFooter = function() {
 SUI.Application.prototype._initBrowser = function() {
   this._instances[this._injections.browser] = new SUI.lib.Browser();
   this._instances[this._injections.browser].eventMissingFeatures = (features) => {
-    this._instances[this._injections.notification].addError(features.join(', '));
-  };
-};
-
-/**
- * @private
- * @return {undefined}
- */
-SUI.Application.prototype._initAppCache = function() {
-  this._instances[this._injections.appCache] = new SUI.lib.AppCache();
-  this._instances[this._injections.appCache].eventMissingFeatures = (features) => {
     this._instances[this._injections.notification].addError(features.join(', '));
   };
 };
