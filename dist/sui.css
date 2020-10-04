@@ -3352,7 +3352,6 @@ table tfoot tr td.pager {
   cursor: pointer;
   display: flex;
   flex-flow: column nowrap;
-  justify-content: space-between;
   border: 1px solid #eee;
   box-shadow: 0 0 5px 0 rgba(33, 33, 33, 0.2);
 }
@@ -3425,6 +3424,10 @@ table tfoot tr td.pager {
 
 .card-collection .card .content.section .box {
   padding: 0 1em 1em 0;
+}
+
+.card-collection .card .content .info {
+  color: #9e9e9e;
 }
 
 .card-collection .card .content .info .material-icons {
