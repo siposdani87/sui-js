@@ -21,6 +21,7 @@ SUI.lib.BaseModal.prototype._initBase = function() {
   this.windowHeight = 0;
 
   this.mainContainerNode = new SUI.Query('.main-container').getItem();
+  this.hasBlur = false;
 
   this._initButtons();
 };
@@ -107,9 +108,12 @@ SUI.lib.BaseModal.prototype._handleCloseButton = function(opt_allowClose = true)
  * @return {undefined}
  */
 SUI.lib.BaseModal.prototype.open = function(opt_allowClose = true) {
-  this.mainContainerNode.addClass('blur');
+  this.hasBlur = this.mainContainerNode.hasClass('blur');
+  if (!this.hasBlur) {
+    this.mainContainerNode.addClass('blur');
+    this.body.addClass('overflow-hidden');
+  }
 
-  this.body.addClass('overflow-hidden');
   this.modal.addClass('visible-flex');
   this.modal.removeClass('hidden');
 
@@ -127,9 +131,11 @@ SUI.lib.BaseModal.prototype.open = function(opt_allowClose = true) {
 SUI.lib.BaseModal.prototype.close = function() {
   clearInterval(this.interval);
 
-  this.mainContainerNode.removeClass('blur');
+  if (!this.hasBlur) {
+    this.mainContainerNode.removeClass('blur');
+    this.body.removeClass('overflow-hidden');
+  }
 
-  this.body.removeClass('overflow-hidden');
   this.modal.addClass('hidden');
   this.modal.removeClass('visible-flex');
 
