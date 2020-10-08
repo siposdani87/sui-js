@@ -3627,32 +3627,6 @@ table tfoot tr td.pager {
   cursor: pointer;
 }
 
-.select-widget .select-input .tag {
-  position: relative;
-  display: inline-block;
-  padding: 1px 10px;
-  margin: 0 2px 2px 0;
-  background-color: #bdbdbd;
-  color: #212121;
-  border-radius: 3px;
-  white-space: nowrap;
-}
-
-.select-widget .select-input .tag.tag-with-action {
-  padding-right: 30px;
-}
-
-.select-widget .select-input .tag .close {
-  position: absolute;
-  right: 5px;
-  top: 4px;
-  color: #3f51b5;
-}
-
-.select-widget .select-input .tag .close:hover {
-  color: #3f51b5;
-}
-
 .select-widget .search-box {
   padding: 5px 10px;
   margin: -20px 0 -15px;
@@ -3704,19 +3678,6 @@ table tfoot tr td.pager {
   border-color: #e0e0e0;
 }
 
-.select-widget.is-disabled .select-input .tag {
-  background-color: #e0e0e0;
-  color: #9e9e9e;
-}
-
-.select-widget.is-disabled .select-input .tag .close {
-  color: #bdbdbd;
-}
-
-.select-widget.is-disabled .select-input .tag .close:hover {
-  color: #bdbdbd;
-}
-
 .select-widget.is-disabled.is-invalid .select-input {
   border-color: #d32f2f;
 }
@@ -3731,19 +3692,6 @@ table tfoot tr td.pager {
 
 .dark-theme .select-widget .select-input {
   border-color: #757575;
-}
-
-.dark-theme .select-widget .select-input .tag {
-  background-color: #757575;
-  color: #fafafa;
-}
-
-.dark-theme .select-widget .select-input .tag .close {
-  color: #7986cb;
-}
-
-.dark-theme .select-widget .select-input .tag .close:hover {
-  color: #7986cb;
 }
 
 .dark-theme .select-widget .options-list a {
@@ -3772,19 +3720,6 @@ table tfoot tr td.pager {
 
 .dark-theme .select-widget.is-disabled .select-input {
   border-color: #616161;
-}
-
-.dark-theme .select-widget.is-disabled .select-input .tag {
-  background-color: #616161;
-  color: #bdbdbd;
-}
-
-.dark-theme .select-widget.is-disabled .select-input .tag .close {
-  color: #757575;
-}
-
-.dark-theme .select-widget.is-disabled .select-input .tag .close:hover {
-  color: #757575;
 }
 
 .dark-theme .select-widget.is-disabled.is-invalid .select-input {
@@ -3872,37 +3807,6 @@ table tfoot tr td.pager {
   cursor: pointer;
 }
 
-.datetime-widget .datetime-input .tag {
-  position: relative;
-  display: inline-block;
-  padding: 1px 10px;
-  margin: 0 2px 2px 0;
-  background-color: #bdbdbd;
-  color: #212121;
-  border-radius: 3px;
-  white-space: nowrap;
-}
-
-.datetime-widget .datetime-input .tag.tag-with-action {
-  padding-right: 30px;
-}
-
-.datetime-widget .datetime-input .tag .close {
-  position: absolute;
-  right: 5px;
-  top: 4px;
-  color: #3f51b5;
-}
-
-.datetime-widget .datetime-input .tag .close:hover {
-  color: #3f51b5;
-}
-
-.datetime-widget .datetime-input.active .tag {
-  background-color: #e91e63;
-  color: #fafafa;
-}
-
 .datetime-widget .datetime {
   display: flex;
   align-items: center;
@@ -3921,19 +3825,6 @@ table tfoot tr td.pager {
   border-color: #e0e0e0;
 }
 
-.datetime-widget.is-disabled .datetime-input .tag {
-  color: #9e9e9e;
-  background-color: #e0e0e0;
-}
-
-.datetime-widget.is-disabled .datetime-input .tag .close {
-  color: #bdbdbd;
-}
-
-.datetime-widget.is-disabled .datetime-input .tag .close:hover {
-  color: #bdbdbd;
-}
-
 .dark-theme .datetime-widget .expander {
   color: #7986cb;
 }
@@ -3946,24 +3837,6 @@ table tfoot tr td.pager {
   border-color: #757575;
 }
 
-.dark-theme .datetime-widget .datetime-input .tag {
-  background-color: #757575;
-  color: #fafafa;
-}
-
-.dark-theme .datetime-widget .datetime-input .tag .close {
-  color: #7986cb;
-}
-
-.dark-theme .datetime-widget .datetime-input .tag .close:hover {
-  color: #7986cb;
-}
-
-.dark-theme .datetime-widget .datetime-input.active .tag {
-  background-color: #f06292;
-  color: #fafafa;
-}
-
 .dark-theme .datetime-widget.is-disabled .widget-label {
   color: #757575;
 }
@@ -3974,19 +3847,6 @@ table tfoot tr td.pager {
 
 .dark-theme .datetime-widget.is-disabled .datetime-input {
   border-color: #616161;
-}
-
-.dark-theme .datetime-widget.is-disabled .datetime-input .tag {
-  background-color: #616161;
-  color: #bdbdbd;
-}
-
-.dark-theme .datetime-widget.is-disabled .datetime-input .tag .close {
-  color: #757575;
-}
-
-.dark-theme .datetime-widget.is-disabled .datetime-input .tag .close:hover {
-  color: #757575;
 }
 
 .datetime-range-widget .mdl-textfield__error:last-of-type {
@@ -4037,37 +3897,6 @@ table tfoot tr td.pager {
   border-bottom-right-radius: 0;
 }
 
-.datetime-range-widget .datetime-input .tag {
-  position: relative;
-  display: inline-block;
-  padding: 1px 10px;
-  margin: 0 2px 2px 0;
-  background-color: #bdbdbd;
-  color: #212121;
-  border-radius: 3px;
-  white-space: nowrap;
-}
-
-.datetime-range-widget .datetime-input .tag.tag-with-action {
-  padding-right: 30px;
-}
-
-.datetime-range-widget .datetime-input .tag .close {
-  position: absolute;
-  right: 5px;
-  top: 4px;
-  color: #3f51b5;
-}
-
-.datetime-range-widget .datetime-input .tag .close:hover {
-  color: #3f51b5;
-}
-
-.datetime-range-widget .datetime-input.active .tag {
-  background-color: #e91e63;
-  color: #fafafa;
-}
-
 .datetime-range-widget .datetime {
   display: flex;
   align-items: center;
@@ -4086,19 +3915,6 @@ table tfoot tr td.pager {
   border-color: #e0e0e0;
 }
 
-.datetime-range-widget.is-disabled .datetime-input .tag {
-  background-color: #e0e0e0;
-  color: #9e9e9e;
-}
-
-.datetime-range-widget.is-disabled .datetime-input .tag .close {
-  color: #bdbdbd;
-}
-
-.datetime-range-widget.is-disabled .datetime-input .tag .close:hover {
-  color: #bdbdbd;
-}
-
 .dark-theme .datetime-range-widget .expander {
   color: #7986cb;
 }
@@ -4111,24 +3927,6 @@ table tfoot tr td.pager {
   border-color: #757575;
 }
 
-.dark-theme .datetime-range-widget .datetime-input .tag {
-  background-color: #757575;
-  color: #fafafa;
-}
-
-.dark-theme .datetime-range-widget .datetime-input .tag .close {
-  color: #7986cb;
-}
-
-.dark-theme .datetime-range-widget .datetime-input .tag .close:hover {
-  color: #7986cb;
-}
-
-.dark-theme .datetime-range-widget .datetime-input.active .tag {
-  background-color: #f06292;
-  color: #fafafa;
-}
-
 .dark-theme .datetime-range-widget.is-disabled .widget-label {
   color: #757575;
 }
@@ -4139,19 +3937,6 @@ table tfoot tr td.pager {
 
 .dark-theme .datetime-range-widget.is-disabled .datetime-input {
   border-color: #616161;
-}
-
-.dark-theme .datetime-range-widget.is-disabled .datetime-input .tag {
-  background-color: #616161;
-  color: #bdbdbd;
-}
-
-.dark-theme .datetime-range-widget.is-disabled .datetime-input .tag .close {
-  color: #757575;
-}
-
-.dark-theme .datetime-range-widget.is-disabled .datetime-input .tag .close:hover {
-  color: #757575;
 }
 
 .location-widget .search-button,
@@ -4429,6 +4214,81 @@ table tfoot tr td.pager {
 .dark-theme .range-widget.is-disabled .mdl-slider::-ms-thumb,
 .dark-theme .range-widget.is-disabled .mdl-slider:active::-ms-thumb {
   background: #757575;
+}
+
+.input-block .widget-tag {
+  position: relative;
+  display: inline-block;
+  padding: 1px 10px;
+  margin: 0 2px 2px 0;
+  background-color: #bdbdbd;
+  color: #212121;
+  border-radius: 3px;
+  white-space: nowrap;
+}
+
+.input-block .widget-tag.tag-with-action {
+  padding-right: 30px;
+}
+
+.input-block .widget-tag .close {
+  position: absolute;
+  right: 5px;
+  top: 4px;
+  color: #3f51b5;
+}
+
+.input-block .widget-tag .close:hover {
+  color: #3f51b5;
+}
+
+.input-block .active .widget-tag {
+  background-color: #e91e63;
+  color: #fafafa;
+}
+
+.input-block .is-disabled .widget-tag {
+  color: #9e9e9e;
+  background-color: #e0e0e0;
+}
+
+.input-block .is-disabled .widget-tag .close {
+  color: #bdbdbd;
+}
+
+.input-block .is-disabled .widget-tag .close:hover {
+  color: #bdbdbd;
+}
+
+.dark-theme .input-block .widget-tag {
+  background-color: #757575;
+  color: #fafafa;
+}
+
+.dark-theme .input-block .widget-tag .close {
+  color: #7986cb;
+}
+
+.dark-theme .input-block .widget-tag .close:hover {
+  color: #7986cb;
+}
+
+.dark-theme .input-block .active .widget-tag {
+  background-color: #f06292;
+  color: #fafafa;
+}
+
+.dark-theme .input-block .is-disabled .widget-tag {
+  background-color: #616161;
+  color: #bdbdbd;
+}
+
+.dark-theme .input-block .is-disabled .widget-tag .close {
+  color: #757575;
+}
+
+.dark-theme .input-block .is-disabled .widget-tag .close:hover {
+  color: #757575;
 }
 
 .radiobutton-widget .widget-label {

@@ -314,7 +314,7 @@ SUI.widget.Select.prototype._setTags = function(tags) {
 
   SUI.each(tags, (tag) => {
     const tagNode = new SUI.Node('div');
-    tagNode.addClass('tag');
+    tagNode.addClass('widget-tag');
     tagNode.setHtml(tag.get('name'));
     if (this.isEnabled()) {
       tagNode.addEventListener('click', () => {
