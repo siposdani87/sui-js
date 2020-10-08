@@ -827,6 +827,47 @@ address {
   align-items: center;
 }
 
+.tag {
+  display: inline-block;
+  border-radius: 12px;
+  padding: 4px 10px;
+  margin: 1px 5px 1px 0;
+  white-space: nowrap;
+  border: 3px solid #9e9e9e;
+  font-size: .75em;
+  font-weight: 700;
+  color: #9e9e9e;
+  text-transform: uppercase;
+}
+
+.tag.text-primary {
+  border-color: #3f51b5;
+}
+
+.tag.text-accent {
+  border-color: #e91e63;
+}
+
+.tag.text-success {
+  border-color: #4caf50;
+}
+
+.tag.text-info {
+  border-color: #2196f3;
+}
+
+.tag.text-warning {
+  border-color: #ffc107;
+}
+
+.tag.text-error {
+  border-color: #f44336;
+}
+
+.tag.text-default {
+  border-color: #212121;
+}
+
 .truncate-container {
   display: table;
   table-layout: fixed;
@@ -869,7 +910,7 @@ address {
   color: #4caf50;
 }
 
-.text-notice {
+.text-info {
   color: #2196f3;
 }
 
