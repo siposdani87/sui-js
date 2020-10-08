@@ -29,39 +29,6 @@
     border-radius: 3px;
     min-height: 32px;
     cursor: pointer;
-
-    .tag {
-      position: relative;
-      display: inline-block;
-      padding: 1px 10px;
-      margin: 0 2px 2px 0;
-      background-color: $input-default-light;
-      color: $content-default-light;
-      border-radius: 3px;
-      white-space: nowrap;
-
-      &.tag-with-action {
-        padding-right: 30px;
-      }
-
-      .close {
-        position: absolute;
-        right: 5px;
-        top: 4px;
-        color: $primary-default-light;
-
-        &:hover {
-          color: $primary-default-light;
-        }
-      }
-    }
-
-    &.active {
-      .tag {
-        background-color: $accent-default-light;
-        color: $accent-text;
-      }
-    }
   }
 
   .datetime {
@@ -82,19 +49,6 @@
     .datetime-input {
       border-style: dotted;
       border-color: $input-disabled-light;
-
-      .tag {
-        color: $content-disabled-light;
-        background-color: $input-disabled-light;
-
-        .close {
-          color: $primary-disabled-light;
-
-          &:hover {
-            color: $primary-disabled-light;
-          }
-        }
-      }
     }
   }
 }

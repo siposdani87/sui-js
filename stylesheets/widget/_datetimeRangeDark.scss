@@ -1,6 +1,5 @@
 .dark-theme {
   .datetime-range-widget {
-
     .expander {
       color: $primary-default-dark;
     }
@@ -11,30 +10,9 @@
 
     .datetime-input {
       border-color: $input-default-dark;
-
-      .tag {
-        background-color: $input-default-dark;
-        color: $content-default-dark;
-
-        .close {
-          color: $primary-default-dark;
-
-          &:hover {
-            color: $primary-default-dark;
-          }
-        }
-      }
-
-      &.active {
-        .tag {
-          background-color: $accent-default-dark;
-          color: $accent-text;
-        }
-      }
     }
 
     &.is-disabled {
-
       .widget-label {
         color: $label-disabled-dark;
       }
@@ -45,19 +23,6 @@
 
       .datetime-input {
         border-color: $input-disabled-dark;
-
-        .tag {
-          background-color: $input-disabled-dark;
-          color: $content-disabled-dark;
-
-          .close {
-            color: $primary-disabled-dark;
-
-            &:hover {
-              color: $primary-disabled-dark;
-            }
-          }
-        }
       }
     }
   }

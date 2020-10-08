@@ -144,7 +144,7 @@ SUI.widget.DatetimeRange.prototype._setTag = function(value) {
   if (value) {
     const formattedValue = window['moment'](value, this.datetime.getConfig().format)['format'](this.format);
     const tagNode = new SUI.Node('div');
-    tagNode.addClass('tag');
+    tagNode.addClass('widget-tag');
     tagNode.setHtml(formattedValue);
     this.datetimeInput.appendChild(tagNode);
 
