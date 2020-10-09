@@ -40,6 +40,7 @@ SUI.lib.Window.prototype._init = function() {
   this._initResizeEvent();
   this._initScrollEvent();
   this._initConnectionEvent();
+  this._initColorSchemeEvent();
 };
 
 /**
@@ -172,4 +173,37 @@ SUI.lib.Window.prototype.getHeight = function() {
  */
 SUI.lib.Window.prototype.getOrientation = function() {
   return SUI.gte(this.getWidth(), this.getHeight()) ? 'landscape' : 'portrait';
+};
+
+/**
+ * @private
+ * @return {undefined}
+ */
+SUI.lib.Window.prototype._initColorSchemeEvent = function() {
+  if (window.matchMedia) {
+    window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', (event) => {
+      if (event.matches) {
+        this.eventColorSchemeChange('dark', event);
+      } else {
+        this.eventColorSchemeChange('light', event);
+      }
+    });
+  }
+};
+
+/**
+ * @param {string} colorScheme
+ * @param {!Event} event
+ * @return {undefined}
+ */
+SUI.lib.Window.prototype.eventColorSchemeChange = function(colorScheme, event) {
+  console.warn('SUI.Window.eventColorSchemeChange()', colorScheme, event);
+};
+
+/**
+ * @param {string} type dark|light|no-preference
+ * @return {boolean}
+ */
+SUI.lib.Window.prototype.isColorScheme = function(type) {
+  return window.matchMedia && window.matchMedia(`(prefers-color-scheme: ${type})`).matches;
 };

@@ -395,6 +395,10 @@ SUI.Application.prototype._initWindow = function() {
     this._instances[this._injections.event].call('window.scroll', [scrollTop, event]);
   }.bind(this);
 
+  this._instances[this._injections.window].eventColorSchemeChange = function(colorScheme, event) {
+    this._instances[this._injections.event].call('window.colorSchemeChange', [colorScheme, event]);
+  }.bind(this);
+
   const notification = {
     node: null,
     message: 'Unable to connect to the Internet',
