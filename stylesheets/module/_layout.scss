@@ -135,6 +135,8 @@
 }
 
 .page-header {
+  position: sticky;
+  top: 0;
   display: flex;
   flex-flow: row wrap;
   padding: .1em 1em;
@@ -143,6 +145,11 @@
   background-color: $light-grey;
   color: $black;
   min-height: 50px;
+  z-index: $zindex-header;
+
+  &.shadow {
+    box-shadow: 0 2px 20px 0 rgba($black, .75);
+  }
 
   > .mdl-button {
     margin-right: .5em;
