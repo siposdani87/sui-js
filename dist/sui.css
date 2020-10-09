@@ -3468,7 +3468,7 @@ table tfoot tr td.pager {
 }
 
 .card-collection .card .content .info {
-  color: #9e9e9e;
+  color: #616161;
 }
 
 .card-collection .card .content .info .material-icons {
@@ -3525,6 +3525,10 @@ table tfoot tr td.pager {
 
 .dark-theme .card-collection .card .content {
   color: #fafafa;
+}
+
+.dark-theme .card-collection .card .content .info {
+  color: #9e9e9e;
 }
 
 .dark-theme .card-collection .card .content .info .material-icons {

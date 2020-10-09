@@ -21,6 +21,7 @@ const closureOptions = {
   jscomp_error: '*',
   jscomp_warning: '*',
   jscomp_off: ['strictMissingProperties', 'useOfGoogProvide', 'deprecated'],
+  hide_warnings_for: ['test/', 'base.js'],
   generate_exports: true,
   define: 'SUI.production=true',
 };
