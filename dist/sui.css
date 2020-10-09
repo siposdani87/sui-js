@@ -2349,6 +2349,8 @@ form input:-webkit-autofill:hover, form input:-webkit-autofill:focus, form input
 }
 
 .page-header {
+  position: sticky;
+  top: 0;
   display: flex;
   flex-flow: row wrap;
   padding: .1em 1em;
@@ -2357,6 +2359,11 @@ form input:-webkit-autofill:hover, form input:-webkit-autofill:focus, form input
   background-color: #e0e0e0;
   color: #212121;
   min-height: 50px;
+  z-index: 100;
+}
+
+.page-header.shadow {
+  box-shadow: 0 2px 20px 0 rgba(33, 33, 33, 0.75);
 }
 
 .page-header > .mdl-button {

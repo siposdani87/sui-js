@@ -36,7 +36,6 @@ SUI.lib.Header.prototype._init = function() {
   this.brandNodeImage = new SUI.Query('.brand img', this.brandNode).getItem();
   this.brandNodeTitle = new SUI.Query('.brand .app-title', this.brandNode).getItem();
 
-
   this.mainContainerNode = new SUI.Query('.main-container').getItem();
   this.templateViewNode = new SUI.Query('.template-view').getItem();
 };
@@ -77,7 +76,6 @@ SUI.lib.Header.prototype.open = function() {
 SUI.lib.Header.prototype.close = function() {
   this.headerNode.removeClass('open');
 };
-
 
 /**
  * @return {undefined}
