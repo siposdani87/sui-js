@@ -32,7 +32,7 @@
     }
   }
 
-  .is-disabled {
+  &.is-disabled {
     .widget-tag {
       color: $content-disabled-light;
       background-color: $input-disabled-light;
