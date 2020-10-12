@@ -49,6 +49,7 @@ body {
 a {
   color: $primary;
   text-decoration: none;
+  font-weight: 400;
 
   &:hover {
     color: $primary-dark;
