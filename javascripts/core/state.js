@@ -243,7 +243,7 @@ SUI.State.prototype.go = function(id, opt_params = undefined, opt_overwrite = fa
 
     });
   } else {
-    const [url, state] = this.resolveUrlWithState(id, opt_params);
+    const [url, state] = this._resolveUrlWithState(id, opt_params);
     if (url && state) {
       this._setHistory(/** @type {!SUI.Object} */ (state), url, opt_params, opt_overwrite, opt_force);
     }
@@ -256,7 +256,7 @@ SUI.State.prototype.go = function(id, opt_params = undefined, opt_overwrite = fa
  * @param {!Object=} opt_params
  * @return {!Array}
  */
-SUI.State.prototype.resolveUrlWithState = function(id, opt_params = undefined) {
+SUI.State.prototype._resolveUrlWithState = function(id, opt_params = undefined) {
   const state = this.routes.findById(id);
   let url = '';
   if (state) {
@@ -273,7 +273,7 @@ SUI.State.prototype.resolveUrlWithState = function(id, opt_params = undefined) {
  * @return {string}
  */
 SUI.State.prototype.resolveUrl = function(id, opt_params = undefined) {
-  const url = /** @type {string} */ (this.resolveUrlWithState(id, opt_params)[0]);
+  const url = /** @type {string} */ (this._resolveUrlWithState(id, opt_params)[0]);
   return this._getRealUrl(url);
 };
 
@@ -416,4 +416,18 @@ SUI.State.prototype.reload = function() {
  */
 SUI.State.prototype.refresh = function(opt_force = false) {
   this._triggerChange(opt_force);
+};
+
+/**
+ * @return {!Array}
+ */
+SUI.State.prototype.getRoot = function() {
+  return [this.options.root.id, this.options.root.params];
+};
+
+/**
+ * @return {!Array}
+ */
+SUI.State.prototype.getHome = function() {
+  return [this.options.home.id, this.options.home.params];
 };

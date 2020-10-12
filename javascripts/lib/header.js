@@ -56,6 +56,14 @@ SUI.lib.Header.prototype.setTitle = function(title) {
 };
 
 /**
+ * @param {string} url
+ * @return {undefined}
+ */
+SUI.lib.Header.prototype.setUrl = function(url) {
+  this.brandNode.setAttribute('href', url);
+};
+
+/**
  * @param {string} imagePath
  * @return {undefined}
  */
