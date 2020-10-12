@@ -4258,16 +4258,16 @@ table tfoot tr td.pager {
   color: #fafafa;
 }
 
-.input-block .is-disabled .widget-tag {
+.input-block.is-disabled .widget-tag {
   color: #9e9e9e;
   background-color: #e0e0e0;
 }
 
-.input-block .is-disabled .widget-tag .close {
+.input-block.is-disabled .widget-tag .close {
   color: #bdbdbd;
 }
 
-.input-block .is-disabled .widget-tag .close:hover {
+.input-block.is-disabled .widget-tag .close:hover {
   color: #bdbdbd;
 }
 
@@ -4289,16 +4289,16 @@ table tfoot tr td.pager {
   color: #fafafa;
 }
 
-.dark-theme .input-block .is-disabled .widget-tag {
+.dark-theme .input-block.is-disabled .widget-tag {
   background-color: #616161;
   color: #bdbdbd;
 }
 
-.dark-theme .input-block .is-disabled .widget-tag .close {
+.dark-theme .input-block.is-disabled .widget-tag .close {
   color: #757575;
 }
 
-.dark-theme .input-block .is-disabled .widget-tag .close:hover {
+.dark-theme .input-block.is-disabled .widget-tag .close:hover {
   color: #757575;
 }
 

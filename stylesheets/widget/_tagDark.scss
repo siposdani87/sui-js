@@ -20,7 +20,7 @@
       }
     }
 
-    .is-disabled {
+    &.is-disabled {
       .widget-tag {
         background-color: $input-disabled-dark;
         color: $content-disabled-dark;
