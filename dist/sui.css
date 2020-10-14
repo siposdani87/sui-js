@@ -2390,27 +2390,24 @@ form input:-webkit-autofill:hover, form input:-webkit-autofill:focus, form input
 }
 
 .page-header form {
-  flex: 1;
   display: flex;
-  flex-flow: row nowrap;
-  margin: 0;
 }
 
 .page-header form .input-block {
   flex: 1;
   padding: 0;
+  margin-right: 10px;
 }
 
 .page-header form .input-block .info-container {
   top: 4px;
 }
 
-.page-header form .mdl-textfield--expandable label.mdl-button {
+.page-header form .input-block .mdl-textfield--expandable label.mdl-button {
   top: 0;
 }
 
 .page-header .actions {
-  flex: 1;
   justify-content: flex-end;
   display: flex;
   align-items: center;
@@ -4336,6 +4333,10 @@ table tfoot tr td.pager {
 
 .search-widget .mdl-textfield__error {
   bottom: 0;
+}
+
+.search-widget:not(.is-focused) .mdl-textfield__expandable-holder .mdl-textfield__input, .search-widget:not(.is-dirty) .mdl-textfield__expandable-holder .mdl-textfield__input {
+  border: none;
 }
 
 .search-widget .clear-button {
