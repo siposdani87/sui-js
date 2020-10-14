@@ -174,7 +174,7 @@
   }
 
   form {
-    flex: 1;
+    flex: auto;
     display: flex;
     flex-flow: row nowrap;
     margin: 0;
@@ -196,7 +196,6 @@
   }
 
   .actions {
-    flex: 1;
     justify-content: flex-end;
     display: flex;
     align-items: center;
