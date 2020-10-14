@@ -2403,7 +2403,7 @@ form input:-webkit-autofill:hover, form input:-webkit-autofill:focus, form input
   top: 4px;
 }
 
-.page-header form .input-block .mdl-textfield--expandable label.mdl-button {
+.page-header form .mdl-textfield--expandable label.mdl-button {
   top: 0;
 }
 
@@ -4335,7 +4335,7 @@ table tfoot tr td.pager {
   bottom: 0;
 }
 
-.search-widget:not(.is-focused) .mdl-textfield__expandable-holder .mdl-textfield__input, .search-widget:not(.is-dirty) .mdl-textfield__expandable-holder .mdl-textfield__input {
+.search-widget:not(.is-focused):not(.is-dirty) .mdl-textfield__expandable-holder .mdl-textfield__input {
   border: none;
 }
 
