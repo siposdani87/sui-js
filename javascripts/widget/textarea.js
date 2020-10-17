@@ -31,7 +31,7 @@ SUI.widget.Textarea.prototype._init = function() {
     const inputNode = input.getNode();
     this.modelChange(inputNode.value);
     this.checkValidity(true);
-    this.textboxNode.setHtml(inputNode.value);
+    this.richText.setHtml(inputNode.value);
     return true;
   });
 
@@ -66,24 +66,29 @@ SUI.widget.Textarea.prototype.render = function() {
 SUI.widget.Textarea.prototype._renderRichText = function() {
   this.input.addClass('hidden');
 
-  this.textboxNode = new SUI.Node('div');
-  this.textboxNode.addClass(['mdl-textfield__input', 'mdl-textarea__input', 'textbox']);
   let value = /** @type {string} */ (this.getValue());
   value = value.indexOf('<p>') === 0 ? value : `<p>${value || '<br />'}</p>`;
-  this.textboxNode.setHtml(value);
-  this.input.insertAfter(this.textboxNode);
-  this.oDoc = this.textboxNode.getNode();
-  this.oDoc.contentEditable = 'true';
-  this.textboxNode.addEventListener('keydown', (_node, event) => {
+
+  this.richText = new SUI.Node('div');
+  this.richText.addClass(['mdl-textfield__input', 'mdl-textarea__input', 'textbox']);
+  this.richText.setHtml(value);
+
+  this.richText.addEventListener('keydown', (_node, event) => {
     if (event.keyCode === 13) {
       document.execCommand('defaultParagraphSeparator', false, 'p');
     }
     return true;
   });
-  this.textboxNode.addEventListener('keyup', (node) => {
+
+  this.richText.addEventListener('keyup', (node) => {
     this._setValue(node.getHtml(true));
     return true;
   });
+
+  this.input.insertAfter(this.richText);
+
+  this.richTextNode = this.richText.getNode();
+  this.richTextNode.contentEditable = 'true';
 
   this._renderToolbarButtons();
 };
@@ -185,10 +190,8 @@ SUI.widget.Textarea.prototype._isHtmlMode = function() {
  */
 SUI.widget.Textarea.prototype._formatDoc = function(sCmd, opt_sValue) {
   if (!this._isHtmlMode()) {
-    // this.oDoc.focus();
     document.execCommand(sCmd, false, opt_sValue);
-    this._setValue(this.oDoc.innerHTML);
-    // this.oDoc.focus();
+    this._setValue(this.richTextNode.innerHTML);
   }
 };
 
@@ -199,13 +202,13 @@ SUI.widget.Textarea.prototype._formatDoc = function(sCmd, opt_sValue) {
  */
 SUI.widget.Textarea.prototype._setDocMode = function(_isHtmlMode) {
   if (_isHtmlMode) {
-    this.textboxNode.addClass('hidden');
+    this.richText.addClass('hidden');
     this.input.removeClass('hidden');
   } else {
-    this.textboxNode.removeClass('hidden');
+    this.richText.removeClass('hidden');
     this.input.addClass('hidden');
   }
-  this.oDoc.focus();
+  this.richTextNode.focus();
 };
 
 /**
@@ -217,7 +220,7 @@ SUI.widget.Textarea.prototype.refresh = function() {
   }
 
   if (this._isRichText() && this.isDisabled()) {
-    this.oDoc.contentEditable = 'false';
+    this.richTextNode.contentEditable = 'false';
   }
 
   SUI.mdl(this.inputBlock);
@@ -240,7 +243,7 @@ SUI.widget.Textarea.prototype._setValue = function(value) {
  * @return {undefined}
  */
 SUI.widget.Textarea.prototype.setValue = function(value) {
-  this.oDoc.innerHTML = value;
+  this.richTextNode.innerHTML = value;
   this._setValue(value);
 };
 
