@@ -970,6 +970,18 @@ SUI.scrollToElement = function(selector, opt_duration = 500, opt_step = 20) {
 
 /**
  * @export
+ * @param {string} selector
+ * @param {string=} opt_behavior
+ * @return {undefined}
+ */
+SUI.scrollIntoView = function(selector, opt_behavior = 'smooth') {
+  document.querySelector(selector).scrollIntoView({
+    behavior: opt_behavior,
+  });
+};
+
+/**
+ * @export
  * @param {!Function} func
  * @param {number=} opt_wait
  * @param {boolean=} opt_immediate

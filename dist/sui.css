@@ -2377,11 +2377,6 @@ form input:-webkit-autofill:hover, form input:-webkit-autofill:focus, form input
   font-weight: 500;
 }
 
-.page-header h1 a,
-.page-header h1 span {
-  white-space: nowrap;
-}
-
 .page-header h1 a::after,
 .page-header h1 span::after {
   content: '/';
@@ -2438,10 +2433,6 @@ form input:-webkit-autofill:hover, form input:-webkit-autofill:focus, form input
   margin: 0;
   font-size: 1.25em;
   font-weight: 400;
-}
-
-.page-subheader h2 a {
-  white-space: nowrap;
 }
 
 .page-subheader h2 a::after {
@@ -2582,6 +2573,7 @@ form input:-webkit-autofill:hover, form input:-webkit-autofill:focus, form input
   background-color: #fafafa;
   z-index: 95;
   box-shadow: 2px 2px 10px 0 rgba(33, 33, 33, 0.75);
+  border-radius: 3px;
 }
 
 .dark-theme .popup-parent .popup {
