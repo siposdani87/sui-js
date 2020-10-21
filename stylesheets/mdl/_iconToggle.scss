@@ -3,6 +3,7 @@
   .mdl-icon-toggle__label {
     color: $checkbox-default-light;
     border: 2px solid transparent;
+    line-height: 1.2;
   }
 
   input[required]~.mdl-icon-toggle__label {

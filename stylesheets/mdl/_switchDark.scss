@@ -2,7 +2,7 @@
   .mdl-switch {
 
     .mdl-switch__track {
-      background-color: rgba($content-default-dark, .5);
+      background-color: $content-default-dark;
     }
 
     .mdl-switch__thumb {
@@ -15,7 +15,7 @@
 
     &.is-checked {
       .mdl-switch__track {
-        background-color: rgba($primary-default-dark, .5);
+        background-color: $primary-default-light;
       }
 
       .mdl-switch__thumb {
@@ -29,7 +29,7 @@
 
     &.is-disabled {
       .mdl-switch__track {
-        background-color: rgba($content-disabled-dark, .5);
+        background-color: $content-disabled-dark;
       }
 
       .mdl-switch__thumb {
@@ -42,7 +42,7 @@
 
       &.is-checked {
         .mdl-switch__track {
-          background-color: rgba($primary-disabled-dark, .5);
+          background-color: $primary-disabled-dark;
         }
 
         .mdl-switch__thumb {

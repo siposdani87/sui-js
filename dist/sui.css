@@ -330,6 +330,10 @@ label.is-disabled .mdl-radio__label {
   border: 2px solid transparent;
 }
 
+.mdl-icon-toggle .mdl-icon-toggle__label .material-icons {
+  line-height: 1.2;
+}
+
 .mdl-icon-toggle input[required] ~ .mdl-icon-toggle__label {
   border-color: #f44336;
 }
@@ -389,7 +393,7 @@ label.is-disabled .mdl-radio__label {
 }
 
 .mdl-switch .mdl-switch__track {
-  background-color: rgba(33, 33, 33, 0.5);
+  background-color: #212121;
 }
 
 .mdl-switch .mdl-switch__thumb {
@@ -401,7 +405,7 @@ label.is-disabled .mdl-radio__label {
 }
 
 .mdl-switch.is-checked .mdl-switch__track {
-  background-color: rgba(63, 81, 181, 0.5);
+  background-color: #7986cb;
 }
 
 .mdl-switch.is-checked .mdl-switch__thumb {
@@ -413,7 +417,7 @@ label.is-disabled .mdl-radio__label {
 }
 
 .mdl-switch.is-disabled .mdl-switch__track {
-  background-color: rgba(158, 158, 158, 0.5);
+  background-color: #9e9e9e;
 }
 
 .mdl-switch.is-disabled .mdl-switch__thumb {
@@ -426,7 +430,7 @@ label.is-disabled .mdl-radio__label {
 }
 
 .mdl-switch.is-disabled.is-checked .mdl-switch__track {
-  background-color: rgba(189, 189, 189, 0.5);
+  background-color: #bdbdbd;
 }
 
 .mdl-switch.is-disabled.is-checked .mdl-switch__thumb {
@@ -434,7 +438,7 @@ label.is-disabled .mdl-radio__label {
 }
 
 .dark-theme .mdl-switch .mdl-switch__track {
-  background-color: rgba(250, 250, 250, 0.5);
+  background-color: #fafafa;
 }
 
 .dark-theme .mdl-switch .mdl-switch__thumb {
@@ -446,7 +450,7 @@ label.is-disabled .mdl-radio__label {
 }
 
 .dark-theme .mdl-switch.is-checked .mdl-switch__track {
-  background-color: rgba(121, 134, 203, 0.5);
+  background-color: #3f51b5;
 }
 
 .dark-theme .mdl-switch.is-checked .mdl-switch__thumb {
@@ -458,7 +462,7 @@ label.is-disabled .mdl-radio__label {
 }
 
 .dark-theme .mdl-switch.is-disabled .mdl-switch__track {
-  background-color: rgba(189, 189, 189, 0.5);
+  background-color: #bdbdbd;
 }
 
 .dark-theme .mdl-switch.is-disabled .mdl-switch__thumb {
@@ -470,7 +474,7 @@ label.is-disabled .mdl-radio__label {
 }
 
 .dark-theme .mdl-switch.is-disabled.is-checked .mdl-switch__track {
-  background-color: rgba(117, 117, 117, 0.5);
+  background-color: #757575;
 }
 
 .dark-theme .mdl-switch.is-disabled.is-checked .mdl-switch__thumb {

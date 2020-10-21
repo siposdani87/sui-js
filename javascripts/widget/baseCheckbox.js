@@ -29,10 +29,6 @@ SUI.widget.BaseCheckbox.prototype._init = function() {
   this.hiddenInput = new SUI.Query('input[type=hidden]', this.inputBlock).getItem();
   this.inputBlock.addClass('checkbox-widget');
 
-  /* this.label.addEventListener('click', () => {
-    this._change();
-  }); */
-
   this.input.addEventListener('change', () => {
     this._change();
     return true;
@@ -74,7 +70,6 @@ SUI.widget.BaseCheckbox.prototype.setValue = function(value) {
     this.input.removeAttribute('checked');
   }
   this.input.trigger('change');
-  // this._change();
 };
 
 /**
