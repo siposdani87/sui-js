@@ -2,7 +2,7 @@
   height: auto;
 
   .mdl-switch__track {
-    background-color: rgba($content-default-light, .5);
+    background-color: $content-default-light;
   }
 
   .mdl-switch__thumb {
@@ -15,7 +15,7 @@
 
   &.is-checked {
     .mdl-switch__track {
-      background-color: rgba($primary-default-light, .5);
+      background-color: $primary-default-dark;
     }
 
     .mdl-switch__thumb {
@@ -29,7 +29,7 @@
 
   &.is-disabled {
     .mdl-switch__track {
-      background-color: rgba($content-disabled-light, .5);
+      background-color: $content-disabled-light;
     }
 
     .mdl-switch__thumb {
@@ -43,7 +43,7 @@
 
     &.is-checked {
       .mdl-switch__track {
-        background-color: rgba($primary-disabled-light, .5);
+        background-color: $primary-disabled-light;
       }
 
       .mdl-switch__thumb {
