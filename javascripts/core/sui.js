@@ -118,7 +118,7 @@ SUI.typeCast = function(value) {
       if (SUI.neq(lowerCaseValue.indexOf('.'), -1)) {
         result = parseFloat(lowerCaseValue);
       } else {
-        result = parseInt(lowerCaseValue, 0);
+        result = parseInt(lowerCaseValue, 10);
       }
     }
   }
@@ -375,7 +375,7 @@ SUI.isFloat = function(value) {
  * @return {boolean}
  */
 SUI.isInteger = function(value) {
-  return parseInt(value, 0) === value;
+  return parseInt(value, 10) === value;
 };
 
 /**

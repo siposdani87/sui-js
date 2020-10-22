@@ -328,9 +328,6 @@ label.is-disabled .mdl-radio__label {
 .mdl-icon-toggle .mdl-icon-toggle__label {
   color: #9e9e9e;
   border: 2px solid transparent;
-}
-
-.mdl-icon-toggle .mdl-icon-toggle__label .material-icons {
   line-height: 1.2;
 }
 
