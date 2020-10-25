@@ -579,7 +579,7 @@ SUI.isSame = function(a, b) {
   const strB = JSON.stringify(b);
   if (SUI.isObject(a) && SUI.isObject(b) && SUI.eq(strA.length, strB.length)) {
     let result = true;
-    SUI.eachObject(/** @type {!Object} */ (a), (value, key) => {
+    SUI.eachObject(/** @type {!Object} */(a), (value, key) => {
       if (!SUI.isSame(b[key], value)) {
         result = false;
       }
@@ -1044,14 +1044,43 @@ SUI.getExtensionName = function(url) {
 
 /**
  * @export
- * @param {string} hexColor
+ * @param {number} red
+ * @param {number} green
+ * @param {number} blue
  * @return {!Array}
  */
-SUI.hexColorToRGB = function(hexColor) {
-  const red = parseInt(hexColor.substr(1, 2), 16);
-  const green = parseInt(hexColor.substr(3, 2), 16);
-  const blue = parseInt(hexColor.substr(5, 2), 16);
-  return [red, green, blue];
+SUI.RGBToHSV = function(red, green, blue) {
+  const rabs = red / 255;
+  const gabs = green / 255;
+  const babs = blue / 255;
+  const v = Math.max(rabs, gabs, babs);
+  const diff = v - Math.min(rabs, gabs, babs);
+  const diffc = (c) => (v - c) / 6 / diff + 1 / 2;
+  const percentRoundFn = (num) => Math.round(num * 100) / 100;
+  let h = 0;
+  let s = 0;
+  if (diff == 0) {
+    h = s = 0;
+  } else {
+    s = diff / v;
+    const rr = diffc(rabs);
+    const gg = diffc(gabs);
+    const bb = diffc(babs);
+
+    if (rabs === v) {
+      h = bb - gg;
+    } else if (gabs === v) {
+      h = (1 / 3) + rr - bb;
+    } else if (babs === v) {
+      h = (2 / 3) + gg - rr;
+    }
+    if (h < 0) {
+      h += 1;
+    } else if (h > 1) {
+      h -= 1;
+    }
+  }
+  return [Math.round(h * 360), percentRoundFn(s * 100), percentRoundFn(v * 100)];
 };
 
 /**
@@ -1061,7 +1090,7 @@ SUI.hexColorToRGB = function(hexColor) {
  * @param {number} blue
  * @return {string}
  */
-SUI.RGBtoHexColor = function(red, green, blue) {
+SUI.RGBToHEX = function(red, green, blue) {
   const colors = [red, green, blue];
   for (let i = 0; i < colors.length; i++) {
     if (colors[i] <= 16) {
@@ -1076,12 +1105,73 @@ SUI.RGBtoHexColor = function(red, green, blue) {
 /**
  * @export
  * @param {string} hexColor
+ * @return {!Array}
+ */
+SUI.HEXToHSV = function(hexColor) {
+  const [red, green, blue] = SUI.HEXToRGB(hexColor);
+  return SUI.RGBToHSV(red, green, blue);
+};
+
+/**
+ * @export
+ * @param {string} hexColor
+ * @return {!Array}
+ */
+SUI.HEXToRGB = function(hexColor) {
+  const red = parseInt(hexColor.substr(1, 2), 16);
+  const green = parseInt(hexColor.substr(3, 2), 16);
+  const blue = parseInt(hexColor.substr(5, 2), 16);
+  return [red, green, blue];
+};
+
+/**
+ * @export
+ * @param {number} h
+ * @param {number} s
+ * @param {number} v
+ * @return {!Array}
+ */
+SUI.HSVToRGB = function(h, s, v) {
+  const i = Math.floor(h * 6);
+  const f = h * 6 - i;
+  const p = v * (1 - s);
+  const q = v * (1 - f * s);
+  const t = v * (1 - (1 - f) * s);
+  let r = 0;
+  let g = 0;
+  let b = 0;
+  switch (i % 6) {
+    case 0: r = v; g = t; b = p; break;
+    case 1: r = q; g = v; b = p; break;
+    case 2: r = p; g = v; b = t; break;
+    case 3: r = p; g = q; b = v; break;
+    case 4: r = t; g = p; b = v; break;
+    case 5: r = v; g = p; b = q; break;
+  }
+  return [Math.round(r * 255), Math.round(g * 255), Math.round(b * 255)];
+};
+
+/**
+ * @export
+ * @param {number} h
+ * @param {number} s
+ * @param {number} v
+ * @return {string}
+ */
+SUI.HSVToHEX = function(h, s, v) {
+  const [red, green, blue] = SUI.HSVToRGB(h, s, v);
+  return SUI.RGBToHEX(red, green, blue);
+};
+
+/**
+ * @export
+ * @param {string} hexColor
  * @param {string=} opt_lightColor
  * @param {string=} opt_darkColor
  * @return {string}
  */
 SUI.colorContrastYIQ = function(hexColor, opt_lightColor = '#FEFEFE', opt_darkColor = '#252525') {
-  const colors = SUI.hexColorToRGB(hexColor);
+  const colors = SUI.HEXToRGB(hexColor);
   const yiq = ((colors[0] * 299) + (colors[1] * 587) + (colors[2] * 114)) / 1000;
   return yiq >= 128 ? opt_darkColor : opt_lightColor;
 };
@@ -1093,7 +1183,7 @@ SUI.colorContrastYIQ = function(hexColor, opt_lightColor = '#FEFEFE', opt_darkCo
  * @return {string}
  */
 SUI.colorContrast = function(hexColor, opt_diff = .5) {
-  const colors = SUI.hexColorToRGB(hexColor);
+  const colors = SUI.HEXToRGB(hexColor);
   for (let i = 0; i < colors.length; i++) {
     colors[i] += Math.round((colors[i] * opt_diff));
     if (colors[i] < 0) {
@@ -1102,7 +1192,7 @@ SUI.colorContrast = function(hexColor, opt_diff = .5) {
       colors[i] = 255;
     }
   }
-  return SUI.RGBtoHexColor.apply(null, colors);
+  return SUI.RGBToHEX.apply(null, colors);
 };
 
 /**

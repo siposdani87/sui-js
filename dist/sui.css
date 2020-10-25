@@ -4330,7 +4330,7 @@ table tfoot tr td.pager {
 }
 
 .search-widget:not(.is-focused):not(.is-dirty) .mdl-textfield__expandable-holder .mdl-textfield__input {
-  border: none;
+  border: 0;
 }
 
 .search-widget .clear-button {

@@ -158,7 +158,7 @@ SUI.widget.Color.prototype._initImage = function() {
       y = e.layerY;
     }
     const rgb = this.canvas.getImageDataXY(x, y);
-    const hex = SUI.RGBtoHexColor.apply(null, /** @type {!Array} */(rgb));
+    const hex = SUI.RGBToHEX.apply(null, /** @type {!Array} */(rgb));
 
     this.setValue(hex);
     this.popup.close();

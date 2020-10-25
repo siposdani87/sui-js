@@ -8,10 +8,10 @@
     bottom: 0;
   }
 
-  &:not(.is-focused):not(.is-dirty)  {
+  &:not(.is-focused):not(.is-dirty) {
     .mdl-textfield__expandable-holder {
       .mdl-textfield__input {
-        border: none;
+        border: 0;
       }
     }
   }
