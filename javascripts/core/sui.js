@@ -1118,9 +1118,10 @@ SUI.HEXToHSV = function(hexColor) {
  * @return {!Array}
  */
 SUI.HEXToRGB = function(hexColor) {
-  const red = parseInt(hexColor.substr(1, 2), 16);
-  const green = parseInt(hexColor.substr(3, 2), 16);
-  const blue = parseInt(hexColor.substr(5, 2), 16);
+  const hex = hexColor || '';
+  const red = parseInt(hex.substr(1, 2), 16);
+  const green = parseInt(hex.substr(3, 2), 16);
+  const blue = parseInt(hex.substr(5, 2), 16);
   return [red, green, blue];
 };
 
