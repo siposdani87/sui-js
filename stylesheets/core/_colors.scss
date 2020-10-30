@@ -107,3 +107,69 @@ $accent-bright: $pink-bright;
 $accent: $pink;
 $accent-dark: $pink-dark;
 $accent-text: $white;
+
+// Notification defaults
+
+$success-bright: $green-bright;
+$success: $green;
+$success-dark: $green-dark;
+$success-text: $white;
+
+$info-bright: $blue-bright;
+$info: $blue;
+$info-dark: $blue-dark;
+$info-text: $white;
+
+$warning-bright: $amber-bright;
+$warning: $amber;
+$warning-dark: $amber-dark;
+$warning-text: $white;
+
+$error-bright: $red-bright;
+$error: $red;
+$error-dark: $red-dark;
+$error-text: $white;
+
+// Form widget defaults
+
+$label-default-light: $deep-grey;  // 7
+$label-disabled-light: $light-grey-dark; // 5
+
+$label-default-dark: $light-grey-dark; // 5
+$label-disabled-dark: $deep-grey; // 7
+
+$input-default-light: $light-grey-dark; // 5
+$input-disabled-light: $light-grey; // 4
+
+$input-default-dark: $deep-grey; // 7
+$input-disabled-dark: $deep-grey-dark; // 8
+
+$content-default-light: $black; // 10
+$content-disabled-light: $deep-grey-bright; // 6
+
+$content-default-dark: $white; // 1
+$content-disabled-dark: $light-grey-dark; // 5
+
+$checkbox-default-light: $deep-grey-bright; // 6
+$checkbox-disabled-light: $light-grey; // 4
+
+$checkbox-default-dark: $light-grey; // 4
+$checkbox-disabled-dark: $deep-grey; // 7
+
+$primary-default-light: $primary;
+$primary-disabled-light: $light-grey-dark; // 5
+
+$primary-default-dark:  $primary-bright;
+$primary-disabled-dark: $deep-grey; // 7
+
+$accent-default-light: $accent;
+$accent-disabled-light: $light-grey-dark; // 5
+
+$accent-default-dark: $accent-bright;
+$accent-disabled-dark: $deep-grey; // 7
+
+$error-default-light: $red;
+$error-disabled-light: $red-dark;
+
+$error-default-dark: $red-bright;
+$error-disabled-dark: $red-dark;

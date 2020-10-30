@@ -7,19 +7,19 @@
   text-align: center;
 
   &.success {
-    color: $green;
+    color: $success;
   }
 
   &.info {
-    color: $blue;
+    color: $info;
   }
 
   &.warning {
-    color: $amber;
+    color: $warning;
   }
 
   &.error {
-    color: $red;
+    color: $error;
   }
 
   .material-icons {

@@ -43,19 +43,19 @@
       }
 
       &.success {
-        border-color: $green;
+        border-color: $success;
       }
 
       &.info {
-        border-color: $blue;
+        border-color: $info;
       }
 
       &.warning {
-        border-color: $amber;
+        border-color: $warning;
       }
 
       &.error {
-        border-color: $red;
+        border-color: $error;
       }
     }
   }

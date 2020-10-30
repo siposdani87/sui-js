@@ -203,19 +203,19 @@ address {
   }
 
   &.text-success {
-    border-color: $green;
+    border-color: $success;
   }
 
   &.text-info {
-    border-color: $blue;
+    border-color: $info;
   }
 
   &.text-warning {
-    border-color: $amber;
+    border-color: $warning;
   }
 
   &.text-error {
-    border-color: $red;
+    border-color: $error;
   }
 
   &.text-default {
@@ -262,19 +262,19 @@ address {
 }
 
 .text-success {
-  color: $green;
+  color: $success;
 }
 
 .text-info {
-  color: $blue;
+  color: $info;
 }
 
 .text-warning {
-  color: $amber;
+  color: $warning;
 }
 
 .text-error {
-  color: $red;
+  color: $error;
 }
 
 .text-default {
