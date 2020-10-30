@@ -7,19 +7,19 @@
         border-top-color: $black-dark;
 
         &.success {
-          border-color: $green-bright;
+          border-color: $success-bright;
         }
 
         &.info {
-          border-color: $blue-bright;
+          border-color: $info-bright;
         }
 
         &.warning {
-          border-color: $amber-bright;
+          border-color: $warning-bright;
         }
 
         &.error {
-          border-color: $red-bright;
+          border-color: $error-bright;
         }
       }
     }

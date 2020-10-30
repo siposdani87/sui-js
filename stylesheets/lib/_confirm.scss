@@ -62,45 +62,45 @@
     }
 
     &.error {
-      border-top: 3px solid $red;
+      border-top: 3px solid $error;
 
       .modal-body {
         &::before {
           content: '\E000';
-          color: $red;
+          color: $error;
         }
       }
     }
 
     &.warning {
-      border-top: 3px solid $amber;
+      border-top: 3px solid $warning;
 
       .modal-body {
         &::before {
           content: '\E002';
-          color: $amber;
+          color: $warning;
         }
       }
     }
 
     &.info {
-      border-top: 3px solid $blue;
+      border-top: 3px solid $info;
 
       .modal-body {
         &::before {
           content: '\E88E';
-          color: $blue;
+          color: $info;
         }
       }
     }
 
     &.success {
-      border-top: 3px solid $green;
+      border-top: 3px solid $success;
 
       .modal-body {
         &::before {
           content: '\E876';
-          color: $green;
+          color: $success;
         }
       }
     }
