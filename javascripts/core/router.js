@@ -43,7 +43,8 @@ SUI.Router.prototype.stringify = function(opt_params = {}) {
       if (regex.test(route)) {
         route = route.replace(regex, param);
       } else {
-        route += route.indexOf('?') === -1 ? '?' : '&';
+        const char = route.charAt(route.length - 1) === '&' ? '' : '&';
+        route += route.indexOf('?') === -1 ? '?' : char;
         if (SUI.isArray(param)) {
           SUI.eachArray(param, (value, index) => {
             if (index > 0) {
