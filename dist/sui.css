@@ -1042,7 +1042,7 @@ form .text-block {
 }
 
 form .action-block {
-  margin-top: 1em;
+  margin-bottom: 1em;
 }
 
 form .action-block button[type='submit'],
@@ -2529,7 +2529,7 @@ form input:-webkit-autofill:hover, form input:-webkit-autofill:focus, form input
   background-color: #fafafa;
   color: #212121;
   box-shadow: 8px 8px 100px 0 rgba(33, 33, 33, 0.75);
-  padding: 1.5em;
+  padding: 1.5em 1.5em .5em 1.5em;
   position: relative;
   border-radius: 3px;
 }
@@ -2553,18 +2553,10 @@ form input:-webkit-autofill:hover, form input:-webkit-autofill:focus, form input
   right: 10px;
 }
 
-.dialog-container .dialog-container-footer {
-  background-color: #fafafa;
-}
-
 .dark-theme .dialog-container {
   background-color: #000;
   color: #fafafa;
   box-shadow: 8px 8px 75px 0 rgba(0, 0, 0, 0.8);
-}
-
-.dark-theme .dialog-container .dialog-container-footer {
-  background-color: #000;
 }
 
 .popup-parent {
@@ -5255,9 +5247,8 @@ table tfoot tr td.pager {
 }
 
 #dialog #dialog-window .modal-footer {
-  clear: both;
-  float: right;
-  padding: 10px 20px;
+  margin: 0 20px 10px 0;
+  text-align: right;
 }
 
 #dialog #dialog-window .modal-footer button {
@@ -5376,9 +5367,8 @@ table tfoot tr td.pager {
 }
 
 #confirm #confirm-window .modal-footer {
-  clear: both;
-  float: right;
-  padding: 10px 20px;
+  margin: 0 20px 10px 0;
+  text-align: right;
 }
 
 #confirm #confirm-window .modal-footer button {
@@ -5581,9 +5571,7 @@ table tfoot tr td.pager {
 }
 
 #viewer #viewer-window .modal-footer {
-  flex: 0;
-  padding: 10px 20px;
-  min-height: 50px;
+  display: none;
 }
 
 /*# sourceMappingURL=sui.css.map */

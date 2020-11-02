@@ -69,9 +69,7 @@
     }
 
     .modal-footer {
-      flex: 0;
-      padding: 10px 20px;
-      min-height: 50px;
+      display: none;
     }
   }
 }
