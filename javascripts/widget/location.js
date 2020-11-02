@@ -77,7 +77,7 @@ SUI.widget.Location.prototype._initSearchButton = function() {
       this.eventSearch(inputNode.value);
     }
   });
-  this.infoContainerNode.appendChild(searchButton);
+  this.actionContainerNode.appendChild(searchButton);
 };
 
 /**
@@ -94,7 +94,7 @@ SUI.widget.Location.prototype._initAdvancedButton = function() {
       this._toggleAdvancedInputs();
     }
   });
-  this.infoContainerNode.appendChild(this.advancedButton);
+  this.actionContainerNode.appendChild(this.advancedButton);
 };
 
 /**

@@ -103,7 +103,7 @@ SUI.widget.DatetimeRange.prototype.render = function() {
     this.datetimeInput.insertAfter(iconNode);
   } else {
     iconNode.setHtml('date_range');
-    this.infoContainerNode.appendChild(iconNode);
+    this.actionContainerNode.appendChild(iconNode);
   }
   iconNode.addEventListener('click', this._onClick.bind(this));
 

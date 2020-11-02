@@ -1016,13 +1016,25 @@ form .input-block.is-disabled .info-button {
 
 form .input-block .info-container {
   position: absolute;
+  right: 0;
+  top: -4px;
+  display: flex;
+  z-index: 1;
+}
+
+form .input-block .info-container > a {
+  margin-left: 2px;
+}
+
+form .input-block .action-container {
+  position: absolute;
   right: 5px;
   top: 24px;
   display: flex;
   z-index: 1;
 }
 
-form .input-block .info-container > a {
+form .input-block .action-container > a {
   margin-left: 2px;
 }
 
@@ -2395,7 +2407,7 @@ form input:-webkit-autofill:hover, form input:-webkit-autofill:focus, form input
   margin-right: 10px;
 }
 
-.page-header form .input-block .info-container {
+.page-header form .input-block .action-container {
   top: 4px;
 }
 
@@ -3570,10 +3582,21 @@ table tfoot tr td.pager {
   display: block;
   max-width: 150px;
   height: auto;
+  padding: 1em;
+  border-radius: 1em;
+  border: 2px dotted #9e9e9e;
 }
 
 .content-handler p {
   color: #9e9e9e;
+}
+
+.dark-theme .content-handler img {
+  border-color: #424242;
+}
+
+.dark-theme .content-handler p {
+  color: #424242;
 }
 
 @keyframes rotation {
@@ -4026,7 +4049,7 @@ table tfoot tr td.pager {
   margin-bottom: 5px;
 }
 
-.file-widget .info-container {
+.file-widget .action-container {
   top: 130px !important;
 }
 
@@ -4285,15 +4308,15 @@ table tfoot tr td.pager {
   color: #757575;
 }
 
+.radiobutton-widget.input-block {
+  padding-top: 0;
+}
+
 .radiobutton-widget .widget-label {
-  position: absolute;
-  top: -22px;
-  left: 0;
-  display: inline-block;
+  display: block;
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
-  max-width: 200px;
   color: #757575;
 }
 
@@ -4311,6 +4334,10 @@ table tfoot tr td.pager {
 
 .dark-theme .radiobutton-widget .is-disabled .widget-label {
   color: #757575;
+}
+
+.checkbox-widget.input-block {
+  padding-top: 0;
 }
 
 .search-widget.mdl-textfield--expandable .mdl-button--icon {

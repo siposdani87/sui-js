@@ -93,7 +93,7 @@ SUI.widget.Datetime.prototype.render = function() {
   iconNode.addClass(['material-icons', 'size-24', 'expander']);
   iconNode.setHtml('date_range');
   iconNode.addEventListener('click', this._onClick.bind(this));
-  this.infoContainerNode.appendChild(iconNode);
+  this.actionContainerNode.appendChild(iconNode);
 
   this.refresh();
   this.datetime.draw();

@@ -100,3 +100,18 @@ SUI.widget.BaseCheckbox.prototype.setLabel = function(text) {
     this._setAdditionalLabel(this.spanLabel);
   }
 };
+
+/**
+ * @override
+ */
+SUI.widget.BaseCheckbox.prototype.refresh = function() {
+  const dataLabelText = /** @type {string} */ (this.label.getAttribute('data-label'));
+  if (dataLabelText) {
+    const labelText = this._getLabelRequiredText(dataLabelText);
+    this.dataLabelNode.setHtml(labelText);
+  } else {
+    this.dataLabelNode.setHtml('');
+  }
+
+  SUI.mdl(this.label, false);
+};

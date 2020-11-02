@@ -9,6 +9,9 @@
     display: block;
     max-width: 150px;
     height: auto;
+    padding: 1em;
+    border-radius: 1em;
+    border: 2px dotted $deep-grey-bright;
   }
 
   p {

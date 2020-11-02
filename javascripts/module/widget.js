@@ -28,6 +28,7 @@ SUI.Widget = function(input, opt_label, opt_error, opt_inputBlock, opt_form) {
   }
 
   this._setInfoContainer();
+  this._setActionContainer();
   this._setMutation();
   this._setAdditionalLabel(this.label);
 };
@@ -310,6 +311,21 @@ SUI.Widget.prototype._setInfoContainer = function() {
 
 /**
  * @private
+ * @return {undefined}
+ */
+SUI.Widget.prototype._setActionContainer = function() {
+  if (this.inputBlock && !this.inputBlock.isEmpty()) {
+    this.actionContainerNode = new SUI.Query('.action-container', this.inputBlock).getItem();
+    if (this.actionContainerNode.isEmpty()) {
+      this.actionContainerNode = new SUI.Node('div');
+      this.actionContainerNode.addClass(['action-container']);
+      this.inputBlock.appendChild(this.actionContainerNode);
+    }
+  }
+};
+
+/**
+ * @private
  * @param {!SUI.Node} label
  * @return {undefined}
  */
@@ -352,6 +368,9 @@ SUI.Widget.prototype._setAdditionalLabel = function(label) {
  * @return {string}
  */
 SUI.Widget.prototype._getLabelRequiredText = function(labelText) {
+  if (SUI.eq(labelText, true)) {
+    return '&nbsp;';
+  }
   const requiredPostfix = ' *';
   const postfix = labelText.substr(labelText.length - requiredPostfix.length);
 

@@ -1,4 +1,7 @@
 .radiobutton-widget {
+  &.input-block {
+    padding-top: 0;
+  }
 
   // .info-button {
   //   position: absolute;
@@ -8,14 +11,10 @@
   // }
 
   .widget-label {
-    position: absolute;
-    top: -22px;
-    left: 0;
-    display: inline-block;
+    display: block;
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
-    max-width: 200px;
     color: $label-default-light;
 
     &::first-letter {

@@ -65,7 +65,7 @@ SUI.widget.File.prototype._initButtons = function() {
       this.input.getNode().click();
     }
   });
-  this.infoContainerNode.appendChild(browseButton);
+  this.actionContainerNode.appendChild(browseButton);
 };
 
 /**
