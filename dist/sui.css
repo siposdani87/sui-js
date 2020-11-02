@@ -941,7 +941,6 @@ address {
 }
 
 h3.caption {
-  margin: 1em 0 .25em;
   color: #3f51b5;
 }
 
@@ -950,7 +949,7 @@ h3.caption::first-letter {
 }
 
 form h3.caption {
-  margin: 1em 0 .25em -.5em;
+  margin: .5em 0 .5em -.5em;
 }
 
 html.dark-theme,
