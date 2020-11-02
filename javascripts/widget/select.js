@@ -114,7 +114,7 @@ SUI.widget.Select.prototype.render = function() {
       this.open();
     }
   });
-  this.infoContainerNode.appendChild(this.iconNode);
+  this.actionContainerNode.appendChild(this.iconNode);
 
   this.refresh();
 };

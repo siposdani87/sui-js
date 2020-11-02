@@ -186,7 +186,7 @@ SUI.Node.prototype.setAttribute = function(attribute, opt_value) {
  */
 SUI.Node.prototype.getAttribute = function(attribute) {
   const data = this.node.getAttribute(attribute);
-  if (SUI.contain(attribute, 'data-') && data && (SUI.eq(data[0], '[') || SUI.eq(data[0], '{'))) {
+  if (SUI.contain(attribute, 'data-') && data && (SUI.eq(data[0], '"') || SUI.eq(data[0], '[') || SUI.eq(data[0], '{'))) {
     return JSON.parse(data) || null;
   }
   return SUI.typeCast(data || null);

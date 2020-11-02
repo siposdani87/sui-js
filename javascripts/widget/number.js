@@ -53,7 +53,7 @@ SUI.widget.Number.prototype._init = function() {
 SUI.widget.Number.prototype._initButtons = function() {
   const actionNode = new SUI.Node('span');
   actionNode.addClass('step-change');
-  this.infoContainerNode.appendChild(actionNode);
+  this.actionContainerNode.appendChild(actionNode);
 
   const upButton = new SUI.Node('a');
   upButton.setAttribute('href', 'javascript:void(0)');

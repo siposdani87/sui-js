@@ -39,12 +39,9 @@ SUI.widget.Checkbox.prototype.render = function() {
   this.label.insert(this.input);
   this.label.appendChild(this.spanLabel);
 
-  this.refresh();
-};
+  this.dataLabelNode = new SUI.Node('span');
+  this.dataLabelNode.addClass('widget-label');
+  this.label.insertBefore(this.dataLabelNode);
 
-/**
- * @override
- */
-SUI.widget.Checkbox.prototype.refresh = function() {
-  SUI.mdl(this.label, false);
+  this.refresh();
 };

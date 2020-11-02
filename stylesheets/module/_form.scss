@@ -31,6 +31,18 @@ form {
 
     .info-container {
       position: absolute;
+      right: 0;
+      top: -4px;
+      display: flex;
+      z-index: 1;
+
+      > a {
+        margin-left: 2px;
+      }
+    }
+
+    .action-container {
+      position: absolute;
       right: 5px;
       top: 24px;
       display: flex;

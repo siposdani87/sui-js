@@ -45,6 +45,10 @@ SUI.widget.IconToggle.prototype.render = function() {
   this.label.appendChild(this.icon);
   this.label.appendChild(this.spanLabel);
 
+  this.dataLabelNode = new SUI.Node('span');
+  this.dataLabelNode.addClass('widget-label');
+  this.label.insertBefore(this.dataLabelNode);
+
   this.refresh();
 };
 
@@ -61,11 +65,4 @@ SUI.widget.IconToggle.prototype.setValue = function(value) {
   }
   this.icon.setHtml(this.input.getNode().checked ? this.checkedIcon : this.uncheckedIcon);
   this.input.trigger('change');
-};
-
-/**
- * @override
- */
-SUI.widget.IconToggle.prototype.refresh = function() {
-  SUI.mdl(this.label, false);
 };
