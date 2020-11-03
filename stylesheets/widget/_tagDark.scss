@@ -5,10 +5,10 @@
       color: $content-default-dark;
 
       .close {
-        color: $primary-default-dark;
+        color: $content-default-dark;
 
         &:hover {
-          color: $primary-default-dark;
+          color: $content-default-dark;
         }
       }
     }
@@ -26,10 +26,10 @@
         color: $content-disabled-dark;
 
         .close {
-          color: $primary-disabled-dark;
+          color: $content-disabled-dark;
 
           &:hover {
-            color: $primary-disabled-dark;
+            color: $content-disabled-dark;
           }
         }
       }

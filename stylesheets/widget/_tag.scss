@@ -17,10 +17,10 @@
       position: absolute;
       right: 5px;
       top: 4px;
-      color: $primary-default-light;
+      color: $content-default-light;
 
       &:hover {
-        color: $primary-default-light;
+        color: $content-default-light;
       }
     }
   }
@@ -38,10 +38,10 @@
       background-color: $input-disabled-light;
 
       .close {
-        color: $primary-disabled-light;
+        color: $content-disabled-light;
 
         &:hover {
-          color: $primary-disabled-light;
+          color: $content-disabled-light;
         }
       }
     }
