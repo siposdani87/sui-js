@@ -92,7 +92,7 @@ SUI.widget.Color.prototype._initInput = function() {
 SUI.widget.Color.prototype._initPreview = function() {
   this.previewNode = new SUI.Node('div');
   this.previewNode.addClass('preview');
-  this.inputBlock.appendChild(this.previewNode);
+  this.inputBlock.beforeChild(this.previewNode);
 
   this.colorNode = new SUI.Node('div');
   this.colorNode.addClass('color');
