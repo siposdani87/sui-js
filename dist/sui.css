@@ -3745,7 +3745,7 @@ table tfoot tr td.pager {
 }
 
 .color-widget .preview {
-  margin-left: 10px;
+  margin-right: 10px;
   display: inline-block;
   width: 24px;
   height: 24px;
@@ -4253,11 +4253,11 @@ table tfoot tr td.pager {
   position: absolute;
   right: 5px;
   top: 4px;
-  color: #3f51b5;
+  color: #212121;
 }
 
 .input-block .widget-tag .close:hover {
-  color: #3f51b5;
+  color: #212121;
 }
 
 .input-block .active .widget-tag {
@@ -4271,11 +4271,11 @@ table tfoot tr td.pager {
 }
 
 .input-block.is-disabled .widget-tag .close {
-  color: #bdbdbd;
+  color: #9e9e9e;
 }
 
 .input-block.is-disabled .widget-tag .close:hover {
-  color: #bdbdbd;
+  color: #9e9e9e;
 }
 
 .dark-theme .input-block .widget-tag {
@@ -4284,11 +4284,11 @@ table tfoot tr td.pager {
 }
 
 .dark-theme .input-block .widget-tag .close {
-  color: #7986cb;
+  color: #fafafa;
 }
 
 .dark-theme .input-block .widget-tag .close:hover {
-  color: #7986cb;
+  color: #fafafa;
 }
 
 .dark-theme .input-block .active .widget-tag {
@@ -4302,11 +4302,11 @@ table tfoot tr td.pager {
 }
 
 .dark-theme .input-block.is-disabled .widget-tag .close {
-  color: #757575;
+  color: #bdbdbd;
 }
 
 .dark-theme .input-block.is-disabled .widget-tag .close:hover {
-  color: #757575;
+  color: #bdbdbd;
 }
 
 .radiobutton-widget.input-block {
