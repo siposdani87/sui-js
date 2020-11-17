@@ -36,5 +36,3 @@ SUI.Carousel.prototype._setOptions = function(opt_options = {}) {
 SUI.Carousel.prototype._init = function() {
   // this._initStructure();
 };
-
-

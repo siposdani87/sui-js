@@ -55,7 +55,6 @@ lib/topMenu.js
 lib/viewer.js
 lib/window.js
 application.js
-core/widget.js
 module/day.js
 module/month.js
 module/year.js
@@ -70,6 +69,7 @@ module/clock.js
 module/datetime.js
 module/dropdown.js
 module/widget.js
+core/widget.js
 widget/button.js
 widget/baseCheckbox.js
 widget/checkbox.js
