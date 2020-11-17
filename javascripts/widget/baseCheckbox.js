@@ -81,9 +81,11 @@ SUI.widget.BaseCheckbox.prototype.setDisabled = function(state) {
   if (state) {
     this.input.setAttribute('disabled');
     this.label.addClass('is-disabled');
+    this.inputBlock.addClass('is-disabled');
   } else {
     this.input.removeAttribute('disabled');
     this.label.removeClass('is-disabled');
+    this.inputBlock.removeClass('is-disabled');
   }
   this.input.getNode().disabled = state;
   this.checkValidity(true, false);
@@ -111,6 +113,9 @@ SUI.widget.BaseCheckbox.prototype.refresh = function() {
     this.dataLabelNode.setHtml(labelText);
   } else {
     this.dataLabelNode.setHtml('');
+  }
+  if (this.isDisabled()) {
+    this.inputBlock.addClass('is-disabled');
   }
 
   SUI.mdl(this.label, false);

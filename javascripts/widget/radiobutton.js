@@ -98,6 +98,9 @@ SUI.widget.Radiobutton.prototype.refresh = function() {
   } else {
     this.dataLabelNode.setHtml('');
   }
+  if (this.isDisabled()) {
+    this.inputBlock.addClass('is-disabled');
+  }
 
   SUI.mdl(this.label, false);
 };
@@ -111,7 +114,6 @@ SUI.widget.Radiobutton.prototype.setValue = function(value) {
   if (this.input.getAttribute('value') === value) {
     this.input.getNode().checked = true;
     this.input.trigger('change');
-    // this._change();
   }
 };
 
@@ -140,9 +142,11 @@ SUI.widget.Radiobutton.prototype.setDisabled = function(state) {
     if (state) {
       radioButtonInput.setAttribute('disabled');
       radioButtonInput.getParentNode().addClass('is-disabled');
+      radioButtonInput.getParentNode().getParentNode().addClass('is-disabled');
     } else {
       radioButtonInput.removeAttribute('disabled');
       radioButtonInput.getParentNode().removeClass('is-disabled');
+      radioButtonInput.getParentNode().getParentNode().removeClass('is-disabled');
     }
     radioButtonInput.getNode().disabled = state;
   });
@@ -177,8 +181,8 @@ SUI.widget.Radiobutton.prototype._getRadioButtonInputs = function() {
  * @return {undefined}
  */
 SUI.widget.Radiobutton.prototype.setLabel = function(text) {
-  if (this.dataLabelNode && !this.dataLabelNode.isEmpty()) {
-    this.dataLabelNode.setHtml(text);
-    this._setAdditionalLabel(this.dataLabelNode);
+  if (this.spanLabel && !this.spanLabel.isEmpty()) {
+    this.spanLabel.setHtml(text);
+    this._setAdditionalLabel(this.spanLabel);
   }
 };

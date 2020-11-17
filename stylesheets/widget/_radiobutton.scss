@@ -3,13 +3,6 @@
     padding-top: 0;
   }
 
-  // .info-button {
-  //   position: absolute;
-  //   right: 5px;
-  //   top: 22px;
-  //   z-index: 1;
-  // }
-
   .widget-label {
     display: block;
     white-space: nowrap;
@@ -22,7 +15,7 @@
     }
   }
 
-  .is-disabled {
+  &.is-disabled {
     .widget-label {
       color: $label-disabled-light;
     }

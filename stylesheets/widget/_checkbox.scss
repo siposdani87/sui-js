@@ -3,10 +3,21 @@
     padding-top: 0;
   }
 
-  // .info-button {
-  //   position: absolute;
-  //   right: 5px;
-  //   top: 20px;
-  //   z-index: 1;
-  // }
+  .widget-label {
+    display: block;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    color: $label-default-light;
+
+    &::first-letter {
+      text-transform: capitalize;
+    }
+  }
+
+  &.is-disabled {
+    .widget-label {
+      color: $label-disabled-light;
+    }
+  }
 }

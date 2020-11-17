@@ -45,6 +45,7 @@
   height: 3em;
   border-radius: 50%;
   box-shadow: 2px 2px 10px 0 rgba(33, 33, 33, 0.75);
+  background-color: #3f51b5;
 }
 
 .mdl-spinner:not(.is-upgraded).is-active::after {
@@ -3580,7 +3581,7 @@ table tfoot tr td.pager {
 
 .content-handler img {
   display: block;
-  max-width: 150px;
+  max-width: 175px;
   height: auto;
   padding: 1em;
   border-radius: 1em;
@@ -4325,7 +4326,7 @@ table tfoot tr td.pager {
   text-transform: capitalize;
 }
 
-.radiobutton-widget .is-disabled .widget-label {
+.radiobutton-widget.is-disabled .widget-label {
   color: #bdbdbd;
 }
 
@@ -4333,12 +4334,36 @@ table tfoot tr td.pager {
   color: #bdbdbd;
 }
 
-.dark-theme .radiobutton-widget .is-disabled .widget-label {
+.dark-theme .radiobutton-widget.is-disabled .widget-label {
   color: #757575;
 }
 
 .checkbox-widget.input-block {
   padding-top: 0;
+}
+
+.checkbox-widget .widget-label {
+  display: block;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  color: #757575;
+}
+
+.checkbox-widget .widget-label::first-letter {
+  text-transform: capitalize;
+}
+
+.checkbox-widget.is-disabled .widget-label {
+  color: #bdbdbd;
+}
+
+.dark-theme .checkbox-widget .widget-label {
+  color: #bdbdbd;
+}
+
+.dark-theme .checkbox-widget.is-disabled .widget-label {
+  color: #757575;
 }
 
 .search-widget.mdl-textfield--expandable .mdl-button--icon {
@@ -5240,7 +5265,7 @@ table tfoot tr td.pager {
   color: #212121;
   box-shadow: 8px 8px 100px 0 rgba(33, 33, 33, 0.75);
   min-width: 360px;
-  max-width: 640px;
+  max-width: 720px;
   border-radius: 3px;
 }
 
@@ -5251,7 +5276,7 @@ table tfoot tr td.pager {
 }
 
 #dialog #dialog-window .modal-header .modal-title {
-  flex: 0 1 80%;
+  flex: 0 1 90%;
   margin-bottom: 0;
   max-width: 100%;
   white-space: nowrap;
@@ -5261,7 +5286,7 @@ table tfoot tr td.pager {
 }
 
 #dialog #dialog-window .modal-header nav {
-  flex: 0 1 20%;
+  flex: 0 1 10%;
   align-self: flex-start;
   margin-top: .5em;
   display: flex;
@@ -5312,7 +5337,7 @@ table tfoot tr td.pager {
   color: #212121;
   box-shadow: 8px 8px 100px 0 rgba(33, 33, 33, 0.75);
   min-width: 360px;
-  max-width: 640px;
+  max-width: 720px;
   border-radius: 3px;
 }
 
@@ -5323,7 +5348,7 @@ table tfoot tr td.pager {
 }
 
 #confirm #confirm-window .modal-header .modal-title {
-  flex: 0 1 80%;
+  flex: 0 1 90%;
   margin-bottom: 0;
   max-width: 100%;
   white-space: nowrap;
@@ -5332,7 +5357,7 @@ table tfoot tr td.pager {
 }
 
 #confirm #confirm-window .modal-header nav {
-  flex: 0 1 20%;
+  flex: 0 1 10%;
   align-self: flex-start;
   margin-top: .5em;
   display: flex;
@@ -5563,7 +5588,7 @@ table tfoot tr td.pager {
 }
 
 #viewer #viewer-window .modal-header .modal-title {
-  flex: 0 1 80%;
+  flex: 0 1 90%;
   margin-bottom: 0;
   margin-top: 0;
   max-width: 100%;
@@ -5573,7 +5598,7 @@ table tfoot tr td.pager {
 }
 
 #viewer #viewer-window .modal-header nav {
-  flex: 0 1 20%;
+  flex: 0 1 10%;
   display: flex;
   flex-flow: row nowrap;
   justify-content: flex-end;
