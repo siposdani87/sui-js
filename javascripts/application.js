@@ -172,6 +172,7 @@ SUI.Application.prototype._initLocale = function() {
  */
 SUI.Application.prototype._initCertificate = function() {
   const rootNode = new SUI.Query('html').getItem();
+  rootNode.removeClass('no-js');
   rootNode.addClass('sui-js');
 };
 
