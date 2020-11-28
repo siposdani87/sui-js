@@ -16,10 +16,9 @@
       justify-content: center;
       text-align: center;
       background-color: $light-grey-bright;
-      padding: 5px 10px;
+      padding: 5px 10px 1px 10px;
       text-decoration: none;
       color: $grey;
-      // font-family: $font-family-heading;
       text-transform: uppercase;
 
       &:hover {
@@ -28,16 +27,13 @@
 
       &.active {
         border-bottom-color: $accent;
-        // background-color: $white;
         color: $primary-dark;
         z-index: 1;
         font-weight: 500;
-        // box-shadow: 1px -2px 3px 0 rgba($black, .2);
       }
 
       &:not(.active) {
         border-bottom-color: $light-grey-bright;
-        // box-shadow: 0 0 1px 0 rgba($black, .2);
       }
 
       &.disabled {
