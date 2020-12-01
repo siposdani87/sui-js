@@ -5433,7 +5433,7 @@ table tfoot tr td.pager {
   box-shadow: 8px 8px 75px 0 rgba(0, 0, 0, 0.8);
 }
 
-.notification-container {
+.flash-container {
   z-index: 140;
   position: fixed;
   width: 100%;
@@ -5443,23 +5443,23 @@ table tfoot tr td.pager {
   pointer-events: none;
 }
 
-.notification-container #notifications {
+.flash-container #flashes {
   width: 480px;
 }
 
 @media (max-width: 767px) {
-  .notification-container #notifications {
+  .flash-container #flashes {
     width: 320px;
   }
 }
 
 @media (max-width: 575px) {
-  .notification-container #notifications {
+  .flash-container #flashes {
     width: 90%;
   }
 }
 
-.notification-container #notifications .notification {
+.flash-container #flashes .flash {
   animation-name: bounceInDown;
   animation-duration: 1s;
   position: relative;
@@ -5474,51 +5474,51 @@ table tfoot tr td.pager {
   border-top: 5px solid #9e9e9e;
 }
 
-.notification-container #notifications .notification.closable {
+.flash-container #flashes .flash.closable {
   cursor: pointer;
 }
 
-.notification-container #notifications .notification button {
+.flash-container #flashes .flash button {
   position: absolute;
   right: 2px;
   top: 2px;
 }
 
-.notification-container #notifications .notification.success {
+.flash-container #flashes .flash.success {
   border-color: #4caf50;
 }
 
-.notification-container #notifications .notification.info {
+.flash-container #flashes .flash.info {
   border-color: #2196f3;
 }
 
-.notification-container #notifications .notification.warning {
+.flash-container #flashes .flash.warning {
   border-color: #ffc107;
 }
 
-.notification-container #notifications .notification.error {
+.flash-container #flashes .flash.error {
   border-color: #f44336;
 }
 
-.dark-theme .notification-container #notifications .notification {
+.dark-theme .flash-container #flashes .flash {
   box-shadow: 5px 5px 15px -5px rgba(0, 0, 0, 0.8);
   background-color: #212121;
   border-top-color: #000;
 }
 
-.dark-theme .notification-container #notifications .notification.success {
+.dark-theme .flash-container #flashes .flash.success {
   border-color: #81c784;
 }
 
-.dark-theme .notification-container #notifications .notification.info {
+.dark-theme .flash-container #flashes .flash.info {
   border-color: #64b5f6;
 }
 
-.dark-theme .notification-container #notifications .notification.warning {
+.dark-theme .flash-container #flashes .flash.warning {
   border-color: #ffd54f;
 }
 
-.dark-theme .notification-container #notifications .notification.error {
+.dark-theme .flash-container #flashes .flash.error {
   border-color: #e57373;
 }
 

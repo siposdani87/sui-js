@@ -1,4 +1,4 @@
-goog.provide('SUI.lib.Notification');
+goog.provide('SUI.lib.Flash');
 
 goog.require('SUI');
 goog.require('SUI.Node');
@@ -8,10 +8,10 @@ goog.require('SUI.lib');
 
 /**
  * @constructor
- * @this {SUI.lib.Notification}
+ * @this {SUI.lib.Flash}
  * @param {!Object=} opt_options
  */
-SUI.lib.Notification = function(opt_options = {}) {
+SUI.lib.Flash = function(opt_options = {}) {
   this._setOptions(opt_options);
   this._init();
 };
@@ -20,7 +20,7 @@ SUI.lib.Notification = function(opt_options = {}) {
  * @private
  * @return {undefined}
  */
-SUI.lib.Notification.prototype._init = function() {
+SUI.lib.Flash.prototype._init = function() {
   this.container = new SUI.Query(this.options.id).getItem();
 };
 
@@ -29,10 +29,10 @@ SUI.lib.Notification.prototype._init = function() {
  * @param {!Object=} opt_options
  * @return {undefined}
  */
-SUI.lib.Notification.prototype._setOptions = function(opt_options = {}) {
+SUI.lib.Flash.prototype._setOptions = function(opt_options = {}) {
   const _self = this;
   _self.options = new SUI.Object({
-    id: '#notifications',
+    id: '#flashes',
     duration: 4000,
     closable: ['error'],
   });
@@ -47,27 +47,27 @@ SUI.lib.Notification.prototype._setOptions = function(opt_options = {}) {
  * @param {string=} opt_id
  * @return {!SUI.Node}
  */
-SUI.lib.Notification.prototype._getNotificationNode = function(type, message, opt_duration = 0, opt_closeCallback = null, opt_id = '') {
-  const notificationNode = this.container.createElement('div');
+SUI.lib.Flash.prototype._getFlashNode = function(type, message, opt_duration = 0, opt_closeCallback = null, opt_id = '') {
+  const flashNode = this.container.createElement('div');
   if (opt_id) {
-    notificationNode.setAttribute('data-id', opt_id);
+    flashNode.setAttribute('data-id', opt_id);
   }
-  notificationNode.addClass(['notification', type]);
-  notificationNode.setHtml(message);
+  flashNode.addClass(['flash', type]);
+  flashNode.setHtml(message);
   if (this._isClosable(type, opt_closeCallback) && !SUI.eq(opt_duration, Infinity)) {
-    const buttonNode = this._getCloseButton(notificationNode, opt_closeCallback);
-    notificationNode.beforeChild(buttonNode);
+    const buttonNode = this._getCloseButton(flashNode, opt_closeCallback);
+    flashNode.beforeChild(buttonNode);
   }
-  return notificationNode;
+  return flashNode;
 };
 
 /**
- * @param {!SUI.Node} notificationNode
+ * @param {!SUI.Node} flashNode
  * @param {?Function=} opt_closeCallback
  * @return {!SUI.Node}
  */
-SUI.lib.Notification.prototype._getCloseButton = function(notificationNode, opt_closeCallback = null) {
-  const buttonNode = notificationNode.createElement('button');
+SUI.lib.Flash.prototype._getCloseButton = function(flashNode, opt_closeCallback = null) {
+  const buttonNode = flashNode.createElement('button');
   buttonNode.addClass(['mdl-button', 'mdl-js-button', 'mdl-button--icon']);
 
   const buttonIcon = buttonNode.createElement('i');
@@ -77,7 +77,7 @@ SUI.lib.Notification.prototype._getCloseButton = function(notificationNode, opt_
   buttonNode.appendChild(buttonIcon);
 
   buttonNode.addEventListener('click', function() {
-    this.remove(notificationNode, opt_closeCallback);
+    this.remove(flashNode, opt_closeCallback);
   }.bind(this));
 
   SUI.mdl(buttonNode);
@@ -93,31 +93,31 @@ SUI.lib.Notification.prototype._getCloseButton = function(notificationNode, opt_
  * @param {string=} opt_id
  * @return {!SUI.Node}
  */
-SUI.lib.Notification.prototype._add = function(type, message, opt_duration = 0, opt_closeCallback = null, opt_id = '') {
-  this.removeNotificationNode(opt_id);
-  const notificationNode = this._getNotificationNode(type, message, opt_duration, opt_closeCallback, opt_id);
-  this.container.appendChild(notificationNode);
+SUI.lib.Flash.prototype._add = function(type, message, opt_duration = 0, opt_closeCallback = null, opt_id = '') {
+  this.removeFlashNode(opt_id);
+  const flashNode = this._getFlashNode(type, message, opt_duration, opt_closeCallback, opt_id);
+  this.container.appendChild(flashNode);
   if (!this._isClosable(type, opt_closeCallback) && !SUI.eq(opt_duration, Infinity)) {
-    notificationNode.addClass('closable');
-    notificationNode.addEventListener('click', () => {
-      this.remove(notificationNode, opt_closeCallback);
+    flashNode.addClass('closable');
+    flashNode.addEventListener('click', () => {
+      this.remove(flashNode, opt_closeCallback);
     });
     window.setTimeout(function() {
-      this.remove(notificationNode, opt_closeCallback);
+      this.remove(flashNode, opt_closeCallback);
     }.bind(this), opt_duration || this.options.duration);
   }
-  return notificationNode;
+  return flashNode;
 };
 
 /**
  * @param {string=} opt_id
  */
-SUI.lib.Notification.prototype.removeNotificationNode = function(opt_id = '') {
+SUI.lib.Flash.prototype.removeFlashNode = function(opt_id = '') {
   if (opt_id) {
     const selector = SUI.format('[data-id={0}]', [opt_id]);
-    const notifications = new SUI.Query(selector, this.container);
-    notifications.each((notification) => {
-      this.container.removeChild(notification);
+    const flashes = new SUI.Query(selector, this.container);
+    flashes.each((flash) => {
+      this.container.removeChild(flash);
     });
   }
 };
@@ -127,20 +127,20 @@ SUI.lib.Notification.prototype.removeNotificationNode = function(opt_id = '') {
  * @param {?Function=} opt_closeCallback
  * @return {boolean}
  */
-SUI.lib.Notification.prototype._isClosable = function(type, opt_closeCallback = null) {
+SUI.lib.Flash.prototype._isClosable = function(type, opt_closeCallback = null) {
   return this.options.closable.indexOf(type) !== -1 || SUI.isFunction(opt_closeCallback);
 };
 
 /**
- * @param {!SUI.Node} notification
+ * @param {!SUI.Node} flash
  * @param {?Function=} opt_closeCallback
  * @return {undefined}
  */
-SUI.lib.Notification.prototype.remove = function(notification, opt_closeCallback = null) {
+SUI.lib.Flash.prototype.remove = function(flash, opt_closeCallback = null) {
   if (SUI.isFunction(opt_closeCallback)) {
     opt_closeCallback();
   }
-  this.container.removeChild(notification);
+  this.container.removeChild(flash);
 };
 
 /**
@@ -150,7 +150,7 @@ SUI.lib.Notification.prototype.remove = function(notification, opt_closeCallback
  * @param {string=} opt_id
  * @return {!SUI.Node}
  */
-SUI.lib.Notification.prototype.addSuccess = function(message, opt_duration = 0, opt_closeCallback = null, opt_id = '') {
+SUI.lib.Flash.prototype.addSuccess = function(message, opt_duration = 0, opt_closeCallback = null, opt_id = '') {
   return this._add('success', message, opt_duration, opt_closeCallback, opt_id);
 };
 
@@ -161,7 +161,7 @@ SUI.lib.Notification.prototype.addSuccess = function(message, opt_duration = 0, 
  * @param {string=} opt_id
  * @return {!SUI.Node}
  */
-SUI.lib.Notification.prototype.addInfo = function(message, opt_duration = 0, opt_closeCallback = null, opt_id = '') {
+SUI.lib.Flash.prototype.addInfo = function(message, opt_duration = 0, opt_closeCallback = null, opt_id = '') {
   return this._add('info', message, opt_duration, opt_closeCallback, opt_id);
 };
 
@@ -172,7 +172,7 @@ SUI.lib.Notification.prototype.addInfo = function(message, opt_duration = 0, opt
  * @param {string=} opt_id
  * @return {!SUI.Node}
  */
-SUI.lib.Notification.prototype.addWarning = function(message, opt_duration = 0, opt_closeCallback = null, opt_id = '') {
+SUI.lib.Flash.prototype.addWarning = function(message, opt_duration = 0, opt_closeCallback = null, opt_id = '') {
   return this._add('warning', message, opt_duration, opt_closeCallback, opt_id);
 };
 
@@ -183,7 +183,7 @@ SUI.lib.Notification.prototype.addWarning = function(message, opt_duration = 0, 
  * @param {string=} opt_id
  * @return {!SUI.Node}
  */
-SUI.lib.Notification.prototype.addError = function(message, opt_duration = 0, opt_closeCallback = null, opt_id = '') {
+SUI.lib.Flash.prototype.addError = function(message, opt_duration = 0, opt_closeCallback = null, opt_id = '') {
   return this._add('error', message, opt_duration, opt_closeCallback, opt_id);
 };
 
@@ -194,7 +194,7 @@ SUI.lib.Notification.prototype.addError = function(message, opt_duration = 0, op
  * @param {string=} opt_id
  * @return {!SUI.Node|null}
  */
-SUI.lib.Notification.prototype.addMessage = function(message, opt_duration = 0, opt_closeCallback = null, opt_id = '') {
+SUI.lib.Flash.prototype.addMessage = function(message, opt_duration = 0, opt_closeCallback = null, opt_id = '') {
   if (SUI.isObject(message)) {
     const closeCallback = message['closable'] ? SUI.noop : opt_closeCallback;
     return this._add(message['type'], message['content'], opt_duration, closeCallback, opt_id);
@@ -209,6 +209,6 @@ SUI.lib.Notification.prototype.addMessage = function(message, opt_duration = 0, 
  * @param {string=} opt_id
  * @return {!SUI.Node}
  */
-SUI.lib.Notification.prototype.addDefault = function(message, opt_duration = 0, opt_closeCallback = null, opt_id = '') {
+SUI.lib.Flash.prototype.addDefault = function(message, opt_duration = 0, opt_closeCallback = null, opt_id = '') {
   return this._add('default', message, opt_duration, opt_closeCallback, opt_id);
 };

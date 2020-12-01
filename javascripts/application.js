@@ -26,7 +26,7 @@ goog.require('SUI.lib.Http');
 goog.require('SUI.lib.LeftMenu');
 goog.require('SUI.lib.Loader');
 goog.require('SUI.lib.NavBar');
-goog.require('SUI.lib.Notification');
+goog.require('SUI.lib.Flash');
 goog.require('SUI.lib.ProgressBar');
 goog.require('SUI.lib.Scheduler');
 goog.require('SUI.lib.Script');
@@ -95,7 +95,7 @@ SUI.Application.prototype._init = function(resources) {
   this._initViewer();
   this._initProgressBar();
   this._initCookie();
-  this._initNotification();
+  this._initFlash();
   this._initTemplate();
   this._initDocument();
   this._initWindow();
@@ -290,14 +290,14 @@ SUI.Application.prototype._initGeoLocation = function() {
 
   this._instances[this._injections.geoLocation].eventChange = (latitude, longitude, message) => {
     this._instances[this._injections.event].override('geoLocation.success', [message], (message) => {
-      this._instances[this._injections.notification].addInfo(message);
+      this._instances[this._injections.flash].addInfo(message);
     });
     this._instances[this._injections.event].call('geoLocation.change', [latitude, longitude]);
   };
 
   this._instances[this._injections.geoLocation].eventError = (message, code) => {
     this._instances[this._injections.event].override('geoLocation.error', [message, code], (message) => {
-      this._instances[this._injections.notification].addError(message);
+      this._instances[this._injections.flash].addError(message);
     });
   };
 };
@@ -400,20 +400,20 @@ SUI.Application.prototype._initWindow = function() {
     this._instances[this._injections.event].call('window.colorSchemeChange', [colorScheme, event]);
   }.bind(this);
 
-  const notification = {
+  const flash = {
     node: null,
     message: 'Unable to connect to the Internet',
     duration: Infinity,
   };
   this._instances[this._injections.window].eventOnline = function() {
-    if (notification.node) {
-      this._instances[this._injections.notification].remove(notification.node);
+    if (flash.node) {
+      this._instances[this._injections.flash].remove(flash.node);
     }
   }.bind(this);
 
   this._instances[this._injections.window].eventOffline = function(event) {
-    this._instances[this._injections.event].override('window.offline', [notification, event], function(notification) {
-      notification.node = this._instances[this._injections.notification].addWarning(notification.message, notification.duration);
+    this._instances[this._injections.event].override('window.offline', [flash, event], function(flash) {
+      flash.node = this._instances[this._injections.flash].addWarning(flash.message, flash.duration);
     }.bind(this));
   }.bind(this);
 };
@@ -461,7 +461,7 @@ SUI.Application.prototype._initTemplate = function() {
   this._instances[this._injections.template].eventError = function(message) {
     this._instances[this._injections.state].back();
     this._instances[this._injections.loader].hide();
-    this._instances[this._injections.notification].addMessage(message);
+    this._instances[this._injections.flash].addMessage(message);
   }.bind(this);
 };
 
@@ -469,8 +469,8 @@ SUI.Application.prototype._initTemplate = function() {
  * @private
  * @return {undefined}
  */
-SUI.Application.prototype._initNotification = function() {
-  this._instances[this._injections.notification] = new SUI.lib.Notification();
+SUI.Application.prototype._initFlash = function() {
+  this._instances[this._injections.flash] = new SUI.lib.Flash();
 };
 
 /**
@@ -562,7 +562,7 @@ SUI.Application.prototype._initFooter = function() {
 SUI.Application.prototype._initBrowser = function() {
   this._instances[this._injections.browser] = new SUI.lib.Browser();
   this._instances[this._injections.browser].eventMissingFeatures = (features) => {
-    this._instances[this._injections.notification].addError(features.join(', '));
+    this._instances[this._injections.flash].addError(features.join(', '));
   };
 };
 
@@ -573,7 +573,7 @@ SUI.Application.prototype._initBrowser = function() {
 SUI.Application.prototype._initServiceWorker = function() {
   this._instances[this._injections.serviceWorker] = new SUI.lib.ServiceWorker();
   this._instances[this._injections.serviceWorker].eventMissingFeatures = (features) => {
-    this._instances[this._injections.notification].addError(features.join(', '));
+    this._instances[this._injections.flash].addError(features.join(', '));
   };
 };
 

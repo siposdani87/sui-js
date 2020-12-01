@@ -158,7 +158,7 @@ $zindex-dialog: 115 !default;
 $zindex-viewer: 120 !default;
 $zindex-confirm: 125 !default;
 $zindex-left-menu: 130 !default;
-$zindex-notification: 140 !default;
+$zindex-flash: 140 !default;
 $zindex-loader: 150 !default;
 $zindex-sidebar: 125 !default;
 
@@ -170,7 +170,7 @@ $thumbnail-border-width: $border-width !default;
 $thumbnail-border-color: #ddd !default;
 $thumbnail-border-radius: $border-radius !default;
 
-// Notification defaults
+// Flash defaults
 
 $success-bright: $green-bright;
 $success: $green;

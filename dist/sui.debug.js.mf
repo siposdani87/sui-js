@@ -42,7 +42,7 @@ lib/helper.js
 lib/leftMenu.js
 lib/loader.js
 lib/navBar.js
-lib/notification.js
+lib/flash.js
 lib/progressBar.js
 lib/scheduler.js
 lib/script.js
@@ -55,7 +55,6 @@ lib/topMenu.js
 lib/viewer.js
 lib/window.js
 application.js
-core/widget.js
 module/day.js
 module/month.js
 module/year.js
@@ -70,6 +69,7 @@ module/clock.js
 module/datetime.js
 module/dropdown.js
 module/widget.js
+core/widget.js
 widget/button.js
 widget/baseCheckbox.js
 widget/checkbox.js
