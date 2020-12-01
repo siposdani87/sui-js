@@ -54,7 +54,7 @@ SUI.coreRes = {
   event: 'event',
   scheduler: 'scheduler',
   http: 'http',
-  notification: 'notification',
+  flash: 'flash',
   template: 'template',
   dialog: 'dialog',
   confirm: 'confirm',
