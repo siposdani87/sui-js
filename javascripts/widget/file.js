@@ -16,7 +16,7 @@ goog.require('SUI.widget');
  * @param {!SUI.Node} inputBlock
  */
 SUI.widget.File = function(input, label, error, inputBlock) {
-  SUI.Widget.call(this, input, label, error, inputBlock);
+  SUI.widget.File.base(this, 'constructor', input, label, error, inputBlock);
   this._init();
 };
 goog.inherits(SUI.widget.File, SUI.Widget);

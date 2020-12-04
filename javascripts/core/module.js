@@ -47,11 +47,10 @@ SUI.Module.prototype.getController = function() {
  * @param {string} name
  * @param {!Array} moduleInjections
  * @param {!Function} moduleCallback
- * @param {string=} opt_extendModule
  * @return {undefined}
  */
-SUI.Module.prototype.add = function(name, moduleInjections, moduleCallback, opt_extendModule) {
-  this._modules[name] = this._getDependencies(moduleInjections, moduleCallback, opt_extendModule);
+SUI.Module.prototype.add = function(name, moduleInjections, moduleCallback) {
+  this._modules[name] = this._getDependencies(moduleInjections, moduleCallback);
 };
 
 /**
@@ -85,7 +84,7 @@ SUI.Module.prototype._resolveDependencies = function(dependency) {
 
   let extendCallback;
   let extendArgs;
-  if (this._modules[dependency.extendModule]) {
+  if (dependency.extendModule && this._modules[dependency.extendModule]) {
     extendCallback = this._modules[dependency.extendModule].moduleCallback;
     extendArgs = [];
     SUI.each(this._modules[dependency.extendModule].moduleInjections, (injection) => {

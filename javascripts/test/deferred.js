@@ -11,7 +11,7 @@ goog.require('SUI.BaseTest');
  * @extends {SUI.BaseTest}
  */
 SUI.test.Deferred = function() {
-  SUI.BaseTest.call(this, 'Deferred');
+  SUI.test.Deferred.base(this, 'constructor', 'Deferred');
 };
 goog.inherits(SUI.test.Deferred, SUI.BaseTest);
 

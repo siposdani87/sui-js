@@ -19,7 +19,7 @@ SUI.Query = function(selector, opt_element) {
   }
 
   const items = this._querySelector(selector);
-  SUI.Collection.call(this, items, SUI.Node, {
+  SUI.Query.base(this, 'constructor', items, SUI.Node, {
     parent: null,
   });
 };

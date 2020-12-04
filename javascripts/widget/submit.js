@@ -12,7 +12,7 @@ goog.require('SUI.widget');
  * @param {!SUI.Node} input
  */
 SUI.widget.Submit = function(input) {
-  SUI.Widget.call(this, input);
+  SUI.widget.Submit.base(this, 'constructor', input);
   this._init();
 };
 goog.inherits(SUI.widget.Submit, SUI.Widget);

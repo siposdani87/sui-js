@@ -15,7 +15,7 @@ goog.require('SUI.widget.BaseCheckbox');
  * @param {!SUI.Node} inputBlock
  */
 SUI.widget.Checkbox = function(input, label, error, inputBlock) {
-  SUI.widget.BaseCheckbox.call(this, input, label, error, inputBlock);
+  SUI.widget.Checkbox.base(this, 'constructor', input, label, error, inputBlock);
 };
 goog.inherits(SUI.widget.Checkbox, SUI.widget.BaseCheckbox);
 

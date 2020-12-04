@@ -17,7 +17,7 @@ goog.require('SUI.widget');
  * @param {!SUI.Node} inputBlock
  */
 SUI.widget.Datetime = function(input, label, error, inputBlock) {
-  SUI.Widget.call(this, input, label, error, inputBlock);
+  SUI.widget.Datetime.base(this, 'constructor', input, label, error, inputBlock);
   this._init();
 };
 goog.inherits(SUI.widget.Datetime, SUI.Widget);

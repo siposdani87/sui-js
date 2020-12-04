@@ -12,7 +12,7 @@ goog.require('SUI.BaseTest');
  * @extends {SUI.BaseTest}
  */
 SUI.test.Object = function() {
-  SUI.BaseTest.call(this, 'Object');
+  SUI.test.Object.base(this, 'constructor', 'Object');
 };
 goog.inherits(SUI.test.Object, SUI.BaseTest);
 
