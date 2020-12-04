@@ -12,7 +12,7 @@ goog.require('SUI.widget');
  * @param {!SUI.Node} input
  */
 SUI.widget.Hidden = function(input) {
-  SUI.Widget.call(this, input);
+  SUI.widget.Hidden.base(this, 'constructor', input);
   this._init();
 };
 goog.inherits(SUI.widget.Hidden, SUI.Widget);

@@ -19,7 +19,7 @@ goog.require('SUI.widget');
  * @param {boolean} isStartInput
  */
 SUI.widget.DatetimeRange = function(input, label, error, inputBlock, isStartInput) {
-  SUI.Widget.call(this, input, label, error, inputBlock);
+  SUI.widget.DatetimeRange.base(this, 'constructor', input, label, error, inputBlock);
 
   this.isStartInput = isStartInput;
   this._init();

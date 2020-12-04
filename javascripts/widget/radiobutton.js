@@ -19,7 +19,7 @@ goog.require('SUI.widget');
  * @param {!SUI.Form} form
  */
 SUI.widget.Radiobutton = function(input, label, error, inputBlock, form) {
-  SUI.Widget.call(this, input, label, error, inputBlock, form);
+  SUI.widget.Radiobutton.base(this, 'constructor', input, label, error, inputBlock, form);
   this._init();
 };
 goog.inherits(SUI.widget.Radiobutton, SUI.Widget);

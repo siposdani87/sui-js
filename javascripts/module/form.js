@@ -19,7 +19,7 @@ goog.require('SUI.Widget');
 SUI.Form = function(dom, opt_selector = 'form') {
   this.formNode = new SUI.Query(opt_selector, dom).getItem();
   this.formNode.setAttribute('novalidate');
-  SUI.Collection.call(this, [], SUI.FormWidget, {
+  SUI.Form.base(this, 'constructor', [], SUI.FormWidget, {
     parent: this.formNode,
   });
 
