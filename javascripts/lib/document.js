@@ -7,22 +7,22 @@ goog.require('SUI.lib');
 /**
  * @constructor
  * @this {SUI.lib.Document}
- * @param {!Object} options
+ * @param {!Object=} opt_options
  */
-SUI.lib.Document = function(options) {
-  this._setOptions(options);
+SUI.lib.Document = function(opt_options) {
+  this._setOptions(opt_options);
   this._init();
 };
 
 /**
  * @private
- * @param {!Object} options
+ * @param {!Object=} opt_options
  * @return {undefined}
  */
-SUI.lib.Document.prototype._setOptions = function(options) {
+SUI.lib.Document.prototype._setOptions = function(opt_options) {
   const _self = this;
   _self.options = new SUI.Object();
-  _self.options.merge(options);
+  _self.options.merge(opt_options);
 };
 
 /**
@@ -43,13 +43,6 @@ SUI.lib.Document.prototype._init = function() {
  */
 SUI.lib.Document.prototype.setTitle = function(title) {
   this.document.title = title;
-};
-
-/**
- * @return {string}
- */
-SUI.lib.Document.prototype.getAppTitle = function() {
-  return this.options.title;
 };
 
 /**

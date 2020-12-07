@@ -60,7 +60,6 @@ SUI.Application.prototype._setOptions = function(options) {
   const _self = this;
   _self.options = new SUI.Object({
     app_id: 'sui-app',
-    title: 'SUI-APP',
     locale: navigator.language,
     backend: '',
     production: false,
@@ -359,7 +358,7 @@ SUI.Application.prototype._initHelper = function() {
  */
 SUI.Application.prototype._initDocument = function() {
   const popupContainer = new SUI.PopupContainer();
-  this._instances[this._injections.document] = new SUI.lib.Document(this.options);
+  this._instances[this._injections.document] = new SUI.lib.Document();
   this._instances[this._injections.document].eventClick = function(target, event) {
     popupContainer.closeAll();
     this._instances[this._injections.event].call('document.click', [target, event]);
