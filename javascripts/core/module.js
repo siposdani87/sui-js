@@ -79,7 +79,7 @@ SUI.Module.prototype._getDependencies = function(moduleInjections, moduleCallbac
 SUI.Module.prototype._resolveDependencies = function(dependency) {
   const moduleArgs = [];
   SUI.each(dependency.moduleInjections, (injection) => {
-    moduleArgs.push(this._instances[injection]);
+    moduleArgs.push(this._instances[injection] || injection);
   });
 
   let extendCallback;
@@ -88,7 +88,7 @@ SUI.Module.prototype._resolveDependencies = function(dependency) {
     extendCallback = this._modules[dependency.extendModule].moduleCallback;
     extendArgs = [];
     SUI.each(this._modules[dependency.extendModule].moduleInjections, (injection) => {
-      extendArgs.push(this._instances[injection]);
+      extendArgs.push(this._instances[injection] || injection);
     });
   }
 
@@ -124,8 +124,11 @@ SUI.Module.prototype._orderServices = function() {
  * @return {boolean}
  */
 SUI.Module.prototype._isModule = function(value) {
-  const lastCharacters = value.substr(value.length - 7);
-  return SUI.eq(lastCharacters, 'Service') || SUI.eq(lastCharacters, 'Factory');
+  if (SUI.isString(value)) {
+    const lastCharacters = value.substr(value.length - 7);
+    return SUI.eq(lastCharacters, 'Service') || SUI.eq(lastCharacters, 'Factory');
+  }
+  return false;
 };
 
 /**
