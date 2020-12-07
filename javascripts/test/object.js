@@ -101,17 +101,17 @@ SUI.test.Object.prototype.testGetTypedValue = function() {
 
 SUI.test.Object.prototype.testGet = function() {
   const options = new SUI.Object({
-    attr: null,
-    obj: {
-      attr2: 1,
-      obj2: {
-        attr4: 2,
-        attr3: 3.2,
-        attr5: 4.5,
+    'attr': null,
+    'obj': {
+      'attr2': 1,
+      'obj2': {
+        'attr4': 2,
+        'attr3': 3.2,
+        'attr5': 4.5,
       },
     },
-    arr: [{
-      attr1: -4,
+    'arr': [{
+      'attr1': -4,
     }],
   });
   options.set('attr', null);
