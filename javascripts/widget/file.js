@@ -27,17 +27,10 @@ goog.inherits(SUI.widget.File, SUI.Widget);
  */
 SUI.widget.File.prototype._init = function() {
   this.inputBlock.addClass('file-widget');
+  this.nameHiddenInput = new SUI.Query('input[type=hidden]', this.inputBlock).getItem();
 
   this._initButtons();
-
-  this.defaultSrc = null;
-  this.imageTag = new SUI.Query('img', this.inputBlock).getItem();
-  if (this.imageTag.isEmpty()) {
-    this.imageTag = new SUI.Node('img');
-    this.inputBlock.beforeChild(this.imageTag);
-  } else {
-    this.defaultSrc = this.imageTag.getAttribute('src');
-  }
+  this._setDefaultSrc();
 
   this.imageTag.addEventListener('click', () => {
     this._remove();
@@ -53,13 +46,41 @@ SUI.widget.File.prototype._init = function() {
 
 /**
  * @private
+ * @return {boolean}
+ */
+SUI.widget.File.prototype._isDocument = function() {
+  const accept = /** @type {string} */ (this.input.getAttribute('accept'));
+  return SUI.contain(accept, '.docx') || SUI.contain(accept, '.xlsx') || SUI.contain(accept, '.pdf');
+};
+
+/**
+ * @private
+ * @return {undefined}
+ */
+SUI.widget.File.prototype._setDefaultSrc = function() {
+  this.defaultSrc = null;
+  this.imageTag = new SUI.Query('img', this.inputBlock).getItem();
+  if (this.imageTag.isEmpty()) {
+    this.imageTag = new SUI.Node('img');
+    this.inputBlock.beforeChild(this.imageTag);
+  } else {
+    this.defaultSrc = this.imageTag.getAttribute('src');
+  }
+};
+
+/**
+ * @private
  * @return {undefined}
  */
 SUI.widget.File.prototype._initButtons = function() {
   const browseButton = new SUI.Node('a');
   browseButton.setAttribute('href', 'javascript:void(0)');
   browseButton.addClass(['browse-button', 'material-icons']);
-  browseButton.setHtml('collections');
+  if (this._isDocument()) {
+    browseButton.setHtml('description');
+  } else {
+    browseButton.setHtml('image');
+  }
   browseButton.addEventListener('click', () => {
     if (this.isEnabled()) {
       this.input.getNode().click();
@@ -99,9 +120,15 @@ SUI.widget.File.prototype.refresh = function() {
  */
 SUI.widget.File.prototype._read = function(file) {
   if (file) {
+    const filename = /** @type {string} */ (file.name);
+    if (!this.nameHiddenInput.isEmpty()) {
+      this.nameHiddenInput.setAttribute('value', filename);
+    }
+
     const reader = new FileReader();
     reader.onload = (event) => {
-      const source = /** @type {string} */ (event.target.result);
+      const target = event.target;
+      const source = /** @type {string} */ (target.result);
       if (SUI.contain(file.type, 'image/') && !this.imageTag.isEmpty()) {
         this.imageTag.setAttribute('src', source);
       }
@@ -118,6 +145,11 @@ SUI.widget.File.prototype._read = function(file) {
  */
 SUI.widget.File.prototype._remove = function() {
   this.input.getNode().value = '';
+
+  if (!this.nameHiddenInput.isEmpty()) {
+    this.nameHiddenInput.removeAttribute('value');
+  }
+
   if (this.defaultSrc) {
     this.imageTag.setAttribute('src', this.defaultSrc);
   } else {
