@@ -1,7 +1,5 @@
 goog.provide('SUI.widget.File');
 
-goog.requireType('SUI.Form');
-
 goog.require('SUI');
 goog.require('SUI.Node');
 goog.require('SUI.Query');
@@ -16,10 +14,9 @@ goog.require('SUI.widget');
  * @param {!SUI.Node} label
  * @param {!SUI.Node} error
  * @param {!SUI.Node} inputBlock
- * @param {!SUI.Form} form
  */
-SUI.widget.File = function(input, label, error, inputBlock, form) {
-  SUI.widget.File.base(this, 'constructor', input, label, error, inputBlock, form);
+SUI.widget.File = function(input, label, error, inputBlock) {
+  SUI.widget.File.base(this, 'constructor', input, label, error, inputBlock);
   this._init();
 };
 goog.inherits(SUI.widget.File, SUI.Widget);
@@ -30,7 +27,6 @@ goog.inherits(SUI.widget.File, SUI.Widget);
  */
 SUI.widget.File.prototype._init = function() {
   this.inputBlock.addClass('file-widget');
-  this.nameHiddenInput = new SUI.Query('input[type=hidden]', this.inputBlock).getItem();
 
   this._initButtons();
   this._setDefaultSrc();
