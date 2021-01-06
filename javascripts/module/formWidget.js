@@ -114,7 +114,7 @@ SUI.FormWidget.prototype._getWidget = function(input, label, error, inputBlock, 
         }
         break;
       case 'file':
-        result = new SUI.widget.File(input, /** @type {!SUI.Node} */ (label), /** @type {!SUI.Node} */ (error), inputBlock);
+        result = new SUI.widget.File(input, /** @type {!SUI.Node} */ (label), /** @type {!SUI.Node} */ (error), inputBlock, form);
         break;
       case 'checkbox':
         if (SUI.eq(dataType, 'switch')) {

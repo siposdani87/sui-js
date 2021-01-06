@@ -1,5 +1,7 @@
 goog.provide('SUI.widget.File');
 
+goog.requireType('SUI.Form');
+
 goog.require('SUI');
 goog.require('SUI.Node');
 goog.require('SUI.Query');
@@ -14,9 +16,10 @@ goog.require('SUI.widget');
  * @param {!SUI.Node} label
  * @param {!SUI.Node} error
  * @param {!SUI.Node} inputBlock
+ * @param {!SUI.Form} form
  */
-SUI.widget.File = function(input, label, error, inputBlock) {
-  SUI.widget.File.base(this, 'constructor', input, label, error, inputBlock);
+SUI.widget.File = function(input, label, error, inputBlock, form) {
+  SUI.widget.File.base(this, 'constructor', input, label, error, inputBlock, form);
   this._init();
 };
 goog.inherits(SUI.widget.File, SUI.Widget);
@@ -121,14 +124,12 @@ SUI.widget.File.prototype.refresh = function() {
 SUI.widget.File.prototype._read = function(file) {
   if (file) {
     const filename = /** @type {string} */ (file.name);
-    if (!this.nameHiddenInput.isEmpty()) {
-      this.nameHiddenInput.setAttribute('value', filename);
-    }
 
     const reader = new FileReader();
     reader.onload = (event) => {
       const target = event.target;
-      const source = /** @type {string} */ (target.result);
+      const searchStr = ';base64,';
+      const source = /** @type {string} */ (target.result.replace(searchStr, ';filename=' + filename + searchStr));
       if (SUI.contain(file.type, 'image/') && !this.imageTag.isEmpty()) {
         this.imageTag.setAttribute('src', source);
       }
@@ -145,10 +146,6 @@ SUI.widget.File.prototype._read = function(file) {
  */
 SUI.widget.File.prototype._remove = function() {
   this.input.getNode().value = '';
-
-  if (!this.nameHiddenInput.isEmpty()) {
-    this.nameHiddenInput.removeAttribute('value');
-  }
 
   if (this.defaultSrc) {
     this.imageTag.setAttribute('src', this.defaultSrc);
