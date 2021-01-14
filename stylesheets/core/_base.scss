@@ -142,6 +142,10 @@ h6 {
   text-transform: uppercase;
   white-space: nowrap;
   word-break: keep-all;
+
+  small {
+    margin: 0;
+  }
 }
 
 blockquote {
