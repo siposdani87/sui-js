@@ -204,11 +204,12 @@ SUI.Form.prototype.setErrors = function(data) {
 
 /**
  * @param {boolean=} opt_force
+ * @param {boolean=} opt_showMessage
  * @return {boolean}
  */
-SUI.Form.prototype.checkValidity = function(opt_force = false) {
+SUI.Form.prototype.checkValidity = function(opt_force = false, opt_showMessage = true) {
   this.each(function(widget) {
-    widget.checkValidity(opt_force);
+    widget.checkValidity(opt_force, opt_showMessage);
   });
   return this.formNode.getNode().checkValidity();
 };

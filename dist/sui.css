@@ -792,6 +792,10 @@ h6 small {
   word-break: keep-all;
 }
 
+.app-title small {
+  margin: 0;
+}
+
 blockquote {
   font-family: "Arial", sans-serif;
 }

@@ -377,19 +377,21 @@ SUI.GoogleMap.prototype.removeAllPolygon = function(opt_callback = SUI.noop) {
  * @return {undefined}
  */
 SUI.GoogleMap.prototype._bindEventsToPolygon = function(polygon, polygonData) {
+  const cleanPolygonData = this._cleanPolygonData(polygonData);
+
   polygon.addListener('rightclick', (event) => {
     if (event.vertex) {
       const path = polygon.getPath();
       path.removeAt(event.vertex);
     } else {
       const vertex = event.latLng;
-      this.eventPolygonRightClick(polygonData, vertex.lat(), vertex.lng(), event);
+      this.eventPolygonRightClick(cleanPolygonData, vertex.lat(), vertex.lng(), event);
     }
   });
 
   polygon.addListener('click', (event) => {
     const vertex = event.latLng;
-    this.eventPolygonClick(polygonData, vertex.lat(), vertex.lng(), event);
+    this.eventPolygonClick(cleanPolygonData, vertex.lat(), vertex.lng(), event);
   });
 
   this._bindEventsToPolygonPath(polygon, polygonData);
