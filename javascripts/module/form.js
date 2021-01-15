@@ -123,15 +123,17 @@ SUI.Form.prototype._initWidgets = function() {
 
 /**
  * @param {!SUI.Object} model
+ * @param {boolean=} opt_force
+ * @param {boolean=} opt_showMessage
  * @return {undefined}
  */
-SUI.Form.prototype.setModel = function(model) {
+SUI.Form.prototype.setModel = function(model, opt_force = true, opt_showMessage = false) {
   this.each((widget) => {
     const name = widget.getName();
     const value = model.get(name);
     if (!SUI.isUndefined(value)) {
       widget.setValue(value);
-      widget.checkValidity(true);
+      widget.checkValidity(opt_force, opt_showMessage);
     }
   });
   this.model.merge(model);
@@ -145,12 +147,14 @@ SUI.Form.prototype.getModel = function() {
 };
 
 /**
+ * @param {boolean=} opt_force
+ * @param {boolean=} opt_showMessage
  * @return {undefined}
  */
-SUI.Form.prototype.reset = function() {
+SUI.Form.prototype.reset = function(opt_force = true, opt_showMessage = false) {
   this.each((widget) => {
     widget.setValue();
-    widget.checkValidity(true);
+    widget.checkValidity(opt_force, opt_showMessage);
   });
   this.model.clear();
 };
