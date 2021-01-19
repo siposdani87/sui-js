@@ -243,7 +243,9 @@ SUI.widget.Textarea.prototype._setValue = function(value) {
  * @return {undefined}
  */
 SUI.widget.Textarea.prototype.setValue = function(value) {
-  this.richTextNode.innerHTML = value;
+  if (this._isRichText()) {
+    this.richTextNode.innerHTML = value;
+  }
   this._setValue(value);
 };
 
