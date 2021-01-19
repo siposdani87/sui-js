@@ -31,7 +31,9 @@ SUI.widget.Textarea.prototype._init = function() {
     const inputNode = input.getNode();
     this.modelChange(inputNode.value);
     this.checkValidity(true);
-    this.richText.setHtml(inputNode.value);
+    if (this._isRichText()) {
+      this.richText.setHtml(inputNode.value);
+    }
     return true;
   });
 

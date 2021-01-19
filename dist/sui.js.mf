@@ -55,8 +55,8 @@ lib/topMenu.js
 lib/viewer.js
 lib/window.js
 application.js
-module/widget.js
 core/widget.js
+module/widget.js
 widget/autoComplete.js
 widget/baseCheckbox.js
 widget/button.js
