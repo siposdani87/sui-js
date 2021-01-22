@@ -112,7 +112,7 @@ SUI.widget.File.prototype._initFileIcon = function() {
       '<polygon style="fill:#CAD1D8;" points="480,224 384,128 480,128 "/>' +
       '<path style="fill:#CAD1D8;" d="M400,432H96v16h304c8.8,0,16-7.2,16-16v-16C416,424.8,408.8,432,400,432z"/>' +
       '<path style="fill:#000000;" d="M416,416c0,8.8-7.2,16-16,16H48c-8.8,0-16-7.2-16-16V256c0-8.8,7.2-16,16-16h352c8.8,0,16,7.2,16,16V416z"/>' +
-      '<text x="220" y="380" text-anchor="middle" style="fill:#FFF;font:700 120px Arial;">TYPE</text>' +
+      '<text x="220" y="380" text-anchor="middle" style="fill:#FFF;font-weight:700;font-family:Arial;font-size:120px;">TYPE</text>' +
     '</svg>';
 };
 
