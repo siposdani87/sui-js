@@ -28,6 +28,7 @@ goog.inherits(SUI.widget.File, SUI.Widget);
 SUI.widget.File.prototype._init = function() {
   this.inputBlock.addClass('file-widget');
 
+  this._initFileIcon();
   this._initButtons();
   this._setDefaultSrc();
 
@@ -65,6 +66,11 @@ SUI.widget.File.prototype._setDefaultSrc = function() {
   } else {
     this.defaultSrc = this.imageTag.getAttribute('src');
   }
+  if (!this.defaultSrc) {
+    const color = this.isRequired() ? 'grey;stroke:red;stroke-width:10;stroke-dasharray:15,10' : 'grey';
+    this.defaultSrc = this._getFileIconSrc('N/A', color);
+    this.imageTag.setAttribute('src', this.defaultSrc);
+  }
 };
 
 /**
@@ -86,6 +92,42 @@ SUI.widget.File.prototype._initButtons = function() {
     }
   });
   this.actionContainerNode.appendChild(browseButton);
+};
+
+/**
+ * @private
+ * @return {undefined}
+ */
+SUI.widget.File.prototype._initFileIcon = function() {
+  this.fileTypes = {
+    'application/vnd.openxmlformats-officedocument.wordprocessingml.document': ['docx', 'blue'],
+    'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet': ['xlsx', 'green'],
+    'application/pdf': ['pdf', 'red'],
+  };
+
+  this.fileTypeSVG = '<?xml version="1.0" encoding="UTF-8" standalone="no"?>' +
+    '<svg version="1.1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">' +
+      '<path style="fill:#E2E5E7;" d="M128,0c-17.6,0-32,14.4-32,32v448c0,17.6,14.4,32,32,32h320c17.6,0,32-14.4,32-32V128L352,0H128z"/>' +
+      '<path style="fill:#B0B7BD;" d="M384,128h96L352,0v96C352,113.6,366.4,128,384,128z"/>' +
+      '<polygon style="fill:#CAD1D8;" points="480,224 384,128 480,128 "/>' +
+      '<path style="fill:#CAD1D8;" d="M400,432H96v16h304c8.8,0,16-7.2,16-16v-16C416,424.8,408.8,432,400,432z"/>' +
+      '<path style="fill:#000000;" d="M416,416c0,8.8-7.2,16-16,16H48c-8.8,0-16-7.2-16-16V256c0-8.8,7.2-16,16-16h352c8.8,0,16,7.2,16,16V416z"/>' +
+      '<text x="220" y="380" text-anchor="middle" style="fill:#FFF;font:700 120px Arial;">TYPE</text>' +
+    '</svg>';
+};
+
+/**
+ * @private
+ * @param {string} type
+ * @param {string} color
+ * @return {string}
+ */
+SUI.widget.File.prototype._getFileIconSrc = function(type, color) {
+  let svg = this.fileTypeSVG;
+  svg = svg.replace('#000000', color);
+  svg = svg.replace('TYPE', type);
+  const data = SUI.encodeBase64(svg);
+  return SUI.format('data:image/svg+xml;base64,{0}', [data]);
 };
 
 /**
@@ -126,8 +168,12 @@ SUI.widget.File.prototype._read = function(file) {
       const target = event.target;
       const searchStr = ';base64,';
       const source = /** @type {string} */ (target.result.replace(searchStr, ';filename=' + filename + searchStr));
-      if (SUI.contain(file.type, 'image/') && !this.imageTag.isEmpty()) {
+      if (SUI.contain(file.type, 'image/')) {
         this.imageTag.setAttribute('src', source);
+      } else {
+        const [type, color] = this.fileTypes[file.type];
+        const imageSrc = this._getFileIconSrc(type, color);
+        this.imageTag.setAttribute('src', imageSrc);
       }
       this.modelChange(source);
       this.checkValidity();
