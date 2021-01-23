@@ -197,3 +197,19 @@ SUI.widget.File.prototype._remove = function() {
   this.modelChange(null);
   this.checkValidity();
 };
+
+/**
+ * @override
+ * @param {!Object|!Function|!Array|boolean|number|string|null|undefined} value
+ * @return {undefined}
+ */
+SUI.widget.File.prototype.setValue = function(value) {
+  let imageSrc = value;
+  if (SUI.isObject(value)) {
+    imageSrc = value['url'];
+  }
+  if (imageSrc) {
+    this.defaultSrc = imageSrc;
+    this.imageTag.setAttribute('src', this.defaultSrc);
+  }
+};
