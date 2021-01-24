@@ -4040,6 +4040,10 @@ table tfoot tr td.pager {
   color: #757575;
 }
 
+.file-widget {
+  position: relative;
+}
+
 .file-widget input[type='file'].mdl-textfield__input::-webkit-file-upload-button {
   opacity: 0;
   width: 0;
@@ -4061,6 +4065,16 @@ table tfoot tr td.pager {
 
 .file-widget .browse-button {
   margin-left: 2px;
+}
+
+.file-widget .remove-button {
+  position: absolute;
+  top: 17px;
+  left: 70px;
+  bottom: auto;
+  width: 30px;
+  height: 30px;
+  min-width: 30px;
 }
 
 .file-widget.is-disabled img {
