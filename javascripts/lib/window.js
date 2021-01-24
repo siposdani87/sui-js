@@ -50,7 +50,7 @@ SUI.lib.Window.prototype._init = function() {
 SUI.lib.Window.prototype._initResizeEvent = function() {
   this.window.addEventListener('resize', SUI.debounce((event) => {
     this._resize(event);
-  }, this.options.delay), false);
+  }, this.options.delay, true), false);
 };
 
 /**
@@ -60,7 +60,7 @@ SUI.lib.Window.prototype._initResizeEvent = function() {
 SUI.lib.Window.prototype._initScrollEvent = function() {
   this.window.addEventListener('scroll', SUI.debounce((event) => {
     this._scroll(event);
-  }, this.options.delay), false);
+  }, this.options.delay, true), false);
 };
 
 /**
