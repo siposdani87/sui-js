@@ -28,7 +28,7 @@
     "sui-externs": "git+https://siposdani87:pTUa5kZeCCawnTzkYVUV@bitbucket.org/siposdani87/sui-externs.git#develop"
   },
   "devDependencies": {
-    "browser-sync": "2.26.13",
+    "browser-sync": "2.26.14",
     "connect-modrewrite": "0.10.2",
     "eslint": "7.18.0",
     "eslint-config-google": "0.14.0",

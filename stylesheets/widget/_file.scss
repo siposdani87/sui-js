@@ -1,4 +1,6 @@
 .file-widget {
+  position: relative;
+
   input[type='file'] {
     &.mdl-textfield__input {
       &::-webkit-file-upload-button {
@@ -24,6 +26,16 @@
 
   .browse-button {
     margin-left: 2px;
+  }
+
+  .remove-button {
+    position: absolute;
+    top: 17px;
+    left: 70px;
+    bottom: auto;
+    width: 30px;
+    height: 30px;
+    min-width: 30px;
   }
 
   &.is-disabled {

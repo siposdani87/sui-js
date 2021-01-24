@@ -30,6 +30,7 @@ SUI.widget.File.prototype._init = function() {
 
   this._initFileIcon();
   this._initButtons();
+  this._initRemoveButton();
   this._setDefaultSrc();
 
   this.imageTag.addEventListener('click', () => {
@@ -77,6 +78,24 @@ SUI.widget.File.prototype._setDefaultSrc = function() {
  * @private
  * @return {undefined}
  */
+SUI.widget.File.prototype._initRemoveButton = function() {
+  this.removeButton = new SUI.Node('button');
+  this.removeButton.addClass(['remove-button', 'hidden', 'mdl-button', 'mdl-js-button', 'mdl-button--fab', 'mdl-button--mini-fab', 'mdl-button--colored']);
+  this.removeButton.addEventListener('click', () => {
+    this._remove();
+  });
+  const iconNode = new SUI.Node('i');
+  iconNode.addClass('material-icons');
+  iconNode.setHtml('close');
+  this.removeButton.appendChild(iconNode);
+  SUI.mdl(this.removeButton);
+  this.inputBlock.appendChild(this.removeButton);
+};
+
+/**
+ * @private
+ * @return {undefined}
+ */
 SUI.widget.File.prototype._initButtons = function() {
   const browseButton = new SUI.Node('a');
   browseButton.setAttribute('href', 'javascript:void(0)');
@@ -107,12 +126,12 @@ SUI.widget.File.prototype._initFileIcon = function() {
 
   this.fileTypeSVG = '<?xml version="1.0" encoding="UTF-8" standalone="no"?>' +
     '<svg version="1.1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">' +
-      '<path style="fill:#E2E5E7;" d="M128,0c-17.6,0-32,14.4-32,32v448c0,17.6,14.4,32,32,32h320c17.6,0,32-14.4,32-32V128L352,0H128z"/>' +
-      '<path style="fill:#B0B7BD;" d="M384,128h96L352,0v96C352,113.6,366.4,128,384,128z"/>' +
-      '<polygon style="fill:#CAD1D8;" points="480,224 384,128 480,128 "/>' +
-      '<path style="fill:#CAD1D8;" d="M400,432H96v16h304c8.8,0,16-7.2,16-16v-16C416,424.8,408.8,432,400,432z"/>' +
-      '<path style="fill:#000000;" d="M416,416c0,8.8-7.2,16-16,16H48c-8.8,0-16-7.2-16-16V256c0-8.8,7.2-16,16-16h352c8.8,0,16,7.2,16,16V416z"/>' +
-      '<text x="220" y="380" text-anchor="middle" style="fill:#FFF;font-weight:700;font-family:Arial;font-size:120px;">TYPE</text>' +
+    '<path style="fill:#E2E5E7;" d="M128,0c-17.6,0-32,14.4-32,32v448c0,17.6,14.4,32,32,32h320c17.6,0,32-14.4,32-32V128L352,0H128z"/>' +
+    '<path style="fill:#B0B7BD;" d="M384,128h96L352,0v96C352,113.6,366.4,128,384,128z"/>' +
+    '<polygon style="fill:#CAD1D8;" points="480,224 384,128 480,128 "/>' +
+    '<path style="fill:#CAD1D8;" d="M400,432H96v16h304c8.8,0,16-7.2,16-16v-16C416,424.8,408.8,432,400,432z"/>' +
+    '<path style="fill:#000000;" d="M416,416c0,8.8-7.2,16-16,16H48c-8.8,0-16-7.2-16-16V256c0-8.8,7.2-16,16-16h352c8.8,0,16,7.2,16,16V416z"/>' +
+    '<text x="220" y="380" text-anchor="middle" style="fill:#FFF;font-weight:700;font-family:Arial;font-size:120px;">TYPE</text>' +
     '</svg>';
 };
 
@@ -170,10 +189,12 @@ SUI.widget.File.prototype._read = function(file) {
       const source = /** @type {string} */ (target.result.replace(searchStr, ';filename=' + filename + searchStr));
       if (SUI.contain(file.type, 'image/')) {
         this.imageTag.setAttribute('src', source);
+        this.removeButton.removeClass('hidden');
       } else {
         const [type, color] = this.fileTypes[file.type];
         const imageSrc = this._getFileIconSrc(type, color);
         this.imageTag.setAttribute('src', imageSrc);
+        this.removeButton.removeClass('hidden');
       }
       this.modelChange(source);
       this.checkValidity();
@@ -191,6 +212,7 @@ SUI.widget.File.prototype._remove = function() {
 
   if (this.defaultSrc) {
     this.imageTag.setAttribute('src', this.defaultSrc);
+    this.removeButton.addClass('hidden');
   } else {
     this.imageTag.removeAttribute('src');
   }
@@ -211,5 +233,6 @@ SUI.widget.File.prototype.setValue = function(value) {
   if (imageSrc) {
     this.defaultSrc = imageSrc;
     this.imageTag.setAttribute('src', this.defaultSrc);
+    this.removeButton.addClass('hidden');
   }
 };
