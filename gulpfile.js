@@ -30,17 +30,17 @@ const sassOptions = {
   outputStyle: 'compressed',
 };
 
-gulp.task('compile:styles:minify', function() {
+gulp.task('compile:styles:minify', gulp.series(function() {
   return gulp.src('stylesheets/**/sui.min.scss').pipe(sourcemaps.init()).pipe(sass(sassOptions).on('error', sass.logError)).pipe(sourcemaps.write('/')).pipe(gulp.dest('dist'));
-});
+}));
 
-gulp.task('compile:styles', function() {
+gulp.task('compile:styles', gulp.series(function() {
   return gulp.src('stylesheets/**/sui.scss').pipe(sourcemaps.init()).pipe(sass(Object.assign(sassOptions, {
     outputStyle: 'expanded',
   })).on('error', sass.logError)).pipe(sourcemaps.write('/')).pipe(gulp.dest('dist'));
-});
+}));
 
-gulp.task('compile:scripts:minify', function() {
+gulp.task('compile:scripts:minify', gulp.series(function() {
   return gulp.src(['node_modules/google-closure-library/closure/goog/base.js', 'javascripts/**/*.js']).pipe(closureCompiler.gulp({
     requireStreamInput: true,
   })(Object.assign(closureOptions, {
@@ -48,9 +48,9 @@ gulp.task('compile:scripts:minify', function() {
     // create_source_map: 'dist/sui.min.js.map',
     js_output_file: 'sui.min.js',
   }))).pipe(insert.append('/*export default SUI;*/')).pipe(sourcemaps.write('/')).pipe(gulp.dest('dist'));
-});
+}));
 
-gulp.task('compile:scripts:debug', function() {
+gulp.task('compile:scripts:debug', gulp.series(function() {
   return gulp.src(['node_modules/google-closure-library/closure/goog/base.js', 'javascripts/**/*.js']).pipe(closureCompiler.gulp({
     requireStreamInput: true,
   })(Object.assign(closureOptions, {
@@ -64,9 +64,9 @@ gulp.task('compile:scripts:debug', function() {
     // create_source_map: 'dist/sui.debug.js.map',
     js_output_file: 'sui.debug.js',
   }))).pipe(insert.append('/*export default SUI;*/')).pipe(sourcemaps.write('/')).pipe(gulp.dest('dist'));
-});
+}));
 
-gulp.task('compile:scripts', function() {
+gulp.task('compile:scripts', gulp.series(function() {
   return gulp.src(['node_modules/google-closure-library/closure/goog/base.js', 'javascripts/**/*.js']).pipe(closureCompiler.gulp({
     requireStreamInput: true,
   })(Object.assign(closureOptions, {
@@ -76,21 +76,27 @@ gulp.task('compile:scripts', function() {
     // create_source_map: 'dist/sui.js.map',
     js_output_file: 'sui.js',
   }))).pipe(insert.append('export default SUI;')).pipe(sourcemaps.write('/')).pipe(gulp.dest('dist'));
-});
+}));
 
-gulp.task('watcher', function(done) {
-  gulp.watch('stylesheets/**/*.scss', gulp.series(['compile:styles:minify']));
-  gulp.watch('javascripts/**/*.js', gulp.series(['compile:scripts:debug']));
+gulp.task('watcher', gulp.series(function(done) {
+  gulp.watch('stylesheets/**/*.scss', gulp.series('compile:styles:minify', function(cb) {
+    browserSync.reload();
+    cb();
+  }));
+  gulp.watch('javascripts/**/*.js', gulp.series('compile:scripts:debug', function(cb) {
+    browserSync.reload();
+    cb();
+  }));
   done();
-});
+}));
 
 gulp.task('default', gulp.series('compile:styles:minify', 'compile:styles', 'compile:scripts:minify', 'compile:scripts:debug', 'compile:scripts', function(done) {
   done();
 }));
 
-gulp.task('doc', function(done) {
+gulp.task('doc', gulp.series(function(done) {
   gulp.src(['README.md', 'javascripts/**/*.js'], {read: false}).pipe(jsdoc(done));
-});
+}));
 
 gulp.task('serve', gulp.series('watcher', function(done) {
   browserSync.init({
