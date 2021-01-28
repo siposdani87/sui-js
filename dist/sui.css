@@ -2420,7 +2420,7 @@ form input:-webkit-autofill:hover, form input:-webkit-autofill:focus, form input
 }
 
 .page-header .actions .mdl-button {
-  margin-left: .25em;
+  margin-left: .3em;
 }
 
 .page-subheader {
@@ -2476,7 +2476,7 @@ form input:-webkit-autofill:hover, form input:-webkit-autofill:focus, form input
 }
 
 .page-subheader .actions .mdl-button {
-  margin-left: .25em;
+  margin-left: .3em;
 }
 
 .fullscreen-background {
