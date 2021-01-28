@@ -295,13 +295,6 @@ label.is-disabled .mdl-radio__label {
   margin-right: 10px;
 }
 
-.mdl-button .mdl-button--mini-fab {
-  height: 1.5em;
-  width: 1.5em;
-  min-width: 1.5em;
-  margin-left: .3em;
-}
-
 .dark-theme .mdl-button {
   color: #f5f5f5;
 }
