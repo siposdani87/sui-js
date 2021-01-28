@@ -296,14 +296,19 @@ SUI.lib.Xhr.prototype._getResponseData = function(data) {
   const contentType = this.http.getResponseHeader('Content-Type');
   let filename = '';
 
+  try {
+    const contentDisposition = this.http.getResponseHeader('Content-Disposition');
+    if (contentDisposition) {
+      filename = contentDisposition.match(/filename="(.+)"/)[1];
+    }
+  } catch (_e) {
+    // console.warn(e);
+  }
+
   if (contentType) {
     switch (contentType.split(';')[0]) {
       case 'application/json':
         if (SUI.instanceOf(data, Blob)) {
-          const contentDisposition = this.http.getResponseHeader('Content-Disposition');
-          if (contentDisposition) {
-            filename = contentDisposition.match(/filename="(.+)"/)[1];
-          }
           const reader = new FileReader();
           reader.addEventListener('loadend', (e) => {
             data = JSON.parse(/** @type {string} */(e.srcElement.result) || 'null');
