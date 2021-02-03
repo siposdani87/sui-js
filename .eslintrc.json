@@ -15,7 +15,8 @@
 		"linebreak-style": "off",
 		"max-len": "off",
 		"max-lines": "off",
-		"camelcase": "off"
+		"camelcase": "off",
+		"no-unused-vars": ["error", { "argsIgnorePattern": "^_", "varsIgnorePattern": "^_", "ignoreRestSiblings": true }]
 	},
 	"overrides": [{
 			"files": ["rails.js", "javascripts/lib/browser.js"],

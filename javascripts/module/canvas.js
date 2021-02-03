@@ -164,11 +164,11 @@ SUI.Canvas.prototype.getImageDataXY = function(x, y) {
 };
 
 /**
- * @param {number} x
- * @param {number} y
+ * @param {number} _x
+ * @param {number} _y
  * @return {undefined}
  */
-SUI.Canvas.prototype.eventMouseMove = function(x, y) {
+SUI.Canvas.prototype.eventMouseMove = function(_x, _y) {
 
 };
 

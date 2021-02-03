@@ -262,7 +262,7 @@ SUI.Object.prototype.isEmpty = function() {
  */
 SUI.Object.prototype.allowKeys = function(keys) {
   return this.filterKeys(this, (key) => {
-    return SUI.inContainArray(keys, key);
+    return SUI.inArray(keys, key);
   });
 };
 
@@ -273,7 +273,7 @@ SUI.Object.prototype.allowKeys = function(keys) {
  */
 SUI.Object.prototype.denyKeys = function(keys) {
   return this.filterKeys(this, (key) => {
-    return !SUI.inContainArray(keys, key);
+    return !SUI.inArray(keys, key);
   });
 };
 
