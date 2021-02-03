@@ -115,6 +115,34 @@ SUI.widget.File.prototype._initButtons = function() {
 
 /**
  * @private
+ * @param {string} mimeType
+ * @return {!Array}
+ */
+SUI.widget.File.prototype._lookupByMimeType = function(mimeType) {
+  return this.fileTypes[mimeType];
+};
+
+/**
+ * @private
+ * @param {string} extension
+ * @return {!Array}
+ */
+SUI.widget.File.prototype._lookupByExtension = function(extension) {
+  let results = [];
+  for (const key in this.fileTypes) {
+    if (Object.hasOwnProperty.call(this.fileTypes, key)) {
+      const fileType = this.fileTypes[key];
+      if (fileType[0] === extension) {
+        const color = fileType[1];
+        results = [key, color];
+      }
+    }
+  }
+  return results;
+};
+
+/**
+ * @private
  * @return {undefined}
  */
 SUI.widget.File.prototype._initFileIcon = function() {
@@ -191,7 +219,7 @@ SUI.widget.File.prototype._read = function(file) {
         this.imageTag.setAttribute('src', source);
         this.removeButton.removeClass('hidden');
       } else {
-        const [type, color] = this.fileTypes[file.type];
+        const [type, color] = this._lookupByMimeType(file.type);
         const imageSrc = this._getFileIconSrc(type, color);
         this.imageTag.setAttribute('src', imageSrc);
         this.removeButton.removeClass('hidden');
@@ -231,6 +259,11 @@ SUI.widget.File.prototype.setValue = function(value) {
     imageSrc = value['url'];
   }
   if (imageSrc) {
+    if (this._isDocument()) {
+      const extension = SUI.getExtensionName(imageSrc);
+      const [_mimeType, color] = this._lookupByExtension(extension);
+      imageSrc = this._getFileIconSrc(extension, color);
+    }
     this.defaultSrc = imageSrc;
     this.imageTag.setAttribute('src', this.defaultSrc);
     this.removeButton.addClass('hidden');
