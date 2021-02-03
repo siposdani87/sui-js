@@ -268,4 +268,6 @@ SUI.widget.File.prototype.setValue = function(value) {
     this.imageTag.setAttribute('src', this.defaultSrc);
     this.removeButton.addClass('hidden');
   }
+  this.modelChange(null);
+  this.checkValidity();
 };
