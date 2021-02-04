@@ -48,7 +48,6 @@ SUI.widget.Radiobutton.prototype._init = function() {
 SUI.widget.Radiobutton.prototype._change = function() {
   const value = this.input.getAttribute('value');
   this.modelChange(value);
-  this.checkValidity();
 
   const name = this.input.getAttribute('name');
   const radioButtonInputs = new SUI.Query(SUI.format('input[name="{0}"]', [name]), this.form.formNode);

@@ -80,7 +80,6 @@ SUI.widget.Color.prototype._initInput = function() {
       'background': inputNode.value,
     });
     this.modelChange(inputNode.value);
-    this.checkValidity();
     return true;
   });
 };

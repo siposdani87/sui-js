@@ -29,11 +29,10 @@ SUI.widget.Number.prototype._init = function() {
 
   this._initButtons();
 
-  this.input.addEventListener('keyup', (input) => {
+  this.input.addEventListener('keyup', (_input) => {
     this._checkValue();
     const value = this.getValue();
     this.modelChange(value);
-    this.checkValidity(true);
     return true;
   });
 
@@ -41,7 +40,6 @@ SUI.widget.Number.prototype._init = function() {
     this._checkValue();
     const value = this.getValue();
     this.modelChange(value);
-    this.checkValidity(true);
     return true;
   });
 };
@@ -64,7 +62,6 @@ SUI.widget.Number.prototype._initButtons = function() {
       let value = /** @type {number} */ (this.getValue() || 0);
       value += this._getStep();
       this.setValue(value);
-      this.checkValidity(true);
     }
   });
   actionNode.appendChild(upButton);
@@ -78,7 +75,6 @@ SUI.widget.Number.prototype._initButtons = function() {
       let value = /** @type {number} */ (this.getValue() || 0);
       value -= this._getStep();
       this.setValue(value);
-      this.checkValidity(true);
     }
   });
   actionNode.appendChild(downButton);
