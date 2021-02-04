@@ -211,6 +211,7 @@ SUI.Form.prototype._widgetValueChange = function(widget, value) {
     this._setValue(widgetName, value);
     widget.eventChange(value, currentValue);
   }
+  this.checkValidity(true, false);
 };
 
 /**

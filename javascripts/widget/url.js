@@ -36,14 +36,12 @@ SUI.widget.Url.prototype._init = function() {
   this.input.addEventListener('keyup', (input) => {
     const inputNode = input.getNode();
     this.modelChange(inputNode.value);
-    this.checkValidity();
     return true;
   });
 
   this.input.addEventListener('change', (input) => {
     const inputNode = input.getNode();
     this.modelChange(inputNode.value);
-    this.checkValidity();
     return true;
   });
 };

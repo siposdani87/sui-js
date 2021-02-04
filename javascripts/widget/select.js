@@ -67,7 +67,7 @@ SUI.widget.Select.prototype._initPopup = function() {
  */
 SUI.widget.Select.prototype._initChangeEvent = function() {
   this.input.addEventListener('change', () => {
-    this._change(true);
+    this._change();
     return true;
   });
 };
@@ -242,15 +242,13 @@ SUI.widget.Select.prototype.setOptions = function(items, opt_value = 'value', op
 
 /**
  * @private
- * @param {boolean=} opt_force
  * @return {undefined}
  */
-SUI.widget.Select.prototype._change = function(opt_force = false) {
+SUI.widget.Select.prototype._change = function() {
   const ids = this._getSelectedIds();
   this._setSelectTags(ids);
   const value = this.getValue();
   this.modelChange(value);
-  this.checkValidity(opt_force);
 };
 
 /**
@@ -341,10 +339,9 @@ SUI.widget.Select.prototype._setTags = function(tags) {
 /**
  * @private
  * @param {!Array} ids
- * @param {boolean=} opt_force
  * @return {undefined}
  */
-SUI.widget.Select.prototype._setSelectedIds = function(ids, opt_force = false) {
+SUI.widget.Select.prototype._setSelectedIds = function(ids) {
   this.options.each(function(option) {
     const id = option.get('id');
     const selected = SUI.inArray(ids, id);
@@ -357,7 +354,7 @@ SUI.widget.Select.prototype._setSelectedIds = function(ids, opt_force = false) {
     }
     node.selected = selected;
   });
-  this._change(opt_force);
+  this._change();
 };
 
 /**
@@ -404,7 +401,7 @@ SUI.widget.Select.prototype._handleSelectedId = function(id) {
     }
   }
   this.query = '';
-  this._setSelectedIds(ids, true);
+  this._setSelectedIds(ids);
   this.close();
 };
 

@@ -48,7 +48,6 @@ SUI.widget.Location.prototype._init = function() {
     location['address'] = SUI.typeCast(inputNode.value);
     this._setDataValue(/** @type {!Object} */(location));
     this.modelChange(location);
-    this.checkValidity();
     return true;
   });
 };

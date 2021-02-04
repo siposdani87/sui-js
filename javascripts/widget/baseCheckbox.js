@@ -42,7 +42,6 @@ SUI.widget.BaseCheckbox.prototype._init = function() {
 SUI.widget.BaseCheckbox.prototype._change = function() {
   const value = this.getValue();
   this.modelChange(value);
-  this.checkValidity();
 };
 
 /**

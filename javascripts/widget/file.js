@@ -225,7 +225,6 @@ SUI.widget.File.prototype._read = function(file) {
         this.removeButton.removeClass('hidden');
       }
       this.modelChange(source);
-      this.checkValidity();
     };
     reader.readAsDataURL(file);
   }
@@ -245,7 +244,6 @@ SUI.widget.File.prototype._remove = function() {
     this.imageTag.removeAttribute('src');
   }
   this.modelChange(null);
-  this.checkValidity();
 };
 
 /**
@@ -269,5 +267,4 @@ SUI.widget.File.prototype.setValue = function(value) {
     this.removeButton.addClass('hidden');
   }
   this.modelChange(null);
-  this.checkValidity();
 };

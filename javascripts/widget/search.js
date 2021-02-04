@@ -28,7 +28,6 @@ SUI.widget.Search.prototype._init = function() {
   this.input.addEventListener('keyup', (input, event) => {
     const inputNode = input.getNode();
     this.modelChange(inputNode.value);
-    this.checkValidity();
     if (SUI.eq(event.keyCode, 13)) {
       this.eventEnter(inputNode.value);
     }
@@ -38,7 +37,6 @@ SUI.widget.Search.prototype._init = function() {
   this.input.addEventListener('change', (input) => {
     const inputNode = input.getNode();
     this.modelChange(inputNode.value);
-    this.checkValidity();
     return true;
   });
 };
@@ -105,5 +103,5 @@ SUI.widget.Search.prototype._initClearButton = function() {
  * @return {undefined}
  */
 SUI.widget.Search.prototype.eventEnter = function(value) {
-
+  SUI.consoleWarn('SUI.widget.Search.eventEnter()', value);
 };

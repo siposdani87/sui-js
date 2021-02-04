@@ -30,7 +30,6 @@ SUI.widget.Textarea.prototype._init = function() {
   this.input.addEventListener('keyup', (input) => {
     const inputNode = input.getNode();
     this.modelChange(inputNode.value);
-    this.checkValidity(true);
     if (this._isRichText()) {
       this.richText.setHtml(inputNode.value);
     }
@@ -40,7 +39,6 @@ SUI.widget.Textarea.prototype._init = function() {
   this.input.addEventListener('change', (input) => {
     const inputNode = input.getNode();
     this.modelChange(inputNode.value);
-    this.checkValidity(true);
     return true;
   });
 };

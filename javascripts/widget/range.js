@@ -34,7 +34,6 @@ SUI.widget.Range.prototype._init = function() {
     this.input.setAttribute('value', inputNode.value);
     this.tooltip.setMessage(inputNode.value);
     this.modelChange(inputNode.value);
-    this.checkValidity();
   });
 };
 
