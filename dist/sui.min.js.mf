@@ -29,7 +29,6 @@ lib/browser.js
 module/tooltip.js
 lib/baseModal.js
 lib/confirm.js
-lib/console.js
 lib/cookie.js
 lib/xhr.js
 lib/http.js

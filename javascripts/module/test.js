@@ -28,7 +28,7 @@ SUI.Test.prototype.run = function() {
   ];
   for (const test of tests) {
     test.init();
-    console.info(`SUI.test.${test.name}.init()`);
+    SUI.consoleInfo(`SUI.test.${test.name}.init()`);
   }
 };
 
@@ -38,7 +38,7 @@ SUI.Test.prototype.run = function() {
  * @return {undefined}
  */
 SUI.Test.prototype.showError = function(message, object) {
-  console.error(this.name + '.' + message, object);
+  SUI.consoleError(this.name + '.' + message, object);
 };
 
 /**
@@ -47,5 +47,5 @@ SUI.Test.prototype.showError = function(message, object) {
  * @return {undefined}
  */
 SUI.Test.prototype.showLog = function(message, object) {
-  console.info(this.name + '.' + message, object);
+  SUI.consoleInfo(this.name + '.' + message, object);
 };

@@ -38,7 +38,7 @@ SUI.Widget = function(input, opt_label, opt_error, opt_inputBlock, opt_form) {
  * @param {*} oldValue
  */
 SUI.Widget.prototype.eventChange = function(value, oldValue) {
-
+  SUI.consoleError('SUI.Widget.prototype.eventChange', value, oldValue);
 };
 
 /**
@@ -391,10 +391,8 @@ SUI.Widget.prototype._setMutation = function() {
     for (let i = 0; i < mutationsList.length; i++) {
       const mutation = mutationsList[i];
       if (mutation.attributeName === 'disabled') {
-        // console.log('mutation: disabled', mutation);
         this.refresh();
       } else if (mutation.attributeName === 'required') {
-        // console.log('mutation: required', mutation);
         this.refresh();
       }
     }
