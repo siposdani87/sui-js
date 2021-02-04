@@ -1,5 +1,6 @@
 goog.provide('SUI.Year');
 
+goog.require('SUI');
 goog.require('SUI.Node');
 
 /**
@@ -53,5 +54,5 @@ SUI.Year.prototype.getNode = function() {
  * @param {!Object} date
  */
 SUI.Year.prototype.eventClick = function(date) {
-  console.warn('SUI.Year.eventClick()', date);
+  SUI.consoleWarn('SUI.Year.eventClick()', date);
 };

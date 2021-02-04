@@ -1,5 +1,6 @@
 goog.provide('SUI.Clock');
 
+goog.require('SUI');
 goog.require('SUI.Node');
 goog.require('SUI.Time');
 
@@ -338,5 +339,5 @@ SUI.Clock.prototype._onClick = function(selectedTime) {
  * @return {undefined}
  */
 SUI.Clock.prototype.eventClick = function(time) {
-  console.warn('SUI.Clock.eventClick()', time);
+  SUI.consoleWarn('SUI.Clock.eventClick()', time);
 };

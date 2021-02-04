@@ -129,7 +129,7 @@ SUI.State.prototype._parseUrl = function() {
   this._parsePath(path, (state, path, params) => {
     this._setHistory(state, path, params, true);
   }, () => {
-    // console.warn('SUI.State._parseUrl()', path, 'missing state from routes config');
+    // SUI.consoleWarn('SUI.State._parseUrl()', path, 'missing state from routes config');
     this.goRoot(true);
   });
 };
@@ -354,7 +354,7 @@ SUI.State.prototype.forward = function() {
  * @return {undefined}
  */
 SUI.State.prototype.eventChange = function(currentState, previousState, opt_force = false) {
-  console.warn('SUI.State.eventChange()', currentState, previousState, opt_force);
+  SUI.consoleWarn('SUI.State.eventChange()', currentState, previousState, opt_force);
 };
 
 /**

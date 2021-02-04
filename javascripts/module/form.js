@@ -106,6 +106,9 @@ SUI.Form.prototype._initWidgets = function() {
       widget.modelChange = (value) => {
         this._widgetValueChange(widget, value);
       };
+      widget.getPreviousValue = () => {
+        this._getPreviousValue(widget);
+      };
       widget.eventClick = (node) => {
         this.eventButton(this.model, node);
       };
@@ -133,7 +136,7 @@ SUI.Form.prototype.setModel = function(model, opt_force = true, opt_showMessage 
   this.model.merge(model);
   this.each((widget) => {
     const name = widget.getName();
-    const value = model.get(name);
+    const value = this.model.get(name);
     if (!SUI.isUndefined(value)) {
       widget.setValue(value);
       widget.checkValidity(opt_force, opt_showMessage);
@@ -170,8 +173,10 @@ SUI.Form.prototype.reset = function(opt_force = true, opt_showMessage = false) {
  */
 SUI.Form.prototype._setValue = function(name, value) {
   const currentValue = this._getValue(name);
-  this.previousModel.set(name, currentValue);
-  this.model.set(name, value);
+  if (!SUI.isSame(value, currentValue)) {
+    this.previousModel.set(name, currentValue);
+    this.model.set(name, value);
+  }
 };
 
 /**
@@ -185,11 +190,12 @@ SUI.Form.prototype._getValue = function(name) {
 
 /**
  * @private
- * @param {string} name
+ * @param {!SUI.Widget} widget
  * @return {*}
  */
-SUI.Form.prototype._getPreviousValue = function(name) {
-  return this.previousModel.get(name);
+SUI.Form.prototype._getPreviousValue = function(widget) {
+  const widgetName = widget.getName();
+  return this.previousModel.get(widgetName);
 };
 
 /**
@@ -200,10 +206,10 @@ SUI.Form.prototype._getPreviousValue = function(name) {
  */
 SUI.Form.prototype._widgetValueChange = function(widget, value) {
   const widgetName = widget.getName();
-  const previousValue = this._getPreviousValue(widgetName);
-  this._setValue(widgetName, value);
-  if (!SUI.isSame(value, previousValue)) {
-    widget.eventChange(value, previousValue);
+  const currentValue = this._getValue(widgetName);
+  if (!SUI.isSame(value, currentValue)) {
+    this._setValue(widgetName, value);
+    widget.eventChange(value, currentValue);
   }
 };
 
@@ -280,7 +286,7 @@ SUI.Form.prototype.findByModel = function(value) {
  * @return {undefined}
  */
 SUI.Form.prototype.eventSubmit = function(model, node) {
-  console.warn('SUI.Form.eventSubmit()', model, node);
+  SUI.consoleWarn('SUI.Form.eventSubmit()', model, node);
 };
 
 /**
@@ -289,7 +295,7 @@ SUI.Form.prototype.eventSubmit = function(model, node) {
  * @return {undefined}
  */
 SUI.Form.prototype.eventReset = function(model, node) {
-  console.warn('SUI.Form.eventReset()', model, node);
+  SUI.consoleWarn('SUI.Form.eventReset()', model, node);
 };
 
 /**
@@ -298,7 +304,7 @@ SUI.Form.prototype.eventReset = function(model, node) {
  * @return {undefined}
  */
 SUI.Form.prototype.eventButton = function(model, node) {
-  console.warn('SUI.Form.eventButton()', model, node);
+  SUI.consoleWarn('SUI.Form.eventButton()', model, node);
 };
 
 /**

@@ -242,7 +242,7 @@ SUI.Table.prototype.refresh = function(opt_page = -1) {
  * @return {undefined}
  */
 SUI.Table.prototype.eventAction = function(params) {
-  console.warn('SUI.Table.eventAction()', params);
+  SUI.consoleWarn('SUI.Table.eventAction()', params);
 };
 
 /**

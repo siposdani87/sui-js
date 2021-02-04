@@ -336,7 +336,7 @@ SUI.Node.prototype.removeChild = function(node) {
     try {
       this.node.removeChild(node.getNode());
     } catch (e) {
-      console.warn(e);
+      SUI.consoleWarn(e);
     }
   }
 };

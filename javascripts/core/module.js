@@ -139,7 +139,7 @@ SUI.Module.prototype._isModule = function(value) {
  */
 SUI.Module.prototype._changeServices = function(service, injection) {
   if (this._dependencies.indexOf([injection, service].join('-')) !== -1) {
-    console.error('SUI.Modules._changeServices()', 'Dependency injection circular loop', injection, '<=>', service);
+    SUI.consoleError('SUI.Modules._changeServices()', 'Dependency injection circular loop', injection, '<=>', service);
   }
   this._dependencies.push([service, injection].join('-'));
   const servicePosition = this._services.indexOf(service);
@@ -256,14 +256,14 @@ SUI.Module.prototype._initController = function(state, dom) {
  * @return {undefined}
  */
 SUI.Module.prototype.eventControllerLoaded = function(dom) {
-  console.warn('SUI.Module.eventControllerLoaded()', dom);
+  SUI.consoleWarn('SUI.Module.eventControllerLoaded()', dom);
 };
 
 /**
  * @return {undefined}
  */
 SUI.Module.prototype.eventControllerFailed = function() {
-  console.warn('SUI.Module.eventControllerFailed()');
+  SUI.consoleWarn('SUI.Module.eventControllerFailed()');
 };
 
 /**
@@ -271,7 +271,7 @@ SUI.Module.prototype.eventControllerFailed = function() {
  * @return {undefined}
  */
 SUI.Module.prototype.eventModuleFailed = function(state) {
-  console.warn('SUI.Module.eventModuleFailed()', state);
+  SUI.consoleWarn('SUI.Module.eventModuleFailed()', state);
 };
 
 /**
@@ -279,7 +279,7 @@ SUI.Module.prototype.eventModuleFailed = function(state) {
  * @return {undefined}
  */
 SUI.Module.prototype.eventModuleLoaded = function(state) {
-  console.warn('SUI.Module.eventModuleLoaded()', state);
+  SUI.consoleWarn('SUI.Module.eventModuleLoaded()', state);
 };
 
 /**
@@ -288,7 +288,7 @@ SUI.Module.prototype.eventModuleLoaded = function(state) {
  */
 SUI.Module.prototype.eventStateChange = function(state) {
   const deferred = new SUI.Deferred();
-  console.warn('SUI.Module.eventStateChange()', state);
+  SUI.consoleWarn('SUI.Module.eventStateChange()', state);
   deferred.resolve();
   return deferred.promise();
 };
@@ -300,7 +300,7 @@ SUI.Module.prototype.eventStateChange = function(state) {
  */
 SUI.Module.prototype.eventDomChange = function(state, dom) {
   const deferred = new SUI.Deferred();
-  console.warn('SUI.Module.eventDomChange()', state, dom);
+  SUI.consoleWarn('SUI.Module.eventDomChange()', state, dom);
   deferred.resolve();
   return deferred.promise();
 };
@@ -309,19 +309,19 @@ SUI.Module.prototype.eventDomChange = function(state, dom) {
  * @return {undefined}
  */
 SUI.Module.prototype.eventAfterInit = function() {
-  console.warn('SUI.Module.eventAfterInit()');
+  SUI.consoleWarn('SUI.Module.eventAfterInit()');
 };
 
 /**
  * @return {undefined}
  */
 SUI.Module.prototype.eventServiceLoaded = function() {
-  console.warn('SUI.Module.eventServiceLoaded()');
+  SUI.consoleWarn('SUI.Module.eventServiceLoaded()');
 };
 
 /**
  * @return {undefined}
  */
 SUI.Module.prototype.eventServiceFailed = function() {
-  console.warn('SUI.Module.eventServiceFailed()');
+  SUI.consoleWarn('SUI.Module.eventServiceFailed()');
 };

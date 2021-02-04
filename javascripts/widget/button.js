@@ -51,5 +51,5 @@ SUI.widget.Button.prototype.refresh = function() {
  * @return {undefined}
  */
 SUI.widget.Button.prototype.eventClick = function(node) {
-  console.warn('SUI.widget.Button.eventClick()', node);
+  SUI.consoleWarn('SUI.widget.Button.eventClick()', node);
 };

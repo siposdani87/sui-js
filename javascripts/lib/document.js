@@ -1,5 +1,6 @@
 goog.provide('SUI.lib.Document');
 
+goog.require('SUI');
 goog.require('SUI.Node');
 goog.require('SUI.Object');
 goog.require('SUI.lib');
@@ -51,7 +52,7 @@ SUI.lib.Document.prototype.setTitle = function(title) {
  * @return {undefined}
  */
 SUI.lib.Document.prototype.eventClick = function(target, event) {
-  console.warn('Document.eventClick()', target, event);
+  SUI.consoleWarn('Document.eventClick()', target, event);
 };
 
 /**
