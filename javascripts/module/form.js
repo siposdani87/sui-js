@@ -32,6 +32,7 @@ goog.inherits(SUI.Form, SUI.Collection);
  * @return {undefined}
  */
 SUI.Form.prototype._init = function() {
+  this.previousModel = new SUI.Object();
   this.model = new SUI.Object();
   this.initWidgets = [];
 
@@ -128,6 +129,8 @@ SUI.Form.prototype._initWidgets = function() {
  * @return {undefined}
  */
 SUI.Form.prototype.setModel = function(model, opt_force = true, opt_showMessage = false) {
+  this.previousModel = this.model.copy();
+  this.model.merge(model);
   this.each((widget) => {
     const name = widget.getName();
     const value = model.get(name);
@@ -136,7 +139,6 @@ SUI.Form.prototype.setModel = function(model, opt_force = true, opt_showMessage 
       widget.checkValidity(opt_force, opt_showMessage);
     }
   });
-  this.model.merge(model);
 };
 
 /**
@@ -156,6 +158,7 @@ SUI.Form.prototype.reset = function(opt_force = true, opt_showMessage = false) {
     widget.setValue();
     widget.checkValidity(opt_force, opt_showMessage);
   });
+  this.previousModel = this.model.copy();
   this.model.clear();
 };
 
@@ -166,6 +169,8 @@ SUI.Form.prototype.reset = function(opt_force = true, opt_showMessage = false) {
  * @return {undefined}
  */
 SUI.Form.prototype._setValue = function(name, value) {
+  const currentValue = this._getValue(name);
+  this.previousModel.set(name, currentValue);
   this.model.set(name, value);
 };
 
@@ -180,16 +185,25 @@ SUI.Form.prototype._getValue = function(name) {
 
 /**
  * @private
+ * @param {string} name
+ * @return {*}
+ */
+SUI.Form.prototype._getPreviousValue = function(name) {
+  return this.previousModel.get(name);
+};
+
+/**
+ * @private
  * @param {!SUI.Widget} widget
  * @param {*} value
  * @return {undefined}
  */
 SUI.Form.prototype._widgetValueChange = function(widget, value) {
   const widgetName = widget.getName();
-  const oldValue = this._getValue(widgetName);
+  const previousValue = this._getPreviousValue(widgetName);
   this._setValue(widgetName, value);
-  if (!SUI.isSame(value, oldValue)) {
-    widget.eventChange(value, oldValue);
+  if (!SUI.isSame(value, previousValue)) {
+    widget.eventChange(value, previousValue);
   }
 };
 

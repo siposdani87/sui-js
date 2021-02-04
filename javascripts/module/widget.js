@@ -35,10 +35,10 @@ SUI.Widget = function(input, opt_label, opt_error, opt_inputBlock, opt_form) {
 
 /**
  * @param {*} value
- * @param {*} oldValue
+ * @param {*} previousValue
  */
-SUI.Widget.prototype.eventChange = function(value, oldValue) {
-  SUI.consoleError('SUI.Widget.prototype.eventChange', value, oldValue);
+SUI.Widget.prototype.eventChange = function(value, previousValue) {
+  SUI.consoleError('SUI.Widget.prototype.eventChange', value, previousValue);
 };
 
 /**
