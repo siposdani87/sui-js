@@ -1,5 +1,6 @@
 goog.provide('SUI.Datetime');
 
+goog.require('SUI');
 goog.require('SUI.Calendar');
 goog.require('SUI.Clock');
 goog.require('SUI.Node');
@@ -219,5 +220,5 @@ SUI.Datetime.prototype._onClick = function() {
  * @return {undefined}
  */
 SUI.Datetime.prototype.eventClick = function(value) {
-  console.warn(value);
+  SUI.consoleWarn(value);
 };

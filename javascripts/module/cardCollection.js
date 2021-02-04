@@ -133,7 +133,7 @@ SUI.CardCollection.prototype._getCardNode = function(item) {
           const result = method.apply(this.ctrl, fnParams);
           cloneTemplate = cloneTemplate.replace(match, result);
         } else {
-          console.warn(SUI.format('ctrl.{0}() missing', [fnName]));
+          SUI.consoleWarn(SUI.format('ctrl.{0}() missing', [fnName]));
         }
       }
     } else {
@@ -166,7 +166,7 @@ SUI.CardCollection.prototype.refresh = function(opt_page = -1) {
  * @return {undefined}
  */
 SUI.CardCollection.prototype.eventAction = function(params) {
-  console.warn('SUI.CardCollection.eventAction()', params);
+  SUI.consoleWarn('SUI.CardCollection.eventAction()', params);
 };
 
 /**
@@ -175,7 +175,7 @@ SUI.CardCollection.prototype.eventAction = function(params) {
  * @return {undefined}
  */
 SUI.CardCollection.prototype.eventCardNode = function(cardNode, item) {
-  console.warn('SUI.CardCollection.eventCardNode()', cardNode, item);
+  SUI.consoleWarn('SUI.CardCollection.eventCardNode()', cardNode, item);
 };
 
 /**

@@ -1,5 +1,6 @@
 goog.provide('SUI.lib.Http');
 
+goog.require('SUI');
 goog.require('SUI.Deferred');
 goog.require('SUI.Object');
 goog.require('SUI.Promise');
@@ -150,7 +151,7 @@ SUI.lib.Http.prototype._getPromise = function(promise) {
  * @return {undefined}
  */
 SUI.lib.Http.prototype.eventBeforeRequest = function(http) {
-  console.warn('SUI.lib.Http.eventBeforeRequest', http);
+  SUI.consoleWarn('SUI.lib.Http.eventBeforeRequest', http);
 };
 
 /**
@@ -159,5 +160,5 @@ SUI.lib.Http.prototype.eventBeforeRequest = function(http) {
  * @return {undefined}
  */
 SUI.lib.Http.prototype.eventAfterRequest = function(http, response) {
-  console.warn('SUI.lib.Http.eventAfterRequest', http, response);
+  SUI.consoleWarn('SUI.lib.Http.eventAfterRequest', http, response);
 };

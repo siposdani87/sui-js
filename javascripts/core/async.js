@@ -143,7 +143,7 @@ SUI.Async.prototype.setStatus = function(sum, isError, counter, results) {
  * @return {undefined}
  */
 SUI.Async.prototype.eventComplete = function(isError, results) {
-  console.warn('Async.eventComplete(isError, results)', isError, results);
+  SUI.consoleWarn('Async.eventComplete(isError, results)', isError, results);
 };
 
 /**

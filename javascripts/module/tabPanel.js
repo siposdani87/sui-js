@@ -95,7 +95,7 @@ SUI.TabPanel.prototype._setActive = function(panelId) {
  * @return {undefined}
  */
 SUI.TabPanel.prototype.eventChange = function(panelId) {
-  console.warn('SUI.TabPanel.eventChange()', panelId);
+  SUI.consoleWarn('SUI.TabPanel.eventChange()', panelId);
 };
 
 /**

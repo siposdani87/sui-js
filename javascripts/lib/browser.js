@@ -67,7 +67,7 @@ SUI.lib.Browser.prototype._setFeature = function(name, value) {
  * @return {undefined}
  */
 SUI.lib.Browser.prototype.eventMissingFeatures = function(features) {
-  console.error('SUI.lib.Browser.eventMissingFeatures()', features);
+  SUI.consoleError('SUI.lib.Browser.eventMissingFeatures()', features);
 };
 
 /**

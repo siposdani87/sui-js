@@ -34,5 +34,5 @@ SUI.lib.ServiceWorker.prototype._init = function() {
  * @return {undefined}
  */
 SUI.lib.ServiceWorker.prototype.eventMissingFeatures = function(features) {
-  console.warn('SUI.lib.ServiceWorker.eventMissingFeatures()', features);
+  SUI.consoleWarn('SUI.lib.ServiceWorker.eventMissingFeatures()', features);
 };

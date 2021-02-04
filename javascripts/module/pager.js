@@ -231,5 +231,5 @@ SUI.Pager.prototype.draw = function() {
  * @return {undefined}
  */
 SUI.Pager.prototype.eventAction = function(page) {
-  console.warn('SUI.Pager.eventAction()', page);
+  SUI.consoleWarn('SUI.Pager.eventAction()', page);
 };

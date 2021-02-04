@@ -1,5 +1,6 @@
 goog.provide('SUI.Calendar');
 
+goog.require('SUI');
 goog.require('SUI.Day');
 goog.require('SUI.Month');
 goog.require('SUI.Node');
@@ -489,5 +490,5 @@ SUI.Calendar.prototype._setSelectedDate = function(date) {
  * @return {undefined}
  */
 SUI.Calendar.prototype.eventClick = function(date) {
-  console.warn('SUI.Calendar.eventClick()', date);
+  SUI.consoleWarn('SUI.Calendar.eventClick()', date);
 };

@@ -1,5 +1,6 @@
 goog.provide('SUI.Time');
 
+goog.require('SUI');
 goog.require('SUI.Node');
 
 /**
@@ -162,5 +163,5 @@ SUI.Time.prototype._setCircleStyle = function(circle, start, n, i, opt_j = 1, op
  * @param {number} index
  */
 SUI.Time.prototype.eventClick = function(index) {
-  console.warn('SUI.Time.eventClick()', index);
+  SUI.consoleWarn('SUI.Time.eventClick()', index);
 };

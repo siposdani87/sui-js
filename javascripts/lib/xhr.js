@@ -133,7 +133,7 @@ SUI.lib.Xhr.prototype._onReadyStateChange = function() {
         });
         break;
       default:
-        console.error('SUI.lib.Xhr._onReadyStateChange()', this.http.readyState);
+        SUI.consoleError('SUI.lib.Xhr._onReadyStateChange()', this.http.readyState);
         break;
     }
   };
@@ -302,7 +302,7 @@ SUI.lib.Xhr.prototype._getResponseData = function(data) {
       filename = contentDisposition.match(/filename="(.+)"/)[1];
     }
   } catch (_e) {
-    // console.warn(e);
+    // SUI.consoleWarn(e);
   }
 
   if (contentType) {

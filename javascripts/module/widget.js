@@ -38,28 +38,36 @@ SUI.Widget = function(input, opt_label, opt_error, opt_inputBlock, opt_form) {
  * @param {*} previousValue
  */
 SUI.Widget.prototype.eventChange = function(value, previousValue) {
-  SUI.consoleError('SUI.Widget.prototype.eventChange', value, previousValue);
+  SUI.consoleInfo('SUI.Widget.prototype.eventChange', value, previousValue);
 };
 
 /**
  * @return {undefined}
  */
 SUI.Widget.prototype.render = function() {
-  console.warn('SUI.Widget.render()');
+  SUI.consoleWarn('SUI.Widget.render()');
 };
 
 /**
  * @return {undefined}
  */
 SUI.Widget.prototype.refresh = function() {
-  console.warn('SUI.Widget.refresh()');
+  SUI.consoleWarn('SUI.Widget.refresh()');
 };
 
 /**
  * @param {*} value
  */
 SUI.Widget.prototype.modelChange = function(value) {
-  console.warn('SUI.Widget.modelChange()', value);
+  SUI.consoleWarn('SUI.Widget.modelChange()', value);
+};
+
+/**
+ * @return {*}
+ */
+SUI.Widget.prototype.getPreviousValue = function() {
+  SUI.consoleWarn('SUI.Widget.getPreviousValue()');
+  return undefined;
 };
 
 /**

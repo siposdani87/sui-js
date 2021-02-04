@@ -101,5 +101,5 @@ SUI.lib.Template.prototype._handleData = function(data, error) {
  * @return {undefined}
  */
 SUI.lib.Template.prototype.eventError = function(message) {
-  console.warn('SUI.lib.Template.eventError()', message);
+  SUI.consoleWarn('SUI.lib.Template.eventError()', message);
 };

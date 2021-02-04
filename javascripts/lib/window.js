@@ -82,7 +82,7 @@ SUI.lib.Window.prototype._initConnectionEvent = function() {
  * @return {undefined}
  */
 SUI.lib.Window.prototype.eventOffline = function(event) {
-  console.warn('SUI.Window.eventOffline()', event);
+  SUI.consoleWarn('SUI.Window.eventOffline()', event);
 };
 
 /**
@@ -90,7 +90,7 @@ SUI.lib.Window.prototype.eventOffline = function(event) {
  * @return {undefined}
  */
 SUI.lib.Window.prototype.eventOnline = function(event) {
-  console.warn('SUI.Window.eventOffline()', event);
+  SUI.consoleWarn('SUI.Window.eventOffline()', event);
 };
 
 /**
@@ -100,7 +100,7 @@ SUI.lib.Window.prototype.eventOnline = function(event) {
  * @return {undefined}
  */
 SUI.lib.Window.prototype.eventResize = function(width, height, event) {
-  console.warn('SUI.Window.eventResize()', width, height, event);
+  SUI.consoleWarn('SUI.Window.eventResize()', width, height, event);
 };
 
 /**
@@ -111,7 +111,7 @@ SUI.lib.Window.prototype.eventResize = function(width, height, event) {
  * @return {undefined}
  */
 SUI.lib.Window.prototype.eventOrientationChange = function(orientation, width, height, event) {
-  console.warn('SUI.Window.eventOrientationChange()', orientation, width, height, event);
+  SUI.consoleWarn('SUI.Window.eventOrientationChange()', orientation, width, height, event);
 };
 
 /**
@@ -120,7 +120,7 @@ SUI.lib.Window.prototype.eventOrientationChange = function(orientation, width, h
  * @return {undefined}
  */
 SUI.lib.Window.prototype.eventScroll = function(scrollTop, event) {
-  console.warn('SUI.Window.eventScroll()', scrollTop, event);
+  SUI.consoleWarn('SUI.Window.eventScroll()', scrollTop, event);
 };
 
 /**
@@ -197,7 +197,7 @@ SUI.lib.Window.prototype._initColorSchemeEvent = function() {
  * @return {undefined}
  */
 SUI.lib.Window.prototype.eventColorSchemeChange = function(colorScheme, event) {
-  console.warn('SUI.Window.eventColorSchemeChange()', colorScheme, event);
+  SUI.consoleWarn('SUI.Window.eventColorSchemeChange()', colorScheme, event);
 };
 
 /**

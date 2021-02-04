@@ -1,5 +1,6 @@
 goog.provide('SUI.lib.GeoLocation');
 
+goog.require('SUI');
 goog.require('SUI.Deferred');
 goog.require('SUI.Promise');
 goog.require('SUI.lib');
@@ -43,7 +44,7 @@ SUI.lib.GeoLocation.prototype.getPosition = function() {
   const deferred = new SUI.Deferred();
   navigator.geolocation.getCurrentPosition((position) => {
     deferred.resolve([position.coords.latitude, position.coords.longitude]);
-  }, (error) => {
+  }, (_error) => {
     deferred.reject([null, null]);
   }, this.options);
   return deferred.promise();
@@ -63,7 +64,7 @@ SUI.lib.GeoLocation.prototype.clearWatcher = function() {
  * @return {undefined}
  */
 SUI.lib.GeoLocation.prototype.eventChange = function(latitude, longitude, message) {
-  console.warn('SUI.lib.GeoLocation.eventChange()', latitude, longitude, message);
+  SUI.consoleWarn('SUI.lib.GeoLocation.eventChange()', latitude, longitude, message);
 };
 
 /**
@@ -104,5 +105,5 @@ SUI.lib.GeoLocation.prototype._handleError = function(error) {
  * @return {undefined}
  */
 SUI.lib.GeoLocation.prototype.eventError = function(message, code) {
-  console.warn('SUI.lib.GeoLocation.eventError()', message, code);
+  SUI.consoleWarn('SUI.lib.GeoLocation.eventError()', message, code);
 };

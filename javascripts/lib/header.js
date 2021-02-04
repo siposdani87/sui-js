@@ -1,5 +1,6 @@
 goog.provide('SUI.lib.Header');
 
+goog.require('SUI');
 goog.require('SUI.Object');
 goog.require('SUI.Query');
 goog.require('SUI.lib');
@@ -44,7 +45,7 @@ SUI.lib.Header.prototype._init = function() {
  * @return {undefined}
  */
 SUI.lib.Header.prototype.eventLogoClick = function() {
-  console.warn('SUI.lib.Header.eventLogoClick()');
+  SUI.consoleWarn('SUI.lib.Header.eventLogoClick()');
 };
 
 /**
