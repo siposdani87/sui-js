@@ -146,6 +146,11 @@ SUI.test.Object.prototype.testSet = function() {
     other: {
       attr4: 32,
     },
+    other2: {
+      other3: {
+        attr5: 13,
+      },
+    },
   });
   options.set('attr', null);
   if (options.get('attr') !== null) {
@@ -166,6 +171,10 @@ SUI.test.Object.prototype.testSet = function() {
   options.set('other', null);
   if (options.get('other') !== null) {
     this.showError('set', 4);
+  }
+  options.set('other2.other3', null);
+  if (options.get('other2.other3') !== null) {
+    this.showError('set', 5);
   }
 };
 

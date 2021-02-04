@@ -24,7 +24,7 @@ SUI.BaseTest.prototype.init = function() {
  * @return {undefined}
  */
 SUI.BaseTest.prototype.showError = function(message, object) {
-  console.error(this.name + '.' + message, object);
+  SUI.consoleError(this.name + '.' + message, object);
 };
 
 /**
@@ -33,5 +33,5 @@ SUI.BaseTest.prototype.showError = function(message, object) {
  * @return {undefined}
  */
 SUI.BaseTest.prototype.showLog = function(message, object) {
-  console.info(this.name + '.' + message, object);
+  SUI.consoleInfo(this.name + '.' + message, object);
 };

@@ -13,7 +13,6 @@ goog.require('SUI.lib.ActionCable');
 goog.require('SUI.lib.BottomMenu');
 goog.require('SUI.lib.Browser');
 goog.require('SUI.lib.Confirm');
-goog.require('SUI.lib.Console');
 goog.require('SUI.lib.Cookie');
 goog.require('SUI.lib.Dialog');
 goog.require('SUI.lib.Document');
@@ -111,7 +110,6 @@ SUI.Application.prototype._init = function(resources) {
   this._initScript();
   this._initStyle();
   this._initConfig();
-  this._initConsole();
   this._initServiceWorker();
   this._initActionCable();
 
@@ -254,14 +252,6 @@ SUI.Application.prototype._initScript = function() {
  */
 SUI.Application.prototype._initStyle = function() {
   this._instances[this._injections.style] = new SUI.lib.Style(this._instances[this._injections.progressBar]);
-};
-
-/**
- * @private
- * @return {undefined}
- */
-SUI.Application.prototype._initConsole = function() {
-  this._instances[this._injections.console] = new SUI.lib.Console(this._instances[this._injections.config]);
 };
 
 /**

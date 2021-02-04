@@ -94,6 +94,42 @@ SUI.coreRes = {
 SUI.production = false;
 
 /**
+ * @param {...*} message
+ */
+SUI.consoleLog = function(...message) {
+  if (!SUI.production) {
+    console.log(...message);
+  }
+};
+
+/**
+ * @param {...*} message
+ */
+SUI.consoleInfo = function(...message) {
+  if (!SUI.production) {
+    console.info(...message);
+  }
+};
+
+/**
+ * @param {...*} message
+ */
+SUI.consoleWarn = function(...message) {
+  if (!SUI.production) {
+    console.warn(...message);
+  }
+};
+
+/**
+ * @param {...*} message
+ */
+SUI.consoleError = function(...message) {
+  if (!SUI.production) {
+    console.error(...message);
+  }
+};
+
+/**
  * @export
  * @param {*} value
  * @return {*}
