@@ -149,6 +149,7 @@ SUI.test.Object.prototype.testSet = function() {
     other2: {
       other3: {
         attr5: 13,
+        attr6: 'title',
       },
     },
   });
