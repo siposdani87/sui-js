@@ -177,7 +177,7 @@
     .input-block {
       flex: 1;
       padding: 0;
-      margin-right: 10px;
+      margin-left: .5em;
 
       .action-container {
         top: 4px;
@@ -195,6 +195,7 @@
     justify-content: flex-end;
     display: flex;
     align-items: center;
+    margin-left: .5em;
 
     .mdl-button {
       margin-left: .3em;
@@ -253,12 +254,12 @@
     justify-content: flex-end;
     display: flex;
     align-items: center;
+    margin-left: .5em;
 
     .mdl-button {
       margin-left: .3em;
     }
   }
-
 }
 
 .fullscreen-background {
