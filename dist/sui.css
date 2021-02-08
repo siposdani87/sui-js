@@ -2402,7 +2402,7 @@ form input:-webkit-autofill:hover, form input:-webkit-autofill:focus, form input
 .page-header form .input-block {
   flex: 1;
   padding: 0;
-  margin-right: 10px;
+  margin-left: .5em;
 }
 
 .page-header form .input-block .action-container {
@@ -2417,6 +2417,7 @@ form input:-webkit-autofill:hover, form input:-webkit-autofill:focus, form input
   justify-content: flex-end;
   display: flex;
   align-items: center;
+  margin-left: .5em;
 }
 
 .page-header .actions .mdl-button {
@@ -2473,6 +2474,7 @@ form input:-webkit-autofill:hover, form input:-webkit-autofill:focus, form input
   justify-content: flex-end;
   display: flex;
   align-items: center;
+  margin-left: .5em;
 }
 
 .page-subheader .actions .mdl-button {
