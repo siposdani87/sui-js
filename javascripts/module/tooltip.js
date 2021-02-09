@@ -13,6 +13,7 @@ goog.require('SUI.Query');
  */
 SUI.Tooltip = function(element, opt_position = 'TOP') {
   this.element = element;
+  this.valid = false;
   this._initPositions(opt_position);
   this._init();
 };
@@ -55,12 +56,10 @@ SUI.Tooltip.prototype._init = function() {
 SUI.Tooltip.prototype._getMessage = function(opt_message = '') {
   if (!opt_message) {
     opt_message = /** @type {string} */ (this.element.getAttribute('desc')) || '';
-    this.element.removeAttribute('desc');
     if (opt_message) {
       this.tooltip.addClass('mdl-tooltip--large');
     }
     opt_message = /** @type {string} */ (this.element.getAttribute('title')) || opt_message;
-    this.element.removeAttribute('title');
   }
   return opt_message;
 };
@@ -83,7 +82,7 @@ SUI.Tooltip.prototype._createTooltip = function() {
   this.tooltip = new SUI.Node('span');
   this.tooltip.addClass(cssClasses);
   this.tooltip.setFor(/** @type {string} */(id));
-  this.element.insertAfter(this.tooltip);
+  this.valid = this.element.insertAfter(this.tooltip);
 };
 
 /**
@@ -93,7 +92,19 @@ SUI.Tooltip.prototype._createTooltip = function() {
 SUI.Tooltip.prototype.render = function(opt_message) {
   const message = this._getMessage(opt_message);
   this.setMessage(message);
-  SUI.mdl(this.tooltip);
+  this._handleAttributes();
+};
+
+/**
+ * @private
+ * @return {undefined}
+ */
+SUI.Tooltip.prototype._handleAttributes = function() {
+  if (this.valid) {
+    this.element.removeAttribute('desc');
+    this.element.removeAttribute('title');
+    SUI.mdl(this.tooltip);
+  }
 };
 
 /**

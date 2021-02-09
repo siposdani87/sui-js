@@ -93,13 +93,11 @@ SUI.lib.Helper.prototype.linkElement = function(linkNode, opt_callback, opt_href
       if (opt_callback) {
         const href = linkNode.getAttribute('href');
         linkNode.addEventListener('click', function() {
-          opt_callback(href);
+          opt_callback(href, linkNode);
         });
       }
 
-      const tooltip = new SUI.Tooltip(linkNode);
-      tooltip.render(opt_description);
-      SUI.mdl(linkNode);
+      this._setTooltip(linkNode, opt_description);
     } else {
       linkNode.remove();
     }
@@ -124,13 +122,14 @@ SUI.lib.Helper.prototype.createButton = function(name, callback, opt_description
 /**
  * @param {string} selector
  * @param {!SUI.Node} dom
+ * @param {!Function=} opt_callback
  * @param {!Array=} opt_cssClasses
  * @return {undefined}
  */
-SUI.lib.Helper.prototype.multipleButton = function(selector, dom, opt_cssClasses = ['mdl-button--primary']) {
+SUI.lib.Helper.prototype.multipleButton = function(selector, dom, opt_callback, opt_cssClasses = ['mdl-button--primary']) {
   const buttonNodes = new SUI.Query(selector, dom);
   buttonNodes.each((buttonNode) => {
-    this.buttonElement(buttonNode, undefined, '', true, opt_cssClasses);
+    this.buttonElement(buttonNode, opt_callback, '', true, opt_cssClasses);
   });
 };
 
@@ -171,12 +170,12 @@ SUI.lib.Helper.prototype.buttonElement = function(buttonNode, opt_callback, opt_
       buttonNode.setData('cssClasses', cssClasses);
       buttonNode.addClass(cssClasses);
       if (opt_callback) {
-        buttonNode.addEventListener('click', opt_callback);
+        buttonNode.addEventListener('click', () => {
+          opt_callback(buttonNode.getId(), buttonNode);
+        });
       }
 
-      const tooltip = new SUI.Tooltip(buttonNode);
-      tooltip.render(opt_description);
-      SUI.mdl(buttonNode);
+      this._setTooltip(buttonNode, opt_description);
     } else {
       buttonNode.remove();
     }
@@ -247,11 +246,13 @@ SUI.lib.Helper.prototype.iconButtonElement = function(buttonNode, opt_callback, 
       const cssClasses = ['mdl-button', 'mdl-js-button', 'mdl-js-ripple-effect', 'mdl-button--icon'].concat(opt_cssClasses);
       buttonNode.setData('cssClasses', cssClasses);
       buttonNode.addClass(cssClasses);
-      buttonNode.addEventListener('click', opt_callback);
+      if (opt_callback) {
+        buttonNode.addEventListener('click', () => {
+          opt_callback(buttonNode.getId(), buttonNode);
+        });
+      }
 
-      const tooltip = new SUI.Tooltip(buttonNode);
-      tooltip.render(opt_description);
-      SUI.mdl(buttonNode);
+      this._setTooltip(buttonNode, opt_description);
     } else {
       buttonNode.remove();
     }
@@ -269,6 +270,20 @@ SUI.lib.Helper.prototype._createIconNode = function(iconName, parentNode) {
   iconNode.addClass('material-icons');
   iconNode.setHtml(iconName);
   parentNode.appendChild(iconNode);
+};
+
+/**
+ * @param {!SUI.Node} node
+ * @param {string=} opt_description
+ * @return {undefined}
+ */
+SUI.lib.Helper.prototype._setTooltip = function(node, opt_description = '') {
+  if (opt_description) {
+    node.setAttribute('title', opt_description);
+  }
+  const tooltip = new SUI.Tooltip(node);
+  tooltip.render(opt_description);
+  SUI.mdl(node);
 };
 
 /**
