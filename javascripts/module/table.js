@@ -389,15 +389,18 @@ SUI.Table.prototype._renderDataNodeByItem = function(item, rowIndex, column, par
   let items = [];
   if (!SUI.isArray(result)) {
     items = [result];
+  } else {
+    items = /** @type {!Array} */(result);
   }
   SUI.eachArray(items, (item) => {
-    const dataNode = new SUI.Node('span');
     if (!SUI.instanceOf(item, SUI.Node) ) {
-      dataNode.setHtml(/** @type {string} */(result));
+      const dataNode = new SUI.Node('span');
+      dataNode.setHtml(/** @type {string} */(item));
+      item = dataNode;
     }
-    parentNode.appendChild(/** @type {!SUI.Node} */ (dataNode));
-    if (dataNode.getAttribute('title') || dataNode.getAttribute('desc')) {
-      const tooltip = new SUI.Tooltip(/** @type {!SUI.Node} */ (dataNode));
+    parentNode.appendChild(/** @type {!SUI.Node} */ (item));
+    if (item.getAttribute('title') || item.getAttribute('desc')) {
+      const tooltip = new SUI.Tooltip(/** @type {!SUI.Node} */ (item));
       tooltip.render();
     }
   });
