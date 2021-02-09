@@ -379,21 +379,28 @@ SUI.Table.prototype.setActions = function(actions) {
  * @return {undefined}
  */
 SUI.Table.prototype._renderDataNodeByItem = function(item, rowIndex, column, parentNode, tableRow) {
-  let dataNode = item.get(column, '');
+  let result = '';
   const calculation = this.options.calculations[column];
   if (SUI.isFunction(calculation)) {
-    dataNode = calculation(item, this.pager.offset + rowIndex, tableRow);
+    result = calculation(item, this.pager.offset + rowIndex, tableRow, parentNode);
+  } else {
+    result = item.get(column, '');
   }
-  if (!SUI.instanceOf(dataNode, SUI.Node)) {
-    const node = new SUI.Node('span');
-    node.setHtml(/** @type {string} */(dataNode));
-    dataNode = node;
+  let items = [];
+  if (!SUI.isArray(result)) {
+    items = [result];
   }
-  parentNode.appendChild(/** @type {!SUI.Node} */ (dataNode));
-  if (dataNode.getAttribute('title') || dataNode.getAttribute('desc')) {
-    const tooltip = new SUI.Tooltip(/** @type {!SUI.Node} */ (dataNode));
-    tooltip.render();
-  }
+  SUI.eachArray(items, (item) => {
+    const dataNode = new SUI.Node('span');
+    if (!SUI.instanceOf(item, SUI.Node) ) {
+      dataNode.setHtml(/** @type {string} */(result));
+    }
+    parentNode.appendChild(/** @type {!SUI.Node} */ (dataNode));
+    if (dataNode.getAttribute('title') || dataNode.getAttribute('desc')) {
+      const tooltip = new SUI.Tooltip(/** @type {!SUI.Node} */ (dataNode));
+      tooltip.render();
+    }
+  });
 };
 
 /**

@@ -362,45 +362,69 @@ SUI.Node.prototype.insert = function(node) {
 
 /**
  * @param {!SUI.Node} node
- * @return {undefined}
+ * @return {boolean}
  */
 SUI.Node.prototype.beforeChild = function(node) {
   const referenceNode = this.node.firstChild || this.node.firstElementChild;
-  this.node.insertBefore(node.getNode(), referenceNode);
+  if (referenceNode) {
+    this.node.insertBefore(node.getNode(), referenceNode);
+    return true;
+  }
+  return false;
 };
 
 /**
  * @param {!SUI.Node} node
- * @return {undefined}
+ * @return {boolean}
  */
 SUI.Node.prototype.afterChild = function(node) {
   const parentElement = this._getParentElement();
   if (parentElement) {
     parentElement.appendChild(node.getNode());
+    return true;
   }
+  return false;
 };
 
 /**
  * @param {!SUI.Node} node
- * @return {undefined}
+ * @return {boolean}
  */
 SUI.Node.prototype.insertBefore = function(node) {
   const parentElement = this._getParentElement();
   if (parentElement) {
     parentElement.insertBefore(node.getNode(), this.node);
+    return true;
   }
+  return false;
 };
 
 /**
  * @param {!SUI.Node} node
- * @return {undefined}
+ * @return {boolean}
  */
 SUI.Node.prototype.insertAfter = function(node) {
   const nextSiblingNode = this.getNextSibling();
   const parentElement = this._getParentElement();
   if (parentElement) {
     parentElement.insertBefore(node.getNode(), nextSiblingNode.getNode());
+    return true;
   }
+  return false;
+};
+
+/**
+ * @deprecated
+ * @param {!SUI.Node} node
+ * @return {boolean}
+ */
+SUI.Node.prototype.replaceChild = function(node) {
+  const parentElement = this._getParentElement();
+  if (parentElement) {
+    parentElement.replaceChild(node.getNode(), this.node);
+    return true;
+  }
+  return false;
 };
 
 /**
@@ -409,17 +433,6 @@ SUI.Node.prototype.insertAfter = function(node) {
 SUI.Node.prototype.getNextSibling = function() {
   const referenceNode = this.node.nextSibling || this.node.nextElementSibling;
   return new SUI.Node(/** @type {!Element} */(referenceNode));
-};
-
-/**
- * @param {!SUI.Node} node
- * @return {undefined}
- */
-SUI.Node.prototype.replaceChild = function(node) {
-  const parentElement = this._getParentElement();
-  if (parentElement) {
-    parentElement.replaceChild(node.getNode(), this.node);
-  }
 };
 
 /**
@@ -592,6 +605,7 @@ SUI.Node.prototype.cloneNode = function(opt_deep = false) {
 };
 
 /**
+ * @deprecated
  * @return {undefined}
  */
 SUI.Node.prototype.clearNode = function() {
