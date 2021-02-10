@@ -370,10 +370,13 @@ SUI.Node.prototype.beforeChild = function(node) {
     this.node.insertBefore(node.getNode(), referenceNode);
     return true;
   }
+  // TODO: refactor to use other technique
+  this.node.insertBefore(node.getNode(), referenceNode);
   return false;
 };
 
 /**
+ * @deprecated
  * @param {!SUI.Node} node
  * @return {boolean}
  */
