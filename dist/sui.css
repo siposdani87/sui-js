@@ -2497,11 +2497,6 @@ form input:-webkit-autofill:hover, form input:-webkit-autofill:focus, form input
   opacity: .8;
 }
 
-#captcha {
-  margin-left: calc((100% - 304px) / 2);
-  margin-bottom: 1em;
-}
-
 .dark-theme .page-content.fullscreen {
   display: flex;
   background-color: #424242;
