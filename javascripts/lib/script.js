@@ -44,9 +44,11 @@ SUI.lib.Script.prototype._init = function() {
  * @param {string} id
  * @param {string} url
  * @param {!Object=} opt_params
+ * @param {boolean=} opt_async
+ * @param {boolean=} opt_defer
  * @return {!SUI.Promise}
  */
-SUI.lib.Script.prototype.load = function(id, url, opt_params) {
+SUI.lib.Script.prototype.load = function(id, url, opt_params, opt_async = false, opt_defer = false) {
   this.progressBar.show();
   const deferred = new SUI.Deferred();
   const script = new SUI.Query('#' + id);
@@ -58,6 +60,13 @@ SUI.lib.Script.prototype.load = function(id, url, opt_params) {
     node.setId(id);
     const urlWithQueryString = SUI.urlWithQueryString(url, opt_params);
     node.setAttribute('src', urlWithQueryString);
+    // TODO: check there is a good performance solution for script load
+    if (opt_async) {
+      node.setAttribute('async');
+    }
+    if (opt_defer) {
+      node.setAttribute('defer');
+    }
 
     node.setAttribute('onload', () => {
       this.progressBar.hide();
