@@ -1,8 +1,7 @@
 .dark-theme {
   .mdl-switch {
-
     .mdl-switch__track {
-      background-color: $content-default-dark;
+      background-color: $content-default-light;
     }
 
     .mdl-switch__thumb {
@@ -29,7 +28,7 @@
 
     &.is-disabled {
       .mdl-switch__track {
-        background-color: $content-disabled-dark;
+        background-color: $content-default-light;
       }
 
       .mdl-switch__thumb {
@@ -42,11 +41,11 @@
 
       &.is-checked {
         .mdl-switch__track {
-          background-color: $primary-disabled-dark;
+          background-color: $primary-default-light;
         }
 
         .mdl-switch__thumb {
-          background-color: $primary-disabled-dark;
+          background-color: $checkbox-disabled-dark;
         }
       }
     }

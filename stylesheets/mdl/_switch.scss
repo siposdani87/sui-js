@@ -2,7 +2,7 @@
   height: auto;
 
   .mdl-switch__track {
-    background-color: $content-default-light;
+    background-color: $content-disabled-dark;
   }
 
   .mdl-switch__thumb {
@@ -29,7 +29,7 @@
 
   &.is-disabled {
     .mdl-switch__track {
-      background-color: $content-disabled-light;
+      background-color: $content-disabled-dark;
     }
 
     .mdl-switch__thumb {
@@ -43,11 +43,11 @@
 
     &.is-checked {
       .mdl-switch__track {
-        background-color: $primary-disabled-light;
+        background-color: $primary-default-dark;
       }
 
       .mdl-switch__thumb {
-        background-color: $primary-disabled-light;
+        background-color: $checkbox-disabled-light;
       }
     }
   }

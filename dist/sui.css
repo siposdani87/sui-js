@@ -384,7 +384,7 @@ label.is-disabled .mdl-radio__label {
 }
 
 .mdl-switch .mdl-switch__track {
-  background-color: #212121;
+  background-color: #bdbdbd;
 }
 
 .mdl-switch .mdl-switch__thumb {
@@ -408,7 +408,7 @@ label.is-disabled .mdl-radio__label {
 }
 
 .mdl-switch.is-disabled .mdl-switch__track {
-  background-color: #9e9e9e;
+  background-color: #bdbdbd;
 }
 
 .mdl-switch.is-disabled .mdl-switch__thumb {
@@ -421,15 +421,15 @@ label.is-disabled .mdl-radio__label {
 }
 
 .mdl-switch.is-disabled.is-checked .mdl-switch__track {
-  background-color: #bdbdbd;
+  background-color: #7986cb;
 }
 
 .mdl-switch.is-disabled.is-checked .mdl-switch__thumb {
-  background-color: #bdbdbd;
+  background-color: #e0e0e0;
 }
 
 .dark-theme .mdl-switch .mdl-switch__track {
-  background-color: #fafafa;
+  background-color: #212121;
 }
 
 .dark-theme .mdl-switch .mdl-switch__thumb {
@@ -453,7 +453,7 @@ label.is-disabled .mdl-radio__label {
 }
 
 .dark-theme .mdl-switch.is-disabled .mdl-switch__track {
-  background-color: #bdbdbd;
+  background-color: #212121;
 }
 
 .dark-theme .mdl-switch.is-disabled .mdl-switch__thumb {
@@ -465,7 +465,7 @@ label.is-disabled .mdl-radio__label {
 }
 
 .dark-theme .mdl-switch.is-disabled.is-checked .mdl-switch__track {
-  background-color: #757575;
+  background-color: #3f51b5;
 }
 
 .dark-theme .mdl-switch.is-disabled.is-checked .mdl-switch__thumb {
