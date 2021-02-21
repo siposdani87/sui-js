@@ -85,6 +85,21 @@ SUI.widget.Textarea.prototype._renderRichText = function() {
     return true;
   });
 
+  this.richText.addEventListener('paste', (_node, e) => {
+    let text = '';
+    if (e.clipboardData) {
+      text = e.clipboardData.getData('text/plain');
+    } else if (window.clipboardData) {
+      text = window.clipboardData.getData('Text');
+    }
+    if (document.queryCommandSupported('insertHTML')) {
+      document.execCommand('insertHTML', false, text);
+    } else {
+      document.execCommand('insertText', false, text);
+    }
+    return false;
+  });
+
   this.input.insertAfter(this.richText);
 
   this.richTextNode = this.richText.getNode();
