@@ -3488,25 +3488,25 @@ table tfoot tr td.pager {
 }
 
 .dark-theme .card-collection .card {
-  background-color: #424242;
-  border-color: #212121;
+  background-color: #212121;
+  border-color: #757575;
   box-shadow: 0 0 5px 0 rgba(33, 33, 33, 0.2);
 }
 
 .dark-theme .card-collection .card:hover {
   box-shadow: 0 0 5px 0 rgba(33, 33, 33, 0.3);
-  background-color: #212121;
+  background-color: #424242;
 }
 
 .dark-theme .card-collection .card:hover .title,
 .dark-theme .card-collection .card:hover .title-with-actions {
-  border-bottom-color: #424242;
+  border-bottom-color: #616161;
 }
 
 .dark-theme .card-collection .card .title,
 .dark-theme .card-collection .card .title-with-actions {
   color: #fafafa;
-  border-bottom-color: #616161;
+  border-bottom-color: #424242;
 }
 
 .dark-theme .card-collection .card .header {
