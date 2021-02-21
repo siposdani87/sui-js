@@ -1,24 +1,24 @@
 .dark-theme {
   .card-collection {
     .card {
-      background-color: $black-bright;
-      border-color: $black;
+      background-color: $black;
+      border-color: $deep-grey;
       box-shadow: 0 0 5px 0 rgba($black, .2);
 
       &:hover {
         box-shadow: 0 0 5px 0 rgba($black, .3);
-        background-color: $black;
+        background-color: $black-bright;
 
         .title,
         .title-with-actions {
-          border-bottom-color: $black-bright;
+          border-bottom-color: $deep-grey-dark;
         }
       }
 
       .title,
       .title-with-actions {
         color: $white;
-        border-bottom-color: $deep-grey-dark;
+        border-bottom-color: $black-bright;
       }
 
       .header {
