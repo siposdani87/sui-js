@@ -3467,11 +3467,12 @@ table tfoot tr td.pager {
 }
 
 .card-collection .card .content .info {
-  color: #616161;
+  color: #3f51b5;
+  font-weight: 500;
 }
 
 .card-collection .card .content .info .material-icons {
-  color: #3f51b5;
+  color: #616161;
   display: inline-block;
   vertical-align: sub;
   padding-top: 3px;
@@ -3527,11 +3528,11 @@ table tfoot tr td.pager {
 }
 
 .dark-theme .card-collection .card .content .info {
-  color: #9e9e9e;
+  color: #7986cb;
 }
 
 .dark-theme .card-collection .card .content .info .material-icons {
-  color: #7986cb;
+  color: #9e9e9e;
 }
 
 .dark-theme .card-collection .card .footer .caption {

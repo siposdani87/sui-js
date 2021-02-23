@@ -96,10 +96,11 @@
       }
 
       .info {
-        color: $deep-grey-dark;
+        color: $primary;
+        font-weight: 500;
 
         .material-icons {
-          color: $primary;
+          color: $deep-grey-dark;
           display: inline-block;
           vertical-align: sub;
           padding-top: 3px;
