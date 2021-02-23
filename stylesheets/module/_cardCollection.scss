@@ -75,6 +75,8 @@
 
       .actions {
         padding: 0 .8em;
+        display: flex;
+        flex-flow: row nowrap;
 
         .mdl-button {
           border-radius: 50%;
