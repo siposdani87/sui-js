@@ -3411,7 +3411,7 @@ table tfoot tr td.pager {
 
 .card-collection .card .header {
   padding: 7em 0 0;
-  background-color: #3f51b5;
+  background-color: #424242;
   color: #fafafa;
   border-top-left-radius: 3px;
   border-top-right-radius: 3px;
@@ -3513,7 +3513,7 @@ table tfoot tr td.pager {
 }
 
 .dark-theme .card-collection .card .header {
-  background-color: #3f51b5;
+  background-color: #212121;
   color: #fafafa;
 }
 
