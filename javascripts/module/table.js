@@ -91,7 +91,7 @@ SUI.Table.prototype._initSearch = function() {
     labelNode.setFor('table-search');
     searchNode.appendChild(labelNode);
 
-    const iconNode = new SUI.Node('i');
+    const iconNode = new SUI.Node('em');
     iconNode.addClass('material-icons');
     iconNode.setHtml('search');
     labelNode.appendChild(iconNode);
@@ -160,12 +160,12 @@ SUI.Table.prototype._renderHeader = function(headerNode, columnIndex) {
     iconsNode.addClass('icons');
     headerNode.appendChild(iconsNode);
 
-    const iconUp = new SUI.Node('i');
+    const iconUp = new SUI.Node('em');
     iconUp.addClass(['material-icons', 'asc']);
     iconUp.setHtml('arrow_drop_up');
     iconsNode.appendChild(iconUp);
 
-    const iconDown = new SUI.Node('i');
+    const iconDown = new SUI.Node('em');
     iconDown.addClass(['material-icons', 'desc']);
     iconDown.setHtml('arrow_drop_down');
     iconsNode.appendChild(iconDown);
@@ -174,7 +174,7 @@ SUI.Table.prototype._renderHeader = function(headerNode, columnIndex) {
   const headerTitle = /** @type {string} */ (headerNode.getAttribute('title'));
   const headerDesc = /** @type {string} */ (headerNode.getAttribute('desc'));
   if (headerTitle || headerDesc) {
-    const iconInfo = new SUI.Node('i');
+    const iconInfo = new SUI.Node('em');
     if (headerTitle) {
       iconInfo.setAttribute('desc', headerTitle);
     }
@@ -495,7 +495,7 @@ SUI.Table.prototype._createActionButton = function(containerNode, action, item) 
       const tooltip = new SUI.Tooltip(buttonNode);
       tooltip.render(title);
     }
-    const iconNode = new SUI.Node('i');
+    const iconNode = new SUI.Node('em');
     iconNode.addClass('material-icons');
     iconNode.setHtml(/** @type {string} */(icon));
     buttonNode.appendChild(iconNode);

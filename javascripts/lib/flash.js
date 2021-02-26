@@ -70,7 +70,7 @@ SUI.lib.Flash.prototype._getCloseButton = function(flashNode, opt_closeCallback 
   const buttonNode = flashNode.createElement('button');
   buttonNode.addClass(['mdl-button', 'mdl-js-button', 'mdl-button--icon']);
 
-  const buttonIcon = buttonNode.createElement('i');
+  const buttonIcon = buttonNode.createElement('em');
   buttonIcon.addClass('material-icons');
   buttonIcon.setHtml('close');
 

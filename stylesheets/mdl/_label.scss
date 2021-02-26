@@ -61,11 +61,11 @@
   }
 }
 
-.mdl-icon-toggle__label {
-  &.material-icons {
-    line-height: normal;
-  }
+em.mdl-icon-toggle__label {
+  line-height: normal;
+}
 
+.mdl-icon-toggle__label {
   &::selection {
     background: none;
   }

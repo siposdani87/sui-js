@@ -58,7 +58,7 @@ SUI.Popup.prototype._initCloseButton = function() {
     });
     this.popupNode.appendChild(btnClose);
 
-    const iconNode = new SUI.Node('i');
+    const iconNode = new SUI.Node('em');
     iconNode.addClass('material-icons');
     iconNode.setHtml('close');
     btnClose.appendChild(iconNode);
