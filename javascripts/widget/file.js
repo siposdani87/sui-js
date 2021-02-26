@@ -84,7 +84,7 @@ SUI.widget.File.prototype._initRemoveButton = function() {
   this.removeButton.addEventListener('click', () => {
     this._remove();
   });
-  const iconNode = new SUI.Node('i');
+  const iconNode = new SUI.Node('em');
   iconNode.addClass('material-icons');
   iconNode.setHtml('close');
   this.removeButton.appendChild(iconNode);

@@ -81,7 +81,7 @@ SUI.Pager.prototype._drawPreviousButton = function() {
     previousButton.addEventListener('click', () => {
       this._previous();
     });
-    const iconNode = new SUI.Node('i');
+    const iconNode = new SUI.Node('em');
     iconNode.addClass('material-icons');
     iconNode.setHtml('chevron_left');
     previousButton.appendChild(iconNode);
@@ -101,7 +101,7 @@ SUI.Pager.prototype._drawNextButton = function() {
     nextButton.addEventListener('click', () => {
       this._next();
     });
-    const iconNode = new SUI.Node('i');
+    const iconNode = new SUI.Node('em');
     iconNode.addClass('material-icons');
     iconNode.setHtml('chevron_right');
     nextButton.appendChild(iconNode);

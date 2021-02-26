@@ -25,7 +25,7 @@ SUI.lib.NavBar.prototype._init = function() {
   toggleNavBar.addEventListener('click', () => {
     this.toggle();
   });
-  this.toggleNavBarIcon = new SUI.Query('.material-icons', toggleNavBar).getItem();
+  this.toggleNavBarIcon = new SUI.Query('em', toggleNavBar).getItem();
 };
 
 /**

@@ -100,7 +100,7 @@
             width: 36px;
           }
 
-          .material-icons {
+          em {
             font-size: 32px;
 
             @include media-breakpoint-down(sm, landscape) {

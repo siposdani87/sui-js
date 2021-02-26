@@ -9,7 +9,7 @@
           .icons {
             color: $deep-grey-bright;
 
-            .material-icons {
+            em {
               &.active {
                 color: $white;
               }
@@ -60,7 +60,7 @@
             span {
               color: $deep-grey-bright;
 
-              .material-icons {
+              em {
                 &.active {
                   color: $white;
                 }

@@ -51,7 +51,7 @@ SUI.Dropdown.prototype._appendButton = function() {
   this.buttonNode.setId(this.options.id);
   this.buttonNode.addClass(['mdl-button', 'mdl-js-button', 'mdl-button--icon']);
 
-  const iconNode = new SUI.Node('i');
+  const iconNode = new SUI.Node('em');
   iconNode.addClass('material-icons');
   iconNode.setHtml('more_vert');
   this.buttonNode.appendChild(iconNode);

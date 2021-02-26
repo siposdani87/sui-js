@@ -74,7 +74,7 @@ SUI.Calendar.prototype._initHeaderNode = function() {
   const previousButton = new SUI.Node('a');
   previousButton.setAttribute('href', 'javascript:void(0)');
   previousButton.addClass(['previous', 'mdl-button', 'mdl-js-button', 'mdl-button--icon']);
-  const prevIconNode = new SUI.Node('i');
+  const prevIconNode = new SUI.Node('em');
   prevIconNode.addClass('material-icons');
   prevIconNode.setHtml('chevron_left');
   previousButton.appendChild(prevIconNode);
@@ -92,7 +92,7 @@ SUI.Calendar.prototype._initHeaderNode = function() {
   const nextButton = new SUI.Node('a');
   nextButton.setAttribute('href', 'javascript:void(0)');
   nextButton.addClass(['previous', 'mdl-button', 'mdl-js-button', 'mdl-button--icon']);
-  const nextIconNode = new SUI.Node('i');
+  const nextIconNode = new SUI.Node('em');
   nextIconNode.addClass('material-icons');
   nextIconNode.setHtml('chevron_right');
   nextButton.appendChild(nextIconNode);

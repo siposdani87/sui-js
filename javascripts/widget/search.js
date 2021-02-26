@@ -50,7 +50,7 @@ SUI.widget.Search.prototype.render = function() {
   this.input.addClass(['mdl-textfield__input']);
 
   this.label.addClass(['mdl-button', 'mdl-js-button', 'mdl-button--icon']);
-  const iconNode = new SUI.Node('i');
+  const iconNode = new SUI.Node('em');
   iconNode.addClass(['material-icons', 'search-button']);
   iconNode.setHtml('search');
   this.label.insert(iconNode);

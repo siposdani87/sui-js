@@ -29,7 +29,7 @@ SUI.widget.IconToggle.prototype.render = function() {
   this.checkedIcon = /** @type {string} */ (this.input.getData('checked'));
   this.uncheckedIcon = /** @type {string} */ (this.input.getData('unchecked'));
 
-  this.icon = new SUI.Node('i');
+  this.icon = new SUI.Node('em');
   this.icon.addClass(['mdl-icon-toggle__label', 'material-icons']);
   this.icon.setHtml(this.input.getNode().checked ? this.checkedIcon : this.uncheckedIcon);
 

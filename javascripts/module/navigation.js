@@ -99,7 +99,7 @@ SUI.Navigation.prototype.addCounter = function(id, counter, title, action, opt_h
  */
 SUI.Navigation.prototype.addIcon = function(id, icon, title, action, opt_href = '', opt_data = {}) {
   const item = this._setItem(id, title, action, opt_href, opt_data);
-  const iconNode = new SUI.Node('i');
+  const iconNode = new SUI.Node('em');
   iconNode.addClass(['material-icons']);
   iconNode.setHtml(icon);
 
