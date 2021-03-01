@@ -3519,7 +3519,7 @@ table tfoot tr td.pager {
 
 .dark-theme .card-collection .card .header .title {
   color: #fafafa;
-  background-color: rgba(33, 33, 33, 0.7);
+  background-color: rgba(0, 0, 0, 0.7);
   border-bottom-color: #f06292;
 }
 
@@ -3588,14 +3588,6 @@ table tfoot tr td.pager {
 
 .content-handler p {
   color: #9e9e9e;
-}
-
-.dark-theme .content-handler img {
-  border-color: #424242;
-}
-
-.dark-theme .content-handler p {
-  color: #424242;
 }
 
 @keyframes rotation {
@@ -4560,7 +4552,7 @@ table tfoot tr td.pager {
 #left-menu.black {
   animation-name: fadeIn;
   animation-duration: .5s;
-  background-color: rgba(0, 0, 0, 0.7);
+  background-color: rgba(33, 33, 33, 0.7);
   width: 100%;
   height: 100%;
 }
@@ -4713,6 +4705,10 @@ table tfoot tr td.pager {
 #left-menu .main-menu .menu-container a .title,
 #left-menu .sub-menu .menu-container a .title {
   flex: 0 1 75%;
+}
+
+.dark-theme #left-menu.black {
+  background-color: rgba(0, 0, 0, 0.7);
 }
 
 .dark-theme #left-menu .main-menu,
@@ -5257,7 +5253,7 @@ table tfoot tr td.pager {
   position: fixed;
   width: 100%;
   height: 100%;
-  background-color: rgba(33, 33, 33, 0.75);
+  background-color: rgba(33, 33, 33, 0.7);
   justify-content: center;
   overflow-y: auto;
 }
@@ -5318,6 +5314,10 @@ table tfoot tr td.pager {
   margin-left: 5px;
 }
 
+.dark-theme #dialog {
+  background-color: rgba(0, 0, 0, 0.7);
+}
+
 .dark-theme #dialog #dialog-window {
   background-color: #000;
   color: #fafafa;
@@ -5329,7 +5329,7 @@ table tfoot tr td.pager {
   position: fixed;
   width: 100%;
   height: 100%;
-  background-color: rgba(33, 33, 33, 0.75);
+  background-color: rgba(33, 33, 33, 0.7);
   justify-content: center;
   overflow-y: auto;
 }
@@ -5436,6 +5436,10 @@ table tfoot tr td.pager {
 
 #confirm #confirm-window .modal-footer button {
   margin-left: 5px;
+}
+
+.dark-theme #confirm {
+  background-color: rgba(0, 0, 0, 0.7);
 }
 
 .dark-theme #confirm #confirm-window {
@@ -5566,7 +5570,7 @@ table tfoot tr td.pager {
   position: fixed;
   width: 100%;
   height: 100%;
-  background-color: rgba(33, 33, 33, 0.9);
+  background-color: rgba(33, 33, 33, 0.7);
   justify-content: center;
   overflow-y: auto;
 }
@@ -5639,7 +5643,7 @@ table tfoot tr td.pager {
 }
 
 .dark-theme #viewer {
-  background-color: rgba(33, 33, 33, 0.95);
+  background-color: rgba(0, 0, 0, 0.7);
 }
 
 .dark-theme #viewer #viewer-window .modal-body img {

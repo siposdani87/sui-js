@@ -1,5 +1,7 @@
 .dark-theme {
   #dialog {
+    background-color: rgba($black-dark, .7);
+
     #dialog-window {
       background-color: $black-dark;
       color: $white;

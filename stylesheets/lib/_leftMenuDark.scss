@@ -1,5 +1,9 @@
 .dark-theme {
   #left-menu {
+    &.black {
+      background-color: rgba($black-dark, .7);
+    }
+
     .main-menu,
     .sub-menu {
       background-color: $black;
