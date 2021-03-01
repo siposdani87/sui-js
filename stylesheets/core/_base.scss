@@ -192,10 +192,10 @@ address {
   padding: 4px 10px;
   margin: 1px 5px 1px 0;
   white-space: nowrap;
-  border: 3px solid $grey;
+  border: 3px solid $deep-grey-bright;
   font-size: .75em;
   font-weight: 700;
-  color: $grey;
+  color: $deep-grey-bright;
   text-transform: uppercase;
 
   &.text-primary {
@@ -262,7 +262,7 @@ address {
 }
 
 .text-grey {
-  color: $grey;
+  color: $deep-grey-bright;
 }
 
 .text-success {
