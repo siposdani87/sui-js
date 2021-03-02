@@ -3519,7 +3519,7 @@ table tfoot tr td.pager {
 
 .dark-theme .card-collection .card .header .title {
   color: #fafafa;
-  background-color: rgba(0, 0, 0, 0.7);
+  background-color: rgba(33, 33, 33, 0.7);
   border-bottom-color: #f06292;
 }
 
@@ -4552,7 +4552,7 @@ table tfoot tr td.pager {
 #left-menu.black {
   animation-name: fadeIn;
   animation-duration: .5s;
-  background-color: rgba(33, 33, 33, 0.7);
+  background-color: rgba(0, 0, 0, 0.7);
   width: 100%;
   height: 100%;
 }
@@ -5315,7 +5315,7 @@ table tfoot tr td.pager {
 }
 
 .dark-theme #dialog {
-  background-color: rgba(0, 0, 0, 0.7);
+  background-color: rgba(33, 33, 33, 0.7);
 }
 
 .dark-theme #dialog #dialog-window {
@@ -5439,7 +5439,7 @@ table tfoot tr td.pager {
 }
 
 .dark-theme #confirm {
-  background-color: rgba(0, 0, 0, 0.7);
+  background-color: rgba(33, 33, 33, 0.7);
 }
 
 .dark-theme #confirm #confirm-window {
@@ -5570,7 +5570,7 @@ table tfoot tr td.pager {
   position: fixed;
   width: 100%;
   height: 100%;
-  background-color: rgba(33, 33, 33, 0.7);
+  background-color: rgba(0, 0, 0, 0.7);
   justify-content: center;
   overflow-y: auto;
 }
