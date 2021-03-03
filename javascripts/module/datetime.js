@@ -220,5 +220,5 @@ SUI.Datetime.prototype._onClick = function() {
  * @return {undefined}
  */
 SUI.Datetime.prototype.eventClick = function(value) {
-  SUI.consoleWarn(value);
+  SUI.consoleWarn('SUI.Datetime.eventClick()', value);
 };
