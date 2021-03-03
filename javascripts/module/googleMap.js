@@ -39,8 +39,9 @@ SUI.GoogleMap.prototype._setOptions = function(opt_options = {}) {
     // disableDefaultUI: true,
     scaleControl: true,
     mapTypeControl: false,
+    mapTypeId: google.maps.MapTypeId.TERRAIN,
     mapTypeControlOptions: {
-      mapTypeIds: [google.maps.MapTypeId.SATELLITE, google.maps.MapTypeId.TERRAIN], // 'custom'
+      mapTypeIds: [google.maps.MapTypeId.TERRAIN, google.maps.MapTypeId.SATELLITE],
     },
   });
   this.options.merge(opt_options);
@@ -48,132 +49,17 @@ SUI.GoogleMap.prototype._setOptions = function(opt_options = {}) {
 };
 
 /**
- * @private
- * @return {!google.maps.StyledMapType}
+ * @param {string} mapTypeId
+ * @param {string} mapTypeName
+ * @param {!Array<?google.maps.MapTypeStyle>} mapStyles
+ * @return {undefined}
  */
-SUI.GoogleMap.prototype._getCustomMapType = function() {
-  return new google.maps.StyledMapType([
-    {
-      elementType: 'geometry',
-      stylers: [{color: '#ebe3cd'}],
-    },
-    {
-      elementType: 'labels.text.fill',
-      stylers: [{color: '#523735'}],
-    },
-    {
-      elementType: 'labels.text.stroke',
-      stylers: [{color: '#f5f1e6'}],
-    },
-    {
-      featureType: 'administrative',
-      elementType: 'geometry.stroke',
-      stylers: [{color: '#c9b2a6'}],
-    },
-    {
-      featureType: 'administrative.land_parcel',
-      elementType: 'geometry.stroke',
-      stylers: [{color: '#dcd2be'}],
-    },
-    {
-      featureType: 'administrative.land_parcel',
-      elementType: 'labels.text.fill',
-      stylers: [{color: '#ae9e90'}],
-    },
-    {
-      featureType: 'landscape.natural',
-      elementType: 'geometry',
-      stylers: [{color: '#dfd2ae'}],
-    },
-    {
-      featureType: 'poi',
-      elementType: 'geometry',
-      stylers: [{color: '#dfd2ae'}],
-    },
-    {
-      featureType: 'poi',
-      elementType: 'labels.text.fill',
-      stylers: [{color: '#93817c'}],
-    },
-    {
-      featureType: 'poi.park',
-      elementType: 'geometry.fill',
-      stylers: [{color: '#a5b076'}],
-    },
-    {
-      featureType: 'poi.park',
-      elementType: 'labels.text.fill',
-      stylers: [{color: '#447530'}],
-    },
-    {
-      featureType: 'road',
-      elementType: 'geometry',
-      stylers: [{color: '#f5f1e6'}],
-    },
-    {
-      featureType: 'road.arterial',
-      elementType: 'geometry',
-      stylers: [{color: '#fdfcf8'}],
-    },
-    {
-      featureType: 'road.highway',
-      elementType: 'geometry',
-      stylers: [{color: '#f8c967'}],
-    },
-    {
-      featureType: 'road.highway',
-      elementType: 'geometry.stroke',
-      stylers: [{color: '#e9bc62'}],
-    },
-    {
-      featureType: 'road.highway.controlled_access',
-      elementType: 'geometry',
-      stylers: [{color: '#e98d58'}],
-    },
-    {
-      featureType: 'road.highway.controlled_access',
-      elementType: 'geometry.stroke',
-      stylers: [{color: '#db8555'}],
-    },
-    {
-      featureType: 'road.local',
-      elementType: 'labels.text.fill',
-      stylers: [{color: '#806b63'}],
-    },
-    {
-      featureType: 'transit.line',
-      elementType: 'geometry',
-      stylers: [{color: '#dfd2ae'}],
-    },
-    {
-      featureType: 'transit.line',
-      elementType: 'labels.text.fill',
-      stylers: [{color: '#8f7d77'}],
-    },
-    {
-      featureType: 'transit.line',
-      elementType: 'labels.text.stroke',
-      stylers: [{color: '#ebe3cd'}],
-    },
-    {
-      featureType: 'transit.station',
-      elementType: 'geometry',
-      stylers: [{color: '#dfd2ae'}],
-    },
-    {
-      featureType: 'water',
-      elementType: 'geometry.fill',
-      stylers: [{color: '#b9d3c2'}],
-    },
-    {
-      featureType: 'water',
-      elementType: 'labels.text.fill',
-      stylers: [{color: '#92998d'}],
-    },
-  ],
-  {
-    name: 'Custom',
+SUI.GoogleMap.prototype.setCustomMapType = function(mapTypeId, mapTypeName, mapStyles) {
+  const styledMapType = new google.maps.StyledMapType(mapStyles, {
+    name: mapTypeName,
   });
+  this.map.mapTypes.set(mapTypeId, styledMapType);
+  this.map.setMapTypeId(mapTypeId);
 };
 
 /**
@@ -196,9 +82,6 @@ SUI.GoogleMap.prototype._init = function() {
  */
 SUI.GoogleMap.prototype._initMap = function() {
   this.map = new google.maps.Map(this.mapNode.getNode(), this.options);
-
-  const customMapType = this._getCustomMapType();
-  this.map.mapTypes.set('custom', customMapType);
 
   this._unbindEventsToMap();
   this._bindEventsToMap();
@@ -242,7 +125,7 @@ SUI.GoogleMap.prototype._initOverlay = function() {
  * @return {undefined}
  */
 SUI.GoogleMap.prototype.eventPolygonChanged = function(polygonData, points, computeArea, center) {
-
+  SUI.consoleInfo('SUI.GoogleMap.eventPolygonChanged()', polygonData, points, computeArea, center);
 };
 
 /**
@@ -466,7 +349,7 @@ SUI.GoogleMap.prototype._callPolygonChangeEvent = function(polygon, polygonData)
  * @return {undefined}
  */
 SUI.GoogleMap.prototype.eventPolygonClick = function(polygonData, latitude, longitude, event) {
-
+  SUI.consoleInfo('SUI.GoogleMap.eventPolygonClick()', polygonData, latitude, longitude, event);
 };
 
 /**
@@ -477,7 +360,7 @@ SUI.GoogleMap.prototype.eventPolygonClick = function(polygonData, latitude, long
  * @return {undefined}
  */
 SUI.GoogleMap.prototype.eventPolygonRightClick = function(polygonData, latitude, longitude, event) {
-
+  SUI.consoleInfo('SUI.GoogleMap.eventPolygonRightClick()', polygonData, latitude, longitude, event);
 };
 
 /**
@@ -487,7 +370,7 @@ SUI.GoogleMap.prototype.eventPolygonRightClick = function(polygonData, latitude,
  * @return {undefined}
  */
 SUI.GoogleMap.prototype.eventMapClick = function(latitude, longitude, event) {
-
+  SUI.consoleInfo('SUI.GoogleMap.eventMapClick()', latitude, longitude, event);
 };
 
 /**
@@ -924,7 +807,7 @@ SUI.GoogleMap.prototype.openInfoWindow = function(markerId, content) {
  * @return {undefined}
  */
 SUI.GoogleMap.prototype.eventMarkerClick = function(markerData, event) {
-
+  SUI.consoleInfo('SUI.GoogleMap.eventMarkerClick()', markerData, event);
 };
 
 /**
@@ -933,7 +816,7 @@ SUI.GoogleMap.prototype.eventMarkerClick = function(markerData, event) {
  * @return {undefined}
  */
 SUI.GoogleMap.prototype.eventMarkerRightClick = function(markerData, event) {
-
+  SUI.consoleInfo('SUI.GoogleMap.eventMarkerRightClick()', markerData, event);
 };
 
 /**
@@ -944,7 +827,7 @@ SUI.GoogleMap.prototype.eventMarkerRightClick = function(markerData, event) {
  * @return {undefined}
  */
 SUI.GoogleMap.prototype.eventMarkerChanged = function(markerData, latitude, longitude, event) {
-
+  SUI.consoleInfo('SUI.GoogleMap.eventMarkerChanged()', markerData, latitude, longitude, event);
 };
 
 /**
