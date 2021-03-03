@@ -90,7 +90,9 @@ SUI.Popup.prototype.close = function() {
 /**
  * @return {undefined}
  */
-SUI.Popup.prototype.eventClose = function() {};
+SUI.Popup.prototype.eventClose = function() {
+  SUI.consoleInfo('SUI.Popup.eventClose()');
+};
 
 /**
  * @return {undefined}

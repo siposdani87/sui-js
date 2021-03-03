@@ -372,10 +372,9 @@ SUI.lib.Xhr.prototype._setRequestHeaders = function(urlType, opt_headers = {}) {
 /**
  * @private
  * @param {string} urlType
- * @param {!Object=} opt_headers
  * @return {undefined}
  */
-SUI.lib.Xhr.prototype._setResponseType = function(urlType, opt_headers = {}) {
+SUI.lib.Xhr.prototype._setResponseType = function(urlType) {
   this.http.responseType = this._getResponseType(urlType);
 };
 

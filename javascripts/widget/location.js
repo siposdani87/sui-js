@@ -314,9 +314,9 @@ SUI.widget.Location.prototype.getValue = function() {
 };
 
 /**
- * @param {string} _address
+ * @param {string} address
  * @return {undefined}
  */
-SUI.widget.Location.prototype.eventSearch = function(_address) {
-
+SUI.widget.Location.prototype.eventSearch = function(address) {
+  SUI.consoleInfo('SUI.widget.Location.eventSearch()', address);
 };

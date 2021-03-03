@@ -38,7 +38,7 @@ SUI.Widget = function(input, opt_label, opt_error, opt_inputBlock, opt_form) {
  * @param {*} previousValue
  */
 SUI.Widget.prototype.eventChange = function(value, previousValue) {
-  SUI.consoleInfo('SUI.Widget.prototype.eventChange', value, previousValue);
+  SUI.consoleInfo('SUI.Widget.eventChange()', value, previousValue);
 };
 
 /**
