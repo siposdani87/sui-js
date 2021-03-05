@@ -5594,12 +5594,14 @@ table tfoot tr td.pager {
 }
 
 #viewer #viewer-window .modal-header {
-  flex: 0;
   padding: 0 10px 0 20px;
   min-height: 50px;
   display: flex;
   flex-flow: row nowrap;
   align-items: center;
+  width: 100vw;
+  position: fixed;
+  background-color: rgba(33, 33, 33, 0.9);
 }
 
 #viewer #viewer-window .modal-header .modal-title {
