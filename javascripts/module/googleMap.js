@@ -228,27 +228,25 @@ SUI.GoogleMap.prototype.getPolygon = function(id) {
 SUI.GoogleMap.prototype.removePolygon = function(id) {
   const polygonData = this.getPolygon(id);
   if (polygonData) {
-    const polygon = /** @type {!google.maps.Polygon} */ (polygonData.get('_polygon'));
-    polygon.setMap(null);
     const mapText = polygonData.get('_map_text');
     mapText.set('map', null);
+    const polygon = /** @type {!google.maps.Polygon} */ (polygonData.get('_polygon'));
+    polygon.setMap(null);
     this._unbindEventsToPolygon(polygon);
     this.polygons.deleteById(id);
   }
 };
 
 /**
- * @param {!Function=} opt_callback
  * @return {undefined}
  */
-SUI.GoogleMap.prototype.removeAllPolygon = function(opt_callback = SUI.noop) {
+SUI.GoogleMap.prototype.removeAllPolygon = function() {
   this.polygons.each((polygonData) => {
     const polygon = /** @type {!google.maps.Polygon} */ (polygonData.get('_polygon'));
     polygon.setMap(null);
     const mapText = polygonData.get('_map_text');
     mapText.set('map', null);
     this._unbindEventsToPolygon(polygon);
-    opt_callback(polygonData);
   });
   this.polygons.clear();
 };
@@ -333,8 +331,8 @@ SUI.GoogleMap.prototype._callPolygonChangeEvent = function(polygon, polygonData)
   const points = this._getPointsFromPolygon(polygonData);
   this._setBoundsByPoints(polygonData, points);
 
-  const latLng = this._getCenterOfPolygon(polygonData);
   const mapText = polygonData.get('_map_text');
+  const latLng = this._getCenterOfPolygon(polygonData);
   mapText.set('position', new google.maps.LatLng(latLng.latitude, latLng.longitude));
 
   const cleanPolygonData = this._cleanPolygonData(polygonData);
@@ -669,12 +667,19 @@ SUI.GoogleMap.prototype.createMarkerByXY = function(id, title, iconName, x, y, m
  */
 SUI.GoogleMap.prototype._bindEventsToMarker = function(marker, markerData) {
   const cleanMarkerData = this._cleanMarkerData(markerData);
+
   marker.addListener('click', (event) => {
     this.eventMarkerClick(cleanMarkerData, event);
   });
 
   marker.addListener('rightclick', (event) => {
     this.eventMarkerRightClick(cleanMarkerData, event);
+  });
+
+  marker.addListener('drag', (_event) => {
+    const vertex = marker.getPosition();
+    const mapLabel = markerData.get('_map_label');
+    mapLabel.set('position', vertex);
   });
 
   marker.addListener('dragend', (event) => {
@@ -751,6 +756,8 @@ SUI.GoogleMap.prototype.getMarker = function(id) {
 SUI.GoogleMap.prototype.removeMarker = function(id) {
   const markerData = this.getMarker(id);
   if (markerData) {
+    const mapLabel = markerData.get('_map_label');
+    mapLabel.setMap(null);
     const marker = /** @type {!google.maps.Marker} */ (markerData.get('_marker'));
     marker.setMap(null);
     this._unbindEventsToMarker(marker);
@@ -759,15 +766,15 @@ SUI.GoogleMap.prototype.removeMarker = function(id) {
 };
 
 /**
- * @param {!Function=} opt_callback
  * @return {undefined}
  */
-SUI.GoogleMap.prototype.removeAllMarker = function(opt_callback = SUI.noop) {
+SUI.GoogleMap.prototype.removeAllMarker = function() {
   this.markers.each((markerData) => {
+    const mapLabel = markerData.get('_map_label');
+    mapLabel.setMap(null);
     const marker = /** @type {!google.maps.Marker} */ (markerData.get('_marker'));
     marker.setMap(null);
     this._unbindEventsToMarker(marker);
-    opt_callback(markerData);
   });
   this.markers.clear();
 };
