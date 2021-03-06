@@ -258,7 +258,7 @@ SUI.Object.prototype.isEmpty = function() {
 /**
  * @export
  * @param {!Array} keys
- * @return {!Object}
+ * @return {!SUI.Object}
  */
 SUI.Object.prototype.allowKeys = function(keys) {
   return this.filterKeys(this, (key) => {
@@ -269,7 +269,7 @@ SUI.Object.prototype.allowKeys = function(keys) {
 /**
  * @export
  * @param {!Array} keys
- * @return {!Object}
+ * @return {!SUI.Object}
  */
 SUI.Object.prototype.denyKeys = function(keys) {
   return this.filterKeys(this, (key) => {
@@ -281,7 +281,7 @@ SUI.Object.prototype.denyKeys = function(keys) {
  * @export
  * @param {!SUI.Object} obj
  * @param {!Function} condition
- * @return {!Object}
+ * @return {!SUI.Object}
  */
 SUI.Object.prototype.filterKeys = function(obj, condition) {
   const resultObj = new SUI.Object();
