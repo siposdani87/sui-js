@@ -43,7 +43,9 @@
       <div class="modal-header">
         <h4 class="modal-title"></h4>
         <nav class="navigation">
-          <button class="close"><em class="material-icons">close</em></button>
+          <button class="close">
+            <em class="material-icons">close</em>
+          </button>
         </nav>
       </div>
       <div class="modal-body"></div>
@@ -56,9 +58,15 @@
       <div class="modal-header">
         <h4 class="modal-title"></h4>
         <nav class="navigation">
-          <button class="minimize hidden"><em class="material-icons">fullscreen_exit</em></button><button
-            class="maximize hidden"><em class="material-icons">fullscreen</em></button><button class="close"><i
-              class="material-icons">close</em></button>
+          <button class="minimize hidden">
+            <em class="material-icons">fullscreen_exit</em>
+          </button>
+          <button class="maximize hidden">
+            <em class="material-icons">fullscreen</em>
+          </button>
+          <button class="close">
+            <em class="material-icons">close</em>
+          </button>
         </nav>
       </div>
       <div class="modal-body"></div>
@@ -70,7 +78,9 @@
       <div class="modal-header">
         <h4 class="modal-title"></h4>
         <nav class="navigation">
-          <button class="close"><em class="material-icons">close</em></button>
+          <button class="close">
+            <em class="material-icons">close</em>
+          </button>
         </nav>
       </div>
       <div class="modal-body"></div>
@@ -80,14 +90,18 @@
   <div class="black" id="left-menu">
     <aside class="main-menu">
       <div class="header">
-        <a id="close-left-menu"><em class="material-icons size-40">clear</em></a>
+        <a id="close-left-menu">
+          <em class="material-icons size-40">clear</em>
+        </a>
         <h3></h3>
       </div>
       <div class="menu-container"></div>
     </aside>
     <aside class="sub-menu">
       <div class="header">
-        <a id="close-sub-menu"><em class="material-icons size-40">arrow_back</em></a>
+        <a id="close-sub-menu">
+          <em class="material-icons size-40">arrow_back</em>
+        </a>
         <h3></h3>
       </div>
       <div class="menu-container"></div>
@@ -96,22 +110,36 @@
   <div class="main-container">
     <header class="hidden" id="header">
       <div class="menu">
-        <a id="open-left-menu"><em class="material-icons size-40">menu</em></a><a class="brand"><img alt="SUI-JS"
-            src="images/sui_2.png"><span class="app-title">TrophyMap</span></a><a id="toggle-top-menu"><i
-            class="material-icons size-40">more_vert</em></a>
+        <a id="open-left-menu">
+          <em class="material-icons size-40">menu</em>
+        </a>
+        <a class="brand">
+          <img alt="SUI-JS" src="images/sui_2.png">
+          <span class="app-title">SUI.JS</span>
+        </a>
+        <a id="toggle-top-menu">
+          <em class="material-icons size-40">more_vert</em>
+        </a>
       </div>
-      <div id="top-menu"></div>
+      <div id="top-menu">
+        <a href="#"><span class="title">menu-1</span></a>
+        <a href="#"><span class="title">menu-2</span></a>
+      </div>
       <div class="progress-bar"></div>
     </header>
     <header class="nav-bar-header hidden">
       <div id="nav-bar"></div>
-      <a id="toggle-nav-bar"><em class="material-icons size-40">menu</em></a>
+      <a id="toggle-nav-bar">
+        <em class="material-icons size-40">menu</em>
+      </a>
     </header>
     <div class="hidden" id="loader"></div>
     <div class="progress-bar"></div>
     <div class="flex-container">
       <div class="sidebar hidden" id="left-sidebar">
-        <a><em class="material-icons size-48">keyboard_arrow_right</em></a>
+        <a>
+          <em class="material-icons size-48">keyboard_arrow_right</em>
+        </a>
         <div class="content">
           left-sidebar
         </div>
@@ -352,7 +380,8 @@
                             <div class="input-block">
                               <label for="light-input-file-disabled-required"
                                 desc="Description of input">light-input-file-disabled-required</label>
-                              <input name="light-input-file-disabled-required-name" type="hidden" value="document.docx" />
+                              <input name="light-input-file-disabled-required-name" type="hidden"
+                                value="document.docx" />
                               <input id="light-input-file-disabled-required" name="light-input-file-disabled-required"
                                 type="file" value="" accept=".docx,.xlsx,.pdf" disabled required />
                             </div>
@@ -593,8 +622,8 @@
                         <div class="mdl-grid">
                           <div class="mdl-cell mdl-cell--6-col">
                             <div class="input-block">
-                              <label
-                                for="light-input-checkbox-default-checked" data-label="light-input-checkbox-default-checked">light-input-checkbox-default-checked</label>
+                              <label for="light-input-checkbox-default-checked"
+                                data-label="light-input-checkbox-default-checked">light-input-checkbox-default-checked</label>
                               <input type="hidden" name="light-input-checkbox-default-checked" value="false" />
                               <input id="light-input-checkbox-default-checked"
                                 name="light-input-checkbox-default-checked" type="checkbox" value="true" checked />
@@ -602,8 +631,8 @@
                           </div>
                           <div class="mdl-cell mdl-cell--6-col">
                             <div class="input-block">
-                              <label
-                                for="light-input-checkbox-disabled-checked" data-label="light-input-checkbox-disabled-checked">light-input-checkbox-disabled-checked</label>
+                              <label for="light-input-checkbox-disabled-checked"
+                                data-label="light-input-checkbox-disabled-checked">light-input-checkbox-disabled-checked</label>
                               <input type="hidden" name="light-input-checkbox-disabled-checked" value="false" />
                               <input id="light-input-checkbox-disabled-checked"
                                 name="light-input-checkbox-disabled-checked" type="checkbox" value="true" checked
@@ -612,7 +641,8 @@
                           </div>
                           <div class="mdl-cell mdl-cell--6-col">
                             <div class="input-block">
-                              <label for="light-input-checkbox-default" data-label="light-input-checkbox-default">light-input-checkbox-default</label>
+                              <label for="light-input-checkbox-default"
+                                data-label="light-input-checkbox-default">light-input-checkbox-default</label>
                               <input type="hidden" name="light-input-checkbox-default" value="false" />
                               <input id="light-input-checkbox-default" name="light-input-checkbox-default"
                                 type="checkbox" value="true" />
@@ -620,7 +650,8 @@
                           </div>
                           <div class="mdl-cell mdl-cell--6-col">
                             <div class="input-block">
-                              <label for="light-input-checkbox-disabled" data-label="light-input-checkbox-disabled">light-input-checkbox-disabled</label>
+                              <label for="light-input-checkbox-disabled"
+                                data-label="light-input-checkbox-disabled">light-input-checkbox-disabled</label>
                               <input type="hidden" name="light-input-checkbox-disabled" value="false" />
                               <input id="light-input-checkbox-disabled" name="light-input-checkbox-disabled"
                                 type="checkbox" value="true" disabled />
@@ -628,7 +659,8 @@
                           </div>
                           <div class="mdl-cell mdl-cell--6-col">
                             <div class="input-block">
-                              <label for="light-input-checkbox-required" data-label="light-input-checkbox-required">light-input-checkbox-required</label>
+                              <label for="light-input-checkbox-required"
+                                data-label="light-input-checkbox-required">light-input-checkbox-required</label>
                               <input type="hidden" name="light-input-checkbox-required" value="false" />
                               <input id="light-input-checkbox-required" name="light-input-checkbox-required"
                                 type="checkbox" value="true" required />
@@ -636,8 +668,8 @@
                           </div>
                           <div class="mdl-cell mdl-cell--6-col">
                             <div class="input-block">
-                              <label for="light-input-checkbox-disabled-required"
-                                desc="Description of input" data-label="light-input-checkbox-disabled-required">light-input-checkbox-disabled-required</label>
+                              <label for="light-input-checkbox-disabled-required" desc="Description of input"
+                                data-label="light-input-checkbox-disabled-required">light-input-checkbox-disabled-required</label>
                               <input type="hidden" name="light-input-checkbox-disabled-required" value="false" />
                               <input id="light-input-checkbox-disabled-required"
                                 name="light-input-checkbox-disabled-required" type="checkbox" value="true" disabled
@@ -976,17 +1008,23 @@
         </div>
       </div>
       <div class="sidebar hidden" id="right-sidebar">
-        <a href="javascript:void(0)"><em class="material-icons size-48">keyboard_arrow_left</em></a>
+        <a href="javascript:void(0)">
+          <em class="material-icons size-48">keyboard_arrow_left</em>
+        </a>
         <div class="content">
           right-sidebar
         </div>
       </div>
     </div>
     <footer class="hidden" id="footer">
-      <a id="close-bottom-menu" href="javascript:void(0)"><em class="material-icons size-40">keyboard_arrow_down</em></a>
+      <a id="close-bottom-menu" href="javascript:void(0)">
+        <em class="material-icons size-40">keyboard_arrow_down</em>
+      </a>
       <div class="content"></div>
       <div class="locales"></div>
-      <a id="open-bottom-menu" href="javascript:void(0)"><em class="material-icons size-40">keyboard_arrow_up</em></a>
+      <a id="open-bottom-menu" href="javascript:void(0)">
+        <em class="material-icons size-40">keyboard_arrow_up</em>
+      </a>
       <div id="bottom-menu"></div>
     </footer>
   </div>

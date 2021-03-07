@@ -54,6 +54,16 @@ SUI.widget.IconToggle.prototype.render = function() {
 
 /**
  * @override
+ * @return {undefined}
+ */
+SUI.widget.IconToggle.prototype._change = function() {
+  const value = this.getValue();
+  this.icon.setHtml(this.input.getNode().checked ? this.checkedIcon : this.uncheckedIcon);
+  this.modelChange(value);
+};
+
+/**
+ * @override
  * @param {!Object|!Function|!Array|boolean|number|string|null|undefined} value
  * @return {undefined}
  */
