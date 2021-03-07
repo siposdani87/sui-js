@@ -246,6 +246,24 @@ SUI.widget.Location.prototype._renderMap = function() {
 };
 
 /**
+ * @param {string} mapTypeId
+ * @return {undefined}
+ */
+SUI.widget.Location.prototype.setMapType = function(mapTypeId) {
+  this.map.setMapType(mapTypeId);
+};
+
+/**
+ * @param {string} mapTypeId
+ * @param {string} mapTypeName
+ * @param {!Array<?google.maps.MapTypeStyle>} mapStyles
+ * @return {undefined}
+ */
+SUI.widget.Location.prototype.setCustomMapStyle = function(mapTypeId, mapTypeName, mapStyles) {
+  this.map.setCustomMapStyle(mapTypeId, mapTypeName, mapStyles);
+};
+
+/**
  * @private
  * @return {undefined}
  */
@@ -256,9 +274,6 @@ SUI.widget.Location.prototype._setDefaultValue = function() {
     this.map.createMarker(0, '', 'marker', location['latitude'], location['longitude']);
     this._setDataValue(location);
   }
-  /* setTimeout(() => {
-    this.map.triggerResize();
-  }, 500);*/
 };
 
 /**
