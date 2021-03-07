@@ -36,7 +36,7 @@ SUI.widget.BaseCheckbox.prototype._init = function() {
 };
 
 /**
- * @private
+ * @protected
  * @return {undefined}
  */
 SUI.widget.BaseCheckbox.prototype._change = function() {
