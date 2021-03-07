@@ -50,16 +50,23 @@ SUI.GoogleMap.prototype._setOptions = function(opt_options = {}) {
 
 /**
  * @param {string} mapTypeId
+ * @return {undefined}
+ */
+SUI.GoogleMap.prototype.setMapType = function(mapTypeId) {
+  this.map.setMapTypeId(mapTypeId);
+};
+
+/**
+ * @param {string} mapTypeId
  * @param {string} mapTypeName
  * @param {!Array<?google.maps.MapTypeStyle>} mapStyles
  * @return {undefined}
  */
-SUI.GoogleMap.prototype.setCustomMapType = function(mapTypeId, mapTypeName, mapStyles) {
+SUI.GoogleMap.prototype.setCustomMapStyle = function(mapTypeId, mapTypeName, mapStyles) {
   const styledMapType = new google.maps.StyledMapType(mapStyles, {
     name: mapTypeName,
   });
   this.map.mapTypes.set(mapTypeId, styledMapType);
-  this.map.setMapTypeId(mapTypeId);
 };
 
 /**
