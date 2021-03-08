@@ -92,6 +92,7 @@
 .mdl-textfield.is-invalid .mdl-textfield__label, .mdl-textfield.is-dirty .mdl-textfield__label, .mdl-textfield.is-focused .mdl-textfield__label, .mdl-textfield.has-placeholder .mdl-textfield__label {
   font-size: 16px;
   color: #757575;
+  visibility: visible;
 }
 
 .mdl-textfield.is-dirty .mdl-textfield__label, .mdl-textfield.is-focused .mdl-textfield__label, .mdl-textfield.has-placeholder .mdl-textfield__label {
@@ -4164,6 +4165,7 @@ table tfoot tr td.pager {
 .range-widget .mdl-slider {
   background-color: #bdbdbd;
   margin: 0;
+  width: 100%;
 }
 
 .range-widget .mdl-slider::-webkit-slider-thumb,
