@@ -268,7 +268,7 @@ SUI.Table.prototype._toggleSorting = function(columnWithOrder) {
 SUI.Table.prototype._handleSortingColumn = function(head, i) {
   const column = this.options.columns[i];
   if ((SUI.eq(this.options.sort.column, null) && SUI.eq(i, 0)) || SUI.eq(column, this.options.sort.column)) {
-    const iconNode = new SUI.Query(SUI.format('.icons i.{0}', [this.options.sort.order]), head).getItem();
+    const iconNode = new SUI.Query(SUI.format('.icons em.{0}', [this.options.sort.order]), head).getItem();
     if (!iconNode.isEmpty()) {
       iconNode.addClass('active');
     }
