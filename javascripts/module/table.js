@@ -156,19 +156,19 @@ SUI.Table.prototype._renderHeader = function(headerNode, columnIndex) {
       this._toggleSorting(column);
     });
 
-    const iconsNode = new SUI.Node('span');
-    iconsNode.addClass('icons');
-    headerNode.appendChild(iconsNode);
+    const iconsContainerNode = new SUI.Node('span');
+    iconsContainerNode.addClass('icons');
+    headerNode.appendChild(iconsContainerNode);
 
     const iconUp = new SUI.Node('em');
     iconUp.addClass(['material-icons', 'asc']);
     iconUp.setHtml('arrow_drop_up');
-    iconsNode.appendChild(iconUp);
+    iconsContainerNode.appendChild(iconUp);
 
     const iconDown = new SUI.Node('em');
     iconDown.addClass(['material-icons', 'desc']);
     iconDown.setHtml('arrow_drop_down');
-    iconsNode.appendChild(iconDown);
+    iconsContainerNode.appendChild(iconDown);
   }
 
   const headerTitle = /** @type {string} */ (headerNode.getAttribute('title'));
@@ -304,7 +304,7 @@ SUI.Table.prototype._setSorting = function(column, opt_order = 'asc') {
  * @return {undefined}
  */
 SUI.Table.prototype._resetSorting = function() {
-  const icons = new SUI.Query('thead th .icons i', this.tableNode);
+  const icons = new SUI.Query('thead th .icons em', this.tableNode);
   icons.each(function(icon) {
     icon.removeClass('active');
   });
