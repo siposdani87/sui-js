@@ -282,6 +282,11 @@ SUI.GoogleMap.prototype._bindEventsToPolygon = function(polygon, polygonData) {
     this.eventPolygonClick(cleanPolygonData, vertex.lat(), vertex.lng(), event);
   });
 
+  polygon.addListener('dblclick', (event) => {
+    const vertex = event.latLng;
+    this.eventPolygonDoubleClick(cleanPolygonData, vertex.lat(), vertex.lng(), event);
+  });
+
   this._bindEventsToPolygonPath(polygon, polygonData);
 };
 
@@ -355,6 +360,17 @@ SUI.GoogleMap.prototype._callPolygonChangeEvent = function(polygon, polygonData)
  */
 SUI.GoogleMap.prototype.eventPolygonClick = function(polygonData, latitude, longitude, event) {
   SUI.consoleInfo('SUI.GoogleMap.eventPolygonClick()', polygonData, latitude, longitude, event);
+};
+
+/**
+ * @param {!SUI.Object} polygonData
+ * @param {number} latitude
+ * @param {number} longitude
+ * @param {!Object} event
+ * @return {undefined}
+ */
+SUI.GoogleMap.prototype.eventPolygonDoubleClick = function(polygonData, latitude, longitude, event) {
+  SUI.consoleInfo('SUI.GoogleMap.eventPolygonDoubleClick()', polygonData, latitude, longitude, event);
 };
 
 /**
