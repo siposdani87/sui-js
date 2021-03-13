@@ -679,6 +679,10 @@ SUI.GoogleMap.prototype._bindEventsToMarker = function(marker, markerData) {
     this.eventMarkerClick(cleanMarkerData, event);
   });
 
+  marker.addListener('dblclick', (event) => {
+    this.eventMarkerDoubleClick(cleanMarkerData, event);
+  });
+
   marker.addListener('rightclick', (event) => {
     this.eventMarkerRightClick(cleanMarkerData, event);
   });
@@ -822,6 +826,15 @@ SUI.GoogleMap.prototype.openInfoWindow = function(markerId, content) {
  */
 SUI.GoogleMap.prototype.eventMarkerClick = function(markerData, event) {
   SUI.consoleInfo('SUI.GoogleMap.eventMarkerClick()', markerData, event);
+};
+
+/**
+ * @param {!SUI.Object} markerData
+ * @param {!Object} event
+ * @return {undefined}
+ */
+SUI.GoogleMap.prototype.eventMarkerDoubleClick = function(markerData, event) {
+  SUI.consoleInfo('SUI.GoogleMap.eventMarkerDoubleClick()', markerData, event);
 };
 
 /**
