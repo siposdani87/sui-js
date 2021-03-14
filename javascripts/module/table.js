@@ -328,7 +328,7 @@ SUI.Table.prototype._getColumn = function() {
 SUI.Table.prototype._addHeaderRow = function(item, rowIndex) {
   const headerRow = new SUI.Node('tr');
   headerRow.addEventListener('click', (node) => {
-    node.toggleClass('active');
+    node.toggleClass('opened');
     const dataRow = headerRow.getNextSibling();
     dataRow.toggleClass('open');
   });
@@ -358,7 +358,7 @@ SUI.Table.prototype._getRowStyle = function(item, rowIndex) {
     const styleResult = this.options.rowStyle(item, rowIndex);
     if (SUI.isArray(styleResult)) {
       results = styleResult;
-    } else {
+    } else if (styleResult) {
       results.push(styleResult);
     }
   }

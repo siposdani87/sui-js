@@ -2698,11 +2698,11 @@ table tbody tr.header:hover {
   background-color: #e0e0e0;
 }
 
-table tbody tr.header.active {
+table tbody tr.header.opened {
   background-color: #e0e0e0;
 }
 
-table tbody tr.header.active td:first-of-type::before {
+table tbody tr.header.opened td:first-of-type::before {
   content: '\E316';
 }
 
