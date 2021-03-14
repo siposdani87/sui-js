@@ -1,6 +1,7 @@
 #top-menu {
   display: flex;
   flex-flow: row wrap;
+  background-color: $primary-dark;
 
   @include media-breakpoint-down(md) {
     flex-flow: column wrap;
