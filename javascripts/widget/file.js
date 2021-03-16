@@ -29,13 +29,10 @@ SUI.widget.File.prototype._init = function() {
   this.inputBlock.addClass('file-widget');
 
   this._initFileIcon();
-  this._initButtons();
   this._initRemoveButton();
-  this._setDefaultSrc();
-
-  this.imageTag.addEventListener('click', () => {
-    this._remove();
-  });
+  this._initButtons();
+  this._initDefaultImg();
+  this._initValueSrc();
 
   this.input.addEventListener('change', (inputNode) => {
     const input = inputNode.getNode();
@@ -58,19 +55,11 @@ SUI.widget.File.prototype._isDocument = function() {
  * @private
  * @return {undefined}
  */
-SUI.widget.File.prototype._setDefaultSrc = function() {
-  this.defaultSrc = null;
+SUI.widget.File.prototype._initDefaultImg = function() {
   this.imageTag = new SUI.Query('img', this.inputBlock).getItem();
   if (this.imageTag.isEmpty()) {
     this.imageTag = new SUI.Node('img');
     this.inputBlock.beforeChild(this.imageTag);
-  } else {
-    this.defaultSrc = this.imageTag.getAttribute('src');
-  }
-  if (!this.defaultSrc) {
-    const color = this.isRequired() ? 'grey;stroke:red;stroke-width:10;stroke-dasharray:15,10' : 'grey';
-    this.defaultSrc = this._getFileIconSrc('N/A', color);
-    this.imageTag.setAttribute('src', this.defaultSrc);
   }
 };
 
@@ -78,18 +67,33 @@ SUI.widget.File.prototype._setDefaultSrc = function() {
  * @private
  * @return {undefined}
  */
+SUI.widget.File.prototype._initValueSrc = function() {
+  this.valueSrc = this.imageTag.getAttribute('src');
+
+  this.defaultSrc = this.input.getAttribute('data-default-value');
+  if (!this.defaultSrc) {
+    const color = this.isRequired() ? 'grey;stroke:red;stroke-width:10;stroke-dasharray:15,10' : 'grey';
+    this.defaultSrc = this._getFileIconSrc('N/A', color);
+  }
+
+  this.imageTag.setAttribute('src', this.valueSrc || this.defaultSrc);
+};
+
+/**
+ * @private
+ * @return {undefined}
+ */
 SUI.widget.File.prototype._initRemoveButton = function() {
-  this.removeButton = new SUI.Node('button');
-  this.removeButton.addClass(['remove-button', 'hidden', 'mdl-button', 'mdl-js-button', 'mdl-button--fab', 'mdl-button--mini-fab', 'mdl-button--colored']);
+  this.removeButton = new SUI.Node('a');
+  this.removeButton.setAttribute('href', 'javascript:void(0)');
+  this.removeButton.addClass(['remove-button', 'material-icons']);
+  this.removeButton.setHtml('delete');
   this.removeButton.addEventListener('click', () => {
-    this._remove();
+    if (this.isEnabled()) {
+      this._remove();
+    }
   });
-  const iconNode = new SUI.Node('em');
-  iconNode.addClass('material-icons');
-  iconNode.setHtml('close');
-  this.removeButton.appendChild(iconNode);
-  SUI.mdl(this.removeButton);
-  this.inputBlock.appendChild(this.removeButton);
+  this.actionContainerNode.appendChild(this.removeButton);
 };
 
 /**
@@ -198,6 +202,8 @@ SUI.widget.File.prototype.refresh = function() {
     this.inputBlock.addClass('is-invalid');
   }
 
+  this._handleRemoveButton();
+
   SUI.mdl(this.inputBlock);
 };
 
@@ -209,22 +215,20 @@ SUI.widget.File.prototype.refresh = function() {
 SUI.widget.File.prototype._read = function(file) {
   if (file) {
     const filename = /** @type {string} */ (file.name);
-
     const reader = new FileReader();
     reader.onload = (event) => {
       const target = event.target;
       const searchStr = ';base64,';
-      const source = /** @type {string} */ (target.result.replace(searchStr, ';filename=' + filename + searchStr));
-      if (SUI.contain(file.type, 'image/')) {
-        this.imageTag.setAttribute('src', source);
-        this.removeButton.removeClass('hidden');
-      } else {
+      let imageSrc = /** @type {string} */ (target.result.replace(searchStr, ';filename=' + filename + searchStr));
+      if (!SUI.contain(file.type, 'image/')) {
         const [type, color] = this._lookupByMimeType(file.type);
-        const imageSrc = this._getFileIconSrc(type, color);
-        this.imageTag.setAttribute('src', imageSrc);
-        this.removeButton.removeClass('hidden');
+        imageSrc = this._getFileIconSrc(type, color);
       }
-      this.modelChange(source);
+      this.valueSrc = imageSrc;
+      this.imageTag.setAttribute('src', this.valueSrc);
+      this._handleRemoveButton();
+
+      this.modelChange(this.valueSrc);
     };
     reader.readAsDataURL(file);
   }
@@ -234,15 +238,29 @@ SUI.widget.File.prototype._read = function(file) {
  * @private
  * @return {undefined}
  */
+SUI.widget.File.prototype._handleRemoveButton = function() {
+  if (!this.isRequired() && this.valueSrc) {
+    this.removeButton.removeClass('hidden');
+  } else {
+    this.removeButton.addClass('hidden');
+  }
+};
+
+/**
+ * @private
+ * @return {undefined}
+ */
 SUI.widget.File.prototype._remove = function() {
   this.input.getNode().value = '';
+  this.valueSrc = null;
 
   if (this.defaultSrc) {
     this.imageTag.setAttribute('src', this.defaultSrc);
-    this.removeButton.addClass('hidden');
   } else {
     this.imageTag.removeAttribute('src');
   }
+  this._handleRemoveButton();
+
   this.modelChange(null);
 };
 
@@ -262,9 +280,9 @@ SUI.widget.File.prototype.setValue = function(value) {
       const [_mimeType, color] = this._lookupByExtension(extension);
       imageSrc = this._getFileIconSrc(extension, color);
     }
-    this.defaultSrc = imageSrc;
-    this.imageTag.setAttribute('src', this.defaultSrc);
-    this.removeButton.addClass('hidden');
+    this.valueSrc = imageSrc;
+    this.imageTag.setAttribute('src', this.valueSrc);
+    this._handleRemoveButton();
   }
   this.modelChange(null);
 };
