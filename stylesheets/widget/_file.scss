@@ -22,10 +22,6 @@
     top: 130px !important;
   }
 
-  .browse-button, .remove-button {
-    margin-left: 2px;
-  }
-
   &.is-disabled {
     img {
       filter: grayscale(100%);

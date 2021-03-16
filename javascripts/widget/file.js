@@ -284,5 +284,5 @@ SUI.widget.File.prototype.setValue = function(value) {
     this.imageTag.setAttribute('src', this.valueSrc);
     this._handleRemoveButton();
   }
-  this.modelChange(null);
+  this.modelChange('');
 };
