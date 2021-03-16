@@ -393,7 +393,7 @@ SUI.isString = function(value) {
  * @return {boolean}
  */
 SUI.isNumber = function(value) {
-  return value !== '' && !isNaN(value) && (!SUI.inArray(['0', '+'], value[0]) || value === '0');
+  return value !== null && value !== '' && !isNaN(value) && (!SUI.inArray(['0', '+'], value?.[0]) || value === '0');
 };
 
 /**
@@ -751,13 +751,13 @@ SUI.pluck = function(items, attribute) {
 /**
  * @export
  * @param {!Object} obj
- * @param {!Function} condition
+ * @param {function(*, string)} condition
  * @return {!Array}
  */
 SUI.pluckKeys = function(obj, condition) {
   const results = [];
   SUI.eachObject(obj, (value, key) => {
-    if (condition(value)) {
+    if (condition(value, key)) {
       results.push(key);
     }
   });

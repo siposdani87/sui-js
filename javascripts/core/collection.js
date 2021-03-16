@@ -191,7 +191,7 @@ SUI.Collection.prototype.findById = function(value) {
  * @return {!T}
  */
 SUI.Collection.prototype.findBy = function(attribute, value) {
-  return this.findByCondition((item, i) => {
+  return this.findByCondition((_item, i) => {
     return this.get(i, attribute) === value;
   });
 };
