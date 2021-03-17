@@ -34,7 +34,7 @@ SUI.lib.Flash.prototype._setOptions = function(opt_options = {}) {
   _self.options = new SUI.Object({
     id: '#flashes',
     duration: 4000,
-    closable: ['error'],
+    closableTypes: ['error'],
   });
   _self.options.merge(opt_options);
 };
@@ -49,9 +49,7 @@ SUI.lib.Flash.prototype._setOptions = function(opt_options = {}) {
  */
 SUI.lib.Flash.prototype._getFlashNode = function(type, message, opt_duration = 0, opt_closeCallback = null, opt_id = '') {
   const flashNode = this.container.createElement('div');
-  if (opt_id) {
-    flashNode.setAttribute('data-id', opt_id);
-  }
+  flashNode.setAttribute('data-id', opt_id || SUI.generateId('flash'));
   flashNode.addClass(['flash', type]);
   flashNode.setHtml(message);
   if (this._isClosable(type, opt_closeCallback) && !SUI.eq(opt_duration, Infinity)) {
@@ -94,7 +92,7 @@ SUI.lib.Flash.prototype._getCloseButton = function(flashNode, opt_closeCallback 
  * @return {!SUI.Node}
  */
 SUI.lib.Flash.prototype._add = function(type, message, opt_duration = 0, opt_closeCallback = null, opt_id = '') {
-  this.removeFlashNode(opt_id);
+  this.removeById(opt_id);
   const flashNode = this._getFlashNode(type, message, opt_duration, opt_closeCallback, opt_id);
   this.container.appendChild(flashNode);
   if (!this._isClosable(type, opt_closeCallback) && !SUI.eq(opt_duration, Infinity)) {
@@ -112,7 +110,7 @@ SUI.lib.Flash.prototype._add = function(type, message, opt_duration = 0, opt_clo
 /**
  * @param {string=} opt_id
  */
-SUI.lib.Flash.prototype.removeFlashNode = function(opt_id = '') {
+SUI.lib.Flash.prototype.removeById = function(opt_id = '') {
   if (opt_id) {
     const selector = SUI.format('[data-id={0}]', [opt_id]);
     const flashes = new SUI.Query(selector, this.container);
@@ -128,7 +126,7 @@ SUI.lib.Flash.prototype.removeFlashNode = function(opt_id = '') {
  * @return {boolean}
  */
 SUI.lib.Flash.prototype._isClosable = function(type, opt_closeCallback = null) {
-  return this.options.closable.indexOf(type) !== -1 || SUI.isFunction(opt_closeCallback);
+  return this.options.closableTypes.indexOf(type) !== -1 || SUI.isFunction(opt_closeCallback);
 };
 
 /**
