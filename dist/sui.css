@@ -5515,7 +5515,6 @@ table tfoot tr td.pager {
 .dark-theme .flash-container #flashes .flash {
   box-shadow: 5px 5px 15px -5px rgba(0, 0, 0, 0.8);
   background-color: #212121;
-  border-top-color: #000;
 }
 
 .dark-theme .flash-container #flashes .flash.success {
