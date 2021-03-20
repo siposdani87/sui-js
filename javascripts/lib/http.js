@@ -123,9 +123,9 @@ SUI.lib.Http.prototype.delete = function(url, opt_data, opt_params, opt_headers)
  */
 SUI.lib.Http.prototype._getRequestHandler = function() {
   const http = new SUI.lib.Xhr(this.options);
+  this.eventBeforeRequest(http);
   http.setBasicAuthorization(this.username, this.password);
   http.setBearerAuthorization(this.token);
-  this.eventBeforeRequest(http);
   return http;
 };
 
