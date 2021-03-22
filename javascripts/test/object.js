@@ -72,6 +72,11 @@ SUI.test.Object.prototype.testGetTypedValue = function() {
     attr6: 'string123,456.789',
     attr7: undefined,
     attr8: null,
+    attr9: '1e+3',
+    attr10: '1e-3',
+    attr11: '1E3',
+    attr12: '2e234',
+    attr13: '8e23467',
   });
   if (options.attr !== null) {
     this.showError('_getTypedValue', 0);
@@ -96,6 +101,21 @@ SUI.test.Object.prototype.testGetTypedValue = function() {
   }
   if (options.attr8 !== null) {
     this.showError('_getTypedValue', 7);
+  }
+  if (options.attr9 !== 1e+3) {
+    this.showError('_getTypedValue', 8);
+  }
+  if (options.attr10 !== 1e-3) {
+    this.showError('_getTypedValue', 9);
+  }
+  if (options.attr11 !== 1E3) {
+    this.showError('_getTypedValue', 10);
+  }
+  if (options.attr12 !== 2e234) {
+    this.showError('_getTypedValue', 11);
+  }
+  if (options.attr13 !== '8e23467') {
+    this.showError('_getTypedValue', 12);
   }
 };
 

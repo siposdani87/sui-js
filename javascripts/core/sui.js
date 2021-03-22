@@ -151,11 +151,7 @@ SUI.typeCast = function(value) {
     } else if (SUI.eq(lowerCaseValue, 'infinity')) {
       result = Infinity;
     } else if (SUI.isNumber(lowerCaseValue)) {
-      if (SUI.neq(lowerCaseValue.indexOf('.'), -1)) {
-        result = parseFloat(lowerCaseValue);
-      } else {
-        result = parseInt(lowerCaseValue, 10);
-      }
+      result = Number(lowerCaseValue);
     }
   }
   return result;
@@ -393,7 +389,7 @@ SUI.isString = function(value) {
  * @return {boolean}
  */
 SUI.isNumber = function(value) {
-  return value !== null && value !== '' && !isNaN(value) && (!SUI.inArray(['0', '+'], value?.[0]) || value === '0');
+  return value !== null && value !== '' && !isNaN(value) && (!SUI.inArray(['0', '+'], value?.[0]) || value === '0') && Number(value).toString() !== 'NaN' && Number(value).toString() !== 'Infinity';
 };
 
 /**
