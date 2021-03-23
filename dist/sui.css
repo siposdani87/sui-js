@@ -2265,13 +2265,13 @@ form input:-webkit-autofill:hover, form input:-webkit-autofill:focus, form input
 
 @media (min-width: 992px) {
   .template-view.has-header.has-footer .page-content.fullscreen {
-    padding-bottom: 110px;
+    padding-bottom: 105px;
   }
 }
 
 @media (max-width: 1199px) {
   .template-view.has-header.has-footer .page-content.fullscreen {
-    padding-bottom: 105px;
+    padding-bottom: 100px;
   }
 }
 
