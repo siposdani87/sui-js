@@ -49,6 +49,13 @@ SUI.GoogleMap.prototype._setOptions = function(opt_options = {}) {
 };
 
 /**
+ * @return {string}
+ */
+SUI.GoogleMap.prototype.getMapType = function() {
+  return this.map.getMapTypeId();
+};
+
+/**
  * @param {string} mapTypeId
  * @return {undefined}
  */
@@ -102,6 +109,10 @@ SUI.GoogleMap.prototype._bindEventsToMap = function() {
   this.map.addListener('click', (event) => {
     const vertex = event.latLng;
     this.eventMapClick(vertex.lat(), vertex.lng(), event);
+  });
+
+  this.map.addListener('maptypeid_changed', (event) => {
+    this.eventMapTypeChange(this.getMapType(), event);
   });
 };
 
@@ -392,6 +403,15 @@ SUI.GoogleMap.prototype.eventPolygonRightClick = function(polygonData, latitude,
  */
 SUI.GoogleMap.prototype.eventMapClick = function(latitude, longitude, event) {
   SUI.consoleInfo('SUI.GoogleMap.eventMapClick()', latitude, longitude, event);
+};
+
+/**
+ * @param {string} mapType
+ * @param {!Object} event
+ * @return {undefined}
+ */
+SUI.GoogleMap.prototype.eventMapTypeChange = function(mapType, event) {
+  SUI.consoleInfo('SUI.GoogleMap.eventMapTypeChange()', mapType, event);
 };
 
 /**
