@@ -138,12 +138,10 @@ SUI.GoogleMap.prototype._initOverlay = function() {
 /**
  * @param {!SUI.Object} polygonData
  * @param {!Array<{latitude: number, longitude: number}>} points
- * @param {number} computeArea
- * @param {{latitude: number, longitude: number}} center
  * @return {undefined}
  */
-SUI.GoogleMap.prototype.eventPolygonChanged = function(polygonData, points, computeArea, center) {
-  SUI.consoleInfo('SUI.GoogleMap.eventPolygonChanged()', polygonData, points, computeArea, center);
+SUI.GoogleMap.prototype.eventPolygonChanged = function(polygonData, points) {
+  SUI.consoleInfo('SUI.GoogleMap.eventPolygonChanged()', polygonData, points);
 };
 
 /**
@@ -184,7 +182,7 @@ SUI.GoogleMap.prototype.createPolygon = function(id, title, points, opt_polygonD
   polygonData.setRaw('_polygon', polygon);
   this._addPointsToPolygon(polygonData, points);
 
-  const latLng = this._getCenterOfPolygon(polygonData);
+  const latLng = this.getCenterOfPolygon(polygonData);
   const mapText = SUI.mapText(title, new google.maps.LatLng(latLng.latitude, latLng.longitude), this.map);
   polygonData.setRaw('_map_text', mapText);
 
@@ -211,7 +209,7 @@ SUI.GoogleMap.prototype.updatePolygon = function(id, title, points, opt_polygonD
   polygon.setOptions(opt_options);
   this._addPointsToPolygon(polygonData, points);
 
-  const latLng = this._getCenterOfPolygon(polygonData);
+  const latLng = this.getCenterOfPolygon(polygonData);
   const mapText = polygonData.get('_map_text');
   mapText.set('text', title);
   mapText.set('position', new google.maps.LatLng(latLng.latitude, latLng.longitude));
@@ -355,11 +353,11 @@ SUI.GoogleMap.prototype._callPolygonChangeEvent = function(polygon, polygonData)
   this._setBoundsByPoints(polygonData, points);
 
   const mapText = polygonData.get('_map_text');
-  const latLng = this._getCenterOfPolygon(polygonData);
-  mapText.set('position', new google.maps.LatLng(latLng.latitude, latLng.longitude));
+  const centerLatLng = this.getCenterOfPolygon(polygonData);
+  mapText.set('position', new google.maps.LatLng(centerLatLng.latitude, centerLatLng.longitude));
 
   const cleanPolygonData = this._cleanPolygonData(polygonData);
-  this.eventPolygonChanged(cleanPolygonData, points, this._getComputeArea(polygon), latLng);
+  this.eventPolygonChanged(cleanPolygonData, points);
 };
 
 /**
@@ -476,11 +474,10 @@ SUI.GoogleMap.prototype._setBoundsByPath = function(polygonData, path) {
 };
 
 /**
- * @private
  * @param {!SUI.Object} polygonData
  * @return {{latitude: number, longitude: number}}
  */
-SUI.GoogleMap.prototype._getCenterOfPolygon = function(polygonData) {
+SUI.GoogleMap.prototype.getCenterOfPolygon = function(polygonData) {
   const bounds = /** @type {!google.maps.LatLngBounds} */ (polygonData.get('_bounds'));
   const vertex = bounds.getCenter();
   return {
@@ -526,11 +523,11 @@ SUI.GoogleMap.prototype._getPointsFromPolygon = function(polygonData) {
 };
 
 /**
- * @private
- * @param {!google.maps.Polygon} polygon
+ * @param {!SUI.Object} polygonData
  * @return {number}
  */
-SUI.GoogleMap.prototype._getComputeArea = function(polygon) {
+SUI.GoogleMap.prototype.getComputeArea = function(polygonData) {
+  const polygon = /** @type {!google.maps.Polygon} */ (polygonData.get('_polygon'));
   const path = polygon.getPath();
   return google.maps.geometry.spherical.computeArea(path);
 };
