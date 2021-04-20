@@ -288,12 +288,9 @@ SUI.lib.Xhr.prototype._stringifyObject = function(obj) {
 
 /**
  * @private
- * @param {*} data
- * @return {!SUI.Promise}
+ * @return {string}
  */
-SUI.lib.Xhr.prototype._getResponseData = function(data) {
-  const deferred = new SUI.Deferred();
-  const contentType = this.http.getResponseHeader('Content-Type');
+SUI.lib.Xhr.prototype._getFilenameFromHeader = function() {
   let filename = '';
 
   try {
@@ -304,14 +301,26 @@ SUI.lib.Xhr.prototype._getResponseData = function(data) {
   } catch (_e) {
     // SUI.consoleWarn(e);
   }
+  return filename;
+};
 
+/**
+ * @private
+ * @param {*} data
+ * @return {!SUI.Promise}
+ */
+SUI.lib.Xhr.prototype._getResponseData = function(data) {
+  const deferred = new SUI.Deferred();
+  const filename = this._getFilenameFromHeader();
+
+  const contentType = this.http.getResponseHeader('Content-Type');
   if (contentType) {
     switch (contentType.split(';')[0]) {
       case 'application/json':
         if (SUI.instanceOf(data, Blob)) {
           const reader = new FileReader();
           reader.addEventListener('loadend', (e) => {
-            data = JSON.parse(/** @type {string} */(e.srcElement.result) || 'null');
+            data = JSON.parse(/** @type {string} */(e.target.result) || 'null');
             const object = new SUI.Object();
             object.merge(data);
             deferred.resolve([[object, filename]]);
