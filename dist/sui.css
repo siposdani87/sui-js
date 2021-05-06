@@ -4233,7 +4233,6 @@ table tfoot tr td.pager {
   background-color: #bdbdbd;
   color: #212121;
   border-radius: 3px;
-  white-space: nowrap;
 }
 
 .input-block .widget-tag.tag-with-action {
@@ -5361,6 +5360,7 @@ table tfoot tr td.pager {
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
+  text-transform: uppercase;
 }
 
 #confirm #confirm-window .modal-header nav {
