@@ -788,6 +788,8 @@ h6 small {
 
 .app-title small {
   margin: 0;
+  white-space: initial;
+  word-break: initial;
 }
 
 blockquote {
