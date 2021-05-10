@@ -1,5 +1,4 @@
 #!/bin/bash
-clear
 
 java -jar node_modules/google-closure-compiler-java/compiler.jar \
 --compilation_level ADVANCED \

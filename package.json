@@ -30,9 +30,9 @@
   "devDependencies": {
     "browser-sync": "2.26.14",
     "connect-modrewrite": "0.10.2",
-    "eslint": "7.24.0",
+    "eslint": "7.26.0",
     "eslint-config-google": "0.14.0",
-    "google-closure-compiler": "20210406.0.0",
+    "google-closure-compiler": "20210505.0.0",
     "gulp": "4.0.2",
     "gulp-cli": "2.3.0",
     "gulp-insert": "0.5.0",
