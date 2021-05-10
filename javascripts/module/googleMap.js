@@ -922,7 +922,9 @@ SUI.GoogleMap.prototype.setMarkerIcon = function(name, iconOptions) {
 SUI.GoogleMap.prototype.searchAddress = function(query) {
   const deferred = new SUI.Deferred();
   const geoCoder = new google.maps.Geocoder();
-  geoCoder.geocode({address: SUI.convert(query, 'string')}, (results, status) => {
+  geoCoder.geocode([{
+    address: SUI.convert(query, 'string'),
+  }], (results, status) => {
     if (status === google.maps.GeocoderStatus.OK && results.length > 0) {
       const points = [];
       SUI.each(results, (result) => {
