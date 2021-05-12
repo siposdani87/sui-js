@@ -2406,6 +2406,7 @@ form input:-webkit-autofill:hover, form input:-webkit-autofill:focus, form input
   flex: 1;
   padding: 0;
   margin-left: .5em;
+  min-width: 200px;
 }
 
 .page-header form .input-block .action-container {
