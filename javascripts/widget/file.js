@@ -220,12 +220,12 @@ SUI.widget.File.prototype._read = function(file) {
       const target = event.target;
       const searchStr = ';base64,';
       let imageSrc = /** @type {string} */ (target.result.replace(searchStr, ';filename=' + filename + searchStr));
+      this.valueSrc = imageSrc;
       if (!SUI.contain(file.type, 'image/')) {
         const [type, color] = this._lookupByMimeType(file.type);
         imageSrc = this._getFileIconSrc(type, color);
       }
-      this.valueSrc = imageSrc;
-      this.imageTag.setAttribute('src', this.valueSrc);
+      this.imageTag.setAttribute('src', imageSrc);
       this._handleRemoveButton();
 
       this.modelChange(this.valueSrc);
@@ -275,13 +275,13 @@ SUI.widget.File.prototype.setValue = function(value) {
     imageSrc = value['url'];
   }
   if (imageSrc) {
+    this.valueSrc = imageSrc;
     if (this._isDocument()) {
       const extension = SUI.getExtensionName(imageSrc);
       const [_mimeType, color] = this._lookupByExtension(extension);
       imageSrc = this._getFileIconSrc(extension, color);
     }
-    this.valueSrc = imageSrc;
-    this.imageTag.setAttribute('src', this.valueSrc);
+    this.imageTag.setAttribute('src', imageSrc);
     this._handleRemoveButton();
   }
   this.modelChange('');
