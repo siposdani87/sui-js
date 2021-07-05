@@ -1,6 +1,6 @@
 const gulp = require('gulp');
 const jsdoc = require('gulp-jsdoc3');
-const sass = require('gulp-sass');
+const sass = require('gulp-sass')(require('sass'));
 const closureCompiler = require('google-closure-compiler');
 const insert = require('gulp-insert');
 const readdirSync = require('readdirsync2');
