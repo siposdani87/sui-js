@@ -799,7 +799,7 @@ SUI.number = function(num, exp) {
     {value: 1E12, symbol: 'T'},
     {value: 1E9, symbol: 'G'},
     {value: 1E6, symbol: 'M'},
-    {value: 1E3, symbol: 'k'},
+    {value: 1E3, symbol: 'K'},
     {value: 0, symbol: ''},
   ];
   const rx = /\.0+$|(\.[0-9]*[1-9])0+$/;
