@@ -1,4 +1,3 @@
-@charset "UTF-8";
 .material-icons {
   vertical-align: middle;
 }
@@ -2679,7 +2678,7 @@ table tbody tr.header.opened {
   background-color: #e0e0e0;
 }
 table tbody tr.header.opened td:first-of-type::before {
-  content: "";
+  content: "\e316";
 }
 table tbody tr.header td:first-of-type {
   font-family: "Helvetica", sans-serif;
@@ -2692,7 +2691,7 @@ table tbody tr.header td:first-of-type::before {
   font-size: 1.5em;
   vertical-align: middle;
   padding-right: 5px;
-  content: "";
+  content: "\e313";
 }
 @media (max-width: 767px) {
   table tbody tr.data {
@@ -4933,28 +4932,28 @@ table tfoot tr td.pager {
   border-top: 3px solid #f44336;
 }
 #confirm #confirm-window.error .modal-body::before {
-  content: "";
+  content: "\e000";
   color: #f44336;
 }
 #confirm #confirm-window.warning {
   border-top: 3px solid #ffc107;
 }
 #confirm #confirm-window.warning .modal-body::before {
-  content: "";
+  content: "\e002";
   color: #ffc107;
 }
 #confirm #confirm-window.info {
   border-top: 3px solid #2196f3;
 }
 #confirm #confirm-window.info .modal-body::before {
-  content: "";
+  content: "\e88e";
   color: #2196f3;
 }
 #confirm #confirm-window.success {
   border-top: 3px solid #4caf50;
 }
 #confirm #confirm-window.success .modal-body::before {
-  content: "";
+  content: "\e876";
   color: #4caf50;
 }
 #confirm #confirm-window.choice {
