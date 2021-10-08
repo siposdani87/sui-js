@@ -2918,7 +2918,7 @@ table tfoot tr td.pager {
   position: absolute;
   top: calc(50% - 1px);
   left: calc(50% - 1px);
-  width: calc(50% - 35px / 2);
+  width: calc(50% - 17.5px);
   height: 2px;
   background-color: #e91e63;
   transform-origin: 1px 1px;
