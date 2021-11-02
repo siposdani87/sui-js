@@ -3,6 +3,7 @@
   "version": "0.5.0",
   "description": "Powerfull Vanilla JavaScript framework for web and react(-native), based on Google Closure Compiler",
   "main": "index.js",
+  "typings": "index.d.ts",
   "scripts": {},
   "license": "UNLICENSED",
   "private": true,
