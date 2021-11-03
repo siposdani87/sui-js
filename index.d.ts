@@ -1,7 +1,3 @@
-export = SUI;
-export as namespace SUI;
+import SUI from './dist/sui';
 
-declare namespace SUI {
-  
-  function capitalize(str: string): string;
-}
+export default SUI;

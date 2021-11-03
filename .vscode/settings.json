@@ -1,11 +1,6 @@
 {
     "files.exclude": {
-        "**/.sonar": true,
-        "**/.sass-cache": true,
-	"**/.vscode": true,
-	"**/dist": true,
-        "**/node_modules": true,
-        "**/.*": false
+        "**/node_modules": true
     },
     "search.exclude": {},
     "javascript.format.insertSpaceAfterFunctionKeywordForAnonymousFunctions": false,
