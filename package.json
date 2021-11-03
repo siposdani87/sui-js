@@ -29,9 +29,9 @@
     "sui-externs": "git+https://siposdani87:pTUa5kZeCCawnTzkYVUV@bitbucket.org/siposdani87/sui-externs.git#develop"
   },
   "devDependencies": {
-    "browser-sync": "2.27.5",
+    "browser-sync": "2.27.7",
     "connect-modrewrite": "0.10.2",
-    "eslint": "8.0.0",
+    "eslint": "8.1.0",
     "eslint-config-google": "0.14.0",
     "google-closure-compiler": "20211006.0.0",
     "gulp": "4.0.2",
@@ -41,7 +41,7 @@
     "gulp-sass": "5.0.0",
     "gulp-sourcemaps": "3.0.0",
     "readdirsync2": "1.0.2",
-    "sass": "1.42.1",
+    "sass": "1.43.4",
     "sass-lint": "1.13.1"
   }
 }
