@@ -33,9 +33,9 @@
   "devDependencies": {
     "browser-sync": "2.27.7",
     "connect-modrewrite": "0.10.2",
-    "eslint": "8.1.0",
+    "eslint": "8.2.0",
     "eslint-config-google": "0.14.0",
-    "google-closure-compiler": "20211006.0.0",
+    "google-closure-compiler": "20211107.0.0",
     "google-closure-library-types": "^0.1.17",
     "gulp": "4.0.2",
     "gulp-cli": "2.3.0",

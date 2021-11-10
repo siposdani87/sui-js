@@ -3,7 +3,7 @@
  Copyright The Closure Library Authors.
  SPDX-License-Identifier: Apache-2.0
 */
-'use strict';var COMPILED=false;var goog=goog||{};goog.global=this||self;goog.global.CLOSURE_UNCOMPILED_DEFINES;goog.global.CLOSURE_DEFINES;
+var COMPILED=false;var goog=goog||{};goog.global=this||self;goog.global.CLOSURE_UNCOMPILED_DEFINES;goog.global.CLOSURE_DEFINES;
 goog.exportPath_=function(name,object,overwriteImplicit,objectToExportTo){var parts=name.split('.');var cur=objectToExportTo||goog.global;if(!(parts[0]in cur)&&typeof cur.execScript!='undefined')cur.execScript('var '+parts[0]);for(var part;parts.length&&(part=parts.shift());)if(!parts.length&&object!==undefined)if(!overwriteImplicit&&goog.isObject(object)&&goog.isObject(cur[part]))for(var prop in object){if(object.hasOwnProperty(prop))cur[part][prop]=object[prop]}else cur[part]=object;else if(cur[part]&&
 cur[part]!==Object.prototype[part])cur=cur[part];else cur=cur[part]={}};
 goog.define=function(name,defaultValue){var value=defaultValue;if(!COMPILED){var uncompiledDefines=goog.global.CLOSURE_UNCOMPILED_DEFINES;var defines=goog.global.CLOSURE_DEFINES;if(uncompiledDefines&&uncompiledDefines.nodeType===undefined&&Object.prototype.hasOwnProperty.call(uncompiledDefines,name))value=uncompiledDefines[name];else if(defines&&defines.nodeType===undefined&&Object.prototype.hasOwnProperty.call(defines,name))value=defines[name]}return value};
