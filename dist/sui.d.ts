@@ -9,7 +9,7 @@ declare namespace SUI {
   
   function capitalize(str: string): string;
 
-  function HEXToHSV(str: string): string[];
+  function HEXToHSV(str: string): number[];
 
   function getExtensionName(filename: string): string;
 
@@ -23,9 +23,9 @@ declare namespace SUI {
 
   function eq(data: any, value: any): boolean;
 
-  function generatedId(key: string): string;
+  function generateId(key: string): string;
 
-  declare class Object {
+  class Object {
     constructor(obj?: any);
 
     merge(data: any): any;
