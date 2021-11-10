@@ -3,7 +3,7 @@
  Copyright The Closure Library Authors.
  SPDX-License-Identifier: Apache-2.0
 */
-'use strict';var COMPILED=!0,goog=goog||{};goog.global=this||self;
+var COMPILED=!0,goog=goog||{};goog.global=this||self;
 goog.exportPath_=function($name$$,$object$$,$overwriteImplicit$$,$cur_objectToExportTo$$){$name$$=$name$$.split('.');$cur_objectToExportTo$$=$cur_objectToExportTo$$||goog.global;$name$$[0]in $cur_objectToExportTo$$||'undefined'==typeof $cur_objectToExportTo$$.execScript||$cur_objectToExportTo$$.execScript('var '+$name$$[0]);for(var $part$$;$name$$.length&&($part$$=$name$$.shift());)if($name$$.length||void 0===$object$$)$cur_objectToExportTo$$=$cur_objectToExportTo$$[$part$$]&&$cur_objectToExportTo$$[$part$$]!==
 Object.prototype[$part$$]?$cur_objectToExportTo$$[$part$$]:$cur_objectToExportTo$$[$part$$]={};else if(!$overwriteImplicit$$&&goog.isObject($object$$)&&goog.isObject($cur_objectToExportTo$$[$part$$]))for(var $prop$$ in $object$$)$object$$.hasOwnProperty($prop$$)&&($cur_objectToExportTo$$[$part$$][$prop$$]=$object$$[$prop$$]);else $cur_objectToExportTo$$[$part$$]=$object$$};
 goog.define=function($name$$,$defaultValue$jscomp$2_value$$){if(!COMPILED){var $uncompiledDefines$$=goog.global.CLOSURE_UNCOMPILED_DEFINES,$defines$$=goog.global.CLOSURE_DEFINES;$uncompiledDefines$$&&void 0===$uncompiledDefines$$.nodeType&&Object.prototype.hasOwnProperty.call($uncompiledDefines$$,$name$$)?$defaultValue$jscomp$2_value$$=$uncompiledDefines$$[$name$$]:$defines$$&&void 0===$defines$$.nodeType&&Object.prototype.hasOwnProperty.call($defines$$,$name$$)&&($defaultValue$jscomp$2_value$$=$defines$$[$name$$])}return $defaultValue$jscomp$2_value$$};
