@@ -44,7 +44,7 @@ declare namespace SUI {
 
     constructor(obj?: any);
 
-    merge(data: any): SUI.Object;
+    merge(data: any): any;
 
     get<T>(opt_attribute: string, opt_defaultValue?: any, opt_isSafe?: boolean): T;
 
