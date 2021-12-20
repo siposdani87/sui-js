@@ -33,7 +33,7 @@
   "devDependencies": {
     "browser-sync": "2.27.7",
     "connect-modrewrite": "0.10.2",
-    "eslint": "8.4.1",
+    "eslint": "8.5.0",
     "eslint-config-google": "0.14.0",
     "google-closure-compiler": "20211201.0.0",
     "google-closure-library-types": "^0.1.17",
