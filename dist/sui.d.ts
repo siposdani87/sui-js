@@ -21,6 +21,8 @@ declare namespace SUI {
 
   function getExtensionName(filename: string): string;
 
+  function isString(data: any): boolean;
+
   function isNumber(data: any): boolean;
 
   function isObject(data: any): boolean;
@@ -39,6 +41,10 @@ declare namespace SUI {
 
   function inArray(items: any[], item: any): boolean;
 
+  function pluck(items: any[], attribute: string): any[];
+
+  function eachArray<T>(items: T[], next: (v: T, i: number) => void, opt_start?: number, opt_end?: number): void;
+
   class Object {
     [key: string]: any;
 
@@ -51,5 +57,12 @@ declare namespace SUI {
     set(attribute: string, value: any): void;
 
     setRaw(attribute: string, value: any, opt_isSafe?: boolean): void;
+  }
+
+  class Collection<T> {
+
+    constructor(items?: T[]);
+
+    getItems(): T[];
   }
 }

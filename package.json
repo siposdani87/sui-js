@@ -44,7 +44,7 @@
     "gulp-sass": "5.0.0",
     "gulp-sourcemaps": "3.0.0",
     "readdirsync2": "1.0.2",
-    "sass": "1.45.0",
+    "sass": "1.45.1",
     "sass-lint": "1.13.1",
     "typescript": "4.5.4"
   }
