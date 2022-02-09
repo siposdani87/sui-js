@@ -107,7 +107,7 @@ SUI.Object.prototype._get = function(object, attributes) {
     if (attributes.length === 1 && property.toString() === attributes[0]) {
       result = object[property];
     } else if (property.toString() === attributes[0] && !SUI.isNull(object[property]) && SUI.isObject(object[property])) {
-      const copyAttributes = SUI.copy(attributes);
+      const copyAttributes = SUI.copyArray(attributes);
       copyAttributes.shift();
       result = this._get(object[property], copyAttributes);
     }
@@ -126,7 +126,7 @@ SUI.Object.prototype._set = function(object, attributes, value) {
     if (attributes.length === 1 && property === attributes[0]) {
       object[property] = value;
     } else if (property === attributes[0] && !SUI.isNull(object[property]) && SUI.isObject(object[property])) {
-      const copyAttributes = SUI.copy(attributes);
+      const copyAttributes = SUI.copyArray(attributes);
       copyAttributes.shift();
       this._set(object[property], copyAttributes, value);
     }
@@ -187,7 +187,7 @@ SUI.Object.prototype._remove = function(object, attributes) {
       if (attributes.length === 1 && property === attributes[0]) {
         delete object[property];
       } else if (property === attributes[0] && !SUI.isNull(object[property]) && SUI.isObject(object[property])) {
-        const copyAttributes = SUI.copy(attributes);
+        const copyAttributes = SUI.copyArray(attributes);
         copyAttributes.shift();
         this._remove(object[property], copyAttributes);
       }
@@ -207,7 +207,7 @@ SUI.Object.prototype.each = function(next, opt_properties, opt_attributes) {
   const attributes = opt_attributes || [];
 
   SUI.eachObject(properties, (value, property) => {
-    const attributesCopy = SUI.copy(attributes);
+    const attributesCopy = SUI.copyArray(attributes);
     attributesCopy.push(property);
     if (!SUI.isNull(value) && SUI.isObject(value)) {
       this.each(next, value, attributesCopy);
@@ -239,7 +239,7 @@ SUI.Object.prototype._attributesToObject = function(object, attributes, value) {
  * @return {!SUI.Object}
  */
 SUI.Object.prototype.copy = function(opt_isNative = false) {
-  let result = /** @type {!SUI.Object} */ (SUI.copy(this));
+  let result = /** @type {!SUI.Object} */(SUI.copyObject(this));
   if (!opt_isNative) {
     result = new SUI.Object(result);
   }
