@@ -194,7 +194,7 @@ SUI.invoke = function(baseModule, baseModuleArgs, opt_extendModule, opt_extendMo
  * @return {!Object|undefined}
  */
 SUI.merge = function(objA, objB) {
-  const obj = SUI.copy(objA);
+  const obj = SUI.copyObject(objA);
   for (const key in objB) {
     if (objB.hasOwnProperty(key)) {
       if (SUI.isObject(objB[key].constructor)) {
@@ -640,17 +640,36 @@ SUI.remove = function(items, item) {
  * @return {!Array|!Object|undefined}
  */
 SUI.copy = function(items) {
-  // TODO object, array copy
-  // return JSON.parse(JSON.stringify(items));
   let results;
   if (SUI.isArray(items)) {
-    results = [].concat(items);
+    results = SUI.copyArray(/** @type {!Array} */(items));
   } else if (SUI.isObject(items)) {
-    results = {};
-    SUI.each(items, function(item, key) {
-      results[key] = SUI.isObject(item) ? SUI.copy(item) : item;
-    });
+    results = SUI.copyObject(/** @type {!Object} */(items));
   }
+  return results;
+};
+
+/**
+ * @export
+ * @param {!Array} items
+ * @return {!Array}
+ */
+SUI.copyArray = function(items) {
+  // TODO object, array copy
+  // return JSON.parse(JSON.stringify(items));
+  return [].concat(items);
+};
+
+/**
+ * @export
+ * @param {!Object} items
+ * @return {!Object}
+ */
+SUI.copyObject = function(items) {
+  const results = {};
+  SUI.eachObject(items, function(item, key) {
+    results[key] = SUI.isObject(item) ? SUI.copyObject(item) : item;
+  });
   return results;
 };
 
@@ -737,7 +756,7 @@ SUI.capitalize = function(str) {
  */
 SUI.pluck = function(items, attribute) {
   const results = [];
-  SUI.each(items, (item) => {
+  SUI.eachArray(items, (item) => {
     const result = item.get(attribute);
     results.push(result);
   });

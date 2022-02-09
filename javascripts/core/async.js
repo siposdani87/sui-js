@@ -91,7 +91,7 @@ SUI.Async.prototype._parallelCaller = function(length, isError, result, allowEve
   }
   this.call.sum++;
   if (SUI.eq(this.call.sum, length)) {
-    const results = opt_args || /** @type {!Array} */ (SUI.copy(this.call.results));
+    const results = opt_args || SUI.copyArray(this.call.results);
     this._clear();
     if (!this.call.isError) {
       if (allowEvent) {
