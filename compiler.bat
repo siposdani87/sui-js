@@ -29,5 +29,5 @@ call java -jar node_modules/google-closure-compiler-java/compiler.jar^
  --create_source_map dist/sui.min.js.map^
  --js_output_file dist/sui.min.js
 
-call sass-lint --verbose --no-exit
-call sass stylesheets/sui.min.scss dist/sui.min.css --style compressed
+call npx sass-lint --verbose --no-exit
+call npx sass stylesheets/sui.min.scss dist/sui.min.css --style compressed

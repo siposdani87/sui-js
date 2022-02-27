@@ -6,5 +6,5 @@ npm install
 npm outdated
 
 ./compiler.sh
-gulp
-gulp serve
+npx gulp
+npx gulp serve

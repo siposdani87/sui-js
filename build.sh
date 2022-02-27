@@ -1,5 +1,3 @@
 #!/bin/bash
 
-npm install
-
-gulp
+npx gulp
