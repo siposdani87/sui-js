@@ -4,26 +4,39 @@
 		"es6": true
 	},
 	"parserOptions": {
-		"ecmaVersion": 11,
-		"sourceType": "module",
+		"ecmaVersion": "latest",
+		"sourceType": "script",
 		"ecmaFeatures": {
 			"jsx": false
 		}
 	},
-	"extends": ["google"],
+	"extends": [
+		"google"
+	],
 	"rules": {
 		"linebreak-style": "off",
 		"max-len": "off",
 		"max-lines": "off",
 		"camelcase": "off",
-		"no-unused-vars": ["error", { "argsIgnorePattern": "^_", "varsIgnorePattern": "^_", "ignoreRestSiblings": true }]
+		"no-unused-vars": [
+			"error",
+			{
+				"argsIgnorePattern": "^_",
+				"varsIgnorePattern": "^_",
+				"ignoreRestSiblings": true
+			}
+		]
 	},
-	"overrides": [{
-			"files": ["rails.js", "javascripts/lib/browser.js"],
+	"overrides": [
+		{
+			"files": [
+				"javascripts/lib/browser.js"
+			],
 			"rules": {
 				"spaced-comment": "off"
 			}
-		}, {
+		},
+		{
 			"files": "javascripts/core/sui.js",
 			"rules": {
 				"new-cap": "off"

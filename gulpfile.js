@@ -94,8 +94,9 @@ gulp.task('default', gulp.series('compile:styles:minify', 'compile:styles', 'com
   done();
 }));
 
-gulp.task('doc', gulp.series(function(done) {
-  gulp.src(['README.md', 'javascripts/**/*.js'], {read: false}).pipe(jsdoc(done));
+gulp.task('jsdoc', gulp.series(function(done) {
+  const config = require('./jsdoc.json');
+  gulp.src(['README.md', 'javascripts/**/*.js'], {read: false}).pipe(jsdoc(config, done));
 }));
 
 gulp.task('serve', gulp.series('watcher', function(done) {

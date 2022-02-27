@@ -6,5 +6,5 @@ call npm install
 call npm outdated
 
 call compiler.bat
-call gulp
-call gulp serve
+call npx gulp
+call npx gulp serve
