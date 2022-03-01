@@ -1,4 +1,4 @@
-goog.provide('SUI.widget.Color');
+goog.provide('SUI.Color');
 
 goog.require('SUI');
 goog.require('SUI.Canvas');
@@ -7,28 +7,27 @@ goog.require('SUI.Popup');
 goog.require('SUI.Query');
 goog.require('SUI.Tooltip');
 goog.require('SUI.BaseWidget');
-goog.require('SUI.widget');
 
 /**
  * @constructor
  * @extends {SUI.BaseWidget}
- * @this {SUI.widget.Color}
+ * @this {SUI.Color}
  * @param {!SUI.Node} input
  * @param {!SUI.Node} label
  * @param {!SUI.Node} error
  * @param {!SUI.Node} inputBlock
  */
-SUI.widget.Color = function(input, label, error, inputBlock) {
-  SUI.widget.Color.base(this, 'constructor', input, label, error, inputBlock);
+SUI.Color = function(input, label, error, inputBlock) {
+  SUI.Color.base(this, 'constructor', input, label, error, inputBlock);
   this._init();
 };
-goog.inherits(SUI.widget.Color, SUI.BaseWidget);
+goog.inherits(SUI.Color, SUI.BaseWidget);
 
 /**
  * @private
  * @return {undefined}
  */
-SUI.widget.Color.prototype._init = function() {
+SUI.Color.prototype._init = function() {
   this.inputBlock.addClass('color-widget');
 
   this._initInput();
@@ -40,7 +39,7 @@ SUI.widget.Color.prototype._init = function() {
 /**
  * @override
  */
-SUI.widget.Color.prototype.render = function() {
+SUI.Color.prototype.render = function() {
   if (this.label && this.label.exists()) {
     this.label.addClass('widget-label');
   }
@@ -51,7 +50,7 @@ SUI.widget.Color.prototype.render = function() {
 /**
  * @override
  */
-SUI.widget.Color.prototype.refresh = function() {
+SUI.Color.prototype.refresh = function() {
   if (this.isRequired() && this.getValue() === '') {
     this.inputBlock.addClass('is-invalid');
   }
@@ -70,7 +69,7 @@ SUI.widget.Color.prototype.refresh = function() {
  * @private
  * @return {undefined}
  */
-SUI.widget.Color.prototype._initInput = function() {
+SUI.Color.prototype._initInput = function() {
   this.input.addClass('hidden');
 
   this.input.addEventListener('change', (input) => {
@@ -88,7 +87,7 @@ SUI.widget.Color.prototype._initInput = function() {
  * @private
  * @return {undefined}
  */
-SUI.widget.Color.prototype._initPreview = function() {
+SUI.Color.prototype._initPreview = function() {
   this.previewNode = new SUI.Node('div');
   this.previewNode.addClass('preview');
   this.inputBlock.beforeChild(this.previewNode);
@@ -113,7 +112,7 @@ SUI.widget.Color.prototype._initPreview = function() {
  * @private
  * @return {undefined}
  */
-SUI.widget.Color.prototype._draw = function() {
+SUI.Color.prototype._draw = function() {
   if (!this.image.isEmpty()) {
     const width = /** @type {number} */ (SUI.typeCast(this.image.getAttribute('width')));
     const height = /** @type {number} */ (SUI.typeCast(this.image.getAttribute('height')));
@@ -139,7 +138,7 @@ SUI.widget.Color.prototype._draw = function() {
  * @private
  * @return {undefined}
  */
-SUI.widget.Color.prototype._initImage = function() {
+SUI.Color.prototype._initImage = function() {
   this.image = new SUI.Query('img', this.inputBlock).getItem();
   if (!this.image.isEmpty()) {
     this.image.addClass('hidden');
@@ -168,7 +167,7 @@ SUI.widget.Color.prototype._initImage = function() {
  * @private
  * @return {undefined}
  */
-SUI.widget.Color.prototype._setMaterialColors = function() {
+SUI.Color.prototype._setMaterialColors = function() {
   const colors50 = ['#ffebee', '#fce4ec', '#f3e5f5', '#ede7f6', '#e8eaf6', '#e3f2fd', '#e1f5fe', '#e0f7fa', '#e0f2f1', '#e8f5e9', '#f1f8e9', '#f9fbe7', '#fffde7', '#fff8e1', '#fff3e0', '#fbe9e7', '#efebe9', '#fafafa', '#eceff1'];
   const colors100 = ['#ffcdd2', '#f8bbd0', '#e1bee7', '#d1c4e9', '#c5cae9', '#bbdefb', '#b3e5fc', '#b2ebf2', '#b2dfdb', '#c8e6c9', '#dcedc8', '#f0f4c3', '#fff9c4', '#ffecb3', '#ffe0b2', '#ffccbc', '#d7ccc8', '#f5f5f5', '#cfd8dc'];
   const colors200 = ['#ef9a9a', '#f48fb1', '#ce93d8', '#b39ddb', '#9fa8da', '#90caf9', '#81d4fa', '#80deea', '#80cbc4', '#a5d6a7', '#c5e1a5', '#e6ee9c', '#fff59d', '#ffe082', '#ffcc80', '#ffab91', '#bcaaa4', '#eeeeee', '#b0bec5'];

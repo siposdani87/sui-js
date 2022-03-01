@@ -1,14 +1,13 @@
-goog.provide('SUI.lib.Scheduler');
+goog.provide('SUI.Scheduler');
 
 goog.require('SUI');
 goog.require('SUI.Object');
-goog.require('SUI.lib');
 
 /**
  * @constructor
- * @this {SUI.lib.Scheduler}
+ * @this {SUI.Scheduler}
  */
-SUI.lib.Scheduler = function() {
+SUI.Scheduler = function() {
   this.schedulerContainer = new SUI.Object();
 
   this._callRunner();
@@ -18,7 +17,7 @@ SUI.lib.Scheduler = function() {
  * @private
  * @return {undefined}
  */
-SUI.lib.Scheduler.prototype._callRunner = function() {
+SUI.Scheduler.prototype._callRunner = function() {
   /* setTimeout(() => {
     SUI.eachObject(this.schedulerContainer, (schedulerCallbacks, timeKey) => {
 
@@ -31,7 +30,7 @@ SUI.lib.Scheduler.prototype._callRunner = function() {
  * @param {!Function} callback
  * @return {!Function}
  */
-SUI.lib.Scheduler.prototype.everyDay = function(time, callback) {
+SUI.Scheduler.prototype.everyDay = function(time, callback) {
   const name = time; // window['moment']
   if (SUI.isFunction(callback)) {
     const schedulers = this.schedulerContainer.get(name, []);

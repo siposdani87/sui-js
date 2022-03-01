@@ -1,17 +1,16 @@
-goog.provide('SUI.lib.Flash');
+goog.provide('SUI.Flash');
 
 goog.require('SUI');
 goog.require('SUI.Node');
 goog.require('SUI.Object');
 goog.require('SUI.Query');
-goog.require('SUI.lib');
 
 /**
  * @constructor
- * @this {SUI.lib.Flash}
+ * @this {SUI.Flash}
  * @param {!Object=} opt_options
  */
-SUI.lib.Flash = function(opt_options = {}) {
+SUI.Flash = function(opt_options = {}) {
   this._setOptions(opt_options);
   this._init();
 };
@@ -20,7 +19,7 @@ SUI.lib.Flash = function(opt_options = {}) {
  * @private
  * @return {undefined}
  */
-SUI.lib.Flash.prototype._init = function() {
+SUI.Flash.prototype._init = function() {
   this.container = new SUI.Query(this.options.id).getItem();
 };
 
@@ -29,7 +28,7 @@ SUI.lib.Flash.prototype._init = function() {
  * @param {!Object=} opt_options
  * @return {undefined}
  */
-SUI.lib.Flash.prototype._setOptions = function(opt_options = {}) {
+SUI.Flash.prototype._setOptions = function(opt_options = {}) {
   const _self = this;
   _self.options = new SUI.Object({
     id: '#flashes',
@@ -47,7 +46,7 @@ SUI.lib.Flash.prototype._setOptions = function(opt_options = {}) {
  * @param {string=} opt_id
  * @return {!SUI.Node}
  */
-SUI.lib.Flash.prototype._getFlashNode = function(type, message, opt_duration = 0, opt_closeCallback = null, opt_id = '') {
+SUI.Flash.prototype._getFlashNode = function(type, message, opt_duration = 0, opt_closeCallback = null, opt_id = '') {
   const flashNode = this.container.createElement('div');
   flashNode.setAttribute('data-id', opt_id || SUI.generateId('flash'));
   flashNode.addClass(['flash', type]);
@@ -64,7 +63,7 @@ SUI.lib.Flash.prototype._getFlashNode = function(type, message, opt_duration = 0
  * @param {?Function=} opt_closeCallback
  * @return {!SUI.Node}
  */
-SUI.lib.Flash.prototype._getCloseButton = function(flashNode, opt_closeCallback = null) {
+SUI.Flash.prototype._getCloseButton = function(flashNode, opt_closeCallback = null) {
   const buttonNode = flashNode.createElement('button');
   buttonNode.addClass(['mdl-button', 'mdl-js-button', 'mdl-button--icon']);
 
@@ -91,7 +90,7 @@ SUI.lib.Flash.prototype._getCloseButton = function(flashNode, opt_closeCallback 
  * @param {string=} opt_id
  * @return {!SUI.Node}
  */
-SUI.lib.Flash.prototype._add = function(type, message, opt_duration = 0, opt_closeCallback = null, opt_id = '') {
+SUI.Flash.prototype._add = function(type, message, opt_duration = 0, opt_closeCallback = null, opt_id = '') {
   this.removeById(opt_id);
   const flashNode = this._getFlashNode(type, message, opt_duration, opt_closeCallback, opt_id);
   this.container.appendChild(flashNode);
@@ -110,7 +109,7 @@ SUI.lib.Flash.prototype._add = function(type, message, opt_duration = 0, opt_clo
 /**
  * @param {string=} opt_id
  */
-SUI.lib.Flash.prototype.removeById = function(opt_id = '') {
+SUI.Flash.prototype.removeById = function(opt_id = '') {
   if (opt_id) {
     const selector = SUI.format('[data-id={0}]', [opt_id]);
     const flashes = new SUI.Query(selector, this.container);
@@ -125,7 +124,7 @@ SUI.lib.Flash.prototype.removeById = function(opt_id = '') {
  * @param {?Function=} opt_closeCallback
  * @return {boolean}
  */
-SUI.lib.Flash.prototype._isClosable = function(type, opt_closeCallback = null) {
+SUI.Flash.prototype._isClosable = function(type, opt_closeCallback = null) {
   return this.options.closableTypes.indexOf(type) !== -1 || SUI.isFunction(opt_closeCallback);
 };
 
@@ -134,7 +133,7 @@ SUI.lib.Flash.prototype._isClosable = function(type, opt_closeCallback = null) {
  * @param {?Function=} opt_closeCallback
  * @return {undefined}
  */
-SUI.lib.Flash.prototype.remove = function(flash, opt_closeCallback = null) {
+SUI.Flash.prototype.remove = function(flash, opt_closeCallback = null) {
   if (SUI.isFunction(opt_closeCallback)) {
     opt_closeCallback();
   }
@@ -148,7 +147,7 @@ SUI.lib.Flash.prototype.remove = function(flash, opt_closeCallback = null) {
  * @param {string=} opt_id
  * @return {!SUI.Node}
  */
-SUI.lib.Flash.prototype.addSuccess = function(message, opt_duration = 0, opt_closeCallback = null, opt_id = '') {
+SUI.Flash.prototype.addSuccess = function(message, opt_duration = 0, opt_closeCallback = null, opt_id = '') {
   return this._add('success', message, opt_duration, opt_closeCallback, opt_id);
 };
 
@@ -159,7 +158,7 @@ SUI.lib.Flash.prototype.addSuccess = function(message, opt_duration = 0, opt_clo
  * @param {string=} opt_id
  * @return {!SUI.Node}
  */
-SUI.lib.Flash.prototype.addInfo = function(message, opt_duration = 0, opt_closeCallback = null, opt_id = '') {
+SUI.Flash.prototype.addInfo = function(message, opt_duration = 0, opt_closeCallback = null, opt_id = '') {
   return this._add('info', message, opt_duration, opt_closeCallback, opt_id);
 };
 
@@ -170,7 +169,7 @@ SUI.lib.Flash.prototype.addInfo = function(message, opt_duration = 0, opt_closeC
  * @param {string=} opt_id
  * @return {!SUI.Node}
  */
-SUI.lib.Flash.prototype.addWarning = function(message, opt_duration = 0, opt_closeCallback = null, opt_id = '') {
+SUI.Flash.prototype.addWarning = function(message, opt_duration = 0, opt_closeCallback = null, opt_id = '') {
   return this._add('warning', message, opt_duration, opt_closeCallback, opt_id);
 };
 
@@ -181,7 +180,7 @@ SUI.lib.Flash.prototype.addWarning = function(message, opt_duration = 0, opt_clo
  * @param {string=} opt_id
  * @return {!SUI.Node}
  */
-SUI.lib.Flash.prototype.addError = function(message, opt_duration = 0, opt_closeCallback = null, opt_id = '') {
+SUI.Flash.prototype.addError = function(message, opt_duration = 0, opt_closeCallback = null, opt_id = '') {
   return this._add('error', message, opt_duration, opt_closeCallback, opt_id);
 };
 
@@ -192,7 +191,7 @@ SUI.lib.Flash.prototype.addError = function(message, opt_duration = 0, opt_close
  * @param {string=} opt_id
  * @return {!SUI.Node|null}
  */
-SUI.lib.Flash.prototype.addMessage = function(message, opt_duration = 0, opt_closeCallback = null, opt_id = '') {
+SUI.Flash.prototype.addMessage = function(message, opt_duration = 0, opt_closeCallback = null, opt_id = '') {
   if (SUI.isObject(message)) {
     const closeCallback = message['closable'] ? SUI.noop : opt_closeCallback;
     return this._add(message['type'], message['content'], opt_duration, closeCallback, opt_id);
@@ -207,6 +206,6 @@ SUI.lib.Flash.prototype.addMessage = function(message, opt_duration = 0, opt_clo
  * @param {string=} opt_id
  * @return {!SUI.Node}
  */
-SUI.lib.Flash.prototype.addDefault = function(message, opt_duration = 0, opt_closeCallback = null, opt_id = '') {
+SUI.Flash.prototype.addDefault = function(message, opt_duration = 0, opt_closeCallback = null, opt_id = '') {
   return this._add('default', message, opt_duration, opt_closeCallback, opt_id);
 };

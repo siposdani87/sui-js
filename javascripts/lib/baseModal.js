@@ -1,22 +1,21 @@
-goog.provide('SUI.lib.BaseModal');
+goog.provide('SUI.BaseModal');
 
 goog.require('SUI');
 goog.require('SUI.Async');
 goog.require('SUI.Query');
-goog.require('SUI.lib');
 
 /**
  * @constructor
- * @this {SUI.lib.BaseModal}
+ * @this {SUI.BaseModal}
  */
-SUI.lib.BaseModal = function() {
+SUI.BaseModal = function() {
 };
 
 /**
  * @protected
  * @return {undefined}
  */
-SUI.lib.BaseModal.prototype._initBase = function() {
+SUI.BaseModal.prototype._initBase = function() {
   this.windowWidth = 0;
   this.windowHeight = 0;
 
@@ -30,7 +29,7 @@ SUI.lib.BaseModal.prototype._initBase = function() {
  * @private
  * @return {undefined}
  */
-SUI.lib.BaseModal.prototype._initButtons = function() {
+SUI.BaseModal.prototype._initButtons = function() {
   this._initCloseButton();
   this._initMinimizeButton();
   this._initMaximizeButton();
@@ -40,7 +39,7 @@ SUI.lib.BaseModal.prototype._initButtons = function() {
  * @private
  * @return {undefined}
  */
-SUI.lib.BaseModal.prototype._initMinimizeButton = function() {
+SUI.BaseModal.prototype._initMinimizeButton = function() {
   const btnMinimize = new SUI.Query('.minimize', this.modal).getItem();
   if (!btnMinimize.isEmpty()) {
     btnMinimize.addClass(['mdl-button', 'mdl-js-button', 'mdl-button--icon']);
@@ -55,7 +54,7 @@ SUI.lib.BaseModal.prototype._initMinimizeButton = function() {
  * @private
  * @return {undefined}
  */
-SUI.lib.BaseModal.prototype._initMaximizeButton = function() {
+SUI.BaseModal.prototype._initMaximizeButton = function() {
   const btnMaximize = new SUI.Query('.maximize', this.modal).getItem();
   if (!btnMaximize.isEmpty()) {
     btnMaximize.addClass(['mdl-button', 'mdl-js-button', 'mdl-button--icon']);
@@ -70,7 +69,7 @@ SUI.lib.BaseModal.prototype._initMaximizeButton = function() {
  * @private
  * @return {undefined}
  */
-SUI.lib.BaseModal.prototype._initCloseButton = function() {
+SUI.BaseModal.prototype._initCloseButton = function() {
   const btnClose = new SUI.Query('.close', this.modal).getItem();
   if (!btnClose.isEmpty()) {
     btnClose.addClass(['mdl-button', 'mdl-js-button', 'mdl-button--icon']);
@@ -84,7 +83,7 @@ SUI.lib.BaseModal.prototype._initCloseButton = function() {
 /**
  * @return {boolean}
  */
-SUI.lib.BaseModal.prototype.isOpened = function() {
+SUI.BaseModal.prototype.isOpened = function() {
   return this.modal.hasClass('visible-flex');
 };
 
@@ -93,7 +92,7 @@ SUI.lib.BaseModal.prototype.isOpened = function() {
  * @param {boolean=} opt_allowClose
  * @return {undefined}
  */
-SUI.lib.BaseModal.prototype._handleCloseButton = function(opt_allowClose = true) {
+SUI.BaseModal.prototype._handleCloseButton = function(opt_allowClose = true) {
   if (this.btnClose) {
     if (opt_allowClose) {
       this.btnClose.removeClass('hidden');
@@ -107,7 +106,7 @@ SUI.lib.BaseModal.prototype._handleCloseButton = function(opt_allowClose = true)
  * @param {boolean=} opt_allowClose
  * @return {undefined}
  */
-SUI.lib.BaseModal.prototype.open = function(opt_allowClose = true) {
+SUI.BaseModal.prototype.open = function(opt_allowClose = true) {
   this.hasBlur = this.mainContainerNode.hasClass('blur');
   if (!this.hasBlur) {
     this.mainContainerNode.addClass('blur');
@@ -128,7 +127,7 @@ SUI.lib.BaseModal.prototype.open = function(opt_allowClose = true) {
 /**
  * @return {undefined}
  */
-SUI.lib.BaseModal.prototype.close = function() {
+SUI.BaseModal.prototype.close = function() {
   clearInterval(this.interval);
 
   if (!this.hasBlur) {
@@ -149,7 +148,7 @@ SUI.lib.BaseModal.prototype.close = function() {
  * @param {string=} opt_title
  * @return {undefined}
  */
-SUI.lib.BaseModal.prototype._setTitle = function(opt_title) {
+SUI.BaseModal.prototype._setTitle = function(opt_title) {
   this.modalTitle.setHtml(opt_title);
 
   if ((SUI.isString(opt_title) && opt_title.length > 0) || SUI.isNumber(opt_title)) {
@@ -164,7 +163,7 @@ SUI.lib.BaseModal.prototype._setTitle = function(opt_title) {
  * @protected
  * @return {undefined}
  */
-SUI.lib.BaseModal.prototype._reset = function() {
+SUI.BaseModal.prototype._reset = function() {
   this.eventOK = SUI.noop();
   this.eventCancel = SUI.noop();
 };
@@ -173,7 +172,7 @@ SUI.lib.BaseModal.prototype._reset = function() {
  * @protected
  * @return {undefined}
  */
-SUI.lib.BaseModal.prototype._actionOK = function() {
+SUI.BaseModal.prototype._actionOK = function() {
   const async = new SUI.Async();
   const calls = [this.eventOK.bind(this), this.close.bind(this)];
   async.serial(calls);
@@ -183,7 +182,7 @@ SUI.lib.BaseModal.prototype._actionOK = function() {
  * @protected
  * @return {undefined}
  */
-SUI.lib.BaseModal.prototype._actionCancel = function() {
+SUI.BaseModal.prototype._actionCancel = function() {
   const async = new SUI.Async();
   const calls = [this.eventCancel.bind(this), this.close.bind(this)];
   async.serial(calls);
@@ -193,7 +192,7 @@ SUI.lib.BaseModal.prototype._actionCancel = function() {
  * @private
  * @return {undefined}
  */
-SUI.lib.BaseModal.prototype._actionMinimize = function() {
+SUI.BaseModal.prototype._actionMinimize = function() {
 
 };
 
@@ -201,7 +200,7 @@ SUI.lib.BaseModal.prototype._actionMinimize = function() {
  * @private
  * @return {undefined}
  */
-SUI.lib.BaseModal.prototype._actionMaximize = function() {
+SUI.BaseModal.prototype._actionMaximize = function() {
 
 };
 
@@ -210,7 +209,7 @@ SUI.lib.BaseModal.prototype._actionMaximize = function() {
  * @param {number} height
  * @return {undefined}
  */
-SUI.lib.BaseModal.prototype.setSize = function(width, height) {
+SUI.BaseModal.prototype.setSize = function(width, height) {
   this.windowWidth = width;
   this.windowHeight = height;
   this._handleCenterPosition();
@@ -221,7 +220,7 @@ SUI.lib.BaseModal.prototype.setSize = function(width, height) {
  * @private
  * @return {undefined}
  */
-SUI.lib.BaseModal.prototype._handleCenterPosition = function() {
+SUI.BaseModal.prototype._handleCenterPosition = function() {
   const style = this.modalWindow.getComputedStyle();
   let height = style.getPropertyValue('height');
   if (SUI.contain(height, 'px')) {

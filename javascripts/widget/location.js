@@ -1,31 +1,30 @@
-goog.provide('SUI.widget.Location');
+goog.provide('SUI.Location');
 
 goog.require('SUI');
 goog.require('SUI.GoogleMap');
 goog.require('SUI.Node');
 goog.require('SUI.BaseWidget');
-goog.require('SUI.widget');
 
 /**
  * @constructor
  * @extends {SUI.BaseWidget}
- * @this {SUI.widget.Location}
+ * @this {SUI.Location}
  * @param {!SUI.Node} input
  * @param {!SUI.Node} label
  * @param {!SUI.Node} error
  * @param {!SUI.Node} inputBlock
  */
-SUI.widget.Location = function(input, label, error, inputBlock) {
-  SUI.widget.Location.base(this, 'constructor', input, label, error, inputBlock);
+SUI.Location = function(input, label, error, inputBlock) {
+  SUI.Location.base(this, 'constructor', input, label, error, inputBlock);
   this._init();
 };
-goog.inherits(SUI.widget.Location, SUI.BaseWidget);
+goog.inherits(SUI.Location, SUI.BaseWidget);
 
 /**
  * @private
  * @return {undefined}
  */
-SUI.widget.Location.prototype._init = function() {
+SUI.Location.prototype._init = function() {
   this.inputBlock.addClass('location-widget');
   this._initButtons();
 
@@ -56,7 +55,7 @@ SUI.widget.Location.prototype._init = function() {
  * @private
  * @return {undefined}
  */
-SUI.widget.Location.prototype._initButtons = function() {
+SUI.Location.prototype._initButtons = function() {
   this._initSearchButton();
   this._initAdvancedButton();
 };
@@ -65,7 +64,7 @@ SUI.widget.Location.prototype._initButtons = function() {
  * @private
  * @return {undefined}
  */
-SUI.widget.Location.prototype._initSearchButton = function() {
+SUI.Location.prototype._initSearchButton = function() {
   const searchButton = new SUI.Node('a');
   searchButton.setAttribute('href', 'javascript:void(0)');
   searchButton.addClass(['search-button', 'material-icons']);
@@ -83,7 +82,7 @@ SUI.widget.Location.prototype._initSearchButton = function() {
  * @private
  * @return {undefined}
  */
-SUI.widget.Location.prototype._initAdvancedButton = function() {
+SUI.Location.prototype._initAdvancedButton = function() {
   this.advancedButton = new SUI.Node('a');
   this.advancedButton.setAttribute('href', 'javascript:void(0)');
   this.advancedButton.addClass(['advanced-button', 'material-icons']);
@@ -100,7 +99,7 @@ SUI.widget.Location.prototype._initAdvancedButton = function() {
  * @param {string} address
  * @return {undefined}
  */
-SUI.widget.Location.prototype.search = function(address) {
+SUI.Location.prototype.search = function(address) {
   this.map.searchAddress(address).then((locations) => {
     const position = locations[0];
     const location = {
@@ -118,7 +117,7 @@ SUI.widget.Location.prototype.search = function(address) {
  * @override
  * @return {undefined}
  */
-SUI.widget.Location.prototype.render = function() {
+SUI.Location.prototype.render = function() {
   this.inputBlock.addClass(['mdl-textfield', 'mdl-js-textfield', 'mdl-textfield--floating-label']);
   this.input.addClass('mdl-textfield__input');
   if (this.label && this.label.exists()) {
@@ -135,7 +134,7 @@ SUI.widget.Location.prototype.render = function() {
 /**
  * @override
  */
-SUI.widget.Location.prototype.refresh = function() {
+SUI.Location.prototype.refresh = function() {
   if (this.isDisabled()) {
     this.mapLockNode.addClass('map-lock');
   } else {
@@ -148,7 +147,7 @@ SUI.widget.Location.prototype.refresh = function() {
  * @private
  * @return {undefined}
  */
-SUI.widget.Location.prototype._toggleAdvancedInputs = function() {
+SUI.Location.prototype._toggleAdvancedInputs = function() {
   this.advancedButton.toggleClass('active');
   this.advancedNode.toggleClass('hidden');
 };
@@ -157,7 +156,7 @@ SUI.widget.Location.prototype._toggleAdvancedInputs = function() {
  * @private
  * @return {undefined}
  */
-SUI.widget.Location.prototype._renderAdvancedInputs = function() {
+SUI.Location.prototype._renderAdvancedInputs = function() {
   this.advancedNode = new SUI.Node('div');
   this.advancedNode.addClass(['advanced', 'row', 'hidden']);
   this.inputBlock.appendChild(this.advancedNode);
@@ -183,7 +182,7 @@ SUI.widget.Location.prototype._renderAdvancedInputs = function() {
  * @param {function(!SUI.Node):undefined} callback
  * @return {!SUI.Node}
  */
-SUI.widget.Location.prototype._renderAdvancedInput = function(id, labelText, callback) {
+SUI.Location.prototype._renderAdvancedInput = function(id, labelText, callback) {
   const blockNode = new SUI.Node('div');
   blockNode.addClass('col-6');
   this.advancedNode.appendChild(blockNode);
@@ -217,7 +216,7 @@ SUI.widget.Location.prototype._renderAdvancedInput = function(id, labelText, cal
  * @private
  * @return {undefined}
  */
-SUI.widget.Location.prototype._renderMap = function() {
+SUI.Location.prototype._renderMap = function() {
   const mapNode = new SUI.Node('div');
   mapNode.addClass('map');
   this.inputBlock.appendChild(mapNode);
@@ -249,7 +248,7 @@ SUI.widget.Location.prototype._renderMap = function() {
  * @param {string} mapTypeId
  * @return {undefined}
  */
-SUI.widget.Location.prototype.setMapType = function(mapTypeId) {
+SUI.Location.prototype.setMapType = function(mapTypeId) {
   this.map.setMapType(mapTypeId);
 };
 
@@ -259,7 +258,7 @@ SUI.widget.Location.prototype.setMapType = function(mapTypeId) {
  * @param {!Array<?google.maps.MapTypeStyle>} mapStyles
  * @return {undefined}
  */
-SUI.widget.Location.prototype.setCustomMapStyle = function(mapTypeId, mapTypeName, mapStyles) {
+SUI.Location.prototype.setCustomMapStyle = function(mapTypeId, mapTypeName, mapStyles) {
   this.map.setCustomMapStyle(mapTypeId, mapTypeName, mapStyles);
 };
 
@@ -267,7 +266,7 @@ SUI.widget.Location.prototype.setCustomMapStyle = function(mapTypeId, mapTypeNam
  * @private
  * @return {undefined}
  */
-SUI.widget.Location.prototype._setDefaultValue = function() {
+SUI.Location.prototype._setDefaultValue = function() {
   const location = /** @type {!Object} */ (this.getValue());
   if (!SUI.isNull(location['latitude']) && !SUI.isNull(location['longitude'])) {
     this.map.setCenter(location['latitude'], location['longitude']);
@@ -281,7 +280,7 @@ SUI.widget.Location.prototype._setDefaultValue = function() {
  * @param {number|null} longitude
  * @return {undefined}
  */
-SUI.widget.Location.prototype.updatePosition = function(latitude, longitude) {
+SUI.Location.prototype.updatePosition = function(latitude, longitude) {
   const location = /** @type {!Object} */ (this.getValue());
   location['latitude'] = latitude;
   location['longitude'] = longitude;
@@ -293,7 +292,7 @@ SUI.widget.Location.prototype.updatePosition = function(latitude, longitude) {
  * @param {!Object} value
  * @return {undefined}
  */
-SUI.widget.Location.prototype._setDataValue = function(value) {
+SUI.Location.prototype._setDataValue = function(value) {
   this.latitudeInput.getNode().value = value['latitude'] || '';
   this.longitudeInput.getNode().value = value['longitude'] || '';
   this.input.setAttribute('value', value['address'] || '');
@@ -305,7 +304,7 @@ SUI.widget.Location.prototype._setDataValue = function(value) {
  * @param {!Object|!Function|!Array|boolean|number|string|null|undefined} value
  * @return {undefined}
  */
-SUI.widget.Location.prototype.setValue = function(value) {
+SUI.Location.prototype.setValue = function(value) {
   this._setDataValue(/** @type {!Object} */(value));
   this.map.removeMarker(0);
   if (!SUI.isNull(value['latitude']) && !SUI.isNull(value['longitude'])) {
@@ -323,7 +322,7 @@ SUI.widget.Location.prototype.setValue = function(value) {
  * @override
  * @return {*}
  */
-SUI.widget.Location.prototype.getValue = function() {
+SUI.Location.prototype.getValue = function() {
   const value = this.input.getData('value');
   return SUI.typeCast(value);
 };
@@ -332,6 +331,6 @@ SUI.widget.Location.prototype.getValue = function() {
  * @param {string} address
  * @return {undefined}
  */
-SUI.widget.Location.prototype.eventSearch = function(address) {
-  SUI.consoleInfo('SUI.widget.Location.eventSearch()', address);
+SUI.Location.prototype.eventSearch = function(address) {
+  SUI.consoleInfo('SUI.Location.eventSearch()', address);
 };

@@ -1,30 +1,29 @@
-goog.provide('SUI.widget.Textarea');
+goog.provide('SUI.Textarea');
 
 goog.require('SUI');
 goog.require('SUI.Node');
 goog.require('SUI.BaseWidget');
-goog.require('SUI.widget');
 
 /**
  * @constructor
  * @extends {SUI.BaseWidget}
- * @this {SUI.widget.Textarea}
+ * @this {SUI.Textarea}
  * @param {!SUI.Node} input
  * @param {!SUI.Node} label
  * @param {!SUI.Node} error
  * @param {!SUI.Node} inputBlock
  */
-SUI.widget.Textarea = function(input, label, error, inputBlock) {
-  SUI.widget.Textarea.base(this, 'constructor', input, label, error, inputBlock);
+SUI.Textarea = function(input, label, error, inputBlock) {
+  SUI.Textarea.base(this, 'constructor', input, label, error, inputBlock);
   this._init();
 };
-goog.inherits(SUI.widget.Textarea, SUI.BaseWidget);
+goog.inherits(SUI.Textarea, SUI.BaseWidget);
 
 /**
  * @private
  * @return {undefined}
  */
-SUI.widget.Textarea.prototype._init = function() {
+SUI.Textarea.prototype._init = function() {
   this.inputBlock.addClass('textarea-widget');
 
   this.input.addEventListener('keyup', (input) => {
@@ -47,7 +46,7 @@ SUI.widget.Textarea.prototype._init = function() {
  * @override
  * @return {undefined}
  */
-SUI.widget.Textarea.prototype.render = function() {
+SUI.Textarea.prototype.render = function() {
   this.inputBlock.addClass(['mdl-textfield', 'mdl-js-textfield', 'mdl-textfield--floating-label']);
   this.input.addClass(['mdl-textfield__input', 'mdl-textarea__input']);
   if (this.label && this.label.exists()) {
@@ -63,7 +62,7 @@ SUI.widget.Textarea.prototype.render = function() {
 /**
  * @return {undefined}
  */
-SUI.widget.Textarea.prototype._renderRichText = function() {
+SUI.Textarea.prototype._renderRichText = function() {
   this.input.addClass('hidden');
 
   let value = /** @type {string} */ (this.getValue());
@@ -112,7 +111,7 @@ SUI.widget.Textarea.prototype._renderRichText = function() {
  * @private
  * @return {boolean}
  */
-SUI.widget.Textarea.prototype._isRichText = function() {
+SUI.Textarea.prototype._isRichText = function() {
   return !!this.input.getAttribute('data-rich-text');
 };
 
@@ -120,7 +119,7 @@ SUI.widget.Textarea.prototype._isRichText = function() {
  * @private
  * @return {undefined}
  */
-SUI.widget.Textarea.prototype._renderToolbarButtons = function() {
+SUI.Textarea.prototype._renderToolbarButtons = function() {
   this.toolbarNode = new SUI.Node('div');
   this.toolbarNode.addClass('toolbar');
   this.input.insertBefore(this.toolbarNode);
@@ -168,7 +167,7 @@ SUI.widget.Textarea.prototype._renderToolbarButtons = function() {
  * @param {!Function} action
  * @return {undefined}
  */
-SUI.widget.Textarea.prototype._renderToolbarButton = function(iconName, action) {
+SUI.Textarea.prototype._renderToolbarButton = function(iconName, action) {
   const boldButtonNode = new SUI.Node('a');
   boldButtonNode.setAttribute('href', 'javascript:void(0)');
   boldButtonNode.addClass('material-icons');
@@ -184,7 +183,7 @@ SUI.widget.Textarea.prototype._renderToolbarButton = function(iconName, action) 
  * @param {boolean} value
  * @return {undefined}
  */
-SUI.widget.Textarea.prototype._setHtmlMode = function(value) {
+SUI.Textarea.prototype._setHtmlMode = function(value) {
   this.htmlMode = value;
   this._setDocMode(this.htmlMode);
 };
@@ -193,7 +192,7 @@ SUI.widget.Textarea.prototype._setHtmlMode = function(value) {
  * @private
  * @return {boolean}
  */
-SUI.widget.Textarea.prototype._isHtmlMode = function() {
+SUI.Textarea.prototype._isHtmlMode = function() {
   return this.htmlMode === true;
 };
 
@@ -203,7 +202,7 @@ SUI.widget.Textarea.prototype._isHtmlMode = function() {
  * @param {*=} opt_sValue
  * @return {undefined}
  */
-SUI.widget.Textarea.prototype._formatDoc = function(sCmd, opt_sValue) {
+SUI.Textarea.prototype._formatDoc = function(sCmd, opt_sValue) {
   if (!this._isHtmlMode()) {
     document.execCommand(sCmd, false, opt_sValue);
     this._setValue(this.richTextNode.innerHTML);
@@ -215,7 +214,7 @@ SUI.widget.Textarea.prototype._formatDoc = function(sCmd, opt_sValue) {
  * @param {boolean} _isHtmlMode
  * @return {undefined}
  */
-SUI.widget.Textarea.prototype._setDocMode = function(_isHtmlMode) {
+SUI.Textarea.prototype._setDocMode = function(_isHtmlMode) {
   if (_isHtmlMode) {
     this.richText.addClass('hidden');
     this.input.removeClass('hidden');
@@ -229,7 +228,7 @@ SUI.widget.Textarea.prototype._setDocMode = function(_isHtmlMode) {
 /**
  * @override
  */
-SUI.widget.Textarea.prototype.refresh = function() {
+SUI.Textarea.prototype.refresh = function() {
   if (this.isRequired() && this.getValue() === '') {
     this.inputBlock.addClass('is-invalid');
   }
@@ -246,7 +245,7 @@ SUI.widget.Textarea.prototype.refresh = function() {
  * @param {!Object|!Function|!Array|boolean|number|string|null|undefined} value
  * @return {undefined}
  */
-SUI.widget.Textarea.prototype._setValue = function(value) {
+SUI.Textarea.prototype._setValue = function(value) {
   const inputNode = this.input.getNode();
   inputNode.value = value;
   this.input.trigger('change');
@@ -257,7 +256,7 @@ SUI.widget.Textarea.prototype._setValue = function(value) {
  * @param {!Object|!Function|!Array|boolean|number|string|null|undefined} value
  * @return {undefined}
  */
-SUI.widget.Textarea.prototype.setValue = function(value) {
+SUI.Textarea.prototype.setValue = function(value) {
   if (this._isRichText()) {
     this.richTextNode.innerHTML = value;
   }
@@ -268,6 +267,6 @@ SUI.widget.Textarea.prototype.setValue = function(value) {
  * @override
  * @return {*}
  */
-SUI.widget.Textarea.prototype.getValue = function() {
+SUI.Textarea.prototype.getValue = function() {
   return this.input.getNode().value;
 };

@@ -1,14 +1,13 @@
-goog.provide('SUI.lib.NavBar');
+goog.provide('SUI.NavBar');
 
 goog.require('SUI.Node');
 goog.require('SUI.Query');
-goog.require('SUI.lib');
 
 /**
  * @constructor
- * @this {SUI.lib.NavBar}
+ * @this {SUI.NavBar}
  */
-SUI.lib.NavBar = function() {
+SUI.NavBar = function() {
   this._init();
 };
 
@@ -16,7 +15,7 @@ SUI.lib.NavBar = function() {
  * @private
  * @return {undefined}
  */
-SUI.lib.NavBar.prototype._init = function() {
+SUI.NavBar.prototype._init = function() {
   this.navBarHeader = new SUI.Query('.nav-bar-header').getItem();
   this.navBar = new SUI.Query('#nav-bar', this.navBarHeader).getItem();
 
@@ -31,7 +30,7 @@ SUI.lib.NavBar.prototype._init = function() {
 /**
  * @return {undefined}
  */
-SUI.lib.NavBar.prototype.toggle = function() {
+SUI.NavBar.prototype.toggle = function() {
   if (this.isOpened()) {
     this.close();
   } else {
@@ -42,14 +41,14 @@ SUI.lib.NavBar.prototype.toggle = function() {
 /**
  * @return {boolean}
  */
-SUI.lib.NavBar.prototype.isOpened = function() {
+SUI.NavBar.prototype.isOpened = function() {
   return this.navBar.hasClass('open');
 };
 
 /**
  * @return {undefined}
  */
-SUI.lib.NavBar.prototype.open = function() {
+SUI.NavBar.prototype.open = function() {
   this.navBar.addClass('open');
   this.toggleNavBarIcon.setHtml('close');
 };
@@ -57,7 +56,7 @@ SUI.lib.NavBar.prototype.open = function() {
 /**
  * @return {undefined}
  */
-SUI.lib.NavBar.prototype.close = function() {
+SUI.NavBar.prototype.close = function() {
   this.navBar.removeClass('open');
   this.toggleNavBarIcon.setHtml('menu');
 };
@@ -65,34 +64,34 @@ SUI.lib.NavBar.prototype.close = function() {
 /**
  * @return {undefined}
  */
-SUI.lib.NavBar.prototype.show = function() {
+SUI.NavBar.prototype.show = function() {
   this.navBarHeader.removeClass('hidden');
 };
 
 /**
  * @return {undefined}
  */
-SUI.lib.NavBar.prototype.hide = function() {
+SUI.NavBar.prototype.hide = function() {
   this.navBarHeader.addClass('hidden');
 };
 
 /**
  * @return {undefined}
  */
-SUI.lib.NavBar.prototype.showShadow = function() {
+SUI.NavBar.prototype.showShadow = function() {
   this.navBar.addClass('shadow');
 };
 
 /**
  * @return {undefined}
  */
-SUI.lib.NavBar.prototype.hideShadow = function() {
+SUI.NavBar.prototype.hideShadow = function() {
   this.navBar.removeClass('shadow');
 };
 
 /**
  * @return {!SUI.Node}
  */
-SUI.lib.NavBar.prototype.getContainer = function() {
+SUI.NavBar.prototype.getContainer = function() {
   return this.navBar;
 };

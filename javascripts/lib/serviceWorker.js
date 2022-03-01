@@ -1,13 +1,12 @@
-goog.provide('SUI.lib.ServiceWorker');
+goog.provide('SUI.ServiceWorker');
 
 goog.require('SUI');
-goog.require('SUI.lib');
 
 /**
  * @constructor
- * @this {SUI.lib.ServiceWorker}
+ * @this {SUI.ServiceWorker}
  */
-SUI.lib.ServiceWorker = function() {
+SUI.ServiceWorker = function() {
   this._init();
 };
 
@@ -15,7 +14,7 @@ SUI.lib.ServiceWorker = function() {
  * @private
  * @return {undefined}
  */
-SUI.lib.ServiceWorker.prototype._init = function() {
+SUI.ServiceWorker.prototype._init = function() {
   if ('serviceWorker' in navigator) {
     /* navigator.serviceWorker
       .register('service-worker.js', {scope: './'})
@@ -33,6 +32,6 @@ SUI.lib.ServiceWorker.prototype._init = function() {
  * @param {!Array} features
  * @return {undefined}
  */
-SUI.lib.ServiceWorker.prototype.eventMissingFeatures = function(features) {
-  SUI.consoleWarn('SUI.lib.ServiceWorker.eventMissingFeatures()', features);
+SUI.ServiceWorker.prototype.eventMissingFeatures = function(features) {
+  SUI.consoleWarn('SUI.ServiceWorker.eventMissingFeatures()', features);
 };

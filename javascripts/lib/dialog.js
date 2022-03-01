@@ -1,4 +1,4 @@
-goog.provide('SUI.lib.Dialog');
+goog.provide('SUI.Dialog');
 
 goog.require('SUI');
 goog.require('SUI.Deferred');
@@ -7,31 +7,30 @@ goog.require('SUI.Object');
 goog.require('SUI.Promise');
 goog.require('SUI.Query');
 goog.require('SUI.Tooltip');
-goog.require('SUI.lib');
-goog.require('SUI.lib.BaseModal');
-goog.require('SUI.lib.Http');
+goog.require('SUI.BaseModal');
+goog.require('SUI.Http');
 
 /**
  * @constructor
- * @extends {SUI.lib.BaseModal}
- * @this {SUI.lib.Dialog}
- * @param {!SUI.lib.Http} http
+ * @extends {SUI.BaseModal}
+ * @this {SUI.Dialog}
+ * @param {!SUI.Http} http
  * @param {!Object=} opt_options
  */
-SUI.lib.Dialog = function(http, opt_options = {}) {
+SUI.Dialog = function(http, opt_options = {}) {
   this.http = http;
   this._setOptions(opt_options);
   this._init();
   this._initBase();
 };
-goog.inherits(SUI.lib.Dialog, SUI.lib.BaseModal);
+goog.inherits(SUI.Dialog, SUI.BaseModal);
 
 /**
  * @param {!Object=} opt_options
  * @private
  * @return {undefined}
  */
-SUI.lib.Dialog.prototype._setOptions = function(opt_options = {}) {
+SUI.Dialog.prototype._setOptions = function(opt_options = {}) {
   const _self = this;
   _self.options = new SUI.Object({
     id: '#dialog',
@@ -43,7 +42,7 @@ SUI.lib.Dialog.prototype._setOptions = function(opt_options = {}) {
  * @private
  * @return {undefined}
  */
-SUI.lib.Dialog.prototype._init = function() {
+SUI.Dialog.prototype._init = function() {
   this.body = new SUI.Query('body').getItem();
   this.modal = new SUI.Query(this.options.id, this.body).getItem();
   this.modalWindow = new SUI.Query('#dialog-window', this.modal).getItem();
@@ -60,7 +59,7 @@ SUI.lib.Dialog.prototype._init = function() {
  * @param {string} url
  * @return {!SUI.Promise}
  */
-SUI.lib.Dialog.prototype.loadTemplate = function(url) {
+SUI.Dialog.prototype.loadTemplate = function(url) {
   this._reset();
   const deferred = new SUI.Deferred();
   this.http.get(url).then((data) => {
@@ -78,7 +77,7 @@ SUI.lib.Dialog.prototype.loadTemplate = function(url) {
  * @param {!SUI.Node} dom
  * @return {!SUI.Node}
  */
-SUI.lib.Dialog.prototype._handleMessage = function(dom) {
+SUI.Dialog.prototype._handleMessage = function(dom) {
   const messageNode = new SUI.Query('.message', dom).getItem();
   const title = new SUI.Query('title', dom).getItem();
   this._setTitle(title.getText());
@@ -91,7 +90,7 @@ SUI.lib.Dialog.prototype._handleMessage = function(dom) {
  * @param {!SUI.Node} dom
  * @return {!SUI.Node}
  */
-SUI.lib.Dialog.prototype._handleDom = function(dom) {
+SUI.Dialog.prototype._handleDom = function(dom) {
   const titleNode = new SUI.Query('#title', dom).getItem();
   if (!titleNode.isEmpty()) {
     this._setTitle(titleNode.getText());
@@ -110,7 +109,7 @@ SUI.lib.Dialog.prototype._handleDom = function(dom) {
  * @param {!SUI.Node} dom
  * @return {undefined}
  */
-SUI.lib.Dialog.prototype._handleActions = function(dom) {
+SUI.Dialog.prototype._handleActions = function(dom) {
   const actionNode = new SUI.Query('#action', dom).getItem();
   if (!actionNode.isEmpty()) {
     const buttons = new SUI.Query('button', actionNode);

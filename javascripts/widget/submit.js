@@ -1,27 +1,26 @@
-goog.provide('SUI.widget.Submit');
+goog.provide('SUI.Submit');
 
 goog.require('SUI');
 goog.require('SUI.Node');
 goog.require('SUI.BaseWidget');
-goog.require('SUI.widget');
 
 /**
  * @constructor
  * @extends {SUI.BaseWidget}
- * @this {SUI.widget.Submit}
+ * @this {SUI.Submit}
  * @param {!SUI.Node} input
  */
-SUI.widget.Submit = function(input) {
-  SUI.widget.Submit.base(this, 'constructor', input);
+SUI.Submit = function(input) {
+  SUI.Submit.base(this, 'constructor', input);
   this._init();
 };
-goog.inherits(SUI.widget.Submit, SUI.BaseWidget);
+goog.inherits(SUI.Submit, SUI.BaseWidget);
 
 /**
  * @private
  * @return {undefined}
  */
-SUI.widget.Submit.prototype._init = function() {
+SUI.Submit.prototype._init = function() {
   this.input.setAttribute('name', 'submit');
 };
 
@@ -29,7 +28,7 @@ SUI.widget.Submit.prototype._init = function() {
  * @override
  * @return {undefined}
  */
-SUI.widget.Submit.prototype.render = function() {
+SUI.Submit.prototype.render = function() {
   this.input.addClass(['mdl-button', 'mdl-js-button', 'mdl-button--raised', 'mdl-js-ripple-effect', 'mdl-button--primary']);
   this.refresh();
 };
@@ -37,6 +36,6 @@ SUI.widget.Submit.prototype.render = function() {
 /**
  * @override
  */
-SUI.widget.Submit.prototype.refresh = function() {
+SUI.Submit.prototype.refresh = function() {
   SUI.mdl(this.input);
 };

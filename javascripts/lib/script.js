@@ -1,4 +1,4 @@
-goog.provide('SUI.lib.Script');
+goog.provide('SUI.Script');
 
 goog.require('SUI');
 goog.require('SUI.Deferred');
@@ -6,16 +6,15 @@ goog.require('SUI.Node');
 goog.require('SUI.Object');
 goog.require('SUI.Promise');
 goog.require('SUI.Query');
-goog.require('SUI.lib');
-goog.require('SUI.lib.ProgressBar');
+goog.require('SUI.ProgressBar');
 
 /**
  * @constructor
- * @this {SUI.lib.Script}
- * @param {!SUI.lib.ProgressBar} progressBar
+ * @this {SUI.Script}
+ * @param {!SUI.ProgressBar} progressBar
  * @param {!Object=} opt_options
  */
-SUI.lib.Script = function(progressBar, opt_options = {}) {
+SUI.Script = function(progressBar, opt_options = {}) {
   this.progressBar = progressBar;
   this._setOptions(opt_options);
   this._init();
@@ -26,7 +25,7 @@ SUI.lib.Script = function(progressBar, opt_options = {}) {
  * @param {!Object=} opt_options
  * @return {undefined}
  */
-SUI.lib.Script.prototype._setOptions = function(opt_options = {}) {
+SUI.Script.prototype._setOptions = function(opt_options = {}) {
   const _self = this;
   _self.options = new SUI.Object();
   _self.options.merge(opt_options);
@@ -36,7 +35,7 @@ SUI.lib.Script.prototype._setOptions = function(opt_options = {}) {
  * @private
  * @return {undefined}
  */
-SUI.lib.Script.prototype._init = function() {
+SUI.Script.prototype._init = function() {
   this.head = new SUI.Query('head').getItem();
 };
 
@@ -48,7 +47,7 @@ SUI.lib.Script.prototype._init = function() {
  * @param {boolean=} opt_defer
  * @return {!SUI.Promise}
  */
-SUI.lib.Script.prototype.load = function(id, url, opt_params, opt_async = false, opt_defer = false) {
+SUI.Script.prototype.load = function(id, url, opt_params, opt_async = false, opt_defer = false) {
   this.progressBar.show();
   const deferred = new SUI.Deferred();
   const script = new SUI.Query('#' + id);
@@ -87,7 +86,7 @@ SUI.lib.Script.prototype.load = function(id, url, opt_params, opt_async = false,
  * @param {string} id
  * @return {undefined}
  */
-SUI.lib.Script.prototype.remove = function(id) {
+SUI.Script.prototype.remove = function(id) {
   const script = new SUI.Query('#' + id).getItem();
   if (!script.isEmpty()) {
     script.remove();

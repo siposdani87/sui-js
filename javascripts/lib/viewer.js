@@ -1,32 +1,31 @@
-goog.provide('SUI.lib.Viewer');
+goog.provide('SUI.Viewer');
 
 goog.require('SUI');
 goog.require('SUI.Node');
 goog.require('SUI.Object');
 goog.require('SUI.Query');
 goog.require('SUI.Tooltip');
-goog.require('SUI.lib');
-goog.require('SUI.lib.BaseModal');
+goog.require('SUI.BaseModal');
 
 /**
  * @constructor
- * @extends {SUI.lib.BaseModal}
- * @this {SUI.lib.Viewer}
+ * @extends {SUI.BaseModal}
+ * @this {SUI.Viewer}
  * @param {!Object=} opt_options
  */
-SUI.lib.Viewer = function(opt_options = {}) {
+SUI.Viewer = function(opt_options = {}) {
   this._setOptions(opt_options);
   this._init();
   this._initBase();
 };
-goog.inherits(SUI.lib.Viewer, SUI.lib.BaseModal);
+goog.inherits(SUI.Viewer, SUI.BaseModal);
 
 /**
  * @param {!Object=} opt_options
  * @private
  * @return {undefined}
  */
-SUI.lib.Viewer.prototype._setOptions = function(opt_options = {}) {
+SUI.Viewer.prototype._setOptions = function(opt_options = {}) {
   const _self = this;
   _self.options = new SUI.Object({
     id: '#viewer',
@@ -38,7 +37,7 @@ SUI.lib.Viewer.prototype._setOptions = function(opt_options = {}) {
  * @private
  * @return {undefined}
  */
-SUI.lib.Viewer.prototype._init = function() {
+SUI.Viewer.prototype._init = function() {
   this.body = new SUI.Query('body').getItem();
   this.modal = new SUI.Query(this.options.id, this.body).getItem();
   this.modalWindow = new SUI.Query('#viewer-window', this.modal).getItem();
@@ -56,7 +55,7 @@ SUI.lib.Viewer.prototype._init = function() {
  * @param {string=} opt_title
  * @return {undefined}
  */
-SUI.lib.Viewer.prototype.loadImage = function(imageUrl, opt_title = '') {
+SUI.Viewer.prototype.loadImage = function(imageUrl, opt_title = '') {
   this._reset();
 
   this._setImage(imageUrl);
@@ -69,7 +68,7 @@ SUI.lib.Viewer.prototype.loadImage = function(imageUrl, opt_title = '') {
  * @param {string} imageUrl
  * @return {undefined}
  */
-SUI.lib.Viewer.prototype._setImage = function(imageUrl) {
+SUI.Viewer.prototype._setImage = function(imageUrl) {
   const imageNode = new SUI.Node('img');
   imageNode.setAttribute('src', imageUrl);
 

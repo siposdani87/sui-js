@@ -1,19 +1,18 @@
-goog.provide('SUI.lib.ActionCableClient');
+goog.provide('SUI.ActionCableClient');
 
-goog.requireType('SUI.lib.ActionCable');
+goog.requireType('SUI.ActionCable');
 
 goog.require('SUI.Deferred');
 goog.require('SUI.Object');
 goog.require('SUI.Promise');
-goog.require('SUI.lib');
 
 /**
  * @constructor
- * @param {!SUI.lib.ActionCable} parent
+ * @param {!SUI.ActionCable} parent
  * @param {!Object} options
- * @this {SUI.lib.ActionCableClient}
+ * @this {SUI.ActionCableClient}
  */
-SUI.lib.ActionCableClient = function(parent, options) {
+SUI.ActionCableClient = function(parent, options) {
   this.parent = parent;
   this._init(options);
 };
@@ -23,7 +22,7 @@ SUI.lib.ActionCableClient = function(parent, options) {
  * @param {!Object} options
  * @return {undefined}
  */
-SUI.lib.ActionCableClient.prototype._init = function(options) {
+SUI.ActionCableClient.prototype._init = function(options) {
   this.subscription = this._getSubscription(options);
 };
 
@@ -32,7 +31,7 @@ SUI.lib.ActionCableClient.prototype._init = function(options) {
  * @param {!Object} options
  * @return {!SUI.Promise}
  */
-SUI.lib.ActionCableClient.prototype._getSubscription = function(options) {
+SUI.ActionCableClient.prototype._getSubscription = function(options) {
   const deferred = new SUI.Deferred();
   this.client = this.parent.cable['subscriptions']['create'](options, {
     received: (payload) => {
@@ -46,7 +45,7 @@ SUI.lib.ActionCableClient.prototype._getSubscription = function(options) {
 /**
  * @return {!SUI.Promise}
  */
-SUI.lib.ActionCableClient.prototype.subscribe = function() {
+SUI.ActionCableClient.prototype.subscribe = function() {
   return this.subscription;
 };
 
@@ -55,7 +54,7 @@ SUI.lib.ActionCableClient.prototype.subscribe = function() {
  * @param {!Object=} opt_data
  * @return {undefined}
  */
-SUI.lib.ActionCableClient.prototype.send = function(message, opt_data = {}) {
+SUI.ActionCableClient.prototype.send = function(message, opt_data = {}) {
   opt_data['message'] = message;
   this.client['send'](opt_data);
 };
@@ -63,6 +62,6 @@ SUI.lib.ActionCableClient.prototype.send = function(message, opt_data = {}) {
 /**
  * @return {undefined}
  */
-SUI.lib.ActionCableClient.prototype.unsubscribe = function() {
+SUI.ActionCableClient.prototype.unsubscribe = function() {
   this.client['unsubscribe']();
 };

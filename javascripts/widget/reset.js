@@ -1,27 +1,26 @@
-goog.provide('SUI.widget.Reset');
+goog.provide('SUI.Reset');
 
 goog.require('SUI');
 goog.require('SUI.Node');
 goog.require('SUI.BaseWidget');
-goog.require('SUI.widget');
 
 /**
  * @constructor
  * @extends {SUI.BaseWidget}
- * @this {SUI.widget.Reset}
+ * @this {SUI.Reset}
  * @param {!SUI.Node} input
  */
-SUI.widget.Reset = function(input) {
-  SUI.widget.Reset.base(this, 'constructor', input);
+SUI.Reset = function(input) {
+  SUI.Reset.base(this, 'constructor', input);
   this._init();
 };
-goog.inherits(SUI.widget.Reset, SUI.BaseWidget);
+goog.inherits(SUI.Reset, SUI.BaseWidget);
 
 /**
  * @private
  * @return {undefined}
  */
-SUI.widget.Reset.prototype._init = function() {
+SUI.Reset.prototype._init = function() {
   this.input.setAttribute('name', 'reset');
 };
 
@@ -29,7 +28,7 @@ SUI.widget.Reset.prototype._init = function() {
  * @override
  * @return {undefined}
  */
-SUI.widget.Reset.prototype.render = function() {
+SUI.Reset.prototype.render = function() {
   this.input.addClass(['mdl-button', 'mdl-js-button', 'mdl-js-ripple-effect']);
   this.refresh();
 };
@@ -37,6 +36,6 @@ SUI.widget.Reset.prototype.render = function() {
 /**
  * @override
  */
-SUI.widget.Reset.prototype.refresh = function() {
+SUI.Reset.prototype.refresh = function() {
   SUI.mdl(this.input);
 };

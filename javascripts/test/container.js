@@ -1,6 +1,5 @@
 goog.provide('SUI.TestContainer');
 
-goog.require('SUI.test');
 goog.require('SUI.Collection');
 goog.require('SUI.Object');
 goog.require('SUI.BaseTest');

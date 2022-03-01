@@ -1,32 +1,31 @@
-goog.provide('SUI.lib.Confirm');
+goog.provide('SUI.Confirm');
 
 goog.require('SUI');
 goog.require('SUI.Node');
 goog.require('SUI.Object');
 goog.require('SUI.Query');
 goog.require('SUI.Tooltip');
-goog.require('SUI.lib');
-goog.require('SUI.lib.BaseModal');
+goog.require('SUI.BaseModal');
 
 /**
  * @constructor
- * @extends {SUI.lib.BaseModal}
- * @this {SUI.lib.Confirm}
+ * @extends {SUI.BaseModal}
+ * @this {SUI.Confirm}
  * @param {!Object=} opt_options
  */
-SUI.lib.Confirm = function(opt_options = {}) {
+SUI.Confirm = function(opt_options = {}) {
   this._setOptions(opt_options);
   this._init();
   this._initBase();
 };
-goog.inherits(SUI.lib.Confirm, SUI.lib.BaseModal);
+goog.inherits(SUI.Confirm, SUI.BaseModal);
 
 /**
  * @param {!Object=} opt_options
  * @private
  * @return {undefined}
  */
-SUI.lib.Confirm.prototype._setOptions = function(opt_options = {}) {
+SUI.Confirm.prototype._setOptions = function(opt_options = {}) {
   const _self = this;
   _self.options = new SUI.Object({
     id: '#confirm',
@@ -38,7 +37,7 @@ SUI.lib.Confirm.prototype._setOptions = function(opt_options = {}) {
  * @private
  * @return {undefined}
  */
-SUI.lib.Confirm.prototype._init = function() {
+SUI.Confirm.prototype._init = function() {
   this.body = new SUI.Query('body').getItem();
   this.modal = new SUI.Query(this.options.id).getItem();
   this.modalWindow = new SUI.Query('#confirm-window', this.modal).getItem();
@@ -58,7 +57,7 @@ SUI.lib.Confirm.prototype._init = function() {
  * @param {string=} opt_title
  * @param {string=} opt_type
  */
-SUI.lib.Confirm.prototype.load = function(message, okText, opt_cancelText = '', opt_title = '', opt_type = 'normal') {
+SUI.Confirm.prototype.load = function(message, okText, opt_cancelText = '', opt_title = '', opt_type = 'normal') {
   this._reset();
   this._setTitle(opt_title);
 

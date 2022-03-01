@@ -1,16 +1,15 @@
-goog.provide('SUI.lib.Header');
+goog.provide('SUI.Header');
 
 goog.require('SUI');
 goog.require('SUI.Object');
 goog.require('SUI.Query');
-goog.require('SUI.lib');
 
 /**
  * @constructor
- * @this {SUI.lib.Header}
+ * @this {SUI.Header}
  * @param {!Object=} opt_options
  */
-SUI.lib.Header = function(opt_options = {}) {
+SUI.Header = function(opt_options = {}) {
   const _self = this;
   _self.options = new SUI.Object();
   _self.options.merge(opt_options);
@@ -22,7 +21,7 @@ SUI.lib.Header = function(opt_options = {}) {
  * @private
  * @return {undefined}
  */
-SUI.lib.Header.prototype._init = function() {
+SUI.Header.prototype._init = function() {
   this.headerNode = new SUI.Query('#header').getItem();
 
   this.leftMenuButton = new SUI.Query('#open-left-menu', this.headerNode).getItem();
@@ -44,15 +43,15 @@ SUI.lib.Header.prototype._init = function() {
 /**
  * @return {undefined}
  */
-SUI.lib.Header.prototype.eventLogoClick = function() {
-  SUI.consoleWarn('SUI.lib.Header.eventLogoClick()');
+SUI.Header.prototype.eventLogoClick = function() {
+  SUI.consoleWarn('SUI.Header.eventLogoClick()');
 };
 
 /**
  * @param {string} title
  * @return {undefined}
  */
-SUI.lib.Header.prototype.setTitle = function(title) {
+SUI.Header.prototype.setTitle = function(title) {
   this.brandNodeTitle.setHtml(title);
 };
 
@@ -60,7 +59,7 @@ SUI.lib.Header.prototype.setTitle = function(title) {
  * @param {string} url
  * @return {undefined}
  */
-SUI.lib.Header.prototype.setUrl = function(url) {
+SUI.Header.prototype.setUrl = function(url) {
   this.brandNode.setAttribute('href', url);
 };
 
@@ -68,28 +67,28 @@ SUI.lib.Header.prototype.setUrl = function(url) {
  * @param {string} imagePath
  * @return {undefined}
  */
-SUI.lib.Header.prototype.setImage = function(imagePath) {
+SUI.Header.prototype.setImage = function(imagePath) {
   this.brandNodeImage.setAttribute('src', imagePath);
 };
 
 /**
  * @return {undefined}
  */
-SUI.lib.Header.prototype.open = function() {
+SUI.Header.prototype.open = function() {
   this.headerNode.addClass('open');
 };
 
 /**
  * @return {undefined}
  */
-SUI.lib.Header.prototype.close = function() {
+SUI.Header.prototype.close = function() {
   this.headerNode.removeClass('open');
 };
 
 /**
  * @return {undefined}
  */
-SUI.lib.Header.prototype.show = function() {
+SUI.Header.prototype.show = function() {
   this.headerNode.removeClass('hidden');
   this.mainContainerNode.addClass('header-padding');
   this.templateViewNode.addClass('has-header');
@@ -98,7 +97,7 @@ SUI.lib.Header.prototype.show = function() {
 /**
  * @return {undefined}
  */
-SUI.lib.Header.prototype.hide = function() {
+SUI.Header.prototype.hide = function() {
   this.headerNode.addClass('hidden');
   this.mainContainerNode.removeClass('header-padding');
   this.templateViewNode.removeClass('has-header');
@@ -107,41 +106,41 @@ SUI.lib.Header.prototype.hide = function() {
 /**
  * @return {undefined}
  */
-SUI.lib.Header.prototype.showShadow = function() {
+SUI.Header.prototype.showShadow = function() {
   this.headerNode.addClass('shadow');
 };
 
 /**
  * @return {undefined}
  */
-SUI.lib.Header.prototype.hideShadow = function() {
+SUI.Header.prototype.hideShadow = function() {
   this.headerNode.removeClass('shadow');
 };
 
 /**
  * @return {undefined}
  */
-SUI.lib.Header.prototype.showLeftMenuButton = function() {
+SUI.Header.prototype.showLeftMenuButton = function() {
   this.leftMenuButton.removeClass('hidden');
 };
 
 /**
  * @return {undefined}
  */
-SUI.lib.Header.prototype.hideLeftMenuButton = function() {
+SUI.Header.prototype.hideLeftMenuButton = function() {
   this.leftMenuButton.addClass('hidden');
 };
 
 /**
  * @return {undefined}
  */
-SUI.lib.Header.prototype.showTopMenuButton = function() {
+SUI.Header.prototype.showTopMenuButton = function() {
   this.topMenuButton.removeClass('hidden');
 };
 
 /**
  * @return {undefined}
  */
-SUI.lib.Header.prototype.hideTopMenuButton = function() {
+SUI.Header.prototype.hideTopMenuButton = function() {
   this.topMenuButton.addClass('hidden');
 };

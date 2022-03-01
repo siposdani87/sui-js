@@ -1,27 +1,26 @@
-goog.provide('SUI.widget.Button');
+goog.provide('SUI.Button');
 
 goog.require('SUI');
 goog.require('SUI.Node');
 goog.require('SUI.BaseWidget');
-goog.require('SUI.widget');
 
 /**
  * @constructor
  * @extends {SUI.BaseWidget}
- * @this {SUI.widget.Button}
+ * @this {SUI.Button}
  * @param {!SUI.Node} input
  */
-SUI.widget.Button = function(input) {
-  SUI.widget.Button.base(this, 'constructor', input);
+SUI.Button = function(input) {
+  SUI.Button.base(this, 'constructor', input);
   this._init();
 };
-goog.inherits(SUI.widget.Button, SUI.BaseWidget);
+goog.inherits(SUI.Button, SUI.BaseWidget);
 
 /**
  * @private
  * @return {undefined}
  */
-SUI.widget.Button.prototype._init = function() {
+SUI.Button.prototype._init = function() {
   this.input.setAttribute('name', 'button');
 };
 
@@ -29,7 +28,7 @@ SUI.widget.Button.prototype._init = function() {
  * @override
  * @return {undefined}
  */
-SUI.widget.Button.prototype.render = function() {
+SUI.Button.prototype.render = function() {
   this.input.addClass(['mdl-button', 'mdl-js-button', 'mdl-button--raised', 'mdl-js-ripple-effect', 'mdl-button--accent']);
 
   this.input.addEventListener('click', (node) => {
@@ -42,7 +41,7 @@ SUI.widget.Button.prototype.render = function() {
 /**
  * @override
  */
-SUI.widget.Button.prototype.refresh = function() {
+SUI.Button.prototype.refresh = function() {
   SUI.mdl(this.input);
 };
 
@@ -50,6 +49,6 @@ SUI.widget.Button.prototype.refresh = function() {
  * @param {!SUI.Node} node
  * @return {undefined}
  */
-SUI.widget.Button.prototype.eventClick = function(node) {
-  SUI.consoleWarn('SUI.widget.Button.eventClick()', node);
+SUI.Button.prototype.eventClick = function(node) {
+  SUI.consoleWarn('SUI.Button.eventClick()', node);
 };

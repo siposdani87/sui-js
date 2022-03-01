@@ -1,15 +1,14 @@
-goog.provide('SUI.lib.Window');
+goog.provide('SUI.Window');
 
 goog.require('SUI');
 goog.require('SUI.Object');
-goog.require('SUI.lib');
 
 /**
  * @constructor
- * @this {SUI.lib.Window}
+ * @this {SUI.Window}
  * @param {!Object=} opt_options
  */
-SUI.lib.Window = function(opt_options = {}) {
+SUI.Window = function(opt_options = {}) {
   this._setOptions(opt_options);
   this._init();
 };
@@ -19,7 +18,7 @@ SUI.lib.Window = function(opt_options = {}) {
  * @param {!Object=} opt_options
  * @return {undefined}
  */
-SUI.lib.Window.prototype._setOptions = function(opt_options = {}) {
+SUI.Window.prototype._setOptions = function(opt_options = {}) {
   const _self = this;
   _self.options = new SUI.Object({
     delay: 250,
@@ -31,7 +30,7 @@ SUI.lib.Window.prototype._setOptions = function(opt_options = {}) {
  * @private
  * @return {undefined}
  */
-SUI.lib.Window.prototype._init = function() {
+SUI.Window.prototype._init = function() {
   this.window = window;
   this.document = document;
 
@@ -47,7 +46,7 @@ SUI.lib.Window.prototype._init = function() {
  * @private
  * @return {undefined}
  */
-SUI.lib.Window.prototype._initResizeEvent = function() {
+SUI.Window.prototype._initResizeEvent = function() {
   this.window.addEventListener('resize', SUI.debounce((event) => {
     this._resize(event);
   }, this.options.delay), false);
@@ -57,7 +56,7 @@ SUI.lib.Window.prototype._initResizeEvent = function() {
  * @private
  * @return {undefined}
  */
-SUI.lib.Window.prototype._initScrollEvent = function() {
+SUI.Window.prototype._initScrollEvent = function() {
   this.window.addEventListener('scroll', SUI.debounce((event) => {
     this._scroll(event);
   }, this.options.delay), false);
@@ -67,7 +66,7 @@ SUI.lib.Window.prototype._initScrollEvent = function() {
  * @private
  * @return {undefined}
  */
-SUI.lib.Window.prototype._initConnectionEvent = function() {
+SUI.Window.prototype._initConnectionEvent = function() {
   this.window.addEventListener('online', (event) => {
     this.eventOnline(event);
   }, false);
@@ -81,7 +80,7 @@ SUI.lib.Window.prototype._initConnectionEvent = function() {
  * @param {!Event} event
  * @return {undefined}
  */
-SUI.lib.Window.prototype.eventOffline = function(event) {
+SUI.Window.prototype.eventOffline = function(event) {
   SUI.consoleWarn('SUI.Window.eventOffline()', event);
 };
 
@@ -89,7 +88,7 @@ SUI.lib.Window.prototype.eventOffline = function(event) {
  * @param {!Event} event
  * @return {undefined}
  */
-SUI.lib.Window.prototype.eventOnline = function(event) {
+SUI.Window.prototype.eventOnline = function(event) {
   SUI.consoleWarn('SUI.Window.eventOffline()', event);
 };
 
@@ -99,7 +98,7 @@ SUI.lib.Window.prototype.eventOnline = function(event) {
  * @param {!Event} event
  * @return {undefined}
  */
-SUI.lib.Window.prototype.eventResize = function(width, height, event) {
+SUI.Window.prototype.eventResize = function(width, height, event) {
   SUI.consoleWarn('SUI.Window.eventResize()', width, height, event);
 };
 
@@ -110,7 +109,7 @@ SUI.lib.Window.prototype.eventResize = function(width, height, event) {
  * @param {!Event} event
  * @return {undefined}
  */
-SUI.lib.Window.prototype.eventOrientationChange = function(orientation, width, height, event) {
+SUI.Window.prototype.eventOrientationChange = function(orientation, width, height, event) {
   SUI.consoleWarn('SUI.Window.eventOrientationChange()', orientation, width, height, event);
 };
 
@@ -119,7 +118,7 @@ SUI.lib.Window.prototype.eventOrientationChange = function(orientation, width, h
  * @param {!Event} event
  * @return {undefined}
  */
-SUI.lib.Window.prototype.eventScroll = function(scrollTop, event) {
+SUI.Window.prototype.eventScroll = function(scrollTop, event) {
   SUI.consoleWarn('SUI.Window.eventScroll()', scrollTop, event);
 };
 
@@ -128,7 +127,7 @@ SUI.lib.Window.prototype.eventScroll = function(scrollTop, event) {
  * @param {!Event} event
  * @return {undefined}
  */
-SUI.lib.Window.prototype._resize = function(event) {
+SUI.Window.prototype._resize = function(event) {
   this.eventResize(this.getWidth(), this.getHeight(), event);
 
   const orientation = this.getOrientation();
@@ -143,35 +142,35 @@ SUI.lib.Window.prototype._resize = function(event) {
  * @param {!Event} event
  * @return {undefined}
  */
-SUI.lib.Window.prototype._scroll = function(event) {
+SUI.Window.prototype._scroll = function(event) {
   this.eventScroll(this.getScrollTop(), event);
 };
 
 /**
  * @return {number}
  */
-SUI.lib.Window.prototype.getScrollTop = function() {
+SUI.Window.prototype.getScrollTop = function() {
   return this.document.documentElement.scrollTop || this.document.body.scrollTop;
 };
 
 /**
  * @return {number}
  */
-SUI.lib.Window.prototype.getWidth = function() {
+SUI.Window.prototype.getWidth = function() {
   return this.window.innerWidth;
 };
 
 /**
  * @return {number}
  */
-SUI.lib.Window.prototype.getHeight = function() {
+SUI.Window.prototype.getHeight = function() {
   return this.window.innerHeight;
 };
 
 /**
  * @return {string} landscape|portrait
  */
-SUI.lib.Window.prototype.getOrientation = function() {
+SUI.Window.prototype.getOrientation = function() {
   return SUI.gte(this.getWidth(), this.getHeight()) ? 'landscape' : 'portrait';
 };
 
@@ -179,7 +178,7 @@ SUI.lib.Window.prototype.getOrientation = function() {
  * @private
  * @return {undefined}
  */
-SUI.lib.Window.prototype._initColorSchemeEvent = function() {
+SUI.Window.prototype._initColorSchemeEvent = function() {
   if (window.matchMedia) {
     window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', (event) => {
       if (event.matches) {
@@ -196,7 +195,7 @@ SUI.lib.Window.prototype._initColorSchemeEvent = function() {
  * @param {!Event} event
  * @return {undefined}
  */
-SUI.lib.Window.prototype.eventColorSchemeChange = function(colorScheme, event) {
+SUI.Window.prototype.eventColorSchemeChange = function(colorScheme, event) {
   SUI.consoleWarn('SUI.Window.eventColorSchemeChange()', colorScheme, event);
 };
 
@@ -204,6 +203,6 @@ SUI.lib.Window.prototype.eventColorSchemeChange = function(colorScheme, event) {
  * @param {string} type dark|light|no-preference
  * @return {boolean}
  */
-SUI.lib.Window.prototype.isColorScheme = function(type) {
+SUI.Window.prototype.isColorScheme = function(type) {
   return window.matchMedia && window.matchMedia(`(prefers-color-scheme: ${type})`).matches;
 };

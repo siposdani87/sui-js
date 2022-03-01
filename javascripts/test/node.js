@@ -1,7 +1,6 @@
 goog.provide('SUI.TestNode');
 
 goog.require('SUI');
-goog.require('SUI.test');
 goog.require('SUI.Node');
 goog.require('SUI.BaseTest');
 

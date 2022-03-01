@@ -1,22 +1,21 @@
-goog.provide('SUI.lib.ProgressBar');
+goog.provide('SUI.ProgressBar');
 
 goog.require('SUI');
 goog.require('SUI.Async');
 goog.require('SUI.Object');
 goog.require('SUI.Query');
 goog.require('SUI.Node');
-goog.require('SUI.lib');
-goog.require('SUI.lib.Confirm');
-goog.require('SUI.lib.Dialog');
+goog.require('SUI.Confirm');
+goog.require('SUI.Dialog');
 
 /**
  * @constructor
- * @this {SUI.lib.ProgressBar}
- * @param {!SUI.lib.Dialog} dialog
- * @param {!SUI.lib.Confirm} confirm
+ * @this {SUI.ProgressBar}
+ * @param {!SUI.Dialog} dialog
+ * @param {!SUI.Confirm} confirm
  * @param {!Object=} opt_options
  */
-SUI.lib.ProgressBar = function(dialog, confirm, opt_options = {}) {
+SUI.ProgressBar = function(dialog, confirm, opt_options = {}) {
   this.dialog = dialog;
   this.confirm = confirm;
 
@@ -29,7 +28,7 @@ SUI.lib.ProgressBar = function(dialog, confirm, opt_options = {}) {
  * @private
  * @return {undefined}
  */
-SUI.lib.ProgressBar.prototype._setOptions = function(opt_options = {}) {
+SUI.ProgressBar.prototype._setOptions = function(opt_options = {}) {
   const _self = this;
   _self.options = new SUI.Object({
     lock: false,
@@ -42,7 +41,7 @@ SUI.lib.ProgressBar.prototype._setOptions = function(opt_options = {}) {
  * @private
  * @return {undefined}
  */
-SUI.lib.ProgressBar.prototype._init = function() {
+SUI.ProgressBar.prototype._init = function() {
   this.progressBarContainer = new SUI.Query('.main-container > .progress-bar').getItem();
   this.progressBarHeader = new SUI.Query('#header > .progress-bar').getItem();
   this.progressBarDialog = new SUI.Query('#dialog-window > .progress-bar').getItem();
@@ -88,7 +87,7 @@ SUI.lib.ProgressBar.prototype._init = function() {
  * @param {!SUI.Node} node
  * @return {!Object}
  */
-SUI.lib.ProgressBar.prototype._getProgressBar = function(node) {
+SUI.ProgressBar.prototype._getProgressBar = function(node) {
   node.addClass('mdl-js-progress');
 
   node.addEventListener('mdl-componentupgraded', (node) => {
@@ -115,7 +114,7 @@ SUI.lib.ProgressBar.prototype._getProgressBar = function(node) {
  * @param {!Function} confirmCallback
  * @return {undefined}
  */
-SUI.lib.ProgressBar.prototype._separateProgressBars = function(containerCallback, headerCallback, dialogCallback, confirmCallback) {
+SUI.ProgressBar.prototype._separateProgressBars = function(containerCallback, headerCallback, dialogCallback, confirmCallback) {
   containerCallback(!this.dialog.isOpened() && !this.confirm.isOpened());
   headerCallback(!this.dialog.isOpened() && !this.confirm.isOpened());
   dialogCallback(this.dialog.isOpened() && !this.confirm.isOpened());
@@ -126,7 +125,7 @@ SUI.lib.ProgressBar.prototype._separateProgressBars = function(containerCallback
  * @private
  * @return {undefined}
  */
-SUI.lib.ProgressBar.prototype._progress = function() {
+SUI.ProgressBar.prototype._progress = function() {
   if (!this.options.get('lock')) {
     this._separateProgressBars((condition) => {
       if (condition) {
@@ -159,7 +158,7 @@ SUI.lib.ProgressBar.prototype._progress = function() {
 /**
  * @return {undefined}
  */
-SUI.lib.ProgressBar.prototype.show = function() {
+SUI.ProgressBar.prototype.show = function() {
   this._progress();
   this.options.counter++;
   this._separateProgressBars((condition) => {
@@ -193,7 +192,7 @@ SUI.lib.ProgressBar.prototype.show = function() {
  * @param {number} value
  * @return {undefined}
  */
-SUI.lib.ProgressBar.prototype.setProgress = function(value) {
+SUI.ProgressBar.prototype.setProgress = function(value) {
   this._progress();
   this._separateProgressBars((condition) => {
     if (condition) {
@@ -218,7 +217,7 @@ SUI.lib.ProgressBar.prototype.setProgress = function(value) {
  * @param {number} value
  * @return {undefined}
  */
-SUI.lib.ProgressBar.prototype.setBuffer = function(value) {
+SUI.ProgressBar.prototype.setBuffer = function(value) {
   this._progress();
   this._separateProgressBars((condition) => {
     if (condition) {
@@ -243,7 +242,7 @@ SUI.lib.ProgressBar.prototype.setBuffer = function(value) {
  * @param {boolean=} opt_force
  * @return {undefined}
  */
-SUI.lib.ProgressBar.prototype.hide = function(opt_force) {
+SUI.ProgressBar.prototype.hide = function(opt_force) {
   this.options.counter--;
   if (opt_force || SUI.eq(this.options.counter, 0)) {
     this.options.counter = 0;
@@ -257,13 +256,13 @@ SUI.lib.ProgressBar.prototype.hide = function(opt_force) {
 /**
  * @return {undefined}
  */
-SUI.lib.ProgressBar.prototype.lock = function() {
+SUI.ProgressBar.prototype.lock = function() {
   this.options.set('lock', true);
 };
 
 /**
  * @return {undefined}
  */
-SUI.lib.ProgressBar.prototype.unlock = function() {
+SUI.ProgressBar.prototype.unlock = function() {
   this.options.set('lock', false);
 };

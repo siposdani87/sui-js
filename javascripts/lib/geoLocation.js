@@ -1,15 +1,14 @@
-goog.provide('SUI.lib.GeoLocation');
+goog.provide('SUI.GeoLocation');
 
 goog.require('SUI');
 goog.require('SUI.Deferred');
 goog.require('SUI.Promise');
-goog.require('SUI.lib');
 
 /**
  * @constructor
- * @this {SUI.lib.GeoLocation}
+ * @this {SUI.GeoLocation}
  */
-SUI.lib.GeoLocation = function() {
+SUI.GeoLocation = function() {
   this._init();
 };
 
@@ -17,7 +16,7 @@ SUI.lib.GeoLocation = function() {
  * @private
  * @return {undefined}
  */
-SUI.lib.GeoLocation.prototype._init = function() {
+SUI.GeoLocation.prototype._init = function() {
   this.options = {
     enableHighAccuracy: true,
     timeout: 5000,
@@ -28,7 +27,7 @@ SUI.lib.GeoLocation.prototype._init = function() {
 /**
  * @return {undefined}
  */
-SUI.lib.GeoLocation.prototype.setWatcher = function() {
+SUI.GeoLocation.prototype.setWatcher = function() {
   this.watcherId = navigator.geolocation.watchPosition((position) => {
     this._handlePosition(position);
   }, (error) => {
@@ -40,7 +39,7 @@ SUI.lib.GeoLocation.prototype.setWatcher = function() {
 /**
  * @return {!SUI.Promise}
  */
-SUI.lib.GeoLocation.prototype.getPosition = function() {
+SUI.GeoLocation.prototype.getPosition = function() {
   const deferred = new SUI.Deferred();
   navigator.geolocation.getCurrentPosition((position) => {
     deferred.resolve([position.coords.latitude, position.coords.longitude]);
@@ -53,7 +52,7 @@ SUI.lib.GeoLocation.prototype.getPosition = function() {
 /**
  * @return {undefined}
  */
-SUI.lib.GeoLocation.prototype.clearWatcher = function() {
+SUI.GeoLocation.prototype.clearWatcher = function() {
   navigator.geolocation.clearWatch(this.watcherId);
 };
 
@@ -63,8 +62,8 @@ SUI.lib.GeoLocation.prototype.clearWatcher = function() {
  * @param {string} message
  * @return {undefined}
  */
-SUI.lib.GeoLocation.prototype.eventChange = function(latitude, longitude, message) {
-  SUI.consoleWarn('SUI.lib.GeoLocation.eventChange()', latitude, longitude, message);
+SUI.GeoLocation.prototype.eventChange = function(latitude, longitude, message) {
+  SUI.consoleWarn('SUI.GeoLocation.eventChange()', latitude, longitude, message);
 };
 
 /**
@@ -72,7 +71,7 @@ SUI.lib.GeoLocation.prototype.eventChange = function(latitude, longitude, messag
  * @param {!Object} position
  * @return {undefined}
  */
-SUI.lib.GeoLocation.prototype._handlePosition = function(position) {
+SUI.GeoLocation.prototype._handlePosition = function(position) {
   const message = 'User allowed the request for GeoLocation.';
   this.eventChange(position.coords.latitude, position.coords.longitude, message);
 };
@@ -82,7 +81,7 @@ SUI.lib.GeoLocation.prototype._handlePosition = function(position) {
  * @param {!Object} error
  * @return {undefined}
  */
-SUI.lib.GeoLocation.prototype._handleError = function(error) {
+SUI.GeoLocation.prototype._handleError = function(error) {
   switch (error.code) {
     case error.PERMISSION_DENIED:
       this.eventError('User denied the request for GeoLocation.', 'permission_denied');
@@ -104,6 +103,6 @@ SUI.lib.GeoLocation.prototype._handleError = function(error) {
  * @param {string} code
  * @return {undefined}
  */
-SUI.lib.GeoLocation.prototype.eventError = function(message, code) {
-  SUI.consoleWarn('SUI.lib.GeoLocation.eventError()', message, code);
+SUI.GeoLocation.prototype.eventError = function(message, code) {
+  SUI.consoleWarn('SUI.GeoLocation.eventError()', message, code);
 };

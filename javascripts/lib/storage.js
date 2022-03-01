@@ -1,15 +1,14 @@
-goog.provide('SUI.lib.Storage');
+goog.provide('SUI.Storage');
 
 goog.require('SUI');
 goog.require('SUI.Object');
-goog.require('SUI.lib');
 
 /**
  * @constructor
- * @this {SUI.lib.Storage}
+ * @this {SUI.Storage}
  * @param {!Object} options
  */
-SUI.lib.Storage = function(options) {
+SUI.Storage = function(options) {
   const _self = this;
   _self.options = new SUI.Object({
     type: 'local',
@@ -28,7 +27,7 @@ SUI.lib.Storage = function(options) {
  * @private
  * @return {undefined}
  */
-SUI.lib.Storage.prototype._init = function() {
+SUI.Storage.prototype._init = function() {
   this.storage = this.options.type === 'local' ? window.localStorage : window.sessionStorage;
 
   setInterval(() => {
@@ -41,7 +40,7 @@ SUI.lib.Storage.prototype._init = function() {
  * @param {string} name
  * @return {string}
  */
-SUI.lib.Storage.prototype._getPropertyName = function(name) {
+SUI.Storage.prototype._getPropertyName = function(name) {
   return [this.options.prefix, name].join('.');
 };
 
@@ -50,7 +49,7 @@ SUI.lib.Storage.prototype._getPropertyName = function(name) {
  * @param {string} propertyName
  * @return {string}
  */
-SUI.lib.Storage.prototype._getName = function(propertyName) {
+SUI.Storage.prototype._getName = function(propertyName) {
   const parts = propertyName.split('.');
   parts.shift();
   return parts.join('.');
@@ -62,7 +61,7 @@ SUI.lib.Storage.prototype._getName = function(propertyName) {
  * @param {string|number|boolean|!Date=} opt_expires
  * @return {undefined}
  */
-SUI.lib.Storage.prototype.set = function(name, value, opt_expires) {
+SUI.Storage.prototype.set = function(name, value, opt_expires) {
   const expires = this._getExpires(opt_expires);
   const encrypted = expires + ';' + SUI.encrypt(value, this.options.secret);
   const propertyName = this._getPropertyName(name);
@@ -73,7 +72,7 @@ SUI.lib.Storage.prototype.set = function(name, value, opt_expires) {
  * @param {string} name
  * @return {*}
  */
-SUI.lib.Storage.prototype.get = function(name) {
+SUI.Storage.prototype.get = function(name) {
   const propertyName = this._getPropertyName(name);
   const item = this.storage.getItem(propertyName);
   let result = null;
@@ -89,7 +88,7 @@ SUI.lib.Storage.prototype.get = function(name) {
  * @param {string} name
  * @return {undefined}
  */
-SUI.lib.Storage.prototype.remove = function(name) {
+SUI.Storage.prototype.remove = function(name) {
   const propertyName = this._getPropertyName(name);
   this.storage.removeItem(propertyName);
 };
@@ -97,7 +96,7 @@ SUI.lib.Storage.prototype.remove = function(name) {
 /**
  * @return {undefined}
  */
-SUI.lib.Storage.prototype.clear = function() {
+SUI.Storage.prototype.clear = function() {
   this.storage.clear();
 };
 
@@ -105,7 +104,7 @@ SUI.lib.Storage.prototype.clear = function() {
  * @private
  * @return {undefined}
  */
-SUI.lib.Storage.prototype._checkExpires = function() {
+SUI.Storage.prototype._checkExpires = function() {
   const properyNames = Object.keys(this.storage);
   SUI.eachArray(properyNames, (properyName) => {
     const name = this._getName(properyName);
@@ -121,7 +120,7 @@ SUI.lib.Storage.prototype._checkExpires = function() {
  * @param {string} name
  * @return {boolean}
  */
-SUI.lib.Storage.prototype._isExpired = function(name) {
+SUI.Storage.prototype._isExpired = function(name) {
   const date = new Date();
   const expireDate = this._getExpiresDate(name);
   return !!expireDate && date.getTime() >= expireDate.getTime();
@@ -132,7 +131,7 @@ SUI.lib.Storage.prototype._isExpired = function(name) {
  * @param {string} name
  * @return {?Date}
  */
-SUI.lib.Storage.prototype._getExpiresDate = function(name) {
+SUI.Storage.prototype._getExpiresDate = function(name) {
   const propertyName = this._getPropertyName(name);
   const item = this.storage.getItem(propertyName);
   if (item) {
@@ -147,7 +146,7 @@ SUI.lib.Storage.prototype._getExpiresDate = function(name) {
  * @param {string|number|boolean|!Date=} opt_expires
  * @return {string}
  */
-SUI.lib.Storage.prototype._getExpires = function(opt_expires) {
+SUI.Storage.prototype._getExpires = function(opt_expires) {
   const date = new Date();
   if (opt_expires) {
     switch (opt_expires.constructor) {

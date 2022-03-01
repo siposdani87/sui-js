@@ -5,12 +5,12 @@ goog.require('SUI.Collection');
 goog.require('SUI.Node');
 goog.require('SUI.Object');
 goog.require('SUI.Query');
-goog.require('SUI.lib.Http');
+goog.require('SUI.Http');
 
 /**
  * @constructor
  * @this {SUI.Navigation}
- * @param {!SUI.lib.Http=} opt_http
+ * @param {!SUI.Http=} opt_http
  * @param {!Object=} opt_options
  */
 SUI.Navigation = function(opt_http, opt_options = {}) {

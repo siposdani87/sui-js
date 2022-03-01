@@ -1,18 +1,17 @@
-goog.provide('SUI.lib.Http');
+goog.provide('SUI.Http');
 
 goog.require('SUI');
 goog.require('SUI.Deferred');
 goog.require('SUI.Object');
 goog.require('SUI.Promise');
-goog.require('SUI.lib');
-goog.require('SUI.lib.Xhr');
+goog.require('SUI.Xhr');
 
 /**
  * @constructor
- * @this {SUI.lib.Http}
+ * @this {SUI.Http}
  * @param {!Object=} opt_options
  */
-SUI.lib.Http = function(opt_options = {}) {
+SUI.Http = function(opt_options = {}) {
   this._setOptions(opt_options);
   this._init();
 };
@@ -22,7 +21,7 @@ SUI.lib.Http = function(opt_options = {}) {
  * @param {!Object=} opt_options
  * @return {undefined}
  */
-SUI.lib.Http.prototype._setOptions = function(opt_options = {}) {
+SUI.Http.prototype._setOptions = function(opt_options = {}) {
   const _self = this;
   _self.options = new SUI.Object({
     backend: '',
@@ -35,7 +34,7 @@ SUI.lib.Http.prototype._setOptions = function(opt_options = {}) {
  * @private
  * @return {undefined}
  */
-SUI.lib.Http.prototype._init = function() {
+SUI.Http.prototype._init = function() {
   this.username = null;
   this.password = null;
   this.token = null;
@@ -46,7 +45,7 @@ SUI.lib.Http.prototype._init = function() {
  * @param {string} password
  * @return {undefined}
  */
-SUI.lib.Http.prototype.setBasicAuthorization = function(username, password) {
+SUI.Http.prototype.setBasicAuthorization = function(username, password) {
   this.username = username;
   this.password = password;
 };
@@ -54,7 +53,7 @@ SUI.lib.Http.prototype.setBasicAuthorization = function(username, password) {
 /**
  * @param {string} token
  */
-SUI.lib.Http.prototype.setBearerAuthorization = function(token) {
+SUI.Http.prototype.setBearerAuthorization = function(token) {
   this.token = token;
 };
 
@@ -64,7 +63,7 @@ SUI.lib.Http.prototype.setBearerAuthorization = function(token) {
  * @param {!Object=} opt_headers
  * @return {!SUI.Promise}
  */
-SUI.lib.Http.prototype.get = function(url, opt_params, opt_headers) {
+SUI.Http.prototype.get = function(url, opt_params, opt_headers) {
   const http = this._getRequestHandler();
   return this._getPromise(http.get(url, opt_params, opt_headers));
 };
@@ -76,7 +75,7 @@ SUI.lib.Http.prototype.get = function(url, opt_params, opt_headers) {
  * @param {!Object=} opt_headers
  * @return {!SUI.Promise}
  */
-SUI.lib.Http.prototype.post = function(url, opt_data, opt_params, opt_headers) {
+SUI.Http.prototype.post = function(url, opt_data, opt_params, opt_headers) {
   const http = this._getRequestHandler();
   return this._getPromise(http.post(url, opt_data, opt_params, opt_headers));
 };
@@ -88,7 +87,7 @@ SUI.lib.Http.prototype.post = function(url, opt_data, opt_params, opt_headers) {
  * @param {!Object=} opt_headers
  * @return {!SUI.Promise}
  */
-SUI.lib.Http.prototype.put = function(url, opt_data, opt_params, opt_headers) {
+SUI.Http.prototype.put = function(url, opt_data, opt_params, opt_headers) {
   const http = this._getRequestHandler();
   return this._getPromise(http.put(url, opt_data, opt_params, opt_headers));
 };
@@ -100,7 +99,7 @@ SUI.lib.Http.prototype.put = function(url, opt_data, opt_params, opt_headers) {
  * @param {!Object=} opt_headers
  * @return {!SUI.Promise}
  */
-SUI.lib.Http.prototype.patch = function(url, opt_data, opt_params, opt_headers) {
+SUI.Http.prototype.patch = function(url, opt_data, opt_params, opt_headers) {
   const http = this._getRequestHandler();
   return this._getPromise(http.patch(url, opt_data, opt_params, opt_headers));
 };
@@ -112,17 +111,17 @@ SUI.lib.Http.prototype.patch = function(url, opt_data, opt_params, opt_headers) 
  * @param {!Object=} opt_headers
  * @return {!SUI.Promise}
  */
-SUI.lib.Http.prototype.delete = function(url, opt_data, opt_params, opt_headers) {
+SUI.Http.prototype.delete = function(url, opt_data, opt_params, opt_headers) {
   const http = this._getRequestHandler();
   return this._getPromise(http.delete(url, opt_data, opt_params, opt_headers));
 };
 
 /**
  * @private
- * @return {!SUI.lib.Xhr}
+ * @return {!SUI.Xhr}
  */
-SUI.lib.Http.prototype._getRequestHandler = function() {
-  const http = new SUI.lib.Xhr(this.options);
+SUI.Http.prototype._getRequestHandler = function() {
+  const http = new SUI.Xhr(this.options);
   this.eventBeforeRequest(http);
   http.setBasicAuthorization(this.username, this.password);
   http.setBearerAuthorization(this.token);
@@ -134,7 +133,7 @@ SUI.lib.Http.prototype._getRequestHandler = function() {
  * @param {!SUI.Promise} promise
  * @return {!SUI.Promise}
  */
-SUI.lib.Http.prototype._getPromise = function(promise) {
+SUI.Http.prototype._getPromise = function(promise) {
   const deferred = new SUI.Deferred();
   promise.then((...params) => {
     this.eventAfterRequest(...params);
@@ -147,11 +146,11 @@ SUI.lib.Http.prototype._getPromise = function(promise) {
 };
 
 /**
- * @param {!SUI.lib.Xhr} http
+ * @param {!SUI.Xhr} http
  * @return {undefined}
  */
-SUI.lib.Http.prototype.eventBeforeRequest = function(http) {
-  SUI.consoleWarn('SUI.lib.Http.eventBeforeRequest', http);
+SUI.Http.prototype.eventBeforeRequest = function(http) {
+  SUI.consoleWarn('SUI.Http.eventBeforeRequest', http);
 };
 
 /**
@@ -159,6 +158,6 @@ SUI.lib.Http.prototype.eventBeforeRequest = function(http) {
  * @param {*} response
  * @return {undefined}
  */
-SUI.lib.Http.prototype.eventAfterRequest = function(http, response) {
-  SUI.consoleWarn('SUI.lib.Http.eventAfterRequest', http, response);
+SUI.Http.prototype.eventAfterRequest = function(http, response) {
+  SUI.consoleWarn('SUI.Http.eventAfterRequest', http, response);
 };

@@ -1,36 +1,35 @@
-goog.provide('SUI.widget.DatetimeRange');
+goog.provide('SUI.DateTimeRange');
 
 goog.require('SUI');
-goog.require('SUI.Datetime');
+goog.require('SUI.Date');
 goog.require('SUI.Node');
 goog.require('SUI.Popup');
 goog.require('SUI.Query');
 goog.require('SUI.BaseWidget');
-goog.require('SUI.widget');
 
 /**
  * @constructor
  * @extends {SUI.BaseWidget}
- * @this {SUI.widget.DatetimeRange}
+ * @this {SUI.DateTimeRange}
  * @param {!SUI.Node} input
  * @param {!SUI.Node} label
  * @param {!SUI.Node} error
  * @param {!SUI.Node} inputBlock
  * @param {boolean} isStartInput
  */
-SUI.widget.DatetimeRange = function(input, label, error, inputBlock, isStartInput) {
-  SUI.widget.DatetimeRange.base(this, 'constructor', input, label, error, inputBlock);
+SUI.DateTimeRange = function(input, label, error, inputBlock, isStartInput) {
+  SUI.DateTimeRange.base(this, 'constructor', input, label, error, inputBlock);
 
   this.isStartInput = isStartInput;
   this._init();
 };
-goog.inherits(SUI.widget.DatetimeRange, SUI.BaseWidget);
+goog.inherits(SUI.DateTimeRange, SUI.BaseWidget);
 
 /**
  * @private
  * @return {undefined}
  */
-SUI.widget.DatetimeRange.prototype._init = function() {
+SUI.DateTimeRange.prototype._init = function() {
   this.inputBlock.addClass('datetime-range-widget');
   this.input.addClass('hidden');
 
@@ -53,7 +52,7 @@ SUI.widget.DatetimeRange.prototype._init = function() {
  * @private
  * @return {undefined}
  */
-SUI.widget.DatetimeRange.prototype._initInput = function() {
+SUI.DateTimeRange.prototype._initInput = function() {
   this.format = this.input.getData('format');
 
   this.input.addEventListener('change', () => {
@@ -66,7 +65,7 @@ SUI.widget.DatetimeRange.prototype._initInput = function() {
   const value = /** @type {string} */ (this.getValue().toString());
 
   this.datetimeNode = new SUI.Node('div');
-  this.datetime = new SUI.Datetime(this.datetimeNode, {
+  this.datetime = new SUI.Date(this.datetimeNode, {
     value: value,
     type: type,
   });
@@ -89,7 +88,7 @@ SUI.widget.DatetimeRange.prototype._initInput = function() {
  * @override
  * @return {undefined}
  */
-SUI.widget.DatetimeRange.prototype.render = function() {
+SUI.DateTimeRange.prototype.render = function() {
   if (this.label && this.label.exists()) {
     this.label.addClass('widget-label');
   }
@@ -113,7 +112,7 @@ SUI.widget.DatetimeRange.prototype.render = function() {
 /**
  * @override
  */
-SUI.widget.DatetimeRange.prototype.refresh = function() {
+SUI.DateTimeRange.prototype.refresh = function() {
   if (this.isDisabled()) {
     this.inputBlock.addClass('is-disabled');
   } else {
@@ -126,7 +125,7 @@ SUI.widget.DatetimeRange.prototype.refresh = function() {
  * @param {!Object|!Function|!Array|boolean|number|string|null|undefined} value
  * @return {undefined}
  */
-SUI.widget.DatetimeRange.prototype.setValue = function(value) {
+SUI.DateTimeRange.prototype.setValue = function(value) {
   this._setTag(/** @type {string} */(value));
   this.input.setAttribute('value', value);
   this.input.trigger('change');
@@ -138,7 +137,7 @@ SUI.widget.DatetimeRange.prototype.setValue = function(value) {
  * @param {string} value
  * @return {undefined}
  */
-SUI.widget.DatetimeRange.prototype._setTag = function(value) {
+SUI.DateTimeRange.prototype._setTag = function(value) {
   this.datetimeInput.removeChildren();
   if (value) {
     const formattedValue = window['moment'](value, this.datetime.getConfig().format)['format'](this.format);
@@ -165,7 +164,7 @@ SUI.widget.DatetimeRange.prototype._setTag = function(value) {
  * @private
  * @return {undefined}
  */
-SUI.widget.DatetimeRange.prototype._onClick = function() {
+SUI.DateTimeRange.prototype._onClick = function() {
   if (this.isEnabled()) {
     this.datetimeInput.addClass('active');
     this.popup.toggle();

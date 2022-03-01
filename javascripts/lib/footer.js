@@ -1,16 +1,15 @@
-goog.provide('SUI.lib.Footer');
+goog.provide('SUI.Footer');
 
 goog.require('SUI.Node');
 goog.require('SUI.Object');
 goog.require('SUI.Query');
-goog.require('SUI.lib');
 
 /**
  * @constructor
- * @this {SUI.lib.Footer}
+ * @this {SUI.Footer}
  * @param {!Object=} opt_options
  */
-SUI.lib.Footer = function(opt_options = {}) {
+SUI.Footer = function(opt_options = {}) {
   this._setOptions(opt_options);
   this._init();
 };
@@ -20,7 +19,7 @@ SUI.lib.Footer = function(opt_options = {}) {
  * @param {!Object=} opt_options
  * @return {undefined}
  */
-SUI.lib.Footer.prototype._setOptions = function(opt_options = {}) {
+SUI.Footer.prototype._setOptions = function(opt_options = {}) {
   const _self = this;
   _self.options = new SUI.Object();
   _self.options.merge(opt_options);
@@ -30,7 +29,7 @@ SUI.lib.Footer.prototype._setOptions = function(opt_options = {}) {
  * @private
  * @return {undefined}
  */
-SUI.lib.Footer.prototype._init = function() {
+SUI.Footer.prototype._init = function() {
   this.footerNode = new SUI.Query('#footer').getItem();
   this.templateViewNode = new SUI.Query('.template-view').getItem();
   this.contentNode = new SUI.Query('.content', this.footerNode).getItem();
@@ -40,7 +39,7 @@ SUI.lib.Footer.prototype._init = function() {
 /**
  * @return {undefined}
  */
-SUI.lib.Footer.prototype.show = function() {
+SUI.Footer.prototype.show = function() {
   this.footerNode.removeClass(['static', 'hidden', 'has-footer']);
   const contentNode = new SUI.Query('.page-content.fullscreen', this.templateViewNode).getItem();
   if (contentNode && !contentNode.isEmpty()) {
@@ -58,7 +57,7 @@ SUI.lib.Footer.prototype.show = function() {
 /**
  * @return {undefined}
  */
-SUI.lib.Footer.prototype.hide = function() {
+SUI.Footer.prototype.hide = function() {
   this.footerNode.addClass('hidden');
   this.footerNode.removeClass('static');
   this.templateViewNode.removeClass('has-footer');
@@ -68,42 +67,42 @@ SUI.lib.Footer.prototype.hide = function() {
  * @param {!SUI.Node} contentNode
  * @return {undefined}
  */
-SUI.lib.Footer.prototype.setContent = function(contentNode) {
+SUI.Footer.prototype.setContent = function(contentNode) {
   this.contentNode.appendChild(contentNode);
 };
 
 /**
  * @return {!SUI.Node}
  */
-SUI.lib.Footer.prototype.getLocalesContainer = function() {
+SUI.Footer.prototype.getLocalesContainer = function() {
   return this.localesNode;
 };
 
 /**
  * @return {undefined}
  */
-SUI.lib.Footer.prototype.open = function() {
+SUI.Footer.prototype.open = function() {
   this.footerNode.addClass('open');
 };
 
 /**
  * @return {undefined}
  */
-SUI.lib.Footer.prototype.close = function() {
+SUI.Footer.prototype.close = function() {
   this.footerNode.removeClass('open');
 };
 
 /**
  * @return {boolean}
  */
-SUI.lib.Footer.prototype.isOpened = function() {
+SUI.Footer.prototype.isOpened = function() {
   return this.footerNode.hasClass('open');
 };
 
 /**
  * @return {undefined}
  */
-SUI.lib.Footer.prototype.toogle = function() {
+SUI.Footer.prototype.toogle = function() {
   if (this.isOpened()) {
     this.close();
   } else {

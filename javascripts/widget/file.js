@@ -1,31 +1,30 @@
-goog.provide('SUI.widget.File');
+goog.provide('SUI.File');
 
 goog.require('SUI');
 goog.require('SUI.Node');
 goog.require('SUI.Query');
 goog.require('SUI.BaseWidget');
-goog.require('SUI.widget');
 
 /**
  * @constructor
  * @extends {SUI.BaseWidget}
- * @this {SUI.widget.File}
+ * @this {SUI.File}
  * @param {!SUI.Node} input
  * @param {!SUI.Node} label
  * @param {!SUI.Node} error
  * @param {!SUI.Node} inputBlock
  */
-SUI.widget.File = function(input, label, error, inputBlock) {
-  SUI.widget.File.base(this, 'constructor', input, label, error, inputBlock);
+SUI.File = function(input, label, error, inputBlock) {
+  SUI.File.base(this, 'constructor', input, label, error, inputBlock);
   this._init();
 };
-goog.inherits(SUI.widget.File, SUI.BaseWidget);
+goog.inherits(SUI.File, SUI.BaseWidget);
 
 /**
  * @private
  * @return {undefined}
  */
-SUI.widget.File.prototype._init = function() {
+SUI.File.prototype._init = function() {
   this.inputBlock.addClass('file-widget');
 
   this._initFileIcon();
@@ -46,7 +45,7 @@ SUI.widget.File.prototype._init = function() {
  * @private
  * @return {boolean}
  */
-SUI.widget.File.prototype._isDocument = function() {
+SUI.File.prototype._isDocument = function() {
   const accept = /** @type {string} */ (this.input.getAttribute('accept'));
   return SUI.contain(accept, '.docx') || SUI.contain(accept, '.xlsx') || SUI.contain(accept, '.pdf');
 };
@@ -55,7 +54,7 @@ SUI.widget.File.prototype._isDocument = function() {
  * @private
  * @return {undefined}
  */
-SUI.widget.File.prototype._initDefaultImg = function() {
+SUI.File.prototype._initDefaultImg = function() {
   this.imageTag = new SUI.Query('img', this.inputBlock).getItem();
   if (this.imageTag.isEmpty()) {
     this.imageTag = new SUI.Node('img');
@@ -67,7 +66,7 @@ SUI.widget.File.prototype._initDefaultImg = function() {
  * @private
  * @return {undefined}
  */
-SUI.widget.File.prototype._initValueSrc = function() {
+SUI.File.prototype._initValueSrc = function() {
   this.valueSrc = this.imageTag.getAttribute('src');
 
   this.defaultSrc = this.input.getAttribute('data-default-value');
@@ -83,7 +82,7 @@ SUI.widget.File.prototype._initValueSrc = function() {
  * @private
  * @return {undefined}
  */
-SUI.widget.File.prototype._initRemoveButton = function() {
+SUI.File.prototype._initRemoveButton = function() {
   this.removeButton = new SUI.Node('a');
   this.removeButton.setAttribute('href', 'javascript:void(0)');
   this.removeButton.addClass(['remove-button', 'material-icons']);
@@ -100,7 +99,7 @@ SUI.widget.File.prototype._initRemoveButton = function() {
  * @private
  * @return {undefined}
  */
-SUI.widget.File.prototype._initButtons = function() {
+SUI.File.prototype._initButtons = function() {
   const browseButton = new SUI.Node('a');
   browseButton.setAttribute('href', 'javascript:void(0)');
   browseButton.addClass(['browse-button', 'material-icons']);
@@ -122,7 +121,7 @@ SUI.widget.File.prototype._initButtons = function() {
  * @param {string} mimeType
  * @return {!Array}
  */
-SUI.widget.File.prototype._lookupByMimeType = function(mimeType) {
+SUI.File.prototype._lookupByMimeType = function(mimeType) {
   return this.fileTypes[mimeType];
 };
 
@@ -131,7 +130,7 @@ SUI.widget.File.prototype._lookupByMimeType = function(mimeType) {
  * @param {string} extension
  * @return {!Array}
  */
-SUI.widget.File.prototype._lookupByExtension = function(extension) {
+SUI.File.prototype._lookupByExtension = function(extension) {
   let results = [];
   for (const key in this.fileTypes) {
     if (Object.hasOwnProperty.call(this.fileTypes, key)) {
@@ -149,7 +148,7 @@ SUI.widget.File.prototype._lookupByExtension = function(extension) {
  * @private
  * @return {undefined}
  */
-SUI.widget.File.prototype._initFileIcon = function() {
+SUI.File.prototype._initFileIcon = function() {
   this.fileTypes = {
     'application/vnd.openxmlformats-officedocument.wordprocessingml.document': ['docx', 'blue'],
     'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet': ['xlsx', 'green'],
@@ -173,7 +172,7 @@ SUI.widget.File.prototype._initFileIcon = function() {
  * @param {string} color
  * @return {string}
  */
-SUI.widget.File.prototype._getFileIconSrc = function(type, color) {
+SUI.File.prototype._getFileIconSrc = function(type, color) {
   let svg = this.fileTypeSVG;
   svg = svg.replace('#000000', color);
   svg = svg.replace('TYPE', type);
@@ -185,7 +184,7 @@ SUI.widget.File.prototype._getFileIconSrc = function(type, color) {
  * @override
  * @return {undefined}
  */
-SUI.widget.File.prototype.render = function() {
+SUI.File.prototype.render = function() {
   this.inputBlock.addClass(['mdl-textfield', 'mdl-js-textfield', 'mdl-textfield--floating-label']);
   this.input.addClass('mdl-textfield__input');
   if (this.label && this.label.exists()) {
@@ -197,7 +196,7 @@ SUI.widget.File.prototype.render = function() {
 /**
  * @override
  */
-SUI.widget.File.prototype.refresh = function() {
+SUI.File.prototype.refresh = function() {
   if (this.isRequired() && this.getValue() === '') {
     this.inputBlock.addClass('is-invalid');
   }
@@ -212,7 +211,7 @@ SUI.widget.File.prototype.refresh = function() {
  * @param {!Blob} file
  * @return {undefined}
  */
-SUI.widget.File.prototype._read = function(file) {
+SUI.File.prototype._read = function(file) {
   if (file) {
     const filename = /** @type {string} */ (file.name);
     const reader = new FileReader();
@@ -238,7 +237,7 @@ SUI.widget.File.prototype._read = function(file) {
  * @private
  * @return {undefined}
  */
-SUI.widget.File.prototype._handleRemoveButton = function() {
+SUI.File.prototype._handleRemoveButton = function() {
   if (!this.isRequired() && this.valueSrc) {
     this.removeButton.removeClass('hidden');
   } else {
@@ -250,7 +249,7 @@ SUI.widget.File.prototype._handleRemoveButton = function() {
  * @private
  * @return {undefined}
  */
-SUI.widget.File.prototype._remove = function() {
+SUI.File.prototype._remove = function() {
   this.input.getNode().value = '';
   this.valueSrc = null;
 
@@ -269,7 +268,7 @@ SUI.widget.File.prototype._remove = function() {
  * @param {!Object|!Function|!Array|boolean|number|string|null|undefined} value
  * @return {undefined}
  */
-SUI.widget.File.prototype.setValue = function(value) {
+SUI.File.prototype.setValue = function(value) {
   let imageSrc = value;
   if (SUI.isObject(value)) {
     imageSrc = value['url'];

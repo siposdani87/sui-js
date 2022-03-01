@@ -1,16 +1,15 @@
-goog.provide('SUI.lib.BottomMenu');
+goog.provide('SUI.BottomMenu');
 
 goog.require('SUI.Node');
 goog.require('SUI.Query');
-goog.require('SUI.lib');
-goog.require('SUI.lib.Footer');
+goog.require('SUI.Footer');
 
 /**
  * @constructor
- * @param {!SUI.lib.Footer} footer
- * @this {SUI.lib.BottomMenu}
+ * @param {!SUI.Footer} footer
+ * @this {SUI.BottomMenu}
  */
-SUI.lib.BottomMenu = function(footer) {
+SUI.BottomMenu = function(footer) {
   this.footer = footer;
   this._init();
 };
@@ -19,7 +18,7 @@ SUI.lib.BottomMenu = function(footer) {
  * @private
  * @return {undefined}
  */
-SUI.lib.BottomMenu.prototype._init = function() {
+SUI.BottomMenu.prototype._init = function() {
   this.bottomMenu = new SUI.Query('#bottom-menu', this.footer.footerNode).getItem();
 
   const openBottomMenu = new SUI.Query('#open-bottom-menu', this.footer.footerNode).getItem();
@@ -38,7 +37,7 @@ SUI.lib.BottomMenu.prototype._init = function() {
 /**
  * @return {undefined}
  */
-SUI.lib.BottomMenu.prototype.toggle = function() {
+SUI.BottomMenu.prototype.toggle = function() {
   if (this.isOpened()) {
     this.close();
   } else {
@@ -49,14 +48,14 @@ SUI.lib.BottomMenu.prototype.toggle = function() {
 /**
  * @return {boolean}
  */
-SUI.lib.BottomMenu.prototype.isOpened = function() {
+SUI.BottomMenu.prototype.isOpened = function() {
   return this.bottomMenu.hasClass('visible-flex');
 };
 
 /**
  * @return {undefined}
  */
-SUI.lib.BottomMenu.prototype.open = function() {
+SUI.BottomMenu.prototype.open = function() {
   this.bottomMenu.addClass('visible-flex');
   this.footer.open();
 };
@@ -64,7 +63,7 @@ SUI.lib.BottomMenu.prototype.open = function() {
 /**
  * @return {undefined}
  */
-SUI.lib.BottomMenu.prototype.close = function() {
+SUI.BottomMenu.prototype.close = function() {
   this.bottomMenu.removeClass('visible-flex');
   this.footer.close();
 };
@@ -72,6 +71,6 @@ SUI.lib.BottomMenu.prototype.close = function() {
 /**
  * @return {!SUI.Node}
  */
-SUI.lib.BottomMenu.prototype.getContainer = function() {
+SUI.BottomMenu.prototype.getContainer = function() {
   return this.bottomMenu;
 };
