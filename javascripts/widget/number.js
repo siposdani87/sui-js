@@ -1,17 +1,19 @@
+import * as goog from 'google-closure-library/closure/goog/base';
+
 goog.provide('SUI.Number');
 
 goog.require('SUI');
-goog.require('SUI.Node');
+goog.require('SUI.Item');
 goog.require('SUI.BaseWidget');
 
 /**
  * @constructor
  * @extends {SUI.BaseWidget}
  * @this {SUI.Number}
- * @param {!SUI.Node} input
- * @param {!SUI.Node} label
- * @param {!SUI.Node} error
- * @param {!SUI.Node} inputBlock
+ * @param {!SUI.Item} input
+ * @param {!SUI.Item} label
+ * @param {!SUI.Item} error
+ * @param {!SUI.Item} inputBlock
  */
 SUI.Number = function(input, label, error, inputBlock) {
   SUI.Number.base(this, 'constructor', input, label, error, inputBlock);
@@ -48,11 +50,11 @@ SUI.Number.prototype._init = function() {
  * @return {undefined}
  */
 SUI.Number.prototype._initButtons = function() {
-  const actionNode = new SUI.Node('span');
+  const actionNode = new SUI.Item('span');
   actionNode.addClass('step-change');
   this.actionContainerNode.appendChild(actionNode);
 
-  const upButton = new SUI.Node('a');
+  const upButton = new SUI.Item('a');
   upButton.setAttribute('href', 'javascript:void(0)');
   upButton.addClass(['up-button', 'material-icons']);
   upButton.setHtml('keyboard_arrow_up');
@@ -65,7 +67,7 @@ SUI.Number.prototype._initButtons = function() {
   });
   actionNode.appendChild(upButton);
 
-  const downButton = new SUI.Node('a');
+  const downButton = new SUI.Item('a');
   downButton.setAttribute('href', 'javascript:void(0)');
   downButton.addClass(['down-button', 'material-icons']);
   downButton.setHtml('keyboard_arrow_down');

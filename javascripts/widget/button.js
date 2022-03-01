@@ -1,14 +1,16 @@
+import * as goog from 'google-closure-library/closure/goog/base';
+
 goog.provide('SUI.Button');
 
 goog.require('SUI');
-goog.require('SUI.Node');
+goog.require('SUI.Item');
 goog.require('SUI.BaseWidget');
 
 /**
  * @constructor
  * @extends {SUI.BaseWidget}
  * @this {SUI.Button}
- * @param {!SUI.Node} input
+ * @param {!SUI.Item} input
  */
 SUI.Button = function(input) {
   SUI.Button.base(this, 'constructor', input);
@@ -46,7 +48,7 @@ SUI.Button.prototype.refresh = function() {
 };
 
 /**
- * @param {!SUI.Node} node
+ * @param {!SUI.Item} node
  * @return {undefined}
  */
 SUI.Button.prototype.eventClick = function(node) {

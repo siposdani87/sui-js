@@ -1,9 +1,11 @@
+import * as goog from 'google-closure-library/closure/goog/base';
+
 goog.provide('SUI.Radiobutton');
 
 goog.requireType('SUI.Form');
 
 goog.require('SUI');
-goog.require('SUI.Node');
+goog.require('SUI.Item');
 goog.require('SUI.Query');
 goog.require('SUI.BaseWidget');
 
@@ -11,10 +13,10 @@ goog.require('SUI.BaseWidget');
  * @constructor
  * @extends {SUI.BaseWidget}
  * @this {SUI.Radiobutton}
- * @param {!SUI.Node} input
- * @param {!SUI.Node} label
- * @param {!SUI.Node} error
- * @param {!SUI.Node} inputBlock
+ * @param {!SUI.Item} input
+ * @param {!SUI.Item} label
+ * @param {!SUI.Item} error
+ * @param {!SUI.Item} inputBlock
  * @param {!SUI.Form} form
  */
 SUI.Radiobutton = function(input, label, error, inputBlock, form) {
@@ -69,7 +71,7 @@ SUI.Radiobutton.prototype.render = function() {
 
   const labelText = this.label.getHtml(true);
 
-  const spanLabel = new SUI.Node('span');
+  const spanLabel = new SUI.Item('span');
   spanLabel.addClass('mdl-radio__label');
   spanLabel.setHtml(labelText);
 
@@ -78,7 +80,7 @@ SUI.Radiobutton.prototype.render = function() {
   this.label.insert(this.input);
   this.label.appendChild(spanLabel);
 
-  this.dataLabelNode = new SUI.Node('span');
+  this.dataLabelNode = new SUI.Item('span');
   this.dataLabelNode.addClass('widget-label');
   this.label.insertBefore(this.dataLabelNode);
 

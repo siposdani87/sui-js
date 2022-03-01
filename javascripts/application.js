@@ -1,11 +1,13 @@
+import * as goog from 'google-closure-library/closure/goog/base';
+
 goog.provide('SUI.Application');
 
 goog.require('SUI');
 goog.require('SUI.PopupContainer');
 goog.require('SUI.Module');
-goog.require('SUI.Node');
-goog.require('SUI.Object');
-goog.require('SUI.Promise');
+goog.require('SUI.Item');
+goog.require('SUI.Objekt');
+goog.require('SUI.Promize');
 goog.require('SUI.Query');
 goog.require('SUI.Test');
 
@@ -57,7 +59,7 @@ SUI.Application = function(options, resources) {
  */
 SUI.Application.prototype._setOptions = function(options) {
   const _self = this;
-  _self.options = new SUI.Object({
+  _self.options = new SUI.Objekt({
     app_id: 'sui-app',
     locale: navigator.language,
     backend: '',
@@ -186,7 +188,7 @@ SUI.Application.prototype._initModule = function() {
     this._instances[this._injections.event].call('module.afterInit');
   };
 
-  this._module.eventStateChange = /** @type {function(!SUI.Object):!SUI.Promise} */ ((currentState) => {
+  this._module.eventStateChange = /** @type {function(!SUI.Objekt):!SUI.Promize} */ ((currentState) => {
     this._instances[this._injections.progressBar].lock();
     this._instances[this._injections.loader].show();
     this._instances[this._injections.dialog].close();
@@ -195,7 +197,7 @@ SUI.Application.prototype._initModule = function() {
     return this._instances[this._injections.event].call('state.change', [currentState]);
   });
 
-  this._module.eventDomChange = /** @type {function(!SUI.Object, !SUI.Node):!SUI.Promise} */ ((state, dom) => {
+  this._module.eventDomChange = /** @type {function(!SUI.Objekt, !SUI.Item):!SUI.Promize} */ ((state, dom) => {
     return this._instances[this._injections.event].call('dom.change', [state, dom]);
   });
 
@@ -209,19 +211,19 @@ SUI.Application.prototype._initModule = function() {
     this._instances[this._injections.event].call('module.serviceFailed');
   };
 
-  this._module.eventModuleLoaded = /** @type {function(!SUI.Object):undefined} */ ((state) => {
+  this._module.eventModuleLoaded = /** @type {function(!SUI.Objekt):undefined} */ ((state) => {
     this._instances[this._injections.progressBar].unlock();
     this._instances[this._injections.loader].hide(true);
     this._instances[this._injections.event].call('module.loaded', [state]);
   });
 
-  this._module.eventModuleFailed = /** @type {function(!SUI.Object):undefined} */ ((state) => {
+  this._module.eventModuleFailed = /** @type {function(!SUI.Objekt):undefined} */ ((state) => {
     this._instances[this._injections.progressBar].unlock();
     this._instances[this._injections.loader].hide(true);
     this._instances[this._injections.event].call('module.failed', [state]);
   });
 
-  this._module.eventControllerLoaded = /** @type {function(!SUI.Node):undefined} */ ((dom) => {
+  this._module.eventControllerLoaded = /** @type {function(!SUI.Item):undefined} */ ((dom) => {
     this._instances[this._injections.event].call('controller.loaded', [dom]);
   });
 
@@ -580,7 +582,7 @@ SUI.Application.prototype._initActionCable = function() {
  */
 SUI.Application.prototype._initRoutes = function() {
   this._routes = [];
-  this._routeOptions = new SUI.Object();
+  this._routeOptions = new SUI.Objekt();
 };
 
 /**
@@ -593,7 +595,7 @@ SUI.Application.prototype._initRoutes = function() {
  * @return {undefined}
  */
 SUI.Application.prototype.addState = function(id, title, url, controller, opt_template = '', opt_params = {}) {
-  const state = new SUI.Object(opt_params);
+  const state = new SUI.Objekt(opt_params);
   state.set('id', id);
   state.set('title', title);
   state.set('url', url);

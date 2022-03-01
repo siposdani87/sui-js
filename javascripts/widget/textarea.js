@@ -1,17 +1,19 @@
+import * as goog from 'google-closure-library/closure/goog/base';
+
 goog.provide('SUI.Textarea');
 
 goog.require('SUI');
-goog.require('SUI.Node');
+goog.require('SUI.Item');
 goog.require('SUI.BaseWidget');
 
 /**
  * @constructor
  * @extends {SUI.BaseWidget}
  * @this {SUI.Textarea}
- * @param {!SUI.Node} input
- * @param {!SUI.Node} label
- * @param {!SUI.Node} error
- * @param {!SUI.Node} inputBlock
+ * @param {!SUI.Item} input
+ * @param {!SUI.Item} label
+ * @param {!SUI.Item} error
+ * @param {!SUI.Item} inputBlock
  */
 SUI.Textarea = function(input, label, error, inputBlock) {
   SUI.Textarea.base(this, 'constructor', input, label, error, inputBlock);
@@ -68,7 +70,7 @@ SUI.Textarea.prototype._renderRichText = function() {
   let value = /** @type {string} */ (this.getValue());
   value = value.indexOf('<p>') === 0 ? value : `<p>${value || '<br />'}</p>`;
 
-  this.richText = new SUI.Node('div');
+  this.richText = new SUI.Item('div');
   this.richText.addClass(['mdl-textfield__input', 'mdl-textarea__input', 'textbox']);
   this.richText.setHtml(value);
 
@@ -120,7 +122,7 @@ SUI.Textarea.prototype._isRichText = function() {
  * @return {undefined}
  */
 SUI.Textarea.prototype._renderToolbarButtons = function() {
-  this.toolbarNode = new SUI.Node('div');
+  this.toolbarNode = new SUI.Item('div');
   this.toolbarNode.addClass('toolbar');
   this.input.insertBefore(this.toolbarNode);
 
@@ -168,7 +170,7 @@ SUI.Textarea.prototype._renderToolbarButtons = function() {
  * @return {undefined}
  */
 SUI.Textarea.prototype._renderToolbarButton = function(iconName, action) {
-  const boldButtonNode = new SUI.Node('a');
+  const boldButtonNode = new SUI.Item('a');
   boldButtonNode.setAttribute('href', 'javascript:void(0)');
   boldButtonNode.addClass('material-icons');
   boldButtonNode.setHtml(iconName);

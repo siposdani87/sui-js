@@ -1,17 +1,19 @@
+import * as goog from 'google-closure-library/closure/goog/base';
+
 goog.provide('SUI.Search');
 
 goog.require('SUI');
-goog.require('SUI.Node');
+goog.require('SUI.Item');
 goog.require('SUI.BaseWidget');
 
 /**
  * @constructor
  * @extends {SUI.BaseWidget}
  * @this {SUI.Search}
- * @param {!SUI.Node} input
- * @param {!SUI.Node} label
- * @param {!SUI.Node} error
- * @param {!SUI.Node} inputBlock
+ * @param {!SUI.Item} input
+ * @param {!SUI.Item} label
+ * @param {!SUI.Item} error
+ * @param {!SUI.Item} inputBlock
  */
 SUI.Search = function(input, label, error, inputBlock) {
   SUI.Search.base(this, 'constructor', input, label, error, inputBlock);
@@ -49,17 +51,17 @@ SUI.Search.prototype.render = function() {
   this.input.addClass(['mdl-textfield__input']);
 
   this.label.addClass(['mdl-button', 'mdl-js-button', 'mdl-button--icon']);
-  const iconNode = new SUI.Node('em');
+  const iconNode = new SUI.Item('em');
   iconNode.addClass(['material-icons', 'search-button']);
   iconNode.setHtml('search');
   this.label.insert(iconNode);
 
-  this.holderNode = new SUI.Node('div');
+  this.holderNode = new SUI.Item('div');
   this.holderNode.addClass('mdl-textfield__expandable-holder');
   this.holderNode.appendChild(this.input);
   this.inputBlock.appendChild(this.holderNode);
 
-  const labelNode = new SUI.Node('label');
+  const labelNode = new SUI.Item('label');
   labelNode.addClass('mdl-textfield__label');
   this.holderNode.appendChild(labelNode);
 
@@ -83,7 +85,7 @@ SUI.Search.prototype.refresh = function() {
  * @return {undefined}
  */
 SUI.Search.prototype._initClearButton = function() {
-  const clearButton = new SUI.Node('a');
+  const clearButton = new SUI.Item('a');
   clearButton.setAttribute('href', 'javascript:void(0)');
   clearButton.addClass(['material-icons', 'clear-button']);
   clearButton.setHtml('clear');

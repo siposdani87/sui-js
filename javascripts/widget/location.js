@@ -1,18 +1,20 @@
+import * as goog from 'google-closure-library/closure/goog/base';
+
 goog.provide('SUI.Location');
 
 goog.require('SUI');
 goog.require('SUI.GoogleMap');
-goog.require('SUI.Node');
+goog.require('SUI.Item');
 goog.require('SUI.BaseWidget');
 
 /**
  * @constructor
  * @extends {SUI.BaseWidget}
  * @this {SUI.Location}
- * @param {!SUI.Node} input
- * @param {!SUI.Node} label
- * @param {!SUI.Node} error
- * @param {!SUI.Node} inputBlock
+ * @param {!SUI.Item} input
+ * @param {!SUI.Item} label
+ * @param {!SUI.Item} error
+ * @param {!SUI.Item} inputBlock
  */
 SUI.Location = function(input, label, error, inputBlock) {
   SUI.Location.base(this, 'constructor', input, label, error, inputBlock);
@@ -65,7 +67,7 @@ SUI.Location.prototype._initButtons = function() {
  * @return {undefined}
  */
 SUI.Location.prototype._initSearchButton = function() {
-  const searchButton = new SUI.Node('a');
+  const searchButton = new SUI.Item('a');
   searchButton.setAttribute('href', 'javascript:void(0)');
   searchButton.addClass(['search-button', 'material-icons']);
   searchButton.setHtml('pin_drop');
@@ -83,7 +85,7 @@ SUI.Location.prototype._initSearchButton = function() {
  * @return {undefined}
  */
 SUI.Location.prototype._initAdvancedButton = function() {
-  this.advancedButton = new SUI.Node('a');
+  this.advancedButton = new SUI.Item('a');
   this.advancedButton.setAttribute('href', 'javascript:void(0)');
   this.advancedButton.addClass(['advanced-button', 'material-icons']);
   this.advancedButton.setHtml('settings');
@@ -157,7 +159,7 @@ SUI.Location.prototype._toggleAdvancedInputs = function() {
  * @return {undefined}
  */
 SUI.Location.prototype._renderAdvancedInputs = function() {
-  this.advancedNode = new SUI.Node('div');
+  this.advancedNode = new SUI.Item('div');
   this.advancedNode.addClass(['advanced', 'row', 'hidden']);
   this.inputBlock.appendChild(this.advancedNode);
 
@@ -179,25 +181,25 @@ SUI.Location.prototype._renderAdvancedInputs = function() {
  * @private
  * @param {string} id
  * @param {string} labelText
- * @param {function(!SUI.Node):undefined} callback
- * @return {!SUI.Node}
+ * @param {function(!SUI.Item):undefined} callback
+ * @return {!SUI.Item}
  */
 SUI.Location.prototype._renderAdvancedInput = function(id, labelText, callback) {
-  const blockNode = new SUI.Node('div');
+  const blockNode = new SUI.Item('div');
   blockNode.addClass('col-6');
   this.advancedNode.appendChild(blockNode);
 
-  const boxNode = new SUI.Node('div');
+  const boxNode = new SUI.Item('div');
   boxNode.addClass(['mdl-textfield', 'mdl-js-textfield', 'mdl-textfield--floating-label']);
   blockNode.appendChild(boxNode);
 
-  const advancedLabel = new SUI.Node('label');
+  const advancedLabel = new SUI.Item('label');
   advancedLabel.setFor(id);
   advancedLabel.addClass('mdl-textfield__label');
   advancedLabel.setHtml(labelText);
   boxNode.appendChild(advancedLabel);
 
-  const advancedInput = new SUI.Node('input');
+  const advancedInput = new SUI.Item('input');
   advancedInput.setId(id);
   advancedInput.setAttribute('type', 'text');
   advancedInput.addClass('mdl-textfield__input');
@@ -217,11 +219,11 @@ SUI.Location.prototype._renderAdvancedInput = function(id, labelText, callback) 
  * @return {undefined}
  */
 SUI.Location.prototype._renderMap = function() {
-  const mapNode = new SUI.Node('div');
+  const mapNode = new SUI.Item('div');
   mapNode.addClass('map');
   this.inputBlock.appendChild(mapNode);
 
-  this.mapLockNode = new SUI.Node('div');
+  this.mapLockNode = new SUI.Item('div');
   this.mapLockNode.addClass('map-lock');
   this.inputBlock.appendChild(this.mapLockNode);
 

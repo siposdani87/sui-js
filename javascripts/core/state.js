@@ -1,8 +1,10 @@
+import * as goog from 'google-closure-library/closure/goog/base';
+
 goog.provide('SUI.State');
 
 goog.require('SUI');
 goog.require('SUI.Collection');
-goog.require('SUI.Object');
+goog.require('SUI.Objekt');
 goog.require('SUI.Query');
 goog.require('SUI.Router');
 
@@ -13,10 +15,10 @@ goog.require('SUI.Router');
  * @param {!Object} options
  */
 SUI.State = function(routes, options) {
-  this._current = new SUI.Object();
+  this._current = new SUI.Objekt();
   this._previous = this._current;
 
-  this.routes = /** @type {!SUI.Collection<!SUI.Object>} */ (new SUI.Collection(routes));
+  this.routes = /** @type {!SUI.Collection<!SUI.Objekt>} */ (new SUI.Collection(routes));
 
   this._setOptions(options);
   this._init();
@@ -70,7 +72,7 @@ SUI.State.prototype._setBasePath = function() {
  */
 SUI.State.prototype._setOptions = function(options) {
   const _self = this;
-  _self.options = new SUI.Object({
+  _self.options = new SUI.Objekt({
     root: {
       id: 'root',
       params: undefined,
@@ -102,7 +104,7 @@ SUI.State.prototype._init = function() {
 SUI.State.prototype._initPopstate = function() {
   window.addEventListener('popstate', () => {
     if (window.history.state) {
-      const state = new SUI.Object();
+      const state = new SUI.Objekt();
       state.merge(window.history.state);
       this._setCurrent(state);
       this._triggerChange();
@@ -167,7 +169,7 @@ SUI.State.prototype._parsePath = function(urlPath, successCallback, errorCallbac
 
 /**
  * @private
- * @param {!SUI.Object} state
+ * @param {!SUI.Objekt} state
  * @param {string} url
  * @param {!Object=} opt_params
  * @param {boolean=} opt_overwrite
@@ -197,14 +199,14 @@ SUI.State.prototype._setHistory = function(state, url, opt_params = {}, opt_over
  * @return {undefined}
  */
 SUI.State.prototype._triggerChange = function(opt_force = false) {
-  const currentState = /** @type {!SUI.Object} */ (this.getCurrent());
-  const previousState = /** @type {!SUI.Object} */ (this.getPrevious());
+  const currentState = /** @type {!SUI.Objekt} */ (this.getCurrent());
+  const previousState = /** @type {!SUI.Objekt} */ (this.getPrevious());
   this.eventChange(currentState, previousState, opt_force);
 };
 
 /**
  * @private
- * @param {!SUI.Object} state
+ * @param {!SUI.Objekt} state
  * @return {undefined}
  */
 SUI.State.prototype._setCurrent = function(state) {
@@ -214,18 +216,18 @@ SUI.State.prototype._setCurrent = function(state) {
 
 /**
  * @param {string=} opt_attribute
- * @return {!SUI.Object|string}
+ * @return {!SUI.Objekt|string}
  */
 SUI.State.prototype.getCurrent = function(opt_attribute) {
-  return /** @type {!SUI.Object|string} */ (this._current.get(opt_attribute));
+  return /** @type {!SUI.Objekt|string} */ (this._current.get(opt_attribute));
 };
 
 /**
  * @param {string=} opt_attribute
- * @return {!SUI.Object|string}
+ * @return {!SUI.Objekt|string}
  */
 SUI.State.prototype.getPrevious = function(opt_attribute) {
-  return /** @type {!SUI.Object|string} */ (this._previous.get(opt_attribute));
+  return /** @type {!SUI.Objekt|string} */ (this._previous.get(opt_attribute));
 };
 
 /**
@@ -245,7 +247,7 @@ SUI.State.prototype.go = function(id, opt_params = undefined, opt_overwrite = fa
   } else {
     const [url, state] = this._resolveUrlWithState(id, opt_params);
     if (url && state) {
-      this._setHistory(/** @type {!SUI.Object} */ (state), url, opt_params, opt_overwrite, opt_force);
+      this._setHistory(/** @type {!SUI.Objekt} */ (state), url, opt_params, opt_overwrite, opt_force);
     }
   }
 };
@@ -348,8 +350,8 @@ SUI.State.prototype.forward = function() {
 };
 
 /**
- * @param {!SUI.Object} currentState
- * @param {!SUI.Object} previousState
+ * @param {!SUI.Objekt} currentState
+ * @param {!SUI.Objekt} previousState
  * @param {boolean=} opt_force
  * @return {undefined}
  */
@@ -387,10 +389,10 @@ SUI.State.prototype.setParam = function(name, value) {
 };
 
 /**
- * @return {!SUI.Object}
+ * @return {!SUI.Objekt}
  */
 SUI.State.prototype.getParams = function() {
-  return /** @type {!SUI.Object} */ (this.getCurrent('params'));
+  return /** @type {!SUI.Objekt} */ (this.getCurrent('params'));
 };
 
 /**

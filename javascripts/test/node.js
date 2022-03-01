@@ -1,7 +1,9 @@
+import * as goog from 'google-closure-library/closure/goog/base';
+
 goog.provide('SUI.TestNode');
 
 goog.require('SUI');
-goog.require('SUI.Node');
+goog.require('SUI.Item');
 goog.require('SUI.BaseTest');
 
 /**
@@ -18,7 +20,7 @@ goog.inherits(SUI.TestNode, SUI.BaseTest);
  * @override
  */
 SUI.TestNode.prototype.init = function() {
-  this.node = new SUI.Node('div');
+  this.node = new SUI.Item('div');
 
   this.testAttribute();
   this.testAttributeData();

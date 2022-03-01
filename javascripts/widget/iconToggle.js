@@ -1,17 +1,19 @@
+import * as goog from 'google-closure-library/closure/goog/base';
+
 goog.provide('SUI.IconToggle');
 
 goog.require('SUI');
-goog.require('SUI.Node');
+goog.require('SUI.Item');
 goog.require('SUI.BaseCheckbox');
 
 /**
  * @constructor
  * @extends {SUI.BaseCheckbox}
  * @this {SUI.IconToggle}
- * @param {!SUI.Node} input
- * @param {!SUI.Node} label
- * @param {!SUI.Node} error
- * @param {!SUI.Node} inputBlock
+ * @param {!SUI.Item} input
+ * @param {!SUI.Item} label
+ * @param {!SUI.Item} error
+ * @param {!SUI.Item} inputBlock
  */
 SUI.IconToggle = function(input, label, error, inputBlock) {
   SUI.IconToggle.base(this, 'constructor', input, label, error, inputBlock);
@@ -28,7 +30,7 @@ SUI.IconToggle.prototype.render = function() {
   this.checkedIcon = /** @type {string} */ (this.input.getData('checked'));
   this.uncheckedIcon = /** @type {string} */ (this.input.getData('unchecked'));
 
-  this.icon = new SUI.Node('em');
+  this.icon = new SUI.Item('em');
   this.icon.addClass(['mdl-icon-toggle__label', 'material-icons']);
   this.icon.setHtml(this.input.getNode().checked ? this.checkedIcon : this.uncheckedIcon);
 
@@ -36,7 +38,7 @@ SUI.IconToggle.prototype.render = function() {
 
   const labelText = this.label.getText();
 
-  this.spanLabel = new SUI.Node('span');
+  this.spanLabel = new SUI.Item('span');
   this.spanLabel.addClass('mdl-icon__label');
   this.spanLabel.setHtml(labelText);
 
@@ -44,7 +46,7 @@ SUI.IconToggle.prototype.render = function() {
   this.label.appendChild(this.icon);
   this.label.appendChild(this.spanLabel);
 
-  this.dataLabelNode = new SUI.Node('span');
+  this.dataLabelNode = new SUI.Item('span');
   this.dataLabelNode.addClass('widget-label');
   this.label.insertBefore(this.dataLabelNode);
 

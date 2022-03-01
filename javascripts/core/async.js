@@ -1,8 +1,10 @@
+import * as goog from 'google-closure-library/closure/goog/base';
+
 goog.provide('SUI.Async');
 
 goog.require('SUI');
 goog.require('SUI.Deferred');
-goog.require('SUI.Promise');
+goog.require('SUI.Promize');
 
 /**
  * @constructor
@@ -17,7 +19,7 @@ SUI.Async = function(opt_sum) {
 /**
  * @param {!Array<!Function>} calls
  * @param {!Array=} opt_args
- * @return {!SUI.Promise}
+ * @return {!SUI.Promize}
  */
 SUI.Async.prototype.parallel = function(calls, opt_args) {
   const deferred = new SUI.Deferred();
@@ -53,7 +55,7 @@ SUI.Async.prototype.parallelFunction = function(call, opt_args, opt_index) {
  * @param {boolean} allowEvent
  * @param {number} index
  * @param {?Array=} opt_args
- * @return {!SUI.Promise}
+ * @return {!SUI.Promize}
  */
 SUI.Async.prototype._parallelWrapper = function(call, length, allowEvent, index, opt_args) {
   const deferred = new SUI.Deferred();
@@ -81,7 +83,7 @@ SUI.Async.prototype._parallelWrapper = function(call, length, allowEvent, index,
  * @param {boolean} allowEvent
  * @param {number} index
  * @param {?Array=} opt_args
- * @return {!SUI.Promise}
+ * @return {!SUI.Promize}
  */
 SUI.Async.prototype._parallelCaller = function(length, isError, result, allowEvent, index, opt_args) {
   const deferred = new SUI.Deferred();
@@ -149,7 +151,7 @@ SUI.Async.prototype.eventComplete = function(isError, results) {
 /**
  * @param {!Array<!Function>} calls
  * @param {!Array=} opt_args
- * @return {!SUI.Promise}
+ * @return {!SUI.Promize}
  */
 SUI.Async.prototype.serial = function(calls, opt_args) {
   const deferred = new SUI.Deferred();
@@ -168,7 +170,7 @@ SUI.Async.prototype.serial = function(calls, opt_args) {
  * @param {!Array<!Function>} calls
  * @param {number} index
  * @param {!Array=} opt_args
- * @return {!SUI.Promise}
+ * @return {!SUI.Promize}
  */
 SUI.Async.prototype._serialWrapper = function(calls, index, opt_args) {
   const deferred = new SUI.Deferred();
@@ -199,7 +201,7 @@ SUI.Async.prototype._serialWrapper = function(calls, index, opt_args) {
  * @param {number} index
  * @param {*} result
  * @param {!Array=} opt_args
- * @return {!SUI.Promise}
+ * @return {!SUI.Promize}
  */
 SUI.Async.prototype._serialCaller = function(calls, index, result, opt_args) {
   const deferred = new SUI.Deferred();

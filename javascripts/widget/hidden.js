@@ -1,14 +1,16 @@
+import * as goog from 'google-closure-library/closure/goog/base';
+
 goog.provide('SUI.Hidden');
 
 goog.require('SUI');
-goog.require('SUI.Node');
+goog.require('SUI.Item');
 goog.require('SUI.BaseWidget');
 
 /**
  * @constructor
  * @extends {SUI.BaseWidget}
  * @this {SUI.Hidden}
- * @param {!SUI.Node} input
+ * @param {!SUI.Item} input
  */
 SUI.Hidden = function(input) {
   SUI.Hidden.base(this, 'constructor', input);

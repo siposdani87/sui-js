@@ -1,8 +1,10 @@
+import * as goog from 'google-closure-library/closure/goog/base';
+
 goog.provide('SUI.Color');
 
 goog.require('SUI');
 goog.require('SUI.Canvas');
-goog.require('SUI.Node');
+goog.require('SUI.Item');
 goog.require('SUI.Popup');
 goog.require('SUI.Query');
 goog.require('SUI.Tooltip');
@@ -12,10 +14,10 @@ goog.require('SUI.BaseWidget');
  * @constructor
  * @extends {SUI.BaseWidget}
  * @this {SUI.Color}
- * @param {!SUI.Node} input
- * @param {!SUI.Node} label
- * @param {!SUI.Node} error
- * @param {!SUI.Node} inputBlock
+ * @param {!SUI.Item} input
+ * @param {!SUI.Item} label
+ * @param {!SUI.Item} error
+ * @param {!SUI.Item} inputBlock
  */
 SUI.Color = function(input, label, error, inputBlock) {
   SUI.Color.base(this, 'constructor', input, label, error, inputBlock);
@@ -88,11 +90,11 @@ SUI.Color.prototype._initInput = function() {
  * @return {undefined}
  */
 SUI.Color.prototype._initPreview = function() {
-  this.previewNode = new SUI.Node('div');
+  this.previewNode = new SUI.Item('div');
   this.previewNode.addClass('preview');
   this.inputBlock.beforeChild(this.previewNode);
 
-  this.colorNode = new SUI.Node('div');
+  this.colorNode = new SUI.Item('div');
   this.colorNode.addClass('color');
   this.previewNode.appendChild(this.colorNode);
 

@@ -1,11 +1,13 @@
+import * as goog from 'google-closure-library/closure/goog/base';
+
 goog.provide('SUI.Module');
 
 goog.require('SUI');
 goog.require('SUI.Async');
 goog.require('SUI.Deferred');
-goog.require('SUI.Node');
-goog.require('SUI.Object');
-goog.require('SUI.Promise');
+goog.require('SUI.Item');
+goog.require('SUI.Objekt');
+goog.require('SUI.Promize');
 goog.require('SUI.State');
 
 /**
@@ -201,7 +203,7 @@ SUI.Module.prototype.handleRoutes = function(routes, options) {
 };
 
 /**
- * @param {!SUI.Object} currentState
+ * @param {!SUI.Objekt} currentState
  * @param {boolean=} opt_force
  * @return {undefined}
  */
@@ -227,8 +229,8 @@ SUI.Module.prototype._handleStateChange = function(currentState, opt_force = fal
 
 /**
  * @private
- * @param {!SUI.Object} state
- * @param {!SUI.Node} dom
+ * @param {!SUI.Objekt} state
+ * @param {!SUI.Item} dom
  * @return {undefined}
  */
 SUI.Module.prototype._initController = function(state, dom) {
@@ -252,7 +254,7 @@ SUI.Module.prototype._initController = function(state, dom) {
 };
 
 /**
- * @param {!SUI.Node} dom
+ * @param {!SUI.Item} dom
  * @return {undefined}
  */
 SUI.Module.prototype.eventControllerLoaded = function(dom) {
@@ -267,7 +269,7 @@ SUI.Module.prototype.eventControllerFailed = function() {
 };
 
 /**
- * @param {!SUI.Object} state
+ * @param {!SUI.Objekt} state
  * @return {undefined}
  */
 SUI.Module.prototype.eventModuleFailed = function(state) {
@@ -275,7 +277,7 @@ SUI.Module.prototype.eventModuleFailed = function(state) {
 };
 
 /**
- * @param {!SUI.Object} state
+ * @param {!SUI.Objekt} state
  * @return {undefined}
  */
 SUI.Module.prototype.eventModuleLoaded = function(state) {
@@ -283,8 +285,8 @@ SUI.Module.prototype.eventModuleLoaded = function(state) {
 };
 
 /**
- * @param {!SUI.Object} state
- * @return {!SUI.Promise}
+ * @param {!SUI.Objekt} state
+ * @return {!SUI.Promize}
  */
 SUI.Module.prototype.eventStateChange = function(state) {
   const deferred = new SUI.Deferred();
@@ -294,9 +296,9 @@ SUI.Module.prototype.eventStateChange = function(state) {
 };
 
 /**
- * @param {!SUI.Object} state
- * @param {!SUI.Node} dom
- * @return {!SUI.Promise}
+ * @param {!SUI.Objekt} state
+ * @param {!SUI.Item} dom
+ * @return {!SUI.Promize}
  */
 SUI.Module.prototype.eventDomChange = function(state, dom) {
   const deferred = new SUI.Deferred();

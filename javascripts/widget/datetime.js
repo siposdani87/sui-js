@@ -1,8 +1,10 @@
+import * as goog from 'google-closure-library/closure/goog/base';
+
 goog.provide('SUI.DateTime');
 
 goog.require('SUI');
 goog.require('SUI.Date');
-goog.require('SUI.Node');
+goog.require('SUI.Item');
 goog.require('SUI.Popup');
 goog.require('SUI.BaseWidget');
 
@@ -10,10 +12,10 @@ goog.require('SUI.BaseWidget');
  * @constructor
  * @extends {SUI.BaseWidget}
  * @this {SUI.DateTime}
- * @param {!SUI.Node} input
- * @param {!SUI.Node} label
- * @param {!SUI.Node} error
- * @param {!SUI.Node} inputBlock
+ * @param {!SUI.Item} input
+ * @param {!SUI.Item} label
+ * @param {!SUI.Item} error
+ * @param {!SUI.Item} inputBlock
  */
 SUI.DateTime = function(input, label, error, inputBlock) {
   SUI.DateTime.base(this, 'constructor', input, label, error, inputBlock);
@@ -29,11 +31,11 @@ SUI.DateTime.prototype._init = function() {
   this.inputBlock.addClass('datetime-widget');
   this.input.addClass('hidden');
 
-  this.datetimeContainer = new SUI.Node('div');
+  this.datetimeContainer = new SUI.Item('div');
   this.datetimeContainer.addClass('datetime-container');
   this.input.insertAfter(this.datetimeContainer);
 
-  this.datetimeInput = new SUI.Node('div');
+  this.datetimeInput = new SUI.Item('div');
   this.datetimeInput.addClass('datetime-input');
   this.datetimeInput.addEventListener('click', this._onClick.bind(this));
   this.datetimeContainer.appendChild(this.datetimeInput);
@@ -57,7 +59,7 @@ SUI.DateTime.prototype._initInput = function() {
   const type = this.input.getAttribute('type');
   const value = /** @type {string} */ (this.getValue().toString());
 
-  this.datetimeNode = new SUI.Node('div');
+  this.datetimeNode = new SUI.Item('div');
   this.datetime = new SUI.Date(this.datetimeNode, {
     value: value,
     type: type,
@@ -86,7 +88,7 @@ SUI.DateTime.prototype.render = function() {
     this.label.addClass('widget-label');
   }
 
-  const iconNode = new SUI.Node('a');
+  const iconNode = new SUI.Item('a');
   iconNode.setAttribute('href', 'javascript:void(0)');
   iconNode.addClass(['material-icons', 'size-24', 'expander']);
   iconNode.setHtml('date_range');
@@ -129,13 +131,13 @@ SUI.DateTime.prototype._setTag = function(value) {
   this.datetimeInput.removeChildren();
   if (value) {
     const formattedValue = window['moment'](value, this.datetime.getConfig().format)['format'](this.format);
-    const tagNode = new SUI.Node('div');
+    const tagNode = new SUI.Item('div');
     tagNode.addClass('widget-tag');
     tagNode.setHtml(formattedValue);
     this.datetimeInput.appendChild(tagNode);
 
     if (this.isEnabled()) {
-      const iconNode = new SUI.Node('a');
+      const iconNode = new SUI.Item('a');
       iconNode.setAttribute('href', 'javascript:void(0)');
       iconNode.addClass(['material-icons', 'size-18', 'close']);
       iconNode.setHtml('close');
