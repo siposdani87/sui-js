@@ -1,4 +1,4 @@
-goog.provide('SUI.test.Node');
+goog.provide('SUI.TestNode');
 
 goog.require('SUI');
 goog.require('SUI.test');
@@ -7,18 +7,18 @@ goog.require('SUI.BaseTest');
 
 /**
  * @constructor
- * @this {SUI.test.Node}
+ * @this {SUI.TestNode}
  * @extends {SUI.BaseTest}
  */
-SUI.test.Node = function() {
-  SUI.test.Node.base(this, 'constructor', 'Node');
+SUI.TestNode = function() {
+  SUI.TestNode.base(this, 'constructor', 'Node');
 };
-goog.inherits(SUI.test.Node, SUI.BaseTest);
+goog.inherits(SUI.TestNode, SUI.BaseTest);
 
 /**
  * @override
  */
-SUI.test.Node.prototype.init = function() {
+SUI.TestNode.prototype.init = function() {
   this.node = new SUI.Node('div');
 
   this.testAttribute();
@@ -26,7 +26,7 @@ SUI.test.Node.prototype.init = function() {
   this.testData();
 };
 
-SUI.test.Node.prototype.testAttribute = function() {
+SUI.TestNode.prototype.testAttribute = function() {
   const values = ['text', null, true, false, Infinity, 0, 1, 10];
 
   for (let i = 0; i < values.length; i++) {
@@ -39,7 +39,7 @@ SUI.test.Node.prototype.testAttribute = function() {
   }
 };
 
-SUI.test.Node.prototype.testAttributeData = function() {
+SUI.TestNode.prototype.testAttributeData = function() {
   const values = ['text', null, true, false, Infinity, 0, 1, 10, [0, 1, 10], {key: 'value'}];
 
   for (let i = 0; i < values.length; i++) {
@@ -53,7 +53,7 @@ SUI.test.Node.prototype.testAttributeData = function() {
   this.node.removeAttribute('data-value');
 };
 
-SUI.test.Node.prototype.testData = function() {
+SUI.TestNode.prototype.testData = function() {
   const values = ['', 'text', null, true, false, undefined, Infinity, 0, 1, 10, [0, 1, 10], {key: 'value'}];
 
   for (let i = 0; i < values.length; i++) {
