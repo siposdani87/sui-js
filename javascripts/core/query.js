@@ -1,8 +1,10 @@
+import * as goog from 'google-closure-library/closure/goog/base';
+
 goog.provide('SUI.Query');
 
 goog.require('SUI');
 goog.require('SUI.Collection');
-goog.require('SUI.Node');
+goog.require('SUI.Item');
 
 /**
  * @constructor
@@ -10,7 +12,7 @@ goog.require('SUI.Node');
  * @this {SUI.Query}
  * @extends {SUI.Collection}
  * @param {string} selector
- * @param {!Element|!SUI.Node=} opt_element
+ * @param {!Element|!SUI.Item=} opt_element
  */
 SUI.Query = function(selector, opt_element) {
   this.element = opt_element || document;
@@ -19,7 +21,7 @@ SUI.Query = function(selector, opt_element) {
   }
 
   const items = this._querySelector(selector);
-  SUI.Query.base(this, 'constructor', items, SUI.Node, {
+  SUI.Query.base(this, 'constructor', items, SUI.Item, {
     parent: null,
   });
 };
@@ -56,12 +58,12 @@ SUI.Query.prototype._querySelector = function(selector) {
 
 /**
  * @export
- * @return {!SUI.Node}
+ * @return {!SUI.Item}
  */
 SUI.Query.prototype.getItem = function() {
-  let firstNode = /** @type {!SUI.Node} */ (this.get(0));
+  let firstNode = /** @type {!SUI.Item} */ (this.get(0));
   if (!firstNode) {
-    firstNode = new SUI.Node(null);
+    firstNode = new SUI.Item(null);
   }
   return firstNode;
 };

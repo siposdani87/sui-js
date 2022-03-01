@@ -1,14 +1,16 @@
+import * as goog from 'google-closure-library/closure/goog/base';
+
 goog.provide('SUI.Reset');
 
 goog.require('SUI');
-goog.require('SUI.Node');
+goog.require('SUI.Item');
 goog.require('SUI.BaseWidget');
 
 /**
  * @constructor
  * @extends {SUI.BaseWidget}
  * @this {SUI.Reset}
- * @param {!SUI.Node} input
+ * @param {!SUI.Item} input
  */
 SUI.Reset = function(input) {
   SUI.Reset.base(this, 'constructor', input);

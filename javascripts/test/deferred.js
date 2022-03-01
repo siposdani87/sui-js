@@ -1,7 +1,9 @@
+import * as goog from 'google-closure-library/closure/goog/base';
+
 goog.provide('SUI.TestDeferred');
 
 goog.require('SUI.Deferred');
-goog.require('SUI.Promise');
+goog.require('SUI.Promize');
 goog.require('SUI.BaseTest');
 
 /**
@@ -54,7 +56,7 @@ SUI.TestDeferred.prototype.init = function() {
 SUI.TestDeferred.prototype.testPromise = function() {
   const deferred = new SUI.Deferred();
   const promise = deferred.promise();
-  if (!(promise instanceof SUI.Promise)) {
+  if (!(promise instanceof SUI.Promize)) {
     this.showError('promise', 1);
   }
 };

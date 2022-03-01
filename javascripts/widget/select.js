@@ -1,9 +1,11 @@
+import * as goog from 'google-closure-library/closure/goog/base';
+
 goog.provide('SUI.Select');
 
 goog.require('SUI');
 goog.require('SUI.Collection');
-goog.require('SUI.Node');
-goog.require('SUI.Object');
+goog.require('SUI.Item');
+goog.require('SUI.Objekt');
 goog.require('SUI.Popup');
 goog.require('SUI.Query');
 goog.require('SUI.BaseWidget');
@@ -12,10 +14,10 @@ goog.require('SUI.BaseWidget');
  * @constructor
  * @extends {SUI.BaseWidget}
  * @this {SUI.Select}
- * @param {!SUI.Node} input
- * @param {!SUI.Node} label
- * @param {!SUI.Node} error
- * @param {!SUI.Node} inputBlock
+ * @param {!SUI.Item} input
+ * @param {!SUI.Item} label
+ * @param {!SUI.Item} error
+ * @param {!SUI.Item} inputBlock
  */
 SUI.Select = function(input, label, error, inputBlock) {
   SUI.Select.base(this, 'constructor', input, label, error, inputBlock);
@@ -50,10 +52,10 @@ SUI.Select.prototype.isMultiple = function() {
  * @return {undefined}
  */
 SUI.Select.prototype._initPopup = function() {
-  this.containerNode = new SUI.Node('div');
+  this.containerNode = new SUI.Item('div');
   this._drawSearchInput();
 
-  this.listNode = new SUI.Node('div');
+  this.listNode = new SUI.Item('div');
   this.listNode.addClass('options-list');
   this.containerNode.appendChild(this.listNode);
 
@@ -76,7 +78,7 @@ SUI.Select.prototype._initChangeEvent = function() {
  * @return {undefined}
  */
 SUI.Select.prototype._initOptions = function() {
-  this.options = /** @type {!SUI.Collection<!SUI.Object>} */ (new SUI.Collection());
+  this.options = /** @type {!SUI.Collection<!SUI.Objekt>} */ (new SUI.Collection());
 
   const optionNodes = new SUI.Query('option', this.input);
   optionNodes.each((optionNode) => {
@@ -84,7 +86,7 @@ SUI.Select.prototype._initOptions = function() {
     const image = optionNode.getAttribute('data-image') || '';
     const item = optionNode.getAttribute('data-item') || {};
     const text = optionNode.getText() || '';
-    const option = new SUI.Object({
+    const option = new SUI.Objekt({
       'id': value,
       'name': text,
       'image': image,
@@ -104,7 +106,7 @@ SUI.Select.prototype.render = function() {
     this.label.addClass('widget-label');
   }
 
-  this.iconNode = new SUI.Node('a');
+  this.iconNode = new SUI.Item('a');
   this.iconNode.setAttribute('href', 'javascript:void(0)');
   this.iconNode.addClass(['material-icons', 'size-24', 'expander']);
   this.iconNode.setHtml('expand_more');
@@ -132,7 +134,7 @@ SUI.Select.prototype.refresh = function() {
     this.inputBlock.removeClass('is-disabled');
   }
 
-  this.selectContainerNode = new SUI.Node('div');
+  this.selectContainerNode = new SUI.Item('div');
   this.selectContainerNode.addClass('select-container');
   this.selectContainerNode.addEventListener('click', () => {
     if (this.isEnabled()) {
@@ -141,7 +143,7 @@ SUI.Select.prototype.refresh = function() {
   });
   this.input.insertAfter(this.selectContainerNode);
 
-  this.selectNode = new SUI.Node('div');
+  this.selectNode = new SUI.Item('div');
   this.selectNode.addClass('select-input');
   this.selectContainerNode.appendChild(this.selectNode);
 
@@ -205,7 +207,7 @@ SUI.Select.prototype._hideLoader = function() {
 };
 
 /**
- * @param {!Array<!SUI.Object>} items
+ * @param {!Array<!SUI.Objekt>} items
  * @param {string=} opt_value
  * @param {string=} opt_name
  * @param {string=} opt_image
@@ -226,7 +228,7 @@ SUI.Select.prototype.setOptions = function(items, opt_value = 'value', opt_name 
     if (opt_image) {
       image = item.get(opt_image);
     }
-    const optionNode = new SUI.Node('option');
+    const optionNode = new SUI.Item('option');
     optionNode.setAttribute('value', value);
     optionNode.setAttribute('data-image', image);
     optionNode.setAttribute('data-item', item);
@@ -310,7 +312,7 @@ SUI.Select.prototype._setTags = function(tags) {
   this.selectNode.removeChildren();
 
   SUI.each(tags, (tag) => {
-    const tagNode = new SUI.Node('div');
+    const tagNode = new SUI.Item('div');
     tagNode.addClass('widget-tag');
     tagNode.setHtml(tag.get('name'));
     if (this.isEnabled()) {
@@ -322,7 +324,7 @@ SUI.Select.prototype._setTags = function(tags) {
 
     const id = tag.get('id');
     if (SUI.neq(id, '') && this.isEnabled()) {
-      const iconNode = new SUI.Node('a');
+      const iconNode = new SUI.Item('a');
       iconNode.setAttribute('href', 'javascript:void(0)');
       iconNode.addClass(['material-icons', 'size-18', 'close']);
       iconNode.setHtml('close');
@@ -414,7 +416,7 @@ SUI.Select.prototype._drawItems = function(items) {
   const ids = this._getSelectedIds();
   SUI.each(items, (item) => {
     const id = item.get('id');
-    const listItem = new SUI.Node('a');
+    const listItem = new SUI.Item('a');
     listItem.setAttribute('href', 'javascript:void(0)');
     if (SUI.inArray(ids, id)) {
       listItem.addClass('selected');
@@ -426,13 +428,13 @@ SUI.Select.prototype._drawItems = function(items) {
 
     const image = item.get('image');
     if (image) {
-      const imageNode = new SUI.Node('img');
+      const imageNode = new SUI.Item('img');
       imageNode.setAttribute('src', image);
       listItem.appendChild(imageNode);
     }
 
     const name = item.get('name');
-    const nameNode = new SUI.Node('span');
+    const nameNode = new SUI.Item('span');
     nameNode.setHtml(name);
     listItem.appendChild(nameNode);
   });
@@ -443,11 +445,11 @@ SUI.Select.prototype._drawItems = function(items) {
  * @return {undefined}
  */
 SUI.Select.prototype._drawSearchInput = function() {
-  const searchParentNode = new SUI.Node('div');
+  const searchParentNode = new SUI.Item('div');
   searchParentNode.addClass('search-box');
   this.containerNode.appendChild(searchParentNode);
 
-  const searchNode = new SUI.Node('div');
+  const searchNode = new SUI.Item('div');
   searchNode.addClass(['mdl-textfield', 'mdl-js-textfield']);
   searchNode.addEventListener('click', () => {
 
@@ -456,7 +458,7 @@ SUI.Select.prototype._drawSearchInput = function() {
 
   const id = SUI.generateId('select');
 
-  this.searchInputNode = new SUI.Node('input');
+  this.searchInputNode = new SUI.Item('input');
   this.searchInputNode.setId(id);
   this.searchInputNode.setAttribute('type', 'text');
   this.searchInputNode.addClass('mdl-textfield__input');
@@ -467,7 +469,7 @@ SUI.Select.prototype._drawSearchInput = function() {
   });
   searchNode.appendChild(this.searchInputNode);
 
-  const labelNode = new SUI.Node('label');
+  const labelNode = new SUI.Item('label');
   labelNode.setFor(id);
   labelNode.addClass('mdl-textfield__label');
   searchNode.appendChild(labelNode);

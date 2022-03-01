@@ -1,17 +1,19 @@
+import * as goog from 'google-closure-library/closure/goog/base';
+
 goog.provide('SUI.Url');
 
 goog.require('SUI');
-goog.require('SUI.Node');
+goog.require('SUI.Item');
 goog.require('SUI.BaseWidget');
 
 /**
  * @constructor
  * @extends {SUI.BaseWidget}
  * @this {SUI.Url}
- * @param {!SUI.Node} input
- * @param {!SUI.Node} label
- * @param {!SUI.Node} error
- * @param {!SUI.Node} inputBlock
+ * @param {!SUI.Item} input
+ * @param {!SUI.Item} label
+ * @param {!SUI.Item} error
+ * @param {!SUI.Item} inputBlock
  */
 SUI.Url = function(input, label, error, inputBlock) {
   SUI.Url.base(this, 'constructor', input, label, error, inputBlock);
@@ -57,7 +59,7 @@ SUI.Url.prototype.render = function() {
   }
 
   if (this.protocol) {
-    const protocolNode = new SUI.Node('span');
+    const protocolNode = new SUI.Item('span');
     protocolNode.addClass('protocol');
     protocolNode.setHtml(this.protocol);
     this.input.insertAfter(protocolNode);

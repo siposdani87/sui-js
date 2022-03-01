@@ -1,14 +1,16 @@
+import * as goog from 'google-closure-library/closure/goog/base';
+
 goog.provide('SUI.Submit');
 
 goog.require('SUI');
-goog.require('SUI.Node');
+goog.require('SUI.Item');
 goog.require('SUI.BaseWidget');
 
 /**
  * @constructor
  * @extends {SUI.BaseWidget}
  * @this {SUI.Submit}
- * @param {!SUI.Node} input
+ * @param {!SUI.Item} input
  */
 SUI.Submit = function(input) {
   SUI.Submit.base(this, 'constructor', input);

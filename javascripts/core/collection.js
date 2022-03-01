@@ -1,7 +1,9 @@
+import * as goog from 'google-closure-library/closure/goog/base';
+
 goog.provide('SUI.Collection');
 
 goog.require('SUI');
-goog.require('SUI.Object');
+goog.require('SUI.Objekt');
 
 /**
  * @constructor
@@ -11,7 +13,7 @@ goog.require('SUI.Object');
  * @param {!Function=} opt_type
  * @param {!Object=} opt_options
  */
-SUI.Collection = function(opt_items = [], opt_type = SUI.Object, opt_options = {}) {
+SUI.Collection = function(opt_items = [], opt_type = SUI.Objekt, opt_options = {}) {
   this.Type = opt_type;
   this._setOptions(opt_options);
   this.items = [];
@@ -25,7 +27,7 @@ SUI.Collection = function(opt_items = [], opt_type = SUI.Object, opt_options = {
  */
 SUI.Collection.prototype._setOptions = function(opt_options = {}) {
   const _self = this;
-  _self.options = new SUI.Object({
+  _self.options = new SUI.Objekt({
     id: 'id',
     parent: undefined,
   });

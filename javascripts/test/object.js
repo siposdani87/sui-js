@@ -1,8 +1,10 @@
 
 
+import * as goog from 'google-closure-library/closure/goog/base';
+
 goog.provide('SUI.TestObject');
 
-goog.require('SUI.Object');
+goog.require('SUI.Objekt');
 goog.require('SUI.BaseTest');
 
 /**
@@ -28,7 +30,7 @@ SUI.TestObject.prototype.init = function() {
 };
 
 SUI.TestObject.prototype.testMerge = function() {
-  const options = new SUI.Object({
+  const options = new SUI.Objekt({
     attr: null,
     obj: {
       attr2: 1,
@@ -60,7 +62,7 @@ SUI.TestObject.prototype.testMerge = function() {
 };
 
 SUI.TestObject.prototype.testGetTypedValue = function() {
-  const options = new SUI.Object({
+  const options = new SUI.Objekt({
     attr: 'null',
     obj: {
       attr2: '1',
@@ -119,7 +121,7 @@ SUI.TestObject.prototype.testGetTypedValue = function() {
 };
 
 SUI.TestObject.prototype.testGet = function() {
-  const options = new SUI.Object({
+  const options = new SUI.Objekt({
     'attr': null,
     'obj': {
       'attr2': 1,
@@ -154,7 +156,7 @@ SUI.TestObject.prototype.testGet = function() {
 };
 
 SUI.TestObject.prototype.testSet = function() {
-  const options = new SUI.Object({
+  const options = new SUI.Objekt({
     attr: 0,
     obj: {
       attr2: 0,
@@ -199,7 +201,7 @@ SUI.TestObject.prototype.testSet = function() {
 };
 
 SUI.TestObject.prototype.testRemove = function() {
-  const options = new SUI.Object({
+  const options = new SUI.Objekt({
     attr: 0,
     obj: {
       attr2: 0,
@@ -227,7 +229,7 @@ SUI.TestObject.prototype.testRemove = function() {
 };
 
 SUI.TestObject.prototype.testCopy = function() {
-  const options = new SUI.Object({
+  const options = new SUI.Objekt({
     attr: 0,
     obj: {
       attr2: 0,

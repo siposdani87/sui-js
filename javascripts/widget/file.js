@@ -1,7 +1,9 @@
+import * as goog from 'google-closure-library/closure/goog/base';
+
 goog.provide('SUI.File');
 
 goog.require('SUI');
-goog.require('SUI.Node');
+goog.require('SUI.Item');
 goog.require('SUI.Query');
 goog.require('SUI.BaseWidget');
 
@@ -9,10 +11,10 @@ goog.require('SUI.BaseWidget');
  * @constructor
  * @extends {SUI.BaseWidget}
  * @this {SUI.File}
- * @param {!SUI.Node} input
- * @param {!SUI.Node} label
- * @param {!SUI.Node} error
- * @param {!SUI.Node} inputBlock
+ * @param {!SUI.Item} input
+ * @param {!SUI.Item} label
+ * @param {!SUI.Item} error
+ * @param {!SUI.Item} inputBlock
  */
 SUI.File = function(input, label, error, inputBlock) {
   SUI.File.base(this, 'constructor', input, label, error, inputBlock);
@@ -57,7 +59,7 @@ SUI.File.prototype._isDocument = function() {
 SUI.File.prototype._initDefaultImg = function() {
   this.imageTag = new SUI.Query('img', this.inputBlock).getItem();
   if (this.imageTag.isEmpty()) {
-    this.imageTag = new SUI.Node('img');
+    this.imageTag = new SUI.Item('img');
     this.inputBlock.beforeChild(this.imageTag);
   }
 };
@@ -83,7 +85,7 @@ SUI.File.prototype._initValueSrc = function() {
  * @return {undefined}
  */
 SUI.File.prototype._initRemoveButton = function() {
-  this.removeButton = new SUI.Node('a');
+  this.removeButton = new SUI.Item('a');
   this.removeButton.setAttribute('href', 'javascript:void(0)');
   this.removeButton.addClass(['remove-button', 'material-icons']);
   this.removeButton.setHtml('delete');
@@ -100,7 +102,7 @@ SUI.File.prototype._initRemoveButton = function() {
  * @return {undefined}
  */
 SUI.File.prototype._initButtons = function() {
-  const browseButton = new SUI.Node('a');
+  const browseButton = new SUI.Item('a');
   browseButton.setAttribute('href', 'javascript:void(0)');
   browseButton.addClass(['browse-button', 'material-icons']);
   if (this._isDocument()) {

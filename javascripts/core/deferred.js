@@ -1,18 +1,20 @@
+import * as goog from 'google-closure-library/closure/goog/base';
+
 goog.provide('SUI.Deferred');
 
 goog.require('SUI');
-goog.require('SUI.Promise');
+goog.require('SUI.Promize');
 
 /**
  * @constructor
  * @this {SUI.Deferred}
  */
 SUI.Deferred = function() {
-  this._promise = new SUI.Promise();
+  this._promise = new SUI.Promize();
 };
 
 /**
- * @return {!SUI.Promise}
+ * @return {!SUI.Promize}
  */
 SUI.Deferred.prototype.promise = function() {
   return this._promise;

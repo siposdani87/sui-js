@@ -1,7 +1,9 @@
+import * as goog from 'google-closure-library/closure/goog/base';
+
 goog.provide('SUI.Range');
 
 goog.require('SUI');
-goog.require('SUI.Node');
+goog.require('SUI.Item');
 goog.require('SUI.Query');
 goog.require('SUI.Tooltip');
 goog.require('SUI.BaseWidget');
@@ -10,10 +12,10 @@ goog.require('SUI.BaseWidget');
  * @constructor
  * @extends {SUI.BaseWidget}
  * @this {SUI.Range}
- * @param {!SUI.Node} input
- * @param {!SUI.Node} label
- * @param {!SUI.Node} error
- * @param {!SUI.Node} inputBlock
+ * @param {!SUI.Item} input
+ * @param {!SUI.Item} label
+ * @param {!SUI.Item} error
+ * @param {!SUI.Item} inputBlock
  */
 SUI.Range = function(input, label, error, inputBlock) {
   SUI.Range.base(this, 'constructor', input, label, error, inputBlock);
