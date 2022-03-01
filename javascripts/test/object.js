@@ -1,6 +1,6 @@
 
 
-goog.provide('SUI.test.Object');
+goog.provide('SUI.TestObject');
 
 goog.require('SUI.test');
 goog.require('SUI.Object');
@@ -8,18 +8,18 @@ goog.require('SUI.BaseTest');
 
 /**
  * @constructor
- * @this {SUI.test.Object}
+ * @this {SUI.TestObject}
  * @extends {SUI.BaseTest}
  */
-SUI.test.Object = function() {
-  SUI.test.Object.base(this, 'constructor', 'Object');
+SUI.TestObject = function() {
+  SUI.TestObject.base(this, 'constructor', 'Object');
 };
-goog.inherits(SUI.test.Object, SUI.BaseTest);
+goog.inherits(SUI.TestObject, SUI.BaseTest);
 
 /**
  * @override
  */
-SUI.test.Object.prototype.init = function() {
+SUI.TestObject.prototype.init = function() {
   this.testMerge();
   this.testGetTypedValue();
   this.testGet();
@@ -28,7 +28,7 @@ SUI.test.Object.prototype.init = function() {
   this.testCopy();
 };
 
-SUI.test.Object.prototype.testMerge = function() {
+SUI.TestObject.prototype.testMerge = function() {
   const options = new SUI.Object({
     attr: null,
     obj: {
@@ -60,7 +60,7 @@ SUI.test.Object.prototype.testMerge = function() {
   }
 };
 
-SUI.test.Object.prototype.testGetTypedValue = function() {
+SUI.TestObject.prototype.testGetTypedValue = function() {
   const options = new SUI.Object({
     attr: 'null',
     obj: {
@@ -119,7 +119,7 @@ SUI.test.Object.prototype.testGetTypedValue = function() {
   }
 };
 
-SUI.test.Object.prototype.testGet = function() {
+SUI.TestObject.prototype.testGet = function() {
   const options = new SUI.Object({
     'attr': null,
     'obj': {
@@ -154,7 +154,7 @@ SUI.test.Object.prototype.testGet = function() {
   }
 };
 
-SUI.test.Object.prototype.testSet = function() {
+SUI.TestObject.prototype.testSet = function() {
   const options = new SUI.Object({
     attr: 0,
     obj: {
@@ -199,7 +199,7 @@ SUI.test.Object.prototype.testSet = function() {
   }
 };
 
-SUI.test.Object.prototype.testRemove = function() {
+SUI.TestObject.prototype.testRemove = function() {
   const options = new SUI.Object({
     attr: 0,
     obj: {
@@ -227,7 +227,7 @@ SUI.test.Object.prototype.testRemove = function() {
   }
 };
 
-SUI.test.Object.prototype.testCopy = function() {
+SUI.TestObject.prototype.testCopy = function() {
   const options = new SUI.Object({
     attr: 0,
     obj: {

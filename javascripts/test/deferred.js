@@ -1,4 +1,4 @@
-goog.provide('SUI.test.Deferred');
+goog.provide('SUI.TestDeferred');
 
 goog.require('SUI.test');
 goog.require('SUI.Deferred');
@@ -7,18 +7,18 @@ goog.require('SUI.BaseTest');
 
 /**
  * @constructor
- * @this {SUI.test.Deferred}
+ * @this {SUI.TestDeferred}
  * @extends {SUI.BaseTest}
  */
-SUI.test.Deferred = function() {
-  SUI.test.Deferred.base(this, 'constructor', 'Deferred');
+SUI.TestDeferred = function() {
+  SUI.TestDeferred.base(this, 'constructor', 'Deferred');
 };
-goog.inherits(SUI.test.Deferred, SUI.BaseTest);
+goog.inherits(SUI.TestDeferred, SUI.BaseTest);
 
 /**
  * @override
  */
-SUI.test.Deferred.prototype.init = function() {
+SUI.TestDeferred.prototype.init = function() {
   this.ajaxResolve = function() {
     const deferred = new SUI.Deferred();
     window.setTimeout(function() {
@@ -52,7 +52,7 @@ SUI.test.Deferred.prototype.init = function() {
   this.testReject();
 };
 
-SUI.test.Deferred.prototype.testPromise = function() {
+SUI.TestDeferred.prototype.testPromise = function() {
   const deferred = new SUI.Deferred();
   const promise = deferred.promise();
   if (!(promise instanceof SUI.Promise)) {
@@ -61,7 +61,7 @@ SUI.test.Deferred.prototype.testPromise = function() {
 };
 
 
-SUI.test.Deferred.prototype.testResolve = function() {
+SUI.TestDeferred.prototype.testResolve = function() {
   this.ajaxResolve().then((value) => {
     if (value !== 1) {
       this.showError('resolve', 1);
@@ -79,7 +79,7 @@ SUI.test.Deferred.prototype.testResolve = function() {
   });
 };
 
-SUI.test.Deferred.prototype.testReject = function() {
+SUI.TestDeferred.prototype.testReject = function() {
   this.ajaxReject().then(() => {
     this.showError('reject', 1);
   }, (value) => {

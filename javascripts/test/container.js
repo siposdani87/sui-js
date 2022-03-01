@@ -1,4 +1,4 @@
-goog.provide('SUI.test.Container');
+goog.provide('SUI.TestContainer');
 
 goog.require('SUI.test');
 goog.require('SUI.Collection');
@@ -7,18 +7,18 @@ goog.require('SUI.BaseTest');
 
 /**
  * @constructor
- * @this {SUI.test.Container}
+ * @this {SUI.TestContainer}
  * @extends {SUI.BaseTest}
  */
-SUI.test.Container = function() {
-  SUI.test.Container.base(this, 'constructor', 'Container');
+SUI.TestContainer = function() {
+  SUI.TestContainer.base(this, 'constructor', 'Container');
 };
-goog.inherits(SUI.test.Container, SUI.BaseTest);
+goog.inherits(SUI.TestContainer, SUI.BaseTest);
 
 /**
  * @override
  */
-SUI.test.Container.prototype.init = function() {
+SUI.TestContainer.prototype.init = function() {
   this.container = /** @type {!SUI.Collection<!SUI.Object>} */ (new SUI.Collection([
     {
       id: 1,
@@ -34,10 +34,10 @@ SUI.test.Container.prototype.init = function() {
   this.testLoad();
 };
 
-SUI.test.Container.prototype.testInit = function() {
+SUI.TestContainer.prototype.testInit = function() {
 
 };
 
-SUI.test.Container.prototype.testLoad = function() {
+SUI.TestContainer.prototype.testLoad = function() {
 
 };

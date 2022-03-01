@@ -1,4 +1,4 @@
-goog.provide('SUI.test.Item');
+goog.provide('SUI.TestItem');
 
 goog.require('SUI.test');
 goog.require('SUI.Item');
@@ -6,18 +6,18 @@ goog.require('SUI.BaseTest');
 
 /**
  * @constructor
- * @this {SUI.test.Item}
+ * @this {SUI.TestItem}
  * @extends {SUI.BaseTest}
  */
-SUI.test.Item = function() {
-  SUI.test.Item.base(this, 'constructor', 'Item');
+SUI.TestItem = function() {
+  SUI.TestItem.base(this, 'constructor', 'Item');
 };
-goog.inherits(SUI.test.Item, SUI.BaseTest);
+goog.inherits(SUI.TestItem, SUI.BaseTest);
 
 /**
  * @override
  */
-SUI.test.Item.prototype.init = function() {
+SUI.TestItem.prototype.init = function() {
   this.item = new SUI.Item(this, {
     attr1: 2,
     obj1: {
@@ -30,7 +30,7 @@ SUI.test.Item.prototype.init = function() {
   this.testMerge();
 };
 
-SUI.test.Item.prototype.testGet = function() {
+SUI.TestItem.prototype.testGet = function() {
   this.item.set('attr1', 2);
   if (this.item.get('attr1') !== 2) {
     this.showError('get', 1);
@@ -41,7 +41,7 @@ SUI.test.Item.prototype.testGet = function() {
   }
 };
 
-SUI.test.Item.prototype.testSet = function() {
+SUI.TestItem.prototype.testSet = function() {
   this.item.set('attr1', 3);
   if (this.item.get('attr1') !== 3) {
     this.showError('set', 1);
@@ -53,7 +53,7 @@ SUI.test.Item.prototype.testSet = function() {
   }
 };
 
-SUI.test.Item.prototype.testMerge = function() {
+SUI.TestItem.prototype.testMerge = function() {
   this.item.merge({
     attr1: 1,
     obj1: {
