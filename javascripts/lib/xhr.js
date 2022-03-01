@@ -1,17 +1,16 @@
-goog.provide('SUI.lib.Xhr');
+goog.provide('SUI.Xhr');
 
 goog.require('SUI');
 goog.require('SUI.Deferred');
 goog.require('SUI.Object');
 goog.require('SUI.Promise');
-goog.require('SUI.lib');
 
 /**
  * @constructor
- * @this {SUI.lib.Xhr}
+ * @this {SUI.Xhr}
  * @param {!Object=} opt_options
  */
-SUI.lib.Xhr = function(opt_options = {}) {
+SUI.Xhr = function(opt_options = {}) {
   this._setOptions(opt_options);
   this._init();
 };
@@ -21,7 +20,7 @@ SUI.lib.Xhr = function(opt_options = {}) {
  * @param {!Object=} opt_options
  * @return {undefined}
  */
-SUI.lib.Xhr.prototype._setOptions = function(opt_options = {}) {
+SUI.Xhr.prototype._setOptions = function(opt_options = {}) {
   const _self = this;
   _self.options = new SUI.Object({
     backend: '',
@@ -34,7 +33,7 @@ SUI.lib.Xhr.prototype._setOptions = function(opt_options = {}) {
  * @private
  * @return {undefined}
  */
-SUI.lib.Xhr.prototype._init = function() {
+SUI.Xhr.prototype._init = function() {
   this.requestHeaders = {};
   this.authorization = null;
   this.types = {};
@@ -51,7 +50,7 @@ SUI.lib.Xhr.prototype._init = function() {
  * @private
  * @return {undefined}
  */
-SUI.lib.Xhr.prototype._setTypes = function() {
+SUI.Xhr.prototype._setTypes = function() {
   this._setType('json', ['application/json', 'json', 'application/json']);
   this._setType('form', ['application/x-www-form-urlencoded', 'json', 'application/json']);
 
@@ -66,7 +65,7 @@ SUI.lib.Xhr.prototype._setTypes = function() {
  * @param {!Array} value
  * @return {undefined}
  */
-SUI.lib.Xhr.prototype._setType = function(name, value) {
+SUI.Xhr.prototype._setType = function(name, value) {
   this.types[name] = value;
 };
 
@@ -75,7 +74,7 @@ SUI.lib.Xhr.prototype._setType = function(name, value) {
  * @param {string} name
  * @return {!Array}
  */
-SUI.lib.Xhr.prototype._getType = function(name) {
+SUI.Xhr.prototype._getType = function(name) {
   return this.types[name] || [];
 };
 
@@ -84,7 +83,7 @@ SUI.lib.Xhr.prototype._getType = function(name) {
  * @param {string} name
  * @return {string}
  */
-SUI.lib.Xhr.prototype._getContentType = function(name) {
+SUI.Xhr.prototype._getContentType = function(name) {
   return this._getType(name)[0] || '';
 };
 
@@ -93,7 +92,7 @@ SUI.lib.Xhr.prototype._getContentType = function(name) {
  * @param {string} name
  * @return {string}
  */
-SUI.lib.Xhr.prototype._getResponseType = function(name) {
+SUI.Xhr.prototype._getResponseType = function(name) {
   return this._getType(name)[1] || 'text';
 };
 
@@ -102,7 +101,7 @@ SUI.lib.Xhr.prototype._getResponseType = function(name) {
  * @param {string} name
  * @return {string}
  */
-SUI.lib.Xhr.prototype._getAccept = function(name) {
+SUI.Xhr.prototype._getAccept = function(name) {
   return this._getType(name)[2] || '*/*';
 };
 
@@ -110,7 +109,7 @@ SUI.lib.Xhr.prototype._getAccept = function(name) {
  * @private
  * @return {!Function}
  */
-SUI.lib.Xhr.prototype._onReadyStateChange = function() {
+SUI.Xhr.prototype._onReadyStateChange = function() {
   return () => {
     switch (this.http.readyState) {
       case 0:
@@ -133,7 +132,7 @@ SUI.lib.Xhr.prototype._onReadyStateChange = function() {
         });
         break;
       default:
-        SUI.consoleError('SUI.lib.Xhr._onReadyStateChange()', this.http.readyState);
+        SUI.consoleError('SUI.Xhr._onReadyStateChange()', this.http.readyState);
         break;
     }
   };
@@ -145,7 +144,7 @@ SUI.lib.Xhr.prototype._onReadyStateChange = function() {
  * @param {!Object=} opt_headers
  * @return {!SUI.Promise}
  */
-SUI.lib.Xhr.prototype.get = function(url, opt_params, opt_headers = {}) {
+SUI.Xhr.prototype.get = function(url, opt_params, opt_headers = {}) {
   return this._handleRequest('GET', url, {}, opt_params, opt_headers);
 };
 
@@ -156,7 +155,7 @@ SUI.lib.Xhr.prototype.get = function(url, opt_params, opt_headers = {}) {
  * @param {!Object=} opt_headers
  * @return {!SUI.Promise}
  */
-SUI.lib.Xhr.prototype.post = function(url, opt_data, opt_params, opt_headers = {}) {
+SUI.Xhr.prototype.post = function(url, opt_data, opt_params, opt_headers = {}) {
   return this._handleRequest('POST', url, opt_data, opt_params, opt_headers);
 };
 
@@ -167,7 +166,7 @@ SUI.lib.Xhr.prototype.post = function(url, opt_data, opt_params, opt_headers = {
  * @param {!Object=} opt_headers
  * @return {!SUI.Promise}
  */
-SUI.lib.Xhr.prototype.put = function(url, opt_data, opt_params, opt_headers = {}) {
+SUI.Xhr.prototype.put = function(url, opt_data, opt_params, opt_headers = {}) {
   return this._handleRequest('PUT', url, opt_data, opt_params, opt_headers);
 };
 
@@ -178,7 +177,7 @@ SUI.lib.Xhr.prototype.put = function(url, opt_data, opt_params, opt_headers = {}
  * @param {!Object=} opt_headers
  * @return {!SUI.Promise}
  */
-SUI.lib.Xhr.prototype.patch = function(url, opt_data, opt_params, opt_headers = {}) {
+SUI.Xhr.prototype.patch = function(url, opt_data, opt_params, opt_headers = {}) {
   return this._handleRequest('PATCH', url, opt_data, opt_params, opt_headers);
 };
 
@@ -189,7 +188,7 @@ SUI.lib.Xhr.prototype.patch = function(url, opt_data, opt_params, opt_headers = 
  * @param {!Object=} opt_headers
  * @return {!SUI.Promise}
  */
-SUI.lib.Xhr.prototype.delete = function(url, opt_data, opt_params, opt_headers = {}) {
+SUI.Xhr.prototype.delete = function(url, opt_data, opt_params, opt_headers = {}) {
   return this._handleRequest('DELETE', url, opt_data, opt_params, opt_headers);
 };
 
@@ -199,7 +198,7 @@ SUI.lib.Xhr.prototype.delete = function(url, opt_data, opt_params, opt_headers =
  * @param {!Object=} opt_params
  * @return {string}
  */
-SUI.lib.Xhr.prototype._getUrl = function(url, opt_params) {
+SUI.Xhr.prototype._getUrl = function(url, opt_params) {
   const urlWithQueryString = SUI.urlWithQueryString(url, opt_params);
   return url[0] === '/' ? this.options.backend + urlWithQueryString : urlWithQueryString;
 };
@@ -213,7 +212,7 @@ SUI.lib.Xhr.prototype._getUrl = function(url, opt_params) {
  * @param {!Object=} opt_headers
  * @return {!SUI.Promise}
  */
-SUI.lib.Xhr.prototype._handleRequest = function(type, url, opt_data, opt_params, opt_headers = {}) {
+SUI.Xhr.prototype._handleRequest = function(type, url, opt_data, opt_params, opt_headers = {}) {
   this.http.open(type, this._getUrl(url, opt_params), true);
   const urlType = SUI.getExtensionName(url);
   this._setResponseType(urlType);
@@ -227,7 +226,7 @@ SUI.lib.Xhr.prototype._handleRequest = function(type, url, opt_data, opt_params,
  * @param {!Object=} opt_data
  * @return {string}
  */
-SUI.lib.Xhr.prototype._getRequestData = function(opt_data) {
+SUI.Xhr.prototype._getRequestData = function(opt_data) {
   let result = '';
   if (opt_data) {
     switch (this.getHeader('Content-Type')) {
@@ -249,7 +248,7 @@ SUI.lib.Xhr.prototype._getRequestData = function(opt_data) {
  * @param {string} stringKey
  * @return {!Array}
  */
-SUI.lib.Xhr.prototype._parseObject = function(obj, key, stringKey) {
+SUI.Xhr.prototype._parseObject = function(obj, key, stringKey) {
   stringKey += stringKey ? '[' + key + ']' : key;
   let results = [];
   if (obj instanceof Array) {
@@ -275,7 +274,7 @@ SUI.lib.Xhr.prototype._parseObject = function(obj, key, stringKey) {
  * @param {!Object} obj
  * @return {string}
  */
-SUI.lib.Xhr.prototype._stringifyObject = function(obj) {
+SUI.Xhr.prototype._stringifyObject = function(obj) {
   let results = [];
   for (const key in obj) {
     if (obj.hasOwnProperty(key)) {
@@ -290,7 +289,7 @@ SUI.lib.Xhr.prototype._stringifyObject = function(obj) {
  * @private
  * @return {string}
  */
-SUI.lib.Xhr.prototype._getFilenameFromHeader = function() {
+SUI.Xhr.prototype._getFilenameFromHeader = function() {
   let filename = '';
 
   try {
@@ -309,7 +308,7 @@ SUI.lib.Xhr.prototype._getFilenameFromHeader = function() {
  * @param {*} data
  * @return {!SUI.Promise}
  */
-SUI.lib.Xhr.prototype._getResponseData = function(data) {
+SUI.Xhr.prototype._getResponseData = function(data) {
   const deferred = new SUI.Deferred();
   const filename = this._getFilenameFromHeader();
 
@@ -351,7 +350,7 @@ SUI.lib.Xhr.prototype._getResponseData = function(data) {
  * @param {!Object=} opt_headers
  * @return {undefined}
  */
-SUI.lib.Xhr.prototype._setRequestHeaders = function(urlType, opt_headers = {}) {
+SUI.Xhr.prototype._setRequestHeaders = function(urlType, opt_headers = {}) {
   SUI.eachObject(opt_headers, (value, key) => {
     if (SUI.eq(key, 'responseType')) {
       this.http.responseType = value;
@@ -383,7 +382,7 @@ SUI.lib.Xhr.prototype._setRequestHeaders = function(urlType, opt_headers = {}) {
  * @param {string} urlType
  * @return {undefined}
  */
-SUI.lib.Xhr.prototype._setResponseType = function(urlType) {
+SUI.Xhr.prototype._setResponseType = function(urlType) {
   this.http.responseType = this._getResponseType(urlType);
 };
 
@@ -392,7 +391,7 @@ SUI.lib.Xhr.prototype._setResponseType = function(urlType) {
  * @param {string} value
  * @return {undefined}
  */
-SUI.lib.Xhr.prototype.setHeader = function(name, value) {
+SUI.Xhr.prototype.setHeader = function(name, value) {
   if (name && value) {
     this.http.setRequestHeader(name, value);
   }
@@ -403,7 +402,7 @@ SUI.lib.Xhr.prototype.setHeader = function(name, value) {
  * @param {string} name
  * @return {string|null}
  */
-SUI.lib.Xhr.prototype.getHeader = function(name) {
+SUI.Xhr.prototype.getHeader = function(name) {
   return this.requestHeaders[name];
 };
 
@@ -412,7 +411,7 @@ SUI.lib.Xhr.prototype.getHeader = function(name) {
  * @param {string} password
  * @return {undefined}
  */
-SUI.lib.Xhr.prototype.setBasicAuthorization = function(username, password) {
+SUI.Xhr.prototype.setBasicAuthorization = function(username, password) {
   if (username && password) {
     const hash = [username, password].join(':');
     this.authorization = 'Basic ' + SUI.encodeBase64(hash);
@@ -423,7 +422,7 @@ SUI.lib.Xhr.prototype.setBasicAuthorization = function(username, password) {
  * @param {string} token
  * @return {undefined}
  */
-SUI.lib.Xhr.prototype.setBearerAuthorization = function(token) {
+SUI.Xhr.prototype.setBearerAuthorization = function(token) {
   if (token) {
     this.authorization = 'Bearer ' + token;
   }

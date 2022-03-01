@@ -1,17 +1,16 @@
-goog.provide('SUI.lib.ActionCable');
+goog.provide('SUI.ActionCable');
 
 goog.require('SUI');
 goog.require('SUI.Deferred');
 goog.require('SUI.Promise');
 goog.require('SUI.Query');
-goog.require('SUI.lib');
-goog.require('SUI.lib.ActionCableClient');
+goog.require('SUI.ActionCableClient');
 
 /**
  * @constructor
- * @this {SUI.lib.ActionCable}
+ * @this {SUI.ActionCable}
  */
-SUI.lib.ActionCable = function() {
+SUI.ActionCable = function() {
   this._init();
 };
 
@@ -19,7 +18,7 @@ SUI.lib.ActionCable = function() {
  * @private
  * @return {undefined}
  */
-SUI.lib.ActionCable.prototype._init = function() {
+SUI.ActionCable.prototype._init = function() {
   if (window['ActionCable']) {
     this.cable = window['ActionCable']['createConsumer']();
   }
@@ -30,7 +29,7 @@ SUI.lib.ActionCable.prototype._init = function() {
 /**
  * @return {string}
  */
-SUI.lib.ActionCable.prototype.getUrl = function() {
+SUI.ActionCable.prototype.getUrl = function() {
   let url = '';
   const cableMeta = new SUI.Query('meta[name="action-cable-url"]').getItem();
   if (!cableMeta.isEmpty()) {
@@ -44,12 +43,12 @@ SUI.lib.ActionCable.prototype.getUrl = function() {
  * @param {string} room
  * @return {!SUI.Promise}
  */
-SUI.lib.ActionCable.prototype.subscribe = function(channel, room) {
+SUI.ActionCable.prototype.subscribe = function(channel, room) {
   const options = {channel, room};
   const identifier = this._generateIdentifier(options);
   if (!SUI.inArray(this.identifiers, identifier)) {
     this.identifiers.push(identifier);
-    const client = new SUI.lib.ActionCableClient(this, options);
+    const client = new SUI.ActionCableClient(this, options);
     client.identifier = identifier;
     this.clients.push(client);
     return client.subscribe();
@@ -61,7 +60,7 @@ SUI.lib.ActionCable.prototype.subscribe = function(channel, room) {
 /**
  * @return {undefined}
  */
-SUI.lib.ActionCable.prototype.unsubscribeAll = function() {
+SUI.ActionCable.prototype.unsubscribeAll = function() {
   SUI.eachArray(this.clients, (client) => {
     client.unsubscribe();
     SUI.remove(this.identifiers, client.identifier);
@@ -74,6 +73,6 @@ SUI.lib.ActionCable.prototype.unsubscribeAll = function() {
  * @param {!Object} options
  * @return {string}
  */
-SUI.lib.ActionCable.prototype._generateIdentifier = function(options) {
+SUI.ActionCable.prototype._generateIdentifier = function(options) {
   return SUI.md5(JSON.stringify(options));
 };

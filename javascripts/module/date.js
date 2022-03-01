@@ -1,4 +1,4 @@
-goog.provide('SUI.Datetime');
+goog.provide('SUI.Date');
 
 goog.require('SUI');
 goog.require('SUI.Calendar');
@@ -7,11 +7,11 @@ goog.require('SUI.Node');
 
 /**
  * @constructor
- * @this {SUI.Datetime}
+ * @this {SUI.Date}
  * @param {!SUI.Node} node
  * @param {!Object} options
  */
-SUI.Datetime = function(node, options) {
+SUI.Date = function(node, options) {
   this.datetimeNode = node;
   this._setOptions(options);
   this._init();
@@ -22,7 +22,7 @@ SUI.Datetime = function(node, options) {
  * @param {!Object} options
  * @return {undefined}
  */
-SUI.Datetime.prototype._setOptions = function(options) {
+SUI.Date.prototype._setOptions = function(options) {
   this.options = options;
 };
 
@@ -30,7 +30,7 @@ SUI.Datetime.prototype._setOptions = function(options) {
  * @private
  * @return {undefined}
  */
-SUI.Datetime.prototype._init = function() {
+SUI.Date.prototype._init = function() {
   this._initVariables();
   this._initStructure();
   this._setValue(this.options.value);
@@ -40,7 +40,7 @@ SUI.Datetime.prototype._init = function() {
  * @private
  * @return {undefined}
  */
-SUI.Datetime.prototype._initVariables = function() {
+SUI.Date.prototype._initVariables = function() {
   this.types = {
     'datetime-local': {
       format: 'YYYY-MM-DDTHH:mm:ss', // 2016-05-26T11:25:00 (UTC)
@@ -85,7 +85,7 @@ SUI.Datetime.prototype._initVariables = function() {
  * @private
  * @return {undefined}
  */
-SUI.Datetime.prototype._initStructure = function() {
+SUI.Date.prototype._initStructure = function() {
   this._initDateTimeNode();
   this._initCalendarNode();
   this._initClockNode();
@@ -95,7 +95,7 @@ SUI.Datetime.prototype._initStructure = function() {
  * @private
  * @return {undefined}
  */
-SUI.Datetime.prototype._initDateTimeNode = function() {
+SUI.Date.prototype._initDateTimeNode = function() {
   this.datetimeNode.addClass('datetime');
   this.datetimeNode.removeChildren();
 };
@@ -104,7 +104,7 @@ SUI.Datetime.prototype._initDateTimeNode = function() {
  * @private
  * @return {undefined}
  */
-SUI.Datetime.prototype._initCalendarNode = function() {
+SUI.Date.prototype._initCalendarNode = function() {
   if (this.config.calendar_type) {
     this.calendarNode = new SUI.Node('div');
     this.calendarNode.addClass('calendar');
@@ -116,7 +116,7 @@ SUI.Datetime.prototype._initCalendarNode = function() {
  * @private
  * @return {undefined}
  */
-SUI.Datetime.prototype._initClockNode = function() {
+SUI.Date.prototype._initClockNode = function() {
   if (this.config.clock_type) {
     this.clockNode = new SUI.Node('div');
     this.clockNode.addClass('clock');
@@ -127,7 +127,7 @@ SUI.Datetime.prototype._initClockNode = function() {
 /**
  * @return {!Object}
  */
-SUI.Datetime.prototype.getConfig = function() {
+SUI.Date.prototype.getConfig = function() {
   return this.config;
 };
 
@@ -136,7 +136,7 @@ SUI.Datetime.prototype.getConfig = function() {
  * @param {string} value
  * @return {undefined}
  */
-SUI.Datetime.prototype._setValue = function(value) {
+SUI.Date.prototype._setValue = function(value) {
   value = value || window['moment']()['format'](this.config.format);
   this.value = window['moment'](value, this.config.format);
 };
@@ -145,7 +145,7 @@ SUI.Datetime.prototype._setValue = function(value) {
  * @param {string} value
  * @return {undefined}
  */
-SUI.Datetime.prototype.setValue = function(value) {
+SUI.Date.prototype.setValue = function(value) {
   this._initStructure();
   this._setValue(value);
   this.draw();
@@ -154,14 +154,14 @@ SUI.Datetime.prototype.setValue = function(value) {
 /**
  * @return {string}
  */
-SUI.Datetime.prototype.getValue = function() {
+SUI.Date.prototype.getValue = function() {
   return this.value['format'](this.config.format);
 };
 
 /**
  * @return {undefined}
  */
-SUI.Datetime.prototype.draw = function() {
+SUI.Date.prototype.draw = function() {
   this._drawCalendar();
   this._drawClock();
 };
@@ -170,7 +170,7 @@ SUI.Datetime.prototype.draw = function() {
  * @private
  * @return {undefined}
  */
-SUI.Datetime.prototype._drawCalendar = function() {
+SUI.Date.prototype._drawCalendar = function() {
   if (this.config.calendar_type) {
     const calendar = new SUI.Calendar(this.calendarNode, {
       date: this.value,
@@ -191,7 +191,7 @@ SUI.Datetime.prototype._drawCalendar = function() {
  * @private
  * @return {undefined}
  */
-SUI.Datetime.prototype._drawClock = function() {
+SUI.Date.prototype._drawClock = function() {
   if (this.config.clock_type) {
     const clock = new SUI.Clock(this.clockNode, {
       time: this.value,
@@ -210,7 +210,7 @@ SUI.Datetime.prototype._drawClock = function() {
  * @private
  * @return {undefined}
  */
-SUI.Datetime.prototype._onClick = function() {
+SUI.Date.prototype._onClick = function() {
   const value = this.getValue();
   this.eventClick(value);
 };
@@ -219,6 +219,6 @@ SUI.Datetime.prototype._onClick = function() {
  * @param {string} value
  * @return {undefined}
  */
-SUI.Datetime.prototype.eventClick = function(value) {
-  SUI.consoleWarn('SUI.Datetime.eventClick()', value);
+SUI.Date.prototype.eventClick = function(value) {
+  SUI.consoleWarn('SUI.Date.eventClick()', value);
 };

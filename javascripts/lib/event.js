@@ -1,16 +1,15 @@
-goog.provide('SUI.lib.Event');
+goog.provide('SUI.Event');
 
 goog.require('SUI');
 goog.require('SUI.Async');
 goog.require('SUI.Object');
 goog.require('SUI.Promise');
-goog.require('SUI.lib');
 
 /**
  * @constructor
- * @this {SUI.lib.Event}
+ * @this {SUI.Event}
  */
-SUI.lib.Event = function() {
+SUI.Event = function() {
   this.eventContainer = new SUI.Object();
 };
 
@@ -19,7 +18,7 @@ SUI.lib.Event = function() {
  * @param {!Function} callback
  * @return {!Function}
  */
-SUI.lib.Event.prototype.set = function(name, callback) {
+SUI.Event.prototype.set = function(name, callback) {
   if (SUI.isFunction(callback)) {
     const events = this.eventContainer.get(name, []);
     events.push(callback);
@@ -32,7 +31,7 @@ SUI.lib.Event.prototype.set = function(name, callback) {
  * @param {string} name
  * @param {!Function} callback
  */
-SUI.lib.Event.prototype.remove = function(name, callback) {
+SUI.Event.prototype.remove = function(name, callback) {
   const events = this.eventContainer.get(name, []);
   const index = events.indexOf(callback);
   if (index > -1) {
@@ -43,7 +42,7 @@ SUI.lib.Event.prototype.remove = function(name, callback) {
 /**
  * @param {string} name
  */
-SUI.lib.Event.prototype.pop = function(name) {
+SUI.Event.prototype.pop = function(name) {
   const events = this.eventContainer.get(name, []);
   events.pop();
   this.eventContainer.set(name, events);
@@ -54,7 +53,7 @@ SUI.lib.Event.prototype.pop = function(name) {
  * @param {!Array=} opt_args
  * @return {!SUI.Promise}
  */
-SUI.lib.Event.prototype.call = function(name, opt_args = []) {
+SUI.Event.prototype.call = function(name, opt_args = []) {
   const calls = /** @type {!Array<function()>} */ (this.eventContainer.get(name, [SUI.noop()]));
   const async = new SUI.Async();
   return async.serial(calls, opt_args);
@@ -66,7 +65,7 @@ SUI.lib.Event.prototype.call = function(name, opt_args = []) {
  * @param {!Function} callback
  * @return {!SUI.Promise}
  */
-SUI.lib.Event.prototype.override = function(name, args, callback) {
+SUI.Event.prototype.override = function(name, args, callback) {
   const calls = /** @type {!Array<function()>} */ (this.eventContainer.get(name, [callback]));
   const async = new SUI.Async();
   return async.serial(calls, args);

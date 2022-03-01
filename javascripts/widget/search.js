@@ -1,30 +1,29 @@
-goog.provide('SUI.widget.Search');
+goog.provide('SUI.Search');
 
 goog.require('SUI');
 goog.require('SUI.Node');
 goog.require('SUI.BaseWidget');
-goog.require('SUI.widget');
 
 /**
  * @constructor
  * @extends {SUI.BaseWidget}
- * @this {SUI.widget.Search}
+ * @this {SUI.Search}
  * @param {!SUI.Node} input
  * @param {!SUI.Node} label
  * @param {!SUI.Node} error
  * @param {!SUI.Node} inputBlock
  */
-SUI.widget.Search = function(input, label, error, inputBlock) {
-  SUI.widget.Search.base(this, 'constructor', input, label, error, inputBlock);
+SUI.Search = function(input, label, error, inputBlock) {
+  SUI.Search.base(this, 'constructor', input, label, error, inputBlock);
   this._init();
 };
-goog.inherits(SUI.widget.Search, SUI.BaseWidget);
+goog.inherits(SUI.Search, SUI.BaseWidget);
 
 /**
  * @private
  * @return {undefined}
  */
-SUI.widget.Search.prototype._init = function() {
+SUI.Search.prototype._init = function() {
   this.input.addEventListener('keyup', (input, event) => {
     const inputNode = input.getNode();
     this.modelChange(inputNode.value);
@@ -45,7 +44,7 @@ SUI.widget.Search.prototype._init = function() {
  * @override
  * @return {undefined}
  */
-SUI.widget.Search.prototype.render = function() {
+SUI.Search.prototype.render = function() {
   this.inputBlock.addClass(['search-widget', 'mdl-textfield', 'mdl-js-textfield', 'mdl-textfield--expandable']);
   this.input.addClass(['mdl-textfield__input']);
 
@@ -71,7 +70,7 @@ SUI.widget.Search.prototype.render = function() {
 /**
  * @override
  */
-SUI.widget.Search.prototype.refresh = function() {
+SUI.Search.prototype.refresh = function() {
   if (this.isRequired() && this.getValue() === '') {
     this.inputBlock.addClass('is-invalid');
   }
@@ -83,7 +82,7 @@ SUI.widget.Search.prototype.refresh = function() {
  * @private
  * @return {undefined}
  */
-SUI.widget.Search.prototype._initClearButton = function() {
+SUI.Search.prototype._initClearButton = function() {
   const clearButton = new SUI.Node('a');
   clearButton.setAttribute('href', 'javascript:void(0)');
   clearButton.addClass(['material-icons', 'clear-button']);
@@ -102,6 +101,6 @@ SUI.widget.Search.prototype._initClearButton = function() {
  * @param {string} value
  * @return {undefined}
  */
-SUI.widget.Search.prototype.eventEnter = function(value) {
-  SUI.consoleWarn('SUI.widget.Search.eventEnter()', value);
+SUI.Search.prototype.eventEnter = function(value) {
+  SUI.consoleWarn('SUI.Search.eventEnter()', value);
 };

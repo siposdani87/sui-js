@@ -1,29 +1,28 @@
-goog.provide('SUI.widget.Switch');
+goog.provide('SUI.Switch');
 
 goog.require('SUI');
 goog.require('SUI.Node');
-goog.require('SUI.widget');
-goog.require('SUI.widget.BaseCheckbox');
+goog.require('SUI.BaseCheckbox');
 
 /**
  * @constructor
- * @extends {SUI.widget.BaseCheckbox}
- * @this {SUI.widget.Switch}
+ * @extends {SUI.BaseCheckbox}
+ * @this {SUI.Switch}
  * @param {!SUI.Node} input
  * @param {!SUI.Node} label
  * @param {!SUI.Node} error
  * @param {!SUI.Node} inputBlock
  */
-SUI.widget.Switch = function(input, label, error, inputBlock) {
-  SUI.widget.Switch.base(this, 'constructor', input, label, error, inputBlock);
+SUI.Switch = function(input, label, error, inputBlock) {
+  SUI.Switch.base(this, 'constructor', input, label, error, inputBlock);
 };
-goog.inherits(SUI.widget.Switch, SUI.widget.BaseCheckbox);
+goog.inherits(SUI.Switch, SUI.BaseCheckbox);
 
 /**
  * @override
  * @return {undefined}
  */
-SUI.widget.Switch.prototype.render = function() {
+SUI.Switch.prototype.render = function() {
   this.label.addClass(['mdl-switch', 'mdl-js-switch', 'mdl-js-ripple-effect']);
 
   const labelText = this.label.getText();

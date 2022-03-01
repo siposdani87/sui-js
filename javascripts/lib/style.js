@@ -1,4 +1,4 @@
-goog.provide('SUI.lib.Style');
+goog.provide('SUI.Style');
 
 goog.require('SUI');
 goog.require('SUI.Deferred');
@@ -6,16 +6,15 @@ goog.require('SUI.Node');
 goog.require('SUI.Object');
 goog.require('SUI.Promise');
 goog.require('SUI.Query');
-goog.require('SUI.lib');
-goog.require('SUI.lib.ProgressBar');
+goog.require('SUI.ProgressBar');
 
 /**
  * @constructor
- * @this {SUI.lib.Style}
- * @param {!SUI.lib.ProgressBar} progressBar
+ * @this {SUI.Style}
+ * @param {!SUI.ProgressBar} progressBar
  * @param {!Object=} opt_options
  */
-SUI.lib.Style = function(progressBar, opt_options = {}) {
+SUI.Style = function(progressBar, opt_options = {}) {
   this.progressBar = progressBar;
   this._setOptions(opt_options);
   this._init();
@@ -26,7 +25,7 @@ SUI.lib.Style = function(progressBar, opt_options = {}) {
  * @param {!Object=} opt_options
  * @return {undefined}
  */
-SUI.lib.Style.prototype._setOptions = function(opt_options = {}) {
+SUI.Style.prototype._setOptions = function(opt_options = {}) {
   const _self = this;
   _self.options = new SUI.Object();
   _self.options.merge(opt_options);
@@ -36,7 +35,7 @@ SUI.lib.Style.prototype._setOptions = function(opt_options = {}) {
  * @private
  * @return {undefined}
  */
-SUI.lib.Style.prototype._init = function() {
+SUI.Style.prototype._init = function() {
   this.head = new SUI.Query('head').getItem();
 };
 
@@ -48,7 +47,7 @@ SUI.lib.Style.prototype._init = function() {
  * @param {string=} opt_media
  * @return {!SUI.Promise}
  */
-SUI.lib.Style.prototype.load = function(id, url, opt_params, opt_rel = 'stylesheet', opt_media = 'all') {
+SUI.Style.prototype.load = function(id, url, opt_params, opt_rel = 'stylesheet', opt_media = 'all') {
   this.progressBar.show();
   const deferred = new SUI.Deferred();
   const style = new SUI.Query('#' + id);
@@ -82,7 +81,7 @@ SUI.lib.Style.prototype.load = function(id, url, opt_params, opt_rel = 'styleshe
  * @param {string} id
  * @return {undefined}
  */
-SUI.lib.Style.prototype.remove = function(id) {
+SUI.Style.prototype.remove = function(id) {
   const style = new SUI.Query('#' + id).getItem();
   if (!style.isEmpty()) {
     style.remove();

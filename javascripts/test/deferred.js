@@ -1,6 +1,5 @@
 goog.provide('SUI.TestDeferred');
 
-goog.require('SUI.test');
 goog.require('SUI.Deferred');
 goog.require('SUI.Promise');
 goog.require('SUI.BaseTest');

@@ -1,31 +1,30 @@
-goog.provide('SUI.widget.BaseCheckbox');
+goog.provide('SUI.BaseCheckbox');
 
 goog.require('SUI');
 goog.require('SUI.Node');
 goog.require('SUI.Query');
 goog.require('SUI.BaseWidget');
-goog.require('SUI.widget');
 
 /**
  * @constructor
  * @extends {SUI.BaseWidget}
- * @this {SUI.widget.BaseCheckbox}
+ * @this {SUI.BaseCheckbox}
  * @param {!SUI.Node} input
  * @param {!SUI.Node} label
  * @param {!SUI.Node} error
  * @param {!SUI.Node} inputBlock
  */
-SUI.widget.BaseCheckbox = function(input, label, error, inputBlock) {
-  SUI.widget.BaseCheckbox.base(this, 'constructor', input, label, error, inputBlock);
+SUI.BaseCheckbox = function(input, label, error, inputBlock) {
+  SUI.BaseCheckbox.base(this, 'constructor', input, label, error, inputBlock);
   this._init();
 };
-goog.inherits(SUI.widget.BaseCheckbox, SUI.BaseWidget);
+goog.inherits(SUI.BaseCheckbox, SUI.BaseWidget);
 
 /**
  * @protected
  * @return {undefined}
  */
-SUI.widget.BaseCheckbox.prototype._init = function() {
+SUI.BaseCheckbox.prototype._init = function() {
   this.hiddenInput = new SUI.Query('input[type=hidden]', this.inputBlock).getItem();
   this.inputBlock.addClass('checkbox-widget');
 
@@ -39,7 +38,7 @@ SUI.widget.BaseCheckbox.prototype._init = function() {
  * @protected
  * @return {undefined}
  */
-SUI.widget.BaseCheckbox.prototype._change = function() {
+SUI.BaseCheckbox.prototype._change = function() {
   const value = this.getValue();
   this.modelChange(value);
 };
@@ -48,7 +47,7 @@ SUI.widget.BaseCheckbox.prototype._change = function() {
  * @override
  * @return {*}
  */
-SUI.widget.BaseCheckbox.prototype.getValue = function() {
+SUI.BaseCheckbox.prototype.getValue = function() {
   const checked = this.input.getNode().checked;
   let value = this.hiddenInput.getAttribute('value');
   if (checked) {
@@ -62,7 +61,7 @@ SUI.widget.BaseCheckbox.prototype.getValue = function() {
  * @param {!Object|!Function|!Array|boolean|number|string|null|undefined} value
  * @return {undefined}
  */
-SUI.widget.BaseCheckbox.prototype.setValue = function(value) {
+SUI.BaseCheckbox.prototype.setValue = function(value) {
   const currentValue = SUI.typeCast(this.input.getAttribute('value'));
   this.input.getNode().checked = currentValue === value;
   if (!this.input.getNode().checked) {
@@ -76,7 +75,7 @@ SUI.widget.BaseCheckbox.prototype.setValue = function(value) {
  * @param {boolean} state
  * @return {undefined}
  */
-SUI.widget.BaseCheckbox.prototype.setDisabled = function(state) {
+SUI.BaseCheckbox.prototype.setDisabled = function(state) {
   if (state) {
     this.input.setAttribute('disabled');
     this.label.addClass('is-disabled');
@@ -95,7 +94,7 @@ SUI.widget.BaseCheckbox.prototype.setDisabled = function(state) {
  * @param {string} text
  * @return {undefined}
  */
-SUI.widget.BaseCheckbox.prototype.setLabel = function(text) {
+SUI.BaseCheckbox.prototype.setLabel = function(text) {
   if (this.spanLabel && !this.spanLabel.isEmpty()) {
     this.spanLabel.setHtml(text);
     this._setAdditionalLabel(this.spanLabel);
@@ -105,7 +104,7 @@ SUI.widget.BaseCheckbox.prototype.setLabel = function(text) {
 /**
  * @override
  */
-SUI.widget.BaseCheckbox.prototype.refresh = function() {
+SUI.BaseCheckbox.prototype.refresh = function() {
   const dataLabelText = /** @type {string} */ (this.label.getAttribute('data-label'));
   if (dataLabelText) {
     const labelText = this._getLabelRequiredText(dataLabelText);

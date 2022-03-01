@@ -9,34 +9,34 @@ goog.require('SUI.Promise');
 goog.require('SUI.Query');
 goog.require('SUI.Test');
 
-goog.require('SUI.lib.ActionCable');
-goog.require('SUI.lib.BottomMenu');
-goog.require('SUI.lib.Browser');
-goog.require('SUI.lib.Confirm');
-goog.require('SUI.lib.Cookie');
-goog.require('SUI.lib.Dialog');
-goog.require('SUI.lib.Document');
-goog.require('SUI.lib.Event');
-goog.require('SUI.lib.Footer');
-goog.require('SUI.lib.GeoLocation');
-goog.require('SUI.lib.Header');
-goog.require('SUI.lib.Helper');
-goog.require('SUI.lib.Http');
-goog.require('SUI.lib.LeftMenu');
-goog.require('SUI.lib.Loader');
-goog.require('SUI.lib.NavBar');
-goog.require('SUI.lib.Flash');
-goog.require('SUI.lib.ProgressBar');
-goog.require('SUI.lib.Scheduler');
-goog.require('SUI.lib.Script');
-goog.require('SUI.lib.ServiceWorker');
-goog.require('SUI.lib.Sidebar');
-goog.require('SUI.lib.Storage');
-goog.require('SUI.lib.Style');
-goog.require('SUI.lib.Template');
-goog.require('SUI.lib.TopMenu');
-goog.require('SUI.lib.Viewer');
-goog.require('SUI.lib.Window');
+goog.require('SUI.ActionCable');
+goog.require('SUI.BottomMenu');
+goog.require('SUI.Browser');
+goog.require('SUI.Confirm');
+goog.require('SUI.Cookie');
+goog.require('SUI.Dialog');
+goog.require('SUI.Document');
+goog.require('SUI.Event');
+goog.require('SUI.Footer');
+goog.require('SUI.GeoLocation');
+goog.require('SUI.Header');
+goog.require('SUI.Helper');
+goog.require('SUI.Http');
+goog.require('SUI.LeftMenu');
+goog.require('SUI.Loader');
+goog.require('SUI.NavBar');
+goog.require('SUI.Flash');
+goog.require('SUI.ProgressBar');
+goog.require('SUI.Scheduler');
+goog.require('SUI.Script');
+goog.require('SUI.ServiceWorker');
+goog.require('SUI.Sidebar');
+goog.require('SUI.Storage');
+goog.require('SUI.Style');
+goog.require('SUI.Template');
+goog.require('SUI.TopMenu');
+goog.require('SUI.Viewer');
+goog.require('SUI.Window');
 
 /**
  * @constructor
@@ -243,7 +243,7 @@ SUI.Application.prototype._loadModules = function() {
  * @return {undefined}
  */
 SUI.Application.prototype._initScript = function() {
-  this._instances[this._injections.script] = new SUI.lib.Script(this._instances[this._injections.progressBar]);
+  this._instances[this._injections.script] = new SUI.Script(this._instances[this._injections.progressBar]);
 };
 
 /**
@@ -251,7 +251,7 @@ SUI.Application.prototype._initScript = function() {
  * @return {undefined}
  */
 SUI.Application.prototype._initStyle = function() {
-  this._instances[this._injections.style] = new SUI.lib.Style(this._instances[this._injections.progressBar]);
+  this._instances[this._injections.style] = new SUI.Style(this._instances[this._injections.progressBar]);
 };
 
 /**
@@ -275,7 +275,7 @@ SUI.Application.prototype._initApp = function() {
  * @return {undefined}
  */
 SUI.Application.prototype._initGeoLocation = function() {
-  this._instances[this._injections.geoLocation] = new SUI.lib.GeoLocation();
+  this._instances[this._injections.geoLocation] = new SUI.GeoLocation();
 
   this._instances[this._injections.geoLocation].eventChange = (latitude, longitude, message) => {
     this._instances[this._injections.event].override('geoLocation.success', [message], (message) => {
@@ -296,7 +296,7 @@ SUI.Application.prototype._initGeoLocation = function() {
  * @return {undefined}
  */
 SUI.Application.prototype._initCookie = function() {
-  this._instances[this._injections.cookie] = new SUI.lib.Cookie({
+  this._instances[this._injections.cookie] = new SUI.Cookie({
     prefix: this.options.app_id,
   });
 };
@@ -306,7 +306,7 @@ SUI.Application.prototype._initCookie = function() {
  * @return {undefined}
  */
 SUI.Application.prototype._initLoader = function() {
-  this._instances[this._injections.loader] = new SUI.lib.Loader();
+  this._instances[this._injections.loader] = new SUI.Loader();
 };
 
 /**
@@ -314,7 +314,7 @@ SUI.Application.prototype._initLoader = function() {
  * @return {undefined}
  */
 SUI.Application.prototype._initProgressBar = function() {
-  this._instances[this._injections.progressBar] = new SUI.lib.ProgressBar(this._instances[this._injections.dialog], this._instances[this._injections.confirm]);
+  this._instances[this._injections.progressBar] = new SUI.ProgressBar(this._instances[this._injections.dialog], this._instances[this._injections.confirm]);
 };
 
 /**
@@ -322,12 +322,12 @@ SUI.Application.prototype._initProgressBar = function() {
  * @return {undefined}
  */
 SUI.Application.prototype._initStorage = function() {
-  this._instances[this._injections.localStorage] = new SUI.lib.Storage({
+  this._instances[this._injections.localStorage] = new SUI.Storage({
     type: 'local',
     prefix: this.options.app_id,
     secret: this.options.secret,
   });
-  this._instances[this._injections.sessionStorage] = new SUI.lib.Storage({
+  this._instances[this._injections.sessionStorage] = new SUI.Storage({
     type: 'session',
     prefix: this.options.app_id,
     secret: this.options.secret,
@@ -339,7 +339,7 @@ SUI.Application.prototype._initStorage = function() {
  * @return {undefined}
  */
 SUI.Application.prototype._initHelper = function() {
-  this._instances[this._injections.helper] = new SUI.lib.Helper();
+  this._instances[this._injections.helper] = new SUI.Helper();
 };
 
 /**
@@ -348,7 +348,7 @@ SUI.Application.prototype._initHelper = function() {
  */
 SUI.Application.prototype._initDocument = function() {
   const popupContainer = new SUI.PopupContainer();
-  this._instances[this._injections.document] = new SUI.lib.Document();
+  this._instances[this._injections.document] = new SUI.Document();
   this._instances[this._injections.document].eventClick = function(target, event) {
     popupContainer.closeAll();
     this._instances[this._injections.event].call('document.click', [target, event]);
@@ -360,7 +360,7 @@ SUI.Application.prototype._initDocument = function() {
  * @return {undefined}
  */
 SUI.Application.prototype._initWindow = function() {
-  this._instances[this._injections.window] = new SUI.lib.Window();
+  this._instances[this._injections.window] = new SUI.Window();
   const width = this._instances[this._injections.window].getWidth();
   const height = this._instances[this._injections.window].getHeight();
   this._instances[this._injections.dialog].setSize(width, height);
@@ -412,7 +412,7 @@ SUI.Application.prototype._initWindow = function() {
  * @return {undefined}
  */
 SUI.Application.prototype._initEvent = function() {
-  this._instances[this._injections.event] = new SUI.lib.Event();
+  this._instances[this._injections.event] = new SUI.Event();
 };
 
 /**
@@ -420,7 +420,7 @@ SUI.Application.prototype._initEvent = function() {
  * @return {undefined}
  */
 SUI.Application.prototype._initScheduler = function() {
-  this._instances[this._injections.scheduler] = new SUI.lib.Scheduler();
+  this._instances[this._injections.scheduler] = new SUI.Scheduler();
 };
 
 /**
@@ -428,7 +428,7 @@ SUI.Application.prototype._initScheduler = function() {
  * @return {undefined}
  */
 SUI.Application.prototype._initHttp = function() {
-  this._instances[this._injections.http] = new SUI.lib.Http(this.options);
+  this._instances[this._injections.http] = new SUI.Http(this.options);
   this._instances[this._injections.http].eventBeforeRequest = function(...params) {
     this._instances[this._injections.progressBar].show();
     this._instances[this._injections.event].call('http.beforeRequest', params);
@@ -444,7 +444,7 @@ SUI.Application.prototype._initHttp = function() {
  * @return {undefined}
  */
 SUI.Application.prototype._initTemplate = function() {
-  this._instances[this._injections.template] = new SUI.lib.Template(this._instances[this._injections.http], {
+  this._instances[this._injections.template] = new SUI.Template(this._instances[this._injections.http], {
     locale: this.getLocale(),
   });
   this._instances[this._injections.template].eventError = function(message) {
@@ -459,7 +459,7 @@ SUI.Application.prototype._initTemplate = function() {
  * @return {undefined}
  */
 SUI.Application.prototype._initFlash = function() {
-  this._instances[this._injections.flash] = new SUI.lib.Flash();
+  this._instances[this._injections.flash] = new SUI.Flash();
 };
 
 /**
@@ -467,7 +467,7 @@ SUI.Application.prototype._initFlash = function() {
  * @return {undefined}
  */
 SUI.Application.prototype._initDialog = function() {
-  this._instances[this._injections.dialog] = new SUI.lib.Dialog(this._instances[this._injections.http]);
+  this._instances[this._injections.dialog] = new SUI.Dialog(this._instances[this._injections.http]);
 };
 
 /**
@@ -475,7 +475,7 @@ SUI.Application.prototype._initDialog = function() {
  * @return {undefined}
  */
 SUI.Application.prototype._initConfirm = function() {
-  this._instances[this._injections.confirm] = new SUI.lib.Confirm();
+  this._instances[this._injections.confirm] = new SUI.Confirm();
 };
 
 /**
@@ -483,7 +483,7 @@ SUI.Application.prototype._initConfirm = function() {
  * @return {undefined}
  */
 SUI.Application.prototype._initViewer = function() {
-  this._instances[this._injections.viewer] = new SUI.lib.Viewer();
+  this._instances[this._injections.viewer] = new SUI.Viewer();
 };
 
 /**
@@ -491,7 +491,7 @@ SUI.Application.prototype._initViewer = function() {
  * @return {undefined}
  */
 SUI.Application.prototype._initHeader = function() {
-  this._instances[this._injections.header] = new SUI.lib.Header();
+  this._instances[this._injections.header] = new SUI.Header();
 };
 
 /**
@@ -499,7 +499,7 @@ SUI.Application.prototype._initHeader = function() {
  * @return {undefined}
  */
 SUI.Application.prototype._initTopMenu = function() {
-  this._instances[this._injections.topMenu] = new SUI.lib.TopMenu(this._instances[this._injections.header]);
+  this._instances[this._injections.topMenu] = new SUI.TopMenu(this._instances[this._injections.header]);
 };
 
 /**
@@ -507,7 +507,7 @@ SUI.Application.prototype._initTopMenu = function() {
  * @return {undefined}
  */
 SUI.Application.prototype._initNavBar = function() {
-  this._instances[this._injections.navBar] = new SUI.lib.NavBar();
+  this._instances[this._injections.navBar] = new SUI.NavBar();
 };
 
 /**
@@ -515,7 +515,7 @@ SUI.Application.prototype._initNavBar = function() {
  * @return {undefined}
  */
 SUI.Application.prototype._initBottomMenu = function() {
-  this._instances[this._injections.bottomMenu] = new SUI.lib.BottomMenu(this._instances[this._injections.footer]);
+  this._instances[this._injections.bottomMenu] = new SUI.BottomMenu(this._instances[this._injections.footer]);
 };
 
 /**
@@ -523,9 +523,9 @@ SUI.Application.prototype._initBottomMenu = function() {
  * @return {undefined}
  */
 SUI.Application.prototype._initSidebar = function() {
-  this._instances[this._injections.leftSidebar] = new SUI.lib.Sidebar('#left-sidebar');
+  this._instances[this._injections.leftSidebar] = new SUI.Sidebar('#left-sidebar');
 
-  this._instances[this._injections.rightSidebar] = new SUI.lib.Sidebar('#right-sidebar');
+  this._instances[this._injections.rightSidebar] = new SUI.Sidebar('#right-sidebar');
 };
 
 /**
@@ -533,7 +533,7 @@ SUI.Application.prototype._initSidebar = function() {
  * @return {undefined}
  */
 SUI.Application.prototype._initLeftMenu = function() {
-  this._instances[this._injections.leftMenu] = new SUI.lib.LeftMenu();
+  this._instances[this._injections.leftMenu] = new SUI.LeftMenu();
 };
 
 /**
@@ -541,7 +541,7 @@ SUI.Application.prototype._initLeftMenu = function() {
  * @return {undefined}
  */
 SUI.Application.prototype._initFooter = function() {
-  this._instances[this._injections.footer] = new SUI.lib.Footer();
+  this._instances[this._injections.footer] = new SUI.Footer();
 };
 
 /**
@@ -549,7 +549,7 @@ SUI.Application.prototype._initFooter = function() {
  * @return {undefined}
  */
 SUI.Application.prototype._initBrowser = function() {
-  this._instances[this._injections.browser] = new SUI.lib.Browser();
+  this._instances[this._injections.browser] = new SUI.Browser();
   this._instances[this._injections.browser].eventMissingFeatures = (features) => {
     this._instances[this._injections.flash].addError(features.join(', '));
   };
@@ -560,7 +560,7 @@ SUI.Application.prototype._initBrowser = function() {
  * @return {undefined}
  */
 SUI.Application.prototype._initServiceWorker = function() {
-  this._instances[this._injections.serviceWorker] = new SUI.lib.ServiceWorker();
+  this._instances[this._injections.serviceWorker] = new SUI.ServiceWorker();
   this._instances[this._injections.serviceWorker].eventMissingFeatures = (features) => {
     this._instances[this._injections.flash].addError(features.join(', '));
   };
@@ -571,7 +571,7 @@ SUI.Application.prototype._initServiceWorker = function() {
  * @return {undefined}
  */
 SUI.Application.prototype._initActionCable = function() {
-  this._instances[this._injections.actionCable] = new SUI.lib.ActionCable();
+  this._instances[this._injections.actionCable] = new SUI.ActionCable();
 };
 
 /**

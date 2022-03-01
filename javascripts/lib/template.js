@@ -1,4 +1,4 @@
-goog.provide('SUI.lib.Template');
+goog.provide('SUI.Template');
 
 goog.require('SUI');
 goog.require('SUI.Deferred');
@@ -6,16 +6,15 @@ goog.require('SUI.Object');
 goog.require('SUI.Promise');
 goog.require('SUI.Query');
 goog.require('SUI.Node');
-goog.require('SUI.lib');
-goog.require('SUI.lib.Http');
+goog.require('SUI.Http');
 
 /**
  * @constructor
- * @this {SUI.lib.Template}
- * @param {!SUI.lib.Http} http
+ * @this {SUI.Template}
+ * @param {!SUI.Http} http
  * @param {!Object=} opt_options
  */
-SUI.lib.Template = function(http, opt_options = {}) {
+SUI.Template = function(http, opt_options = {}) {
   this.http = http;
 
   this._setOptions(opt_options);
@@ -27,7 +26,7 @@ SUI.lib.Template = function(http, opt_options = {}) {
  * @param {!Object=} opt_options
  * @return {undefined}
  */
-SUI.lib.Template.prototype._setOptions = function(opt_options) {
+SUI.Template.prototype._setOptions = function(opt_options) {
   const _self = this;
   _self.options = new SUI.Object({
     selector: '.template-view',
@@ -40,14 +39,14 @@ SUI.lib.Template.prototype._setOptions = function(opt_options) {
  * @private
  * @return {undefined}
  */
-SUI.lib.Template.prototype._init = function() {
+SUI.Template.prototype._init = function() {
   this.viewNode = new SUI.Query(this.options.selector).getItem();
 };
 
 /**
  * @return {!SUI.Node}
  */
-SUI.lib.Template.prototype.getViewNode = function() {
+SUI.Template.prototype.getViewNode = function() {
   return this.viewNode;
 };
 
@@ -56,7 +55,7 @@ SUI.lib.Template.prototype.getViewNode = function() {
  * @param {boolean=} opt_force
  * @return {!SUI.Promise}
  */
-SUI.lib.Template.prototype.load = function(url, opt_force = false) {
+SUI.Template.prototype.load = function(url, opt_force = false) {
   const deferred = new SUI.Deferred();
   const templateUrl = this.viewNode.getAttribute('data-template-url');
   const locale = this.viewNode.getAttribute('data-locale');
@@ -81,7 +80,7 @@ SUI.lib.Template.prototype.load = function(url, opt_force = false) {
  * @param {boolean} error
  * @return {!SUI.Node}
  */
-SUI.lib.Template.prototype._handleData = function(data, error) {
+SUI.Template.prototype._handleData = function(data, error) {
   const node = new SUI.Query('.page-content', data).getItem();
   if (error) {
     const messageItem = new SUI.Query('.message', node).getItem();
@@ -100,6 +99,6 @@ SUI.lib.Template.prototype._handleData = function(data, error) {
  * @param {!Object} message
  * @return {undefined}
  */
-SUI.lib.Template.prototype.eventError = function(message) {
-  SUI.consoleWarn('SUI.lib.Template.eventError()', message);
+SUI.Template.prototype.eventError = function(message) {
+  SUI.consoleWarn('SUI.Template.eventError()', message);
 };

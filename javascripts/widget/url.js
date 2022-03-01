@@ -1,30 +1,29 @@
-goog.provide('SUI.widget.Url');
+goog.provide('SUI.Url');
 
 goog.require('SUI');
 goog.require('SUI.Node');
 goog.require('SUI.BaseWidget');
-goog.require('SUI.widget');
 
 /**
  * @constructor
  * @extends {SUI.BaseWidget}
- * @this {SUI.widget.Url}
+ * @this {SUI.Url}
  * @param {!SUI.Node} input
  * @param {!SUI.Node} label
  * @param {!SUI.Node} error
  * @param {!SUI.Node} inputBlock
  */
-SUI.widget.Url = function(input, label, error, inputBlock) {
-  SUI.widget.Url.base(this, 'constructor', input, label, error, inputBlock);
+SUI.Url = function(input, label, error, inputBlock) {
+  SUI.Url.base(this, 'constructor', input, label, error, inputBlock);
   this._init();
 };
-goog.inherits(SUI.widget.Url, SUI.BaseWidget);
+goog.inherits(SUI.Url, SUI.BaseWidget);
 
 /**
  * @private
  * @return {undefined}
  */
-SUI.widget.Url.prototype._init = function() {
+SUI.Url.prototype._init = function() {
   this.inputBlock.addClass('url-widget');
 
   /**
@@ -50,7 +49,7 @@ SUI.widget.Url.prototype._init = function() {
  * @override
  * @return {undefined}
  */
-SUI.widget.Url.prototype.render = function() {
+SUI.Url.prototype.render = function() {
   this.inputBlock.addClass(['mdl-textfield', 'mdl-js-textfield', 'mdl-textfield--floating-label']);
   this.input.addClass(['mdl-textfield__input']);
   if (this.label && this.label.exists()) {
@@ -70,7 +69,7 @@ SUI.widget.Url.prototype.render = function() {
 /**
  * @override
  */
-SUI.widget.Url.prototype.refresh = function() {
+SUI.Url.prototype.refresh = function() {
   if (this.isRequired() && this.getValue() === '') {
     this.inputBlock.addClass('is-invalid');
   }

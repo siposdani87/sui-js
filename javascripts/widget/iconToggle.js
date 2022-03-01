@@ -1,29 +1,28 @@
-goog.provide('SUI.widget.IconToggle');
+goog.provide('SUI.IconToggle');
 
 goog.require('SUI');
 goog.require('SUI.Node');
-goog.require('SUI.widget');
-goog.require('SUI.widget.BaseCheckbox');
+goog.require('SUI.BaseCheckbox');
 
 /**
  * @constructor
- * @extends {SUI.widget.BaseCheckbox}
- * @this {SUI.widget.IconToggle}
+ * @extends {SUI.BaseCheckbox}
+ * @this {SUI.IconToggle}
  * @param {!SUI.Node} input
  * @param {!SUI.Node} label
  * @param {!SUI.Node} error
  * @param {!SUI.Node} inputBlock
  */
-SUI.widget.IconToggle = function(input, label, error, inputBlock) {
-  SUI.widget.IconToggle.base(this, 'constructor', input, label, error, inputBlock);
+SUI.IconToggle = function(input, label, error, inputBlock) {
+  SUI.IconToggle.base(this, 'constructor', input, label, error, inputBlock);
 };
-goog.inherits(SUI.widget.IconToggle, SUI.widget.BaseCheckbox);
+goog.inherits(SUI.IconToggle, SUI.BaseCheckbox);
 
 /**
  * @override
  * @return {undefined}
  */
-SUI.widget.IconToggle.prototype.render = function() {
+SUI.IconToggle.prototype.render = function() {
   this.label.addClass(['mdl-icon-toggle', 'mdl-js-icon-toggle', 'mdl-js-ripple-effect']);
 
   this.checkedIcon = /** @type {string} */ (this.input.getData('checked'));
@@ -56,7 +55,7 @@ SUI.widget.IconToggle.prototype.render = function() {
  * @override
  * @return {undefined}
  */
-SUI.widget.IconToggle.prototype._change = function() {
+SUI.IconToggle.prototype._change = function() {
   const value = this.getValue();
   this.icon.setHtml(this.input.getNode().checked ? this.checkedIcon : this.uncheckedIcon);
   this.modelChange(value);
@@ -67,7 +66,7 @@ SUI.widget.IconToggle.prototype._change = function() {
  * @param {!Object|!Function|!Array|boolean|number|string|null|undefined} value
  * @return {undefined}
  */
-SUI.widget.IconToggle.prototype.setValue = function(value) {
+SUI.IconToggle.prototype.setValue = function(value) {
   const currentValue = SUI.typeCast(this.input.getAttribute('value'));
   this.input.getNode().checked = currentValue === value;
   if (!this.input.getNode().checked) {

@@ -1,15 +1,14 @@
-goog.provide('SUI.lib.Cookie');
+goog.provide('SUI.Cookie');
 
 goog.require('SUI');
 goog.require('SUI.Object');
-goog.require('SUI.lib');
 
 /**
  * @constructor
- * @this {SUI.lib.Cookie}
+ * @this {SUI.Cookie}
  * @param {!Object=} opt_options
  */
-SUI.lib.Cookie = function(opt_options = {}) {
+SUI.Cookie = function(opt_options = {}) {
   this._setOptions(opt_options);
 };
 
@@ -18,7 +17,7 @@ SUI.lib.Cookie = function(opt_options = {}) {
  * @param {!Object=} opt_options
  * @return {undefined}
  */
-SUI.lib.Cookie.prototype._setOptions = function(opt_options = {}) {
+SUI.Cookie.prototype._setOptions = function(opt_options = {}) {
   const _self = this;
   _self.options = new SUI.Object({
     prefix: 'app',
@@ -32,7 +31,7 @@ SUI.lib.Cookie.prototype._setOptions = function(opt_options = {}) {
  * @param {string} name
  * @return {string}
  */
-SUI.lib.Cookie.prototype._getPropertyName = function(name) {
+SUI.Cookie.prototype._getPropertyName = function(name) {
   return [this.options.prefix, name].join('.').replace(/\./g, '_');
 };
 
@@ -41,7 +40,7 @@ SUI.lib.Cookie.prototype._getPropertyName = function(name) {
  * @param {string} propertyName
  * @return {string}
  */
-SUI.lib.Cookie.prototype._getName = function(propertyName) {
+SUI.Cookie.prototype._getName = function(propertyName) {
   const parts = propertyName.split('_');
   parts.shift();
   return parts.join('.');
@@ -56,7 +55,7 @@ SUI.lib.Cookie.prototype._getName = function(propertyName) {
  * @param {boolean=} opt_secure
  * @return {undefined}
  */
-SUI.lib.Cookie.prototype.set = function(name, value, opt_expires = '', opt_path = '/', opt_domain = '', opt_secure = false) {
+SUI.Cookie.prototype.set = function(name, value, opt_expires = '', opt_path = '/', opt_domain = '', opt_secure = false) {
   const propertyName = this._getPropertyName(name);
   if (/^(?:expires|max\-age|path|domain|secure)$/i.test(propertyName)) {
     return;
@@ -84,7 +83,7 @@ SUI.lib.Cookie.prototype.set = function(name, value, opt_expires = '', opt_path 
  * @param {string} name
  * @return {*}
  */
-SUI.lib.Cookie.prototype.get = function(name) {
+SUI.Cookie.prototype.get = function(name) {
   const propertyName = this._getPropertyName(name);
   const regex = new RegExp('(?:(?:^|.*;)\\s*' + encodeURIComponent(propertyName).replace(/[\-\.\+\*]/g, '\\$&') + '\\s*\\=\\s*([^;]*).*$)|^.*$');
   return SUI.typeCast(decodeURIComponent(document.cookie.replace(regex, '$1')) || null);
@@ -97,7 +96,7 @@ SUI.lib.Cookie.prototype.get = function(name) {
  * @param {boolean=} opt_secure
  * @return {undefined}
  */
-SUI.lib.Cookie.prototype.remove = function(name, opt_path = '', opt_domain = '', opt_secure = false) {
+SUI.Cookie.prototype.remove = function(name, opt_path = '', opt_domain = '', opt_secure = false) {
   if (this.hasKey(name)) {
     const expires = new Date(1970, 0, 1);
     this.set(name, '', expires, opt_path, opt_domain, opt_secure);
@@ -108,7 +107,7 @@ SUI.lib.Cookie.prototype.remove = function(name, opt_path = '', opt_domain = '',
  * @param {string} name
  * @return {boolean}
  */
-SUI.lib.Cookie.prototype.hasKey = function(name) {
+SUI.Cookie.prototype.hasKey = function(name) {
   const propertyName = this._getPropertyName(name);
   const regex = new RegExp('(?:^|;\\s*)' + encodeURIComponent(propertyName).replace(/[\-\.\+\*]/g, '\\$&') + '\\s*\\=');
   return regex.test(document.cookie);
@@ -117,7 +116,7 @@ SUI.lib.Cookie.prototype.hasKey = function(name) {
 /**
  * @return {!Array}
  */
-SUI.lib.Cookie.prototype.getKeys = function() {
+SUI.Cookie.prototype.getKeys = function() {
   const keys = document.cookie.replace(/((?:^|\s*;)[^\=]+)(?=;|$)|^\s*|\s*(?:\=[^;]*)?(?:\1|$)/g, '').split(/\s*(?:\=[^;]*)?;\s*/);
   for (let i = 0; i < keys.length; i++) {
     keys[i] = this._getName(decodeURIComponent(keys[i]));
@@ -128,7 +127,7 @@ SUI.lib.Cookie.prototype.getKeys = function() {
 /**
  * @return {undefined}
  */
-SUI.lib.Cookie.prototype.clear = function() {
+SUI.Cookie.prototype.clear = function() {
   const keys = this.getKeys();
   SUI.each(keys, (key) => {
     this.remove(key);

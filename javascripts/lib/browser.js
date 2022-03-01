@@ -1,14 +1,13 @@
-goog.provide('SUI.lib.Browser');
+goog.provide('SUI.Browser');
 
 goog.require('SUI');
-goog.require('SUI.lib');
 
 /**
  * http://browserhacks.com/
  * @constructor
- * @this {SUI.lib.Browser}
+ * @this {SUI.Browser}
  */
-SUI.lib.Browser = function() {
+SUI.Browser = function() {
   this._init();
 };
 
@@ -16,7 +15,7 @@ SUI.lib.Browser = function() {
  * @private
  * @return {undefined}
  */
-SUI.lib.Browser.prototype._init = function() {
+SUI.Browser.prototype._init = function() {
   this._detectOS();
   this._detectBrowsers();
   this._detectMissingFeatures();
@@ -26,7 +25,7 @@ SUI.lib.Browser.prototype._init = function() {
  * @private
  * @return {undefined}
  */
-SUI.lib.Browser.prototype._detectMissingFeatures = function() {
+SUI.Browser.prototype._detectMissingFeatures = function() {
   this.features = [];
 
   this._setFeature('navigator.geolocation', navigator && navigator.geolocation);
@@ -44,7 +43,7 @@ SUI.lib.Browser.prototype._detectMissingFeatures = function() {
 /**
  * @return {undefined}
  */
-SUI.lib.Browser.prototype.detect = function() {
+SUI.Browser.prototype.detect = function() {
   if (!SUI.isEmpty(this.features)) {
     this.eventMissingFeatures(this.features);
   }
@@ -56,7 +55,7 @@ SUI.lib.Browser.prototype.detect = function() {
  * @param {*} value
  * @return {undefined}
  */
-SUI.lib.Browser.prototype._setFeature = function(name, value) {
+SUI.Browser.prototype._setFeature = function(name, value) {
   if (SUI.eq(!!value, false)) {
     this.features.push(name);
   }
@@ -66,15 +65,15 @@ SUI.lib.Browser.prototype._setFeature = function(name, value) {
  * @param {!Array} features
  * @return {undefined}
  */
-SUI.lib.Browser.prototype.eventMissingFeatures = function(features) {
-  SUI.consoleError('SUI.lib.Browser.eventMissingFeatures()', features);
+SUI.Browser.prototype.eventMissingFeatures = function(features) {
+  SUI.consoleError('SUI.Browser.eventMissingFeatures()', features);
 };
 
 /**
  * @private
  * @return {undefined}
  */
-SUI.lib.Browser.prototype._detectBrowsers = function() {
+SUI.Browser.prototype._detectBrowsers = function() {
   this.browsers = {};
 
   const userAgent = window.navigator.userAgent.toLowerCase();
@@ -101,7 +100,7 @@ SUI.lib.Browser.prototype._detectBrowsers = function() {
  * @private
  * @return {undefined}
  */
-SUI.lib.Browser.prototype._detectOS = function() {
+SUI.Browser.prototype._detectOS = function() {
   this.os = null;
 
   const userAgent = window.navigator.userAgent;
@@ -126,35 +125,35 @@ SUI.lib.Browser.prototype._detectOS = function() {
 /**
  * @return {boolean}
  */
-SUI.lib.Browser.prototype.isMacOS = function() {
+SUI.Browser.prototype.isMacOS = function() {
   return this.os === 'macOS';
 };
 
 /**
  * @return {boolean}
  */
-SUI.lib.Browser.prototype.isIOS = function() {
+SUI.Browser.prototype.isIOS = function() {
   return this.os === 'iOS';
 };
 
 /**
  * @return {boolean}
  */
-SUI.lib.Browser.prototype.isWindows = function() {
+SUI.Browser.prototype.isWindows = function() {
   return this.os === 'Windows';
 };
 
 /**
  * @return {boolean}
  */
-SUI.lib.Browser.prototype.isAndroid = function() {
+SUI.Browser.prototype.isAndroid = function() {
   return this.os === 'Android';
 };
 
 /**
  * @return {boolean}
  */
-SUI.lib.Browser.prototype.isLinux = function() {
+SUI.Browser.prototype.isLinux = function() {
   return this.os === 'Linux';
 };
 
@@ -162,7 +161,7 @@ SUI.lib.Browser.prototype.isLinux = function() {
  * @param {number=} opt_version
  * @return {boolean}
  */
-SUI.lib.Browser.prototype.isInternetExplorer = function(opt_version) {
+SUI.Browser.prototype.isInternetExplorer = function(opt_version) {
   let result = this.browsers.lteIE10 || this.browsers.gteIE10;
   if (opt_version) {
     switch (opt_version) {
@@ -183,55 +182,55 @@ SUI.lib.Browser.prototype.isInternetExplorer = function(opt_version) {
 /**
  * @return {boolean}
  */
-SUI.lib.Browser.prototype.isEdge = function() {
+SUI.Browser.prototype.isEdge = function() {
   return this.browsers.edge;
 };
 
 /**
  * @return {boolean}
  */
-SUI.lib.Browser.prototype.isChromiumEdge = function() {
+SUI.Browser.prototype.isChromiumEdge = function() {
   return this.browsers.chromiumEdge;
 };
 
 /**
  * @return {boolean}
  */
-SUI.lib.Browser.prototype.isFirefox = function() {
+SUI.Browser.prototype.isFirefox = function() {
   return this.browsers.firefox;
 };
 
 /**
  * @return {boolean}
  */
-SUI.lib.Browser.prototype.isChrome = function() {
+SUI.Browser.prototype.isChrome = function() {
   return this.browsers.chrome;
 };
 
 /**
  * @return {boolean}
  */
-SUI.lib.Browser.prototype.isOpera = function() {
+SUI.Browser.prototype.isOpera = function() {
   return this.browsers.opera;
 };
 
 /**
  * @return {boolean}
  */
-SUI.lib.Browser.prototype.isSafari = function() {
+SUI.Browser.prototype.isSafari = function() {
   return this.browsers.safari;
 };
 
 /**
  * @return {boolean}
  */
-SUI.lib.Browser.prototype.isWebkit = function() {
+SUI.Browser.prototype.isWebkit = function() {
   return this.browsers.webkit;
 };
 
 /**
  * @return {boolean}
  */
-SUI.lib.Browser.prototype.isChromium = function() {
+SUI.Browser.prototype.isChromium = function() {
   return this.browsers.chromium;
 };

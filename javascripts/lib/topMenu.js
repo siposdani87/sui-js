@@ -1,16 +1,15 @@
-goog.provide('SUI.lib.TopMenu');
+goog.provide('SUI.TopMenu');
 
 goog.require('SUI.Node');
 goog.require('SUI.Query');
-goog.require('SUI.lib');
-goog.require('SUI.lib.Header');
+goog.require('SUI.Header');
 
 /**
  * @constructor
- * @param {!SUI.lib.Header} header
- * @this {SUI.lib.TopMenu}
+ * @param {!SUI.Header} header
+ * @this {SUI.TopMenu}
  */
-SUI.lib.TopMenu = function(header) {
+SUI.TopMenu = function(header) {
   this.header = header;
   this._init();
 };
@@ -19,7 +18,7 @@ SUI.lib.TopMenu = function(header) {
  * @private
  * @return {undefined}
  */
-SUI.lib.TopMenu.prototype._init = function() {
+SUI.TopMenu.prototype._init = function() {
   this.topMenu = new SUI.Query('#top-menu', this.header.headerNode).getItem();
 
   this.toggleTopMenu = new SUI.Query('#toggle-top-menu', this.header.headerNode).getItem();
@@ -32,7 +31,7 @@ SUI.lib.TopMenu.prototype._init = function() {
 /**
  * @return {undefined}
  */
-SUI.lib.TopMenu.prototype.toggle = function() {
+SUI.TopMenu.prototype.toggle = function() {
   if (this.isOpened()) {
     this.close();
   } else {
@@ -43,14 +42,14 @@ SUI.lib.TopMenu.prototype.toggle = function() {
 /**
  * @return {boolean}
  */
-SUI.lib.TopMenu.prototype.isOpened = function() {
+SUI.TopMenu.prototype.isOpened = function() {
   return this.topMenu.hasClass('visible-flex');
 };
 
 /**
  * @return {undefined}
  */
-SUI.lib.TopMenu.prototype.open = function() {
+SUI.TopMenu.prototype.open = function() {
   this.header.open();
   this.topMenu.addClass('visible-flex');
   this.toggleTopMenu.addClass('active');
@@ -60,7 +59,7 @@ SUI.lib.TopMenu.prototype.open = function() {
 /**
  * @return {undefined}
  */
-SUI.lib.TopMenu.prototype.close = function() {
+SUI.TopMenu.prototype.close = function() {
   this.header.close();
   this.topMenu.removeClass('visible-flex');
   this.toggleTopMenu.removeClass('active');
@@ -70,6 +69,6 @@ SUI.lib.TopMenu.prototype.close = function() {
 /**
  * @return {!SUI.Node}
  */
-SUI.lib.TopMenu.prototype.getContainer = function() {
+SUI.TopMenu.prototype.getContainer = function() {
   return this.topMenu;
 };

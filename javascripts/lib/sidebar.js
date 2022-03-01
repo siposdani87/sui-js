@@ -1,14 +1,13 @@
-goog.provide('SUI.lib.Sidebar');
+goog.provide('SUI.Sidebar');
 
 goog.require('SUI.Query');
-goog.require('SUI.lib');
 
 /**
  * @constructor
- * @this {SUI.lib.Sidebar}
+ * @this {SUI.Sidebar}
  * @param {string} selector
  */
-SUI.lib.Sidebar = function(selector) {
+SUI.Sidebar = function(selector) {
   this.selector = selector;
   this._init();
 };
@@ -17,7 +16,7 @@ SUI.lib.Sidebar = function(selector) {
  * @private
  * @return {undefined}
  */
-SUI.lib.Sidebar.prototype._init = function() {
+SUI.Sidebar.prototype._init = function() {
   this.sidebar = new SUI.Query(this.selector).getItem();
   this.button = new SUI.Query('a', this.sidebar).getItem();
   this.button.setAttribute('href', 'javascript:void(0)');
@@ -29,7 +28,7 @@ SUI.lib.Sidebar.prototype._init = function() {
 /**
  * @return {undefined}
  */
-SUI.lib.Sidebar.prototype.toggle = function() {
+SUI.Sidebar.prototype.toggle = function() {
   if (this.isOpened()) {
     this.close();
   } else {
@@ -40,35 +39,35 @@ SUI.lib.Sidebar.prototype.toggle = function() {
 /**
  * @return {boolean}
  */
-SUI.lib.Sidebar.prototype.isOpened = function() {
+SUI.Sidebar.prototype.isOpened = function() {
   return this.sidebar.hasClass('open');
 };
 
 /**
  * @return {undefined}
  */
-SUI.lib.Sidebar.prototype.open = function() {
+SUI.Sidebar.prototype.open = function() {
   this.sidebar.addClass('open');
 };
 
 /**
  * @return {undefined}
  */
-SUI.lib.Sidebar.prototype.close = function() {
+SUI.Sidebar.prototype.close = function() {
   this.sidebar.removeClass('open');
 };
 
 /**
  * @return {undefined}
  */
-SUI.lib.Sidebar.prototype.show = function() {
+SUI.Sidebar.prototype.show = function() {
   this.sidebar.removeClass('hidden');
 };
 
 /**
  * @return {undefined}
  */
-SUI.lib.Sidebar.prototype.hide = function() {
+SUI.Sidebar.prototype.hide = function() {
   this.sidebar.addClass('hidden');
 };
 
@@ -77,7 +76,7 @@ SUI.lib.Sidebar.prototype.hide = function() {
  * @param {number} windowHeight
  * @return {undefined}
  */
-SUI.lib.Sidebar.prototype.setButtonPosition = function(scrollTop, windowHeight) {
+SUI.Sidebar.prototype.setButtonPosition = function(scrollTop, windowHeight) {
   const height = Math.round(scrollTop + (windowHeight / 2));
   this.button.setStyle({
     'top': height + 'px',

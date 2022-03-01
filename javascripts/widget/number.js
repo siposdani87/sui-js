@@ -1,30 +1,29 @@
-goog.provide('SUI.widget.Number');
+goog.provide('SUI.Number');
 
 goog.require('SUI');
 goog.require('SUI.Node');
 goog.require('SUI.BaseWidget');
-goog.require('SUI.widget');
 
 /**
  * @constructor
  * @extends {SUI.BaseWidget}
- * @this {SUI.widget.Number}
+ * @this {SUI.Number}
  * @param {!SUI.Node} input
  * @param {!SUI.Node} label
  * @param {!SUI.Node} error
  * @param {!SUI.Node} inputBlock
  */
-SUI.widget.Number = function(input, label, error, inputBlock) {
-  SUI.widget.Number.base(this, 'constructor', input, label, error, inputBlock);
+SUI.Number = function(input, label, error, inputBlock) {
+  SUI.Number.base(this, 'constructor', input, label, error, inputBlock);
   this._init();
 };
-goog.inherits(SUI.widget.Number, SUI.BaseWidget);
+goog.inherits(SUI.Number, SUI.BaseWidget);
 
 /**
  * @private
  * @return {undefined}
  */
-SUI.widget.Number.prototype._init = function() {
+SUI.Number.prototype._init = function() {
   this.inputBlock.addClass('number-widget');
 
   this._initButtons();
@@ -48,7 +47,7 @@ SUI.widget.Number.prototype._init = function() {
  * @private
  * @return {undefined}
  */
-SUI.widget.Number.prototype._initButtons = function() {
+SUI.Number.prototype._initButtons = function() {
   const actionNode = new SUI.Node('span');
   actionNode.addClass('step-change');
   this.actionContainerNode.appendChild(actionNode);
@@ -84,7 +83,7 @@ SUI.widget.Number.prototype._initButtons = function() {
  * @private
  * @return {undefined}
  */
-SUI.widget.Number.prototype._checkValue = function() {
+SUI.Number.prototype._checkValue = function() {
   const value = /** @type {number} */ (this.getValue());
   const min = this._getMin();
   if (value < min) {
@@ -100,7 +99,7 @@ SUI.widget.Number.prototype._checkValue = function() {
  * @private
  * @return {number}
  */
-SUI.widget.Number.prototype._getMax = function() {
+SUI.Number.prototype._getMax = function() {
   const max = this.input.getAttribute('max') || 9999999999;
   return /** @type {number} */ (SUI.typeCast(max));
 };
@@ -109,7 +108,7 @@ SUI.widget.Number.prototype._getMax = function() {
  * @private
  * @return {number}
  */
-SUI.widget.Number.prototype._getMin = function() {
+SUI.Number.prototype._getMin = function() {
   const min = this.input.getAttribute('min') || 0;
   return /** @type {number} */ (SUI.typeCast(min));
 };
@@ -118,7 +117,7 @@ SUI.widget.Number.prototype._getMin = function() {
  * @private
  * @return {number}
  */
-SUI.widget.Number.prototype._getStep = function() {
+SUI.Number.prototype._getStep = function() {
   const step = this.input.getAttribute('step') || 1;
   return /** @type {number} */ (SUI.typeCast(step));
 };
@@ -127,7 +126,7 @@ SUI.widget.Number.prototype._getStep = function() {
  * @override
  * @return {undefined}
  */
-SUI.widget.Number.prototype.render = function() {
+SUI.Number.prototype.render = function() {
   this.inputBlock.addClass(['mdl-textfield', 'mdl-js-textfield', 'mdl-textfield--floating-label']);
   this.input.addClass(['mdl-textfield__input']);
   if (this.label && this.label.exists()) {
@@ -139,7 +138,7 @@ SUI.widget.Number.prototype.render = function() {
 /**
  * @override
  */
-SUI.widget.Number.prototype.refresh = function() {
+SUI.Number.prototype.refresh = function() {
   if (this.isRequired() && this.getValue() === '') {
     this.inputBlock.addClass('is-invalid');
   }

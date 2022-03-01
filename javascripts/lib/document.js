@@ -1,16 +1,15 @@
-goog.provide('SUI.lib.Document');
+goog.provide('SUI.Document');
 
 goog.require('SUI');
 goog.require('SUI.Node');
 goog.require('SUI.Object');
-goog.require('SUI.lib');
 
 /**
  * @constructor
- * @this {SUI.lib.Document}
+ * @this {SUI.Document}
  * @param {!Object=} opt_options
  */
-SUI.lib.Document = function(opt_options) {
+SUI.Document = function(opt_options) {
   this._setOptions(opt_options);
   this._init();
 };
@@ -20,7 +19,7 @@ SUI.lib.Document = function(opt_options) {
  * @param {!Object=} opt_options
  * @return {undefined}
  */
-SUI.lib.Document.prototype._setOptions = function(opt_options) {
+SUI.Document.prototype._setOptions = function(opt_options) {
   const _self = this;
   _self.options = new SUI.Object();
   _self.options.merge(opt_options);
@@ -30,7 +29,7 @@ SUI.lib.Document.prototype._setOptions = function(opt_options) {
  * @private
  * @return {undefined}
  */
-SUI.lib.Document.prototype._init = function() {
+SUI.Document.prototype._init = function() {
   this.document = document;
   this.document.addEventListener('click', (event) => {
     const target = new SUI.Node(/** @type {!Element} */ (event.target));
@@ -42,7 +41,7 @@ SUI.lib.Document.prototype._init = function() {
  * @param {string} title
  * @return {undefined}
  */
-SUI.lib.Document.prototype.setTitle = function(title) {
+SUI.Document.prototype.setTitle = function(title) {
   this.document.title = title;
 };
 
@@ -51,7 +50,7 @@ SUI.lib.Document.prototype.setTitle = function(title) {
  * @param {!Event} event
  * @return {undefined}
  */
-SUI.lib.Document.prototype.eventClick = function(target, event) {
+SUI.Document.prototype.eventClick = function(target, event) {
   SUI.consoleWarn('Document.eventClick()', target, event);
 };
 
@@ -60,6 +59,6 @@ SUI.lib.Document.prototype.eventClick = function(target, event) {
  * @param {string=} opt_subject
  * @return {undefined}
  */
-SUI.lib.Document.prototype.mailTo = function(email, opt_subject = '') {
+SUI.Document.prototype.mailTo = function(email, opt_subject = '') {
   this.document.location.href = 'mailto:' + email + '?subject=' + opt_subject;
 };

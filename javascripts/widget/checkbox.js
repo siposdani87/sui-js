@@ -1,29 +1,28 @@
-goog.provide('SUI.widget.Checkbox');
+goog.provide('SUI.Checkbox');
 
 goog.require('SUI');
 goog.require('SUI.Node');
-goog.require('SUI.widget');
-goog.require('SUI.widget.BaseCheckbox');
+goog.require('SUI.BaseCheckbox');
 
 /**
  * @constructor
- * @extends {SUI.widget.BaseCheckbox}
- * @this {SUI.widget.Checkbox}
+ * @extends {SUI.BaseCheckbox}
+ * @this {SUI.Checkbox}
  * @param {!SUI.Node} input
  * @param {!SUI.Node} label
  * @param {!SUI.Node} error
  * @param {!SUI.Node} inputBlock
  */
-SUI.widget.Checkbox = function(input, label, error, inputBlock) {
-  SUI.widget.Checkbox.base(this, 'constructor', input, label, error, inputBlock);
+SUI.Checkbox = function(input, label, error, inputBlock) {
+  SUI.Checkbox.base(this, 'constructor', input, label, error, inputBlock);
 };
-goog.inherits(SUI.widget.Checkbox, SUI.widget.BaseCheckbox);
+goog.inherits(SUI.Checkbox, SUI.BaseCheckbox);
 
 /**
  * @override
  * @return {undefined}
  */
-SUI.widget.Checkbox.prototype.render = function() {
+SUI.Checkbox.prototype.render = function() {
   this.label.addClass(['mdl-checkbox', 'mdl-js-checkbox', 'mdl-js-ripple-effect']);
   const id = this.input.getId();
   this.label.setFor(/** @type {string} */(id));

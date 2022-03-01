@@ -1,4 +1,4 @@
-goog.provide('SUI.widget.Radiobutton');
+goog.provide('SUI.Radiobutton');
 
 goog.requireType('SUI.Form');
 
@@ -6,29 +6,28 @@ goog.require('SUI');
 goog.require('SUI.Node');
 goog.require('SUI.Query');
 goog.require('SUI.BaseWidget');
-goog.require('SUI.widget');
 
 /**
  * @constructor
  * @extends {SUI.BaseWidget}
- * @this {SUI.widget.Radiobutton}
+ * @this {SUI.Radiobutton}
  * @param {!SUI.Node} input
  * @param {!SUI.Node} label
  * @param {!SUI.Node} error
  * @param {!SUI.Node} inputBlock
  * @param {!SUI.Form} form
  */
-SUI.widget.Radiobutton = function(input, label, error, inputBlock, form) {
-  SUI.widget.Radiobutton.base(this, 'constructor', input, label, error, inputBlock, form);
+SUI.Radiobutton = function(input, label, error, inputBlock, form) {
+  SUI.Radiobutton.base(this, 'constructor', input, label, error, inputBlock, form);
   this._init();
 };
-goog.inherits(SUI.widget.Radiobutton, SUI.BaseWidget);
+goog.inherits(SUI.Radiobutton, SUI.BaseWidget);
 
 /**
  * @private
  * @return {undefined}
  */
-SUI.widget.Radiobutton.prototype._init = function() {
+SUI.Radiobutton.prototype._init = function() {
   this.inputBlock.addClass('radiobutton-widget');
 
   /* this.label.addEventListener('click', () => {
@@ -45,7 +44,7 @@ SUI.widget.Radiobutton.prototype._init = function() {
  * @private
  * @return {undefined}
  */
-SUI.widget.Radiobutton.prototype._change = function() {
+SUI.Radiobutton.prototype._change = function() {
   const value = this.input.getAttribute('value');
   this.modelChange(value);
 
@@ -63,7 +62,7 @@ SUI.widget.Radiobutton.prototype._change = function() {
  * @override
  * @return {undefined}
  */
-SUI.widget.Radiobutton.prototype.render = function() {
+SUI.Radiobutton.prototype.render = function() {
   this.label.addClass(['mdl-radio', 'mdl-js-radio', 'mdl-js-ripple-effect']);
   const id = this.input.getId();
   this.label.setFor(/** @type {string} */(id));
@@ -89,7 +88,7 @@ SUI.widget.Radiobutton.prototype.render = function() {
 /**
  * @override
  */
-SUI.widget.Radiobutton.prototype.refresh = function() {
+SUI.Radiobutton.prototype.refresh = function() {
   const dataLabelText = /** @type {string} */ (this.label.getAttribute('data-label'));
   if (dataLabelText) {
     const labelText = this._getLabelRequiredText(dataLabelText);
@@ -109,7 +108,7 @@ SUI.widget.Radiobutton.prototype.refresh = function() {
  * @param {!Object|!Function|!Array|boolean|number|string|null|undefined} value
  * @return {undefined}
  */
-SUI.widget.Radiobutton.prototype.setValue = function(value) {
+SUI.Radiobutton.prototype.setValue = function(value) {
   if (this.input.getAttribute('value') === value) {
     this.input.getNode().checked = true;
     this.input.trigger('change');
@@ -120,7 +119,7 @@ SUI.widget.Radiobutton.prototype.setValue = function(value) {
  * @override
  * @return {*}
  */
-SUI.widget.Radiobutton.prototype.getValue = function() {
+SUI.Radiobutton.prototype.getValue = function() {
   let value = null;
   this._getRadioButtonInputs().each((radioButtonInput) => {
     const checked = radioButtonInput.getNode().checked;
@@ -136,7 +135,7 @@ SUI.widget.Radiobutton.prototype.getValue = function() {
  * @param {boolean} state
  * @return {undefined}
  */
-SUI.widget.Radiobutton.prototype.setDisabled = function(state) {
+SUI.Radiobutton.prototype.setDisabled = function(state) {
   this._getRadioButtonInputs().each((radioButtonInput) => {
     if (state) {
       radioButtonInput.setAttribute('disabled');
@@ -156,7 +155,7 @@ SUI.widget.Radiobutton.prototype.setDisabled = function(state) {
  * @override
  * @return {boolean}
  */
-SUI.widget.Radiobutton.prototype.isDisabled = function() {
+SUI.Radiobutton.prototype.isDisabled = function() {
   let isDisabled = false;
   this._getRadioButtonInputs().each((radioButtonInput) => {
     if (radioButtonInput.getNode().disabled) {
@@ -169,7 +168,7 @@ SUI.widget.Radiobutton.prototype.isDisabled = function() {
 /**
  * @return {!SUI.Query}
  */
-SUI.widget.Radiobutton.prototype._getRadioButtonInputs = function() {
+SUI.Radiobutton.prototype._getRadioButtonInputs = function() {
   const name = this.input.getAttribute('name');
   return new SUI.Query(SUI.format('input[name="{0}"]', [name]), this.form.formNode);
 };
@@ -179,7 +178,7 @@ SUI.widget.Radiobutton.prototype._getRadioButtonInputs = function() {
  * @param {string} text
  * @return {undefined}
  */
-SUI.widget.Radiobutton.prototype.setLabel = function(text) {
+SUI.Radiobutton.prototype.setLabel = function(text) {
   if (this.spanLabel && !this.spanLabel.isEmpty()) {
     this.spanLabel.setHtml(text);
     this._setAdditionalLabel(this.spanLabel);

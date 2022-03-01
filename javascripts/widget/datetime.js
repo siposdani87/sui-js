@@ -1,32 +1,31 @@
-goog.provide('SUI.widget.Datetime');
+goog.provide('SUI.DateTime');
 
 goog.require('SUI');
-goog.require('SUI.Datetime');
+goog.require('SUI.Date');
 goog.require('SUI.Node');
 goog.require('SUI.Popup');
 goog.require('SUI.BaseWidget');
-goog.require('SUI.widget');
 
 /**
  * @constructor
  * @extends {SUI.BaseWidget}
- * @this {SUI.widget.Datetime}
+ * @this {SUI.DateTime}
  * @param {!SUI.Node} input
  * @param {!SUI.Node} label
  * @param {!SUI.Node} error
  * @param {!SUI.Node} inputBlock
  */
-SUI.widget.Datetime = function(input, label, error, inputBlock) {
-  SUI.widget.Datetime.base(this, 'constructor', input, label, error, inputBlock);
+SUI.DateTime = function(input, label, error, inputBlock) {
+  SUI.DateTime.base(this, 'constructor', input, label, error, inputBlock);
   this._init();
 };
-goog.inherits(SUI.widget.Datetime, SUI.BaseWidget);
+goog.inherits(SUI.DateTime, SUI.BaseWidget);
 
 /**
  * @private
  * @return {undefined}
  */
-SUI.widget.Datetime.prototype._init = function() {
+SUI.DateTime.prototype._init = function() {
   this.inputBlock.addClass('datetime-widget');
   this.input.addClass('hidden');
 
@@ -46,7 +45,7 @@ SUI.widget.Datetime.prototype._init = function() {
  * @private
  * @return {undefined}
  */
-SUI.widget.Datetime.prototype._initInput = function() {
+SUI.DateTime.prototype._initInput = function() {
   this.format = this.input.getData('format');
 
   this.input.addEventListener('change', () => {
@@ -59,7 +58,7 @@ SUI.widget.Datetime.prototype._initInput = function() {
   const value = /** @type {string} */ (this.getValue().toString());
 
   this.datetimeNode = new SUI.Node('div');
-  this.datetime = new SUI.Datetime(this.datetimeNode, {
+  this.datetime = new SUI.Date(this.datetimeNode, {
     value: value,
     type: type,
   });
@@ -82,7 +81,7 @@ SUI.widget.Datetime.prototype._initInput = function() {
  * @override
  * @return {undefined}
  */
-SUI.widget.Datetime.prototype.render = function() {
+SUI.DateTime.prototype.render = function() {
   if (this.label && this.label.exists()) {
     this.label.addClass('widget-label');
   }
@@ -101,7 +100,7 @@ SUI.widget.Datetime.prototype.render = function() {
 /**
  * @override
  */
-SUI.widget.Datetime.prototype.refresh = function() {
+SUI.DateTime.prototype.refresh = function() {
   if (this.isDisabled()) {
     this.inputBlock.addClass('is-disabled');
   } else {
@@ -114,7 +113,7 @@ SUI.widget.Datetime.prototype.refresh = function() {
  * @param {!Object|!Function|!Array|boolean|number|string|null|undefined} value
  * @return {undefined}
  */
-SUI.widget.Datetime.prototype.setValue = function(value) {
+SUI.DateTime.prototype.setValue = function(value) {
   this._setTag(/** @type {string} */(value));
   this.input.setAttribute('value', value);
   this.input.trigger('change');
@@ -126,7 +125,7 @@ SUI.widget.Datetime.prototype.setValue = function(value) {
  * @param {string} value
  * @return {undefined}
  */
-SUI.widget.Datetime.prototype._setTag = function(value) {
+SUI.DateTime.prototype._setTag = function(value) {
   this.datetimeInput.removeChildren();
   if (value) {
     const formattedValue = window['moment'](value, this.datetime.getConfig().format)['format'](this.format);
@@ -153,7 +152,7 @@ SUI.widget.Datetime.prototype._setTag = function(value) {
  * @private
  * @return {undefined}
  */
-SUI.widget.Datetime.prototype._onClick = function() {
+SUI.DateTime.prototype._onClick = function() {
   if (this.isEnabled()) {
     this.datetimeInput.addClass('active');
     this.popup.toggle();

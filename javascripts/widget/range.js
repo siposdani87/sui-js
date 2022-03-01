@@ -1,32 +1,31 @@
-goog.provide('SUI.widget.Range');
+goog.provide('SUI.Range');
 
 goog.require('SUI');
 goog.require('SUI.Node');
 goog.require('SUI.Query');
 goog.require('SUI.Tooltip');
 goog.require('SUI.BaseWidget');
-goog.require('SUI.widget');
 
 /**
  * @constructor
  * @extends {SUI.BaseWidget}
- * @this {SUI.widget.Range}
+ * @this {SUI.Range}
  * @param {!SUI.Node} input
  * @param {!SUI.Node} label
  * @param {!SUI.Node} error
  * @param {!SUI.Node} inputBlock
  */
-SUI.widget.Range = function(input, label, error, inputBlock) {
-  SUI.widget.Range.base(this, 'constructor', input, label, error, inputBlock);
+SUI.Range = function(input, label, error, inputBlock) {
+  SUI.Range.base(this, 'constructor', input, label, error, inputBlock);
   this._init();
 };
-goog.inherits(SUI.widget.Range, SUI.BaseWidget);
+goog.inherits(SUI.Range, SUI.BaseWidget);
 
 /**
  * @private
  * @return {undefined}
  */
-SUI.widget.Range.prototype._init = function() {
+SUI.Range.prototype._init = function() {
   this.inputBlock.addClass('range-widget');
 
   this.input.addEventListener('input', (input) => {
@@ -41,7 +40,7 @@ SUI.widget.Range.prototype._init = function() {
  * @override
  * @return {undefined}
  */
-SUI.widget.Range.prototype.render = function() {
+SUI.Range.prototype.render = function() {
   this.inputBlock.addClass(['mdl-textfield', 'mdl-js-textfield', 'mdl-sliderfield']);
   this.input.addClass(['mdl-slider', 'mdl-js-slider']);
   if (this.label && this.label.exists()) {
@@ -54,7 +53,7 @@ SUI.widget.Range.prototype.render = function() {
 /**
  * @override
  */
-SUI.widget.Range.prototype.refresh = function() {
+SUI.Range.prototype.refresh = function() {
   if (this.isRequired() && this.getValue() === '') {
     this.inputBlock.addClass('is-invalid');
   }
@@ -78,7 +77,7 @@ SUI.widget.Range.prototype.refresh = function() {
  * @param {!Object|!Function|!Array|boolean|number|string|null|undefined} value
  * @return {undefined}
  */
-SUI.widget.Range.prototype.setValue = function(value) {
+SUI.Range.prototype.setValue = function(value) {
   const inputNode = this.input.getNode();
   inputNode['MaterialSlider']['change'](value);
   this.tooltip.render(value);
