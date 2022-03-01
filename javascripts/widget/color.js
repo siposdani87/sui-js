@@ -6,12 +6,12 @@ goog.require('SUI.Node');
 goog.require('SUI.Popup');
 goog.require('SUI.Query');
 goog.require('SUI.Tooltip');
-goog.require('SUI.Widget');
+goog.require('SUI.BaseWidget');
 goog.require('SUI.widget');
 
 /**
  * @constructor
- * @extends {SUI.Widget}
+ * @extends {SUI.BaseWidget}
  * @this {SUI.widget.Color}
  * @param {!SUI.Node} input
  * @param {!SUI.Node} label
@@ -22,7 +22,7 @@ SUI.widget.Color = function(input, label, error, inputBlock) {
   SUI.widget.Color.base(this, 'constructor', input, label, error, inputBlock);
   this._init();
 };
-goog.inherits(SUI.widget.Color, SUI.Widget);
+goog.inherits(SUI.widget.Color, SUI.BaseWidget);
 
 /**
  * @private

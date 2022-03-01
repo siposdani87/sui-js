@@ -6,7 +6,7 @@ goog.require('SUI.FormWidget');
 goog.require('SUI.Node');
 goog.require('SUI.Object');
 goog.require('SUI.Query');
-goog.require('SUI.Widget');
+goog.require('SUI.BaseWidget');
 
 /**
  * @constructor
@@ -190,7 +190,7 @@ SUI.Form.prototype._getValue = function(name) {
 
 /**
  * @private
- * @param {!SUI.Widget} widget
+ * @param {!SUI.BaseWidget} widget
  * @return {*}
  */
 SUI.Form.prototype._getPreviousValue = function(widget) {
@@ -200,7 +200,7 @@ SUI.Form.prototype._getPreviousValue = function(widget) {
 
 /**
  * @private
- * @param {!SUI.Widget} widget
+ * @param {!SUI.BaseWidget} widget
  * @param {*} value
  * @return {undefined}
  */
@@ -272,7 +272,7 @@ SUI.Form.prototype.refresh = function() {
 
 /**
  * @param {string} value
- * @return {!SUI.Widget}
+ * @return {!SUI.BaseWidget}
  */
 SUI.Form.prototype.findByModel = function(value) {
   return this.findByCondition((item, i) => {

@@ -5,12 +5,12 @@ goog.require('SUI.Datetime');
 goog.require('SUI.Node');
 goog.require('SUI.Popup');
 goog.require('SUI.Query');
-goog.require('SUI.Widget');
+goog.require('SUI.BaseWidget');
 goog.require('SUI.widget');
 
 /**
  * @constructor
- * @extends {SUI.Widget}
+ * @extends {SUI.BaseWidget}
  * @this {SUI.widget.DatetimeRange}
  * @param {!SUI.Node} input
  * @param {!SUI.Node} label
@@ -24,7 +24,7 @@ SUI.widget.DatetimeRange = function(input, label, error, inputBlock, isStartInpu
   this.isStartInput = isStartInput;
   this._init();
 };
-goog.inherits(SUI.widget.DatetimeRange, SUI.Widget);
+goog.inherits(SUI.widget.DatetimeRange, SUI.BaseWidget);
 
 /**
  * @private

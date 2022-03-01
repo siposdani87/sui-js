@@ -1,4 +1,4 @@
-goog.provide('SUI.Widget');
+goog.provide('SUI.BaseWidget');
 
 goog.requireType('SUI.Form');
 
@@ -9,14 +9,14 @@ goog.require('SUI.Tooltip');
 
 /**
  * @constructor
- * @this {SUI.Widget}
+ * @this {SUI.BaseWidget}
  * @param {!SUI.Node} input
  * @param {!SUI.Node=} opt_label
  * @param {!SUI.Node=} opt_error
  * @param {!SUI.Node=} opt_inputBlock
  * @param {!SUI.Form=} opt_form
  */
-SUI.Widget = function(input, opt_label, opt_error, opt_inputBlock, opt_form) {
+SUI.BaseWidget = function(input, opt_label, opt_error, opt_inputBlock, opt_form) {
   this.input = input;
   this.label = opt_label;
   this.error = opt_error;
@@ -37,43 +37,43 @@ SUI.Widget = function(input, opt_label, opt_error, opt_inputBlock, opt_form) {
  * @param {*} value
  * @param {*} previousValue
  */
-SUI.Widget.prototype.eventChange = function(value, previousValue) {
-  SUI.consoleInfo('SUI.Widget.eventChange()', value, previousValue);
+SUI.BaseWidget.prototype.eventChange = function(value, previousValue) {
+  SUI.consoleInfo('SUI.BaseWidget.eventChange()', value, previousValue);
 };
 
 /**
  * @return {undefined}
  */
-SUI.Widget.prototype.render = function() {
-  SUI.consoleWarn('SUI.Widget.render()');
+SUI.BaseWidget.prototype.render = function() {
+  SUI.consoleWarn('SUI.BaseWidget.render()');
 };
 
 /**
  * @return {undefined}
  */
-SUI.Widget.prototype.refresh = function() {
-  SUI.consoleWarn('SUI.Widget.refresh()');
+SUI.BaseWidget.prototype.refresh = function() {
+  SUI.consoleWarn('SUI.BaseWidget.refresh()');
 };
 
 /**
  * @param {*} value
  */
-SUI.Widget.prototype.modelChange = function(value) {
-  SUI.consoleWarn('SUI.Widget.modelChange()', value);
+SUI.BaseWidget.prototype.modelChange = function(value) {
+  SUI.consoleWarn('SUI.BaseWidget.modelChange()', value);
 };
 
 /**
  * @return {*}
  */
-SUI.Widget.prototype.getPreviousValue = function() {
-  SUI.consoleWarn('SUI.Widget.getPreviousValue()');
+SUI.BaseWidget.prototype.getPreviousValue = function() {
+  SUI.consoleWarn('SUI.BaseWidget.getPreviousValue()');
   return undefined;
 };
 
 /**
  * @return {string}
  */
-SUI.Widget.prototype.getName = function() {
+SUI.BaseWidget.prototype.getName = function() {
   const name = /** @type {string} */ (this.input.getAttribute('name'));
   return this._getAttributeName(name);
 };
@@ -81,7 +81,7 @@ SUI.Widget.prototype.getName = function() {
 /**
  * @return {*}
  */
-SUI.Widget.prototype.getValue = function() {
+SUI.BaseWidget.prototype.getValue = function() {
   const value = this.input.getNode().value;
   return SUI.typeCast(value);
 };
@@ -91,7 +91,7 @@ SUI.Widget.prototype.getValue = function() {
  * @param {string} inputName
  * @return {string}
  */
-SUI.Widget.prototype._getAttributeName = function(inputName) {
+SUI.BaseWidget.prototype._getAttributeName = function(inputName) {
   let attribute = inputName || '';
   attribute = attribute.replace(/]/g, '');
   attribute = attribute.replace(/\[/g, '.');
@@ -104,7 +104,7 @@ SUI.Widget.prototype._getAttributeName = function(inputName) {
  * @param {boolean=} opt_isCustomError
  * @return {undefined}
  */
-SUI.Widget.prototype.setError = function(opt_message = '', opt_isCustomError = false) {
+SUI.BaseWidget.prototype.setError = function(opt_message = '', opt_isCustomError = false) {
   if (this.error) {
     this.errorTooltip.setMessage(opt_message);
     this.error.setHtml(opt_message);
@@ -119,7 +119,7 @@ SUI.Widget.prototype.setError = function(opt_message = '', opt_isCustomError = f
  * @param {boolean=} opt_showMessage
  * @return {undefined}
  */
-SUI.Widget.prototype.checkValidity = function(opt_force = false, opt_showMessage = true) {
+SUI.BaseWidget.prototype.checkValidity = function(opt_force = false, opt_showMessage = true) {
   const isValid = this.isValid();
   if (isValid) {
     this.setError('');
@@ -142,7 +142,7 @@ SUI.Widget.prototype.checkValidity = function(opt_force = false, opt_showMessage
 /**
  * @return {boolean}
  */
-SUI.Widget.prototype.isValidityValid = function() {
+SUI.BaseWidget.prototype.isValidityValid = function() {
   const node = this.input.getNode();
   return node.validity.valid;
 };
@@ -150,7 +150,7 @@ SUI.Widget.prototype.isValidityValid = function() {
 /**
  * @return {boolean}
  */
-SUI.Widget.prototype.isValid = function() {
+SUI.BaseWidget.prototype.isValid = function() {
   return this.isValidityValid();
 };
 
@@ -158,7 +158,7 @@ SUI.Widget.prototype.isValid = function() {
  * @private
  * @return {!SUI.Node}
  */
-SUI.Widget.prototype._getUpgradedNode = function() {
+SUI.BaseWidget.prototype._getUpgradedNode = function() {
   return /** @type {!SUI.Node} */ (this.inputBlock);
 };
 
@@ -166,7 +166,7 @@ SUI.Widget.prototype._getUpgradedNode = function() {
  * @param {!Object|!Function|!Array|boolean|number|string|null|undefined} value
  * @return {undefined}
  */
-SUI.Widget.prototype.setValue = function(value) {
+SUI.BaseWidget.prototype.setValue = function(value) {
   this.input.getNode().value = value;
   this.input.setAttribute('value', value);
   this.input.trigger('change');
@@ -175,21 +175,21 @@ SUI.Widget.prototype.setValue = function(value) {
 /**
  * @return {boolean}
  */
-SUI.Widget.prototype.exists = function() {
+SUI.BaseWidget.prototype.exists = function() {
   return this.existsInputBlock() || this.existsInput();
 };
 
 /**
  * @return {boolean}
  */
-SUI.Widget.prototype.existsInput = function() {
+SUI.BaseWidget.prototype.existsInput = function() {
   return !!this.input && this.input.exists();
 };
 
 /**
  * @return {boolean}
  */
-SUI.Widget.prototype.existsInputBlock = function() {
+SUI.BaseWidget.prototype.existsInputBlock = function() {
   return !!this.inputBlock && this.inputBlock.exists();
 };
 
@@ -197,7 +197,7 @@ SUI.Widget.prototype.existsInputBlock = function() {
  * @param {string} attribute
  * @return {*}
  */
-SUI.Widget.prototype.get = function(attribute) {
+SUI.BaseWidget.prototype.get = function(attribute) {
   if (attribute === 'model') {
     return this.getName();
   }
@@ -207,7 +207,7 @@ SUI.Widget.prototype.get = function(attribute) {
 /**
  * @return {boolean}
  */
-SUI.Widget.prototype.isRequired = function() {
+SUI.BaseWidget.prototype.isRequired = function() {
   return this.input.getNode().required;
 };
 
@@ -215,7 +215,7 @@ SUI.Widget.prototype.isRequired = function() {
  * @param {boolean} state
  * @return {undefined}
  */
-SUI.Widget.prototype.setRequired = function(state) {
+SUI.BaseWidget.prototype.setRequired = function(state) {
   if (state) {
     this.input.setAttribute('required');
   } else {
@@ -229,14 +229,14 @@ SUI.Widget.prototype.setRequired = function(state) {
 /**
  * @return {boolean}
  */
-SUI.Widget.prototype.isEnabled = function() {
+SUI.BaseWidget.prototype.isEnabled = function() {
   return !this.isDisabled();
 };
 
 /**
  * @return {boolean}
  */
-SUI.Widget.prototype.isDisabled = function() {
+SUI.BaseWidget.prototype.isDisabled = function() {
   return this.input.getNode().disabled;
 };
 
@@ -244,7 +244,7 @@ SUI.Widget.prototype.isDisabled = function() {
  * @param {boolean} state
  * @return {undefined}
  */
-SUI.Widget.prototype.setDisabled = function(state) {
+SUI.BaseWidget.prototype.setDisabled = function(state) {
   if (state) {
     this.input.setAttribute('disabled');
   } else {
@@ -257,7 +257,7 @@ SUI.Widget.prototype.setDisabled = function(state) {
 /**
  * @return {boolean}
  */
-SUI.Widget.prototype.isVisible = function() {
+SUI.BaseWidget.prototype.isVisible = function() {
   return !this.inputBlock.hasClass('hidden');
 };
 
@@ -265,7 +265,7 @@ SUI.Widget.prototype.isVisible = function() {
  * @param {boolean} state
  * @return {undefined}
  */
-SUI.Widget.prototype.setVisibility = function(state) {
+SUI.BaseWidget.prototype.setVisibility = function(state) {
   if (state) {
     this.show();
   } else {
@@ -276,7 +276,7 @@ SUI.Widget.prototype.setVisibility = function(state) {
 /**
  * @return {undefined}
  */
-SUI.Widget.prototype.show = function() {
+SUI.BaseWidget.prototype.show = function() {
   if (!this.isVisible()) {
     this.inputBlock.removeClass('hidden');
   }
@@ -285,7 +285,7 @@ SUI.Widget.prototype.show = function() {
 /**
  * @return {undefined}
  */
-SUI.Widget.prototype.hide = function() {
+SUI.BaseWidget.prototype.hide = function() {
   if (this.isVisible()) {
     this.inputBlock.addClass('hidden');
   }
@@ -295,7 +295,7 @@ SUI.Widget.prototype.hide = function() {
  * @param {string} text
  * @return {undefined}
  */
-SUI.Widget.prototype.setLabel = function(text) {
+SUI.BaseWidget.prototype.setLabel = function(text) {
   if (this.label && !this.label.isEmpty()) {
     this.label.setHtml(text);
     this._setAdditionalLabel(this.label);
@@ -306,7 +306,7 @@ SUI.Widget.prototype.setLabel = function(text) {
  * @private
  * @return {undefined}
  */
-SUI.Widget.prototype._setInfoContainer = function() {
+SUI.BaseWidget.prototype._setInfoContainer = function() {
   if (this.inputBlock && !this.inputBlock.isEmpty()) {
     this.infoContainerNode = new SUI.Query('.info-container', this.inputBlock).getItem();
     if (this.infoContainerNode.isEmpty()) {
@@ -321,7 +321,7 @@ SUI.Widget.prototype._setInfoContainer = function() {
  * @private
  * @return {undefined}
  */
-SUI.Widget.prototype._setActionContainer = function() {
+SUI.BaseWidget.prototype._setActionContainer = function() {
   if (this.inputBlock && !this.inputBlock.isEmpty()) {
     this.actionContainerNode = new SUI.Query('.action-container', this.inputBlock).getItem();
     if (this.actionContainerNode.isEmpty()) {
@@ -337,7 +337,7 @@ SUI.Widget.prototype._setActionContainer = function() {
  * @param {!SUI.Node} label
  * @return {undefined}
  */
-SUI.Widget.prototype._setInfo = function(label) {
+SUI.BaseWidget.prototype._setInfo = function(label) {
   const title = /** @type {string} */ (label.getAttribute('title'));
   const description = /** @type {string} */ (label.getAttribute('desc'));
   if (title || description) {
@@ -362,7 +362,7 @@ SUI.Widget.prototype._setInfo = function(label) {
  * @param {!SUI.Node|undefined} label
  * @return {undefined}
  */
-SUI.Widget.prototype._setAdditionalLabel = function(label) {
+SUI.BaseWidget.prototype._setAdditionalLabel = function(label) {
   if (label && label.exists()) {
     const labelText = this._getLabelRequiredText(label.getHtml(true));
     label.setHtml(labelText);
@@ -375,7 +375,7 @@ SUI.Widget.prototype._setAdditionalLabel = function(label) {
  * @param {string} labelText
  * @return {string}
  */
-SUI.Widget.prototype._getLabelRequiredText = function(labelText) {
+SUI.BaseWidget.prototype._getLabelRequiredText = function(labelText) {
   if (SUI.eq(labelText, true)) {
     return '&nbsp;';
   }
@@ -394,7 +394,7 @@ SUI.Widget.prototype._getLabelRequiredText = function(labelText) {
  * @private
  * @return {undefined}
  */
-SUI.Widget.prototype._setMutation = function() {
+SUI.BaseWidget.prototype._setMutation = function() {
   const observer = new MutationObserver((mutationsList) => {
     for (let i = 0; i < mutationsList.length; i++) {
       const mutation = mutationsList[i];

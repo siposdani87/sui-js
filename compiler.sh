@@ -3,7 +3,7 @@
 java -jar node_modules/google-closure-compiler-java/compiler.jar \
 --compilation_level ADVANCED \
 --language_in ECMASCRIPT_NEXT \
---language_out ECMASCRIPT5_STRICT \
+--language_out ECMASCRIPT_2015 \
 --warning_level VERBOSE \
 --externs node_modules/sui-externs/*.js \
 --formatting SINGLE_QUOTES \

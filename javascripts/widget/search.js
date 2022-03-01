@@ -2,12 +2,12 @@ goog.provide('SUI.widget.Search');
 
 goog.require('SUI');
 goog.require('SUI.Node');
-goog.require('SUI.Widget');
+goog.require('SUI.BaseWidget');
 goog.require('SUI.widget');
 
 /**
  * @constructor
- * @extends {SUI.Widget}
+ * @extends {SUI.BaseWidget}
  * @this {SUI.widget.Search}
  * @param {!SUI.Node} input
  * @param {!SUI.Node} label
@@ -18,7 +18,7 @@ SUI.widget.Search = function(input, label, error, inputBlock) {
   SUI.widget.Search.base(this, 'constructor', input, label, error, inputBlock);
   this._init();
 };
-goog.inherits(SUI.widget.Search, SUI.Widget);
+goog.inherits(SUI.widget.Search, SUI.BaseWidget);
 
 /**
  * @private
