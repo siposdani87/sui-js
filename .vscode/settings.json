@@ -2,7 +2,9 @@
     "files.exclude": {
         "**/node_modules": true
     },
-    "search.exclude": {},
+    "search.exclude": {
+        "dist": true,
+    },
     "javascript.format.insertSpaceAfterFunctionKeywordForAnonymousFunctions": false,
     "javascript.format.insertSpaceAfterOpeningAndBeforeClosingNonemptyBraces": false,
     "editor.tabSize": 2,

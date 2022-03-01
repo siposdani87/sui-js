@@ -2,12 +2,12 @@ goog.provide('SUI.widget.Button');
 
 goog.require('SUI');
 goog.require('SUI.Node');
-goog.require('SUI.Widget');
+goog.require('SUI.BaseWidget');
 goog.require('SUI.widget');
 
 /**
  * @constructor
- * @extends {SUI.Widget}
+ * @extends {SUI.BaseWidget}
  * @this {SUI.widget.Button}
  * @param {!SUI.Node} input
  */
@@ -15,7 +15,7 @@ SUI.widget.Button = function(input) {
   SUI.widget.Button.base(this, 'constructor', input);
   this._init();
 };
-goog.inherits(SUI.widget.Button, SUI.Widget);
+goog.inherits(SUI.widget.Button, SUI.BaseWidget);
 
 /**
  * @private

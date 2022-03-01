@@ -5,12 +5,12 @@ goog.requireType('SUI.Form');
 goog.require('SUI');
 goog.require('SUI.Node');
 goog.require('SUI.Query');
-goog.require('SUI.Widget');
+goog.require('SUI.BaseWidget');
 goog.require('SUI.widget');
 
 /**
  * @constructor
- * @extends {SUI.Widget}
+ * @extends {SUI.BaseWidget}
  * @this {SUI.widget.Radiobutton}
  * @param {!SUI.Node} input
  * @param {!SUI.Node} label
@@ -22,7 +22,7 @@ SUI.widget.Radiobutton = function(input, label, error, inputBlock, form) {
   SUI.widget.Radiobutton.base(this, 'constructor', input, label, error, inputBlock, form);
   this._init();
 };
-goog.inherits(SUI.widget.Radiobutton, SUI.Widget);
+goog.inherits(SUI.widget.Radiobutton, SUI.BaseWidget);
 
 /**
  * @private

@@ -5,7 +5,7 @@ goog.requireType('SUI.Form');
 goog.require('SUI');
 goog.require('SUI.Query');
 goog.require('SUI.Node');
-goog.require('SUI.Widget');
+goog.require('SUI.BaseWidget');
 goog.require('SUI.widget.Button');
 goog.require('SUI.widget.Checkbox');
 goog.require('SUI.widget.Color');
@@ -30,10 +30,10 @@ goog.require('SUI.widget.Url');
 /**
  * @constructor
  * @this {SUI.FormWidget}
- * @extends {SUI.Widget}
+ * @extends {SUI.BaseWidget}
  * @param {!SUI.Node} inputBlock
  * @param {!SUI.Form} form
- * @return {?SUI.Widget}
+ * @return {?SUI.BaseWidget}
  */
 SUI.FormWidget = function(inputBlock, form) {
   let input = inputBlock;
@@ -69,7 +69,7 @@ SUI.FormWidget = function(inputBlock, form) {
  * @param {?SUI.Node} error
  * @param {!SUI.Node} inputBlock
  * @param {!SUI.Form} form
- * @return {?SUI.Widget}
+ * @return {?SUI.BaseWidget}
  */
 SUI.FormWidget.prototype._getWidget = function(input, label, error, inputBlock, form) {
   input.addClass('init-widget');

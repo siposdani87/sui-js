@@ -3,12 +3,12 @@ goog.provide('SUI.widget.BaseCheckbox');
 goog.require('SUI');
 goog.require('SUI.Node');
 goog.require('SUI.Query');
-goog.require('SUI.Widget');
+goog.require('SUI.BaseWidget');
 goog.require('SUI.widget');
 
 /**
  * @constructor
- * @extends {SUI.Widget}
+ * @extends {SUI.BaseWidget}
  * @this {SUI.widget.BaseCheckbox}
  * @param {!SUI.Node} input
  * @param {!SUI.Node} label
@@ -19,7 +19,7 @@ SUI.widget.BaseCheckbox = function(input, label, error, inputBlock) {
   SUI.widget.BaseCheckbox.base(this, 'constructor', input, label, error, inputBlock);
   this._init();
 };
-goog.inherits(SUI.widget.BaseCheckbox, SUI.Widget);
+goog.inherits(SUI.widget.BaseCheckbox, SUI.BaseWidget);
 
 /**
  * @protected

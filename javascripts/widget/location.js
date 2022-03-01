@@ -3,12 +3,12 @@ goog.provide('SUI.widget.Location');
 goog.require('SUI');
 goog.require('SUI.GoogleMap');
 goog.require('SUI.Node');
-goog.require('SUI.Widget');
+goog.require('SUI.BaseWidget');
 goog.require('SUI.widget');
 
 /**
  * @constructor
- * @extends {SUI.Widget}
+ * @extends {SUI.BaseWidget}
  * @this {SUI.widget.Location}
  * @param {!SUI.Node} input
  * @param {!SUI.Node} label
@@ -19,7 +19,7 @@ SUI.widget.Location = function(input, label, error, inputBlock) {
   SUI.widget.Location.base(this, 'constructor', input, label, error, inputBlock);
   this._init();
 };
-goog.inherits(SUI.widget.Location, SUI.Widget);
+goog.inherits(SUI.widget.Location, SUI.BaseWidget);
 
 /**
  * @private
