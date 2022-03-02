@@ -5,7 +5,7 @@
     "output-file": "coverage/sass-lint.html"
   },
   "files": {
-    "include": "stylesheets/**/*.s+(a|c)ss",
+    "include": "styles/**/*.s+(a|c)ss",
     "ignore": [
       "node_modules/**/*.*"
     ]

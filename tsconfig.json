@@ -1,21 +1,14 @@
 {
   "compilerOptions": {
-    "allowJs": true,
-    // "checkJs": false,
+    "module": "ESNext",
+    "target": "ES2015",
     "declaration": true,
-    "emitDeclarationOnly": true,
-    // "declarationDir": "types",
-    "outFile": "types/index.d.ts",
-    // "declarationMap": true,
-    "types": ["google-closure-library-types"],
+    "outDir": "out",
+    "types": ["google.maps"],
     "lib": ["ESNext", "DOM"],
     "skipLibCheck": true
   },
   "include": [
-    // "node_modules/google-closure-library/closure/goog/base.js",
-    "javascripts/**/*.js"
-  ],
-  /* "exclude": [
-    "node_modules"
-  ] */
+    "src/**/*.ts"
+  ]
 }
