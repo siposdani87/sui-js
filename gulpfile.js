@@ -8,7 +8,8 @@ const browserSync = require('browser-sync').create();
 const modRewrite = require('connect-modrewrite');
 const sourcemaps = require('gulp-sourcemaps');
 
-// let files = ['javascripts/lib/*.js', 'javascripts/core/*.js', 'javascripts/module/*.js', 'javascripts/widget/*.js'];
+const scriptSrc = 'src/**/*.ts';
+const stylesSrc = 'styles/**/*.scss';
 
 const closureOptions = {
   compilation_level: 'ADVANCED',
@@ -23,7 +24,7 @@ const closureOptions = {
   jscomp_off: ['strictMissingProperties', 'useOfGoogProvide', 'deprecated'],
   hide_warnings_for: ['test/', 'base.js'],
   generate_exports: true,
-  define: 'SUI.production=true',
+  define: 'releaseMode=true',
 };
 
 const sassOptions = {
@@ -31,17 +32,17 @@ const sassOptions = {
 };
 
 gulp.task('compile:styles:minify', gulp.series(function() {
-  return gulp.src('stylesheets/**/sui.min.scss').pipe(sourcemaps.init()).pipe(sass(sassOptions).on('error', sass.logError)).pipe(sourcemaps.write('/')).pipe(gulp.dest('dist'));
+  return gulp.src('styles/**/sui.min.scss').pipe(sourcemaps.init()).pipe(sass(sassOptions).on('error', sass.logError)).pipe(sourcemaps.write('/')).pipe(gulp.dest('dist'));
 }));
 
 gulp.task('compile:styles', gulp.series(function() {
-  return gulp.src('stylesheets/**/sui.scss').pipe(sourcemaps.init()).pipe(sass(Object.assign(sassOptions, {
+  return gulp.src('styles/**/sui.scss').pipe(sourcemaps.init()).pipe(sass(Object.assign(sassOptions, {
     outputStyle: 'expanded',
   })).on('error', sass.logError)).pipe(sourcemaps.write('/')).pipe(gulp.dest('dist'));
 }));
 
 gulp.task('compile:scripts:minify', gulp.series(function() {
-  return gulp.src(['node_modules/google-closure-library/closure/goog/base.js', 'javascripts/**/*.js']).pipe(closureCompiler.gulp({
+  return gulp.src(['node_modules/google-closure-library/closure/goog/base.js', scriptSrc]).pipe(closureCompiler.gulp({
     requireStreamInput: true,
   })(Object.assign(closureOptions, {
     output_manifest: 'dist/sui.min.js.mf',
@@ -51,7 +52,7 @@ gulp.task('compile:scripts:minify', gulp.series(function() {
 }));
 
 gulp.task('compile:scripts:debug', gulp.series(function() {
-  return gulp.src(['node_modules/google-closure-library/closure/goog/base.js', 'javascripts/**/*.js']).pipe(closureCompiler.gulp({
+  return gulp.src(['node_modules/google-closure-library/closure/goog/base.js', scriptSrc]).pipe(closureCompiler.gulp({
     requireStreamInput: true,
   })(Object.assign(closureOptions, {
     compilation_level: 'WHITESPACE_ONLY',
@@ -59,7 +60,7 @@ gulp.task('compile:scripts:debug', gulp.series(function() {
     language_out: 'ECMASCRIPT_2016',
     debug: true,
     generate_exports: false,
-    define: 'SUI.production=false',
+    define: 'releaseMode=false',
     output_manifest: 'dist/sui.debug.js.mf',
     // create_source_map: 'dist/sui.debug.js.map',
     js_output_file: 'sui.debug.js',
@@ -67,11 +68,11 @@ gulp.task('compile:scripts:debug', gulp.series(function() {
 }));
 
 gulp.task('compile:scripts', gulp.series(function() {
-  return gulp.src(['node_modules/google-closure-library/closure/goog/base.js', 'javascripts/**/*.js']).pipe(closureCompiler.gulp({
+  return gulp.src(['node_modules/google-closure-library/closure/goog/base.js', scriptSrc]).pipe(closureCompiler.gulp({
     requireStreamInput: true,
   })(Object.assign(closureOptions, {
     compilation_level: 'SIMPLE',
-    define: 'SUI.production=false',
+    define: 'releaseMode=false',
     output_manifest: 'dist/sui.js.mf',
     // create_source_map: 'dist/sui.js.map',
     js_output_file: 'sui.js',
@@ -79,11 +80,11 @@ gulp.task('compile:scripts', gulp.series(function() {
 }));
 
 gulp.task('watcher', gulp.series(function(done) {
-  gulp.watch('stylesheets/**/*.scss', gulp.series('compile:styles:minify', function(cb) {
+  gulp.watch(stylesSrc, gulp.series('compile:styles:minify', function(cb) {
     browserSync.reload();
     cb();
   }));
-  gulp.watch('javascripts/**/*.js', gulp.series('compile:scripts:debug', function(cb) {
+  gulp.watch(scriptSrc, gulp.series('compile:scripts:debug', function(cb) {
     browserSync.reload();
     cb();
   }));
@@ -96,7 +97,7 @@ gulp.task('default', gulp.series('compile:styles:minify', 'compile:styles', 'com
 
 gulp.task('jsdoc', gulp.series(function(done) {
   const config = require('./jsdoc.json');
-  gulp.src(['README.md', 'javascripts/**/*.js'], {read: false}).pipe(jsdoc(config, done));
+  gulp.src(['README.md', scriptSrc], {read: false}).pipe(jsdoc(config, done));
 }));
 
 gulp.task('serve', gulp.series('watcher', function(done) {
@@ -114,8 +115,8 @@ gulp.task('serve', gulp.series('watcher', function(done) {
     browser: 'default',
   });
 
-  gulp.watch('stylesheets/**/*.scss').on('change', browserSync.reload);
-  gulp.watch('javascripts/**/*.js').on('change', browserSync.reload);
+  gulp.watch(stylesSrc).on('change', browserSync.reload);
+  gulp.watch(scriptSrc).on('change', browserSync.reload);
   gulp.watch('index.html').on('change', browserSync.reload);
   done();
 }));

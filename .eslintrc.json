@@ -5,13 +5,16 @@
 	},
 	"parserOptions": {
 		"ecmaVersion": "latest",
-		"sourceType": "script",
+		"sourceType": "module",
 		"ecmaFeatures": {
 			"jsx": false
 		}
 	},
 	"extends": [
 		"google"
+	],
+	"plugins": [
+		"jsdoc"
 	],
 	"rules": {
 		"linebreak-style": "off",
@@ -29,15 +32,7 @@
 	},
 	"overrides": [
 		{
-			"files": [
-				"javascripts/lib/browser.js"
-			],
-			"rules": {
-				"spaced-comment": "off"
-			}
-		},
-		{
-			"files": "javascripts/core/sui.js",
+			"files": "src/base.ts",
 			"rules": {
 				"new-cap": "off"
 			}

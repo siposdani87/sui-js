@@ -15,8 +15,8 @@
   "author": "Dániel Sipos",
   "homepage": "https://siposdani87.com",
   "files": [
-    "javascripts/*",
-    "stylesheets/*",
+    "src/*",
+    "styles/*",
     "dist/*",
     "package.json"
   ],
@@ -29,13 +29,15 @@
     "sui-externs": "git+https://siposdani87:pTUa5kZeCCawnTzkYVUV@bitbucket.org/siposdani87/sui-externs.git#develop"
   },
   "devDependencies": {
+    "@types/google.maps": "3.48.1",
     "browser-sync": "2.27.7",
-    "clean-jsdoc-theme": "^3.3.3",
+    "clean-jsdoc-theme": "3.3.3",
     "connect-modrewrite": "0.10.2",
     "eslint": "^7.32.0",
     "eslint-config-google": "0.14.0",
+    "eslint-plugin-jsdoc": "37.9.6",
     "google-closure-compiler": "20220202.0.0",
-    "google-closure-library-types": "^0.1.17",
+    "google-closure-library-types": "0.1.17",
     "gulp": "4.0.2",
     "gulp-cli": "2.3.0",
     "gulp-insert": "0.5.0",

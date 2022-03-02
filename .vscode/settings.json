@@ -4,6 +4,7 @@
     },
     "search.exclude": {
         "dist": true,
+        "out": true
     },
     "javascript.format.insertSpaceAfterFunctionKeywordForAnonymousFunctions": false,
     "javascript.format.insertSpaceAfterOpeningAndBeforeClosingNonemptyBraces": false,
