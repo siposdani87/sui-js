@@ -1,67 +1,71 @@
-
-import { isFunction } from '../base';
+import { isFunction } from '../utils/operation';
 import { Collection } from './collection';
 import { Item } from './item';
 
 /**
- * @constructor
+ * @class
  * @export
- * @this {Query}
  * @extends {Collection}
- * @param {string} selector
- * @param {!Element|!Item=} opt_element
  */
-export const Query = function(selector, opt_element?) {
-  this.element = opt_element || document;
-  if (isFunction(this.element.getNode)) {
-    this.element = this.element.getNode();
-  }
+export class Query extends Collection {
+    /**
+     * @param {string} selector
+     * @param {!Element|!Item=} opt_element
+     */
+    constructor(selector, opt_element?) {
+        let element = opt_element || document;
+        if (isFunction(element.getNode)) {
+            element = element.getNode();
+        }
 
-  const items = this._querySelector(selector);
-  Collection.call(this, items, Item, {
-    parent: null,
-  });
-};
-Query.prototype = Object.create(Collection.prototype);
-Query.prototype.constructor = Query;
+        const items = querySelector(selector, element);
+        super(items, Item, {
+            parent: null,
+        });
+    }
+    /**
+     * @export
+     * @return {!Item}
+     */
+    getItem() {
+        let firstNode = /** @type {!Item} */ this.get(0);
+        if (!firstNode) {
+            firstNode = new Item(null);
+        }
+        return firstNode;
+    }
+}
 
 /**
  * @param {string} selector
+ * @param {!Element|!Item} element
  * @return {!Array}
- * @private
  */
-Query.prototype._querySelector = function(selector) {
-  let nodeList = [];
-  if (selector.indexOf(' ') !== -1 || selector.split('.').length - 1 > 1 || (selector.indexOf('.') > -1 && selector.indexOf('.') !== 0) || selector.indexOf('[') !== -1) {
-    nodeList = this.element.querySelectorAll(selector);
-  } else if (selector.indexOf('#') === 0) {
-    if (!isFunction(this.element.getElementById)) {
-      this.element = document;
+const querySelector = (selector, element) => {
+    let nodeList = [];
+    if (
+        selector.indexOf(' ') !== -1 ||
+        selector.split('.').length - 1 > 1 ||
+        (selector.indexOf('.') > -1 && selector.indexOf('.') !== 0) ||
+        selector.indexOf('[') !== -1
+    ) {
+        nodeList = element.querySelectorAll(selector);
+    } else if (selector.indexOf('#') === 0) {
+        if (!isFunction(element.getElementById)) {
+            element = document;
+        }
+        const node = element.getElementById(selector.replace('#', ''));
+        nodeList.push(node);
+    } else if (selector.indexOf('.') === 0) {
+        nodeList = element.getElementsByClassName(selector.replace('.', ''));
+    } else {
+        nodeList = element.getElementsByTagName(selector);
     }
-    const node = this.element.getElementById(selector.replace('#', ''));
-    nodeList.push(node);
-  } else if (selector.indexOf('.') === 0) {
-    nodeList = this.element.getElementsByClassName(selector.replace('.', ''));
-  } else {
-    nodeList = this.element.getElementsByTagName(selector);
-  }
-  const nodes = [];
-  for (let i = 0; i < nodeList.length; i++) {
-    if (nodeList[i]) {
-      nodes.push(nodeList[i]);
+    const nodes = [];
+    for (let i = 0; i < nodeList.length; i++) {
+        if (nodeList[i]) {
+            nodes.push(nodeList[i]);
+        }
     }
-  }
-  return nodes;
-};
-
-/**
- * @export
- * @return {!Item}
- */
-Query.prototype.getItem = function() {
-  let firstNode = /** @type {!Item} */ (this.get(0));
-  if (!firstNode) {
-    firstNode = new Item(null);
-  }
-  return firstNode;
+    return nodes;
 };

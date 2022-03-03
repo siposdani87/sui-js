@@ -1,0 +1,45 @@
+.search-field {
+
+  &.mdl-textfield--expandable .mdl-button--icon {
+    top: 20px;
+  }
+
+  .mdl-textfield__error {
+    bottom: 0;
+  }
+
+  &:not(.is-focused):not(.is-dirty) {
+    .mdl-textfield__expandable-holder {
+      .mdl-textfield__input {
+        border: 0;
+      }
+    }
+  }
+
+  .clear-button {
+    display: none;
+    position: absolute;
+    right: 5px;
+    top: 4px;
+    color: $primary-default-light;
+  }
+
+  .search-button {
+    color: $primary-default-light;
+  }
+
+  &.is-focused,
+  &.is-dirty {
+    .clear-button {
+      display: inline-block;
+    }
+  }
+
+  &.is-disabled {
+
+    .clear-button,
+    .search-button {
+      color: $primary-disabled-light;
+    }
+  }
+}

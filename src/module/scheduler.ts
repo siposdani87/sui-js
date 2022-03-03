@@ -1,39 +1,41 @@
-import { isFunction } from "../base";
-import { Objekt } from "../core/objekt";
+import { isFunction } from '../utils/operation';
+import { Objekt } from '../core/objekt';
 
 /**
- * @constructor
- * @this {Scheduler}
+ * @class
  */
-export const Scheduler = function() {
-  this.schedulerContainer = new Objekt();
+export class Scheduler {
+    schedulerStore: Objekt;
+    /**
+     */
+    constructor() {
+        this.schedulerStore = new Objekt();
 
-  this._callRunner();
-};
-
-/**
- * @private
- * @return {undefined}
- */
-Scheduler.prototype._callRunner = function() {
-  /* setTimeout(() => {
-    eachObject(this.schedulerContainer, (schedulerCallbacks, timeKey) => {
-
-    });
-  }, 1000);*/
-};
-
-/**
- * @param {string} time
- * @param {!Function} callback
- * @return {!Function}
- */
-Scheduler.prototype.everyDay = function(time, callback) {
-  const name = time; // window['moment']
-  if (isFunction(callback)) {
-    const schedulers = this.schedulerContainer.get(name, []);
-    schedulers.push(callback);
-    this.schedulerContainer.set(name, schedulers);
-  }
-  return callback;
-};
+        this._callRunner();
+    }
+    /**
+     * @private
+     * @return {undefined}
+     */
+    _callRunner() {
+        /* setTimeout(() => {
+      eachObject(this.schedulerStore, (schedulerCallbacks, timeKey) => {
+  
+      });
+    }, 1000);*/
+    }
+    /**
+     * @param {string} time
+     * @param {!Function} callback
+     * @return {!Function}
+     */
+    everyDay(time, callback) {
+        const name = time; // window['moment']
+        if (isFunction(callback)) {
+            const schedulers = this.schedulerStore.get(name, []);
+            schedulers.push(callback);
+            this.schedulerStore.set(name, schedulers);
+        }
+        return callback;
+    }
+}

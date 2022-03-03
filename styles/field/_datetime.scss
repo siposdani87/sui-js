@@ -1,0 +1,54 @@
+.datetime-field {
+
+  .expander {
+    vertical-align: middle;
+    cursor: pointer;
+    margin-left: -30px;
+    color: $primary-default-light;
+  }
+
+  .field-label {
+    margin-right: 10px;
+    font-size: 16px;
+    position: absolute;
+    top: -2px;
+    color: $label-default-light;
+  }
+
+  .datetime-container {
+    position: relative;
+    display: flex;
+    align-items: center;
+  }
+
+  .datetime-input {
+    flex: 1 0 100%;
+    display: inline-block;
+    padding: 2px 30px 0 2px;
+    border: 1px solid $input-default-light;
+    border-radius: 3px;
+    min-height: 32px;
+    cursor: pointer;
+  }
+
+  .datetime {
+    display: flex;
+    align-items: center;
+  }
+
+  &.is-disabled {
+
+    .field-label {
+      color: $label-disabled-light;
+    }
+
+    .expander {
+      color: $primary-disabled-light;
+    }
+
+    .datetime-input {
+      border-style: dotted;
+      border-color: $input-disabled-light;
+    }
+  }
+}

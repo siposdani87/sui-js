@@ -1,7 +1,6 @@
 /.sass-cache
 /node_modules
 /docs
-/out
 
 /package-lock.json
 /yarn.lock

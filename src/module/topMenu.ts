@@ -1,70 +1,73 @@
-import { Query } from "../core/query";
+import { Query } from '../core/query';
 
 /**
- * @constructor
- * @param {!Header} header
- * @this {TopMenu}
+ * @class
  */
-export const TopMenu = function(header) {
-  this.header = header;
-  this._init();
-};
+export class TopMenu {
+    header: any;
+    topMenu: any;
+    toggleTopMenu: any;
+    /**
+     * @param {!Header} header
+     */
+    constructor(header) {
+        this.header = header;
+        this._init();
+    }
+    /**
+     * @private
+     * @return {undefined}
+     */
+    _init() {
+        this.topMenu = new Query('#top-menu', this.header.headerNode).getItem();
 
-/**
- * @private
- * @return {undefined}
- */
-TopMenu.prototype._init = function() {
-  this.topMenu = new Query('#top-menu', this.header.headerNode).getItem();
-
-  this.toggleTopMenu = new Query('#toggle-top-menu', this.header.headerNode).getItem();
-  this.toggleTopMenu.setAttribute('href', 'javascript:void(0)');
-  this.toggleTopMenu.addEventListener('click', () => {
-    this.toggle();
-  });
-};
-
-/**
- * @return {undefined}
- */
-TopMenu.prototype.toggle = function() {
-  if (this.isOpened()) {
-    this.close();
-  } else {
-    this.open();
-  }
-};
-
-/**
- * @return {boolean}
- */
-TopMenu.prototype.isOpened = function() {
-  return this.topMenu.hasClass('visible-flex');
-};
-
-/**
- * @return {undefined}
- */
-TopMenu.prototype.open = function() {
-  this.header.open();
-  this.topMenu.addClass('visible-flex');
-  this.toggleTopMenu.addClass('active');
-  this.header.showShadow();
-};
-
-/**
- * @return {undefined}
- */
-TopMenu.prototype.close = function() {
-  this.header.close();
-  this.topMenu.removeClass('visible-flex');
-  this.toggleTopMenu.removeClass('active');
-  this.header.hideShadow();
-};
-
-/**
- * @return {!Item}
- */
-TopMenu.prototype.getContainer = function() {
-  return this.topMenu;
-};
+        this.toggleTopMenu = new Query(
+            '#toggle-top-menu',
+            this.header.headerNode,
+        ).getItem();
+        this.toggleTopMenu.setAttribute('href', 'javascript:void(0)');
+        this.toggleTopMenu.addEventListener('click', () => {
+            this.toggle();
+        });
+    }
+    /**
+     * @return {undefined}
+     */
+    toggle() {
+        if (this.isOpened()) {
+            this.close();
+        } else {
+            this.open();
+        }
+    }
+    /**
+     * @return {boolean}
+     */
+    isOpened() {
+        return this.topMenu.hasClass('visible-flex');
+    }
+    /**
+     * @return {undefined}
+     */
+    open() {
+        this.header.open();
+        this.topMenu.addClass('visible-flex');
+        this.toggleTopMenu.addClass('active');
+        this.header.showShadow();
+    }
+    /**
+     * @return {undefined}
+     */
+    close() {
+        this.header.close();
+        this.topMenu.removeClass('visible-flex');
+        this.toggleTopMenu.removeClass('active');
+        this.header.hideShadow();
+    }
+    /**
+     * @return {!Item}
+     */
+    getContainer() {
+        return this.topMenu;
+    }
+}

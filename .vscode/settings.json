@@ -3,11 +3,6 @@
         "**/node_modules": true
     },
     "search.exclude": {
-        "dist": true,
-        "out": true
-    },
-    "javascript.format.insertSpaceAfterFunctionKeywordForAnonymousFunctions": false,
-    "javascript.format.insertSpaceAfterOpeningAndBeforeClosingNonemptyBraces": false,
-    "editor.tabSize": 2,
-    "beautify.tabSize": 2
+        "dist": true
+    }
 }

@@ -1042,7 +1042,7 @@
   <script src="vendors/mapLabel.min.js"></script>
   <script src="dist/sui.debug.js"></script>
   <script>
-    var lightThemeNode = new Query('.light-theme').getItem()
+    var lightThemeNode = new Query$$module$core$query('.light-theme').getItem()
     var darkThemeNode = new Query('.dark-theme').getItem();
     darkThemeNode.setHtml(lightThemeNode.getHtml(true).replace(/light-/g, 'dark-'));
 

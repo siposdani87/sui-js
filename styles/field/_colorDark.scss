@@ -1,0 +1,31 @@
+.dark-theme {
+  .color-field {
+
+    .preview {
+      border: 1px solid $input-default-dark;
+    }
+
+    // input[required] ~ .preview {
+    //   border-color: $error-default-dark;
+    // }
+
+    .field-label {
+      color: $label-default-dark;
+    }
+
+    &.is-disabled {
+
+      .field-label {
+        color: $label-disabled-dark;
+      }
+
+      .preview {
+        border-color: $input-disabled-dark;
+      }
+
+      // input[required] ~ .preview {
+      //   border-color: $error-disabled-dark;
+      // }
+    }
+  }
+}

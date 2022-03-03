@@ -12,15 +12,14 @@ call java -jar node_modules/google-closure-compiler-java/compiler.jar^
  --jscomp_error "*"^
  --jscomp_warning "*"^
  --jscomp_off "strictMissingProperties"^
- --jscomp_off "useOfGoogProvide"^
- --jscomp_off "deprecated"^
- --hide_warnings_for src/test^
+ --hide_warnings_for dist/test^
  --hide_warnings_for node_modules/sui-externs^
  --hide_warnings_for node_modules/google-closure-library^
  --generate_exports^
  --define "releaseMode=true"^
- --js src/*.js^
- --js src/**/*.js^
+ --js node_modules/google-closure-library/closure/goog/base.js^
+ --js dist/*.js^
+ --js dist/**/*.js^
  --output_manifest dist/sui.min.js.mf^
  --create_source_map dist/sui.min.js.map^
  --js_output_file dist/sui.min.js

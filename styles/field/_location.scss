@@ -1,0 +1,53 @@
+.location-field {
+  .search-button,
+  .advanced-button {
+    color: $primary-default-light;
+
+    &.active {
+      color: $accent-default-light;
+    }
+  }
+
+  .advanced {
+    margin-top: 20px;
+    margin-bottom: -20px;
+  }
+
+  .map-lock {
+    background-color: rgba($input-disabled-light, .9);
+    position: absolute;
+    bottom: 20px;
+    width: 100%;
+    height: 200px;
+  }
+
+  .map {
+    margin-top: 20px;
+    border: 1px solid $input-default-light;
+    border-radius: 3px;
+    min-height: 200px;
+    height: 200px;
+    width: 100%;
+
+    label {
+      width: auto;
+      display: inline;
+    }
+
+    img {
+      max-width: none;
+      max-height: none;
+    }
+  }
+
+  &.is-disabled {
+    label {
+      color: $label-disabled-light;
+    }
+
+    .search-button,
+    .advanced-button {
+      color: $primary-disabled-light;
+    }
+  }
+}

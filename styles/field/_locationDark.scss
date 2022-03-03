@@ -1,0 +1,33 @@
+.dark-theme {
+  .location-field {
+
+    .search-button,
+    .advanced-button {
+      color: $primary-default-dark;
+
+      &.active {
+        color: $accent-default-dark;
+      }
+    }
+
+    .map-lock {
+      background-color: rgba($input-disabled-dark, .9);
+    }
+
+    .map {
+      border-color: $input-default-dark;
+
+    }
+
+    &.is-disabled {
+      label {
+        color: $label-disabled-dark;
+      }
+
+      .search-button,
+      .advanced-button {
+        color: $primary-disabled-dark;
+      }
+    }
+  }
+}

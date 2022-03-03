@@ -1,0 +1,38 @@
+.dark-theme {
+  .input-block {
+    .field-tag {
+      background-color: $input-default-dark;
+      color: $content-default-dark;
+
+      .close {
+        color: $content-default-dark;
+
+        &:hover {
+          color: $content-default-dark;
+        }
+      }
+    }
+
+    .active {
+      .field-tag {
+        background-color: $accent-default-dark;
+        color: $accent-text;
+      }
+    }
+
+    &.is-disabled {
+      .field-tag {
+        background-color: $input-disabled-dark;
+        color: $content-disabled-dark;
+
+        .close {
+          color: $content-disabled-dark;
+
+          &:hover {
+            color: $content-disabled-dark;
+          }
+        }
+      }
+    }
+  }
+}
