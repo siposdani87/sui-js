@@ -1,0 +1,18 @@
+.url-field {
+
+  // &.is-focused {
+  //   .protocol {
+  //     display: block;
+  //   }
+  // }
+
+  .protocol {
+    top: 20px;
+    width: 60px;
+    text-align: center;
+    display: none;
+    position: absolute;
+    background-color: $input-default-light;
+    border-radius: 3px;
+  }
+}

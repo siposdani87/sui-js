@@ -1,0 +1,29 @@
+.dark-theme {
+  .datetime-range-field {
+    .expander {
+      color: $primary-default-dark;
+    }
+
+    .field-label {
+      color: $label-default-dark;
+    }
+
+    .datetime-input {
+      border-color: $input-default-dark;
+    }
+
+    &.is-disabled {
+      .field-label {
+        color: $label-disabled-dark;
+      }
+
+      .expander {
+        color: $primary-disabled-dark;
+      }
+
+      .datetime-input {
+        border-color: $input-disabled-dark;
+      }
+    }
+  }
+}

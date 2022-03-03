@@ -1,89 +1,91 @@
-import { urlWithQueryString } from "../base";
-import { Deferred } from "../core/deferred";
-import { Item } from "../core/item";
-import { Objekt } from "../core/objekt";
-import { Query } from "../core/query";
+import { urlWithQueryString } from '../utils/operation';
+import { Deferred } from '../core/deferred';
+import { Item } from '../core/item';
+import { Objekt } from '../core/objekt';
+import { Query } from '../core/query';
 
 /**
- * @constructor
- * @this {Script}
- * @param {!ProgressBar} progressBar
- * @param {!Object=} opt_options
+ * @class
  */
-export const Script = function(progressBar, opt_options = {}) {
-  this.progressBar = progressBar;
-  this._setOptions(opt_options);
-  this._init();
-};
-
-/**
- * @private
- * @param {!Object=} opt_options
- * @return {undefined}
- */
-Script.prototype._setOptions = function(opt_options = {}) {
-  const _self = this;
-  _self.options = new Objekt();
-  _self.options.merge(opt_options);
-};
-
-/**
- * @private
- * @return {undefined}
- */
-Script.prototype._init = function() {
-  this.head = new Query('head').getItem();
-};
-
-/**
- * @param {string} id
- * @param {string} url
- * @param {!Object=} opt_params
- * @param {boolean=} opt_async
- * @param {boolean=} opt_defer
- * @return {!Promize}
- */
-Script.prototype.load = function(id, url, opt_params, opt_async = false, opt_defer = false) {
-  this.progressBar.show();
-  const deferred = new Deferred();
-  const script = new Query('#' + id);
-  if (script.size() > 0) {
-    this.progressBar.hide();
-    deferred.resolve();
-  } else {
-    const node = new Item('script');
-    node.setId(id);
-    node.setAttribute('src', urlWithQueryString(url, opt_params));
-    // TODO: check there is a good performance solution for script load
-    if (opt_async) {
-      node.setAttribute('async');
+export class Script {
+    progressBar: any;
+    options: Objekt;
+    head: any;
+    /**
+     * @param {!ProgressBar} progressBar
+     * @param {!Object=} opt_options
+     */
+    constructor(progressBar, opt_options = {}) {
+        this.progressBar = progressBar;
+        this._setOptions(opt_options);
+        this._init();
     }
-    if (opt_defer) {
-      node.setAttribute('defer');
+    /**
+     * @private
+     * @param {!Object=} opt_options
+     * @return {undefined}
+     */
+    _setOptions(opt_options = {}) {
+        const _self = this;
+        _self.options = new Objekt();
+        _self.options.merge(opt_options);
     }
+    /**
+     * @private
+     * @return {undefined}
+     */
+    _init() {
+        this.head = new Query('head').getItem();
+    }
+    /**
+     * @param {string} id
+     * @param {string} url
+     * @param {!Object=} opt_params
+     * @param {boolean=} opt_async
+     * @param {boolean=} opt_defer
+     * @return {!Promize}
+     */
+    load(id, url, opt_params, opt_async = false, opt_defer = false) {
+        this.progressBar.show();
+        const deferred = new Deferred();
+        const script = new Query('#' + id);
+        if (script.size() > 0) {
+            this.progressBar.hide();
+            deferred.resolve();
+        } else {
+            const node = new Item('script');
+            node.setId(id);
+            node.setAttribute('src', urlWithQueryString(url, opt_params));
+            // TODO: check there is a good performance solution for script load
+            if (opt_async) {
+                node.setAttribute('async');
+            }
+            if (opt_defer) {
+                node.setAttribute('defer');
+            }
 
-    node.setAttribute('onload', () => {
-      this.progressBar.hide();
-      deferred.resolve();
-    });
+            node.setAttribute('onload', () => {
+                this.progressBar.hide();
+                deferred.resolve();
+            });
 
-    node.setAttribute('onerror', () => {
-      this.progressBar.hide();
-      deferred.reject();
-    });
+            node.setAttribute('onerror', () => {
+                this.progressBar.hide();
+                deferred.reject();
+            });
 
-    this.head.appendChild(node);
-  }
-  return deferred.promise();
-};
-
-/**
- * @param {string} id
- * @return {undefined}
- */
-Script.prototype.remove = function(id) {
-  const script = new Query('#' + id).getItem();
-  if (!script.isEmpty()) {
-    script.remove();
-  }
-};
+            this.head.appendChild(node);
+        }
+        return deferred.promise();
+    }
+    /**
+     * @param {string} id
+     * @return {undefined}
+     */
+    remove(id) {
+        const script = new Query('#' + id).getItem();
+        if (!script.isEmpty()) {
+            script.remove();
+        }
+    }
+}

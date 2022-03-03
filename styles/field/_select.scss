@@ -1,0 +1,108 @@
+.select-field {
+  @keyframes rotation {
+    0% {
+      transform: rotate(0deg);
+    }
+
+    100% {
+      transform: rotate(359deg);
+    }
+  }
+
+  .popup {
+    width: 100%;
+  }
+
+  .select-container {
+    position: relative;
+  }
+
+  .expander {
+    color: $primary-default-light;
+
+    &.rotate {
+      animation-name: rotation;
+      animation-duration: 2s;
+      animation-iteration-count: infinite;
+    }
+  }
+
+  .field-label {
+    margin-right: 10px;
+    font-size: 16px;
+    position: absolute;
+    top: -2px;
+    color: $label-default-light;
+  }
+
+  .select-input {
+    width: 100%;
+    display: inline-block;
+    padding: 2px 30px 0 2px;
+    border: 1px solid $input-default-light;
+    border-radius: 3px;
+    min-height: 32px;
+    cursor: pointer;
+  }
+
+  .search-box {
+    padding: 5px 10px;
+    margin: -20px 0 -15px;
+  }
+
+  .options-list {
+    max-height: 180px;
+    min-width: 100px;
+    overflow-y: auto;
+
+    a {
+      display: block;
+      color: $black;
+      text-decoration: none;
+      padding: 3px 8px;
+
+      &:hover {
+        background-color: $input-disabled-light;
+      }
+
+      &.selected {
+        background-color: $input-default-light;
+      }
+
+      img {
+        display: inline-block;
+        max-height: 30px;
+        width: auto;
+        margin-right: 10px;
+        padding: 2px;
+      }
+    }
+  }
+
+  &.is-invalid {
+    .select-input {
+      border-color: $error-default-light;
+    }
+  }
+
+  &.is-disabled {
+    .field-label {
+      color: $label-disabled-light;
+    }
+
+    .expander {
+      color: $primary-disabled-light;
+    }
+
+    .select-input {
+      border-style: dotted;
+      border-color: $input-disabled-light;
+    }
+
+    &.is-invalid {
+      .select-input {
+        border-color: $error-disabled-light;
+      }
+    }
+  }
+}

@@ -1,0 +1,30 @@
+.number-field {
+
+  .step-change {
+    position: relative;
+    display: inline-block;
+    width: 24px;
+    height: 24px;
+    margin-left: 5px;
+  }
+
+  .up-button {
+    color: $primary-default-light;
+    position: absolute;
+    top: -7px;
+  }
+
+  .down-button {
+    color: $primary-default-light;
+    position: absolute;
+    top: 7px;
+  }
+
+  &.is-disabled {
+
+    .up-button,
+    .down-button {
+      color: $primary-disabled-light;
+    }
+  }
+}

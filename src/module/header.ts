@@ -1,144 +1,150 @@
-import { consoleWarn } from "../base";
-import { Objekt } from "../core/objekt";
-import { Query } from "../core/query";
+import { Objekt } from '../core/objekt';
+import { Query } from '../core/query';
+import { consoleWarn } from '../utils/log';
 
 /**
- * @constructor
- * @this {Header}
- * @param {!Object=} opt_options
+ * @class
  */
-export const Header = function(opt_options = {}) {
-  const _self = this;
-  _self.options = new Objekt();
-  _self.options.merge(opt_options);
+export class Header {
+    options: Objekt;
+    headerNode: any;
+    leftMenuButton: any;
+    topMenuButton: any;
+    brandNode: any;
+    brandNodeImage: any;
+    brandNodeTitle: any;
+    mainContainerNode: any;
+    templateViewNode: any;
+    /**
+     * @param {!Object=} opt_options
+     */
+    constructor(opt_options = {}) {
+        const _self = this;
+        _self.options = new Objekt();
+        _self.options.merge(opt_options);
 
-  this._init();
-};
+        this._init();
+    }
+    /**
+     * @private
+     * @return {undefined}
+     */
+    _init() {
+        this.headerNode = new Query('#header').getItem();
 
-/**
- * @private
- * @return {undefined}
- */
-Header.prototype._init = function() {
-  this.headerNode = new Query('#header').getItem();
+        this.leftMenuButton = new Query(
+            '#open-left-menu',
+            this.headerNode,
+        ).getItem();
+        this.topMenuButton = new Query(
+            '#toggle-top-menu',
+            this.headerNode,
+        ).getItem();
 
-  this.leftMenuButton = new Query('#open-left-menu', this.headerNode).getItem();
-  this.topMenuButton = new Query('#toggle-top-menu', this.headerNode).getItem();
+        this.brandNode = new Query('.brand', this.headerNode).getItem();
+        this.brandNode.setAttribute('href', 'javascript:void(0)');
+        this.brandNode.addEventListener('click', () => {
+            this.eventLogoClick();
+        });
 
-  this.brandNode = new Query('.brand', this.headerNode).getItem();
-  this.brandNode.setAttribute('href', 'javascript:void(0)');
-  this.brandNode.addEventListener('click', () => {
-    this.eventLogoClick();
-  });
+        this.brandNodeImage = new Query('.brand img', this.brandNode).getItem();
+        this.brandNodeTitle = new Query(
+            '.brand .app-title',
+            this.brandNode,
+        ).getItem();
 
-  this.brandNodeImage = new Query('.brand img', this.brandNode).getItem();
-  this.brandNodeTitle = new Query('.brand .app-title', this.brandNode).getItem();
-
-  this.mainContainerNode = new Query('.main-container').getItem();
-  this.templateViewNode = new Query('.template-view').getItem();
-};
-
-/**
- * @return {undefined}
- */
-Header.prototype.eventLogoClick = function() {
-  consoleWarn('Header.eventLogoClick()');
-};
-
-/**
- * @param {string} title
- * @return {undefined}
- */
-Header.prototype.setTitle = function(title) {
-  this.brandNodeTitle.setHtml(title);
-};
-
-/**
- * @param {string} url
- * @return {undefined}
- */
-Header.prototype.setUrl = function(url) {
-  this.brandNode.setAttribute('href', url);
-};
-
-/**
- * @param {string} imagePath
- * @return {undefined}
- */
-Header.prototype.setImage = function(imagePath) {
-  this.brandNodeImage.setAttribute('src', imagePath);
-};
-
-/**
- * @return {undefined}
- */
-Header.prototype.open = function() {
-  this.headerNode.addClass('open');
-};
-
-/**
- * @return {undefined}
- */
-Header.prototype.close = function() {
-  this.headerNode.removeClass('open');
-};
-
-/**
- * @return {undefined}
- */
-Header.prototype.show = function() {
-  this.headerNode.removeClass('hidden');
-  this.mainContainerNode.addClass('header-padding');
-  this.templateViewNode.addClass('has-header');
-};
-
-/**
- * @return {undefined}
- */
-Header.prototype.hide = function() {
-  this.headerNode.addClass('hidden');
-  this.mainContainerNode.removeClass('header-padding');
-  this.templateViewNode.removeClass('has-header');
-};
-
-/**
- * @return {undefined}
- */
-Header.prototype.showShadow = function() {
-  this.headerNode.addClass('shadow');
-};
-
-/**
- * @return {undefined}
- */
-Header.prototype.hideShadow = function() {
-  this.headerNode.removeClass('shadow');
-};
-
-/**
- * @return {undefined}
- */
-Header.prototype.showLeftMenuButton = function() {
-  this.leftMenuButton.removeClass('hidden');
-};
-
-/**
- * @return {undefined}
- */
-Header.prototype.hideLeftMenuButton = function() {
-  this.leftMenuButton.addClass('hidden');
-};
-
-/**
- * @return {undefined}
- */
-Header.prototype.showTopMenuButton = function() {
-  this.topMenuButton.removeClass('hidden');
-};
-
-/**
- * @return {undefined}
- */
-Header.prototype.hideTopMenuButton = function() {
-  this.topMenuButton.addClass('hidden');
-};
+        this.mainContainerNode = new Query('.main-container').getItem();
+        this.templateViewNode = new Query('.template-view').getItem();
+    }
+    /**
+     * @return {undefined}
+     */
+    eventLogoClick() {
+        consoleWarn('Header.eventLogoClick()');
+    }
+    /**
+     * @param {string} title
+     * @return {undefined}
+     */
+    setTitle(title) {
+        this.brandNodeTitle.setHtml(title);
+    }
+    /**
+     * @param {string} url
+     * @return {undefined}
+     */
+    setUrl(url) {
+        this.brandNode.setAttribute('href', url);
+    }
+    /**
+     * @param {string} imagePath
+     * @return {undefined}
+     */
+    setImage(imagePath) {
+        this.brandNodeImage.setAttribute('src', imagePath);
+    }
+    /**
+     * @return {undefined}
+     */
+    open() {
+        this.headerNode.addClass('open');
+    }
+    /**
+     * @return {undefined}
+     */
+    close() {
+        this.headerNode.removeClass('open');
+    }
+    /**
+     * @return {undefined}
+     */
+    show() {
+        this.headerNode.removeClass('hidden');
+        this.mainContainerNode.addClass('header-padding');
+        this.templateViewNode.addClass('has-header');
+    }
+    /**
+     * @return {undefined}
+     */
+    hide() {
+        this.headerNode.addClass('hidden');
+        this.mainContainerNode.removeClass('header-padding');
+        this.templateViewNode.removeClass('has-header');
+    }
+    /**
+     * @return {undefined}
+     */
+    showShadow() {
+        this.headerNode.addClass('shadow');
+    }
+    /**
+     * @return {undefined}
+     */
+    hideShadow() {
+        this.headerNode.removeClass('shadow');
+    }
+    /**
+     * @return {undefined}
+     */
+    showLeftMenuButton() {
+        this.leftMenuButton.removeClass('hidden');
+    }
+    /**
+     * @return {undefined}
+     */
+    hideLeftMenuButton() {
+        this.leftMenuButton.addClass('hidden');
+    }
+    /**
+     * @return {undefined}
+     */
+    showTopMenuButton() {
+        this.topMenuButton.removeClass('hidden');
+    }
+    /**
+     * @return {undefined}
+     */
+    hideTopMenuButton() {
+        this.topMenuButton.addClass('hidden');
+    }
+}

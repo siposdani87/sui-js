@@ -1,14 +1,15 @@
 {
   "compilerOptions": {
     "module": "ESNext",
-    "target": "ES2015",
+    "target": "ESNext",
+    "moduleResolution": "Node",
     "declaration": true,
-    "outDir": "out",
+    "outDir": "dist",
     "types": ["google.maps"],
     "lib": ["ESNext", "DOM"],
     "skipLibCheck": true
   },
   "include": [
-    "src/**/*.ts"
+    "src/**/*"
   ]
 }
