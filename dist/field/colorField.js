@@ -11,13 +11,6 @@ import { convertRGBToHEX } from '../utils/color';
  * @extends {BaseField}
  */
 export class ColorField extends BaseField {
-    tooltip;
-    previewNode;
-    colorNode;
-    popup;
-    canvas;
-    image;
-    colors;
     /**
      * @param {!Item} input
      * @param {!Item} label

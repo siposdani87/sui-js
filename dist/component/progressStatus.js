@@ -4,10 +4,6 @@ import { Query } from '../core/query';
  * @class
  */
 export class ProgressStatus {
-    progressStatusNode;
-    options;
-    iconNode;
-    textNode;
     /**
      * @param {!Item} dom
      * @param {string=} opt_selector

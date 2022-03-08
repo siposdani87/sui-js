@@ -6,13 +6,6 @@ import { Clock } from './clock';
  * @class
  */
 export class Date {
-    datetimeNode;
-    options;
-    types;
-    config;
-    calendarNode;
-    clockNode;
-    value;
     /**
      * @param {!Item} node
      * @param {!Object} options

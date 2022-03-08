@@ -53,6 +53,9 @@ export class DeferredTest extends BaseTest {
         this.testResolve();
         this.testReject();
     }
+    /**
+     *
+     */
     testPromise() {
         const deferred = new Deferred();
         const promise = deferred.promise();
@@ -60,6 +63,9 @@ export class DeferredTest extends BaseTest {
             this.showError('promise', 1);
         }
     }
+    /**
+     *
+     */
     testResolve() {
         this.ajaxResolve().then(
             (value) => {
@@ -83,6 +89,9 @@ export class DeferredTest extends BaseTest {
             },
         );
     }
+    /**
+     *
+     */
     testReject() {
         this.ajaxReject().then(
             () => {

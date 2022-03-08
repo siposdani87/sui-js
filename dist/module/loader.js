@@ -5,9 +5,6 @@ import { Query } from '../core/query';
  * @class
  */
 export class Loader {
-    options;
-    loader;
-    spinner;
     /**
      * @param {!Object=} opt_options
      */

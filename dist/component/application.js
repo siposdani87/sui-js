@@ -34,13 +34,6 @@ import { Scheduler } from '../module/scheduler';
  * @export
  */
 export class Application {
-    options;
-    types;
-    _injections;
-    _instances;
-    _module;
-    _routes;
-    _routeOptions;
     /**
      * @param {!Object} options
      * @param {!Object} resources

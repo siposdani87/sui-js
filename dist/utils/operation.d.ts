@@ -54,7 +54,7 @@ export declare const defaultValue: (value: any, defaultValue: any) => any;
  * @param {*=} opt_result
  * @return {!Function}
  */
-export declare const noop: (opt_result?: any | undefined) => (() => any);
+export declare const noop: (opt_result?: any) => (() => any);
 /**
  * @export
  * @param {*} a

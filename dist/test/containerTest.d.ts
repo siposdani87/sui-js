@@ -13,6 +13,12 @@ export declare class ContainerTest extends BaseTest {
      * @override
      */
     init(): void;
+    /**
+     *
+     */
     testInit(): void;
+    /**
+     *
+     */
     testLoad(): void;
 }

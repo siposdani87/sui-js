@@ -5,7 +5,6 @@ import { Objekt } from '../core/objekt';
  * @class
  */
 export class Event {
-    eventStore;
     /**
      */
     constructor() {

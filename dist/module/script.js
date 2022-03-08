@@ -7,9 +7,6 @@ import { Query } from '../core/query';
  * @class
  */
 export class Script {
-    progressBar;
-    options;
-    head;
     /**
      * @param {!ProgressBar} progressBar
      * @param {!Object=} opt_options

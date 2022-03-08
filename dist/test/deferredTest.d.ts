@@ -16,7 +16,16 @@ export declare class DeferredTest extends BaseTest {
      * @override
      */
     init(): void;
+    /**
+     *
+     */
     testPromise(): void;
+    /**
+     *
+     */
     testResolve(): void;
+    /**
+     *
+     */
     testReject(): void;
 }

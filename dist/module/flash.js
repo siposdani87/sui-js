@@ -6,8 +6,6 @@ import { generateId } from '../utils/coder';
  * @class
  */
 export class Flash {
-    container;
-    options;
     /**
      * @param {!Object=} opt_options
      */

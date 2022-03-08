@@ -10,12 +10,6 @@ import { consoleWarn } from '../utils/log';
  * @extends {Collection}
  */
 export class Form extends Collection {
-    formNode;
-    previousModel;
-    model;
-    initFields;
-    buttonClasses;
-    fieldClasses;
     /**
      * @param {!Item} dom
      * @param {string=} opt_selector

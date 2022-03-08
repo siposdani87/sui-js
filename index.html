@@ -1040,9 +1040,11 @@
   <script src="node_modules/material-design-lite/dist/material.min.js"></script>
   <script src="node_modules/moment/min/moment-with-locales.min.js"></script>
   <script src="vendors/mapLabel.min.js"></script>
-  <script src="dist/sui.debug.js"></script>
-  <script>
-    var lightThemeNode = new Query$$module$core$query('.light-theme').getItem()
+  <script type="module" src="dist/index.js"></script>
+  <script type="module">
+    import { Query } from './dist';
+
+    var lightThemeNode = new Query('.light-theme').getItem()
     var darkThemeNode = new Query('.dark-theme').getItem();
     darkThemeNode.setHtml(lightThemeNode.getHtml(true).replace(/light-/g, 'dark-'));
 

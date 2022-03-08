@@ -6,10 +6,6 @@ import { Item } from '../core/item';
  * @extends {BaseField}
  */
 export class TextareaField extends BaseField {
-    richText;
-    richTextNode;
-    toolbarNode;
-    htmlMode;
     /**
      * @param {!Item} input
      * @param {!Item} label

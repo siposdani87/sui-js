@@ -5,7 +5,6 @@ import { Collection } from '../core/collection';
  * @extends {BaseTest}
  */
 export class ContainerTest extends BaseTest {
-    container;
     /**
      *
      */
@@ -29,6 +28,12 @@ export class ContainerTest extends BaseTest {
         this.testInit();
         this.testLoad();
     }
+    /**
+     *
+     */
     testInit() { }
+    /**
+     *
+     */
     testLoad() { }
 }

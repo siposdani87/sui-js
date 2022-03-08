@@ -7,9 +7,6 @@ import { consoleWarn } from '../utils/log';
  * @class
  */
 export class Template {
-    http;
-    options;
-    viewNode;
     /**
      * @param {!Http} http
      * @param {!Object=} opt_options

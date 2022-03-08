@@ -5,8 +5,6 @@ import { consoleWarn } from '../utils/log';
  * @class
  */
 export class Document {
-    options;
-    document;
     /**
      * @param {!Object=} opt_options
      */

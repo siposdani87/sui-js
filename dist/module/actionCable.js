@@ -7,9 +7,6 @@ import { md5 } from '../utils/coder';
  * @class
  */
 export class ActionCable {
-    cable;
-    clients;
-    identifiers;
     /**
      */
     constructor() {

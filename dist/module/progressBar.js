@@ -6,20 +6,6 @@ import { Query } from '../core/query';
  * @class
  */
 export class ProgressBar {
-    dialog;
-    confirm;
-    options;
-    progressBarContainer;
-    progressBarHeader;
-    progressBarDialog;
-    progressBarConfirm;
-    async;
-    mProgressContainer;
-    mProgressHeader;
-    mProgressDialog;
-    mProgressConfirm;
-    progressValue;
-    bufferValue;
     /**
      * @param {!Dialog} dialog
      * @param {!Confirm} confirm

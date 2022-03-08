@@ -10,18 +10,6 @@ import { consoleWarn } from '../utils/log';
  * @class
  */
 export class CardCollection {
-    cardCollectionNode;
-    ctrl;
-    options;
-    collection;
-    query;
-    pager;
-    contentHandler;
-    body;
-    cardFooterNode;
-    pagerNode;
-    cardTemplate;
-    template;
     /**
      * @param {!Item} dom
      * @param {string=} opt_selector

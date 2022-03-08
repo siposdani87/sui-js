@@ -28,6 +28,8 @@ const closureOptions = {
   hide_warnings_for: ['test/', 'base.js'],
   generate_exports: true,
   define: 'releaseMode=true',
+  // entry_point: './dist/index.js',
+  // js_module_root: 'SUI',
 };
 
 const sassOptions = {
@@ -92,7 +94,15 @@ gulp.task('watcher', gulp.series(function(done) {
   done();
 }));
 
-gulp.task('default', gulp.series('compile:styles:minify', 'compile:styles:simple', 'compile:scripts:minify', 'compile:scripts:debug', 'compile:scripts:simple', function(done) {
+gulp.task('compile:styles', gulp.series('compile:styles:minify', 'compile:styles:simple', function(done) {
+  done();
+}));
+
+gulp.task('compile:scripts', gulp.series('compile:scripts:minify', function(done) {
+  done();
+}));
+
+gulp.task('default', gulp.series('compile:styles', 'compile:scripts', function(done) {
   done();
 }));
 

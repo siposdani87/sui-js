@@ -8,12 +8,6 @@ import { encodeBase64 } from '../utils/coder';
  * @extends {BaseField}
  */
 export class FileField extends BaseField {
-    imageTag;
-    valueSrc;
-    defaultSrc;
-    removeButton;
-    fileTypes;
-    fileTypeSVG;
     /**
      * @param {!Item} input
      * @param {!Item} label

@@ -198,7 +198,7 @@ export const isString = (value) => is(value, 'string');
 export const isNumber = (value) => value !== null &&
     value !== '' &&
     !isNaN(value) &&
-    (!inArray(['0', '+'], value?.[0]) || value === '0') &&
+    (!inArray(['0', '+'], value === null || value === void 0 ? void 0 : value[0]) || value === '0') &&
     Number(value).toString() !== 'NaN' &&
     Number(value).toString() !== 'Infinity';
 /**

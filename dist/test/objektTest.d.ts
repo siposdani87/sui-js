@@ -12,10 +12,28 @@ export declare class ObjektTest extends BaseTest {
      * @override
      */
     init(): void;
+    /**
+     *
+     */
     testMerge(): void;
+    /**
+     *
+     */
     testGetTypedValue(): void;
+    /**
+     *
+     */
     testGet(): void;
+    /**
+     *
+     */
     testSet(): void;
+    /**
+     *
+     */
     testRemove(): void;
+    /**
+     *
+     */
     testCopy(): void;
 }

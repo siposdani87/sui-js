@@ -7,26 +7,6 @@ import { Year } from './year';
  * @class
  */
 export class Calendar {
-    calendarNode;
-    options;
-    maxDays;
-    maxMonths;
-    maxYears;
-    modes;
-    activeMode;
-    types;
-    headerNode;
-    currentModeNode;
-    contentNode;
-    yearsNode;
-    monthsNode;
-    weekDaysNode;
-    daysNode;
-    previous;
-    current;
-    next;
-    days;
-    selectedDate;
     /**
      * @param {!Item} node
      * @param {!Object} options

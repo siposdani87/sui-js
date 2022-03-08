@@ -11,16 +11,6 @@ import { generateId } from '../utils/coder';
  * @extends {BaseField}
  */
 export class SelectField extends BaseField {
-    query;
-    ids;
-    containerNode;
-    listNode;
-    popup;
-    options;
-    iconNode;
-    selectContainerNode;
-    selectNode;
-    searchInputNode;
     /**
      * @param {!Item} input
      * @param {!Item} label

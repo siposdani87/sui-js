@@ -7,13 +7,6 @@ import { consoleWarn } from '../utils/log';
  * @class
  */
 export class Pager {
-    pager;
-    pagerStatistics;
-    options;
-    count;
-    pageNum;
-    page;
-    offset;
     /**
      * @param {!Item} dom
      * @param {!Array=} opt_selectors

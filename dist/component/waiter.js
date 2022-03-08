@@ -2,9 +2,6 @@
  * @class
  */
 export class Waiter {
-    timeoutWaiting;
-    counter;
-    intervall;
     /**
      */
     constructor() {

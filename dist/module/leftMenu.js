@@ -4,15 +4,6 @@ import { Query } from '../core/query';
  * @class
  */
 export class LeftMenu {
-    body;
-    mainContainerNode;
-    leftMenu;
-    mainMenu;
-    subMenu;
-    mainMenuContainer;
-    subMenuContainer;
-    mainMenuTitle;
-    subMenuTitle;
     /**
      */
     constructor() {

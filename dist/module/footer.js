@@ -4,11 +4,6 @@ import { Query } from '../core/query';
  * @class
  */
 export class Footer {
-    options;
-    footerNode;
-    templateViewNode;
-    contentNode;
-    localesNode;
     /**
      * @param {!Object=} opt_options
      */

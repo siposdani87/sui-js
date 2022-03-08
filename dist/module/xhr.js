@@ -7,12 +7,6 @@ import { encodeBase64 } from '../utils/coder';
  * @class
  */
 export class Xhr {
-    options;
-    requestHeaders;
-    authorization;
-    types;
-    http;
-    deferred;
     /**
      * @param {!Object=} opt_options
      */

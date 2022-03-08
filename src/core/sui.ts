@@ -25,6 +25,12 @@
 
 /**
  * @export
+ * @define {boolean}
+ */
+export const releaseMode = false;
+
+/**
+ * @export
  * @struct
  */
 export const SUI = {

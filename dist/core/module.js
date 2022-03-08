@@ -36,12 +36,6 @@ const invoke = (baseModule, baseModuleArgs, opt_extendModule, opt_extendModuleAr
  * @class
  */
 export class Module {
-    _modules;
-    _instances;
-    _injections;
-    _dependencies;
-    _services;
-    _controller;
     /**
      */
     constructor() {

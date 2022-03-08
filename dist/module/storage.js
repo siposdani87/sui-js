@@ -5,8 +5,6 @@ import { encrypt, decrypt } from '../utils/coder';
  * @class
  */
 export class Storage {
-    options;
-    storage;
     /**
      * @param {!Object} options
      */

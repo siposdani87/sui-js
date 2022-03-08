@@ -3,9 +3,6 @@ import { Query } from '../core/query';
  * @class
  */
 export class NavBar {
-    navBarHeader;
-    navBar;
-    toggleNavBarIcon;
     /**
      */
     constructor() {

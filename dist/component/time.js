@@ -4,9 +4,6 @@ import { consoleWarn } from '../utils/log';
  * @class
  */
 export class Time {
-    timeNode;
-    options;
-    pointerNode;
     /**
      * @param {!Item} node
      * @param {!Object} options

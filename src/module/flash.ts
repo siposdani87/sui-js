@@ -9,13 +9,14 @@ import {
 import { Objekt } from '../core/objekt';
 import { Query } from '../core/query';
 import { generateId } from '../utils/coder';
+import { Item } from '../core';
 
 /**
  * @class
  */
 export class Flash {
-    container: any;
-    options: any;
+    container: Item;
+    options: Objekt;
     /**
      * @param {!Object=} opt_options
      */

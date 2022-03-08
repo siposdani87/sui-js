@@ -7,14 +7,6 @@ import { consoleInfo, consoleWarn } from '../utils/log';
  * @class
  */
 export class BaseField {
-    input;
-    label;
-    error;
-    inputBlock;
-    form;
-    errorTooltip;
-    infoContainerNode;
-    actionContainerNode;
     /**
      * @param {!Item} input
      * @param {!Item=} opt_label

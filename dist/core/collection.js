@@ -5,9 +5,6 @@ import { Objekt } from './objekt';
  * @template T
  */
 export class Collection {
-    type;
-    items;
-    options;
     /**
      * @param {!Array=} opt_items
      * @param {!Function=} opt_type

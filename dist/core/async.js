@@ -5,8 +5,6 @@ import { Deferred } from './deferred';
  * @class
  */
 export class Async {
-    sum;
-    call;
     /**
      * @param {number=} opt_sum
      */

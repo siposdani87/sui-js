@@ -4,9 +4,6 @@ import { Objekt } from '../core/objekt';
  * @class
  */
 export class ContentHandler {
-    containerNode;
-    options;
-    contentNode;
     /**
      * @param {!Item} containerNode
      * @param {!Object=} opt_options

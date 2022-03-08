@@ -8,7 +8,6 @@ import { BaseModal } from './baseModal';
  * @extends {BaseModal}
  */
 export class Viewer extends BaseModal {
-    options;
     /**
      * @param {!Object=} opt_options
      */

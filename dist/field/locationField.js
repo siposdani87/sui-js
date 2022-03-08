@@ -9,13 +9,6 @@ import { generateId } from '../utils/coder';
  * @extends {BaseField}
  */
 export class LocationField extends BaseField {
-    icon;
-    advancedButton;
-    map;
-    mapLockNode;
-    advancedNode;
-    latitudeInput;
-    longitudeInput;
     /**
      * @param {!Item} input
      * @param {!Item} label

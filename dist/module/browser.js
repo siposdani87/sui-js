@@ -5,9 +5,6 @@ import { consoleError } from '../utils/log';
  * @class
  */
 export class Browser {
-    features;
-    browsers;
-    os;
     /**
      */
     constructor() {

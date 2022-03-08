@@ -13,17 +13,6 @@ import { generateId } from '../utils/coder';
  * @class
  */
 export class Table {
-    tableNode;
-    options;
-    collection;
-    query;
-    actions;
-    contentHandler;
-    headerNodes;
-    headerTexts;
-    tbody;
-    tfoot;
-    pager;
     /**
      * @param {!Item} dom
      * @param {string=} opt_selector
