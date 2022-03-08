@@ -3,8 +3,6 @@ import { Query } from '../core/query';
  * @class
  */
 export class BottomMenu {
-    footer;
-    bottomMenu;
     /**
      * @param {!Footer} footer
      */

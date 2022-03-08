@@ -1,9 +1,4 @@
 /**
- * @export
- * @define {boolean}
- */
-export declare const releaseMode = false;
-/**
  * @param {...*} message
  */
 export declare const consoleLog: (...message: any[]) => void;

@@ -6,10 +6,6 @@ import { Xhr } from './xhr';
  * @class
  */
 export class Http {
-    options;
-    username;
-    password;
-    token;
     /**
      * @param {!Object=} opt_options
      */

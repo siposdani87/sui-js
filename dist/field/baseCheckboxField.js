@@ -6,9 +6,6 @@ import { Query } from '../core/query';
  * @extends {BaseField}
  */
 export class BaseCheckboxField extends BaseField {
-    hiddenInput;
-    spanLabel;
-    dataLabelNode;
     /**
      * @param {!Item} input
      * @param {!Item} label

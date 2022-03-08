@@ -5,10 +5,6 @@ import { consoleWarn } from '../utils/log';
  * @class
  */
 export class Window {
-    options;
-    window;
-    document;
-    orientation;
     /**
      * @param {!Object=} opt_options
      */

@@ -4,8 +4,6 @@ import { Query } from '../core/query';
  * @class
  */
 export class PopupContainer {
-    selector;
-    container;
     /**
      * @param {string=} opt_selector
      */

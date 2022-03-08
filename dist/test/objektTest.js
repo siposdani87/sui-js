@@ -22,6 +22,9 @@ export class ObjektTest extends BaseTest {
         this.testRemove();
         this.testCopy();
     }
+    /**
+     *
+     */
     testMerge() {
         const options = new Objekt({
             attr: null,
@@ -53,6 +56,9 @@ export class ObjektTest extends BaseTest {
             this.showError('merge', 5);
         }
     }
+    /**
+     *
+     */
     testGetTypedValue() {
         const options = new Objekt({
             attr: 'null',
@@ -111,6 +117,9 @@ export class ObjektTest extends BaseTest {
             this.showError('_getTypedValue', 12);
         }
     }
+    /**
+     *
+     */
     testGet() {
         const options = new Objekt({
             attr: null,
@@ -147,6 +156,9 @@ export class ObjektTest extends BaseTest {
             this.showError('get', 4);
         }
     }
+    /**
+     *
+     */
     testSet() {
         const options = new Objekt({
             attr: 0,
@@ -191,6 +203,9 @@ export class ObjektTest extends BaseTest {
             this.showError('set', 5);
         }
     }
+    /**
+     *
+     */
     testRemove() {
         const options = new Objekt({
             attr: 0,
@@ -218,6 +233,9 @@ export class ObjektTest extends BaseTest {
             this.showError('remove', 3);
         }
     }
+    /**
+     *
+     */
     testCopy() {
         const options = new Objekt({
             attr: 0,

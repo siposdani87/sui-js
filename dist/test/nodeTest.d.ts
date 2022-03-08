@@ -1,10 +1,11 @@
 import { BaseTest } from './baseTest';
+import { Item } from '../core/item';
 /**
  * @class
  * @extends {BaseTest}
  */
 export declare class NodeTest extends BaseTest {
-    node: any;
+    node: Item;
     /**
      *
      */
@@ -13,7 +14,16 @@ export declare class NodeTest extends BaseTest {
      * @override
      */
     init(): void;
+    /**
+     *
+     */
     testAttribute(): void;
+    /**
+     *
+     */
     testAttributeData(): void;
+    /**
+     *
+     */
     testData(): void;
 }

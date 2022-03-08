@@ -1,9 +1,11 @@
+import { Objekt } from '../core/objekt';
+import { Item } from '../core';
 /**
  * @class
  */
 export declare class Flash {
-    container: any;
-    options: any;
+    container: Item;
+    options: Objekt;
     /**
      * @param {!Object=} opt_options
      */
@@ -27,7 +29,7 @@ export declare class Flash {
      * @param {string=} opt_id
      * @return {!Item}
      */
-    _getFlashNode(type: any, message: any, opt_duration?: number, opt_closeCallback?: any, opt_id?: string): any;
+    _getFlashNode(type: any, message: any, opt_duration?: number, opt_closeCallback?: any, opt_id?: string): Item;
     /**
      * @param {!Item} flashNode
      * @param {?Function=} opt_closeCallback
@@ -42,7 +44,7 @@ export declare class Flash {
      * @param {string=} opt_id
      * @return {!Item}
      */
-    _add(type: any, message: any, opt_duration?: number, opt_closeCallback?: any, opt_id?: string): any;
+    _add(type: any, message: any, opt_duration?: number, opt_closeCallback?: any, opt_id?: string): Item;
     /**
      * @param {string=} opt_id
      */
@@ -66,7 +68,7 @@ export declare class Flash {
      * @param {string=} opt_id
      * @return {!Item}
      */
-    addSuccess(message: any, opt_duration?: number, opt_closeCallback?: any, opt_id?: string): any;
+    addSuccess(message: any, opt_duration?: number, opt_closeCallback?: any, opt_id?: string): Item;
     /**
      * @param {string} message
      * @param {number=} opt_duration
@@ -74,7 +76,7 @@ export declare class Flash {
      * @param {string=} opt_id
      * @return {!Item}
      */
-    addInfo(message: any, opt_duration?: number, opt_closeCallback?: any, opt_id?: string): any;
+    addInfo(message: any, opt_duration?: number, opt_closeCallback?: any, opt_id?: string): Item;
     /**
      * @param {string} message
      * @param {number=} opt_duration
@@ -82,7 +84,7 @@ export declare class Flash {
      * @param {string=} opt_id
      * @return {!Item}
      */
-    addWarning(message: any, opt_duration?: number, opt_closeCallback?: any, opt_id?: string): any;
+    addWarning(message: any, opt_duration?: number, opt_closeCallback?: any, opt_id?: string): Item;
     /**
      * @param {string} message
      * @param {number=} opt_duration
@@ -90,7 +92,7 @@ export declare class Flash {
      * @param {string=} opt_id
      * @return {!Item}
      */
-    addError(message: any, opt_duration?: number, opt_closeCallback?: any, opt_id?: string): any;
+    addError(message: any, opt_duration?: number, opt_closeCallback?: any, opt_id?: string): Item;
     /**
      * @param {{type: string, content: string, closable: boolean}} message
      * @param {number=} opt_duration
@@ -98,7 +100,7 @@ export declare class Flash {
      * @param {string=} opt_id
      * @return {!Item|null}
      */
-    addMessage(message: any, opt_duration?: number, opt_closeCallback?: any, opt_id?: string): any;
+    addMessage(message: any, opt_duration?: number, opt_closeCallback?: any, opt_id?: string): Item;
     /**
      * @param {string} message
      * @param {number=} opt_duration
@@ -106,5 +108,5 @@ export declare class Flash {
      * @param {string=} opt_id
      * @return {!Item}
      */
-    addDefault(message: any, opt_duration?: number, opt_closeCallback?: any, opt_id?: string): any;
+    addDefault(message: any, opt_duration?: number, opt_closeCallback?: any, opt_id?: string): Item;
 }

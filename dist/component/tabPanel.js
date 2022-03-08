@@ -8,11 +8,6 @@ import { consoleWarn } from '../utils/log';
  * @export
  */
 export class TabPanel {
-    tabPanel;
-    options;
-    activeTab;
-    tabs;
-    panels;
     /**
      * @param {!Item} dom
      * @param {string=} opt_selector

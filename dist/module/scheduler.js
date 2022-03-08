@@ -4,7 +4,6 @@ import { Objekt } from '../core/objekt';
  * @class
  */
 export class Scheduler {
-    schedulerStore;
     /**
      */
     constructor() {

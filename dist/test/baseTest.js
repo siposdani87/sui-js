@@ -4,11 +4,6 @@ import { consoleError, consoleInfo } from '../utils/log';
  */
 export class BaseTest {
     /**
-     * @public
-     * @type {string}
-     */
-    name;
-    /**
      * @param {string=} opt_name
      */
     constructor(opt_name) {

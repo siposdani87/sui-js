@@ -1,8 +1,4 @@
-/**
- * @export
- * @define {boolean}
- */
-export const releaseMode = false;
+import { releaseMode } from '../core/sui';
 
 /**
  * @param {...*} message

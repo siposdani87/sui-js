@@ -1,4 +1,4 @@
-export * from './autocompleteField';
+export * from './autoCompleteField';
 export * from './baseCheckboxField';
 export * from './baseField';
 export * from './button';

@@ -7,12 +7,6 @@ import { Item } from '../core/item';
  * @extends {BaseField}
  */
 export class DateTimeField extends BaseField {
-    datetimeContainer;
-    datetimeInput;
-    format;
-    datetimeNode;
-    datetime;
-    popup;
     /**
      * @param {!Item} input
      * @param {!Item} label

@@ -3,11 +3,6 @@ import { isArray, eachArray, format, isUndefined, typeCast, contain, } from '../
  * @class
  */
 export class Router {
-    route;
-    param;
-    escape;
-    paramNames;
-    regex;
     /**
      * @param {string=} opt_route
      */

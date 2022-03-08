@@ -8,11 +8,6 @@ import { Router } from './router';
  * @class
  */
 export class State {
-    _current;
-    _previous;
-    routes;
-    basePath;
-    options;
     /**
      * @param {!Array} routes
      * @param {!Object} options

@@ -7,8 +7,6 @@ import { Query } from '../core/query';
  * @extends {BaseField}
  */
 export class RadiobuttonField extends BaseField {
-    dataLabelNode;
-    spanLabel;
     /**
      * @param {!Item} input
      * @param {!Item} label

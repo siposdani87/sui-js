@@ -134,7 +134,7 @@ export const defaultValue = (value: any, defaultValue: any): any =>
  * @return {!Function}
  */
 export const noop =
-    (opt_result?: any | undefined): (() => any) =>
+    (opt_result?: any): (() => any) =>
     () => {
         return opt_result;
     };

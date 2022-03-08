@@ -6,7 +6,6 @@ import { Item } from '../core/item';
  * @extends {BaseField}
  */
 export class UrlField extends BaseField {
-    protocol;
     /**
      * @param {!Item} input
      * @param {!Item} label

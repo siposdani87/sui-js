@@ -6,9 +6,6 @@ import { consoleInfo } from '../utils/log';
  * @class
  */
 export class Canvas {
-    canvasNode;
-    canvasRaw;
-    context;
     /**
      * @param {!Item|string=} opt_selector
      */

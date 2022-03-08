@@ -5,15 +5,6 @@ import { consoleWarn } from '../utils/log';
  * @class
  */
 export class Header {
-    options;
-    headerNode;
-    leftMenuButton;
-    topMenuButton;
-    brandNode;
-    brandNodeImage;
-    brandNodeTitle;
-    mainContainerNode;
-    templateViewNode;
     /**
      * @param {!Object=} opt_options
      */

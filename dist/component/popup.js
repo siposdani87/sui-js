@@ -6,11 +6,6 @@ import { consoleInfo } from '../utils/log';
  * @class
  */
 export class Popup {
-    content;
-    parent;
-    withClose;
-    popupContainer;
-    popupNode;
     /**
      * @param {!Item} content
      * @param {!Item=} opt_parent

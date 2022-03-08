@@ -6,9 +6,6 @@ import { BaseCheckboxField } from './baseCheckboxField';
  * @extends {BaseCheckbox}
  */
 export class IconToggleField extends BaseCheckboxField {
-    checkedIcon;
-    uncheckedIcon;
-    icon;
     /**
      * @param {!Item} input
      * @param {!Item} label

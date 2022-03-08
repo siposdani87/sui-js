@@ -7,10 +7,6 @@ import { Query } from '../core/query';
  * @class
  */
 export class Navigation {
-    http;
-    options;
-    container;
-    linkNodeKey;
     /**
      * @param {!Http=} opt_http
      * @param {!Object=} opt_options

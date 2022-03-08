@@ -9,8 +9,6 @@ import { BaseModal } from './baseModal';
  * @extends {BaseModal}
  */
 export class Dialog extends BaseModal {
-    http;
-    options;
     /**
      * @param {!Http} http
      * @param {!Object=} opt_options

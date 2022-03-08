@@ -4,8 +4,6 @@ import { consoleWarn } from '../utils/log';
  * @class
  */
 export class GeoLocation {
-    options;
-    watcherId;
     /**
      */
     constructor() {

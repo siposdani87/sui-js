@@ -7,10 +7,6 @@ import { generateId } from '../utils/coder';
  * @class
  */
 export class Tooltip {
-    element;
-    valid;
-    positionCssClass;
-    tooltip;
     /**
      * @param {!Item} element
      * @param {string=} opt_position TOP|BOTTOM|LEFT|RIGHT

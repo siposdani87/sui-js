@@ -4,9 +4,6 @@ import { consoleWarn } from '../utils/log';
  * @class
  */
 export class Item {
-    node;
-    parentNode;
-    listenerStoreKey;
     /**
      * @param {?Element|string} node
      * @param {!Item=} opt_parentNode

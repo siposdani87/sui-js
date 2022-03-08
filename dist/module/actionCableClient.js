@@ -4,10 +4,6 @@ import { Objekt } from '../core/objekt';
  * @class
  */
 export class ActionCableClient {
-    parent;
-    subscription;
-    client;
-    identifier;
     /**
      * @param {!ActionCable} parent
      * @param {!Object} options

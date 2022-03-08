@@ -4,8 +4,6 @@ import { Query } from '../core/query';
  * @class
  */
 export class Carousel {
-    carouselNode;
-    options;
     /**
      * @param {!Item} dom
      * @param {string=} opt_selector

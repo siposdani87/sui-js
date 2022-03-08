@@ -5,20 +5,6 @@ import { Time } from './time';
  * @class
  */
 export class Clock {
-    clockNode;
-    options;
-    modes;
-    types;
-    activeMode;
-    headerNode;
-    periodHeaderNode;
-    period;
-    time;
-    minutesHeaderNode;
-    hoursHeaderNode;
-    contentNode;
-    hours;
-    minutes;
     /**
      * @param {!Item} node
      * @param {!Object} options

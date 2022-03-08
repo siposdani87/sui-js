@@ -7,7 +7,6 @@ import { Query } from '../core/query';
  * @extends {BaseField}
  */
 export class RangeField extends BaseField {
-    tooltip;
     /**
      * @param {!Item} input
      * @param {!Item} label

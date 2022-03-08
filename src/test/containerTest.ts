@@ -32,6 +32,12 @@ export class ContainerTest extends BaseTest {
         this.testInit();
         this.testLoad();
     }
+    /**
+     *
+     */
     testInit() {}
+    /**
+     *
+     */
     testLoad() {}
 }

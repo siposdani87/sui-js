@@ -5,24 +5,6 @@ import { Query } from '../core/query';
  * @class
  */
 export class BaseModal {
-    windowWidth;
-    windowHeight;
-    mainContainerNode;
-    hasBlur;
-    modal;
-    btnMinimize;
-    btnMaximize;
-    btnClose;
-    body;
-    interval;
-    modalTitle;
-    modalBody;
-    modalFooter;
-    modalHeader;
-    tooltip;
-    eventOK;
-    eventCancel;
-    modalWindow;
     /**
      */
     constructor() { }

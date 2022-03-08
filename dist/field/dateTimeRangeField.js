@@ -8,13 +8,6 @@ import { Query } from '../core/query';
  * @extends {BaseField}
  */
 export class DateTimeRangeField extends BaseField {
-    isStartInput;
-    datetimeContainer;
-    datetimeInput;
-    format;
-    datetimeNode;
-    datetime;
-    popup;
     /**
      * @param {!Item} input
      * @param {!Item} label

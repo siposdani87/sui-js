@@ -39,17 +39,6 @@ const getMapText = (title, position, map) => new window['MapLabel']({
  * @class
  */
 export class GoogleMap {
-    mapNode;
-    options;
-    map;
-    markerIcons;
-    overlay;
-    polygonOptions;
-    polygons;
-    markers;
-    markerOptions;
-    heatmapOptions;
-    heatmap;
     /**
      * @param {!Item} dom
      * @param {string=} opt_selector

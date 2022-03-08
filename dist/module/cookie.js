@@ -4,7 +4,6 @@ import { Objekt } from '../core/objekt';
  * @class
  */
 export class Cookie {
-    options;
     /**
      * @param {!Object=} opt_options
      */

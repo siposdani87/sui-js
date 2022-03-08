@@ -7,7 +7,7 @@ import { Item } from '../core/item';
  * @extends {BaseTest}
  */
 export class NodeTest extends BaseTest {
-    node: any;
+    node: Item;
     /**
      *
      */
@@ -24,6 +24,9 @@ export class NodeTest extends BaseTest {
         this.testAttributeData();
         this.testData();
     }
+    /**
+     *
+     */
     testAttribute() {
         const values = ['text', null, true, false, Infinity, 0, 1, 10];
 
@@ -36,6 +39,9 @@ export class NodeTest extends BaseTest {
             }
         }
     }
+    /**
+     *
+     */
     testAttributeData() {
         const values = [
             'text',
@@ -60,6 +66,9 @@ export class NodeTest extends BaseTest {
         }
         this.node.removeAttribute('data-value');
     }
+    /**
+     *
+     */
     testData() {
         const values = [
             '',

@@ -3,9 +3,6 @@ import { Query } from '../core/query';
  * @class
  */
 export class Sidebar {
-    selector;
-    sidebar;
-    button;
     /**
      * @param {string} selector
      */

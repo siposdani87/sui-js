@@ -4,7 +4,6 @@ import { Objekt } from './objekt';
  * @class
  */
 export class Promize {
-    options;
     /**
      * @param {!Object=} opt_options
      */

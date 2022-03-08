@@ -6,10 +6,6 @@ import { Promize } from '../core/promize';
  * @extends {BaseTest}
  */
 export class DeferredTest extends BaseTest {
-    ajaxResolve;
-    funcResolve;
-    ajaxReject;
-    funcReject;
     /**
      *
      */
@@ -48,6 +44,9 @@ export class DeferredTest extends BaseTest {
         this.testResolve();
         this.testReject();
     }
+    /**
+     *
+     */
     testPromise() {
         const deferred = new Deferred();
         const promise = deferred.promise();
@@ -55,6 +54,9 @@ export class DeferredTest extends BaseTest {
             this.showError('promise', 1);
         }
     }
+    /**
+     *
+     */
     testResolve() {
         this.ajaxResolve().then((value) => {
             if (value !== 1) {
@@ -71,6 +73,9 @@ export class DeferredTest extends BaseTest {
             this.showError('resolve', 4);
         });
     }
+    /**
+     *
+     */
     testReject() {
         this.ajaxReject().then(() => {
             this.showError('reject', 1);

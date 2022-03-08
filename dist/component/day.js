@@ -4,10 +4,6 @@ import { consoleWarn } from '../utils/log';
  * @class
  */
 export class Day {
-    date;
-    currentDate;
-    options;
-    cssClasses;
     /**
      * @param {string} date
      * @param {!Object} currentDate

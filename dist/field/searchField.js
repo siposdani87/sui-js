@@ -7,7 +7,6 @@ import { consoleWarn } from '../utils/log';
  * @extends {BaseField}
  */
 export class SearchField extends BaseField {
-    holderNode;
     /**
      * @param {!Item} input
      * @param {!Item} label

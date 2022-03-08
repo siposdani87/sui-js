@@ -3,9 +3,6 @@ import { Query } from '../core/query';
  * @class
  */
 export class TopMenu {
-    header;
-    topMenu;
-    toggleTopMenu;
     /**
      * @param {!Header} header
      */

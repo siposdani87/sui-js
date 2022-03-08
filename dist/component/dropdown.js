@@ -7,13 +7,6 @@ import { generateId } from '../utils/coder';
  * @class
  */
 export class Dropdown {
-    dropdown;
-    options;
-    collection;
-    actions;
-    item;
-    buttonNode;
-    menuNode;
     /**
      * @param {!Item} element
      * @param {!Object=} opt_options
