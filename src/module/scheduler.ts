@@ -32,7 +32,7 @@ export class Scheduler {
     everyDay(time, callback) {
         const name = time; // window['moment']
         if (isFunction(callback)) {
-            const schedulers = this.schedulerStore.get(name, []);
+            const schedulers = this.schedulerStore.get<String[]>(name, []);
             schedulers.push(callback);
             this.schedulerStore.set(name, schedulers);
         }

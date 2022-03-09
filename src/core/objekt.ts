@@ -23,7 +23,7 @@ export class Objekt {
     /**
      * @param {!Object=} opt_object
      */
-    constructor(opt_object?) {
+    constructor(opt_object?: object | undefined) {
         opt_object = opt_object || {};
         Object.call(this, opt_object);
         this.merge(opt_object);
@@ -33,7 +33,7 @@ export class Objekt {
      * @param {*} object
      * @return {!Objekt}
      */
-    merge(object) {
+    merge(object: any): Objekt {
         if (isObject(object)) {
             for (const key in object) {
                 if (object.hasOwnProperty(key)) {
@@ -66,7 +66,7 @@ export class Objekt {
      * @param {string} key
      * @return {undefined}
      */
-    _convertObject(object, key) {
+    _convertObject(object: any, key: string): void {
         each(object[key], (obj, i) => {
             object[key][i] = new Objekt(obj);
         });
@@ -78,7 +78,7 @@ export class Objekt {
      * @param {boolean=} opt_isSafe
      * @return {*}
      */
-    speedGet(opt_attribute?, opt_defaultValue?, opt_isSafe = false) {
+    speedGet(opt_attribute?: string | undefined, opt_defaultValue?: any | undefined, opt_isSafe: boolean | undefined = false): any {
         let value = this;
         if (opt_attribute) {
             value = this[opt_attribute];
@@ -109,8 +109,8 @@ export class Objekt {
      * @param {boolean=} opt_isSafe
      * @return {*}
      */
-    get(opt_attribute?, opt_defaultValue?, opt_isSafe = false) {
-        let value = this;
+    get<T>(opt_attribute?: string | undefined, opt_defaultValue?: any | undefined, opt_isSafe: boolean | undefined = false): T {
+        let value: object = this;
         if (opt_attribute) {
             const attributes = opt_isSafe
                 ? [opt_attribute]
@@ -120,11 +120,12 @@ export class Objekt {
         return !isUndefined(value) ? value : opt_defaultValue;
     }
     /**
+     * @private
      * @param {!Object|!Objekt} object
      * @param {!Array} attributes
      * @return {!Object|!Objekt|undefined}
      */
-    _get(object, attributes) {
+    private _get(object: object | Objekt, attributes: Array<any>): object | Objekt | undefined {
         let result = undefined;
         each(object, (_value, property) => {
             if (
@@ -150,7 +151,7 @@ export class Objekt {
      * @param {*} value
      * @return {undefined}
      */
-    _set(object, attributes, value) {
+    _set(object: object | Objekt, attributes: Array<any>, value: any): void {
         eachObject(object, (_oldValue, property) => {
             if (attributes.length === 1 && property === attributes[0]) {
                 object[property] = value;
@@ -171,7 +172,7 @@ export class Objekt {
      * @param {*} value
      * @return {undefined}
      */
-    set(attribute, value) {
+    set(attribute: string, value: any): void {
         let object = {};
         object = this._attributesToObject(object, attribute.split('.'), value);
         this.merge(object);
@@ -183,7 +184,7 @@ export class Objekt {
      * @param {boolean=} opt_isSafe
      * @return {undefined}
      */
-    setRaw(attribute, value, opt_isSafe = false) {
+    setRaw(attribute: string, value: any, opt_isSafe: boolean | undefined = false): void {
         this.set(attribute, null);
         const attributes = opt_isSafe ? [attribute] : attribute.split('.');
         this._set(this, attributes, value);
@@ -193,7 +194,7 @@ export class Objekt {
      * @param {string} attribute
      * @return {undefined}
      */
-    remove(attribute) {
+    remove(attribute: string): void {
         const attributes = attribute.split('.');
         this._remove(this, attributes);
     }
@@ -201,7 +202,7 @@ export class Objekt {
      * @export
      * @return {undefined}
      */
-    clear() {
+    clear(): void {
         clear(this);
     }
     /**
@@ -209,7 +210,7 @@ export class Objekt {
      * @param {!Array} attributes
      * @return {undefined}
      */
-    _remove(object, attributes) {
+    _remove(object: object | Objekt, attributes: Array<any>): void {
         for (const property in object) {
             if (object.hasOwnProperty(property)) {
                 if (attributes.length === 1 && property === attributes[0]) {
@@ -233,7 +234,7 @@ export class Objekt {
      * @param {!Array=} opt_attributes
      * @return {undefined}
      */
-    each(next, opt_properties?, opt_attributes?) {
+    each(next: Function, opt_properties?: object | undefined, opt_attributes?: Array<any> | undefined): void {
         const properties = opt_properties || this;
         const attributes = opt_attributes || [];
 
@@ -253,7 +254,7 @@ export class Objekt {
      * @param {*} value
      * @return {!Object}
      */
-    _attributesToObject(object, attributes, value) {
+    _attributesToObject(object: object, attributes: Array<any>, value: any): object {
         const lastAttribute = attributes.pop();
         let base = object;
         for (let i = 0; i < attributes.length; i++) {
@@ -267,7 +268,7 @@ export class Objekt {
      * @param {boolean=} opt_isNative
      * @return {!Objekt}
      */
-    copy(opt_isNative = false): any {
+    copy(opt_isNative: boolean | undefined = false): any {
         let result = /** @type {!Objekt} */ copyObject(this);
         if (!opt_isNative) {
             result = new Objekt(result);
@@ -279,7 +280,7 @@ export class Objekt {
      * @export
      * @return {boolean}
      */
-    isEmpty() {
+    isEmpty(): boolean {
         return isEmpty(this);
     }
     /**
@@ -287,7 +288,7 @@ export class Objekt {
      * @param {!Array} keys
      * @return {!Objekt}
      */
-    allowKeys(keys) {
+    allowKeys(keys: Array<any>): Objekt {
         return this.filterKeys(this, (key) => {
             return inArray(keys, key);
         });
@@ -297,7 +298,7 @@ export class Objekt {
      * @param {!Array} keys
      * @return {!Objekt}
      */
-    denyKeys(keys) {
+    denyKeys(keys: Array<any>): Objekt {
         return this.filterKeys(this, (key) => {
             return !inArray(keys, key);
         });
@@ -308,7 +309,7 @@ export class Objekt {
      * @param {!Function} condition
      * @return {!Objekt}
      */
-    filterKeys(obj, condition) {
+    filterKeys(obj: Objekt, condition: Function): Objekt {
         const resultObj = new Objekt();
         obj.each((value, key) => {
             if (condition(key)) {
