@@ -7,19 +7,19 @@ export declare class Objekt {
     /**
      * @param {!Object=} opt_object
      */
-    constructor(opt_object?: any);
+    constructor(opt_object?: object | undefined);
     /**
      * @export
      * @param {*} object
      * @return {!Objekt}
      */
-    merge(object: any): this;
+    merge(object: any): Objekt;
     /**
      * @param {*} object
      * @param {string} key
      * @return {undefined}
      */
-    _convertObject(object: any, key: any): void;
+    _convertObject(object: any, key: string): void;
     /**
      * @deprecated Use get()
      * @param {string=} opt_attribute
@@ -27,7 +27,7 @@ export declare class Objekt {
      * @param {boolean=} opt_isSafe
      * @return {*}
      */
-    speedGet(opt_attribute?: any, opt_defaultValue?: any, opt_isSafe?: boolean): any;
+    speedGet(opt_attribute?: string | undefined, opt_defaultValue?: any | undefined, opt_isSafe?: boolean | undefined): any;
     /**
      * @export
      * @param {string=} opt_attribute
@@ -35,27 +35,28 @@ export declare class Objekt {
      * @param {boolean=} opt_isSafe
      * @return {*}
      */
-    get(opt_attribute?: any, opt_defaultValue?: any, opt_isSafe?: boolean): any;
+    get<T>(opt_attribute?: string | undefined, opt_defaultValue?: any | undefined, opt_isSafe?: boolean | undefined): T;
     /**
+     * @private
      * @param {!Object|!Objekt} object
      * @param {!Array} attributes
      * @return {!Object|!Objekt|undefined}
      */
-    _get(object: any, attributes: any): any;
+    private _get;
     /**
      * @param {!Object|!Objekt} object
      * @param {!Array} attributes
      * @param {*} value
      * @return {undefined}
      */
-    _set(object: any, attributes: any, value: any): void;
+    _set(object: object | Objekt, attributes: Array<any>, value: any): void;
     /**
      * @export
      * @param {string} attribute
      * @param {*} value
      * @return {undefined}
      */
-    set(attribute: any, value: any): void;
+    set(attribute: string, value: any): void;
     /**
      * @export
      * @param {string} attribute
@@ -63,13 +64,13 @@ export declare class Objekt {
      * @param {boolean=} opt_isSafe
      * @return {undefined}
      */
-    setRaw(attribute: any, value: any, opt_isSafe?: boolean): void;
+    setRaw(attribute: string, value: any, opt_isSafe?: boolean | undefined): void;
     /**
      * @export
      * @param {string} attribute
      * @return {undefined}
      */
-    remove(attribute: any): void;
+    remove(attribute: string): void;
     /**
      * @export
      * @return {undefined}
@@ -80,7 +81,7 @@ export declare class Objekt {
      * @param {!Array} attributes
      * @return {undefined}
      */
-    _remove(object: any, attributes: any): void;
+    _remove(object: object | Objekt, attributes: Array<any>): void;
     /**
      * @export
      * @param {!Function} next
@@ -88,20 +89,20 @@ export declare class Objekt {
      * @param {!Array=} opt_attributes
      * @return {undefined}
      */
-    each(next: any, opt_properties?: any, opt_attributes?: any): void;
+    each(next: Function, opt_properties?: object | undefined, opt_attributes?: Array<any> | undefined): void;
     /**
      * @param {!Object} object
      * @param {!Array} attributes
      * @param {*} value
      * @return {!Object}
      */
-    _attributesToObject(object: any, attributes: any, value: any): any;
+    _attributesToObject(object: object, attributes: Array<any>, value: any): object;
     /**
      * @export
      * @param {boolean=} opt_isNative
      * @return {!Objekt}
      */
-    copy(opt_isNative?: boolean): any;
+    copy(opt_isNative?: boolean | undefined): any;
     /**
      * @export
      * @return {boolean}
@@ -112,18 +113,18 @@ export declare class Objekt {
      * @param {!Array} keys
      * @return {!Objekt}
      */
-    allowKeys(keys: any): Objekt;
+    allowKeys(keys: Array<any>): Objekt;
     /**
      * @export
      * @param {!Array} keys
      * @return {!Objekt}
      */
-    denyKeys(keys: any): Objekt;
+    denyKeys(keys: Array<any>): Objekt;
     /**
      * @export
      * @param {!Objekt} obj
      * @param {!Function} condition
      * @return {!Objekt}
      */
-    filterKeys(obj: any, condition: any): Objekt;
+    filterKeys(obj: Objekt, condition: Function): Objekt;
 }

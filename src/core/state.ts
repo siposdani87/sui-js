@@ -231,15 +231,15 @@ export class State {
      * @param {string=} opt_attribute
      * @return {!Objekt|string}
      */
-    getCurrent(opt_attribute?) {
-        return /** @type {!Objekt|string} */ this._current.get(opt_attribute);
+    getCurrent<T>(opt_attribute?) {
+        return /** @type {!Objekt|string} */ this._current.get<T>(opt_attribute);
     }
     /**
      * @param {string=} opt_attribute
      * @return {!Objekt|string}
      */
     getPrevious(opt_attribute?) {
-        return /** @type {!Objekt|string} */ this._previous.get(opt_attribute);
+        return /** @type {!Objekt|string} */this._previous.get(opt_attribute);
     }
     /**
      * @param {string} id
@@ -420,8 +420,8 @@ export class State {
     /**
      * @return {!Objekt}
      */
-    getParams() {
-        return /** @type {!Objekt} */ this.getCurrent('params');
+    getParams(): Objekt {
+        return /** @type {!Objekt} */ this.getCurrent<Objekt>('params');
     }
     /**
      * @param {string} name
@@ -430,7 +430,7 @@ export class State {
      */
     getParam(name, opt_defaultValue) {
         const params = this.getParams();
-        return /** @type {string} */ params.get(name, opt_defaultValue);
+        return /** @type {string} */ params.get<string>(name, opt_defaultValue);
     }
     /**
      * @return {undefined}

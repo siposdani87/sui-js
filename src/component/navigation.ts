@@ -83,7 +83,7 @@ export class Navigation {
         counterSpan.addClass('counter');
         counterSpan.setHtml(counter);
 
-        const linkNode = item.get(this.linkNodeKey);
+        const linkNode = item.get<Item>(this.linkNodeKey);
         linkNode.beforeChild(counterSpan);
     }
     /**
@@ -105,7 +105,7 @@ export class Navigation {
         imageSpan.addClass('image');
         imageSpan.appendChild(iconNode);
 
-        const linkNode = item.get(this.linkNodeKey);
+        const linkNode = item.get<Item>(this.linkNodeKey);
         linkNode.beforeChild(imageSpan);
     }
     /**
@@ -146,7 +146,7 @@ export class Navigation {
             imageSpan.appendChild(imageTag);
         }
 
-        const linkNode = item.get(this.linkNodeKey);
+        const linkNode = item.get<Item>(this.linkNodeKey);
         linkNode.beforeChild(imageSpan);
     }
     /**

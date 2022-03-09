@@ -100,6 +100,7 @@ export class Objekt {
         return !isUndefined(value) ? value : opt_defaultValue;
     }
     /**
+     * @private
      * @param {!Object|!Objekt} object
      * @param {!Array} attributes
      * @return {!Object|!Objekt|undefined}

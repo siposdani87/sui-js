@@ -94,7 +94,7 @@ export declare class State {
      * @param {string=} opt_attribute
      * @return {!Objekt|string}
      */
-    getCurrent(opt_attribute?: any): any;
+    getCurrent<T>(opt_attribute?: any): T;
     /**
      * @param {string=} opt_attribute
      * @return {!Objekt|string}
@@ -187,13 +187,13 @@ export declare class State {
     /**
      * @return {!Objekt}
      */
-    getParams(): any;
+    getParams(): Objekt;
     /**
      * @param {string} name
      * @param {*=} opt_defaultValue
      * @return {string}
      */
-    getParam(name: any, opt_defaultValue: any): any;
+    getParam(name: any, opt_defaultValue: any): string;
     /**
      * @return {undefined}
      */

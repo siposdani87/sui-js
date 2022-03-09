@@ -71,13 +71,13 @@ export declare class Form extends Collection {
      * @param {string} name
      * @return {*}
      */
-    _getValue(name: any): any;
+    _getValue(name: any): unknown;
     /**
      * @private
      * @param {!BaseField} field
      * @return {*}
      */
-    _getPreviousValue(field: any): any;
+    _getPreviousValue(field: any): unknown;
     /**
      * @private
      * @param {!BaseField} field
