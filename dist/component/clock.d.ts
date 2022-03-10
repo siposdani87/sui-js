@@ -93,7 +93,7 @@ export declare class Clock {
      * @private
      * @return {!Item}
      */
-    _getTimeNode(): Item;
+    _getTimeNode(): Item<HTMLElement>;
     /**
      * @private
      * @param {number} hours

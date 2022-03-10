@@ -1,5 +1,6 @@
 import {
     contain,
+    convert,
     each,
     eachArray,
     eq,
@@ -15,29 +16,30 @@ import { consoleWarn } from '../utils/log';
 
 /**
  * @class
+ * @template T
  */
-export class Item {
-    node: any;
+export class Item<T extends HTMLElement = HTMLElement> {
+    node: T;
     parentNode: any;
     listenerStoreKey: string;
     /**
-     * @param {?Element|string} node
+     * @param {?T|string} node
      * @param {!Item=} opt_parentNode
      */
-    constructor(node, opt_parentNode?) {
+    constructor(node: (T | string) | null, opt_parentNode?: Item | undefined) {
         if (isString(node)) {
             if (
-                contain(/** @type {string} */ node, '<') &&
-                contain(/** @type {string} */ node, '</')
+                contain(/** @type {string} */(node as string), '<') &&
+                contain(/** @type {string} */(node as string), '</')
             ) {
                 const template = document.createElement('template');
-                template.innerHTML = node;
-                node = template.content.firstElementChild;
+                template.innerHTML = (node as string);
+                node = template.content.firstElementChild as any as T;
             } else {
-                node = document.createElement(/** @type {string} */ node);
+                node = document.createElement(/** @type {string} */(node as string)) as any as T;
             }
         }
-        this.node = /** @type {!Element} */ node;
+        this.node = /** @type {!T} */(node as T);
         this.parentNode = opt_parentNode;
         this.listenerStoreKey = '_listeners';
     }
@@ -46,7 +48,7 @@ export class Item {
      * @param {boolean|number|string} value
      * @return {undefined}
      */
-    set(attribute, value) {
+    set(attribute: string, value: boolean | number | string): void {
         if (eq(attribute, 'id')) {
             this.setId(value);
         } else {
@@ -57,7 +59,7 @@ export class Item {
      * @param {!Object} properties
      * @return {undefined}
      */
-    merge(properties) {
+    merge(properties: Object): void {
         each(properties, (value, attribute) => {
             this.set(attribute, value);
         });
@@ -66,58 +68,58 @@ export class Item {
      * @param {string} attribute
      * @return {*}
      */
-    get(attribute) {
+    get(attribute: string): any {
         if (eq(attribute, 'id')) {
             return this.getId();
         }
         return this.getAttribute(attribute);
     }
     /**
-     * @return {!Element}
+     * @return {!T}
      */
-    getNode() {
+    getNode(): T {
         return this.node;
     }
     /**
      * @return {string}
      */
-    getTagName() {
+    getTagName(): string {
         return this.node.tagName.toLowerCase();
     }
     /**
      * @return {string|null}
      */
-    getId() {
+    getId(): string | null {
         return this.node.id || null;
     }
     /**
      * @param {boolean|number|string} id
      * @return {undefined}
      */
-    setId(id) {
-        this.node.id = id;
+    setId(id: boolean | number | string): void {
+        this.node.id = convert(id, 'string');
     }
     /**
      * @param {boolean|number|string} htmlFor
      * @return {undefined}
      */
-    setFor(htmlFor) {
-        this.node.htmlFor = htmlFor;
+    setFor(htmlFor: boolean | number | string): void {
+        (this.node as any as HTMLLabelElement).htmlFor = convert(htmlFor, 'string');
         this.setAttribute('for', htmlFor);
     }
     /**
      * @return {string|null}
      */
-    getFor() {
+    getFor(): string | null {
         return (
-            this.node.htmlFor || /** @type {string} */ this.getAttribute('for')
+            (this.node as any as HTMLLabelElement).htmlFor || /** @type {string} */ this.getAttribute('for')
         );
     }
     /**
      * @param {string} cssClass
      * @return {boolean}
      */
-    hasClass(cssClass) {
+    hasClass(cssClass: string): boolean {
         return this.node.classList.contains(cssClass);
     }
     /**
@@ -125,7 +127,7 @@ export class Item {
      * @param {!Function} callback
      * @return {undefined}
      */
-    _handleClassList(cssClasses, callback) {
+    _handleClassList(cssClasses: Array<any> | string, callback: Function): void {
         if (isArray(cssClasses)) {
             each(cssClasses, (cssClass) => {
                 callback(cssClass);
@@ -138,7 +140,7 @@ export class Item {
      * @param {!Array|string} cssClasses
      * @return {undefined}
      */
-    addClass(cssClasses) {
+    addClass(cssClasses: Array<any> | string): void {
         this._handleClassList(cssClasses, (cssClass) => {
             if (cssClass && !this.hasClass(cssClass)) {
                 this.node.classList.add(cssClass);
@@ -149,7 +151,7 @@ export class Item {
      * @param {!Array|string} cssClasses
      * @return {undefined}
      */
-    removeClass(cssClasses) {
+    removeClass(cssClasses: Array<any> | string): void {
         this._handleClassList(cssClasses, (cssClass) => {
             this.node.classList.remove(cssClass);
         });
@@ -158,7 +160,7 @@ export class Item {
      * @param {!Array|string} cssClasses
      * @return {undefined}
      */
-    toggleClass(cssClasses) {
+    toggleClass(cssClasses: Array<any> | string): void {
         this._handleClassList(cssClasses, (cssClass) => {
             this.node.classList.toggle(cssClass);
         });
@@ -166,7 +168,7 @@ export class Item {
     /**
      * @return {!Array}
      */
-    getClasses() {
+    getClasses(): Array<any> {
         return this.node.classList.value.split(' ');
     }
     /**
@@ -174,21 +176,21 @@ export class Item {
      * @param {!Object|!Function|!Array|boolean|number|string|null|undefined=} opt_value
      * @return {undefined}
      */
-    setAttribute(attribute, opt_value?) {
+    setAttribute(attribute: string, opt_value?: (object | Function | Array<any> | boolean | number | string | null | undefined) | undefined): void {
         const value = isUndefined(opt_value) ? attribute : opt_value;
         if (isFunction(value)) {
             this.node[attribute] = value;
         } else if (contain(attribute, 'data-') && isObject(value)) {
             this.node.setAttribute(attribute, JSON.stringify(value));
         } else {
-            this.node.setAttribute(attribute, /** @type {string} */ value);
+            this.node.setAttribute(attribute, /** @type {string} */(value as string));
         }
     }
     /**
      * @param {string} attribute
      * @return {*}
      */
-    getAttribute(attribute) {
+    getAttribute(attribute: string): any {
         const data = this.node.getAttribute(attribute);
         if (
             contain(attribute, 'data-') &&
@@ -203,14 +205,14 @@ export class Item {
      * @param {string} attribute
      * @return {undefined}
      */
-    removeAttribute(attribute) {
+    removeAttribute(attribute: string): void {
         this.node.removeAttribute(attribute);
     }
     /**
      * @param {string} attribute
      * @return {boolean}
      */
-    hasAttribute(attribute) {
+    hasAttribute(attribute: string): boolean {
         return this.node.hasAttribute(attribute);
     }
     /**
@@ -218,7 +220,7 @@ export class Item {
      * @param {!Function=} opt_callback
      * @return {!Function}
      */
-    addEventListener(eventName, opt_callback) {
+    addEventListener(eventName: string, opt_callback: Function | undefined): Function {
         let listener: any = noop();
         if (opt_callback) {
             listener = (event) => {
@@ -238,7 +240,7 @@ export class Item {
      * @param {!Function=} listener
      * @return {undefined}
      */
-    _addListenerToStore(eventName, listener) {
+    _addListenerToStore(eventName: string, listener: Function | undefined): void {
         if (!this.node[this.listenerStoreKey]) {
             this.node[this.listenerStoreKey] = {};
         }
@@ -252,7 +254,7 @@ export class Item {
      * @param {string} eventName
      * @return {!Array}
      */
-    _getListenerToStore(eventName) {
+    _getListenerToStore(eventName: string): Array<any> {
         if (
             this.node[this.listenerStoreKey] ||
             this.node[this.listenerStoreKey][eventName]
@@ -263,17 +265,17 @@ export class Item {
     }
     /**
      * @param {string} eventName
-     * @param {!Function} listener
+     * @param {function(Element, Event)} listener
      * @return {undefined}
      */
-    removeEventListener(eventName, listener) {
+    removeEventListener(eventName: keyof ElementEventMap, listener: (this: Element, ev: Event) => any): void {
         this.node.removeEventListener(eventName, listener);
     }
     /**
      * @param {string} eventName
      * @return {undefined}
      */
-    removeEventListeners(eventName) {
+    removeEventListeners(eventName: keyof ElementEventMap): void {
         const listeners = this._getListenerToStore(eventName);
         eachArray(listeners, (listener) => {
             this.removeEventListener(eventName, listener);
@@ -283,14 +285,14 @@ export class Item {
      * @param {!Event} event
      * @return {undefined}
      */
-    dispatchEvent(event) {
+    dispatchEvent(event: Event): void {
         this.node.dispatchEvent(event);
     }
     /**
      * @param {string} eventName
      * @return {undefined}
      */
-    trigger(eventName) {
+    trigger(eventName: string): void {
         // https://developer.mozilla.org/en-US/docs/Web/Guide/Events/Creating_and_triggering_events
         const event = new Event(eventName);
         this.dispatchEvent(event);
@@ -299,7 +301,7 @@ export class Item {
      * @param {string} tagName
      * @return {!Item}
      */
-    createElement(tagName) {
+    createElement(tagName: string): Item {
         const node = document.createElement(tagName);
         return new Item(node, this);
     }
@@ -307,13 +309,13 @@ export class Item {
      * @param {!Item} node
      * @return {undefined}
      */
-    appendChild(node) {
+    appendChild(node: Item): void {
         this.node.appendChild(node.getNode());
     }
     /**
      * @return {undefined}
      */
-    removeChildren() {
+    removeChildren(): void {
         while (this.hasChildren()) {
             this.node.removeChild(this.node.firstChild);
         }
@@ -321,14 +323,14 @@ export class Item {
     /**
      * @return {boolean}
      */
-    hasChildren() {
+    hasChildren(): boolean {
         return this.node.hasChildNodes();
     }
     /**
      * @param {!Item} node
      * @return {undefined}
      */
-    removeChild(node) {
+    removeChild(node: Item): void {
         if (this.hasChildren()) {
             try {
                 this.node.removeChild(node.getNode());
@@ -340,7 +342,7 @@ export class Item {
     /**
      * @return {undefined}
      */
-    remove() {
+    remove(): void {
         const parentElement = this._getParentElement();
         if (!this.isEmpty() && parentElement) {
             parentElement.removeChild(this.node);
@@ -350,7 +352,7 @@ export class Item {
      * @param {!Item} node
      * @return {undefined}
      */
-    insert(node) {
+    insert(node: Item): void {
         this.removeChildren();
         this.appendChild(node);
     }
@@ -358,7 +360,7 @@ export class Item {
      * @param {!Item} node
      * @return {boolean}
      */
-    beforeChild(node) {
+    beforeChild(node: Item): boolean {
         const referenceNode =
             this.node.firstChild || this.node.firstElementChild;
         if (referenceNode) {
@@ -374,7 +376,7 @@ export class Item {
      * @param {!Item} node
      * @return {boolean}
      */
-    afterChild(node) {
+    afterChild(node: Item): boolean {
         const parentElement = this._getParentElement();
         if (parentElement) {
             parentElement.appendChild(node.getNode());
@@ -386,7 +388,7 @@ export class Item {
      * @param {!Item} node
      * @return {boolean}
      */
-    insertBefore(node) {
+    insertBefore(node: Item): boolean {
         const parentElement = this._getParentElement();
         if (parentElement) {
             parentElement.insertBefore(node.getNode(), this.node);
@@ -398,7 +400,7 @@ export class Item {
      * @param {!Item} node
      * @return {boolean}
      */
-    insertAfter(node) {
+    insertAfter(node: Item): boolean {
         const nextSiblingNode = this.getNextSibling();
         const parentElement = this._getParentElement();
         if (parentElement) {
@@ -415,7 +417,7 @@ export class Item {
      * @param {!Item} node
      * @return {boolean}
      */
-    replaceChild(node) {
+    replaceChild(node: Item): boolean {
         const parentElement = this._getParentElement();
         if (parentElement) {
             parentElement.replaceChild(node.getNode(), this.node);
@@ -426,17 +428,17 @@ export class Item {
     /**
      * @return {!Item}
      */
-    getNextSibling() {
+    getNextSibling(): Item {
         const referenceNode =
             this.node.nextSibling || this.node.nextElementSibling;
-        return new Item(/** @type {!Element} */ referenceNode);
+        return new Item(/** @type {T} */(referenceNode as T));
     }
     /**
      * @export
-     * @param {!Element|string|number} text
+     * @param {!string} text
      * @return {undefined}
      */
-    setHtml(text) {
+    setHtml(text: string): void {
         this.node.innerHTML = text;
     }
     /**
@@ -444,7 +446,7 @@ export class Item {
      * @param {boolean=} opt_isInner
      * @return {string}
      */
-    getHtml(opt_isInner = false) {
+    getHtml(opt_isInner: boolean | undefined = false): string {
         if (!this.isEmpty()) {
             return opt_isInner ? this.node.innerHTML : this.node.outerHTML;
         }
@@ -454,13 +456,13 @@ export class Item {
      * @param {string} text
      * @return {undefined}
      */
-    setText(text) {
+    setText(text: string): void {
         this.node.nodeValue = text;
     }
     /**
      * @return {string}
      */
-    getText() {
+    getText(): string {
         return this.node.textContent;
     }
     /**
@@ -468,7 +470,7 @@ export class Item {
      * @param {*} value
      * @return {undefined}
      */
-    setData(name, value) {
+    setData(name: string, value: any): void {
         if (!this.isEmpty()) {
             let data = value;
             if (!isString(value)) {
@@ -481,7 +483,7 @@ export class Item {
      * @param {string} name
      * @return {*}
      */
-    getData(name) {
+    getData(name: string): any {
         let data = this.node.dataset[name];
         if (data && (eq(data[0], '[') || eq(data[0], '{'))) {
             data = JSON.parse(data);
@@ -492,7 +494,7 @@ export class Item {
      * @param {string} name
      * @return {undefined}
      */
-    removeData(name) {
+    removeData(name: string): void {
         if (!this.isEmpty()) {
             delete this.node.dataset[name];
             this.node.removeAttribute('data-' + name);
@@ -501,7 +503,7 @@ export class Item {
     /**
      * @return {?Item}
      */
-    getParentNode() {
+    getParentNode(): Item | null {
         const parentElement = this._getParentElement();
         if (parentElement) {
             return new Item(parentElement);
@@ -509,9 +511,9 @@ export class Item {
         return null;
     }
     /**
-     * @return {?Element}
+     * @return {?HTMLElement}
      */
-    _getParentElement() {
+    _getParentElement(): HTMLElement | null {
         if (this.parentNode && !this.parentNode.isEmpty()) {
             return this.parentNode.getNode();
         } else if (this.node) {
@@ -522,20 +524,20 @@ export class Item {
     /**
      * @return {?CSSStyleDeclaration}
      */
-    getComputedStyle() {
+    getComputedStyle(): CSSStyleDeclaration | null {
         return window.getComputedStyle(this.node);
     }
     /**
      * @return {!Object}
      */
-    getStyle() {
+    getStyle(): object {
         return this.node.style;
     }
     /**
      * @param {!Object} properties
      * @return {undefined}
      */
-    setStyle(properties) {
+    setStyle(properties: object): void {
         each(properties, (value, propertyName) => {
             this.node.style.setProperty(propertyName, value, '');
         });
@@ -544,7 +546,7 @@ export class Item {
      * @param {!Array} properties
      * @return {undefined}
      */
-    removeStyle(properties) {
+    removeStyle(properties: Array<any>): void {
         each(properties, (property) => {
             this.node.style.removeProperty(property);
         });
@@ -552,13 +554,13 @@ export class Item {
     /**
      * @return {boolean}
      */
-    isEmpty() {
+    isEmpty(): boolean {
         return !this.node;
     }
     /**
      * @return {boolean}
      */
-    exists() {
+    exists(): boolean {
         return document.body.contains(this.node);
     }
     /**
@@ -566,7 +568,7 @@ export class Item {
      * @param {boolean=} opt_isRoot
      * @return {string}
      */
-    toString(opt_isRoot = true) {
+    toString(opt_isRoot: boolean | undefined = true): string {
         if (opt_isRoot) {
             return this.node.outerHTML;
         }
@@ -576,9 +578,9 @@ export class Item {
      * @param {boolean=} opt_deep
      * @return {?Item}
      */
-    cloneNode(opt_deep = false) {
+    cloneNode(opt_deep: boolean | undefined = false): Item | null {
         if (!this.isEmpty()) {
-            const cloneNode = this.node.cloneNode(opt_deep);
+            const cloneNode = this.node.cloneNode(opt_deep) as HTMLElement;
             return new Item(cloneNode, this.parentNode);
         }
         return null;
@@ -587,11 +589,11 @@ export class Item {
      * @deprecated
      * @return {undefined}
      */
-    clearNode() {
+    clearNode(): void {
         const cloneNode = this.cloneNode(true);
         if (cloneNode) {
             this.replaceChild(cloneNode);
-            this.node = cloneNode.getNode();
+            this.node = cloneNode.getNode() as T;
         }
     }
 }

@@ -226,7 +226,9 @@ export class State {
         if (eq(id[0], '#') || eq(id[0], '/')) {
             this._parsePath(id, (state, path, params) => {
                 this._setHistory(state, path, params, opt_overwrite, opt_force);
-            }, () => { });
+            }, () => {
+                // empty function
+            });
         }
         else {
             const [url, state] = this._resolveUrlWithState(id, opt_params);

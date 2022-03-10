@@ -10,7 +10,7 @@ import { generateId } from '../utils/coder';
 export class Dropdown {
     dropdown: any;
     options: Objekt;
-    collection: Collection;
+    collection: Collection<Objekt>;
     actions: any[];
     item: any;
     buttonNode: Item;

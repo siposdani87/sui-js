@@ -13,21 +13,21 @@ export class Deferred {
     /**
      * @return {!Promize}
      */
-    promise() {
+    promise(): Promize {
         return this._promise;
     }
     /**
      * @param {*=} opt_object
      * @return {undefined}
      */
-    resolve(opt_object?) {
+    resolve(opt_object?: any): void {
         this._promise._resolve(opt_object);
     }
     /**
      * @param {*=} opt_object
      * @return {undefined}
      */
-    reject(opt_object?) {
+    reject(opt_object?: any): void {
         this._promise._reject(opt_object);
     }
 }

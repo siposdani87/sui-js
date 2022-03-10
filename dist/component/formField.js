@@ -25,11 +25,16 @@ import { TextField } from '../field/textField';
  */
 export class FormField {
     /**
+     */
+    constructor() {
+        // Rmpty constructor
+    }
+    /**
      * @param {!Item} inputBlock
      * @param {!Form} form
      * @return {?BaseField}
      */
-    constructor(inputBlock, form) {
+    static handler(inputBlock, form) {
         let input = inputBlock;
         let label = null;
         let error = null;
@@ -64,7 +69,7 @@ export class FormField {
      * @param {!Form} form
      * @return {?BaseField}
      */
-    _getField(input, label, error, inputBlock, form) {
+    static _getField(input, label, error, inputBlock, form) {
         input.addClass('init-field');
         const dataType = input.getData('type');
         const tagName = input.getTagName();

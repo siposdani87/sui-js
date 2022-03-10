@@ -2,6 +2,7 @@ import { BaseField } from './baseField';
 import { Popup } from '../component/popup';
 import { Collection } from '../core/collection';
 import { Item } from '../core/item';
+import { Objekt } from '../core/objekt';
 /**
  * @class
  * @extends {BaseField}
@@ -12,11 +13,11 @@ export declare class SelectField extends BaseField {
     containerNode: Item;
     listNode: Item;
     popup: Popup;
-    options: Collection;
+    options: Collection<Objekt>;
     iconNode: Item;
     selectContainerNode: Item;
     selectNode: Item;
-    searchInputNode: Item;
+    searchInputNode: Item<HTMLInputElement>;
     /**
      * @param {!Item} input
      * @param {!Item} label

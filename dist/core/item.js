@@ -1,11 +1,12 @@
-import { contain, each, eachArray, eq, isArray, isFunction, isObject, isString, isUndefined, noop, typeCast, } from '../utils/operation';
+import { contain, convert, each, eachArray, eq, isArray, isFunction, isObject, isString, isUndefined, noop, typeCast, } from '../utils/operation';
 import { consoleWarn } from '../utils/log';
 /**
  * @class
+ * @template T
  */
 export class Item {
     /**
-     * @param {?Element|string} node
+     * @param {?T|string} node
      * @param {!Item=} opt_parentNode
      */
     constructor(node, opt_parentNode) {
@@ -20,7 +21,7 @@ export class Item {
                 node = document.createElement(/** @type {string} */ node);
             }
         }
-        this.node = /** @type {!Element} */ node;
+        this.node = /** @type {!T} */ node;
         this.parentNode = opt_parentNode;
         this.listenerStoreKey = '_listeners';
     }
@@ -57,7 +58,7 @@ export class Item {
         return this.getAttribute(attribute);
     }
     /**
-     * @return {!Element}
+     * @return {!T}
      */
     getNode() {
         return this.node;
@@ -79,14 +80,14 @@ export class Item {
      * @return {undefined}
      */
     setId(id) {
-        this.node.id = id;
+        this.node.id = convert(id, 'string');
     }
     /**
      * @param {boolean|number|string} htmlFor
      * @return {undefined}
      */
     setFor(htmlFor) {
-        this.node.htmlFor = htmlFor;
+        this.node.htmlFor = convert(htmlFor, 'string');
         this.setAttribute('for', htmlFor);
     }
     /**
@@ -244,7 +245,7 @@ export class Item {
     }
     /**
      * @param {string} eventName
-     * @param {!Function} listener
+     * @param {function(Element, Event)} listener
      * @return {undefined}
      */
     removeEventListener(eventName, listener) {
@@ -406,11 +407,11 @@ export class Item {
      */
     getNextSibling() {
         const referenceNode = this.node.nextSibling || this.node.nextElementSibling;
-        return new Item(/** @type {!Element} */ referenceNode);
+        return new Item(/** @type {T} */ referenceNode);
     }
     /**
      * @export
-     * @param {!Element|string|number} text
+     * @param {!string} text
      * @return {undefined}
      */
     setHtml(text) {
@@ -486,7 +487,7 @@ export class Item {
         return null;
     }
     /**
-     * @return {?Element}
+     * @return {?HTMLElement}
      */
     _getParentElement() {
         if (this.parentNode && !this.parentNode.isEmpty()) {

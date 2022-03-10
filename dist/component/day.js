@@ -42,7 +42,7 @@ export class Day {
     getNode() {
         const node = new Item('span');
         node.addClass(this.cssClasses);
-        const text = parseInt(this.date['format']('DD'), 10);
+        const text = this.date['format']('DD');
         node.setHtml(text);
         node.addEventListener('click', () => {
             this.eventClick(this.date);

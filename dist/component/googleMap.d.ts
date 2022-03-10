@@ -12,7 +12,7 @@ export declare class GoogleMap {
     overlay: google.maps.OverlayView;
     polygonOptions: any;
     polygons: any;
-    markers: Collection;
+    markers: Collection<Objekt>;
     markerOptions: Objekt;
     heatmapOptions: Objekt;
     heatmap: google.maps.visualization.HeatmapLayer;
@@ -311,7 +311,7 @@ export declare class GoogleMap {
      * @param {!Objekt} markerData
      * @return {undefined}
      */
-    _bindEventsToMarker(marker: any, markerData: any): void;
+    _bindEventsToMarker(marker: google.maps.Marker, markerData: Objekt): void;
     /**
      * @param {!google.maps.Marker} marker
      * @return {undefined}
@@ -337,7 +337,7 @@ export declare class GoogleMap {
      * @param {string|number} id
      * @return {!Objekt}
      */
-    getMarker(id: any): any;
+    getMarker(id: any): Objekt;
     /**
      * @param {string|number} id
      * @return {undefined}

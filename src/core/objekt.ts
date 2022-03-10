@@ -23,7 +23,7 @@ export class Objekt {
     /**
      * @param {!Object=} opt_object
      */
-    constructor(opt_object?: object | undefined) {
+    constructor(opt_object?: Object | undefined) {
         opt_object = opt_object || {};
         Object.call(this, opt_object);
         this.merge(opt_object);
@@ -104,13 +104,14 @@ export class Objekt {
     }
     /**
      * @export
+     * @template T
      * @param {string=} opt_attribute
      * @param {*=} opt_defaultValue
      * @param {boolean=} opt_isSafe
      * @return {*}
      */
     get<T>(opt_attribute?: string | undefined, opt_defaultValue?: any | undefined, opt_isSafe: boolean | undefined = false): T {
-        let value: object = this;
+        let value: Object = this;
         if (opt_attribute) {
             const attributes = opt_isSafe
                 ? [opt_attribute]
@@ -125,7 +126,7 @@ export class Objekt {
      * @param {!Array} attributes
      * @return {!Object|!Objekt|undefined}
      */
-    private _get(object: object | Objekt, attributes: Array<any>): object | Objekt | undefined {
+    private _get(object: Object | Objekt, attributes: Array<any>): Object | Objekt | undefined {
         let result = undefined;
         each(object, (_value, property) => {
             if (
@@ -151,7 +152,7 @@ export class Objekt {
      * @param {*} value
      * @return {undefined}
      */
-    _set(object: object | Objekt, attributes: Array<any>, value: any): void {
+    _set(object: Object | Objekt, attributes: Array<any>, value: any): void {
         eachObject(object, (_oldValue, property) => {
             if (attributes.length === 1 && property === attributes[0]) {
                 object[property] = value;
@@ -210,7 +211,7 @@ export class Objekt {
      * @param {!Array} attributes
      * @return {undefined}
      */
-    _remove(object: object | Objekt, attributes: Array<any>): void {
+    _remove(object: Object | Objekt, attributes: Array<any>): void {
         for (const property in object) {
             if (object.hasOwnProperty(property)) {
                 if (attributes.length === 1 && property === attributes[0]) {
@@ -234,7 +235,7 @@ export class Objekt {
      * @param {!Array=} opt_attributes
      * @return {undefined}
      */
-    each(next: Function, opt_properties?: object | undefined, opt_attributes?: Array<any> | undefined): void {
+    each(next: Function, opt_properties?: Object | undefined, opt_attributes?: Array<any> | undefined): void {
         const properties = opt_properties || this;
         const attributes = opt_attributes || [];
 
@@ -254,7 +255,7 @@ export class Objekt {
      * @param {*} value
      * @return {!Object}
      */
-    _attributesToObject(object: object, attributes: Array<any>, value: any): object {
+    _attributesToObject(object: Object, attributes: Array<any>, value: any): Object {
         const lastAttribute = attributes.pop();
         let base = object;
         for (let i = 0; i < attributes.length; i++) {

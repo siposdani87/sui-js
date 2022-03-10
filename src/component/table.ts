@@ -27,7 +27,7 @@ import { generateId } from '../utils/coder';
 export class Table {
     tableNode: any;
     options: Objekt;
-    collection: Collection;
+    collection: Collection<Objekt>;
     query: string;
     actions: any[];
     contentHandler: ContentHandler;
@@ -287,8 +287,8 @@ export class Table {
      * @return {undefined}
      */
     _toggleSorting(columnWithOrder) {
-        let [column, order] = columnWithOrder.split(':', 2);
-        order = order || 'desc';
+        const [column, direction] = columnWithOrder.split(':', 2);
+        let order = direction || 'desc';
         if (
             eq(this.options.sort.column, column) &&
             eq(this.options.sort.order, order)

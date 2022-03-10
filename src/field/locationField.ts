@@ -15,8 +15,8 @@ export class LocationField extends BaseField {
     map: any;
     mapLockNode: any;
     advancedNode: any;
-    latitudeInput: Item;
-    longitudeInput: Item;
+    latitudeInput: Item<HTMLInputElement>;
+    longitudeInput: Item<HTMLInputElement>;
     /**
      * @param {!Item} input
      * @param {!Item} label
@@ -193,9 +193,9 @@ export class LocationField extends BaseField {
      * @param {string} id
      * @param {string} labelText
      * @param {function(!Item):undefined} callback
-     * @return {!Item}
+     * @return {!Item<HTMLInputElement>}
      */
-    _renderAdvancedInput(id, labelText, callback) {
+    _renderAdvancedInput(id, labelText, callback): Item<HTMLInputElement> {
         const blockNode = new Item('div');
         blockNode.addClass('col-6');
         this.advancedNode.appendChild(blockNode);
@@ -208,13 +208,13 @@ export class LocationField extends BaseField {
         ]);
         blockNode.appendChild(boxNode);
 
-        const advancedLabel = new Item('label');
+        const advancedLabel = new Item<HTMLLabelElement>('label');
         advancedLabel.setFor(id);
         advancedLabel.addClass('mdl-textfield__label');
         advancedLabel.setHtml(labelText);
         boxNode.appendChild(advancedLabel);
 
-        const advancedInput = new Item('input');
+        const advancedInput = new Item<HTMLInputElement>('input');
         advancedInput.setId(id);
         advancedInput.setAttribute('type', 'text');
         advancedInput.addClass('mdl-textfield__input');

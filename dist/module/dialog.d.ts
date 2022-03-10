@@ -32,12 +32,12 @@ export declare class Dialog extends BaseModal {
      * @param {!Item} dom
      * @return {!Item}
      */
-    _handleMessage(dom: any): any;
+    _handleMessage(dom: any): import("..").Item<HTMLElement>;
     /**
      * @param {!Item} dom
      * @return {!Item}
      */
-    _handleDom(dom: any): any;
+    _handleDom(dom: any): import("..").Item<HTMLElement>;
     /**
      * @param {!Item} dom
      * @return {undefined}

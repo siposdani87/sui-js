@@ -27,11 +27,11 @@ export class SelectField extends BaseField {
     containerNode: Item;
     listNode: Item;
     popup: Popup;
-    options: Collection;
+    options: Collection<Objekt>;
     iconNode: Item;
     selectContainerNode: Item;
     selectNode: Item;
-    searchInputNode: Item;
+    searchInputNode: Item<HTMLInputElement>;
     /**
      * @param {!Item} input
      * @param {!Item} label
@@ -350,10 +350,10 @@ export class SelectField extends BaseField {
         this.options.each((option) => {
             const id = option.get('id');
             const selected = inArray(ids, id);
-            const optionNode = option.get('option_node');
+            const optionNode = option.get<Item<HTMLOptionElement>>('option_node');
             const node = optionNode.getNode();
             if (selected) {
-                node.setAttribute('selected', selected);
+                node.setAttribute('selected', 'selected');
             } else {
                 node.removeAttribute('selected');
             }
@@ -368,7 +368,7 @@ export class SelectField extends BaseField {
     _getSelectedIds() {
         const ids = [];
         this.options.each((option) => {
-            const optionNode = option.get('option_node');
+            const optionNode = option.get<Item<HTMLOptionElement>>('option_node');
             const node = optionNode.getNode();
             if (node.selected) {
                 const id = option.get('id');
@@ -451,12 +451,14 @@ export class SelectField extends BaseField {
 
         const searchNode = new Item('div');
         searchNode.addClass(['mdl-textfield', 'mdl-js-textfield']);
-        searchNode.addEventListener('click', () => {});
+        searchNode.addEventListener('click', () => {
+            // empty function
+        });
         searchParentNode.appendChild(searchNode);
 
         const id = generateId('select');
 
-        this.searchInputNode = new Item('input');
+        this.searchInputNode = new Item<HTMLInputElement>('input');
         this.searchInputNode.setId(id);
         this.searchInputNode.setAttribute('type', 'text');
         this.searchInputNode.addClass('mdl-textfield__input');
@@ -501,7 +503,7 @@ export class SelectField extends BaseField {
         const regExp = new RegExp(query, 'i');
         const items = [];
         this.options.each((option) => {
-            const name = option.get('name');
+            const name = option.get<string>('name');
             if (regExp.test(name)) {
                 items.push(option);
             }

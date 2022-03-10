@@ -10,8 +10,8 @@ export declare class LocationField extends BaseField {
     map: any;
     mapLockNode: any;
     advancedNode: any;
-    latitudeInput: Item;
-    longitudeInput: Item;
+    latitudeInput: Item<HTMLInputElement>;
+    longitudeInput: Item<HTMLInputElement>;
     /**
      * @param {!Item} input
      * @param {!Item} label
@@ -68,9 +68,9 @@ export declare class LocationField extends BaseField {
      * @param {string} id
      * @param {string} labelText
      * @param {function(!Item):undefined} callback
-     * @return {!Item}
+     * @return {!Item<HTMLInputElement>}
      */
-    _renderAdvancedInput(id: any, labelText: any, callback: any): Item;
+    _renderAdvancedInput(id: any, labelText: any, callback: any): Item<HTMLInputElement>;
     /**
      * @private
      * @return {undefined}

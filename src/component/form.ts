@@ -4,13 +4,14 @@ import { Objekt } from '../core/objekt';
 import { Query } from '../core/query';
 import { FormField } from './formField';
 import { consoleWarn } from '../utils/log';
+import { BaseField } from '../field';
 
 /**
  * @class
  * @export
  * @extends {Collection}
  */
-export class Form extends Collection {
+export class Form extends Collection<BaseField> {
     formNode: any;
     previousModel: Objekt;
     model: Objekt;
@@ -24,7 +25,7 @@ export class Form extends Collection {
     constructor(dom, opt_selector = 'form') {
         const formNode = new Query(opt_selector, dom).getItem();
         formNode.setAttribute('novalidate');
-        super([], FormField, {
+        super([], FormField.handler, {
             parent: formNode,
         });
         this.formNode = formNode;
@@ -60,7 +61,7 @@ export class Form extends Collection {
      * @return {undefined}
      */
     _initFormEvent() {
-        this.formNode.addEventListener('keydown', (node, event) => {
+        this.formNode.addEventListener('keydown', (_node, event) => {
             const textArea = /textarea/i.test(
                 (event.target || event.srcElement).tagName,
             );

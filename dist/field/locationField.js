@@ -171,7 +171,7 @@ export class LocationField extends BaseField {
      * @param {string} id
      * @param {string} labelText
      * @param {function(!Item):undefined} callback
-     * @return {!Item}
+     * @return {!Item<HTMLInputElement>}
      */
     _renderAdvancedInput(id, labelText, callback) {
         const blockNode = new Item('div');

@@ -11,7 +11,7 @@ import { Router } from './router';
 export class State {
     _current: Objekt;
     _previous: any;
-    routes: Collection;
+    routes: Collection<Objekt>;
     basePath: string;
     options: Objekt;
     /**
@@ -261,7 +261,9 @@ export class State {
                         opt_force,
                     );
                 },
-                () => {},
+                () => {
+                    // empty function
+                },
             );
         } else {
             const [url, state] = this._resolveUrlWithState(id, opt_params);
@@ -286,7 +288,7 @@ export class State {
         const state = this.routes.findById(id);
         let url = '';
         if (state) {
-            const stateUrl = /** @type {string} */ state.get('url');
+            const stateUrl = /** @type {string} */ state.get<string>('url');
             const router = new Router(stateUrl);
             url = router.stringify(opt_params);
         }

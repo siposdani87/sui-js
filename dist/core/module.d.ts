@@ -1,9 +1,20 @@
+import { Promize } from './promize';
+import { Objekt } from './objekt';
+import { Item } from './item';
+/**
+ * @typedef {{moduleInjections: Array, moduleCallback: !Function, opt_extendModule: Object=}} Dependency
+ */
+declare type Dependency = {
+    moduleInjections: any[];
+    moduleCallback: Function;
+    opt_extendModule?: any;
+};
 /**
  * @class
  */
 export declare class Module {
     _modules: {
-        [key: string]: any;
+        [key: string]: Dependency;
     };
     _instances: {
         [key: string]: any;
@@ -13,10 +24,7 @@ export declare class Module {
     };
     _dependencies: any[];
     _services: any[];
-    _controller: {
-        enter: () => any;
-        exit: () => any;
-    };
+    _controller: any;
     /**
      */
     constructor();
@@ -25,21 +33,18 @@ export declare class Module {
      * @param {!Object} injections
      * @return {undefined}
      */
-    load(instances: any, injections: any): void;
+    load(instances: object, injections: object): void;
     /**
      * @return {!Object}
      */
-    getController(): {
-        enter: () => any;
-        exit: () => any;
-    };
+    getController(): object;
     /**
      * @param {string} name
      * @param {!Array} moduleInjections
      * @param {!Function} moduleCallback
      * @return {undefined}
      */
-    add(name: any, moduleInjections: any, moduleCallback: any): void;
+    add(name: string, moduleInjections: Array<any>, moduleCallback: Function): void;
     /**
      * @private
      * @param {!Array} moduleInjections
@@ -47,17 +52,13 @@ export declare class Module {
      * @param {string=} opt_extendModule
      * @return {!Object}
      */
-    _getDependencies(moduleInjections: any, moduleCallback: any, opt_extendModule?: any): {
-        moduleInjections: any;
-        moduleCallback: any;
-        extendModule: any;
-    };
+    _getDependencies(moduleInjections: Array<any>, moduleCallback: Function, opt_extendModule?: string | undefined): Dependency;
     /**
      * @private
-     * @param {!Object} dependency
+     * @param {!Dependency} dependency
      * @return {!Object}
      */
-    _resolveDependencies(dependency: any): any;
+    _resolveDependencies(dependency: Dependency): object;
     /**
      * @private
      * @return {undefined}
@@ -68,14 +69,14 @@ export declare class Module {
      * @param {string} value
      * @return {boolean}
      */
-    _isModule(value: any): boolean;
+    _isModule(value: string): boolean;
     /**
      * @private
      * @param {string} service
      * @param {string} injection
      * @return {undefined}
      */
-    _changeServices(service: any, injection: any): void;
+    _changeServices(service: string, injection: string): void;
     /**
      * @return {undefined}
      */
@@ -85,25 +86,25 @@ export declare class Module {
      * @param {!Object} options
      * @return {undefined}
      */
-    handleRoutes(routes: any, options: any): void;
+    handleRoutes(routes: Array<any>, options: object): void;
     /**
      * @param {!Objekt} currentState
      * @param {boolean=} opt_force
      * @return {undefined}
      */
-    _handleStateChange(currentState: any, opt_force?: boolean): void;
+    _handleStateChange(currentState: Objekt, opt_force?: boolean | undefined): void;
     /**
      * @private
      * @param {!Objekt} state
      * @param {!Item} dom
      * @return {undefined}
      */
-    _initController(state: any, dom: any): void;
+    _initController(state: Objekt, dom: Item): void;
     /**
      * @param {!Item} dom
      * @return {undefined}
      */
-    eventControllerLoaded(dom: any): void;
+    eventControllerLoaded(dom: Item): void;
     /**
      * @return {undefined}
      */
@@ -112,23 +113,23 @@ export declare class Module {
      * @param {!Objekt} state
      * @return {undefined}
      */
-    eventModuleFailed(state: any): void;
+    eventModuleFailed(state: Objekt): void;
     /**
      * @param {!Objekt} state
      * @return {undefined}
      */
-    eventModuleLoaded(state: any): void;
+    eventModuleLoaded(state: Objekt): void;
     /**
      * @param {!Objekt} state
      * @return {!Promize}
      */
-    eventStateChange(state: any): import("./promize").Promize;
+    eventStateChange(state: Objekt): Promize;
     /**
      * @param {!Objekt} state
      * @param {!Item} dom
      * @return {!Promize}
      */
-    eventDomChange(state: any, dom: any): import("./promize").Promize;
+    eventDomChange(state: Objekt, dom: Item): Promize;
     /**
      * @return {undefined}
      */
@@ -142,3 +143,4 @@ export declare class Module {
      */
     eventServiceFailed(): void;
 }
+export {};

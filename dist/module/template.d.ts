@@ -39,7 +39,7 @@ export declare class Template {
      * @param {boolean} error
      * @return {!Item}
      */
-    _handleData(data: any, error: any): any;
+    _handleData(data: any, error: any): import("..").Item<HTMLElement>;
     /**
      * @param {!Object} message
      * @return {undefined}

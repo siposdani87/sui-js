@@ -4,7 +4,7 @@ import { Item } from '../core/item';
  * @class
  * @extends {BaseTest}
  */
-export declare class NodeTest extends BaseTest {
+export declare class ItemTest extends BaseTest {
     node: Item;
     /**
      *

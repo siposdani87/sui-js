@@ -94,6 +94,11 @@ gulp.task('watcher', gulp.series(function(done) {
   done();
 }));
 
+gulp.task('jsdoc', gulp.series(function(done) {
+  const config = require('./jsdoc.json');
+  gulp.src(['README.md', 'dist/**/*.js', '!sui.min*'], {read: false}).pipe(jsdoc(config, done));
+}));
+
 gulp.task('compile:styles', gulp.series('compile:styles:minify', 'compile:styles:simple', function(done) {
   done();
 }));
@@ -102,13 +107,8 @@ gulp.task('compile:scripts', gulp.series('compile:scripts:minify', function(done
   done();
 }));
 
-gulp.task('default', gulp.series('compile:styles', 'compile:scripts', function(done) {
+gulp.task('default', gulp.series('compile:styles', 'compile:scripts', 'jsdoc', function(done) {
   done();
-}));
-
-gulp.task('jsdoc', gulp.series(function(done) {
-  const config = require('./jsdoc.json');
-  gulp.src(['README.md', 'dist/**/*'], {read: false}).pipe(jsdoc(config, done));
 }));
 
 gulp.task('serve', gulp.series('watcher', function(done) {

@@ -1,13 +1,19 @@
+import { BaseField } from '../field/baseField';
+import { Item } from '../core/item';
+import { Form } from './form';
 /**
  * @class
  */
 export declare class FormField {
     /**
+     */
+    constructor();
+    /**
      * @param {!Item} inputBlock
      * @param {!Form} form
      * @return {?BaseField}
      */
-    constructor(inputBlock: any, form: any);
+    static handler(inputBlock: Item, form: Form): BaseField | null;
     /**
      * @param {!Item} input
      * @param {?Item} label
@@ -16,5 +22,5 @@ export declare class FormField {
      * @param {!Form} form
      * @return {?BaseField}
      */
-    _getField(input: any, label: any, error: any, inputBlock: any, form: any): any;
+    static _getField(input: Item, label: Item | null, error: Item | null, inputBlock: Item, form: Form): BaseField | null;
 }

@@ -10,7 +10,7 @@ import { Query } from '../core/query';
 export class Navigation {
     http: any;
     options: Objekt;
-    container: Collection;
+    container: Collection<Objekt>;
     linkNodeKey: string;
     /**
      * @param {!Http=} opt_http
@@ -300,7 +300,7 @@ export class Navigation {
     show(id) {
         const item = this.container.findById(id);
         if (item) {
-            const linkNode = item.get(this.linkNodeKey);
+            const linkNode = item.get<Item>(this.linkNodeKey);
             linkNode.removeClass('hidden');
             this._enabled(item);
         }
@@ -312,7 +312,7 @@ export class Navigation {
     hide(id) {
         const item = this.container.findById(id);
         if (item) {
-            const linkNode = item.get(this.linkNodeKey);
+            const linkNode = item.get<Item>(this.linkNodeKey);
             linkNode.addClass('hidden');
             this._disabled(item);
         }

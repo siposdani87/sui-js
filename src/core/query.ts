@@ -6,8 +6,9 @@ import { Item } from './item';
  * @class
  * @export
  * @extends {Collection}
+ * @template T
  */
-export class Query extends Collection {
+export class Query<T extends HTMLElement = HTMLElement> extends Collection<Item<T>> {
     /**
      * @param {string} selector
      * @param {!Element|!Item=} opt_element

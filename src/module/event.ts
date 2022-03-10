@@ -50,7 +50,7 @@ export class Event {
      * @return {!Promize}
      */
     call(name, opt_args = []) {
-        const calls = /** @type {!Array<function()>} */ this.eventStore.get(
+        const calls = /** @type {!Array<function()>} */ this.eventStore.get<Function[]>(
             name,
             [noop()],
         );
@@ -64,7 +64,7 @@ export class Event {
      * @return {!Promize}
      */
     override(name, args, callback) {
-        const calls = /** @type {!Array<function()>} */ this.eventStore.get(
+        const calls = /** @type {!Array<function()>} */ this.eventStore.get<Function[]>(
             name,
             [callback],
         );

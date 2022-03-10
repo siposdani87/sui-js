@@ -1,158 +1,159 @@
 /**
  * @class
+ * @template T
  */
-export declare class Item {
-    node: any;
+export declare class Item<T extends HTMLElement = HTMLElement> {
+    node: T;
     parentNode: any;
     listenerStoreKey: string;
     /**
-     * @param {?Element|string} node
+     * @param {?T|string} node
      * @param {!Item=} opt_parentNode
      */
-    constructor(node: any, opt_parentNode?: any);
+    constructor(node: (T | string) | null, opt_parentNode?: Item | undefined);
     /**
      * @param {string} attribute
      * @param {boolean|number|string} value
      * @return {undefined}
      */
-    set(attribute: any, value: any): void;
+    set(attribute: string, value: boolean | number | string): void;
     /**
      * @param {!Object} properties
      * @return {undefined}
      */
-    merge(properties: any): void;
+    merge(properties: Object): void;
     /**
      * @param {string} attribute
      * @return {*}
      */
-    get(attribute: any): any;
+    get(attribute: string): any;
     /**
-     * @return {!Element}
+     * @return {!T}
      */
-    getNode(): any;
+    getNode(): T;
     /**
      * @return {string}
      */
-    getTagName(): any;
+    getTagName(): string;
     /**
      * @return {string|null}
      */
-    getId(): any;
+    getId(): string | null;
     /**
      * @param {boolean|number|string} id
      * @return {undefined}
      */
-    setId(id: any): void;
+    setId(id: boolean | number | string): void;
     /**
      * @param {boolean|number|string} htmlFor
      * @return {undefined}
      */
-    setFor(htmlFor: any): void;
+    setFor(htmlFor: boolean | number | string): void;
     /**
      * @return {string|null}
      */
-    getFor(): any;
+    getFor(): string | null;
     /**
      * @param {string} cssClass
      * @return {boolean}
      */
-    hasClass(cssClass: any): any;
+    hasClass(cssClass: string): boolean;
     /**
      * @param {!Array|string} cssClasses
      * @param {!Function} callback
      * @return {undefined}
      */
-    _handleClassList(cssClasses: any, callback: any): void;
+    _handleClassList(cssClasses: Array<any> | string, callback: Function): void;
     /**
      * @param {!Array|string} cssClasses
      * @return {undefined}
      */
-    addClass(cssClasses: any): void;
+    addClass(cssClasses: Array<any> | string): void;
     /**
      * @param {!Array|string} cssClasses
      * @return {undefined}
      */
-    removeClass(cssClasses: any): void;
+    removeClass(cssClasses: Array<any> | string): void;
     /**
      * @param {!Array|string} cssClasses
      * @return {undefined}
      */
-    toggleClass(cssClasses: any): void;
+    toggleClass(cssClasses: Array<any> | string): void;
     /**
      * @return {!Array}
      */
-    getClasses(): any;
+    getClasses(): Array<any>;
     /**
      * @param {string} attribute
      * @param {!Object|!Function|!Array|boolean|number|string|null|undefined=} opt_value
      * @return {undefined}
      */
-    setAttribute(attribute: any, opt_value?: any): void;
+    setAttribute(attribute: string, opt_value?: (object | Function | Array<any> | boolean | number | string | null | undefined) | undefined): void;
     /**
      * @param {string} attribute
      * @return {*}
      */
-    getAttribute(attribute: any): any;
+    getAttribute(attribute: string): any;
     /**
      * @param {string} attribute
      * @return {undefined}
      */
-    removeAttribute(attribute: any): void;
+    removeAttribute(attribute: string): void;
     /**
      * @param {string} attribute
      * @return {boolean}
      */
-    hasAttribute(attribute: any): any;
+    hasAttribute(attribute: string): boolean;
     /**
      * @param {string} eventName
      * @param {!Function=} opt_callback
      * @return {!Function}
      */
-    addEventListener(eventName: any, opt_callback: any): any;
+    addEventListener(eventName: string, opt_callback: Function | undefined): Function;
     /**
      * @private
      * @param {string} eventName
      * @param {!Function=} listener
      * @return {undefined}
      */
-    _addListenerToStore(eventName: any, listener: any): void;
+    _addListenerToStore(eventName: string, listener: Function | undefined): void;
     /**
      * @private
      * @param {string} eventName
      * @return {!Array}
      */
-    _getListenerToStore(eventName: any): any;
+    _getListenerToStore(eventName: string): Array<any>;
     /**
      * @param {string} eventName
-     * @param {!Function} listener
+     * @param {function(Element, Event)} listener
      * @return {undefined}
      */
-    removeEventListener(eventName: any, listener: any): void;
+    removeEventListener(eventName: keyof ElementEventMap, listener: (this: Element, ev: Event) => any): void;
     /**
      * @param {string} eventName
      * @return {undefined}
      */
-    removeEventListeners(eventName: any): void;
+    removeEventListeners(eventName: keyof ElementEventMap): void;
     /**
      * @param {!Event} event
      * @return {undefined}
      */
-    dispatchEvent(event: any): void;
+    dispatchEvent(event: Event): void;
     /**
      * @param {string} eventName
      * @return {undefined}
      */
-    trigger(eventName: any): void;
+    trigger(eventName: string): void;
     /**
      * @param {string} tagName
      * @return {!Item}
      */
-    createElement(tagName: any): Item;
+    createElement(tagName: string): Item;
     /**
      * @param {!Item} node
      * @return {undefined}
      */
-    appendChild(node: any): void;
+    appendChild(node: Item): void;
     /**
      * @return {undefined}
      */
@@ -160,12 +161,12 @@ export declare class Item {
     /**
      * @return {boolean}
      */
-    hasChildren(): any;
+    hasChildren(): boolean;
     /**
      * @param {!Item} node
      * @return {undefined}
      */
-    removeChild(node: any): void;
+    removeChild(node: Item): void;
     /**
      * @return {undefined}
      */
@@ -174,101 +175,101 @@ export declare class Item {
      * @param {!Item} node
      * @return {undefined}
      */
-    insert(node: any): void;
+    insert(node: Item): void;
     /**
      * @param {!Item} node
      * @return {boolean}
      */
-    beforeChild(node: any): boolean;
-    /**
-     * @deprecated
-     * @param {!Item} node
-     * @return {boolean}
-     */
-    afterChild(node: any): boolean;
-    /**
-     * @param {!Item} node
-     * @return {boolean}
-     */
-    insertBefore(node: any): boolean;
-    /**
-     * @param {!Item} node
-     * @return {boolean}
-     */
-    insertAfter(node: any): boolean;
+    beforeChild(node: Item): boolean;
     /**
      * @deprecated
      * @param {!Item} node
      * @return {boolean}
      */
-    replaceChild(node: any): boolean;
+    afterChild(node: Item): boolean;
+    /**
+     * @param {!Item} node
+     * @return {boolean}
+     */
+    insertBefore(node: Item): boolean;
+    /**
+     * @param {!Item} node
+     * @return {boolean}
+     */
+    insertAfter(node: Item): boolean;
+    /**
+     * @deprecated
+     * @param {!Item} node
+     * @return {boolean}
+     */
+    replaceChild(node: Item): boolean;
     /**
      * @return {!Item}
      */
     getNextSibling(): Item;
     /**
      * @export
-     * @param {!Element|string|number} text
+     * @param {!string} text
      * @return {undefined}
      */
-    setHtml(text: any): void;
+    setHtml(text: string): void;
     /**
      * @export
      * @param {boolean=} opt_isInner
      * @return {string}
      */
-    getHtml(opt_isInner?: boolean): any;
+    getHtml(opt_isInner?: boolean | undefined): string;
     /**
      * @param {string} text
      * @return {undefined}
      */
-    setText(text: any): void;
+    setText(text: string): void;
     /**
      * @return {string}
      */
-    getText(): any;
+    getText(): string;
     /**
      * @param {string} name
      * @param {*} value
      * @return {undefined}
      */
-    setData(name: any, value: any): void;
+    setData(name: string, value: any): void;
     /**
      * @param {string} name
      * @return {*}
      */
-    getData(name: any): any;
+    getData(name: string): any;
     /**
      * @param {string} name
      * @return {undefined}
      */
-    removeData(name: any): void;
+    removeData(name: string): void;
     /**
      * @return {?Item}
      */
-    getParentNode(): Item;
+    getParentNode(): Item | null;
     /**
-     * @return {?Element}
+     * @return {?HTMLElement}
      */
-    _getParentElement(): any;
+    _getParentElement(): HTMLElement | null;
     /**
      * @return {?CSSStyleDeclaration}
      */
-    getComputedStyle(): CSSStyleDeclaration;
+    getComputedStyle(): CSSStyleDeclaration | null;
     /**
      * @return {!Object}
      */
-    getStyle(): any;
+    getStyle(): object;
     /**
      * @param {!Object} properties
      * @return {undefined}
      */
-    setStyle(properties: any): void;
+    setStyle(properties: object): void;
     /**
      * @param {!Array} properties
      * @return {undefined}
      */
-    removeStyle(properties: any): void;
+    removeStyle(properties: Array<any>): void;
     /**
      * @return {boolean}
      */
@@ -282,12 +283,12 @@ export declare class Item {
      * @param {boolean=} opt_isRoot
      * @return {string}
      */
-    toString(opt_isRoot?: boolean): any;
+    toString(opt_isRoot?: boolean | undefined): string;
     /**
      * @param {boolean=} opt_deep
      * @return {?Item}
      */
-    cloneNode(opt_deep?: boolean): Item;
+    cloneNode(opt_deep?: boolean | undefined): Item | null;
     /**
      * @deprecated
      * @return {undefined}

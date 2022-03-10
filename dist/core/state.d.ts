@@ -6,7 +6,7 @@ import { Objekt } from './objekt';
 export declare class State {
     _current: Objekt;
     _previous: any;
-    routes: Collection;
+    routes: Collection<Objekt>;
     basePath: string;
     options: Objekt;
     /**
@@ -114,7 +114,7 @@ export declare class State {
      * @param {!Object=} opt_params
      * @return {!Array}
      */
-    _resolveUrlWithState(id: any, opt_params?: any): any[];
+    _resolveUrlWithState(id: any, opt_params?: any): (string | Objekt)[];
     /**
      * @param {string} id
      * @param {!Object=} opt_params
@@ -172,7 +172,7 @@ export declare class State {
     /**
      * @return {!Collection}
      */
-    getRoutes(): Collection;
+    getRoutes(): Collection<Objekt>;
     /**
      * @param {!Object} properties
      * @return {undefined}
