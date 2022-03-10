@@ -16,6 +16,7 @@ export class BaseField {
     errorTooltip: any;
     infoContainerNode: any;
     actionContainerNode: any;
+    disabled: boolean;
     /**
      * @param {!Item} input
      * @param {!Item=} opt_label
@@ -45,6 +46,13 @@ export class BaseField {
      */
     eventChange(value, previousValue) {
         consoleInfo('BaseField.eventChange()', value, previousValue);
+    }
+    /**
+     * @param {!Item} node
+     * @return {undefined}
+     */
+    eventClick(node) {
+        consoleWarn('Button.eventClick()', node);
     }
     /**
      * @return {undefined}
@@ -161,7 +169,7 @@ export class BaseField {
      * @param {!Object|!Function|!Array|boolean|number|string|null|undefined} value
      * @return {undefined}
      */
-    setValue(value) {
+    setValue(value?: any) {
         this.input.getNode().value = value;
         this.input.setAttribute('value', value);
         this.input.trigger('change');

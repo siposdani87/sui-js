@@ -60,7 +60,7 @@ export declare class RadiobuttonField extends BaseField {
     /**
      * @return {!Query}
      */
-    _getRadioButtonInputs(): Query;
+    _getRadioButtonInputs(): Query<HTMLInputElement>;
     /**
      * @override
      * @param {string} text

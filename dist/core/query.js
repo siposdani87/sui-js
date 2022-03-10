@@ -5,6 +5,7 @@ import { Item } from './item';
  * @class
  * @export
  * @extends {Collection}
+ * @template T
  */
 export class Query extends Collection {
     /**

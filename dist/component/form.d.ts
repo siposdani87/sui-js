@@ -1,11 +1,12 @@
 import { Collection } from '../core/collection';
 import { Objekt } from '../core/objekt';
+import { BaseField } from '../field';
 /**
  * @class
  * @export
  * @extends {Collection}
  */
-export declare class Form extends Collection {
+export declare class Form extends Collection<BaseField> {
     formNode: any;
     previousModel: Objekt;
     model: Objekt;
@@ -112,7 +113,7 @@ export declare class Form extends Collection {
      * @param {string} value
      * @return {!BaseField}
      */
-    findByModel(value: any): any;
+    findByModel(value: any): BaseField;
     /**
      * @param {!Objekt} model
      * @param {!Item} node

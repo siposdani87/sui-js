@@ -11,26 +11,37 @@ import { consoleError, consoleWarn } from '../utils/log';
 import { Async } from './async';
 import { Deferred } from './deferred';
 import { State } from './state';
+import { Promize } from './promize';
+import { Objekt } from './objekt';
+import { Item } from './item';
 
 /**
- * @param {!Object} baseModule
- * @param {!Array} baseModuleArgs
- * @param {!Object=} opt_extendModule
- * @param {!Array=} opt_extendModuleArgs
+ * @typedef {{moduleInjections: Array, moduleCallback: !Function, opt_extendModule: Object=}} Dependency
+ */
+type Dependency = {
+    moduleInjections: any[],
+    moduleCallback: Function,
+    opt_extendModule?: any,
+}
+
+/**
+ * @param {!Function} baseModule
+ * @param {!Array<string>} baseModuleArgs
+ * @param {!Function=} opt_extendModule
+ * @param {!Array<string>=} opt_extendModuleArgs
  * @return {!Object}
  */
 const invoke = (
-    baseModule,
-    baseModuleArgs,
-    opt_extendModule?,
-    opt_extendModuleArgs?,
-) => {
+    baseModule: Function,
+    baseModuleArgs: Array<string>,
+    opt_extendModule?: Function | undefined,
+    opt_extendModuleArgs?: Array<string> | undefined,
+): object => {
     /**
      * @constructor
-     * @this {Cls}
-     * @return {!Object}
+     * @this {ES5Class}
      */
-    const Cls = function () {
+    const ES5Class = function () {
         if (opt_extendModule) {
             opt_extendModule.apply(
                 this,
@@ -42,13 +53,13 @@ const invoke = (
     };
 
     if (opt_extendModule) {
-        Cls.prototype = merge(opt_extendModule.prototype, baseModule.prototype);
-        Cls.prototype.constructor = Cls;
+        ES5Class.prototype = merge(opt_extendModule.prototype, baseModule.prototype);
+        ES5Class.prototype.constructor = ES5Class;
     } else {
-        Cls.prototype = baseModule.prototype;
+        ES5Class.prototype = baseModule.prototype;
     }
 
-    return new Cls();
+    return new ES5Class();
 };
 
 /**
@@ -56,7 +67,7 @@ const invoke = (
  */
 export class Module {
     _modules: {
-        [key: string]: any;
+        [key: string]: Dependency;
     };
     _instances: {
         [key: string]: any;
@@ -66,7 +77,7 @@ export class Module {
     };
     _dependencies: any[];
     _services: any[];
-    _controller: { enter: () => any; exit: () => any };
+    _controller: any; // { enter: () => any; exit: () => any };
     /**
      */
     constructor() {
@@ -85,7 +96,7 @@ export class Module {
      * @param {!Object} injections
      * @return {undefined}
      */
-    load(instances, injections) {
+    load(instances: object, injections: object): void {
         this._instances = instances;
         this._injections = injections;
 
@@ -94,7 +105,7 @@ export class Module {
     /**
      * @return {!Object}
      */
-    getController() {
+    getController(): object {
         return this._controller;
     }
     /**
@@ -103,7 +114,7 @@ export class Module {
      * @param {!Function} moduleCallback
      * @return {undefined}
      */
-    add(name, moduleInjections, moduleCallback) {
+    add(name: string, moduleInjections: Array<any>, moduleCallback: Function): void {
         this._modules[name] = this._getDependencies(
             moduleInjections,
             moduleCallback,
@@ -116,22 +127,22 @@ export class Module {
      * @param {string=} opt_extendModule
      * @return {!Object}
      */
-    _getDependencies(moduleInjections, moduleCallback, opt_extendModule?) {
+    _getDependencies(moduleInjections: Array<any>, moduleCallback: Function, opt_extendModule?: string | undefined): Dependency {
         if (opt_extendModule) {
             moduleInjections.push(opt_extendModule);
         }
         return {
             moduleInjections: moduleInjections,
             moduleCallback: moduleCallback,
-            extendModule: opt_extendModule,
+            opt_extendModule: opt_extendModule,
         };
     }
     /**
      * @private
-     * @param {!Object} dependency
+     * @param {!Dependency} dependency
      * @return {!Object}
      */
-    _resolveDependencies(dependency) {
+    _resolveDependencies(dependency: Dependency): object {
         const moduleArgs = [];
         each(dependency.moduleInjections, (injection) => {
             moduleArgs.push(this._instances[injection] || injection);
@@ -139,12 +150,12 @@ export class Module {
 
         let extendCallback;
         let extendArgs;
-        if (dependency.extendModule && this._modules[dependency.extendModule]) {
+        if (dependency.opt_extendModule && this._modules[dependency.opt_extendModule]) {
             extendCallback =
-                this._modules[dependency.extendModule].moduleCallback;
+                this._modules[dependency.opt_extendModule].moduleCallback;
             extendArgs = [];
             each(
-                this._modules[dependency.extendModule].moduleInjections,
+                this._modules[dependency.opt_extendModule].moduleInjections,
                 (injection) => {
                     extendArgs.push(this._instances[injection] || injection);
                 },
@@ -162,7 +173,7 @@ export class Module {
      * @private
      * @return {undefined}
      */
-    _orderServices() {
+    _orderServices(): void {
         for (const key in this._modules) {
             if (this._modules.hasOwnProperty(key) && this._isModule(key)) {
                 if (this._services.indexOf(key) === -1) {
@@ -185,7 +196,7 @@ export class Module {
      * @param {string} value
      * @return {boolean}
      */
-    _isModule(value) {
+    _isModule(value: string): boolean {
         if (isString(value)) {
             const lastCharacters = value.substr(value.length - 7);
             return (
@@ -200,7 +211,7 @@ export class Module {
      * @param {string} injection
      * @return {undefined}
      */
-    _changeServices(service, injection) {
+    _changeServices(service: string, injection: string): void {
         if (this._dependencies.indexOf([injection, service].join('-')) !== -1) {
             consoleError(
                 'Modules._changeServices()',
@@ -222,7 +233,7 @@ export class Module {
     /**
      * @return {undefined}
      */
-    handleServices() {
+    handleServices(): void {
         this._orderServices();
         const calls = [];
         each(this._services, (serviceName) => {
@@ -259,7 +270,7 @@ export class Module {
      * @param {!Object} options
      * @return {undefined}
      */
-    handleRoutes(routes, options) {
+    handleRoutes(routes: Array<any>, options: object): void {
         this._instances[this._injections.state] = new State(routes, options);
         this._instances[this._injections.state].eventChange = (
             currentState,
@@ -286,7 +297,7 @@ export class Module {
      * @param {boolean=} opt_force
      * @return {undefined}
      */
-    _handleStateChange(currentState, opt_force = false) {
+    _handleStateChange(currentState: Objekt, opt_force: boolean | undefined = false): void {
         this.eventStateChange(currentState).then(
             () => {
                 const template = currentState.get('template');
@@ -324,9 +335,9 @@ export class Module {
      * @param {!Item} dom
      * @return {undefined}
      */
-    _initController(state, dom) {
+    _initController(state: Objekt, dom: Item): void {
         this._instances[this._injections.dom] = dom;
-        const controller = this._modules[state.get('controller')];
+        const controller = this._modules[state.get<string>('controller')];
         if (controller) {
             this.eventDomChange(state, dom).then(() => {
                 this._controller = this._resolveDependencies(controller);
@@ -352,34 +363,34 @@ export class Module {
      * @param {!Item} dom
      * @return {undefined}
      */
-    eventControllerLoaded(dom) {
+    eventControllerLoaded(dom: Item): void {
         consoleWarn('Module.eventControllerLoaded()', dom);
     }
     /**
      * @return {undefined}
      */
-    eventControllerFailed() {
+    eventControllerFailed(): void {
         consoleWarn('Module.eventControllerFailed()');
     }
     /**
      * @param {!Objekt} state
      * @return {undefined}
      */
-    eventModuleFailed(state) {
+    eventModuleFailed(state: Objekt): void {
         consoleWarn('Module.eventModuleFailed()', state);
     }
     /**
      * @param {!Objekt} state
      * @return {undefined}
      */
-    eventModuleLoaded(state) {
+    eventModuleLoaded(state: Objekt): void {
         consoleWarn('Module.eventModuleLoaded()', state);
     }
     /**
      * @param {!Objekt} state
      * @return {!Promize}
      */
-    eventStateChange(state) {
+    eventStateChange(state: Objekt): Promize {
         const deferred = new Deferred();
         consoleWarn('Module.eventStateChange()', state);
         deferred.resolve();
@@ -390,7 +401,7 @@ export class Module {
      * @param {!Item} dom
      * @return {!Promize}
      */
-    eventDomChange(state, dom) {
+    eventDomChange(state: Objekt, dom: Item): Promize {
         const deferred = new Deferred();
         consoleWarn('Module.eventDomChange()', state, dom);
         deferred.resolve();
@@ -399,19 +410,19 @@ export class Module {
     /**
      * @return {undefined}
      */
-    eventAfterInit() {
+    eventAfterInit(): void {
         consoleWarn('Module.eventAfterInit()');
     }
     /**
      * @return {undefined}
      */
-    eventServiceLoaded() {
+    eventServiceLoaded(): void {
         consoleWarn('Module.eventServiceLoaded()');
     }
     /**
      * @return {undefined}
      */
-    eventServiceFailed() {
+    eventServiceFailed(): void {
         consoleWarn('Module.eventServiceFailed()');
     }
 }

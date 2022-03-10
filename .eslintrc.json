@@ -10,22 +10,29 @@
         }
     },
 	"extends": [
-		"google",
+		"eslint:recommended", 
+		"plugin:@typescript-eslint/recommended",
 		"prettier"
 	],
 	"plugins": [
 		"@typescript-eslint",
-		"jsdoc"
+    	"eslint-plugin-tsdoc"
+		// "jsdoc"
 	],
 	"rules": {
-		"linebreak-style": "off",
+		"@typescript-eslint/no-explicit-any": "off",
+		"@typescript-eslint/ban-types": "off",
+		"@typescript-eslint/no-this-alias": "off",
+		"no-case-declarations": "off",
+		"no-prototype-builtins": "off",
+		//"linebreak-style": "off",
 		"max-len": "off",
 		"max-lines": "off",
-		"camelcase": "off",
+		// "camelcase": "off",
 		"no-unused-vars": [
 			"error",
 			{
-				"argsIgnorePattern": "^_",
+				"argsIgnorePattern": "^",
 				"varsIgnorePattern": "^_",
 				"ignoreRestSiblings": true
 			}

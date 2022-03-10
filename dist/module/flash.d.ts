@@ -29,7 +29,7 @@ export declare class Flash {
      * @param {string=} opt_id
      * @return {!Item}
      */
-    _getFlashNode(type: any, message: any, opt_duration?: number, opt_closeCallback?: any, opt_id?: string): Item;
+    _getFlashNode(type: any, message: any, opt_duration?: number, opt_closeCallback?: any, opt_id?: string): Item<HTMLElement>;
     /**
      * @param {!Item} flashNode
      * @param {?Function=} opt_closeCallback
@@ -44,7 +44,7 @@ export declare class Flash {
      * @param {string=} opt_id
      * @return {!Item}
      */
-    _add(type: any, message: any, opt_duration?: number, opt_closeCallback?: any, opt_id?: string): Item;
+    _add(type: any, message: any, opt_duration?: number, opt_closeCallback?: any, opt_id?: string): Item<HTMLElement>;
     /**
      * @param {string=} opt_id
      */
@@ -68,7 +68,7 @@ export declare class Flash {
      * @param {string=} opt_id
      * @return {!Item}
      */
-    addSuccess(message: any, opt_duration?: number, opt_closeCallback?: any, opt_id?: string): Item;
+    addSuccess(message: any, opt_duration?: number, opt_closeCallback?: any, opt_id?: string): Item<HTMLElement>;
     /**
      * @param {string} message
      * @param {number=} opt_duration
@@ -76,7 +76,7 @@ export declare class Flash {
      * @param {string=} opt_id
      * @return {!Item}
      */
-    addInfo(message: any, opt_duration?: number, opt_closeCallback?: any, opt_id?: string): Item;
+    addInfo(message: any, opt_duration?: number, opt_closeCallback?: any, opt_id?: string): Item<HTMLElement>;
     /**
      * @param {string} message
      * @param {number=} opt_duration
@@ -84,7 +84,7 @@ export declare class Flash {
      * @param {string=} opt_id
      * @return {!Item}
      */
-    addWarning(message: any, opt_duration?: number, opt_closeCallback?: any, opt_id?: string): Item;
+    addWarning(message: any, opt_duration?: number, opt_closeCallback?: any, opt_id?: string): Item<HTMLElement>;
     /**
      * @param {string} message
      * @param {number=} opt_duration
@@ -92,7 +92,7 @@ export declare class Flash {
      * @param {string=} opt_id
      * @return {!Item}
      */
-    addError(message: any, opt_duration?: number, opt_closeCallback?: any, opt_id?: string): Item;
+    addError(message: any, opt_duration?: number, opt_closeCallback?: any, opt_id?: string): Item<HTMLElement>;
     /**
      * @param {{type: string, content: string, closable: boolean}} message
      * @param {number=} opt_duration
@@ -100,7 +100,7 @@ export declare class Flash {
      * @param {string=} opt_id
      * @return {!Item|null}
      */
-    addMessage(message: any, opt_duration?: number, opt_closeCallback?: any, opt_id?: string): Item;
+    addMessage(message: any, opt_duration?: number, opt_closeCallback?: any, opt_id?: string): Item<HTMLElement>;
     /**
      * @param {string} message
      * @param {number=} opt_duration
@@ -108,5 +108,5 @@ export declare class Flash {
      * @param {string=} opt_id
      * @return {!Item}
      */
-    addDefault(message: any, opt_duration?: number, opt_closeCallback?: any, opt_id?: string): Item;
+    addDefault(message: any, opt_duration?: number, opt_closeCallback?: any, opt_id?: string): Item<HTMLElement>;
 }

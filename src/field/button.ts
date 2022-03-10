@@ -1,5 +1,4 @@
 import { mdl } from '../utils/operation';
-import { consoleWarn } from '../utils/log';
 import { BaseField } from './baseField';
 
 /**
@@ -45,12 +44,5 @@ export class Button extends BaseField {
      */
     refresh() {
         mdl(this.input);
-    }
-    /**
-     * @param {!Item} node
-     * @return {undefined}
-     */
-    eventClick(node) {
-        consoleWarn('Button.eventClick()', node);
     }
 }

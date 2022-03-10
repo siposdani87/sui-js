@@ -14,7 +14,7 @@ export class CardCollection {
     cardCollectionNode: any;
     ctrl: any;
     options: Objekt;
-    collection: Collection;
+    collection: Collection<Objekt>;
     query: string;
     pager: Pager;
     contentHandler: ContentHandler;

@@ -36,6 +36,13 @@ export class BaseField {
         consoleInfo('BaseField.eventChange()', value, previousValue);
     }
     /**
+     * @param {!Item} node
+     * @return {undefined}
+     */
+    eventClick(node) {
+        consoleWarn('Button.eventClick()', node);
+    }
+    /**
      * @return {undefined}
      */
     render() {

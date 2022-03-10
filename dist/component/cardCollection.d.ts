@@ -10,7 +10,7 @@ export declare class CardCollection {
     cardCollectionNode: any;
     ctrl: any;
     options: Objekt;
-    collection: Collection;
+    collection: Collection<Objekt>;
     query: string;
     pager: Pager;
     contentHandler: ContentHandler;
@@ -57,7 +57,7 @@ export declare class CardCollection {
      * @param {!Objekt} item
      * @return {!Item}
      */
-    _getCardNode(item: any): Item;
+    _getCardNode(item: any): Item<any>;
     /**
      * @param {number=} opt_page
      * @return {undefined}
@@ -94,7 +94,7 @@ export declare class CardCollection {
      * @private
      * @return {!Array}
      */
-    _getItems(): any[];
+    _getItems(): Objekt[];
     /**
      * @private
      * @return {undefined}

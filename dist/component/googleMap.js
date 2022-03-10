@@ -5,11 +5,12 @@ import { Objekt } from '../core/objekt';
 import { Query } from '../core/query';
 import { consoleInfo } from '../utils/log';
 /**
+ * @deprecated
  * @param {!Object} marker
  * @param {string} title
  * @return {!Object}
  */
-const getMapLabel = (marker, title) => {
+const _getMapLabel = (marker, title) => {
     // https://github.com/googlemaps/js-map-label/blob/gh-pages/src/maplabel.js
     // https://googlemaps.github.io/js-map-label/docs/reference.html
     const mapLabel = new window['MapLabel']({
@@ -149,7 +150,9 @@ export class GoogleMap {
      */
     _initOverlay() {
         this.overlay = new google.maps.OverlayView();
-        this.overlay.draw = () => { };
+        this.overlay.draw = () => {
+            // empty function
+        };
         this.overlay.setMap(this.map);
     }
     /**

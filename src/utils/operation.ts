@@ -78,9 +78,9 @@ export const format = (
 export const convert = (value: any, type: string): any => {
     let result = value;
     if (isNumber(value)) {
-        result = convertNumber(/** @type {number} */ value, type);
+        result = convertToNumber(/** @type {number} */ value, type);
     } else if (isString(value)) {
-        result = convertString(/** @type {string} */ value, type);
+        result = convertToString(/** @type {string} */ value, type);
     }
     return result;
 };
@@ -91,13 +91,12 @@ export const convert = (value: any, type: string): any => {
  * @param {string} type
  * @return {number|string}
  */
-export const convertNumber = (value: number, type: string): number | string => {
-    let result = value;
+export const convertToNumber = (value: number, type: string): number | string => {
     switch (type) {
         case 'string':
             return value.toString();
         default:
-            return result;
+            return value;
     }
 };
 
@@ -107,15 +106,14 @@ export const convertNumber = (value: number, type: string): number | string => {
  * @param {string} type
  * @return {string|number}
  */
-export const convertString = (value: string, type: string): string | number => {
-    let result = value;
+export const convertToString = (value: string, type: string): string | number => {
     switch (type) {
         case 'integer':
             return parseInt(value, 10);
         case 'float':
             return parseFloat(value);
         default:
-            return result;
+            return value;
     }
 };
 
@@ -345,7 +343,7 @@ export const eachObject = (object: object, next: Function): void => {
  * @return {undefined}
  */
 export const sleepEach = (
-    next: (arg0: number) => void,
+    next: (_index: number) => void,
     i: number,
     length: number,
     duration: number,
@@ -561,7 +559,7 @@ export const pluck = (items: Array<any>, attribute: string): Array<any> => {
  */
 export const pluckKeys = (
     obj: object,
-    condition: (arg0: any, arg1: string) => any,
+    condition: (_value: any, _key: string) => any,
 ): Array<any> => {
     const results = [];
     eachObject(obj, (value, key) => {

@@ -17,7 +17,7 @@ export class Form extends Collection {
     constructor(dom, opt_selector = 'form') {
         const formNode = new Query(opt_selector, dom).getItem();
         formNode.setAttribute('novalidate');
-        super([], FormField, {
+        super([], FormField.handler, {
             parent: formNode,
         });
         this.formNode = formNode;
@@ -50,7 +50,7 @@ export class Form extends Collection {
      * @return {undefined}
      */
     _initFormEvent() {
-        this.formNode.addEventListener('keydown', (node, event) => {
+        this.formNode.addEventListener('keydown', (_node, event) => {
             const textArea = /textarea/i.test((event.target || event.srcElement).tagName);
             if (!(textArea ||
                 (event.keyCode || event.which || event.charCode || 0) !== 13)) {

@@ -11,14 +11,14 @@ export class Collection {
      * @param {!Object=} opt_options
      */
     constructor(opt_items = [], opt_type = Objekt, opt_options = {}) {
-        this.type = opt_type;
+        this.Type = opt_type;
         this._setOptions(opt_options);
         this.items = [];
         this.load(opt_items);
     }
     /**
-     * @param {!Object=} opt_options
      * @private
+     * @param {!Object=} opt_options
      * @return {undefined}
      */
     _setOptions(opt_options = {}) {
@@ -30,7 +30,7 @@ export class Collection {
         _self.options.merge(opt_options);
     }
     /**
-     * @param {!Array} items
+     * @param {!Array<Object|T>} items
      * @return {undefined}
      */
     load(items) {
@@ -39,7 +39,7 @@ export class Collection {
         });
     }
     /**
-     * @param {!Array} items
+     * @param {!Array<Object|T>} items
      * @return {undefined}
      */
     reload(items) {
@@ -61,46 +61,44 @@ export class Collection {
      * @return {T}
      */
     _createItem(object) {
-        let item = object;
         if (!instanceOf(object, this.Type)) {
             const parent = !isUndefined(this.options.parent)
                 ? this.options.parent
                 : this;
-            item = new this.Type(object, parent);
+            return new this.Type(object, parent);
         }
-        return item;
-    }
-    Type(object, Type) {
-        throw new Error('Method not implemented.');
+        return object;
     }
     /**
      * @param {number} index
-     * @param {!Object|!T} item
+     * @param {!Object|!T} object
      * @return {T}
      */
-    set(index, item) {
-        let itemObject = item;
-        if (!instanceOf(item, this.Type)) {
-            itemObject = new this.Type(item, this);
-        }
+    set(index, object) {
+        const item = this._createItem(object);
         if (index < this.size()) {
-            this.items[index] = itemObject;
+            this.items[index] = item;
         }
         else {
-            this.push(itemObject);
+            this.push(item);
         }
-        return itemObject;
+        return item;
     }
     /**
-     * @param {!Object|!T} item
+     * @param {!Object|!T} object
      * @return {!T}
      */
-    replace(item) {
-        const oldItem = this.findById(item.get(this.options.id));
-        if (oldItem) {
-            oldItem.merge(item);
+    replace(object) {
+        const item = this._createItem(object);
+        if (item && instanceOf(item, Objekt)) {
+            const id = item.get(this.options.id);
+            const oldItem = this.findById(id);
+            if (oldItem && instanceOf(oldItem, Objekt)) {
+                oldItem.merge(item);
+                return oldItem;
+            }
         }
-        return oldItem;
+        return null;
     }
     /**
      * @return {!Array<T>}
@@ -111,8 +109,8 @@ export class Collection {
     /**
      * @param {function(T)} callback
      * @param {function(T, number)} next
-     * @param {!Array=} opt_items
-     * @return {!Array}
+     * @param {!Array<T>=} opt_items
+     * @return {!Array<T>}
      */
     iterator(callback, next, opt_items) {
         opt_items = opt_items || this.items;
@@ -135,29 +133,30 @@ export class Collection {
         }, next);
     }
     /**
+     * @template K
      * @param {number} index
      * @param {string=} opt_attribute
      * @return {T|*}
      */
     get(index, opt_attribute) {
-        let value = null;
         if (index >= 0 && index < this.items.length) {
             const item = this.items[index];
-            value = item;
-            if (opt_attribute) {
-                value = item.get(opt_attribute);
+            if (item && opt_attribute && instanceOf(item, Objekt)) {
+                return item.get(opt_attribute);
             }
+            return item;
         }
-        return value;
+        return null;
     }
     /**
-     * @param {string|number} id
+     * @template K
+     * @param {Id} id
      * @param {string=} opt_attribute
      * @return {T|*}
      */
     getById(id, opt_attribute) {
         const item = this.findById(id);
-        if (item && opt_attribute) {
+        if (item && opt_attribute && instanceOf(item, Objekt)) {
             return item.get(opt_attribute);
         }
         return item;
@@ -169,11 +168,11 @@ export class Collection {
         clear(this.items);
     }
     /**
-     * @param {string|number} value
+     * @param {Id} id
      * @return {!T}
      */
-    findById(value) {
-        return this.findBy(this.options.id, value);
+    findById(id) {
+        return this.findBy(this.options.id, id);
     }
     /**
      * @param {string} attribute
@@ -199,7 +198,7 @@ export class Collection {
     /**
      * @param {string} attribute
      * @param {*} value
-     * @return {!Array}
+     * @return {!Array<T>}
      */
     findAllBy(attribute, value) {
         return this.findAllByCondition((item, i) => {
@@ -208,7 +207,7 @@ export class Collection {
     }
     /**
      * @param {!Function} conditionCallback
-     * @return {!Array}
+     * @return {!Array<T>}
      */
     findAllByCondition(conditionCallback) {
         const items = [];
@@ -261,16 +260,16 @@ export class Collection {
     /**
      * @param {string} attribute
      * @param {*} value
-     * @return {!Array}
+     * @return {!Array<T>}
      */
     deleteAllBy(attribute, value) {
-        return this.deleteAllByCondition((item, i) => {
+        return this.deleteAllByCondition((_item, i) => {
             return this.get(i, attribute) === value;
         });
     }
     /**
      * @param {!Function} conditionCallback
-     * @return {!Array}
+     * @return {!Array<T>}
      */
     deleteAllByCondition(conditionCallback) {
         const items = [];
@@ -295,14 +294,14 @@ export class Collection {
     /**
      * @param {number} offset
      * @param {number=} opt_count
-     * @return {!Array}
+     * @return {!Array<T>}
      */
     limit(offset, opt_count = 10) {
         return this.items.slice(offset, offset + opt_count);
     }
     /**
      * @param {string} attribute
-     * @return {!Array}
+     * @return {!Array<T>}
      */
     pluck(attribute) {
         return pluck(this.items, attribute);

@@ -173,7 +173,7 @@ export class RadiobuttonField extends BaseField {
      */
     _getRadioButtonInputs() {
         const name = this.input.getAttribute('name');
-        return new Query(
+        return new Query<HTMLInputElement>(
             format('input[name="{0}"]', [name]),
             this.form.formNode,
         );

@@ -4,19 +4,18 @@ import { Async } from './async';
 import { Deferred } from './deferred';
 import { State } from './state';
 /**
- * @param {!Object} baseModule
- * @param {!Array} baseModuleArgs
- * @param {!Object=} opt_extendModule
- * @param {!Array=} opt_extendModuleArgs
+ * @param {!Function} baseModule
+ * @param {!Array<string>} baseModuleArgs
+ * @param {!Function=} opt_extendModule
+ * @param {!Array<string>=} opt_extendModuleArgs
  * @return {!Object}
  */
 const invoke = (baseModule, baseModuleArgs, opt_extendModule, opt_extendModuleArgs) => {
     /**
      * @constructor
-     * @this {Cls}
-     * @return {!Object}
+     * @this {ES5Class}
      */
-    const Cls = function () {
+    const ES5Class = function () {
         if (opt_extendModule) {
             opt_extendModule.apply(this, opt_extendModuleArgs || baseModuleArgs);
         }
@@ -24,13 +23,13 @@ const invoke = (baseModule, baseModuleArgs, opt_extendModule, opt_extendModuleAr
         baseModule.apply(this, baseModuleArgs);
     };
     if (opt_extendModule) {
-        Cls.prototype = merge(opt_extendModule.prototype, baseModule.prototype);
-        Cls.prototype.constructor = Cls;
+        ES5Class.prototype = merge(opt_extendModule.prototype, baseModule.prototype);
+        ES5Class.prototype.constructor = ES5Class;
     }
     else {
-        Cls.prototype = baseModule.prototype;
+        ES5Class.prototype = baseModule.prototype;
     }
-    return new Cls();
+    return new ES5Class();
 };
 /**
  * @class
@@ -88,12 +87,12 @@ export class Module {
         return {
             moduleInjections: moduleInjections,
             moduleCallback: moduleCallback,
-            extendModule: opt_extendModule,
+            opt_extendModule: opt_extendModule,
         };
     }
     /**
      * @private
-     * @param {!Object} dependency
+     * @param {!Dependency} dependency
      * @return {!Object}
      */
     _resolveDependencies(dependency) {
@@ -103,11 +102,11 @@ export class Module {
         });
         let extendCallback;
         let extendArgs;
-        if (dependency.extendModule && this._modules[dependency.extendModule]) {
+        if (dependency.opt_extendModule && this._modules[dependency.opt_extendModule]) {
             extendCallback =
-                this._modules[dependency.extendModule].moduleCallback;
+                this._modules[dependency.opt_extendModule].moduleCallback;
             extendArgs = [];
-            each(this._modules[dependency.extendModule].moduleInjections, (injection) => {
+            each(this._modules[dependency.opt_extendModule].moduleInjections, (injection) => {
                 extendArgs.push(this._instances[injection] || injection);
             });
         }

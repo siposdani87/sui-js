@@ -1,26 +1,27 @@
+import { Promize } from './promize';
 /**
  * @class
  */
 export declare class Async {
-    sum: any;
+    sum: number;
     call: any;
     /**
      * @param {number=} opt_sum
      */
-    constructor(opt_sum?: any);
+    constructor(opt_sum?: number);
     /**
      * @param {!Array<!Function>} calls
      * @param {!Array=} opt_args
      * @return {!Promize}
      */
-    parallel(calls: any, opt_args: any): import("./promize").Promize;
+    parallel(calls: Array<Function>, opt_args: Array<any> | undefined): Promize;
     /**
      * @param {!Function} call
      * @param {?Array=} opt_args
      * @param {number=} opt_index
      * @return {undefined}
      */
-    parallelFunction(call: any, opt_args?: any, opt_index?: any): void;
+    parallelFunction(call: Function, opt_args?: (Array<any> | null), opt_index?: number): void;
     /**
      * @private
      * @param {!Function} call
@@ -30,7 +31,7 @@ export declare class Async {
      * @param {?Array=} opt_args
      * @return {!Promize}
      */
-    _parallelWrapper(call: any, length: any, allowEvent: any, index: any, opt_args?: any): import("./promize").Promize;
+    _parallelWrapper(call: Function, length: number, allowEvent: boolean, index: number, opt_args?: (Array<any> | null) | undefined): Promize;
     /**
      * @private
      * @param {number|undefined} length
@@ -41,7 +42,7 @@ export declare class Async {
      * @param {?Array=} opt_args
      * @return {!Promize}
      */
-    _parallelCaller(length: any, isError: any, result: any, allowEvent: any, index: any, opt_args?: any): import("./promize").Promize;
+    _parallelCaller(length: number | undefined, isError: boolean, result: any, allowEvent: boolean, index: number, opt_args?: (Array<any> | null) | undefined): Promize;
     /**
      * @private
      * @return {undefined}
@@ -54,19 +55,19 @@ export declare class Async {
      * @param {!Array} results
      * @return {undefined}
      */
-    setStatus(sum: any, isError: any, counter: any, results: any): void;
+    setStatus(sum: number, isError: boolean, counter: number, results: Array<any>): void;
     /**
      * @param {boolean} isError
      * @param {!Array} results
      * @return {undefined}
      */
-    eventComplete(isError: any, results: any): void;
+    eventComplete(isError: boolean, results: Array<any>): void;
     /**
      * @param {!Array<!Function>} calls
      * @param {!Array=} opt_args
      * @return {!Promize}
      */
-    serial(calls: any, opt_args?: any): import("./promize").Promize;
+    serial(calls: Array<Function>, opt_args?: Array<any> | undefined): Promize;
     /**
      * @private
      * @param {!Array<!Function>} calls
@@ -74,7 +75,7 @@ export declare class Async {
      * @param {!Array=} opt_args
      * @return {!Promize}
      */
-    _serialWrapper(calls: any, index: any, opt_args?: any): import("./promize").Promize;
+    _serialWrapper(calls: Array<Function>, index: number, opt_args?: Array<any> | undefined): Promize;
     /**
      * @private
      * @param {!Array<!Function>} calls
@@ -83,5 +84,5 @@ export declare class Async {
      * @param {!Array=} opt_args
      * @return {!Promize}
      */
-    _serialCaller(calls: any, index: any, result: any, opt_args?: any): import("./promize").Promize;
+    _serialCaller(calls: Array<Function>, index: number, result: any, opt_args?: Array<any> | undefined): Promize;
 }

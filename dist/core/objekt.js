@@ -84,6 +84,7 @@ export class Objekt {
     }
     /**
      * @export
+     * @template T
      * @param {string=} opt_attribute
      * @param {*=} opt_defaultValue
      * @param {boolean=} opt_isSafe

@@ -76,10 +76,10 @@ export const format = (str, opt_params = null, opt_prefix = '\\{', opt_postfix =
 export const convert = (value, type) => {
     let result = value;
     if (isNumber(value)) {
-        result = convertNumber(/** @type {number} */ value, type);
+        result = convertToNumber(/** @type {number} */ value, type);
     }
     else if (isString(value)) {
-        result = convertString(/** @type {string} */ value, type);
+        result = convertToString(/** @type {string} */ value, type);
     }
     return result;
 };
@@ -89,13 +89,12 @@ export const convert = (value, type) => {
  * @param {string} type
  * @return {number|string}
  */
-export const convertNumber = (value, type) => {
-    let result = value;
+export const convertToNumber = (value, type) => {
     switch (type) {
         case 'string':
             return value.toString();
         default:
-            return result;
+            return value;
     }
 };
 /**
@@ -104,15 +103,14 @@ export const convertNumber = (value, type) => {
  * @param {string} type
  * @return {string|number}
  */
-export const convertString = (value, type) => {
-    let result = value;
+export const convertToString = (value, type) => {
     switch (type) {
         case 'integer':
             return parseInt(value, 10);
         case 'float':
             return parseFloat(value);
         default:
-            return result;
+            return value;
     }
 };
 /**

@@ -22,9 +22,4 @@ export declare class Button extends BaseField {
      * @override
      */
     refresh(): void;
-    /**
-     * @param {!Item} node
-     * @return {undefined}
-     */
-    eventClick(node: any): void;
 }

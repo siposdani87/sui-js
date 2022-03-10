@@ -6,7 +6,7 @@ import { Objekt } from '../core/objekt';
 export declare class Navigation {
     http: any;
     options: Objekt;
-    container: Collection;
+    container: Collection<Objekt>;
     linkNodeKey: string;
     /**
      * @param {!Http=} opt_http

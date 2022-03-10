@@ -20,17 +20,25 @@ import { RangeField } from '../field/rangeField';
 import { NumberField } from '../field/numberField';
 import { LocationField } from '../field/locationField';
 import { TextField } from '../field/textField';
+import { BaseField } from '../field/baseField';
+import { Item } from '../core/item';
+import { Form } from './form';
 
 /**
  * @class
  */
 export class FormField {
     /**
+     */
+    constructor() {
+        // Rmpty constructor
+    }
+    /**
      * @param {!Item} inputBlock
      * @param {!Form} form
      * @return {?BaseField}
      */
-    constructor(inputBlock, form) {
+    static handler(inputBlock: Item, form: Form): BaseField | null {
         let input = inputBlock;
         let label = null;
         let error = null;
@@ -64,6 +72,7 @@ export class FormField {
             inputBlock.appendChild(error);
             inputBlock.addClass('init-field');
         }
+
         return this._getField(input, label, error, inputBlock, form);
     }
     /**
@@ -74,7 +83,7 @@ export class FormField {
      * @param {!Form} form
      * @return {?BaseField}
      */
-    _getField(input, label, error, inputBlock, form) {
+    static _getField(input: Item, label: Item | null, error: Item | null, inputBlock: Item, form: Form): BaseField | null {
         input.addClass('init-field');
         const dataType = input.getData('type');
         const tagName = input.getTagName();

@@ -34,14 +34,14 @@ export declare const convert: (value: any, type: string) => any;
  * @param {string} type
  * @return {number|string}
  */
-export declare const convertNumber: (value: number, type: string) => number | string;
+export declare const convertToNumber: (value: number, type: string) => number | string;
 /**
  * @export
  * @param {string} value
  * @param {string} type
  * @return {string|number}
  */
-export declare const convertString: (value: string, type: string) => string | number;
+export declare const convertToString: (value: string, type: string) => string | number;
 /**
  * @export
  * @param {*} value
@@ -204,7 +204,7 @@ export declare const eachObject: (object: object, next: Function) => void;
  * @param {number} duration
  * @return {undefined}
  */
-export declare const sleepEach: (next: (arg0: number) => void, i: number, length: number, duration: number) => void;
+export declare const sleepEach: (next: (_index: number) => void, i: number, length: number, duration: number) => void;
 /**
  * @export
  * @param {!Array|!Object} items
@@ -308,7 +308,7 @@ export declare const pluck: (items: Array<any>, attribute: string) => Array<any>
  * @param {function(*, string)} condition
  * @return {!Array}
  */
-export declare const pluckKeys: (obj: object, condition: (arg0: any, arg1: string) => any) => Array<any>;
+export declare const pluckKeys: (obj: object, condition: (_value: any, _key: string) => any) => Array<any>;
 /**
  * @export
  * @param {!Item|!Element=} opt_node

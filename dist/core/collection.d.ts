@@ -1,148 +1,153 @@
 import { Objekt } from './objekt';
 /**
+ * @typedef {(string|number)} Id
+ */
+declare type Id = string | number;
+/**
  * @class
  * @template T
  */
-export declare class Collection {
-    type: any;
-    items: any[];
+export declare class Collection<T extends Object = Objekt> {
+    Type: any;
+    items: T[];
     options: Objekt;
     /**
      * @param {!Array=} opt_items
      * @param {!Function=} opt_type
      * @param {!Object=} opt_options
      */
-    constructor(opt_items?: any[], opt_type?: any, opt_options?: {});
+    constructor(opt_items?: Array<any> | undefined, opt_type?: any, opt_options?: Object);
     /**
+     * @private
      * @param {!Object=} opt_options
-     * @private
      * @return {undefined}
      */
-    _setOptions(opt_options?: {}): void;
+    _setOptions(opt_options?: Object | undefined): void;
     /**
-     * @param {!Array} items
+     * @param {!Array<Object|T>} items
      * @return {undefined}
      */
-    load(items: any): void;
+    load(items: Array<Object | T>): void;
     /**
-     * @param {!Array} items
+     * @param {!Array<Object|T>} items
      * @return {undefined}
      */
-    reload(items: any): void;
+    reload(items: Array<Object | T>): void;
     /**
      * @param {!Object|!T} object
      * @return {T}
      */
-    push(object: any): any;
+    push(object: Object | T): T;
     /**
      * @private
      * @param {!Object|!T} object
      * @return {T}
      */
-    _createItem(object: any): any;
-    Type(object: any, Type: any): void;
+    _createItem(object: Object | T): T;
     /**
      * @param {number} index
-     * @param {!Object|!T} item
+     * @param {!Object|!T} object
      * @return {T}
      */
-    set(index: any, item: any): any;
+    set(index: number, object: Object | T): T;
     /**
-     * @param {!Object|!T} item
+     * @param {!Object|!T} object
      * @return {!T}
      */
-    replace(item: any): any;
+    replace(object: Object | T): T | null;
     /**
      * @return {!Array<T>}
      */
-    getItems(): any[];
+    getItems(): Array<T>;
     /**
      * @param {function(T)} callback
      * @param {function(T, number)} next
-     * @param {!Array=} opt_items
-     * @return {!Array}
+     * @param {!Array<T>=} opt_items
+     * @return {!Array<T>}
      */
-    iterator(callback: any, next: any, opt_items?: any): any[];
+    iterator(callback: (_item: T) => any, next: (_item: T, _index: number) => any, opt_items?: Array<T> | undefined): Array<T>;
     /**
      * @param {function(T, number)} next
      * @return {undefined}
      */
-    each(next: any): void;
+    each(next: (_item: T, _index: number) => any): void;
     /**
+     * @template K
      * @param {number} index
      * @param {string=} opt_attribute
      * @return {T|*}
      */
-    get(index: any, opt_attribute?: any): any;
+    get<K = T>(index: number, opt_attribute?: string | undefined): T | K | null;
     /**
-     * @param {string|number} id
+     * @template K
+     * @param {Id} id
      * @param {string=} opt_attribute
      * @return {T|*}
      */
-    getById(id: any, opt_attribute?: any): any;
+    getById<K = T>(id: Id, opt_attribute?: string): T | K;
     /**
      * @return {undefined}
      */
     clear(): void;
     /**
-     * @param {string|number} value
+     * @param {Id} id
      * @return {!T}
      */
-    findById(value: any): any;
+    findById(id: Id): T;
     /**
      * @param {string} attribute
      * @param {*} value
      * @return {!T}
      */
-    findBy(attribute: any, value: any): any;
+    findBy(attribute: string, value: any): T;
     /**
      * @param {!Function} conditionCallback
      * @return {!T}
      */
-    findByCondition(conditionCallback: any): any;
+    findByCondition(conditionCallback: Function): T;
     /**
      * @param {string} attribute
      * @param {*} value
-     * @return {!Array}
+     * @return {!Array<T>}
      */
-    findAllBy(attribute: any, value: any): any[];
+    findAllBy(attribute: string, value: any): Array<T>;
     /**
      * @param {!Function} conditionCallback
-     * @return {!Array}
+     * @return {!Array<T>}
      */
-    findAllByCondition(conditionCallback: any): any[];
+    findAllByCondition(conditionCallback: Function): Array<T>;
     /**
      * @param {!Object|!T} value
      * @return {!T}
      */
-    delete(value: any): any;
+    delete(value: object | T): T;
     /**
      * @param {string} value
      * @return {!T}
      */
-    deleteById(value: any): any;
+    deleteById(value: string): T;
     /**
      * @param {string} attribute
      * @param {*} value
      * @return {!T}
      */
-    deleteBy(attribute: any, value: any): any;
+    deleteBy(attribute: string, value: any): T;
     /**
      * @param {!Function} conditionCallback
      * @return {!T}
      */
-    deleteByCondition(conditionCallback: any): any;
+    deleteByCondition(conditionCallback: Function): T;
     /**
      * @param {string} attribute
      * @param {*} value
-     * @return {!Array}
+     * @return {!Array<T>}
      */
-    deleteAllBy(attribute: any, value: any): any[];
+    deleteAllBy(attribute: string, value: any): Array<T>;
     /**
      * @param {!Function} conditionCallback
-     * @return {!Array}
+     * @return {!Array<T>}
      */
-    deleteAllByCondition(conditionCallback: any): any[];
+    deleteAllByCondition(conditionCallback: Function): Array<T>;
     /**
      * @return {number}
      */
@@ -150,12 +155,13 @@ export declare class Collection {
     /**
      * @param {number} offset
      * @param {number=} opt_count
-     * @return {!Array}
+     * @return {!Array<T>}
      */
-    limit(offset: any, opt_count?: number): any[];
+    limit(offset: number, opt_count?: number | undefined): Array<T>;
     /**
      * @param {string} attribute
-     * @return {!Array}
+     * @return {!Array<T>}
      */
-    pluck(attribute: any): any[];
+    pluck(attribute: string): Array<T>;
 }
+export {};

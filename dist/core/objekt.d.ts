@@ -7,7 +7,7 @@ export declare class Objekt {
     /**
      * @param {!Object=} opt_object
      */
-    constructor(opt_object?: object | undefined);
+    constructor(opt_object?: Object | undefined);
     /**
      * @export
      * @param {*} object
@@ -30,6 +30,7 @@ export declare class Objekt {
     speedGet(opt_attribute?: string | undefined, opt_defaultValue?: any | undefined, opt_isSafe?: boolean | undefined): any;
     /**
      * @export
+     * @template T
      * @param {string=} opt_attribute
      * @param {*=} opt_defaultValue
      * @param {boolean=} opt_isSafe
@@ -49,7 +50,7 @@ export declare class Objekt {
      * @param {*} value
      * @return {undefined}
      */
-    _set(object: object | Objekt, attributes: Array<any>, value: any): void;
+    _set(object: Object | Objekt, attributes: Array<any>, value: any): void;
     /**
      * @export
      * @param {string} attribute
@@ -81,7 +82,7 @@ export declare class Objekt {
      * @param {!Array} attributes
      * @return {undefined}
      */
-    _remove(object: object | Objekt, attributes: Array<any>): void;
+    _remove(object: Object | Objekt, attributes: Array<any>): void;
     /**
      * @export
      * @param {!Function} next
@@ -89,14 +90,14 @@ export declare class Objekt {
      * @param {!Array=} opt_attributes
      * @return {undefined}
      */
-    each(next: Function, opt_properties?: object | undefined, opt_attributes?: Array<any> | undefined): void;
+    each(next: Function, opt_properties?: Object | undefined, opt_attributes?: Array<any> | undefined): void;
     /**
      * @param {!Object} object
      * @param {!Array} attributes
      * @param {*} value
      * @return {!Object}
      */
-    _attributesToObject(object: object, attributes: Array<any>, value: any): object;
+    _attributesToObject(object: Object, attributes: Array<any>, value: any): Object;
     /**
      * @export
      * @param {boolean=} opt_isNative

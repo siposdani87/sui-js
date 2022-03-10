@@ -42,6 +42,7 @@
     "eslint-config-google": "0.14.0",
     "eslint-config-prettier": "8.5.0",
     "eslint-plugin-jsdoc": "37.9.6",
+    "eslint-plugin-tsdoc": "^0.2.14",
     "google-closure-compiler": "20220301.0.0",
     "google-closure-library": "20220202.0.0",
     "gulp": "4.0.2",

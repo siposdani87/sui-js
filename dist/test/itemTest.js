@@ -5,12 +5,12 @@ import { Item } from '../core/item';
  * @class
  * @extends {BaseTest}
  */
-export class NodeTest extends BaseTest {
+export class ItemTest extends BaseTest {
     /**
      *
      */
     constructor() {
-        super('Node');
+        super('Item');
     }
     /**
      * @override

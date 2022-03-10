@@ -27,7 +27,7 @@ export declare class Year {
     /**
      * @return {!Item}
      */
-    getNode(): Item;
+    getNode(): Item<HTMLElement>;
     /**
      * @param {!Object} date
      */

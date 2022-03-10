@@ -319,7 +319,7 @@ export class SelectField extends BaseField {
             const optionNode = option.get('option_node');
             const node = optionNode.getNode();
             if (selected) {
-                node.setAttribute('selected', selected);
+                node.setAttribute('selected', 'selected');
             }
             else {
                 node.removeAttribute('selected');
@@ -418,7 +418,9 @@ export class SelectField extends BaseField {
         this.containerNode.appendChild(searchParentNode);
         const searchNode = new Item('div');
         searchNode.addClass(['mdl-textfield', 'mdl-js-textfield']);
-        searchNode.addEventListener('click', () => { });
+        searchNode.addEventListener('click', () => {
+            // empty function
+        });
         searchParentNode.appendChild(searchNode);
         const id = generateId('select');
         this.searchInputNode = new Item('input');

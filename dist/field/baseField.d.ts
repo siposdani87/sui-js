@@ -10,6 +10,7 @@ export declare class BaseField {
     errorTooltip: any;
     infoContainerNode: any;
     actionContainerNode: any;
+    disabled: boolean;
     /**
      * @param {!Item} input
      * @param {!Item=} opt_label
@@ -23,6 +24,11 @@ export declare class BaseField {
      * @param {*} previousValue
      */
     eventChange(value: any, previousValue: any): void;
+    /**
+     * @param {!Item} node
+     * @return {undefined}
+     */
+    eventClick(node: any): void;
     /**
      * @return {undefined}
      */
@@ -82,7 +88,7 @@ export declare class BaseField {
      * @param {!Object|!Function|!Array|boolean|number|string|null|undefined} value
      * @return {undefined}
      */
-    setValue(value: any): void;
+    setValue(value?: any): void;
     /**
      * @return {boolean}
      */

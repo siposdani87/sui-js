@@ -1,10 +1,12 @@
 import { Collection } from './collection';
+import { Item } from './item';
 /**
  * @class
  * @export
  * @extends {Collection}
+ * @template T
  */
-export declare class Query extends Collection {
+export declare class Query<T extends HTMLElement = HTMLElement> extends Collection<Item<T>> {
     /**
      * @param {string} selector
      * @param {!Element|!Item=} opt_element
@@ -14,5 +16,5 @@ export declare class Query extends Collection {
      * @export
      * @return {!Item}
      */
-    getItem(): any;
+    getItem(): Item<T>;
 }

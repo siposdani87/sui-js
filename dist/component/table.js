@@ -240,8 +240,8 @@ export class Table {
      * @return {undefined}
      */
     _toggleSorting(columnWithOrder) {
-        let [column, order] = columnWithOrder.split(':', 2);
-        order = order || 'desc';
+        const [column, direction] = columnWithOrder.split(':', 2);
+        let order = direction || 'desc';
         if (eq(this.options.sort.column, column) &&
             eq(this.options.sort.order, order)) {
             order = order === 'asc' ? 'desc' : 'asc';

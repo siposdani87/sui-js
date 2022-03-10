@@ -7,17 +7,18 @@ import {
 } from '../utils/operation';
 import { consoleWarn } from '../utils/log';
 import { Deferred } from './deferred';
+import { Promize } from './promize';
 
 /**
  * @class
  */
 export class Async {
-    sum: any;
+    sum: number;
     call: any;
     /**
      * @param {number=} opt_sum
      */
-    constructor(opt_sum?) {
+    constructor(opt_sum?: number) {
         this.sum = opt_sum || 0;
         this._clear();
     }
@@ -26,7 +27,7 @@ export class Async {
      * @param {!Array=} opt_args
      * @return {!Promize}
      */
-    parallel(calls, opt_args) {
+    parallel(calls: Array<Function>, opt_args: Array<any> | undefined): Promize {
         const deferred = new Deferred();
         if (calls.length === 0) {
             const results = opt_args || this.call.results;
@@ -52,7 +53,7 @@ export class Async {
      * @param {number=} opt_index
      * @return {undefined}
      */
-    parallelFunction(call, opt_args?, opt_index?) {
+    parallelFunction(call: Function, opt_args?: (Array<any> | null), opt_index?: number): void {
         const index = !isUndefined(opt_index)
             ? /** @type {number} */ opt_index
             : this.call.counter++;
@@ -68,7 +69,7 @@ export class Async {
      * @param {?Array=} opt_args
      * @return {!Promize}
      */
-    _parallelWrapper(call, length, allowEvent, index, opt_args?) {
+    _parallelWrapper(call: Function, length: number, allowEvent: boolean, index: number, opt_args?: (Array<any> | null) | undefined): Promize {
         const deferred = new Deferred();
         const args = opt_args || [];
         const promise = call.apply(this, args);
@@ -126,7 +127,7 @@ export class Async {
      * @param {?Array=} opt_args
      * @return {!Promize}
      */
-    _parallelCaller(length, isError, result, allowEvent, index, opt_args?) {
+    _parallelCaller(length: number | undefined, isError: boolean, result: any, allowEvent: boolean, index: number, opt_args?: (Array<any> | null) | undefined): Promize {
         const deferred = new Deferred();
         this.call.results[index] = result;
         if (isError) {
@@ -156,7 +157,7 @@ export class Async {
      * @private
      * @return {undefined}
      */
-    _clear() {
+    _clear(): void {
         this.call = {
             sum: 0,
             isError: false,
@@ -171,7 +172,7 @@ export class Async {
      * @param {!Array} results
      * @return {undefined}
      */
-    setStatus(sum, isError, counter, results) {
+    setStatus(sum: number, isError: boolean, counter: number, results: Array<any>): void {
         this.call.sum = sum;
         this.call.isError = isError;
         this.call.counter = counter;
@@ -182,7 +183,7 @@ export class Async {
      * @param {!Array} results
      * @return {undefined}
      */
-    eventComplete(isError, results) {
+    eventComplete(isError: boolean, results: Array<any>): void {
         consoleWarn('Async.eventComplete(isError, results)', isError, results);
     }
     /**
@@ -190,7 +191,7 @@ export class Async {
      * @param {!Array=} opt_args
      * @return {!Promize}
      */
-    serial(calls, opt_args?) {
+    serial(calls: Array<Function>, opt_args?: Array<any> | undefined): Promize {
         const deferred = new Deferred();
         if (calls.length === 0) {
             const results = opt_args || this.call.results;
@@ -208,7 +209,7 @@ export class Async {
      * @param {!Array=} opt_args
      * @return {!Promize}
      */
-    _serialWrapper(calls, index, opt_args?) {
+    _serialWrapper(calls: Array<Function>, index: number, opt_args?: Array<any> | undefined): Promize {
         const deferred = new Deferred();
         const call = calls[index];
         const results = opt_args || this.call.results;
@@ -243,7 +244,7 @@ export class Async {
      * @param {!Array=} opt_args
      * @return {!Promize}
      */
-    _serialCaller(calls, index, result, opt_args?) {
+    _serialCaller(calls: Array<Function>, index: number, result: any, opt_args?: Array<any> | undefined): Promize {
         const deferred = new Deferred();
         this.call.results[index] = result;
         const nextIndex = index + 1;

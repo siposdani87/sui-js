@@ -49,7 +49,7 @@ export class Year {
     getNode() {
         const node = new Item('span');
         node.addClass(this.cssClasses);
-        const text = parseInt(this.date['format']('YYYY'), 10);
+        const text = this.date['format']('YYYY');
         node.setHtml(text);
         node.addEventListener('click', () => {
             this.eventClick(this.date);

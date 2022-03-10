@@ -7,7 +7,7 @@ import { Objekt } from '../core/objekt';
 export declare class Dropdown {
     dropdown: any;
     options: Objekt;
-    collection: Collection;
+    collection: Collection<Objekt>;
     actions: any[];
     item: any;
     buttonNode: Item;

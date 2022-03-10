@@ -9,7 +9,7 @@ import { Pager } from './pager';
 export declare class Table {
     tableNode: any;
     options: Objekt;
-    collection: Collection;
+    collection: Collection<Objekt>;
     query: string;
     actions: any[];
     contentHandler: ContentHandler;
@@ -195,7 +195,7 @@ export declare class Table {
      * @private
      * @return {!Array}
      */
-    _getItems(): any[];
+    _getItems(): Objekt[];
     /**
      * @private
      * @return {undefined}
