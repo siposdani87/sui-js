@@ -1,3 +1,4 @@
+import { Item } from '../core/item';
 import { Objekt } from '../core/objekt';
 /**
  * @class
@@ -8,13 +9,13 @@ export declare class Document {
     /**
      * @param {!Object=} opt_options
      */
-    constructor(opt_options: any);
+    constructor(opt_options?: object | undefined);
     /**
      * @private
      * @param {!Object=} opt_options
      * @return {undefined}
      */
-    _setOptions(opt_options: any): void;
+    _setOptions(opt_options: object | undefined): void;
     /**
      * @private
      * @return {undefined}
@@ -24,17 +25,17 @@ export declare class Document {
      * @param {string} title
      * @return {undefined}
      */
-    setTitle(title: any): void;
+    setTitle(title: string): void;
     /**
      * @param {!Item} target
      * @param {!Event} event
      * @return {undefined}
      */
-    eventClick(target: any, event: any): void;
+    eventClick(target: Item, event: Event): void;
     /**
      * @param {string} email
      * @param {string=} opt_subject
      * @return {undefined}
      */
-    mailTo(email: any, opt_subject?: string): void;
+    mailTo(email: string, opt_subject?: string | undefined): void;
 }

@@ -17,5 +17,5 @@ export declare class Scheduler {
      * @param {!Function} callback
      * @return {!Function}
      */
-    everyDay(time: any, callback: any): any;
+    everyDay(time: string, callback: Function): Function;
 }

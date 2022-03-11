@@ -13,7 +13,7 @@ export class ServiceWorker {
      * @private
      * @return {undefined}
      */
-    _init() {
+    _init(): void {
         if ('serviceWorker' in navigator) {
             /* navigator.serviceWorker
         .register('service-worker.js', {scope: './'})
@@ -30,7 +30,7 @@ export class ServiceWorker {
      * @param {!Array} features
      * @return {undefined}
      */
-    eventMissingFeatures(features) {
+    eventMissingFeatures(features: Array<any>): void {
         consoleWarn('ServiceWorker.eventMissingFeatures()', features);
     }
 }

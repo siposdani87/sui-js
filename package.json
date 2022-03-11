@@ -33,6 +33,7 @@
   },
   "devDependencies": {
     "@types/google.maps": "3.48.2",
+    "@types/rails__actioncable": "^6.1.6",
     "@typescript-eslint/eslint-plugin": "^5.3.0",
     "@typescript-eslint/parser": "^5.3.0",
     "browser-sync": "2.27.7",
@@ -40,8 +41,8 @@
     "connect-modrewrite": "0.10.2",
     "eslint": "8.10.0",
     "eslint-config-prettier": "8.5.0",
-    "eslint-plugin-prettier": "4.0.0",
     "eslint-plugin-jsdoc": "37.9.7",
+    "eslint-plugin-prettier": "4.0.0",
     "eslint-plugin-tsdoc": "0.2.14",
     "google-closure-compiler": "20220301.0.0",
     "google-closure-library": "20220202.0.0",

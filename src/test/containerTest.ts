@@ -1,12 +1,13 @@
 import { BaseTest } from './baseTest';
 import { Collection } from '../core/collection';
+import { Objekt } from '../core';
 
 /**
  * @class
  * @extends {BaseTest}
  */
 export class ContainerTest extends BaseTest {
-    container: any;
+    collection: Collection<Objekt>;
     /**
      *
      */
@@ -15,9 +16,10 @@ export class ContainerTest extends BaseTest {
     }
     /**
      * @override
+     * @return {undefined}
      */
-    init() {
-        this.container = /** @type {!Collection<!Objekt>} */ new Collection([
+    init(): void {
+        this.collection = /** @type {!Collection<!Objekt>} */ new Collection([
             {
                 id: 1,
                 text: 'text',

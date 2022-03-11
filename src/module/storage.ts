@@ -11,7 +11,7 @@ export class Storage {
     /**
      * @param {!Object} options
      */
-    constructor(options) {
+    constructor(options: object) {
         const _self = this;
         _self.options = new Objekt({
             type: 'local',
@@ -28,7 +28,7 @@ export class Storage {
      * @private
      * @return {undefined}
      */
-    _init() {
+    _init(): void {
         this.storage =
             this.options.type === 'local'
                 ? window.localStorage
@@ -43,7 +43,7 @@ export class Storage {
      * @param {string} name
      * @return {string}
      */
-    _getPropertyName(name) {
+    _getPropertyName(name: string): string {
         return [this.options.prefix, name].join('.');
     }
     /**
@@ -51,7 +51,7 @@ export class Storage {
      * @param {string} propertyName
      * @return {string}
      */
-    _getName(propertyName) {
+    _getName(propertyName: string): string {
         const parts = propertyName.split('.');
         parts.shift();
         return parts.join('.');
@@ -62,7 +62,7 @@ export class Storage {
      * @param {string|number|boolean|!Date=} opt_expires
      * @return {undefined}
      */
-    set(name, value, opt_expires) {
+    set(name: string, value: any, opt_expires: (string | number | boolean | Date) | undefined): void {
         const expires = this._getExpires(opt_expires);
         const encrypted = expires + ';' + encrypt(value, this.options.secret);
         const propertyName = this._getPropertyName(name);
@@ -72,7 +72,7 @@ export class Storage {
      * @param {string} name
      * @return {*}
      */
-    get(name) {
+    get(name: string): any {
         const propertyName = this._getPropertyName(name);
         const item = this.storage.getItem(propertyName);
         let result = null;
@@ -88,21 +88,21 @@ export class Storage {
      * @param {string} name
      * @return {undefined}
      */
-    remove(name) {
+    remove(name: string): void {
         const propertyName = this._getPropertyName(name);
         this.storage.removeItem(propertyName);
     }
     /**
      * @return {undefined}
      */
-    clear() {
+    clear(): void {
         this.storage.clear();
     }
     /**
      * @private
      * @return {undefined}
      */
-    _checkExpires() {
+    _checkExpires(): void {
         const properyNames = Object.keys(this.storage);
         eachArray(properyNames, (properyName) => {
             const name = this._getName(properyName);
@@ -117,7 +117,7 @@ export class Storage {
      * @param {string} name
      * @return {boolean}
      */
-    _isExpired(name) {
+    _isExpired(name: string): boolean {
         const date = new Date();
         const expireDate = this._getExpiresDate(name);
         return !!expireDate && date.getTime() >= expireDate.getTime();
@@ -127,7 +127,7 @@ export class Storage {
      * @param {string} name
      * @return {?Date}
      */
-    _getExpiresDate(name) {
+    _getExpiresDate(name: string): Date | null {
         const propertyName = this._getPropertyName(name);
         const item = this.storage.getItem(propertyName);
         if (item) {
@@ -141,14 +141,14 @@ export class Storage {
      * @param {string|number|boolean|!Date=} opt_expires
      * @return {string}
      */
-    _getExpires(opt_expires) {
+    _getExpires(opt_expires?: (string | number | boolean | Date)): string {
         const date = new Date();
         if (opt_expires) {
             switch (opt_expires.constructor) {
                 case Number:
                     date.setTime(
                         date.getTime() +
-                            /** @type {number} */(opt_expires) * 60 * 60 * 1000,
+                            /** @type {number} */(opt_expires as number) * 60 * 60 * 1000,
                     );
                     opt_expires =
                         opt_expires === Infinity
@@ -156,7 +156,7 @@ export class Storage {
                             : date.toUTCString();
                     break;
                 case Date:
-                    opt_expires = opt_expires.toUTCString();
+                    opt_expires = (opt_expires as Date).toUTCString();
                     break;
                 default:
                     break;
@@ -165,6 +165,6 @@ export class Storage {
             date.setTime(date.getTime() + this.options.hours * 60 * 60 * 1000);
             opt_expires = date.toUTCString();
         }
-        return /** @type {string} */(opt_expires);
+        return /** @type {string} */(opt_expires as string);
     }
 }

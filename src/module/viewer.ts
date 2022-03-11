@@ -13,7 +13,7 @@ export class Viewer extends BaseModal {
     /**
      * @param {!Object=} opt_options
      */
-    constructor(opt_options = {}) {
+    constructor(opt_options: object | undefined = {}) {
         super();
         this._setOptions(opt_options);
         this._init();
@@ -24,7 +24,7 @@ export class Viewer extends BaseModal {
      * @private
      * @return {undefined}
      */
-    _setOptions(opt_options = {}) {
+    _setOptions(opt_options: object | undefined = {}): void {
         const _self = this;
         _self.options = new Objekt({
             id: '#viewer',
@@ -35,7 +35,7 @@ export class Viewer extends BaseModal {
      * @private
      * @return {undefined}
      */
-    _init() {
+    _init(): void {
         this.body = new Query('body').getItem();
         this.modal = new Query(this.options.id, this.body).getItem();
         this.modalWindow = new Query('#viewer-window', this.modal).getItem();
@@ -52,7 +52,7 @@ export class Viewer extends BaseModal {
      * @param {string=} opt_title
      * @return {undefined}
      */
-    loadImage(imageUrl, opt_title = '') {
+    loadImage(imageUrl: string, opt_title: string | undefined = ''): void {
         this._reset();
 
         this._setImage(imageUrl);
@@ -64,7 +64,7 @@ export class Viewer extends BaseModal {
      * @param {string} imageUrl
      * @return {undefined}
      */
-    _setImage(imageUrl) {
+    _setImage(imageUrl: string): void {
         const imageNode = new Item('img');
         imageNode.setAttribute('src', imageUrl);
 

@@ -1,6 +1,7 @@
 import { isFunction, noop } from '../utils/operation';
 import { Async } from '../core/async';
 import { Objekt } from '../core/objekt';
+import { Promize } from '../core';
 
 /**
  * @class
@@ -17,9 +18,9 @@ export class Event {
      * @param {!Function} callback
      * @return {!Function}
      */
-    set(name, callback) {
+    set(name: string, callback: Function): Function {
         if (isFunction(callback)) {
-            const events = this.eventStore.get<string[]>(name, []);
+            const events = this.eventStore.get<Function[]>(name, []);
             events.push(callback);
             this.eventStore.set(name, events);
         }
@@ -29,8 +30,8 @@ export class Event {
      * @param {string} name
      * @param {!Function} callback
      */
-    remove(name, callback) {
-        const events = this.eventStore.get<string[]>(name, []);
+    remove(name: string, callback: Function) {
+        const events = this.eventStore.get<Function[]>(name, []);
         const index = events.indexOf(callback);
         if (index > -1) {
             events.splice(index, 1);
@@ -39,7 +40,7 @@ export class Event {
     /**
      * @param {string} name
      */
-    pop(name) {
+    pop(name: string) {
         const events = this.eventStore.get<string[]>(name, []);
         events.pop();
         this.eventStore.set(name, events);
@@ -49,7 +50,7 @@ export class Event {
      * @param {!Array=} opt_args
      * @return {!Promize}
      */
-    call(name, opt_args = []) {
+    call(name: string, opt_args: Array<any> | undefined = []): Promize {
         const calls = /** @type {!Array<function()>} */ this.eventStore.get<
             Function[]
         >(name, [noop()]);
@@ -62,7 +63,7 @@ export class Event {
      * @param {!Function} callback
      * @return {!Promize}
      */
-    override(name, args, callback) {
+    override(name: string, args: Array<any>, callback: Function): Promize {
         const calls = /** @type {!Array<function()>} */ this.eventStore.get<
             Function[]
         >(name, [callback]);

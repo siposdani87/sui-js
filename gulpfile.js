@@ -8,7 +8,7 @@ const browserSync = require('browser-sync').create();
 const modRewrite = require('connect-modrewrite');
 const sourcemaps = require('gulp-sourcemaps');
 
-const scriptSrc = ['node_modules/google-closure-library/closure/goog/base.js', 'dist/**/*.js'];
+const scriptSrc = ['node_modules/google-closure-library/closure/goog/base.js', 'dist/**/*.js', '!dist/sui*'];
 const stylesSrc = 'styles/**/*.scss';
 
 const endLine = '';
@@ -56,38 +56,12 @@ gulp.task('compile:scripts:minify', gulp.series(function() {
   }))).pipe(insert.append(endLine)).pipe(sourcemaps.write('/')).pipe(gulp.dest('dist'));
 }));
 
-gulp.task('compile:scripts:debug', gulp.series(function() {
-  return gulp.src(scriptSrc).pipe(closureCompiler.gulp({
-    requireStreamInput: true,
-  })(Object.assign(closureOptions, {
-    compilation_level: 'WHITESPACE_ONLY',
-    // dependency_mode: 'SORT_ONLY',
-    debug: false,
-    define: 'releaseMode=false',
-    output_manifest: 'dist/sui.debug.js.mf',
-    // create_source_map: 'dist/sui.debug.js.map',
-    js_output_file: 'sui.debug.js',
-  }))).pipe(insert.append(endLine)).pipe(sourcemaps.write('/')).pipe(gulp.dest('dist'));
-}));
-
-gulp.task('compile:scripts:simple', gulp.series(function() {
-  return gulp.src(scriptSrc).pipe(closureCompiler.gulp({
-    requireStreamInput: true,
-  })(Object.assign(closureOptions, {
-    compilation_level: 'SIMPLE',
-    define: 'releaseMode=false',
-    output_manifest: 'dist/sui.js.mf',
-    // create_source_map: 'dist/sui.js.map',
-    js_output_file: 'sui.js',
-  }))).pipe(insert.append(endLine)).pipe(sourcemaps.write('/')).pipe(gulp.dest('dist'));
-}));
-
 gulp.task('watcher', gulp.series(function(done) {
   gulp.watch(stylesSrc, gulp.series('compile:styles:minify', function(cb) {
     browserSync.reload();
     cb();
   }));
-  gulp.watch(scriptSrc, gulp.series('compile:scripts:debug', function(cb) {
+  gulp.watch(scriptSrc, gulp.series('compile:scripts:minify', function(cb) {
     browserSync.reload();
     cb();
   }));

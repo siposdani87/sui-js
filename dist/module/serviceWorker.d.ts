@@ -14,5 +14,5 @@ export declare class ServiceWorker {
      * @param {!Array} features
      * @return {undefined}
      */
-    eventMissingFeatures(features: any): void;
+    eventMissingFeatures(features: Array<any>): void;
 }

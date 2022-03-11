@@ -6,7 +6,7 @@ import { Objekt } from '../core/objekt';
 export class ActionCableClient {
     /**
      * @param {!ActionCable} parent
-     * @param {!Object} options
+     * @param {!ChannelNameWithParams} options
      */
     constructor(parent, options) {
         this.parent = parent;
@@ -14,7 +14,7 @@ export class ActionCableClient {
     }
     /**
      * @private
-     * @param {!Object} options
+     * @param {!ChannelNameWithParams} options
      * @return {undefined}
      */
     _init(options) {
@@ -22,7 +22,7 @@ export class ActionCableClient {
     }
     /**
      * @private
-     * @param {!Object} options
+     * @param {!ChannelNameWithParams} options
      * @return {!Promize}
      */
     _getSubscription(options) {

@@ -1,15 +1,17 @@
+import { Item } from '../core';
 import { Query } from '../core/query';
+import { Footer } from './footer';
 
 /**
  * @class
  */
 export class BottomMenu {
-    footer: any;
-    bottomMenu: any;
+    footer: Footer;
+    bottomMenu: Item;
     /**
      * @param {!Footer} footer
      */
-    constructor(footer) {
+    constructor(footer: Footer) {
         this.footer = footer;
         this._init();
     }
@@ -17,7 +19,7 @@ export class BottomMenu {
      * @private
      * @return {undefined}
      */
-    _init() {
+    _init(): void {
         this.bottomMenu = new Query(
             '#bottom-menu',
             this.footer.footerNode,
@@ -44,7 +46,7 @@ export class BottomMenu {
     /**
      * @return {undefined}
      */
-    toggle() {
+    toggle(): void {
         if (this.isOpened()) {
             this.close();
         } else {
@@ -54,27 +56,27 @@ export class BottomMenu {
     /**
      * @return {boolean}
      */
-    isOpened() {
+    isOpened(): boolean {
         return this.bottomMenu.hasClass('visible-flex');
     }
     /**
      * @return {undefined}
      */
-    open() {
+    open(): void {
         this.bottomMenu.addClass('visible-flex');
         this.footer.open();
     }
     /**
      * @return {undefined}
      */
-    close() {
+    close(): void {
         this.bottomMenu.removeClass('visible-flex');
         this.footer.close();
     }
     /**
      * @return {!Item}
      */
-    getContainer() {
+    getContainer(): Item {
         return this.bottomMenu;
     }
 }

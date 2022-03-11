@@ -1,13 +1,15 @@
+import { Item } from '../core';
+import { Footer } from './footer';
 /**
  * @class
  */
 export declare class BottomMenu {
-    footer: any;
-    bottomMenu: any;
+    footer: Footer;
+    bottomMenu: Item;
     /**
      * @param {!Footer} footer
      */
-    constructor(footer: any);
+    constructor(footer: Footer);
     /**
      * @private
      * @return {undefined}
@@ -20,7 +22,7 @@ export declare class BottomMenu {
     /**
      * @return {boolean}
      */
-    isOpened(): any;
+    isOpened(): boolean;
     /**
      * @return {undefined}
      */
@@ -32,5 +34,5 @@ export declare class BottomMenu {
     /**
      * @return {!Item}
      */
-    getContainer(): any;
+    getContainer(): Item;
 }

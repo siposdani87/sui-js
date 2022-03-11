@@ -9,13 +9,13 @@ export declare class Confirm extends BaseModal {
     /**
      * @param {!Object=} opt_options
      */
-    constructor(opt_options?: {});
+    constructor(opt_options?: object | undefined);
     /**
      * @param {!Object=} opt_options
      * @private
      * @return {undefined}
      */
-    _setOptions(opt_options?: {}): void;
+    _setOptions(opt_options?: object | undefined): void;
     /**
      * @private
      * @return {undefined}
@@ -28,5 +28,5 @@ export declare class Confirm extends BaseModal {
      * @param {string=} opt_title
      * @param {string=} opt_type
      */
-    load(message: any, okText: any, opt_cancelText?: string, opt_title?: string, opt_type?: string): void;
+    load(message: string, okText: string, opt_cancelText?: string | undefined, opt_title?: string | undefined, opt_type?: string | undefined): void;
 }

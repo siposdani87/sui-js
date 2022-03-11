@@ -1,16 +1,17 @@
+import { Item } from '../core';
 /**
  * @class
  */
 export declare class LeftMenu {
-    body: any;
-    mainContainerNode: any;
-    leftMenu: any;
-    mainMenu: any;
-    subMenu: any;
-    mainMenuContainer: any;
-    subMenuContainer: any;
-    mainMenuTitle: any;
-    subMenuTitle: any;
+    body: Item;
+    mainContainerNode: Item;
+    leftMenu: Item;
+    mainMenu: Item;
+    subMenu: Item;
+    mainMenuContainer: Item;
+    subMenuContainer: Item;
+    mainMenuTitle: Item;
+    subMenuTitle: Item;
     /**
      */
     constructor();
@@ -27,7 +28,7 @@ export declare class LeftMenu {
      * @param {string=} opt_title
      * @return {undefined}
      */
-    open(opt_title?: string): void;
+    open(opt_title?: string | undefined): void;
     /**
      * @return {undefined}
      */
@@ -36,7 +37,7 @@ export declare class LeftMenu {
      * @param {string=} opt_title
      * @return {undefined}
      */
-    openSubMenu(opt_title?: string): void;
+    openSubMenu(opt_title?: string | undefined): void;
     /**
      * @return {undefined}
      */
@@ -44,9 +45,9 @@ export declare class LeftMenu {
     /**
      * @return {!Item}
      */
-    getMainContainer(): any;
+    getMainContainer(): Item;
     /**
      * @return {!Item}
      */
-    getSubContainer(): any;
+    getSubContainer(): Item;
 }

@@ -1,4 +1,5 @@
 import { Objekt } from '../core/objekt';
+import { Promize } from '../core';
 /**
  * @class
  */
@@ -12,27 +13,27 @@ export declare class Event {
      * @param {!Function} callback
      * @return {!Function}
      */
-    set(name: any, callback: any): any;
+    set(name: string, callback: Function): Function;
     /**
      * @param {string} name
      * @param {!Function} callback
      */
-    remove(name: any, callback: any): void;
+    remove(name: string, callback: Function): void;
     /**
      * @param {string} name
      */
-    pop(name: any): void;
+    pop(name: string): void;
     /**
      * @param {string} name
      * @param {!Array=} opt_args
      * @return {!Promize}
      */
-    call(name: any, opt_args?: any[]): import("..").Promize;
+    call(name: string, opt_args?: Array<any> | undefined): Promize;
     /**
      * @param {string} name
      * @param {!Array} args
      * @param {!Function} callback
      * @return {!Promize}
      */
-    override(name: any, args: any, callback: any): import("..").Promize;
+    override(name: string, args: Array<any>, callback: Function): Promize;
 }

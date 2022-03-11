@@ -1,18 +1,19 @@
 import { eq } from '../utils/operation';
 import { Objekt } from '../core/objekt';
 import { Query } from '../core/query';
+import { Item } from '../core';
 
 /**
  * @class
  */
 export class Loader {
     options: Objekt;
-    loader: any;
-    spinner: any;
+    loader: Item;
+    spinner: Item;
     /**
      * @param {!Object=} opt_options
      */
-    constructor(opt_options = {}) {
+    constructor(opt_options: object | undefined = {}) {
         this._setOptions(opt_options);
         this._init();
     }
@@ -21,7 +22,7 @@ export class Loader {
      * @param {!Object=} opt_options
      * @return {undefined}
      */
-    _setOptions(opt_options = {}) {
+    _setOptions(opt_options: object | undefined = {}): void {
         const _self = this;
         _self.options = new Objekt({
             counter: 0,
@@ -32,7 +33,7 @@ export class Loader {
      * @private
      * @return {undefined}
      */
-    _init() {
+    _init(): void {
         this.loader = new Query('#loader').getItem();
 
         this.spinner = this.loader.createElement('div');
@@ -47,7 +48,7 @@ export class Loader {
     /**
      * @return {undefined}
      */
-    show() {
+    show(): void {
         this.options.counter++;
         this.loader.removeClass('hidden');
         this.spinner.addClass('is-active');
@@ -56,7 +57,7 @@ export class Loader {
      * @param {boolean=} opt_force
      * @return {undefined}
      */
-    hide(opt_force) {
+    hide(opt_force: boolean | undefined): void {
         this.options.counter--;
         if (opt_force || eq(this.options.counter, 0)) {
             this.options.counter = 0;

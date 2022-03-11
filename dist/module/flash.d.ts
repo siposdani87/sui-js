@@ -9,7 +9,7 @@ export declare class Flash {
     /**
      * @param {!Object=} opt_options
      */
-    constructor(opt_options?: {});
+    constructor(opt_options?: object | undefined);
     /**
      * @private
      * @return {undefined}
@@ -20,7 +20,7 @@ export declare class Flash {
      * @param {!Object=} opt_options
      * @return {undefined}
      */
-    _setOptions(opt_options?: {}): void;
+    _setOptions(opt_options?: object | undefined): void;
     /**
      * @param {string} type
      * @param {string} message
@@ -29,13 +29,13 @@ export declare class Flash {
      * @param {string=} opt_id
      * @return {!Item}
      */
-    _getFlashNode(type: any, message: any, opt_duration?: number, opt_closeCallback?: any, opt_id?: string): Item<HTMLElement>;
+    _getFlashNode(type: string, message: string, opt_duration?: number | undefined, opt_closeCallback?: (Function | null) | undefined, opt_id?: string | undefined): Item;
     /**
      * @param {!Item} flashNode
      * @param {?Function=} opt_closeCallback
      * @return {!Item}
      */
-    _getCloseButton(flashNode: any, opt_closeCallback?: any): any;
+    _getCloseButton(flashNode: Item, opt_closeCallback?: (Function | null) | undefined): Item;
     /**
      * @param {string} type
      * @param {string} message
@@ -44,23 +44,23 @@ export declare class Flash {
      * @param {string=} opt_id
      * @return {!Item}
      */
-    _add(type: any, message: any, opt_duration?: number, opt_closeCallback?: any, opt_id?: string): Item<HTMLElement>;
+    _add(type: string, message: string, opt_duration?: number | undefined, opt_closeCallback?: (Function | null) | undefined, opt_id?: string | undefined): Item;
     /**
      * @param {string=} opt_id
      */
-    removeById(opt_id?: string): void;
+    removeById(opt_id?: string | undefined): void;
     /**
      * @param {string} type
      * @param {?Function=} opt_closeCallback
      * @return {boolean}
      */
-    _isClosable(type: any, opt_closeCallback?: any): boolean;
+    _isClosable(type: string, opt_closeCallback?: (Function | null) | undefined): boolean;
     /**
      * @param {!Item} flash
      * @param {?Function=} opt_closeCallback
      * @return {undefined}
      */
-    remove(flash: any, opt_closeCallback?: any): void;
+    remove(flash: Item, opt_closeCallback?: (Function | null) | undefined): void;
     /**
      * @param {string} message
      * @param {number=} opt_duration
@@ -68,7 +68,7 @@ export declare class Flash {
      * @param {string=} opt_id
      * @return {!Item}
      */
-    addSuccess(message: any, opt_duration?: number, opt_closeCallback?: any, opt_id?: string): Item<HTMLElement>;
+    addSuccess(message: string, opt_duration?: number | undefined, opt_closeCallback?: (Function | null) | undefined, opt_id?: string | undefined): Item;
     /**
      * @param {string} message
      * @param {number=} opt_duration
@@ -76,7 +76,7 @@ export declare class Flash {
      * @param {string=} opt_id
      * @return {!Item}
      */
-    addInfo(message: any, opt_duration?: number, opt_closeCallback?: any, opt_id?: string): Item<HTMLElement>;
+    addInfo(message: string, opt_duration?: number | undefined, opt_closeCallback?: (Function | null) | undefined, opt_id?: string | undefined): Item;
     /**
      * @param {string} message
      * @param {number=} opt_duration
@@ -84,7 +84,7 @@ export declare class Flash {
      * @param {string=} opt_id
      * @return {!Item}
      */
-    addWarning(message: any, opt_duration?: number, opt_closeCallback?: any, opt_id?: string): Item<HTMLElement>;
+    addWarning(message: string, opt_duration?: number | undefined, opt_closeCallback?: (Function | null) | undefined, opt_id?: string | undefined): Item;
     /**
      * @param {string} message
      * @param {number=} opt_duration
@@ -92,7 +92,7 @@ export declare class Flash {
      * @param {string=} opt_id
      * @return {!Item}
      */
-    addError(message: any, opt_duration?: number, opt_closeCallback?: any, opt_id?: string): Item<HTMLElement>;
+    addError(message: string, opt_duration?: number | undefined, opt_closeCallback?: (Function | null) | undefined, opt_id?: string | undefined): Item;
     /**
      * @param {{type: string, content: string, closable: boolean}} message
      * @param {number=} opt_duration
@@ -100,7 +100,11 @@ export declare class Flash {
      * @param {string=} opt_id
      * @return {!Item|null}
      */
-    addMessage(message: any, opt_duration?: number, opt_closeCallback?: any, opt_id?: string): Item<HTMLElement>;
+    addMessage(message: {
+        type: string;
+        content: string;
+        closable: boolean;
+    }, opt_duration?: number | undefined, opt_closeCallback?: (Function | null) | undefined, opt_id?: string | undefined): Item | null;
     /**
      * @param {string} message
      * @param {number=} opt_duration
@@ -108,5 +112,5 @@ export declare class Flash {
      * @param {string=} opt_id
      * @return {!Item}
      */
-    addDefault(message: any, opt_duration?: number, opt_closeCallback?: any, opt_id?: string): Item<HTMLElement>;
+    addDefault(message: string, opt_duration?: number | undefined, opt_closeCallback?: (Function | null) | undefined, opt_id?: string | undefined): Item;
 }

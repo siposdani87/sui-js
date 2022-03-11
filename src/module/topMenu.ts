@@ -1,4 +1,6 @@
+import { Item } from '../core';
 import { Query } from '../core/query';
+import { Header } from './header';
 
 /**
  * @class
@@ -10,7 +12,7 @@ export class TopMenu {
     /**
      * @param {!Header} header
      */
-    constructor(header) {
+    constructor(header: Header) {
         this.header = header;
         this._init();
     }
@@ -18,7 +20,7 @@ export class TopMenu {
      * @private
      * @return {undefined}
      */
-    _init() {
+    _init(): void {
         this.topMenu = new Query('#top-menu', this.header.headerNode).getItem();
 
         this.toggleTopMenu = new Query(
@@ -33,7 +35,7 @@ export class TopMenu {
     /**
      * @return {undefined}
      */
-    toggle() {
+    toggle(): void {
         if (this.isOpened()) {
             this.close();
         } else {
@@ -43,13 +45,13 @@ export class TopMenu {
     /**
      * @return {boolean}
      */
-    isOpened() {
+    isOpened(): boolean {
         return this.topMenu.hasClass('visible-flex');
     }
     /**
      * @return {undefined}
      */
-    open() {
+    open(): void {
         this.header.open();
         this.topMenu.addClass('visible-flex');
         this.toggleTopMenu.addClass('active');
@@ -58,7 +60,7 @@ export class TopMenu {
     /**
      * @return {undefined}
      */
-    close() {
+    close(): void {
         this.header.close();
         this.topMenu.removeClass('visible-flex');
         this.toggleTopMenu.removeClass('active');
@@ -67,7 +69,7 @@ export class TopMenu {
     /**
      * @return {!Item}
      */
-    getContainer() {
+    getContainer(): Item {
         return this.topMenu;
     }
 }

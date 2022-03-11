@@ -14,8 +14,9 @@ export class ObjektTest extends BaseTest {
     }
     /**
      * @override
+     * @return {undefined}
      */
-    init() {
+    init(): void {
         this.testMerge();
         this.testGetTypedValue();
         this.testGet();
@@ -24,9 +25,9 @@ export class ObjektTest extends BaseTest {
         this.testCopy();
     }
     /**
-     *
+     * @return {undefined}
      */
-    testMerge() {
+    testMerge(): void {
         const options = new Objekt({
             attr: null,
             obj: {
@@ -58,9 +59,9 @@ export class ObjektTest extends BaseTest {
         }
     }
     /**
-     *
+     * @return {undefined}
      */
-    testGetTypedValue() {
+    testGetTypedValue(): void {
         const options = new Objekt({
             attr: 'null',
             obj: {
@@ -119,9 +120,9 @@ export class ObjektTest extends BaseTest {
         }
     }
     /**
-     *
+     * @return {undefined}
      */
-    testGet() {
+    testGet(): void {
         const options = new Objekt({
             attr: null,
             obj: {
@@ -158,9 +159,9 @@ export class ObjektTest extends BaseTest {
         }
     }
     /**
-     *
+     * @return {undefined}
      */
-    testSet() {
+    testSet(): void {
         const options = new Objekt({
             attr: 0,
             obj: {
@@ -205,9 +206,9 @@ export class ObjektTest extends BaseTest {
         }
     }
     /**
-     *
+     * @return {undefined}
      */
-    testRemove() {
+    testRemove(): void {
         const options = new Objekt({
             attr: 0,
             obj: {
@@ -235,9 +236,9 @@ export class ObjektTest extends BaseTest {
         }
     }
     /**
-     *
+     * @return {undefined}
      */
-    testCopy() {
+    testCopy(): void {
         const options = new Objekt({
             attr: 0,
             obj: {

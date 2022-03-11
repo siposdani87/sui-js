@@ -1,23 +1,24 @@
 import { Objekt } from '../core/objekt';
 import { Http } from './http';
+import { Item, Promize } from '../core';
 /**
  * @class
  */
 export declare class Template {
     http: Http;
     options: Objekt;
-    viewNode: any;
+    viewNode: Item;
     /**
      * @param {!Http} http
      * @param {!Object=} opt_options
      */
-    constructor(http: any, opt_options?: {});
+    constructor(http: Http, opt_options?: object | undefined);
     /**
      * @private
      * @param {!Object=} opt_options
      * @return {undefined}
      */
-    _setOptions(opt_options: any): void;
+    _setOptions(opt_options?: object | undefined): void;
     /**
      * @private
      * @return {undefined}
@@ -26,23 +27,23 @@ export declare class Template {
     /**
      * @return {!Item}
      */
-    getViewNode(): any;
+    getViewNode(): Item;
     /**
      * @param {string} url
      * @param {boolean=} opt_force
      * @return {!Promize}
      */
-    load(url: any, opt_force?: boolean): import("..").Promize;
+    load(url: string, opt_force?: boolean | undefined): Promize;
     /**
      * @private
      * @param {!Item} data
      * @param {boolean} error
      * @return {!Item}
      */
-    _handleData(data: any, error: any): import("..").Item<HTMLElement>;
+    _handleData(data: Item, error: boolean): Item;
     /**
      * @param {!Object} message
      * @return {undefined}
      */
-    eventError(message: any): void;
+    eventError(message: object): void;
 }

@@ -12,18 +12,19 @@ export declare class ItemTest extends BaseTest {
     constructor();
     /**
      * @override
+     * @return {undefined}
      */
     init(): void;
     /**
-     *
+     * @return {undefined}
      */
     testAttribute(): void;
     /**
-     *
+     * @return {undefined}
      */
     testAttributeData(): void;
     /**
-     *
+     * @return {undefined}
      */
     testData(): void;
 }

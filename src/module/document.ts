@@ -11,7 +11,7 @@ export class Document {
     /**
      * @param {!Object=} opt_options
      */
-    constructor(opt_options) {
+    constructor(opt_options: object | undefined = {}) {
         this._setOptions(opt_options);
         this._init();
     }
@@ -20,7 +20,7 @@ export class Document {
      * @param {!Object=} opt_options
      * @return {undefined}
      */
-    _setOptions(opt_options) {
+    _setOptions(opt_options: object | undefined): void {
         const _self = this;
         _self.options = new Objekt();
         _self.options.merge(opt_options);
@@ -29,7 +29,7 @@ export class Document {
      * @private
      * @return {undefined}
      */
-    _init() {
+    _init(): void {
         this.document = document;
         this.document.addEventListener('click', (event) => {
             const target = new Item(
@@ -42,7 +42,7 @@ export class Document {
      * @param {string} title
      * @return {undefined}
      */
-    setTitle(title) {
+    setTitle(title: string): void {
         this.document.title = title;
     }
     /**
@@ -50,7 +50,7 @@ export class Document {
      * @param {!Event} event
      * @return {undefined}
      */
-    eventClick(target, event) {
+    eventClick(target: Item, event: Event): void {
         consoleWarn('Document.eventClick()', target, event);
     }
     /**
@@ -58,7 +58,7 @@ export class Document {
      * @param {string=} opt_subject
      * @return {undefined}
      */
-    mailTo(email, opt_subject = '') {
+    mailTo(email: string, opt_subject: string | undefined = ''): void {
         this.document.location.href =
             'mailto:' + email + '?subject=' + opt_subject;
     }

@@ -3,11 +3,11 @@
  * @class
  */
 export declare class Browser {
-    features: any[];
+    features: string[];
     browsers: {
-        [key: string]: any;
+        [key: string]: boolean;
     };
-    os: any;
+    os: string;
     /**
      */
     constructor();
@@ -31,12 +31,12 @@ export declare class Browser {
      * @param {*} value
      * @return {undefined}
      */
-    _setFeature(name: any, value: any): void;
+    _setFeature(name: string, value: any): void;
     /**
      * @param {!Array} features
      * @return {undefined}
      */
-    eventMissingFeatures(features: any): void;
+    eventMissingFeatures(features: Array<any>): void;
     /**
      * @private
      * @return {undefined}
@@ -71,37 +71,37 @@ export declare class Browser {
      * @param {number=} opt_version
      * @return {boolean}
      */
-    isInternetExplorer(opt_version: any): any;
+    isInternetExplorer(opt_version: number | undefined): boolean;
     /**
      * @return {boolean}
      */
-    isEdge(): any;
+    isEdge(): boolean;
     /**
      * @return {boolean}
      */
-    isChromiumEdge(): any;
+    isChromiumEdge(): boolean;
     /**
      * @return {boolean}
      */
-    isFirefox(): any;
+    isFirefox(): boolean;
     /**
      * @return {boolean}
      */
-    isChrome(): any;
+    isChrome(): boolean;
     /**
      * @return {boolean}
      */
-    isOpera(): any;
+    isOpera(): boolean;
     /**
      * @return {boolean}
      */
-    isSafari(): any;
+    isSafari(): boolean;
     /**
      * @return {boolean}
      */
-    isWebkit(): any;
+    isWebkit(): boolean;
     /**
      * @return {boolean}
      */
-    isChromium(): any;
+    isChromium(): boolean;
 }

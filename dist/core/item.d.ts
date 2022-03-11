@@ -129,12 +129,12 @@ export declare class Item<T extends HTMLElement = HTMLElement> {
      * @param {Listener} listener
      * @return {undefined}
      */
-    removeEventListener(eventName: keyof ElementEventMap, listener: Listener): void;
+    removeEventListener(eventName: keyof GlobalEventHandlersEventMap, listener: Listener): void;
     /**
      * @param {string} eventName
      * @return {undefined}
      */
-    removeEventListeners(eventName: keyof ElementEventMap): void;
+    removeEventListeners(eventName: keyof GlobalEventHandlersEventMap): void;
     /**
      * @param {!Event} event
      * @return {undefined}

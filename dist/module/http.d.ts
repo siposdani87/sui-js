@@ -1,3 +1,4 @@
+import { Promize } from '../core';
 import { Objekt } from '../core/objekt';
 import { Xhr } from './xhr';
 /**
@@ -5,19 +6,19 @@ import { Xhr } from './xhr';
  */
 export declare class Http {
     options: Objekt;
-    username: any;
-    password: any;
-    token: any;
+    username: string;
+    password: string;
+    token: string;
     /**
      * @param {!Object=} opt_options
      */
-    constructor(opt_options?: {});
+    constructor(opt_options?: object | undefined);
     /**
      * @private
      * @param {!Object=} opt_options
      * @return {undefined}
      */
-    _setOptions(opt_options?: {}): void;
+    _setOptions(opt_options?: object | undefined): void;
     /**
      * @private
      * @return {undefined}
@@ -28,26 +29,18 @@ export declare class Http {
      * @param {string} password
      * @return {undefined}
      */
-    setBasicAuthorization(username: any, password: any): void;
+    setBasicAuthorization(username: string, password: string): void;
     /**
      * @param {string} token
      */
-    setBearerAuthorization(token: any): void;
+    setBearerAuthorization(token: string): void;
     /**
      * @param {string} url
      * @param {!Object=} opt_params
      * @param {!Object=} opt_headers
      * @return {!Promize}
      */
-    get(url: any, opt_params?: any, opt_headers?: any): import("..").Promize;
-    /**
-     * @param {string} url
-     * @param {!Object=} opt_data
-     * @param {!Object=} opt_params
-     * @param {!Object=} opt_headers
-     * @return {!Promize}
-     */
-    post(url: any, opt_data?: any, opt_params?: any, opt_headers?: any): import("..").Promize;
+    get(url: string, opt_params?: object | undefined, opt_headers?: object | undefined): Promize;
     /**
      * @param {string} url
      * @param {!Object=} opt_data
@@ -55,7 +48,7 @@ export declare class Http {
      * @param {!Object=} opt_headers
      * @return {!Promize}
      */
-    put(url: any, opt_data: any, opt_params: any, opt_headers: any): import("..").Promize;
+    post(url: string, opt_data?: object | undefined, opt_params?: object | undefined, opt_headers?: object | undefined): Promize;
     /**
      * @param {string} url
      * @param {!Object=} opt_data
@@ -63,7 +56,7 @@ export declare class Http {
      * @param {!Object=} opt_headers
      * @return {!Promize}
      */
-    patch(url: any, opt_data: any, opt_params: any, opt_headers: any): import("..").Promize;
+    put(url: string, opt_data: object | undefined, opt_params: object | undefined, opt_headers: object | undefined): Promize;
     /**
      * @param {string} url
      * @param {!Object=} opt_data
@@ -71,7 +64,15 @@ export declare class Http {
      * @param {!Object=} opt_headers
      * @return {!Promize}
      */
-    delete(url: any, opt_data: any, opt_params: any, opt_headers: any): import("..").Promize;
+    patch(url: string, opt_data: object | undefined, opt_params: object | undefined, opt_headers: object | undefined): Promize;
+    /**
+     * @param {string} url
+     * @param {!Object=} opt_data
+     * @param {!Object=} opt_params
+     * @param {!Object=} opt_headers
+     * @return {!Promize}
+     */
+    delete(url: string, opt_data: object | undefined, opt_params: object | undefined, opt_headers: object | undefined): Promize;
     /**
      * @private
      * @return {!Xhr}
@@ -82,16 +83,16 @@ export declare class Http {
      * @param {!Promize} promise
      * @return {!Promize}
      */
-    _getPromise(promise: any): import("..").Promize;
+    _getPromise(promise: Promize): Promize;
     /**
      * @param {!Xhr} http
      * @return {undefined}
      */
-    eventBeforeRequest(http: any): void;
+    eventBeforeRequest(http: Xhr): void;
     /**
      * @param {!XMLHttpRequest} http
      * @param {*} response
      * @return {undefined}
      */
-    eventAfterRequest(http: any, response: any): void;
+    eventAfterRequest(http: XMLHttpRequest, response: any): void;
 }

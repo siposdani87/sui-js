@@ -1,19 +1,20 @@
 import { noop } from '../utils/operation';
 import { Query } from '../core/query';
+import { Item } from '../core';
 
 /**
  * @class
  */
 export class LeftMenu {
-    body: any;
-    mainContainerNode: any;
-    leftMenu: any;
-    mainMenu: any;
-    subMenu: any;
-    mainMenuContainer: any;
-    subMenuContainer: any;
-    mainMenuTitle: any;
-    subMenuTitle: any;
+    body: Item;
+    mainContainerNode: Item;
+    leftMenu: Item;
+    mainMenu: Item;
+    subMenu: Item;
+    mainMenuContainer: Item;
+    subMenuContainer: Item;
+    mainMenuTitle: Item;
+    subMenuTitle: Item;
     /**
      */
     constructor() {
@@ -23,7 +24,7 @@ export class LeftMenu {
      * @private
      * @return {undefined}
      */
-    _init() {
+    _init(): void {
         this.body = new Query('body').getItem();
         this.mainContainerNode = new Query('.main-container').getItem();
         this.leftMenu = new Query('#left-menu').getItem();
@@ -91,7 +92,7 @@ export class LeftMenu {
      * @param {string=} opt_title
      * @return {undefined}
      */
-    open(opt_title = '') {
+    open(opt_title: string | undefined = ''): void {
         this.body.addClass('overflow-hidden');
         this.mainContainerNode.addClass('blur');
 
@@ -102,7 +103,7 @@ export class LeftMenu {
     /**
      * @return {undefined}
      */
-    close() {
+    close(): void {
         this.body.removeClass('overflow-hidden');
         this.mainContainerNode.removeClass('blur');
         this.leftMenu.removeClass('visible');
@@ -111,7 +112,7 @@ export class LeftMenu {
      * @param {string=} opt_title
      * @return {undefined}
      */
-    openSubMenu(opt_title = '') {
+    openSubMenu(opt_title: string | undefined = ''): void {
         this.mainMenu.addClass('hidden');
         this.subMenu.removeClass('hidden');
         this.subMenuTitle.setHtml(opt_title);
@@ -119,20 +120,20 @@ export class LeftMenu {
     /**
      * @return {undefined}
      */
-    closeSubMenu() {
+    closeSubMenu(): void {
         this.mainMenu.removeClass('hidden');
         this.subMenu.addClass('hidden');
     }
     /**
      * @return {!Item}
      */
-    getMainContainer() {
+    getMainContainer(): Item {
         return this.mainMenuContainer;
     }
     /**
      * @return {!Item}
      */
-    getSubContainer() {
+    getSubContainer(): Item {
         return this.subMenuContainer;
     }
 }

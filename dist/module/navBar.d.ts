@@ -1,10 +1,11 @@
+import { Item } from '../core';
 /**
  * @class
  */
 export declare class NavBar {
-    navBarHeader: any;
-    navBar: any;
-    toggleNavBarIcon: any;
+    navBarHeader: Item;
+    navBar: Item;
+    toggleNavBarIcon: Item;
     /**
      */
     constructor();
@@ -20,7 +21,7 @@ export declare class NavBar {
     /**
      * @return {boolean}
      */
-    isOpened(): any;
+    isOpened(): boolean;
     /**
      * @return {undefined}
      */
@@ -48,5 +49,5 @@ export declare class NavBar {
     /**
      * @return {!Item}
      */
-    getContainer(): any;
+    getContainer(): Item;
 }

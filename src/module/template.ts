@@ -4,6 +4,7 @@ import { Objekt } from '../core/objekt';
 import { Query } from '../core/query';
 import { Http } from './http';
 import { consoleWarn } from '../utils/log';
+import { Item, Promize } from '../core';
 
 /**
  * @class
@@ -11,12 +12,12 @@ import { consoleWarn } from '../utils/log';
 export class Template {
     http: Http;
     options: Objekt;
-    viewNode: any;
+    viewNode: Item;
     /**
      * @param {!Http} http
      * @param {!Object=} opt_options
      */
-    constructor(http, opt_options = {}) {
+    constructor(http: Http, opt_options: object | undefined = {}) {
         this.http = http;
 
         this._setOptions(opt_options);
@@ -27,7 +28,7 @@ export class Template {
      * @param {!Object=} opt_options
      * @return {undefined}
      */
-    _setOptions(opt_options) {
+    _setOptions(opt_options: object | undefined = {}): void {
         const _self = this;
         _self.options = new Objekt({
             selector: '.template-view',
@@ -39,13 +40,13 @@ export class Template {
      * @private
      * @return {undefined}
      */
-    _init() {
+    _init(): void {
         this.viewNode = new Query(this.options.selector).getItem();
     }
     /**
      * @return {!Item}
      */
-    getViewNode() {
+    getViewNode(): Item {
         return this.viewNode;
     }
     /**
@@ -53,7 +54,7 @@ export class Template {
      * @param {boolean=} opt_force
      * @return {!Promize}
      */
-    load(url, opt_force = false) {
+    load(url: string, opt_force: boolean | undefined = false): Promize {
         const deferred = new Deferred();
         const templateUrl = this.viewNode.getAttribute('data-template-url');
         const locale = this.viewNode.getAttribute('data-locale');
@@ -84,7 +85,7 @@ export class Template {
      * @param {boolean} error
      * @return {!Item}
      */
-    _handleData(data, error) {
+    _handleData(data: Item, error: boolean): Item {
         const node = new Query('.page-content', data).getItem();
         if (error) {
             const messageItem = new Query('.message', node).getItem();
@@ -102,7 +103,7 @@ export class Template {
      * @param {!Object} message
      * @return {undefined}
      */
-    eventError(message) {
+    eventError(message: object): void {
         consoleWarn('Template.eventError()', message);
     }
 }

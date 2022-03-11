@@ -275,7 +275,7 @@ export declare const copyArray: (items: Array<any>) => Array<any>;
  * @param {!Object} items
  * @return {!Object}
  */
-export declare const copyObject: (items: object) => object;
+export declare const copyObject: (items: Object) => Object;
 /**
  * @export
  * @param {!Array|!Object} items
@@ -284,6 +284,7 @@ export declare const copyObject: (items: object) => object;
 export declare const isEmpty: (items: Array<any> | object) => boolean;
 /**
  * @export
+ * @deprecated
  * @param {!Array} args
  * @param {!Function} callback
  * @return {undefined}

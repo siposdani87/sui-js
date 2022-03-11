@@ -1,23 +1,25 @@
 import { Objekt } from '../core/objekt';
 import { BaseModal } from './baseModal';
+import { Http } from './http';
+import { Item, Promize } from '../core';
 /**
  * @class
  * @extends {BaseModal}
  */
 export declare class Dialog extends BaseModal {
-    http: any;
+    http: Http;
     options: Objekt;
     /**
      * @param {!Http} http
      * @param {!Object=} opt_options
      */
-    constructor(http: any, opt_options?: {});
+    constructor(http: Http, opt_options?: object | undefined);
     /**
      * @param {!Object=} opt_options
      * @private
      * @return {undefined}
      */
-    _setOptions(opt_options?: {}): void;
+    _setOptions(opt_options?: object | undefined): void;
     /**
      * @private
      * @return {undefined}
@@ -27,20 +29,20 @@ export declare class Dialog extends BaseModal {
      * @param {string} url
      * @return {!Promize}
      */
-    loadTemplate(url: any): import("..").Promize;
+    loadTemplate(url: string): Promize;
     /**
      * @param {!Item} dom
      * @return {!Item}
      */
-    _handleMessage(dom: any): import("..").Item<HTMLElement>;
+    _handleMessage(dom: Item): Item;
     /**
      * @param {!Item} dom
      * @return {!Item}
      */
-    _handleDom(dom: any): import("..").Item<HTMLElement>;
+    _handleDom(dom: Item): Item;
     /**
      * @param {!Item} dom
      * @return {undefined}
      */
-    _handleActions(dom: any): void;
+    _handleActions(dom: Item): void;
 }

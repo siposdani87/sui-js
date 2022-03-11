@@ -10,6 +10,12 @@ export declare class Promize {
      */
     constructor(opt_options?: object | undefined);
     /**
+     * @param {!Object=} opt_options
+     * @private
+     * @return {undefined}
+     */
+    _setOptions(opt_options?: object | undefined): void;
+    /**
      * @param {*=} opt_data
      * @return {undefined}
      */

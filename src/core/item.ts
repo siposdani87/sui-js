@@ -302,7 +302,7 @@ export class Item<T extends HTMLElement = HTMLElement> {
      * @return {undefined}
      */
     removeEventListener(
-        eventName: keyof ElementEventMap,
+        eventName: keyof GlobalEventHandlersEventMap,
         listener: Listener,
     ): void {
         this.node.removeEventListener(eventName, listener);
@@ -311,7 +311,7 @@ export class Item<T extends HTMLElement = HTMLElement> {
      * @param {string} eventName
      * @return {undefined}
      */
-    removeEventListeners(eventName: keyof ElementEventMap): void {
+    removeEventListeners(eventName: keyof GlobalEventHandlersEventMap): void {
         const listeners = this._getListenersFromStore(eventName);
         eachArray(listeners, (listener) => {
             this.removeEventListener(eventName, listener);

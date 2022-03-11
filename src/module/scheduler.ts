@@ -17,7 +17,7 @@ export class Scheduler {
      * @private
      * @return {undefined}
      */
-    _callRunner() {
+    _callRunner(): void {
         /* setTimeout(() => {
       eachObject(this.schedulerStore, (schedulerCallbacks, timeKey) => {
   
@@ -29,10 +29,10 @@ export class Scheduler {
      * @param {!Function} callback
      * @return {!Function}
      */
-    everyDay(time, callback) {
+    everyDay(time: string, callback: Function): Function {
         const name = time; // window['moment']
         if (isFunction(callback)) {
-            const schedulers = this.schedulerStore.get<string[]>(name, []);
+            const schedulers = this.schedulerStore.get<Function[]>(name, []);
             schedulers.push(callback);
             this.schedulerStore.set(name, schedulers);
         }

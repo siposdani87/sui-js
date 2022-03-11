@@ -3,19 +3,21 @@ import { Deferred } from '../core/deferred';
 import { Item } from '../core/item';
 import { Objekt } from '../core/objekt';
 import { Query } from '../core/query';
+import { ProgressBar } from './progressBar';
+import { Promize } from '../core';
 
 /**
  * @class
  */
 export class Style {
-    progressBar: any;
+    progressBar: ProgressBar;
     options: Objekt;
-    head: any;
+    head: Item;
     /**
      * @param {!ProgressBar} progressBar
      * @param {!Object=} opt_options
      */
-    constructor(progressBar, opt_options = {}) {
+    constructor(progressBar: ProgressBar, opt_options: object | undefined = {}) {
         this.progressBar = progressBar;
         this._setOptions(opt_options);
         this._init();
@@ -25,7 +27,7 @@ export class Style {
      * @param {!Object=} opt_options
      * @return {undefined}
      */
-    _setOptions(opt_options = {}) {
+    _setOptions(opt_options: object | undefined = {}): void {
         const _self = this;
         _self.options = new Objekt();
         _self.options.merge(opt_options);
@@ -34,7 +36,7 @@ export class Style {
      * @private
      * @return {undefined}
      */
-    _init() {
+    _init(): void {
         this.head = new Query('head').getItem();
     }
     /**
@@ -45,7 +47,7 @@ export class Style {
      * @param {string=} opt_media
      * @return {!Promize}
      */
-    load(id, url, opt_params, opt_rel = 'stylesheet', opt_media = 'all') {
+    load(id: string, url: string, opt_params: object | undefined, opt_rel: string | undefined = 'stylesheet', opt_media: string | undefined = 'all'): Promize {
         this.progressBar.show();
         const deferred = new Deferred();
         const style = new Query('#' + id);
@@ -77,7 +79,7 @@ export class Style {
      * @param {string} id
      * @return {undefined}
      */
-    remove(id) {
+    remove(id: string): void {
         const style = new Query('#' + id).getItem();
         if (!style.isEmpty()) {
             style.remove();

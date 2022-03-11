@@ -12,7 +12,7 @@ export declare class Helper {
      * @param {!Array=} opt_cssClasses
      * @return {!Item}
      */
-    createLink(name: any, opt_callback: any, opt_href?: string, opt_description?: string, opt_allowAccess?: boolean, opt_cssClasses?: string[]): Item<HTMLElement>;
+    createLink(name: string, opt_callback: Function | undefined, opt_href?: string | undefined, opt_description?: string | undefined, opt_allowAccess?: boolean | undefined, opt_cssClasses?: Array<any> | undefined): Item;
     /**
      * @param {string} selector
      * @param {!Item} dom
@@ -20,7 +20,7 @@ export declare class Helper {
      * @param {!Array=} opt_cssClasses
      * @return {undefined}
      */
-    multipleLink(selector: any, dom: any, opt_callback: any, opt_cssClasses?: any[]): void;
+    multipleLink(selector: string, dom: Item, opt_callback: Function | undefined, opt_cssClasses?: Array<any> | undefined): void;
     /**
      * @param {string} selector
      * @param {!Item} dom
@@ -31,7 +31,7 @@ export declare class Helper {
      * @param {!Array=} opt_cssClasses
      * @return {!Item}
      */
-    link(selector: any, dom: any, opt_callback: any, opt_href?: string, opt_description?: string, opt_allowAccess?: boolean, opt_cssClasses?: any[]): Item<HTMLElement>;
+    link(selector: string, dom: Item, opt_callback: Function | undefined, opt_href?: string | undefined, opt_description?: string | undefined, opt_allowAccess?: boolean | undefined, opt_cssClasses?: Array<any> | undefined): Item;
     /**
      * @param {!Item} linkNode
      * @param {!Function=} opt_callback
@@ -41,7 +41,7 @@ export declare class Helper {
      * @param {!Array=} opt_cssClasses
      * @return {undefined}
      */
-    linkElement(linkNode: any, opt_callback: any, opt_href?: string, opt_description?: string, opt_allowAccess?: boolean, opt_cssClasses?: any[]): void;
+    linkElement(linkNode: Item, opt_callback: Function | undefined, opt_href?: string | undefined, opt_description?: string | undefined, opt_allowAccess?: boolean | undefined, opt_cssClasses?: Array<any> | undefined): void;
     /**
      * @param {string} name
      * @param {!Function} callback
@@ -50,7 +50,7 @@ export declare class Helper {
      * @param {!Array=} opt_cssClasses
      * @return {!Item}
      */
-    createButton(name: any, callback: any, opt_description?: string, opt_allowAccess?: boolean, opt_cssClasses?: string[]): Item<HTMLElement>;
+    createButton(name: string, callback: Function, opt_description?: string | undefined, opt_allowAccess?: boolean | undefined, opt_cssClasses?: Array<any> | undefined): Item;
     /**
      * @param {string} selector
      * @param {!Item} dom
@@ -58,7 +58,7 @@ export declare class Helper {
      * @param {!Array=} opt_cssClasses
      * @return {undefined}
      */
-    multipleButton(selector: any, dom: any, opt_callback: any, opt_cssClasses?: string[]): void;
+    multipleButton(selector: string, dom: Item, opt_callback: Function | undefined, opt_cssClasses?: Array<any> | undefined): void;
     /**
      * @param {string} selector
      * @param {!Item} dom
@@ -68,7 +68,7 @@ export declare class Helper {
      * @param {!Array=} opt_cssClasses
      * @return {!Item}
      */
-    button(selector: any, dom: any, callback: any, opt_description?: string, opt_allowAccess?: boolean, opt_cssClasses?: string[]): Item<HTMLElement>;
+    button(selector: string, dom: Item, callback: Function, opt_description?: string | undefined, opt_allowAccess?: boolean | undefined, opt_cssClasses?: Array<any> | undefined): Item;
     /**
      * @param {!Item} buttonNode
      * @param {!Function=} opt_callback
@@ -77,7 +77,7 @@ export declare class Helper {
      * @param {!Array=} opt_cssClasses
      * @return {undefined}
      */
-    buttonElement(buttonNode: any, opt_callback: any, opt_description?: string, opt_allowAccess?: boolean, opt_cssClasses?: string[]): void;
+    buttonElement(buttonNode: Item, opt_callback: Function | undefined, opt_description?: string | undefined, opt_allowAccess?: boolean | undefined, opt_cssClasses?: Array<any> | undefined): void;
     /**
      * @param {string} iconName
      * @param {!Function} callback
@@ -86,14 +86,14 @@ export declare class Helper {
      * @param {!Array=} opt_cssClasses
      * @return {!Item}
      */
-    createIconButton(iconName: any, callback: any, opt_description?: string, opt_allowAccess?: boolean, opt_cssClasses?: string[]): Item<HTMLElement>;
+    createIconButton(iconName: string, callback: Function, opt_description?: string | undefined, opt_allowAccess?: boolean | undefined, opt_cssClasses?: Array<any> | undefined): Item;
     /**
      * @param {string} selector
      * @param {!Item} dom
      * @param {!Array=} opt_cssClasses
      * @return {undefined}
      */
-    multipleIconButton(selector: any, dom: any, opt_cssClasses?: string[]): void;
+    multipleIconButton(selector: string, dom: Item, opt_cssClasses?: Array<any> | undefined): void;
     /**
      * @param {string} selector
      * @param {!Item} dom
@@ -103,7 +103,7 @@ export declare class Helper {
      * @param {!Array=} opt_cssClasses
      * @return {!Item}
      */
-    iconButton(selector: any, dom: any, callback: any, opt_description?: string, opt_allowAccess?: boolean, opt_cssClasses?: string[]): Item<HTMLElement>;
+    iconButton(selector: string, dom: Item, callback: Function, opt_description?: string | undefined, opt_allowAccess?: boolean | undefined, opt_cssClasses?: Array<any> | undefined): Item;
     /**
      * @param {!Item} buttonNode
      * @param {!Function=} opt_callback
@@ -112,20 +112,20 @@ export declare class Helper {
      * @param {!Array=} opt_cssClasses
      * @return {undefined}
      */
-    iconButtonElement(buttonNode: any, opt_callback: any, opt_description?: string, opt_allowAccess?: boolean, opt_cssClasses?: string[]): void;
+    iconButtonElement(buttonNode: Item, opt_callback: Function | undefined, opt_description?: string | undefined, opt_allowAccess?: boolean | undefined, opt_cssClasses?: Array<any> | undefined): void;
     /**
      * @private
      * @param {string} iconName
      * @param {!Item} parentNode
      * @return {undefined}
      */
-    _createIconNode(iconName: any, parentNode: any): void;
+    _createIconNode(iconName: string, parentNode: Item): void;
     /**
      * @param {!Item} node
      * @param {string=} opt_description
      * @return {undefined}
      */
-    _setTooltip(node: any, opt_description?: string): void;
+    _setTooltip(node: Item, opt_description?: string | undefined): void;
     /**
      * @param {!Item} imageNode
      * @param {string} defaultImageUrl
@@ -134,5 +134,5 @@ export declare class Helper {
      * @param {string=} opt_rating
      * @return {undefined}
      */
-    setGravatar(imageNode: any, defaultImageUrl: any, email: any, opt_size?: number, opt_rating?: string): void;
+    setGravatar(imageNode: Item, defaultImageUrl: string, email: string, opt_size?: number | undefined, opt_rating?: string | undefined): void;
 }

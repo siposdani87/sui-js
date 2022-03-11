@@ -3,14 +3,16 @@ import { Deferred } from '../core/deferred';
 import { Query } from '../core/query';
 import { ActionCableClient } from './actionCableClient';
 import { md5 } from '../utils/coder';
+import { Promize } from '../core';
+import { Consumer } from '@rails/actioncable';
 
 /**
  * @class
  */
 export class ActionCable {
-    cable: any;
-    clients: any[];
-    identifiers: any[];
+    cable: Consumer;
+    clients: ActionCableClient[];
+    identifiers: string[];
     /**
      */
     constructor() {
@@ -20,7 +22,7 @@ export class ActionCable {
      * @private
      * @return {undefined}
      */
-    _init() {
+    _init(): void {
         if (window['ActionCable']) {
             this.cable = window['ActionCable']['createConsumer']();
         }
@@ -30,7 +32,7 @@ export class ActionCable {
     /**
      * @return {string}
      */
-    getUrl() {
+    getUrl(): string {
         let url = '';
         const cableMeta = new Query('meta[name="action-cable-url"]').getItem();
         if (!cableMeta.isEmpty()) {
@@ -43,7 +45,7 @@ export class ActionCable {
      * @param {string} room
      * @return {!Promize}
      */
-    subscribe(channel, room) {
+    subscribe(channel: string, room: string): Promize {
         const options = { channel, room };
         const identifier = this._generateIdentifier(options);
         if (!inArray(this.identifiers, identifier)) {
@@ -59,7 +61,7 @@ export class ActionCable {
     /**
      * @return {undefined}
      */
-    unsubscribeAll() {
+    unsubscribeAll(): void {
         eachArray(this.clients, (client) => {
             client.unsubscribe();
             remove(this.identifiers, client.identifier);
@@ -71,7 +73,7 @@ export class ActionCable {
      * @param {!Object} options
      * @return {string}
      */
-    _generateIdentifier(options) {
+    _generateIdentifier(options: object): string {
         return md5(JSON.stringify(options));
     }
 }

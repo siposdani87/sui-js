@@ -1,38 +1,41 @@
+import { Promize } from '../core';
+import { ActionCable } from './actionCable';
+import { ChannelNameWithParams } from '@rails/actioncable';
 /**
  * @class
  */
 export declare class ActionCableClient {
-    parent: any;
-    subscription: any;
+    parent: ActionCable;
+    subscription: Promize;
     client: any;
-    identifier: any;
+    identifier: string;
     /**
      * @param {!ActionCable} parent
-     * @param {!Object} options
+     * @param {!ChannelNameWithParams} options
      */
-    constructor(parent: any, options: any);
+    constructor(parent: ActionCable, options: ChannelNameWithParams);
     /**
      * @private
-     * @param {!Object} options
+     * @param {!ChannelNameWithParams} options
      * @return {undefined}
      */
-    _init(options: any): void;
+    _init(options: ChannelNameWithParams): void;
     /**
      * @private
-     * @param {!Object} options
+     * @param {!ChannelNameWithParams} options
      * @return {!Promize}
      */
-    _getSubscription(options: any): import("..").Promize;
+    _getSubscription(options: ChannelNameWithParams): Promize;
     /**
      * @return {!Promize}
      */
-    subscribe(): any;
+    subscribe(): Promize;
     /**
      * @param {string} message,
      * @param {!Object=} opt_data
      * @return {undefined}
      */
-    send(message: any, opt_data?: {}): void;
+    send(message: string, opt_data?: object | undefined): void;
     /**
      * @return {undefined}
      */
