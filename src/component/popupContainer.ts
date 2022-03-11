@@ -1,16 +1,18 @@
+import { Item } from '../core';
 import { Collection } from '../core/collection';
 import { Query } from '../core/query';
+import { Popup } from './popup';
 
 /**
  * @class
  */
 export class PopupContainer {
     selector: string;
-    container: any;
+    container: Item;
     /**
      * @param {string=} opt_selector
      */
-    constructor(opt_selector = 'body') {
+    constructor(opt_selector: string | undefined = 'body') {
         this.selector = opt_selector;
         this._init();
     }
@@ -18,7 +20,7 @@ export class PopupContainer {
      * @private
      * @return {undefined}
      */
-    _init() {
+    _init(): void {
         this.container = new Query(this.selector).getItem();
     }
     /**
@@ -26,7 +28,7 @@ export class PopupContainer {
      * @param {!Function} type
      * @return {undefined}
      */
-    _initCollection(type) {
+    _initCollection(type: Function): void {
         window['popup_collection'] =
             window['popup_collection'] ||
             /** @type {!Collection<!Popup>} */ new Collection([], type);
@@ -36,7 +38,7 @@ export class PopupContainer {
      * @param {!Popup} popup
      * @return {undefined}
      */
-    push(type, popup) {
+    push(type: Function, popup: Popup): void {
         this._initCollection(type);
         if (window['popup_collection']) {
             window['popup_collection'].push(popup);
@@ -46,7 +48,7 @@ export class PopupContainer {
      * @param {!Popup} popup
      * @return {undefined}
      */
-    delete(popup) {
+    delete(popup: Popup): void {
         if (window['popup_collection']) {
             window['popup_collection'].delete(popup);
         }
@@ -54,7 +56,7 @@ export class PopupContainer {
     /**
      * @return {undefined}
      */
-    closeAll() {
+    closeAll(): void {
         if (window['popup_collection']) {
             window['popup_collection'].each((popup) => {
                 popup.close();
@@ -65,7 +67,7 @@ export class PopupContainer {
      * @param {!Item} popupNode
      * @return {undefined}
      */
-    setPosition(popupNode) {
+    setPosition(popupNode: Item): void {
         // const containerNode = this.container.getNode();
         // const top = containerNode.offsetHeight - containerNode.scrollHeight;
         // const absoluteTop = top === 0 ? 'auto' : top + 'px';
@@ -80,7 +82,7 @@ export class PopupContainer {
      * @param {!Item} popupNode
      * @return {undefined}
      */
-    clearPosition(popupNode) {
+    clearPosition(popupNode: Item): void {
         popupNode.setStyle({
             top: 'auto',
             bottom: 'auto',

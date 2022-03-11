@@ -16,5 +16,5 @@ export declare class Query<T extends HTMLElement = HTMLElement> extends Collecti
      * @export
      * @return {!Item}
      */
-    getItem(): Item;
+    getItem(): Item<T>;
 }

@@ -22,7 +22,7 @@ export class Canvas {
         this.canvasNode = /** @type {!Item} */ opt_selector;
         if (isString(opt_selector)) {
             this.canvasNode = new Query(
-            /** @type {string} */ (opt_selector)).getItem();
+            /** @type {string} */ opt_selector).getItem();
         }
         else if (isUndefined(opt_selector)) {
             this.canvasNode = new Item('canvas');
@@ -134,7 +134,7 @@ export class Canvas {
         this.context.restore();
     }
     /**
-     * @param {!Item} image
+     * @param {!Item<HTMLImageElement>} image
      * @param {number=} opt_width
      * @param {number=} opt_height
      */
@@ -148,7 +148,7 @@ export class Canvas {
     /**
      * @param {number} x
      * @param {number} y
-     * @return {!CanvasPixelArray}
+     * @return {!Uint8ClampedArray}
      */
     getImageDataXY(x, y) {
         return this.context.getImageData(x, y, 1, 1).data;

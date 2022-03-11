@@ -1,10 +1,12 @@
 import { Collection } from '../core/collection';
+import { Item } from '../core/item';
 import { Objekt } from '../core/objekt';
+import { Http } from '../module';
 /**
  * @class
  */
 export declare class Navigation {
-    http: any;
+    http: Http;
     options: Objekt;
     container: Collection<Objekt>;
     linkNodeKey: string;
@@ -12,13 +14,13 @@ export declare class Navigation {
      * @param {!Http=} opt_http
      * @param {!Object=} opt_options
      */
-    constructor(opt_http: any, opt_options?: {});
+    constructor(opt_http: Http | undefined, opt_options?: object | undefined);
     /**
      * @private
      * @param {!Object=} opt_options
      * @return {undefined}
      */
-    _setOptions(opt_options?: {}): void;
+    _setOptions(opt_options?: object | undefined): void;
     /**
      * @private
      * @return {undefined}
@@ -28,7 +30,7 @@ export declare class Navigation {
      * @param {!Objekt} item
      * @return {undefined}
      */
-    add(item: any): void;
+    add(item: Objekt): void;
     /**
      * @param {string} id
      * @param {string} counter
@@ -38,7 +40,7 @@ export declare class Navigation {
      * @param {!Object=} opt_data
      * @return {undefined}
      */
-    addCounter(id: any, counter: any, title: any, action: any, opt_href?: string, opt_data?: {}): void;
+    addCounter(id: string, counter: string, title: string | null, action: Function, opt_href?: string | undefined, opt_data?: object | undefined): void;
     /**
      * @param {string} id
      * @param {string} icon
@@ -48,7 +50,7 @@ export declare class Navigation {
      * @param {!Object=} opt_data
      * @return {undefined}
      */
-    addIcon(id: any, icon: any, title: any, action: any, opt_href?: string, opt_data?: {}): void;
+    addIcon(id: string, icon: string, title: string | null, action: Function, opt_href?: string | undefined, opt_data?: object | undefined): void;
     /**
      * @param {string} id
      * @param {string} image
@@ -58,7 +60,7 @@ export declare class Navigation {
      * @param {!Object=} opt_data
      * @return {undefined}
      */
-    addImage(id: any, image: any, title: any, action: any, opt_href?: string, opt_data?: {}): void;
+    addImage(id: string, image: string, title: string | null, action: Function, opt_href?: string | undefined, opt_data?: object | undefined): void;
     /**
      * @param {string} id
      * @param {string} title
@@ -67,7 +69,7 @@ export declare class Navigation {
      * @param {!Object=} opt_data
      * @return {undefined}
      */
-    addText(id: any, title: any, action: any, opt_href?: string, opt_data?: {}): void;
+    addText(id: string, title: string, action: Function, opt_href?: string | undefined, opt_data?: object | undefined): void;
     /**
      * @private
      * @param {string} id
@@ -77,44 +79,44 @@ export declare class Navigation {
      * @param {!Object=} opt_data
      * @return {!Objekt}
      */
-    _setItem(id: any, title: any, action: any, opt_href?: string, opt_data?: {}): Objekt;
+    _setItem(id: string, title: string | null, action: Function, opt_href?: string | undefined, opt_data?: object | undefined): Objekt;
     /**
      * @param {!Function} next
      * @return {undefined}
      */
-    each(next: any): void;
+    each(next: Function): void;
     /**
      * @param {!Item} containerNode
      * @return {undefined}
      */
-    bindToContainer(containerNode: any): void;
+    bindToContainer(containerNode: Item): void;
     /**
      * @param {string} id
      * @return {undefined}
      */
-    setDisabled(id: any): void;
+    setDisabled(id: string): void;
     /**
      * @private
      * @param {!Objekt} item
      * @return {undefined}
      */
-    _disabled(item: any): void;
+    _disabled(item: Objekt): void;
     /**
      * @param {string} id
      * @return {undefined}
      */
-    setEnabled(id: any): void;
+    setEnabled(id: string): void;
     /**
      * @private
      * @param {!Objekt} item
      * @return {undefined}
      */
-    _enabled(item: any): void;
+    _enabled(item: Objekt): void;
     /**
      * @param {string} id
      * @return {undefined}
      */
-    setActive(id: any): void;
+    setActive(id: string): void;
     /**
      * @return {undefined}
      */
@@ -123,10 +125,10 @@ export declare class Navigation {
      * @param {string} id
      * @return {undefined}
      */
-    show(id: any): void;
+    show(id: string): void;
     /**
      * @param {string} id
      * @return {undefined}
      */
-    hide(id: any): void;
+    hide(id: string): void;
 }

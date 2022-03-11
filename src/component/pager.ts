@@ -13,8 +13,8 @@ type Page = {
  * @class
  */
 export class Pager {
-    pager: any;
-    pagerStatistics: any;
+    pager: Item;
+    pagerStatistics: Item;
     options: Objekt;
     count: number;
     pageNum: number;
@@ -26,9 +26,9 @@ export class Pager {
      * @param {!Object=} opt_options
      */
     constructor(
-        dom,
-        opt_selectors = ['.pager', '.pager-statistics'],
-        opt_options = {},
+        dom: Item,
+        opt_selectors: Array<any> | undefined = ['.pager', '.pager-statistics'],
+        opt_options: object | undefined = {},
     ) {
         this.pager = new Query(opt_selectors[0], dom).getItem();
         this.pagerStatistics = new Query(opt_selectors[1], dom).getItem();
@@ -40,7 +40,7 @@ export class Pager {
      * @param {!Object=} opt_options
      * @return {undefined}
      */
-    _setOptions(opt_options = {}) {
+    _setOptions(opt_options: object | undefined = {}): void {
         const _self = this;
         _self.options = new Objekt({
             row_count: 10,
@@ -52,7 +52,7 @@ export class Pager {
      * @private
      * @return {undefined}
      */
-    _init() {
+    _init(): void {
         this.count = this.options.row_count;
         this.setPage(1);
     }
@@ -60,7 +60,7 @@ export class Pager {
      * @private
      * @return {undefined}
      */
-    _drawPager() {
+    _drawPager(): void {
         this.pager.removeChildren();
         this.pageNum = Math.ceil(this.count / this.options.row_count);
         this._drawPreviousButton();
@@ -71,7 +71,7 @@ export class Pager {
      * @private
      * @return {undefined}
      */
-    _drawStatistics() {
+    _drawStatistics(): void {
         const page = this.page - 1;
         const from = page * this.options.row_count + 1;
         let to = page * this.options.row_count + this.options.row_count;
@@ -88,7 +88,7 @@ export class Pager {
      * @private
      * @return {undefined}
      */
-    _drawPreviousButton() {
+    _drawPreviousButton(): void {
         if (this.pageNum > 1) {
             const previousButton = new Item('button');
             previousButton.addClass([
@@ -111,7 +111,7 @@ export class Pager {
      * @private
      * @return {undefined}
      */
-    _drawNextButton() {
+    _drawNextButton(): void {
         if (this.pageNum > 1) {
             const nextButton = new Item('button');
             nextButton.addClass([
@@ -134,7 +134,7 @@ export class Pager {
      * @private
      * @return {undefined}
      */
-    _drawPageNumbers() {
+    _drawPageNumbers(): void {
         const pagers = this._getPagers();
         if (pagers.length > 1) {
             each(pagers, (pager) => {
@@ -196,7 +196,7 @@ export class Pager {
      * @private
      * @return {undefined}
      */
-    _next() {
+    _next(): void {
         let page = this.page + 1;
         if (page > this.pageNum) {
             page = 1;
@@ -207,7 +207,7 @@ export class Pager {
      * @private
      * @return {undefined}
      */
-    _previous() {
+    _previous(): void {
         let page = this.page - 1;
         if (page < 1) {
             page = this.pageNum;
@@ -218,7 +218,7 @@ export class Pager {
      * @param {number} count
      * @return {undefined}
      */
-    setCount(count) {
+    setCount(count: number): void {
         this.count = count;
     }
     /**
@@ -226,7 +226,7 @@ export class Pager {
      * @param {number} page
      * @return {undefined}
      */
-    _go(page) {
+    _go(page: number): void {
         this.setPage(page);
         this.eventAction(this.page);
     }
@@ -234,14 +234,14 @@ export class Pager {
      * @param {number} page
      * @return {undefined}
      */
-    setPage(page) {
+    setPage(page: number): void {
         this.page = page;
         this.offset = (this.page - 1) * this.options.row_count;
     }
     /**
      * @return {undefined}
      */
-    draw() {
+    draw(): void {
         this._drawStatistics();
         this._drawPager();
     }
@@ -249,7 +249,7 @@ export class Pager {
      * @param {number} page
      * @return {undefined}
      */
-    eventAction(page) {
+    eventAction(page: number): void {
         consoleWarn('Pager.eventAction()', page);
     }
 }

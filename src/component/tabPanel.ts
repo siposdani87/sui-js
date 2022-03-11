@@ -3,15 +3,16 @@ import { Async } from '../core/async';
 import { Deferred } from '../core/deferred';
 import { Query } from '../core/query';
 import { consoleWarn } from '../utils/log';
+import { Item, Promize } from '../core';
 
 /**
  * @class
  * @export
  */
 export class TabPanel {
-    tabPanel: any;
+    tabPanel: Item;
     options: { selected_tab: string; default_tab: string };
-    activeTab: any;
+    activeTab: string;
     tabs: Query;
     panels: Query;
     /**
@@ -21,10 +22,10 @@ export class TabPanel {
      * @param {string=} opt_defaultTab
      */
     constructor(
-        dom,
-        opt_selector = '.tab-panel',
-        opt_selectedTab = '',
-        opt_defaultTab = '',
+        dom: Item,
+        opt_selector: string | undefined = '.tab-panel',
+        opt_selectedTab: string | undefined = '',
+        opt_defaultTab: string | undefined = '',
     ) {
         this.tabPanel = new Query(opt_selector, dom).getItem();
         this.options = {
@@ -37,7 +38,7 @@ export class TabPanel {
      * @private
      * @return {undefined}
      */
-    _init() {
+    _init(): void {
         this._initTabs();
         this._initPanels();
 
@@ -48,7 +49,7 @@ export class TabPanel {
      * @private
      * @return {undefined}
      */
-    _initTabs() {
+    _initTabs(): void {
         this.tabs = new Query('.tabs a', this.tabPanel);
         this.tabs.each((tab) => {
             const panelId = tab.getAttribute('href').substring(1);
@@ -66,7 +67,7 @@ export class TabPanel {
      * @private
      * @return {undefined}
      */
-    _initPanels() {
+    _initPanels(): void {
         this.panels = new Query('.panel', this.tabPanel);
     }
     /**
@@ -74,7 +75,7 @@ export class TabPanel {
      * @param {string} panelId
      * @return {undefined}
      */
-    _setActive(panelId) {
+    _setActive(panelId: string): void {
         let activeTab = this.options.default_tab;
 
         this.panels.each((panel) => {
@@ -98,14 +99,14 @@ export class TabPanel {
      * @param {string} panelId
      * @return {undefined}
      */
-    eventChange(panelId) {
+    eventChange(panelId: string): void {
         consoleWarn('TabPanel.eventChange()', panelId);
     }
     /**
      * @param {string} panelId
      * @return {!Promize}
      */
-    setActive(panelId) {
+    setActive(panelId: string): Promize {
         const deferred = new Deferred();
         if (!isNull(panelId)) {
             this._setActive(/** @type {string} */(panelId));
@@ -125,7 +126,7 @@ export class TabPanel {
     /**
      * @return {string}
      */
-    getActive() {
+    getActive(): string {
         return this.activeTab;
     }
 }

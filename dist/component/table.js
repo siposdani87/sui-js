@@ -364,7 +364,7 @@ export class Table {
         });
     }
     /**
-     * @param {!Array<{style: !Function, click: !Function}>} actions
+     * @param {!Array<Action>} actions
      * @return {undefined}
      */
     setActions(actions) {

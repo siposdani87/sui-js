@@ -8,15 +8,15 @@ import { generateId } from '../utils/coder';
  * @class
  */
 export class Tooltip {
-    element: any;
+    element: Item;
     valid: boolean;
     positionCssClass: string;
-    tooltip: any;
+    tooltip: Item;
     /**
      * @param {!Item} element
      * @param {string=} opt_position TOP|BOTTOM|LEFT|RIGHT
      */
-    constructor(element, opt_position = 'TOP') {
+    constructor(element: Item, opt_position: string | undefined = 'TOP') {
         this.element = element;
         this.valid = false;
         this._initPositions(opt_position);
@@ -27,7 +27,7 @@ export class Tooltip {
      * @param {string=} opt_position
      * @return {undefined}
      */
-    _initPositions(opt_position = '') {
+    _initPositions(opt_position: string | undefined = ''): void {
         this.positionCssClass = 'mdl-tooltip--top';
         switch (opt_position) {
             case 'TOP':
@@ -48,14 +48,14 @@ export class Tooltip {
      * @private
      * @return {undefined}
      */
-    _init() {
+    _init(): void {
         this._createTooltip();
     }
     /**
      * @param {string=} opt_message
      * @return {string}
      */
-    _getMessage(opt_message = '') {
+    _getMessage(opt_message: string | undefined = ''): string {
         if (!opt_message) {
             opt_message =
                 /** @type {string} */(this).element.getAttribute('desc') || '';
@@ -72,7 +72,7 @@ export class Tooltip {
      * @private
      * @return {undefined}
      */
-    _createTooltip() {
+    _createTooltip(): void {
         let id = this.element.getId();
         if (isNull(id)) {
             id = generateId('tooltip');
@@ -95,7 +95,7 @@ export class Tooltip {
      * @param {string=} opt_message
      * @return {undefined}
      */
-    render(opt_message?) {
+    render(opt_message?: string | undefined): void {
         const message = this._getMessage(opt_message);
         this.setMessage(message);
         this._handleAttributes();
@@ -104,7 +104,7 @@ export class Tooltip {
      * @private
      * @return {undefined}
      */
-    _handleAttributes() {
+    _handleAttributes(): void {
         if (this.valid) {
             this.element.removeAttribute('desc');
             this.element.removeAttribute('title');
@@ -115,7 +115,7 @@ export class Tooltip {
      * @param {string=} opt_message
      * @return {undefined}
      */
-    setMessage(opt_message = '') {
+    setMessage(opt_message: string | undefined = ''): void {
         if (opt_message) {
             this.tooltip.removeStyle(['display']);
             this.tooltip.setHtml(/** @type {string} */(opt_message));
@@ -129,25 +129,25 @@ export class Tooltip {
     /**
      * @return {undefined}
      */
-    open() {
+    open(): void {
         this.tooltip.addClass('is-active');
     }
     /**
      * @return {undefined}
      */
-    close() {
+    close(): void {
         this.tooltip.removeClass('is-active');
     }
     /**
      * @return {boolean}
      */
-    isOpen() {
+    isOpen(): boolean {
         return this.tooltip.hasClass('is-active');
     }
     /**
      * @return {undefined}
      */
-    toggle() {
+    toggle(): void {
         if (this.isOpen()) {
             this.close();
         } else {

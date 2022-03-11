@@ -1,13 +1,15 @@
+import { Item } from '../core';
+import { Popup } from './popup';
 /**
  * @class
  */
 export declare class PopupContainer {
     selector: string;
-    container: any;
+    container: Item;
     /**
      * @param {string=} opt_selector
      */
-    constructor(opt_selector?: string);
+    constructor(opt_selector?: string | undefined);
     /**
      * @private
      * @return {undefined}
@@ -18,18 +20,18 @@ export declare class PopupContainer {
      * @param {!Function} type
      * @return {undefined}
      */
-    _initCollection(type: any): void;
+    _initCollection(type: Function): void;
     /**
      * @param {!Function} type
      * @param {!Popup} popup
      * @return {undefined}
      */
-    push(type: any, popup: any): void;
+    push(type: Function, popup: Popup): void;
     /**
      * @param {!Popup} popup
      * @return {undefined}
      */
-    delete(popup: any): void;
+    delete(popup: Popup): void;
     /**
      * @return {undefined}
      */
@@ -38,10 +40,10 @@ export declare class PopupContainer {
      * @param {!Item} popupNode
      * @return {undefined}
      */
-    setPosition(popupNode: any): void;
+    setPosition(popupNode: Item): void;
     /**
      * @param {!Item} popupNode
      * @return {undefined}
      */
-    clearPosition(popupNode: any): void;
+    clearPosition(popupNode: Item): void;
 }

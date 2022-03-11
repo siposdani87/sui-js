@@ -3,12 +3,13 @@ import { Collection } from '../core/collection';
 import { Item } from '../core/item';
 import { Objekt } from '../core/objekt';
 import { Query } from '../core/query';
+import { Http } from '../module';
 
 /**
  * @class
  */
 export class Navigation {
-    http: any;
+    http: Http;
     options: Objekt;
     container: Collection<Objekt>;
     linkNodeKey: string;
@@ -16,7 +17,7 @@ export class Navigation {
      * @param {!Http=} opt_http
      * @param {!Object=} opt_options
      */
-    constructor(opt_http, opt_options = {}) {
+    constructor(opt_http: Http | undefined, opt_options: object | undefined = {}) {
         this.http = opt_http;
         this._setOptions(opt_options);
         this._init();
@@ -26,7 +27,7 @@ export class Navigation {
      * @param {!Object=} opt_options
      * @return {undefined}
      */
-    _setOptions(opt_options = {}) {
+    _setOptions(opt_options: object | undefined = {}): void {
         const _self = this;
         _self.options = new Objekt();
         _self.options.merge(opt_options);
@@ -35,7 +36,7 @@ export class Navigation {
      * @private
      * @return {undefined}
      */
-    _init() {
+    _init(): void {
         this.container = /** @type {!Collection<!Objekt>} */ new Collection();
 
         this.linkNodeKey = 'node';
@@ -44,15 +45,15 @@ export class Navigation {
      * @param {!Objekt} item
      * @return {undefined}
      */
-    add(item) {
-        const id = /** @type {string} */(item).get('id');
-        const image = /** @type {string} */(item).get('image');
-        const icon = /** @type {string} */(item).get('icon');
-        const title = /** @type {string} */(item).get('title');
-        const counter = /** @type {string} */(item).get('counter');
-        const href = /** @type {string} */(item).get('href');
-        const action = /** @type {!Function} */ item.get('action');
-        const disabled = /** @type {boolean} */(item).get('disabled');
+    add(item: Objekt): void {
+        const id = /** @type {string} */(item).get<string>('id');
+        const image = /** @type {string} */(item).get<string>('image');
+        const icon = /** @type {string} */(item).get<string>('icon');
+        const title = /** @type {string} */(item).get<string>('title');
+        const counter = /** @type {string} */(item).get<string>('counter');
+        const href = /** @type {string} */(item).get<string>('href');
+        const action = /** @type {!Function} */ item.get<Function>('action');
+        const disabled = /** @type {boolean} */(item).get<boolean>('disabled');
 
         if (image) {
             this.addImage(id, image, title, action, href, item);
@@ -77,7 +78,7 @@ export class Navigation {
      * @param {!Object=} opt_data
      * @return {undefined}
      */
-    addCounter(id, counter, title, action, opt_href = '', opt_data = {}) {
+    addCounter(id: string, counter: string, title: string | null, action: Function, opt_href: string | undefined = '', opt_data: object | undefined = {}): void {
         const item = this._setItem(id, title, action, opt_href, opt_data);
         const counterSpan = new Item('span');
         counterSpan.addClass('counter');
@@ -95,7 +96,7 @@ export class Navigation {
      * @param {!Object=} opt_data
      * @return {undefined}
      */
-    addIcon(id, icon, title, action, opt_href = '', opt_data = {}) {
+    addIcon(id: string, icon: string, title: string | null, action: Function, opt_href: string | undefined = '', opt_data: object | undefined = {}): void {
         const item = this._setItem(id, title, action, opt_href, opt_data);
         const iconNode = new Item('em');
         iconNode.addClass(['material-icons']);
@@ -117,7 +118,7 @@ export class Navigation {
      * @param {!Object=} opt_data
      * @return {undefined}
      */
-    addImage(id, image, title, action, opt_href = '', opt_data = {}) {
+    addImage(id: string, image: string, title: string | null, action: Function, opt_href: string | undefined = '', opt_data: object | undefined = {}): void {
         const item = this._setItem(id, title, action, opt_href, opt_data);
 
         const imageSpan = new Item('span');
@@ -157,7 +158,7 @@ export class Navigation {
      * @param {!Object=} opt_data
      * @return {undefined}
      */
-    addText(id, title, action, opt_href = '', opt_data = {}) {
+    addText(id: string, title: string, action: Function, opt_href: string | undefined = '', opt_data: object | undefined = {}): void {
         this._setItem(id, title, action, opt_href, opt_data);
     }
     /**
@@ -169,7 +170,7 @@ export class Navigation {
      * @param {!Object=} opt_data
      * @return {!Objekt}
      */
-    _setItem(id, title, action, opt_href = '', opt_data = {}) {
+    _setItem(id: string, title: string | null, action: Function, opt_href: string | undefined = '', opt_data: object | undefined = {}): Objekt {
         const linkNode = new Item('a');
         if (title) {
             const titleSpan = new Item('span');
@@ -202,7 +203,7 @@ export class Navigation {
      * @param {!Function} next
      * @return {undefined}
      */
-    each(next) {
+    each(next: Function): void {
         this.container.each((item) => {
             next(item);
         });
@@ -211,7 +212,7 @@ export class Navigation {
      * @param {!Item} containerNode
      * @return {undefined}
      */
-    bindToContainer(containerNode) {
+    bindToContainer(containerNode: Item): void {
         containerNode.removeChildren();
         this.each((item) => {
             const linkNode = item.get(this.linkNodeKey);
@@ -222,7 +223,7 @@ export class Navigation {
      * @param {string} id
      * @return {undefined}
      */
-    setDisabled(id) {
+    setDisabled(id: string): void {
         const item = this.container.findById(id);
         if (item) {
             this._disabled(item);
@@ -233,8 +234,8 @@ export class Navigation {
      * @param {!Objekt} item
      * @return {undefined}
      */
-    _disabled(item) {
-        const linkNode = item.get(this.linkNodeKey);
+    _disabled(item: Objekt): void {
+        const linkNode = item.get<Item>(this.linkNodeKey);
         linkNode.addClass('disabled');
         linkNode.removeEventListener('click', item.get('listener'));
         linkNode.setAttribute('href', 'javascript:void(0)');
@@ -243,7 +244,7 @@ export class Navigation {
      * @param {string} id
      * @return {undefined}
      */
-    setEnabled(id) {
+    setEnabled(id: string): void {
         const item = this.container.findById(id);
         if (item) {
             this._enabled(item);
@@ -254,13 +255,13 @@ export class Navigation {
      * @param {!Objekt} item
      * @return {undefined}
      */
-    _enabled(item) {
+    _enabled(item: Objekt): void {
         this._disabled(item);
-        const linkNode = item.get(this.linkNodeKey);
+        const linkNode = item.get<Item>(this.linkNodeKey);
         linkNode.removeClass('disabled');
         const action =
-            /** @type {function(string):undefined} */ item.get('action');
-        const href = /** @type {string} */(item).get('href');
+            /** @type {function(string):undefined} */ item.get<Function>('action');
+        const href = /** @type {string} */(item).get<string>('href');
         linkNode.setAttribute('href', href);
         const listener = linkNode.addEventListener('click', () => {
             action(href);
@@ -271,7 +272,7 @@ export class Navigation {
      * @param {string} id
      * @return {undefined}
      */
-    setActive(id) {
+    setActive(id: string): void {
         this.each((item) => {
             const linkNode = item.get(this.linkNodeKey);
             linkNode.removeClass('active');
@@ -287,7 +288,7 @@ export class Navigation {
     /**
      * @return {undefined}
      */
-    setAllInactive() {
+    setAllInactive(): void {
         this.each((item) => {
             const linkNode = item.get(this.linkNodeKey);
             linkNode.removeClass('active');
@@ -297,7 +298,7 @@ export class Navigation {
      * @param {string} id
      * @return {undefined}
      */
-    show(id) {
+    show(id: string): void {
         const item = this.container.findById(id);
         if (item) {
             const linkNode = item.get<Item>(this.linkNodeKey);
@@ -309,7 +310,7 @@ export class Navigation {
      * @param {string} id
      * @return {undefined}
      */
-    hide(id) {
+    hide(id: string): void {
         const item = this.container.findById(id);
         if (item) {
             const linkNode = item.get<Item>(this.linkNodeKey);

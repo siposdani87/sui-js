@@ -6,11 +6,11 @@ import { Time } from './time';
  * @class
  */
 export class Clock {
-    clockNode: any;
+    clockNode: Item;
     options: any;
     modes: string[];
-    types: { hour: any; minute: any };
-    activeMode: any;
+    types: { hour: string; minute: string };
+    activeMode: string;
     headerNode: Item;
     periodHeaderNode: Item;
     period: string;
@@ -18,13 +18,13 @@ export class Clock {
     minutesHeaderNode: Item;
     hoursHeaderNode: Item;
     contentNode: Item;
-    hours: any;
-    minutes: any;
+    hours: number;
+    minutes: number;
     /**
      * @param {!Item} node
      * @param {!Object} options
      */
-    constructor(node, options) {
+    constructor(node: Item, options: object) {
         this.clockNode = node;
         this._setOptions(options);
         this._init();
@@ -34,14 +34,14 @@ export class Clock {
      * @param {!Object} options
      * @return {undefined}
      */
-    _setOptions(options) {
+    _setOptions(options: object): void {
         this.options = options;
     }
     /**
      * @private
      * @return {undefined}
      */
-    _init() {
+    _init(): void {
         this.modes = ['HOUR', 'MINUTE'];
         this.types = {
             hour: this.modes[0],
@@ -56,7 +56,7 @@ export class Clock {
      * @param {!Function} minuteCallback
      * @return {undefined}
      */
-    _switchMode(hourCallback, minuteCallback) {
+    _switchMode(hourCallback: Function, minuteCallback: Function): void {
         let result = null;
         switch (this.activeMode) {
             case 'HOUR':
@@ -74,7 +74,7 @@ export class Clock {
      * @private
      * @return {undefined}
      */
-    _initStructure() {
+    _initStructure(): void {
         this._initHeaderNode();
         this._initContentNode();
         this._initMode(this.types[this.options.type]);
@@ -85,7 +85,7 @@ export class Clock {
      * @private
      * @return {undefined}
      */
-    _initHeaderNode() {
+    _initHeaderNode(): void {
         this.headerNode = new Item('div');
         this.headerNode.addClass('header');
         this.clockNode.appendChild(this.headerNode);
@@ -99,7 +99,7 @@ export class Clock {
      * @private
      * @return {undefined}
      */
-    _initPeriodHeaderNode() {
+    _initPeriodHeaderNode(): void {
         this.periodHeaderNode = new Item('div');
         this.periodHeaderNode.addClass('period');
         this.periodHeaderNode.addEventListener(
@@ -112,7 +112,7 @@ export class Clock {
      * @private
      * @return {undefined}
      */
-    _togglePeriod() {
+    _togglePeriod(): void {
         if (this.period === 'pm') {
             this.time['subtract'](12, 'hours');
         } else {
@@ -124,7 +124,7 @@ export class Clock {
      * @private
      * @return {undefined}
      */
-    _initMinutesHeaderNode() {
+    _initMinutesHeaderNode(): void {
         this.minutesHeaderNode = new Item('div');
         this.minutesHeaderNode.addClass('minutes');
         this.minutesHeaderNode.addEventListener('click', () => {
@@ -136,7 +136,7 @@ export class Clock {
      * @private
      * @return {undefined}
      */
-    _initHoursHeaderNode() {
+    _initHoursHeaderNode(): void {
         this.hoursHeaderNode = new Item('div');
         this.hoursHeaderNode.addClass('hours');
         this.hoursHeaderNode.addEventListener('click', () => {
@@ -149,7 +149,7 @@ export class Clock {
      * @param {string} mode
      * @return {undefined}
      */
-    _setMode(mode) {
+    _setMode(mode: string): void {
         this._initMode(mode);
         this.setTime(this.time);
         this.draw();
@@ -158,7 +158,7 @@ export class Clock {
      * @private
      * @return {undefined}
      */
-    _initSeparatorHeaderNode() {
+    _initSeparatorHeaderNode(): void {
         const separatorHeaderNode = new Item('div');
         separatorHeaderNode.addClass('separator');
         separatorHeaderNode.setHtml(':');
@@ -168,7 +168,7 @@ export class Clock {
      * @private
      * @return {undefined}
      */
-    _initContentNode() {
+    _initContentNode(): void {
         this.contentNode = new Item('div');
         this.contentNode.addClass('content');
         this.clockNode.appendChild(this.contentNode);
@@ -177,7 +177,7 @@ export class Clock {
      * @private
      * @return {!Item}
      */
-    _getTimeNode() {
+    _getTimeNode(): Item {
         this.contentNode.removeChildren();
         const hoursNode = new Item('div');
         hoursNode.addClass('time');
@@ -189,13 +189,13 @@ export class Clock {
      * @param {number} hours
      * @return {undefined}
      */
-    _setHours(hours) {
+    _setHours(hours: number): void {
         this.hours = hours;
         const cssClass =
             this.activeMode === this.types['hour'] ? 'active' : null;
         this.hoursHeaderNode.removeClass('active');
         this.hoursHeaderNode.addClass(['hours', cssClass]);
-        const text = hours < 10 ? '0' + hours : hours;
+        const text = hours < 10 ? '0' + hours : hours.toString();
         this.hoursHeaderNode.setHtml(text);
     }
     /**
@@ -203,13 +203,13 @@ export class Clock {
      * @param {number} minutes
      * @return {undefined}
      */
-    _setMinutes(minutes) {
+    _setMinutes(minutes: number): void {
         this.minutes = minutes;
         const cssClass =
             this.activeMode === this.types['minute'] ? 'active' : null;
         this.minutesHeaderNode.removeClass('active');
         this.minutesHeaderNode.addClass(['minutes', cssClass]);
-        const text = minutes < 10 ? '0' + minutes : minutes;
+        const text = minutes < 10 ? '0' + minutes : minutes.toString();
         this.minutesHeaderNode.setHtml(text);
     }
     /**
@@ -217,7 +217,7 @@ export class Clock {
      * @param {string} period
      * @return {undefined}
      */
-    _setPeriod(period) {
+    _setPeriod(period: string): void {
         this.period = period;
         this.periodHeaderNode.removeClass(['am', 'pm']);
         this.periodHeaderNode.addClass(['period', this.period]);
@@ -230,7 +230,7 @@ export class Clock {
      * @param {!Object} time
      * @return {undefined}
      */
-    setTime(time) {
+    setTime(time: object): void {
         this.time = window['moment'](time);
 
         const hours = this.time['hour']() % 12 || 12;
@@ -247,7 +247,7 @@ export class Clock {
      * @param {string} mode
      * @return {undefined}
      */
-    _initMode(mode) {
+    _initMode(mode: string): void {
         this.contentNode.removeChildren();
         this.activeMode = mode;
     }
@@ -256,7 +256,7 @@ export class Clock {
      * @param {number} direction
      * @return {string}
      */
-    _getMode(direction) {
+    _getMode(direction: number): string {
         let position = this.modes.indexOf(this.activeMode);
         if (position !== -1) {
             position += direction;
@@ -269,14 +269,14 @@ export class Clock {
      * @param {number} direction
      * @return {undefined}
      */
-    _changeMode(direction) {
+    _changeMode(direction: number): void {
         const mode = this._getMode(direction);
         this._initMode(mode);
     }
     /**
      * @return {undefined}
      */
-    draw() {
+    draw(): void {
         const timeNode = this._getTimeNode();
 
         this._switchMode(
@@ -293,7 +293,7 @@ export class Clock {
      * @param {!Item} timeNode
      * @return {undefined}
      */
-    _drawMinutes(timeNode) {
+    _drawMinutes(timeNode: Item): void {
         const timeMinutes = new Time(timeNode, {
             selected: this.minutes,
             captions: ['00', '05'],
@@ -310,7 +310,7 @@ export class Clock {
      * @param {!Item} timeNode
      * @return {undefined}
      */
-    _drawHours(timeNode) {
+    _drawHours(timeNode: Item): void {
         const timeHours = new Time(timeNode, {
             selected: this.hours,
         });
@@ -328,7 +328,7 @@ export class Clock {
      * @param {!Object} selectedTime
      * @return {undefined}
      */
-    _onClick(selectedTime) {
+    _onClick(selectedTime: object): void {
         this.setTime(selectedTime);
         this.draw();
         this.eventClick(selectedTime);
@@ -337,7 +337,7 @@ export class Clock {
      * @param {!Object} time
      * @return {undefined}
      */
-    eventClick(time) {
+    eventClick(time: object): void {
         consoleWarn('Clock.eventClick()', time);
     }
 }

@@ -1,24 +1,25 @@
+import { Item } from '../core';
 import { Objekt } from '../core/objekt';
 /**
  * @class
  */
 export declare class ProgressStatus {
-    progressStatusNode: any;
+    progressStatusNode: Item;
     options: Objekt;
-    iconNode: any;
-    textNode: any;
+    iconNode: Item;
+    textNode: Item;
     /**
      * @param {!Item} dom
      * @param {string=} opt_selector
      * @param {!Object=} opt_options
      */
-    constructor(dom: any, opt_selector?: string, opt_options?: {});
+    constructor(dom: Item, opt_selector?: string | undefined, opt_options?: object | undefined);
     /**
      * @private
      * @param {!Object=} opt_options
      * @return {undefined}
      */
-    _setOptions(opt_options?: {}): void;
+    _setOptions(opt_options?: object | undefined): void;
     /**
      * @private
      * @return {undefined}
@@ -31,29 +32,29 @@ export declare class ProgressStatus {
      * @param {string=} opt_icon
      * @return {undefined}
      */
-    _setStatus(cssClass: any, text: any, opt_icon?: string): void;
+    _setStatus(cssClass: string, text: string, opt_icon?: string | undefined): void;
     /**
      * @param {string} text
      * @param {string=} opt_icon
      * @return {undefined}
      */
-    setSuccess(text: any, opt_icon?: string): void;
+    setSuccess(text: string, opt_icon?: string | undefined): void;
     /**
      * @param {string} text
      * @param {string=} opt_icon
      * @return {undefined}
      */
-    setInfo(text: any, opt_icon?: string): void;
+    setInfo(text: string, opt_icon?: string | undefined): void;
     /**
      * @param {string} text
      * @param {string=} opt_icon
      * @return {undefined}
      */
-    setWarning(text: any, opt_icon?: string): void;
+    setWarning(text: string, opt_icon?: string | undefined): void;
     /**
      * @param {string} text
      * @param {string=} opt_icon
      * @return {undefined}
      */
-    setError(text: any, opt_icon?: string): void;
+    setError(text: string, opt_icon?: string | undefined): void;
 }

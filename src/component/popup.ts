@@ -7,8 +7,8 @@ import { consoleInfo } from '../utils/log';
  * @class
  */
 export class Popup {
-    content: any;
-    parent: any;
+    content: Item;
+    parent?: Item;
     withClose: boolean;
     popupContainer: PopupContainer;
     popupNode: Item;
@@ -17,7 +17,7 @@ export class Popup {
      * @param {!Item=} opt_parent
      * @param {boolean=} opt_withClose
      */
-    constructor(content, opt_parent, opt_withClose = false) {
+    constructor(content: Item, opt_parent: Item | undefined, opt_withClose: boolean | undefined = false) {
         this.content = content;
         this.parent = opt_parent;
         this.withClose = opt_withClose;
@@ -27,7 +27,7 @@ export class Popup {
      * @private
      * @return {undefined}
      */
-    _init() {
+    _init(): void {
         this.popupContainer = new PopupContainer();
         this._draw();
     }
@@ -35,7 +35,7 @@ export class Popup {
      * @private
      * @return {undefined}
      */
-    _draw() {
+    _draw(): void {
         this.popupNode = new Item('div');
         this.popupNode.addClass(['popup', 'hidden']);
 
@@ -50,7 +50,7 @@ export class Popup {
      * @private
      * @return {undefined}
      */
-    _initCloseButton() {
+    _initCloseButton(): void {
         if (this.withClose) {
             const btnClose = new Item('button');
             btnClose.setAttribute('type', 'button');
@@ -76,7 +76,7 @@ export class Popup {
     /**
      * @return {undefined}
      */
-    open() {
+    open(): void {
         this.popupContainer.closeAll();
         this.popupContainer.push(Popup, this);
         this.popupNode.removeClass('hidden');
@@ -85,7 +85,7 @@ export class Popup {
     /**
      * @return {undefined}
      */
-    close() {
+    close(): void {
         this.popupContainer.delete(this);
         this.popupContainer.clearPosition(this.popupNode);
         this.popupNode.addClass('hidden');
@@ -94,13 +94,13 @@ export class Popup {
     /**
      * @return {undefined}
      */
-    eventClose() {
+    eventClose(): void {
         consoleInfo('Popup.eventClose()');
     }
     /**
      * @return {undefined}
      */
-    toggle() {
+    toggle(): void {
         if (this.isOpened()) {
             this.close();
         } else {
@@ -110,7 +110,7 @@ export class Popup {
     /**
      * @return {boolean}
      */
-    isOpened() {
+    isOpened(): boolean {
         return !this.popupNode.hasClass('hidden');
     }
 }

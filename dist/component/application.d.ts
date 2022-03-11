@@ -1,50 +1,53 @@
+import { Module } from '../core/module';
+import { Objekt } from '../core/objekt';
 /**
  * @class
  * @export
  */
 export declare class Application {
-    options: any;
-    types: {};
+    options: Objekt;
     _injections: any;
-    _instances: {};
-    _module: any;
-    _routes: any[];
-    _routeOptions: any;
+    _instances: {
+        [key: string]: any;
+    };
+    _module: Module;
+    _routes: Objekt[];
+    _routeOptions: Objekt;
     /**
      * @param {!Object} options
      * @param {!Object} resources
      */
-    constructor(options: any, resources: any);
+    constructor(options: object, resources: object);
     /**
      * @private
      * @param {!Object} options
      * @return {undefined}
      */
-    _setOptions(options: any): void;
+    _setOptions(options: object): void;
     /**
      * @private
      * @param {!Object} resources
      * @return {undefined}
      */
-    _init(resources: any): void;
+    _init(resources: object): void;
     /**
      * @return {string}
      */
-    getLanguage(): any;
+    getLanguage(): string;
     /**
      * @return {string}
      */
-    getLocale(): any;
+    getLocale(): string;
     /**
      * @param {string} locale
      * @return {undefined}
      */
-    setLocale(locale: any): void;
+    setLocale(locale: string): void;
     /**
      * @param {string} locale
      * @return {undefined}
      */
-    setLocaleWithReload(locale: any): void;
+    setLocaleWithReload(locale: string): void;
     /**
      * @private
      * @return {undefined}
@@ -229,28 +232,28 @@ export declare class Application {
      * @param {!Object=} opt_params
      * @return {undefined}
      */
-    addState(id: any, title: any, url: any, controller: any, opt_template?: string, opt_params?: {}): void;
+    addState(id: string, title: string, url: string, controller: string, opt_template?: string | undefined, opt_params?: object | undefined): void;
     /**
      * @param {string} id
      * @param {!Object=} opt_params
      * @return {undefined}
      */
-    setRootState(id: any, opt_params: any): void;
+    setRootState(id: string, opt_params: object | undefined): void;
     /**
      * @param {string} id
      * @param {!Object=} opt_params
      * @return {undefined}
      */
-    setHomeState(id: any, opt_params: any): void;
+    setHomeState(id: string, opt_params: object | undefined): void;
     /**
      * @param {string} name
      * @return {?Object}
      */
-    getInstance(name: any): any;
+    getInstance(name: string): object | null;
     /**
      * @return {?Object}
      */
-    getController(): any;
+    getController(): object | null;
     /**
      * @export
      * @return {undefined}
@@ -261,11 +264,11 @@ export declare class Application {
      * @param {!Array} moduleInjections
      * @param {!Function} moduleCallback
      */
-    controller(name: any, moduleInjections: any, moduleCallback: any): void;
+    controller(name: string, moduleInjections: Array<any>, moduleCallback: Function): void;
     /**
      * @param {string} name
      * @param {!Array} moduleInjections
      * @param {!Function} moduleCallback
      */
-    service(name: any, moduleInjections: any, moduleCallback: any): void;
+    service(name: string, moduleInjections: Array<any>, moduleCallback: Function): void;
 }

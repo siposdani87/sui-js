@@ -1,3 +1,4 @@
+import { Objekt } from '../core';
 import { Item } from '../core/item';
 import { consoleWarn } from '../utils/log';
 import { Day } from './day';
@@ -8,31 +9,31 @@ import { Year } from './year';
  * @class
  */
 export class Calendar {
-    calendarNode: any;
-    options: any;
+    calendarNode: Item;
+    options: Objekt;
     maxDays: number;
     maxMonths: number;
     maxYears: number;
     modes: string[];
     activeMode: string;
-    types: { date: any; month: any; year: any; week: any; range: any };
-    headerNode: any;
-    currentModeNode: any;
-    contentNode: any;
-    yearsNode: any;
-    monthsNode: any;
-    weekDaysNode: any;
-    daysNode: any;
-    previous: any;
-    current: any;
-    next: any;
+    types: { date: string; month: string; year: string; week: string; range: string };
+    headerNode: Item;
+    currentModeNode: Item;
+    contentNode: Item;
+    yearsNode: Item;
+    monthsNode: Item;
+    weekDaysNode: Item;
+    daysNode: Item;
+    previous: { day: string; month: string; year: string; };
+    current: { day: string; };
+    next: { day: string; month: string; year: string; };
     days: any[];
     selectedDate: any;
     /**
      * @param {!Item} node
      * @param {!Object} options
      */
-    constructor(node, options) {
+    constructor(node: Item, options: object) {
         this.calendarNode = node;
         this._setOptions(options);
         this._init();
@@ -42,14 +43,14 @@ export class Calendar {
      * @param {!Object} options
      * @return {undefined}
      */
-    _setOptions(options) {
-        this.options = options;
+    _setOptions(options: object): void {
+        this.options = new Objekt(options);
     }
     /**
      * @private
      * @return {undefined}
      */
-    _init() {
+    _init(): void {
         this.maxDays = 6 * 7;
         this.maxMonths = 12;
         this.maxYears = 16;
@@ -69,7 +70,7 @@ export class Calendar {
      * @private
      * @return {undefined}
      */
-    _initStructure() {
+    _initStructure(): void {
         this._initHeaderNode();
         this._initContentNode();
         this._initMode(this.types[this.options.type]);
@@ -82,7 +83,7 @@ export class Calendar {
      * @private
      * @return {undefined}
      */
-    _initHeaderNode() {
+    _initHeaderNode(): void {
         this.headerNode = new Item('div');
         this.headerNode.addClass('header');
         this.calendarNode.appendChild(this.headerNode);
@@ -129,7 +130,7 @@ export class Calendar {
      * @private
      * @return {undefined}
      */
-    _initContentNode() {
+    _initContentNode(): void {
         this.contentNode = new Item('div');
         this.contentNode.addClass('content');
         this.calendarNode.appendChild(this.contentNode);
@@ -139,7 +140,7 @@ export class Calendar {
      * @param {number} direction
      * @return {undefined}
      */
-    _changeMode(direction) {
+    _changeMode(direction: number): void {
         const mode = this._getMode(direction);
         this._initMode(mode);
     }
@@ -148,7 +149,7 @@ export class Calendar {
      * @param {number} direction
      * @return {string}
      */
-    _getMode(direction) {
+    _getMode(direction: number): string {
         let position = this.modes.indexOf(this.activeMode);
         if (position !== -1) {
             position += direction;
@@ -163,7 +164,7 @@ export class Calendar {
      * @param {!Function} yearFun
      * @return {!Object}
      */
-    _switchMode(dayFun, monthFun, yearFun) {
+    _switchMode(dayFun: Function, monthFun: Function, yearFun: Function): object {
         let result = null;
         switch (this.activeMode) {
             case 'DAY':
@@ -185,7 +186,7 @@ export class Calendar {
      * @param {string} mode
      * @return {undefined}
      */
-    _initMode(mode) {
+    _initMode(mode: string): void {
         this.contentNode.removeChildren();
         this.activeMode = mode;
         this._switchMode(
@@ -198,7 +199,7 @@ export class Calendar {
      * @private
      * @return {undefined}
      */
-    _initYearsMode() {
+    _initYearsMode(): void {
         this.yearsNode = new Item('div');
         this.yearsNode.addClass('years');
         this.contentNode.appendChild(this.yearsNode);
@@ -207,7 +208,7 @@ export class Calendar {
      * @private
      * @return {undefined}
      */
-    _initMonthsMode() {
+    _initMonthsMode(): void {
         this.monthsNode = new Item('div');
         this.monthsNode.addClass('months');
         this.contentNode.appendChild(this.monthsNode);
@@ -216,7 +217,7 @@ export class Calendar {
      * @private
      * @return {undefined}
      */
-    _initDaysMode() {
+    _initDaysMode(): void {
         this.weekDaysNode = new Item('div');
         this.weekDaysNode.addClass('week-days');
         this.contentNode.appendChild(this.weekDaysNode);
@@ -229,7 +230,7 @@ export class Calendar {
      * @private
      * @return {undefined}
      */
-    _previous() {
+    _previous(): void {
         const date = this._switchMode(
             () => {
                 return this.previous.month;
@@ -255,7 +256,7 @@ export class Calendar {
      * @private
      * @return {undefined}
      */
-    _next() {
+    _next(): void {
         const date = this._switchMode(
             () => {
                 return this.next.month;
@@ -278,7 +279,7 @@ export class Calendar {
      * @param {!Object} date
      * @return {undefined}
      */
-    _setDate(date) {
+    _setDate(date: object): void {
         this._setVariables(date);
 
         this._setPreviousMonth();
@@ -290,7 +291,7 @@ export class Calendar {
      * @param {!Object} date
      * @return {undefined}
      */
-    _setVariables(date) {
+    _setVariables(date: object): void {
         this.days = [];
 
         this.previous = {
@@ -312,7 +313,7 @@ export class Calendar {
     /**
      * @return {undefined}
      */
-    draw() {
+    draw(): void {
         this._switchMode(
             this._drawDaysStructure.bind(this),
             this._drawMonthsStructure.bind(this),
@@ -323,7 +324,7 @@ export class Calendar {
      * @private
      * @return {undefined}
      */
-    _drawDaysStructure() {
+    _drawDaysStructure(): void {
         this._drawHeader('YYYY MMMM');
         this._drawWeekDays();
         this._drawDays();
@@ -332,7 +333,7 @@ export class Calendar {
      * @private
      * @return {undefined}
      */
-    _drawMonthsStructure() {
+    _drawMonthsStructure(): void {
         this._drawHeader('YYYY');
         this._drawMonths();
     }
@@ -340,7 +341,7 @@ export class Calendar {
      * @private
      * @return {undefined}
      */
-    _drawYearsStructure() {
+    _drawYearsStructure(): void {
         this._drawHeader(null);
         this._drawYears();
     }
@@ -349,7 +350,7 @@ export class Calendar {
      * @param {string|null} format
      * @return {undefined}
      */
-    _drawHeader(format) {
+    _drawHeader(format: string | null): void {
         this.currentModeNode.removeChildren();
         const text = format ? this.current.day['format'](format) : '';
         this.currentModeNode.setHtml(text);
@@ -358,7 +359,7 @@ export class Calendar {
      * @private
      * @return {undefined}
      */
-    _drawMonths() {
+    _drawMonths(): void {
         this.monthsNode.removeChildren();
         for (let i = 0; i < this.maxMonths; i++) {
             const month = new Month(
@@ -375,7 +376,7 @@ export class Calendar {
      * @private
      * @return {undefined}
      */
-    _drawYears() {
+    _drawYears(): void {
         this.yearsNode.removeChildren();
         const startYear =
             this.current.day['year']() -
@@ -395,7 +396,7 @@ export class Calendar {
      * @private
      * @return {undefined}
      */
-    _drawWeekDays() {
+    _drawWeekDays(): void {
         this.weekDaysNode.removeChildren();
         for (
             let i = this.options.start_day;
@@ -413,7 +414,7 @@ export class Calendar {
      * @private
      * @return {undefined}
      */
-    _drawDays() {
+    _drawDays(): void {
         this.daysNode.removeChildren();
         for (let i = 0; i < this.days.length; i++) {
             const day = this.days[i];
@@ -428,7 +429,7 @@ export class Calendar {
      * @param {number} day
      * @return {string}
      */
-    _getDate(year, month, day) {
+    _getDate(year: number, month: number, day: number): string {
         const results = [year, month + 1, day];
         return results.join('-');
     }
@@ -436,7 +437,7 @@ export class Calendar {
      * @private
      * @return {undefined}
      */
-    _setPreviousMonth() {
+    _setPreviousMonth(): void {
         const diffDays =
             this.previous.month['endOf']('month')['day']() -
             this.options.start_day;
@@ -461,7 +462,7 @@ export class Calendar {
      * @private
      * @return {undefined}
      */
-    _setCurrentMonth() {
+    _setCurrentMonth(): void {
         for (let i = 1; i <= this.current.day['daysInMonth'](); i++) {
             const date = this._getDate(
                 this.current.day['year'](),
@@ -479,7 +480,7 @@ export class Calendar {
      * @private
      * @return {undefined}
      */
-    _setNextMonth() {
+    _setNextMonth(): void {
         const numOfDays = this.days.length;
         const diffDays = this.maxDays - numOfDays;
         for (let i = 1; i <= diffDays; i++) {
@@ -500,7 +501,7 @@ export class Calendar {
      * @param {!Object} selectedDate
      * @return {undefined}
      */
-    _setModeDate(selectedDate) {
+    _setModeDate(selectedDate: object): void {
         const date = this.current.day['clone']();
         this._switchMode(
             () => {
@@ -522,7 +523,7 @@ export class Calendar {
      * @param {!Object} selectedDate
      * @return {undefined}
      */
-    _onClick(selectedDate) {
+    _onClick(selectedDate: object): void {
         this._setModeDate(selectedDate);
 
         const mode = this.types[this.options.type];
@@ -537,14 +538,14 @@ export class Calendar {
      * @param {!Object} date
      * @return {undefined}
      */
-    _setSelectedDate(date) {
+    _setSelectedDate(date: object): void {
         this.selectedDate = date;
     }
     /**
      * @param {!Object} date
      * @return {undefined}
      */
-    eventClick(date) {
+    eventClick(date: object): void {
         consoleWarn('Calendar.eventClick()', date);
     }
 }

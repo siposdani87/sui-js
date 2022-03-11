@@ -1,62 +1,37 @@
+import { Objekt } from '../core';
 import { Item } from '../core/item';
+/**
+ * @typedef {format: string; calendar_type: string; clock_type: string; } DateConfig
+ */
+declare type DateConfig = {
+    format: string;
+    calendar_type: string;
+    clock_type: string;
+};
 /**
  * @class
  */
 export declare class Date {
-    datetimeNode: any;
-    options: any;
+    datetimeNode: Item;
+    options: Objekt;
     types: {
-        'datetime-local': {
-            format: string;
-            calendar_type: string;
-            clock_type: string;
-        };
-        datetime: {
-            format: string;
-            calendar_type: string;
-            clock_type: string;
-        };
-        date: {
-            format: string;
-            calendar_type: string;
-            clock_type: string;
-        };
-        time: {
-            format: string;
-            calendar_type: string;
-            clock_type: string;
-        };
-        month: {
-            format: string;
-            calendar_type: string;
-            clock_type: string;
-        };
-        week: {
-            format: string;
-            calendar_type: string;
-            clock_type: string;
-        };
-        year: {
-            format: string;
-            calendar_type: string;
-            clock_type: string;
-        };
+        [key: string]: DateConfig;
     };
-    config: any;
+    config: DateConfig;
     calendarNode: Item;
     clockNode: Item;
-    value: any;
+    value: string;
     /**
      * @param {!Item} node
      * @param {!Object} options
      */
-    constructor(node: any, options: any);
+    constructor(node: Item, options: object);
     /**
      * @private
      * @param {!Object} options
      * @return {undefined}
      */
-    _setOptions(options: any): void;
+    _setOptions(options: object): void;
     /**
      * @private
      * @return {undefined}
@@ -88,24 +63,24 @@ export declare class Date {
      */
     _initClockNode(): void;
     /**
-     * @return {!Object}
+     * @return {!DateConfig}
      */
-    getConfig(): any;
+    getConfig(): DateConfig;
     /**
      * @private
      * @param {string} value
      * @return {undefined}
      */
-    _setValue(value: any): void;
+    _setValue(value: string): void;
     /**
      * @param {string} value
      * @return {undefined}
      */
-    setValue(value: any): void;
+    setValue(value: string): void;
     /**
      * @return {string}
      */
-    getValue(): any;
+    getValue(): string;
     /**
      * @return {undefined}
      */
@@ -129,5 +104,6 @@ export declare class Date {
      * @param {string} value
      * @return {undefined}
      */
-    eventClick(value: any): void;
+    eventClick(value: string): void;
 }
+export {};

@@ -1,36 +1,36 @@
+import { Objekt } from '../core';
 import { Item } from '../core/item';
 import { consoleWarn } from '../utils/log';
 import { Calendar } from './calendar';
 import { Clock } from './clock';
 
 /**
+ * @typedef {format: string; calendar_type: string; clock_type: string; } DateConfig
+ */
+type DateConfig = {
+    format: string;
+    calendar_type: string;
+    clock_type: string;
+}
+
+/**
  * @class
  */
 export class Date {
-    datetimeNode: any;
-    options: any;
+    datetimeNode: Item;
+    options: Objekt;
     types: {
-        'datetime-local': {
-            format: string;
-            calendar_type: string;
-            clock_type: string;
-        };
-        datetime: { format: string; calendar_type: string; clock_type: string };
-        date: { format: string; calendar_type: string; clock_type: string };
-        time: { format: string; calendar_type: string; clock_type: string };
-        month: { format: string; calendar_type: string; clock_type: string };
-        week: { format: string; calendar_type: string; clock_type: string };
-        year: { format: string; calendar_type: string; clock_type: string };
+        [key: string]: DateConfig;
     };
-    config: any;
+    config: DateConfig;
     calendarNode: Item;
     clockNode: Item;
-    value: any;
+    value: string;
     /**
      * @param {!Item} node
      * @param {!Object} options
      */
-    constructor(node, options) {
+    constructor(node: Item, options: object) {
         this.datetimeNode = node;
         this._setOptions(options);
         this._init();
@@ -40,14 +40,14 @@ export class Date {
      * @param {!Object} options
      * @return {undefined}
      */
-    _setOptions(options) {
-        this.options = options;
+    _setOptions(options: object): void {
+        this.options = new Objekt(options);
     }
     /**
      * @private
      * @return {undefined}
      */
-    _init() {
+    _init(): void {
         this._initVariables();
         this._initStructure();
         this._setValue(this.options.value);
@@ -56,7 +56,7 @@ export class Date {
      * @private
      * @return {undefined}
      */
-    _initVariables() {
+    _initVariables(): void {
         this.types = {
             'datetime-local': {
                 format: 'YYYY-MM-DDTHH:mm:ss',
@@ -100,7 +100,7 @@ export class Date {
      * @private
      * @return {undefined}
      */
-    _initStructure() {
+    _initStructure(): void {
         this._initDateTimeNode();
         this._initCalendarNode();
         this._initClockNode();
@@ -109,7 +109,7 @@ export class Date {
      * @private
      * @return {undefined}
      */
-    _initDateTimeNode() {
+    _initDateTimeNode(): void {
         this.datetimeNode.addClass('datetime');
         this.datetimeNode.removeChildren();
     }
@@ -117,7 +117,7 @@ export class Date {
      * @private
      * @return {undefined}
      */
-    _initCalendarNode() {
+    _initCalendarNode(): void {
         if (this.config.calendar_type) {
             this.calendarNode = new Item('div');
             this.calendarNode.addClass('calendar');
@@ -128,7 +128,7 @@ export class Date {
      * @private
      * @return {undefined}
      */
-    _initClockNode() {
+    _initClockNode(): void {
         if (this.config.clock_type) {
             this.clockNode = new Item('div');
             this.clockNode.addClass('clock');
@@ -136,9 +136,9 @@ export class Date {
         }
     }
     /**
-     * @return {!Object}
+     * @return {!DateConfig}
      */
-    getConfig() {
+    getConfig(): DateConfig {
         return this.config;
     }
     /**
@@ -146,7 +146,7 @@ export class Date {
      * @param {string} value
      * @return {undefined}
      */
-    _setValue(value) {
+    _setValue(value: string): void {
         value = value || window['moment']()['format'](this.config.format);
         this.value = window['moment'](value, this.config.format);
     }
@@ -154,7 +154,7 @@ export class Date {
      * @param {string} value
      * @return {undefined}
      */
-    setValue(value) {
+    setValue(value: string): void {
         this._initStructure();
         this._setValue(value);
         this.draw();
@@ -162,13 +162,13 @@ export class Date {
     /**
      * @return {string}
      */
-    getValue() {
+    getValue(): string {
         return this.value['format'](this.config.format);
     }
     /**
      * @return {undefined}
      */
-    draw() {
+    draw(): void {
         this._drawCalendar();
         this._drawClock();
     }
@@ -176,7 +176,7 @@ export class Date {
      * @private
      * @return {undefined}
      */
-    _drawCalendar() {
+    _drawCalendar(): void {
         if (this.config.calendar_type) {
             const calendar = new Calendar(this.calendarNode, {
                 date: this.value,
@@ -196,7 +196,7 @@ export class Date {
      * @private
      * @return {undefined}
      */
-    _drawClock() {
+    _drawClock(): void {
         if (this.config.clock_type) {
             const clock = new Clock(this.clockNode, {
                 time: this.value,
@@ -214,7 +214,7 @@ export class Date {
      * @private
      * @return {undefined}
      */
-    _onClick() {
+    _onClick(): void {
         const value = this.getValue();
         this.eventClick(value);
     }
@@ -222,7 +222,7 @@ export class Date {
      * @param {string} value
      * @return {undefined}
      */
-    eventClick(value) {
+    eventClick(value: string): void {
         consoleWarn('Date.eventClick()', value);
     }
 }

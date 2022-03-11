@@ -1,8 +1,5 @@
+import { Id } from '../utils';
 import { Objekt } from './objekt';
-/**
- * @typedef {(string|number)} Id
- */
-declare type Id = string | number;
 /**
  * @class
  * @template T
@@ -122,10 +119,10 @@ export declare class Collection<T extends Object = Objekt> {
      */
     delete(value: object | T): T;
     /**
-     * @param {string} value
+     * @param {Id} id
      * @return {!T}
      */
-    deleteById(value: string): T;
+    deleteById(id: Id): T;
     /**
      * @param {string} attribute
      * @param {*} value
@@ -164,4 +161,3 @@ export declare class Collection<T extends Object = Objekt> {
      */
     pluck(attribute: string): Array<T>;
 }
-export {};

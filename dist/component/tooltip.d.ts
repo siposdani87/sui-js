@@ -1,23 +1,24 @@
+import { Item } from '../core/item';
 /**
  * https://www.getmdl.io/components/index.html#tooltips-section
  * @class
  */
 export declare class Tooltip {
-    element: any;
+    element: Item;
     valid: boolean;
     positionCssClass: string;
-    tooltip: any;
+    tooltip: Item;
     /**
      * @param {!Item} element
      * @param {string=} opt_position TOP|BOTTOM|LEFT|RIGHT
      */
-    constructor(element: any, opt_position?: string);
+    constructor(element: Item, opt_position?: string | undefined);
     /**
      * @private
      * @param {string=} opt_position
      * @return {undefined}
      */
-    _initPositions(opt_position?: string): void;
+    _initPositions(opt_position?: string | undefined): void;
     /**
      * @private
      * @return {undefined}
@@ -27,7 +28,7 @@ export declare class Tooltip {
      * @param {string=} opt_message
      * @return {string}
      */
-    _getMessage(opt_message?: string): string;
+    _getMessage(opt_message?: string | undefined): string;
     /**
      * @private
      * @return {undefined}
@@ -37,7 +38,7 @@ export declare class Tooltip {
      * @param {string=} opt_message
      * @return {undefined}
      */
-    render(opt_message?: any): void;
+    render(opt_message?: string | undefined): void;
     /**
      * @private
      * @return {undefined}
@@ -47,7 +48,7 @@ export declare class Tooltip {
      * @param {string=} opt_message
      * @return {undefined}
      */
-    setMessage(opt_message?: string): void;
+    setMessage(opt_message?: string | undefined): void;
     /**
      * @return {undefined}
      */
@@ -59,7 +60,7 @@ export declare class Tooltip {
     /**
      * @return {boolean}
      */
-    isOpen(): any;
+    isOpen(): boolean;
     /**
      * @return {undefined}
      */

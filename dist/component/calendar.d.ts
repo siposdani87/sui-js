@@ -1,44 +1,56 @@
+import { Objekt } from '../core';
+import { Item } from '../core/item';
 /**
  * @class
  */
 export declare class Calendar {
-    calendarNode: any;
-    options: any;
+    calendarNode: Item;
+    options: Objekt;
     maxDays: number;
     maxMonths: number;
     maxYears: number;
     modes: string[];
     activeMode: string;
     types: {
-        date: any;
-        month: any;
-        year: any;
-        week: any;
-        range: any;
+        date: string;
+        month: string;
+        year: string;
+        week: string;
+        range: string;
     };
-    headerNode: any;
-    currentModeNode: any;
-    contentNode: any;
-    yearsNode: any;
-    monthsNode: any;
-    weekDaysNode: any;
-    daysNode: any;
-    previous: any;
-    current: any;
-    next: any;
+    headerNode: Item;
+    currentModeNode: Item;
+    contentNode: Item;
+    yearsNode: Item;
+    monthsNode: Item;
+    weekDaysNode: Item;
+    daysNode: Item;
+    previous: {
+        day: string;
+        month: string;
+        year: string;
+    };
+    current: {
+        day: string;
+    };
+    next: {
+        day: string;
+        month: string;
+        year: string;
+    };
     days: any[];
     selectedDate: any;
     /**
      * @param {!Item} node
      * @param {!Object} options
      */
-    constructor(node: any, options: any);
+    constructor(node: Item, options: object);
     /**
      * @private
      * @param {!Object} options
      * @return {undefined}
      */
-    _setOptions(options: any): void;
+    _setOptions(options: object): void;
     /**
      * @private
      * @return {undefined}
@@ -64,13 +76,13 @@ export declare class Calendar {
      * @param {number} direction
      * @return {undefined}
      */
-    _changeMode(direction: any): void;
+    _changeMode(direction: number): void;
     /**
      * @private
      * @param {number} direction
      * @return {string}
      */
-    _getMode(direction: any): any;
+    _getMode(direction: number): string;
     /**
      * @private
      * @param {!Function} dayFun
@@ -78,13 +90,13 @@ export declare class Calendar {
      * @param {!Function} yearFun
      * @return {!Object}
      */
-    _switchMode(dayFun: any, monthFun: any, yearFun: any): any;
+    _switchMode(dayFun: Function, monthFun: Function, yearFun: Function): object;
     /**
      * @private
      * @param {string} mode
      * @return {undefined}
      */
-    _initMode(mode: any): void;
+    _initMode(mode: string): void;
     /**
      * @private
      * @return {undefined}
@@ -115,13 +127,13 @@ export declare class Calendar {
      * @param {!Object} date
      * @return {undefined}
      */
-    _setDate(date: any): void;
+    _setDate(date: object): void;
     /**
      * @private
      * @param {!Object} date
      * @return {undefined}
      */
-    _setVariables(date: any): void;
+    _setVariables(date: object): void;
     /**
      * @return {undefined}
      */
@@ -146,7 +158,7 @@ export declare class Calendar {
      * @param {string|null} format
      * @return {undefined}
      */
-    _drawHeader(format: any): void;
+    _drawHeader(format: string | null): void;
     /**
      * @private
      * @return {undefined}
@@ -174,7 +186,7 @@ export declare class Calendar {
      * @param {number} day
      * @return {string}
      */
-    _getDate(year: any, month: any, day: any): string;
+    _getDate(year: number, month: number, day: number): string;
     /**
      * @private
      * @return {undefined}
@@ -195,22 +207,22 @@ export declare class Calendar {
      * @param {!Object} selectedDate
      * @return {undefined}
      */
-    _setModeDate(selectedDate: any): void;
+    _setModeDate(selectedDate: object): void;
     /**
      * @private
      * @param {!Object} selectedDate
      * @return {undefined}
      */
-    _onClick(selectedDate: any): void;
+    _onClick(selectedDate: object): void;
     /**
      * @private
      * @param {!Object} date
      * @return {undefined}
      */
-    _setSelectedDate(date: any): void;
+    _setSelectedDate(date: object): void;
     /**
      * @param {!Object} date
      * @return {undefined}
      */
-    eventClick(date: any): void;
+    eventClick(date: object): void;
 }

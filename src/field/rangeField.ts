@@ -83,6 +83,6 @@ export class RangeField extends BaseField {
     setValue(value: object | Function | Array<any> | boolean | number | string | null | undefined): void {
         const inputNode = this.input.getNode();
         inputNode['MaterialSlider']['change'](value);
-        this.tooltip.render(value);
+        this.tooltip.render(value as string);
     }
 }

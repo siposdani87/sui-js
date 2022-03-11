@@ -1,28 +1,29 @@
 import { Collection } from '../core/collection';
 import { Item } from '../core/item';
 import { Objekt } from '../core/objekt';
+import { Action } from '../utils';
 /**
  * @class
  */
 export declare class Dropdown {
-    dropdown: any;
+    dropdown: Item;
     options: Objekt;
     collection: Collection<Objekt>;
-    actions: any[];
-    item: any;
+    actions: Action[];
+    item: Object;
     buttonNode: Item;
     menuNode: Item;
     /**
      * @param {!Item} element
      * @param {!Object=} opt_options
      */
-    constructor(element: any, opt_options?: {});
+    constructor(element: Item, opt_options?: object | undefined);
     /**
      * @private
      * @param {!Object=} opt_options
      * @return {undefined}
      */
-    _setOptions(opt_options?: {}): void;
+    _setOptions(opt_options?: object | undefined): void;
     /**
      * @private
      * @return {undefined}
@@ -43,7 +44,7 @@ export declare class Dropdown {
      * @param {!Object} item
      * @return {undefined}
      */
-    setActions(actions: any, item: any): void;
+    setActions(actions: Array<any>, item: object): void;
     /**
      * @private
      * @return {undefined}

@@ -1,3 +1,4 @@
+import { Item } from '../core/item';
 import { Objekt } from '../core/objekt';
 declare type Page = {
     text: string;
@@ -7,8 +8,8 @@ declare type Page = {
  * @class
  */
 export declare class Pager {
-    pager: any;
-    pagerStatistics: any;
+    pager: Item;
+    pagerStatistics: Item;
     options: Objekt;
     count: number;
     pageNum: number;
@@ -19,13 +20,13 @@ export declare class Pager {
      * @param {!Array=} opt_selectors
      * @param {!Object=} opt_options
      */
-    constructor(dom: any, opt_selectors?: string[], opt_options?: {});
+    constructor(dom: Item, opt_selectors?: Array<any> | undefined, opt_options?: object | undefined);
     /**
      * @private
      * @param {!Object=} opt_options
      * @return {undefined}
      */
-    _setOptions(opt_options?: {}): void;
+    _setOptions(opt_options?: object | undefined): void;
     /**
      * @private
      * @return {undefined}
@@ -75,18 +76,18 @@ export declare class Pager {
      * @param {number} count
      * @return {undefined}
      */
-    setCount(count: any): void;
+    setCount(count: number): void;
     /**
      * @private
      * @param {number} page
      * @return {undefined}
      */
-    _go(page: any): void;
+    _go(page: number): void;
     /**
      * @param {number} page
      * @return {undefined}
      */
-    setPage(page: any): void;
+    setPage(page: number): void;
     /**
      * @return {undefined}
      */
@@ -95,6 +96,6 @@ export declare class Pager {
      * @param {number} page
      * @return {undefined}
      */
-    eventAction(page: any): void;
+    eventAction(page: number): void;
 }
 export {};

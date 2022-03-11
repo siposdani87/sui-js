@@ -4,8 +4,8 @@ import { PopupContainer } from './popupContainer';
  * @class
  */
 export declare class Popup {
-    content: any;
-    parent: any;
+    content: Item;
+    parent?: Item;
     withClose: boolean;
     popupContainer: PopupContainer;
     popupNode: Item;
@@ -14,7 +14,7 @@ export declare class Popup {
      * @param {!Item=} opt_parent
      * @param {boolean=} opt_withClose
      */
-    constructor(content: any, opt_parent: any, opt_withClose?: boolean);
+    constructor(content: Item, opt_parent: Item | undefined, opt_withClose?: boolean | undefined);
     /**
      * @private
      * @return {undefined}

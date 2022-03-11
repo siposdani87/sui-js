@@ -4,13 +4,14 @@ import { GoogleMap } from '../component/googleMap';
 import { Item } from '../core/item';
 import { consoleInfo } from '../utils/log';
 import { generateId } from '../utils/coder';
+import { IconOptions } from '../utils';
 
 /**
  * @class
  * @extends {BaseField}
  */
 export class LocationField extends BaseField {
-    icon: string;
+    icon: IconOptions;
     advancedButton: Item;
     map: GoogleMap;
     mapLockNode: Item;

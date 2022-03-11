@@ -1,15 +1,16 @@
 import { Query } from '../core/query';
+import { Item, Promize } from '../core';
 /**
  * @class
  * @export
  */
 export declare class TabPanel {
-    tabPanel: any;
+    tabPanel: Item;
     options: {
         selected_tab: string;
         default_tab: string;
     };
-    activeTab: any;
+    activeTab: string;
     tabs: Query;
     panels: Query;
     /**
@@ -18,7 +19,7 @@ export declare class TabPanel {
      * @param {string=} opt_selectedTab
      * @param {string=} opt_defaultTab
      */
-    constructor(dom: any, opt_selector?: string, opt_selectedTab?: string, opt_defaultTab?: string);
+    constructor(dom: Item, opt_selector?: string | undefined, opt_selectedTab?: string | undefined, opt_defaultTab?: string | undefined);
     /**
      * @private
      * @return {undefined}
@@ -39,19 +40,19 @@ export declare class TabPanel {
      * @param {string} panelId
      * @return {undefined}
      */
-    _setActive(panelId: any): void;
+    _setActive(panelId: string): void;
     /**
      * @param {string} panelId
      * @return {undefined}
      */
-    eventChange(panelId: any): void;
+    eventChange(panelId: string): void;
     /**
      * @param {string} panelId
      * @return {!Promize}
      */
-    setActive(panelId: any): import("..").Promize;
+    setActive(panelId: string): Promize;
     /**
      * @return {string}
      */
-    getActive(): any;
+    getActive(): string;
 }

@@ -1,3 +1,4 @@
+import { Id } from '../utils';
 import {
     each,
     instanceOf,
@@ -7,11 +8,6 @@ import {
     pluck,
 } from '../utils/operation';
 import { Objekt } from './objekt';
-
-/**
- * @typedef {(string|number)} Id
- */
-type Id = string | number;
 
 /**
  * @class
@@ -254,11 +250,11 @@ export class Collection<T extends Object = Objekt> {
         });
     }
     /**
-     * @param {string} value
+     * @param {Id} id
      * @return {!T}
      */
-    deleteById(value: string): T {
-        return this.deleteBy(this.options.id, value);
+    deleteById(id: Id): T {
+        return this.deleteBy(this.options.id, id);
     }
     /**
      * @param {string} attribute

@@ -13,7 +13,7 @@ export declare class ColorField extends BaseField {
     colorNode: Item;
     popup: Popup;
     canvas: Canvas;
-    image: Item;
+    image: Item<HTMLImageElement>;
     colors: string[][];
     /**
      * @param {!Item} input

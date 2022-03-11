@@ -116,7 +116,7 @@ export class DateTimeField extends BaseField {
         this._setTag(/** @type {string} */(value as string));
         this.input.setAttribute('value', value);
         this.input.trigger('change');
-        this.datetime.setValue(value);
+        this.datetime.setValue(value as string);
     }
     /**
      * @private
