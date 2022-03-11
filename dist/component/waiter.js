@@ -11,16 +11,18 @@ export class Waiter {
     /**
      * @param {!Function} callback
      * @param {number=} opt_duration
+     * @return {undefined}
      */
     advancedWaiting(callback, opt_duration) {
         const duration = opt_duration || 3000;
         this._advancedDelayHandler(callback, duration, this.timeoutWaiting);
     }
     /**
+     * @private
      * @param {!Function} callback
      * @param {number} duration
      * @param {number} counter
-     * @private
+     * @return {undefined}
      */
     _advancedDelayHandler(callback, duration, counter) {
         this.timeoutWaiting += 0.0001;
@@ -51,16 +53,18 @@ export class Waiter {
     /**
      * @param {!Function} callback
      * @param {number=} opt_duration
+     * @return {undefined}
      */
     simpleWaiting(callback, opt_duration) {
         const duration = opt_duration || 3000;
         this._simpleDelayHandler(callback, duration, this.counter);
     }
     /**
+     * @private
      * @param {!Function} callback
      * @param {number} duration
      * @param {number} counter
-     * @private
+     * @return {undefined}
      */
     _simpleDelayHandler(callback, duration, counter) {
         this.counter++;

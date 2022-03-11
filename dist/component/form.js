@@ -260,7 +260,7 @@ export class Form extends Collection {
      * @return {!BaseField}
      */
     findByModel(value) {
-        return this.findByCondition((item, i) => {
+        return this.findByCondition((_item, i) => {
             const modelName = this.get(i, 'model');
             return modelName === value;
         });

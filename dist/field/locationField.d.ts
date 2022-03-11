@@ -2,12 +2,13 @@
 import { BaseField } from './baseField';
 import { GoogleMap } from '../component/googleMap';
 import { Item } from '../core/item';
+import { IconOptions } from '../utils';
 /**
  * @class
  * @extends {BaseField}
  */
 export declare class LocationField extends BaseField {
-    icon: string;
+    icon: IconOptions;
     advancedButton: Item;
     map: GoogleMap;
     mapLockNode: Item;

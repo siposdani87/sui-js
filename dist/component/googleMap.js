@@ -164,7 +164,7 @@ export class GoogleMap {
         consoleInfo('GoogleMap.eventPolygonChanged()', polygonData, points);
     }
     /**
-     * @param {string|number} id
+     * @param {Id} id
      * @param {string} title
      * @param {!Array<{latitude: number, longitude: number}>} points
      * @param {!Object=} opt_polygonData
@@ -181,7 +181,7 @@ export class GoogleMap {
         }
     }
     /**
-     * @param {string|number} id
+     * @param {Id} id
      * @param {string} title
      * @param {!Array<{latitude: number, longitude: number}>} points
      * @param {!Object=} opt_polygonData
@@ -206,7 +206,7 @@ export class GoogleMap {
         this._bindEventsToPolygon(polygon, polygonData);
     }
     /**
-     * @param {string|number} id
+     * @param {Id} id
      * @param {string} title
      * @param {!Array<{latitude: number, longitude: number}>} points
      * @param {!Object=} opt_polygonData
@@ -241,14 +241,14 @@ export class GoogleMap {
         return cleanData;
     }
     /**
-     * @param {string|number} id
+     * @param {Id} id
      * @return {!Objekt}
      */
     getPolygon(id) {
         return this.polygons.findById(id);
     }
     /**
-     * @param {string|number} id
+     * @param {Id} id
      * @return {undefined}
      */
     removePolygon(id) {
@@ -423,7 +423,7 @@ export class GoogleMap {
     }
     /**
      * @private
-     * @param {!Array<{latitude: number, longitude: number, weight: (number|undefined)}>} points
+     * @param {!Array<WeigthPoint>} points
      * @return {!Array<!google.maps.LatLng>}
      */
     _convertPointsToPath(points) {
@@ -574,7 +574,7 @@ export class GoogleMap {
         this.heatmapOptions.merge(opt_options);
     }
     /**
-     * @param {!Array<{latitude: number, longitude: number, weight: (number|undefined)}>} points
+     * @param {!Array<WeigthPoint>} points
      * @param {!Object=} opt_heatmapOptions
      * @return {undefined}
      */
@@ -614,7 +614,7 @@ export class GoogleMap {
         this.polygonOptions.merge(opt_options);
     }
     /**
-     * @param {string|number} id
+     * @param {Id} id
      * @param {string} title
      * @param {string} iconName
      * @param {number} latitude
@@ -633,7 +633,7 @@ export class GoogleMap {
         }
     }
     /**
-     * @param {string|number} id
+     * @param {Id} id
      * @param {string} title
      * @param {string} iconName
      * @param {number} latitude
@@ -663,7 +663,7 @@ export class GoogleMap {
         this._bindEventsToMarker(marker, markerData);
     }
     /**
-     * @param {string|number} id
+     * @param {Id} id
      * @param {string} title
      * @param {string} iconName
      * @param {number} x
@@ -713,7 +713,7 @@ export class GoogleMap {
         google.maps.event.clearInstanceListeners(marker);
     }
     /**
-     * @param {string|number} id
+     * @param {Id} id
      * @param {string} title
      * @param {string} iconName
      * @param {number} latitude
@@ -753,14 +753,14 @@ export class GoogleMap {
         return cleanData;
     }
     /**
-     * @param {string|number} id
+     * @param {Id} id
      * @return {!Objekt}
      */
     getMarker(id) {
         return this.markers.findById(id);
     }
     /**
-     * @param {string|number} id
+     * @param {Id} id
      * @return {undefined}
      */
     removeMarker(id) {
@@ -854,7 +854,7 @@ export class GoogleMap {
     }
     /**
      * @param {string} name
-     * @param {!Object} iconOptions
+     * @param {!IconOptions} iconOptions
      * @return {undefined}
      */
     setMarkerIcon(name, iconOptions) {

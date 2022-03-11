@@ -1,3 +1,4 @@
+import { Objekt } from '../core';
 import { Item } from '../core/item';
 import { consoleWarn } from '../utils/log';
 
@@ -7,14 +8,14 @@ import { consoleWarn } from '../utils/log';
 export class Day {
     date: any;
     currentDate: any;
-    options: any;
-    cssClasses: any[];
+    options: Objekt;
+    cssClasses: string[];
     /**
      * @param {string} date
      * @param {!Object} currentDate
      * @param {!Object} options
      */
-    constructor(date, currentDate, options) {
+    constructor(date: string, currentDate: object, options: object) {
         this.date = window['moment'](date, 'YYYY-MM-DD');
         this.currentDate = currentDate;
         this._setOptions(options);
@@ -25,14 +26,14 @@ export class Day {
      * @param {!Object} options
      * @return {undefined}
      */
-    _setOptions(options) {
-        this.options = options;
+    _setOptions(options: object): void {
+        this.options = new Objekt(options);
     }
     /**
      * @private
      * @return {undefined}
      */
-    _init() {
+    _init(): void {
         const current = window['moment'](this.date)['isSame'](
             this.currentDate['format']('YYYY-MM-DD'),
         )
@@ -48,7 +49,7 @@ export class Day {
     /**
      * @return {!Item}
      */
-    getNode() {
+    getNode(): Item {
         const node = new Item('span');
         node.addClass(this.cssClasses);
         const text = this.date['format']('DD');
@@ -62,7 +63,7 @@ export class Day {
     /**
      * @param {!Object} date
      */
-    eventClick(date) {
+    eventClick(date: object) {
         consoleWarn('Day.eventClick()', date);
     }
 }

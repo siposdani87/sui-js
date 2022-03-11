@@ -174,7 +174,7 @@ export class Clock {
         const cssClass = this.activeMode === this.types['hour'] ? 'active' : null;
         this.hoursHeaderNode.removeClass('active');
         this.hoursHeaderNode.addClass(['hours', cssClass]);
-        const text = hours < 10 ? '0' + hours : hours;
+        const text = hours < 10 ? '0' + hours : hours.toString();
         this.hoursHeaderNode.setHtml(text);
     }
     /**
@@ -187,7 +187,7 @@ export class Clock {
         const cssClass = this.activeMode === this.types['minute'] ? 'active' : null;
         this.minutesHeaderNode.removeClass('active');
         this.minutesHeaderNode.addClass(['minutes', cssClass]);
-        const text = minutes < 10 ? '0' + minutes : minutes;
+        const text = minutes < 10 ? '0' + minutes : minutes.toString();
         this.minutesHeaderNode.setHtml(text);
     }
     /**

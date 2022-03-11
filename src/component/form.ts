@@ -5,6 +5,7 @@ import { Query } from '../core/query';
 import { FormField } from './formField';
 import { consoleWarn } from '../utils/log';
 import { BaseField } from '../field';
+import { Item } from '../core';
 
 /**
  * @class
@@ -12,18 +13,18 @@ import { BaseField } from '../field';
  * @extends {Collection}
  */
 export class Form extends Collection<BaseField> {
-    formNode: any;
+    formNode: Item<HTMLFormElement>;
     previousModel: Objekt;
     model: Objekt;
-    initFields: any[];
+    initFields: string[];
     buttonClasses: string[];
     fieldClasses: string[];
     /**
      * @param {!Item} dom
      * @param {string=} opt_selector
      */
-    constructor(dom, opt_selector = 'form') {
-        const formNode = new Query(opt_selector, dom).getItem();
+    constructor(dom: Item, opt_selector: string | undefined = 'form') {
+        const formNode = new Query<HTMLFormElement>(opt_selector, dom).getItem();
         formNode.setAttribute('novalidate');
         super([], FormField.handler, {
             parent: formNode,
@@ -36,7 +37,7 @@ export class Form extends Collection<BaseField> {
      * @private
      * @return {undefined}
      */
-    _init() {
+    _init(): void {
         this.previousModel = new Objekt();
         this.model = new Objekt();
         this.initFields = [];
@@ -60,7 +61,7 @@ export class Form extends Collection<BaseField> {
      * @private
      * @return {undefined}
      */
-    _initFormEvent() {
+    _initFormEvent(): void {
         this.formNode.addEventListener('keydown', (_node, event) => {
             const textArea = /textarea/i.test(
                 (event.target || event.srcElement).tagName,
@@ -83,7 +84,7 @@ export class Form extends Collection<BaseField> {
      * @private
      * @return {undefined}
      */
-    _initSubmitFormEvent() {
+    _initSubmitFormEvent(): void {
         this.formNode.addEventListener('submit', (node, event) => {
             event.preventDefault();
             if (this.checkValidity(true)) {
@@ -95,7 +96,7 @@ export class Form extends Collection<BaseField> {
      * @private
      * @return {undefined}
      */
-    _initResetFormEvent() {
+    _initResetFormEvent(): void {
         this.formNode.addEventListener('reset', (node, event) => {
             event.preventDefault();
             this.eventReset(this.model, node);
@@ -105,7 +106,7 @@ export class Form extends Collection<BaseField> {
      * @private
      * @return {undefined}
      */
-    _initFields() {
+    _initFields(): void {
         const fields = new Query(
             this.fieldClasses.concat(this.buttonClasses).join(', '),
             this.formNode,
@@ -150,7 +151,7 @@ export class Form extends Collection<BaseField> {
      * @param {boolean=} opt_showMessage
      * @return {undefined}
      */
-    setModel(model, opt_force = true, opt_showMessage = false) {
+    setModel(model: Objekt, opt_force: boolean | undefined = true, opt_showMessage: boolean | undefined = false): void {
         this.previousModel = this.model.copy();
         this.model.merge(model);
         this.each((field) => {
@@ -165,7 +166,7 @@ export class Form extends Collection<BaseField> {
     /**
      * @return {!Objekt}
      */
-    getModel() {
+    getModel(): Objekt {
         return this.model;
     }
     /**
@@ -173,7 +174,7 @@ export class Form extends Collection<BaseField> {
      * @param {boolean=} opt_showMessage
      * @return {undefined}
      */
-    reset(opt_force = true, opt_showMessage = false) {
+    reset(opt_force: boolean | undefined = true, opt_showMessage: boolean | undefined = false): void {
         this.each((field) => {
             field.setValue();
             field.checkValidity(opt_force, opt_showMessage);
@@ -187,7 +188,7 @@ export class Form extends Collection<BaseField> {
      * @param {*} value
      * @return {undefined}
      */
-    _setValue(name, value) {
+    _setValue(name: string, value: any): void {
         const currentValue = this._getValue(name);
         if (!isSame(value, currentValue)) {
             this.previousModel.set(name, currentValue);
@@ -199,7 +200,7 @@ export class Form extends Collection<BaseField> {
      * @param {string} name
      * @return {*}
      */
-    _getValue(name) {
+    _getValue(name: string): any {
         return this.model.get(name);
     }
     /**
@@ -207,7 +208,7 @@ export class Form extends Collection<BaseField> {
      * @param {!BaseField} field
      * @return {*}
      */
-    _getPreviousValue(field) {
+    _getPreviousValue(field: BaseField): any {
         const fieldName = field.getName();
         return this.previousModel.get(fieldName);
     }
@@ -217,7 +218,7 @@ export class Form extends Collection<BaseField> {
      * @param {*} value
      * @return {undefined}
      */
-    _fieldValueChange(field, value) {
+    _fieldValueChange(field: BaseField, value: any): void {
         const fieldName = field.getName();
         const currentValue = this._getValue(fieldName);
         if (!isSame(value, currentValue)) {
@@ -230,7 +231,7 @@ export class Form extends Collection<BaseField> {
      * @param {!Object} data
      * @return {undefined}
      */
-    setErrors(data) {
+    setErrors(data: object): void {
         const errors = new Objekt(data);
         this.each((field) => {
             const name = field.getName();
@@ -243,7 +244,7 @@ export class Form extends Collection<BaseField> {
      * @param {boolean=} opt_showMessage
      * @return {boolean}
      */
-    checkValidity(opt_force = false, opt_showMessage = true) {
+    checkValidity(opt_force: boolean | undefined = false, opt_showMessage: boolean | undefined = true): boolean {
         this.each((field) => {
             field.checkValidity(opt_force, opt_showMessage);
         });
@@ -252,19 +253,19 @@ export class Form extends Collection<BaseField> {
     /**
      * @return {boolean}
      */
-    isValid() {
+    isValid(): boolean {
         return this.checkValidity(true);
     }
     /**
      * @return {boolean}
      */
-    isInvalid() {
+    isInvalid(): boolean {
         return !this.isValid();
     }
     /**
      * @return {undefined}
      */
-    refresh() {
+    refresh(): void {
         this.deleteAllByCondition((field) => {
             const exists = field.exists();
             if (!exists) {
@@ -281,9 +282,9 @@ export class Form extends Collection<BaseField> {
      * @param {string} value
      * @return {!BaseField}
      */
-    findByModel(value) {
-        return this.findByCondition((item, i) => {
-            const modelName = this.get(i, 'model');
+    findByModel(value: string): BaseField {
+        return this.findByCondition((_item, i) => {
+            const modelName = this.get<string>(i, 'model');
             return modelName === value;
         });
     }
@@ -292,7 +293,7 @@ export class Form extends Collection<BaseField> {
      * @param {!Item} node
      * @return {undefined}
      */
-    eventSubmit(model, node) {
+    eventSubmit(model: Objekt, node: Item): void {
         consoleWarn('Form.eventSubmit()', model, node);
     }
     /**
@@ -300,7 +301,7 @@ export class Form extends Collection<BaseField> {
      * @param {!Item} node
      * @return {undefined}
      */
-    eventReset(model, node) {
+    eventReset(model: Objekt, node: Item): void {
         consoleWarn('Form.eventReset()', model, node);
     }
     /**
@@ -308,13 +309,13 @@ export class Form extends Collection<BaseField> {
      * @param {!Item} node
      * @return {undefined}
      */
-    eventButton(model, node) {
+    eventButton(model: Objekt, node: Item): void {
         consoleWarn('Form.eventButton()', model, node);
     }
     /**
      * @return {undefined}
      */
-    lock() {
+    lock(): void {
         this.each((field) => {
             field.disabled = field.isDisabled();
         });
@@ -325,7 +326,7 @@ export class Form extends Collection<BaseField> {
     /**
      * @return {undefined}
      */
-    unlock() {
+    unlock(): void {
         this.each((field) => {
             field.setDisabled(field.disabled);
         });

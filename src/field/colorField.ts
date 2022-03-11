@@ -17,7 +17,7 @@ export class ColorField extends BaseField {
     colorNode: Item;
     popup: Popup;
     canvas: Canvas;
-    image: Item;
+    image: Item<HTMLImageElement>;
     colors: string[][];
     /**
      * @param {!Item} input
@@ -150,7 +150,7 @@ export class ColorField extends BaseField {
      * @return {undefined}
      */
     _initImage(): void {
-        this.image = new Query('img', this.inputBlock).getItem();
+        this.image = new Query<HTMLImageElement>('img', this.inputBlock).getItem();
         if (!this.image.isEmpty()) {
             this.image.addClass('hidden');
         }
@@ -169,7 +169,7 @@ export class ColorField extends BaseField {
             const rgb = /** @type {!Array} */ this.canvas.getImageDataXY(
                 x,
                 y,
-            ) as [any, any, any];
+            ) as any as [number, number, number];
             const hex = convertRGBToHEX(...rgb);
 
             this.setValue(hex);

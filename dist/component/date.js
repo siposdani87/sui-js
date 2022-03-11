@@ -1,3 +1,4 @@
+import { Objekt } from '../core';
 import { Item } from '../core/item';
 import { consoleWarn } from '../utils/log';
 import { Calendar } from './calendar';
@@ -21,7 +22,7 @@ export class Date {
      * @return {undefined}
      */
     _setOptions(options) {
-        this.options = options;
+        this.options = new Objekt(options);
     }
     /**
      * @private
@@ -116,7 +117,7 @@ export class Date {
         }
     }
     /**
-     * @return {!Object}
+     * @return {!DateConfig}
      */
     getConfig() {
         return this.config;

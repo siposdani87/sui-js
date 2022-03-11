@@ -11,7 +11,7 @@ export class Test {
     /**
      * @return {undefined}
      */
-    run() {
+    run(): void {
         const tests = [
             new ContainerTest(),
             new DeferredTest(),

@@ -1,3 +1,4 @@
+import { Objekt } from '../core';
 import { Item } from '../core/item';
 /**
  * @class
@@ -5,20 +6,20 @@ import { Item } from '../core/item';
 export declare class Year {
     date: any;
     currentDate: any;
-    options: any;
-    cssClasses: any[];
+    options: Objekt;
+    cssClasses: string[];
     /**
      * @param {string} date
      * @param {!Object} currentDate
      * @param {!Object} options
      */
-    constructor(date: any, currentDate: any, options: any);
+    constructor(date: string, currentDate: object, options: object);
     /**
      * @private
      * @param {!Object} options
      * @return {undefined}
      */
-    _setOptions(options: any): void;
+    _setOptions(options: object): void;
     /**
      * @private
      * @return {undefined}
@@ -27,9 +28,9 @@ export declare class Year {
     /**
      * @return {!Item}
      */
-    getNode(): Item<HTMLElement>;
+    getNode(): Item;
     /**
      * @param {!Object} date
      */
-    eventClick(date: any): void;
+    eventClick(date: object): void;
 }

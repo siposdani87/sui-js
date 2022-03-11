@@ -1,22 +1,23 @@
+import { Objekt } from '../core';
 import { Item } from '../core/item';
 /**
  * @class
  */
 export declare class Time {
-    timeNode: any;
-    options: any;
+    timeNode: Item;
+    options: Objekt;
     pointerNode: Item;
     /**
      * @param {!Item} node
      * @param {!Object} options
      */
-    constructor(node: any, options: any);
+    constructor(node: Item, options: object);
     /**
      * @private
      * @param {!Object} options
      * @return {undefined}
      */
-    _setOptions(options: any): void;
+    _setOptions(options: object): void;
     /**
      * @private
      * @return {undefined}
@@ -33,7 +34,7 @@ export declare class Time {
      * @param {number} height
      * @return {undefined}
      */
-    _initSize(width: any, height: any): void;
+    _initSize(width: number, height: number): void;
     /**
      * @private
      * @return {undefined}
@@ -46,7 +47,7 @@ export declare class Time {
      * @param {boolean=} opt_isClockWise
      * @return {undefined}
      */
-    draw(start: any, n: any, opt_j?: number, opt_isClockWise?: boolean): void;
+    draw(start: number, n: number, opt_j?: number | undefined, opt_isClockWise?: boolean | undefined): void;
     /**
      * @private
      * @param {number} start
@@ -55,14 +56,14 @@ export declare class Time {
      * @param {boolean=} opt_isClockWise
      * @return {undefined}
      */
-    _drawCircles(start: any, n: any, opt_j?: number, opt_isClockWise?: boolean): void;
+    _drawCircles(start: number, n: number, opt_j?: number | undefined, opt_isClockWise?: boolean | undefined): void;
     /**
      * @private
      * @param {!Item} circle
      * @param {number} i
      * @return {undefined}
      */
-    _setCircleEvent(circle: any, i: any): void;
+    _setCircleEvent(circle: Item, i: number): void;
     /**
      * @private
      * @param {!Item} circle
@@ -73,9 +74,9 @@ export declare class Time {
      * @param {boolean=} opt_isClockWise
      * @return {undefined}
      */
-    _setCircleStyle(circle: any, start: any, n: any, i: any, opt_j?: number, opt_isClockWise?: boolean): void;
+    _setCircleStyle(circle: Item, start: number, n: number, i: number, opt_j?: number | undefined, opt_isClockWise?: boolean | undefined): void;
     /**
      * @param {number} index
      */
-    eventClick(index: any): void;
+    eventClick(index: number): void;
 }

@@ -11,7 +11,7 @@ import { consoleWarn } from '../utils/log';
  * @class
  */
 export class CardCollection {
-    cardCollectionNode: any;
+    cardCollectionNode: Item;
     ctrl: any;
     options: Objekt;
     collection: Collection<Objekt>;
@@ -21,8 +21,8 @@ export class CardCollection {
     body: Item;
     cardFooterNode: Item;
     pagerNode: Item;
-    cardTemplate: any;
-    template: any;
+    cardTemplate: Item<HTMLTemplateElement>;
+    template: string;
     /**
      * @param {!Item} dom
      * @param {string=} opt_selector
@@ -30,10 +30,10 @@ export class CardCollection {
      * @param {!Object=} opt_options
      */
     constructor(
-        dom,
-        opt_selector = '.card-collection',
-        opt_ctrl = null,
-        opt_options = {},
+        dom: Item,
+        opt_selector: string | undefined = '.card-collection',
+        opt_ctrl: (object | null) | undefined = null,
+        opt_options: object | undefined = {},
     ) {
         this.cardCollectionNode = new Query(opt_selector, dom).getItem();
         this.ctrl = opt_ctrl;
@@ -45,7 +45,7 @@ export class CardCollection {
      * @param {!Object=} opt_options
      * @return {undefined}
      */
-    _setOptions(opt_options = {}) {
+    _setOptions(opt_options: object | undefined = {}): void {
         const _self = this;
         _self.options = new Objekt({
             no_content: {
@@ -65,7 +65,7 @@ export class CardCollection {
      * @private
      * @return {undefined}
      */
-    _init() {
+    _init(): void {
         this.collection = /** @type {!Collection<!Objekt>} */ new Collection();
         this.query = '';
         this._initContentHandler();
@@ -84,7 +84,7 @@ export class CardCollection {
      * @private
      * @return {undefined}
      */
-    _initContentHandler() {
+    _initContentHandler(): void {
         this.contentHandler = new ContentHandler(
             this.cardCollectionNode,
             this.options.no_content,
@@ -94,7 +94,7 @@ export class CardCollection {
      * @private
      * @return {undefined}
      */
-    _initStructure() {
+    _initStructure(): void {
         this.cardCollectionNode.addClass('card-collection');
 
         this.body = new Item('div');
@@ -117,8 +117,8 @@ export class CardCollection {
      * @private
      * @return {undefined}
      */
-    _initTemplate() {
-        this.cardTemplate = new Query(
+    _initTemplate(): void {
+        this.cardTemplate = new Query<HTMLTemplateElement>(
             'template',
             this.cardCollectionNode,
         ).getItem();
@@ -130,7 +130,7 @@ export class CardCollection {
      * @param {!Objekt} item
      * @return {!Item}
      */
-    _getCardNode(item) {
+    _getCardNode(item: Objekt): Item {
         const regex = new RegExp('{{[a-zA-Z._,() ]*}}', 'g');
         const matches = this.template.match(regex);
         let cloneTemplate = this.template;
@@ -171,7 +171,7 @@ export class CardCollection {
      * @param {number=} opt_page
      * @return {undefined}
      */
-    refresh(opt_page = -1) {
+    refresh(opt_page: number | undefined = -1): void {
         if (opt_page > -1) {
             this.pager.setPage(opt_page);
         }
@@ -188,7 +188,7 @@ export class CardCollection {
      * @param {!Objekt} params
      * @return {undefined}
      */
-    eventAction(params) {
+    eventAction(params: Objekt): void {
         consoleWarn('CardCollection.eventAction()', params);
     }
     /**
@@ -196,7 +196,7 @@ export class CardCollection {
      * @param {!Objekt} item
      * @return {undefined}
      */
-    eventCardNode(cardNode, item) {
+    eventCardNode(cardNode: Item, item: Objekt): void {
         consoleWarn('CardCollection.eventCardNode()', cardNode, item);
     }
     /**
@@ -204,7 +204,7 @@ export class CardCollection {
      * @param {!Objekt} item
      * @return {undefined}
      */
-    _addCard(item) {
+    _addCard(item: Objekt): void {
         const cardNode = this._getCardNode(item);
         this.body.appendChild(cardNode);
         this.eventCardNode(cardNode, item);
@@ -214,7 +214,7 @@ export class CardCollection {
      * @param {!Array} items
      * @return {undefined}
      */
-    setData(items) {
+    setData(items: Array<any>): void {
         this.collection.reload(items);
         if (this.collection.size() === 0) {
             this.contentHandler.show();
@@ -227,7 +227,7 @@ export class CardCollection {
      * @param {number} count
      * @return {undefined}
      */
-    setCount(count) {
+    setCount(count: number): void {
         this.pager.setCount(count);
         this.pager.draw();
     }
@@ -235,7 +235,7 @@ export class CardCollection {
      * @private
      * @return {!Array}
      */
-    _getItems() {
+    _getItems(): Array<any> {
         let items = this.collection.getItems();
         if (this.collection.size() > this.options.row_count) {
             items = this.collection.limit(
@@ -249,7 +249,7 @@ export class CardCollection {
      * @private
      * @return {undefined}
      */
-    _draw() {
+    _draw(): void {
         this.body.removeChildren();
         each(this._getItems(), (item) => {
             this._addCard(item);
@@ -259,7 +259,7 @@ export class CardCollection {
     /**
      * @return {undefined}
      */
-    render() {
+    render(): void {
         this.refresh();
     }
 }

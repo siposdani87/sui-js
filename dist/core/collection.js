@@ -228,11 +228,11 @@ export class Collection {
         });
     }
     /**
-     * @param {string} value
+     * @param {Id} id
      * @return {!T}
      */
-    deleteById(value) {
-        return this.deleteBy(this.options.id, value);
+    deleteById(id) {
+        return this.deleteBy(this.options.id, id);
     }
     /**
      * @param {string} attribute

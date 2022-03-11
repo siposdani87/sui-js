@@ -65,7 +65,6 @@ export class Application {
      * @return {undefined}
      */
     _init(resources) {
-        this.types = {};
         this._injections = resources;
         this._instances = {};
         this._initCertificate();

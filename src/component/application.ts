@@ -29,24 +29,26 @@ import { ServiceWorker } from '../module/serviceWorker';
 import { Header } from '../module/header';
 import { Event } from '../module/event';
 import { Scheduler } from '../module/scheduler';
+import { Promize } from '../core';
 
 /**
  * @class
  * @export
  */
 export class Application {
-    options: any;
-    types: {};
+    options: Objekt;
     _injections: any;
-    _instances: {};
-    _module: any;
-    _routes: any[];
-    _routeOptions: any;
+    _instances: {
+        [key: string]: any;
+    };
+    _module: Module;
+    _routes: Objekt[];
+    _routeOptions: Objekt;
     /**
      * @param {!Object} options
      * @param {!Object} resources
      */
-    constructor(options, resources) {
+    constructor(options: object, resources: object) {
         this._setOptions(options);
         this._init(resources);
     }
@@ -55,7 +57,7 @@ export class Application {
      * @param {!Object} options
      * @return {undefined}
      */
-    _setOptions(options) {
+    _setOptions(options: object): void {
         const _self = this;
         _self.options = new Objekt({
             app_id: 'sui-app',
@@ -72,8 +74,7 @@ export class Application {
      * @param {!Object} resources
      * @return {undefined}
      */
-    _init(resources) {
-        this.types = {};
+    _init(resources: object): void {
         this._injections = resources;
         this._instances = {};
 
@@ -117,14 +118,14 @@ export class Application {
     /**
      * @return {string}
      */
-    getLanguage() {
+    getLanguage(): string {
         const locale = this.getLocale();
         return locale.split('-', 2)[0];
     }
     /**
      * @return {string}
      */
-    getLocale() {
+    getLocale(): string {
         let locale =
             this._instances[this._injections.localStorage].get('app.locale');
         if (!locale) {
@@ -136,7 +137,7 @@ export class Application {
      * @param {string} locale
      * @return {undefined}
      */
-    setLocale(locale) {
+    setLocale(locale: string): void {
         this._instances[this._injections.localStorage].set(
             'app.locale',
             locale,
@@ -147,7 +148,7 @@ export class Application {
      * @param {string} locale
      * @return {undefined}
      */
-    setLocaleWithReload(locale) {
+    setLocaleWithReload(locale: string): void {
         this.setLocale(locale);
         this._instances[this._injections.state].reload();
     }
@@ -155,7 +156,7 @@ export class Application {
      * @private
      * @return {undefined}
      */
-    _initLocale() {
+    _initLocale(): void {
         const locale = this.getLocale();
         window['moment']['locale'](locale);
         this.setLocale(locale);
@@ -164,7 +165,7 @@ export class Application {
      * @private
      * @return {undefined}
      */
-    _initCertificate() {
+    _initCertificate(): void {
         const rootNode = new Query('html').getItem();
         rootNode.removeClass('no-js');
         rootNode.addClass('sui-js');
@@ -173,7 +174,7 @@ export class Application {
      * @private
      * @return {undefined}
      */
-    _initModule() {
+    _initModule(): void {
         this._module = new Module();
 
         this._module.eventAfterInit = () => {
@@ -183,7 +184,7 @@ export class Application {
         };
 
         this._module.eventStateChange =
-            /** @type {function(!Objekt):!Promize} */ (currentState) => {
+            /** @type {function(!Objekt):!Promize} */ (currentState): Promize => {
                 this._instances[this._injections.progressBar].lock();
                 this._instances[this._injections.loader].show();
                 this._instances[this._injections.dialog].close();
@@ -196,7 +197,7 @@ export class Application {
             };
 
         this._module.eventDomChange =
-            /** @type {function(!Objekt, !Item):!Promize} */ (state, dom) => {
+            /** @type {function(!Objekt, !Item):!Promize} */ (state, dom): Promize => {
                 return this._instances[this._injections.event].call(
                     'dom.change',
                     [state, dom],
@@ -218,7 +219,7 @@ export class Application {
         };
 
         this._module.eventModuleLoaded =
-            /** @type {function(!Objekt):undefined} */ (state) => {
+            /** @type {function(!Objekt):undefined} */ (state): void => {
                 this._instances[this._injections.progressBar].unlock();
                 this._instances[this._injections.loader].hide(true);
                 this._instances[this._injections.event].call('module.loaded', [
@@ -227,7 +228,7 @@ export class Application {
             };
 
         this._module.eventModuleFailed =
-            /** @type {function(!Objekt):undefined} */ (state) => {
+            /** @type {function(!Objekt):undefined} */ (state): void => {
                 this._instances[this._injections.progressBar].unlock();
                 this._instances[this._injections.loader].hide(true);
                 this._instances[this._injections.event].call('module.failed', [
@@ -236,7 +237,7 @@ export class Application {
             };
 
         this._module.eventControllerLoaded =
-            /** @type {function(!Item):undefined} */ (dom) => {
+            /** @type {function(!Item):undefined} */ (dom): void => {
                 this._instances[this._injections.event].call(
                     'controller.loaded',
                     [dom],
@@ -244,7 +245,7 @@ export class Application {
             };
 
         this._module.eventControllerFailed =
-            /** @type {function():undefined} */ () => {
+            /** @type {function():undefined} */ (): void => {
                 this._instances[this._injections.event].call(
                     'controller.failed',
                     [],
@@ -255,14 +256,14 @@ export class Application {
      * @private
      * @return {undefined}
      */
-    _loadModules() {
+    _loadModules(): void {
         this._module.load(this._instances, this._injections);
     }
     /**
      * @private
      * @return {undefined}
      */
-    _initScript() {
+    _initScript(): void {
         this._instances[this._injections.script] = new Script(
             this._instances[this._injections.progressBar],
         );
@@ -271,7 +272,7 @@ export class Application {
      * @private
      * @return {undefined}
      */
-    _initStyle() {
+    _initStyle(): void {
         this._instances[this._injections.style] = new Style(
             this._instances[this._injections.progressBar],
         );
@@ -280,21 +281,21 @@ export class Application {
      * @private
      * @return {undefined}
      */
-    _initConfig() {
+    _initConfig(): void {
         this._instances[this._injections.config] = this.options;
     }
     /**
      * @private
      * @return {undefined}
      */
-    _initApp() {
+    _initApp(): void {
         this._instances[this._injections.app] = this;
     }
     /**
      * @private
      * @return {undefined}
      */
-    _initGeoLocation() {
+    _initGeoLocation(): void {
         this._instances[this._injections.geoLocation] = new GeoLocation();
 
         this._instances[this._injections.geoLocation].eventChange = (
@@ -332,7 +333,7 @@ export class Application {
      * @private
      * @return {undefined}
      */
-    _initCookie() {
+    _initCookie(): void {
         this._instances[this._injections.cookie] = new Cookie({
             prefix: this.options.app_id,
         });
@@ -341,14 +342,14 @@ export class Application {
      * @private
      * @return {undefined}
      */
-    _initLoader() {
+    _initLoader(): void {
         this._instances[this._injections.loader] = new Loader();
     }
     /**
      * @private
      * @return {undefined}
      */
-    _initProgressBar() {
+    _initProgressBar(): void {
         this._instances[this._injections.progressBar] = new ProgressBar(
             this._instances[this._injections.dialog],
             this._instances[this._injections.confirm],
@@ -358,7 +359,7 @@ export class Application {
      * @private
      * @return {undefined}
      */
-    _initStorage() {
+    _initStorage(): void {
         this._instances[this._injections.localStorage] = new Storage({
             type: 'local',
             prefix: this.options.app_id,
@@ -374,14 +375,14 @@ export class Application {
      * @private
      * @return {undefined}
      */
-    _initHelper() {
+    _initHelper(): void {
         this._instances[this._injections.helper] = new Helper();
     }
     /**
      * @private
      * @return {undefined}
      */
-    _initDocument() {
+    _initDocument(): void {
         const popupContainer = new PopupContainer();
         this._instances[this._injections.document] = new Document();
         this._instances[this._injections.document].eventClick = (
@@ -399,7 +400,7 @@ export class Application {
      * @private
      * @return {undefined}
      */
-    _initWindow() {
+    _initWindow(): void {
         this._instances[this._injections.window] = new Window();
         const width = this._instances[this._injections.window].getWidth();
         const height = this._instances[this._injections.window].getHeight();
@@ -484,21 +485,21 @@ export class Application {
      * @private
      * @return {undefined}
      */
-    _initEvent() {
+    _initEvent(): void {
         this._instances[this._injections.event] = new Event();
     }
     /**
      * @private
      * @return {undefined}
      */
-    _initScheduler() {
+    _initScheduler(): void {
         this._instances[this._injections.scheduler] = new Scheduler();
     }
     /**
      * @private
      * @return {undefined}
      */
-    _initHttp() {
+    _initHttp(): void {
         this._instances[this._injections.http] = new Http(this.options);
         this._instances[this._injections.http].eventBeforeRequest = (
             ...params
@@ -523,7 +524,7 @@ export class Application {
      * @private
      * @return {undefined}
      */
-    _initTemplate() {
+    _initTemplate(): void {
         this._instances[this._injections.template] = new Template(
             this._instances[this._injections.http],
             {
@@ -540,14 +541,14 @@ export class Application {
      * @private
      * @return {undefined}
      */
-    _initFlash() {
+    _initFlash(): void {
         this._instances[this._injections.flash] = new Flash();
     }
     /**
      * @private
      * @return {undefined}
      */
-    _initDialog() {
+    _initDialog(): void {
         this._instances[this._injections.dialog] = new Dialog(
             this._instances[this._injections.http],
         );
@@ -556,28 +557,28 @@ export class Application {
      * @private
      * @return {undefined}
      */
-    _initConfirm() {
+    _initConfirm(): void {
         this._instances[this._injections.confirm] = new Confirm();
     }
     /**
      * @private
      * @return {undefined}
      */
-    _initViewer() {
+    _initViewer(): void {
         this._instances[this._injections.viewer] = new Viewer();
     }
     /**
      * @private
      * @return {undefined}
      */
-    _initHeader() {
+    _initHeader(): void {
         this._instances[this._injections.header] = new Header();
     }
     /**
      * @private
      * @return {undefined}
      */
-    _initTopMenu() {
+    _initTopMenu(): void {
         this._instances[this._injections.topMenu] = new TopMenu(
             this._instances[this._injections.header],
         );
@@ -586,14 +587,14 @@ export class Application {
      * @private
      * @return {undefined}
      */
-    _initNavBar() {
+    _initNavBar(): void {
         this._instances[this._injections.navBar] = new NavBar();
     }
     /**
      * @private
      * @return {undefined}
      */
-    _initBottomMenu() {
+    _initBottomMenu(): void {
         this._instances[this._injections.bottomMenu] = new BottomMenu(
             this._instances[this._injections.footer],
         );
@@ -602,7 +603,7 @@ export class Application {
      * @private
      * @return {undefined}
      */
-    _initSidebar() {
+    _initSidebar(): void {
         this._instances[this._injections.leftSidebar] = new Sidebar(
             '#left-sidebar',
         );
@@ -615,21 +616,21 @@ export class Application {
      * @private
      * @return {undefined}
      */
-    _initLeftMenu() {
+    _initLeftMenu(): void {
         this._instances[this._injections.leftMenu] = new LeftMenu();
     }
     /**
      * @private
      * @return {undefined}
      */
-    _initFooter() {
+    _initFooter(): void {
         this._instances[this._injections.footer] = new Footer();
     }
     /**
      * @private
      * @return {undefined}
      */
-    _initBrowser() {
+    _initBrowser(): void {
         this._instances[this._injections.browser] = new Browser();
         this._instances[this._injections.browser].eventMissingFeatures = (
             features,
@@ -643,7 +644,7 @@ export class Application {
      * @private
      * @return {undefined}
      */
-    _initServiceWorker() {
+    _initServiceWorker(): void {
         this._instances[this._injections.serviceWorker] = new ServiceWorker();
         this._instances[this._injections.serviceWorker].eventMissingFeatures = (
             features,
@@ -657,14 +658,14 @@ export class Application {
      * @private
      * @return {undefined}
      */
-    _initActionCable() {
+    _initActionCable(): void {
         this._instances[this._injections.actionCable] = new ActionCable();
     }
     /**
      * @private
      * @return {undefined}
      */
-    _initRoutes() {
+    _initRoutes(): void {
         this._routes = [];
         this._routeOptions = new Objekt();
     }
@@ -677,7 +678,7 @@ export class Application {
      * @param {!Object=} opt_params
      * @return {undefined}
      */
-    addState(id, title, url, controller, opt_template = '', opt_params = {}) {
+    addState(id: string, title: string, url: string, controller: string, opt_template: string | undefined = '', opt_params: object | undefined = {}): void {
         const state = new Objekt(opt_params);
         state.set('id', id);
         state.set('title', title);
@@ -691,7 +692,7 @@ export class Application {
      * @param {!Object=} opt_params
      * @return {undefined}
      */
-    setRootState(id, opt_params) {
+    setRootState(id: string, opt_params: object | undefined): void {
         this._routeOptions.set('root.id', id);
         this._routeOptions.set('root.params', opt_params);
     }
@@ -700,7 +701,7 @@ export class Application {
      * @param {!Object=} opt_params
      * @return {undefined}
      */
-    setHomeState(id, opt_params) {
+    setHomeState(id: string, opt_params: object | undefined): void {
         this._routeOptions.set('home.id', id);
         this._routeOptions.set('home.params', opt_params);
     }
@@ -708,20 +709,20 @@ export class Application {
      * @param {string} name
      * @return {?Object}
      */
-    getInstance(name) {
+    getInstance(name: string): object | null {
         return this._instances[name];
     }
     /**
      * @return {?Object}
      */
-    getController() {
+    getController(): object | null {
         return this._module.getController();
     }
     /**
      * @export
      * @return {undefined}
      */
-    run() {
+    run(): void {
         if (this.options.production) {
             console.info(
                 '%cApplication run in production environment...',
@@ -743,7 +744,7 @@ export class Application {
      * @param {!Array} moduleInjections
      * @param {!Function} moduleCallback
      */
-    controller(name, moduleInjections, moduleCallback) {
+    controller(name: string, moduleInjections: Array<any>, moduleCallback: Function) {
         this._module.add(name, moduleInjections, moduleCallback);
     }
     /**
@@ -751,7 +752,7 @@ export class Application {
      * @param {!Array} moduleInjections
      * @param {!Function} moduleCallback
      */
-    service(name, moduleInjections, moduleCallback) {
+    service(name: string, moduleInjections: Array<any>, moduleCallback: Function) {
         this._module.add(name, moduleInjections, moduleCallback);
     }
 }

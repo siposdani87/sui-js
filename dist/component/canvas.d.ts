@@ -1,20 +1,21 @@
+import { Item } from '../core/item';
 /**
  * @class
  */
 export declare class Canvas {
-    canvasNode: any;
-    canvasRaw: any;
-    context: any;
+    canvasNode: Item<HTMLCanvasElement>;
+    canvasRaw: HTMLCanvasElement;
+    context: CanvasRenderingContext2D;
     /**
      * @param {!Item|string=} opt_selector
      */
-    constructor(opt_selector?: any);
+    constructor(opt_selector?: (Item | string));
     /**
      * @private
      * @param {!Item|string=} opt_selector
      * @return {undefined}
      */
-    _init(opt_selector: any): void;
+    _init(opt_selector?: (Item | string)): void;
     /**
      * @private
      * @return {undefined}
@@ -24,26 +25,26 @@ export declare class Canvas {
      * @param {number} width
      * @return {undefined}
      */
-    setWidth(width: any): void;
+    setWidth(width: number): void;
     /**
      * @return {number}
      */
-    getWidth(): any;
+    getWidth(): number;
     /**
      * @param {number} height
      * @return {undefined}
      */
-    setHeight(height: any): void;
+    setHeight(height: number): void;
     /**
      * @return {number}
      */
-    getHeight(): any;
+    getHeight(): number;
     /**
      * @param {number} width
      * @param {number} height
      * @return {undefined}
      */
-    setSize(width: any, height: any): void;
+    setSize(width: number, height: number): void;
     /**
      * @param {number} x
      * @param {number} y
@@ -53,7 +54,7 @@ export declare class Canvas {
      * @param {!Object} options
      * @return {undefined}
      */
-    drawPolygon(x: any, y: any, radius: any, sides: any, rotateAngle: any, options: any): void;
+    drawPolygon(x: number, y: number, radius: number, sides: number, rotateAngle: number, options: object): void;
     /**
      * @param {number} x
      * @param {number} y
@@ -63,25 +64,25 @@ export declare class Canvas {
      * @param {!Object} options
      * @return {undefined}
      */
-    drawRectangle(x: any, y: any, width: any, height: any, rotateAngle: any, options: any): void;
+    drawRectangle(x: number, y: number, width: number, height: number, rotateAngle: number, options: object): void;
     /**
-     * @param {!Item} image
+     * @param {!Item<HTMLImageElement>} image
      * @param {number=} opt_width
      * @param {number=} opt_height
      */
-    drawImage(image: any, opt_width: any, opt_height: any): void;
+    drawImage(image: Item<HTMLImageElement>, opt_width?: number, opt_height?: number): void;
     /**
      * @param {number} x
      * @param {number} y
-     * @return {!CanvasPixelArray}
+     * @return {!Uint8ClampedArray}
      */
-    getImageDataXY(x: any, y: any): any;
+    getImageDataXY(x: number, y: number): Uint8ClampedArray;
     /**
      * @param {number} x
      * @param {number} y
      * @return {undefined}
      */
-    eventMouseMove(x: any, y: any): void;
+    eventMouseMove(x: number, y: number): void;
     /**
      * @return {undefined}
      */

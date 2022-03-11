@@ -20,19 +20,20 @@ import { Pager } from './pager';
 import { Tooltip } from './tooltip';
 import { consoleWarn } from '../utils/log';
 import { generateId } from '../utils/coder';
+import { Action } from '../utils';
 
 /**
  * @class
  */
 export class Table {
-    tableNode: any;
+    tableNode: Item;
     options: Objekt;
     collection: Collection<Objekt>;
     query: string;
-    actions: any[];
+    actions: Action[];
     contentHandler: ContentHandler;
-    headerNodes: any;
-    headerTexts: any[];
+    headerNodes: Query<HTMLElement>;
+    headerTexts: string[];
     tbody: Item;
     tfoot: Item;
     pager: Pager;
@@ -41,7 +42,7 @@ export class Table {
      * @param {string=} opt_selector
      * @param {!Object=} opt_options
      */
-    constructor(dom, opt_selector = 'table', opt_options = {}) {
+    constructor(dom: Item, opt_selector: string | undefined = 'table', opt_options: object | undefined = {}) {
         this.tableNode = new Query(opt_selector, dom).getItem();
         this._setOptions(opt_options);
         this._init();
@@ -51,7 +52,7 @@ export class Table {
      * @param {!Object=} opt_options
      * @return {undefined}
      */
-    _setOptions(opt_options = {}) {
+    _setOptions(opt_options: object | undefined = {}): void {
         const _self = this;
         _self.options = new Objekt({
             no_content: {
@@ -76,7 +77,7 @@ export class Table {
      * @private
      * @return {undefined}
      */
-    _init() {
+    _init(): void {
         this.collection = /** @type {!Collection<!Objekt>} */ new Collection();
         this.query = '';
         this.actions = [];
@@ -94,7 +95,7 @@ export class Table {
      * @private
      * @return {undefined}
      */
-    _initContentHandler() {
+    _initContentHandler(): void {
         this.contentHandler = new ContentHandler(
             this.tableNode,
             this.options.no_content,
@@ -104,7 +105,7 @@ export class Table {
      * @private
      * @return {undefined}
      */
-    _initSearch() {
+    _initSearch(): void {
         if (
             this.options.columns[this.options.columns.length - 1] === 'search'
         ) {
@@ -160,7 +161,7 @@ export class Table {
      * @private
      * @return {undefined}
      */
-    _initHeader() {
+    _initHeader(): void {
         this.headerTexts = [];
         this.headerNodes = new Query('thead th', this.tableNode);
         this.headerNodes.each((headerNode, columnIndex) => {
@@ -175,7 +176,7 @@ export class Table {
      * @param {number} columnIndex
      * @return {undefined}
      */
-    _renderHeader(headerNode, columnIndex) {
+    _renderHeader(headerNode: Item, columnIndex: number): void {
         const column = this.options.columns[columnIndex];
         if (inArray(['search', 'actions'], column)) {
             headerNode.addClass('actions');
@@ -228,7 +229,7 @@ export class Table {
      * @private
      * @return {undefined}
      */
-    _initStructure() {
+    _initStructure(): void {
         this.tbody = new Item('tbody');
         this.tableNode.appendChild(this.tbody);
 
@@ -261,7 +262,7 @@ export class Table {
      * @param {number=} opt_page
      * @return {undefined}
      */
-    refresh(opt_page = -1) {
+    refresh(opt_page: number | undefined = -1): void {
         if (opt_page > -1) {
             this.pager.setPage(opt_page);
         }
@@ -278,7 +279,7 @@ export class Table {
      * @param {!Objekt} params
      * @return {undefined}
      */
-    eventAction(params) {
+    eventAction(params: Objekt): void {
         consoleWarn('Table.eventAction()', params);
     }
     /**
@@ -286,7 +287,7 @@ export class Table {
      * @param {string} columnWithOrder
      * @return {undefined}
      */
-    _toggleSorting(columnWithOrder) {
+    _toggleSorting(columnWithOrder: string): void {
         const [column, direction] = columnWithOrder.split(':', 2);
         let order = direction || 'desc';
         if (
@@ -303,7 +304,7 @@ export class Table {
      * @param {number} i
      * @return {undefined}
      */
-    _handleSortingColumn(head, i) {
+    _handleSortingColumn(head: Item, i: number): void {
         const column = this.options.columns[i];
         if (
             (eq(this.options.sort.column, null) && eq(i, 0)) ||
@@ -322,7 +323,7 @@ export class Table {
      * @private
      * @return {undefined}
      */
-    _updateSorting() {
+    _updateSorting(): void {
         this._resetSorting();
         this.headerNodes.each((head, i) => {
             this._handleSortingColumn(head, i);
@@ -335,7 +336,7 @@ export class Table {
      * @param {string=} opt_order
      * @return {undefined}
      */
-    _setSorting(column, opt_order = 'asc') {
+    _setSorting(column: string, opt_order: string | undefined = 'asc'): void {
         this.options.sort.column = column;
         this.options.sort.order = opt_order;
         this._updateSorting();
@@ -344,7 +345,7 @@ export class Table {
      * @private
      * @return {undefined}
      */
-    _resetSorting() {
+    _resetSorting(): void {
         const icons = new Query('thead th .icons em', this.tableNode);
         icons.each((icon) => {
             icon.removeClass('active');
@@ -354,7 +355,7 @@ export class Table {
      * @private
      * @return {string}
      */
-    _getColumn() {
+    _getColumn(): string {
         return this.options.column || this.options.columns[0];
     }
     /**
@@ -363,7 +364,7 @@ export class Table {
      * @param {number} rowIndex
      * @return {undefined}
      */
-    _addHeaderRow(item, rowIndex) {
+    _addHeaderRow(item: Objekt, rowIndex: number): void {
         const headerRow = new Item('tr');
         headerRow.addEventListener('click', (node) => {
             node.toggleClass('opened');
@@ -394,7 +395,7 @@ export class Table {
      * @param {number} rowIndex
      * @return {!Array<string>}
      */
-    _getRowStyle(item, rowIndex) {
+    _getRowStyle(item: Objekt, rowIndex: number): Array<string> {
         let results = [];
         if (this.options.rowStyle && isFunction(this.options.rowStyle)) {
             const styleResult = this.options.rowStyle(item, rowIndex);
@@ -412,7 +413,7 @@ export class Table {
      * @param {number} rowIndex
      * @return {undefined}
      */
-    _addRow(item, rowIndex) {
+    _addRow(item: Objekt, rowIndex: number): void {
         const tableRow = new Item('tr');
         const cssClasses = this._getRowStyle(item, rowIndex);
         tableRow.addClass(['data'].concat(cssClasses));
@@ -430,10 +431,10 @@ export class Table {
         });
     }
     /**
-     * @param {!Array<{style: !Function, click: !Function}>} actions
+     * @param {!Array<Action>} actions
      * @return {undefined}
      */
-    setActions(actions) {
+    setActions(actions: Array<Action>): void {
         this.actions = actions;
     }
     /**
@@ -444,7 +445,7 @@ export class Table {
      * @param {!Item} parentNode
      * @return {undefined}
      */
-    _renderDataNodeByItem(item, rowIndex, column, parentNode) {
+    _renderDataNodeByItem(item: Objekt, rowIndex: number, column: string, parentNode: Item): void {
         let result = '';
         const calculation = this.options.calculations[column];
         if (isFunction(calculation)) {
@@ -484,7 +485,7 @@ export class Table {
      * @param {number} columnIndex
      * @return {undefined}
      */
-    _renderDataNode(tableDataNode, item, rowIndex, column, columnIndex) {
+    _renderDataNode(tableDataNode: Item, item: Objekt, rowIndex: number, column: string, columnIndex: number): void {
         if (inArray(['search', 'actions'], column)) {
             this._renderActions(tableDataNode, item);
         } else {
@@ -503,7 +504,7 @@ export class Table {
      * @param {!Objekt} item
      * @return {undefined}
      */
-    _renderActions(tableDataNode, item) {
+    _renderActions(tableDataNode: Item, item: Objekt): void {
         const containerNode = new Item('div');
         tableDataNode.addClass('actions');
         tableDataNode.appendChild(containerNode);
@@ -520,7 +521,7 @@ export class Table {
      * @param {!Objekt} item
      * @return {undefined}
      */
-    _renderActionNodes(containerNode, item) {
+    _renderActionNodes(containerNode: Item, item: Objekt): void {
         each(this.actions, (action) => {
             this._createActionButton(containerNode, action, item);
         });
@@ -531,7 +532,7 @@ export class Table {
      * @param {!Objekt} item
      * @return {undefined}
      */
-    _renderDropDownNode(dropDownNode, item) {
+    _renderDropDownNode(dropDownNode: Item, item: Objekt): void {
         const dropDown = new Dropdown(dropDownNode);
         dropDown.setActions(this.actions, item);
     }
@@ -542,7 +543,7 @@ export class Table {
      * @param {!Objekt} item
      * @return {undefined}
      */
-    _createActionButton(containerNode, action, item) {
+    _createActionButton(containerNode: Item, action: { style: Function; click: Function; }, item: Objekt): void {
         const [icon, title, disabled, removed] = action.style(item);
         if (!removed) {
             const buttonNode = new Item('button');
@@ -574,7 +575,7 @@ export class Table {
      * @param {!Array} items
      * @return {undefined}
      */
-    setData(items) {
+    setData(items: Array<any>): void {
         this.collection.reload(items);
         if (this.collection.size() === 0) {
             this.contentHandler.show();
@@ -587,7 +588,7 @@ export class Table {
      * @param {number} count
      * @return {undefined}
      */
-    setCount(count) {
+    setCount(count: number): void {
         this.pager.setCount(count);
         this.pager.draw();
     }
@@ -595,7 +596,7 @@ export class Table {
      * @private
      * @return {!Array}
      */
-    _getItems() {
+    _getItems(): Array<any> {
         let items = this.collection.getItems();
         if (this.collection.size() > this.options.row_count) {
             items = this.collection.limit(
@@ -609,7 +610,7 @@ export class Table {
      * @private
      * @return {undefined}
      */
-    _draw() {
+    _draw(): void {
         this.tbody.removeChildren();
         each(this._getItems(), (item, rowIndex) => {
             this._addHeaderRow(item, rowIndex);
@@ -620,7 +621,7 @@ export class Table {
     /**
      * @return {undefined}
      */
-    render() {
+    render(): void {
         if (!this.tableNode.isEmpty()) {
             this._updateSorting();
         }

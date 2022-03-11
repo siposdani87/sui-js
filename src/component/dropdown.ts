@@ -3,23 +3,24 @@ import { Collection } from '../core/collection';
 import { Item } from '../core/item';
 import { Objekt } from '../core/objekt';
 import { generateId } from '../utils/coder';
+import { Action } from '../utils';
 
 /**
  * @class
  */
 export class Dropdown {
-    dropdown: any;
+    dropdown: Item;
     options: Objekt;
     collection: Collection<Objekt>;
-    actions: any[];
-    item: any;
+    actions: Action[];
+    item: Object;
     buttonNode: Item;
     menuNode: Item;
     /**
      * @param {!Item} element
      * @param {!Object=} opt_options
      */
-    constructor(element, opt_options = {}) {
+    constructor(element: Item, opt_options: object | undefined = {}) {
         this.dropdown = element;
         this._setOptions(opt_options);
         this._init();
@@ -29,7 +30,7 @@ export class Dropdown {
      * @param {!Object=} opt_options
      * @return {undefined}
      */
-    _setOptions(opt_options = {}) {
+    _setOptions(opt_options: object | undefined = {}): void {
         const _self = this;
         _self.options = new Objekt({
             id: generateId('dropdown'),
@@ -40,7 +41,7 @@ export class Dropdown {
      * @private
      * @return {undefined}
      */
-    _init() {
+    _init(): void {
         this.collection = /** @type {!Collection<!Objekt>} */ new Collection();
         this.actions = [];
         this.item = null;
@@ -51,7 +52,7 @@ export class Dropdown {
      * @private
      * @return {undefined}
      */
-    _appendButton() {
+    _appendButton(): void {
         this.buttonNode = new Item('button');
         this.buttonNode.setId(this.options.id);
         this.buttonNode.addClass([
@@ -71,7 +72,7 @@ export class Dropdown {
      * @private
      * @return {undefined}
      */
-    _appendMenu() {
+    _appendMenu(): void {
         this.menuNode = new Item('ul');
         this.menuNode.setFor(this.options.id);
         this.menuNode.addClass([
@@ -88,7 +89,7 @@ export class Dropdown {
      * @param {!Object} item
      * @return {undefined}
      */
-    setActions(actions, item) {
+    setActions(actions: Array<any>, item: object): void {
         this.actions = actions;
         this.item = item;
         this._renderMenu();
@@ -99,11 +100,11 @@ export class Dropdown {
      * @private
      * @return {undefined}
      */
-    _renderMenu() {
+    _renderMenu(): void {
         eachArray(this.actions, (action) => {
             const [icon, title, disabled, removed] = action.style(this.item);
             if (!removed) {
-                const menuItemNode = new Item('li');
+                const menuItemNode = new Item<HTMLLIElement>('li');
                 menuItemNode.addClass('mdl-menu__item');
                 menuItemNode.setHtml(title || icon);
                 if (disabled) {

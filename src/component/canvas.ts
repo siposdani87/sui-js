@@ -7,13 +7,13 @@ import { consoleInfo } from '../utils/log';
  * @class
  */
 export class Canvas {
-    canvasNode: any;
-    canvasRaw: any;
-    context: any;
+    canvasNode: Item<HTMLCanvasElement>;
+    canvasRaw: HTMLCanvasElement;
+    context: CanvasRenderingContext2D;
     /**
      * @param {!Item|string=} opt_selector
      */
-    constructor(opt_selector?) {
+    constructor(opt_selector?: (Item | string)) {
         this._init(opt_selector);
         this._initEvents();
     }
@@ -22,14 +22,14 @@ export class Canvas {
      * @param {!Item|string=} opt_selector
      * @return {undefined}
      */
-    _init(opt_selector) {
-        this.canvasNode = /** @type {!Item} */ opt_selector;
+    _init(opt_selector?: (Item | string)): void {
+        this.canvasNode = /** @type {!Item} */ opt_selector as Item<HTMLCanvasElement>;
         if (isString(opt_selector)) {
-            this.canvasNode = new Query(
-                /** @type {string} */(opt_selector),
+            this.canvasNode = new Query<HTMLCanvasElement>(
+                /** @type {string} */(opt_selector as string),
             ).getItem();
         } else if (isUndefined(opt_selector)) {
-            this.canvasNode = new Item('canvas');
+            this.canvasNode = new Item<HTMLCanvasElement>('canvas');
         }
         this.canvasRaw = this.canvasNode.getNode();
         this.context = this.canvasRaw.getContext('2d');
@@ -38,7 +38,7 @@ export class Canvas {
      * @private
      * @return {undefined}
      */
-    _initEvents() {
+    _initEvents(): void {
         this.canvasNode.addEventListener('mousemove', (canvasNode, event) => {
             const rect = canvasNode.getNode().getBoundingClientRect();
             const x = event.clientX - rect.left;
@@ -50,26 +50,26 @@ export class Canvas {
      * @param {number} width
      * @return {undefined}
      */
-    setWidth(width) {
+    setWidth(width: number): void {
         this.canvasRaw.width = width;
     }
     /**
      * @return {number}
      */
-    getWidth() {
+    getWidth(): number {
         return this.canvasRaw.width;
     }
     /**
      * @param {number} height
      * @return {undefined}
      */
-    setHeight(height) {
+    setHeight(height: number): void {
         this.canvasRaw.height = height;
     }
     /**
      * @return {number}
      */
-    getHeight() {
+    getHeight(): number {
         return this.canvasRaw.height;
     }
     /**
@@ -77,7 +77,7 @@ export class Canvas {
      * @param {number} height
      * @return {undefined}
      */
-    setSize(width, height) {
+    setSize(width: number, height: number): void {
         this.setWidth(width);
         this.setHeight(height);
     }
@@ -90,7 +90,7 @@ export class Canvas {
      * @param {!Object} options
      * @return {undefined}
      */
-    drawPolygon(x, y, radius, sides, rotateAngle, options) {
+    drawPolygon(x: number, y: number, radius: number, sides: number, rotateAngle: number, options: object): void {
         if (sides < 3) {
             return;
         }
@@ -123,7 +123,7 @@ export class Canvas {
      * @param {!Object} options
      * @return {undefined}
      */
-    drawRectangle(x, y, width, height, rotateAngle, options) {
+    drawRectangle(x: number, y: number, width: number, height: number, rotateAngle: number, options: object): void {
         this.context.save();
         this.context.translate(x, y);
         this.context.beginPath();
@@ -141,11 +141,11 @@ export class Canvas {
         this.context.restore();
     }
     /**
-     * @param {!Item} image
+     * @param {!Item<HTMLImageElement>} image
      * @param {number=} opt_width
      * @param {number=} opt_height
      */
-    drawImage(image, opt_width, opt_height) {
+    drawImage(image: Item<HTMLImageElement>, opt_width?: number, opt_height?: number) {
         const width = opt_width || typeCast(image.getAttribute('width'));
         const height = opt_height || typeCast(image.getAttribute('height'));
         this.context.save();
@@ -155,9 +155,9 @@ export class Canvas {
     /**
      * @param {number} x
      * @param {number} y
-     * @return {!CanvasPixelArray}
+     * @return {!Uint8ClampedArray}
      */
-    getImageDataXY(x, y) {
+    getImageDataXY(x: number, y: number): Uint8ClampedArray {
         return this.context.getImageData(x, y, 1, 1).data;
     }
     /**
@@ -165,13 +165,13 @@ export class Canvas {
      * @param {number} y
      * @return {undefined}
      */
-    eventMouseMove(x, y) {
+    eventMouseMove(x: number, y: number): void {
         consoleInfo('Canvas.eventMouseMove()', x, y);
     }
     /**
      * @return {undefined}
      */
-    clear() {
+    clear(): void {
         this.context.clearRect(0, 0, this.getWidth(), this.getHeight());
     }
 }

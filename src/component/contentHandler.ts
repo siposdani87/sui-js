@@ -5,14 +5,14 @@ import { Objekt } from '../core/objekt';
  * @class
  */
 export class ContentHandler {
-    containerNode: any;
+    containerNode: Item;
     options: Objekt;
     contentNode: Item;
     /**
      * @param {!Item} containerNode
      * @param {!Object=} opt_options
      */
-    constructor(containerNode, opt_options = {}) {
+    constructor(containerNode: Item, opt_options: object | undefined = {}) {
         this.containerNode = containerNode;
         this._setOptions(opt_options);
         this._init();
@@ -22,7 +22,7 @@ export class ContentHandler {
      * @param {!Object=} opt_options
      * @return {undefined}
      */
-    _setOptions(opt_options = {}) {
+    _setOptions(opt_options: object | undefined = {}): void {
         const _self = this;
         _self.options = new Objekt({
             image_url: null,
@@ -34,7 +34,7 @@ export class ContentHandler {
      * @private
      * @return {undefined}
      */
-    _init() {
+    _init(): void {
         this.contentNode = new Item('div');
         this.contentNode.addClass('content-handler');
         this.containerNode.insertAfter(this.contentNode);
@@ -55,14 +55,14 @@ export class ContentHandler {
     /**
      * @return {undefined}
      */
-    show() {
+    show(): void {
         this.contentNode.addClass('visible-flex');
         this.containerNode.addClass('hidden');
     }
     /**
      * @return {undefined}
      */
-    hide() {
+    hide(): void {
         this.contentNode.removeClass('visible-flex');
         this.containerNode.removeClass('hidden');
     }

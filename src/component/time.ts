@@ -1,3 +1,4 @@
+import { Objekt } from '../core';
 import { Item } from '../core/item';
 import { consoleWarn } from '../utils/log';
 
@@ -5,14 +6,14 @@ import { consoleWarn } from '../utils/log';
  * @class
  */
 export class Time {
-    timeNode: any;
-    options: any;
+    timeNode: Item;
+    options: Objekt;
     pointerNode: Item;
     /**
      * @param {!Item} node
      * @param {!Object} options
      */
-    constructor(node, options) {
+    constructor(node: Item, options: object) {
         this.timeNode = node;
         this._setOptions(options);
         this._init();
@@ -22,14 +23,14 @@ export class Time {
      * @param {!Object} options
      * @return {undefined}
      */
-    _setOptions(options) {
-        this.options = options;
+    _setOptions(options: object): void {
+        this.options = new Objekt(options);
     }
     /**
      * @private
      * @return {undefined}
      */
-    _init() {
+    _init(): void {
         this._initCircleNode();
         this._initPointerNode();
     }
@@ -37,7 +38,7 @@ export class Time {
      * @private
      * @return {undefined}
      */
-    _initCircleNode() {
+    _initCircleNode(): void {
         const circleNode = new Item('div');
         circleNode.addClass('circle');
         this.timeNode.appendChild(circleNode);
@@ -53,7 +54,7 @@ export class Time {
      * @param {number} height
      * @return {undefined}
      */
-    _initSize(width, height) {
+    _initSize(width: number, height: number): void {
         const timeNodeStyle = window.getComputedStyle(this.timeNode.getNode());
         this.options.width =
             parseInt(timeNodeStyle.width.slice(0, -2), 10) - width;
@@ -67,7 +68,7 @@ export class Time {
      * @private
      * @return {undefined}
      */
-    _initPointerNode() {
+    _initPointerNode(): void {
         const centerPointNode = new Item('div');
         centerPointNode.addClass('center-point');
         this.timeNode.appendChild(centerPointNode);
@@ -83,7 +84,7 @@ export class Time {
      * @param {boolean=} opt_isClockWise
      * @return {undefined}
      */
-    draw(start, n, opt_j = 1, opt_isClockWise = true) {
+    draw(start: number, n: number, opt_j: number | undefined = 1, opt_isClockWise: boolean | undefined = true): void {
         this._drawCircles(start, n, opt_j, opt_isClockWise);
     }
     /**
@@ -94,7 +95,7 @@ export class Time {
      * @param {boolean=} opt_isClockWise
      * @return {undefined}
      */
-    _drawCircles(start, n, opt_j = 1, opt_isClockWise = true) {
+    _drawCircles(start: number, n: number, opt_j: number | undefined = 1, opt_isClockWise: boolean | undefined = true): void {
         let k = 0;
         for (let i = start; i <= n; i++) {
             const circle = new Item('div');
@@ -118,7 +119,7 @@ export class Time {
      * @param {number} i
      * @return {undefined}
      */
-    _setCircleEvent(circle, i) {
+    _setCircleEvent(circle: Item, i: number): void {
         circle.setData('index', i);
         circle.addEventListener('click', (circle) => {
             const index = /** @type {number} */(circle).getData('index');
@@ -135,7 +136,7 @@ export class Time {
      * @param {boolean=} opt_isClockWise
      * @return {undefined}
      */
-    _setCircleStyle(circle, start, n, i, opt_j = 1, opt_isClockWise = true) {
+    _setCircleStyle(circle: Item, start: number, n: number, i: number, opt_j: number | undefined = 1, opt_isClockWise: boolean | undefined = true): void {
         const index = opt_j / 2 > i % opt_j ? i % opt_j : opt_j - (i % opt_j);
         const selected = this.options.selected === i ? 'selected' : null;
         const top =
@@ -168,7 +169,7 @@ export class Time {
     /**
      * @param {number} index
      */
-    eventClick(index) {
+    eventClick(index: number) {
         consoleWarn('Time.eventClick()', index);
     }
 }

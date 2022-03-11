@@ -4,22 +4,24 @@
 export declare class Waiter {
     timeoutWaiting: number;
     counter: number;
-    intervall: any;
+    intervall: number;
     /**
      */
     constructor();
     /**
      * @param {!Function} callback
      * @param {number=} opt_duration
+     * @return {undefined}
      */
-    advancedWaiting(callback: any, opt_duration: any): void;
+    advancedWaiting(callback: Function, opt_duration: number | undefined): void;
     /**
+     * @private
      * @param {!Function} callback
      * @param {number} duration
      * @param {number} counter
-     * @private
+     * @return {undefined}
      */
-    _advancedDelayHandler(callback: any, duration: any, counter: any): void;
+    _advancedDelayHandler(callback: Function, duration: number, counter: number): void;
     /**
      * @return {undefined}
      */
@@ -31,13 +33,15 @@ export declare class Waiter {
     /**
      * @param {!Function} callback
      * @param {number=} opt_duration
+     * @return {undefined}
      */
-    simpleWaiting(callback: any, opt_duration: any): void;
+    simpleWaiting(callback: Function, opt_duration: number | undefined): void;
     /**
+     * @private
      * @param {!Function} callback
      * @param {number} duration
      * @param {number} counter
-     * @private
+     * @return {undefined}
      */
-    _simpleDelayHandler(callback: any, duration: any, counter: any): void;
+    _simpleDelayHandler(callback: Function, duration: number, counter: number): void;
 }
