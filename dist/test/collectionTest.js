@@ -4,12 +4,12 @@ import { Collection } from '../core/collection';
  * @class
  * @extends {BaseTest}
  */
-export class ContainerTest extends BaseTest {
+export class CollectionTest extends BaseTest {
     /**
      *
      */
     constructor() {
-        super('Deferred');
+        super('Collection');
     }
     /**
      * @override

@@ -16,7 +16,7 @@ export type Params = {
 export type Id = string | number;
  
 /**
- * @typedef {style: !Function, click: !Function} Action
+ * @typedef {{style: !Function, click: !Function}} Action
  */
 export type Action = {
     style: (item: Object) => [string, string, boolean, boolean];
@@ -24,7 +24,7 @@ export type Action = {
 }
 
 /**
- * @typedef {url: string, size: [number, number], origin: [number, number], anchor: [number, number], coords: Array<number>} IconOptions
+ * @typedef {{url: string, size: [number, number], origin: [number, number], anchor: [number, number], coords: Array<number>}} IconOptions
  */
 export type IconOptions = {
     url: string;

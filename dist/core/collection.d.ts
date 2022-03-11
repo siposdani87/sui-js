@@ -24,12 +24,12 @@ export declare class Collection<T extends Object = Objekt> {
      * @param {!Array<Object|T>} items
      * @return {undefined}
      */
-    load(items: Array<Object | T>): void;
+    load(objects: Array<Object | T>): void;
     /**
      * @param {!Array<Object|T>} items
      * @return {undefined}
      */
-    reload(items: Array<Object | T>): void;
+    reload(objects: Array<Object | T>): void;
     /**
      * @param {!Object|!T} object
      * @return {T}

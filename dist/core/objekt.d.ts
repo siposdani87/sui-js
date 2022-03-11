@@ -40,17 +40,17 @@ export declare class Objekt {
     /**
      * @private
      * @param {!Object|!Objekt} object
-     * @param {!Array} attributes
+     * @param {!Array<string>} attributes
      * @return {!Object|!Objekt|undefined}
      */
     private _get;
     /**
      * @param {!Object|!Objekt} object
-     * @param {!Array} attributes
+     * @param {!Array<string>} attributes
      * @param {*} value
      * @return {undefined}
      */
-    _set(object: Object | Objekt, attributes: Array<any>, value: any): void;
+    _set(object: Object | Objekt, attributes: Array<string>, value: any): void;
     /**
      * @export
      * @param {string} attribute
@@ -79,25 +79,25 @@ export declare class Objekt {
     clear(): void;
     /**
      * @param {!Object|!Objekt} object
-     * @param {!Array} attributes
+     * @param {!Array<string>} attributes
      * @return {undefined}
      */
-    _remove(object: Object | Objekt, attributes: Array<any>): void;
+    _remove(object: Object | Objekt, attributes: Array<string>): void;
     /**
      * @export
      * @param {!Function} next
      * @param {!Object=} opt_properties
-     * @param {!Array=} opt_attributes
+     * @param {!Array<string>=} opt_attributes
      * @return {undefined}
      */
-    each(next: Function, opt_properties?: Object | undefined, opt_attributes?: Array<any> | undefined): void;
+    each(next: Function, opt_properties?: Object | undefined, opt_attributes?: Array<string> | undefined): void;
     /**
      * @param {!Object} object
-     * @param {!Array} attributes
+     * @param {!Array<string>} attributes
      * @param {*} value
      * @return {!Object}
      */
-    _attributesToObject(object: Object, attributes: Array<any>, value: any): Object;
+    _attributesToObject(object: Object, attributes: Array<string>, value: any): Object;
     /**
      * @export
      * @param {boolean=} opt_isNative
@@ -111,16 +111,16 @@ export declare class Objekt {
     isEmpty(): boolean;
     /**
      * @export
-     * @param {!Array} keys
+     * @param {!Array<string>} keys
      * @return {!Objekt}
      */
-    allowKeys(keys: Array<any>): Objekt;
+    allowKeys(keys: Array<string>): Objekt;
     /**
      * @export
-     * @param {!Array} keys
+     * @param {!Array<string>} keys
      * @return {!Objekt}
      */
-    denyKeys(keys: Array<any>): Objekt;
+    denyKeys(keys: Array<string>): Objekt;
     /**
      * @export
      * @param {!Objekt} obj

@@ -1,3 +1,4 @@
+import { Objekt } from '../core';
 import { Item } from '../core/item';
 import { consoleWarn } from '../utils/log';
 import { Time } from './time';

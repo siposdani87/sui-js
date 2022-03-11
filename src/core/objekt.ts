@@ -131,12 +131,12 @@ export class Objekt {
     /**
      * @private
      * @param {!Object|!Objekt} object
-     * @param {!Array} attributes
+     * @param {!Array<string>} attributes
      * @return {!Object|!Objekt|undefined}
      */
     private _get(
         object: Object | Objekt,
-        attributes: Array<any>,
+        attributes: Array<string>,
     ): Object | Objekt | undefined {
         let result = undefined;
         each(object, (_value, property) => {
@@ -159,11 +159,11 @@ export class Objekt {
     }
     /**
      * @param {!Object|!Objekt} object
-     * @param {!Array} attributes
+     * @param {!Array<string>} attributes
      * @param {*} value
      * @return {undefined}
      */
-    _set(object: Object | Objekt, attributes: Array<any>, value: any): void {
+    _set(object: Object | Objekt, attributes: Array<string>, value: any): void {
         eachObject(object, (_oldValue, property) => {
             if (attributes.length === 1 && property === attributes[0]) {
                 object[property] = value;
@@ -223,10 +223,10 @@ export class Objekt {
     }
     /**
      * @param {!Object|!Objekt} object
-     * @param {!Array} attributes
+     * @param {!Array<string>} attributes
      * @return {undefined}
      */
-    _remove(object: Object | Objekt, attributes: Array<any>): void {
+    _remove(object: Object | Objekt, attributes: Array<string>): void {
         for (const property in object) {
             if (object.hasOwnProperty(property)) {
                 if (attributes.length === 1 && property === attributes[0]) {
@@ -247,13 +247,13 @@ export class Objekt {
      * @export
      * @param {!Function} next
      * @param {!Object=} opt_properties
-     * @param {!Array=} opt_attributes
+     * @param {!Array<string>=} opt_attributes
      * @return {undefined}
      */
     each(
         next: Function,
         opt_properties?: Object | undefined,
-        opt_attributes?: Array<any> | undefined,
+        opt_attributes?: Array<string> | undefined,
     ): void {
         const properties = opt_properties || this;
         const attributes = opt_attributes || [];
@@ -270,13 +270,13 @@ export class Objekt {
     }
     /**
      * @param {!Object} object
-     * @param {!Array} attributes
+     * @param {!Array<string>} attributes
      * @param {*} value
      * @return {!Object}
      */
     _attributesToObject(
         object: Object,
-        attributes: Array<any>,
+        attributes: Array<string>,
         value: any,
     ): Object {
         const lastAttribute = attributes.pop();
@@ -309,20 +309,20 @@ export class Objekt {
     }
     /**
      * @export
-     * @param {!Array} keys
+     * @param {!Array<string>} keys
      * @return {!Objekt}
      */
-    allowKeys(keys: Array<any>): Objekt {
+    allowKeys(keys: Array<string>): Objekt {
         return this.filterKeys(this, (key) => {
             return inArray(keys, key);
         });
     }
     /**
      * @export
-     * @param {!Array} keys
+     * @param {!Array<string>} keys
      * @return {!Objekt}
      */
-    denyKeys(keys: Array<any>): Objekt {
+    denyKeys(keys: Array<string>): Objekt {
         return this.filterKeys(this, (key) => {
             return !inArray(keys, key);
         });

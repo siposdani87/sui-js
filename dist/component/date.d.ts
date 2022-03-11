@@ -1,7 +1,6 @@
-import { Objekt } from '../core';
 import { Item } from '../core/item';
 /**
- * @typedef {format: string; calendar_type: string; clock_type: string; } DateConfig
+ * @typedef {{format: string; calendar_type: string; clock_type: string;}} DateConfig
  */
 declare type DateConfig = {
     format: string;
@@ -13,14 +12,14 @@ declare type DateConfig = {
  */
 export declare class Date {
     datetimeNode: Item;
-    options: Objekt;
+    options: any;
     types: {
         [key: string]: DateConfig;
     };
     config: DateConfig;
     calendarNode: Item;
     clockNode: Item;
-    value: string;
+    value: string | Object;
     /**
      * @param {!Item} node
      * @param {!Object} options

@@ -13,14 +13,14 @@ export declare type Params = {
  */
 export declare type Id = string | number;
 /**
- * @typedef {style: !Function, click: !Function} Action
+ * @typedef {{style: !Function, click: !Function}} Action
  */
 export declare type Action = {
     style: (item: Object) => [string, string, boolean, boolean];
     click: (item: Object) => void;
 };
 /**
- * @typedef {url: string, size: [number, number], origin: [number, number], anchor: [number, number], coords: Array<number>} IconOptions
+ * @typedef {{url: string, size: [number, number], origin: [number, number], anchor: [number, number], coords: Array<number>}} IconOptions
  */
 export declare type IconOptions = {
     url: string;

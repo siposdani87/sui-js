@@ -5,7 +5,7 @@ import { Objekt } from '../core';
  * @class
  * @extends {BaseTest}
  */
-export declare class ContainerTest extends BaseTest {
+export declare class CollectionTest extends BaseTest {
     collection: Collection<Objekt>;
     /**
      *

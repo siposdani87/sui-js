@@ -13,14 +13,26 @@ import { consoleInfo } from '../utils/log';
 import { Item, Promize } from '../core';
 import { IconOptions, Id } from '../utils';
 
-type MapLabel = Objekt;
-type MapText = Objekt;
+/**
+ * @typedef {!Object} MapText
+ */
+type MapLabel = any;
+
+/**
+ * @typedef {!Object} MapText
+ */
+type MapText = any;
+
+/**
+ * @typedef {{icon: string | google.maps.Icon | google.maps.Symbol, shape: google.maps.MarkerShape}} MarkerIcon
+ */
 type MarkerIcon = {
     icon: string | google.maps.Icon | google.maps.Symbol;
     shape: google.maps.MarkerShape;
 }
+
 /**
- * @typedef {latitude: number, longitude: number, weight: (string|undefined)} WeigthPoint
+ * @typedef {{latitude: number, longitude: number, weight: (string|undefined)}} WeigthPoint
  */
 type WeigthPoint = {
     latitude: number;
@@ -29,12 +41,11 @@ type WeigthPoint = {
 };
 
 /**
- * @deprecated
- * @param {!Object} marker
+ * @param {!google.maps.Marker} marker
  * @param {string} title
- * @return {!Object}
+ * @return {!MapLabel}
  */
-const _getMapLabel = (marker: object, title: string): object => {
+const _getMapLabel = (marker: google.maps.Marker, title: string): MapLabel => {
     // https://github.com/googlemaps/js-map-label/blob/gh-pages/src/maplabel.js
     // https://googlemaps.github.io/js-map-label/docs/reference.html
     const mapLabel = new window['MapLabel']({
@@ -52,11 +63,11 @@ const _getMapLabel = (marker: object, title: string): object => {
 /**
  * @export
  * @param {string} title
- * @param {!Object} position
- * @param {!Object} map
- * @return {!Object}
+ * @param {!google.maps.LatLng} position
+ * @param {!google.maps.Map} map
+ * @return {!MapText}
  */
-const getMapText = (title: string, position: object, map: object): object =>
+const _getMapText = (title: string, position: google.maps.LatLng, map: google.maps.Map): MapText =>
     new window['MapLabel']({
         text: title,
         strokeWeight: 2,
@@ -256,12 +267,12 @@ export class GoogleMap {
         this._addPointsToPolygon(polygonData, points);
 
         const latLng = this.getCenterOfPolygon(polygonData);
-        const text = getMapText(
+        const mapText = _getMapText(
             title,
             new google.maps.LatLng(latLng.latitude, latLng.longitude),
             this.map,
         );
-        polygonData.setRaw('_map_text', text);
+        polygonData.setRaw('_map_text', mapText);
 
         this.polygons.push(polygonData);
 
@@ -810,7 +821,7 @@ export class GoogleMap {
         marker.setMap(this.map);
         markerData.setRaw('_marker', marker);
 
-        const label = window['mapLabel'](marker, text);
+        const label = _getMapLabel(marker, text);
         markerData.setRaw('_map_label', label);
 
         this.markers.push(markerData);

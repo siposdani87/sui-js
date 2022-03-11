@@ -33,18 +33,18 @@ export class Collection {
      * @param {!Array<Object|T>} items
      * @return {undefined}
      */
-    load(items) {
-        each(items, (item) => {
-            this.push(item);
+    load(objects) {
+        each(objects, (object) => {
+            this.push(object);
         });
     }
     /**
      * @param {!Array<Object|T>} items
      * @return {undefined}
      */
-    reload(items) {
+    reload(objects) {
         this.clear();
-        this.load(items);
+        this.load(objects);
     }
     /**
      * @param {!Object|!T} object
@@ -65,7 +65,7 @@ export class Collection {
             const parent = !isUndefined(this.options.parent)
                 ? this.options.parent
                 : this;
-            return new this.Type(object, parent);
+            return (new this.Type(object, parent));
         }
         return object;
     }

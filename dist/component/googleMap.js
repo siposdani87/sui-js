@@ -5,10 +5,9 @@ import { Objekt } from '../core/objekt';
 import { Query } from '../core/query';
 import { consoleInfo } from '../utils/log';
 /**
- * @deprecated
- * @param {!Object} marker
+ * @param {!google.maps.Marker} marker
  * @param {string} title
- * @return {!Object}
+ * @return {!MapLabel}
  */
 const _getMapLabel = (marker, title) => {
     // https://github.com/googlemaps/js-map-label/blob/gh-pages/src/maplabel.js
@@ -25,11 +24,11 @@ const _getMapLabel = (marker, title) => {
 /**
  * @export
  * @param {string} title
- * @param {!Object} position
- * @param {!Object} map
- * @return {!Object}
+ * @param {!google.maps.LatLng} position
+ * @param {!google.maps.Map} map
+ * @return {!MapText}
  */
-const getMapText = (title, position, map) => new window['MapLabel']({
+const _getMapText = (title, position, map) => new window['MapLabel']({
     text: title,
     strokeWeight: 2,
     fontFamily: 'sans-serif',
@@ -200,8 +199,8 @@ export class GoogleMap {
         polygonData.setRaw('_polygon', polygon);
         this._addPointsToPolygon(polygonData, points);
         const latLng = this.getCenterOfPolygon(polygonData);
-        const text = getMapText(title, new google.maps.LatLng(latLng.latitude, latLng.longitude), this.map);
-        polygonData.setRaw('_map_text', text);
+        const mapText = _getMapText(title, new google.maps.LatLng(latLng.latitude, latLng.longitude), this.map);
+        polygonData.setRaw('_map_text', mapText);
         this.polygons.push(polygonData);
         this._bindEventsToPolygon(polygon, polygonData);
     }
@@ -657,7 +656,7 @@ export class GoogleMap {
         marker.setTitle(text);
         marker.setMap(this.map);
         markerData.setRaw('_marker', marker);
-        const label = window['mapLabel'](marker, text);
+        const label = _getMapLabel(marker, text);
         markerData.setRaw('_map_label', label);
         this.markers.push(markerData);
         this._bindEventsToMarker(marker, markerData);

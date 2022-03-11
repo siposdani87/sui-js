@@ -10,7 +10,7 @@ import { Year } from './year';
  */
 export class Calendar {
     calendarNode: Item;
-    options: Objekt;
+    options: any;
     maxDays: number;
     maxMonths: number;
     maxYears: number;
@@ -44,7 +44,7 @@ export class Calendar {
      * @return {undefined}
      */
     _setOptions(options: object): void {
-        this.options = new Objekt(options);
+        this.options = options;
     }
     /**
      * @private

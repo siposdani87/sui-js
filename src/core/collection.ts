@@ -49,18 +49,18 @@ export class Collection<T extends Object = Objekt> {
      * @param {!Array<Object|T>} items
      * @return {undefined}
      */
-    load(items: Array<Object | T>): void {
-        each(items, (item) => {
-            this.push(item);
+    load(objects: Array<Object | T>): void {
+        each(objects, (object) => {
+            this.push(object);
         });
     }
     /**
      * @param {!Array<Object|T>} items
      * @return {undefined}
      */
-    reload(items: Array<Object | T>): void {
+    reload(objects: Array<Object | T>): void {
         this.clear();
-        this.load(items);
+        this.load(objects);
     }
     /**
      * @param {!Object|!T} object
@@ -81,7 +81,7 @@ export class Collection<T extends Object = Objekt> {
             const parent = !isUndefined(this.options.parent)
                 ? this.options.parent
                 : this;
-            return new this.Type(object, parent) as T;
+            return (new this.Type(object, parent)) as T;
         }
         return object as T;
     }

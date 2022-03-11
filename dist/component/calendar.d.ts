@@ -1,11 +1,10 @@
-import { Objekt } from '../core';
 import { Item } from '../core/item';
 /**
  * @class
  */
 export declare class Calendar {
     calendarNode: Item;
-    options: Objekt;
+    options: any;
     maxDays: number;
     maxMonths: number;
     maxYears: number;
