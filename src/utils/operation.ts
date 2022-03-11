@@ -7,7 +7,7 @@ import { Item } from '../core/item';
  */
 export const typeCast = (value: any): any => {
     let result = value;
-    if (isString(value) && !contain(/** @type {string} */ value, ' ')) {
+    if (isString(value) && !contain(/** @type {string} */(value), ' ')) {
         const lowerCaseValue = value.toLowerCase();
         if (eq(lowerCaseValue, '')) {
             result = '';
@@ -78,9 +78,9 @@ export const format = (
 export const convert = (value: any, type: string): any => {
     let result = value;
     if (isNumber(value)) {
-        result = convertToNumber(/** @type {number} */ value, type);
+        result = convertToNumber(/** @type {number} */(value), type);
     } else if (isString(value)) {
-        result = convertToString(/** @type {string} */ value, type);
+        result = convertToString(/** @type {string} */(value), type);
     }
     return result;
 };
@@ -91,7 +91,10 @@ export const convert = (value: any, type: string): any => {
  * @param {string} type
  * @return {number|string}
  */
-export const convertToNumber = (value: number, type: string): number | string => {
+export const convertToNumber = (
+    value: number,
+    type: string,
+): number | string => {
     switch (type) {
         case 'string':
             return value.toString();
@@ -106,7 +109,10 @@ export const convertToNumber = (value: number, type: string): number | string =>
  * @param {string} type
  * @return {string|number}
  */
-export const convertToString = (value: string, type: string): string | number => {
+export const convertToString = (
+    value: string,
+    type: string,
+): string | number => {
     switch (type) {
         case 'integer':
             return parseInt(value, 10);
@@ -289,8 +295,8 @@ export const instanceOf = (value: any, obj: object): boolean =>
 export const each = (
     items: any,
     next: Function,
-    opt_start?: number | undefined,
-    opt_end?: number | undefined,
+    opt_start?: number,
+    opt_end?: number,
 ): void => {
     if (isArray(items)) {
         eachArray(/** @type {!Array} */ items, next, opt_start, opt_end);
@@ -419,7 +425,7 @@ export const contain = (str: string, subStr: string): boolean =>
  */
 export const inContainArray = (items: Array<any>, item: any): boolean => {
     let i = 0;
-    while (i < items.length && !contain(/** @type {string} */ item, items[i])) {
+    while (i < items.length && !contain(/** @type {string} */(item), items[i])) {
         i++;
     }
     return i < items.length;
@@ -465,13 +471,13 @@ export const remove = (items: Array<any>, item: any): void => {
  * @return {!Array|!Object|undefined}
  */
 export const copy = (
-    items: Array<any> | object,
-): Array<any> | object | undefined => {
+    items: Array<any> | Object,
+): Array<any> | Object | undefined => {
     let results;
     if (isArray(items)) {
-        results = copyArray(/** @type {!Array} */ items as Array<any>);
+        results = copyArray(/** @type {!Array} */(items as Array<any>));
     } else if (isObject(items)) {
-        results = copyObject(/** @type {!Object} */ items);
+        results = copyObject(/** @type {!Object} */(items as Object));
     }
     return results;
 };
@@ -491,7 +497,7 @@ export const copyArray = (items: Array<any>): Array<any> =>
  * @param {!Object} items
  * @return {!Object}
  */
-export const copyObject = (items: object): object => {
+export const copyObject = (items: Object): Object => {
     const results = {};
     eachObject(items, (item, key) => {
         results[key] = isObject(item) ? copyObject(item) : item;
@@ -520,6 +526,7 @@ export const isEmpty = (items: Array<any> | object): boolean => {
 
 /**
  * @export
+ * @deprecated
  * @param {!Array} args
  * @param {!Function} callback
  * @return {undefined}
@@ -577,7 +584,7 @@ export const pluckKeys = (
  * @return {undefined}
  */
 export const mdl = (
-    opt_node: (Item | Element) | undefined = null,
+    opt_node?: Item | Element,
     opt_forceDowngrade: boolean | undefined = true,
 ): void => {
     let element = opt_node || document;

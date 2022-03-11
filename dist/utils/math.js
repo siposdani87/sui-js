@@ -76,7 +76,7 @@ const decimalAdjust = (type, value, exp) => {
         return NaN;
     }
     // Shift
-    var parts = value.toString().split('e');
+    let parts = value.toString().split('e');
     value = Math[type](+(parts[0] + 'e' + (parts[1] ? +parts[1] - exp : -exp)));
     // Shift back
     parts = value.toString().split('e');

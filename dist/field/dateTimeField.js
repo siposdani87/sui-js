@@ -45,7 +45,7 @@ export class DateTimeField extends BaseField {
             return true;
         });
         const type = this.input.getAttribute('type');
-        const value = /** @type {string} */ this.getValue().toString();
+        const value = /** @type {string} */ (this).getValue().toString();
         this.datetimeNode = new Item('div');
         this.datetime = new Date(this.datetimeNode, {
             value: value,
@@ -97,7 +97,7 @@ export class DateTimeField extends BaseField {
      * @return {undefined}
      */
     setValue(value) {
-        this._setTag(/** @type {string} */ value);
+        this._setTag(/** @type {string} */ (value));
         this.input.setAttribute('value', value);
         this.input.trigger('change');
         this.datetime.setValue(value);

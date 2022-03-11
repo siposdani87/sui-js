@@ -142,7 +142,7 @@ export class Pager {
     }
     /**
      * @private
-     * @return {!Array}
+     * @return {!Array<Page>}
      */
     _getPagers() {
         const part = Math.floor((this.page - 1) / this.options.pager_num);

@@ -234,7 +234,7 @@ export class Form extends Collection<BaseField> {
         const errors = new Objekt(data);
         this.each((field) => {
             const name = field.getName();
-            const error = errors.get<String[]>(name, []);
+            const error = errors.get<string[]>(name, []);
             field.setError(error.join(', '), true);
         });
     }

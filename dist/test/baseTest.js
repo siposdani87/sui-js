@@ -12,7 +12,9 @@ export class BaseTest {
     /**
      * @return {void}
      */
-    init() { }
+    init() {
+        // empty function
+    }
     /**
      * @param {string} message
      * @param {!Object|string|number|boolean} object

@@ -1040,27 +1040,37 @@
   <script src="node_modules/material-design-lite/dist/material.min.js"></script>
   <script src="node_modules/moment/min/moment-with-locales.min.js"></script>
   <script src="vendors/mapLabel.min.js"></script>
-  <script type="module" src="dist/index.js"></script>
-  <script type="module">
-    import { Query } from './dist';
+  <script src="dist/sui.min.js"></script>
+  <script>
+    const createNamespace = (namespace) => {
+      Object.keys(window).forEach((attr) => {
+          if (attr.includes('$$')) {
+              const name = attr.split('$$', 2)[0];
+              window[namespace] = window[namespace] || {};
+              window[namespace][name] = window[attr];
+          }
+      });
+      return window[namespace];
+    }
+    const SUI = createNamespace('SUI');
 
-    var lightThemeNode = new Query('.light-theme').getItem()
-    var darkThemeNode = new Query('.dark-theme').getItem();
+    var lightThemeNode = new SUI.Query('.light-theme').getItem()
+    var darkThemeNode = new SUI.Query('.dark-theme').getItem();
     darkThemeNode.setHtml(lightThemeNode.getHtml(true).replace(/light-/g, 'dark-'));
 
-    config = new Objekt({
+    var config = new SUI.Objekt({
       app_id: 'sui-js',
       title: 'application.name',
       locale: 'en-GB',
       backend: window.location.origin,
-      production: releaseMode,
+      production: SUI.releaseMode,
       secret: '484xlj8y4jjöyéö57hk5ghrkleéjx',
     });
-    var app = new Application(config, coreRes);
+    var app = new SUI.Application(config, SUI.coreRes);
     app.run();
 
-    var form = new Form();
-    var tabPanel = new TabPanel(document, '.tab-panel', 'form-panel');
+    var form = new SUI.Form();
+    var tabPanel = new SUI.TabPanel(document, '.tab-panel', 'form-panel');
   </script>
 </body>
 

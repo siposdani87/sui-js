@@ -1,4 +1,5 @@
 import { isArray, isFunction, noop } from '../utils/operation';
+import { Deferred } from './deferred';
 import { Objekt } from './objekt';
 
 /**
@@ -9,7 +10,7 @@ export class Promize {
     /**
      * @param {!Object=} opt_options
      */
-    constructor(opt_options = {}) {
+    constructor(opt_options: object | undefined = {}) {
         const _self = this;
         _self.options = new Objekt({
             status: null,
@@ -24,7 +25,7 @@ export class Promize {
      * @param {*=} opt_data
      * @return {undefined}
      */
-    _resolve(opt_data) {
+    _resolve(opt_data: any | undefined): void {
         if (!isArray(opt_data)) {
             opt_data = [opt_data];
         }
@@ -43,7 +44,7 @@ export class Promize {
      * @param {*=} opt_data
      * @return {undefined}
      */
-    _reject(opt_data) {
+    _reject(opt_data: any | undefined): void {
         if (!isArray(opt_data)) {
             opt_data = opt_data ? [opt_data] : [];
         }
@@ -64,7 +65,11 @@ export class Promize {
      * @param {!Function=} opt_complete
      * @return {undefined}
      */
-    then(resolve, opt_reject?, opt_complete?) {
+    then(
+        resolve: Function,
+        opt_reject?: Function,
+        opt_complete?: Function,
+    ): void {
         const reject = opt_reject || noop();
         const complete = opt_complete || noop();
         switch (this.options.status) {
@@ -89,7 +94,7 @@ export class Promize {
      * @param {!Function=} opt_complete
      * @return {undefined}
      */
-    defer(defer, opt_complete?) {
+    defer(defer: Deferred, opt_complete?: Function): void {
         this.then(
             (...args) => {
                 defer.resolve(args);

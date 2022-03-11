@@ -8,9 +8,6 @@ import { consoleInfo } from '../utils/log';
  */
 export class Test {
     /**
-     */
-    constructor() { }
-    /**
      * @return {undefined}
      */
     run() {

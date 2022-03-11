@@ -6,7 +6,7 @@ import { Item } from '../core/item';
  */
 export const typeCast = (value) => {
     let result = value;
-    if (isString(value) && !contain(/** @type {string} */ value, ' ')) {
+    if (isString(value) && !contain(/** @type {string} */ (value), ' ')) {
         const lowerCaseValue = value.toLowerCase();
         if (eq(lowerCaseValue, '')) {
             result = '';
@@ -76,10 +76,10 @@ export const format = (str, opt_params = null, opt_prefix = '\\{', opt_postfix =
 export const convert = (value, type) => {
     let result = value;
     if (isNumber(value)) {
-        result = convertToNumber(/** @type {number} */ value, type);
+        result = convertToNumber(/** @type {number} */ (value), type);
     }
     else if (isString(value)) {
-        result = convertToString(/** @type {string} */ value, type);
+        result = convertToString(/** @type {string} */ (value), type);
     }
     return result;
 };
@@ -366,7 +366,7 @@ export const contain = (str, subStr) => str.indexOf(subStr) !== -1;
  */
 export const inContainArray = (items, item) => {
     let i = 0;
-    while (i < items.length && !contain(/** @type {string} */ item, items[i])) {
+    while (i < items.length && !contain(/** @type {string} */ (item), items[i])) {
         i++;
     }
     return i < items.length;
@@ -508,7 +508,7 @@ export const pluckKeys = (obj, condition) => {
  * @param {boolean=} opt_forceDowngrade
  * @return {undefined}
  */
-export const mdl = (opt_node = null, opt_forceDowngrade = true) => {
+export const mdl = (opt_node, opt_forceDowngrade = true) => {
     let element = opt_node || document;
     if (element instanceof Item) {
         element = element.getNode();

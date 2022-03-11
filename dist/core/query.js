@@ -1,4 +1,4 @@
-import { isFunction } from '../utils/operation';
+import { instanceOf, isFunction } from '../utils/operation';
 import { Collection } from './collection';
 import { Item } from './item';
 /**
@@ -10,11 +10,11 @@ import { Item } from './item';
 export class Query extends Collection {
     /**
      * @param {string} selector
-     * @param {!Element|!Item=} opt_element
+     * @param {!HTMLElement|!Item=} opt_element
      */
     constructor(selector, opt_element) {
         let element = opt_element || document;
-        if (isFunction(element.getNode)) {
+        if (instanceOf(element, Item)) {
             element = element.getNode();
         }
         const items = querySelector(selector, element);
@@ -36,7 +36,7 @@ export class Query extends Collection {
 }
 /**
  * @param {string} selector
- * @param {!Element|!Item} element
+ * @param {!HTMLElement} element
  * @return {!Array}
  */
 const querySelector = (selector, element) => {
@@ -48,10 +48,11 @@ const querySelector = (selector, element) => {
         nodeList = element.querySelectorAll(selector);
     }
     else if (selector.indexOf('#') === 0) {
-        if (!isFunction(element.getElementById)) {
-            element = document;
+        let docElement = element;
+        if (!isFunction(docElement.getElementById)) {
+            docElement = document;
         }
-        const node = element.getElementById(selector.replace('#', ''));
+        const node = docElement.getElementById(selector.replace('#', ''));
         nodeList.push(node);
     }
     else if (selector.indexOf('.') === 0) {

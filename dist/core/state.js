@@ -25,7 +25,7 @@ export class State {
      */
     _setRealUrls() {
         this.routes.each((route) => {
-            const url = /** @type {string} */ route.get('url');
+            const url = /** @type {string} */ (route).get('url');
             const realUrl = this._getRealUrl(url);
             route.set('realUrl', realUrl);
         });
@@ -133,7 +133,7 @@ export class State {
      * @return {undefined}
      */
     _parsePath(urlPath, successCallback, errorCallback) {
-        const path = urlPath[0] === '#' ? urlPath.substr(1) : urlPath;
+        const path = urlPath[0] === '#' ? urlPath.substring(1) : urlPath;
         const items = this.routes.getItems();
         let state = null;
         let params = null;
@@ -141,7 +141,7 @@ export class State {
         let i = 0;
         while (i < items.length && isNull(matches)) {
             state = items[i];
-            const stateUrl = /** @type {string} */ state.get('url');
+            const stateUrl = /** @type {string} */ (state).get('url');
             const router = new Router(stateUrl);
             matches = router.getMatches(path);
             params = router.parse(path);
@@ -165,17 +165,17 @@ export class State {
      */
     _setHistory(state, url, opt_params = {}, opt_overwrite = false, opt_force = false) {
         url = this.basePath === '#' ? this.basePath + url : url;
-        const template = /** @type {string} */ state.get('template');
+        const template = /** @type {string} */ (state).get('template');
         const router = new Router(template);
         state.set('templateUrl', router.stringify(opt_params));
         state.set('params', opt_params);
         if (opt_overwrite) {
             window.history.replaceState(state.get(), 
-            /** @type {string} */ state.get('title', ''), url);
+            /** @type {string} */ (state).get('title', ''), url);
         }
         else {
             window.history.pushState(state.get(), 
-            /** @type {string} */ state.get('title', ''), url);
+            /** @type {string} */ (state).get('title', ''), url);
         }
         this._setCurrent(state);
         if (!opt_overwrite) {
@@ -202,15 +202,17 @@ export class State {
         this._current = state;
     }
     /**
+     * @template T
      * @param {string=} opt_attribute
-     * @return {!Objekt|string}
+     * @return {!T}
      */
     getCurrent(opt_attribute) {
         return /** @type {!Objekt|string} */ this._current.get(opt_attribute);
     }
     /**
+     * @template T
      * @param {string=} opt_attribute
-     * @return {!Objekt|string}
+     * @return {!T}
      */
     getPrevious(opt_attribute) {
         return /** @type {!Objekt|string} */ this._previous.get(opt_attribute);
@@ -248,7 +250,7 @@ export class State {
         const state = this.routes.findById(id);
         let url = '';
         if (state) {
-            const stateUrl = /** @type {string} */ state.get('url');
+            const stateUrl = /** @type {string} */ (state).get('url');
             const router = new Router(stateUrl);
             url = router.stringify(opt_params);
         }
@@ -260,7 +262,7 @@ export class State {
      * @return {string}
      */
     resolveUrl(id, opt_params = undefined) {
-        const url = /** @type {string} */ this._resolveUrlWithState(id, opt_params)[0];
+        const url = /** @type {string} */ (this)._resolveUrlWithState(id, opt_params)[0];
         return this._getRealUrl(url);
     }
     /**
@@ -358,7 +360,7 @@ export class State {
      * @return {undefined}
      */
     setParam(name, value) {
-        const id = /** @type {string} */ this.getCurrent('id');
+        const id = /** @type {string} */ (this).getCurrent('id');
         const params = this.getParams();
         params.set(name, value);
         this.go(id, params, true);
@@ -376,7 +378,7 @@ export class State {
      */
     getParam(name, opt_defaultValue) {
         const params = this.getParams();
-        return /** @type {string} */ params.get(name, opt_defaultValue);
+        return /** @type {string} */ (params).get(name, opt_defaultValue);
     }
     /**
      * @return {undefined}

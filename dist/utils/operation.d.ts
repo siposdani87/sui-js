@@ -179,7 +179,7 @@ export declare const instanceOf: (value: any, obj: object) => boolean;
  * @param {number=} opt_end
  * @return {undefined}
  */
-export declare const each: (items: any, next: Function, opt_start?: number | undefined, opt_end?: number | undefined) => void;
+export declare const each: (items: any, next: Function, opt_start?: number, opt_end?: number) => void;
 /**
  * @export
  * @param {!Array} items
@@ -263,7 +263,7 @@ export declare const remove: (items: Array<any>, item: any) => void;
  * @param {!Array|!Object} items
  * @return {!Array|!Object|undefined}
  */
-export declare const copy: (items: Array<any> | object) => Array<any> | object | undefined;
+export declare const copy: (items: Array<any> | Object) => Array<any> | Object | undefined;
 /**
  * @export
  * @param {!Array} items
@@ -315,7 +315,7 @@ export declare const pluckKeys: (obj: object, condition: (_value: any, _key: str
  * @param {boolean=} opt_forceDowngrade
  * @return {undefined}
  */
-export declare const mdl: (opt_node?: (Item | Element) | undefined, opt_forceDowngrade?: boolean | undefined) => void;
+export declare const mdl: (opt_node?: Item | Element, opt_forceDowngrade?: boolean | undefined) => void;
 /**
  * @export
  * @param {string} type

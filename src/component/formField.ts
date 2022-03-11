@@ -61,7 +61,7 @@ export class FormField {
             ).getItems();
             const index =
                 selectedIndex !== null
-                    ? /** @type {number} */ selectedIndex
+                    ? /** @type {number} */(selectedIndex)
                     : inputs.length - 1;
             input = inputs[index];
 
@@ -83,7 +83,13 @@ export class FormField {
      * @param {!Form} form
      * @return {?BaseField}
      */
-    static _getField(input: Item, label: Item | null, error: Item | null, inputBlock: Item, form: Form): BaseField | null {
+    static _getField(
+        input: Item,
+        label: Item | null,
+        error: Item | null,
+        inputBlock: Item,
+        form: Form,
+    ): BaseField | null {
         input.addClass('init-field');
         const dataType = input.getData('type');
         const tagName = input.getTagName();

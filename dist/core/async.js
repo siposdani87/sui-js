@@ -40,7 +40,7 @@ export class Async {
      */
     parallelFunction(call, opt_args, opt_index) {
         const index = !isUndefined(opt_index)
-            ? /** @type {number} */ opt_index
+            ? /** @type {number} */ (opt_index)
             : this.call.counter++;
         this.call.results[index] = null;
         this._parallelWrapper(call, this.sum, true, index, opt_args);

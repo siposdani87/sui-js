@@ -19,7 +19,7 @@ export class Event {
      */
     set(name, callback) {
         if (isFunction(callback)) {
-            const events = this.eventStore.get<String[]>(name, []);
+            const events = this.eventStore.get<string[]>(name, []);
             events.push(callback);
             this.eventStore.set(name, events);
         }
@@ -30,7 +30,7 @@ export class Event {
      * @param {!Function} callback
      */
     remove(name, callback) {
-        const events = this.eventStore.get<String[]>(name, []);
+        const events = this.eventStore.get<string[]>(name, []);
         const index = events.indexOf(callback);
         if (index > -1) {
             events.splice(index, 1);
@@ -40,7 +40,7 @@ export class Event {
      * @param {string} name
      */
     pop(name) {
-        const events = this.eventStore.get<String[]>(name, []);
+        const events = this.eventStore.get<string[]>(name, []);
         events.pop();
         this.eventStore.set(name, events);
     }
@@ -50,10 +50,9 @@ export class Event {
      * @return {!Promize}
      */
     call(name, opt_args = []) {
-        const calls = /** @type {!Array<function()>} */ this.eventStore.get<Function[]>(
-            name,
-            [noop()],
-        );
+        const calls = /** @type {!Array<function()>} */ this.eventStore.get<
+            Function[]
+        >(name, [noop()]);
         const async = new Async();
         return async.serial(calls, opt_args);
     }
@@ -64,10 +63,9 @@ export class Event {
      * @return {!Promize}
      */
     override(name, args, callback) {
-        const calls = /** @type {!Array<function()>} */ this.eventStore.get<Function[]>(
-            name,
-            [callback],
-        );
+        const calls = /** @type {!Array<function()>} */ this.eventStore.get<
+            Function[]
+        >(name, [callback]);
         const async = new Async();
         return async.serial(calls, args);
     }

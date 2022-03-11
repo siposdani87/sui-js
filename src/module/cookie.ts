@@ -1,3 +1,5 @@
+/* eslint-disable no-useless-backreference */
+/* eslint-disable no-useless-escape */
 import { typeCast, each } from '../utils/operation';
 import { Objekt } from '../core/objekt';
 
@@ -71,7 +73,7 @@ export class Cookie {
                         (opt_expires as any) === Infinity
                             ? '; expires=Fri, 31 Dec 9999 23:59:59 GMT'
                             : '; max-age=' +
-                              /** @type {number} */ (opt_expires as any) *
+                              /** @type {number} */(opt_expires as any) *
                                   60 *
                                   60;
                     break;

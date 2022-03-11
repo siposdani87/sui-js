@@ -102,7 +102,8 @@ export class Module {
         });
         let extendCallback;
         let extendArgs;
-        if (dependency.opt_extendModule && this._modules[dependency.opt_extendModule]) {
+        if (dependency.opt_extendModule &&
+            this._modules[dependency.opt_extendModule]) {
             extendCallback =
                 this._modules[dependency.opt_extendModule].moduleCallback;
             extendArgs = [];
@@ -141,7 +142,7 @@ export class Module {
      */
     _isModule(value) {
         if (isString(value)) {
-            const lastCharacters = value.substr(value.length - 7);
+            const lastCharacters = value.substring(value.length - 7);
             return (eq(lastCharacters, 'Service') || eq(lastCharacters, 'Factory'));
         }
         return false;

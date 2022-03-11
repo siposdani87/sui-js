@@ -1,3 +1,4 @@
+import { Listener } from '../utils';
 /**
  * @class
  * @template T
@@ -80,9 +81,9 @@ export declare class Item<T extends HTMLElement = HTMLElement> {
      */
     toggleClass(cssClasses: Array<any> | string): void;
     /**
-     * @return {!Array}
+     * @return {!Array<string>}
      */
-    getClasses(): Array<any>;
+    getClasses(): Array<string>;
     /**
      * @param {string} attribute
      * @param {!Object|!Function|!Array|boolean|number|string|null|undefined=} opt_value
@@ -120,15 +121,15 @@ export declare class Item<T extends HTMLElement = HTMLElement> {
     /**
      * @private
      * @param {string} eventName
-     * @return {!Array}
+     * @return {!Array<Listener>}
      */
-    _getListenerToStore(eventName: string): Array<any>;
+    _getListenersFromStore(eventName: string): Array<Listener>;
     /**
      * @param {string} eventName
-     * @param {function(Element, Event)} listener
+     * @param {Listener} listener
      * @return {undefined}
      */
-    removeEventListener(eventName: keyof ElementEventMap, listener: (this: Element, ev: Event) => any): void;
+    removeEventListener(eventName: keyof ElementEventMap, listener: Listener): void;
     /**
      * @param {string} eventName
      * @return {undefined}

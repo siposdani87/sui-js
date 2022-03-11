@@ -1,4 +1,8 @@
 import { Objekt } from '../core/objekt';
+declare type Page = {
+    text: string;
+    page: number;
+};
 /**
  * @class
  */
@@ -6,7 +10,7 @@ export declare class Pager {
     pager: any;
     pagerStatistics: any;
     options: Objekt;
-    count: any;
+    count: number;
     pageNum: number;
     page: number;
     offset: number;
@@ -54,9 +58,9 @@ export declare class Pager {
     _drawPageNumbers(): void;
     /**
      * @private
-     * @return {!Array}
+     * @return {!Array<Page>}
      */
-    _getPagers(): any[];
+    _getPagers(): Page[];
     /**
      * @private
      * @return {undefined}
@@ -93,3 +97,4 @@ export declare class Pager {
      */
     eventAction(page: any): void;
 }
+export {};

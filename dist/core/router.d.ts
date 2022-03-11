@@ -1,3 +1,4 @@
+import { Params } from '../utils';
 /**
  * @class
  */
@@ -5,12 +6,12 @@ export declare class Router {
     route: string;
     param: RegExp;
     escape: RegExp;
-    paramNames: any[];
-    regex: any;
+    paramNames: string[];
+    regex: RegExp;
     /**
      * @param {string=} opt_route
      */
-    constructor(opt_route?: string);
+    constructor(opt_route?: string | undefined);
     /**
      * @private
      * @return {undefined}
@@ -20,21 +21,21 @@ export declare class Router {
      * @param {!Object=} opt_params
      * @return {string}
      */
-    stringify(opt_params?: {}): string;
+    stringify(opt_params?: Object | undefined): string;
     /**
      * @param {string} url
-     * @return {?Array}
+     * @return {?RegExpMatchArray}
      */
-    getMatches(url: any): any;
+    getMatches(url: string): RegExpMatchArray;
     /**
      * @param {string} url
      * @return {!Object}
      */
-    parse(url: any): {};
+    parse(url: string): Object;
     /**
      * @private
      * @param {string} url
-     * @return {!Object}
+     * @return {!Params}
      */
-    _parseParams(url: any): {};
+    _parseParams(url: string): Params;
 }

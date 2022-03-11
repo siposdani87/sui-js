@@ -11,9 +11,4 @@ export declare class AutoCompleteField extends BaseField {
      * @param {!Item} inputBlock
      */
     constructor(input: any, label: any, error: any, inputBlock: any);
-    /**
-     * @private
-     * @return {undefined}
-     */
-    _init(): void;
 }

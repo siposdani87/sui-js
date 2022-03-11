@@ -25,15 +25,5 @@ export class ContainerTest extends BaseTest {
                 text: 'text2',
             },
         ]);
-        this.testInit();
-        this.testLoad();
     }
-    /**
-     *
-     */
-    testInit() { }
-    /**
-     *
-     */
-    testLoad() { }
 }

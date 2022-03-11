@@ -12,11 +12,5 @@ export class AutoCompleteField extends BaseField {
      */
     constructor(input, label, error, inputBlock) {
         super(input, label, error, inputBlock);
-        this._init();
     }
-    /**
-     * @private
-     * @return {undefined}
-     */
-    _init() { }
 }

@@ -4,6 +4,11 @@ import { Objekt } from '../core/objekt';
 import { Query } from '../core/query';
 import { consoleWarn } from '../utils/log';
 
+type Page = {
+    text: string;
+    page: number;
+};
+
 /**
  * @class
  */
@@ -11,7 +16,7 @@ export class Pager {
     pager: any;
     pagerStatistics: any;
     options: Objekt;
-    count: any;
+    count: number;
     pageNum: number;
     page: number;
     offset: number;
@@ -155,9 +160,9 @@ export class Pager {
     }
     /**
      * @private
-     * @return {!Array}
+     * @return {!Array<Page>}
      */
-    _getPagers() {
+    _getPagers(): Page[] {
         const part = Math.floor((this.page - 1) / this.options.pager_num);
         const pagers = [];
         if (part > 0) {

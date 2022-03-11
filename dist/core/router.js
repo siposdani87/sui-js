@@ -18,13 +18,13 @@ export class Router {
      */
     _init() {
         this.paramNames = [];
-        this.regex = this.route;
-        this.regex = this.regex.replace(this.escape, '\\$&');
-        this.regex = this.regex.replace(this.param, (param, mode, paramName) => {
+        let route = this.route;
+        route = route.replace(this.escape, '\\$&');
+        route = route.replace(this.param, (param, mode, paramName) => {
             this.paramNames.push(paramName);
             return mode === ':' ? '([^/]*)' : '(.*)';
         });
-        this.regex = new RegExp('^' + this.regex + '$');
+        this.regex = new RegExp('^' + route + '$');
     }
     /**
      * @param {!Object=} opt_params
@@ -63,7 +63,7 @@ export class Router {
     }
     /**
      * @param {string} url
-     * @return {?Array}
+     * @return {?RegExpMatchArray}
      */
     getMatches(url) {
         const questionMark = url.indexOf('?');
@@ -91,13 +91,13 @@ export class Router {
     /**
      * @private
      * @param {string} url
-     * @return {!Object}
+     * @return {!Params}
      */
     _parseParams(url) {
         const params = {};
         const question = url.indexOf('?');
         if (question !== -1) {
-            const pieces = url.substr(question + 1).split('&');
+            const pieces = url.substring(question + 1).split('&');
             for (let i = 0; i < pieces.length; i++) {
                 const parts = pieces[i].replace('==', '&&').split('=');
                 if (parts.length < 2) {

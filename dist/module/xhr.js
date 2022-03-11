@@ -58,7 +58,7 @@ export class Xhr {
     /**
      * @private
      * @param {string} name
-     * @param {!Array} value
+     * @param {!XhrType} value
      * @return {undefined}
      */
     _setType(name, value) {
@@ -67,10 +67,10 @@ export class Xhr {
     /**
      * @private
      * @param {string} name
-     * @return {!Array}
+     * @return {!XhrType}
      */
     _getType(name) {
-        return this.types[name] || [];
+        return this.types[name] || ['', 'text', '*/*'];
     }
     /**
      * @private
@@ -78,7 +78,7 @@ export class Xhr {
      * @return {string}
      */
     _getContentType(name) {
-        return this._getType(name)[0] || '';
+        return this._getType(name)[0];
     }
     /**
      * @private
@@ -86,7 +86,7 @@ export class Xhr {
      * @return {string}
      */
     _getResponseType(name) {
-        return this._getType(name)[1] || 'text';
+        return this._getType(name)[1];
     }
     /**
      * @private
@@ -94,21 +94,24 @@ export class Xhr {
      * @return {string}
      */
     _getAccept(name) {
-        return this._getType(name)[2] || '*/*';
+        return this._getType(name)[2];
     }
     /**
      * @private
-     * @return {!Function}
+     * @return {(XMLHttpRequest, Event): any}
      */
     _onReadyStateChange() {
-        return () => {
+        return (_this, _ev) => {
             switch (this.http.readyState) {
                 case 0:
-                // request not initialized
+                    // request not initialized
+                    break;
                 case 1:
-                // server connection established
+                    // server connection established
+                    break;
                 case 2:
-                // request received
+                    // request received
+                    break;
                 case 3:
                     // processing request
                     break;
@@ -229,7 +232,7 @@ export class Xhr {
      * @param {*} obj
      * @param {string} key
      * @param {string} stringKey
-     * @return {!Array}
+     * @return {!Array<string>}
      */
     _parseObject(obj, key, stringKey) {
         stringKey += stringKey ? '[' + key + ']' : key;
@@ -311,7 +314,7 @@ export class Xhr {
                     }
                     else {
                         data = isString(data)
-                            ? JSON.parse(/** @type {string} */ data || 'null')
+                            ? JSON.parse(/** @type {string} */ (data) || 'null')
                             : data;
                         const object = new Objekt();
                         object.merge(data);

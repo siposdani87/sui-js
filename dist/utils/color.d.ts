@@ -3,9 +3,9 @@
  * @param {number} red
  * @param {number} green
  * @param {number} blue
- * @return {!Array}
+ * @return {!Array<number>}
  */
-export declare const convertRGBToHSV: (red: number, green: number, blue: number) => Array<any>;
+export declare const convertRGBToHSV: (red: number, green: number, blue: number) => [number, number, number];
 /**
  * @export
  * @param {number} red
@@ -17,23 +17,23 @@ export declare const convertRGBToHEX: (red: number, green: number, blue: number)
 /**
  * @export
  * @param {string} hexColor
- * @return {!Array}
+ * @return {!Array<number>}
  */
-export declare const convertHEXToHSV: (hexColor: string) => Array<any>;
+export declare const convertHEXToHSV: (hexColor: string) => [number, number, number];
 /**
  * @export
  * @param {string} hexColor
- * @return {!Array}
+ * @return {!Array<number, number, number>}
  */
-export declare const convertHEXToRGB: (hexColor: string) => Array<any>;
+export declare const convertHEXToRGB: (hexColor: string) => [number, number, number];
 /**
  * @export
  * @param {number} h
  * @param {number} s
  * @param {number} v
- * @return {!Array}
+ * @return {!Array<number>}
  */
-export declare const convertHSVToRGB: (h: number, s: number, v: number) => Array<any>;
+export declare const convertHSVToRGB: (h: number, s: number, v: number) => [number, number, number];
 /**
  * @export
  * @param {number} h

@@ -22,7 +22,7 @@ export class Canvas {
         this.canvasNode = /** @type {!Item} */ opt_selector;
         if (isString(opt_selector)) {
             this.canvasNode = new Query(
-            /** @type {string} */ opt_selector).getItem();
+            /** @type {string} */ (opt_selector)).getItem();
         }
         else if (isUndefined(opt_selector)) {
             this.canvasNode = new Item('canvas');

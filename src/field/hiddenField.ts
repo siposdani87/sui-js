@@ -27,9 +27,13 @@ export class HiddenField extends BaseField {
      * @override
      * @return {undefined}
      */
-    render() {}
+    render() {
+        // empty method
+    }
     /**
      * @override
      */
-    refresh() {}
+    refresh() {
+        // empty method
+    }
 }

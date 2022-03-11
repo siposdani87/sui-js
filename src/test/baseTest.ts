@@ -18,7 +18,9 @@ export class BaseTest {
     /**
      * @return {void}
      */
-    init(): void {}
+    init(): void {
+        // empty function
+    }
     /**
      * @param {string} message
      * @param {!Object|string|number|boolean} object

@@ -70,7 +70,7 @@ export class RangeField extends BaseField {
             '.mdl-slider__container',
             this.inputBlock,
         ).getItem();
-        const value = /** @type {string} */ this.getValue();
+        const value = /** @type {string} */(this).getValue();
         this.tooltip = new Tooltip(containerNode);
         this.tooltip.render(value);
     }

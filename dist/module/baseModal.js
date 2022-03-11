@@ -6,9 +6,6 @@ import { Query } from '../core/query';
  */
 export class BaseModal {
     /**
-     */
-    constructor() { }
-    /**
      * @protected
      * @return {undefined}
      */
@@ -182,12 +179,16 @@ export class BaseModal {
      * @private
      * @return {undefined}
      */
-    _actionMinimize() { }
+    _actionMinimize() {
+        // empty function
+    }
     /**
      * @private
      * @return {undefined}
      */
-    _actionMaximize() { }
+    _actionMaximize() {
+        // empty function
+    }
     /**
      * @param {number} width
      * @param {number} height

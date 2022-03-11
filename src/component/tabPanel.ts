@@ -51,13 +51,13 @@ export class TabPanel {
     _initTabs() {
         this.tabs = new Query('.tabs a', this.tabPanel);
         this.tabs.each((tab) => {
-            const panelId = tab.getAttribute('href').substr(1);
+            const panelId = tab.getAttribute('href').substring(1);
             if (this.tabs.size() === 1) {
                 tab.addClass('hidden');
             }
             tab.setData('panel', panelId);
             tab.setAttribute('href', 'javascript:void(0)');
-            tab.addEventListener('click', (_tabNode) => {
+            tab.addEventListener('click', () => {
                 this.setActive(panelId);
             });
         });
@@ -108,7 +108,7 @@ export class TabPanel {
     setActive(panelId) {
         const deferred = new Deferred();
         if (!isNull(panelId)) {
-            this._setActive(/** @type {string} */ panelId);
+            this._setActive(/** @type {string} */(panelId));
             const async = new Async();
             async
                 .serial([

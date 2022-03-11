@@ -21,9 +21,6 @@ export declare class BaseModal {
     eventCancel: () => any;
     modalWindow: any;
     /**
-     */
-    constructor();
-    /**
      * @protected
      * @return {undefined}
      */

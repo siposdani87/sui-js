@@ -8,16 +8,6 @@ import { generateId, md5 } from '../utils/coder';
  */
 export class Helper {
     /**
-     */
-    constructor() {
-        this._init();
-    }
-    /**
-     * @private
-     * @return {undefined}
-     */
-    _init() { }
-    /**
      * @param {string} name
      * @param {!Function=} opt_callback
      * @param {string=} opt_href

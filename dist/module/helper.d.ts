@@ -4,14 +4,6 @@ import { Item } from '../core/item';
  */
 export declare class Helper {
     /**
-     */
-    constructor();
-    /**
-     * @private
-     * @return {undefined}
-     */
-    _init(): void;
-    /**
      * @param {string} name
      * @param {!Function=} opt_callback
      * @param {string=} opt_href

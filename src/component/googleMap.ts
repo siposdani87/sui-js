@@ -784,7 +784,7 @@ export class GoogleMap {
         const options = new Objekt(this.markerOptions);
         options.merge(opt_options);
 
-        const text = /** @type {string} */ convert(title, 'string');
+        const text = /** @type {string} */(convert)(title, 'string');
         const marker = new google.maps.Marker(options.copy(true));
         marker.setPosition(new google.maps.LatLng(latitude, longitude));
         marker.setIcon(this.markerIcons[iconName].icon);
@@ -891,9 +891,11 @@ export class GoogleMap {
         each(this._cleanMarkerData(opt_markerData), (value, key) => {
             markerData.set(key, value);
         });
-        const text = /** @type {string} */ convert(title, 'string');
+        const text = /** @type {string} */(convert)(title, 'string');
         const marker =
-            /** @type {!google.maps.Marker} */ markerData.get<google.maps.Marker>('_marker');
+            /** @type {!google.maps.Marker} */ markerData.get<google.maps.Marker>(
+                '_marker',
+            );
         marker.setOptions(opt_options);
 
         const markerIcon = this.markerIcons[iconName];
@@ -935,7 +937,9 @@ export class GoogleMap {
             const mapLabel = markerData.get<MapLabel>('_map_label');
             mapLabel.setMap(null);
             const marker =
-                /** @type {!google.maps.Marker} */ markerData.get<google.maps.Marker>('_marker');
+                /** @type {!google.maps.Marker} */ markerData.get<google.maps.Marker>(
+                    '_marker',
+                );
             marker.setMap(null);
             this._unbindEventsToMarker(marker);
             this.markers.deleteById(id);
@@ -949,7 +953,9 @@ export class GoogleMap {
             const mapLabel = markerData.get<MapLabel>('_map_label');
             mapLabel.setMap(null);
             const marker =
-                /** @type {!google.maps.Marker} */ markerData.get<google.maps.Marker>('_marker');
+                /** @type {!google.maps.Marker} */ markerData.get<google.maps.Marker>(
+                    '_marker',
+                );
             marker.setMap(null);
             this._unbindEventsToMarker(marker);
         });
@@ -963,7 +969,9 @@ export class GoogleMap {
         const markerData = this.getMarker(markerId);
         if (markerData) {
             const marker =
-                /** @type {!google.maps.Marker} */ markerData.get<google.maps.Marker>('_marker');
+                /** @type {!google.maps.Marker} */ markerData.get<google.maps.Marker>(
+                    '_marker',
+                );
             const vertex = marker.getPosition();
             const latitude = vertex.lat();
             const longitude = vertex.lng();
@@ -978,9 +986,11 @@ export class GoogleMap {
     openInfoWindow(markerId, content) {
         const markerData = this.getMarker(markerId);
         const marker =
-            /** @type {!google.maps.Marker} */ markerData.get<google.maps.Marker>('_marker');
+            /** @type {!google.maps.Marker} */ markerData.get<google.maps.Marker>(
+                '_marker',
+            );
         const infoWindow = new google.maps.InfoWindow({
-            content: /** @type {string} */ convert(content, 'string'),
+            content: /** @type {string} */(convert)(content, 'string'),
         });
         infoWindow.open(this.map, marker);
     }

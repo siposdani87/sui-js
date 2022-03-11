@@ -21,7 +21,7 @@ export declare class Async {
      * @param {number=} opt_index
      * @return {undefined}
      */
-    parallelFunction(call: Function, opt_args?: (Array<any> | null), opt_index?: number): void;
+    parallelFunction(call: Function, opt_args?: Array<any> | null, opt_index?: number): void;
     /**
      * @private
      * @param {!Function} call
