@@ -26,7 +26,7 @@ export class Form extends Collection<BaseField> {
     constructor(dom: Item, opt_selector: string | undefined = 'form') {
         const formNode = new Query<HTMLFormElement>(opt_selector, dom).getItem();
         formNode.setAttribute('novalidate');
-        super([], FormField.handler, {
+        super([], FormField, {
             parent: formNode,
         });
         this.formNode = formNode;

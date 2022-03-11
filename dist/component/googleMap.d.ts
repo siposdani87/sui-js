@@ -3,12 +3,15 @@ import { Collection } from '../core/collection';
 import { Objekt } from '../core/objekt';
 import { Item, Promize } from '../core';
 import { IconOptions, Id } from '../utils';
+/**
+ * @typedef {{icon: string | google.maps.Icon | google.maps.Symbol, shape: google.maps.MarkerShape}} MarkerIcon
+ */
 declare type MarkerIcon = {
     icon: string | google.maps.Icon | google.maps.Symbol;
     shape: google.maps.MarkerShape;
 };
 /**
- * @typedef {latitude: number, longitude: number, weight: (string|undefined)} WeigthPoint
+ * @typedef {{latitude: number, longitude: number, weight: (string|undefined)}} WeigthPoint
  */
 declare type WeigthPoint = {
     latitude: number;

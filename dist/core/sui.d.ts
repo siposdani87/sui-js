@@ -16,16 +16,9 @@
  * governing permissions and limitations under the License.
  */
 /**
- * A component handler interface using the revealing module design pattern.
- * More details on this design pattern here
- *
- * @author Dániel Sipos
- */
-/**
  * @export
- * @define {boolean}
  */
-export declare const releaseMode = false;
+export declare const releaseMode: boolean;
 /**
  * @export
  * @struct

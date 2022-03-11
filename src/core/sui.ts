@@ -23,11 +23,19 @@
  * @author Dániel Sipos
  */
 
+declare var ES_PROD: boolean;
+
+ES_PROD = window['ES_PROD'] || false;
+
 /**
- * @export
  * @define {boolean}
  */
-export const releaseMode = false;
+const GC_PROD = false;
+
+/**
+ * @export
+ */
+export const releaseMode = ES_PROD || GC_PROD || false;
 
 /**
  * @export
@@ -45,7 +53,7 @@ export const SUI = {
 };
 
 /**
- *
+ * @export
  */
 SUI.coreRes = {
     // CORE

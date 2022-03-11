@@ -103,7 +103,7 @@ export class Objekt {
     /**
      * @private
      * @param {!Object|!Objekt} object
-     * @param {!Array} attributes
+     * @param {!Array<string>} attributes
      * @return {!Object|!Objekt|undefined}
      */
     _get(object, attributes) {
@@ -125,7 +125,7 @@ export class Objekt {
     }
     /**
      * @param {!Object|!Objekt} object
-     * @param {!Array} attributes
+     * @param {!Array<string>} attributes
      * @param {*} value
      * @return {undefined}
      */
@@ -184,7 +184,7 @@ export class Objekt {
     }
     /**
      * @param {!Object|!Objekt} object
-     * @param {!Array} attributes
+     * @param {!Array<string>} attributes
      * @return {undefined}
      */
     _remove(object, attributes) {
@@ -207,7 +207,7 @@ export class Objekt {
      * @export
      * @param {!Function} next
      * @param {!Object=} opt_properties
-     * @param {!Array=} opt_attributes
+     * @param {!Array<string>=} opt_attributes
      * @return {undefined}
      */
     each(next, opt_properties, opt_attributes) {
@@ -226,7 +226,7 @@ export class Objekt {
     }
     /**
      * @param {!Object} object
-     * @param {!Array} attributes
+     * @param {!Array<string>} attributes
      * @param {*} value
      * @return {!Object}
      */
@@ -260,7 +260,7 @@ export class Objekt {
     }
     /**
      * @export
-     * @param {!Array} keys
+     * @param {!Array<string>} keys
      * @return {!Objekt}
      */
     allowKeys(keys) {
@@ -270,7 +270,7 @@ export class Objekt {
     }
     /**
      * @export
-     * @param {!Array} keys
+     * @param {!Array<string>} keys
      * @return {!Objekt}
      */
     denyKeys(keys) {

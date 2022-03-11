@@ -5,7 +5,7 @@ import { Calendar } from './calendar';
 import { Clock } from './clock';
 
 /**
- * @typedef {format: string; calendar_type: string; clock_type: string; } DateConfig
+ * @typedef {{format: string; calendar_type: string; clock_type: string;}} DateConfig
  */
 type DateConfig = {
     format: string;
@@ -18,14 +18,14 @@ type DateConfig = {
  */
 export class Date {
     datetimeNode: Item;
-    options: Objekt;
+    options: any;
     types: {
         [key: string]: DateConfig;
     };
     config: DateConfig;
     calendarNode: Item;
     clockNode: Item;
-    value: string;
+    value: string | Object;
     /**
      * @param {!Item} node
      * @param {!Object} options
@@ -41,7 +41,7 @@ export class Date {
      * @return {undefined}
      */
     _setOptions(options: object): void {
-        this.options = new Objekt(options);
+        this.options = options;
     }
     /**
      * @private

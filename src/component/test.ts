@@ -1,4 +1,4 @@
-import { ContainerTest } from '../test/containerTest';
+import { CollectionTest } from '../test/collectionTest';
 import { DeferredTest } from '../test/deferredTest';
 import { ItemTest } from '../test/itemTest';
 import { ObjektTest } from '../test/objektTest';
@@ -13,7 +13,7 @@ export class Test {
      */
     run(): void {
         const tests = [
-            new ContainerTest(),
+            new CollectionTest(),
             new DeferredTest(),
             new ItemTest(),
             new ObjektTest(),

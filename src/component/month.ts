@@ -8,7 +8,7 @@ import { consoleWarn } from '../utils/log';
 export class Month {
     date: any;
     currentDate: any;
-    options: Objekt;
+    options: any;
     cssClasses: string[];
     /**
      * @param {string} date
@@ -27,7 +27,7 @@ export class Month {
      * @return {undefined}
      */
     _setOptions(options: object): void {
-        this.options = new Objekt(options);
+        this.options = options;
     }
     /**
      * @private

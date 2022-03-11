@@ -1,4 +1,3 @@
-import { Objekt } from '../core';
 import { Item } from '../core/item';
 /**
  * @class
@@ -6,7 +5,7 @@ import { Item } from '../core/item';
 export declare class Day {
     date: any;
     currentDate: any;
-    options: Objekt;
+    options: any;
     cssClasses: string[];
     /**
      * @param {string} date

@@ -6,9 +6,10 @@
     "declaration": true,
     "outDir": "dist",
     "types": ["google.maps"],
+    "typeRoots": ["node_modules/@types/*", "global.d.ts"],
     "lib": ["ESNext", "DOM"],
     "skipLibCheck": true,
-    
+    "noImplicitAny": false
   },
   "include": [
     "src/**/*"

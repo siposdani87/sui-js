@@ -6,13 +6,13 @@ import { Objekt } from '../core';
  * @class
  * @extends {BaseTest}
  */
-export class ContainerTest extends BaseTest {
+export class CollectionTest extends BaseTest {
     collection: Collection<Objekt>;
     /**
      *
      */
     constructor() {
-        super('Deferred');
+        super('Collection');
     }
     /**
      * @override

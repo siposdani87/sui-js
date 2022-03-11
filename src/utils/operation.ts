@@ -747,7 +747,7 @@ export const urlWithQueryString = (
  * @return {string}
  */
 export const getQueryString = (opt_params?: object | undefined): string => {
-    const queries = [];
+    const queries: string[] = [];
     each(opt_params, (param, key) => {
         if (isArray(param)) {
             eachArray(param, (value) => {

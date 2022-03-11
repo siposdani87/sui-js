@@ -7,7 +7,7 @@ import { consoleWarn } from '../utils/log';
  */
 export class Time {
     timeNode: Item;
-    options: Objekt;
+    options: any;
     pointerNode: Item;
     /**
      * @param {!Item} node
@@ -24,7 +24,7 @@ export class Time {
      * @return {undefined}
      */
     _setOptions(options: object): void {
-        this.options = new Objekt(options);
+        this.options = options;
     }
     /**
      * @private

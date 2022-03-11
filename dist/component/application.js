@@ -29,6 +29,7 @@ import { ServiceWorker } from '../module/serviceWorker';
 import { Header } from '../module/header';
 import { Event } from '../module/event';
 import { Scheduler } from '../module/scheduler';
+import { Window } from '../module/window';
 /**
  * @class
  * @export

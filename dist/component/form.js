@@ -17,7 +17,7 @@ export class Form extends Collection {
     constructor(dom, opt_selector = 'form') {
         const formNode = new Query(opt_selector, dom).getItem();
         formNode.setAttribute('novalidate');
-        super([], FormField.handler, {
+        super([], FormField, {
             parent: formNode,
         });
         this.formNode = formNode;

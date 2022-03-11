@@ -1,11 +1,10 @@
-import { Objekt } from '../core';
 import { Item } from '../core/item';
 /**
  * @class
  */
 export declare class Time {
     timeNode: Item;
-    options: Objekt;
+    options: any;
     pointerNode: Item;
     /**
      * @param {!Item} node
