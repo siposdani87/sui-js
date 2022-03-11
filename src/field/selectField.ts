@@ -350,7 +350,8 @@ export class SelectField extends BaseField {
         this.options.each((option) => {
             const id = option.get('id');
             const selected = inArray(ids, id);
-            const optionNode = option.get<Item<HTMLOptionElement>>('option_node');
+            const optionNode =
+                option.get<Item<HTMLOptionElement>>('option_node');
             const node = optionNode.getNode();
             if (selected) {
                 node.setAttribute('selected', 'selected');
@@ -368,7 +369,8 @@ export class SelectField extends BaseField {
     _getSelectedIds() {
         const ids = [];
         this.options.each((option) => {
-            const optionNode = option.get<Item<HTMLOptionElement>>('option_node');
+            const optionNode =
+                option.get<Item<HTMLOptionElement>>('option_node');
             const node = optionNode.getNode();
             if (node.selected) {
                 const id = option.get('id');

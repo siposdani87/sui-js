@@ -3,7 +3,7 @@
  * @param {number} red
  * @param {number} green
  * @param {number} blue
- * @return {!Array}
+ * @return {!Array<number>}
  */
 export const convertRGBToHSV = (red, green, blue) => {
     const rabs = red / 255;
@@ -54,7 +54,7 @@ export const convertRGBToHSV = (red, green, blue) => {
  */
 export const convertRGBToHEX = (red, green, blue) => {
     const colors = [red, green, blue];
-    let results = [];
+    const results = [];
     for (let i = 0; i < colors.length; i++) {
         if (colors[i] <= 16) {
             results[i] = '0' + colors[i].toString(16);
@@ -68,7 +68,7 @@ export const convertRGBToHEX = (red, green, blue) => {
 /**
  * @export
  * @param {string} hexColor
- * @return {!Array}
+ * @return {!Array<number>}
  */
 export const convertHEXToHSV = (hexColor) => {
     const [red, green, blue] = convertHEXToRGB(hexColor);
@@ -77,13 +77,13 @@ export const convertHEXToHSV = (hexColor) => {
 /**
  * @export
  * @param {string} hexColor
- * @return {!Array}
+ * @return {!Array<number, number, number>}
  */
 export const convertHEXToRGB = (hexColor) => {
     const hex = hexColor || '';
-    const red = parseInt(hex.substr(1, 2), 16);
-    const green = parseInt(hex.substr(3, 2), 16);
-    const blue = parseInt(hex.substr(5, 2), 16);
+    const red = parseInt(hex.substring(1, 3), 16);
+    const green = parseInt(hex.substring(3, 5), 16);
+    const blue = parseInt(hex.substring(5, 7), 16);
     return [red, green, blue];
 };
 /**
@@ -91,7 +91,7 @@ export const convertHEXToRGB = (hexColor) => {
  * @param {number} h
  * @param {number} s
  * @param {number} v
- * @return {!Array}
+ * @return {!Array<number>}
  */
 export const convertHSVToRGB = (h, s, v) => {
     const i = Math.floor(h * 6);
@@ -176,5 +176,5 @@ export const colorContrast = (hexColor, opt_diff = 0.5) => {
             colors[i] = 255;
         }
     }
-    return convertRGBToHEX.apply(null, colors);
+    return convertRGBToHEX(...colors);
 };

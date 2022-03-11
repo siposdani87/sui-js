@@ -27,7 +27,10 @@ export class Async {
      * @param {!Array=} opt_args
      * @return {!Promize}
      */
-    parallel(calls: Array<Function>, opt_args: Array<any> | undefined): Promize {
+    parallel(
+        calls: Array<Function>,
+        opt_args: Array<any> | undefined,
+    ): Promize {
         const deferred = new Deferred();
         if (calls.length === 0) {
             const results = opt_args || this.call.results;
@@ -53,9 +56,13 @@ export class Async {
      * @param {number=} opt_index
      * @return {undefined}
      */
-    parallelFunction(call: Function, opt_args?: (Array<any> | null), opt_index?: number): void {
+    parallelFunction(
+        call: Function,
+        opt_args?: Array<any> | null,
+        opt_index?: number,
+    ): void {
         const index = !isUndefined(opt_index)
-            ? /** @type {number} */ opt_index
+            ? /** @type {number} */(opt_index)
             : this.call.counter++;
         this.call.results[index] = null;
         this._parallelWrapper(call, this.sum, true, index, opt_args);
@@ -69,7 +76,13 @@ export class Async {
      * @param {?Array=} opt_args
      * @return {!Promize}
      */
-    _parallelWrapper(call: Function, length: number, allowEvent: boolean, index: number, opt_args?: (Array<any> | null) | undefined): Promize {
+    _parallelWrapper(
+        call: Function,
+        length: number,
+        allowEvent: boolean,
+        index: number,
+        opt_args?: (Array<any> | null) | undefined,
+    ): Promize {
         const deferred = new Deferred();
         const args = opt_args || [];
         const promise = call.apply(this, args);
@@ -127,7 +140,14 @@ export class Async {
      * @param {?Array=} opt_args
      * @return {!Promize}
      */
-    _parallelCaller(length: number | undefined, isError: boolean, result: any, allowEvent: boolean, index: number, opt_args?: (Array<any> | null) | undefined): Promize {
+    _parallelCaller(
+        length: number | undefined,
+        isError: boolean,
+        result: any,
+        allowEvent: boolean,
+        index: number,
+        opt_args?: (Array<any> | null) | undefined,
+    ): Promize {
         const deferred = new Deferred();
         this.call.results[index] = result;
         if (isError) {
@@ -172,7 +192,12 @@ export class Async {
      * @param {!Array} results
      * @return {undefined}
      */
-    setStatus(sum: number, isError: boolean, counter: number, results: Array<any>): void {
+    setStatus(
+        sum: number,
+        isError: boolean,
+        counter: number,
+        results: Array<any>,
+    ): void {
         this.call.sum = sum;
         this.call.isError = isError;
         this.call.counter = counter;
@@ -209,7 +234,11 @@ export class Async {
      * @param {!Array=} opt_args
      * @return {!Promize}
      */
-    _serialWrapper(calls: Array<Function>, index: number, opt_args?: Array<any> | undefined): Promize {
+    _serialWrapper(
+        calls: Array<Function>,
+        index: number,
+        opt_args?: Array<any> | undefined,
+    ): Promize {
         const deferred = new Deferred();
         const call = calls[index];
         const results = opt_args || this.call.results;
@@ -244,7 +273,12 @@ export class Async {
      * @param {!Array=} opt_args
      * @return {!Promize}
      */
-    _serialCaller(calls: Array<Function>, index: number, result: any, opt_args?: Array<any> | undefined): Promize {
+    _serialCaller(
+        calls: Array<Function>,
+        index: number,
+        result: any,
+        opt_args?: Array<any> | undefined,
+    ): Promize {
         const deferred = new Deferred();
         this.call.results[index] = result;
         const nextIndex = index + 1;

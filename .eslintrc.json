@@ -6,7 +6,7 @@
         "sourceType": "module",
         "ecmaFeatures": {
             "impliedStrict": true,
-            "jsx": true
+            "jsx": false
         }
     },
 	"extends": [
@@ -16,26 +16,25 @@
 	],
 	"plugins": [
 		"@typescript-eslint",
-    	"eslint-plugin-tsdoc"
+    	"eslint-plugin-tsdoc",
+		"prettier"
 		// "jsdoc"
 	],
 	"rules": {
 		"@typescript-eslint/no-explicit-any": "off",
 		"@typescript-eslint/ban-types": "off",
 		"@typescript-eslint/no-this-alias": "off",
-		"no-case-declarations": "off",
-		"no-prototype-builtins": "off",
-		//"linebreak-style": "off",
-		"max-len": "off",
-		"max-lines": "off",
-		// "camelcase": "off",
-		"no-unused-vars": [
+		"@typescript-eslint/no-unused-vars": [
 			"error",
 			{
 				"argsIgnorePattern": "^",
 				"varsIgnorePattern": "^_",
 				"ignoreRestSiblings": true
 			}
-		]
+		],
+		"no-case-declarations": "off",
+		"no-prototype-builtins": "off",
+		"max-len": "off",
+		"max-lines": "off"
 	}
 }

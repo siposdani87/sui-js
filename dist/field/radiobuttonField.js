@@ -59,7 +59,7 @@ export class RadiobuttonField extends BaseField {
             'mdl-js-ripple-effect',
         ]);
         const id = this.input.getId();
-        this.label.setFor(/** @type {string} */ id);
+        this.label.setFor(/** @type {string} */ (id));
         const labelText = this.label.getHtml(true);
         const spanLabel = new Item('span');
         spanLabel.addClass('mdl-radio__label');
@@ -77,7 +77,7 @@ export class RadiobuttonField extends BaseField {
      */
     refresh() {
         const dataLabelText = 
-        /** @type {string} */ this.label.getAttribute('data-label');
+        /** @type {string} */ (this).label.getAttribute('data-label');
         if (dataLabelText) {
             const labelText = this._getLabelRequiredText(dataLabelText);
             this.dataLabelNode.setHtml(labelText);

@@ -19,10 +19,10 @@ import { Item } from './item';
  * @typedef {{moduleInjections: Array, moduleCallback: !Function, opt_extendModule: Object=}} Dependency
  */
 type Dependency = {
-    moduleInjections: any[],
-    moduleCallback: Function,
-    opt_extendModule?: any,
-}
+    moduleInjections: any[];
+    moduleCallback: Function;
+    opt_extendModule?: any;
+};
 
 /**
  * @param {!Function} baseModule
@@ -53,7 +53,10 @@ const invoke = (
     };
 
     if (opt_extendModule) {
-        ES5Class.prototype = merge(opt_extendModule.prototype, baseModule.prototype);
+        ES5Class.prototype = merge(
+            opt_extendModule.prototype,
+            baseModule.prototype,
+        );
         ES5Class.prototype.constructor = ES5Class;
     } else {
         ES5Class.prototype = baseModule.prototype;
@@ -114,7 +117,11 @@ export class Module {
      * @param {!Function} moduleCallback
      * @return {undefined}
      */
-    add(name: string, moduleInjections: Array<any>, moduleCallback: Function): void {
+    add(
+        name: string,
+        moduleInjections: Array<any>,
+        moduleCallback: Function,
+    ): void {
         this._modules[name] = this._getDependencies(
             moduleInjections,
             moduleCallback,
@@ -127,7 +134,11 @@ export class Module {
      * @param {string=} opt_extendModule
      * @return {!Object}
      */
-    _getDependencies(moduleInjections: Array<any>, moduleCallback: Function, opt_extendModule?: string | undefined): Dependency {
+    _getDependencies(
+        moduleInjections: Array<any>,
+        moduleCallback: Function,
+        opt_extendModule?: string | undefined,
+    ): Dependency {
         if (opt_extendModule) {
             moduleInjections.push(opt_extendModule);
         }
@@ -150,7 +161,10 @@ export class Module {
 
         let extendCallback;
         let extendArgs;
-        if (dependency.opt_extendModule && this._modules[dependency.opt_extendModule]) {
+        if (
+            dependency.opt_extendModule &&
+            this._modules[dependency.opt_extendModule]
+        ) {
             extendCallback =
                 this._modules[dependency.opt_extendModule].moduleCallback;
             extendArgs = [];
@@ -198,7 +212,7 @@ export class Module {
      */
     _isModule(value: string): boolean {
         if (isString(value)) {
-            const lastCharacters = value.substr(value.length - 7);
+            const lastCharacters = value.substring(value.length - 7);
             return (
                 eq(lastCharacters, 'Service') || eq(lastCharacters, 'Factory')
             );
@@ -297,7 +311,10 @@ export class Module {
      * @param {boolean=} opt_force
      * @return {undefined}
      */
-    _handleStateChange(currentState: Objekt, opt_force: boolean | undefined = false): void {
+    _handleStateChange(
+        currentState: Objekt,
+        opt_force: boolean | undefined = false,
+    ): void {
         this.eventStateChange(currentState).then(
             () => {
                 const template = currentState.get('template');

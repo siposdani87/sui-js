@@ -1,3 +1,5 @@
+/* eslint-disable no-useless-backreference */
+/* eslint-disable no-useless-escape */
 import { typeCast, each } from '../utils/operation';
 import { Objekt } from '../core/objekt';
 /**

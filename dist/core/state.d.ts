@@ -5,7 +5,7 @@ import { Objekt } from './objekt';
  */
 export declare class State {
     _current: Objekt;
-    _previous: any;
+    _previous: Objekt;
     routes: Collection<Objekt>;
     basePath: string;
     options: Objekt;
@@ -13,7 +13,7 @@ export declare class State {
      * @param {!Array} routes
      * @param {!Object} options
      */
-    constructor(routes: any, options: any);
+    constructor(routes: Array<Object>, options: object);
     /**
      * @private
      * @return {undefined}
@@ -23,13 +23,13 @@ export declare class State {
      * @private
      * @return {string}
      */
-    _getUrlPrefix(): "" | "/#";
+    _getUrlPrefix(): string;
     /**
      * @private
      * @param {string} url
      * @return {string}
      */
-    _getRealUrl(url: any): string;
+    _getRealUrl(url: string): string;
     /**
      * @private
      * @return {undefined}
@@ -40,7 +40,7 @@ export declare class State {
      * @param {!Object} options
      * @return {undefined}
      */
-    _setOptions(options: any): void;
+    _setOptions(options: object): void;
     /**
      * @private
      * @return {undefined}
@@ -67,7 +67,7 @@ export declare class State {
      * @param {!Function} errorCallback
      * @return {undefined}
      */
-    _parsePath(urlPath: any, successCallback: any, errorCallback: any): void;
+    _parsePath(urlPath: string, successCallback: Function, errorCallback: Function): void;
     /**
      * @private
      * @param {!Objekt} state
@@ -77,29 +77,31 @@ export declare class State {
      * @param {boolean=} opt_force
      * @return {undefined}
      */
-    _setHistory(state: any, url: any, opt_params?: {}, opt_overwrite?: boolean, opt_force?: boolean): void;
+    _setHistory(state: Objekt, url: string, opt_params?: object | undefined, opt_overwrite?: boolean | undefined, opt_force?: boolean | undefined): void;
     /**
      * @private
      * @param {boolean=} opt_force
      * @return {undefined}
      */
-    _triggerChange(opt_force?: boolean): void;
+    _triggerChange(opt_force?: boolean | undefined): void;
     /**
      * @private
      * @param {!Objekt} state
      * @return {undefined}
      */
-    _setCurrent(state: any): void;
+    _setCurrent(state: Objekt): void;
     /**
+     * @template T
      * @param {string=} opt_attribute
-     * @return {!Objekt|string}
+     * @return {!T}
      */
-    getCurrent<T>(opt_attribute?: any): T;
+    getCurrent<T>(opt_attribute?: string | undefined): T;
     /**
+     * @template T
      * @param {string=} opt_attribute
-     * @return {!Objekt|string}
+     * @return {!T}
      */
-    getPrevious(opt_attribute?: any): any;
+    getPrevious<T>(opt_attribute?: string | undefined): T;
     /**
      * @param {string} id
      * @param {!Object=} opt_params
@@ -107,39 +109,39 @@ export declare class State {
      * @param {boolean=} opt_force
      * @return {undefined}
      */
-    go(id: any, opt_params?: any, opt_overwrite?: boolean, opt_force?: boolean): void;
+    go(id: string, opt_params?: object | undefined, opt_overwrite?: boolean | undefined, opt_force?: boolean | undefined): void;
     /**
      * @private
      * @param {string} id
      * @param {!Object=} opt_params
      * @return {!Array}
      */
-    _resolveUrlWithState(id: any, opt_params?: any): (string | Objekt)[];
+    _resolveUrlWithState(id: string, opt_params?: object | undefined): Array<any>;
     /**
      * @param {string} id
      * @param {!Object=} opt_params
      * @return {string}
      */
-    resolveUrl(id: any, opt_params?: any): string;
+    resolveUrl(id: string, opt_params?: object | undefined): string;
     /**
      * @param {!Object} state
      * @param {boolean=} opt_overwrite
      * @param {boolean=} opt_force
      * @return {undefined}
      */
-    goState(state: any, opt_overwrite?: boolean, opt_force?: boolean): void;
+    goState(state: object, opt_overwrite?: boolean | undefined, opt_force?: boolean | undefined): void;
     /**
      * @param {boolean=} opt_overwrite
      * @param {boolean=} opt_force
      * @return {undefined}
      */
-    goHome(opt_overwrite?: boolean, opt_force?: boolean): void;
+    goHome(opt_overwrite?: boolean | undefined, opt_force?: boolean | undefined): void;
     /**
      * @param {boolean=} opt_overwrite
      * @param {boolean=} opt_force
      * @return {undefined}
      */
-    goRoot(opt_overwrite?: boolean, opt_force?: boolean): void;
+    goRoot(opt_overwrite?: boolean | undefined, opt_force?: boolean | undefined): void;
     /**
      * @param {string} id
      * @param {!Object=} opt_params
@@ -147,7 +149,7 @@ export declare class State {
      * @param {boolean=} opt_force
      * @return {undefined}
      */
-    goBack(id: any, opt_params: any, opt_overwrite?: boolean, opt_force?: boolean): void;
+    goBack(id: string, opt_params: object | undefined, opt_overwrite?: boolean | undefined, opt_force?: boolean | undefined): void;
     /**
      * @return {undefined}
      */
@@ -157,7 +159,7 @@ export declare class State {
      * @param {boolean=} opt_inTab
      * @return {undefined}
      */
-    redirect(url: any, opt_inTab?: boolean): void;
+    redirect(url: string, opt_inTab?: boolean | undefined): void;
     /**
      * @return {undefined}
      */
@@ -168,22 +170,22 @@ export declare class State {
      * @param {boolean=} opt_force
      * @return {undefined}
      */
-    eventChange(currentState: any, previousState: any, opt_force?: boolean): void;
+    eventChange(currentState: Objekt, previousState: Objekt, opt_force?: boolean | undefined): void;
     /**
      * @return {!Collection}
      */
-    getRoutes(): Collection<Objekt>;
+    getRoutes(): Collection;
     /**
      * @param {!Object} properties
      * @return {undefined}
      */
-    setParams(properties: any): void;
+    setParams(properties: object): void;
     /**
      * @param {string} name
      * @param {*} value
      * @return {undefined}
      */
-    setParam(name: any, value: any): void;
+    setParam(name: string, value: any): void;
     /**
      * @return {!Objekt}
      */
@@ -193,7 +195,7 @@ export declare class State {
      * @param {*=} opt_defaultValue
      * @return {string}
      */
-    getParam(name: any, opt_defaultValue: any): string;
+    getParam(name: string, opt_defaultValue?: any): string;
     /**
      * @return {undefined}
      */
@@ -202,13 +204,13 @@ export declare class State {
      * @param {boolean=} opt_force
      * @return {undefined}
      */
-    refresh(opt_force?: boolean): void;
+    refresh(opt_force?: boolean | undefined): void;
     /**
      * @return {!Array}
      */
-    getRoot(): any[];
+    getRoot(): Array<any>;
     /**
      * @return {!Array}
      */
-    getHome(): any[];
+    getHome(): Array<any>;
 }

@@ -1,4 +1,4 @@
-import { isFunction } from '../utils/operation';
+import { instanceOf, isFunction } from '../utils/operation';
 import { Collection } from './collection';
 import { Item } from './item';
 
@@ -8,18 +8,20 @@ import { Item } from './item';
  * @extends {Collection}
  * @template T
  */
-export class Query<T extends HTMLElement = HTMLElement> extends Collection<Item<T>> {
+export class Query<T extends HTMLElement = HTMLElement> extends Collection<
+    Item<T>
+> {
     /**
      * @param {string} selector
-     * @param {!Element|!Item=} opt_element
+     * @param {!HTMLElement|!Item=} opt_element
      */
-    constructor(selector, opt_element?) {
-        let element = opt_element || document;
-        if (isFunction(element.getNode)) {
-            element = element.getNode();
+    constructor(selector: string, opt_element?: HTMLElement | Item) {
+        let element = opt_element || (document as any as HTMLElement);
+        if (instanceOf(element, Item)) {
+            element = (element as Item).getNode();
         }
 
-        const items = querySelector(selector, element);
+        const items = querySelector(selector, element as HTMLElement);
         super(items, Item, {
             parent: null,
         });
@@ -28,7 +30,7 @@ export class Query<T extends HTMLElement = HTMLElement> extends Collection<Item<
      * @export
      * @return {!Item}
      */
-    getItem() {
+    getItem(): Item {
         let firstNode = /** @type {!Item} */ this.get(0);
         if (!firstNode) {
             firstNode = new Item(null);
@@ -39,11 +41,11 @@ export class Query<T extends HTMLElement = HTMLElement> extends Collection<Item<
 
 /**
  * @param {string} selector
- * @param {!Element|!Item} element
+ * @param {!HTMLElement} element
  * @return {!Array}
  */
-const querySelector = (selector, element) => {
-    let nodeList = [];
+const querySelector = (selector: string, element: HTMLElement): Array<any> => {
+    let nodeList: any = [];
     if (
         selector.indexOf(' ') !== -1 ||
         selector.split('.').length - 1 > 1 ||
@@ -52,10 +54,11 @@ const querySelector = (selector, element) => {
     ) {
         nodeList = element.querySelectorAll(selector);
     } else if (selector.indexOf('#') === 0) {
-        if (!isFunction(element.getElementById)) {
-            element = document;
+        let docElement = element as any as Document;
+        if (!isFunction(docElement.getElementById)) {
+            docElement = document;
         }
-        const node = element.getElementById(selector.replace('#', ''));
+        const node = docElement.getElementById(selector.replace('#', ''));
         nodeList.push(node);
     } else if (selector.indexOf('.') === 0) {
         nodeList = element.getElementsByClassName(selector.replace('.', ''));

@@ -26,7 +26,11 @@ export class Collection<T extends Object = Objekt> {
      * @param {!Function=} opt_type
      * @param {!Object=} opt_options
      */
-    constructor(opt_items: Array<any> | undefined = [], opt_type: any = Objekt, opt_options: Object = {}) {
+    constructor(
+        opt_items: Array<any> | undefined = [],
+        opt_type: any = Objekt,
+        opt_options: Object = {},
+    ) {
         this.Type = opt_type;
         this._setOptions(opt_options);
         this.items = [];
@@ -49,7 +53,7 @@ export class Collection<T extends Object = Objekt> {
      * @param {!Array<Object|T>} items
      * @return {undefined}
      */
-    load(items: Array<Object|T>): void {
+    load(items: Array<Object | T>): void {
         each(items, (item) => {
             this.push(item);
         });
@@ -58,7 +62,7 @@ export class Collection<T extends Object = Objekt> {
      * @param {!Array<Object|T>} items
      * @return {undefined}
      */
-    reload(items: Array<Object|T>): void {
+    reload(items: Array<Object | T>): void {
         this.clear();
         this.load(items);
     }
@@ -127,7 +131,11 @@ export class Collection<T extends Object = Objekt> {
      * @param {!Array<T>=} opt_items
      * @return {!Array<T>}
      */
-    iterator(callback: (_item: T) => any, next: (_item: T, _index: number) => any, opt_items?: Array<T> | undefined): Array<T> {
+    iterator(
+        callback: (_item: T) => any,
+        next: (_item: T, _index: number) => any,
+        opt_items?: Array<T> | undefined,
+    ): Array<T> {
         opt_items = opt_items || this.items;
         const results = [];
         each(opt_items, (item, index) => {
@@ -153,7 +161,10 @@ export class Collection<T extends Object = Objekt> {
      * @param {string=} opt_attribute
      * @return {T|*}
      */
-    get<K = T>(index: number, opt_attribute?: string | undefined): T | K | null {
+    get<K = T>(
+        index: number,
+        opt_attribute?: string | undefined,
+    ): T | K | null {
         if (index >= 0 && index < this.items.length) {
             const item = this.items[index];
             if (item && opt_attribute && instanceOf(item, Objekt)) {

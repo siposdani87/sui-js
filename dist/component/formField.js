@@ -50,7 +50,7 @@ export class FormField {
         if (eq(tagName, 'div')) {
             const inputs = new Query('input, textarea, select', inputBlock).getItems();
             const index = selectedIndex !== null
-                ? /** @type {number} */ selectedIndex
+                ? /** @type {number} */ (selectedIndex)
                 : inputs.length - 1;
             input = inputs[index];
             label = new Query('label', inputBlock).getItem();

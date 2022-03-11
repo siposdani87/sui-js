@@ -169,9 +169,9 @@ export class Table {
             iconsContainerNode.appendChild(iconDown);
         }
         const headerTitle = 
-        /** @type {string} */ headerNode.getAttribute('title');
+        /** @type {string} */ (headerNode).getAttribute('title');
         const headerDesc = 
-        /** @type {string} */ headerNode.getAttribute('desc');
+        /** @type {string} */ (headerNode).getAttribute('desc');
         if (headerTitle || headerDesc) {
             const iconInfo = new Item('em');
             if (headerTitle) {
@@ -397,7 +397,7 @@ export class Table {
         eachArray(items, (item) => {
             if (!instanceOf(item, Item)) {
                 const dataNode = new Item('span');
-                dataNode.setHtml(/** @type {string} */ item);
+                dataNode.setHtml(/** @type {string} */ (item));
                 item = dataNode;
             }
             parentNode.appendChild(/** @type {!Item} */ item);
@@ -501,7 +501,7 @@ export class Table {
             }
             const iconNode = new Item('em');
             iconNode.addClass('material-icons');
-            iconNode.setHtml(/** @type {string} */ icon);
+            iconNode.setHtml(/** @type {string} */ (icon));
             buttonNode.appendChild(iconNode);
         }
     }

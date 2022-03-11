@@ -25,9 +25,6 @@ export class BaseModal {
     eventCancel: () => any;
     modalWindow: any;
     /**
-     */
-    constructor() {}
-    /**
      * @protected
      * @return {undefined}
      */
@@ -210,12 +207,16 @@ export class BaseModal {
      * @private
      * @return {undefined}
      */
-    _actionMinimize() {}
+    _actionMinimize() {
+        // empty function
+    }
     /**
      * @private
      * @return {undefined}
      */
-    _actionMaximize() {}
+    _actionMaximize() {
+        // empty function
+    }
     /**
      * @param {number} width
      * @param {number} height

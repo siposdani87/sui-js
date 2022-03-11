@@ -29,7 +29,8 @@ export class Document {
     _init() {
         this.document = document;
         this.document.addEventListener('click', (event) => {
-            const target = new Item(/** @type {!Element} */ event.target);
+            const target = new Item(
+            /** @type {!Element} */ event.target);
             this.eventClick(target, event);
         });
     }

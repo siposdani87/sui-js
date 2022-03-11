@@ -7,7 +7,6 @@ import { Collection } from '../core/collection';
  */
 export class ContainerTest extends BaseTest {
     container: any;
-
     /**
      *
      */
@@ -28,16 +27,5 @@ export class ContainerTest extends BaseTest {
                 text: 'text2',
             },
         ]);
-
-        this.testInit();
-        this.testLoad();
     }
-    /**
-     *
-     */
-    testInit() {}
-    /**
-     *
-     */
-    testLoad() {}
 }

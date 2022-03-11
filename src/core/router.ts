@@ -1,3 +1,4 @@
+import { Params } from '../utils';
 import {
     isArray,
     eachArray,
@@ -14,12 +15,12 @@ export class Router {
     route: string;
     param: RegExp;
     escape: RegExp;
-    paramNames: any[];
-    regex: any;
+    paramNames: string[];
+    regex: RegExp;
     /**
      * @param {string=} opt_route
      */
-    constructor(opt_route = '') {
+    constructor(opt_route: string | undefined = '') {
         this.route = opt_route;
         this.param = new RegExp('([:*])(\\w+)', 'g');
         this.escape = new RegExp('[-[]{}()+?.,]', 'g');
@@ -30,24 +31,21 @@ export class Router {
      * @private
      * @return {undefined}
      */
-    _init() {
+    _init(): void {
         this.paramNames = [];
-        this.regex = this.route;
-        this.regex = this.regex.replace(this.escape, '\\$&');
-        this.regex = this.regex.replace(
-            this.param,
-            (param, mode, paramName) => {
-                this.paramNames.push(paramName);
-                return mode === ':' ? '([^/]*)' : '(.*)';
-            },
-        );
-        this.regex = new RegExp('^' + this.regex + '$');
+        let route = this.route;
+        route = route.replace(this.escape, '\\$&');
+        route = route.replace(this.param, (param, mode, paramName) => {
+            this.paramNames.push(paramName);
+            return mode === ':' ? '([^/]*)' : '(.*)';
+        });
+        this.regex = new RegExp('^' + route + '$');
     }
     /**
      * @param {!Object=} opt_params
      * @return {string}
      */
-    stringify(opt_params = {}) {
+    stringify(opt_params: Object | undefined = {}): string {
         let route = this.route;
         for (const key in opt_params) {
             if (opt_params.hasOwnProperty(key)) {
@@ -79,9 +77,9 @@ export class Router {
     }
     /**
      * @param {string} url
-     * @return {?Array}
+     * @return {?RegExpMatchArray}
      */
-    getMatches(url) {
+    getMatches(url: string): RegExpMatchArray {
         const questionMark = url.indexOf('?');
         if (questionMark !== -1) {
             url = url.substring(0, questionMark);
@@ -92,7 +90,7 @@ export class Router {
      * @param {string} url
      * @return {!Object}
      */
-    parse(url) {
+    parse(url: string): Object {
         const matches = this.getMatches(url);
         if (!matches) {
             return {};
@@ -107,13 +105,13 @@ export class Router {
     /**
      * @private
      * @param {string} url
-     * @return {!Object}
+     * @return {!Params}
      */
-    _parseParams(url) {
+    _parseParams(url: string): Params {
         const params = {};
         const question = url.indexOf('?');
         if (question !== -1) {
-            const pieces = url.substr(question + 1).split('&');
+            const pieces = url.substring(question + 1).split('&');
             for (let i = 0; i < pieces.length; i++) {
                 const parts = pieces[i].replace('==', '&&').split('=');
                 if (parts.length < 2) {

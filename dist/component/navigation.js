@@ -39,14 +39,14 @@ export class Navigation {
      * @return {undefined}
      */
     add(item) {
-        const id = /** @type {string} */ item.get('id');
-        const image = /** @type {string} */ item.get('image');
-        const icon = /** @type {string} */ item.get('icon');
-        const title = /** @type {string} */ item.get('title');
-        const counter = /** @type {string} */ item.get('counter');
-        const href = /** @type {string} */ item.get('href');
+        const id = /** @type {string} */ (item).get('id');
+        const image = /** @type {string} */ (item).get('image');
+        const icon = /** @type {string} */ (item).get('icon');
+        const title = /** @type {string} */ (item).get('title');
+        const counter = /** @type {string} */ (item).get('counter');
+        const href = /** @type {string} */ (item).get('href');
         const action = /** @type {!Function} */ item.get('action');
-        const disabled = /** @type {boolean} */ item.get('disabled');
+        const disabled = /** @type {boolean} */ (item).get('disabled');
         if (image) {
             this.addImage(id, image, title, action, href, item);
         }
@@ -242,7 +242,7 @@ export class Navigation {
         linkNode.removeClass('disabled');
         const action = 
         /** @type {function(string):undefined} */ item.get('action');
-        const href = /** @type {string} */ item.get('href');
+        const href = /** @type {string} */ (item).get('href');
         linkNode.setAttribute('href', href);
         const listener = linkNode.addEventListener('click', () => {
             action(href);

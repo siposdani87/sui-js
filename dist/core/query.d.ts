@@ -9,12 +9,12 @@ import { Item } from './item';
 export declare class Query<T extends HTMLElement = HTMLElement> extends Collection<Item<T>> {
     /**
      * @param {string} selector
-     * @param {!Element|!Item=} opt_element
+     * @param {!HTMLElement|!Item=} opt_element
      */
-    constructor(selector: any, opt_element?: any);
+    constructor(selector: string, opt_element?: HTMLElement | Item);
     /**
      * @export
      * @return {!Item}
      */
-    getItem(): Item<T>;
+    getItem(): Item;
 }

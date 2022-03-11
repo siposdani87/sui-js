@@ -13,6 +13,7 @@ import {
     typeCast,
 } from '../utils/operation';
 import { consoleWarn } from '../utils/log';
+import { Listener } from '../utils';
 
 /**
  * @class
@@ -29,17 +30,19 @@ export class Item<T extends HTMLElement = HTMLElement> {
     constructor(node: (T | string) | null, opt_parentNode?: Item | undefined) {
         if (isString(node)) {
             if (
-                contain(/** @type {string} */(node as string), '<') &&
-                contain(/** @type {string} */(node as string), '</')
+                contain(/** @type {string} */(node) as string, '<') &&
+                contain(/** @type {string} */(node) as string, '</')
             ) {
                 const template = document.createElement('template');
-                template.innerHTML = (node as string);
+                template.innerHTML = node as string;
                 node = template.content.firstElementChild as any as T;
             } else {
-                node = document.createElement(/** @type {string} */(node as string)) as any as T;
+                node = document.createElement(
+                    /** @type {string} */(node) as string,
+                ) as any as T;
             }
         }
-        this.node = /** @type {!T} */(node as T);
+        this.node = /** @type {!T} */ node as T;
         this.parentNode = opt_parentNode;
         this.listenerStoreKey = '_listeners';
     }
@@ -104,7 +107,10 @@ export class Item<T extends HTMLElement = HTMLElement> {
      * @return {undefined}
      */
     setFor(htmlFor: boolean | number | string): void {
-        (this.node as any as HTMLLabelElement).htmlFor = convert(htmlFor, 'string');
+        (this.node as any as HTMLLabelElement).htmlFor = convert(
+            htmlFor,
+            'string',
+        );
         this.setAttribute('for', htmlFor);
     }
     /**
@@ -112,7 +118,8 @@ export class Item<T extends HTMLElement = HTMLElement> {
      */
     getFor(): string | null {
         return (
-            (this.node as any as HTMLLabelElement).htmlFor || /** @type {string} */ this.getAttribute('for')
+            (this.node as any as HTMLLabelElement).htmlFor ||
+            /** @type {string} */(this).getAttribute('for')
         );
     }
     /**
@@ -127,7 +134,10 @@ export class Item<T extends HTMLElement = HTMLElement> {
      * @param {!Function} callback
      * @return {undefined}
      */
-    _handleClassList(cssClasses: Array<any> | string, callback: Function): void {
+    _handleClassList(
+        cssClasses: Array<any> | string,
+        callback: Function,
+    ): void {
         if (isArray(cssClasses)) {
             each(cssClasses, (cssClass) => {
                 callback(cssClass);
@@ -166,9 +176,9 @@ export class Item<T extends HTMLElement = HTMLElement> {
         });
     }
     /**
-     * @return {!Array}
+     * @return {!Array<string>}
      */
-    getClasses(): Array<any> {
+    getClasses(): Array<string> {
         return this.node.classList.value.split(' ');
     }
     /**
@@ -176,14 +186,31 @@ export class Item<T extends HTMLElement = HTMLElement> {
      * @param {!Object|!Function|!Array|boolean|number|string|null|undefined=} opt_value
      * @return {undefined}
      */
-    setAttribute(attribute: string, opt_value?: (object | Function | Array<any> | boolean | number | string | null | undefined) | undefined): void {
+    setAttribute(
+        attribute: string,
+        opt_value?:
+            | (
+                  | object
+                  | Function
+                  | Array<any>
+                  | boolean
+                  | number
+                  | string
+                  | null
+                  | undefined
+              )
+            | undefined,
+    ): void {
         const value = isUndefined(opt_value) ? attribute : opt_value;
         if (isFunction(value)) {
             this.node[attribute] = value;
         } else if (contain(attribute, 'data-') && isObject(value)) {
             this.node.setAttribute(attribute, JSON.stringify(value));
         } else {
-            this.node.setAttribute(attribute, /** @type {string} */(value as string));
+            this.node.setAttribute(
+                attribute,
+                /** @type {string} */(value) as string,
+            );
         }
     }
     /**
@@ -220,7 +247,10 @@ export class Item<T extends HTMLElement = HTMLElement> {
      * @param {!Function=} opt_callback
      * @return {!Function}
      */
-    addEventListener(eventName: string, opt_callback: Function | undefined): Function {
+    addEventListener(
+        eventName: string,
+        opt_callback: Function | undefined,
+    ): Function {
         let listener: any = noop();
         if (opt_callback) {
             listener = (event) => {
@@ -240,7 +270,10 @@ export class Item<T extends HTMLElement = HTMLElement> {
      * @param {!Function=} listener
      * @return {undefined}
      */
-    _addListenerToStore(eventName: string, listener: Function | undefined): void {
+    _addListenerToStore(
+        eventName: string,
+        listener: Function | undefined,
+    ): void {
         if (!this.node[this.listenerStoreKey]) {
             this.node[this.listenerStoreKey] = {};
         }
@@ -252,9 +285,9 @@ export class Item<T extends HTMLElement = HTMLElement> {
     /**
      * @private
      * @param {string} eventName
-     * @return {!Array}
+     * @return {!Array<Listener>}
      */
-    _getListenerToStore(eventName: string): Array<any> {
+    _getListenersFromStore(eventName: string): Array<Listener> {
         if (
             this.node[this.listenerStoreKey] ||
             this.node[this.listenerStoreKey][eventName]
@@ -265,10 +298,13 @@ export class Item<T extends HTMLElement = HTMLElement> {
     }
     /**
      * @param {string} eventName
-     * @param {function(Element, Event)} listener
+     * @param {Listener} listener
      * @return {undefined}
      */
-    removeEventListener(eventName: keyof ElementEventMap, listener: (this: Element, ev: Event) => any): void {
+    removeEventListener(
+        eventName: keyof ElementEventMap,
+        listener: Listener,
+    ): void {
         this.node.removeEventListener(eventName, listener);
     }
     /**
@@ -276,7 +312,7 @@ export class Item<T extends HTMLElement = HTMLElement> {
      * @return {undefined}
      */
     removeEventListeners(eventName: keyof ElementEventMap): void {
-        const listeners = this._getListenerToStore(eventName);
+        const listeners = this._getListenersFromStore(eventName);
         eachArray(listeners, (listener) => {
             this.removeEventListener(eventName, listener);
         });
@@ -431,7 +467,7 @@ export class Item<T extends HTMLElement = HTMLElement> {
     getNextSibling(): Item {
         const referenceNode =
             this.node.nextSibling || this.node.nextElementSibling;
-        return new Item(/** @type {T} */(referenceNode as T));
+        return new Item(/** @type {T} */(referenceNode) as T);
     }
     /**
      * @export

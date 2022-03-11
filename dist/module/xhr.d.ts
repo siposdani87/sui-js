@@ -1,25 +1,29 @@
 import { Deferred } from '../core/deferred';
 import { Objekt } from '../core/objekt';
+import { Promize } from '../core';
+declare type XhrType = [string, XMLHttpRequestResponseType, string];
 /**
  * @class
  */
 export declare class Xhr {
     options: Objekt;
     requestHeaders: {};
-    authorization: any;
-    types: {};
+    authorization: string;
+    types: {
+        [key: string]: XhrType;
+    };
     http: XMLHttpRequest;
     deferred: Deferred;
     /**
      * @param {!Object=} opt_options
      */
-    constructor(opt_options?: {});
+    constructor(opt_options?: object | undefined);
     /**
      * @private
      * @param {!Object=} opt_options
      * @return {undefined}
      */
-    _setOptions(opt_options?: {}): void;
+    _setOptions(opt_options?: object | undefined): void;
     /**
      * @private
      * @return {undefined}
@@ -33,46 +37,46 @@ export declare class Xhr {
     /**
      * @private
      * @param {string} name
-     * @param {!Array} value
+     * @param {!XhrType} value
      * @return {undefined}
      */
-    _setType(name: any, value: any): void;
+    _setType(name: string, value: XhrType): void;
     /**
      * @private
      * @param {string} name
-     * @return {!Array}
+     * @return {!XhrType}
      */
-    _getType(name: any): any;
-    /**
-     * @private
-     * @param {string} name
-     * @return {string}
-     */
-    _getContentType(name: any): any;
+    _getType(name: string): XhrType;
     /**
      * @private
      * @param {string} name
      * @return {string}
      */
-    _getResponseType(name: any): any;
+    _getContentType(name: string): string;
     /**
      * @private
      * @param {string} name
      * @return {string}
      */
-    _getAccept(name: any): any;
+    _getResponseType(name: string): XMLHttpRequestResponseType;
     /**
      * @private
-     * @return {!Function}
+     * @param {string} name
+     * @return {string}
      */
-    _onReadyStateChange(): () => void;
+    _getAccept(name: string): string;
+    /**
+     * @private
+     * @return {(XMLHttpRequest, Event): any}
+     */
+    _onReadyStateChange(): (_this: XMLHttpRequest, _ev: Event) => any;
     /**
      * @param {string} url
      * @param {!Object=} opt_params
      * @param {!Object=} opt_headers
      * @return {!Promize}
      */
-    get(url: any, opt_params: any, opt_headers?: {}): import("..").Promize;
+    get(url: string, opt_params: object | undefined, opt_headers?: object | undefined): Promize;
     /**
      * @param {string} url
      * @param {!Object=} opt_data
@@ -80,7 +84,7 @@ export declare class Xhr {
      * @param {!Object=} opt_headers
      * @return {!Promize}
      */
-    post(url: any, opt_data: any, opt_params: any, opt_headers?: {}): import("..").Promize;
+    post(url: string, opt_data: object | undefined, opt_params: object | undefined, opt_headers?: object | undefined): Promize;
     /**
      * @param {string} url
      * @param {!Object=} opt_data
@@ -88,7 +92,7 @@ export declare class Xhr {
      * @param {!Object=} opt_headers
      * @return {!Promize}
      */
-    put(url: any, opt_data: any, opt_params: any, opt_headers?: {}): import("..").Promize;
+    put(url: string, opt_data: object | undefined, opt_params: object | undefined, opt_headers?: object | undefined): Promize;
     /**
      * @param {string} url
      * @param {!Object=} opt_data
@@ -96,7 +100,7 @@ export declare class Xhr {
      * @param {!Object=} opt_headers
      * @return {!Promize}
      */
-    patch(url: any, opt_data: any, opt_params: any, opt_headers?: {}): import("..").Promize;
+    patch(url: string, opt_data: object | undefined, opt_params: object | undefined, opt_headers?: object | undefined): Promize;
     /**
      * @param {string} url
      * @param {!Object=} opt_data
@@ -104,14 +108,14 @@ export declare class Xhr {
      * @param {!Object=} opt_headers
      * @return {!Promize}
      */
-    delete(url: any, opt_data: any, opt_params: any, opt_headers?: {}): import("..").Promize;
+    delete(url: string, opt_data: object | undefined, opt_params: object | undefined, opt_headers?: object | undefined): Promize;
     /**
      * @private
      * @param {string} url
      * @param {!Object=} opt_params
      * @return {string}
      */
-    _getUrl(url: any, opt_params: any): string;
+    _getUrl(url: string, opt_params: object | undefined): string;
     /**
      * @private
      * @param {string} type
@@ -121,27 +125,27 @@ export declare class Xhr {
      * @param {!Object=} opt_headers
      * @return {!Promize}
      */
-    _handleRequest(type: any, url: any, opt_data: any, opt_params: any, opt_headers?: {}): import("..").Promize;
+    _handleRequest(type: string, url: string, opt_data: object | undefined, opt_params: object | undefined, opt_headers?: object | undefined): Promize;
     /**
      * @private
      * @param {!Object=} opt_data
      * @return {string}
      */
-    _getRequestData(opt_data: any): string;
+    _getRequestData(opt_data: object | undefined): string;
     /**
      * @private
      * @param {*} obj
      * @param {string} key
      * @param {string} stringKey
-     * @return {!Array}
+     * @return {!Array<string>}
      */
-    _parseObject(obj: any, key: any, stringKey: any): any[];
+    _parseObject(obj: any, key: string, stringKey: string): Array<string>;
     /**
      * @private
      * @param {!Object} obj
      * @return {string}
      */
-    _stringifyObject(obj: any): string;
+    _stringifyObject(obj: object): string;
     /**
      * @private
      * @return {string}
@@ -152,40 +156,41 @@ export declare class Xhr {
      * @param {*} data
      * @return {!Promize}
      */
-    _getResponseData(data: any): import("..").Promize;
+    _getResponseData(data: any): Promize;
     /**
      * @private
      * @param {string} urlType
      * @param {!Object=} opt_headers
      * @return {undefined}
      */
-    _setRequestHeaders(urlType: any, opt_headers?: {}): void;
+    _setRequestHeaders(urlType: string, opt_headers?: object | undefined): void;
     /**
      * @private
      * @param {string} urlType
      * @return {undefined}
      */
-    _setResponseType(urlType: any): void;
+    _setResponseType(urlType: string): void;
     /**
      * @param {string} name
      * @param {string} value
      * @return {undefined}
      */
-    setHeader(name: any, value: any): void;
+    setHeader(name: string, value: string): void;
     /**
      * @param {string} name
      * @return {string|null}
      */
-    getHeader(name: any): any;
+    getHeader(name: string): string | null;
     /**
      * @param {string} username
      * @param {string} password
      * @return {undefined}
      */
-    setBasicAuthorization(username: any, password: any): void;
+    setBasicAuthorization(username: string, password: string): void;
     /**
      * @param {string} token
      * @return {undefined}
      */
-    setBearerAuthorization(token: any): void;
+    setBearerAuthorization(token: string): void;
 }
+export {};

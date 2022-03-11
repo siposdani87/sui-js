@@ -69,7 +69,7 @@ export class TextareaField extends BaseField {
     _renderRichText() {
         this.input.addClass('hidden');
 
-        let value = /** @type {string} */ this.getValue();
+        let value = /** @type {string} */(this).getValue();
         value =
             value.indexOf('<p>') === 0 ? value : `<p>${value || '<br />'}</p>`;
 

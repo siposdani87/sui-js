@@ -11,6 +11,10 @@ import { Deferred } from '../core/deferred';
 import { Objekt } from '../core/objekt';
 import { consoleError } from '../utils/log';
 import { encodeBase64 } from '../utils/coder';
+import { Promize } from '../core';
+
+
+type XhrType = [string, XMLHttpRequestResponseType, string];
 
 /**
  * @class
@@ -18,14 +22,16 @@ import { encodeBase64 } from '../utils/coder';
 export class Xhr {
     options: Objekt;
     requestHeaders: {};
-    authorization: any;
-    types: {};
+    authorization: string;
+    types: {
+        [key: string]: XhrType
+    };
     http: XMLHttpRequest;
     deferred: Deferred;
     /**
      * @param {!Object=} opt_options
      */
-    constructor(opt_options = {}) {
+    constructor(opt_options: object | undefined = {}) {
         this._setOptions(opt_options);
         this._init();
     }
@@ -34,7 +40,7 @@ export class Xhr {
      * @param {!Object=} opt_options
      * @return {undefined}
      */
-    _setOptions(opt_options = {}) {
+    _setOptions(opt_options: object | undefined = {}): void {
         const _self = this;
         _self.options = new Objekt({
             backend: '',
@@ -46,7 +52,7 @@ export class Xhr {
      * @private
      * @return {undefined}
      */
-    _init() {
+    _init(): void {
         this.requestHeaders = {};
         this.authorization = null;
         this.types = {};
@@ -54,7 +60,7 @@ export class Xhr {
         this._setTypes();
 
         this.http = new XMLHttpRequest();
-        this.http.onreadystatechange = this._onReadyStateChange();
+        this.http.onreadystatechange = this._onReadyStateChange() as any as  (this: XMLHttpRequest, ev: Event) => any;
 
         this.deferred = new Deferred();
     }
@@ -62,7 +68,7 @@ export class Xhr {
      * @private
      * @return {undefined}
      */
-    _setTypes() {
+    _setTypes(): void {
         this._setType('json', ['application/json', 'json', 'application/json']);
         this._setType('form', [
             'application/x-www-form-urlencoded',
@@ -77,57 +83,60 @@ export class Xhr {
     /**
      * @private
      * @param {string} name
-     * @param {!Array} value
+     * @param {!XhrType} value
      * @return {undefined}
      */
-    _setType(name, value) {
+    _setType(name: string, value: XhrType): void {
         this.types[name] = value;
     }
     /**
      * @private
      * @param {string} name
-     * @return {!Array}
+     * @return {!XhrType}
      */
-    _getType(name) {
-        return this.types[name] || [];
+    _getType(name: string): XhrType {
+        return this.types[name] || ['', 'text', '*/*'];
     }
     /**
      * @private
      * @param {string} name
      * @return {string}
      */
-    _getContentType(name) {
-        return this._getType(name)[0] || '';
+    _getContentType(name: string): string {
+        return this._getType(name)[0];
     }
     /**
      * @private
      * @param {string} name
      * @return {string}
      */
-    _getResponseType(name) {
-        return this._getType(name)[1] || 'text';
+    _getResponseType(name: string): XMLHttpRequestResponseType {
+        return this._getType(name)[1];
     }
     /**
      * @private
      * @param {string} name
      * @return {string}
      */
-    _getAccept(name) {
-        return this._getType(name)[2] || '*/*';
+    _getAccept(name: string): string {
+        return this._getType(name)[2];
     }
     /**
      * @private
-     * @return {!Function}
+     * @return {(XMLHttpRequest, Event): any}
      */
-    _onReadyStateChange() {
-        return () => {
+    _onReadyStateChange(): (_this: XMLHttpRequest, _ev: Event) => any {
+        return (_this: XMLHttpRequest, _ev: Event): any => {
             switch (this.http.readyState) {
                 case 0:
-                // request not initialized
+                    // request not initialized
+                    break;
                 case 1:
-                // server connection established
+                    // server connection established
+                    break;
                 case 2:
-                // request received
+                    // request received
+                    break;
                 case 3:
                     // processing request
                     break;
@@ -162,7 +171,7 @@ export class Xhr {
      * @param {!Object=} opt_headers
      * @return {!Promize}
      */
-    get(url, opt_params, opt_headers = {}) {
+    get(url: string, opt_params: object | undefined, opt_headers: object | undefined = {}): Promize {
         return this._handleRequest('GET', url, {}, opt_params, opt_headers);
     }
     /**
@@ -172,7 +181,7 @@ export class Xhr {
      * @param {!Object=} opt_headers
      * @return {!Promize}
      */
-    post(url, opt_data, opt_params, opt_headers = {}) {
+    post(url: string, opt_data: object | undefined, opt_params: object | undefined, opt_headers: object | undefined = {}): Promize {
         return this._handleRequest(
             'POST',
             url,
@@ -188,7 +197,7 @@ export class Xhr {
      * @param {!Object=} opt_headers
      * @return {!Promize}
      */
-    put(url, opt_data, opt_params, opt_headers = {}) {
+    put(url: string, opt_data: object | undefined, opt_params: object | undefined, opt_headers: object | undefined = {}): Promize {
         return this._handleRequest(
             'PUT',
             url,
@@ -204,7 +213,7 @@ export class Xhr {
      * @param {!Object=} opt_headers
      * @return {!Promize}
      */
-    patch(url, opt_data, opt_params, opt_headers = {}) {
+    patch(url: string, opt_data: object | undefined, opt_params: object | undefined, opt_headers: object | undefined = {}): Promize {
         return this._handleRequest(
             'PATCH',
             url,
@@ -220,7 +229,7 @@ export class Xhr {
      * @param {!Object=} opt_headers
      * @return {!Promize}
      */
-    delete(url, opt_data, opt_params, opt_headers = {}) {
+    delete(url: string, opt_data: object | undefined, opt_params: object | undefined, opt_headers: object | undefined = {}): Promize {
         return this._handleRequest(
             'DELETE',
             url,
@@ -235,7 +244,7 @@ export class Xhr {
      * @param {!Object=} opt_params
      * @return {string}
      */
-    _getUrl(url, opt_params) {
+    _getUrl(url: string, opt_params: object | undefined): string {
         const uri = urlWithQueryString(url, opt_params);
         return url[0] === '/' ? this.options.backend + uri : uri;
     }
@@ -248,7 +257,7 @@ export class Xhr {
      * @param {!Object=} opt_headers
      * @return {!Promize}
      */
-    _handleRequest(type, url, opt_data, opt_params, opt_headers = {}) {
+    _handleRequest(type: string, url: string, opt_data: object | undefined, opt_params: object | undefined, opt_headers: object | undefined = {}): Promize {
         this.http.open(type, this._getUrl(url, opt_params), true);
         const urlType = getExtensionName(url);
         this._setResponseType(urlType);
@@ -261,7 +270,7 @@ export class Xhr {
      * @param {!Object=} opt_data
      * @return {string}
      */
-    _getRequestData(opt_data) {
+    _getRequestData(opt_data: object | undefined): string {
         let result = '';
         if (opt_data) {
             switch (this.getHeader('Content-Type')) {
@@ -280,9 +289,9 @@ export class Xhr {
      * @param {*} obj
      * @param {string} key
      * @param {string} stringKey
-     * @return {!Array}
+     * @return {!Array<string>}
      */
-    _parseObject(obj, key, stringKey) {
+    _parseObject(obj: any, key: string, stringKey: string): Array<string> {
         stringKey += stringKey ? '[' + key + ']' : key;
         let results = [];
         if (obj instanceof Array) {
@@ -307,7 +316,7 @@ export class Xhr {
      * @param {!Object} obj
      * @return {string}
      */
-    _stringifyObject(obj) {
+    _stringifyObject(obj: object): string {
         let results = [];
         for (const key in obj) {
             if (obj.hasOwnProperty(key)) {
@@ -321,7 +330,7 @@ export class Xhr {
      * @private
      * @return {string}
      */
-    _getFilenameFromHeader() {
+    _getFilenameFromHeader(): string {
         let filename = '';
 
         try {
@@ -341,7 +350,7 @@ export class Xhr {
      * @param {*} data
      * @return {!Promize}
      */
-    _getResponseData(data) {
+    _getResponseData(data: any): Promize {
         const deferred = new Deferred();
         const filename = this._getFilenameFromHeader();
 
@@ -353,7 +362,7 @@ export class Xhr {
                         const reader = new FileReader();
                         reader.addEventListener('loadend', (e) => {
                             data = JSON.parse(
-                                /** @type {string} */ (e.target
+                                /** @type {string} */(e.target
                                     .result as string) || 'null',
                             );
                             const object = new Objekt();
@@ -363,7 +372,7 @@ export class Xhr {
                         reader.readAsText(/** @type {!Blob} */ data);
                     } else {
                         data = isString(data)
-                            ? JSON.parse(/** @type {string} */ data || 'null')
+                            ? JSON.parse(/** @type {string} */(data) || 'null')
                             : data;
                         const object = new Objekt();
                         object.merge(data);
@@ -387,7 +396,7 @@ export class Xhr {
      * @param {!Object=} opt_headers
      * @return {undefined}
      */
-    _setRequestHeaders(urlType, opt_headers = {}) {
+    _setRequestHeaders(urlType: string, opt_headers: object | undefined = {}): void {
         eachObject(opt_headers, (value, key) => {
             if (eq(key, 'responseType')) {
                 this.http.responseType = value;
@@ -421,7 +430,7 @@ export class Xhr {
      * @param {string} urlType
      * @return {undefined}
      */
-    _setResponseType(urlType) {
+    _setResponseType(urlType: string): void {
         this.http.responseType = this._getResponseType(urlType);
     }
     /**
@@ -429,7 +438,7 @@ export class Xhr {
      * @param {string} value
      * @return {undefined}
      */
-    setHeader(name, value) {
+    setHeader(name: string, value: string): void {
         if (name && value) {
             this.http.setRequestHeader(name, value);
         }
@@ -439,7 +448,7 @@ export class Xhr {
      * @param {string} name
      * @return {string|null}
      */
-    getHeader(name) {
+    getHeader(name: string): string | null {
         return this.requestHeaders[name];
     }
     /**
@@ -447,7 +456,7 @@ export class Xhr {
      * @param {string} password
      * @return {undefined}
      */
-    setBasicAuthorization(username, password) {
+    setBasicAuthorization(username: string, password: string): void {
         if (username && password) {
             const hash = [username, password].join(':');
             this.authorization = 'Basic ' + encodeBase64(hash);
@@ -457,7 +466,7 @@ export class Xhr {
      * @param {string} token
      * @return {undefined}
      */
-    setBearerAuthorization(token) {
+    setBearerAuthorization(token: string): void {
         if (token) {
             this.authorization = 'Bearer ' + token;
         }

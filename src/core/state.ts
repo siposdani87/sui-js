@@ -10,7 +10,7 @@ import { Router } from './router';
  */
 export class State {
     _current: Objekt;
-    _previous: any;
+    _previous: Objekt;
     routes: Collection<Objekt>;
     basePath: string;
     options: Objekt;
@@ -18,7 +18,7 @@ export class State {
      * @param {!Array} routes
      * @param {!Object} options
      */
-    constructor(routes, options) {
+    constructor(routes: Array<Object>, options: object) {
         this._current = new Objekt();
         this._previous = this._current;
 
@@ -33,9 +33,9 @@ export class State {
      * @private
      * @return {undefined}
      */
-    _setRealUrls() {
+    _setRealUrls(): void {
         this.routes.each((route) => {
-            const url = /** @type {string} */ route.get('url');
+            const url = /** @type {string} */(route).get<string>('url');
             const realUrl = this._getRealUrl(url);
             route.set('realUrl', realUrl);
         });
@@ -44,7 +44,7 @@ export class State {
      * @private
      * @return {string}
      */
-    _getUrlPrefix() {
+    _getUrlPrefix(): string {
         return this.basePath === '#' ? '/#' : '';
     }
     /**
@@ -52,14 +52,14 @@ export class State {
      * @param {string} url
      * @return {string}
      */
-    _getRealUrl(url) {
+    _getRealUrl(url: string): string {
         return format('{0}{1}', [this._getUrlPrefix(), url]);
     }
     /**
      * @private
      * @return {undefined}
      */
-    _setBasePath() {
+    _setBasePath(): void {
         this.basePath = '#';
         const baseMetaTag = new Query('base').getItem();
         if (!baseMetaTag.isEmpty()) {
@@ -71,7 +71,7 @@ export class State {
      * @param {!Object} options
      * @return {undefined}
      */
-    _setOptions(options) {
+    _setOptions(options: object): void {
         const _self = this;
         _self.options = new Objekt({
             root: {
@@ -89,7 +89,7 @@ export class State {
      * @private
      * @return {undefined}
      */
-    _init() {
+    _init(): void {
         this._setBasePath();
         this._setRealUrls();
 
@@ -100,7 +100,7 @@ export class State {
      * @private
      * @return {undefined}
      */
-    _initPopstate() {
+    _initPopstate(): void {
         window.addEventListener('popstate', () => {
             if (window.history.state) {
                 const state = new Objekt();
@@ -116,14 +116,14 @@ export class State {
     /**
      * @return {undefined}
      */
-    run() {
+    run(): void {
         this._triggerChange();
     }
     /**
      * @private
      * @return {undefined}
      */
-    _parseUrl() {
+    _parseUrl(): void {
         const path = window.location.hash
             ? window.location.hash
             : window.location.pathname.replace(this.basePath, '/') +
@@ -146,8 +146,12 @@ export class State {
      * @param {!Function} errorCallback
      * @return {undefined}
      */
-    _parsePath(urlPath, successCallback, errorCallback) {
-        const path = urlPath[0] === '#' ? urlPath.substr(1) : urlPath;
+    _parsePath(
+        urlPath: string,
+        successCallback: Function,
+        errorCallback: Function,
+    ): void {
+        const path = urlPath[0] === '#' ? urlPath.substring(1) : urlPath;
         const items = this.routes.getItems();
 
         let state = null;
@@ -157,7 +161,7 @@ export class State {
         let i = 0;
         while (i < items.length && isNull(matches)) {
             state = items[i];
-            const stateUrl = /** @type {string} */ state.get('url');
+            const stateUrl = /** @type {string} */(state).get('url');
             const router = new Router(stateUrl);
             matches = router.getMatches(path);
             params = router.parse(path);
@@ -179,27 +183,27 @@ export class State {
      * @return {undefined}
      */
     _setHistory(
-        state,
-        url,
-        opt_params = {},
-        opt_overwrite = false,
-        opt_force = false,
-    ) {
+        state: Objekt,
+        url: string,
+        opt_params: object | undefined = {},
+        opt_overwrite: boolean | undefined = false,
+        opt_force: boolean | undefined = false,
+    ): void {
         url = this.basePath === '#' ? this.basePath + url : url;
-        const template = /** @type {string} */ state.get('template');
+        const template = /** @type {string} */(state).get<string>('template');
         const router = new Router(template);
         state.set('templateUrl', router.stringify(opt_params));
         state.set('params', opt_params);
         if (opt_overwrite) {
             window.history.replaceState(
                 state.get(),
-                /** @type {string} */ state.get('title', ''),
+                /** @type {string} */(state).get('title', ''),
                 url,
             );
         } else {
             window.history.pushState(
                 state.get(),
-                /** @type {string} */ state.get('title', ''),
+                /** @type {string} */(state).get('title', ''),
                 url,
             );
         }
@@ -213,9 +217,9 @@ export class State {
      * @param {boolean=} opt_force
      * @return {undefined}
      */
-    _triggerChange(opt_force = false) {
-        const currentState = /** @type {!Objekt} */ this.getCurrent();
-        const previousState = /** @type {!Objekt} */ this.getPrevious();
+    _triggerChange(opt_force: boolean | undefined = false): void {
+        const currentState = /** @type {!Objekt} */ this.getCurrent<Objekt>();
+        const previousState = /** @type {!Objekt} */ this.getPrevious<Objekt>();
         this.eventChange(currentState, previousState, opt_force);
     }
     /**
@@ -223,23 +227,29 @@ export class State {
      * @param {!Objekt} state
      * @return {undefined}
      */
-    _setCurrent(state) {
+    _setCurrent(state: Objekt): void {
         this._previous = this._current;
         this._current = state;
     }
     /**
+     * @template T
      * @param {string=} opt_attribute
-     * @return {!Objekt|string}
+     * @return {!T}
      */
-    getCurrent<T>(opt_attribute?) {
-        return /** @type {!Objekt|string} */ this._current.get<T>(opt_attribute);
+    getCurrent<T>(opt_attribute?: string | undefined): T {
+        return /** @type {!Objekt|string} */ this._current.get<T>(
+            opt_attribute,
+        );
     }
     /**
+     * @template T
      * @param {string=} opt_attribute
-     * @return {!Objekt|string}
+     * @return {!T}
      */
-    getPrevious(opt_attribute?) {
-        return /** @type {!Objekt|string} */this._previous.get(opt_attribute);
+    getPrevious<T>(opt_attribute?: string | undefined): T {
+        return /** @type {!Objekt|string} */ this._previous.get<T>(
+            opt_attribute,
+        );
     }
     /**
      * @param {string} id
@@ -248,7 +258,12 @@ export class State {
      * @param {boolean=} opt_force
      * @return {undefined}
      */
-    go(id, opt_params = undefined, opt_overwrite = false, opt_force = false) {
+    go(
+        id: string,
+        opt_params: object | undefined = undefined,
+        opt_overwrite: boolean | undefined = false,
+        opt_force: boolean | undefined = false,
+    ): void {
         if (eq(id[0], '#') || eq(id[0], '/')) {
             this._parsePath(
                 id,
@@ -284,11 +299,14 @@ export class State {
      * @param {!Object=} opt_params
      * @return {!Array}
      */
-    _resolveUrlWithState(id, opt_params = undefined) {
+    _resolveUrlWithState(
+        id: string,
+        opt_params: object | undefined = undefined,
+    ): Array<any> {
         const state = this.routes.findById(id);
         let url = '';
         if (state) {
-            const stateUrl = /** @type {string} */ state.get<string>('url');
+            const stateUrl = /** @type {string} */(state).get<string>('url');
             const router = new Router(stateUrl);
             url = router.stringify(opt_params);
         }
@@ -299,8 +317,8 @@ export class State {
      * @param {!Object=} opt_params
      * @return {string}
      */
-    resolveUrl(id, opt_params = undefined) {
-        const url = /** @type {string} */ this._resolveUrlWithState(
+    resolveUrl(id: string, opt_params: object | undefined = undefined): string {
+        const url = /** @type {string} */(this)._resolveUrlWithState(
             id,
             opt_params,
         )[0];
@@ -312,7 +330,11 @@ export class State {
      * @param {boolean=} opt_force
      * @return {undefined}
      */
-    goState(state, opt_overwrite = false, opt_force = false) {
+    goState(
+        state: object,
+        opt_overwrite: boolean | undefined = false,
+        opt_force: boolean | undefined = false,
+    ): void {
         this.go(state['id'], state['params'], opt_overwrite, opt_force);
     }
     /**
@@ -320,7 +342,10 @@ export class State {
      * @param {boolean=} opt_force
      * @return {undefined}
      */
-    goHome(opt_overwrite = false, opt_force = false) {
+    goHome(
+        opt_overwrite: boolean | undefined = false,
+        opt_force: boolean | undefined = false,
+    ): void {
         this.go(
             this.options.home.id,
             this.options.home.params,
@@ -333,7 +358,10 @@ export class State {
      * @param {boolean=} opt_force
      * @return {undefined}
      */
-    goRoot(opt_overwrite = false, opt_force = false) {
+    goRoot(
+        opt_overwrite: boolean | undefined = false,
+        opt_force: boolean | undefined = false,
+    ): void {
         this.go(
             this.options.root.id,
             this.options.root.params,
@@ -348,7 +376,12 @@ export class State {
      * @param {boolean=} opt_force
      * @return {undefined}
      */
-    goBack(id, opt_params, opt_overwrite = false, opt_force = false) {
+    goBack(
+        id: string,
+        opt_params: object | undefined,
+        opt_overwrite: boolean | undefined = false,
+        opt_force: boolean | undefined = false,
+    ): void {
         if (eq(window.history.length, 0)) {
             this.go(id, opt_params, opt_overwrite, opt_force);
         } else {
@@ -358,7 +391,7 @@ export class State {
     /**
      * @return {undefined}
      */
-    back() {
+    back(): void {
         window.history.go(-1);
     }
     /**
@@ -366,7 +399,7 @@ export class State {
      * @param {boolean=} opt_inTab
      * @return {undefined}
      */
-    redirect(url, opt_inTab = false) {
+    redirect(url: string, opt_inTab: boolean | undefined = false): void {
         if (opt_inTab) {
             window.open(url, '_blank');
         } else {
@@ -376,7 +409,7 @@ export class State {
     /**
      * @return {undefined}
      */
-    forward() {
+    forward(): void {
         window.history.forward();
     }
     /**
@@ -385,7 +418,11 @@ export class State {
      * @param {boolean=} opt_force
      * @return {undefined}
      */
-    eventChange(currentState, previousState, opt_force = false) {
+    eventChange(
+        currentState: Objekt,
+        previousState: Objekt,
+        opt_force: boolean | undefined = false,
+    ): void {
         consoleWarn(
             'State.eventChange()',
             currentState,
@@ -396,14 +433,14 @@ export class State {
     /**
      * @return {!Collection}
      */
-    getRoutes() {
+    getRoutes(): Collection {
         return this.routes;
     }
     /**
      * @param {!Object} properties
      * @return {undefined}
      */
-    setParams(properties) {
+    setParams(properties: object): void {
         eachObject(properties, (value, name) => {
             this.setParam(name, value);
         });
@@ -413,8 +450,8 @@ export class State {
      * @param {*} value
      * @return {undefined}
      */
-    setParam(name, value) {
-        const id = /** @type {string} */ this.getCurrent('id');
+    setParam(name: string, value: any): void {
+        const id = /** @type {string} */(this).getCurrent<string>('id');
         const params = this.getParams();
         params.set(name, value);
         this.go(id, params, true);
@@ -430,33 +467,33 @@ export class State {
      * @param {*=} opt_defaultValue
      * @return {string}
      */
-    getParam(name, opt_defaultValue) {
+    getParam(name: string, opt_defaultValue?: any): string {
         const params = this.getParams();
-        return /** @type {string} */ params.get<string>(name, opt_defaultValue);
+        return /** @type {string} */(params).get<string>(name, opt_defaultValue);
     }
     /**
      * @return {undefined}
      */
-    reload() {
+    reload(): void {
         window.location.reload();
     }
     /**
      * @param {boolean=} opt_force
      * @return {undefined}
      */
-    refresh(opt_force = false) {
+    refresh(opt_force: boolean | undefined = false): void {
         this._triggerChange(opt_force);
     }
     /**
      * @return {!Array}
      */
-    getRoot() {
+    getRoot(): Array<any> {
         return [this.options.root.id, this.options.root.params];
     }
     /**
      * @return {!Array}
      */
-    getHome() {
+    getHome(): Array<any> {
         return [this.options.home.id, this.options.home.params];
     }
 }

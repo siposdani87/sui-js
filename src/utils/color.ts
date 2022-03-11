@@ -3,13 +3,13 @@
  * @param {number} red
  * @param {number} green
  * @param {number} blue
- * @return {!Array}
+ * @return {!Array<number>}
  */
 export const convertRGBToHSV = (
     red: number,
     green: number,
     blue: number,
-): Array<any> => {
+): [number, number, number] => {
     const rabs = red / 255;
     const gabs = green / 255;
     const babs = blue / 255;
@@ -60,7 +60,7 @@ export const convertRGBToHEX = (
     blue: number,
 ): string => {
     const colors: number[] = [red, green, blue];
-    let results: string[] = [];
+    const results: string[] = [];
     for (let i = 0; i < colors.length; i++) {
         if (colors[i] <= 16) {
             results[i] = '0' + colors[i].toString(16);
@@ -74,9 +74,9 @@ export const convertRGBToHEX = (
 /**
  * @export
  * @param {string} hexColor
- * @return {!Array}
+ * @return {!Array<number>}
  */
-export const convertHEXToHSV = (hexColor: string): Array<any> => {
+export const convertHEXToHSV = (hexColor: string): [number, number, number] => {
     const [red, green, blue] = convertHEXToRGB(hexColor);
     return convertRGBToHSV(red, green, blue);
 };
@@ -84,13 +84,13 @@ export const convertHEXToHSV = (hexColor: string): Array<any> => {
 /**
  * @export
  * @param {string} hexColor
- * @return {!Array}
+ * @return {!Array<number, number, number>}
  */
-export const convertHEXToRGB = (hexColor: string): Array<any> => {
+export const convertHEXToRGB = (hexColor: string): [number, number, number] => {
     const hex = hexColor || '';
-    const red = parseInt(hex.substr(1, 2), 16);
-    const green = parseInt(hex.substr(3, 2), 16);
-    const blue = parseInt(hex.substr(5, 2), 16);
+    const red = parseInt(hex.substring(1, 3), 16);
+    const green = parseInt(hex.substring(3, 5), 16);
+    const blue = parseInt(hex.substring(5, 7), 16);
     return [red, green, blue];
 };
 
@@ -99,13 +99,13 @@ export const convertHEXToRGB = (hexColor: string): Array<any> => {
  * @param {number} h
  * @param {number} s
  * @param {number} v
- * @return {!Array}
+ * @return {!Array<number>}
  */
 export const convertHSVToRGB = (
     h: number,
     s: number,
     v: number,
-): Array<any> => {
+): [number, number, number] => {
     const i = Math.floor(h * 6);
     const f = h * 6 - i;
     const p = v * (1 - s);
@@ -188,7 +188,7 @@ export const colorContrast = (
     hexColor: string,
     opt_diff: number | undefined = 0.5,
 ): string => {
-    const colors = convertHEXToRGB(hexColor);
+    const colors: [number, number, number] = convertHEXToRGB(hexColor);
     for (let i = 0; i < colors.length; i++) {
         colors[i] += Math.round(colors[i] * opt_diff);
         if (colors[i] < 0) {
@@ -197,5 +197,5 @@ export const colorContrast = (
             colors[i] = 255;
         }
     }
-    return convertRGBToHEX.apply(null, colors);
+    return convertRGBToHEX(...colors);
 };

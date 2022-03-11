@@ -169,7 +169,7 @@ export class LocationField extends BaseField {
 
         this.latitudeInput = this._renderAdvancedInput(
             generateId('latitude'),
-            /** @type {string} */ this.input.getData('latitude'),
+            /** @type {string} */(this).input.getData('latitude'),
             (inputNode) => {
                 const location = /** @type {!Object} */ this.getValue();
                 const latitude = inputNode.getNode().value;
@@ -179,7 +179,7 @@ export class LocationField extends BaseField {
         );
         this.longitudeInput = this._renderAdvancedInput(
             generateId('longitude'),
-            /** @type {string} */ this.input.getData('longitude'),
+            /** @type {string} */(this).input.getData('longitude'),
             (inputNode) => {
                 const location = /** @type {!Object} */ this.getValue();
                 const longitude = inputNode.getNode().value;

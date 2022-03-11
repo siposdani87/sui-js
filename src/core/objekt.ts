@@ -78,7 +78,11 @@ export class Objekt {
      * @param {boolean=} opt_isSafe
      * @return {*}
      */
-    speedGet(opt_attribute?: string | undefined, opt_defaultValue?: any | undefined, opt_isSafe: boolean | undefined = false): any {
+    speedGet(
+        opt_attribute?: string | undefined,
+        opt_defaultValue?: any | undefined,
+        opt_isSafe: boolean | undefined = false,
+    ): any {
         let value = this;
         if (opt_attribute) {
             value = this[opt_attribute];
@@ -110,7 +114,11 @@ export class Objekt {
      * @param {boolean=} opt_isSafe
      * @return {*}
      */
-    get<T>(opt_attribute?: string | undefined, opt_defaultValue?: any | undefined, opt_isSafe: boolean | undefined = false): T {
+    get<T>(
+        opt_attribute?: string | undefined,
+        opt_defaultValue?: any | undefined,
+        opt_isSafe: boolean | undefined = false,
+    ): T {
         let value: Object = this;
         if (opt_attribute) {
             const attributes = opt_isSafe
@@ -126,7 +134,10 @@ export class Objekt {
      * @param {!Array} attributes
      * @return {!Object|!Objekt|undefined}
      */
-    private _get(object: Object | Objekt, attributes: Array<any>): Object | Objekt | undefined {
+    private _get(
+        object: Object | Objekt,
+        attributes: Array<any>,
+    ): Object | Objekt | undefined {
         let result = undefined;
         each(object, (_value, property) => {
             if (
@@ -185,7 +196,11 @@ export class Objekt {
      * @param {boolean=} opt_isSafe
      * @return {undefined}
      */
-    setRaw(attribute: string, value: any, opt_isSafe: boolean | undefined = false): void {
+    setRaw(
+        attribute: string,
+        value: any,
+        opt_isSafe: boolean | undefined = false,
+    ): void {
         this.set(attribute, null);
         const attributes = opt_isSafe ? [attribute] : attribute.split('.');
         this._set(this, attributes, value);
@@ -235,7 +250,11 @@ export class Objekt {
      * @param {!Array=} opt_attributes
      * @return {undefined}
      */
-    each(next: Function, opt_properties?: Object | undefined, opt_attributes?: Array<any> | undefined): void {
+    each(
+        next: Function,
+        opt_properties?: Object | undefined,
+        opt_attributes?: Array<any> | undefined,
+    ): void {
         const properties = opt_properties || this;
         const attributes = opt_attributes || [];
 
@@ -255,7 +274,11 @@ export class Objekt {
      * @param {*} value
      * @return {!Object}
      */
-    _attributesToObject(object: Object, attributes: Array<any>, value: any): Object {
+    _attributesToObject(
+        object: Object,
+        attributes: Array<any>,
+        value: any,
+    ): Object {
         const lastAttribute = attributes.pop();
         let base = object;
         for (let i = 0; i < attributes.length; i++) {

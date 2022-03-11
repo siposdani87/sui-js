@@ -11,14 +11,15 @@ export class Item {
      */
     constructor(node, opt_parentNode) {
         if (isString(node)) {
-            if (contain(/** @type {string} */ node, '<') &&
-                contain(/** @type {string} */ node, '</')) {
+            if (contain(/** @type {string} */ (node), '<') &&
+                contain(/** @type {string} */ (node), '</')) {
                 const template = document.createElement('template');
                 template.innerHTML = node;
                 node = template.content.firstElementChild;
             }
             else {
-                node = document.createElement(/** @type {string} */ node);
+                node = document.createElement(
+                /** @type {string} */ (node));
             }
         }
         this.node = /** @type {!T} */ node;
@@ -94,7 +95,8 @@ export class Item {
      * @return {string|null}
      */
     getFor() {
-        return (this.node.htmlFor || /** @type {string} */ this.getAttribute('for'));
+        return (this.node.htmlFor ||
+            /** @type {string} */ (this).getAttribute('for'));
     }
     /**
      * @param {string} cssClass
@@ -148,7 +150,7 @@ export class Item {
         });
     }
     /**
-     * @return {!Array}
+     * @return {!Array<string>}
      */
     getClasses() {
         return this.node.classList.value.split(' ');
@@ -167,7 +169,8 @@ export class Item {
             this.node.setAttribute(attribute, JSON.stringify(value));
         }
         else {
-            this.node.setAttribute(attribute, /** @type {string} */ value);
+            this.node.setAttribute(attribute, 
+            /** @type {string} */ (value));
         }
     }
     /**
@@ -234,9 +237,9 @@ export class Item {
     /**
      * @private
      * @param {string} eventName
-     * @return {!Array}
+     * @return {!Array<Listener>}
      */
-    _getListenerToStore(eventName) {
+    _getListenersFromStore(eventName) {
         if (this.node[this.listenerStoreKey] ||
             this.node[this.listenerStoreKey][eventName]) {
             return this.node[this.listenerStoreKey][eventName];
@@ -245,7 +248,7 @@ export class Item {
     }
     /**
      * @param {string} eventName
-     * @param {function(Element, Event)} listener
+     * @param {Listener} listener
      * @return {undefined}
      */
     removeEventListener(eventName, listener) {
@@ -256,7 +259,7 @@ export class Item {
      * @return {undefined}
      */
     removeEventListeners(eventName) {
-        const listeners = this._getListenerToStore(eventName);
+        const listeners = this._getListenersFromStore(eventName);
         eachArray(listeners, (listener) => {
             this.removeEventListener(eventName, listener);
         });
@@ -407,7 +410,7 @@ export class Item {
      */
     getNextSibling() {
         const referenceNode = this.node.nextSibling || this.node.nextElementSibling;
-        return new Item(/** @type {T} */ referenceNode);
+        return new Item(/** @type {T} */ (referenceNode));
     }
     /**
      * @export
