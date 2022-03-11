@@ -7,8 +7,8 @@ import { BaseCheckboxField } from './baseCheckboxField';
  * @extends {BaseCheckbox}
  */
 export class IconToggleField extends BaseCheckboxField {
-    checkedIcon: any;
-    uncheckedIcon: any;
+    checkedIcon: string;
+    uncheckedIcon: string;
     icon: Item;
     /**
      * @param {!Item} input
@@ -16,14 +16,14 @@ export class IconToggleField extends BaseCheckboxField {
      * @param {!Item} error
      * @param {!Item} inputBlock
      */
-    constructor(input, label, error, inputBlock) {
+    constructor(input: Item, label: Item, error: Item, inputBlock: Item) {
         super(input, label, error, inputBlock);
     }
     /**
      * @override
      * @return {undefined}
      */
-    render() {
+    render(): void {
         this.label.addClass([
             'mdl-icon-toggle',
             'mdl-js-icon-toggle',
@@ -64,7 +64,7 @@ export class IconToggleField extends BaseCheckboxField {
      * @override
      * @return {undefined}
      */
-    _change() {
+    _change(): void {
         const value = this.getValue();
         this.icon.setHtml(
             this.input.getNode().checked
@@ -78,7 +78,7 @@ export class IconToggleField extends BaseCheckboxField {
      * @param {!Object|!Function|!Array|boolean|number|string|null|undefined} value
      * @return {undefined}
      */
-    setValue(value) {
+    setValue(value: object | Function | Array<any> | boolean | number | string | null | undefined): void {
         const currentValue = typeCast(this.input.getAttribute('value'));
         this.input.getNode().checked = currentValue === value;
         if (!this.input.getNode().checked) {

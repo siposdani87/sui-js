@@ -197,12 +197,12 @@ export class FileField extends BaseField {
     }
     /**
      * @private
-     * @param {!Blob} file
+     * @param {!File} file
      * @return {undefined}
      */
     _read(file) {
         if (file) {
-            const filename = /** @type {string} */ (file).name;
+            const filename = file.name;
             const reader = new FileReader();
             reader.onload = (event) => {
                 const target = event.target;

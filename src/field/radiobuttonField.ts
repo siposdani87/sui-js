@@ -2,6 +2,7 @@ import { format, mdl, typeCast } from '../utils/operation';
 import { BaseField } from './baseField';
 import { Item } from '../core/item';
 import { Query } from '../core/query';
+import { Form } from '../component';
 
 /**
  * @class
@@ -17,7 +18,7 @@ export class RadiobuttonField extends BaseField {
      * @param {!Item} inputBlock
      * @param {!Form} form
      */
-    constructor(input, label, error, inputBlock, form) {
+    constructor(input: Item, label: Item, error: Item, inputBlock: Item, form: Form) {
         super(input, label, error, inputBlock, form);
         this._init();
     }
@@ -25,7 +26,7 @@ export class RadiobuttonField extends BaseField {
      * @private
      * @return {undefined}
      */
-    _init() {
+    _init(): void {
         this.inputBlock.addClass('radiobutton-field');
 
         /* this.label.addEventListener('click', () => {
@@ -40,7 +41,7 @@ export class RadiobuttonField extends BaseField {
      * @private
      * @return {undefined}
      */
-    _change() {
+    _change(): void {
         const value = this.input.getAttribute('value');
         this.modelChange(value);
 
@@ -60,7 +61,7 @@ export class RadiobuttonField extends BaseField {
      * @override
      * @return {undefined}
      */
-    render() {
+    render(): void {
         this.label.addClass([
             'mdl-radio',
             'mdl-js-radio',
@@ -109,7 +110,7 @@ export class RadiobuttonField extends BaseField {
      * @param {!Object|!Function|!Array|boolean|number|string|null|undefined} value
      * @return {undefined}
      */
-    setValue(value) {
+    setValue(value: object | Function | Array<any> | boolean | number | string | null | undefined): void {
         if (this.input.getAttribute('value') === value) {
             this.input.getNode().checked = true;
             this.input.trigger('change');
@@ -119,7 +120,7 @@ export class RadiobuttonField extends BaseField {
      * @override
      * @return {*}
      */
-    getValue() {
+    getValue(): any {
         let value = null;
         this._getRadioButtonInputs().each((radioButtonInput) => {
             const checked = radioButtonInput.getNode().checked;
@@ -134,7 +135,7 @@ export class RadiobuttonField extends BaseField {
      * @param {boolean} state
      * @return {undefined}
      */
-    setDisabled(state) {
+    setDisabled(state: boolean): void {
         this._getRadioButtonInputs().each((radioButtonInput) => {
             if (state) {
                 radioButtonInput.setAttribute('disabled');
@@ -159,7 +160,7 @@ export class RadiobuttonField extends BaseField {
      * @override
      * @return {boolean}
      */
-    isDisabled() {
+    isDisabled(): boolean {
         let isDisabled = false;
         this._getRadioButtonInputs().each((radioButtonInput) => {
             if (radioButtonInput.getNode().disabled) {
@@ -171,7 +172,7 @@ export class RadiobuttonField extends BaseField {
     /**
      * @return {!Query}
      */
-    _getRadioButtonInputs() {
+    _getRadioButtonInputs(): Query<HTMLInputElement> {
         const name = this.input.getAttribute('name');
         return new Query<HTMLInputElement>(
             format('input[name="{0}"]', [name]),
@@ -183,7 +184,7 @@ export class RadiobuttonField extends BaseField {
      * @param {string} text
      * @return {undefined}
      */
-    setLabel(text) {
+    setLabel(text: string): void {
         if (this.spanLabel && !this.spanLabel.isEmpty()) {
             this.spanLabel.setHtml(text);
             this._setAdditionalLabel(this.spanLabel);

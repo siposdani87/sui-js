@@ -1,15 +1,17 @@
+/// <reference types="google.maps" />
 import { BaseField } from './baseField';
+import { GoogleMap } from '../component/googleMap';
 import { Item } from '../core/item';
 /**
  * @class
  * @extends {BaseField}
  */
 export declare class LocationField extends BaseField {
-    icon: any;
+    icon: string;
     advancedButton: Item;
-    map: any;
-    mapLockNode: any;
-    advancedNode: any;
+    map: GoogleMap;
+    mapLockNode: Item;
+    advancedNode: Item;
     latitudeInput: Item<HTMLInputElement>;
     longitudeInput: Item<HTMLInputElement>;
     /**
@@ -18,7 +20,7 @@ export declare class LocationField extends BaseField {
      * @param {!Item} error
      * @param {!Item} inputBlock
      */
-    constructor(input: any, label: any, error: any, inputBlock: any);
+    constructor(input: Item, label: Item, error: Item, inputBlock: Item);
     /**
      * @private
      * @return {undefined}
@@ -43,7 +45,7 @@ export declare class LocationField extends BaseField {
      * @param {string} address
      * @return {undefined}
      */
-    search(address: any): void;
+    search(address: string): void;
     /**
      * @override
      * @return {undefined}
@@ -70,7 +72,7 @@ export declare class LocationField extends BaseField {
      * @param {function(!Item):undefined} callback
      * @return {!Item<HTMLInputElement>}
      */
-    _renderAdvancedInput(id: any, labelText: any, callback: any): Item<HTMLInputElement>;
+    _renderAdvancedInput(id: string, labelText: string, callback: (arg0: Item<HTMLInputElement>) => void): Item<HTMLInputElement>;
     /**
      * @private
      * @return {undefined}
@@ -80,14 +82,14 @@ export declare class LocationField extends BaseField {
      * @param {string} mapTypeId
      * @return {undefined}
      */
-    setMapType(mapTypeId: any): void;
+    setMapType(mapTypeId: string): void;
     /**
      * @param {string} mapTypeId
      * @param {string} mapTypeName
      * @param {!Array<?google.maps.MapTypeStyle>} mapStyles
      * @return {undefined}
      */
-    setCustomMapStyle(mapTypeId: any, mapTypeName: any, mapStyles: any): void;
+    setCustomMapStyle(mapTypeId: string, mapTypeName: string, mapStyles: Array<google.maps.MapTypeStyle | null>): void;
     /**
      * @private
      * @return {undefined}
@@ -98,19 +100,19 @@ export declare class LocationField extends BaseField {
      * @param {number|null} longitude
      * @return {undefined}
      */
-    updatePosition(latitude: any, longitude: any): void;
+    updatePosition(latitude: number | null, longitude: number | null): void;
     /**
      * @private
      * @param {!Object} value
      * @return {undefined}
      */
-    _setDataValue(value: any): void;
+    _setDataValue(value: object): void;
     /**
      * @override
      * @param {!Object|!Function|!Array|boolean|number|string|null|undefined} value
      * @return {undefined}
      */
-    setValue(value: any): void;
+    setValue(value: object | Function | Array<any> | boolean | number | string | null | undefined): void;
     /**
      * @override
      * @return {*}
@@ -120,5 +122,5 @@ export declare class LocationField extends BaseField {
      * @param {string} address
      * @return {undefined}
      */
-    eventSearch(address: any): void;
+    eventSearch(address: string): void;
 }

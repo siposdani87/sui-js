@@ -1,3 +1,4 @@
+import { Item } from '../core';
 import { mdl } from '../utils/operation';
 import { BaseField } from './baseField';
 
@@ -9,7 +10,7 @@ export class ResetButton extends BaseField {
     /**
      * @param {!Item} input
      */
-    constructor(input) {
+    constructor(input: Item) {
         super(input);
         this._init();
     }
@@ -17,14 +18,14 @@ export class ResetButton extends BaseField {
      * @private
      * @return {undefined}
      */
-    _init() {
+    _init(): void {
         this.input.setAttribute('name', 'reset');
     }
     /**
      * @override
      * @return {undefined}
      */
-    render() {
+    render(): void {
         this.input.addClass([
             'mdl-button',
             'mdl-js-button',

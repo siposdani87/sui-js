@@ -1,26 +1,27 @@
 import { BaseField } from './baseField';
 import { Canvas } from '../component/canvas';
 import { Popup } from '../component/popup';
+import { Tooltip } from '../component/tooltip';
 import { Item } from '../core/item';
 /**
  * @class
  * @extends {BaseField}
  */
 export declare class ColorField extends BaseField {
-    tooltip: any;
-    previewNode: any;
+    tooltip: Tooltip;
+    previewNode: Item;
     colorNode: Item;
     popup: Popup;
     canvas: Canvas;
-    image: any;
-    colors: any;
+    image: Item;
+    colors: string[][];
     /**
      * @param {!Item} input
      * @param {!Item} label
      * @param {!Item} error
      * @param {!Item} inputBlock
      */
-    constructor(input: any, label: any, error: any, inputBlock: any);
+    constructor(input: Item, label: Item, error: Item, inputBlock: Item);
     /**
      * @private
      * @return {undefined}

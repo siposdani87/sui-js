@@ -1,3 +1,4 @@
+import { Item } from '../core/item';
 import { BaseCheckboxField } from './baseCheckboxField';
 /**
  * @class
@@ -10,7 +11,7 @@ export declare class CheckboxField extends BaseCheckboxField {
      * @param {!Item} error
      * @param {!Item} inputBlock
      */
-    constructor(input: any, label: any, error: any, inputBlock: any);
+    constructor(input: Item, label: Item, error: Item, inputBlock: Item);
     /**
      * @override
      * @return {undefined}

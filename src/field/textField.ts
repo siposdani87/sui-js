@@ -1,3 +1,4 @@
+import { Item } from '../core';
 import { mdl } from '../utils/operation';
 import { BaseField } from './baseField';
 
@@ -12,7 +13,7 @@ export class TextField extends BaseField {
      * @param {!Item} error
      * @param {!Item} inputBlock
      */
-    constructor(input, label, error, inputBlock) {
+    constructor(input: Item, label: Item, error: Item, inputBlock: Item) {
         super(input, label, error, inputBlock);
         this._init();
     }
@@ -20,7 +21,7 @@ export class TextField extends BaseField {
      * @private
      * @return {undefined}
      */
-    _init() {
+    _init(): void {
         this.inputBlock.addClass('text-field');
 
         this.input.addEventListener('keyup', (input) => {
@@ -39,7 +40,7 @@ export class TextField extends BaseField {
      * @override
      * @return {undefined}
      */
-    render() {
+    render(): void {
         this.inputBlock.addClass([
             'mdl-textfield',
             'mdl-js-textfield',
@@ -55,7 +56,7 @@ export class TextField extends BaseField {
      * @override
      * @return {undefined}
      */
-    refresh() {
+    refresh(): void {
         if (this.isRequired() && this.getValue() === '') {
             this.inputBlock.addClass('is-invalid');
         }
@@ -66,7 +67,7 @@ export class TextField extends BaseField {
      * @override
      * @return {*}
      */
-    getValue() {
+    getValue(): any {
         return this.input.getNode().value;
     }
 }

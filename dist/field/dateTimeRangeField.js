@@ -109,7 +109,7 @@ export class DateTimeRangeField extends BaseField {
      * @return {undefined}
      */
     setValue(value) {
-        this._setTag(/** @type {string} */ (value));
+        this._setTag(/** @type {string} */ value);
         this.input.setAttribute('value', value);
         this.input.trigger('change');
         this.datetime.setValue(value);

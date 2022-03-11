@@ -15,11 +15,11 @@ import { encodeBase64 } from '../utils/coder';
  * @extends {BaseField}
  */
 export class FileField extends BaseField {
-    imageTag: any;
-    valueSrc: any;
-    defaultSrc: any;
+    imageTag: Item;
+    valueSrc: string;
+    defaultSrc: string;
     removeButton: Item;
-    fileTypes: any;
+    fileTypes: {[key: string]: [string, string]};
     fileTypeSVG: string;
     /**
      * @param {!Item} input
@@ -27,7 +27,7 @@ export class FileField extends BaseField {
      * @param {!Item} error
      * @param {!Item} inputBlock
      */
-    constructor(input, label, error, inputBlock) {
+    constructor(input: Item, label: Item, error: Item, inputBlock: Item) {
         super(input, label, error, inputBlock);
         this._init();
     }
@@ -35,7 +35,7 @@ export class FileField extends BaseField {
      * @private
      * @return {undefined}
      */
-    _init() {
+    _init(): void {
         this.inputBlock.addClass('file-field');
 
         this._initFileIcon();
@@ -55,7 +55,7 @@ export class FileField extends BaseField {
      * @private
      * @return {boolean}
      */
-    _isDocument() {
+    _isDocument(): boolean {
         const accept = /** @type {string} */(this).input.getAttribute('accept');
         return (
             contain(accept, '.docx') ||
@@ -67,7 +67,7 @@ export class FileField extends BaseField {
      * @private
      * @return {undefined}
      */
-    _initDefaultImg() {
+    _initDefaultImg(): void {
         this.imageTag = new Query('img', this.inputBlock).getItem();
         if (this.imageTag.isEmpty()) {
             this.imageTag = new Item('img');
@@ -78,7 +78,7 @@ export class FileField extends BaseField {
      * @private
      * @return {undefined}
      */
-    _initValueSrc() {
+    _initValueSrc(): void {
         this.valueSrc = this.imageTag.getAttribute('src');
 
         this.defaultSrc = this.input.getAttribute('data-default-value');
@@ -95,7 +95,7 @@ export class FileField extends BaseField {
      * @private
      * @return {undefined}
      */
-    _initRemoveButton() {
+    _initRemoveButton(): void {
         this.removeButton = new Item('a');
         this.removeButton.setAttribute('href', 'javascript:void(0)');
         this.removeButton.addClass(['remove-button', 'material-icons']);
@@ -111,7 +111,7 @@ export class FileField extends BaseField {
      * @private
      * @return {undefined}
      */
-    _initButtons() {
+    _initButtons(): void {
         const browseButton = new Item('a');
         browseButton.setAttribute('href', 'javascript:void(0)');
         browseButton.addClass(['browse-button', 'material-icons']);
@@ -132,7 +132,7 @@ export class FileField extends BaseField {
      * @param {string} mimeType
      * @return {!Array}
      */
-    _lookupByMimeType(mimeType) {
+    _lookupByMimeType(mimeType: string): Array<any> {
         return this.fileTypes[mimeType];
     }
     /**
@@ -140,7 +140,7 @@ export class FileField extends BaseField {
      * @param {string} extension
      * @return {!Array}
      */
-    _lookupByExtension(extension) {
+    _lookupByExtension(extension: string): Array<any> {
         let results = [];
         for (const key in this.fileTypes) {
             if (Object.hasOwnProperty.call(this.fileTypes, key)) {
@@ -157,7 +157,7 @@ export class FileField extends BaseField {
      * @private
      * @return {undefined}
      */
-    _initFileIcon() {
+    _initFileIcon(): void {
         this.fileTypes = {
             'application/vnd.openxmlformats-officedocument.wordprocessingml.document':
                 ['docx', 'blue'],
@@ -183,7 +183,7 @@ export class FileField extends BaseField {
      * @param {string} color
      * @return {string}
      */
-    _getFileIconSrc(type, color) {
+    _getFileIconSrc(type: string, color: string): string {
         let svg = this.fileTypeSVG;
         svg = svg.replace('#000000', color);
         svg = svg.replace('TYPE', type);
@@ -194,7 +194,7 @@ export class FileField extends BaseField {
      * @override
      * @return {undefined}
      */
-    render() {
+    render(): void {
         this.inputBlock.addClass([
             'mdl-textfield',
             'mdl-js-textfield',
@@ -220,12 +220,12 @@ export class FileField extends BaseField {
     }
     /**
      * @private
-     * @param {!Blob} file
+     * @param {!File} file
      * @return {undefined}
      */
-    _read(file) {
+    _read(file: File): void {
         if (file) {
-            const filename = /** @type {string} */(file).name;
+            const filename = file.name;
             const reader = new FileReader();
             reader.onload = (event) => {
                 const target = event.target;
@@ -250,7 +250,7 @@ export class FileField extends BaseField {
      * @private
      * @return {undefined}
      */
-    _handleRemoveButton() {
+    _handleRemoveButton(): void {
         if (!this.isRequired() && this.valueSrc) {
             this.removeButton.removeClass('hidden');
         } else {
@@ -261,7 +261,7 @@ export class FileField extends BaseField {
      * @private
      * @return {undefined}
      */
-    _remove() {
+    _remove(): void {
         this.input.getNode().value = '';
         this.valueSrc = null;
 
@@ -279,15 +279,15 @@ export class FileField extends BaseField {
      * @param {!Object|!Function|!Array|boolean|number|string|null|undefined} value
      * @return {undefined}
      */
-    setValue(value) {
+    setValue(value: object | Function | Array<any> | boolean | number | string | null | undefined): void {
         let imageSrc = value;
         if (isObject(value)) {
             imageSrc = value['url'];
         }
         if (imageSrc) {
-            this.valueSrc = imageSrc;
+            this.valueSrc = imageSrc as string;
             if (this._isDocument()) {
-                const extension = getExtensionName(imageSrc);
+                const extension = getExtensionName(imageSrc as string);
                 const [_mimeType, color] = this._lookupByExtension(extension);
                 imageSrc = this._getFileIconSrc(extension, color);
             }

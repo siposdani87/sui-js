@@ -1,3 +1,6 @@
+import { Item } from '../core/item';
+import { Tooltip } from '../component/tooltip';
+import { Form } from '../component';
 /**
  * @class
  */
@@ -6,10 +9,10 @@ export declare class BaseField {
     label: any;
     error: any;
     inputBlock: any;
-    form: any;
-    errorTooltip: any;
-    infoContainerNode: any;
-    actionContainerNode: any;
+    form?: Form;
+    errorTooltip: Tooltip;
+    infoContainerNode: Item;
+    actionContainerNode: Item;
     disabled: boolean;
     /**
      * @param {!Item} input
@@ -18,7 +21,7 @@ export declare class BaseField {
      * @param {!Item=} opt_inputBlock
      * @param {!Form=} opt_form
      */
-    constructor(input: any, opt_label?: any, opt_error?: any, opt_inputBlock?: any, opt_form?: any);
+    constructor(input: Item, opt_label?: Item | undefined, opt_error?: Item | undefined, opt_inputBlock?: Item | undefined, opt_form?: Form | undefined);
     /**
      * @param {*} value
      * @param {*} previousValue
@@ -28,7 +31,7 @@ export declare class BaseField {
      * @param {!Item} node
      * @return {undefined}
      */
-    eventClick(node: any): void;
+    eventClick(node: Item): void;
     /**
      * @return {undefined}
      */
@@ -48,7 +51,7 @@ export declare class BaseField {
     /**
      * @return {string}
      */
-    getName(): any;
+    getName(): string;
     /**
      * @return {*}
      */
@@ -58,32 +61,32 @@ export declare class BaseField {
      * @param {string} inputName
      * @return {string}
      */
-    _getAttributeName(inputName: any): any;
+    _getAttributeName(inputName: string): string;
     /**
      * @param {string=} opt_message
      * @param {boolean=} opt_isCustomError
      * @return {undefined}
      */
-    setError(opt_message?: string, opt_isCustomError?: boolean): void;
+    setError(opt_message?: string | undefined, opt_isCustomError?: boolean | undefined): void;
     /**
      * @param {boolean=} opt_force
      * @param {boolean=} opt_showMessage
      * @return {undefined}
      */
-    checkValidity(opt_force?: boolean, opt_showMessage?: boolean): void;
+    checkValidity(opt_force?: boolean | undefined, opt_showMessage?: boolean | undefined): void;
     /**
      * @return {boolean}
      */
-    isValidityValid(): any;
+    isValidityValid(): boolean;
     /**
      * @return {boolean}
      */
-    isValid(): any;
+    isValid(): boolean;
     /**
      * @private
      * @return {!Item}
      */
-    _getUpgradedNode(): any;
+    _getUpgradedNode(): Item;
     /**
      * @param {!Object|!Function|!Array|boolean|number|string|null|undefined} value
      * @return {undefined}
@@ -92,29 +95,29 @@ export declare class BaseField {
     /**
      * @return {boolean}
      */
-    exists(): any;
+    exists(): boolean;
     /**
      * @return {boolean}
      */
-    existsInput(): any;
+    existsInput(): boolean;
     /**
      * @return {boolean}
      */
-    existsInputBlock(): any;
+    existsInputBlock(): boolean;
     /**
      * @param {string} attribute
      * @return {*}
      */
-    get(attribute: any): any;
+    get(attribute: string): any;
     /**
      * @return {boolean}
      */
-    isRequired(): any;
+    isRequired(): boolean;
     /**
      * @param {boolean} state
      * @return {undefined}
      */
-    setRequired(state: any): void;
+    setRequired(state: boolean): void;
     /**
      * @return {boolean}
      */
@@ -122,12 +125,12 @@ export declare class BaseField {
     /**
      * @return {boolean}
      */
-    isDisabled(): any;
+    isDisabled(): boolean;
     /**
      * @param {boolean} state
      * @return {undefined}
      */
-    setDisabled(state: any): void;
+    setDisabled(state: boolean): void;
     /**
      * @return {boolean}
      */
@@ -136,7 +139,7 @@ export declare class BaseField {
      * @param {boolean} state
      * @return {undefined}
      */
-    setVisibility(state: any): void;
+    setVisibility(state: boolean): void;
     /**
      * @return {undefined}
      */
@@ -149,7 +152,7 @@ export declare class BaseField {
      * @param {string} text
      * @return {undefined}
      */
-    setLabel(text: any): void;
+    setLabel(text: string): void;
     /**
      * @private
      * @return {undefined}
@@ -165,19 +168,19 @@ export declare class BaseField {
      * @param {!Item} label
      * @return {undefined}
      */
-    _setInfo(label: any): void;
+    _setInfo(label: Item): void;
     /**
      * @protected
      * @param {!Item|undefined} label
      * @return {undefined}
      */
-    _setAdditionalLabel(label: any): void;
+    _setAdditionalLabel(label: Item | undefined): void;
     /**
      * @protected
      * @param {string} labelText
      * @return {string}
      */
-    _getLabelRequiredText(labelText: any): any;
+    _getLabelRequiredText(labelText: string): string;
     /**
      * @private
      * @return {undefined}

@@ -9,7 +9,7 @@ import { Objekt } from '../core/objekt';
  */
 export declare class SelectField extends BaseField {
     query: string;
-    ids: any[];
+    ids: string[];
     containerNode: Item;
     listNode: Item;
     popup: Popup;
@@ -24,7 +24,7 @@ export declare class SelectField extends BaseField {
      * @param {!Item} error
      * @param {!Item} inputBlock
      */
-    constructor(input: any, label: any, error: any, inputBlock: any);
+    constructor(input: Item, label: Item, error: Item, inputBlock: Item);
     /**
      * @private
      * @return {undefined}
@@ -33,7 +33,7 @@ export declare class SelectField extends BaseField {
     /**
      * @return {boolean}
      */
-    isMultiple(): any;
+    isMultiple(): boolean;
     /**
      * @private
      * @return {undefined}
@@ -64,7 +64,7 @@ export declare class SelectField extends BaseField {
      * @param {!Object|!Function|!Array|boolean|number|string|null|undefined} value
      * @return {undefined}
      */
-    setValue(value: any): void;
+    setValue(value: object | Function | Array<any> | boolean | number | string | null | undefined): void;
     /**
      * @override
      * @return {*}
@@ -74,7 +74,7 @@ export declare class SelectField extends BaseField {
      * @param {string=} opt_attribute
      * @return {*}
      */
-    getOptionValue(opt_attribute: any): any;
+    getOptionValue(opt_attribute?: string): any;
     /**
      * @return {undefined}
      */
@@ -91,7 +91,7 @@ export declare class SelectField extends BaseField {
      * @param {string=} opt_image
      * @return {undefined}
      */
-    setOptions(items: any, opt_value?: string, opt_name?: string, opt_image?: string): void;
+    setOptions(items: Array<Objekt>, opt_value?: string | undefined, opt_name?: string | undefined, opt_image?: string | undefined): void;
     /**
      * @private
      * @return {undefined}
@@ -102,47 +102,47 @@ export declare class SelectField extends BaseField {
      * @param {!Array} ids
      * @return {undefined}
      */
-    _setSelectTags(ids: any): void;
+    _setSelectTags(ids: Array<any>): void;
     /**
      * @param {string} id
      * @return {undefined}
      * @private
      */
-    _setSimpleTag(id: any): void;
+    _setSimpleTag(id: string): void;
     /**
-     * @param {!Array} ids
+     * @param {!Array<string>} ids
      * @return {undefined}
      * @private
      */
-    _setMultipleTag(ids: any): void;
+    _setMultipleTag(ids: Array<string>): void;
     /**
      * @private
-     * @param {!Array|string} tags
+     * @param {!Array<Objekt>|Objekt} tags
      */
-    _setTags(tags: any): void;
+    _setTags(tags: Array<Objekt> | Objekt): void;
     /**
      * @private
      * @param {!Array} ids
      * @return {undefined}
      */
-    _setSelectedIds(ids: any): void;
+    _setSelectedIds(ids: Array<any>): void;
     /**
      * @private
      * @return {!Array}
      */
-    _getSelectedIds(): any[];
+    _getSelectedIds(): Array<any>;
     /**
      * @param {number} id
      * @return {undefined}
      * @private
      */
-    _handleSelectedId(id: any): void;
+    _handleSelectedId(id: number): void;
     /**
      * @private
      * @param {!Array} items
      * @return {undefined}
      */
-    _drawItems(items: any): void;
+    _drawItems(items: Array<any>): void;
     /**
      * @private
      * @return {undefined}
@@ -161,5 +161,5 @@ export declare class SelectField extends BaseField {
      * @param {string} query
      * @return {undefined}
      */
-    _search(query: any): void;
+    _search(query: string): void;
 }

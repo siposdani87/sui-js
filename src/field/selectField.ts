@@ -23,7 +23,7 @@ import { generateId } from '../utils/coder';
  */
 export class SelectField extends BaseField {
     query: string;
-    ids: any[];
+    ids: string[];
     containerNode: Item;
     listNode: Item;
     popup: Popup;
@@ -38,7 +38,7 @@ export class SelectField extends BaseField {
      * @param {!Item} error
      * @param {!Item} inputBlock
      */
-    constructor(input, label, error, inputBlock) {
+    constructor(input: Item, label: Item, error: Item, inputBlock: Item) {
         super(input, label, error, inputBlock);
         this._init();
     }
@@ -46,7 +46,7 @@ export class SelectField extends BaseField {
      * @private
      * @return {undefined}
      */
-    _init() {
+    _init(): void {
         this.input.addClass('hidden');
         this.inputBlock.addClass('select-field');
         this.query = '';
@@ -59,14 +59,14 @@ export class SelectField extends BaseField {
     /**
      * @return {boolean}
      */
-    isMultiple() {
+    isMultiple(): boolean {
         return this.input.hasAttribute('multiple');
     }
     /**
      * @private
      * @return {undefined}
      */
-    _initPopup() {
+    _initPopup(): void {
         this.containerNode = new Item('div');
         this._drawSearchInput();
 
@@ -80,7 +80,7 @@ export class SelectField extends BaseField {
      * @private
      * @return {undefined}
      */
-    _initChangeEvent() {
+    _initChangeEvent(): void {
         this.input.addEventListener('change', () => {
             this._change();
             return true;
@@ -90,7 +90,7 @@ export class SelectField extends BaseField {
      * @private
      * @return {undefined}
      */
-    _initOptions() {
+    _initOptions(): void {
         this.options = /** @type {!Collection<!Objekt>} */ new Collection();
 
         const optionNodes = new Query('option', this.input);
@@ -113,7 +113,7 @@ export class SelectField extends BaseField {
      * @override
      * @return {undefined}
      */
-    render() {
+    render(): void {
         if (this.label && this.label.exists()) {
             this.label.addClass('field-label');
         }
@@ -135,7 +135,7 @@ export class SelectField extends BaseField {
      * @override
      * @return {undefined}
      */
-    refresh() {
+    refresh(): void {
         const selectContainerNode = new Query(
             '.select-container',
             this.inputBlock,
@@ -169,10 +169,10 @@ export class SelectField extends BaseField {
      * @param {!Object|!Function|!Array|boolean|number|string|null|undefined} value
      * @return {undefined}
      */
-    setValue(value) {
-        this.ids = value;
+    setValue(value: object | Function | Array<any> | boolean | number | string | null | undefined): void {
+        this.ids = value as string[];
         if (!isArray(value)) {
-            this.ids = [value];
+            this.ids = [value as string];
         }
         this._setSelectedIds(/** @type {!Array} */ this.ids);
     }
@@ -180,7 +180,7 @@ export class SelectField extends BaseField {
      * @override
      * @return {*}
      */
-    getValue() {
+    getValue(): any {
         let ids = this._getSelectedIds();
         ids = ids.filter((id) => {
             return !eq(id, '');
@@ -191,7 +191,7 @@ export class SelectField extends BaseField {
      * @param {string=} opt_attribute
      * @return {*}
      */
-    getOptionValue(opt_attribute) {
+    getOptionValue(opt_attribute?: string): any {
         const value = this.getValue();
         if (value) {
             const option = this.options.findById(value);
@@ -204,7 +204,7 @@ export class SelectField extends BaseField {
     /**
      * @return {undefined}
      */
-    showLoader() {
+    showLoader(): void {
         this.iconNode.setHtml('refresh');
         this.iconNode.addClass('rotate');
     }
@@ -212,7 +212,7 @@ export class SelectField extends BaseField {
      * @private
      * @return {undefined}
      */
-    _hideLoader() {
+    _hideLoader(): void {
         this.iconNode.setHtml('expand_more');
         this.iconNode.removeClass('rotate');
     }
@@ -223,7 +223,7 @@ export class SelectField extends BaseField {
      * @param {string=} opt_image
      * @return {undefined}
      */
-    setOptions(items, opt_value = 'value', opt_name = 'name', opt_image = '') {
+    setOptions(items: Array<Objekt>, opt_value: string | undefined = 'value', opt_name: string | undefined = 'name', opt_image: string | undefined = ''): void {
         const optionNodes = new Query('option', this.input);
         optionNodes.each((optionNode) => {
             if (optionNode.getAttribute('value')) {
@@ -254,7 +254,7 @@ export class SelectField extends BaseField {
      * @private
      * @return {undefined}
      */
-    _change() {
+    _change(): void {
         const ids = this._getSelectedIds();
         this._setSelectTags(ids);
         const value = this.getValue();
@@ -265,7 +265,7 @@ export class SelectField extends BaseField {
      * @param {!Array} ids
      * @return {undefined}
      */
-    _setSelectTags(ids) {
+    _setSelectTags(ids: Array<any>): void {
         if (this.isRequired() && ids.length === 1 && ids[0] === '') {
             this.inputBlock.addClass('is-invalid');
         }
@@ -280,16 +280,16 @@ export class SelectField extends BaseField {
      * @return {undefined}
      * @private
      */
-    _setSimpleTag(id) {
+    _setSimpleTag(id: string): void {
         const option = this.options.findById(id);
         this._setTags(option);
     }
     /**
-     * @param {!Array} ids
+     * @param {!Array<string>} ids
      * @return {undefined}
      * @private
      */
-    _setMultipleTag(ids) {
+    _setMultipleTag(ids: Array<string>): void {
         const options = [];
         each(ids, (id) => {
             const option = this.options.findById(id);
@@ -308,11 +308,11 @@ export class SelectField extends BaseField {
     }
     /**
      * @private
-     * @param {!Array|string} tags
+     * @param {!Array<Objekt>|Objekt} tags
      */
-    _setTags(tags) {
+    _setTags(tags: Array<Objekt> | Objekt) {
         if (!isArray(tags)) {
-            tags = [tags];
+            tags = [tags as Objekt];
         }
         this.selectNode.removeChildren();
 
@@ -346,7 +346,7 @@ export class SelectField extends BaseField {
      * @param {!Array} ids
      * @return {undefined}
      */
-    _setSelectedIds(ids) {
+    _setSelectedIds(ids: Array<any>): void {
         this.options.each((option) => {
             const id = option.get('id');
             const selected = inArray(ids, id);
@@ -366,7 +366,7 @@ export class SelectField extends BaseField {
      * @private
      * @return {!Array}
      */
-    _getSelectedIds() {
+    _getSelectedIds(): Array<any> {
         const ids = [];
         this.options.each((option) => {
             const optionNode =
@@ -384,7 +384,7 @@ export class SelectField extends BaseField {
      * @return {undefined}
      * @private
      */
-    _handleSelectedId(id) {
+    _handleSelectedId(id: number): void {
         let ids = this._getSelectedIds();
         if (this.isMultiple()) {
             if (eq(id, '') || eq(ids[0], '')) {
@@ -414,7 +414,7 @@ export class SelectField extends BaseField {
      * @param {!Array} items
      * @return {undefined}
      */
-    _drawItems(items) {
+    _drawItems(items: Array<any>): void {
         this.listNode.removeChildren();
         const ids = this._getSelectedIds();
         each(items, (item) => {
@@ -446,7 +446,7 @@ export class SelectField extends BaseField {
      * @private
      * @return {undefined}
      */
-    _drawSearchInput() {
+    _drawSearchInput(): void {
         const searchParentNode = new Item('div');
         searchParentNode.addClass('search-box');
         this.containerNode.appendChild(searchParentNode);
@@ -481,7 +481,7 @@ export class SelectField extends BaseField {
     /**
      * @return {undefined}
      */
-    open() {
+    open(): void {
         this._search(this.query);
         this.popup.open();
         this.searchInputNode.getNode().focus();
@@ -489,7 +489,7 @@ export class SelectField extends BaseField {
     /**
      * @return {undefined}
      */
-    close() {
+    close(): void {
         this.popup.close();
     }
     /**
@@ -497,7 +497,7 @@ export class SelectField extends BaseField {
      * @param {string} query
      * @return {undefined}
      */
-    _search(query) {
+    _search(query: string): void {
         this.query = query;
         this.searchInputNode.getNode().value = query;
         this.searchInputNode.set('value', query);

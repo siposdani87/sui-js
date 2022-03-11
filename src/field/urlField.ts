@@ -14,7 +14,7 @@ export class UrlField extends BaseField {
      * @param {!Item} error
      * @param {!Item} inputBlock
      */
-    constructor(input, label, error, inputBlock) {
+    constructor(input: Item, label: Item, error: Item, inputBlock: Item) {
         super(input, label, error, inputBlock);
         this._init();
     }
@@ -22,7 +22,7 @@ export class UrlField extends BaseField {
      * @private
      * @return {undefined}
      */
-    _init() {
+    _init(): void {
         this.inputBlock.addClass('url-field');
 
         /**
@@ -47,7 +47,7 @@ export class UrlField extends BaseField {
      * @override
      * @return {undefined}
      */
-    render() {
+    render(): void {
         this.inputBlock.addClass([
             'mdl-textfield',
             'mdl-js-textfield',

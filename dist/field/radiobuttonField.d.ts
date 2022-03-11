@@ -1,6 +1,7 @@
 import { BaseField } from './baseField';
 import { Item } from '../core/item';
 import { Query } from '../core/query';
+import { Form } from '../component';
 /**
  * @class
  * @extends {BaseField}
@@ -15,7 +16,7 @@ export declare class RadiobuttonField extends BaseField {
      * @param {!Item} inputBlock
      * @param {!Form} form
      */
-    constructor(input: any, label: any, error: any, inputBlock: any, form: any);
+    constructor(input: Item, label: Item, error: Item, inputBlock: Item, form: Form);
     /**
      * @private
      * @return {undefined}
@@ -40,7 +41,7 @@ export declare class RadiobuttonField extends BaseField {
      * @param {!Object|!Function|!Array|boolean|number|string|null|undefined} value
      * @return {undefined}
      */
-    setValue(value: any): void;
+    setValue(value: object | Function | Array<any> | boolean | number | string | null | undefined): void;
     /**
      * @override
      * @return {*}
@@ -51,7 +52,7 @@ export declare class RadiobuttonField extends BaseField {
      * @param {boolean} state
      * @return {undefined}
      */
-    setDisabled(state: any): void;
+    setDisabled(state: boolean): void;
     /**
      * @override
      * @return {boolean}
@@ -66,5 +67,5 @@ export declare class RadiobuttonField extends BaseField {
      * @param {string} text
      * @return {undefined}
      */
-    setLabel(text: any): void;
+    setLabel(text: string): void;
 }

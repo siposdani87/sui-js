@@ -7,17 +7,17 @@ import { Item } from '../core/item';
  * @extends {BaseField}
  */
 export class TextareaField extends BaseField {
-    richText: any;
-    richTextNode: any;
+    richText: Item;
+    richTextNode: HTMLElement;
     toolbarNode: Item;
-    htmlMode: any;
+    htmlMode: boolean;
     /**
      * @param {!Item} input
      * @param {!Item} label
      * @param {!Item} error
      * @param {!Item} inputBlock
      */
-    constructor(input, label, error, inputBlock) {
+    constructor(input: Item, label: Item, error: Item, inputBlock: Item) {
         super(input, label, error, inputBlock);
         this._init();
     }
@@ -25,7 +25,7 @@ export class TextareaField extends BaseField {
      * @private
      * @return {undefined}
      */
-    _init() {
+    _init(): void {
         this.inputBlock.addClass('textarea-field');
 
         this.input.addEventListener('keyup', (input) => {
@@ -47,7 +47,7 @@ export class TextareaField extends BaseField {
      * @override
      * @return {undefined}
      */
-    render() {
+    render(): void {
         this.inputBlock.addClass([
             'mdl-textfield',
             'mdl-js-textfield',
@@ -66,7 +66,7 @@ export class TextareaField extends BaseField {
     /**
      * @return {undefined}
      */
-    _renderRichText() {
+    _renderRichText(): void {
         this.input.addClass('hidden');
 
         let value = /** @type {string} */(this).getValue();
@@ -119,14 +119,14 @@ export class TextareaField extends BaseField {
      * @private
      * @return {boolean}
      */
-    _isRichText() {
+    _isRichText(): boolean {
         return !!this.input.getAttribute('data-rich-text');
     }
     /**
      * @private
      * @return {undefined}
      */
-    _renderToolbarButtons() {
+    _renderToolbarButtons(): void {
         this.toolbarNode = new Item('div');
         this.toolbarNode.addClass('toolbar');
         this.input.insertBefore(this.toolbarNode);
@@ -173,7 +173,7 @@ export class TextareaField extends BaseField {
      * @param {!Function} action
      * @return {undefined}
      */
-    _renderToolbarButton(iconName, action) {
+    _renderToolbarButton(iconName: string, action: Function): void {
         const boldButtonNode = new Item('a');
         boldButtonNode.setAttribute('href', 'javascript:void(0)');
         boldButtonNode.addClass('material-icons');
@@ -188,7 +188,7 @@ export class TextareaField extends BaseField {
      * @param {boolean} value
      * @return {undefined}
      */
-    _setHtmlMode(value) {
+    _setHtmlMode(value: boolean): void {
         this.htmlMode = value;
         this._setDocMode(this.htmlMode);
     }
@@ -196,7 +196,7 @@ export class TextareaField extends BaseField {
      * @private
      * @return {boolean}
      */
-    _isHtmlMode() {
+    _isHtmlMode(): boolean {
         return this.htmlMode === true;
     }
     /**
@@ -205,7 +205,7 @@ export class TextareaField extends BaseField {
      * @param {*=} opt_sValue
      * @return {undefined}
      */
-    _formatDoc(sCmd, opt_sValue?) {
+    _formatDoc(sCmd: string, opt_sValue?: any | undefined): void {
         if (!this._isHtmlMode()) {
             document.execCommand(sCmd, false, opt_sValue);
             this._setValue(this.richTextNode.innerHTML);
@@ -216,7 +216,7 @@ export class TextareaField extends BaseField {
      * @param {boolean} _isHtmlMode
      * @return {undefined}
      */
-    _setDocMode(_isHtmlMode) {
+    _setDocMode(_isHtmlMode: boolean): void {
         if (_isHtmlMode) {
             this.richText.addClass('hidden');
             this.input.removeClass('hidden');
@@ -245,7 +245,7 @@ export class TextareaField extends BaseField {
      * @param {!Object|!Function|!Array|boolean|number|string|null|undefined} value
      * @return {undefined}
      */
-    _setValue(value) {
+    _setValue(value: object | Function | Array<any> | boolean | number | string | null | undefined): void {
         const inputNode = this.input.getNode();
         inputNode.value = value;
         this.input.trigger('change');
@@ -255,9 +255,9 @@ export class TextareaField extends BaseField {
      * @param {!Object|!Function|!Array|boolean|number|string|null|undefined} value
      * @return {undefined}
      */
-    setValue(value) {
+    setValue(value: object | Function | Array<any> | boolean | number | string | null | undefined): void {
         if (this._isRichText()) {
-            this.richTextNode.innerHTML = value;
+            this.richTextNode.innerHTML = value as string;
         }
         this._setValue(value);
     }
@@ -265,7 +265,7 @@ export class TextareaField extends BaseField {
      * @override
      * @return {*}
      */
-    getValue() {
+    getValue(): any {
         return this.input.getNode().value;
     }
 }

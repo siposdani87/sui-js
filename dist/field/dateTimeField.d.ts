@@ -9,7 +9,7 @@ import { Item } from '../core/item';
 export declare class DateTimeField extends BaseField {
     datetimeContainer: Item;
     datetimeInput: Item;
-    format: any;
+    format: string;
     datetimeNode: Item;
     datetime: Date;
     popup: Popup;
@@ -19,7 +19,7 @@ export declare class DateTimeField extends BaseField {
      * @param {!Item} error
      * @param {!Item} inputBlock
      */
-    constructor(input: any, label: any, error: any, inputBlock: any);
+    constructor(input: Item, label: Item, error: Item, inputBlock: Item);
     /**
      * @private
      * @return {undefined}
@@ -44,13 +44,13 @@ export declare class DateTimeField extends BaseField {
      * @param {!Object|!Function|!Array|boolean|number|string|null|undefined} value
      * @return {undefined}
      */
-    setValue(value: any): void;
+    setValue(value: object | Function | Array<any> | boolean | number | string | null | undefined): void;
     /**
      * @private
      * @param {string} value
      * @return {undefined}
      */
-    _setTag(value: any): void;
+    _setTag(value: string): void;
     /**
      * @private
      * @return {undefined}
