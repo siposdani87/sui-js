@@ -1,3 +1,4 @@
+import { Item } from '../core';
 import { BaseField } from './baseField';
 /**
  * @class
@@ -7,7 +8,7 @@ export declare class Button extends BaseField {
     /**
      * @param {!Item} input
      */
-    constructor(input: any);
+    constructor(input: Item);
     /**
      * @private
      * @return {undefined}

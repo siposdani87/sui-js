@@ -17,7 +17,7 @@ export class BaseCheckboxField extends BaseField {
      * @param {!Item} error
      * @param {!Item} inputBlock
      */
-    constructor(input, label, error, inputBlock) {
+    constructor(input: Item, label: Item, error: Item, inputBlock: Item) {
         super(input, label, error, inputBlock);
         this._init();
     }
@@ -25,7 +25,7 @@ export class BaseCheckboxField extends BaseField {
      * @protected
      * @return {undefined}
      */
-    _init() {
+    _init(): void {
         this.hiddenInput = new Query(
             'input[type=hidden]',
             this.inputBlock,
@@ -41,7 +41,7 @@ export class BaseCheckboxField extends BaseField {
      * @protected
      * @return {undefined}
      */
-    _change() {
+    _change(): void {
         const value = this.getValue();
         this.modelChange(value);
     }
@@ -49,7 +49,7 @@ export class BaseCheckboxField extends BaseField {
      * @override
      * @return {*}
      */
-    getValue() {
+    getValue(): any {
         const checked = this.input.getNode().checked;
         let value = this.hiddenInput.getAttribute('value');
         if (checked) {
@@ -62,7 +62,7 @@ export class BaseCheckboxField extends BaseField {
      * @param {!Object|!Function|!Array|boolean|number|string|null|undefined} value
      * @return {undefined}
      */
-    setValue(value) {
+    setValue(value: object | Function | Array<any> | boolean | number | string | null | undefined): void {
         const currentValue = typeCast(this.input.getAttribute('value'));
         this.input.getNode().checked = currentValue === value;
         if (!this.input.getNode().checked) {
@@ -75,7 +75,7 @@ export class BaseCheckboxField extends BaseField {
      * @param {boolean} state
      * @return {undefined}
      */
-    setDisabled(state) {
+    setDisabled(state: boolean): void {
         if (state) {
             this.input.setAttribute('disabled');
             this.label.addClass('is-disabled');
@@ -93,7 +93,7 @@ export class BaseCheckboxField extends BaseField {
      * @param {string} text
      * @return {undefined}
      */
-    setLabel(text) {
+    setLabel(text: string): void {
         if (this.spanLabel && !this.spanLabel.isEmpty()) {
             this.spanLabel.setHtml(text);
             this._setAdditionalLabel(this.spanLabel);

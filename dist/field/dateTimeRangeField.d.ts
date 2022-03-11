@@ -7,10 +7,10 @@ import { Item } from '../core/item';
  * @extends {BaseField}
  */
 export declare class DateTimeRangeField extends BaseField {
-    isStartInput: any;
-    datetimeContainer: any;
+    isStartInput: boolean;
+    datetimeContainer: Item;
     datetimeInput: Item;
-    format: any;
+    format: string;
     datetimeNode: Item;
     datetime: Date;
     popup: Popup;
@@ -21,7 +21,7 @@ export declare class DateTimeRangeField extends BaseField {
      * @param {!Item} inputBlock
      * @param {boolean} isStartInput
      */
-    constructor(input: any, label: any, error: any, inputBlock: any, isStartInput: any);
+    constructor(input: Item, label: Item, error: Item, inputBlock: Item, isStartInput: boolean);
     /**
      * @private
      * @return {undefined}
@@ -46,13 +46,13 @@ export declare class DateTimeRangeField extends BaseField {
      * @param {!Object|!Function|!Array|boolean|number|string|null|undefined} value
      * @return {undefined}
      */
-    setValue(value: any): void;
+    setValue(value: object | Function | Array<any> | boolean | number | string | null | undefined): void;
     /**
      * @private
      * @param {string} value
      * @return {undefined}
      */
-    _setTag(value: any): void;
+    _setTag(value: string): void;
     /**
      * @private
      * @return {undefined}

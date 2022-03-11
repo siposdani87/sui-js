@@ -12,20 +12,20 @@ import { convertRGBToHEX } from '../utils/color';
  * @extends {BaseField}
  */
 export class ColorField extends BaseField {
-    tooltip: any;
-    previewNode: any;
+    tooltip: Tooltip;
+    previewNode: Item;
     colorNode: Item;
     popup: Popup;
     canvas: Canvas;
-    image: any;
-    colors: any;
+    image: Item;
+    colors: string[][];
     /**
      * @param {!Item} input
      * @param {!Item} label
      * @param {!Item} error
      * @param {!Item} inputBlock
      */
-    constructor(input, label, error, inputBlock) {
+    constructor(input: Item, label: Item, error: Item, inputBlock: Item) {
         super(input, label, error, inputBlock);
         this._init();
     }
@@ -33,7 +33,7 @@ export class ColorField extends BaseField {
      * @private
      * @return {undefined}
      */
-    _init() {
+    _init(): void {
         this.inputBlock.addClass('color-field');
 
         this._initInput();
@@ -72,7 +72,7 @@ export class ColorField extends BaseField {
      * @private
      * @return {undefined}
      */
-    _initInput() {
+    _initInput(): void {
         this.input.addClass('hidden');
 
         this.input.addEventListener('change', (input) => {
@@ -89,7 +89,7 @@ export class ColorField extends BaseField {
      * @private
      * @return {undefined}
      */
-    _initPreview() {
+    _initPreview(): void {
         this.previewNode = new Item('div');
         this.previewNode.addClass('preview');
         this.inputBlock.beforeChild(this.previewNode);
@@ -113,7 +113,7 @@ export class ColorField extends BaseField {
      * @private
      * @return {undefined}
      */
-    _draw() {
+    _draw(): void {
         if (!this.image.isEmpty()) {
             const width = /** @type {number} */(typeCast)(
                 this.image.getAttribute('width'),
@@ -149,7 +149,7 @@ export class ColorField extends BaseField {
      * @private
      * @return {undefined}
      */
-    _initImage() {
+    _initImage(): void {
         this.image = new Query('img', this.inputBlock).getItem();
         if (!this.image.isEmpty()) {
             this.image.addClass('hidden');
@@ -180,7 +180,7 @@ export class ColorField extends BaseField {
      * @private
      * @return {undefined}
      */
-    _setMaterialColors() {
+    _setMaterialColors(): void {
         const colors50 = [
             '#ffebee',
             '#fce4ec',

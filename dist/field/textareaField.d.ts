@@ -5,17 +5,17 @@ import { Item } from '../core/item';
  * @extends {BaseField}
  */
 export declare class TextareaField extends BaseField {
-    richText: any;
-    richTextNode: any;
+    richText: Item;
+    richTextNode: HTMLElement;
     toolbarNode: Item;
-    htmlMode: any;
+    htmlMode: boolean;
     /**
      * @param {!Item} input
      * @param {!Item} label
      * @param {!Item} error
      * @param {!Item} inputBlock
      */
-    constructor(input: any, label: any, error: any, inputBlock: any);
+    constructor(input: Item, label: Item, error: Item, inputBlock: Item);
     /**
      * @private
      * @return {undefined}
@@ -46,13 +46,13 @@ export declare class TextareaField extends BaseField {
      * @param {!Function} action
      * @return {undefined}
      */
-    _renderToolbarButton(iconName: any, action: any): void;
+    _renderToolbarButton(iconName: string, action: Function): void;
     /**
      * @private
      * @param {boolean} value
      * @return {undefined}
      */
-    _setHtmlMode(value: any): void;
+    _setHtmlMode(value: boolean): void;
     /**
      * @private
      * @return {boolean}
@@ -64,13 +64,13 @@ export declare class TextareaField extends BaseField {
      * @param {*=} opt_sValue
      * @return {undefined}
      */
-    _formatDoc(sCmd: any, opt_sValue?: any): void;
+    _formatDoc(sCmd: string, opt_sValue?: any | undefined): void;
     /**
      * @private
      * @param {boolean} _isHtmlMode
      * @return {undefined}
      */
-    _setDocMode(_isHtmlMode: any): void;
+    _setDocMode(_isHtmlMode: boolean): void;
     /**
      * @override
      */
@@ -80,13 +80,13 @@ export declare class TextareaField extends BaseField {
      * @param {!Object|!Function|!Array|boolean|number|string|null|undefined} value
      * @return {undefined}
      */
-    _setValue(value: any): void;
+    _setValue(value: object | Function | Array<any> | boolean | number | string | null | undefined): void;
     /**
      * @override
      * @param {!Object|!Function|!Array|boolean|number|string|null|undefined} value
      * @return {undefined}
      */
-    setValue(value: any): void;
+    setValue(value: object | Function | Array<any> | boolean | number | string | null | undefined): void;
     /**
      * @override
      * @return {*}

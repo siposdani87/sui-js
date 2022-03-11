@@ -12,14 +12,14 @@ export class SwitchField extends BaseCheckboxField {
      * @param {!Item} error
      * @param {!Item} inputBlock
      */
-    constructor(input, label, error, inputBlock) {
+    constructor(input: Item, label: Item, error: Item, inputBlock: Item) {
         super(input, label, error, inputBlock);
     }
     /**
      * @override
      * @return {undefined}
      */
-    render() {
+    render(): void {
         this.label.addClass([
             'mdl-switch',
             'mdl-js-switch',

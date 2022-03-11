@@ -1,5 +1,6 @@
 import { BaseField } from './baseField';
 import { Tooltip } from '../component/tooltip';
+import { Item } from '../core';
 /**
  * @class
  * @extends {BaseField}
@@ -12,7 +13,7 @@ export declare class RangeField extends BaseField {
      * @param {!Item} error
      * @param {!Item} inputBlock
      */
-    constructor(input: any, label: any, error: any, inputBlock: any);
+    constructor(input: Item, label: Item, error: Item, inputBlock: Item);
     /**
      * @private
      * @return {undefined}
@@ -32,5 +33,5 @@ export declare class RangeField extends BaseField {
      * @param {!Object|!Function|!Array|boolean|number|string|null|undefined} value
      * @return {undefined}
      */
-    setValue(value: any): void;
+    setValue(value: object | Function | Array<any> | boolean | number | string | null | undefined): void;
 }

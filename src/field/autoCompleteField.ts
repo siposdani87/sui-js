@@ -1,3 +1,4 @@
+import { Item } from '../core';
 import { BaseField } from './baseField';
 
 /**
@@ -11,7 +12,7 @@ export class AutoCompleteField extends BaseField {
      * @param {!Item} error
      * @param {!Item} inputBlock
      */
-    constructor(input, label, error, inputBlock) {
+    constructor(input: Item, label: Item, error: Item, inputBlock: Item) {
         super(input, label, error, inputBlock);
     }
 }

@@ -9,10 +9,10 @@ import { Query } from '../core/query';
  * @extends {BaseField}
  */
 export class DateTimeRangeField extends BaseField {
-    isStartInput: any;
-    datetimeContainer: any;
+    isStartInput: boolean;
+    datetimeContainer: Item;
     datetimeInput: Item;
-    format: any;
+    format: string;
     datetimeNode: Item;
     datetime: Date;
     popup: Popup;
@@ -23,7 +23,7 @@ export class DateTimeRangeField extends BaseField {
      * @param {!Item} inputBlock
      * @param {boolean} isStartInput
      */
-    constructor(input, label, error, inputBlock, isStartInput) {
+    constructor(input: Item, label: Item, error: Item, inputBlock: Item, isStartInput: boolean) {
         super(input, label, error, inputBlock);
 
         this.isStartInput = isStartInput;
@@ -33,7 +33,7 @@ export class DateTimeRangeField extends BaseField {
      * @private
      * @return {undefined}
      */
-    _init() {
+    _init(): void {
         this.inputBlock.addClass('datetime-range-field');
         this.input.addClass('hidden');
 
@@ -58,7 +58,7 @@ export class DateTimeRangeField extends BaseField {
      * @private
      * @return {undefined}
      */
-    _initInput() {
+    _initInput(): void {
         this.format = this.input.getData('format');
 
         this.input.addEventListener('change', () => {
@@ -93,7 +93,7 @@ export class DateTimeRangeField extends BaseField {
      * @override
      * @return {undefined}
      */
-    render() {
+    render(): void {
         if (this.label && this.label.exists()) {
             this.label.addClass('field-label');
         }
@@ -128,8 +128,8 @@ export class DateTimeRangeField extends BaseField {
      * @param {!Object|!Function|!Array|boolean|number|string|null|undefined} value
      * @return {undefined}
      */
-    setValue(value) {
-        this._setTag(/** @type {string} */(value));
+    setValue(value: object | Function | Array<any> | boolean | number | string | null | undefined): void {
+        this._setTag(/** @type {string} */(value as string));
         this.input.setAttribute('value', value);
         this.input.trigger('change');
         this.datetime.setValue(value);
@@ -139,7 +139,7 @@ export class DateTimeRangeField extends BaseField {
      * @param {string} value
      * @return {undefined}
      */
-    _setTag(value) {
+    _setTag(value: string): void {
         this.datetimeInput.removeChildren();
         if (value) {
             const formattedValue = window['moment'](
@@ -168,7 +168,7 @@ export class DateTimeRangeField extends BaseField {
      * @private
      * @return {undefined}
      */
-    _onClick() {
+    _onClick(): void {
         if (this.isEnabled()) {
             this.datetimeInput.addClass('active');
             this.popup.toggle();

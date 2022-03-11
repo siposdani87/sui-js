@@ -3,6 +3,7 @@ import { Item } from '../core/item';
 import { Query } from '../core/query';
 import { Tooltip } from '../component/tooltip';
 import { consoleInfo, consoleWarn } from '../utils/log';
+import { Form } from '../component';
 
 /**
  * @class
@@ -12,10 +13,10 @@ export class BaseField {
     label: any;
     error: any;
     inputBlock: any;
-    form: any;
-    errorTooltip: any;
-    infoContainerNode: any;
-    actionContainerNode: any;
+    form?: Form;
+    errorTooltip: Tooltip;
+    infoContainerNode: Item;
+    actionContainerNode: Item;
     disabled: boolean;
     /**
      * @param {!Item} input
@@ -24,7 +25,7 @@ export class BaseField {
      * @param {!Item=} opt_inputBlock
      * @param {!Form=} opt_form
      */
-    constructor(input, opt_label?, opt_error?, opt_inputBlock?, opt_form?) {
+    constructor(input: Item, opt_label?: Item | undefined, opt_error?: Item | undefined, opt_inputBlock?: Item | undefined, opt_form?: Form | undefined) {
         this.input = input;
         this.label = opt_label;
         this.error = opt_error;
@@ -44,52 +45,52 @@ export class BaseField {
      * @param {*} value
      * @param {*} previousValue
      */
-    eventChange(value, previousValue) {
+    eventChange(value: any, previousValue: any) {
         consoleInfo('BaseField.eventChange()', value, previousValue);
     }
     /**
      * @param {!Item} node
      * @return {undefined}
      */
-    eventClick(node) {
+    eventClick(node: Item): void {
         consoleWarn('Button.eventClick()', node);
     }
     /**
      * @return {undefined}
      */
-    render() {
+    render(): void {
         consoleWarn('BaseField.render()');
     }
     /**
      * @return {undefined}
      */
-    refresh() {
+    refresh(): void {
         consoleWarn('BaseField.refresh()');
     }
     /**
      * @param {*} value
      */
-    modelChange(value) {
+    modelChange(value: any) {
         consoleWarn('BaseField.modelChange()', value);
     }
     /**
      * @return {*}
      */
-    getPreviousValue() {
+    getPreviousValue(): any {
         consoleWarn('BaseField.getPreviousValue()');
         return undefined;
     }
     /**
      * @return {string}
      */
-    getName() {
+    getName(): string {
         const name = /** @type {string} */(this).input.getAttribute('name');
         return this._getAttributeName(name);
     }
     /**
      * @return {*}
      */
-    getValue() {
+    getValue(): any {
         const value = this.input.getNode().value;
         return typeCast(value);
     }
@@ -98,7 +99,7 @@ export class BaseField {
      * @param {string} inputName
      * @return {string}
      */
-    _getAttributeName(inputName) {
+    _getAttributeName(inputName: string): string {
         let attribute = inputName || '';
         attribute = attribute.replace(/]/g, '');
         attribute = attribute.replace(/\[/g, '.');
@@ -112,7 +113,7 @@ export class BaseField {
      * @param {boolean=} opt_isCustomError
      * @return {undefined}
      */
-    setError(opt_message = '', opt_isCustomError = false) {
+    setError(opt_message: string | undefined = '', opt_isCustomError: boolean | undefined = false): void {
         if (this.error) {
             this.errorTooltip.setMessage(opt_message);
             this.error.setHtml(opt_message);
@@ -126,7 +127,7 @@ export class BaseField {
      * @param {boolean=} opt_showMessage
      * @return {undefined}
      */
-    checkValidity(opt_force = false, opt_showMessage = true) {
+    checkValidity(opt_force: boolean | undefined = false, opt_showMessage: boolean | undefined = true): void {
         const isValid = this.isValid();
         if (isValid) {
             this.setError('');
@@ -148,28 +149,28 @@ export class BaseField {
     /**
      * @return {boolean}
      */
-    isValidityValid() {
+    isValidityValid(): boolean {
         const node = this.input.getNode();
         return node.validity.valid;
     }
     /**
      * @return {boolean}
      */
-    isValid() {
+    isValid(): boolean {
         return this.isValidityValid();
     }
     /**
      * @private
      * @return {!Item}
      */
-    _getUpgradedNode() {
+    _getUpgradedNode(): Item {
         return /** @type {!Item} */ this.inputBlock;
     }
     /**
      * @param {!Object|!Function|!Array|boolean|number|string|null|undefined} value
      * @return {undefined}
      */
-    setValue(value?: any) {
+    setValue(value?: any): void {
         this.input.getNode().value = value;
         this.input.setAttribute('value', value);
         this.input.trigger('change');
@@ -177,26 +178,26 @@ export class BaseField {
     /**
      * @return {boolean}
      */
-    exists() {
+    exists(): boolean {
         return this.existsInputBlock() || this.existsInput();
     }
     /**
      * @return {boolean}
      */
-    existsInput() {
+    existsInput(): boolean {
         return !!this.input && this.input.exists();
     }
     /**
      * @return {boolean}
      */
-    existsInputBlock() {
+    existsInputBlock(): boolean {
         return !!this.inputBlock && this.inputBlock.exists();
     }
     /**
      * @param {string} attribute
      * @return {*}
      */
-    get(attribute) {
+    get(attribute: string): any {
         if (attribute === 'model') {
             return this.getName();
         }
@@ -205,14 +206,14 @@ export class BaseField {
     /**
      * @return {boolean}
      */
-    isRequired() {
+    isRequired(): boolean {
         return this.input.getNode().required;
     }
     /**
      * @param {boolean} state
      * @return {undefined}
      */
-    setRequired(state) {
+    setRequired(state: boolean): void {
         if (state) {
             this.input.setAttribute('required');
         } else {
@@ -225,20 +226,20 @@ export class BaseField {
     /**
      * @return {boolean}
      */
-    isEnabled() {
+    isEnabled(): boolean {
         return !this.isDisabled();
     }
     /**
      * @return {boolean}
      */
-    isDisabled() {
+    isDisabled(): boolean {
         return this.input.getNode().disabled;
     }
     /**
      * @param {boolean} state
      * @return {undefined}
      */
-    setDisabled(state) {
+    setDisabled(state: boolean): void {
         if (state) {
             this.input.setAttribute('disabled');
         } else {
@@ -250,14 +251,14 @@ export class BaseField {
     /**
      * @return {boolean}
      */
-    isVisible() {
+    isVisible(): boolean {
         return !this.inputBlock.hasClass('hidden');
     }
     /**
      * @param {boolean} state
      * @return {undefined}
      */
-    setVisibility(state) {
+    setVisibility(state: boolean): void {
         if (state) {
             this.show();
         } else {
@@ -267,7 +268,7 @@ export class BaseField {
     /**
      * @return {undefined}
      */
-    show() {
+    show(): void {
         if (!this.isVisible()) {
             this.inputBlock.removeClass('hidden');
         }
@@ -275,7 +276,7 @@ export class BaseField {
     /**
      * @return {undefined}
      */
-    hide() {
+    hide(): void {
         if (this.isVisible()) {
             this.inputBlock.addClass('hidden');
         }
@@ -284,7 +285,7 @@ export class BaseField {
      * @param {string} text
      * @return {undefined}
      */
-    setLabel(text) {
+    setLabel(text: string): void {
         if (this.label && !this.label.isEmpty()) {
             this.label.setHtml(text);
             this._setAdditionalLabel(this.label);
@@ -294,7 +295,7 @@ export class BaseField {
      * @private
      * @return {undefined}
      */
-    _setInfoContainer() {
+    _setInfoContainer(): void {
         if (this.inputBlock && !this.inputBlock.isEmpty()) {
             this.infoContainerNode = new Query(
                 '.info-container',
@@ -311,7 +312,7 @@ export class BaseField {
      * @private
      * @return {undefined}
      */
-    _setActionContainer() {
+    _setActionContainer(): void {
         if (this.inputBlock && !this.inputBlock.isEmpty()) {
             this.actionContainerNode = new Query(
                 '.action-container',
@@ -329,7 +330,7 @@ export class BaseField {
      * @param {!Item} label
      * @return {undefined}
      */
-    _setInfo(label) {
+    _setInfo(label: Item): void {
         const title = /** @type {string} */(label).getAttribute('title');
         const description = /** @type {string} */(label).getAttribute('desc');
         if (title || description) {
@@ -356,7 +357,7 @@ export class BaseField {
      * @param {!Item|undefined} label
      * @return {undefined}
      */
-    _setAdditionalLabel(label) {
+    _setAdditionalLabel(label: Item | undefined): void {
         if (label && label.exists()) {
             const labelText = this._getLabelRequiredText(label.getHtml(true));
             label.setHtml(labelText);
@@ -368,7 +369,7 @@ export class BaseField {
      * @param {string} labelText
      * @return {string}
      */
-    _getLabelRequiredText(labelText) {
+    _getLabelRequiredText(labelText: string): string {
         if (eq(labelText, true)) {
             return '&nbsp;';
         }
@@ -388,7 +389,7 @@ export class BaseField {
      * @private
      * @return {undefined}
      */
-    _setMutation() {
+    _setMutation(): void {
         const observer = new MutationObserver((mutationsList) => {
             for (let i = 0; i < mutationsList.length; i++) {
                 const mutation = mutationsList[i];

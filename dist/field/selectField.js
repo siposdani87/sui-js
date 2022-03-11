@@ -251,7 +251,7 @@ export class SelectField extends BaseField {
         this._setTags(option);
     }
     /**
-     * @param {!Array} ids
+     * @param {!Array<string>} ids
      * @return {undefined}
      * @private
      */
@@ -276,7 +276,7 @@ export class SelectField extends BaseField {
     }
     /**
      * @private
-     * @param {!Array|string} tags
+     * @param {!Array<Objekt>|Objekt} tags
      */
     _setTags(tags) {
         if (!isArray(tags)) {

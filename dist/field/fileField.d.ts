@@ -5,11 +5,13 @@ import { Item } from '../core/item';
  * @extends {BaseField}
  */
 export declare class FileField extends BaseField {
-    imageTag: any;
-    valueSrc: any;
-    defaultSrc: any;
+    imageTag: Item;
+    valueSrc: string;
+    defaultSrc: string;
     removeButton: Item;
-    fileTypes: any;
+    fileTypes: {
+        [key: string]: [string, string];
+    };
     fileTypeSVG: string;
     /**
      * @param {!Item} input
@@ -17,7 +19,7 @@ export declare class FileField extends BaseField {
      * @param {!Item} error
      * @param {!Item} inputBlock
      */
-    constructor(input: any, label: any, error: any, inputBlock: any);
+    constructor(input: Item, label: Item, error: Item, inputBlock: Item);
     /**
      * @private
      * @return {undefined}
@@ -53,13 +55,13 @@ export declare class FileField extends BaseField {
      * @param {string} mimeType
      * @return {!Array}
      */
-    _lookupByMimeType(mimeType: any): any;
+    _lookupByMimeType(mimeType: string): Array<any>;
     /**
      * @private
      * @param {string} extension
      * @return {!Array}
      */
-    _lookupByExtension(extension: any): any[];
+    _lookupByExtension(extension: string): Array<any>;
     /**
      * @private
      * @return {undefined}
@@ -71,7 +73,7 @@ export declare class FileField extends BaseField {
      * @param {string} color
      * @return {string}
      */
-    _getFileIconSrc(type: any, color: any): string;
+    _getFileIconSrc(type: string, color: string): string;
     /**
      * @override
      * @return {undefined}
@@ -83,10 +85,10 @@ export declare class FileField extends BaseField {
     refresh(): void;
     /**
      * @private
-     * @param {!Blob} file
+     * @param {!File} file
      * @return {undefined}
      */
-    _read(file: any): void;
+    _read(file: File): void;
     /**
      * @private
      * @return {undefined}
@@ -102,5 +104,5 @@ export declare class FileField extends BaseField {
      * @param {!Object|!Function|!Array|boolean|number|string|null|undefined} value
      * @return {undefined}
      */
-    setValue(value: any): void;
+    setValue(value: object | Function | Array<any> | boolean | number | string | null | undefined): void;
 }

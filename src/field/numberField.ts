@@ -13,7 +13,7 @@ export class NumberField extends BaseField {
      * @param {!Item} error
      * @param {!Item} inputBlock
      */
-    constructor(input, label, error, inputBlock) {
+    constructor(input: Item, label: Item, error: Item, inputBlock: Item) {
         super(input, label, error, inputBlock);
         this._init();
     }
@@ -21,7 +21,7 @@ export class NumberField extends BaseField {
      * @private
      * @return {undefined}
      */
-    _init() {
+    _init(): void {
         this.inputBlock.addClass('number-field');
 
         this._initButtons();
@@ -44,7 +44,7 @@ export class NumberField extends BaseField {
      * @private
      * @return {undefined}
      */
-    _initButtons() {
+    _initButtons(): void {
         const actionNode = new Item('span');
         actionNode.addClass('step-change');
         this.actionContainerNode.appendChild(actionNode);
@@ -79,7 +79,7 @@ export class NumberField extends BaseField {
      * @private
      * @return {undefined}
      */
-    _checkValue() {
+    _checkValue(): void {
         const value = /** @type {number} */(this).getValue();
         const min = this._getMin();
         if (value < min) {
@@ -94,7 +94,7 @@ export class NumberField extends BaseField {
      * @private
      * @return {number}
      */
-    _getMax() {
+    _getMax(): number {
         const max = this.input.getAttribute('max') || 9999999999;
         return /** @type {number} */(typeCast)(max);
     }
@@ -102,7 +102,7 @@ export class NumberField extends BaseField {
      * @private
      * @return {number}
      */
-    _getMin() {
+    _getMin(): number {
         const min = this.input.getAttribute('min') || 0;
         return /** @type {number} */(typeCast)(min);
     }
@@ -110,7 +110,7 @@ export class NumberField extends BaseField {
      * @private
      * @return {number}
      */
-    _getStep() {
+    _getStep(): number {
         const step = this.input.getAttribute('step') || 1;
         return /** @type {number} */(typeCast)(step);
     }
@@ -118,7 +118,7 @@ export class NumberField extends BaseField {
      * @override
      * @return {undefined}
      */
-    render() {
+    render(): void {
         this.inputBlock.addClass([
             'mdl-textfield',
             'mdl-js-textfield',

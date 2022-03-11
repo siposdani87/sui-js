@@ -10,7 +10,7 @@ import { Item } from '../core/item';
 export class DateTimeField extends BaseField {
     datetimeContainer: Item;
     datetimeInput: Item;
-    format: any;
+    format: string;
     datetimeNode: Item;
     datetime: Date;
     popup: Popup;
@@ -20,7 +20,7 @@ export class DateTimeField extends BaseField {
      * @param {!Item} error
      * @param {!Item} inputBlock
      */
-    constructor(input, label, error, inputBlock) {
+    constructor(input: Item, label: Item, error: Item, inputBlock: Item) {
         super(input, label, error, inputBlock);
         this._init();
     }
@@ -28,7 +28,7 @@ export class DateTimeField extends BaseField {
      * @private
      * @return {undefined}
      */
-    _init() {
+    _init(): void {
         this.inputBlock.addClass('datetime-field');
         this.input.addClass('hidden');
 
@@ -47,7 +47,7 @@ export class DateTimeField extends BaseField {
      * @private
      * @return {undefined}
      */
-    _initInput() {
+    _initInput(): void {
         this.format = this.input.getData('format');
 
         this.input.addEventListener('change', () => {
@@ -82,7 +82,7 @@ export class DateTimeField extends BaseField {
      * @override
      * @return {undefined}
      */
-    render() {
+    render(): void {
         if (this.label && this.label.exists()) {
             this.label.addClass('field-label');
         }
@@ -112,8 +112,8 @@ export class DateTimeField extends BaseField {
      * @param {!Object|!Function|!Array|boolean|number|string|null|undefined} value
      * @return {undefined}
      */
-    setValue(value) {
-        this._setTag(/** @type {string} */(value));
+    setValue(value: object | Function | Array<any> | boolean | number | string | null | undefined): void {
+        this._setTag(/** @type {string} */(value as string));
         this.input.setAttribute('value', value);
         this.input.trigger('change');
         this.datetime.setValue(value);
@@ -123,7 +123,7 @@ export class DateTimeField extends BaseField {
      * @param {string} value
      * @return {undefined}
      */
-    _setTag(value) {
+    _setTag(value: string): void {
         this.datetimeInput.removeChildren();
         if (value) {
             const formattedValue = window['moment'](
@@ -152,7 +152,7 @@ export class DateTimeField extends BaseField {
      * @private
      * @return {undefined}
      */
-    _onClick() {
+    _onClick(): void {
         if (this.isEnabled()) {
             this.datetimeInput.addClass('active');
             this.popup.toggle();

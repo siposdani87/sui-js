@@ -12,7 +12,7 @@ export declare class SearchField extends BaseField {
      * @param {!Item} error
      * @param {!Item} inputBlock
      */
-    constructor(input: any, label: any, error: any, inputBlock: any);
+    constructor(input: Item, label: Item, error: Item, inputBlock: Item);
     /**
      * @private
      * @return {undefined}
@@ -36,5 +36,5 @@ export declare class SearchField extends BaseField {
      * @param {string} value
      * @return {undefined}
      */
-    eventEnter(value: any): void;
+    eventEnter(value: string): void;
 }

@@ -14,7 +14,7 @@ export declare class BaseCheckboxField extends BaseField {
      * @param {!Item} error
      * @param {!Item} inputBlock
      */
-    constructor(input: any, label: any, error: any, inputBlock: any);
+    constructor(input: Item, label: Item, error: Item, inputBlock: Item);
     /**
      * @protected
      * @return {undefined}
@@ -35,19 +35,19 @@ export declare class BaseCheckboxField extends BaseField {
      * @param {!Object|!Function|!Array|boolean|number|string|null|undefined} value
      * @return {undefined}
      */
-    setValue(value: any): void;
+    setValue(value: object | Function | Array<any> | boolean | number | string | null | undefined): void;
     /**
      * @override
      * @param {boolean} state
      * @return {undefined}
      */
-    setDisabled(state: any): void;
+    setDisabled(state: boolean): void;
     /**
      * @override
      * @param {string} text
      * @return {undefined}
      */
-    setLabel(text: any): void;
+    setLabel(text: string): void;
     /**
      * @override
      */

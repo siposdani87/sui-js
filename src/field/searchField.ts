@@ -15,7 +15,7 @@ export class SearchField extends BaseField {
      * @param {!Item} error
      * @param {!Item} inputBlock
      */
-    constructor(input, label, error, inputBlock) {
+    constructor(input: Item, label: Item, error: Item, inputBlock: Item) {
         super(input, label, error, inputBlock);
         this._init();
     }
@@ -23,7 +23,7 @@ export class SearchField extends BaseField {
      * @private
      * @return {undefined}
      */
-    _init() {
+    _init(): void {
         this.input.addEventListener('keyup', (input, event) => {
             const inputNode = input.getNode();
             this.modelChange(inputNode.value);
@@ -43,7 +43,7 @@ export class SearchField extends BaseField {
      * @override
      * @return {undefined}
      */
-    render() {
+    render(): void {
         this.inputBlock.addClass([
             'search-field',
             'mdl-textfield',
@@ -88,7 +88,7 @@ export class SearchField extends BaseField {
      * @private
      * @return {undefined}
      */
-    _initClearButton() {
+    _initClearButton(): void {
         const clearButton = new Item('a');
         clearButton.setAttribute('href', 'javascript:void(0)');
         clearButton.addClass(['material-icons', 'clear-button']);
@@ -106,7 +106,7 @@ export class SearchField extends BaseField {
      * @param {string} value
      * @return {undefined}
      */
-    eventEnter(value) {
+    eventEnter(value: string): void {
         consoleWarn('Search.eventEnter()', value);
     }
 }

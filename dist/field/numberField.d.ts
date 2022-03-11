@@ -1,4 +1,5 @@
 import { BaseField } from './baseField';
+import { Item } from '../core/item';
 /**
  * @class
  * @extends {BaseField}
@@ -10,7 +11,7 @@ export declare class NumberField extends BaseField {
      * @param {!Item} error
      * @param {!Item} inputBlock
      */
-    constructor(input: any, label: any, error: any, inputBlock: any);
+    constructor(input: Item, label: Item, error: Item, inputBlock: Item);
     /**
      * @private
      * @return {undefined}
@@ -30,17 +31,17 @@ export declare class NumberField extends BaseField {
      * @private
      * @return {number}
      */
-    _getMax(): any;
+    _getMax(): number;
     /**
      * @private
      * @return {number}
      */
-    _getMin(): any;
+    _getMin(): number;
     /**
      * @private
      * @return {number}
      */
-    _getStep(): any;
+    _getStep(): number;
     /**
      * @override
      * @return {undefined}

@@ -10,11 +10,11 @@ import { generateId } from '../utils/coder';
  * @extends {BaseField}
  */
 export class LocationField extends BaseField {
-    icon: any;
+    icon: string;
     advancedButton: Item;
-    map: any;
-    mapLockNode: any;
-    advancedNode: any;
+    map: GoogleMap;
+    mapLockNode: Item;
+    advancedNode: Item;
     latitudeInput: Item<HTMLInputElement>;
     longitudeInput: Item<HTMLInputElement>;
     /**
@@ -23,7 +23,7 @@ export class LocationField extends BaseField {
      * @param {!Item} error
      * @param {!Item} inputBlock
      */
-    constructor(input, label, error, inputBlock) {
+    constructor(input: Item, label: Item, error: Item, inputBlock: Item) {
         super(input, label, error, inputBlock);
         this._init();
     }
@@ -31,7 +31,7 @@ export class LocationField extends BaseField {
      * @private
      * @return {undefined}
      */
-    _init() {
+    _init(): void {
         this.inputBlock.addClass('location-field');
         this._initButtons();
 
@@ -61,7 +61,7 @@ export class LocationField extends BaseField {
      * @private
      * @return {undefined}
      */
-    _initButtons() {
+    _initButtons(): void {
         this._initSearchButton();
         this._initAdvancedButton();
     }
@@ -69,7 +69,7 @@ export class LocationField extends BaseField {
      * @private
      * @return {undefined}
      */
-    _initSearchButton() {
+    _initSearchButton(): void {
         const searchButton = new Item('a');
         searchButton.setAttribute('href', 'javascript:void(0)');
         searchButton.addClass(['search-button', 'material-icons']);
@@ -86,7 +86,7 @@ export class LocationField extends BaseField {
      * @private
      * @return {undefined}
      */
-    _initAdvancedButton() {
+    _initAdvancedButton(): void {
         this.advancedButton = new Item('a');
         this.advancedButton.setAttribute('href', 'javascript:void(0)');
         this.advancedButton.addClass(['advanced-button', 'material-icons']);
@@ -102,7 +102,7 @@ export class LocationField extends BaseField {
      * @param {string} address
      * @return {undefined}
      */
-    search(address) {
+    search(address: string): void {
         this.map.searchAddress(address).then(
             (locations) => {
                 const position = locations[0];
@@ -122,7 +122,7 @@ export class LocationField extends BaseField {
      * @override
      * @return {undefined}
      */
-    render() {
+    render(): void {
         this.inputBlock.addClass([
             'mdl-textfield',
             'mdl-js-textfield',
@@ -154,7 +154,7 @@ export class LocationField extends BaseField {
      * @private
      * @return {undefined}
      */
-    _toggleAdvancedInputs() {
+    _toggleAdvancedInputs(): void {
         this.advancedButton.toggleClass('active');
         this.advancedNode.toggleClass('hidden');
     }
@@ -162,7 +162,7 @@ export class LocationField extends BaseField {
      * @private
      * @return {undefined}
      */
-    _renderAdvancedInputs() {
+    _renderAdvancedInputs(): void {
         this.advancedNode = new Item('div');
         this.advancedNode.addClass(['advanced', 'row', 'hidden']);
         this.inputBlock.appendChild(this.advancedNode);
@@ -195,7 +195,7 @@ export class LocationField extends BaseField {
      * @param {function(!Item):undefined} callback
      * @return {!Item<HTMLInputElement>}
      */
-    _renderAdvancedInput(id, labelText, callback): Item<HTMLInputElement> {
+    _renderAdvancedInput(id: string, labelText: string, callback: (arg0: Item<HTMLInputElement>) => void): Item<HTMLInputElement> {
         const blockNode = new Item('div');
         blockNode.addClass('col-6');
         this.advancedNode.appendChild(blockNode);
@@ -232,7 +232,7 @@ export class LocationField extends BaseField {
      * @private
      * @return {undefined}
      */
-    _renderMap() {
+    _renderMap(): void {
         const mapNode = new Item('div');
         mapNode.addClass('map');
         this.inputBlock.appendChild(mapNode);
@@ -263,7 +263,7 @@ export class LocationField extends BaseField {
      * @param {string} mapTypeId
      * @return {undefined}
      */
-    setMapType(mapTypeId) {
+    setMapType(mapTypeId: string): void {
         this.map.setMapType(mapTypeId);
     }
     /**
@@ -272,14 +272,14 @@ export class LocationField extends BaseField {
      * @param {!Array<?google.maps.MapTypeStyle>} mapStyles
      * @return {undefined}
      */
-    setCustomMapStyle(mapTypeId, mapTypeName, mapStyles) {
+    setCustomMapStyle(mapTypeId: string, mapTypeName: string, mapStyles: Array<google.maps.MapTypeStyle | null>): void {
         this.map.setCustomMapStyle(mapTypeId, mapTypeName, mapStyles);
     }
     /**
      * @private
      * @return {undefined}
      */
-    _setDefaultValue() {
+    _setDefaultValue(): void {
         const location = /** @type {!Object} */ this.getValue();
         if (!isNull(location['latitude']) && !isNull(location['longitude'])) {
             this.map.setCenter(location['latitude'], location['longitude']);
@@ -298,7 +298,7 @@ export class LocationField extends BaseField {
      * @param {number|null} longitude
      * @return {undefined}
      */
-    updatePosition(latitude, longitude) {
+    updatePosition(latitude: number | null, longitude: number | null): void {
         const location = /** @type {!Object} */ this.getValue();
         location['latitude'] = latitude;
         location['longitude'] = longitude;
@@ -309,7 +309,7 @@ export class LocationField extends BaseField {
      * @param {!Object} value
      * @return {undefined}
      */
-    _setDataValue(value) {
+    _setDataValue(value: object): void {
         this.latitudeInput.getNode().value = value['latitude'] || '';
         this.longitudeInput.getNode().value = value['longitude'] || '';
         this.input.setAttribute('value', value['address'] || '');
@@ -320,8 +320,8 @@ export class LocationField extends BaseField {
      * @param {!Object|!Function|!Array|boolean|number|string|null|undefined} value
      * @return {undefined}
      */
-    setValue(value) {
-        this._setDataValue(/** @type {!Object} */ value);
+    setValue(value: object | Function | Array<any> | boolean | number | string | null | undefined): void {
+        this._setDataValue(/** @type {!Object} */(value as Object));
         this.map.removeMarker(0);
         if (!isNull(value['latitude']) && !isNull(value['longitude'])) {
             this.map.setCenter(value['latitude'], value['longitude']);
@@ -349,7 +349,7 @@ export class LocationField extends BaseField {
      * @override
      * @return {*}
      */
-    getValue() {
+    getValue(): any {
         const value = this.input.getData('value');
         return typeCast(value);
     }
@@ -357,7 +357,7 @@ export class LocationField extends BaseField {
      * @param {string} address
      * @return {undefined}
      */
-    eventSearch(address) {
+    eventSearch(address: string): void {
         consoleInfo('Location.eventSearch()', address);
     }
 }

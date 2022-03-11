@@ -1,4 +1,5 @@
 import { BaseField } from './baseField';
+import { Item } from '../core/item';
 /**
  * @class
  * @extends {BaseField}
@@ -11,7 +12,7 @@ export declare class UrlField extends BaseField {
      * @param {!Item} error
      * @param {!Item} inputBlock
      */
-    constructor(input: any, label: any, error: any, inputBlock: any);
+    constructor(input: Item, label: Item, error: Item, inputBlock: Item);
     /**
      * @private
      * @return {undefined}

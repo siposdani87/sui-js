@@ -2,6 +2,7 @@ import { mdl } from '../utils/operation';
 import { BaseField } from './baseField';
 import { Tooltip } from '../component/tooltip';
 import { Query } from '../core/query';
+import { Item } from '../core';
 
 /**
  * @class
@@ -15,7 +16,7 @@ export class RangeField extends BaseField {
      * @param {!Item} error
      * @param {!Item} inputBlock
      */
-    constructor(input, label, error, inputBlock) {
+    constructor(input: Item, label: Item, error: Item, inputBlock: Item) {
         super(input, label, error, inputBlock);
         this._init();
     }
@@ -23,7 +24,7 @@ export class RangeField extends BaseField {
      * @private
      * @return {undefined}
      */
-    _init() {
+    _init(): void {
         this.inputBlock.addClass('range-field');
 
         this.input.addEventListener('input', (input) => {
@@ -37,7 +38,7 @@ export class RangeField extends BaseField {
      * @override
      * @return {undefined}
      */
-    render() {
+    render(): void {
         this.inputBlock.addClass([
             'mdl-textfield',
             'mdl-js-textfield',
@@ -79,7 +80,7 @@ export class RangeField extends BaseField {
      * @param {!Object|!Function|!Array|boolean|number|string|null|undefined} value
      * @return {undefined}
      */
-    setValue(value) {
+    setValue(value: object | Function | Array<any> | boolean | number | string | null | undefined): void {
         const inputNode = this.input.getNode();
         inputNode['MaterialSlider']['change'](value);
         this.tooltip.render(value);

@@ -1,3 +1,4 @@
+import { Item } from '../core';
 import { BaseField } from './baseField';
 
 /**
@@ -8,7 +9,7 @@ export class HiddenField extends BaseField {
     /**
      * @param {!Item} input
      */
-    constructor(input) {
+    constructor(input: Item) {
         super(input);
         this._init();
     }
@@ -16,7 +17,7 @@ export class HiddenField extends BaseField {
      * @private
      * @return {undefined}
      */
-    _init() {
+    _init(): void {
         this.input.addEventListener('change', (input) => {
             const inputNode = input.getNode();
             this.modelChange(inputNode.value);
@@ -27,7 +28,7 @@ export class HiddenField extends BaseField {
      * @override
      * @return {undefined}
      */
-    render() {
+    render(): void {
         // empty method
     }
     /**
