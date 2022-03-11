@@ -9,13 +9,13 @@ export declare class Viewer extends BaseModal {
     /**
      * @param {!Object=} opt_options
      */
-    constructor(opt_options?: {});
+    constructor(opt_options?: object | undefined);
     /**
      * @param {!Object=} opt_options
      * @private
      * @return {undefined}
      */
-    _setOptions(opt_options?: {}): void;
+    _setOptions(opt_options?: object | undefined): void;
     /**
      * @private
      * @return {undefined}
@@ -26,10 +26,10 @@ export declare class Viewer extends BaseModal {
      * @param {string=} opt_title
      * @return {undefined}
      */
-    loadImage(imageUrl: any, opt_title?: string): void;
+    loadImage(imageUrl: string, opt_title?: string | undefined): void;
     /**
      * @param {string} imageUrl
      * @return {undefined}
      */
-    _setImage(imageUrl: any): void;
+    _setImage(imageUrl: string): void;
 }

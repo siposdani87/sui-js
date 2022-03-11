@@ -123,7 +123,7 @@ export class Xhr {
     }
     /**
      * @private
-     * @return {(XMLHttpRequest, Event): any}
+     * @return {function(XMLHttpRequest, Event): undefined}
      */
     _onReadyStateChange(): (_this: XMLHttpRequest, _ev: Event) => any {
         return (_this: XMLHttpRequest, _ev: Event): any => {

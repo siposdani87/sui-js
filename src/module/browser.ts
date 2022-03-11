@@ -6,11 +6,11 @@ import { consoleError } from '../utils/log';
  * @class
  */
 export class Browser {
-    features: any[];
+    features: string[];
     browsers: {
-        [key: string]: any;
+        [key: string]: boolean;
     };
-    os: any;
+    os: string;
     /**
      */
     constructor() {
@@ -20,7 +20,7 @@ export class Browser {
      * @private
      * @return {undefined}
      */
-    _init() {
+    _init(): void {
         this._detectOS();
         this._detectBrowsers();
         this._detectMissingFeatures();
@@ -29,7 +29,7 @@ export class Browser {
      * @private
      * @return {undefined}
      */
-    _detectMissingFeatures() {
+    _detectMissingFeatures(): void {
         this.features = [];
 
         this._setFeature(
@@ -49,7 +49,7 @@ export class Browser {
     /**
      * @return {undefined}
      */
-    detect() {
+    detect(): void {
         if (!isEmpty(this.features)) {
             this.eventMissingFeatures(this.features);
         }
@@ -60,7 +60,7 @@ export class Browser {
      * @param {*} value
      * @return {undefined}
      */
-    _setFeature(name, value) {
+    _setFeature(name: string, value: any): void {
         if (eq(!!value, false)) {
             this.features.push(name);
         }
@@ -69,14 +69,14 @@ export class Browser {
      * @param {!Array} features
      * @return {undefined}
      */
-    eventMissingFeatures(features) {
+    eventMissingFeatures(features: Array<any>): void {
         consoleError('Browser.eventMissingFeatures()', features);
     }
     /**
      * @private
      * @return {undefined}
      */
-    _detectBrowsers() {
+    _detectBrowsers(): void {
         this.browsers = {};
 
         const userAgent = window.navigator.userAgent.toLowerCase();
@@ -112,7 +112,7 @@ export class Browser {
      * @private
      * @return {undefined}
      */
-    _detectOS() {
+    _detectOS(): void {
         this.os = null;
 
         const userAgent = window.navigator.userAgent;
@@ -142,38 +142,38 @@ export class Browser {
     /**
      * @return {boolean}
      */
-    isMacOS() {
+    isMacOS(): boolean {
         return this.os === 'macOS';
     }
     /**
      * @return {boolean}
      */
-    isIOS() {
+    isIOS(): boolean {
         return this.os === 'iOS';
     }
     /**
      * @return {boolean}
      */
-    isWindows() {
+    isWindows(): boolean {
         return this.os === 'Windows';
     }
     /**
      * @return {boolean}
      */
-    isAndroid() {
+    isAndroid(): boolean {
         return this.os === 'Android';
     }
     /**
      * @return {boolean}
      */
-    isLinux() {
+    isLinux(): boolean {
         return this.os === 'Linux';
     }
     /**
      * @param {number=} opt_version
      * @return {boolean}
      */
-    isInternetExplorer(opt_version) {
+    isInternetExplorer(opt_version: number | undefined): boolean {
         let result = this.browsers.lteIE10 || this.browsers.gteIE10;
         if (opt_version) {
             switch (opt_version) {
@@ -193,49 +193,49 @@ export class Browser {
     /**
      * @return {boolean}
      */
-    isEdge() {
+    isEdge(): boolean {
         return this.browsers.edge;
     }
     /**
      * @return {boolean}
      */
-    isChromiumEdge() {
+    isChromiumEdge(): boolean {
         return this.browsers.chromiumEdge;
     }
     /**
      * @return {boolean}
      */
-    isFirefox() {
+    isFirefox(): boolean {
         return this.browsers.firefox;
     }
     /**
      * @return {boolean}
      */
-    isChrome() {
+    isChrome(): boolean {
         return this.browsers.chrome;
     }
     /**
      * @return {boolean}
      */
-    isOpera() {
+    isOpera(): boolean {
         return this.browsers.opera;
     }
     /**
      * @return {boolean}
      */
-    isSafari() {
+    isSafari(): boolean {
         return this.browsers.safari;
     }
     /**
      * @return {boolean}
      */
-    isWebkit() {
+    isWebkit(): boolean {
         return this.browsers.webkit;
     }
     /**
      * @return {boolean}
      */
-    isChromium() {
+    isChromium(): boolean {
         return this.browsers.chromium;
     }
 }

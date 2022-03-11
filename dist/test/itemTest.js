@@ -14,6 +14,7 @@ export class ItemTest extends BaseTest {
     }
     /**
      * @override
+     * @return {undefined}
      */
     init() {
         this.node = new Item('div');
@@ -22,7 +23,7 @@ export class ItemTest extends BaseTest {
         this.testData();
     }
     /**
-     *
+     * @return {undefined}
      */
     testAttribute() {
         const values = ['text', null, true, false, Infinity, 0, 1, 10];
@@ -36,7 +37,7 @@ export class ItemTest extends BaseTest {
         }
     }
     /**
-     *
+     * @return {undefined}
      */
     testAttributeData() {
         const values = [
@@ -62,7 +63,7 @@ export class ItemTest extends BaseTest {
         this.node.removeAttribute('data-value');
     }
     /**
-     *
+     * @return {undefined}
      */
     testData() {
         const values = [

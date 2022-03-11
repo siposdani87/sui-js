@@ -20,7 +20,7 @@ export class Flash {
     /**
      * @param {!Object=} opt_options
      */
-    constructor(opt_options = {}) {
+    constructor(opt_options: object | undefined = {}) {
         this._setOptions(opt_options);
         this._init();
     }
@@ -28,7 +28,7 @@ export class Flash {
      * @private
      * @return {undefined}
      */
-    _init() {
+    _init(): void {
         this.container = new Query(this.options.id).getItem();
     }
     /**
@@ -36,7 +36,7 @@ export class Flash {
      * @param {!Object=} opt_options
      * @return {undefined}
      */
-    _setOptions(opt_options = {}) {
+    _setOptions(opt_options: object | undefined = {}): void {
         const _self = this;
         _self.options = new Objekt({
             id: '#flashes',
@@ -54,12 +54,12 @@ export class Flash {
      * @return {!Item}
      */
     _getFlashNode(
-        type,
-        message,
-        opt_duration = 0,
-        opt_closeCallback = null,
-        opt_id = '',
-    ) {
+        type: string,
+        message: string,
+        opt_duration: number | undefined = 0,
+        opt_closeCallback: (Function | null) | undefined = null,
+        opt_id: string | undefined = '',
+    ): Item {
         const flashNode = this.container.createElement('div');
         flashNode.setAttribute('data-id', opt_id || generateId('flash'));
         flashNode.addClass(['flash', type]);
@@ -81,7 +81,7 @@ export class Flash {
      * @param {?Function=} opt_closeCallback
      * @return {!Item}
      */
-    _getCloseButton(flashNode, opt_closeCallback = null) {
+    _getCloseButton(flashNode: Item, opt_closeCallback: (Function | null) | undefined = null): Item {
         const buttonNode = flashNode.createElement('button');
         buttonNode.addClass([
             'mdl-button',
@@ -112,12 +112,12 @@ export class Flash {
      * @return {!Item}
      */
     _add(
-        type,
-        message,
-        opt_duration = 0,
-        opt_closeCallback = null,
-        opt_id = '',
-    ) {
+        type: string,
+        message: string,
+        opt_duration: number | undefined = 0,
+        opt_closeCallback: (Function | null) | undefined = null,
+        opt_id: string | undefined = '',
+    ): Item {
         this.removeById(opt_id);
         const flashNode = this._getFlashNode(
             type,
@@ -144,7 +144,7 @@ export class Flash {
     /**
      * @param {string=} opt_id
      */
-    removeById(opt_id = '') {
+    removeById(opt_id: string | undefined = '') {
         if (opt_id) {
             const selector = format('[data-id={0}]', [opt_id]);
             const flashes = new Query(selector, this.container);
@@ -158,7 +158,7 @@ export class Flash {
      * @param {?Function=} opt_closeCallback
      * @return {boolean}
      */
-    _isClosable(type, opt_closeCallback = null) {
+    _isClosable(type: string, opt_closeCallback: (Function | null) | undefined = null): boolean {
         return (
             this.options.closableTypes.indexOf(type) !== -1 ||
             isFunction(opt_closeCallback)
@@ -169,7 +169,7 @@ export class Flash {
      * @param {?Function=} opt_closeCallback
      * @return {undefined}
      */
-    remove(flash, opt_closeCallback = null) {
+    remove(flash: Item, opt_closeCallback: (Function | null) | undefined = null): void {
         if (isFunction(opt_closeCallback)) {
             opt_closeCallback();
         }
@@ -183,11 +183,11 @@ export class Flash {
      * @return {!Item}
      */
     addSuccess(
-        message,
-        opt_duration = 0,
-        opt_closeCallback = null,
-        opt_id = '',
-    ) {
+        message: string,
+        opt_duration: number | undefined = 0,
+        opt_closeCallback: (Function | null) | undefined = null,
+        opt_id: string | undefined = '',
+    ): Item {
         return this._add(
             'success',
             message,
@@ -203,7 +203,7 @@ export class Flash {
      * @param {string=} opt_id
      * @return {!Item}
      */
-    addInfo(message, opt_duration = 0, opt_closeCallback = null, opt_id = '') {
+    addInfo(message: string, opt_duration: number | undefined = 0, opt_closeCallback: (Function | null) | undefined = null, opt_id: string | undefined = ''): Item {
         return this._add(
             'info',
             message,
@@ -220,11 +220,11 @@ export class Flash {
      * @return {!Item}
      */
     addWarning(
-        message,
-        opt_duration = 0,
-        opt_closeCallback = null,
-        opt_id = '',
-    ) {
+        message: string,
+        opt_duration: number | undefined = 0,
+        opt_closeCallback: (Function | null) | undefined = null,
+        opt_id: string | undefined = '',
+    ): Item {
         return this._add(
             'warning',
             message,
@@ -240,7 +240,7 @@ export class Flash {
      * @param {string=} opt_id
      * @return {!Item}
      */
-    addError(message, opt_duration = 0, opt_closeCallback = null, opt_id = '') {
+    addError(message: string, opt_duration: number | undefined = 0, opt_closeCallback: (Function | null) | undefined = null, opt_id: string | undefined = ''): Item {
         return this._add(
             'error',
             message,
@@ -257,11 +257,11 @@ export class Flash {
      * @return {!Item|null}
      */
     addMessage(
-        message,
-        opt_duration = 0,
-        opt_closeCallback = null,
-        opt_id = '',
-    ) {
+        message: { type: string; content: string; closable: boolean; },
+        opt_duration: number | undefined = 0,
+        opt_closeCallback: (Function | null) | undefined = null,
+        opt_id: string | undefined = '',
+    ): Item | null {
         if (isObject(message)) {
             const closeCallback = message['closable']
                 ? noop
@@ -284,11 +284,11 @@ export class Flash {
      * @return {!Item}
      */
     addDefault(
-        message,
-        opt_duration = 0,
-        opt_closeCallback = null,
-        opt_id = '',
-    ) {
+        message: string,
+        opt_duration: number | undefined = 0,
+        opt_closeCallback: (Function | null) | undefined = null,
+        opt_id: string | undefined = '',
+    ): Item {
         return this._add(
             'default',
             message,

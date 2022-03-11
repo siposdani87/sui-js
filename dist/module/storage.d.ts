@@ -8,7 +8,7 @@ export declare class Storage {
     /**
      * @param {!Object} options
      */
-    constructor(options: any);
+    constructor(options: object);
     /**
      * @private
      * @return {undefined}
@@ -19,30 +19,30 @@ export declare class Storage {
      * @param {string} name
      * @return {string}
      */
-    _getPropertyName(name: any): string;
+    _getPropertyName(name: string): string;
     /**
      * @private
      * @param {string} propertyName
      * @return {string}
      */
-    _getName(propertyName: any): any;
+    _getName(propertyName: string): string;
     /**
      * @param {string} name
      * @param {*} value
      * @param {string|number|boolean|!Date=} opt_expires
      * @return {undefined}
      */
-    set(name: any, value: any, opt_expires: any): void;
+    set(name: string, value: any, opt_expires: (string | number | boolean | Date) | undefined): void;
     /**
      * @param {string} name
      * @return {*}
      */
-    get(name: any): any;
+    get(name: string): any;
     /**
      * @param {string} name
      * @return {undefined}
      */
-    remove(name: any): void;
+    remove(name: string): void;
     /**
      * @return {undefined}
      */
@@ -57,17 +57,17 @@ export declare class Storage {
      * @param {string} name
      * @return {boolean}
      */
-    _isExpired(name: any): boolean;
+    _isExpired(name: string): boolean;
     /**
      * @private
      * @param {string} name
      * @return {?Date}
      */
-    _getExpiresDate(name: any): Date;
+    _getExpiresDate(name: string): Date | null;
     /**
      * @private
      * @param {string|number|boolean|!Date=} opt_expires
      * @return {string}
      */
-    _getExpires(opt_expires: any): any;
+    _getExpires(opt_expires?: (string | number | boolean | Date)): string;
 }

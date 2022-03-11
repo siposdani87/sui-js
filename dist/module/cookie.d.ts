@@ -7,25 +7,25 @@ export declare class Cookie {
     /**
      * @param {!Object=} opt_options
      */
-    constructor(opt_options?: {});
+    constructor(opt_options?: object | undefined);
     /**
      * @private
      * @param {!Object=} opt_options
      * @return {undefined}
      */
-    _setOptions(opt_options?: {}): void;
+    _setOptions(opt_options?: object | undefined): void;
     /**
      * @private
      * @param {string} name
      * @return {string}
      */
-    _getPropertyName(name: any): string;
+    _getPropertyName(name: string): string;
     /**
      * @private
      * @param {string} propertyName
      * @return {string}
      */
-    _getName(propertyName: any): any;
+    _getName(propertyName: string): string;
     /**
      * @param {string} name
      * @param {string} value
@@ -35,12 +35,12 @@ export declare class Cookie {
      * @param {boolean=} opt_secure
      * @return {undefined}
      */
-    set(name: any, value: any, opt_expires?: any, opt_path?: string, opt_domain?: string, opt_secure?: boolean): void;
+    set(name: string, value: string, opt_expires?: any, opt_path?: string | undefined, opt_domain?: string | undefined, opt_secure?: boolean | undefined): void;
     /**
      * @param {string} name
      * @return {*}
      */
-    get(name: any): any;
+    get(name: string): any;
     /**
      * @param {string} name
      * @param {string=} opt_path
@@ -48,16 +48,16 @@ export declare class Cookie {
      * @param {boolean=} opt_secure
      * @return {undefined}
      */
-    remove(name: any, opt_path?: string, opt_domain?: string, opt_secure?: boolean): void;
+    remove(name: string, opt_path?: string | undefined, opt_domain?: string | undefined, opt_secure?: boolean | undefined): void;
     /**
      * @param {string} name
      * @return {boolean}
      */
-    hasKey(name: any): boolean;
+    hasKey(name: string): boolean;
     /**
      * @return {!Array}
      */
-    getKeys(): string[];
+    getKeys(): Array<any>;
     /**
      * @return {undefined}
      */

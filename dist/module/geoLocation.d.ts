@@ -1,3 +1,4 @@
+import { Promize } from '../core';
 /**
  * @class
  */
@@ -23,7 +24,7 @@ export declare class GeoLocation {
     /**
      * @return {!Promize}
      */
-    getPosition(): import("..").Promize;
+    getPosition(): Promize;
     /**
      * @return {undefined}
      */
@@ -34,23 +35,23 @@ export declare class GeoLocation {
      * @param {string} message
      * @return {undefined}
      */
-    eventChange(latitude: any, longitude: any, message: any): void;
+    eventChange(latitude: number, longitude: number, message: string): void;
     /**
      * @private
-     * @param {!Object} position
+     * @param {!GeolocationPosition} position
      * @return {undefined}
      */
-    _handlePosition(position: any): void;
+    _handlePosition(position: GeolocationPosition): void;
     /**
      * @private
-     * @param {!Object} error
+     * @param {!GeolocationPositionError} error
      * @return {undefined}
      */
-    _handleError(error: any): void;
+    _handleError(error: GeolocationPositionError): void;
     /**
      * @param {string} message
      * @param {string} code
      * @return {undefined}
      */
-    eventError(message: any, code: any): void;
+    eventError(message: string, code: string): void;
 }

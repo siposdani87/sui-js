@@ -13,7 +13,7 @@ export class Window {
     /**
      * @param {!Object=} opt_options
      */
-    constructor(opt_options = {}) {
+    constructor(opt_options: object | undefined = {}) {
         this._setOptions(opt_options);
         this._init();
     }
@@ -22,7 +22,7 @@ export class Window {
      * @param {!Object=} opt_options
      * @return {undefined}
      */
-    _setOptions(opt_options = {}) {
+    _setOptions(opt_options: object | undefined = {}): void {
         const _self = this;
         _self.options = new Objekt({
             delay: 250,
@@ -33,7 +33,7 @@ export class Window {
      * @private
      * @return {undefined}
      */
-    _init() {
+    _init(): void {
         this.window = window;
         this.document = document;
 
@@ -48,7 +48,7 @@ export class Window {
      * @private
      * @return {undefined}
      */
-    _initResizeEvent() {
+    _initResizeEvent(): void {
         this.window.addEventListener(
             'resize',
             debounce((event) => {
@@ -61,7 +61,7 @@ export class Window {
      * @private
      * @return {undefined}
      */
-    _initScrollEvent() {
+    _initScrollEvent(): void {
         this.window.addEventListener(
             'scroll',
             debounce((event) => {
@@ -74,7 +74,7 @@ export class Window {
      * @private
      * @return {undefined}
      */
-    _initConnectionEvent() {
+    _initConnectionEvent(): void {
         this.window.addEventListener(
             'online',
             (event) => {
@@ -95,14 +95,14 @@ export class Window {
      * @param {!Event} event
      * @return {undefined}
      */
-    eventOffline(event) {
+    eventOffline(event: Event): void {
         consoleWarn('Window.eventOffline()', event);
     }
     /**
      * @param {!Event} event
      * @return {undefined}
      */
-    eventOnline(event) {
+    eventOnline(event: Event): void {
         consoleWarn('Window.eventOffline()', event);
     }
     /**
@@ -111,7 +111,7 @@ export class Window {
      * @param {!Event} event
      * @return {undefined}
      */
-    eventResize(width, height, event) {
+    eventResize(width: number, height: number, event: Event): void {
         consoleWarn('Window.eventResize()', width, height, event);
     }
     /**
@@ -121,7 +121,7 @@ export class Window {
      * @param {!Event} event
      * @return {undefined}
      */
-    eventOrientationChange(orientation, width, height, event) {
+    eventOrientationChange(orientation: string, width: number, height: number, event: Event): void {
         consoleWarn(
             'Window.eventOrientationChange()',
             orientation,
@@ -135,7 +135,7 @@ export class Window {
      * @param {!Event} event
      * @return {undefined}
      */
-    eventScroll(scrollTop, event) {
+    eventScroll(scrollTop: number, event: Event): void {
         consoleWarn('Window.eventScroll()', scrollTop, event);
     }
     /**
@@ -143,7 +143,7 @@ export class Window {
      * @param {!Event} event
      * @return {undefined}
      */
-    _resize(event) {
+    _resize(event: Event): void {
         this.eventResize(this.getWidth(), this.getHeight(), event);
 
         const orientation = this.getOrientation();
@@ -162,13 +162,13 @@ export class Window {
      * @param {!Event} event
      * @return {undefined}
      */
-    _scroll(event) {
+    _scroll(event: Event): void {
         this.eventScroll(this.getScrollTop(), event);
     }
     /**
      * @return {number}
      */
-    getScrollTop() {
+    getScrollTop(): number {
         return (
             this.document.documentElement.scrollTop ||
             this.document.body.scrollTop
@@ -177,19 +177,19 @@ export class Window {
     /**
      * @return {number}
      */
-    getWidth() {
+    getWidth(): number {
         return this.window.innerWidth;
     }
     /**
      * @return {number}
      */
-    getHeight() {
+    getHeight(): number {
         return this.window.innerHeight;
     }
     /**
      * @return {string} landscape|portrait
      */
-    getOrientation() {
+    getOrientation(): string {
         return gte(this.getWidth(), this.getHeight())
             ? 'landscape'
             : 'portrait';
@@ -198,7 +198,7 @@ export class Window {
      * @private
      * @return {undefined}
      */
-    _initColorSchemeEvent() {
+    _initColorSchemeEvent(): void {
         if (window.matchMedia) {
             window
                 .matchMedia('(prefers-color-scheme: dark)')
@@ -216,14 +216,14 @@ export class Window {
      * @param {!Event} event
      * @return {undefined}
      */
-    eventColorSchemeChange(colorScheme, event) {
+    eventColorSchemeChange(colorScheme: string, event: Event): void {
         consoleWarn('Window.eventColorSchemeChange()', colorScheme, event);
     }
     /**
      * @param {string} type dark|light|no-preference
      * @return {boolean}
      */
-    isColorScheme(type) {
+    isColorScheme(type: string): boolean {
         return (
             window.matchMedia &&
             window.matchMedia(`(prefers-color-scheme: ${type})`).matches

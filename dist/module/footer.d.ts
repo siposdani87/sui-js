@@ -1,23 +1,24 @@
+import { Item } from '../core';
 import { Objekt } from '../core/objekt';
 /**
  * @class
  */
 export declare class Footer {
     options: Objekt;
-    footerNode: any;
-    templateViewNode: any;
-    contentNode: any;
-    localesNode: any;
+    footerNode: Item;
+    templateViewNode: Item;
+    contentNode: Item;
+    localesNode: Item;
     /**
      * @param {!Object=} opt_options
      */
-    constructor(opt_options?: {});
+    constructor(opt_options?: object | undefined);
     /**
      * @private
      * @param {!Object=} opt_options
      * @return {undefined}
      */
-    _setOptions(opt_options?: {}): void;
+    _setOptions(opt_options?: object | undefined): void;
     /**
      * @private
      * @return {undefined}
@@ -35,11 +36,11 @@ export declare class Footer {
      * @param {!Item} contentNode
      * @return {undefined}
      */
-    setContent(contentNode: any): void;
+    setContent(contentNode: Item): void;
     /**
      * @return {!Item}
      */
-    getLocalesContainer(): any;
+    getLocalesContainer(): Item;
     /**
      * @return {undefined}
      */
@@ -51,7 +52,7 @@ export declare class Footer {
     /**
      * @return {boolean}
      */
-    isOpened(): any;
+    isOpened(): boolean;
     /**
      * @return {undefined}
      */

@@ -13,9 +13,10 @@ export class ContainerTest extends BaseTest {
     }
     /**
      * @override
+     * @return {undefined}
      */
     init() {
-        this.container = /** @type {!Collection<!Objekt>} */ new Collection([
+        this.collection = /** @type {!Collection<!Objekt>} */ new Collection([
             {
                 id: 1,
                 text: 'text',

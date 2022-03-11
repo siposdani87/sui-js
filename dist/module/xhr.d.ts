@@ -67,7 +67,7 @@ export declare class Xhr {
     _getAccept(name: string): string;
     /**
      * @private
-     * @return {(XMLHttpRequest, Event): any}
+     * @return {function(XMLHttpRequest, Event): undefined}
      */
     _onReadyStateChange(): (_this: XMLHttpRequest, _ev: Event) => any;
     /**

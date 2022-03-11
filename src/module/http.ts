@@ -1,3 +1,4 @@
+import { Promize } from '../core';
 import { Deferred } from '../core/deferred';
 import { Objekt } from '../core/objekt';
 import { consoleWarn } from '../utils/log';
@@ -8,13 +9,13 @@ import { Xhr } from './xhr';
  */
 export class Http {
     options: Objekt;
-    username: any;
-    password: any;
-    token: any;
+    username: string;
+    password: string;
+    token: string;
     /**
      * @param {!Object=} opt_options
      */
-    constructor(opt_options = {}) {
+    constructor(opt_options: object | undefined = {}) {
         this._setOptions(opt_options);
         this._init();
     }
@@ -23,7 +24,7 @@ export class Http {
      * @param {!Object=} opt_options
      * @return {undefined}
      */
-    _setOptions(opt_options = {}) {
+    _setOptions(opt_options: object | undefined = {}): void {
         const _self = this;
         _self.options = new Objekt({
             backend: '',
@@ -35,7 +36,7 @@ export class Http {
      * @private
      * @return {undefined}
      */
-    _init() {
+    _init(): void {
         this.username = null;
         this.password = null;
         this.token = null;
@@ -45,14 +46,14 @@ export class Http {
      * @param {string} password
      * @return {undefined}
      */
-    setBasicAuthorization(username, password) {
+    setBasicAuthorization(username: string, password: string): void {
         this.username = username;
         this.password = password;
     }
     /**
      * @param {string} token
      */
-    setBearerAuthorization(token) {
+    setBearerAuthorization(token: string) {
         this.token = token;
     }
     /**
@@ -61,7 +62,7 @@ export class Http {
      * @param {!Object=} opt_headers
      * @return {!Promize}
      */
-    get(url, opt_params?, opt_headers?) {
+    get(url: string, opt_params?: object | undefined, opt_headers?: object | undefined): Promize {
         const http = this._getRequestHandler();
         return this._getPromise(http.get(url, opt_params, opt_headers));
     }
@@ -72,7 +73,7 @@ export class Http {
      * @param {!Object=} opt_headers
      * @return {!Promize}
      */
-    post(url, opt_data?, opt_params?, opt_headers?) {
+    post(url: string, opt_data?: object | undefined, opt_params?: object | undefined, opt_headers?: object | undefined): Promize {
         const http = this._getRequestHandler();
         return this._getPromise(
             http.post(url, opt_data, opt_params, opt_headers),
@@ -85,7 +86,7 @@ export class Http {
      * @param {!Object=} opt_headers
      * @return {!Promize}
      */
-    put(url, opt_data, opt_params, opt_headers) {
+    put(url: string, opt_data: object | undefined, opt_params: object | undefined, opt_headers: object | undefined): Promize {
         const http = this._getRequestHandler();
         return this._getPromise(
             http.put(url, opt_data, opt_params, opt_headers),
@@ -98,7 +99,7 @@ export class Http {
      * @param {!Object=} opt_headers
      * @return {!Promize}
      */
-    patch(url, opt_data, opt_params, opt_headers) {
+    patch(url: string, opt_data: object | undefined, opt_params: object | undefined, opt_headers: object | undefined): Promize {
         const http = this._getRequestHandler();
         return this._getPromise(
             http.patch(url, opt_data, opt_params, opt_headers),
@@ -111,7 +112,7 @@ export class Http {
      * @param {!Object=} opt_headers
      * @return {!Promize}
      */
-    delete(url, opt_data, opt_params, opt_headers) {
+    delete(url: string, opt_data: object | undefined, opt_params: object | undefined, opt_headers: object | undefined): Promize {
         const http = this._getRequestHandler();
         return this._getPromise(
             http.delete(url, opt_data, opt_params, opt_headers),
@@ -121,7 +122,7 @@ export class Http {
      * @private
      * @return {!Xhr}
      */
-    _getRequestHandler() {
+    _getRequestHandler(): Xhr {
         const http = new Xhr(this.options);
         this.eventBeforeRequest(http);
         http.setBasicAuthorization(this.username, this.password);
@@ -133,7 +134,7 @@ export class Http {
      * @param {!Promize} promise
      * @return {!Promize}
      */
-    _getPromise(promise) {
+    _getPromise(promise: Promize): Promize {
         const deferred = new Deferred();
         promise.then(
             (...params) => {
@@ -151,7 +152,7 @@ export class Http {
      * @param {!Xhr} http
      * @return {undefined}
      */
-    eventBeforeRequest(http) {
+    eventBeforeRequest(http: Xhr): void {
         consoleWarn('Http.eventBeforeRequest', http);
     }
     /**
@@ -159,7 +160,7 @@ export class Http {
      * @param {*} response
      * @return {undefined}
      */
-    eventAfterRequest(http, response) {
+    eventAfterRequest(http: XMLHttpRequest, response: any): void {
         consoleWarn('Http.eventAfterRequest', http, response);
     }
 }

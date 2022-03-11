@@ -1,35 +1,45 @@
 import { Async } from '../core/async';
 import { Objekt } from '../core/objekt';
+import { Dialog } from './dialog';
+import { Confirm } from './confirm';
+import { Item } from '../core';
+/**
+ * @typedef {{setProgress: function(number): undefined, setBuffer: function(number): undefined}} ProcessBar
+ */
+declare type ProcessBar = {
+    setProgress: (value: number) => void;
+    setBuffer: (value: number) => void;
+};
 /**
  * @class
  */
 export declare class ProgressBar {
-    dialog: any;
-    confirm: any;
+    dialog: Dialog;
+    confirm: Confirm;
     options: Objekt;
-    progressBarContainer: any;
-    progressBarHeader: any;
-    progressBarDialog: any;
-    progressBarConfirm: any;
+    progressBarContainer: Item;
+    progressBarHeader: Item;
+    progressBarDialog: Item;
+    progressBarConfirm: Item;
     async: Async;
-    mProgressContainer: any;
-    mProgressHeader: any;
-    mProgressDialog: any;
-    mProgressConfirm: any;
-    progressValue: any;
-    bufferValue: any;
+    mProgressContainer: ProcessBar;
+    mProgressHeader: ProcessBar;
+    mProgressDialog: ProcessBar;
+    mProgressConfirm: ProcessBar;
+    progressValue: number;
+    bufferValue: number;
     /**
      * @param {!Dialog} dialog
      * @param {!Confirm} confirm
      * @param {!Object=} opt_options
      */
-    constructor(dialog: any, confirm: any, opt_options?: {});
+    constructor(dialog: Dialog, confirm: Confirm, opt_options?: object | undefined);
     /**
      * @param {!Object=} opt_options
      * @private
      * @return {undefined}
      */
-    _setOptions(opt_options?: {}): void;
+    _setOptions(opt_options?: object | undefined): void;
     /**
      * @private
      * @return {undefined}
@@ -38,12 +48,9 @@ export declare class ProgressBar {
     /**
      * @private
      * @param {!Item} node
-     * @return {!Object}
+     * @return {!ProcessBar}
      */
-    _getProgressBar(node: any): {
-        setProgress: (value: any) => void;
-        setBuffer: (value: any) => void;
-    };
+    _getProgressBar(node: Item): ProcessBar;
     /**
      * @private
      * @param {!Function} containerCallback
@@ -52,7 +59,7 @@ export declare class ProgressBar {
      * @param {!Function} confirmCallback
      * @return {undefined}
      */
-    _separateProgressBars(containerCallback: any, headerCallback: any, dialogCallback: any, confirmCallback: any): void;
+    _separateProgressBars(containerCallback: Function, headerCallback: Function, dialogCallback: Function, confirmCallback: Function): void;
     /**
      * @private
      * @return {undefined}
@@ -66,17 +73,17 @@ export declare class ProgressBar {
      * @param {number} value
      * @return {undefined}
      */
-    setProgress(value: any): void;
+    setProgress(value: number): void;
     /**
      * @param {number} value
      * @return {undefined}
      */
-    setBuffer(value: any): void;
+    setBuffer(value: number): void;
     /**
      * @param {boolean=} opt_force
      * @return {undefined}
      */
-    hide(opt_force: any): void;
+    hide(opt_force?: boolean): void;
     /**
      * @return {undefined}
      */
@@ -86,3 +93,4 @@ export declare class ProgressBar {
      */
     unlock(): void;
 }
+export {};

@@ -141,7 +141,7 @@ export class Storage {
             switch (opt_expires.constructor) {
                 case Number:
                     date.setTime(date.getTime() +
-                        /** @type {number} */ (opt_expires) * 60 * 60 * 1000);
+                        /** @type {number} */ opt_expires * 60 * 60 * 1000);
                     opt_expires =
                         opt_expires === Infinity
                             ? 'Fri, 31 Dec 9999 23:59:59 GMT'
@@ -158,6 +158,6 @@ export class Storage {
             date.setTime(date.getTime() + this.options.hours * 60 * 60 * 1000);
             opt_expires = date.toUTCString();
         }
-        return /** @type {string} */ (opt_expires);
+        return /** @type {string} */ opt_expires;
     }
 }

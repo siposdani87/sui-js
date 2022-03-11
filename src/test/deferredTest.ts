@@ -19,8 +19,9 @@ export class DeferredTest extends BaseTest {
     }
     /**
      * @override
+     * @return {undefined}
      */
-    init() {
+    init(): void {
         this.ajaxResolve = () => {
             const deferred = new Deferred();
             window.setTimeout(() => {
@@ -54,9 +55,9 @@ export class DeferredTest extends BaseTest {
         this.testReject();
     }
     /**
-     *
+     * @return {undefined}
      */
-    testPromise() {
+    testPromise(): void {
         const deferred = new Deferred();
         const promise = deferred.promise();
         if (!(promise instanceof Promize)) {
@@ -64,9 +65,9 @@ export class DeferredTest extends BaseTest {
         }
     }
     /**
-     *
+     * @return {undefined}
      */
-    testResolve() {
+    testResolve(): void {
         this.ajaxResolve().then(
             (value) => {
                 if (value !== 1) {
@@ -90,9 +91,9 @@ export class DeferredTest extends BaseTest {
         );
     }
     /**
-     *
+     * @return {undefined}
      */
-    testReject() {
+    testReject(): void {
         this.ajaxReject().then(
             () => {
                 this.showError('reject', 1);

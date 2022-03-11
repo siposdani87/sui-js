@@ -1,10 +1,13 @@
+import { ActionCableClient } from './actionCableClient';
+import { Promize } from '../core';
+import { Consumer } from '@rails/actioncable';
 /**
  * @class
  */
 export declare class ActionCable {
-    cable: any;
-    clients: any[];
-    identifiers: any[];
+    cable: Consumer;
+    clients: ActionCableClient[];
+    identifiers: string[];
     /**
      */
     constructor();
@@ -22,7 +25,7 @@ export declare class ActionCable {
      * @param {string} room
      * @return {!Promize}
      */
-    subscribe(channel: any, room: any): any;
+    subscribe(channel: string, room: string): Promize;
     /**
      * @return {undefined}
      */
@@ -32,5 +35,5 @@ export declare class ActionCable {
      * @param {!Object} options
      * @return {string}
      */
-    _generateIdentifier(options: any): string;
+    _generateIdentifier(options: object): string;
 }

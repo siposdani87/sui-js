@@ -11,7 +11,7 @@ export class Cookie {
     /**
      * @param {!Object=} opt_options
      */
-    constructor(opt_options = {}) {
+    constructor(opt_options: object | undefined = {}) {
         this._setOptions(opt_options);
     }
     /**
@@ -19,7 +19,7 @@ export class Cookie {
      * @param {!Object=} opt_options
      * @return {undefined}
      */
-    _setOptions(opt_options = {}) {
+    _setOptions(opt_options: object | undefined = {}): void {
         const _self = this;
         _self.options = new Objekt({
             prefix: 'app',
@@ -32,7 +32,7 @@ export class Cookie {
      * @param {string} name
      * @return {string}
      */
-    _getPropertyName(name) {
+    _getPropertyName(name: string): string {
         return [this.options.prefix, name].join('.').replace(/\./g, '_');
     }
     /**
@@ -40,7 +40,7 @@ export class Cookie {
      * @param {string} propertyName
      * @return {string}
      */
-    _getName(propertyName) {
+    _getName(propertyName: string): string {
         const parts = propertyName.split('_');
         parts.shift();
         return parts.join('.');
@@ -55,13 +55,13 @@ export class Cookie {
      * @return {undefined}
      */
     set(
-        name,
-        value,
+        name: string,
+        value: string,
         opt_expires: any = '',
-        opt_path = '/',
-        opt_domain = '',
-        opt_secure = false,
-    ) {
+        opt_path: string | undefined = '/',
+        opt_domain: string | undefined = '',
+        opt_secure: boolean | undefined = false,
+    ): void {
         const propertyName = this._getPropertyName(name);
         if (/^(?:expires|max\-age|path|domain|secure)$/i.test(propertyName)) {
             return;
@@ -102,7 +102,7 @@ export class Cookie {
      * @param {string} name
      * @return {*}
      */
-    get(name) {
+    get(name: string): any {
         const propertyName = this._getPropertyName(name);
         const regex = new RegExp(
             '(?:(?:^|.*;)\\s*' +
@@ -123,7 +123,7 @@ export class Cookie {
      * @param {boolean=} opt_secure
      * @return {undefined}
      */
-    remove(name, opt_path = '', opt_domain = '', opt_secure = false) {
+    remove(name: string, opt_path: string | undefined = '', opt_domain: string | undefined = '', opt_secure: boolean | undefined = false): void {
         if (this.hasKey(name)) {
             const expires = new Date(1970, 0, 1);
             this.set(name, '', expires, opt_path, opt_domain, opt_secure);
@@ -133,7 +133,7 @@ export class Cookie {
      * @param {string} name
      * @return {boolean}
      */
-    hasKey(name) {
+    hasKey(name: string): boolean {
         const propertyName = this._getPropertyName(name);
         const regex = new RegExp(
             '(?:^|;\\s*)' +
@@ -148,7 +148,7 @@ export class Cookie {
     /**
      * @return {!Array}
      */
-    getKeys() {
+    getKeys(): Array<any> {
         const keys = document.cookie
             .replace(
                 /((?:^|\s*;)[^\=]+)(?=;|$)|^\s*|\s*(?:\=[^;]*)?(?:\1|$)/g,
@@ -163,7 +163,7 @@ export class Cookie {
     /**
      * @return {undefined}
      */
-    clear() {
+    clear(): void {
         const keys = this.getKeys();
         each(keys, (key) => {
             this.remove(key);

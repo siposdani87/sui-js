@@ -460,6 +460,7 @@ export const isEmpty = (items) => {
 };
 /**
  * @export
+ * @deprecated
  * @param {!Array} args
  * @param {!Function} callback
  * @return {undefined}

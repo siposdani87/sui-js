@@ -1,3 +1,4 @@
+import { Item } from '../core';
 import { Objekt } from '../core/objekt';
 import { Query } from '../core/query';
 import { consoleWarn } from '../utils/log';
@@ -7,29 +8,36 @@ import { consoleWarn } from '../utils/log';
  */
 export class Header {
     options: Objekt;
-    headerNode: any;
-    leftMenuButton: any;
-    topMenuButton: any;
-    brandNode: any;
-    brandNodeImage: any;
-    brandNodeTitle: any;
-    mainContainerNode: any;
-    templateViewNode: any;
+    headerNode: Item;
+    leftMenuButton: Item;
+    topMenuButton: Item;
+    brandNode: Item;
+    brandNodeImage: Item;
+    brandNodeTitle: Item;
+    mainContainerNode: Item;
+    templateViewNode: Item;
     /**
      * @param {!Object=} opt_options
      */
-    constructor(opt_options = {}) {
+    constructor(opt_options: object | undefined = {}) {
+        this._setOptions(opt_options);
+        this._init();
+    }
+    /**
+     * @private
+     * @param {!Object=} opt_options
+     * @return {undefined}
+     */
+     _setOptions(opt_options: object | undefined = {}): void {
         const _self = this;
         _self.options = new Objekt();
         _self.options.merge(opt_options);
-
-        this._init();
     }
     /**
      * @private
      * @return {undefined}
      */
-    _init() {
+    _init(): void {
         this.headerNode = new Query('#header').getItem();
 
         this.leftMenuButton = new Query(
@@ -59,46 +67,46 @@ export class Header {
     /**
      * @return {undefined}
      */
-    eventLogoClick() {
+    eventLogoClick(): void {
         consoleWarn('Header.eventLogoClick()');
     }
     /**
      * @param {string} title
      * @return {undefined}
      */
-    setTitle(title) {
+    setTitle(title: string): void {
         this.brandNodeTitle.setHtml(title);
     }
     /**
      * @param {string} url
      * @return {undefined}
      */
-    setUrl(url) {
+    setUrl(url: string): void {
         this.brandNode.setAttribute('href', url);
     }
     /**
      * @param {string} imagePath
      * @return {undefined}
      */
-    setImage(imagePath) {
+    setImage(imagePath: string): void {
         this.brandNodeImage.setAttribute('src', imagePath);
     }
     /**
      * @return {undefined}
      */
-    open() {
+    open(): void {
         this.headerNode.addClass('open');
     }
     /**
      * @return {undefined}
      */
-    close() {
+    close(): void {
         this.headerNode.removeClass('open');
     }
     /**
      * @return {undefined}
      */
-    show() {
+    show(): void {
         this.headerNode.removeClass('hidden');
         this.mainContainerNode.addClass('header-padding');
         this.templateViewNode.addClass('has-header');
@@ -106,7 +114,7 @@ export class Header {
     /**
      * @return {undefined}
      */
-    hide() {
+    hide(): void {
         this.headerNode.addClass('hidden');
         this.mainContainerNode.removeClass('header-padding');
         this.templateViewNode.removeClass('has-header');
@@ -114,37 +122,37 @@ export class Header {
     /**
      * @return {undefined}
      */
-    showShadow() {
+    showShadow(): void {
         this.headerNode.addClass('shadow');
     }
     /**
      * @return {undefined}
      */
-    hideShadow() {
+    hideShadow(): void {
         this.headerNode.removeClass('shadow');
     }
     /**
      * @return {undefined}
      */
-    showLeftMenuButton() {
+    showLeftMenuButton(): void {
         this.leftMenuButton.removeClass('hidden');
     }
     /**
      * @return {undefined}
      */
-    hideLeftMenuButton() {
+    hideLeftMenuButton(): void {
         this.leftMenuButton.addClass('hidden');
     }
     /**
      * @return {undefined}
      */
-    showTopMenuButton() {
+    showTopMenuButton(): void {
         this.topMenuButton.removeClass('hidden');
     }
     /**
      * @return {undefined}
      */
-    hideTopMenuButton() {
+    hideTopMenuButton(): void {
         this.topMenuButton.addClass('hidden');
     }
 }

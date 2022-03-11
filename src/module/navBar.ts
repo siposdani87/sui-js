@@ -1,12 +1,13 @@
+import { Item } from '../core';
 import { Query } from '../core/query';
 
 /**
  * @class
  */
 export class NavBar {
-    navBarHeader: any;
-    navBar: any;
-    toggleNavBarIcon: any;
+    navBarHeader: Item;
+    navBar: Item;
+    toggleNavBarIcon: Item;
     /**
      */
     constructor() {
@@ -16,7 +17,7 @@ export class NavBar {
      * @private
      * @return {undefined}
      */
-    _init() {
+    _init(): void {
         this.navBarHeader = new Query('.nav-bar-header').getItem();
         this.navBar = new Query('#nav-bar', this.navBarHeader).getItem();
 
@@ -33,7 +34,7 @@ export class NavBar {
     /**
      * @return {undefined}
      */
-    toggle() {
+    toggle(): void {
         if (this.isOpened()) {
             this.close();
         } else {
@@ -43,51 +44,51 @@ export class NavBar {
     /**
      * @return {boolean}
      */
-    isOpened() {
+    isOpened(): boolean {
         return this.navBar.hasClass('open');
     }
     /**
      * @return {undefined}
      */
-    open() {
+    open(): void {
         this.navBar.addClass('open');
         this.toggleNavBarIcon.setHtml('close');
     }
     /**
      * @return {undefined}
      */
-    close() {
+    close(): void {
         this.navBar.removeClass('open');
         this.toggleNavBarIcon.setHtml('menu');
     }
     /**
      * @return {undefined}
      */
-    show() {
+    show(): void {
         this.navBarHeader.removeClass('hidden');
     }
     /**
      * @return {undefined}
      */
-    hide() {
+    hide(): void {
         this.navBarHeader.addClass('hidden');
     }
     /**
      * @return {undefined}
      */
-    showShadow() {
+    showShadow(): void {
         this.navBar.addClass('shadow');
     }
     /**
      * @return {undefined}
      */
-    hideShadow() {
+    hideShadow(): void {
         this.navBar.removeClass('shadow');
     }
     /**
      * @return {!Item}
      */
-    getContainer() {
+    getContainer(): Item {
         return this.navBar;
     }
 }

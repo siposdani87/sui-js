@@ -1,14 +1,15 @@
+import { Item } from '../core';
 /**
  * @class
  */
 export declare class Sidebar {
-    selector: any;
-    sidebar: any;
-    button: any;
+    selector: string;
+    sidebar: Item;
+    button: Item;
     /**
      * @param {string} selector
      */
-    constructor(selector: any);
+    constructor(selector: string);
     /**
      * @private
      * @return {undefined}
@@ -21,7 +22,7 @@ export declare class Sidebar {
     /**
      * @return {boolean}
      */
-    isOpened(): any;
+    isOpened(): boolean;
     /**
      * @return {undefined}
      */
@@ -43,5 +44,5 @@ export declare class Sidebar {
      * @param {number} windowHeight
      * @return {undefined}
      */
-    setButtonPosition(scrollTop: any, windowHeight: any): void;
+    setButtonPosition(scrollTop: number, windowHeight: number): void;
 }

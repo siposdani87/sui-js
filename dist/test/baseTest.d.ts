@@ -10,7 +10,7 @@ export declare class BaseTest {
     /**
      * @param {string=} opt_name
      */
-    constructor(opt_name?: string | undefined);
+    constructor(opt_name?: string);
     /**
      * @return {void}
      */
@@ -20,11 +20,11 @@ export declare class BaseTest {
      * @param {!Object|string|number|boolean} object
      * @return {undefined}
      */
-    showError(message: any, object: any): void;
+    showError(message: string, object: object | string | number | boolean): void;
     /**
      * @param {string} message
      * @param {!Object} object
      * @return {undefined}
      */
-    showLog(message: any, object: any): void;
+    showLog(message: string, object: object): void;
 }

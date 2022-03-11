@@ -18,13 +18,13 @@ export class Helper {
      * @return {!Item}
      */
     createLink(
-        name,
-        opt_callback,
-        opt_href = 'javascript:void(0)',
-        opt_description = '',
-        opt_allowAccess = true,
-        opt_cssClasses = ['link'],
-    ) {
+        name: string,
+        opt_callback: Function | undefined,
+        opt_href: string | undefined = 'javascript:void(0)',
+        opt_description: string | undefined = '',
+        opt_allowAccess: boolean | undefined = true,
+        opt_cssClasses: Array<any> | undefined = ['link'],
+    ): Item {
         const linkNode = new Item('a');
         linkNode.setHtml(name);
         this.linkElement(
@@ -44,7 +44,7 @@ export class Helper {
      * @param {!Array=} opt_cssClasses
      * @return {undefined}
      */
-    multipleLink(selector, dom, opt_callback, opt_cssClasses = []) {
+    multipleLink(selector: string, dom: Item, opt_callback: Function | undefined, opt_cssClasses: Array<any> | undefined = []): void {
         const linkNodes = new Query(selector, dom);
         linkNodes.each((linkNode) => {
             this.linkElement(
@@ -68,14 +68,14 @@ export class Helper {
      * @return {!Item}
      */
     link(
-        selector,
-        dom,
-        opt_callback,
-        opt_href = '',
-        opt_description = '',
-        opt_allowAccess = true,
-        opt_cssClasses = [],
-    ) {
+        selector: string,
+        dom: Item,
+        opt_callback: Function | undefined,
+        opt_href: string | undefined = '',
+        opt_description: string | undefined = '',
+        opt_allowAccess: boolean | undefined = true,
+        opt_cssClasses: Array<any> | undefined = [],
+    ): Item {
         const linkNode = new Query(selector, dom).getItem();
         this.linkElement(
             linkNode,
@@ -97,13 +97,13 @@ export class Helper {
      * @return {undefined}
      */
     linkElement(
-        linkNode,
-        opt_callback,
-        opt_href = '',
-        opt_description = '',
-        opt_allowAccess = true,
-        opt_cssClasses = [],
-    ) {
+        linkNode: Item,
+        opt_callback: Function | undefined,
+        opt_href: string | undefined = '',
+        opt_description: string | undefined = '',
+        opt_allowAccess: boolean | undefined = true,
+        opt_cssClasses: Array<any> | undefined = [],
+    ): void {
         if (!linkNode.isEmpty()) {
             if (opt_allowAccess) {
                 linkNode.addClass(opt_cssClasses);
@@ -138,12 +138,12 @@ export class Helper {
      * @return {!Item}
      */
     createButton(
-        name,
-        callback,
-        opt_description = '',
-        opt_allowAccess = true,
-        opt_cssClasses = ['mdl-button--primary'],
-    ) {
+        name: string,
+        callback: Function,
+        opt_description: string | undefined = '',
+        opt_allowAccess: boolean | undefined = true,
+        opt_cssClasses: Array<any> | undefined = ['mdl-button--primary'],
+    ): Item {
         const buttonNode = new Item('button');
         buttonNode.setHtml(name);
         this.buttonElement(
@@ -163,11 +163,11 @@ export class Helper {
      * @return {undefined}
      */
     multipleButton(
-        selector,
-        dom,
-        opt_callback,
-        opt_cssClasses = ['mdl-button--primary'],
-    ) {
+        selector: string,
+        dom: Item,
+        opt_callback: Function | undefined,
+        opt_cssClasses: Array<any> | undefined = ['mdl-button--primary'],
+    ): void {
         const buttonNodes = new Query(selector, dom);
         buttonNodes.each((buttonNode) => {
             this.buttonElement(
@@ -189,13 +189,13 @@ export class Helper {
      * @return {!Item}
      */
     button(
-        selector,
-        dom,
-        callback,
-        opt_description = '',
-        opt_allowAccess = true,
-        opt_cssClasses = ['mdl-button--primary'],
-    ) {
+        selector: string,
+        dom: Item,
+        callback: Function,
+        opt_description: string | undefined = '',
+        opt_allowAccess: boolean | undefined = true,
+        opt_cssClasses: Array<any> | undefined = ['mdl-button--primary'],
+    ): Item {
         const buttonNode = new Query(selector, dom).getItem();
         this.buttonElement(
             buttonNode,
@@ -215,12 +215,12 @@ export class Helper {
      * @return {undefined}
      */
     buttonElement(
-        buttonNode,
-        opt_callback,
-        opt_description = '',
-        opt_allowAccess = true,
-        opt_cssClasses = ['mdl-button--primary'],
-    ) {
+        buttonNode: Item,
+        opt_callback: Function | undefined,
+        opt_description: string | undefined = '',
+        opt_allowAccess: boolean | undefined = true,
+        opt_cssClasses: Array<any> | undefined = ['mdl-button--primary'],
+    ): void {
         if (!buttonNode.isEmpty()) {
             if (opt_allowAccess) {
                 if (!buttonNode.getId()) {
@@ -260,16 +260,16 @@ export class Helper {
      * @return {!Item}
      */
     createIconButton(
-        iconName,
-        callback,
-        opt_description = '',
-        opt_allowAccess = true,
-        opt_cssClasses = [
+        iconName: string,
+        callback: Function,
+        opt_description: string | undefined = '',
+        opt_allowAccess: boolean | undefined = true,
+        opt_cssClasses: Array<any> | undefined = [
             'mdl-button--accent',
             'mdl-button--fab',
             'mdl-button--mini-fab',
         ],
-    ) {
+    ): Item {
         const buttonNode = new Item('button');
         this._createIconNode(iconName, buttonNode);
         this.iconButtonElement(
@@ -288,14 +288,14 @@ export class Helper {
      * @return {undefined}
      */
     multipleIconButton(
-        selector,
-        dom,
-        opt_cssClasses = [
+        selector: string,
+        dom: Item,
+        opt_cssClasses: Array<any> | undefined = [
             'mdl-button--accent',
             'mdl-button--fab',
             'mdl-button--mini-fab',
         ],
-    ) {
+    ): void {
         const buttonNodes = new Query(selector, dom);
         buttonNodes.each((buttonNode) => {
             this.iconButtonElement(
@@ -317,17 +317,17 @@ export class Helper {
      * @return {!Item}
      */
     iconButton(
-        selector,
-        dom,
-        callback,
-        opt_description = '',
-        opt_allowAccess = true,
-        opt_cssClasses = [
+        selector: string,
+        dom: Item,
+        callback: Function,
+        opt_description: string | undefined = '',
+        opt_allowAccess: boolean | undefined = true,
+        opt_cssClasses: Array<any> | undefined = [
             'mdl-button--accent',
             'mdl-button--fab',
             'mdl-button--mini-fab',
         ],
-    ) {
+    ): Item {
         const buttonNode = new Query(selector, dom).getItem();
         this.iconButtonElement(
             buttonNode,
@@ -347,16 +347,16 @@ export class Helper {
      * @return {undefined}
      */
     iconButtonElement(
-        buttonNode,
-        opt_callback,
-        opt_description = '',
-        opt_allowAccess = true,
-        opt_cssClasses = [
+        buttonNode: Item,
+        opt_callback: Function | undefined,
+        opt_description: string | undefined = '',
+        opt_allowAccess: boolean | undefined = true,
+        opt_cssClasses: Array<any> | undefined = [
             'mdl-button--accent',
             'mdl-button--fab',
             'mdl-button--mini-fab',
         ],
-    ) {
+    ): void {
         if (!buttonNode.isEmpty()) {
             if (opt_allowAccess) {
                 if (!buttonNode.getId()) {
@@ -393,7 +393,7 @@ export class Helper {
      * @param {!Item} parentNode
      * @return {undefined}
      */
-    _createIconNode(iconName, parentNode) {
+    _createIconNode(iconName: string, parentNode: Item): void {
         const iconNode = new Item('em');
         iconNode.addClass('material-icons');
         iconNode.setHtml(iconName);
@@ -404,7 +404,7 @@ export class Helper {
      * @param {string=} opt_description
      * @return {undefined}
      */
-    _setTooltip(node, opt_description = '') {
+    _setTooltip(node: Item, opt_description: string | undefined = ''): void {
         if (opt_description) {
             node.setAttribute('title', opt_description);
         }
@@ -421,12 +421,12 @@ export class Helper {
      * @return {undefined}
      */
     setGravatar(
-        imageNode,
-        defaultImageUrl,
-        email,
-        opt_size = 500,
-        opt_rating = 'g',
-    ) {
+        imageNode: Item,
+        defaultImageUrl: string,
+        email: string,
+        opt_size: number | undefined = 500,
+        opt_rating: string | undefined = 'g',
+    ): void {
         const src = format(
             'https://www.gravatar.com/avatar/{0}?s={1}&r={2}&d=404',
             [md5(email), opt_size, opt_rating],

@@ -14,7 +14,7 @@ export class Confirm extends BaseModal {
     /**
      * @param {!Object=} opt_options
      */
-    constructor(opt_options = {}) {
+    constructor(opt_options: object | undefined = {}) {
         super();
         this._setOptions(opt_options);
         this._init();
@@ -25,7 +25,7 @@ export class Confirm extends BaseModal {
      * @private
      * @return {undefined}
      */
-    _setOptions(opt_options = {}) {
+    _setOptions(opt_options: object | undefined = {}): void {
         const _self = this;
         _self.options = new Objekt({
             id: '#confirm',
@@ -36,7 +36,7 @@ export class Confirm extends BaseModal {
      * @private
      * @return {undefined}
      */
-    _init() {
+    _init(): void {
         this.body = new Query('body').getItem();
         this.modal = new Query(this.options.id).getItem();
         this.modalWindow = new Query('#confirm-window', this.modal).getItem();
@@ -56,11 +56,11 @@ export class Confirm extends BaseModal {
      * @param {string=} opt_type
      */
     load(
-        message,
-        okText,
-        opt_cancelText = '',
-        opt_title = '',
-        opt_type = 'normal',
+        message: string,
+        okText: string,
+        opt_cancelText: string | undefined = '',
+        opt_title: string | undefined = '',
+        opt_type: string | undefined = 'normal',
     ) {
         this._reset();
         this._setTitle(opt_title);

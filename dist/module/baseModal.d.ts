@@ -1,25 +1,27 @@
+import { Item } from '../core';
+import { Tooltip } from '../component';
 /**
  * @class
  */
 export declare class BaseModal {
     windowWidth: number;
     windowHeight: number;
-    mainContainerNode: any;
+    mainContainerNode: Item;
     hasBlur: boolean;
-    modal: any;
-    btnMinimize: any;
-    btnMaximize: any;
-    btnClose: any;
-    body: any;
-    interval: any;
-    modalTitle: any;
-    modalBody: any;
-    modalFooter: any;
-    modalHeader: any;
-    tooltip: any;
-    eventOK: () => any;
-    eventCancel: () => any;
-    modalWindow: any;
+    modal: Item;
+    btnMinimize: Item;
+    btnMaximize: Item;
+    btnClose: Item;
+    body: Item;
+    interval: number;
+    modalTitle: Item;
+    modalBody: Item;
+    modalFooter: Item;
+    modalHeader: Item;
+    tooltip: Tooltip;
+    eventOK: () => void;
+    eventCancel: () => void;
+    modalWindow: Item;
     /**
      * @protected
      * @return {undefined}
@@ -48,18 +50,18 @@ export declare class BaseModal {
     /**
      * @return {boolean}
      */
-    isOpened(): any;
+    isOpened(): boolean;
     /**
      * @private
      * @param {boolean=} opt_allowClose
      * @return {undefined}
      */
-    _handleCloseButton(opt_allowClose?: boolean): void;
+    _handleCloseButton(opt_allowClose?: boolean | undefined): void;
     /**
      * @param {boolean=} opt_allowClose
      * @return {undefined}
      */
-    open(opt_allowClose?: boolean): void;
+    open(opt_allowClose?: boolean | undefined): void;
     /**
      * @return {undefined}
      */
@@ -69,7 +71,7 @@ export declare class BaseModal {
      * @param {string=} opt_title
      * @return {undefined}
      */
-    _setTitle(opt_title: any): void;
+    _setTitle(opt_title: string | undefined): void;
     /**
      * @protected
      * @return {undefined}
@@ -100,7 +102,7 @@ export declare class BaseModal {
      * @param {number} height
      * @return {undefined}
      */
-    setSize(width: any, height: any): void;
+    setSize(width: number, height: number): void;
     /**
      * @private
      * @return {undefined}

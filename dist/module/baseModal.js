@@ -205,9 +205,9 @@ export class BaseModal {
      */
     _handleCenterPosition() {
         const style = this.modalWindow.getComputedStyle();
-        let height = style.getPropertyValue('height');
-        if (contain(height, 'px')) {
-            height = parseInt(height.slice(0, -2), 10);
+        const styleHeight = style.getPropertyValue('height');
+        if (contain(styleHeight, 'px')) {
+            const height = parseInt(styleHeight.slice(0, -2), 10);
             if (height > this.windowHeight) {
                 this.modal.removeClass('center');
             }

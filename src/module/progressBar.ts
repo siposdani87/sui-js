@@ -2,31 +2,42 @@ import { eq } from '../utils/operation';
 import { Async } from '../core/async';
 import { Objekt } from '../core/objekt';
 import { Query } from '../core/query';
+import { Dialog } from './dialog';
+import { Confirm } from './confirm';
+import { Item } from '../core';
+
+/**
+ * @typedef {{setProgress: function(number): undefined, setBuffer: function(number): undefined}} ProcessBar
+ */
+type ProcessBar = {
+    setProgress: (value: number) => void;
+    setBuffer: (value: number) => void;
+}
 
 /**
  * @class
  */
 export class ProgressBar {
-    dialog: any;
-    confirm: any;
+    dialog: Dialog;
+    confirm: Confirm;
     options: Objekt;
-    progressBarContainer: any;
-    progressBarHeader: any;
-    progressBarDialog: any;
-    progressBarConfirm: any;
+    progressBarContainer: Item;
+    progressBarHeader: Item;
+    progressBarDialog: Item;
+    progressBarConfirm: Item;
     async: Async;
-    mProgressContainer: any;
-    mProgressHeader: any;
-    mProgressDialog: any;
-    mProgressConfirm: any;
-    progressValue: any;
-    bufferValue: any;
+    mProgressContainer: ProcessBar;
+    mProgressHeader: ProcessBar;
+    mProgressDialog: ProcessBar;
+    mProgressConfirm: ProcessBar;
+    progressValue: number;
+    bufferValue: number;
     /**
      * @param {!Dialog} dialog
      * @param {!Confirm} confirm
      * @param {!Object=} opt_options
      */
-    constructor(dialog, confirm, opt_options = {}) {
+    constructor(dialog: Dialog, confirm: Confirm, opt_options: object | undefined = {}) {
         this.dialog = dialog;
         this.confirm = confirm;
 
@@ -38,7 +49,7 @@ export class ProgressBar {
      * @private
      * @return {undefined}
      */
-    _setOptions(opt_options = {}) {
+    _setOptions(opt_options: object | undefined = {}): void {
         const _self = this;
         _self.options = new Objekt({
             lock: false,
@@ -50,7 +61,7 @@ export class ProgressBar {
      * @private
      * @return {undefined}
      */
-    _init() {
+    _init(): void {
         this.progressBarContainer = new Query(
             '.main-container > .progress-bar',
         ).getItem();
@@ -101,9 +112,9 @@ export class ProgressBar {
     /**
      * @private
      * @param {!Item} node
-     * @return {!Object}
+     * @return {!ProcessBar}
      */
-    _getProgressBar(node) {
+    _getProgressBar(node: Item): ProcessBar {
         node.addClass('mdl-js-progress');
 
         node.addEventListener('mdl-componentupgraded', (node) => {
@@ -130,11 +141,11 @@ export class ProgressBar {
      * @return {undefined}
      */
     _separateProgressBars(
-        containerCallback,
-        headerCallback,
-        dialogCallback,
-        confirmCallback,
-    ) {
+        containerCallback: Function,
+        headerCallback: Function,
+        dialogCallback: Function,
+        confirmCallback: Function,
+    ): void {
         containerCallback(!this.dialog.isOpened() && !this.confirm.isOpened());
         headerCallback(!this.dialog.isOpened() && !this.confirm.isOpened());
         dialogCallback(this.dialog.isOpened() && !this.confirm.isOpened());
@@ -144,7 +155,7 @@ export class ProgressBar {
      * @private
      * @return {undefined}
      */
-    _progress() {
+    _progress(): void {
         if (!this.options.get('lock')) {
             this._separateProgressBars(
                 (condition) => {
@@ -181,7 +192,7 @@ export class ProgressBar {
     /**
      * @return {undefined}
      */
-    show() {
+    show(): void {
         this._progress();
         this.options.counter++;
         this._separateProgressBars(
@@ -235,7 +246,7 @@ export class ProgressBar {
      * @param {number} value
      * @return {undefined}
      */
-    setProgress(value) {
+    setProgress(value: number): void {
         this._progress();
         this._separateProgressBars(
             (condition) => {
@@ -264,7 +275,7 @@ export class ProgressBar {
      * @param {number} value
      * @return {undefined}
      */
-    setBuffer(value) {
+    setBuffer(value: number): void {
         this._progress();
         this._separateProgressBars(
             (condition) => {
@@ -293,7 +304,7 @@ export class ProgressBar {
      * @param {boolean=} opt_force
      * @return {undefined}
      */
-    hide(opt_force) {
+    hide(opt_force?: boolean): void {
         this.options.counter--;
         if (opt_force || eq(this.options.counter, 0)) {
             this.options.counter = 0;
@@ -318,13 +329,13 @@ export class ProgressBar {
     /**
      * @return {undefined}
      */
-    lock() {
+    lock(): void {
         this.options.set('lock', true);
     }
     /**
      * @return {undefined}
      */
-    unlock() {
+    unlock(): void {
         this.options.set('lock', false);
     }
 }

@@ -62,7 +62,7 @@ export class GeoLocation {
     }
     /**
      * @private
-     * @param {!Object} position
+     * @param {!GeolocationPosition} position
      * @return {undefined}
      */
     _handlePosition(position) {
@@ -71,7 +71,7 @@ export class GeoLocation {
     }
     /**
      * @private
-     * @param {!Object} error
+     * @param {!GeolocationPositionError} error
      * @return {undefined}
      */
     _handleError(error) {

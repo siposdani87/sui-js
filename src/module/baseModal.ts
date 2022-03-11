@@ -1,6 +1,8 @@
 import { isString, isNumber, noop, contain } from '../utils/operation';
 import { Async } from '../core/async';
 import { Query } from '../core/query';
+import { Item } from '../core';
+import { Tooltip } from '../component';
 
 /**
  * @class
@@ -8,27 +10,27 @@ import { Query } from '../core/query';
 export class BaseModal {
     windowWidth: number;
     windowHeight: number;
-    mainContainerNode: any;
+    mainContainerNode: Item;
     hasBlur: boolean;
-    modal: any;
-    btnMinimize: any;
-    btnMaximize: any;
-    btnClose: any;
-    body: any;
-    interval: any;
-    modalTitle: any;
-    modalBody: any;
-    modalFooter: any;
-    modalHeader: any;
-    tooltip: any;
-    eventOK: () => any;
-    eventCancel: () => any;
-    modalWindow: any;
+    modal: Item;
+    btnMinimize: Item;
+    btnMaximize: Item;
+    btnClose: Item;
+    body: Item;
+    interval: number;
+    modalTitle: Item;
+    modalBody: Item;
+    modalFooter: Item;
+    modalHeader: Item;
+    tooltip: Tooltip;
+    eventOK: () => void;
+    eventCancel: () => void;
+    modalWindow: Item;
     /**
      * @protected
      * @return {undefined}
      */
-    _initBase() {
+    _initBase(): void {
         this.windowWidth = 0;
         this.windowHeight = 0;
 
@@ -41,7 +43,7 @@ export class BaseModal {
      * @private
      * @return {undefined}
      */
-    _initButtons() {
+    _initButtons(): void {
         this._initCloseButton();
         this._initMinimizeButton();
         this._initMaximizeButton();
@@ -50,7 +52,7 @@ export class BaseModal {
      * @private
      * @return {undefined}
      */
-    _initMinimizeButton() {
+    _initMinimizeButton(): void {
         const btnMinimize = new Query('.minimize', this.modal).getItem();
         if (!btnMinimize.isEmpty()) {
             btnMinimize.addClass([
@@ -68,7 +70,7 @@ export class BaseModal {
      * @private
      * @return {undefined}
      */
-    _initMaximizeButton() {
+    _initMaximizeButton(): void {
         const btnMaximize = new Query('.maximize', this.modal).getItem();
         if (!btnMaximize.isEmpty()) {
             btnMaximize.addClass([
@@ -86,7 +88,7 @@ export class BaseModal {
      * @private
      * @return {undefined}
      */
-    _initCloseButton() {
+    _initCloseButton(): void {
         const btnClose = new Query('.close', this.modal).getItem();
         if (!btnClose.isEmpty()) {
             btnClose.addClass([
@@ -103,7 +105,7 @@ export class BaseModal {
     /**
      * @return {boolean}
      */
-    isOpened() {
+    isOpened(): boolean {
         return this.modal.hasClass('visible-flex');
     }
     /**
@@ -111,7 +113,7 @@ export class BaseModal {
      * @param {boolean=} opt_allowClose
      * @return {undefined}
      */
-    _handleCloseButton(opt_allowClose = true) {
+    _handleCloseButton(opt_allowClose: boolean | undefined = true): void {
         if (this.btnClose) {
             if (opt_allowClose) {
                 this.btnClose.removeClass('hidden');
@@ -124,7 +126,7 @@ export class BaseModal {
      * @param {boolean=} opt_allowClose
      * @return {undefined}
      */
-    open(opt_allowClose = true) {
+    open(opt_allowClose: boolean | undefined = true): void {
         this.hasBlur = this.mainContainerNode.hasClass('blur');
         if (!this.hasBlur) {
             this.mainContainerNode.addClass('blur');
@@ -144,7 +146,7 @@ export class BaseModal {
     /**
      * @return {undefined}
      */
-    close() {
+    close(): void {
         clearInterval(this.interval);
 
         if (!this.hasBlur) {
@@ -164,7 +166,7 @@ export class BaseModal {
      * @param {string=} opt_title
      * @return {undefined}
      */
-    _setTitle(opt_title) {
+    _setTitle(opt_title: string | undefined): void {
         this.modalTitle.setHtml(opt_title);
 
         if (
@@ -181,7 +183,7 @@ export class BaseModal {
      * @protected
      * @return {undefined}
      */
-    _reset() {
+    _reset(): void {
         this.eventOK = noop();
         this.eventCancel = noop();
     }
@@ -189,7 +191,7 @@ export class BaseModal {
      * @protected
      * @return {undefined}
      */
-    _actionOK() {
+    _actionOK(): void {
         const async = new Async();
         const calls = [this.eventOK.bind(this), this.close.bind(this)];
         async.serial(calls);
@@ -198,7 +200,7 @@ export class BaseModal {
      * @protected
      * @return {undefined}
      */
-    _actionCancel() {
+    _actionCancel(): void {
         const async = new Async();
         const calls = [this.eventCancel.bind(this), this.close.bind(this)];
         async.serial(calls);
@@ -207,14 +209,14 @@ export class BaseModal {
      * @private
      * @return {undefined}
      */
-    _actionMinimize() {
+    _actionMinimize(): void {
         // empty function
     }
     /**
      * @private
      * @return {undefined}
      */
-    _actionMaximize() {
+    _actionMaximize(): void {
         // empty function
     }
     /**
@@ -222,7 +224,7 @@ export class BaseModal {
      * @param {number} height
      * @return {undefined}
      */
-    setSize(width, height) {
+    setSize(width: number, height: number): void {
         this.windowWidth = width;
         this.windowHeight = height;
         this._handleCenterPosition();
@@ -231,11 +233,11 @@ export class BaseModal {
      * @private
      * @return {undefined}
      */
-    _handleCenterPosition() {
+    _handleCenterPosition(): void {
         const style = this.modalWindow.getComputedStyle();
-        let height = style.getPropertyValue('height');
-        if (contain(height, 'px')) {
-            height = parseInt(height.slice(0, -2), 10);
+        const styleHeight = style.getPropertyValue('height');
+        if (contain(styleHeight, 'px')) {
+            const height = parseInt(styleHeight.slice(0, -2), 10);
             if (height > this.windowHeight) {
                 this.modal.removeClass('center');
             } else {

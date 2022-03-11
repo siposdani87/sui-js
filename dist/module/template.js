@@ -21,7 +21,7 @@ export class Template {
      * @param {!Object=} opt_options
      * @return {undefined}
      */
-    _setOptions(opt_options) {
+    _setOptions(opt_options = {}) {
         const _self = this;
         _self.options = new Objekt({
             selector: '.template-view',

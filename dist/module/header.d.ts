@@ -1,21 +1,28 @@
+import { Item } from '../core';
 import { Objekt } from '../core/objekt';
 /**
  * @class
  */
 export declare class Header {
     options: Objekt;
-    headerNode: any;
-    leftMenuButton: any;
-    topMenuButton: any;
-    brandNode: any;
-    brandNodeImage: any;
-    brandNodeTitle: any;
-    mainContainerNode: any;
-    templateViewNode: any;
+    headerNode: Item;
+    leftMenuButton: Item;
+    topMenuButton: Item;
+    brandNode: Item;
+    brandNodeImage: Item;
+    brandNodeTitle: Item;
+    mainContainerNode: Item;
+    templateViewNode: Item;
     /**
      * @param {!Object=} opt_options
      */
-    constructor(opt_options?: {});
+    constructor(opt_options?: object | undefined);
+    /**
+     * @private
+     * @param {!Object=} opt_options
+     * @return {undefined}
+     */
+    _setOptions(opt_options?: object | undefined): void;
     /**
      * @private
      * @return {undefined}
@@ -29,17 +36,17 @@ export declare class Header {
      * @param {string} title
      * @return {undefined}
      */
-    setTitle(title: any): void;
+    setTitle(title: string): void;
     /**
      * @param {string} url
      * @return {undefined}
      */
-    setUrl(url: any): void;
+    setUrl(url: string): void;
     /**
      * @param {string} imagePath
      * @return {undefined}
      */
-    setImage(imagePath: any): void;
+    setImage(imagePath: string): void;
     /**
      * @return {undefined}
      */

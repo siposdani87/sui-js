@@ -3,19 +3,21 @@ import { Deferred } from '../core/deferred';
 import { Item } from '../core/item';
 import { Objekt } from '../core/objekt';
 import { Query } from '../core/query';
+import { ProgressBar } from './progressBar';
+import { Promize } from '../core';
 
 /**
  * @class
  */
 export class Script {
-    progressBar: any;
+    progressBar: ProgressBar;
     options: Objekt;
-    head: any;
+    head: Item;
     /**
      * @param {!ProgressBar} progressBar
      * @param {!Object=} opt_options
      */
-    constructor(progressBar, opt_options = {}) {
+    constructor(progressBar: ProgressBar, opt_options: object | undefined = {}) {
         this.progressBar = progressBar;
         this._setOptions(opt_options);
         this._init();
@@ -25,7 +27,7 @@ export class Script {
      * @param {!Object=} opt_options
      * @return {undefined}
      */
-    _setOptions(opt_options = {}) {
+    _setOptions(opt_options: object | undefined = {}): void {
         const _self = this;
         _self.options = new Objekt();
         _self.options.merge(opt_options);
@@ -34,7 +36,7 @@ export class Script {
      * @private
      * @return {undefined}
      */
-    _init() {
+    _init(): void {
         this.head = new Query('head').getItem();
     }
     /**
@@ -45,7 +47,7 @@ export class Script {
      * @param {boolean=} opt_defer
      * @return {!Promize}
      */
-    load(id, url, opt_params, opt_async = false, opt_defer = false) {
+    load(id: string, url: string, opt_params: object | undefined, opt_async: boolean | undefined = false, opt_defer: boolean | undefined = false): Promize {
         this.progressBar.show();
         const deferred = new Deferred();
         const script = new Query('#' + id);
@@ -82,7 +84,7 @@ export class Script {
      * @param {string} id
      * @return {undefined}
      */
-    remove(id) {
+    remove(id: string): void {
         const script = new Query('#' + id).getItem();
         if (!script.isEmpty()) {
             script.remove();

@@ -8,6 +8,14 @@ export class Promize {
      * @param {!Object=} opt_options
      */
     constructor(opt_options = {}) {
+        this._setOptions(opt_options);
+    }
+    /**
+     * @param {!Object=} opt_options
+     * @private
+     * @return {undefined}
+     */
+    _setOptions(opt_options = {}) {
         const _self = this;
         _self.options = new Objekt({
             status: null,

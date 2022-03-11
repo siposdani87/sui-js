@@ -1,36 +1,39 @@
+import { Promize } from '../core';
 import { Deferred } from '../core/deferred';
 import { Objekt } from '../core/objekt';
+import { ActionCable } from './actionCable';
+import { ChannelNameWithParams } from '@rails/actioncable';
 
 /**
  * @class
  */
 export class ActionCableClient {
-    parent: any;
-    subscription: any;
+    parent: ActionCable;
+    subscription: Promize;
     client: any;
-    identifier: any;
+    identifier: string;
     /**
      * @param {!ActionCable} parent
-     * @param {!Object} options
+     * @param {!ChannelNameWithParams} options
      */
-    constructor(parent, options) {
+    constructor(parent: ActionCable, options: ChannelNameWithParams) {
         this.parent = parent;
         this._init(options);
     }
     /**
      * @private
-     * @param {!Object} options
+     * @param {!ChannelNameWithParams} options
      * @return {undefined}
      */
-    _init(options) {
+    _init(options: ChannelNameWithParams): void {
         this.subscription = this._getSubscription(options);
     }
     /**
      * @private
-     * @param {!Object} options
+     * @param {!ChannelNameWithParams} options
      * @return {!Promize}
      */
-    _getSubscription(options) {
+    _getSubscription(options: ChannelNameWithParams): Promize {
         const deferred = new Deferred();
         this.client = this.parent.cable['subscriptions']['create'](options, {
             received: (payload) => {
@@ -45,7 +48,7 @@ export class ActionCableClient {
     /**
      * @return {!Promize}
      */
-    subscribe() {
+    subscribe(): Promize {
         return this.subscription;
     }
     /**
@@ -53,14 +56,14 @@ export class ActionCableClient {
      * @param {!Object=} opt_data
      * @return {undefined}
      */
-    send(message, opt_data = {}) {
+    send(message: string, opt_data: object | undefined = {}): void {
         opt_data['message'] = message;
         this.client['send'](opt_data);
     }
     /**
      * @return {undefined}
      */
-    unsubscribe() {
+    unsubscribe(): void {
         this.client['unsubscribe']();
     }
 }

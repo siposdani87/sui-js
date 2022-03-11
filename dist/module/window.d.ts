@@ -10,13 +10,13 @@ export declare class Window {
     /**
      * @param {!Object=} opt_options
      */
-    constructor(opt_options?: {});
+    constructor(opt_options?: object | undefined);
     /**
      * @private
      * @param {!Object=} opt_options
      * @return {undefined}
      */
-    _setOptions(opt_options?: {}): void;
+    _setOptions(opt_options?: object | undefined): void;
     /**
      * @private
      * @return {undefined}
@@ -41,19 +41,19 @@ export declare class Window {
      * @param {!Event} event
      * @return {undefined}
      */
-    eventOffline(event: any): void;
+    eventOffline(event: Event): void;
     /**
      * @param {!Event} event
      * @return {undefined}
      */
-    eventOnline(event: any): void;
+    eventOnline(event: Event): void;
     /**
      * @param {number} width
      * @param {number} height
      * @param {!Event} event
      * @return {undefined}
      */
-    eventResize(width: any, height: any, event: any): void;
+    eventResize(width: number, height: number, event: Event): void;
     /**
      * @param {string} orientation
      * @param {number} width
@@ -61,25 +61,25 @@ export declare class Window {
      * @param {!Event} event
      * @return {undefined}
      */
-    eventOrientationChange(orientation: any, width: any, height: any, event: any): void;
+    eventOrientationChange(orientation: string, width: number, height: number, event: Event): void;
     /**
      * @param {number} scrollTop
      * @param {!Event} event
      * @return {undefined}
      */
-    eventScroll(scrollTop: any, event: any): void;
+    eventScroll(scrollTop: number, event: Event): void;
     /**
      * @private
      * @param {!Event} event
      * @return {undefined}
      */
-    _resize(event: any): void;
+    _resize(event: Event): void;
     /**
      * @private
      * @param {!Event} event
      * @return {undefined}
      */
-    _scroll(event: any): void;
+    _scroll(event: Event): void;
     /**
      * @return {number}
      */
@@ -95,7 +95,7 @@ export declare class Window {
     /**
      * @return {string} landscape|portrait
      */
-    getOrientation(): "landscape" | "portrait";
+    getOrientation(): string;
     /**
      * @private
      * @return {undefined}
@@ -106,10 +106,10 @@ export declare class Window {
      * @param {!Event} event
      * @return {undefined}
      */
-    eventColorSchemeChange(colorScheme: any, event: any): void;
+    eventColorSchemeChange(colorScheme: string, event: Event): void;
     /**
      * @param {string} type dark|light|no-preference
      * @return {boolean}
      */
-    isColorScheme(type: any): boolean;
+    isColorScheme(type: string): boolean;
 }

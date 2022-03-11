@@ -12,7 +12,7 @@ export class BaseTest {
     /**
      * @param {string=} opt_name
      */
-    constructor(opt_name?: string | undefined) {
+    constructor(opt_name?: string) {
         this.name = opt_name;
     }
     /**
@@ -26,7 +26,7 @@ export class BaseTest {
      * @param {!Object|string|number|boolean} object
      * @return {undefined}
      */
-    showError(message, object) {
+    showError(message: string, object: object | string | number | boolean): void {
         consoleError(this.name + '.' + message, object);
     }
     /**
@@ -34,7 +34,7 @@ export class BaseTest {
      * @param {!Object} object
      * @return {undefined}
      */
-    showLog(message, object) {
+    showLog(message: string, object: object): void {
         consoleInfo(this.name + '.' + message, object);
     }
 }

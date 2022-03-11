@@ -1,16 +1,17 @@
+import { Item } from '../core';
 import { Query } from '../core/query';
 
 /**
  * @class
  */
 export class Sidebar {
-    selector: any;
-    sidebar: any;
-    button: any;
+    selector: string;
+    sidebar: Item;
+    button: Item;
     /**
      * @param {string} selector
      */
-    constructor(selector) {
+    constructor(selector: string) {
         this.selector = selector;
         this._init();
     }
@@ -18,7 +19,7 @@ export class Sidebar {
      * @private
      * @return {undefined}
      */
-    _init() {
+    _init(): void {
         this.sidebar = new Query(this.selector).getItem();
         this.button = new Query('a', this.sidebar).getItem();
         this.button.setAttribute('href', 'javascript:void(0)');
@@ -29,7 +30,7 @@ export class Sidebar {
     /**
      * @return {undefined}
      */
-    toggle() {
+    toggle(): void {
         if (this.isOpened()) {
             this.close();
         } else {
@@ -39,31 +40,31 @@ export class Sidebar {
     /**
      * @return {boolean}
      */
-    isOpened() {
+    isOpened(): boolean {
         return this.sidebar.hasClass('open');
     }
     /**
      * @return {undefined}
      */
-    open() {
+    open(): void {
         this.sidebar.addClass('open');
     }
     /**
      * @return {undefined}
      */
-    close() {
+    close(): void {
         this.sidebar.removeClass('open');
     }
     /**
      * @return {undefined}
      */
-    show() {
+    show(): void {
         this.sidebar.removeClass('hidden');
     }
     /**
      * @return {undefined}
      */
-    hide() {
+    hide(): void {
         this.sidebar.addClass('hidden');
     }
     /**
@@ -71,7 +72,7 @@ export class Sidebar {
      * @param {number} windowHeight
      * @return {undefined}
      */
-    setButtonPosition(scrollTop, windowHeight) {
+    setButtonPosition(scrollTop: number, windowHeight: number): void {
         const height = Math.round(scrollTop + windowHeight / 2);
         this.button.setStyle({
             top: height + 'px',

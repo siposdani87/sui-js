@@ -1,3 +1,4 @@
+import { Item } from '../core';
 import { Objekt } from '../core/objekt';
 import { Query } from '../core/query';
 
@@ -6,14 +7,14 @@ import { Query } from '../core/query';
  */
 export class Footer {
     options: Objekt;
-    footerNode: any;
-    templateViewNode: any;
-    contentNode: any;
-    localesNode: any;
+    footerNode: Item;
+    templateViewNode: Item;
+    contentNode: Item;
+    localesNode: Item;
     /**
      * @param {!Object=} opt_options
      */
-    constructor(opt_options = {}) {
+    constructor(opt_options: object | undefined = {}) {
         this._setOptions(opt_options);
         this._init();
     }
@@ -22,7 +23,7 @@ export class Footer {
      * @param {!Object=} opt_options
      * @return {undefined}
      */
-    _setOptions(opt_options = {}) {
+    _setOptions(opt_options: object | undefined = {}): void {
         const _self = this;
         _self.options = new Objekt();
         _self.options.merge(opt_options);
@@ -31,7 +32,7 @@ export class Footer {
      * @private
      * @return {undefined}
      */
-    _init() {
+    _init(): void {
         this.footerNode = new Query('#footer').getItem();
         this.templateViewNode = new Query('.template-view').getItem();
         this.contentNode = new Query('.content', this.footerNode).getItem();
@@ -40,7 +41,7 @@ export class Footer {
     /**
      * @return {undefined}
      */
-    show() {
+    show(): void {
         this.footerNode.removeClass(['static', 'hidden', 'has-footer']);
         const contentNode = new Query(
             '.page-content.fullscreen',
@@ -60,7 +61,7 @@ export class Footer {
     /**
      * @return {undefined}
      */
-    hide() {
+    hide(): void {
         this.footerNode.addClass('hidden');
         this.footerNode.removeClass('static');
         this.templateViewNode.removeClass('has-footer');
@@ -69,37 +70,37 @@ export class Footer {
      * @param {!Item} contentNode
      * @return {undefined}
      */
-    setContent(contentNode) {
+    setContent(contentNode: Item): void {
         this.contentNode.appendChild(contentNode);
     }
     /**
      * @return {!Item}
      */
-    getLocalesContainer() {
+    getLocalesContainer(): Item {
         return this.localesNode;
     }
     /**
      * @return {undefined}
      */
-    open() {
+    open(): void {
         this.footerNode.addClass('open');
     }
     /**
      * @return {undefined}
      */
-    close() {
+    close(): void {
         this.footerNode.removeClass('open');
     }
     /**
      * @return {boolean}
      */
-    isOpened() {
+    isOpened(): boolean {
         return this.footerNode.hasClass('open');
     }
     /**
      * @return {undefined}
      */
-    toogle() {
+    toogle(): void {
         if (this.isOpened()) {
             this.close();
         } else {

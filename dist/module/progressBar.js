@@ -72,7 +72,7 @@ export class ProgressBar {
     /**
      * @private
      * @param {!Item} node
-     * @return {!Object}
+     * @return {!ProcessBar}
      */
     _getProgressBar(node) {
         node.addClass('mdl-js-progress');

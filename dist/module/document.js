@@ -8,7 +8,7 @@ export class Document {
     /**
      * @param {!Object=} opt_options
      */
-    constructor(opt_options) {
+    constructor(opt_options = {}) {
         this._setOptions(opt_options);
         this._init();
     }

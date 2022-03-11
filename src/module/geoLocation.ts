@@ -1,3 +1,4 @@
+import { Promize } from '../core';
 import { Deferred } from '../core/deferred';
 import { consoleWarn } from '../utils/log';
 
@@ -20,7 +21,7 @@ export class GeoLocation {
      * @private
      * @return {undefined}
      */
-    _init() {
+    _init(): void {
         this.options = {
             enableHighAccuracy: true,
             timeout: 5000,
@@ -30,7 +31,7 @@ export class GeoLocation {
     /**
      * @return {undefined}
      */
-    setWatcher() {
+    setWatcher(): void {
         this.watcherId = navigator.geolocation.watchPosition(
             (position) => {
                 this._handlePosition(position);
@@ -44,7 +45,7 @@ export class GeoLocation {
     /**
      * @return {!Promize}
      */
-    getPosition() {
+    getPosition(): Promize {
         const deferred = new Deferred();
         navigator.geolocation.getCurrentPosition(
             (position) => {
@@ -63,7 +64,7 @@ export class GeoLocation {
     /**
      * @return {undefined}
      */
-    clearWatcher() {
+    clearWatcher(): void {
         navigator.geolocation.clearWatch(this.watcherId);
     }
     /**
@@ -72,15 +73,15 @@ export class GeoLocation {
      * @param {string} message
      * @return {undefined}
      */
-    eventChange(latitude, longitude, message) {
+    eventChange(latitude: number, longitude: number, message: string): void {
         consoleWarn('GeoLocation.eventChange()', latitude, longitude, message);
     }
     /**
      * @private
-     * @param {!Object} position
+     * @param {!GeolocationPosition} position
      * @return {undefined}
      */
-    _handlePosition(position) {
+    _handlePosition(position: GeolocationPosition): void {
         const message = 'User allowed the request for GeoLocation.';
         this.eventChange(
             position.coords.latitude,
@@ -90,10 +91,10 @@ export class GeoLocation {
     }
     /**
      * @private
-     * @param {!Object} error
+     * @param {!GeolocationPositionError} error
      * @return {undefined}
      */
-    _handleError(error) {
+    _handleError(error: GeolocationPositionError): void {
         switch (error.code) {
             case error.PERMISSION_DENIED:
                 this.eventError(
@@ -123,7 +124,7 @@ export class GeoLocation {
      * @param {string} code
      * @return {undefined}
      */
-    eventError(message, code) {
+    eventError(message: string, code: string): void {
         consoleWarn('GeoLocation.eventError()', message, code);
     }
 }

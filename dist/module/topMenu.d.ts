@@ -1,3 +1,5 @@
+import { Item } from '../core';
+import { Header } from './header';
 /**
  * @class
  */
@@ -8,7 +10,7 @@ export declare class TopMenu {
     /**
      * @param {!Header} header
      */
-    constructor(header: any);
+    constructor(header: Header);
     /**
      * @private
      * @return {undefined}
@@ -21,7 +23,7 @@ export declare class TopMenu {
     /**
      * @return {boolean}
      */
-    isOpened(): any;
+    isOpened(): boolean;
     /**
      * @return {undefined}
      */
@@ -33,5 +35,5 @@ export declare class TopMenu {
     /**
      * @return {!Item}
      */
-    getContainer(): any;
+    getContainer(): Item;
 }
