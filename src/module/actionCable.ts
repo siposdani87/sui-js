@@ -73,7 +73,7 @@ export class ActionCable {
      * @param {!Object} options
      * @return {string}
      */
-    _generateIdentifier(options: object): string {
+    _generateIdentifier(options: Object): string {
         return md5(JSON.stringify(options));
     }
 }

@@ -37,7 +37,7 @@ export class ProgressBar {
      * @param {!Confirm} confirm
      * @param {!Object=} opt_options
      */
-    constructor(dialog: Dialog, confirm: Confirm, opt_options: object | undefined = {}) {
+    constructor(dialog: Dialog, confirm: Confirm, opt_options: Object | undefined = {}) {
         this.dialog = dialog;
         this.confirm = confirm;
 
@@ -49,7 +49,7 @@ export class ProgressBar {
      * @private
      * @return {undefined}
      */
-    _setOptions(opt_options: object | undefined = {}): void {
+    _setOptions(opt_options: Object | undefined = {}): void {
         const _self = this;
         _self.options = new Objekt({
             lock: false,

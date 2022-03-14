@@ -30,7 +30,7 @@ export class Date {
      * @param {!Item} node
      * @param {!Object} options
      */
-    constructor(node: Item, options: object) {
+    constructor(node: Item, options: Object) {
         this.datetimeNode = node;
         this._setOptions(options);
         this._init();
@@ -40,7 +40,7 @@ export class Date {
      * @param {!Object} options
      * @return {undefined}
      */
-    _setOptions(options: object): void {
+    _setOptions(options: Object): void {
         this.options = options;
     }
     /**

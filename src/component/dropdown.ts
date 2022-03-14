@@ -20,7 +20,7 @@ export class Dropdown {
      * @param {!Item} element
      * @param {!Object=} opt_options
      */
-    constructor(element: Item, opt_options: object | undefined = {}) {
+    constructor(element: Item, opt_options: Object | undefined = {}) {
         this.dropdown = element;
         this._setOptions(opt_options);
         this._init();
@@ -30,7 +30,7 @@ export class Dropdown {
      * @param {!Object=} opt_options
      * @return {undefined}
      */
-    _setOptions(opt_options: object | undefined = {}): void {
+    _setOptions(opt_options: Object | undefined = {}): void {
         const _self = this;
         _self.options = new Objekt({
             id: generateId('dropdown'),
@@ -89,7 +89,7 @@ export class Dropdown {
      * @param {!Object} item
      * @return {undefined}
      */
-    setActions(actions: Array<any>, item: object): void {
+    setActions(actions: Array<any>, item: Object): void {
         this.actions = actions;
         this.item = item;
         this._renderMenu();

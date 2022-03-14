@@ -90,7 +90,7 @@ export class Canvas {
      * @param {!Object} options
      * @return {undefined}
      */
-    drawPolygon(x: number, y: number, radius: number, sides: number, rotateAngle: number, options: object): void {
+    drawPolygon(x: number, y: number, radius: number, sides: number, rotateAngle: number, options: Object): void {
         if (sides < 3) {
             return;
         }
@@ -123,7 +123,7 @@ export class Canvas {
      * @param {!Object} options
      * @return {undefined}
      */
-    drawRectangle(x: number, y: number, width: number, height: number, rotateAngle: number, options: object): void {
+    drawRectangle(x: number, y: number, width: number, height: number, rotateAngle: number, options: Object): void {
         this.context.save();
         this.context.translate(x, y);
         this.context.beginPath();

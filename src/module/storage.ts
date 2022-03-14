@@ -11,7 +11,7 @@ export class Storage {
     /**
      * @param {!Object} options
      */
-    constructor(options: object) {
+    constructor(options: Object) {
         const _self = this;
         _self.options = new Objekt({
             type: 'local',

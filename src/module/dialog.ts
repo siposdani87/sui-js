@@ -18,7 +18,7 @@ export class Dialog extends BaseModal {
      * @param {!Http} http
      * @param {!Object=} opt_options
      */
-    constructor(http: Http, opt_options: object | undefined = {}) {
+    constructor(http: Http, opt_options: Object | undefined = {}) {
         super();
         this.http = http;
         this._setOptions(opt_options);
@@ -30,7 +30,7 @@ export class Dialog extends BaseModal {
      * @private
      * @return {undefined}
      */
-    _setOptions(opt_options: object | undefined = {}): void {
+    _setOptions(opt_options: Object | undefined = {}): void {
         const _self = this;
         _self.options = new Objekt({
             id: '#dialog',

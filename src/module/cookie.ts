@@ -11,7 +11,7 @@ export class Cookie {
     /**
      * @param {!Object=} opt_options
      */
-    constructor(opt_options: object | undefined = {}) {
+    constructor(opt_options: Object | undefined = {}) {
         this._setOptions(opt_options);
     }
     /**
@@ -19,7 +19,7 @@ export class Cookie {
      * @param {!Object=} opt_options
      * @return {undefined}
      */
-    _setOptions(opt_options: object | undefined = {}): void {
+    _setOptions(opt_options: Object | undefined = {}): void {
         const _self = this;
         _self.options = new Objekt({
             prefix: 'app',

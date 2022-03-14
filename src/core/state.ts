@@ -18,7 +18,7 @@ export class State {
      * @param {!Array} routes
      * @param {!Object} options
      */
-    constructor(routes: Array<Object>, options: object) {
+    constructor(routes: Array<Object>, options: Object) {
         this._current = new Objekt();
         this._previous = this._current;
 
@@ -71,7 +71,7 @@ export class State {
      * @param {!Object} options
      * @return {undefined}
      */
-    _setOptions(options: object): void {
+    _setOptions(options: Object): void {
         const _self = this;
         _self.options = new Objekt({
             root: {
@@ -185,7 +185,7 @@ export class State {
     _setHistory(
         state: Objekt,
         url: string,
-        opt_params: object | undefined = {},
+        opt_params: Object | undefined = {},
         opt_overwrite: boolean | undefined = false,
         opt_force: boolean | undefined = false,
     ): void {
@@ -260,7 +260,7 @@ export class State {
      */
     go(
         id: string,
-        opt_params: object | undefined = undefined,
+        opt_params: Object | undefined = undefined,
         opt_overwrite: boolean | undefined = false,
         opt_force: boolean | undefined = false,
     ): void {
@@ -301,7 +301,7 @@ export class State {
      */
     _resolveUrlWithState(
         id: string,
-        opt_params: object | undefined = undefined,
+        opt_params: Object | undefined = undefined,
     ): Array<any> {
         const state = this.routes.findById(id);
         let url = '';
@@ -317,7 +317,7 @@ export class State {
      * @param {!Object=} opt_params
      * @return {string}
      */
-    resolveUrl(id: string, opt_params: object | undefined = undefined): string {
+    resolveUrl(id: string, opt_params: Object | undefined = undefined): string {
         const url = /** @type {string} */(this)._resolveUrlWithState(
             id,
             opt_params,
@@ -331,7 +331,7 @@ export class State {
      * @return {undefined}
      */
     goState(
-        state: object,
+        state: Object,
         opt_overwrite: boolean | undefined = false,
         opt_force: boolean | undefined = false,
     ): void {
@@ -378,7 +378,7 @@ export class State {
      */
     goBack(
         id: string,
-        opt_params: object | undefined,
+        opt_params: Object | undefined,
         opt_overwrite: boolean | undefined = false,
         opt_force: boolean | undefined = false,
     ): void {
@@ -440,7 +440,7 @@ export class State {
      * @param {!Object} properties
      * @return {undefined}
      */
-    setParams(properties: object): void {
+    setParams(properties: Object): void {
         eachObject(properties, (value, name) => {
             this.setParam(name, value);
         });

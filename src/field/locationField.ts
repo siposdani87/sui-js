@@ -310,7 +310,7 @@ export class LocationField extends BaseField {
      * @param {!Object} value
      * @return {undefined}
      */
-    _setDataValue(value: object): void {
+    _setDataValue(value: Object): void {
         this.latitudeInput.getNode().value = value['latitude'] || '';
         this.longitudeInput.getNode().value = value['longitude'] || '';
         this.input.setAttribute('value', value['address'] || '');
@@ -321,7 +321,7 @@ export class LocationField extends BaseField {
      * @param {!Object|!Function|!Array|boolean|number|string|null|undefined} value
      * @return {undefined}
      */
-    setValue(value: object | Function | Array<any> | boolean | number | string | null | undefined): void {
+    setValue(value: Object | Function | Array<any> | boolean | number | string | null | undefined): void {
         this._setDataValue(/** @type {!Object} */(value as Object));
         this.map.removeMarker(0);
         if (!isNull(value['latitude']) && !isNull(value['longitude'])) {

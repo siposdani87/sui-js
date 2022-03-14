@@ -17,7 +17,7 @@ export class Template {
      * @param {!Http} http
      * @param {!Object=} opt_options
      */
-    constructor(http: Http, opt_options: object | undefined = {}) {
+    constructor(http: Http, opt_options: Object | undefined = {}) {
         this.http = http;
 
         this._setOptions(opt_options);
@@ -28,7 +28,7 @@ export class Template {
      * @param {!Object=} opt_options
      * @return {undefined}
      */
-    _setOptions(opt_options: object | undefined = {}): void {
+    _setOptions(opt_options: Object | undefined = {}): void {
         const _self = this;
         _self.options = new Objekt({
             selector: '.template-view',
@@ -103,7 +103,7 @@ export class Template {
      * @param {!Object} message
      * @return {undefined}
      */
-    eventError(message: object): void {
+    eventError(message: Object): void {
         consoleWarn('Template.eventError()', message);
     }
 }

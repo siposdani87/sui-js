@@ -10,7 +10,7 @@ export class Promize {
     /**
      * @param {!Object=} opt_options
      */
-    constructor(opt_options: object | undefined = {}) {
+    constructor(opt_options: Object | undefined = {}) {
         this._setOptions(opt_options);
     }
     /**
@@ -18,7 +18,7 @@ export class Promize {
      * @private
      * @return {undefined}
      */
-     _setOptions(opt_options: object | undefined = {}): void {
+     _setOptions(opt_options: Object | undefined = {}): void {
         const _self = this;
         _self.options = new Objekt({
             status: null,

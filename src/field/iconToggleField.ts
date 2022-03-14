@@ -78,7 +78,7 @@ export class IconToggleField extends BaseCheckboxField {
      * @param {!Object|!Function|!Array|boolean|number|string|null|undefined} value
      * @return {undefined}
      */
-    setValue(value: object | Function | Array<any> | boolean | number | string | null | undefined): void {
+    setValue(value: Object | Function | Array<any> | boolean | number | string | null | undefined): void {
         const currentValue = typeCast(this.input.getAttribute('value'));
         this.input.getNode().checked = currentValue === value;
         if (!this.input.getNode().checked) {

@@ -36,7 +36,7 @@ const invoke = (
     baseModuleArgs: Array<string>,
     opt_extendModule?: Function | undefined,
     opt_extendModuleArgs?: Array<string> | undefined,
-): object => {
+): Object => {
     /**
      * @constructor
      * @this {ES5Class}
@@ -99,7 +99,7 @@ export class Module {
      * @param {!Object} injections
      * @return {undefined}
      */
-    load(instances: object, injections: object): void {
+    load(instances: Object, injections: Object): void {
         this._instances = instances;
         this._injections = injections;
 
@@ -108,7 +108,7 @@ export class Module {
     /**
      * @return {!Object}
      */
-    getController(): object {
+    getController(): Object {
         return this._controller;
     }
     /**
@@ -153,7 +153,7 @@ export class Module {
      * @param {!Dependency} dependency
      * @return {!Object}
      */
-    _resolveDependencies(dependency: Dependency): object {
+    _resolveDependencies(dependency: Dependency): Object {
         const moduleArgs = [];
         each(dependency.moduleInjections, (injection) => {
             moduleArgs.push(this._instances[injection] || injection);
@@ -284,7 +284,7 @@ export class Module {
      * @param {!Object} options
      * @return {undefined}
      */
-    handleRoutes(routes: Array<any>, options: object): void {
+    handleRoutes(routes: Array<any>, options: Object): void {
         this._instances[this._injections.state] = new State(routes, options);
         this._instances[this._injections.state].eventChange = (
             currentState,
