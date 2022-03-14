@@ -17,7 +17,7 @@ export class Style {
      * @param {!ProgressBar} progressBar
      * @param {!Object=} opt_options
      */
-    constructor(progressBar: ProgressBar, opt_options: object | undefined = {}) {
+    constructor(progressBar: ProgressBar, opt_options: Object | undefined = {}) {
         this.progressBar = progressBar;
         this._setOptions(opt_options);
         this._init();
@@ -27,7 +27,7 @@ export class Style {
      * @param {!Object=} opt_options
      * @return {undefined}
      */
-    _setOptions(opt_options: object | undefined = {}): void {
+    _setOptions(opt_options: Object | undefined = {}): void {
         const _self = this;
         _self.options = new Objekt();
         _self.options.merge(opt_options);
@@ -47,7 +47,7 @@ export class Style {
      * @param {string=} opt_media
      * @return {!Promize}
      */
-    load(id: string, url: string, opt_params: object | undefined, opt_rel: string | undefined = 'stylesheet', opt_media: string | undefined = 'all'): Promize {
+    load(id: string, url: string, opt_params: Object | undefined, opt_rel: string | undefined = 'stylesheet', opt_media: string | undefined = 'all'): Promize {
         this.progressBar.show();
         const deferred = new Deferred();
         const style = new Query('#' + id);

@@ -13,7 +13,7 @@ export class Time {
      * @param {!Item} node
      * @param {!Object} options
      */
-    constructor(node: Item, options: object) {
+    constructor(node: Item, options: Object) {
         this.timeNode = node;
         this._setOptions(options);
         this._init();
@@ -23,7 +23,7 @@ export class Time {
      * @param {!Object} options
      * @return {undefined}
      */
-    _setOptions(options: object): void {
+    _setOptions(options: Object): void {
         this.options = options;
     }
     /**

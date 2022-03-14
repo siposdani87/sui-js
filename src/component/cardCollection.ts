@@ -33,7 +33,7 @@ export class CardCollection {
         dom: Item,
         opt_selector: string | undefined = '.card-collection',
         opt_ctrl: (object | null) | undefined = null,
-        opt_options: object | undefined = {},
+        opt_options: Object | undefined = {},
     ) {
         this.cardCollectionNode = new Query(opt_selector, dom).getItem();
         this.ctrl = opt_ctrl;
@@ -45,7 +45,7 @@ export class CardCollection {
      * @param {!Object=} opt_options
      * @return {undefined}
      */
-    _setOptions(opt_options: object | undefined = {}): void {
+    _setOptions(opt_options: Object | undefined = {}): void {
         const _self = this;
         _self.options = new Objekt({
             no_content: {

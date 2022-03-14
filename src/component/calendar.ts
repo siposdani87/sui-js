@@ -33,7 +33,7 @@ export class Calendar {
      * @param {!Item} node
      * @param {!Object} options
      */
-    constructor(node: Item, options: object) {
+    constructor(node: Item, options: Object) {
         this.calendarNode = node;
         this._setOptions(options);
         this._init();
@@ -43,7 +43,7 @@ export class Calendar {
      * @param {!Object} options
      * @return {undefined}
      */
-    _setOptions(options: object): void {
+    _setOptions(options: Object): void {
         this.options = options;
     }
     /**
@@ -164,7 +164,7 @@ export class Calendar {
      * @param {!Function} yearFun
      * @return {!Object}
      */
-    _switchMode(dayFun: Function, monthFun: Function, yearFun: Function): object {
+    _switchMode(dayFun: Function, monthFun: Function, yearFun: Function): Object {
         let result = null;
         switch (this.activeMode) {
             case 'DAY':
@@ -279,7 +279,7 @@ export class Calendar {
      * @param {!Object} date
      * @return {undefined}
      */
-    _setDate(date: object): void {
+    _setDate(date: Object): void {
         this._setVariables(date);
 
         this._setPreviousMonth();
@@ -291,7 +291,7 @@ export class Calendar {
      * @param {!Object} date
      * @return {undefined}
      */
-    _setVariables(date: object): void {
+    _setVariables(date: Object): void {
         this.days = [];
 
         this.previous = {
@@ -501,7 +501,7 @@ export class Calendar {
      * @param {!Object} selectedDate
      * @return {undefined}
      */
-    _setModeDate(selectedDate: object): void {
+    _setModeDate(selectedDate: Object): void {
         const date = this.current.day['clone']();
         this._switchMode(
             () => {
@@ -523,7 +523,7 @@ export class Calendar {
      * @param {!Object} selectedDate
      * @return {undefined}
      */
-    _onClick(selectedDate: object): void {
+    _onClick(selectedDate: Object): void {
         this._setModeDate(selectedDate);
 
         const mode = this.types[this.options.type];
@@ -538,14 +538,14 @@ export class Calendar {
      * @param {!Object} date
      * @return {undefined}
      */
-    _setSelectedDate(date: object): void {
+    _setSelectedDate(date: Object): void {
         this.selectedDate = date;
     }
     /**
      * @param {!Object} date
      * @return {undefined}
      */
-    eventClick(date: object): void {
+    eventClick(date: Object): void {
         consoleWarn('Calendar.eventClick()', date);
     }
 }

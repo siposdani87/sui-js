@@ -17,7 +17,7 @@ export class Navigation {
      * @param {!Http=} opt_http
      * @param {!Object=} opt_options
      */
-    constructor(opt_http: Http | undefined, opt_options: object | undefined = {}) {
+    constructor(opt_http: Http | undefined, opt_options: Object | undefined = {}) {
         this.http = opt_http;
         this._setOptions(opt_options);
         this._init();
@@ -27,7 +27,7 @@ export class Navigation {
      * @param {!Object=} opt_options
      * @return {undefined}
      */
-    _setOptions(opt_options: object | undefined = {}): void {
+    _setOptions(opt_options: Object | undefined = {}): void {
         const _self = this;
         _self.options = new Objekt();
         _self.options.merge(opt_options);
@@ -78,7 +78,7 @@ export class Navigation {
      * @param {!Object=} opt_data
      * @return {undefined}
      */
-    addCounter(id: string, counter: string, title: string | null, action: Function, opt_href: string | undefined = '', opt_data: object | undefined = {}): void {
+    addCounter(id: string, counter: string, title: string | null, action: Function, opt_href: string | undefined = '', opt_data: Object | undefined = {}): void {
         const item = this._setItem(id, title, action, opt_href, opt_data);
         const counterSpan = new Item('span');
         counterSpan.addClass('counter');
@@ -96,7 +96,7 @@ export class Navigation {
      * @param {!Object=} opt_data
      * @return {undefined}
      */
-    addIcon(id: string, icon: string, title: string | null, action: Function, opt_href: string | undefined = '', opt_data: object | undefined = {}): void {
+    addIcon(id: string, icon: string, title: string | null, action: Function, opt_href: string | undefined = '', opt_data: Object | undefined = {}): void {
         const item = this._setItem(id, title, action, opt_href, opt_data);
         const iconNode = new Item('em');
         iconNode.addClass(['material-icons']);
@@ -118,7 +118,7 @@ export class Navigation {
      * @param {!Object=} opt_data
      * @return {undefined}
      */
-    addImage(id: string, image: string, title: string | null, action: Function, opt_href: string | undefined = '', opt_data: object | undefined = {}): void {
+    addImage(id: string, image: string, title: string | null, action: Function, opt_href: string | undefined = '', opt_data: Object | undefined = {}): void {
         const item = this._setItem(id, title, action, opt_href, opt_data);
 
         const imageSpan = new Item('span');
@@ -158,7 +158,7 @@ export class Navigation {
      * @param {!Object=} opt_data
      * @return {undefined}
      */
-    addText(id: string, title: string, action: Function, opt_href: string | undefined = '', opt_data: object | undefined = {}): void {
+    addText(id: string, title: string, action: Function, opt_href: string | undefined = '', opt_data: Object | undefined = {}): void {
         this._setItem(id, title, action, opt_href, opt_data);
     }
     /**
@@ -170,7 +170,7 @@ export class Navigation {
      * @param {!Object=} opt_data
      * @return {!Objekt}
      */
-    _setItem(id: string, title: string | null, action: Function, opt_href: string | undefined = '', opt_data: object | undefined = {}): Objekt {
+    _setItem(id: string, title: string | null, action: Function, opt_href: string | undefined = '', opt_data: Object | undefined = {}): Objekt {
         const linkNode = new Item('a');
         if (title) {
             const titleSpan = new Item('span');

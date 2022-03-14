@@ -15,7 +15,7 @@ export class Year {
      * @param {!Object} currentDate
      * @param {!Object} options
      */
-    constructor(date: string, currentDate: object, options: object) {
+    constructor(date: string, currentDate: Object, options: Object) {
         this.date = window['moment'](date, 'YYYY-MM-DD');
         this.currentDate = currentDate;
         this._setOptions(options);
@@ -26,7 +26,7 @@ export class Year {
      * @param {!Object} options
      * @return {undefined}
      */
-    _setOptions(options: object): void {
+    _setOptions(options: Object): void {
         this.options = options;
     }
     /**
@@ -60,7 +60,7 @@ export class Year {
     /**
      * @param {!Object} date
      */
-    eventClick(date: object) {
+    eventClick(date: Object) {
         consoleWarn('Year.eventClick()', date);
     }
 }

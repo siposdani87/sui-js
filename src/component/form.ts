@@ -231,7 +231,7 @@ export class Form extends Collection<BaseField> {
      * @param {!Object} data
      * @return {undefined}
      */
-    setErrors(data: object): void {
+    setErrors(data: Object): void {
         const errors = new Objekt(data);
         this.each((field) => {
             const name = field.getName();

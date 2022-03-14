@@ -15,7 +15,7 @@ export class Http {
     /**
      * @param {!Object=} opt_options
      */
-    constructor(opt_options: object | undefined = {}) {
+    constructor(opt_options: Object | undefined = {}) {
         this._setOptions(opt_options);
         this._init();
     }
@@ -24,7 +24,7 @@ export class Http {
      * @param {!Object=} opt_options
      * @return {undefined}
      */
-    _setOptions(opt_options: object | undefined = {}): void {
+    _setOptions(opt_options: Object | undefined = {}): void {
         const _self = this;
         _self.options = new Objekt({
             backend: '',
@@ -62,7 +62,7 @@ export class Http {
      * @param {!Object=} opt_headers
      * @return {!Promize}
      */
-    get(url: string, opt_params?: object | undefined, opt_headers?: object | undefined): Promize {
+    get(url: string, opt_params?: Object | undefined, opt_headers?: Object | undefined): Promize {
         const http = this._getRequestHandler();
         return this._getPromise(http.get(url, opt_params, opt_headers));
     }
@@ -73,7 +73,7 @@ export class Http {
      * @param {!Object=} opt_headers
      * @return {!Promize}
      */
-    post(url: string, opt_data?: object | undefined, opt_params?: object | undefined, opt_headers?: object | undefined): Promize {
+    post(url: string, opt_data?: Object | undefined, opt_params?: Object | undefined, opt_headers?: Object | undefined): Promize {
         const http = this._getRequestHandler();
         return this._getPromise(
             http.post(url, opt_data, opt_params, opt_headers),
@@ -86,7 +86,7 @@ export class Http {
      * @param {!Object=} opt_headers
      * @return {!Promize}
      */
-    put(url: string, opt_data: object | undefined, opt_params: object | undefined, opt_headers: object | undefined): Promize {
+    put(url: string, opt_data: Object | undefined, opt_params: Object | undefined, opt_headers: Object | undefined): Promize {
         const http = this._getRequestHandler();
         return this._getPromise(
             http.put(url, opt_data, opt_params, opt_headers),
@@ -99,7 +99,7 @@ export class Http {
      * @param {!Object=} opt_headers
      * @return {!Promize}
      */
-    patch(url: string, opt_data: object | undefined, opt_params: object | undefined, opt_headers: object | undefined): Promize {
+    patch(url: string, opt_data: Object | undefined, opt_params: Object | undefined, opt_headers: Object | undefined): Promize {
         const http = this._getRequestHandler();
         return this._getPromise(
             http.patch(url, opt_data, opt_params, opt_headers),
@@ -112,7 +112,7 @@ export class Http {
      * @param {!Object=} opt_headers
      * @return {!Promize}
      */
-    delete(url: string, opt_data: object | undefined, opt_params: object | undefined, opt_headers: object | undefined): Promize {
+    delete(url: string, opt_data: Object | undefined, opt_params: Object | undefined, opt_headers: Object | undefined): Promize {
         const http = this._getRequestHandler();
         return this._getPromise(
             http.delete(url, opt_data, opt_params, opt_headers),

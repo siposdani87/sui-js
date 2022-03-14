@@ -112,7 +112,7 @@ export class DateTimeField extends BaseField {
      * @param {!Object|!Function|!Array|boolean|number|string|null|undefined} value
      * @return {undefined}
      */
-    setValue(value: object | Function | Array<any> | boolean | number | string | null | undefined): void {
+    setValue(value: Object | Function | Array<any> | boolean | number | string | null | undefined): void {
         this._setTag(/** @type {string} */(value as string));
         this.input.setAttribute('value', value);
         this.input.trigger('change');

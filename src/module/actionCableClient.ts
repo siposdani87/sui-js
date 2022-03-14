@@ -56,7 +56,7 @@ export class ActionCableClient {
      * @param {!Object=} opt_data
      * @return {undefined}
      */
-    send(message: string, opt_data: object | undefined = {}): void {
+    send(message: string, opt_data: Object | undefined = {}): void {
         opt_data['message'] = message;
         this.client['send'](opt_data);
     }

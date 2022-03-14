@@ -566,14 +566,14 @@ export class Item<T extends HTMLElement = HTMLElement> {
     /**
      * @return {!Object}
      */
-    getStyle(): object {
+    getStyle(): Object {
         return this.node.style;
     }
     /**
      * @param {!Object} properties
      * @return {undefined}
      */
-    setStyle(properties: object): void {
+    setStyle(properties: Object): void {
         each(properties, (value, propertyName) => {
             this.node.style.setProperty(propertyName, value, '');
         });

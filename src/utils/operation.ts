@@ -34,7 +34,7 @@ export const typeCast = (value: any): any => {
  * @param {!Object} objB
  * @return {!Object|undefined}
  */
-export const merge = (objA: object, objB: object): object | undefined => {
+export const merge = (objA: Object, objB: Object): Object | undefined => {
     const obj = copyObject(objA);
     for (const key in objB) {
         if (objB.hasOwnProperty(key)) {
@@ -281,7 +281,7 @@ export const is = (value: any, type: string): boolean => typeof value === type;
  * @param {!Object} obj
  * @return {boolean}
  */
-export const instanceOf = (value: any, obj: object): boolean =>
+export const instanceOf = (value: any, obj: Object): boolean =>
     value instanceof (obj as any);
 
 /**
@@ -332,7 +332,7 @@ export const eachArray = (
  * @param {!Function} next
  * @return {undefined}
  */
-export const eachObject = (object: object, next: Function): void => {
+export const eachObject = (object: Object, next: Function): void => {
     for (const key in object) {
         if (object.hasOwnProperty(key)) {
             next(object[key], key);
@@ -391,7 +391,7 @@ export const clearArray = (items: Array<any>): void => {
  * @param {!Object} items
  * @return {undefined}
  */
-export const clearObject = (items: object): void => {
+export const clearObject = (items: Object): void => {
     for (const key in items) {
         if (items.hasOwnProperty(key)) {
             delete items[key];
@@ -565,7 +565,7 @@ export const pluck = (items: Array<any>, attribute: string): Array<any> => {
  * @return {!Array}
  */
 export const pluckKeys = (
-    obj: object,
+    obj: Object,
     condition: (_value: any, _key: string) => any,
 ): Array<any> => {
     const results = [];
@@ -610,9 +610,9 @@ export const mdl = (
  */
 export const renderReact = (
     type: string,
-    props: object,
+    props: Object,
     mountNode: Item,
-): object =>
+): Object =>
     window['ReactDOM']['render'](
         window['React']['createElement'](window[type], props),
         mountNode.getNode(),
@@ -627,7 +627,7 @@ export const unmountReact = (mountNode: Item): void => {
     window['ReactDOM']['unmountComponentAtNode'](mountNode.getNode());
 };
 
-let _scrollInterval = null;
+let _scrollInterval: number = null;
 /**
  * @export
  * @param {number} x
@@ -713,7 +713,7 @@ export const debounce = (
     opt_wait: number | undefined = 250,
     opt_immediate: boolean | undefined = false,
 ): ((this: Window, ev: Event) => any) => {
-    let timeout;
+    let timeout: number;
     return (...args): any => {
         const later = () => {
             timeout = null;
@@ -734,7 +734,7 @@ export const debounce = (
  */
 export const urlWithQueryString = (
     url: string,
-    opt_params?: object | undefined,
+    opt_params?: Object | undefined,
 ): string => {
     const queryString = getQueryString(opt_params);
     const separator = contain(url, '?') ? '&' : '?';
@@ -746,9 +746,9 @@ export const urlWithQueryString = (
  * @param {!Object=} opt_params
  * @return {string}
  */
-export const getQueryString = (opt_params?: object | undefined): string => {
+export const getQueryString = (opt_params?: Object): string => {
     const queries: string[] = [];
-    each(opt_params, (param, key) => {
+    eachObject(opt_params, (param, key) => {
         if (isArray(param)) {
             eachArray(param, (value) => {
                 queries.push(format('{0}[]={1}', [key, value]));

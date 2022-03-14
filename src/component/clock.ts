@@ -25,7 +25,7 @@ export class Clock {
      * @param {!Item} node
      * @param {!Object} options
      */
-    constructor(node: Item, options: object) {
+    constructor(node: Item, options: Object) {
         this.clockNode = node;
         this._setOptions(options);
         this._init();
@@ -35,7 +35,7 @@ export class Clock {
      * @param {!Object} options
      * @return {undefined}
      */
-    _setOptions(options: object): void {
+    _setOptions(options: Object): void {
         this.options = options;
     }
     /**
@@ -231,7 +231,7 @@ export class Clock {
      * @param {!Object} time
      * @return {undefined}
      */
-    setTime(time: object): void {
+    setTime(time: Object): void {
         this.time = window['moment'](time);
 
         const hours = this.time['hour']() % 12 || 12;
@@ -329,7 +329,7 @@ export class Clock {
      * @param {!Object} selectedTime
      * @return {undefined}
      */
-    _onClick(selectedTime: object): void {
+    _onClick(selectedTime: Object): void {
         this.setTime(selectedTime);
         this.draw();
         this.eventClick(selectedTime);
@@ -338,7 +338,7 @@ export class Clock {
      * @param {!Object} time
      * @return {undefined}
      */
-    eventClick(time: object): void {
+    eventClick(time: Object): void {
         consoleWarn('Clock.eventClick()', time);
     }
 }

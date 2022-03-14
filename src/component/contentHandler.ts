@@ -12,7 +12,7 @@ export class ContentHandler {
      * @param {!Item} containerNode
      * @param {!Object=} opt_options
      */
-    constructor(containerNode: Item, opt_options: object | undefined = {}) {
+    constructor(containerNode: Item, opt_options: Object | undefined = {}) {
         this.containerNode = containerNode;
         this._setOptions(opt_options);
         this._init();
@@ -22,7 +22,7 @@ export class ContentHandler {
      * @param {!Object=} opt_options
      * @return {undefined}
      */
-    _setOptions(opt_options: object | undefined = {}): void {
+    _setOptions(opt_options: Object | undefined = {}): void {
         const _self = this;
         _self.options = new Objekt({
             image_url: null,

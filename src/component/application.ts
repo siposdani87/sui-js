@@ -49,7 +49,7 @@ export class Application {
      * @param {!Object} options
      * @param {!Object} resources
      */
-    constructor(options: object, resources: object) {
+    constructor(options: Object, resources: Object) {
         this._setOptions(options);
         this._init(resources);
     }
@@ -58,7 +58,7 @@ export class Application {
      * @param {!Object} options
      * @return {undefined}
      */
-    _setOptions(options: object): void {
+    _setOptions(options: Object): void {
         const _self = this;
         _self.options = new Objekt({
             app_id: 'sui-app',
@@ -75,7 +75,7 @@ export class Application {
      * @param {!Object} resources
      * @return {undefined}
      */
-    _init(resources: object): void {
+    _init(resources: Object): void {
         this._injections = resources;
         this._instances = {};
 
@@ -679,7 +679,7 @@ export class Application {
      * @param {!Object=} opt_params
      * @return {undefined}
      */
-    addState(id: string, title: string, url: string, controller: string, opt_template: string | undefined = '', opt_params: object | undefined = {}): void {
+    addState(id: string, title: string, url: string, controller: string, opt_template: string | undefined = '', opt_params: Object | undefined = {}): void {
         const state = new Objekt(opt_params);
         state.set('id', id);
         state.set('title', title);
@@ -693,7 +693,7 @@ export class Application {
      * @param {!Object=} opt_params
      * @return {undefined}
      */
-    setRootState(id: string, opt_params: object | undefined): void {
+    setRootState(id: string, opt_params: Object | undefined): void {
         this._routeOptions.set('root.id', id);
         this._routeOptions.set('root.params', opt_params);
     }
@@ -702,7 +702,7 @@ export class Application {
      * @param {!Object=} opt_params
      * @return {undefined}
      */
-    setHomeState(id: string, opt_params: object | undefined): void {
+    setHomeState(id: string, opt_params: Object | undefined): void {
         this._routeOptions.set('home.id', id);
         this._routeOptions.set('home.params', opt_params);
     }
@@ -710,13 +710,13 @@ export class Application {
      * @param {string} name
      * @return {?Object}
      */
-    getInstance(name: string): object | null {
+    getInstance(name: string): Object | null {
         return this._instances[name];
     }
     /**
      * @return {?Object}
      */
-    getController(): object | null {
+    getController(): Object | null {
         return this._module.getController();
     }
     /**

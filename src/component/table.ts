@@ -42,7 +42,7 @@ export class Table {
      * @param {string=} opt_selector
      * @param {!Object=} opt_options
      */
-    constructor(dom: Item, opt_selector: string | undefined = 'table', opt_options: object | undefined = {}) {
+    constructor(dom: Item, opt_selector: string | undefined = 'table', opt_options: Object | undefined = {}) {
         this.tableNode = new Query(opt_selector, dom).getItem();
         this._setOptions(opt_options);
         this._init();
@@ -52,7 +52,7 @@ export class Table {
      * @param {!Object=} opt_options
      * @return {undefined}
      */
-    _setOptions(opt_options: object | undefined = {}): void {
+    _setOptions(opt_options: Object | undefined = {}): void {
         const _self = this;
         _self.options = new Objekt({
             no_content: {
