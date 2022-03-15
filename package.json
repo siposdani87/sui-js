@@ -1,5 +1,5 @@
 {
-  "name": "sui-js",
+  "name": "@siposdani87/sui-js",
   "version": "0.6.0",
   "description": "Powerfull Vanilla JavaScript framework for web and react(-native), based on Google Closure Compiler",
   "main": "dist/index.js",
