@@ -17,7 +17,7 @@ export class Navigation {
      * @param {!Http=} opt_http
      * @param {!Object=} opt_options
      */
-    constructor(opt_http: Http | undefined, opt_options: Object | undefined = {}) {
+    constructor(opt_http?: Http, opt_options: Object | undefined = {}) {
         this.http = opt_http;
         this._setOptions(opt_options);
         this._init();

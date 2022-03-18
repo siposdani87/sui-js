@@ -47,7 +47,7 @@ export class Script {
      * @param {boolean=} opt_defer
      * @return {!Promize}
      */
-    load(id: string, url: string, opt_params: Object | undefined, opt_async: boolean | undefined = false, opt_defer: boolean | undefined = false): Promize {
+    load(id: string, url: string, opt_params?: Object, opt_async: boolean | undefined = false, opt_defer: boolean | undefined = false): Promize {
         this.progressBar.show();
         const deferred = new Deferred();
         const script = new Query('#' + id);
