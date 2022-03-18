@@ -20,11 +20,11 @@ export declare class BaseTest {
      * @param {!Object|string|number|boolean} object
      * @return {undefined}
      */
-    showError(message: string, object: object | string | number | boolean): void;
+    showError(message: string, object: Object | string | number | boolean): void;
     /**
      * @param {string} message
      * @param {!Object} object
      * @return {undefined}
      */
-    showLog(message: string, object: object): void;
+    showLog(message: string, object: Object): void;
 }

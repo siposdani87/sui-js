@@ -24,13 +24,13 @@ export declare class Clock {
      * @param {!Item} node
      * @param {!Object} options
      */
-    constructor(node: Item, options: object);
+    constructor(node: Item, options: Object);
     /**
      * @private
      * @param {!Object} options
      * @return {undefined}
      */
-    _setOptions(options: object): void;
+    _setOptions(options: Object): void;
     /**
      * @private
      * @return {undefined}
@@ -116,7 +116,7 @@ export declare class Clock {
      * @param {!Object} time
      * @return {undefined}
      */
-    setTime(time: object): void;
+    setTime(time: Object): void;
     /**
      * @private
      * @param {string} mode
@@ -156,10 +156,10 @@ export declare class Clock {
      * @param {!Object} selectedTime
      * @return {undefined}
      */
-    _onClick(selectedTime: object): void;
+    _onClick(selectedTime: Object): void;
     /**
      * @param {!Object} time
      * @return {undefined}
      */
-    eventClick(time: object): void;
+    eventClick(time: Object): void;
 }

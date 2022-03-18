@@ -8,13 +8,13 @@ export declare class Promize {
     /**
      * @param {!Object=} opt_options
      */
-    constructor(opt_options?: object | undefined);
+    constructor(opt_options?: Object | undefined);
     /**
      * @param {!Object=} opt_options
      * @private
      * @return {undefined}
      */
-    _setOptions(opt_options?: object | undefined): void;
+    _setOptions(opt_options?: Object | undefined): void;
     /**
      * @param {*=} opt_data
      * @return {undefined}

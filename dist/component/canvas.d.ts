@@ -54,7 +54,7 @@ export declare class Canvas {
      * @param {!Object} options
      * @return {undefined}
      */
-    drawPolygon(x: number, y: number, radius: number, sides: number, rotateAngle: number, options: object): void;
+    drawPolygon(x: number, y: number, radius: number, sides: number, rotateAngle: number, options: Object): void;
     /**
      * @param {number} x
      * @param {number} y
@@ -64,7 +64,7 @@ export declare class Canvas {
      * @param {!Object} options
      * @return {undefined}
      */
-    drawRectangle(x: number, y: number, width: number, height: number, rotateAngle: number, options: object): void;
+    drawRectangle(x: number, y: number, width: number, height: number, rotateAngle: number, options: Object): void;
     /**
      * @param {!Item<HTMLImageElement>} image
      * @param {number=} opt_width

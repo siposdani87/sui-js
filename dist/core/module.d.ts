@@ -33,11 +33,11 @@ export declare class Module {
      * @param {!Object} injections
      * @return {undefined}
      */
-    load(instances: object, injections: object): void;
+    load(instances: Object, injections: Object): void;
     /**
      * @return {!Object}
      */
-    getController(): object;
+    getController(): Object;
     /**
      * @param {string} name
      * @param {!Array} moduleInjections
@@ -58,7 +58,7 @@ export declare class Module {
      * @param {!Dependency} dependency
      * @return {!Object}
      */
-    _resolveDependencies(dependency: Dependency): object;
+    _resolveDependencies(dependency: Dependency): Object;
     /**
      * @private
      * @return {undefined}
@@ -86,7 +86,7 @@ export declare class Module {
      * @param {!Object} options
      * @return {undefined}
      */
-    handleRoutes(routes: Array<any>, options: object): void;
+    handleRoutes(routes: Array<any>, options: Object): void;
     /**
      * @param {!Objekt} currentState
      * @param {boolean=} opt_force

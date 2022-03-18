@@ -1,9 +1,9 @@
-import { mdl } from '../utils/operation';
 import { Tooltip } from '../component/tooltip';
 import { Item } from '../core/item';
 import { Objekt } from '../core/objekt';
 import { Query } from '../core/query';
 import { BaseModal } from './baseModal';
+import { mdl } from '../utils/render';
 /**
  * @class
  * @extends {BaseModal}

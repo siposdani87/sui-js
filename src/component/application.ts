@@ -693,7 +693,7 @@ export class Application {
      * @param {!Object=} opt_params
      * @return {undefined}
      */
-    setRootState(id: string, opt_params: Object | undefined): void {
+    setRootState(id: string, opt_params?: Object): void {
         this._routeOptions.set('root.id', id);
         this._routeOptions.set('root.params', opt_params);
     }
@@ -702,7 +702,7 @@ export class Application {
      * @param {!Object=} opt_params
      * @return {undefined}
      */
-    setHomeState(id: string, opt_params: Object | undefined): void {
+    setHomeState(id: string, opt_params?: Object): void {
         this._routeOptions.set('home.id', id);
         this._routeOptions.set('home.params', opt_params);
     }

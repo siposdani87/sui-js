@@ -7,7 +7,6 @@ import {
     inArray,
     clear,
     remove,
-    mdl,
 } from '../utils/operation';
 import { BaseField } from './baseField';
 import { Popup } from '../component/popup';
@@ -16,6 +15,7 @@ import { Item } from '../core/item';
 import { Objekt } from '../core/objekt';
 import { Query } from '../core/query';
 import { generateId } from '../utils/coder';
+import { mdl } from '../utils/render';
 
 /**
  * @class

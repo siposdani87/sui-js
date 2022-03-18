@@ -9,7 +9,7 @@ export declare class Flash {
     /**
      * @param {!Object=} opt_options
      */
-    constructor(opt_options?: object | undefined);
+    constructor(opt_options?: Object | undefined);
     /**
      * @private
      * @return {undefined}
@@ -20,7 +20,7 @@ export declare class Flash {
      * @param {!Object=} opt_options
      * @return {undefined}
      */
-    _setOptions(opt_options?: object | undefined): void;
+    _setOptions(opt_options?: Object | undefined): void;
     /**
      * @param {string} type
      * @param {string} message

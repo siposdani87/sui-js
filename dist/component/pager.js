@@ -1,8 +1,9 @@
-import { format, mdl, each } from '../utils/operation';
+import { format, each } from '../utils/operation';
 import { Item } from '../core/item';
 import { Objekt } from '../core/objekt';
 import { Query } from '../core/query';
 import { consoleWarn } from '../utils/log';
+import { mdl } from '../utils/render';
 /**
  * @class
  */

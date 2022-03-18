@@ -91,7 +91,7 @@ export declare class Form extends Collection<BaseField> {
      * @param {!Object} data
      * @return {undefined}
      */
-    setErrors(data: object): void;
+    setErrors(data: Object): void;
     /**
      * @param {boolean=} opt_force
      * @param {boolean=} opt_showMessage

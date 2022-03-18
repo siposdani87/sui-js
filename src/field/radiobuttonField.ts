@@ -1,8 +1,9 @@
-import { format, mdl, typeCast } from '../utils/operation';
+import { format, typeCast } from '../utils/operation';
 import { BaseField } from './baseField';
 import { Item } from '../core/item';
 import { Query } from '../core/query';
 import { Form } from '../component';
+import { mdl } from '../utils/render';
 
 /**
  * @class

@@ -17,13 +17,13 @@ export declare class Xhr {
     /**
      * @param {!Object=} opt_options
      */
-    constructor(opt_options?: object | undefined);
+    constructor(opt_options?: Object | undefined);
     /**
      * @private
      * @param {!Object=} opt_options
      * @return {undefined}
      */
-    _setOptions(opt_options?: object | undefined): void;
+    _setOptions(opt_options?: Object | undefined): void;
     /**
      * @private
      * @return {undefined}
@@ -76,7 +76,7 @@ export declare class Xhr {
      * @param {!Object=} opt_headers
      * @return {!Promize}
      */
-    get(url: string, opt_params: object | undefined, opt_headers?: object | undefined): Promize;
+    get(url: string, opt_params: Object | undefined, opt_headers?: Object | undefined): Promize;
     /**
      * @param {string} url
      * @param {!Object=} opt_data
@@ -84,7 +84,7 @@ export declare class Xhr {
      * @param {!Object=} opt_headers
      * @return {!Promize}
      */
-    post(url: string, opt_data: object | undefined, opt_params: object | undefined, opt_headers?: object | undefined): Promize;
+    post(url: string, opt_data: Object | undefined, opt_params: Object | undefined, opt_headers?: Object | undefined): Promize;
     /**
      * @param {string} url
      * @param {!Object=} opt_data
@@ -92,7 +92,7 @@ export declare class Xhr {
      * @param {!Object=} opt_headers
      * @return {!Promize}
      */
-    put(url: string, opt_data: object | undefined, opt_params: object | undefined, opt_headers?: object | undefined): Promize;
+    put(url: string, opt_data: Object | undefined, opt_params: Object | undefined, opt_headers?: Object | undefined): Promize;
     /**
      * @param {string} url
      * @param {!Object=} opt_data
@@ -100,7 +100,7 @@ export declare class Xhr {
      * @param {!Object=} opt_headers
      * @return {!Promize}
      */
-    patch(url: string, opt_data: object | undefined, opt_params: object | undefined, opt_headers?: object | undefined): Promize;
+    patch(url: string, opt_data: Object | undefined, opt_params: Object | undefined, opt_headers?: Object | undefined): Promize;
     /**
      * @param {string} url
      * @param {!Object=} opt_data
@@ -108,14 +108,14 @@ export declare class Xhr {
      * @param {!Object=} opt_headers
      * @return {!Promize}
      */
-    delete(url: string, opt_data: object | undefined, opt_params: object | undefined, opt_headers?: object | undefined): Promize;
+    delete(url: string, opt_data: Object | undefined, opt_params: Object | undefined, opt_headers?: Object | undefined): Promize;
     /**
      * @private
      * @param {string} url
      * @param {!Object=} opt_params
      * @return {string}
      */
-    _getUrl(url: string, opt_params: object | undefined): string;
+    _getUrl(url: string, opt_params: Object | undefined): string;
     /**
      * @private
      * @param {string} type
@@ -125,13 +125,13 @@ export declare class Xhr {
      * @param {!Object=} opt_headers
      * @return {!Promize}
      */
-    _handleRequest(type: string, url: string, opt_data: object | undefined, opt_params: object | undefined, opt_headers?: object | undefined): Promize;
+    _handleRequest(type: string, url: string, opt_data: Object | undefined, opt_params: Object | undefined, opt_headers?: Object | undefined): Promize;
     /**
      * @private
      * @param {!Object=} opt_data
      * @return {string}
      */
-    _getRequestData(opt_data: object | undefined): string;
+    _getRequestData(opt_data: Object | undefined): string;
     /**
      * @private
      * @param {*} obj
@@ -145,7 +145,7 @@ export declare class Xhr {
      * @param {!Object} obj
      * @return {string}
      */
-    _stringifyObject(obj: object): string;
+    _stringifyObject(obj: Object): string;
     /**
      * @private
      * @return {string}
@@ -163,7 +163,7 @@ export declare class Xhr {
      * @param {!Object=} opt_headers
      * @return {undefined}
      */
-    _setRequestHeaders(urlType: string, opt_headers?: object | undefined): void;
+    _setRequestHeaders(urlType: string, opt_headers?: Object | undefined): void;
     /**
      * @private
      * @param {string} urlType

@@ -35,7 +35,7 @@ export declare class ActionCableClient {
      * @param {!Object=} opt_data
      * @return {undefined}
      */
-    send(message: string, opt_data?: object | undefined): void;
+    send(message: string, opt_data?: Object | undefined): void;
     /**
      * @return {undefined}
      */

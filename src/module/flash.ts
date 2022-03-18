@@ -1,6 +1,5 @@
 import {
     eq,
-    mdl,
     format,
     isFunction,
     isObject,
@@ -10,6 +9,7 @@ import { Objekt } from '../core/objekt';
 import { Query } from '../core/query';
 import { generateId } from '../utils/coder';
 import { Item } from '../core';
+import { mdl } from '../utils/render';
 
 /**
  * @class

@@ -1,4 +1,3 @@
-import { Item } from '../core/item';
 /**
  * @export
  * @param {*} value
@@ -11,7 +10,7 @@ export declare const typeCast: (value: any) => any;
  * @param {!Object} objB
  * @return {!Object|undefined}
  */
-export declare const merge: (objA: object, objB: object) => object | undefined;
+export declare const merge: (objA: Object, objB: Object) => Object | undefined;
 /**
  * @export
  * @param {string} str
@@ -170,7 +169,7 @@ export declare const is: (value: any, type: string) => boolean;
  * @param {!Object} obj
  * @return {boolean}
  */
-export declare const instanceOf: (value: any, obj: object) => boolean;
+export declare const instanceOf: (value: any, obj: Object) => boolean;
 /**
  * @export
  * @param {*} items
@@ -195,7 +194,7 @@ export declare const eachArray: (items: Array<any>, next: Function, opt_start?: 
  * @param {!Function} next
  * @return {undefined}
  */
-export declare const eachObject: (object: object, next: Function) => void;
+export declare const eachObject: (object: Object, next: Function) => void;
 /**
  * @export
  * @param {function(number):undefined} next
@@ -222,7 +221,7 @@ export declare const clearArray: (items: Array<any>) => void;
  * @param {!Object} items
  * @return {undefined}
  */
-export declare const clearObject: (items: object) => void;
+export declare const clearObject: (items: Object) => void;
 /**
  * @export
  * @param {!Array} items
@@ -309,28 +308,7 @@ export declare const pluck: (items: Array<any>, attribute: string) => Array<any>
  * @param {function(*, string)} condition
  * @return {!Array}
  */
-export declare const pluckKeys: (obj: object, condition: (_value: any, _key: string) => any) => Array<any>;
-/**
- * @export
- * @param {!Item|!Element=} opt_node
- * @param {boolean=} opt_forceDowngrade
- * @return {undefined}
- */
-export declare const mdl: (opt_node?: Item | Element, opt_forceDowngrade?: boolean | undefined) => void;
-/**
- * @export
- * @param {string} type
- * @param {!Object} props
- * @param {!Item} mountNode
- * @return {!Object}
- */
-export declare const renderReact: (type: string, props: object, mountNode: Item) => object;
-/**
- * @export
- * @param {!Item} mountNode
- * @return {undefined}
- */
-export declare const unmountReact: (mountNode: Item) => void;
+export declare const pluckKeys: (obj: Object, condition: (_value: any, _key: string) => any) => Array<any>;
 /**
  * @export
  * @param {number} x
@@ -370,13 +348,13 @@ export declare const debounce: (func: Function, opt_wait?: number | undefined, o
  * @param {!Object=} opt_params
  * @return {string}
  */
-export declare const urlWithQueryString: (url: string, opt_params?: object | undefined) => string;
+export declare const urlWithQueryString: (url: string, opt_params?: Object | undefined) => string;
 /**
  * @export
  * @param {!Object=} opt_params
  * @return {string}
  */
-export declare const getQueryString: (opt_params?: object | undefined) => string;
+export declare const getQueryString: (opt_params?: Object) => string;
 /**
  * @export
  * @param {string} url

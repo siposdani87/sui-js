@@ -1,4 +1,4 @@
-import { contain, each, format, mdl } from '../utils/operation';
+import { contain, each, format } from '../utils/operation';
 import { Collection } from '../core/collection';
 import { Item } from '../core/item';
 import { Objekt } from '../core/objekt';
@@ -6,6 +6,7 @@ import { Query } from '../core/query';
 import { ContentHandler } from './contentHandler';
 import { Pager } from './pager';
 import { consoleWarn } from '../utils/log';
+import { mdl } from '../utils/render';
 /**
  * @class
  */

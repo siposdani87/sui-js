@@ -33,13 +33,13 @@ export declare class ProgressBar {
      * @param {!Confirm} confirm
      * @param {!Object=} opt_options
      */
-    constructor(dialog: Dialog, confirm: Confirm, opt_options?: object | undefined);
+    constructor(dialog: Dialog, confirm: Confirm, opt_options?: Object | undefined);
     /**
      * @param {!Object=} opt_options
      * @private
      * @return {undefined}
      */
-    _setOptions(opt_options?: object | undefined): void;
+    _setOptions(opt_options?: Object | undefined): void;
     /**
      * @private
      * @return {undefined}

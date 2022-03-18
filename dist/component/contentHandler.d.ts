@@ -11,13 +11,13 @@ export declare class ContentHandler {
      * @param {!Item} containerNode
      * @param {!Object=} opt_options
      */
-    constructor(containerNode: Item, opt_options?: object | undefined);
+    constructor(containerNode: Item, opt_options?: Object | undefined);
     /**
      * @private
      * @param {!Object=} opt_options
      * @return {undefined}
      */
-    _setOptions(opt_options?: object | undefined): void;
+    _setOptions(opt_options?: Object | undefined): void;
     /**
      * @private
      * @return {undefined}

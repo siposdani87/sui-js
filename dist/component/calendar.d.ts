@@ -43,13 +43,13 @@ export declare class Calendar {
      * @param {!Item} node
      * @param {!Object} options
      */
-    constructor(node: Item, options: object);
+    constructor(node: Item, options: Object);
     /**
      * @private
      * @param {!Object} options
      * @return {undefined}
      */
-    _setOptions(options: object): void;
+    _setOptions(options: Object): void;
     /**
      * @private
      * @return {undefined}
@@ -89,7 +89,7 @@ export declare class Calendar {
      * @param {!Function} yearFun
      * @return {!Object}
      */
-    _switchMode(dayFun: Function, monthFun: Function, yearFun: Function): object;
+    _switchMode(dayFun: Function, monthFun: Function, yearFun: Function): Object;
     /**
      * @private
      * @param {string} mode
@@ -126,13 +126,13 @@ export declare class Calendar {
      * @param {!Object} date
      * @return {undefined}
      */
-    _setDate(date: object): void;
+    _setDate(date: Object): void;
     /**
      * @private
      * @param {!Object} date
      * @return {undefined}
      */
-    _setVariables(date: object): void;
+    _setVariables(date: Object): void;
     /**
      * @return {undefined}
      */
@@ -206,22 +206,22 @@ export declare class Calendar {
      * @param {!Object} selectedDate
      * @return {undefined}
      */
-    _setModeDate(selectedDate: object): void;
+    _setModeDate(selectedDate: Object): void;
     /**
      * @private
      * @param {!Object} selectedDate
      * @return {undefined}
      */
-    _onClick(selectedDate: object): void;
+    _onClick(selectedDate: Object): void;
     /**
      * @private
      * @param {!Object} date
      * @return {undefined}
      */
-    _setSelectedDate(date: object): void;
+    _setSelectedDate(date: Object): void;
     /**
      * @param {!Object} date
      * @return {undefined}
      */
-    eventClick(date: object): void;
+    eventClick(date: Object): void;
 }

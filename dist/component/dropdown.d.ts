@@ -17,13 +17,13 @@ export declare class Dropdown {
      * @param {!Item} element
      * @param {!Object=} opt_options
      */
-    constructor(element: Item, opt_options?: object | undefined);
+    constructor(element: Item, opt_options?: Object | undefined);
     /**
      * @private
      * @param {!Object=} opt_options
      * @return {undefined}
      */
-    _setOptions(opt_options?: object | undefined): void;
+    _setOptions(opt_options?: Object | undefined): void;
     /**
      * @private
      * @return {undefined}
@@ -44,7 +44,7 @@ export declare class Dropdown {
      * @param {!Object} item
      * @return {undefined}
      */
-    setActions(actions: Array<any>, item: object): void;
+    setActions(actions: Array<any>, item: Object): void;
     /**
      * @private
      * @return {undefined}

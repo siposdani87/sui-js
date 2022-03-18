@@ -14,13 +14,13 @@ export declare class Navigation {
      * @param {!Http=} opt_http
      * @param {!Object=} opt_options
      */
-    constructor(opt_http: Http | undefined, opt_options?: object | undefined);
+    constructor(opt_http: Http | undefined, opt_options?: Object | undefined);
     /**
      * @private
      * @param {!Object=} opt_options
      * @return {undefined}
      */
-    _setOptions(opt_options?: object | undefined): void;
+    _setOptions(opt_options?: Object | undefined): void;
     /**
      * @private
      * @return {undefined}
@@ -40,7 +40,7 @@ export declare class Navigation {
      * @param {!Object=} opt_data
      * @return {undefined}
      */
-    addCounter(id: string, counter: string, title: string | null, action: Function, opt_href?: string | undefined, opt_data?: object | undefined): void;
+    addCounter(id: string, counter: string, title: string | null, action: Function, opt_href?: string | undefined, opt_data?: Object | undefined): void;
     /**
      * @param {string} id
      * @param {string} icon
@@ -50,7 +50,7 @@ export declare class Navigation {
      * @param {!Object=} opt_data
      * @return {undefined}
      */
-    addIcon(id: string, icon: string, title: string | null, action: Function, opt_href?: string | undefined, opt_data?: object | undefined): void;
+    addIcon(id: string, icon: string, title: string | null, action: Function, opt_href?: string | undefined, opt_data?: Object | undefined): void;
     /**
      * @param {string} id
      * @param {string} image
@@ -60,7 +60,7 @@ export declare class Navigation {
      * @param {!Object=} opt_data
      * @return {undefined}
      */
-    addImage(id: string, image: string, title: string | null, action: Function, opt_href?: string | undefined, opt_data?: object | undefined): void;
+    addImage(id: string, image: string, title: string | null, action: Function, opt_href?: string | undefined, opt_data?: Object | undefined): void;
     /**
      * @param {string} id
      * @param {string} title
@@ -69,7 +69,7 @@ export declare class Navigation {
      * @param {!Object=} opt_data
      * @return {undefined}
      */
-    addText(id: string, title: string, action: Function, opt_href?: string | undefined, opt_data?: object | undefined): void;
+    addText(id: string, title: string, action: Function, opt_href?: string | undefined, opt_data?: Object | undefined): void;
     /**
      * @private
      * @param {string} id
@@ -79,7 +79,7 @@ export declare class Navigation {
      * @param {!Object=} opt_data
      * @return {!Objekt}
      */
-    _setItem(id: string, title: string | null, action: Function, opt_href?: string | undefined, opt_data?: object | undefined): Objekt;
+    _setItem(id: string, title: string | null, action: Function, opt_href?: string | undefined, opt_data?: Object | undefined): Objekt;
     /**
      * @param {!Function} next
      * @return {undefined}

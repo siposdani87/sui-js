@@ -1,6 +1,5 @@
 import {
     eq,
-    mdl,
     inArray,
     contain,
     format,
@@ -21,6 +20,7 @@ import { Tooltip } from './tooltip';
 import { consoleWarn } from '../utils/log';
 import { generateId } from '../utils/coder';
 import { Action } from '../utils';
+import { mdl } from '../utils/render';
 
 /**
  * @class

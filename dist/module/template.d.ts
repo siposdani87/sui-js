@@ -12,13 +12,13 @@ export declare class Template {
      * @param {!Http} http
      * @param {!Object=} opt_options
      */
-    constructor(http: Http, opt_options?: object | undefined);
+    constructor(http: Http, opt_options?: Object | undefined);
     /**
      * @private
      * @param {!Object=} opt_options
      * @return {undefined}
      */
-    _setOptions(opt_options?: object | undefined): void;
+    _setOptions(opt_options?: Object | undefined): void;
     /**
      * @private
      * @return {undefined}
@@ -45,5 +45,5 @@ export declare class Template {
      * @param {!Object} message
      * @return {undefined}
      */
-    eventError(message: object): void;
+    eventError(message: Object): void;
 }

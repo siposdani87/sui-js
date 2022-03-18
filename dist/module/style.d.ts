@@ -13,13 +13,13 @@ export declare class Style {
      * @param {!ProgressBar} progressBar
      * @param {!Object=} opt_options
      */
-    constructor(progressBar: ProgressBar, opt_options?: object | undefined);
+    constructor(progressBar: ProgressBar, opt_options?: Object | undefined);
     /**
      * @private
      * @param {!Object=} opt_options
      * @return {undefined}
      */
-    _setOptions(opt_options?: object | undefined): void;
+    _setOptions(opt_options?: Object | undefined): void;
     /**
      * @private
      * @return {undefined}
@@ -33,7 +33,7 @@ export declare class Style {
      * @param {string=} opt_media
      * @return {!Promize}
      */
-    load(id: string, url: string, opt_params: object | undefined, opt_rel?: string | undefined, opt_media?: string | undefined): Promize;
+    load(id: string, url: string, opt_params: Object | undefined, opt_rel?: string | undefined, opt_media?: string | undefined): Promize;
     /**
      * @param {string} id
      * @return {undefined}
