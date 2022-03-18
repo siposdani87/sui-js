@@ -114,7 +114,7 @@ export declare class Form extends Collection<BaseField> {
      * @param {string} value
      * @return {!BaseField}
      */
-    findByModel(value: string): BaseField;
+    findByModel<T = BaseField>(value: string): T;
     /**
      * @param {!Objekt} model
      * @param {!Item} node

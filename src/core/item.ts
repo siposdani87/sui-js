@@ -27,7 +27,7 @@ export class Item<T extends HTMLElement = HTMLElement> {
      * @param {?T|string} node
      * @param {!Item=} opt_parentNode
      */
-    constructor(node: (T | string) | null, opt_parentNode?: Item | undefined) {
+    constructor(node: (T | HTMLElement | string) | null, opt_parentNode?: Item | undefined) {
         if (isString(node)) {
             if (
                 contain(/** @type {string} */(node) as string, '<') &&
@@ -334,12 +334,13 @@ export class Item<T extends HTMLElement = HTMLElement> {
         this.dispatchEvent(event);
     }
     /**
+     * @template T
      * @param {string} tagName
      * @return {!Item}
      */
-    createElement(tagName: string): Item {
+    createElement<K extends HTMLElement = HTMLElement>(tagName: string): Item<K> {
         const node = document.createElement(tagName);
-        return new Item(node, this);
+        return new Item<K>(node, this);
     }
     /**
      * @param {!Item} node
@@ -564,9 +565,9 @@ export class Item<T extends HTMLElement = HTMLElement> {
         return window.getComputedStyle(this.node);
     }
     /**
-     * @return {!Object}
+     * @return {!CSSStyleDeclaration}
      */
-    getStyle(): Object {
+    getStyle(): CSSStyleDeclaration {
         return this.node.style;
     }
     /**

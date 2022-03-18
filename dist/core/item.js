@@ -281,6 +281,7 @@ export class Item {
         this.dispatchEvent(event);
     }
     /**
+     * @template T
      * @param {string} tagName
      * @return {!Item}
      */
@@ -508,7 +509,7 @@ export class Item {
         return window.getComputedStyle(this.node);
     }
     /**
-     * @return {!Object}
+     * @return {!CSSStyleDeclaration}
      */
     getStyle() {
         return this.node.style;
