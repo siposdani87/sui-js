@@ -11,7 +11,7 @@ export declare class Item<T extends HTMLElement = HTMLElement> {
      * @param {?T|string} node
      * @param {!Item=} opt_parentNode
      */
-    constructor(node: (T | string) | null, opt_parentNode?: Item | undefined);
+    constructor(node: (T | HTMLElement | string) | null, opt_parentNode?: Item | undefined);
     /**
      * @param {string} attribute
      * @param {boolean|number|string} value
@@ -146,10 +146,11 @@ export declare class Item<T extends HTMLElement = HTMLElement> {
      */
     trigger(eventName: string): void;
     /**
+     * @template T
      * @param {string} tagName
      * @return {!Item}
      */
-    createElement(tagName: string): Item;
+    createElement<K extends HTMLElement = HTMLElement>(tagName: string): Item<K>;
     /**
      * @param {!Item} node
      * @return {undefined}
@@ -258,9 +259,9 @@ export declare class Item<T extends HTMLElement = HTMLElement> {
      */
     getComputedStyle(): CSSStyleDeclaration | null;
     /**
-     * @return {!Object}
+     * @return {!CSSStyleDeclaration}
      */
-    getStyle(): Object;
+    getStyle(): CSSStyleDeclaration;
     /**
      * @param {!Object} properties
      * @return {undefined}

@@ -282,11 +282,11 @@ export class Form extends Collection<BaseField> {
      * @param {string} value
      * @return {!BaseField}
      */
-    findByModel(value: string): BaseField {
+    findByModel<T = BaseField>(value: string): T {
         return this.findByCondition((_item, i) => {
             const modelName = this.get<string>(i, 'model');
             return modelName === value;
-        });
+        }) as any as T;
     }
     /**
      * @param {!Objekt} model
