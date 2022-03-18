@@ -62,7 +62,7 @@ export class Storage {
      * @param {string|number|boolean|!Date=} opt_expires
      * @return {undefined}
      */
-    set(name: string, value: any, opt_expires: (string | number | boolean | Date) | undefined): void {
+    set(name: string, value: any, opt_expires?: string | number | boolean | Date): void {
         const expires = this._getExpires(opt_expires);
         const encrypted = expires + ';' + encrypt(value, this.options.secret);
         const propertyName = this._getPropertyName(name);
@@ -141,7 +141,7 @@ export class Storage {
      * @param {string|number|boolean|!Date=} opt_expires
      * @return {string}
      */
-    _getExpires(opt_expires?: (string | number | boolean | Date)): string {
+    _getExpires(opt_expires?: string | number | boolean | Date): string {
         const date = new Date();
         if (opt_expires) {
             switch (opt_expires.constructor) {
