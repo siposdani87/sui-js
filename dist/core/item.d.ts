@@ -260,12 +260,12 @@ export declare class Item<T extends HTMLElement = HTMLElement> {
     /**
      * @return {!Object}
      */
-    getStyle(): object;
+    getStyle(): Object;
     /**
      * @param {!Object} properties
      * @return {undefined}
      */
-    setStyle(properties: object): void;
+    setStyle(properties: Object): void;
     /**
      * @param {!Array} properties
      * @return {undefined}

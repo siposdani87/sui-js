@@ -1,7 +1,8 @@
-import { isNull, format, mdl } from '../utils/operation';
+import { isNull, format } from '../utils/operation';
 import { Item } from '../core/item';
 import { Query } from '../core/query';
 import { generateId } from '../utils/coder';
+import { mdl } from '../utils/render';
 
 /**
  * https://www.getmdl.io/components/index.html#tooltips-section

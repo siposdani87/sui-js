@@ -1,9 +1,10 @@
-import { eachArray, mdl } from '../utils/operation';
+import { eachArray } from '../utils/operation';
 import { Collection } from '../core/collection';
 import { Item } from '../core/item';
 import { Objekt } from '../core/objekt';
 import { generateId } from '../utils/coder';
 import { Action } from '../utils';
+import { mdl } from '../utils/render';
 
 /**
  * @class

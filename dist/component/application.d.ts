@@ -17,19 +17,19 @@ export declare class Application {
      * @param {!Object} options
      * @param {!Object} resources
      */
-    constructor(options: object, resources: object);
+    constructor(options: Object, resources: Object);
     /**
      * @private
      * @param {!Object} options
      * @return {undefined}
      */
-    _setOptions(options: object): void;
+    _setOptions(options: Object): void;
     /**
      * @private
      * @param {!Object} resources
      * @return {undefined}
      */
-    _init(resources: object): void;
+    _init(resources: Object): void;
     /**
      * @return {string}
      */
@@ -232,28 +232,28 @@ export declare class Application {
      * @param {!Object=} opt_params
      * @return {undefined}
      */
-    addState(id: string, title: string, url: string, controller: string, opt_template?: string | undefined, opt_params?: object | undefined): void;
+    addState(id: string, title: string, url: string, controller: string, opt_template?: string | undefined, opt_params?: Object | undefined): void;
     /**
      * @param {string} id
      * @param {!Object=} opt_params
      * @return {undefined}
      */
-    setRootState(id: string, opt_params: object | undefined): void;
+    setRootState(id: string, opt_params?: Object): void;
     /**
      * @param {string} id
      * @param {!Object=} opt_params
      * @return {undefined}
      */
-    setHomeState(id: string, opt_params: object | undefined): void;
+    setHomeState(id: string, opt_params?: Object): void;
     /**
      * @param {string} name
      * @return {?Object}
      */
-    getInstance(name: string): object | null;
+    getInstance(name: string): Object | null;
     /**
      * @return {?Object}
      */
-    getController(): object | null;
+    getController(): Object | null;
     /**
      * @export
      * @return {undefined}

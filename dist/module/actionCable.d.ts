@@ -35,5 +35,5 @@ export declare class ActionCable {
      * @param {!Object} options
      * @return {string}
      */
-    _generateIdentifier(options: object): string;
+    _generateIdentifier(options: Object): string;
 }

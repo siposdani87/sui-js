@@ -40,13 +40,13 @@ export declare class GoogleMap {
      * @param {string=} opt_selector
      * @param {!Object=} opt_options
      */
-    constructor(dom: Item, opt_selector?: string | undefined, opt_options?: object | undefined);
+    constructor(dom: Item, opt_selector?: string | undefined, opt_options?: Object | undefined);
     /**
      * @private
      * @param {!Object=} opt_options
      * @return {undefined}
      */
-    _setOptions(opt_options?: object | undefined): void;
+    _setOptions(opt_options?: Object | undefined): void;
     /**
      * @return {string}
      */
@@ -108,7 +108,7 @@ export declare class GoogleMap {
     createOrUpdatePolygon(id: Id, title: string, points: Array<{
         latitude: number;
         longitude: number;
-    }>, opt_polygonData?: object | undefined, opt_options?: object | undefined): void;
+    }>, opt_polygonData?: Object | undefined, opt_options?: Object | undefined): void;
     /**
      * @param {Id} id
      * @param {string} title
@@ -120,7 +120,7 @@ export declare class GoogleMap {
     createPolygon(id: Id, title: string, points: Array<{
         latitude: number;
         longitude: number;
-    }>, opt_polygonData?: object | undefined, opt_options?: object | undefined): void;
+    }>, opt_polygonData?: Object | undefined, opt_options?: Object | undefined): void;
     /**
      * @param {Id} id
      * @param {string} title
@@ -132,12 +132,12 @@ export declare class GoogleMap {
     updatePolygon(id: Id, title: string, points: Array<{
         latitude: number;
         longitude: number;
-    }>, opt_polygonData?: object | undefined, opt_options?: object | undefined): void;
+    }>, opt_polygonData?: Object | undefined, opt_options?: Object | undefined): void;
     /**
      * @param {!Object} polygonData
      * @return {!Objekt}
      */
-    _cleanPolygonData(polygonData: object): Objekt;
+    _cleanPolygonData(polygonData: Object): Objekt;
     /**
      * @param {Id} id
      * @return {!Objekt}
@@ -192,7 +192,7 @@ export declare class GoogleMap {
      * @param {!Object} event
      * @return {undefined}
      */
-    eventPolygonClick(polygonData: Objekt, latitude: number, longitude: number, event: object): void;
+    eventPolygonClick(polygonData: Objekt, latitude: number, longitude: number, event: Object): void;
     /**
      * @param {!Objekt} polygonData
      * @param {number} latitude
@@ -200,7 +200,7 @@ export declare class GoogleMap {
      * @param {!Object} event
      * @return {undefined}
      */
-    eventPolygonDoubleClick(polygonData: Objekt, latitude: number, longitude: number, event: object): void;
+    eventPolygonDoubleClick(polygonData: Objekt, latitude: number, longitude: number, event: Object): void;
     /**
      * @param {!Objekt} polygonData
      * @param {number} latitude
@@ -208,20 +208,20 @@ export declare class GoogleMap {
      * @param {!Object} event
      * @return {undefined}
      */
-    eventPolygonRightClick(polygonData: Objekt, latitude: number, longitude: number, event: object): void;
+    eventPolygonRightClick(polygonData: Objekt, latitude: number, longitude: number, event: Object): void;
     /**
      * @param {number} latitude
      * @param {number} longitude
      * @param {!Object} event
      * @return {undefined}
      */
-    eventMapClick(latitude: number, longitude: number, event: object): void;
+    eventMapClick(latitude: number, longitude: number, event: Object): void;
     /**
      * @param {string} mapType
      * @param {!Object} event
      * @return {undefined}
      */
-    eventMapTypeChange(mapType: string, event: object): void;
+    eventMapTypeChange(mapType: string, event: Object): void;
     /**
      * @private
      * @param {!Objekt} polygonData
@@ -293,18 +293,18 @@ export declare class GoogleMap {
      * @param {!Object=} opt_options
      * @return {undefined}
      */
-    setMarkers(opt_options?: object | undefined): void;
+    setMarkers(opt_options?: Object | undefined): void;
     /**
      * @param {!Object=} opt_options
      * @return {undefined}
      */
-    setHeatmap(opt_options?: object | undefined): void;
+    setHeatmap(opt_options?: Object | undefined): void;
     /**
      * @param {!Array<WeigthPoint>} points
      * @param {!Object=} opt_heatmapOptions
      * @return {undefined}
      */
-    createHeatmap(points: Array<WeigthPoint>, opt_heatmapOptions?: object | undefined): void;
+    createHeatmap(points: Array<WeigthPoint>, opt_heatmapOptions?: Object | undefined): void;
     /**
      * @return {undefined}
      */
@@ -313,7 +313,7 @@ export declare class GoogleMap {
      * @param {!Object=} opt_options
      * @return {undefined}
      */
-    setPolygons(opt_options?: object | undefined): void;
+    setPolygons(opt_options?: Object | undefined): void;
     /**
      * @param {Id} id
      * @param {string} title
@@ -324,7 +324,7 @@ export declare class GoogleMap {
      * @param {!Object=} opt_options
      * @return {undefined}
      */
-    createOrUpdateMarker(id: Id, title: string, iconName: string, latitude: number, longitude: number, opt_markerData?: object | undefined, opt_options?: object | undefined): void;
+    createOrUpdateMarker(id: Id, title: string, iconName: string, latitude: number, longitude: number, opt_markerData?: Object | undefined, opt_options?: Object | undefined): void;
     /**
      * @param {Id} id
      * @param {string} title
@@ -335,7 +335,7 @@ export declare class GoogleMap {
      * @param {!Object=} opt_options
      * @return {undefined}
      */
-    createMarker(id: Id, title: string, iconName: string, latitude: number, longitude: number, opt_markerData?: object | undefined, opt_options?: object | undefined): void;
+    createMarker(id: Id, title: string, iconName: string, latitude: number, longitude: number, opt_markerData?: Object | undefined, opt_options?: Object | undefined): void;
     /**
      * @param {Id} id
      * @param {string} title
@@ -345,7 +345,7 @@ export declare class GoogleMap {
      * @param {!Object=} markerData
      * @return {undefined}
      */
-    createMarkerByXY(id: Id, title: string, iconName: string, x: number, y: number, markerData?: object | undefined): void;
+    createMarkerByXY(id: Id, title: string, iconName: string, x: number, y: number, markerData?: Object | undefined): void;
     /**
      * @param {!google.maps.Marker} marker
      * @param {!Objekt} markerData
@@ -367,12 +367,12 @@ export declare class GoogleMap {
      * @param {!Object=} opt_options
      * @return {undefined}
      */
-    updateMarker(id: Id, title: string, iconName: string, latitude: number, longitude: number, opt_markerData?: object | undefined, opt_options?: object | undefined): void;
+    updateMarker(id: Id, title: string, iconName: string, latitude: number, longitude: number, opt_markerData?: Object | undefined, opt_options?: Object | undefined): void;
     /**
      * @param {!Object} markerData
      * @return {!Objekt}
      */
-    _cleanMarkerData(markerData: object): Objekt;
+    _cleanMarkerData(markerData: Object): Objekt;
     /**
      * @param {Id} id
      * @return {!Objekt}
@@ -403,19 +403,19 @@ export declare class GoogleMap {
      * @param {!Object} event
      * @return {undefined}
      */
-    eventMarkerClick(markerData: Objekt, event: object): void;
+    eventMarkerClick(markerData: Objekt, event: Object): void;
     /**
      * @param {!Objekt} markerData
      * @param {!Object} event
      * @return {undefined}
      */
-    eventMarkerDoubleClick(markerData: Objekt, event: object): void;
+    eventMarkerDoubleClick(markerData: Objekt, event: Object): void;
     /**
      * @param {!Objekt} markerData
      * @param {!Object} event
      * @return {undefined}
      */
-    eventMarkerRightClick(markerData: Objekt, event: object): void;
+    eventMarkerRightClick(markerData: Objekt, event: Object): void;
     /**
      * @param {!Objekt} markerData
      * @param {number} latitude
@@ -423,7 +423,7 @@ export declare class GoogleMap {
      * @param {!Object} event
      * @return {undefined}
      */
-    eventMarkerChanged(markerData: Objekt, latitude: number, longitude: number, event: object): void;
+    eventMarkerChanged(markerData: Objekt, latitude: number, longitude: number, event: Object): void;
     /**
      * @param {string} name
      * @param {!IconOptions} iconOptions

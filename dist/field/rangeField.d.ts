@@ -33,5 +33,5 @@ export declare class RangeField extends BaseField {
      * @param {!Object|!Function|!Array|boolean|number|string|null|undefined} value
      * @return {undefined}
      */
-    setValue(value: object | Function | Array<any> | boolean | number | string | null | undefined): void;
+    setValue(value: Object | Function | Array<any> | boolean | number | string | null | undefined): void;
 }

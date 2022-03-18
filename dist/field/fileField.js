@@ -1,8 +1,9 @@
-import { contain, format, mdl, isObject, getExtensionName, } from '../utils/operation';
+import { contain, format, isObject, getExtensionName, } from '../utils/operation';
 import { BaseField } from './baseField';
 import { Item } from '../core/item';
 import { Query } from '../core/query';
 import { encodeBase64 } from '../utils/coder';
+import { mdl } from '../utils/render';
 /**
  * @class
  * @extends {BaseField}

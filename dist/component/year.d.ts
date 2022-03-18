@@ -12,13 +12,13 @@ export declare class Year {
      * @param {!Object} currentDate
      * @param {!Object} options
      */
-    constructor(date: string, currentDate: object, options: object);
+    constructor(date: string, currentDate: Object, options: Object);
     /**
      * @private
      * @param {!Object} options
      * @return {undefined}
      */
-    _setOptions(options: object): void;
+    _setOptions(options: Object): void;
     /**
      * @private
      * @return {undefined}
@@ -31,5 +31,5 @@ export declare class Year {
     /**
      * @param {!Object} date
      */
-    eventClick(date: object): void;
+    eventClick(date: Object): void;
 }

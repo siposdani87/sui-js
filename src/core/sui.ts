@@ -23,6 +23,7 @@
  * @author Dániel Sipos
  */
 
+// eslint-disable-next-line no-var
 declare var ES_PROD: boolean;
 
 ES_PROD = window['ES_PROD'] || false;

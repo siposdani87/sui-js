@@ -9,13 +9,13 @@ export declare class Document {
     /**
      * @param {!Object=} opt_options
      */
-    constructor(opt_options?: object | undefined);
+    constructor(opt_options?: Object | undefined);
     /**
      * @private
      * @param {!Object=} opt_options
      * @return {undefined}
      */
-    _setOptions(opt_options: object | undefined): void;
+    _setOptions(opt_options: Object | undefined): void;
     /**
      * @private
      * @return {undefined}

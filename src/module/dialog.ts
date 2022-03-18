@@ -1,4 +1,3 @@
-import { mdl } from '../utils/operation';
 import { Tooltip } from '../component/tooltip';
 import { Deferred } from '../core/deferred';
 import { Objekt } from '../core/objekt';
@@ -6,6 +5,7 @@ import { Query } from '../core/query';
 import { BaseModal } from './baseModal';
 import { Http } from './http';
 import { Item, Promize } from '../core';
+import { mdl } from '../utils/render';
 
 /**
  * @class

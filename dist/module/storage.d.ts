@@ -8,7 +8,7 @@ export declare class Storage {
     /**
      * @param {!Object} options
      */
-    constructor(options: object);
+    constructor(options: Object);
     /**
      * @private
      * @return {undefined}

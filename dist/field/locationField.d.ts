@@ -107,13 +107,13 @@ export declare class LocationField extends BaseField {
      * @param {!Object} value
      * @return {undefined}
      */
-    _setDataValue(value: object): void;
+    _setDataValue(value: Object): void;
     /**
      * @override
      * @param {!Object|!Function|!Array|boolean|number|string|null|undefined} value
      * @return {undefined}
      */
-    setValue(value: object | Function | Array<any> | boolean | number | string | null | undefined): void;
+    setValue(value: Object | Function | Array<any> | boolean | number | string | null | undefined): void;
     /**
      * @override
      * @return {*}

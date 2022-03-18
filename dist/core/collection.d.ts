@@ -117,7 +117,7 @@ export declare class Collection<T extends Object = Objekt> {
      * @param {!Object|!T} value
      * @return {!T}
      */
-    delete(value: object | T): T;
+    delete(value: Object | T): T;
     /**
      * @param {Id} id
      * @return {!T}

@@ -1,4 +1,4 @@
-import { isArray, eq, format, each, neq, inArray, clear, remove, mdl, } from '../utils/operation';
+import { isArray, eq, format, each, neq, inArray, clear, remove, } from '../utils/operation';
 import { BaseField } from './baseField';
 import { Popup } from '../component/popup';
 import { Collection } from '../core/collection';
@@ -6,6 +6,7 @@ import { Item } from '../core/item';
 import { Objekt } from '../core/objekt';
 import { Query } from '../core/query';
 import { generateId } from '../utils/coder';
+import { mdl } from '../utils/render';
 /**
  * @class
  * @extends {BaseField}

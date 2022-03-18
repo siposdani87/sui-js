@@ -1,4 +1,4 @@
-import { eq, mdl, inArray, contain, format, isFunction, isArray, each, eachArray, instanceOf, } from '../utils/operation';
+import { eq, inArray, contain, format, isFunction, isArray, each, eachArray, instanceOf, } from '../utils/operation';
 import { Collection } from '../core/collection';
 import { Item } from '../core/item';
 import { Objekt } from '../core/objekt';
@@ -9,6 +9,7 @@ import { Pager } from './pager';
 import { Tooltip } from './tooltip';
 import { consoleWarn } from '../utils/log';
 import { generateId } from '../utils/coder';
+import { mdl } from '../utils/render';
 /**
  * @class
  */

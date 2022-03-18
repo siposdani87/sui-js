@@ -25,13 +25,13 @@ export declare class CardCollection {
      * @param {?Object=} opt_ctrl
      * @param {!Object=} opt_options
      */
-    constructor(dom: Item, opt_selector?: string | undefined, opt_ctrl?: (object | null) | undefined, opt_options?: object | undefined);
+    constructor(dom: Item, opt_selector?: string | undefined, opt_ctrl?: (object | null) | undefined, opt_options?: Object | undefined);
     /**
      * @private
      * @param {!Object=} opt_options
      * @return {undefined}
      */
-    _setOptions(opt_options?: object | undefined): void;
+    _setOptions(opt_options?: Object | undefined): void;
     /**
      * @private
      * @return {undefined}

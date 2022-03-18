@@ -80,13 +80,13 @@ export declare class TextareaField extends BaseField {
      * @param {!Object|!Function|!Array|boolean|number|string|null|undefined} value
      * @return {undefined}
      */
-    _setValue(value: object | Function | Array<any> | boolean | number | string | null | undefined): void;
+    _setValue(value: Object | Function | Array<any> | boolean | number | string | null | undefined): void;
     /**
      * @override
      * @param {!Object|!Function|!Array|boolean|number|string|null|undefined} value
      * @return {undefined}
      */
-    setValue(value: object | Function | Array<any> | boolean | number | string | null | undefined): void;
+    setValue(value: Object | Function | Array<any> | boolean | number | string | null | undefined): void;
     /**
      * @override
      * @return {*}

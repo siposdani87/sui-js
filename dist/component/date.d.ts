@@ -24,13 +24,13 @@ export declare class Date {
      * @param {!Item} node
      * @param {!Object} options
      */
-    constructor(node: Item, options: object);
+    constructor(node: Item, options: Object);
     /**
      * @private
      * @param {!Object} options
      * @return {undefined}
      */
-    _setOptions(options: object): void;
+    _setOptions(options: Object): void;
     /**
      * @private
      * @return {undefined}

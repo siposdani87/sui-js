@@ -1,8 +1,9 @@
-import { mdl, format } from '../utils/operation';
+import { format } from '../utils/operation';
 import { Tooltip } from '../component/tooltip';
 import { Item } from '../core/item';
 import { Query } from '../core/query';
 import { generateId, md5 } from '../utils/coder';
+import { mdl } from '../utils/render';
 
 /**
  * @class
