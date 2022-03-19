@@ -40,7 +40,7 @@ export declare class Http {
      * @param {!Object=} opt_headers
      * @return {!Promize}
      */
-    get(url: string, opt_params?: Object | undefined, opt_headers?: Object | undefined): Promize;
+    get(url: string, opt_params?: Object, opt_headers?: Object): Promize;
     /**
      * @param {string} url
      * @param {!Object=} opt_data
@@ -48,7 +48,7 @@ export declare class Http {
      * @param {!Object=} opt_headers
      * @return {!Promize}
      */
-    post(url: string, opt_data?: Object | undefined, opt_params?: Object | undefined, opt_headers?: Object | undefined): Promize;
+    post(url: string, opt_data?: Object, opt_params?: Object, opt_headers?: Object): Promize;
     /**
      * @param {string} url
      * @param {!Object=} opt_data
@@ -56,7 +56,7 @@ export declare class Http {
      * @param {!Object=} opt_headers
      * @return {!Promize}
      */
-    put(url: string, opt_data: Object | undefined, opt_params: Object | undefined, opt_headers: Object | undefined): Promize;
+    put(url: string, opt_data?: Object, opt_params?: Object, opt_headers?: Object): Promize;
     /**
      * @param {string} url
      * @param {!Object=} opt_data
@@ -64,7 +64,7 @@ export declare class Http {
      * @param {!Object=} opt_headers
      * @return {!Promize}
      */
-    patch(url: string, opt_data: Object | undefined, opt_params: Object | undefined, opt_headers: Object | undefined): Promize;
+    patch(url: string, opt_data?: Object, opt_params?: Object, opt_headers?: Object): Promize;
     /**
      * @param {string} url
      * @param {!Object=} opt_data
@@ -72,7 +72,7 @@ export declare class Http {
      * @param {!Object=} opt_headers
      * @return {!Promize}
      */
-    delete(url: string, opt_data: Object | undefined, opt_params: Object | undefined, opt_headers: Object | undefined): Promize;
+    delete(url: string, opt_data?: Object, opt_params?: Object, opt_headers?: Object): Promize;
     /**
      * @private
      * @return {!Xhr}

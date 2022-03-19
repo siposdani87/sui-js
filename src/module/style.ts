@@ -47,7 +47,7 @@ export class Style {
      * @param {string=} opt_media
      * @return {!Promize}
      */
-    load(id: string, url: string, opt_params: Object | undefined, opt_rel: string | undefined = 'stylesheet', opt_media: string | undefined = 'all'): Promize {
+    load(id: string, url: string, opt_params?: Object, opt_rel: string | undefined = 'stylesheet', opt_media: string | undefined = 'all'): Promize {
         this.progressBar.show();
         const deferred = new Deferred();
         const style = new Query('#' + id);

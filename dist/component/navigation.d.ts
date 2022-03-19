@@ -6,7 +6,7 @@ import { Http } from '../module';
  * @class
  */
 export declare class Navigation {
-    http: Http;
+    http?: Http;
     options: Objekt;
     container: Collection<Objekt>;
     linkNodeKey: string;
@@ -14,7 +14,7 @@ export declare class Navigation {
      * @param {!Http=} opt_http
      * @param {!Object=} opt_options
      */
-    constructor(opt_http: Http | undefined, opt_options?: Object | undefined);
+    constructor(opt_http?: Http, opt_options?: Object | undefined);
     /**
      * @private
      * @param {!Object=} opt_options

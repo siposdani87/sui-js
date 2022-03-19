@@ -33,7 +33,7 @@ export declare class Script {
      * @param {boolean=} opt_defer
      * @return {!Promize}
      */
-    load(id: string, url: string, opt_params: Object | undefined, opt_async?: boolean | undefined, opt_defer?: boolean | undefined): Promize;
+    load(id: string, url: string, opt_params?: Object, opt_async?: boolean | undefined, opt_defer?: boolean | undefined): Promize;
     /**
      * @param {string} id
      * @return {undefined}
