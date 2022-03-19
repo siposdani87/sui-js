@@ -33,7 +33,7 @@ export declare class Style {
      * @param {string=} opt_media
      * @return {!Promize}
      */
-    load(id: string, url: string, opt_params: Object | undefined, opt_rel?: string | undefined, opt_media?: string | undefined): Promize;
+    load(id: string, url: string, opt_params?: Object, opt_rel?: string | undefined, opt_media?: string | undefined): Promize;
     /**
      * @param {string} id
      * @return {undefined}

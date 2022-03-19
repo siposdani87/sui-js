@@ -9,7 +9,7 @@ import { Http } from '../module';
  * @class
  */
 export class Navigation {
-    http: Http;
+    http?: Http;
     options: Objekt;
     container: Collection<Objekt>;
     linkNodeKey: string;
