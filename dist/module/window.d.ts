@@ -16,27 +16,27 @@ export declare class Window {
      * @param {!Object=} opt_options
      * @return {undefined}
      */
-    _setOptions(opt_options?: Object | undefined): void;
+    private _setOptions;
     /**
      * @private
      * @return {undefined}
      */
-    _init(): void;
+    private _init;
     /**
      * @private
      * @return {undefined}
      */
-    _initResizeEvent(): void;
+    private _initResizeEvent;
     /**
      * @private
      * @return {undefined}
      */
-    _initScrollEvent(): void;
+    private _initScrollEvent;
     /**
      * @private
      * @return {undefined}
      */
-    _initConnectionEvent(): void;
+    private _initConnectionEvent;
     /**
      * @param {!Event} event
      * @return {undefined}
@@ -73,13 +73,13 @@ export declare class Window {
      * @param {!Event} event
      * @return {undefined}
      */
-    _resize(event: Event): void;
+    private _resize;
     /**
      * @private
      * @param {!Event} event
      * @return {undefined}
      */
-    _scroll(event: Event): void;
+    private _scroll;
     /**
      * @return {number}
      */
@@ -100,7 +100,7 @@ export declare class Window {
      * @private
      * @return {undefined}
      */
-    _initColorSchemeEvent(): void;
+    private _initColorSchemeEvent;
     /**
      * @param {string} colorScheme
      * @param {!Event} event

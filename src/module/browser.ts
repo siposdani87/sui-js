@@ -20,7 +20,7 @@ export class Browser {
      * @private
      * @return {undefined}
      */
-    _init(): void {
+    private _init(): void {
         this._detectOS();
         this._detectBrowsers();
         this._detectMissingFeatures();
@@ -29,7 +29,7 @@ export class Browser {
      * @private
      * @return {undefined}
      */
-    _detectMissingFeatures(): void {
+    private _detectMissingFeatures(): void {
         this.features = [];
 
         this._setFeature(
@@ -60,7 +60,7 @@ export class Browser {
      * @param {*} value
      * @return {undefined}
      */
-    _setFeature(name: string, value: any): void {
+    private _setFeature(name: string, value: any): void {
         if (eq(!!value, false)) {
             this.features.push(name);
         }
@@ -76,7 +76,7 @@ export class Browser {
      * @private
      * @return {undefined}
      */
-    _detectBrowsers(): void {
+    private _detectBrowsers(): void {
         this.browsers = {};
 
         const userAgent = window.navigator.userAgent.toLowerCase();
@@ -112,7 +112,7 @@ export class Browser {
      * @private
      * @return {undefined}
      */
-    _detectOS(): void {
+    private _detectOS(): void {
         this.os = null;
 
         const userAgent = window.navigator.userAgent;

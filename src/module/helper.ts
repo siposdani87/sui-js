@@ -394,7 +394,7 @@ export class Helper {
      * @param {!Item} parentNode
      * @return {undefined}
      */
-    _createIconNode(iconName: string, parentNode: Item): void {
+    private _createIconNode(iconName: string, parentNode: Item): void {
         const iconNode = new Item('em');
         iconNode.addClass('material-icons');
         iconNode.setHtml(iconName);
@@ -405,7 +405,7 @@ export class Helper {
      * @param {string=} opt_description
      * @return {undefined}
      */
-    _setTooltip(node: Item, opt_description: string | undefined = ''): void {
+    private _setTooltip(node: Item, opt_description: string | undefined = ''): void {
         if (opt_description) {
             node.setAttribute('title', opt_description);
         }

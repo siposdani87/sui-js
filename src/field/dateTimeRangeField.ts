@@ -33,7 +33,7 @@ export class DateTimeRangeField extends BaseField {
      * @private
      * @return {undefined}
      */
-    _init(): void {
+    private _init(): void {
         this.inputBlock.addClass('datetime-range-field');
         this.input.addClass('hidden');
 
@@ -58,7 +58,7 @@ export class DateTimeRangeField extends BaseField {
      * @private
      * @return {undefined}
      */
-    _initInput(): void {
+    private _initInput(): void {
         this.format = this.input.getData('format');
 
         this.input.addEventListener('change', () => {
@@ -139,7 +139,7 @@ export class DateTimeRangeField extends BaseField {
      * @param {string} value
      * @return {undefined}
      */
-    _setTag(value: string): void {
+    private _setTag(value: string): void {
         this.datetimeInput.removeChildren();
         if (value) {
             const formattedValue = window['moment'](
@@ -168,7 +168,7 @@ export class DateTimeRangeField extends BaseField {
      * @private
      * @return {undefined}
      */
-    _onClick(): void {
+    private _onClick(): void {
         if (this.isEnabled()) {
             this.datetimeInput.addClass('active');
             this.popup.toggle();

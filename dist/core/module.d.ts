@@ -58,25 +58,25 @@ export declare class Module {
      * @param {!Dependency} dependency
      * @return {!Object}
      */
-    _resolveDependencies(dependency: Dependency): Object;
+    private _resolveDependencies;
     /**
      * @private
      * @return {undefined}
      */
-    _orderServices(): void;
+    private _orderServices;
     /**
      * @private
      * @param {string} value
      * @return {boolean}
      */
-    _isModule(value: string): boolean;
+    private _isModule;
     /**
      * @private
      * @param {string} service
      * @param {string} injection
      * @return {undefined}
      */
-    _changeServices(service: string, injection: string): void;
+    private _changeServices;
     /**
      * @return {undefined}
      */
@@ -99,7 +99,7 @@ export declare class Module {
      * @param {!Item} dom
      * @return {undefined}
      */
-    _initController(state: Objekt, dom: Item): void;
+    private _initController;
     /**
      * @param {!Item} dom
      * @return {undefined}

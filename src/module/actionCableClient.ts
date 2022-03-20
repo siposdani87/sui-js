@@ -25,7 +25,7 @@ export class ActionCableClient {
      * @param {!ChannelNameWithParams} options
      * @return {undefined}
      */
-    _init(options: ChannelNameWithParams): void {
+    private _init(options: ChannelNameWithParams): void {
         this.subscription = this._getSubscription(options);
     }
     /**
@@ -33,7 +33,7 @@ export class ActionCableClient {
      * @param {!ChannelNameWithParams} options
      * @return {!Promize}
      */
-    _getSubscription(options: ChannelNameWithParams): Promize {
+    private _getSubscription(options: ChannelNameWithParams): Promize {
         const deferred = new Deferred();
         this.client = this.parent.cable['subscriptions']['create'](options, {
             received: (payload) => {

@@ -13,7 +13,7 @@ export class ServiceWorker {
      * @private
      * @return {undefined}
      */
-    _init(): void {
+    private _init(): void {
         if ('serviceWorker' in navigator) {
             /* navigator.serviceWorker
         .register('service-worker.js', {scope: './'})

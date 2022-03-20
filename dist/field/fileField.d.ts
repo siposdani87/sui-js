@@ -24,56 +24,56 @@ export declare class FileField extends BaseField {
      * @private
      * @return {undefined}
      */
-    _init(): void;
+    private _init;
     /**
      * @private
      * @return {boolean}
      */
-    _isDocument(): boolean;
+    private _isDocument;
     /**
      * @private
      * @return {undefined}
      */
-    _initDefaultImg(): void;
+    private _initDefaultImg;
     /**
      * @private
      * @return {undefined}
      */
-    _initValueSrc(): void;
+    private _initValueSrc;
     /**
      * @private
      * @return {undefined}
      */
-    _initRemoveButton(): void;
+    private _initRemoveButton;
     /**
      * @private
      * @return {undefined}
      */
-    _initButtons(): void;
+    private _initButtons;
     /**
      * @private
      * @param {string} mimeType
      * @return {!Array}
      */
-    _lookupByMimeType(mimeType: string): Array<any>;
+    private _lookupByMimeType;
     /**
      * @private
      * @param {string} extension
      * @return {!Array}
      */
-    _lookupByExtension(extension: string): Array<any>;
+    private _lookupByExtension;
     /**
      * @private
      * @return {undefined}
      */
-    _initFileIcon(): void;
+    private _initFileIcon;
     /**
      * @private
      * @param {string} type
      * @param {string} color
      * @return {string}
      */
-    _getFileIconSrc(type: string, color: string): string;
+    private _getFileIconSrc;
     /**
      * @override
      * @return {undefined}
@@ -88,17 +88,17 @@ export declare class FileField extends BaseField {
      * @param {!File} file
      * @return {undefined}
      */
-    _read(file: File): void;
+    private _read;
     /**
      * @private
      * @return {undefined}
      */
-    _handleRemoveButton(): void;
+    private _handleRemoveButton;
     /**
      * @private
      * @return {undefined}
      */
-    _remove(): void;
+    private _remove;
     /**
      * @override
      * @param {!Object|!Function|!Array|boolean|number|string|null|undefined} value

@@ -28,7 +28,7 @@ export class Storage {
      * @private
      * @return {undefined}
      */
-    _init(): void {
+    private _init(): void {
         this.storage =
             this.options.type === 'local'
                 ? window.localStorage
@@ -43,7 +43,7 @@ export class Storage {
      * @param {string} name
      * @return {string}
      */
-    _getPropertyName(name: string): string {
+    private _getPropertyName(name: string): string {
         return [this.options.prefix, name].join('.');
     }
     /**
@@ -51,7 +51,7 @@ export class Storage {
      * @param {string} propertyName
      * @return {string}
      */
-    _getName(propertyName: string): string {
+    private _getName(propertyName: string): string {
         const parts = propertyName.split('.');
         parts.shift();
         return parts.join('.');
@@ -102,7 +102,7 @@ export class Storage {
      * @private
      * @return {undefined}
      */
-    _checkExpires(): void {
+    private _checkExpires(): void {
         const properyNames = Object.keys(this.storage);
         eachArray(properyNames, (properyName) => {
             const name = this._getName(properyName);
@@ -117,7 +117,7 @@ export class Storage {
      * @param {string} name
      * @return {boolean}
      */
-    _isExpired(name: string): boolean {
+    private _isExpired(name: string): boolean {
         const date = new Date();
         const expireDate = this._getExpiresDate(name);
         return !!expireDate && date.getTime() >= expireDate.getTime();
@@ -127,7 +127,7 @@ export class Storage {
      * @param {string} name
      * @return {?Date}
      */
-    _getExpiresDate(name: string): Date | null {
+    private _getExpiresDate(name: string): Date | null {
         const propertyName = this._getPropertyName(name);
         const item = this.storage.getItem(propertyName);
         if (item) {
@@ -141,7 +141,7 @@ export class Storage {
      * @param {string|number|boolean|!Date=} opt_expires
      * @return {string}
      */
-    _getExpires(opt_expires?: string | number | boolean | Date): string {
+    private _getExpires(opt_expires?: string | number | boolean | Date): string {
         const date = new Date();
         if (opt_expires) {
             switch (opt_expires.constructor) {

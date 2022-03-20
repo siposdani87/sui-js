@@ -19,7 +19,7 @@ export class Cookie {
      * @param {!Object=} opt_options
      * @return {undefined}
      */
-    _setOptions(opt_options: Object | undefined = {}): void {
+    private _setOptions(opt_options: Object | undefined = {}): void {
         const _self = this;
         _self.options = new Objekt({
             prefix: 'app',
@@ -32,7 +32,7 @@ export class Cookie {
      * @param {string} name
      * @return {string}
      */
-    _getPropertyName(name: string): string {
+    private _getPropertyName(name: string): string {
         return [this.options.prefix, name].join('.').replace(/\./g, '_');
     }
     /**
@@ -40,7 +40,7 @@ export class Cookie {
      * @param {string} propertyName
      * @return {string}
      */
-    _getName(propertyName: string): string {
+    private _getName(propertyName: string): string {
         const parts = propertyName.split('_');
         parts.shift();
         return parts.join('.');

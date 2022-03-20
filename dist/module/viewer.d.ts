@@ -15,12 +15,12 @@ export declare class Viewer extends BaseModal {
      * @private
      * @return {undefined}
      */
-    _setOptions(opt_options?: Object | undefined): void;
+    private _setOptions;
     /**
      * @private
      * @return {undefined}
      */
-    _init(): void;
+    private _init;
     /**
      * @param {string} imageUrl
      * @param {string=} opt_title
@@ -31,5 +31,5 @@ export declare class Viewer extends BaseModal {
      * @param {string} imageUrl
      * @return {undefined}
      */
-    _setImage(imageUrl: string): void;
+    private _setImage;
 }

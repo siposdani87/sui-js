@@ -30,7 +30,7 @@ export class Dialog extends BaseModal {
      * @private
      * @return {undefined}
      */
-    _setOptions(opt_options: Object | undefined = {}): void {
+    private _setOptions(opt_options: Object | undefined = {}): void {
         const _self = this;
         _self.options = new Objekt({
             id: '#dialog',
@@ -41,7 +41,7 @@ export class Dialog extends BaseModal {
      * @private
      * @return {undefined}
      */
-    _init(): void {
+    private _init(): void {
         this.body = new Query('body').getItem();
         this.modal = new Query(this.options.id, this.body).getItem();
         this.modalWindow = new Query('#dialog-window', this.modal).getItem();
@@ -77,7 +77,7 @@ export class Dialog extends BaseModal {
      * @param {!Item} dom
      * @return {!Item}
      */
-    _handleMessage(dom: Item): Item {
+    private _handleMessage(dom: Item): Item {
         const messageNode = new Query('.message', dom).getItem();
         const title = new Query('title', dom).getItem();
         this._setTitle(title.getText());
@@ -89,7 +89,7 @@ export class Dialog extends BaseModal {
      * @param {!Item} dom
      * @return {!Item}
      */
-    _handleDom(dom: Item): Item {
+    private _handleDom(dom: Item): Item {
         const titleNode = new Query('#title', dom).getItem();
         if (!titleNode.isEmpty()) {
             this._setTitle(titleNode.getText());
@@ -107,7 +107,7 @@ export class Dialog extends BaseModal {
      * @param {!Item} dom
      * @return {undefined}
      */
-    _handleActions(dom: Item): void {
+    private _handleActions(dom: Item): void {
         const actionNode = new Query('#action', dom).getItem();
         if (!actionNode.isEmpty()) {
             const buttons = new Query('button', actionNode);

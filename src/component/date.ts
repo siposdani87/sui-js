@@ -39,14 +39,14 @@ export class Date {
      * @param {!Object} options
      * @return {undefined}
      */
-    _setOptions(options: Object): void {
+    private _setOptions(options: Object): void {
         this.options = options;
     }
     /**
      * @private
      * @return {undefined}
      */
-    _init(): void {
+    private _init(): void {
         this._initVariables();
         this._initStructure();
         this._setValue(this.options.value);
@@ -55,7 +55,7 @@ export class Date {
      * @private
      * @return {undefined}
      */
-    _initVariables(): void {
+    private _initVariables(): void {
         this.types = {
             'datetime-local': {
                 format: 'YYYY-MM-DDTHH:mm:ss',
@@ -99,7 +99,7 @@ export class Date {
      * @private
      * @return {undefined}
      */
-    _initStructure(): void {
+    private _initStructure(): void {
         this._initDateTimeNode();
         this._initCalendarNode();
         this._initClockNode();
@@ -108,7 +108,7 @@ export class Date {
      * @private
      * @return {undefined}
      */
-    _initDateTimeNode(): void {
+    private _initDateTimeNode(): void {
         this.datetimeNode.addClass('datetime');
         this.datetimeNode.removeChildren();
     }
@@ -116,7 +116,7 @@ export class Date {
      * @private
      * @return {undefined}
      */
-    _initCalendarNode(): void {
+    private _initCalendarNode(): void {
         if (this.config.calendar_type) {
             this.calendarNode = new Item('div');
             this.calendarNode.addClass('calendar');
@@ -127,7 +127,7 @@ export class Date {
      * @private
      * @return {undefined}
      */
-    _initClockNode(): void {
+    private _initClockNode(): void {
         if (this.config.clock_type) {
             this.clockNode = new Item('div');
             this.clockNode.addClass('clock');
@@ -145,7 +145,7 @@ export class Date {
      * @param {string} value
      * @return {undefined}
      */
-    _setValue(value: string): void {
+    private _setValue(value: string): void {
         value = value || window['moment']()['format'](this.config.format);
         this.value = window['moment'](value, this.config.format);
     }
@@ -175,7 +175,7 @@ export class Date {
      * @private
      * @return {undefined}
      */
-    _drawCalendar(): void {
+    private _drawCalendar(): void {
         if (this.config.calendar_type) {
             const calendar = new Calendar(this.calendarNode, {
                 date: this.value,
@@ -195,7 +195,7 @@ export class Date {
      * @private
      * @return {undefined}
      */
-    _drawClock(): void {
+    private _drawClock(): void {
         if (this.config.clock_type) {
             const clock = new Clock(this.clockNode, {
                 time: this.value,
@@ -213,7 +213,7 @@ export class Date {
      * @private
      * @return {undefined}
      */
-    _onClick(): void {
+    private _onClick(): void {
         const value = this.getValue();
         this.eventClick(value);
     }

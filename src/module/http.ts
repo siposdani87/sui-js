@@ -24,7 +24,7 @@ export class Http {
      * @param {!Object=} opt_options
      * @return {undefined}
      */
-    _setOptions(opt_options: Object | undefined = {}): void {
+    private _setOptions(opt_options: Object | undefined = {}): void {
         const _self = this;
         _self.options = new Objekt({
             backend: '',
@@ -36,7 +36,7 @@ export class Http {
      * @private
      * @return {undefined}
      */
-    _init(): void {
+    private _init(): void {
         this.username = null;
         this.password = null;
         this.token = null;
@@ -122,7 +122,7 @@ export class Http {
      * @private
      * @return {!Xhr}
      */
-    _getRequestHandler(): Xhr {
+    private _getRequestHandler(): Xhr {
         const http = new Xhr(this.options);
         this.eventBeforeRequest(http);
         http.setBasicAuthorization(this.username, this.password);
@@ -134,7 +134,7 @@ export class Http {
      * @param {!Promize} promise
      * @return {!Promize}
      */
-    _getPromise(promise: Promize): Promize {
+    private _getPromise(promise: Promize): Promize {
         const deferred = new Deferred();
         promise.then(
             (...params) => {

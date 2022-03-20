@@ -19,12 +19,12 @@ export declare class ProgressStatus {
      * @param {!Object=} opt_options
      * @return {undefined}
      */
-    _setOptions(opt_options?: Object | undefined): void;
+    private _setOptions;
     /**
      * @private
      * @return {undefined}
      */
-    _init(): void;
+    private _init;
     /**
      * @private
      * @param {string} cssClass
@@ -32,7 +32,7 @@ export declare class ProgressStatus {
      * @param {string=} opt_icon
      * @return {undefined}
      */
-    _setStatus(cssClass: string, text: string, opt_icon?: string | undefined): void;
+    private _setStatus;
     /**
      * @param {string} text
      * @param {string=} opt_icon

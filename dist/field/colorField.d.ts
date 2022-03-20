@@ -26,7 +26,7 @@ export declare class ColorField extends BaseField {
      * @private
      * @return {undefined}
      */
-    _init(): void;
+    private _init;
     /**
      * @override
      */
@@ -39,25 +39,25 @@ export declare class ColorField extends BaseField {
      * @private
      * @return {undefined}
      */
-    _initInput(): void;
+    private _initInput;
     /**
      * @private
      * @return {undefined}
      */
-    _initPreview(): void;
+    private _initPreview;
     /**
      * @private
      * @return {undefined}
      */
-    _draw(): void;
+    private _draw;
     /**
      * @private
      * @return {undefined}
      */
-    _initImage(): void;
+    private _initImage;
     /**
      * @private
      * @return {undefined}
      */
-    _setMaterialColors(): void;
+    private _setMaterialColors;
 }

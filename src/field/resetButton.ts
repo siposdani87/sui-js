@@ -18,7 +18,7 @@ export class ResetButton extends BaseField {
      * @private
      * @return {undefined}
      */
-    _init(): void {
+    private _init(): void {
         this.input.setAttribute('name', 'reset');
     }
     /**

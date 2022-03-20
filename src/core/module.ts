@@ -153,7 +153,7 @@ export class Module {
      * @param {!Dependency} dependency
      * @return {!Object}
      */
-    _resolveDependencies(dependency: Dependency): Object {
+    private _resolveDependencies(dependency: Dependency): Object {
         const moduleArgs = [];
         each(dependency.moduleInjections, (injection) => {
             moduleArgs.push(this._instances[injection] || injection);
@@ -187,7 +187,7 @@ export class Module {
      * @private
      * @return {undefined}
      */
-    _orderServices(): void {
+    private _orderServices(): void {
         for (const key in this._modules) {
             if (this._modules.hasOwnProperty(key) && this._isModule(key)) {
                 if (this._services.indexOf(key) === -1) {
@@ -210,7 +210,7 @@ export class Module {
      * @param {string} value
      * @return {boolean}
      */
-    _isModule(value: string): boolean {
+    private _isModule(value: string): boolean {
         if (isString(value)) {
             const lastCharacters = value.substring(value.length - 7);
             return (
@@ -225,7 +225,7 @@ export class Module {
      * @param {string} injection
      * @return {undefined}
      */
-    _changeServices(service: string, injection: string): void {
+    private _changeServices(service: string, injection: string): void {
         if (this._dependencies.indexOf([injection, service].join('-')) !== -1) {
             consoleError(
                 'Modules._changeServices()',
@@ -352,7 +352,7 @@ export class Module {
      * @param {!Item} dom
      * @return {undefined}
      */
-    _initController(state: Objekt, dom: Item): void {
+    private _initController(state: Objekt, dom: Item): void {
         this._instances[this._injections.dom] = dom;
         const controller = this._modules[state.get<string>('controller')];
         if (controller) {

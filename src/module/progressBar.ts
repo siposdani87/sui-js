@@ -49,7 +49,7 @@ export class ProgressBar {
      * @private
      * @return {undefined}
      */
-    _setOptions(opt_options: Object | undefined = {}): void {
+    private _setOptions(opt_options: Object | undefined = {}): void {
         const _self = this;
         _self.options = new Objekt({
             lock: false,
@@ -61,7 +61,7 @@ export class ProgressBar {
      * @private
      * @return {undefined}
      */
-    _init(): void {
+    private _init(): void {
         this.progressBarContainer = new Query(
             '.main-container > .progress-bar',
         ).getItem();
@@ -114,7 +114,7 @@ export class ProgressBar {
      * @param {!Item} node
      * @return {!ProcessBar}
      */
-    _getProgressBar(node: Item): ProcessBar {
+    private _getProgressBar(node: Item): ProcessBar {
         node.addClass('mdl-js-progress');
 
         node.addEventListener('mdl-componentupgraded', (node) => {
@@ -155,7 +155,7 @@ export class ProgressBar {
      * @private
      * @return {undefined}
      */
-    _progress(): void {
+    private _progress(): void {
         if (!this.options.get('lock')) {
             this._separateProgressBars(
                 (condition) => {

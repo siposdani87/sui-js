@@ -20,7 +20,7 @@ export declare class TextareaField extends BaseField {
      * @private
      * @return {undefined}
      */
-    _init(): void;
+    private _init;
     /**
      * @override
      * @return {undefined}
@@ -29,48 +29,48 @@ export declare class TextareaField extends BaseField {
     /**
      * @return {undefined}
      */
-    _renderRichText(): void;
+    private _renderRichText;
     /**
      * @private
      * @return {boolean}
      */
-    _isRichText(): boolean;
+    private _isRichText;
     /**
      * @private
      * @return {undefined}
      */
-    _renderToolbarButtons(): void;
+    private _renderToolbarButtons;
     /**
      * @private
      * @param {string} iconName
      * @param {!Function} action
      * @return {undefined}
      */
-    _renderToolbarButton(iconName: string, action: Function): void;
+    private _renderToolbarButton;
     /**
      * @private
      * @param {boolean} value
      * @return {undefined}
      */
-    _setHtmlMode(value: boolean): void;
+    private _setHtmlMode;
     /**
      * @private
      * @return {boolean}
      */
-    _isHtmlMode(): boolean;
+    private _isHtmlMode;
     /**
      * @private
      * @param {string} sCmd
      * @param {*=} opt_sValue
      * @return {undefined}
      */
-    _formatDoc(sCmd: string, opt_sValue?: any | undefined): void;
+    private _formatDoc;
     /**
      * @private
      * @param {boolean} _isHtmlMode
      * @return {undefined}
      */
-    _setDocMode(_isHtmlMode: boolean): void;
+    private _setDocMode;
     /**
      * @override
      */
@@ -80,7 +80,7 @@ export declare class TextareaField extends BaseField {
      * @param {!Object|!Function|!Array|boolean|number|string|null|undefined} value
      * @return {undefined}
      */
-    _setValue(value: Object | Function | Array<any> | boolean | number | string | null | undefined): void;
+    private _setValue;
     /**
      * @override
      * @param {!Object|!Function|!Array|boolean|number|string|null|undefined} value

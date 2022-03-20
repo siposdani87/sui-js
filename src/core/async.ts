@@ -177,7 +177,7 @@ export class Async {
      * @private
      * @return {undefined}
      */
-    _clear(): void {
+    private _clear(): void {
         this.call = {
             sum: 0,
             isError: false,

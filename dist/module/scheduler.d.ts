@@ -11,7 +11,7 @@ export declare class Scheduler {
      * @private
      * @return {undefined}
      */
-    _callRunner(): void;
+    private _callRunner;
     /**
      * @param {string} time
      * @param {!Function} callback

@@ -14,17 +14,17 @@ export declare class Promize {
      * @private
      * @return {undefined}
      */
-    _setOptions(opt_options?: Object | undefined): void;
+    private _setOptions;
     /**
      * @param {*=} opt_data
      * @return {undefined}
      */
-    _resolve(opt_data: any | undefined): void;
+    resolve(opt_data: any | undefined): void;
     /**
      * @param {*=} opt_data
      * @return {undefined}
      */
-    _reject(opt_data: any | undefined): void;
+    reject(opt_data: any | undefined): void;
     /**
      * @param {!Function} resolve
      * @param {!Function=} opt_reject

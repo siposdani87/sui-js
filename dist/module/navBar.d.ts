@@ -13,7 +13,7 @@ export declare class NavBar {
      * @private
      * @return {undefined}
      */
-    _init(): void;
+    private _init;
     /**
      * @return {undefined}
      */

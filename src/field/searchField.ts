@@ -24,7 +24,7 @@ export class SearchField extends BaseField {
      * @private
      * @return {undefined}
      */
-    _init(): void {
+    private _init(): void {
         this.input.addEventListener('keyup', (input, event) => {
             const inputNode = input.getNode();
             this.modelChange(inputNode.value);
@@ -89,7 +89,7 @@ export class SearchField extends BaseField {
      * @private
      * @return {undefined}
      */
-    _initClearButton(): void {
+    private _initClearButton(): void {
         const clearButton = new Item('a');
         clearButton.setAttribute('href', 'javascript:void(0)');
         clearButton.addClass(['material-icons', 'clear-button']);

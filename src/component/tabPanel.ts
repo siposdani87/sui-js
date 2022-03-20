@@ -38,7 +38,7 @@ export class TabPanel {
      * @private
      * @return {undefined}
      */
-    _init(): void {
+    private _init(): void {
         this._initTabs();
         this._initPanels();
 
@@ -49,7 +49,7 @@ export class TabPanel {
      * @private
      * @return {undefined}
      */
-    _initTabs(): void {
+    private _initTabs(): void {
         this.tabs = new Query('.tabs a', this.tabPanel);
         this.tabs.each((tab) => {
             const panelId = tab.getAttribute('href').substring(1);
@@ -67,7 +67,7 @@ export class TabPanel {
      * @private
      * @return {undefined}
      */
-    _initPanels(): void {
+    private _initPanels(): void {
         this.panels = new Query('.panel', this.tabPanel);
     }
     /**
@@ -75,7 +75,7 @@ export class TabPanel {
      * @param {string} panelId
      * @return {undefined}
      */
-    _setActive(panelId: string): void {
+    private _setActive(panelId: string): void {
         let activeTab = this.options.default_tab;
 
         this.panels.each((panel) => {

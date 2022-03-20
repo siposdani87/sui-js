@@ -30,88 +30,88 @@ export declare class Clock {
      * @param {!Object} options
      * @return {undefined}
      */
-    _setOptions(options: Object): void;
+    private _setOptions;
     /**
      * @private
      * @return {undefined}
      */
-    _init(): void;
+    private _init;
     /**
      * @private
      * @param {!Function} hourCallback
      * @param {!Function} minuteCallback
      * @return {undefined}
      */
-    _switchMode(hourCallback: Function, minuteCallback: Function): void;
+    private _switchMode;
     /**
      * @private
      * @return {undefined}
      */
-    _initStructure(): void;
+    private _initStructure;
     /**
      * @private
      * @return {undefined}
      */
-    _initHeaderNode(): void;
+    private _initHeaderNode;
     /**
      * @private
      * @return {undefined}
      */
-    _initPeriodHeaderNode(): void;
+    private _initPeriodHeaderNode;
     /**
      * @private
      * @return {undefined}
      */
-    _togglePeriod(): void;
+    private _togglePeriod;
     /**
      * @private
      * @return {undefined}
      */
-    _initMinutesHeaderNode(): void;
+    private _initMinutesHeaderNode;
     /**
      * @private
      * @return {undefined}
      */
-    _initHoursHeaderNode(): void;
+    private _initHoursHeaderNode;
     /**
      * @private
      * @param {string} mode
      * @return {undefined}
      */
-    _setMode(mode: string): void;
+    private _setMode;
     /**
      * @private
      * @return {undefined}
      */
-    _initSeparatorHeaderNode(): void;
+    private _initSeparatorHeaderNode;
     /**
      * @private
      * @return {undefined}
      */
-    _initContentNode(): void;
+    private _initContentNode;
     /**
      * @private
      * @return {!Item}
      */
-    _getTimeNode(): Item;
+    private _getTimeNode;
     /**
      * @private
      * @param {number} hours
      * @return {undefined}
      */
-    _setHours(hours: number): void;
+    private _setHours;
     /**
      * @private
      * @param {number} minutes
      * @return {undefined}
      */
-    _setMinutes(minutes: number): void;
+    private _setMinutes;
     /**
      * @private
      * @param {string} period
      * @return {undefined}
      */
-    _setPeriod(period: string): void;
+    private _setPeriod;
     /**
      * @param {!Object} time
      * @return {undefined}
@@ -122,19 +122,19 @@ export declare class Clock {
      * @param {string} mode
      * @return {undefined}
      */
-    _initMode(mode: string): void;
+    private _initMode;
     /**
      * @private
      * @param {number} direction
      * @return {string}
      */
-    _getMode(direction: number): string;
+    private _getMode;
     /**
      * @private
      * @param {number} direction
      * @return {undefined}
      */
-    _changeMode(direction: number): void;
+    private _changeMode;
     /**
      * @return {undefined}
      */
@@ -144,19 +144,19 @@ export declare class Clock {
      * @param {!Item} timeNode
      * @return {undefined}
      */
-    _drawMinutes(timeNode: Item): void;
+    private _drawMinutes;
     /**
      * @private
      * @param {!Item} timeNode
      * @return {undefined}
      */
-    _drawHours(timeNode: Item): void;
+    private _drawHours;
     /**
      * @private
      * @param {!Object} selectedTime
      * @return {undefined}
      */
-    _onClick(selectedTime: Object): void;
+    private _onClick;
     /**
      * @param {!Object} time
      * @return {undefined}

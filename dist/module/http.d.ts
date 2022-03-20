@@ -18,12 +18,12 @@ export declare class Http {
      * @param {!Object=} opt_options
      * @return {undefined}
      */
-    _setOptions(opt_options?: Object | undefined): void;
+    private _setOptions;
     /**
      * @private
      * @return {undefined}
      */
-    _init(): void;
+    private _init;
     /**
      * @param {string} username
      * @param {string} password
@@ -77,13 +77,13 @@ export declare class Http {
      * @private
      * @return {!Xhr}
      */
-    _getRequestHandler(): Xhr;
+    private _getRequestHandler;
     /**
      * @private
      * @param {!Promize} promise
      * @return {!Promize}
      */
-    _getPromise(promise: Promize): Promize;
+    private _getPromise;
     /**
      * @param {!Xhr} http
      * @return {undefined}

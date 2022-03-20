@@ -22,14 +22,14 @@ export class Time {
      * @param {!Object} options
      * @return {undefined}
      */
-    _setOptions(options: Object): void {
+    private _setOptions(options: Object): void {
         this.options = options;
     }
     /**
      * @private
      * @return {undefined}
      */
-    _init(): void {
+    private _init(): void {
         this._initCircleNode();
         this._initPointerNode();
     }
@@ -37,7 +37,7 @@ export class Time {
      * @private
      * @return {undefined}
      */
-    _initCircleNode(): void {
+    private _initCircleNode(): void {
         const circleNode = new Item('div');
         circleNode.addClass('circle');
         this.timeNode.appendChild(circleNode);
@@ -53,7 +53,7 @@ export class Time {
      * @param {number} height
      * @return {undefined}
      */
-    _initSize(width: number, height: number): void {
+    private _initSize(width: number, height: number): void {
         const timeNodeStyle = window.getComputedStyle(this.timeNode.getNode());
         this.options.width =
             parseInt(timeNodeStyle.width.slice(0, -2), 10) - width;
@@ -67,7 +67,7 @@ export class Time {
      * @private
      * @return {undefined}
      */
-    _initPointerNode(): void {
+    private _initPointerNode(): void {
         const centerPointNode = new Item('div');
         centerPointNode.addClass('center-point');
         this.timeNode.appendChild(centerPointNode);
@@ -94,7 +94,7 @@ export class Time {
      * @param {boolean=} opt_isClockWise
      * @return {undefined}
      */
-    _drawCircles(start: number, n: number, opt_j: number | undefined = 1, opt_isClockWise: boolean | undefined = true): void {
+    private _drawCircles(start: number, n: number, opt_j: number | undefined = 1, opt_isClockWise: boolean | undefined = true): void {
         let k = 0;
         for (let i = start; i <= n; i++) {
             const circle = new Item('div');
@@ -118,7 +118,7 @@ export class Time {
      * @param {number} i
      * @return {undefined}
      */
-    _setCircleEvent(circle: Item, i: number): void {
+    private _setCircleEvent(circle: Item, i: number): void {
         circle.setData('index', i);
         circle.addEventListener('click', (circle) => {
             const index = /** @type {number} */(circle).getData('index');
@@ -135,7 +135,7 @@ export class Time {
      * @param {boolean=} opt_isClockWise
      * @return {undefined}
      */
-    _setCircleStyle(circle: Item, start: number, n: number, i: number, opt_j: number | undefined = 1, opt_isClockWise: boolean | undefined = true): void {
+    private _setCircleStyle(circle: Item, start: number, n: number, i: number, opt_j: number | undefined = 1, opt_isClockWise: boolean | undefined = true): void {
         const index = opt_j / 2 > i % opt_j ? i % opt_j : opt_j - (i % opt_j);
         const selected = this.options.selected === i ? 'selected' : null;
         const top =

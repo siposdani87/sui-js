@@ -1,4 +1,3 @@
-import { Params } from '../utils';
 /**
  * @class
  */
@@ -16,7 +15,7 @@ export declare class Router {
      * @private
      * @return {undefined}
      */
-    _init(): void;
+    private _init;
     /**
      * @param {!Object=} opt_params
      * @return {string}
@@ -37,5 +36,5 @@ export declare class Router {
      * @param {string} url
      * @return {!Params}
      */
-    _parseParams(url: string): Params;
+    private _parseParams;
 }

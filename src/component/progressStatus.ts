@@ -25,7 +25,7 @@ export class ProgressStatus {
      * @param {!Object=} opt_options
      * @return {undefined}
      */
-    _setOptions(opt_options: Object | undefined = {}): void {
+    private _setOptions(opt_options: Object | undefined = {}): void {
         const _self = this;
         _self.options = new Objekt({
             successStyle: 'success',
@@ -39,7 +39,7 @@ export class ProgressStatus {
      * @private
      * @return {undefined}
      */
-    _init(): void {
+    private _init(): void {
         this.iconNode = new Query('.icon', this.progressStatusNode).getItem();
         this.textNode = new Query('.text', this.progressStatusNode).getItem();
     }
@@ -50,7 +50,7 @@ export class ProgressStatus {
      * @param {string=} opt_icon
      * @return {undefined}
      */
-    _setStatus(cssClass: string, text: string, opt_icon: string | undefined = ''): void {
+    private _setStatus(cssClass: string, text: string, opt_icon: string | undefined = ''): void {
         this.progressStatusNode.removeClass([
             this.options.errorStyle,
             this.options.successStyle,

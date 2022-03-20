@@ -14,13 +14,13 @@ export declare class Flash {
      * @private
      * @return {undefined}
      */
-    _init(): void;
+    private _init;
     /**
      * @private
      * @param {!Object=} opt_options
      * @return {undefined}
      */
-    _setOptions(opt_options?: Object | undefined): void;
+    private _setOptions;
     /**
      * @param {string} type
      * @param {string} message
@@ -35,7 +35,7 @@ export declare class Flash {
      * @param {?Function=} opt_closeCallback
      * @return {!Item}
      */
-    _getCloseButton(flashNode: Item, opt_closeCallback?: (Function | null) | undefined): Item;
+    private _getCloseButton;
     /**
      * @param {string} type
      * @param {string} message
@@ -54,7 +54,7 @@ export declare class Flash {
      * @param {?Function=} opt_closeCallback
      * @return {boolean}
      */
-    _isClosable(type: string, opt_closeCallback?: (Function | null) | undefined): boolean;
+    private _isClosable;
     /**
      * @param {!Item} flash
      * @param {?Function=} opt_closeCallback

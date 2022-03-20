@@ -16,29 +16,29 @@ export declare class Time {
      * @param {!Object} options
      * @return {undefined}
      */
-    _setOptions(options: Object): void;
+    private _setOptions;
     /**
      * @private
      * @return {undefined}
      */
-    _init(): void;
+    private _init;
     /**
      * @private
      * @return {undefined}
      */
-    _initCircleNode(): void;
+    private _initCircleNode;
     /**
      * @private
      * @param {number} width
      * @param {number} height
      * @return {undefined}
      */
-    _initSize(width: number, height: number): void;
+    private _initSize;
     /**
      * @private
      * @return {undefined}
      */
-    _initPointerNode(): void;
+    private _initPointerNode;
     /**
      * @param {number} start
      * @param {number} n
@@ -55,14 +55,14 @@ export declare class Time {
      * @param {boolean=} opt_isClockWise
      * @return {undefined}
      */
-    _drawCircles(start: number, n: number, opt_j?: number | undefined, opt_isClockWise?: boolean | undefined): void;
+    private _drawCircles;
     /**
      * @private
      * @param {!Item} circle
      * @param {number} i
      * @return {undefined}
      */
-    _setCircleEvent(circle: Item, i: number): void;
+    private _setCircleEvent;
     /**
      * @private
      * @param {!Item} circle
@@ -73,7 +73,7 @@ export declare class Time {
      * @param {boolean=} opt_isClockWise
      * @return {undefined}
      */
-    _setCircleStyle(circle: Item, start: number, n: number, i: number, opt_j?: number | undefined, opt_isClockWise?: boolean | undefined): void;
+    private _setCircleStyle;
     /**
      * @param {number} index
      */

@@ -15,12 +15,12 @@ export declare class Browser {
      * @private
      * @return {undefined}
      */
-    _init(): void;
+    private _init;
     /**
      * @private
      * @return {undefined}
      */
-    _detectMissingFeatures(): void;
+    private _detectMissingFeatures;
     /**
      * @return {undefined}
      */
@@ -31,7 +31,7 @@ export declare class Browser {
      * @param {*} value
      * @return {undefined}
      */
-    _setFeature(name: string, value: any): void;
+    private _setFeature;
     /**
      * @param {!Array} features
      * @return {undefined}
@@ -41,12 +41,12 @@ export declare class Browser {
      * @private
      * @return {undefined}
      */
-    _detectBrowsers(): void;
+    private _detectBrowsers;
     /**
      * @private
      * @return {undefined}
      */
-    _detectOS(): void;
+    private _detectOS;
     /**
      * @return {boolean}
      */

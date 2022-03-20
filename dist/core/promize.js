@@ -30,7 +30,7 @@ export class Promize {
      * @param {*=} opt_data
      * @return {undefined}
      */
-    _resolve(opt_data) {
+    resolve(opt_data) {
         if (!isArray(opt_data)) {
             opt_data = [opt_data];
         }
@@ -48,7 +48,7 @@ export class Promize {
      * @param {*=} opt_data
      * @return {undefined}
      */
-    _reject(opt_data) {
+    reject(opt_data) {
         if (!isArray(opt_data)) {
             opt_data = opt_data ? [opt_data] : [];
         }

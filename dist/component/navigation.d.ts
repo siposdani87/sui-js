@@ -20,12 +20,12 @@ export declare class Navigation {
      * @param {!Object=} opt_options
      * @return {undefined}
      */
-    _setOptions(opt_options?: Object | undefined): void;
+    private _setOptions;
     /**
      * @private
      * @return {undefined}
      */
-    _init(): void;
+    private _init;
     /**
      * @param {!Objekt} item
      * @return {undefined}
@@ -79,7 +79,7 @@ export declare class Navigation {
      * @param {!Object=} opt_data
      * @return {!Objekt}
      */
-    _setItem(id: string, title: string | null, action: Function, opt_href?: string | undefined, opt_data?: Object | undefined): Objekt;
+    private _setItem;
     /**
      * @param {!Function} next
      * @return {undefined}
@@ -100,7 +100,7 @@ export declare class Navigation {
      * @param {!Objekt} item
      * @return {undefined}
      */
-    _disabled(item: Objekt): void;
+    private _disabled;
     /**
      * @param {string} id
      * @return {undefined}
@@ -111,7 +111,7 @@ export declare class Navigation {
      * @param {!Objekt} item
      * @return {undefined}
      */
-    _enabled(item: Objekt): void;
+    private _enabled;
     /**
      * @param {string} id
      * @return {undefined}

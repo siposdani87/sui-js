@@ -30,37 +30,37 @@ export declare class Date {
      * @param {!Object} options
      * @return {undefined}
      */
-    _setOptions(options: Object): void;
+    private _setOptions;
     /**
      * @private
      * @return {undefined}
      */
-    _init(): void;
+    private _init;
     /**
      * @private
      * @return {undefined}
      */
-    _initVariables(): void;
+    private _initVariables;
     /**
      * @private
      * @return {undefined}
      */
-    _initStructure(): void;
+    private _initStructure;
     /**
      * @private
      * @return {undefined}
      */
-    _initDateTimeNode(): void;
+    private _initDateTimeNode;
     /**
      * @private
      * @return {undefined}
      */
-    _initCalendarNode(): void;
+    private _initCalendarNode;
     /**
      * @private
      * @return {undefined}
      */
-    _initClockNode(): void;
+    private _initClockNode;
     /**
      * @return {!DateConfig}
      */
@@ -70,7 +70,7 @@ export declare class Date {
      * @param {string} value
      * @return {undefined}
      */
-    _setValue(value: string): void;
+    private _setValue;
     /**
      * @param {string} value
      * @return {undefined}
@@ -88,17 +88,17 @@ export declare class Date {
      * @private
      * @return {undefined}
      */
-    _drawCalendar(): void;
+    private _drawCalendar;
     /**
      * @private
      * @return {undefined}
      */
-    _drawClock(): void;
+    private _drawClock;
     /**
      * @private
      * @return {undefined}
      */
-    _onClick(): void;
+    private _onClick;
     /**
      * @param {string} value
      * @return {undefined}

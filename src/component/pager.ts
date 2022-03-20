@@ -41,7 +41,7 @@ export class Pager {
      * @param {!Object=} opt_options
      * @return {undefined}
      */
-    _setOptions(opt_options: Object | undefined = {}): void {
+    private _setOptions(opt_options: Object | undefined = {}): void {
         const _self = this;
         _self.options = new Objekt({
             row_count: 10,
@@ -53,7 +53,7 @@ export class Pager {
      * @private
      * @return {undefined}
      */
-    _init(): void {
+    private _init(): void {
         this.count = this.options.row_count;
         this.setPage(1);
     }
@@ -61,7 +61,7 @@ export class Pager {
      * @private
      * @return {undefined}
      */
-    _drawPager(): void {
+    private _drawPager(): void {
         this.pager.removeChildren();
         this.pageNum = Math.ceil(this.count / this.options.row_count);
         this._drawPreviousButton();
@@ -72,7 +72,7 @@ export class Pager {
      * @private
      * @return {undefined}
      */
-    _drawStatistics(): void {
+    private _drawStatistics(): void {
         const page = this.page - 1;
         const from = page * this.options.row_count + 1;
         let to = page * this.options.row_count + this.options.row_count;
@@ -89,7 +89,7 @@ export class Pager {
      * @private
      * @return {undefined}
      */
-    _drawPreviousButton(): void {
+    private _drawPreviousButton(): void {
         if (this.pageNum > 1) {
             const previousButton = new Item('button');
             previousButton.addClass([
@@ -112,7 +112,7 @@ export class Pager {
      * @private
      * @return {undefined}
      */
-    _drawNextButton(): void {
+    private _drawNextButton(): void {
         if (this.pageNum > 1) {
             const nextButton = new Item('button');
             nextButton.addClass([
@@ -135,7 +135,7 @@ export class Pager {
      * @private
      * @return {undefined}
      */
-    _drawPageNumbers(): void {
+    private _drawPageNumbers(): void {
         const pagers = this._getPagers();
         if (pagers.length > 1) {
             each(pagers, (pager) => {
@@ -163,7 +163,7 @@ export class Pager {
      * @private
      * @return {!Array<Page>}
      */
-    _getPagers(): Page[] {
+    private _getPagers(): Page[] {
         const part = Math.floor((this.page - 1) / this.options.pager_num);
         const pagers = [];
         if (part > 0) {
@@ -197,7 +197,7 @@ export class Pager {
      * @private
      * @return {undefined}
      */
-    _next(): void {
+    private _next(): void {
         let page = this.page + 1;
         if (page > this.pageNum) {
             page = 1;
@@ -208,7 +208,7 @@ export class Pager {
      * @private
      * @return {undefined}
      */
-    _previous(): void {
+    private _previous(): void {
         let page = this.page - 1;
         if (page < 1) {
             page = this.pageNum;
@@ -227,7 +227,7 @@ export class Pager {
      * @param {number} page
      * @return {undefined}
      */
-    _go(page: number): void {
+    private _go(page: number): void {
         this.setPage(page);
         this.eventAction(this.page);
     }

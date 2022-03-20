@@ -19,7 +19,7 @@ export class Sidebar {
      * @private
      * @return {undefined}
      */
-    _init(): void {
+    private _init(): void {
         this.sidebar = new Query(this.selector).getItem();
         this.button = new Query('a', this.sidebar).getItem();
         this.button.setAttribute('href', 'javascript:void(0)');

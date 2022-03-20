@@ -19,7 +19,7 @@ export declare class Collection<T extends Object = Objekt> {
      * @param {!Object=} opt_options
      * @return {undefined}
      */
-    _setOptions(opt_options?: Object | undefined): void;
+    private _setOptions;
     /**
      * @param {!Array<Object|T>} items
      * @return {undefined}
@@ -40,7 +40,7 @@ export declare class Collection<T extends Object = Objekt> {
      * @param {!Object|!T} object
      * @return {T}
      */
-    _createItem(object: Object | T): T;
+    private _createItem;
     /**
      * @param {number} index
      * @param {!Object|!T} object

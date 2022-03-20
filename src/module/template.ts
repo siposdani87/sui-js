@@ -28,7 +28,7 @@ export class Template {
      * @param {!Object=} opt_options
      * @return {undefined}
      */
-    _setOptions(opt_options: Object | undefined = {}): void {
+    private _setOptions(opt_options: Object | undefined = {}): void {
         const _self = this;
         _self.options = new Objekt({
             selector: '.template-view',
@@ -40,7 +40,7 @@ export class Template {
      * @private
      * @return {undefined}
      */
-    _init(): void {
+    private _init(): void {
         this.viewNode = new Query(this.options.selector).getItem();
     }
     /**
@@ -85,7 +85,7 @@ export class Template {
      * @param {boolean} error
      * @return {!Item}
      */
-    _handleData(data: Item, error: boolean): Item {
+    private _handleData(data: Item, error: boolean): Item {
         const node = new Query('.page-content', data).getItem();
         if (error) {
             const messageItem = new Query('.message', node).getItem();

@@ -9,7 +9,7 @@ export declare class ServiceWorker {
      * @private
      * @return {undefined}
      */
-    _init(): void;
+    private _init;
     /**
      * @param {!Array} features
      * @return {undefined}

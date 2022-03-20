@@ -16,7 +16,7 @@ export declare class GeoLocation {
      * @private
      * @return {undefined}
      */
-    _init(): void;
+    private _init;
     /**
      * @return {undefined}
      */
@@ -41,13 +41,13 @@ export declare class GeoLocation {
      * @param {!GeolocationPosition} position
      * @return {undefined}
      */
-    _handlePosition(position: GeolocationPosition): void;
+    private _handlePosition;
     /**
      * @private
      * @param {!GeolocationPositionError} error
      * @return {undefined}
      */
-    _handleError(error: GeolocationPositionError): void;
+    private _handleError;
     /**
      * @param {string} message
      * @param {string} code

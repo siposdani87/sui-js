@@ -20,7 +20,7 @@ export class TopMenu {
      * @private
      * @return {undefined}
      */
-    _init(): void {
+    private _init(): void {
         this.topMenu = new Query('#top-menu', this.header.headerNode).getItem();
 
         this.toggleTopMenu = new Query(

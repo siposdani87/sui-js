@@ -24,23 +24,23 @@ export declare class TabPanel {
      * @private
      * @return {undefined}
      */
-    _init(): void;
+    private _init;
     /**
      * @private
      * @return {undefined}
      */
-    _initTabs(): void;
+    private _initTabs;
     /**
      * @private
      * @return {undefined}
      */
-    _initPanels(): void;
+    private _initPanels;
     /**
      * @private
      * @param {string} panelId
      * @return {undefined}
      */
-    _setActive(panelId: string): void;
+    private _setActive;
     /**
      * @param {string} panelId
      * @return {undefined}

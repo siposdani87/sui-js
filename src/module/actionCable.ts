@@ -22,7 +22,7 @@ export class ActionCable {
      * @private
      * @return {undefined}
      */
-    _init(): void {
+    private _init(): void {
         if (window['ActionCable']) {
             this.cable = window['ActionCable']['createConsumer']();
         }
@@ -73,7 +73,7 @@ export class ActionCable {
      * @param {!Object} options
      * @return {string}
      */
-    _generateIdentifier(options: Object): string {
+    protected _generateIdentifier(options: Object): string {
         return md5(JSON.stringify(options));
     }
 }

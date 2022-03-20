@@ -46,7 +46,7 @@ export declare class GoogleMap {
      * @param {!Object=} opt_options
      * @return {undefined}
      */
-    _setOptions(opt_options?: Object | undefined): void;
+    private _setOptions;
     /**
      * @return {string}
      */
@@ -67,27 +67,27 @@ export declare class GoogleMap {
      * @private
      * @return {undefined}
      */
-    _init(): void;
+    private _init;
     /**
      * @private
      * @return {undefined}
      */
-    _initMap(): void;
+    private _initMap;
     /**
      * @private
      * @return {undefined}
      */
-    _bindEventsToMap(): void;
+    private _bindEventsToMap;
     /**
      * @private
      * @return {undefined}
      */
-    _unbindEventsToMap(): void;
+    private _unbindEventsToMap;
     /**
      * @private
      * @return {undefined}
      */
-    _initOverlay(): void;
+    private _initOverlay;
     /**
      * @param {!Objekt} polygonData
      * @param {!Array<{latitude: number, longitude: number}>} points
@@ -137,7 +137,7 @@ export declare class GoogleMap {
      * @param {!Object} polygonData
      * @return {!Objekt}
      */
-    _cleanPolygonData(polygonData: Object): Objekt;
+    private _cleanPolygonData;
     /**
      * @param {Id} id
      * @return {!Objekt}
@@ -158,33 +158,33 @@ export declare class GoogleMap {
      * @param {!Objekt} polygonData
      * @return {undefined}
      */
-    _bindEventsToPolygon(polygon: google.maps.Polygon, polygonData: Objekt): void;
+    private _bindEventsToPolygon;
     /**
      * @private
      * @param {!google.maps.Polygon} polygon
      * @return {undefined}
      */
-    _unbindEventsToPolygon(polygon: google.maps.Polygon): void;
-    /**
-     * @private
-     * @param {!google.maps.Polygon} polygon
-     * @param {!Objekt} polygonData
-     * @return {undefined}
-     */
-    _bindEventsToPolygonPath(polygon: google.maps.Polygon, polygonData: Objekt): void;
-    /**
-     * @private
-     * @param {!google.maps.Polygon} polygon
-     * @return {undefined}
-     */
-    _unbindEventsToPolygonPath(polygon: google.maps.Polygon): void;
+    private _unbindEventsToPolygon;
     /**
      * @private
      * @param {!google.maps.Polygon} polygon
      * @param {!Objekt} polygonData
      * @return {undefined}
      */
-    _callPolygonChangeEvent(polygon: google.maps.Polygon, polygonData: Objekt): void;
+    private _bindEventsToPolygonPath;
+    /**
+     * @private
+     * @param {!google.maps.Polygon} polygon
+     * @return {undefined}
+     */
+    private _unbindEventsToPolygonPath;
+    /**
+     * @private
+     * @param {!google.maps.Polygon} polygon
+     * @param {!Objekt} polygonData
+     * @return {undefined}
+     */
+    private _callPolygonChangeEvent;
     /**
      * @param {!Objekt} polygonData
      * @param {number} latitude
@@ -228,33 +228,27 @@ export declare class GoogleMap {
      * @param {!Array<{latitude: number, longitude: number}>} points
      * @return {undefined}
      */
-    _addPointsToPolygon(polygonData: Objekt, points: Array<{
-        latitude: number;
-        longitude: number;
-    }>): void;
+    private _addPointsToPolygon;
     /**
      * @private
      * @param {!Array<WeigthPoint>} points
      * @return {!Array<!google.maps.LatLng>}
      */
-    _convertPointsToPath(points: Array<WeigthPoint>): Array<google.maps.LatLng>;
+    private _convertPointsToPath;
     /**
      * @private
      * @param {!Objekt} polygonData
      * @param {!Array<{latitude: number, longitude: number}>} points
      * @return {undefined}
      */
-    _setBoundsByPoints(polygonData: Objekt, points: Array<{
-        latitude: number;
-        longitude: number;
-    }>): void;
+    private _setBoundsByPoints;
     /**
      * @private
      * @param {!Objekt} polygonData
      * @param {!Array<!google.maps.LatLng>} path
      * @return {undefined}
      */
-    _setBoundsByPath(polygonData: Objekt, path: Array<google.maps.LatLng>): void;
+    private _setBoundsByPath;
     /**
      * @param {!Objekt} polygonData
      * @return {{latitude: number, longitude: number}}
@@ -273,10 +267,7 @@ export declare class GoogleMap {
      * @param {!Objekt} polygonData
      * @return {!Array<{latitude: number, longitude: number}>}
      */
-    _getPointsFromPolygon(polygonData: Objekt): Array<{
-        latitude: number;
-        longitude: number;
-    }>;
+    private _getPointsFromPolygon;
     /**
      * @param {!Objekt} polygonData
      * @return {number}
@@ -351,12 +342,12 @@ export declare class GoogleMap {
      * @param {!Objekt} markerData
      * @return {undefined}
      */
-    _bindEventsToMarker(marker: google.maps.Marker, markerData: Objekt): void;
+    private _bindEventsToMarker;
     /**
      * @param {!google.maps.Marker} marker
      * @return {undefined}
      */
-    _unbindEventsToMarker(marker: google.maps.Marker): void;
+    private _unbindEventsToMarker;
     /**
      * @param {Id} id
      * @param {string} title
@@ -372,7 +363,7 @@ export declare class GoogleMap {
      * @param {!Object} markerData
      * @return {!Objekt}
      */
-    _cleanMarkerData(markerData: Object): Objekt;
+    private _cleanMarkerData;
     /**
      * @param {Id} id
      * @return {!Objekt}

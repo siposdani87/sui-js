@@ -1,6 +1,5 @@
 import { BaseField } from './baseField';
 import { Item } from '../core/item';
-import { Query } from '../core/query';
 import { Form } from '../component';
 /**
  * @class
@@ -21,12 +20,12 @@ export declare class RadiobuttonField extends BaseField {
      * @private
      * @return {undefined}
      */
-    _init(): void;
+    private _init;
     /**
      * @private
      * @return {undefined}
      */
-    _change(): void;
+    private _change;
     /**
      * @override
      * @return {undefined}
@@ -61,7 +60,7 @@ export declare class RadiobuttonField extends BaseField {
     /**
      * @return {!Query}
      */
-    _getRadioButtonInputs(): Query<HTMLInputElement>;
+    private _getRadioButtonInputs;
     /**
      * @override
      * @param {string} text

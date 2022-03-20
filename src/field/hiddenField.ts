@@ -17,7 +17,7 @@ export class HiddenField extends BaseField {
      * @private
      * @return {undefined}
      */
-    _init(): void {
+    private _init(): void {
         this.input.addEventListener('change', (input) => {
             const inputNode = input.getNode();
             this.modelChange(inputNode.value);

@@ -58,7 +58,7 @@ export class Application {
      * @param {!Object} options
      * @return {undefined}
      */
-    _setOptions(options: Object): void {
+    private _setOptions(options: Object): void {
         const _self = this;
         _self.options = new Objekt({
             app_id: 'sui-app',
@@ -75,7 +75,7 @@ export class Application {
      * @param {!Object} resources
      * @return {undefined}
      */
-    _init(resources: Object): void {
+    private _init(resources: Object): void {
         this._injections = resources;
         this._instances = {};
 
@@ -157,7 +157,7 @@ export class Application {
      * @private
      * @return {undefined}
      */
-    _initLocale(): void {
+    private _initLocale(): void {
         const locale = this.getLocale();
         window['moment']['locale'](locale);
         this.setLocale(locale);
@@ -166,7 +166,7 @@ export class Application {
      * @private
      * @return {undefined}
      */
-    _initCertificate(): void {
+    private _initCertificate(): void {
         const rootNode = new Query('html').getItem();
         rootNode.removeClass('no-js');
         rootNode.addClass('sui-js');
@@ -175,7 +175,7 @@ export class Application {
      * @private
      * @return {undefined}
      */
-    _initModule(): void {
+    private _initModule(): void {
         this._module = new Module();
 
         this._module.eventAfterInit = () => {
@@ -257,14 +257,14 @@ export class Application {
      * @private
      * @return {undefined}
      */
-    _loadModules(): void {
+    private _loadModules(): void {
         this._module.load(this._instances, this._injections);
     }
     /**
      * @private
      * @return {undefined}
      */
-    _initScript(): void {
+    private _initScript(): void {
         this._instances[this._injections.script] = new Script(
             this._instances[this._injections.progressBar],
         );
@@ -273,7 +273,7 @@ export class Application {
      * @private
      * @return {undefined}
      */
-    _initStyle(): void {
+    private _initStyle(): void {
         this._instances[this._injections.style] = new Style(
             this._instances[this._injections.progressBar],
         );
@@ -282,21 +282,21 @@ export class Application {
      * @private
      * @return {undefined}
      */
-    _initConfig(): void {
+    private _initConfig(): void {
         this._instances[this._injections.config] = this.options;
     }
     /**
      * @private
      * @return {undefined}
      */
-    _initApp(): void {
+    private _initApp(): void {
         this._instances[this._injections.app] = this;
     }
     /**
      * @private
      * @return {undefined}
      */
-    _initGeoLocation(): void {
+    private _initGeoLocation(): void {
         this._instances[this._injections.geoLocation] = new GeoLocation();
 
         this._instances[this._injections.geoLocation].eventChange = (
@@ -334,7 +334,7 @@ export class Application {
      * @private
      * @return {undefined}
      */
-    _initCookie(): void {
+    private _initCookie(): void {
         this._instances[this._injections.cookie] = new Cookie({
             prefix: this.options.app_id,
         });
@@ -343,14 +343,14 @@ export class Application {
      * @private
      * @return {undefined}
      */
-    _initLoader(): void {
+    private _initLoader(): void {
         this._instances[this._injections.loader] = new Loader();
     }
     /**
      * @private
      * @return {undefined}
      */
-    _initProgressBar(): void {
+    private _initProgressBar(): void {
         this._instances[this._injections.progressBar] = new ProgressBar(
             this._instances[this._injections.dialog],
             this._instances[this._injections.confirm],
@@ -360,7 +360,7 @@ export class Application {
      * @private
      * @return {undefined}
      */
-    _initStorage(): void {
+    private _initStorage(): void {
         this._instances[this._injections.localStorage] = new Storage({
             type: 'local',
             prefix: this.options.app_id,
@@ -376,14 +376,14 @@ export class Application {
      * @private
      * @return {undefined}
      */
-    _initHelper(): void {
+    private _initHelper(): void {
         this._instances[this._injections.helper] = new Helper();
     }
     /**
      * @private
      * @return {undefined}
      */
-    _initDocument(): void {
+    private _initDocument(): void {
         const popupContainer = new PopupContainer();
         this._instances[this._injections.document] = new Document();
         this._instances[this._injections.document].eventClick = (
@@ -401,7 +401,7 @@ export class Application {
      * @private
      * @return {undefined}
      */
-    _initWindow(): void {
+    private _initWindow(): void {
         this._instances[this._injections.window] = new Window();
         const width = this._instances[this._injections.window].getWidth();
         const height = this._instances[this._injections.window].getHeight();
@@ -486,21 +486,21 @@ export class Application {
      * @private
      * @return {undefined}
      */
-    _initEvent(): void {
+    private _initEvent(): void {
         this._instances[this._injections.event] = new Event();
     }
     /**
      * @private
      * @return {undefined}
      */
-    _initScheduler(): void {
+    private _initScheduler(): void {
         this._instances[this._injections.scheduler] = new Scheduler();
     }
     /**
      * @private
      * @return {undefined}
      */
-    _initHttp(): void {
+    private _initHttp(): void {
         this._instances[this._injections.http] = new Http(this.options);
         this._instances[this._injections.http].eventBeforeRequest = (
             ...params
@@ -525,7 +525,7 @@ export class Application {
      * @private
      * @return {undefined}
      */
-    _initTemplate(): void {
+    private _initTemplate(): void {
         this._instances[this._injections.template] = new Template(
             this._instances[this._injections.http],
             {
@@ -542,14 +542,14 @@ export class Application {
      * @private
      * @return {undefined}
      */
-    _initFlash(): void {
+    private _initFlash(): void {
         this._instances[this._injections.flash] = new Flash();
     }
     /**
      * @private
      * @return {undefined}
      */
-    _initDialog(): void {
+    private _initDialog(): void {
         this._instances[this._injections.dialog] = new Dialog(
             this._instances[this._injections.http],
         );
@@ -558,28 +558,28 @@ export class Application {
      * @private
      * @return {undefined}
      */
-    _initConfirm(): void {
+    private _initConfirm(): void {
         this._instances[this._injections.confirm] = new Confirm();
     }
     /**
      * @private
      * @return {undefined}
      */
-    _initViewer(): void {
+    private _initViewer(): void {
         this._instances[this._injections.viewer] = new Viewer();
     }
     /**
      * @private
      * @return {undefined}
      */
-    _initHeader(): void {
+    private _initHeader(): void {
         this._instances[this._injections.header] = new Header();
     }
     /**
      * @private
      * @return {undefined}
      */
-    _initTopMenu(): void {
+    private _initTopMenu(): void {
         this._instances[this._injections.topMenu] = new TopMenu(
             this._instances[this._injections.header],
         );
@@ -588,14 +588,14 @@ export class Application {
      * @private
      * @return {undefined}
      */
-    _initNavBar(): void {
+    private _initNavBar(): void {
         this._instances[this._injections.navBar] = new NavBar();
     }
     /**
      * @private
      * @return {undefined}
      */
-    _initBottomMenu(): void {
+    private _initBottomMenu(): void {
         this._instances[this._injections.bottomMenu] = new BottomMenu(
             this._instances[this._injections.footer],
         );
@@ -604,7 +604,7 @@ export class Application {
      * @private
      * @return {undefined}
      */
-    _initSidebar(): void {
+    private _initSidebar(): void {
         this._instances[this._injections.leftSidebar] = new Sidebar(
             '#left-sidebar',
         );
@@ -617,21 +617,21 @@ export class Application {
      * @private
      * @return {undefined}
      */
-    _initLeftMenu(): void {
+    private _initLeftMenu(): void {
         this._instances[this._injections.leftMenu] = new LeftMenu();
     }
     /**
      * @private
      * @return {undefined}
      */
-    _initFooter(): void {
+    private _initFooter(): void {
         this._instances[this._injections.footer] = new Footer();
     }
     /**
      * @private
      * @return {undefined}
      */
-    _initBrowser(): void {
+    private _initBrowser(): void {
         this._instances[this._injections.browser] = new Browser();
         this._instances[this._injections.browser].eventMissingFeatures = (
             features,
@@ -645,7 +645,7 @@ export class Application {
      * @private
      * @return {undefined}
      */
-    _initServiceWorker(): void {
+    private _initServiceWorker(): void {
         this._instances[this._injections.serviceWorker] = new ServiceWorker();
         this._instances[this._injections.serviceWorker].eventMissingFeatures = (
             features,
@@ -659,14 +659,14 @@ export class Application {
      * @private
      * @return {undefined}
      */
-    _initActionCable(): void {
+    private _initActionCable(): void {
         this._instances[this._injections.actionCable] = new ActionCable();
     }
     /**
      * @private
      * @return {undefined}
      */
-    _initRoutes(): void {
+    private _initRoutes(): void {
         this._routes = [];
         this._routeOptions = new Objekt();
     }

@@ -26,12 +26,12 @@ export declare class DateTimeRangeField extends BaseField {
      * @private
      * @return {undefined}
      */
-    _init(): void;
+    private _init;
     /**
      * @private
      * @return {undefined}
      */
-    _initInput(): void;
+    private _initInput;
     /**
      * @override
      * @return {undefined}
@@ -52,10 +52,10 @@ export declare class DateTimeRangeField extends BaseField {
      * @param {string} value
      * @return {undefined}
      */
-    _setTag(value: string): void;
+    private _setTag;
     /**
      * @private
      * @return {undefined}
      */
-    _onClick(): void;
+    private _onClick;
 }

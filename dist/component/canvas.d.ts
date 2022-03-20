@@ -15,12 +15,12 @@ export declare class Canvas {
      * @param {!Item|string=} opt_selector
      * @return {undefined}
      */
-    _init(opt_selector?: (Item | string)): void;
+    private _init;
     /**
      * @private
      * @return {undefined}
      */
-    _initEvents(): void;
+    private _initEvents;
     /**
      * @param {number} width
      * @return {undefined}

@@ -14,7 +14,7 @@ export declare class BottomMenu {
      * @private
      * @return {undefined}
      */
-    _init(): void;
+    private _init;
     /**
      * @return {undefined}
      */

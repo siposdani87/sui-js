@@ -30,7 +30,7 @@ export class BaseModal {
      * @protected
      * @return {undefined}
      */
-    _initBase(): void {
+    protected _initBase(): void {
         this.windowWidth = 0;
         this.windowHeight = 0;
 
@@ -43,7 +43,7 @@ export class BaseModal {
      * @private
      * @return {undefined}
      */
-    _initButtons(): void {
+    private _initButtons(): void {
         this._initCloseButton();
         this._initMinimizeButton();
         this._initMaximizeButton();
@@ -52,7 +52,7 @@ export class BaseModal {
      * @private
      * @return {undefined}
      */
-    _initMinimizeButton(): void {
+    private _initMinimizeButton(): void {
         const btnMinimize = new Query('.minimize', this.modal).getItem();
         if (!btnMinimize.isEmpty()) {
             btnMinimize.addClass([
@@ -70,7 +70,7 @@ export class BaseModal {
      * @private
      * @return {undefined}
      */
-    _initMaximizeButton(): void {
+    private _initMaximizeButton(): void {
         const btnMaximize = new Query('.maximize', this.modal).getItem();
         if (!btnMaximize.isEmpty()) {
             btnMaximize.addClass([
@@ -88,7 +88,7 @@ export class BaseModal {
      * @private
      * @return {undefined}
      */
-    _initCloseButton(): void {
+    private _initCloseButton(): void {
         const btnClose = new Query('.close', this.modal).getItem();
         if (!btnClose.isEmpty()) {
             btnClose.addClass([
@@ -113,7 +113,7 @@ export class BaseModal {
      * @param {boolean=} opt_allowClose
      * @return {undefined}
      */
-    _handleCloseButton(opt_allowClose: boolean | undefined = true): void {
+    private _handleCloseButton(opt_allowClose: boolean | undefined = true): void {
         if (this.btnClose) {
             if (opt_allowClose) {
                 this.btnClose.removeClass('hidden');
@@ -166,7 +166,7 @@ export class BaseModal {
      * @param {string=} opt_title
      * @return {undefined}
      */
-    _setTitle(opt_title: string | undefined): void {
+    protected _setTitle(opt_title: string | undefined): void {
         this.modalTitle.setHtml(opt_title);
 
         if (
@@ -183,7 +183,7 @@ export class BaseModal {
      * @protected
      * @return {undefined}
      */
-    _reset(): void {
+    protected _reset(): void {
         this.eventOK = noop();
         this.eventCancel = noop();
     }
@@ -191,7 +191,7 @@ export class BaseModal {
      * @protected
      * @return {undefined}
      */
-    _actionOK(): void {
+    protected _actionOK(): void {
         const async = new Async();
         const calls = [this.eventOK.bind(this), this.close.bind(this)];
         async.serial(calls);
@@ -200,7 +200,7 @@ export class BaseModal {
      * @protected
      * @return {undefined}
      */
-    _actionCancel(): void {
+    protected _actionCancel(): void {
         const async = new Async();
         const calls = [this.eventCancel.bind(this), this.close.bind(this)];
         async.serial(calls);
@@ -209,14 +209,14 @@ export class BaseModal {
      * @private
      * @return {undefined}
      */
-    _actionMinimize(): void {
+    private _actionMinimize(): void {
         // empty function
     }
     /**
      * @private
      * @return {undefined}
      */
-    _actionMaximize(): void {
+    private _actionMaximize(): void {
         // empty function
     }
     /**
@@ -233,7 +233,7 @@ export class BaseModal {
      * @private
      * @return {undefined}
      */
-    _handleCenterPosition(): void {
+    private _handleCenterPosition(): void {
         const style = this.modalWindow.getComputedStyle();
         const styleHeight = style.getPropertyValue('height');
         if (contain(styleHeight, 'px')) {

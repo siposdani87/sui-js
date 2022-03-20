@@ -27,7 +27,7 @@ export class Script {
      * @param {!Object=} opt_options
      * @return {undefined}
      */
-    _setOptions(opt_options: Object | undefined = {}): void {
+    private _setOptions(opt_options: Object | undefined = {}): void {
         const _self = this;
         _self.options = new Objekt();
         _self.options.merge(opt_options);
@@ -36,7 +36,7 @@ export class Script {
      * @private
      * @return {undefined}
      */
-    _init(): void {
+    private _init(): void {
         this.head = new Query('head').getItem();
     }
     /**

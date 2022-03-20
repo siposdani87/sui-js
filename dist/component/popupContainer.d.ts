@@ -14,13 +14,13 @@ export declare class PopupContainer {
      * @private
      * @return {undefined}
      */
-    _init(): void;
+    private _init;
     /**
      * @private
      * @param {!Function} type
      * @return {undefined}
      */
-    _initCollection(type: Function): void;
+    private _initCollection;
     /**
      * @param {!Function} type
      * @param {!Popup} popup

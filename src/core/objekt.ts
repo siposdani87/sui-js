@@ -66,7 +66,7 @@ export class Objekt {
      * @param {string} key
      * @return {undefined}
      */
-    _convertObject(object: any, key: string): void {
+    private _convertObject(object: any, key: string): void {
         each(object[key], (obj, i) => {
             object[key][i] = new Objekt(obj);
         });
@@ -163,7 +163,7 @@ export class Objekt {
      * @param {*} value
      * @return {undefined}
      */
-    _set(object: Object | Objekt, attributes: Array<string>, value: any): void {
+    private _set(object: Object | Objekt, attributes: Array<string>, value: any): void {
         eachObject(object, (_oldValue, property) => {
             if (attributes.length === 1 && property === attributes[0]) {
                 object[property] = value;
@@ -226,7 +226,7 @@ export class Objekt {
      * @param {!Array<string>} attributes
      * @return {undefined}
      */
-    _remove(object: Object | Objekt, attributes: Array<string>): void {
+    private _remove(object: Object | Objekt, attributes: Array<string>): void {
         for (const property in object) {
             if (object.hasOwnProperty(property)) {
                 if (attributes.length === 1 && property === attributes[0]) {

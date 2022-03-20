@@ -31,33 +31,33 @@ export declare class CardCollection {
      * @param {!Object=} opt_options
      * @return {undefined}
      */
-    _setOptions(opt_options?: Object | undefined): void;
+    private _setOptions;
     /**
      * @private
      * @return {undefined}
      */
-    _init(): void;
+    private _init;
     /**
      * @private
      * @return {undefined}
      */
-    _initContentHandler(): void;
+    private _initContentHandler;
     /**
      * @private
      * @return {undefined}
      */
-    _initStructure(): void;
+    private _initStructure;
     /**
      * @private
      * @return {undefined}
      */
-    _initTemplate(): void;
+    private _initTemplate;
     /**
      * @private
      * @param {!Objekt} item
      * @return {!Item}
      */
-    _getCardNode(item: Objekt): Item;
+    private _getCardNode;
     /**
      * @param {number=} opt_page
      * @return {undefined}
@@ -79,7 +79,7 @@ export declare class CardCollection {
      * @param {!Objekt} item
      * @return {undefined}
      */
-    _addCard(item: Objekt): void;
+    private _addCard;
     /**
      * @param {!Array} items
      * @return {undefined}
@@ -94,12 +94,12 @@ export declare class CardCollection {
      * @private
      * @return {!Array}
      */
-    _getItems(): Array<any>;
+    private _getItems;
     /**
      * @private
      * @return {undefined}
      */
-    _draw(): void;
+    private _draw;
     /**
      * @return {undefined}
      */

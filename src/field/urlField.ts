@@ -22,7 +22,7 @@ export class UrlField extends BaseField {
      * @private
      * @return {undefined}
      */
-    _init(): void {
+    private _init(): void {
         this.inputBlock.addClass('url-field');
 
         /**

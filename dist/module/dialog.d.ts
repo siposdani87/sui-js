@@ -1,7 +1,7 @@
 import { Objekt } from '../core/objekt';
 import { BaseModal } from './baseModal';
 import { Http } from './http';
-import { Item, Promize } from '../core';
+import { Promize } from '../core';
 /**
  * @class
  * @extends {BaseModal}
@@ -19,12 +19,12 @@ export declare class Dialog extends BaseModal {
      * @private
      * @return {undefined}
      */
-    _setOptions(opt_options?: Object | undefined): void;
+    private _setOptions;
     /**
      * @private
      * @return {undefined}
      */
-    _init(): void;
+    private _init;
     /**
      * @param {string} url
      * @return {!Promize}
@@ -34,15 +34,15 @@ export declare class Dialog extends BaseModal {
      * @param {!Item} dom
      * @return {!Item}
      */
-    _handleMessage(dom: Item): Item;
+    private _handleMessage;
     /**
      * @param {!Item} dom
      * @return {!Item}
      */
-    _handleDom(dom: Item): Item;
+    private _handleDom;
     /**
      * @param {!Item} dom
      * @return {undefined}
      */
-    _handleActions(dom: Item): void;
+    private _handleActions;
 }

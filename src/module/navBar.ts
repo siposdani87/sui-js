@@ -17,7 +17,7 @@ export class NavBar {
      * @private
      * @return {undefined}
      */
-    _init(): void {
+    private _init(): void {
         this.navBarHeader = new Query('.nav-bar-header').getItem();
         this.navBar = new Query('#nav-bar', this.navBarHeader).getItem();
 

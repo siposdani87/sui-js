@@ -24,7 +24,7 @@ export class Viewer extends BaseModal {
      * @private
      * @return {undefined}
      */
-    _setOptions(opt_options: Object | undefined = {}): void {
+    private _setOptions(opt_options: Object | undefined = {}): void {
         const _self = this;
         _self.options = new Objekt({
             id: '#viewer',
@@ -35,7 +35,7 @@ export class Viewer extends BaseModal {
      * @private
      * @return {undefined}
      */
-    _init(): void {
+    private _init(): void {
         this.body = new Query('body').getItem();
         this.modal = new Query(this.options.id, this.body).getItem();
         this.modalWindow = new Query('#viewer-window', this.modal).getItem();
@@ -64,7 +64,7 @@ export class Viewer extends BaseModal {
      * @param {string} imageUrl
      * @return {undefined}
      */
-    _setImage(imageUrl: string): void {
+    private _setImage(imageUrl: string): void {
         const imageNode = new Item('img');
         imageNode.setAttribute('src', imageUrl);
 

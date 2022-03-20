@@ -23,13 +23,13 @@ export declare class Application {
      * @param {!Object} options
      * @return {undefined}
      */
-    _setOptions(options: Object): void;
+    private _setOptions;
     /**
      * @private
      * @param {!Object} resources
      * @return {undefined}
      */
-    _init(resources: Object): void;
+    private _init;
     /**
      * @return {string}
      */
@@ -52,177 +52,177 @@ export declare class Application {
      * @private
      * @return {undefined}
      */
-    _initLocale(): void;
+    private _initLocale;
     /**
      * @private
      * @return {undefined}
      */
-    _initCertificate(): void;
+    private _initCertificate;
     /**
      * @private
      * @return {undefined}
      */
-    _initModule(): void;
+    private _initModule;
     /**
      * @private
      * @return {undefined}
      */
-    _loadModules(): void;
+    private _loadModules;
     /**
      * @private
      * @return {undefined}
      */
-    _initScript(): void;
+    private _initScript;
     /**
      * @private
      * @return {undefined}
      */
-    _initStyle(): void;
+    private _initStyle;
     /**
      * @private
      * @return {undefined}
      */
-    _initConfig(): void;
+    private _initConfig;
     /**
      * @private
      * @return {undefined}
      */
-    _initApp(): void;
+    private _initApp;
     /**
      * @private
      * @return {undefined}
      */
-    _initGeoLocation(): void;
+    private _initGeoLocation;
     /**
      * @private
      * @return {undefined}
      */
-    _initCookie(): void;
+    private _initCookie;
     /**
      * @private
      * @return {undefined}
      */
-    _initLoader(): void;
+    private _initLoader;
     /**
      * @private
      * @return {undefined}
      */
-    _initProgressBar(): void;
+    private _initProgressBar;
     /**
      * @private
      * @return {undefined}
      */
-    _initStorage(): void;
+    private _initStorage;
     /**
      * @private
      * @return {undefined}
      */
-    _initHelper(): void;
+    private _initHelper;
     /**
      * @private
      * @return {undefined}
      */
-    _initDocument(): void;
+    private _initDocument;
     /**
      * @private
      * @return {undefined}
      */
-    _initWindow(): void;
+    private _initWindow;
     /**
      * @private
      * @return {undefined}
      */
-    _initEvent(): void;
+    private _initEvent;
     /**
      * @private
      * @return {undefined}
      */
-    _initScheduler(): void;
+    private _initScheduler;
     /**
      * @private
      * @return {undefined}
      */
-    _initHttp(): void;
+    private _initHttp;
     /**
      * @private
      * @return {undefined}
      */
-    _initTemplate(): void;
+    private _initTemplate;
     /**
      * @private
      * @return {undefined}
      */
-    _initFlash(): void;
+    private _initFlash;
     /**
      * @private
      * @return {undefined}
      */
-    _initDialog(): void;
+    private _initDialog;
     /**
      * @private
      * @return {undefined}
      */
-    _initConfirm(): void;
+    private _initConfirm;
     /**
      * @private
      * @return {undefined}
      */
-    _initViewer(): void;
+    private _initViewer;
     /**
      * @private
      * @return {undefined}
      */
-    _initHeader(): void;
+    private _initHeader;
     /**
      * @private
      * @return {undefined}
      */
-    _initTopMenu(): void;
+    private _initTopMenu;
     /**
      * @private
      * @return {undefined}
      */
-    _initNavBar(): void;
+    private _initNavBar;
     /**
      * @private
      * @return {undefined}
      */
-    _initBottomMenu(): void;
+    private _initBottomMenu;
     /**
      * @private
      * @return {undefined}
      */
-    _initSidebar(): void;
+    private _initSidebar;
     /**
      * @private
      * @return {undefined}
      */
-    _initLeftMenu(): void;
+    private _initLeftMenu;
     /**
      * @private
      * @return {undefined}
      */
-    _initFooter(): void;
+    private _initFooter;
     /**
      * @private
      * @return {undefined}
      */
-    _initBrowser(): void;
+    private _initBrowser;
     /**
      * @private
      * @return {undefined}
      */
-    _initServiceWorker(): void;
+    private _initServiceWorker;
     /**
      * @private
      * @return {undefined}
      */
-    _initActionCable(): void;
+    private _initActionCable;
     /**
      * @private
      * @return {undefined}
      */
-    _initRoutes(): void;
+    private _initRoutes;
     /**
      * @param {string} id
      * @param {string} title

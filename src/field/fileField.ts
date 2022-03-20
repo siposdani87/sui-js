@@ -35,7 +35,7 @@ export class FileField extends BaseField {
      * @private
      * @return {undefined}
      */
-    _init(): void {
+    private _init(): void {
         this.inputBlock.addClass('file-field');
 
         this._initFileIcon();
@@ -55,7 +55,7 @@ export class FileField extends BaseField {
      * @private
      * @return {boolean}
      */
-    _isDocument(): boolean {
+    private _isDocument(): boolean {
         const accept = /** @type {string} */(this).input.getAttribute('accept');
         return (
             contain(accept, '.docx') ||
@@ -67,7 +67,7 @@ export class FileField extends BaseField {
      * @private
      * @return {undefined}
      */
-    _initDefaultImg(): void {
+    private _initDefaultImg(): void {
         this.imageTag = new Query('img', this.inputBlock).getItem();
         if (this.imageTag.isEmpty()) {
             this.imageTag = new Item('img');
@@ -78,7 +78,7 @@ export class FileField extends BaseField {
      * @private
      * @return {undefined}
      */
-    _initValueSrc(): void {
+    private _initValueSrc(): void {
         this.valueSrc = this.imageTag.getAttribute('src');
 
         this.defaultSrc = this.input.getAttribute('data-default-value');
@@ -95,7 +95,7 @@ export class FileField extends BaseField {
      * @private
      * @return {undefined}
      */
-    _initRemoveButton(): void {
+    private _initRemoveButton(): void {
         this.removeButton = new Item('a');
         this.removeButton.setAttribute('href', 'javascript:void(0)');
         this.removeButton.addClass(['remove-button', 'material-icons']);
@@ -111,7 +111,7 @@ export class FileField extends BaseField {
      * @private
      * @return {undefined}
      */
-    _initButtons(): void {
+    private _initButtons(): void {
         const browseButton = new Item('a');
         browseButton.setAttribute('href', 'javascript:void(0)');
         browseButton.addClass(['browse-button', 'material-icons']);
@@ -132,7 +132,7 @@ export class FileField extends BaseField {
      * @param {string} mimeType
      * @return {!Array}
      */
-    _lookupByMimeType(mimeType: string): Array<any> {
+    private _lookupByMimeType(mimeType: string): Array<any> {
         return this.fileTypes[mimeType];
     }
     /**
@@ -140,7 +140,7 @@ export class FileField extends BaseField {
      * @param {string} extension
      * @return {!Array}
      */
-    _lookupByExtension(extension: string): Array<any> {
+    private _lookupByExtension(extension: string): Array<any> {
         let results = [];
         for (const key in this.fileTypes) {
             if (Object.hasOwnProperty.call(this.fileTypes, key)) {
@@ -157,7 +157,7 @@ export class FileField extends BaseField {
      * @private
      * @return {undefined}
      */
-    _initFileIcon(): void {
+    private _initFileIcon(): void {
         this.fileTypes = {
             'application/vnd.openxmlformats-officedocument.wordprocessingml.document':
                 ['docx', 'blue'],
@@ -183,7 +183,7 @@ export class FileField extends BaseField {
      * @param {string} color
      * @return {string}
      */
-    _getFileIconSrc(type: string, color: string): string {
+    private _getFileIconSrc(type: string, color: string): string {
         let svg = this.fileTypeSVG;
         svg = svg.replace('#000000', color);
         svg = svg.replace('TYPE', type);
@@ -223,7 +223,7 @@ export class FileField extends BaseField {
      * @param {!File} file
      * @return {undefined}
      */
-    _read(file: File): void {
+    private _read(file: File): void {
         if (file) {
             const filename = file.name;
             const reader = new FileReader();
@@ -250,7 +250,7 @@ export class FileField extends BaseField {
      * @private
      * @return {undefined}
      */
-    _handleRemoveButton(): void {
+    private _handleRemoveButton(): void {
         if (!this.isRequired() && this.valueSrc) {
             this.removeButton.removeClass('hidden');
         } else {
@@ -261,7 +261,7 @@ export class FileField extends BaseField {
      * @private
      * @return {undefined}
      */
-    _remove(): void {
+    private _remove(): void {
         this.input.getNode().value = '';
         this.valueSrc = null;
 

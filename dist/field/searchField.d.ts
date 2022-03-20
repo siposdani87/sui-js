@@ -17,7 +17,7 @@ export declare class SearchField extends BaseField {
      * @private
      * @return {undefined}
      */
-    _init(): void;
+    private _init;
     /**
      * @override
      * @return {undefined}
@@ -31,7 +31,7 @@ export declare class SearchField extends BaseField {
      * @private
      * @return {undefined}
      */
-    _initClearButton(): void;
+    private _initClearButton;
     /**
      * @param {string} value
      * @return {undefined}

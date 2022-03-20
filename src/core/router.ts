@@ -31,7 +31,7 @@ export class Router {
      * @private
      * @return {undefined}
      */
-    _init(): void {
+    private _init(): void {
         this.paramNames = [];
         let route = this.route;
         route = route.replace(this.escape, '\\$&');
@@ -107,7 +107,7 @@ export class Router {
      * @param {string} url
      * @return {!Params}
      */
-    _parseParams(url: string): Params {
+    private _parseParams(url: string): Params {
         const params = {};
         const question = url.indexOf('?');
         if (question !== -1) {

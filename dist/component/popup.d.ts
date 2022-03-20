@@ -19,17 +19,17 @@ export declare class Popup {
      * @private
      * @return {undefined}
      */
-    _init(): void;
+    private _init;
     /**
      * @private
      * @return {undefined}
      */
-    _draw(): void;
+    private _draw;
     /**
      * @private
      * @return {undefined}
      */
-    _initCloseButton(): void;
+    private _initCloseButton;
     /**
      * @return {undefined}
      */

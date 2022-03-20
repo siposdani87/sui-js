@@ -26,22 +26,22 @@ export declare class LocationField extends BaseField {
      * @private
      * @return {undefined}
      */
-    _init(): void;
+    private _init;
     /**
      * @private
      * @return {undefined}
      */
-    _initButtons(): void;
+    private _initButtons;
     /**
      * @private
      * @return {undefined}
      */
-    _initSearchButton(): void;
+    private _initSearchButton;
     /**
      * @private
      * @return {undefined}
      */
-    _initAdvancedButton(): void;
+    private _initAdvancedButton;
     /**
      * @param {string} address
      * @return {undefined}
@@ -60,12 +60,12 @@ export declare class LocationField extends BaseField {
      * @private
      * @return {undefined}
      */
-    _toggleAdvancedInputs(): void;
+    private _toggleAdvancedInputs;
     /**
      * @private
      * @return {undefined}
      */
-    _renderAdvancedInputs(): void;
+    private _renderAdvancedInputs;
     /**
      * @private
      * @param {string} id
@@ -73,12 +73,12 @@ export declare class LocationField extends BaseField {
      * @param {function(!Item):undefined} callback
      * @return {!Item<HTMLInputElement>}
      */
-    _renderAdvancedInput(id: string, labelText: string, callback: (arg0: Item<HTMLInputElement>) => void): Item<HTMLInputElement>;
+    private _renderAdvancedInput;
     /**
      * @private
      * @return {undefined}
      */
-    _renderMap(): void;
+    private _renderMap;
     /**
      * @param {string} mapTypeId
      * @return {undefined}
@@ -95,7 +95,7 @@ export declare class LocationField extends BaseField {
      * @private
      * @return {undefined}
      */
-    _setDefaultValue(): void;
+    private _setDefaultValue;
     /**
      * @param {number|null} latitude
      * @param {number|null} longitude
@@ -107,7 +107,7 @@ export declare class LocationField extends BaseField {
      * @param {!Object} value
      * @return {undefined}
      */
-    _setDataValue(value: Object): void;
+    private _setDataValue;
     /**
      * @override
      * @param {!Object|!Function|!Array|boolean|number|string|null|undefined} value

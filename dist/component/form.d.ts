@@ -23,27 +23,27 @@ export declare class Form extends Collection<BaseField> {
      * @private
      * @return {undefined}
      */
-    _init(): void;
+    private _init;
     /**
      * @private
      * @return {undefined}
      */
-    _initFormEvent(): void;
+    private _initFormEvent;
     /**
      * @private
      * @return {undefined}
      */
-    _initSubmitFormEvent(): void;
+    private _initSubmitFormEvent;
     /**
      * @private
      * @return {undefined}
      */
-    _initResetFormEvent(): void;
+    private _initResetFormEvent;
     /**
      * @private
      * @return {undefined}
      */
-    _initFields(): void;
+    private _initFields;
     /**
      * @param {!Objekt} model
      * @param {boolean=} opt_force
@@ -67,26 +67,26 @@ export declare class Form extends Collection<BaseField> {
      * @param {*} value
      * @return {undefined}
      */
-    _setValue(name: string, value: any): void;
+    private _setValue;
     /**
      * @private
      * @param {string} name
      * @return {*}
      */
-    _getValue(name: string): any;
+    private _getValue;
     /**
      * @private
      * @param {!BaseField} field
      * @return {*}
      */
-    _getPreviousValue(field: BaseField): any;
+    private _getPreviousValue;
     /**
      * @private
      * @param {!BaseField} field
      * @param {*} value
      * @return {undefined}
      */
-    _fieldValueChange(field: BaseField, value: any): void;
+    private _fieldValueChange;
     /**
      * @param {!Object} data
      * @return {undefined}

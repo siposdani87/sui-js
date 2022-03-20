@@ -48,6 +48,7 @@ export class IconToggleField extends BaseCheckboxField {
     }
     /**
      * @override
+     * @protected
      * @return {undefined}
      */
     _change() {

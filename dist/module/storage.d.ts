@@ -13,19 +13,19 @@ export declare class Storage {
      * @private
      * @return {undefined}
      */
-    _init(): void;
+    private _init;
     /**
      * @private
      * @param {string} name
      * @return {string}
      */
-    _getPropertyName(name: string): string;
+    private _getPropertyName;
     /**
      * @private
      * @param {string} propertyName
      * @return {string}
      */
-    _getName(propertyName: string): string;
+    private _getName;
     /**
      * @param {string} name
      * @param {*} value
@@ -51,23 +51,23 @@ export declare class Storage {
      * @private
      * @return {undefined}
      */
-    _checkExpires(): void;
+    private _checkExpires;
     /**
      * @private
      * @param {string} name
      * @return {boolean}
      */
-    _isExpired(name: string): boolean;
+    private _isExpired;
     /**
      * @private
      * @param {string} name
      * @return {?Date}
      */
-    _getExpiresDate(name: string): Date | null;
+    private _getExpiresDate;
     /**
      * @private
      * @param {string|number|boolean|!Date=} opt_expires
      * @return {string}
      */
-    _getExpires(opt_expires?: string | number | boolean | Date): string;
+    private _getExpires;
 }

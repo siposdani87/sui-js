@@ -22,7 +22,7 @@ export class Loader {
      * @param {!Object=} opt_options
      * @return {undefined}
      */
-    _setOptions(opt_options: Object | undefined = {}): void {
+    private _setOptions(opt_options: Object | undefined = {}): void {
         const _self = this;
         _self.options = new Objekt({
             counter: 0,
@@ -33,7 +33,7 @@ export class Loader {
      * @private
      * @return {undefined}
      */
-    _init(): void {
+    private _init(): void {
         this.loader = new Query('#loader').getItem();
 
         this.spinner = this.loader.createElement('div');

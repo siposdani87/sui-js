@@ -13,7 +13,7 @@ export declare class HiddenField extends BaseField {
      * @private
      * @return {undefined}
      */
-    _init(): void;
+    private _init;
     /**
      * @override
      * @return {undefined}

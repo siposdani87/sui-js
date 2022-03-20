@@ -16,32 +16,32 @@ export declare class NumberField extends BaseField {
      * @private
      * @return {undefined}
      */
-    _init(): void;
+    private _init;
     /**
      * @private
      * @return {undefined}
      */
-    _initButtons(): void;
+    private _initButtons;
     /**
      * @private
      * @return {undefined}
      */
-    _checkValue(): void;
+    private _checkValue;
     /**
      * @private
      * @return {number}
      */
-    _getMax(): number;
+    private _getMax;
     /**
      * @private
      * @return {number}
      */
-    _getMin(): number;
+    private _getMin;
     /**
      * @private
      * @return {number}
      */
-    _getStep(): number;
+    private _getStep;
     /**
      * @override
      * @return {undefined}
