@@ -15,7 +15,7 @@ export declare class ActionCable {
      * @private
      * @return {undefined}
      */
-    _init(): void;
+    private _init;
     /**
      * @return {string}
      */
@@ -35,5 +35,5 @@ export declare class ActionCable {
      * @param {!Object} options
      * @return {string}
      */
-    _generateIdentifier(options: Object): string;
+    protected _generateIdentifier(options: Object): string;
 }

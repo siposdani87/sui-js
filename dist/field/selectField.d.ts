@@ -29,7 +29,7 @@ export declare class SelectField extends BaseField {
      * @private
      * @return {undefined}
      */
-    _init(): void;
+    private _init;
     /**
      * @return {boolean}
      */
@@ -38,17 +38,17 @@ export declare class SelectField extends BaseField {
      * @private
      * @return {undefined}
      */
-    _initPopup(): void;
+    private _initPopup;
     /**
      * @private
      * @return {undefined}
      */
-    _initChangeEvent(): void;
+    private _initChangeEvent;
     /**
      * @private
      * @return {undefined}
      */
-    _initOptions(): void;
+    private _initOptions;
     /**
      * @override
      * @return {undefined}
@@ -83,7 +83,7 @@ export declare class SelectField extends BaseField {
      * @private
      * @return {undefined}
      */
-    _hideLoader(): void;
+    private _hideLoader;
     /**
      * @param {!Array<!Objekt>} items
      * @param {string=} opt_value
@@ -96,25 +96,25 @@ export declare class SelectField extends BaseField {
      * @private
      * @return {undefined}
      */
-    _change(): void;
+    private _change;
     /**
      * @private
      * @param {!Array} ids
      * @return {undefined}
      */
-    _setSelectTags(ids: Array<any>): void;
+    private _setSelectTags;
     /**
      * @param {string} id
      * @return {undefined}
      * @private
      */
-    _setSimpleTag(id: string): void;
+    private _setSimpleTag;
     /**
      * @param {!Array<string>} ids
      * @return {undefined}
      * @private
      */
-    _setMultipleTag(ids: Array<string>): void;
+    private _setMultipleTag;
     /**
      * @private
      * @param {!Array<Objekt>|Objekt} tags
@@ -125,29 +125,29 @@ export declare class SelectField extends BaseField {
      * @param {!Array} ids
      * @return {undefined}
      */
-    _setSelectedIds(ids: Array<any>): void;
+    private _setSelectedIds;
     /**
      * @private
      * @return {!Array}
      */
-    _getSelectedIds(): Array<any>;
+    private _getSelectedIds;
     /**
      * @param {number} id
      * @return {undefined}
      * @private
      */
-    _handleSelectedId(id: number): void;
+    private _handleSelectedId;
     /**
      * @private
      * @param {!Array} items
      * @return {undefined}
      */
-    _drawItems(items: Array<any>): void;
+    private _drawItems;
     /**
      * @private
      * @return {undefined}
      */
-    _drawSearchInput(): void;
+    private _drawSearchInput;
     /**
      * @return {undefined}
      */
@@ -161,5 +161,5 @@ export declare class SelectField extends BaseField {
      * @param {string} query
      * @return {undefined}
      */
-    _search(query: string): void;
+    private _search;
 }

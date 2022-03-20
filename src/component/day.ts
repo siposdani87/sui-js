@@ -25,14 +25,14 @@ export class Day {
      * @param {!Object} options
      * @return {undefined}
      */
-    _setOptions(options: Object): void {
+    private _setOptions(options: Object): void {
         this.options = options;
     }
     /**
      * @private
      * @return {undefined}
      */
-    _init(): void {
+    private _init(): void {
         const current = window['moment'](this.date)['isSame'](
             this.currentDate['format']('YYYY-MM-DD'),
         )

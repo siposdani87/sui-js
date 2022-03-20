@@ -25,7 +25,7 @@ export class TextareaField extends BaseField {
      * @private
      * @return {undefined}
      */
-    _init(): void {
+    private _init(): void {
         this.inputBlock.addClass('textarea-field');
 
         this.input.addEventListener('keyup', (input) => {
@@ -66,7 +66,7 @@ export class TextareaField extends BaseField {
     /**
      * @return {undefined}
      */
-    _renderRichText(): void {
+    private _renderRichText(): void {
         this.input.addClass('hidden');
 
         let value = /** @type {string} */(this).getValue();
@@ -119,14 +119,14 @@ export class TextareaField extends BaseField {
      * @private
      * @return {boolean}
      */
-    _isRichText(): boolean {
+    private _isRichText(): boolean {
         return !!this.input.getAttribute('data-rich-text');
     }
     /**
      * @private
      * @return {undefined}
      */
-    _renderToolbarButtons(): void {
+    private _renderToolbarButtons(): void {
         this.toolbarNode = new Item('div');
         this.toolbarNode.addClass('toolbar');
         this.input.insertBefore(this.toolbarNode);
@@ -173,7 +173,7 @@ export class TextareaField extends BaseField {
      * @param {!Function} action
      * @return {undefined}
      */
-    _renderToolbarButton(iconName: string, action: Function): void {
+    private _renderToolbarButton(iconName: string, action: Function): void {
         const boldButtonNode = new Item('a');
         boldButtonNode.setAttribute('href', 'javascript:void(0)');
         boldButtonNode.addClass('material-icons');
@@ -188,7 +188,7 @@ export class TextareaField extends BaseField {
      * @param {boolean} value
      * @return {undefined}
      */
-    _setHtmlMode(value: boolean): void {
+    private _setHtmlMode(value: boolean): void {
         this.htmlMode = value;
         this._setDocMode(this.htmlMode);
     }
@@ -196,7 +196,7 @@ export class TextareaField extends BaseField {
      * @private
      * @return {boolean}
      */
-    _isHtmlMode(): boolean {
+    private _isHtmlMode(): boolean {
         return this.htmlMode === true;
     }
     /**
@@ -205,7 +205,7 @@ export class TextareaField extends BaseField {
      * @param {*=} opt_sValue
      * @return {undefined}
      */
-    _formatDoc(sCmd: string, opt_sValue?: any | undefined): void {
+    private _formatDoc(sCmd: string, opt_sValue?: any | undefined): void {
         if (!this._isHtmlMode()) {
             document.execCommand(sCmd, false, opt_sValue);
             this._setValue(this.richTextNode.innerHTML);
@@ -216,7 +216,7 @@ export class TextareaField extends BaseField {
      * @param {boolean} _isHtmlMode
      * @return {undefined}
      */
-    _setDocMode(_isHtmlMode: boolean): void {
+    private _setDocMode(_isHtmlMode: boolean): void {
         if (_isHtmlMode) {
             this.richText.addClass('hidden');
             this.input.removeClass('hidden');
@@ -245,7 +245,7 @@ export class TextareaField extends BaseField {
      * @param {!Object|!Function|!Array|boolean|number|string|null|undefined} value
      * @return {undefined}
      */
-    _setValue(value: Object | Function | Array<any> | boolean | number | string | null | undefined): void {
+    private _setValue(value: Object | Function | Array<any> | boolean | number | string | null | undefined): void {
         const inputNode = this.input.getNode();
         inputNode.value = value;
         this.input.trigger('change');

@@ -16,7 +16,7 @@ export declare class TextField extends BaseField {
      * @private
      * @return {undefined}
      */
-    _init(): void;
+    private _init;
     /**
      * @override
      * @return {undefined}

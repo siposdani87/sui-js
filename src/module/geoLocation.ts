@@ -21,7 +21,7 @@ export class GeoLocation {
      * @private
      * @return {undefined}
      */
-    _init(): void {
+    private _init(): void {
         this.options = {
             enableHighAccuracy: true,
             timeout: 5000,
@@ -81,7 +81,7 @@ export class GeoLocation {
      * @param {!GeolocationPosition} position
      * @return {undefined}
      */
-    _handlePosition(position: GeolocationPosition): void {
+    private _handlePosition(position: GeolocationPosition): void {
         const message = 'User allowed the request for GeoLocation.';
         this.eventChange(
             position.coords.latitude,
@@ -94,7 +94,7 @@ export class GeoLocation {
      * @param {!GeolocationPositionError} error
      * @return {undefined}
      */
-    _handleError(error: GeolocationPositionError): void {
+    private _handleError(error: GeolocationPositionError): void {
         switch (error.code) {
             case error.PERMISSION_DENIED:
                 this.eventError(

@@ -13,19 +13,19 @@ export declare class Cookie {
      * @param {!Object=} opt_options
      * @return {undefined}
      */
-    _setOptions(opt_options?: Object | undefined): void;
+    private _setOptions;
     /**
      * @private
      * @param {string} name
      * @return {string}
      */
-    _getPropertyName(name: string): string;
+    private _getPropertyName;
     /**
      * @private
      * @param {string} propertyName
      * @return {string}
      */
-    _getName(propertyName: string): string;
+    private _getName;
     /**
      * @param {string} name
      * @param {string} value

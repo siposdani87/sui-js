@@ -31,39 +31,39 @@ export declare class Table {
      * @param {!Object=} opt_options
      * @return {undefined}
      */
-    _setOptions(opt_options?: Object | undefined): void;
+    private _setOptions;
     /**
      * @private
      * @return {undefined}
      */
-    _init(): void;
+    private _init;
     /**
      * @private
      * @return {undefined}
      */
-    _initContentHandler(): void;
+    private _initContentHandler;
     /**
      * @private
      * @return {undefined}
      */
-    _initSearch(): void;
+    private _initSearch;
     /**
      * @private
      * @return {undefined}
      */
-    _initHeader(): void;
+    private _initHeader;
     /**
      * @private
      * @param {!Item} headerNode
      * @param {number} columnIndex
      * @return {undefined}
      */
-    _renderHeader(headerNode: Item, columnIndex: number): void;
+    private _renderHeader;
     /**
      * @private
      * @return {undefined}
      */
-    _initStructure(): void;
+    private _initStructure;
     /**
      * @param {number=} opt_page
      * @return {undefined}
@@ -79,57 +79,57 @@ export declare class Table {
      * @param {string} columnWithOrder
      * @return {undefined}
      */
-    _toggleSorting(columnWithOrder: string): void;
+    private _toggleSorting;
     /**
      * @private
      * @param {!Item} head
      * @param {number} i
      * @return {undefined}
      */
-    _handleSortingColumn(head: Item, i: number): void;
+    private _handleSortingColumn;
     /**
      * @private
      * @return {undefined}
      */
-    _updateSorting(): void;
+    private _updateSorting;
     /**
      * @private
      * @param {string} column
      * @param {string=} opt_order
      * @return {undefined}
      */
-    _setSorting(column: string, opt_order?: string | undefined): void;
+    private _setSorting;
     /**
      * @private
      * @return {undefined}
      */
-    _resetSorting(): void;
+    private _resetSorting;
     /**
      * @private
      * @return {string}
      */
-    _getColumn(): string;
+    private _getColumn;
     /**
      * @private
      * @param {!Objekt} item
      * @param {number} rowIndex
      * @return {undefined}
      */
-    _addHeaderRow(item: Objekt, rowIndex: number): void;
+    private _addHeaderRow;
     /**
      * @private
      * @param {!Objekt} item
      * @param {number} rowIndex
      * @return {!Array<string>}
      */
-    _getRowStyle(item: Objekt, rowIndex: number): Array<string>;
+    private _getRowStyle;
     /**
      * @private
      * @param {!Objekt} item
      * @param {number} rowIndex
      * @return {undefined}
      */
-    _addRow(item: Objekt, rowIndex: number): void;
+    private _addRow;
     /**
      * @param {!Array<Action>} actions
      * @return {undefined}
@@ -143,7 +143,7 @@ export declare class Table {
      * @param {!Item} parentNode
      * @return {undefined}
      */
-    _renderDataNodeByItem(item: Objekt, rowIndex: number, column: string, parentNode: Item): void;
+    private _renderDataNodeByItem;
     /**
      * @private
      * @param {!Item} tableDataNode
@@ -153,28 +153,28 @@ export declare class Table {
      * @param {number} columnIndex
      * @return {undefined}
      */
-    _renderDataNode(tableDataNode: Item, item: Objekt, rowIndex: number, column: string, columnIndex: number): void;
+    private _renderDataNode;
     /**
      * @private
      * @param {!Item} tableDataNode
      * @param {!Objekt} item
      * @return {undefined}
      */
-    _renderActions(tableDataNode: Item, item: Objekt): void;
+    private _renderActions;
     /**
      * @private
      * @param {!Item} containerNode
      * @param {!Objekt} item
      * @return {undefined}
      */
-    _renderActionNodes(containerNode: Item, item: Objekt): void;
+    private _renderActionNodes;
     /**
      * @private
      * @param {!Item} dropDownNode
      * @param {!Objekt} item
      * @return {undefined}
      */
-    _renderDropDownNode(dropDownNode: Item, item: Objekt): void;
+    private _renderDropDownNode;
     /**
      * @private
      * @param {!Item} containerNode
@@ -182,10 +182,7 @@ export declare class Table {
      * @param {!Objekt} item
      * @return {undefined}
      */
-    _createActionButton(containerNode: Item, action: {
-        style: Function;
-        click: Function;
-    }, item: Objekt): void;
+    private _createActionButton;
     /**
      * @param {!Array} items
      * @return {undefined}
@@ -200,12 +197,12 @@ export declare class Table {
      * @private
      * @return {!Array}
      */
-    _getItems(): Array<any>;
+    private _getItems;
     /**
      * @private
      * @return {undefined}
      */
-    _draw(): void;
+    private _draw;
     /**
      * @return {undefined}
      */

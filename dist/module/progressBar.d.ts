@@ -39,18 +39,18 @@ export declare class ProgressBar {
      * @private
      * @return {undefined}
      */
-    _setOptions(opt_options?: Object | undefined): void;
+    private _setOptions;
     /**
      * @private
      * @return {undefined}
      */
-    _init(): void;
+    private _init;
     /**
      * @private
      * @param {!Item} node
      * @return {!ProcessBar}
      */
-    _getProgressBar(node: Item): ProcessBar;
+    private _getProgressBar;
     /**
      * @private
      * @param {!Function} containerCallback
@@ -64,7 +64,7 @@ export declare class ProgressBar {
      * @private
      * @return {undefined}
      */
-    _progress(): void;
+    private _progress;
     /**
      * @return {undefined}
      */

@@ -19,7 +19,7 @@ export declare class LeftMenu {
      * @private
      * @return {undefined}
      */
-    _init(): void;
+    private _init;
     /**
      * @private
      */

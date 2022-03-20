@@ -46,7 +46,7 @@ export class SelectField extends BaseField {
      * @private
      * @return {undefined}
      */
-    _init(): void {
+    private _init(): void {
         this.input.addClass('hidden');
         this.inputBlock.addClass('select-field');
         this.query = '';
@@ -66,7 +66,7 @@ export class SelectField extends BaseField {
      * @private
      * @return {undefined}
      */
-    _initPopup(): void {
+    private _initPopup(): void {
         this.containerNode = new Item('div');
         this._drawSearchInput();
 
@@ -80,7 +80,7 @@ export class SelectField extends BaseField {
      * @private
      * @return {undefined}
      */
-    _initChangeEvent(): void {
+    private _initChangeEvent(): void {
         this.input.addEventListener('change', () => {
             this._change();
             return true;
@@ -90,7 +90,7 @@ export class SelectField extends BaseField {
      * @private
      * @return {undefined}
      */
-    _initOptions(): void {
+    private _initOptions(): void {
         this.options = /** @type {!Collection<!Objekt>} */ new Collection();
 
         const optionNodes = new Query('option', this.input);
@@ -212,7 +212,7 @@ export class SelectField extends BaseField {
      * @private
      * @return {undefined}
      */
-    _hideLoader(): void {
+    private _hideLoader(): void {
         this.iconNode.setHtml('expand_more');
         this.iconNode.removeClass('rotate');
     }
@@ -254,7 +254,7 @@ export class SelectField extends BaseField {
      * @private
      * @return {undefined}
      */
-    _change(): void {
+    private _change(): void {
         const ids = this._getSelectedIds();
         this._setSelectTags(ids);
         const value = this.getValue();
@@ -265,7 +265,7 @@ export class SelectField extends BaseField {
      * @param {!Array} ids
      * @return {undefined}
      */
-    _setSelectTags(ids: Array<any>): void {
+    private _setSelectTags(ids: Array<any>): void {
         if (this.isRequired() && ids.length === 1 && ids[0] === '') {
             this.inputBlock.addClass('is-invalid');
         }
@@ -280,7 +280,7 @@ export class SelectField extends BaseField {
      * @return {undefined}
      * @private
      */
-    _setSimpleTag(id: string): void {
+    private _setSimpleTag(id: string): void {
         const option = this.options.findById(id);
         this._setTags(option);
     }
@@ -289,7 +289,7 @@ export class SelectField extends BaseField {
      * @return {undefined}
      * @private
      */
-    _setMultipleTag(ids: Array<string>): void {
+    private _setMultipleTag(ids: Array<string>): void {
         const options = [];
         each(ids, (id) => {
             const option = this.options.findById(id);
@@ -346,7 +346,7 @@ export class SelectField extends BaseField {
      * @param {!Array} ids
      * @return {undefined}
      */
-    _setSelectedIds(ids: Array<any>): void {
+    private _setSelectedIds(ids: Array<any>): void {
         this.options.each((option) => {
             const id = option.get('id');
             const selected = inArray(ids, id);
@@ -366,7 +366,7 @@ export class SelectField extends BaseField {
      * @private
      * @return {!Array}
      */
-    _getSelectedIds(): Array<any> {
+    private _getSelectedIds(): Array<any> {
         const ids = [];
         this.options.each((option) => {
             const optionNode =
@@ -384,7 +384,7 @@ export class SelectField extends BaseField {
      * @return {undefined}
      * @private
      */
-    _handleSelectedId(id: number): void {
+    private _handleSelectedId(id: number): void {
         let ids = this._getSelectedIds();
         if (this.isMultiple()) {
             if (eq(id, '') || eq(ids[0], '')) {
@@ -414,7 +414,7 @@ export class SelectField extends BaseField {
      * @param {!Array} items
      * @return {undefined}
      */
-    _drawItems(items: Array<any>): void {
+    private _drawItems(items: Array<any>): void {
         this.listNode.removeChildren();
         const ids = this._getSelectedIds();
         each(items, (item) => {
@@ -446,7 +446,7 @@ export class SelectField extends BaseField {
      * @private
      * @return {undefined}
      */
-    _drawSearchInput(): void {
+    private _drawSearchInput(): void {
         const searchParentNode = new Item('div');
         searchParentNode.addClass('search-box');
         this.containerNode.appendChild(searchParentNode);
@@ -497,7 +497,7 @@ export class SelectField extends BaseField {
      * @param {string} query
      * @return {undefined}
      */
-    _search(query: string): void {
+    private _search(query: string): void {
         this.query = query;
         this.searchInputNode.getNode().value = query;
         this.searchInputNode.set('value', query);

@@ -49,39 +49,39 @@ export declare class Calendar {
      * @param {!Object} options
      * @return {undefined}
      */
-    _setOptions(options: Object): void;
+    private _setOptions;
     /**
      * @private
      * @return {undefined}
      */
-    _init(): void;
+    private _init;
     /**
      * @private
      * @return {undefined}
      */
-    _initStructure(): void;
+    private _initStructure;
     /**
      * @private
      * @return {undefined}
      */
-    _initHeaderNode(): void;
+    private _initHeaderNode;
     /**
      * @private
      * @return {undefined}
      */
-    _initContentNode(): void;
+    private _initContentNode;
     /**
      * @private
      * @param {number} direction
      * @return {undefined}
      */
-    _changeMode(direction: number): void;
+    private _changeMode;
     /**
      * @private
      * @param {number} direction
      * @return {string}
      */
-    _getMode(direction: number): string;
+    private _getMode;
     /**
      * @private
      * @param {!Function} dayFun
@@ -89,50 +89,50 @@ export declare class Calendar {
      * @param {!Function} yearFun
      * @return {!Object}
      */
-    _switchMode(dayFun: Function, monthFun: Function, yearFun: Function): Object;
+    private _switchMode;
     /**
      * @private
      * @param {string} mode
      * @return {undefined}
      */
-    _initMode(mode: string): void;
+    private _initMode;
     /**
      * @private
      * @return {undefined}
      */
-    _initYearsMode(): void;
+    private _initYearsMode;
     /**
      * @private
      * @return {undefined}
      */
-    _initMonthsMode(): void;
+    private _initMonthsMode;
     /**
      * @private
      * @return {undefined}
      */
-    _initDaysMode(): void;
+    private _initDaysMode;
     /**
      * @private
      * @return {undefined}
      */
-    _previous(): void;
+    private _previous;
     /**
      * @private
      * @return {undefined}
      */
-    _next(): void;
-    /**
-     * @private
-     * @param {!Object} date
-     * @return {undefined}
-     */
-    _setDate(date: Object): void;
+    private _next;
     /**
      * @private
      * @param {!Object} date
      * @return {undefined}
      */
-    _setVariables(date: Object): void;
+    private _setDate;
+    /**
+     * @private
+     * @param {!Object} date
+     * @return {undefined}
+     */
+    private _setVariables;
     /**
      * @return {undefined}
      */
@@ -141,43 +141,43 @@ export declare class Calendar {
      * @private
      * @return {undefined}
      */
-    _drawDaysStructure(): void;
+    private _drawDaysStructure;
     /**
      * @private
      * @return {undefined}
      */
-    _drawMonthsStructure(): void;
+    private _drawMonthsStructure;
     /**
      * @private
      * @return {undefined}
      */
-    _drawYearsStructure(): void;
+    private _drawYearsStructure;
     /**
      * @private
      * @param {string|null} format
      * @return {undefined}
      */
-    _drawHeader(format: string | null): void;
+    private _drawHeader;
     /**
      * @private
      * @return {undefined}
      */
-    _drawMonths(): void;
+    private _drawMonths;
     /**
      * @private
      * @return {undefined}
      */
-    _drawYears(): void;
+    private _drawYears;
     /**
      * @private
      * @return {undefined}
      */
-    _drawWeekDays(): void;
+    private _drawWeekDays;
     /**
      * @private
      * @return {undefined}
      */
-    _drawDays(): void;
+    private _drawDays;
     /**
      * @private
      * @param {number} year
@@ -185,40 +185,40 @@ export declare class Calendar {
      * @param {number} day
      * @return {string}
      */
-    _getDate(year: number, month: number, day: number): string;
+    private _getDate;
     /**
      * @private
      * @return {undefined}
      */
-    _setPreviousMonth(): void;
+    private _setPreviousMonth;
     /**
      * @private
      * @return {undefined}
      */
-    _setCurrentMonth(): void;
+    private _setCurrentMonth;
     /**
      * @private
      * @return {undefined}
      */
-    _setNextMonth(): void;
-    /**
-     * @private
-     * @param {!Object} selectedDate
-     * @return {undefined}
-     */
-    _setModeDate(selectedDate: Object): void;
+    private _setNextMonth;
     /**
      * @private
      * @param {!Object} selectedDate
      * @return {undefined}
      */
-    _onClick(selectedDate: Object): void;
+    private _setModeDate;
+    /**
+     * @private
+     * @param {!Object} selectedDate
+     * @return {undefined}
+     */
+    private _onClick;
     /**
      * @private
      * @param {!Object} date
      * @return {undefined}
      */
-    _setSelectedDate(date: Object): void;
+    private _setSelectedDate;
     /**
      * @param {!Object} date
      * @return {undefined}

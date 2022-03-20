@@ -4,8 +4,8 @@ import { Objekt } from './objekt';
  * @class
  */
 export declare class State {
-    _current: Objekt;
-    _previous: Objekt;
+    private _current;
+    private _previous;
     routes: Collection<Objekt>;
     basePath: string;
     options: Objekt;
@@ -18,39 +18,39 @@ export declare class State {
      * @private
      * @return {undefined}
      */
-    _setRealUrls(): void;
+    private _setRealUrls;
     /**
      * @private
      * @return {string}
      */
-    _getUrlPrefix(): string;
+    private _getUrlPrefix;
     /**
      * @private
      * @param {string} url
      * @return {string}
      */
-    _getRealUrl(url: string): string;
+    private _getRealUrl;
     /**
      * @private
      * @return {undefined}
      */
-    _setBasePath(): void;
+    private _setBasePath;
     /**
      * @private
      * @param {!Object} options
      * @return {undefined}
      */
-    _setOptions(options: Object): void;
+    private _setOptions;
     /**
      * @private
      * @return {undefined}
      */
-    _init(): void;
+    private _init;
     /**
      * @private
      * @return {undefined}
      */
-    _initPopstate(): void;
+    private _initPopstate;
     /**
      * @return {undefined}
      */
@@ -59,7 +59,7 @@ export declare class State {
      * @private
      * @return {undefined}
      */
-    _parseUrl(): void;
+    private _parseUrl;
     /**
      * @private
      * @param {string} urlPath
@@ -83,13 +83,13 @@ export declare class State {
      * @param {boolean=} opt_force
      * @return {undefined}
      */
-    _triggerChange(opt_force?: boolean | undefined): void;
+    private _triggerChange;
     /**
      * @private
      * @param {!Objekt} state
      * @return {undefined}
      */
-    _setCurrent(state: Objekt): void;
+    private _setCurrent;
     /**
      * @template T
      * @param {string=} opt_attribute
@@ -191,11 +191,12 @@ export declare class State {
      */
     getParams(): Objekt;
     /**
+     * @template T
      * @param {string} name
      * @param {*=} opt_defaultValue
      * @return {string}
      */
-    getParam(name: string, opt_defaultValue?: any): string;
+    getParam<T = string>(name: string, opt_defaultValue?: any): T;
     /**
      * @return {undefined}
      */

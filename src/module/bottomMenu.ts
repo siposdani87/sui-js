@@ -19,7 +19,7 @@ export class BottomMenu {
      * @private
      * @return {undefined}
      */
-    _init(): void {
+    private _init(): void {
         this.bottomMenu = new Query(
             '#bottom-menu',
             this.footer.footerNode,

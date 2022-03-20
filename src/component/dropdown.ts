@@ -31,7 +31,7 @@ export class Dropdown {
      * @param {!Object=} opt_options
      * @return {undefined}
      */
-    _setOptions(opt_options: Object | undefined = {}): void {
+    private _setOptions(opt_options: Object | undefined = {}): void {
         const _self = this;
         _self.options = new Objekt({
             id: generateId('dropdown'),
@@ -42,7 +42,7 @@ export class Dropdown {
      * @private
      * @return {undefined}
      */
-    _init(): void {
+    private _init(): void {
         this.collection = /** @type {!Collection<!Objekt>} */ new Collection();
         this.actions = [];
         this.item = null;
@@ -53,7 +53,7 @@ export class Dropdown {
      * @private
      * @return {undefined}
      */
-    _appendButton(): void {
+    private _appendButton(): void {
         this.buttonNode = new Item('button');
         this.buttonNode.setId(this.options.id);
         this.buttonNode.addClass([
@@ -73,7 +73,7 @@ export class Dropdown {
      * @private
      * @return {undefined}
      */
-    _appendMenu(): void {
+    private _appendMenu(): void {
         this.menuNode = new Item('ul');
         this.menuNode.setFor(this.options.id);
         this.menuNode.addClass([
@@ -101,7 +101,7 @@ export class Dropdown {
      * @private
      * @return {undefined}
      */
-    _renderMenu(): void {
+    private _renderMenu(): void {
         eachArray(this.actions, (action) => {
             const [icon, title, disabled, removed] = action.style(this.item);
             if (!removed) {

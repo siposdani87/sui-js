@@ -27,7 +27,7 @@ export class Navigation {
      * @param {!Object=} opt_options
      * @return {undefined}
      */
-    _setOptions(opt_options: Object | undefined = {}): void {
+    private _setOptions(opt_options: Object | undefined = {}): void {
         const _self = this;
         _self.options = new Objekt();
         _self.options.merge(opt_options);
@@ -36,7 +36,7 @@ export class Navigation {
      * @private
      * @return {undefined}
      */
-    _init(): void {
+    private _init(): void {
         this.container = /** @type {!Collection<!Objekt>} */ new Collection();
 
         this.linkNodeKey = 'node';
@@ -170,7 +170,7 @@ export class Navigation {
      * @param {!Object=} opt_data
      * @return {!Objekt}
      */
-    _setItem(id: string, title: string | null, action: Function, opt_href: string | undefined = '', opt_data: Object | undefined = {}): Objekt {
+    private _setItem(id: string, title: string | null, action: Function, opt_href: string | undefined = '', opt_data: Object | undefined = {}): Objekt {
         const linkNode = new Item('a');
         if (title) {
             const titleSpan = new Item('span');
@@ -234,7 +234,7 @@ export class Navigation {
      * @param {!Objekt} item
      * @return {undefined}
      */
-    _disabled(item: Objekt): void {
+    private _disabled(item: Objekt): void {
         const linkNode = item.get<Item>(this.linkNodeKey);
         linkNode.addClass('disabled');
         linkNode.removeEventListener('click', item.get('listener'));
@@ -255,7 +255,7 @@ export class Navigation {
      * @param {!Objekt} item
      * @return {undefined}
      */
-    _enabled(item: Objekt): void {
+    private _enabled(item: Objekt): void {
         this._disabled(item);
         const linkNode = item.get<Item>(this.linkNodeKey);
         linkNode.removeClass('disabled');

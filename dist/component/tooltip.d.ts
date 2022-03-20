@@ -18,22 +18,22 @@ export declare class Tooltip {
      * @param {string=} opt_position
      * @return {undefined}
      */
-    _initPositions(opt_position?: string | undefined): void;
+    private _initPositions;
     /**
      * @private
      * @return {undefined}
      */
-    _init(): void;
+    private _init;
     /**
      * @param {string=} opt_message
      * @return {string}
      */
-    _getMessage(opt_message?: string | undefined): string;
+    private _getMessage;
     /**
      * @private
      * @return {undefined}
      */
-    _createTooltip(): void;
+    private _createTooltip;
     /**
      * @param {string=} opt_message
      * @return {undefined}
@@ -43,7 +43,7 @@ export declare class Tooltip {
      * @private
      * @return {undefined}
      */
-    _handleAttributes(): void;
+    private _handleAttributes;
     /**
      * @param {string=} opt_message
      * @return {undefined}

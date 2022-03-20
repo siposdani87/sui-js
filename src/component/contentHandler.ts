@@ -22,7 +22,7 @@ export class ContentHandler {
      * @param {!Object=} opt_options
      * @return {undefined}
      */
-    _setOptions(opt_options: Object | undefined = {}): void {
+    private _setOptions(opt_options: Object | undefined = {}): void {
         const _self = this;
         _self.options = new Objekt({
             image_url: null,
@@ -34,7 +34,7 @@ export class ContentHandler {
      * @private
      * @return {undefined}
      */
-    _init(): void {
+    private _init(): void {
         this.contentNode = new Item('div');
         this.contentNode.addClass('content-handler');
         this.containerNode.insertAfter(this.contentNode);

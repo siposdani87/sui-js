@@ -9,8 +9,8 @@ import { Router } from './router';
  * @class
  */
 export class State {
-    _current: Objekt;
-    _previous: Objekt;
+    private _current: Objekt;
+    private _previous: Objekt;
     routes: Collection<Objekt>;
     basePath: string;
     options: Objekt;
@@ -33,7 +33,7 @@ export class State {
      * @private
      * @return {undefined}
      */
-    _setRealUrls(): void {
+    private _setRealUrls(): void {
         this.routes.each((route) => {
             const url = /** @type {string} */(route).get<string>('url');
             const realUrl = this._getRealUrl(url);
@@ -44,7 +44,7 @@ export class State {
      * @private
      * @return {string}
      */
-    _getUrlPrefix(): string {
+    private _getUrlPrefix(): string {
         return this.basePath === '#' ? '/#' : '';
     }
     /**
@@ -52,14 +52,14 @@ export class State {
      * @param {string} url
      * @return {string}
      */
-    _getRealUrl(url: string): string {
+    private _getRealUrl(url: string): string {
         return format('{0}{1}', [this._getUrlPrefix(), url]);
     }
     /**
      * @private
      * @return {undefined}
      */
-    _setBasePath(): void {
+    private _setBasePath(): void {
         this.basePath = '#';
         const baseMetaTag = new Query('base').getItem();
         if (!baseMetaTag.isEmpty()) {
@@ -71,7 +71,7 @@ export class State {
      * @param {!Object} options
      * @return {undefined}
      */
-    _setOptions(options: Object): void {
+    private _setOptions(options: Object): void {
         const _self = this;
         _self.options = new Objekt({
             root: {
@@ -89,7 +89,7 @@ export class State {
      * @private
      * @return {undefined}
      */
-    _init(): void {
+    private _init(): void {
         this._setBasePath();
         this._setRealUrls();
 
@@ -100,7 +100,7 @@ export class State {
      * @private
      * @return {undefined}
      */
-    _initPopstate(): void {
+    private _initPopstate(): void {
         window.addEventListener('popstate', () => {
             if (window.history.state) {
                 const state = new Objekt();
@@ -123,7 +123,7 @@ export class State {
      * @private
      * @return {undefined}
      */
-    _parseUrl(): void {
+    private _parseUrl(): void {
         const path = window.location.hash
             ? window.location.hash
             : window.location.pathname.replace(this.basePath, '/') +
@@ -217,7 +217,7 @@ export class State {
      * @param {boolean=} opt_force
      * @return {undefined}
      */
-    _triggerChange(opt_force: boolean | undefined = false): void {
+    private _triggerChange(opt_force: boolean | undefined = false): void {
         const currentState = /** @type {!Objekt} */ this.getCurrent<Objekt>();
         const previousState = /** @type {!Objekt} */ this.getPrevious<Objekt>();
         this.eventChange(currentState, previousState, opt_force);
@@ -227,7 +227,7 @@ export class State {
      * @param {!Objekt} state
      * @return {undefined}
      */
-    _setCurrent(state: Objekt): void {
+    private _setCurrent(state: Objekt): void {
         this._previous = this._current;
         this._current = state;
     }
@@ -463,13 +463,14 @@ export class State {
         return /** @type {!Objekt} */ this.getCurrent<Objekt>('params');
     }
     /**
+     * @template T
      * @param {string} name
      * @param {*=} opt_defaultValue
      * @return {string}
      */
-    getParam(name: string, opt_defaultValue?: any): string {
+    getParam<T = string>(name: string, opt_defaultValue?: any): T {
         const params = this.getParams();
-        return /** @type {string} */(params).get<string>(name, opt_defaultValue);
+        return /** @type {T} */(params).get<T>(name, opt_defaultValue);
     }
     /**
      * @return {undefined}

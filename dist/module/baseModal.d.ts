@@ -26,27 +26,27 @@ export declare class BaseModal {
      * @protected
      * @return {undefined}
      */
-    _initBase(): void;
+    protected _initBase(): void;
     /**
      * @private
      * @return {undefined}
      */
-    _initButtons(): void;
+    private _initButtons;
     /**
      * @private
      * @return {undefined}
      */
-    _initMinimizeButton(): void;
+    private _initMinimizeButton;
     /**
      * @private
      * @return {undefined}
      */
-    _initMaximizeButton(): void;
+    private _initMaximizeButton;
     /**
      * @private
      * @return {undefined}
      */
-    _initCloseButton(): void;
+    private _initCloseButton;
     /**
      * @return {boolean}
      */
@@ -56,7 +56,7 @@ export declare class BaseModal {
      * @param {boolean=} opt_allowClose
      * @return {undefined}
      */
-    _handleCloseButton(opt_allowClose?: boolean | undefined): void;
+    private _handleCloseButton;
     /**
      * @param {boolean=} opt_allowClose
      * @return {undefined}
@@ -71,32 +71,32 @@ export declare class BaseModal {
      * @param {string=} opt_title
      * @return {undefined}
      */
-    _setTitle(opt_title: string | undefined): void;
+    protected _setTitle(opt_title: string | undefined): void;
     /**
      * @protected
      * @return {undefined}
      */
-    _reset(): void;
+    protected _reset(): void;
     /**
      * @protected
      * @return {undefined}
      */
-    _actionOK(): void;
+    protected _actionOK(): void;
     /**
      * @protected
      * @return {undefined}
      */
-    _actionCancel(): void;
+    protected _actionCancel(): void;
     /**
      * @private
      * @return {undefined}
      */
-    _actionMinimize(): void;
+    private _actionMinimize;
     /**
      * @private
      * @return {undefined}
      */
-    _actionMaximize(): void;
+    private _actionMaximize;
     /**
      * @param {number} width
      * @param {number} height
@@ -107,5 +107,5 @@ export declare class BaseModal {
      * @private
      * @return {undefined}
      */
-    _handleCenterPosition(): void;
+    private _handleCenterPosition;
 }

@@ -22,7 +22,7 @@ export class Canvas {
      * @param {!Item|string=} opt_selector
      * @return {undefined}
      */
-    _init(opt_selector?: (Item | string)): void {
+    private _init(opt_selector?: (Item | string)): void {
         this.canvasNode = /** @type {!Item} */ opt_selector as Item<HTMLCanvasElement>;
         if (isString(opt_selector)) {
             this.canvasNode = new Query<HTMLCanvasElement>(
@@ -38,7 +38,7 @@ export class Canvas {
      * @private
      * @return {undefined}
      */
-    _initEvents(): void {
+    private _initEvents(): void {
         this.canvasNode.addEventListener('mousemove', (canvasNode, event) => {
             const rect = canvasNode.getNode().getBoundingClientRect();
             const x = event.clientX - rect.left;

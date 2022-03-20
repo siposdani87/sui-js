@@ -14,7 +14,7 @@ export declare class Sidebar {
      * @private
      * @return {undefined}
      */
-    _init(): void;
+    private _init;
     /**
      * @return {undefined}
      */

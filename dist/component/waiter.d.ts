@@ -21,7 +21,7 @@ export declare class Waiter {
      * @param {number} counter
      * @return {undefined}
      */
-    _advancedDelayHandler(callback: Function, duration: number, counter: number): void;
+    private _advancedDelayHandler;
     /**
      * @return {undefined}
      */
@@ -43,5 +43,5 @@ export declare class Waiter {
      * @param {number} counter
      * @return {undefined}
      */
-    _simpleDelayHandler(callback: Function, duration: number, counter: number): void;
+    private _simpleDelayHandler;
 }

@@ -28,7 +28,7 @@ export class Tooltip {
      * @param {string=} opt_position
      * @return {undefined}
      */
-    _initPositions(opt_position: string | undefined = ''): void {
+    private _initPositions(opt_position: string | undefined = ''): void {
         this.positionCssClass = 'mdl-tooltip--top';
         switch (opt_position) {
             case 'TOP':
@@ -49,14 +49,14 @@ export class Tooltip {
      * @private
      * @return {undefined}
      */
-    _init(): void {
+    private _init(): void {
         this._createTooltip();
     }
     /**
      * @param {string=} opt_message
      * @return {string}
      */
-    _getMessage(opt_message: string | undefined = ''): string {
+    private _getMessage(opt_message: string | undefined = ''): string {
         if (!opt_message) {
             opt_message =
                 /** @type {string} */(this).element.getAttribute('desc') || '';
@@ -73,7 +73,7 @@ export class Tooltip {
      * @private
      * @return {undefined}
      */
-    _createTooltip(): void {
+    private _createTooltip(): void {
         let id = this.element.getId();
         if (isNull(id)) {
             id = generateId('tooltip');
@@ -105,7 +105,7 @@ export class Tooltip {
      * @private
      * @return {undefined}
      */
-    _handleAttributes(): void {
+    private _handleAttributes(): void {
         if (this.valid) {
             this.element.removeAttribute('desc');
             this.element.removeAttribute('title');

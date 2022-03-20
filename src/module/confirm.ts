@@ -25,7 +25,7 @@ export class Confirm extends BaseModal {
      * @private
      * @return {undefined}
      */
-    _setOptions(opt_options: Object | undefined = {}): void {
+    private _setOptions(opt_options: Object | undefined = {}): void {
         const _self = this;
         _self.options = new Objekt({
             id: '#confirm',
@@ -36,7 +36,7 @@ export class Confirm extends BaseModal {
      * @private
      * @return {undefined}
      */
-    _init(): void {
+    private _init(): void {
         this.body = new Query('body').getItem();
         this.modal = new Query(this.options.id).getItem();
         this.modalWindow = new Query('#confirm-window', this.modal).getItem();

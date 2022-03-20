@@ -33,7 +33,7 @@ export class LocationField extends BaseField {
      * @private
      * @return {undefined}
      */
-    _init(): void {
+    private _init(): void {
         this.inputBlock.addClass('location-field');
         this._initButtons();
 
@@ -63,7 +63,7 @@ export class LocationField extends BaseField {
      * @private
      * @return {undefined}
      */
-    _initButtons(): void {
+    private _initButtons(): void {
         this._initSearchButton();
         this._initAdvancedButton();
     }
@@ -71,7 +71,7 @@ export class LocationField extends BaseField {
      * @private
      * @return {undefined}
      */
-    _initSearchButton(): void {
+    private _initSearchButton(): void {
         const searchButton = new Item('a');
         searchButton.setAttribute('href', 'javascript:void(0)');
         searchButton.addClass(['search-button', 'material-icons']);
@@ -88,7 +88,7 @@ export class LocationField extends BaseField {
      * @private
      * @return {undefined}
      */
-    _initAdvancedButton(): void {
+    private _initAdvancedButton(): void {
         this.advancedButton = new Item('a');
         this.advancedButton.setAttribute('href', 'javascript:void(0)');
         this.advancedButton.addClass(['advanced-button', 'material-icons']);
@@ -156,7 +156,7 @@ export class LocationField extends BaseField {
      * @private
      * @return {undefined}
      */
-    _toggleAdvancedInputs(): void {
+    private _toggleAdvancedInputs(): void {
         this.advancedButton.toggleClass('active');
         this.advancedNode.toggleClass('hidden');
     }
@@ -164,7 +164,7 @@ export class LocationField extends BaseField {
      * @private
      * @return {undefined}
      */
-    _renderAdvancedInputs(): void {
+    private _renderAdvancedInputs(): void {
         this.advancedNode = new Item('div');
         this.advancedNode.addClass(['advanced', 'row', 'hidden']);
         this.inputBlock.appendChild(this.advancedNode);
@@ -197,7 +197,7 @@ export class LocationField extends BaseField {
      * @param {function(!Item):undefined} callback
      * @return {!Item<HTMLInputElement>}
      */
-    _renderAdvancedInput(id: string, labelText: string, callback: (arg0: Item<HTMLInputElement>) => void): Item<HTMLInputElement> {
+    private _renderAdvancedInput(id: string, labelText: string, callback: (arg0: Item<HTMLInputElement>) => void): Item<HTMLInputElement> {
         const blockNode = new Item('div');
         blockNode.addClass('col-6');
         this.advancedNode.appendChild(blockNode);
@@ -234,7 +234,7 @@ export class LocationField extends BaseField {
      * @private
      * @return {undefined}
      */
-    _renderMap(): void {
+    private _renderMap(): void {
         const mapNode = new Item('div');
         mapNode.addClass('map');
         this.inputBlock.appendChild(mapNode);
@@ -281,7 +281,7 @@ export class LocationField extends BaseField {
      * @private
      * @return {undefined}
      */
-    _setDefaultValue(): void {
+    private _setDefaultValue(): void {
         const location = /** @type {!Object} */ this.getValue();
         if (!isNull(location['latitude']) && !isNull(location['longitude'])) {
             this.map.setCenter(location['latitude'], location['longitude']);
@@ -311,7 +311,7 @@ export class LocationField extends BaseField {
      * @param {!Object} value
      * @return {undefined}
      */
-    _setDataValue(value: Object): void {
+    private _setDataValue(value: Object): void {
         this.latitudeInput.getNode().value = value['latitude'] || '';
         this.longitudeInput.getNode().value = value['longitude'] || '';
         this.input.setAttribute('value', value['address'] || '');

@@ -119,13 +119,13 @@ export declare class Helper {
      * @param {!Item} parentNode
      * @return {undefined}
      */
-    _createIconNode(iconName: string, parentNode: Item): void;
+    private _createIconNode;
     /**
      * @param {!Item} node
      * @param {string=} opt_description
      * @return {undefined}
      */
-    _setTooltip(node: Item, opt_description?: string | undefined): void;
+    private _setTooltip;
     /**
      * @param {!Item} imageNode
      * @param {string} defaultImageUrl

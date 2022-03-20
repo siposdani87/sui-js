@@ -18,7 +18,7 @@ export class Promize {
      * @private
      * @return {undefined}
      */
-     _setOptions(opt_options: Object | undefined = {}): void {
+     private _setOptions(opt_options: Object | undefined = {}): void {
         const _self = this;
         _self.options = new Objekt({
             status: null,
@@ -33,7 +33,7 @@ export class Promize {
      * @param {*=} opt_data
      * @return {undefined}
      */
-    _resolve(opt_data: any | undefined): void {
+    resolve(opt_data: any | undefined): void {
         if (!isArray(opt_data)) {
             opt_data = [opt_data];
         }
@@ -52,7 +52,7 @@ export class Promize {
      * @param {*=} opt_data
      * @return {undefined}
      */
-    _reject(opt_data: any | undefined): void {
+    reject(opt_data: any | undefined): void {
         if (!isArray(opt_data)) {
             opt_data = opt_data ? [opt_data] : [];
         }

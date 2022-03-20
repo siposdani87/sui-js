@@ -17,10 +17,10 @@ export declare class Carousel {
      * @param {!Object=} opt_options
      * @return {undefined}
      */
-    _setOptions(opt_options?: Object | undefined): void;
+    private _setOptions;
     /**
      * @private
      * @return {undefined}
      */
-    _init(): void;
+    private _init;
 }

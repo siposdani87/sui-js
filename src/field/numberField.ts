@@ -22,7 +22,7 @@ export class NumberField extends BaseField {
      * @private
      * @return {undefined}
      */
-    _init(): void {
+    private _init(): void {
         this.inputBlock.addClass('number-field');
 
         this._initButtons();
@@ -45,7 +45,7 @@ export class NumberField extends BaseField {
      * @private
      * @return {undefined}
      */
-    _initButtons(): void {
+    private _initButtons(): void {
         const actionNode = new Item('span');
         actionNode.addClass('step-change');
         this.actionContainerNode.appendChild(actionNode);
@@ -80,7 +80,7 @@ export class NumberField extends BaseField {
      * @private
      * @return {undefined}
      */
-    _checkValue(): void {
+    private _checkValue(): void {
         const value = /** @type {number} */(this).getValue();
         const min = this._getMin();
         if (value < min) {
@@ -95,7 +95,7 @@ export class NumberField extends BaseField {
      * @private
      * @return {number}
      */
-    _getMax(): number {
+    private _getMax(): number {
         const max = this.input.getAttribute('max') || 9999999999;
         return /** @type {number} */(typeCast)(max);
     }
@@ -103,7 +103,7 @@ export class NumberField extends BaseField {
      * @private
      * @return {number}
      */
-    _getMin(): number {
+    private _getMin(): number {
         const min = this.input.getAttribute('min') || 0;
         return /** @type {number} */(typeCast)(min);
     }
@@ -111,7 +111,7 @@ export class NumberField extends BaseField {
      * @private
      * @return {number}
      */
-    _getStep(): number {
+    private _getStep(): number {
         const step = this.input.getAttribute('step') || 1;
         return /** @type {number} */(typeCast)(step);
     }

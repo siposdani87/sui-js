@@ -19,12 +19,12 @@ export declare class BaseCheckboxField extends BaseField {
      * @protected
      * @return {undefined}
      */
-    _init(): void;
+    protected _init(): void;
     /**
      * @protected
      * @return {undefined}
      */
-    _change(): void;
+    protected _change(): void;
     /**
      * @override
      * @return {*}

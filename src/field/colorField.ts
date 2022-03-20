@@ -33,7 +33,7 @@ export class ColorField extends BaseField {
      * @private
      * @return {undefined}
      */
-    _init(): void {
+    private _init(): void {
         this.inputBlock.addClass('color-field');
 
         this._initInput();
@@ -72,7 +72,7 @@ export class ColorField extends BaseField {
      * @private
      * @return {undefined}
      */
-    _initInput(): void {
+    private _initInput(): void {
         this.input.addClass('hidden');
 
         this.input.addEventListener('change', (input) => {
@@ -89,7 +89,7 @@ export class ColorField extends BaseField {
      * @private
      * @return {undefined}
      */
-    _initPreview(): void {
+    private _initPreview(): void {
         this.previewNode = new Item('div');
         this.previewNode.addClass('preview');
         this.inputBlock.beforeChild(this.previewNode);
@@ -113,7 +113,7 @@ export class ColorField extends BaseField {
      * @private
      * @return {undefined}
      */
-    _draw(): void {
+    private _draw(): void {
         if (!this.image.isEmpty()) {
             const width = /** @type {number} */(typeCast)(
                 this.image.getAttribute('width'),
@@ -149,7 +149,7 @@ export class ColorField extends BaseField {
      * @private
      * @return {undefined}
      */
-    _initImage(): void {
+    private _initImage(): void {
         this.image = new Query<HTMLImageElement>('img', this.inputBlock).getItem();
         if (!this.image.isEmpty()) {
             this.image.addClass('hidden');
@@ -180,7 +180,7 @@ export class ColorField extends BaseField {
      * @private
      * @return {undefined}
      */
-    _setMaterialColors(): void {
+    private _setMaterialColors(): void {
         const colors50 = [
             '#ffebee',
             '#fce4ec',

@@ -19,13 +19,13 @@ export declare class ActionCableClient {
      * @param {!ChannelNameWithParams} options
      * @return {undefined}
      */
-    _init(options: ChannelNameWithParams): void;
+    private _init;
     /**
      * @private
      * @param {!ChannelNameWithParams} options
      * @return {!Promize}
      */
-    _getSubscription(options: ChannelNameWithParams): Promize;
+    private _getSubscription;
     /**
      * @return {!Promize}
      */

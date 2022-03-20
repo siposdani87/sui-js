@@ -24,7 +24,7 @@ export class LeftMenu {
      * @private
      * @return {undefined}
      */
-    _init(): void {
+    private _init(): void {
         this.body = new Query('body').getItem();
         this.mainContainerNode = new Query('.main-container').getItem();
         this.leftMenu = new Query('#left-menu').getItem();

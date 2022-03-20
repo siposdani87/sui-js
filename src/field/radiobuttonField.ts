@@ -27,7 +27,7 @@ export class RadiobuttonField extends BaseField {
      * @private
      * @return {undefined}
      */
-    _init(): void {
+    private _init(): void {
         this.inputBlock.addClass('radiobutton-field');
 
         /* this.label.addEventListener('click', () => {
@@ -42,7 +42,7 @@ export class RadiobuttonField extends BaseField {
      * @private
      * @return {undefined}
      */
-    _change(): void {
+    private _change(): void {
         const value = this.input.getAttribute('value');
         this.modelChange(value);
 
@@ -173,7 +173,7 @@ export class RadiobuttonField extends BaseField {
     /**
      * @return {!Query}
      */
-    _getRadioButtonInputs(): Query<HTMLInputElement> {
+    private _getRadioButtonInputs(): Query<HTMLInputElement> {
         const name = this.input.getAttribute('name');
         return new Query<HTMLInputElement>(
             format('input[name="{0}"]', [name]),

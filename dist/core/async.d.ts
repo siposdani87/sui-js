@@ -47,7 +47,7 @@ export declare class Async {
      * @private
      * @return {undefined}
      */
-    _clear(): void;
+    private _clear;
     /**
      * @param {number} sum
      * @param {boolean} isError

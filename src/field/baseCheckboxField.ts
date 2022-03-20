@@ -26,7 +26,7 @@ export class BaseCheckboxField extends BaseField {
      * @protected
      * @return {undefined}
      */
-    _init(): void {
+    protected _init(): void {
         this.hiddenInput = new Query(
             'input[type=hidden]',
             this.inputBlock,
@@ -42,7 +42,7 @@ export class BaseCheckboxField extends BaseField {
      * @protected
      * @return {undefined}
      */
-    _change(): void {
+    protected _change(): void {
         const value = this.getValue();
         this.modelChange(value);
     }

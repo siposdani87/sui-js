@@ -108,7 +108,7 @@ export class GoogleMap {
      * @param {!Object=} opt_options
      * @return {undefined}
      */
-    _setOptions(opt_options: Object | undefined = {}): void {
+    private _setOptions(opt_options: Object | undefined = {}): void {
         const _self = this;
         _self.options = new Objekt({
             center: {
@@ -161,7 +161,7 @@ export class GoogleMap {
      * @private
      * @return {undefined}
      */
-    _init(): void {
+    private _init(): void {
         this.markerIcons = {};
 
         this._initMap();
@@ -174,7 +174,7 @@ export class GoogleMap {
      * @private
      * @return {undefined}
      */
-    _initMap(): void {
+    private _initMap(): void {
         this.map = new google.maps.Map(
             this.mapNode.getNode(),
             this.options as google.maps.MapOptions,
@@ -187,7 +187,7 @@ export class GoogleMap {
      * @private
      * @return {undefined}
      */
-    _bindEventsToMap(): void {
+    private _bindEventsToMap(): void {
         this.map.addListener('click', (event) => {
             const vertex = event.latLng;
             this.eventMapClick(vertex.lat(), vertex.lng(), event);
@@ -201,14 +201,14 @@ export class GoogleMap {
      * @private
      * @return {undefined}
      */
-    _unbindEventsToMap(): void {
+    private _unbindEventsToMap(): void {
         google.maps.event.clearInstanceListeners(this.map);
     }
     /**
      * @private
      * @return {undefined}
      */
-    _initOverlay(): void {
+    private _initOverlay(): void {
         this.overlay = new google.maps.OverlayView();
         this.overlay.draw = () => {
             // empty function
@@ -309,7 +309,7 @@ export class GoogleMap {
      * @param {!Object} polygonData
      * @return {!Objekt}
      */
-    _cleanPolygonData(polygonData: Object): Objekt {
+    private _cleanPolygonData(polygonData: Object): Objekt {
         const cleanData = new Objekt();
         each(polygonData, (value, key) => {
             if (!inArray(['_polygon', '_map_text', '_bounds'], key)) {
@@ -361,7 +361,7 @@ export class GoogleMap {
      * @param {!Objekt} polygonData
      * @return {undefined}
      */
-    _bindEventsToPolygon(polygon: google.maps.Polygon, polygonData: Objekt): void {
+    private _bindEventsToPolygon(polygon: google.maps.Polygon, polygonData: Objekt): void {
         const cleanPolygonData = this._cleanPolygonData(polygonData);
 
         polygon.addListener('rightclick', (event) => {
@@ -406,7 +406,7 @@ export class GoogleMap {
      * @param {!google.maps.Polygon} polygon
      * @return {undefined}
      */
-    _unbindEventsToPolygon(polygon: google.maps.Polygon): void {
+    private _unbindEventsToPolygon(polygon: google.maps.Polygon): void {
         google.maps.event.clearInstanceListeners(polygon);
         this._unbindEventsToPolygonPath(polygon);
     }
@@ -416,7 +416,7 @@ export class GoogleMap {
      * @param {!Objekt} polygonData
      * @return {undefined}
      */
-    _bindEventsToPolygonPath(polygon: google.maps.Polygon, polygonData: Objekt): void {
+    private _bindEventsToPolygonPath(polygon: google.maps.Polygon, polygonData: Objekt): void {
         const path = polygon.getPath();
         if (path) {
             path.addListener('insert_at', () => {
@@ -435,7 +435,7 @@ export class GoogleMap {
      * @param {!google.maps.Polygon} polygon
      * @return {undefined}
      */
-    _unbindEventsToPolygonPath(polygon: google.maps.Polygon): void {
+    private _unbindEventsToPolygonPath(polygon: google.maps.Polygon): void {
         const path = polygon.getPath();
         if (path) {
             google.maps.event.clearInstanceListeners(path);
@@ -447,7 +447,7 @@ export class GoogleMap {
      * @param {!Objekt} polygonData
      * @return {undefined}
      */
-    _callPolygonChangeEvent(polygon: google.maps.Polygon, polygonData: Objekt): void {
+    private _callPolygonChangeEvent(polygon: google.maps.Polygon, polygonData: Objekt): void {
         const points = this._getPointsFromPolygon(polygonData);
         this._setBoundsByPoints(polygonData, points);
 
@@ -535,7 +535,7 @@ export class GoogleMap {
      * @param {!Array<{latitude: number, longitude: number}>} points
      * @return {undefined}
      */
-    _addPointsToPolygon(polygonData: Objekt, points: Array<{ latitude: number; longitude: number; }>): void {
+    private _addPointsToPolygon(polygonData: Objekt, points: Array<{ latitude: number; longitude: number; }>): void {
         const polygon =
             /** @type {!google.maps.Polygon} */ polygonData.get<google.maps.Polygon>('_polygon');
         const path = this._convertPointsToPath(points);
@@ -548,7 +548,7 @@ export class GoogleMap {
      * @param {!Array<WeigthPoint>} points
      * @return {!Array<!google.maps.LatLng>}
      */
-    _convertPointsToPath(points: Array<WeigthPoint>): Array<google.maps.LatLng> {
+    private _convertPointsToPath(points: Array<WeigthPoint>): Array<google.maps.LatLng> {
         const path = [];
         each(points, (point) => {
             let vertex: any = new google.maps.LatLng(
@@ -571,7 +571,7 @@ export class GoogleMap {
      * @param {!Array<{latitude: number, longitude: number}>} points
      * @return {undefined}
      */
-    _setBoundsByPoints(polygonData: Objekt, points: Array<{ latitude: number; longitude: number; }>): void {
+    private _setBoundsByPoints(polygonData: Objekt, points: Array<{ latitude: number; longitude: number; }>): void {
         const path = this._convertPointsToPath(points);
         this._setBoundsByPath(polygonData, path);
     }
@@ -581,7 +581,7 @@ export class GoogleMap {
      * @param {!Array<!google.maps.LatLng>} path
      * @return {undefined}
      */
-    _setBoundsByPath(polygonData: Objekt, path: Array<google.maps.LatLng>): void {
+    private _setBoundsByPath(polygonData: Objekt, path: Array<google.maps.LatLng>): void {
         const bounds = new google.maps.LatLngBounds();
         if (path.length > 0) {
             each(path, (vertex) => {
@@ -626,7 +626,7 @@ export class GoogleMap {
      * @param {!Objekt} polygonData
      * @return {!Array<{latitude: number, longitude: number}>}
      */
-    _getPointsFromPolygon(polygonData: Objekt): Array<{ latitude: number; longitude: number; }> {
+    private _getPointsFromPolygon(polygonData: Objekt): Array<{ latitude: number; longitude: number; }> {
         const polygon =
             /** @type {!google.maps.Polygon} */ polygonData.get<google.maps.Polygon>('_polygon');
         const path = /** @type {!Array<!google.maps.LatLng>} */ polygon
@@ -856,7 +856,7 @@ export class GoogleMap {
      * @param {!Objekt} markerData
      * @return {undefined}
      */
-    _bindEventsToMarker(marker: google.maps.Marker, markerData: Objekt): void {
+    private _bindEventsToMarker(marker: google.maps.Marker, markerData: Objekt): void {
         const cleanMarkerData = this._cleanMarkerData(markerData);
 
         marker.addListener('click', (event) => {
@@ -893,7 +893,7 @@ export class GoogleMap {
      * @param {!google.maps.Marker} marker
      * @return {undefined}
      */
-    _unbindEventsToMarker(marker: google.maps.Marker): void {
+    private _unbindEventsToMarker(marker: google.maps.Marker): void {
         google.maps.event.clearInstanceListeners(marker);
     }
     /**
@@ -939,7 +939,7 @@ export class GoogleMap {
      * @param {!Object} markerData
      * @return {!Objekt}
      */
-    _cleanMarkerData(markerData: Object): Objekt {
+    private _cleanMarkerData(markerData: Object): Objekt {
         const cleanData = new Objekt();
         each(markerData, (value, key) => {
             if (!inArray(['_marker', '_map_label'], key)) {

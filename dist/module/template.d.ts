@@ -18,12 +18,12 @@ export declare class Template {
      * @param {!Object=} opt_options
      * @return {undefined}
      */
-    _setOptions(opt_options?: Object | undefined): void;
+    private _setOptions;
     /**
      * @private
      * @return {undefined}
      */
-    _init(): void;
+    private _init;
     /**
      * @return {!Item}
      */
@@ -40,7 +40,7 @@ export declare class Template {
      * @param {boolean} error
      * @return {!Item}
      */
-    _handleData(data: Item, error: boolean): Item;
+    private _handleData;
     /**
      * @param {!Object} message
      * @return {undefined}

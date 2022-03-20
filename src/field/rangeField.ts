@@ -24,7 +24,7 @@ export class RangeField extends BaseField {
      * @private
      * @return {undefined}
      */
-    _init(): void {
+    private _init(): void {
         this.inputBlock.addClass('range-field');
 
         this.input.addEventListener('input', (input) => {

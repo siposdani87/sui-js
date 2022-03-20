@@ -42,14 +42,14 @@ export class Calendar {
      * @param {!Object} options
      * @return {undefined}
      */
-    _setOptions(options: Object): void {
+    private _setOptions(options: Object): void {
         this.options = options;
     }
     /**
      * @private
      * @return {undefined}
      */
-    _init(): void {
+    private _init(): void {
         this.maxDays = 6 * 7;
         this.maxMonths = 12;
         this.maxYears = 16;
@@ -69,7 +69,7 @@ export class Calendar {
      * @private
      * @return {undefined}
      */
-    _initStructure(): void {
+    private _initStructure(): void {
         this._initHeaderNode();
         this._initContentNode();
         this._initMode(this.types[this.options.type]);
@@ -82,7 +82,7 @@ export class Calendar {
      * @private
      * @return {undefined}
      */
-    _initHeaderNode(): void {
+    private _initHeaderNode(): void {
         this.headerNode = new Item('div');
         this.headerNode.addClass('header');
         this.calendarNode.appendChild(this.headerNode);
@@ -129,7 +129,7 @@ export class Calendar {
      * @private
      * @return {undefined}
      */
-    _initContentNode(): void {
+    private _initContentNode(): void {
         this.contentNode = new Item('div');
         this.contentNode.addClass('content');
         this.calendarNode.appendChild(this.contentNode);
@@ -139,7 +139,7 @@ export class Calendar {
      * @param {number} direction
      * @return {undefined}
      */
-    _changeMode(direction: number): void {
+    private _changeMode(direction: number): void {
         const mode = this._getMode(direction);
         this._initMode(mode);
     }
@@ -148,7 +148,7 @@ export class Calendar {
      * @param {number} direction
      * @return {string}
      */
-    _getMode(direction: number): string {
+    private _getMode(direction: number): string {
         let position = this.modes.indexOf(this.activeMode);
         if (position !== -1) {
             position += direction;
@@ -163,7 +163,7 @@ export class Calendar {
      * @param {!Function} yearFun
      * @return {!Object}
      */
-    _switchMode(dayFun: Function, monthFun: Function, yearFun: Function): Object {
+    private _switchMode(dayFun: Function, monthFun: Function, yearFun: Function): Object {
         let result = null;
         switch (this.activeMode) {
             case 'DAY':
@@ -185,7 +185,7 @@ export class Calendar {
      * @param {string} mode
      * @return {undefined}
      */
-    _initMode(mode: string): void {
+    private _initMode(mode: string): void {
         this.contentNode.removeChildren();
         this.activeMode = mode;
         this._switchMode(
@@ -198,7 +198,7 @@ export class Calendar {
      * @private
      * @return {undefined}
      */
-    _initYearsMode(): void {
+    private _initYearsMode(): void {
         this.yearsNode = new Item('div');
         this.yearsNode.addClass('years');
         this.contentNode.appendChild(this.yearsNode);
@@ -207,7 +207,7 @@ export class Calendar {
      * @private
      * @return {undefined}
      */
-    _initMonthsMode(): void {
+    private _initMonthsMode(): void {
         this.monthsNode = new Item('div');
         this.monthsNode.addClass('months');
         this.contentNode.appendChild(this.monthsNode);
@@ -216,7 +216,7 @@ export class Calendar {
      * @private
      * @return {undefined}
      */
-    _initDaysMode(): void {
+    private _initDaysMode(): void {
         this.weekDaysNode = new Item('div');
         this.weekDaysNode.addClass('week-days');
         this.contentNode.appendChild(this.weekDaysNode);
@@ -229,7 +229,7 @@ export class Calendar {
      * @private
      * @return {undefined}
      */
-    _previous(): void {
+    private _previous(): void {
         const date = this._switchMode(
             () => {
                 return this.previous.month;
@@ -255,7 +255,7 @@ export class Calendar {
      * @private
      * @return {undefined}
      */
-    _next(): void {
+    private _next(): void {
         const date = this._switchMode(
             () => {
                 return this.next.month;
@@ -278,7 +278,7 @@ export class Calendar {
      * @param {!Object} date
      * @return {undefined}
      */
-    _setDate(date: Object): void {
+    private _setDate(date: Object): void {
         this._setVariables(date);
 
         this._setPreviousMonth();
@@ -290,7 +290,7 @@ export class Calendar {
      * @param {!Object} date
      * @return {undefined}
      */
-    _setVariables(date: Object): void {
+    private _setVariables(date: Object): void {
         this.days = [];
 
         this.previous = {
@@ -323,7 +323,7 @@ export class Calendar {
      * @private
      * @return {undefined}
      */
-    _drawDaysStructure(): void {
+    private _drawDaysStructure(): void {
         this._drawHeader('YYYY MMMM');
         this._drawWeekDays();
         this._drawDays();
@@ -332,7 +332,7 @@ export class Calendar {
      * @private
      * @return {undefined}
      */
-    _drawMonthsStructure(): void {
+    private _drawMonthsStructure(): void {
         this._drawHeader('YYYY');
         this._drawMonths();
     }
@@ -340,7 +340,7 @@ export class Calendar {
      * @private
      * @return {undefined}
      */
-    _drawYearsStructure(): void {
+    private _drawYearsStructure(): void {
         this._drawHeader(null);
         this._drawYears();
     }
@@ -349,7 +349,7 @@ export class Calendar {
      * @param {string|null} format
      * @return {undefined}
      */
-    _drawHeader(format: string | null): void {
+    private _drawHeader(format: string | null): void {
         this.currentModeNode.removeChildren();
         const text = format ? this.current.day['format'](format) : '';
         this.currentModeNode.setHtml(text);
@@ -358,7 +358,7 @@ export class Calendar {
      * @private
      * @return {undefined}
      */
-    _drawMonths(): void {
+    private _drawMonths(): void {
         this.monthsNode.removeChildren();
         for (let i = 0; i < this.maxMonths; i++) {
             const month = new Month(
@@ -375,7 +375,7 @@ export class Calendar {
      * @private
      * @return {undefined}
      */
-    _drawYears(): void {
+    private _drawYears(): void {
         this.yearsNode.removeChildren();
         const startYear =
             this.current.day['year']() -
@@ -395,7 +395,7 @@ export class Calendar {
      * @private
      * @return {undefined}
      */
-    _drawWeekDays(): void {
+    private _drawWeekDays(): void {
         this.weekDaysNode.removeChildren();
         for (
             let i = this.options.start_day;
@@ -413,7 +413,7 @@ export class Calendar {
      * @private
      * @return {undefined}
      */
-    _drawDays(): void {
+    private _drawDays(): void {
         this.daysNode.removeChildren();
         for (let i = 0; i < this.days.length; i++) {
             const day = this.days[i];
@@ -428,7 +428,7 @@ export class Calendar {
      * @param {number} day
      * @return {string}
      */
-    _getDate(year: number, month: number, day: number): string {
+    private _getDate(year: number, month: number, day: number): string {
         const results = [year, month + 1, day];
         return results.join('-');
     }
@@ -436,7 +436,7 @@ export class Calendar {
      * @private
      * @return {undefined}
      */
-    _setPreviousMonth(): void {
+    private _setPreviousMonth(): void {
         const diffDays =
             this.previous.month['endOf']('month')['day']() -
             this.options.start_day;
@@ -461,7 +461,7 @@ export class Calendar {
      * @private
      * @return {undefined}
      */
-    _setCurrentMonth(): void {
+    private _setCurrentMonth(): void {
         for (let i = 1; i <= this.current.day['daysInMonth'](); i++) {
             const date = this._getDate(
                 this.current.day['year'](),
@@ -479,7 +479,7 @@ export class Calendar {
      * @private
      * @return {undefined}
      */
-    _setNextMonth(): void {
+    private _setNextMonth(): void {
         const numOfDays = this.days.length;
         const diffDays = this.maxDays - numOfDays;
         for (let i = 1; i <= diffDays; i++) {
@@ -500,7 +500,7 @@ export class Calendar {
      * @param {!Object} selectedDate
      * @return {undefined}
      */
-    _setModeDate(selectedDate: Object): void {
+    private _setModeDate(selectedDate: Object): void {
         const date = this.current.day['clone']();
         this._switchMode(
             () => {
@@ -522,7 +522,7 @@ export class Calendar {
      * @param {!Object} selectedDate
      * @return {undefined}
      */
-    _onClick(selectedDate: Object): void {
+    private _onClick(selectedDate: Object): void {
         this._setModeDate(selectedDate);
 
         const mode = this.types[this.options.type];
@@ -537,7 +537,7 @@ export class Calendar {
      * @param {!Object} date
      * @return {undefined}
      */
-    _setSelectedDate(date: Object): void {
+    private _setSelectedDate(date: Object): void {
         this.selectedDate = date;
     }
     /**

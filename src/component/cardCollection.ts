@@ -46,7 +46,7 @@ export class CardCollection {
      * @param {!Object=} opt_options
      * @return {undefined}
      */
-    _setOptions(opt_options: Object | undefined = {}): void {
+    private _setOptions(opt_options: Object | undefined = {}): void {
         const _self = this;
         _self.options = new Objekt({
             no_content: {
@@ -66,7 +66,7 @@ export class CardCollection {
      * @private
      * @return {undefined}
      */
-    _init(): void {
+    private _init(): void {
         this.collection = /** @type {!Collection<!Objekt>} */ new Collection();
         this.query = '';
         this._initContentHandler();
@@ -85,7 +85,7 @@ export class CardCollection {
      * @private
      * @return {undefined}
      */
-    _initContentHandler(): void {
+    private _initContentHandler(): void {
         this.contentHandler = new ContentHandler(
             this.cardCollectionNode,
             this.options.no_content,
@@ -95,7 +95,7 @@ export class CardCollection {
      * @private
      * @return {undefined}
      */
-    _initStructure(): void {
+    private _initStructure(): void {
         this.cardCollectionNode.addClass('card-collection');
 
         this.body = new Item('div');
@@ -118,7 +118,7 @@ export class CardCollection {
      * @private
      * @return {undefined}
      */
-    _initTemplate(): void {
+    private _initTemplate(): void {
         this.cardTemplate = new Query<HTMLTemplateElement>(
             'template',
             this.cardCollectionNode,
@@ -131,7 +131,7 @@ export class CardCollection {
      * @param {!Objekt} item
      * @return {!Item}
      */
-    _getCardNode(item: Objekt): Item {
+    private _getCardNode(item: Objekt): Item {
         const regex = new RegExp('{{[a-zA-Z._,() ]*}}', 'g');
         const matches = this.template.match(regex);
         let cloneTemplate = this.template;
@@ -205,7 +205,7 @@ export class CardCollection {
      * @param {!Objekt} item
      * @return {undefined}
      */
-    _addCard(item: Objekt): void {
+    private _addCard(item: Objekt): void {
         const cardNode = this._getCardNode(item);
         this.body.appendChild(cardNode);
         this.eventCardNode(cardNode, item);
@@ -236,7 +236,7 @@ export class CardCollection {
      * @private
      * @return {!Array}
      */
-    _getItems(): Array<any> {
+    private _getItems(): Array<any> {
         let items = this.collection.getItems();
         if (this.collection.size() > this.options.row_count) {
             items = this.collection.limit(
@@ -250,7 +250,7 @@ export class CardCollection {
      * @private
      * @return {undefined}
      */
-    _draw(): void {
+    private _draw(): void {
         this.body.removeChildren();
         each(this._getItems(), (item) => {
             this._addCard(item);

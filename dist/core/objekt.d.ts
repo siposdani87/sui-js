@@ -19,7 +19,7 @@ export declare class Objekt {
      * @param {string} key
      * @return {undefined}
      */
-    _convertObject(object: any, key: string): void;
+    private _convertObject;
     /**
      * @deprecated Use get()
      * @param {string=} opt_attribute
@@ -50,7 +50,7 @@ export declare class Objekt {
      * @param {*} value
      * @return {undefined}
      */
-    _set(object: Object | Objekt, attributes: Array<string>, value: any): void;
+    private _set;
     /**
      * @export
      * @param {string} attribute
@@ -82,7 +82,7 @@ export declare class Objekt {
      * @param {!Array<string>} attributes
      * @return {undefined}
      */
-    _remove(object: Object | Objekt, attributes: Array<string>): void;
+    private _remove;
     /**
      * @export
      * @param {!Function} next

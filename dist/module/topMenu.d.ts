@@ -15,7 +15,7 @@ export declare class TopMenu {
      * @private
      * @return {undefined}
      */
-    _init(): void;
+    private _init;
     /**
      * @return {undefined}
      */

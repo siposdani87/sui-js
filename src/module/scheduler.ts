@@ -17,7 +17,7 @@ export class Scheduler {
      * @private
      * @return {undefined}
      */
-    _callRunner(): void {
+    private _callRunner(): void {
         /* setTimeout(() => {
       eachObject(this.schedulerStore, (schedulerCallbacks, timeKey) => {
   

@@ -1,9 +1,5 @@
 import { Item } from '../core/item';
 import { Objekt } from '../core/objekt';
-declare type Page = {
-    text: string;
-    page: number;
-};
 /**
  * @class
  */
@@ -26,52 +22,52 @@ export declare class Pager {
      * @param {!Object=} opt_options
      * @return {undefined}
      */
-    _setOptions(opt_options?: Object | undefined): void;
+    private _setOptions;
     /**
      * @private
      * @return {undefined}
      */
-    _init(): void;
+    private _init;
     /**
      * @private
      * @return {undefined}
      */
-    _drawPager(): void;
+    private _drawPager;
     /**
      * @private
      * @return {undefined}
      */
-    _drawStatistics(): void;
+    private _drawStatistics;
     /**
      * @private
      * @return {undefined}
      */
-    _drawPreviousButton(): void;
+    private _drawPreviousButton;
     /**
      * @private
      * @return {undefined}
      */
-    _drawNextButton(): void;
+    private _drawNextButton;
     /**
      * @private
      * @return {undefined}
      */
-    _drawPageNumbers(): void;
+    private _drawPageNumbers;
     /**
      * @private
      * @return {!Array<Page>}
      */
-    _getPagers(): Page[];
+    private _getPagers;
     /**
      * @private
      * @return {undefined}
      */
-    _next(): void;
+    private _next;
     /**
      * @private
      * @return {undefined}
      */
-    _previous(): void;
+    private _previous;
     /**
      * @param {number} count
      * @return {undefined}
@@ -82,7 +78,7 @@ export declare class Pager {
      * @param {number} page
      * @return {undefined}
      */
-    _go(page: number): void;
+    private _go;
     /**
      * @param {number} page
      * @return {undefined}
@@ -98,4 +94,3 @@ export declare class Pager {
      */
     eventAction(page: number): void;
 }
-export {};

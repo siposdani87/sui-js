@@ -27,7 +27,7 @@ export class Waiter {
      * @param {number} counter
      * @return {undefined}
      */
-    _advancedDelayHandler(callback: Function, duration: number, counter: number): void {
+    private _advancedDelayHandler(callback: Function, duration: number, counter: number): void {
         this.timeoutWaiting += 0.0001;
         setTimeout(() => {
             const prevCounter = this.timeoutWaiting - 0.0001;
@@ -69,7 +69,7 @@ export class Waiter {
      * @param {number} counter
      * @return {undefined}
      */
-    _simpleDelayHandler(callback: Function, duration: number, counter: number): void {
+    private _simpleDelayHandler(callback: Function, duration: number, counter: number): void {
         this.counter++;
         setTimeout(() => {
             const prevCounter = this.counter - 1;

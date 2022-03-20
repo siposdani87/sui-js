@@ -37,7 +37,7 @@ export class Form extends Collection<BaseField> {
      * @private
      * @return {undefined}
      */
-    _init(): void {
+    private _init(): void {
         this.previousModel = new Objekt();
         this.model = new Objekt();
         this.initFields = [];
@@ -61,7 +61,7 @@ export class Form extends Collection<BaseField> {
      * @private
      * @return {undefined}
      */
-    _initFormEvent(): void {
+    private _initFormEvent(): void {
         this.formNode.addEventListener('keydown', (_node, event) => {
             const textArea = /textarea/i.test(
                 (event.target || event.srcElement).tagName,
@@ -84,7 +84,7 @@ export class Form extends Collection<BaseField> {
      * @private
      * @return {undefined}
      */
-    _initSubmitFormEvent(): void {
+    private _initSubmitFormEvent(): void {
         this.formNode.addEventListener('submit', (node, event) => {
             event.preventDefault();
             if (this.checkValidity(true)) {
@@ -96,7 +96,7 @@ export class Form extends Collection<BaseField> {
      * @private
      * @return {undefined}
      */
-    _initResetFormEvent(): void {
+    private _initResetFormEvent(): void {
         this.formNode.addEventListener('reset', (node, event) => {
             event.preventDefault();
             this.eventReset(this.model, node);
@@ -106,7 +106,7 @@ export class Form extends Collection<BaseField> {
      * @private
      * @return {undefined}
      */
-    _initFields(): void {
+    private _initFields(): void {
         const fields = new Query(
             this.fieldClasses.concat(this.buttonClasses).join(', '),
             this.formNode,
@@ -188,7 +188,7 @@ export class Form extends Collection<BaseField> {
      * @param {*} value
      * @return {undefined}
      */
-    _setValue(name: string, value: any): void {
+    private _setValue(name: string, value: any): void {
         const currentValue = this._getValue(name);
         if (!isSame(value, currentValue)) {
             this.previousModel.set(name, currentValue);
@@ -200,7 +200,7 @@ export class Form extends Collection<BaseField> {
      * @param {string} name
      * @return {*}
      */
-    _getValue(name: string): any {
+    private _getValue(name: string): any {
         return this.model.get(name);
     }
     /**
@@ -208,7 +208,7 @@ export class Form extends Collection<BaseField> {
      * @param {!BaseField} field
      * @return {*}
      */
-    _getPreviousValue(field: BaseField): any {
+    private _getPreviousValue(field: BaseField): any {
         const fieldName = field.getName();
         return this.previousModel.get(fieldName);
     }
@@ -218,7 +218,7 @@ export class Form extends Collection<BaseField> {
      * @param {*} value
      * @return {undefined}
      */
-    _fieldValueChange(field: BaseField, value: any): void {
+    private _fieldValueChange(field: BaseField, value: any): void {
         const fieldName = field.getName();
         const currentValue = this._getValue(fieldName);
         if (!isSame(value, currentValue)) {

@@ -62,9 +62,10 @@ export class IconToggleField extends BaseCheckboxField {
     }
     /**
      * @override
+     * @protected
      * @return {undefined}
      */
-    _change(): void {
+    protected _change(): void {
         const value = this.getValue();
         this.icon.setHtml(
             this.input.getNode().checked

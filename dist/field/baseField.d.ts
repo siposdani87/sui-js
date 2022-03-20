@@ -61,7 +61,7 @@ export declare class BaseField {
      * @param {string} inputName
      * @return {string}
      */
-    _getAttributeName(inputName: string): string;
+    protected _getAttributeName(inputName: string): string;
     /**
      * @param {string=} opt_message
      * @param {boolean=} opt_isCustomError
@@ -86,7 +86,7 @@ export declare class BaseField {
      * @private
      * @return {!Item}
      */
-    _getUpgradedNode(): Item;
+    private _getUpgradedNode;
     /**
      * @param {!Object|!Function|!Array|boolean|number|string|null|undefined} value
      * @return {undefined}
@@ -157,33 +157,33 @@ export declare class BaseField {
      * @private
      * @return {undefined}
      */
-    _setInfoContainer(): void;
+    private _setInfoContainer;
     /**
      * @private
      * @return {undefined}
      */
-    _setActionContainer(): void;
+    private _setActionContainer;
     /**
      * @private
      * @param {!Item} label
      * @return {undefined}
      */
-    _setInfo(label: Item): void;
+    private _setInfo;
     /**
      * @protected
      * @param {!Item|undefined} label
      * @return {undefined}
      */
-    _setAdditionalLabel(label: Item | undefined): void;
+    protected _setAdditionalLabel(label: Item | undefined): void;
     /**
      * @protected
      * @param {string} labelText
      * @return {string}
      */
-    _getLabelRequiredText(labelText: string): string;
+    protected _getLabelRequiredText(labelText: string): string;
     /**
      * @private
      * @return {undefined}
      */
-    _setMutation(): void;
+    private _setMutation;
 }

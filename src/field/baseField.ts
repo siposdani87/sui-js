@@ -99,7 +99,7 @@ export class BaseField {
      * @param {string} inputName
      * @return {string}
      */
-    _getAttributeName(inputName: string): string {
+    protected _getAttributeName(inputName: string): string {
         let attribute = inputName || '';
         attribute = attribute.replace(/]/g, '');
         attribute = attribute.replace(/\[/g, '.');
@@ -163,7 +163,7 @@ export class BaseField {
      * @private
      * @return {!Item}
      */
-    _getUpgradedNode(): Item {
+    private _getUpgradedNode(): Item {
         return /** @type {!Item} */ this.inputBlock;
     }
     /**
@@ -295,7 +295,7 @@ export class BaseField {
      * @private
      * @return {undefined}
      */
-    _setInfoContainer(): void {
+    private _setInfoContainer(): void {
         if (this.inputBlock && !this.inputBlock.isEmpty()) {
             this.infoContainerNode = new Query(
                 '.info-container',
@@ -312,7 +312,7 @@ export class BaseField {
      * @private
      * @return {undefined}
      */
-    _setActionContainer(): void {
+    private _setActionContainer(): void {
         if (this.inputBlock && !this.inputBlock.isEmpty()) {
             this.actionContainerNode = new Query(
                 '.action-container',
@@ -330,7 +330,7 @@ export class BaseField {
      * @param {!Item} label
      * @return {undefined}
      */
-    _setInfo(label: Item): void {
+    private _setInfo(label: Item): void {
         const title = /** @type {string} */(label).getAttribute('title');
         const description = /** @type {string} */(label).getAttribute('desc');
         if (title || description) {
@@ -357,7 +357,7 @@ export class BaseField {
      * @param {!Item|undefined} label
      * @return {undefined}
      */
-    _setAdditionalLabel(label: Item | undefined): void {
+    protected _setAdditionalLabel(label: Item | undefined): void {
         if (label && label.exists()) {
             const labelText = this._getLabelRequiredText(label.getHtml(true));
             label.setHtml(labelText);
@@ -369,7 +369,7 @@ export class BaseField {
      * @param {string} labelText
      * @return {string}
      */
-    _getLabelRequiredText(labelText: string): string {
+    protected _getLabelRequiredText(labelText: string): string {
         if (eq(labelText, true)) {
             return '&nbsp;';
         }
@@ -389,7 +389,7 @@ export class BaseField {
      * @private
      * @return {undefined}
      */
-    _setMutation(): void {
+    private _setMutation(): void {
         const observer = new MutationObserver((mutationsList) => {
             for (let i = 0; i < mutationsList.length; i++) {
                 const mutation = mutationsList[i];

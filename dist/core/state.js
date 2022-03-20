@@ -372,13 +372,14 @@ export class State {
         return /** @type {!Objekt} */ this.getCurrent('params');
     }
     /**
+     * @template T
      * @param {string} name
      * @param {*=} opt_defaultValue
      * @return {string}
      */
     getParam(name, opt_defaultValue) {
         const params = this.getParams();
-        return /** @type {string} */ (params).get(name, opt_defaultValue);
+        return /** @type {T} */ (params).get(name, opt_defaultValue);
     }
     /**
      * @return {undefined}

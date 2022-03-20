@@ -22,9 +22,10 @@ export declare class IconToggleField extends BaseCheckboxField {
     render(): void;
     /**
      * @override
+     * @protected
      * @return {undefined}
      */
-    _change(): void;
+    protected _change(): void;
     /**
      * @override
      * @param {!Object|!Function|!Array|boolean|number|string|null|undefined} value

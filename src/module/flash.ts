@@ -28,7 +28,7 @@ export class Flash {
      * @private
      * @return {undefined}
      */
-    _init(): void {
+    private _init(): void {
         this.container = new Query(this.options.id).getItem();
     }
     /**
@@ -36,7 +36,7 @@ export class Flash {
      * @param {!Object=} opt_options
      * @return {undefined}
      */
-    _setOptions(opt_options: Object | undefined = {}): void {
+    private _setOptions(opt_options: Object | undefined = {}): void {
         const _self = this;
         _self.options = new Objekt({
             id: '#flashes',
@@ -81,7 +81,7 @@ export class Flash {
      * @param {?Function=} opt_closeCallback
      * @return {!Item}
      */
-    _getCloseButton(flashNode: Item, opt_closeCallback: (Function | null) | undefined = null): Item {
+    private _getCloseButton(flashNode: Item, opt_closeCallback: (Function | null) | undefined = null): Item {
         const buttonNode = flashNode.createElement('button');
         buttonNode.addClass([
             'mdl-button',
@@ -158,7 +158,7 @@ export class Flash {
      * @param {?Function=} opt_closeCallback
      * @return {boolean}
      */
-    _isClosable(type: string, opt_closeCallback: (Function | null) | undefined = null): boolean {
+    private _isClosable(type: string, opt_closeCallback: (Function | null) | undefined = null): boolean {
         return (
             this.options.closableTypes.indexOf(type) !== -1 ||
             isFunction(opt_closeCallback)

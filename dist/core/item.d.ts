@@ -123,7 +123,7 @@ export declare class Item<T extends HTMLElement = HTMLElement> {
      * @param {string} eventName
      * @return {!Array<Listener>}
      */
-    _getListenersFromStore(eventName: string): Array<Listener>;
+    private _getListenersFromStore;
     /**
      * @param {string} eventName
      * @param {Listener} listener
@@ -253,7 +253,7 @@ export declare class Item<T extends HTMLElement = HTMLElement> {
     /**
      * @return {?HTMLElement}
      */
-    _getParentElement(): HTMLElement | null;
+    private _getParentElement;
     /**
      * @return {?CSSStyleDeclaration}
      */

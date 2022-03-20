@@ -20,7 +20,7 @@ export class PopupContainer {
      * @private
      * @return {undefined}
      */
-    _init(): void {
+    private _init(): void {
         this.container = new Query(this.selector).getItem();
     }
     /**
@@ -28,7 +28,7 @@ export class PopupContainer {
      * @param {!Function} type
      * @return {undefined}
      */
-    _initCollection(type: Function): void {
+    private _initCollection(type: Function): void {
         window['popup_collection'] =
             window['popup_collection'] ||
             /** @type {!Collection<!Popup>} */ new Collection([], type);

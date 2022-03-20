@@ -27,7 +27,7 @@ export class Popup {
      * @private
      * @return {undefined}
      */
-    _init(): void {
+    private _init(): void {
         this.popupContainer = new PopupContainer();
         this._draw();
     }
@@ -35,7 +35,7 @@ export class Popup {
      * @private
      * @return {undefined}
      */
-    _draw(): void {
+    private _draw(): void {
         this.popupNode = new Item('div');
         this.popupNode.addClass(['popup', 'hidden']);
 
@@ -50,7 +50,7 @@ export class Popup {
      * @private
      * @return {undefined}
      */
-    _initCloseButton(): void {
+    private _initCloseButton(): void {
         if (this.withClose) {
             const btnClose = new Item('button');
             btnClose.setAttribute('type', 'button');

@@ -23,22 +23,22 @@ export declare class Dropdown {
      * @param {!Object=} opt_options
      * @return {undefined}
      */
-    _setOptions(opt_options?: Object | undefined): void;
+    private _setOptions;
     /**
      * @private
      * @return {undefined}
      */
-    _init(): void;
+    private _init;
     /**
      * @private
      * @return {undefined}
      */
-    _appendButton(): void;
+    private _appendButton;
     /**
      * @private
      * @return {undefined}
      */
-    _appendMenu(): void;
+    private _appendMenu;
     /**
      * @param {!Array} actions
      * @param {!Object} item
@@ -49,5 +49,5 @@ export declare class Dropdown {
      * @private
      * @return {undefined}
      */
-    _renderMenu(): void;
+    private _renderMenu;
 }

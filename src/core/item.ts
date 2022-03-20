@@ -287,7 +287,7 @@ export class Item<T extends HTMLElement = HTMLElement> {
      * @param {string} eventName
      * @return {!Array<Listener>}
      */
-    _getListenersFromStore(eventName: string): Array<Listener> {
+    private _getListenersFromStore(eventName: string): Array<Listener> {
         if (
             this.node[this.listenerStoreKey] ||
             this.node[this.listenerStoreKey][eventName]
@@ -550,7 +550,7 @@ export class Item<T extends HTMLElement = HTMLElement> {
     /**
      * @return {?HTMLElement}
      */
-    _getParentElement(): HTMLElement | null {
+    private _getParentElement(): HTMLElement | null {
         if (this.parentNode && !this.parentNode.isEmpty()) {
             return this.parentNode.getNode();
         } else if (this.node) {
