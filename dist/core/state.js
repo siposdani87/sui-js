@@ -224,7 +224,7 @@ export class State {
      * @param {boolean=} opt_force
      * @return {undefined}
      */
-    go(id, opt_params = undefined, opt_overwrite = false, opt_force = false) {
+    go(id, opt_params, opt_overwrite = false, opt_force = false) {
         if (eq(id[0], '#') || eq(id[0], '/')) {
             this._parsePath(id, (state, path, params) => {
                 this._setHistory(state, path, params, opt_overwrite, opt_force);
@@ -246,7 +246,7 @@ export class State {
      * @param {!Object=} opt_params
      * @return {!Array}
      */
-    _resolveUrlWithState(id, opt_params = undefined) {
+    _resolveUrlWithState(id, opt_params) {
         const state = this.routes.findById(id);
         let url = '';
         if (state) {
@@ -261,7 +261,7 @@ export class State {
      * @param {!Object=} opt_params
      * @return {string}
      */
-    resolveUrl(id, opt_params = undefined) {
+    resolveUrl(id, opt_params) {
         const url = /** @type {string} */ (this)._resolveUrlWithState(id, opt_params)[0];
         return this._getRealUrl(url);
     }

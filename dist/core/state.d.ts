@@ -95,13 +95,13 @@ export declare class State {
      * @param {string=} opt_attribute
      * @return {!T}
      */
-    getCurrent<T>(opt_attribute?: string | undefined): T;
+    getCurrent<T>(opt_attribute?: string): T;
     /**
      * @template T
      * @param {string=} opt_attribute
      * @return {!T}
      */
-    getPrevious<T>(opt_attribute?: string | undefined): T;
+    getPrevious<T>(opt_attribute?: string): T;
     /**
      * @param {string} id
      * @param {!Object=} opt_params
@@ -109,20 +109,20 @@ export declare class State {
      * @param {boolean=} opt_force
      * @return {undefined}
      */
-    go(id: string, opt_params?: Object | undefined, opt_overwrite?: boolean | undefined, opt_force?: boolean | undefined): void;
+    go(id: string, opt_params?: Object, opt_overwrite?: boolean | undefined, opt_force?: boolean | undefined): void;
     /**
      * @private
      * @param {string} id
      * @param {!Object=} opt_params
      * @return {!Array}
      */
-    _resolveUrlWithState(id: string, opt_params?: Object | undefined): Array<any>;
+    _resolveUrlWithState(id: string, opt_params?: Object): Array<any>;
     /**
      * @param {string} id
      * @param {!Object=} opt_params
      * @return {string}
      */
-    resolveUrl(id: string, opt_params?: Object | undefined): string;
+    resolveUrl(id: string, opt_params?: Object): string;
     /**
      * @param {!Object} state
      * @param {boolean=} opt_overwrite
@@ -149,7 +149,7 @@ export declare class State {
      * @param {boolean=} opt_force
      * @return {undefined}
      */
-    goBack(id: string, opt_params: Object | undefined, opt_overwrite?: boolean | undefined, opt_force?: boolean | undefined): void;
+    goBack(id: string, opt_params?: Object, opt_overwrite?: boolean | undefined, opt_force?: boolean | undefined): void;
     /**
      * @return {undefined}
      */
