@@ -236,7 +236,7 @@ export class State {
      * @param {string=} opt_attribute
      * @return {!T}
      */
-    getCurrent<T>(opt_attribute?: string | undefined): T {
+    getCurrent<T>(opt_attribute?: string): T {
         return /** @type {!Objekt|string} */ this._current.get<T>(
             opt_attribute,
         );
@@ -246,7 +246,7 @@ export class State {
      * @param {string=} opt_attribute
      * @return {!T}
      */
-    getPrevious<T>(opt_attribute?: string | undefined): T {
+    getPrevious<T>(opt_attribute?: string): T {
         return /** @type {!Objekt|string} */ this._previous.get<T>(
             opt_attribute,
         );
@@ -260,7 +260,7 @@ export class State {
      */
     go(
         id: string,
-        opt_params: Object | undefined = undefined,
+        opt_params?: Object,
         opt_overwrite: boolean | undefined = false,
         opt_force: boolean | undefined = false,
     ): void {
@@ -301,7 +301,7 @@ export class State {
      */
     _resolveUrlWithState(
         id: string,
-        opt_params: Object | undefined = undefined,
+        opt_params?: Object,
     ): Array<any> {
         const state = this.routes.findById(id);
         let url = '';
@@ -317,7 +317,7 @@ export class State {
      * @param {!Object=} opt_params
      * @return {string}
      */
-    resolveUrl(id: string, opt_params: Object | undefined = undefined): string {
+    resolveUrl(id: string, opt_params?: Object): string {
         const url = /** @type {string} */(this)._resolveUrlWithState(
             id,
             opt_params,
@@ -378,7 +378,7 @@ export class State {
      */
     goBack(
         id: string,
-        opt_params: Object | undefined,
+        opt_params?: Object,
         opt_overwrite: boolean | undefined = false,
         opt_force: boolean | undefined = false,
     ): void {
