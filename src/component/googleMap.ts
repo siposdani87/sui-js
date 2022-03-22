@@ -32,12 +32,20 @@ type MarkerIcon = {
 }
 
 /**
- * @typedef {{latitude: number, longitude: number, weight: (string|undefined)}} WeigthPoint
+ * @typedef {{latitude: number, longitude: number, weight: (string|undefined)}} WeightLatLng
  */
-type WeigthPoint = {
+export type WeightLatLng = {
     latitude: number;
     longitude: number;
     weight?: number;
+};
+
+/**
+ * @typedef {{latitude: number, longitude: number}} LatLng
+ */
+ export type LatLng = {
+    latitude: number;
+    longitude: number;
 };
 
 /**
@@ -217,7 +225,7 @@ export class GoogleMap {
     }
     /**
      * @param {!Objekt} polygonData
-     * @param {!Array<{latitude: number, longitude: number}>} points
+     * @param {!Array<LatLng>} points
      * @return {undefined}
      */
     eventPolygonChanged(polygonData: Objekt, points: Array<{ latitude: number; longitude: number; }>): void {
@@ -226,7 +234,7 @@ export class GoogleMap {
     /**
      * @param {Id} id
      * @param {string} title
-     * @param {!Array<{latitude: number, longitude: number}>} points
+     * @param {!Array<LatLng>} points
      * @param {!Object=} opt_polygonData
      * @param {!Object=} opt_options
      * @return {undefined}
@@ -248,7 +256,7 @@ export class GoogleMap {
     /**
      * @param {Id} id
      * @param {string} title
-     * @param {!Array<{latitude: number, longitude: number}>} points
+     * @param {!Array<LatLng>} points
      * @param {!Object=} opt_polygonData
      * @param {!Object=} opt_options
      * @return {undefined}
@@ -281,7 +289,7 @@ export class GoogleMap {
     /**
      * @param {Id} id
      * @param {string} title
-     * @param {!Array<{latitude: number, longitude: number}>} points
+     * @param {!Array<LatLng>} points
      * @param {!Object=} opt_polygonData
      * @param {!Object=} opt_options
      * @return {undefined}
@@ -532,7 +540,7 @@ export class GoogleMap {
     /**
      * @private
      * @param {!Objekt} polygonData
-     * @param {!Array<{latitude: number, longitude: number}>} points
+     * @param {!Array<LatLng>} points
      * @return {undefined}
      */
     private _addPointsToPolygon(polygonData: Objekt, points: Array<{ latitude: number; longitude: number; }>): void {
@@ -545,10 +553,10 @@ export class GoogleMap {
     }
     /**
      * @private
-     * @param {!Array<WeigthPoint>} points
+     * @param {!Array<WeightLatLng>} points
      * @return {!Array<!google.maps.LatLng>}
      */
-    private _convertPointsToPath(points: Array<WeigthPoint>): Array<google.maps.LatLng> {
+    private _convertPointsToPath(points: Array<WeightLatLng>): Array<google.maps.LatLng> {
         const path = [];
         each(points, (point) => {
             let vertex: any = new google.maps.LatLng(
@@ -568,7 +576,7 @@ export class GoogleMap {
     /**
      * @private
      * @param {!Objekt} polygonData
-     * @param {!Array<{latitude: number, longitude: number}>} points
+     * @param {!Array<LatLng>} points
      * @return {undefined}
      */
     private _setBoundsByPoints(polygonData: Objekt, points: Array<{ latitude: number; longitude: number; }>): void {
@@ -592,7 +600,7 @@ export class GoogleMap {
     }
     /**
      * @param {!Objekt} polygonData
-     * @return {{latitude: number, longitude: number}}
+     * @return {LatLng}
      */
     getCenterOfPolygon(polygonData: Objekt): { latitude: number; longitude: number; } {
         const bounds =
@@ -624,7 +632,7 @@ export class GoogleMap {
     /**
      * @private
      * @param {!Objekt} polygonData
-     * @return {!Array<{latitude: number, longitude: number}>}
+     * @return {!Array<LatLng>}
      */
     private _getPointsFromPolygon(polygonData: Objekt): Array<{ latitude: number; longitude: number; }> {
         const polygon =
@@ -703,11 +711,11 @@ export class GoogleMap {
         this.heatmapOptions.merge(opt_options);
     }
     /**
-     * @param {!Array<WeigthPoint>} points
+     * @param {!Array<WeightLatLng>} points
      * @param {!Object=} opt_heatmapOptions
      * @return {undefined}
      */
-    createHeatmap(points: Array<WeigthPoint>, opt_heatmapOptions: Object | undefined = {}): void {
+    createHeatmap(points: Array<WeightLatLng>, opt_heatmapOptions: Object | undefined = {}): void {
         this.heatmap = new google.maps.visualization.HeatmapLayer({
             data: this._convertPointsToPath(points),
             map: this.map,
@@ -1145,7 +1153,7 @@ export class GoogleMap {
         }
     }
     /**
-     * @return {{latitude: number, longitude: number}}
+     * @return {LatLng}
      */
     getCenter(): { latitude: number; longitude: number; } {
         const vertex = this.map.getCenter();
