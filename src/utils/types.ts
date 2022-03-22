@@ -21,7 +21,7 @@ export type Id = string | number;
  * @typedef {{style: !Function, click: !Function}} Action
  */
 export type Action = {
-    style: (item: Objekt) => [string, string, boolean?, boolean?];
+    style: (item: Objekt) => [string, string?, boolean?, boolean?];
     click: (item: Objekt) => void;
 }
 
