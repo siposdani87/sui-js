@@ -29,7 +29,7 @@ export class Async {
      */
     parallel(
         calls: Array<Function>,
-        opt_args: Array<any> | undefined,
+        opt_args?: Array<any>,
     ): Promize {
         const deferred = new Deferred();
         if (calls.length === 0) {
@@ -58,7 +58,7 @@ export class Async {
      */
     parallelFunction(
         call: Function,
-        opt_args?: Array<any> | null,
+        opt_args?: Array<any>,
         opt_index?: number,
     ): void {
         const index = !isUndefined(opt_index)
@@ -81,7 +81,7 @@ export class Async {
         length: number,
         allowEvent: boolean,
         index: number,
-        opt_args?: (Array<any> | null) | undefined,
+        opt_args?: Array<any>,
     ): Promize {
         const deferred = new Deferred();
         const args = opt_args || [];
@@ -146,7 +146,7 @@ export class Async {
         result: any,
         allowEvent: boolean,
         index: number,
-        opt_args?: (Array<any> | null) | undefined,
+        opt_args?: Array<any>,
     ): Promize {
         const deferred = new Deferred();
         this.call.results[index] = result;
@@ -216,7 +216,7 @@ export class Async {
      * @param {!Array=} opt_args
      * @return {!Promize}
      */
-    serial(calls: Array<Function>, opt_args?: Array<any> | undefined): Promize {
+    serial(calls: Array<Function>, opt_args?: Array<any>): Promize {
         const deferred = new Deferred();
         if (calls.length === 0) {
             const results = opt_args || this.call.results;
@@ -237,7 +237,7 @@ export class Async {
     _serialWrapper(
         calls: Array<Function>,
         index: number,
-        opt_args?: Array<any> | undefined,
+        opt_args?: Array<any>,
     ): Promize {
         const deferred = new Deferred();
         const call = calls[index];
@@ -277,7 +277,7 @@ export class Async {
         calls: Array<Function>,
         index: number,
         result: any,
-        opt_args?: Array<any> | undefined,
+        opt_args?: Array<any>,
     ): Promize {
         const deferred = new Deferred();
         this.call.results[index] = result;
