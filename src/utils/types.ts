@@ -1,3 +1,5 @@
+import { Objekt } from "../core/objekt";
+
 /**
  * @typedef {function(Element, Event)} Listener
  */
@@ -19,8 +21,8 @@ export type Id = string | number;
  * @typedef {{style: !Function, click: !Function}} Action
  */
 export type Action = {
-    style: (item: Object) => [string, string, boolean?, boolean?];
-    click: (item: Object) => void;
+    style: (item: Objekt) => [string, string, boolean?, boolean?];
+    click: (item: Objekt) => void;
 }
 
 /**
