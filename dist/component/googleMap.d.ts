@@ -11,12 +11,19 @@ declare type MarkerIcon = {
     shape: google.maps.MarkerShape;
 };
 /**
- * @typedef {{latitude: number, longitude: number, weight: (string|undefined)}} WeigthPoint
+ * @typedef {{latitude: number, longitude: number, weight: (string|undefined)}} WeightLatLng
  */
-declare type WeigthPoint = {
+export declare type WeightLatLng = {
     latitude: number;
     longitude: number;
     weight?: number;
+};
+/**
+ * @typedef {{latitude: number, longitude: number}} LatLng
+ */
+export declare type LatLng = {
+    latitude: number;
+    longitude: number;
 };
 /**
  * @class
@@ -90,7 +97,7 @@ export declare class GoogleMap {
     private _initOverlay;
     /**
      * @param {!Objekt} polygonData
-     * @param {!Array<{latitude: number, longitude: number}>} points
+     * @param {!Array<LatLng>} points
      * @return {undefined}
      */
     eventPolygonChanged(polygonData: Objekt, points: Array<{
@@ -100,7 +107,7 @@ export declare class GoogleMap {
     /**
      * @param {Id} id
      * @param {string} title
-     * @param {!Array<{latitude: number, longitude: number}>} points
+     * @param {!Array<LatLng>} points
      * @param {!Object=} opt_polygonData
      * @param {!Object=} opt_options
      * @return {undefined}
@@ -112,7 +119,7 @@ export declare class GoogleMap {
     /**
      * @param {Id} id
      * @param {string} title
-     * @param {!Array<{latitude: number, longitude: number}>} points
+     * @param {!Array<LatLng>} points
      * @param {!Object=} opt_polygonData
      * @param {!Object=} opt_options
      * @return {undefined}
@@ -124,7 +131,7 @@ export declare class GoogleMap {
     /**
      * @param {Id} id
      * @param {string} title
-     * @param {!Array<{latitude: number, longitude: number}>} points
+     * @param {!Array<LatLng>} points
      * @param {!Object=} opt_polygonData
      * @param {!Object=} opt_options
      * @return {undefined}
@@ -225,20 +232,20 @@ export declare class GoogleMap {
     /**
      * @private
      * @param {!Objekt} polygonData
-     * @param {!Array<{latitude: number, longitude: number}>} points
+     * @param {!Array<LatLng>} points
      * @return {undefined}
      */
     private _addPointsToPolygon;
     /**
      * @private
-     * @param {!Array<WeigthPoint>} points
+     * @param {!Array<WeightLatLng>} points
      * @return {!Array<!google.maps.LatLng>}
      */
     private _convertPointsToPath;
     /**
      * @private
      * @param {!Objekt} polygonData
-     * @param {!Array<{latitude: number, longitude: number}>} points
+     * @param {!Array<LatLng>} points
      * @return {undefined}
      */
     private _setBoundsByPoints;
@@ -251,7 +258,7 @@ export declare class GoogleMap {
     private _setBoundsByPath;
     /**
      * @param {!Objekt} polygonData
-     * @return {{latitude: number, longitude: number}}
+     * @return {LatLng}
      */
     getCenterOfPolygon(polygonData: Objekt): {
         latitude: number;
@@ -265,7 +272,7 @@ export declare class GoogleMap {
     /**
      * @private
      * @param {!Objekt} polygonData
-     * @return {!Array<{latitude: number, longitude: number}>}
+     * @return {!Array<LatLng>}
      */
     private _getPointsFromPolygon;
     /**
@@ -291,11 +298,11 @@ export declare class GoogleMap {
      */
     setHeatmap(opt_options?: Object | undefined): void;
     /**
-     * @param {!Array<WeigthPoint>} points
+     * @param {!Array<WeightLatLng>} points
      * @param {!Object=} opt_heatmapOptions
      * @return {undefined}
      */
-    createHeatmap(points: Array<WeigthPoint>, opt_heatmapOptions?: Object | undefined): void;
+    createHeatmap(points: Array<WeightLatLng>, opt_heatmapOptions?: Object | undefined): void;
     /**
      * @return {undefined}
      */
@@ -434,7 +441,7 @@ export declare class GoogleMap {
      */
     setCenter(latitude: number, longitude: number, opt_boundCheck?: boolean | undefined): void;
     /**
-     * @return {{latitude: number, longitude: number}}
+     * @return {LatLng}
      */
     getCenter(): {
         latitude: number;

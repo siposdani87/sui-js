@@ -156,7 +156,7 @@ export class GoogleMap {
     }
     /**
      * @param {!Objekt} polygonData
-     * @param {!Array<{latitude: number, longitude: number}>} points
+     * @param {!Array<LatLng>} points
      * @return {undefined}
      */
     eventPolygonChanged(polygonData, points) {
@@ -165,7 +165,7 @@ export class GoogleMap {
     /**
      * @param {Id} id
      * @param {string} title
-     * @param {!Array<{latitude: number, longitude: number}>} points
+     * @param {!Array<LatLng>} points
      * @param {!Object=} opt_polygonData
      * @param {!Object=} opt_options
      * @return {undefined}
@@ -182,7 +182,7 @@ export class GoogleMap {
     /**
      * @param {Id} id
      * @param {string} title
-     * @param {!Array<{latitude: number, longitude: number}>} points
+     * @param {!Array<LatLng>} points
      * @param {!Object=} opt_polygonData
      * @param {!Object=} opt_options
      * @return {undefined}
@@ -207,7 +207,7 @@ export class GoogleMap {
     /**
      * @param {Id} id
      * @param {string} title
-     * @param {!Array<{latitude: number, longitude: number}>} points
+     * @param {!Array<LatLng>} points
      * @param {!Object=} opt_polygonData
      * @param {!Object=} opt_options
      * @return {undefined}
@@ -409,7 +409,7 @@ export class GoogleMap {
     /**
      * @private
      * @param {!Objekt} polygonData
-     * @param {!Array<{latitude: number, longitude: number}>} points
+     * @param {!Array<LatLng>} points
      * @return {undefined}
      */
     _addPointsToPolygon(polygonData, points) {
@@ -422,7 +422,7 @@ export class GoogleMap {
     }
     /**
      * @private
-     * @param {!Array<WeigthPoint>} points
+     * @param {!Array<WeightLatLng>} points
      * @return {!Array<!google.maps.LatLng>}
      */
     _convertPointsToPath(points) {
@@ -442,7 +442,7 @@ export class GoogleMap {
     /**
      * @private
      * @param {!Objekt} polygonData
-     * @param {!Array<{latitude: number, longitude: number}>} points
+     * @param {!Array<LatLng>} points
      * @return {undefined}
      */
     _setBoundsByPoints(polygonData, points) {
@@ -466,7 +466,7 @@ export class GoogleMap {
     }
     /**
      * @param {!Objekt} polygonData
-     * @return {{latitude: number, longitude: number}}
+     * @return {LatLng}
      */
     getCenterOfPolygon(polygonData) {
         const bounds = 
@@ -496,7 +496,7 @@ export class GoogleMap {
     /**
      * @private
      * @param {!Objekt} polygonData
-     * @return {!Array<{latitude: number, longitude: number}>}
+     * @return {!Array<LatLng>}
      */
     _getPointsFromPolygon(polygonData) {
         const polygon = 
@@ -573,7 +573,7 @@ export class GoogleMap {
         this.heatmapOptions.merge(opt_options);
     }
     /**
-     * @param {!Array<WeigthPoint>} points
+     * @param {!Array<WeightLatLng>} points
      * @param {!Object=} opt_heatmapOptions
      * @return {undefined}
      */
@@ -920,7 +920,7 @@ export class GoogleMap {
         }
     }
     /**
-     * @return {{latitude: number, longitude: number}}
+     * @return {LatLng}
      */
     getCenter() {
         const vertex = this.map.getCenter();
