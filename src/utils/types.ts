@@ -35,3 +35,21 @@ export type IconOptions = {
     anchor: [number, number];
     coords: number[];
 }
+
+export type Injection = {
+    [key: string]: string;
+}
+
+export type Instance = {
+    [key: string]: any;
+}
+
+export type ClassRef = { new(...args: any[]) };
+
+/**
+ * @typedef {{moduleInjections: Array<string>, moduleCallback: ClassRef}} Dependency
+ */
+export type Dependency = {
+    moduleInjections: string[];
+    moduleCallback: ClassRef;
+};

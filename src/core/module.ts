@@ -1,11 +1,8 @@
 import {
     noop,
     each,
-    isString,
-    eq,
     isFunction,
     isObject,
-    merge,
 } from '../utils/operation';
 import { consoleError, consoleWarn } from '../utils/log';
 import { Async } from './async';
@@ -14,56 +11,8 @@ import { State } from './state';
 import { Promize } from './promize';
 import { Objekt } from './objekt';
 import { Item } from './item';
-
-/**
- * @typedef {{moduleInjections: Array, moduleCallback: !Function, opt_extendModule: Object=}} Dependency
- */
-type Dependency = {
-    moduleInjections: any[];
-    moduleCallback: Function;
-    opt_extendModule?: any;
-};
-
-/**
- * @param {!Function} baseModule
- * @param {!Array<string>} baseModuleArgs
- * @param {!Function=} opt_extendModule
- * @param {!Array<string>=} opt_extendModuleArgs
- * @return {!Object}
- */
-const invoke = (
-    baseModule: Function,
-    baseModuleArgs: Array<string>,
-    opt_extendModule?: Function | undefined,
-    opt_extendModuleArgs?: Array<string> | undefined,
-): Object => {
-    /**
-     * @constructor
-     * @this {ES5Class}
-     */
-    const ES5Class = function () {
-        if (opt_extendModule) {
-            opt_extendModule.apply(
-                this,
-                opt_extendModuleArgs || baseModuleArgs,
-            );
-        }
-        // TODO: remove return value
-        baseModule.apply(this, baseModuleArgs);
-    };
-
-    if (opt_extendModule) {
-        ES5Class.prototype = merge(
-            opt_extendModule.prototype,
-            baseModule.prototype,
-        );
-        ES5Class.prototype.constructor = ES5Class;
-    } else {
-        ES5Class.prototype = baseModule.prototype;
-    }
-
-    return new ES5Class();
-};
+import { Route } from '../component/route';
+import { ClassRef, Dependency, Injection, Instance } from '../utils';
 
 /**
  * @class
@@ -72,15 +21,11 @@ export class Module {
     _modules: {
         [key: string]: Dependency;
     };
-    _instances: {
-        [key: string]: any;
-    };
-    _injections: {
-        [key: string]: any;
-    };
-    _dependencies: any[];
-    _services: any[];
-    _controller: any; // { enter: () => any; exit: () => any };
+    _instances: Instance;
+    _injections: Injection;
+    _dependencies: string[];
+    _services: string[];
+    _controller: any;
     /**
      */
     constructor() {
@@ -95,15 +40,13 @@ export class Module {
         };
     }
     /**
-     * @param {!Object} instances
-     * @param {!Object} injections
+     * @param {!Instance} instances
+     * @param {!Injection} injections
      * @return {undefined}
      */
-    load(instances: Object, injections: Object): void {
+    load(instances: Instance, injections: Injection): void {
         this._instances = instances;
         this._injections = injections;
-
-        this._instances[this._injections.instances] = this._instances;
     }
     /**
      * @return {!Object}
@@ -113,40 +56,20 @@ export class Module {
     }
     /**
      * @param {string} name
-     * @param {!Array} moduleInjections
+     * @param {!Array<string>} moduleInjections
      * @param {!Function} moduleCallback
      * @return {undefined}
      */
     add(
         name: string,
-        moduleInjections: Array<any>,
-        moduleCallback: Function,
-    ): void {
-        this._modules[name] = this._getDependencies(
+        moduleInjections: string[],
+        moduleCallback: ClassRef,
+    ): string {
+        this._modules[name] = {
             moduleInjections,
             moduleCallback,
-        );
-    }
-    /**
-     * @private
-     * @param {!Array} moduleInjections
-     * @param {!Function} moduleCallback
-     * @param {string=} opt_extendModule
-     * @return {!Object}
-     */
-    _getDependencies(
-        moduleInjections: Array<any>,
-        moduleCallback: Function,
-        opt_extendModule?: string | undefined,
-    ): Dependency {
-        if (opt_extendModule) {
-            moduleInjections.push(opt_extendModule);
-        }
-        return {
-            moduleInjections: moduleInjections,
-            moduleCallback: moduleCallback,
-            opt_extendModule: opt_extendModule,
         };
+        return name;
     }
     /**
      * @private
@@ -159,35 +82,16 @@ export class Module {
             moduleArgs.push(this._instances[injection] || injection);
         });
 
-        let extendCallback;
-        let extendArgs;
-        if (
-            dependency.opt_extendModule &&
-            this._modules[dependency.opt_extendModule]
-        ) {
-            extendCallback =
-                this._modules[dependency.opt_extendModule].moduleCallback;
-            extendArgs = [];
-            each(
-                this._modules[dependency.opt_extendModule].moduleInjections,
-                (injection) => {
-                    extendArgs.push(this._instances[injection] || injection);
-                },
-            );
-        }
-
-        return invoke(
-            dependency.moduleCallback,
-            moduleArgs,
-            extendCallback,
-            extendArgs,
-        );
+        return new dependency.moduleCallback(...moduleArgs);
     }
     /**
      * @private
      * @return {undefined}
      */
     private _orderServices(): void {
+        console.log({
+            modules: this._modules
+        });
         for (const key in this._modules) {
             if (this._modules.hasOwnProperty(key) && this._isModule(key)) {
                 if (this._services.indexOf(key) === -1) {
@@ -211,13 +115,7 @@ export class Module {
      * @return {boolean}
      */
     private _isModule(value: string): boolean {
-        if (isString(value)) {
-            const lastCharacters = value.substring(value.length - 7);
-            return (
-                eq(lastCharacters, 'Service') || eq(lastCharacters, 'Factory')
-            );
-        }
-        return false;
+        return this._services.includes(value);
     }
     /**
      * @private
@@ -245,9 +143,11 @@ export class Module {
         }
     }
     /**
+     * @param {Array<string>} services
      * @return {undefined}
      */
-    handleServices(): void {
+    handleServices(services: string[]): void {
+        this._services = services;
         this._orderServices();
         const calls = [];
         each(this._services, (serviceName) => {
@@ -256,13 +156,10 @@ export class Module {
                     this._modules[serviceName],
                 );
 
-                let enter = noop();
                 if (isFunction(this._instances[serviceName].enter)) {
-                    enter = this._instances[serviceName].enter.bind(
-                        this._instances[serviceName],
-                    );
+                    return this._instances[serviceName].enter();
                 }
-                return enter();
+                return noop();
             };
             calls.push(moduleCall);
         });
@@ -280,11 +177,11 @@ export class Module {
         );
     }
     /**
-     * @param {!Array} routes
+     * @param {!Array<Route>} routes
      * @param {!Object} options
      * @return {undefined}
      */
-    handleRoutes(routes: Array<any>, options: Object): void {
+    handleRoutes(routes: Route[], options: Object): void {
         this._instances[this._injections.state] = new State(routes, options);
         this._instances[this._injections.state].eventChange = (
             currentState,
@@ -297,8 +194,12 @@ export class Module {
                 isObject(this._controller) &&
                 isFunction(this._controller.exit)
             ) {
-                exit = this._controller.exit.bind(this._controller);
+                exit = this._controller.exit;
             }
+            console.log({
+                controller: this._controller,
+                currentState,
+            });
 
             const async = new Async();
             async.serial([exit]).then(() => {
@@ -353,6 +254,9 @@ export class Module {
      * @return {undefined}
      */
     private _initController(state: Objekt, dom: Item): void {
+        console.log({
+            state
+        });
         this._instances[this._injections.dom] = dom;
         const controller = this._modules[state.get<string>('controller')];
         if (controller) {
@@ -364,7 +268,7 @@ export class Module {
                 ) {
                     const async = new Async();
                     async
-                        .serial([this._controller.enter.bind(this._controller)])
+                        .serial([this._controller.enter])
                         .then(() => {
                             this.eventControllerLoaded(dom);
                         });

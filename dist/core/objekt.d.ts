@@ -36,7 +36,7 @@ export declare class Objekt {
      * @param {boolean=} opt_isSafe
      * @return {*}
      */
-    get<T>(opt_attribute?: string | undefined, opt_defaultValue?: any | undefined, opt_isSafe?: boolean | undefined): T;
+    get<T>(opt_attribute?: string | undefined, opt_defaultValue?: T | undefined, opt_isSafe?: boolean | undefined): T;
     /**
      * @private
      * @param {!Object|!Objekt} object

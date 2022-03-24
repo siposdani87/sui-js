@@ -37,9 +37,11 @@ import { Window } from '../module/window';
 export class Application {
     /**
      * @param {!Object} options
-     * @param {!Object} resources
+     * @param {!Injection} resources
      */
     constructor(options, resources) {
+        this._injections = {};
+        this._instances = {};
         this._setOptions(options);
         this._init(resources);
     }
@@ -62,12 +64,11 @@ export class Application {
     }
     /**
      * @private
-     * @param {!Object} resources
+     * @param {!Injection} resources
      * @return {undefined}
      */
     _init(resources) {
         this._injections = resources;
-        this._instances = {};
         this._initCertificate();
         this._initApp();
         this._initRoutes();
@@ -217,6 +218,7 @@ export class Application {
      * @return {undefined}
      */
     _loadModules() {
+        this._instances[this._injections.instances] = this._instances;
         this._module.load(this._instances, this._injections);
     }
     /**
@@ -534,26 +536,7 @@ export class Application {
      * @return {undefined}
      */
     _initRoutes() {
-        this._routes = [];
         this._routeOptions = new Objekt();
-    }
-    /**
-     * @param {string} id
-     * @param {string} title
-     * @param {string} url
-     * @param {string} controller
-     * @param {string=} opt_template
-     * @param {!Object=} opt_params
-     * @return {undefined}
-     */
-    addState(id, title, url, controller, opt_template = '', opt_params = {}) {
-        const state = new Objekt(opt_params);
-        state.set('id', id);
-        state.set('title', title);
-        state.set('url', url);
-        state.set('controller', controller);
-        state.set('template', opt_template);
-        this._routes.push(state);
     }
     /**
      * @param {string} id
@@ -565,20 +548,12 @@ export class Application {
         this._routeOptions.set('root.params', opt_params);
     }
     /**
-     * @param {string} id
-     * @param {!Object=} opt_params
-     * @return {undefined}
-     */
-    setHomeState(id, opt_params) {
-        this._routeOptions.set('home.id', id);
-        this._routeOptions.set('home.params', opt_params);
-    }
-    /**
      * @param {string} name
      * @return {?Object}
      */
     getInstance(name) {
-        return this._instances[name];
+        var _a;
+        return (_a = this._instances[name]) !== null && _a !== void 0 ? _a : null;
     }
     /**
      * @return {?Object}
@@ -588,9 +563,11 @@ export class Application {
     }
     /**
      * @export
+     * @param {!Array<Route>} routes
+     * @param {!Array<string>} services
      * @return {undefined}
      */
-    run() {
+    run(routes, services) {
         if (this.options.production) {
             console.info('%cApplication run in production environment...', `font-weight:bold;color:${this.options.log_color};`);
         }
@@ -599,23 +576,25 @@ export class Application {
             const test = new Test();
             test.run();
         }
-        this._module.handleRoutes(this._routes, this._routeOptions);
-        this._module.handleServices();
+        this._module.handleRoutes(routes, this._routeOptions);
+        this._module.handleServices(services);
     }
     /**
      * @param {string} name
      * @param {!Array} moduleInjections
-     * @param {!Function} moduleCallback
+     * @param {!ClassRef} moduleCallback
+     * @return {string}
      */
     controller(name, moduleInjections, moduleCallback) {
-        this._module.add(name, moduleInjections, moduleCallback);
+        return this._module.add(name, moduleInjections, moduleCallback);
     }
     /**
      * @param {string} name
      * @param {!Array} moduleInjections
-     * @param {!Function} moduleCallback
+     * @param {!ClassRef} moduleCallback
+     * @return {string}
      */
     service(name, moduleInjections, moduleCallback) {
-        this._module.add(name, moduleInjections, moduleCallback);
+        return this._module.add(name, moduleInjections, moduleCallback);
     }
 }

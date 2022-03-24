@@ -1,23 +1,21 @@
-import { Module } from '../core/module';
 import { Objekt } from '../core/objekt';
+import { Route } from './route';
+import { ClassRef, Injection } from '../utils';
 /**
  * @class
  * @export
  */
 export declare class Application {
     options: Objekt;
-    _injections: any;
-    _instances: {
-        [key: string]: any;
-    };
-    _module: Module;
-    _routes: Objekt[];
-    _routeOptions: Objekt;
+    private _injections;
+    private _instances;
+    private _module;
+    private _routeOptions;
     /**
      * @param {!Object} options
-     * @param {!Object} resources
+     * @param {!Injection} resources
      */
-    constructor(options: Object, resources: Object);
+    constructor(options: Object, resources: Injection);
     /**
      * @private
      * @param {!Object} options
@@ -26,7 +24,7 @@ export declare class Application {
     private _setOptions;
     /**
      * @private
-     * @param {!Object} resources
+     * @param {!Injection} resources
      * @return {undefined}
      */
     private _init;
@@ -225,26 +223,10 @@ export declare class Application {
     private _initRoutes;
     /**
      * @param {string} id
-     * @param {string} title
-     * @param {string} url
-     * @param {string} controller
-     * @param {string=} opt_template
-     * @param {!Object=} opt_params
-     * @return {undefined}
-     */
-    addState(id: string, title: string, url: string, controller: string, opt_template?: string | undefined, opt_params?: Object | undefined): void;
-    /**
-     * @param {string} id
      * @param {!Object=} opt_params
      * @return {undefined}
      */
     setRootState(id: string, opt_params?: Object): void;
-    /**
-     * @param {string} id
-     * @param {!Object=} opt_params
-     * @return {undefined}
-     */
-    setHomeState(id: string, opt_params?: Object): void;
     /**
      * @param {string} name
      * @return {?Object}
@@ -256,19 +238,23 @@ export declare class Application {
     getController(): Object | null;
     /**
      * @export
+     * @param {!Array<Route>} routes
+     * @param {!Array<string>} services
      * @return {undefined}
      */
-    run(): void;
+    run(routes: Route[], services: string[]): void;
     /**
      * @param {string} name
      * @param {!Array} moduleInjections
-     * @param {!Function} moduleCallback
+     * @param {!ClassRef} moduleCallback
+     * @return {string}
      */
-    controller(name: string, moduleInjections: Array<any>, moduleCallback: Function): void;
+    controller(name: string, moduleInjections: string[], moduleCallback: ClassRef): string;
     /**
      * @param {string} name
      * @param {!Array} moduleInjections
-     * @param {!Function} moduleCallback
+     * @param {!ClassRef} moduleCallback
+     * @return {string}
      */
-    service(name: string, moduleInjections: Array<any>, moduleCallback: Function): void;
+    service(name: string, moduleInjections: string[], moduleCallback: ClassRef): string;
 }

@@ -4,6 +4,7 @@ import { Collection } from './collection';
 import { Objekt } from './objekt';
 import { Query } from './query';
 import { Router } from './router';
+import { Route } from '../component';
 
 /**
  * @class
@@ -11,18 +12,18 @@ import { Router } from './router';
 export class State {
     private _current: Objekt;
     private _previous: Objekt;
-    routes: Collection<Objekt>;
+    routes: Collection<Route>;
     basePath: string;
     options: Objekt;
     /**
-     * @param {!Array} routes
+     * @param {!Array<Route>} routes
      * @param {!Object} options
      */
-    constructor(routes: Array<Object>, options: Object) {
+    constructor(routes: Route[], options: Object) {
         this._current = new Objekt();
         this._previous = this._current;
 
-        this.routes = /** @type {!Collection<!Objekt>} */ new Collection(
+        this.routes = /** @type {!Collection<!Route>} */ new Collection(
             routes,
         );
 
@@ -35,9 +36,9 @@ export class State {
      */
     private _setRealUrls(): void {
         this.routes.each((route) => {
-            const url = /** @type {string} */(route).get<string>('url');
+            const url = /** @type {string} */(route.state.get<string>('url'));
             const realUrl = this._getRealUrl(url);
-            route.set('realUrl', realUrl);
+            route.state.set('realUrl', realUrl);
         });
     }
     /**
@@ -76,10 +77,6 @@ export class State {
         _self.options = new Objekt({
             root: {
                 id: 'root',
-                params: undefined,
-            },
-            home: {
-                id: 'home',
                 params: undefined,
             },
         });
@@ -152,16 +149,16 @@ export class State {
         errorCallback: Function,
     ): void {
         const path = urlPath[0] === '#' ? urlPath.substring(1) : urlPath;
-        const items = this.routes.getItems();
+        const routes = this.routes.getItems();
 
-        let state = null;
-        let params = null;
-        let matches = null;
+        let state: Objekt = null;
+        let params: Object = null;
+        let matches: RegExpMatchArray = null;
 
         let i = 0;
-        while (i < items.length && isNull(matches)) {
-            state = items[i];
-            const stateUrl = /** @type {string} */(state).get('url');
+        while (i < routes.length && isNull(matches)) {
+            state = routes[i].state;
+            const stateUrl = /** @type {string} */(state.get<string>('url'));
             const router = new Router(stateUrl);
             matches = router.getMatches(path);
             params = router.parse(path);
@@ -303,14 +300,14 @@ export class State {
         id: string,
         opt_params?: Object,
     ): Array<any> {
-        const state = this.routes.findById(id);
+        const route = this.routes.findById(id);
         let url = '';
-        if (state) {
-            const stateUrl = /** @type {string} */(state).get<string>('url');
+        if (route) {
+            const stateUrl = /** @type {string} */(route.state.get<string>('url'));
             const router = new Router(stateUrl);
             url = router.stringify(opt_params);
         }
-        return [url, state];
+        return [url, route?.state];
     }
     /**
      * @param {string} id
@@ -336,22 +333,6 @@ export class State {
         opt_force: boolean | undefined = false,
     ): void {
         this.go(state['id'], state['params'], opt_overwrite, opt_force);
-    }
-    /**
-     * @param {boolean=} opt_overwrite
-     * @param {boolean=} opt_force
-     * @return {undefined}
-     */
-    goHome(
-        opt_overwrite: boolean | undefined = false,
-        opt_force: boolean | undefined = false,
-    ): void {
-        this.go(
-            this.options.home.id,
-            this.options.home.params,
-            opt_overwrite,
-            opt_force,
-        );
     }
     /**
      * @param {boolean=} opt_overwrite
@@ -431,12 +412,6 @@ export class State {
         );
     }
     /**
-     * @return {!Collection}
-     */
-    getRoutes(): Collection {
-        return this.routes;
-    }
-    /**
      * @param {!Object} properties
      * @return {undefined}
      */
@@ -490,11 +465,5 @@ export class State {
      */
     getRoot(): Array<any> {
         return [this.options.root.id, this.options.root.params];
-    }
-    /**
-     * @return {!Array}
-     */
-    getHome(): Array<any> {
-        return [this.options.home.id, this.options.home.params];
     }
 }
