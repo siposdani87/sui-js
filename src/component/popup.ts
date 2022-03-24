@@ -17,7 +17,11 @@ export class Popup {
      * @param {!Item=} opt_parent
      * @param {boolean=} opt_withClose
      */
-    constructor(content: Item, opt_parent: Item | undefined, opt_withClose: boolean | undefined = false) {
+    constructor(
+        content: Item,
+        opt_parent: Item | undefined,
+        opt_withClose: boolean | undefined = false,
+    ) {
         this.content = content;
         this.parent = opt_parent;
         this.withClose = opt_withClose;

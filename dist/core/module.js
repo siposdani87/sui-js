@@ -1,4 +1,4 @@
-import { noop, each, isFunction, isObject, } from '../utils/operation';
+import { noop, each, isFunction, isObject } from '../utils/operation';
 import { consoleError, consoleWarn } from '../utils/log';
 import { Async } from './async';
 import { Deferred } from './deferred';
@@ -66,7 +66,7 @@ export class Module {
      */
     _orderServices() {
         console.log({
-            modules: this._modules
+            modules: this._modules,
         });
         for (const key in this._modules) {
             if (this._modules.hasOwnProperty(key) && this._isModule(key)) {
@@ -198,7 +198,7 @@ export class Module {
      */
     _initController(state, dom) {
         console.log({
-            state
+            state,
         });
         this._instances[this._injections.dom] = dom;
         const controller = this._modules[state.get('controller')];
@@ -208,9 +208,7 @@ export class Module {
                 if (isObject(this._controller) &&
                     isFunction(this._controller.enter)) {
                     const async = new Async();
-                    async
-                        .serial([this._controller.enter])
-                        .then(() => {
+                    async.serial([this._controller.enter]).then(() => {
                         this.eventControllerLoaded(dom);
                     });
                 }

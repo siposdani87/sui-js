@@ -62,7 +62,11 @@ export class Storage {
      * @param {string|number|boolean|!Date=} opt_expires
      * @return {undefined}
      */
-    set(name: string, value: any, opt_expires?: string | number | boolean | Date): void {
+    set(
+        name: string,
+        value: any,
+        opt_expires?: string | number | boolean | Date,
+    ): void {
         const expires = this._getExpires(opt_expires);
         const encrypted = expires + ';' + encrypt(value, this.options.secret);
         const propertyName = this._getPropertyName(name);
@@ -141,14 +145,19 @@ export class Storage {
      * @param {string|number|boolean|!Date=} opt_expires
      * @return {string}
      */
-    private _getExpires(opt_expires?: string | number | boolean | Date): string {
+    private _getExpires(
+        opt_expires?: string | number | boolean | Date,
+    ): string {
         const date = new Date();
         if (opt_expires) {
             switch (opt_expires.constructor) {
                 case Number:
                     date.setTime(
                         date.getTime() +
-                            /** @type {number} */(opt_expires as number) * 60 * 60 * 1000,
+                            /** @type {number} */ (opt_expires as number) *
+                                60 *
+                                60 *
+                                1000,
                     );
                     opt_expires =
                         opt_expires === Infinity
@@ -165,6 +174,6 @@ export class Storage {
             date.setTime(date.getTime() + this.options.hours * 60 * 60 * 1000);
             opt_expires = date.toUTCString();
         }
-        return /** @type {string} */(opt_expires as string);
+        return /** @type {string} */ opt_expires as string;
     }
 }

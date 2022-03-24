@@ -1,10 +1,4 @@
-import {
-    eq,
-    format,
-    isFunction,
-    isObject,
-    noop,
-} from '../utils/operation';
+import { eq, format, isFunction, isObject, noop } from '../utils/operation';
 import { Objekt } from '../core/objekt';
 import { Query } from '../core/query';
 import { generateId } from '../utils/coder';
@@ -81,7 +75,10 @@ export class Flash {
      * @param {?Function=} opt_closeCallback
      * @return {!Item}
      */
-    private _getCloseButton(flashNode: Item, opt_closeCallback: (Function | null) | undefined = null): Item {
+    private _getCloseButton(
+        flashNode: Item,
+        opt_closeCallback: (Function | null) | undefined = null,
+    ): Item {
         const buttonNode = flashNode.createElement('button');
         buttonNode.addClass([
             'mdl-button',
@@ -158,7 +155,10 @@ export class Flash {
      * @param {?Function=} opt_closeCallback
      * @return {boolean}
      */
-    private _isClosable(type: string, opt_closeCallback: (Function | null) | undefined = null): boolean {
+    private _isClosable(
+        type: string,
+        opt_closeCallback: (Function | null) | undefined = null,
+    ): boolean {
         return (
             this.options.closableTypes.indexOf(type) !== -1 ||
             isFunction(opt_closeCallback)
@@ -169,7 +169,10 @@ export class Flash {
      * @param {?Function=} opt_closeCallback
      * @return {undefined}
      */
-    remove(flash: Item, opt_closeCallback: (Function | null) | undefined = null): void {
+    remove(
+        flash: Item,
+        opt_closeCallback: (Function | null) | undefined = null,
+    ): void {
         if (isFunction(opt_closeCallback)) {
             opt_closeCallback();
         }
@@ -203,7 +206,12 @@ export class Flash {
      * @param {string=} opt_id
      * @return {!Item}
      */
-    addInfo(message: string, opt_duration: number | undefined = 0, opt_closeCallback: (Function | null) | undefined = null, opt_id: string | undefined = ''): Item {
+    addInfo(
+        message: string,
+        opt_duration: number | undefined = 0,
+        opt_closeCallback: (Function | null) | undefined = null,
+        opt_id: string | undefined = '',
+    ): Item {
         return this._add(
             'info',
             message,
@@ -240,7 +248,12 @@ export class Flash {
      * @param {string=} opt_id
      * @return {!Item}
      */
-    addError(message: string, opt_duration: number | undefined = 0, opt_closeCallback: (Function | null) | undefined = null, opt_id: string | undefined = ''): Item {
+    addError(
+        message: string,
+        opt_duration: number | undefined = 0,
+        opt_closeCallback: (Function | null) | undefined = null,
+        opt_id: string | undefined = '',
+    ): Item {
         return this._add(
             'error',
             message,
@@ -257,7 +270,7 @@ export class Flash {
      * @return {!Item|null}
      */
     addMessage(
-        message: { type: string; content: string; closable: boolean; },
+        message: { type: string; content: string; closable: boolean },
         opt_duration: number | undefined = 0,
         opt_closeCallback: (Function | null) | undefined = null,
         opt_id: string | undefined = '',

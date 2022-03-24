@@ -65,7 +65,7 @@ export class Collection {
             const parent = !isUndefined(this.options.parent)
                 ? this.options.parent
                 : this;
-            return (new this.Type(object, parent));
+            return new this.Type(object, parent);
         }
         return object;
     }

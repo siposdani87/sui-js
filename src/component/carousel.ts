@@ -13,7 +13,11 @@ export class Carousel {
      * @param {string=} opt_selector
      * @param {!Object=} opt_options
      */
-    constructor(dom: Item, opt_selector: string | undefined = '.carousel', opt_options: Object | undefined = {}) {
+    constructor(
+        dom: Item,
+        opt_selector: string | undefined = '.carousel',
+        opt_options: Object | undefined = {},
+    ) {
         this.carouselNode = new Query(opt_selector, dom).getItem();
         this._setOptions(opt_options);
         this._init();

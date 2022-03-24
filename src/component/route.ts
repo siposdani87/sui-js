@@ -13,7 +13,14 @@ export class Route {
      * @param {string=} opt_template
      * @param {!Object=} opt_params
      */
-     constructor(id: string, title: string, url: string, controller: string, opt_template: string | undefined = '', opt_params: Object | undefined = {}) {
+    constructor(
+        id: string,
+        title: string,
+        url: string,
+        controller: string,
+        opt_template: string | undefined = '',
+        opt_params: Object | undefined = {},
+    ) {
         const state = new Objekt(opt_params);
         state.set('id', id);
         state.set('title', title);

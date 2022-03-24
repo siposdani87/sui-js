@@ -648,7 +648,7 @@ export class GoogleMap {
         }
         const options = new Objekt(this.markerOptions);
         options.merge(opt_options);
-        const text = /** @type {string} */ (convert)(title, 'string');
+        const text = /** @type {string} */ convert(title, 'string');
         const marker = new google.maps.Marker(options.copy(true));
         marker.setPosition(new google.maps.LatLng(latitude, longitude));
         marker.setIcon(this.markerIcons[iconName].icon);
@@ -726,7 +726,7 @@ export class GoogleMap {
         each(this._cleanMarkerData(opt_markerData), (value, key) => {
             markerData.set(key, value);
         });
-        const text = /** @type {string} */ (convert)(title, 'string');
+        const text = /** @type {string} */ convert(title, 'string');
         const marker = 
         /** @type {!google.maps.Marker} */ markerData.get('_marker');
         marker.setOptions(opt_options);
@@ -813,7 +813,7 @@ export class GoogleMap {
         const marker = 
         /** @type {!google.maps.Marker} */ markerData.get('_marker');
         const infoWindow = new google.maps.InfoWindow({
-            content: /** @type {string} */ (convert)(content, 'string'),
+            content: /** @type {string} */ convert(content, 'string'),
         });
         infoWindow.open(this.map, marker);
     }

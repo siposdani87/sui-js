@@ -121,7 +121,12 @@ export class Window {
      * @param {!Event} event
      * @return {undefined}
      */
-    eventOrientationChange(orientation: string, width: number, height: number, event: Event): void {
+    eventOrientationChange(
+        orientation: string,
+        width: number,
+        height: number,
+        event: Event,
+    ): void {
         consoleWarn(
             'Window.eventOrientationChange()',
             orientation,

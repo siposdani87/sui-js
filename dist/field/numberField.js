@@ -51,7 +51,7 @@ export class NumberField extends BaseField {
         upButton.setHtml('keyboard_arrow_up');
         upButton.addEventListener('click', () => {
             if (this.isEnabled()) {
-                let value = /** @type {number} */ (this).getValue() || 0;
+                let value = /** @type {number} */ this.getValue() || 0;
                 value += this._getStep();
                 this.setValue(value);
             }
@@ -63,7 +63,7 @@ export class NumberField extends BaseField {
         downButton.setHtml('keyboard_arrow_down');
         downButton.addEventListener('click', () => {
             if (this.isEnabled()) {
-                let value = /** @type {number} */ (this).getValue() || 0;
+                let value = /** @type {number} */ this.getValue() || 0;
                 value -= this._getStep();
                 this.setValue(value);
             }
@@ -75,7 +75,7 @@ export class NumberField extends BaseField {
      * @return {undefined}
      */
     _checkValue() {
-        const value = /** @type {number} */ (this).getValue();
+        const value = /** @type {number} */ this.getValue();
         const min = this._getMin();
         if (value < min) {
             this.setValue(min);
@@ -91,7 +91,7 @@ export class NumberField extends BaseField {
      */
     _getMax() {
         const max = this.input.getAttribute('max') || 9999999999;
-        return /** @type {number} */ (typeCast)(max);
+        return /** @type {number} */ typeCast(max);
     }
     /**
      * @private
@@ -99,7 +99,7 @@ export class NumberField extends BaseField {
      */
     _getMin() {
         const min = this.input.getAttribute('min') || 0;
-        return /** @type {number} */ (typeCast)(min);
+        return /** @type {number} */ typeCast(min);
     }
     /**
      * @private
@@ -107,7 +107,7 @@ export class NumberField extends BaseField {
      */
     _getStep() {
         const step = this.input.getAttribute('step') || 1;
-        return /** @type {number} */ (typeCast)(step);
+        return /** @type {number} */ typeCast(step);
     }
     /**
      * @override

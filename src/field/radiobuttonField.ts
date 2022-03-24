@@ -19,7 +19,13 @@ export class RadiobuttonField extends BaseField {
      * @param {!Item} inputBlock
      * @param {!Form} form
      */
-    constructor(input: Item, label: Item, error: Item, inputBlock: Item, form: Form) {
+    constructor(
+        input: Item,
+        label: Item,
+        error: Item,
+        inputBlock: Item,
+        form: Form,
+    ) {
         super(input, label, error, inputBlock, form);
         this._init();
     }
@@ -69,7 +75,7 @@ export class RadiobuttonField extends BaseField {
             'mdl-js-ripple-effect',
         ]);
         const id = this.input.getId();
-        this.label.setFor(/** @type {string} */(id));
+        this.label.setFor(/** @type {string} */ id);
 
         const labelText = this.label.getHtml(true);
 
@@ -93,7 +99,7 @@ export class RadiobuttonField extends BaseField {
      */
     refresh() {
         const dataLabelText =
-            /** @type {string} */(this).label.getAttribute('data-label');
+            /** @type {string} */ this.label.getAttribute('data-label');
         if (dataLabelText) {
             const labelText = this._getLabelRequiredText(dataLabelText);
             this.dataLabelNode.setHtml(labelText);
@@ -111,7 +117,17 @@ export class RadiobuttonField extends BaseField {
      * @param {!Object|!Function|!Array|boolean|number|string|null|undefined} value
      * @return {undefined}
      */
-    setValue(value: Object | Function | Array<any> | boolean | number | string | null | undefined): void {
+    setValue(
+        value:
+            | Object
+            | Function
+            | Array<any>
+            | boolean
+            | number
+            | string
+            | null
+            | undefined,
+    ): void {
         if (this.input.getAttribute('value') === value) {
             this.input.getNode().checked = true;
             this.input.trigger('change');

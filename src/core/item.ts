@@ -27,18 +27,21 @@ export class Item<T extends HTMLElement = HTMLElement> {
      * @param {?T|string} node
      * @param {!Item=} opt_parentNode
      */
-    constructor(node: (T | HTMLElement | string) | null, opt_parentNode?: Item | undefined) {
+    constructor(
+        node: (T | HTMLElement | string) | null,
+        opt_parentNode?: Item | undefined,
+    ) {
         if (isString(node)) {
             if (
-                contain(/** @type {string} */(node) as string, '<') &&
-                contain(/** @type {string} */(node) as string, '</')
+                contain(/** @type {string} */ node as string, '<') &&
+                contain(/** @type {string} */ node as string, '</')
             ) {
                 const template = document.createElement('template');
                 template.innerHTML = node as string;
                 node = template.content.firstElementChild as any as T;
             } else {
                 node = document.createElement(
-                    /** @type {string} */(node) as string,
+                    /** @type {string} */ node as string,
                 ) as any as T;
             }
         }
@@ -119,7 +122,7 @@ export class Item<T extends HTMLElement = HTMLElement> {
     getFor(): string | null {
         return (
             (this.node as any as HTMLLabelElement).htmlFor ||
-            /** @type {string} */(this).getAttribute('for')
+            /** @type {string} */ this.getAttribute('for')
         );
     }
     /**
@@ -209,7 +212,7 @@ export class Item<T extends HTMLElement = HTMLElement> {
         } else {
             this.node.setAttribute(
                 attribute,
-                /** @type {string} */(value) as string,
+                /** @type {string} */ value as string,
             );
         }
     }
@@ -338,7 +341,9 @@ export class Item<T extends HTMLElement = HTMLElement> {
      * @param {string} tagName
      * @return {!Item}
      */
-    createElement<K extends HTMLElement = HTMLElement>(tagName: string): Item<K> {
+    createElement<K extends HTMLElement = HTMLElement>(
+        tagName: string,
+    ): Item<K> {
         const node = document.createElement(tagName);
         return new Item<K>(node, this);
     }
@@ -468,7 +473,7 @@ export class Item<T extends HTMLElement = HTMLElement> {
     getNextSibling(): Item {
         const referenceNode =
             this.node.nextSibling || this.node.nextElementSibling;
-        return new Item(/** @type {T} */(referenceNode) as T);
+        return new Item(/** @type {T} */ referenceNode as T);
     }
     /**
      * @export

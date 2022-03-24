@@ -56,7 +56,10 @@ export class Clock {
      * @param {!Function} minuteCallback
      * @return {undefined}
      */
-    private _switchMode(hourCallback: Function, minuteCallback: Function): void {
+    private _switchMode(
+        hourCallback: Function,
+        minuteCallback: Function,
+    ): void {
         let result = null;
         switch (this.activeMode) {
             case 'HOUR':

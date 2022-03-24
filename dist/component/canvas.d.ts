@@ -9,7 +9,7 @@ export declare class Canvas {
     /**
      * @param {!Item|string=} opt_selector
      */
-    constructor(opt_selector?: (Item | string));
+    constructor(opt_selector?: Item | string);
     /**
      * @private
      * @param {!Item|string=} opt_selector

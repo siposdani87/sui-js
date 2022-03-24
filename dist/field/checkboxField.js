@@ -25,7 +25,7 @@ export class CheckboxField extends BaseCheckboxField {
             'mdl-js-ripple-effect',
         ]);
         const id = this.input.getId();
-        this.label.setFor(/** @type {string} */ (id));
+        this.label.setFor(/** @type {string} */ id);
         const labelText = this.label.getHtml(true);
         this.spanLabel = new Item('span');
         this.spanLabel.addClass('mdl-checkbox__label');

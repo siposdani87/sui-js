@@ -183,7 +183,9 @@ export class Application {
         };
 
         this._module.eventStateChange =
-            /** @type {function(!Objekt):!Promize} */ (currentState): Promize => {
+            /** @type {function(!Objekt):!Promize} */ (
+                currentState,
+            ): Promize => {
                 this._instances[this._injections.progressBar].lock();
                 this._instances[this._injections.loader].show();
                 this._instances[this._injections.dialog].close();
@@ -196,7 +198,10 @@ export class Application {
             };
 
         this._module.eventDomChange =
-            /** @type {function(!Objekt, !Item):!Promize} */ (state, dom): Promize => {
+            /** @type {function(!Objekt, !Item):!Promize} */ (
+                state,
+                dom,
+            ): Promize => {
                 return this._instances[this._injections.event].call(
                     'dom.change',
                     [state, dom],
@@ -720,7 +725,11 @@ export class Application {
      * @param {!ClassRef} moduleCallback
      * @return {string}
      */
-    controller(name: string, moduleInjections: string[], moduleCallback: ClassRef): string {
+    controller(
+        name: string,
+        moduleInjections: string[],
+        moduleCallback: ClassRef,
+    ): string {
         return this._module.add(name, moduleInjections, moduleCallback);
     }
     /**
@@ -729,7 +738,11 @@ export class Application {
      * @param {!ClassRef} moduleCallback
      * @return {string}
      */
-    service(name: string, moduleInjections: string[], moduleCallback: ClassRef): string {
+    service(
+        name: string,
+        moduleInjections: string[],
+        moduleCallback: ClassRef,
+    ): string {
         return this._module.add(name, moduleInjections, moduleCallback);
     }
 }

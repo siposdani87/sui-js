@@ -13,7 +13,7 @@ export class Canvas {
     /**
      * @param {!Item|string=} opt_selector
      */
-    constructor(opt_selector?: (Item | string)) {
+    constructor(opt_selector?: Item | string) {
         this._init(opt_selector);
         this._initEvents();
     }
@@ -22,11 +22,12 @@ export class Canvas {
      * @param {!Item|string=} opt_selector
      * @return {undefined}
      */
-    private _init(opt_selector?: (Item | string)): void {
-        this.canvasNode = /** @type {!Item} */ opt_selector as Item<HTMLCanvasElement>;
+    private _init(opt_selector?: Item | string): void {
+        this.canvasNode =
+            /** @type {!Item} */ opt_selector as Item<HTMLCanvasElement>;
         if (isString(opt_selector)) {
             this.canvasNode = new Query<HTMLCanvasElement>(
-                /** @type {string} */(opt_selector as string),
+                /** @type {string} */ opt_selector as string,
             ).getItem();
         } else if (isUndefined(opt_selector)) {
             this.canvasNode = new Item<HTMLCanvasElement>('canvas');
@@ -90,7 +91,14 @@ export class Canvas {
      * @param {!Object} options
      * @return {undefined}
      */
-    drawPolygon(x: number, y: number, radius: number, sides: number, rotateAngle: number, options: Object): void {
+    drawPolygon(
+        x: number,
+        y: number,
+        radius: number,
+        sides: number,
+        rotateAngle: number,
+        options: Object,
+    ): void {
         if (sides < 3) {
             return;
         }
@@ -123,7 +131,14 @@ export class Canvas {
      * @param {!Object} options
      * @return {undefined}
      */
-    drawRectangle(x: number, y: number, width: number, height: number, rotateAngle: number, options: Object): void {
+    drawRectangle(
+        x: number,
+        y: number,
+        width: number,
+        height: number,
+        rotateAngle: number,
+        options: Object,
+    ): void {
         this.context.save();
         this.context.translate(x, y);
         this.context.beginPath();
@@ -145,7 +160,11 @@ export class Canvas {
      * @param {number=} opt_width
      * @param {number=} opt_height
      */
-    drawImage(image: Item<HTMLImageElement>, opt_width?: number, opt_height?: number) {
+    drawImage(
+        image: Item<HTMLImageElement>,
+        opt_width?: number,
+        opt_height?: number,
+    ) {
         const width = opt_width || typeCast(image.getAttribute('width'));
         const height = opt_height || typeCast(image.getAttribute('height'));
         this.context.save();

@@ -24,7 +24,10 @@ export class Form extends Collection<BaseField> {
      * @param {string=} opt_selector
      */
     constructor(dom: Item, opt_selector: string | undefined = 'form') {
-        const formNode = new Query<HTMLFormElement>(opt_selector, dom).getItem();
+        const formNode = new Query<HTMLFormElement>(
+            opt_selector,
+            dom,
+        ).getItem();
         formNode.setAttribute('novalidate');
         super([], FormField, {
             parent: formNode,
@@ -151,7 +154,11 @@ export class Form extends Collection<BaseField> {
      * @param {boolean=} opt_showMessage
      * @return {undefined}
      */
-    setModel(model: Objekt, opt_force: boolean | undefined = true, opt_showMessage: boolean | undefined = false): void {
+    setModel(
+        model: Objekt,
+        opt_force: boolean | undefined = true,
+        opt_showMessage: boolean | undefined = false,
+    ): void {
         this.previousModel = this.model.copy();
         this.model.merge(model);
         this.each((field) => {
@@ -174,7 +181,10 @@ export class Form extends Collection<BaseField> {
      * @param {boolean=} opt_showMessage
      * @return {undefined}
      */
-    reset(opt_force: boolean | undefined = true, opt_showMessage: boolean | undefined = false): void {
+    reset(
+        opt_force: boolean | undefined = true,
+        opt_showMessage: boolean | undefined = false,
+    ): void {
         this.each((field) => {
             field.setValue();
             field.checkValidity(opt_force, opt_showMessage);
@@ -244,7 +254,10 @@ export class Form extends Collection<BaseField> {
      * @param {boolean=} opt_showMessage
      * @return {boolean}
      */
-    checkValidity(opt_force: boolean | undefined = false, opt_showMessage: boolean | undefined = true): boolean {
+    checkValidity(
+        opt_force: boolean | undefined = false,
+        opt_showMessage: boolean | undefined = true,
+    ): boolean {
         this.each((field) => {
             field.checkValidity(opt_force, opt_showMessage);
         });

@@ -171,7 +171,7 @@ export class LocationField extends BaseField {
 
         this.latitudeInput = this._renderAdvancedInput(
             generateId('latitude'),
-            /** @type {string} */(this).input.getData('latitude'),
+            /** @type {string} */ this.input.getData('latitude'),
             (inputNode) => {
                 const location = /** @type {!Object} */ this.getValue();
                 const latitude = inputNode.getNode().value;
@@ -181,7 +181,7 @@ export class LocationField extends BaseField {
         );
         this.longitudeInput = this._renderAdvancedInput(
             generateId('longitude'),
-            /** @type {string} */(this).input.getData('longitude'),
+            /** @type {string} */ this.input.getData('longitude'),
             (inputNode) => {
                 const location = /** @type {!Object} */ this.getValue();
                 const longitude = inputNode.getNode().value;
@@ -197,7 +197,11 @@ export class LocationField extends BaseField {
      * @param {function(!Item):undefined} callback
      * @return {!Item<HTMLInputElement>}
      */
-    private _renderAdvancedInput(id: string, labelText: string, callback: (arg0: Item<HTMLInputElement>) => void): Item<HTMLInputElement> {
+    private _renderAdvancedInput(
+        id: string,
+        labelText: string,
+        callback: (arg0: Item<HTMLInputElement>) => void,
+    ): Item<HTMLInputElement> {
         const blockNode = new Item('div');
         blockNode.addClass('col-6');
         this.advancedNode.appendChild(blockNode);
@@ -274,7 +278,11 @@ export class LocationField extends BaseField {
      * @param {!Array<?google.maps.MapTypeStyle>} mapStyles
      * @return {undefined}
      */
-    setCustomMapStyle(mapTypeId: string, mapTypeName: string, mapStyles: Array<google.maps.MapTypeStyle | null>): void {
+    setCustomMapStyle(
+        mapTypeId: string,
+        mapTypeName: string,
+        mapStyles: Array<google.maps.MapTypeStyle | null>,
+    ): void {
         this.map.setCustomMapStyle(mapTypeId, mapTypeName, mapStyles);
     }
     /**
@@ -322,8 +330,18 @@ export class LocationField extends BaseField {
      * @param {!Object|!Function|!Array|boolean|number|string|null|undefined} value
      * @return {undefined}
      */
-    setValue(value: Object | Function | Array<any> | boolean | number | string | null | undefined): void {
-        this._setDataValue(/** @type {!Object} */(value as Object));
+    setValue(
+        value:
+            | Object
+            | Function
+            | Array<any>
+            | boolean
+            | number
+            | string
+            | null
+            | undefined,
+    ): void {
+        this._setDataValue(/** @type {!Object} */ value as Object);
         this.map.removeMarker(0);
         if (!isNull(value['latitude']) && !isNull(value['longitude'])) {
             this.map.setCenter(value['latitude'], value['longitude']);

@@ -63,7 +63,17 @@ export class BaseCheckboxField extends BaseField {
      * @param {!Object|!Function|!Array|boolean|number|string|null|undefined} value
      * @return {undefined}
      */
-    setValue(value: Object | Function | Array<any> | boolean | number | string | null | undefined): void {
+    setValue(
+        value:
+            | Object
+            | Function
+            | Array<any>
+            | boolean
+            | number
+            | string
+            | null
+            | undefined,
+    ): void {
         const currentValue = typeCast(this.input.getAttribute('value'));
         this.input.getNode().checked = currentValue === value;
         if (!this.input.getNode().checked) {
@@ -105,7 +115,7 @@ export class BaseCheckboxField extends BaseField {
      */
     refresh() {
         const dataLabelText =
-            /** @type {string} */(this).label.getAttribute('data-label');
+            /** @type {string} */ this.label.getAttribute('data-label');
         if (dataLabelText) {
             const labelText = this._getLabelRequiredText(dataLabelText);
             this.dataLabelNode.setHtml(labelText);

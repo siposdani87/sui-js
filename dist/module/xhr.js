@@ -314,7 +314,7 @@ export class Xhr {
                     }
                     else {
                         data = isString(data)
-                            ? JSON.parse(/** @type {string} */ (data) || 'null')
+                            ? JSON.parse(/** @type {string} */ data || 'null')
                             : data;
                         const object = new Objekt();
                         object.merge(data);

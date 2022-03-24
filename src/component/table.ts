@@ -42,7 +42,11 @@ export class Table {
      * @param {string=} opt_selector
      * @param {!Object=} opt_options
      */
-    constructor(dom: Item, opt_selector: string | undefined = 'table', opt_options: Object | undefined = {}) {
+    constructor(
+        dom: Item,
+        opt_selector: string | undefined = 'table',
+        opt_options: Object | undefined = {},
+    ) {
         this.tableNode = new Query(opt_selector, dom).getItem();
         this._setOptions(opt_options);
         this._init();
@@ -207,9 +211,9 @@ export class Table {
         }
 
         const headerTitle =
-            /** @type {string} */(headerNode).getAttribute('title');
+            /** @type {string} */ headerNode.getAttribute('title');
         const headerDesc =
-            /** @type {string} */(headerNode).getAttribute('desc');
+            /** @type {string} */ headerNode.getAttribute('desc');
         if (headerTitle || headerDesc) {
             const iconInfo = new Item('em');
             if (headerTitle) {
@@ -336,7 +340,10 @@ export class Table {
      * @param {string=} opt_order
      * @return {undefined}
      */
-    private _setSorting(column: string, opt_order: string | undefined = 'asc'): void {
+    private _setSorting(
+        column: string,
+        opt_order: string | undefined = 'asc',
+    ): void {
         this.options.sort.column = column;
         this.options.sort.order = opt_order;
         this._updateSorting();
@@ -445,7 +452,12 @@ export class Table {
      * @param {!Item} parentNode
      * @return {undefined}
      */
-    private _renderDataNodeByItem(item: Objekt, rowIndex: number, column: string, parentNode: Item): void {
+    private _renderDataNodeByItem(
+        item: Objekt,
+        rowIndex: number,
+        column: string,
+        parentNode: Item,
+    ): void {
         let result = '';
         const calculation = this.options.calculations[column];
         if (isFunction(calculation)) {
@@ -466,7 +478,7 @@ export class Table {
         eachArray(items, (item) => {
             if (!instanceOf(item, Item)) {
                 const dataNode = new Item('span');
-                dataNode.setHtml(/** @type {string} */(item));
+                dataNode.setHtml(/** @type {string} */ item);
                 item = dataNode;
             }
             parentNode.appendChild(/** @type {!Item} */ item);
@@ -485,7 +497,13 @@ export class Table {
      * @param {number} columnIndex
      * @return {undefined}
      */
-    private _renderDataNode(tableDataNode: Item, item: Objekt, rowIndex: number, column: string, columnIndex: number): void {
+    private _renderDataNode(
+        tableDataNode: Item,
+        item: Objekt,
+        rowIndex: number,
+        column: string,
+        columnIndex: number,
+    ): void {
         if (inArray(['search', 'actions'], column)) {
             this._renderActions(tableDataNode, item);
         } else {
@@ -543,7 +561,11 @@ export class Table {
      * @param {!Objekt} item
      * @return {undefined}
      */
-    private _createActionButton(containerNode: Item, action: { style: Function; click: Function; }, item: Objekt): void {
+    private _createActionButton(
+        containerNode: Item,
+        action: { style: Function; click: Function },
+        item: Objekt,
+    ): void {
         const [icon, title, disabled, removed] = action.style(item);
         if (!removed) {
             const buttonNode = new Item('button');
@@ -567,7 +589,7 @@ export class Table {
             }
             const iconNode = new Item('em');
             iconNode.addClass('material-icons');
-            iconNode.setHtml(/** @type {string} */(icon));
+            iconNode.setHtml(/** @type {string} */ icon);
             buttonNode.appendChild(iconNode);
         }
     }

@@ -15,7 +15,13 @@ export class Calendar {
     maxYears: number;
     modes: string[];
     activeMode: string;
-    types: { date: string; month: string; year: string; week: string; range: string };
+    types: {
+        date: string;
+        month: string;
+        year: string;
+        week: string;
+        range: string;
+    };
     headerNode: Item;
     currentModeNode: Item;
     contentNode: Item;
@@ -23,9 +29,9 @@ export class Calendar {
     monthsNode: Item;
     weekDaysNode: Item;
     daysNode: Item;
-    previous: { day: string; month: string; year: string; };
-    current: { day: string; };
-    next: { day: string; month: string; year: string; };
+    previous: { day: string; month: string; year: string };
+    current: { day: string };
+    next: { day: string; month: string; year: string };
     days: any[];
     selectedDate: any;
     /**
@@ -163,7 +169,11 @@ export class Calendar {
      * @param {!Function} yearFun
      * @return {!Object}
      */
-    private _switchMode(dayFun: Function, monthFun: Function, yearFun: Function): Object {
+    private _switchMode(
+        dayFun: Function,
+        monthFun: Function,
+        yearFun: Function,
+    ): Object {
         let result = null;
         switch (this.activeMode) {
             case 'DAY':

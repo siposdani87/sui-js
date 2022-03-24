@@ -169,7 +169,17 @@ export class SelectField extends BaseField {
      * @param {!Object|!Function|!Array|boolean|number|string|null|undefined} value
      * @return {undefined}
      */
-    setValue(value: Object | Function | Array<any> | boolean | number | string | null | undefined): void {
+    setValue(
+        value:
+            | Object
+            | Function
+            | Array<any>
+            | boolean
+            | number
+            | string
+            | null
+            | undefined,
+    ): void {
         this.ids = value as string[];
         if (!isArray(value)) {
             this.ids = [value as string];
@@ -223,7 +233,12 @@ export class SelectField extends BaseField {
      * @param {string=} opt_image
      * @return {undefined}
      */
-    setOptions(items: Array<Objekt>, opt_value: string | undefined = 'value', opt_name: string | undefined = 'name', opt_image: string | undefined = ''): void {
+    setOptions(
+        items: Array<Objekt>,
+        opt_value: string | undefined = 'value',
+        opt_name: string | undefined = 'name',
+        opt_image: string | undefined = '',
+    ): void {
         const optionNodes = new Query('option', this.input);
         optionNodes.each((optionNode) => {
             if (optionNode.getAttribute('value')) {
