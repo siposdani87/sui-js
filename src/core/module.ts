@@ -103,6 +103,9 @@ export class Module {
                 }
             }
         }
+        console.log({
+            services: this._services,
+        });
     }
     /**
      * @private
