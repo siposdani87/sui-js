@@ -71,7 +71,7 @@ export class RangeField extends BaseField {
             '.mdl-slider__container',
             this.inputBlock,
         ).getItem();
-        const value = /** @type {string} */(this).getValue();
+        const value = /** @type {string} */ this.getValue();
         this.tooltip = new Tooltip(containerNode);
         this.tooltip.render(value);
     }
@@ -80,7 +80,17 @@ export class RangeField extends BaseField {
      * @param {!Object|!Function|!Array|boolean|number|string|null|undefined} value
      * @return {undefined}
      */
-    setValue(value: Object | Function | Array<any> | boolean | number | string | null | undefined): void {
+    setValue(
+        value:
+            | Object
+            | Function
+            | Array<any>
+            | boolean
+            | number
+            | string
+            | null
+            | undefined,
+    ): void {
         const inputNode = this.input.getNode();
         inputNode['MaterialSlider']['change'](value);
         this.tooltip.render(value as string);

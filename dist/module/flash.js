@@ -1,4 +1,4 @@
-import { eq, format, isFunction, isObject, noop, } from '../utils/operation';
+import { eq, format, isFunction, isObject, noop } from '../utils/operation';
 import { Objekt } from '../core/objekt';
 import { Query } from '../core/query';
 import { generateId } from '../utils/coder';

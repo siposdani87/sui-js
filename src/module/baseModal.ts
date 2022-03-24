@@ -113,7 +113,9 @@ export class BaseModal {
      * @param {boolean=} opt_allowClose
      * @return {undefined}
      */
-    private _handleCloseButton(opt_allowClose: boolean | undefined = true): void {
+    private _handleCloseButton(
+        opt_allowClose: boolean | undefined = true,
+    ): void {
         if (this.btnClose) {
             if (opt_allowClose) {
                 this.btnClose.removeClass('hidden');

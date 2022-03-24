@@ -27,10 +27,7 @@ export class Async {
      * @param {!Array=} opt_args
      * @return {!Promize}
      */
-    parallel(
-        calls: Array<Function>,
-        opt_args?: Array<any>,
-    ): Promize {
+    parallel(calls: Array<Function>, opt_args?: Array<any>): Promize {
         const deferred = new Deferred();
         if (calls.length === 0) {
             const results = opt_args || this.call.results;
@@ -62,7 +59,7 @@ export class Async {
         opt_index?: number,
     ): void {
         const index = !isUndefined(opt_index)
-            ? /** @type {number} */(opt_index)
+            ? /** @type {number} */ opt_index
             : this.call.counter++;
         this.call.results[index] = null;
         this._parallelWrapper(call, this.sum, true, index, opt_args);

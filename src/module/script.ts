@@ -17,7 +17,10 @@ export class Script {
      * @param {!ProgressBar} progressBar
      * @param {!Object=} opt_options
      */
-    constructor(progressBar: ProgressBar, opt_options: Object | undefined = {}) {
+    constructor(
+        progressBar: ProgressBar,
+        opt_options: Object | undefined = {},
+    ) {
         this.progressBar = progressBar;
         this._setOptions(opt_options);
         this._init();
@@ -47,7 +50,13 @@ export class Script {
      * @param {boolean=} opt_defer
      * @return {!Promize}
      */
-    load(id: string, url: string, opt_params?: Object, opt_async: boolean | undefined = false, opt_defer: boolean | undefined = false): Promize {
+    load(
+        id: string,
+        url: string,
+        opt_params?: Object,
+        opt_async: boolean | undefined = false,
+        opt_defer: boolean | undefined = false,
+    ): Promize {
         this.progressBar.show();
         const deferred = new Deferred();
         const script = new Query('#' + id);

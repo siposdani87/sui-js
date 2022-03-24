@@ -45,7 +45,12 @@ export class Helper {
      * @param {!Array=} opt_cssClasses
      * @return {undefined}
      */
-    multipleLink(selector: string, dom: Item, opt_callback: Function | undefined, opt_cssClasses: Array<any> | undefined = []): void {
+    multipleLink(
+        selector: string,
+        dom: Item,
+        opt_callback: Function | undefined,
+        opt_cssClasses: Array<any> | undefined = [],
+    ): void {
         const linkNodes = new Query(selector, dom);
         linkNodes.each((linkNode) => {
             this.linkElement(
@@ -405,7 +410,10 @@ export class Helper {
      * @param {string=} opt_description
      * @return {undefined}
      */
-    private _setTooltip(node: Item, opt_description: string | undefined = ''): void {
+    private _setTooltip(
+        node: Item,
+        opt_description: string | undefined = '',
+    ): void {
         if (opt_description) {
             node.setAttribute('title', opt_description);
         }

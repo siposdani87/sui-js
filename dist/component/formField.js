@@ -43,7 +43,7 @@ export const FormField = function (inputBlock, form) {
     if (eq(tagName, 'div')) {
         const inputs = new Query('input, textarea, select', inputBlock).getItems();
         const index = selectedIndex !== null
-            ? /** @type {number} */ (selectedIndex)
+            ? /** @type {number} */ selectedIndex
             : inputs.length - 1;
         input = inputs[index];
         label = new Query('label', inputBlock).getItem();
@@ -55,13 +55,13 @@ export const FormField = function (inputBlock, form) {
     return _getField(input, label, error, inputBlock, form);
 };
 /**
-     * @param {!Item} input
-     * @param {?Item} label
-     * @param {?Item} error
-     * @param {!Item} inputBlock
-     * @param {!Form} form
-     * @return {?BaseField}
-     */
+ * @param {!Item} input
+ * @param {?Item} label
+ * @param {?Item} error
+ * @param {!Item} inputBlock
+ * @param {!Form} form
+ * @return {?BaseField}
+ */
 const _getField = (input, label, error, inputBlock, form) => {
     input.addClass('init-field');
     const dataType = input.getData('type');

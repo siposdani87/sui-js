@@ -46,14 +46,14 @@ export class Navigation {
      * @return {undefined}
      */
     add(item: Objekt): void {
-        const id = /** @type {string} */(item).get<string>('id');
-        const image = /** @type {string} */(item).get<string>('image');
-        const icon = /** @type {string} */(item).get<string>('icon');
-        const title = /** @type {string} */(item).get<string>('title');
-        const counter = /** @type {string} */(item).get<string>('counter');
-        const href = /** @type {string} */(item).get<string>('href');
+        const id = /** @type {string} */ item.get<string>('id');
+        const image = /** @type {string} */ item.get<string>('image');
+        const icon = /** @type {string} */ item.get<string>('icon');
+        const title = /** @type {string} */ item.get<string>('title');
+        const counter = /** @type {string} */ item.get<string>('counter');
+        const href = /** @type {string} */ item.get<string>('href');
         const action = /** @type {!Function} */ item.get<Function>('action');
-        const disabled = /** @type {boolean} */(item).get<boolean>('disabled');
+        const disabled = /** @type {boolean} */ item.get<boolean>('disabled');
 
         if (image) {
             this.addImage(id, image, title, action, href, item);
@@ -78,7 +78,14 @@ export class Navigation {
      * @param {!Object=} opt_data
      * @return {undefined}
      */
-    addCounter(id: string, counter: string, title: string | null, action: Function, opt_href: string | undefined = '', opt_data: Object | undefined = {}): void {
+    addCounter(
+        id: string,
+        counter: string,
+        title: string | null,
+        action: Function,
+        opt_href: string | undefined = '',
+        opt_data: Object | undefined = {},
+    ): void {
         const item = this._setItem(id, title, action, opt_href, opt_data);
         const counterSpan = new Item('span');
         counterSpan.addClass('counter');
@@ -96,7 +103,14 @@ export class Navigation {
      * @param {!Object=} opt_data
      * @return {undefined}
      */
-    addIcon(id: string, icon: string, title: string | null, action: Function, opt_href: string | undefined = '', opt_data: Object | undefined = {}): void {
+    addIcon(
+        id: string,
+        icon: string,
+        title: string | null,
+        action: Function,
+        opt_href: string | undefined = '',
+        opt_data: Object | undefined = {},
+    ): void {
         const item = this._setItem(id, title, action, opt_href, opt_data);
         const iconNode = new Item('em');
         iconNode.addClass(['material-icons']);
@@ -118,7 +132,14 @@ export class Navigation {
      * @param {!Object=} opt_data
      * @return {undefined}
      */
-    addImage(id: string, image: string, title: string | null, action: Function, opt_href: string | undefined = '', opt_data: Object | undefined = {}): void {
+    addImage(
+        id: string,
+        image: string,
+        title: string | null,
+        action: Function,
+        opt_href: string | undefined = '',
+        opt_data: Object | undefined = {},
+    ): void {
         const item = this._setItem(id, title, action, opt_href, opt_data);
 
         const imageSpan = new Item('span');
@@ -158,7 +179,13 @@ export class Navigation {
      * @param {!Object=} opt_data
      * @return {undefined}
      */
-    addText(id: string, title: string, action: Function, opt_href: string | undefined = '', opt_data: Object | undefined = {}): void {
+    addText(
+        id: string,
+        title: string,
+        action: Function,
+        opt_href: string | undefined = '',
+        opt_data: Object | undefined = {},
+    ): void {
         this._setItem(id, title, action, opt_href, opt_data);
     }
     /**
@@ -170,7 +197,13 @@ export class Navigation {
      * @param {!Object=} opt_data
      * @return {!Objekt}
      */
-    private _setItem(id: string, title: string | null, action: Function, opt_href: string | undefined = '', opt_data: Object | undefined = {}): Objekt {
+    private _setItem(
+        id: string,
+        title: string | null,
+        action: Function,
+        opt_href: string | undefined = '',
+        opt_data: Object | undefined = {},
+    ): Objekt {
         const linkNode = new Item('a');
         if (title) {
             const titleSpan = new Item('span');
@@ -260,8 +293,10 @@ export class Navigation {
         const linkNode = item.get<Item>(this.linkNodeKey);
         linkNode.removeClass('disabled');
         const action =
-            /** @type {function(string):undefined} */ item.get<Function>('action');
-        const href = /** @type {string} */(item).get<string>('href');
+            /** @type {function(string):undefined} */ item.get<Function>(
+                'action',
+            );
+        const href = /** @type {string} */ item.get<string>('href');
         linkNode.setAttribute('href', href);
         const listener = linkNode.addEventListener('click', () => {
             action(href);

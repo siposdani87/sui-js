@@ -54,7 +54,7 @@ export class ColorField extends BaseField {
         else {
             this.inputBlock.removeClass('is-disabled');
         }
-        const color = /** @type {string} */ (this).getValue() || '#000000';
+        const color = /** @type {string} */ this.getValue() || '#000000';
         this.setValue(color);
     }
     /**
@@ -99,8 +99,8 @@ export class ColorField extends BaseField {
      */
     _draw() {
         if (!this.image.isEmpty()) {
-            const width = /** @type {number} */ (typeCast)(this.image.getAttribute('width'));
-            const height = /** @type {number} */ (typeCast)(this.image.getAttribute('height'));
+            const width = /** @type {number} */ typeCast(this.image.getAttribute('width'));
+            const height = /** @type {number} */ typeCast(this.image.getAttribute('height'));
             this.canvas.setSize(width, height);
             this.canvas.drawImage(this.image, width, height);
         }

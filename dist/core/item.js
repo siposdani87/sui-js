@@ -11,15 +11,15 @@ export class Item {
      */
     constructor(node, opt_parentNode) {
         if (isString(node)) {
-            if (contain(/** @type {string} */ (node), '<') &&
-                contain(/** @type {string} */ (node), '</')) {
+            if (contain(/** @type {string} */ node, '<') &&
+                contain(/** @type {string} */ node, '</')) {
                 const template = document.createElement('template');
                 template.innerHTML = node;
                 node = template.content.firstElementChild;
             }
             else {
                 node = document.createElement(
-                /** @type {string} */ (node));
+                /** @type {string} */ node);
             }
         }
         this.node = /** @type {!T} */ node;
@@ -96,7 +96,7 @@ export class Item {
      */
     getFor() {
         return (this.node.htmlFor ||
-            /** @type {string} */ (this).getAttribute('for'));
+            /** @type {string} */ this.getAttribute('for'));
     }
     /**
      * @param {string} cssClass
@@ -170,7 +170,7 @@ export class Item {
         }
         else {
             this.node.setAttribute(attribute, 
-            /** @type {string} */ (value));
+            /** @type {string} */ value);
         }
     }
     /**
@@ -411,7 +411,7 @@ export class Item {
      */
     getNextSibling() {
         const referenceNode = this.node.nextSibling || this.node.nextElementSibling;
-        return new Item(/** @type {T} */ (referenceNode));
+        return new Item(/** @type {T} */ referenceNode);
     }
     /**
      * @export

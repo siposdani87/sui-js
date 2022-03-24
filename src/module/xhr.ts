@@ -13,7 +13,6 @@ import { consoleError } from '../utils/log';
 import { encodeBase64 } from '../utils/coder';
 import { Promize } from '../core';
 
-
 type XhrType = [string, XMLHttpRequestResponseType, string];
 
 /**
@@ -24,7 +23,7 @@ export class Xhr {
     requestHeaders: {};
     authorization: string;
     types: {
-        [key: string]: XhrType
+        [key: string]: XhrType;
     };
     http: XMLHttpRequest;
     deferred: Deferred;
@@ -60,7 +59,10 @@ export class Xhr {
         this._setTypes();
 
         this.http = new XMLHttpRequest();
-        this.http.onreadystatechange = this._onReadyStateChange() as any as  (this: XMLHttpRequest, ev: Event) => any;
+        this.http.onreadystatechange = this._onReadyStateChange() as any as (
+            this: XMLHttpRequest,
+            ev: Event,
+        ) => any;
 
         this.deferred = new Deferred();
     }
@@ -171,7 +173,11 @@ export class Xhr {
      * @param {!Object=} opt_headers
      * @return {!Promize}
      */
-    get(url: string, opt_params: Object | undefined, opt_headers: Object | undefined = {}): Promize {
+    get(
+        url: string,
+        opt_params: Object | undefined,
+        opt_headers: Object | undefined = {},
+    ): Promize {
         return this._handleRequest('GET', url, {}, opt_params, opt_headers);
     }
     /**
@@ -181,7 +187,12 @@ export class Xhr {
      * @param {!Object=} opt_headers
      * @return {!Promize}
      */
-    post(url: string, opt_data: Object | undefined, opt_params: Object | undefined, opt_headers: Object | undefined = {}): Promize {
+    post(
+        url: string,
+        opt_data: Object | undefined,
+        opt_params: Object | undefined,
+        opt_headers: Object | undefined = {},
+    ): Promize {
         return this._handleRequest(
             'POST',
             url,
@@ -197,7 +208,12 @@ export class Xhr {
      * @param {!Object=} opt_headers
      * @return {!Promize}
      */
-    put(url: string, opt_data: Object | undefined, opt_params: Object | undefined, opt_headers: Object | undefined = {}): Promize {
+    put(
+        url: string,
+        opt_data: Object | undefined,
+        opt_params: Object | undefined,
+        opt_headers: Object | undefined = {},
+    ): Promize {
         return this._handleRequest(
             'PUT',
             url,
@@ -213,7 +229,12 @@ export class Xhr {
      * @param {!Object=} opt_headers
      * @return {!Promize}
      */
-    patch(url: string, opt_data: Object | undefined, opt_params: Object | undefined, opt_headers: Object | undefined = {}): Promize {
+    patch(
+        url: string,
+        opt_data: Object | undefined,
+        opt_params: Object | undefined,
+        opt_headers: Object | undefined = {},
+    ): Promize {
         return this._handleRequest(
             'PATCH',
             url,
@@ -229,7 +250,12 @@ export class Xhr {
      * @param {!Object=} opt_headers
      * @return {!Promize}
      */
-    delete(url: string, opt_data: Object | undefined, opt_params: Object | undefined, opt_headers: Object | undefined = {}): Promize {
+    delete(
+        url: string,
+        opt_data: Object | undefined,
+        opt_params: Object | undefined,
+        opt_headers: Object | undefined = {},
+    ): Promize {
         return this._handleRequest(
             'DELETE',
             url,
@@ -257,7 +283,13 @@ export class Xhr {
      * @param {!Object=} opt_headers
      * @return {!Promize}
      */
-    private _handleRequest(type: string, url: string, opt_data: Object | undefined, opt_params: Object | undefined, opt_headers: Object | undefined = {}): Promize {
+    private _handleRequest(
+        type: string,
+        url: string,
+        opt_data: Object | undefined,
+        opt_params: Object | undefined,
+        opt_headers: Object | undefined = {},
+    ): Promize {
         this.http.open(type, this._getUrl(url, opt_params), true);
         const urlType = getExtensionName(url);
         this._setResponseType(urlType);
@@ -291,7 +323,11 @@ export class Xhr {
      * @param {string} stringKey
      * @return {!Array<string>}
      */
-    private _parseObject(obj: any, key: string, stringKey: string): Array<string> {
+    private _parseObject(
+        obj: any,
+        key: string,
+        stringKey: string,
+    ): Array<string> {
         stringKey += stringKey ? '[' + key + ']' : key;
         let results = [];
         if (obj instanceof Array) {
@@ -362,7 +398,7 @@ export class Xhr {
                         const reader = new FileReader();
                         reader.addEventListener('loadend', (e) => {
                             data = JSON.parse(
-                                /** @type {string} */(e.target
+                                /** @type {string} */ (e.target
                                     .result as string) || 'null',
                             );
                             const object = new Objekt();
@@ -372,7 +408,7 @@ export class Xhr {
                         reader.readAsText(/** @type {!Blob} */ data);
                     } else {
                         data = isString(data)
-                            ? JSON.parse(/** @type {string} */(data) || 'null')
+                            ? JSON.parse(/** @type {string} */ data || 'null')
                             : data;
                         const object = new Objekt();
                         object.merge(data);
@@ -396,7 +432,10 @@ export class Xhr {
      * @param {!Object=} opt_headers
      * @return {undefined}
      */
-    private _setRequestHeaders(urlType: string, opt_headers: Object | undefined = {}): void {
+    private _setRequestHeaders(
+        urlType: string,
+        opt_headers: Object | undefined = {},
+    ): void {
         eachObject(opt_headers, (value, key) => {
             if (eq(key, 'responseType')) {
                 this.http.responseType = value;

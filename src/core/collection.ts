@@ -81,7 +81,7 @@ export class Collection<T extends Object = Objekt> {
             const parent = !isUndefined(this.options.parent)
                 ? this.options.parent
                 : this;
-            return (new this.Type(object, parent)) as T;
+            return new this.Type(object, parent) as T;
         }
         return object as T;
     }

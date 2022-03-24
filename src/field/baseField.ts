@@ -25,7 +25,13 @@ export class BaseField {
      * @param {!Item=} opt_inputBlock
      * @param {!Form=} opt_form
      */
-    constructor(input: Item, opt_label?: Item | undefined, opt_error?: Item | undefined, opt_inputBlock?: Item | undefined, opt_form?: Form | undefined) {
+    constructor(
+        input: Item,
+        opt_label?: Item | undefined,
+        opt_error?: Item | undefined,
+        opt_inputBlock?: Item | undefined,
+        opt_form?: Form | undefined,
+    ) {
         this.input = input;
         this.label = opt_label;
         this.error = opt_error;
@@ -84,7 +90,7 @@ export class BaseField {
      * @return {string}
      */
     getName(): string {
-        const name = /** @type {string} */(this).input.getAttribute('name');
+        const name = /** @type {string} */ this.input.getAttribute('name');
         return this._getAttributeName(name);
     }
     /**
@@ -113,7 +119,10 @@ export class BaseField {
      * @param {boolean=} opt_isCustomError
      * @return {undefined}
      */
-    setError(opt_message: string | undefined = '', opt_isCustomError: boolean | undefined = false): void {
+    setError(
+        opt_message: string | undefined = '',
+        opt_isCustomError: boolean | undefined = false,
+    ): void {
         if (this.error) {
             this.errorTooltip.setMessage(opt_message);
             this.error.setHtml(opt_message);
@@ -127,7 +136,10 @@ export class BaseField {
      * @param {boolean=} opt_showMessage
      * @return {undefined}
      */
-    checkValidity(opt_force: boolean | undefined = false, opt_showMessage: boolean | undefined = true): void {
+    checkValidity(
+        opt_force: boolean | undefined = false,
+        opt_showMessage: boolean | undefined = true,
+    ): void {
         const isValid = this.isValid();
         if (isValid) {
             this.setError('');
@@ -331,8 +343,8 @@ export class BaseField {
      * @return {undefined}
      */
     private _setInfo(label: Item): void {
-        const title = /** @type {string} */(label).getAttribute('title');
-        const description = /** @type {string} */(label).getAttribute('desc');
+        const title = /** @type {string} */ label.getAttribute('title');
+        const description = /** @type {string} */ label.getAttribute('desc');
         if (title || description) {
             let infoButton = new Query(
                 'a.info-button',

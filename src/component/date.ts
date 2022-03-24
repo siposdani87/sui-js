@@ -10,7 +10,7 @@ type DateConfig = {
     format: string;
     calendar_type: string;
     clock_type: string;
-}
+};
 
 /**
  * @class

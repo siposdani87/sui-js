@@ -69,7 +69,7 @@ export class TextareaField extends BaseField {
     private _renderRichText(): void {
         this.input.addClass('hidden');
 
-        let value = /** @type {string} */(this).getValue();
+        let value = /** @type {string} */ this.getValue();
         value =
             value.indexOf('<p>') === 0 ? value : `<p>${value || '<br />'}</p>`;
 
@@ -245,7 +245,17 @@ export class TextareaField extends BaseField {
      * @param {!Object|!Function|!Array|boolean|number|string|null|undefined} value
      * @return {undefined}
      */
-    private _setValue(value: Object | Function | Array<any> | boolean | number | string | null | undefined): void {
+    private _setValue(
+        value:
+            | Object
+            | Function
+            | Array<any>
+            | boolean
+            | number
+            | string
+            | null
+            | undefined,
+    ): void {
         const inputNode = this.input.getNode();
         inputNode.value = value;
         this.input.trigger('change');
@@ -255,7 +265,17 @@ export class TextareaField extends BaseField {
      * @param {!Object|!Function|!Array|boolean|number|string|null|undefined} value
      * @return {undefined}
      */
-    setValue(value: Object | Function | Array<any> | boolean | number | string | null | undefined): void {
+    setValue(
+        value:
+            | Object
+            | Function
+            | Array<any>
+            | boolean
+            | number
+            | string
+            | null
+            | undefined,
+    ): void {
         if (this._isRichText()) {
             this.richTextNode.innerHTML = value as string;
         }

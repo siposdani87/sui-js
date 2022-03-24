@@ -31,7 +31,10 @@ import { Form } from './form';
  * @param {!Form} form
  * @return {?BaseField}
  */
-export const FormField = function(inputBlock: Item, form: Form): BaseField | null {
+export const FormField = function (
+    inputBlock: Item,
+    form: Form,
+): BaseField | null {
     let input = inputBlock;
     let label = null;
     let error = null;
@@ -54,7 +57,7 @@ export const FormField = function(inputBlock: Item, form: Form): BaseField | nul
         ).getItems();
         const index =
             selectedIndex !== null
-                ? /** @type {number} */(selectedIndex)
+                ? /** @type {number} */ selectedIndex
                 : inputs.length - 1;
         input = inputs[index];
 
@@ -67,16 +70,16 @@ export const FormField = function(inputBlock: Item, form: Form): BaseField | nul
     }
 
     return _getField(input, label, error, inputBlock, form);
-}
+};
 
 /**
-     * @param {!Item} input
-     * @param {?Item} label
-     * @param {?Item} error
-     * @param {!Item} inputBlock
-     * @param {!Form} form
-     * @return {?BaseField}
-     */
+ * @param {!Item} input
+ * @param {?Item} label
+ * @param {?Item} error
+ * @param {!Item} inputBlock
+ * @param {!Form} form
+ * @return {?BaseField}
+ */
 const _getField = (
     input: Item,
     label: Item | null,
@@ -261,4 +264,4 @@ const _getField = (
         }
     }
     return result;
-}
+};

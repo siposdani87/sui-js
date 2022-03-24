@@ -26,7 +26,10 @@ export class BaseTest {
      * @param {!Object|string|number|boolean} object
      * @return {undefined}
      */
-    showError(message: string, object: Object | string | number | boolean): void {
+    showError(
+        message: string,
+        object: Object | string | number | boolean,
+    ): void {
         consoleError(this.name + '.' + message, object);
     }
     /**

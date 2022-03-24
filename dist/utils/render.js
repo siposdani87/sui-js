@@ -1,4 +1,4 @@
-import { Item } from "../core";
+import { Item } from '../core';
 /**
  * @export
  * @param {!Item|!Element=} opt_node
@@ -22,12 +22,12 @@ export const mdl = (opt_node, opt_forceDowngrade = true) => {
 };
 /**
  * @export
- * @param {string} type
+ * @param {ClassRef} classRef
  * @param {!Object} props
  * @param {!Item} mountNode
  * @return {!Object}
  */
-export const renderReact = (type, props, mountNode) => window['ReactDOM']['render'](window['React']['createElement'](window[type], props), mountNode.getNode());
+export const renderReact = (classRef, props, mountNode) => window['ReactDOM']['render'](window['React']['createElement'](classRef, props), mountNode.getNode());
 /**
  * @export
  * @param {!Item} mountNode

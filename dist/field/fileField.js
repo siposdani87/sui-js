@@ -42,7 +42,7 @@ export class FileField extends BaseField {
      * @return {boolean}
      */
     _isDocument() {
-        const accept = /** @type {string} */ (this).input.getAttribute('accept');
+        const accept = /** @type {string} */ this.input.getAttribute('accept');
         return (contain(accept, '.docx') ||
             contain(accept, '.xlsx') ||
             contain(accept, '.pdf'));

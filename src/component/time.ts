@@ -83,7 +83,12 @@ export class Time {
      * @param {boolean=} opt_isClockWise
      * @return {undefined}
      */
-    draw(start: number, n: number, opt_j: number | undefined = 1, opt_isClockWise: boolean | undefined = true): void {
+    draw(
+        start: number,
+        n: number,
+        opt_j: number | undefined = 1,
+        opt_isClockWise: boolean | undefined = true,
+    ): void {
         this._drawCircles(start, n, opt_j, opt_isClockWise);
     }
     /**
@@ -94,7 +99,12 @@ export class Time {
      * @param {boolean=} opt_isClockWise
      * @return {undefined}
      */
-    private _drawCircles(start: number, n: number, opt_j: number | undefined = 1, opt_isClockWise: boolean | undefined = true): void {
+    private _drawCircles(
+        start: number,
+        n: number,
+        opt_j: number | undefined = 1,
+        opt_isClockWise: boolean | undefined = true,
+    ): void {
         let k = 0;
         for (let i = start; i <= n; i++) {
             const circle = new Item('div');
@@ -121,7 +131,7 @@ export class Time {
     private _setCircleEvent(circle: Item, i: number): void {
         circle.setData('index', i);
         circle.addEventListener('click', (circle) => {
-            const index = /** @type {number} */(circle).getData('index');
+            const index = /** @type {number} */ circle.getData('index');
             this.eventClick(index);
         });
     }
@@ -135,7 +145,14 @@ export class Time {
      * @param {boolean=} opt_isClockWise
      * @return {undefined}
      */
-    private _setCircleStyle(circle: Item, start: number, n: number, i: number, opt_j: number | undefined = 1, opt_isClockWise: boolean | undefined = true): void {
+    private _setCircleStyle(
+        circle: Item,
+        start: number,
+        n: number,
+        i: number,
+        opt_j: number | undefined = 1,
+        opt_isClockWise: boolean | undefined = true,
+    ): void {
         const index = opt_j / 2 > i % opt_j ? i % opt_j : opt_j - (i % opt_j);
         const selected = this.options.selected === i ? 'selected' : null;
         const top =

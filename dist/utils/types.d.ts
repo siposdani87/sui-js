@@ -1,4 +1,4 @@
-import { Objekt } from "../core/objekt";
+import { Objekt } from '../core/objekt';
 /**
  * @typedef {function(Element, Event)} Listener
  */

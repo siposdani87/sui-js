@@ -126,7 +126,7 @@ export class Objekt {
                 : opt_attribute.split('.');
             value = this._get(this, attributes);
         }
-        return !isUndefined(value) ? value as T : opt_defaultValue;
+        return !isUndefined(value) ? (value as T) : opt_defaultValue;
     }
     /**
      * @private
@@ -163,7 +163,11 @@ export class Objekt {
      * @param {*} value
      * @return {undefined}
      */
-    private _set(object: Object | Objekt, attributes: Array<string>, value: any): void {
+    private _set(
+        object: Object | Objekt,
+        attributes: Array<string>,
+        value: any,
+    ): void {
         eachObject(object, (_oldValue, property) => {
             if (attributes.length === 1 && property === attributes[0]) {
                 object[property] = value;

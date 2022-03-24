@@ -19,7 +19,7 @@ export class FileField extends BaseField {
     valueSrc: string;
     defaultSrc: string;
     removeButton: Item;
-    fileTypes: {[key: string]: [string, string]};
+    fileTypes: { [key: string]: [string, string] };
     fileTypeSVG: string;
     /**
      * @param {!Item} input
@@ -56,7 +56,7 @@ export class FileField extends BaseField {
      * @return {boolean}
      */
     private _isDocument(): boolean {
-        const accept = /** @type {string} */(this).input.getAttribute('accept');
+        const accept = /** @type {string} */ this.input.getAttribute('accept');
         return (
             contain(accept, '.docx') ||
             contain(accept, '.xlsx') ||
@@ -230,7 +230,7 @@ export class FileField extends BaseField {
             reader.onload = (event) => {
                 const target = event.target;
                 const searchStr = ';base64,';
-                let imageSrc = /** @type {string} */(
+                let imageSrc = /** @type {string} */ (
                     target.result as string
                 ).replace(searchStr, ';filename=' + filename + searchStr);
                 this.valueSrc = imageSrc;
@@ -279,7 +279,17 @@ export class FileField extends BaseField {
      * @param {!Object|!Function|!Array|boolean|number|string|null|undefined} value
      * @return {undefined}
      */
-    setValue(value: Object | Function | Array<any> | boolean | number | string | null | undefined): void {
+    setValue(
+        value:
+            | Object
+            | Function
+            | Array<any>
+            | boolean
+            | number
+            | string
+            | null
+            | undefined,
+    ): void {
         let imageSrc = value;
         if (isObject(value)) {
             imageSrc = value['url'];

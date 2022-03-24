@@ -26,7 +26,7 @@ export class UrlField extends BaseField {
          * @private
          * @const {string}
          */
-        this.protocol = /** @type {string} */ (this).input.getData('protocol');
+        this.protocol = /** @type {string} */ this.input.getData('protocol');
         this.input.addEventListener('keyup', (input) => {
             const inputNode = input.getNode();
             this.modelChange(inputNode.value);

@@ -28,7 +28,7 @@ export class Header {
      * @param {!Object=} opt_options
      * @return {undefined}
      */
-     private _setOptions(opt_options: Object | undefined = {}): void {
+    private _setOptions(opt_options: Object | undefined = {}): void {
         const _self = this;
         _self.options = new Objekt();
         _self.options.merge(opt_options);

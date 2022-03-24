@@ -73,7 +73,7 @@ export class Cookie {
                         (opt_expires as any) === Infinity
                             ? '; expires=Fri, 31 Dec 9999 23:59:59 GMT'
                             : '; max-age=' +
-                              /** @type {number} */(opt_expires as any) *
+                              /** @type {number} */ (opt_expires as any) *
                                   60 *
                                   60;
                     break;
@@ -123,7 +123,12 @@ export class Cookie {
      * @param {boolean=} opt_secure
      * @return {undefined}
      */
-    remove(name: string, opt_path: string | undefined = '', opt_domain: string | undefined = '', opt_secure: boolean | undefined = false): void {
+    remove(
+        name: string,
+        opt_path: string | undefined = '',
+        opt_domain: string | undefined = '',
+        opt_secure: boolean | undefined = false,
+    ): void {
         if (this.hasKey(name)) {
             const expires = new Date(1970, 0, 1);
             this.set(name, '', expires, opt_path, opt_domain, opt_secure);

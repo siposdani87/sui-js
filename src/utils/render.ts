@@ -1,4 +1,5 @@
-import { Item } from "../core";
+import { Item } from '../core';
+import { ClassRef } from './types';
 
 /**
  * @export
@@ -6,7 +7,7 @@ import { Item } from "../core";
  * @param {boolean=} opt_forceDowngrade
  * @return {undefined}
  */
- export const mdl = (
+export const mdl = (
     opt_node?: Item | Element,
     opt_forceDowngrade: boolean | undefined = true,
 ): void => {
@@ -26,18 +27,18 @@ import { Item } from "../core";
 
 /**
  * @export
- * @param {string} type
+ * @param {ClassRef} classRef
  * @param {!Object} props
  * @param {!Item} mountNode
  * @return {!Object}
  */
 export const renderReact = (
-    type: string,
+    classRef: ClassRef,
     props: Object,
     mountNode: Item,
 ): Object =>
     window['ReactDOM']['render'](
-        window['React']['createElement'](window[type], props),
+        window['React']['createElement'](classRef, props),
         mountNode.getNode(),
     );
 

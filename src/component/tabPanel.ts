@@ -109,7 +109,7 @@ export class TabPanel {
     setActive(panelId: string): Promize {
         const deferred = new Deferred();
         if (!isNull(panelId)) {
-            this._setActive(/** @type {string} */(panelId));
+            this._setActive(/** @type {string} */ panelId);
             const async = new Async();
             async
                 .serial([
