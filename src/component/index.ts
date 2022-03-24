@@ -17,6 +17,7 @@ export * from './pager';
 export * from './popup';
 export * from './popupContainer';
 export * from './progressStatus';
+export * from './route';
 export * from './table';
 export * from './tabPanel';
 export * from './test';

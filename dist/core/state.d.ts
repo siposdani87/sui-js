@@ -1,19 +1,20 @@
 import { Collection } from './collection';
 import { Objekt } from './objekt';
+import { Route } from '../component';
 /**
  * @class
  */
 export declare class State {
     private _current;
     private _previous;
-    routes: Collection<Objekt>;
+    routes: Collection<Route>;
     basePath: string;
     options: Objekt;
     /**
-     * @param {!Array} routes
+     * @param {!Array<Route>} routes
      * @param {!Object} options
      */
-    constructor(routes: Array<Object>, options: Object);
+    constructor(routes: Route[], options: Object);
     /**
      * @private
      * @return {undefined}
@@ -135,12 +136,6 @@ export declare class State {
      * @param {boolean=} opt_force
      * @return {undefined}
      */
-    goHome(opt_overwrite?: boolean | undefined, opt_force?: boolean | undefined): void;
-    /**
-     * @param {boolean=} opt_overwrite
-     * @param {boolean=} opt_force
-     * @return {undefined}
-     */
     goRoot(opt_overwrite?: boolean | undefined, opt_force?: boolean | undefined): void;
     /**
      * @param {string} id
@@ -171,10 +166,6 @@ export declare class State {
      * @return {undefined}
      */
     eventChange(currentState: Objekt, previousState: Objekt, opt_force?: boolean | undefined): void;
-    /**
-     * @return {!Collection}
-     */
-    getRoutes(): Collection;
     /**
      * @param {!Object} properties
      * @return {undefined}
@@ -210,8 +201,4 @@ export declare class State {
      * @return {!Array}
      */
     getRoot(): Array<any>;
-    /**
-     * @return {!Array}
-     */
-    getHome(): Array<any>;
 }

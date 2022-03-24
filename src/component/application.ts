@@ -31,6 +31,8 @@ import { Event } from '../module/event';
 import { Scheduler } from '../module/scheduler';
 import { Window } from '../module/window';
 import { Promize } from '../core';
+import { Route } from './route';
+import { ClassRef, Injection, Instance } from '../utils';
 
 /**
  * @class
@@ -38,18 +40,15 @@ import { Promize } from '../core';
  */
 export class Application {
     options: Objekt;
-    _injections: any;
-    _instances: {
-        [key: string]: any;
-    };
-    _module: Module;
-    _routes: Objekt[];
-    _routeOptions: Objekt;
+    private _injections: Injection = {};
+    private _instances: Instance = {};
+    private _module: Module;
+    private _routeOptions: Objekt;
     /**
      * @param {!Object} options
-     * @param {!Object} resources
+     * @param {!Injection} resources
      */
-    constructor(options: Object, resources: Object) {
+    constructor(options: Object, resources: Injection) {
         this._setOptions(options);
         this._init(resources);
     }
@@ -72,12 +71,11 @@ export class Application {
     }
     /**
      * @private
-     * @param {!Object} resources
+     * @param {!Injection} resources
      * @return {undefined}
      */
-    private _init(resources: Object): void {
+    private _init(resources: Injection): void {
         this._injections = resources;
-        this._instances = {};
 
         this._initCertificate();
         this._initApp();
@@ -258,6 +256,8 @@ export class Application {
      * @return {undefined}
      */
     private _loadModules(): void {
+        this._instances[this._injections.instances] = this._instances;
+
         this._module.load(this._instances, this._injections);
     }
     /**
@@ -667,26 +667,7 @@ export class Application {
      * @return {undefined}
      */
     private _initRoutes(): void {
-        this._routes = [];
         this._routeOptions = new Objekt();
-    }
-    /**
-     * @param {string} id
-     * @param {string} title
-     * @param {string} url
-     * @param {string} controller
-     * @param {string=} opt_template
-     * @param {!Object=} opt_params
-     * @return {undefined}
-     */
-    addState(id: string, title: string, url: string, controller: string, opt_template: string | undefined = '', opt_params: Object | undefined = {}): void {
-        const state = new Objekt(opt_params);
-        state.set('id', id);
-        state.set('title', title);
-        state.set('url', url);
-        state.set('controller', controller);
-        state.set('template', opt_template);
-        this._routes.push(state);
     }
     /**
      * @param {string} id
@@ -698,20 +679,11 @@ export class Application {
         this._routeOptions.set('root.params', opt_params);
     }
     /**
-     * @param {string} id
-     * @param {!Object=} opt_params
-     * @return {undefined}
-     */
-    setHomeState(id: string, opt_params?: Object): void {
-        this._routeOptions.set('home.id', id);
-        this._routeOptions.set('home.params', opt_params);
-    }
-    /**
      * @param {string} name
      * @return {?Object}
      */
     getInstance(name: string): Object | null {
-        return this._instances[name];
+        return this._instances[name] ?? null;
     }
     /**
      * @return {?Object}
@@ -721,9 +693,11 @@ export class Application {
     }
     /**
      * @export
+     * @param {!Array<Route>} routes
+     * @param {!Array<string>} services
      * @return {undefined}
      */
-    run(): void {
+    run(routes: Route[], services: string[]): void {
         if (this.options.production) {
             console.info(
                 '%cApplication run in production environment...',
@@ -737,23 +711,25 @@ export class Application {
             const test = new Test();
             test.run();
         }
-        this._module.handleRoutes(this._routes, this._routeOptions);
-        this._module.handleServices();
+        this._module.handleRoutes(routes, this._routeOptions);
+        this._module.handleServices(services);
     }
     /**
      * @param {string} name
      * @param {!Array} moduleInjections
-     * @param {!Function} moduleCallback
+     * @param {!ClassRef} moduleCallback
+     * @return {string}
      */
-    controller(name: string, moduleInjections: Array<any>, moduleCallback: Function) {
-        this._module.add(name, moduleInjections, moduleCallback);
+    controller(name: string, moduleInjections: string[], moduleCallback: ClassRef): string {
+        return this._module.add(name, moduleInjections, moduleCallback);
     }
     /**
      * @param {string} name
      * @param {!Array} moduleInjections
-     * @param {!Function} moduleCallback
+     * @param {!ClassRef} moduleCallback
+     * @return {string}
      */
-    service(name: string, moduleInjections: Array<any>, moduleCallback: Function) {
-        this._module.add(name, moduleInjections, moduleCallback);
+    service(name: string, moduleInjections: string[], moduleCallback: ClassRef): string {
+        return this._module.add(name, moduleInjections, moduleCallback);
     }
 }

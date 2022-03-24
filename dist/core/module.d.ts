@@ -1,14 +1,8 @@
 import { Promize } from './promize';
 import { Objekt } from './objekt';
 import { Item } from './item';
-/**
- * @typedef {{moduleInjections: Array, moduleCallback: !Function, opt_extendModule: Object=}} Dependency
- */
-declare type Dependency = {
-    moduleInjections: any[];
-    moduleCallback: Function;
-    opt_extendModule?: any;
-};
+import { Route } from '../component/route';
+import { ClassRef, Dependency, Injection, Instance } from '../utils';
 /**
  * @class
  */
@@ -16,43 +10,31 @@ export declare class Module {
     _modules: {
         [key: string]: Dependency;
     };
-    _instances: {
-        [key: string]: any;
-    };
-    _injections: {
-        [key: string]: any;
-    };
-    _dependencies: any[];
-    _services: any[];
+    _instances: Instance;
+    _injections: Injection;
+    _dependencies: string[];
+    _services: string[];
     _controller: any;
     /**
      */
     constructor();
     /**
-     * @param {!Object} instances
-     * @param {!Object} injections
+     * @param {!Instance} instances
+     * @param {!Injection} injections
      * @return {undefined}
      */
-    load(instances: Object, injections: Object): void;
+    load(instances: Instance, injections: Injection): void;
     /**
      * @return {!Object}
      */
     getController(): Object;
     /**
      * @param {string} name
-     * @param {!Array} moduleInjections
+     * @param {!Array<string>} moduleInjections
      * @param {!Function} moduleCallback
      * @return {undefined}
      */
-    add(name: string, moduleInjections: Array<any>, moduleCallback: Function): void;
-    /**
-     * @private
-     * @param {!Array} moduleInjections
-     * @param {!Function} moduleCallback
-     * @param {string=} opt_extendModule
-     * @return {!Object}
-     */
-    _getDependencies(moduleInjections: Array<any>, moduleCallback: Function, opt_extendModule?: string | undefined): Dependency;
+    add(name: string, moduleInjections: string[], moduleCallback: ClassRef): string;
     /**
      * @private
      * @param {!Dependency} dependency
@@ -78,15 +60,16 @@ export declare class Module {
      */
     private _changeServices;
     /**
+     * @param {Array<string>} services
      * @return {undefined}
      */
-    handleServices(): void;
+    handleServices(services: string[]): void;
     /**
-     * @param {!Array} routes
+     * @param {!Array<Route>} routes
      * @param {!Object} options
      * @return {undefined}
      */
-    handleRoutes(routes: Array<any>, options: Object): void;
+    handleRoutes(routes: Route[], options: Object): void;
     /**
      * @param {!Objekt} currentState
      * @param {boolean=} opt_force
@@ -143,4 +126,3 @@ export declare class Module {
      */
     eventServiceFailed(): void;
 }
-export {};

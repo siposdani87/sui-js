@@ -30,3 +30,19 @@ export declare type IconOptions = {
     anchor: [number, number];
     coords: number[];
 };
+export declare type Injection = {
+    [key: string]: string;
+};
+export declare type Instance = {
+    [key: string]: any;
+};
+export declare type ClassRef = {
+    new (...args: any[]): any;
+};
+/**
+ * @typedef {{moduleInjections: Array<string>, moduleCallback: ClassRef}} Dependency
+ */
+export declare type Dependency = {
+    moduleInjections: string[];
+    moduleCallback: ClassRef;
+};

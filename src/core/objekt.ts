@@ -116,7 +116,7 @@ export class Objekt {
      */
     get<T>(
         opt_attribute?: string | undefined,
-        opt_defaultValue?: any | undefined,
+        opt_defaultValue?: T | undefined,
         opt_isSafe: boolean | undefined = false,
     ): T {
         let value: Object = this;
@@ -126,7 +126,7 @@ export class Objekt {
                 : opt_attribute.split('.');
             value = this._get(this, attributes);
         }
-        return !isUndefined(value) ? value : opt_defaultValue;
+        return !isUndefined(value) ? value as T : opt_defaultValue;
     }
     /**
      * @private

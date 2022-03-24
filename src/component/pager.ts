@@ -28,7 +28,7 @@ export class Pager {
      */
     constructor(
         dom: Item,
-        opt_selectors: Array<any> | undefined = ['.pager', '.pager-statistics'],
+        opt_selectors: string[] | undefined = ['.pager', '.pager-statistics'],
         opt_options: Object | undefined = {},
     ) {
         this.pager = new Query(opt_selectors[0], dom).getItem();

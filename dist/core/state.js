@@ -9,13 +9,13 @@ import { Router } from './router';
  */
 export class State {
     /**
-     * @param {!Array} routes
+     * @param {!Array<Route>} routes
      * @param {!Object} options
      */
     constructor(routes, options) {
         this._current = new Objekt();
         this._previous = this._current;
-        this.routes = /** @type {!Collection<!Objekt>} */ new Collection(routes);
+        this.routes = /** @type {!Collection<!Route>} */ new Collection(routes);
         this._setOptions(options);
         this._init();
     }
@@ -25,9 +25,9 @@ export class State {
      */
     _setRealUrls() {
         this.routes.each((route) => {
-            const url = /** @type {string} */ (route).get('url');
+            const url = /** @type {string} */ (route.state.get('url'));
             const realUrl = this._getRealUrl(url);
-            route.set('realUrl', realUrl);
+            route.state.set('realUrl', realUrl);
         });
     }
     /**
@@ -66,10 +66,6 @@ export class State {
         _self.options = new Objekt({
             root: {
                 id: 'root',
-                params: undefined,
-            },
-            home: {
-                id: 'home',
                 params: undefined,
             },
         });
@@ -134,14 +130,14 @@ export class State {
      */
     _parsePath(urlPath, successCallback, errorCallback) {
         const path = urlPath[0] === '#' ? urlPath.substring(1) : urlPath;
-        const items = this.routes.getItems();
+        const routes = this.routes.getItems();
         let state = null;
         let params = null;
         let matches = null;
         let i = 0;
-        while (i < items.length && isNull(matches)) {
-            state = items[i];
-            const stateUrl = /** @type {string} */ (state).get('url');
+        while (i < routes.length && isNull(matches)) {
+            state = routes[i].state;
+            const stateUrl = /** @type {string} */ (state.get('url'));
             const router = new Router(stateUrl);
             matches = router.getMatches(path);
             params = router.parse(path);
@@ -247,14 +243,14 @@ export class State {
      * @return {!Array}
      */
     _resolveUrlWithState(id, opt_params) {
-        const state = this.routes.findById(id);
+        const route = this.routes.findById(id);
         let url = '';
-        if (state) {
-            const stateUrl = /** @type {string} */ (state).get('url');
+        if (route) {
+            const stateUrl = /** @type {string} */ (route.state.get('url'));
             const router = new Router(stateUrl);
             url = router.stringify(opt_params);
         }
-        return [url, state];
+        return [url, route === null || route === void 0 ? void 0 : route.state];
     }
     /**
      * @param {string} id
@@ -273,14 +269,6 @@ export class State {
      */
     goState(state, opt_overwrite = false, opt_force = false) {
         this.go(state['id'], state['params'], opt_overwrite, opt_force);
-    }
-    /**
-     * @param {boolean=} opt_overwrite
-     * @param {boolean=} opt_force
-     * @return {undefined}
-     */
-    goHome(opt_overwrite = false, opt_force = false) {
-        this.go(this.options.home.id, this.options.home.params, opt_overwrite, opt_force);
     }
     /**
      * @param {boolean=} opt_overwrite
@@ -340,12 +328,6 @@ export class State {
         consoleWarn('State.eventChange()', currentState, previousState, opt_force);
     }
     /**
-     * @return {!Collection}
-     */
-    getRoutes() {
-        return this.routes;
-    }
-    /**
      * @param {!Object} properties
      * @return {undefined}
      */
@@ -399,11 +381,5 @@ export class State {
      */
     getRoot() {
         return [this.options.root.id, this.options.root.params];
-    }
-    /**
-     * @return {!Array}
-     */
-    getHome() {
-        return [this.options.home.id, this.options.home.params];
     }
 }
