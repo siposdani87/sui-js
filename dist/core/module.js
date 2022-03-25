@@ -127,7 +127,7 @@ export class Module {
             const moduleCall = () => {
                 this._instances[serviceName] = this._resolveDependencies(this._modules[serviceName]);
                 if (isFunction(this._instances[serviceName].enter)) {
-                    return this._instances[serviceName].enter();
+                    return this._instances[serviceName].enter.bind(this._instances[serviceName]);
                 }
                 return noop();
             };
@@ -203,8 +203,9 @@ export class Module {
                 this._controller = this._resolveDependencies(controller);
                 if (isObject(this._controller) &&
                     isFunction(this._controller.enter)) {
+                    const enter = this._controller.enter.bind(this._controller);
                     const async = new Async();
-                    async.serial([this._controller.enter]).then(() => {
+                    async.serial([enter]).then(() => {
                         this.eventControllerLoaded(dom);
                     });
                 }

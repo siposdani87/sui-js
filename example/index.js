@@ -27,33 +27,49 @@ const config = new SUI.Objekt({
 const app = new SUI.Application(config, SUI.coreResources);
 
 class Service1 {
+    name = 'Service1';
     constructor(service2) {
-        console.info('Service1', service2.getName());
+        console.info(this.name);
+        console.log({
+            service2Name: service2.getName(),
+        });
     }
 
     enter() {
-        console.log('Service1.enter()');
+        console.log('Service1.enter()', {
+            name: this.name
+        });
     }
 }
 
 const service1 = app.service('Service1', ['Service2'], Service1);
 
 class Service2 {
+    name = 'Service2';
     constructor() {
-        console.info('Service2');
+        console.info(this.name);
     }
 
     getName() {
-        return 'Service2.getName()';
+        return this.name;
     }
 }
 
 const service2 = app.service('Service2', [], Service2);
 
 class Controller1 {
+    name = 'Contoller1'
     constructor(instances) {
-        console.info('Controller1');
-        console.log(instances);
+        console.info(this.name);
+        console.log({
+            instances
+        });
+    }
+
+    enter() {
+        console.log('Controller1.enter()', {
+            name: this.name
+        });
     }
 }
 
