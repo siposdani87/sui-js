@@ -8,7 +8,7 @@ import { mdl } from '../utils/render';
  * @class
  * @extends {BaseField}
  */
-export class BaseCheckboxField extends BaseField {
+export class BaseCheckboxField extends BaseField<HTMLInputElement> {
     hiddenInput: Item;
     spanLabel: Item;
     dataLabelNode: Item;
@@ -18,7 +18,7 @@ export class BaseCheckboxField extends BaseField {
      * @param {!Item} error
      * @param {!Item} inputBlock
      */
-    constructor(input: Item, label: Item, error: Item, inputBlock: Item) {
+    constructor(input: Item<HTMLInputElement>, label: Item, error: Item, inputBlock: Item) {
         super(input, label, error, inputBlock);
         this._init();
     }

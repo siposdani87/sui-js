@@ -6,13 +6,14 @@ import { consoleInfo, consoleWarn } from '../utils/log';
 import { Form } from '../component';
 
 /**
+ * @template {T}
  * @class
  */
-export class BaseField {
-    input: any;
-    label: any;
-    error: any;
-    inputBlock: any;
+export class BaseField<T extends HTMLInputElement> {
+    input: Item<T>;
+    label: Item;
+    error: Item;
+    inputBlock: Item;
     form?: Form;
     errorTooltip: Tooltip;
     infoContainerNode: Item;
@@ -26,7 +27,7 @@ export class BaseField {
      * @param {!Form=} opt_form
      */
     constructor(
-        input: Item,
+        input: Item<T>,
         opt_label?: Item | undefined,
         opt_error?: Item | undefined,
         opt_inputBlock?: Item | undefined,
@@ -210,7 +211,7 @@ export class BaseField {
      * @return {*}
      */
     get(attribute: string): any {
-        if (attribute === 'model') {
+        if (attribute === 'modelName') {
             return this.getName();
         }
         return this.input.get(attribute);

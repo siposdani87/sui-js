@@ -7,7 +7,7 @@ import { Objekt } from '../core/objekt';
  * @class
  * @extends {BaseField}
  */
-export declare class SelectField extends BaseField {
+export declare class SelectField extends BaseField<HTMLInputElement> {
     query: string;
     ids: string[];
     containerNode: Item;
@@ -24,7 +24,7 @@ export declare class SelectField extends BaseField {
      * @param {!Item} error
      * @param {!Item} inputBlock
      */
-    constructor(input: Item, label: Item, error: Item, inputBlock: Item);
+    constructor(input: Item<HTMLInputElement>, label: Item, error: Item, inputBlock: Item);
     /**
      * @private
      * @return {undefined}

@@ -4,7 +4,7 @@ import { Item } from '../core/item';
  * @class
  * @extends {BaseField}
  */
-export declare class UrlField extends BaseField {
+export declare class UrlField extends BaseField<HTMLInputElement> {
     protocol: string;
     /**
      * @param {!Item} input
@@ -12,7 +12,7 @@ export declare class UrlField extends BaseField {
      * @param {!Item} error
      * @param {!Item} inputBlock
      */
-    constructor(input: Item, label: Item, error: Item, inputBlock: Item);
+    constructor(input: Item<HTMLInputElement>, label: Item, error: Item, inputBlock: Item);
     /**
      * @private
      * @return {undefined}

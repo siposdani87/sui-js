@@ -6,7 +6,7 @@ import { Item } from '../core/item';
  * @class
  * @extends {BaseField}
  */
-export declare class DateTimeRangeField extends BaseField {
+export declare class DateTimeRangeField extends BaseField<HTMLInputElement> {
     isStartInput: boolean;
     datetimeContainer: Item;
     datetimeInput: Item;
@@ -21,7 +21,7 @@ export declare class DateTimeRangeField extends BaseField {
      * @param {!Item} inputBlock
      * @param {boolean} isStartInput
      */
-    constructor(input: Item, label: Item, error: Item, inputBlock: Item, isStartInput: boolean);
+    constructor(input: Item<HTMLInputElement>, label: Item, error: Item, inputBlock: Item, isStartInput: boolean);
     /**
      * @private
      * @return {undefined}

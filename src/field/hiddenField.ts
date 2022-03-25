@@ -5,11 +5,11 @@ import { BaseField } from './baseField';
  * @class
  * @extends {BaseField}
  */
-export class HiddenField extends BaseField {
+export class HiddenField extends BaseField<HTMLInputElement> {
     /**
      * @param {!Item} input
      */
-    constructor(input: Item) {
+    constructor(input: Item<HTMLInputElement>) {
         super(input);
         this._init();
     }

@@ -4,7 +4,7 @@ import { Item } from '../core/item';
  * @class
  * @extends {BaseField}
  */
-export declare class TextareaField extends BaseField {
+export declare class TextareaField extends BaseField<HTMLInputElement> {
     richText: Item;
     richTextNode: HTMLElement;
     toolbarNode: Item;
@@ -15,7 +15,7 @@ export declare class TextareaField extends BaseField {
      * @param {!Item} error
      * @param {!Item} inputBlock
      */
-    constructor(input: Item, label: Item, error: Item, inputBlock: Item);
+    constructor(input: Item<HTMLInputElement>, label: Item, error: Item, inputBlock: Item);
     /**
      * @private
      * @return {undefined}

@@ -8,7 +8,7 @@ import { Query } from '../core/query';
  * @class
  * @extends {BaseField}
  */
-export class DateTimeRangeField extends BaseField {
+export class DateTimeRangeField extends BaseField<HTMLInputElement> {
     isStartInput: boolean;
     datetimeContainer: Item;
     datetimeInput: Item;
@@ -24,7 +24,7 @@ export class DateTimeRangeField extends BaseField {
      * @param {boolean} isStartInput
      */
     constructor(
-        input: Item,
+        input: Item<HTMLInputElement>,
         label: Item,
         error: Item,
         inputBlock: Item,

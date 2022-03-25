@@ -14,7 +14,7 @@ import { mdl } from '../utils/render';
  * @class
  * @extends {BaseField}
  */
-export class FileField extends BaseField {
+export class FileField extends BaseField<HTMLInputElement> {
     imageTag: Item;
     valueSrc: string;
     defaultSrc: string;
@@ -27,7 +27,7 @@ export class FileField extends BaseField {
      * @param {!Item} error
      * @param {!Item} inputBlock
      */
-    constructor(input: Item, label: Item, error: Item, inputBlock: Item) {
+    constructor(input: Item<HTMLInputElement>, label: Item, error: Item, inputBlock: Item) {
         super(input, label, error, inputBlock);
         this._init();
     }

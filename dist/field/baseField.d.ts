@@ -2,13 +2,14 @@ import { Item } from '../core/item';
 import { Tooltip } from '../component/tooltip';
 import { Form } from '../component';
 /**
+ * @template {T}
  * @class
  */
-export declare class BaseField {
-    input: any;
-    label: any;
-    error: any;
-    inputBlock: any;
+export declare class BaseField<T extends HTMLInputElement> {
+    input: Item<T>;
+    label: Item;
+    error: Item;
+    inputBlock: Item;
     form?: Form;
     errorTooltip: Tooltip;
     infoContainerNode: Item;
@@ -21,7 +22,7 @@ export declare class BaseField {
      * @param {!Item=} opt_inputBlock
      * @param {!Form=} opt_form
      */
-    constructor(input: Item, opt_label?: Item | undefined, opt_error?: Item | undefined, opt_inputBlock?: Item | undefined, opt_form?: Form | undefined);
+    constructor(input: Item<T>, opt_label?: Item | undefined, opt_error?: Item | undefined, opt_inputBlock?: Item | undefined, opt_form?: Form | undefined);
     /**
      * @param {*} value
      * @param {*} previousValue

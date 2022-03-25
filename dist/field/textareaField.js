@@ -223,7 +223,7 @@ export class TextareaField extends BaseField {
      */
     _setValue(value) {
         const inputNode = this.input.getNode();
-        inputNode.value = value;
+        inputNode.value = value.toString();
         this.input.trigger('change');
     }
     /**

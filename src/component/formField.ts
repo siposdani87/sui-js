@@ -32,10 +32,10 @@ import { Form } from './form';
  * @return {?BaseField}
  */
 export const FormField = function (
-    inputBlock: Item,
+    inputBlock: Item<HTMLInputElement>,
     form: Form,
-): BaseField | null {
-    let input = inputBlock;
+): BaseField<HTMLInputElement> | null {
+    let input: Item<any> = inputBlock;
     let label = null;
     let error = null;
 
@@ -46,12 +46,12 @@ export const FormField = function (
         eq(tagName, 'input') &&
         !inArray(['hidden', 'reset', 'submit', 'button'], tagType)
     ) {
-        inputBlock = /** @type {!Item}*/ inputBlock.getParentNode();
+        inputBlock = /** @type {!Item}*/ inputBlock.getParentNode() as Item<any>;
         selectedIndex = 0;
     }
     tagName = inputBlock.getTagName();
     if (eq(tagName, 'div')) {
-        const inputs = new Query(
+        const inputs = new Query<HTMLInputElement>(
             'input, textarea, select',
             inputBlock,
         ).getItems();
@@ -81,12 +81,12 @@ export const FormField = function (
  * @return {?BaseField}
  */
 const _getField = (
-    input: Item,
+    input: Item<HTMLInputElement>,
     label: Item | null,
     error: Item | null,
     inputBlock: Item,
     form: Form,
-): BaseField | null => {
+): BaseField<HTMLInputElement> | null => {
     input.addClass('init-field');
     const dataType = input.getData('type');
     const tagName = input.getTagName();
@@ -125,7 +125,7 @@ const _getField = (
             case 'month':
             case 'week':
             case 'year':
-                const inputs = new Query('input', inputBlock);
+                const inputs = new Query<HTMLInputElement>('input', inputBlock);
                 if (inputs.size() === 2) {
                     let handledInput = /** @type {!Item} */ inputs.get(0);
                     let isStartInput = true;

@@ -11,7 +11,7 @@ export declare class CheckboxField extends BaseCheckboxField {
      * @param {!Item} error
      * @param {!Item} inputBlock
      */
-    constructor(input: Item, label: Item, error: Item, inputBlock: Item);
+    constructor(input: Item<HTMLInputElement>, label: Item, error: Item, inputBlock: Item);
     /**
      * @override
      * @return {undefined}

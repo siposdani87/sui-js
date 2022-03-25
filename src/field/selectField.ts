@@ -21,7 +21,7 @@ import { mdl } from '../utils/render';
  * @class
  * @extends {BaseField}
  */
-export class SelectField extends BaseField {
+export class SelectField extends BaseField<HTMLInputElement> {
     query: string;
     ids: string[];
     containerNode: Item;
@@ -38,7 +38,7 @@ export class SelectField extends BaseField {
      * @param {!Item} error
      * @param {!Item} inputBlock
      */
-    constructor(input: Item, label: Item, error: Item, inputBlock: Item) {
+    constructor(input: Item<HTMLInputElement>, label: Item, error: Item, inputBlock: Item) {
         super(input, label, error, inputBlock);
         this._init();
     }

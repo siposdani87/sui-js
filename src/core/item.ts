@@ -21,7 +21,7 @@ import { Listener } from '../utils';
  */
 export class Item<T extends HTMLElement = HTMLElement> {
     node: T;
-    parentNode: any;
+    parentNode: Item;
     listenerStoreKey: string;
     /**
      * @param {?T|string} node

@@ -4,6 +4,7 @@ import { Query } from '../core/query';
 import { Tooltip } from '../component/tooltip';
 import { consoleInfo, consoleWarn } from '../utils/log';
 /**
+ * @template {T}
  * @class
  */
 export class BaseField {
@@ -187,7 +188,7 @@ export class BaseField {
      * @return {*}
      */
     get(attribute) {
-        if (attribute === 'model') {
+        if (attribute === 'modelName') {
             return this.getName();
         }
         return this.input.get(attribute);

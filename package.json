@@ -11,7 +11,7 @@
     "prebuild": "npm run compile",
     "build": "gulp",
     "preesbuild": "npm run compile && gulp compile:styles",
-    "esbuild": "npx esbuild src/index.ts --bundle --minify --define:ES_PROD=true --format=iife --global-name=SUI --outfile=dist/sui.min.js",
+    "esbuild": "npx esbuild src/index.ts --bundle --minify --define:ES_PROD=false --format=iife --global-name=SUI --outfile=dist/sui.min.js",
     "clean": "rm -rf dist",
     "lint": "npx eslint . --ext .ts,.tsx",
     "lint:fix": "npm run lint -- --fix",

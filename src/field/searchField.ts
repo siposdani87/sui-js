@@ -8,7 +8,7 @@ import { consoleWarn } from '../utils/log';
  * @class
  * @extends {BaseField}
  */
-export class SearchField extends BaseField {
+export class SearchField extends BaseField<HTMLInputElement> {
     holderNode: Item;
     /**
      * @param {!Item} input
@@ -16,7 +16,7 @@ export class SearchField extends BaseField {
      * @param {!Item} error
      * @param {!Item} inputBlock
      */
-    constructor(input: Item, label: Item, error: Item, inputBlock: Item) {
+    constructor(input: Item<HTMLInputElement>, label: Item, error: Item, inputBlock: Item) {
         super(input, label, error, inputBlock);
         this._init();
     }

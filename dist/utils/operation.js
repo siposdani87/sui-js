@@ -496,8 +496,8 @@ export const scrollTo = (x, y, opt_duration = 500, opt_step = 20) => {
 export const scrollToElement = (selector, opt_duration = 500, opt_step = 20) => {
     const nodeList = document.querySelectorAll(selector);
     const element = nodeList[0];
-    const x = element.scrollLeft; // TODO: element.offsetLeft
-    const y = element.scrollTop; // TODO: element.offsetTop
+    const x = element.offsetLeft;
+    const y = element.offsetTop;
     scrollTo(x, y, opt_duration, opt_step);
 };
 /**

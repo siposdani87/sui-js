@@ -6,7 +6,7 @@ import { Item } from '../core/item';
  * @class
  * @extends {BaseField}
  */
-export class TextareaField extends BaseField {
+export class TextareaField extends BaseField<HTMLInputElement> {
     richText: Item;
     richTextNode: HTMLElement;
     toolbarNode: Item;
@@ -17,7 +17,7 @@ export class TextareaField extends BaseField {
      * @param {!Item} error
      * @param {!Item} inputBlock
      */
-    constructor(input: Item, label: Item, error: Item, inputBlock: Item) {
+    constructor(input: Item<HTMLInputElement>, label: Item, error: Item, inputBlock: Item) {
         super(input, label, error, inputBlock);
         this._init();
     }
@@ -257,7 +257,7 @@ export class TextareaField extends BaseField {
             | undefined,
     ): void {
         const inputNode = this.input.getNode();
-        inputNode.value = value;
+        inputNode.value = value.toString();
         this.input.trigger('change');
     }
     /**

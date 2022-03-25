@@ -6,7 +6,7 @@ import { Item } from '../core';
  * @class
  * @extends {Collection}
  */
-export declare class Form extends Collection<BaseField> {
+export declare class Form extends Collection<BaseField<HTMLInputElement>> {
     formNode: Item<HTMLFormElement>;
     previousModel: Objekt;
     model: Objekt;
@@ -113,7 +113,7 @@ export declare class Form extends Collection<BaseField> {
      * @param {string} value
      * @return {!BaseField}
      */
-    findByModel<T = BaseField>(value: string): T;
+    findByModel<T = BaseField<HTMLInputElement>>(value: string): T;
     /**
      * @param {!Objekt} model
      * @param {!Item} node

@@ -11,7 +11,7 @@ import { convertRGBToHEX } from '../utils/color';
  * @class
  * @extends {BaseField}
  */
-export class ColorField extends BaseField {
+export class ColorField extends BaseField<HTMLInputElement> {
     tooltip: Tooltip;
     previewNode: Item;
     colorNode: Item;
@@ -25,7 +25,7 @@ export class ColorField extends BaseField {
      * @param {!Item} error
      * @param {!Item} inputBlock
      */
-    constructor(input: Item, label: Item, error: Item, inputBlock: Item) {
+    constructor(input: Item<HTMLInputElement>, label: Item, error: Item, inputBlock: Item) {
         super(input, label, error, inputBlock);
         this._init();
     }

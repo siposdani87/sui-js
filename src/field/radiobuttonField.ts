@@ -9,7 +9,7 @@ import { mdl } from '../utils/render';
  * @class
  * @extends {BaseField}
  */
-export class RadiobuttonField extends BaseField {
+export class RadiobuttonField extends BaseField<HTMLInputElement> {
     dataLabelNode: Item;
     spanLabel: Item;
     /**
@@ -20,7 +20,7 @@ export class RadiobuttonField extends BaseField {
      * @param {!Form} form
      */
     constructor(
-        input: Item,
+        input: Item<HTMLInputElement>,
         label: Item,
         error: Item,
         inputBlock: Item,

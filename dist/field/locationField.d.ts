@@ -7,7 +7,7 @@ import { IconOptions } from '../utils';
  * @class
  * @extends {BaseField}
  */
-export declare class LocationField extends BaseField {
+export declare class LocationField extends BaseField<HTMLInputElement> {
     icon: IconOptions;
     advancedButton: Item;
     map: GoogleMap;
@@ -21,7 +21,7 @@ export declare class LocationField extends BaseField {
      * @param {!Item} error
      * @param {!Item} inputBlock
      */
-    constructor(input: Item, label: Item, error: Item, inputBlock: Item);
+    constructor(input: Item<HTMLInputElement>, label: Item, error: Item, inputBlock: Item);
     /**
      * @private
      * @return {undefined}

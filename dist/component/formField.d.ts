@@ -8,4 +8,4 @@ import { Form } from './form';
  * @param {!Form} form
  * @return {?BaseField}
  */
-export declare const FormField: (this: any, inputBlock: Item, form: Form) => BaseField | null;
+export declare const FormField: (this: any, inputBlock: Item<HTMLInputElement>, form: Form) => BaseField<HTMLInputElement> | null;

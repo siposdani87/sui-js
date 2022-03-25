@@ -7,7 +7,7 @@ import { Item } from '../core/item';
  * @class
  * @extends {BaseField}
  */
-export declare class ColorField extends BaseField {
+export declare class ColorField extends BaseField<HTMLInputElement> {
     tooltip: Tooltip;
     previewNode: Item;
     colorNode: Item;
@@ -21,7 +21,7 @@ export declare class ColorField extends BaseField {
      * @param {!Item} error
      * @param {!Item} inputBlock
      */
-    constructor(input: Item, label: Item, error: Item, inputBlock: Item);
+    constructor(input: Item<HTMLInputElement>, label: Item, error: Item, inputBlock: Item);
     /**
      * @private
      * @return {undefined}
