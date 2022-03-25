@@ -1,9 +1,9 @@
 import { Objekt } from '../core/objekt';
 /**
  * @class
+ * @extends {Objekt}
  */
-export declare class Route {
-    state: Objekt;
+export declare class Route extends Objekt {
     /**
      * @param {string} id
      * @param {string} title
