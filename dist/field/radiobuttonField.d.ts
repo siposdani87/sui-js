@@ -5,7 +5,7 @@ import { Form } from '../component';
  * @class
  * @extends {BaseField}
  */
-export declare class RadiobuttonField extends BaseField {
+export declare class RadiobuttonField extends BaseField<HTMLInputElement> {
     dataLabelNode: Item;
     spanLabel: Item;
     /**
@@ -15,7 +15,7 @@ export declare class RadiobuttonField extends BaseField {
      * @param {!Item} inputBlock
      * @param {!Form} form
      */
-    constructor(input: Item, label: Item, error: Item, inputBlock: Item, form: Form);
+    constructor(input: Item<HTMLInputElement>, label: Item, error: Item, inputBlock: Item, form: Form);
     /**
      * @private
      * @return {undefined}

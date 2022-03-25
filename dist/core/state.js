@@ -117,7 +117,7 @@ export class State {
         this._parsePath(path, (state, path, params) => {
             this._setHistory(state, path, params, true);
         }, () => {
-            // consoleWarn('State._parseUrl()', path, 'missing state from routes config');
+            consoleWarn('State._parseUrl()', path, 'missing state from routes config');
             this.goRoot(true);
         });
     }

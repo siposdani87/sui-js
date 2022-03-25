@@ -2,7 +2,7 @@ import { Promize } from '../core';
 import { Deferred } from '../core/deferred';
 import { Objekt } from '../core/objekt';
 import { ActionCable } from './actionCable';
-import { ChannelNameWithParams } from '@rails/actioncable';
+import { ChannelNameWithParams, Consumer, Subscription } from '@rails/actioncable';
 
 /**
  * @class
@@ -10,7 +10,7 @@ import { ChannelNameWithParams } from '@rails/actioncable';
 export class ActionCableClient {
     parent: ActionCable;
     subscription: Promize;
-    client: any;
+    client: Subscription<Consumer>;
     identifier: string;
     /**
      * @param {!ActionCable} parent

@@ -4,7 +4,7 @@ import { Item } from '../core/item';
  * @class
  * @extends {BaseField}
  */
-export declare class FileField extends BaseField {
+export declare class FileField extends BaseField<HTMLInputElement> {
     imageTag: Item;
     valueSrc: string;
     defaultSrc: string;
@@ -19,7 +19,7 @@ export declare class FileField extends BaseField {
      * @param {!Item} error
      * @param {!Item} inputBlock
      */
-    constructor(input: Item, label: Item, error: Item, inputBlock: Item);
+    constructor(input: Item<HTMLInputElement>, label: Item, error: Item, inputBlock: Item);
     /**
      * @private
      * @return {undefined}

@@ -11,7 +11,7 @@ import { Item } from '../core';
  * @class
  * @extends {Collection}
  */
-export class Form extends Collection<BaseField> {
+export class Form extends Collection<BaseField<HTMLInputElement>> {
     formNode: Item<HTMLFormElement>;
     previousModel: Objekt;
     model: Objekt;
@@ -217,7 +217,7 @@ export class Form extends Collection<BaseField> {
      * @param {!BaseField} field
      * @return {*}
      */
-    private _getPreviousValue(field: BaseField): any {
+    private _getPreviousValue(field: BaseField<HTMLInputElement>): any {
         const fieldName = field.getName();
         return this.previousModel.get(fieldName);
     }
@@ -227,7 +227,7 @@ export class Form extends Collection<BaseField> {
      * @param {*} value
      * @return {undefined}
      */
-    private _fieldValueChange(field: BaseField, value: any): void {
+    private _fieldValueChange(field: BaseField<HTMLInputElement>, value: any): void {
         const fieldName = field.getName();
         const currentValue = this._getValue(fieldName);
         if (!isSame(value, currentValue)) {
@@ -294,9 +294,9 @@ export class Form extends Collection<BaseField> {
      * @param {string} value
      * @return {!BaseField}
      */
-    findByModel<T = BaseField>(value: string): T {
+    findByModel<T = BaseField<HTMLInputElement>>(value: string): T {
         return this.findByCondition((_item, i) => {
-            const modelName = this.get<string>(i, 'model');
+            const modelName = this.get<string>(i, 'modelName');
             return modelName === value;
         }) as any as T;
     }

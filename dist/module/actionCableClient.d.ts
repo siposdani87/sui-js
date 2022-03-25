@@ -1,13 +1,13 @@
 import { Promize } from '../core';
 import { ActionCable } from './actionCable';
-import { ChannelNameWithParams } from '@rails/actioncable';
+import { ChannelNameWithParams, Consumer, Subscription } from '@rails/actioncable';
 /**
  * @class
  */
 export declare class ActionCableClient {
     parent: ActionCable;
     subscription: Promize;
-    client: any;
+    client: Subscription<Consumer>;
     identifier: string;
     /**
      * @param {!ActionCable} parent

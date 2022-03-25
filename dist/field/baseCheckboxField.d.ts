@@ -4,7 +4,7 @@ import { Item } from '../core/item';
  * @class
  * @extends {BaseField}
  */
-export declare class BaseCheckboxField extends BaseField {
+export declare class BaseCheckboxField extends BaseField<HTMLInputElement> {
     hiddenInput: Item;
     spanLabel: Item;
     dataLabelNode: Item;
@@ -14,7 +14,7 @@ export declare class BaseCheckboxField extends BaseField {
      * @param {!Item} error
      * @param {!Item} inputBlock
      */
-    constructor(input: Item, label: Item, error: Item, inputBlock: Item);
+    constructor(input: Item<HTMLInputElement>, label: Item, error: Item, inputBlock: Item);
     /**
      * @protected
      * @return {undefined}

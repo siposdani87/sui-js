@@ -6,9 +6,9 @@ import { Header } from './header';
  * @class
  */
 export class TopMenu {
-    header: any;
-    topMenu: any;
-    toggleTopMenu: any;
+    header: Header;
+    topMenu: Item;
+    toggleTopMenu: Item;
     /**
      * @param {!Header} header
      */

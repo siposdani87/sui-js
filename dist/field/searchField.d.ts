@@ -4,7 +4,7 @@ import { Item } from '../core/item';
  * @class
  * @extends {BaseField}
  */
-export declare class SearchField extends BaseField {
+export declare class SearchField extends BaseField<HTMLInputElement> {
     holderNode: Item;
     /**
      * @param {!Item} input
@@ -12,7 +12,7 @@ export declare class SearchField extends BaseField {
      * @param {!Item} error
      * @param {!Item} inputBlock
      */
-    constructor(input: Item, label: Item, error: Item, inputBlock: Item);
+    constructor(input: Item<HTMLInputElement>, label: Item, error: Item, inputBlock: Item);
     /**
      * @private
      * @return {undefined}

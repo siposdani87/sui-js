@@ -4,7 +4,12 @@ import { Promize } from './promize';
  */
 export declare class Async {
     sum: number;
-    call: any;
+    call: {
+        results: any[];
+        counter: number;
+        sum: number;
+        isError: boolean;
+    };
     /**
      * @param {number=} opt_sum
      */

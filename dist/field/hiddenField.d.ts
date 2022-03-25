@@ -4,11 +4,11 @@ import { BaseField } from './baseField';
  * @class
  * @extends {BaseField}
  */
-export declare class HiddenField extends BaseField {
+export declare class HiddenField extends BaseField<HTMLInputElement> {
     /**
      * @param {!Item} input
      */
-    constructor(input: Item);
+    constructor(input: Item<HTMLInputElement>);
     /**
      * @private
      * @return {undefined}

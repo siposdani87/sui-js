@@ -16,7 +16,7 @@ export class IconToggleField extends BaseCheckboxField {
      * @param {!Item} error
      * @param {!Item} inputBlock
      */
-    constructor(input: Item, label: Item, error: Item, inputBlock: Item) {
+    constructor(input: Item<HTMLInputElement>, label: Item, error: Item, inputBlock: Item) {
         super(input, label, error, inputBlock);
     }
     /**

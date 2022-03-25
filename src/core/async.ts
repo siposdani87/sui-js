@@ -14,7 +14,12 @@ import { Promize } from './promize';
  */
 export class Async {
     sum: number;
-    call: any;
+    call: {
+        results: any[];
+        counter: number;
+        sum: number;
+        isError: boolean;
+    };
     /**
      * @param {number=} opt_sum
      */
