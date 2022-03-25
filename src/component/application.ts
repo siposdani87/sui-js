@@ -5,6 +5,7 @@ import { Objekt } from '../core/objekt';
 import { Query } from '../core/query';
 import { ActionCable } from '../module/actionCable';
 import { BottomMenu } from '../module/bottomMenu';
+import { Document } from '../module/document';
 import { Browser } from '../module/browser';
 import { Confirm } from '../module/confirm';
 import { Cookie } from '../module/cookie';
