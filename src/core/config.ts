@@ -9,12 +9,10 @@ ES_PROD = window['ES_PROD'] || false;
 const GC_PROD = false;
 
 /**
- * @export
  */
 export const releaseMode = ES_PROD || GC_PROD || false;
 
 /**
- * @export
  */
 export const coreResources = {
     app: 'app',

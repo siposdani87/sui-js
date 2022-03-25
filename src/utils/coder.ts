@@ -1,5 +1,4 @@
 /**
- * @export
  * @param {string} text
  * @return {string}
  */
@@ -9,7 +8,6 @@ export const encodeBase64 = (text: string): string => {
 };
 
 /**
- * @export
  * @param {string} encodedText
  * @return {string}
  */
@@ -19,7 +17,6 @@ export const decodeBase64 = (encodedText: string): string => {
 };
 
 /**
- * @export
  * @param {*} value
  * @param {string} passPhrase
  * @return {string}
@@ -30,7 +27,6 @@ export const encrypt = (value: any, passPhrase: string): string => {
 };
 
 /**
- * @export
  * @param {string} item
  * @param {string} passPhrase
  * @return {*}
@@ -43,7 +39,6 @@ export const decrypt = (item: string, passPhrase: string): any => {
 };
 
 /**
- * @export
  * @param {string} str
  * @return {string}
  */
@@ -52,7 +47,6 @@ export const md5 = (str: string): string => window['CryptoJS']['MD5'](str);
 /**
  * i6wolnd42rjg2nor7xdg5akv4p
  * https://github.com/LiosK/UUID.js
- * @export
  * @return {string}
  */
 export const guid = (): string =>
@@ -60,7 +54,6 @@ export const guid = (): string =>
     Math.random().toString(36).substring(2, 15);
 
 /**
- * @export
  * @param {string} name
  * @return {string}
  */
@@ -69,7 +62,6 @@ export const generateId = (name: string): string => [name, guid()].join('-');
 /**
  * 778c4858-5a37-42c3-90e5-f9e4113fb97b
  * https://github.com/LiosK/UUID.js
- * @export
  * @return {string}
  */
 export const uuid = (): string =>

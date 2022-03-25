@@ -200,18 +200,20 @@ export class State {
     /**
      * @template T
      * @param {string=} opt_attribute
+     * @param {T=} opt_defaultValue
      * @return {!T}
      */
-    getCurrent(opt_attribute) {
-        return /** @type {!Objekt|string} */ this._current.get(opt_attribute);
+    getCurrent(opt_attribute, opt_defaultValue) {
+        return /** @type {!Objekt|string} */ this._current.get(opt_attribute, opt_defaultValue);
     }
     /**
      * @template T
      * @param {string=} opt_attribute
+     * @param {T=} opt_defaultValue
      * @return {!T}
      */
-    getPrevious(opt_attribute) {
-        return /** @type {!Objekt|string} */ this._previous.get(opt_attribute);
+    getPrevious(opt_attribute, opt_defaultValue) {
+        return /** @type {!Objekt|string} */ this._previous.get(opt_attribute, opt_defaultValue);
     }
     /**
      * @param {string} id
@@ -263,13 +265,13 @@ export class State {
         return this._getRealUrl(url);
     }
     /**
-     * @param {!Object} state
+     * @param {!Route} state
      * @param {boolean=} opt_overwrite
      * @param {boolean=} opt_force
      * @return {undefined}
      */
     goState(state, opt_overwrite = false, opt_force = false) {
-        this.go(state['id'], state['params'], opt_overwrite, opt_force);
+        this.go(state.get('id'), state.get('params'), opt_overwrite, opt_force);
     }
     /**
      * @param {boolean=} opt_overwrite
@@ -352,7 +354,7 @@ export class State {
      * @return {!Objekt}
      */
     getParams() {
-        return /** @type {!Objekt} */ this.getCurrent('params');
+        return /** @type {!Objekt} */ this.getCurrent('params', new Objekt());
     }
     /**
      * @template T

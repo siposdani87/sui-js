@@ -1,5 +1,4 @@
 /**
- * @export
  * @param {number} price
  * @param {string=} opt_delimiter
  * @param {string=} opt_separator
@@ -8,7 +7,6 @@
  */
 export declare const readableCurrency: (price: number, opt_delimiter?: string | undefined, opt_separator?: string | undefined, opt_precision?: number | undefined) => string;
 /**
- * @export
  * @param {number} num
  * @param {number} exp
  * @return {string}
@@ -39,7 +37,6 @@ export declare const floor: (value: number, exp: number) => number;
  */
 export declare const ceil: (value: number, exp: number) => number;
 /**
- * @export
  * @param {number} min
  * @param {number} max
  * @param {boolean=} opt_onlyFloat

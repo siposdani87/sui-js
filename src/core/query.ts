@@ -4,7 +4,6 @@ import { Item } from './item';
 
 /**
  * @class
- * @export
  * @extends {Collection}
  * @template T
  */
@@ -27,8 +26,7 @@ export class Query<T extends HTMLElement = HTMLElement> extends Collection<
         });
     }
     /**
-     * @export
-     * @return {!Item}
+         * @return {!Item}
      */
     getItem(): Item<T> {
         let firstNode = /** @type {!Item} */ this.get(0);

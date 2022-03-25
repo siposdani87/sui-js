@@ -68,7 +68,7 @@ export declare class State {
      * @param {!Function} errorCallback
      * @return {undefined}
      */
-    _parsePath(urlPath: string, successCallback: Function, errorCallback: Function): void;
+    _parsePath(urlPath: string, successCallback: (state: Route, path: string, params: Object) => void, errorCallback: (state: Route, path: string, params: Object) => void): void;
     /**
      * @private
      * @param {!Objekt} state
@@ -78,7 +78,7 @@ export declare class State {
      * @param {boolean=} opt_force
      * @return {undefined}
      */
-    _setHistory(state: Objekt, url: string, opt_params?: Object | undefined, opt_overwrite?: boolean | undefined, opt_force?: boolean | undefined): void;
+    _setHistory(state: Route, url: string, opt_params?: Object | undefined, opt_overwrite?: boolean | undefined, opt_force?: boolean | undefined): void;
     /**
      * @private
      * @param {boolean=} opt_force
@@ -94,15 +94,17 @@ export declare class State {
     /**
      * @template T
      * @param {string=} opt_attribute
+     * @param {T=} opt_defaultValue
      * @return {!T}
      */
-    getCurrent<T>(opt_attribute?: string): T;
+    getCurrent<T>(opt_attribute?: string, opt_defaultValue?: T): T;
     /**
      * @template T
      * @param {string=} opt_attribute
+     * @param {T=} opt_defaultValue
      * @return {!T}
      */
-    getPrevious<T>(opt_attribute?: string): T;
+    getPrevious<T>(opt_attribute?: string, opt_defaultValue?: T): T;
     /**
      * @param {string} id
      * @param {!Object=} opt_params
@@ -125,12 +127,12 @@ export declare class State {
      */
     resolveUrl(id: string, opt_params?: Object): string;
     /**
-     * @param {!Object} state
+     * @param {!Route} state
      * @param {boolean=} opt_overwrite
      * @param {boolean=} opt_force
      * @return {undefined}
      */
-    goState(state: Object, opt_overwrite?: boolean | undefined, opt_force?: boolean | undefined): void;
+    goState(state: Route, opt_overwrite?: boolean | undefined, opt_force?: boolean | undefined): void;
     /**
      * @param {boolean=} opt_overwrite
      * @param {boolean=} opt_force

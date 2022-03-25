@@ -1,5 +1,4 @@
 /**
- * @export
  * @class
  */
 export declare class Objekt {
@@ -9,8 +8,7 @@ export declare class Objekt {
      */
     constructor(opt_object?: Object | undefined);
     /**
-     * @export
-     * @param {*} object
+         * @param {*} object
      * @return {!Objekt}
      */
     merge(object: any): Objekt;
@@ -29,8 +27,7 @@ export declare class Objekt {
      */
     speedGet(opt_attribute?: string | undefined, opt_defaultValue?: any | undefined, opt_isSafe?: boolean | undefined): any;
     /**
-     * @export
-     * @template T
+         * @template T
      * @param {string=} opt_attribute
      * @param {*=} opt_defaultValue
      * @param {boolean=} opt_isSafe
@@ -52,29 +49,25 @@ export declare class Objekt {
      */
     private _set;
     /**
-     * @export
-     * @param {string} attribute
+         * @param {string} attribute
      * @param {*} value
      * @return {undefined}
      */
     set(attribute: string, value: any): void;
     /**
-     * @export
-     * @param {string} attribute
+         * @param {string} attribute
      * @param {*} value
      * @param {boolean=} opt_isSafe
      * @return {undefined}
      */
     setRaw(attribute: string, value: any, opt_isSafe?: boolean | undefined): void;
     /**
-     * @export
-     * @param {string} attribute
+         * @param {string} attribute
      * @return {undefined}
      */
     remove(attribute: string): void;
     /**
-     * @export
-     * @return {undefined}
+         * @return {undefined}
      */
     clear(): void;
     /**
@@ -84,8 +77,7 @@ export declare class Objekt {
      */
     private _remove;
     /**
-     * @export
-     * @param {!Function} next
+         * @param {!Function} next
      * @param {!Object=} opt_properties
      * @param {!Array<string>=} opt_attributes
      * @return {undefined}
@@ -99,31 +91,26 @@ export declare class Objekt {
      */
     _attributesToObject(object: Object, attributes: Array<string>, value: any): Object;
     /**
-     * @export
-     * @param {boolean=} opt_isNative
+         * @param {boolean=} opt_isNative
      * @return {!Objekt}
      */
     copy(opt_isNative?: boolean | undefined): any;
     /**
-     * @export
-     * @return {boolean}
+         * @return {boolean}
      */
     isEmpty(): boolean;
     /**
-     * @export
-     * @param {!Array<string>} keys
+         * @param {!Array<string>} keys
      * @return {!Objekt}
      */
     allowKeys(keys: Array<string>): Objekt;
     /**
-     * @export
-     * @param {!Array<string>} keys
+         * @param {!Array<string>} keys
      * @return {!Objekt}
      */
     denyKeys(keys: Array<string>): Objekt;
     /**
-     * @export
-     * @param {!Objekt} obj
+         * @param {!Objekt} obj
      * @param {!Function} condition
      * @return {!Objekt}
      */

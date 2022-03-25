@@ -1,5 +1,4 @@
 /**
- * @export
  * @param {number} red
  * @param {number} green
  * @param {number} blue
@@ -46,7 +45,6 @@ export const convertRGBToHSV = (red, green, blue) => {
     ];
 };
 /**
- * @export
  * @param {number} red
  * @param {number} green
  * @param {number} blue
@@ -66,7 +64,6 @@ export const convertRGBToHEX = (red, green, blue) => {
     return '#' + results.join('');
 };
 /**
- * @export
  * @param {string} hexColor
  * @return {!Array<number>}
  */
@@ -75,7 +72,6 @@ export const convertHEXToHSV = (hexColor) => {
     return convertRGBToHSV(red, green, blue);
 };
 /**
- * @export
  * @param {string} hexColor
  * @return {!Array<number, number, number>}
  */
@@ -87,7 +83,6 @@ export const convertHEXToRGB = (hexColor) => {
     return [red, green, blue];
 };
 /**
- * @export
  * @param {number} h
  * @param {number} s
  * @param {number} v
@@ -137,7 +132,6 @@ export const convertHSVToRGB = (h, s, v) => {
     return [Math.round(r * 255), Math.round(g * 255), Math.round(b * 255)];
 };
 /**
- * @export
  * @param {number} h
  * @param {number} s
  * @param {number} v
@@ -148,7 +142,6 @@ export const convertHSVToHEX = (h, s, v) => {
     return convertRGBToHEX(red, green, blue);
 };
 /**
- * @export
  * @param {string} hexColor
  * @param {string=} opt_lightColor
  * @param {string=} opt_darkColor
@@ -160,7 +153,6 @@ export const colorContrastYIQ = (hexColor, opt_lightColor = '#FEFEFE', opt_darkC
     return yiq >= 128 ? opt_darkColor : opt_lightColor;
 };
 /**
- * @export
  * @param {string} hexColor
  * @param {number=} opt_diff
  * @return {string}

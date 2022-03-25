@@ -22,7 +22,6 @@ const _getMapLabel = (marker, title) => {
     return mapLabel;
 };
 /**
- * @export
  * @param {string} title
  * @param {!google.maps.LatLng} position
  * @param {!google.maps.Map} map

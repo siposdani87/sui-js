@@ -33,7 +33,6 @@ import { Scheduler } from '../module/scheduler';
 import { Window } from '../module/window';
 /**
  * @class
- * @export
  */
 export class Application {
     /**
@@ -563,8 +562,7 @@ export class Application {
         return this._module.getController();
     }
     /**
-     * @export
-     * @param {!Array<Route>} routes
+         * @param {!Array<Route>} routes
      * @param {!Array<string>} services
      * @return {undefined}
      */

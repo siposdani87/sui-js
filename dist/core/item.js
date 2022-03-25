@@ -414,16 +414,14 @@ export class Item {
         return new Item(/** @type {T} */ referenceNode);
     }
     /**
-     * @export
-     * @param {!string} text
+         * @param {!string} text
      * @return {undefined}
      */
     setHtml(text) {
         this.node.innerHTML = text;
     }
     /**
-     * @export
-     * @param {boolean=} opt_isInner
+         * @param {boolean=} opt_isInner
      * @return {string}
      */
     getHtml(opt_isInner = false) {

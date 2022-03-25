@@ -1,5 +1,4 @@
 /**
- * @export
  * @param {number} red
  * @param {number} green
  * @param {number} blue
@@ -48,7 +47,6 @@ export const convertRGBToHSV = (
 };
 
 /**
- * @export
  * @param {number} red
  * @param {number} green
  * @param {number} blue
@@ -72,7 +70,6 @@ export const convertRGBToHEX = (
 };
 
 /**
- * @export
  * @param {string} hexColor
  * @return {!Array<number>}
  */
@@ -82,7 +79,6 @@ export const convertHEXToHSV = (hexColor: string): [number, number, number] => {
 };
 
 /**
- * @export
  * @param {string} hexColor
  * @return {!Array<number, number, number>}
  */
@@ -95,7 +91,6 @@ export const convertHEXToRGB = (hexColor: string): [number, number, number] => {
 };
 
 /**
- * @export
  * @param {number} h
  * @param {number} s
  * @param {number} v
@@ -150,7 +145,6 @@ export const convertHSVToRGB = (
 };
 
 /**
- * @export
  * @param {number} h
  * @param {number} s
  * @param {number} v
@@ -162,7 +156,6 @@ export const convertHSVToHEX = (h: number, s: number, v: number): string => {
 };
 
 /**
- * @export
  * @param {string} hexColor
  * @param {string=} opt_lightColor
  * @param {string=} opt_darkColor
@@ -179,7 +172,6 @@ export const colorContrastYIQ = (
 };
 
 /**
- * @export
  * @param {string} hexColor
  * @param {number=} opt_diff
  * @return {string}

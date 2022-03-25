@@ -1,5 +1,4 @@
 /**
- * @export
  * @param {number} price
  * @param {string=} opt_delimiter
  * @param {string=} opt_separator
@@ -27,7 +26,6 @@ export const readableCurrency = (price, opt_delimiter = ' ', opt_separator = ','
     return currency;
 };
 /**
- * @export
  * @param {number} num
  * @param {number} exp
  * @return {string}
@@ -107,7 +105,6 @@ export const floor = (value, exp) => decimalAdjust('floor', value, exp);
  */
 export const ceil = (value, exp) => decimalAdjust('ceil', value, exp);
 /**
- * @export
  * @param {number} min
  * @param {number} max
  * @param {boolean=} opt_onlyFloat
