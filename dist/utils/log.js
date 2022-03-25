@@ -27,7 +27,5 @@ export const consoleWarn = (...message) => {
  * @param {...*} message
  */
 export const consoleError = (...message) => {
-    if (!releaseMode) {
-        console.error(...message);
-    }
+    console.error(...message);
 };

@@ -1,7 +1,7 @@
 import { eq, getExtensionName, instanceOf, isString, eachObject, isUndefined, urlWithQueryString, } from '../utils/operation';
 import { Deferred } from '../core/deferred';
 import { Objekt } from '../core/objekt';
-import { consoleError } from '../utils/log';
+import { consoleWarn } from '../utils/log';
 import { encodeBase64 } from '../utils/coder';
 /**
  * @class
@@ -127,7 +127,7 @@ export class Xhr {
                     });
                     break;
                 default:
-                    consoleError('Xhr._onReadyStateChange()', this.http.readyState);
+                    consoleWarn('Xhr._onReadyStateChange()', this.http.readyState);
                     break;
             }
         };

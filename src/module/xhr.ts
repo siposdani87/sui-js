@@ -9,7 +9,7 @@ import {
 } from '../utils/operation';
 import { Deferred } from '../core/deferred';
 import { Objekt } from '../core/objekt';
-import { consoleError } from '../utils/log';
+import { consoleWarn } from '../utils/log';
 import { encodeBase64 } from '../utils/coder';
 import { Promize } from '../core';
 
@@ -159,7 +159,7 @@ export class Xhr {
                     );
                     break;
                 default:
-                    consoleError(
+                    consoleWarn(
                         'Xhr._onReadyStateChange()',
                         this.http.readyState,
                     );
