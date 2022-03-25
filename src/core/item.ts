@@ -252,7 +252,7 @@ export class Item<T extends HTMLElement = HTMLElement> {
      */
     addEventListener(
         eventName: string,
-        opt_callback: Function | undefined,
+        opt_callback?: Function,
     ): Function {
         let listener: any = noop();
         if (opt_callback) {
@@ -270,12 +270,12 @@ export class Item<T extends HTMLElement = HTMLElement> {
     /**
      * @private
      * @param {string} eventName
-     * @param {!Function=} listener
+     * @param {!Function} listener
      * @return {undefined}
      */
     _addListenerToStore(
         eventName: string,
-        listener: Function | undefined,
+        listener: Function,
     ): void {
         if (!this.node[this.listenerStoreKey]) {
             this.node[this.listenerStoreKey] = {};
