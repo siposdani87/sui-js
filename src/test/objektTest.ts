@@ -155,7 +155,6 @@ export class ObjektTest extends BaseTest {
             this.showError('get', 3);
         }
         if (options.get('arr.0.attr1') !== -4) {
-            console.log(options, options.get('arr.0.attr1'), -4);
             this.showError('get', 4);
         }
     }

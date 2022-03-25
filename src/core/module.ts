@@ -19,7 +19,6 @@ export class Module {
     _instances: Instance;
     _injections: Injection;
     _dependencies: string[];
-    _services: string[];
     _controller: any;
     /**
      */
@@ -28,7 +27,6 @@ export class Module {
         this._instances = {};
         this._injections = {};
         this._dependencies = [];
-        this._services = [];
         this._controller = {
             enter: noop(),
             exit: noop(),
@@ -81,74 +79,90 @@ export class Module {
     }
     /**
      * @private
-     * @return {undefined}
+     * @param {Array<string>} services
+     * @return {Array<string>}
      */
-    private _orderServices(): void {
-        console.log({
-            modules: this._modules,
-        });
-        for (const key in this._modules) {
-            if (this._modules.hasOwnProperty(key) && this._isModule(key)) {
-                if (this._services.indexOf(key) === -1) {
-                    this._services.push(key);
-                }
-                const injections = this._modules[key].moduleInjections;
-                for (let j = 0; j < injections.length; j++) {
-                    if (this._isModule(injections[j])) {
-                        if (this._services.indexOf(injections[j]) === -1) {
-                            this._services.push(injections[j]);
-                        }
-                        this._changeServices(key, injections[j]);
-                    }
-                }
+    private _getSortedServices(services: string[]): string[] {
+        const edges = services.map((service) => {
+            const moduleInjections = this._modules[service].moduleInjections;
+            if (moduleInjections.length === 0) {
+                moduleInjections.push(null);
             }
-        }
-        console.log({
-            services: this._services,
+            return moduleInjections.map((injection) => [injection, service]);
+        }).flat();
+
+        return this._topologicalSort(edges).slice(1);
+    }
+    /**
+     * 
+     * @param {Array<Array<string>>} edges 
+     * @return {Array<string>}
+     */
+    private _topologicalSort(edges: string[][]): string[] {
+        const nodes: {
+            [key: string]: {
+                id: string;
+                afters: string[];
+            }
+        } = {};
+        const sorted: string[] = [];
+        const visited: { [key: string]: boolean; } = {};
+
+        edges.forEach((v) => {
+            const from = v[0];
+            const to = v[1];
+            if (!nodes[from]) nodes[from] = {id: from, afters: []};
+            if (!nodes[to]) nodes[to] = {id: to, afters: []};
+            nodes[from].afters.push(to);
         });
-    }
-    /**
-     * @private
-     * @param {string} value
-     * @return {boolean}
-     */
-    private _isModule(value: string): boolean {
-        return this._services.includes(value);
-    }
-    /**
-     * @private
-     * @param {string} service
-     * @param {string} injection
-     * @return {undefined}
-     */
-    private _changeServices(service: string, injection: string): void {
-        if (this._dependencies.indexOf([injection, service].join('-')) !== -1) {
-            consoleError(
-                'Modules._changeServices()',
-                'Dependency injection circular loop',
-                injection,
-                '<=>',
-                service,
-            );
+
+        const visit = (strId: string, ancestors?: string[]): void => {
+            const node = nodes[strId];
+            const id = node.id;
+
+            if (visited[strId]) {
+                // if already exists, do nothing
+                return;
+            }
+
+            if (!Array.isArray(ancestors)) {
+                ancestors = [];
+            }
+
+            ancestors.push(id);
+
+            visited[strId] = true;
+
+            node.afters.forEach((afterId) => {
+                if (ancestors.includes(afterId)) {
+                    // if already in ancestors, a closed chain exists.
+                    consoleError(
+                        'Modules._topologicalSort()',
+                        'Dependency injection circular loop',
+                        afterId,
+                        '<=>',
+                        id,
+                    );
+                }
+
+                visit(afterId, ancestors);
+            });
+
+            sorted.unshift(id);
         }
-        this._dependencies.push([service, injection].join('-'));
-        const servicePosition = this._services.indexOf(service);
-        const injectionPosition = this._services.indexOf(injection);
-        if (injectionPosition > servicePosition) {
-            const tmpService = this._services[servicePosition];
-            this._services.splice(servicePosition, 1);
-            this._services.push(tmpService);
-        }
+
+        Object.keys(nodes).forEach((key) => visit(key));
+
+        return sorted;
     }
     /**
      * @param {Array<string>} services
      * @return {undefined}
      */
     handleServices(services: string[]): void {
-        this._services = services;
-        this._orderServices();
+        const sortedServices = this._getSortedServices(services);
         const calls = [];
-        each(this._services, (serviceName) => {
+        each(sortedServices, (serviceName) => {
             const moduleCall = () => {
                 this._instances[serviceName] = this._resolveDependencies(
                     this._modules[serviceName],
@@ -194,10 +208,6 @@ export class Module {
             ) {
                 exit = this._controller.exit;
             }
-            console.log({
-                controller: this._controller,
-                currentState,
-            });
 
             const async = new Async();
             async.serial([exit]).then(() => {
@@ -252,9 +262,6 @@ export class Module {
      * @return {undefined}
      */
     private _initController(state: Objekt, dom: Item): void {
-        console.log({
-            state,
-        });
         this._instances[this._injections.dom] = dom;
         const controller = this._modules[state.get<string>('controller')];
         if (controller) {

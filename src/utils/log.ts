@@ -31,7 +31,5 @@ export const consoleWarn = (...message: any[]) => {
  * @param {...*} message
  */
 export const consoleError = (...message: any[]) => {
-    if (!releaseMode) {
-        console.error(...message);
-    }
+    console.error(...message);
 };

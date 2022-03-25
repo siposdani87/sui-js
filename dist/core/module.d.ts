@@ -13,7 +13,6 @@ export declare class Module {
     _instances: Instance;
     _injections: Injection;
     _dependencies: string[];
-    _services: string[];
     _controller: any;
     /**
      */
@@ -43,22 +42,16 @@ export declare class Module {
     private _resolveDependencies;
     /**
      * @private
-     * @return {undefined}
+     * @param {Array<string>} services
+     * @return {Array<string>}
      */
-    private _orderServices;
+    private _getSortedServices;
     /**
-     * @private
-     * @param {string} value
-     * @return {boolean}
+     *
+     * @param {Array<Array<string>>} edges
+     * @return {Array<string>}
      */
-    private _isModule;
-    /**
-     * @private
-     * @param {string} service
-     * @param {string} injection
-     * @return {undefined}
-     */
-    private _changeServices;
+    private _topologicalSort;
     /**
      * @param {Array<string>} services
      * @return {undefined}
