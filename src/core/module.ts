@@ -84,7 +84,7 @@ export class Module {
      */
     private _getSortedServices(services: string[]): string[] {
         const edges = services.map((service) => {
-            const moduleInjections = this._modules[service].moduleInjections;
+            const moduleInjections = this._modules[service].moduleInjections.filter((moduleInjection) => services.includes(moduleInjection));
             if (moduleInjections.length === 0) {
                 moduleInjections.push(null);
             }

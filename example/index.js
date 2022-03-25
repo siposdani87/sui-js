@@ -22,6 +22,7 @@ const config = new SUI.Objekt({
     backend: window.location.origin,
     production: SUI.releaseMode,
     secret: '484xlj8y4jjöyéö57hk5ghrkleéjx',
+    log_color: '#673ab7'
 });
 const app = new SUI.Application(config, SUI.coreResources);
 
