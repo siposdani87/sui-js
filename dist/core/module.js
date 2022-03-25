@@ -127,7 +127,7 @@ export class Module {
             const moduleCall = () => {
                 this._instances[serviceName] = this._resolveDependencies(this._modules[serviceName]);
                 if (isFunction(this._instances[serviceName].enter)) {
-                    return this._instances[serviceName].enter.bind(this._instances[serviceName]);
+                    return this._instances[serviceName].enter();
                 }
                 return noop();
             };
@@ -154,7 +154,7 @@ export class Module {
             if (!previousState.isEmpty() &&
                 isObject(this._controller) &&
                 isFunction(this._controller.exit)) {
-                exit = this._controller.exit;
+                exit = this._controller.exit.bind(this._controller);
             }
             const async = new Async();
             async.serial([exit]).then(() => {
