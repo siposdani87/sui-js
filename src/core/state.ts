@@ -34,9 +34,9 @@ export class State {
      */
     private _setRealUrls(): void {
         this.routes.each((route) => {
-            const url = /** @type {string} */ route.state.get<string>('url');
+            const url = /** @type {string} */ route.get<string>('url');
             const realUrl = this._getRealUrl(url);
-            route.state.set('realUrl', realUrl);
+            route.set('realUrl', realUrl);
         });
     }
     /**
@@ -147,15 +147,15 @@ export class State {
         errorCallback: Function,
     ): void {
         const path = urlPath[0] === '#' ? urlPath.substring(1) : urlPath;
-        const routes = this.routes.getItems();
+        const states = this.routes.getItems();
 
         let state: Objekt = null;
         let params: Object = null;
         let matches: RegExpMatchArray = null;
 
         let i = 0;
-        while (i < routes.length && isNull(matches)) {
-            state = routes[i].state;
+        while (i < states.length && isNull(matches)) {
+            state = states[i];
             const stateUrl = /** @type {string} */ state.get<string>('url');
             const router = new Router(stateUrl);
             matches = router.getMatches(path);
@@ -299,7 +299,7 @@ export class State {
         let url = '';
         if (route) {
             const stateUrl =
-                /** @type {string} */ route.state.get<string>('url');
+                /** @type {string} */ route.get<string>('url');
             const router = new Router(stateUrl);
             url = router.stringify(opt_params);
         }
