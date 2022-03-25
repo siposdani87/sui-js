@@ -7,7 +7,6 @@ import { Item, Promize } from '../core';
 
 /**
  * @class
- * @export
  */
 export class TabPanel {
     tabPanel: Item;

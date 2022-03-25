@@ -1,6 +1,5 @@
 import { Item } from '../core';
 /**
- * @export
  * @param {!Item|!Element=} opt_node
  * @param {boolean=} opt_forceDowngrade
  * @return {undefined}
@@ -21,7 +20,6 @@ export const mdl = (opt_node, opt_forceDowngrade = true) => {
     }
 };
 /**
- * @export
  * @param {ClassRef} classRef
  * @param {!Object} props
  * @param {!Item} mountNode
@@ -29,7 +27,6 @@ export const mdl = (opt_node, opt_forceDowngrade = true) => {
  */
 export const renderReact = (classRef, props, mountNode) => window['ReactDOM']['render'](window['React']['createElement'](classRef, props), mountNode.getNode());
 /**
- * @export
  * @param {!Item} mountNode
  * @return {undefined}
  */

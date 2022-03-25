@@ -1,5 +1,4 @@
 /**
- * @export
  * @param {*} value
  * @return {*}
  */
@@ -32,7 +31,6 @@ export const typeCast = (value) => {
     return result;
 };
 /**
- * @export
  * @param {!Object} objA
  * @param {!Object} objB
  * @return {!Object|undefined}
@@ -52,7 +50,6 @@ export const merge = (objA, objB) => {
     return obj;
 };
 /**
- * @export
  * @param {string} str
  * @param {!Object|!Array|null=} opt_params
  * @param {string=} opt_prefix
@@ -67,7 +64,6 @@ export const format = (str, opt_params = null, opt_prefix = '\\{', opt_postfix =
     return str;
 };
 /**
- * @export
  * @param {*} value
  * @param {string} type
  * @return {*}
@@ -83,7 +79,6 @@ export const convert = (value, type) => {
     return result;
 };
 /**
- * @export
  * @param {number} value
  * @param {string} type
  * @return {number|string}
@@ -97,7 +92,6 @@ export const convertToNumber = (value, type) => {
     }
 };
 /**
- * @export
  * @param {string} value
  * @param {string} type
  * @return {string|number}
@@ -113,14 +107,12 @@ export const convertToString = (value, type) => {
     }
 };
 /**
- * @export
  * @param {*} value
  * @param {*} defaultValue
  * @return {*}
  */
 export const defaultValue = (value, defaultValue) => !isUndefined(value) ? value : defaultValue;
 /**
- * @export
  * @param {*=} opt_result
  * @return {!Function}
  */
@@ -128,67 +120,57 @@ export const noop = (opt_result) => () => {
     return opt_result;
 };
 /**
- * @export
  * @param {*} a
  * @param {*} b
  * @return {boolean}
  */
 export const eq = (a, b) => a === b;
 /**
- * @export
  * @param {*} a
  * @param {*} b
  * @return {boolean}
  */
 export const neq = (a, b) => a !== b;
 /**
- * @export
  * @param {*} a
  * @param {*} b
  * @return {boolean}
  */
 export const gt = (a, b) => a > b;
 /**
- * @export
  * @param {*} a
  * @param {*} b
  * @return {boolean}
  */
 export const gte = (a, b) => a >= b;
 /**
- * @export
  * @param {*} a
  * @param {*} b
  * @return {boolean}
  */
 export const lt = (a, b) => a < b;
 /**
- * @export
  * @param {*} a
  * @param {*} b
  * @return {boolean}
  */
 export const lte = (a, b) => a <= b;
 /**
- * @export
  * @param {*} value
  * @return {boolean}
  */
 export const isArray = (value) => instanceOf(value, Array);
 /**
- * @export
  * @param {*} value
  * @return {boolean}
  */
 export const isFunction = (value) => is(value, 'function');
 /**
- * @export
  * @param {*} value
  * @return {boolean}
  */
 export const isString = (value) => is(value, 'string');
 /**
- * @export
  * @param {*} value
  * @return {boolean}
  */
@@ -199,57 +181,48 @@ export const isNumber = (value) => value !== null &&
     Number(value).toString() !== 'NaN' &&
     Number(value).toString() !== 'Infinity';
 /**
- * @export
  * @param {*} value
  * @return {boolean}
  */
 export const isFloat = (value) => parseFloat(value) === value;
 /**
- * @export
  * @param {*} value
  * @return {boolean}
  */
 export const isInteger = (value) => parseInt(value, 10) === value;
 /**
- * @export
  * @param {*} value
  * @return {boolean}
  */
 export const isObject = (value) => is(value, 'object');
 /**
- * @export
  * @param {*} value
  * @return {boolean}
  */
 export const isNull = (value) => value === null;
 /**
- * @export
  * @param {*} value
  * @return {boolean}
  */
 export const isUndefined = (value) => is(value, 'undefined');
 /**
- * @export
  * @param {*} value
  * @return {boolean}
  */
 export const isFinite = (value) => isFinite(value);
 /**
- * @export
  * @param {*} value
  * @param {string} type
  * @return {boolean}
  */
 export const is = (value, type) => typeof value === type;
 /**
- * @export
  * @param {*} value
  * @param {!Object} obj
  * @return {boolean}
  */
 export const instanceOf = (value, obj) => value instanceof obj;
 /**
- * @export
  * @param {*} items
  * @param {!Function} next
  * @param {number=} opt_start
@@ -265,7 +238,6 @@ export const each = (items, next, opt_start, opt_end) => {
     }
 };
 /**
- * @export
  * @param {!Array} items
  * @param {!Function} next
  * @param {number=} opt_start
@@ -280,7 +252,6 @@ export const eachArray = (items, next, opt_start, opt_end) => {
     }
 };
 /**
- * @export
  * @param {!Object} object
  * @param {!Function} next
  * @return {undefined}
@@ -293,7 +264,6 @@ export const eachObject = (object, next) => {
     }
 };
 /**
- * @export
  * @param {function(number):undefined} next
  * @param {number} i
  * @param {number} length
@@ -311,7 +281,6 @@ export const sleepEach = (next, i, length, duration) => {
     loop();
 };
 /**
- * @export
  * @param {!Array|!Object} items
  * @return {undefined}
  */
@@ -324,7 +293,6 @@ export const clear = (items) => {
     }
 };
 /**
- * @export
  * @param {!Array} items
  * @return {undefined}
  */
@@ -332,7 +300,6 @@ export const clearArray = (items) => {
     items.splice(0, items.length);
 };
 /**
- * @export
  * @param {!Object} items
  * @return {undefined}
  */
@@ -344,21 +311,18 @@ export const clearObject = (items) => {
     }
 };
 /**
- * @export
  * @param {!Array} items
  * @param {*} item
  * @return {boolean}
  */
 export const inArray = (items, item) => items.indexOf(item) !== -1;
 /**
- * @export
  * @param {string} str
  * @param {string} subStr
  * @return {boolean}
  */
 export const contain = (str, subStr) => str.indexOf(subStr) !== -1;
 /**
- * @export
  * @param {!Array} items
  * @param {*} item
  * @return {boolean}
@@ -371,7 +335,6 @@ export const inContainArray = (items, item) => {
     return i < items.length;
 };
 /**
- * @export
  * @param {*} a
  * @param {*} b
  * @return {boolean}
@@ -391,7 +354,6 @@ export const isSame = (a, b) => {
     return eq(strA, strB);
 };
 /**
- * @export
  * @param {!Array} items
  * @param {*} item
  * @return {undefined}
@@ -403,7 +365,6 @@ export const remove = (items, item) => {
     }
 };
 /**
- * @export
  * @param {!Array|!Object} items
  * @return {!Array|!Object|undefined}
  */
@@ -418,7 +379,6 @@ export const copy = (items) => {
     return results;
 };
 /**
- * @export
  * @param {!Array} items
  * @return {!Array}
  */
@@ -427,7 +387,6 @@ export const copyArray = (items) =>
 // return JSON.parse(JSON.stringify(items));
 [].concat(items);
 /**
- * @export
  * @param {!Object} items
  * @return {!Object}
  */
@@ -439,7 +398,6 @@ export const copyObject = (items) => {
     return results;
 };
 /**
- * @export
  * @param {!Array|!Object} items
  * @return {boolean}
  */
@@ -458,7 +416,6 @@ export const isEmpty = (items) => {
     return result;
 };
 /**
- * @export
  * @deprecated
  * @param {!Array} args
  * @param {!Function} callback
@@ -468,13 +425,11 @@ export const list = (args, callback) => {
     callback(...args);
 };
 /**
- * @export
  * @param {string} str
  * @return {string}
  */
 export const capitalize = (str) => str.charAt(0).toUpperCase() + str.slice(1);
 /**
- * @export
  * @param {!Array} items
  * @param {string} attribute
  * @return {!Array}
@@ -488,7 +443,6 @@ export const pluck = (items, attribute) => {
     return results;
 };
 /**
- * @export
  * @param {!Object} obj
  * @param {function(*, string)} condition
  * @return {!Array}
@@ -504,7 +458,6 @@ export const pluckKeys = (obj, condition) => {
 };
 let _scrollInterval = null;
 /**
- * @export
  * @param {number} x
  * @param {number} y
  * @param {number=} opt_duration
@@ -533,8 +486,8 @@ export const scrollTo = (x, y, opt_duration = 500, opt_step = 20) => {
     }, opt_step);
 };
 /**
- * @export
  * @deprecated
+ * @use {scrollIntoView}
  * @param {string} selector
  * @param {number=} opt_duration
  * @param {number=} opt_step
@@ -548,7 +501,6 @@ export const scrollToElement = (selector, opt_duration = 500, opt_step = 20) => 
     scrollTo(x, y, opt_duration, opt_step);
 };
 /**
- * @export
  * @param {string} selector
  * @param {string=} opt_behavior
  * @return {undefined}
@@ -559,7 +511,6 @@ export const scrollIntoView = (selector, opt_behavior = 'smooth') => {
     });
 };
 /**
- * @export
  * @param {!Function} func
  * @param {number=} opt_wait
  * @param {boolean=} opt_immediate
@@ -581,7 +532,6 @@ export const debounce = (func, opt_wait = 250, opt_immediate = false) => {
     };
 };
 /**
- * @export
  * @param {string} url
  * @param {!Object=} opt_params
  * @return {string}
@@ -592,7 +542,6 @@ export const urlWithQueryString = (url, opt_params) => {
     return url + (queryString ? separator + queryString : '');
 };
 /**
- * @export
  * @param {!Object=} opt_params
  * @return {string}
  */
@@ -611,7 +560,6 @@ export const getQueryString = (opt_params) => {
     return isEmpty(queries) ? '' : queries.join('&');
 };
 /**
- * @export
  * @param {string} url
  * @return {string}
  */
@@ -620,13 +568,11 @@ export const getExtensionName = (url) => {
     return realUrl.slice((Math.max(0, realUrl.lastIndexOf('.')) || Infinity) + 1);
 };
 /**
- * @export
  * @param {string} str
  * @return {string}
  */
 export const normalize = (str) => str.normalize('NFD').replace(/[\u0300-\u036f]/g, '');
 /**
- * @export
  * @param {string} str
  * @return {undefined}
  */

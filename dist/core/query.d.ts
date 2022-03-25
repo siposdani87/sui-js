@@ -2,7 +2,6 @@ import { Collection } from './collection';
 import { Item } from './item';
 /**
  * @class
- * @export
  * @extends {Collection}
  * @template T
  */
@@ -13,8 +12,7 @@ export declare class Query<T extends HTMLElement = HTMLElement> extends Collecti
      */
     constructor(selector: string, opt_element?: HTMLElement | Item);
     /**
-     * @export
-     * @return {!Item}
+         * @return {!Item}
      */
     getItem(): Item<T>;
 }

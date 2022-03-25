@@ -143,13 +143,13 @@ export class State {
      */
     _parsePath(
         urlPath: string,
-        successCallback: Function,
-        errorCallback: Function,
+        successCallback: (state: Route, path: string, params: Object) => void,
+        errorCallback: (state: Route, path: string, params: Object) => void,
     ): void {
         const path = urlPath[0] === '#' ? urlPath.substring(1) : urlPath;
         const states = this.routes.getItems();
 
-        let state: Objekt = null;
+        let state: Route = null;
         let params: Object = null;
         let matches: RegExpMatchArray = null;
 
@@ -178,7 +178,7 @@ export class State {
      * @return {undefined}
      */
     _setHistory(
-        state: Objekt,
+        state: Route,
         url: string,
         opt_params: Object | undefined = {},
         opt_overwrite: boolean | undefined = false,
@@ -192,13 +192,13 @@ export class State {
         if (opt_overwrite) {
             window.history.replaceState(
                 state.get(),
-                /** @type {string} */ state.get('title', ''),
+                /** @type {string} */ state.get<string>('title', ''),
                 url,
             );
         } else {
             window.history.pushState(
                 state.get(),
-                /** @type {string} */ state.get('title', ''),
+                /** @type {string} */ state.get<string>('title', ''),
                 url,
             );
         }
@@ -229,21 +229,25 @@ export class State {
     /**
      * @template T
      * @param {string=} opt_attribute
+     * @param {T=} opt_defaultValue
      * @return {!T}
      */
-    getCurrent<T>(opt_attribute?: string): T {
+    getCurrent<T>(opt_attribute?: string, opt_defaultValue?: T): T {
         return /** @type {!Objekt|string} */ this._current.get<T>(
             opt_attribute,
+            opt_defaultValue,
         );
     }
     /**
      * @template T
      * @param {string=} opt_attribute
+     * @param {T=} opt_defaultValue
      * @return {!T}
      */
-    getPrevious<T>(opt_attribute?: string): T {
+    getPrevious<T>(opt_attribute?: string, opt_defaultValue?: T): T {
         return /** @type {!Objekt|string} */ this._previous.get<T>(
             opt_attribute,
+            opt_defaultValue,
         );
     }
     /**
@@ -318,17 +322,17 @@ export class State {
         return this._getRealUrl(url);
     }
     /**
-     * @param {!Object} state
+     * @param {!Route} state
      * @param {boolean=} opt_overwrite
      * @param {boolean=} opt_force
      * @return {undefined}
      */
     goState(
-        state: Object,
+        state: Route,
         opt_overwrite: boolean | undefined = false,
         opt_force: boolean | undefined = false,
     ): void {
-        this.go(state['id'], state['params'], opt_overwrite, opt_force);
+        this.go(state.get('id'), state.get('params'), opt_overwrite, opt_force);
     }
     /**
      * @param {boolean=} opt_overwrite
@@ -431,7 +435,7 @@ export class State {
      * @return {!Objekt}
      */
     getParams(): Objekt {
-        return /** @type {!Objekt} */ this.getCurrent<Objekt>('params');
+        return /** @type {!Objekt} */ this.getCurrent<Objekt>('params', new Objekt());
     }
     /**
      * @template T

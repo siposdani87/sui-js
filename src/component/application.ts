@@ -37,7 +37,6 @@ import { ClassRef, Injection, Instance } from '../utils';
 
 /**
  * @class
- * @export
  */
 export class Application {
     options: Objekt;
@@ -698,8 +697,7 @@ export class Application {
         return this._module.getController();
     }
     /**
-     * @export
-     * @param {!Array<Route>} routes
+         * @param {!Array<Route>} routes
      * @param {!Array<string>} services
      * @return {undefined}
      */

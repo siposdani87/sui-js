@@ -5,7 +5,6 @@ import { Query } from '../core/query';
 import { consoleWarn } from '../utils/log';
 /**
  * @class
- * @export
  */
 export class TabPanel {
     /**

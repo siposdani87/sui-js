@@ -3,7 +3,6 @@ import { Collection } from './collection';
 import { Item } from './item';
 /**
  * @class
- * @export
  * @extends {Collection}
  * @template T
  */
@@ -23,8 +22,7 @@ export class Query extends Collection {
         });
     }
     /**
-     * @export
-     * @return {!Item}
+         * @return {!Item}
      */
     getItem() {
         let firstNode = /** @type {!Item} */ this.get(0);

@@ -210,14 +210,12 @@ export declare class Item<T extends HTMLElement = HTMLElement> {
      */
     getNextSibling(): Item;
     /**
-     * @export
-     * @param {!string} text
+         * @param {!string} text
      * @return {undefined}
      */
     setHtml(text: string): void;
     /**
-     * @export
-     * @param {boolean=} opt_isInner
+         * @param {boolean=} opt_isInner
      * @return {string}
      */
     getHtml(opt_isInner?: boolean | undefined): string;

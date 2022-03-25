@@ -4,7 +4,6 @@ import { BaseField } from '../field';
 import { Item } from '../core';
 /**
  * @class
- * @export
  * @extends {Collection}
  */
 export declare class Form extends Collection<BaseField> {

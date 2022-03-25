@@ -2,7 +2,6 @@ import { Query } from '../core/query';
 import { Item, Promize } from '../core';
 /**
  * @class
- * @export
  */
 export declare class TabPanel {
     tabPanel: Item;

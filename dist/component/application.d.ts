@@ -3,7 +3,6 @@ import { Route } from './route';
 import { ClassRef, Injection } from '../utils';
 /**
  * @class
- * @export
  */
 export declare class Application {
     options: Objekt;
@@ -237,8 +236,7 @@ export declare class Application {
      */
     getController(): Object | null;
     /**
-     * @export
-     * @param {!Array<Route>} routes
+         * @param {!Array<Route>} routes
      * @param {!Array<string>} services
      * @return {undefined}
      */

@@ -476,16 +476,14 @@ export class Item<T extends HTMLElement = HTMLElement> {
         return new Item(/** @type {T} */ referenceNode as T);
     }
     /**
-     * @export
-     * @param {!string} text
+         * @param {!string} text
      * @return {undefined}
      */
     setHtml(text: string): void {
         this.node.innerHTML = text;
     }
     /**
-     * @export
-     * @param {boolean=} opt_isInner
+         * @param {boolean=} opt_isInner
      * @return {string}
      */
     getHtml(opt_isInner: boolean | undefined = false): string {

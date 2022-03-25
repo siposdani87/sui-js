@@ -1,9 +1,7 @@
 /**
- * @export
  */
 export declare const releaseMode: boolean;
 /**
- * @export
  */
 export declare const coreResources: {
     app: string;

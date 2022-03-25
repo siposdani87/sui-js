@@ -9,7 +9,6 @@ import { Item } from '../core';
 
 /**
  * @class
- * @export
  * @extends {Collection}
  */
 export class Form extends Collection<BaseField> {

@@ -6,7 +6,6 @@ import { FormField } from './formField';
 import { consoleWarn } from '../utils/log';
 /**
  * @class
- * @export
  * @extends {Collection}
  */
 export class Form extends Collection {
