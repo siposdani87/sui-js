@@ -65,7 +65,7 @@ export class Application {
             backend: '',
             production: false,
             secret: 'f74pej3qpb9qmpvregu7ef33m5w6f6qz',
-            log_color: '#3f51b5',
+            log_color: '#000',
         });
         _self.options.merge(options);
     }
