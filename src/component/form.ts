@@ -301,6 +301,25 @@ export class Form extends Collection<BaseField<HTMLInputElement>> {
         }) as any as T;
     }
     /**
+     * @return {undefined}
+     */
+     lock(): void {
+        this.each((field) => {
+            field.disabled = field.isDisabled();
+        });
+        this.each((field) => {
+            field.setDisabled(true);
+        });
+    }
+    /**
+     * @return {undefined}
+     */
+    unlock(): void {
+        this.each((field) => {
+            field.setDisabled(field.disabled);
+        });
+    }
+    /**
      * @param {!Objekt} model
      * @param {!Item} node
      * @return {undefined}
@@ -323,24 +342,5 @@ export class Form extends Collection<BaseField<HTMLInputElement>> {
      */
     eventButton(model: Objekt, node: Item): void {
         consoleWarn('Form.eventButton()', model, node);
-    }
-    /**
-     * @return {undefined}
-     */
-    lock(): void {
-        this.each((field) => {
-            field.disabled = field.isDisabled();
-        });
-        this.each((field) => {
-            field.setDisabled(true);
-        });
-    }
-    /**
-     * @return {undefined}
-     */
-    unlock(): void {
-        this.each((field) => {
-            field.setDisabled(field.disabled);
-        });
     }
 }
