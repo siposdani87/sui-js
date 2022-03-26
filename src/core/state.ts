@@ -302,12 +302,11 @@ export class State {
         const route = this.routes.findById(id);
         let url = '';
         if (route) {
-            const stateUrl =
-                /** @type {string} */ route.get<string>('url');
+            const stateUrl = route.get<string>('url');
             const router = new Router(stateUrl);
             url = router.stringify(opt_params);
         }
-        return [url, route?.state];
+        return [url, route];
     }
     /**
      * @param {string} id
@@ -344,8 +343,8 @@ export class State {
         opt_force: boolean | undefined = false,
     ): void {
         this.go(
-            this.options.root.id,
-            this.options.root.params,
+            this.options.get('root.id'),
+            this.options.get('root.params'),
             opt_overwrite,
             opt_force,
         );

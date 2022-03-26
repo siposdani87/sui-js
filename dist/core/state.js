@@ -248,12 +248,11 @@ export class State {
         const route = this.routes.findById(id);
         let url = '';
         if (route) {
-            const stateUrl = 
-            /** @type {string} */ route.get('url');
+            const stateUrl = route.get('url');
             const router = new Router(stateUrl);
             url = router.stringify(opt_params);
         }
-        return [url, route === null || route === void 0 ? void 0 : route.state];
+        return [url, route];
     }
     /**
      * @param {string} id
@@ -279,7 +278,7 @@ export class State {
      * @return {undefined}
      */
     goRoot(opt_overwrite = false, opt_force = false) {
-        this.go(this.options.root.id, this.options.root.params, opt_overwrite, opt_force);
+        this.go(this.options.get('root.id'), this.options.get('root.params'), opt_overwrite, opt_force);
     }
     /**
      * @param {string} id
