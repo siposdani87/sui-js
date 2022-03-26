@@ -110,14 +110,14 @@ export declare class Item<T extends HTMLElement = HTMLElement> {
      * @param {!Function=} opt_callback
      * @return {!Function}
      */
-    addEventListener(eventName: string, opt_callback: Function | undefined): Function;
+    addEventListener(eventName: string, opt_callback?: Function): Function;
     /**
      * @private
      * @param {string} eventName
-     * @param {!Function=} listener
+     * @param {!Function} listener
      * @return {undefined}
      */
-    _addListenerToStore(eventName: string, listener: Function | undefined): void;
+    _addListenerToStore(eventName: string, listener: Function): void;
     /**
      * @private
      * @param {string} eventName

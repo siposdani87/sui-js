@@ -222,7 +222,7 @@ export class Item {
     /**
      * @private
      * @param {string} eventName
-     * @param {!Function=} listener
+     * @param {!Function} listener
      * @return {undefined}
      */
     _addListenerToStore(eventName, listener) {

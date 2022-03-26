@@ -211,9 +211,6 @@ export class BaseField<T extends HTMLInputElement> {
      * @return {*}
      */
     get(attribute: string): any {
-        if (attribute === 'modelName') {
-            return this.getName();
-        }
         return this.input.get(attribute);
     }
     /**

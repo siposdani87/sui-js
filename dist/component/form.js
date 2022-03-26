@@ -255,13 +255,31 @@ export class Form extends Collection {
         this._initFields();
     }
     /**
-     * @param {string} value
+     * @param {string} name
      * @return {!BaseField}
      */
-    findByModel(value) {
-        return this.findByCondition((_item, i) => {
-            const modelName = this.get(i, 'modelName');
-            return modelName === value;
+    findByModel(name) {
+        return this.findByCondition((item) => {
+            return item.getName() === name;
+        });
+    }
+    /**
+     * @return {undefined}
+     */
+    lock() {
+        this.each((field) => {
+            field.disabled = field.isDisabled();
+        });
+        this.each((field) => {
+            field.setDisabled(true);
+        });
+    }
+    /**
+     * @return {undefined}
+     */
+    unlock() {
+        this.each((field) => {
+            field.setDisabled(field.disabled);
         });
     }
     /**
@@ -287,24 +305,5 @@ export class Form extends Collection {
      */
     eventButton(model, node) {
         consoleWarn('Form.eventButton()', model, node);
-    }
-    /**
-     * @return {undefined}
-     */
-    lock() {
-        this.each((field) => {
-            field.disabled = field.isDisabled();
-        });
-        this.each((field) => {
-            field.setDisabled(true);
-        });
-    }
-    /**
-     * @return {undefined}
-     */
-    unlock() {
-        this.each((field) => {
-            field.setDisabled(field.disabled);
-        });
     }
 }

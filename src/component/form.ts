@@ -291,13 +291,12 @@ export class Form extends Collection<BaseField<HTMLInputElement>> {
         this._initFields();
     }
     /**
-     * @param {string} value
+     * @param {string} name
      * @return {!BaseField}
      */
-    findByModel<T = BaseField<HTMLInputElement>>(value: string): T {
-        return this.findByCondition((_item, i) => {
-            const modelName = this.get<string>(i, 'modelName');
-            return modelName === value;
+    findByModel<T = BaseField<HTMLInputElement>>(name: string): T {
+        return this.findByCondition((item) => {
+            return item.getName() === name;
         }) as any as T;
     }
     /**

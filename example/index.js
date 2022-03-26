@@ -88,4 +88,7 @@ app.setRootState('page1');
 app.run(routes, providers);
 
 const form = new SUI.Form();
+const inputField = form.findByModel('light-input-text-default');
+console.log(inputField.getName());
+
 const tabPanel = new SUI.TabPanel(document, '.tab-panel', 'form-panel');
