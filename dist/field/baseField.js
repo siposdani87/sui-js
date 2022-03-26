@@ -188,9 +188,6 @@ export class BaseField {
      * @return {*}
      */
     get(attribute) {
-        if (attribute === 'modelName') {
-            return this.getName();
-        }
         return this.input.get(attribute);
     }
     /**

@@ -22,7 +22,7 @@
   "keywords": [
     "sui-js"
   ],
-  "author": "Dániel Sipos",
+  "author": "Dániel Sipos <siposdani87@gmail.com> (https://siposdani87.com)",
   "homepage": "https://siposdani87.com",
   "files": [
     "dist/*",

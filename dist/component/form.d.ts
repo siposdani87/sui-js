@@ -110,10 +110,18 @@ export declare class Form extends Collection<BaseField<HTMLInputElement>> {
      */
     refresh(): void;
     /**
-     * @param {string} value
+     * @param {string} name
      * @return {!BaseField}
      */
-    findByModel<T = BaseField<HTMLInputElement>>(value: string): T;
+    findByModel<T = BaseField<HTMLInputElement>>(name: string): T;
+    /**
+     * @return {undefined}
+     */
+    lock(): void;
+    /**
+     * @return {undefined}
+     */
+    unlock(): void;
     /**
      * @param {!Objekt} model
      * @param {!Item} node
@@ -132,12 +140,4 @@ export declare class Form extends Collection<BaseField<HTMLInputElement>> {
      * @return {undefined}
      */
     eventButton(model: Objekt, node: Item): void;
-    /**
-     * @return {undefined}
-     */
-    lock(): void;
-    /**
-     * @return {undefined}
-     */
-    unlock(): void;
 }
