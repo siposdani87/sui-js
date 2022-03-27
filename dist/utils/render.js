@@ -19,17 +19,3 @@ export const mdl = (opt_node, opt_forceDowngrade = true) => {
         window['componentHandler']['upgradeDom']();
     }
 };
-/**
- * @param {ClassRef} classRef
- * @param {!Object} props
- * @param {!Item} mountNode
- * @return {!Object}
- */
-export const renderReact = (classRef, props, mountNode) => window['ReactDOM']['render'](window['React']['createElement'](classRef, props), mountNode.getNode());
-/**
- * @param {!Item} mountNode
- * @return {undefined}
- */
-export const unmountReact = (mountNode) => {
-    window['ReactDOM']['unmountComponentAtNode'](mountNode.getNode());
-};
