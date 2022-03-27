@@ -1,5 +1,4 @@
 import { Item } from '../core';
-import { ClassRef } from './types';
 
 /**
  * @param {!Item|!Element=} opt_node
@@ -22,28 +21,4 @@ export const mdl = (
     } else {
         window['componentHandler']['upgradeDom']();
     }
-};
-
-/**
- * @param {ClassRef} classRef
- * @param {!Object} props
- * @param {!Item} mountNode
- * @return {!Object}
- */
-export const renderReact = (
-    classRef: ClassRef,
-    props: Object,
-    mountNode: Item,
-): Object =>
-    window['ReactDOM']['render'](
-        window['React']['createElement'](classRef, props),
-        mountNode.getNode(),
-    );
-
-/**
- * @param {!Item} mountNode
- * @return {undefined}
- */
-export const unmountReact = (mountNode: Item): void => {
-    window['ReactDOM']['unmountComponentAtNode'](mountNode.getNode());
 };
