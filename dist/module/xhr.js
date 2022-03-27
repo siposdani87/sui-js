@@ -303,18 +303,16 @@ export class Xhr {
                     if (instanceOf(data, Blob)) {
                         const reader = new FileReader();
                         reader.addEventListener('loadend', (e) => {
-                            data = JSON.parse(
-                            /** @type {string} */ e.target
-                                .result || 'null');
+                            data = JSON.parse(e.target.result || 'null');
                             const object = new Objekt();
                             object.merge(data);
                             deferred.resolve([[object, filename]]);
                         });
-                        reader.readAsText(/** @type {!Blob} */ data);
+                        reader.readAsText(data);
                     }
                     else {
                         data = isString(data)
-                            ? JSON.parse(/** @type {string} */ data || 'null')
+                            ? JSON.parse(data || 'null')
                             : data;
                         const object = new Objekt();
                         object.merge(data);

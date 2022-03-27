@@ -49,7 +49,7 @@ export class CardCollection {
      * @return {undefined}
      */
     _init() {
-        this.collection = /** @type {!Collection<!Objekt>} */ new Collection();
+        this.collection = new Collection();
         this.query = '';
         this._initContentHandler();
         this._initStructure();

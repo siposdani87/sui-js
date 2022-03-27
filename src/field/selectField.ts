@@ -38,7 +38,12 @@ export class SelectField extends BaseField<HTMLInputElement> {
      * @param {!Item} error
      * @param {!Item} inputBlock
      */
-    constructor(input: Item<HTMLInputElement>, label: Item, error: Item, inputBlock: Item) {
+    constructor(
+        input: Item<HTMLInputElement>,
+        label: Item,
+        error: Item,
+        inputBlock: Item,
+    ) {
         super(input, label, error, inputBlock);
         this._init();
     }
@@ -91,7 +96,7 @@ export class SelectField extends BaseField<HTMLInputElement> {
      * @return {undefined}
      */
     private _initOptions(): void {
-        this.options = /** @type {!Collection<!Objekt>} */ new Collection();
+        this.options = new Collection();
 
         const optionNodes = new Query('option', this.input);
         optionNodes.each((optionNode) => {
@@ -184,7 +189,7 @@ export class SelectField extends BaseField<HTMLInputElement> {
         if (!isArray(value)) {
             this.ids = [value as string];
         }
-        this._setSelectedIds(/** @type {!Array} */ this.ids);
+        this._setSelectedIds(this.ids);
     }
     /**
      * @override

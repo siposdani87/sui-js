@@ -167,19 +167,20 @@ export class Application {
             this._instances[this._injections.loader].show();
             this._instances[this._injections.event].call('module.afterInit');
         };
-        this._module.eventStateChange =
-            /** @type {function(!Objekt):!Promize} */ (currentState) => {
-                this._instances[this._injections.progressBar].lock();
-                this._instances[this._injections.loader].show();
-                this._instances[this._injections.dialog].close();
-                this._instances[this._injections.confirm].close();
-                this._instances[this._injections.actionCable].unsubscribeAll();
-                return this._instances[this._injections.event].call('state.change', [currentState]);
-            };
-        this._module.eventDomChange =
-            /** @type {function(!Objekt, !Item):!Promize} */ (state, dom) => {
-                return this._instances[this._injections.event].call('dom.change', [state, dom]);
-            };
+        this._module.eventStateChange = (currentState) => {
+            this._instances[this._injections.progressBar].lock();
+            this._instances[this._injections.loader].show();
+            this._instances[this._injections.dialog].close();
+            this._instances[this._injections.confirm].close();
+            this._instances[this._injections.actionCable].unsubscribeAll();
+            return this._instances[this._injections.event].call('state.change', [currentState]);
+        };
+        this._module.eventDomChange = (state, dom) => {
+            return this._instances[this._injections.event].call('dom.change', [
+                state,
+                dom,
+            ]);
+        };
         this._module.eventServiceLoaded = () => {
             // this._instances[this._injections.geoLocation].setWatcher();
             this._instances[this._injections.browser].detect();
@@ -188,30 +189,28 @@ export class Application {
         this._module.eventServiceFailed = () => {
             this._instances[this._injections.event].call('module.serviceFailed');
         };
-        this._module.eventModuleLoaded =
-            /** @type {function(!Objekt):undefined} */ (state) => {
-                this._instances[this._injections.progressBar].unlock();
-                this._instances[this._injections.loader].hide(true);
-                this._instances[this._injections.event].call('module.loaded', [
-                    state,
-                ]);
-            };
-        this._module.eventModuleFailed =
-            /** @type {function(!Objekt):undefined} */ (state) => {
-                this._instances[this._injections.progressBar].unlock();
-                this._instances[this._injections.loader].hide(true);
-                this._instances[this._injections.event].call('module.failed', [
-                    state,
-                ]);
-            };
-        this._module.eventControllerLoaded =
-            /** @type {function(!Item):undefined} */ (dom) => {
-                this._instances[this._injections.event].call('controller.loaded', [dom]);
-            };
-        this._module.eventControllerFailed =
-            /** @type {function():undefined} */ () => {
-                this._instances[this._injections.event].call('controller.failed', []);
-            };
+        this._module.eventModuleLoaded = (state) => {
+            this._instances[this._injections.progressBar].unlock();
+            this._instances[this._injections.loader].hide(true);
+            this._instances[this._injections.event].call('module.loaded', [
+                state,
+            ]);
+        };
+        this._module.eventModuleFailed = (state) => {
+            this._instances[this._injections.progressBar].unlock();
+            this._instances[this._injections.loader].hide(true);
+            this._instances[this._injections.event].call('module.failed', [
+                state,
+            ]);
+        };
+        this._module.eventControllerLoaded = (dom) => {
+            this._instances[this._injections.event].call('controller.loaded', [
+                dom,
+            ]);
+        };
+        this._module.eventControllerFailed = () => {
+            this._instances[this._injections.event].call('controller.failed', []);
+        };
     }
     /**
      * @private
@@ -562,7 +561,7 @@ export class Application {
         return this._module.getController();
     }
     /**
-         * @param {!Array<Route>} routes
+     * @param {!Array<Route>} routes
      * @param {!Array<string>} services
      * @return {undefined}
      */

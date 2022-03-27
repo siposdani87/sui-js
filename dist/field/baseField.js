@@ -72,7 +72,7 @@ export class BaseField {
      * @return {string}
      */
     getName() {
-        const name = /** @type {string} */ this.input.getAttribute('name');
+        const name = this.input.getAttribute('name');
         return this._getAttributeName(name);
     }
     /**
@@ -154,7 +154,7 @@ export class BaseField {
      * @return {!Item}
      */
     _getUpgradedNode() {
-        return /** @type {!Item} */ this.inputBlock;
+        return this.inputBlock;
     }
     /**
      * @param {!Object|!Function|!Array|boolean|number|string|null|undefined} value
@@ -315,8 +315,8 @@ export class BaseField {
      * @return {undefined}
      */
     _setInfo(label) {
-        const title = /** @type {string} */ label.getAttribute('title');
-        const description = /** @type {string} */ label.getAttribute('desc');
+        const title = label.getAttribute('title');
+        const description = label.getAttribute('desc');
         if (title || description) {
             let infoButton = new Query('a.info-button', this.infoContainerNode).getItem();
             if (!infoButton.isEmpty()) {

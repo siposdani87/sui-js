@@ -23,11 +23,10 @@ export class Canvas {
      * @return {undefined}
      */
     private _init(opt_selector?: Item | string): void {
-        this.canvasNode =
-            /** @type {!Item} */ opt_selector as Item<HTMLCanvasElement>;
+        this.canvasNode = opt_selector as Item<HTMLCanvasElement>;
         if (isString(opt_selector)) {
             this.canvasNode = new Query<HTMLCanvasElement>(
-                /** @type {string} */ opt_selector as string,
+                opt_selector as string,
             ).getItem();
         } else if (isUndefined(opt_selector)) {
             this.canvasNode = new Item<HTMLCanvasElement>('canvas');

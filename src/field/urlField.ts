@@ -14,7 +14,12 @@ export class UrlField extends BaseField<HTMLInputElement> {
      * @param {!Item} error
      * @param {!Item} inputBlock
      */
-    constructor(input: Item<HTMLInputElement>, label: Item, error: Item, inputBlock: Item) {
+    constructor(
+        input: Item<HTMLInputElement>,
+        label: Item,
+        error: Item,
+        inputBlock: Item,
+    ) {
         super(input, label, error, inputBlock);
         this._init();
     }
@@ -29,7 +34,7 @@ export class UrlField extends BaseField<HTMLInputElement> {
          * @private
          * @const {string}
          */
-        this.protocol = /** @type {string} */ this.input.getData('protocol');
+        this.protocol = this.input.getData('protocol');
 
         this.input.addEventListener('keyup', (input) => {
             const inputNode = input.getNode();

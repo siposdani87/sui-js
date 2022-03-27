@@ -398,17 +398,16 @@ export class Xhr {
                         const reader = new FileReader();
                         reader.addEventListener('loadend', (e) => {
                             data = JSON.parse(
-                                /** @type {string} */ (e.target
-                                    .result as string) || 'null',
+                                (e.target.result as string) || 'null',
                             );
                             const object = new Objekt();
                             object.merge(data);
                             deferred.resolve([[object, filename]]);
                         });
-                        reader.readAsText(/** @type {!Blob} */ data);
+                        reader.readAsText(data);
                     } else {
                         data = isString(data)
-                            ? JSON.parse(/** @type {string} */ data || 'null')
+                            ? JSON.parse(data || 'null')
                             : data;
                         const object = new Objekt();
                         object.merge(data);

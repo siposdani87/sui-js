@@ -42,7 +42,7 @@ export class LocationField extends BaseField {
             const inputNode = input.getNode();
             const location = this.getValue();
             location['address'] = typeCast(inputNode.value);
-            this._setDataValue(/** @type {!Object} */ location);
+            this._setDataValue(location);
             this.modelChange(location);
             return true;
         });
@@ -152,16 +152,14 @@ export class LocationField extends BaseField {
         this.advancedNode = new Item('div');
         this.advancedNode.addClass(['advanced', 'row', 'hidden']);
         this.inputBlock.appendChild(this.advancedNode);
-        this.latitudeInput = this._renderAdvancedInput(generateId('latitude'), 
-        /** @type {string} */ this.input.getData('latitude'), (inputNode) => {
-            const location = /** @type {!Object} */ this.getValue();
+        this.latitudeInput = this._renderAdvancedInput(generateId('latitude'), this.input.getData('latitude'), (inputNode) => {
+            const location = this.getValue();
             const latitude = inputNode.getNode().value;
             location['latitude'] = latitude;
             this.setValue(location);
         });
-        this.longitudeInput = this._renderAdvancedInput(generateId('longitude'), 
-        /** @type {string} */ this.input.getData('longitude'), (inputNode) => {
-            const location = /** @type {!Object} */ this.getValue();
+        this.longitudeInput = this._renderAdvancedInput(generateId('longitude'), this.input.getData('longitude'), (inputNode) => {
+            const location = this.getValue();
             const longitude = inputNode.getNode().value;
             location['longitude'] = longitude;
             this.setValue(location);
@@ -252,7 +250,7 @@ export class LocationField extends BaseField {
      * @return {undefined}
      */
     _setDefaultValue() {
-        const location = /** @type {!Object} */ this.getValue();
+        const location = this.getValue();
         if (!isNull(location['latitude']) && !isNull(location['longitude'])) {
             this.map.setCenter(location['latitude'], location['longitude']);
             this.map.createMarker(0, '', 'marker', location['latitude'], location['longitude']);
@@ -265,7 +263,7 @@ export class LocationField extends BaseField {
      * @return {undefined}
      */
     updatePosition(latitude, longitude) {
-        const location = /** @type {!Object} */ this.getValue();
+        const location = this.getValue();
         location['latitude'] = latitude;
         location['longitude'] = longitude;
         this.setValue(location);
@@ -287,7 +285,7 @@ export class LocationField extends BaseField {
      * @return {undefined}
      */
     setValue(value) {
-        this._setDataValue(/** @type {!Object} */ value);
+        this._setDataValue(value);
         this.map.removeMarker(0);
         if (!isNull(value['latitude']) && !isNull(value['longitude'])) {
             this.map.setCenter(value['latitude'], value['longitude']);

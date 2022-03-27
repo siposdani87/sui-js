@@ -43,7 +43,7 @@ export class Dropdown {
      * @return {undefined}
      */
     private _init(): void {
-        this.collection = /** @type {!Collection<!Objekt>} */ new Collection();
+        this.collection = new Collection();
         this.actions = [];
         this.item = null;
         this._appendButton();

@@ -37,7 +37,7 @@ export class Navigation {
      * @return {undefined}
      */
     private _init(): void {
-        this.container = /** @type {!Collection<!Objekt>} */ new Collection();
+        this.container = new Collection();
 
         this.linkNodeKey = 'node';
     }
@@ -46,14 +46,14 @@ export class Navigation {
      * @return {undefined}
      */
     add(item: Objekt): void {
-        const id = /** @type {string} */ item.get<string>('id');
-        const image = /** @type {string} */ item.get<string>('image');
-        const icon = /** @type {string} */ item.get<string>('icon');
-        const title = /** @type {string} */ item.get<string>('title');
-        const counter = /** @type {string} */ item.get<string>('counter');
-        const href = /** @type {string} */ item.get<string>('href');
-        const action = /** @type {!Function} */ item.get<Function>('action');
-        const disabled = /** @type {boolean} */ item.get<boolean>('disabled');
+        const id = item.get<string>('id');
+        const image = item.get<string>('image');
+        const icon = item.get<string>('icon');
+        const title = item.get<string>('title');
+        const counter = item.get<string>('counter');
+        const href = item.get<string>('href');
+        const action = item.get<Function>('action');
+        const disabled = item.get<boolean>('disabled');
 
         if (image) {
             this.addImage(id, image, title, action, href, item);
@@ -292,11 +292,8 @@ export class Navigation {
         this._disabled(item);
         const linkNode = item.get<Item>(this.linkNodeKey);
         linkNode.removeClass('disabled');
-        const action =
-            /** @type {function(string):undefined} */ item.get<Function>(
-                'action',
-            );
-        const href = /** @type {string} */ item.get<string>('href');
+        const action = item.get<Function>('action');
+        const href = item.get<string>('href');
         linkNode.setAttribute('href', href);
         const listener = linkNode.addEventListener('click', () => {
             action(href);

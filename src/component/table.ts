@@ -82,7 +82,7 @@ export class Table {
      * @return {undefined}
      */
     private _init(): void {
-        this.collection = /** @type {!Collection<!Objekt>} */ new Collection();
+        this.collection = new Collection();
         this.query = '';
         this.actions = [];
         if (!this.tableNode.getId()) {
@@ -210,10 +210,8 @@ export class Table {
             iconsContainerNode.appendChild(iconDown);
         }
 
-        const headerTitle =
-            /** @type {string} */ headerNode.getAttribute('title');
-        const headerDesc =
-            /** @type {string} */ headerNode.getAttribute('desc');
+        const headerTitle = headerNode.getAttribute('title');
+        const headerDesc = headerNode.getAttribute('desc');
         if (headerTitle || headerDesc) {
             const iconInfo = new Item('em');
             if (headerTitle) {
@@ -473,17 +471,17 @@ export class Table {
         if (!isArray(result)) {
             items = [result];
         } else {
-            items = /** @type {!Array} */ result as any;
+            items = result as any;
         }
         eachArray(items, (item) => {
             if (!instanceOf(item, Item)) {
                 const dataNode = new Item('span');
-                dataNode.setHtml(/** @type {string} */ item);
+                dataNode.setHtml(item);
                 item = dataNode;
             }
-            parentNode.appendChild(/** @type {!Item} */ item);
+            parentNode.appendChild(item);
             if (item.getAttribute('title') || item.getAttribute('desc')) {
-                const tooltip = new Tooltip(/** @type {!Item} */ item);
+                const tooltip = new Tooltip(item);
                 tooltip.render();
             }
         });
@@ -589,7 +587,7 @@ export class Table {
             }
             const iconNode = new Item('em');
             iconNode.addClass('material-icons');
-            iconNode.setHtml(/** @type {string} */ icon);
+            iconNode.setHtml(icon);
             buttonNode.appendChild(iconNode);
         }
     }

@@ -65,13 +65,18 @@ export class Module {
      * @return {Array<string>}
      */
     _getSortedServices(services) {
-        const edges = services.map((service) => {
+        const edges = services
+            .map((service) => {
             const moduleInjections = this._modules[service].moduleInjections.filter((moduleInjection) => services.includes(moduleInjection));
             if (moduleInjections.length === 0) {
                 moduleInjections.push(null);
             }
-            return moduleInjections.map((injection) => [injection, service]);
-        }).flat();
+            return moduleInjections.map((injection) => [
+                injection,
+                service,
+            ]);
+        })
+            .flat();
         return this._topologicalSort(edges).slice(1);
     }
     /**

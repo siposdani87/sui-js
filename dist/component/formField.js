@@ -36,15 +36,14 @@ export const FormField = function (inputBlock, form) {
     const tagType = inputBlock.getAttribute('type');
     if (eq(tagName, 'input') &&
         !inArray(['hidden', 'reset', 'submit', 'button'], tagType)) {
-        inputBlock = /** @type {!Item}*/ inputBlock.getParentNode();
+        inputBlock =
+            /** @type {!Item}*/ inputBlock.getParentNode();
         selectedIndex = 0;
     }
     tagName = inputBlock.getTagName();
     if (eq(tagName, 'div')) {
         const inputs = new Query('input, textarea, select', inputBlock).getItems();
-        const index = selectedIndex !== null
-            ? /** @type {number} */ selectedIndex
-            : inputs.length - 1;
+        const index = selectedIndex !== null ? selectedIndex : inputs.length - 1;
         input = inputs[index];
         label = new Query('label', inputBlock).getItem();
         error = inputBlock.createElement('span');
@@ -68,14 +67,10 @@ const _getField = (input, label, error, inputBlock, form) => {
     const tagName = input.getTagName();
     let result = null;
     if (eq(tagName, 'textarea')) {
-        result = new TextareaField(input, 
-        /** @type {!Item} */ label, 
-        /** @type {!Item} */ error, inputBlock);
+        result = new TextareaField(input, label, error, inputBlock);
     }
     if (eq(tagName, 'select')) {
-        result = new SelectField(input, 
-        /** @type {!Item} */ label, 
-        /** @type {!Item} */ error, inputBlock);
+        result = new SelectField(input, label, error, inputBlock);
     }
     else if (eq(tagName, 'input') || eq(tagName, 'button')) {
         const type = input.get('type');
@@ -98,94 +93,64 @@ const _getField = (input, label, error, inputBlock, form) => {
             case 'year':
                 const inputs = new Query('input', inputBlock);
                 if (inputs.size() === 2) {
-                    let handledInput = /** @type {!Item} */ inputs.get(0);
+                    let handledInput = inputs.get(0);
                     let isStartInput = true;
                     if (handledInput.getAttribute('name') ===
                         input.getAttribute('name')) {
-                        handledInput = /** @type {!Item} */ inputs.get(1);
+                        handledInput = inputs.get(1);
                         isStartInput = false;
                     }
-                    result = new DateTimeRangeField(handledInput, 
-                    /** @type {!Item} */ label, 
-                    /** @type {!Item} */ error, inputBlock, isStartInput);
+                    result = new DateTimeRangeField(handledInput, label, error, inputBlock, isStartInput);
                 }
                 else {
-                    result = new DateTimeField(input, 
-                    /** @type {!Item} */ label, 
-                    /** @type {!Item} */ error, inputBlock);
+                    result = new DateTimeField(input, label, error, inputBlock);
                 }
                 break;
             case 'file':
-                result = new FileField(input, 
-                /** @type {!Item} */ label, 
-                /** @type {!Item} */ error, inputBlock);
+                result = new FileField(input, label, error, inputBlock);
                 break;
             case 'checkbox':
                 if (eq(dataType, 'switch')) {
-                    result = new SwitchField(input, 
-                    /** @type {!Item} */ label, 
-                    /** @type {!Item} */ error, inputBlock);
+                    result = new SwitchField(input, label, error, inputBlock);
                 }
                 else if (eq(dataType, 'icon-toggle')) {
-                    result = new IconToggleField(input, 
-                    /** @type {!Item} */ label, 
-                    /** @type {!Item} */ error, inputBlock);
+                    result = new IconToggleField(input, label, error, inputBlock);
                 }
                 else {
-                    result = new CheckboxField(input, 
-                    /** @type {!Item} */ label, 
-                    /** @type {!Item} */ error, inputBlock);
+                    result = new CheckboxField(input, label, error, inputBlock);
                 }
                 break;
             case 'radio':
-                result = new RadiobuttonField(input, 
-                /** @type {!Item} */ label, 
-                /** @type {!Item} */ error, inputBlock, form);
+                result = new RadiobuttonField(input, label, error, inputBlock, form);
                 break;
             case 'range':
-                result = new RangeField(input, 
-                /** @type {!Item} */ label, 
-                /** @type {!Item} */ error, inputBlock);
+                result = new RangeField(input, label, error, inputBlock);
                 break;
             case 'color':
-                result = new ColorField(input, 
-                /** @type {!Item} */ label, 
-                /** @type {!Item} */ error, inputBlock);
+                result = new ColorField(input, label, error, inputBlock);
                 break;
             case 'hidden':
                 result = new HiddenField(input);
                 break;
             case 'number':
-                result = new NumberField(input, 
-                /** @type {!Item} */ label, 
-                /** @type {!Item} */ error, inputBlock);
+                result = new NumberField(input, label, error, inputBlock);
                 break;
             case 'url':
-                result = new UrlField(input, 
-                /** @type {!Item} */ label, 
-                /** @type {!Item} */ error, inputBlock);
+                result = new UrlField(input, label, error, inputBlock);
                 break;
             case 'search':
-                result = new SearchField(input, 
-                /** @type {!Item} */ label, 
-                /** @type {!Item} */ error, inputBlock);
+                result = new SearchField(input, label, error, inputBlock);
                 break;
             case 'text':
                 if (eq(dataType, 'location')) {
-                    result = new LocationField(input, 
-                    /** @type {!Item} */ label, 
-                    /** @type {!Item} */ error, inputBlock);
+                    result = new LocationField(input, label, error, inputBlock);
                 }
                 else {
-                    result = new TextField(input, 
-                    /** @type {!Item} */ label, 
-                    /** @type {!Item} */ error, inputBlock);
+                    result = new TextField(input, label, error, inputBlock);
                 }
                 break;
             default:
-                result = new TextField(input, 
-                /** @type {!Item} */ label, 
-                /** @type {!Item} */ error, inputBlock);
+                result = new TextField(input, label, error, inputBlock);
                 break;
         }
     }

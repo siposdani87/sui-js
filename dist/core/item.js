@@ -11,18 +11,16 @@ export class Item {
      */
     constructor(node, opt_parentNode) {
         if (isString(node)) {
-            if (contain(/** @type {string} */ node, '<') &&
-                contain(/** @type {string} */ node, '</')) {
+            if (contain(node, '<') && contain(node, '</')) {
                 const template = document.createElement('template');
                 template.innerHTML = node;
                 node = template.content.firstElementChild;
             }
             else {
-                node = document.createElement(
-                /** @type {string} */ node);
+                node = document.createElement(node);
             }
         }
-        this.node = /** @type {!T} */ node;
+        this.node = node;
         this.parentNode = opt_parentNode;
         this.listenerStoreKey = '_listeners';
     }
@@ -96,7 +94,7 @@ export class Item {
      */
     getFor() {
         return (this.node.htmlFor ||
-            /** @type {string} */ this.getAttribute('for'));
+            this.getAttribute('for'));
     }
     /**
      * @param {string} cssClass
@@ -169,8 +167,7 @@ export class Item {
             this.node.setAttribute(attribute, JSON.stringify(value));
         }
         else {
-            this.node.setAttribute(attribute, 
-            /** @type {string} */ value);
+            this.node.setAttribute(attribute, value);
         }
     }
     /**
@@ -411,17 +408,17 @@ export class Item {
      */
     getNextSibling() {
         const referenceNode = this.node.nextSibling || this.node.nextElementSibling;
-        return new Item(/** @type {T} */ referenceNode);
+        return new Item(referenceNode);
     }
     /**
-         * @param {!string} text
+     * @param {!string} text
      * @return {undefined}
      */
     setHtml(text) {
         this.node.innerHTML = text;
     }
     /**
-         * @param {boolean=} opt_isInner
+     * @param {boolean=} opt_isInner
      * @return {string}
      */
     getHtml(opt_isInner = false) {

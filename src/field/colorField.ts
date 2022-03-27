@@ -25,7 +25,12 @@ export class ColorField extends BaseField<HTMLInputElement> {
      * @param {!Item} error
      * @param {!Item} inputBlock
      */
-    constructor(input: Item<HTMLInputElement>, label: Item, error: Item, inputBlock: Item) {
+    constructor(
+        input: Item<HTMLInputElement>,
+        label: Item,
+        error: Item,
+        inputBlock: Item,
+    ) {
         super(input, label, error, inputBlock);
         this._init();
     }
@@ -65,7 +70,7 @@ export class ColorField extends BaseField<HTMLInputElement> {
             this.inputBlock.removeClass('is-disabled');
         }
 
-        const color = /** @type {string} */ this.getValue() || '#000000';
+        const color = this.getValue() || '#000000';
         this.setValue(color);
     }
     /**
@@ -115,12 +120,8 @@ export class ColorField extends BaseField<HTMLInputElement> {
      */
     private _draw(): void {
         if (!this.image.isEmpty()) {
-            const width = /** @type {number} */ typeCast(
-                this.image.getAttribute('width'),
-            );
-            const height = /** @type {number} */ typeCast(
-                this.image.getAttribute('height'),
-            );
+            const width = typeCast(this.image.getAttribute('width'));
+            const height = typeCast(this.image.getAttribute('height'));
             this.canvas.setSize(width, height);
             this.canvas.drawImage(this.image, width, height);
         } else {
@@ -169,10 +170,11 @@ export class ColorField extends BaseField<HTMLInputElement> {
                 x = e.layerX;
                 y = e.layerY;
             }
-            const rgb = /** @type {!Array} */ this.canvas.getImageDataXY(
-                x,
-                y,
-            ) as any as [number, number, number];
+            const rgb = this.canvas.getImageDataXY(x, y) as any as [
+                number,
+                number,
+                number,
+            ];
             const hex = convertRGBToHEX(...rgb);
 
             this.setValue(hex);

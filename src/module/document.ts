@@ -32,9 +32,7 @@ export class Document {
     private _init(): void {
         this.document = document;
         this.document.addEventListener('click', (event) => {
-            const target = new Item(
-                /** @type {!Element} */ event.target as HTMLElement,
-            );
+            const target = new Item(event.target as HTMLElement);
             this.eventClick(target, event);
         });
     }

@@ -18,7 +18,12 @@ export class BaseCheckboxField extends BaseField<HTMLInputElement> {
      * @param {!Item} error
      * @param {!Item} inputBlock
      */
-    constructor(input: Item<HTMLInputElement>, label: Item, error: Item, inputBlock: Item) {
+    constructor(
+        input: Item<HTMLInputElement>,
+        label: Item,
+        error: Item,
+        inputBlock: Item,
+    ) {
         super(input, label, error, inputBlock);
         this._init();
     }
@@ -114,8 +119,7 @@ export class BaseCheckboxField extends BaseField<HTMLInputElement> {
      * @override
      */
     refresh() {
-        const dataLabelText =
-            /** @type {string} */ this.label.getAttribute('data-label');
+        const dataLabelText = this.label.getAttribute('data-label');
         if (dataLabelText) {
             const labelText = this._getLabelRequiredText(dataLabelText);
             this.dataLabelNode.setHtml(labelText);

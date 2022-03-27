@@ -17,7 +17,12 @@ export class TextareaField extends BaseField<HTMLInputElement> {
      * @param {!Item} error
      * @param {!Item} inputBlock
      */
-    constructor(input: Item<HTMLInputElement>, label: Item, error: Item, inputBlock: Item) {
+    constructor(
+        input: Item<HTMLInputElement>,
+        label: Item,
+        error: Item,
+        inputBlock: Item,
+    ) {
         super(input, label, error, inputBlock);
         this._init();
     }
@@ -69,7 +74,7 @@ export class TextareaField extends BaseField<HTMLInputElement> {
     private _renderRichText(): void {
         this.input.addClass('hidden');
 
-        let value = /** @type {string} */ this.getValue();
+        let value = this.getValue();
         value =
             value.indexOf('<p>') === 0 ? value : `<p>${value || '<br />'}</p>`;
 

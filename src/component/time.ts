@@ -131,7 +131,7 @@ export class Time {
     private _setCircleEvent(circle: Item, i: number): void {
         circle.setData('index', i);
         circle.addEventListener('click', (circle) => {
-            const index = /** @type {number} */ circle.getData('index');
+            const index = circle.getData('index');
             this.eventClick(index);
         });
     }

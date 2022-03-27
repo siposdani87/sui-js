@@ -48,7 +48,7 @@ export class Event {
      * @return {!Promize}
      */
     call(name, opt_args = []) {
-        const calls = /** @type {!Array<function()>} */ this.eventStore.get(name, [noop()]);
+        const calls = this.eventStore.get(name, [noop()]);
         const async = new Async();
         return async.serial(calls, opt_args);
     }
@@ -59,7 +59,7 @@ export class Event {
      * @return {!Promize}
      */
     override(name, args, callback) {
-        const calls = /** @type {!Array<function()>} */ this.eventStore.get(name, [callback]);
+        const calls = this.eventStore.get(name, [callback]);
         const async = new Async();
         return async.serial(calls, args);
     }

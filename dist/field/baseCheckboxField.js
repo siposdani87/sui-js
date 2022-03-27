@@ -96,8 +96,7 @@ export class BaseCheckboxField extends BaseField {
      * @override
      */
     refresh() {
-        const dataLabelText = 
-        /** @type {string} */ this.label.getAttribute('data-label');
+        const dataLabelText = this.label.getAttribute('data-label');
         if (dataLabelText) {
             const labelText = this._getLabelRequiredText(dataLabelText);
             this.dataLabelNode.setHtml(labelText);

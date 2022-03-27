@@ -2,7 +2,11 @@ import { Promize } from '../core';
 import { Deferred } from '../core/deferred';
 import { Objekt } from '../core/objekt';
 import { ActionCable } from './actionCable';
-import { ChannelNameWithParams, Consumer, Subscription } from '@rails/actioncable';
+import {
+    ChannelNameWithParams,
+    Consumer,
+    Subscription,
+} from '@rails/actioncable';
 
 /**
  * @class
@@ -37,9 +41,7 @@ export class ActionCableClient {
         const deferred = new Deferred();
         this.client = this.parent.cable['subscriptions']['create'](options, {
             received: (payload) => {
-                const response = new Objekt(
-                    /** @type {!Object} */ JSON.parse(payload['message']),
-                );
+                const response = new Objekt(JSON.parse(payload['message']));
                 deferred.resolve(response);
             },
         });

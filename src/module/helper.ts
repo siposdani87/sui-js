@@ -24,7 +24,7 @@ export class Helper {
         opt_href: string | undefined = 'javascript:void(0)',
         opt_description: string | undefined = '',
         opt_allowAccess: boolean | undefined = true,
-        opt_cssClasses: Array<any> | undefined = ['link'],
+        opt_cssClasses: string[] | undefined = ['link'],
     ): Item {
         const linkNode = new Item('a');
         linkNode.setHtml(name);
@@ -49,7 +49,7 @@ export class Helper {
         selector: string,
         dom: Item,
         opt_callback: Function | undefined,
-        opt_cssClasses: Array<any> | undefined = [],
+        opt_cssClasses: string[] | undefined = [],
     ): void {
         const linkNodes = new Query(selector, dom);
         linkNodes.each((linkNode) => {
@@ -80,7 +80,7 @@ export class Helper {
         opt_href: string | undefined = '',
         opt_description: string | undefined = '',
         opt_allowAccess: boolean | undefined = true,
-        opt_cssClasses: Array<any> | undefined = [],
+        opt_cssClasses: string[] | undefined = [],
     ): Item {
         const linkNode = new Query(selector, dom).getItem();
         this.linkElement(
@@ -108,7 +108,7 @@ export class Helper {
         opt_href: string | undefined = '',
         opt_description: string | undefined = '',
         opt_allowAccess: boolean | undefined = true,
-        opt_cssClasses: Array<any> | undefined = [],
+        opt_cssClasses: string[] | undefined = [],
     ): void {
         if (!linkNode.isEmpty()) {
             if (opt_allowAccess) {
@@ -148,7 +148,7 @@ export class Helper {
         callback: Function,
         opt_description: string | undefined = '',
         opt_allowAccess: boolean | undefined = true,
-        opt_cssClasses: Array<any> | undefined = ['mdl-button--primary'],
+        opt_cssClasses: string[] | undefined = ['mdl-button--primary'],
     ): Item {
         const buttonNode = new Item('button');
         buttonNode.setHtml(name);
@@ -172,7 +172,7 @@ export class Helper {
         selector: string,
         dom: Item,
         opt_callback: Function | undefined,
-        opt_cssClasses: Array<any> | undefined = ['mdl-button--primary'],
+        opt_cssClasses: string[] | undefined = ['mdl-button--primary'],
     ): void {
         const buttonNodes = new Query(selector, dom);
         buttonNodes.each((buttonNode) => {
@@ -200,7 +200,7 @@ export class Helper {
         callback: Function,
         opt_description: string | undefined = '',
         opt_allowAccess: boolean | undefined = true,
-        opt_cssClasses: Array<any> | undefined = ['mdl-button--primary'],
+        opt_cssClasses: string[] | undefined = ['mdl-button--primary'],
     ): Item {
         const buttonNode = new Query(selector, dom).getItem();
         this.buttonElement(
@@ -225,15 +225,14 @@ export class Helper {
         opt_callback: Function | undefined,
         opt_description: string | undefined = '',
         opt_allowAccess: boolean | undefined = true,
-        opt_cssClasses: Array<any> | undefined = ['mdl-button--primary'],
+        opt_cssClasses: string[] | undefined = ['mdl-button--primary'],
     ): void {
         if (!buttonNode.isEmpty()) {
             if (opt_allowAccess) {
                 if (!buttonNode.getId()) {
                     buttonNode.setId(generateId('button'));
                 } else {
-                    const oldCssClasses =
-                        /** @type {!Array} */ buttonNode.getData('cssClasses');
+                    const oldCssClasses = buttonNode.getData('cssClasses');
                     buttonNode.removeClass(oldCssClasses);
                     buttonNode.removeEventListeners('click');
                 }
@@ -270,7 +269,7 @@ export class Helper {
         callback: Function,
         opt_description: string | undefined = '',
         opt_allowAccess: boolean | undefined = true,
-        opt_cssClasses: Array<any> | undefined = [
+        opt_cssClasses: string[] | undefined = [
             'mdl-button--accent',
             'mdl-button--fab',
             'mdl-button--mini-fab',
@@ -296,7 +295,7 @@ export class Helper {
     multipleIconButton(
         selector: string,
         dom: Item,
-        opt_cssClasses: Array<any> | undefined = [
+        opt_cssClasses: string[] | undefined = [
             'mdl-button--accent',
             'mdl-button--fab',
             'mdl-button--mini-fab',
@@ -328,7 +327,7 @@ export class Helper {
         callback: Function,
         opt_description: string | undefined = '',
         opt_allowAccess: boolean | undefined = true,
-        opt_cssClasses: Array<any> | undefined = [
+        opt_cssClasses: string[] | undefined = [
             'mdl-button--accent',
             'mdl-button--fab',
             'mdl-button--mini-fab',
@@ -357,7 +356,7 @@ export class Helper {
         opt_callback: Function | undefined,
         opt_description: string | undefined = '',
         opt_allowAccess: boolean | undefined = true,
-        opt_cssClasses: Array<any> | undefined = [
+        opt_cssClasses: string[] | undefined = [
             'mdl-button--accent',
             'mdl-button--fab',
             'mdl-button--mini-fab',
@@ -368,8 +367,7 @@ export class Helper {
                 if (!buttonNode.getId()) {
                     buttonNode.setId(generateId('button'));
                 } else {
-                    const oldCssClasses =
-                        /** @type {!Array} */ buttonNode.getData('cssClasses');
+                    const oldCssClasses = buttonNode.getData('cssClasses');
                     buttonNode.removeClass(oldCssClasses);
                     buttonNode.removeEventListeners('click');
                 }

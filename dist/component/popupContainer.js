@@ -25,8 +25,7 @@ export class PopupContainer {
      */
     _initCollection(type) {
         window['popup_collection'] =
-            window['popup_collection'] ||
-                /** @type {!Collection<!Popup>} */ new Collection([], type);
+            window['popup_collection'] || new Collection([], type);
     }
     /**
      * @param {!Function} type

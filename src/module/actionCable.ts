@@ -36,7 +36,7 @@ export class ActionCable {
         let url = '';
         const cableMeta = new Query('meta[name="action-cable-url"]').getItem();
         if (!cableMeta.isEmpty()) {
-            url = /** @type {string} */ cableMeta.getAttribute('content');
+            url = cableMeta.getAttribute('content');
         }
         return url;
     }

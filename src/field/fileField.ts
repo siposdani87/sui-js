@@ -27,7 +27,12 @@ export class FileField extends BaseField<HTMLInputElement> {
      * @param {!Item} error
      * @param {!Item} inputBlock
      */
-    constructor(input: Item<HTMLInputElement>, label: Item, error: Item, inputBlock: Item) {
+    constructor(
+        input: Item<HTMLInputElement>,
+        label: Item,
+        error: Item,
+        inputBlock: Item,
+    ) {
         super(input, label, error, inputBlock);
         this._init();
     }
@@ -56,7 +61,7 @@ export class FileField extends BaseField<HTMLInputElement> {
      * @return {boolean}
      */
     private _isDocument(): boolean {
-        const accept = /** @type {string} */ this.input.getAttribute('accept');
+        const accept = this.input.getAttribute('accept');
         return (
             contain(accept, '.docx') ||
             contain(accept, '.xlsx') ||
@@ -230,9 +235,10 @@ export class FileField extends BaseField<HTMLInputElement> {
             reader.onload = (event) => {
                 const target = event.target;
                 const searchStr = ';base64,';
-                let imageSrc = /** @type {string} */ (
-                    target.result as string
-                ).replace(searchStr, ';filename=' + filename + searchStr);
+                let imageSrc = (target.result as string).replace(
+                    searchStr,
+                    ';filename=' + filename + searchStr,
+                );
                 this.valueSrc = imageSrc;
                 if (!contain(file.type, 'image/')) {
                     const [type, color] = this._lookupByMimeType(file.type);

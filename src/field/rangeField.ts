@@ -16,7 +16,12 @@ export class RangeField extends BaseField<HTMLInputElement> {
      * @param {!Item} error
      * @param {!Item} inputBlock
      */
-    constructor(input: Item<HTMLInputElement>, label: Item, error: Item, inputBlock: Item) {
+    constructor(
+        input: Item<HTMLInputElement>,
+        label: Item,
+        error: Item,
+        inputBlock: Item,
+    ) {
         super(input, label, error, inputBlock);
         this._init();
     }
@@ -71,7 +76,7 @@ export class RangeField extends BaseField<HTMLInputElement> {
             '.mdl-slider__container',
             this.inputBlock,
         ).getItem();
-        const value = /** @type {string} */ this.getValue();
+        const value = this.getValue();
         this.tooltip = new Tooltip(containerNode);
         this.tooltip.render(value);
     }

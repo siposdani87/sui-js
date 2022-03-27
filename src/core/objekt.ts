@@ -28,7 +28,7 @@ export class Objekt {
         this.merge(opt_object);
     }
     /**
-         * @param {*} object
+     * @param {*} object
      * @return {!Objekt}
      */
     merge(object: any): Objekt {
@@ -105,7 +105,7 @@ export class Objekt {
         return value;
     }
     /**
-         * @template T
+     * @template T
      * @param {string=} opt_attribute
      * @param {*=} opt_defaultValue
      * @param {boolean=} opt_isSafe
@@ -180,7 +180,7 @@ export class Objekt {
         });
     }
     /**
-         * @param {string} attribute
+     * @param {string} attribute
      * @param {*} value
      * @return {undefined}
      */
@@ -190,7 +190,7 @@ export class Objekt {
         this.merge(object);
     }
     /**
-         * @param {string} attribute
+     * @param {string} attribute
      * @param {*} value
      * @param {boolean=} opt_isSafe
      * @return {undefined}
@@ -205,7 +205,7 @@ export class Objekt {
         this._set(this, attributes, value);
     }
     /**
-         * @param {string} attribute
+     * @param {string} attribute
      * @return {undefined}
      */
     remove(attribute: string): void {
@@ -213,7 +213,7 @@ export class Objekt {
         this._remove(this, attributes);
     }
     /**
-         * @return {undefined}
+     * @return {undefined}
      */
     clear(): void {
         clear(this);
@@ -241,7 +241,7 @@ export class Objekt {
         }
     }
     /**
-         * @param {!Function} next
+     * @param {!Function} next
      * @param {!Object=} opt_properties
      * @param {!Array<string>=} opt_attributes
      * @return {undefined}
@@ -284,11 +284,11 @@ export class Objekt {
         return object;
     }
     /**
-         * @param {boolean=} opt_isNative
+     * @param {boolean=} opt_isNative
      * @return {!Objekt}
      */
     copy(opt_isNative: boolean | undefined = false): any {
-        let result = /** @type {!Objekt} */ copyObject(this);
+        let result = copyObject(this);
         if (!opt_isNative) {
             result = new Objekt(result);
         }
@@ -296,13 +296,13 @@ export class Objekt {
         return result;
     }
     /**
-         * @return {boolean}
+     * @return {boolean}
      */
     isEmpty(): boolean {
         return isEmpty(this);
     }
     /**
-         * @param {!Array<string>} keys
+     * @param {!Array<string>} keys
      * @return {!Objekt}
      */
     allowKeys(keys: Array<string>): Objekt {
@@ -311,7 +311,7 @@ export class Objekt {
         });
     }
     /**
-         * @param {!Array<string>} keys
+     * @param {!Array<string>} keys
      * @return {!Objekt}
      */
     denyKeys(keys: Array<string>): Objekt {
@@ -320,7 +320,7 @@ export class Objekt {
         });
     }
     /**
-         * @param {!Objekt} obj
+     * @param {!Objekt} obj
      * @param {!Function} condition
      * @return {!Objekt}
      */

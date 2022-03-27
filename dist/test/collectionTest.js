@@ -16,7 +16,7 @@ export class CollectionTest extends BaseTest {
      * @return {undefined}
      */
     init() {
-        this.collection = /** @type {!Collection<!Objekt>} */ new Collection([
+        this.collection = new Collection([
             {
                 id: 1,
                 text: 'text',

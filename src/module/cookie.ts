@@ -72,10 +72,7 @@ export class Cookie {
                     opt_expires =
                         (opt_expires as any) === Infinity
                             ? '; expires=Fri, 31 Dec 9999 23:59:59 GMT'
-                            : '; max-age=' +
-                              /** @type {number} */ (opt_expires as any) *
-                                  60 *
-                                  60;
+                            : '; max-age=' + (opt_expires as any) * 60 * 60;
                     break;
                 case Date:
                     opt_expires =

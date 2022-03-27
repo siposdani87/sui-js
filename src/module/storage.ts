@@ -154,10 +154,7 @@ export class Storage {
                 case Number:
                     date.setTime(
                         date.getTime() +
-                            /** @type {number} */ (opt_expires as number) *
-                                60 *
-                                60 *
-                                1000,
+                            (opt_expires as number) * 60 * 60 * 1000,
                     );
                     opt_expires =
                         opt_expires === Infinity
@@ -174,6 +171,6 @@ export class Storage {
             date.setTime(date.getTime() + this.options.hours * 60 * 60 * 1000);
             opt_expires = date.toUTCString();
         }
-        return /** @type {string} */ opt_expires as string;
+        return opt_expires as string;
     }
 }

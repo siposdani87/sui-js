@@ -32,20 +32,15 @@ export class Item<T extends HTMLElement = HTMLElement> {
         opt_parentNode?: Item | undefined,
     ) {
         if (isString(node)) {
-            if (
-                contain(/** @type {string} */ node as string, '<') &&
-                contain(/** @type {string} */ node as string, '</')
-            ) {
+            if (contain(node as string, '<') && contain(node as string, '</')) {
                 const template = document.createElement('template');
                 template.innerHTML = node as string;
                 node = template.content.firstElementChild as any as T;
             } else {
-                node = document.createElement(
-                    /** @type {string} */ node as string,
-                ) as any as T;
+                node = document.createElement(node as string) as any as T;
             }
         }
-        this.node = /** @type {!T} */ node as T;
+        this.node = node as T;
         this.parentNode = opt_parentNode;
         this.listenerStoreKey = '_listeners';
     }
@@ -122,7 +117,7 @@ export class Item<T extends HTMLElement = HTMLElement> {
     getFor(): string | null {
         return (
             (this.node as any as HTMLLabelElement).htmlFor ||
-            /** @type {string} */ this.getAttribute('for')
+            this.getAttribute('for')
         );
     }
     /**
@@ -210,10 +205,7 @@ export class Item<T extends HTMLElement = HTMLElement> {
         } else if (contain(attribute, 'data-') && isObject(value)) {
             this.node.setAttribute(attribute, JSON.stringify(value));
         } else {
-            this.node.setAttribute(
-                attribute,
-                /** @type {string} */ value as string,
-            );
+            this.node.setAttribute(attribute, value as string);
         }
     }
     /**
@@ -250,10 +242,7 @@ export class Item<T extends HTMLElement = HTMLElement> {
      * @param {!Function=} opt_callback
      * @return {!Function}
      */
-    addEventListener(
-        eventName: string,
-        opt_callback?: Function,
-    ): Function {
+    addEventListener(eventName: string, opt_callback?: Function): Function {
         let listener: any = noop();
         if (opt_callback) {
             listener = (event) => {
@@ -273,10 +262,7 @@ export class Item<T extends HTMLElement = HTMLElement> {
      * @param {!Function} listener
      * @return {undefined}
      */
-    _addListenerToStore(
-        eventName: string,
-        listener: Function,
-    ): void {
+    _addListenerToStore(eventName: string, listener: Function): void {
         if (!this.node[this.listenerStoreKey]) {
             this.node[this.listenerStoreKey] = {};
         }
@@ -473,17 +459,17 @@ export class Item<T extends HTMLElement = HTMLElement> {
     getNextSibling(): Item {
         const referenceNode =
             this.node.nextSibling || this.node.nextElementSibling;
-        return new Item(/** @type {T} */ referenceNode as T);
+        return new Item(referenceNode as T);
     }
     /**
-         * @param {!string} text
+     * @param {!string} text
      * @return {undefined}
      */
     setHtml(text: string): void {
         this.node.innerHTML = text;
     }
     /**
-         * @param {boolean=} opt_isInner
+     * @param {boolean=} opt_isInner
      * @return {string}
      */
     getHtml(opt_isInner: boolean | undefined = false): string {

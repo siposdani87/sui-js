@@ -22,10 +22,10 @@ export class Query extends Collection {
         });
     }
     /**
-         * @return {!Item}
+     * @return {!Item}
      */
     getItem() {
-        let firstNode = /** @type {!Item} */ this.get(0);
+        let firstNode = this.get(0);
         if (!firstNode) {
             firstNode = new Item(null);
         }

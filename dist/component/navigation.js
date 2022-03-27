@@ -31,7 +31,7 @@ export class Navigation {
      * @return {undefined}
      */
     _init() {
-        this.container = /** @type {!Collection<!Objekt>} */ new Collection();
+        this.container = new Collection();
         this.linkNodeKey = 'node';
     }
     /**
@@ -39,14 +39,14 @@ export class Navigation {
      * @return {undefined}
      */
     add(item) {
-        const id = /** @type {string} */ item.get('id');
-        const image = /** @type {string} */ item.get('image');
-        const icon = /** @type {string} */ item.get('icon');
-        const title = /** @type {string} */ item.get('title');
-        const counter = /** @type {string} */ item.get('counter');
-        const href = /** @type {string} */ item.get('href');
-        const action = /** @type {!Function} */ item.get('action');
-        const disabled = /** @type {boolean} */ item.get('disabled');
+        const id = item.get('id');
+        const image = item.get('image');
+        const icon = item.get('icon');
+        const title = item.get('title');
+        const counter = item.get('counter');
+        const href = item.get('href');
+        const action = item.get('action');
+        const disabled = item.get('disabled');
         if (image) {
             this.addImage(id, image, title, action, href, item);
         }
@@ -240,9 +240,8 @@ export class Navigation {
         this._disabled(item);
         const linkNode = item.get(this.linkNodeKey);
         linkNode.removeClass('disabled');
-        const action = 
-        /** @type {function(string):undefined} */ item.get('action');
-        const href = /** @type {string} */ item.get('href');
+        const action = item.get('action');
+        const href = item.get('href');
         linkNode.setAttribute('href', href);
         const listener = linkNode.addEventListener('click', () => {
             action(href);

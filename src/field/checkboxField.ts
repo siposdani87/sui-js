@@ -12,7 +12,12 @@ export class CheckboxField extends BaseCheckboxField {
      * @param {!Item} error
      * @param {!Item} inputBlock
      */
-    constructor(input: Item<HTMLInputElement>, label: Item, error: Item, inputBlock: Item) {
+    constructor(
+        input: Item<HTMLInputElement>,
+        label: Item,
+        error: Item,
+        inputBlock: Item,
+    ) {
         super(input, label, error, inputBlock);
     }
     /**
@@ -26,7 +31,7 @@ export class CheckboxField extends BaseCheckboxField {
             'mdl-js-ripple-effect',
         ]);
         const id = this.input.getId();
-        this.label.setFor(/** @type {string} */ id);
+        this.label.setFor(id);
 
         const labelText = this.label.getHtml(true);
 

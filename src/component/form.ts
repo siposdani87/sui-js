@@ -227,7 +227,10 @@ export class Form extends Collection<BaseField<HTMLInputElement>> {
      * @param {*} value
      * @return {undefined}
      */
-    private _fieldValueChange(field: BaseField<HTMLInputElement>, value: any): void {
+    private _fieldValueChange(
+        field: BaseField<HTMLInputElement>,
+        value: any,
+    ): void {
         const fieldName = field.getName();
         const currentValue = this._getValue(fieldName);
         if (!isSame(value, currentValue)) {
@@ -302,7 +305,7 @@ export class Form extends Collection<BaseField<HTMLInputElement>> {
     /**
      * @return {undefined}
      */
-     lock(): void {
+    lock(): void {
         this.each((field) => {
             field.disabled = field.isDisabled();
         });

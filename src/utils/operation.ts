@@ -4,7 +4,7 @@
  */
 export const typeCast = (value: any): any => {
     let result = value;
-    if (isString(value) && !contain(/** @type {string} */ value, ' ')) {
+    if (isString(value) && !contain(value, ' ')) {
         const lowerCaseValue = value.toLowerCase();
         if (eq(lowerCaseValue, '')) {
             result = '';
@@ -72,9 +72,9 @@ export const format = (
 export const convert = (value: any, type: string): any => {
     let result = value;
     if (isNumber(value)) {
-        result = convertToNumber(/** @type {number} */ value, type);
+        result = convertToNumber(value, type);
     } else if (isString(value)) {
-        result = convertToString(/** @type {string} */ value, type);
+        result = convertToString(value, type);
     }
     return result;
 };
@@ -270,9 +270,9 @@ export const each = (
     opt_end?: number,
 ): void => {
     if (isArray(items)) {
-        eachArray(/** @type {!Array} */ items, next, opt_start, opt_end);
+        eachArray(items, next, opt_start, opt_end);
     } else if (isObject(items)) {
-        eachObject(/** @type {!Object} */ items, next);
+        eachObject(items, next);
     }
 };
 
@@ -338,9 +338,9 @@ export const sleepEach = (
  */
 export const clear = (items: Array<any> | object): void => {
     if (isArray(items)) {
-        clearArray(/** @type {!Array} */ items as Array<any>);
+        clearArray(items as Array<any>);
     } else if (isObject(items)) {
-        clearObject(/** @type {!Object} */ items);
+        clearObject(items);
     }
 };
 
@@ -387,7 +387,7 @@ export const contain = (str: string, subStr: string): boolean =>
  */
 export const inContainArray = (items: Array<any>, item: any): boolean => {
     let i = 0;
-    while (i < items.length && !contain(/** @type {string} */ item, items[i])) {
+    while (i < items.length && !contain(item, items[i])) {
         i++;
     }
     return i < items.length;
@@ -403,7 +403,7 @@ export const isSame = (a: any, b: any): boolean => {
     const strB = JSON.stringify(b);
     if (isObject(a) && isObject(b) && eq(strA.length, strB.length)) {
         let result = true;
-        eachObject(/** @type {!Object} */ a, (value, key) => {
+        eachObject(a, (value, key) => {
             if (!isSame(b[key], value)) {
                 result = false;
             }
@@ -434,9 +434,9 @@ export const copy = (
 ): Array<any> | Object | undefined => {
     let results;
     if (isArray(items)) {
-        results = copyArray(/** @type {!Array} */ items as Array<any>);
+        results = copyArray(items as Array<any>);
     } else if (isObject(items)) {
-        results = copyObject(/** @type {!Object} */ items as Object);
+        results = copyObject(items as Object);
     }
     return results;
 };

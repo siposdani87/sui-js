@@ -12,7 +12,7 @@ export declare class Query<T extends HTMLElement = HTMLElement> extends Collecti
      */
     constructor(selector: string, opt_element?: HTMLElement | Item);
     /**
-         * @return {!Item}
+     * @return {!Item}
      */
     getItem(): Item<T>;
 }
