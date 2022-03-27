@@ -142,8 +142,7 @@ export class Helper {
                     buttonNode.setId(generateId('button'));
                 }
                 else {
-                    const oldCssClasses = 
-                    /** @type {!Array} */ buttonNode.getData('cssClasses');
+                    const oldCssClasses = buttonNode.getData('cssClasses');
                     buttonNode.removeClass(oldCssClasses);
                     buttonNode.removeEventListeners('click');
                 }
@@ -238,8 +237,7 @@ export class Helper {
                     buttonNode.setId(generateId('button'));
                 }
                 else {
-                    const oldCssClasses = 
-                    /** @type {!Array} */ buttonNode.getData('cssClasses');
+                    const oldCssClasses = buttonNode.getData('cssClasses');
                     buttonNode.removeClass(oldCssClasses);
                     buttonNode.removeEventListeners('click');
                 }

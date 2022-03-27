@@ -92,7 +92,7 @@ export class TabPanel {
     setActive(panelId) {
         const deferred = new Deferred();
         if (!isNull(panelId)) {
-            this._setActive(/** @type {string} */ panelId);
+            this._setActive(panelId);
             const async = new Async();
             async
                 .serial([

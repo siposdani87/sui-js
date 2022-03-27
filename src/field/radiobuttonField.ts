@@ -75,7 +75,7 @@ export class RadiobuttonField extends BaseField<HTMLInputElement> {
             'mdl-js-ripple-effect',
         ]);
         const id = this.input.getId();
-        this.label.setFor(/** @type {string} */ id);
+        this.label.setFor(id);
 
         const labelText = this.label.getHtml(true);
 
@@ -98,8 +98,7 @@ export class RadiobuttonField extends BaseField<HTMLInputElement> {
      * @override
      */
     refresh() {
-        const dataLabelText =
-            /** @type {string} */ this.label.getAttribute('data-label');
+        const dataLabelText = this.label.getAttribute('data-label');
         if (dataLabelText) {
             const labelText = this._getLabelRequiredText(dataLabelText);
             this.dataLabelNode.setHtml(labelText);

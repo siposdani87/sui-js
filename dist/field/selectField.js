@@ -68,7 +68,7 @@ export class SelectField extends BaseField {
      * @return {undefined}
      */
     _initOptions() {
-        this.options = /** @type {!Collection<!Objekt>} */ new Collection();
+        this.options = new Collection();
         const optionNodes = new Query('option', this.input);
         optionNodes.each((optionNode) => {
             const value = optionNode.getAttribute('value') || '';
@@ -142,7 +142,7 @@ export class SelectField extends BaseField {
         if (!isArray(value)) {
             this.ids = [value];
         }
-        this._setSelectedIds(/** @type {!Array} */ this.ids);
+        this._setSelectedIds(this.ids);
     }
     /**
      * @override

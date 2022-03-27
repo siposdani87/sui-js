@@ -74,7 +74,7 @@ export class DateTimeRangeField extends BaseField<HTMLInputElement> {
         });
 
         const type = this.input.getAttribute('type');
-        const value = /** @type {string} */ this.getValue().toString();
+        const value = this.getValue().toString();
 
         this.datetimeNode = new Item('div');
         this.datetime = new Date(this.datetimeNode, {
@@ -145,7 +145,7 @@ export class DateTimeRangeField extends BaseField<HTMLInputElement> {
             | null
             | undefined,
     ): void {
-        this._setTag(/** @type {string} */ value as string);
+        this._setTag(value as string);
         this.input.setAttribute('value', value);
         this.input.trigger('change');
         this.datetime.setValue(value as string);

@@ -61,7 +61,7 @@ export class RangeField extends BaseField {
             this.inputBlock.removeClass('is-disabled');
         }
         const containerNode = new Query('.mdl-slider__container', this.inputBlock).getItem();
-        const value = /** @type {string} */ this.getValue();
+        const value = this.getValue();
         this.tooltip = new Tooltip(containerNode);
         this.tooltip.render(value);
     }

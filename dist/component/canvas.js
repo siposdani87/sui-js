@@ -19,11 +19,9 @@ export class Canvas {
      * @return {undefined}
      */
     _init(opt_selector) {
-        this.canvasNode =
-            /** @type {!Item} */ opt_selector;
+        this.canvasNode = opt_selector;
         if (isString(opt_selector)) {
-            this.canvasNode = new Query(
-            /** @type {string} */ opt_selector).getItem();
+            this.canvasNode = new Query(opt_selector).getItem();
         }
         else if (isUndefined(opt_selector)) {
             this.canvasNode = new Item('canvas');

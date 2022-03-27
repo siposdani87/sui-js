@@ -91,7 +91,7 @@ export class BaseField<T extends HTMLInputElement> {
      * @return {string}
      */
     getName(): string {
-        const name = /** @type {string} */ this.input.getAttribute('name');
+        const name = this.input.getAttribute('name');
         return this._getAttributeName(name);
     }
     /**
@@ -177,7 +177,7 @@ export class BaseField<T extends HTMLInputElement> {
      * @return {!Item}
      */
     private _getUpgradedNode(): Item {
-        return /** @type {!Item} */ this.inputBlock;
+        return this.inputBlock;
     }
     /**
      * @param {!Object|!Function|!Array|boolean|number|string|null|undefined} value
@@ -341,8 +341,8 @@ export class BaseField<T extends HTMLInputElement> {
      * @return {undefined}
      */
     private _setInfo(label: Item): void {
-        const title = /** @type {string} */ label.getAttribute('title');
-        const description = /** @type {string} */ label.getAttribute('desc');
+        const title = label.getAttribute('title');
+        const description = label.getAttribute('desc');
         if (title || description) {
             let infoButton = new Query(
                 'a.info-button',

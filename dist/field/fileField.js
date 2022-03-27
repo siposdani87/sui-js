@@ -42,7 +42,7 @@ export class FileField extends BaseField {
      * @return {boolean}
      */
     _isDocument() {
-        const accept = /** @type {string} */ this.input.getAttribute('accept');
+        const accept = this.input.getAttribute('accept');
         return (contain(accept, '.docx') ||
             contain(accept, '.xlsx') ||
             contain(accept, '.pdf'));
@@ -208,7 +208,7 @@ export class FileField extends BaseField {
             reader.onload = (event) => {
                 const target = event.target;
                 const searchStr = ';base64,';
-                let imageSrc = /** @type {string} */ target.result.replace(searchStr, ';filename=' + filename + searchStr);
+                let imageSrc = target.result.replace(searchStr, ';filename=' + filename + searchStr);
                 this.valueSrc = imageSrc;
                 if (!contain(file.type, 'image/')) {
                     const [type, color] = this._lookupByMimeType(file.type);

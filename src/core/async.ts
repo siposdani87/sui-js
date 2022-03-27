@@ -63,9 +63,7 @@ export class Async {
         opt_args?: Array<any>,
         opt_index?: number,
     ): void {
-        const index = !isUndefined(opt_index)
-            ? /** @type {number} */ opt_index
-            : this.call.counter++;
+        const index = !isUndefined(opt_index) ? opt_index : this.call.counter++;
         this.call.results[index] = null;
         this._parallelWrapper(call, this.sum, true, index, opt_args);
     }

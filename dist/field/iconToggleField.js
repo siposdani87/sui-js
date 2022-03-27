@@ -25,9 +25,8 @@ export class IconToggleField extends BaseCheckboxField {
             'mdl-js-icon-toggle',
             'mdl-js-ripple-effect',
         ]);
-        this.checkedIcon = /** @type {string} */ this.input.getData('checked');
-        this.uncheckedIcon =
-            /** @type {string} */ this.input.getData('unchecked');
+        this.checkedIcon = this.input.getData('checked');
+        this.uncheckedIcon = this.input.getData('unchecked');
         this.icon = new Item('em');
         this.icon.addClass(['mdl-icon-toggle__label', 'material-icons']);
         this.icon.setHtml(this.input.getNode().checked

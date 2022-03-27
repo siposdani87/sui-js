@@ -15,7 +15,7 @@ export class State {
     constructor(routes, options) {
         this._current = new Objekt();
         this._previous = this._current;
-        this.routes = /** @type {!Collection<!Route>} */ new Collection(routes);
+        this.routes = new Collection(routes);
         this._setOptions(options);
         this._init();
     }
@@ -25,7 +25,7 @@ export class State {
      */
     _setRealUrls() {
         this.routes.each((route) => {
-            const url = /** @type {string} */ route.get('url');
+            const url = route.get('url');
             const realUrl = this._getRealUrl(url);
             route.set('realUrl', realUrl);
         });
@@ -137,7 +137,7 @@ export class State {
         let i = 0;
         while (i < states.length && isNull(matches)) {
             state = states[i];
-            const stateUrl = /** @type {string} */ state.get('url');
+            const stateUrl = state.get('url');
             const router = new Router(stateUrl);
             matches = router.getMatches(path);
             params = router.parse(path);
@@ -161,17 +161,15 @@ export class State {
      */
     _setHistory(state, url, opt_params = {}, opt_overwrite = false, opt_force = false) {
         url = this.basePath === '#' ? this.basePath + url : url;
-        const template = /** @type {string} */ state.get('template');
+        const template = state.get('template');
         const router = new Router(template);
         state.set('templateUrl', router.stringify(opt_params));
         state.set('params', opt_params);
         if (opt_overwrite) {
-            window.history.replaceState(state.get(), 
-            /** @type {string} */ state.get('title', ''), url);
+            window.history.replaceState(state.get(), state.get('title', ''), url);
         }
         else {
-            window.history.pushState(state.get(), 
-            /** @type {string} */ state.get('title', ''), url);
+            window.history.pushState(state.get(), state.get('title', ''), url);
         }
         this._setCurrent(state);
         if (!opt_overwrite) {
@@ -184,8 +182,8 @@ export class State {
      * @return {undefined}
      */
     _triggerChange(opt_force = false) {
-        const currentState = /** @type {!Objekt} */ this.getCurrent();
-        const previousState = /** @type {!Objekt} */ this.getPrevious();
+        const currentState = this.getCurrent();
+        const previousState = this.getPrevious();
         this.eventChange(currentState, previousState, opt_force);
     }
     /**
@@ -204,7 +202,7 @@ export class State {
      * @return {!T}
      */
     getCurrent(opt_attribute, opt_defaultValue) {
-        return /** @type {!Objekt|string} */ this._current.get(opt_attribute, opt_defaultValue);
+        return this._current.get(opt_attribute, opt_defaultValue);
     }
     /**
      * @template T
@@ -213,7 +211,7 @@ export class State {
      * @return {!T}
      */
     getPrevious(opt_attribute, opt_defaultValue) {
-        return /** @type {!Objekt|string} */ this._previous.get(opt_attribute, opt_defaultValue);
+        return this._previous.get(opt_attribute, opt_defaultValue);
     }
     /**
      * @param {string} id
@@ -233,8 +231,7 @@ export class State {
         else {
             const [url, state] = this._resolveUrlWithState(id, opt_params);
             if (url && state) {
-                this._setHistory(
-                /** @type {!Objekt} */ state, url, opt_params, opt_overwrite, opt_force);
+                this._setHistory(state, url, opt_params, opt_overwrite, opt_force);
             }
         }
     }
@@ -260,7 +257,7 @@ export class State {
      * @return {string}
      */
     resolveUrl(id, opt_params) {
-        const url = /** @type {string} */ this._resolveUrlWithState(id, opt_params)[0];
+        const url = this._resolveUrlWithState(id, opt_params)[0];
         return this._getRealUrl(url);
     }
     /**
@@ -344,7 +341,7 @@ export class State {
      * @return {undefined}
      */
     setParam(name, value) {
-        const id = /** @type {string} */ this.getCurrent('id');
+        const id = this.getCurrent('id');
         const params = this.getParams();
         params.set(name, value);
         this.go(id, params, true);
@@ -353,7 +350,7 @@ export class State {
      * @return {!Objekt}
      */
     getParams() {
-        return /** @type {!Objekt} */ this.getCurrent('params', new Objekt());
+        return this.getCurrent('params', new Objekt());
     }
     /**
      * @template T
@@ -363,7 +360,7 @@ export class State {
      */
     getParam(name, opt_defaultValue) {
         const params = this.getParams();
-        return /** @type {T} */ params.get(name, opt_defaultValue);
+        return params.get(name, opt_defaultValue);
     }
     /**
      * @return {undefined}

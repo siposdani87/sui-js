@@ -12,7 +12,7 @@ export declare class Helper {
      * @param {!Array=} opt_cssClasses
      * @return {!Item}
      */
-    createLink(name: string, opt_callback: Function | undefined, opt_href?: string | undefined, opt_description?: string | undefined, opt_allowAccess?: boolean | undefined, opt_cssClasses?: Array<any> | undefined): Item;
+    createLink(name: string, opt_callback: Function | undefined, opt_href?: string | undefined, opt_description?: string | undefined, opt_allowAccess?: boolean | undefined, opt_cssClasses?: string[] | undefined): Item;
     /**
      * @param {string} selector
      * @param {!Item} dom
@@ -20,7 +20,7 @@ export declare class Helper {
      * @param {!Array=} opt_cssClasses
      * @return {undefined}
      */
-    multipleLink(selector: string, dom: Item, opt_callback: Function | undefined, opt_cssClasses?: Array<any> | undefined): void;
+    multipleLink(selector: string, dom: Item, opt_callback: Function | undefined, opt_cssClasses?: string[] | undefined): void;
     /**
      * @param {string} selector
      * @param {!Item} dom
@@ -31,7 +31,7 @@ export declare class Helper {
      * @param {!Array=} opt_cssClasses
      * @return {!Item}
      */
-    link(selector: string, dom: Item, opt_callback: Function | undefined, opt_href?: string | undefined, opt_description?: string | undefined, opt_allowAccess?: boolean | undefined, opt_cssClasses?: Array<any> | undefined): Item;
+    link(selector: string, dom: Item, opt_callback: Function | undefined, opt_href?: string | undefined, opt_description?: string | undefined, opt_allowAccess?: boolean | undefined, opt_cssClasses?: string[] | undefined): Item;
     /**
      * @param {!Item} linkNode
      * @param {!Function=} opt_callback
@@ -41,7 +41,7 @@ export declare class Helper {
      * @param {!Array=} opt_cssClasses
      * @return {undefined}
      */
-    linkElement(linkNode: Item, opt_callback: Function | undefined, opt_href?: string | undefined, opt_description?: string | undefined, opt_allowAccess?: boolean | undefined, opt_cssClasses?: Array<any> | undefined): void;
+    linkElement(linkNode: Item, opt_callback: Function | undefined, opt_href?: string | undefined, opt_description?: string | undefined, opt_allowAccess?: boolean | undefined, opt_cssClasses?: string[] | undefined): void;
     /**
      * @param {string} name
      * @param {!Function} callback
@@ -50,7 +50,7 @@ export declare class Helper {
      * @param {!Array=} opt_cssClasses
      * @return {!Item}
      */
-    createButton(name: string, callback: Function, opt_description?: string | undefined, opt_allowAccess?: boolean | undefined, opt_cssClasses?: Array<any> | undefined): Item;
+    createButton(name: string, callback: Function, opt_description?: string | undefined, opt_allowAccess?: boolean | undefined, opt_cssClasses?: string[] | undefined): Item;
     /**
      * @param {string} selector
      * @param {!Item} dom
@@ -58,7 +58,7 @@ export declare class Helper {
      * @param {!Array=} opt_cssClasses
      * @return {undefined}
      */
-    multipleButton(selector: string, dom: Item, opt_callback: Function | undefined, opt_cssClasses?: Array<any> | undefined): void;
+    multipleButton(selector: string, dom: Item, opt_callback: Function | undefined, opt_cssClasses?: string[] | undefined): void;
     /**
      * @param {string} selector
      * @param {!Item} dom
@@ -68,7 +68,7 @@ export declare class Helper {
      * @param {!Array=} opt_cssClasses
      * @return {!Item}
      */
-    button(selector: string, dom: Item, callback: Function, opt_description?: string | undefined, opt_allowAccess?: boolean | undefined, opt_cssClasses?: Array<any> | undefined): Item;
+    button(selector: string, dom: Item, callback: Function, opt_description?: string | undefined, opt_allowAccess?: boolean | undefined, opt_cssClasses?: string[] | undefined): Item;
     /**
      * @param {!Item} buttonNode
      * @param {!Function=} opt_callback
@@ -77,7 +77,7 @@ export declare class Helper {
      * @param {!Array=} opt_cssClasses
      * @return {undefined}
      */
-    buttonElement(buttonNode: Item, opt_callback: Function | undefined, opt_description?: string | undefined, opt_allowAccess?: boolean | undefined, opt_cssClasses?: Array<any> | undefined): void;
+    buttonElement(buttonNode: Item, opt_callback: Function | undefined, opt_description?: string | undefined, opt_allowAccess?: boolean | undefined, opt_cssClasses?: string[] | undefined): void;
     /**
      * @param {string} iconName
      * @param {!Function} callback
@@ -86,14 +86,14 @@ export declare class Helper {
      * @param {!Array=} opt_cssClasses
      * @return {!Item}
      */
-    createIconButton(iconName: string, callback: Function, opt_description?: string | undefined, opt_allowAccess?: boolean | undefined, opt_cssClasses?: Array<any> | undefined): Item;
+    createIconButton(iconName: string, callback: Function, opt_description?: string | undefined, opt_allowAccess?: boolean | undefined, opt_cssClasses?: string[] | undefined): Item;
     /**
      * @param {string} selector
      * @param {!Item} dom
      * @param {!Array=} opt_cssClasses
      * @return {undefined}
      */
-    multipleIconButton(selector: string, dom: Item, opt_cssClasses?: Array<any> | undefined): void;
+    multipleIconButton(selector: string, dom: Item, opt_cssClasses?: string[] | undefined): void;
     /**
      * @param {string} selector
      * @param {!Item} dom
@@ -103,7 +103,7 @@ export declare class Helper {
      * @param {!Array=} opt_cssClasses
      * @return {!Item}
      */
-    iconButton(selector: string, dom: Item, callback: Function, opt_description?: string | undefined, opt_allowAccess?: boolean | undefined, opt_cssClasses?: Array<any> | undefined): Item;
+    iconButton(selector: string, dom: Item, callback: Function, opt_description?: string | undefined, opt_allowAccess?: boolean | undefined, opt_cssClasses?: string[] | undefined): Item;
     /**
      * @param {!Item} buttonNode
      * @param {!Function=} opt_callback
@@ -112,7 +112,7 @@ export declare class Helper {
      * @param {!Array=} opt_cssClasses
      * @return {undefined}
      */
-    iconButtonElement(buttonNode: Item, opt_callback: Function | undefined, opt_description?: string | undefined, opt_allowAccess?: boolean | undefined, opt_cssClasses?: Array<any> | undefined): void;
+    iconButtonElement(buttonNode: Item, opt_callback: Function | undefined, opt_description?: string | undefined, opt_allowAccess?: boolean | undefined, opt_cssClasses?: string[] | undefined): void;
     /**
      * @private
      * @param {string} iconName

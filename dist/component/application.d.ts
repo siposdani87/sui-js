@@ -236,7 +236,7 @@ export declare class Application {
      */
     getController(): Object | null;
     /**
-         * @param {!Array<Route>} routes
+     * @param {!Array<Route>} routes
      * @param {!Array<string>} services
      * @return {undefined}
      */

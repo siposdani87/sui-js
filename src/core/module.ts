@@ -83,19 +83,28 @@ export class Module {
      * @return {Array<string>}
      */
     private _getSortedServices(services: string[]): string[] {
-        const edges = services.map((service) => {
-            const moduleInjections = this._modules[service].moduleInjections.filter((moduleInjection) => services.includes(moduleInjection));
-            if (moduleInjections.length === 0) {
-                moduleInjections.push(null);
-            }
-            return moduleInjections.map((injection) => [injection, service]);
-        }).flat();
+        const edges = services
+            .map((service) => {
+                const moduleInjections = this._modules[
+                    service
+                ].moduleInjections.filter((moduleInjection) =>
+                    services.includes(moduleInjection),
+                );
+                if (moduleInjections.length === 0) {
+                    moduleInjections.push(null);
+                }
+                return moduleInjections.map((injection) => [
+                    injection,
+                    service,
+                ]);
+            })
+            .flat();
 
         return this._topologicalSort(edges).slice(1);
     }
     /**
-     * 
-     * @param {Array<Array<string>>} edges 
+     *
+     * @param {Array<Array<string>>} edges
      * @return {Array<string>}
      */
     private _topologicalSort(edges: string[][]): string[] {
@@ -103,16 +112,16 @@ export class Module {
             [key: string]: {
                 id: string;
                 afters: string[];
-            }
+            };
         } = {};
         const sorted: string[] = [];
-        const visited: { [key: string]: boolean; } = {};
+        const visited: { [key: string]: boolean } = {};
 
         edges.forEach((v) => {
             const from = v[0];
             const to = v[1];
-            if (!nodes[from]) nodes[from] = {id: from, afters: []};
-            if (!nodes[to]) nodes[to] = {id: to, afters: []};
+            if (!nodes[from]) nodes[from] = { id: from, afters: [] };
+            if (!nodes[to]) nodes[to] = { id: to, afters: [] };
             nodes[from].afters.push(to);
         });
 
@@ -149,7 +158,7 @@ export class Module {
             });
 
             sorted.unshift(id);
-        }
+        };
 
         Object.keys(nodes).forEach((key) => visit(key));
 

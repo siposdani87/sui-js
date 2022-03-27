@@ -58,14 +58,11 @@ export class Tooltip {
      */
     private _getMessage(opt_message: string | undefined = ''): string {
         if (!opt_message) {
-            opt_message =
-                /** @type {string} */ this.element.getAttribute('desc') || '';
+            opt_message = this.element.getAttribute('desc') || '';
             if (opt_message) {
                 this.tooltip.addClass('mdl-tooltip--large');
             }
-            opt_message =
-                /** @type {string} */ this.element.getAttribute('title') ||
-                opt_message;
+            opt_message = this.element.getAttribute('title') || opt_message;
         }
         return opt_message;
     }
@@ -89,7 +86,7 @@ export class Tooltip {
         const cssClasses = ['mdl-tooltip', this.positionCssClass];
         this.tooltip = new Item('span');
         this.tooltip.addClass(cssClasses);
-        this.tooltip.setFor(/** @type {string} */ id);
+        this.tooltip.setFor(id);
         this.valid = this.element.insertAfter(this.tooltip);
     }
     /**
@@ -119,7 +116,7 @@ export class Tooltip {
     setMessage(opt_message: string | undefined = ''): void {
         if (opt_message) {
             this.tooltip.removeStyle(['display']);
-            this.tooltip.setHtml(/** @type {string} */ opt_message);
+            this.tooltip.setHtml(opt_message);
         } else {
             this.tooltip.setStyle({
                 display: 'none',
