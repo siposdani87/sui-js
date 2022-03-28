@@ -2,7 +2,6 @@ const gulp = require('gulp');
 const jsdoc = require('gulp-jsdoc3');
 const sass = require('gulp-sass')(require('sass'));
 const closureCompiler = require('google-closure-compiler');
-const insert = require('gulp-insert');
 const readdirSync = require('readdirsync2');
 const browserSync = require('browser-sync').create();
 const modRewrite = require('connect-modrewrite');
@@ -10,8 +9,6 @@ const sourcemaps = require('gulp-sourcemaps');
 
 const scriptSrc = ['node_modules/google-closure-library/closure/goog/base.js', 'dist/**/*.js', '!dist/sui*'];
 const stylesSrc = 'styles/**/*.scss';
-
-const endLine = '';
 
 const closureOptions = {
   compilation_level: 'ADVANCED',
@@ -36,32 +33,26 @@ const sassOptions = {
   outputStyle: 'compressed',
 };
 
-gulp.task('compile:styles:minify', gulp.series(function() {
+gulp.task('compile:styles', gulp.series(function() {
   return gulp.src('styles/**/sui.min.scss').pipe(sourcemaps.init()).pipe(sass(sassOptions).on('error', sass.logError)).pipe(sourcemaps.write('/')).pipe(gulp.dest('dist'));
 }));
 
-gulp.task('compile:styles:simple', gulp.series(function() {
-  return gulp.src('styles/**/sui.scss').pipe(sourcemaps.init()).pipe(sass(Object.assign(sassOptions, {
-    outputStyle: 'expanded',
-  })).on('error', sass.logError)).pipe(sourcemaps.write('/')).pipe(gulp.dest('dist'));
-}));
-
-gulp.task('compile:scripts:minify', gulp.series(function() {
+gulp.task('compile:scripts', gulp.series(function() {
   return gulp.src(scriptSrc).pipe(closureCompiler.gulp({
     requireStreamInput: true,
   })(Object.assign(closureOptions, {
     output_manifest: 'dist/sui.min.js.mf',
     // create_source_map: 'dist/sui.min.js.map',
     js_output_file: 'sui.min.js',
-  }))).pipe(insert.append(endLine)).pipe(sourcemaps.write('/')).pipe(gulp.dest('dist'));
+  }))).pipe(sourcemaps.write('/')).pipe(gulp.dest('dist'));
 }));
 
 gulp.task('watcher', gulp.series(function(done) {
-  gulp.watch(stylesSrc, gulp.series('compile:styles:minify', function(cb) {
+  gulp.watch(stylesSrc, gulp.series('compile:styles', function(cb) {
     browserSync.reload();
     cb();
   }));
-  gulp.watch(scriptSrc, gulp.series('compile:scripts:minify', function(cb) {
+  gulp.watch(scriptSrc, gulp.series('compile:scripts', function(cb) {
     browserSync.reload();
     cb();
   }));
@@ -71,14 +62,6 @@ gulp.task('watcher', gulp.series(function(done) {
 gulp.task('jsdoc', gulp.series(function(done) {
   const config = require('./jsdoc.json');
   gulp.src(['README.md', 'dist/**/*.js', '!sui.min*'], {read: false}).pipe(jsdoc(config, done));
-}));
-
-gulp.task('compile:styles', gulp.series('compile:styles:minify', 'compile:styles:simple', function(done) {
-  done();
-}));
-
-gulp.task('compile:scripts', gulp.series('compile:scripts:minify', function(done) {
-  done();
 }));
 
 gulp.task('default', gulp.series('compile:styles', 'compile:scripts', 'jsdoc', function(done) {
