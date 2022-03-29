@@ -13,7 +13,6 @@ export class Module {
         this._modules = {};
         this._instances = {};
         this._injections = {};
-        this._dependencies = [];
         this._controller = {
             enter: noop(),
             exit: noop(),

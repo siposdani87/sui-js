@@ -12,7 +12,6 @@ export declare class Module {
     };
     _instances: Instance;
     _injections: Injection;
-    _dependencies: string[];
     _controller: any;
     /**
      */
