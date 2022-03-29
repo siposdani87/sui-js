@@ -18,7 +18,6 @@ export class Module {
     };
     _instances: Instance;
     _injections: Injection;
-    _dependencies: string[];
     _controller: any;
     /**
      */
@@ -26,7 +25,6 @@ export class Module {
         this._modules = {};
         this._instances = {};
         this._injections = {};
-        this._dependencies = [];
         this._controller = {
             enter: noop(),
             exit: noop(),

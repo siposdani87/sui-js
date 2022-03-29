@@ -5,14 +5,15 @@
   "main": "dist/index.js",
   "typings": "dist/index.d.ts",
   "scripts": {
-    "prebuild": "npm run clean && npm run sass-lint && npm run eslint && npm run format",
+    "prebuild": "npm run clean && npm run stylelint && npm run eslint && npm run format",
     "build": "npm run sass && npm run tsc && npm run esbuild",
     "clean": "rm -rf dist",
     "tsc": "npx -p typescript tsc",
+    "tsc-test": "npm run tsc -- --noEmit",
     "sass": "npx sass styles/sui.scss dist/sui.min.css --style compressed",
     "esbuild": "npx esbuild src/index.ts --bundle --minify --sourcemap --define:ES_PROD=true --format=iife --global-name=SUI --outfile=dist/sui.min.js",
     "eslint": "npx eslint . --ext .ts,.tsx",
-    "sass-lint": "npx sass-lint --verbose --no-exit",
+    "stylelint": "exit && npx stylelint 'styles/**/*.{css,scss,sass}'",
     "format": "npx prettier --write 'src/**/*.ts*'"
   },
   "license": "UNLICENSED",
@@ -61,7 +62,9 @@
     "prettier": "2.6.1",
     "readdirsync2": "1.0.2",
     "sass": "1.49.9",
-    "sass-lint": "1.13.1",
+    "stylelint": "14.6.1",
+    "stylelint-scss": "4.2.0",
+    "stylelint-config-standard": "25.0.0",
     "sui-externs": "git+https://siposdani87:pTUa5kZeCCawnTzkYVUV@bitbucket.org/siposdani87/sui-externs.git#develop",
     "typescript": "4.6.3"
   }
