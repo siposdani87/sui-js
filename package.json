@@ -14,7 +14,8 @@
     "esbuild": "npx esbuild src/index.ts --bundle --minify --sourcemap --define:ES_PROD=true --format=iife --global-name=SUI --outfile=dist/sui.min.js",
     "eslint": "npx eslint . --ext .ts,.tsx",
     "stylelint": "exit && npx stylelint 'styles/**/*.{css,scss,sass}'",
-    "format": "npx prettier --write 'src/**/*.ts*'"
+    "format": "npx prettier --write 'src/**/*.ts*'",
+    "watch": "npm run esbuild -- --watch & npm run sass -- --watch"
   },
   "license": "UNLICENSED",
   "private": true,
@@ -63,8 +64,8 @@
     "readdirsync2": "1.0.2",
     "sass": "1.49.9",
     "stylelint": "14.6.1",
-    "stylelint-scss": "4.2.0",
     "stylelint-config-standard": "25.0.0",
+    "stylelint-scss": "4.2.0",
     "sui-externs": "git+https://siposdani87:pTUa5kZeCCawnTzkYVUV@bitbucket.org/siposdani87/sui-externs.git#develop",
     "typescript": "4.6.3"
   }
