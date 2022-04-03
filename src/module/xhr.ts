@@ -370,6 +370,9 @@ export class Xhr {
         let filename = '';
 
         try {
+            if (!this.http.responseURL.startsWith(this.options.backend)) {
+                return;
+            }
             const contentDisposition = this.http.getResponseHeader(
                 'Content-Disposition',
             );
