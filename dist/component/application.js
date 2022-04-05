@@ -31,6 +31,7 @@ import { Header } from '../module/header';
 import { Event } from '../module/event';
 import { Scheduler } from '../module/scheduler';
 import { Window } from '../module/window';
+import { setDateIOLocale } from '../utils/dateio';
 /**
  * @class
  */
@@ -144,7 +145,7 @@ export class Application {
      */
     _initLocale() {
         const locale = this.getLocale();
-        window['moment']['locale'](locale);
+        setDateIOLocale(locale);
         this.setLocale(locale);
     }
     /**

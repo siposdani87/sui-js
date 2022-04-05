@@ -27,7 +27,7 @@ export class Scheduler {
      * @return {!Function}
      */
     everyDay(time, callback) {
-        const name = time; // window['moment']
+        const name = time;
         if (isFunction(callback)) {
             const schedulers = this.schedulerStore.get(name, []);
             schedulers.push(callback);
