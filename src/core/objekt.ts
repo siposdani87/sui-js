@@ -10,6 +10,7 @@ import {
     isEmpty,
     isNull,
     isObject,
+    isDate,
     isUndefined,
     typeCast,
 } from '../utils/operation';
@@ -38,7 +39,8 @@ export class Objekt {
                     if (
                         !isNull(object[key]) &&
                         isObject(object[key]) &&
-                        !isArray(object[key])
+                        !isArray(object[key]) &&
+                        !isDate(object[key])
                     ) {
                         if (!instanceOf(this[key], Objekt)) {
                             this[key] = new Objekt(this[key]);
@@ -47,7 +49,8 @@ export class Objekt {
                     } else if (
                         isArray(object[key]) &&
                         !isNull(object[key][0]) &&
-                        isObject(object[key][0])
+                        isObject(object[key][0]) &&
+                        !isDate(object[key][0])
                     ) {
                         this._convertObject(object, key);
                         this[key] = object[key];
@@ -145,7 +148,8 @@ export class Objekt {
             } else if (
                 property.toString() === attributes[0] &&
                 !isNull(object[property]) &&
-                isObject(object[property])
+                isObject(object[property]) &&
+                !isDate(object[property])
             ) {
                 const copyAttributes = copyArray(attributes);
                 copyAttributes.shift();
@@ -171,7 +175,8 @@ export class Objekt {
             } else if (
                 property === attributes[0] &&
                 !isNull(object[property]) &&
-                isObject(object[property])
+                isObject(object[property]) &&
+                !isDate(object[property])
             ) {
                 const copyAttributes = copyArray(attributes);
                 copyAttributes.shift();
@@ -231,7 +236,8 @@ export class Objekt {
                 } else if (
                     property === attributes[0] &&
                     !isNull(object[property]) &&
-                    isObject(object[property])
+                    isObject(object[property]) &&
+                    isDate(object[property])
                 ) {
                     const copyAttributes = copyArray(attributes);
                     copyAttributes.shift();
@@ -257,7 +263,7 @@ export class Objekt {
         eachObject(properties, (value, property) => {
             const attributesCopy = copyArray(attributes);
             attributesCopy.push(property);
-            if (!isNull(value) && isObject(value)) {
+            if (!isNull(value) && isObject(value) && !isDate(value)) {
                 this.each(next, value, attributesCopy);
             } else {
                 next(value, attributesCopy.join('.'));

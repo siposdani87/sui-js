@@ -2,3 +2,5 @@ dist/*
 docs/*
 example/*
 gulpfile.js
+jest.config.js
+**/*.test.ts

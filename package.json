@@ -15,7 +15,8 @@
     "eslint": "npx eslint . --ext .ts,.tsx",
     "stylelint": "exit && npx stylelint 'styles/**/*.{css,scss,sass}'",
     "format": "npx prettier --write 'src/**/*.ts*'",
-    "watch": "npm run esbuild -- --watch & npm run sass -- --watch"
+    "watch": "npm run esbuild -- --watch & npm run sass -- --watch",
+    "test": "npx jest"
   },
   "license": "UNLICENSED",
   "private": true,
@@ -38,6 +39,7 @@
     "normalize.css": "8.0.1"
   },
   "devDependencies": {
+    "@types/jest": "27.4.1",
     "@types/google.maps": "3.48.3",
     "@types/material-design-lite": "1.1.17",
     "@types/rails__actioncable": "6.1.6",
@@ -60,7 +62,9 @@
     "gulp-jsdoc3": "3.0.0",
     "gulp-sass": "5.1.0",
     "gulp-sourcemaps": "3.0.0",
+    "jest": "27.5.1",
     "prettier": "2.6.1",
+    "ts-jest": "27.1.4",
     "readdirsync2": "1.0.2",
     "sass": "1.49.9",
     "stylelint": "14.6.1",

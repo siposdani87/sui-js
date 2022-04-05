@@ -6,7 +6,7 @@ import { consoleInfo } from '../utils/log';
 /**
  * @class
  */
-export class Test {
+export class TestRunner {
     /**
      * @return {undefined}
      */

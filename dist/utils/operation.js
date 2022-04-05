@@ -199,6 +199,11 @@ export const isObject = (value) => is(value, 'object');
  * @param {*} value
  * @return {boolean}
  */
+export const isDate = (value) => instanceOf(value, Date);
+/**
+ * @param {*} value
+ * @return {boolean}
+ */
 export const isNull = (value) => value === null;
 /**
  * @param {*} value
