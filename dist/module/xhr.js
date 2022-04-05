@@ -278,6 +278,9 @@ export class Xhr {
     _getFilenameFromHeader() {
         let filename = '';
         try {
+            if (!this.http.responseURL.startsWith(this.options.backend)) {
+                return;
+            }
             const contentDisposition = this.http.getResponseHeader('Content-Disposition');
             if (contentDisposition) {
                 filename = contentDisposition.match(/filename="(.+)"/)[1];

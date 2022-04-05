@@ -34,6 +34,7 @@ import { Window } from '../module/window';
 import { Promize } from '../core';
 import { Route } from './route';
 import { ClassRef, Injection, Instance } from '../utils';
+import { setDateIOLocale } from '../utils/dateio';
 
 /**
  * @class
@@ -157,7 +158,7 @@ export class Application {
      */
     private _initLocale(): void {
         const locale = this.getLocale();
-        window['moment']['locale'](locale);
+        setDateIOLocale(locale);
         this.setLocale(locale);
     }
     /**
