@@ -1,7 +1,7 @@
 /**
  * @class
  */
-export declare class Test {
+export declare class TestRunner {
     /**
      * @return {undefined}
      */

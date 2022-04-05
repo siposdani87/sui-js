@@ -3,11 +3,7 @@
     "parserOptions": {
         "project": "./tsconfig.json",
         "ecmaVersion": "latest",
-        "sourceType": "module",
-        "ecmaFeatures": {
-            "impliedStrict": true,
-            "jsx": false
-        }
+        "sourceType": "module"
     },
 	"extends": [
 		"eslint:recommended", 

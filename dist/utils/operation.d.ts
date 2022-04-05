@@ -121,6 +121,11 @@ export declare const isObject: (value: any) => boolean;
  * @param {*} value
  * @return {boolean}
  */
+export declare const isDate: (value: any) => boolean;
+/**
+ * @param {*} value
+ * @return {boolean}
+ */
 export declare const isNull: (value: any) => boolean;
 /**
  * @param {*} value

@@ -20,7 +20,7 @@ export * from './progressStatus';
 export * from './route';
 export * from './table';
 export * from './tabPanel';
-export * from './test';
+export * from './testRunner';
 export * from './time';
 export * from './tooltip';
 export * from './waiter';

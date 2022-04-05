@@ -227,6 +227,12 @@ export const isObject = (value: any): boolean => is(value, 'object');
  * @param {*} value
  * @return {boolean}
  */
+export const isDate = (value: any): boolean => instanceOf(value, Date);
+
+/**
+ * @param {*} value
+ * @return {boolean}
+ */
 export const isNull = (value: any): boolean => value === null;
 
 /**
