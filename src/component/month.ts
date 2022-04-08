@@ -1,21 +1,23 @@
+import { Objekt } from '../core';
 import { Item } from '../core/item';
+import { DateIO } from '../utils';
 import { consoleWarn } from '../utils/log';
 
 /**
  * @class
  */
 export class Month {
-    date: any;
-    currentDate: any;
-    options: any;
+    date: Date;
+    currentDate: Date;
+    options: Objekt;
     cssClasses: string[];
     /**
-     * @param {string} date
-     * @param {!Object} currentDate
+     * @param {!Date} date
+     * @param {!Date} currentDate
      * @param {!Object} options
      */
-    constructor(date: string, currentDate: Object, options: Object) {
-        this.date = window['moment'](date, 'YYYY-MM-DD');
+    constructor(date: Date, currentDate: Date, options: Object) {
+        this.date = date;
         this.currentDate = currentDate;
         this._setOptions(options);
         this._init();
@@ -26,7 +28,7 @@ export class Month {
      * @return {undefined}
      */
     private _setOptions(options: Object): void {
-        this.options = options;
+        this.options = new Objekt(options);
     }
     /**
      * @private
@@ -34,13 +36,13 @@ export class Month {
      */
     private _init(): void {
         const current =
-            this.date['format']('YYYY-MM') ===
-            this.currentDate['format']('YYYY-MM')
+            DateIO.format(this.date, 'YYYY-MM') ===
+            DateIO.format(this.currentDate, 'YYYY-MM')
                 ? 'current'
                 : null;
         const now =
-            this.date['format']('YYYY-MM') ===
-            window['moment']()['format']('YYYY-MM')
+            DateIO.format(this.date, 'YYYY-MM') ===
+            DateIO.format(new Date(), 'YYYY-MM')
                 ? 'now'
                 : null;
         this.cssClasses = ['month', this.options.css_class, now, current];
@@ -51,8 +53,7 @@ export class Month {
     getNode(): Item {
         const node = new Item('span');
         node.addClass(this.cssClasses);
-        const i = this.date['month']();
-        const text = window['moment']['monthsShort'](i);
+        const text = DateIO.format(this.date, 'MMM');
         node.setHtml(text);
         node.addEventListener('click', () => {
             this.eventClick(this.date);
@@ -60,9 +61,9 @@ export class Month {
         return node;
     }
     /**
-     * @param {!Object} date
+     * @param {!Date} date
      */
-    eventClick(date: Object) {
+    eventClick(date: Date) {
         consoleWarn('Month.eventClick()', date);
     }
 }

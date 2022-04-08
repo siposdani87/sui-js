@@ -1,6 +1,6 @@
 import { BaseField } from './baseField';
 import { Popup } from '../component/popup';
-import { Date } from '../component/date';
+import { DateTime } from '../component/dateTime';
 import { Item } from '../core/item';
 /**
  * @class
@@ -11,7 +11,7 @@ export declare class DateTimeField extends BaseField<HTMLInputElement> {
     datetimeInput: Item;
     format: string;
     datetimeNode: Item;
-    datetime: Date;
+    datetime: DateTime;
     popup: Popup;
     /**
      * @param {!Item} input

@@ -1,4 +1,6 @@
+import { Objekt } from '../core';
 import { Item } from '../core/item';
+import { DateIO } from '../utils';
 import { consoleWarn } from '../utils/log';
 import { Time } from './time';
 /**
@@ -20,7 +22,7 @@ export class Clock {
      * @return {undefined}
      */
     _setOptions(options) {
-        this.options = options;
+        this.options = new Objekt(options);
     }
     /**
      * @private
@@ -38,7 +40,7 @@ export class Clock {
      * @private
      * @param {!Function} hourCallback
      * @param {!Function} minuteCallback
-     * @return {undefined}
+     * @return {?Date}
      */
     _switchMode(hourCallback, minuteCallback) {
         let result = null;
@@ -93,10 +95,10 @@ export class Clock {
      */
     _togglePeriod() {
         if (this.period === 'pm') {
-            this.time['subtract'](12, 'hours');
+            this.time = DateIO.subHours(this.time, 12);
         }
         else {
-            this.time['add'](12, 'hours');
+            this.time = DateIO.addHours(this.time, 12);
         }
         this._onClick(this.time);
     }
@@ -108,7 +110,7 @@ export class Clock {
         this.minutesHeaderNode = new Item('div');
         this.minutesHeaderNode.addClass('minutes');
         this.minutesHeaderNode.addEventListener('click', () => {
-            this._setMode(this.types['minute']);
+            this._setMode(this.types.minute);
         });
         this.headerNode.appendChild(this.minutesHeaderNode);
     }
@@ -120,7 +122,7 @@ export class Clock {
         this.hoursHeaderNode = new Item('div');
         this.hoursHeaderNode.addClass('hours');
         this.hoursHeaderNode.addEventListener('click', () => {
-            this._setMode(this.types['hour']);
+            this._setMode(this.types.hour);
         });
         this.headerNode.appendChild(this.hoursHeaderNode);
     }
@@ -171,7 +173,7 @@ export class Clock {
      */
     _setHours(hours) {
         this.hours = hours;
-        const cssClass = this.activeMode === this.types['hour'] ? 'active' : null;
+        const cssClass = this.activeMode === this.types.hour ? 'active' : null;
         this.hoursHeaderNode.removeClass('active');
         this.hoursHeaderNode.addClass(['hours', cssClass]);
         const text = hours < 10 ? '0' + hours : hours.toString();
@@ -184,7 +186,7 @@ export class Clock {
      */
     _setMinutes(minutes) {
         this.minutes = minutes;
-        const cssClass = this.activeMode === this.types['minute'] ? 'active' : null;
+        const cssClass = this.activeMode === this.types.minute ? 'active' : null;
         this.minutesHeaderNode.removeClass('active');
         this.minutesHeaderNode.addClass(['minutes', cssClass]);
         const text = minutes < 10 ? '0' + minutes : minutes.toString();
@@ -199,20 +201,20 @@ export class Clock {
         this.period = period;
         this.periodHeaderNode.removeClass(['am', 'pm']);
         this.periodHeaderNode.addClass(['period', this.period]);
-        const text = window['moment']['localeData']()['meridiem'](this.time['hour'](), this.time['minute'](), true);
+        const text = DateIO.format(this.time, 'aa');
         this.periodHeaderNode.setHtml(text);
     }
     /**
-     * @param {!Object} time
+     * @param {!Date} time
      * @return {undefined}
      */
     setTime(time) {
-        this.time = window['moment'](time);
-        const hours = this.time['hour']() % 12 || 12;
+        this.time = time;
+        const hours = DateIO.getHours(time) % 12 || 12;
         this._setHours(hours);
-        const minutes = this.time['minute']();
+        const minutes = DateIO.getMinutes(time);
         this._setMinutes(minutes);
-        const period = this.time['hour']() > 12 ? 'pm' : 'am';
+        const period = DateIO.getHours(time) > 12 ? 'pm' : 'am';
         this._setPeriod(period);
     }
     /**
@@ -269,7 +271,7 @@ export class Clock {
         });
         timeMinutes.eventClick = (index) => {
             this._changeMode(-1);
-            const time = this.time['minute'](index);
+            const time = DateIO.setMinutes(this.time, index);
             this._onClick(time);
         };
         timeMinutes.draw(0, 59, 5, true);
@@ -287,14 +289,14 @@ export class Clock {
             this._changeMode(1);
             let hour = this.period === 'pm' ? index + 12 : index;
             hour = hour === 24 ? 0 : hour;
-            const time = this.time['hour'](hour);
+            const time = DateIO.setHours(this.time, hour);
             this._onClick(time);
         };
         timeHours.draw(1, 12, 1, true);
     }
     /**
      * @private
-     * @param {!Object} selectedTime
+     * @param {!Date} selectedTime
      * @return {undefined}
      */
     _onClick(selectedTime) {
@@ -303,7 +305,7 @@ export class Clock {
         this.eventClick(selectedTime);
     }
     /**
-     * @param {!Object} time
+     * @param {!Date} time
      * @return {undefined}
      */
     eventClick(time) {

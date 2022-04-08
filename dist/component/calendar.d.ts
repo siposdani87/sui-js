@@ -1,10 +1,12 @@
+import { Objekt } from '../core';
 import { Item } from '../core/item';
+import { Day } from './day';
 /**
  * @class
  */
 export declare class Calendar {
     calendarNode: Item;
-    options: any;
+    options: Objekt;
     maxDays: number;
     maxMonths: number;
     maxYears: number;
@@ -25,20 +27,20 @@ export declare class Calendar {
     weekDaysNode: Item;
     daysNode: Item;
     previous: {
-        day: string;
-        month: string;
-        year: string;
+        day: Date;
+        month: Date;
+        year: Date;
     };
     current: {
-        day: string;
+        day: Date;
     };
     next: {
-        day: string;
-        month: string;
-        year: string;
+        day: Date;
+        month: Date;
+        year: Date;
     };
-    days: any[];
-    selectedDate: any;
+    days: Day[];
+    selectedDate: Date;
     /**
      * @param {!Item} node
      * @param {!Object} options
@@ -123,13 +125,13 @@ export declare class Calendar {
     private _next;
     /**
      * @private
-     * @param {!Object} date
+     * @param {!Date} date
      * @return {undefined}
      */
     private _setDate;
     /**
      * @private
-     * @param {!Object} date
+     * @param {!Date} date
      * @return {undefined}
      */
     private _setVariables;
@@ -180,14 +182,6 @@ export declare class Calendar {
     private _drawDays;
     /**
      * @private
-     * @param {number} year
-     * @param {number} month
-     * @param {number} day
-     * @return {string}
-     */
-    private _getDate;
-    /**
-     * @private
      * @return {undefined}
      */
     private _setPreviousMonth;
@@ -203,25 +197,25 @@ export declare class Calendar {
     private _setNextMonth;
     /**
      * @private
-     * @param {!Object} selectedDate
+     * @param {!Date} selectedDate
      * @return {undefined}
      */
     private _setModeDate;
     /**
      * @private
-     * @param {!Object} selectedDate
+     * @param {!Date} selectedDate
      * @return {undefined}
      */
     private _onClick;
     /**
      * @private
-     * @param {!Object} date
+     * @param {!Date} date
      * @return {undefined}
      */
     private _setSelectedDate;
     /**
-     * @param {!Object} date
+     * @param {!Date} date
      * @return {undefined}
      */
-    eventClick(date: Object): void;
+    eventClick(date: Date): void;
 }

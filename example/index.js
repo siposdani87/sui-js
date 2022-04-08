@@ -18,7 +18,7 @@ darkThemeNode.setHtml(lightThemeNode.getHtml(true).replace(/light-/g, 'dark-'));
 const config = new SUI.Objekt({
     app_id: 'sui-js',
     title: 'application.name',
-    locale: 'en-GB',
+    locale: 'hu-HU', // 'en-GB',
     backend: window.location.origin,
     production: SUI.releaseMode,
     secret: '484xlj8y4jjöyéö57hk5ghrkleéjx',

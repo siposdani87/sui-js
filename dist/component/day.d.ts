@@ -1,18 +1,19 @@
+import { Objekt } from '../core';
 import { Item } from '../core/item';
 /**
  * @class
  */
 export declare class Day {
-    date: any;
-    currentDate: any;
-    options: any;
+    date: Date;
+    currentDate: Date;
+    options: Objekt;
     cssClasses: string[];
     /**
-     * @param {string} date
-     * @param {!Object} currentDate
+     * @param {!Date} date
+     * @param {!Date} currentDate
      * @param {!Object} options
      */
-    constructor(date: string, currentDate: Object, options: Object);
+    constructor(date: Date, currentDate: Date, options: Object);
     /**
      * @private
      * @param {!Object} options
@@ -29,7 +30,7 @@ export declare class Day {
      */
     getNode(): Item;
     /**
-     * @param {!Object} date
+     * @param {!Date} date
      */
-    eventClick(date: Object): void;
+    eventClick(date: Date): void;
 }

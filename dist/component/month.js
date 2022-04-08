@@ -1,16 +1,18 @@
+import { Objekt } from '../core';
 import { Item } from '../core/item';
+import { DateIO } from '../utils';
 import { consoleWarn } from '../utils/log';
 /**
  * @class
  */
 export class Month {
     /**
-     * @param {string} date
-     * @param {!Object} currentDate
+     * @param {!Date} date
+     * @param {!Date} currentDate
      * @param {!Object} options
      */
     constructor(date, currentDate, options) {
-        this.date = window['moment'](date, 'YYYY-MM-DD');
+        this.date = date;
         this.currentDate = currentDate;
         this._setOptions(options);
         this._init();
@@ -21,19 +23,19 @@ export class Month {
      * @return {undefined}
      */
     _setOptions(options) {
-        this.options = options;
+        this.options = new Objekt(options);
     }
     /**
      * @private
      * @return {undefined}
      */
     _init() {
-        const current = this.date['format']('YYYY-MM') ===
-            this.currentDate['format']('YYYY-MM')
+        const current = DateIO.format(this.date, 'YYYY-MM') ===
+            DateIO.format(this.currentDate, 'YYYY-MM')
             ? 'current'
             : null;
-        const now = this.date['format']('YYYY-MM') ===
-            window['moment']()['format']('YYYY-MM')
+        const now = DateIO.format(this.date, 'YYYY-MM') ===
+            DateIO.format(new Date(), 'YYYY-MM')
             ? 'now'
             : null;
         this.cssClasses = ['month', this.options.css_class, now, current];
@@ -44,8 +46,7 @@ export class Month {
     getNode() {
         const node = new Item('span');
         node.addClass(this.cssClasses);
-        const i = this.date['month']();
-        const text = window['moment']['monthsShort'](i);
+        const text = DateIO.format(this.date, 'MMM');
         node.setHtml(text);
         node.addEventListener('click', () => {
             this.eventClick(this.date);
@@ -53,7 +54,7 @@ export class Month {
         return node;
     }
     /**
-     * @param {!Object} date
+     * @param {!Date} date
      */
     eventClick(date) {
         consoleWarn('Month.eventClick()', date);

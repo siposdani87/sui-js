@@ -1,16 +1,18 @@
+import { Objekt } from '../core';
 import { Item } from '../core/item';
+import { DateIO } from '../utils';
 import { consoleWarn } from '../utils/log';
 /**
  * @class
  */
 export class Day {
     /**
-     * @param {string} date
-     * @param {!Object} currentDate
+     * @param {!Date} date
+     * @param {!Date} currentDate
      * @param {!Object} options
      */
     constructor(date, currentDate, options) {
-        this.date = window['moment'](date, 'YYYY-MM-DD');
+        this.date = date;
         this.currentDate = currentDate;
         this._setOptions(options);
         this._init();
@@ -21,17 +23,19 @@ export class Day {
      * @return {undefined}
      */
     _setOptions(options) {
-        this.options = options;
+        this.options = new Objekt(options);
     }
     /**
      * @private
      * @return {undefined}
      */
     _init() {
-        const current = window['moment'](this.date)['isSame'](this.currentDate['format']('YYYY-MM-DD'))
+        const current = DateIO.format(this.date, 'YYYY-MM-DD') ===
+            DateIO.format(this.currentDate, 'YYYY-MM-DD')
             ? 'current'
             : null;
-        const now = window['moment'](this.date)['isSame'](window['moment']()['format']('YYYY-MM-DD'))
+        const now = DateIO.format(this.date, 'YYYY-MM-DD') ===
+            DateIO.format(new Date(), 'YYYY-MM-DD')
             ? 'now'
             : null;
         this.cssClasses = ['day', this.options.css_class, now, current];
@@ -42,7 +46,7 @@ export class Day {
     getNode() {
         const node = new Item('span');
         node.addClass(this.cssClasses);
-        const text = this.date['format']('DD');
+        const text = DateIO.format(this.date, 'DD');
         node.setHtml(text);
         node.addEventListener('click', () => {
             this.eventClick(this.date);
@@ -50,7 +54,7 @@ export class Day {
         return node;
     }
     /**
-     * @param {!Object} date
+     * @param {!Date} date
      */
     eventClick(date) {
         consoleWarn('Day.eventClick()', date);
