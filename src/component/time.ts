@@ -1,3 +1,4 @@
+import { Objekt } from '../core';
 import { Item } from '../core/item';
 import { consoleWarn } from '../utils/log';
 
@@ -6,7 +7,7 @@ import { consoleWarn } from '../utils/log';
  */
 export class Time {
     timeNode: Item;
-    options: any;
+    options: Objekt;
     pointerNode: Item;
     /**
      * @param {!Item} node
@@ -23,7 +24,7 @@ export class Time {
      * @return {undefined}
      */
     private _setOptions(options: Object): void {
-        this.options = options;
+        this.options = new Objekt(options);
     }
     /**
      * @private
@@ -118,6 +119,7 @@ export class Time {
                 circle.setHtml(text);
                 k++;
             }
+
             this._setCircleStyle(circle, start, n, i, opt_j, opt_isClockWise);
             this._setCircleEvent(circle, i);
         }

@@ -1,10 +1,11 @@
+import { Objekt } from '../core';
 import { Item } from '../core/item';
 /**
  * @class
  */
 export declare class Clock {
     clockNode: Item;
-    options: any;
+    options: Objekt;
     modes: string[];
     types: {
         hour: string;
@@ -14,7 +15,7 @@ export declare class Clock {
     headerNode: Item;
     periodHeaderNode: Item;
     period: string;
-    time: any;
+    time: Date;
     minutesHeaderNode: Item;
     hoursHeaderNode: Item;
     contentNode: Item;
@@ -40,7 +41,7 @@ export declare class Clock {
      * @private
      * @param {!Function} hourCallback
      * @param {!Function} minuteCallback
-     * @return {undefined}
+     * @return {?Date}
      */
     private _switchMode;
     /**
@@ -113,10 +114,10 @@ export declare class Clock {
      */
     private _setPeriod;
     /**
-     * @param {!Object} time
+     * @param {!Date} time
      * @return {undefined}
      */
-    setTime(time: Object): void;
+    setTime(time: Date): void;
     /**
      * @private
      * @param {string} mode
@@ -153,13 +154,13 @@ export declare class Clock {
     private _drawHours;
     /**
      * @private
-     * @param {!Object} selectedTime
+     * @param {!Date} selectedTime
      * @return {undefined}
      */
     private _onClick;
     /**
-     * @param {!Object} time
+     * @param {!Date} time
      * @return {undefined}
      */
-    eventClick(time: Object): void;
+    eventClick(time: Date): void;
 }

@@ -1,8 +1,9 @@
 import { BaseField } from './baseField';
 import { Popup } from '../component/popup';
-import { Date } from '../component/date';
+import { DateTime } from '../component/dateTime';
 import { Item } from '../core/item';
 import { Query } from '../core/query';
+import { DateIO } from '../utils';
 
 /**
  * @class
@@ -14,7 +15,7 @@ export class DateTimeRangeField extends BaseField<HTMLInputElement> {
     datetimeInput: Item;
     format: string;
     datetimeNode: Item;
-    datetime: Date;
+    datetime: DateTime;
     popup: Popup;
     /**
      * @param {!Item} input
@@ -77,7 +78,7 @@ export class DateTimeRangeField extends BaseField<HTMLInputElement> {
         const value = this.getValue().toString();
 
         this.datetimeNode = new Item('div');
-        this.datetime = new Date(this.datetimeNode, {
+        this.datetime = new DateTime(this.datetimeNode, {
             value: value,
             type: type,
         });
@@ -91,7 +92,7 @@ export class DateTimeRangeField extends BaseField<HTMLInputElement> {
         };
 
         if (value) {
-            const formattedValue = this.datetime.getValue();
+            const formattedValue = this.datetime.getFormattedValue();
             this._setTag(formattedValue);
         }
     }
@@ -158,10 +159,9 @@ export class DateTimeRangeField extends BaseField<HTMLInputElement> {
     private _setTag(value: string): void {
         this.datetimeInput.removeChildren();
         if (value) {
-            const formattedValue = window['moment'](
-                value,
-                this.datetime.getConfig().format,
-            )['format'](this.format);
+            const date = DateIO.parse(value, this.datetime.getConfig().format);
+            const formattedValue = DateIO.format(date, this.format);
+
             const tagNode = new Item('div');
             tagNode.addClass('field-tag');
             tagNode.setHtml(formattedValue);

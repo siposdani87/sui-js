@@ -1,4 +1,6 @@
+import { Objekt } from '../core';
 import { Item } from '../core/item';
+import { DateIO } from '../utils';
 import { consoleWarn } from '../utils/log';
 import { Day } from './day';
 import { Month } from './month';
@@ -9,7 +11,7 @@ import { Year } from './year';
  */
 export class Calendar {
     calendarNode: Item;
-    options: any;
+    options: Objekt;
     maxDays: number;
     maxMonths: number;
     maxYears: number;
@@ -29,11 +31,11 @@ export class Calendar {
     monthsNode: Item;
     weekDaysNode: Item;
     daysNode: Item;
-    previous: { day: string; month: string; year: string };
-    current: { day: string };
-    next: { day: string; month: string; year: string };
-    days: any[];
-    selectedDate: any;
+    previous: { day: Date; month: Date; year: Date };
+    current: { day: Date };
+    next: { day: Date; month: Date; year: Date };
+    days: Day[];
+    selectedDate: Date;
     /**
      * @param {!Item} node
      * @param {!Object} options
@@ -49,14 +51,14 @@ export class Calendar {
      * @return {undefined}
      */
     private _setOptions(options: Object): void {
-        this.options = options;
+        this.options = new Objekt(options);
     }
     /**
      * @private
      * @return {undefined}
      */
     private _init(): void {
-        this.maxDays = 6 * 7;
+        this.maxDays = 7 * 6;
         this.maxMonths = 12;
         this.maxYears = 16;
 
@@ -80,7 +82,7 @@ export class Calendar {
         this._initContentNode();
         this._initMode(this.types[this.options.type]);
 
-        const date = window['moment'](this.options.date);
+        const date: Date = this.options.date;
         this._setSelectedDate(date);
         this._setDate(date);
     }
@@ -173,7 +175,7 @@ export class Calendar {
         dayFun: Function,
         monthFun: Function,
         yearFun: Function,
-    ): Object {
+    ): Date {
         let result = null;
         switch (this.activeMode) {
             case 'DAY':
@@ -248,12 +250,9 @@ export class Calendar {
                 return this.previous.year;
             },
             () => {
-                let date = this.current.day['clone']()['subtract'](
-                    this.maxYears,
-                    'years',
-                );
-                if (date['year']() < 0) {
-                    date = this.current.day['clone']();
+                let date = DateIO.subYears(this.current.day, this.maxYears);
+                if (DateIO.getYear(date) < 0) {
+                    date = this.current.day;
                 }
                 return date;
             },
@@ -274,10 +273,7 @@ export class Calendar {
                 return this.next.year;
             },
             () => {
-                return this.current.day['clone']()['add'](
-                    this.maxYears,
-                    'years',
-                );
+                return DateIO.addYears(this.current.day, this.maxYears);
             },
         );
         this._setDate(date);
@@ -285,10 +281,10 @@ export class Calendar {
     }
     /**
      * @private
-     * @param {!Object} date
+     * @param {!Date} date
      * @return {undefined}
      */
-    private _setDate(date: Object): void {
+    private _setDate(date: Date): void {
         this._setVariables(date);
 
         this._setPreviousMonth();
@@ -297,26 +293,26 @@ export class Calendar {
     }
     /**
      * @private
-     * @param {!Object} date
+     * @param {!Date} date
      * @return {undefined}
      */
-    private _setVariables(date: Object): void {
+    private _setVariables(date: Date): void {
         this.days = [];
 
         this.previous = {
-            day: window['moment'](date)['subtract'](1, 'days'),
-            month: window['moment'](date)['subtract'](1, 'months'),
-            year: window['moment'](date)['subtract'](1, 'years'),
+            day: DateIO.subDays(date, 1),
+            month: DateIO.subMonths(date, 1),
+            year: DateIO.subYears(date, 1),
         };
 
         this.current = {
-            day: window['moment'](date),
+            day: date,
         };
 
         this.next = {
-            day: window['moment'](date)['add'](1, 'days'),
-            month: window['moment'](date)['add'](1, 'months'),
-            year: window['moment'](date)['add'](1, 'years'),
+            day: DateIO.addDays(date, 1),
+            month: DateIO.addMonths(date, 1),
+            year: DateIO.addYears(date, 1),
         };
     }
     /**
@@ -361,7 +357,7 @@ export class Calendar {
      */
     private _drawHeader(format: string | null): void {
         this.currentModeNode.removeChildren();
-        const text = format ? this.current.day['format'](format) : '';
+        const text = format ? DateIO.format(this.current.day, format) : '';
         this.currentModeNode.setHtml(text);
     }
     /**
@@ -372,7 +368,7 @@ export class Calendar {
         this.monthsNode.removeChildren();
         for (let i = 0; i < this.maxMonths; i++) {
             const month = new Month(
-                this.current.day['clone']()['month'](i),
+                DateIO.setMonth(this.current.day, i),
                 this.selectedDate,
                 {},
             );
@@ -388,11 +384,11 @@ export class Calendar {
     private _drawYears(): void {
         this.yearsNode.removeChildren();
         const startYear =
-            this.current.day['year']() -
-            (this.current.day['year']() % this.maxYears);
+            DateIO.getYear(this.current.day) -
+            (DateIO.getYear(this.current.day) % this.maxYears);
         for (let i = startYear; i < startYear + this.maxYears; i++) {
             const year = new Year(
-                this.current.day['clone']()['year'](i),
+                DateIO.setYear(this.current.day, i),
                 this.selectedDate,
                 {},
             );
@@ -407,14 +403,13 @@ export class Calendar {
      */
     private _drawWeekDays(): void {
         this.weekDaysNode.removeChildren();
-        for (
-            let i = this.options.start_day;
-            i < this.options.start_day + 7;
-            i++
-        ) {
+
+        const firstDOW = DateIO.startOfWeek(new Date());
+        for (let i = 0; i < 7; i++) {
+            const text = DateIO.format(DateIO.addDays(firstDOW, i), 'EEEEEE');
+
             const node = new Item('span');
             node.addClass('day');
-            const text = window['moment']['weekdaysMin'](i % 7);
             node.setHtml(text);
             this.weekDaysNode.appendChild(node);
         }
@@ -433,33 +428,13 @@ export class Calendar {
     }
     /**
      * @private
-     * @param {number} year
-     * @param {number} month
-     * @param {number} day
-     * @return {string}
-     */
-    private _getDate(year: number, month: number, day: number): string {
-        const results = [year, month + 1, day];
-        return results.join('-');
-    }
-    /**
-     * @private
      * @return {undefined}
      */
     private _setPreviousMonth(): void {
-        const diffDays =
-            this.previous.month['endOf']('month')['day']() -
-            this.options.start_day;
-        for (
-            let i = this.previous.month['daysInMonth']() - diffDays;
-            i <= this.previous.month['daysInMonth']();
-            i++
-        ) {
-            const date = this._getDate(
-                this.previous.month['year'](),
-                this.previous.month['month'](),
-                i,
-            );
+        const diffDays = DateIO.getDay(DateIO.endOfMonth(this.previous.month));
+        const daysInMonth = DateIO.getDaysInMonth(this.previous.month);
+        for (let i = daysInMonth - diffDays; i <= daysInMonth; i++) {
+            const date = DateIO.setDate(this.previous.month, i);
             const day = new Day(date, this.selectedDate, {
                 css_class: 'previous-month',
             });
@@ -472,12 +447,9 @@ export class Calendar {
      * @return {undefined}
      */
     private _setCurrentMonth(): void {
-        for (let i = 1; i <= this.current.day['daysInMonth'](); i++) {
-            const date = this._getDate(
-                this.current.day['year'](),
-                this.current.day['month'](),
-                i,
-            );
+        const daysInMonth = DateIO.getDaysInMonth(this.current.day);
+        for (let i = 1; i <= daysInMonth; i++) {
+            const date = DateIO.setDate(this.current.day, i);
             const day = new Day(date, this.selectedDate, {
                 css_class: 'current-month',
             });
@@ -490,14 +462,9 @@ export class Calendar {
      * @return {undefined}
      */
     private _setNextMonth(): void {
-        const numOfDays = this.days.length;
-        const diffDays = this.maxDays - numOfDays;
+        const diffDays = this.maxDays - this.days.length;
         for (let i = 1; i <= diffDays; i++) {
-            const date = this._getDate(
-                this.next.month['year'](),
-                this.next.month['month'](),
-                i,
-            );
+            const date = DateIO.setDate(this.next.month, i);
             const day = new Day(date, this.selectedDate, {
                 css_class: 'next-month',
             });
@@ -507,21 +474,21 @@ export class Calendar {
     }
     /**
      * @private
-     * @param {!Object} selectedDate
+     * @param {!Date} selectedDate
      * @return {undefined}
      */
-    private _setModeDate(selectedDate: Object): void {
-        const date = this.current.day['clone']();
+    private _setModeDate(selectedDate: Date): void {
+        let date = this.current.day;
         this._switchMode(
             () => {
-                date['month'](selectedDate['month']());
-                date['date'](selectedDate['date']());
+                date = DateIO.setMonth(date, DateIO.getMonth(selectedDate));
+                date = DateIO.setDate(date, DateIO.getDate(selectedDate));
             },
             () => {
-                date['month'](selectedDate['month']());
+                date = DateIO.setMonth(date, DateIO.getMonth(selectedDate));
             },
             () => {
-                date['year'](selectedDate['year']());
+                date = DateIO.setYear(date, DateIO.getYear(selectedDate));
             },
         );
         this._setSelectedDate(date);
@@ -529,10 +496,10 @@ export class Calendar {
     }
     /**
      * @private
-     * @param {!Object} selectedDate
+     * @param {!Date} selectedDate
      * @return {undefined}
      */
-    private _onClick(selectedDate: Object): void {
+    private _onClick(selectedDate: Date): void {
         this._setModeDate(selectedDate);
 
         const mode = this.types[this.options.type];
@@ -544,17 +511,17 @@ export class Calendar {
     }
     /**
      * @private
-     * @param {!Object} date
+     * @param {!Date} date
      * @return {undefined}
      */
-    private _setSelectedDate(date: Object): void {
+    private _setSelectedDate(date: Date): void {
         this.selectedDate = date;
     }
     /**
-     * @param {!Object} date
+     * @param {!Date} date
      * @return {undefined}
      */
-    eventClick(date: Object): void {
+    eventClick(date: Date): void {
         consoleWarn('Calendar.eventClick()', date);
     }
 }

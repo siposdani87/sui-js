@@ -5,7 +5,7 @@ export * from './cardCollection';
 export * from './carousel';
 export * from './clock';
 export * from './contentHandler';
-export * from './date';
+export * from './dateTime';
 export * from './day';
 export * from './dropdown';
 export * from './form';

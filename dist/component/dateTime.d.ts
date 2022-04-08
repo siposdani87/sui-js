@@ -1,8 +1,9 @@
+import { Objekt } from '../core';
 import { Item } from '../core/item';
 /**
- * @typedef {{format: string; calendar_type: string; clock_type: string;}} DateConfig
+ * @typedef {{format: string; calendar_type: string; clock_type: string;}} DateTimeConfig
  */
-declare type DateConfig = {
+declare type DateTimeConfig = {
     format: string;
     calendar_type: string;
     clock_type: string;
@@ -10,16 +11,16 @@ declare type DateConfig = {
 /**
  * @class
  */
-export declare class Date {
+export declare class DateTime {
     datetimeNode: Item;
-    options: any;
+    options: Objekt;
     types: {
-        [key: string]: DateConfig;
+        [key: string]: DateTimeConfig;
     };
-    config: DateConfig;
+    config: DateTimeConfig;
     calendarNode: Item;
     clockNode: Item;
-    value: string | Object;
+    value: Date;
     /**
      * @param {!Item} node
      * @param {!Object} options
@@ -62,9 +63,9 @@ export declare class Date {
      */
     private _initClockNode;
     /**
-     * @return {!DateConfig}
+     * @return {!DateTimeConfig}
      */
-    getConfig(): DateConfig;
+    getConfig(): DateTimeConfig;
     /**
      * @private
      * @param {string} value
@@ -79,7 +80,7 @@ export declare class Date {
     /**
      * @return {string}
      */
-    getValue(): string;
+    getFormattedValue(): string;
     /**
      * @return {undefined}
      */

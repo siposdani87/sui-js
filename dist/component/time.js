@@ -1,3 +1,4 @@
+import { Objekt } from '../core';
 import { Item } from '../core/item';
 import { consoleWarn } from '../utils/log';
 /**
@@ -19,7 +20,7 @@ export class Time {
      * @return {undefined}
      */
     _setOptions(options) {
-        this.options = options;
+        this.options = new Objekt(options);
     }
     /**
      * @private

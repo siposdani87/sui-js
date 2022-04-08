@@ -1,16 +1,18 @@
+import { Objekt } from '../core';
 import { Item } from '../core/item';
+import { DateIO } from '../utils';
 import { consoleWarn } from '../utils/log';
 /**
  * @class
  */
 export class Year {
     /**
-     * @param {string} date
-     * @param {!Object} currentDate
+     * @param {!Date} date
+     * @param {!Date} currentDate
      * @param {!Object} options
      */
     constructor(date, currentDate, options) {
-        this.date = window['moment'](date, 'YYYY-MM-DD');
+        this.date = date;
         this.currentDate = currentDate;
         this._setOptions(options);
         this._init();
@@ -21,17 +23,19 @@ export class Year {
      * @return {undefined}
      */
     _setOptions(options) {
-        this.options = options;
+        this.options = new Objekt(options);
     }
     /**
      * @private
      * @return {undefined}
      */
     _init() {
-        const current = this.date['format']('YYYY') === this.currentDate['format']('YYYY')
+        const current = DateIO.format(this.date, 'YYYY') ===
+            DateIO.format(this.currentDate, 'YYYY')
             ? 'current'
             : null;
-        const now = this.date['format']('YYYY') === window['moment']()['format']('YYYY')
+        const now = DateIO.format(this.date, 'YYYY') ===
+            DateIO.format(new Date(), 'YYYY')
             ? 'now'
             : null;
         this.cssClasses = ['year', this.options.css_class, now, current];
@@ -42,7 +46,7 @@ export class Year {
     getNode() {
         const node = new Item('span');
         node.addClass(this.cssClasses);
-        const text = this.date['format']('YYYY');
+        const text = DateIO.format(this.date, 'YYYY');
         node.setHtml(text);
         node.addEventListener('click', () => {
             this.eventClick(this.date);
@@ -50,7 +54,7 @@ export class Year {
         return node;
     }
     /**
-     * @param {!Object} date
+     * @param {!Date} date
      */
     eventClick(date) {
         consoleWarn('Year.eventClick()', date);
