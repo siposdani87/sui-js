@@ -1,7 +1,7 @@
 export declare const setDateIOLocale: (newLocale: string) => void;
 export declare const DateIO: {
     parse: (dateString?: string, formatString?: string) => Date;
-    format: (date: Date, formatString: string) => string;
+    format: (date: Date, formatString?: string) => string;
     isBefore: (date: Date, dateToCompare: Date) => boolean;
     isAfter: (date: Date, dateToCompare: Date) => boolean;
     getMinutes: (date: Date) => number;
@@ -28,4 +28,5 @@ export declare const DateIO: {
     startOfWeek: (date: Date) => Date;
     endOfMonth: (date: Date) => Date;
     getDaysInMonth: (date: Date) => number;
+    getISOWeek: (date: Date) => number;
 };

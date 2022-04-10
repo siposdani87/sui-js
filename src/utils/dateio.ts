@@ -30,6 +30,7 @@ import {
     getDate,
     getDay,
     isBefore,
+    getISOWeek,
 } from 'date-fns';
 import { hu, enUS } from 'date-fns/locale';
 
@@ -63,7 +64,7 @@ export const DateIO = {
         }
         return parseISO(dateString);
     },
-    format: (date: Date, formatString: string): string => {
+    format: (date: Date, formatString?: string): string => {
         if (formatString) {
             return format(date, convertToISOFormat(formatString), {
                 locale,
@@ -148,5 +149,8 @@ export const DateIO = {
     },
     getDaysInMonth: (date: Date): number => {
         return getDaysInMonth(date);
+    },
+    getISOWeek: (date: Date): number => {
+        return getISOWeek(date);
     },
 };
