@@ -31,6 +31,7 @@ import {
     getDay,
     isBefore,
     getISOWeek,
+    getWeek,
 } from 'date-fns';
 import { hu, enUS } from 'date-fns/locale';
 
@@ -152,5 +153,8 @@ export const DateIO = {
     },
     getISOWeek: (date: Date): number => {
         return getISOWeek(date);
+    },
+    getWeek: (date: Date): number => {
+        return getWeek(date);
     },
 };
