@@ -1,4 +1,4 @@
-import { parseISO, parse, format, isAfter, addMinutes, addHours, subHours, subMinutes, setMinutes, setHours, addDays, subDays, setMonth, addMonths, subMonths, setYear, addYears, subYears, startOfWeek, getYear, getMonth, getHours, getMinutes, getDaysInMonth, endOfMonth, formatISO, setDate, getDate, getDay, isBefore, } from 'date-fns';
+import { parseISO, parse, format, isAfter, addMinutes, addHours, subHours, subMinutes, setMinutes, setHours, addDays, subDays, setMonth, addMonths, subMonths, setYear, addYears, subYears, startOfWeek, getYear, getMonth, getHours, getMinutes, getDaysInMonth, endOfMonth, formatISO, setDate, getDate, getDay, isBefore, getISOWeek, } from 'date-fns';
 import { hu, enUS } from 'date-fns/locale';
 let locale = enUS;
 const convertToISOFormat = (formatString) => {
@@ -108,5 +108,8 @@ export const DateIO = {
     },
     getDaysInMonth: (date) => {
         return getDaysInMonth(date);
+    },
+    getISOWeek: (date) => {
+        return getISOWeek(date);
     },
 };
