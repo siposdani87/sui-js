@@ -29,6 +29,7 @@ import {
     setDate,
     getDate,
     getDay,
+    isBefore,
 } from 'date-fns';
 import { hu, enUS } from 'date-fns/locale';
 
@@ -69,6 +70,9 @@ export const DateIO = {
             });
         }
         return formatISO(date);
+    },
+    isBefore: (date: Date, dateToCompare: Date): boolean => {
+        return isBefore(date, dateToCompare);
     },
     isAfter: (date: Date, dateToCompare: Date): boolean => {
         return isAfter(date, dateToCompare);
