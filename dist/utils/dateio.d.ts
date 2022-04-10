@@ -29,4 +29,5 @@ export declare const DateIO: {
     endOfMonth: (date: Date) => Date;
     getDaysInMonth: (date: Date) => number;
     getISOWeek: (date: Date) => number;
+    getWeek: (date: Date) => number;
 };
