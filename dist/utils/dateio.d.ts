@@ -2,6 +2,7 @@ export declare const setDateIOLocale: (newLocale: string) => void;
 export declare const DateIO: {
     parse: (dateString?: string, formatString?: string) => Date;
     format: (date: Date, formatString: string) => string;
+    isBefore: (date: Date, dateToCompare: Date) => boolean;
     isAfter: (date: Date, dateToCompare: Date) => boolean;
     getMinutes: (date: Date) => number;
     setMinutes: (date: Date, minutes: number) => Date;
