@@ -12,6 +12,7 @@ import { Query } from '../core/query';
 import { consoleInfo } from '../utils/log';
 import { Item, Promize } from '../core';
 import { IconOptions, Id } from '../utils';
+import { RotatedLabel } from 'map-label-rotated';
 
 /**
  * @typedef {!Object} MapText
@@ -54,18 +55,10 @@ export type LatLng = {
  * @return {!MapLabel}
  */
 const _getMapLabel = (marker: google.maps.Marker, title: string): MapLabel => {
-    // https://github.com/googlemaps/js-map-label/blob/gh-pages/src/maplabel.js
-    // https://googlemaps.github.io/js-map-label/docs/reference.html
-    const mapLabel = new window['MapLabel']({
-        text: title,
-        strokeWeight: 2,
-        fontFamily: 'sans-serif',
-    });
+    const map = marker.getMap();
+    const position = marker.getPosition();
 
-    mapLabel['bindTo']('position', marker);
-    mapLabel['bindTo']('map', marker);
-
-    return mapLabel;
+    return new RotatedLabel(position, title, 45, map);
 };
 
 /**
@@ -78,14 +71,7 @@ const _getMapText = (
     title: string,
     position: google.maps.LatLng,
     map: google.maps.Map,
-): MapText =>
-    new window['MapLabel']({
-        text: title,
-        strokeWeight: 2,
-        fontFamily: 'sans-serif',
-        position: position,
-        map: map,
-    });
+): MapText => new RotatedLabel(position, title, 45, map);
 
 /**
  * @class
