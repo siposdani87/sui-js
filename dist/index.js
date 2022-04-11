@@ -33,4 +33,5 @@ import * as field from './field';
 import * as module from './module';
 import * as test from './test';
 import * as utils from './utils';
-export default Object.assign(Object.assign(Object.assign(Object.assign(Object.assign(Object.assign({}, component), core), field), module), test), utils);
+export const SUI = Object.assign(Object.assign(Object.assign(Object.assign(Object.assign(Object.assign({}, component), core), field), module), test), utils);
+export default SUI;
