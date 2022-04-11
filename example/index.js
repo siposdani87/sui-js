@@ -1,5 +1,3 @@
-SUI = SUI.default;
-
 const lightThemeNode = new SUI.Query('.light-theme').getItem();
 const darkThemeNode = new SUI.Query('.dark-theme').getItem();
 darkThemeNode.setHtml(lightThemeNode.getHtml(true).replace(/light-/g, 'dark-'));
