@@ -1,4 +1,6 @@
 import { Item } from '../core';
+// import { componentHandler } from 'material-design-lite';
+const componentHandler = window['componentHandler'];
 /**
  * @param {!Item|!Element=} opt_node
  * @param {boolean=} opt_forceDowngrade
@@ -11,11 +13,11 @@ export const mdl = (opt_node, opt_forceDowngrade = true) => {
     }
     if (opt_node) {
         if (opt_forceDowngrade) {
-            window['componentHandler']['downgradeElements'](element);
+            componentHandler.downgradeElements(element);
         }
-        window['componentHandler']['upgradeElement'](element);
+        componentHandler.upgradeElement(element);
     }
     else {
-        window['componentHandler']['upgradeDom']();
+        componentHandler.upgradeDom();
     }
 };
