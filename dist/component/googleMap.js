@@ -4,22 +4,16 @@ import { Deferred } from '../core/deferred';
 import { Objekt } from '../core/objekt';
 import { Query } from '../core/query';
 import { consoleInfo } from '../utils/log';
+import { RotatedLabel } from 'map-label-rotated';
 /**
  * @param {!google.maps.Marker} marker
  * @param {string} title
  * @return {!MapLabel}
  */
 const _getMapLabel = (marker, title) => {
-    // https://github.com/googlemaps/js-map-label/blob/gh-pages/src/maplabel.js
-    // https://googlemaps.github.io/js-map-label/docs/reference.html
-    const mapLabel = new window['MapLabel']({
-        text: title,
-        strokeWeight: 2,
-        fontFamily: 'sans-serif',
-    });
-    mapLabel['bindTo']('position', marker);
-    mapLabel['bindTo']('map', marker);
-    return mapLabel;
+    const map = marker.getMap();
+    const position = marker.getPosition();
+    return new RotatedLabel(position, title, 45, map);
 };
 /**
  * @param {string} title
@@ -27,13 +21,7 @@ const _getMapLabel = (marker, title) => {
  * @param {!google.maps.Map} map
  * @return {!MapText}
  */
-const _getMapText = (title, position, map) => new window['MapLabel']({
-    text: title,
-    strokeWeight: 2,
-    fontFamily: 'sans-serif',
-    position: position,
-    map: map,
-});
+const _getMapText = (title, position, map) => new RotatedLabel(position, title, 45, map);
 /**
  * @class
  */
