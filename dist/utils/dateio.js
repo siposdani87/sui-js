@@ -1,11 +1,6 @@
 import { parseISO, parse, format, isAfter, addMinutes, addHours, subHours, subMinutes, setMinutes, setHours, addDays, subDays, setMonth, addMonths, subMonths, setYear, addYears, subYears, startOfWeek, getYear, getMonth, getHours, getMinutes, getDaysInMonth, endOfMonth, formatISO, setDate, getDate, getDay, isBefore, getISOWeek, getWeek, } from 'date-fns';
 import { hu, enUS } from 'date-fns/locale';
-let locale = enUS;
-const convertToISOFormat = (formatString) => {
-    return formatString.replace('YYYY', 'yyyy').replaceAll('D', 'd');
-};
 const getLocaleFrom = (newLocale) => {
-    console.log(newLocale);
     switch (newLocale) {
         case 'hu-HU':
             return hu;
@@ -13,8 +8,12 @@ const getLocaleFrom = (newLocale) => {
             return enUS;
     }
 };
+let locale = getLocaleFrom('en-US');
 export const setDateIOLocale = (newLocale) => {
     locale = getLocaleFrom(newLocale);
+};
+const convertToISOFormat = (formatString) => {
+    return formatString.replace('YYYY', 'yyyy').replaceAll('D', 'd');
 };
 export const DateIO = {
     parse: (dateString = new Date().toISOString(), formatString) => {

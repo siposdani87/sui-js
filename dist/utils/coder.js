@@ -1,18 +1,22 @@
+import Base64 from 'crypto-js/enc-base64';
+import Utf8 from 'crypto-js/enc-utf8';
+import MD5 from 'crypto-js/md5';
+import AES from 'crypto-js/aes';
 /**
  * @param {string} text
  * @return {string}
  */
 export const encodeBase64 = (text) => {
-    const words = window['CryptoJS']['enc']['Utf8']['parse'](text);
-    return window['CryptoJS']['enc']['Base64']['stringify'](words);
+    const words = Utf8.parse(text);
+    return Base64.stringify(words);
 };
 /**
  * @param {string} encodedText
  * @return {string}
  */
 export const decodeBase64 = (encodedText) => {
-    const words = window['CryptoJS']['enc']['Base64']['parse'](encodedText);
-    return window['CryptoJS']['enc']['Utf8']['stringify'](words);
+    const words = Base64.parse(encodedText);
+    return Utf8.stringify(words);
 };
 /**
  * @param {*} value
@@ -21,7 +25,7 @@ export const decodeBase64 = (encodedText) => {
  */
 export const encrypt = (value, passPhrase) => {
     const item = JSON.stringify(value);
-    return window['CryptoJS']['AES']['encrypt'](item, passPhrase);
+    return AES.encrypt(item, passPhrase).toString();
 };
 /**
  * @param {string} item
@@ -29,14 +33,14 @@ export const encrypt = (value, passPhrase) => {
  * @return {*}
  */
 export const decrypt = (item, passPhrase) => {
-    const value = window['CryptoJS']['AES']['decrypt'](item, passPhrase)['toString'](window['CryptoJS']['enc']['Utf8']);
+    const value = AES.decrypt(item, passPhrase).toString(Utf8);
     return JSON.parse(value || 'null');
 };
 /**
  * @param {string} str
  * @return {string}
  */
-export const md5 = (str) => window['CryptoJS']['MD5'](str);
+export const md5 = (str) => MD5(str).toString(Utf8);
 /**
  * i6wolnd42rjg2nor7xdg5akv4p
  * https://github.com/LiosK/UUID.js

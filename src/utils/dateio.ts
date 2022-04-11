@@ -35,14 +35,7 @@ import {
 } from 'date-fns';
 import { hu, enUS } from 'date-fns/locale';
 
-let locale: Locale = enUS;
-
-const convertToISOFormat = (formatString: string): string => {
-    return formatString.replace('YYYY', 'yyyy').replaceAll('D', 'd');
-};
-
 const getLocaleFrom = (newLocale: string): Locale => {
-    console.log(newLocale);
     switch (newLocale) {
         case 'hu-HU':
             return hu;
@@ -51,8 +44,14 @@ const getLocaleFrom = (newLocale: string): Locale => {
     }
 };
 
+let locale: Locale = getLocaleFrom('en-US');
+
 export const setDateIOLocale = (newLocale: string): void => {
     locale = getLocaleFrom(newLocale);
+};
+
+const convertToISOFormat = (formatString: string): string => {
+    return formatString.replace('YYYY', 'yyyy').replaceAll('D', 'd');
 };
 
 export const DateIO = {
