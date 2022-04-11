@@ -32,7 +32,7 @@ import * as core from './core';
 import * as field from './field';
 import * as module from './module';
 import * as test from './test';
-declare const _default: {
+export declare const SUI: {
     encodeBase64: (text: string) => string;
     decodeBase64: (encodedText: string) => string;
     encrypt: (value: any, passPhrase: string) => string;
@@ -308,4 +308,4 @@ declare const _default: {
     Waiter: typeof component.Waiter;
     Year: typeof component.Year;
 };
-export default _default;
+export default SUI;

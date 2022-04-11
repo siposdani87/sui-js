@@ -37,7 +37,7 @@ import * as module from './module';
 import * as test from './test';
 import * as utils from './utils';
 
-export default {
+export const SUI = {
     ...component,
     ...core,
     ...field,
@@ -45,3 +45,5 @@ export default {
     ...test,
     ...utils,
 };
+
+export default SUI;
