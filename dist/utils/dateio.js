@@ -18,9 +18,27 @@ const convertToISOFormat = (formatString) => {
 export const DateIO = {
     parse: (dateString = new Date().toISOString(), formatString) => {
         if (formatString) {
-            return parse(dateString, formatString, new Date());
+            try {
+                return parse(dateString, formatString, new Date());
+            }
+            catch (error) {
+                console.log('parse', {
+                    error,
+                    dateString,
+                    formatString,
+                });
+            }
         }
-        return parseISO(dateString);
+        try {
+            return parseISO(dateString);
+        }
+        catch (error) {
+            console.log('parseISO', {
+                error,
+                dateString,
+                formatString,
+            });
+        }
     },
     format: (date, formatString) => {
         if (formatString) {
