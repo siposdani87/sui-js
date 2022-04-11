@@ -1,15 +1,4 @@
-const createNamespace = (namespace) => {
-    Object.keys(window).forEach((attr) => {
-        if (attr.includes('$$')) {
-            const name = attr.split('$$', 2)[0];
-            window[namespace] = window[namespace] || {};
-            window[namespace][name] = window[attr];
-        }
-    });
-    return window[namespace];
-};
-var SUI = SUI || createNamespace('SUI');
-console.log(SUI);
+SUI = SUI.default;
 
 const lightThemeNode = new SUI.Query('.light-theme').getItem();
 const darkThemeNode = new SUI.Query('.dark-theme').getItem();

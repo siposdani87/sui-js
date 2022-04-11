@@ -23,9 +23,18 @@
  * @author Dániel Sipos
  */
 
-export * from './component';
-export * from './core';
-export * from './field';
-export * from './module';
-export * from './test';
-export * from './utils';
+import * as component from './component';
+import * as core from './core';
+import * as field from './field';
+import * as module from './module';
+import * as test from './test';
+import * as utils from './utils';
+
+export default {
+    ...component,
+    ...core,
+    ...field,
+    ...module,
+    ...test,
+    ...utils,
+};
