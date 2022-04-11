@@ -60,9 +60,25 @@ export const DateIO = {
         formatString?: string,
     ): Date => {
         if (formatString) {
-            return parse(dateString, formatString, new Date());
+            try {
+                return parse(dateString, formatString, new Date());
+            } catch (error) {
+                console.log('parse', {
+                    error,
+                    dateString,
+                    formatString,
+                });
+            }
         }
-        return parseISO(dateString);
+        try {
+            return parseISO(dateString);
+        } catch (error) {
+            console.log('parseISO', {
+                error,
+                dateString,
+                formatString,
+            });
+        }
     },
     format: (date: Date, formatString?: string): string => {
         if (formatString) {
