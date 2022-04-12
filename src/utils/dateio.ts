@@ -50,7 +50,7 @@ export const setDateIOLocale = (newLocale: string): void => {
     locale = getLocaleFrom(newLocale);
 };
 
-const convertToISOFormat = (formatString: string): string => {
+export const convertToISOFormat = (formatString: string): string => {
     return formatString.replace('YYYY', 'yyyy').replaceAll('D', 'd');
 };
 

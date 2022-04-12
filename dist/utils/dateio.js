@@ -12,7 +12,7 @@ let locale = getLocaleFrom('en-US');
 export const setDateIOLocale = (newLocale) => {
     locale = getLocaleFrom(newLocale);
 };
-const convertToISOFormat = (formatString) => {
+export const convertToISOFormat = (formatString) => {
     return formatString.replace('YYYY', 'yyyy').replaceAll('D', 'd');
 };
 export const DateIO = {
