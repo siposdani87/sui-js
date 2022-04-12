@@ -19,10 +19,10 @@ export const DateIO = {
     parse: (dateString = new Date().toISOString(), formatString) => {
         if (formatString) {
             try {
-                return parse(dateString, formatString, new Date());
+                return parse(dateString, convertToISOFormat(formatString), new Date());
             }
             catch (error) {
-                console.log('parse', {
+                console.error('parse', {
                     error,
                     dateString,
                     formatString,
@@ -33,7 +33,7 @@ export const DateIO = {
             return parseISO(dateString);
         }
         catch (error) {
-            console.log('parseISO', {
+            console.error('parseISO', {
                 error,
                 dateString,
                 formatString,
