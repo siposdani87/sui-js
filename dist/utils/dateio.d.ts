@@ -1,4 +1,5 @@
 export declare const setDateIOLocale: (newLocale: string) => void;
+export declare const convertToISOFormat: (formatString: string) => string;
 export declare const DateIO: {
     parse: (dateString?: string, formatString?: string) => Date;
     format: (date: Date, formatString?: string) => string;
