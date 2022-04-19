@@ -59,7 +59,7 @@ export class Application {
             backend: '',
             production: false,
             secret: 'f74pej3qpb9qmpvregu7ef33m5w6f6qz',
-            log_color: '#000',
+            theme_color: '#000',
         });
         _self.options.merge(options);
     }
@@ -568,10 +568,10 @@ export class Application {
      */
     run(routes, services) {
         if (this.options.production) {
-            console.info('%cApplication run in production environment...', `font-weight:bold;color:${this.options.log_color};`);
+            console.info('%cApplication run in production environment...', `font-weight:bold;color:${this.options.theme_color};`);
         }
         else {
-            console.info('%cApplication run in development environment...', `font-weight:bold;color:${this.options.log_color};`);
+            console.info('%cApplication run in development environment...', `font-weight:bold;color:${this.options.theme_color};`);
             const testRunner = new TestRunner();
             testRunner.run();
         }
