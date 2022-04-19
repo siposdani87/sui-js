@@ -54,35 +54,6 @@ export class Objekt {
         });
     }
     /**
-     * @deprecated Use get()
-     * @param {string=} opt_attribute
-     * @param {*=} opt_defaultValue
-     * @param {boolean=} opt_isSafe
-     * @return {*}
-     */
-    speedGet(opt_attribute, opt_defaultValue, opt_isSafe = false) {
-        let value = this;
-        if (opt_attribute) {
-            value = this[opt_attribute];
-            const attributes = opt_isSafe
-                ? [opt_attribute]
-                : opt_attribute.split('.');
-            if (attributes.length > 1) {
-                let properties = this;
-                let i = 0;
-                while (i < attributes.length &&
-                    !isUndefined(properties[attributes[i]])) {
-                    value = properties = properties[attributes[i]];
-                    i++;
-                }
-                if (attributes.length !== i) {
-                    return opt_defaultValue;
-                }
-            }
-        }
-        return value;
-    }
-    /**
      * @template T
      * @param {string=} opt_attribute
      * @param {*=} opt_defaultValue
@@ -95,7 +66,7 @@ export class Objekt {
             const attributes = opt_isSafe
                 ? [opt_attribute]
                 : opt_attribute.split('.');
-            value = this._get(this, attributes);
+            value = this._getByAttributes(this, attributes);
         }
         return !isUndefined(value) ? value : opt_defaultValue;
     }
@@ -105,7 +76,7 @@ export class Objekt {
      * @param {!Array<string>} attributes
      * @return {!Object|!Objekt|undefined}
      */
-    _get(object, attributes) {
+    _getByAttributes(object, attributes) {
         let result = undefined;
         each(object, (_value, property) => {
             if (attributes.length === 1 &&
@@ -118,7 +89,7 @@ export class Objekt {
                 !isDate(object[property])) {
                 const copyAttributes = copyArray(attributes);
                 copyAttributes.shift();
-                result = this._get(object[property], copyAttributes);
+                result = this._getByAttributes(object[property], copyAttributes);
             }
         });
         return result;
@@ -129,7 +100,7 @@ export class Objekt {
      * @param {*} value
      * @return {undefined}
      */
-    _set(object, attributes, value) {
+    _setByAttributes(object, attributes, value) {
         eachObject(object, (_oldValue, property) => {
             if (attributes.length === 1 && property === attributes[0]) {
                 object[property] = value;
@@ -140,7 +111,7 @@ export class Objekt {
                 !isDate(object[property])) {
                 const copyAttributes = copyArray(attributes);
                 copyAttributes.shift();
-                this._set(object[property], copyAttributes, value);
+                this._setByAttributes(object[property], copyAttributes, value);
             }
         });
     }
@@ -163,7 +134,7 @@ export class Objekt {
     setRaw(attribute, value, opt_isSafe = false) {
         this.set(attribute, null);
         const attributes = opt_isSafe ? [attribute] : attribute.split('.');
-        this._set(this, attributes, value);
+        this._setByAttributes(this, attributes, value);
     }
     /**
      * @param {string} attribute
@@ -171,7 +142,7 @@ export class Objekt {
      */
     remove(attribute) {
         const attributes = attribute.split('.');
-        this._remove(this, attributes);
+        this._removeByAttributes(this, attributes);
     }
     /**
      * @return {undefined}
@@ -184,7 +155,7 @@ export class Objekt {
      * @param {!Array<string>} attributes
      * @return {undefined}
      */
-    _remove(object, attributes) {
+    _removeByAttributes(object, attributes) {
         for (const property in object) {
             if (object.hasOwnProperty(property)) {
                 if (attributes.length === 1 && property === attributes[0]) {
@@ -193,10 +164,10 @@ export class Objekt {
                 else if (property === attributes[0] &&
                     !isNull(object[property]) &&
                     isObject(object[property]) &&
-                    isDate(object[property])) {
+                    !isDate(object[property])) {
                     const copyAttributes = copyArray(attributes);
                     copyAttributes.shift();
-                    this._remove(object[property], copyAttributes);
+                    this._removeByAttributes(object[property], copyAttributes);
                 }
             }
         }

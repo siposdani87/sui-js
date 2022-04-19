@@ -33,3 +33,11 @@ export const consoleWarn = (...message: any[]) => {
 export const consoleError = (...message: any[]) => {
     console.error(...message);
 };
+
+/**
+ * @param {boolean} condition
+ * @param {...*} data
+ */
+export const consoleAssert = (condition: boolean, ...data: any[]) => {
+    console.assert(condition, ...data);
+};

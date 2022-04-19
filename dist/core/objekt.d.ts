@@ -19,14 +19,6 @@ export declare class Objekt {
      */
     private _convertObject;
     /**
-     * @deprecated Use get()
-     * @param {string=} opt_attribute
-     * @param {*=} opt_defaultValue
-     * @param {boolean=} opt_isSafe
-     * @return {*}
-     */
-    speedGet(opt_attribute?: string | undefined, opt_defaultValue?: any | undefined, opt_isSafe?: boolean | undefined): any;
-    /**
      * @template T
      * @param {string=} opt_attribute
      * @param {*=} opt_defaultValue
@@ -40,14 +32,14 @@ export declare class Objekt {
      * @param {!Array<string>} attributes
      * @return {!Object|!Objekt|undefined}
      */
-    private _get;
+    private _getByAttributes;
     /**
      * @param {!Object|!Objekt} object
      * @param {!Array<string>} attributes
      * @param {*} value
      * @return {undefined}
      */
-    private _set;
+    private _setByAttributes;
     /**
      * @param {string} attribute
      * @param {*} value
@@ -75,7 +67,7 @@ export declare class Objekt {
      * @param {!Array<string>} attributes
      * @return {undefined}
      */
-    private _remove;
+    private _removeByAttributes;
     /**
      * @param {!Function} next
      * @param {!Object=} opt_properties

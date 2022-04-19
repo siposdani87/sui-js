@@ -30,10 +30,9 @@ export class ItemTest extends BaseTest {
         for (let i = 0; i < values.length; i++) {
             this.node.setAttribute('data', values[i]);
             const value = this.node.getAttribute('data');
-            if (!isSame(value, values[i])) {
-                this.showError('setAttribute(data)', values[i]);
-                this.showError('getAttribute(data)', value);
-            }
+            const condition = isSame(value, values[i]);
+            this.showAssert(condition, 'setAttribute(data)', values[i]);
+            this.showAssert(condition, 'getAttribute(data)', value);
         }
     }
     /**
@@ -55,10 +54,9 @@ export class ItemTest extends BaseTest {
         for (let i = 0; i < values.length; i++) {
             this.node.setAttribute('data-value', values[i]);
             const value = this.node.getAttribute('data-value');
-            if (!isSame(value, values[i])) {
-                this.showError('setAttribute(data-value)', values[i]);
-                this.showError('getAttribute(data-value)', value);
-            }
+            const condition = isSame(value, values[i]);
+            this.showAssert(condition, 'setAttribute(data-value)', values[i]);
+            this.showAssert(condition, 'getAttribute(data-value)', value);
         }
         this.node.removeAttribute('data-value');
     }
@@ -83,10 +81,9 @@ export class ItemTest extends BaseTest {
         for (let i = 0; i < values.length; i++) {
             this.node.setData('value', values[i]);
             const value = this.node.getData('value');
-            if (!isSame(value, values[i])) {
-                this.showError('setData(value)', values[i]);
-                this.showError('getData(value)', value);
-            }
+            const condition = isSame(value, values[i]);
+            this.showAssert(condition, 'setData(value)', values[i]);
+            this.showAssert(condition, 'getData(value)', value);
         }
         this.node.removeData('value');
     }
