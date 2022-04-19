@@ -34,9 +34,7 @@ export class ObjektTest extends BaseTest {
                 attr4: 3,
             },
         });
-        if (options.attr !== null) {
-            this.showError('merge', 1);
-        }
+        this.showAssert(options.attr === null, 'merge', 1);
         options.merge({
             attr: 'value1',
             obj: {
@@ -44,18 +42,10 @@ export class ObjektTest extends BaseTest {
                 attr3: null,
             },
         });
-        if (options.attr !== 'value1') {
-            this.showError('merge', 2);
-        }
-        if (options.obj.attr2 !== 2) {
-            this.showError('merge', 3);
-        }
-        if (options.obj.attr3 !== null) {
-            this.showError('merge', 4);
-        }
-        if (options.obj.attr4 !== 3) {
-            this.showError('merge', 5);
-        }
+        this.showAssert(options.attr === 'value1', 'merge', 2);
+        this.showAssert(options.obj.attr2 === 2, 'merge', 3);
+        this.showAssert(options.obj.attr3 === null, 'merge', 4);
+        this.showAssert(options.obj.attr4 === 3, 'merge', 5);
     }
     /**
      * @return {undefined}
@@ -78,45 +68,19 @@ export class ObjektTest extends BaseTest {
             attr12: '2e234',
             attr13: '8e23467',
         });
-        if (options.attr !== null) {
-            this.showError('_getTypedValue', 0);
-        }
-        if (options.obj.attr2 !== 1) {
-            this.showError('_getTypedValue', 1);
-        }
-        if (options.obj.attr3 !== 3.2) {
-            this.showError('_getTypedValue', 2);
-        }
-        if (options.attr4 !== false) {
-            this.showError('_getTypedValue', 3);
-        }
-        if (options.attr5 !== true) {
-            this.showError('_getTypedValue', 4);
-        }
-        if (options.attr6 !== 'string123,456.789') {
-            this.showError('_getTypedValue', 5);
-        }
-        if (options.attr7 !== undefined) {
-            this.showError('_getTypedValue', 6);
-        }
-        if (options.attr8 !== null) {
-            this.showError('_getTypedValue', 7);
-        }
-        if (options.attr9 !== 1e3) {
-            this.showError('_getTypedValue', 8);
-        }
-        if (options.attr10 !== 1e-3) {
-            this.showError('_getTypedValue', 9);
-        }
-        if (options.attr11 !== 1e3) {
-            this.showError('_getTypedValue', 10);
-        }
-        if (options.attr12 !== 2e234) {
-            this.showError('_getTypedValue', 11);
-        }
-        if (options.attr13 !== '8e23467') {
-            this.showError('_getTypedValue', 12);
-        }
+        this.showAssert(options.attr === null, '_getTypedValue', 0);
+        this.showAssert(options.obj.attr2 === 1, '_getTypedValue', 1);
+        this.showAssert(options.obj.attr3 === 3.2, '_getTypedValue', 2);
+        this.showAssert(options.attr4 === false, '_getTypedValue', 3);
+        this.showAssert(options.attr5 === true, '_getTypedValue', 4);
+        this.showAssert(options.attr6 === 'string123,456.789', '_getTypedValue', 5);
+        this.showAssert(options.attr7 === undefined, '_getTypedValue', 6);
+        this.showAssert(options.attr8 === null, '_getTypedValue', 7);
+        this.showAssert(options.attr9 === 1e3, '_getTypedValue', 8);
+        this.showAssert(options.attr10 === 1e-3, '_getTypedValue', 9);
+        this.showAssert(options.attr11 === 1e3, '_getTypedValue', 10);
+        this.showAssert(options.attr12 === 2e234, '_getTypedValue', 11);
+        this.showAssert(options.attr13 === '8e23467', '_getTypedValue', 12);
     }
     /**
      * @return {undefined}
@@ -139,23 +103,13 @@ export class ObjektTest extends BaseTest {
             ],
         });
         options.set('attr', null);
-        if (options.get('attr') !== null) {
-            this.showError('get', 0);
-        }
+        this.showAssert(options.get('attr') === null, 'get', 0);
         options.set('obj.attr2', 1);
-        if (options.get('obj.attr2') !== 1) {
-            this.showError('get', 1);
-        }
+        this.showAssert(options.get('obj.attr2') === 1, 'get', 1);
         options.set('obj.obj2.attr3', 3.2);
-        if (options.get('obj.obj2.attr3') !== 3.2) {
-            this.showError('get', 2);
-        }
-        if (options.get('obj.obj3') !== undefined) {
-            this.showError('get', 3);
-        }
-        if (options.get('arr.0.attr1') !== -4) {
-            this.showError('get', 4);
-        }
+        this.showAssert(options.get('obj.obj2.attr3') === 3.2, 'get', 2);
+        this.showAssert(options.get('obj.obj3') == undefined, 'get', 3);
+        this.showAssert(options.get('arr.0.attr1') === -4, 'get', 4);
     }
     /**
      * @return {undefined}
@@ -180,29 +134,17 @@ export class ObjektTest extends BaseTest {
             },
         });
         options.set('attr', null);
-        if (options.get('attr') !== null) {
-            this.showError('set', 0);
-        }
+        this.showAssert(options.get('attr') === null, 'set', 0);
         options.set('obj.attr2', 1);
-        if (options.get('obj.attr2') !== 1) {
-            this.showError('set', 1);
-        }
+        this.showAssert(options.get('obj.attr2') === 1, 'set', 1);
         options.set('obj.obj2.attr3', 3.2);
-        if (options.get('obj.obj2.attr3') !== 3.2) {
-            this.showError('set', 2);
-        }
+        this.showAssert(options.get('obj.obj2.attr3') === 3.2, 'set', 2);
         options.set('obj.obj3', 5);
-        if (options.get('obj.obj3') === undefined) {
-            this.showError('set', 3);
-        }
+        this.showAssert(options.get('obj.obj3') === 5, 'set', 3);
         options.set('other', null);
-        if (options.get('other') !== null) {
-            this.showError('set', 4);
-        }
+        this.showAssert(options.get('other') === null, 'set', 4);
         options.set('other2.other3', null);
-        if (options.get('other2.other3') !== null) {
-            this.showError('set', 5);
-        }
+        this.showAssert(options.get('other2.other3') === null, 'set', 5);
     }
     /**
      * @return {undefined}
@@ -218,21 +160,14 @@ export class ObjektTest extends BaseTest {
             },
         });
         options.remove('attr');
-        if (options.get('attr') !== undefined) {
-            this.showError('remove', 0);
-        }
+        this.showAssert(options.get('attr') === undefined, 'remove', 0);
         options.remove('obj.attr2');
-        if (options.get('obj.attr2') !== undefined) {
-            this.showError('remove', 1);
-        }
+        this.showAssert(options.get('obj.attr2') === undefined, 'remove', 1);
         options.remove('obj.obj2.attr3');
-        if (options.get('obj.obj2.attr3') !== undefined) {
-            this.showError('remove', 2);
-        }
+        this.showAssert(options.get('obj.obj2.attr3') === undefined, 'remove', 2);
+        console.log(options);
         options.remove('obj.obj3');
-        if (options.get('obj.obj3') !== undefined) {
-            this.showError('remove', 3);
-        }
+        this.showAssert(options.get('obj.obj3') === undefined, 'remove', 3);
     }
     /**
      * @return {undefined}
@@ -250,8 +185,6 @@ export class ObjektTest extends BaseTest {
         options.set('obj.attr2', 0);
         const optionsCopy = options.copy();
         optionsCopy.remove('obj.attr2');
-        if (options.get('obj.attr2') !== 0) {
-            this.showError('copy', 0);
-        }
+        this.showAssert(options.get('obj.attr2') === 0, 'copy', 0);
     }
 }

@@ -1,4 +1,4 @@
-import { consoleError, consoleInfo } from '../utils/log';
+import { consoleAssert } from '../utils/log';
 /**
  * @class
  */
@@ -16,19 +16,12 @@ export class BaseTest {
         // empty function
     }
     /**
+     * @param {boolean} condition
      * @param {string} message
      * @param {!Object|string|number|boolean} object
      * @return {undefined}
      */
-    showError(message, object) {
-        consoleError(this.name + '.' + message, object);
-    }
-    /**
-     * @param {string} message
-     * @param {!Object} object
-     * @return {undefined}
-     */
-    showLog(message, object) {
-        consoleInfo(this.name + '.' + message, object);
+    showAssert(condition, message, object) {
+        consoleAssert(condition, this.name + '.' + message, object);
     }
 }

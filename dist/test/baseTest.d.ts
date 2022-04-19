@@ -16,15 +16,10 @@ export declare class BaseTest {
      */
     init(): void;
     /**
+     * @param {boolean} condition
      * @param {string} message
      * @param {!Object|string|number|boolean} object
      * @return {undefined}
      */
-    showError(message: string, object: Object | string | number | boolean): void;
-    /**
-     * @param {string} message
-     * @param {!Object} object
-     * @return {undefined}
-     */
-    showLog(message: string, object: Object): void;
+    showAssert(condition: boolean, message: string, object: Object | string | number | boolean): void;
 }

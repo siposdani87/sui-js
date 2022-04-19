@@ -29,3 +29,10 @@ export const consoleWarn = (...message) => {
 export const consoleError = (...message) => {
     console.error(...message);
 };
+/**
+ * @param {boolean} condition
+ * @param {...*} data
+ */
+export const consoleAssert = (condition, ...data) => {
+    console.assert(condition, ...data);
+};

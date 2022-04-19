@@ -51,27 +51,21 @@ export class DeferredTest extends BaseTest {
     testPromise() {
         const deferred = new Deferred();
         const promise = deferred.promise();
-        if (!(promise instanceof Promize)) {
-            this.showError('promise', 1);
-        }
+        this.showAssert(promise instanceof Promize, 'promise', 1);
     }
     /**
      * @return {undefined}
      */
     testResolve() {
         this.ajaxResolve().then((value) => {
-            if (value !== 1) {
-                this.showError('resolve', 1);
-            }
+            this.showAssert(value === 1, 'resolve', 1);
         }, () => {
-            this.showError('resolve', 2);
+            this.showAssert(false, 'resolve', 2);
         });
         this.funcResolve().then((value) => {
-            if (value !== 2) {
-                this.showError('resolve', 3);
-            }
+            this.showAssert(value === 2, 'resolve', 3);
         }, () => {
-            this.showError('resolve', 4);
+            this.showAssert(false, 'resolve', 4);
         });
     }
     /**
@@ -79,18 +73,14 @@ export class DeferredTest extends BaseTest {
      */
     testReject() {
         this.ajaxReject().then(() => {
-            this.showError('reject', 1);
+            this.showAssert(false, 'reject', 1);
         }, (value) => {
-            if (value !== 1) {
-                this.showError('reject', 2);
-            }
+            this.showAssert(value === 1, 'reject', 2);
         });
         this.funcReject().then(() => {
-            this.showError('reject', 3);
+            this.showAssert(false, 'reject', 3);
         }, (value) => {
-            if (value !== 2) {
-                this.showError('reject', 4);
-            }
+            this.showAssert(value === 2, 'reject', 4);
         });
     }
 }
