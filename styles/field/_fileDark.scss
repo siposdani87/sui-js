@@ -1,21 +1,21 @@
 .dark-theme {
-  .file-field {
-    input[type='file'] {
-      &.mdl-textfield__input {
-        &::-webkit-file-upload-button {
-          color: $content-default-dark;
+    .file-field {
+        input[type='file'] {
+            &.mdl-textfield__input {
+                &::-webkit-file-upload-button {
+                    color: $content-default-dark;
+                }
+            }
         }
-      }
-    }
 
-    &.is-disabled {
-      img {
-        opacity: .2;
-      }
+        &.is-disabled {
+            img {
+                opacity: 0.2;
+            }
 
-      .browse-button {
-        color: $primary-disabled-dark;
-      }
+            .browse-button {
+                color: $primary-disabled-dark;
+            }
+        }
     }
-  }
 }

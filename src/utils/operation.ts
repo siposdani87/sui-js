@@ -116,14 +116,6 @@ export const convertToString = (
 };
 
 /**
- * @param {*} value
- * @param {*} defaultValue
- * @return {*}
- */
-export const defaultValue = (value: any, defaultValue: any): any =>
-    !isUndefined(value) ? value : defaultValue;
-
-/**
  * @param {*=} opt_result
  * @return {!Function}
  */

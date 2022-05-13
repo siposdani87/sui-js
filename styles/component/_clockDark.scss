@@ -1,22 +1,22 @@
 .dark-theme {
-  .clock {
-    background-color: $deep-grey;
+    .clock {
+        background-color: $deep-grey;
 
-    .header {
-      background-color: $primary-dark;
-      color: $deep-grey-bright;
+        .header {
+            background-color: $primary-dark;
+            color: $deep-grey-bright;
 
-      .hours {
-        &.active {
-          color: $primary-text;
+            .hours {
+                &.active {
+                    color: $primary-text;
+                }
+            }
+
+            .minutes {
+                &.active {
+                    color: $primary-text;
+                }
+            }
         }
-      }
-
-      .minutes {
-        &.active {
-          color: $primary-text;
-        }
-      }
     }
-  }
 }

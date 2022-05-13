@@ -1,47 +1,45 @@
 .color-field {
-
-  .preview {
-    margin-right: 10px;
-    display: inline-block;
-    width: 24px;
-    height: 24px;
-    vertical-align: middle;
-    border-radius: 50%;
-    border: 1px solid $input-default-light;
-
-    &:focus {
-      outline: none;
-    }
-  }
-
-  // input[required] ~ .preview {
-  //   border-color: $error-default-light;
-  // }
-
-  canvas {
-    vertical-align: middle;
-  }
-
-  .field-label {
-    color: $label-default-light;
-  }
-
-  &.is-disabled {
-
-    .field-label {
-      color: $label-disabled-light;
-    }
-
     .preview {
-      border: 1px dotted $input-disabled-light;
+        margin-right: 10px;
+        display: inline-block;
+        width: 24px;
+        height: 24px;
+        vertical-align: middle;
+        border-radius: 50%;
+        border: 1px solid $input-default-light;
 
-      .color {
-        opacity: .3;
-      }
+        &:focus {
+            outline: none;
+        }
     }
 
     // input[required] ~ .preview {
-    //   border-color: $error-disabled-light;
+    //   border-color: $error-default-light;
     // }
-  }
+
+    canvas {
+        vertical-align: middle;
+    }
+
+    .field-label {
+        color: $label-default-light;
+    }
+
+    &.is-disabled {
+        .field-label {
+            color: $label-disabled-light;
+        }
+
+        .preview {
+            border: 1px dotted $input-disabled-light;
+
+            .color {
+                opacity: 0.3;
+            }
+        }
+
+        // input[required] ~ .preview {
+        //   border-color: $error-disabled-light;
+        // }
+    }
 }

@@ -1,19 +1,18 @@
 .dark-theme {
-  .search-field {
+    .search-field {
+        .clear-button {
+            color: $primary-default-dark;
+        }
 
-    .clear-button {
-      color: $primary-default-dark;
-    }
+        .search-button {
+            color: $primary-default-dark;
+        }
 
-    .search-button {
-      color: $primary-default-dark;
+        &.is-disabled {
+            .clear-button,
+            .search-button {
+                color: $primary-disabled-dark;
+            }
+        }
     }
-
-    &.is-disabled {
-      .clear-button,
-      .search-button {
-        color: $primary-disabled-dark;
-      }
-    }
-  }
 }

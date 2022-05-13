@@ -1,260 +1,260 @@
 .table-responsive {
-  margin-bottom: 15px;
-  overflow-x: auto;
+    margin-bottom: 15px;
+    overflow-x: auto;
 }
 
 table {
-  border-collapse: collapse;
-  width: 100%;
+    border-collapse: collapse;
+    width: 100%;
 
-  @include media-breakpoint-down(sm) {
-    display: block;
-  }
-
-  thead {
     @include media-breakpoint-down(sm) {
-      display: none;
-    }
-
-    tr {
-      border-bottom: 1px solid $deep-grey-bright;
-
-      th {
-        text-align: left;
-        padding: 5px 10px;
-        text-transform: uppercase;
-        vertical-align: baseline;
-        font-weight: 500;
-        font-family: $font-family-heading;
-
-        &[data-column] {
-          font-weight: 700;
-          cursor: pointer;
-          white-space: nowrap;
-        }
-
-        &.actions {
-          text-align: right;
-        }
-
-        .icons {
-          vertical-align: middle;
-          display: inline-flex;
-          flex-flow: column wrap;
-          color: $deep-grey-bright;
-          width: 24px;
-          height: 24px;
-
-          em {
-            cursor: pointer;
-            display: none;
-
-            &.active {
-              display: inline-block;
-              color: $black;
-            }
-          }
-        }
-
-        .info {
-          color: $primary;
-          vertical-align: sub;
-          padding-left: .1em;
-          font-size: 22px;
-        }
-      }
-    }
-  }
-
-  tbody {
-    @include media-breakpoint-down(sm) {
-      display: block;
-      border: 1px solid $light-grey;
-      border-top: 0;
-    }
-
-    tr {
-      @include media-breakpoint-down(sm) {
         display: block;
-      }
+    }
 
-      border-top: 1px solid $light-grey;
-
-      &:nth-child(4n+0) {
-        background-color: $white-dark;
-      }
-
-      &.header {
-        display: none;
-        cursor: pointer;
-
+    thead {
         @include media-breakpoint-down(sm) {
-          display: flex;
-          flex-flow: row nowrap;
-          justify-content: space-between;
-          align-items: center;
+            display: none;
         }
 
-        &:hover {
-          background-color: $light-grey;
-        }
+        tr {
+            border-bottom: 1px solid $deep-grey-bright;
 
-        &.opened {
-          background-color: $light-grey;
+            th {
+                text-align: left;
+                padding: 5px 10px;
+                text-transform: uppercase;
+                vertical-align: baseline;
+                font-weight: 500;
+                font-family: $font-family-heading;
 
-          td {
-            &:first-of-type {
-              &::before {
-                content: '\E316';
-              }
+                &[data-column] {
+                    font-weight: 700;
+                    cursor: pointer;
+                    white-space: nowrap;
+                }
+
+                &.actions {
+                    text-align: right;
+                }
+
+                .icons {
+                    vertical-align: middle;
+                    display: inline-flex;
+                    flex-flow: column wrap;
+                    color: $deep-grey-bright;
+                    width: 24px;
+                    height: 24px;
+
+                    em {
+                        cursor: pointer;
+                        display: none;
+
+                        &.active {
+                            display: inline-block;
+                            color: $black;
+                        }
+                    }
+                }
+
+                .info {
+                    color: $primary;
+                    vertical-align: sub;
+                    padding-left: 0.1em;
+                    font-size: 22px;
+                }
             }
-          }
         }
+    }
 
-        td {
-          &:first-of-type {
-            font-family: $font-family-heading;
-            font-weight: 500;
-            display: flex;
-            align-items: center;
-
-            &::before {
-              font-family: 'Material Icons';
-              font-size: 1.5em;
-              vertical-align: middle;
-              padding-right: 5px;
-              content: '\E313';
-            }
-          }
-        }
-      }
-
-      &.data {
+    tbody {
         @include media-breakpoint-down(sm) {
-          display: none;
-          background-color: $white-dark;
-
-          &.open {
             display: block;
+            border: 1px solid $light-grey;
+            border-top: 0;
+        }
+
+        tr {
+            @include media-breakpoint-down(sm) {
+                display: block;
+            }
+
+            border-top: 1px solid $light-grey;
+
+            &:nth-child(4n + 0) {
+                background-color: $white-dark;
+            }
+
+            &.header {
+                display: none;
+                cursor: pointer;
+
+                @include media-breakpoint-down(sm) {
+                    display: flex;
+                    flex-flow: row nowrap;
+                    justify-content: space-between;
+                    align-items: center;
+                }
+
+                &:hover {
+                    background-color: $light-grey;
+                }
+
+                &.opened {
+                    background-color: $light-grey;
+
+                    td {
+                        &:first-of-type {
+                            &::before {
+                                content: '\E316';
+                            }
+                        }
+                    }
+                }
+
+                td {
+                    &:first-of-type {
+                        font-family: $font-family-heading;
+                        font-weight: 500;
+                        display: flex;
+                        align-items: center;
+
+                        &::before {
+                            font-family: 'Material Icons';
+                            font-size: 1.5em;
+                            vertical-align: middle;
+                            padding-right: 5px;
+                            content: '\E313';
+                        }
+                    }
+                }
+            }
+
+            &.data {
+                @include media-breakpoint-down(sm) {
+                    display: none;
+                    background-color: $white-dark;
+
+                    &.open {
+                        display: block;
+
+                        td {
+                            display: flex;
+                            flex-flow: row nowrap;
+                            justify-content: space-between;
+                            align-items: center;
+                            border-bottom: 1px solid $light-grey;
+
+                            span {
+                                text-align: right;
+
+                                &.label {
+                                    text-align: left;
+                                }
+                            }
+
+                            &.actions {
+                                display: none;
+                            }
+
+                            span {
+                                &:not(.label) {
+                                    font-weight: 700;
+                                }
+                            }
+                        }
+                    }
+                }
+
+                .label {
+                    padding: 0 10px 0 0;
+                    text-transform: uppercase;
+                    vertical-align: baseline;
+                    font-weight: 500;
+                    font-family: $font-family-heading;
+
+                    &[data-column] {
+                        font-weight: 700;
+                        cursor: pointer;
+                        white-space: nowrap;
+                    }
+
+                    span {
+                        vertical-align: middle;
+                        display: inline-flex;
+                        flex-flow: column wrap;
+                        color: $deep-grey-bright;
+                        width: 24px;
+                        height: 24px;
+
+                        em {
+                            cursor: pointer;
+                            display: none;
+
+                            &.active {
+                                display: inline-block;
+                                color: $black;
+                            }
+                        }
+                    }
+                }
+            }
 
             td {
-              display: flex;
-              flex-flow: row nowrap;
-              justify-content: space-between;
-              align-items: center;
-              border-bottom: 1px solid $light-grey;
+                padding: 5px 10px;
 
-              span {
-                text-align: right;
-
-                &.label {
-                  text-align: left;
+                &.actions {
+                    text-align: right;
+                    white-space: nowrap;
                 }
-              }
 
-              &.actions {
-                display: none;
-              }
-
-              span {
-                &:not(.label) {
-                  font-weight: 700;
+                .img-wrapper {
+                    width: 40px;
+                    height: 40px;
+                    padding: 3px;
                 }
-              }
+
+                a {
+                    &::after {
+                        content: ', ';
+                    }
+
+                    &:last-child {
+                        &::after {
+                            content: '';
+                        }
+                    }
+                }
+
+                .label {
+                    display: none;
+
+                    @include media-breakpoint-down(sm) {
+                        display: inline-block;
+                    }
+                }
             }
-          }
         }
-
-        .label {
-          padding: 0 10px 0 0;
-          text-transform: uppercase;
-          vertical-align: baseline;
-          font-weight: 500;
-          font-family: $font-family-heading;
-
-          &[data-column] {
-            font-weight: 700;
-            cursor: pointer;
-            white-space: nowrap;
-          }
-
-          span {
-            vertical-align: middle;
-            display: inline-flex;
-            flex-flow: column wrap;
-            color: $deep-grey-bright;
-            width: 24px;
-            height: 24px;
-
-            em {
-              cursor: pointer;
-              display: none;
-
-              &.active {
-                display: inline-block;
-                color: $black;
-              }
-            }
-          }
-        }
-      }
-
-      td {
-        padding: 5px 10px;
-
-        &.actions {
-          text-align: right;
-          white-space: nowrap;
-        }
-
-        .img-wrapper {
-          width: 40px;
-          height: 40px;
-          padding: 3px;
-        }
-
-        a {
-          &::after {
-            content: ', ';
-          }
-
-          &:last-child {
-            &::after {
-              content: '';
-            }
-          }
-        }
-
-        .label {
-          display: none;
-
-          @include media-breakpoint-down(sm) {
-            display: inline-block;
-          }
-        }
-      }
-    }
-  }
-
-  tfoot {
-    @include media-breakpoint-down(sm) {
-      display: block;
     }
 
-    tr {
-      td {
-        &:not(.pager) {
-          padding: 5px 10px;
+    tfoot {
+        @include media-breakpoint-down(sm) {
+            display: block;
         }
 
-        &.pager-statistics {
-          white-space: nowrap;
-        }
+        tr {
+            td {
+                &:not(.pager) {
+                    padding: 5px 10px;
+                }
 
-        &.pager {
-          text-align: right;
+                &.pager-statistics {
+                    white-space: nowrap;
+                }
+
+                &.pager {
+                    text-align: right;
+                }
+            }
         }
-      }
     }
-  }
 }

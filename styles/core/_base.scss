@@ -1,125 +1,125 @@
 html,
 body {
-  font-family: $font-family-body;
-  font-size: $font-size-root;
-  font-weight: 400;
-  color: $black;
-  box-sizing: border-box;
+    font-family: $font-family-body;
+    font-size: $font-size-root;
+    font-weight: 400;
+    color: $black;
+    box-sizing: border-box;
 }
 
 * {
-  box-sizing: border-box;
-
-  &::before,
-  &::after {
     box-sizing: border-box;
-  }
 
-  &:focus {
-    outline: none;
-  }
+    &::before,
+    &::after {
+        box-sizing: border-box;
+    }
+
+    &:focus {
+        outline: none;
+    }
 }
 
 body {
-  background-color: $white;
-  font-size: $font-size-base;
-  // 16 * 1rem = 16px
-  line-height: $line-height;
+    background-color: $white;
+    font-size: $font-size-base;
+    // 16 * 1rem = 16px
+    line-height: $line-height;
 
-  @include media-breakpoint-up(xl) {
-    font-size: $font-size-xl;
-  }
+    @include media-breakpoint-up(xl) {
+        font-size: $font-size-xl;
+    }
 
-  @include media-breakpoint-down(sm) {
-    font-size: $font-size-sm;
-  }
+    @include media-breakpoint-down(sm) {
+        font-size: $font-size-sm;
+    }
 
-  @include media-breakpoint-down(xs) {
-    font-size: $font-size-xs;
-  }
+    @include media-breakpoint-down(xs) {
+        font-size: $font-size-xs;
+    }
 
-  p,
-  ul,
-  ol {
-    font-size: inherit;
-    line-height: inherit;
-  }
+    p,
+    ul,
+    ol {
+        font-size: inherit;
+        line-height: inherit;
+    }
 }
 
 a {
-  color: $primary;
-  text-decoration: none;
-  font-weight: 400;
-
-  &:hover {
-    color: $primary-dark;
+    color: $primary;
     text-decoration: none;
-  }
-
-  &.link {
-    border-bottom: 1px dotted $primary;
+    font-weight: 400;
 
     &:hover {
-      border-bottom: 1px solid $primary-dark;
+        color: $primary-dark;
+        text-decoration: none;
     }
-  }
+
+    &.link {
+        border-bottom: 1px dotted $primary;
+
+        &:hover {
+            border-bottom: 1px solid $primary-dark;
+        }
+    }
 }
 
 p {
-  margin: 0 0 1em;
+    margin: 0 0 1em;
 }
 
 b,
 strong {
-  font-weight: 700;
+    font-weight: 700;
 }
 
 i,
 em {
-  font-style: italic;
+    font-style: italic;
 }
 
 h1 {
-  font-size: $font-size-h1;
-  // 16 * 2.5rem = 64px
-  font-weight: 300;
-  margin: .5em 0;
-  line-height: $line-height;
+    font-size: $font-size-h1;
+    // 16 * 2.5rem = 64px
+    font-weight: 300;
+    margin: 0.5em 0;
+    line-height: $line-height;
 }
 
 h2 {
-  font-size: $font-size-h2;
-  font-weight: 300;
-  margin: .5em 0;
-  line-height: $line-height;
+    font-size: $font-size-h2;
+    font-weight: 300;
+    margin: 0.5em 0;
+    line-height: $line-height;
 }
 
 h3 {
-  font-size: $font-size-h3;
-  font-weight: 400;
-  margin: .5em 0;
-  line-height: $line-height;
+    font-size: $font-size-h3;
+    font-weight: 400;
+    margin: 0.5em 0;
+    line-height: $line-height;
 }
 
 h4 {
-  font-size: $font-size-h4;
-  font-weight: 400;
-  margin: .5em 0;
-  line-height: $line-height;
+    font-size: $font-size-h4;
+    font-weight: 400;
+    margin: 0.5em 0;
+    line-height: $line-height;
 }
 
 h5 {
-  font-size: $font-size-h5;
-  font-weight: 500;
-  margin: .5em 0;
-  line-height: $line-height;
+    font-size: $font-size-h5;
+    font-weight: 500;
+    margin: 0.5em 0;
+    line-height: $line-height;
 }
 
 h6 {
-  font-size: $font-size-h6;
-  font-weight: 500;
-  margin: .5em 0;
-  line-height: $line-height;
+    font-size: $font-size-h6;
+    font-weight: 500;
+    margin: 0.5em 0;
+    line-height: $line-height;
 }
 
 h1,
@@ -128,187 +128,187 @@ h3,
 h4,
 h5,
 h6 {
-  font-family: $font-family-heading;
-  letter-spacing: normal;
+    font-family: $font-family-heading;
+    letter-spacing: normal;
 
-  small {
-    font-family: $font-family-body;
-    margin-left: .5em;
-  }
+    small {
+        font-family: $font-family-body;
+        margin-left: 0.5em;
+    }
 }
 
 .app-title {
-  font-family: $font-family-app;
-  text-transform: uppercase;
-  white-space: nowrap;
-  word-break: keep-all;
+    font-family: $font-family-app;
+    text-transform: uppercase;
+    white-space: nowrap;
+    word-break: keep-all;
 
-  small {
-    margin: 0;
-    white-space: initial;
-    word-break: initial;
-  }
+    small {
+        margin: 0;
+        white-space: initial;
+        word-break: initial;
+    }
 }
 
 blockquote {
-  font-family: $font-family-body;
+    font-family: $font-family-body;
 }
 
 address {
-  font-size: 1em;
+    font-size: 1em;
 }
 
 .visible {
-  display: block !important;
+    display: block !important;
 }
 
 .visible-flex {
-  display: flex !important;
+    display: flex !important;
 }
 
 .hidden {
-  display: none !important;
+    display: none !important;
 }
 
 .hidden-animate {
-  animation-name: fadeOut;
-  animation-duration: .5s;
+    animation-name: fadeOut;
+    animation-duration: 0.5s;
 }
 
 .map {
-  height: 100%;
-  width: 100%;
-  min-height: 300px;
-  color: $black;
+    height: 100%;
+    width: 100%;
+    min-height: 300px;
+    color: $black;
 }
 
 .block-center {
-  display: flex;
-  justify-content: center;
-  align-items: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 .tag {
-  display: inline-block;
-  border-radius: 12px;
-  padding: 4px 10px;
-  margin: 1px 5px 1px 0;
-  white-space: nowrap;
-  border: 3px solid $deep-grey-bright;
-  font-size: .75em;
-  font-weight: 700;
-  color: $deep-grey-bright;
-  text-transform: uppercase;
+    display: inline-block;
+    border-radius: 12px;
+    padding: 4px 10px;
+    margin: 1px 5px 1px 0;
+    white-space: nowrap;
+    border: 3px solid $deep-grey-bright;
+    font-size: 0.75em;
+    font-weight: 700;
+    color: $deep-grey-bright;
+    text-transform: uppercase;
 
-  &.text-primary {
-    border-color: $primary;
-  }
+    &.text-primary {
+        border-color: $primary;
+    }
 
-  &.text-accent {
-    border-color: $accent;
-  }
+    &.text-accent {
+        border-color: $accent;
+    }
 
-  &.text-success {
-    border-color: $success;
-  }
+    &.text-success {
+        border-color: $success;
+    }
 
-  &.text-info {
-    border-color: $info;
-  }
+    &.text-info {
+        border-color: $info;
+    }
 
-  &.text-warning {
-    border-color: $warning;
-  }
+    &.text-warning {
+        border-color: $warning;
+    }
 
-  &.text-error {
-    border-color: $error;
-  }
+    &.text-error {
+        border-color: $error;
+    }
 
-  &.text-default {
-    border-color: $black;
-  }
+    &.text-default {
+        border-color: $black;
+    }
 }
 
 .truncate-container {
-  display: table;
-  table-layout: fixed;
-  width: 100%;
-  white-space: nowrap;
+    display: table;
+    table-layout: fixed;
+    width: 100%;
+    white-space: nowrap;
 }
 
 .text-truncate {
-  max-width: 100%;
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
+    max-width: 100%;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
 }
 
 .text-center {
-  text-align: center;
+    text-align: center;
 }
 
 .text-left {
-  text-align: left;
+    text-align: left;
 }
 
 .text-right {
-  text-align: right;
+    text-align: right;
 }
 
 .text-primary {
-  color: $primary;
+    color: $primary;
 }
 
 .text-accent {
-  color: $accent;
+    color: $accent;
 }
 
 .text-grey {
-  color: $deep-grey-bright;
+    color: $deep-grey-bright;
 }
 
 .text-success {
-  color: $success;
+    color: $success;
 }
 
 .text-info {
-  color: $info;
+    color: $info;
 }
 
 .text-warning {
-  color: $warning;
+    color: $warning;
 }
 
 .text-error {
-  color: $error;
+    color: $error;
 }
 
 .text-default {
-  color: $black;
+    color: $black;
 }
 
 .overflow-hidden {
-  overflow: hidden;
+    overflow: hidden;
 }
 
 .pre-line {
-  white-space: pre-line;
+    white-space: pre-line;
 }
 
 .has-tooltip {
-  cursor: pointer;
+    cursor: pointer;
 }
 
 h3.caption {
-  color: $primary;
+    color: $primary;
 
-  &::first-letter {
-    text-transform: capitalize;
-  }
+    &::first-letter {
+        text-transform: capitalize;
+    }
 }
 
 form {
-  h3.caption {
-    margin: .5em 0 .5em -.5em;
-  }
+    h3.caption {
+        margin: 0.5em 0 0.5em -0.5em;
+    }
 }

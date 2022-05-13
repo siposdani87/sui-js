@@ -1,41 +1,41 @@
 .dark-theme {
-  .page-content {
-    &.fullscreen {
-      display: flex;
-      background-color: $black-bright;
-      color: $white;
+    .page-content {
+        &.fullscreen {
+            display: flex;
+            background-color: $black-bright;
+            color: $white;
 
-      &.light {
-        background-color: $black;
-        color: inherit;
-      }
-    }
-  }
-
-  .page-header {
-    background-color: $black-bright;
-    color: $white;
-
-    h1 {
-      a,
-      span {
-        &::after {
-          color: $deep-grey-bright;
+            &.light {
+                background-color: $black;
+                color: inherit;
+            }
         }
-      }
     }
-  }
 
-  .page-subheader {
-    background-color: $black-bright;
-    color: $white;
+    .page-header {
+        background-color: $black-bright;
+        color: $white;
 
-    h2 {
-      a {
-        &::after {
-          color: $deep-grey-bright;
+        h1 {
+            a,
+            span {
+                &::after {
+                    color: $deep-grey-bright;
+                }
+            }
         }
-      }
     }
-  }
+
+    .page-subheader {
+        background-color: $black-bright;
+        color: $white;
+
+        h2 {
+            a {
+                &::after {
+                    color: $deep-grey-bright;
+                }
+            }
+        }
+    }
 }

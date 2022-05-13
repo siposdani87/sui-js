@@ -1,24 +1,24 @@
 .dark-theme {
-  .time {
-    background-color: $black;
+    .time {
+        background-color: $black;
 
-    .center-point {
-      background-color: $accent;
+        .center-point {
+            background-color: $accent;
+        }
+
+        .pointer {
+            background-color: $accent;
+        }
+
+        .circle {
+            &.selected {
+                background-color: $accent;
+                color: $accent-text;
+            }
+
+            &:hover {
+                border-color: $accent;
+            }
+        }
     }
-
-    .pointer {
-      background-color: $accent;
-    }
-
-    .circle {
-      &.selected {
-        background-color: $accent;
-        color: $accent-text;
-      }
-
-      &:hover {
-        border-color: $accent;
-      }
-    }
-  }
 }

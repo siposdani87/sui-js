@@ -1,28 +1,28 @@
 .dark-theme {
-  .tab-panel {
-    .tabs {
-      a {
-        border-bottom-color: $black-bright;
-        background-color: $black;
-        color: $deep-grey-bright;
+    .tab-panel {
+        .tabs {
+            a {
+                border-bottom-color: $black-bright;
+                background-color: $black;
+                color: $deep-grey-bright;
 
-        &:hover {
-          color: $primary-bright;
-        }
+                &:hover {
+                    color: $primary-bright;
+                }
 
-        &.active {
-          border-bottom-color: $accent-bright;
-          color: $primary-bright;
-        }
+                &.active {
+                    border-bottom-color: $accent-bright;
+                    color: $primary-bright;
+                }
 
-        &:not(.active) {
-          border-bottom-color: $black;
-        }
+                &:not(.active) {
+                    border-bottom-color: $black;
+                }
 
-        &.disabled {
-          color: $deep-grey;
+                &.disabled {
+                    color: $deep-grey;
+                }
+            }
         }
-      }
     }
-  }
 }

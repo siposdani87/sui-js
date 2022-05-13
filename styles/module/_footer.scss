@@ -1,269 +1,267 @@
 #footer {
-  position: absolute;
-  min-height: 3em;
-  width: 100%;
-  padding: 0 1em;
-  display: flex;
-  flex-flow: row nowrap;
-  justify-content: space-between;
-  align-items: center;
-  background-color: $black-bright;
-  z-index: $zindex-footer;
-
-  @include media-breakpoint-down(sm) {
-    padding-top: 1em;
-    padding-bottom: 1em;
-    flex-flow: column nowrap;
-  }
-
-  .content,
-  .locales {
-    color: $white;
-
-    a {
-      color: $accent;
-
-      &:hover,
-      &.active {
-        color: $accent-dark;
-      }
-    }
-  }
-
-  .content {
-    flex: 1;
-  }
-
-  .locales {
-    flex: 0 1 auto;
-    display: flex;
-    justify-content: center;
-
-    a {
-      padding: 0 .5em;
-
-      .image {
-        margin-right: .5em;
-        line-height: 0;
-
-        @include media-breakpoint-down(md) {
-          display: none;
-        }
-
-        @include media-breakpoint-up(lg) {
-          margin-right: 0;
-        }
-
-        img {
-          height: 25px;
-          width: 25px;
-          filter: grayscale(100%);
-        }
-      }
-
-      .title {
-        @include media-breakpoint-up(lg) {
-          display: none;
-        }
-      }
-
-      &.active {
-        .image {
-          img {
-            filter: none;
-          }
-        }
-      }
-    }
-  }
-
-  #open-bottom-menu,
-  #close-bottom-menu {
-    display: none;
-    color: $accent;
-  }
-
-  #bottom-menu {
-    flex: 1;
+    position: absolute;
+    min-height: 3em;
+    width: 100%;
+    padding: 0 1em;
     display: flex;
     flex-flow: row nowrap;
+    justify-content: space-between;
     align-items: center;
-    justify-content: flex-end;
+    background-color: $black-bright;
+    z-index: $zindex-footer;
 
     @include media-breakpoint-down(sm) {
-      padding-top: 1em;
+        padding-top: 1em;
+        padding-bottom: 1em;
+        flex-flow: column nowrap;
     }
-
-    @include media-breakpoint-down(xs) {
-      flex-flow: column nowrap;
-    }
-
-    a {
-      display: flex;
-      align-items: center;
-      margin-left: 2em;
-      text-decoration: none;
-      color: $accent;
-      line-height: 1.1;
-
-      @include media-breakpoint-down(xs) {
-        margin-left: 0;
-        margin-top: .5em;
-      }
-
-      .image {
-        margin-right: .5em;
-        line-height: 0;
-        display: block;
-        box-shadow: 0 0 5px rgba($black, .75);
-        border-radius: 50%;
-
-        @include media-breakpoint-down(lg) {
-          display: none;
-        }
-
-        em {
-          font-size: 32px;
-        }
-      }
-
-      &:hover,
-      &.active {
-        color: $accent-dark;
-      }
-    }
-  }
-
-  &.static {
-    position: fixed;
-    bottom: 0;
-    background-color: transparent;
 
     .content,
     .locales {
-      color: $white;
-
-      a {
-        color: $accent;
-
-        &:hover,
-        &.active {
-          color: $accent-dark;
-        }
-      }
-    }
-
-    &.open {
-      z-index: $zindex-footer-static;
-
-      @include media-breakpoint-down(sm) {
-        box-shadow: 0 2px 20px 0 rgba($black, .75);
-      }
-
-      @include media-breakpoint-down(sm) {
-        background-color: $black;
-        padding-bottom: 1em;
-        flex-flow: column nowrap;
-      }
-
-      .content,
-      .locales {
         color: $white;
 
         a {
-          color: $accent;
+            color: $accent;
 
-          &:hover,
-          &.active {
-            color: $accent-dark;
-          }
+            &:hover,
+            &.active {
+                color: $accent-dark;
+            }
         }
-      }
-
-      #open-bottom-menu {
-        display: none;
-      }
-
-      #close-bottom-menu {
-        @include media-breakpoint-down(sm) {
-          display: inline-block;
-          color: $accent;
-        }
-      }
-
-      #bottom-menu {
-        a {
-          color: $accent;
-
-          &:hover,
-          &.active {
-            color: $accent-dark;
-          }
-        }
-      }
     }
 
-    &.dark {
+    .content {
+        flex: 1;
+    }
 
-      .content,
-      .locales {
-        color: $black;
+    .locales {
+        flex: 0 1 auto;
+        display: flex;
+        justify-content: center;
 
         a {
-          color: $primary;
+            padding: 0 0.5em;
 
-          &:hover,
-          &.active {
-            color: $primary-dark;
-          }
+            .image {
+                margin-right: 0.5em;
+                line-height: 0;
+
+                @include media-breakpoint-down(md) {
+                    display: none;
+                }
+
+                @include media-breakpoint-up(lg) {
+                    margin-right: 0;
+                }
+
+                img {
+                    height: 25px;
+                    width: 25px;
+                    filter: grayscale(100%);
+                }
+            }
+
+            .title {
+                @include media-breakpoint-up(lg) {
+                    display: none;
+                }
+            }
+
+            &.active {
+                .image {
+                    img {
+                        filter: none;
+                    }
+                }
+            }
         }
-      }
-
-      #open-bottom-menu,
-      #close-bottom-menu {
-        color: $primary;
-      }
-
-      #bottom-menu {
-        a {
-          color: $primary;
-
-          &:hover,
-          &.active {
-            color: $primary-dark;
-          }
-        }
-
-      }
     }
 
-    &.open.dark {
-      @include media-breakpoint-down(sm) {
-        background-color: $light-grey;
-      }
-    }
-
-    @include media-breakpoint-down(sm) {
-      padding: 0 2em;
-      flex-flow: row nowrap;
-    }
-
-    #open-bottom-menu {
-      @include media-breakpoint-down(sm) {
-        display: inline-block;
-      }
-    }
-
+    #open-bottom-menu,
     #close-bottom-menu {
-      @include media-breakpoint-down(sm) {
         display: none;
-      }
+        color: $accent;
     }
 
     #bottom-menu {
-      @include media-breakpoint-down(sm) {
-        display: none;
-      }
+        flex: 1;
+        display: flex;
+        flex-flow: row nowrap;
+        align-items: center;
+        justify-content: flex-end;
+
+        @include media-breakpoint-down(sm) {
+            padding-top: 1em;
+        }
+
+        @include media-breakpoint-down(xs) {
+            flex-flow: column nowrap;
+        }
+
+        a {
+            display: flex;
+            align-items: center;
+            margin-left: 2em;
+            text-decoration: none;
+            color: $accent;
+            line-height: 1.1;
+
+            @include media-breakpoint-down(xs) {
+                margin-left: 0;
+                margin-top: 0.5em;
+            }
+
+            .image {
+                margin-right: 0.5em;
+                line-height: 0;
+                display: block;
+                box-shadow: 0 0 5px rgba($black, 0.75);
+                border-radius: 50%;
+
+                @include media-breakpoint-down(lg) {
+                    display: none;
+                }
+
+                em {
+                    font-size: 32px;
+                }
+            }
+
+            &:hover,
+            &.active {
+                color: $accent-dark;
+            }
+        }
     }
-  }
+
+    &.static {
+        position: fixed;
+        bottom: 0;
+        background-color: transparent;
+
+        .content,
+        .locales {
+            color: $white;
+
+            a {
+                color: $accent;
+
+                &:hover,
+                &.active {
+                    color: $accent-dark;
+                }
+            }
+        }
+
+        &.open {
+            z-index: $zindex-footer-static;
+
+            @include media-breakpoint-down(sm) {
+                box-shadow: 0 2px 20px 0 rgba($black, 0.75);
+            }
+
+            @include media-breakpoint-down(sm) {
+                background-color: $black;
+                padding-bottom: 1em;
+                flex-flow: column nowrap;
+            }
+
+            .content,
+            .locales {
+                color: $white;
+
+                a {
+                    color: $accent;
+
+                    &:hover,
+                    &.active {
+                        color: $accent-dark;
+                    }
+                }
+            }
+
+            #open-bottom-menu {
+                display: none;
+            }
+
+            #close-bottom-menu {
+                @include media-breakpoint-down(sm) {
+                    display: inline-block;
+                    color: $accent;
+                }
+            }
+
+            #bottom-menu {
+                a {
+                    color: $accent;
+
+                    &:hover,
+                    &.active {
+                        color: $accent-dark;
+                    }
+                }
+            }
+        }
+
+        &.dark {
+            .content,
+            .locales {
+                color: $black;
+
+                a {
+                    color: $primary;
+
+                    &:hover,
+                    &.active {
+                        color: $primary-dark;
+                    }
+                }
+            }
+
+            #open-bottom-menu,
+            #close-bottom-menu {
+                color: $primary;
+            }
+
+            #bottom-menu {
+                a {
+                    color: $primary;
+
+                    &:hover,
+                    &.active {
+                        color: $primary-dark;
+                    }
+                }
+            }
+        }
+
+        &.open.dark {
+            @include media-breakpoint-down(sm) {
+                background-color: $light-grey;
+            }
+        }
+
+        @include media-breakpoint-down(sm) {
+            padding: 0 2em;
+            flex-flow: row nowrap;
+        }
+
+        #open-bottom-menu {
+            @include media-breakpoint-down(sm) {
+                display: inline-block;
+            }
+        }
+
+        #close-bottom-menu {
+            @include media-breakpoint-down(sm) {
+                display: none;
+            }
+        }
+
+        #bottom-menu {
+            @include media-breakpoint-down(sm) {
+                display: none;
+            }
+        }
+    }
 }

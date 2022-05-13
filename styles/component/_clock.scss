@@ -1,65 +1,62 @@
 .clock {
-  background-color: $light-grey;
-  height: 290px;
-  width: 250px;
+    background-color: $light-grey;
+    height: 290px;
+    width: 250px;
 
-  .header {
-    height: 50px;
-    background-color: $primary;
-    color: $deep-grey-bright;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    font-size: 2em;
-    padding: 10px 0;
+    .header {
+        height: 50px;
+        background-color: $primary;
+        color: $deep-grey-bright;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        font-size: 2em;
+        padding: 10px 0;
 
-    .hours {
-      cursor: pointer;
+        .hours {
+            cursor: pointer;
 
-      &.active {
-        color: $primary-text;
-      }
+            &.active {
+                color: $primary-text;
+            }
+        }
+
+        .separator {
+            padding: 0 5px;
+        }
+
+        .minutes {
+            cursor: pointer;
+
+            &.active {
+                color: $primary-text;
+            }
+        }
+
+        .period {
+            cursor: pointer;
+            padding-left: 5px;
+            font-size: 0.5em;
+            line-height: 1.3em;
+            text-transform: uppercase;
+
+            &.pm {
+                align-self: flex-start;
+            }
+
+            &.am {
+                align-self: flex-end;
+            }
+        }
     }
 
-    .separator {
-      padding: 0 5px;
+    .content {
+        .time {
+            position: relative;
+            left: 25px;
+            top: 15px;
+            width: 200px;
+            height: 200px;
+        }
     }
-
-    .minutes {
-      cursor: pointer;
-
-      &.active {
-        color: $primary-text;
-      }
-    }
-
-    .period {
-      cursor: pointer;
-      padding-left: 5px;
-      font-size: .5em;
-      line-height: 1.3em;
-      text-transform: uppercase;
-
-      &.pm {
-        align-self: flex-start;
-      }
-
-      &.am {
-        align-self: flex-end;
-      }
-
-    }
-
-  }
-
-  .content {
-    .time {
-      position: relative;
-      left: 25px;
-      top: 15px;
-      width: 200px;
-      height: 200px;
-    }
-  }
-
 }

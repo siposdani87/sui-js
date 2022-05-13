@@ -1,46 +1,45 @@
 .dark-theme {
-  .mdl-checkbox {
-    .mdl-checkbox__box-outline {
-      border-color: $checkbox-default-dark;
-    }
-
-    input[required]~.mdl-checkbox__box-outline {
-      border-color: $error-default-dark;
-    }
-
-    &.is-checked {
-      .mdl-checkbox__box-outline {
-        border-color: $primary-default-dark;
-      }
-
-      .mdl-checkbox__tick-outline {
-        background-color: $primary-default-dark;
-      }
-
-      input[required]~.mdl-checkbox__box-outline {
-        border-color: $primary-default-dark;
-      }
-    }
-
-    &.is-disabled {
-
-      .mdl-checkbox__box-outline {
-        border-color: $checkbox-disabled-dark;
-      }
-
-      input[required]~.mdl-checkbox__box-outline {
-        border-color: $error-disabled-dark;
-      }
-
-      &.is-checked {
+    .mdl-checkbox {
         .mdl-checkbox__box-outline {
-          border-color: $primary-disabled-dark;
+            border-color: $checkbox-default-dark;
         }
 
-        .mdl-checkbox__tick-outline {
-          background-color: $primary-disabled-dark;
+        input[required] ~ .mdl-checkbox__box-outline {
+            border-color: $error-default-dark;
         }
-      }
+
+        &.is-checked {
+            .mdl-checkbox__box-outline {
+                border-color: $primary-default-dark;
+            }
+
+            .mdl-checkbox__tick-outline {
+                background-color: $primary-default-dark;
+            }
+
+            input[required] ~ .mdl-checkbox__box-outline {
+                border-color: $primary-default-dark;
+            }
+        }
+
+        &.is-disabled {
+            .mdl-checkbox__box-outline {
+                border-color: $checkbox-disabled-dark;
+            }
+
+            input[required] ~ .mdl-checkbox__box-outline {
+                border-color: $error-disabled-dark;
+            }
+
+            &.is-checked {
+                .mdl-checkbox__box-outline {
+                    border-color: $primary-disabled-dark;
+                }
+
+                .mdl-checkbox__tick-outline {
+                    background-color: $primary-disabled-dark;
+                }
+            }
+        }
     }
-  }
 }

@@ -1,94 +1,94 @@
 .mdl-textfield__label {
-  font-size: 16px;
-  color: $label-default-light;
-  top: -4px;
-  display: block;
-  text-overflow: ellipsis;
+    font-size: 16px;
+    color: $label-default-light;
+    top: -4px;
+    display: block;
+    text-overflow: ellipsis;
 
-  &::first-letter {
-    text-transform: capitalize;
-  }
+    &::first-letter {
+        text-transform: capitalize;
+    }
 
-  &::after {
-    background-color: $primary-default-light;
-  }
+    &::after {
+        background-color: $primary-default-light;
+    }
 }
 
 .mdl-textfield {
-  &.is-invalid,
-  &.is-dirty,
-  &.is-focused,
-  &.has-placeholder {
-    .mdl-textfield__label {
-      font-size: 16px;
-      color: $label-default-light;
-      visibility: visible;
+    &.is-invalid,
+    &.is-dirty,
+    &.is-focused,
+    &.has-placeholder {
+        .mdl-textfield__label {
+            font-size: 16px;
+            color: $label-default-light;
+            visibility: visible;
+        }
     }
-  }
 
-  &.is-dirty,
-  &.is-focused,
-  &.has-placeholder {
-    .mdl-textfield__label {
-      top: -4px;
+    &.is-dirty,
+    &.is-focused,
+    &.has-placeholder {
+        .mdl-textfield__label {
+            top: -4px;
+        }
     }
-  }
 
-  &.is-disabled {
-    .mdl-textfield__label {
-      color: $label-disabled-light !important;
+    &.is-disabled {
+        .mdl-textfield__label {
+            color: $label-disabled-light !important;
+        }
     }
-  }
 
-  &.is-invalid {
-    .mdl-textfield__label {
-      &::after {
-        background-color: $error-default-light;
-      }
+    &.is-invalid {
+        .mdl-textfield__label {
+            &::after {
+                background-color: $error-default-light;
+            }
+        }
     }
-  }
 }
 
 .mdl-icon__label,
 .mdl-switch__label,
 .mdl-checkbox__label,
 .mdl-radio__label {
-  display: inline-block;
-  font-size: 16px;
-  color: $label-default-light;
+    display: inline-block;
+    font-size: 16px;
+    color: $label-default-light;
 
-  &::first-letter {
-    text-transform: capitalize;
-  }
+    &::first-letter {
+        text-transform: capitalize;
+    }
 }
 
 em.mdl-icon-toggle__label {
-  line-height: normal;
+    line-height: normal;
 }
 
 .mdl-icon-toggle__label {
-  &::selection {
-    background: none;
-  }
+    &::selection {
+        background: none;
+    }
 }
 
 .mdl-icon__label {
-  display: inline-block;
-  position: relative;
-  cursor: pointer;
-  font-size: 16px;
-  line-height: 24px;
-  margin: 0;
-  left: 5px;
+    display: inline-block;
+    position: relative;
+    cursor: pointer;
+    font-size: 16px;
+    line-height: 24px;
+    margin: 0;
+    left: 5px;
 }
 
 label {
-  &.is-disabled {
-    .mdl-icon__label,
-    .mdl-switch__label,
-    .mdl-checkbox__label,
-    .mdl-radio__label {
-      color: $label-disabled-light !important;
+    &.is-disabled {
+        .mdl-icon__label,
+        .mdl-switch__label,
+        .mdl-checkbox__label,
+        .mdl-radio__label {
+            color: $label-disabled-light !important;
+        }
     }
-  }
 }

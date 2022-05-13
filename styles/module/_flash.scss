@@ -1,62 +1,62 @@
 .flash-container {
-  z-index: $zindex-flash;
-  position: fixed;
-  width: 100%;
-  display: flex;
-  margin-top: 80px;
-  justify-content: center;
-  pointer-events: none;
+    z-index: $zindex-flash;
+    position: fixed;
+    width: 100%;
+    display: flex;
+    margin-top: 80px;
+    justify-content: center;
+    pointer-events: none;
 
-  #flashes {
-    width: 480px;
+    #flashes {
+        width: 480px;
 
-    @include media-breakpoint-down(sm) {
-      width: 320px;
+        @include media-breakpoint-down(sm) {
+            width: 320px;
+        }
+
+        @include media-breakpoint-down(xs) {
+            width: 90%;
+        }
+
+        .flash {
+            animation-name: bounceInDown;
+            animation-duration: 1s;
+            position: relative;
+            pointer-events: visiblePainted;
+            margin-bottom: 20px;
+            padding: 15px 30px;
+            box-shadow: 5px 5px 15px -5px rgba($black, 0.75);
+            background-color: $light-grey-bright;
+            border-radius: 3px;
+            min-height: 45px;
+            clear: both;
+            border-top: 5px solid $deep-grey-bright;
+
+            &.closable {
+                cursor: pointer;
+            }
+
+            button {
+                position: absolute;
+                right: 2px;
+                top: 2px;
+            }
+
+            &.success {
+                border-color: $success;
+            }
+
+            &.info {
+                border-color: $info;
+            }
+
+            &.warning {
+                border-color: $warning;
+            }
+
+            &.error {
+                border-color: $error;
+            }
+        }
     }
-
-    @include media-breakpoint-down(xs) {
-      width: 90%;
-    }
-
-    .flash {
-      animation-name: bounceInDown;
-      animation-duration: 1s;
-      position: relative;
-      pointer-events: visiblePainted;
-      margin-bottom: 20px;
-      padding: 15px 30px;
-      box-shadow: 5px 5px 15px -5px rgba($black, .75);
-      background-color: $light-grey-bright;
-      border-radius: 3px;
-      min-height: 45px;
-      clear: both;
-      border-top: 5px solid $deep-grey-bright;
-
-      &.closable {
-        cursor: pointer;
-      }
-
-      button {
-        position: absolute;
-        right: 2px;
-        top: 2px;
-      }
-
-      &.success {
-        border-color: $success;
-      }
-
-      &.info {
-        border-color: $info;
-      }
-
-      &.warning {
-        border-color: $warning;
-      }
-
-      &.error {
-        border-color: $error;
-      }
-    }
-  }
 }

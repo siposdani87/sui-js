@@ -1,92 +1,94 @@
 ::-ms-clear {
-  display: none;
+    display: none;
 }
 
 ::-ms-reveal {
-  display: none;
+    display: none;
 }
 
 ::-webkit-search-decoration,
 ::-webkit-search-cancel-button,
 ::-webkit-search-results-button,
 ::-webkit-search-results-decoration {
-  display: none;
+    display: none;
 }
 
 form {
-  .input-block {
-    position: relative;
-    padding: 20px 0;
-    font-size: 16px;
+    .input-block {
+        position: relative;
+        padding: 20px 0;
+        font-size: 16px;
 
-    &.is-disabled {
-      * {
-        cursor: not-allowed;
-      }
+        &.is-disabled {
+            * {
+                cursor: not-allowed;
+            }
 
-      .info-button {
-        cursor: pointer;
-      }
+            .info-button {
+                cursor: pointer;
+            }
+        }
+
+        .info-container {
+            position: absolute;
+            right: 0;
+            top: -4px;
+            display: flex;
+            z-index: 1;
+
+            > a {
+                margin-left: 5px;
+            }
+        }
+
+        .action-container {
+            position: absolute;
+            right: 5px;
+            top: 24px;
+            display: flex;
+            z-index: 1;
+
+            > a {
+                margin-left: 5px;
+            }
+        }
+
+        label {
+            display: inline-block;
+            font-size: 16px;
+
+            &::first-letter {
+                text-transform: capitalize;
+            }
+        }
     }
 
-    .info-container {
-      position: absolute;
-      right: 0;
-      top: -4px;
-      display: flex;
-      z-index: 1;
-
-      > a {
-        margin-left: 5px;
-      }
+    .text-block {
+        padding: 22px 10px 22px 0;
+        font-size: 16px;
     }
 
-    .action-container {
-      position: absolute;
-      right: 5px;
-      top: 24px;
-      display: flex;
-      z-index: 1;
+    .action-block {
+        margin-bottom: 1em;
 
-      > a {
-        margin-left: 5px;
-      }
+        button[type='submit'],
+        button[type='button'],
+        button[type='reset'] {
+            margin: 0 0 0.5em 1em;
+        }
     }
 
-    label {
-      display: inline-block;
-      font-size: 16px;
+    input {
+        &:-webkit-autofill {
+            transition: background-color 5000s ease-in-out,
+                color 5000s ease-in-out;
 
-      &::first-letter {
-        text-transform: capitalize;
-      }
+            &:hover,
+            &:focus,
+            &:active {
+                transition: background-color 5000s ease-in-out,
+                    color 5000s ease-in-out;
+            }
+        }
     }
-  }
-
-  .text-block {
-    padding: 22px 10px 22px 0;
-    font-size: 16px;
-  }
-
-  .action-block {
-    margin-bottom: 1em;
-
-    button[type='submit'],
-    button[type='button'],
-    button[type='reset'] {
-      margin: 0 0 .5em 1em;
-    }
-  }
-
-  input {
-    &:-webkit-autofill {
-      transition: background-color 5000s ease-in-out, color 5000s ease-in-out;
-
-      &:hover,
-      &:focus,
-      &:active {
-        transition: background-color 5000s ease-in-out, color 5000s ease-in-out;
-      }
-    }
-  }
 }

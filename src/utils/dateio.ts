@@ -39,6 +39,8 @@ const getLocaleFrom = (newLocale: string): Locale => {
     switch (newLocale) {
         case 'hu-HU':
             return hu;
+        case 'en-US':
+            return enUS;
         default:
             return enUS;
     }

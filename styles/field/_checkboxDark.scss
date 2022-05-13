@@ -1,13 +1,13 @@
 .dark-theme {
-  .checkbox-field {
-    .field-label {
-      color: $label-default-dark;
-    }
+    .checkbox-field {
+        .field-label {
+            color: $label-default-dark;
+        }
 
-    &.is-disabled {
-      .field-label {
-        color: $label-disabled-dark;
-      }
+        &.is-disabled {
+            .field-label {
+                color: $label-disabled-dark;
+            }
+        }
     }
-  }
 }

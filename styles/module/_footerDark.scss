@@ -1,49 +1,47 @@
 .dark-theme {
-  #footer {
-    background-color: $black;
+    #footer {
+        background-color: $black;
 
-    &.static {
-      background-color: transparent;
+        &.static {
+            background-color: transparent;
 
-      &.dark {
+            &.dark {
+                .content,
+                .locales {
+                    color: $white;
 
-        .content,
-        .locales {
-          color: $white;
+                    a {
+                        color: $primary-bright;
 
-          a {
-            color: $primary-bright;
+                        &:hover,
+                        &.active {
+                            color: $primary;
+                        }
+                    }
+                }
 
-            &:hover,
-            &.active {
-              color: $primary;
+                #open-bottom-menu,
+                #close-bottom-menu {
+                    color: $primary-bright;
+                }
+
+                #bottom-menu {
+                    a {
+                        color: $primary-bright;
+
+                        &:hover,
+                        &.active {
+                            color: $primary;
+                        }
+                    }
+                }
             }
-          }
-        }
 
-        #open-bottom-menu,
-        #close-bottom-menu {
-          color: $primary-bright;
-        }
-
-        #bottom-menu {
-          a {
-            color: $primary-bright;
-
-            &:hover,
-            &.active {
-              color: $primary;
+            &.open.dark {
+                @include media-breakpoint-down(sm) {
+                    background-color: $deep-grey;
+                }
             }
-          }
-
         }
-      }
-
-      &.open.dark {
-        @include media-breakpoint-down(sm) {
-          background-color: $deep-grey;
-        }
-      }
     }
-  }
 }

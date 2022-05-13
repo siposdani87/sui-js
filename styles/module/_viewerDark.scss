@@ -1,13 +1,13 @@
 .dark-theme {
-  #viewer {
-    background-color: rgba($black-dark, .7);
+    #viewer {
+        background-color: rgba($black-dark, 0.7);
 
-    #viewer-window {
-      .modal-body {
-        img {
-          background-color: $black;
+        #viewer-window {
+            .modal-body {
+                img {
+                    background-color: $black;
+                }
+            }
         }
-      }
     }
-  }
 }

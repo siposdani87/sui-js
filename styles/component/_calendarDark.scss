@@ -1,99 +1,99 @@
 .dark-theme {
-  .calendar {
-    background-color: $deep-grey;
+    .calendar {
+        background-color: $deep-grey;
 
-    .header {
-      background-color: $primary-dark;
-      color: $white;
-    }
-
-    .content {
-      .week-days {
-        background-color: $black;
-      }
-
-      .days {
-        background-color: $black;
-
-        .day {
-          &:hover {
-            border-color: $accent;
-          }
-
-          &.now {
-            background-color: $deep-grey;
-          }
-
-          &.previous-month {
-            color: $deep-grey-bright;
-
-            &.now {
-              color: $white;
-            }
-
-            &.current {
-              color: $white;
-            }
-          }
-
-          &.current-month {
+        .header {
+            background-color: $primary-dark;
             color: $white;
-          }
+        }
 
-          &.next-month {
-            color: $deep-grey-bright;
-
-            &.now {
-              color: $white;
+        .content {
+            .week-days {
+                background-color: $black;
             }
 
-            &.current {
-              color: $white;
+            .days {
+                background-color: $black;
+
+                .day {
+                    &:hover {
+                        border-color: $accent;
+                    }
+
+                    &.now {
+                        background-color: $deep-grey;
+                    }
+
+                    &.previous-month {
+                        color: $deep-grey-bright;
+
+                        &.now {
+                            color: $white;
+                        }
+
+                        &.current {
+                            color: $white;
+                        }
+                    }
+
+                    &.current-month {
+                        color: $white;
+                    }
+
+                    &.next-month {
+                        color: $deep-grey-bright;
+
+                        &.now {
+                            color: $white;
+                        }
+
+                        &.current {
+                            color: $white;
+                        }
+                    }
+
+                    &.current {
+                        background-color: $accent;
+                        color: $accent-text;
+                    }
+                }
             }
-          }
 
-          &.current {
-            background-color: $accent;
-            color: $accent-text;
-          }
+            .months {
+                background-color: $black;
+
+                .month {
+                    &:hover {
+                        border-color: $accent;
+                    }
+
+                    &.now {
+                        background-color: $deep-grey;
+                    }
+
+                    &.current {
+                        background-color: $accent;
+                    }
+                }
+            }
+
+            .years {
+                background-color: $black;
+
+                .year {
+                    &:hover {
+                        border-color: $accent;
+                    }
+
+                    &.now {
+                        background-color: $deep-grey;
+                    }
+
+                    &.current {
+                        background-color: $accent;
+                    }
+                }
+            }
         }
-      }
-
-      .months {
-        background-color: $black;
-
-        .month {
-          &:hover {
-            border-color: $accent;
-          }
-
-          &.now {
-            background-color: $deep-grey;
-          }
-
-          &.current {
-            background-color: $accent;
-          }
-        }
-      }
-
-      .years {
-        background-color: $black;
-
-        .year {
-          &:hover {
-            border-color: $accent;
-          }
-
-          &.now {
-            background-color: $deep-grey;
-          }
-
-          &.current {
-            background-color: $accent;
-          }
-        }
-      }
     }
-  }
 }

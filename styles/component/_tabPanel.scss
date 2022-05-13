@@ -1,52 +1,52 @@
 .tab-panel {
-  display: flex;
-  flex-flow: column nowrap;
-
-  .tabs {
     display: flex;
-    flex-flow: row nowrap;
-    justify-content: space-around;
-    align-content: stretch;
+    flex-flow: column nowrap;
 
-    a {
-      flex: 0 1 100%;
-      display: flex;
-      border-bottom: 4px solid $light-grey-dark;
-      align-items: center;
-      justify-content: center;
-      text-align: center;
-      background-color: $light-grey-bright;
-      padding: 5px 10px 1px 10px;
-      text-decoration: none;
-      color: $deep-grey-bright;
-      text-transform: uppercase;
+    .tabs {
+        display: flex;
+        flex-flow: row nowrap;
+        justify-content: space-around;
+        align-content: stretch;
 
-      &:hover {
-        color: $primary-dark;
-      }
+        a {
+            flex: 0 1 100%;
+            display: flex;
+            border-bottom: 4px solid $light-grey-dark;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            background-color: $light-grey-bright;
+            padding: 5px 10px 1px 10px;
+            text-decoration: none;
+            color: $deep-grey-bright;
+            text-transform: uppercase;
 
-      &.active {
-        border-bottom-color: $accent;
-        color: $primary-dark;
-        z-index: 1;
-        font-weight: 500;
-      }
+            &:hover {
+                color: $primary-dark;
+            }
 
-      &:not(.active) {
-        border-bottom-color: $light-grey-bright;
-      }
+            &.active {
+                border-bottom-color: $accent;
+                color: $primary-dark;
+                z-index: 1;
+                font-weight: 500;
+            }
 
-      &.disabled {
-        color: $light-grey;
-      }
+            &:not(.active) {
+                border-bottom-color: $light-grey-bright;
+            }
+
+            &.disabled {
+                color: $light-grey;
+            }
+        }
     }
-  }
 
-  .panel {
-    display: none;
+    .panel {
+        display: none;
 
-    &.active {
-      display: block;
+        &.active {
+            display: block;
+        }
     }
-  }
 }

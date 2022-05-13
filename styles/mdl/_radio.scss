@@ -1,50 +1,50 @@
 .mdl-radio {
-  .mdl-radio__outer-circle {
-    border-color: $checkbox-default-light;
-  }
-
-  input[required]~.mdl-radio__outer-circle {
-    border-color: $error-default-light;
-  }
-
-  &.is-other-checked {
-    input[required]~.mdl-radio__outer-circle {
-      border-color: $checkbox-default-light;
-    }
-  }
-
-  &.is-checked {
     .mdl-radio__outer-circle {
-      border-color: $primary-default-light;
+        border-color: $checkbox-default-light;
     }
 
-    .mdl-radio__inner-circle {
-      background-color: $primary-default-light;
+    input[required] ~ .mdl-radio__outer-circle {
+        border-color: $error-default-light;
     }
 
-    input[required]~.mdl-radio__outer-circle {
-      border-color: $primary-default-light;
-    }
-  }
-
-  &.is-disabled {
-    .mdl-radio__outer-circle {
-      border-color: $checkbox-disabled-light;
-    }
-
-    input[required]~.mdl-radio__outer-circle {
-      border-style: dotted;
-      border-color: $error-disabled-light;
+    &.is-other-checked {
+        input[required] ~ .mdl-radio__outer-circle {
+            border-color: $checkbox-default-light;
+        }
     }
 
     &.is-checked {
-      .mdl-radio__outer-circle {
-        border-color: $primary-disabled-light;
-      }
+        .mdl-radio__outer-circle {
+            border-color: $primary-default-light;
+        }
 
-      .mdl-radio__inner-circle {
-        background-color: $primary-disabled-light;
-      }
+        .mdl-radio__inner-circle {
+            background-color: $primary-default-light;
+        }
+
+        input[required] ~ .mdl-radio__outer-circle {
+            border-color: $primary-default-light;
+        }
     }
-  }
+
+    &.is-disabled {
+        .mdl-radio__outer-circle {
+            border-color: $checkbox-disabled-light;
+        }
+
+        input[required] ~ .mdl-radio__outer-circle {
+            border-style: dotted;
+            border-color: $error-disabled-light;
+        }
+
+        &.is-checked {
+            .mdl-radio__outer-circle {
+                border-color: $primary-disabled-light;
+            }
+
+            .mdl-radio__inner-circle {
+                background-color: $primary-disabled-light;
+            }
+        }
+    }
 }

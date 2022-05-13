@@ -1,11 +1,11 @@
 .dark-theme {
-  #confirm {
-    background-color: rgba($black, .7);
+    #confirm {
+        background-color: rgba($black, 0.7);
 
-    #confirm-window {
-      background-color: $black-dark;
-      color: $white;
-      box-shadow: 8px 8px 75px 0 rgba($black-dark, .8);
+        #confirm-window {
+            background-color: $black-dark;
+            color: $white;
+            box-shadow: 8px 8px 75px 0 rgba($black-dark, 0.8);
+        }
     }
-  }
 }

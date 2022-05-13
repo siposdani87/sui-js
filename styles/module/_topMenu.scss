@@ -1,46 +1,46 @@
 #top-menu {
-  display: flex;
-  flex-flow: row wrap;
-  background-color: $primary-dark;
-
-  @include media-breakpoint-down(md) {
-    flex-flow: column wrap;
-    flex: 1 100%;
-    display: none;
-  }
-
-  a {
     display: flex;
-    flex-flow: row nowrap;
-    align-items: center;
-    text-decoration: none;
-    height: 50px;
-    padding: 0 1em;
-    color: $primary-bright;
+    flex-flow: row wrap;
+    background-color: $primary-dark;
 
     @include media-breakpoint-down(md) {
-      justify-content: space-between;
-      border-top: 1px solid $primary;
+        flex-flow: column wrap;
+        flex: 1 100%;
+        display: none;
     }
 
-    &:hover {
-      color: $primary-text;
-    }
+    a {
+        display: flex;
+        flex-flow: row nowrap;
+        align-items: center;
+        text-decoration: none;
+        height: 50px;
+        padding: 0 1em;
+        color: $primary-bright;
 
-    &.active {
-      color: $primary-text;
-      background-color: $primary-bright;
-    }
+        @include media-breakpoint-down(md) {
+            justify-content: space-between;
+            border-top: 1px solid $primary;
+        }
 
-    .image {
-      margin-right: .5em;
-      line-height: 0;
+        &:hover {
+            color: $primary-text;
+        }
 
-      img,
-      svg {
-        height: 40px;
-        width: 40px;
-      }
+        &.active {
+            color: $primary-text;
+            background-color: $primary-bright;
+        }
+
+        .image {
+            margin-right: 0.5em;
+            line-height: 0;
+
+            img,
+            svg {
+                height: 40px;
+                width: 40px;
+            }
+        }
     }
-  }
 }

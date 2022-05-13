@@ -1,54 +1,54 @@
 .mdl-switch {
-  height: auto;
+    height: auto;
 
-  .mdl-switch__track {
-    background-color: $content-disabled-dark;
-  }
-
-  .mdl-switch__thumb {
-    background-color: $checkbox-default-light;
-  }
-
-  input[required]~.mdl-switch__thumb {
-    border: 2px solid $error-default-light;
-  }
-
-  &.is-checked {
     .mdl-switch__track {
-      background-color: $primary-default-dark;
+        background-color: $content-disabled-dark;
     }
 
     .mdl-switch__thumb {
-      background-color: $primary-default-light;
+        background-color: $checkbox-default-light;
     }
 
-    input[required]~.mdl-switch__thumb {
-      border-color: transparent;
-    }
-  }
-
-  &.is-disabled {
-    .mdl-switch__track {
-      background-color: $content-disabled-dark;
-    }
-
-    .mdl-switch__thumb {
-      background-color: $checkbox-disabled-light;
-    }
-
-    input[required]~.mdl-switch__thumb {
-      border-style: dotted;
-      border-color: $error-disabled-light;
+    input[required] ~ .mdl-switch__thumb {
+        border: 2px solid $error-default-light;
     }
 
     &.is-checked {
-      .mdl-switch__track {
-        background-color: $primary-default-dark;
-      }
+        .mdl-switch__track {
+            background-color: $primary-default-dark;
+        }
 
-      .mdl-switch__thumb {
-        background-color: $checkbox-disabled-light;
-      }
+        .mdl-switch__thumb {
+            background-color: $primary-default-light;
+        }
+
+        input[required] ~ .mdl-switch__thumb {
+            border-color: transparent;
+        }
     }
-  }
+
+    &.is-disabled {
+        .mdl-switch__track {
+            background-color: $content-disabled-dark;
+        }
+
+        .mdl-switch__thumb {
+            background-color: $checkbox-disabled-light;
+        }
+
+        input[required] ~ .mdl-switch__thumb {
+            border-style: dotted;
+            border-color: $error-disabled-light;
+        }
+
+        &.is-checked {
+            .mdl-switch__track {
+                background-color: $primary-default-dark;
+            }
+
+            .mdl-switch__thumb {
+                background-color: $checkbox-disabled-light;
+            }
+        }
+    }
 }

@@ -1,19 +1,19 @@
 .mdl-spinner {
-  width: 3em;
-  height: 3em;
-  border-radius: 50%;
-  box-shadow: 2px 2px 10px 0 rgba($black, .75);
-  background-color: $primary;
+    width: 3em;
+    height: 3em;
+    border-radius: 50%;
+    box-shadow: 2px 2px 10px 0 rgba($black, 0.75);
+    background-color: $primary;
 
-  &:not(.is-upgraded) {
-    &.is-active {
-      &::after {
-        content: '';
-      }
+    &:not(.is-upgraded) {
+        &.is-active {
+            &::after {
+                content: '';
+            }
+        }
     }
-  }
 
-  &.mdl-spinner--single-color .mdl-spinner__layer {
-    border-color: $accent;
-  }
+    &.mdl-spinner--single-color .mdl-spinner__layer {
+        border-color: $accent;
+    }
 }
