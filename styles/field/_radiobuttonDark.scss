@@ -1,13 +1,13 @@
 .dark-theme {
-  .radiobutton-field {
-    .field-label {
-      color: $label-default-dark;
-    }
+    .radiobutton-field {
+        .field-label {
+            color: $label-default-dark;
+        }
 
-    &.is-disabled {
-      .field-label {
-        color: $label-disabled-dark;
-      }
+        &.is-disabled {
+            .field-label {
+                color: $label-disabled-dark;
+            }
+        }
     }
-  }
 }

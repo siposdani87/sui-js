@@ -1,26 +1,26 @@
 .dark-theme {
-  .flash-container {
-    #flashes {
-      .flash {
-        box-shadow: 5px 5px 15px -5px rgba($black-dark, .8);
-        background-color: $black;
+    .flash-container {
+        #flashes {
+            .flash {
+                box-shadow: 5px 5px 15px -5px rgba($black-dark, 0.8);
+                background-color: $black;
 
-        &.success {
-          border-color: $success-bright;
-        }
+                &.success {
+                    border-color: $success-bright;
+                }
 
-        &.info {
-          border-color: $info-bright;
-        }
+                &.info {
+                    border-color: $info-bright;
+                }
 
-        &.warning {
-          border-color: $warning-bright;
-        }
+                &.warning {
+                    border-color: $warning-bright;
+                }
 
-        &.error {
-          border-color: $error-bright;
+                &.error {
+                    border-color: $error-bright;
+                }
+            }
         }
-      }
     }
-  }
 }

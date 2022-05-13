@@ -1,52 +1,52 @@
 .dark-theme {
-  .mdl-radio {
-    .mdl-radio__outer-circle {
-      border-color: $checkbox-default-dark;
-    }
-
-    input[required]~.mdl-radio__outer-circle {
-      border-color: $error-default-dark;
-    }
-
-    &.is-other-checked {
-      input[required]~.mdl-radio__outer-circle {
-        border-color: $checkbox-default-dark;
-      }
-    }
-
-    &.is-checked {
-      .mdl-radio__outer-circle {
-        border-color: $primary-default-dark;
-      }
-
-      .mdl-radio__inner-circle {
-        background-color: $primary-default-dark;
-      }
-
-      input[required]~.mdl-radio__outer-circle {
-        border-color: $primary-default-dark;
-      }
-    }
-
-    &.is-disabled {
-      .mdl-radio__outer-circle {
-        border-color: $checkbox-disabled-dark;
-      }
-
-      input[required]~.mdl-radio__outer-circle {
-        border-style: dotted;
-        border-color: $error-disabled-dark;
-      }
-
-      &.is-checked {
+    .mdl-radio {
         .mdl-radio__outer-circle {
-          border-color: $primary-disabled-dark;
+            border-color: $checkbox-default-dark;
         }
 
-        .mdl-radio__inner-circle {
-          background-color: $primary-disabled-dark;
+        input[required] ~ .mdl-radio__outer-circle {
+            border-color: $error-default-dark;
         }
-      }
+
+        &.is-other-checked {
+            input[required] ~ .mdl-radio__outer-circle {
+                border-color: $checkbox-default-dark;
+            }
+        }
+
+        &.is-checked {
+            .mdl-radio__outer-circle {
+                border-color: $primary-default-dark;
+            }
+
+            .mdl-radio__inner-circle {
+                background-color: $primary-default-dark;
+            }
+
+            input[required] ~ .mdl-radio__outer-circle {
+                border-color: $primary-default-dark;
+            }
+        }
+
+        &.is-disabled {
+            .mdl-radio__outer-circle {
+                border-color: $checkbox-disabled-dark;
+            }
+
+            input[required] ~ .mdl-radio__outer-circle {
+                border-style: dotted;
+                border-color: $error-disabled-dark;
+            }
+
+            &.is-checked {
+                .mdl-radio__outer-circle {
+                    border-color: $primary-disabled-dark;
+                }
+
+                .mdl-radio__inner-circle {
+                    background-color: $primary-disabled-dark;
+                }
+            }
+        }
     }
-  }
 }

@@ -1,50 +1,50 @@
 .sidebar {
-  // position:relative;
-  // border: 1px solid $accent;
-  // flex: 0 1 auto;
-  position: fixed;
-  z-index: $zindex-sidebar;
-  background-color: $white;
-  height: 100%;
+    // position:relative;
+    // border: 1px solid $accent;
+    // flex: 0 1 auto;
+    position: fixed;
+    z-index: $zindex-sidebar;
+    background-color: $white;
+    height: 100%;
 }
 
 .template-view.has-footer ~ .sidebar {
-  // height: calc(100vh - 3rem - 62px);
+    // height: calc(100vh - 3rem - 62px);
 }
 
 .template-view.has-footer + .sidebar {
-  // height: calc(100vh - 3rem - 62px);
+    // height: calc(100vh - 3rem - 62px);
 }
 
 .sidebar.open {
-  flex: 0 1 auto;
+    flex: 0 1 auto;
 }
 
 .sidebar.open .content {
-  display: flex;
+    display: flex;
 }
 
 .sidebar .content {
-  display: none;
+    display: none;
 }
 
 .sidebar a {
-  position: absolute;
-  top: 50%;
+    position: absolute;
+    top: 50%;
 }
 
 #right-sidebar {
-  right: 0;
+    right: 0;
 
-  a {
-    left: -30px;
-  }
+    a {
+        left: -30px;
+    }
 }
 
 #left-sidebar {
-  left: 0;
+    left: 0;
 
-  a {
-    right: -30px;
-  }
+    a {
+        right: -30px;
+    }
 }

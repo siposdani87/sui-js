@@ -1,28 +1,28 @@
 .progress-status {
-  height: 100%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  flex-flow: column nowrap;
-  text-align: center;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-flow: column nowrap;
+    text-align: center;
 
-  &.success {
-    color: $success;
-  }
+    &.success {
+        color: $success;
+    }
 
-  &.info {
-    color: $info;
-  }
+    &.info {
+        color: $info;
+    }
 
-  &.warning {
-    color: $warning;
-  }
+    &.warning {
+        color: $warning;
+    }
 
-  &.error {
-    color: $error;
-  }
+    &.error {
+        color: $error;
+    }
 
-  em {
-    font-size: 10em;
-  }
+    em {
+        font-size: 10em;
+    }
 }

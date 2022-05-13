@@ -1,39 +1,38 @@
 .mdl-icon-toggle {
-
-  .mdl-icon-toggle__label {
-    color: $checkbox-default-light;
-    border: 2px solid transparent;
-    line-height: 1.2;
-  }
-
-  input[required]~.mdl-icon-toggle__label {
-    border-color: $error-default-light;
-  }
-
-  &.is-checked {
-    input[required]~.mdl-icon-toggle__label {
-      border-color: transparent;
-    }
-
     .mdl-icon-toggle__label {
-      color: $primary-default-light;
-    }
-  }
-
-  &.is-disabled {
-    input[required]~.mdl-icon-toggle__label {
-      border-style: dotted;
-      border-color: $error-disabled-light;
+        color: $checkbox-default-light;
+        border: 2px solid transparent;
+        line-height: 1.2;
     }
 
-    .mdl-icon-toggle__label {
-      color: $checkbox-disabled-light;
+    input[required] ~ .mdl-icon-toggle__label {
+        border-color: $error-default-light;
     }
 
     &.is-checked {
-      .mdl-icon-toggle__label {
-        color: $primary-disabled-light;
-      }
+        input[required] ~ .mdl-icon-toggle__label {
+            border-color: transparent;
+        }
+
+        .mdl-icon-toggle__label {
+            color: $primary-default-light;
+        }
     }
-  }
+
+    &.is-disabled {
+        input[required] ~ .mdl-icon-toggle__label {
+            border-style: dotted;
+            border-color: $error-disabled-light;
+        }
+
+        .mdl-icon-toggle__label {
+            color: $checkbox-disabled-light;
+        }
+
+        &.is-checked {
+            .mdl-icon-toggle__label {
+                color: $primary-disabled-light;
+            }
+        }
+    }
 }

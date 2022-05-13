@@ -1,9 +1,8 @@
 .dark-theme {
-  .popup-parent {
-
-    .popup {
-      background-color: $black;
-      box-shadow: 2px 2px 10px 0 rgba($black-dark, .8);
+    .popup-parent {
+        .popup {
+            background-color: $black;
+            box-shadow: 2px 2px 10px 0 rgba($black-dark, 0.8);
+        }
     }
-  }
 }

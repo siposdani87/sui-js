@@ -1,53 +1,53 @@
 .dark-theme {
-  .mdl-switch {
-    .mdl-switch__track {
-      background-color: $content-default-light;
-    }
-
-    .mdl-switch__thumb {
-      background-color: $checkbox-default-dark;
-    }
-
-    input[required]~.mdl-switch__thumb {
-      border-color: $error-default-dark;
-    }
-
-    &.is-checked {
-      .mdl-switch__track {
-        background-color: $primary-default-light;
-      }
-
-      .mdl-switch__thumb {
-        background-color: $primary-default-dark;
-      }
-
-      input[required]~.mdl-switch__thumb {
-        border-color: transparent;
-      }
-    }
-
-    &.is-disabled {
-      .mdl-switch__track {
-        background-color: $content-default-light;
-      }
-
-      .mdl-switch__thumb {
-        background-color: $checkbox-disabled-dark;
-      }
-
-      input[required]~.mdl-switch__thumb {
-        border-color: $error-disabled-dark;
-      }
-
-      &.is-checked {
+    .mdl-switch {
         .mdl-switch__track {
-          background-color: $primary-default-light;
+            background-color: $content-default-light;
         }
 
         .mdl-switch__thumb {
-          background-color: $checkbox-disabled-dark;
+            background-color: $checkbox-default-dark;
         }
-      }
+
+        input[required] ~ .mdl-switch__thumb {
+            border-color: $error-default-dark;
+        }
+
+        &.is-checked {
+            .mdl-switch__track {
+                background-color: $primary-default-light;
+            }
+
+            .mdl-switch__thumb {
+                background-color: $primary-default-dark;
+            }
+
+            input[required] ~ .mdl-switch__thumb {
+                border-color: transparent;
+            }
+        }
+
+        &.is-disabled {
+            .mdl-switch__track {
+                background-color: $content-default-light;
+            }
+
+            .mdl-switch__thumb {
+                background-color: $checkbox-disabled-dark;
+            }
+
+            input[required] ~ .mdl-switch__thumb {
+                border-color: $error-disabled-dark;
+            }
+
+            &.is-checked {
+                .mdl-switch__track {
+                    background-color: $primary-default-light;
+                }
+
+                .mdl-switch__thumb {
+                    background-color: $checkbox-disabled-dark;
+                }
+            }
+        }
     }
-  }
 }

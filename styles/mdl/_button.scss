@@ -1,12 +1,12 @@
 .mdl-button {
-  font-family: $font-family-body;
-  color: $black;
+    font-family: $font-family-body;
+    color: $black;
 
-  &:not(.mdl-button--fab) {
-    border-radius: 20px;
-  }
+    &:not(.mdl-button--fab) {
+        border-radius: 20px;
+    }
 
-  .icon {
-    margin-right: 10px;
-  }
+    .icon {
+        margin-right: 10px;
+    }
 }

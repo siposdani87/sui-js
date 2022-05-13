@@ -1,20 +1,20 @@
 .mdl-textfield__error {
-  display: block;
-  color: $error-default-light;
+    display: block;
+    color: $error-default-light;
 
-  &::first-letter {
-    text-transform: capitalize;
-  }
+    &::first-letter {
+        text-transform: capitalize;
+    }
 }
 
 .is-disabled {
-  .mdl-textfield__error {
-    color: $error-disabled-light;
-  }
+    .mdl-textfield__error {
+        color: $error-disabled-light;
+    }
 }
 
 .is-invalid {
-  .mdl-textfield__error {
-    visibility: visible;
-  }
+    .mdl-textfield__error {
+        visibility: visible;
+    }
 }

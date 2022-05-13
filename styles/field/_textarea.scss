@@ -1,26 +1,25 @@
 .textarea-field {
-
-  .mdl-textarea__input {
-    resize: none;
-    min-height: 150px;
-  }
-
-  .textbox {
-    display: inline-block;
-  }
-
-  .toolbar {
-    a {
-      font-size: 20px;
-      margin: 0 10px 2px 0;
+    .mdl-textarea__input {
+        resize: none;
+        min-height: 150px;
     }
-  }
 
-  &.is-disabled {
+    .textbox {
+        display: inline-block;
+    }
+
     .toolbar {
-      a {
-        color: $label-disabled-light !important;
-      }
+        a {
+            font-size: 20px;
+            margin: 0 10px 2px 0;
+        }
     }
-  }
+
+    &.is-disabled {
+        .toolbar {
+            a {
+                color: $label-disabled-light !important;
+            }
+        }
+    }
 }

@@ -1,74 +1,73 @@
 .dark-theme {
-  table {
-    thead {
-      tr {
-        border-bottom-color: $deep-grey-bright;
+    table {
+        thead {
+            tr {
+                border-bottom-color: $deep-grey-bright;
 
-        th {
+                th {
+                    .icons {
+                        color: $deep-grey-bright;
 
-          .icons {
-            color: $deep-grey-bright;
+                        em {
+                            &.active {
+                                color: $white;
+                            }
+                        }
+                    }
 
-            em {
-              &.active {
-                color: $white;
-              }
-            }
-          }
-
-          .info {
-            color: $primary-bright;
-          }
-        }
-      }
-    }
-
-    tbody {
-      @include media-breakpoint-down(sm) {
-        border-color: $deep-grey;
-      }
-
-      tr {
-        border-top-color: $deep-grey;
-
-        &:nth-child(4n+0) {
-          background-color: $black;
-        }
-
-        &.header {
-          &:hover {
-            background-color: $deep-grey;
-          }
-
-          &.active {
-            background-color: $deep-grey;
-          }
-        }
-
-        &.data {
-          @include media-breakpoint-down(sm) {
-            background-color: $deep-grey-dark;
-
-            &.open {
-              td {
-                border-bottom-color: $light-grey;
-              }
-            }
-          }
-
-          .label {
-            span {
-              color: $deep-grey-bright;
-
-              em {
-                &.active {
-                  color: $white;
+                    .info {
+                        color: $primary-bright;
+                    }
                 }
-              }
             }
-          }
         }
-      }
+
+        tbody {
+            @include media-breakpoint-down(sm) {
+                border-color: $deep-grey;
+            }
+
+            tr {
+                border-top-color: $deep-grey;
+
+                &:nth-child(4n + 0) {
+                    background-color: $black;
+                }
+
+                &.header {
+                    &:hover {
+                        background-color: $deep-grey;
+                    }
+
+                    &.active {
+                        background-color: $deep-grey;
+                    }
+                }
+
+                &.data {
+                    @include media-breakpoint-down(sm) {
+                        background-color: $deep-grey-dark;
+
+                        &.open {
+                            td {
+                                border-bottom-color: $light-grey;
+                            }
+                        }
+                    }
+
+                    .label {
+                        span {
+                            color: $deep-grey-bright;
+
+                            em {
+                                &.active {
+                                    color: $white;
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
     }
-  }
 }

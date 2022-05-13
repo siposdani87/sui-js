@@ -1,18 +1,18 @@
 .content-handler {
-  display: none;
-  justify-content: center;
-  align-items: center;
-  padding: 5em 1em;
-  flex-flow: column nowrap;
+    display: none;
+    justify-content: center;
+    align-items: center;
+    padding: 5em 1em;
+    flex-flow: column nowrap;
 
-  img {
-    display: block;
-    max-width: 175px;
-    height: auto;
-    margin-bottom: .5em;
-  }
+    img {
+        display: block;
+        max-width: 175px;
+        height: auto;
+        margin-bottom: 0.5em;
+    }
 
-  p {
-    color: $deep-grey-bright;
-  }
+    p {
+        color: $deep-grey-bright;
+    }
 }

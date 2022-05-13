@@ -1,38 +1,38 @@
 html,
 body {
-  &.dark-theme {
-    color: $white;
-  }
+    &.dark-theme {
+        color: $white;
+    }
 }
 
 body {
-  &.dark-theme {
-    background-color: $black-dark;
-  }
+    &.dark-theme {
+        background-color: $black-dark;
+    }
 }
 
 .dark-theme {
-  a {
-    color: $primary-bright;
+    a {
+        color: $primary-bright;
 
-    &:hover {
-      color: $primary;
+        &:hover {
+            color: $primary;
+        }
+
+        &.link {
+            border-bottom-color: $primary-bright;
+
+            &:hover {
+                border-bottom-color: $primary;
+            }
+        }
     }
 
-    &.link {
-      border-bottom-color: $primary-bright;
-
-      &:hover {
-        border-bottom-color: $primary;
-      }
+    .text-default {
+        color: $white;
     }
-  }
 
-  .text-default {
-    color: $white;
-  }
-
-  h3.caption {
-    color: $primary-bright;
-  }
+    h3.caption {
+        color: $primary-bright;
+    }
 }

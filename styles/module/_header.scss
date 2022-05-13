@@ -1,74 +1,73 @@
 #header {
-  background-color: $primary-dark;
-  position: fixed;
-  width: 100%;
-  top: 0;
-  display: flex;
-  flex-flow: row wrap;
-  justify-content: space-between;
-  z-index: $zindex-header;
-  color: $white;
-
-  &.shadow {
-    box-shadow: 0 2px 20px 0 rgba($black, .75);
-  }
-
-  &.open {
-    z-index: $zindex-header-open;
-  }
-
-  .menu {
+    background-color: $primary-dark;
+    position: fixed;
+    width: 100%;
+    top: 0;
     display: flex;
-    flex-flow: row nowrap;
+    flex-flow: row wrap;
     justify-content: space-between;
-    height: 50px;
+    z-index: $zindex-header;
+    color: $white;
 
-    @include media-breakpoint-down(md) {
-      flex: 1 100%;
+    &.shadow {
+        box-shadow: 0 2px 20px 0 rgba($black, 0.75);
     }
 
-    a {
-      display: flex;
-      flex-flow: row nowrap;
-      align-items: center;
-      text-decoration: none;
-      color: $light-grey;
-      font-size: 1.5rem;
-
-      &:hover {
-        text-decoration: none;
-      }
-
-      &.brand {
-        margin-left: .5em;
-      }
-
-      img {
-        height: 40px;
-      }
-
-      .app-title {
-        padding-left: 10px;
-        font-size: 1rem;
-      }
+    &.open {
+        z-index: $zindex-header-open;
     }
 
-    #open-left-menu {
-      margin-left: .5em;
-      color: $light-grey;
+    .menu {
+        display: flex;
+        flex-flow: row nowrap;
+        justify-content: space-between;
+        height: 50px;
+
+        @include media-breakpoint-down(md) {
+            flex: 1 100%;
+        }
+
+        a {
+            display: flex;
+            flex-flow: row nowrap;
+            align-items: center;
+            text-decoration: none;
+            color: $light-grey;
+            font-size: 1.5rem;
+
+            &:hover {
+                text-decoration: none;
+            }
+
+            &.brand {
+                margin-left: 0.5em;
+            }
+
+            img {
+                height: 40px;
+            }
+
+            .app-title {
+                padding-left: 10px;
+                font-size: 1rem;
+            }
+        }
+
+        #open-left-menu {
+            margin-left: 0.5em;
+            color: $light-grey;
+        }
+
+        #toggle-top-menu {
+            color: $light-grey;
+
+            @include media-breakpoint-up(lg) {
+                display: none;
+            }
+
+            &.active {
+                color: $accent;
+            }
+        }
     }
-
-    #toggle-top-menu {
-      color: $light-grey;
-
-      @include media-breakpoint-up(lg) {
-        display: none;
-      }
-
-      &.active {
-        color: $accent;
-      }
-    }
-  }
-
 }

@@ -1,32 +1,32 @@
 .mdl-textfield {
-  width: 100%;
-  font-size: inherit;
-
-  .mdl-textfield__input {
+    width: 100%;
     font-size: inherit;
-    padding: 8px 10px 4px;
-    border: 1px solid $input-default-light;
-    border-radius: 3px;
-    color: $content-default-light;
-  }
 
-  &.is-invalid {
     .mdl-textfield__input {
-      border-color: $error-default-light;
-    }
-  }
-
-  &.is-disabled {
-    .mdl-textfield__input {
-      color: $content-disabled-light;
-      border-style: dotted;
-      border-color: $input-disabled-light;
+        font-size: inherit;
+        padding: 8px 10px 4px;
+        border: 1px solid $input-default-light;
+        border-radius: 3px;
+        color: $content-default-light;
     }
 
     &.is-invalid {
-      .mdl-textfield__input {
-        border-color: $error-disabled-light;
-      }
+        .mdl-textfield__input {
+            border-color: $error-default-light;
+        }
     }
-  }
+
+    &.is-disabled {
+        .mdl-textfield__input {
+            color: $content-disabled-light;
+            border-style: dotted;
+            border-color: $input-disabled-light;
+        }
+
+        &.is-invalid {
+            .mdl-textfield__input {
+                border-color: $error-disabled-light;
+            }
+        }
+    }
 }

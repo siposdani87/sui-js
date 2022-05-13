@@ -1,52 +1,52 @@
 .dark-theme {
-  .mdl-textfield__label {
-    color: $label-default-dark;
-
-    &::after {
-      background-color: $primary-default-dark;
-    }
-  }
-
-  .mdl-icon__label,
-  .mdl-switch__label,
-  .mdl-checkbox__label,
-  .mdl-radio__label {
-    color: $label-default-dark;
-  }
-
-  .mdl-textfield {
-    &.is-invalid,
-    &.is-dirty,
-    &.is-focused,
-    &.has-placeholder {
-      .mdl-textfield__label {
+    .mdl-textfield__label {
         color: $label-default-dark;
-      }
-    }
 
-    &.is-disabled {
-      .mdl-textfield__label {
-        color: $label-disabled-dark !important;
-      }
-    }
-
-    &.is-invalid {
-      .mdl-textfield__label {
         &::after {
-          background-color: $error-default-dark;
+            background-color: $primary-default-dark;
         }
-      }
     }
-  }
 
-  label {
-    &.is-disabled {
-      .mdl-icon__label,
-      .mdl-switch__label,
-      .mdl-checkbox__label,
-      .mdl-radio__label {
-        color: $label-disabled-dark !important;
-      }
+    .mdl-icon__label,
+    .mdl-switch__label,
+    .mdl-checkbox__label,
+    .mdl-radio__label {
+        color: $label-default-dark;
     }
-  }
+
+    .mdl-textfield {
+        &.is-invalid,
+        &.is-dirty,
+        &.is-focused,
+        &.has-placeholder {
+            .mdl-textfield__label {
+                color: $label-default-dark;
+            }
+        }
+
+        &.is-disabled {
+            .mdl-textfield__label {
+                color: $label-disabled-dark !important;
+            }
+        }
+
+        &.is-invalid {
+            .mdl-textfield__label {
+                &::after {
+                    background-color: $error-default-dark;
+                }
+            }
+        }
+    }
+
+    label {
+        &.is-disabled {
+            .mdl-icon__label,
+            .mdl-switch__label,
+            .mdl-checkbox__label,
+            .mdl-radio__label {
+                color: $label-disabled-dark !important;
+            }
+        }
+    }
 }

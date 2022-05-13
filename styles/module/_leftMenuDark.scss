@@ -1,56 +1,55 @@
 .dark-theme {
-  #left-menu {
-    &.black {
-      background-color: rgba($black-dark, .7);
-    }
-
-    .main-menu,
-    .sub-menu {
-      background-color: $black;
-      box-shadow: 2px 0 20px 0 rgba($black-dark, .8);
-
-      a {
-        color: $white;
-      }
-
-      .menu-container {
-        a {
-          color: $primary-bright;
-
-          &:hover {
-            background-color: $black-bright;
-          }
-
-          &.active {
-            background-color: $black-dark;
-            border-right-color: $accent;
-          }
-
-          &.disabled {
-            background-color: $black;
-            color: $black-bright;
-
-            .image {
-              img {
-                opacity: .3;
-              }
-
-              svg,
-              path {
-                fill: $black-bright;
-              }
-            }
-          }
-
-          .image {
-
-            svg,
-            path {
-              fill: $primary-bright;
-            }
-          }
+    #left-menu {
+        &.black {
+            background-color: rgba($black-dark, 0.7);
         }
-      }
+
+        .main-menu,
+        .sub-menu {
+            background-color: $black;
+            box-shadow: 2px 0 20px 0 rgba($black-dark, 0.8);
+
+            a {
+                color: $white;
+            }
+
+            .menu-container {
+                a {
+                    color: $primary-bright;
+
+                    &:hover {
+                        background-color: $black-bright;
+                    }
+
+                    &.active {
+                        background-color: $black-dark;
+                        border-right-color: $accent;
+                    }
+
+                    &.disabled {
+                        background-color: $black;
+                        color: $black-bright;
+
+                        .image {
+                            img {
+                                opacity: 0.3;
+                            }
+
+                            svg,
+                            path {
+                                fill: $black-bright;
+                            }
+                        }
+                    }
+
+                    .image {
+                        svg,
+                        path {
+                            fill: $primary-bright;
+                        }
+                    }
+                }
+            }
+        }
     }
-  }
 }
