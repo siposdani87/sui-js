@@ -1,3 +1,5 @@
+import { adapters, Connection, ConnectionMonitor, Consumer, createConsumer, createWebSocketURL, DisconnectReasons, getConfig, INTERNAL, logger, MessageTypes, Subscription, Subscriptions } from "@rails/actioncable";
+
 window['ES_PROD'] = false;
 
 window['componentHandler'] = {
@@ -9,6 +11,22 @@ window['componentHandler'] = {
     register: (config: any) => { },
     downgradeElements: (nodes: Node | Node[] | NodeList) => { }
 };
+
+window['ActionCable'] = {
+    createConsumer,
+    createWebSocketURL,
+    getConfig,
+    MessageTypes,
+    DisconnectReasons,
+    INTERNAL,
+    Connection,
+    ConnectionMonitor, 
+    Consumer, 
+    Subscription, 
+    Subscriptions,
+    adapters, 
+    logger
+}
 
 let logSpy: jest.SpyInstance | null = null;
 let errorSpy: jest.SpyInstance | null = null;

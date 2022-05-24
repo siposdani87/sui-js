@@ -39,12 +39,13 @@ export class ActionCableClient {
      */
     private _getSubscription(options: ChannelNameWithParams): Promize {
         const deferred = new Deferred();
-        this.client = this.parent.cable['subscriptions']['create'](options, {
+        this.client = this.parent.cable.subscriptions.create(options, {
             received: (payload) => {
                 const response = new Objekt(JSON.parse(payload['message']));
                 deferred.resolve(response);
             },
         });
+
         return deferred.promise();
     }
     /**
@@ -60,12 +61,12 @@ export class ActionCableClient {
      */
     send(message: string, opt_data: Object | undefined = {}): void {
         opt_data['message'] = message;
-        this.client['send'](opt_data);
+        this.client.send(opt_data);
     }
     /**
      * @return {undefined}
      */
     unsubscribe(): void {
-        this.client['unsubscribe']();
+        this.client.unsubscribe();
     }
 }
