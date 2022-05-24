@@ -40,7 +40,7 @@ export const decrypt = (item, passPhrase) => {
  * @param {string} str
  * @return {string}
  */
-export const md5 = (str) => MD5(str).toString(Utf8);
+export const md5 = (str) => MD5(str).toString();
 /**
  * i6wolnd42rjg2nor7xdg5akv4p
  * https://github.com/LiosK/UUID.js

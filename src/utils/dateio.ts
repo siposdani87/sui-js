@@ -53,7 +53,7 @@ export const setDateIOLocale = (newLocale: string): void => {
 };
 
 export const convertToISOFormat = (formatString: string): string => {
-    return formatString.replace('YYYY', 'yyyy').replaceAll('D', 'd');
+    return formatString.replace('YYYY', 'yyyy').replace(/D/g, 'd');
 };
 
 export const DateIO = {

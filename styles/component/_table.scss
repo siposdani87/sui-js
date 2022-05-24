@@ -150,16 +150,14 @@ table {
                                 &.label {
                                     text-align: left;
                                 }
+
+                                &:not(.label) {
+                                    font-weight: 700;
+                                }
                             }
 
                             &.actions {
                                 display: none;
-                            }
-
-                            span {
-                                &:not(.label) {
-                                    font-weight: 700;
-                                }
                             }
                         }
                     }

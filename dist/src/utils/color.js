@@ -1,3 +1,4 @@
+import { round } from './math';
 /**
  * @param {number} red
  * @param {number} green
@@ -11,13 +12,9 @@ export const convertRGBToHSV = (red, green, blue) => {
     const v = Math.max(rabs, gabs, babs);
     const diff = v - Math.min(rabs, gabs, babs);
     const diffc = (c) => (v - c) / 6 / diff + 1 / 2;
-    const percentRoundFn = (num) => Math.round(num * 100) / 100;
     let h = 0;
     let s = 0;
-    if (diff == 0) {
-        h = s = 0;
-    }
-    else {
+    if (diff !== 0) {
         s = diff / v;
         const rr = diffc(rabs);
         const gg = diffc(gabs);
@@ -38,11 +35,7 @@ export const convertRGBToHSV = (red, green, blue) => {
             h -= 1;
         }
     }
-    return [
-        Math.round(h * 360),
-        percentRoundFn(s * 100),
-        percentRoundFn(v * 100),
-    ];
+    return [Math.round(h * 360), round(s, -2), round(v, -2)];
 };
 /**
  * @param {number} red
@@ -55,10 +48,10 @@ export const convertRGBToHEX = (red, green, blue) => {
     const results = [];
     for (let i = 0; i < colors.length; i++) {
         if (colors[i] <= 16) {
-            results[i] = '0' + colors[i].toString(16);
+            results[i] = '0' + colors[i].toString(16).toUpperCase();
         }
         else {
-            results[i] = '' + colors[i].toString(16);
+            results[i] = '' + colors[i].toString(16).toUpperCase();
         }
     }
     return '#' + results.join('');
@@ -89,47 +82,51 @@ export const convertHEXToRGB = (hexColor) => {
  * @return {!Array<number>}
  */
 export const convertHSVToRGB = (h, s, v) => {
-    const i = Math.floor(h * 6);
-    const f = h * 6 - i;
+    const i = Math.floor((h / 60) % 6);
+    const f = h / 60 - i;
     const p = v * (1 - s);
     const q = v * (1 - f * s);
     const t = v * (1 - (1 - f) * s);
-    let r = 0;
-    let g = 0;
-    let b = 0;
-    switch (i % 6) {
+    let blue;
+    let green;
+    let red;
+    switch (i) {
         case 0:
-            r = v;
-            g = t;
-            b = p;
+            red = v;
+            green = t;
+            blue = p;
             break;
         case 1:
-            r = q;
-            g = v;
-            b = p;
+            red = q;
+            green = v;
+            blue = p;
             break;
         case 2:
-            r = p;
-            g = v;
-            b = t;
+            red = p;
+            green = v;
+            blue = t;
             break;
         case 3:
-            r = p;
-            g = q;
-            b = v;
+            red = p;
+            green = q;
+            blue = v;
             break;
         case 4:
-            r = t;
-            g = p;
-            b = v;
+            red = t;
+            green = p;
+            blue = v;
             break;
-        case 5:
-            r = v;
-            g = p;
-            b = q;
+        default:
+            red = v;
+            green = p;
+            blue = q;
             break;
     }
-    return [Math.round(r * 255), Math.round(g * 255), Math.round(b * 255)];
+    return [
+        Math.round(red * 255),
+        Math.round(green * 255),
+        Math.round(blue * 255),
+    ];
 };
 /**
  * @param {number} h

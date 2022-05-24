@@ -16,31 +16,14 @@ export declare const merge: (objA: Object, objB: Object) => Object | undefined;
  * @param {string=} opt_postfix
  * @return {string}
  */
-export declare const format: (str: string, opt_params?: (object | Array<any> | null) | undefined, opt_prefix?: string | undefined, opt_postfix?: string | undefined) => string;
+export declare const format: (str: string, opt_params?: object | Array<any> | null | undefined, opt_prefix?: string | undefined, opt_postfix?: string | undefined) => string;
 /**
- * @param {*} value
- * @param {string} type
- * @return {*}
+ * @deprecated
+ * @use native toString() method, if it is required
+ * @param {string|number|boolean} value
+ * @return {string}
  */
-export declare const convert: (value: any, type: string) => any;
-/**
- * @param {number} value
- * @param {string} type
- * @return {number|string}
- */
-export declare const convertToNumber: (value: number, type: string) => number | string;
-/**
- * @param {string} value
- * @param {string} type
- * @return {string|number}
- */
-export declare const convertToString: (value: string, type: string) => string | number;
-/**
- * @param {*} value
- * @param {*} defaultValue
- * @return {*}
- */
-export declare const defaultValue: (value: any, defaultValue: any) => any;
+export declare const convertToString: (value: string | number | boolean) => string;
 /**
  * @param {*=} opt_result
  * @return {!Function}
@@ -134,11 +117,6 @@ export declare const isNull: (value: any) => boolean;
 export declare const isUndefined: (value: any) => boolean;
 /**
  * @param {*} value
- * @return {boolean}
- */
-export declare const isFinite: (value: any) => boolean;
-/**
- * @param {*} value
  * @param {string} type
  * @return {boolean}
  */
@@ -150,13 +128,13 @@ export declare const is: (value: any, type: string) => boolean;
  */
 export declare const instanceOf: (value: any, obj: Object) => boolean;
 /**
- * @param {*} items
+ * @param {!Array|!Object} items
  * @param {!Function} next
  * @param {number=} opt_start
  * @param {number=} opt_end
  * @return {undefined}
  */
-export declare const each: (items: any, next: Function, opt_start?: number, opt_end?: number) => void;
+export declare const each: (items: Array<any> | object, next: Function, opt_start?: number, opt_end?: number) => void;
 /**
  * @param {!Array} items
  * @param {!Function} next
@@ -170,7 +148,7 @@ export declare const eachArray: (items: Array<any>, next: Function, opt_start?: 
  * @param {!Function} next
  * @return {undefined}
  */
-export declare const eachObject: (object: Object, next: Function) => void;
+export declare const eachObject: (object: object, next: Function) => void;
 /**
  * @param {function(number):undefined} next
  * @param {number} i
@@ -183,7 +161,7 @@ export declare const sleepEach: (next: (_index: number) => void, i: number, leng
  * @param {!Array|!Object} items
  * @return {undefined}
  */
-export declare const clear: (items: Array<any> | object) => void;
+export declare const clear: (items: Array<any> | Object) => void;
 /**
  * @param {!Array} items
  * @return {undefined}
@@ -243,7 +221,7 @@ export declare const copyObject: (items: Object) => Object;
  * @param {!Array|!Object} items
  * @return {boolean}
  */
-export declare const isEmpty: (items: Array<any> | object) => boolean;
+export declare const isEmpty: (items: Array<any> | Object) => boolean;
 /**
  * @deprecated
  * @param {!Array} args
@@ -278,7 +256,7 @@ export declare const pluckKeys: (obj: Object, condition: (_value: any, _key: str
 export declare const scrollTo: (x: number, y: number, opt_duration?: number | undefined, opt_step?: number | undefined) => void;
 /**
  * @deprecated
- * @use {scrollIntoView}
+ * @use scrollIntoView
  * @param {string} selector
  * @param {number=} opt_duration
  * @param {number=} opt_step

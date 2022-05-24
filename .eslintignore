@@ -3,4 +3,5 @@ docs/*
 example/*
 gulpfile.js
 jest.config.js
-**/*.test.ts
+jest.setup.ts
+**/*.spec.ts

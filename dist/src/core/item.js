@@ -1,4 +1,4 @@
-import { contain, convert, each, eachArray, eq, isArray, isFunction, isObject, isString, isUndefined, noop, typeCast, } from '../utils/operation';
+import { contain, each, eachArray, eq, isArray, isFunction, isObject, isString, isUndefined, noop, typeCast, } from '../utils/operation';
 import { consoleWarn } from '../utils/log';
 /**
  * @class
@@ -79,14 +79,14 @@ export class Item {
      * @return {undefined}
      */
     setId(id) {
-        this.node.id = convert(id, 'string');
+        this.node.id = id.toString();
     }
     /**
      * @param {boolean|number|string} htmlFor
      * @return {undefined}
      */
     setFor(htmlFor) {
-        this.node.htmlFor = convert(htmlFor, 'string');
+        this.node.htmlFor = htmlFor.toString();
         this.setAttribute('for', htmlFor);
     }
     /**

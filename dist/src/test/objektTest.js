@@ -165,7 +165,6 @@ export class ObjektTest extends BaseTest {
         this.showAssert(options.get('obj.attr2') === undefined, 'remove', 1);
         options.remove('obj.obj2.attr3');
         this.showAssert(options.get('obj.obj2.attr3') === undefined, 'remove', 2);
-        console.log(options);
         options.remove('obj.obj3');
         this.showAssert(options.get('obj.obj3') === undefined, 'remove', 3);
     }

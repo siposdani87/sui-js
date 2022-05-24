@@ -1,6 +1,3 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <testExecutions version="1">
-    <file path="/Users/dsipos/others/sui-js/src/utils/operator.spec.ts">
-        <testCase name="isDate tests isDate(new Date()), to equal true" duration="2"/>
-    </file>
 </testExecutions>

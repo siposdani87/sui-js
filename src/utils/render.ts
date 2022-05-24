@@ -4,18 +4,16 @@ import { Item } from '../core';
 const componentHandler = window['componentHandler'];
 
 /**
- * @param {!Item|!Element=} opt_node
+ * @param {!Item|!HTMLElement=} opt_node
  * @param {boolean=} opt_forceDowngrade
  * @return {undefined}
  */
 export const mdl = (
-    opt_node?: Item | Element,
-    opt_forceDowngrade: boolean | undefined = true,
+    opt_node?: Item | HTMLElement,
+    opt_forceDowngrade = true,
 ): void => {
-    let element = opt_node || document;
-    if (element instanceof Item) {
-        element = element.getNode();
-    }
+    const element = opt_node instanceof Item ? opt_node.getNode() : opt_node;
+
     if (opt_node) {
         if (opt_forceDowngrade) {
             componentHandler.downgradeElements(element);

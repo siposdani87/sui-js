@@ -1,6 +1,5 @@
 import {
     contain,
-    convert,
     each,
     eachArray,
     eq,
@@ -98,17 +97,14 @@ export class Item<T extends HTMLElement = HTMLElement> {
      * @return {undefined}
      */
     setId(id: boolean | number | string): void {
-        this.node.id = convert(id, 'string');
+        this.node.id = id.toString();
     }
     /**
      * @param {boolean|number|string} htmlFor
      * @return {undefined}
      */
     setFor(htmlFor: boolean | number | string): void {
-        (this.node as any as HTMLLabelElement).htmlFor = convert(
-            htmlFor,
-            'string',
-        );
+        (this.node as any as HTMLLabelElement).htmlFor = htmlFor.toString();
         this.setAttribute('for', htmlFor);
     }
     /**
@@ -137,7 +133,7 @@ export class Item<T extends HTMLElement = HTMLElement> {
         callback: Function,
     ): void {
         if (isArray(cssClasses)) {
-            each(cssClasses, (cssClass) => {
+            each(cssClasses as Array<any>, (cssClass) => {
                 callback(cssClass);
             });
         } else {
