@@ -15,6 +15,10 @@ export declare const consoleWarn: (...message: any[]) => void;
  */
 export declare const consoleError: (...message: any[]) => void;
 /**
+ * @param {...*} message
+ */
+export declare const consoleDebug: (...message: any[]) => void;
+/**
  * @param {boolean} condition
  * @param {...*} data
  */

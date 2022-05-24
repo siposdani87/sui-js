@@ -64,54 +64,12 @@ export const format = (str, opt_params = null, opt_prefix = '\\{', opt_postfix =
     return str;
 };
 /**
- * @param {*} value
- * @param {string} type
- * @return {*}
+ * @deprecated
+ * @use native toString() method, if it is required
+ * @param {string|number|boolean} value
+ * @return {string}
  */
-export const convert = (value, type) => {
-    let result = value;
-    if (isNumber(value)) {
-        result = convertToNumber(value, type);
-    }
-    else if (isString(value)) {
-        result = convertToString(value, type);
-    }
-    return result;
-};
-/**
- * @param {number} value
- * @param {string} type
- * @return {number|string}
- */
-export const convertToNumber = (value, type) => {
-    switch (type) {
-        case 'string':
-            return value.toString();
-        default:
-            return value;
-    }
-};
-/**
- * @param {string} value
- * @param {string} type
- * @return {string|number}
- */
-export const convertToString = (value, type) => {
-    switch (type) {
-        case 'integer':
-            return parseInt(value, 10);
-        case 'float':
-            return parseFloat(value);
-        default:
-            return value;
-    }
-};
-/**
- * @param {*} value
- * @param {*} defaultValue
- * @return {*}
- */
-export const defaultValue = (value, defaultValue) => !isUndefined(value) ? value : defaultValue;
+export const convertToString = (value) => value.toString();
 /**
  * @param {*=} opt_result
  * @return {!Function}
@@ -212,11 +170,6 @@ export const isNull = (value) => value === null;
 export const isUndefined = (value) => is(value, 'undefined');
 /**
  * @param {*} value
- * @return {boolean}
- */
-export const isFinite = (value) => isFinite(value);
-/**
- * @param {*} value
  * @param {string} type
  * @return {boolean}
  */
@@ -228,7 +181,7 @@ export const is = (value, type) => typeof value === type;
  */
 export const instanceOf = (value, obj) => value instanceof obj;
 /**
- * @param {*} items
+ * @param {!Array|!Object} items
  * @param {!Function} next
  * @param {number=} opt_start
  * @param {number=} opt_end
@@ -492,7 +445,7 @@ export const scrollTo = (x, y, opt_duration = 500, opt_step = 20) => {
 };
 /**
  * @deprecated
- * @use {scrollIntoView}
+ * @use scrollIntoView
  * @param {string} selector
  * @param {number=} opt_duration
  * @param {number=} opt_step

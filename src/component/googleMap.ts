@@ -3,7 +3,7 @@ import {
     inArray,
     isUndefined,
     eachObject,
-    convert,
+    convertToString,
 } from '../utils/operation';
 import { Collection } from '../core/collection';
 import { Deferred } from '../core/deferred';
@@ -880,7 +880,7 @@ export class GoogleMap {
         const options = new Objekt(this.markerOptions);
         options.merge(opt_options);
 
-        const text = convert(title, 'string');
+        const text = convertToString(title);
         const marker = new google.maps.Marker(options.copy(true));
         marker.setPosition(new google.maps.LatLng(latitude, longitude));
         marker.setIcon(this.markerIcons[iconName].icon);
@@ -997,7 +997,7 @@ export class GoogleMap {
         each(this._cleanMarkerData(opt_markerData), (value, key) => {
             markerData.set(key, value);
         });
-        const text = convert(title, 'string');
+        const text = convertToString(title);
         const marker = markerData.get<google.maps.Marker>('_marker');
         marker.setOptions(opt_options);
 
@@ -1081,7 +1081,7 @@ export class GoogleMap {
         const markerData = this.getMarker(markerId);
         const marker = markerData.get<google.maps.Marker>('_marker');
         const infoWindow = new google.maps.InfoWindow({
-            content: convert(content, 'string'),
+            content: convertToString(content),
         });
         infoWindow.open(this.map, marker);
     }
@@ -1172,7 +1172,7 @@ export class GoogleMap {
         const geoCoder = new google.maps.Geocoder();
         geoCoder.geocode(
             {
-                address: convert(query, 'string'),
+                address: convertToString(query),
             },
             (results, status) => {
                 if (

@@ -45,7 +45,7 @@ export const decrypt = (item: string, passPhrase: string): any => {
  * @param {string} str
  * @return {string}
  */
-export const md5 = (str: string): string => MD5(str).toString(Utf8);
+export const md5 = (str: string): string => MD5(str).toString();
 
 /**
  * i6wolnd42rjg2nor7xdg5akv4p

@@ -16,19 +16,19 @@ export declare const convertRGBToHEX: (red: number, green: number, blue: number)
  * @param {string} hexColor
  * @return {!Array<number>}
  */
-export declare const convertHEXToHSV: (hexColor: string) => [number, number, number];
+export declare const convertHEXToHSV: (hexColor: string) => [h: number, s: number, v: number];
 /**
  * @param {string} hexColor
  * @return {!Array<number, number, number>}
  */
-export declare const convertHEXToRGB: (hexColor: string) => [number, number, number];
+export declare const convertHEXToRGB: (hexColor: string) => [r: number, g: number, b: number];
 /**
  * @param {number} h
  * @param {number} s
  * @param {number} v
  * @return {!Array<number>}
  */
-export declare const convertHSVToRGB: (h: number, s: number, v: number) => [number, number, number];
+export declare const convertHSVToRGB: (h: number, s: number, v: number) => [r: number, g: number, b: number];
 /**
  * @param {number} h
  * @param {number} s

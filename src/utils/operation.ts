@@ -53,7 +53,7 @@ export const merge = (objA: Object, objB: Object): Object | undefined => {
  */
 export const format = (
     str: string,
-    opt_params: (object | Array<any> | null) | undefined = null,
+    opt_params: object | Array<any> | null | undefined = null,
     opt_prefix: string | undefined = '\\{',
     opt_postfix: string | undefined = '\\}',
 ): string => {
@@ -65,55 +65,13 @@ export const format = (
 };
 
 /**
- * @param {*} value
- * @param {string} type
- * @return {*}
+ * @deprecated
+ * @use native toString() method, if it is required
+ * @param {string|number|boolean} value
+ * @return {string}
  */
-export const convert = (value: any, type: string): any => {
-    let result = value;
-    if (isNumber(value)) {
-        result = convertToNumber(value, type);
-    } else if (isString(value)) {
-        result = convertToString(value, type);
-    }
-    return result;
-};
-
-/**
- * @param {number} value
- * @param {string} type
- * @return {number|string}
- */
-export const convertToNumber = (
-    value: number,
-    type: string,
-): number | string => {
-    switch (type) {
-        case 'string':
-            return value.toString();
-        default:
-            return value;
-    }
-};
-
-/**
- * @param {string} value
- * @param {string} type
- * @return {string|number}
- */
-export const convertToString = (
-    value: string,
-    type: string,
-): string | number => {
-    switch (type) {
-        case 'integer':
-            return parseInt(value, 10);
-        case 'float':
-            return parseFloat(value);
-        default:
-            return value;
-    }
-};
+export const convertToString = (value: string | number | boolean): string =>
+    value.toString();
 
 /**
  * @param {*=} opt_result
@@ -235,12 +193,6 @@ export const isUndefined = (value: any): boolean => is(value, 'undefined');
 
 /**
  * @param {*} value
- * @return {boolean}
- */
-export const isFinite = (value: any): boolean => isFinite(value);
-
-/**
- * @param {*} value
  * @param {string} type
  * @return {boolean}
  */
@@ -255,20 +207,20 @@ export const instanceOf = (value: any, obj: Object): boolean =>
     value instanceof (obj as any);
 
 /**
- * @param {*} items
+ * @param {!Array|!Object} items
  * @param {!Function} next
  * @param {number=} opt_start
  * @param {number=} opt_end
  * @return {undefined}
  */
 export const each = (
-    items: any,
+    items: Array<any> | object,
     next: Function,
     opt_start?: number,
     opt_end?: number,
 ): void => {
     if (isArray(items)) {
-        eachArray(items, next, opt_start, opt_end);
+        eachArray(items as Array<any>, next, opt_start, opt_end);
     } else if (isObject(items)) {
         eachObject(items, next);
     }
@@ -299,7 +251,7 @@ export const eachArray = (
  * @param {!Function} next
  * @return {undefined}
  */
-export const eachObject = (object: Object, next: Function): void => {
+export const eachObject = (object: object, next: Function): void => {
     for (const key in object) {
         if (object.hasOwnProperty(key)) {
             next(object[key], key);
@@ -334,7 +286,7 @@ export const sleepEach = (
  * @param {!Array|!Object} items
  * @return {undefined}
  */
-export const clear = (items: Array<any> | object): void => {
+export const clear = (items: Array<any> | Object): void => {
     if (isArray(items)) {
         clearArray(items as Array<any>);
     } else if (isObject(items)) {
@@ -464,7 +416,7 @@ export const copyObject = (items: Object): Object => {
  * @param {!Array|!Object} items
  * @return {boolean}
  */
-export const isEmpty = (items: Array<any> | object): boolean => {
+export const isEmpty = (items: Array<any> | Object): boolean => {
     let result = false;
     if (isArray(items)) {
         result = (items as Array<any>).length === 0;
@@ -567,7 +519,7 @@ export const scrollTo = (
 
 /**
  * @deprecated
- * @use {scrollIntoView}
+ * @use scrollIntoView
  * @param {string} selector
  * @param {number=} opt_duration
  * @param {number=} opt_step

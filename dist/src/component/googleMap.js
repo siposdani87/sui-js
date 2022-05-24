@@ -1,4 +1,4 @@
-import { each, inArray, isUndefined, eachObject, convert, } from '../utils/operation';
+import { each, inArray, isUndefined, eachObject, convertToString, } from '../utils/operation';
 import { Collection } from '../core/collection';
 import { Deferred } from '../core/deferred';
 import { Objekt } from '../core/objekt';
@@ -636,7 +636,7 @@ export class GoogleMap {
         }
         const options = new Objekt(this.markerOptions);
         options.merge(opt_options);
-        const text = convert(title, 'string');
+        const text = convertToString(title);
         const marker = new google.maps.Marker(options.copy(true));
         marker.setPosition(new google.maps.LatLng(latitude, longitude));
         marker.setIcon(this.markerIcons[iconName].icon);
@@ -714,7 +714,7 @@ export class GoogleMap {
         each(this._cleanMarkerData(opt_markerData), (value, key) => {
             markerData.set(key, value);
         });
-        const text = convert(title, 'string');
+        const text = convertToString(title);
         const marker = markerData.get('_marker');
         marker.setOptions(opt_options);
         const markerIcon = this.markerIcons[iconName];
@@ -796,7 +796,7 @@ export class GoogleMap {
         const markerData = this.getMarker(markerId);
         const marker = markerData.get('_marker');
         const infoWindow = new google.maps.InfoWindow({
-            content: convert(content, 'string'),
+            content: convertToString(content),
         });
         infoWindow.open(this.map, marker);
     }
@@ -864,7 +864,7 @@ export class GoogleMap {
         const deferred = new Deferred();
         const geoCoder = new google.maps.Geocoder();
         geoCoder.geocode({
-            address: convert(query, 'string'),
+            address: convertToString(query),
         }, (results, status) => {
             if (status === google.maps.GeocoderStatus.OK &&
                 results.length > 0) {

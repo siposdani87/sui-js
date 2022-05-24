@@ -4,6 +4,8 @@ const getLocaleFrom = (newLocale) => {
     switch (newLocale) {
         case 'hu-HU':
             return hu;
+        case 'en-US':
+            return enUS;
         default:
             return enUS;
     }
@@ -13,7 +15,7 @@ export const setDateIOLocale = (newLocale) => {
     locale = getLocaleFrom(newLocale);
 };
 export const convertToISOFormat = (formatString) => {
-    return formatString.replace('YYYY', 'yyyy').replaceAll('D', 'd');
+    return formatString.replace('YYYY', 'yyyy').replace(/D/g, 'd');
 };
 export const DateIO = {
     parse: (dateString = new Date().toISOString(), formatString) => {

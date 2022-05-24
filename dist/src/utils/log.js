@@ -30,6 +30,12 @@ export const consoleError = (...message) => {
     console.error(...message);
 };
 /**
+ * @param {...*} message
+ */
+export const consoleDebug = (...message) => {
+    console.debug(...message);
+};
+/**
  * @param {boolean} condition
  * @param {...*} data
  */

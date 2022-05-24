@@ -35,6 +35,13 @@ export const consoleError = (...message: any[]) => {
 };
 
 /**
+ * @param {...*} message
+ */
+export const consoleDebug = (...message: any[]) => {
+    console.debug(...message);
+};
+
+/**
  * @param {boolean} condition
  * @param {...*} data
  */

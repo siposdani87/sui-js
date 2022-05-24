@@ -5,19 +5,18 @@
     "moduleResolution": "Node",
     "declaration": true,
     "outDir": "dist",
-    "types": ["google.maps", "jest"],
+    "types": ["google.maps", "jest", "material-design-lite"],
     "lib": ["ESNext", "DOM"],
-    // "strict": true,
     "skipLibCheck": true,
     "noImplicitAny": false,
     "esModuleInterop": true,
   },
   "include": [
-    "src/**/*"
+    "src/**/*",
+    "jest.setup.ts"
   ],
   "exclude": [
     "dist",
-    "node_modules",
-    "**/*.test.ts"
+    "node_modules"
   ]
 }
