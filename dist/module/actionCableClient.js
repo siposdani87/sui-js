@@ -27,7 +27,7 @@ export class ActionCableClient {
      */
     _getSubscription(options) {
         const deferred = new Deferred();
-        this.client = this.parent.cable['subscriptions']['create'](options, {
+        this.client = this.parent.cable.subscriptions.create(options, {
             received: (payload) => {
                 const response = new Objekt(JSON.parse(payload['message']));
                 deferred.resolve(response);
@@ -48,12 +48,12 @@ export class ActionCableClient {
      */
     send(message, opt_data = {}) {
         opt_data['message'] = message;
-        this.client['send'](opt_data);
+        this.client.send(opt_data);
     }
     /**
      * @return {undefined}
      */
     unsubscribe() {
-        this.client['unsubscribe']();
+        this.client.unsubscribe();
     }
 }

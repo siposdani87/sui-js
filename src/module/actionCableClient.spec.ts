@@ -6,7 +6,10 @@ describe('actionCableClient', () => {
         const channel = 'CHANNEL';
         const room = 'ROOM';
         const actionCable = new ActionCable();
-        const actionCableClient = new ActionCableClient(actionCable, { channel, room });
+        const actionCableClient = new ActionCableClient(actionCable, {
+            channel,
+            room,
+        });
 
         expect(actionCableClient).toBeInstanceOf(ActionCableClient);
     });
