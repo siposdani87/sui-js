@@ -1,6 +1,6 @@
 import { BaseModal } from './baseModal';
 
-describe('BaseModal', () => {
+describe('baseModal', () => {
     it('should be instance of BaseModal', () => {
         const baseModal = new BaseModal();
 

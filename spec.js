@@ -19,7 +19,7 @@ glob('src/**/*.ts', {}, (error, files) => {
 
         const data = `import { ${className} } from './${fileName}';
 
-describe('${className}', () => {
+describe('${fileName}', () => {
     it('should be instance of ${className}', () => {
         const ${fileName} = new ${className}();
         
