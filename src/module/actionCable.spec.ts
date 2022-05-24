@@ -1,6 +1,6 @@
 import { ActionCable } from './actionCable';
 
-describe('ActionCable', () => {
+describe('actionCable', () => {
     it('should be instance of ActionCable', () => {
         const actionCable = new ActionCable();
 
