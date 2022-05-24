@@ -55,6 +55,7 @@ export class ActionCable {
             this.clients.push(client);
             return client.subscribe();
         }
+
         const deferred = new Deferred();
         return deferred.promise();
     }

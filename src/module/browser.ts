@@ -39,8 +39,6 @@ export class Browser {
         this._setFeature('window.history', window.history);
         this._setFeature('window.localStorage', window.localStorage);
         this._setFeature('window.sessionStorage', window.sessionStorage);
-        this._setFeature('window.btoa', window.btoa);
-        this._setFeature('window.atob', window.atob);
         this._setFeature('console.log', console.log);
         this._setFeature('console.info', console.info);
         this._setFeature('console.warn', console.warn);

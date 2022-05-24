@@ -12,11 +12,12 @@
     "esModuleInterop": true,
   },
   "include": [
-    "src/**/*",
-    "jest.setup.ts"
+    "src/**/*"
   ],
   "exclude": [
     "dist",
-    "node_modules"
+    "node_modules",
+    "**/*.spec.ts",
+    "jest.setup.ts"
   ]
 }
