@@ -355,13 +355,11 @@ export class Application {
      * @return {undefined}
      */
     private _initStorage(): void {
-        this._instances[this._injections.localStorage] = new Storage({
-            type: 'local',
+        this._instances[this._injections.localStorage] = new Storage('LOCAL', {
             prefix: this.options.app_id,
             secret: this.options.secret,
         });
-        this._instances[this._injections.sessionStorage] = new Storage({
-            type: 'session',
+        this._instances[this._injections.sessionStorage] = new Storage('SESSION', {
             prefix: this.options.app_id,
             secret: this.options.secret,
         });

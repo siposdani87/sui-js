@@ -157,6 +157,99 @@ beforeAll(() => {
       </div>
     </div>
     <div class="template-view" data-locale="en" data-template-url="/index.html">
+        <div class="map"></div>
+        <div class="progress-status"></div>
+        <div class="pagination">
+            <div class="pager"></div>
+            <div class="pager-statistics"></div>
+        </div>
+        <div class="card-collection">
+            <template>
+                <div class="card">
+                </div>
+            </template>
+        </div>
+        <form>
+            <input type="hidden" value="1" name="field[hidden]" id="field-hidden" />
+            <div class="input-block field-text">
+                <label for="field-text">Text</label>
+                <input type="text" value="text" name="field[text]" id="field-text" />
+            </div>
+            <div class="input-block field-email">
+                <label for="field-email">E-mail</label>
+                <input type="email" value="example@email.com" name="field[email]" id="field-email" />
+            </div>
+            <div class="input-block field-tel">
+                <label for="field-tel">Tel</label>
+                <input type="tel" value="" name="field[tel]" id="field-tel" />
+            </div>
+            <div class="input-block field-radio">
+                <label data-label="Field Radio" for="field-radio-1">Radio1</label>
+                <input type="radio" value="value1" checked="checked" name="field[radio]" id="field-radio-1" />
+            </div>
+            <div class="input-block field-radio">
+                <label for="field-radio-2">Radio2</label>
+                <input type="radio" value="value2" name="field[radio]" id="field-radio-2" />
+            </div>
+            <div class="input-block field-checkbox">
+                <label for="field-checkbox">Checkbox</label>
+                <input type="checkbox" value="" checked="checked" name="field[checkbox]" id="field-checkbox" />
+            </div>
+            <div class="input-block field-icon-toggle">
+                <label for="field-icon-toggle">Icon Toggle</label>
+                <input type="checkbox" value="" checked="checked" name="field[icon-toggle]" id="field-icon-toggle" data-type="icon-toggle" data-checked="mood"
+                data-unchecked="mood_bad" />
+            </div>
+            <div class="input-block field-switch">
+                <label for="field-switch">Switch</label>
+                <input type="checkbox" value="" checked="checked" name="field[icon-switch]" id="field-switch" data-type="switch" />
+            </div>
+            <div class="input-block field-number">
+                <label for="field-number">Number</label>
+                <input type="number" value="" name="field[number]" id="field-number" />
+            </div>
+            <div class="input-block field-url">
+                <label for="field-url">Url</label>
+                <input type="url" value="" name="field[url]" id="field-url" />
+            </div>
+            <div class="input-block field-range">
+                <label for="field-range">Range</label>
+                <input type="range" value="" name="field[range]" id="field-range" />
+            </div>
+            <div class="input-block field-color">
+                <label for="field-color">Color</label>
+                <input type="color" value="" name="field[color]" id="field-color" />
+            </div>
+            <div class="input-block field-search">
+                <label for="field-search">Search</label>
+                <input type="search" value="" name="field[search]" id="field-search" />
+            </div>
+            <div class="input-block field-textarea">
+                <label for="field-textarea">Textarea</label>
+                <textarea name="field[textarea]" id="field-textarea"></textarea>
+            </div>
+            <button name="btn-submit" type="submit">Submit</button>
+            <button name="btn-button" type="button">Button</button>
+            <button name="btn-reset" type="reset">Reset</button>
+        </form>
+        <div class="table-responsive">
+            <table class="users-table">
+                <thead>
+                    <tr>
+                        <th>username</th>
+                        <th></th>
+                    </tr>
+                </thead>
+            </table>
+        </div>
+        <div class="tab-panel">
+            <div class="tabs">
+                <a href="#panel-1">Panel1</a>
+                <a href="#panel-2">Panel2</a>
+            </div>
+            <div id="panel-1" class="panel"></div>
+            <div id="panel-2" class="panel"></div>
+        </div>
     </div>
     <div class="sidebar hidden" id="right-sidebar">
       <a href="javascript:void(0)">

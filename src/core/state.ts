@@ -17,16 +17,42 @@ export class State {
     options: Objekt;
     /**
      * @param {!Array<Route>} routes
-     * @param {!Object} options
+     * @param {!Object=} opt_options
      */
-    constructor(routes: Route[], options: Object) {
+    constructor(routes: Route[], opt_options: Object | undefined = {}) {
         this._current = new Objekt();
         this._previous = this._current;
 
         this.routes = new Collection(routes);
 
-        this._setOptions(options);
+        this._setOptions(opt_options);
         this._init();
+    }
+    /**
+     * @private
+     * @param {!Object=} opt_options
+     * @return {undefined}
+     */
+     private _setOptions(opt_options: Object | undefined = {}): void {
+        const _self = this;
+        _self.options = new Objekt({
+            root: {
+                id: 'root',
+                params: undefined,
+            },
+        });
+        _self.options.merge(opt_options);
+    }
+    /**
+     * @private
+     * @return {undefined}
+     */
+    private _init(): void {
+        this._setBasePath();
+        this._setRealUrls();
+
+        this._initPopstate();
+        this._parseUrl();
     }
     /**
      * @private
@@ -64,32 +90,6 @@ export class State {
         if (!baseMetaTag.isEmpty()) {
             this.basePath = baseMetaTag.getAttribute('href') || '#';
         }
-    }
-    /**
-     * @private
-     * @param {!Object} options
-     * @return {undefined}
-     */
-    private _setOptions(options: Object): void {
-        const _self = this;
-        _self.options = new Objekt({
-            root: {
-                id: 'root',
-                params: undefined,
-            },
-        });
-        _self.options.merge(options);
-    }
-    /**
-     * @private
-     * @return {undefined}
-     */
-    private _init(): void {
-        this._setBasePath();
-        this._setRealUrls();
-
-        this._initPopstate();
-        this._parseUrl();
     }
     /**
      * @private

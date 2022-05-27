@@ -16,7 +16,6 @@
 		"@typescript-eslint",
     	"eslint-plugin-tsdoc",
 		"prettier"
-		// "jsdoc"
 	],
 	"rules": {
 		"@typescript-eslint/no-explicit-any": "off",

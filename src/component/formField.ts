@@ -32,9 +32,23 @@ import { Form } from './form';
  * @return {?BaseField}
  */
 export const FormField = function (
-    inputBlock: Item<HTMLInputElement>,
+    inputBlock: Item<HTMLInputElement|HTMLElement>,
     form: Form,
 ): BaseField<HTMLInputElement> | null {
+    const { input, label, error } = parseInputBlock(inputBlock);
+
+    return _convertToField(input, label, error, inputBlock, form);
+};
+
+/**
+ * @param {!Item} inputBlock
+ * @return {{input: Item, label: Item, error: Item}}
+ */
+export const parseInputBlock = (inputBlock: Item<HTMLInputElement|HTMLElement>): { 
+    input: Item<HTMLInputElement>,
+    label: Item,
+    error: Item,
+ } => {
     let input: Item<any> = inputBlock;
     let label = null;
     let error = null;
@@ -68,8 +82,12 @@ export const FormField = function (
         inputBlock.addClass('init-field');
     }
 
-    return _getField(input, label, error, inputBlock, form);
-};
+    return {
+        input,
+        label,
+        error
+    };
+} 
 
 /**
  * @param {!Item} input
@@ -79,7 +97,7 @@ export const FormField = function (
  * @param {!Form} form
  * @return {?BaseField}
  */
-const _getField = (
+const _convertToField = (
     input: Item<HTMLInputElement>,
     label: Item | null,
     error: Item | null,

@@ -6,23 +6,33 @@ import { encrypt, decrypt } from '../utils/coder';
  * @class
  */
 export class Storage {
+    type: 'LOCAL'|'SESSION';
     options: Objekt;
     storage: globalThis.Storage;
     /**
-     * @param {!Object} options
+     * @param {string} type
+     * @param {!Object} opt_options
      */
-    constructor(options: Object) {
+    constructor(type: 'LOCAL'|'SESSION', opt_options: Object | undefined = {}) {
+        this.type = type;
+
+        this._setOptions(opt_options);
+        this._init();
+    }
+    /**
+     * @private
+     * @param {!Object=} opt_options
+     * @return {undefined}
+     */
+     private _setOptions(opt_options: Object | undefined = {}): void {
         const _self = this;
         _self.options = new Objekt({
-            type: 'local',
             prefix: 'app',
-            secret: '',
+            secret: 'secret',
             hours: 24 * 7,
             interval: 60 * 1000,
         });
-        _self.options.merge(options);
-
-        this._init();
+        _self.options.merge(opt_options);
     }
     /**
      * @private
@@ -30,7 +40,7 @@ export class Storage {
      */
     private _init(): void {
         this.storage =
-            this.options.type === 'local'
+            this.type === 'LOCAL'
                 ? window.localStorage
                 : window.sessionStorage;
 
