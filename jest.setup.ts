@@ -170,7 +170,6 @@ beforeAll(() => {
             </template>
         </div>
         <form>
-            <input type="hidden" value="1" name="field[hidden]" id="field-hidden" />
             <div class="input-block field-text">
                 <label for="field-text">Text</label>
                 <input type="text" value="text" name="field[text]" id="field-text" />
@@ -188,21 +187,24 @@ beforeAll(() => {
                 <input type="radio" value="value1" checked="checked" name="field[radio]" id="field-radio-1" />
             </div>
             <div class="input-block field-radio">
-                <label for="field-radio-2">Radio2</label>
-                <input type="radio" value="value2" name="field[radio]" id="field-radio-2" />
+                 <label for="field-radio-2">Radio2</label>
+                 <input type="radio" value="value2" name="field[radio]" id="field-radio-2" />
             </div>
             <div class="input-block field-checkbox">
                 <label for="field-checkbox">Checkbox</label>
-                <input type="checkbox" value="" checked="checked" name="field[checkbox]" id="field-checkbox" />
+                <input type="hidden" name="field[checkbox]" value="false" />
+                <input type="checkbox" value="true" checked="checked" name="field[checkbox]" id="field-checkbox" />
             </div>
             <div class="input-block field-icon-toggle">
                 <label for="field-icon-toggle">Icon Toggle</label>
-                <input type="checkbox" value="" checked="checked" name="field[icon-toggle]" id="field-icon-toggle" data-type="icon-toggle" data-checked="mood"
+                <input type="hidden" name="field[icon-toggle]" value="false" />
+                <input type="checkbox" value="true" checked="checked" name="field[icon-toggle]" id="field-icon-toggle" data-type="icon-toggle" data-checked="mood"
                 data-unchecked="mood_bad" />
             </div>
             <div class="input-block field-switch">
                 <label for="field-switch">Switch</label>
-                <input type="checkbox" value="" checked="checked" name="field[icon-switch]" id="field-switch" data-type="switch" />
+                <input type="hidden" name="field[switch]" value="false" />
+                <input type="checkbox" value="true" checked="checked" name="field[icon-switch]" id="field-switch" data-type="switch" />
             </div>
             <div class="input-block field-number">
                 <label for="field-number">Number</label>
@@ -223,11 +225,12 @@ beforeAll(() => {
             <div class="input-block field-search">
                 <label for="field-search">Search</label>
                 <input type="search" value="" name="field[search]" id="field-search" />
-            </div>
+            </div> 
             <div class="input-block field-textarea">
                 <label for="field-textarea">Textarea</label>
                 <textarea name="field[textarea]" id="field-textarea"></textarea>
             </div>
+            <input type="hidden" value="1" name="field[hidden]" id="field-hidden" />
             <button name="btn-submit" type="submit">Submit</button>
             <button name="btn-button" type="button">Button</button>
             <button name="btn-reset" type="reset">Reset</button>

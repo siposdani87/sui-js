@@ -55,15 +55,19 @@ export const parseInputBlock = (inputBlock: Item<HTMLInputElement|HTMLElement>):
 
     let selectedIndex = null;
     let tagName = inputBlock.getTagName();
+    
     const tagType = inputBlock.getAttribute('type');
+
     if (
-        eq(tagName, 'input') &&
+        (eq(tagName, 'input') || eq(tagName, 'button')) &&
         !inArray(['hidden', 'reset', 'submit', 'button'], tagType)
     ) {
+        console.log(inputBlock);
         inputBlock =
             /** @type {!Item}*/ inputBlock.getParentNode() as Item<any>;
         selectedIndex = 0;
     }
+
     tagName = inputBlock.getTagName();
     if (eq(tagName, 'div')) {
         const inputs = new Query<HTMLInputElement>(

@@ -72,12 +72,13 @@ export class RangeField extends BaseField<HTMLInputElement> {
             this.inputBlock.removeClass('is-disabled');
         }
 
-        const containerNode = new Query(
+        // TODO: check the tooltip
+        /* const containerNode = new Query(
             '.mdl-slider__container',
             this.inputBlock,
-        ).getItem();
+        ).getItem(); */
         const value = this.getValue();
-        this.tooltip = new Tooltip(containerNode);
+        this.tooltip = new Tooltip(this.inputBlock);
         this.tooltip.render(value);
     }
     /**
