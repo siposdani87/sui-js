@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <testExecutions version="1">
-    <file path="/Users/dsipos/others/sui-js/src/field/searchField.spec.ts">
-        <testCase name="searchField should be instance of SearchField" duration="22"/>
+    <file path="/media/dsipos/Data/htdocs/sui-js/src/component/formField.spec.ts">
+        <testCase name="formField should be instance of FormField" duration="131"/>
     </file>
 </testExecutions>
