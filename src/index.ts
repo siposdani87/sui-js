@@ -17,6 +17,7 @@
  */
 
 /**
+ * @module
  * A component handler interface using the revealing module design pattern.
  * More details on this design pattern here
  *

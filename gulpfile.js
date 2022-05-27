@@ -1,5 +1,4 @@
 const gulp = require('gulp');
-const jsdoc = require('gulp-jsdoc3');
 const sass = require('gulp-sass')(require('sass'));
 const closureCompiler = require('google-closure-compiler');
 const readdirSync = require('readdirsync2');
@@ -59,12 +58,7 @@ gulp.task('watcher', gulp.series(function(done) {
   done();
 }));
 
-gulp.task('jsdoc', gulp.series(function(done) {
-  const config = require('./jsdoc.json');
-  gulp.src(['README.md', 'dist/**/*.js', '!sui.min*'], {read: false}).pipe(jsdoc(config, done));
-}));
-
-gulp.task('default', gulp.series('compile:styles', 'compile:scripts', 'jsdoc', function(done) {
+gulp.task('default', gulp.series('compile:styles', 'compile:scripts', function(done) {
   done();
 }));
 

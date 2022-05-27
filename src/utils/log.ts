@@ -1,4 +1,4 @@
-import { releaseMode } from '../core/config';
+import { releaseMode } from '../common/config';
 
 /**
  * @param {...*} message

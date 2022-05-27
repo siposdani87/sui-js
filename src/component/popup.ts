@@ -14,16 +14,16 @@ export class Popup {
     popupNode: Item;
     /**
      * @param {!Item} content
-     * @param {!Item=} opt_parent
+     * @param {!Item} parent
      * @param {boolean=} opt_withClose
      */
     constructor(
         content: Item,
-        opt_parent: Item | undefined,
+        parent: Item,
         opt_withClose: boolean | undefined = false,
     ) {
         this.content = content;
-        this.parent = opt_parent;
+        this.parent = parent;
         this.withClose = opt_withClose;
         this._init();
     }
