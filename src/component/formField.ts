@@ -62,7 +62,6 @@ export const parseInputBlock = (inputBlock: Item<HTMLInputElement|HTMLElement>):
         (eq(tagName, 'input') || eq(tagName, 'button')) &&
         !inArray(['hidden', 'reset', 'submit', 'button'], tagType)
     ) {
-        console.log(inputBlock);
         inputBlock =
             /** @type {!Item}*/ inputBlock.getParentNode() as Item<any>;
         selectedIndex = 0;

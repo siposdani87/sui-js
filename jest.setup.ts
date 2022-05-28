@@ -230,6 +230,14 @@ beforeAll(() => {
                 <label for="field-textarea">Textarea</label>
                 <textarea name="field[textarea]" id="field-textarea"></textarea>
             </div>
+            <div class="input-block field-select">
+                <label for="field-select>Select</label>
+                <select id="field-select" name="field[select]">
+                  <option value="">default</option>
+                  <option value="1" selected>1</option>
+                  <option value="2">2</option>
+                </select>
+            </div>
             <input type="hidden" value="1" name="field[hidden]" id="field-hidden" />
             <button name="btn-submit" type="submit">Submit</button>
             <button name="btn-button" type="button">Button</button>
