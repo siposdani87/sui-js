@@ -401,8 +401,7 @@ export class BaseField<T extends HTMLInputElement> {
      */
     private _setMutation(): void {
         const observer = new MutationObserver((mutationsList) => {
-            for (let i = 0; i < mutationsList.length; i++) {
-                const mutation = mutationsList[i];
+            for (const mutation of mutationsList) {
                 if (mutation.attributeName === 'disabled') {
                     this.refresh();
                 } else if (mutation.attributeName === 'required') {
@@ -410,7 +409,7 @@ export class BaseField<T extends HTMLInputElement> {
                 }
             }
         });
-        // observer.disconnect();
+
         observer.observe(this.input.getNode(), {
             attributeFilter: ['disabled', 'required'],
             attributes: true,

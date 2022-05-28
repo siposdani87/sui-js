@@ -1,6 +1,6 @@
 import { BaseField } from './baseField';
 import { Tooltip } from '../component/tooltip';
-import { Query } from '../core/query';
+// import { Query } from '../core/query';
 import { Item } from '../core';
 import { mdl } from '../utils/render';
 
@@ -49,7 +49,9 @@ export class RangeField extends BaseField<HTMLInputElement> {
             'mdl-js-textfield',
             'mdl-sliderfield',
         ]);
+
         this.input.addClass(['mdl-slider', 'mdl-js-slider']);
+
         if (this.label && this.label.exists()) {
             this.label.addClass('mdl-textfield__label');
         }
