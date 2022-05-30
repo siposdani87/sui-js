@@ -9,7 +9,7 @@ describe('progressBar', () => {
         const dialog = new Dialog(http);
         const confirm = new Confirm();
         const progressBar = new ProgressBar(dialog, confirm);
-        
+
         expect(progressBar).toBeInstanceOf(ProgressBar);
     });
 });

@@ -1,6 +1,4 @@
 /**
  * @class
  */
-export class TreeView {
-
-}
+export class TreeView {}

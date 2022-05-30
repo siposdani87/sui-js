@@ -11,7 +11,7 @@ describe('script', () => {
         const confirm = new Confirm();
         const progressBar = new ProgressBar(dialog, confirm);
         const script = new Script(progressBar);
-        
+
         expect(script).toBeInstanceOf(Script);
     });
 });

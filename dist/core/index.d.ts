@@ -8,4 +8,4 @@ export * from './promize';
 export * from './query';
 export * from './router';
 export * from './state';
-export * from './config';
+export * from '../common/config';

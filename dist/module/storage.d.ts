@@ -3,12 +3,20 @@ import { Objekt } from '../core/objekt';
  * @class
  */
 export declare class Storage {
+    type: 'LOCAL' | 'SESSION';
     options: Objekt;
     storage: globalThis.Storage;
     /**
-     * @param {!Object} options
+     * @param {string} type
+     * @param {!Object} opt_options
      */
-    constructor(options: Object);
+    constructor(type: 'LOCAL' | 'SESSION', opt_options?: Object | undefined);
+    /**
+     * @private
+     * @param {!Object=} opt_options
+     * @return {undefined}
+     */
+    private _setOptions;
     /**
      * @private
      * @return {undefined}

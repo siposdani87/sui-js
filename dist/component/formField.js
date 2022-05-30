@@ -28,13 +28,21 @@ import { TextField } from '../field/textField';
  * @return {?BaseField}
  */
 export const FormField = function (inputBlock, form) {
+    const { input, label, error } = parseInputBlock(inputBlock);
+    return _convertToField(input, label, error, inputBlock, form);
+};
+/**
+ * @param {!Item} inputBlock
+ * @return {{input: Item, label: Item, error: Item}}
+ */
+export const parseInputBlock = (inputBlock) => {
     let input = inputBlock;
     let label = null;
     let error = null;
     let selectedIndex = null;
     let tagName = inputBlock.getTagName();
     const tagType = inputBlock.getAttribute('type');
-    if (eq(tagName, 'input') &&
+    if ((eq(tagName, 'input') || eq(tagName, 'button')) &&
         !inArray(['hidden', 'reset', 'submit', 'button'], tagType)) {
         inputBlock =
             /** @type {!Item}*/ inputBlock.getParentNode();
@@ -51,7 +59,11 @@ export const FormField = function (inputBlock, form) {
         inputBlock.appendChild(error);
         inputBlock.addClass('init-field');
     }
-    return _getField(input, label, error, inputBlock, form);
+    return {
+        input,
+        label,
+        error,
+    };
 };
 /**
  * @param {!Item} input
@@ -61,7 +73,7 @@ export const FormField = function (inputBlock, form) {
  * @param {!Form} form
  * @return {?BaseField}
  */
-const _getField = (input, label, error, inputBlock, form) => {
+const _convertToField = (input, label, error, inputBlock, form) => {
     input.addClass('init-field');
     const dataType = input.getData('type');
     const tagName = input.getTagName();

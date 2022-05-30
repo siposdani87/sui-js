@@ -4,10 +4,12 @@ import { UrlField } from './urlField';
 
 describe('urlField', () => {
     it('should be instance of UrlField', () => {
-        const inputBlock = new Query<HTMLElement>('.input-block.field-url').getItem();
+        const inputBlock = new Query<HTMLElement>(
+            '.input-block.field-url',
+        ).getItem();
         const { input, label, error } = parseInputBlock(inputBlock);
         const urlField = new UrlField(input, label, error, inputBlock);
-        
+
         expect(urlField).toBeInstanceOf(UrlField);
     });
 });

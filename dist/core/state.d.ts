@@ -12,9 +12,20 @@ export declare class State {
     options: Objekt;
     /**
      * @param {!Array<Route>} routes
-     * @param {!Object} options
+     * @param {!Object=} opt_options
      */
-    constructor(routes: Route[], options: Object);
+    constructor(routes: Route[], opt_options?: Object | undefined);
+    /**
+     * @private
+     * @param {!Object=} opt_options
+     * @return {undefined}
+     */
+    private _setOptions;
+    /**
+     * @private
+     * @return {undefined}
+     */
+    private _init;
     /**
      * @private
      * @return {undefined}
@@ -36,17 +47,6 @@ export declare class State {
      * @return {undefined}
      */
     private _setBasePath;
-    /**
-     * @private
-     * @param {!Object} options
-     * @return {undefined}
-     */
-    private _setOptions;
-    /**
-     * @private
-     * @return {undefined}
-     */
-    private _init;
     /**
      * @private
      * @return {undefined}

@@ -32,7 +32,7 @@ import { Form } from './form';
  * @return {?BaseField}
  */
 export const FormField = function (
-    inputBlock: Item<HTMLInputElement|HTMLElement>,
+    inputBlock: Item<HTMLInputElement | HTMLElement>,
     form: Form,
 ): BaseField<HTMLInputElement> | null {
     const { input, label, error } = parseInputBlock(inputBlock);
@@ -44,18 +44,20 @@ export const FormField = function (
  * @param {!Item} inputBlock
  * @return {{input: Item, label: Item, error: Item}}
  */
-export const parseInputBlock = (inputBlock: Item<HTMLInputElement|HTMLElement>): { 
-    input: Item<HTMLInputElement>,
-    label: Item,
-    error: Item,
- } => {
+export const parseInputBlock = (
+    inputBlock: Item<HTMLInputElement | HTMLElement>,
+): {
+    input: Item<HTMLInputElement>;
+    label: Item;
+    error: Item;
+} => {
     let input: Item<any> = inputBlock;
     let label = null;
     let error = null;
 
     let selectedIndex = null;
     let tagName = inputBlock.getTagName();
-    
+
     const tagType = inputBlock.getAttribute('type');
 
     if (
@@ -88,9 +90,9 @@ export const parseInputBlock = (inputBlock: Item<HTMLInputElement|HTMLElement>):
     return {
         input,
         label,
-        error
+        error,
     };
-} 
+};
 
 /**
  * @param {!Item} input

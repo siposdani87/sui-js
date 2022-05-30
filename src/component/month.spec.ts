@@ -7,7 +7,7 @@ describe('month', () => {
         const month = new Month(date, now, {
             css_class: null,
         });
-        
+
         expect(month).toBeInstanceOf(Month);
     });
 });

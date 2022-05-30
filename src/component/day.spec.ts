@@ -7,7 +7,7 @@ describe('day', () => {
         const day = new Day(date, now, {
             css_class: null,
         });
-        
+
         expect(day).toBeInstanceOf(Day);
     });
 });

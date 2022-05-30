@@ -1,6 +1,5 @@
 import { BaseField } from './baseField';
 import { Tooltip } from '../component/tooltip';
-import { Query } from '../core/query';
 import { mdl } from '../utils/render';
 /**
  * @class
@@ -60,9 +59,13 @@ export class RangeField extends BaseField {
         else {
             this.inputBlock.removeClass('is-disabled');
         }
-        const containerNode = new Query('.mdl-slider__container', this.inputBlock).getItem();
+        // TODO: check the tooltip
+        /* const containerNode = new Query(
+            '.mdl-slider__container',
+            this.inputBlock,
+        ).getItem(); */
         const value = this.getValue();
-        this.tooltip = new Tooltip(containerNode);
+        this.tooltip = new Tooltip(this.inputBlock);
         this.tooltip.render(value);
     }
     /**

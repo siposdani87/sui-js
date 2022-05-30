@@ -8,7 +8,7 @@ describe('calendar', () => {
             type: 'DATE',
             date: new Date(),
         });
-        
+
         expect(calendar).toBeInstanceOf(Calendar);
     });
 });
