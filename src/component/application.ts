@@ -359,10 +359,13 @@ export class Application {
             prefix: this.options.app_id,
             secret: this.options.secret,
         });
-        this._instances[this._injections.sessionStorage] = new Storage('SESSION', {
-            prefix: this.options.app_id,
-            secret: this.options.secret,
-        });
+        this._instances[this._injections.sessionStorage] = new Storage(
+            'SESSION',
+            {
+                prefix: this.options.app_id,
+                secret: this.options.secret,
+            },
+        );
     }
     /**
      * @private

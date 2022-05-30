@@ -6,19 +6,28 @@ import { encrypt, decrypt } from '../utils/coder';
  */
 export class Storage {
     /**
-     * @param {!Object} options
+     * @param {string} type
+     * @param {!Object} opt_options
      */
-    constructor(options) {
+    constructor(type, opt_options = {}) {
+        this.type = type;
+        this._setOptions(opt_options);
+        this._init();
+    }
+    /**
+     * @private
+     * @param {!Object=} opt_options
+     * @return {undefined}
+     */
+    _setOptions(opt_options = {}) {
         const _self = this;
         _self.options = new Objekt({
-            type: 'local',
             prefix: 'app',
-            secret: '',
+            secret: 'secret',
             hours: 24 * 7,
             interval: 60 * 1000,
         });
-        _self.options.merge(options);
-        this._init();
+        _self.options.merge(opt_options);
     }
     /**
      * @private
@@ -26,9 +35,7 @@ export class Storage {
      */
     _init() {
         this.storage =
-            this.options.type === 'local'
-                ? window.localStorage
-                : window.sessionStorage;
+            this.type === 'LOCAL' ? window.localStorage : window.sessionStorage;
         setInterval(() => {
             this._checkExpires();
         }, this.options.interval);

@@ -8,7 +8,7 @@ describe('clock', () => {
             type: 'HOUR',
             time: new Date(),
         });
-        
+
         expect(clock).toBeInstanceOf(Clock);
     });
 });

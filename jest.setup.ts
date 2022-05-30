@@ -1,4 +1,5 @@
 import { adapters, Connection, ConnectionMonitor, Consumer, createConsumer, createWebSocketURL, DisconnectReasons, getConfig, INTERNAL, logger, MessageTypes, Subscription, Subscriptions } from "@rails/actioncable";
+import { initialize, mockInstances } from '@googlemaps/jest-mocks';
 
 window['ES_PROD'] = false;
 
@@ -28,11 +29,21 @@ window['ActionCable'] = {
     logger
 }
 
+window['MapLabel'] = function(options) {
+    console.log(options);
+};
+
+window['MapLabel'].prototype.bindTo = function(attribute, value) {
+
+}
+
 let logSpy: jest.SpyInstance | null = null;
 let errorSpy: jest.SpyInstance | null = null;
 let infoSpy: jest.SpyInstance | null = null;
 
 beforeAll(() => {
+    initialize();
+
     logSpy = jest.spyOn(console, 'log').mockImplementation(() => {
         // Empty method
     });
@@ -225,16 +236,37 @@ beforeAll(() => {
             <div class="input-block field-search">
                 <label for="field-search">Search</label>
                 <input type="search" value="" name="field[search]" id="field-search" />
-            </div> 
+            </div>
+            <div class="input-block field-file">
+                <label for="field-file">File</label>
+                <input type="file" value="" accept=".jpg,.png" name="field[file]" id="field-file" />
+            </div>
+            <div class="input-block field-location">
+                <label for="field-location">Location</label>
+                <input data-value="{&quot;latitude&quot;:47.7256,&quot;longitude&quot;:17.4900,&quot;address&quot;:&quot;9153 Öttevény&quot;}"
+                    data-type="location"
+                    data-icon="{&quot;url&quot;:&quot;example/images/location.png&quot;,&quot;size&quot;:[48,48],&quot;origin&quot;:[0,0],&quot;anchor&quot;:[24,48],&quot;coords&quot;:[0,0,0,48,48,48,48,0]}"
+                    data-latitude="latitude" data-longitude="longitude" type="text"
+                    name="field[location]" id="field-location" />
+            </div>
+            <div class="input-block field-datetime">
+                <label for="field-datetime">Datetime</label>
+                <input id="field-datetime" name="field[datetime]" type="datetime"
+                    data-format="DD/MM/YYYY HH:mm" value="2019-06-10T10:45:21Z" />
+            </div>
             <div class="input-block field-textarea">
                 <label for="field-textarea">Textarea</label>
                 <textarea name="field[textarea]" id="field-textarea"></textarea>
             </div>
+            <div class="input-block field-autocomplete">
+                <label for="field-autocomplete">AutoComplete</label>
+                <input type="text" value="" name="field[autocomplete]" id="field-autocomplete" />
+            </div>
             <div class="input-block field-select">
-                <label for="field-select>Select</label>
+                <label for="field-select">Select</label>
                 <select id="field-select" name="field[select]">
                   <option value="">default</option>
-                  <option value="1" selected>1</option>
+                  <option value="1">1</option>
                   <option value="2">2</option>
                 </select>
             </div>
@@ -286,7 +318,7 @@ beforeAll(() => {
 });
 
 beforeEach(() => {
-    // Empty method
+    mockInstances.clearAll();
 });
 
 afterEach(() => {

@@ -8,12 +8,12 @@ import { mdl } from '../utils/render';
 export class Popup {
     /**
      * @param {!Item} content
-     * @param {!Item=} opt_parent
+     * @param {!Item} parent
      * @param {boolean=} opt_withClose
      */
-    constructor(content, opt_parent, opt_withClose = false) {
+    constructor(content, parent, opt_withClose = false) {
         this.content = content;
-        this.parent = opt_parent;
+        this.parent = parent;
         this.withClose = opt_withClose;
         this._init();
     }

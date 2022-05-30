@@ -11,7 +11,7 @@ describe('style', () => {
         const confirm = new Confirm();
         const progressBar = new ProgressBar(dialog, confirm);
         const style = new Style(progressBar);
-        
+
         expect(style).toBeInstanceOf(Style);
     });
 });

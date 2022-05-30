@@ -370,8 +370,7 @@ export class BaseField {
      */
     _setMutation() {
         const observer = new MutationObserver((mutationsList) => {
-            for (let i = 0; i < mutationsList.length; i++) {
-                const mutation = mutationsList[i];
+            for (const mutation of mutationsList) {
                 if (mutation.attributeName === 'disabled') {
                     this.refresh();
                 }
@@ -380,7 +379,6 @@ export class BaseField {
                 }
             }
         });
-        // observer.disconnect();
         observer.observe(this.input.getNode(), {
             attributeFilter: ['disabled', 'required'],
             attributes: true,

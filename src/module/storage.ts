@@ -6,14 +6,17 @@ import { encrypt, decrypt } from '../utils/coder';
  * @class
  */
 export class Storage {
-    type: 'LOCAL'|'SESSION';
+    type: 'LOCAL' | 'SESSION';
     options: Objekt;
     storage: globalThis.Storage;
     /**
      * @param {string} type
      * @param {!Object} opt_options
      */
-    constructor(type: 'LOCAL'|'SESSION', opt_options: Object | undefined = {}) {
+    constructor(
+        type: 'LOCAL' | 'SESSION',
+        opt_options: Object | undefined = {},
+    ) {
         this.type = type;
 
         this._setOptions(opt_options);
@@ -24,7 +27,7 @@ export class Storage {
      * @param {!Object=} opt_options
      * @return {undefined}
      */
-     private _setOptions(opt_options: Object | undefined = {}): void {
+    private _setOptions(opt_options: Object | undefined = {}): void {
         const _self = this;
         _self.options = new Objekt({
             prefix: 'app',
@@ -40,9 +43,7 @@ export class Storage {
      */
     private _init(): void {
         this.storage =
-            this.type === 'LOCAL'
-                ? window.localStorage
-                : window.sessionStorage;
+            this.type === 'LOCAL' ? window.localStorage : window.sessionStorage;
 
         setInterval(() => {
             this._checkExpires();

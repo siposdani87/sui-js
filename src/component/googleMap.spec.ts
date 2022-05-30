@@ -1,15 +1,5 @@
 import { Query } from '../core';
 import { GoogleMap } from './googleMap';
-import { initialize, mockInstances } from "@googlemaps/jest-mocks";
-
-beforeAll(() => {
-    initialize();
-});
-
-// Clear all mocks
-beforeEach(() => {
-    mockInstances.clearAll();
-});
 
 describe('googleMap', () => {
     it('should be instance of GoogleMap', () => {

@@ -6,9 +6,9 @@ describe('dateTime', () => {
         const node = new Query('.template-view').getItem();
         const dateTime = new DateTime(node, {
             type: 'datetime',
-            value: new Date()
+            value: new Date(),
         });
-        
+
         expect(dateTime).toBeInstanceOf(DateTime);
     });
 });

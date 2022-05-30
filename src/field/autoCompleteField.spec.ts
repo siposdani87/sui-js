@@ -1,9 +1,20 @@
+import { parseInputBlock } from '../component';
+import { Query } from '../core';
 import { AutoCompleteField } from './autoCompleteField';
 
 describe('autoCompleteField', () => {
     it('should be instance of AutoCompleteField', () => {
-        const autoCompleteField = new AutoCompleteField();
-        
+        const inputBlock = new Query<HTMLElement>(
+            '.input-block.field-autocomplete',
+        ).getItem();
+        const { input, label, error } = parseInputBlock(inputBlock);
+        const autoCompleteField = new AutoCompleteField(
+            input,
+            label,
+            error,
+            inputBlock,
+        );
+
         expect(autoCompleteField).toBeInstanceOf(AutoCompleteField);
     });
 });

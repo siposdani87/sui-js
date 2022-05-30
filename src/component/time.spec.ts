@@ -5,9 +5,9 @@ describe('time', () => {
     it('should be instance of Time', () => {
         const node = new Query('.template-view').getItem();
         const time = new Time(node, {
-            selected: []
+            selected: [],
         });
-        
+
         expect(time).toBeInstanceOf(Time);
     });
 });

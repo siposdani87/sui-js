@@ -11,10 +11,10 @@ export declare class Popup {
     popupNode: Item;
     /**
      * @param {!Item} content
-     * @param {!Item=} opt_parent
+     * @param {!Item} parent
      * @param {boolean=} opt_withClose
      */
-    constructor(content: Item, opt_parent: Item | undefined, opt_withClose?: boolean | undefined);
+    constructor(content: Item, parent: Item, opt_withClose?: boolean | undefined);
     /**
      * @private
      * @return {undefined}
