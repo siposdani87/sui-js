@@ -55,7 +55,6 @@ export const parseInputBlock = (
     let label = null;
     let error = null;
 
-    let selectedIndex = null;
     let tagName = inputBlock.getTagName();
 
     const tagType = inputBlock.getAttribute('type');
@@ -64,9 +63,7 @@ export const parseInputBlock = (
         (eq(tagName, 'input') || eq(tagName, 'button')) &&
         !inArray(['hidden', 'reset', 'submit', 'button'], tagType)
     ) {
-        inputBlock =
-            /** @type {!Item}*/ inputBlock.getParentNode() as Item<any>;
-        selectedIndex = 0;
+        inputBlock = inputBlock.getParentNode() as Item<any>;
     }
 
     tagName = inputBlock.getTagName();
@@ -75,15 +72,15 @@ export const parseInputBlock = (
             'input, textarea, select',
             inputBlock,
         ).getItems();
-        const index =
-            selectedIndex !== null ? selectedIndex : inputs.length - 1;
-        input = inputs[index];
+
+        input = inputs[inputs.length - 1];
 
         label = new Query('label', inputBlock).getItem();
 
         error = inputBlock.createElement('span');
         error.addClass(['mdl-textfield__error', 'text-truncate']);
         inputBlock.appendChild(error);
+
         inputBlock.addClass('init-field');
     }
 
@@ -110,6 +107,7 @@ const _convertToField = (
     form: Form,
 ): BaseField<HTMLInputElement> | null => {
     input.addClass('init-field');
+
     const dataType = input.getData('type');
     const tagName = input.getTagName();
     let result = null;
@@ -139,23 +137,22 @@ const _convertToField = (
             case 'year':
                 const inputs = new Query<HTMLInputElement>('input', inputBlock);
                 if (inputs.size() === 2) {
-                    let handledInput = inputs.get(0);
-                    let isStartInput = true;
-                    if (
-                        handledInput.getAttribute('name') ===
-                        input.getAttribute('name')
-                    ) {
-                        handledInput = inputs.get(1);
-                        isStartInput = false;
-                    }
                     result = new DateTimeRangeField(
-                        handledInput,
+                        inputs.get(0),
                         label,
                         error,
                         inputBlock,
-                        isStartInput,
+                        true,
                     );
-                } else {
+                } else if (inputs.size() === 0) {
+                    result = new DateTimeRangeField(
+                        input,
+                        label,
+                        error,
+                        inputBlock.getParentNode(),
+                        false,
+                    );
+                } else if (inputs.size() === 1) {
                     result = new DateTimeField(input, label, error, inputBlock);
                 }
                 break;

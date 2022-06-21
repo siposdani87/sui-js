@@ -7,7 +7,7 @@
         bottom: 0;
     }
 
-    &:not(.is-focused):not(.is-dirty) {
+    &:not(.is-focused, .is-dirty) {
         .mdl-textfield__expandable-holder {
             .mdl-textfield__input {
                 border: 0;
