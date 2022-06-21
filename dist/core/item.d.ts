@@ -64,22 +64,22 @@ export declare class Item<T extends HTMLElement = HTMLElement> {
      * @param {!Function} callback
      * @return {undefined}
      */
-    _handleClassList(cssClasses: Array<any> | string, callback: Function): void;
+    _handleClassList(cssClasses: Array<string> | string, callback: Function): void;
     /**
      * @param {!Array|string} cssClasses
      * @return {undefined}
      */
-    addClass(cssClasses: Array<any> | string): void;
+    addClass(cssClasses: Array<string> | string): void;
     /**
      * @param {!Array|string} cssClasses
      * @return {undefined}
      */
-    removeClass(cssClasses: Array<any> | string): void;
+    removeClass(cssClasses: Array<string> | string): void;
     /**
      * @param {!Array|string} cssClasses
      * @return {undefined}
      */
-    toggleClass(cssClasses: Array<any> | string): void;
+    toggleClass(cssClasses: Array<string> | string): void;
     /**
      * @return {!Array<string>}
      */

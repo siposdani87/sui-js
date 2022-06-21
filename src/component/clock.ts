@@ -241,7 +241,7 @@ export class Clock {
         const minutes = DateIO.getMinutes(time);
         this._setMinutes(minutes);
 
-        const period = DateIO.getHours(time) > 12 ? 'pm' : 'am';
+        const period = DateIO.getHours(time) / 12 >= 1 ? 'pm' : 'am';
         this._setPeriod(period);
     }
     /**

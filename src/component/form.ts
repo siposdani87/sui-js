@@ -113,6 +113,7 @@ export class Form extends Collection<BaseField<HTMLInputElement>> {
             this.fieldClasses.concat(this.buttonClasses).join(', '),
             this.formNode,
         ).getItems();
+
         this.load(fields);
 
         const updatedFields = [];

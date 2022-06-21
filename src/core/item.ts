@@ -129,11 +129,11 @@ export class Item<T extends HTMLElement = HTMLElement> {
      * @return {undefined}
      */
     _handleClassList(
-        cssClasses: Array<any> | string,
+        cssClasses: Array<string> | string,
         callback: Function,
     ): void {
         if (isArray(cssClasses)) {
-            each(cssClasses as Array<any>, (cssClass) => {
+            each(cssClasses as Array<string>, (cssClass) => {
                 callback(cssClass);
             });
         } else {
@@ -144,7 +144,7 @@ export class Item<T extends HTMLElement = HTMLElement> {
      * @param {!Array|string} cssClasses
      * @return {undefined}
      */
-    addClass(cssClasses: Array<any> | string): void {
+    addClass(cssClasses: Array<string> | string): void {
         this._handleClassList(cssClasses, (cssClass) => {
             if (cssClass && !this.hasClass(cssClass)) {
                 this.node.classList.add(cssClass);
@@ -155,7 +155,7 @@ export class Item<T extends HTMLElement = HTMLElement> {
      * @param {!Array|string} cssClasses
      * @return {undefined}
      */
-    removeClass(cssClasses: Array<any> | string): void {
+    removeClass(cssClasses: Array<string> | string): void {
         this._handleClassList(cssClasses, (cssClass) => {
             this.node.classList.remove(cssClass);
         });
@@ -164,7 +164,7 @@ export class Item<T extends HTMLElement = HTMLElement> {
      * @param {!Array|string} cssClasses
      * @return {undefined}
      */
-    toggleClass(cssClasses: Array<any> | string): void {
+    toggleClass(cssClasses: Array<string> | string): void {
         this._handleClassList(cssClasses, (cssClass) => {
             this.node.classList.toggle(cssClass);
         });
