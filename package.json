@@ -24,13 +24,23 @@
     "watch": "npm run esbuild -- --watch & npm run sass -- --watch",
     "test": "npx jest && npm run coverage"
   },
-  "license": "UNLICENSED",
-  "private": true,
+  "license": "ISC",
+  "private": false,
   "keywords": [
     "sui-js"
   ],
   "author": "Dániel Sipos <siposdani87@gmail.com> (https://siposdani87.com)",
-  "homepage": "https://siposdani87.com",
+  "homepage": "https://github.com/siposdani87/sui-js",
+  "bugs": {
+    "url": "https://github.com/siposdani87/sui-js/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/siposdani87/sui-js.git"
+  },
+  "publishConfig": {
+    "access": "public"
+  },
   "files": [
     "dist/*",
     "src/*",
