@@ -14,7 +14,7 @@ custom_edit_url: null
 
 #### Defined in
 
-[module/geoLocation.ts:17](https://bitbucket.org/siposdani87/sui-js/src/412afc3/src/module/geoLocation.ts#lines-17)
+[module/geoLocation.ts:17](https://bitbucket.org/siposdani87/sui-js/src/5c73bef/src/module/geoLocation.ts#lines-17)
 
 ## Properties
 
@@ -32,7 +32,7 @@ custom_edit_url: null
 
 #### Defined in
 
-[module/geoLocation.ts:9](https://bitbucket.org/siposdani87/sui-js/src/412afc3/src/module/geoLocation.ts#lines-9)
+[module/geoLocation.ts:9](https://bitbucket.org/siposdani87/sui-js/src/5c73bef/src/module/geoLocation.ts#lines-9)
 
 ___
 
@@ -42,7 +42,7 @@ ___
 
 #### Defined in
 
-[module/geoLocation.ts:14](https://bitbucket.org/siposdani87/sui-js/src/412afc3/src/module/geoLocation.ts#lines-14)
+[module/geoLocation.ts:14](https://bitbucket.org/siposdani87/sui-js/src/5c73bef/src/module/geoLocation.ts#lines-14)
 
 ## Methods
 
@@ -62,7 +62,7 @@ ___
 
 #### Defined in
 
-[module/geoLocation.ts:97](https://bitbucket.org/siposdani87/sui-js/src/412afc3/src/module/geoLocation.ts#lines-97)
+[module/geoLocation.ts:97](https://bitbucket.org/siposdani87/sui-js/src/5c73bef/src/module/geoLocation.ts#lines-97)
 
 ___
 
@@ -82,7 +82,7 @@ ___
 
 #### Defined in
 
-[module/geoLocation.ts:84](https://bitbucket.org/siposdani87/sui-js/src/412afc3/src/module/geoLocation.ts#lines-84)
+[module/geoLocation.ts:84](https://bitbucket.org/siposdani87/sui-js/src/5c73bef/src/module/geoLocation.ts#lines-84)
 
 ___
 
@@ -96,7 +96,7 @@ ___
 
 #### Defined in
 
-[module/geoLocation.ts:24](https://bitbucket.org/siposdani87/sui-js/src/412afc3/src/module/geoLocation.ts#lines-24)
+[module/geoLocation.ts:24](https://bitbucket.org/siposdani87/sui-js/src/5c73bef/src/module/geoLocation.ts#lines-24)
 
 ___
 
@@ -110,7 +110,7 @@ ___
 
 #### Defined in
 
-[module/geoLocation.ts:67](https://bitbucket.org/siposdani87/sui-js/src/412afc3/src/module/geoLocation.ts#lines-67)
+[module/geoLocation.ts:67](https://bitbucket.org/siposdani87/sui-js/src/5c73bef/src/module/geoLocation.ts#lines-67)
 
 ___
 
@@ -132,7 +132,7 @@ ___
 
 #### Defined in
 
-[module/geoLocation.ts:76](https://bitbucket.org/siposdani87/sui-js/src/412afc3/src/module/geoLocation.ts#lines-76)
+[module/geoLocation.ts:76](https://bitbucket.org/siposdani87/sui-js/src/5c73bef/src/module/geoLocation.ts#lines-76)
 
 ___
 
@@ -153,7 +153,7 @@ ___
 
 #### Defined in
 
-[module/geoLocation.ts:127](https://bitbucket.org/siposdani87/sui-js/src/412afc3/src/module/geoLocation.ts#lines-127)
+[module/geoLocation.ts:127](https://bitbucket.org/siposdani87/sui-js/src/5c73bef/src/module/geoLocation.ts#lines-127)
 
 ___
 
@@ -167,7 +167,7 @@ ___
 
 #### Defined in
 
-[module/geoLocation.ts:48](https://bitbucket.org/siposdani87/sui-js/src/412afc3/src/module/geoLocation.ts#lines-48)
+[module/geoLocation.ts:48](https://bitbucket.org/siposdani87/sui-js/src/5c73bef/src/module/geoLocation.ts#lines-48)
 
 ___
 
@@ -181,4 +181,4 @@ ___
 
 #### Defined in
 
-[module/geoLocation.ts:34](https://bitbucket.org/siposdani87/sui-js/src/412afc3/src/module/geoLocation.ts#lines-34)
+[module/geoLocation.ts:34](https://bitbucket.org/siposdani87/sui-js/src/5c73bef/src/module/geoLocation.ts#lines-34)

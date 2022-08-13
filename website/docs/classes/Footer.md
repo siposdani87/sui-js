@@ -20,7 +20,7 @@ custom_edit_url: null
 
 #### Defined in
 
-[module/footer.ts:17](https://bitbucket.org/siposdani87/sui-js/src/412afc3/src/module/footer.ts#lines-17)
+[module/footer.ts:17](https://bitbucket.org/siposdani87/sui-js/src/5c73bef/src/module/footer.ts#lines-17)
 
 ## Properties
 
@@ -30,7 +30,7 @@ custom_edit_url: null
 
 #### Defined in
 
-[module/footer.ts:12](https://bitbucket.org/siposdani87/sui-js/src/412afc3/src/module/footer.ts#lines-12)
+[module/footer.ts:12](https://bitbucket.org/siposdani87/sui-js/src/5c73bef/src/module/footer.ts#lines-12)
 
 ___
 
@@ -40,7 +40,7 @@ ___
 
 #### Defined in
 
-[module/footer.ts:10](https://bitbucket.org/siposdani87/sui-js/src/412afc3/src/module/footer.ts#lines-10)
+[module/footer.ts:10](https://bitbucket.org/siposdani87/sui-js/src/5c73bef/src/module/footer.ts#lines-10)
 
 ___
 
@@ -50,7 +50,7 @@ ___
 
 #### Defined in
 
-[module/footer.ts:13](https://bitbucket.org/siposdani87/sui-js/src/412afc3/src/module/footer.ts#lines-13)
+[module/footer.ts:13](https://bitbucket.org/siposdani87/sui-js/src/5c73bef/src/module/footer.ts#lines-13)
 
 ___
 
@@ -60,7 +60,7 @@ ___
 
 #### Defined in
 
-[module/footer.ts:9](https://bitbucket.org/siposdani87/sui-js/src/412afc3/src/module/footer.ts#lines-9)
+[module/footer.ts:9](https://bitbucket.org/siposdani87/sui-js/src/5c73bef/src/module/footer.ts#lines-9)
 
 ___
 
@@ -70,7 +70,7 @@ ___
 
 #### Defined in
 
-[module/footer.ts:11](https://bitbucket.org/siposdani87/sui-js/src/412afc3/src/module/footer.ts#lines-11)
+[module/footer.ts:11](https://bitbucket.org/siposdani87/sui-js/src/5c73bef/src/module/footer.ts#lines-11)
 
 ## Methods
 
@@ -84,7 +84,7 @@ ___
 
 #### Defined in
 
-[module/footer.ts:35](https://bitbucket.org/siposdani87/sui-js/src/412afc3/src/module/footer.ts#lines-35)
+[module/footer.ts:35](https://bitbucket.org/siposdani87/sui-js/src/5c73bef/src/module/footer.ts#lines-35)
 
 ___
 
@@ -104,7 +104,7 @@ ___
 
 #### Defined in
 
-[module/footer.ts:26](https://bitbucket.org/siposdani87/sui-js/src/412afc3/src/module/footer.ts#lines-26)
+[module/footer.ts:26](https://bitbucket.org/siposdani87/sui-js/src/5c73bef/src/module/footer.ts#lines-26)
 
 ___
 
@@ -118,7 +118,7 @@ ___
 
 #### Defined in
 
-[module/footer.ts:91](https://bitbucket.org/siposdani87/sui-js/src/412afc3/src/module/footer.ts#lines-91)
+[module/footer.ts:91](https://bitbucket.org/siposdani87/sui-js/src/5c73bef/src/module/footer.ts#lines-91)
 
 ___
 
@@ -132,7 +132,7 @@ ___
 
 #### Defined in
 
-[module/footer.ts:79](https://bitbucket.org/siposdani87/sui-js/src/412afc3/src/module/footer.ts#lines-79)
+[module/footer.ts:79](https://bitbucket.org/siposdani87/sui-js/src/5c73bef/src/module/footer.ts#lines-79)
 
 ___
 
@@ -146,7 +146,7 @@ ___
 
 #### Defined in
 
-[module/footer.ts:64](https://bitbucket.org/siposdani87/sui-js/src/412afc3/src/module/footer.ts#lines-64)
+[module/footer.ts:64](https://bitbucket.org/siposdani87/sui-js/src/5c73bef/src/module/footer.ts#lines-64)
 
 ___
 
@@ -160,7 +160,7 @@ ___
 
 #### Defined in
 
-[module/footer.ts:97](https://bitbucket.org/siposdani87/sui-js/src/412afc3/src/module/footer.ts#lines-97)
+[module/footer.ts:97](https://bitbucket.org/siposdani87/sui-js/src/5c73bef/src/module/footer.ts#lines-97)
 
 ___
 
@@ -174,7 +174,7 @@ ___
 
 #### Defined in
 
-[module/footer.ts:85](https://bitbucket.org/siposdani87/sui-js/src/412afc3/src/module/footer.ts#lines-85)
+[module/footer.ts:85](https://bitbucket.org/siposdani87/sui-js/src/5c73bef/src/module/footer.ts#lines-85)
 
 ___
 
@@ -194,7 +194,7 @@ ___
 
 #### Defined in
 
-[module/footer.ts:73](https://bitbucket.org/siposdani87/sui-js/src/412afc3/src/module/footer.ts#lines-73)
+[module/footer.ts:73](https://bitbucket.org/siposdani87/sui-js/src/5c73bef/src/module/footer.ts#lines-73)
 
 ___
 
@@ -208,7 +208,7 @@ ___
 
 #### Defined in
 
-[module/footer.ts:44](https://bitbucket.org/siposdani87/sui-js/src/412afc3/src/module/footer.ts#lines-44)
+[module/footer.ts:44](https://bitbucket.org/siposdani87/sui-js/src/5c73bef/src/module/footer.ts#lines-44)
 
 ___
 
@@ -222,4 +222,4 @@ ___
 
 #### Defined in
 
-[module/footer.ts:103](https://bitbucket.org/siposdani87/sui-js/src/412afc3/src/module/footer.ts#lines-103)
+[module/footer.ts:103](https://bitbucket.org/siposdani87/sui-js/src/5c73bef/src/module/footer.ts#lines-103)

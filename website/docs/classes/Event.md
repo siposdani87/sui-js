@@ -14,7 +14,7 @@ custom_edit_url: null
 
 #### Defined in
 
-[module/event.ts:13](https://bitbucket.org/siposdani87/sui-js/src/412afc3/src/module/event.ts#lines-13)
+[module/event.ts:13](https://bitbucket.org/siposdani87/sui-js/src/5c73bef/src/module/event.ts#lines-13)
 
 ## Properties
 
@@ -24,7 +24,7 @@ custom_edit_url: null
 
 #### Defined in
 
-[module/event.ts:10](https://bitbucket.org/siposdani87/sui-js/src/412afc3/src/module/event.ts#lines-10)
+[module/event.ts:10](https://bitbucket.org/siposdani87/sui-js/src/5c73bef/src/module/event.ts#lines-10)
 
 ## Methods
 
@@ -45,7 +45,7 @@ custom_edit_url: null
 
 #### Defined in
 
-[module/event.ts:53](https://bitbucket.org/siposdani87/sui-js/src/412afc3/src/module/event.ts#lines-53)
+[module/event.ts:53](https://bitbucket.org/siposdani87/sui-js/src/5c73bef/src/module/event.ts#lines-53)
 
 ___
 
@@ -67,7 +67,7 @@ ___
 
 #### Defined in
 
-[module/event.ts:64](https://bitbucket.org/siposdani87/sui-js/src/412afc3/src/module/event.ts#lines-64)
+[module/event.ts:64](https://bitbucket.org/siposdani87/sui-js/src/5c73bef/src/module/event.ts#lines-64)
 
 ___
 
@@ -87,7 +87,7 @@ ___
 
 #### Defined in
 
-[module/event.ts:43](https://bitbucket.org/siposdani87/sui-js/src/412afc3/src/module/event.ts#lines-43)
+[module/event.ts:43](https://bitbucket.org/siposdani87/sui-js/src/5c73bef/src/module/event.ts#lines-43)
 
 ___
 
@@ -108,7 +108,7 @@ ___
 
 #### Defined in
 
-[module/event.ts:33](https://bitbucket.org/siposdani87/sui-js/src/412afc3/src/module/event.ts#lines-33)
+[module/event.ts:33](https://bitbucket.org/siposdani87/sui-js/src/5c73bef/src/module/event.ts#lines-33)
 
 ___
 
@@ -129,4 +129,4 @@ ___
 
 #### Defined in
 
-[module/event.ts:21](https://bitbucket.org/siposdani87/sui-js/src/412afc3/src/module/event.ts#lines-21)
+[module/event.ts:21](https://bitbucket.org/siposdani87/sui-js/src/5c73bef/src/module/event.ts#lines-21)

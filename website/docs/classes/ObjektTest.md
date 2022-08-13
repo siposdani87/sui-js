@@ -24,7 +24,7 @@ custom_edit_url: null
 
 #### Defined in
 
-[test/objektTest.ts:12](https://bitbucket.org/siposdani87/sui-js/src/412afc3/src/test/objektTest.ts#lines-12)
+[test/objektTest.ts:12](https://bitbucket.org/siposdani87/sui-js/src/5c73bef/src/test/objektTest.ts#lines-12)
 
 ## Properties
 
@@ -38,7 +38,7 @@ custom_edit_url: null
 
 #### Defined in
 
-[test/baseTest.ts:11](https://bitbucket.org/siposdani87/sui-js/src/412afc3/src/test/baseTest.ts#lines-11)
+[test/baseTest.ts:11](https://bitbucket.org/siposdani87/sui-js/src/5c73bef/src/test/baseTest.ts#lines-11)
 
 ## Methods
 
@@ -56,7 +56,7 @@ custom_edit_url: null
 
 #### Defined in
 
-[test/objektTest.ts:19](https://bitbucket.org/siposdani87/sui-js/src/412afc3/src/test/objektTest.ts#lines-19)
+[test/objektTest.ts:19](https://bitbucket.org/siposdani87/sui-js/src/5c73bef/src/test/objektTest.ts#lines-19)
 
 ___
 
@@ -82,7 +82,7 @@ ___
 
 #### Defined in
 
-[test/baseTest.ts:30](https://bitbucket.org/siposdani87/sui-js/src/412afc3/src/test/baseTest.ts#lines-30)
+[test/baseTest.ts:30](https://bitbucket.org/siposdani87/sui-js/src/5c73bef/src/test/baseTest.ts#lines-30)
 
 ___
 
@@ -96,7 +96,7 @@ ___
 
 #### Defined in
 
-[test/objektTest.ts:196](https://bitbucket.org/siposdani87/sui-js/src/412afc3/src/test/objektTest.ts#lines-196)
+[test/objektTest.ts:196](https://bitbucket.org/siposdani87/sui-js/src/5c73bef/src/test/objektTest.ts#lines-196)
 
 ___
 
@@ -110,7 +110,7 @@ ___
 
 #### Defined in
 
-[test/objektTest.ts:94](https://bitbucket.org/siposdani87/sui-js/src/412afc3/src/test/objektTest.ts#lines-94)
+[test/objektTest.ts:94](https://bitbucket.org/siposdani87/sui-js/src/5c73bef/src/test/objektTest.ts#lines-94)
 
 ___
 
@@ -124,7 +124,7 @@ ___
 
 #### Defined in
 
-[test/objektTest.ts:55](https://bitbucket.org/siposdani87/sui-js/src/412afc3/src/test/objektTest.ts#lines-55)
+[test/objektTest.ts:55](https://bitbucket.org/siposdani87/sui-js/src/5c73bef/src/test/objektTest.ts#lines-55)
 
 ___
 
@@ -138,7 +138,7 @@ ___
 
 #### Defined in
 
-[test/objektTest.ts:30](https://bitbucket.org/siposdani87/sui-js/src/412afc3/src/test/objektTest.ts#lines-30)
+[test/objektTest.ts:30](https://bitbucket.org/siposdani87/sui-js/src/5c73bef/src/test/objektTest.ts#lines-30)
 
 ___
 
@@ -152,7 +152,7 @@ ___
 
 #### Defined in
 
-[test/objektTest.ts:167](https://bitbucket.org/siposdani87/sui-js/src/412afc3/src/test/objektTest.ts#lines-167)
+[test/objektTest.ts:167](https://bitbucket.org/siposdani87/sui-js/src/5c73bef/src/test/objektTest.ts#lines-167)
 
 ___
 
@@ -166,4 +166,4 @@ ___
 
 #### Defined in
 
-[test/objektTest.ts:127](https://bitbucket.org/siposdani87/sui-js/src/412afc3/src/test/objektTest.ts#lines-127)
+[test/objektTest.ts:127](https://bitbucket.org/siposdani87/sui-js/src/5c73bef/src/test/objektTest.ts#lines-127)

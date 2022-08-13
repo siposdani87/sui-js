@@ -8,9 +8,9 @@ const darkCodeTheme = require('prism-react-renderer/themes/dracula');
 const config = {
   title: 'SUI-JS',
   tagline: 'SUI-JS is a lightweight FE framework',
-  url: 'https://siposdani87.com',
+  url: 'http://sui.siposdani87.com',
   baseUrl: '/',
-  onBrokenLinks: 'throw',
+  onBrokenLinks: 'warn',
   onBrokenMarkdownLinks: 'warn',
   favicon: 'img/favicon.ico',
 

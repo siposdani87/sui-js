@@ -21,7 +21,7 @@ custom_edit_url: null
 
 #### Defined in
 
-[module/storage.ts:16](https://bitbucket.org/siposdani87/sui-js/src/412afc3/src/module/storage.ts#lines-16)
+[module/storage.ts:16](https://bitbucket.org/siposdani87/sui-js/src/5c73bef/src/module/storage.ts#lines-16)
 
 ## Properties
 
@@ -31,7 +31,7 @@ custom_edit_url: null
 
 #### Defined in
 
-[module/storage.ts:10](https://bitbucket.org/siposdani87/sui-js/src/412afc3/src/module/storage.ts#lines-10)
+[module/storage.ts:10](https://bitbucket.org/siposdani87/sui-js/src/5c73bef/src/module/storage.ts#lines-10)
 
 ___
 
@@ -41,7 +41,7 @@ ___
 
 #### Defined in
 
-[module/storage.ts:11](https://bitbucket.org/siposdani87/sui-js/src/412afc3/src/module/storage.ts#lines-11)
+[module/storage.ts:11](https://bitbucket.org/siposdani87/sui-js/src/5c73bef/src/module/storage.ts#lines-11)
 
 ___
 
@@ -51,7 +51,7 @@ ___
 
 #### Defined in
 
-[module/storage.ts:9](https://bitbucket.org/siposdani87/sui-js/src/412afc3/src/module/storage.ts#lines-9)
+[module/storage.ts:9](https://bitbucket.org/siposdani87/sui-js/src/5c73bef/src/module/storage.ts#lines-9)
 
 ## Methods
 
@@ -65,7 +65,7 @@ ___
 
 #### Defined in
 
-[module/storage.ts:120](https://bitbucket.org/siposdani87/sui-js/src/412afc3/src/module/storage.ts#lines-120)
+[module/storage.ts:120](https://bitbucket.org/siposdani87/sui-js/src/5c73bef/src/module/storage.ts#lines-120)
 
 ___
 
@@ -85,7 +85,7 @@ ___
 
 #### Defined in
 
-[module/storage.ts:159](https://bitbucket.org/siposdani87/sui-js/src/412afc3/src/module/storage.ts#lines-159)
+[module/storage.ts:159](https://bitbucket.org/siposdani87/sui-js/src/5c73bef/src/module/storage.ts#lines-159)
 
 ___
 
@@ -105,7 +105,7 @@ ___
 
 #### Defined in
 
-[module/storage.ts:145](https://bitbucket.org/siposdani87/sui-js/src/412afc3/src/module/storage.ts#lines-145)
+[module/storage.ts:145](https://bitbucket.org/siposdani87/sui-js/src/5c73bef/src/module/storage.ts#lines-145)
 
 ___
 
@@ -125,7 +125,7 @@ ___
 
 #### Defined in
 
-[module/storage.ts:65](https://bitbucket.org/siposdani87/sui-js/src/412afc3/src/module/storage.ts#lines-65)
+[module/storage.ts:65](https://bitbucket.org/siposdani87/sui-js/src/5c73bef/src/module/storage.ts#lines-65)
 
 ___
 
@@ -145,7 +145,7 @@ ___
 
 #### Defined in
 
-[module/storage.ts:57](https://bitbucket.org/siposdani87/sui-js/src/412afc3/src/module/storage.ts#lines-57)
+[module/storage.ts:57](https://bitbucket.org/siposdani87/sui-js/src/5c73bef/src/module/storage.ts#lines-57)
 
 ___
 
@@ -159,7 +159,7 @@ ___
 
 #### Defined in
 
-[module/storage.ts:44](https://bitbucket.org/siposdani87/sui-js/src/412afc3/src/module/storage.ts#lines-44)
+[module/storage.ts:44](https://bitbucket.org/siposdani87/sui-js/src/5c73bef/src/module/storage.ts#lines-44)
 
 ___
 
@@ -179,7 +179,7 @@ ___
 
 #### Defined in
 
-[module/storage.ts:135](https://bitbucket.org/siposdani87/sui-js/src/412afc3/src/module/storage.ts#lines-135)
+[module/storage.ts:135](https://bitbucket.org/siposdani87/sui-js/src/5c73bef/src/module/storage.ts#lines-135)
 
 ___
 
@@ -199,7 +199,7 @@ ___
 
 #### Defined in
 
-[module/storage.ts:30](https://bitbucket.org/siposdani87/sui-js/src/412afc3/src/module/storage.ts#lines-30)
+[module/storage.ts:30](https://bitbucket.org/siposdani87/sui-js/src/5c73bef/src/module/storage.ts#lines-30)
 
 ___
 
@@ -213,7 +213,7 @@ ___
 
 #### Defined in
 
-[module/storage.ts:113](https://bitbucket.org/siposdani87/sui-js/src/412afc3/src/module/storage.ts#lines-113)
+[module/storage.ts:113](https://bitbucket.org/siposdani87/sui-js/src/5c73bef/src/module/storage.ts#lines-113)
 
 ___
 
@@ -233,7 +233,7 @@ ___
 
 #### Defined in
 
-[module/storage.ts:90](https://bitbucket.org/siposdani87/sui-js/src/412afc3/src/module/storage.ts#lines-90)
+[module/storage.ts:90](https://bitbucket.org/siposdani87/sui-js/src/5c73bef/src/module/storage.ts#lines-90)
 
 ___
 
@@ -253,7 +253,7 @@ ___
 
 #### Defined in
 
-[module/storage.ts:106](https://bitbucket.org/siposdani87/sui-js/src/412afc3/src/module/storage.ts#lines-106)
+[module/storage.ts:106](https://bitbucket.org/siposdani87/sui-js/src/5c73bef/src/module/storage.ts#lines-106)
 
 ___
 
@@ -275,4 +275,4 @@ ___
 
 #### Defined in
 
-[module/storage.ts:76](https://bitbucket.org/siposdani87/sui-js/src/412afc3/src/module/storage.ts#lines-76)
+[module/storage.ts:76](https://bitbucket.org/siposdani87/sui-js/src/5c73bef/src/module/storage.ts#lines-76)

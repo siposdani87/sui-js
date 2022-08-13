@@ -21,7 +21,7 @@ custom_edit_url: null
 
 #### Defined in
 
-[module/style.ts:20](https://bitbucket.org/siposdani87/sui-js/src/412afc3/src/module/style.ts#lines-20)
+[module/style.ts:20](https://bitbucket.org/siposdani87/sui-js/src/5c73bef/src/module/style.ts#lines-20)
 
 ## Properties
 
@@ -31,7 +31,7 @@ custom_edit_url: null
 
 #### Defined in
 
-[module/style.ts:15](https://bitbucket.org/siposdani87/sui-js/src/412afc3/src/module/style.ts#lines-15)
+[module/style.ts:15](https://bitbucket.org/siposdani87/sui-js/src/5c73bef/src/module/style.ts#lines-15)
 
 ___
 
@@ -41,7 +41,7 @@ ___
 
 #### Defined in
 
-[module/style.ts:14](https://bitbucket.org/siposdani87/sui-js/src/412afc3/src/module/style.ts#lines-14)
+[module/style.ts:14](https://bitbucket.org/siposdani87/sui-js/src/5c73bef/src/module/style.ts#lines-14)
 
 ___
 
@@ -51,7 +51,7 @@ ___
 
 #### Defined in
 
-[module/style.ts:13](https://bitbucket.org/siposdani87/sui-js/src/412afc3/src/module/style.ts#lines-13)
+[module/style.ts:13](https://bitbucket.org/siposdani87/sui-js/src/5c73bef/src/module/style.ts#lines-13)
 
 ## Methods
 
@@ -65,7 +65,7 @@ ___
 
 #### Defined in
 
-[module/style.ts:42](https://bitbucket.org/siposdani87/sui-js/src/412afc3/src/module/style.ts#lines-42)
+[module/style.ts:42](https://bitbucket.org/siposdani87/sui-js/src/5c73bef/src/module/style.ts#lines-42)
 
 ___
 
@@ -85,7 +85,7 @@ ___
 
 #### Defined in
 
-[module/style.ts:33](https://bitbucket.org/siposdani87/sui-js/src/412afc3/src/module/style.ts#lines-33)
+[module/style.ts:33](https://bitbucket.org/siposdani87/sui-js/src/5c73bef/src/module/style.ts#lines-33)
 
 ___
 
@@ -109,7 +109,7 @@ ___
 
 #### Defined in
 
-[module/style.ts:53](https://bitbucket.org/siposdani87/sui-js/src/412afc3/src/module/style.ts#lines-53)
+[module/style.ts:53](https://bitbucket.org/siposdani87/sui-js/src/5c73bef/src/module/style.ts#lines-53)
 
 ___
 
@@ -129,4 +129,4 @@ ___
 
 #### Defined in
 
-[module/style.ts:91](https://bitbucket.org/siposdani87/sui-js/src/412afc3/src/module/style.ts#lines-91)
+[module/style.ts:91](https://bitbucket.org/siposdani87/sui-js/src/5c73bef/src/module/style.ts#lines-91)

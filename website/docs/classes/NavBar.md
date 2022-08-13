@@ -14,7 +14,7 @@ custom_edit_url: null
 
 #### Defined in
 
-[module/navBar.ts:13](https://bitbucket.org/siposdani87/sui-js/src/412afc3/src/module/navBar.ts#lines-13)
+[module/navBar.ts:13](https://bitbucket.org/siposdani87/sui-js/src/5c73bef/src/module/navBar.ts#lines-13)
 
 ## Properties
 
@@ -24,7 +24,7 @@ custom_edit_url: null
 
 #### Defined in
 
-[module/navBar.ts:9](https://bitbucket.org/siposdani87/sui-js/src/412afc3/src/module/navBar.ts#lines-9)
+[module/navBar.ts:9](https://bitbucket.org/siposdani87/sui-js/src/5c73bef/src/module/navBar.ts#lines-9)
 
 ___
 
@@ -34,7 +34,7 @@ ___
 
 #### Defined in
 
-[module/navBar.ts:8](https://bitbucket.org/siposdani87/sui-js/src/412afc3/src/module/navBar.ts#lines-8)
+[module/navBar.ts:8](https://bitbucket.org/siposdani87/sui-js/src/5c73bef/src/module/navBar.ts#lines-8)
 
 ___
 
@@ -44,7 +44,7 @@ ___
 
 #### Defined in
 
-[module/navBar.ts:10](https://bitbucket.org/siposdani87/sui-js/src/412afc3/src/module/navBar.ts#lines-10)
+[module/navBar.ts:10](https://bitbucket.org/siposdani87/sui-js/src/5c73bef/src/module/navBar.ts#lines-10)
 
 ## Methods
 
@@ -58,7 +58,7 @@ ___
 
 #### Defined in
 
-[module/navBar.ts:20](https://bitbucket.org/siposdani87/sui-js/src/412afc3/src/module/navBar.ts#lines-20)
+[module/navBar.ts:20](https://bitbucket.org/siposdani87/sui-js/src/5c73bef/src/module/navBar.ts#lines-20)
 
 ___
 
@@ -72,7 +72,7 @@ ___
 
 #### Defined in
 
-[module/navBar.ts:60](https://bitbucket.org/siposdani87/sui-js/src/412afc3/src/module/navBar.ts#lines-60)
+[module/navBar.ts:60](https://bitbucket.org/siposdani87/sui-js/src/5c73bef/src/module/navBar.ts#lines-60)
 
 ___
 
@@ -86,7 +86,7 @@ ___
 
 #### Defined in
 
-[module/navBar.ts:91](https://bitbucket.org/siposdani87/sui-js/src/412afc3/src/module/navBar.ts#lines-91)
+[module/navBar.ts:91](https://bitbucket.org/siposdani87/sui-js/src/5c73bef/src/module/navBar.ts#lines-91)
 
 ___
 
@@ -100,7 +100,7 @@ ___
 
 #### Defined in
 
-[module/navBar.ts:73](https://bitbucket.org/siposdani87/sui-js/src/412afc3/src/module/navBar.ts#lines-73)
+[module/navBar.ts:73](https://bitbucket.org/siposdani87/sui-js/src/5c73bef/src/module/navBar.ts#lines-73)
 
 ___
 
@@ -114,7 +114,7 @@ ___
 
 #### Defined in
 
-[module/navBar.ts:85](https://bitbucket.org/siposdani87/sui-js/src/412afc3/src/module/navBar.ts#lines-85)
+[module/navBar.ts:85](https://bitbucket.org/siposdani87/sui-js/src/5c73bef/src/module/navBar.ts#lines-85)
 
 ___
 
@@ -128,7 +128,7 @@ ___
 
 #### Defined in
 
-[module/navBar.ts:47](https://bitbucket.org/siposdani87/sui-js/src/412afc3/src/module/navBar.ts#lines-47)
+[module/navBar.ts:47](https://bitbucket.org/siposdani87/sui-js/src/5c73bef/src/module/navBar.ts#lines-47)
 
 ___
 
@@ -142,7 +142,7 @@ ___
 
 #### Defined in
 
-[module/navBar.ts:53](https://bitbucket.org/siposdani87/sui-js/src/412afc3/src/module/navBar.ts#lines-53)
+[module/navBar.ts:53](https://bitbucket.org/siposdani87/sui-js/src/5c73bef/src/module/navBar.ts#lines-53)
 
 ___
 
@@ -156,7 +156,7 @@ ___
 
 #### Defined in
 
-[module/navBar.ts:67](https://bitbucket.org/siposdani87/sui-js/src/412afc3/src/module/navBar.ts#lines-67)
+[module/navBar.ts:67](https://bitbucket.org/siposdani87/sui-js/src/5c73bef/src/module/navBar.ts#lines-67)
 
 ___
 
@@ -170,7 +170,7 @@ ___
 
 #### Defined in
 
-[module/navBar.ts:79](https://bitbucket.org/siposdani87/sui-js/src/412afc3/src/module/navBar.ts#lines-79)
+[module/navBar.ts:79](https://bitbucket.org/siposdani87/sui-js/src/5c73bef/src/module/navBar.ts#lines-79)
 
 ___
 
@@ -184,4 +184,4 @@ ___
 
 #### Defined in
 
-[module/navBar.ts:37](https://bitbucket.org/siposdani87/sui-js/src/412afc3/src/module/navBar.ts#lines-37)
+[module/navBar.ts:37](https://bitbucket.org/siposdani87/sui-js/src/5c73bef/src/module/navBar.ts#lines-37)

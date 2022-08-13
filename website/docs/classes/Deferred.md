@@ -14,7 +14,7 @@ custom_edit_url: null
 
 #### Defined in
 
-[core/deferred.ts:10](https://bitbucket.org/siposdani87/sui-js/src/412afc3/src/core/deferred.ts#lines-10)
+[core/deferred.ts:10](https://bitbucket.org/siposdani87/sui-js/src/5c73bef/src/core/deferred.ts#lines-10)
 
 ## Properties
 
@@ -24,7 +24,7 @@ custom_edit_url: null
 
 #### Defined in
 
-[core/deferred.ts:7](https://bitbucket.org/siposdani87/sui-js/src/412afc3/src/core/deferred.ts#lines-7)
+[core/deferred.ts:7](https://bitbucket.org/siposdani87/sui-js/src/5c73bef/src/core/deferred.ts#lines-7)
 
 ## Methods
 
@@ -38,7 +38,7 @@ custom_edit_url: null
 
 #### Defined in
 
-[core/deferred.ts:16](https://bitbucket.org/siposdani87/sui-js/src/412afc3/src/core/deferred.ts#lines-16)
+[core/deferred.ts:16](https://bitbucket.org/siposdani87/sui-js/src/5c73bef/src/core/deferred.ts#lines-16)
 
 ___
 
@@ -58,7 +58,7 @@ ___
 
 #### Defined in
 
-[core/deferred.ts:30](https://bitbucket.org/siposdani87/sui-js/src/412afc3/src/core/deferred.ts#lines-30)
+[core/deferred.ts:30](https://bitbucket.org/siposdani87/sui-js/src/5c73bef/src/core/deferred.ts#lines-30)
 
 ___
 
@@ -78,4 +78,4 @@ ___
 
 #### Defined in
 
-[core/deferred.ts:23](https://bitbucket.org/siposdani87/sui-js/src/412afc3/src/core/deferred.ts#lines-23)
+[core/deferred.ts:23](https://bitbucket.org/siposdani87/sui-js/src/5c73bef/src/core/deferred.ts#lines-23)

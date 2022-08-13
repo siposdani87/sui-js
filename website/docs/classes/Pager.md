@@ -22,7 +22,7 @@ custom_edit_url: null
 
 #### Defined in
 
-[component/pager.ts:29](https://bitbucket.org/siposdani87/sui-js/src/412afc3/src/component/pager.ts#lines-29)
+[component/pager.ts:29](https://bitbucket.org/siposdani87/sui-js/src/5c73bef/src/component/pager.ts#lines-29)
 
 ## Properties
 
@@ -32,7 +32,7 @@ custom_edit_url: null
 
 #### Defined in
 
-[component/pager.ts:20](https://bitbucket.org/siposdani87/sui-js/src/412afc3/src/component/pager.ts#lines-20)
+[component/pager.ts:20](https://bitbucket.org/siposdani87/sui-js/src/5c73bef/src/component/pager.ts#lines-20)
 
 ___
 
@@ -42,7 +42,7 @@ ___
 
 #### Defined in
 
-[component/pager.ts:23](https://bitbucket.org/siposdani87/sui-js/src/412afc3/src/component/pager.ts#lines-23)
+[component/pager.ts:23](https://bitbucket.org/siposdani87/sui-js/src/5c73bef/src/component/pager.ts#lines-23)
 
 ___
 
@@ -52,7 +52,7 @@ ___
 
 #### Defined in
 
-[component/pager.ts:19](https://bitbucket.org/siposdani87/sui-js/src/412afc3/src/component/pager.ts#lines-19)
+[component/pager.ts:19](https://bitbucket.org/siposdani87/sui-js/src/5c73bef/src/component/pager.ts#lines-19)
 
 ___
 
@@ -62,7 +62,7 @@ ___
 
 #### Defined in
 
-[component/pager.ts:22](https://bitbucket.org/siposdani87/sui-js/src/412afc3/src/component/pager.ts#lines-22)
+[component/pager.ts:22](https://bitbucket.org/siposdani87/sui-js/src/5c73bef/src/component/pager.ts#lines-22)
 
 ___
 
@@ -72,7 +72,7 @@ ___
 
 #### Defined in
 
-[component/pager.ts:21](https://bitbucket.org/siposdani87/sui-js/src/412afc3/src/component/pager.ts#lines-21)
+[component/pager.ts:21](https://bitbucket.org/siposdani87/sui-js/src/5c73bef/src/component/pager.ts#lines-21)
 
 ___
 
@@ -82,7 +82,7 @@ ___
 
 #### Defined in
 
-[component/pager.ts:17](https://bitbucket.org/siposdani87/sui-js/src/412afc3/src/component/pager.ts#lines-17)
+[component/pager.ts:17](https://bitbucket.org/siposdani87/sui-js/src/5c73bef/src/component/pager.ts#lines-17)
 
 ___
 
@@ -92,7 +92,7 @@ ___
 
 #### Defined in
 
-[component/pager.ts:18](https://bitbucket.org/siposdani87/sui-js/src/412afc3/src/component/pager.ts#lines-18)
+[component/pager.ts:18](https://bitbucket.org/siposdani87/sui-js/src/5c73bef/src/component/pager.ts#lines-18)
 
 ## Methods
 
@@ -106,7 +106,7 @@ ___
 
 #### Defined in
 
-[component/pager.ts:115](https://bitbucket.org/siposdani87/sui-js/src/412afc3/src/component/pager.ts#lines-115)
+[component/pager.ts:115](https://bitbucket.org/siposdani87/sui-js/src/5c73bef/src/component/pager.ts#lines-115)
 
 ___
 
@@ -120,7 +120,7 @@ ___
 
 #### Defined in
 
-[component/pager.ts:138](https://bitbucket.org/siposdani87/sui-js/src/412afc3/src/component/pager.ts#lines-138)
+[component/pager.ts:138](https://bitbucket.org/siposdani87/sui-js/src/5c73bef/src/component/pager.ts#lines-138)
 
 ___
 
@@ -134,7 +134,7 @@ ___
 
 #### Defined in
 
-[component/pager.ts:64](https://bitbucket.org/siposdani87/sui-js/src/412afc3/src/component/pager.ts#lines-64)
+[component/pager.ts:64](https://bitbucket.org/siposdani87/sui-js/src/5c73bef/src/component/pager.ts#lines-64)
 
 ___
 
@@ -148,7 +148,7 @@ ___
 
 #### Defined in
 
-[component/pager.ts:92](https://bitbucket.org/siposdani87/sui-js/src/412afc3/src/component/pager.ts#lines-92)
+[component/pager.ts:92](https://bitbucket.org/siposdani87/sui-js/src/5c73bef/src/component/pager.ts#lines-92)
 
 ___
 
@@ -162,7 +162,7 @@ ___
 
 #### Defined in
 
-[component/pager.ts:75](https://bitbucket.org/siposdani87/sui-js/src/412afc3/src/component/pager.ts#lines-75)
+[component/pager.ts:75](https://bitbucket.org/siposdani87/sui-js/src/5c73bef/src/component/pager.ts#lines-75)
 
 ___
 
@@ -176,7 +176,7 @@ ___
 
 #### Defined in
 
-[component/pager.ts:166](https://bitbucket.org/siposdani87/sui-js/src/412afc3/src/component/pager.ts#lines-166)
+[component/pager.ts:166](https://bitbucket.org/siposdani87/sui-js/src/5c73bef/src/component/pager.ts#lines-166)
 
 ___
 
@@ -196,7 +196,7 @@ ___
 
 #### Defined in
 
-[component/pager.ts:230](https://bitbucket.org/siposdani87/sui-js/src/412afc3/src/component/pager.ts#lines-230)
+[component/pager.ts:230](https://bitbucket.org/siposdani87/sui-js/src/5c73bef/src/component/pager.ts#lines-230)
 
 ___
 
@@ -210,7 +210,7 @@ ___
 
 #### Defined in
 
-[component/pager.ts:56](https://bitbucket.org/siposdani87/sui-js/src/412afc3/src/component/pager.ts#lines-56)
+[component/pager.ts:56](https://bitbucket.org/siposdani87/sui-js/src/5c73bef/src/component/pager.ts#lines-56)
 
 ___
 
@@ -224,7 +224,7 @@ ___
 
 #### Defined in
 
-[component/pager.ts:200](https://bitbucket.org/siposdani87/sui-js/src/412afc3/src/component/pager.ts#lines-200)
+[component/pager.ts:200](https://bitbucket.org/siposdani87/sui-js/src/5c73bef/src/component/pager.ts#lines-200)
 
 ___
 
@@ -238,7 +238,7 @@ ___
 
 #### Defined in
 
-[component/pager.ts:211](https://bitbucket.org/siposdani87/sui-js/src/412afc3/src/component/pager.ts#lines-211)
+[component/pager.ts:211](https://bitbucket.org/siposdani87/sui-js/src/5c73bef/src/component/pager.ts#lines-211)
 
 ___
 
@@ -258,7 +258,7 @@ ___
 
 #### Defined in
 
-[component/pager.ts:44](https://bitbucket.org/siposdani87/sui-js/src/412afc3/src/component/pager.ts#lines-44)
+[component/pager.ts:44](https://bitbucket.org/siposdani87/sui-js/src/5c73bef/src/component/pager.ts#lines-44)
 
 ___
 
@@ -272,7 +272,7 @@ ___
 
 #### Defined in
 
-[component/pager.ts:245](https://bitbucket.org/siposdani87/sui-js/src/412afc3/src/component/pager.ts#lines-245)
+[component/pager.ts:245](https://bitbucket.org/siposdani87/sui-js/src/5c73bef/src/component/pager.ts#lines-245)
 
 ___
 
@@ -292,7 +292,7 @@ ___
 
 #### Defined in
 
-[component/pager.ts:253](https://bitbucket.org/siposdani87/sui-js/src/412afc3/src/component/pager.ts#lines-253)
+[component/pager.ts:253](https://bitbucket.org/siposdani87/sui-js/src/5c73bef/src/component/pager.ts#lines-253)
 
 ___
 
@@ -312,7 +312,7 @@ ___
 
 #### Defined in
 
-[component/pager.ts:222](https://bitbucket.org/siposdani87/sui-js/src/412afc3/src/component/pager.ts#lines-222)
+[component/pager.ts:222](https://bitbucket.org/siposdani87/sui-js/src/5c73bef/src/component/pager.ts#lines-222)
 
 ___
 
@@ -332,4 +332,4 @@ ___
 
 #### Defined in
 
-[component/pager.ts:238](https://bitbucket.org/siposdani87/sui-js/src/412afc3/src/component/pager.ts#lines-238)
+[component/pager.ts:238](https://bitbucket.org/siposdani87/sui-js/src/5c73bef/src/component/pager.ts#lines-238)

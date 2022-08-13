@@ -22,7 +22,7 @@ custom_edit_url: null
 
 #### Defined in
 
-[component/progressStatus.ts:18](https://bitbucket.org/siposdani87/sui-js/src/412afc3/src/component/progressStatus.ts#lines-18)
+[component/progressStatus.ts:18](https://bitbucket.org/siposdani87/sui-js/src/5c73bef/src/component/progressStatus.ts#lines-18)
 
 ## Properties
 
@@ -32,7 +32,7 @@ custom_edit_url: null
 
 #### Defined in
 
-[component/progressStatus.ts:11](https://bitbucket.org/siposdani87/sui-js/src/412afc3/src/component/progressStatus.ts#lines-11)
+[component/progressStatus.ts:11](https://bitbucket.org/siposdani87/sui-js/src/5c73bef/src/component/progressStatus.ts#lines-11)
 
 ___
 
@@ -42,7 +42,7 @@ ___
 
 #### Defined in
 
-[component/progressStatus.ts:10](https://bitbucket.org/siposdani87/sui-js/src/412afc3/src/component/progressStatus.ts#lines-10)
+[component/progressStatus.ts:10](https://bitbucket.org/siposdani87/sui-js/src/5c73bef/src/component/progressStatus.ts#lines-10)
 
 ___
 
@@ -52,7 +52,7 @@ ___
 
 #### Defined in
 
-[component/progressStatus.ts:9](https://bitbucket.org/siposdani87/sui-js/src/412afc3/src/component/progressStatus.ts#lines-9)
+[component/progressStatus.ts:9](https://bitbucket.org/siposdani87/sui-js/src/5c73bef/src/component/progressStatus.ts#lines-9)
 
 ___
 
@@ -62,7 +62,7 @@ ___
 
 #### Defined in
 
-[component/progressStatus.ts:12](https://bitbucket.org/siposdani87/sui-js/src/412afc3/src/component/progressStatus.ts#lines-12)
+[component/progressStatus.ts:12](https://bitbucket.org/siposdani87/sui-js/src/5c73bef/src/component/progressStatus.ts#lines-12)
 
 ## Methods
 
@@ -76,7 +76,7 @@ ___
 
 #### Defined in
 
-[component/progressStatus.ts:46](https://bitbucket.org/siposdani87/sui-js/src/412afc3/src/component/progressStatus.ts#lines-46)
+[component/progressStatus.ts:46](https://bitbucket.org/siposdani87/sui-js/src/5c73bef/src/component/progressStatus.ts#lines-46)
 
 ___
 
@@ -96,7 +96,7 @@ ___
 
 #### Defined in
 
-[component/progressStatus.ts:32](https://bitbucket.org/siposdani87/sui-js/src/412afc3/src/component/progressStatus.ts#lines-32)
+[component/progressStatus.ts:32](https://bitbucket.org/siposdani87/sui-js/src/5c73bef/src/component/progressStatus.ts#lines-32)
 
 ___
 
@@ -118,7 +118,7 @@ ___
 
 #### Defined in
 
-[component/progressStatus.ts:57](https://bitbucket.org/siposdani87/sui-js/src/412afc3/src/component/progressStatus.ts#lines-57)
+[component/progressStatus.ts:57](https://bitbucket.org/siposdani87/sui-js/src/5c73bef/src/component/progressStatus.ts#lines-57)
 
 ___
 
@@ -139,7 +139,7 @@ ___
 
 #### Defined in
 
-[component/progressStatus.ts:103](https://bitbucket.org/siposdani87/sui-js/src/412afc3/src/component/progressStatus.ts#lines-103)
+[component/progressStatus.ts:103](https://bitbucket.org/siposdani87/sui-js/src/5c73bef/src/component/progressStatus.ts#lines-103)
 
 ___
 
@@ -160,7 +160,7 @@ ___
 
 #### Defined in
 
-[component/progressStatus.ts:87](https://bitbucket.org/siposdani87/sui-js/src/412afc3/src/component/progressStatus.ts#lines-87)
+[component/progressStatus.ts:87](https://bitbucket.org/siposdani87/sui-js/src/5c73bef/src/component/progressStatus.ts#lines-87)
 
 ___
 
@@ -181,7 +181,7 @@ ___
 
 #### Defined in
 
-[component/progressStatus.ts:79](https://bitbucket.org/siposdani87/sui-js/src/412afc3/src/component/progressStatus.ts#lines-79)
+[component/progressStatus.ts:79](https://bitbucket.org/siposdani87/sui-js/src/5c73bef/src/component/progressStatus.ts#lines-79)
 
 ___
 
@@ -202,4 +202,4 @@ ___
 
 #### Defined in
 
-[component/progressStatus.ts:95](https://bitbucket.org/siposdani87/sui-js/src/412afc3/src/component/progressStatus.ts#lines-95)
+[component/progressStatus.ts:95](https://bitbucket.org/siposdani87/sui-js/src/5c73bef/src/component/progressStatus.ts#lines-95)

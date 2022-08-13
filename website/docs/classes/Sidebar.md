@@ -20,7 +20,7 @@ custom_edit_url: null
 
 #### Defined in
 
-[module/sidebar.ts:14](https://bitbucket.org/siposdani87/sui-js/src/412afc3/src/module/sidebar.ts#lines-14)
+[module/sidebar.ts:14](https://bitbucket.org/siposdani87/sui-js/src/5c73bef/src/module/sidebar.ts#lines-14)
 
 ## Properties
 
@@ -30,7 +30,7 @@ custom_edit_url: null
 
 #### Defined in
 
-[module/sidebar.ts:10](https://bitbucket.org/siposdani87/sui-js/src/412afc3/src/module/sidebar.ts#lines-10)
+[module/sidebar.ts:10](https://bitbucket.org/siposdani87/sui-js/src/5c73bef/src/module/sidebar.ts#lines-10)
 
 ___
 
@@ -40,7 +40,7 @@ ___
 
 #### Defined in
 
-[module/sidebar.ts:8](https://bitbucket.org/siposdani87/sui-js/src/412afc3/src/module/sidebar.ts#lines-8)
+[module/sidebar.ts:8](https://bitbucket.org/siposdani87/sui-js/src/5c73bef/src/module/sidebar.ts#lines-8)
 
 ___
 
@@ -50,7 +50,7 @@ ___
 
 #### Defined in
 
-[module/sidebar.ts:9](https://bitbucket.org/siposdani87/sui-js/src/412afc3/src/module/sidebar.ts#lines-9)
+[module/sidebar.ts:9](https://bitbucket.org/siposdani87/sui-js/src/5c73bef/src/module/sidebar.ts#lines-9)
 
 ## Methods
 
@@ -64,7 +64,7 @@ ___
 
 #### Defined in
 
-[module/sidebar.ts:22](https://bitbucket.org/siposdani87/sui-js/src/412afc3/src/module/sidebar.ts#lines-22)
+[module/sidebar.ts:22](https://bitbucket.org/siposdani87/sui-js/src/5c73bef/src/module/sidebar.ts#lines-22)
 
 ___
 
@@ -78,7 +78,7 @@ ___
 
 #### Defined in
 
-[module/sidebar.ts:55](https://bitbucket.org/siposdani87/sui-js/src/412afc3/src/module/sidebar.ts#lines-55)
+[module/sidebar.ts:55](https://bitbucket.org/siposdani87/sui-js/src/5c73bef/src/module/sidebar.ts#lines-55)
 
 ___
 
@@ -92,7 +92,7 @@ ___
 
 #### Defined in
 
-[module/sidebar.ts:67](https://bitbucket.org/siposdani87/sui-js/src/412afc3/src/module/sidebar.ts#lines-67)
+[module/sidebar.ts:67](https://bitbucket.org/siposdani87/sui-js/src/5c73bef/src/module/sidebar.ts#lines-67)
 
 ___
 
@@ -106,7 +106,7 @@ ___
 
 #### Defined in
 
-[module/sidebar.ts:43](https://bitbucket.org/siposdani87/sui-js/src/412afc3/src/module/sidebar.ts#lines-43)
+[module/sidebar.ts:43](https://bitbucket.org/siposdani87/sui-js/src/5c73bef/src/module/sidebar.ts#lines-43)
 
 ___
 
@@ -120,7 +120,7 @@ ___
 
 #### Defined in
 
-[module/sidebar.ts:49](https://bitbucket.org/siposdani87/sui-js/src/412afc3/src/module/sidebar.ts#lines-49)
+[module/sidebar.ts:49](https://bitbucket.org/siposdani87/sui-js/src/5c73bef/src/module/sidebar.ts#lines-49)
 
 ___
 
@@ -141,7 +141,7 @@ ___
 
 #### Defined in
 
-[module/sidebar.ts:75](https://bitbucket.org/siposdani87/sui-js/src/412afc3/src/module/sidebar.ts#lines-75)
+[module/sidebar.ts:75](https://bitbucket.org/siposdani87/sui-js/src/5c73bef/src/module/sidebar.ts#lines-75)
 
 ___
 
@@ -155,7 +155,7 @@ ___
 
 #### Defined in
 
-[module/sidebar.ts:61](https://bitbucket.org/siposdani87/sui-js/src/412afc3/src/module/sidebar.ts#lines-61)
+[module/sidebar.ts:61](https://bitbucket.org/siposdani87/sui-js/src/5c73bef/src/module/sidebar.ts#lines-61)
 
 ___
 
@@ -169,4 +169,4 @@ ___
 
 #### Defined in
 
-[module/sidebar.ts:33](https://bitbucket.org/siposdani87/sui-js/src/412afc3/src/module/sidebar.ts#lines-33)
+[module/sidebar.ts:33](https://bitbucket.org/siposdani87/sui-js/src/5c73bef/src/module/sidebar.ts#lines-33)

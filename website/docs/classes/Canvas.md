@@ -20,7 +20,7 @@ custom_edit_url: null
 
 #### Defined in
 
-[component/canvas.ts:16](https://bitbucket.org/siposdani87/sui-js/src/412afc3/src/component/canvas.ts#lines-16)
+[component/canvas.ts:16](https://bitbucket.org/siposdani87/sui-js/src/5c73bef/src/component/canvas.ts#lines-16)
 
 ## Properties
 
@@ -30,7 +30,7 @@ custom_edit_url: null
 
 #### Defined in
 
-[component/canvas.ts:10](https://bitbucket.org/siposdani87/sui-js/src/412afc3/src/component/canvas.ts#lines-10)
+[component/canvas.ts:10](https://bitbucket.org/siposdani87/sui-js/src/5c73bef/src/component/canvas.ts#lines-10)
 
 ___
 
@@ -40,7 +40,7 @@ ___
 
 #### Defined in
 
-[component/canvas.ts:11](https://bitbucket.org/siposdani87/sui-js/src/412afc3/src/component/canvas.ts#lines-11)
+[component/canvas.ts:11](https://bitbucket.org/siposdani87/sui-js/src/5c73bef/src/component/canvas.ts#lines-11)
 
 ___
 
@@ -50,7 +50,7 @@ ___
 
 #### Defined in
 
-[component/canvas.ts:12](https://bitbucket.org/siposdani87/sui-js/src/412afc3/src/component/canvas.ts#lines-12)
+[component/canvas.ts:12](https://bitbucket.org/siposdani87/sui-js/src/5c73bef/src/component/canvas.ts#lines-12)
 
 ## Methods
 
@@ -70,7 +70,7 @@ ___
 
 #### Defined in
 
-[component/canvas.ts:25](https://bitbucket.org/siposdani87/sui-js/src/412afc3/src/component/canvas.ts#lines-25)
+[component/canvas.ts:25](https://bitbucket.org/siposdani87/sui-js/src/5c73bef/src/component/canvas.ts#lines-25)
 
 ___
 
@@ -84,7 +84,7 @@ ___
 
 #### Defined in
 
-[component/canvas.ts:41](https://bitbucket.org/siposdani87/sui-js/src/412afc3/src/component/canvas.ts#lines-41)
+[component/canvas.ts:41](https://bitbucket.org/siposdani87/sui-js/src/5c73bef/src/component/canvas.ts#lines-41)
 
 ___
 
@@ -98,7 +98,7 @@ ___
 
 #### Defined in
 
-[component/canvas.ts:192](https://bitbucket.org/siposdani87/sui-js/src/412afc3/src/component/canvas.ts#lines-192)
+[component/canvas.ts:192](https://bitbucket.org/siposdani87/sui-js/src/5c73bef/src/component/canvas.ts#lines-192)
 
 ___
 
@@ -120,7 +120,7 @@ ___
 
 #### Defined in
 
-[component/canvas.ts:162](https://bitbucket.org/siposdani87/sui-js/src/412afc3/src/component/canvas.ts#lines-162)
+[component/canvas.ts:162](https://bitbucket.org/siposdani87/sui-js/src/5c73bef/src/component/canvas.ts#lines-162)
 
 ___
 
@@ -145,7 +145,7 @@ ___
 
 #### Defined in
 
-[component/canvas.ts:93](https://bitbucket.org/siposdani87/sui-js/src/412afc3/src/component/canvas.ts#lines-93)
+[component/canvas.ts:93](https://bitbucket.org/siposdani87/sui-js/src/5c73bef/src/component/canvas.ts#lines-93)
 
 ___
 
@@ -170,7 +170,7 @@ ___
 
 #### Defined in
 
-[component/canvas.ts:133](https://bitbucket.org/siposdani87/sui-js/src/412afc3/src/component/canvas.ts#lines-133)
+[component/canvas.ts:133](https://bitbucket.org/siposdani87/sui-js/src/5c73bef/src/component/canvas.ts#lines-133)
 
 ___
 
@@ -191,7 +191,7 @@ ___
 
 #### Defined in
 
-[component/canvas.ts:186](https://bitbucket.org/siposdani87/sui-js/src/412afc3/src/component/canvas.ts#lines-186)
+[component/canvas.ts:186](https://bitbucket.org/siposdani87/sui-js/src/5c73bef/src/component/canvas.ts#lines-186)
 
 ___
 
@@ -205,7 +205,7 @@ ___
 
 #### Defined in
 
-[component/canvas.ts:72](https://bitbucket.org/siposdani87/sui-js/src/412afc3/src/component/canvas.ts#lines-72)
+[component/canvas.ts:72](https://bitbucket.org/siposdani87/sui-js/src/5c73bef/src/component/canvas.ts#lines-72)
 
 ___
 
@@ -226,7 +226,7 @@ ___
 
 #### Defined in
 
-[component/canvas.ts:178](https://bitbucket.org/siposdani87/sui-js/src/412afc3/src/component/canvas.ts#lines-178)
+[component/canvas.ts:178](https://bitbucket.org/siposdani87/sui-js/src/5c73bef/src/component/canvas.ts#lines-178)
 
 ___
 
@@ -240,7 +240,7 @@ ___
 
 #### Defined in
 
-[component/canvas.ts:59](https://bitbucket.org/siposdani87/sui-js/src/412afc3/src/component/canvas.ts#lines-59)
+[component/canvas.ts:59](https://bitbucket.org/siposdani87/sui-js/src/5c73bef/src/component/canvas.ts#lines-59)
 
 ___
 
@@ -260,7 +260,7 @@ ___
 
 #### Defined in
 
-[component/canvas.ts:66](https://bitbucket.org/siposdani87/sui-js/src/412afc3/src/component/canvas.ts#lines-66)
+[component/canvas.ts:66](https://bitbucket.org/siposdani87/sui-js/src/5c73bef/src/component/canvas.ts#lines-66)
 
 ___
 
@@ -281,7 +281,7 @@ ___
 
 #### Defined in
 
-[component/canvas.ts:80](https://bitbucket.org/siposdani87/sui-js/src/412afc3/src/component/canvas.ts#lines-80)
+[component/canvas.ts:80](https://bitbucket.org/siposdani87/sui-js/src/5c73bef/src/component/canvas.ts#lines-80)
 
 ___
 
@@ -301,4 +301,4 @@ ___
 
 #### Defined in
 
-[component/canvas.ts:53](https://bitbucket.org/siposdani87/sui-js/src/412afc3/src/component/canvas.ts#lines-53)
+[component/canvas.ts:53](https://bitbucket.org/siposdani87/sui-js/src/5c73bef/src/component/canvas.ts#lines-53)

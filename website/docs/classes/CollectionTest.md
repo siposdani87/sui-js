@@ -24,7 +24,7 @@ custom_edit_url: null
 
 #### Defined in
 
-[test/collectionTest.ts:14](https://bitbucket.org/siposdani87/sui-js/src/412afc3/src/test/collectionTest.ts#lines-14)
+[test/collectionTest.ts:14](https://bitbucket.org/siposdani87/sui-js/src/5c73bef/src/test/collectionTest.ts#lines-14)
 
 ## Properties
 
@@ -34,7 +34,7 @@ custom_edit_url: null
 
 #### Defined in
 
-[test/collectionTest.ts:10](https://bitbucket.org/siposdani87/sui-js/src/412afc3/src/test/collectionTest.ts#lines-10)
+[test/collectionTest.ts:10](https://bitbucket.org/siposdani87/sui-js/src/5c73bef/src/test/collectionTest.ts#lines-10)
 
 ___
 
@@ -48,7 +48,7 @@ ___
 
 #### Defined in
 
-[test/baseTest.ts:11](https://bitbucket.org/siposdani87/sui-js/src/412afc3/src/test/baseTest.ts#lines-11)
+[test/baseTest.ts:11](https://bitbucket.org/siposdani87/sui-js/src/5c73bef/src/test/baseTest.ts#lines-11)
 
 ## Methods
 
@@ -66,7 +66,7 @@ ___
 
 #### Defined in
 
-[test/collectionTest.ts:21](https://bitbucket.org/siposdani87/sui-js/src/412afc3/src/test/collectionTest.ts#lines-21)
+[test/collectionTest.ts:21](https://bitbucket.org/siposdani87/sui-js/src/5c73bef/src/test/collectionTest.ts#lines-21)
 
 ___
 
@@ -92,4 +92,4 @@ ___
 
 #### Defined in
 
-[test/baseTest.ts:30](https://bitbucket.org/siposdani87/sui-js/src/412afc3/src/test/baseTest.ts#lines-30)
+[test/baseTest.ts:30](https://bitbucket.org/siposdani87/sui-js/src/5c73bef/src/test/baseTest.ts#lines-30)
