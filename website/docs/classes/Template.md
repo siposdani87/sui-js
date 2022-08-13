@@ -21,7 +21,7 @@ custom_edit_url: null
 
 #### Defined in
 
-[module/template.ts:20](https://bitbucket.org/siposdani87/sui-js/src/412afc3/src/module/template.ts#lines-20)
+[module/template.ts:20](https://bitbucket.org/siposdani87/sui-js/src/5c73bef/src/module/template.ts#lines-20)
 
 ## Properties
 
@@ -31,7 +31,7 @@ custom_edit_url: null
 
 #### Defined in
 
-[module/template.ts:13](https://bitbucket.org/siposdani87/sui-js/src/412afc3/src/module/template.ts#lines-13)
+[module/template.ts:13](https://bitbucket.org/siposdani87/sui-js/src/5c73bef/src/module/template.ts#lines-13)
 
 ___
 
@@ -41,7 +41,7 @@ ___
 
 #### Defined in
 
-[module/template.ts:14](https://bitbucket.org/siposdani87/sui-js/src/412afc3/src/module/template.ts#lines-14)
+[module/template.ts:14](https://bitbucket.org/siposdani87/sui-js/src/5c73bef/src/module/template.ts#lines-14)
 
 ___
 
@@ -51,7 +51,7 @@ ___
 
 #### Defined in
 
-[module/template.ts:15](https://bitbucket.org/siposdani87/sui-js/src/412afc3/src/module/template.ts#lines-15)
+[module/template.ts:15](https://bitbucket.org/siposdani87/sui-js/src/5c73bef/src/module/template.ts#lines-15)
 
 ## Methods
 
@@ -72,7 +72,7 @@ ___
 
 #### Defined in
 
-[module/template.ts:88](https://bitbucket.org/siposdani87/sui-js/src/412afc3/src/module/template.ts#lines-88)
+[module/template.ts:88](https://bitbucket.org/siposdani87/sui-js/src/5c73bef/src/module/template.ts#lines-88)
 
 ___
 
@@ -86,7 +86,7 @@ ___
 
 #### Defined in
 
-[module/template.ts:43](https://bitbucket.org/siposdani87/sui-js/src/412afc3/src/module/template.ts#lines-43)
+[module/template.ts:43](https://bitbucket.org/siposdani87/sui-js/src/5c73bef/src/module/template.ts#lines-43)
 
 ___
 
@@ -106,7 +106,7 @@ ___
 
 #### Defined in
 
-[module/template.ts:31](https://bitbucket.org/siposdani87/sui-js/src/412afc3/src/module/template.ts#lines-31)
+[module/template.ts:31](https://bitbucket.org/siposdani87/sui-js/src/5c73bef/src/module/template.ts#lines-31)
 
 ___
 
@@ -126,7 +126,7 @@ ___
 
 #### Defined in
 
-[module/template.ts:106](https://bitbucket.org/siposdani87/sui-js/src/412afc3/src/module/template.ts#lines-106)
+[module/template.ts:106](https://bitbucket.org/siposdani87/sui-js/src/5c73bef/src/module/template.ts#lines-106)
 
 ___
 
@@ -140,7 +140,7 @@ ___
 
 #### Defined in
 
-[module/template.ts:49](https://bitbucket.org/siposdani87/sui-js/src/412afc3/src/module/template.ts#lines-49)
+[module/template.ts:49](https://bitbucket.org/siposdani87/sui-js/src/5c73bef/src/module/template.ts#lines-49)
 
 ___
 
@@ -161,4 +161,4 @@ ___
 
 #### Defined in
 
-[module/template.ts:57](https://bitbucket.org/siposdani87/sui-js/src/412afc3/src/module/template.ts#lines-57)
+[module/template.ts:57](https://bitbucket.org/siposdani87/sui-js/src/5c73bef/src/module/template.ts#lines-57)

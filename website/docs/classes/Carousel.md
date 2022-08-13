@@ -22,7 +22,7 @@ custom_edit_url: null
 
 #### Defined in
 
-[component/carousel.ts:16](https://bitbucket.org/siposdani87/sui-js/src/412afc3/src/component/carousel.ts#lines-16)
+[component/carousel.ts:16](https://bitbucket.org/siposdani87/sui-js/src/5c73bef/src/component/carousel.ts#lines-16)
 
 ## Properties
 
@@ -32,7 +32,7 @@ custom_edit_url: null
 
 #### Defined in
 
-[component/carousel.ts:9](https://bitbucket.org/siposdani87/sui-js/src/412afc3/src/component/carousel.ts#lines-9)
+[component/carousel.ts:9](https://bitbucket.org/siposdani87/sui-js/src/5c73bef/src/component/carousel.ts#lines-9)
 
 ___
 
@@ -42,7 +42,7 @@ ___
 
 #### Defined in
 
-[component/carousel.ts:10](https://bitbucket.org/siposdani87/sui-js/src/412afc3/src/component/carousel.ts#lines-10)
+[component/carousel.ts:10](https://bitbucket.org/siposdani87/sui-js/src/5c73bef/src/component/carousel.ts#lines-10)
 
 ## Methods
 
@@ -56,7 +56,7 @@ ___
 
 #### Defined in
 
-[component/carousel.ts:39](https://bitbucket.org/siposdani87/sui-js/src/412afc3/src/component/carousel.ts#lines-39)
+[component/carousel.ts:39](https://bitbucket.org/siposdani87/sui-js/src/5c73bef/src/component/carousel.ts#lines-39)
 
 ___
 
@@ -76,4 +76,4 @@ ___
 
 #### Defined in
 
-[component/carousel.ts:30](https://bitbucket.org/siposdani87/sui-js/src/412afc3/src/component/carousel.ts#lines-30)
+[component/carousel.ts:30](https://bitbucket.org/siposdani87/sui-js/src/5c73bef/src/component/carousel.ts#lines-30)

@@ -20,7 +20,7 @@ custom_edit_url: null
 
 #### Defined in
 
-[module/bottomMenu.ts:14](https://bitbucket.org/siposdani87/sui-js/src/412afc3/src/module/bottomMenu.ts#lines-14)
+[module/bottomMenu.ts:14](https://bitbucket.org/siposdani87/sui-js/src/5c73bef/src/module/bottomMenu.ts#lines-14)
 
 ## Properties
 
@@ -30,7 +30,7 @@ custom_edit_url: null
 
 #### Defined in
 
-[module/bottomMenu.ts:10](https://bitbucket.org/siposdani87/sui-js/src/412afc3/src/module/bottomMenu.ts#lines-10)
+[module/bottomMenu.ts:10](https://bitbucket.org/siposdani87/sui-js/src/5c73bef/src/module/bottomMenu.ts#lines-10)
 
 ___
 
@@ -40,7 +40,7 @@ ___
 
 #### Defined in
 
-[module/bottomMenu.ts:9](https://bitbucket.org/siposdani87/sui-js/src/412afc3/src/module/bottomMenu.ts#lines-9)
+[module/bottomMenu.ts:9](https://bitbucket.org/siposdani87/sui-js/src/5c73bef/src/module/bottomMenu.ts#lines-9)
 
 ## Methods
 
@@ -54,7 +54,7 @@ ___
 
 #### Defined in
 
-[module/bottomMenu.ts:22](https://bitbucket.org/siposdani87/sui-js/src/412afc3/src/module/bottomMenu.ts#lines-22)
+[module/bottomMenu.ts:22](https://bitbucket.org/siposdani87/sui-js/src/5c73bef/src/module/bottomMenu.ts#lines-22)
 
 ___
 
@@ -68,7 +68,7 @@ ___
 
 #### Defined in
 
-[module/bottomMenu.ts:72](https://bitbucket.org/siposdani87/sui-js/src/412afc3/src/module/bottomMenu.ts#lines-72)
+[module/bottomMenu.ts:72](https://bitbucket.org/siposdani87/sui-js/src/5c73bef/src/module/bottomMenu.ts#lines-72)
 
 ___
 
@@ -82,7 +82,7 @@ ___
 
 #### Defined in
 
-[module/bottomMenu.ts:79](https://bitbucket.org/siposdani87/sui-js/src/412afc3/src/module/bottomMenu.ts#lines-79)
+[module/bottomMenu.ts:79](https://bitbucket.org/siposdani87/sui-js/src/5c73bef/src/module/bottomMenu.ts#lines-79)
 
 ___
 
@@ -96,7 +96,7 @@ ___
 
 #### Defined in
 
-[module/bottomMenu.ts:59](https://bitbucket.org/siposdani87/sui-js/src/412afc3/src/module/bottomMenu.ts#lines-59)
+[module/bottomMenu.ts:59](https://bitbucket.org/siposdani87/sui-js/src/5c73bef/src/module/bottomMenu.ts#lines-59)
 
 ___
 
@@ -110,7 +110,7 @@ ___
 
 #### Defined in
 
-[module/bottomMenu.ts:65](https://bitbucket.org/siposdani87/sui-js/src/412afc3/src/module/bottomMenu.ts#lines-65)
+[module/bottomMenu.ts:65](https://bitbucket.org/siposdani87/sui-js/src/5c73bef/src/module/bottomMenu.ts#lines-65)
 
 ___
 
@@ -124,4 +124,4 @@ ___
 
 #### Defined in
 
-[module/bottomMenu.ts:49](https://bitbucket.org/siposdani87/sui-js/src/412afc3/src/module/bottomMenu.ts#lines-49)
+[module/bottomMenu.ts:49](https://bitbucket.org/siposdani87/sui-js/src/5c73bef/src/module/bottomMenu.ts#lines-49)

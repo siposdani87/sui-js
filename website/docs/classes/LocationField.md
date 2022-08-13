@@ -33,7 +33,7 @@ custom_edit_url: null
 
 #### Defined in
 
-[field/locationField.ts:28](https://bitbucket.org/siposdani87/sui-js/src/412afc3/src/field/locationField.ts#lines-28)
+[field/locationField.ts:28](https://bitbucket.org/siposdani87/sui-js/src/5c73bef/src/field/locationField.ts#lines-28)
 
 ## Properties
 
@@ -47,7 +47,7 @@ custom_edit_url: null
 
 #### Defined in
 
-[field/baseField.ts:20](https://bitbucket.org/siposdani87/sui-js/src/412afc3/src/field/baseField.ts#lines-20)
+[field/baseField.ts:20](https://bitbucket.org/siposdani87/sui-js/src/5c73bef/src/field/baseField.ts#lines-20)
 
 ___
 
@@ -57,7 +57,7 @@ ___
 
 #### Defined in
 
-[field/locationField.ts:16](https://bitbucket.org/siposdani87/sui-js/src/412afc3/src/field/locationField.ts#lines-16)
+[field/locationField.ts:16](https://bitbucket.org/siposdani87/sui-js/src/5c73bef/src/field/locationField.ts#lines-16)
 
 ___
 
@@ -67,7 +67,7 @@ ___
 
 #### Defined in
 
-[field/locationField.ts:19](https://bitbucket.org/siposdani87/sui-js/src/412afc3/src/field/locationField.ts#lines-19)
+[field/locationField.ts:19](https://bitbucket.org/siposdani87/sui-js/src/5c73bef/src/field/locationField.ts#lines-19)
 
 ___
 
@@ -81,7 +81,7 @@ ___
 
 #### Defined in
 
-[field/baseField.ts:21](https://bitbucket.org/siposdani87/sui-js/src/412afc3/src/field/baseField.ts#lines-21)
+[field/baseField.ts:21](https://bitbucket.org/siposdani87/sui-js/src/5c73bef/src/field/baseField.ts#lines-21)
 
 ___
 
@@ -95,7 +95,7 @@ ___
 
 #### Defined in
 
-[field/baseField.ts:15](https://bitbucket.org/siposdani87/sui-js/src/412afc3/src/field/baseField.ts#lines-15)
+[field/baseField.ts:15](https://bitbucket.org/siposdani87/sui-js/src/5c73bef/src/field/baseField.ts#lines-15)
 
 ___
 
@@ -109,7 +109,7 @@ ___
 
 #### Defined in
 
-[field/baseField.ts:18](https://bitbucket.org/siposdani87/sui-js/src/412afc3/src/field/baseField.ts#lines-18)
+[field/baseField.ts:18](https://bitbucket.org/siposdani87/sui-js/src/5c73bef/src/field/baseField.ts#lines-18)
 
 ___
 
@@ -123,7 +123,7 @@ ___
 
 #### Defined in
 
-[field/baseField.ts:17](https://bitbucket.org/siposdani87/sui-js/src/412afc3/src/field/baseField.ts#lines-17)
+[field/baseField.ts:17](https://bitbucket.org/siposdani87/sui-js/src/5c73bef/src/field/baseField.ts#lines-17)
 
 ___
 
@@ -133,7 +133,7 @@ ___
 
 #### Defined in
 
-[field/locationField.ts:15](https://bitbucket.org/siposdani87/sui-js/src/412afc3/src/field/locationField.ts#lines-15)
+[field/locationField.ts:15](https://bitbucket.org/siposdani87/sui-js/src/5c73bef/src/field/locationField.ts#lines-15)
 
 ___
 
@@ -147,7 +147,7 @@ ___
 
 #### Defined in
 
-[field/baseField.ts:19](https://bitbucket.org/siposdani87/sui-js/src/412afc3/src/field/baseField.ts#lines-19)
+[field/baseField.ts:19](https://bitbucket.org/siposdani87/sui-js/src/5c73bef/src/field/baseField.ts#lines-19)
 
 ___
 
@@ -161,7 +161,7 @@ ___
 
 #### Defined in
 
-[field/baseField.ts:13](https://bitbucket.org/siposdani87/sui-js/src/412afc3/src/field/baseField.ts#lines-13)
+[field/baseField.ts:13](https://bitbucket.org/siposdani87/sui-js/src/5c73bef/src/field/baseField.ts#lines-13)
 
 ___
 
@@ -175,7 +175,7 @@ ___
 
 #### Defined in
 
-[field/baseField.ts:16](https://bitbucket.org/siposdani87/sui-js/src/412afc3/src/field/baseField.ts#lines-16)
+[field/baseField.ts:16](https://bitbucket.org/siposdani87/sui-js/src/5c73bef/src/field/baseField.ts#lines-16)
 
 ___
 
@@ -189,7 +189,7 @@ ___
 
 #### Defined in
 
-[field/baseField.ts:14](https://bitbucket.org/siposdani87/sui-js/src/412afc3/src/field/baseField.ts#lines-14)
+[field/baseField.ts:14](https://bitbucket.org/siposdani87/sui-js/src/5c73bef/src/field/baseField.ts#lines-14)
 
 ___
 
@@ -199,7 +199,7 @@ ___
 
 #### Defined in
 
-[field/locationField.ts:20](https://bitbucket.org/siposdani87/sui-js/src/412afc3/src/field/locationField.ts#lines-20)
+[field/locationField.ts:20](https://bitbucket.org/siposdani87/sui-js/src/5c73bef/src/field/locationField.ts#lines-20)
 
 ___
 
@@ -209,7 +209,7 @@ ___
 
 #### Defined in
 
-[field/locationField.ts:21](https://bitbucket.org/siposdani87/sui-js/src/412afc3/src/field/locationField.ts#lines-21)
+[field/locationField.ts:21](https://bitbucket.org/siposdani87/sui-js/src/5c73bef/src/field/locationField.ts#lines-21)
 
 ___
 
@@ -219,7 +219,7 @@ ___
 
 #### Defined in
 
-[field/locationField.ts:17](https://bitbucket.org/siposdani87/sui-js/src/412afc3/src/field/locationField.ts#lines-17)
+[field/locationField.ts:17](https://bitbucket.org/siposdani87/sui-js/src/5c73bef/src/field/locationField.ts#lines-17)
 
 ___
 
@@ -229,7 +229,7 @@ ___
 
 #### Defined in
 
-[field/locationField.ts:18](https://bitbucket.org/siposdani87/sui-js/src/412afc3/src/field/locationField.ts#lines-18)
+[field/locationField.ts:18](https://bitbucket.org/siposdani87/sui-js/src/5c73bef/src/field/locationField.ts#lines-18)
 
 ## Methods
 
@@ -253,7 +253,7 @@ ___
 
 #### Defined in
 
-[field/baseField.ts:109](https://bitbucket.org/siposdani87/sui-js/src/412afc3/src/field/baseField.ts#lines-109)
+[field/baseField.ts:109](https://bitbucket.org/siposdani87/sui-js/src/5c73bef/src/field/baseField.ts#lines-109)
 
 ___
 
@@ -277,7 +277,7 @@ ___
 
 #### Defined in
 
-[field/baseField.ts:382](https://bitbucket.org/siposdani87/sui-js/src/412afc3/src/field/baseField.ts#lines-382)
+[field/baseField.ts:382](https://bitbucket.org/siposdani87/sui-js/src/5c73bef/src/field/baseField.ts#lines-382)
 
 ___
 
@@ -291,7 +291,7 @@ ___
 
 #### Defined in
 
-[field/locationField.ts:41](https://bitbucket.org/siposdani87/sui-js/src/412afc3/src/field/locationField.ts#lines-41)
+[field/locationField.ts:41](https://bitbucket.org/siposdani87/sui-js/src/5c73bef/src/field/locationField.ts#lines-41)
 
 ___
 
@@ -305,7 +305,7 @@ ___
 
 #### Defined in
 
-[field/locationField.ts:96](https://bitbucket.org/siposdani87/sui-js/src/412afc3/src/field/locationField.ts#lines-96)
+[field/locationField.ts:96](https://bitbucket.org/siposdani87/sui-js/src/5c73bef/src/field/locationField.ts#lines-96)
 
 ___
 
@@ -319,7 +319,7 @@ ___
 
 #### Defined in
 
-[field/locationField.ts:71](https://bitbucket.org/siposdani87/sui-js/src/412afc3/src/field/locationField.ts#lines-71)
+[field/locationField.ts:71](https://bitbucket.org/siposdani87/sui-js/src/5c73bef/src/field/locationField.ts#lines-71)
 
 ___
 
@@ -333,7 +333,7 @@ ___
 
 #### Defined in
 
-[field/locationField.ts:79](https://bitbucket.org/siposdani87/sui-js/src/412afc3/src/field/locationField.ts#lines-79)
+[field/locationField.ts:79](https://bitbucket.org/siposdani87/sui-js/src/5c73bef/src/field/locationField.ts#lines-79)
 
 ___
 
@@ -355,7 +355,7 @@ ___
 
 #### Defined in
 
-[field/locationField.ts:205](https://bitbucket.org/siposdani87/sui-js/src/412afc3/src/field/locationField.ts#lines-205)
+[field/locationField.ts:205](https://bitbucket.org/siposdani87/sui-js/src/5c73bef/src/field/locationField.ts#lines-205)
 
 ___
 
@@ -369,7 +369,7 @@ ___
 
 #### Defined in
 
-[field/locationField.ts:172](https://bitbucket.org/siposdani87/sui-js/src/412afc3/src/field/locationField.ts#lines-172)
+[field/locationField.ts:172](https://bitbucket.org/siposdani87/sui-js/src/5c73bef/src/field/locationField.ts#lines-172)
 
 ___
 
@@ -383,7 +383,7 @@ ___
 
 #### Defined in
 
-[field/locationField.ts:246](https://bitbucket.org/siposdani87/sui-js/src/412afc3/src/field/locationField.ts#lines-246)
+[field/locationField.ts:246](https://bitbucket.org/siposdani87/sui-js/src/5c73bef/src/field/locationField.ts#lines-246)
 
 ___
 
@@ -407,7 +407,7 @@ ___
 
 #### Defined in
 
-[field/baseField.ts:370](https://bitbucket.org/siposdani87/sui-js/src/412afc3/src/field/baseField.ts#lines-370)
+[field/baseField.ts:370](https://bitbucket.org/siposdani87/sui-js/src/5c73bef/src/field/baseField.ts#lines-370)
 
 ___
 
@@ -427,7 +427,7 @@ ___
 
 #### Defined in
 
-[field/locationField.ts:327](https://bitbucket.org/siposdani87/sui-js/src/412afc3/src/field/locationField.ts#lines-327)
+[field/locationField.ts:327](https://bitbucket.org/siposdani87/sui-js/src/5c73bef/src/field/locationField.ts#lines-327)
 
 ___
 
@@ -441,7 +441,7 @@ ___
 
 #### Defined in
 
-[field/locationField.ts:297](https://bitbucket.org/siposdani87/sui-js/src/412afc3/src/field/locationField.ts#lines-297)
+[field/locationField.ts:297](https://bitbucket.org/siposdani87/sui-js/src/5c73bef/src/field/locationField.ts#lines-297)
 
 ___
 
@@ -455,7 +455,7 @@ ___
 
 #### Defined in
 
-[field/locationField.ts:164](https://bitbucket.org/siposdani87/sui-js/src/412afc3/src/field/locationField.ts#lines-164)
+[field/locationField.ts:164](https://bitbucket.org/siposdani87/sui-js/src/5c73bef/src/field/locationField.ts#lines-164)
 
 ___
 
@@ -480,7 +480,7 @@ ___
 
 #### Defined in
 
-[field/baseField.ts:140](https://bitbucket.org/siposdani87/sui-js/src/412afc3/src/field/baseField.ts#lines-140)
+[field/baseField.ts:140](https://bitbucket.org/siposdani87/sui-js/src/5c73bef/src/field/baseField.ts#lines-140)
 
 ___
 
@@ -505,7 +505,7 @@ ___
 
 #### Defined in
 
-[field/baseField.ts:55](https://bitbucket.org/siposdani87/sui-js/src/412afc3/src/field/baseField.ts#lines-55)
+[field/baseField.ts:55](https://bitbucket.org/siposdani87/sui-js/src/5c73bef/src/field/baseField.ts#lines-55)
 
 ___
 
@@ -529,7 +529,7 @@ ___
 
 #### Defined in
 
-[field/baseField.ts:62](https://bitbucket.org/siposdani87/sui-js/src/412afc3/src/field/baseField.ts#lines-62)
+[field/baseField.ts:62](https://bitbucket.org/siposdani87/sui-js/src/5c73bef/src/field/baseField.ts#lines-62)
 
 ___
 
@@ -549,7 +549,7 @@ ___
 
 #### Defined in
 
-[field/locationField.ts:385](https://bitbucket.org/siposdani87/sui-js/src/412afc3/src/field/locationField.ts#lines-385)
+[field/locationField.ts:385](https://bitbucket.org/siposdani87/sui-js/src/5c73bef/src/field/locationField.ts#lines-385)
 
 ___
 
@@ -567,7 +567,7 @@ ___
 
 #### Defined in
 
-[field/baseField.ts:194](https://bitbucket.org/siposdani87/sui-js/src/412afc3/src/field/baseField.ts#lines-194)
+[field/baseField.ts:194](https://bitbucket.org/siposdani87/sui-js/src/5c73bef/src/field/baseField.ts#lines-194)
 
 ___
 
@@ -585,7 +585,7 @@ ___
 
 #### Defined in
 
-[field/baseField.ts:200](https://bitbucket.org/siposdani87/sui-js/src/412afc3/src/field/baseField.ts#lines-200)
+[field/baseField.ts:200](https://bitbucket.org/siposdani87/sui-js/src/5c73bef/src/field/baseField.ts#lines-200)
 
 ___
 
@@ -603,7 +603,7 @@ ___
 
 #### Defined in
 
-[field/baseField.ts:206](https://bitbucket.org/siposdani87/sui-js/src/412afc3/src/field/baseField.ts#lines-206)
+[field/baseField.ts:206](https://bitbucket.org/siposdani87/sui-js/src/5c73bef/src/field/baseField.ts#lines-206)
 
 ___
 
@@ -627,7 +627,7 @@ ___
 
 #### Defined in
 
-[field/baseField.ts:213](https://bitbucket.org/siposdani87/sui-js/src/412afc3/src/field/baseField.ts#lines-213)
+[field/baseField.ts:213](https://bitbucket.org/siposdani87/sui-js/src/5c73bef/src/field/baseField.ts#lines-213)
 
 ___
 
@@ -645,7 +645,7 @@ ___
 
 #### Defined in
 
-[field/baseField.ts:93](https://bitbucket.org/siposdani87/sui-js/src/412afc3/src/field/baseField.ts#lines-93)
+[field/baseField.ts:93](https://bitbucket.org/siposdani87/sui-js/src/5c73bef/src/field/baseField.ts#lines-93)
 
 ___
 
@@ -663,7 +663,7 @@ ___
 
 #### Defined in
 
-[field/baseField.ts:86](https://bitbucket.org/siposdani87/sui-js/src/412afc3/src/field/baseField.ts#lines-86)
+[field/baseField.ts:86](https://bitbucket.org/siposdani87/sui-js/src/5c73bef/src/field/baseField.ts#lines-86)
 
 ___
 
@@ -681,7 +681,7 @@ ___
 
 #### Defined in
 
-[field/locationField.ts:377](https://bitbucket.org/siposdani87/sui-js/src/412afc3/src/field/locationField.ts#lines-377)
+[field/locationField.ts:377](https://bitbucket.org/siposdani87/sui-js/src/5c73bef/src/field/locationField.ts#lines-377)
 
 ___
 
@@ -699,7 +699,7 @@ ___
 
 #### Defined in
 
-[field/baseField.ts:289](https://bitbucket.org/siposdani87/sui-js/src/412afc3/src/field/baseField.ts#lines-289)
+[field/baseField.ts:289](https://bitbucket.org/siposdani87/sui-js/src/5c73bef/src/field/baseField.ts#lines-289)
 
 ___
 
@@ -717,7 +717,7 @@ ___
 
 #### Defined in
 
-[field/baseField.ts:245](https://bitbucket.org/siposdani87/sui-js/src/412afc3/src/field/baseField.ts#lines-245)
+[field/baseField.ts:245](https://bitbucket.org/siposdani87/sui-js/src/5c73bef/src/field/baseField.ts#lines-245)
 
 ___
 
@@ -735,7 +735,7 @@ ___
 
 #### Defined in
 
-[field/baseField.ts:239](https://bitbucket.org/siposdani87/sui-js/src/412afc3/src/field/baseField.ts#lines-239)
+[field/baseField.ts:239](https://bitbucket.org/siposdani87/sui-js/src/5c73bef/src/field/baseField.ts#lines-239)
 
 ___
 
@@ -753,7 +753,7 @@ ___
 
 #### Defined in
 
-[field/baseField.ts:219](https://bitbucket.org/siposdani87/sui-js/src/412afc3/src/field/baseField.ts#lines-219)
+[field/baseField.ts:219](https://bitbucket.org/siposdani87/sui-js/src/5c73bef/src/field/baseField.ts#lines-219)
 
 ___
 
@@ -771,7 +771,7 @@ ___
 
 #### Defined in
 
-[field/baseField.ts:172](https://bitbucket.org/siposdani87/sui-js/src/412afc3/src/field/baseField.ts#lines-172)
+[field/baseField.ts:172](https://bitbucket.org/siposdani87/sui-js/src/5c73bef/src/field/baseField.ts#lines-172)
 
 ___
 
@@ -789,7 +789,7 @@ ___
 
 #### Defined in
 
-[field/baseField.ts:165](https://bitbucket.org/siposdani87/sui-js/src/412afc3/src/field/baseField.ts#lines-165)
+[field/baseField.ts:165](https://bitbucket.org/siposdani87/sui-js/src/5c73bef/src/field/baseField.ts#lines-165)
 
 ___
 
@@ -807,7 +807,7 @@ ___
 
 #### Defined in
 
-[field/baseField.ts:264](https://bitbucket.org/siposdani87/sui-js/src/412afc3/src/field/baseField.ts#lines-264)
+[field/baseField.ts:264](https://bitbucket.org/siposdani87/sui-js/src/5c73bef/src/field/baseField.ts#lines-264)
 
 ___
 
@@ -831,7 +831,7 @@ ___
 
 #### Defined in
 
-[field/baseField.ts:80](https://bitbucket.org/siposdani87/sui-js/src/412afc3/src/field/baseField.ts#lines-80)
+[field/baseField.ts:80](https://bitbucket.org/siposdani87/sui-js/src/5c73bef/src/field/baseField.ts#lines-80)
 
 ___
 
@@ -849,7 +849,7 @@ ___
 
 #### Defined in
 
-[field/locationField.ts:152](https://bitbucket.org/siposdani87/sui-js/src/412afc3/src/field/locationField.ts#lines-152)
+[field/locationField.ts:152](https://bitbucket.org/siposdani87/sui-js/src/5c73bef/src/field/locationField.ts#lines-152)
 
 ___
 
@@ -867,7 +867,7 @@ ___
 
 #### Defined in
 
-[field/locationField.ts:132](https://bitbucket.org/siposdani87/sui-js/src/412afc3/src/field/locationField.ts#lines-132)
+[field/locationField.ts:132](https://bitbucket.org/siposdani87/sui-js/src/5c73bef/src/field/locationField.ts#lines-132)
 
 ___
 
@@ -887,7 +887,7 @@ ___
 
 #### Defined in
 
-[field/locationField.ts:112](https://bitbucket.org/siposdani87/sui-js/src/412afc3/src/field/locationField.ts#lines-112)
+[field/locationField.ts:112](https://bitbucket.org/siposdani87/sui-js/src/5c73bef/src/field/locationField.ts#lines-112)
 
 ___
 
@@ -909,7 +909,7 @@ ___
 
 #### Defined in
 
-[field/locationField.ts:286](https://bitbucket.org/siposdani87/sui-js/src/412afc3/src/field/locationField.ts#lines-286)
+[field/locationField.ts:286](https://bitbucket.org/siposdani87/sui-js/src/5c73bef/src/field/locationField.ts#lines-286)
 
 ___
 
@@ -933,7 +933,7 @@ ___
 
 #### Defined in
 
-[field/baseField.ts:252](https://bitbucket.org/siposdani87/sui-js/src/412afc3/src/field/baseField.ts#lines-252)
+[field/baseField.ts:252](https://bitbucket.org/siposdani87/sui-js/src/5c73bef/src/field/baseField.ts#lines-252)
 
 ___
 
@@ -958,7 +958,7 @@ ___
 
 #### Defined in
 
-[field/baseField.ts:123](https://bitbucket.org/siposdani87/sui-js/src/412afc3/src/field/baseField.ts#lines-123)
+[field/baseField.ts:123](https://bitbucket.org/siposdani87/sui-js/src/5c73bef/src/field/baseField.ts#lines-123)
 
 ___
 
@@ -982,7 +982,7 @@ ___
 
 #### Defined in
 
-[field/baseField.ts:298](https://bitbucket.org/siposdani87/sui-js/src/412afc3/src/field/baseField.ts#lines-298)
+[field/baseField.ts:298](https://bitbucket.org/siposdani87/sui-js/src/5c73bef/src/field/baseField.ts#lines-298)
 
 ___
 
@@ -1002,7 +1002,7 @@ ___
 
 #### Defined in
 
-[field/locationField.ts:277](https://bitbucket.org/siposdani87/sui-js/src/412afc3/src/field/locationField.ts#lines-277)
+[field/locationField.ts:277](https://bitbucket.org/siposdani87/sui-js/src/5c73bef/src/field/locationField.ts#lines-277)
 
 ___
 
@@ -1026,7 +1026,7 @@ ___
 
 #### Defined in
 
-[field/baseField.ts:226](https://bitbucket.org/siposdani87/sui-js/src/412afc3/src/field/baseField.ts#lines-226)
+[field/baseField.ts:226](https://bitbucket.org/siposdani87/sui-js/src/5c73bef/src/field/baseField.ts#lines-226)
 
 ___
 
@@ -1050,7 +1050,7 @@ ___
 
 #### Defined in
 
-[field/locationField.ts:338](https://bitbucket.org/siposdani87/sui-js/src/412afc3/src/field/locationField.ts#lines-338)
+[field/locationField.ts:338](https://bitbucket.org/siposdani87/sui-js/src/5c73bef/src/field/locationField.ts#lines-338)
 
 ___
 
@@ -1074,7 +1074,7 @@ ___
 
 #### Defined in
 
-[field/baseField.ts:271](https://bitbucket.org/siposdani87/sui-js/src/412afc3/src/field/baseField.ts#lines-271)
+[field/baseField.ts:271](https://bitbucket.org/siposdani87/sui-js/src/5c73bef/src/field/baseField.ts#lines-271)
 
 ___
 
@@ -1092,7 +1092,7 @@ ___
 
 #### Defined in
 
-[field/baseField.ts:281](https://bitbucket.org/siposdani87/sui-js/src/412afc3/src/field/baseField.ts#lines-281)
+[field/baseField.ts:281](https://bitbucket.org/siposdani87/sui-js/src/5c73bef/src/field/baseField.ts#lines-281)
 
 ___
 
@@ -1113,4 +1113,4 @@ ___
 
 #### Defined in
 
-[field/locationField.ts:316](https://bitbucket.org/siposdani87/sui-js/src/412afc3/src/field/locationField.ts#lines-316)
+[field/locationField.ts:316](https://bitbucket.org/siposdani87/sui-js/src/5c73bef/src/field/locationField.ts#lines-316)

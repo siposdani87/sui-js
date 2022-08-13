@@ -21,7 +21,7 @@ custom_edit_url: null
 
 #### Defined in
 
-[component/navigation.ts:20](https://bitbucket.org/siposdani87/sui-js/src/412afc3/src/component/navigation.ts#lines-20)
+[component/navigation.ts:20](https://bitbucket.org/siposdani87/sui-js/src/5c73bef/src/component/navigation.ts#lines-20)
 
 ## Properties
 
@@ -31,7 +31,7 @@ custom_edit_url: null
 
 #### Defined in
 
-[component/navigation.ts:14](https://bitbucket.org/siposdani87/sui-js/src/412afc3/src/component/navigation.ts#lines-14)
+[component/navigation.ts:14](https://bitbucket.org/siposdani87/sui-js/src/5c73bef/src/component/navigation.ts#lines-14)
 
 ___
 
@@ -41,7 +41,7 @@ ___
 
 #### Defined in
 
-[component/navigation.ts:12](https://bitbucket.org/siposdani87/sui-js/src/412afc3/src/component/navigation.ts#lines-12)
+[component/navigation.ts:12](https://bitbucket.org/siposdani87/sui-js/src/5c73bef/src/component/navigation.ts#lines-12)
 
 ___
 
@@ -51,7 +51,7 @@ ___
 
 #### Defined in
 
-[component/navigation.ts:15](https://bitbucket.org/siposdani87/sui-js/src/412afc3/src/component/navigation.ts#lines-15)
+[component/navigation.ts:15](https://bitbucket.org/siposdani87/sui-js/src/5c73bef/src/component/navigation.ts#lines-15)
 
 ___
 
@@ -61,7 +61,7 @@ ___
 
 #### Defined in
 
-[component/navigation.ts:13](https://bitbucket.org/siposdani87/sui-js/src/412afc3/src/component/navigation.ts#lines-13)
+[component/navigation.ts:13](https://bitbucket.org/siposdani87/sui-js/src/5c73bef/src/component/navigation.ts#lines-13)
 
 ## Methods
 
@@ -81,7 +81,7 @@ ___
 
 #### Defined in
 
-[component/navigation.ts:270](https://bitbucket.org/siposdani87/sui-js/src/412afc3/src/component/navigation.ts#lines-270)
+[component/navigation.ts:270](https://bitbucket.org/siposdani87/sui-js/src/5c73bef/src/component/navigation.ts#lines-270)
 
 ___
 
@@ -101,7 +101,7 @@ ___
 
 #### Defined in
 
-[component/navigation.ts:291](https://bitbucket.org/siposdani87/sui-js/src/412afc3/src/component/navigation.ts#lines-291)
+[component/navigation.ts:291](https://bitbucket.org/siposdani87/sui-js/src/5c73bef/src/component/navigation.ts#lines-291)
 
 ___
 
@@ -115,7 +115,7 @@ ___
 
 #### Defined in
 
-[component/navigation.ts:39](https://bitbucket.org/siposdani87/sui-js/src/412afc3/src/component/navigation.ts#lines-39)
+[component/navigation.ts:39](https://bitbucket.org/siposdani87/sui-js/src/5c73bef/src/component/navigation.ts#lines-39)
 
 ___
 
@@ -139,7 +139,7 @@ ___
 
 #### Defined in
 
-[component/navigation.ts:200](https://bitbucket.org/siposdani87/sui-js/src/412afc3/src/component/navigation.ts#lines-200)
+[component/navigation.ts:200](https://bitbucket.org/siposdani87/sui-js/src/5c73bef/src/component/navigation.ts#lines-200)
 
 ___
 
@@ -159,7 +159,7 @@ ___
 
 #### Defined in
 
-[component/navigation.ts:30](https://bitbucket.org/siposdani87/sui-js/src/412afc3/src/component/navigation.ts#lines-30)
+[component/navigation.ts:30](https://bitbucket.org/siposdani87/sui-js/src/5c73bef/src/component/navigation.ts#lines-30)
 
 ___
 
@@ -179,7 +179,7 @@ ___
 
 #### Defined in
 
-[component/navigation.ts:48](https://bitbucket.org/siposdani87/sui-js/src/412afc3/src/component/navigation.ts#lines-48)
+[component/navigation.ts:48](https://bitbucket.org/siposdani87/sui-js/src/5c73bef/src/component/navigation.ts#lines-48)
 
 ___
 
@@ -204,7 +204,7 @@ ___
 
 #### Defined in
 
-[component/navigation.ts:81](https://bitbucket.org/siposdani87/sui-js/src/412afc3/src/component/navigation.ts#lines-81)
+[component/navigation.ts:81](https://bitbucket.org/siposdani87/sui-js/src/5c73bef/src/component/navigation.ts#lines-81)
 
 ___
 
@@ -229,7 +229,7 @@ ___
 
 #### Defined in
 
-[component/navigation.ts:106](https://bitbucket.org/siposdani87/sui-js/src/412afc3/src/component/navigation.ts#lines-106)
+[component/navigation.ts:106](https://bitbucket.org/siposdani87/sui-js/src/5c73bef/src/component/navigation.ts#lines-106)
 
 ___
 
@@ -254,7 +254,7 @@ ___
 
 #### Defined in
 
-[component/navigation.ts:135](https://bitbucket.org/siposdani87/sui-js/src/412afc3/src/component/navigation.ts#lines-135)
+[component/navigation.ts:135](https://bitbucket.org/siposdani87/sui-js/src/5c73bef/src/component/navigation.ts#lines-135)
 
 ___
 
@@ -278,7 +278,7 @@ ___
 
 #### Defined in
 
-[component/navigation.ts:182](https://bitbucket.org/siposdani87/sui-js/src/412afc3/src/component/navigation.ts#lines-182)
+[component/navigation.ts:182](https://bitbucket.org/siposdani87/sui-js/src/5c73bef/src/component/navigation.ts#lines-182)
 
 ___
 
@@ -298,7 +298,7 @@ ___
 
 #### Defined in
 
-[component/navigation.ts:248](https://bitbucket.org/siposdani87/sui-js/src/412afc3/src/component/navigation.ts#lines-248)
+[component/navigation.ts:248](https://bitbucket.org/siposdani87/sui-js/src/5c73bef/src/component/navigation.ts#lines-248)
 
 ___
 
@@ -318,7 +318,7 @@ ___
 
 #### Defined in
 
-[component/navigation.ts:239](https://bitbucket.org/siposdani87/sui-js/src/412afc3/src/component/navigation.ts#lines-239)
+[component/navigation.ts:239](https://bitbucket.org/siposdani87/sui-js/src/5c73bef/src/component/navigation.ts#lines-239)
 
 ___
 
@@ -338,7 +338,7 @@ ___
 
 #### Defined in
 
-[component/navigation.ts:345](https://bitbucket.org/siposdani87/sui-js/src/412afc3/src/component/navigation.ts#lines-345)
+[component/navigation.ts:345](https://bitbucket.org/siposdani87/sui-js/src/5c73bef/src/component/navigation.ts#lines-345)
 
 ___
 
@@ -358,7 +358,7 @@ ___
 
 #### Defined in
 
-[component/navigation.ts:307](https://bitbucket.org/siposdani87/sui-js/src/412afc3/src/component/navigation.ts#lines-307)
+[component/navigation.ts:307](https://bitbucket.org/siposdani87/sui-js/src/5c73bef/src/component/navigation.ts#lines-307)
 
 ___
 
@@ -372,7 +372,7 @@ ___
 
 #### Defined in
 
-[component/navigation.ts:323](https://bitbucket.org/siposdani87/sui-js/src/412afc3/src/component/navigation.ts#lines-323)
+[component/navigation.ts:323](https://bitbucket.org/siposdani87/sui-js/src/5c73bef/src/component/navigation.ts#lines-323)
 
 ___
 
@@ -392,7 +392,7 @@ ___
 
 #### Defined in
 
-[component/navigation.ts:259](https://bitbucket.org/siposdani87/sui-js/src/412afc3/src/component/navigation.ts#lines-259)
+[component/navigation.ts:259](https://bitbucket.org/siposdani87/sui-js/src/5c73bef/src/component/navigation.ts#lines-259)
 
 ___
 
@@ -412,7 +412,7 @@ ___
 
 #### Defined in
 
-[component/navigation.ts:280](https://bitbucket.org/siposdani87/sui-js/src/412afc3/src/component/navigation.ts#lines-280)
+[component/navigation.ts:280](https://bitbucket.org/siposdani87/sui-js/src/5c73bef/src/component/navigation.ts#lines-280)
 
 ___
 
@@ -432,4 +432,4 @@ ___
 
 #### Defined in
 
-[component/navigation.ts:333](https://bitbucket.org/siposdani87/sui-js/src/412afc3/src/component/navigation.ts#lines-333)
+[component/navigation.ts:333](https://bitbucket.org/siposdani87/sui-js/src/5c73bef/src/component/navigation.ts#lines-333)

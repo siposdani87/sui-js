@@ -21,7 +21,7 @@ custom_edit_url: null
 
 #### Defined in
 
-[component/clock.ts:29](https://bitbucket.org/siposdani87/sui-js/src/412afc3/src/component/clock.ts#lines-29)
+[component/clock.ts:29](https://bitbucket.org/siposdani87/sui-js/src/5c73bef/src/component/clock.ts#lines-29)
 
 ## Properties
 
@@ -31,7 +31,7 @@ custom_edit_url: null
 
 #### Defined in
 
-[component/clock.ts:15](https://bitbucket.org/siposdani87/sui-js/src/412afc3/src/component/clock.ts#lines-15)
+[component/clock.ts:15](https://bitbucket.org/siposdani87/sui-js/src/5c73bef/src/component/clock.ts#lines-15)
 
 ___
 
@@ -41,7 +41,7 @@ ___
 
 #### Defined in
 
-[component/clock.ts:11](https://bitbucket.org/siposdani87/sui-js/src/412afc3/src/component/clock.ts#lines-11)
+[component/clock.ts:11](https://bitbucket.org/siposdani87/sui-js/src/5c73bef/src/component/clock.ts#lines-11)
 
 ___
 
@@ -51,7 +51,7 @@ ___
 
 #### Defined in
 
-[component/clock.ts:22](https://bitbucket.org/siposdani87/sui-js/src/412afc3/src/component/clock.ts#lines-22)
+[component/clock.ts:22](https://bitbucket.org/siposdani87/sui-js/src/5c73bef/src/component/clock.ts#lines-22)
 
 ___
 
@@ -61,7 +61,7 @@ ___
 
 #### Defined in
 
-[component/clock.ts:16](https://bitbucket.org/siposdani87/sui-js/src/412afc3/src/component/clock.ts#lines-16)
+[component/clock.ts:16](https://bitbucket.org/siposdani87/sui-js/src/5c73bef/src/component/clock.ts#lines-16)
 
 ___
 
@@ -71,7 +71,7 @@ ___
 
 #### Defined in
 
-[component/clock.ts:23](https://bitbucket.org/siposdani87/sui-js/src/412afc3/src/component/clock.ts#lines-23)
+[component/clock.ts:23](https://bitbucket.org/siposdani87/sui-js/src/5c73bef/src/component/clock.ts#lines-23)
 
 ___
 
@@ -81,7 +81,7 @@ ___
 
 #### Defined in
 
-[component/clock.ts:21](https://bitbucket.org/siposdani87/sui-js/src/412afc3/src/component/clock.ts#lines-21)
+[component/clock.ts:21](https://bitbucket.org/siposdani87/sui-js/src/5c73bef/src/component/clock.ts#lines-21)
 
 ___
 
@@ -91,7 +91,7 @@ ___
 
 #### Defined in
 
-[component/clock.ts:24](https://bitbucket.org/siposdani87/sui-js/src/412afc3/src/component/clock.ts#lines-24)
+[component/clock.ts:24](https://bitbucket.org/siposdani87/sui-js/src/5c73bef/src/component/clock.ts#lines-24)
 
 ___
 
@@ -101,7 +101,7 @@ ___
 
 #### Defined in
 
-[component/clock.ts:20](https://bitbucket.org/siposdani87/sui-js/src/412afc3/src/component/clock.ts#lines-20)
+[component/clock.ts:20](https://bitbucket.org/siposdani87/sui-js/src/5c73bef/src/component/clock.ts#lines-20)
 
 ___
 
@@ -111,7 +111,7 @@ ___
 
 #### Defined in
 
-[component/clock.ts:13](https://bitbucket.org/siposdani87/sui-js/src/412afc3/src/component/clock.ts#lines-13)
+[component/clock.ts:13](https://bitbucket.org/siposdani87/sui-js/src/5c73bef/src/component/clock.ts#lines-13)
 
 ___
 
@@ -121,7 +121,7 @@ ___
 
 #### Defined in
 
-[component/clock.ts:12](https://bitbucket.org/siposdani87/sui-js/src/412afc3/src/component/clock.ts#lines-12)
+[component/clock.ts:12](https://bitbucket.org/siposdani87/sui-js/src/5c73bef/src/component/clock.ts#lines-12)
 
 ___
 
@@ -131,7 +131,7 @@ ___
 
 #### Defined in
 
-[component/clock.ts:18](https://bitbucket.org/siposdani87/sui-js/src/412afc3/src/component/clock.ts#lines-18)
+[component/clock.ts:18](https://bitbucket.org/siposdani87/sui-js/src/5c73bef/src/component/clock.ts#lines-18)
 
 ___
 
@@ -141,7 +141,7 @@ ___
 
 #### Defined in
 
-[component/clock.ts:17](https://bitbucket.org/siposdani87/sui-js/src/412afc3/src/component/clock.ts#lines-17)
+[component/clock.ts:17](https://bitbucket.org/siposdani87/sui-js/src/5c73bef/src/component/clock.ts#lines-17)
 
 ___
 
@@ -151,7 +151,7 @@ ___
 
 #### Defined in
 
-[component/clock.ts:19](https://bitbucket.org/siposdani87/sui-js/src/412afc3/src/component/clock.ts#lines-19)
+[component/clock.ts:19](https://bitbucket.org/siposdani87/sui-js/src/5c73bef/src/component/clock.ts#lines-19)
 
 ___
 
@@ -168,7 +168,7 @@ ___
 
 #### Defined in
 
-[component/clock.ts:14](https://bitbucket.org/siposdani87/sui-js/src/412afc3/src/component/clock.ts#lines-14)
+[component/clock.ts:14](https://bitbucket.org/siposdani87/sui-js/src/5c73bef/src/component/clock.ts#lines-14)
 
 ## Methods
 
@@ -188,7 +188,7 @@ ___
 
 #### Defined in
 
-[component/clock.ts:274](https://bitbucket.org/siposdani87/sui-js/src/412afc3/src/component/clock.ts#lines-274)
+[component/clock.ts:274](https://bitbucket.org/siposdani87/sui-js/src/5c73bef/src/component/clock.ts#lines-274)
 
 ___
 
@@ -208,7 +208,7 @@ ___
 
 #### Defined in
 
-[component/clock.ts:315](https://bitbucket.org/siposdani87/sui-js/src/412afc3/src/component/clock.ts#lines-315)
+[component/clock.ts:315](https://bitbucket.org/siposdani87/sui-js/src/5c73bef/src/component/clock.ts#lines-315)
 
 ___
 
@@ -228,7 +228,7 @@ ___
 
 #### Defined in
 
-[component/clock.ts:298](https://bitbucket.org/siposdani87/sui-js/src/412afc3/src/component/clock.ts#lines-298)
+[component/clock.ts:298](https://bitbucket.org/siposdani87/sui-js/src/5c73bef/src/component/clock.ts#lines-298)
 
 ___
 
@@ -248,7 +248,7 @@ ___
 
 #### Defined in
 
-[component/clock.ts:261](https://bitbucket.org/siposdani87/sui-js/src/412afc3/src/component/clock.ts#lines-261)
+[component/clock.ts:261](https://bitbucket.org/siposdani87/sui-js/src/5c73bef/src/component/clock.ts#lines-261)
 
 ___
 
@@ -262,7 +262,7 @@ ___
 
 #### Defined in
 
-[component/clock.ts:185](https://bitbucket.org/siposdani87/sui-js/src/412afc3/src/component/clock.ts#lines-185)
+[component/clock.ts:185](https://bitbucket.org/siposdani87/sui-js/src/5c73bef/src/component/clock.ts#lines-185)
 
 ___
 
@@ -276,7 +276,7 @@ ___
 
 #### Defined in
 
-[component/clock.ts:46](https://bitbucket.org/siposdani87/sui-js/src/412afc3/src/component/clock.ts#lines-46)
+[component/clock.ts:46](https://bitbucket.org/siposdani87/sui-js/src/5c73bef/src/component/clock.ts#lines-46)
 
 ___
 
@@ -290,7 +290,7 @@ ___
 
 #### Defined in
 
-[component/clock.ts:176](https://bitbucket.org/siposdani87/sui-js/src/412afc3/src/component/clock.ts#lines-176)
+[component/clock.ts:176](https://bitbucket.org/siposdani87/sui-js/src/5c73bef/src/component/clock.ts#lines-176)
 
 ___
 
@@ -304,7 +304,7 @@ ___
 
 #### Defined in
 
-[component/clock.ts:93](https://bitbucket.org/siposdani87/sui-js/src/412afc3/src/component/clock.ts#lines-93)
+[component/clock.ts:93](https://bitbucket.org/siposdani87/sui-js/src/5c73bef/src/component/clock.ts#lines-93)
 
 ___
 
@@ -318,7 +318,7 @@ ___
 
 #### Defined in
 
-[component/clock.ts:144](https://bitbucket.org/siposdani87/sui-js/src/412afc3/src/component/clock.ts#lines-144)
+[component/clock.ts:144](https://bitbucket.org/siposdani87/sui-js/src/5c73bef/src/component/clock.ts#lines-144)
 
 ___
 
@@ -332,7 +332,7 @@ ___
 
 #### Defined in
 
-[component/clock.ts:132](https://bitbucket.org/siposdani87/sui-js/src/412afc3/src/component/clock.ts#lines-132)
+[component/clock.ts:132](https://bitbucket.org/siposdani87/sui-js/src/5c73bef/src/component/clock.ts#lines-132)
 
 ___
 
@@ -352,7 +352,7 @@ ___
 
 #### Defined in
 
-[component/clock.ts:252](https://bitbucket.org/siposdani87/sui-js/src/412afc3/src/component/clock.ts#lines-252)
+[component/clock.ts:252](https://bitbucket.org/siposdani87/sui-js/src/5c73bef/src/component/clock.ts#lines-252)
 
 ___
 
@@ -366,7 +366,7 @@ ___
 
 #### Defined in
 
-[component/clock.ts:107](https://bitbucket.org/siposdani87/sui-js/src/412afc3/src/component/clock.ts#lines-107)
+[component/clock.ts:107](https://bitbucket.org/siposdani87/sui-js/src/5c73bef/src/component/clock.ts#lines-107)
 
 ___
 
@@ -380,7 +380,7 @@ ___
 
 #### Defined in
 
-[component/clock.ts:166](https://bitbucket.org/siposdani87/sui-js/src/412afc3/src/component/clock.ts#lines-166)
+[component/clock.ts:166](https://bitbucket.org/siposdani87/sui-js/src/5c73bef/src/component/clock.ts#lines-166)
 
 ___
 
@@ -394,7 +394,7 @@ ___
 
 #### Defined in
 
-[component/clock.ts:82](https://bitbucket.org/siposdani87/sui-js/src/412afc3/src/component/clock.ts#lines-82)
+[component/clock.ts:82](https://bitbucket.org/siposdani87/sui-js/src/5c73bef/src/component/clock.ts#lines-82)
 
 ___
 
@@ -414,7 +414,7 @@ ___
 
 #### Defined in
 
-[component/clock.ts:333](https://bitbucket.org/siposdani87/sui-js/src/412afc3/src/component/clock.ts#lines-333)
+[component/clock.ts:333](https://bitbucket.org/siposdani87/sui-js/src/5c73bef/src/component/clock.ts#lines-333)
 
 ___
 
@@ -434,7 +434,7 @@ ___
 
 #### Defined in
 
-[component/clock.ts:197](https://bitbucket.org/siposdani87/sui-js/src/412afc3/src/component/clock.ts#lines-197)
+[component/clock.ts:197](https://bitbucket.org/siposdani87/sui-js/src/5c73bef/src/component/clock.ts#lines-197)
 
 ___
 
@@ -454,7 +454,7 @@ ___
 
 #### Defined in
 
-[component/clock.ts:210](https://bitbucket.org/siposdani87/sui-js/src/412afc3/src/component/clock.ts#lines-210)
+[component/clock.ts:210](https://bitbucket.org/siposdani87/sui-js/src/5c73bef/src/component/clock.ts#lines-210)
 
 ___
 
@@ -474,7 +474,7 @@ ___
 
 #### Defined in
 
-[component/clock.ts:157](https://bitbucket.org/siposdani87/sui-js/src/412afc3/src/component/clock.ts#lines-157)
+[component/clock.ts:157](https://bitbucket.org/siposdani87/sui-js/src/5c73bef/src/component/clock.ts#lines-157)
 
 ___
 
@@ -494,7 +494,7 @@ ___
 
 #### Defined in
 
-[component/clock.ts:39](https://bitbucket.org/siposdani87/sui-js/src/412afc3/src/component/clock.ts#lines-39)
+[component/clock.ts:39](https://bitbucket.org/siposdani87/sui-js/src/5c73bef/src/component/clock.ts#lines-39)
 
 ___
 
@@ -514,7 +514,7 @@ ___
 
 #### Defined in
 
-[component/clock.ts:224](https://bitbucket.org/siposdani87/sui-js/src/412afc3/src/component/clock.ts#lines-224)
+[component/clock.ts:224](https://bitbucket.org/siposdani87/sui-js/src/5c73bef/src/component/clock.ts#lines-224)
 
 ___
 
@@ -535,7 +535,7 @@ ___
 
 #### Defined in
 
-[component/clock.ts:61](https://bitbucket.org/siposdani87/sui-js/src/412afc3/src/component/clock.ts#lines-61)
+[component/clock.ts:61](https://bitbucket.org/siposdani87/sui-js/src/5c73bef/src/component/clock.ts#lines-61)
 
 ___
 
@@ -549,7 +549,7 @@ ___
 
 #### Defined in
 
-[component/clock.ts:120](https://bitbucket.org/siposdani87/sui-js/src/412afc3/src/component/clock.ts#lines-120)
+[component/clock.ts:120](https://bitbucket.org/siposdani87/sui-js/src/5c73bef/src/component/clock.ts#lines-120)
 
 ___
 
@@ -563,7 +563,7 @@ ___
 
 #### Defined in
 
-[component/clock.ts:281](https://bitbucket.org/siposdani87/sui-js/src/412afc3/src/component/clock.ts#lines-281)
+[component/clock.ts:281](https://bitbucket.org/siposdani87/sui-js/src/5c73bef/src/component/clock.ts#lines-281)
 
 ___
 
@@ -583,7 +583,7 @@ ___
 
 #### Defined in
 
-[component/clock.ts:342](https://bitbucket.org/siposdani87/sui-js/src/412afc3/src/component/clock.ts#lines-342)
+[component/clock.ts:342](https://bitbucket.org/siposdani87/sui-js/src/5c73bef/src/component/clock.ts#lines-342)
 
 ___
 
@@ -603,4 +603,4 @@ ___
 
 #### Defined in
 
-[component/clock.ts:235](https://bitbucket.org/siposdani87/sui-js/src/412afc3/src/component/clock.ts#lines-235)
+[component/clock.ts:235](https://bitbucket.org/siposdani87/sui-js/src/5c73bef/src/component/clock.ts#lines-235)

@@ -22,7 +22,7 @@ custom_edit_url: null
 
 #### Defined in
 
-[component/year.ts:19](https://bitbucket.org/siposdani87/sui-js/src/412afc3/src/component/year.ts#lines-19)
+[component/year.ts:19](https://bitbucket.org/siposdani87/sui-js/src/5c73bef/src/component/year.ts#lines-19)
 
 ## Properties
 
@@ -32,7 +32,7 @@ custom_edit_url: null
 
 #### Defined in
 
-[component/year.ts:13](https://bitbucket.org/siposdani87/sui-js/src/412afc3/src/component/year.ts#lines-13)
+[component/year.ts:13](https://bitbucket.org/siposdani87/sui-js/src/5c73bef/src/component/year.ts#lines-13)
 
 ___
 
@@ -42,7 +42,7 @@ ___
 
 #### Defined in
 
-[component/year.ts:11](https://bitbucket.org/siposdani87/sui-js/src/412afc3/src/component/year.ts#lines-11)
+[component/year.ts:11](https://bitbucket.org/siposdani87/sui-js/src/5c73bef/src/component/year.ts#lines-11)
 
 ___
 
@@ -52,7 +52,7 @@ ___
 
 #### Defined in
 
-[component/year.ts:10](https://bitbucket.org/siposdani87/sui-js/src/412afc3/src/component/year.ts#lines-10)
+[component/year.ts:10](https://bitbucket.org/siposdani87/sui-js/src/5c73bef/src/component/year.ts#lines-10)
 
 ___
 
@@ -62,7 +62,7 @@ ___
 
 #### Defined in
 
-[component/year.ts:12](https://bitbucket.org/siposdani87/sui-js/src/412afc3/src/component/year.ts#lines-12)
+[component/year.ts:12](https://bitbucket.org/siposdani87/sui-js/src/5c73bef/src/component/year.ts#lines-12)
 
 ## Methods
 
@@ -76,7 +76,7 @@ ___
 
 #### Defined in
 
-[component/year.ts:37](https://bitbucket.org/siposdani87/sui-js/src/412afc3/src/component/year.ts#lines-37)
+[component/year.ts:37](https://bitbucket.org/siposdani87/sui-js/src/5c73bef/src/component/year.ts#lines-37)
 
 ___
 
@@ -96,7 +96,7 @@ ___
 
 #### Defined in
 
-[component/year.ts:30](https://bitbucket.org/siposdani87/sui-js/src/412afc3/src/component/year.ts#lines-30)
+[component/year.ts:30](https://bitbucket.org/siposdani87/sui-js/src/5c73bef/src/component/year.ts#lines-30)
 
 ___
 
@@ -116,7 +116,7 @@ ___
 
 #### Defined in
 
-[component/year.ts:66](https://bitbucket.org/siposdani87/sui-js/src/412afc3/src/component/year.ts#lines-66)
+[component/year.ts:66](https://bitbucket.org/siposdani87/sui-js/src/5c73bef/src/component/year.ts#lines-66)
 
 ___
 
@@ -130,4 +130,4 @@ ___
 
 #### Defined in
 
-[component/year.ts:53](https://bitbucket.org/siposdani87/sui-js/src/412afc3/src/component/year.ts#lines-53)
+[component/year.ts:53](https://bitbucket.org/siposdani87/sui-js/src/5c73bef/src/component/year.ts#lines-53)

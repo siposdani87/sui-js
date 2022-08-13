@@ -31,7 +31,7 @@ custom_edit_url: null
 
 #### Defined in
 
-[module/dialog.ts:21](https://bitbucket.org/siposdani87/sui-js/src/412afc3/src/module/dialog.ts#lines-21)
+[module/dialog.ts:21](https://bitbucket.org/siposdani87/sui-js/src/5c73bef/src/module/dialog.ts#lines-21)
 
 ## Properties
 
@@ -45,7 +45,7 @@ custom_edit_url: null
 
 #### Defined in
 
-[module/baseModal.ts:19](https://bitbucket.org/siposdani87/sui-js/src/412afc3/src/module/baseModal.ts#lines-19)
+[module/baseModal.ts:19](https://bitbucket.org/siposdani87/sui-js/src/5c73bef/src/module/baseModal.ts#lines-19)
 
 ___
 
@@ -59,7 +59,7 @@ ___
 
 #### Defined in
 
-[module/baseModal.ts:18](https://bitbucket.org/siposdani87/sui-js/src/412afc3/src/module/baseModal.ts#lines-18)
+[module/baseModal.ts:18](https://bitbucket.org/siposdani87/sui-js/src/5c73bef/src/module/baseModal.ts#lines-18)
 
 ___
 
@@ -73,7 +73,7 @@ ___
 
 #### Defined in
 
-[module/baseModal.ts:17](https://bitbucket.org/siposdani87/sui-js/src/412afc3/src/module/baseModal.ts#lines-17)
+[module/baseModal.ts:17](https://bitbucket.org/siposdani87/sui-js/src/5c73bef/src/module/baseModal.ts#lines-17)
 
 ___
 
@@ -87,7 +87,7 @@ ___
 
 #### Defined in
 
-[module/baseModal.ts:16](https://bitbucket.org/siposdani87/sui-js/src/412afc3/src/module/baseModal.ts#lines-16)
+[module/baseModal.ts:16](https://bitbucket.org/siposdani87/sui-js/src/5c73bef/src/module/baseModal.ts#lines-16)
 
 ___
 
@@ -109,7 +109,7 @@ ___
 
 #### Defined in
 
-[module/baseModal.ts:27](https://bitbucket.org/siposdani87/sui-js/src/412afc3/src/module/baseModal.ts#lines-27)
+[module/baseModal.ts:27](https://bitbucket.org/siposdani87/sui-js/src/5c73bef/src/module/baseModal.ts#lines-27)
 
 ___
 
@@ -131,7 +131,7 @@ ___
 
 #### Defined in
 
-[module/baseModal.ts:26](https://bitbucket.org/siposdani87/sui-js/src/412afc3/src/module/baseModal.ts#lines-26)
+[module/baseModal.ts:26](https://bitbucket.org/siposdani87/sui-js/src/5c73bef/src/module/baseModal.ts#lines-26)
 
 ___
 
@@ -145,7 +145,7 @@ ___
 
 #### Defined in
 
-[module/baseModal.ts:14](https://bitbucket.org/siposdani87/sui-js/src/412afc3/src/module/baseModal.ts#lines-14)
+[module/baseModal.ts:14](https://bitbucket.org/siposdani87/sui-js/src/5c73bef/src/module/baseModal.ts#lines-14)
 
 ___
 
@@ -155,7 +155,7 @@ ___
 
 #### Defined in
 
-[module/dialog.ts:15](https://bitbucket.org/siposdani87/sui-js/src/412afc3/src/module/dialog.ts#lines-15)
+[module/dialog.ts:15](https://bitbucket.org/siposdani87/sui-js/src/5c73bef/src/module/dialog.ts#lines-15)
 
 ___
 
@@ -169,7 +169,7 @@ ___
 
 #### Defined in
 
-[module/baseModal.ts:20](https://bitbucket.org/siposdani87/sui-js/src/412afc3/src/module/baseModal.ts#lines-20)
+[module/baseModal.ts:20](https://bitbucket.org/siposdani87/sui-js/src/5c73bef/src/module/baseModal.ts#lines-20)
 
 ___
 
@@ -183,7 +183,7 @@ ___
 
 #### Defined in
 
-[module/baseModal.ts:13](https://bitbucket.org/siposdani87/sui-js/src/412afc3/src/module/baseModal.ts#lines-13)
+[module/baseModal.ts:13](https://bitbucket.org/siposdani87/sui-js/src/5c73bef/src/module/baseModal.ts#lines-13)
 
 ___
 
@@ -197,7 +197,7 @@ ___
 
 #### Defined in
 
-[module/baseModal.ts:15](https://bitbucket.org/siposdani87/sui-js/src/412afc3/src/module/baseModal.ts#lines-15)
+[module/baseModal.ts:15](https://bitbucket.org/siposdani87/sui-js/src/5c73bef/src/module/baseModal.ts#lines-15)
 
 ___
 
@@ -211,7 +211,7 @@ ___
 
 #### Defined in
 
-[module/baseModal.ts:22](https://bitbucket.org/siposdani87/sui-js/src/412afc3/src/module/baseModal.ts#lines-22)
+[module/baseModal.ts:22](https://bitbucket.org/siposdani87/sui-js/src/5c73bef/src/module/baseModal.ts#lines-22)
 
 ___
 
@@ -225,7 +225,7 @@ ___
 
 #### Defined in
 
-[module/baseModal.ts:23](https://bitbucket.org/siposdani87/sui-js/src/412afc3/src/module/baseModal.ts#lines-23)
+[module/baseModal.ts:23](https://bitbucket.org/siposdani87/sui-js/src/5c73bef/src/module/baseModal.ts#lines-23)
 
 ___
 
@@ -239,7 +239,7 @@ ___
 
 #### Defined in
 
-[module/baseModal.ts:24](https://bitbucket.org/siposdani87/sui-js/src/412afc3/src/module/baseModal.ts#lines-24)
+[module/baseModal.ts:24](https://bitbucket.org/siposdani87/sui-js/src/5c73bef/src/module/baseModal.ts#lines-24)
 
 ___
 
@@ -253,7 +253,7 @@ ___
 
 #### Defined in
 
-[module/baseModal.ts:21](https://bitbucket.org/siposdani87/sui-js/src/412afc3/src/module/baseModal.ts#lines-21)
+[module/baseModal.ts:21](https://bitbucket.org/siposdani87/sui-js/src/5c73bef/src/module/baseModal.ts#lines-21)
 
 ___
 
@@ -267,7 +267,7 @@ ___
 
 #### Defined in
 
-[module/baseModal.ts:28](https://bitbucket.org/siposdani87/sui-js/src/412afc3/src/module/baseModal.ts#lines-28)
+[module/baseModal.ts:28](https://bitbucket.org/siposdani87/sui-js/src/5c73bef/src/module/baseModal.ts#lines-28)
 
 ___
 
@@ -277,7 +277,7 @@ ___
 
 #### Defined in
 
-[module/dialog.ts:16](https://bitbucket.org/siposdani87/sui-js/src/412afc3/src/module/dialog.ts#lines-16)
+[module/dialog.ts:16](https://bitbucket.org/siposdani87/sui-js/src/5c73bef/src/module/dialog.ts#lines-16)
 
 ___
 
@@ -291,7 +291,7 @@ ___
 
 #### Defined in
 
-[module/baseModal.ts:25](https://bitbucket.org/siposdani87/sui-js/src/412afc3/src/module/baseModal.ts#lines-25)
+[module/baseModal.ts:25](https://bitbucket.org/siposdani87/sui-js/src/5c73bef/src/module/baseModal.ts#lines-25)
 
 ___
 
@@ -305,7 +305,7 @@ ___
 
 #### Defined in
 
-[module/baseModal.ts:12](https://bitbucket.org/siposdani87/sui-js/src/412afc3/src/module/baseModal.ts#lines-12)
+[module/baseModal.ts:12](https://bitbucket.org/siposdani87/sui-js/src/5c73bef/src/module/baseModal.ts#lines-12)
 
 ___
 
@@ -319,7 +319,7 @@ ___
 
 #### Defined in
 
-[module/baseModal.ts:11](https://bitbucket.org/siposdani87/sui-js/src/412afc3/src/module/baseModal.ts#lines-11)
+[module/baseModal.ts:11](https://bitbucket.org/siposdani87/sui-js/src/5c73bef/src/module/baseModal.ts#lines-11)
 
 ## Methods
 
@@ -337,7 +337,7 @@ ___
 
 #### Defined in
 
-[module/baseModal.ts:205](https://bitbucket.org/siposdani87/sui-js/src/412afc3/src/module/baseModal.ts#lines-205)
+[module/baseModal.ts:205](https://bitbucket.org/siposdani87/sui-js/src/5c73bef/src/module/baseModal.ts#lines-205)
 
 ___
 
@@ -355,7 +355,7 @@ ___
 
 #### Defined in
 
-[module/baseModal.ts:196](https://bitbucket.org/siposdani87/sui-js/src/412afc3/src/module/baseModal.ts#lines-196)
+[module/baseModal.ts:196](https://bitbucket.org/siposdani87/sui-js/src/5c73bef/src/module/baseModal.ts#lines-196)
 
 ___
 
@@ -375,7 +375,7 @@ ___
 
 #### Defined in
 
-[module/dialog.ts:110](https://bitbucket.org/siposdani87/sui-js/src/412afc3/src/module/dialog.ts#lines-110)
+[module/dialog.ts:110](https://bitbucket.org/siposdani87/sui-js/src/5c73bef/src/module/dialog.ts#lines-110)
 
 ___
 
@@ -395,7 +395,7 @@ ___
 
 #### Defined in
 
-[module/dialog.ts:92](https://bitbucket.org/siposdani87/sui-js/src/412afc3/src/module/dialog.ts#lines-92)
+[module/dialog.ts:92](https://bitbucket.org/siposdani87/sui-js/src/5c73bef/src/module/dialog.ts#lines-92)
 
 ___
 
@@ -415,7 +415,7 @@ ___
 
 #### Defined in
 
-[module/dialog.ts:80](https://bitbucket.org/siposdani87/sui-js/src/412afc3/src/module/dialog.ts#lines-80)
+[module/dialog.ts:80](https://bitbucket.org/siposdani87/sui-js/src/5c73bef/src/module/dialog.ts#lines-80)
 
 ___
 
@@ -429,7 +429,7 @@ ___
 
 #### Defined in
 
-[module/dialog.ts:44](https://bitbucket.org/siposdani87/sui-js/src/412afc3/src/module/dialog.ts#lines-44)
+[module/dialog.ts:44](https://bitbucket.org/siposdani87/sui-js/src/5c73bef/src/module/dialog.ts#lines-44)
 
 ___
 
@@ -447,7 +447,7 @@ ___
 
 #### Defined in
 
-[module/baseModal.ts:33](https://bitbucket.org/siposdani87/sui-js/src/412afc3/src/module/baseModal.ts#lines-33)
+[module/baseModal.ts:33](https://bitbucket.org/siposdani87/sui-js/src/5c73bef/src/module/baseModal.ts#lines-33)
 
 ___
 
@@ -465,7 +465,7 @@ ___
 
 #### Defined in
 
-[module/baseModal.ts:188](https://bitbucket.org/siposdani87/sui-js/src/412afc3/src/module/baseModal.ts#lines-188)
+[module/baseModal.ts:188](https://bitbucket.org/siposdani87/sui-js/src/5c73bef/src/module/baseModal.ts#lines-188)
 
 ___
 
@@ -485,7 +485,7 @@ ___
 
 #### Defined in
 
-[module/dialog.ts:33](https://bitbucket.org/siposdani87/sui-js/src/412afc3/src/module/dialog.ts#lines-33)
+[module/dialog.ts:33](https://bitbucket.org/siposdani87/sui-js/src/5c73bef/src/module/dialog.ts#lines-33)
 
 ___
 
@@ -509,7 +509,7 @@ ___
 
 #### Defined in
 
-[module/baseModal.ts:171](https://bitbucket.org/siposdani87/sui-js/src/412afc3/src/module/baseModal.ts#lines-171)
+[module/baseModal.ts:171](https://bitbucket.org/siposdani87/sui-js/src/5c73bef/src/module/baseModal.ts#lines-171)
 
 ___
 
@@ -527,7 +527,7 @@ ___
 
 #### Defined in
 
-[module/baseModal.ts:151](https://bitbucket.org/siposdani87/sui-js/src/412afc3/src/module/baseModal.ts#lines-151)
+[module/baseModal.ts:151](https://bitbucket.org/siposdani87/sui-js/src/5c73bef/src/module/baseModal.ts#lines-151)
 
 ___
 
@@ -545,7 +545,7 @@ ___
 
 #### Defined in
 
-[module/baseModal.ts:108](https://bitbucket.org/siposdani87/sui-js/src/412afc3/src/module/baseModal.ts#lines-108)
+[module/baseModal.ts:108](https://bitbucket.org/siposdani87/sui-js/src/5c73bef/src/module/baseModal.ts#lines-108)
 
 ___
 
@@ -565,7 +565,7 @@ ___
 
 #### Defined in
 
-[module/dialog.ts:60](https://bitbucket.org/siposdani87/sui-js/src/412afc3/src/module/dialog.ts#lines-60)
+[module/dialog.ts:60](https://bitbucket.org/siposdani87/sui-js/src/5c73bef/src/module/dialog.ts#lines-60)
 
 ___
 
@@ -589,7 +589,7 @@ ___
 
 #### Defined in
 
-[module/baseModal.ts:131](https://bitbucket.org/siposdani87/sui-js/src/412afc3/src/module/baseModal.ts#lines-131)
+[module/baseModal.ts:131](https://bitbucket.org/siposdani87/sui-js/src/5c73bef/src/module/baseModal.ts#lines-131)
 
 ___
 
@@ -614,4 +614,4 @@ ___
 
 #### Defined in
 
-[module/baseModal.ts:229](https://bitbucket.org/siposdani87/sui-js/src/412afc3/src/module/baseModal.ts#lines-229)
+[module/baseModal.ts:229](https://bitbucket.org/siposdani87/sui-js/src/5c73bef/src/module/baseModal.ts#lines-229)

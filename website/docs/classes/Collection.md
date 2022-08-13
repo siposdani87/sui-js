@@ -42,7 +42,7 @@ custom_edit_url: null
 
 #### Defined in
 
-[core/collection.ts:25](https://bitbucket.org/siposdani87/sui-js/src/412afc3/src/core/collection.ts#lines-25)
+[core/collection.ts:25](https://bitbucket.org/siposdani87/sui-js/src/5c73bef/src/core/collection.ts#lines-25)
 
 ## Properties
 
@@ -52,7 +52,7 @@ custom_edit_url: null
 
 #### Defined in
 
-[core/collection.ts:17](https://bitbucket.org/siposdani87/sui-js/src/412afc3/src/core/collection.ts#lines-17)
+[core/collection.ts:17](https://bitbucket.org/siposdani87/sui-js/src/5c73bef/src/core/collection.ts#lines-17)
 
 ___
 
@@ -62,7 +62,7 @@ ___
 
 #### Defined in
 
-[core/collection.ts:18](https://bitbucket.org/siposdani87/sui-js/src/412afc3/src/core/collection.ts#lines-18)
+[core/collection.ts:18](https://bitbucket.org/siposdani87/sui-js/src/5c73bef/src/core/collection.ts#lines-18)
 
 ___
 
@@ -72,7 +72,7 @@ ___
 
 #### Defined in
 
-[core/collection.ts:19](https://bitbucket.org/siposdani87/sui-js/src/412afc3/src/core/collection.ts#lines-19)
+[core/collection.ts:19](https://bitbucket.org/siposdani87/sui-js/src/5c73bef/src/core/collection.ts#lines-19)
 
 ## Methods
 
@@ -92,7 +92,7 @@ ___
 
 #### Defined in
 
-[core/collection.ts:79](https://bitbucket.org/siposdani87/sui-js/src/412afc3/src/core/collection.ts#lines-79)
+[core/collection.ts:79](https://bitbucket.org/siposdani87/sui-js/src/5c73bef/src/core/collection.ts#lines-79)
 
 ___
 
@@ -112,7 +112,7 @@ ___
 
 #### Defined in
 
-[core/collection.ts:40](https://bitbucket.org/siposdani87/sui-js/src/412afc3/src/core/collection.ts#lines-40)
+[core/collection.ts:40](https://bitbucket.org/siposdani87/sui-js/src/5c73bef/src/core/collection.ts#lines-40)
 
 ___
 
@@ -126,7 +126,7 @@ ___
 
 #### Defined in
 
-[core/collection.ts:189](https://bitbucket.org/siposdani87/sui-js/src/412afc3/src/core/collection.ts#lines-189)
+[core/collection.ts:189](https://bitbucket.org/siposdani87/sui-js/src/5c73bef/src/core/collection.ts#lines-189)
 
 ___
 
@@ -146,7 +146,7 @@ ___
 
 #### Defined in
 
-[core/collection.ts:247](https://bitbucket.org/siposdani87/sui-js/src/412afc3/src/core/collection.ts#lines-247)
+[core/collection.ts:247](https://bitbucket.org/siposdani87/sui-js/src/5c73bef/src/core/collection.ts#lines-247)
 
 ___
 
@@ -167,7 +167,7 @@ ___
 
 #### Defined in
 
-[core/collection.ts:287](https://bitbucket.org/siposdani87/sui-js/src/412afc3/src/core/collection.ts#lines-287)
+[core/collection.ts:287](https://bitbucket.org/siposdani87/sui-js/src/5c73bef/src/core/collection.ts#lines-287)
 
 ___
 
@@ -187,7 +187,7 @@ ___
 
 #### Defined in
 
-[core/collection.ts:296](https://bitbucket.org/siposdani87/sui-js/src/412afc3/src/core/collection.ts#lines-296)
+[core/collection.ts:296](https://bitbucket.org/siposdani87/sui-js/src/5c73bef/src/core/collection.ts#lines-296)
 
 ___
 
@@ -208,7 +208,7 @@ ___
 
 #### Defined in
 
-[core/collection.ts:264](https://bitbucket.org/siposdani87/sui-js/src/412afc3/src/core/collection.ts#lines-264)
+[core/collection.ts:264](https://bitbucket.org/siposdani87/sui-js/src/5c73bef/src/core/collection.ts#lines-264)
 
 ___
 
@@ -228,7 +228,7 @@ ___
 
 #### Defined in
 
-[core/collection.ts:273](https://bitbucket.org/siposdani87/sui-js/src/412afc3/src/core/collection.ts#lines-273)
+[core/collection.ts:273](https://bitbucket.org/siposdani87/sui-js/src/5c73bef/src/core/collection.ts#lines-273)
 
 ___
 
@@ -248,7 +248,7 @@ ___
 
 #### Defined in
 
-[core/collection.ts:256](https://bitbucket.org/siposdani87/sui-js/src/412afc3/src/core/collection.ts#lines-256)
+[core/collection.ts:256](https://bitbucket.org/siposdani87/sui-js/src/5c73bef/src/core/collection.ts#lines-256)
 
 ___
 
@@ -268,7 +268,7 @@ ___
 
 #### Defined in
 
-[core/collection.ts:149](https://bitbucket.org/siposdani87/sui-js/src/412afc3/src/core/collection.ts#lines-149)
+[core/collection.ts:149](https://bitbucket.org/siposdani87/sui-js/src/5c73bef/src/core/collection.ts#lines-149)
 
 ___
 
@@ -289,7 +289,7 @@ ___
 
 #### Defined in
 
-[core/collection.ts:225](https://bitbucket.org/siposdani87/sui-js/src/412afc3/src/core/collection.ts#lines-225)
+[core/collection.ts:225](https://bitbucket.org/siposdani87/sui-js/src/5c73bef/src/core/collection.ts#lines-225)
 
 ___
 
@@ -309,7 +309,7 @@ ___
 
 #### Defined in
 
-[core/collection.ts:234](https://bitbucket.org/siposdani87/sui-js/src/412afc3/src/core/collection.ts#lines-234)
+[core/collection.ts:234](https://bitbucket.org/siposdani87/sui-js/src/5c73bef/src/core/collection.ts#lines-234)
 
 ___
 
@@ -330,7 +330,7 @@ ___
 
 #### Defined in
 
-[core/collection.ts:204](https://bitbucket.org/siposdani87/sui-js/src/412afc3/src/core/collection.ts#lines-204)
+[core/collection.ts:204](https://bitbucket.org/siposdani87/sui-js/src/5c73bef/src/core/collection.ts#lines-204)
 
 ___
 
@@ -350,7 +350,7 @@ ___
 
 #### Defined in
 
-[core/collection.ts:213](https://bitbucket.org/siposdani87/sui-js/src/412afc3/src/core/collection.ts#lines-213)
+[core/collection.ts:213](https://bitbucket.org/siposdani87/sui-js/src/5c73bef/src/core/collection.ts#lines-213)
 
 ___
 
@@ -370,7 +370,7 @@ ___
 
 #### Defined in
 
-[core/collection.ts:196](https://bitbucket.org/siposdani87/sui-js/src/412afc3/src/core/collection.ts#lines-196)
+[core/collection.ts:196](https://bitbucket.org/siposdani87/sui-js/src/5c73bef/src/core/collection.ts#lines-196)
 
 ___
 
@@ -397,7 +397,7 @@ ___
 
 #### Defined in
 
-[core/collection.ts:160](https://bitbucket.org/siposdani87/sui-js/src/412afc3/src/core/collection.ts#lines-160)
+[core/collection.ts:160](https://bitbucket.org/siposdani87/sui-js/src/5c73bef/src/core/collection.ts#lines-160)
 
 ___
 
@@ -424,7 +424,7 @@ ___
 
 #### Defined in
 
-[core/collection.ts:179](https://bitbucket.org/siposdani87/sui-js/src/412afc3/src/core/collection.ts#lines-179)
+[core/collection.ts:179](https://bitbucket.org/siposdani87/sui-js/src/5c73bef/src/core/collection.ts#lines-179)
 
 ___
 
@@ -438,7 +438,7 @@ ___
 
 #### Defined in
 
-[core/collection.ts:121](https://bitbucket.org/siposdani87/sui-js/src/412afc3/src/core/collection.ts#lines-121)
+[core/collection.ts:121](https://bitbucket.org/siposdani87/sui-js/src/5c73bef/src/core/collection.ts#lines-121)
 
 ___
 
@@ -460,7 +460,7 @@ ___
 
 #### Defined in
 
-[core/collection.ts:130](https://bitbucket.org/siposdani87/sui-js/src/412afc3/src/core/collection.ts#lines-130)
+[core/collection.ts:130](https://bitbucket.org/siposdani87/sui-js/src/5c73bef/src/core/collection.ts#lines-130)
 
 ___
 
@@ -481,7 +481,7 @@ ___
 
 #### Defined in
 
-[core/collection.ts:320](https://bitbucket.org/siposdani87/sui-js/src/412afc3/src/core/collection.ts#lines-320)
+[core/collection.ts:320](https://bitbucket.org/siposdani87/sui-js/src/5c73bef/src/core/collection.ts#lines-320)
 
 ___
 
@@ -501,7 +501,7 @@ ___
 
 #### Defined in
 
-[core/collection.ts:52](https://bitbucket.org/siposdani87/sui-js/src/412afc3/src/core/collection.ts#lines-52)
+[core/collection.ts:52](https://bitbucket.org/siposdani87/sui-js/src/5c73bef/src/core/collection.ts#lines-52)
 
 ___
 
@@ -521,7 +521,7 @@ ___
 
 #### Defined in
 
-[core/collection.ts:327](https://bitbucket.org/siposdani87/sui-js/src/412afc3/src/core/collection.ts#lines-327)
+[core/collection.ts:327](https://bitbucket.org/siposdani87/sui-js/src/5c73bef/src/core/collection.ts#lines-327)
 
 ___
 
@@ -541,7 +541,7 @@ ___
 
 #### Defined in
 
-[core/collection.ts:69](https://bitbucket.org/siposdani87/sui-js/src/412afc3/src/core/collection.ts#lines-69)
+[core/collection.ts:69](https://bitbucket.org/siposdani87/sui-js/src/5c73bef/src/core/collection.ts#lines-69)
 
 ___
 
@@ -561,7 +561,7 @@ ___
 
 #### Defined in
 
-[core/collection.ts:61](https://bitbucket.org/siposdani87/sui-js/src/412afc3/src/core/collection.ts#lines-61)
+[core/collection.ts:61](https://bitbucket.org/siposdani87/sui-js/src/5c73bef/src/core/collection.ts#lines-61)
 
 ___
 
@@ -581,7 +581,7 @@ ___
 
 #### Defined in
 
-[core/collection.ts:106](https://bitbucket.org/siposdani87/sui-js/src/412afc3/src/core/collection.ts#lines-106)
+[core/collection.ts:106](https://bitbucket.org/siposdani87/sui-js/src/5c73bef/src/core/collection.ts#lines-106)
 
 ___
 
@@ -602,7 +602,7 @@ ___
 
 #### Defined in
 
-[core/collection.ts:93](https://bitbucket.org/siposdani87/sui-js/src/412afc3/src/core/collection.ts#lines-93)
+[core/collection.ts:93](https://bitbucket.org/siposdani87/sui-js/src/5c73bef/src/core/collection.ts#lines-93)
 
 ___
 
@@ -616,4 +616,4 @@ ___
 
 #### Defined in
 
-[core/collection.ts:312](https://bitbucket.org/siposdani87/sui-js/src/412afc3/src/core/collection.ts#lines-312)
+[core/collection.ts:312](https://bitbucket.org/siposdani87/sui-js/src/5c73bef/src/core/collection.ts#lines-312)

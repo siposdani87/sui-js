@@ -20,7 +20,7 @@ custom_edit_url: null
 
 #### Defined in
 
-[module/header.ts:22](https://bitbucket.org/siposdani87/sui-js/src/412afc3/src/module/header.ts#lines-22)
+[module/header.ts:22](https://bitbucket.org/siposdani87/sui-js/src/5c73bef/src/module/header.ts#lines-22)
 
 ## Properties
 
@@ -30,7 +30,7 @@ custom_edit_url: null
 
 #### Defined in
 
-[module/header.ts:14](https://bitbucket.org/siposdani87/sui-js/src/412afc3/src/module/header.ts#lines-14)
+[module/header.ts:14](https://bitbucket.org/siposdani87/sui-js/src/5c73bef/src/module/header.ts#lines-14)
 
 ___
 
@@ -40,7 +40,7 @@ ___
 
 #### Defined in
 
-[module/header.ts:15](https://bitbucket.org/siposdani87/sui-js/src/412afc3/src/module/header.ts#lines-15)
+[module/header.ts:15](https://bitbucket.org/siposdani87/sui-js/src/5c73bef/src/module/header.ts#lines-15)
 
 ___
 
@@ -50,7 +50,7 @@ ___
 
 #### Defined in
 
-[module/header.ts:16](https://bitbucket.org/siposdani87/sui-js/src/412afc3/src/module/header.ts#lines-16)
+[module/header.ts:16](https://bitbucket.org/siposdani87/sui-js/src/5c73bef/src/module/header.ts#lines-16)
 
 ___
 
@@ -60,7 +60,7 @@ ___
 
 #### Defined in
 
-[module/header.ts:11](https://bitbucket.org/siposdani87/sui-js/src/412afc3/src/module/header.ts#lines-11)
+[module/header.ts:11](https://bitbucket.org/siposdani87/sui-js/src/5c73bef/src/module/header.ts#lines-11)
 
 ___
 
@@ -70,7 +70,7 @@ ___
 
 #### Defined in
 
-[module/header.ts:12](https://bitbucket.org/siposdani87/sui-js/src/412afc3/src/module/header.ts#lines-12)
+[module/header.ts:12](https://bitbucket.org/siposdani87/sui-js/src/5c73bef/src/module/header.ts#lines-12)
 
 ___
 
@@ -80,7 +80,7 @@ ___
 
 #### Defined in
 
-[module/header.ts:17](https://bitbucket.org/siposdani87/sui-js/src/412afc3/src/module/header.ts#lines-17)
+[module/header.ts:17](https://bitbucket.org/siposdani87/sui-js/src/5c73bef/src/module/header.ts#lines-17)
 
 ___
 
@@ -90,7 +90,7 @@ ___
 
 #### Defined in
 
-[module/header.ts:10](https://bitbucket.org/siposdani87/sui-js/src/412afc3/src/module/header.ts#lines-10)
+[module/header.ts:10](https://bitbucket.org/siposdani87/sui-js/src/5c73bef/src/module/header.ts#lines-10)
 
 ___
 
@@ -100,7 +100,7 @@ ___
 
 #### Defined in
 
-[module/header.ts:18](https://bitbucket.org/siposdani87/sui-js/src/412afc3/src/module/header.ts#lines-18)
+[module/header.ts:18](https://bitbucket.org/siposdani87/sui-js/src/5c73bef/src/module/header.ts#lines-18)
 
 ___
 
@@ -110,7 +110,7 @@ ___
 
 #### Defined in
 
-[module/header.ts:13](https://bitbucket.org/siposdani87/sui-js/src/412afc3/src/module/header.ts#lines-13)
+[module/header.ts:13](https://bitbucket.org/siposdani87/sui-js/src/5c73bef/src/module/header.ts#lines-13)
 
 ## Methods
 
@@ -124,7 +124,7 @@ ___
 
 #### Defined in
 
-[module/header.ts:40](https://bitbucket.org/siposdani87/sui-js/src/412afc3/src/module/header.ts#lines-40)
+[module/header.ts:40](https://bitbucket.org/siposdani87/sui-js/src/5c73bef/src/module/header.ts#lines-40)
 
 ___
 
@@ -144,7 +144,7 @@ ___
 
 #### Defined in
 
-[module/header.ts:31](https://bitbucket.org/siposdani87/sui-js/src/412afc3/src/module/header.ts#lines-31)
+[module/header.ts:31](https://bitbucket.org/siposdani87/sui-js/src/5c73bef/src/module/header.ts#lines-31)
 
 ___
 
@@ -158,7 +158,7 @@ ___
 
 #### Defined in
 
-[module/header.ts:103](https://bitbucket.org/siposdani87/sui-js/src/412afc3/src/module/header.ts#lines-103)
+[module/header.ts:103](https://bitbucket.org/siposdani87/sui-js/src/5c73bef/src/module/header.ts#lines-103)
 
 ___
 
@@ -172,7 +172,7 @@ ___
 
 #### Defined in
 
-[module/header.ts:70](https://bitbucket.org/siposdani87/sui-js/src/412afc3/src/module/header.ts#lines-70)
+[module/header.ts:70](https://bitbucket.org/siposdani87/sui-js/src/5c73bef/src/module/header.ts#lines-70)
 
 ___
 
@@ -186,7 +186,7 @@ ___
 
 #### Defined in
 
-[module/header.ts:117](https://bitbucket.org/siposdani87/sui-js/src/412afc3/src/module/header.ts#lines-117)
+[module/header.ts:117](https://bitbucket.org/siposdani87/sui-js/src/5c73bef/src/module/header.ts#lines-117)
 
 ___
 
@@ -200,7 +200,7 @@ ___
 
 #### Defined in
 
-[module/header.ts:143](https://bitbucket.org/siposdani87/sui-js/src/412afc3/src/module/header.ts#lines-143)
+[module/header.ts:143](https://bitbucket.org/siposdani87/sui-js/src/5c73bef/src/module/header.ts#lines-143)
 
 ___
 
@@ -214,7 +214,7 @@ ___
 
 #### Defined in
 
-[module/header.ts:131](https://bitbucket.org/siposdani87/sui-js/src/412afc3/src/module/header.ts#lines-131)
+[module/header.ts:131](https://bitbucket.org/siposdani87/sui-js/src/5c73bef/src/module/header.ts#lines-131)
 
 ___
 
@@ -228,7 +228,7 @@ ___
 
 #### Defined in
 
-[module/header.ts:155](https://bitbucket.org/siposdani87/sui-js/src/412afc3/src/module/header.ts#lines-155)
+[module/header.ts:155](https://bitbucket.org/siposdani87/sui-js/src/5c73bef/src/module/header.ts#lines-155)
 
 ___
 
@@ -242,7 +242,7 @@ ___
 
 #### Defined in
 
-[module/header.ts:97](https://bitbucket.org/siposdani87/sui-js/src/412afc3/src/module/header.ts#lines-97)
+[module/header.ts:97](https://bitbucket.org/siposdani87/sui-js/src/5c73bef/src/module/header.ts#lines-97)
 
 ___
 
@@ -262,7 +262,7 @@ ___
 
 #### Defined in
 
-[module/header.ts:91](https://bitbucket.org/siposdani87/sui-js/src/412afc3/src/module/header.ts#lines-91)
+[module/header.ts:91](https://bitbucket.org/siposdani87/sui-js/src/5c73bef/src/module/header.ts#lines-91)
 
 ___
 
@@ -282,7 +282,7 @@ ___
 
 #### Defined in
 
-[module/header.ts:77](https://bitbucket.org/siposdani87/sui-js/src/412afc3/src/module/header.ts#lines-77)
+[module/header.ts:77](https://bitbucket.org/siposdani87/sui-js/src/5c73bef/src/module/header.ts#lines-77)
 
 ___
 
@@ -302,7 +302,7 @@ ___
 
 #### Defined in
 
-[module/header.ts:84](https://bitbucket.org/siposdani87/sui-js/src/412afc3/src/module/header.ts#lines-84)
+[module/header.ts:84](https://bitbucket.org/siposdani87/sui-js/src/5c73bef/src/module/header.ts#lines-84)
 
 ___
 
@@ -316,7 +316,7 @@ ___
 
 #### Defined in
 
-[module/header.ts:109](https://bitbucket.org/siposdani87/sui-js/src/412afc3/src/module/header.ts#lines-109)
+[module/header.ts:109](https://bitbucket.org/siposdani87/sui-js/src/5c73bef/src/module/header.ts#lines-109)
 
 ___
 
@@ -330,7 +330,7 @@ ___
 
 #### Defined in
 
-[module/header.ts:137](https://bitbucket.org/siposdani87/sui-js/src/412afc3/src/module/header.ts#lines-137)
+[module/header.ts:137](https://bitbucket.org/siposdani87/sui-js/src/5c73bef/src/module/header.ts#lines-137)
 
 ___
 
@@ -344,7 +344,7 @@ ___
 
 #### Defined in
 
-[module/header.ts:125](https://bitbucket.org/siposdani87/sui-js/src/412afc3/src/module/header.ts#lines-125)
+[module/header.ts:125](https://bitbucket.org/siposdani87/sui-js/src/5c73bef/src/module/header.ts#lines-125)
 
 ___
 
@@ -358,4 +358,4 @@ ___
 
 #### Defined in
 
-[module/header.ts:149](https://bitbucket.org/siposdani87/sui-js/src/412afc3/src/module/header.ts#lines-149)
+[module/header.ts:149](https://bitbucket.org/siposdani87/sui-js/src/5c73bef/src/module/header.ts#lines-149)

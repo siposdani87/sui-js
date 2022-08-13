@@ -23,7 +23,7 @@ custom_edit_url: null
 
 #### Defined in
 
-[component/tabPanel.ts:23](https://bitbucket.org/siposdani87/sui-js/src/412afc3/src/component/tabPanel.ts#lines-23)
+[component/tabPanel.ts:23](https://bitbucket.org/siposdani87/sui-js/src/5c73bef/src/component/tabPanel.ts#lines-23)
 
 ## Properties
 
@@ -33,7 +33,7 @@ custom_edit_url: null
 
 #### Defined in
 
-[component/tabPanel.ts:14](https://bitbucket.org/siposdani87/sui-js/src/412afc3/src/component/tabPanel.ts#lines-14)
+[component/tabPanel.ts:14](https://bitbucket.org/siposdani87/sui-js/src/5c73bef/src/component/tabPanel.ts#lines-14)
 
 ___
 
@@ -50,7 +50,7 @@ ___
 
 #### Defined in
 
-[component/tabPanel.ts:13](https://bitbucket.org/siposdani87/sui-js/src/412afc3/src/component/tabPanel.ts#lines-13)
+[component/tabPanel.ts:13](https://bitbucket.org/siposdani87/sui-js/src/5c73bef/src/component/tabPanel.ts#lines-13)
 
 ___
 
@@ -60,7 +60,7 @@ ___
 
 #### Defined in
 
-[component/tabPanel.ts:16](https://bitbucket.org/siposdani87/sui-js/src/412afc3/src/component/tabPanel.ts#lines-16)
+[component/tabPanel.ts:16](https://bitbucket.org/siposdani87/sui-js/src/5c73bef/src/component/tabPanel.ts#lines-16)
 
 ___
 
@@ -70,7 +70,7 @@ ___
 
 #### Defined in
 
-[component/tabPanel.ts:12](https://bitbucket.org/siposdani87/sui-js/src/412afc3/src/component/tabPanel.ts#lines-12)
+[component/tabPanel.ts:12](https://bitbucket.org/siposdani87/sui-js/src/5c73bef/src/component/tabPanel.ts#lines-12)
 
 ___
 
@@ -80,7 +80,7 @@ ___
 
 #### Defined in
 
-[component/tabPanel.ts:15](https://bitbucket.org/siposdani87/sui-js/src/412afc3/src/component/tabPanel.ts#lines-15)
+[component/tabPanel.ts:15](https://bitbucket.org/siposdani87/sui-js/src/5c73bef/src/component/tabPanel.ts#lines-15)
 
 ## Methods
 
@@ -94,7 +94,7 @@ ___
 
 #### Defined in
 
-[component/tabPanel.ts:40](https://bitbucket.org/siposdani87/sui-js/src/412afc3/src/component/tabPanel.ts#lines-40)
+[component/tabPanel.ts:40](https://bitbucket.org/siposdani87/sui-js/src/5c73bef/src/component/tabPanel.ts#lines-40)
 
 ___
 
@@ -108,7 +108,7 @@ ___
 
 #### Defined in
 
-[component/tabPanel.ts:69](https://bitbucket.org/siposdani87/sui-js/src/412afc3/src/component/tabPanel.ts#lines-69)
+[component/tabPanel.ts:69](https://bitbucket.org/siposdani87/sui-js/src/5c73bef/src/component/tabPanel.ts#lines-69)
 
 ___
 
@@ -122,7 +122,7 @@ ___
 
 #### Defined in
 
-[component/tabPanel.ts:51](https://bitbucket.org/siposdani87/sui-js/src/412afc3/src/component/tabPanel.ts#lines-51)
+[component/tabPanel.ts:51](https://bitbucket.org/siposdani87/sui-js/src/5c73bef/src/component/tabPanel.ts#lines-51)
 
 ___
 
@@ -142,7 +142,7 @@ ___
 
 #### Defined in
 
-[component/tabPanel.ts:77](https://bitbucket.org/siposdani87/sui-js/src/412afc3/src/component/tabPanel.ts#lines-77)
+[component/tabPanel.ts:77](https://bitbucket.org/siposdani87/sui-js/src/5c73bef/src/component/tabPanel.ts#lines-77)
 
 ___
 
@@ -162,7 +162,7 @@ ___
 
 #### Defined in
 
-[component/tabPanel.ts:101](https://bitbucket.org/siposdani87/sui-js/src/412afc3/src/component/tabPanel.ts#lines-101)
+[component/tabPanel.ts:101](https://bitbucket.org/siposdani87/sui-js/src/5c73bef/src/component/tabPanel.ts#lines-101)
 
 ___
 
@@ -176,7 +176,7 @@ ___
 
 #### Defined in
 
-[component/tabPanel.ts:128](https://bitbucket.org/siposdani87/sui-js/src/412afc3/src/component/tabPanel.ts#lines-128)
+[component/tabPanel.ts:128](https://bitbucket.org/siposdani87/sui-js/src/5c73bef/src/component/tabPanel.ts#lines-128)
 
 ___
 
@@ -196,4 +196,4 @@ ___
 
 #### Defined in
 
-[component/tabPanel.ts:108](https://bitbucket.org/siposdani87/sui-js/src/412afc3/src/component/tabPanel.ts#lines-108)
+[component/tabPanel.ts:108](https://bitbucket.org/siposdani87/sui-js/src/5c73bef/src/component/tabPanel.ts#lines-108)

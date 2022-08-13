@@ -20,7 +20,7 @@ custom_edit_url: null
 
 #### Defined in
 
-[module/loader.ts:16](https://bitbucket.org/siposdani87/sui-js/src/412afc3/src/module/loader.ts#lines-16)
+[module/loader.ts:16](https://bitbucket.org/siposdani87/sui-js/src/5c73bef/src/module/loader.ts#lines-16)
 
 ## Properties
 
@@ -30,7 +30,7 @@ custom_edit_url: null
 
 #### Defined in
 
-[module/loader.ts:11](https://bitbucket.org/siposdani87/sui-js/src/412afc3/src/module/loader.ts#lines-11)
+[module/loader.ts:11](https://bitbucket.org/siposdani87/sui-js/src/5c73bef/src/module/loader.ts#lines-11)
 
 ___
 
@@ -40,7 +40,7 @@ ___
 
 #### Defined in
 
-[module/loader.ts:10](https://bitbucket.org/siposdani87/sui-js/src/412afc3/src/module/loader.ts#lines-10)
+[module/loader.ts:10](https://bitbucket.org/siposdani87/sui-js/src/5c73bef/src/module/loader.ts#lines-10)
 
 ___
 
@@ -50,7 +50,7 @@ ___
 
 #### Defined in
 
-[module/loader.ts:12](https://bitbucket.org/siposdani87/sui-js/src/412afc3/src/module/loader.ts#lines-12)
+[module/loader.ts:12](https://bitbucket.org/siposdani87/sui-js/src/5c73bef/src/module/loader.ts#lines-12)
 
 ## Methods
 
@@ -64,7 +64,7 @@ ___
 
 #### Defined in
 
-[module/loader.ts:36](https://bitbucket.org/siposdani87/sui-js/src/412afc3/src/module/loader.ts#lines-36)
+[module/loader.ts:36](https://bitbucket.org/siposdani87/sui-js/src/5c73bef/src/module/loader.ts#lines-36)
 
 ___
 
@@ -84,7 +84,7 @@ ___
 
 #### Defined in
 
-[module/loader.ts:25](https://bitbucket.org/siposdani87/sui-js/src/412afc3/src/module/loader.ts#lines-25)
+[module/loader.ts:25](https://bitbucket.org/siposdani87/sui-js/src/5c73bef/src/module/loader.ts#lines-25)
 
 ___
 
@@ -104,7 +104,7 @@ ___
 
 #### Defined in
 
-[module/loader.ts:60](https://bitbucket.org/siposdani87/sui-js/src/412afc3/src/module/loader.ts#lines-60)
+[module/loader.ts:60](https://bitbucket.org/siposdani87/sui-js/src/5c73bef/src/module/loader.ts#lines-60)
 
 ___
 
@@ -118,4 +118,4 @@ ___
 
 #### Defined in
 
-[module/loader.ts:51](https://bitbucket.org/siposdani87/sui-js/src/412afc3/src/module/loader.ts#lines-51)
+[module/loader.ts:51](https://bitbucket.org/siposdani87/sui-js/src/5c73bef/src/module/loader.ts#lines-51)
