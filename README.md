@@ -14,9 +14,6 @@ This is a lightweight JS framework. It is written in the TypeScript language. Th
 
 ```
 npm install @siposdani87/sui-js
-
-# Expo
-expo install @siposdani87/sui-js
 ```
 
 ### Basic Usage
