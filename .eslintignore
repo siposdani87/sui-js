@@ -1,6 +1,6 @@
 dist/*
-docs/*
 example/*
+website/*
 gulpfile.js
 jest.config.js
 jest.setup.ts
