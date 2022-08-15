@@ -18,6 +18,11 @@ npm install @siposdani87/sui-js
 
 ### Basic Usage
 
+Check example directory for more samples and options.
+
+```js
+
+```
 
 ## Preview
 ![Overview](https://raw.githubusercontent.com/siposdani87/sui-js/master/images/sui-js.png)

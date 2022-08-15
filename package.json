@@ -1,6 +1,6 @@
 {
   "name": "@siposdani87/sui-js",
-  "version": "0.7.0",
+  "version": "0.8.0",
   "description": "Lightweight Vanilla JavaScript micro framework",
   "main": "dist/index.js",
   "typings": "dist/index.d.ts",
