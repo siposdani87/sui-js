@@ -22,7 +22,7 @@ custom_edit_url: null
 
 #### Defined in
 
-[component/popup.ts:20](https://bitbucket.org/siposdani87/sui-js/src/5c73bef/src/component/popup.ts#lines-20)
+[component/popup.ts:20](https://github.com/siposdani87/sui-js/blob/0385915/src/component/popup.ts#L20)
 
 ## Properties
 
@@ -32,7 +32,7 @@ custom_edit_url: null
 
 #### Defined in
 
-[component/popup.ts:10](https://bitbucket.org/siposdani87/sui-js/src/5c73bef/src/component/popup.ts#lines-10)
+[component/popup.ts:10](https://github.com/siposdani87/sui-js/blob/0385915/src/component/popup.ts#L10)
 
 ___
 
@@ -42,7 +42,7 @@ ___
 
 #### Defined in
 
-[component/popup.ts:11](https://bitbucket.org/siposdani87/sui-js/src/5c73bef/src/component/popup.ts#lines-11)
+[component/popup.ts:11](https://github.com/siposdani87/sui-js/blob/0385915/src/component/popup.ts#L11)
 
 ___
 
@@ -52,7 +52,7 @@ ___
 
 #### Defined in
 
-[component/popup.ts:13](https://bitbucket.org/siposdani87/sui-js/src/5c73bef/src/component/popup.ts#lines-13)
+[component/popup.ts:13](https://github.com/siposdani87/sui-js/blob/0385915/src/component/popup.ts#L13)
 
 ___
 
@@ -62,7 +62,7 @@ ___
 
 #### Defined in
 
-[component/popup.ts:14](https://bitbucket.org/siposdani87/sui-js/src/5c73bef/src/component/popup.ts#lines-14)
+[component/popup.ts:14](https://github.com/siposdani87/sui-js/blob/0385915/src/component/popup.ts#L14)
 
 ___
 
@@ -72,7 +72,7 @@ ___
 
 #### Defined in
 
-[component/popup.ts:12](https://bitbucket.org/siposdani87/sui-js/src/5c73bef/src/component/popup.ts#lines-12)
+[component/popup.ts:12](https://github.com/siposdani87/sui-js/blob/0385915/src/component/popup.ts#L12)
 
 ## Methods
 
@@ -86,7 +86,7 @@ ___
 
 #### Defined in
 
-[component/popup.ts:42](https://bitbucket.org/siposdani87/sui-js/src/5c73bef/src/component/popup.ts#lines-42)
+[component/popup.ts:42](https://github.com/siposdani87/sui-js/blob/0385915/src/component/popup.ts#L42)
 
 ___
 
@@ -100,7 +100,7 @@ ___
 
 #### Defined in
 
-[component/popup.ts:34](https://bitbucket.org/siposdani87/sui-js/src/5c73bef/src/component/popup.ts#lines-34)
+[component/popup.ts:34](https://github.com/siposdani87/sui-js/blob/0385915/src/component/popup.ts#L34)
 
 ___
 
@@ -114,7 +114,7 @@ ___
 
 #### Defined in
 
-[component/popup.ts:57](https://bitbucket.org/siposdani87/sui-js/src/5c73bef/src/component/popup.ts#lines-57)
+[component/popup.ts:57](https://github.com/siposdani87/sui-js/blob/0385915/src/component/popup.ts#L57)
 
 ___
 
@@ -128,7 +128,7 @@ ___
 
 #### Defined in
 
-[component/popup.ts:92](https://bitbucket.org/siposdani87/sui-js/src/5c73bef/src/component/popup.ts#lines-92)
+[component/popup.ts:92](https://github.com/siposdani87/sui-js/blob/0385915/src/component/popup.ts#L92)
 
 ___
 
@@ -142,7 +142,7 @@ ___
 
 #### Defined in
 
-[component/popup.ts:101](https://bitbucket.org/siposdani87/sui-js/src/5c73bef/src/component/popup.ts#lines-101)
+[component/popup.ts:101](https://github.com/siposdani87/sui-js/blob/0385915/src/component/popup.ts#L101)
 
 ___
 
@@ -156,7 +156,7 @@ ___
 
 #### Defined in
 
-[component/popup.ts:117](https://bitbucket.org/siposdani87/sui-js/src/5c73bef/src/component/popup.ts#lines-117)
+[component/popup.ts:117](https://github.com/siposdani87/sui-js/blob/0385915/src/component/popup.ts#L117)
 
 ___
 
@@ -170,7 +170,7 @@ ___
 
 #### Defined in
 
-[component/popup.ts:83](https://bitbucket.org/siposdani87/sui-js/src/5c73bef/src/component/popup.ts#lines-83)
+[component/popup.ts:83](https://github.com/siposdani87/sui-js/blob/0385915/src/component/popup.ts#L83)
 
 ___
 
@@ -184,4 +184,4 @@ ___
 
 #### Defined in
 
-[component/popup.ts:107](https://bitbucket.org/siposdani87/sui-js/src/5c73bef/src/component/popup.ts#lines-107)
+[component/popup.ts:107](https://github.com/siposdani87/sui-js/blob/0385915/src/component/popup.ts#L107)

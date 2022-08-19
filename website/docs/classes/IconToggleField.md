@@ -33,7 +33,7 @@ custom_edit_url: null
 
 #### Defined in
 
-[field/iconToggleField.ts:19](https://bitbucket.org/siposdani87/sui-js/src/5c73bef/src/field/iconToggleField.ts#lines-19)
+[field/iconToggleField.ts:19](https://github.com/siposdani87/sui-js/blob/0385915/src/field/iconToggleField.ts#L19)
 
 ## Properties
 
@@ -47,7 +47,7 @@ custom_edit_url: null
 
 #### Defined in
 
-[field/baseField.ts:20](https://bitbucket.org/siposdani87/sui-js/src/5c73bef/src/field/baseField.ts#lines-20)
+[field/baseField.ts:20](https://github.com/siposdani87/sui-js/blob/0385915/src/field/baseField.ts#L20)
 
 ___
 
@@ -57,7 +57,7 @@ ___
 
 #### Defined in
 
-[field/iconToggleField.ts:10](https://bitbucket.org/siposdani87/sui-js/src/5c73bef/src/field/iconToggleField.ts#lines-10)
+[field/iconToggleField.ts:10](https://github.com/siposdani87/sui-js/blob/0385915/src/field/iconToggleField.ts#L10)
 
 ___
 
@@ -71,7 +71,7 @@ ___
 
 #### Defined in
 
-[field/baseCheckboxField.ts:14](https://bitbucket.org/siposdani87/sui-js/src/5c73bef/src/field/baseCheckboxField.ts#lines-14)
+[field/baseCheckboxField.ts:14](https://github.com/siposdani87/sui-js/blob/0385915/src/field/baseCheckboxField.ts#L14)
 
 ___
 
@@ -85,7 +85,7 @@ ___
 
 #### Defined in
 
-[field/baseField.ts:21](https://bitbucket.org/siposdani87/sui-js/src/5c73bef/src/field/baseField.ts#lines-21)
+[field/baseField.ts:21](https://github.com/siposdani87/sui-js/blob/0385915/src/field/baseField.ts#L21)
 
 ___
 
@@ -99,7 +99,7 @@ ___
 
 #### Defined in
 
-[field/baseField.ts:15](https://bitbucket.org/siposdani87/sui-js/src/5c73bef/src/field/baseField.ts#lines-15)
+[field/baseField.ts:15](https://github.com/siposdani87/sui-js/blob/0385915/src/field/baseField.ts#L15)
 
 ___
 
@@ -113,7 +113,7 @@ ___
 
 #### Defined in
 
-[field/baseField.ts:18](https://bitbucket.org/siposdani87/sui-js/src/5c73bef/src/field/baseField.ts#lines-18)
+[field/baseField.ts:18](https://github.com/siposdani87/sui-js/blob/0385915/src/field/baseField.ts#L18)
 
 ___
 
@@ -127,7 +127,7 @@ ___
 
 #### Defined in
 
-[field/baseField.ts:17](https://bitbucket.org/siposdani87/sui-js/src/5c73bef/src/field/baseField.ts#lines-17)
+[field/baseField.ts:17](https://github.com/siposdani87/sui-js/blob/0385915/src/field/baseField.ts#L17)
 
 ___
 
@@ -141,7 +141,7 @@ ___
 
 #### Defined in
 
-[field/baseCheckboxField.ts:12](https://bitbucket.org/siposdani87/sui-js/src/5c73bef/src/field/baseCheckboxField.ts#lines-12)
+[field/baseCheckboxField.ts:12](https://github.com/siposdani87/sui-js/blob/0385915/src/field/baseCheckboxField.ts#L12)
 
 ___
 
@@ -151,7 +151,7 @@ ___
 
 #### Defined in
 
-[field/iconToggleField.ts:12](https://bitbucket.org/siposdani87/sui-js/src/5c73bef/src/field/iconToggleField.ts#lines-12)
+[field/iconToggleField.ts:12](https://github.com/siposdani87/sui-js/blob/0385915/src/field/iconToggleField.ts#L12)
 
 ___
 
@@ -165,7 +165,7 @@ ___
 
 #### Defined in
 
-[field/baseField.ts:19](https://bitbucket.org/siposdani87/sui-js/src/5c73bef/src/field/baseField.ts#lines-19)
+[field/baseField.ts:19](https://github.com/siposdani87/sui-js/blob/0385915/src/field/baseField.ts#L19)
 
 ___
 
@@ -179,7 +179,7 @@ ___
 
 #### Defined in
 
-[field/baseField.ts:13](https://bitbucket.org/siposdani87/sui-js/src/5c73bef/src/field/baseField.ts#lines-13)
+[field/baseField.ts:13](https://github.com/siposdani87/sui-js/blob/0385915/src/field/baseField.ts#L13)
 
 ___
 
@@ -193,7 +193,7 @@ ___
 
 #### Defined in
 
-[field/baseField.ts:16](https://bitbucket.org/siposdani87/sui-js/src/5c73bef/src/field/baseField.ts#lines-16)
+[field/baseField.ts:16](https://github.com/siposdani87/sui-js/blob/0385915/src/field/baseField.ts#L16)
 
 ___
 
@@ -207,7 +207,7 @@ ___
 
 #### Defined in
 
-[field/baseField.ts:14](https://bitbucket.org/siposdani87/sui-js/src/5c73bef/src/field/baseField.ts#lines-14)
+[field/baseField.ts:14](https://github.com/siposdani87/sui-js/blob/0385915/src/field/baseField.ts#L14)
 
 ___
 
@@ -221,7 +221,7 @@ ___
 
 #### Defined in
 
-[field/baseCheckboxField.ts:13](https://bitbucket.org/siposdani87/sui-js/src/5c73bef/src/field/baseCheckboxField.ts#lines-13)
+[field/baseCheckboxField.ts:13](https://github.com/siposdani87/sui-js/blob/0385915/src/field/baseCheckboxField.ts#L13)
 
 ___
 
@@ -231,7 +231,7 @@ ___
 
 #### Defined in
 
-[field/iconToggleField.ts:11](https://bitbucket.org/siposdani87/sui-js/src/5c73bef/src/field/iconToggleField.ts#lines-11)
+[field/iconToggleField.ts:11](https://github.com/siposdani87/sui-js/blob/0385915/src/field/iconToggleField.ts#L11)
 
 ## Methods
 
@@ -249,7 +249,7 @@ ___
 
 #### Defined in
 
-[field/iconToggleField.ts:72](https://bitbucket.org/siposdani87/sui-js/src/5c73bef/src/field/iconToggleField.ts#lines-72)
+[field/iconToggleField.ts:72](https://github.com/siposdani87/sui-js/blob/0385915/src/field/iconToggleField.ts#L72)
 
 ___
 
@@ -273,7 +273,7 @@ ___
 
 #### Defined in
 
-[field/baseField.ts:109](https://bitbucket.org/siposdani87/sui-js/src/5c73bef/src/field/baseField.ts#lines-109)
+[field/baseField.ts:109](https://github.com/siposdani87/sui-js/blob/0385915/src/field/baseField.ts#L109)
 
 ___
 
@@ -297,7 +297,7 @@ ___
 
 #### Defined in
 
-[field/baseField.ts:382](https://bitbucket.org/siposdani87/sui-js/src/5c73bef/src/field/baseField.ts#lines-382)
+[field/baseField.ts:382](https://github.com/siposdani87/sui-js/blob/0385915/src/field/baseField.ts#L382)
 
 ___
 
@@ -315,7 +315,7 @@ ___
 
 #### Defined in
 
-[field/baseCheckboxField.ts:34](https://bitbucket.org/siposdani87/sui-js/src/5c73bef/src/field/baseCheckboxField.ts#lines-34)
+[field/baseCheckboxField.ts:34](https://github.com/siposdani87/sui-js/blob/0385915/src/field/baseCheckboxField.ts#L34)
 
 ___
 
@@ -339,7 +339,7 @@ ___
 
 #### Defined in
 
-[field/baseField.ts:370](https://bitbucket.org/siposdani87/sui-js/src/5c73bef/src/field/baseField.ts#lines-370)
+[field/baseField.ts:370](https://github.com/siposdani87/sui-js/blob/0385915/src/field/baseField.ts#L370)
 
 ___
 
@@ -364,7 +364,7 @@ ___
 
 #### Defined in
 
-[field/baseField.ts:140](https://bitbucket.org/siposdani87/sui-js/src/5c73bef/src/field/baseField.ts#lines-140)
+[field/baseField.ts:140](https://github.com/siposdani87/sui-js/blob/0385915/src/field/baseField.ts#L140)
 
 ___
 
@@ -389,7 +389,7 @@ ___
 
 #### Defined in
 
-[field/baseField.ts:55](https://bitbucket.org/siposdani87/sui-js/src/5c73bef/src/field/baseField.ts#lines-55)
+[field/baseField.ts:55](https://github.com/siposdani87/sui-js/blob/0385915/src/field/baseField.ts#L55)
 
 ___
 
@@ -413,7 +413,7 @@ ___
 
 #### Defined in
 
-[field/baseField.ts:62](https://bitbucket.org/siposdani87/sui-js/src/5c73bef/src/field/baseField.ts#lines-62)
+[field/baseField.ts:62](https://github.com/siposdani87/sui-js/blob/0385915/src/field/baseField.ts#L62)
 
 ___
 
@@ -431,7 +431,7 @@ ___
 
 #### Defined in
 
-[field/baseField.ts:194](https://bitbucket.org/siposdani87/sui-js/src/5c73bef/src/field/baseField.ts#lines-194)
+[field/baseField.ts:194](https://github.com/siposdani87/sui-js/blob/0385915/src/field/baseField.ts#L194)
 
 ___
 
@@ -449,7 +449,7 @@ ___
 
 #### Defined in
 
-[field/baseField.ts:200](https://bitbucket.org/siposdani87/sui-js/src/5c73bef/src/field/baseField.ts#lines-200)
+[field/baseField.ts:200](https://github.com/siposdani87/sui-js/blob/0385915/src/field/baseField.ts#L200)
 
 ___
 
@@ -467,7 +467,7 @@ ___
 
 #### Defined in
 
-[field/baseField.ts:206](https://bitbucket.org/siposdani87/sui-js/src/5c73bef/src/field/baseField.ts#lines-206)
+[field/baseField.ts:206](https://github.com/siposdani87/sui-js/blob/0385915/src/field/baseField.ts#L206)
 
 ___
 
@@ -491,7 +491,7 @@ ___
 
 #### Defined in
 
-[field/baseField.ts:213](https://bitbucket.org/siposdani87/sui-js/src/5c73bef/src/field/baseField.ts#lines-213)
+[field/baseField.ts:213](https://github.com/siposdani87/sui-js/blob/0385915/src/field/baseField.ts#L213)
 
 ___
 
@@ -509,7 +509,7 @@ ___
 
 #### Defined in
 
-[field/baseField.ts:93](https://bitbucket.org/siposdani87/sui-js/src/5c73bef/src/field/baseField.ts#lines-93)
+[field/baseField.ts:93](https://github.com/siposdani87/sui-js/blob/0385915/src/field/baseField.ts#L93)
 
 ___
 
@@ -527,7 +527,7 @@ ___
 
 #### Defined in
 
-[field/baseField.ts:86](https://bitbucket.org/siposdani87/sui-js/src/5c73bef/src/field/baseField.ts#lines-86)
+[field/baseField.ts:86](https://github.com/siposdani87/sui-js/blob/0385915/src/field/baseField.ts#L86)
 
 ___
 
@@ -545,7 +545,7 @@ ___
 
 #### Defined in
 
-[field/baseCheckboxField.ts:58](https://bitbucket.org/siposdani87/sui-js/src/5c73bef/src/field/baseCheckboxField.ts#lines-58)
+[field/baseCheckboxField.ts:58](https://github.com/siposdani87/sui-js/blob/0385915/src/field/baseCheckboxField.ts#L58)
 
 ___
 
@@ -563,7 +563,7 @@ ___
 
 #### Defined in
 
-[field/baseField.ts:289](https://bitbucket.org/siposdani87/sui-js/src/5c73bef/src/field/baseField.ts#lines-289)
+[field/baseField.ts:289](https://github.com/siposdani87/sui-js/blob/0385915/src/field/baseField.ts#L289)
 
 ___
 
@@ -581,7 +581,7 @@ ___
 
 #### Defined in
 
-[field/baseField.ts:245](https://bitbucket.org/siposdani87/sui-js/src/5c73bef/src/field/baseField.ts#lines-245)
+[field/baseField.ts:245](https://github.com/siposdani87/sui-js/blob/0385915/src/field/baseField.ts#L245)
 
 ___
 
@@ -599,7 +599,7 @@ ___
 
 #### Defined in
 
-[field/baseField.ts:239](https://bitbucket.org/siposdani87/sui-js/src/5c73bef/src/field/baseField.ts#lines-239)
+[field/baseField.ts:239](https://github.com/siposdani87/sui-js/blob/0385915/src/field/baseField.ts#L239)
 
 ___
 
@@ -617,7 +617,7 @@ ___
 
 #### Defined in
 
-[field/baseField.ts:219](https://bitbucket.org/siposdani87/sui-js/src/5c73bef/src/field/baseField.ts#lines-219)
+[field/baseField.ts:219](https://github.com/siposdani87/sui-js/blob/0385915/src/field/baseField.ts#L219)
 
 ___
 
@@ -635,7 +635,7 @@ ___
 
 #### Defined in
 
-[field/baseField.ts:172](https://bitbucket.org/siposdani87/sui-js/src/5c73bef/src/field/baseField.ts#lines-172)
+[field/baseField.ts:172](https://github.com/siposdani87/sui-js/blob/0385915/src/field/baseField.ts#L172)
 
 ___
 
@@ -653,7 +653,7 @@ ___
 
 #### Defined in
 
-[field/baseField.ts:165](https://bitbucket.org/siposdani87/sui-js/src/5c73bef/src/field/baseField.ts#lines-165)
+[field/baseField.ts:165](https://github.com/siposdani87/sui-js/blob/0385915/src/field/baseField.ts#L165)
 
 ___
 
@@ -671,7 +671,7 @@ ___
 
 #### Defined in
 
-[field/baseField.ts:264](https://bitbucket.org/siposdani87/sui-js/src/5c73bef/src/field/baseField.ts#lines-264)
+[field/baseField.ts:264](https://github.com/siposdani87/sui-js/blob/0385915/src/field/baseField.ts#L264)
 
 ___
 
@@ -695,7 +695,7 @@ ___
 
 #### Defined in
 
-[field/baseField.ts:80](https://bitbucket.org/siposdani87/sui-js/src/5c73bef/src/field/baseField.ts#lines-80)
+[field/baseField.ts:80](https://github.com/siposdani87/sui-js/blob/0385915/src/field/baseField.ts#L80)
 
 ___
 
@@ -713,7 +713,7 @@ ___
 
 #### Defined in
 
-[field/baseCheckboxField.ts:121](https://bitbucket.org/siposdani87/sui-js/src/5c73bef/src/field/baseCheckboxField.ts#lines-121)
+[field/baseCheckboxField.ts:121](https://github.com/siposdani87/sui-js/blob/0385915/src/field/baseCheckboxField.ts#L121)
 
 ___
 
@@ -731,7 +731,7 @@ ___
 
 #### Defined in
 
-[field/iconToggleField.ts:31](https://bitbucket.org/siposdani87/sui-js/src/5c73bef/src/field/iconToggleField.ts#lines-31)
+[field/iconToggleField.ts:31](https://github.com/siposdani87/sui-js/blob/0385915/src/field/iconToggleField.ts#L31)
 
 ___
 
@@ -755,7 +755,7 @@ ___
 
 #### Defined in
 
-[field/baseCheckboxField.ts:94](https://bitbucket.org/siposdani87/sui-js/src/5c73bef/src/field/baseCheckboxField.ts#lines-94)
+[field/baseCheckboxField.ts:94](https://github.com/siposdani87/sui-js/blob/0385915/src/field/baseCheckboxField.ts#L94)
 
 ___
 
@@ -780,7 +780,7 @@ ___
 
 #### Defined in
 
-[field/baseField.ts:123](https://bitbucket.org/siposdani87/sui-js/src/5c73bef/src/field/baseField.ts#lines-123)
+[field/baseField.ts:123](https://github.com/siposdani87/sui-js/blob/0385915/src/field/baseField.ts#L123)
 
 ___
 
@@ -804,7 +804,7 @@ ___
 
 #### Defined in
 
-[field/baseCheckboxField.ts:112](https://bitbucket.org/siposdani87/sui-js/src/5c73bef/src/field/baseCheckboxField.ts#lines-112)
+[field/baseCheckboxField.ts:112](https://github.com/siposdani87/sui-js/blob/0385915/src/field/baseCheckboxField.ts#L112)
 
 ___
 
@@ -828,7 +828,7 @@ ___
 
 #### Defined in
 
-[field/baseField.ts:226](https://bitbucket.org/siposdani87/sui-js/src/5c73bef/src/field/baseField.ts#lines-226)
+[field/baseField.ts:226](https://github.com/siposdani87/sui-js/blob/0385915/src/field/baseField.ts#L226)
 
 ___
 
@@ -852,7 +852,7 @@ ___
 
 #### Defined in
 
-[field/iconToggleField.ts:86](https://bitbucket.org/siposdani87/sui-js/src/5c73bef/src/field/iconToggleField.ts#lines-86)
+[field/iconToggleField.ts:86](https://github.com/siposdani87/sui-js/blob/0385915/src/field/iconToggleField.ts#L86)
 
 ___
 
@@ -876,7 +876,7 @@ ___
 
 #### Defined in
 
-[field/baseField.ts:271](https://bitbucket.org/siposdani87/sui-js/src/5c73bef/src/field/baseField.ts#lines-271)
+[field/baseField.ts:271](https://github.com/siposdani87/sui-js/blob/0385915/src/field/baseField.ts#L271)
 
 ___
 
@@ -894,4 +894,4 @@ ___
 
 #### Defined in
 
-[field/baseField.ts:281](https://bitbucket.org/siposdani87/sui-js/src/5c73bef/src/field/baseField.ts#lines-281)
+[field/baseField.ts:281](https://github.com/siposdani87/sui-js/blob/0385915/src/field/baseField.ts#L281)

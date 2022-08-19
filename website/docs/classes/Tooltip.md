@@ -23,7 +23,7 @@ https://www.getmdl.io/components/index.html#tooltips-section
 
 #### Defined in
 
-[component/tooltip.ts:20](https://bitbucket.org/siposdani87/sui-js/src/5c73bef/src/component/tooltip.ts#lines-20)
+[component/tooltip.ts:20](https://github.com/siposdani87/sui-js/blob/0385915/src/component/tooltip.ts#L20)
 
 ## Properties
 
@@ -33,7 +33,7 @@ https://www.getmdl.io/components/index.html#tooltips-section
 
 #### Defined in
 
-[component/tooltip.ts:12](https://bitbucket.org/siposdani87/sui-js/src/5c73bef/src/component/tooltip.ts#lines-12)
+[component/tooltip.ts:12](https://github.com/siposdani87/sui-js/blob/0385915/src/component/tooltip.ts#L12)
 
 ___
 
@@ -43,7 +43,7 @@ ___
 
 #### Defined in
 
-[component/tooltip.ts:14](https://bitbucket.org/siposdani87/sui-js/src/5c73bef/src/component/tooltip.ts#lines-14)
+[component/tooltip.ts:14](https://github.com/siposdani87/sui-js/blob/0385915/src/component/tooltip.ts#L14)
 
 ___
 
@@ -53,7 +53,7 @@ ___
 
 #### Defined in
 
-[component/tooltip.ts:15](https://bitbucket.org/siposdani87/sui-js/src/5c73bef/src/component/tooltip.ts#lines-15)
+[component/tooltip.ts:15](https://github.com/siposdani87/sui-js/blob/0385915/src/component/tooltip.ts#L15)
 
 ___
 
@@ -63,7 +63,7 @@ ___
 
 #### Defined in
 
-[component/tooltip.ts:13](https://bitbucket.org/siposdani87/sui-js/src/5c73bef/src/component/tooltip.ts#lines-13)
+[component/tooltip.ts:13](https://github.com/siposdani87/sui-js/blob/0385915/src/component/tooltip.ts#L13)
 
 ## Methods
 
@@ -77,7 +77,7 @@ ___
 
 #### Defined in
 
-[component/tooltip.ts:73](https://bitbucket.org/siposdani87/sui-js/src/5c73bef/src/component/tooltip.ts#lines-73)
+[component/tooltip.ts:73](https://github.com/siposdani87/sui-js/blob/0385915/src/component/tooltip.ts#L73)
 
 ___
 
@@ -97,7 +97,7 @@ ___
 
 #### Defined in
 
-[component/tooltip.ts:59](https://bitbucket.org/siposdani87/sui-js/src/5c73bef/src/component/tooltip.ts#lines-59)
+[component/tooltip.ts:59](https://github.com/siposdani87/sui-js/blob/0385915/src/component/tooltip.ts#L59)
 
 ___
 
@@ -111,7 +111,7 @@ ___
 
 #### Defined in
 
-[component/tooltip.ts:105](https://bitbucket.org/siposdani87/sui-js/src/5c73bef/src/component/tooltip.ts#lines-105)
+[component/tooltip.ts:105](https://github.com/siposdani87/sui-js/blob/0385915/src/component/tooltip.ts#L105)
 
 ___
 
@@ -125,7 +125,7 @@ ___
 
 #### Defined in
 
-[component/tooltip.ts:52](https://bitbucket.org/siposdani87/sui-js/src/5c73bef/src/component/tooltip.ts#lines-52)
+[component/tooltip.ts:52](https://github.com/siposdani87/sui-js/blob/0385915/src/component/tooltip.ts#L52)
 
 ___
 
@@ -145,7 +145,7 @@ ___
 
 #### Defined in
 
-[component/tooltip.ts:31](https://bitbucket.org/siposdani87/sui-js/src/5c73bef/src/component/tooltip.ts#lines-31)
+[component/tooltip.ts:31](https://github.com/siposdani87/sui-js/blob/0385915/src/component/tooltip.ts#L31)
 
 ___
 
@@ -159,7 +159,7 @@ ___
 
 #### Defined in
 
-[component/tooltip.ts:136](https://bitbucket.org/siposdani87/sui-js/src/5c73bef/src/component/tooltip.ts#lines-136)
+[component/tooltip.ts:136](https://github.com/siposdani87/sui-js/blob/0385915/src/component/tooltip.ts#L136)
 
 ___
 
@@ -173,7 +173,7 @@ ___
 
 #### Defined in
 
-[component/tooltip.ts:142](https://bitbucket.org/siposdani87/sui-js/src/5c73bef/src/component/tooltip.ts#lines-142)
+[component/tooltip.ts:142](https://github.com/siposdani87/sui-js/blob/0385915/src/component/tooltip.ts#L142)
 
 ___
 
@@ -187,7 +187,7 @@ ___
 
 #### Defined in
 
-[component/tooltip.ts:130](https://bitbucket.org/siposdani87/sui-js/src/5c73bef/src/component/tooltip.ts#lines-130)
+[component/tooltip.ts:130](https://github.com/siposdani87/sui-js/blob/0385915/src/component/tooltip.ts#L130)
 
 ___
 
@@ -207,7 +207,7 @@ ___
 
 #### Defined in
 
-[component/tooltip.ts:96](https://bitbucket.org/siposdani87/sui-js/src/5c73bef/src/component/tooltip.ts#lines-96)
+[component/tooltip.ts:96](https://github.com/siposdani87/sui-js/blob/0385915/src/component/tooltip.ts#L96)
 
 ___
 
@@ -227,7 +227,7 @@ ___
 
 #### Defined in
 
-[component/tooltip.ts:116](https://bitbucket.org/siposdani87/sui-js/src/5c73bef/src/component/tooltip.ts#lines-116)
+[component/tooltip.ts:116](https://github.com/siposdani87/sui-js/blob/0385915/src/component/tooltip.ts#L116)
 
 ___
 
@@ -241,4 +241,4 @@ ___
 
 #### Defined in
 
-[component/tooltip.ts:148](https://bitbucket.org/siposdani87/sui-js/src/5c73bef/src/component/tooltip.ts#lines-148)
+[component/tooltip.ts:148](https://github.com/siposdani87/sui-js/blob/0385915/src/component/tooltip.ts#L148)

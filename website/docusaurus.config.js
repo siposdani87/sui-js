@@ -7,7 +7,7 @@ const darkCodeTheme = require('prism-react-renderer/themes/dracula');
 /** @type {import('@docusaurus/types').Config} */
 const config = {
   title: 'SUI-JS',
-  tagline: 'SUI-JS is a lightweight FE framework',
+  tagline: 'Lightweight frontend micro framework',
   url: 'http://sui.siposdani87.com',
   baseUrl: '/',
   onBrokenLinks: 'warn',

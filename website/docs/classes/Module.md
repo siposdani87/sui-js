@@ -14,7 +14,7 @@ custom_edit_url: null
 
 #### Defined in
 
-[core/module.ts:24](https://bitbucket.org/siposdani87/sui-js/src/5c73bef/src/core/module.ts#lines-24)
+[core/module.ts:24](https://github.com/siposdani87/sui-js/blob/0385915/src/core/module.ts#L24)
 
 ## Properties
 
@@ -24,7 +24,7 @@ custom_edit_url: null
 
 #### Defined in
 
-[core/module.ts:21](https://bitbucket.org/siposdani87/sui-js/src/5c73bef/src/core/module.ts#lines-21)
+[core/module.ts:21](https://github.com/siposdani87/sui-js/blob/0385915/src/core/module.ts#L21)
 
 ___
 
@@ -34,7 +34,7 @@ ___
 
 #### Defined in
 
-[core/module.ts:20](https://bitbucket.org/siposdani87/sui-js/src/5c73bef/src/core/module.ts#lines-20)
+[core/module.ts:20](https://github.com/siposdani87/sui-js/blob/0385915/src/core/module.ts#L20)
 
 ___
 
@@ -44,7 +44,7 @@ ___
 
 #### Defined in
 
-[core/module.ts:19](https://bitbucket.org/siposdani87/sui-js/src/5c73bef/src/core/module.ts#lines-19)
+[core/module.ts:19](https://github.com/siposdani87/sui-js/blob/0385915/src/core/module.ts#L19)
 
 ___
 
@@ -58,7 +58,7 @@ ___
 
 #### Defined in
 
-[core/module.ts:16](https://bitbucket.org/siposdani87/sui-js/src/5c73bef/src/core/module.ts#lines-16)
+[core/module.ts:16](https://github.com/siposdani87/sui-js/blob/0385915/src/core/module.ts#L16)
 
 ## Methods
 
@@ -78,7 +78,7 @@ ___
 
 #### Defined in
 
-[core/module.ts:83](https://bitbucket.org/siposdani87/sui-js/src/5c73bef/src/core/module.ts#lines-83)
+[core/module.ts:83](https://github.com/siposdani87/sui-js/blob/0385915/src/core/module.ts#L83)
 
 ___
 
@@ -99,7 +99,7 @@ ___
 
 #### Defined in
 
-[core/module.ts:230](https://bitbucket.org/siposdani87/sui-js/src/5c73bef/src/core/module.ts#lines-230)
+[core/module.ts:230](https://github.com/siposdani87/sui-js/blob/0385915/src/core/module.ts#L230)
 
 ___
 
@@ -120,7 +120,7 @@ ___
 
 #### Defined in
 
-[core/module.ts:271](https://bitbucket.org/siposdani87/sui-js/src/5c73bef/src/core/module.ts#lines-271)
+[core/module.ts:271](https://github.com/siposdani87/sui-js/blob/0385915/src/core/module.ts#L271)
 
 ___
 
@@ -140,7 +140,7 @@ ___
 
 #### Defined in
 
-[core/module.ts:70](https://bitbucket.org/siposdani87/sui-js/src/5c73bef/src/core/module.ts#lines-70)
+[core/module.ts:70](https://github.com/siposdani87/sui-js/blob/0385915/src/core/module.ts#L70)
 
 ___
 
@@ -160,7 +160,7 @@ ___
 
 #### Defined in
 
-[core/module.ts:108](https://bitbucket.org/siposdani87/sui-js/src/5c73bef/src/core/module.ts#lines-108)
+[core/module.ts:108](https://github.com/siposdani87/sui-js/blob/0385915/src/core/module.ts#L108)
 
 ___
 
@@ -182,7 +182,7 @@ ___
 
 #### Defined in
 
-[core/module.ts:54](https://bitbucket.org/siposdani87/sui-js/src/5c73bef/src/core/module.ts#lines-54)
+[core/module.ts:54](https://github.com/siposdani87/sui-js/blob/0385915/src/core/module.ts#L54)
 
 ___
 
@@ -196,7 +196,7 @@ ___
 
 #### Defined in
 
-[core/module.ts:345](https://bitbucket.org/siposdani87/sui-js/src/5c73bef/src/core/module.ts#lines-345)
+[core/module.ts:345](https://github.com/siposdani87/sui-js/blob/0385915/src/core/module.ts#L345)
 
 ___
 
@@ -210,7 +210,7 @@ ___
 
 #### Defined in
 
-[core/module.ts:304](https://bitbucket.org/siposdani87/sui-js/src/5c73bef/src/core/module.ts#lines-304)
+[core/module.ts:304](https://github.com/siposdani87/sui-js/blob/0385915/src/core/module.ts#L304)
 
 ___
 
@@ -230,7 +230,7 @@ ___
 
 #### Defined in
 
-[core/module.ts:298](https://bitbucket.org/siposdani87/sui-js/src/5c73bef/src/core/module.ts#lines-298)
+[core/module.ts:298](https://github.com/siposdani87/sui-js/blob/0385915/src/core/module.ts#L298)
 
 ___
 
@@ -251,7 +251,7 @@ ___
 
 #### Defined in
 
-[core/module.ts:336](https://bitbucket.org/siposdani87/sui-js/src/5c73bef/src/core/module.ts#lines-336)
+[core/module.ts:336](https://github.com/siposdani87/sui-js/blob/0385915/src/core/module.ts#L336)
 
 ___
 
@@ -271,7 +271,7 @@ ___
 
 #### Defined in
 
-[core/module.ts:311](https://bitbucket.org/siposdani87/sui-js/src/5c73bef/src/core/module.ts#lines-311)
+[core/module.ts:311](https://github.com/siposdani87/sui-js/blob/0385915/src/core/module.ts#L311)
 
 ___
 
@@ -291,7 +291,7 @@ ___
 
 #### Defined in
 
-[core/module.ts:318](https://bitbucket.org/siposdani87/sui-js/src/5c73bef/src/core/module.ts#lines-318)
+[core/module.ts:318](https://github.com/siposdani87/sui-js/blob/0385915/src/core/module.ts#L318)
 
 ___
 
@@ -305,7 +305,7 @@ ___
 
 #### Defined in
 
-[core/module.ts:357](https://bitbucket.org/siposdani87/sui-js/src/5c73bef/src/core/module.ts#lines-357)
+[core/module.ts:357](https://github.com/siposdani87/sui-js/blob/0385915/src/core/module.ts#L357)
 
 ___
 
@@ -319,7 +319,7 @@ ___
 
 #### Defined in
 
-[core/module.ts:351](https://bitbucket.org/siposdani87/sui-js/src/5c73bef/src/core/module.ts#lines-351)
+[core/module.ts:351](https://github.com/siposdani87/sui-js/blob/0385915/src/core/module.ts#L351)
 
 ___
 
@@ -339,7 +339,7 @@ ___
 
 #### Defined in
 
-[core/module.ts:325](https://bitbucket.org/siposdani87/sui-js/src/5c73bef/src/core/module.ts#lines-325)
+[core/module.ts:325](https://github.com/siposdani87/sui-js/blob/0385915/src/core/module.ts#L325)
 
 ___
 
@@ -353,7 +353,7 @@ ___
 
 #### Defined in
 
-[core/module.ts:45](https://bitbucket.org/siposdani87/sui-js/src/5c73bef/src/core/module.ts#lines-45)
+[core/module.ts:45](https://github.com/siposdani87/sui-js/blob/0385915/src/core/module.ts#L45)
 
 ___
 
@@ -374,7 +374,7 @@ ___
 
 #### Defined in
 
-[core/module.ts:203](https://bitbucket.org/siposdani87/sui-js/src/5c73bef/src/core/module.ts#lines-203)
+[core/module.ts:203](https://github.com/siposdani87/sui-js/blob/0385915/src/core/module.ts#L203)
 
 ___
 
@@ -394,7 +394,7 @@ ___
 
 #### Defined in
 
-[core/module.ts:169](https://bitbucket.org/siposdani87/sui-js/src/5c73bef/src/core/module.ts#lines-169)
+[core/module.ts:169](https://github.com/siposdani87/sui-js/blob/0385915/src/core/module.ts#L169)
 
 ___
 
@@ -415,4 +415,4 @@ ___
 
 #### Defined in
 
-[core/module.ts:38](https://bitbucket.org/siposdani87/sui-js/src/5c73bef/src/core/module.ts#lines-38)
+[core/module.ts:38](https://github.com/siposdani87/sui-js/blob/0385915/src/core/module.ts#L38)

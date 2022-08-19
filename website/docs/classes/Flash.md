@@ -20,7 +20,7 @@ custom_edit_url: null
 
 #### Defined in
 
-[module/flash.ts:17](https://bitbucket.org/siposdani87/sui-js/src/5c73bef/src/module/flash.ts#lines-17)
+[module/flash.ts:17](https://github.com/siposdani87/sui-js/blob/0385915/src/module/flash.ts#L17)
 
 ## Properties
 
@@ -30,7 +30,7 @@ custom_edit_url: null
 
 #### Defined in
 
-[module/flash.ts:12](https://bitbucket.org/siposdani87/sui-js/src/5c73bef/src/module/flash.ts#lines-12)
+[module/flash.ts:12](https://github.com/siposdani87/sui-js/blob/0385915/src/module/flash.ts#L12)
 
 ___
 
@@ -40,7 +40,7 @@ ___
 
 #### Defined in
 
-[module/flash.ts:13](https://bitbucket.org/siposdani87/sui-js/src/5c73bef/src/module/flash.ts#lines-13)
+[module/flash.ts:13](https://github.com/siposdani87/sui-js/blob/0385915/src/module/flash.ts#L13)
 
 ## Methods
 
@@ -64,7 +64,7 @@ ___
 
 #### Defined in
 
-[module/flash.ts:111](https://bitbucket.org/siposdani87/sui-js/src/5c73bef/src/module/flash.ts#lines-111)
+[module/flash.ts:111](https://github.com/siposdani87/sui-js/blob/0385915/src/module/flash.ts#L111)
 
 ___
 
@@ -85,7 +85,7 @@ ___
 
 #### Defined in
 
-[module/flash.ts:78](https://bitbucket.org/siposdani87/sui-js/src/5c73bef/src/module/flash.ts#lines-78)
+[module/flash.ts:78](https://github.com/siposdani87/sui-js/blob/0385915/src/module/flash.ts#L78)
 
 ___
 
@@ -109,7 +109,7 @@ ___
 
 #### Defined in
 
-[module/flash.ts:50](https://bitbucket.org/siposdani87/sui-js/src/5c73bef/src/module/flash.ts#lines-50)
+[module/flash.ts:50](https://github.com/siposdani87/sui-js/blob/0385915/src/module/flash.ts#L50)
 
 ___
 
@@ -123,7 +123,7 @@ ___
 
 #### Defined in
 
-[module/flash.ts:25](https://bitbucket.org/siposdani87/sui-js/src/5c73bef/src/module/flash.ts#lines-25)
+[module/flash.ts:25](https://github.com/siposdani87/sui-js/blob/0385915/src/module/flash.ts#L25)
 
 ___
 
@@ -144,7 +144,7 @@ ___
 
 #### Defined in
 
-[module/flash.ts:158](https://bitbucket.org/siposdani87/sui-js/src/5c73bef/src/module/flash.ts#lines-158)
+[module/flash.ts:158](https://github.com/siposdani87/sui-js/blob/0385915/src/module/flash.ts#L158)
 
 ___
 
@@ -164,7 +164,7 @@ ___
 
 #### Defined in
 
-[module/flash.ts:33](https://bitbucket.org/siposdani87/sui-js/src/5c73bef/src/module/flash.ts#lines-33)
+[module/flash.ts:33](https://github.com/siposdani87/sui-js/blob/0385915/src/module/flash.ts#L33)
 
 ___
 
@@ -187,7 +187,7 @@ ___
 
 #### Defined in
 
-[module/flash.ts:299](https://bitbucket.org/siposdani87/sui-js/src/5c73bef/src/module/flash.ts#lines-299)
+[module/flash.ts:299](https://github.com/siposdani87/sui-js/blob/0385915/src/module/flash.ts#L299)
 
 ___
 
@@ -210,7 +210,7 @@ ___
 
 #### Defined in
 
-[module/flash.ts:251](https://bitbucket.org/siposdani87/sui-js/src/5c73bef/src/module/flash.ts#lines-251)
+[module/flash.ts:251](https://github.com/siposdani87/sui-js/blob/0385915/src/module/flash.ts#L251)
 
 ___
 
@@ -233,7 +233,7 @@ ___
 
 #### Defined in
 
-[module/flash.ts:209](https://bitbucket.org/siposdani87/sui-js/src/5c73bef/src/module/flash.ts#lines-209)
+[module/flash.ts:209](https://github.com/siposdani87/sui-js/blob/0385915/src/module/flash.ts#L209)
 
 ___
 
@@ -259,7 +259,7 @@ ___
 
 #### Defined in
 
-[module/flash.ts:272](https://bitbucket.org/siposdani87/sui-js/src/5c73bef/src/module/flash.ts#lines-272)
+[module/flash.ts:272](https://github.com/siposdani87/sui-js/blob/0385915/src/module/flash.ts#L272)
 
 ___
 
@@ -282,7 +282,7 @@ ___
 
 #### Defined in
 
-[module/flash.ts:188](https://bitbucket.org/siposdani87/sui-js/src/5c73bef/src/module/flash.ts#lines-188)
+[module/flash.ts:188](https://github.com/siposdani87/sui-js/blob/0385915/src/module/flash.ts#L188)
 
 ___
 
@@ -305,7 +305,7 @@ ___
 
 #### Defined in
 
-[module/flash.ts:230](https://bitbucket.org/siposdani87/sui-js/src/5c73bef/src/module/flash.ts#lines-230)
+[module/flash.ts:230](https://github.com/siposdani87/sui-js/blob/0385915/src/module/flash.ts#L230)
 
 ___
 
@@ -326,7 +326,7 @@ ___
 
 #### Defined in
 
-[module/flash.ts:172](https://bitbucket.org/siposdani87/sui-js/src/5c73bef/src/module/flash.ts#lines-172)
+[module/flash.ts:172](https://github.com/siposdani87/sui-js/blob/0385915/src/module/flash.ts#L172)
 
 ___
 
@@ -346,4 +346,4 @@ ___
 
 #### Defined in
 
-[module/flash.ts:144](https://bitbucket.org/siposdani87/sui-js/src/5c73bef/src/module/flash.ts#lines-144)
+[module/flash.ts:144](https://github.com/siposdani87/sui-js/blob/0385915/src/module/flash.ts#L144)

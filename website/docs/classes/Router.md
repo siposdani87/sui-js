@@ -20,7 +20,7 @@ custom_edit_url: null
 
 #### Defined in
 
-[core/router.ts:23](https://bitbucket.org/siposdani87/sui-js/src/5c73bef/src/core/router.ts#lines-23)
+[core/router.ts:23](https://github.com/siposdani87/sui-js/blob/0385915/src/core/router.ts#L23)
 
 ## Properties
 
@@ -30,7 +30,7 @@ custom_edit_url: null
 
 #### Defined in
 
-[core/router.ts:17](https://bitbucket.org/siposdani87/sui-js/src/5c73bef/src/core/router.ts#lines-17)
+[core/router.ts:17](https://github.com/siposdani87/sui-js/blob/0385915/src/core/router.ts#L17)
 
 ___
 
@@ -40,7 +40,7 @@ ___
 
 #### Defined in
 
-[core/router.ts:16](https://bitbucket.org/siposdani87/sui-js/src/5c73bef/src/core/router.ts#lines-16)
+[core/router.ts:16](https://github.com/siposdani87/sui-js/blob/0385915/src/core/router.ts#L16)
 
 ___
 
@@ -50,7 +50,7 @@ ___
 
 #### Defined in
 
-[core/router.ts:18](https://bitbucket.org/siposdani87/sui-js/src/5c73bef/src/core/router.ts#lines-18)
+[core/router.ts:18](https://github.com/siposdani87/sui-js/blob/0385915/src/core/router.ts#L18)
 
 ___
 
@@ -60,7 +60,7 @@ ___
 
 #### Defined in
 
-[core/router.ts:19](https://bitbucket.org/siposdani87/sui-js/src/5c73bef/src/core/router.ts#lines-19)
+[core/router.ts:19](https://github.com/siposdani87/sui-js/blob/0385915/src/core/router.ts#L19)
 
 ___
 
@@ -70,7 +70,7 @@ ___
 
 #### Defined in
 
-[core/router.ts:15](https://bitbucket.org/siposdani87/sui-js/src/5c73bef/src/core/router.ts#lines-15)
+[core/router.ts:15](https://github.com/siposdani87/sui-js/blob/0385915/src/core/router.ts#L15)
 
 ## Methods
 
@@ -84,7 +84,7 @@ ___
 
 #### Defined in
 
-[core/router.ts:34](https://bitbucket.org/siposdani87/sui-js/src/5c73bef/src/core/router.ts#lines-34)
+[core/router.ts:34](https://github.com/siposdani87/sui-js/blob/0385915/src/core/router.ts#L34)
 
 ___
 
@@ -104,7 +104,7 @@ ___
 
 #### Defined in
 
-[core/router.ts:110](https://bitbucket.org/siposdani87/sui-js/src/5c73bef/src/core/router.ts#lines-110)
+[core/router.ts:110](https://github.com/siposdani87/sui-js/blob/0385915/src/core/router.ts#L110)
 
 ___
 
@@ -124,7 +124,7 @@ ___
 
 #### Defined in
 
-[core/router.ts:82](https://bitbucket.org/siposdani87/sui-js/src/5c73bef/src/core/router.ts#lines-82)
+[core/router.ts:82](https://github.com/siposdani87/sui-js/blob/0385915/src/core/router.ts#L82)
 
 ___
 
@@ -144,7 +144,7 @@ ___
 
 #### Defined in
 
-[core/router.ts:93](https://bitbucket.org/siposdani87/sui-js/src/5c73bef/src/core/router.ts#lines-93)
+[core/router.ts:93](https://github.com/siposdani87/sui-js/blob/0385915/src/core/router.ts#L93)
 
 ___
 
@@ -164,4 +164,4 @@ ___
 
 #### Defined in
 
-[core/router.ts:48](https://bitbucket.org/siposdani87/sui-js/src/5c73bef/src/core/router.ts#lines-48)
+[core/router.ts:48](https://github.com/siposdani87/sui-js/blob/0385915/src/core/router.ts#L48)

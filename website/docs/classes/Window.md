@@ -20,7 +20,7 @@ custom_edit_url: null
 
 #### Defined in
 
-[module/window.ts:16](https://bitbucket.org/siposdani87/sui-js/src/5c73bef/src/module/window.ts#lines-16)
+[module/window.ts:16](https://github.com/siposdani87/sui-js/blob/0385915/src/module/window.ts#L16)
 
 ## Properties
 
@@ -30,7 +30,7 @@ custom_edit_url: null
 
 #### Defined in
 
-[module/window.ts:11](https://bitbucket.org/siposdani87/sui-js/src/5c73bef/src/module/window.ts#lines-11)
+[module/window.ts:11](https://github.com/siposdani87/sui-js/blob/0385915/src/module/window.ts#L11)
 
 ___
 
@@ -40,7 +40,7 @@ ___
 
 #### Defined in
 
-[module/window.ts:9](https://bitbucket.org/siposdani87/sui-js/src/5c73bef/src/module/window.ts#lines-9)
+[module/window.ts:9](https://github.com/siposdani87/sui-js/blob/0385915/src/module/window.ts#L9)
 
 ___
 
@@ -50,7 +50,7 @@ ___
 
 #### Defined in
 
-[module/window.ts:12](https://bitbucket.org/siposdani87/sui-js/src/5c73bef/src/module/window.ts#lines-12)
+[module/window.ts:12](https://github.com/siposdani87/sui-js/blob/0385915/src/module/window.ts#L12)
 
 ___
 
@@ -60,7 +60,7 @@ ___
 
 #### Defined in
 
-[module/window.ts:10](https://bitbucket.org/siposdani87/sui-js/src/5c73bef/src/module/window.ts#lines-10)
+[module/window.ts:10](https://github.com/siposdani87/sui-js/blob/0385915/src/module/window.ts#L10)
 
 ## Methods
 
@@ -74,7 +74,7 @@ ___
 
 #### Defined in
 
-[module/window.ts:36](https://bitbucket.org/siposdani87/sui-js/src/5c73bef/src/module/window.ts#lines-36)
+[module/window.ts:36](https://github.com/siposdani87/sui-js/blob/0385915/src/module/window.ts#L36)
 
 ___
 
@@ -88,7 +88,7 @@ ___
 
 #### Defined in
 
-[module/window.ts:206](https://bitbucket.org/siposdani87/sui-js/src/5c73bef/src/module/window.ts#lines-206)
+[module/window.ts:206](https://github.com/siposdani87/sui-js/blob/0385915/src/module/window.ts#L206)
 
 ___
 
@@ -102,7 +102,7 @@ ___
 
 #### Defined in
 
-[module/window.ts:77](https://bitbucket.org/siposdani87/sui-js/src/5c73bef/src/module/window.ts#lines-77)
+[module/window.ts:77](https://github.com/siposdani87/sui-js/blob/0385915/src/module/window.ts#L77)
 
 ___
 
@@ -116,7 +116,7 @@ ___
 
 #### Defined in
 
-[module/window.ts:51](https://bitbucket.org/siposdani87/sui-js/src/5c73bef/src/module/window.ts#lines-51)
+[module/window.ts:51](https://github.com/siposdani87/sui-js/blob/0385915/src/module/window.ts#L51)
 
 ___
 
@@ -130,7 +130,7 @@ ___
 
 #### Defined in
 
-[module/window.ts:64](https://bitbucket.org/siposdani87/sui-js/src/5c73bef/src/module/window.ts#lines-64)
+[module/window.ts:64](https://github.com/siposdani87/sui-js/blob/0385915/src/module/window.ts#L64)
 
 ___
 
@@ -150,7 +150,7 @@ ___
 
 #### Defined in
 
-[module/window.ts:151](https://bitbucket.org/siposdani87/sui-js/src/5c73bef/src/module/window.ts#lines-151)
+[module/window.ts:151](https://github.com/siposdani87/sui-js/blob/0385915/src/module/window.ts#L151)
 
 ___
 
@@ -170,7 +170,7 @@ ___
 
 #### Defined in
 
-[module/window.ts:170](https://bitbucket.org/siposdani87/sui-js/src/5c73bef/src/module/window.ts#lines-170)
+[module/window.ts:170](https://github.com/siposdani87/sui-js/blob/0385915/src/module/window.ts#L170)
 
 ___
 
@@ -190,7 +190,7 @@ ___
 
 #### Defined in
 
-[module/window.ts:25](https://bitbucket.org/siposdani87/sui-js/src/5c73bef/src/module/window.ts#lines-25)
+[module/window.ts:25](https://github.com/siposdani87/sui-js/blob/0385915/src/module/window.ts#L25)
 
 ___
 
@@ -211,7 +211,7 @@ ___
 
 #### Defined in
 
-[module/window.ts:224](https://bitbucket.org/siposdani87/sui-js/src/5c73bef/src/module/window.ts#lines-224)
+[module/window.ts:224](https://github.com/siposdani87/sui-js/blob/0385915/src/module/window.ts#L224)
 
 ___
 
@@ -231,7 +231,7 @@ ___
 
 #### Defined in
 
-[module/window.ts:98](https://bitbucket.org/siposdani87/sui-js/src/5c73bef/src/module/window.ts#lines-98)
+[module/window.ts:98](https://github.com/siposdani87/sui-js/blob/0385915/src/module/window.ts#L98)
 
 ___
 
@@ -251,7 +251,7 @@ ___
 
 #### Defined in
 
-[module/window.ts:105](https://bitbucket.org/siposdani87/sui-js/src/5c73bef/src/module/window.ts#lines-105)
+[module/window.ts:105](https://github.com/siposdani87/sui-js/blob/0385915/src/module/window.ts#L105)
 
 ___
 
@@ -274,7 +274,7 @@ ___
 
 #### Defined in
 
-[module/window.ts:124](https://bitbucket.org/siposdani87/sui-js/src/5c73bef/src/module/window.ts#lines-124)
+[module/window.ts:124](https://github.com/siposdani87/sui-js/blob/0385915/src/module/window.ts#L124)
 
 ___
 
@@ -296,7 +296,7 @@ ___
 
 #### Defined in
 
-[module/window.ts:114](https://bitbucket.org/siposdani87/sui-js/src/5c73bef/src/module/window.ts#lines-114)
+[module/window.ts:114](https://github.com/siposdani87/sui-js/blob/0385915/src/module/window.ts#L114)
 
 ___
 
@@ -317,7 +317,7 @@ ___
 
 #### Defined in
 
-[module/window.ts:143](https://bitbucket.org/siposdani87/sui-js/src/5c73bef/src/module/window.ts#lines-143)
+[module/window.ts:143](https://github.com/siposdani87/sui-js/blob/0385915/src/module/window.ts#L143)
 
 ___
 
@@ -331,7 +331,7 @@ ___
 
 #### Defined in
 
-[module/window.ts:191](https://bitbucket.org/siposdani87/sui-js/src/5c73bef/src/module/window.ts#lines-191)
+[module/window.ts:191](https://github.com/siposdani87/sui-js/blob/0385915/src/module/window.ts#L191)
 
 ___
 
@@ -347,7 +347,7 @@ landscape|portrait
 
 #### Defined in
 
-[module/window.ts:197](https://bitbucket.org/siposdani87/sui-js/src/5c73bef/src/module/window.ts#lines-197)
+[module/window.ts:197](https://github.com/siposdani87/sui-js/blob/0385915/src/module/window.ts#L197)
 
 ___
 
@@ -361,7 +361,7 @@ ___
 
 #### Defined in
 
-[module/window.ts:176](https://bitbucket.org/siposdani87/sui-js/src/5c73bef/src/module/window.ts#lines-176)
+[module/window.ts:176](https://github.com/siposdani87/sui-js/blob/0385915/src/module/window.ts#L176)
 
 ___
 
@@ -375,7 +375,7 @@ ___
 
 #### Defined in
 
-[module/window.ts:185](https://bitbucket.org/siposdani87/sui-js/src/5c73bef/src/module/window.ts#lines-185)
+[module/window.ts:185](https://github.com/siposdani87/sui-js/blob/0385915/src/module/window.ts#L185)
 
 ___
 
@@ -395,4 +395,4 @@ ___
 
 #### Defined in
 
-[module/window.ts:231](https://bitbucket.org/siposdani87/sui-js/src/5c73bef/src/module/window.ts#lines-231)
+[module/window.ts:231](https://github.com/siposdani87/sui-js/blob/0385915/src/module/window.ts#L231)

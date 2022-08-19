@@ -119,7 +119,7 @@ custom_edit_url: null
 
 #### Defined in
 
-[utils/types.ts:23](https://bitbucket.org/siposdani87/sui-js/src/5c73bef/src/utils/types.ts#lines-23)
+[utils/types.ts:23](https://github.com/siposdani87/sui-js/blob/0385915/src/utils/types.ts#L23)
 
 ___
 
@@ -129,7 +129,7 @@ ___
 
 #### Defined in
 
-[utils/types.ts:47](https://bitbucket.org/siposdani87/sui-js/src/5c73bef/src/utils/types.ts#lines-47)
+[utils/types.ts:47](https://github.com/siposdani87/sui-js/blob/0385915/src/utils/types.ts#L47)
 
 ___
 
@@ -146,7 +146,7 @@ ___
 
 #### Defined in
 
-[utils/types.ts:52](https://bitbucket.org/siposdani87/sui-js/src/5c73bef/src/utils/types.ts#lines-52)
+[utils/types.ts:52](https://github.com/siposdani87/sui-js/blob/0385915/src/utils/types.ts#L52)
 
 ___
 
@@ -166,7 +166,7 @@ ___
 
 #### Defined in
 
-[utils/types.ts:31](https://bitbucket.org/siposdani87/sui-js/src/5c73bef/src/utils/types.ts#lines-31)
+[utils/types.ts:31](https://github.com/siposdani87/sui-js/blob/0385915/src/utils/types.ts#L31)
 
 ___
 
@@ -176,7 +176,7 @@ ___
 
 #### Defined in
 
-[utils/types.ts:18](https://bitbucket.org/siposdani87/sui-js/src/5c73bef/src/utils/types.ts#lines-18)
+[utils/types.ts:18](https://github.com/siposdani87/sui-js/blob/0385915/src/utils/types.ts#L18)
 
 ___
 
@@ -190,7 +190,7 @@ ___
 
 #### Defined in
 
-[utils/types.ts:39](https://bitbucket.org/siposdani87/sui-js/src/5c73bef/src/utils/types.ts#lines-39)
+[utils/types.ts:39](https://github.com/siposdani87/sui-js/blob/0385915/src/utils/types.ts#L39)
 
 ___
 
@@ -204,7 +204,7 @@ ___
 
 #### Defined in
 
-[utils/types.ts:43](https://bitbucket.org/siposdani87/sui-js/src/5c73bef/src/utils/types.ts#lines-43)
+[utils/types.ts:43](https://github.com/siposdani87/sui-js/blob/0385915/src/utils/types.ts#L43)
 
 ___
 
@@ -221,7 +221,7 @@ ___
 
 #### Defined in
 
-[component/googleMap.ts:46](https://bitbucket.org/siposdani87/sui-js/src/5c73bef/src/component/googleMap.ts#lines-46)
+[component/googleMap.ts:46](https://github.com/siposdani87/sui-js/blob/0385915/src/component/googleMap.ts#L46)
 
 ___
 
@@ -246,7 +246,7 @@ ___
 
 #### Defined in
 
-[utils/types.ts:6](https://bitbucket.org/siposdani87/sui-js/src/5c73bef/src/utils/types.ts#lines-6)
+[utils/types.ts:6](https://github.com/siposdani87/sui-js/blob/0385915/src/utils/types.ts#L6)
 
 ___
 
@@ -260,7 +260,7 @@ ___
 
 #### Defined in
 
-[utils/types.ts:11](https://bitbucket.org/siposdani87/sui-js/src/5c73bef/src/utils/types.ts#lines-11)
+[utils/types.ts:11](https://github.com/siposdani87/sui-js/blob/0385915/src/utils/types.ts#L11)
 
 ___
 
@@ -278,7 +278,7 @@ ___
 
 #### Defined in
 
-[component/googleMap.ts:37](https://bitbucket.org/siposdani87/sui-js/src/5c73bef/src/component/googleMap.ts#lines-37)
+[component/googleMap.ts:37](https://github.com/siposdani87/sui-js/blob/0385915/src/component/googleMap.ts#L37)
 
 ## Variables
 
@@ -323,7 +323,7 @@ ___
 
 #### Defined in
 
-[utils/dateio.ts:59](https://bitbucket.org/siposdani87/sui-js/src/5c73bef/src/utils/dateio.ts#lines-59)
+[utils/dateio.ts:59](https://github.com/siposdani87/sui-js/blob/0385915/src/utils/dateio.ts#L59)
 
 ___
 
@@ -374,7 +374,7 @@ ___
 
 #### Defined in
 
-[common/config.ts:17](https://bitbucket.org/siposdani87/sui-js/src/5c73bef/src/common/config.ts#lines-17)
+[common/config.ts:17](https://github.com/siposdani87/sui-js/blob/0385915/src/common/config.ts#L17)
 
 ___
 
@@ -384,7 +384,7 @@ ___
 
 #### Defined in
 
-[common/config.ts:13](https://bitbucket.org/siposdani87/sui-js/src/5c73bef/src/common/config.ts#lines-13)
+[common/config.ts:13](https://github.com/siposdani87/sui-js/blob/0385915/src/common/config.ts#L13)
 
 ## Functions
 
@@ -405,7 +405,7 @@ ___
 
 #### Defined in
 
-[component/formField.ts:34](https://bitbucket.org/siposdani87/sui-js/src/5c73bef/src/component/formField.ts#lines-34)
+[component/formField.ts:34](https://github.com/siposdani87/sui-js/blob/0385915/src/component/formField.ts#L34)
 
 ___
 
@@ -425,7 +425,7 @@ ___
 
 #### Defined in
 
-[utils/operation.ts:447](https://bitbucket.org/siposdani87/sui-js/src/5c73bef/src/utils/operation.ts#lines-447)
+[utils/operation.ts:447](https://github.com/siposdani87/sui-js/blob/0385915/src/utils/operation.ts#L447)
 
 ___
 
@@ -448,7 +448,7 @@ Decimal ceil
 
 #### Defined in
 
-[utils/math.ts:118](https://bitbucket.org/siposdani87/sui-js/src/5c73bef/src/utils/math.ts#lines-118)
+[utils/math.ts:118](https://github.com/siposdani87/sui-js/blob/0385915/src/utils/math.ts#L118)
 
 ___
 
@@ -468,7 +468,7 @@ ___
 
 #### Defined in
 
-[utils/operation.ts:289](https://bitbucket.org/siposdani87/sui-js/src/5c73bef/src/utils/operation.ts#lines-289)
+[utils/operation.ts:289](https://github.com/siposdani87/sui-js/blob/0385915/src/utils/operation.ts#L289)
 
 ___
 
@@ -488,7 +488,7 @@ ___
 
 #### Defined in
 
-[utils/operation.ts:301](https://bitbucket.org/siposdani87/sui-js/src/5c73bef/src/utils/operation.ts#lines-301)
+[utils/operation.ts:301](https://github.com/siposdani87/sui-js/blob/0385915/src/utils/operation.ts#L301)
 
 ___
 
@@ -508,7 +508,7 @@ ___
 
 #### Defined in
 
-[utils/operation.ts:309](https://bitbucket.org/siposdani87/sui-js/src/5c73bef/src/utils/operation.ts#lines-309)
+[utils/operation.ts:309](https://github.com/siposdani87/sui-js/blob/0385915/src/utils/operation.ts#L309)
 
 ___
 
@@ -529,7 +529,7 @@ ___
 
 #### Defined in
 
-[utils/color.ts:184](https://bitbucket.org/siposdani87/sui-js/src/5c73bef/src/utils/color.ts#lines-184)
+[utils/color.ts:184](https://github.com/siposdani87/sui-js/blob/0385915/src/utils/color.ts#L184)
 
 ___
 
@@ -551,7 +551,7 @@ ___
 
 #### Defined in
 
-[utils/color.ts:169](https://bitbucket.org/siposdani87/sui-js/src/5c73bef/src/utils/color.ts#lines-169)
+[utils/color.ts:169](https://github.com/siposdani87/sui-js/blob/0385915/src/utils/color.ts#L169)
 
 ___
 
@@ -572,7 +572,7 @@ ___
 
 #### Defined in
 
-[utils/log.ts:48](https://bitbucket.org/siposdani87/sui-js/src/5c73bef/src/utils/log.ts#lines-48)
+[utils/log.ts:48](https://github.com/siposdani87/sui-js/blob/0385915/src/utils/log.ts#L48)
 
 ___
 
@@ -592,7 +592,7 @@ ___
 
 #### Defined in
 
-[utils/log.ts:40](https://bitbucket.org/siposdani87/sui-js/src/5c73bef/src/utils/log.ts#lines-40)
+[utils/log.ts:40](https://github.com/siposdani87/sui-js/blob/0385915/src/utils/log.ts#L40)
 
 ___
 
@@ -612,7 +612,7 @@ ___
 
 #### Defined in
 
-[utils/log.ts:33](https://bitbucket.org/siposdani87/sui-js/src/5c73bef/src/utils/log.ts#lines-33)
+[utils/log.ts:33](https://github.com/siposdani87/sui-js/blob/0385915/src/utils/log.ts#L33)
 
 ___
 
@@ -632,7 +632,7 @@ ___
 
 #### Defined in
 
-[utils/log.ts:15](https://bitbucket.org/siposdani87/sui-js/src/5c73bef/src/utils/log.ts#lines-15)
+[utils/log.ts:15](https://github.com/siposdani87/sui-js/blob/0385915/src/utils/log.ts#L15)
 
 ___
 
@@ -652,7 +652,7 @@ ___
 
 #### Defined in
 
-[utils/log.ts:6](https://bitbucket.org/siposdani87/sui-js/src/5c73bef/src/utils/log.ts#lines-6)
+[utils/log.ts:6](https://github.com/siposdani87/sui-js/blob/0385915/src/utils/log.ts#L6)
 
 ___
 
@@ -672,7 +672,7 @@ ___
 
 #### Defined in
 
-[utils/log.ts:24](https://bitbucket.org/siposdani87/sui-js/src/5c73bef/src/utils/log.ts#lines-24)
+[utils/log.ts:24](https://github.com/siposdani87/sui-js/blob/0385915/src/utils/log.ts#L24)
 
 ___
 
@@ -693,7 +693,7 @@ ___
 
 #### Defined in
 
-[utils/operation.ts:330](https://bitbucket.org/siposdani87/sui-js/src/5c73bef/src/utils/operation.ts#lines-330)
+[utils/operation.ts:330](https://github.com/siposdani87/sui-js/blob/0385915/src/utils/operation.ts#L330)
 
 ___
 
@@ -713,7 +713,7 @@ ___
 
 #### Defined in
 
-[utils/color.ts:71](https://bitbucket.org/siposdani87/sui-js/src/5c73bef/src/utils/color.ts#lines-71)
+[utils/color.ts:71](https://github.com/siposdani87/sui-js/blob/0385915/src/utils/color.ts#L71)
 
 ___
 
@@ -733,7 +733,7 @@ ___
 
 #### Defined in
 
-[utils/color.ts:82](https://bitbucket.org/siposdani87/sui-js/src/5c73bef/src/utils/color.ts#lines-82)
+[utils/color.ts:82](https://github.com/siposdani87/sui-js/blob/0385915/src/utils/color.ts#L82)
 
 ___
 
@@ -755,7 +755,7 @@ ___
 
 #### Defined in
 
-[utils/color.ts:158](https://bitbucket.org/siposdani87/sui-js/src/5c73bef/src/utils/color.ts#lines-158)
+[utils/color.ts:158](https://github.com/siposdani87/sui-js/blob/0385915/src/utils/color.ts#L158)
 
 ___
 
@@ -777,7 +777,7 @@ ___
 
 #### Defined in
 
-[utils/color.ts:98](https://bitbucket.org/siposdani87/sui-js/src/5c73bef/src/utils/color.ts#lines-98)
+[utils/color.ts:98](https://github.com/siposdani87/sui-js/blob/0385915/src/utils/color.ts#L98)
 
 ___
 
@@ -799,7 +799,7 @@ ___
 
 #### Defined in
 
-[utils/color.ts:50](https://bitbucket.org/siposdani87/sui-js/src/5c73bef/src/utils/color.ts#lines-50)
+[utils/color.ts:50](https://github.com/siposdani87/sui-js/blob/0385915/src/utils/color.ts#L50)
 
 ___
 
@@ -821,7 +821,7 @@ ___
 
 #### Defined in
 
-[utils/color.ts:9](https://bitbucket.org/siposdani87/sui-js/src/5c73bef/src/utils/color.ts#lines-9)
+[utils/color.ts:9](https://github.com/siposdani87/sui-js/blob/0385915/src/utils/color.ts#L9)
 
 ___
 
@@ -841,7 +841,7 @@ ___
 
 #### Defined in
 
-[utils/dateio.ts:55](https://bitbucket.org/siposdani87/sui-js/src/5c73bef/src/utils/dateio.ts#lines-55)
+[utils/dateio.ts:55](https://github.com/siposdani87/sui-js/blob/0385915/src/utils/dateio.ts#L55)
 
 ___
 
@@ -867,7 +867,7 @@ native toString() method, if it is required
 
 #### Defined in
 
-[utils/operation.ts:73](https://bitbucket.org/siposdani87/sui-js/src/5c73bef/src/utils/operation.ts#lines-73)
+[utils/operation.ts:73](https://github.com/siposdani87/sui-js/blob/0385915/src/utils/operation.ts#L73)
 
 ___
 
@@ -887,7 +887,7 @@ ___
 
 #### Defined in
 
-[utils/operation.ts:382](https://bitbucket.org/siposdani87/sui-js/src/5c73bef/src/utils/operation.ts#lines-382)
+[utils/operation.ts:382](https://github.com/siposdani87/sui-js/blob/0385915/src/utils/operation.ts#L382)
 
 ___
 
@@ -907,7 +907,7 @@ ___
 
 #### Defined in
 
-[utils/operation.ts:398](https://bitbucket.org/siposdani87/sui-js/src/5c73bef/src/utils/operation.ts#lines-398)
+[utils/operation.ts:398](https://github.com/siposdani87/sui-js/blob/0385915/src/utils/operation.ts#L398)
 
 ___
 
@@ -927,7 +927,7 @@ ___
 
 #### Defined in
 
-[utils/operation.ts:407](https://bitbucket.org/siposdani87/sui-js/src/5c73bef/src/utils/operation.ts#lines-407)
+[utils/operation.ts:407](https://github.com/siposdani87/sui-js/blob/0385915/src/utils/operation.ts#L407)
 
 ___
 
@@ -947,7 +947,7 @@ ___
 
 #### Defined in
 
-[utils/operation.ts:632](https://bitbucket.org/siposdani87/sui-js/src/5c73bef/src/utils/operation.ts#lines-632)
+[utils/operation.ts:632](https://github.com/siposdani87/sui-js/blob/0385915/src/utils/operation.ts#L632)
 
 ___
 
@@ -982,7 +982,7 @@ ___
 
 #### Defined in
 
-[utils/operation.ts:560](https://bitbucket.org/siposdani87/sui-js/src/5c73bef/src/utils/operation.ts#lines-560)
+[utils/operation.ts:560](https://github.com/siposdani87/sui-js/blob/0385915/src/utils/operation.ts#L560)
 
 ___
 
@@ -1002,7 +1002,7 @@ ___
 
 #### Defined in
 
-[utils/coder.ts:19](https://bitbucket.org/siposdani87/sui-js/src/5c73bef/src/utils/coder.ts#lines-19)
+[utils/coder.ts:19](https://github.com/siposdani87/sui-js/blob/0385915/src/utils/coder.ts#L19)
 
 ___
 
@@ -1023,7 +1023,7 @@ ___
 
 #### Defined in
 
-[utils/coder.ts:39](https://bitbucket.org/siposdani87/sui-js/src/5c73bef/src/utils/coder.ts#lines-39)
+[utils/coder.ts:39](https://github.com/siposdani87/sui-js/blob/0385915/src/utils/coder.ts#L39)
 
 ___
 
@@ -1046,7 +1046,7 @@ ___
 
 #### Defined in
 
-[utils/operation.ts:216](https://bitbucket.org/siposdani87/sui-js/src/5c73bef/src/utils/operation.ts#lines-216)
+[utils/operation.ts:216](https://github.com/siposdani87/sui-js/blob/0385915/src/utils/operation.ts#L216)
 
 ___
 
@@ -1069,7 +1069,7 @@ ___
 
 #### Defined in
 
-[utils/operation.ts:236](https://bitbucket.org/siposdani87/sui-js/src/5c73bef/src/utils/operation.ts#lines-236)
+[utils/operation.ts:236](https://github.com/siposdani87/sui-js/blob/0385915/src/utils/operation.ts#L236)
 
 ___
 
@@ -1090,7 +1090,7 @@ ___
 
 #### Defined in
 
-[utils/operation.ts:254](https://bitbucket.org/siposdani87/sui-js/src/5c73bef/src/utils/operation.ts#lines-254)
+[utils/operation.ts:254](https://github.com/siposdani87/sui-js/blob/0385915/src/utils/operation.ts#L254)
 
 ___
 
@@ -1110,7 +1110,7 @@ ___
 
 #### Defined in
 
-[utils/coder.ts:10](https://bitbucket.org/siposdani87/sui-js/src/5c73bef/src/utils/coder.ts#lines-10)
+[utils/coder.ts:10](https://github.com/siposdani87/sui-js/blob/0385915/src/utils/coder.ts#L10)
 
 ___
 
@@ -1131,7 +1131,7 @@ ___
 
 #### Defined in
 
-[utils/coder.ts:29](https://bitbucket.org/siposdani87/sui-js/src/5c73bef/src/utils/coder.ts#lines-29)
+[utils/coder.ts:29](https://github.com/siposdani87/sui-js/blob/0385915/src/utils/coder.ts#L29)
 
 ___
 
@@ -1152,7 +1152,7 @@ ___
 
 #### Defined in
 
-[utils/operation.ts:91](https://bitbucket.org/siposdani87/sui-js/src/5c73bef/src/utils/operation.ts#lines-91)
+[utils/operation.ts:91](https://github.com/siposdani87/sui-js/blob/0385915/src/utils/operation.ts#L91)
 
 ___
 
@@ -1175,7 +1175,7 @@ Decimal floor
 
 #### Defined in
 
-[utils/math.ts:108](https://bitbucket.org/siposdani87/sui-js/src/5c73bef/src/utils/math.ts#lines-108)
+[utils/math.ts:108](https://github.com/siposdani87/sui-js/blob/0385915/src/utils/math.ts#L108)
 
 ___
 
@@ -1198,7 +1198,7 @@ ___
 
 #### Defined in
 
-[utils/operation.ts:54](https://bitbucket.org/siposdani87/sui-js/src/5c73bef/src/utils/operation.ts#lines-54)
+[utils/operation.ts:54](https://github.com/siposdani87/sui-js/blob/0385915/src/utils/operation.ts#L54)
 
 ___
 
@@ -1218,7 +1218,7 @@ ___
 
 #### Defined in
 
-[utils/coder.ts:63](https://bitbucket.org/siposdani87/sui-js/src/5c73bef/src/utils/coder.ts#lines-63)
+[utils/coder.ts:63](https://github.com/siposdani87/sui-js/blob/0385915/src/utils/coder.ts#L63)
 
 ___
 
@@ -1238,7 +1238,7 @@ ___
 
 #### Defined in
 
-[utils/operation.ts:614](https://bitbucket.org/siposdani87/sui-js/src/5c73bef/src/utils/operation.ts#lines-614)
+[utils/operation.ts:614](https://github.com/siposdani87/sui-js/blob/0385915/src/utils/operation.ts#L614)
 
 ___
 
@@ -1258,7 +1258,7 @@ ___
 
 #### Defined in
 
-[utils/operation.ts:596](https://bitbucket.org/siposdani87/sui-js/src/5c73bef/src/utils/operation.ts#lines-596)
+[utils/operation.ts:596](https://github.com/siposdani87/sui-js/blob/0385915/src/utils/operation.ts#L596)
 
 ___
 
@@ -1279,7 +1279,7 @@ ___
 
 #### Defined in
 
-[utils/operation.ts:105](https://bitbucket.org/siposdani87/sui-js/src/5c73bef/src/utils/operation.ts#lines-105)
+[utils/operation.ts:105](https://github.com/siposdani87/sui-js/blob/0385915/src/utils/operation.ts#L105)
 
 ___
 
@@ -1300,7 +1300,7 @@ ___
 
 #### Defined in
 
-[utils/operation.ts:112](https://bitbucket.org/siposdani87/sui-js/src/5c73bef/src/utils/operation.ts#lines-112)
+[utils/operation.ts:112](https://github.com/siposdani87/sui-js/blob/0385915/src/utils/operation.ts#L112)
 
 ___
 
@@ -1317,7 +1317,7 @@ https://github.com/LiosK/UUID.js
 
 #### Defined in
 
-[utils/coder.ts:55](https://bitbucket.org/siposdani87/sui-js/src/5c73bef/src/utils/coder.ts#lines-55)
+[utils/coder.ts:55](https://github.com/siposdani87/sui-js/blob/0385915/src/utils/coder.ts#L55)
 
 ___
 
@@ -1338,7 +1338,7 @@ ___
 
 #### Defined in
 
-[utils/operation.ts:322](https://bitbucket.org/siposdani87/sui-js/src/5c73bef/src/utils/operation.ts#lines-322)
+[utils/operation.ts:322](https://github.com/siposdani87/sui-js/blob/0385915/src/utils/operation.ts#L322)
 
 ___
 
@@ -1359,7 +1359,7 @@ ___
 
 #### Defined in
 
-[utils/operation.ts:338](https://bitbucket.org/siposdani87/sui-js/src/5c73bef/src/utils/operation.ts#lines-338)
+[utils/operation.ts:338](https://github.com/siposdani87/sui-js/blob/0385915/src/utils/operation.ts#L338)
 
 ___
 
@@ -1380,7 +1380,7 @@ ___
 
 #### Defined in
 
-[utils/operation.ts:206](https://bitbucket.org/siposdani87/sui-js/src/5c73bef/src/utils/operation.ts#lines-206)
+[utils/operation.ts:206](https://github.com/siposdani87/sui-js/blob/0385915/src/utils/operation.ts#L206)
 
 ___
 
@@ -1401,7 +1401,7 @@ ___
 
 #### Defined in
 
-[utils/operation.ts:199](https://bitbucket.org/siposdani87/sui-js/src/5c73bef/src/utils/operation.ts#lines-199)
+[utils/operation.ts:199](https://github.com/siposdani87/sui-js/blob/0385915/src/utils/operation.ts#L199)
 
 ___
 
@@ -1421,7 +1421,7 @@ ___
 
 #### Defined in
 
-[utils/operation.ts:132](https://bitbucket.org/siposdani87/sui-js/src/5c73bef/src/utils/operation.ts#lines-132)
+[utils/operation.ts:132](https://github.com/siposdani87/sui-js/blob/0385915/src/utils/operation.ts#L132)
 
 ___
 
@@ -1441,7 +1441,7 @@ ___
 
 #### Defined in
 
-[utils/operation.ts:180](https://bitbucket.org/siposdani87/sui-js/src/5c73bef/src/utils/operation.ts#lines-180)
+[utils/operation.ts:180](https://github.com/siposdani87/sui-js/blob/0385915/src/utils/operation.ts#L180)
 
 ___
 
@@ -1461,7 +1461,7 @@ ___
 
 #### Defined in
 
-[utils/operation.ts:419](https://bitbucket.org/siposdani87/sui-js/src/5c73bef/src/utils/operation.ts#lines-419)
+[utils/operation.ts:419](https://github.com/siposdani87/sui-js/blob/0385915/src/utils/operation.ts#L419)
 
 ___
 
@@ -1481,7 +1481,7 @@ ___
 
 #### Defined in
 
-[utils/operation.ts:162](https://bitbucket.org/siposdani87/sui-js/src/5c73bef/src/utils/operation.ts#lines-162)
+[utils/operation.ts:162](https://github.com/siposdani87/sui-js/blob/0385915/src/utils/operation.ts#L162)
 
 ___
 
@@ -1501,7 +1501,7 @@ ___
 
 #### Defined in
 
-[utils/operation.ts:138](https://bitbucket.org/siposdani87/sui-js/src/5c73bef/src/utils/operation.ts#lines-138)
+[utils/operation.ts:138](https://github.com/siposdani87/sui-js/blob/0385915/src/utils/operation.ts#L138)
 
 ___
 
@@ -1521,7 +1521,7 @@ ___
 
 #### Defined in
 
-[utils/operation.ts:168](https://bitbucket.org/siposdani87/sui-js/src/5c73bef/src/utils/operation.ts#lines-168)
+[utils/operation.ts:168](https://github.com/siposdani87/sui-js/blob/0385915/src/utils/operation.ts#L168)
 
 ___
 
@@ -1541,7 +1541,7 @@ ___
 
 #### Defined in
 
-[utils/operation.ts:186](https://bitbucket.org/siposdani87/sui-js/src/5c73bef/src/utils/operation.ts#lines-186)
+[utils/operation.ts:186](https://github.com/siposdani87/sui-js/blob/0385915/src/utils/operation.ts#L186)
 
 ___
 
@@ -1561,7 +1561,7 @@ ___
 
 #### Defined in
 
-[utils/operation.ts:150](https://bitbucket.org/siposdani87/sui-js/src/5c73bef/src/utils/operation.ts#lines-150)
+[utils/operation.ts:150](https://github.com/siposdani87/sui-js/blob/0385915/src/utils/operation.ts#L150)
 
 ___
 
@@ -1581,7 +1581,7 @@ ___
 
 #### Defined in
 
-[utils/operation.ts:174](https://bitbucket.org/siposdani87/sui-js/src/5c73bef/src/utils/operation.ts#lines-174)
+[utils/operation.ts:174](https://github.com/siposdani87/sui-js/blob/0385915/src/utils/operation.ts#L174)
 
 ___
 
@@ -1602,7 +1602,7 @@ ___
 
 #### Defined in
 
-[utils/operation.ts:351](https://bitbucket.org/siposdani87/sui-js/src/5c73bef/src/utils/operation.ts#lines-351)
+[utils/operation.ts:351](https://github.com/siposdani87/sui-js/blob/0385915/src/utils/operation.ts#L351)
 
 ___
 
@@ -1622,7 +1622,7 @@ ___
 
 #### Defined in
 
-[utils/operation.ts:144](https://bitbucket.org/siposdani87/sui-js/src/5c73bef/src/utils/operation.ts#lines-144)
+[utils/operation.ts:144](https://github.com/siposdani87/sui-js/blob/0385915/src/utils/operation.ts#L144)
 
 ___
 
@@ -1642,7 +1642,7 @@ ___
 
 #### Defined in
 
-[utils/operation.ts:192](https://bitbucket.org/siposdani87/sui-js/src/5c73bef/src/utils/operation.ts#lines-192)
+[utils/operation.ts:192](https://github.com/siposdani87/sui-js/blob/0385915/src/utils/operation.ts#L192)
 
 ___
 
@@ -1665,7 +1665,7 @@ ___
 
 #### Defined in
 
-[utils/operation.ts:439](https://bitbucket.org/siposdani87/sui-js/src/5c73bef/src/utils/operation.ts#lines-439)
+[utils/operation.ts:439](https://github.com/siposdani87/sui-js/blob/0385915/src/utils/operation.ts#L439)
 
 ___
 
@@ -1686,7 +1686,7 @@ ___
 
 #### Defined in
 
-[utils/operation.ts:119](https://bitbucket.org/siposdani87/sui-js/src/5c73bef/src/utils/operation.ts#lines-119)
+[utils/operation.ts:119](https://github.com/siposdani87/sui-js/blob/0385915/src/utils/operation.ts#L119)
 
 ___
 
@@ -1707,7 +1707,7 @@ ___
 
 #### Defined in
 
-[utils/operation.ts:126](https://bitbucket.org/siposdani87/sui-js/src/5c73bef/src/utils/operation.ts#lines-126)
+[utils/operation.ts:126](https://github.com/siposdani87/sui-js/blob/0385915/src/utils/operation.ts#L126)
 
 ___
 
@@ -1727,7 +1727,7 @@ ___
 
 #### Defined in
 
-[utils/coder.ts:48](https://bitbucket.org/siposdani87/sui-js/src/5c73bef/src/utils/coder.ts#lines-48)
+[utils/coder.ts:48](https://github.com/siposdani87/sui-js/blob/0385915/src/utils/coder.ts#L48)
 
 ___
 
@@ -1748,7 +1748,7 @@ ___
 
 #### Defined in
 
-[utils/render.ts:11](https://bitbucket.org/siposdani87/sui-js/src/5c73bef/src/utils/render.ts#lines-11)
+[utils/render.ts:11](https://github.com/siposdani87/sui-js/blob/0385915/src/utils/render.ts#L11)
 
 ___
 
@@ -1769,7 +1769,7 @@ ___
 
 #### Defined in
 
-[utils/operation.ts:33](https://bitbucket.org/siposdani87/sui-js/src/5c73bef/src/utils/operation.ts#lines-33)
+[utils/operation.ts:33](https://github.com/siposdani87/sui-js/blob/0385915/src/utils/operation.ts#L33)
 
 ___
 
@@ -1790,7 +1790,7 @@ ___
 
 #### Defined in
 
-[utils/operation.ts:98](https://bitbucket.org/siposdani87/sui-js/src/5c73bef/src/utils/operation.ts#lines-98)
+[utils/operation.ts:98](https://github.com/siposdani87/sui-js/blob/0385915/src/utils/operation.ts#L98)
 
 ___
 
@@ -1816,7 +1816,7 @@ ___
 
 #### Defined in
 
-[utils/operation.ts:81](https://bitbucket.org/siposdani87/sui-js/src/5c73bef/src/utils/operation.ts#lines-81)
+[utils/operation.ts:81](https://github.com/siposdani87/sui-js/blob/0385915/src/utils/operation.ts#L81)
 
 ___
 
@@ -1836,7 +1836,7 @@ ___
 
 #### Defined in
 
-[utils/operation.ts:625](https://bitbucket.org/siposdani87/sui-js/src/5c73bef/src/utils/operation.ts#lines-625)
+[utils/operation.ts:625](https://github.com/siposdani87/sui-js/blob/0385915/src/utils/operation.ts#L625)
 
 ___
 
@@ -1862,7 +1862,7 @@ ___
 
 #### Defined in
 
-[component/formField.ts:47](https://bitbucket.org/siposdani87/sui-js/src/5c73bef/src/component/formField.ts#lines-47)
+[component/formField.ts:47](https://github.com/siposdani87/sui-js/blob/0385915/src/component/formField.ts#L47)
 
 ___
 
@@ -1883,7 +1883,7 @@ ___
 
 #### Defined in
 
-[utils/operation.ts:455](https://bitbucket.org/siposdani87/sui-js/src/5c73bef/src/utils/operation.ts#lines-455)
+[utils/operation.ts:455](https://github.com/siposdani87/sui-js/blob/0385915/src/utils/operation.ts#L455)
 
 ___
 
@@ -1904,7 +1904,7 @@ ___
 
 #### Defined in
 
-[utils/operation.ts:469](https://bitbucket.org/siposdani87/sui-js/src/5c73bef/src/utils/operation.ts#lines-469)
+[utils/operation.ts:469](https://github.com/siposdani87/sui-js/blob/0385915/src/utils/operation.ts#L469)
 
 ___
 
@@ -1926,7 +1926,7 @@ ___
 
 #### Defined in
 
-[utils/math.ts:127](https://bitbucket.org/siposdani87/sui-js/src/5c73bef/src/utils/math.ts#lines-127)
+[utils/math.ts:127](https://github.com/siposdani87/sui-js/blob/0385915/src/utils/math.ts#L127)
 
 ___
 
@@ -1949,7 +1949,7 @@ ___
 
 #### Defined in
 
-[utils/math.ts:8](https://bitbucket.org/siposdani87/sui-js/src/5c73bef/src/utils/math.ts#lines-8)
+[utils/math.ts:8](https://github.com/siposdani87/sui-js/blob/0385915/src/utils/math.ts#L8)
 
 ___
 
@@ -1970,7 +1970,7 @@ ___
 
 #### Defined in
 
-[utils/math.ts:39](https://bitbucket.org/siposdani87/sui-js/src/5c73bef/src/utils/math.ts#lines-39)
+[utils/math.ts:39](https://github.com/siposdani87/sui-js/blob/0385915/src/utils/math.ts#L39)
 
 ___
 
@@ -1991,7 +1991,7 @@ ___
 
 #### Defined in
 
-[utils/operation.ts:371](https://bitbucket.org/siposdani87/sui-js/src/5c73bef/src/utils/operation.ts#lines-371)
+[utils/operation.ts:371](https://github.com/siposdani87/sui-js/blob/0385915/src/utils/operation.ts#L371)
 
 ___
 
@@ -2014,7 +2014,7 @@ Decimal round
 
 #### Defined in
 
-[utils/math.ts:98](https://bitbucket.org/siposdani87/sui-js/src/5c73bef/src/utils/math.ts#lines-98)
+[utils/math.ts:98](https://github.com/siposdani87/sui-js/blob/0385915/src/utils/math.ts#L98)
 
 ___
 
@@ -2035,7 +2035,7 @@ ___
 
 #### Defined in
 
-[utils/operation.ts:545](https://bitbucket.org/siposdani87/sui-js/src/5c73bef/src/utils/operation.ts#lines-545)
+[utils/operation.ts:545](https://github.com/siposdani87/sui-js/blob/0385915/src/utils/operation.ts#L545)
 
 ___
 
@@ -2058,7 +2058,7 @@ ___
 
 #### Defined in
 
-[utils/operation.ts:490](https://bitbucket.org/siposdani87/sui-js/src/5c73bef/src/utils/operation.ts#lines-490)
+[utils/operation.ts:490](https://github.com/siposdani87/sui-js/blob/0385915/src/utils/operation.ts#L490)
 
 ___
 
@@ -2086,7 +2086,7 @@ scrollIntoView
 
 #### Defined in
 
-[utils/operation.ts:528](https://bitbucket.org/siposdani87/sui-js/src/5c73bef/src/utils/operation.ts#lines-528)
+[utils/operation.ts:528](https://github.com/siposdani87/sui-js/blob/0385915/src/utils/operation.ts#L528)
 
 ___
 
@@ -2106,7 +2106,7 @@ ___
 
 #### Defined in
 
-[utils/dateio.ts:51](https://bitbucket.org/siposdani87/sui-js/src/5c73bef/src/utils/dateio.ts#lines-51)
+[utils/dateio.ts:51](https://github.com/siposdani87/sui-js/blob/0385915/src/utils/dateio.ts#L51)
 
 ___
 
@@ -2129,7 +2129,7 @@ ___
 
 #### Defined in
 
-[utils/operation.ts:269](https://bitbucket.org/siposdani87/sui-js/src/5c73bef/src/utils/operation.ts#lines-269)
+[utils/operation.ts:269](https://github.com/siposdani87/sui-js/blob/0385915/src/utils/operation.ts#L269)
 
 ___
 
@@ -2149,7 +2149,7 @@ ___
 
 #### Defined in
 
-[utils/operation.ts:5](https://bitbucket.org/siposdani87/sui-js/src/5c73bef/src/utils/operation.ts#lines-5)
+[utils/operation.ts:5](https://github.com/siposdani87/sui-js/blob/0385915/src/utils/operation.ts#L5)
 
 ___
 
@@ -2170,7 +2170,7 @@ ___
 
 #### Defined in
 
-[utils/operation.ts:583](https://bitbucket.org/siposdani87/sui-js/src/5c73bef/src/utils/operation.ts#lines-583)
+[utils/operation.ts:583](https://github.com/siposdani87/sui-js/blob/0385915/src/utils/operation.ts#L583)
 
 ___
 
@@ -2187,4 +2187,4 @@ https://github.com/LiosK/UUID.js
 
 #### Defined in
 
-[utils/coder.ts:70](https://bitbucket.org/siposdani87/sui-js/src/5c73bef/src/utils/coder.ts#lines-70)
+[utils/coder.ts:70](https://github.com/siposdani87/sui-js/blob/0385915/src/utils/coder.ts#L70)

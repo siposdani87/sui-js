@@ -14,7 +14,7 @@ custom_edit_url: null
 
 <a href="https://www.buymeacoffee.com/siposdani87" target="_blank"><img src="https://cdn.buymeacoffee.com/buttons/v2/default-blue.png" alt="Buy Me A Coffee" /></a>
 
-This is a lightweight JS framework. It is written in the TypeScript language. The codebase was documented with JSDoc and compiled with ESbuild advanced settings. In this framework there are a lot of predefined UI components.
+This is a lightweight FE framework. It is written in the TypeScript language. The codebase was documented with JSDoc and compiled with ESbuild advanced settings. In this framework there are a lot of predefined UI components.
 
 ## Getting Started
 
@@ -22,12 +22,15 @@ This is a lightweight JS framework. It is written in the TypeScript language. Th
 
 ```
 npm install @siposdani87/sui-js
-
-# Expo
-expo install @siposdani87/sui-js
 ```
 
 ### Basic Usage
+
+Check example directory for more samples and options.
+
+```js
+
+```
 
 ## Preview
 ![Overview](https://raw.githubusercontent.com/siposdani87/sui-js/master/images/sui-js.png)
