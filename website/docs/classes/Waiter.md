@@ -14,7 +14,7 @@ custom_edit_url: null
 
 #### Defined in
 
-[component/waiter.ts:10](https://bitbucket.org/siposdani87/sui-js/src/5c73bef/src/component/waiter.ts#lines-10)
+[component/waiter.ts:10](https://github.com/siposdani87/sui-js/blob/0385915/src/component/waiter.ts#L10)
 
 ## Properties
 
@@ -24,7 +24,7 @@ custom_edit_url: null
 
 #### Defined in
 
-[component/waiter.ts:6](https://bitbucket.org/siposdani87/sui-js/src/5c73bef/src/component/waiter.ts#lines-6)
+[component/waiter.ts:6](https://github.com/siposdani87/sui-js/blob/0385915/src/component/waiter.ts#L6)
 
 ___
 
@@ -34,7 +34,7 @@ ___
 
 #### Defined in
 
-[component/waiter.ts:7](https://bitbucket.org/siposdani87/sui-js/src/5c73bef/src/component/waiter.ts#lines-7)
+[component/waiter.ts:7](https://github.com/siposdani87/sui-js/blob/0385915/src/component/waiter.ts#L7)
 
 ___
 
@@ -44,7 +44,7 @@ ___
 
 #### Defined in
 
-[component/waiter.ts:5](https://bitbucket.org/siposdani87/sui-js/src/5c73bef/src/component/waiter.ts#lines-5)
+[component/waiter.ts:5](https://github.com/siposdani87/sui-js/blob/0385915/src/component/waiter.ts#L5)
 
 ## Methods
 
@@ -66,7 +66,7 @@ ___
 
 #### Defined in
 
-[component/waiter.ts:33](https://bitbucket.org/siposdani87/sui-js/src/5c73bef/src/component/waiter.ts#lines-33)
+[component/waiter.ts:33](https://github.com/siposdani87/sui-js/blob/0385915/src/component/waiter.ts#L33)
 
 ___
 
@@ -88,7 +88,7 @@ ___
 
 #### Defined in
 
-[component/waiter.ts:79](https://bitbucket.org/siposdani87/sui-js/src/5c73bef/src/component/waiter.ts#lines-79)
+[component/waiter.ts:79](https://github.com/siposdani87/sui-js/blob/0385915/src/component/waiter.ts#L79)
 
 ___
 
@@ -109,7 +109,7 @@ ___
 
 #### Defined in
 
-[component/waiter.ts:19](https://bitbucket.org/siposdani87/sui-js/src/5c73bef/src/component/waiter.ts#lines-19)
+[component/waiter.ts:19](https://github.com/siposdani87/sui-js/blob/0385915/src/component/waiter.ts#L19)
 
 ___
 
@@ -130,7 +130,7 @@ ___
 
 #### Defined in
 
-[component/waiter.ts:68](https://bitbucket.org/siposdani87/sui-js/src/5c73bef/src/component/waiter.ts#lines-68)
+[component/waiter.ts:68](https://github.com/siposdani87/sui-js/blob/0385915/src/component/waiter.ts#L68)
 
 ___
 
@@ -144,7 +144,7 @@ ___
 
 #### Defined in
 
-[component/waiter.ts:59](https://bitbucket.org/siposdani87/sui-js/src/5c73bef/src/component/waiter.ts#lines-59)
+[component/waiter.ts:59](https://github.com/siposdani87/sui-js/blob/0385915/src/component/waiter.ts#L59)
 
 ___
 
@@ -158,4 +158,4 @@ ___
 
 #### Defined in
 
-[component/waiter.ts:50](https://bitbucket.org/siposdani87/sui-js/src/5c73bef/src/component/waiter.ts#lines-50)
+[component/waiter.ts:50](https://github.com/siposdani87/sui-js/blob/0385915/src/component/waiter.ts#L50)

@@ -16,7 +16,7 @@ http://browserhacks.com/
 
 #### Defined in
 
-[module/browser.ts:16](https://bitbucket.org/siposdani87/sui-js/src/5c73bef/src/module/browser.ts#lines-16)
+[module/browser.ts:16](https://github.com/siposdani87/sui-js/blob/0385915/src/module/browser.ts#L16)
 
 ## Properties
 
@@ -30,7 +30,7 @@ http://browserhacks.com/
 
 #### Defined in
 
-[module/browser.ts:10](https://bitbucket.org/siposdani87/sui-js/src/5c73bef/src/module/browser.ts#lines-10)
+[module/browser.ts:10](https://github.com/siposdani87/sui-js/blob/0385915/src/module/browser.ts#L10)
 
 ___
 
@@ -40,7 +40,7 @@ ___
 
 #### Defined in
 
-[module/browser.ts:9](https://bitbucket.org/siposdani87/sui-js/src/5c73bef/src/module/browser.ts#lines-9)
+[module/browser.ts:9](https://github.com/siposdani87/sui-js/blob/0385915/src/module/browser.ts#L9)
 
 ___
 
@@ -50,7 +50,7 @@ ___
 
 #### Defined in
 
-[module/browser.ts:13](https://bitbucket.org/siposdani87/sui-js/src/5c73bef/src/module/browser.ts#lines-13)
+[module/browser.ts:13](https://github.com/siposdani87/sui-js/blob/0385915/src/module/browser.ts#L13)
 
 ## Methods
 
@@ -64,7 +64,7 @@ ___
 
 #### Defined in
 
-[module/browser.ts:77](https://bitbucket.org/siposdani87/sui-js/src/5c73bef/src/module/browser.ts#lines-77)
+[module/browser.ts:77](https://github.com/siposdani87/sui-js/blob/0385915/src/module/browser.ts#L77)
 
 ___
 
@@ -78,7 +78,7 @@ ___
 
 #### Defined in
 
-[module/browser.ts:32](https://bitbucket.org/siposdani87/sui-js/src/5c73bef/src/module/browser.ts#lines-32)
+[module/browser.ts:32](https://github.com/siposdani87/sui-js/blob/0385915/src/module/browser.ts#L32)
 
 ___
 
@@ -92,7 +92,7 @@ ___
 
 #### Defined in
 
-[module/browser.ts:113](https://bitbucket.org/siposdani87/sui-js/src/5c73bef/src/module/browser.ts#lines-113)
+[module/browser.ts:113](https://github.com/siposdani87/sui-js/blob/0385915/src/module/browser.ts#L113)
 
 ___
 
@@ -106,7 +106,7 @@ ___
 
 #### Defined in
 
-[module/browser.ts:23](https://bitbucket.org/siposdani87/sui-js/src/5c73bef/src/module/browser.ts#lines-23)
+[module/browser.ts:23](https://github.com/siposdani87/sui-js/blob/0385915/src/module/browser.ts#L23)
 
 ___
 
@@ -127,7 +127,7 @@ ___
 
 #### Defined in
 
-[module/browser.ts:61](https://bitbucket.org/siposdani87/sui-js/src/5c73bef/src/module/browser.ts#lines-61)
+[module/browser.ts:61](https://github.com/siposdani87/sui-js/blob/0385915/src/module/browser.ts#L61)
 
 ___
 
@@ -141,7 +141,7 @@ ___
 
 #### Defined in
 
-[module/browser.ts:50](https://bitbucket.org/siposdani87/sui-js/src/5c73bef/src/module/browser.ts#lines-50)
+[module/browser.ts:50](https://github.com/siposdani87/sui-js/blob/0385915/src/module/browser.ts#L50)
 
 ___
 
@@ -161,7 +161,7 @@ ___
 
 #### Defined in
 
-[module/browser.ts:70](https://bitbucket.org/siposdani87/sui-js/src/5c73bef/src/module/browser.ts#lines-70)
+[module/browser.ts:70](https://github.com/siposdani87/sui-js/blob/0385915/src/module/browser.ts#L70)
 
 ___
 
@@ -175,7 +175,7 @@ ___
 
 #### Defined in
 
-[module/browser.ts:161](https://bitbucket.org/siposdani87/sui-js/src/5c73bef/src/module/browser.ts#lines-161)
+[module/browser.ts:161](https://github.com/siposdani87/sui-js/blob/0385915/src/module/browser.ts#L161)
 
 ___
 
@@ -189,7 +189,7 @@ ___
 
 #### Defined in
 
-[module/browser.ts:212](https://bitbucket.org/siposdani87/sui-js/src/5c73bef/src/module/browser.ts#lines-212)
+[module/browser.ts:212](https://github.com/siposdani87/sui-js/blob/0385915/src/module/browser.ts#L212)
 
 ___
 
@@ -203,7 +203,7 @@ ___
 
 #### Defined in
 
-[module/browser.ts:236](https://bitbucket.org/siposdani87/sui-js/src/5c73bef/src/module/browser.ts#lines-236)
+[module/browser.ts:236](https://github.com/siposdani87/sui-js/blob/0385915/src/module/browser.ts#L236)
 
 ___
 
@@ -217,7 +217,7 @@ ___
 
 #### Defined in
 
-[module/browser.ts:200](https://bitbucket.org/siposdani87/sui-js/src/5c73bef/src/module/browser.ts#lines-200)
+[module/browser.ts:200](https://github.com/siposdani87/sui-js/blob/0385915/src/module/browser.ts#L200)
 
 ___
 
@@ -231,7 +231,7 @@ ___
 
 #### Defined in
 
-[module/browser.ts:194](https://bitbucket.org/siposdani87/sui-js/src/5c73bef/src/module/browser.ts#lines-194)
+[module/browser.ts:194](https://github.com/siposdani87/sui-js/blob/0385915/src/module/browser.ts#L194)
 
 ___
 
@@ -245,7 +245,7 @@ ___
 
 #### Defined in
 
-[module/browser.ts:206](https://bitbucket.org/siposdani87/sui-js/src/5c73bef/src/module/browser.ts#lines-206)
+[module/browser.ts:206](https://github.com/siposdani87/sui-js/blob/0385915/src/module/browser.ts#L206)
 
 ___
 
@@ -259,7 +259,7 @@ ___
 
 #### Defined in
 
-[module/browser.ts:149](https://bitbucket.org/siposdani87/sui-js/src/5c73bef/src/module/browser.ts#lines-149)
+[module/browser.ts:149](https://github.com/siposdani87/sui-js/blob/0385915/src/module/browser.ts#L149)
 
 ___
 
@@ -279,7 +279,7 @@ ___
 
 #### Defined in
 
-[module/browser.ts:174](https://bitbucket.org/siposdani87/sui-js/src/5c73bef/src/module/browser.ts#lines-174)
+[module/browser.ts:174](https://github.com/siposdani87/sui-js/blob/0385915/src/module/browser.ts#L174)
 
 ___
 
@@ -293,7 +293,7 @@ ___
 
 #### Defined in
 
-[module/browser.ts:167](https://bitbucket.org/siposdani87/sui-js/src/5c73bef/src/module/browser.ts#lines-167)
+[module/browser.ts:167](https://github.com/siposdani87/sui-js/blob/0385915/src/module/browser.ts#L167)
 
 ___
 
@@ -307,7 +307,7 @@ ___
 
 #### Defined in
 
-[module/browser.ts:143](https://bitbucket.org/siposdani87/sui-js/src/5c73bef/src/module/browser.ts#lines-143)
+[module/browser.ts:143](https://github.com/siposdani87/sui-js/blob/0385915/src/module/browser.ts#L143)
 
 ___
 
@@ -321,7 +321,7 @@ ___
 
 #### Defined in
 
-[module/browser.ts:218](https://bitbucket.org/siposdani87/sui-js/src/5c73bef/src/module/browser.ts#lines-218)
+[module/browser.ts:218](https://github.com/siposdani87/sui-js/blob/0385915/src/module/browser.ts#L218)
 
 ___
 
@@ -335,7 +335,7 @@ ___
 
 #### Defined in
 
-[module/browser.ts:224](https://bitbucket.org/siposdani87/sui-js/src/5c73bef/src/module/browser.ts#lines-224)
+[module/browser.ts:224](https://github.com/siposdani87/sui-js/blob/0385915/src/module/browser.ts#L224)
 
 ___
 
@@ -349,7 +349,7 @@ ___
 
 #### Defined in
 
-[module/browser.ts:230](https://bitbucket.org/siposdani87/sui-js/src/5c73bef/src/module/browser.ts#lines-230)
+[module/browser.ts:230](https://github.com/siposdani87/sui-js/blob/0385915/src/module/browser.ts#L230)
 
 ___
 
@@ -363,4 +363,4 @@ ___
 
 #### Defined in
 
-[module/browser.ts:155](https://bitbucket.org/siposdani87/sui-js/src/5c73bef/src/module/browser.ts#lines-155)
+[module/browser.ts:155](https://github.com/siposdani87/sui-js/blob/0385915/src/module/browser.ts#L155)

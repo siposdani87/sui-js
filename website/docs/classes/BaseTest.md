@@ -32,7 +32,7 @@ custom_edit_url: null
 
 #### Defined in
 
-[test/baseTest.ts:15](https://bitbucket.org/siposdani87/sui-js/src/5c73bef/src/test/baseTest.ts#lines-15)
+[test/baseTest.ts:15](https://github.com/siposdani87/sui-js/blob/0385915/src/test/baseTest.ts#L15)
 
 ## Properties
 
@@ -42,7 +42,7 @@ custom_edit_url: null
 
 #### Defined in
 
-[test/baseTest.ts:11](https://bitbucket.org/siposdani87/sui-js/src/5c73bef/src/test/baseTest.ts#lines-11)
+[test/baseTest.ts:11](https://github.com/siposdani87/sui-js/blob/0385915/src/test/baseTest.ts#L11)
 
 ## Methods
 
@@ -56,7 +56,7 @@ custom_edit_url: null
 
 #### Defined in
 
-[test/baseTest.ts:21](https://bitbucket.org/siposdani87/sui-js/src/5c73bef/src/test/baseTest.ts#lines-21)
+[test/baseTest.ts:21](https://github.com/siposdani87/sui-js/blob/0385915/src/test/baseTest.ts#L21)
 
 ___
 
@@ -78,4 +78,4 @@ ___
 
 #### Defined in
 
-[test/baseTest.ts:30](https://bitbucket.org/siposdani87/sui-js/src/5c73bef/src/test/baseTest.ts#lines-30)
+[test/baseTest.ts:30](https://github.com/siposdani87/sui-js/blob/0385915/src/test/baseTest.ts#L30)

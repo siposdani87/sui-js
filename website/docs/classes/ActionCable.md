@@ -14,7 +14,7 @@ custom_edit_url: null
 
 #### Defined in
 
-[module/actionCable.ts:18](https://bitbucket.org/siposdani87/sui-js/src/5c73bef/src/module/actionCable.ts#lines-18)
+[module/actionCable.ts:18](https://github.com/siposdani87/sui-js/blob/0385915/src/module/actionCable.ts#L18)
 
 ## Properties
 
@@ -24,7 +24,7 @@ custom_edit_url: null
 
 #### Defined in
 
-[module/actionCable.ts:13](https://bitbucket.org/siposdani87/sui-js/src/5c73bef/src/module/actionCable.ts#lines-13)
+[module/actionCable.ts:13](https://github.com/siposdani87/sui-js/blob/0385915/src/module/actionCable.ts#L13)
 
 ___
 
@@ -34,7 +34,7 @@ ___
 
 #### Defined in
 
-[module/actionCable.ts:14](https://bitbucket.org/siposdani87/sui-js/src/5c73bef/src/module/actionCable.ts#lines-14)
+[module/actionCable.ts:14](https://github.com/siposdani87/sui-js/blob/0385915/src/module/actionCable.ts#L14)
 
 ___
 
@@ -44,7 +44,7 @@ ___
 
 #### Defined in
 
-[module/actionCable.ts:15](https://bitbucket.org/siposdani87/sui-js/src/5c73bef/src/module/actionCable.ts#lines-15)
+[module/actionCable.ts:15](https://github.com/siposdani87/sui-js/blob/0385915/src/module/actionCable.ts#L15)
 
 ## Methods
 
@@ -64,7 +64,7 @@ ___
 
 #### Defined in
 
-[module/actionCable.ts:77](https://bitbucket.org/siposdani87/sui-js/src/5c73bef/src/module/actionCable.ts#lines-77)
+[module/actionCable.ts:77](https://github.com/siposdani87/sui-js/blob/0385915/src/module/actionCable.ts#L77)
 
 ___
 
@@ -78,7 +78,7 @@ ___
 
 #### Defined in
 
-[module/actionCable.ts:25](https://bitbucket.org/siposdani87/sui-js/src/5c73bef/src/module/actionCable.ts#lines-25)
+[module/actionCable.ts:25](https://github.com/siposdani87/sui-js/blob/0385915/src/module/actionCable.ts#L25)
 
 ___
 
@@ -92,7 +92,7 @@ ___
 
 #### Defined in
 
-[module/actionCable.ts:35](https://bitbucket.org/siposdani87/sui-js/src/5c73bef/src/module/actionCable.ts#lines-35)
+[module/actionCable.ts:35](https://github.com/siposdani87/sui-js/blob/0385915/src/module/actionCable.ts#L35)
 
 ___
 
@@ -113,7 +113,7 @@ ___
 
 #### Defined in
 
-[module/actionCable.ts:48](https://bitbucket.org/siposdani87/sui-js/src/5c73bef/src/module/actionCable.ts#lines-48)
+[module/actionCable.ts:48](https://github.com/siposdani87/sui-js/blob/0385915/src/module/actionCable.ts#L48)
 
 ___
 
@@ -127,4 +127,4 @@ ___
 
 #### Defined in
 
-[module/actionCable.ts:65](https://bitbucket.org/siposdani87/sui-js/src/5c73bef/src/module/actionCable.ts#lines-65)
+[module/actionCable.ts:65](https://github.com/siposdani87/sui-js/blob/0385915/src/module/actionCable.ts#L65)

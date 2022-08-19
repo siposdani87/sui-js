@@ -20,7 +20,7 @@ custom_edit_url: null
 
 #### Defined in
 
-[module/document.ts:14](https://bitbucket.org/siposdani87/sui-js/src/5c73bef/src/module/document.ts#lines-14)
+[module/document.ts:14](https://github.com/siposdani87/sui-js/blob/0385915/src/module/document.ts#L14)
 
 ## Properties
 
@@ -30,7 +30,7 @@ custom_edit_url: null
 
 #### Defined in
 
-[module/document.ts:10](https://bitbucket.org/siposdani87/sui-js/src/5c73bef/src/module/document.ts#lines-10)
+[module/document.ts:10](https://github.com/siposdani87/sui-js/blob/0385915/src/module/document.ts#L10)
 
 ___
 
@@ -40,7 +40,7 @@ ___
 
 #### Defined in
 
-[module/document.ts:9](https://bitbucket.org/siposdani87/sui-js/src/5c73bef/src/module/document.ts#lines-9)
+[module/document.ts:9](https://github.com/siposdani87/sui-js/blob/0385915/src/module/document.ts#L9)
 
 ## Methods
 
@@ -54,7 +54,7 @@ ___
 
 #### Defined in
 
-[module/document.ts:32](https://bitbucket.org/siposdani87/sui-js/src/5c73bef/src/module/document.ts#lines-32)
+[module/document.ts:32](https://github.com/siposdani87/sui-js/blob/0385915/src/module/document.ts#L32)
 
 ___
 
@@ -74,7 +74,7 @@ ___
 
 #### Defined in
 
-[module/document.ts:23](https://bitbucket.org/siposdani87/sui-js/src/5c73bef/src/module/document.ts#lines-23)
+[module/document.ts:23](https://github.com/siposdani87/sui-js/blob/0385915/src/module/document.ts#L23)
 
 ___
 
@@ -95,7 +95,7 @@ ___
 
 #### Defined in
 
-[module/document.ts:51](https://bitbucket.org/siposdani87/sui-js/src/5c73bef/src/module/document.ts#lines-51)
+[module/document.ts:51](https://github.com/siposdani87/sui-js/blob/0385915/src/module/document.ts#L51)
 
 ___
 
@@ -116,7 +116,7 @@ ___
 
 #### Defined in
 
-[module/document.ts:59](https://bitbucket.org/siposdani87/sui-js/src/5c73bef/src/module/document.ts#lines-59)
+[module/document.ts:59](https://github.com/siposdani87/sui-js/blob/0385915/src/module/document.ts#L59)
 
 ___
 
@@ -136,4 +136,4 @@ ___
 
 #### Defined in
 
-[module/document.ts:43](https://bitbucket.org/siposdani87/sui-js/src/5c73bef/src/module/document.ts#lines-43)
+[module/document.ts:43](https://github.com/siposdani87/sui-js/blob/0385915/src/module/document.ts#L43)

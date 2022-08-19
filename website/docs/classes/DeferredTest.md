@@ -24,7 +24,7 @@ custom_edit_url: null
 
 #### Defined in
 
-[test/deferredTest.ts:17](https://bitbucket.org/siposdani87/sui-js/src/5c73bef/src/test/deferredTest.ts#lines-17)
+[test/deferredTest.ts:17](https://github.com/siposdani87/sui-js/blob/0385915/src/test/deferredTest.ts#L17)
 
 ## Properties
 
@@ -42,7 +42,7 @@ custom_edit_url: null
 
 #### Defined in
 
-[test/deferredTest.ts:12](https://bitbucket.org/siposdani87/sui-js/src/5c73bef/src/test/deferredTest.ts#lines-12)
+[test/deferredTest.ts:12](https://github.com/siposdani87/sui-js/blob/0385915/src/test/deferredTest.ts#L12)
 
 ___
 
@@ -60,7 +60,7 @@ ___
 
 #### Defined in
 
-[test/deferredTest.ts:10](https://bitbucket.org/siposdani87/sui-js/src/5c73bef/src/test/deferredTest.ts#lines-10)
+[test/deferredTest.ts:10](https://github.com/siposdani87/sui-js/blob/0385915/src/test/deferredTest.ts#L10)
 
 ___
 
@@ -78,7 +78,7 @@ ___
 
 #### Defined in
 
-[test/deferredTest.ts:13](https://bitbucket.org/siposdani87/sui-js/src/5c73bef/src/test/deferredTest.ts#lines-13)
+[test/deferredTest.ts:13](https://github.com/siposdani87/sui-js/blob/0385915/src/test/deferredTest.ts#L13)
 
 ___
 
@@ -96,7 +96,7 @@ ___
 
 #### Defined in
 
-[test/deferredTest.ts:11](https://bitbucket.org/siposdani87/sui-js/src/5c73bef/src/test/deferredTest.ts#lines-11)
+[test/deferredTest.ts:11](https://github.com/siposdani87/sui-js/blob/0385915/src/test/deferredTest.ts#L11)
 
 ___
 
@@ -110,7 +110,7 @@ ___
 
 #### Defined in
 
-[test/baseTest.ts:11](https://bitbucket.org/siposdani87/sui-js/src/5c73bef/src/test/baseTest.ts#lines-11)
+[test/baseTest.ts:11](https://github.com/siposdani87/sui-js/blob/0385915/src/test/baseTest.ts#L11)
 
 ## Methods
 
@@ -128,7 +128,7 @@ ___
 
 #### Defined in
 
-[test/deferredTest.ts:24](https://bitbucket.org/siposdani87/sui-js/src/5c73bef/src/test/deferredTest.ts#lines-24)
+[test/deferredTest.ts:24](https://github.com/siposdani87/sui-js/blob/0385915/src/test/deferredTest.ts#L24)
 
 ___
 
@@ -154,7 +154,7 @@ ___
 
 #### Defined in
 
-[test/baseTest.ts:30](https://bitbucket.org/siposdani87/sui-js/src/5c73bef/src/test/baseTest.ts#lines-30)
+[test/baseTest.ts:30](https://github.com/siposdani87/sui-js/blob/0385915/src/test/baseTest.ts#L30)
 
 ___
 
@@ -168,7 +168,7 @@ ___
 
 #### Defined in
 
-[test/deferredTest.ts:60](https://bitbucket.org/siposdani87/sui-js/src/5c73bef/src/test/deferredTest.ts#lines-60)
+[test/deferredTest.ts:60](https://github.com/siposdani87/sui-js/blob/0385915/src/test/deferredTest.ts#L60)
 
 ___
 
@@ -182,7 +182,7 @@ ___
 
 #### Defined in
 
-[test/deferredTest.ts:90](https://bitbucket.org/siposdani87/sui-js/src/5c73bef/src/test/deferredTest.ts#lines-90)
+[test/deferredTest.ts:90](https://github.com/siposdani87/sui-js/blob/0385915/src/test/deferredTest.ts#L90)
 
 ___
 
@@ -196,4 +196,4 @@ ___
 
 #### Defined in
 
-[test/deferredTest.ts:68](https://bitbucket.org/siposdani87/sui-js/src/5c73bef/src/test/deferredTest.ts#lines-68)
+[test/deferredTest.ts:68](https://github.com/siposdani87/sui-js/blob/0385915/src/test/deferredTest.ts#L68)
