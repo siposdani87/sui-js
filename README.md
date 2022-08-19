@@ -6,7 +6,7 @@
 
 <a href="https://www.buymeacoffee.com/siposdani87" target="_blank"><img src="https://cdn.buymeacoffee.com/buttons/v2/default-blue.png" alt="Buy Me A Coffee" /></a>
 
-This is a lightweight JS framework. It is written in the TypeScript language. The codebase was documented with JSDoc and compiled with ESbuild advanced settings. In this framework there are a lot of predefined UI components.
+This is a lightweight FE framework. It is written in the TypeScript language. The codebase was documented with JSDoc and compiled with ESbuild advanced settings. In this framework there are a lot of predefined UI components.
 
 ## Getting Started
 

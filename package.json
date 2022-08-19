@@ -1,7 +1,7 @@
 {
   "name": "@siposdani87/sui-js",
   "version": "0.8.0",
-  "description": "Lightweight Vanilla JavaScript micro framework",
+  "description": "This is a lightweight FE framework. It is written in the TypeScript language. The codebase was documented with JSDoc and compiled with ESbuild advanced settings.",
   "main": "dist/index.js",
   "typings": "dist/index.d.ts",
   "scripts": {
@@ -54,7 +54,7 @@
   "dependencies": {
     "@rails/actioncable": "7.0.3-1",
     "crypto-js": "4.1.1",
-    "date-fns": "2.29.1",
+    "date-fns": "2.29.2",
     "material-design-lite": "1.3.0",
     "normalize.css": "8.0.1"
   },
@@ -62,21 +62,21 @@
     "@googlemaps/jest-mocks": "2.7.5",
     "@types/crypto-js": "4.1.1",
     "@types/google.maps": "3.49.2",
-    "@types/jest": "28.1.6",
+    "@types/jest": "28.1.7",
     "@types/material-design-lite": "1.1.17",
     "@types/rails__actioncable": "6.1.6",
-    "@typescript-eslint/eslint-plugin": "5.33.0",
-    "@typescript-eslint/parser": "5.33.0",
+    "@typescript-eslint/eslint-plugin": "5.33.1",
+    "@typescript-eslint/parser": "5.33.1",
     "browser-sync": "2.27.10",
     "connect-modrewrite": "0.10.2",
-    "esbuild": "0.15.2",
-    "eslint": "8.21.0",
+    "esbuild": "0.15.5",
+    "eslint": "8.22.0",
     "eslint-config-prettier": "8.5.0",
     "eslint-plugin-import": "2.26.0",
     "eslint-plugin-prettier": "4.2.1",
     "eslint-plugin-tsdoc": "0.2.16",
     "google-closure-compiler": "20220803.0.0",
-    "google-closure-library": "20220719.0.0",
+    "google-closure-library": "20220803.0.0",
     "gulp": "4.0.2",
     "gulp-cli": "2.3.0",
     "gulp-sass": "5.1.0",
@@ -92,7 +92,7 @@
     "stylelint-config-prettier": "9.0.3",
     "stylelint-config-standard": "27.0.0",
     "stylelint-scss": "4.3.0",
-    "ts-jest": "28.0.7",
+    "ts-jest": "28.0.8",
     "typescript": "4.7.4"
   }
 }
