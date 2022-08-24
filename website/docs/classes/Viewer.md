@@ -30,7 +30,7 @@ custom_edit_url: null
 
 #### Defined in
 
-[module/viewer.ts:16](https://github.com/siposdani87/sui-js/blob/0385915/src/module/viewer.ts#L16)
+[module/viewer.ts:16](https://github.com/siposdani87/sui-js/blob/78d3494/src/module/viewer.ts#L16)
 
 ## Properties
 
@@ -44,7 +44,7 @@ custom_edit_url: null
 
 #### Defined in
 
-[module/baseModal.ts:19](https://github.com/siposdani87/sui-js/blob/0385915/src/module/baseModal.ts#L19)
+[module/baseModal.ts:19](https://github.com/siposdani87/sui-js/blob/78d3494/src/module/baseModal.ts#L19)
 
 ___
 
@@ -58,7 +58,7 @@ ___
 
 #### Defined in
 
-[module/baseModal.ts:18](https://github.com/siposdani87/sui-js/blob/0385915/src/module/baseModal.ts#L18)
+[module/baseModal.ts:18](https://github.com/siposdani87/sui-js/blob/78d3494/src/module/baseModal.ts#L18)
 
 ___
 
@@ -72,7 +72,7 @@ ___
 
 #### Defined in
 
-[module/baseModal.ts:17](https://github.com/siposdani87/sui-js/blob/0385915/src/module/baseModal.ts#L17)
+[module/baseModal.ts:17](https://github.com/siposdani87/sui-js/blob/78d3494/src/module/baseModal.ts#L17)
 
 ___
 
@@ -86,7 +86,7 @@ ___
 
 #### Defined in
 
-[module/baseModal.ts:16](https://github.com/siposdani87/sui-js/blob/0385915/src/module/baseModal.ts#L16)
+[module/baseModal.ts:16](https://github.com/siposdani87/sui-js/blob/78d3494/src/module/baseModal.ts#L16)
 
 ___
 
@@ -108,7 +108,7 @@ ___
 
 #### Defined in
 
-[module/baseModal.ts:27](https://github.com/siposdani87/sui-js/blob/0385915/src/module/baseModal.ts#L27)
+[module/baseModal.ts:27](https://github.com/siposdani87/sui-js/blob/78d3494/src/module/baseModal.ts#L27)
 
 ___
 
@@ -130,7 +130,7 @@ ___
 
 #### Defined in
 
-[module/baseModal.ts:26](https://github.com/siposdani87/sui-js/blob/0385915/src/module/baseModal.ts#L26)
+[module/baseModal.ts:26](https://github.com/siposdani87/sui-js/blob/78d3494/src/module/baseModal.ts#L26)
 
 ___
 
@@ -144,7 +144,7 @@ ___
 
 #### Defined in
 
-[module/baseModal.ts:14](https://github.com/siposdani87/sui-js/blob/0385915/src/module/baseModal.ts#L14)
+[module/baseModal.ts:14](https://github.com/siposdani87/sui-js/blob/78d3494/src/module/baseModal.ts#L14)
 
 ___
 
@@ -158,7 +158,7 @@ ___
 
 #### Defined in
 
-[module/baseModal.ts:20](https://github.com/siposdani87/sui-js/blob/0385915/src/module/baseModal.ts#L20)
+[module/baseModal.ts:20](https://github.com/siposdani87/sui-js/blob/78d3494/src/module/baseModal.ts#L20)
 
 ___
 
@@ -172,7 +172,7 @@ ___
 
 #### Defined in
 
-[module/baseModal.ts:13](https://github.com/siposdani87/sui-js/blob/0385915/src/module/baseModal.ts#L13)
+[module/baseModal.ts:13](https://github.com/siposdani87/sui-js/blob/78d3494/src/module/baseModal.ts#L13)
 
 ___
 
@@ -186,7 +186,7 @@ ___
 
 #### Defined in
 
-[module/baseModal.ts:15](https://github.com/siposdani87/sui-js/blob/0385915/src/module/baseModal.ts#L15)
+[module/baseModal.ts:15](https://github.com/siposdani87/sui-js/blob/78d3494/src/module/baseModal.ts#L15)
 
 ___
 
@@ -200,7 +200,7 @@ ___
 
 #### Defined in
 
-[module/baseModal.ts:22](https://github.com/siposdani87/sui-js/blob/0385915/src/module/baseModal.ts#L22)
+[module/baseModal.ts:22](https://github.com/siposdani87/sui-js/blob/78d3494/src/module/baseModal.ts#L22)
 
 ___
 
@@ -214,7 +214,7 @@ ___
 
 #### Defined in
 
-[module/baseModal.ts:23](https://github.com/siposdani87/sui-js/blob/0385915/src/module/baseModal.ts#L23)
+[module/baseModal.ts:23](https://github.com/siposdani87/sui-js/blob/78d3494/src/module/baseModal.ts#L23)
 
 ___
 
@@ -228,7 +228,7 @@ ___
 
 #### Defined in
 
-[module/baseModal.ts:24](https://github.com/siposdani87/sui-js/blob/0385915/src/module/baseModal.ts#L24)
+[module/baseModal.ts:24](https://github.com/siposdani87/sui-js/blob/78d3494/src/module/baseModal.ts#L24)
 
 ___
 
@@ -242,7 +242,7 @@ ___
 
 #### Defined in
 
-[module/baseModal.ts:21](https://github.com/siposdani87/sui-js/blob/0385915/src/module/baseModal.ts#L21)
+[module/baseModal.ts:21](https://github.com/siposdani87/sui-js/blob/78d3494/src/module/baseModal.ts#L21)
 
 ___
 
@@ -256,7 +256,7 @@ ___
 
 #### Defined in
 
-[module/baseModal.ts:28](https://github.com/siposdani87/sui-js/blob/0385915/src/module/baseModal.ts#L28)
+[module/baseModal.ts:28](https://github.com/siposdani87/sui-js/blob/78d3494/src/module/baseModal.ts#L28)
 
 ___
 
@@ -266,7 +266,7 @@ ___
 
 #### Defined in
 
-[module/viewer.ts:12](https://github.com/siposdani87/sui-js/blob/0385915/src/module/viewer.ts#L12)
+[module/viewer.ts:12](https://github.com/siposdani87/sui-js/blob/78d3494/src/module/viewer.ts#L12)
 
 ___
 
@@ -280,7 +280,7 @@ ___
 
 #### Defined in
 
-[module/baseModal.ts:25](https://github.com/siposdani87/sui-js/blob/0385915/src/module/baseModal.ts#L25)
+[module/baseModal.ts:25](https://github.com/siposdani87/sui-js/blob/78d3494/src/module/baseModal.ts#L25)
 
 ___
 
@@ -294,7 +294,7 @@ ___
 
 #### Defined in
 
-[module/baseModal.ts:12](https://github.com/siposdani87/sui-js/blob/0385915/src/module/baseModal.ts#L12)
+[module/baseModal.ts:12](https://github.com/siposdani87/sui-js/blob/78d3494/src/module/baseModal.ts#L12)
 
 ___
 
@@ -308,7 +308,7 @@ ___
 
 #### Defined in
 
-[module/baseModal.ts:11](https://github.com/siposdani87/sui-js/blob/0385915/src/module/baseModal.ts#L11)
+[module/baseModal.ts:11](https://github.com/siposdani87/sui-js/blob/78d3494/src/module/baseModal.ts#L11)
 
 ## Methods
 
@@ -326,7 +326,7 @@ ___
 
 #### Defined in
 
-[module/baseModal.ts:205](https://github.com/siposdani87/sui-js/blob/0385915/src/module/baseModal.ts#L205)
+[module/baseModal.ts:205](https://github.com/siposdani87/sui-js/blob/78d3494/src/module/baseModal.ts#L205)
 
 ___
 
@@ -344,7 +344,7 @@ ___
 
 #### Defined in
 
-[module/baseModal.ts:196](https://github.com/siposdani87/sui-js/blob/0385915/src/module/baseModal.ts#L196)
+[module/baseModal.ts:196](https://github.com/siposdani87/sui-js/blob/78d3494/src/module/baseModal.ts#L196)
 
 ___
 
@@ -358,7 +358,7 @@ ___
 
 #### Defined in
 
-[module/viewer.ts:38](https://github.com/siposdani87/sui-js/blob/0385915/src/module/viewer.ts#L38)
+[module/viewer.ts:38](https://github.com/siposdani87/sui-js/blob/78d3494/src/module/viewer.ts#L38)
 
 ___
 
@@ -376,7 +376,7 @@ ___
 
 #### Defined in
 
-[module/baseModal.ts:33](https://github.com/siposdani87/sui-js/blob/0385915/src/module/baseModal.ts#L33)
+[module/baseModal.ts:33](https://github.com/siposdani87/sui-js/blob/78d3494/src/module/baseModal.ts#L33)
 
 ___
 
@@ -394,7 +394,7 @@ ___
 
 #### Defined in
 
-[module/baseModal.ts:188](https://github.com/siposdani87/sui-js/blob/0385915/src/module/baseModal.ts#L188)
+[module/baseModal.ts:188](https://github.com/siposdani87/sui-js/blob/78d3494/src/module/baseModal.ts#L188)
 
 ___
 
@@ -414,7 +414,7 @@ ___
 
 #### Defined in
 
-[module/viewer.ts:67](https://github.com/siposdani87/sui-js/blob/0385915/src/module/viewer.ts#L67)
+[module/viewer.ts:67](https://github.com/siposdani87/sui-js/blob/78d3494/src/module/viewer.ts#L67)
 
 ___
 
@@ -434,7 +434,7 @@ ___
 
 #### Defined in
 
-[module/viewer.ts:27](https://github.com/siposdani87/sui-js/blob/0385915/src/module/viewer.ts#L27)
+[module/viewer.ts:27](https://github.com/siposdani87/sui-js/blob/78d3494/src/module/viewer.ts#L27)
 
 ___
 
@@ -458,7 +458,7 @@ ___
 
 #### Defined in
 
-[module/baseModal.ts:171](https://github.com/siposdani87/sui-js/blob/0385915/src/module/baseModal.ts#L171)
+[module/baseModal.ts:171](https://github.com/siposdani87/sui-js/blob/78d3494/src/module/baseModal.ts#L171)
 
 ___
 
@@ -476,7 +476,7 @@ ___
 
 #### Defined in
 
-[module/baseModal.ts:151](https://github.com/siposdani87/sui-js/blob/0385915/src/module/baseModal.ts#L151)
+[module/baseModal.ts:151](https://github.com/siposdani87/sui-js/blob/78d3494/src/module/baseModal.ts#L151)
 
 ___
 
@@ -494,7 +494,7 @@ ___
 
 #### Defined in
 
-[module/baseModal.ts:108](https://github.com/siposdani87/sui-js/blob/0385915/src/module/baseModal.ts#L108)
+[module/baseModal.ts:108](https://github.com/siposdani87/sui-js/blob/78d3494/src/module/baseModal.ts#L108)
 
 ___
 
@@ -515,7 +515,7 @@ ___
 
 #### Defined in
 
-[module/viewer.ts:55](https://github.com/siposdani87/sui-js/blob/0385915/src/module/viewer.ts#L55)
+[module/viewer.ts:55](https://github.com/siposdani87/sui-js/blob/78d3494/src/module/viewer.ts#L55)
 
 ___
 
@@ -539,7 +539,7 @@ ___
 
 #### Defined in
 
-[module/baseModal.ts:131](https://github.com/siposdani87/sui-js/blob/0385915/src/module/baseModal.ts#L131)
+[module/baseModal.ts:131](https://github.com/siposdani87/sui-js/blob/78d3494/src/module/baseModal.ts#L131)
 
 ___
 
@@ -564,4 +564,4 @@ ___
 
 #### Defined in
 
-[module/baseModal.ts:229](https://github.com/siposdani87/sui-js/blob/0385915/src/module/baseModal.ts#L229)
+[module/baseModal.ts:229](https://github.com/siposdani87/sui-js/blob/78d3494/src/module/baseModal.ts#L229)

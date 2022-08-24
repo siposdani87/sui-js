@@ -11,7 +11,7 @@ type FeatureItem = {
 const FeatureList: FeatureItem[] = [
   {
     title: 'Easy to Use',
-    Svg: require('@site/static/img/undraw_docusaurus_mountain.svg').default,
+    Svg: require('@site/static/img/easy_to_use.svg').default,
     description: (
       <>
         SUI-JS was designed from the ground up to be easily
@@ -21,21 +21,21 @@ const FeatureList: FeatureItem[] = [
   },
   {
     title: 'Focus on Business Logic',
-    Svg: require('@site/static/img/undraw_docusaurus_tree.svg').default,
+    Svg: require('@site/static/img/business_logic.svg').default,
     description: (
       <>
         SUI-JS lets you focus on your code, and we&apos;ll do the chores. Go
-        ahead and move your docs into the <code>docs</code> directory.
+        ahead and move your business logic into the <code>services</code>.
       </>
     ),
   },
   {
     title: 'Powered by TypeScript',
-    Svg: require('@site/static/img/undraw_docusaurus_react.svg').default,
+    Svg: require('@site/static/img/typescript.svg').default,
     description: (
       <>
-        Extend or customize your website layout by reusing React. Docusaurus can
-        be extended while reusing the same header and footer.
+        Extend or customize your layout by reusing class components. SUI-JS can
+        be extended while reusing the same functions.
       </>
     ),
   },

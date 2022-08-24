@@ -31,7 +31,7 @@ custom_edit_url: null
 
 #### Defined in
 
-[component/form.ts:25](https://github.com/siposdani87/sui-js/blob/0385915/src/component/form.ts#L25)
+[component/form.ts:25](https://github.com/siposdani87/sui-js/blob/78d3494/src/component/form.ts#L25)
 
 ## Properties
 
@@ -45,7 +45,7 @@ custom_edit_url: null
 
 #### Defined in
 
-[core/collection.ts:17](https://github.com/siposdani87/sui-js/blob/0385915/src/core/collection.ts#L17)
+[core/collection.ts:17](https://github.com/siposdani87/sui-js/blob/78d3494/src/core/collection.ts#L17)
 
 ___
 
@@ -55,7 +55,7 @@ ___
 
 #### Defined in
 
-[component/form.ts:19](https://github.com/siposdani87/sui-js/blob/0385915/src/component/form.ts#L19)
+[component/form.ts:19](https://github.com/siposdani87/sui-js/blob/78d3494/src/component/form.ts#L19)
 
 ___
 
@@ -65,7 +65,7 @@ ___
 
 #### Defined in
 
-[component/form.ts:20](https://github.com/siposdani87/sui-js/blob/0385915/src/component/form.ts#L20)
+[component/form.ts:20](https://github.com/siposdani87/sui-js/blob/78d3494/src/component/form.ts#L20)
 
 ___
 
@@ -75,7 +75,7 @@ ___
 
 #### Defined in
 
-[component/form.ts:15](https://github.com/siposdani87/sui-js/blob/0385915/src/component/form.ts#L15)
+[component/form.ts:15](https://github.com/siposdani87/sui-js/blob/78d3494/src/component/form.ts#L15)
 
 ___
 
@@ -85,7 +85,7 @@ ___
 
 #### Defined in
 
-[component/form.ts:18](https://github.com/siposdani87/sui-js/blob/0385915/src/component/form.ts#L18)
+[component/form.ts:18](https://github.com/siposdani87/sui-js/blob/78d3494/src/component/form.ts#L18)
 
 ___
 
@@ -99,7 +99,7 @@ ___
 
 #### Defined in
 
-[core/collection.ts:18](https://github.com/siposdani87/sui-js/blob/0385915/src/core/collection.ts#L18)
+[core/collection.ts:18](https://github.com/siposdani87/sui-js/blob/78d3494/src/core/collection.ts#L18)
 
 ___
 
@@ -109,7 +109,7 @@ ___
 
 #### Defined in
 
-[component/form.ts:17](https://github.com/siposdani87/sui-js/blob/0385915/src/component/form.ts#L17)
+[component/form.ts:17](https://github.com/siposdani87/sui-js/blob/78d3494/src/component/form.ts#L17)
 
 ___
 
@@ -123,7 +123,7 @@ ___
 
 #### Defined in
 
-[core/collection.ts:19](https://github.com/siposdani87/sui-js/blob/0385915/src/core/collection.ts#L19)
+[core/collection.ts:19](https://github.com/siposdani87/sui-js/blob/78d3494/src/core/collection.ts#L19)
 
 ___
 
@@ -133,7 +133,7 @@ ___
 
 #### Defined in
 
-[component/form.ts:16](https://github.com/siposdani87/sui-js/blob/0385915/src/component/form.ts#L16)
+[component/form.ts:16](https://github.com/siposdani87/sui-js/blob/78d3494/src/component/form.ts#L16)
 
 ## Methods
 
@@ -154,7 +154,7 @@ ___
 
 #### Defined in
 
-[component/form.ts:231](https://github.com/siposdani87/sui-js/blob/0385915/src/component/form.ts#L231)
+[component/form.ts:231](https://github.com/siposdani87/sui-js/blob/78d3494/src/component/form.ts#L231)
 
 ___
 
@@ -174,7 +174,7 @@ ___
 
 #### Defined in
 
-[component/form.ts:221](https://github.com/siposdani87/sui-js/blob/0385915/src/component/form.ts#L221)
+[component/form.ts:221](https://github.com/siposdani87/sui-js/blob/78d3494/src/component/form.ts#L221)
 
 ___
 
@@ -194,7 +194,7 @@ ___
 
 #### Defined in
 
-[component/form.ts:213](https://github.com/siposdani87/sui-js/blob/0385915/src/component/form.ts#L213)
+[component/form.ts:213](https://github.com/siposdani87/sui-js/blob/78d3494/src/component/form.ts#L213)
 
 ___
 
@@ -208,7 +208,7 @@ ___
 
 #### Defined in
 
-[component/form.ts:42](https://github.com/siposdani87/sui-js/blob/0385915/src/component/form.ts#L42)
+[component/form.ts:42](https://github.com/siposdani87/sui-js/blob/78d3494/src/component/form.ts#L42)
 
 ___
 
@@ -222,7 +222,7 @@ ___
 
 #### Defined in
 
-[component/form.ts:111](https://github.com/siposdani87/sui-js/blob/0385915/src/component/form.ts#L111)
+[component/form.ts:111](https://github.com/siposdani87/sui-js/blob/78d3494/src/component/form.ts#L111)
 
 ___
 
@@ -236,7 +236,7 @@ ___
 
 #### Defined in
 
-[component/form.ts:66](https://github.com/siposdani87/sui-js/blob/0385915/src/component/form.ts#L66)
+[component/form.ts:66](https://github.com/siposdani87/sui-js/blob/78d3494/src/component/form.ts#L66)
 
 ___
 
@@ -250,7 +250,7 @@ ___
 
 #### Defined in
 
-[component/form.ts:101](https://github.com/siposdani87/sui-js/blob/0385915/src/component/form.ts#L101)
+[component/form.ts:101](https://github.com/siposdani87/sui-js/blob/78d3494/src/component/form.ts#L101)
 
 ___
 
@@ -264,7 +264,7 @@ ___
 
 #### Defined in
 
-[component/form.ts:89](https://github.com/siposdani87/sui-js/blob/0385915/src/component/form.ts#L89)
+[component/form.ts:89](https://github.com/siposdani87/sui-js/blob/78d3494/src/component/form.ts#L89)
 
 ___
 
@@ -285,7 +285,7 @@ ___
 
 #### Defined in
 
-[component/form.ts:201](https://github.com/siposdani87/sui-js/blob/0385915/src/component/form.ts#L201)
+[component/form.ts:201](https://github.com/siposdani87/sui-js/blob/78d3494/src/component/form.ts#L201)
 
 ___
 
@@ -306,7 +306,7 @@ ___
 
 #### Defined in
 
-[component/form.ts:260](https://github.com/siposdani87/sui-js/blob/0385915/src/component/form.ts#L260)
+[component/form.ts:260](https://github.com/siposdani87/sui-js/blob/78d3494/src/component/form.ts#L260)
 
 ___
 
@@ -324,7 +324,7 @@ ___
 
 #### Defined in
 
-[core/collection.ts:189](https://github.com/siposdani87/sui-js/blob/0385915/src/core/collection.ts#L189)
+[core/collection.ts:189](https://github.com/siposdani87/sui-js/blob/78d3494/src/core/collection.ts#L189)
 
 ___
 
@@ -348,7 +348,7 @@ ___
 
 #### Defined in
 
-[core/collection.ts:247](https://github.com/siposdani87/sui-js/blob/0385915/src/core/collection.ts#L247)
+[core/collection.ts:247](https://github.com/siposdani87/sui-js/blob/78d3494/src/core/collection.ts#L247)
 
 ___
 
@@ -373,7 +373,7 @@ ___
 
 #### Defined in
 
-[core/collection.ts:287](https://github.com/siposdani87/sui-js/blob/0385915/src/core/collection.ts#L287)
+[core/collection.ts:287](https://github.com/siposdani87/sui-js/blob/78d3494/src/core/collection.ts#L287)
 
 ___
 
@@ -397,7 +397,7 @@ ___
 
 #### Defined in
 
-[core/collection.ts:296](https://github.com/siposdani87/sui-js/blob/0385915/src/core/collection.ts#L296)
+[core/collection.ts:296](https://github.com/siposdani87/sui-js/blob/78d3494/src/core/collection.ts#L296)
 
 ___
 
@@ -422,7 +422,7 @@ ___
 
 #### Defined in
 
-[core/collection.ts:264](https://github.com/siposdani87/sui-js/blob/0385915/src/core/collection.ts#L264)
+[core/collection.ts:264](https://github.com/siposdani87/sui-js/blob/78d3494/src/core/collection.ts#L264)
 
 ___
 
@@ -446,7 +446,7 @@ ___
 
 #### Defined in
 
-[core/collection.ts:273](https://github.com/siposdani87/sui-js/blob/0385915/src/core/collection.ts#L273)
+[core/collection.ts:273](https://github.com/siposdani87/sui-js/blob/78d3494/src/core/collection.ts#L273)
 
 ___
 
@@ -470,7 +470,7 @@ ___
 
 #### Defined in
 
-[core/collection.ts:256](https://github.com/siposdani87/sui-js/blob/0385915/src/core/collection.ts#L256)
+[core/collection.ts:256](https://github.com/siposdani87/sui-js/blob/78d3494/src/core/collection.ts#L256)
 
 ___
 
@@ -494,7 +494,7 @@ ___
 
 #### Defined in
 
-[core/collection.ts:149](https://github.com/siposdani87/sui-js/blob/0385915/src/core/collection.ts#L149)
+[core/collection.ts:149](https://github.com/siposdani87/sui-js/blob/78d3494/src/core/collection.ts#L149)
 
 ___
 
@@ -515,7 +515,7 @@ ___
 
 #### Defined in
 
-[component/form.ts:346](https://github.com/siposdani87/sui-js/blob/0385915/src/component/form.ts#L346)
+[component/form.ts:346](https://github.com/siposdani87/sui-js/blob/78d3494/src/component/form.ts#L346)
 
 ___
 
@@ -536,7 +536,7 @@ ___
 
 #### Defined in
 
-[component/form.ts:338](https://github.com/siposdani87/sui-js/blob/0385915/src/component/form.ts#L338)
+[component/form.ts:338](https://github.com/siposdani87/sui-js/blob/78d3494/src/component/form.ts#L338)
 
 ___
 
@@ -557,7 +557,7 @@ ___
 
 #### Defined in
 
-[component/form.ts:330](https://github.com/siposdani87/sui-js/blob/0385915/src/component/form.ts#L330)
+[component/form.ts:330](https://github.com/siposdani87/sui-js/blob/78d3494/src/component/form.ts#L330)
 
 ___
 
@@ -582,7 +582,7 @@ ___
 
 #### Defined in
 
-[core/collection.ts:225](https://github.com/siposdani87/sui-js/blob/0385915/src/core/collection.ts#L225)
+[core/collection.ts:225](https://github.com/siposdani87/sui-js/blob/78d3494/src/core/collection.ts#L225)
 
 ___
 
@@ -606,7 +606,7 @@ ___
 
 #### Defined in
 
-[core/collection.ts:234](https://github.com/siposdani87/sui-js/blob/0385915/src/core/collection.ts#L234)
+[core/collection.ts:234](https://github.com/siposdani87/sui-js/blob/78d3494/src/core/collection.ts#L234)
 
 ___
 
@@ -631,7 +631,7 @@ ___
 
 #### Defined in
 
-[core/collection.ts:204](https://github.com/siposdani87/sui-js/blob/0385915/src/core/collection.ts#L204)
+[core/collection.ts:204](https://github.com/siposdani87/sui-js/blob/78d3494/src/core/collection.ts#L204)
 
 ___
 
@@ -655,7 +655,7 @@ ___
 
 #### Defined in
 
-[core/collection.ts:213](https://github.com/siposdani87/sui-js/blob/0385915/src/core/collection.ts#L213)
+[core/collection.ts:213](https://github.com/siposdani87/sui-js/blob/78d3494/src/core/collection.ts#L213)
 
 ___
 
@@ -679,7 +679,7 @@ ___
 
 #### Defined in
 
-[core/collection.ts:196](https://github.com/siposdani87/sui-js/blob/0385915/src/core/collection.ts#L196)
+[core/collection.ts:196](https://github.com/siposdani87/sui-js/blob/78d3494/src/core/collection.ts#L196)
 
 ___
 
@@ -705,7 +705,7 @@ ___
 
 #### Defined in
 
-[component/form.ts:301](https://github.com/siposdani87/sui-js/blob/0385915/src/component/form.ts#L301)
+[component/form.ts:301](https://github.com/siposdani87/sui-js/blob/78d3494/src/component/form.ts#L301)
 
 ___
 
@@ -736,7 +736,7 @@ ___
 
 #### Defined in
 
-[core/collection.ts:160](https://github.com/siposdani87/sui-js/blob/0385915/src/core/collection.ts#L160)
+[core/collection.ts:160](https://github.com/siposdani87/sui-js/blob/78d3494/src/core/collection.ts#L160)
 
 ___
 
@@ -767,7 +767,7 @@ ___
 
 #### Defined in
 
-[core/collection.ts:179](https://github.com/siposdani87/sui-js/blob/0385915/src/core/collection.ts#L179)
+[core/collection.ts:179](https://github.com/siposdani87/sui-js/blob/78d3494/src/core/collection.ts#L179)
 
 ___
 
@@ -785,7 +785,7 @@ ___
 
 #### Defined in
 
-[core/collection.ts:121](https://github.com/siposdani87/sui-js/blob/0385915/src/core/collection.ts#L121)
+[core/collection.ts:121](https://github.com/siposdani87/sui-js/blob/78d3494/src/core/collection.ts#L121)
 
 ___
 
@@ -799,7 +799,7 @@ ___
 
 #### Defined in
 
-[component/form.ts:176](https://github.com/siposdani87/sui-js/blob/0385915/src/component/form.ts#L176)
+[component/form.ts:176](https://github.com/siposdani87/sui-js/blob/78d3494/src/component/form.ts#L176)
 
 ___
 
@@ -813,7 +813,7 @@ ___
 
 #### Defined in
 
-[component/form.ts:278](https://github.com/siposdani87/sui-js/blob/0385915/src/component/form.ts#L278)
+[component/form.ts:278](https://github.com/siposdani87/sui-js/blob/78d3494/src/component/form.ts#L278)
 
 ___
 
@@ -827,7 +827,7 @@ ___
 
 #### Defined in
 
-[component/form.ts:272](https://github.com/siposdani87/sui-js/blob/0385915/src/component/form.ts#L272)
+[component/form.ts:272](https://github.com/siposdani87/sui-js/blob/78d3494/src/component/form.ts#L272)
 
 ___
 
@@ -853,7 +853,7 @@ ___
 
 #### Defined in
 
-[core/collection.ts:130](https://github.com/siposdani87/sui-js/blob/0385915/src/core/collection.ts#L130)
+[core/collection.ts:130](https://github.com/siposdani87/sui-js/blob/78d3494/src/core/collection.ts#L130)
 
 ___
 
@@ -878,7 +878,7 @@ ___
 
 #### Defined in
 
-[core/collection.ts:320](https://github.com/siposdani87/sui-js/blob/0385915/src/core/collection.ts#L320)
+[core/collection.ts:320](https://github.com/siposdani87/sui-js/blob/78d3494/src/core/collection.ts#L320)
 
 ___
 
@@ -902,7 +902,7 @@ ___
 
 #### Defined in
 
-[core/collection.ts:52](https://github.com/siposdani87/sui-js/blob/0385915/src/core/collection.ts#L52)
+[core/collection.ts:52](https://github.com/siposdani87/sui-js/blob/78d3494/src/core/collection.ts#L52)
 
 ___
 
@@ -916,7 +916,7 @@ ___
 
 #### Defined in
 
-[component/form.ts:309](https://github.com/siposdani87/sui-js/blob/0385915/src/component/form.ts#L309)
+[component/form.ts:309](https://github.com/siposdani87/sui-js/blob/78d3494/src/component/form.ts#L309)
 
 ___
 
@@ -940,7 +940,7 @@ ___
 
 #### Defined in
 
-[core/collection.ts:327](https://github.com/siposdani87/sui-js/blob/0385915/src/core/collection.ts#L327)
+[core/collection.ts:327](https://github.com/siposdani87/sui-js/blob/78d3494/src/core/collection.ts#L327)
 
 ___
 
@@ -964,7 +964,7 @@ ___
 
 #### Defined in
 
-[core/collection.ts:69](https://github.com/siposdani87/sui-js/blob/0385915/src/core/collection.ts#L69)
+[core/collection.ts:69](https://github.com/siposdani87/sui-js/blob/78d3494/src/core/collection.ts#L69)
 
 ___
 
@@ -978,7 +978,7 @@ ___
 
 #### Defined in
 
-[component/form.ts:284](https://github.com/siposdani87/sui-js/blob/0385915/src/component/form.ts#L284)
+[component/form.ts:284](https://github.com/siposdani87/sui-js/blob/78d3494/src/component/form.ts#L284)
 
 ___
 
@@ -1002,7 +1002,7 @@ ___
 
 #### Defined in
 
-[core/collection.ts:61](https://github.com/siposdani87/sui-js/blob/0385915/src/core/collection.ts#L61)
+[core/collection.ts:61](https://github.com/siposdani87/sui-js/blob/78d3494/src/core/collection.ts#L61)
 
 ___
 
@@ -1026,7 +1026,7 @@ ___
 
 #### Defined in
 
-[core/collection.ts:106](https://github.com/siposdani87/sui-js/blob/0385915/src/core/collection.ts#L106)
+[core/collection.ts:106](https://github.com/siposdani87/sui-js/blob/78d3494/src/core/collection.ts#L106)
 
 ___
 
@@ -1047,7 +1047,7 @@ ___
 
 #### Defined in
 
-[component/form.ts:184](https://github.com/siposdani87/sui-js/blob/0385915/src/component/form.ts#L184)
+[component/form.ts:184](https://github.com/siposdani87/sui-js/blob/78d3494/src/component/form.ts#L184)
 
 ___
 
@@ -1072,7 +1072,7 @@ ___
 
 #### Defined in
 
-[core/collection.ts:93](https://github.com/siposdani87/sui-js/blob/0385915/src/core/collection.ts#L93)
+[core/collection.ts:93](https://github.com/siposdani87/sui-js/blob/78d3494/src/core/collection.ts#L93)
 
 ___
 
@@ -1092,7 +1092,7 @@ ___
 
 #### Defined in
 
-[component/form.ts:247](https://github.com/siposdani87/sui-js/blob/0385915/src/component/form.ts#L247)
+[component/form.ts:247](https://github.com/siposdani87/sui-js/blob/78d3494/src/component/form.ts#L247)
 
 ___
 
@@ -1114,7 +1114,7 @@ ___
 
 #### Defined in
 
-[component/form.ts:157](https://github.com/siposdani87/sui-js/blob/0385915/src/component/form.ts#L157)
+[component/form.ts:157](https://github.com/siposdani87/sui-js/blob/78d3494/src/component/form.ts#L157)
 
 ___
 
@@ -1132,7 +1132,7 @@ ___
 
 #### Defined in
 
-[core/collection.ts:312](https://github.com/siposdani87/sui-js/blob/0385915/src/core/collection.ts#L312)
+[core/collection.ts:312](https://github.com/siposdani87/sui-js/blob/78d3494/src/core/collection.ts#L312)
 
 ___
 
@@ -1146,4 +1146,4 @@ ___
 
 #### Defined in
 
-[component/form.ts:320](https://github.com/siposdani87/sui-js/blob/0385915/src/component/form.ts#L320)
+[component/form.ts:320](https://github.com/siposdani87/sui-js/blob/78d3494/src/component/form.ts#L320)
