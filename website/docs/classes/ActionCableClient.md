@@ -21,7 +21,7 @@ custom_edit_url: null
 
 #### Defined in
 
-[module/actionCableClient.ts:23](https://github.com/siposdani87/sui-js/blob/0385915/src/module/actionCableClient.ts#L23)
+[module/actionCableClient.ts:23](https://github.com/siposdani87/sui-js/blob/78d3494/src/module/actionCableClient.ts#L23)
 
 ## Properties
 
@@ -31,7 +31,7 @@ custom_edit_url: null
 
 #### Defined in
 
-[module/actionCableClient.ts:17](https://github.com/siposdani87/sui-js/blob/0385915/src/module/actionCableClient.ts#L17)
+[module/actionCableClient.ts:17](https://github.com/siposdani87/sui-js/blob/78d3494/src/module/actionCableClient.ts#L17)
 
 ___
 
@@ -41,7 +41,7 @@ ___
 
 #### Defined in
 
-[module/actionCableClient.ts:18](https://github.com/siposdani87/sui-js/blob/0385915/src/module/actionCableClient.ts#L18)
+[module/actionCableClient.ts:18](https://github.com/siposdani87/sui-js/blob/78d3494/src/module/actionCableClient.ts#L18)
 
 ___
 
@@ -51,7 +51,7 @@ ___
 
 #### Defined in
 
-[module/actionCableClient.ts:15](https://github.com/siposdani87/sui-js/blob/0385915/src/module/actionCableClient.ts#L15)
+[module/actionCableClient.ts:15](https://github.com/siposdani87/sui-js/blob/78d3494/src/module/actionCableClient.ts#L15)
 
 ___
 
@@ -61,7 +61,7 @@ ___
 
 #### Defined in
 
-[module/actionCableClient.ts:16](https://github.com/siposdani87/sui-js/blob/0385915/src/module/actionCableClient.ts#L16)
+[module/actionCableClient.ts:16](https://github.com/siposdani87/sui-js/blob/78d3494/src/module/actionCableClient.ts#L16)
 
 ## Methods
 
@@ -81,7 +81,7 @@ ___
 
 #### Defined in
 
-[module/actionCableClient.ts:40](https://github.com/siposdani87/sui-js/blob/0385915/src/module/actionCableClient.ts#L40)
+[module/actionCableClient.ts:40](https://github.com/siposdani87/sui-js/blob/78d3494/src/module/actionCableClient.ts#L40)
 
 ___
 
@@ -101,7 +101,7 @@ ___
 
 #### Defined in
 
-[module/actionCableClient.ts:32](https://github.com/siposdani87/sui-js/blob/0385915/src/module/actionCableClient.ts#L32)
+[module/actionCableClient.ts:32](https://github.com/siposdani87/sui-js/blob/78d3494/src/module/actionCableClient.ts#L32)
 
 ___
 
@@ -122,7 +122,7 @@ ___
 
 #### Defined in
 
-[module/actionCableClient.ts:62](https://github.com/siposdani87/sui-js/blob/0385915/src/module/actionCableClient.ts#L62)
+[module/actionCableClient.ts:62](https://github.com/siposdani87/sui-js/blob/78d3494/src/module/actionCableClient.ts#L62)
 
 ___
 
@@ -136,7 +136,7 @@ ___
 
 #### Defined in
 
-[module/actionCableClient.ts:54](https://github.com/siposdani87/sui-js/blob/0385915/src/module/actionCableClient.ts#L54)
+[module/actionCableClient.ts:54](https://github.com/siposdani87/sui-js/blob/78d3494/src/module/actionCableClient.ts#L54)
 
 ___
 
@@ -150,4 +150,4 @@ ___
 
 #### Defined in
 
-[module/actionCableClient.ts:69](https://github.com/siposdani87/sui-js/blob/0385915/src/module/actionCableClient.ts#L69)
+[module/actionCableClient.ts:69](https://github.com/siposdani87/sui-js/blob/78d3494/src/module/actionCableClient.ts#L69)

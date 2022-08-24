@@ -20,7 +20,7 @@ custom_edit_url: null
 
 #### Defined in
 
-[core/router.ts:23](https://github.com/siposdani87/sui-js/blob/0385915/src/core/router.ts#L23)
+[core/router.ts:23](https://github.com/siposdani87/sui-js/blob/78d3494/src/core/router.ts#L23)
 
 ## Properties
 
@@ -30,7 +30,7 @@ custom_edit_url: null
 
 #### Defined in
 
-[core/router.ts:17](https://github.com/siposdani87/sui-js/blob/0385915/src/core/router.ts#L17)
+[core/router.ts:17](https://github.com/siposdani87/sui-js/blob/78d3494/src/core/router.ts#L17)
 
 ___
 
@@ -40,7 +40,7 @@ ___
 
 #### Defined in
 
-[core/router.ts:16](https://github.com/siposdani87/sui-js/blob/0385915/src/core/router.ts#L16)
+[core/router.ts:16](https://github.com/siposdani87/sui-js/blob/78d3494/src/core/router.ts#L16)
 
 ___
 
@@ -50,7 +50,7 @@ ___
 
 #### Defined in
 
-[core/router.ts:18](https://github.com/siposdani87/sui-js/blob/0385915/src/core/router.ts#L18)
+[core/router.ts:18](https://github.com/siposdani87/sui-js/blob/78d3494/src/core/router.ts#L18)
 
 ___
 
@@ -60,7 +60,7 @@ ___
 
 #### Defined in
 
-[core/router.ts:19](https://github.com/siposdani87/sui-js/blob/0385915/src/core/router.ts#L19)
+[core/router.ts:19](https://github.com/siposdani87/sui-js/blob/78d3494/src/core/router.ts#L19)
 
 ___
 
@@ -70,7 +70,7 @@ ___
 
 #### Defined in
 
-[core/router.ts:15](https://github.com/siposdani87/sui-js/blob/0385915/src/core/router.ts#L15)
+[core/router.ts:15](https://github.com/siposdani87/sui-js/blob/78d3494/src/core/router.ts#L15)
 
 ## Methods
 
@@ -84,7 +84,7 @@ ___
 
 #### Defined in
 
-[core/router.ts:34](https://github.com/siposdani87/sui-js/blob/0385915/src/core/router.ts#L34)
+[core/router.ts:34](https://github.com/siposdani87/sui-js/blob/78d3494/src/core/router.ts#L34)
 
 ___
 
@@ -104,7 +104,7 @@ ___
 
 #### Defined in
 
-[core/router.ts:110](https://github.com/siposdani87/sui-js/blob/0385915/src/core/router.ts#L110)
+[core/router.ts:110](https://github.com/siposdani87/sui-js/blob/78d3494/src/core/router.ts#L110)
 
 ___
 
@@ -124,7 +124,7 @@ ___
 
 #### Defined in
 
-[core/router.ts:82](https://github.com/siposdani87/sui-js/blob/0385915/src/core/router.ts#L82)
+[core/router.ts:82](https://github.com/siposdani87/sui-js/blob/78d3494/src/core/router.ts#L82)
 
 ___
 
@@ -144,7 +144,7 @@ ___
 
 #### Defined in
 
-[core/router.ts:93](https://github.com/siposdani87/sui-js/blob/0385915/src/core/router.ts#L93)
+[core/router.ts:93](https://github.com/siposdani87/sui-js/blob/78d3494/src/core/router.ts#L93)
 
 ___
 
@@ -164,4 +164,4 @@ ___
 
 #### Defined in
 
-[core/router.ts:48](https://github.com/siposdani87/sui-js/blob/0385915/src/core/router.ts#L48)
+[core/router.ts:48](https://github.com/siposdani87/sui-js/blob/78d3494/src/core/router.ts#L48)
