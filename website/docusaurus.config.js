@@ -93,8 +93,8 @@ const config = {
             title: 'Docs',
             items: [
               {
-                label: 'README',
-                to: '/docs/index',
+                label: 'Readme',
+                to: '/docs',
               },
             ],
           },
