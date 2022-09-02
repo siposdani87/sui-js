@@ -8,7 +8,7 @@ const darkCodeTheme = require('prism-react-renderer/themes/dracula');
 const config = {
   title: 'SUI-JS',
   tagline: 'Micro Frontend Framework',
-  url: 'http://sui.siposdani87.com',
+  url: 'https://sui-js.siposdani87.com',
   baseUrl: '/',
   onBrokenLinks: 'warn',
   onBrokenMarkdownLinks: 'warn',

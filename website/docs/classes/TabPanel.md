@@ -23,7 +23,7 @@ custom_edit_url: null
 
 #### Defined in
 
-[component/tabPanel.ts:23](https://github.com/siposdani87/sui-js/blob/78d3494/src/component/tabPanel.ts#L23)
+[component/tabPanel.ts:23](https://github.com/siposdani87/sui-js/blob/a88c06f/src/component/tabPanel.ts#L23)
 
 ## Properties
 
@@ -33,7 +33,7 @@ custom_edit_url: null
 
 #### Defined in
 
-[component/tabPanel.ts:14](https://github.com/siposdani87/sui-js/blob/78d3494/src/component/tabPanel.ts#L14)
+[component/tabPanel.ts:14](https://github.com/siposdani87/sui-js/blob/a88c06f/src/component/tabPanel.ts#L14)
 
 ___
 
@@ -50,7 +50,7 @@ ___
 
 #### Defined in
 
-[component/tabPanel.ts:13](https://github.com/siposdani87/sui-js/blob/78d3494/src/component/tabPanel.ts#L13)
+[component/tabPanel.ts:13](https://github.com/siposdani87/sui-js/blob/a88c06f/src/component/tabPanel.ts#L13)
 
 ___
 
@@ -60,7 +60,7 @@ ___
 
 #### Defined in
 
-[component/tabPanel.ts:16](https://github.com/siposdani87/sui-js/blob/78d3494/src/component/tabPanel.ts#L16)
+[component/tabPanel.ts:16](https://github.com/siposdani87/sui-js/blob/a88c06f/src/component/tabPanel.ts#L16)
 
 ___
 
@@ -70,7 +70,7 @@ ___
 
 #### Defined in
 
-[component/tabPanel.ts:12](https://github.com/siposdani87/sui-js/blob/78d3494/src/component/tabPanel.ts#L12)
+[component/tabPanel.ts:12](https://github.com/siposdani87/sui-js/blob/a88c06f/src/component/tabPanel.ts#L12)
 
 ___
 
@@ -80,7 +80,7 @@ ___
 
 #### Defined in
 
-[component/tabPanel.ts:15](https://github.com/siposdani87/sui-js/blob/78d3494/src/component/tabPanel.ts#L15)
+[component/tabPanel.ts:15](https://github.com/siposdani87/sui-js/blob/a88c06f/src/component/tabPanel.ts#L15)
 
 ## Methods
 
@@ -94,7 +94,7 @@ ___
 
 #### Defined in
 
-[component/tabPanel.ts:40](https://github.com/siposdani87/sui-js/blob/78d3494/src/component/tabPanel.ts#L40)
+[component/tabPanel.ts:40](https://github.com/siposdani87/sui-js/blob/a88c06f/src/component/tabPanel.ts#L40)
 
 ___
 
@@ -108,7 +108,7 @@ ___
 
 #### Defined in
 
-[component/tabPanel.ts:69](https://github.com/siposdani87/sui-js/blob/78d3494/src/component/tabPanel.ts#L69)
+[component/tabPanel.ts:69](https://github.com/siposdani87/sui-js/blob/a88c06f/src/component/tabPanel.ts#L69)
 
 ___
 
@@ -122,7 +122,7 @@ ___
 
 #### Defined in
 
-[component/tabPanel.ts:51](https://github.com/siposdani87/sui-js/blob/78d3494/src/component/tabPanel.ts#L51)
+[component/tabPanel.ts:51](https://github.com/siposdani87/sui-js/blob/a88c06f/src/component/tabPanel.ts#L51)
 
 ___
 
@@ -142,7 +142,7 @@ ___
 
 #### Defined in
 
-[component/tabPanel.ts:77](https://github.com/siposdani87/sui-js/blob/78d3494/src/component/tabPanel.ts#L77)
+[component/tabPanel.ts:77](https://github.com/siposdani87/sui-js/blob/a88c06f/src/component/tabPanel.ts#L77)
 
 ___
 
@@ -162,7 +162,7 @@ ___
 
 #### Defined in
 
-[component/tabPanel.ts:101](https://github.com/siposdani87/sui-js/blob/78d3494/src/component/tabPanel.ts#L101)
+[component/tabPanel.ts:101](https://github.com/siposdani87/sui-js/blob/a88c06f/src/component/tabPanel.ts#L101)
 
 ___
 
@@ -176,7 +176,7 @@ ___
 
 #### Defined in
 
-[component/tabPanel.ts:128](https://github.com/siposdani87/sui-js/blob/78d3494/src/component/tabPanel.ts#L128)
+[component/tabPanel.ts:128](https://github.com/siposdani87/sui-js/blob/a88c06f/src/component/tabPanel.ts#L128)
 
 ___
 
@@ -196,4 +196,4 @@ ___
 
 #### Defined in
 
-[component/tabPanel.ts:108](https://github.com/siposdani87/sui-js/blob/78d3494/src/component/tabPanel.ts#L108)
+[component/tabPanel.ts:108](https://github.com/siposdani87/sui-js/blob/a88c06f/src/component/tabPanel.ts#L108)
