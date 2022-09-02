@@ -14,7 +14,7 @@ custom_edit_url: null
 
 #### Defined in
 
-[module/serviceWorker.ts:9](https://github.com/siposdani87/sui-js/blob/78d3494/src/module/serviceWorker.ts#L9)
+[module/serviceWorker.ts:9](https://github.com/siposdani87/sui-js/blob/a88c06f/src/module/serviceWorker.ts#L9)
 
 ## Methods
 
@@ -28,7 +28,7 @@ custom_edit_url: null
 
 #### Defined in
 
-[module/serviceWorker.ts:16](https://github.com/siposdani87/sui-js/blob/78d3494/src/module/serviceWorker.ts#L16)
+[module/serviceWorker.ts:16](https://github.com/siposdani87/sui-js/blob/a88c06f/src/module/serviceWorker.ts#L16)
 
 ___
 
@@ -48,4 +48,4 @@ ___
 
 #### Defined in
 
-[module/serviceWorker.ts:33](https://github.com/siposdani87/sui-js/blob/78d3494/src/module/serviceWorker.ts#L33)
+[module/serviceWorker.ts:33](https://github.com/siposdani87/sui-js/blob/a88c06f/src/module/serviceWorker.ts#L33)

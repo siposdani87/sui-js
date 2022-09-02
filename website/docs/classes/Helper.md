@@ -31,7 +31,7 @@ custom_edit_url: null
 
 #### Defined in
 
-[module/helper.ts:400](https://github.com/siposdani87/sui-js/blob/78d3494/src/module/helper.ts#L400)
+[module/helper.ts:400](https://github.com/siposdani87/sui-js/blob/a88c06f/src/module/helper.ts#L400)
 
 ___
 
@@ -52,7 +52,7 @@ ___
 
 #### Defined in
 
-[module/helper.ts:411](https://github.com/siposdani87/sui-js/blob/78d3494/src/module/helper.ts#L411)
+[module/helper.ts:411](https://github.com/siposdani87/sui-js/blob/a88c06f/src/module/helper.ts#L411)
 
 ___
 
@@ -77,7 +77,7 @@ ___
 
 #### Defined in
 
-[module/helper.ts:197](https://github.com/siposdani87/sui-js/blob/78d3494/src/module/helper.ts#L197)
+[module/helper.ts:197](https://github.com/siposdani87/sui-js/blob/a88c06f/src/module/helper.ts#L197)
 
 ___
 
@@ -101,7 +101,7 @@ ___
 
 #### Defined in
 
-[module/helper.ts:223](https://github.com/siposdani87/sui-js/blob/78d3494/src/module/helper.ts#L223)
+[module/helper.ts:223](https://github.com/siposdani87/sui-js/blob/a88c06f/src/module/helper.ts#L223)
 
 ___
 
@@ -125,7 +125,7 @@ ___
 
 #### Defined in
 
-[module/helper.ts:146](https://github.com/siposdani87/sui-js/blob/78d3494/src/module/helper.ts#L146)
+[module/helper.ts:146](https://github.com/siposdani87/sui-js/blob/a88c06f/src/module/helper.ts#L146)
 
 ___
 
@@ -149,7 +149,7 @@ ___
 
 #### Defined in
 
-[module/helper.ts:267](https://github.com/siposdani87/sui-js/blob/78d3494/src/module/helper.ts#L267)
+[module/helper.ts:267](https://github.com/siposdani87/sui-js/blob/a88c06f/src/module/helper.ts#L267)
 
 ___
 
@@ -174,7 +174,7 @@ ___
 
 #### Defined in
 
-[module/helper.ts:21](https://github.com/siposdani87/sui-js/blob/78d3494/src/module/helper.ts#L21)
+[module/helper.ts:21](https://github.com/siposdani87/sui-js/blob/a88c06f/src/module/helper.ts#L21)
 
 ___
 
@@ -199,7 +199,7 @@ ___
 
 #### Defined in
 
-[module/helper.ts:324](https://github.com/siposdani87/sui-js/blob/78d3494/src/module/helper.ts#L324)
+[module/helper.ts:324](https://github.com/siposdani87/sui-js/blob/a88c06f/src/module/helper.ts#L324)
 
 ___
 
@@ -223,7 +223,7 @@ ___
 
 #### Defined in
 
-[module/helper.ts:354](https://github.com/siposdani87/sui-js/blob/78d3494/src/module/helper.ts#L354)
+[module/helper.ts:354](https://github.com/siposdani87/sui-js/blob/a88c06f/src/module/helper.ts#L354)
 
 ___
 
@@ -249,7 +249,7 @@ ___
 
 #### Defined in
 
-[module/helper.ts:76](https://github.com/siposdani87/sui-js/blob/78d3494/src/module/helper.ts#L76)
+[module/helper.ts:76](https://github.com/siposdani87/sui-js/blob/a88c06f/src/module/helper.ts#L76)
 
 ___
 
@@ -274,7 +274,7 @@ ___
 
 #### Defined in
 
-[module/helper.ts:105](https://github.com/siposdani87/sui-js/blob/78d3494/src/module/helper.ts#L105)
+[module/helper.ts:105](https://github.com/siposdani87/sui-js/blob/a88c06f/src/module/helper.ts#L105)
 
 ___
 
@@ -297,7 +297,7 @@ ___
 
 #### Defined in
 
-[module/helper.ts:171](https://github.com/siposdani87/sui-js/blob/78d3494/src/module/helper.ts#L171)
+[module/helper.ts:171](https://github.com/siposdani87/sui-js/blob/a88c06f/src/module/helper.ts#L171)
 
 ___
 
@@ -319,7 +319,7 @@ ___
 
 #### Defined in
 
-[module/helper.ts:295](https://github.com/siposdani87/sui-js/blob/78d3494/src/module/helper.ts#L295)
+[module/helper.ts:295](https://github.com/siposdani87/sui-js/blob/a88c06f/src/module/helper.ts#L295)
 
 ___
 
@@ -342,7 +342,7 @@ ___
 
 #### Defined in
 
-[module/helper.ts:48](https://github.com/siposdani87/sui-js/blob/78d3494/src/module/helper.ts#L48)
+[module/helper.ts:48](https://github.com/siposdani87/sui-js/blob/a88c06f/src/module/helper.ts#L48)
 
 ___
 
@@ -366,4 +366,4 @@ ___
 
 #### Defined in
 
-[module/helper.ts:430](https://github.com/siposdani87/sui-js/blob/78d3494/src/module/helper.ts#L430)
+[module/helper.ts:430](https://github.com/siposdani87/sui-js/blob/a88c06f/src/module/helper.ts#L430)

@@ -7,9 +7,9 @@ pipeline {
         APP_SERVER_IP = '165.22.90.228'
         APP_DOCKER_DIR = '/mnt/volume_fra1_01/docker'
 
-        APP_IMAGE_NAME = 'siposdani87-sui'
+        APP_IMAGE_NAME = 'siposdani87-sui-js'
         APP_TAG_NAME = 'latest'
-        APP_CONTAINER_NAME = 'siposdani87_sui'
+        APP_CONTAINER_NAME = 'siposdani87_sui_js'
 
         APP_TARGET_PLATFORMS = 'linux/arm64,linux/amd64'
     }

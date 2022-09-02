@@ -22,7 +22,7 @@ custom_edit_url: null
 
 #### Defined in
 
-[component/progressStatus.ts:18](https://github.com/siposdani87/sui-js/blob/78d3494/src/component/progressStatus.ts#L18)
+[component/progressStatus.ts:18](https://github.com/siposdani87/sui-js/blob/a88c06f/src/component/progressStatus.ts#L18)
 
 ## Properties
 
@@ -32,7 +32,7 @@ custom_edit_url: null
 
 #### Defined in
 
-[component/progressStatus.ts:11](https://github.com/siposdani87/sui-js/blob/78d3494/src/component/progressStatus.ts#L11)
+[component/progressStatus.ts:11](https://github.com/siposdani87/sui-js/blob/a88c06f/src/component/progressStatus.ts#L11)
 
 ___
 
@@ -42,7 +42,7 @@ ___
 
 #### Defined in
 
-[component/progressStatus.ts:10](https://github.com/siposdani87/sui-js/blob/78d3494/src/component/progressStatus.ts#L10)
+[component/progressStatus.ts:10](https://github.com/siposdani87/sui-js/blob/a88c06f/src/component/progressStatus.ts#L10)
 
 ___
 
@@ -52,7 +52,7 @@ ___
 
 #### Defined in
 
-[component/progressStatus.ts:9](https://github.com/siposdani87/sui-js/blob/78d3494/src/component/progressStatus.ts#L9)
+[component/progressStatus.ts:9](https://github.com/siposdani87/sui-js/blob/a88c06f/src/component/progressStatus.ts#L9)
 
 ___
 
@@ -62,7 +62,7 @@ ___
 
 #### Defined in
 
-[component/progressStatus.ts:12](https://github.com/siposdani87/sui-js/blob/78d3494/src/component/progressStatus.ts#L12)
+[component/progressStatus.ts:12](https://github.com/siposdani87/sui-js/blob/a88c06f/src/component/progressStatus.ts#L12)
 
 ## Methods
 
@@ -76,7 +76,7 @@ ___
 
 #### Defined in
 
-[component/progressStatus.ts:46](https://github.com/siposdani87/sui-js/blob/78d3494/src/component/progressStatus.ts#L46)
+[component/progressStatus.ts:46](https://github.com/siposdani87/sui-js/blob/a88c06f/src/component/progressStatus.ts#L46)
 
 ___
 
@@ -96,7 +96,7 @@ ___
 
 #### Defined in
 
-[component/progressStatus.ts:32](https://github.com/siposdani87/sui-js/blob/78d3494/src/component/progressStatus.ts#L32)
+[component/progressStatus.ts:32](https://github.com/siposdani87/sui-js/blob/a88c06f/src/component/progressStatus.ts#L32)
 
 ___
 
@@ -118,7 +118,7 @@ ___
 
 #### Defined in
 
-[component/progressStatus.ts:57](https://github.com/siposdani87/sui-js/blob/78d3494/src/component/progressStatus.ts#L57)
+[component/progressStatus.ts:57](https://github.com/siposdani87/sui-js/blob/a88c06f/src/component/progressStatus.ts#L57)
 
 ___
 
@@ -139,7 +139,7 @@ ___
 
 #### Defined in
 
-[component/progressStatus.ts:103](https://github.com/siposdani87/sui-js/blob/78d3494/src/component/progressStatus.ts#L103)
+[component/progressStatus.ts:103](https://github.com/siposdani87/sui-js/blob/a88c06f/src/component/progressStatus.ts#L103)
 
 ___
 
@@ -160,7 +160,7 @@ ___
 
 #### Defined in
 
-[component/progressStatus.ts:87](https://github.com/siposdani87/sui-js/blob/78d3494/src/component/progressStatus.ts#L87)
+[component/progressStatus.ts:87](https://github.com/siposdani87/sui-js/blob/a88c06f/src/component/progressStatus.ts#L87)
 
 ___
 
@@ -181,7 +181,7 @@ ___
 
 #### Defined in
 
-[component/progressStatus.ts:79](https://github.com/siposdani87/sui-js/blob/78d3494/src/component/progressStatus.ts#L79)
+[component/progressStatus.ts:79](https://github.com/siposdani87/sui-js/blob/a88c06f/src/component/progressStatus.ts#L79)
 
 ___
 
@@ -202,4 +202,4 @@ ___
 
 #### Defined in
 
-[component/progressStatus.ts:95](https://github.com/siposdani87/sui-js/blob/78d3494/src/component/progressStatus.ts#L95)
+[component/progressStatus.ts:95](https://github.com/siposdani87/sui-js/blob/a88c06f/src/component/progressStatus.ts#L95)

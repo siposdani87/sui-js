@@ -5,7 +5,7 @@ authors: [dsipos]
 tags: [hello, sui-js]
 ---
 
-[SUI-JS](https://sui.siposdani87.com) frontend framework is powered by the [TypeScript](https://www.typescriptlang.org/).
+[SUI-JS](https://sui-js.siposdani87.com) frontend framework is powered by the [TypeScript](https://www.typescriptlang.org/).
 
 The codebase was documented with JSDoc and compiled with ESbuild advanced settings. In this framework there are a lot of predefined UI components.
 
