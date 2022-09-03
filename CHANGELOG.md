@@ -1,6 +1,6 @@
 ## 0.8.0 - TBD
 
-* 
+* Upgrade esbuild and sass packages
 
 ## 0.7.0 - 2022-08-13
 
