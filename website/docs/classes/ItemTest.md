@@ -24,7 +24,7 @@ custom_edit_url: null
 
 #### Defined in
 
-[test/itemTest.ts:14](https://github.com/siposdani87/sui-js/blob/a88c06f/src/test/itemTest.ts#L14)
+[test/itemTest.ts:14](https://github.com/siposdani87/sui-js/blob/035cd52/src/test/itemTest.ts#L14)
 
 ## Properties
 
@@ -38,7 +38,7 @@ custom_edit_url: null
 
 #### Defined in
 
-[test/baseTest.ts:11](https://github.com/siposdani87/sui-js/blob/a88c06f/src/test/baseTest.ts#L11)
+[test/baseTest.ts:11](https://github.com/siposdani87/sui-js/blob/035cd52/src/test/baseTest.ts#L11)
 
 ___
 
@@ -48,7 +48,7 @@ ___
 
 #### Defined in
 
-[test/itemTest.ts:10](https://github.com/siposdani87/sui-js/blob/a88c06f/src/test/itemTest.ts#L10)
+[test/itemTest.ts:10](https://github.com/siposdani87/sui-js/blob/035cd52/src/test/itemTest.ts#L10)
 
 ## Methods
 
@@ -66,7 +66,7 @@ ___
 
 #### Defined in
 
-[test/itemTest.ts:21](https://github.com/siposdani87/sui-js/blob/a88c06f/src/test/itemTest.ts#L21)
+[test/itemTest.ts:21](https://github.com/siposdani87/sui-js/blob/035cd52/src/test/itemTest.ts#L21)
 
 ___
 
@@ -92,7 +92,7 @@ ___
 
 #### Defined in
 
-[test/baseTest.ts:30](https://github.com/siposdani87/sui-js/blob/a88c06f/src/test/baseTest.ts#L30)
+[test/baseTest.ts:30](https://github.com/siposdani87/sui-js/blob/035cd52/src/test/baseTest.ts#L30)
 
 ___
 
@@ -106,7 +106,7 @@ ___
 
 #### Defined in
 
-[test/itemTest.ts:31](https://github.com/siposdani87/sui-js/blob/a88c06f/src/test/itemTest.ts#L31)
+[test/itemTest.ts:31](https://github.com/siposdani87/sui-js/blob/035cd52/src/test/itemTest.ts#L31)
 
 ___
 
@@ -120,7 +120,7 @@ ___
 
 #### Defined in
 
-[test/itemTest.ts:45](https://github.com/siposdani87/sui-js/blob/a88c06f/src/test/itemTest.ts#L45)
+[test/itemTest.ts:45](https://github.com/siposdani87/sui-js/blob/035cd52/src/test/itemTest.ts#L45)
 
 ___
 
@@ -134,4 +134,4 @@ ___
 
 #### Defined in
 
-[test/itemTest.ts:71](https://github.com/siposdani87/sui-js/blob/a88c06f/src/test/itemTest.ts#L71)
+[test/itemTest.ts:71](https://github.com/siposdani87/sui-js/blob/035cd52/src/test/itemTest.ts#L71)

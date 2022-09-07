@@ -24,7 +24,7 @@ custom_edit_url: null
 
 #### Defined in
 
-[test/collectionTest.ts:14](https://github.com/siposdani87/sui-js/blob/a88c06f/src/test/collectionTest.ts#L14)
+[test/collectionTest.ts:14](https://github.com/siposdani87/sui-js/blob/035cd52/src/test/collectionTest.ts#L14)
 
 ## Properties
 
@@ -34,7 +34,7 @@ custom_edit_url: null
 
 #### Defined in
 
-[test/collectionTest.ts:10](https://github.com/siposdani87/sui-js/blob/a88c06f/src/test/collectionTest.ts#L10)
+[test/collectionTest.ts:10](https://github.com/siposdani87/sui-js/blob/035cd52/src/test/collectionTest.ts#L10)
 
 ___
 
@@ -48,7 +48,7 @@ ___
 
 #### Defined in
 
-[test/baseTest.ts:11](https://github.com/siposdani87/sui-js/blob/a88c06f/src/test/baseTest.ts#L11)
+[test/baseTest.ts:11](https://github.com/siposdani87/sui-js/blob/035cd52/src/test/baseTest.ts#L11)
 
 ## Methods
 
@@ -66,7 +66,7 @@ ___
 
 #### Defined in
 
-[test/collectionTest.ts:21](https://github.com/siposdani87/sui-js/blob/a88c06f/src/test/collectionTest.ts#L21)
+[test/collectionTest.ts:21](https://github.com/siposdani87/sui-js/blob/035cd52/src/test/collectionTest.ts#L21)
 
 ___
 
@@ -92,4 +92,4 @@ ___
 
 #### Defined in
 
-[test/baseTest.ts:30](https://github.com/siposdani87/sui-js/blob/a88c06f/src/test/baseTest.ts#L30)
+[test/baseTest.ts:30](https://github.com/siposdani87/sui-js/blob/035cd52/src/test/baseTest.ts#L30)
