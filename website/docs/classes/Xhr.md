@@ -20,7 +20,7 @@ custom_edit_url: null
 
 #### Defined in
 
-[module/xhr.ts:33](https://github.com/siposdani87/sui-js/blob/a88c06f/src/module/xhr.ts#L33)
+[module/xhr.ts:33](https://github.com/siposdani87/sui-js/blob/035cd52/src/module/xhr.ts#L33)
 
 ## Properties
 
@@ -30,7 +30,7 @@ custom_edit_url: null
 
 #### Defined in
 
-[module/xhr.ts:24](https://github.com/siposdani87/sui-js/blob/a88c06f/src/module/xhr.ts#L24)
+[module/xhr.ts:24](https://github.com/siposdani87/sui-js/blob/035cd52/src/module/xhr.ts#L24)
 
 ___
 
@@ -40,7 +40,7 @@ ___
 
 #### Defined in
 
-[module/xhr.ts:29](https://github.com/siposdani87/sui-js/blob/a88c06f/src/module/xhr.ts#L29)
+[module/xhr.ts:29](https://github.com/siposdani87/sui-js/blob/035cd52/src/module/xhr.ts#L29)
 
 ___
 
@@ -50,7 +50,7 @@ ___
 
 #### Defined in
 
-[module/xhr.ts:28](https://github.com/siposdani87/sui-js/blob/a88c06f/src/module/xhr.ts#L28)
+[module/xhr.ts:28](https://github.com/siposdani87/sui-js/blob/035cd52/src/module/xhr.ts#L28)
 
 ___
 
@@ -60,7 +60,7 @@ ___
 
 #### Defined in
 
-[module/xhr.ts:22](https://github.com/siposdani87/sui-js/blob/a88c06f/src/module/xhr.ts#L22)
+[module/xhr.ts:22](https://github.com/siposdani87/sui-js/blob/035cd52/src/module/xhr.ts#L22)
 
 ___
 
@@ -70,7 +70,7 @@ ___
 
 #### Defined in
 
-[module/xhr.ts:23](https://github.com/siposdani87/sui-js/blob/a88c06f/src/module/xhr.ts#L23)
+[module/xhr.ts:23](https://github.com/siposdani87/sui-js/blob/035cd52/src/module/xhr.ts#L23)
 
 ___
 
@@ -84,7 +84,7 @@ ___
 
 #### Defined in
 
-[module/xhr.ts:25](https://github.com/siposdani87/sui-js/blob/a88c06f/src/module/xhr.ts#L25)
+[module/xhr.ts:25](https://github.com/siposdani87/sui-js/blob/035cd52/src/module/xhr.ts#L25)
 
 ## Methods
 
@@ -104,7 +104,7 @@ ___
 
 #### Defined in
 
-[module/xhr.ts:123](https://github.com/siposdani87/sui-js/blob/a88c06f/src/module/xhr.ts#L123)
+[module/xhr.ts:123](https://github.com/siposdani87/sui-js/blob/035cd52/src/module/xhr.ts#L123)
 
 ___
 
@@ -124,7 +124,7 @@ ___
 
 #### Defined in
 
-[module/xhr.ts:107](https://github.com/siposdani87/sui-js/blob/a88c06f/src/module/xhr.ts#L107)
+[module/xhr.ts:107](https://github.com/siposdani87/sui-js/blob/035cd52/src/module/xhr.ts#L107)
 
 ___
 
@@ -138,7 +138,7 @@ ___
 
 #### Defined in
 
-[module/xhr.ts:369](https://github.com/siposdani87/sui-js/blob/a88c06f/src/module/xhr.ts#L369)
+[module/xhr.ts:369](https://github.com/siposdani87/sui-js/blob/035cd52/src/module/xhr.ts#L369)
 
 ___
 
@@ -158,7 +158,7 @@ ___
 
 #### Defined in
 
-[module/xhr.ts:305](https://github.com/siposdani87/sui-js/blob/a88c06f/src/module/xhr.ts#L305)
+[module/xhr.ts:305](https://github.com/siposdani87/sui-js/blob/035cd52/src/module/xhr.ts#L305)
 
 ___
 
@@ -178,7 +178,7 @@ ___
 
 #### Defined in
 
-[module/xhr.ts:392](https://github.com/siposdani87/sui-js/blob/a88c06f/src/module/xhr.ts#L392)
+[module/xhr.ts:392](https://github.com/siposdani87/sui-js/blob/035cd52/src/module/xhr.ts#L392)
 
 ___
 
@@ -198,7 +198,7 @@ ___
 
 #### Defined in
 
-[module/xhr.ts:115](https://github.com/siposdani87/sui-js/blob/a88c06f/src/module/xhr.ts#L115)
+[module/xhr.ts:115](https://github.com/siposdani87/sui-js/blob/035cd52/src/module/xhr.ts#L115)
 
 ___
 
@@ -218,7 +218,7 @@ ___
 
 #### Defined in
 
-[module/xhr.ts:99](https://github.com/siposdani87/sui-js/blob/a88c06f/src/module/xhr.ts#L99)
+[module/xhr.ts:99](https://github.com/siposdani87/sui-js/blob/035cd52/src/module/xhr.ts#L99)
 
 ___
 
@@ -239,7 +239,7 @@ ___
 
 #### Defined in
 
-[module/xhr.ts:273](https://github.com/siposdani87/sui-js/blob/a88c06f/src/module/xhr.ts#L273)
+[module/xhr.ts:273](https://github.com/siposdani87/sui-js/blob/035cd52/src/module/xhr.ts#L273)
 
 ___
 
@@ -263,7 +263,7 @@ ___
 
 #### Defined in
 
-[module/xhr.ts:286](https://github.com/siposdani87/sui-js/blob/a88c06f/src/module/xhr.ts#L286)
+[module/xhr.ts:286](https://github.com/siposdani87/sui-js/blob/035cd52/src/module/xhr.ts#L286)
 
 ___
 
@@ -277,7 +277,7 @@ ___
 
 #### Defined in
 
-[module/xhr.ts:54](https://github.com/siposdani87/sui-js/blob/a88c06f/src/module/xhr.ts#L54)
+[module/xhr.ts:54](https://github.com/siposdani87/sui-js/blob/035cd52/src/module/xhr.ts#L54)
 
 ___
 
@@ -304,7 +304,7 @@ ___
 
 #### Defined in
 
-[module/xhr.ts:130](https://github.com/siposdani87/sui-js/blob/a88c06f/src/module/xhr.ts#L130)
+[module/xhr.ts:130](https://github.com/siposdani87/sui-js/blob/035cd52/src/module/xhr.ts#L130)
 
 ___
 
@@ -326,7 +326,7 @@ ___
 
 #### Defined in
 
-[module/xhr.ts:326](https://github.com/siposdani87/sui-js/blob/a88c06f/src/module/xhr.ts#L326)
+[module/xhr.ts:326](https://github.com/siposdani87/sui-js/blob/035cd52/src/module/xhr.ts#L326)
 
 ___
 
@@ -346,7 +346,7 @@ ___
 
 #### Defined in
 
-[module/xhr.ts:42](https://github.com/siposdani87/sui-js/blob/a88c06f/src/module/xhr.ts#L42)
+[module/xhr.ts:42](https://github.com/siposdani87/sui-js/blob/035cd52/src/module/xhr.ts#L42)
 
 ___
 
@@ -367,7 +367,7 @@ ___
 
 #### Defined in
 
-[module/xhr.ts:437](https://github.com/siposdani87/sui-js/blob/a88c06f/src/module/xhr.ts#L437)
+[module/xhr.ts:437](https://github.com/siposdani87/sui-js/blob/035cd52/src/module/xhr.ts#L437)
 
 ___
 
@@ -387,7 +387,7 @@ ___
 
 #### Defined in
 
-[module/xhr.ts:474](https://github.com/siposdani87/sui-js/blob/a88c06f/src/module/xhr.ts#L474)
+[module/xhr.ts:474](https://github.com/siposdani87/sui-js/blob/035cd52/src/module/xhr.ts#L474)
 
 ___
 
@@ -408,7 +408,7 @@ ___
 
 #### Defined in
 
-[module/xhr.ts:91](https://github.com/siposdani87/sui-js/blob/a88c06f/src/module/xhr.ts#L91)
+[module/xhr.ts:91](https://github.com/siposdani87/sui-js/blob/035cd52/src/module/xhr.ts#L91)
 
 ___
 
@@ -422,7 +422,7 @@ ___
 
 #### Defined in
 
-[module/xhr.ts:73](https://github.com/siposdani87/sui-js/blob/a88c06f/src/module/xhr.ts#L73)
+[module/xhr.ts:73](https://github.com/siposdani87/sui-js/blob/035cd52/src/module/xhr.ts#L73)
 
 ___
 
@@ -442,7 +442,7 @@ ___
 
 #### Defined in
 
-[module/xhr.ts:355](https://github.com/siposdani87/sui-js/blob/a88c06f/src/module/xhr.ts#L355)
+[module/xhr.ts:355](https://github.com/siposdani87/sui-js/blob/035cd52/src/module/xhr.ts#L355)
 
 ___
 
@@ -465,7 +465,7 @@ ___
 
 #### Defined in
 
-[module/xhr.ts:253](https://github.com/siposdani87/sui-js/blob/a88c06f/src/module/xhr.ts#L253)
+[module/xhr.ts:253](https://github.com/siposdani87/sui-js/blob/035cd52/src/module/xhr.ts#L253)
 
 ___
 
@@ -487,7 +487,7 @@ ___
 
 #### Defined in
 
-[module/xhr.ts:176](https://github.com/siposdani87/sui-js/blob/a88c06f/src/module/xhr.ts#L176)
+[module/xhr.ts:176](https://github.com/siposdani87/sui-js/blob/035cd52/src/module/xhr.ts#L176)
 
 ___
 
@@ -507,7 +507,7 @@ ___
 
 #### Defined in
 
-[module/xhr.ts:492](https://github.com/siposdani87/sui-js/blob/a88c06f/src/module/xhr.ts#L492)
+[module/xhr.ts:492](https://github.com/siposdani87/sui-js/blob/035cd52/src/module/xhr.ts#L492)
 
 ___
 
@@ -530,7 +530,7 @@ ___
 
 #### Defined in
 
-[module/xhr.ts:232](https://github.com/siposdani87/sui-js/blob/a88c06f/src/module/xhr.ts#L232)
+[module/xhr.ts:232](https://github.com/siposdani87/sui-js/blob/035cd52/src/module/xhr.ts#L232)
 
 ___
 
@@ -553,7 +553,7 @@ ___
 
 #### Defined in
 
-[module/xhr.ts:190](https://github.com/siposdani87/sui-js/blob/a88c06f/src/module/xhr.ts#L190)
+[module/xhr.ts:190](https://github.com/siposdani87/sui-js/blob/035cd52/src/module/xhr.ts#L190)
 
 ___
 
@@ -576,7 +576,7 @@ ___
 
 #### Defined in
 
-[module/xhr.ts:211](https://github.com/siposdani87/sui-js/blob/a88c06f/src/module/xhr.ts#L211)
+[module/xhr.ts:211](https://github.com/siposdani87/sui-js/blob/035cd52/src/module/xhr.ts#L211)
 
 ___
 
@@ -597,7 +597,7 @@ ___
 
 #### Defined in
 
-[module/xhr.ts:500](https://github.com/siposdani87/sui-js/blob/a88c06f/src/module/xhr.ts#L500)
+[module/xhr.ts:500](https://github.com/siposdani87/sui-js/blob/035cd52/src/module/xhr.ts#L500)
 
 ___
 
@@ -617,7 +617,7 @@ ___
 
 #### Defined in
 
-[module/xhr.ts:510](https://github.com/siposdani87/sui-js/blob/a88c06f/src/module/xhr.ts#L510)
+[module/xhr.ts:510](https://github.com/siposdani87/sui-js/blob/035cd52/src/module/xhr.ts#L510)
 
 ___
 
@@ -638,4 +638,4 @@ ___
 
 #### Defined in
 
-[module/xhr.ts:482](https://github.com/siposdani87/sui-js/blob/a88c06f/src/module/xhr.ts#L482)
+[module/xhr.ts:482](https://github.com/siposdani87/sui-js/blob/035cd52/src/module/xhr.ts#L482)

@@ -24,4 +24,4 @@ custom_edit_url: null
 
 #### Defined in
 
-[component/testRunner.ts:14](https://github.com/siposdani87/sui-js/blob/a88c06f/src/component/testRunner.ts#L14)
+[component/testRunner.ts:14](https://github.com/siposdani87/sui-js/blob/035cd52/src/component/testRunner.ts#L14)
