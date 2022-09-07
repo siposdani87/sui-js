@@ -8,10 +8,10 @@
 export declare const readableCurrency: (price: number, opt_delimiter?: string | undefined, opt_separator?: string | undefined, opt_precision?: number | undefined) => string;
 /**
  * @param {number} num
- * @param {number} exp
+ * @param {boolean=} opt_around
  * @return {string}
  */
-export declare const readableNumber: (num: number, exp: number) => string;
+export declare const readableNumber: (num: number, opt_around?: boolean | undefined) => string;
 /**
  * Decimal round
  *
