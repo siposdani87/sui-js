@@ -36,7 +36,10 @@ export const readableCurrency = (
  * @param {boolean=} opt_around
  * @return {string}
  */
-export const readableNumber = (num: number, opt_around: boolean | undefined = false): string => {
+export const readableNumber = (
+    num: number,
+    opt_around: boolean | undefined = false,
+): string => {
     const siValues = [
         { value: 1e24, symbol: 'Y' },
         { value: 1e21, symbol: 'Z' },
@@ -55,10 +58,11 @@ export const readableNumber = (num: number, opt_around: boolean | undefined = fa
         const siValue = siValues[i + 1];
         const exp = num.toString().length - 1;
         const roundedValue = floor(num, opt_around ? exp : 0);
-        const plus = roundedValue < num ? '+': '';
-        result = (roundedValue / siValue.value)
-                .toString()
-                .replace(rx, '$1') + siValue.symbol + plus;
+        const plus = roundedValue < num ? '+' : '';
+        result =
+            (roundedValue / siValue.value).toString().replace(rx, '$1') +
+            siValue.symbol +
+            plus;
         i++;
     }
     return result;

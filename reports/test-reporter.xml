@@ -1,270 +1,270 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <testExecutions version="1">
     <file path="/Users/dsipos/others/sui-js/src/utils/math.spec.ts">
-        <testCase name="math should be readable currency 100" duration="3"/>
-        <testCase name="math should be readable number 5 from 5 with around" duration="2"/>
-        <testCase name="math should be readable number 14 from 14" duration="1"/>
-        <testCase name="math should be readable number 10+ from 14 with around" duration="1"/>
+        <testCase name="math should be readable currency 100" duration="4"/>
+        <testCase name="math should be readable number 5 from 5 with around" duration="1"/>
+        <testCase name="math should be readable number 14 from 14" duration="0"/>
+        <testCase name="math should be readable number 10+ from 14 with around" duration="5"/>
         <testCase name="math should be readable number 112 from 112" duration="1"/>
-        <testCase name="math should be readable number 100+ from 112 with around" duration="0"/>
+        <testCase name="math should be readable number 100+ from 112 with around" duration="1"/>
         <testCase name="math should be readable number 1.534K from 1534" duration="1"/>
         <testCase name="math should be readable number 1K+ from 1534 with around" duration="0"/>
         <testCase name="math should round 10 from 5 with exp 1" duration="1"/>
-        <testCase name="math should round 5 from 5 with exp 0" duration="0"/>
+        <testCase name="math should round 5 from 5 with exp 0" duration="1"/>
         <testCase name="math should floor" duration="0"/>
         <testCase name="math should ceil" duration="1"/>
-        <testCase name="math should be a random number" duration="1"/>
-    </file>
-    <file path="/Users/dsipos/others/sui-js/src/field/switchField.spec.ts">
-        <testCase name="switchField should be instance of SwitchField" duration="30"/>
+        <testCase name="math should be a random number" duration="2"/>
     </file>
     <file path="/Users/dsipos/others/sui-js/src/field/autoCompleteField.spec.ts">
-        <testCase name="autoCompleteField should be instance of AutoCompleteField" duration="26"/>
+        <testCase name="autoCompleteField should be instance of AutoCompleteField" duration="113"/>
+    </file>
+    <file path="/Users/dsipos/others/sui-js/src/field/switchField.spec.ts">
+        <testCase name="switchField should be instance of SwitchField" duration="43"/>
     </file>
     <file path="/Users/dsipos/others/sui-js/src/component/formField.spec.ts">
-        <testCase name="formField should be instance of FormField" duration="252"/>
+        <testCase name="formField should be instance of FormField" duration="802"/>
     </file>
     <file path="/Users/dsipos/others/sui-js/src/field/radiobuttonField.spec.ts">
-        <testCase name="radiobuttonField should be instance of RadiobuttonField" duration="248"/>
-    </file>
-    <file path="/Users/dsipos/others/sui-js/src/field/dateTimeRangeField.spec.ts">
-        <testCase name="dateTimeRangeField should be instance of DateTimeRangeField" duration="25"/>
-    </file>
-    <file path="/Users/dsipos/others/sui-js/src/component/form.spec.ts">
-        <testCase name="form should be instance of Form" duration="264"/>
-    </file>
-    <file path="/Users/dsipos/others/sui-js/src/field/checkboxField.spec.ts">
-        <testCase name="checkboxField should be instance of CheckboxField" duration="21"/>
+        <testCase name="radiobuttonField should be instance of RadiobuttonField" duration="863"/>
     </file>
     <file path="/Users/dsipos/others/sui-js/src/component/application.spec.ts">
-        <testCase name="application should run the application" duration="83"/>
+        <testCase name="application should run the application" duration="225"/>
     </file>
-    <file path="/Users/dsipos/others/sui-js/src/field/rangeField.spec.ts">
-        <testCase name="rangeField should be instance of RangeField" duration="9"/>
-    </file>
-    <file path="/Users/dsipos/others/sui-js/src/field/textareaField.spec.ts">
-        <testCase name="textareaField should be instance of TextareaField" duration="13"/>
-    </file>
-    <file path="/Users/dsipos/others/sui-js/src/field/selectField.spec.ts">
-        <testCase name="selectField should be instance of SelectField" duration="17"/>
+    <file path="/Users/dsipos/others/sui-js/src/component/form.spec.ts">
+        <testCase name="form should be instance of Form" duration="584"/>
     </file>
     <file path="/Users/dsipos/others/sui-js/src/field/textField.spec.ts">
-        <testCase name="textField should be instance of TextField" duration="13"/>
-        <testCase name="textField should be instance of TextField, when type tel" duration="3"/>
-        <testCase name="textField should be instance of TextField, when type email" duration="3"/>
-    </file>
-    <file path="/Users/dsipos/others/sui-js/src/field/baseCheckboxField.spec.ts">
-        <testCase name="baseCheckboxField should be instance of BaseCheckboxField" duration="13"/>
+        <testCase name="textField should be instance of TextField" duration="27"/>
+        <testCase name="textField should be instance of TextField, when type tel" duration="9"/>
+        <testCase name="textField should be instance of TextField, when type email" duration="6"/>
     </file>
     <file path="/Users/dsipos/others/sui-js/src/field/colorField.spec.ts">
-        <testCase name="colorField should be instance of ColorField" duration="31"/>
-    </file>
-    <file path="/Users/dsipos/others/sui-js/src/field/numberField.spec.ts">
-        <testCase name="numberField should be instance of NumberField" duration="16"/>
-    </file>
-    <file path="/Users/dsipos/others/sui-js/src/component/calendar.spec.ts">
-        <testCase name="calendar should be instance of Calendar" duration="12"/>
+        <testCase name="colorField should be instance of ColorField" duration="22"/>
     </file>
     <file path="/Users/dsipos/others/sui-js/src/field/locationField.spec.ts">
-        <testCase name="locationField should be instance of LocationField" duration="16"/>
-    </file>
-    <file path="/Users/dsipos/others/sui-js/src/field/urlField.spec.ts">
-        <testCase name="urlField should be instance of UrlField" duration="12"/>
-    </file>
-    <file path="/Users/dsipos/others/sui-js/src/field/searchField.spec.ts">
-        <testCase name="searchField should be instance of SearchField" duration="10"/>
+        <testCase name="locationField should be instance of LocationField" duration="22"/>
     </file>
     <file path="/Users/dsipos/others/sui-js/src/field/iconToggleField.spec.ts">
-        <testCase name="iconToggleField should be instance of IconToggleField" duration="14"/>
+        <testCase name="iconToggleField should be instance of IconToggleField" duration="21"/>
     </file>
-    <file path="/Users/dsipos/others/sui-js/src/component/year.spec.ts">
-        <testCase name="year should be instance of Year" duration="6"/>
+    <file path="/Users/dsipos/others/sui-js/src/field/baseCheckboxField.spec.ts">
+        <testCase name="baseCheckboxField should be instance of BaseCheckboxField" duration="22"/>
     </file>
-    <file path="/Users/dsipos/others/sui-js/src/component/dateTime.spec.ts">
-        <testCase name="dateTime should be instance of DateTime" duration="7"/>
+    <file path="/Users/dsipos/others/sui-js/src/field/dateTimeRangeField.spec.ts">
+        <testCase name="dateTimeRangeField should be instance of DateTimeRangeField" duration="45"/>
+    </file>
+    <file path="/Users/dsipos/others/sui-js/src/field/checkboxField.spec.ts">
+        <testCase name="checkboxField should be instance of CheckboxField" duration="27"/>
+    </file>
+    <file path="/Users/dsipos/others/sui-js/src/field/numberField.spec.ts">
+        <testCase name="numberField should be instance of NumberField" duration="25"/>
+    </file>
+    <file path="/Users/dsipos/others/sui-js/src/field/selectField.spec.ts">
+        <testCase name="selectField should be instance of SelectField" duration="21"/>
+    </file>
+    <file path="/Users/dsipos/others/sui-js/src/field/searchField.spec.ts">
+        <testCase name="searchField should be instance of SearchField" duration="35"/>
+    </file>
+    <file path="/Users/dsipos/others/sui-js/src/field/rangeField.spec.ts">
+        <testCase name="rangeField should be instance of RangeField" duration="12"/>
+    </file>
+    <file path="/Users/dsipos/others/sui-js/src/field/textareaField.spec.ts">
+        <testCase name="textareaField should be instance of TextareaField" duration="15"/>
     </file>
     <file path="/Users/dsipos/others/sui-js/src/field/dateTimeField.spec.ts">
-        <testCase name="dateTimeField should be instance of DateTimeField" duration="16"/>
+        <testCase name="dateTimeField should be instance of DateTimeField" duration="21"/>
+    </file>
+    <file path="/Users/dsipos/others/sui-js/src/field/urlField.spec.ts">
+        <testCase name="urlField should be instance of UrlField" duration="14"/>
+    </file>
+    <file path="/Users/dsipos/others/sui-js/src/component/calendar.spec.ts">
+        <testCase name="calendar should be instance of Calendar" duration="17"/>
     </file>
     <file path="/Users/dsipos/others/sui-js/src/field/fileField.spec.ts">
-        <testCase name="fileField should be instance of FileField" duration="10"/>
+        <testCase name="fileField should be instance of FileField" duration="17"/>
     </file>
-    <file path="/Users/dsipos/others/sui-js/src/field/button.spec.ts">
-        <testCase name="button should be instance of Button" duration="5"/>
+    <file path="/Users/dsipos/others/sui-js/src/component/dateTime.spec.ts">
+        <testCase name="dateTime should be instance of DateTime" duration="11"/>
     </file>
-    <file path="/Users/dsipos/others/sui-js/src/component/day.spec.ts">
-        <testCase name="day should be instance of Day" duration="6"/>
-    </file>
-    <file path="/Users/dsipos/others/sui-js/src/component/clock.spec.ts">
-        <testCase name="clock should be instance of Clock" duration="9"/>
-    </file>
-    <file path="/Users/dsipos/others/sui-js/src/field/baseField.spec.ts">
-        <testCase name="baseField should be instance of BaseField" duration="2"/>
-    </file>
-    <file path="/Users/dsipos/others/sui-js/src/component/month.spec.ts">
-        <testCase name="month should be instance of Month" duration="11"/>
-    </file>
-    <file path="/Users/dsipos/others/sui-js/src/module/template.spec.ts">
-        <testCase name="template should be instance of Template" duration="4"/>
-    </file>
-    <file path="/Users/dsipos/others/sui-js/src/component/time.spec.ts">
-        <testCase name="time should be instance of Time" duration="27"/>
-    </file>
-    <file path="/Users/dsipos/others/sui-js/src/component/tabPanel.spec.ts">
-        <testCase name="tabPanel should be instance of TabPanel" duration="10"/>
-    </file>
-    <file path="/Users/dsipos/others/sui-js/src/component/tooltip.spec.ts">
-        <testCase name="tooltip should be instance of Tooltip" duration="7"/>
-    </file>
-    <file path="/Users/dsipos/others/sui-js/src/module/http.spec.ts">
-        <testCase name="http should be instance of Http" duration="4"/>
-    </file>
-    <file path="/Users/dsipos/others/sui-js/src/module/style.spec.ts">
-        <testCase name="style should be instance of Style" duration="19"/>
-    </file>
-    <file path="/Users/dsipos/others/sui-js/src/module/progressBar.spec.ts">
-        <testCase name="progressBar should be instance of ProgressBar" duration="16"/>
-    </file>
-    <file path="/Users/dsipos/others/sui-js/src/component/popupContainer.spec.ts">
-        <testCase name="popupContainer should be instance of PopupContainer" duration="4"/>
-    </file>
-    <file path="/Users/dsipos/others/sui-js/src/module/topMenu.spec.ts">
-        <testCase name="topMenu should be instance of TopMenu" duration="7"/>
-    </file>
-    <file path="/Users/dsipos/others/sui-js/src/component/contentHandler.spec.ts">
-        <testCase name="contentHandler should be instance of ContentHandler" duration="6"/>
-    </file>
-    <file path="/Users/dsipos/others/sui-js/src/field/submitButton.spec.ts">
-        <testCase name="submitButton should be instance of SubmitButton" duration="6"/>
-    </file>
-    <file path="/Users/dsipos/others/sui-js/src/module/header.spec.ts">
-        <testCase name="header should be instance of Header" duration="9"/>
-    </file>
-    <file path="/Users/dsipos/others/sui-js/src/module/flash.spec.ts">
-        <testCase name="flash should be instance of Flash" duration="4"/>
-    </file>
-    <file path="/Users/dsipos/others/sui-js/src/module/loader.spec.ts">
-        <testCase name="loader should be instance of Loader" duration="5"/>
-    </file>
-    <file path="/Users/dsipos/others/sui-js/src/module/actionCable.spec.ts">
-        <testCase name="actionCable should be instance of ActionCable" duration="4"/>
-    </file>
-    <file path="/Users/dsipos/others/sui-js/src/component/navigation.spec.ts">
-        <testCase name="navigation should be instance of Navigation" duration="5"/>
-    </file>
-    <file path="/Users/dsipos/others/sui-js/src/component/popup.spec.ts">
-        <testCase name="popup should be instance of Popup" duration="11"/>
-    </file>
-    <file path="/Users/dsipos/others/sui-js/src/component/cardCollection.spec.ts">
-        <testCase name="cardCollection should be instance of CardCollection" duration="7"/>
-    </file>
-    <file path="/Users/dsipos/others/sui-js/src/component/carousel.spec.ts">
-        <testCase name="carousel should be instance of Carousel" duration="4"/>
+    <file path="/Users/dsipos/others/sui-js/src/component/year.spec.ts">
+        <testCase name="year should be instance of Year" duration="5"/>
     </file>
     <file path="/Users/dsipos/others/sui-js/src/module/script.spec.ts">
-        <testCase name="script should be instance of Script" duration="30"/>
+        <testCase name="script should be instance of Script" duration="20"/>
+    </file>
+    <file path="/Users/dsipos/others/sui-js/src/component/clock.spec.ts">
+        <testCase name="clock should be instance of Clock" duration="19"/>
+    </file>
+    <file path="/Users/dsipos/others/sui-js/src/component/popup.spec.ts">
+        <testCase name="popup should be instance of Popup" duration="20"/>
+    </file>
+    <file path="/Users/dsipos/others/sui-js/src/component/day.spec.ts">
+        <testCase name="day should be instance of Day" duration="8"/>
+    </file>
+    <file path="/Users/dsipos/others/sui-js/src/component/month.spec.ts">
+        <testCase name="month should be instance of Month" duration="16"/>
+    </file>
+    <file path="/Users/dsipos/others/sui-js/src/component/navigation.spec.ts">
+        <testCase name="navigation should be instance of Navigation" duration="2"/>
+    </file>
+    <file path="/Users/dsipos/others/sui-js/src/module/style.spec.ts">
+        <testCase name="style should be instance of Style" duration="18"/>
+    </file>
+    <file path="/Users/dsipos/others/sui-js/src/component/table.spec.ts">
+        <testCase name="table should be instance of Table" duration="12"/>
+    </file>
+    <file path="/Users/dsipos/others/sui-js/src/module/actionCableClient.spec.ts">
+        <testCase name="actionCableClient should be instance of actionCableClient" duration="31"/>
+    </file>
+    <file path="/Users/dsipos/others/sui-js/src/module/actionCable.spec.ts">
+        <testCase name="actionCable should be instance of ActionCable" duration="7"/>
+    </file>
+    <file path="/Users/dsipos/others/sui-js/src/component/cardCollection.spec.ts">
+        <testCase name="cardCollection should be instance of CardCollection" duration="16"/>
     </file>
     <file path="/Users/dsipos/others/sui-js/src/module/viewer.spec.ts">
         <testCase name="viewer should be instance of Viewer" duration="14"/>
     </file>
-    <file path="/Users/dsipos/others/sui-js/src/module/actionCableClient.spec.ts">
-        <testCase name="actionCableClient should be instance of actionCableClient" duration="23"/>
+    <file path="/Users/dsipos/others/sui-js/src/module/progressBar.spec.ts">
+        <testCase name="progressBar should be instance of ProgressBar" duration="50"/>
     </file>
     <file path="/Users/dsipos/others/sui-js/src/module/confirm.spec.ts">
-        <testCase name="confirm should be instance of Confirm" duration="9"/>
+        <testCase name="confirm should be instance of Confirm" duration="15"/>
     </file>
-    <file path="/Users/dsipos/others/sui-js/src/component/table.spec.ts">
-        <testCase name="table should be instance of Table" duration="13"/>
+    <file path="/Users/dsipos/others/sui-js/src/module/http.spec.ts">
+        <testCase name="http should be instance of Http" duration="7"/>
+    </file>
+    <file path="/Users/dsipos/others/sui-js/src/component/carousel.spec.ts">
+        <testCase name="carousel should be instance of Carousel" duration="6"/>
+    </file>
+    <file path="/Users/dsipos/others/sui-js/src/component/tooltip.spec.ts">
+        <testCase name="tooltip should be instance of Tooltip" duration="9"/>
+    </file>
+    <file path="/Users/dsipos/others/sui-js/src/module/loader.spec.ts">
+        <testCase name="loader should be instance of Loader" duration="4"/>
+    </file>
+    <file path="/Users/dsipos/others/sui-js/src/component/googleMap.spec.ts">
+        <testCase name="googleMap should be instance of GoogleMap" duration="12"/>
+    </file>
+    <file path="/Users/dsipos/others/sui-js/src/component/time.spec.ts">
+        <testCase name="time should be instance of Time" duration="42"/>
+    </file>
+    <file path="/Users/dsipos/others/sui-js/src/module/dialog.spec.ts">
+        <testCase name="dialog should be instance of Dialog" duration="10"/>
+    </file>
+    <file path="/Users/dsipos/others/sui-js/src/field/baseField.spec.ts">
+        <testCase name="baseField should be instance of BaseField" duration="5"/>
+    </file>
+    <file path="/Users/dsipos/others/sui-js/src/field/hiddenField.spec.ts">
+        <testCase name="hiddenField should be instance of HiddenField" duration="17"/>
+    </file>
+    <file path="/Users/dsipos/others/sui-js/src/module/topMenu.spec.ts">
+        <testCase name="topMenu should be instance of TopMenu" duration="14"/>
+    </file>
+    <file path="/Users/dsipos/others/sui-js/src/component/popupContainer.spec.ts">
+        <testCase name="popupContainer should be instance of PopupContainer" duration="7"/>
+    </file>
+    <file path="/Users/dsipos/others/sui-js/src/field/button.spec.ts">
+        <testCase name="button should be instance of Button" duration="18"/>
+    </file>
+    <file path="/Users/dsipos/others/sui-js/src/module/xhr.spec.ts">
+        <testCase name="xhr should be instance of Xhr" duration="8"/>
+    </file>
+    <file path="/Users/dsipos/others/sui-js/src/module/helper.spec.ts">
+        <testCase name="helper should be instance of Helper" duration="2"/>
     </file>
     <file path="/Users/dsipos/others/sui-js/src/utils/color.spec.ts">
-        <testCase name="color should be valid HSV from RGB" duration="3"/>
-        <testCase name="color should be valid HEX from RGB" duration="0"/>
-        <testCase name="color should be valid HSV from HEX" duration="0"/>
-        <testCase name="color should be valid RGB from HEX" duration="0"/>
-        <testCase name="color should be valid RGB from HSV" duration="0"/>
-        <testCase name="color should be valid HEX from HSV" duration="1"/>
+        <testCase name="color should be valid HSV from RGB" duration="8"/>
+        <testCase name="color should be valid HEX from RGB" duration="1"/>
+        <testCase name="color should be valid HSV from HEX" duration="1"/>
+        <testCase name="color should be valid RGB from HEX" duration="1"/>
+        <testCase name="color should be valid RGB from HSV" duration="1"/>
+        <testCase name="color should be valid HEX from HSV" duration="0"/>
         <testCase name="color should be valid YIQ contrast" duration="1"/>
         <testCase name="color should be valid color contrast" duration="0"/>
     </file>
-    <file path="/Users/dsipos/others/sui-js/src/module/dialog.spec.ts">
-        <testCase name="dialog should be instance of Dialog" duration="8"/>
+    <file path="/Users/dsipos/others/sui-js/src/field/resetButton.spec.ts">
+        <testCase name="resetButton should be instance of ResetButton" duration="41"/>
     </file>
-    <file path="/Users/dsipos/others/sui-js/src/component/progressStatus.spec.ts">
-        <testCase name="progressStatus should be instance of ProgressStatus" duration="4"/>
+    <file path="/Users/dsipos/others/sui-js/src/module/template.spec.ts">
+        <testCase name="template should be instance of Template" duration="6"/>
     </file>
-    <file path="/Users/dsipos/others/sui-js/src/module/leftMenu.spec.ts">
-        <testCase name="leftMenu should be instance of LeftMenu" duration="5"/>
+    <file path="/Users/dsipos/others/sui-js/src/field/submitButton.spec.ts">
+        <testCase name="submitButton should be instance of SubmitButton" duration="16"/>
+    </file>
+    <file path="/Users/dsipos/others/sui-js/src/component/tabPanel.spec.ts">
+        <testCase name="tabPanel should be instance of TabPanel" duration="21"/>
+    </file>
+    <file path="/Users/dsipos/others/sui-js/src/core/query.spec.ts">
+        <testCase name="query should be instance of Query" duration="9"/>
     </file>
     <file path="/Users/dsipos/others/sui-js/src/module/bottomMenu.spec.ts">
-        <testCase name="BottomMenu should be instance of BottomMenu" duration="4"/>
+        <testCase name="BottomMenu should be instance of BottomMenu" duration="7"/>
     </file>
-    <file path="/Users/dsipos/others/sui-js/src/module/xhr.spec.ts">
-        <testCase name="xhr should be instance of Xhr" duration="3"/>
+    <file path="/Users/dsipos/others/sui-js/src/utils/render.spec.ts">
+        <testCase name="render should render mdl components" duration="4"/>
+    </file>
+    <file path="/Users/dsipos/others/sui-js/src/module/flash.spec.ts">
+        <testCase name="flash should be instance of Flash" duration="3"/>
+    </file>
+    <file path="/Users/dsipos/others/sui-js/src/component/progressStatus.spec.ts">
+        <testCase name="progressStatus should be instance of ProgressStatus" duration="6"/>
+    </file>
+    <file path="/Users/dsipos/others/sui-js/src/module/header.spec.ts">
+        <testCase name="header should be instance of Header" duration="12"/>
     </file>
     <file path="/Users/dsipos/others/sui-js/src/component/dropdown.spec.ts">
-        <testCase name="dropdown should be instance of Dropdown" duration="6"/>
+        <testCase name="dropdown should be instance of Dropdown" duration="7"/>
     </file>
-    <file path="/Users/dsipos/others/sui-js/src/module/helper.spec.ts">
-        <testCase name="helper should be instance of Helper" duration="3"/>
+    <file path="/Users/dsipos/others/sui-js/src/core/state.spec.ts">
+        <testCase name="state should be instance of State" duration="11"/>
     </file>
     <file path="/Users/dsipos/others/sui-js/src/core/module.spec.ts">
-        <testCase name="module should be instance of Module" duration="2"/>
-    </file>
-    <file path="/Users/dsipos/others/sui-js/src/field/resetButton.spec.ts">
-        <testCase name="resetButton should be instance of ResetButton" duration="4"/>
+        <testCase name="module should be instance of Module" duration="4"/>
     </file>
     <file path="/Users/dsipos/others/sui-js/src/module/baseModal.spec.ts">
         <testCase name="baseModal should be instance of BaseModal" duration="2"/>
     </file>
-    <file path="/Users/dsipos/others/sui-js/src/core/state.spec.ts">
-        <testCase name="state should be instance of State" duration="7"/>
+    <file path="/Users/dsipos/others/sui-js/src/module/footer.spec.ts">
+        <testCase name="footer should be instance of Footer" duration="6"/>
     </file>
-    <file path="/Users/dsipos/others/sui-js/src/field/hiddenField.spec.ts">
-        <testCase name="hiddenField should be instance of HiddenField" duration="4"/>
-    </file>
-    <file path="/Users/dsipos/others/sui-js/src/component/googleMap.spec.ts">
-        <testCase name="googleMap should be instance of GoogleMap" duration="8"/>
-    </file>
-    <file path="/Users/dsipos/others/sui-js/src/core/query.spec.ts">
-        <testCase name="query should be instance of Query" duration="5"/>
+    <file path="/Users/dsipos/others/sui-js/src/module/leftMenu.spec.ts">
+        <testCase name="leftMenu should be instance of LeftMenu" duration="9"/>
     </file>
     <file path="/Users/dsipos/others/sui-js/src/module/event.spec.ts">
-        <testCase name="event should be instance of Event" duration="4"/>
-    </file>
-    <file path="/Users/dsipos/others/sui-js/src/utils/render.spec.ts">
-        <testCase name="render should render mdl components" duration="3"/>
-    </file>
-    <file path="/Users/dsipos/others/sui-js/src/component/pager.spec.ts">
-        <testCase name="pager should be instance of Pager" duration="7"/>
+        <testCase name="event should be instance of Event" duration="2"/>
     </file>
     <file path="/Users/dsipos/others/sui-js/src/component/testRunner.spec.ts">
         <testCase name="testRunner should be instance of TestRunner" duration="2"/>
     </file>
+    <file path="/Users/dsipos/others/sui-js/src/component/contentHandler.spec.ts">
+        <testCase name="contentHandler should be instance of ContentHandler" duration="6"/>
+    </file>
+    <file path="/Users/dsipos/others/sui-js/src/module/sidebar.spec.ts">
+        <testCase name="sidebar should be instance of Sidebar" duration="5"/>
+    </file>
+    <file path="/Users/dsipos/others/sui-js/src/core/router.spec.ts">
+        <testCase name="router should be instance of Router" duration="4"/>
+    </file>
+    <file path="/Users/dsipos/others/sui-js/src/component/pager.spec.ts">
+        <testCase name="pager should be instance of Pager" duration="9"/>
+    </file>
     <file path="/Users/dsipos/others/sui-js/src/module/document.spec.ts">
         <testCase name="document should be instance of Document" duration="3"/>
     </file>
-    <file path="/Users/dsipos/others/sui-js/src/module/sidebar.spec.ts">
-        <testCase name="sidebar should be instance of Sidebar" duration="3"/>
+    <file path="/Users/dsipos/others/sui-js/src/component/canvas.spec.ts">
+        <testCase name="canvas should be instance of Canvas" duration="6"/>
     </file>
     <file path="/Users/dsipos/others/sui-js/src/core/item.spec.ts">
         <testCase name="item should be instance of Item" duration="5"/>
     </file>
-    <file path="/Users/dsipos/others/sui-js/src/component/canvas.spec.ts">
-        <testCase name="canvas should be instance of Canvas" duration="5"/>
-    </file>
-    <file path="/Users/dsipos/others/sui-js/src/module/footer.spec.ts">
-        <testCase name="footer should be instance of Footer" duration="6"/>
-    </file>
-    <file path="/Users/dsipos/others/sui-js/src/core/router.spec.ts">
-        <testCase name="router should be instance of Router" duration="2"/>
-    </file>
-    <file path="/Users/dsipos/others/sui-js/src/module/navBar.spec.ts">
-        <testCase name="navBar should be instance of NavBar" duration="5"/>
-    </file>
     <file path="/Users/dsipos/others/sui-js/src/module/geoLocation.spec.ts">
-        <testCase name="geoLocation should be instance of GeoLocation" duration="1"/>
+        <testCase name="geoLocation should be instance of GeoLocation" duration="3"/>
     </file>
     <file path="/Users/dsipos/others/sui-js/src/core/collection.spec.ts">
         <testCase name="collection should be instance of Collection" duration="2"/>
+    </file>
+    <file path="/Users/dsipos/others/sui-js/src/module/navBar.spec.ts">
+        <testCase name="navBar should be instance of NavBar" duration="5"/>
     </file>
 </testExecutions>

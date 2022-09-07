@@ -27,11 +27,11 @@ export const readableCurrency = (price, opt_delimiter = ' ', opt_separator = ','
 };
 /**
  * @param {number} num
- * @param {number} exp
+ * @param {boolean=} opt_around
  * @return {string}
  */
-export const readableNumber = (num, exp) => {
-    const si = [
+export const readableNumber = (num, opt_around = false) => {
+    const siValues = [
         { value: 1e24, symbol: 'Y' },
         { value: 1e21, symbol: 'Z' },
         { value: 1e18, symbol: 'E' },
@@ -40,16 +40,20 @@ export const readableNumber = (num, exp) => {
         { value: 1e9, symbol: 'G' },
         { value: 1e6, symbol: 'M' },
         { value: 1e3, symbol: 'K' },
-        { value: 0, symbol: '' },
+        { value: 1, symbol: '' },
     ];
     const rx = /\.0+$|(\.[0-9]*[1-9])0+$/;
-    let result = round(num, exp).toString().replace(rx, '$1');
+    let result = '';
     let i = 0;
-    while (i < si.length && num < si[i].value) {
+    while (i < siValues.length && num < siValues[i].value) {
+        const siValue = siValues[i + 1];
+        const exp = num.toString().length - 1;
+        const roundedValue = floor(num, opt_around ? exp : 0);
+        const plus = roundedValue < num ? '+' : '';
         result =
-            round(num / (si[i + 1].value || 1), exp)
-                .toString()
-                .replace(rx, '$1') + si[i + 1].symbol;
+            (roundedValue / siValue.value).toString().replace(rx, '$1') +
+                siValue.symbol +
+                plus;
         i++;
     }
     return result;
