@@ -20,7 +20,7 @@ custom_edit_url: null
 
 #### Defined in
 
-[module/sidebar.ts:14](https://github.com/siposdani87/sui-js/blob/035cd52/src/module/sidebar.ts#L14)
+[module/sidebar.ts:14](https://github.com/siposdani87/sui-js/blob/e8748e2/src/module/sidebar.ts#L14)
 
 ## Properties
 
@@ -30,7 +30,7 @@ custom_edit_url: null
 
 #### Defined in
 
-[module/sidebar.ts:10](https://github.com/siposdani87/sui-js/blob/035cd52/src/module/sidebar.ts#L10)
+[module/sidebar.ts:10](https://github.com/siposdani87/sui-js/blob/e8748e2/src/module/sidebar.ts#L10)
 
 ___
 
@@ -40,7 +40,7 @@ ___
 
 #### Defined in
 
-[module/sidebar.ts:8](https://github.com/siposdani87/sui-js/blob/035cd52/src/module/sidebar.ts#L8)
+[module/sidebar.ts:8](https://github.com/siposdani87/sui-js/blob/e8748e2/src/module/sidebar.ts#L8)
 
 ___
 
@@ -50,7 +50,7 @@ ___
 
 #### Defined in
 
-[module/sidebar.ts:9](https://github.com/siposdani87/sui-js/blob/035cd52/src/module/sidebar.ts#L9)
+[module/sidebar.ts:9](https://github.com/siposdani87/sui-js/blob/e8748e2/src/module/sidebar.ts#L9)
 
 ## Methods
 
@@ -64,7 +64,7 @@ ___
 
 #### Defined in
 
-[module/sidebar.ts:22](https://github.com/siposdani87/sui-js/blob/035cd52/src/module/sidebar.ts#L22)
+[module/sidebar.ts:22](https://github.com/siposdani87/sui-js/blob/e8748e2/src/module/sidebar.ts#L22)
 
 ___
 
@@ -78,7 +78,7 @@ ___
 
 #### Defined in
 
-[module/sidebar.ts:55](https://github.com/siposdani87/sui-js/blob/035cd52/src/module/sidebar.ts#L55)
+[module/sidebar.ts:55](https://github.com/siposdani87/sui-js/blob/e8748e2/src/module/sidebar.ts#L55)
 
 ___
 
@@ -92,7 +92,7 @@ ___
 
 #### Defined in
 
-[module/sidebar.ts:67](https://github.com/siposdani87/sui-js/blob/035cd52/src/module/sidebar.ts#L67)
+[module/sidebar.ts:67](https://github.com/siposdani87/sui-js/blob/e8748e2/src/module/sidebar.ts#L67)
 
 ___
 
@@ -106,7 +106,7 @@ ___
 
 #### Defined in
 
-[module/sidebar.ts:43](https://github.com/siposdani87/sui-js/blob/035cd52/src/module/sidebar.ts#L43)
+[module/sidebar.ts:43](https://github.com/siposdani87/sui-js/blob/e8748e2/src/module/sidebar.ts#L43)
 
 ___
 
@@ -120,7 +120,7 @@ ___
 
 #### Defined in
 
-[module/sidebar.ts:49](https://github.com/siposdani87/sui-js/blob/035cd52/src/module/sidebar.ts#L49)
+[module/sidebar.ts:49](https://github.com/siposdani87/sui-js/blob/e8748e2/src/module/sidebar.ts#L49)
 
 ___
 
@@ -141,7 +141,7 @@ ___
 
 #### Defined in
 
-[module/sidebar.ts:75](https://github.com/siposdani87/sui-js/blob/035cd52/src/module/sidebar.ts#L75)
+[module/sidebar.ts:75](https://github.com/siposdani87/sui-js/blob/e8748e2/src/module/sidebar.ts#L75)
 
 ___
 
@@ -155,7 +155,7 @@ ___
 
 #### Defined in
 
-[module/sidebar.ts:61](https://github.com/siposdani87/sui-js/blob/035cd52/src/module/sidebar.ts#L61)
+[module/sidebar.ts:61](https://github.com/siposdani87/sui-js/blob/e8748e2/src/module/sidebar.ts#L61)
 
 ___
 
@@ -169,4 +169,4 @@ ___
 
 #### Defined in
 
-[module/sidebar.ts:33](https://github.com/siposdani87/sui-js/blob/035cd52/src/module/sidebar.ts#L33)
+[module/sidebar.ts:33](https://github.com/siposdani87/sui-js/blob/e8748e2/src/module/sidebar.ts#L33)

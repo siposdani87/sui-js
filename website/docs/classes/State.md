@@ -21,7 +21,7 @@ custom_edit_url: null
 
 #### Defined in
 
-[core/state.ts:22](https://github.com/siposdani87/sui-js/blob/035cd52/src/core/state.ts#L22)
+[core/state.ts:22](https://github.com/siposdani87/sui-js/blob/e8748e2/src/core/state.ts#L22)
 
 ## Properties
 
@@ -31,7 +31,7 @@ custom_edit_url: null
 
 #### Defined in
 
-[core/state.ts:13](https://github.com/siposdani87/sui-js/blob/035cd52/src/core/state.ts#L13)
+[core/state.ts:13](https://github.com/siposdani87/sui-js/blob/e8748e2/src/core/state.ts#L13)
 
 ___
 
@@ -41,7 +41,7 @@ ___
 
 #### Defined in
 
-[core/state.ts:14](https://github.com/siposdani87/sui-js/blob/035cd52/src/core/state.ts#L14)
+[core/state.ts:14](https://github.com/siposdani87/sui-js/blob/e8748e2/src/core/state.ts#L14)
 
 ___
 
@@ -51,7 +51,7 @@ ___
 
 #### Defined in
 
-[core/state.ts:16](https://github.com/siposdani87/sui-js/blob/035cd52/src/core/state.ts#L16)
+[core/state.ts:16](https://github.com/siposdani87/sui-js/blob/e8748e2/src/core/state.ts#L16)
 
 ___
 
@@ -61,7 +61,7 @@ ___
 
 #### Defined in
 
-[core/state.ts:17](https://github.com/siposdani87/sui-js/blob/035cd52/src/core/state.ts#L17)
+[core/state.ts:17](https://github.com/siposdani87/sui-js/blob/e8748e2/src/core/state.ts#L17)
 
 ___
 
@@ -71,7 +71,7 @@ ___
 
 #### Defined in
 
-[core/state.ts:15](https://github.com/siposdani87/sui-js/blob/035cd52/src/core/state.ts#L15)
+[core/state.ts:15](https://github.com/siposdani87/sui-js/blob/e8748e2/src/core/state.ts#L15)
 
 ## Methods
 
@@ -91,7 +91,7 @@ ___
 
 #### Defined in
 
-[core/state.ts:80](https://github.com/siposdani87/sui-js/blob/035cd52/src/core/state.ts#L80)
+[core/state.ts:80](https://github.com/siposdani87/sui-js/blob/e8748e2/src/core/state.ts#L80)
 
 ___
 
@@ -105,7 +105,7 @@ ___
 
 #### Defined in
 
-[core/state.ts:72](https://github.com/siposdani87/sui-js/blob/035cd52/src/core/state.ts#L72)
+[core/state.ts:72](https://github.com/siposdani87/sui-js/blob/e8748e2/src/core/state.ts#L72)
 
 ___
 
@@ -119,7 +119,7 @@ ___
 
 #### Defined in
 
-[core/state.ts:50](https://github.com/siposdani87/sui-js/blob/035cd52/src/core/state.ts#L50)
+[core/state.ts:50](https://github.com/siposdani87/sui-js/blob/e8748e2/src/core/state.ts#L50)
 
 ___
 
@@ -133,7 +133,7 @@ ___
 
 #### Defined in
 
-[core/state.ts:98](https://github.com/siposdani87/sui-js/blob/035cd52/src/core/state.ts#L98)
+[core/state.ts:98](https://github.com/siposdani87/sui-js/blob/e8748e2/src/core/state.ts#L98)
 
 ___
 
@@ -155,7 +155,7 @@ ___
 
 #### Defined in
 
-[core/state.ts:148](https://github.com/siposdani87/sui-js/blob/035cd52/src/core/state.ts#L148)
+[core/state.ts:148](https://github.com/siposdani87/sui-js/blob/e8748e2/src/core/state.ts#L148)
 
 ___
 
@@ -169,7 +169,7 @@ ___
 
 #### Defined in
 
-[core/state.ts:121](https://github.com/siposdani87/sui-js/blob/035cd52/src/core/state.ts#L121)
+[core/state.ts:121](https://github.com/siposdani87/sui-js/blob/e8748e2/src/core/state.ts#L121)
 
 ___
 
@@ -190,7 +190,7 @@ ___
 
 #### Defined in
 
-[core/state.ts:299](https://github.com/siposdani87/sui-js/blob/035cd52/src/core/state.ts#L299)
+[core/state.ts:299](https://github.com/siposdani87/sui-js/blob/e8748e2/src/core/state.ts#L299)
 
 ___
 
@@ -204,7 +204,7 @@ ___
 
 #### Defined in
 
-[core/state.ts:87](https://github.com/siposdani87/sui-js/blob/035cd52/src/core/state.ts#L87)
+[core/state.ts:87](https://github.com/siposdani87/sui-js/blob/e8748e2/src/core/state.ts#L87)
 
 ___
 
@@ -224,7 +224,7 @@ ___
 
 #### Defined in
 
-[core/state.ts:229](https://github.com/siposdani87/sui-js/blob/035cd52/src/core/state.ts#L229)
+[core/state.ts:229](https://github.com/siposdani87/sui-js/blob/e8748e2/src/core/state.ts#L229)
 
 ___
 
@@ -248,7 +248,7 @@ ___
 
 #### Defined in
 
-[core/state.ts:184](https://github.com/siposdani87/sui-js/blob/035cd52/src/core/state.ts#L184)
+[core/state.ts:184](https://github.com/siposdani87/sui-js/blob/e8748e2/src/core/state.ts#L184)
 
 ___
 
@@ -268,7 +268,7 @@ ___
 
 #### Defined in
 
-[core/state.ts:36](https://github.com/siposdani87/sui-js/blob/035cd52/src/core/state.ts#L36)
+[core/state.ts:36](https://github.com/siposdani87/sui-js/blob/e8748e2/src/core/state.ts#L36)
 
 ___
 
@@ -282,7 +282,7 @@ ___
 
 #### Defined in
 
-[core/state.ts:61](https://github.com/siposdani87/sui-js/blob/035cd52/src/core/state.ts#L61)
+[core/state.ts:61](https://github.com/siposdani87/sui-js/blob/e8748e2/src/core/state.ts#L61)
 
 ___
 
@@ -302,7 +302,7 @@ ___
 
 #### Defined in
 
-[core/state.ts:219](https://github.com/siposdani87/sui-js/blob/035cd52/src/core/state.ts#L219)
+[core/state.ts:219](https://github.com/siposdani87/sui-js/blob/e8748e2/src/core/state.ts#L219)
 
 ___
 
@@ -316,7 +316,7 @@ ___
 
 #### Defined in
 
-[core/state.ts:369](https://github.com/siposdani87/sui-js/blob/035cd52/src/core/state.ts#L369)
+[core/state.ts:369](https://github.com/siposdani87/sui-js/blob/e8748e2/src/core/state.ts#L369)
 
 ___
 
@@ -338,7 +338,7 @@ ___
 
 #### Defined in
 
-[core/state.ts:396](https://github.com/siposdani87/sui-js/blob/035cd52/src/core/state.ts#L396)
+[core/state.ts:396](https://github.com/siposdani87/sui-js/blob/e8748e2/src/core/state.ts#L396)
 
 ___
 
@@ -352,7 +352,7 @@ ___
 
 #### Defined in
 
-[core/state.ts:387](https://github.com/siposdani87/sui-js/blob/035cd52/src/core/state.ts#L387)
+[core/state.ts:387](https://github.com/siposdani87/sui-js/blob/e8748e2/src/core/state.ts#L387)
 
 ___
 
@@ -379,7 +379,7 @@ ___
 
 #### Defined in
 
-[core/state.ts:239](https://github.com/siposdani87/sui-js/blob/035cd52/src/core/state.ts#L239)
+[core/state.ts:239](https://github.com/siposdani87/sui-js/blob/e8748e2/src/core/state.ts#L239)
 
 ___
 
@@ -406,7 +406,7 @@ ___
 
 #### Defined in
 
-[core/state.ts:440](https://github.com/siposdani87/sui-js/blob/035cd52/src/core/state.ts#L440)
+[core/state.ts:440](https://github.com/siposdani87/sui-js/blob/e8748e2/src/core/state.ts#L440)
 
 ___
 
@@ -420,7 +420,7 @@ ___
 
 #### Defined in
 
-[core/state.ts:431](https://github.com/siposdani87/sui-js/blob/035cd52/src/core/state.ts#L431)
+[core/state.ts:431](https://github.com/siposdani87/sui-js/blob/e8748e2/src/core/state.ts#L431)
 
 ___
 
@@ -447,7 +447,7 @@ ___
 
 #### Defined in
 
-[core/state.ts:248](https://github.com/siposdani87/sui-js/blob/035cd52/src/core/state.ts#L248)
+[core/state.ts:248](https://github.com/siposdani87/sui-js/blob/e8748e2/src/core/state.ts#L248)
 
 ___
 
@@ -461,7 +461,7 @@ ___
 
 #### Defined in
 
-[core/state.ts:460](https://github.com/siposdani87/sui-js/blob/035cd52/src/core/state.ts#L460)
+[core/state.ts:460](https://github.com/siposdani87/sui-js/blob/e8748e2/src/core/state.ts#L460)
 
 ___
 
@@ -484,7 +484,7 @@ ___
 
 #### Defined in
 
-[core/state.ts:258](https://github.com/siposdani87/sui-js/blob/035cd52/src/core/state.ts#L258)
+[core/state.ts:258](https://github.com/siposdani87/sui-js/blob/e8748e2/src/core/state.ts#L258)
 
 ___
 
@@ -507,7 +507,7 @@ ___
 
 #### Defined in
 
-[core/state.ts:354](https://github.com/siposdani87/sui-js/blob/035cd52/src/core/state.ts#L354)
+[core/state.ts:354](https://github.com/siposdani87/sui-js/blob/e8748e2/src/core/state.ts#L354)
 
 ___
 
@@ -528,7 +528,7 @@ ___
 
 #### Defined in
 
-[core/state.ts:336](https://github.com/siposdani87/sui-js/blob/035cd52/src/core/state.ts#L336)
+[core/state.ts:336](https://github.com/siposdani87/sui-js/blob/e8748e2/src/core/state.ts#L336)
 
 ___
 
@@ -550,7 +550,7 @@ ___
 
 #### Defined in
 
-[core/state.ts:324](https://github.com/siposdani87/sui-js/blob/035cd52/src/core/state.ts#L324)
+[core/state.ts:324](https://github.com/siposdani87/sui-js/blob/e8748e2/src/core/state.ts#L324)
 
 ___
 
@@ -571,7 +571,7 @@ ___
 
 #### Defined in
 
-[core/state.ts:377](https://github.com/siposdani87/sui-js/blob/035cd52/src/core/state.ts#L377)
+[core/state.ts:377](https://github.com/siposdani87/sui-js/blob/e8748e2/src/core/state.ts#L377)
 
 ___
 
@@ -591,7 +591,7 @@ ___
 
 #### Defined in
 
-[core/state.ts:454](https://github.com/siposdani87/sui-js/blob/035cd52/src/core/state.ts#L454)
+[core/state.ts:454](https://github.com/siposdani87/sui-js/blob/e8748e2/src/core/state.ts#L454)
 
 ___
 
@@ -605,7 +605,7 @@ ___
 
 #### Defined in
 
-[core/state.ts:447](https://github.com/siposdani87/sui-js/blob/035cd52/src/core/state.ts#L447)
+[core/state.ts:447](https://github.com/siposdani87/sui-js/blob/e8748e2/src/core/state.ts#L447)
 
 ___
 
@@ -626,7 +626,7 @@ ___
 
 #### Defined in
 
-[core/state.ts:314](https://github.com/siposdani87/sui-js/blob/035cd52/src/core/state.ts#L314)
+[core/state.ts:314](https://github.com/siposdani87/sui-js/blob/e8748e2/src/core/state.ts#L314)
 
 ___
 
@@ -640,7 +640,7 @@ ___
 
 #### Defined in
 
-[core/state.ts:114](https://github.com/siposdani87/sui-js/blob/035cd52/src/core/state.ts#L114)
+[core/state.ts:114](https://github.com/siposdani87/sui-js/blob/e8748e2/src/core/state.ts#L114)
 
 ___
 
@@ -661,7 +661,7 @@ ___
 
 #### Defined in
 
-[core/state.ts:422](https://github.com/siposdani87/sui-js/blob/035cd52/src/core/state.ts#L422)
+[core/state.ts:422](https://github.com/siposdani87/sui-js/blob/e8748e2/src/core/state.ts#L422)
 
 ___
 
@@ -681,4 +681,4 @@ ___
 
 #### Defined in
 
-[core/state.ts:412](https://github.com/siposdani87/sui-js/blob/035cd52/src/core/state.ts#L412)
+[core/state.ts:412](https://github.com/siposdani87/sui-js/blob/e8748e2/src/core/state.ts#L412)

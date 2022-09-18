@@ -24,7 +24,7 @@ custom_edit_url: null
 
 #### Defined in
 
-[test/objektTest.ts:12](https://github.com/siposdani87/sui-js/blob/035cd52/src/test/objektTest.ts#L12)
+[test/objektTest.ts:12](https://github.com/siposdani87/sui-js/blob/e8748e2/src/test/objektTest.ts#L12)
 
 ## Properties
 
@@ -38,7 +38,7 @@ custom_edit_url: null
 
 #### Defined in
 
-[test/baseTest.ts:11](https://github.com/siposdani87/sui-js/blob/035cd52/src/test/baseTest.ts#L11)
+[test/baseTest.ts:11](https://github.com/siposdani87/sui-js/blob/e8748e2/src/test/baseTest.ts#L11)
 
 ## Methods
 
@@ -56,7 +56,7 @@ custom_edit_url: null
 
 #### Defined in
 
-[test/objektTest.ts:19](https://github.com/siposdani87/sui-js/blob/035cd52/src/test/objektTest.ts#L19)
+[test/objektTest.ts:19](https://github.com/siposdani87/sui-js/blob/e8748e2/src/test/objektTest.ts#L19)
 
 ___
 
@@ -82,7 +82,7 @@ ___
 
 #### Defined in
 
-[test/baseTest.ts:30](https://github.com/siposdani87/sui-js/blob/035cd52/src/test/baseTest.ts#L30)
+[test/baseTest.ts:30](https://github.com/siposdani87/sui-js/blob/e8748e2/src/test/baseTest.ts#L30)
 
 ___
 
@@ -96,7 +96,7 @@ ___
 
 #### Defined in
 
-[test/objektTest.ts:196](https://github.com/siposdani87/sui-js/blob/035cd52/src/test/objektTest.ts#L196)
+[test/objektTest.ts:196](https://github.com/siposdani87/sui-js/blob/e8748e2/src/test/objektTest.ts#L196)
 
 ___
 
@@ -110,7 +110,7 @@ ___
 
 #### Defined in
 
-[test/objektTest.ts:94](https://github.com/siposdani87/sui-js/blob/035cd52/src/test/objektTest.ts#L94)
+[test/objektTest.ts:94](https://github.com/siposdani87/sui-js/blob/e8748e2/src/test/objektTest.ts#L94)
 
 ___
 
@@ -124,7 +124,7 @@ ___
 
 #### Defined in
 
-[test/objektTest.ts:55](https://github.com/siposdani87/sui-js/blob/035cd52/src/test/objektTest.ts#L55)
+[test/objektTest.ts:55](https://github.com/siposdani87/sui-js/blob/e8748e2/src/test/objektTest.ts#L55)
 
 ___
 
@@ -138,7 +138,7 @@ ___
 
 #### Defined in
 
-[test/objektTest.ts:30](https://github.com/siposdani87/sui-js/blob/035cd52/src/test/objektTest.ts#L30)
+[test/objektTest.ts:30](https://github.com/siposdani87/sui-js/blob/e8748e2/src/test/objektTest.ts#L30)
 
 ___
 
@@ -152,7 +152,7 @@ ___
 
 #### Defined in
 
-[test/objektTest.ts:167](https://github.com/siposdani87/sui-js/blob/035cd52/src/test/objektTest.ts#L167)
+[test/objektTest.ts:167](https://github.com/siposdani87/sui-js/blob/e8748e2/src/test/objektTest.ts#L167)
 
 ___
 
@@ -166,4 +166,4 @@ ___
 
 #### Defined in
 
-[test/objektTest.ts:127](https://github.com/siposdani87/sui-js/blob/035cd52/src/test/objektTest.ts#L127)
+[test/objektTest.ts:127](https://github.com/siposdani87/sui-js/blob/e8748e2/src/test/objektTest.ts#L127)
