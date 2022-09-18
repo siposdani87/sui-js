@@ -20,7 +20,7 @@ custom_edit_url: null
 
 #### Defined in
 
-[module/cookie.ts:14](https://github.com/siposdani87/sui-js/blob/035cd52/src/module/cookie.ts#L14)
+[module/cookie.ts:14](https://github.com/siposdani87/sui-js/blob/e8748e2/src/module/cookie.ts#L14)
 
 ## Properties
 
@@ -30,7 +30,7 @@ custom_edit_url: null
 
 #### Defined in
 
-[module/cookie.ts:10](https://github.com/siposdani87/sui-js/blob/035cd52/src/module/cookie.ts#L10)
+[module/cookie.ts:10](https://github.com/siposdani87/sui-js/blob/e8748e2/src/module/cookie.ts#L10)
 
 ## Methods
 
@@ -50,7 +50,7 @@ custom_edit_url: null
 
 #### Defined in
 
-[module/cookie.ts:43](https://github.com/siposdani87/sui-js/blob/035cd52/src/module/cookie.ts#L43)
+[module/cookie.ts:43](https://github.com/siposdani87/sui-js/blob/e8748e2/src/module/cookie.ts#L43)
 
 ___
 
@@ -70,7 +70,7 @@ ___
 
 #### Defined in
 
-[module/cookie.ts:35](https://github.com/siposdani87/sui-js/blob/035cd52/src/module/cookie.ts#L35)
+[module/cookie.ts:35](https://github.com/siposdani87/sui-js/blob/e8748e2/src/module/cookie.ts#L35)
 
 ___
 
@@ -90,7 +90,7 @@ ___
 
 #### Defined in
 
-[module/cookie.ts:22](https://github.com/siposdani87/sui-js/blob/035cd52/src/module/cookie.ts#L22)
+[module/cookie.ts:22](https://github.com/siposdani87/sui-js/blob/e8748e2/src/module/cookie.ts#L22)
 
 ___
 
@@ -104,7 +104,7 @@ ___
 
 #### Defined in
 
-[module/cookie.ts:168](https://github.com/siposdani87/sui-js/blob/035cd52/src/module/cookie.ts#L168)
+[module/cookie.ts:168](https://github.com/siposdani87/sui-js/blob/e8748e2/src/module/cookie.ts#L168)
 
 ___
 
@@ -124,7 +124,7 @@ ___
 
 #### Defined in
 
-[module/cookie.ts:102](https://github.com/siposdani87/sui-js/blob/035cd52/src/module/cookie.ts#L102)
+[module/cookie.ts:102](https://github.com/siposdani87/sui-js/blob/e8748e2/src/module/cookie.ts#L102)
 
 ___
 
@@ -138,7 +138,7 @@ ___
 
 #### Defined in
 
-[module/cookie.ts:153](https://github.com/siposdani87/sui-js/blob/035cd52/src/module/cookie.ts#L153)
+[module/cookie.ts:153](https://github.com/siposdani87/sui-js/blob/e8748e2/src/module/cookie.ts#L153)
 
 ___
 
@@ -158,7 +158,7 @@ ___
 
 #### Defined in
 
-[module/cookie.ts:138](https://github.com/siposdani87/sui-js/blob/035cd52/src/module/cookie.ts#L138)
+[module/cookie.ts:138](https://github.com/siposdani87/sui-js/blob/e8748e2/src/module/cookie.ts#L138)
 
 ___
 
@@ -181,7 +181,7 @@ ___
 
 #### Defined in
 
-[module/cookie.ts:123](https://github.com/siposdani87/sui-js/blob/035cd52/src/module/cookie.ts#L123)
+[module/cookie.ts:123](https://github.com/siposdani87/sui-js/blob/e8748e2/src/module/cookie.ts#L123)
 
 ___
 
@@ -206,4 +206,4 @@ ___
 
 #### Defined in
 
-[module/cookie.ts:57](https://github.com/siposdani87/sui-js/blob/035cd52/src/module/cookie.ts#L57)
+[module/cookie.ts:57](https://github.com/siposdani87/sui-js/blob/e8748e2/src/module/cookie.ts#L57)
