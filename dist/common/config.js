@@ -1,11 +1,9 @@
-ES_PROD = window['ES_PROD'] || false;
-/**
- * @define {boolean}
- */
-const GC_PROD = false;
 /**
  */
-export const releaseMode = ES_PROD || GC_PROD || false;
+export let releaseMode = true;
+export const setReleaseMode = (mode) => {
+    releaseMode = mode;
+};
 /**
  */
 export const coreResources = {

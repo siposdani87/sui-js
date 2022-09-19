@@ -23,7 +23,6 @@ const closureOptions = {
   jscomp_off: ['strictMissingProperties'],
   hide_warnings_for: ['test/', 'base.js'],
   generate_exports: true,
-  define: 'GC_PROD=true',
   // entry_point: './dist/index.js',
   // js_module_root: 'SUI',
 };

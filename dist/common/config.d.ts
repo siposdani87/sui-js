@@ -1,6 +1,7 @@
 /**
  */
-export declare const releaseMode: boolean;
+export declare let releaseMode: boolean;
+export declare const setReleaseMode: (mode: boolean) => void;
 /**
  */
 export declare const coreResources: {
