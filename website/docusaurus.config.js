@@ -127,13 +127,11 @@ const config = {
         darkTheme: darkCodeTheme,
       },
       algolia: {
-        // The application ID provided by Algolia
-        appId: 'EGIWH8U3SA',
-  
-        // Public API key: it is safe to commit it
-        apiKey: 'd97d08f48bf3afcb591aedabd9aa502d',
-  
-        indexName: 'prod_DEFAULT',
+        appId: 'EE0OFT8MSU',
+
+        apiKey: '13d2ca1739f797a942f36b15a31d36b6',
+
+        indexName: 'sui-js',
   
         // Optional: see doc section below
         contextualSearch: true
