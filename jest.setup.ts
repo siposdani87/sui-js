@@ -1,5 +1,8 @@
 import { adapters, Connection, ConnectionMonitor, Consumer, createConsumer, createWebSocketURL, DisconnectReasons, getConfig, INTERNAL, logger, MessageTypes, Subscription, Subscriptions } from "@rails/actioncable";
 import { initialize, mockInstances } from '@googlemaps/jest-mocks';
+import { setReleaseMode } from './src/common/config';
+
+setReleaseMode(false);
 
 window['componentHandler'] = {
     upgradeDom: () => { },
