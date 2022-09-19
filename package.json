@@ -1,6 +1,6 @@
 {
   "name": "@siposdani87/sui-js",
-  "version": "0.8.1",
+  "version": "0.8.2",
   "description": "This is a lightweight FE framework. It is written in the TypeScript language. The codebase was documented with JSDoc and compiled with ESbuild advanced settings.",
   "main": "dist/index.js",
   "typings": "dist/index.d.ts",
@@ -11,7 +11,7 @@
     "tsc": "npx -p typescript tsc",
     "tsc-test": "npm run tsc -- --noEmit",
     "sass": "npx sass styles/sui.scss dist/sui.min.css --style compressed",
-    "esbuild": "npx esbuild src/index.ts --bundle --minify --sourcemap --define:ES_PROD=false --format=iife --global-name=SUI --outfile=dist/sui.min.js",
+    "esbuild": "npx esbuild src/index.ts --bundle --minify --sourcemap --format=iife --global-name=SUI --outfile=dist/sui.min.js",
     "lint": "npm run tsc-test && npm run stylelint && npm run eslint",
     "eslint": "npx eslint . --ext .ts,.tsx",
     "stylelint": "npx stylelint 'styles/**/*.{css,scss,sass}'",
