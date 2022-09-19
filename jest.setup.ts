@@ -1,8 +1,6 @@
 import { adapters, Connection, ConnectionMonitor, Consumer, createConsumer, createWebSocketURL, DisconnectReasons, getConfig, INTERNAL, logger, MessageTypes, Subscription, Subscriptions } from "@rails/actioncable";
 import { initialize, mockInstances } from '@googlemaps/jest-mocks';
 
-window['ES_PROD'] = false;
-
 window['componentHandler'] = {
     upgradeDom: () => { },
     upgradeElement: (element: HTMLElement) => { },
