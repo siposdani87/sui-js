@@ -221,7 +221,7 @@ export class Table {
                 iconInfo.setAttribute('desc', headerDesc);
             }
             iconInfo.addClass(['material-icons', 'info']);
-            iconInfo.setHtml('info_outline');
+            iconInfo.setHtml('info');
             headerNode.appendChild(iconInfo);
             const tooltip = new Tooltip(iconInfo, 'BOTTOM');
             tooltip.render();
