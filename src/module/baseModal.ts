@@ -2,7 +2,6 @@ import { isString, isNumber, noop, contain } from '../utils/operation';
 import { Async } from '../core/async';
 import { Query } from '../core/query';
 import { Item } from '../core';
-import { Tooltip } from '../component';
 
 /**
  * @class
@@ -22,7 +21,6 @@ export class BaseModal {
     modalBody: Item;
     modalFooter: Item;
     modalHeader: Item;
-    tooltip: Tooltip;
     eventOK: () => void;
     eventCancel: () => void;
     modalWindow: Item;
@@ -179,7 +177,6 @@ export class BaseModal {
         } else {
             this.modalHeader.addClass('hidden');
         }
-        this.tooltip.setMessage(opt_title);
     }
     /**
      * @protected
