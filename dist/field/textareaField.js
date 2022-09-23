@@ -128,7 +128,7 @@ export class TextareaField extends BaseField {
         this._renderToolbarButton('format_italic', () => {
             this._formatDoc('italic');
         });
-        this._renderToolbarButton('format_underline', () => {
+        this._renderToolbarButton('format_underlined', () => {
             this._formatDoc('underline');
         });
         this._renderToolbarButton('format_list_bulleted', () => {

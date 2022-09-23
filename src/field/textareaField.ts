@@ -152,7 +152,7 @@ export class TextareaField extends BaseField<HTMLInputElement> {
             this._formatDoc('italic');
         });
 
-        this._renderToolbarButton('format_underline', () => {
+        this._renderToolbarButton('format_underlined', () => {
             this._formatDoc('underline');
         });
 
