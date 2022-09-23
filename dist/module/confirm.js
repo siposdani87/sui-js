@@ -1,4 +1,3 @@
-import { Tooltip } from '../component/tooltip';
 import { Item } from '../core/item';
 import { Objekt } from '../core/objekt';
 import { Query } from '../core/query';
@@ -42,8 +41,6 @@ export class Confirm extends BaseModal {
         this.modalTitle = new Query('.modal-title', this.modalHeader).getItem();
         this.modalBody = new Query('.modal-body', this.modal).getItem();
         this.modalFooter = new Query('.modal-footer', this.modal).getItem();
-        this.tooltip = new Tooltip(this.modalTitle);
-        this.tooltip.render();
     }
     /**
      * @param {string} message
