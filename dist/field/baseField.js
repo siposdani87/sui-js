@@ -327,7 +327,7 @@ export class BaseField {
             infoButton.setAttribute('desc', description || '');
             infoButton.setAttribute('href', 'javascript:void(0)');
             infoButton.addClass(['info-button', 'material-icons']);
-            infoButton.setHtml('info_outline');
+            infoButton.setHtml('info');
             this.infoContainerNode.appendChild(infoButton);
             const tooltip = new Tooltip(infoButton, 'LEFT');
             tooltip.render();

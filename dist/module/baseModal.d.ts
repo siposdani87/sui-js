@@ -1,5 +1,4 @@
 import { Item } from '../core';
-import { Tooltip } from '../component';
 /**
  * @class
  */
@@ -18,7 +17,6 @@ export declare class BaseModal {
     modalBody: Item;
     modalFooter: Item;
     modalHeader: Item;
-    tooltip: Tooltip;
     eventOK: () => void;
     eventCancel: () => void;
     modalWindow: Item;

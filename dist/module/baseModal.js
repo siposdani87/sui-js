@@ -147,7 +147,6 @@ export class BaseModal {
         else {
             this.modalHeader.addClass('hidden');
         }
-        this.tooltip.setMessage(opt_title);
     }
     /**
      * @protected
