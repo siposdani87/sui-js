@@ -119,7 +119,7 @@ table {
                         align-items: center;
 
                         &::before {
-                            font-family: 'Material Icons';
+                            font-family: $font-family-icons;
                             font-size: 1.5em;
                             vertical-align: middle;
                             padding-right: 5px;

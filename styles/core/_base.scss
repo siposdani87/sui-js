@@ -295,6 +295,10 @@ address {
     white-space: pre-line;
 }
 
+.material-icons {
+    font-family: $font-family-icons !important;
+}
+
 .has-tooltip {
     cursor: pointer;
 }
