@@ -55,7 +55,7 @@
             align-items: center;
 
             &::before {
-                font-family: 'Material Icons';
+                font-family: $font-family-icons;
                 vertical-align: middle;
                 padding-right: 0.5em;
                 font-size: 2em;
