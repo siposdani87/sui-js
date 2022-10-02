@@ -104,6 +104,8 @@ export class Dialog extends BaseModal {
      * @return {undefined}
      */
     private _handleActions(dom: Item): void {
+        this.modalFooter.removeClass('hidden');
+
         const actionNode = new Query('#action', dom).getItem();
         if (!actionNode.isEmpty()) {
             const buttons = new Query('button', actionNode);
@@ -131,6 +133,7 @@ export class Dialog extends BaseModal {
             mdl(actionNode);
         } else {
             this.modalFooter.removeChildren();
+            this.modalFooter.addClass('hidden');
         }
     }
 }
