@@ -31,7 +31,7 @@ custom_edit_url: null
 
 #### Defined in
 
-[module/dialog.ts:21](https://github.com/siposdani87/sui-js/blob/e8748e2/src/module/dialog.ts#L21)
+[module/dialog.ts:20](https://github.com/siposdani87/sui-js/blob/8fe9546/src/module/dialog.ts#L20)
 
 ## Properties
 
@@ -45,7 +45,7 @@ custom_edit_url: null
 
 #### Defined in
 
-[module/baseModal.ts:19](https://github.com/siposdani87/sui-js/blob/e8748e2/src/module/baseModal.ts#L19)
+[module/baseModal.ts:18](https://github.com/siposdani87/sui-js/blob/8fe9546/src/module/baseModal.ts#L18)
 
 ___
 
@@ -59,7 +59,7 @@ ___
 
 #### Defined in
 
-[module/baseModal.ts:18](https://github.com/siposdani87/sui-js/blob/e8748e2/src/module/baseModal.ts#L18)
+[module/baseModal.ts:17](https://github.com/siposdani87/sui-js/blob/8fe9546/src/module/baseModal.ts#L17)
 
 ___
 
@@ -73,7 +73,7 @@ ___
 
 #### Defined in
 
-[module/baseModal.ts:17](https://github.com/siposdani87/sui-js/blob/e8748e2/src/module/baseModal.ts#L17)
+[module/baseModal.ts:16](https://github.com/siposdani87/sui-js/blob/8fe9546/src/module/baseModal.ts#L16)
 
 ___
 
@@ -87,7 +87,7 @@ ___
 
 #### Defined in
 
-[module/baseModal.ts:16](https://github.com/siposdani87/sui-js/blob/e8748e2/src/module/baseModal.ts#L16)
+[module/baseModal.ts:15](https://github.com/siposdani87/sui-js/blob/8fe9546/src/module/baseModal.ts#L15)
 
 ___
 
@@ -109,7 +109,7 @@ ___
 
 #### Defined in
 
-[module/baseModal.ts:27](https://github.com/siposdani87/sui-js/blob/e8748e2/src/module/baseModal.ts#L27)
+[module/baseModal.ts:25](https://github.com/siposdani87/sui-js/blob/8fe9546/src/module/baseModal.ts#L25)
 
 ___
 
@@ -131,7 +131,7 @@ ___
 
 #### Defined in
 
-[module/baseModal.ts:26](https://github.com/siposdani87/sui-js/blob/e8748e2/src/module/baseModal.ts#L26)
+[module/baseModal.ts:24](https://github.com/siposdani87/sui-js/blob/8fe9546/src/module/baseModal.ts#L24)
 
 ___
 
@@ -145,7 +145,7 @@ ___
 
 #### Defined in
 
-[module/baseModal.ts:14](https://github.com/siposdani87/sui-js/blob/e8748e2/src/module/baseModal.ts#L14)
+[module/baseModal.ts:13](https://github.com/siposdani87/sui-js/blob/8fe9546/src/module/baseModal.ts#L13)
 
 ___
 
@@ -155,7 +155,7 @@ ___
 
 #### Defined in
 
-[module/dialog.ts:15](https://github.com/siposdani87/sui-js/blob/e8748e2/src/module/dialog.ts#L15)
+[module/dialog.ts:14](https://github.com/siposdani87/sui-js/blob/8fe9546/src/module/dialog.ts#L14)
 
 ___
 
@@ -169,7 +169,7 @@ ___
 
 #### Defined in
 
-[module/baseModal.ts:20](https://github.com/siposdani87/sui-js/blob/e8748e2/src/module/baseModal.ts#L20)
+[module/baseModal.ts:19](https://github.com/siposdani87/sui-js/blob/8fe9546/src/module/baseModal.ts#L19)
 
 ___
 
@@ -183,7 +183,7 @@ ___
 
 #### Defined in
 
-[module/baseModal.ts:13](https://github.com/siposdani87/sui-js/blob/e8748e2/src/module/baseModal.ts#L13)
+[module/baseModal.ts:12](https://github.com/siposdani87/sui-js/blob/8fe9546/src/module/baseModal.ts#L12)
 
 ___
 
@@ -197,7 +197,7 @@ ___
 
 #### Defined in
 
-[module/baseModal.ts:15](https://github.com/siposdani87/sui-js/blob/e8748e2/src/module/baseModal.ts#L15)
+[module/baseModal.ts:14](https://github.com/siposdani87/sui-js/blob/8fe9546/src/module/baseModal.ts#L14)
 
 ___
 
@@ -211,7 +211,7 @@ ___
 
 #### Defined in
 
-[module/baseModal.ts:22](https://github.com/siposdani87/sui-js/blob/e8748e2/src/module/baseModal.ts#L22)
+[module/baseModal.ts:21](https://github.com/siposdani87/sui-js/blob/8fe9546/src/module/baseModal.ts#L21)
 
 ___
 
@@ -225,7 +225,7 @@ ___
 
 #### Defined in
 
-[module/baseModal.ts:23](https://github.com/siposdani87/sui-js/blob/e8748e2/src/module/baseModal.ts#L23)
+[module/baseModal.ts:22](https://github.com/siposdani87/sui-js/blob/8fe9546/src/module/baseModal.ts#L22)
 
 ___
 
@@ -239,7 +239,7 @@ ___
 
 #### Defined in
 
-[module/baseModal.ts:24](https://github.com/siposdani87/sui-js/blob/e8748e2/src/module/baseModal.ts#L24)
+[module/baseModal.ts:23](https://github.com/siposdani87/sui-js/blob/8fe9546/src/module/baseModal.ts#L23)
 
 ___
 
@@ -253,7 +253,7 @@ ___
 
 #### Defined in
 
-[module/baseModal.ts:21](https://github.com/siposdani87/sui-js/blob/e8748e2/src/module/baseModal.ts#L21)
+[module/baseModal.ts:20](https://github.com/siposdani87/sui-js/blob/8fe9546/src/module/baseModal.ts#L20)
 
 ___
 
@@ -267,7 +267,7 @@ ___
 
 #### Defined in
 
-[module/baseModal.ts:28](https://github.com/siposdani87/sui-js/blob/e8748e2/src/module/baseModal.ts#L28)
+[module/baseModal.ts:26](https://github.com/siposdani87/sui-js/blob/8fe9546/src/module/baseModal.ts#L26)
 
 ___
 
@@ -277,21 +277,7 @@ ___
 
 #### Defined in
 
-[module/dialog.ts:16](https://github.com/siposdani87/sui-js/blob/e8748e2/src/module/dialog.ts#L16)
-
-___
-
-### tooltip
-
-• **tooltip**: [`Tooltip`](Tooltip.md)
-
-#### Inherited from
-
-[BaseModal](BaseModal.md).[tooltip](BaseModal.md#tooltip)
-
-#### Defined in
-
-[module/baseModal.ts:25](https://github.com/siposdani87/sui-js/blob/e8748e2/src/module/baseModal.ts#L25)
+[module/dialog.ts:15](https://github.com/siposdani87/sui-js/blob/8fe9546/src/module/dialog.ts#L15)
 
 ___
 
@@ -305,7 +291,7 @@ ___
 
 #### Defined in
 
-[module/baseModal.ts:12](https://github.com/siposdani87/sui-js/blob/e8748e2/src/module/baseModal.ts#L12)
+[module/baseModal.ts:11](https://github.com/siposdani87/sui-js/blob/8fe9546/src/module/baseModal.ts#L11)
 
 ___
 
@@ -319,7 +305,7 @@ ___
 
 #### Defined in
 
-[module/baseModal.ts:11](https://github.com/siposdani87/sui-js/blob/e8748e2/src/module/baseModal.ts#L11)
+[module/baseModal.ts:10](https://github.com/siposdani87/sui-js/blob/8fe9546/src/module/baseModal.ts#L10)
 
 ## Methods
 
@@ -337,7 +323,7 @@ ___
 
 #### Defined in
 
-[module/baseModal.ts:205](https://github.com/siposdani87/sui-js/blob/e8748e2/src/module/baseModal.ts#L205)
+[module/baseModal.ts:202](https://github.com/siposdani87/sui-js/blob/8fe9546/src/module/baseModal.ts#L202)
 
 ___
 
@@ -355,7 +341,7 @@ ___
 
 #### Defined in
 
-[module/baseModal.ts:196](https://github.com/siposdani87/sui-js/blob/e8748e2/src/module/baseModal.ts#L196)
+[module/baseModal.ts:193](https://github.com/siposdani87/sui-js/blob/8fe9546/src/module/baseModal.ts#L193)
 
 ___
 
@@ -375,7 +361,7 @@ ___
 
 #### Defined in
 
-[module/dialog.ts:110](https://github.com/siposdani87/sui-js/blob/e8748e2/src/module/dialog.ts#L110)
+[module/dialog.ts:106](https://github.com/siposdani87/sui-js/blob/8fe9546/src/module/dialog.ts#L106)
 
 ___
 
@@ -395,7 +381,7 @@ ___
 
 #### Defined in
 
-[module/dialog.ts:92](https://github.com/siposdani87/sui-js/blob/e8748e2/src/module/dialog.ts#L92)
+[module/dialog.ts:88](https://github.com/siposdani87/sui-js/blob/8fe9546/src/module/dialog.ts#L88)
 
 ___
 
@@ -415,7 +401,7 @@ ___
 
 #### Defined in
 
-[module/dialog.ts:80](https://github.com/siposdani87/sui-js/blob/e8748e2/src/module/dialog.ts#L80)
+[module/dialog.ts:76](https://github.com/siposdani87/sui-js/blob/8fe9546/src/module/dialog.ts#L76)
 
 ___
 
@@ -429,7 +415,7 @@ ___
 
 #### Defined in
 
-[module/dialog.ts:44](https://github.com/siposdani87/sui-js/blob/e8748e2/src/module/dialog.ts#L44)
+[module/dialog.ts:43](https://github.com/siposdani87/sui-js/blob/8fe9546/src/module/dialog.ts#L43)
 
 ___
 
@@ -447,7 +433,7 @@ ___
 
 #### Defined in
 
-[module/baseModal.ts:33](https://github.com/siposdani87/sui-js/blob/e8748e2/src/module/baseModal.ts#L33)
+[module/baseModal.ts:31](https://github.com/siposdani87/sui-js/blob/8fe9546/src/module/baseModal.ts#L31)
 
 ___
 
@@ -465,7 +451,7 @@ ___
 
 #### Defined in
 
-[module/baseModal.ts:188](https://github.com/siposdani87/sui-js/blob/e8748e2/src/module/baseModal.ts#L188)
+[module/baseModal.ts:185](https://github.com/siposdani87/sui-js/blob/8fe9546/src/module/baseModal.ts#L185)
 
 ___
 
@@ -485,7 +471,7 @@ ___
 
 #### Defined in
 
-[module/dialog.ts:33](https://github.com/siposdani87/sui-js/blob/e8748e2/src/module/dialog.ts#L33)
+[module/dialog.ts:32](https://github.com/siposdani87/sui-js/blob/8fe9546/src/module/dialog.ts#L32)
 
 ___
 
@@ -509,7 +495,7 @@ ___
 
 #### Defined in
 
-[module/baseModal.ts:171](https://github.com/siposdani87/sui-js/blob/e8748e2/src/module/baseModal.ts#L171)
+[module/baseModal.ts:169](https://github.com/siposdani87/sui-js/blob/8fe9546/src/module/baseModal.ts#L169)
 
 ___
 
@@ -527,7 +513,7 @@ ___
 
 #### Defined in
 
-[module/baseModal.ts:151](https://github.com/siposdani87/sui-js/blob/e8748e2/src/module/baseModal.ts#L151)
+[module/baseModal.ts:149](https://github.com/siposdani87/sui-js/blob/8fe9546/src/module/baseModal.ts#L149)
 
 ___
 
@@ -545,7 +531,7 @@ ___
 
 #### Defined in
 
-[module/baseModal.ts:108](https://github.com/siposdani87/sui-js/blob/e8748e2/src/module/baseModal.ts#L108)
+[module/baseModal.ts:106](https://github.com/siposdani87/sui-js/blob/8fe9546/src/module/baseModal.ts#L106)
 
 ___
 
@@ -565,7 +551,7 @@ ___
 
 #### Defined in
 
-[module/dialog.ts:60](https://github.com/siposdani87/sui-js/blob/e8748e2/src/module/dialog.ts#L60)
+[module/dialog.ts:56](https://github.com/siposdani87/sui-js/blob/8fe9546/src/module/dialog.ts#L56)
 
 ___
 
@@ -589,7 +575,7 @@ ___
 
 #### Defined in
 
-[module/baseModal.ts:131](https://github.com/siposdani87/sui-js/blob/e8748e2/src/module/baseModal.ts#L131)
+[module/baseModal.ts:129](https://github.com/siposdani87/sui-js/blob/8fe9546/src/module/baseModal.ts#L129)
 
 ___
 
@@ -614,4 +600,4 @@ ___
 
 #### Defined in
 
-[module/baseModal.ts:229](https://github.com/siposdani87/sui-js/blob/e8748e2/src/module/baseModal.ts#L229)
+[module/baseModal.ts:226](https://github.com/siposdani87/sui-js/blob/8fe9546/src/module/baseModal.ts#L226)

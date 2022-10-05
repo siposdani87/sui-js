@@ -21,7 +21,7 @@ custom_edit_url: null
 
 #### Defined in
 
-[module/storage.ts:16](https://github.com/siposdani87/sui-js/blob/e8748e2/src/module/storage.ts#L16)
+[module/storage.ts:16](https://github.com/siposdani87/sui-js/blob/8fe9546/src/module/storage.ts#L16)
 
 ## Properties
 
@@ -31,7 +31,7 @@ custom_edit_url: null
 
 #### Defined in
 
-[module/storage.ts:10](https://github.com/siposdani87/sui-js/blob/e8748e2/src/module/storage.ts#L10)
+[module/storage.ts:10](https://github.com/siposdani87/sui-js/blob/8fe9546/src/module/storage.ts#L10)
 
 ___
 
@@ -41,7 +41,7 @@ ___
 
 #### Defined in
 
-[module/storage.ts:11](https://github.com/siposdani87/sui-js/blob/e8748e2/src/module/storage.ts#L11)
+[module/storage.ts:11](https://github.com/siposdani87/sui-js/blob/8fe9546/src/module/storage.ts#L11)
 
 ___
 
@@ -51,7 +51,7 @@ ___
 
 #### Defined in
 
-[module/storage.ts:9](https://github.com/siposdani87/sui-js/blob/e8748e2/src/module/storage.ts#L9)
+[module/storage.ts:9](https://github.com/siposdani87/sui-js/blob/8fe9546/src/module/storage.ts#L9)
 
 ## Methods
 
@@ -65,7 +65,7 @@ ___
 
 #### Defined in
 
-[module/storage.ts:120](https://github.com/siposdani87/sui-js/blob/e8748e2/src/module/storage.ts#L120)
+[module/storage.ts:120](https://github.com/siposdani87/sui-js/blob/8fe9546/src/module/storage.ts#L120)
 
 ___
 
@@ -85,7 +85,7 @@ ___
 
 #### Defined in
 
-[module/storage.ts:159](https://github.com/siposdani87/sui-js/blob/e8748e2/src/module/storage.ts#L159)
+[module/storage.ts:159](https://github.com/siposdani87/sui-js/blob/8fe9546/src/module/storage.ts#L159)
 
 ___
 
@@ -105,7 +105,7 @@ ___
 
 #### Defined in
 
-[module/storage.ts:145](https://github.com/siposdani87/sui-js/blob/e8748e2/src/module/storage.ts#L145)
+[module/storage.ts:145](https://github.com/siposdani87/sui-js/blob/8fe9546/src/module/storage.ts#L145)
 
 ___
 
@@ -125,7 +125,7 @@ ___
 
 #### Defined in
 
-[module/storage.ts:65](https://github.com/siposdani87/sui-js/blob/e8748e2/src/module/storage.ts#L65)
+[module/storage.ts:65](https://github.com/siposdani87/sui-js/blob/8fe9546/src/module/storage.ts#L65)
 
 ___
 
@@ -145,7 +145,7 @@ ___
 
 #### Defined in
 
-[module/storage.ts:57](https://github.com/siposdani87/sui-js/blob/e8748e2/src/module/storage.ts#L57)
+[module/storage.ts:57](https://github.com/siposdani87/sui-js/blob/8fe9546/src/module/storage.ts#L57)
 
 ___
 
@@ -159,7 +159,7 @@ ___
 
 #### Defined in
 
-[module/storage.ts:44](https://github.com/siposdani87/sui-js/blob/e8748e2/src/module/storage.ts#L44)
+[module/storage.ts:44](https://github.com/siposdani87/sui-js/blob/8fe9546/src/module/storage.ts#L44)
 
 ___
 
@@ -179,7 +179,7 @@ ___
 
 #### Defined in
 
-[module/storage.ts:135](https://github.com/siposdani87/sui-js/blob/e8748e2/src/module/storage.ts#L135)
+[module/storage.ts:135](https://github.com/siposdani87/sui-js/blob/8fe9546/src/module/storage.ts#L135)
 
 ___
 
@@ -199,7 +199,7 @@ ___
 
 #### Defined in
 
-[module/storage.ts:30](https://github.com/siposdani87/sui-js/blob/e8748e2/src/module/storage.ts#L30)
+[module/storage.ts:30](https://github.com/siposdani87/sui-js/blob/8fe9546/src/module/storage.ts#L30)
 
 ___
 
@@ -213,7 +213,7 @@ ___
 
 #### Defined in
 
-[module/storage.ts:113](https://github.com/siposdani87/sui-js/blob/e8748e2/src/module/storage.ts#L113)
+[module/storage.ts:113](https://github.com/siposdani87/sui-js/blob/8fe9546/src/module/storage.ts#L113)
 
 ___
 
@@ -233,7 +233,7 @@ ___
 
 #### Defined in
 
-[module/storage.ts:90](https://github.com/siposdani87/sui-js/blob/e8748e2/src/module/storage.ts#L90)
+[module/storage.ts:90](https://github.com/siposdani87/sui-js/blob/8fe9546/src/module/storage.ts#L90)
 
 ___
 
@@ -253,7 +253,7 @@ ___
 
 #### Defined in
 
-[module/storage.ts:106](https://github.com/siposdani87/sui-js/blob/e8748e2/src/module/storage.ts#L106)
+[module/storage.ts:106](https://github.com/siposdani87/sui-js/blob/8fe9546/src/module/storage.ts#L106)
 
 ___
 
@@ -275,4 +275,4 @@ ___
 
 #### Defined in
 
-[module/storage.ts:76](https://github.com/siposdani87/sui-js/blob/e8748e2/src/module/storage.ts#L76)
+[module/storage.ts:76](https://github.com/siposdani87/sui-js/blob/8fe9546/src/module/storage.ts#L76)

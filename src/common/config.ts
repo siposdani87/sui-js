@@ -44,5 +44,4 @@ export const coreResources = {
     instances: 'instances',
     console: 'console',
     serviceWorker: 'serviceWorker',
-    actionCable: 'actionCable',
 };

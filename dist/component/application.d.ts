@@ -214,11 +214,6 @@ export declare class Application {
      * @private
      * @return {undefined}
      */
-    private _initActionCable;
-    /**
-     * @private
-     * @return {undefined}
-     */
     private _initRoutes;
     /**
      * @param {string} id

@@ -20,7 +20,7 @@ custom_edit_url: null
 
 #### Defined in
 
-[module/topMenu.ts:15](https://github.com/siposdani87/sui-js/blob/e8748e2/src/module/topMenu.ts#L15)
+[module/topMenu.ts:15](https://github.com/siposdani87/sui-js/blob/8fe9546/src/module/topMenu.ts#L15)
 
 ## Properties
 
@@ -30,7 +30,7 @@ custom_edit_url: null
 
 #### Defined in
 
-[module/topMenu.ts:9](https://github.com/siposdani87/sui-js/blob/e8748e2/src/module/topMenu.ts#L9)
+[module/topMenu.ts:9](https://github.com/siposdani87/sui-js/blob/8fe9546/src/module/topMenu.ts#L9)
 
 ___
 
@@ -40,7 +40,7 @@ ___
 
 #### Defined in
 
-[module/topMenu.ts:11](https://github.com/siposdani87/sui-js/blob/e8748e2/src/module/topMenu.ts#L11)
+[module/topMenu.ts:11](https://github.com/siposdani87/sui-js/blob/8fe9546/src/module/topMenu.ts#L11)
 
 ___
 
@@ -50,7 +50,7 @@ ___
 
 #### Defined in
 
-[module/topMenu.ts:10](https://github.com/siposdani87/sui-js/blob/e8748e2/src/module/topMenu.ts#L10)
+[module/topMenu.ts:10](https://github.com/siposdani87/sui-js/blob/8fe9546/src/module/topMenu.ts#L10)
 
 ## Methods
 
@@ -64,7 +64,7 @@ ___
 
 #### Defined in
 
-[module/topMenu.ts:23](https://github.com/siposdani87/sui-js/blob/e8748e2/src/module/topMenu.ts#L23)
+[module/topMenu.ts:23](https://github.com/siposdani87/sui-js/blob/8fe9546/src/module/topMenu.ts#L23)
 
 ___
 
@@ -78,7 +78,7 @@ ___
 
 #### Defined in
 
-[module/topMenu.ts:63](https://github.com/siposdani87/sui-js/blob/e8748e2/src/module/topMenu.ts#L63)
+[module/topMenu.ts:63](https://github.com/siposdani87/sui-js/blob/8fe9546/src/module/topMenu.ts#L63)
 
 ___
 
@@ -92,7 +92,7 @@ ___
 
 #### Defined in
 
-[module/topMenu.ts:72](https://github.com/siposdani87/sui-js/blob/e8748e2/src/module/topMenu.ts#L72)
+[module/topMenu.ts:72](https://github.com/siposdani87/sui-js/blob/8fe9546/src/module/topMenu.ts#L72)
 
 ___
 
@@ -106,7 +106,7 @@ ___
 
 #### Defined in
 
-[module/topMenu.ts:48](https://github.com/siposdani87/sui-js/blob/e8748e2/src/module/topMenu.ts#L48)
+[module/topMenu.ts:48](https://github.com/siposdani87/sui-js/blob/8fe9546/src/module/topMenu.ts#L48)
 
 ___
 
@@ -120,7 +120,7 @@ ___
 
 #### Defined in
 
-[module/topMenu.ts:54](https://github.com/siposdani87/sui-js/blob/e8748e2/src/module/topMenu.ts#L54)
+[module/topMenu.ts:54](https://github.com/siposdani87/sui-js/blob/8fe9546/src/module/topMenu.ts#L54)
 
 ___
 
@@ -134,4 +134,4 @@ ___
 
 #### Defined in
 
-[module/topMenu.ts:38](https://github.com/siposdani87/sui-js/blob/e8748e2/src/module/topMenu.ts#L38)
+[module/topMenu.ts:38](https://github.com/siposdani87/sui-js/blob/8fe9546/src/module/topMenu.ts#L38)

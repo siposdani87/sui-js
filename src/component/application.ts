@@ -3,7 +3,6 @@ import { TestRunner } from './testRunner';
 import { Module } from '../core/module';
 import { Objekt } from '../core/objekt';
 import { Query } from '../core/query';
-import { ActionCable } from '../module/actionCable';
 import { BottomMenu } from '../module/bottomMenu';
 import { Document } from '../module/document';
 import { Browser } from '../module/browser';
@@ -111,7 +110,6 @@ export class Application {
         this._initStyle();
         this._initConfig();
         this._initServiceWorker();
-        this._initActionCable();
 
         this._loadModules();
     }
@@ -188,7 +186,6 @@ export class Application {
             this._instances[this._injections.loader].show();
             this._instances[this._injections.dialog].close();
             this._instances[this._injections.confirm].close();
-            this._instances[this._injections.actionCable].unsubscribeAll();
             return this._instances[this._injections.event].call(
                 'state.change',
                 [currentState],
@@ -649,13 +646,6 @@ export class Application {
                 features.join(', '),
             );
         };
-    }
-    /**
-     * @private
-     * @return {undefined}
-     */
-    private _initActionCable(): void {
-        this._instances[this._injections.actionCable] = new ActionCable();
     }
     /**
      * @private
