@@ -1,4 +1,3 @@
-import { adapters, Connection, ConnectionMonitor, Consumer, createConsumer, createWebSocketURL, DisconnectReasons, getConfig, INTERNAL, logger, MessageTypes, Subscription, Subscriptions } from "@rails/actioncable";
 import { initialize, mockInstances } from '@googlemaps/jest-mocks';
 import { setReleaseMode } from './src/common/config';
 
@@ -13,22 +12,6 @@ window['componentHandler'] = {
     register: (config: any) => { },
     downgradeElements: (nodes: Node | Node[] | NodeList) => { }
 };
-
-window['ActionCable'] = {
-    createConsumer,
-    createWebSocketURL,
-    getConfig,
-    MessageTypes,
-    DisconnectReasons,
-    INTERNAL,
-    Connection,
-    ConnectionMonitor, 
-    Consumer, 
-    Subscription, 
-    Subscriptions,
-    adapters, 
-    logger
-}
 
 window['MapLabel'] = function(options) {
     console.log(options);
