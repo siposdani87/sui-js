@@ -32,7 +32,6 @@
 }
 
 .template-view {
-    //flex: 0 1 100%;
     width: 100vw;
 
     &.has-header .page-content.fullscreen {
@@ -141,11 +140,10 @@
     padding: 0 1em;
     justify-content: space-between;
     align-items: center;
-    background-color: rgba($light-grey, 0.8);
+    background-color: $light-grey;
     color: $black;
     min-height: 50px;
     z-index: $zindex-header;
-    backdrop-filter: blur(4px);
 
     &.shadow {
         box-shadow: 0 2px 20px 0 rgba($black, 0.75);
@@ -193,65 +191,6 @@
     }
 
     .actions {
-        justify-content: flex-end;
-        display: flex;
-        align-items: center;
-        margin-left: 0.5em;
-
-        .mdl-button {
-            margin-left: 0.3em;
-        }
-    }
-}
-
-.page-subheader {
-    display: flex;
-    flex-flow: row wrap;
-    padding: 0.1em 1em;
-    justify-content: space-between;
-    align-items: center;
-    background-color: $light-grey;
-    color: $black;
-
-    @include media-breakpoint-down(sm) {
-        flex-flow: column wrap;
-    }
-
-    h2 {
-        flex: 1;
-        margin: 0;
-        font-size: $font-size-h5;
-        font-weight: 400;
-
-        a {
-            &::after {
-                content: '/';
-                padding: 0 0.3em;
-                color: $deep-grey-bright;
-            }
-        }
-    }
-
-    form {
-        flex: 0 1 auto;
-        display: flex;
-        flex-flow: row nowrap;
-        margin: 0;
-
-        .input-block {
-            flex: 1;
-            padding: 0;
-        }
-
-        .mdl-textfield--expandable {
-            label.mdl-button {
-                top: 0;
-            }
-        }
-    }
-
-    .actions {
-        flex: 1;
         justify-content: flex-end;
         display: flex;
         align-items: center;

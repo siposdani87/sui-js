@@ -13,25 +13,12 @@
     }
 
     .page-header {
-        background-color: rgba($black, 0.8);
+        background-color: $black;
         color: $white;
 
         h1 {
             a,
             span {
-                &::after {
-                    color: $deep-grey-bright;
-                }
-            }
-        }
-    }
-
-    .page-subheader {
-        background-color: $black-bright;
-        color: $white;
-
-        h2 {
-            a {
                 &::after {
                     color: $deep-grey-bright;
                 }
