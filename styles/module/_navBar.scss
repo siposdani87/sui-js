@@ -4,16 +4,16 @@
     top: 0;
     z-index: $zindex-nav-bar;
     min-height: 50px;
+    backdrop-filter: blur(4px);
 
     #toggle-nav-bar {
         position: absolute;
         right: 10px;
         top: 3px;
-        color: $white;
-        text-shadow: 1px 1px 5px rgba($black, 0.8);
+        color: $primary;
 
         &:hover {
-            color: $white-dark;
+            color: $primary-dark;
         }
 
         @include media-breakpoint-up(md) {
@@ -39,6 +39,14 @@
                 box-shadow: none;
                 opacity: 1;
                 background-color: transparent;
+            }
+
+            #toggle-nav-bar {
+                color: $white;
+
+                &:hover {
+                    color: $white-dark;
+                }
             }
         }
 
