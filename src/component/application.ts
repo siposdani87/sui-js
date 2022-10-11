@@ -165,7 +165,6 @@ export class Application {
      */
     private _initCertificate(): void {
         const rootNode = new Query('html').getItem();
-        rootNode.removeClass('no-js');
         rootNode.addClass('sui-js');
     }
     /**
