@@ -1,36 +1,33 @@
-import { each, inArray, isUndefined, eachObject, convertToString, } from '../utils/operation';
+import { each, inArray, isUndefined, eachObject } from '../utils/operation';
 import { Collection } from '../core/collection';
 import { Deferred } from '../core/deferred';
 import { Objekt } from '../core/objekt';
 import { Query } from '../core/query';
 import { consoleInfo } from '../utils/log';
+import { MapLabel } from './mapLabel';
 /**
  * @param {!google.maps.Marker} marker
  * @param {string} title
  * @return {!MapLabel}
  */
-const _getMapLabel = (marker, title) => {
-    // https://github.com/googlemaps/js-map-label/blob/gh-pages/src/maplabel.js
-    // https://googlemaps.github.io/js-map-label/docs/reference.html
-    const mapLabel = new window['MapLabel']({
+const _createMapLabelByMarker = (marker, title) => {
+    const mapLabel = new MapLabel({
         text: title,
         strokeWeight: 2,
-        fontFamily: 'sans-serif',
     });
-    mapLabel['bindTo']('position', marker);
-    mapLabel['bindTo']('map', marker);
+    mapLabel.bindTo('position', marker);
+    mapLabel.bindTo('map', marker);
     return mapLabel;
 };
 /**
- * @param {string} title
- * @param {!google.maps.LatLng} position
  * @param {!google.maps.Map} map
- * @return {!MapText}
+ * @param {!google.maps.LatLng} position
+ * @param {string} title
+ * @return {!MapLabel}
  */
-const _getMapText = (title, position, map) => new window['MapLabel']({
+const _createMapLabelByMarkerByPosition = (map, position, title) => new MapLabel({
     text: title,
     strokeWeight: 2,
-    fontFamily: 'sans-serif',
     position: position,
     map: map,
 });
@@ -198,8 +195,8 @@ export class GoogleMap {
         polygonData.setRaw('_polygon', polygon);
         this._addPointsToPolygon(polygonData, points);
         const latLng = this.getCenterOfPolygon(polygonData);
-        const mapText = _getMapText(title, new google.maps.LatLng(latLng.latitude, latLng.longitude), this.map);
-        polygonData.setRaw('_map_text', mapText);
+        const mapLabel = _createMapLabelByMarkerByPosition(this.map, new google.maps.LatLng(latLng.latitude, latLng.longitude), title);
+        polygonData.setRaw('_map_label', mapLabel);
         this.polygons.push(polygonData);
         this._bindEventsToPolygon(polygon, polygonData);
     }
@@ -220,9 +217,9 @@ export class GoogleMap {
         polygon.setOptions(opt_options);
         this._addPointsToPolygon(polygonData, points);
         const latLng = this.getCenterOfPolygon(polygonData);
-        const mapText = polygonData.get('_map_text');
-        mapText.set('text', title);
-        mapText.set('position', new google.maps.LatLng(latLng.latitude, latLng.longitude));
+        const mapLabel = polygonData.get('_map_label');
+        mapLabel.set('text', title);
+        mapLabel.set('position', new google.maps.LatLng(latLng.latitude, latLng.longitude));
     }
     /**
      * @param {!Object} polygonData
@@ -231,7 +228,7 @@ export class GoogleMap {
     _cleanPolygonData(polygonData) {
         const cleanData = new Objekt();
         each(polygonData, (value, key) => {
-            if (!inArray(['_polygon', '_map_text', '_bounds'], key)) {
+            if (!inArray(['_polygon', '_map_label', '_bounds'], key)) {
                 cleanData.set(key, value);
             }
         });
@@ -251,8 +248,8 @@ export class GoogleMap {
     removePolygon(id) {
         const polygonData = this.getPolygon(id);
         if (polygonData) {
-            const mapText = polygonData.get('_map_text');
-            mapText.set('map', null);
+            const mapLabel = polygonData.get('_map_label');
+            mapLabel.set('map', null);
             const polygon = polygonData.get('_polygon');
             polygon.setMap(null);
             this._unbindEventsToPolygon(polygon);
@@ -266,8 +263,8 @@ export class GoogleMap {
         this.polygons.each((polygonData) => {
             const polygon = polygonData.get('_polygon');
             polygon.setMap(null);
-            const mapText = polygonData.get('_map_text');
-            mapText.set('map', null);
+            const mapLabel = polygonData.get('_map_label');
+            mapLabel.set('map', null);
             this._unbindEventsToPolygon(polygon);
         });
         this.polygons.clear();
@@ -349,9 +346,9 @@ export class GoogleMap {
     _callPolygonChangeEvent(polygon, polygonData) {
         const points = this._getPointsFromPolygon(polygonData);
         this._setBoundsByPoints(polygonData, points);
-        const mapText = polygonData.get('_map_text');
+        const mapLabel = polygonData.get('_map_label');
         const centerLatLng = this.getCenterOfPolygon(polygonData);
-        mapText.set('position', new google.maps.LatLng(centerLatLng.latitude, centerLatLng.longitude));
+        mapLabel.set('position', new google.maps.LatLng(centerLatLng.latitude, centerLatLng.longitude));
         const cleanPolygonData = this._cleanPolygonData(polygonData);
         this.eventPolygonChanged(cleanPolygonData, points);
     }
@@ -636,7 +633,7 @@ export class GoogleMap {
         }
         const options = new Objekt(this.markerOptions);
         options.merge(opt_options);
-        const text = convertToString(title);
+        const text = title.toString();
         const marker = new google.maps.Marker(options.copy(true));
         marker.setPosition(new google.maps.LatLng(latitude, longitude));
         marker.setIcon(this.markerIcons[iconName].icon);
@@ -644,8 +641,8 @@ export class GoogleMap {
         marker.setTitle(text);
         marker.setMap(this.map);
         markerData.setRaw('_marker', marker);
-        const label = _getMapLabel(marker, text);
-        markerData.setRaw('_map_label', label);
+        const mapLabel = _createMapLabelByMarker(marker, text);
+        markerData.setRaw('_map_label', mapLabel);
         this.markers.push(markerData);
         this._bindEventsToMarker(marker, markerData);
     }
@@ -714,7 +711,7 @@ export class GoogleMap {
         each(this._cleanMarkerData(opt_markerData), (value, key) => {
             markerData.set(key, value);
         });
-        const text = convertToString(title);
+        const text = title.toString();
         const marker = markerData.get('_marker');
         marker.setOptions(opt_options);
         const markerIcon = this.markerIcons[iconName];
@@ -796,7 +793,7 @@ export class GoogleMap {
         const markerData = this.getMarker(markerId);
         const marker = markerData.get('_marker');
         const infoWindow = new google.maps.InfoWindow({
-            content: convertToString(content),
+            content: content.toString(),
         });
         infoWindow.open(this.map, marker);
     }
@@ -864,7 +861,7 @@ export class GoogleMap {
         const deferred = new Deferred();
         const geoCoder = new google.maps.Geocoder();
         geoCoder.geocode({
-            address: convertToString(query),
+            address: query.toString(),
         }, (results, status) => {
             if (status === google.maps.GeocoderStatus.OK &&
                 results.length > 0) {

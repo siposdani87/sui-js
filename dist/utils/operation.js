@@ -64,13 +64,6 @@ export const format = (str, opt_params = null, opt_prefix = '\\{', opt_postfix =
     return str;
 };
 /**
- * @deprecated
- * @use native toString() method, if it is required
- * @param {string|number|boolean} value
- * @return {string}
- */
-export const convertToString = (value) => value.toString();
-/**
  * @param {*=} opt_result
  * @return {!Function}
  */
