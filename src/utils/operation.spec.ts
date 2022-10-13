@@ -1,5 +1,4 @@
 import {
-    convertToString,
     eq,
     format,
     gt,
@@ -51,12 +50,6 @@ describe('operation', () => {
         const result = format('example: {0}', [1]);
 
         expect(result).toEqual('example: 1');
-    });
-
-    it('should convert to string', () => {
-        const result = convertToString(100);
-
-        expect(result).toEqual('100');
     });
 
     it('should create noop function', () => {

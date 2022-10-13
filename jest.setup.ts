@@ -13,14 +13,6 @@ window['componentHandler'] = {
     downgradeElements: (nodes: Node | Node[] | NodeList) => { }
 };
 
-window['MapLabel'] = function(options) {
-    console.log(options);
-};
-
-window['MapLabel'].prototype.bindTo = function(attribute, value) {
-
-}
-
 let logSpy: jest.SpyInstance | null = null;
 let errorSpy: jest.SpyInstance | null = null;
 let infoSpy: jest.SpyInstance | null = null;

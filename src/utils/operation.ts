@@ -65,15 +65,6 @@ export const format = (
 };
 
 /**
- * @deprecated
- * @use native toString() method, if it is required
- * @param {string|number|boolean} value
- * @return {string}
- */
-export const convertToString = (value: string | number | boolean): string =>
-    value.toString();
-
-/**
  * @param {*=} opt_result
  * @return {!Function}
  */

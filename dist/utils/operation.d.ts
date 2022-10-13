@@ -18,13 +18,6 @@ export declare const merge: (objA: Object, objB: Object) => Object | undefined;
  */
 export declare const format: (str: string, opt_params?: object | Array<any> | null | undefined, opt_prefix?: string | undefined, opt_postfix?: string | undefined) => string;
 /**
- * @deprecated
- * @use native toString() method, if it is required
- * @param {string|number|boolean} value
- * @return {string}
- */
-export declare const convertToString: (value: string | number | boolean) => string;
-/**
  * @param {*=} opt_result
  * @return {!Function}
  */
