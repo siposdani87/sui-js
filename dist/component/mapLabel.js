@@ -16,6 +16,7 @@ export class MapLabel {
         this.overlayView.set('align', 'center');
         this.overlayView.set('zIndex', 1e3);
         this.overlayView.setValues(opt_options);
+        this.setup();
     }
     bindTo(key, target, targetKey, noNotify) {
         this.overlayView.bindTo(key, target, targetKey, noNotify);
@@ -26,7 +27,13 @@ export class MapLabel {
     setMap(map) {
         this.overlayView.setMap(map);
     }
-    changed(prop) {
+    setup() {
+        this.overlayView.onAdd = this.onAdd.bind(this);
+        this.overlayView.onRemove = this.onRemove.bind(this);
+        this.overlayView.notify = this.notify.bind(this);
+        this.overlayView.draw = this.draw.bind(this);
+    }
+    notify(prop) {
         switch (prop) {
             case 'fontFamily':
             case 'fontSize':
@@ -45,15 +52,15 @@ export class MapLabel {
     /**
      * Draws the label to the canvas 2d context.
      * @private
+     * @return {undefined}
      */
     _drawCanvas() {
-        const canvas = this.canvas;
-        if (!canvas)
+        if (!this.canvas)
             return;
-        const style = canvas.style;
-        style.zIndex = /** @type number */ this.overlayView.get('zIndex');
-        const ctx = canvas.getContext('2d');
-        ctx.clearRect(0, 0, canvas.width, canvas.height);
+        const style = this.canvas.style;
+        style.zIndex = this.overlayView.get('zIndex');
+        const ctx = this.canvas.getContext('2d');
+        ctx.clearRect(0, 0, this.canvas.width, this.canvas.height);
         ctx.strokeStyle = this.overlayView.get('strokeColor');
         ctx.fillStyle = this.overlayView.get('fontColor');
         ctx.font =
@@ -77,16 +84,16 @@ export class MapLabel {
         }
     }
     onAdd() {
-        const canvas = (this.canvas = document.createElement('canvas'));
-        const style = canvas.style;
+        this.canvas = document.createElement('canvas');
+        const style = this.canvas.style;
         style.position = 'absolute';
-        const ctx = canvas.getContext('2d');
+        const ctx = this.canvas.getContext('2d');
         ctx.lineJoin = 'round';
         ctx.textBaseline = 'top';
         this._drawCanvas();
         const panes = this.overlayView.getPanes();
         if (panes) {
-            panes.mapPane.appendChild(canvas);
+            panes.mapPane.appendChild(this.canvas);
         }
     }
     /**
@@ -114,8 +121,7 @@ export class MapLabel {
             // onAdd has not been called yet.
             return;
         }
-        const latLng = 
-        /** @type {google.maps.LatLng} */ this.overlayView.get('position');
+        const latLng = this.overlayView.get('position');
         if (!latLng) {
             return;
         }
@@ -131,8 +137,8 @@ export class MapLabel {
      * @return {string} blank string if visible, 'hidden' if invisible.
      */
     _getVisible() {
-        const minZoom = /** @type number */ this.overlayView.get('minZoom');
-        const maxZoom = /** @type number */ this.overlayView.get('maxZoom');
+        const minZoom = this.overlayView.get('minZoom');
+        const maxZoom = this.overlayView.get('maxZoom');
         if (minZoom === undefined && maxZoom === undefined) {
             return '';
         }
@@ -147,9 +153,8 @@ export class MapLabel {
         return '';
     }
     onRemove() {
-        const canvas = this.canvas;
-        if (canvas && canvas.parentNode) {
-            canvas.parentNode.removeChild(canvas);
+        if (this.canvas && this.canvas.parentNode) {
+            this.canvas.parentNode.removeChild(this.canvas);
         }
     }
 }
