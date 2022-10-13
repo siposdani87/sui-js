@@ -13,10 +13,12 @@ export declare class MapLabel {
     bindTo(key: string, target: google.maps.MVCObject, targetKey?: string, noNotify?: boolean): void;
     set(key: string, value: any): void;
     setMap(map: google.maps.Map | google.maps.StreetViewPanorama): void;
-    changed(prop: any): void;
+    private setup;
+    notify(prop: any): void;
     /**
      * Draws the label to the canvas 2d context.
      * @private
+     * @return {undefined}
      */
     private _drawCanvas;
     onAdd(): void;
