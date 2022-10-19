@@ -15,6 +15,12 @@ describe('math', () => {
         expect(result).toEqual(price.toString());
     });
 
+    it('should be readable number 0 from 0', () => {
+        const result = readableNumber(0);
+
+        expect(result).toEqual('0');
+    });
+
     it('should be readable number 5 from 5 with around', () => {
         const result = readableNumber(5, true);
 
