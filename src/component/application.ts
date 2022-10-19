@@ -19,7 +19,6 @@ import { Loader } from '../module/loader';
 import { NavBar } from '../module/navBar';
 import { ProgressBar } from '../module/progressBar';
 import { Script } from '../module/script';
-import { Sidebar } from '../module/sidebar';
 import { Style } from '../module/style';
 import { Template } from '../module/template';
 import { TopMenu } from '../module/topMenu';
@@ -101,7 +100,6 @@ export class Application {
         this._initTopMenu();
         this._initLeftMenu();
         this._initNavBar();
-        this._initSidebar();
         this._initFooter();
         this._initBottomMenu();
         this._initBrowser();
@@ -589,19 +587,6 @@ export class Application {
     private _initBottomMenu(): void {
         this._instances[this._injections.bottomMenu] = new BottomMenu(
             this._instances[this._injections.footer],
-        );
-    }
-    /**
-     * @private
-     * @return {undefined}
-     */
-    private _initSidebar(): void {
-        this._instances[this._injections.leftSidebar] = new Sidebar(
-            '#left-sidebar',
-        );
-
-        this._instances[this._injections.rightSidebar] = new Sidebar(
-            '#right-sidebar',
         );
     }
     /**

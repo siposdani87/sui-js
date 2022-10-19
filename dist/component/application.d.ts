@@ -189,11 +189,6 @@ export declare class Application {
      * @private
      * @return {undefined}
      */
-    private _initSidebar;
-    /**
-     * @private
-     * @return {undefined}
-     */
     private _initLeftMenu;
     /**
      * @private

@@ -18,8 +18,6 @@ export declare const coreResources: {
     header: string;
     topMenu: string;
     leftMenu: string;
-    leftSidebar: string;
-    rightSidebar: string;
     footer: string;
     bottomMenu: string;
     navBar: string;

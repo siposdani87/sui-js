@@ -20,8 +20,6 @@ export const coreResources = {
     header: 'header',
     topMenu: 'topMenu',
     leftMenu: 'leftMenu',
-    leftSidebar: 'leftSidebar',
-    rightSidebar: 'rightSidebar',
     footer: 'footer',
     bottomMenu: 'bottomMenu',
     navBar: 'navBar',

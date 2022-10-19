@@ -135,14 +135,6 @@ beforeAll(() => {
   <div class="hidden" id="loader"></div>
   <div class="progress-bar"></div>
   <div class="flex-container">
-    <div class="sidebar hidden" id="left-sidebar">
-      <a>
-        <em class="material-icons size-48">keyboard_arrow_right</em>
-      </a>
-      <div class="content">
-        left-sidebar
-      </div>
-    </div>
     <div class="template-view" data-locale="en" data-template-url="/index.html">
         <div class="map"></div>
         <div class="progress-status"></div>
@@ -269,14 +261,6 @@ beforeAll(() => {
             <div id="panel-1" class="panel"></div>
             <div id="panel-2" class="panel"></div>
         </div>
-    </div>
-    <div class="sidebar hidden" id="right-sidebar">
-      <a href="javascript:void(0)">
-        <em class="material-icons size-48">keyboard_arrow_left</em>
-      </a>
-      <div class="content">
-        right-sidebar
-      </div>
     </div>
   </div>
   <footer class="hidden" id="footer">
