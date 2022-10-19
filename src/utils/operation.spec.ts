@@ -9,6 +9,7 @@ import {
     isDate,
     isFloat,
     isFunction,
+    isInfinity,
     isInteger,
     isNull,
     isNumber,
@@ -147,6 +148,12 @@ describe('operation', () => {
 
     it('should be true when input is null', () => {
         const result = isNull(null);
+
+        expect(result).toEqual(true);
+    });
+
+    it('should be true when input is Infinity', () => {
+        const result = isInfinity(Infinity);
 
         expect(result).toEqual(true);
     });
