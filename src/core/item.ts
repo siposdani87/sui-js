@@ -5,7 +5,7 @@ import {
     eq,
     isArray,
     isFunction,
-    isObject,
+    isInfinity,
     isString,
     isUndefined,
     noop,
@@ -184,7 +184,7 @@ export class Item<T extends HTMLElement = HTMLElement> {
         attribute: string,
         opt_value?:
             | (
-                  | object
+                  | Object
                   | Function
                   | Array<any>
                   | boolean
@@ -195,10 +195,17 @@ export class Item<T extends HTMLElement = HTMLElement> {
               )
             | undefined,
     ): void {
-        const value = isUndefined(opt_value) ? attribute : opt_value;
+        const value =
+            !contain(attribute, 'data-') && isUndefined(opt_value)
+                ? attribute
+                : opt_value;
         if (isFunction(value)) {
             this.node[attribute] = value;
-        } else if (contain(attribute, 'data-') && isObject(value)) {
+        } else if (
+            contain(attribute, 'data-') &&
+            !isString(value) &&
+            !isInfinity(value)
+        ) {
             this.node.setAttribute(attribute, JSON.stringify(value));
         } else {
             this.node.setAttribute(attribute, value as string);
@@ -215,9 +222,9 @@ export class Item<T extends HTMLElement = HTMLElement> {
             data &&
             (eq(data[0], '"') || eq(data[0], '[') || eq(data[0], '{'))
         ) {
-            return JSON.parse(data) || null;
+            return JSON.parse(data);
         }
-        return typeCast(data || null);
+        return typeCast(data);
     }
     /**
      * @param {string} attribute
@@ -495,7 +502,7 @@ export class Item<T extends HTMLElement = HTMLElement> {
     setData(name: string, value: any): void {
         if (!this.isEmpty()) {
             let data = value;
-            if (!isString(value)) {
+            if (!isString(value) && !isInfinity(value)) {
                 data = JSON.stringify(value);
             }
             this.node.dataset[name] = data;
@@ -507,7 +514,10 @@ export class Item<T extends HTMLElement = HTMLElement> {
      */
     getData(name: string): any {
         let data = this.node.dataset[name];
-        if (data && (eq(data[0], '[') || eq(data[0], '{'))) {
+        if (
+            data &&
+            (eq(data[0], '"') || eq(data[0], '[') || eq(data[0], '{'))
+        ) {
             data = JSON.parse(data);
         }
         return typeCast(data);
