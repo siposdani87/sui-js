@@ -14,7 +14,6 @@ custom_edit_url: null
 - [BaseCheckboxField](classes/BaseCheckboxField.md)
 - [BaseField](classes/BaseField.md)
 - [BaseModal](classes/BaseModal.md)
-- [BaseTest](classes/BaseTest.md)
 - [BottomMenu](classes/BottomMenu.md)
 - [Browser](classes/Browser.md)
 - [Button](classes/Button.md)

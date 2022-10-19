@@ -1,5 +1,4 @@
 import { PopupContainer } from './popupContainer';
-import { TestRunner } from './testRunner';
 import { Module } from '../core/module';
 import { Objekt } from '../core/objekt';
 import { Query } from '../core/query';
@@ -549,8 +548,6 @@ export class Application {
         }
         else {
             console.info('%cApplication run in development environment...', `font-weight:bold;color:${this.options.theme_color};`);
-            const testRunner = new TestRunner();
-            testRunner.run();
         }
         this._module.handleRoutes(routes, this._routeOptions);
         this._module.handleServices(services);

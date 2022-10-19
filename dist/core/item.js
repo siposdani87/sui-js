@@ -1,4 +1,4 @@
-import { contain, each, eachArray, eq, isArray, isFunction, isObject, isString, isUndefined, noop, typeCast, } from '../utils/operation';
+import { contain, each, eachArray, eq, isArray, isFunction, isInfinity, isString, isUndefined, noop, typeCast, } from '../utils/operation';
 import { consoleWarn } from '../utils/log';
 /**
  * @class
@@ -159,11 +159,15 @@ export class Item {
      * @return {undefined}
      */
     setAttribute(attribute, opt_value) {
-        const value = isUndefined(opt_value) ? attribute : opt_value;
+        const value = !contain(attribute, 'data-') && isUndefined(opt_value)
+            ? attribute
+            : opt_value;
         if (isFunction(value)) {
             this.node[attribute] = value;
         }
-        else if (contain(attribute, 'data-') && isObject(value)) {
+        else if (contain(attribute, 'data-') &&
+            !isString(value) &&
+            !isInfinity(value)) {
             this.node.setAttribute(attribute, JSON.stringify(value));
         }
         else {
@@ -179,9 +183,9 @@ export class Item {
         if (contain(attribute, 'data-') &&
             data &&
             (eq(data[0], '"') || eq(data[0], '[') || eq(data[0], '{'))) {
-            return JSON.parse(data) || null;
+            return JSON.parse(data);
         }
-        return typeCast(data || null);
+        return typeCast(data);
     }
     /**
      * @param {string} attribute
@@ -448,7 +452,7 @@ export class Item {
     setData(name, value) {
         if (!this.isEmpty()) {
             let data = value;
-            if (!isString(value)) {
+            if (!isString(value) && !isInfinity(value)) {
                 data = JSON.stringify(value);
             }
             this.node.dataset[name] = data;
@@ -460,7 +464,8 @@ export class Item {
      */
     getData(name) {
         let data = this.node.dataset[name];
-        if (data && (eq(data[0], '[') || eq(data[0], '{'))) {
+        if (data &&
+            (eq(data[0], '"') || eq(data[0], '[') || eq(data[0], '{'))) {
             data = JSON.parse(data);
         }
         return typeCast(data);

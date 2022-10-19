@@ -160,6 +160,11 @@ export const isNull = (value) => value === null;
  * @param {*} value
  * @return {boolean}
  */
+export const isInfinity = (value) => value === Infinity;
+/**
+ * @param {*} value
+ * @return {boolean}
+ */
 export const isUndefined = (value) => is(value, 'undefined');
 /**
  * @param {*} value
