@@ -21,7 +21,7 @@ custom_edit_url: null
 
 #### Defined in
 
-[component/calendar.ts:43](https://github.com/siposdani87/sui-js/blob/8fe9546/src/component/calendar.ts#L43)
+[component/calendar.ts:43](https://github.com/siposdani87/sui-js/blob/8315555/src/component/calendar.ts#L43)
 
 ## Properties
 
@@ -31,7 +31,7 @@ custom_edit_url: null
 
 #### Defined in
 
-[component/calendar.ts:19](https://github.com/siposdani87/sui-js/blob/8fe9546/src/component/calendar.ts#L19)
+[component/calendar.ts:19](https://github.com/siposdani87/sui-js/blob/8315555/src/component/calendar.ts#L19)
 
 ___
 
@@ -41,7 +41,7 @@ ___
 
 #### Defined in
 
-[component/calendar.ts:13](https://github.com/siposdani87/sui-js/blob/8fe9546/src/component/calendar.ts#L13)
+[component/calendar.ts:13](https://github.com/siposdani87/sui-js/blob/8315555/src/component/calendar.ts#L13)
 
 ___
 
@@ -51,7 +51,7 @@ ___
 
 #### Defined in
 
-[component/calendar.ts:29](https://github.com/siposdani87/sui-js/blob/8fe9546/src/component/calendar.ts#L29)
+[component/calendar.ts:29](https://github.com/siposdani87/sui-js/blob/8315555/src/component/calendar.ts#L29)
 
 ___
 
@@ -67,7 +67,7 @@ ___
 
 #### Defined in
 
-[component/calendar.ts:35](https://github.com/siposdani87/sui-js/blob/8fe9546/src/component/calendar.ts#L35)
+[component/calendar.ts:35](https://github.com/siposdani87/sui-js/blob/8315555/src/component/calendar.ts#L35)
 
 ___
 
@@ -77,7 +77,7 @@ ___
 
 #### Defined in
 
-[component/calendar.ts:28](https://github.com/siposdani87/sui-js/blob/8fe9546/src/component/calendar.ts#L28)
+[component/calendar.ts:28](https://github.com/siposdani87/sui-js/blob/8315555/src/component/calendar.ts#L28)
 
 ___
 
@@ -87,7 +87,7 @@ ___
 
 #### Defined in
 
-[component/calendar.ts:37](https://github.com/siposdani87/sui-js/blob/8fe9546/src/component/calendar.ts#L37)
+[component/calendar.ts:37](https://github.com/siposdani87/sui-js/blob/8315555/src/component/calendar.ts#L37)
 
 ___
 
@@ -97,7 +97,7 @@ ___
 
 #### Defined in
 
-[component/calendar.ts:33](https://github.com/siposdani87/sui-js/blob/8fe9546/src/component/calendar.ts#L33)
+[component/calendar.ts:33](https://github.com/siposdani87/sui-js/blob/8315555/src/component/calendar.ts#L33)
 
 ___
 
@@ -107,7 +107,7 @@ ___
 
 #### Defined in
 
-[component/calendar.ts:27](https://github.com/siposdani87/sui-js/blob/8fe9546/src/component/calendar.ts#L27)
+[component/calendar.ts:27](https://github.com/siposdani87/sui-js/blob/8315555/src/component/calendar.ts#L27)
 
 ___
 
@@ -117,7 +117,7 @@ ___
 
 #### Defined in
 
-[component/calendar.ts:15](https://github.com/siposdani87/sui-js/blob/8fe9546/src/component/calendar.ts#L15)
+[component/calendar.ts:15](https://github.com/siposdani87/sui-js/blob/8315555/src/component/calendar.ts#L15)
 
 ___
 
@@ -127,7 +127,7 @@ ___
 
 #### Defined in
 
-[component/calendar.ts:16](https://github.com/siposdani87/sui-js/blob/8fe9546/src/component/calendar.ts#L16)
+[component/calendar.ts:16](https://github.com/siposdani87/sui-js/blob/8315555/src/component/calendar.ts#L16)
 
 ___
 
@@ -137,7 +137,7 @@ ___
 
 #### Defined in
 
-[component/calendar.ts:17](https://github.com/siposdani87/sui-js/blob/8fe9546/src/component/calendar.ts#L17)
+[component/calendar.ts:17](https://github.com/siposdani87/sui-js/blob/8315555/src/component/calendar.ts#L17)
 
 ___
 
@@ -147,7 +147,7 @@ ___
 
 #### Defined in
 
-[component/calendar.ts:18](https://github.com/siposdani87/sui-js/blob/8fe9546/src/component/calendar.ts#L18)
+[component/calendar.ts:18](https://github.com/siposdani87/sui-js/blob/8315555/src/component/calendar.ts#L18)
 
 ___
 
@@ -157,7 +157,7 @@ ___
 
 #### Defined in
 
-[component/calendar.ts:31](https://github.com/siposdani87/sui-js/blob/8fe9546/src/component/calendar.ts#L31)
+[component/calendar.ts:31](https://github.com/siposdani87/sui-js/blob/8315555/src/component/calendar.ts#L31)
 
 ___
 
@@ -175,7 +175,7 @@ ___
 
 #### Defined in
 
-[component/calendar.ts:36](https://github.com/siposdani87/sui-js/blob/8fe9546/src/component/calendar.ts#L36)
+[component/calendar.ts:36](https://github.com/siposdani87/sui-js/blob/8315555/src/component/calendar.ts#L36)
 
 ___
 
@@ -185,7 +185,7 @@ ___
 
 #### Defined in
 
-[component/calendar.ts:14](https://github.com/siposdani87/sui-js/blob/8fe9546/src/component/calendar.ts#L14)
+[component/calendar.ts:14](https://github.com/siposdani87/sui-js/blob/8315555/src/component/calendar.ts#L14)
 
 ___
 
@@ -203,7 +203,7 @@ ___
 
 #### Defined in
 
-[component/calendar.ts:34](https://github.com/siposdani87/sui-js/blob/8fe9546/src/component/calendar.ts#L34)
+[component/calendar.ts:34](https://github.com/siposdani87/sui-js/blob/8315555/src/component/calendar.ts#L34)
 
 ___
 
@@ -213,7 +213,7 @@ ___
 
 #### Defined in
 
-[component/calendar.ts:38](https://github.com/siposdani87/sui-js/blob/8fe9546/src/component/calendar.ts#L38)
+[component/calendar.ts:38](https://github.com/siposdani87/sui-js/blob/8315555/src/component/calendar.ts#L38)
 
 ___
 
@@ -233,7 +233,7 @@ ___
 
 #### Defined in
 
-[component/calendar.ts:20](https://github.com/siposdani87/sui-js/blob/8fe9546/src/component/calendar.ts#L20)
+[component/calendar.ts:20](https://github.com/siposdani87/sui-js/blob/8315555/src/component/calendar.ts#L20)
 
 ___
 
@@ -243,7 +243,7 @@ ___
 
 #### Defined in
 
-[component/calendar.ts:32](https://github.com/siposdani87/sui-js/blob/8fe9546/src/component/calendar.ts#L32)
+[component/calendar.ts:32](https://github.com/siposdani87/sui-js/blob/8315555/src/component/calendar.ts#L32)
 
 ___
 
@@ -253,7 +253,7 @@ ___
 
 #### Defined in
 
-[component/calendar.ts:30](https://github.com/siposdani87/sui-js/blob/8fe9546/src/component/calendar.ts#L30)
+[component/calendar.ts:30](https://github.com/siposdani87/sui-js/blob/8315555/src/component/calendar.ts#L30)
 
 ## Methods
 
@@ -273,7 +273,7 @@ ___
 
 #### Defined in
 
-[component/calendar.ts:150](https://github.com/siposdani87/sui-js/blob/8fe9546/src/component/calendar.ts#L150)
+[component/calendar.ts:150](https://github.com/siposdani87/sui-js/blob/8315555/src/component/calendar.ts#L150)
 
 ___
 
@@ -287,7 +287,7 @@ ___
 
 #### Defined in
 
-[component/calendar.ts:421](https://github.com/siposdani87/sui-js/blob/8fe9546/src/component/calendar.ts#L421)
+[component/calendar.ts:421](https://github.com/siposdani87/sui-js/blob/8315555/src/component/calendar.ts#L421)
 
 ___
 
@@ -301,7 +301,7 @@ ___
 
 #### Defined in
 
-[component/calendar.ts:332](https://github.com/siposdani87/sui-js/blob/8fe9546/src/component/calendar.ts#L332)
+[component/calendar.ts:332](https://github.com/siposdani87/sui-js/blob/8315555/src/component/calendar.ts#L332)
 
 ___
 
@@ -321,7 +321,7 @@ ___
 
 #### Defined in
 
-[component/calendar.ts:358](https://github.com/siposdani87/sui-js/blob/8fe9546/src/component/calendar.ts#L358)
+[component/calendar.ts:358](https://github.com/siposdani87/sui-js/blob/8315555/src/component/calendar.ts#L358)
 
 ___
 
@@ -335,7 +335,7 @@ ___
 
 #### Defined in
 
-[component/calendar.ts:367](https://github.com/siposdani87/sui-js/blob/8fe9546/src/component/calendar.ts#L367)
+[component/calendar.ts:367](https://github.com/siposdani87/sui-js/blob/8315555/src/component/calendar.ts#L367)
 
 ___
 
@@ -349,7 +349,7 @@ ___
 
 #### Defined in
 
-[component/calendar.ts:341](https://github.com/siposdani87/sui-js/blob/8fe9546/src/component/calendar.ts#L341)
+[component/calendar.ts:341](https://github.com/siposdani87/sui-js/blob/8315555/src/component/calendar.ts#L341)
 
 ___
 
@@ -363,7 +363,7 @@ ___
 
 #### Defined in
 
-[component/calendar.ts:404](https://github.com/siposdani87/sui-js/blob/8fe9546/src/component/calendar.ts#L404)
+[component/calendar.ts:404](https://github.com/siposdani87/sui-js/blob/8315555/src/component/calendar.ts#L404)
 
 ___
 
@@ -377,7 +377,7 @@ ___
 
 #### Defined in
 
-[component/calendar.ts:384](https://github.com/siposdani87/sui-js/blob/8fe9546/src/component/calendar.ts#L384)
+[component/calendar.ts:384](https://github.com/siposdani87/sui-js/blob/8315555/src/component/calendar.ts#L384)
 
 ___
 
@@ -391,7 +391,7 @@ ___
 
 #### Defined in
 
-[component/calendar.ts:349](https://github.com/siposdani87/sui-js/blob/8fe9546/src/component/calendar.ts#L349)
+[component/calendar.ts:349](https://github.com/siposdani87/sui-js/blob/8315555/src/component/calendar.ts#L349)
 
 ___
 
@@ -411,7 +411,7 @@ ___
 
 #### Defined in
 
-[component/calendar.ts:159](https://github.com/siposdani87/sui-js/blob/8fe9546/src/component/calendar.ts#L159)
+[component/calendar.ts:159](https://github.com/siposdani87/sui-js/blob/8315555/src/component/calendar.ts#L159)
 
 ___
 
@@ -425,7 +425,7 @@ ___
 
 #### Defined in
 
-[component/calendar.ts:60](https://github.com/siposdani87/sui-js/blob/8fe9546/src/component/calendar.ts#L60)
+[component/calendar.ts:60](https://github.com/siposdani87/sui-js/blob/8315555/src/component/calendar.ts#L60)
 
 ___
 
@@ -439,7 +439,7 @@ ___
 
 #### Defined in
 
-[component/calendar.ts:140](https://github.com/siposdani87/sui-js/blob/8fe9546/src/component/calendar.ts#L140)
+[component/calendar.ts:140](https://github.com/siposdani87/sui-js/blob/8315555/src/component/calendar.ts#L140)
 
 ___
 
@@ -453,7 +453,7 @@ ___
 
 #### Defined in
 
-[component/calendar.ts:231](https://github.com/siposdani87/sui-js/blob/8fe9546/src/component/calendar.ts#L231)
+[component/calendar.ts:231](https://github.com/siposdani87/sui-js/blob/8315555/src/component/calendar.ts#L231)
 
 ___
 
@@ -467,7 +467,7 @@ ___
 
 #### Defined in
 
-[component/calendar.ts:93](https://github.com/siposdani87/sui-js/blob/8fe9546/src/component/calendar.ts#L93)
+[component/calendar.ts:93](https://github.com/siposdani87/sui-js/blob/8315555/src/component/calendar.ts#L93)
 
 ___
 
@@ -487,7 +487,7 @@ ___
 
 #### Defined in
 
-[component/calendar.ts:200](https://github.com/siposdani87/sui-js/blob/8fe9546/src/component/calendar.ts#L200)
+[component/calendar.ts:200](https://github.com/siposdani87/sui-js/blob/8315555/src/component/calendar.ts#L200)
 
 ___
 
@@ -501,7 +501,7 @@ ___
 
 #### Defined in
 
-[component/calendar.ts:222](https://github.com/siposdani87/sui-js/blob/8fe9546/src/component/calendar.ts#L222)
+[component/calendar.ts:222](https://github.com/siposdani87/sui-js/blob/8315555/src/component/calendar.ts#L222)
 
 ___
 
@@ -515,7 +515,7 @@ ___
 
 #### Defined in
 
-[component/calendar.ts:80](https://github.com/siposdani87/sui-js/blob/8fe9546/src/component/calendar.ts#L80)
+[component/calendar.ts:80](https://github.com/siposdani87/sui-js/blob/8315555/src/component/calendar.ts#L80)
 
 ___
 
@@ -529,7 +529,7 @@ ___
 
 #### Defined in
 
-[component/calendar.ts:213](https://github.com/siposdani87/sui-js/blob/8fe9546/src/component/calendar.ts#L213)
+[component/calendar.ts:213](https://github.com/siposdani87/sui-js/blob/8315555/src/component/calendar.ts#L213)
 
 ___
 
@@ -543,7 +543,7 @@ ___
 
 #### Defined in
 
-[component/calendar.ts:267](https://github.com/siposdani87/sui-js/blob/8fe9546/src/component/calendar.ts#L267)
+[component/calendar.ts:267](https://github.com/siposdani87/sui-js/blob/8315555/src/component/calendar.ts#L267)
 
 ___
 
@@ -563,7 +563,7 @@ ___
 
 #### Defined in
 
-[component/calendar.ts:502](https://github.com/siposdani87/sui-js/blob/8fe9546/src/component/calendar.ts#L502)
+[component/calendar.ts:502](https://github.com/siposdani87/sui-js/blob/8315555/src/component/calendar.ts#L502)
 
 ___
 
@@ -577,7 +577,7 @@ ___
 
 #### Defined in
 
-[component/calendar.ts:244](https://github.com/siposdani87/sui-js/blob/8fe9546/src/component/calendar.ts#L244)
+[component/calendar.ts:244](https://github.com/siposdani87/sui-js/blob/8315555/src/component/calendar.ts#L244)
 
 ___
 
@@ -591,7 +591,7 @@ ___
 
 #### Defined in
 
-[component/calendar.ts:449](https://github.com/siposdani87/sui-js/blob/8fe9546/src/component/calendar.ts#L449)
+[component/calendar.ts:449](https://github.com/siposdani87/sui-js/blob/8315555/src/component/calendar.ts#L449)
 
 ___
 
@@ -611,7 +611,7 @@ ___
 
 #### Defined in
 
-[component/calendar.ts:287](https://github.com/siposdani87/sui-js/blob/8fe9546/src/component/calendar.ts#L287)
+[component/calendar.ts:287](https://github.com/siposdani87/sui-js/blob/8315555/src/component/calendar.ts#L287)
 
 ___
 
@@ -631,7 +631,7 @@ ___
 
 #### Defined in
 
-[component/calendar.ts:480](https://github.com/siposdani87/sui-js/blob/8fe9546/src/component/calendar.ts#L480)
+[component/calendar.ts:480](https://github.com/siposdani87/sui-js/blob/8315555/src/component/calendar.ts#L480)
 
 ___
 
@@ -645,7 +645,7 @@ ___
 
 #### Defined in
 
-[component/calendar.ts:464](https://github.com/siposdani87/sui-js/blob/8fe9546/src/component/calendar.ts#L464)
+[component/calendar.ts:464](https://github.com/siposdani87/sui-js/blob/8315555/src/component/calendar.ts#L464)
 
 ___
 
@@ -665,7 +665,7 @@ ___
 
 #### Defined in
 
-[component/calendar.ts:53](https://github.com/siposdani87/sui-js/blob/8fe9546/src/component/calendar.ts#L53)
+[component/calendar.ts:53](https://github.com/siposdani87/sui-js/blob/8315555/src/component/calendar.ts#L53)
 
 ___
 
@@ -679,7 +679,7 @@ ___
 
 #### Defined in
 
-[component/calendar.ts:433](https://github.com/siposdani87/sui-js/blob/8fe9546/src/component/calendar.ts#L433)
+[component/calendar.ts:433](https://github.com/siposdani87/sui-js/blob/8315555/src/component/calendar.ts#L433)
 
 ___
 
@@ -699,7 +699,7 @@ ___
 
 #### Defined in
 
-[component/calendar.ts:517](https://github.com/siposdani87/sui-js/blob/8fe9546/src/component/calendar.ts#L517)
+[component/calendar.ts:517](https://github.com/siposdani87/sui-js/blob/8315555/src/component/calendar.ts#L517)
 
 ___
 
@@ -719,7 +719,7 @@ ___
 
 #### Defined in
 
-[component/calendar.ts:299](https://github.com/siposdani87/sui-js/blob/8fe9546/src/component/calendar.ts#L299)
+[component/calendar.ts:299](https://github.com/siposdani87/sui-js/blob/8315555/src/component/calendar.ts#L299)
 
 ___
 
@@ -741,7 +741,7 @@ ___
 
 #### Defined in
 
-[component/calendar.ts:174](https://github.com/siposdani87/sui-js/blob/8fe9546/src/component/calendar.ts#L174)
+[component/calendar.ts:174](https://github.com/siposdani87/sui-js/blob/8315555/src/component/calendar.ts#L174)
 
 ___
 
@@ -755,7 +755,7 @@ ___
 
 #### Defined in
 
-[component/calendar.ts:321](https://github.com/siposdani87/sui-js/blob/8fe9546/src/component/calendar.ts#L321)
+[component/calendar.ts:321](https://github.com/siposdani87/sui-js/blob/8315555/src/component/calendar.ts#L321)
 
 ___
 
@@ -775,4 +775,4 @@ ___
 
 #### Defined in
 
-[component/calendar.ts:524](https://github.com/siposdani87/sui-js/blob/8fe9546/src/component/calendar.ts#L524)
+[component/calendar.ts:524](https://github.com/siposdani87/sui-js/blob/8315555/src/component/calendar.ts#L524)

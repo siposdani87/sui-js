@@ -13,17 +13,18 @@ It is production ready framework, I use it on my hobby project [TrophyMap](https
 
 There are many built-in features like:
 
+- controllers and services DI injections
 - storage handlers
-- form and fields with errors
+- form and input fields with errors
 - route and states
 - event management
 - life-cycle hooks
 - http requests
-- UI components (navigation, toolbar, footer, layout, sidebar, modal, card, table, tabs, buttons, basic materialUI)
+- UI components (navigation, toolbar, footer, layout, leftMenu, modal, card, table, tabs, buttons, basic materialUI)
 - dynamic assets loading
-- light/dark theme and customized color paletta
+- light/dark theme and customized color palette
 
-The legacy version of SUI-JS was written in Vanilla JavaScript. It is documented and annotated with JSDoc, these options were need to Google Closure Compiler - Advanced compilation, so the next image shows you minfied version of this js bundle.
+The legacy version of SUI-JS was written in Vanilla JavaScript. It is documented and annotated with JSDoc, these options were needed to Google Closure Compiler - Advanced compilation, so the next image shows you minfied version of this JS bundle.
 
 ![SUI-JS minified](./sui-js.png)
 

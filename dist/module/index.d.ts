@@ -19,7 +19,6 @@ export * from './progressBar';
 export * from './scheduler';
 export * from './script';
 export * from './serviceWorker';
-export * from './sidebar';
 export * from './storage';
 export * from './style';
 export * from './template';
