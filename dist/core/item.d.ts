@@ -89,7 +89,7 @@ export declare class Item<T extends HTMLElement = HTMLElement> {
      * @param {!Object|!Function|!Array|boolean|number|string|null|undefined=} opt_value
      * @return {undefined}
      */
-    setAttribute(attribute: string, opt_value?: (object | Function | Array<any> | boolean | number | string | null | undefined) | undefined): void;
+    setAttribute(attribute: string, opt_value?: (Object | Function | Array<any> | boolean | number | string | null | undefined) | undefined): void;
     /**
      * @param {string} attribute
      * @return {*}

@@ -16,7 +16,7 @@ export declare const merge: (objA: Object, objB: Object) => Object | undefined;
  * @param {string=} opt_postfix
  * @return {string}
  */
-export declare const format: (str: string, opt_params?: object | Array<any> | null | undefined, opt_prefix?: string | undefined, opt_postfix?: string | undefined) => string;
+export declare const format: (str: string, opt_params?: Object | Array<any> | null | undefined, opt_prefix?: string | undefined, opt_postfix?: string | undefined) => string;
 /**
  * @param {*=} opt_result
  * @return {!Function}
@@ -107,6 +107,11 @@ export declare const isNull: (value: any) => boolean;
  * @param {*} value
  * @return {boolean}
  */
+export declare const isInfinity: (value: any) => boolean;
+/**
+ * @param {*} value
+ * @return {boolean}
+ */
 export declare const isUndefined: (value: any) => boolean;
 /**
  * @param {*} value
@@ -127,7 +132,7 @@ export declare const instanceOf: (value: any, obj: Object) => boolean;
  * @param {number=} opt_end
  * @return {undefined}
  */
-export declare const each: (items: Array<any> | object, next: Function, opt_start?: number, opt_end?: number) => void;
+export declare const each: (items: Array<any> | Object, next: Function, opt_start?: number, opt_end?: number) => void;
 /**
  * @param {!Array} items
  * @param {!Function} next
@@ -141,7 +146,7 @@ export declare const eachArray: (items: Array<any>, next: Function, opt_start?: 
  * @param {!Function} next
  * @return {undefined}
  */
-export declare const eachObject: (object: object, next: Function) => void;
+export declare const eachObject: (object: Object, next: Function) => void;
 /**
  * @param {function(number):undefined} next
  * @param {number} i
