@@ -53,7 +53,7 @@ export const merge = (objA: Object, objB: Object): Object | undefined => {
  */
 export const format = (
     str: string,
-    opt_params: object | Array<any> | null | undefined = null,
+    opt_params: Object | Array<any> | null | undefined = null,
     opt_prefix: string | undefined = '\\{',
     opt_postfix: string | undefined = '\\}',
 ): string => {
@@ -180,6 +180,12 @@ export const isNull = (value: any): boolean => value === null;
  * @param {*} value
  * @return {boolean}
  */
+export const isInfinity = (value: any): boolean => value === Infinity;
+
+/**
+ * @param {*} value
+ * @return {boolean}
+ */
 export const isUndefined = (value: any): boolean => is(value, 'undefined');
 
 /**
@@ -205,7 +211,7 @@ export const instanceOf = (value: any, obj: Object): boolean =>
  * @return {undefined}
  */
 export const each = (
-    items: Array<any> | object,
+    items: Array<any> | Object,
     next: Function,
     opt_start?: number,
     opt_end?: number,
@@ -242,7 +248,7 @@ export const eachArray = (
  * @param {!Function} next
  * @return {undefined}
  */
-export const eachObject = (object: object, next: Function): void => {
+export const eachObject = (object: Object, next: Function): void => {
     for (const key in object) {
         if (object.hasOwnProperty(key)) {
             next(object[key], key);
