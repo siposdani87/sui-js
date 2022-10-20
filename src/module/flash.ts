@@ -270,18 +270,16 @@ export class Flash {
      * @return {!Knot|null}
      */
     addMessage(
-        message: { type: string; content: string; closable: boolean },
+        message: { type: string; content: string; closable?: boolean },
         opt_duration: number | undefined = 0,
         opt_closeCallback: (Function | null) | undefined = null,
         opt_id: string | undefined = '',
     ): Knot | null {
         if (isObject(message)) {
-            const closeCallback = message['closable']
-                ? noop
-                : opt_closeCallback;
+            const closeCallback = message.closable ? noop : opt_closeCallback;
             return this._add(
-                message['type'],
-                message['content'],
+                message.type,
+                message.content,
                 opt_duration,
                 closeCallback,
                 opt_id,

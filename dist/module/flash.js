@@ -182,10 +182,8 @@ export class Flash {
      */
     addMessage(message, opt_duration = 0, opt_closeCallback = null, opt_id = '') {
         if (isObject(message)) {
-            const closeCallback = message['closable']
-                ? noop
-                : opt_closeCallback;
-            return this._add(message['type'], message['content'], opt_duration, closeCallback, opt_id);
+            const closeCallback = message.closable ? noop : opt_closeCallback;
+            return this._add(message.type, message.content, opt_duration, closeCallback, opt_id);
         }
         return null;
     }

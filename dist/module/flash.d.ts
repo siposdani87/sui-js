@@ -103,7 +103,7 @@ export declare class Flash {
     addMessage(message: {
         type: string;
         content: string;
-        closable: boolean;
+        closable?: boolean;
     }, opt_duration?: number | undefined, opt_closeCallback?: (Function | null) | undefined, opt_id?: string | undefined): Knot | null;
     /**
      * @param {string} message

@@ -7,11 +7,11 @@ import { ClassRef, Dependency, Injection, Instance } from '../utils';
  * @class
  */
 export declare class Module {
+    _instances: Instance;
+    _injections: Injection;
     _modules: {
         [key: string]: Dependency;
     };
-    _instances: Instance;
-    _injections: Injection;
     _controller: any;
     /**
      */

@@ -11,8 +11,6 @@ export class Module {
      */
     constructor() {
         this._modules = {};
-        this._instances = {};
-        this._injections = {};
         this._controller = {
             enter: noop(),
             exit: noop(),
@@ -147,7 +145,7 @@ export class Module {
         const async = new Async();
         async.serial(calls).then(() => {
             this.eventServiceLoaded();
-            this._instances[this._injections.state].run();
+            this._instances.state.run();
         }, () => {
             this.eventServiceFailed();
         });
@@ -158,8 +156,8 @@ export class Module {
      * @return {undefined}
      */
     handleRoutes(routes, options) {
-        this._instances[this._injections.state] = new State(routes, options);
-        this._instances[this._injections.state].eventChange = (currentState, previousState, force) => {
+        this._instances.state = new State(routes, options);
+        this._instances.state.eventChange = (currentState, previousState, force) => {
             let exit = noop();
             if (!previousState.isEmpty() &&
                 isObject(this._controller) &&
@@ -182,9 +180,7 @@ export class Module {
             const template = currentState.get('template');
             if (template) {
                 const templateUrl = currentState.get('templateUrl');
-                this._instances[this._injections.template]
-                    .load(templateUrl, opt_force)
-                    .then((dom) => {
+                this._instances.template.load(templateUrl, opt_force).then((dom) => {
                     this.eventModuleLoaded(currentState);
                     this._initController(currentState, dom);
                 }, () => {
@@ -206,7 +202,7 @@ export class Module {
      * @return {undefined}
      */
     _initController(state, dom) {
-        this._instances[this._injections.dom] = dom;
+        this._instances.dom = dom;
         const controller = this._modules[state.get('controller')];
         if (controller) {
             this.eventDomChange(state, dom).then(() => {

@@ -45,5 +45,8 @@ export declare class Template {
      * @param {!Object} message
      * @return {undefined}
      */
-    eventError(message: Object): void;
+    eventError(message: {
+        type: string;
+        content: string;
+    }): void;
 }
