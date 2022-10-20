@@ -129,7 +129,7 @@ export declare class Application {
      * @private
      * @return {undefined}
      */
-    private _initEvent;
+    private _initEventBus;
     /**
      * @private
      * @return {undefined}

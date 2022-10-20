@@ -7,7 +7,7 @@ export declare const setReleaseMode: (mode: boolean) => void;
 export declare const coreResources: {
     app: string;
     config: string;
-    event: string;
+    eventBus: string;
     scheduler: string;
     http: string;
     flash: string;

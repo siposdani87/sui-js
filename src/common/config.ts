@@ -11,7 +11,7 @@ export const setReleaseMode = (mode: boolean): void => {
 export const coreResources = {
     app: 'app',
     config: 'config',
-    event: 'event',
+    eventBus: 'eventBus',
     scheduler: 'scheduler',
     http: 'http',
     flash: 'flash',

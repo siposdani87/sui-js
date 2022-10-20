@@ -9,7 +9,7 @@ export const setReleaseMode = (mode) => {
 export const coreResources = {
     app: 'app',
     config: 'config',
-    event: 'event',
+    eventBus: 'eventBus',
     scheduler: 'scheduler',
     http: 'http',
     flash: 'flash',
