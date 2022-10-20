@@ -6,7 +6,7 @@ describe('urlField', () => {
     it('should be instance of UrlField', () => {
         const inputBlock = new Query<HTMLElement>(
             '.input-block.field-url',
-        ).getItem();
+        ).getKnot();
         const { input, label, error } = parseInputBlock(inputBlock);
         const urlField = new UrlField(input, label, error, inputBlock);
 

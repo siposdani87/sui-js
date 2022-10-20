@@ -3,30 +3,30 @@ import { Async } from '../core/async';
 import { Deferred } from '../core/deferred';
 import { Query } from '../core/query';
 import { consoleWarn } from '../utils/log';
-import { Item, Promize } from '../core';
+import { Knot, Promize } from '../core';
 
 /**
  * @class
  */
 export class TabPanel {
-    tabPanel: Item;
+    tabPanel: Knot;
     options: { selected_tab: string; default_tab: string };
     activeTab: string;
     tabs: Query;
     panels: Query;
     /**
-     * @param {!Item} dom
+     * @param {!Knot} dom
      * @param {string=} opt_selector
      * @param {string=} opt_selectedTab
      * @param {string=} opt_defaultTab
      */
     constructor(
-        dom: Item,
+        dom: Knot,
         opt_selector: string | undefined = '.tab-panel',
         opt_selectedTab: string | undefined = '',
         opt_defaultTab: string | undefined = '',
     ) {
-        this.tabPanel = new Query(opt_selector, dom).getItem();
+        this.tabPanel = new Query(opt_selector, dom).getKnot();
         this.options = {
             selected_tab: opt_selectedTab,
             default_tab: opt_defaultTab || opt_selectedTab,

@@ -6,7 +6,7 @@ describe('checkboxField', () => {
     it('should be instance of CheckboxField', () => {
         const inputBlock = new Query<HTMLElement>(
             '.input-block.field-checkbox',
-        ).getItem();
+        ).getKnot();
         const { input, label, error } = parseInputBlock(inputBlock);
         const checkboxField = new CheckboxField(
             input,

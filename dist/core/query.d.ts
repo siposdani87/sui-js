@@ -1,18 +1,18 @@
 import { Collection } from './collection';
-import { Item } from './item';
+import { Knot } from './knot';
 /**
  * @class
  * @extends {Collection}
  * @template T
  */
-export declare class Query<T extends HTMLElement = HTMLElement> extends Collection<Item<T>> {
+export declare class Query<T extends HTMLElement = HTMLElement> extends Collection<Knot<T>> {
     /**
      * @param {string} selector
-     * @param {!HTMLElement|!Item=} opt_element
+     * @param {!HTMLElement|!Knot=} opt_element
      */
-    constructor(selector: string, opt_element?: HTMLElement | Item);
+    constructor(selector: string, opt_element?: HTMLElement | Knot);
     /**
-     * @return {!Item}
+     * @return {!Knot}
      */
-    getItem(): Item<T>;
+    getKnot(): Knot<T>;
 }

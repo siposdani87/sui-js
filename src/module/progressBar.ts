@@ -4,7 +4,7 @@ import { Objekt } from '../core/objekt';
 import { Query } from '../core/query';
 import { Dialog } from './dialog';
 import { Confirm } from './confirm';
-import { Item } from '../core';
+import { Knot } from '../core';
 
 /**
  * @typedef {{setProgress: function(number): undefined, setBuffer: function(number): undefined}} ProcessBar
@@ -21,10 +21,10 @@ export class ProgressBar {
     dialog: Dialog;
     confirm: Confirm;
     options: Objekt;
-    progressBarContainer: Item;
-    progressBarHeader: Item;
-    progressBarDialog: Item;
-    progressBarConfirm: Item;
+    progressBarContainer: Knot;
+    progressBarHeader: Knot;
+    progressBarDialog: Knot;
+    progressBarConfirm: Knot;
     async: Async;
     mProgressContainer: ProcessBar;
     mProgressHeader: ProcessBar;
@@ -68,14 +68,14 @@ export class ProgressBar {
     private _init(): void {
         this.progressBarContainer = new Query(
             '.main-container > .progress-bar',
-        ).getItem();
-        this.progressBarHeader = new Query('#header > .progress-bar').getItem();
+        ).getKnot();
+        this.progressBarHeader = new Query('#header > .progress-bar').getKnot();
         this.progressBarDialog = new Query(
             '#dialog-window > .progress-bar',
-        ).getItem();
+        ).getKnot();
         this.progressBarConfirm = new Query(
             '#confirm-window > .progress-bar',
-        ).getItem();
+        ).getKnot();
 
         this.async = new Async(4);
         this.async.eventComplete = (_isError, nodes) => {
@@ -115,10 +115,10 @@ export class ProgressBar {
     }
     /**
      * @private
-     * @param {!Item} node
+     * @param {!Knot} node
      * @return {!ProcessBar}
      */
-    private _getProgressBar(node: Item): ProcessBar {
+    private _getProgressBar(node: Knot): ProcessBar {
         node.addClass('mdl-js-progress');
 
         node.addEventListener('mdl-componentupgraded', (node) => {

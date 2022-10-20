@@ -1,5 +1,5 @@
 import { eq, typeCast } from '../utils/operation';
-import { Item } from '../core/item';
+import { Knot } from '../core/knot';
 import { Query } from '../core/query';
 import { Tooltip } from '../component/tooltip';
 import { consoleInfo, consoleWarn } from '../utils/log';
@@ -10,27 +10,27 @@ import { Form } from '../component';
  * @class
  */
 export class BaseField<T extends HTMLInputElement> {
-    input: Item<T>;
-    label: Item;
-    error: Item;
-    inputBlock: Item;
+    input: Knot<T>;
+    label: Knot;
+    error: Knot;
+    inputBlock: Knot;
     form?: Form;
     errorTooltip: Tooltip;
-    infoContainerNode: Item;
-    actionContainerNode: Item;
+    infoContainerNode: Knot;
+    actionContainerNode: Knot;
     disabled: boolean;
     /**
-     * @param {!Item} input
-     * @param {!Item=} opt_label
-     * @param {!Item=} opt_error
-     * @param {!Item=} opt_inputBlock
+     * @param {!Knot} input
+     * @param {!Knot=} opt_label
+     * @param {!Knot=} opt_error
+     * @param {!Knot=} opt_inputBlock
      * @param {!Form=} opt_form
      */
     constructor(
-        input: Item<T>,
-        opt_label?: Item | undefined,
-        opt_error?: Item | undefined,
-        opt_inputBlock?: Item | undefined,
+        input: Knot<T>,
+        opt_label?: Knot | undefined,
+        opt_error?: Knot | undefined,
+        opt_inputBlock?: Knot | undefined,
         opt_form?: Form | undefined,
     ) {
         this.input = input;
@@ -56,10 +56,10 @@ export class BaseField<T extends HTMLInputElement> {
         consoleInfo('BaseField.eventChange()', value, previousValue);
     }
     /**
-     * @param {!Item} node
+     * @param {!Knot} node
      * @return {undefined}
      */
-    eventClick(node: Item): void {
+    eventClick(node: Knot): void {
         consoleWarn('Button.eventClick()', node);
     }
     /**
@@ -174,9 +174,9 @@ export class BaseField<T extends HTMLInputElement> {
     }
     /**
      * @private
-     * @return {!Item}
+     * @return {!Knot}
      */
-    private _getUpgradedNode(): Item {
+    private _getUpgradedNode(): Knot {
         return this.inputBlock;
     }
     /**
@@ -310,9 +310,9 @@ export class BaseField<T extends HTMLInputElement> {
             this.infoContainerNode = new Query(
                 '.info-container',
                 this.inputBlock,
-            ).getItem();
+            ).getKnot();
             if (this.infoContainerNode.isEmpty()) {
-                this.infoContainerNode = new Item('div');
+                this.infoContainerNode = new Knot('div');
                 this.infoContainerNode.addClass(['info-container']);
                 this.inputBlock.appendChild(this.infoContainerNode);
             }
@@ -327,9 +327,9 @@ export class BaseField<T extends HTMLInputElement> {
             this.actionContainerNode = new Query(
                 '.action-container',
                 this.inputBlock,
-            ).getItem();
+            ).getKnot();
             if (this.actionContainerNode.isEmpty()) {
-                this.actionContainerNode = new Item('div');
+                this.actionContainerNode = new Knot('div');
                 this.actionContainerNode.addClass(['action-container']);
                 this.inputBlock.appendChild(this.actionContainerNode);
             }
@@ -337,21 +337,21 @@ export class BaseField<T extends HTMLInputElement> {
     }
     /**
      * @private
-     * @param {!Item} label
+     * @param {!Knot} label
      * @return {undefined}
      */
-    private _setInfo(label: Item): void {
+    private _setInfo(label: Knot): void {
         const title = label.getAttribute('title');
         const description = label.getAttribute('desc');
         if (title || description) {
             let infoButton = new Query(
                 'a.info-button',
                 this.infoContainerNode,
-            ).getItem();
+            ).getKnot();
             if (!infoButton.isEmpty()) {
                 infoButton.remove();
             }
-            infoButton = new Item('a');
+            infoButton = new Knot('a');
             infoButton.setAttribute('title', title || '');
             infoButton.setAttribute('desc', description || '');
             infoButton.setAttribute('href', 'javascript:void(0)');
@@ -364,10 +364,10 @@ export class BaseField<T extends HTMLInputElement> {
     }
     /**
      * @protected
-     * @param {!Item|undefined} label
+     * @param {!Knot|undefined} label
      * @return {undefined}
      */
-    protected _setAdditionalLabel(label: Item | undefined): void {
+    protected _setAdditionalLabel(label: Knot | undefined): void {
         if (label && label.exists()) {
             const labelText = this._getLabelRequiredText(label.getHtml(true));
             label.setHtml(labelText);

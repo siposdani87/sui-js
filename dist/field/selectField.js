@@ -2,7 +2,7 @@ import { isArray, eq, format, each, neq, inArray, clear, remove, } from '../util
 import { BaseField } from './baseField';
 import { Popup } from '../component/popup';
 import { Collection } from '../core/collection';
-import { Item } from '../core/item';
+import { Knot } from '../core/knot';
 import { Objekt } from '../core/objekt';
 import { Query } from '../core/query';
 import { generateId } from '../utils/coder';
@@ -13,10 +13,10 @@ import { mdl } from '../utils/render';
  */
 export class SelectField extends BaseField {
     /**
-     * @param {!Item} input
-     * @param {!Item} label
-     * @param {!Item} error
-     * @param {!Item} inputBlock
+     * @param {!Knot} input
+     * @param {!Knot} label
+     * @param {!Knot} error
+     * @param {!Knot} inputBlock
      */
     constructor(input, label, error, inputBlock) {
         super(input, label, error, inputBlock);
@@ -46,9 +46,9 @@ export class SelectField extends BaseField {
      * @return {undefined}
      */
     _initPopup() {
-        this.containerNode = new Item('div');
+        this.containerNode = new Knot('div');
         this._drawSearchInput();
-        this.listNode = new Item('div');
+        this.listNode = new Knot('div');
         this.listNode.addClass('options-list');
         this.containerNode.appendChild(this.listNode);
         this.popup = new Popup(this.containerNode, this.inputBlock);
@@ -93,7 +93,7 @@ export class SelectField extends BaseField {
         if (this.label && this.label.exists()) {
             this.label.addClass('field-label');
         }
-        this.iconNode = new Item('a');
+        this.iconNode = new Knot('a');
         this.iconNode.setAttribute('href', 'javascript:void(0)');
         this.iconNode.addClass(['material-icons', 'size-24', 'expander']);
         this.iconNode.setHtml('expand_more');
@@ -110,7 +110,7 @@ export class SelectField extends BaseField {
      * @return {undefined}
      */
     refresh() {
-        const selectContainerNode = new Query('.select-container', this.inputBlock).getItem();
+        const selectContainerNode = new Query('.select-container', this.inputBlock).getKnot();
         selectContainerNode.remove();
         if (this.isDisabled()) {
             this.inputBlock.addClass('is-disabled');
@@ -118,7 +118,7 @@ export class SelectField extends BaseField {
         else {
             this.inputBlock.removeClass('is-disabled');
         }
-        this.selectContainerNode = new Item('div');
+        this.selectContainerNode = new Knot('div');
         this.selectContainerNode.addClass('select-container');
         this.selectContainerNode.addEventListener('click', () => {
             if (this.isEnabled()) {
@@ -126,7 +126,7 @@ export class SelectField extends BaseField {
             }
         });
         this.input.insertAfter(this.selectContainerNode);
-        this.selectNode = new Item('div');
+        this.selectNode = new Knot('div');
         this.selectNode.addClass('select-input');
         this.selectContainerNode.appendChild(this.selectNode);
         const ids = this._getSelectedIds();
@@ -205,7 +205,7 @@ export class SelectField extends BaseField {
             if (opt_image) {
                 image = item.get(opt_image);
             }
-            const optionNode = new Item('option');
+            const optionNode = new Knot('option');
             optionNode.setAttribute('value', value);
             optionNode.setAttribute('data-image', image);
             optionNode.setAttribute('data-item', item);
@@ -285,7 +285,7 @@ export class SelectField extends BaseField {
         }
         this.selectNode.removeChildren();
         each(tags, (tag) => {
-            const tagNode = new Item('div');
+            const tagNode = new Knot('div');
             tagNode.addClass('field-tag');
             tagNode.setHtml(tag.get('name'));
             if (this.isEnabled()) {
@@ -296,7 +296,7 @@ export class SelectField extends BaseField {
             this.selectNode.appendChild(tagNode);
             const id = tag.get('id');
             if (neq(id, '') && this.isEnabled()) {
-                const iconNode = new Item('a');
+                const iconNode = new Knot('a');
                 iconNode.setAttribute('href', 'javascript:void(0)');
                 iconNode.addClass(['material-icons', 'size-18', 'close']);
                 iconNode.setHtml('close');
@@ -383,30 +383,30 @@ export class SelectField extends BaseField {
      * @param {!Array} items
      * @return {undefined}
      */
-    _drawItems(items) {
+    _drawKnots(items) {
         this.listNode.removeChildren();
         const ids = this._getSelectedIds();
         each(items, (item) => {
             const id = item.get('id');
-            const listItem = new Item('a');
-            listItem.setAttribute('href', 'javascript:void(0)');
+            const listKnot = new Knot('a');
+            listKnot.setAttribute('href', 'javascript:void(0)');
             if (inArray(ids, id)) {
-                listItem.addClass('selected');
+                listKnot.addClass('selected');
             }
-            listItem.addEventListener('click', () => {
+            listKnot.addEventListener('click', () => {
                 this._handleSelectedId(id);
             });
-            this.listNode.appendChild(listItem);
+            this.listNode.appendChild(listKnot);
             const image = item.get('image');
             if (image) {
-                const imageNode = new Item('img');
+                const imageNode = new Knot('img');
                 imageNode.setAttribute('src', image);
-                listItem.appendChild(imageNode);
+                listKnot.appendChild(imageNode);
             }
             const name = item.get('name');
-            const nameNode = new Item('span');
+            const nameNode = new Knot('span');
             nameNode.setHtml(name);
-            listItem.appendChild(nameNode);
+            listKnot.appendChild(nameNode);
         });
     }
     /**
@@ -414,17 +414,17 @@ export class SelectField extends BaseField {
      * @return {undefined}
      */
     _drawSearchInput() {
-        const searchParentNode = new Item('div');
+        const searchParentNode = new Knot('div');
         searchParentNode.addClass('search-box');
         this.containerNode.appendChild(searchParentNode);
-        const searchNode = new Item('div');
+        const searchNode = new Knot('div');
         searchNode.addClass(['mdl-textfield', 'mdl-js-textfield']);
         searchNode.addEventListener('click', () => {
             // empty function
         });
         searchParentNode.appendChild(searchNode);
         const id = generateId('select');
-        this.searchInputNode = new Item('input');
+        this.searchInputNode = new Knot('input');
         this.searchInputNode.setId(id);
         this.searchInputNode.setAttribute('type', 'text');
         this.searchInputNode.addClass('mdl-textfield__input');
@@ -434,7 +434,7 @@ export class SelectField extends BaseField {
             return true;
         });
         searchNode.appendChild(this.searchInputNode);
-        const labelNode = new Item('label');
+        const labelNode = new Knot('label');
         labelNode.setFor(id);
         labelNode.addClass('mdl-textfield__label');
         searchNode.appendChild(labelNode);
@@ -471,6 +471,6 @@ export class SelectField extends BaseField {
                 items.push(option);
             }
         });
-        this._drawItems(items);
+        this._drawKnots(items);
     }
 }

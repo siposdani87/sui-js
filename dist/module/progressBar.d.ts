@@ -2,7 +2,7 @@ import { Async } from '../core/async';
 import { Objekt } from '../core/objekt';
 import { Dialog } from './dialog';
 import { Confirm } from './confirm';
-import { Item } from '../core';
+import { Knot } from '../core';
 /**
  * @typedef {{setProgress: function(number): undefined, setBuffer: function(number): undefined}} ProcessBar
  */
@@ -17,10 +17,10 @@ export declare class ProgressBar {
     dialog: Dialog;
     confirm: Confirm;
     options: Objekt;
-    progressBarContainer: Item;
-    progressBarHeader: Item;
-    progressBarDialog: Item;
-    progressBarConfirm: Item;
+    progressBarContainer: Knot;
+    progressBarHeader: Knot;
+    progressBarDialog: Knot;
+    progressBarConfirm: Knot;
     async: Async;
     mProgressContainer: ProcessBar;
     mProgressHeader: ProcessBar;
@@ -47,7 +47,7 @@ export declare class ProgressBar {
     private _init;
     /**
      * @private
-     * @param {!Item} node
+     * @param {!Knot} node
      * @return {!ProcessBar}
      */
     private _getProgressBar;

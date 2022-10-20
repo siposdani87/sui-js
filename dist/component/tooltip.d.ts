@@ -1,18 +1,18 @@
-import { Item } from '../core/item';
+import { Knot } from '../core/knot';
 /**
  * https://www.getmdl.io/components/index.html#tooltips-section
  * @class
  */
 export declare class Tooltip {
-    element: Item;
+    element: Knot;
     valid: boolean;
     positionCssClass: string;
-    tooltip: Item;
+    tooltip: Knot;
     /**
-     * @param {!Item} element
+     * @param {!Knot} element
      * @param {string=} opt_position TOP|BOTTOM|LEFT|RIGHT
      */
-    constructor(element: Item, opt_position?: string | undefined);
+    constructor(element: Knot, opt_position?: string | undefined);
     /**
      * @private
      * @param {string=} opt_position

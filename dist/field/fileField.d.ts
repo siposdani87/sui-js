@@ -1,25 +1,25 @@
 import { BaseField } from './baseField';
-import { Item } from '../core/item';
+import { Knot } from '../core/knot';
 /**
  * @class
  * @extends {BaseField}
  */
 export declare class FileField extends BaseField<HTMLInputElement> {
-    imageTag: Item;
+    imageTag: Knot;
     valueSrc: string;
     defaultSrc: string;
-    removeButton: Item;
+    removeButton: Knot;
     fileTypes: {
         [key: string]: [string, string];
     };
     fileTypeSVG: string;
     /**
-     * @param {!Item} input
-     * @param {!Item} label
-     * @param {!Item} error
-     * @param {!Item} inputBlock
+     * @param {!Knot} input
+     * @param {!Knot} label
+     * @param {!Knot} error
+     * @param {!Knot} inputBlock
      */
-    constructor(input: Item<HTMLInputElement>, label: Item, error: Item, inputBlock: Item);
+    constructor(input: Knot<HTMLInputElement>, label: Knot, error: Knot, inputBlock: Knot);
     /**
      * @private
      * @return {undefined}

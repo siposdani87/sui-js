@@ -1,4 +1,4 @@
-import { Item } from '../core/item';
+import { Knot } from '../core/knot';
 import { PopupContainer } from './popupContainer';
 import { consoleInfo } from '../utils/log';
 import { mdl } from '../utils/render';
@@ -7,8 +7,8 @@ import { mdl } from '../utils/render';
  */
 export class Popup {
     /**
-     * @param {!Item} content
-     * @param {!Item} parent
+     * @param {!Knot} content
+     * @param {!Knot} parent
      * @param {boolean=} opt_withClose
      */
     constructor(content, parent, opt_withClose = false) {
@@ -30,7 +30,7 @@ export class Popup {
      * @return {undefined}
      */
     _draw() {
-        this.popupNode = new Item('div');
+        this.popupNode = new Knot('div');
         this.popupNode.addClass(['popup', 'hidden']);
         this.parent.addClass('popup-parent');
         this.parent.appendChild(this.popupNode);
@@ -43,7 +43,7 @@ export class Popup {
      */
     _initCloseButton() {
         if (this.withClose) {
-            const btnClose = new Item('button');
+            const btnClose = new Knot('button');
             btnClose.setAttribute('type', 'button');
             btnClose.addClass([
                 'close',
@@ -55,7 +55,7 @@ export class Popup {
                 this.close();
             });
             this.popupNode.appendChild(btnClose);
-            const iconNode = new Item('em');
+            const iconNode = new Knot('em');
             iconNode.addClass('material-icons');
             iconNode.setHtml('close');
             btnClose.appendChild(iconNode);

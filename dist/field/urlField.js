@@ -1,16 +1,16 @@
 import { mdl } from '../utils/render';
 import { BaseField } from './baseField';
-import { Item } from '../core/item';
+import { Knot } from '../core/knot';
 /**
  * @class
  * @extends {BaseField}
  */
 export class UrlField extends BaseField {
     /**
-     * @param {!Item} input
-     * @param {!Item} label
-     * @param {!Item} error
-     * @param {!Item} inputBlock
+     * @param {!Knot} input
+     * @param {!Knot} label
+     * @param {!Knot} error
+     * @param {!Knot} inputBlock
      */
     constructor(input, label, error, inputBlock) {
         super(input, label, error, inputBlock);
@@ -53,7 +53,7 @@ export class UrlField extends BaseField {
             this.label.addClass('mdl-textfield__label');
         }
         if (this.protocol) {
-            const protocolNode = new Item('span');
+            const protocolNode = new Knot('span');
             protocolNode.addClass('protocol');
             protocolNode.setHtml(this.protocol);
             this.input.insertAfter(protocolNode);

@@ -1,19 +1,19 @@
 import { Objekt } from '../core';
-import { Item } from '../core/item';
+import { Knot } from '../core/knot';
 import { consoleWarn } from '../utils/log';
 
 /**
  * @class
  */
 export class Time {
-    timeNode: Item;
+    timeNode: Knot;
     options: Objekt;
-    pointerNode: Item;
+    pointerNode: Knot;
     /**
-     * @param {!Item} node
+     * @param {!Knot} node
      * @param {!Object} options
      */
-    constructor(node: Item, options: Object) {
+    constructor(node: Knot, options: Object) {
         this.timeNode = node;
         this._setOptions(options);
         this._init();
@@ -39,7 +39,7 @@ export class Time {
      * @return {undefined}
      */
     private _initCircleNode(): void {
-        const circleNode = new Item('div');
+        const circleNode = new Knot('div');
         circleNode.addClass('circle');
         this.timeNode.appendChild(circleNode);
         const circleNodeStyle = window.getComputedStyle(circleNode.getNode());
@@ -69,11 +69,11 @@ export class Time {
      * @return {undefined}
      */
     private _initPointerNode(): void {
-        const centerPointNode = new Item('div');
+        const centerPointNode = new Knot('div');
         centerPointNode.addClass('center-point');
         this.timeNode.appendChild(centerPointNode);
 
-        this.pointerNode = new Item('div');
+        this.pointerNode = new Knot('div');
         this.pointerNode.addClass('pointer');
         this.timeNode.appendChild(this.pointerNode);
     }
@@ -108,7 +108,7 @@ export class Time {
     ): void {
         let k = 0;
         for (let i = start; i <= n; i++) {
-            const circle = new Item('div');
+            const circle = new Knot('div');
             this.timeNode.appendChild(circle);
 
             if (i % opt_j === 0) {
@@ -126,11 +126,11 @@ export class Time {
     }
     /**
      * @private
-     * @param {!Item} circle
+     * @param {!Knot} circle
      * @param {number} i
      * @return {undefined}
      */
-    private _setCircleEvent(circle: Item, i: number): void {
+    private _setCircleEvent(circle: Knot, i: number): void {
         circle.setData('index', i);
         circle.addEventListener('click', (circle) => {
             const index = circle.getData('index');
@@ -139,7 +139,7 @@ export class Time {
     }
     /**
      * @private
-     * @param {!Item} circle
+     * @param {!Knot} circle
      * @param {number} start
      * @param {number} n
      * @param {number} i
@@ -148,7 +148,7 @@ export class Time {
      * @return {undefined}
      */
     private _setCircleStyle(
-        circle: Item,
+        circle: Knot,
         start: number,
         n: number,
         i: number,

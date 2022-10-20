@@ -23,7 +23,7 @@ import { TextField } from '../field/textField';
 /**
  * @constructor
  * @this {FormField}
- * @param {!Item} inputBlock
+ * @param {!Knot} inputBlock
  * @param {!Form} form
  * @return {?BaseField}
  */
@@ -32,8 +32,8 @@ export const FormField = function (inputBlock, form) {
     return _convertToField(input, label, error, inputBlock, form);
 };
 /**
- * @param {!Item} inputBlock
- * @return {{input: Item, label: Item, error: Item}}
+ * @param {!Knot} inputBlock
+ * @return {{input: Knot, label: Knot, error: Knot}}
  */
 export const parseInputBlock = (inputBlock) => {
     let input = inputBlock;
@@ -49,7 +49,7 @@ export const parseInputBlock = (inputBlock) => {
     if (eq(tagName, 'div')) {
         const inputs = new Query('input, textarea, select', inputBlock).getItems();
         input = inputs[inputs.length - 1];
-        label = new Query('label', inputBlock).getItem();
+        label = new Query('label', inputBlock).getKnot();
         error = inputBlock.createElement('span');
         error.addClass(['mdl-textfield__error', 'text-truncate']);
         inputBlock.appendChild(error);
@@ -62,10 +62,10 @@ export const parseInputBlock = (inputBlock) => {
     };
 };
 /**
- * @param {!Item} input
- * @param {?Item} label
- * @param {?Item} error
- * @param {!Item} inputBlock
+ * @param {!Knot} input
+ * @param {?Knot} label
+ * @param {?Knot} error
+ * @param {!Knot} inputBlock
  * @param {!Form} form
  * @return {?BaseField}
  */

@@ -31,13 +31,13 @@ custom_edit_url: null
 
 #### Defined in
 
-[module/dialog.ts:20](https://github.com/siposdani87/sui-js/blob/8315555/src/module/dialog.ts#L20)
+[module/dialog.ts:20](https://github.com/siposdani87/sui-js/blob/0baad71/src/module/dialog.ts#L20)
 
 ## Properties
 
 ### body
 
-• **body**: [`Item`](Item.md)<`HTMLElement`\>
+• **body**: [`Knot`](Knot.md)<`HTMLElement`\>
 
 #### Inherited from
 
@@ -45,13 +45,13 @@ custom_edit_url: null
 
 #### Defined in
 
-[module/baseModal.ts:18](https://github.com/siposdani87/sui-js/blob/8315555/src/module/baseModal.ts#L18)
+[module/baseModal.ts:18](https://github.com/siposdani87/sui-js/blob/0baad71/src/module/baseModal.ts#L18)
 
 ___
 
 ### btnClose
 
-• **btnClose**: [`Item`](Item.md)<`HTMLElement`\>
+• **btnClose**: [`Knot`](Knot.md)<`HTMLElement`\>
 
 #### Inherited from
 
@@ -59,13 +59,13 @@ ___
 
 #### Defined in
 
-[module/baseModal.ts:17](https://github.com/siposdani87/sui-js/blob/8315555/src/module/baseModal.ts#L17)
+[module/baseModal.ts:17](https://github.com/siposdani87/sui-js/blob/0baad71/src/module/baseModal.ts#L17)
 
 ___
 
 ### btnMaximize
 
-• **btnMaximize**: [`Item`](Item.md)<`HTMLElement`\>
+• **btnMaximize**: [`Knot`](Knot.md)<`HTMLElement`\>
 
 #### Inherited from
 
@@ -73,13 +73,13 @@ ___
 
 #### Defined in
 
-[module/baseModal.ts:16](https://github.com/siposdani87/sui-js/blob/8315555/src/module/baseModal.ts#L16)
+[module/baseModal.ts:16](https://github.com/siposdani87/sui-js/blob/0baad71/src/module/baseModal.ts#L16)
 
 ___
 
 ### btnMinimize
 
-• **btnMinimize**: [`Item`](Item.md)<`HTMLElement`\>
+• **btnMinimize**: [`Knot`](Knot.md)<`HTMLElement`\>
 
 #### Inherited from
 
@@ -87,7 +87,7 @@ ___
 
 #### Defined in
 
-[module/baseModal.ts:15](https://github.com/siposdani87/sui-js/blob/8315555/src/module/baseModal.ts#L15)
+[module/baseModal.ts:15](https://github.com/siposdani87/sui-js/blob/0baad71/src/module/baseModal.ts#L15)
 
 ___
 
@@ -109,7 +109,7 @@ ___
 
 #### Defined in
 
-[module/baseModal.ts:25](https://github.com/siposdani87/sui-js/blob/8315555/src/module/baseModal.ts#L25)
+[module/baseModal.ts:25](https://github.com/siposdani87/sui-js/blob/0baad71/src/module/baseModal.ts#L25)
 
 ___
 
@@ -131,7 +131,7 @@ ___
 
 #### Defined in
 
-[module/baseModal.ts:24](https://github.com/siposdani87/sui-js/blob/8315555/src/module/baseModal.ts#L24)
+[module/baseModal.ts:24](https://github.com/siposdani87/sui-js/blob/0baad71/src/module/baseModal.ts#L24)
 
 ___
 
@@ -145,7 +145,7 @@ ___
 
 #### Defined in
 
-[module/baseModal.ts:13](https://github.com/siposdani87/sui-js/blob/8315555/src/module/baseModal.ts#L13)
+[module/baseModal.ts:13](https://github.com/siposdani87/sui-js/blob/0baad71/src/module/baseModal.ts#L13)
 
 ___
 
@@ -155,7 +155,7 @@ ___
 
 #### Defined in
 
-[module/dialog.ts:14](https://github.com/siposdani87/sui-js/blob/8315555/src/module/dialog.ts#L14)
+[module/dialog.ts:14](https://github.com/siposdani87/sui-js/blob/0baad71/src/module/dialog.ts#L14)
 
 ___
 
@@ -169,13 +169,13 @@ ___
 
 #### Defined in
 
-[module/baseModal.ts:19](https://github.com/siposdani87/sui-js/blob/8315555/src/module/baseModal.ts#L19)
+[module/baseModal.ts:19](https://github.com/siposdani87/sui-js/blob/0baad71/src/module/baseModal.ts#L19)
 
 ___
 
 ### mainContainerNode
 
-• **mainContainerNode**: [`Item`](Item.md)<`HTMLElement`\>
+• **mainContainerNode**: [`Knot`](Knot.md)<`HTMLElement`\>
 
 #### Inherited from
 
@@ -183,13 +183,13 @@ ___
 
 #### Defined in
 
-[module/baseModal.ts:12](https://github.com/siposdani87/sui-js/blob/8315555/src/module/baseModal.ts#L12)
+[module/baseModal.ts:12](https://github.com/siposdani87/sui-js/blob/0baad71/src/module/baseModal.ts#L12)
 
 ___
 
 ### modal
 
-• **modal**: [`Item`](Item.md)<`HTMLElement`\>
+• **modal**: [`Knot`](Knot.md)<`HTMLElement`\>
 
 #### Inherited from
 
@@ -197,13 +197,13 @@ ___
 
 #### Defined in
 
-[module/baseModal.ts:14](https://github.com/siposdani87/sui-js/blob/8315555/src/module/baseModal.ts#L14)
+[module/baseModal.ts:14](https://github.com/siposdani87/sui-js/blob/0baad71/src/module/baseModal.ts#L14)
 
 ___
 
 ### modalBody
 
-• **modalBody**: [`Item`](Item.md)<`HTMLElement`\>
+• **modalBody**: [`Knot`](Knot.md)<`HTMLElement`\>
 
 #### Inherited from
 
@@ -211,13 +211,13 @@ ___
 
 #### Defined in
 
-[module/baseModal.ts:21](https://github.com/siposdani87/sui-js/blob/8315555/src/module/baseModal.ts#L21)
+[module/baseModal.ts:21](https://github.com/siposdani87/sui-js/blob/0baad71/src/module/baseModal.ts#L21)
 
 ___
 
 ### modalFooter
 
-• **modalFooter**: [`Item`](Item.md)<`HTMLElement`\>
+• **modalFooter**: [`Knot`](Knot.md)<`HTMLElement`\>
 
 #### Inherited from
 
@@ -225,13 +225,13 @@ ___
 
 #### Defined in
 
-[module/baseModal.ts:22](https://github.com/siposdani87/sui-js/blob/8315555/src/module/baseModal.ts#L22)
+[module/baseModal.ts:22](https://github.com/siposdani87/sui-js/blob/0baad71/src/module/baseModal.ts#L22)
 
 ___
 
 ### modalHeader
 
-• **modalHeader**: [`Item`](Item.md)<`HTMLElement`\>
+• **modalHeader**: [`Knot`](Knot.md)<`HTMLElement`\>
 
 #### Inherited from
 
@@ -239,13 +239,13 @@ ___
 
 #### Defined in
 
-[module/baseModal.ts:23](https://github.com/siposdani87/sui-js/blob/8315555/src/module/baseModal.ts#L23)
+[module/baseModal.ts:23](https://github.com/siposdani87/sui-js/blob/0baad71/src/module/baseModal.ts#L23)
 
 ___
 
 ### modalTitle
 
-• **modalTitle**: [`Item`](Item.md)<`HTMLElement`\>
+• **modalTitle**: [`Knot`](Knot.md)<`HTMLElement`\>
 
 #### Inherited from
 
@@ -253,13 +253,13 @@ ___
 
 #### Defined in
 
-[module/baseModal.ts:20](https://github.com/siposdani87/sui-js/blob/8315555/src/module/baseModal.ts#L20)
+[module/baseModal.ts:20](https://github.com/siposdani87/sui-js/blob/0baad71/src/module/baseModal.ts#L20)
 
 ___
 
 ### modalWindow
 
-• **modalWindow**: [`Item`](Item.md)<`HTMLElement`\>
+• **modalWindow**: [`Knot`](Knot.md)<`HTMLElement`\>
 
 #### Inherited from
 
@@ -267,7 +267,7 @@ ___
 
 #### Defined in
 
-[module/baseModal.ts:26](https://github.com/siposdani87/sui-js/blob/8315555/src/module/baseModal.ts#L26)
+[module/baseModal.ts:26](https://github.com/siposdani87/sui-js/blob/0baad71/src/module/baseModal.ts#L26)
 
 ___
 
@@ -277,7 +277,7 @@ ___
 
 #### Defined in
 
-[module/dialog.ts:15](https://github.com/siposdani87/sui-js/blob/8315555/src/module/dialog.ts#L15)
+[module/dialog.ts:15](https://github.com/siposdani87/sui-js/blob/0baad71/src/module/dialog.ts#L15)
 
 ___
 
@@ -291,7 +291,7 @@ ___
 
 #### Defined in
 
-[module/baseModal.ts:11](https://github.com/siposdani87/sui-js/blob/8315555/src/module/baseModal.ts#L11)
+[module/baseModal.ts:11](https://github.com/siposdani87/sui-js/blob/0baad71/src/module/baseModal.ts#L11)
 
 ___
 
@@ -305,7 +305,7 @@ ___
 
 #### Defined in
 
-[module/baseModal.ts:10](https://github.com/siposdani87/sui-js/blob/8315555/src/module/baseModal.ts#L10)
+[module/baseModal.ts:10](https://github.com/siposdani87/sui-js/blob/0baad71/src/module/baseModal.ts#L10)
 
 ## Methods
 
@@ -323,7 +323,7 @@ ___
 
 #### Defined in
 
-[module/baseModal.ts:202](https://github.com/siposdani87/sui-js/blob/8315555/src/module/baseModal.ts#L202)
+[module/baseModal.ts:202](https://github.com/siposdani87/sui-js/blob/0baad71/src/module/baseModal.ts#L202)
 
 ___
 
@@ -341,7 +341,7 @@ ___
 
 #### Defined in
 
-[module/baseModal.ts:193](https://github.com/siposdani87/sui-js/blob/8315555/src/module/baseModal.ts#L193)
+[module/baseModal.ts:193](https://github.com/siposdani87/sui-js/blob/0baad71/src/module/baseModal.ts#L193)
 
 ___
 
@@ -353,7 +353,7 @@ ___
 
 | Name | Type |
 | :------ | :------ |
-| `dom` | [`Item`](Item.md)<`HTMLElement`\> |
+| `dom` | [`Knot`](Knot.md)<`HTMLElement`\> |
 
 #### Returns
 
@@ -361,47 +361,47 @@ ___
 
 #### Defined in
 
-[module/dialog.ts:106](https://github.com/siposdani87/sui-js/blob/8315555/src/module/dialog.ts#L106)
+[module/dialog.ts:106](https://github.com/siposdani87/sui-js/blob/0baad71/src/module/dialog.ts#L106)
 
 ___
 
 ### \_handleDom
 
-▸ `Private` **_handleDom**(`dom`): [`Item`](Item.md)<`HTMLElement`\>
+▸ `Private` **_handleDom**(`dom`): [`Knot`](Knot.md)<`HTMLElement`\>
 
 #### Parameters
 
 | Name | Type |
 | :------ | :------ |
-| `dom` | [`Item`](Item.md)<`HTMLElement`\> |
+| `dom` | [`Knot`](Knot.md)<`HTMLElement`\> |
 
 #### Returns
 
-[`Item`](Item.md)<`HTMLElement`\>
+[`Knot`](Knot.md)<`HTMLElement`\>
 
 #### Defined in
 
-[module/dialog.ts:88](https://github.com/siposdani87/sui-js/blob/8315555/src/module/dialog.ts#L88)
+[module/dialog.ts:88](https://github.com/siposdani87/sui-js/blob/0baad71/src/module/dialog.ts#L88)
 
 ___
 
 ### \_handleMessage
 
-▸ `Private` **_handleMessage**(`dom`): [`Item`](Item.md)<`HTMLElement`\>
+▸ `Private` **_handleMessage**(`dom`): [`Knot`](Knot.md)<`HTMLElement`\>
 
 #### Parameters
 
 | Name | Type |
 | :------ | :------ |
-| `dom` | [`Item`](Item.md)<`HTMLElement`\> |
+| `dom` | [`Knot`](Knot.md)<`HTMLElement`\> |
 
 #### Returns
 
-[`Item`](Item.md)<`HTMLElement`\>
+[`Knot`](Knot.md)<`HTMLElement`\>
 
 #### Defined in
 
-[module/dialog.ts:76](https://github.com/siposdani87/sui-js/blob/8315555/src/module/dialog.ts#L76)
+[module/dialog.ts:76](https://github.com/siposdani87/sui-js/blob/0baad71/src/module/dialog.ts#L76)
 
 ___
 
@@ -415,7 +415,7 @@ ___
 
 #### Defined in
 
-[module/dialog.ts:43](https://github.com/siposdani87/sui-js/blob/8315555/src/module/dialog.ts#L43)
+[module/dialog.ts:43](https://github.com/siposdani87/sui-js/blob/0baad71/src/module/dialog.ts#L43)
 
 ___
 
@@ -433,7 +433,7 @@ ___
 
 #### Defined in
 
-[module/baseModal.ts:31](https://github.com/siposdani87/sui-js/blob/8315555/src/module/baseModal.ts#L31)
+[module/baseModal.ts:31](https://github.com/siposdani87/sui-js/blob/0baad71/src/module/baseModal.ts#L31)
 
 ___
 
@@ -451,7 +451,7 @@ ___
 
 #### Defined in
 
-[module/baseModal.ts:185](https://github.com/siposdani87/sui-js/blob/8315555/src/module/baseModal.ts#L185)
+[module/baseModal.ts:185](https://github.com/siposdani87/sui-js/blob/0baad71/src/module/baseModal.ts#L185)
 
 ___
 
@@ -471,7 +471,7 @@ ___
 
 #### Defined in
 
-[module/dialog.ts:32](https://github.com/siposdani87/sui-js/blob/8315555/src/module/dialog.ts#L32)
+[module/dialog.ts:32](https://github.com/siposdani87/sui-js/blob/0baad71/src/module/dialog.ts#L32)
 
 ___
 
@@ -495,7 +495,7 @@ ___
 
 #### Defined in
 
-[module/baseModal.ts:169](https://github.com/siposdani87/sui-js/blob/8315555/src/module/baseModal.ts#L169)
+[module/baseModal.ts:169](https://github.com/siposdani87/sui-js/blob/0baad71/src/module/baseModal.ts#L169)
 
 ___
 
@@ -513,7 +513,7 @@ ___
 
 #### Defined in
 
-[module/baseModal.ts:149](https://github.com/siposdani87/sui-js/blob/8315555/src/module/baseModal.ts#L149)
+[module/baseModal.ts:149](https://github.com/siposdani87/sui-js/blob/0baad71/src/module/baseModal.ts#L149)
 
 ___
 
@@ -531,7 +531,7 @@ ___
 
 #### Defined in
 
-[module/baseModal.ts:106](https://github.com/siposdani87/sui-js/blob/8315555/src/module/baseModal.ts#L106)
+[module/baseModal.ts:106](https://github.com/siposdani87/sui-js/blob/0baad71/src/module/baseModal.ts#L106)
 
 ___
 
@@ -551,7 +551,7 @@ ___
 
 #### Defined in
 
-[module/dialog.ts:56](https://github.com/siposdani87/sui-js/blob/8315555/src/module/dialog.ts#L56)
+[module/dialog.ts:56](https://github.com/siposdani87/sui-js/blob/0baad71/src/module/dialog.ts#L56)
 
 ___
 
@@ -575,7 +575,7 @@ ___
 
 #### Defined in
 
-[module/baseModal.ts:129](https://github.com/siposdani87/sui-js/blob/8315555/src/module/baseModal.ts#L129)
+[module/baseModal.ts:129](https://github.com/siposdani87/sui-js/blob/0baad71/src/module/baseModal.ts#L129)
 
 ___
 
@@ -600,4 +600,4 @@ ___
 
 #### Defined in
 
-[module/baseModal.ts:226](https://github.com/siposdani87/sui-js/blob/8315555/src/module/baseModal.ts#L226)
+[module/baseModal.ts:226](https://github.com/siposdani87/sui-js/blob/0baad71/src/module/baseModal.ts#L226)

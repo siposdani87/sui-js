@@ -1,6 +1,6 @@
 import { contain, format, isObject, getExtensionName, } from '../utils/operation';
 import { BaseField } from './baseField';
-import { Item } from '../core/item';
+import { Knot } from '../core/knot';
 import { Query } from '../core/query';
 import { encodeBase64 } from '../utils/coder';
 import { mdl } from '../utils/render';
@@ -10,10 +10,10 @@ import { mdl } from '../utils/render';
  */
 export class FileField extends BaseField {
     /**
-     * @param {!Item} input
-     * @param {!Item} label
-     * @param {!Item} error
-     * @param {!Item} inputBlock
+     * @param {!Knot} input
+     * @param {!Knot} label
+     * @param {!Knot} error
+     * @param {!Knot} inputBlock
      */
     constructor(input, label, error, inputBlock) {
         super(input, label, error, inputBlock);
@@ -53,9 +53,9 @@ export class FileField extends BaseField {
      * @return {undefined}
      */
     _initDefaultImg() {
-        this.imageTag = new Query('img', this.inputBlock).getItem();
+        this.imageTag = new Query('img', this.inputBlock).getKnot();
         if (this.imageTag.isEmpty()) {
-            this.imageTag = new Item('img');
+            this.imageTag = new Knot('img');
             this.inputBlock.beforeChild(this.imageTag);
         }
     }
@@ -79,7 +79,7 @@ export class FileField extends BaseField {
      * @return {undefined}
      */
     _initRemoveButton() {
-        this.removeButton = new Item('a');
+        this.removeButton = new Knot('a');
         this.removeButton.setAttribute('href', 'javascript:void(0)');
         this.removeButton.addClass(['remove-button', 'material-icons']);
         this.removeButton.setHtml('delete');
@@ -95,7 +95,7 @@ export class FileField extends BaseField {
      * @return {undefined}
      */
     _initButtons() {
-        const browseButton = new Item('a');
+        const browseButton = new Knot('a');
         browseButton.setAttribute('href', 'javascript:void(0)');
         browseButton.addClass(['browse-button', 'material-icons']);
         if (this._isDocument()) {

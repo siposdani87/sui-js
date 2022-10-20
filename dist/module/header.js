@@ -27,18 +27,18 @@ export class Header {
      * @return {undefined}
      */
     _init() {
-        this.headerNode = new Query('#header').getItem();
-        this.leftMenuButton = new Query('#open-left-menu', this.headerNode).getItem();
-        this.topMenuButton = new Query('#toggle-top-menu', this.headerNode).getItem();
-        this.brandNode = new Query('.brand', this.headerNode).getItem();
+        this.headerNode = new Query('#header').getKnot();
+        this.leftMenuButton = new Query('#open-left-menu', this.headerNode).getKnot();
+        this.topMenuButton = new Query('#toggle-top-menu', this.headerNode).getKnot();
+        this.brandNode = new Query('.brand', this.headerNode).getKnot();
         this.brandNode.setAttribute('href', 'javascript:void(0)');
         this.brandNode.addEventListener('click', () => {
             this.eventLogoClick();
         });
-        this.brandNodeImage = new Query('.brand img', this.brandNode).getItem();
-        this.brandNodeTitle = new Query('.brand .app-title', this.brandNode).getItem();
-        this.mainContainerNode = new Query('.main-container').getItem();
-        this.templateViewNode = new Query('.template-view').getItem();
+        this.brandNodeImage = new Query('.brand img', this.brandNode).getKnot();
+        this.brandNodeTitle = new Query('.brand .app-title', this.brandNode).getKnot();
+        this.mainContainerNode = new Query('.main-container').getKnot();
+        this.templateViewNode = new Query('.template-view').getKnot();
     }
     /**
      * @return {undefined}

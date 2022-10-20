@@ -6,7 +6,7 @@ describe('searchField', () => {
     it('should be instance of SearchField', () => {
         const inputBlock = new Query<HTMLElement>(
             '.input-block.field-search',
-        ).getItem();
+        ).getKnot();
         const { input, label, error } = parseInputBlock(inputBlock);
         const searchField = new SearchField(input, label, error, inputBlock);
 

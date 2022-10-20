@@ -1,4 +1,4 @@
-import { Item } from '../core';
+import { Knot } from '../core';
 import { Objekt } from '../core/objekt';
 import { Query } from '../core/query';
 
@@ -6,19 +6,19 @@ import { Query } from '../core/query';
  * @class
  */
 export class Carousel {
-    carouselNode: Item;
+    carouselNode: Knot;
     options: Objekt;
     /**
-     * @param {!Item} dom
+     * @param {!Knot} dom
      * @param {string=} opt_selector
      * @param {!Object=} opt_options
      */
     constructor(
-        dom: Item,
+        dom: Knot,
         opt_selector: string | undefined = '.carousel',
         opt_options: Object | undefined = {},
     ) {
-        this.carouselNode = new Query(opt_selector, dom).getItem();
+        this.carouselNode = new Query(opt_selector, dom).getKnot();
         this._setOptions(opt_options);
         this._init();
     }

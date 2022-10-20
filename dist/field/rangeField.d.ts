@@ -1,6 +1,6 @@
 import { BaseField } from './baseField';
 import { Tooltip } from '../component/tooltip';
-import { Item } from '../core';
+import { Knot } from '../core';
 /**
  * @class
  * @extends {BaseField}
@@ -8,12 +8,12 @@ import { Item } from '../core';
 export declare class RangeField extends BaseField<HTMLInputElement> {
     tooltip: Tooltip;
     /**
-     * @param {!Item} input
-     * @param {!Item} label
-     * @param {!Item} error
-     * @param {!Item} inputBlock
+     * @param {!Knot} input
+     * @param {!Knot} label
+     * @param {!Knot} error
+     * @param {!Knot} inputBlock
      */
-    constructor(input: Item<HTMLInputElement>, label: Item, error: Item, inputBlock: Item);
+    constructor(input: Knot<HTMLInputElement>, label: Knot, error: Knot, inputBlock: Knot);
     /**
      * @private
      * @return {undefined}

@@ -1,17 +1,17 @@
-import { Item } from '../core/item';
+import { Knot } from '../core/knot';
 import { Objekt } from '../core/objekt';
 /**
  * @class
  */
 export declare class ContentHandler {
-    containerNode: Item;
+    containerNode: Knot;
     options: Objekt;
-    contentNode: Item;
+    contentNode: Knot;
     /**
-     * @param {!Item} containerNode
+     * @param {!Knot} containerNode
      * @param {!Object=} opt_options
      */
-    constructor(containerNode: Item, opt_options?: Object | undefined);
+    constructor(containerNode: Knot, opt_options?: Object | undefined);
     /**
      * @private
      * @param {!Object=} opt_options

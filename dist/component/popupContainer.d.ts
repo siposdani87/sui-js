@@ -1,11 +1,11 @@
-import { Item } from '../core';
+import { Knot } from '../core';
 import { Popup } from './popup';
 /**
  * @class
  */
 export declare class PopupContainer {
     selector: string;
-    container: Item;
+    container: Knot;
     /**
      * @param {string=} opt_selector
      */
@@ -37,13 +37,13 @@ export declare class PopupContainer {
      */
     closeAll(): void;
     /**
-     * @param {!Item} popupNode
+     * @param {!Knot} popupNode
      * @return {undefined}
      */
-    setPosition(popupNode: Item): void;
+    setPosition(popupNode: Knot): void;
     /**
-     * @param {!Item} popupNode
+     * @param {!Knot} popupNode
      * @return {undefined}
      */
-    clearPosition(popupNode: Item): void;
+    clearPosition(popupNode: Knot): void;
 }

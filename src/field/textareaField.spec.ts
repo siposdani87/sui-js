@@ -6,7 +6,7 @@ describe('textareaField', () => {
     it('should be instance of TextareaField', () => {
         const inputBlock = new Query<HTMLElement>(
             '.input-block.field-textarea',
-        ).getItem();
+        ).getKnot();
         const { input, label, error } = parseInputBlock(inputBlock);
         const textareaField = new TextareaField(
             input,

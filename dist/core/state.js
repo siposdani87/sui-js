@@ -76,7 +76,7 @@ export class State {
      */
     _setBasePath() {
         this.basePath = '#';
-        const baseMetaTag = new Query('base').getItem();
+        const baseMetaTag = new Query('base').getKnot();
         if (!baseMetaTag.isEmpty()) {
             this.basePath = baseMetaTag.getAttribute('href') || '#';
         }

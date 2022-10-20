@@ -5,28 +5,28 @@ import { Query } from '../core/query';
 import { FormField } from './formField';
 import { consoleWarn } from '../utils/log';
 import { BaseField } from '../field';
-import { Item } from '../core';
+import { Knot } from '../core';
 
 /**
  * @class
  * @extends {Collection}
  */
 export class Form extends Collection<BaseField<HTMLInputElement>> {
-    formNode: Item<HTMLFormElement>;
+    formNode: Knot<HTMLFormElement>;
     previousModel: Objekt;
     model: Objekt;
     initFields: string[];
     buttonClasses: string[];
     fieldClasses: string[];
     /**
-     * @param {!Item} dom
+     * @param {!Knot} dom
      * @param {string=} opt_selector
      */
-    constructor(dom: Item, opt_selector: string | undefined = 'form') {
+    constructor(dom: Knot, opt_selector: string | undefined = 'form') {
         const formNode = new Query<HTMLFormElement>(
             opt_selector,
             dom,
-        ).getItem();
+        ).getKnot();
         formNode.setAttribute('novalidate');
         super([], FormField, {
             parent: formNode,
@@ -324,26 +324,26 @@ export class Form extends Collection<BaseField<HTMLInputElement>> {
     }
     /**
      * @param {!Objekt} model
-     * @param {!Item} node
+     * @param {!Knot} node
      * @return {undefined}
      */
-    eventSubmit(model: Objekt, node: Item): void {
+    eventSubmit(model: Objekt, node: Knot): void {
         consoleWarn('Form.eventSubmit()', model, node);
     }
     /**
      * @param {!Objekt} model
-     * @param {!Item} node
+     * @param {!Knot} node
      * @return {undefined}
      */
-    eventReset(model: Objekt, node: Item): void {
+    eventReset(model: Objekt, node: Knot): void {
         consoleWarn('Form.eventReset()', model, node);
     }
     /**
      * @param {!Objekt} model
-     * @param {!Item} node
+     * @param {!Knot} node
      * @return {undefined}
      */
-    eventButton(model: Objekt, node: Item): void {
+    eventButton(model: Objekt, node: Knot): void {
         consoleWarn('Form.eventButton()', model, node);
     }
 }

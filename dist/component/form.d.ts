@@ -1,23 +1,23 @@
 import { Collection } from '../core/collection';
 import { Objekt } from '../core/objekt';
 import { BaseField } from '../field';
-import { Item } from '../core';
+import { Knot } from '../core';
 /**
  * @class
  * @extends {Collection}
  */
 export declare class Form extends Collection<BaseField<HTMLInputElement>> {
-    formNode: Item<HTMLFormElement>;
+    formNode: Knot<HTMLFormElement>;
     previousModel: Objekt;
     model: Objekt;
     initFields: string[];
     buttonClasses: string[];
     fieldClasses: string[];
     /**
-     * @param {!Item} dom
+     * @param {!Knot} dom
      * @param {string=} opt_selector
      */
-    constructor(dom: Item, opt_selector?: string | undefined);
+    constructor(dom: Knot, opt_selector?: string | undefined);
     /**
      * @private
      * @return {undefined}
@@ -124,20 +124,20 @@ export declare class Form extends Collection<BaseField<HTMLInputElement>> {
     unlock(): void;
     /**
      * @param {!Objekt} model
-     * @param {!Item} node
+     * @param {!Knot} node
      * @return {undefined}
      */
-    eventSubmit(model: Objekt, node: Item): void;
+    eventSubmit(model: Objekt, node: Knot): void;
     /**
      * @param {!Objekt} model
-     * @param {!Item} node
+     * @param {!Knot} node
      * @return {undefined}
      */
-    eventReset(model: Objekt, node: Item): void;
+    eventReset(model: Objekt, node: Knot): void;
     /**
      * @param {!Objekt} model
-     * @param {!Item} node
+     * @param {!Knot} node
      * @return {undefined}
      */
-    eventButton(model: Objekt, node: Item): void;
+    eventButton(model: Objekt, node: Knot): void;
 }

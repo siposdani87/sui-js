@@ -1,6 +1,6 @@
 import { eachArray } from '../utils/operation';
 import { Collection } from '../core/collection';
-import { Item } from '../core/item';
+import { Knot } from '../core/knot';
 import { Objekt } from '../core/objekt';
 import { generateId } from '../utils/coder';
 import { mdl } from '../utils/render';
@@ -9,7 +9,7 @@ import { mdl } from '../utils/render';
  */
 export class Dropdown {
     /**
-     * @param {!Item} element
+     * @param {!Knot} element
      * @param {!Object=} opt_options
      */
     constructor(element, opt_options = {}) {
@@ -45,14 +45,14 @@ export class Dropdown {
      * @return {undefined}
      */
     _appendButton() {
-        this.buttonNode = new Item('button');
+        this.buttonNode = new Knot('button');
         this.buttonNode.setId(this.options.id);
         this.buttonNode.addClass([
             'mdl-button',
             'mdl-js-button',
             'mdl-button--icon',
         ]);
-        const iconNode = new Item('em');
+        const iconNode = new Knot('em');
         iconNode.addClass('material-icons');
         iconNode.setHtml('more_vert');
         this.buttonNode.appendChild(iconNode);
@@ -63,7 +63,7 @@ export class Dropdown {
      * @return {undefined}
      */
     _appendMenu() {
-        this.menuNode = new Item('ul');
+        this.menuNode = new Knot('ul');
         this.menuNode.setFor(this.options.id);
         this.menuNode.addClass([
             'mdl-menu',
@@ -93,16 +93,16 @@ export class Dropdown {
         eachArray(this.actions, (action) => {
             const [icon, title, disabled, removed] = action.style(this.item);
             if (!removed) {
-                const menuItemNode = new Item('li');
-                menuItemNode.addClass('mdl-menu__item');
-                menuItemNode.setHtml(title || icon);
+                const menuKnotNode = new Knot('li');
+                menuKnotNode.addClass('mdl-menu__item');
+                menuKnotNode.setHtml(title || icon);
                 if (disabled) {
-                    menuItemNode.setAttribute('disabled');
+                    menuKnotNode.setAttribute('disabled');
                 }
-                menuItemNode.addEventListener('click', () => {
+                menuKnotNode.addEventListener('click', () => {
                     action.click(this.item);
                 });
-                this.menuNode.appendChild(menuItemNode);
+                this.menuNode.appendChild(menuKnotNode);
             }
         });
     }

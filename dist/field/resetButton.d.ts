@@ -1,4 +1,4 @@
-import { Item } from '../core';
+import { Knot } from '../core';
 import { BaseField } from './baseField';
 /**
  * @class
@@ -6,9 +6,9 @@ import { BaseField } from './baseField';
  */
 export declare class ResetButton extends BaseField<HTMLInputElement> {
     /**
-     * @param {!Item} input
+     * @param {!Knot} input
      */
-    constructor(input: Item<HTMLInputElement>);
+    constructor(input: Knot<HTMLInputElement>);
     /**
      * @private
      * @return {undefined}

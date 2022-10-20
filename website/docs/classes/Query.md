@@ -14,7 +14,7 @@ custom_edit_url: null
 
 ## Hierarchy
 
-- [`Collection`](Collection.md)<[`Item`](Item.md)<`T`\>\>
+- [`Collection`](Collection.md)<[`Knot`](Knot.md)<`T`\>\>
 
   ↳ **`Query`**
 
@@ -35,7 +35,7 @@ custom_edit_url: null
 | Name | Type |
 | :------ | :------ |
 | `selector` | `string` |
-| `opt_element?` | `HTMLElement` \| [`Item`](Item.md)<`HTMLElement`\> |
+| `opt_element?` | `HTMLElement` \| [`Knot`](Knot.md)<`HTMLElement`\> |
 
 #### Overrides
 
@@ -43,7 +43,7 @@ custom_edit_url: null
 
 #### Defined in
 
-[core/query.ts:17](https://github.com/siposdani87/sui-js/blob/8315555/src/core/query.ts#L17)
+[core/query.ts:17](https://github.com/siposdani87/sui-js/blob/0baad71/src/core/query.ts#L17)
 
 ## Properties
 
@@ -57,13 +57,13 @@ custom_edit_url: null
 
 #### Defined in
 
-[core/collection.ts:17](https://github.com/siposdani87/sui-js/blob/8315555/src/core/collection.ts#L17)
+[core/collection.ts:17](https://github.com/siposdani87/sui-js/blob/0baad71/src/core/collection.ts#L17)
 
 ___
 
 ### items
 
-• **items**: [`Item`](Item.md)<`T`\>[]
+• **items**: [`Knot`](Knot.md)<`T`\>[]
 
 #### Inherited from
 
@@ -71,7 +71,7 @@ ___
 
 #### Defined in
 
-[core/collection.ts:18](https://github.com/siposdani87/sui-js/blob/8315555/src/core/collection.ts#L18)
+[core/collection.ts:18](https://github.com/siposdani87/sui-js/blob/0baad71/src/core/collection.ts#L18)
 
 ___
 
@@ -85,7 +85,7 @@ ___
 
 #### Defined in
 
-[core/collection.ts:19](https://github.com/siposdani87/sui-js/blob/8315555/src/core/collection.ts#L19)
+[core/collection.ts:19](https://github.com/siposdani87/sui-js/blob/0baad71/src/core/collection.ts#L19)
 
 ## Methods
 
@@ -103,23 +103,23 @@ ___
 
 #### Defined in
 
-[core/collection.ts:189](https://github.com/siposdani87/sui-js/blob/8315555/src/core/collection.ts#L189)
+[core/collection.ts:189](https://github.com/siposdani87/sui-js/blob/0baad71/src/core/collection.ts#L189)
 
 ___
 
 ### delete
 
-▸ **delete**(`value`): [`Item`](Item.md)<`T`\>
+▸ **delete**(`value`): [`Knot`](Knot.md)<`T`\>
 
 #### Parameters
 
 | Name | Type |
 | :------ | :------ |
-| `value` | `Object` \| [`Item`](Item.md)<`T`\> |
+| `value` | `Object` \| [`Knot`](Knot.md)<`T`\> |
 
 #### Returns
 
-[`Item`](Item.md)<`T`\>
+[`Knot`](Knot.md)<`T`\>
 
 #### Inherited from
 
@@ -127,13 +127,13 @@ ___
 
 #### Defined in
 
-[core/collection.ts:247](https://github.com/siposdani87/sui-js/blob/8315555/src/core/collection.ts#L247)
+[core/collection.ts:247](https://github.com/siposdani87/sui-js/blob/0baad71/src/core/collection.ts#L247)
 
 ___
 
 ### deleteAllBy
 
-▸ **deleteAllBy**(`attribute`, `value`): [`Item`](Item.md)<`T`\>[]
+▸ **deleteAllBy**(`attribute`, `value`): [`Knot`](Knot.md)<`T`\>[]
 
 #### Parameters
 
@@ -144,7 +144,7 @@ ___
 
 #### Returns
 
-[`Item`](Item.md)<`T`\>[]
+[`Knot`](Knot.md)<`T`\>[]
 
 #### Inherited from
 
@@ -152,13 +152,13 @@ ___
 
 #### Defined in
 
-[core/collection.ts:287](https://github.com/siposdani87/sui-js/blob/8315555/src/core/collection.ts#L287)
+[core/collection.ts:287](https://github.com/siposdani87/sui-js/blob/0baad71/src/core/collection.ts#L287)
 
 ___
 
 ### deleteAllByCondition
 
-▸ **deleteAllByCondition**(`conditionCallback`): [`Item`](Item.md)<`T`\>[]
+▸ **deleteAllByCondition**(`conditionCallback`): [`Knot`](Knot.md)<`T`\>[]
 
 #### Parameters
 
@@ -168,7 +168,7 @@ ___
 
 #### Returns
 
-[`Item`](Item.md)<`T`\>[]
+[`Knot`](Knot.md)<`T`\>[]
 
 #### Inherited from
 
@@ -176,13 +176,13 @@ ___
 
 #### Defined in
 
-[core/collection.ts:296](https://github.com/siposdani87/sui-js/blob/8315555/src/core/collection.ts#L296)
+[core/collection.ts:296](https://github.com/siposdani87/sui-js/blob/0baad71/src/core/collection.ts#L296)
 
 ___
 
 ### deleteBy
 
-▸ **deleteBy**(`attribute`, `value`): [`Item`](Item.md)<`T`\>
+▸ **deleteBy**(`attribute`, `value`): [`Knot`](Knot.md)<`T`\>
 
 #### Parameters
 
@@ -193,7 +193,7 @@ ___
 
 #### Returns
 
-[`Item`](Item.md)<`T`\>
+[`Knot`](Knot.md)<`T`\>
 
 #### Inherited from
 
@@ -201,13 +201,13 @@ ___
 
 #### Defined in
 
-[core/collection.ts:264](https://github.com/siposdani87/sui-js/blob/8315555/src/core/collection.ts#L264)
+[core/collection.ts:264](https://github.com/siposdani87/sui-js/blob/0baad71/src/core/collection.ts#L264)
 
 ___
 
 ### deleteByCondition
 
-▸ **deleteByCondition**(`conditionCallback`): [`Item`](Item.md)<`T`\>
+▸ **deleteByCondition**(`conditionCallback`): [`Knot`](Knot.md)<`T`\>
 
 #### Parameters
 
@@ -217,7 +217,7 @@ ___
 
 #### Returns
 
-[`Item`](Item.md)<`T`\>
+[`Knot`](Knot.md)<`T`\>
 
 #### Inherited from
 
@@ -225,13 +225,13 @@ ___
 
 #### Defined in
 
-[core/collection.ts:273](https://github.com/siposdani87/sui-js/blob/8315555/src/core/collection.ts#L273)
+[core/collection.ts:273](https://github.com/siposdani87/sui-js/blob/0baad71/src/core/collection.ts#L273)
 
 ___
 
 ### deleteById
 
-▸ **deleteById**(`id`): [`Item`](Item.md)<`T`\>
+▸ **deleteById**(`id`): [`Knot`](Knot.md)<`T`\>
 
 #### Parameters
 
@@ -241,7 +241,7 @@ ___
 
 #### Returns
 
-[`Item`](Item.md)<`T`\>
+[`Knot`](Knot.md)<`T`\>
 
 #### Inherited from
 
@@ -249,7 +249,7 @@ ___
 
 #### Defined in
 
-[core/collection.ts:256](https://github.com/siposdani87/sui-js/blob/8315555/src/core/collection.ts#L256)
+[core/collection.ts:256](https://github.com/siposdani87/sui-js/blob/0baad71/src/core/collection.ts#L256)
 
 ___
 
@@ -261,7 +261,7 @@ ___
 
 | Name | Type |
 | :------ | :------ |
-| `next` | (`_item`: [`Item`](Item.md)<`T`\>, `_index`: `number`) => `any` |
+| `next` | (`_item`: [`Knot`](Knot.md)<`T`\>, `_index`: `number`) => `any` |
 
 #### Returns
 
@@ -273,13 +273,13 @@ ___
 
 #### Defined in
 
-[core/collection.ts:149](https://github.com/siposdani87/sui-js/blob/8315555/src/core/collection.ts#L149)
+[core/collection.ts:149](https://github.com/siposdani87/sui-js/blob/0baad71/src/core/collection.ts#L149)
 
 ___
 
 ### findAllBy
 
-▸ **findAllBy**(`attribute`, `value`): [`Item`](Item.md)<`T`\>[]
+▸ **findAllBy**(`attribute`, `value`): [`Knot`](Knot.md)<`T`\>[]
 
 #### Parameters
 
@@ -290,7 +290,7 @@ ___
 
 #### Returns
 
-[`Item`](Item.md)<`T`\>[]
+[`Knot`](Knot.md)<`T`\>[]
 
 #### Inherited from
 
@@ -298,13 +298,13 @@ ___
 
 #### Defined in
 
-[core/collection.ts:225](https://github.com/siposdani87/sui-js/blob/8315555/src/core/collection.ts#L225)
+[core/collection.ts:225](https://github.com/siposdani87/sui-js/blob/0baad71/src/core/collection.ts#L225)
 
 ___
 
 ### findAllByCondition
 
-▸ **findAllByCondition**(`conditionCallback`): [`Item`](Item.md)<`T`\>[]
+▸ **findAllByCondition**(`conditionCallback`): [`Knot`](Knot.md)<`T`\>[]
 
 #### Parameters
 
@@ -314,7 +314,7 @@ ___
 
 #### Returns
 
-[`Item`](Item.md)<`T`\>[]
+[`Knot`](Knot.md)<`T`\>[]
 
 #### Inherited from
 
@@ -322,13 +322,13 @@ ___
 
 #### Defined in
 
-[core/collection.ts:234](https://github.com/siposdani87/sui-js/blob/8315555/src/core/collection.ts#L234)
+[core/collection.ts:234](https://github.com/siposdani87/sui-js/blob/0baad71/src/core/collection.ts#L234)
 
 ___
 
 ### findBy
 
-▸ **findBy**(`attribute`, `value`): [`Item`](Item.md)<`T`\>
+▸ **findBy**(`attribute`, `value`): [`Knot`](Knot.md)<`T`\>
 
 #### Parameters
 
@@ -339,7 +339,7 @@ ___
 
 #### Returns
 
-[`Item`](Item.md)<`T`\>
+[`Knot`](Knot.md)<`T`\>
 
 #### Inherited from
 
@@ -347,13 +347,13 @@ ___
 
 #### Defined in
 
-[core/collection.ts:204](https://github.com/siposdani87/sui-js/blob/8315555/src/core/collection.ts#L204)
+[core/collection.ts:204](https://github.com/siposdani87/sui-js/blob/0baad71/src/core/collection.ts#L204)
 
 ___
 
 ### findByCondition
 
-▸ **findByCondition**(`conditionCallback`): [`Item`](Item.md)<`T`\>
+▸ **findByCondition**(`conditionCallback`): [`Knot`](Knot.md)<`T`\>
 
 #### Parameters
 
@@ -363,7 +363,7 @@ ___
 
 #### Returns
 
-[`Item`](Item.md)<`T`\>
+[`Knot`](Knot.md)<`T`\>
 
 #### Inherited from
 
@@ -371,13 +371,13 @@ ___
 
 #### Defined in
 
-[core/collection.ts:213](https://github.com/siposdani87/sui-js/blob/8315555/src/core/collection.ts#L213)
+[core/collection.ts:213](https://github.com/siposdani87/sui-js/blob/0baad71/src/core/collection.ts#L213)
 
 ___
 
 ### findById
 
-▸ **findById**(`id`): [`Item`](Item.md)<`T`\>
+▸ **findById**(`id`): [`Knot`](Knot.md)<`T`\>
 
 #### Parameters
 
@@ -387,7 +387,7 @@ ___
 
 #### Returns
 
-[`Item`](Item.md)<`T`\>
+[`Knot`](Knot.md)<`T`\>
 
 #### Inherited from
 
@@ -395,19 +395,19 @@ ___
 
 #### Defined in
 
-[core/collection.ts:196](https://github.com/siposdani87/sui-js/blob/8315555/src/core/collection.ts#L196)
+[core/collection.ts:196](https://github.com/siposdani87/sui-js/blob/0baad71/src/core/collection.ts#L196)
 
 ___
 
 ### get
 
-▸ **get**<`K`\>(`index`, `opt_attribute?`): [`Item`](Item.md)<`T`\> \| `K`
+▸ **get**<`K`\>(`index`, `opt_attribute?`): [`Knot`](Knot.md)<`T`\> \| `K`
 
 #### Type parameters
 
 | Name | Type |
 | :------ | :------ |
-| `K` | [`Item`](Item.md)<`T`\> |
+| `K` | [`Knot`](Knot.md)<`T`\> |
 
 #### Parameters
 
@@ -418,7 +418,7 @@ ___
 
 #### Returns
 
-[`Item`](Item.md)<`T`\> \| `K`
+[`Knot`](Knot.md)<`T`\> \| `K`
 
 #### Inherited from
 
@@ -426,19 +426,19 @@ ___
 
 #### Defined in
 
-[core/collection.ts:160](https://github.com/siposdani87/sui-js/blob/8315555/src/core/collection.ts#L160)
+[core/collection.ts:160](https://github.com/siposdani87/sui-js/blob/0baad71/src/core/collection.ts#L160)
 
 ___
 
 ### getById
 
-▸ **getById**<`K`\>(`id`, `opt_attribute?`): [`Item`](Item.md)<`T`\> \| `K`
+▸ **getById**<`K`\>(`id`, `opt_attribute?`): [`Knot`](Knot.md)<`T`\> \| `K`
 
 #### Type parameters
 
 | Name | Type |
 | :------ | :------ |
-| `K` | [`Item`](Item.md)<`T`\> |
+| `K` | [`Knot`](Knot.md)<`T`\> |
 
 #### Parameters
 
@@ -449,7 +449,7 @@ ___
 
 #### Returns
 
-[`Item`](Item.md)<`T`\> \| `K`
+[`Knot`](Knot.md)<`T`\> \| `K`
 
 #### Inherited from
 
@@ -457,31 +457,17 @@ ___
 
 #### Defined in
 
-[core/collection.ts:179](https://github.com/siposdani87/sui-js/blob/8315555/src/core/collection.ts#L179)
-
-___
-
-### getItem
-
-▸ **getItem**(): [`Item`](Item.md)<`T`\>
-
-#### Returns
-
-[`Item`](Item.md)<`T`\>
-
-#### Defined in
-
-[core/query.ts:31](https://github.com/siposdani87/sui-js/blob/8315555/src/core/query.ts#L31)
+[core/collection.ts:179](https://github.com/siposdani87/sui-js/blob/0baad71/src/core/collection.ts#L179)
 
 ___
 
 ### getItems
 
-▸ **getItems**(): [`Item`](Item.md)<`T`\>[]
+▸ **getItems**(): [`Knot`](Knot.md)<`T`\>[]
 
 #### Returns
 
-[`Item`](Item.md)<`T`\>[]
+[`Knot`](Knot.md)<`T`\>[]
 
 #### Inherited from
 
@@ -489,25 +475,39 @@ ___
 
 #### Defined in
 
-[core/collection.ts:121](https://github.com/siposdani87/sui-js/blob/8315555/src/core/collection.ts#L121)
+[core/collection.ts:121](https://github.com/siposdani87/sui-js/blob/0baad71/src/core/collection.ts#L121)
+
+___
+
+### getKnot
+
+▸ **getKnot**(): [`Knot`](Knot.md)<`T`\>
+
+#### Returns
+
+[`Knot`](Knot.md)<`T`\>
+
+#### Defined in
+
+[core/query.ts:31](https://github.com/siposdani87/sui-js/blob/0baad71/src/core/query.ts#L31)
 
 ___
 
 ### iterator
 
-▸ **iterator**(`callback`, `next`, `opt_items?`): [`Item`](Item.md)<`T`\>[]
+▸ **iterator**(`callback`, `next`, `opt_items?`): [`Knot`](Knot.md)<`T`\>[]
 
 #### Parameters
 
 | Name | Type |
 | :------ | :------ |
-| `callback` | (`_item`: [`Item`](Item.md)<`T`\>) => `any` |
-| `next` | (`_item`: [`Item`](Item.md)<`T`\>, `_index`: `number`) => `any` |
-| `opt_items?` | [`Item`](Item.md)<`T`\>[] |
+| `callback` | (`_item`: [`Knot`](Knot.md)<`T`\>) => `any` |
+| `next` | (`_item`: [`Knot`](Knot.md)<`T`\>, `_index`: `number`) => `any` |
+| `opt_items?` | [`Knot`](Knot.md)<`T`\>[] |
 
 #### Returns
 
-[`Item`](Item.md)<`T`\>[]
+[`Knot`](Knot.md)<`T`\>[]
 
 #### Inherited from
 
@@ -515,13 +515,13 @@ ___
 
 #### Defined in
 
-[core/collection.ts:130](https://github.com/siposdani87/sui-js/blob/8315555/src/core/collection.ts#L130)
+[core/collection.ts:130](https://github.com/siposdani87/sui-js/blob/0baad71/src/core/collection.ts#L130)
 
 ___
 
 ### limit
 
-▸ **limit**(`offset`, `opt_count?`): [`Item`](Item.md)<`T`\>[]
+▸ **limit**(`offset`, `opt_count?`): [`Knot`](Knot.md)<`T`\>[]
 
 #### Parameters
 
@@ -532,7 +532,7 @@ ___
 
 #### Returns
 
-[`Item`](Item.md)<`T`\>[]
+[`Knot`](Knot.md)<`T`\>[]
 
 #### Inherited from
 
@@ -540,7 +540,7 @@ ___
 
 #### Defined in
 
-[core/collection.ts:320](https://github.com/siposdani87/sui-js/blob/8315555/src/core/collection.ts#L320)
+[core/collection.ts:320](https://github.com/siposdani87/sui-js/blob/0baad71/src/core/collection.ts#L320)
 
 ___
 
@@ -552,7 +552,7 @@ ___
 
 | Name | Type |
 | :------ | :------ |
-| `objects` | (`Object` \| [`Item`](Item.md)<`T`\>)[] |
+| `objects` | (`Object` \| [`Knot`](Knot.md)<`T`\>)[] |
 
 #### Returns
 
@@ -564,13 +564,13 @@ ___
 
 #### Defined in
 
-[core/collection.ts:52](https://github.com/siposdani87/sui-js/blob/8315555/src/core/collection.ts#L52)
+[core/collection.ts:52](https://github.com/siposdani87/sui-js/blob/0baad71/src/core/collection.ts#L52)
 
 ___
 
 ### pluck
 
-▸ **pluck**(`attribute`): [`Item`](Item.md)<`T`\>[]
+▸ **pluck**(`attribute`): [`Knot`](Knot.md)<`T`\>[]
 
 #### Parameters
 
@@ -580,7 +580,7 @@ ___
 
 #### Returns
 
-[`Item`](Item.md)<`T`\>[]
+[`Knot`](Knot.md)<`T`\>[]
 
 #### Inherited from
 
@@ -588,23 +588,23 @@ ___
 
 #### Defined in
 
-[core/collection.ts:327](https://github.com/siposdani87/sui-js/blob/8315555/src/core/collection.ts#L327)
+[core/collection.ts:327](https://github.com/siposdani87/sui-js/blob/0baad71/src/core/collection.ts#L327)
 
 ___
 
 ### push
 
-▸ **push**(`object`): [`Item`](Item.md)<`T`\>
+▸ **push**(`object`): [`Knot`](Knot.md)<`T`\>
 
 #### Parameters
 
 | Name | Type |
 | :------ | :------ |
-| `object` | `Object` \| [`Item`](Item.md)<`T`\> |
+| `object` | `Object` \| [`Knot`](Knot.md)<`T`\> |
 
 #### Returns
 
-[`Item`](Item.md)<`T`\>
+[`Knot`](Knot.md)<`T`\>
 
 #### Inherited from
 
@@ -612,7 +612,7 @@ ___
 
 #### Defined in
 
-[core/collection.ts:69](https://github.com/siposdani87/sui-js/blob/8315555/src/core/collection.ts#L69)
+[core/collection.ts:69](https://github.com/siposdani87/sui-js/blob/0baad71/src/core/collection.ts#L69)
 
 ___
 
@@ -624,7 +624,7 @@ ___
 
 | Name | Type |
 | :------ | :------ |
-| `objects` | (`Object` \| [`Item`](Item.md)<`T`\>)[] |
+| `objects` | (`Object` \| [`Knot`](Knot.md)<`T`\>)[] |
 
 #### Returns
 
@@ -636,23 +636,23 @@ ___
 
 #### Defined in
 
-[core/collection.ts:61](https://github.com/siposdani87/sui-js/blob/8315555/src/core/collection.ts#L61)
+[core/collection.ts:61](https://github.com/siposdani87/sui-js/blob/0baad71/src/core/collection.ts#L61)
 
 ___
 
 ### replace
 
-▸ **replace**(`object`): [`Item`](Item.md)<`T`\>
+▸ **replace**(`object`): [`Knot`](Knot.md)<`T`\>
 
 #### Parameters
 
 | Name | Type |
 | :------ | :------ |
-| `object` | `Object` \| [`Item`](Item.md)<`T`\> |
+| `object` | `Object` \| [`Knot`](Knot.md)<`T`\> |
 
 #### Returns
 
-[`Item`](Item.md)<`T`\>
+[`Knot`](Knot.md)<`T`\>
 
 #### Inherited from
 
@@ -660,24 +660,24 @@ ___
 
 #### Defined in
 
-[core/collection.ts:106](https://github.com/siposdani87/sui-js/blob/8315555/src/core/collection.ts#L106)
+[core/collection.ts:106](https://github.com/siposdani87/sui-js/blob/0baad71/src/core/collection.ts#L106)
 
 ___
 
 ### set
 
-▸ **set**(`index`, `object`): [`Item`](Item.md)<`T`\>
+▸ **set**(`index`, `object`): [`Knot`](Knot.md)<`T`\>
 
 #### Parameters
 
 | Name | Type |
 | :------ | :------ |
 | `index` | `number` |
-| `object` | `Object` \| [`Item`](Item.md)<`T`\> |
+| `object` | `Object` \| [`Knot`](Knot.md)<`T`\> |
 
 #### Returns
 
-[`Item`](Item.md)<`T`\>
+[`Knot`](Knot.md)<`T`\>
 
 #### Inherited from
 
@@ -685,7 +685,7 @@ ___
 
 #### Defined in
 
-[core/collection.ts:93](https://github.com/siposdani87/sui-js/blob/8315555/src/core/collection.ts#L93)
+[core/collection.ts:93](https://github.com/siposdani87/sui-js/blob/0baad71/src/core/collection.ts#L93)
 
 ___
 
@@ -703,4 +703,4 @@ ___
 
 #### Defined in
 
-[core/collection.ts:312](https://github.com/siposdani87/sui-js/blob/8315555/src/core/collection.ts#L312)
+[core/collection.ts:312](https://github.com/siposdani87/sui-js/blob/0baad71/src/core/collection.ts#L312)

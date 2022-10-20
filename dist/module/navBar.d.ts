@@ -1,11 +1,11 @@
-import { Item } from '../core';
+import { Knot } from '../core';
 /**
  * @class
  */
 export declare class NavBar {
-    navBarHeader: Item;
-    navBar: Item;
-    toggleNavBarIcon: Item;
+    navBarHeader: Knot;
+    navBar: Knot;
+    toggleNavBarIcon: Knot;
     /**
      */
     constructor();
@@ -47,7 +47,7 @@ export declare class NavBar {
      */
     hideShadow(): void;
     /**
-     * @return {!Item}
+     * @return {!Knot}
      */
-    getContainer(): Item;
+    getContainer(): Knot;
 }

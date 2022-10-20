@@ -3,15 +3,15 @@ import { Listener } from '../utils';
  * @class
  * @template T
  */
-export declare class Item<T extends HTMLElement = HTMLElement> {
+export declare class Knot<T extends HTMLElement = HTMLElement> {
     node: T;
-    parentNode: Item;
+    parentNode: Knot;
     listenerStoreKey: string;
     /**
      * @param {?T|string} node
-     * @param {!Item=} opt_parentNode
+     * @param {!Knot=} opt_parentNode
      */
-    constructor(node: (T | HTMLElement | string) | null, opt_parentNode?: Item | undefined);
+    constructor(node: (T | HTMLElement | string) | null, opt_parentNode?: Knot | undefined);
     /**
      * @param {string} attribute
      * @param {boolean|number|string} value
@@ -148,14 +148,14 @@ export declare class Item<T extends HTMLElement = HTMLElement> {
     /**
      * @template T
      * @param {string} tagName
-     * @return {!Item}
+     * @return {!Knot}
      */
-    createElement<K extends HTMLElement = HTMLElement>(tagName: string): Item<K>;
+    createElement<K extends HTMLElement = HTMLElement>(tagName: string): Knot<K>;
     /**
-     * @param {!Item} node
+     * @param {!Knot} node
      * @return {undefined}
      */
-    appendChild(node: Item): void;
+    appendChild(node: Knot): void;
     /**
      * @return {undefined}
      */
@@ -165,50 +165,50 @@ export declare class Item<T extends HTMLElement = HTMLElement> {
      */
     hasChildren(): boolean;
     /**
-     * @param {!Item} node
+     * @param {!Knot} node
      * @return {undefined}
      */
-    removeChild(node: Item): void;
+    removeChild(node: Knot): void;
     /**
      * @return {undefined}
      */
     remove(): void;
     /**
-     * @param {!Item} node
+     * @param {!Knot} node
      * @return {undefined}
      */
-    insert(node: Item): void;
+    insert(node: Knot): void;
     /**
-     * @param {!Item} node
+     * @param {!Knot} node
      * @return {boolean}
      */
-    beforeChild(node: Item): boolean;
+    beforeChild(node: Knot): boolean;
     /**
      * @deprecated
-     * @param {!Item} node
+     * @param {!Knot} node
      * @return {boolean}
      */
-    afterChild(node: Item): boolean;
+    afterChild(node: Knot): boolean;
     /**
-     * @param {!Item} node
+     * @param {!Knot} node
      * @return {boolean}
      */
-    insertBefore(node: Item): boolean;
+    insertBefore(node: Knot): boolean;
     /**
-     * @param {!Item} node
+     * @param {!Knot} node
      * @return {boolean}
      */
-    insertAfter(node: Item): boolean;
+    insertAfter(node: Knot): boolean;
     /**
      * @deprecated
-     * @param {!Item} node
+     * @param {!Knot} node
      * @return {boolean}
      */
-    replaceChild(node: Item): boolean;
+    replaceChild(node: Knot): boolean;
     /**
-     * @return {!Item}
+     * @return {!Knot}
      */
-    getNextSibling(): Item;
+    getNextSibling(): Knot;
     /**
      * @param {!string} text
      * @return {undefined}
@@ -245,9 +245,9 @@ export declare class Item<T extends HTMLElement = HTMLElement> {
      */
     removeData(name: string): void;
     /**
-     * @return {?Item}
+     * @return {?Knot}
      */
-    getParentNode(): Item | null;
+    getParentNode(): Knot | null;
     /**
      * @return {?HTMLElement}
      */
@@ -286,9 +286,9 @@ export declare class Item<T extends HTMLElement = HTMLElement> {
     toString(opt_isRoot?: boolean | undefined): string;
     /**
      * @param {boolean=} opt_deep
-     * @return {?Item}
+     * @return {?Knot}
      */
-    cloneNode(opt_deep?: boolean | undefined): Item | null;
+    cloneNode(opt_deep?: boolean | undefined): Knot | null;
     /**
      * @deprecated
      * @return {undefined}

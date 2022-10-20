@@ -16,33 +16,33 @@ custom_edit_url: null
 
 | Name | Type | Default value |
 | :------ | :------ | :------ |
-| `content` | [`Item`](Item.md)<`HTMLElement`\> | `undefined` |
-| `parent` | [`Item`](Item.md)<`HTMLElement`\> | `undefined` |
+| `content` | [`Knot`](Knot.md)<`HTMLElement`\> | `undefined` |
+| `parent` | [`Knot`](Knot.md)<`HTMLElement`\> | `undefined` |
 | `opt_withClose` | `boolean` | `false` |
 
 #### Defined in
 
-[component/popup.ts:20](https://github.com/siposdani87/sui-js/blob/8315555/src/component/popup.ts#L20)
+[component/popup.ts:20](https://github.com/siposdani87/sui-js/blob/0baad71/src/component/popup.ts#L20)
 
 ## Properties
 
 ### content
 
-• **content**: [`Item`](Item.md)<`HTMLElement`\>
+• **content**: [`Knot`](Knot.md)<`HTMLElement`\>
 
 #### Defined in
 
-[component/popup.ts:10](https://github.com/siposdani87/sui-js/blob/8315555/src/component/popup.ts#L10)
+[component/popup.ts:10](https://github.com/siposdani87/sui-js/blob/0baad71/src/component/popup.ts#L10)
 
 ___
 
 ### parent
 
-• `Optional` **parent**: [`Item`](Item.md)<`HTMLElement`\>
+• `Optional` **parent**: [`Knot`](Knot.md)<`HTMLElement`\>
 
 #### Defined in
 
-[component/popup.ts:11](https://github.com/siposdani87/sui-js/blob/8315555/src/component/popup.ts#L11)
+[component/popup.ts:11](https://github.com/siposdani87/sui-js/blob/0baad71/src/component/popup.ts#L11)
 
 ___
 
@@ -52,17 +52,17 @@ ___
 
 #### Defined in
 
-[component/popup.ts:13](https://github.com/siposdani87/sui-js/blob/8315555/src/component/popup.ts#L13)
+[component/popup.ts:13](https://github.com/siposdani87/sui-js/blob/0baad71/src/component/popup.ts#L13)
 
 ___
 
 ### popupNode
 
-• **popupNode**: [`Item`](Item.md)<`HTMLElement`\>
+• **popupNode**: [`Knot`](Knot.md)<`HTMLElement`\>
 
 #### Defined in
 
-[component/popup.ts:14](https://github.com/siposdani87/sui-js/blob/8315555/src/component/popup.ts#L14)
+[component/popup.ts:14](https://github.com/siposdani87/sui-js/blob/0baad71/src/component/popup.ts#L14)
 
 ___
 
@@ -72,7 +72,7 @@ ___
 
 #### Defined in
 
-[component/popup.ts:12](https://github.com/siposdani87/sui-js/blob/8315555/src/component/popup.ts#L12)
+[component/popup.ts:12](https://github.com/siposdani87/sui-js/blob/0baad71/src/component/popup.ts#L12)
 
 ## Methods
 
@@ -86,7 +86,7 @@ ___
 
 #### Defined in
 
-[component/popup.ts:42](https://github.com/siposdani87/sui-js/blob/8315555/src/component/popup.ts#L42)
+[component/popup.ts:42](https://github.com/siposdani87/sui-js/blob/0baad71/src/component/popup.ts#L42)
 
 ___
 
@@ -100,7 +100,7 @@ ___
 
 #### Defined in
 
-[component/popup.ts:34](https://github.com/siposdani87/sui-js/blob/8315555/src/component/popup.ts#L34)
+[component/popup.ts:34](https://github.com/siposdani87/sui-js/blob/0baad71/src/component/popup.ts#L34)
 
 ___
 
@@ -114,7 +114,7 @@ ___
 
 #### Defined in
 
-[component/popup.ts:57](https://github.com/siposdani87/sui-js/blob/8315555/src/component/popup.ts#L57)
+[component/popup.ts:57](https://github.com/siposdani87/sui-js/blob/0baad71/src/component/popup.ts#L57)
 
 ___
 
@@ -128,7 +128,7 @@ ___
 
 #### Defined in
 
-[component/popup.ts:92](https://github.com/siposdani87/sui-js/blob/8315555/src/component/popup.ts#L92)
+[component/popup.ts:92](https://github.com/siposdani87/sui-js/blob/0baad71/src/component/popup.ts#L92)
 
 ___
 
@@ -142,7 +142,7 @@ ___
 
 #### Defined in
 
-[component/popup.ts:101](https://github.com/siposdani87/sui-js/blob/8315555/src/component/popup.ts#L101)
+[component/popup.ts:101](https://github.com/siposdani87/sui-js/blob/0baad71/src/component/popup.ts#L101)
 
 ___
 
@@ -156,7 +156,7 @@ ___
 
 #### Defined in
 
-[component/popup.ts:117](https://github.com/siposdani87/sui-js/blob/8315555/src/component/popup.ts#L117)
+[component/popup.ts:117](https://github.com/siposdani87/sui-js/blob/0baad71/src/component/popup.ts#L117)
 
 ___
 
@@ -170,7 +170,7 @@ ___
 
 #### Defined in
 
-[component/popup.ts:83](https://github.com/siposdani87/sui-js/blob/8315555/src/component/popup.ts#L83)
+[component/popup.ts:83](https://github.com/siposdani87/sui-js/blob/0baad71/src/component/popup.ts#L83)
 
 ___
 
@@ -184,4 +184,4 @@ ___
 
 #### Defined in
 
-[component/popup.ts:107](https://github.com/siposdani87/sui-js/blob/8315555/src/component/popup.ts#L107)
+[component/popup.ts:107](https://github.com/siposdani87/sui-js/blob/0baad71/src/component/popup.ts#L107)

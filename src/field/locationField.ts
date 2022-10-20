@@ -1,7 +1,7 @@
 import { eq, typeCast, isNull } from '../utils/operation';
 import { BaseField } from './baseField';
 import { GoogleMap } from '../component/googleMap';
-import { Item } from '../core/item';
+import { Knot } from '../core/knot';
 import { consoleInfo } from '../utils/log';
 import { generateId } from '../utils/coder';
 import { IconOptions } from '../utils';
@@ -13,23 +13,23 @@ import { mdl } from '../utils/render';
  */
 export class LocationField extends BaseField<HTMLInputElement> {
     icon: IconOptions;
-    advancedButton: Item;
+    advancedButton: Knot;
     map: GoogleMap;
-    mapLockNode: Item;
-    advancedNode: Item;
-    latitudeInput: Item<HTMLInputElement>;
-    longitudeInput: Item<HTMLInputElement>;
+    mapLockNode: Knot;
+    advancedNode: Knot;
+    latitudeInput: Knot<HTMLInputElement>;
+    longitudeInput: Knot<HTMLInputElement>;
     /**
-     * @param {!Item} input
-     * @param {!Item} label
-     * @param {!Item} error
-     * @param {!Item} inputBlock
+     * @param {!Knot} input
+     * @param {!Knot} label
+     * @param {!Knot} error
+     * @param {!Knot} inputBlock
      */
     constructor(
-        input: Item<HTMLInputElement>,
-        label: Item,
-        error: Item,
-        inputBlock: Item,
+        input: Knot<HTMLInputElement>,
+        label: Knot,
+        error: Knot,
+        inputBlock: Knot,
     ) {
         super(input, label, error, inputBlock);
         this._init();
@@ -77,7 +77,7 @@ export class LocationField extends BaseField<HTMLInputElement> {
      * @return {undefined}
      */
     private _initSearchButton(): void {
-        const searchButton = new Item('a');
+        const searchButton = new Knot('a');
         searchButton.setAttribute('href', 'javascript:void(0)');
         searchButton.addClass(['search-button', 'material-icons']);
         searchButton.setHtml('pin_drop');
@@ -94,7 +94,7 @@ export class LocationField extends BaseField<HTMLInputElement> {
      * @return {undefined}
      */
     private _initAdvancedButton(): void {
-        this.advancedButton = new Item('a');
+        this.advancedButton = new Knot('a');
         this.advancedButton.setAttribute('href', 'javascript:void(0)');
         this.advancedButton.addClass(['advanced-button', 'material-icons']);
         this.advancedButton.setHtml('settings');
@@ -170,7 +170,7 @@ export class LocationField extends BaseField<HTMLInputElement> {
      * @return {undefined}
      */
     private _renderAdvancedInputs(): void {
-        this.advancedNode = new Item('div');
+        this.advancedNode = new Knot('div');
         this.advancedNode.addClass(['advanced', 'row', 'hidden']);
         this.inputBlock.appendChild(this.advancedNode);
 
@@ -199,19 +199,19 @@ export class LocationField extends BaseField<HTMLInputElement> {
      * @private
      * @param {string} id
      * @param {string} labelText
-     * @param {function(!Item):undefined} callback
-     * @return {!Item<HTMLInputElement>}
+     * @param {function(!Knot):undefined} callback
+     * @return {!Knot<HTMLInputElement>}
      */
     private _renderAdvancedInput(
         id: string,
         labelText: string,
-        callback: (arg0: Item<HTMLInputElement>) => void,
-    ): Item<HTMLInputElement> {
-        const blockNode = new Item('div');
+        callback: (arg0: Knot<HTMLInputElement>) => void,
+    ): Knot<HTMLInputElement> {
+        const blockNode = new Knot('div');
         blockNode.addClass('col-6');
         this.advancedNode.appendChild(blockNode);
 
-        const boxNode = new Item('div');
+        const boxNode = new Knot('div');
         boxNode.addClass([
             'mdl-textfield',
             'mdl-js-textfield',
@@ -219,13 +219,13 @@ export class LocationField extends BaseField<HTMLInputElement> {
         ]);
         blockNode.appendChild(boxNode);
 
-        const advancedLabel = new Item<HTMLLabelElement>('label');
+        const advancedLabel = new Knot<HTMLLabelElement>('label');
         advancedLabel.setFor(id);
         advancedLabel.addClass('mdl-textfield__label');
         advancedLabel.setHtml(labelText);
         boxNode.appendChild(advancedLabel);
 
-        const advancedInput = new Item<HTMLInputElement>('input');
+        const advancedInput = new Knot<HTMLInputElement>('input');
         advancedInput.setId(id);
         advancedInput.setAttribute('type', 'text');
         advancedInput.addClass('mdl-textfield__input');
@@ -244,11 +244,11 @@ export class LocationField extends BaseField<HTMLInputElement> {
      * @return {undefined}
      */
     private _renderMap(): void {
-        const mapNode = new Item('div');
+        const mapNode = new Knot('div');
         mapNode.addClass('map');
         this.inputBlock.appendChild(mapNode);
 
-        this.mapLockNode = new Item('div');
+        this.mapLockNode = new Knot('div');
         this.mapLockNode.addClass('map-lock');
         this.inputBlock.appendChild(this.mapLockNode);
 

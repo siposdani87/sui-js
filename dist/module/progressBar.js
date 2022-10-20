@@ -35,10 +35,10 @@ export class ProgressBar {
      * @return {undefined}
      */
     _init() {
-        this.progressBarContainer = new Query('.main-container > .progress-bar').getItem();
-        this.progressBarHeader = new Query('#header > .progress-bar').getItem();
-        this.progressBarDialog = new Query('#dialog-window > .progress-bar').getItem();
-        this.progressBarConfirm = new Query('#confirm-window > .progress-bar').getItem();
+        this.progressBarContainer = new Query('.main-container > .progress-bar').getKnot();
+        this.progressBarHeader = new Query('#header > .progress-bar').getKnot();
+        this.progressBarDialog = new Query('#dialog-window > .progress-bar').getKnot();
+        this.progressBarConfirm = new Query('#confirm-window > .progress-bar').getKnot();
         this.async = new Async(4);
         this.async.eventComplete = (_isError, nodes) => {
             if (nodes[0]['MaterialProgress']) {
@@ -71,7 +71,7 @@ export class ProgressBar {
     }
     /**
      * @private
-     * @param {!Item} node
+     * @param {!Knot} node
      * @return {!ProcessBar}
      */
     _getProgressBar(node) {

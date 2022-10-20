@@ -1,17 +1,17 @@
 import { Objekt } from '../core';
-import { Item } from '../core/item';
+import { Knot } from '../core/knot';
 /**
  * @class
  */
 export declare class Time {
-    timeNode: Item;
+    timeNode: Knot;
     options: Objekt;
-    pointerNode: Item;
+    pointerNode: Knot;
     /**
-     * @param {!Item} node
+     * @param {!Knot} node
      * @param {!Object} options
      */
-    constructor(node: Item, options: Object);
+    constructor(node: Knot, options: Object);
     /**
      * @private
      * @param {!Object} options
@@ -59,14 +59,14 @@ export declare class Time {
     private _drawCircles;
     /**
      * @private
-     * @param {!Item} circle
+     * @param {!Knot} circle
      * @param {number} i
      * @return {undefined}
      */
     private _setCircleEvent;
     /**
      * @private
-     * @param {!Item} circle
+     * @param {!Knot} circle
      * @param {number} start
      * @param {number} n
      * @param {number} i

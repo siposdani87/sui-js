@@ -1,6 +1,6 @@
 import { urlWithQueryString } from '../utils/operation';
 import { Deferred } from '../core/deferred';
-import { Item } from '../core/item';
+import { Knot } from '../core/knot';
 import { Objekt } from '../core/objekt';
 import { Query } from '../core/query';
 /**
@@ -31,7 +31,7 @@ export class Style {
      * @return {undefined}
      */
     _init() {
-        this.head = new Query('head').getItem();
+        this.head = new Query('head').getKnot();
     }
     /**
      * @param {string} id
@@ -50,7 +50,7 @@ export class Style {
             deferred.resolve(true);
         }
         else {
-            const node = new Item('link');
+            const node = new Knot('link');
             node.setId(id);
             node.setAttribute('href', urlWithQueryString(url, opt_params));
             node.setAttribute('rel', opt_rel);
@@ -72,7 +72,7 @@ export class Style {
      * @return {undefined}
      */
     remove(id) {
-        const style = new Query('#' + id).getItem();
+        const style = new Query('#' + id).getKnot();
         if (!style.isEmpty()) {
             style.remove();
         }

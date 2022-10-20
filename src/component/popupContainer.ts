@@ -1,4 +1,4 @@
-import { Item } from '../core';
+import { Knot } from '../core';
 import { Collection } from '../core/collection';
 import { Query } from '../core/query';
 import { Popup } from './popup';
@@ -8,7 +8,7 @@ import { Popup } from './popup';
  */
 export class PopupContainer {
     selector: string;
-    container: Item;
+    container: Knot;
     /**
      * @param {string=} opt_selector
      */
@@ -21,7 +21,7 @@ export class PopupContainer {
      * @return {undefined}
      */
     private _init(): void {
-        this.container = new Query(this.selector).getItem();
+        this.container = new Query(this.selector).getKnot();
     }
     /**
      * @private
@@ -63,10 +63,10 @@ export class PopupContainer {
         }
     }
     /**
-     * @param {!Item} popupNode
+     * @param {!Knot} popupNode
      * @return {undefined}
      */
-    setPosition(popupNode: Item): void {
+    setPosition(popupNode: Knot): void {
         // const containerNode = this.container.getNode();
         // const top = containerNode.offsetHeight - containerNode.scrollHeight;
         // const absoluteTop = top === 0 ? 'auto' : top + 'px';
@@ -78,10 +78,10 @@ export class PopupContainer {
         });
     }
     /**
-     * @param {!Item} popupNode
+     * @param {!Knot} popupNode
      * @return {undefined}
      */
-    clearPosition(popupNode: Item): void {
+    clearPosition(popupNode: Knot): void {
         popupNode.setStyle({
             top: 'auto',
             bottom: 'auto',

@@ -1,5 +1,5 @@
 import { Objekt } from '../core';
-import { Item } from '../core/item';
+import { Knot } from '../core/knot';
 /**
  * @class
  */
@@ -26,9 +26,9 @@ export declare class Month {
      */
     private _init;
     /**
-     * @return {!Item}
+     * @return {!Knot}
      */
-    getNode(): Item;
+    getNode(): Knot;
     /**
      * @param {!Date} date
      */

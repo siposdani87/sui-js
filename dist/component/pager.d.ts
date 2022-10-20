@@ -1,22 +1,22 @@
-import { Item } from '../core/item';
+import { Knot } from '../core/knot';
 import { Objekt } from '../core/objekt';
 /**
  * @class
  */
 export declare class Pager {
-    pager: Item;
-    pagerStatistics: Item;
+    pager: Knot;
+    pagerStatistics: Knot;
     options: Objekt;
     count: number;
     pageNum: number;
     page: number;
     offset: number;
     /**
-     * @param {!Item} dom
+     * @param {!Knot} dom
      * @param {!Array=} opt_selectors
      * @param {!Object=} opt_options
      */
-    constructor(dom: Item, opt_selectors?: string[] | undefined, opt_options?: Object | undefined);
+    constructor(dom: Knot, opt_selectors?: string[] | undefined, opt_options?: Object | undefined);
     /**
      * @private
      * @param {!Object=} opt_options

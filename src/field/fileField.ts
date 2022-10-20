@@ -5,7 +5,7 @@ import {
     getExtensionName,
 } from '../utils/operation';
 import { BaseField } from './baseField';
-import { Item } from '../core/item';
+import { Knot } from '../core/knot';
 import { Query } from '../core/query';
 import { encodeBase64 } from '../utils/coder';
 import { mdl } from '../utils/render';
@@ -15,23 +15,23 @@ import { mdl } from '../utils/render';
  * @extends {BaseField}
  */
 export class FileField extends BaseField<HTMLInputElement> {
-    imageTag: Item;
+    imageTag: Knot;
     valueSrc: string;
     defaultSrc: string;
-    removeButton: Item;
+    removeButton: Knot;
     fileTypes: { [key: string]: [string, string] };
     fileTypeSVG: string;
     /**
-     * @param {!Item} input
-     * @param {!Item} label
-     * @param {!Item} error
-     * @param {!Item} inputBlock
+     * @param {!Knot} input
+     * @param {!Knot} label
+     * @param {!Knot} error
+     * @param {!Knot} inputBlock
      */
     constructor(
-        input: Item<HTMLInputElement>,
-        label: Item,
-        error: Item,
-        inputBlock: Item,
+        input: Knot<HTMLInputElement>,
+        label: Knot,
+        error: Knot,
+        inputBlock: Knot,
     ) {
         super(input, label, error, inputBlock);
         this._init();
@@ -73,9 +73,9 @@ export class FileField extends BaseField<HTMLInputElement> {
      * @return {undefined}
      */
     private _initDefaultImg(): void {
-        this.imageTag = new Query('img', this.inputBlock).getItem();
+        this.imageTag = new Query('img', this.inputBlock).getKnot();
         if (this.imageTag.isEmpty()) {
-            this.imageTag = new Item('img');
+            this.imageTag = new Knot('img');
             this.inputBlock.beforeChild(this.imageTag);
         }
     }
@@ -101,7 +101,7 @@ export class FileField extends BaseField<HTMLInputElement> {
      * @return {undefined}
      */
     private _initRemoveButton(): void {
-        this.removeButton = new Item('a');
+        this.removeButton = new Knot('a');
         this.removeButton.setAttribute('href', 'javascript:void(0)');
         this.removeButton.addClass(['remove-button', 'material-icons']);
         this.removeButton.setHtml('delete');
@@ -117,7 +117,7 @@ export class FileField extends BaseField<HTMLInputElement> {
      * @return {undefined}
      */
     private _initButtons(): void {
-        const browseButton = new Item('a');
+        const browseButton = new Knot('a');
         browseButton.setAttribute('href', 'javascript:void(0)');
         browseButton.addClass(['browse-button', 'material-icons']);
         if (this._isDocument()) {

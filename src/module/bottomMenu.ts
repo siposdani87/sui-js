@@ -1,4 +1,4 @@
-import { Item } from '../core';
+import { Knot } from '../core';
 import { Query } from '../core/query';
 import { Footer } from './footer';
 
@@ -7,7 +7,7 @@ import { Footer } from './footer';
  */
 export class BottomMenu {
     footer: Footer;
-    bottomMenu: Item;
+    bottomMenu: Knot;
     /**
      * @param {!Footer} footer
      */
@@ -23,12 +23,12 @@ export class BottomMenu {
         this.bottomMenu = new Query(
             '#bottom-menu',
             this.footer.footerNode,
-        ).getItem();
+        ).getKnot();
 
         const openBottomMenu = new Query(
             '#open-bottom-menu',
             this.footer.footerNode,
-        ).getItem();
+        ).getKnot();
         openBottomMenu.setAttribute('href', 'javascript:void(0)');
         openBottomMenu.addEventListener('click', () => {
             this.toggle();
@@ -37,7 +37,7 @@ export class BottomMenu {
         const closeBottomMenu = new Query(
             '#close-bottom-menu',
             this.footer.footerNode,
-        ).getItem();
+        ).getKnot();
         closeBottomMenu.setAttribute('href', 'javascript:void(0)');
         closeBottomMenu.addEventListener('click', () => {
             this.toggle();
@@ -74,9 +74,9 @@ export class BottomMenu {
         this.footer.close();
     }
     /**
-     * @return {!Item}
+     * @return {!Knot}
      */
-    getContainer(): Item {
+    getContainer(): Knot {
         return this.bottomMenu;
     }
 }

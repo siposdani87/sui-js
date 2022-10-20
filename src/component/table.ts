@@ -10,7 +10,7 @@ import {
     instanceOf,
 } from '../utils/operation';
 import { Collection } from '../core/collection';
-import { Item } from '../core/item';
+import { Knot } from '../core/knot';
 import { Objekt } from '../core/objekt';
 import { Query } from '../core/query';
 import { ContentHandler } from './contentHandler';
@@ -26,7 +26,7 @@ import { mdl } from '../utils/render';
  * @class
  */
 export class Table {
-    tableNode: Item;
+    tableNode: Knot;
     options: Objekt;
     collection: Collection<Objekt>;
     query: string;
@@ -34,20 +34,20 @@ export class Table {
     contentHandler: ContentHandler;
     headerNodes: Query<HTMLElement>;
     headerTexts: string[];
-    tbody: Item;
-    tfoot: Item;
+    tbody: Knot;
+    tfoot: Knot;
     pager: Pager;
     /**
-     * @param {!Item} dom
+     * @param {!Knot} dom
      * @param {string=} opt_selector
      * @param {!Object=} opt_options
      */
     constructor(
-        dom: Item,
+        dom: Knot,
         opt_selector: string | undefined = 'table',
         opt_options: Object | undefined = {},
     ) {
-        this.tableNode = new Query(opt_selector, dom).getItem();
+        this.tableNode = new Query(opt_selector, dom).getKnot();
         this._setOptions(opt_options);
         this._init();
     }
@@ -113,7 +113,7 @@ export class Table {
         if (
             this.options.columns[this.options.columns.length - 1] === 'search'
         ) {
-            const searchNode = new Item('div');
+            const searchNode = new Knot('div');
             searchNode.addClass([
                 'mdl-textfield',
                 'mdl-js-textfield',
@@ -123,7 +123,7 @@ export class Table {
                 .get(this.headerNodes.size() - 1)
                 .insert(searchNode);
 
-            const labelNode = new Item('label');
+            const labelNode = new Knot('label');
             labelNode.addClass([
                 'mdl-button',
                 'mdl-js-button',
@@ -132,16 +132,16 @@ export class Table {
             labelNode.setFor('table-search');
             searchNode.appendChild(labelNode);
 
-            const iconNode = new Item('em');
+            const iconNode = new Knot('em');
             iconNode.addClass('material-icons');
             iconNode.setHtml('search');
             labelNode.appendChild(iconNode);
 
-            const inputBlock = new Item('div');
+            const inputBlock = new Knot('div');
             inputBlock.addClass('mdl-textfield__expandable-holder');
             searchNode.appendChild(inputBlock);
 
-            const inputNode = new Item('input');
+            const inputNode = new Knot('input');
             inputNode.setAttribute('type', 'text');
             inputNode.setId('table-search');
             inputNode.addClass('mdl-textfield__input');
@@ -154,7 +154,7 @@ export class Table {
             });
             inputBlock.appendChild(inputNode);
 
-            const subLabelNode = new Item('label');
+            const subLabelNode = new Knot('label');
             subLabelNode.addClass('mdl-textfield__label');
             inputBlock.appendChild(subLabelNode);
 
@@ -176,11 +176,11 @@ export class Table {
     }
     /**
      * @private
-     * @param {!Item} headerNode
+     * @param {!Knot} headerNode
      * @param {number} columnIndex
      * @return {undefined}
      */
-    private _renderHeader(headerNode: Item, columnIndex: number): void {
+    private _renderHeader(headerNode: Knot, columnIndex: number): void {
         const column = this.options.columns[columnIndex];
         if (inArray(['search', 'actions'], column)) {
             headerNode.addClass('actions');
@@ -195,16 +195,16 @@ export class Table {
                 this._toggleSorting(column);
             });
 
-            const iconsContainerNode = new Item('span');
+            const iconsContainerNode = new Knot('span');
             iconsContainerNode.addClass('icons');
             headerNode.appendChild(iconsContainerNode);
 
-            const iconUp = new Item('em');
+            const iconUp = new Knot('em');
             iconUp.addClass(['material-icons', 'asc']);
             iconUp.setHtml('arrow_drop_up');
             iconsContainerNode.appendChild(iconUp);
 
-            const iconDown = new Item('em');
+            const iconDown = new Knot('em');
             iconDown.addClass(['material-icons', 'desc']);
             iconDown.setHtml('arrow_drop_down');
             iconsContainerNode.appendChild(iconDown);
@@ -213,7 +213,7 @@ export class Table {
         const headerTitle = headerNode.getAttribute('title');
         const headerDesc = headerNode.getAttribute('desc');
         if (headerTitle || headerDesc) {
-            const iconInfo = new Item('em');
+            const iconInfo = new Knot('em');
             if (headerTitle) {
                 iconInfo.setAttribute('desc', headerTitle);
             }
@@ -232,19 +232,19 @@ export class Table {
      * @return {undefined}
      */
     private _initStructure(): void {
-        this.tbody = new Item('tbody');
+        this.tbody = new Knot('tbody');
         this.tableNode.appendChild(this.tbody);
 
-        this.tfoot = new Item('tfoot');
+        this.tfoot = new Knot('tfoot');
         this.tableNode.appendChild(this.tfoot);
 
-        const footerRow = new Item('tr');
+        const footerRow = new Knot('tr');
 
-        const statisticsNode = new Item('td');
+        const statisticsNode = new Knot('td');
         statisticsNode.addClass('pager-statistics');
         footerRow.appendChild(statisticsNode);
 
-        const pagerNode = new Item('td');
+        const pagerNode = new Knot('td');
         pagerNode.addClass('pager');
         pagerNode.setAttribute('colspan', this.headerNodes.size() - 1);
         footerRow.appendChild(pagerNode);
@@ -302,11 +302,11 @@ export class Table {
     }
     /**
      * @private
-     * @param {!Item} head
+     * @param {!Knot} head
      * @param {number} i
      * @return {undefined}
      */
-    private _handleSortingColumn(head: Item, i: number): void {
+    private _handleSortingColumn(head: Knot, i: number): void {
         const column = this.options.columns[i];
         if (
             (eq(this.options.sort.column, null) && eq(i, 0)) ||
@@ -315,7 +315,7 @@ export class Table {
             const iconNode = new Query(
                 format('.icons em.{0}', [this.options.sort.order]),
                 head,
-            ).getItem();
+            ).getKnot();
             if (!iconNode.isEmpty()) {
                 iconNode.addClass('active');
             }
@@ -370,7 +370,7 @@ export class Table {
      * @return {undefined}
      */
     private _addHeaderRow(item: Objekt, rowIndex: number): void {
-        const headerRow = new Item('tr');
+        const headerRow = new Knot('tr');
         headerRow.addEventListener('click', (node) => {
             node.toggleClass('opened');
             const dataRow = headerRow.getNextSibling();
@@ -380,9 +380,9 @@ export class Table {
         headerRow.addClass(['header'].concat(cssClasses));
         this.tbody.appendChild(headerRow);
 
-        const headerNameCell = new Item('td');
+        const headerNameCell = new Knot('td');
         headerRow.appendChild(headerNameCell);
-        this._renderDataNodeByItem(
+        this._renderDataNodeByKnot(
             item,
             rowIndex,
             this._getColumn(),
@@ -390,7 +390,7 @@ export class Table {
         );
         headerNameCell.setAttribute('colspan', this.headerNodes.size() - 2);
 
-        const headerActionCell = new Item('td');
+        const headerActionCell = new Knot('td');
         headerRow.appendChild(headerActionCell);
         this._renderActions(headerActionCell, item);
     }
@@ -419,12 +419,12 @@ export class Table {
      * @return {undefined}
      */
     private _addRow(item: Objekt, rowIndex: number): void {
-        const tableRow = new Item('tr');
+        const tableRow = new Knot('tr');
         const cssClasses = this._getRowStyle(item, rowIndex);
         tableRow.addClass(['data'].concat(cssClasses));
         this.tbody.appendChild(tableRow);
         each(this.options.columns, (column, columnIndex) => {
-            const tableDataNode = new Item('td');
+            const tableDataNode = new Knot('td');
             tableRow.appendChild(tableDataNode);
             this._renderDataNode(
                 tableDataNode,
@@ -447,14 +447,14 @@ export class Table {
      * @param {!Objekt} item
      * @param {number} rowIndex
      * @param {string} column
-     * @param {!Item} parentNode
+     * @param {!Knot} parentNode
      * @return {undefined}
      */
-    private _renderDataNodeByItem(
+    private _renderDataNodeByKnot(
         item: Objekt,
         rowIndex: number,
         column: string,
-        parentNode: Item,
+        parentNode: Knot,
     ): void {
         let result = '';
         const calculation = this.options.calculations[column];
@@ -474,8 +474,8 @@ export class Table {
             items = result as any;
         }
         eachArray(items, (item) => {
-            if (!instanceOf(item, Item)) {
-                const dataNode = new Item('span');
+            if (!instanceOf(item, Knot)) {
+                const dataNode = new Knot('span');
                 dataNode.setHtml(item);
                 item = dataNode;
             }
@@ -488,7 +488,7 @@ export class Table {
     }
     /**
      * @private
-     * @param {!Item} tableDataNode
+     * @param {!Knot} tableDataNode
      * @param {!Objekt} item
      * @param {number} rowIndex
      * @param {string} column
@@ -496,7 +496,7 @@ export class Table {
      * @return {undefined}
      */
     private _renderDataNode(
-        tableDataNode: Item,
+        tableDataNode: Knot,
         item: Objekt,
         rowIndex: number,
         column: string,
@@ -505,23 +505,23 @@ export class Table {
         if (inArray(['search', 'actions'], column)) {
             this._renderActions(tableDataNode, item);
         } else {
-            const labelNode = new Item('span');
+            const labelNode = new Knot('span');
             labelNode.addClass('label');
             labelNode.setHtml(this.headerTexts[columnIndex]);
             this._renderHeader(labelNode, columnIndex);
             this._handleSortingColumn(labelNode, columnIndex);
             tableDataNode.appendChild(labelNode);
-            this._renderDataNodeByItem(item, rowIndex, column, tableDataNode);
+            this._renderDataNodeByKnot(item, rowIndex, column, tableDataNode);
         }
     }
     /**
      * @private
-     * @param {!Item} tableDataNode
+     * @param {!Knot} tableDataNode
      * @param {!Objekt} item
      * @return {undefined}
      */
-    private _renderActions(tableDataNode: Item, item: Objekt): void {
-        const containerNode = new Item('div');
+    private _renderActions(tableDataNode: Knot, item: Objekt): void {
+        const containerNode = new Knot('div');
         tableDataNode.addClass('actions');
         tableDataNode.appendChild(containerNode);
         if (this.actions.length > 3) {
@@ -533,40 +533,40 @@ export class Table {
     }
     /**
      * @private
-     * @param {!Item} containerNode
+     * @param {!Knot} containerNode
      * @param {!Objekt} item
      * @return {undefined}
      */
-    private _renderActionNodes(containerNode: Item, item: Objekt): void {
+    private _renderActionNodes(containerNode: Knot, item: Objekt): void {
         each(this.actions, (action) => {
             this._createActionButton(containerNode, action, item);
         });
     }
     /**
      * @private
-     * @param {!Item} dropDownNode
+     * @param {!Knot} dropDownNode
      * @param {!Objekt} item
      * @return {undefined}
      */
-    private _renderDropDownNode(dropDownNode: Item, item: Objekt): void {
+    private _renderDropDownNode(dropDownNode: Knot, item: Objekt): void {
         const dropDown = new Dropdown(dropDownNode);
         dropDown.setActions(this.actions, item);
     }
     /**
      * @private
-     * @param {!Item} containerNode
+     * @param {!Knot} containerNode
      * @param {{style: !Function, click: !Function}} action
      * @param {!Objekt} item
      * @return {undefined}
      */
     private _createActionButton(
-        containerNode: Item,
+        containerNode: Knot,
         action: { style: Function; click: Function },
         item: Objekt,
     ): void {
         const [icon, title, disabled, removed] = action.style(item);
         if (!removed) {
-            const buttonNode = new Item('button');
+            const buttonNode = new Knot('button');
             containerNode.appendChild(buttonNode);
             buttonNode.addClass([
                 'mdl-button',
@@ -585,7 +585,7 @@ export class Table {
                 const tooltip = new Tooltip(buttonNode);
                 tooltip.render(title);
             }
-            const iconNode = new Item('em');
+            const iconNode = new Knot('em');
             iconNode.addClass('material-icons');
             iconNode.setHtml(icon);
             buttonNode.appendChild(iconNode);

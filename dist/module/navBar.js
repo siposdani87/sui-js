@@ -13,14 +13,14 @@ export class NavBar {
      * @return {undefined}
      */
     _init() {
-        this.navBarHeader = new Query('.nav-bar-header').getItem();
-        this.navBar = new Query('#nav-bar', this.navBarHeader).getItem();
-        const toggleNavBar = new Query('#toggle-nav-bar', this.navBarHeader).getItem();
+        this.navBarHeader = new Query('.nav-bar-header').getKnot();
+        this.navBar = new Query('#nav-bar', this.navBarHeader).getKnot();
+        const toggleNavBar = new Query('#toggle-nav-bar', this.navBarHeader).getKnot();
         toggleNavBar.setAttribute('href', 'javascript:void(0)');
         toggleNavBar.addEventListener('click', () => {
             this.toggle();
         });
-        this.toggleNavBarIcon = new Query('em', toggleNavBar).getItem();
+        this.toggleNavBarIcon = new Query('em', toggleNavBar).getKnot();
     }
     /**
      * @return {undefined}
@@ -78,7 +78,7 @@ export class NavBar {
         this.navBar.removeClass('shadow');
     }
     /**
-     * @return {!Item}
+     * @return {!Knot}
      */
     getContainer() {
         return this.navBar;

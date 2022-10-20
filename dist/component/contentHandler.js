@@ -1,11 +1,11 @@
-import { Item } from '../core/item';
+import { Knot } from '../core/knot';
 import { Objekt } from '../core/objekt';
 /**
  * @class
  */
 export class ContentHandler {
     /**
-     * @param {!Item} containerNode
+     * @param {!Knot} containerNode
      * @param {!Object=} opt_options
      */
     constructor(containerNode, opt_options = {}) {
@@ -31,16 +31,16 @@ export class ContentHandler {
      * @return {undefined}
      */
     _init() {
-        this.contentNode = new Item('div');
+        this.contentNode = new Knot('div');
         this.contentNode.addClass('content-handler');
         this.containerNode.insertAfter(this.contentNode);
         if (this.options.image_url) {
-            const imageNode = new Item('img');
+            const imageNode = new Knot('img');
             imageNode.setAttribute('src', this.options.image_url);
             this.contentNode.appendChild(imageNode);
         }
         if (this.options.text) {
-            const textNode = new Item('p');
+            const textNode = new Knot('p');
             textNode.setHtml(this.options.text);
             this.contentNode.appendChild(textNode);
         }

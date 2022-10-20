@@ -1,5 +1,5 @@
 import { Collection } from '../core/collection';
-import { Item } from '../core/item';
+import { Knot } from '../core/knot';
 import { Objekt } from '../core/objekt';
 import { ContentHandler } from './contentHandler';
 import { Pager } from './pager';
@@ -7,25 +7,25 @@ import { Pager } from './pager';
  * @class
  */
 export declare class CardCollection {
-    cardCollectionNode: Item;
+    cardCollectionNode: Knot;
     ctrl: any;
     options: Objekt;
     collection: Collection<Objekt>;
     query: string;
     pager: Pager;
     contentHandler: ContentHandler;
-    body: Item;
-    cardFooterNode: Item;
-    pagerNode: Item;
-    cardTemplate: Item<HTMLTemplateElement>;
+    body: Knot;
+    cardFooterNode: Knot;
+    pagerNode: Knot;
+    cardTemplate: Knot<HTMLTemplateElement>;
     template: string;
     /**
-     * @param {!Item} dom
+     * @param {!Knot} dom
      * @param {string=} opt_selector
      * @param {?Object=} opt_ctrl
      * @param {!Object=} opt_options
      */
-    constructor(dom: Item, opt_selector?: string | undefined, opt_ctrl?: (object | null) | undefined, opt_options?: Object | undefined);
+    constructor(dom: Knot, opt_selector?: string | undefined, opt_ctrl?: (object | null) | undefined, opt_options?: Object | undefined);
     /**
      * @private
      * @param {!Object=} opt_options
@@ -55,7 +55,7 @@ export declare class CardCollection {
     /**
      * @private
      * @param {!Objekt} item
-     * @return {!Item}
+     * @return {!Knot}
      */
     private _getCardNode;
     /**
@@ -69,11 +69,11 @@ export declare class CardCollection {
      */
     eventAction(params: Objekt): void;
     /**
-     * @param {!Item} cardNode
+     * @param {!Knot} cardNode
      * @param {!Objekt} item
      * @return {undefined}
      */
-    eventCardNode(cardNode: Item, item: Objekt): void;
+    eventCardNode(cardNode: Knot, item: Objekt): void;
     /**
      * @private
      * @param {!Objekt} item

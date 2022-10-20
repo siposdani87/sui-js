@@ -1,4 +1,4 @@
-import { Item } from '../core';
+import { Knot } from '../core';
 import { BaseField } from './baseField';
 
 /**
@@ -7,9 +7,9 @@ import { BaseField } from './baseField';
  */
 export class HiddenField extends BaseField<HTMLInputElement> {
     /**
-     * @param {!Item} input
+     * @param {!Knot} input
      */
-    constructor(input: Item<HTMLInputElement>) {
+    constructor(input: Knot<HTMLInputElement>) {
         super(input);
         this._init();
     }

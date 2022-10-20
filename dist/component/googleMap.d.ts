@@ -1,7 +1,7 @@
 /// <reference types="google.maps" />
 import { Collection } from '../core/collection';
 import { Objekt } from '../core/objekt';
-import { Item, Promize } from '../core';
+import { Knot, Promize } from '../core';
 import { IconOptions, Id } from '../utils';
 /**
  * @typedef {{icon: string | google.maps.Icon | google.maps.Symbol, shape: google.maps.MarkerShape}} MarkerIcon
@@ -29,7 +29,7 @@ export declare type LatLng = {
  * @class
  */
 export declare class GoogleMap {
-    mapNode: Item;
+    mapNode: Knot;
     options: Objekt;
     map: google.maps.Map;
     markerIcons: {
@@ -43,11 +43,11 @@ export declare class GoogleMap {
     heatmapOptions: Objekt;
     heatmap: google.maps.visualization.HeatmapLayer;
     /**
-     * @param {!Item} dom
+     * @param {!Knot} dom
      * @param {string=} opt_selector
      * @param {!Object=} opt_options
      */
-    constructor(dom: Item, opt_selector?: string | undefined, opt_options?: Object | undefined);
+    constructor(dom: Knot, opt_selector?: string | undefined, opt_options?: Object | undefined);
     /**
      * @private
      * @param {!Object=} opt_options

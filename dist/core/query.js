@@ -1,6 +1,6 @@
 import { instanceOf, isFunction } from '../utils/operation';
 import { Collection } from './collection';
-import { Item } from './item';
+import { Knot } from './knot';
 /**
  * @class
  * @extends {Collection}
@@ -9,25 +9,25 @@ import { Item } from './item';
 export class Query extends Collection {
     /**
      * @param {string} selector
-     * @param {!HTMLElement|!Item=} opt_element
+     * @param {!HTMLElement|!Knot=} opt_element
      */
     constructor(selector, opt_element) {
         let element = opt_element || document;
-        if (instanceOf(element, Item)) {
+        if (instanceOf(element, Knot)) {
             element = element.getNode();
         }
         const items = querySelector(selector, element);
-        super(items, Item, {
+        super(items, Knot, {
             parent: null,
         });
     }
     /**
-     * @return {!Item}
+     * @return {!Knot}
      */
-    getItem() {
+    getKnot() {
         let firstNode = this.get(0);
         if (!firstNode) {
-            firstNode = new Item(null);
+            firstNode = new Knot(null);
         }
         return firstNode;
     }

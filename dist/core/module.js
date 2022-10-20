@@ -202,7 +202,7 @@ export class Module {
     /**
      * @private
      * @param {!Objekt} state
-     * @param {!Item} dom
+     * @param {!Knot} dom
      * @return {undefined}
      */
     _initController(state, dom) {
@@ -229,7 +229,7 @@ export class Module {
         }
     }
     /**
-     * @param {!Item} dom
+     * @param {!Knot} dom
      * @return {undefined}
      */
     eventControllerLoaded(dom) {
@@ -267,7 +267,7 @@ export class Module {
     }
     /**
      * @param {!Objekt} state
-     * @param {!Item} dom
+     * @param {!Knot} dom
      * @return {!Promize}
      */
     eventDomChange(state, dom) {

@@ -1,10 +1,10 @@
 import { Objekt } from '../core';
-import { Item } from '../core/item';
+import { Knot } from '../core/knot';
 /**
  * @class
  */
 export declare class Clock {
-    clockNode: Item;
+    clockNode: Knot;
     options: Objekt;
     modes: string[];
     types: {
@@ -12,20 +12,20 @@ export declare class Clock {
         minute: string;
     };
     activeMode: string;
-    headerNode: Item;
-    periodHeaderNode: Item;
+    headerNode: Knot;
+    periodHeaderNode: Knot;
     period: string;
     time: Date;
-    minutesHeaderNode: Item;
-    hoursHeaderNode: Item;
-    contentNode: Item;
+    minutesHeaderNode: Knot;
+    hoursHeaderNode: Knot;
+    contentNode: Knot;
     hours: number;
     minutes: number;
     /**
-     * @param {!Item} node
+     * @param {!Knot} node
      * @param {!Object} options
      */
-    constructor(node: Item, options: Object);
+    constructor(node: Knot, options: Object);
     /**
      * @private
      * @param {!Object} options
@@ -92,7 +92,7 @@ export declare class Clock {
     private _initContentNode;
     /**
      * @private
-     * @return {!Item}
+     * @return {!Knot}
      */
     private _getTimeNode;
     /**
@@ -142,13 +142,13 @@ export declare class Clock {
     draw(): void;
     /**
      * @private
-     * @param {!Item} timeNode
+     * @param {!Knot} timeNode
      * @return {undefined}
      */
     private _drawMinutes;
     /**
      * @private
-     * @param {!Item} timeNode
+     * @param {!Knot} timeNode
      * @return {undefined}
      */
     private _drawHours;

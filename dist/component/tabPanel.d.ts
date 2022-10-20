@@ -1,10 +1,10 @@
 import { Query } from '../core/query';
-import { Item, Promize } from '../core';
+import { Knot, Promize } from '../core';
 /**
  * @class
  */
 export declare class TabPanel {
-    tabPanel: Item;
+    tabPanel: Knot;
     options: {
         selected_tab: string;
         default_tab: string;
@@ -13,12 +13,12 @@ export declare class TabPanel {
     tabs: Query;
     panels: Query;
     /**
-     * @param {!Item} dom
+     * @param {!Knot} dom
      * @param {string=} opt_selector
      * @param {string=} opt_selectedTab
      * @param {string=} opt_defaultTab
      */
-    constructor(dom: Item, opt_selector?: string | undefined, opt_selectedTab?: string | undefined, opt_defaultTab?: string | undefined);
+    constructor(dom: Knot, opt_selector?: string | undefined, opt_selectedTab?: string | undefined, opt_defaultTab?: string | undefined);
     /**
      * @private
      * @return {undefined}

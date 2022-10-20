@@ -1,5 +1,5 @@
 import { format, each } from '../utils/operation';
-import { Item } from '../core/item';
+import { Knot } from '../core/knot';
 import { Objekt } from '../core/objekt';
 import { Query } from '../core/query';
 import { consoleWarn } from '../utils/log';
@@ -9,13 +9,13 @@ import { mdl } from '../utils/render';
  */
 export class Pager {
     /**
-     * @param {!Item} dom
+     * @param {!Knot} dom
      * @param {!Array=} opt_selectors
      * @param {!Object=} opt_options
      */
     constructor(dom, opt_selectors = ['.pager', '.pager-statistics'], opt_options = {}) {
-        this.pager = new Query(opt_selectors[0], dom).getItem();
-        this.pagerStatistics = new Query(opt_selectors[1], dom).getItem();
+        this.pager = new Query(opt_selectors[0], dom).getKnot();
+        this.pagerStatistics = new Query(opt_selectors[1], dom).getKnot();
         this._setOptions(opt_options);
         this._init();
     }
@@ -73,7 +73,7 @@ export class Pager {
      */
     _drawPreviousButton() {
         if (this.pageNum > 1) {
-            const previousButton = new Item('button');
+            const previousButton = new Knot('button');
             previousButton.addClass([
                 'mdl-button',
                 'mdl-js-button',
@@ -82,7 +82,7 @@ export class Pager {
             previousButton.addEventListener('click', () => {
                 this._previous();
             });
-            const iconNode = new Item('em');
+            const iconNode = new Knot('em');
             iconNode.addClass('material-icons');
             iconNode.setHtml('chevron_left');
             previousButton.appendChild(iconNode);
@@ -96,7 +96,7 @@ export class Pager {
      */
     _drawNextButton() {
         if (this.pageNum > 1) {
-            const nextButton = new Item('button');
+            const nextButton = new Knot('button');
             nextButton.addClass([
                 'mdl-button',
                 'mdl-js-button',
@@ -105,7 +105,7 @@ export class Pager {
             nextButton.addEventListener('click', () => {
                 this._next();
             });
-            const iconNode = new Item('em');
+            const iconNode = new Knot('em');
             iconNode.addClass('material-icons');
             iconNode.setHtml('chevron_right');
             nextButton.appendChild(iconNode);
@@ -121,7 +121,7 @@ export class Pager {
         const pagers = this._getPagers();
         if (pagers.length > 1) {
             each(pagers, (pager) => {
-                const pageNode = new Item('button');
+                const pageNode = new Knot('button');
                 pageNode.setData('page', pager.page);
                 pageNode.setHtml(pager.text);
                 pageNode.addClass([

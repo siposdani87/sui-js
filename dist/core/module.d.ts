@@ -1,6 +1,6 @@
 import { Promize } from './promize';
 import { Objekt } from './objekt';
-import { Item } from './item';
+import { Knot } from './knot';
 import { Route } from '../component/route';
 import { ClassRef, Dependency, Injection, Instance } from '../utils';
 /**
@@ -71,15 +71,15 @@ export declare class Module {
     /**
      * @private
      * @param {!Objekt} state
-     * @param {!Item} dom
+     * @param {!Knot} dom
      * @return {undefined}
      */
     private _initController;
     /**
-     * @param {!Item} dom
+     * @param {!Knot} dom
      * @return {undefined}
      */
-    eventControllerLoaded(dom: Item): void;
+    eventControllerLoaded(dom: Knot): void;
     /**
      * @return {undefined}
      */
@@ -101,10 +101,10 @@ export declare class Module {
     eventStateChange(state: Objekt): Promize;
     /**
      * @param {!Objekt} state
-     * @param {!Item} dom
+     * @param {!Knot} dom
      * @return {!Promize}
      */
-    eventDomChange(state: Objekt, dom: Item): Promize;
+    eventDomChange(state: Objekt, dom: Knot): Promize;
     /**
      * @return {undefined}
      */

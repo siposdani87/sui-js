@@ -1,13 +1,13 @@
-import { Item } from '../core';
+import { Knot } from '../core';
 import { Query } from '../core/query';
 
 /**
  * @class
  */
 export class NavBar {
-    navBarHeader: Item;
-    navBar: Item;
-    toggleNavBarIcon: Item;
+    navBarHeader: Knot;
+    navBar: Knot;
+    toggleNavBarIcon: Knot;
     /**
      */
     constructor() {
@@ -18,18 +18,18 @@ export class NavBar {
      * @return {undefined}
      */
     private _init(): void {
-        this.navBarHeader = new Query('.nav-bar-header').getItem();
-        this.navBar = new Query('#nav-bar', this.navBarHeader).getItem();
+        this.navBarHeader = new Query('.nav-bar-header').getKnot();
+        this.navBar = new Query('#nav-bar', this.navBarHeader).getKnot();
 
         const toggleNavBar = new Query(
             '#toggle-nav-bar',
             this.navBarHeader,
-        ).getItem();
+        ).getKnot();
         toggleNavBar.setAttribute('href', 'javascript:void(0)');
         toggleNavBar.addEventListener('click', () => {
             this.toggle();
         });
-        this.toggleNavBarIcon = new Query('em', toggleNavBar).getItem();
+        this.toggleNavBarIcon = new Query('em', toggleNavBar).getKnot();
     }
     /**
      * @return {undefined}
@@ -86,9 +86,9 @@ export class NavBar {
         this.navBar.removeClass('shadow');
     }
     /**
-     * @return {!Item}
+     * @return {!Knot}
      */
-    getContainer(): Item {
+    getContainer(): Knot {
         return this.navBar;
     }
 }

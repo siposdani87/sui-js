@@ -1,5 +1,5 @@
 import { Collection } from '../core/collection';
-import { Item } from '../core/item';
+import { Knot } from '../core/knot';
 import { Objekt } from '../core/objekt';
 import { Query } from '../core/query';
 import { ContentHandler } from './contentHandler';
@@ -9,7 +9,7 @@ import { Action } from '../utils';
  * @class
  */
 export declare class Table {
-    tableNode: Item;
+    tableNode: Knot;
     options: Objekt;
     collection: Collection<Objekt>;
     query: string;
@@ -17,15 +17,15 @@ export declare class Table {
     contentHandler: ContentHandler;
     headerNodes: Query<HTMLElement>;
     headerTexts: string[];
-    tbody: Item;
-    tfoot: Item;
+    tbody: Knot;
+    tfoot: Knot;
     pager: Pager;
     /**
-     * @param {!Item} dom
+     * @param {!Knot} dom
      * @param {string=} opt_selector
      * @param {!Object=} opt_options
      */
-    constructor(dom: Item, opt_selector?: string | undefined, opt_options?: Object | undefined);
+    constructor(dom: Knot, opt_selector?: string | undefined, opt_options?: Object | undefined);
     /**
      * @private
      * @param {!Object=} opt_options
@@ -54,7 +54,7 @@ export declare class Table {
     private _initHeader;
     /**
      * @private
-     * @param {!Item} headerNode
+     * @param {!Knot} headerNode
      * @param {number} columnIndex
      * @return {undefined}
      */
@@ -82,7 +82,7 @@ export declare class Table {
     private _toggleSorting;
     /**
      * @private
-     * @param {!Item} head
+     * @param {!Knot} head
      * @param {number} i
      * @return {undefined}
      */
@@ -140,13 +140,13 @@ export declare class Table {
      * @param {!Objekt} item
      * @param {number} rowIndex
      * @param {string} column
-     * @param {!Item} parentNode
+     * @param {!Knot} parentNode
      * @return {undefined}
      */
-    private _renderDataNodeByItem;
+    private _renderDataNodeByKnot;
     /**
      * @private
-     * @param {!Item} tableDataNode
+     * @param {!Knot} tableDataNode
      * @param {!Objekt} item
      * @param {number} rowIndex
      * @param {string} column
@@ -156,28 +156,28 @@ export declare class Table {
     private _renderDataNode;
     /**
      * @private
-     * @param {!Item} tableDataNode
+     * @param {!Knot} tableDataNode
      * @param {!Objekt} item
      * @return {undefined}
      */
     private _renderActions;
     /**
      * @private
-     * @param {!Item} containerNode
+     * @param {!Knot} containerNode
      * @param {!Objekt} item
      * @return {undefined}
      */
     private _renderActionNodes;
     /**
      * @private
-     * @param {!Item} dropDownNode
+     * @param {!Knot} dropDownNode
      * @param {!Objekt} item
      * @return {undefined}
      */
     private _renderDropDownNode;
     /**
      * @private
-     * @param {!Item} containerNode
+     * @param {!Knot} containerNode
      * @param {{style: !Function, click: !Function}} action
      * @param {!Objekt} item
      * @return {undefined}

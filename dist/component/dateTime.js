@@ -1,5 +1,5 @@
 import { Objekt } from '../core';
-import { Item } from '../core/item';
+import { Knot } from '../core/knot';
 import { DateIO } from '../utils';
 import { consoleWarn } from '../utils/log';
 import { Calendar } from './calendar';
@@ -9,7 +9,7 @@ import { Clock } from './clock';
  */
 export class DateTime {
     /**
-     * @param {!Item} node
+     * @param {!Knot} node
      * @param {!Object} options
      */
     constructor(node, options) {
@@ -101,7 +101,7 @@ export class DateTime {
      */
     _initCalendarNode() {
         if (this.config.calendar_type) {
-            this.calendarNode = new Item('div');
+            this.calendarNode = new Knot('div');
             this.calendarNode.addClass('calendar');
             this.datetimeNode.appendChild(this.calendarNode);
         }
@@ -112,7 +112,7 @@ export class DateTime {
      */
     _initClockNode() {
         if (this.config.clock_type) {
-            this.clockNode = new Item('div');
+            this.clockNode = new Knot('div');
             this.clockNode.addClass('clock');
             this.datetimeNode.appendChild(this.clockNode);
         }

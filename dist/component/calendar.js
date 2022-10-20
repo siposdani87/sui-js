@@ -1,5 +1,5 @@
 import { Objekt } from '../core';
-import { Item } from '../core/item';
+import { Knot } from '../core/knot';
 import { DateIO } from '../utils';
 import { consoleWarn } from '../utils/log';
 import { Day } from './day';
@@ -10,7 +10,7 @@ import { Year } from './year';
  */
 export class Calendar {
     /**
-     * @param {!Item} node
+     * @param {!Knot} node
      * @param {!Object} options
      */
     constructor(node, options) {
@@ -61,10 +61,10 @@ export class Calendar {
      * @return {undefined}
      */
     _initHeaderNode() {
-        this.headerNode = new Item('div');
+        this.headerNode = new Knot('div');
         this.headerNode.addClass('header');
         this.calendarNode.appendChild(this.headerNode);
-        const previousButton = new Item('a');
+        const previousButton = new Knot('a');
         previousButton.setAttribute('href', 'javascript:void(0)');
         previousButton.addClass([
             'previous',
@@ -72,20 +72,20 @@ export class Calendar {
             'mdl-js-button',
             'mdl-button--icon',
         ]);
-        const prevIconNode = new Item('em');
+        const prevIconNode = new Knot('em');
         prevIconNode.addClass('material-icons');
         prevIconNode.setHtml('chevron_left');
         previousButton.appendChild(prevIconNode);
         previousButton.addEventListener('click', this._previous.bind(this));
         this.headerNode.appendChild(previousButton);
-        this.currentModeNode = new Item('span');
+        this.currentModeNode = new Knot('span');
         this.currentModeNode.addClass('current-mode');
         this.currentModeNode.addEventListener('click', () => {
             this._changeMode(-1);
             this.draw();
         });
         this.headerNode.appendChild(this.currentModeNode);
-        const nextButton = new Item('a');
+        const nextButton = new Knot('a');
         nextButton.setAttribute('href', 'javascript:void(0)');
         nextButton.addClass([
             'previous',
@@ -93,7 +93,7 @@ export class Calendar {
             'mdl-js-button',
             'mdl-button--icon',
         ]);
-        const nextIconNode = new Item('em');
+        const nextIconNode = new Knot('em');
         nextIconNode.addClass('material-icons');
         nextIconNode.setHtml('chevron_right');
         nextButton.appendChild(nextIconNode);
@@ -105,7 +105,7 @@ export class Calendar {
      * @return {undefined}
      */
     _initContentNode() {
-        this.contentNode = new Item('div');
+        this.contentNode = new Knot('div');
         this.contentNode.addClass('content');
         this.calendarNode.appendChild(this.contentNode);
     }
@@ -170,7 +170,7 @@ export class Calendar {
      * @return {undefined}
      */
     _initYearsMode() {
-        this.yearsNode = new Item('div');
+        this.yearsNode = new Knot('div');
         this.yearsNode.addClass('years');
         this.contentNode.appendChild(this.yearsNode);
     }
@@ -179,7 +179,7 @@ export class Calendar {
      * @return {undefined}
      */
     _initMonthsMode() {
-        this.monthsNode = new Item('div');
+        this.monthsNode = new Knot('div');
         this.monthsNode.addClass('months');
         this.contentNode.appendChild(this.monthsNode);
     }
@@ -188,10 +188,10 @@ export class Calendar {
      * @return {undefined}
      */
     _initDaysMode() {
-        this.weekDaysNode = new Item('div');
+        this.weekDaysNode = new Knot('div');
         this.weekDaysNode.addClass('week-days');
         this.contentNode.appendChild(this.weekDaysNode);
-        this.daysNode = new Item('div');
+        this.daysNode = new Knot('div');
         this.daysNode.addClass('days');
         this.contentNode.appendChild(this.daysNode);
     }
@@ -339,7 +339,7 @@ export class Calendar {
         const firstDOW = DateIO.startOfWeek(new Date());
         for (let i = 0; i < 7; i++) {
             const text = DateIO.format(DateIO.addDays(firstDOW, i), 'EEEEEE');
-            const node = new Item('span');
+            const node = new Knot('span');
             node.addClass('day');
             node.setHtml(text);
             this.weekDaysNode.appendChild(node);

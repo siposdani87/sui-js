@@ -6,7 +6,7 @@ describe('autoCompleteField', () => {
     it('should be instance of AutoCompleteField', () => {
         const inputBlock = new Query<HTMLElement>(
             '.input-block.field-autocomplete',
-        ).getItem();
+        ).getKnot();
         const { input, label, error } = parseInputBlock(inputBlock);
         const autoCompleteField = new AutoCompleteField(
             input,

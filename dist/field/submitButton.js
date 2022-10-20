@@ -6,7 +6,7 @@ import { BaseField } from './baseField';
  */
 export class SubmitButton extends BaseField {
     /**
-     * @param {!Item} input
+     * @param {!Knot} input
      */
     constructor(input) {
         super(input);

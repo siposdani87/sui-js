@@ -26,17 +26,17 @@ export class Footer {
      * @return {undefined}
      */
     _init() {
-        this.footerNode = new Query('#footer').getItem();
-        this.templateViewNode = new Query('.template-view').getItem();
-        this.contentNode = new Query('.content', this.footerNode).getItem();
-        this.localesNode = new Query('.locales', this.footerNode).getItem();
+        this.footerNode = new Query('#footer').getKnot();
+        this.templateViewNode = new Query('.template-view').getKnot();
+        this.contentNode = new Query('.content', this.footerNode).getKnot();
+        this.localesNode = new Query('.locales', this.footerNode).getKnot();
     }
     /**
      * @return {undefined}
      */
     show() {
         this.footerNode.removeClass(['static', 'hidden', 'has-footer']);
-        const contentNode = new Query('.page-content.fullscreen', this.templateViewNode).getItem();
+        const contentNode = new Query('.page-content.fullscreen', this.templateViewNode).getKnot();
         if (contentNode && !contentNode.isEmpty()) {
             const isLightContent = contentNode.hasClass('light');
             if (isLightContent) {
@@ -58,14 +58,14 @@ export class Footer {
         this.templateViewNode.removeClass('has-footer');
     }
     /**
-     * @param {!Item} contentNode
+     * @param {!Knot} contentNode
      * @return {undefined}
      */
     setContent(contentNode) {
         this.contentNode.appendChild(contentNode);
     }
     /**
-     * @return {!Item}
+     * @return {!Knot}
      */
     getLocalesContainer() {
         return this.localesNode;

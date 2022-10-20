@@ -1,4 +1,4 @@
-import { Item } from '../core';
+import { Knot } from '../core';
 import { Objekt } from '../core/objekt';
 import { Query } from '../core/query';
 import { consoleWarn } from '../utils/log';
@@ -8,14 +8,14 @@ import { consoleWarn } from '../utils/log';
  */
 export class Header {
     options: Objekt;
-    headerNode: Item;
-    leftMenuButton: Item;
-    topMenuButton: Item;
-    brandNode: Item;
-    brandNodeImage: Item;
-    brandNodeTitle: Item;
-    mainContainerNode: Item;
-    templateViewNode: Item;
+    headerNode: Knot;
+    leftMenuButton: Knot;
+    topMenuButton: Knot;
+    brandNode: Knot;
+    brandNodeImage: Knot;
+    brandNodeTitle: Knot;
+    mainContainerNode: Knot;
+    templateViewNode: Knot;
     /**
      * @param {!Object=} opt_options
      */
@@ -38,31 +38,31 @@ export class Header {
      * @return {undefined}
      */
     private _init(): void {
-        this.headerNode = new Query('#header').getItem();
+        this.headerNode = new Query('#header').getKnot();
 
         this.leftMenuButton = new Query(
             '#open-left-menu',
             this.headerNode,
-        ).getItem();
+        ).getKnot();
         this.topMenuButton = new Query(
             '#toggle-top-menu',
             this.headerNode,
-        ).getItem();
+        ).getKnot();
 
-        this.brandNode = new Query('.brand', this.headerNode).getItem();
+        this.brandNode = new Query('.brand', this.headerNode).getKnot();
         this.brandNode.setAttribute('href', 'javascript:void(0)');
         this.brandNode.addEventListener('click', () => {
             this.eventLogoClick();
         });
 
-        this.brandNodeImage = new Query('.brand img', this.brandNode).getItem();
+        this.brandNodeImage = new Query('.brand img', this.brandNode).getKnot();
         this.brandNodeTitle = new Query(
             '.brand .app-title',
             this.brandNode,
-        ).getItem();
+        ).getKnot();
 
-        this.mainContainerNode = new Query('.main-container').getItem();
-        this.templateViewNode = new Query('.template-view').getItem();
+        this.mainContainerNode = new Query('.main-container').getKnot();
+        this.templateViewNode = new Query('.template-view').getKnot();
     }
     /**
      * @return {undefined}

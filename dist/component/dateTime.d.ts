@@ -1,5 +1,5 @@
 import { Objekt } from '../core';
-import { Item } from '../core/item';
+import { Knot } from '../core/knot';
 /**
  * @typedef {{format: string; calendar_type: string; clock_type: string;}} DateTimeConfig
  */
@@ -12,20 +12,20 @@ declare type DateTimeConfig = {
  * @class
  */
 export declare class DateTime {
-    datetimeNode: Item;
+    datetimeNode: Knot;
     options: Objekt;
     types: {
         [key: string]: DateTimeConfig;
     };
     config: DateTimeConfig;
-    calendarNode: Item;
-    clockNode: Item;
+    calendarNode: Knot;
+    clockNode: Knot;
     value: Date;
     /**
-     * @param {!Item} node
+     * @param {!Knot} node
      * @param {!Object} options
      */
-    constructor(node: Item, options: Object);
+    constructor(node: Knot, options: Object);
     /**
      * @private
      * @param {!Object} options

@@ -6,7 +6,7 @@ describe('colorField', () => {
     it('should be instance of ColorField', () => {
         const inputBlock = new Query<HTMLElement>(
             '.input-block.field-color',
-        ).getItem();
+        ).getKnot();
         const { input, label, error } = parseInputBlock(inputBlock);
         const colorField = new ColorField(input, label, error, inputBlock);
 

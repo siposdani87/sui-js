@@ -161,7 +161,7 @@ export class Application {
      * @return {undefined}
      */
     private _initCertificate(): void {
-        const rootNode = new Query('html').getItem();
+        const rootNode = new Query('html').getKnot();
         rootNode.addClass('sui-js');
     }
     /**

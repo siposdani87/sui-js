@@ -1,5 +1,5 @@
 import { Objekt } from '../core';
-import { Item } from '../core/item';
+import { Knot } from '../core/knot';
 import { DateIO } from '../utils';
 import { consoleWarn } from '../utils/log';
 import { Time } from './time';
@@ -8,25 +8,25 @@ import { Time } from './time';
  * @class
  */
 export class Clock {
-    clockNode: Item;
+    clockNode: Knot;
     options: Objekt;
     modes: string[];
     types: { hour: string; minute: string };
     activeMode: string;
-    headerNode: Item;
-    periodHeaderNode: Item;
+    headerNode: Knot;
+    periodHeaderNode: Knot;
     period: string;
     time: Date;
-    minutesHeaderNode: Item;
-    hoursHeaderNode: Item;
-    contentNode: Item;
+    minutesHeaderNode: Knot;
+    hoursHeaderNode: Knot;
+    contentNode: Knot;
     hours: number;
     minutes: number;
     /**
-     * @param {!Item} node
+     * @param {!Knot} node
      * @param {!Object} options
      */
-    constructor(node: Item, options: Object) {
+    constructor(node: Knot, options: Object) {
         this.clockNode = node;
         this._setOptions(options);
         this._init();
@@ -91,7 +91,7 @@ export class Clock {
      * @return {undefined}
      */
     private _initHeaderNode(): void {
-        this.headerNode = new Item('div');
+        this.headerNode = new Knot('div');
         this.headerNode.addClass('header');
         this.clockNode.appendChild(this.headerNode);
 
@@ -105,7 +105,7 @@ export class Clock {
      * @return {undefined}
      */
     private _initPeriodHeaderNode(): void {
-        this.periodHeaderNode = new Item('div');
+        this.periodHeaderNode = new Knot('div');
         this.periodHeaderNode.addClass('period');
         this.periodHeaderNode.addEventListener(
             'click',
@@ -130,7 +130,7 @@ export class Clock {
      * @return {undefined}
      */
     private _initMinutesHeaderNode(): void {
-        this.minutesHeaderNode = new Item('div');
+        this.minutesHeaderNode = new Knot('div');
         this.minutesHeaderNode.addClass('minutes');
         this.minutesHeaderNode.addEventListener('click', () => {
             this._setMode(this.types.minute);
@@ -142,7 +142,7 @@ export class Clock {
      * @return {undefined}
      */
     private _initHoursHeaderNode(): void {
-        this.hoursHeaderNode = new Item('div');
+        this.hoursHeaderNode = new Knot('div');
         this.hoursHeaderNode.addClass('hours');
         this.hoursHeaderNode.addEventListener('click', () => {
             this._setMode(this.types.hour);
@@ -164,7 +164,7 @@ export class Clock {
      * @return {undefined}
      */
     private _initSeparatorHeaderNode(): void {
-        const separatorHeaderNode = new Item('div');
+        const separatorHeaderNode = new Knot('div');
         separatorHeaderNode.addClass('separator');
         separatorHeaderNode.setHtml(':');
         this.headerNode.appendChild(separatorHeaderNode);
@@ -174,17 +174,17 @@ export class Clock {
      * @return {undefined}
      */
     private _initContentNode(): void {
-        this.contentNode = new Item('div');
+        this.contentNode = new Knot('div');
         this.contentNode.addClass('content');
         this.clockNode.appendChild(this.contentNode);
     }
     /**
      * @private
-     * @return {!Item}
+     * @return {!Knot}
      */
-    private _getTimeNode(): Item {
+    private _getTimeNode(): Knot {
         this.contentNode.removeChildren();
-        const hoursNode = new Item('div');
+        const hoursNode = new Knot('div');
         hoursNode.addClass('time');
         this.contentNode.appendChild(hoursNode);
         return hoursNode;
@@ -292,10 +292,10 @@ export class Clock {
     }
     /**
      * @private
-     * @param {!Item} timeNode
+     * @param {!Knot} timeNode
      * @return {undefined}
      */
-    private _drawMinutes(timeNode: Item): void {
+    private _drawMinutes(timeNode: Knot): void {
         const timeMinutes = new Time(timeNode, {
             selected: this.minutes,
             captions: ['00', '05'],
@@ -309,10 +309,10 @@ export class Clock {
     }
     /**
      * @private
-     * @param {!Item} timeNode
+     * @param {!Knot} timeNode
      * @return {undefined}
      */
-    private _drawHours(timeNode: Item): void {
+    private _drawHours(timeNode: Knot): void {
         const timeHours = new Time(timeNode, {
             selected: this.hours,
         });

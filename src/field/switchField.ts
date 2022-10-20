@@ -1,4 +1,4 @@
-import { Item } from '../core/item';
+import { Knot } from '../core/knot';
 import { BaseCheckboxField } from './baseCheckboxField';
 
 /**
@@ -7,16 +7,16 @@ import { BaseCheckboxField } from './baseCheckboxField';
  */
 export class SwitchField extends BaseCheckboxField {
     /**
-     * @param {!Item} input
-     * @param {!Item} label
-     * @param {!Item} error
-     * @param {!Item} inputBlock
+     * @param {!Knot} input
+     * @param {!Knot} label
+     * @param {!Knot} error
+     * @param {!Knot} inputBlock
      */
     constructor(
-        input: Item<HTMLInputElement>,
-        label: Item,
-        error: Item,
-        inputBlock: Item,
+        input: Knot<HTMLInputElement>,
+        label: Knot,
+        error: Knot,
+        inputBlock: Knot,
     ) {
         super(input, label, error, inputBlock);
     }
@@ -33,7 +33,7 @@ export class SwitchField extends BaseCheckboxField {
 
         const labelText = this.label.getText();
 
-        this.spanLabel = new Item('span');
+        this.spanLabel = new Knot('span');
         this.spanLabel.addClass('mdl-switch__label');
         this.spanLabel.setHtml(labelText);
 
@@ -42,7 +42,7 @@ export class SwitchField extends BaseCheckboxField {
         this.label.insert(this.input);
         this.label.appendChild(this.spanLabel);
 
-        this.dataLabelNode = new Item('span');
+        this.dataLabelNode = new Knot('span');
         this.dataLabelNode.addClass('field-label');
         this.label.insertBefore(this.dataLabelNode);
 

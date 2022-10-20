@@ -5,7 +5,7 @@ describe('resetButton', () => {
     it('should be instance of ResetButton', () => {
         const buttonInput = new Query<HTMLInputElement>(
             'button[name="btn-reset"]',
-        ).getItem();
+        ).getKnot();
         const resetButton = new ResetButton(buttonInput);
 
         expect(resetButton).toBeInstanceOf(ResetButton);

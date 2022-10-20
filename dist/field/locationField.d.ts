@@ -1,7 +1,7 @@
 /// <reference types="google.maps" />
 import { BaseField } from './baseField';
 import { GoogleMap } from '../component/googleMap';
-import { Item } from '../core/item';
+import { Knot } from '../core/knot';
 import { IconOptions } from '../utils';
 /**
  * @class
@@ -9,19 +9,19 @@ import { IconOptions } from '../utils';
  */
 export declare class LocationField extends BaseField<HTMLInputElement> {
     icon: IconOptions;
-    advancedButton: Item;
+    advancedButton: Knot;
     map: GoogleMap;
-    mapLockNode: Item;
-    advancedNode: Item;
-    latitudeInput: Item<HTMLInputElement>;
-    longitudeInput: Item<HTMLInputElement>;
+    mapLockNode: Knot;
+    advancedNode: Knot;
+    latitudeInput: Knot<HTMLInputElement>;
+    longitudeInput: Knot<HTMLInputElement>;
     /**
-     * @param {!Item} input
-     * @param {!Item} label
-     * @param {!Item} error
-     * @param {!Item} inputBlock
+     * @param {!Knot} input
+     * @param {!Knot} label
+     * @param {!Knot} error
+     * @param {!Knot} inputBlock
      */
-    constructor(input: Item<HTMLInputElement>, label: Item, error: Item, inputBlock: Item);
+    constructor(input: Knot<HTMLInputElement>, label: Knot, error: Knot, inputBlock: Knot);
     /**
      * @private
      * @return {undefined}
@@ -70,8 +70,8 @@ export declare class LocationField extends BaseField<HTMLInputElement> {
      * @private
      * @param {string} id
      * @param {string} labelText
-     * @param {function(!Item):undefined} callback
-     * @return {!Item<HTMLInputElement>}
+     * @param {function(!Knot):undefined} callback
+     * @return {!Knot<HTMLInputElement>}
      */
     private _renderAdvancedInput;
     /**

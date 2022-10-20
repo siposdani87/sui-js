@@ -20,17 +20,17 @@ custom_edit_url: null
 
 #### Defined in
 
-[module/bottomMenu.ts:14](https://github.com/siposdani87/sui-js/blob/8315555/src/module/bottomMenu.ts#L14)
+[module/bottomMenu.ts:14](https://github.com/siposdani87/sui-js/blob/0baad71/src/module/bottomMenu.ts#L14)
 
 ## Properties
 
 ### bottomMenu
 
-• **bottomMenu**: [`Item`](Item.md)<`HTMLElement`\>
+• **bottomMenu**: [`Knot`](Knot.md)<`HTMLElement`\>
 
 #### Defined in
 
-[module/bottomMenu.ts:10](https://github.com/siposdani87/sui-js/blob/8315555/src/module/bottomMenu.ts#L10)
+[module/bottomMenu.ts:10](https://github.com/siposdani87/sui-js/blob/0baad71/src/module/bottomMenu.ts#L10)
 
 ___
 
@@ -40,7 +40,7 @@ ___
 
 #### Defined in
 
-[module/bottomMenu.ts:9](https://github.com/siposdani87/sui-js/blob/8315555/src/module/bottomMenu.ts#L9)
+[module/bottomMenu.ts:9](https://github.com/siposdani87/sui-js/blob/0baad71/src/module/bottomMenu.ts#L9)
 
 ## Methods
 
@@ -54,7 +54,7 @@ ___
 
 #### Defined in
 
-[module/bottomMenu.ts:22](https://github.com/siposdani87/sui-js/blob/8315555/src/module/bottomMenu.ts#L22)
+[module/bottomMenu.ts:22](https://github.com/siposdani87/sui-js/blob/0baad71/src/module/bottomMenu.ts#L22)
 
 ___
 
@@ -68,21 +68,21 @@ ___
 
 #### Defined in
 
-[module/bottomMenu.ts:72](https://github.com/siposdani87/sui-js/blob/8315555/src/module/bottomMenu.ts#L72)
+[module/bottomMenu.ts:72](https://github.com/siposdani87/sui-js/blob/0baad71/src/module/bottomMenu.ts#L72)
 
 ___
 
 ### getContainer
 
-▸ **getContainer**(): [`Item`](Item.md)<`HTMLElement`\>
+▸ **getContainer**(): [`Knot`](Knot.md)<`HTMLElement`\>
 
 #### Returns
 
-[`Item`](Item.md)<`HTMLElement`\>
+[`Knot`](Knot.md)<`HTMLElement`\>
 
 #### Defined in
 
-[module/bottomMenu.ts:79](https://github.com/siposdani87/sui-js/blob/8315555/src/module/bottomMenu.ts#L79)
+[module/bottomMenu.ts:79](https://github.com/siposdani87/sui-js/blob/0baad71/src/module/bottomMenu.ts#L79)
 
 ___
 
@@ -96,7 +96,7 @@ ___
 
 #### Defined in
 
-[module/bottomMenu.ts:59](https://github.com/siposdani87/sui-js/blob/8315555/src/module/bottomMenu.ts#L59)
+[module/bottomMenu.ts:59](https://github.com/siposdani87/sui-js/blob/0baad71/src/module/bottomMenu.ts#L59)
 
 ___
 
@@ -110,7 +110,7 @@ ___
 
 #### Defined in
 
-[module/bottomMenu.ts:65](https://github.com/siposdani87/sui-js/blob/8315555/src/module/bottomMenu.ts#L65)
+[module/bottomMenu.ts:65](https://github.com/siposdani87/sui-js/blob/0baad71/src/module/bottomMenu.ts#L65)
 
 ___
 
@@ -124,4 +124,4 @@ ___
 
 #### Defined in
 
-[module/bottomMenu.ts:49](https://github.com/siposdani87/sui-js/blob/8315555/src/module/bottomMenu.ts#L49)
+[module/bottomMenu.ts:49](https://github.com/siposdani87/sui-js/blob/0baad71/src/module/bottomMenu.ts#L49)

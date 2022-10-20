@@ -1,7 +1,7 @@
 import { eq } from '../utils/operation';
 import { mdl } from '../utils/render';
 import { BaseField } from './baseField';
-import { Item } from '../core/item';
+import { Knot } from '../core/knot';
 import { consoleWarn } from '../utils/log';
 /**
  * @class
@@ -9,10 +9,10 @@ import { consoleWarn } from '../utils/log';
  */
 export class SearchField extends BaseField {
     /**
-     * @param {!Item} input
-     * @param {!Item} label
-     * @param {!Item} error
-     * @param {!Item} inputBlock
+     * @param {!Knot} input
+     * @param {!Knot} label
+     * @param {!Knot} error
+     * @param {!Knot} inputBlock
      */
     constructor(input, label, error, inputBlock) {
         super(input, label, error, inputBlock);
@@ -54,15 +54,15 @@ export class SearchField extends BaseField {
             'mdl-js-button',
             'mdl-button--icon',
         ]);
-        const iconNode = new Item('em');
+        const iconNode = new Knot('em');
         iconNode.addClass(['material-icons', 'search-button']);
         iconNode.setHtml('search');
         this.label.insert(iconNode);
-        this.holderNode = new Item('div');
+        this.holderNode = new Knot('div');
         this.holderNode.addClass('mdl-textfield__expandable-holder');
         this.holderNode.appendChild(this.input);
         this.inputBlock.appendChild(this.holderNode);
-        const labelNode = new Item('label');
+        const labelNode = new Knot('label');
         labelNode.addClass('mdl-textfield__label');
         this.holderNode.appendChild(labelNode);
         this._initClearButton();
@@ -82,7 +82,7 @@ export class SearchField extends BaseField {
      * @return {undefined}
      */
     _initClearButton() {
-        const clearButton = new Item('a');
+        const clearButton = new Knot('a');
         clearButton.setAttribute('href', 'javascript:void(0)');
         clearButton.addClass(['material-icons', 'clear-button']);
         clearButton.setHtml('clear');

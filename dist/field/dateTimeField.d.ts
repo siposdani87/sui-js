@@ -1,25 +1,25 @@
 import { BaseField } from './baseField';
 import { Popup } from '../component/popup';
 import { DateTime } from '../component/dateTime';
-import { Item } from '../core/item';
+import { Knot } from '../core/knot';
 /**
  * @class
  * @extends {BaseField}
  */
 export declare class DateTimeField extends BaseField<HTMLInputElement> {
-    datetimeContainer: Item;
-    datetimeInput: Item;
+    datetimeContainer: Knot;
+    datetimeInput: Knot;
     format: string;
-    datetimeNode: Item;
+    datetimeNode: Knot;
     datetime: DateTime;
     popup: Popup;
     /**
-     * @param {!Item} input
-     * @param {!Item} label
-     * @param {!Item} error
-     * @param {!Item} inputBlock
+     * @param {!Knot} input
+     * @param {!Knot} label
+     * @param {!Knot} error
+     * @param {!Knot} inputBlock
      */
-    constructor(input: Item<HTMLInputElement>, label: Item, error: Item, inputBlock: Item);
+    constructor(input: Knot<HTMLInputElement>, label: Knot, error: Knot, inputBlock: Knot);
     /**
      * @private
      * @return {undefined}

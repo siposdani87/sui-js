@@ -8,10 +8,10 @@ import { mdl } from '../utils/render';
  */
 export class BaseCheckboxField extends BaseField {
     /**
-     * @param {!Item} input
-     * @param {!Item} label
-     * @param {!Item} error
-     * @param {!Item} inputBlock
+     * @param {!Knot} input
+     * @param {!Knot} label
+     * @param {!Knot} error
+     * @param {!Knot} inputBlock
      */
     constructor(input, label, error, inputBlock) {
         super(input, label, error, inputBlock);
@@ -22,7 +22,7 @@ export class BaseCheckboxField extends BaseField {
      * @return {undefined}
      */
     _init() {
-        this.hiddenInput = new Query('input[type=hidden]', this.inputBlock).getItem();
+        this.hiddenInput = new Query('input[type=hidden]', this.inputBlock).getKnot();
         this.inputBlock.addClass('checkbox-field');
         this.input.addEventListener('change', () => {
             this._change();

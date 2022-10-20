@@ -6,7 +6,7 @@ describe('fileField', () => {
     it('should be instance of FileField', () => {
         const inputBlock = new Query<HTMLElement>(
             '.input-block.field-number',
-        ).getItem();
+        ).getKnot();
         const { input, label, error } = parseInputBlock(inputBlock);
         const fileField = new FileField(input, label, error, inputBlock);
 

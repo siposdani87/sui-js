@@ -1,11 +1,11 @@
 import { Objekt } from '../core';
-import { Item } from '../core/item';
+import { Knot } from '../core/knot';
 import { Day } from './day';
 /**
  * @class
  */
 export declare class Calendar {
-    calendarNode: Item;
+    calendarNode: Knot;
     options: Objekt;
     maxDays: number;
     maxMonths: number;
@@ -19,13 +19,13 @@ export declare class Calendar {
         week: string;
         range: string;
     };
-    headerNode: Item;
-    currentModeNode: Item;
-    contentNode: Item;
-    yearsNode: Item;
-    monthsNode: Item;
-    weekDaysNode: Item;
-    daysNode: Item;
+    headerNode: Knot;
+    currentModeNode: Knot;
+    contentNode: Knot;
+    yearsNode: Knot;
+    monthsNode: Knot;
+    weekDaysNode: Knot;
+    daysNode: Knot;
     previous: {
         day: Date;
         month: Date;
@@ -42,10 +42,10 @@ export declare class Calendar {
     days: Day[];
     selectedDate: Date;
     /**
-     * @param {!Item} node
+     * @param {!Knot} node
      * @param {!Object} options
      */
-    constructor(node: Item, options: Object);
+    constructor(node: Knot, options: Object);
     /**
      * @private
      * @param {!Object} options

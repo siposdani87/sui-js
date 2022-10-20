@@ -16,7 +16,7 @@ export class PopupContainer {
      * @return {undefined}
      */
     _init() {
-        this.container = new Query(this.selector).getItem();
+        this.container = new Query(this.selector).getKnot();
     }
     /**
      * @private
@@ -58,7 +58,7 @@ export class PopupContainer {
         }
     }
     /**
-     * @param {!Item} popupNode
+     * @param {!Knot} popupNode
      * @return {undefined}
      */
     setPosition(popupNode) {
@@ -73,7 +73,7 @@ export class PopupContainer {
         });
     }
     /**
-     * @param {!Item} popupNode
+     * @param {!Knot} popupNode
      * @return {undefined}
      */
     clearPosition(popupNode) {

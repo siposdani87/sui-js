@@ -1,7 +1,7 @@
 import { eq, typeCast, isNull } from '../utils/operation';
 import { BaseField } from './baseField';
 import { GoogleMap } from '../component/googleMap';
-import { Item } from '../core/item';
+import { Knot } from '../core/knot';
 import { consoleInfo } from '../utils/log';
 import { generateId } from '../utils/coder';
 import { mdl } from '../utils/render';
@@ -11,10 +11,10 @@ import { mdl } from '../utils/render';
  */
 export class LocationField extends BaseField {
     /**
-     * @param {!Item} input
-     * @param {!Item} label
-     * @param {!Item} error
-     * @param {!Item} inputBlock
+     * @param {!Knot} input
+     * @param {!Knot} label
+     * @param {!Knot} error
+     * @param {!Knot} inputBlock
      */
     constructor(input, label, error, inputBlock) {
         super(input, label, error, inputBlock);
@@ -60,7 +60,7 @@ export class LocationField extends BaseField {
      * @return {undefined}
      */
     _initSearchButton() {
-        const searchButton = new Item('a');
+        const searchButton = new Knot('a');
         searchButton.setAttribute('href', 'javascript:void(0)');
         searchButton.addClass(['search-button', 'material-icons']);
         searchButton.setHtml('pin_drop');
@@ -77,7 +77,7 @@ export class LocationField extends BaseField {
      * @return {undefined}
      */
     _initAdvancedButton() {
-        this.advancedButton = new Item('a');
+        this.advancedButton = new Knot('a');
         this.advancedButton.setAttribute('href', 'javascript:void(0)');
         this.advancedButton.addClass(['advanced-button', 'material-icons']);
         this.advancedButton.setHtml('settings');
@@ -149,7 +149,7 @@ export class LocationField extends BaseField {
      * @return {undefined}
      */
     _renderAdvancedInputs() {
-        this.advancedNode = new Item('div');
+        this.advancedNode = new Knot('div');
         this.advancedNode.addClass(['advanced', 'row', 'hidden']);
         this.inputBlock.appendChild(this.advancedNode);
         this.latitudeInput = this._renderAdvancedInput(generateId('latitude'), this.input.getData('latitude'), (inputNode) => {
@@ -169,26 +169,26 @@ export class LocationField extends BaseField {
      * @private
      * @param {string} id
      * @param {string} labelText
-     * @param {function(!Item):undefined} callback
-     * @return {!Item<HTMLInputElement>}
+     * @param {function(!Knot):undefined} callback
+     * @return {!Knot<HTMLInputElement>}
      */
     _renderAdvancedInput(id, labelText, callback) {
-        const blockNode = new Item('div');
+        const blockNode = new Knot('div');
         blockNode.addClass('col-6');
         this.advancedNode.appendChild(blockNode);
-        const boxNode = new Item('div');
+        const boxNode = new Knot('div');
         boxNode.addClass([
             'mdl-textfield',
             'mdl-js-textfield',
             'mdl-textfield--floating-label',
         ]);
         blockNode.appendChild(boxNode);
-        const advancedLabel = new Item('label');
+        const advancedLabel = new Knot('label');
         advancedLabel.setFor(id);
         advancedLabel.addClass('mdl-textfield__label');
         advancedLabel.setHtml(labelText);
         boxNode.appendChild(advancedLabel);
-        const advancedInput = new Item('input');
+        const advancedInput = new Knot('input');
         advancedInput.setId(id);
         advancedInput.setAttribute('type', 'text');
         advancedInput.addClass('mdl-textfield__input');
@@ -205,10 +205,10 @@ export class LocationField extends BaseField {
      * @return {undefined}
      */
     _renderMap() {
-        const mapNode = new Item('div');
+        const mapNode = new Knot('div');
         mapNode.addClass('map');
         this.inputBlock.appendChild(mapNode);
-        this.mapLockNode = new Item('div');
+        this.mapLockNode = new Knot('div');
         this.mapLockNode.addClass('map-lock');
         this.inputBlock.appendChild(this.mapLockNode);
         this.map = new GoogleMap(this.inputBlock, '.map', {

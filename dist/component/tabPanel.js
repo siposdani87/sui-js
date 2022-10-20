@@ -8,13 +8,13 @@ import { consoleWarn } from '../utils/log';
  */
 export class TabPanel {
     /**
-     * @param {!Item} dom
+     * @param {!Knot} dom
      * @param {string=} opt_selector
      * @param {string=} opt_selectedTab
      * @param {string=} opt_defaultTab
      */
     constructor(dom, opt_selector = '.tab-panel', opt_selectedTab = '', opt_defaultTab = '') {
-        this.tabPanel = new Query(opt_selector, dom).getItem();
+        this.tabPanel = new Query(opt_selector, dom).getKnot();
         this.options = {
             selected_tab: opt_selectedTab,
             default_tab: opt_defaultTab || opt_selectedTab,

@@ -36,12 +36,12 @@ const _createMapLabelByMarkerByPosition = (map, position, title) => new MapLabel
  */
 export class GoogleMap {
     /**
-     * @param {!Item} dom
+     * @param {!Knot} dom
      * @param {string=} opt_selector
      * @param {!Object=} opt_options
      */
     constructor(dom, opt_selector = '.map', opt_options = {}) {
-        this.mapNode = new Query(opt_selector, dom).getItem();
+        this.mapNode = new Query(opt_selector, dom).getKnot();
         this._setOptions(opt_options);
         this._init();
     }

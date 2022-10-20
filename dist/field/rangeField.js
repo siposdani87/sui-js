@@ -7,10 +7,10 @@ import { mdl } from '../utils/render';
  */
 export class RangeField extends BaseField {
     /**
-     * @param {!Item} input
-     * @param {!Item} label
-     * @param {!Item} error
-     * @param {!Item} inputBlock
+     * @param {!Knot} input
+     * @param {!Knot} label
+     * @param {!Knot} error
+     * @param {!Knot} inputBlock
      */
     constructor(input, label, error, inputBlock) {
         super(input, label, error, inputBlock);
@@ -63,7 +63,7 @@ export class RangeField extends BaseField {
         /* const containerNode = new Query(
             '.mdl-slider__container',
             this.inputBlock,
-        ).getItem(); */
+        ).getKnot(); */
         const value = this.getValue();
         this.tooltip = new Tooltip(this.inputBlock);
         this.tooltip.render(value);

@@ -5,7 +5,7 @@ describe('button', () => {
     it('should be instance of Button', () => {
         const buttonInput = new Query<HTMLInputElement>(
             'button[name="btn-button"]',
-        ).getItem();
+        ).getKnot();
         const button = new Button(buttonInput);
 
         expect(button).toBeInstanceOf(Button);

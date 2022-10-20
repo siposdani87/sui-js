@@ -1,7 +1,7 @@
-import { Item } from '../core';
+import { Knot } from '../core';
 /**
- * @param {!Item|!HTMLElement=} opt_node
+ * @param {!Knot|!HTMLElement=} opt_node
  * @param {boolean=} opt_forceDowngrade
  * @return {undefined}
  */
-export declare const mdl: (opt_node?: Item | HTMLElement, opt_forceDowngrade?: boolean) => void;
+export declare const mdl: (opt_node?: Knot | HTMLElement, opt_forceDowngrade?: boolean) => void;

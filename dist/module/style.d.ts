@@ -1,4 +1,4 @@
-import { Item } from '../core/item';
+import { Knot } from '../core/knot';
 import { Objekt } from '../core/objekt';
 import { ProgressBar } from './progressBar';
 import { Promize } from '../core';
@@ -8,7 +8,7 @@ import { Promize } from '../core';
 export declare class Style {
     progressBar: ProgressBar;
     options: Objekt;
-    head: Item;
+    head: Knot;
     /**
      * @param {!ProgressBar} progressBar
      * @param {!Object=} opt_options

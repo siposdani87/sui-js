@@ -1,4 +1,4 @@
-import { Item } from '../core/item';
+import { Knot } from '../core/knot';
 import { Objekt } from '../core/objekt';
 /**
  * @class
@@ -27,11 +27,11 @@ export declare class Document {
      */
     setTitle(title: string): void;
     /**
-     * @param {!Item} target
+     * @param {!Knot} target
      * @param {!Event} event
      * @return {undefined}
      */
-    eventClick(target: Item, event: Event): void;
+    eventClick(target: Knot, event: Event): void;
     /**
      * @param {string} email
      * @param {string=} opt_subject

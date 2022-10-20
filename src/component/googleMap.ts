@@ -4,7 +4,7 @@ import { Deferred } from '../core/deferred';
 import { Objekt } from '../core/objekt';
 import { Query } from '../core/query';
 import { consoleInfo } from '../utils/log';
-import { Item, Promize } from '../core';
+import { Knot, Promize } from '../core';
 import { IconOptions, Id } from '../utils';
 import { MapLabel } from './mapLabel';
 
@@ -75,7 +75,7 @@ const _createMapLabelByMarkerByPosition = (
  * @class
  */
 export class GoogleMap {
-    mapNode: Item;
+    mapNode: Knot;
     options: Objekt;
     map: google.maps.Map;
     markerIcons: {
@@ -89,16 +89,16 @@ export class GoogleMap {
     heatmapOptions: Objekt;
     heatmap: google.maps.visualization.HeatmapLayer;
     /**
-     * @param {!Item} dom
+     * @param {!Knot} dom
      * @param {string=} opt_selector
      * @param {!Object=} opt_options
      */
     constructor(
-        dom: Item,
+        dom: Knot,
         opt_selector: string | undefined = '.map',
         opt_options: Object | undefined = {},
     ) {
-        this.mapNode = new Query(opt_selector, dom).getItem();
+        this.mapNode = new Query(opt_selector, dom).getKnot();
         this._setOptions(opt_options);
         this._init();
     }

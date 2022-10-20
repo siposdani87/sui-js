@@ -1,5 +1,5 @@
 import { Objekt } from '../core';
-import { Item } from '../core/item';
+import { Knot } from '../core/knot';
 import { DateIO } from '../utils';
 import { consoleWarn } from '../utils/log';
 import { Time } from './time';
@@ -8,7 +8,7 @@ import { Time } from './time';
  */
 export class Clock {
     /**
-     * @param {!Item} node
+     * @param {!Knot} node
      * @param {!Object} options
      */
     constructor(node, options) {
@@ -71,7 +71,7 @@ export class Clock {
      * @return {undefined}
      */
     _initHeaderNode() {
-        this.headerNode = new Item('div');
+        this.headerNode = new Knot('div');
         this.headerNode.addClass('header');
         this.clockNode.appendChild(this.headerNode);
         this._initHoursHeaderNode();
@@ -84,7 +84,7 @@ export class Clock {
      * @return {undefined}
      */
     _initPeriodHeaderNode() {
-        this.periodHeaderNode = new Item('div');
+        this.periodHeaderNode = new Knot('div');
         this.periodHeaderNode.addClass('period');
         this.periodHeaderNode.addEventListener('click', this._togglePeriod.bind(this));
         this.headerNode.appendChild(this.periodHeaderNode);
@@ -107,7 +107,7 @@ export class Clock {
      * @return {undefined}
      */
     _initMinutesHeaderNode() {
-        this.minutesHeaderNode = new Item('div');
+        this.minutesHeaderNode = new Knot('div');
         this.minutesHeaderNode.addClass('minutes');
         this.minutesHeaderNode.addEventListener('click', () => {
             this._setMode(this.types.minute);
@@ -119,7 +119,7 @@ export class Clock {
      * @return {undefined}
      */
     _initHoursHeaderNode() {
-        this.hoursHeaderNode = new Item('div');
+        this.hoursHeaderNode = new Knot('div');
         this.hoursHeaderNode.addClass('hours');
         this.hoursHeaderNode.addEventListener('click', () => {
             this._setMode(this.types.hour);
@@ -141,7 +141,7 @@ export class Clock {
      * @return {undefined}
      */
     _initSeparatorHeaderNode() {
-        const separatorHeaderNode = new Item('div');
+        const separatorHeaderNode = new Knot('div');
         separatorHeaderNode.addClass('separator');
         separatorHeaderNode.setHtml(':');
         this.headerNode.appendChild(separatorHeaderNode);
@@ -151,17 +151,17 @@ export class Clock {
      * @return {undefined}
      */
     _initContentNode() {
-        this.contentNode = new Item('div');
+        this.contentNode = new Knot('div');
         this.contentNode.addClass('content');
         this.clockNode.appendChild(this.contentNode);
     }
     /**
      * @private
-     * @return {!Item}
+     * @return {!Knot}
      */
     _getTimeNode() {
         this.contentNode.removeChildren();
-        const hoursNode = new Item('div');
+        const hoursNode = new Knot('div');
         hoursNode.addClass('time');
         this.contentNode.appendChild(hoursNode);
         return hoursNode;
@@ -261,7 +261,7 @@ export class Clock {
     }
     /**
      * @private
-     * @param {!Item} timeNode
+     * @param {!Knot} timeNode
      * @return {undefined}
      */
     _drawMinutes(timeNode) {
@@ -278,7 +278,7 @@ export class Clock {
     }
     /**
      * @private
-     * @param {!Item} timeNode
+     * @param {!Knot} timeNode
      * @return {undefined}
      */
     _drawHours(timeNode) {

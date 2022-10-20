@@ -1,5 +1,5 @@
 import { isNull, format } from '../utils/operation';
-import { Item } from '../core/item';
+import { Knot } from '../core/knot';
 import { Query } from '../core/query';
 import { generateId } from '../utils/coder';
 import { mdl } from '../utils/render';
@@ -9,7 +9,7 @@ import { mdl } from '../utils/render';
  */
 export class Tooltip {
     /**
-     * @param {!Item} element
+     * @param {!Knot} element
      * @param {string=} opt_position TOP|BOTTOM|LEFT|RIGHT
      */
     constructor(element, opt_position = 'TOP') {
@@ -72,10 +72,10 @@ export class Tooltip {
             this.element.setId(id);
             this.element.addClass('has-tooltip');
         }
-        const oldElement = new Query(format('[for="{0}"]', [id]), this.element).getItem();
+        const oldElement = new Query(format('[for="{0}"]', [id]), this.element).getKnot();
         oldElement.remove();
         const cssClasses = ['mdl-tooltip', this.positionCssClass];
-        this.tooltip = new Item('span');
+        this.tooltip = new Knot('span');
         this.tooltip.addClass(cssClasses);
         this.tooltip.setFor(id);
         this.valid = this.element.insertAfter(this.tooltip);

@@ -1,6 +1,6 @@
 import { mdl } from '../utils/render';
 import { BaseField } from './baseField';
-import { Item } from '../core/item';
+import { Knot } from '../core/knot';
 
 /**
  * @class
@@ -9,16 +9,16 @@ import { Item } from '../core/item';
 export class UrlField extends BaseField<HTMLInputElement> {
     protocol: string;
     /**
-     * @param {!Item} input
-     * @param {!Item} label
-     * @param {!Item} error
-     * @param {!Item} inputBlock
+     * @param {!Knot} input
+     * @param {!Knot} label
+     * @param {!Knot} error
+     * @param {!Knot} inputBlock
      */
     constructor(
-        input: Item<HTMLInputElement>,
-        label: Item,
-        error: Item,
-        inputBlock: Item,
+        input: Knot<HTMLInputElement>,
+        label: Knot,
+        error: Knot,
+        inputBlock: Knot,
     ) {
         super(input, label, error, inputBlock);
         this._init();
@@ -64,7 +64,7 @@ export class UrlField extends BaseField<HTMLInputElement> {
         }
 
         if (this.protocol) {
-            const protocolNode = new Item('span');
+            const protocolNode = new Knot('span');
             protocolNode.addClass('protocol');
             protocolNode.setHtml(this.protocol);
             this.input.insertAfter(protocolNode);

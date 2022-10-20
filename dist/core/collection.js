@@ -51,7 +51,7 @@ export class Collection {
      * @return {T}
      */
     push(object) {
-        const item = this._createItem(object);
+        const item = this._createKnot(object);
         this.items.push(item);
         return item;
     }
@@ -60,7 +60,7 @@ export class Collection {
      * @param {!Object|!T} object
      * @return {T}
      */
-    _createItem(object) {
+    _createKnot(object) {
         if (!instanceOf(object, this.Type)) {
             const parent = !isUndefined(this.options.parent)
                 ? this.options.parent
@@ -75,7 +75,7 @@ export class Collection {
      * @return {T}
      */
     set(index, object) {
-        const item = this._createItem(object);
+        const item = this._createKnot(object);
         if (index < this.size()) {
             this.items[index] = item;
         }
@@ -89,13 +89,13 @@ export class Collection {
      * @return {!T}
      */
     replace(object) {
-        const item = this._createItem(object);
+        const item = this._createKnot(object);
         if (item && instanceOf(item, Objekt)) {
             const id = item.get(this.options.id);
-            const oldItem = this.findById(id);
-            if (oldItem && instanceOf(oldItem, Objekt)) {
-                oldItem.merge(item);
-                return oldItem;
+            const oldKnot = this.findById(id);
+            if (oldKnot && instanceOf(oldKnot, Objekt)) {
+                oldKnot.merge(item);
+                return oldKnot;
             }
         }
         return null;
@@ -273,17 +273,17 @@ export class Collection {
      */
     deleteAllByCondition(conditionCallback) {
         const items = [];
-        const deletedItems = [];
+        const deletedKnots = [];
         each(this.items, (item, i) => {
             if (conditionCallback(item, i)) {
-                deletedItems.push(this.get(i));
+                deletedKnots.push(this.get(i));
             }
             else {
                 items.push(this.get(i));
             }
         });
         this.items = items;
-        return deletedItems;
+        return deletedKnots;
     }
     /**
      * @return {number}
