@@ -1,4 +1,7 @@
+import { Application } from '../component';
+import { Knot, State } from '../core';
 import { Objekt } from '../core/objekt';
+import { BottomMenu, Browser, Confirm, Cookie, Dialog, EventBus, Flash, Footer, GeoLocation, Header, Helper, Http, LeftMenu, Loader, NavBar, ProgressBar, Scheduler, Script, Style, Template, TopMenu, Viewer, Window, Document, Storage, ServiceWorker } from '../module';
 /**
  * @typedef {function(Element, Event)} Listener
  */
@@ -34,7 +37,39 @@ export declare type Injection = {
     [key: string]: string;
 };
 export declare type Instance = {
-    [key: string]: any;
+    app: Application;
+    config: Objekt;
+    eventBus: EventBus;
+    scheduler: Scheduler;
+    http: Http;
+    flash: Flash;
+    template: Template;
+    dialog: Dialog;
+    confirm: Confirm;
+    viewer: Viewer;
+    header: Header;
+    topMenu: TopMenu;
+    leftMenu: LeftMenu;
+    footer: Footer;
+    bottomMenu: BottomMenu;
+    navBar: NavBar;
+    script: Script;
+    style: Style;
+    state: State;
+    dom: Knot;
+    document: Document;
+    window: Window;
+    helper: Helper;
+    cookie: Cookie;
+    localStorage: Storage;
+    sessionStorage: Storage;
+    browser: Browser;
+    loader: Loader;
+    progressBar: ProgressBar;
+    geoLocation: GeoLocation;
+    instances: Instance;
+    console: Console;
+    serviceWorker: ServiceWorker;
 };
 export declare type ClassRef = {
     new (...args: any[]): any;

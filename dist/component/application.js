@@ -39,7 +39,41 @@ export class Application {
      */
     constructor(options, resources) {
         this._injections = {};
-        this._instances = {};
+        this._instances = {
+            app: undefined,
+            config: undefined,
+            eventBus: undefined,
+            scheduler: undefined,
+            http: undefined,
+            flash: undefined,
+            template: undefined,
+            dialog: undefined,
+            confirm: undefined,
+            viewer: undefined,
+            header: undefined,
+            topMenu: undefined,
+            leftMenu: undefined,
+            footer: undefined,
+            bottomMenu: undefined,
+            navBar: undefined,
+            script: undefined,
+            style: undefined,
+            state: undefined,
+            dom: undefined,
+            document: undefined,
+            window: undefined,
+            helper: undefined,
+            cookie: undefined,
+            localStorage: undefined,
+            sessionStorage: undefined,
+            browser: undefined,
+            loader: undefined,
+            progressBar: undefined,
+            geoLocation: undefined,
+            instances: undefined,
+            console: undefined,
+            serviceWorker: undefined,
+        };
         this._setOptions(options);
         this._init(resources);
     }
@@ -112,7 +146,7 @@ export class Application {
      * @return {string}
      */
     getLocale() {
-        let locale = this._instances[this._injections.localStorage].get('app.locale');
+        let locale = this._instances.localStorage.get('app.locale');
         if (!locale) {
             locale = this.options.locale;
         }
@@ -123,7 +157,7 @@ export class Application {
      * @return {undefined}
      */
     setLocale(locale) {
-        this._instances[this._injections.localStorage].set('app.locale', locale);
+        this._instances.localStorage.set('app.locale', locale);
         this.options.locale = locale;
     }
     /**
@@ -132,7 +166,7 @@ export class Application {
      */
     setLocaleWithReload(locale) {
         this.setLocale(locale);
-        this._instances[this._injections.state].reload();
+        this._instances.state.reload();
     }
     /**
      * @private
@@ -158,47 +192,45 @@ export class Application {
     _initModule() {
         this._module = new Module();
         this._module.eventAfterInit = () => {
-            this._instances[this._injections.progressBar].lock();
-            this._instances[this._injections.loader].show();
-            this._instances[this._injections.eventBus].call('module.afterInit');
+            this._instances.progressBar.lock();
+            this._instances.loader.show();
+            this._instances.eventBus.call('module.afterInit');
         };
         this._module.eventStateChange = (currentState) => {
-            this._instances[this._injections.progressBar].lock();
-            this._instances[this._injections.loader].show();
-            this._instances[this._injections.dialog].close();
-            this._instances[this._injections.confirm].close();
-            return this._instances[this._injections.eventBus].call('state.change', [currentState]);
+            this._instances.progressBar.lock();
+            this._instances.loader.show();
+            this._instances.dialog.close();
+            this._instances.confirm.close();
+            return this._instances.eventBus.call('state.change', [
+                currentState,
+            ]);
         };
         this._module.eventDomChange = (state, dom) => {
-            return this._instances[this._injections.eventBus].call('dom.change', [state, dom]);
+            return this._instances.eventBus.call('dom.change', [state, dom]);
         };
         this._module.eventServiceLoaded = () => {
-            // this._instances[this._injections.geoLocation].setWatcher();
-            this._instances[this._injections.browser].detect();
-            this._instances[this._injections.eventBus].call('module.serviceLoaded');
+            // this._instances.geoLocation.setWatcher();
+            this._instances.browser.detect();
+            this._instances.eventBus.call('module.serviceLoaded');
         };
         this._module.eventServiceFailed = () => {
-            this._instances[this._injections.eventBus].call('module.serviceFailed');
+            this._instances.eventBus.call('module.serviceFailed');
         };
         this._module.eventModuleLoaded = (state) => {
-            this._instances[this._injections.progressBar].unlock();
-            this._instances[this._injections.loader].hide(true);
-            this._instances[this._injections.eventBus].call('module.loaded', [
-                state,
-            ]);
+            this._instances.progressBar.unlock();
+            this._instances.loader.hide(true);
+            this._instances.eventBus.call('module.loaded', [state]);
         };
         this._module.eventModuleFailed = (state) => {
-            this._instances[this._injections.progressBar].unlock();
-            this._instances[this._injections.loader].hide(true);
-            this._instances[this._injections.eventBus].call('module.failed', [
-                state,
-            ]);
+            this._instances.progressBar.unlock();
+            this._instances.loader.hide(true);
+            this._instances.eventBus.call('module.failed', [state]);
         };
         this._module.eventControllerLoaded = (dom) => {
-            this._instances[this._injections.eventBus].call('controller.loaded', [dom]);
+            this._instances.eventBus.call('controller.loaded', [dom]);
         };
         this._module.eventControllerFailed = () => {
-            this._instances[this._injections.eventBus].call('controller.failed', []);
+            this._instances.eventBus.call('controller.failed', []);
         };
     }
     /**
@@ -206,7 +238,7 @@ export class Application {
      * @return {undefined}
      */
     _loadModules() {
-        this._instances[this._injections.instances] = this._instances;
+        this._instances.instances = this._instances;
         this._module.load(this._instances, this._injections);
     }
     /**
@@ -214,44 +246,47 @@ export class Application {
      * @return {undefined}
      */
     _initScript() {
-        this._instances[this._injections.script] = new Script(this._instances[this._injections.progressBar]);
+        this._instances.script = new Script(this._instances.progressBar);
     }
     /**
      * @private
      * @return {undefined}
      */
     _initStyle() {
-        this._instances[this._injections.style] = new Style(this._instances[this._injections.progressBar]);
+        this._instances.style = new Style(this._instances.progressBar);
     }
     /**
      * @private
      * @return {undefined}
      */
     _initConfig() {
-        this._instances[this._injections.config] = this.options;
+        this._instances.config = this.options;
     }
     /**
      * @private
      * @return {undefined}
      */
     _initApp() {
-        this._instances[this._injections.app] = this;
+        this._instances.app = this;
     }
     /**
      * @private
      * @return {undefined}
      */
     _initGeoLocation() {
-        this._instances[this._injections.geoLocation] = new GeoLocation();
-        this._instances[this._injections.geoLocation].eventChange = (latitude, longitude, message) => {
-            this._instances[this._injections.eventBus].override('geoLocation.success', [message], (message) => {
-                this._instances[this._injections.flash].addInfo(message);
+        this._instances.geoLocation = new GeoLocation();
+        this._instances.geoLocation.eventChange = (latitude, longitude, message) => {
+            this._instances.eventBus.override('geoLocation.success', [message], (message) => {
+                this._instances.flash.addInfo(message);
             });
-            this._instances[this._injections.eventBus].call('geoLocation.change', [latitude, longitude]);
+            this._instances.eventBus.call('geoLocation.change', [
+                latitude,
+                longitude,
+            ]);
         };
-        this._instances[this._injections.geoLocation].eventError = (message, code) => {
-            this._instances[this._injections.eventBus].override('geoLocation.error', [message, code], (message) => {
-                this._instances[this._injections.flash].addError(message);
+        this._instances.geoLocation.eventError = (message, code) => {
+            this._instances.eventBus.override('geoLocation.error', [message, code], (message) => {
+                this._instances.flash.addError(message);
             });
         };
     }
@@ -260,7 +295,7 @@ export class Application {
      * @return {undefined}
      */
     _initCookie() {
-        this._instances[this._injections.cookie] = new Cookie({
+        this._instances.cookie = new Cookie({
             prefix: this.options.app_id,
         });
     }
@@ -269,25 +304,25 @@ export class Application {
      * @return {undefined}
      */
     _initLoader() {
-        this._instances[this._injections.loader] = new Loader();
+        this._instances.loader = new Loader();
     }
     /**
      * @private
      * @return {undefined}
      */
     _initProgressBar() {
-        this._instances[this._injections.progressBar] = new ProgressBar(this._instances[this._injections.dialog], this._instances[this._injections.confirm]);
+        this._instances.progressBar = new ProgressBar(this._instances.dialog, this._instances.confirm);
     }
     /**
      * @private
      * @return {undefined}
      */
     _initStorage() {
-        this._instances[this._injections.localStorage] = new Storage('LOCAL', {
+        this._instances.localStorage = new Storage('LOCAL', {
             prefix: this.options.app_id,
             secret: this.options.secret,
         });
-        this._instances[this._injections.sessionStorage] = new Storage('SESSION', {
+        this._instances.sessionStorage = new Storage('SESSION', {
             prefix: this.options.app_id,
             secret: this.options.secret,
         });
@@ -297,7 +332,7 @@ export class Application {
      * @return {undefined}
      */
     _initHelper() {
-        this._instances[this._injections.helper] = new Helper();
+        this._instances.helper = new Helper();
     }
     /**
      * @private
@@ -305,13 +340,10 @@ export class Application {
      */
     _initDocument() {
         const popupContainer = new PopupContainer();
-        this._instances[this._injections.document] = new Document();
-        this._instances[this._injections.document].eventClick = (target, event) => {
+        this._instances.document = new Document();
+        this._instances.document.eventClick = (target, event) => {
             popupContainer.closeAll();
-            this._instances[this._injections.eventBus].call('document.click', [
-                target,
-                event,
-            ]);
+            this._instances.eventBus.call('document.click', [target, event]);
         };
     }
     /**
@@ -319,49 +351,54 @@ export class Application {
      * @return {undefined}
      */
     _initWindow() {
-        this._instances[this._injections.window] = new Window();
-        const width = this._instances[this._injections.window].getWidth();
-        const height = this._instances[this._injections.window].getHeight();
-        this._instances[this._injections.dialog].setSize(width, height);
-        this._instances[this._injections.confirm].setSize(width, height);
-        this._instances[this._injections.viewer].setSize(width, height);
-        this._instances[this._injections.window].eventResize = (width, height, event) => {
-            this._instances[this._injections.dialog].setSize(width, height);
-            this._instances[this._injections.confirm].setSize(width, height);
-            this._instances[this._injections.viewer].setSize(width, height);
-            this._instances[this._injections.eventBus].call('window.resize', [
+        this._instances.window = new Window();
+        const width = this._instances.window.getWidth();
+        const height = this._instances.window.getHeight();
+        this._instances.dialog.setSize(width, height);
+        this._instances.confirm.setSize(width, height);
+        this._instances.viewer.setSize(width, height);
+        this._instances.window.eventResize = (width, height, event) => {
+            this._instances.dialog.setSize(width, height);
+            this._instances.confirm.setSize(width, height);
+            this._instances.viewer.setSize(width, height);
+            this._instances.eventBus.call('window.resize', [
                 width,
                 height,
                 event,
             ]);
         };
-        this._instances[this._injections.window].eventOrientationChange = (orientation, width, height, event) => {
-            this._instances[this._injections.dialog].setSize(width, height);
-            this._instances[this._injections.confirm].setSize(width, height);
-            this._instances[this._injections.viewer].setSize(width, height);
-            this._instances[this._injections.eventBus].call('window.orientationChange', [orientation, width, height, event]);
-        };
-        this._instances[this._injections.window].eventScroll = (scrollTop, event) => {
-            this._instances[this._injections.eventBus].call('window.scroll', [
-                scrollTop,
+        this._instances.window.eventOrientationChange = (orientation, width, height, event) => {
+            this._instances.dialog.setSize(width, height);
+            this._instances.confirm.setSize(width, height);
+            this._instances.viewer.setSize(width, height);
+            this._instances.eventBus.call('window.orientationChange', [
+                orientation,
+                width,
+                height,
                 event,
             ]);
         };
-        this._instances[this._injections.window].eventColorSchemeChange = (colorScheme, event) => {
-            this._instances[this._injections.eventBus].call('window.colorSchemeChange', [colorScheme, event]);
+        this._instances.window.eventScroll = (scrollTop, event) => {
+            this._instances.eventBus.call('window.scroll', [scrollTop, event]);
+        };
+        this._instances.window.eventColorSchemeChange = (colorScheme, event) => {
+            this._instances.eventBus.call('window.colorSchemeChange', [
+                colorScheme,
+                event,
+            ]);
         };
         const flash = {
             node: null,
             message: 'Unable to connect to the Internet',
             duration: Infinity,
         };
-        this._instances[this._injections.window].eventOnline = () => {
+        this._instances.window.eventOnline = () => {
             if (flash.node) {
-                this._instances[this._injections.flash].remove(flash.node);
+                this._instances.flash.remove(flash.node);
             }
         };
-        this._instances[this._injections.window].eventOffline = (event) => {
-            this._instances[this._injections.eventBus].override('window.offline', [flash, event], (flash) => {
+        this._instances.window.eventOffline = (event) => {
+            this._instances.eventBus.override('window.offline', [flash, event], (flash) => {
                 flash.node = this._instances[this._injections.flash].addWarning(flash.message, flash.duration);
             });
         };
@@ -371,28 +408,28 @@ export class Application {
      * @return {undefined}
      */
     _initEventBus() {
-        this._instances[this._injections.eventBus] = new EventBus();
+        this._instances.eventBus = new EventBus();
     }
     /**
      * @private
      * @return {undefined}
      */
     _initScheduler() {
-        this._instances[this._injections.scheduler] = new Scheduler();
+        this._instances.scheduler = new Scheduler();
     }
     /**
      * @private
      * @return {undefined}
      */
     _initHttp() {
-        this._instances[this._injections.http] = new Http(this.options);
-        this._instances[this._injections.http].eventBeforeRequest = (...params) => {
-            this._instances[this._injections.progressBar].show();
-            this._instances[this._injections.eventBus].call('http.beforeRequest', params);
+        this._instances.http = new Http(this.options);
+        this._instances.http.eventBeforeRequest = (...params) => {
+            this._instances.progressBar.show();
+            this._instances.eventBus.call('http.beforeRequest', params);
         };
-        this._instances[this._injections.http].eventAfterRequest = (...params) => {
-            this._instances[this._injections.eventBus].call('http.afterRequest', params);
-            this._instances[this._injections.progressBar].hide();
+        this._instances.http.eventAfterRequest = (...params) => {
+            this._instances.eventBus.call('http.afterRequest', params);
+            this._instances.progressBar.hide();
         };
     }
     /**
@@ -400,13 +437,13 @@ export class Application {
      * @return {undefined}
      */
     _initTemplate() {
-        this._instances[this._injections.template] = new Template(this._instances[this._injections.http], {
+        this._instances.template = new Template(this._instances.http, {
             locale: this.getLocale(),
         });
-        this._instances[this._injections.template].eventError = (message) => {
-            this._instances[this._injections.state].back();
-            this._instances[this._injections.loader].hide();
-            this._instances[this._injections.flash].addMessage(message);
+        this._instances.template.eventError = (message) => {
+            this._instances.state.back();
+            this._instances.loader.hide();
+            this._instances.flash.addMessage(message);
         };
     }
     /**
@@ -414,79 +451,79 @@ export class Application {
      * @return {undefined}
      */
     _initFlash() {
-        this._instances[this._injections.flash] = new Flash();
+        this._instances.flash = new Flash();
     }
     /**
      * @private
      * @return {undefined}
      */
     _initDialog() {
-        this._instances[this._injections.dialog] = new Dialog(this._instances[this._injections.http]);
+        this._instances.dialog = new Dialog(this._instances.http);
     }
     /**
      * @private
      * @return {undefined}
      */
     _initConfirm() {
-        this._instances[this._injections.confirm] = new Confirm();
+        this._instances.confirm = new Confirm();
     }
     /**
      * @private
      * @return {undefined}
      */
     _initViewer() {
-        this._instances[this._injections.viewer] = new Viewer();
+        this._instances.viewer = new Viewer();
     }
     /**
      * @private
      * @return {undefined}
      */
     _initHeader() {
-        this._instances[this._injections.header] = new Header();
+        this._instances.header = new Header();
     }
     /**
      * @private
      * @return {undefined}
      */
     _initTopMenu() {
-        this._instances[this._injections.topMenu] = new TopMenu(this._instances[this._injections.header]);
+        this._instances.topMenu = new TopMenu(this._instances.header);
     }
     /**
      * @private
      * @return {undefined}
      */
     _initNavBar() {
-        this._instances[this._injections.navBar] = new NavBar();
+        this._instances.navBar = new NavBar();
     }
     /**
      * @private
      * @return {undefined}
      */
     _initBottomMenu() {
-        this._instances[this._injections.bottomMenu] = new BottomMenu(this._instances[this._injections.footer]);
+        this._instances.bottomMenu = new BottomMenu(this._instances.footer);
     }
     /**
      * @private
      * @return {undefined}
      */
     _initLeftMenu() {
-        this._instances[this._injections.leftMenu] = new LeftMenu();
+        this._instances.leftMenu = new LeftMenu();
     }
     /**
      * @private
      * @return {undefined}
      */
     _initFooter() {
-        this._instances[this._injections.footer] = new Footer();
+        this._instances.footer = new Footer();
     }
     /**
      * @private
      * @return {undefined}
      */
     _initBrowser() {
-        this._instances[this._injections.browser] = new Browser();
-        this._instances[this._injections.browser].eventMissingFeatures = (features) => {
-            this._instances[this._injections.flash].addError(features.join(', '));
+        this._instances.browser = new Browser();
+        this._instances.browser.eventMissingFeatures = (features) => {
+            this._instances.flash.addError(features.join(', '));
         };
     }
     /**
@@ -494,9 +531,9 @@ export class Application {
      * @return {undefined}
      */
     _initServiceWorker() {
-        this._instances[this._injections.serviceWorker] = new ServiceWorker();
-        this._instances[this._injections.serviceWorker].eventMissingFeatures = (features) => {
-            this._instances[this._injections.flash].addError(features.join(', '));
+        this._instances.serviceWorker = new ServiceWorker();
+        this._instances.serviceWorker.eventMissingFeatures = (features) => {
+            this._instances.flash.addError(features.join(', '));
         };
     }
     /**

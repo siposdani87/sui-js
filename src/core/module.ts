@@ -13,18 +13,17 @@ import { ClassRef, Dependency, Injection, Instance } from '../utils';
  * @class
  */
 export class Module {
+    _instances: Instance;
+    _injections: Injection;
+
     _modules: {
         [key: string]: Dependency;
     };
-    _instances: Instance;
-    _injections: Injection;
     _controller: any;
     /**
      */
     constructor() {
         this._modules = {};
-        this._instances = {};
-        this._injections = {};
         this._controller = {
             enter: noop(),
             exit: noop(),
@@ -189,7 +188,7 @@ export class Module {
         async.serial(calls).then(
             () => {
                 this.eventServiceLoaded();
-                this._instances[this._injections.state].run();
+                this._instances.state.run();
             },
             () => {
                 this.eventServiceFailed();
@@ -202,8 +201,8 @@ export class Module {
      * @return {undefined}
      */
     handleRoutes(routes: Route[], options: Object): void {
-        this._instances[this._injections.state] = new State(routes, options);
-        this._instances[this._injections.state].eventChange = (
+        this._instances.state = new State(routes, options);
+        this._instances.state.eventChange = (
             currentState,
             previousState,
             force,
@@ -236,18 +235,16 @@ export class Module {
             () => {
                 const template = currentState.get('template');
                 if (template) {
-                    const templateUrl = currentState.get('templateUrl');
-                    this._instances[this._injections.template]
-                        .load(templateUrl, opt_force)
-                        .then(
-                            (dom) => {
-                                this.eventModuleLoaded(currentState);
-                                this._initController(currentState, dom);
-                            },
-                            () => {
-                                this.eventModuleFailed(currentState);
-                            },
-                        );
+                    const templateUrl = currentState.get<string>('templateUrl');
+                    this._instances.template.load(templateUrl, opt_force).then(
+                        (dom) => {
+                            this.eventModuleLoaded(currentState);
+                            this._initController(currentState, dom);
+                        },
+                        () => {
+                            this.eventModuleFailed(currentState);
+                        },
+                    );
                 } else {
                     this.eventModuleLoaded(currentState);
                     this._initController(
@@ -270,7 +267,7 @@ export class Module {
      * @return {undefined}
      */
     private _initController(state: Objekt, dom: Knot): void {
-        this._instances[this._injections.dom] = dom;
+        this._instances.dom = dom;
         const controller = this._modules[state.get<string>('controller')];
         if (controller) {
             this.eventDomChange(state, dom).then(() => {

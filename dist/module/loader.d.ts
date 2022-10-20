@@ -30,5 +30,5 @@ export declare class Loader {
      * @param {boolean=} opt_force
      * @return {undefined}
      */
-    hide(opt_force: boolean | undefined): void;
+    hide(opt_force?: boolean | undefined): void;
 }

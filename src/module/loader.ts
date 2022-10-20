@@ -57,7 +57,7 @@ export class Loader {
      * @param {boolean=} opt_force
      * @return {undefined}
      */
-    hide(opt_force: boolean | undefined): void {
+    hide(opt_force?: boolean | undefined): void {
         this.options.counter--;
         if (opt_force || eq(this.options.counter, 0)) {
             this.options.counter = 0;
