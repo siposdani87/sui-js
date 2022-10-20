@@ -49,9 +49,9 @@ export class FileField extends BaseField<HTMLInputElement> {
         this._initDefaultImg();
         this._initValueSrc();
 
-        this.input.addEventListener('change', (inputNode) => {
-            const input = inputNode.getNode();
-            const file = input.files[0];
+        this.input.addEventListener('change', (inputKnot) => {
+            const inputNode = inputKnot.getNode();
+            const file = inputNode.files[0];
             this._read(file);
             return true;
         });
@@ -75,7 +75,7 @@ export class FileField extends BaseField<HTMLInputElement> {
     private _initDefaultImg(): void {
         this.imageTag = new Query('img', this.inputBlock).getKnot();
         if (this.imageTag.isEmpty()) {
-            this.imageTag = new Knot('img');
+            this.imageTag = new Knot<HTMLImageElement>('img');
             this.inputBlock.beforeChild(this.imageTag);
         }
     }
@@ -110,7 +110,7 @@ export class FileField extends BaseField<HTMLInputElement> {
                 this._remove();
             }
         });
-        this.actionContainerNode.appendChild(this.removeButton);
+        this.actionContainerKnot.appendChild(this.removeButton);
     }
     /**
      * @private
@@ -130,7 +130,7 @@ export class FileField extends BaseField<HTMLInputElement> {
                 this.input.getNode().click();
             }
         });
-        this.actionContainerNode.appendChild(browseButton);
+        this.actionContainerKnot.appendChild(browseButton);
     }
     /**
      * @private

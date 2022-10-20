@@ -254,7 +254,7 @@ export class Module {
                         currentState,
                         this._instances[
                             this._injections.template
-                        ].getViewNode(),
+                        ].getViewKnot(),
                     );
                 }
             },

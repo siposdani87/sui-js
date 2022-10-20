@@ -43,39 +43,39 @@ export class Flash {
      * @param {string=} opt_id
      * @return {!Knot}
      */
-    _getFlashNode(type, message, opt_duration = 0, opt_closeCallback = null, opt_id = '') {
-        const flashNode = this.container.createElement('div');
-        flashNode.setAttribute('data-id', opt_id || generateId('flash'));
-        flashNode.addClass(['flash', type]);
-        flashNode.setHtml(message);
+    _getFlashKnot(type, message, opt_duration = 0, opt_closeCallback = null, opt_id = '') {
+        const flashKnot = this.container.createElement('div');
+        flashKnot.setAttribute('data-id', opt_id || generateId('flash'));
+        flashKnot.addClass(['flash', type]);
+        flashKnot.setHtml(message);
         if (this._isClosable(type, opt_closeCallback) &&
             !eq(opt_duration, Infinity)) {
-            const buttonNode = this._getCloseButton(flashNode, opt_closeCallback);
-            flashNode.beforeChild(buttonNode);
+            const buttonKnot = this._getCloseButton(flashKnot, opt_closeCallback);
+            flashKnot.beforeChild(buttonKnot);
         }
-        return flashNode;
+        return flashKnot;
     }
     /**
-     * @param {!Knot} flashNode
+     * @param {!Knot} flashKnot
      * @param {?Function=} opt_closeCallback
      * @return {!Knot}
      */
-    _getCloseButton(flashNode, opt_closeCallback = null) {
-        const buttonNode = flashNode.createElement('button');
-        buttonNode.addClass([
+    _getCloseButton(flashKnot, opt_closeCallback = null) {
+        const buttonKnot = flashKnot.createElement('button');
+        buttonKnot.addClass([
             'mdl-button',
             'mdl-js-button',
             'mdl-button--icon',
         ]);
-        const buttonIcon = buttonNode.createElement('em');
+        const buttonIcon = buttonKnot.createElement('em');
         buttonIcon.addClass('material-icons');
         buttonIcon.setHtml('close');
-        buttonNode.appendChild(buttonIcon);
-        buttonNode.addEventListener('click', () => {
-            this.remove(flashNode, opt_closeCallback);
+        buttonKnot.appendChild(buttonIcon);
+        buttonKnot.addEventListener('click', () => {
+            this.remove(flashKnot, opt_closeCallback);
         });
-        mdl(buttonNode);
-        return buttonNode;
+        mdl(buttonKnot);
+        return buttonKnot;
     }
     /**
      * @param {string} type
@@ -87,19 +87,19 @@ export class Flash {
      */
     _add(type, message, opt_duration = 0, opt_closeCallback = null, opt_id = '') {
         this.removeById(opt_id);
-        const flashNode = this._getFlashNode(type, message, opt_duration, opt_closeCallback, opt_id);
-        this.container.appendChild(flashNode);
+        const flashKnot = this._getFlashKnot(type, message, opt_duration, opt_closeCallback, opt_id);
+        this.container.appendChild(flashKnot);
         if (!this._isClosable(type, opt_closeCallback) &&
             !eq(opt_duration, Infinity)) {
-            flashNode.addClass('closable');
-            flashNode.addEventListener('click', () => {
-                this.remove(flashNode, opt_closeCallback);
+            flashKnot.addClass('closable');
+            flashKnot.addEventListener('click', () => {
+                this.remove(flashKnot, opt_closeCallback);
             });
             window.setTimeout(() => {
-                this.remove(flashNode, opt_closeCallback);
+                this.remove(flashKnot, opt_closeCallback);
             }, opt_duration || this.options.duration);
         }
-        return flashNode;
+        return flashKnot;
     }
     /**
      * @param {string=} opt_id

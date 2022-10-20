@@ -15,7 +15,7 @@ export class LeftMenu {
      */
     _init() {
         this.body = new Query('body').getKnot();
-        this.mainContainerNode = new Query('.main-container').getKnot();
+        this.mainContainerKnot = new Query('.main-container').getKnot();
         this.leftMenu = new Query('#left-menu').getKnot();
         this.mainMenu = new Query('.main-menu', this.leftMenu).getKnot();
         this.subMenu = new Query('.sub-menu', this.leftMenu).getKnot();
@@ -63,7 +63,7 @@ export class LeftMenu {
      */
     open(opt_title = '') {
         this.body.addClass('overflow-hidden');
-        this.mainContainerNode.addClass('blur');
+        this.mainContainerKnot.addClass('blur');
         this.leftMenu.addClass('visible');
         this.mainMenuTitle.setHtml(opt_title);
     }
@@ -72,7 +72,7 @@ export class LeftMenu {
      */
     close() {
         this.body.removeClass('overflow-hidden');
-        this.mainContainerNode.removeClass('blur');
+        this.mainContainerKnot.removeClass('blur');
         this.leftMenu.removeClass('visible');
     }
     /**

@@ -47,7 +47,7 @@ export declare class ProgressBar {
     private _init;
     /**
      * @private
-     * @param {!Knot} node
+     * @param {!Knot} knot
      * @return {!ProcessBar}
      */
     private _getProgressBar;

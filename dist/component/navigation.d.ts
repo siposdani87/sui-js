@@ -9,7 +9,7 @@ export declare class Navigation {
     http?: Http;
     options: Objekt;
     container: Collection<Objekt>;
-    linkNodeKey: string;
+    linkKnotKey: string;
     /**
      * @param {!Http=} opt_http
      * @param {!Object=} opt_options
@@ -86,10 +86,10 @@ export declare class Navigation {
      */
     each(next: Function): void;
     /**
-     * @param {!Knot} containerNode
+     * @param {!Knot} containerKnot
      * @return {undefined}
      */
-    bindToContainer(containerNode: Knot): void;
+    bindToContainer(containerKnot: Knot): void;
     /**
      * @param {string} id
      * @return {undefined}

@@ -64,28 +64,28 @@ export class Script {
             this.progressBar.hide();
             deferred.resolve();
         } else {
-            const node = new Knot('script');
-            node.setId(id);
-            node.setAttribute('src', urlWithQueryString(url, opt_params));
+            const scriptKnot = new Knot<HTMLScriptElement>('script');
+            scriptKnot.setId(id);
+            scriptKnot.setAttribute('src', urlWithQueryString(url, opt_params));
             // TODO: check there is a good performance solution for script load
             if (opt_async) {
-                node.setAttribute('async');
+                scriptKnot.setAttribute('async');
             }
             if (opt_defer) {
-                node.setAttribute('defer');
+                scriptKnot.setAttribute('defer');
             }
 
-            node.setAttribute('onload', () => {
+            scriptKnot.setAttribute('onload', () => {
                 this.progressBar.hide();
                 deferred.resolve();
             });
 
-            node.setAttribute('onerror', () => {
+            scriptKnot.setAttribute('onerror', () => {
                 this.progressBar.hide();
                 deferred.reject();
             });
 
-            this.head.appendChild(node);
+            this.head.appendChild(scriptKnot);
         }
         return deferred.promise();
     }

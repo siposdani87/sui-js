@@ -66,7 +66,7 @@ export class ColorField extends BaseField {
         this.input.addEventListener('change', (input) => {
             const inputNode = input.getNode();
             this.tooltip.setMessage(inputNode.value);
-            this.previewNode.setStyle({
+            this.previewKnot.setStyle({
                 background: inputNode.value,
             });
             this.modelChange(inputNode.value);
@@ -78,15 +78,15 @@ export class ColorField extends BaseField {
      * @return {undefined}
      */
     _initPreview() {
-        this.previewNode = new Knot('div');
-        this.previewNode.addClass('preview');
-        this.inputBlock.beforeChild(this.previewNode);
-        this.colorNode = new Knot('div');
-        this.colorNode.addClass('color');
-        this.previewNode.appendChild(this.colorNode);
-        this.popup = new Popup(this.canvas.canvasNode, this.inputBlock);
-        this.tooltip = new Tooltip(this.previewNode);
-        this.previewNode.addEventListener('click', () => {
+        this.previewKnot = new Knot('div');
+        this.previewKnot.addClass('preview');
+        this.inputBlock.beforeChild(this.previewKnot);
+        this.colorKnot = new Knot('div');
+        this.colorKnot.addClass('color');
+        this.previewKnot.appendChild(this.colorKnot);
+        this.popup = new Popup(this.canvas.canvasKnot, this.inputBlock);
+        this.tooltip = new Tooltip(this.previewKnot);
+        this.previewKnot.addEventListener('click', () => {
             if (this.isEnabled()) {
                 this._draw();
                 this.popup.open();
@@ -129,7 +129,7 @@ export class ColorField extends BaseField {
             this.image.addClass('hidden');
         }
         this.canvas = new Canvas();
-        this.canvas.canvasNode.addEventListener('click', (_image, e) => {
+        this.canvas.canvasKnot.addEventListener('click', (_image, e) => {
             let x = 0;
             let y = 0;
             if (e.offsetX) {

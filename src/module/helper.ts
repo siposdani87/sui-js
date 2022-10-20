@@ -26,17 +26,17 @@ export class Helper {
         opt_allowAccess: boolean | undefined = true,
         opt_cssClasses: string[] | undefined = ['link'],
     ): Knot {
-        const linkNode = new Knot('a');
-        linkNode.setHtml(name);
+        const linkKnot = new Knot('a');
+        linkKnot.setHtml(name);
         this.linkElement(
-            linkNode,
+            linkKnot,
             opt_callback,
             opt_href,
             opt_description,
             opt_allowAccess,
             opt_cssClasses,
         );
-        return linkNode;
+        return linkKnot;
     }
     /**
      * @param {string} selector
@@ -51,10 +51,10 @@ export class Helper {
         opt_callback: Function | undefined,
         opt_cssClasses: string[] | undefined = [],
     ): void {
-        const linkNodes = new Query(selector, dom);
-        linkNodes.each((linkNode) => {
+        const linkKnots = new Query(selector, dom);
+        linkKnots.each((linkKnot) => {
             this.linkElement(
-                linkNode,
+                linkKnot,
                 opt_callback,
                 '',
                 '',
@@ -82,19 +82,19 @@ export class Helper {
         opt_allowAccess: boolean | undefined = true,
         opt_cssClasses: string[] | undefined = [],
     ): Knot {
-        const linkNode = new Query(selector, dom).getKnot();
+        const linkKnot = new Query(selector, dom).getKnot();
         this.linkElement(
-            linkNode,
+            linkKnot,
             opt_callback,
             opt_href,
             opt_description,
             opt_allowAccess,
             opt_cssClasses,
         );
-        return linkNode;
+        return linkKnot;
     }
     /**
-     * @param {!Knot} linkNode
+     * @param {!Knot} linkKnot
      * @param {!Function=} opt_callback
      * @param {string=} opt_href
      * @param {string=} opt_description
@@ -103,35 +103,35 @@ export class Helper {
      * @return {undefined}
      */
     linkElement(
-        linkNode: Knot,
+        linkKnot: Knot,
         opt_callback: Function | undefined,
         opt_href: string | undefined = '',
         opt_description: string | undefined = '',
         opt_allowAccess: boolean | undefined = true,
         opt_cssClasses: string[] | undefined = [],
     ): void {
-        if (!linkNode.isEmpty()) {
+        if (!linkKnot.isEmpty()) {
             if (opt_allowAccess) {
-                linkNode.addClass(opt_cssClasses);
+                linkKnot.addClass(opt_cssClasses);
 
-                if (!linkNode.getId()) {
-                    linkNode.setId(generateId('link'));
+                if (!linkKnot.getId()) {
+                    linkKnot.setId(generateId('link'));
                 } else {
-                    linkNode.removeEventListeners('click');
+                    linkKnot.removeEventListeners('click');
                 }
                 if (opt_href) {
-                    linkNode.setAttribute('href', opt_href);
+                    linkKnot.setAttribute('href', opt_href);
                 }
                 if (opt_callback) {
-                    const href = linkNode.getAttribute('href');
-                    linkNode.addEventListener('click', () => {
-                        opt_callback(href, linkNode);
+                    const href = linkKnot.getAttribute('href');
+                    linkKnot.addEventListener('click', () => {
+                        opt_callback(href, linkKnot);
                     });
                 }
 
-                this._setTooltip(linkNode, opt_description);
+                this._setTooltip(linkKnot, opt_description);
             } else {
-                linkNode.remove();
+                linkKnot.remove();
             }
         }
     }
@@ -150,16 +150,16 @@ export class Helper {
         opt_allowAccess: boolean | undefined = true,
         opt_cssClasses: string[] | undefined = ['mdl-button--primary'],
     ): Knot {
-        const buttonNode = new Knot('button');
-        buttonNode.setHtml(name);
+        const buttonKnot = new Knot<HTMLButtonElement>('button');
+        buttonKnot.setHtml(name);
         this.buttonElement(
-            buttonNode,
+            buttonKnot,
             callback,
             opt_description,
             opt_allowAccess,
             opt_cssClasses,
         );
-        return buttonNode;
+        return buttonKnot;
     }
     /**
      * @param {string} selector
@@ -174,10 +174,10 @@ export class Helper {
         opt_callback: Function | undefined,
         opt_cssClasses: string[] | undefined = ['mdl-button--primary'],
     ): void {
-        const buttonNodes = new Query(selector, dom);
-        buttonNodes.each((buttonNode) => {
+        const buttonKnots = new Query(selector, dom);
+        buttonKnots.each((buttonKnot) => {
             this.buttonElement(
-                buttonNode,
+                buttonKnot,
                 opt_callback,
                 '',
                 true,
@@ -202,18 +202,18 @@ export class Helper {
         opt_allowAccess: boolean | undefined = true,
         opt_cssClasses: string[] | undefined = ['mdl-button--primary'],
     ): Knot {
-        const buttonNode = new Query(selector, dom).getKnot();
+        const buttonKnot = new Query(selector, dom).getKnot();
         this.buttonElement(
-            buttonNode,
+            buttonKnot,
             callback,
             opt_description,
             opt_allowAccess,
             opt_cssClasses,
         );
-        return buttonNode;
+        return buttonKnot;
     }
     /**
-     * @param {!Knot} buttonNode
+     * @param {!Knot} buttonKnot
      * @param {!Function=} opt_callback
      * @param {string=} opt_description
      * @param {boolean=} opt_allowAccess
@@ -221,20 +221,20 @@ export class Helper {
      * @return {undefined}
      */
     buttonElement(
-        buttonNode: Knot,
+        buttonKnot: Knot,
         opt_callback: Function | undefined,
         opt_description: string | undefined = '',
         opt_allowAccess: boolean | undefined = true,
         opt_cssClasses: string[] | undefined = ['mdl-button--primary'],
     ): void {
-        if (!buttonNode.isEmpty()) {
+        if (!buttonKnot.isEmpty()) {
             if (opt_allowAccess) {
-                if (!buttonNode.getId()) {
-                    buttonNode.setId(generateId('button'));
+                if (!buttonKnot.getId()) {
+                    buttonKnot.setId(generateId('button'));
                 } else {
-                    const oldCssClasses = buttonNode.getData('cssClasses');
-                    buttonNode.removeClass(oldCssClasses);
-                    buttonNode.removeEventListeners('click');
+                    const oldCssClasses = buttonKnot.getData('cssClasses');
+                    buttonKnot.removeClass(oldCssClasses);
+                    buttonKnot.removeEventListeners('click');
                 }
                 const cssClasses = [
                     'mdl-button',
@@ -242,17 +242,17 @@ export class Helper {
                     'mdl-js-ripple-effect',
                     'mdl-button--raised',
                 ].concat(opt_cssClasses);
-                buttonNode.setData('cssClasses', cssClasses);
-                buttonNode.addClass(cssClasses);
+                buttonKnot.setData('cssClasses', cssClasses);
+                buttonKnot.addClass(cssClasses);
                 if (opt_callback) {
-                    buttonNode.addEventListener('click', () => {
-                        opt_callback(buttonNode.getId(), buttonNode);
+                    buttonKnot.addEventListener('click', () => {
+                        opt_callback(buttonKnot.getId(), buttonKnot);
                     });
                 }
 
-                this._setTooltip(buttonNode, opt_description);
+                this._setTooltip(buttonKnot, opt_description);
             } else {
-                buttonNode.remove();
+                buttonKnot.remove();
             }
         }
     }
@@ -275,16 +275,16 @@ export class Helper {
             'mdl-button--mini-fab',
         ],
     ): Knot {
-        const buttonNode = new Knot('button');
-        this._createIconNode(iconName, buttonNode);
+        const buttonKnot = new Knot<HTMLButtonElement>('button');
+        this._createIconKnot(iconName, buttonKnot);
         this.iconButtonElement(
-            buttonNode,
+            buttonKnot,
             callback,
             opt_description,
             opt_allowAccess,
             opt_cssClasses,
         );
-        return buttonNode;
+        return buttonKnot;
     }
     /**
      * @param {string} selector
@@ -301,10 +301,10 @@ export class Helper {
             'mdl-button--mini-fab',
         ],
     ): void {
-        const buttonNodes = new Query(selector, dom);
-        buttonNodes.each((buttonNode) => {
+        const buttonKnots = new Query(selector, dom);
+        buttonKnots.each((buttonKnot) => {
             this.iconButtonElement(
-                buttonNode,
+                buttonKnot,
                 undefined,
                 undefined,
                 true,
@@ -333,18 +333,18 @@ export class Helper {
             'mdl-button--mini-fab',
         ],
     ): Knot {
-        const buttonNode = new Query(selector, dom).getKnot();
+        const buttonKnot = new Query(selector, dom).getKnot();
         this.iconButtonElement(
-            buttonNode,
+            buttonKnot,
             callback,
             opt_description,
             opt_allowAccess,
             opt_cssClasses,
         );
-        return buttonNode;
+        return buttonKnot;
     }
     /**
-     * @param {!Knot} buttonNode
+     * @param {!Knot} buttonKnot
      * @param {!Function=} opt_callback
      * @param {string=} opt_description
      * @param {boolean=} opt_allowAccess
@@ -352,7 +352,7 @@ export class Helper {
      * @return {undefined}
      */
     iconButtonElement(
-        buttonNode: Knot,
+        buttonKnot: Knot,
         opt_callback: Function | undefined,
         opt_description: string | undefined = '',
         opt_allowAccess: boolean | undefined = true,
@@ -362,14 +362,14 @@ export class Helper {
             'mdl-button--mini-fab',
         ],
     ): void {
-        if (!buttonNode.isEmpty()) {
+        if (!buttonKnot.isEmpty()) {
             if (opt_allowAccess) {
-                if (!buttonNode.getId()) {
-                    buttonNode.setId(generateId('button'));
+                if (!buttonKnot.getId()) {
+                    buttonKnot.setId(generateId('button'));
                 } else {
-                    const oldCssClasses = buttonNode.getData('cssClasses');
-                    buttonNode.removeClass(oldCssClasses);
-                    buttonNode.removeEventListeners('click');
+                    const oldCssClasses = buttonKnot.getData('cssClasses');
+                    buttonKnot.removeClass(oldCssClasses);
+                    buttonKnot.removeEventListeners('click');
                 }
                 const cssClasses = [
                     'mdl-button',
@@ -377,50 +377,50 @@ export class Helper {
                     'mdl-js-ripple-effect',
                     'mdl-button--icon',
                 ].concat(opt_cssClasses);
-                buttonNode.setData('cssClasses', cssClasses);
-                buttonNode.addClass(cssClasses);
+                buttonKnot.setData('cssClasses', cssClasses);
+                buttonKnot.addClass(cssClasses);
                 if (opt_callback) {
-                    buttonNode.addEventListener('click', () => {
-                        opt_callback(buttonNode.getId(), buttonNode);
+                    buttonKnot.addEventListener('click', () => {
+                        opt_callback(buttonKnot.getId(), buttonKnot);
                     });
                 }
 
-                this._setTooltip(buttonNode, opt_description);
+                this._setTooltip(buttonKnot, opt_description);
             } else {
-                buttonNode.remove();
+                buttonKnot.remove();
             }
         }
     }
     /**
      * @private
      * @param {string} iconName
-     * @param {!Knot} parentNode
+     * @param {!Knot} parentKnot
      * @return {undefined}
      */
-    private _createIconNode(iconName: string, parentNode: Knot): void {
-        const iconNode = new Knot('em');
-        iconNode.addClass('material-icons');
-        iconNode.setHtml(iconName);
-        parentNode.appendChild(iconNode);
+    private _createIconKnot(iconName: string, parentKnot: Knot): void {
+        const iconKnot = new Knot('em');
+        iconKnot.addClass('material-icons');
+        iconKnot.setHtml(iconName);
+        parentKnot.appendChild(iconKnot);
     }
     /**
-     * @param {!Knot} node
+     * @param {!Knot} knot
      * @param {string=} opt_description
      * @return {undefined}
      */
     private _setTooltip(
-        node: Knot,
+        knot: Knot,
         opt_description: string | undefined = '',
     ): void {
         if (opt_description) {
-            node.setAttribute('title', opt_description);
+            knot.setAttribute('title', opt_description);
         }
-        const tooltip = new Tooltip(node);
+        const tooltip = new Tooltip(knot);
         tooltip.render(opt_description);
-        mdl(node);
+        mdl(knot);
     }
     /**
-     * @param {!Knot} imageNode
+     * @param {!Knot} imageKnot
      * @param {string} defaultImageUrl
      * @param {string} email
      * @param {number=} opt_size
@@ -428,7 +428,7 @@ export class Helper {
      * @return {undefined}
      */
     setGravatar(
-        imageNode: Knot,
+        imageKnot: Knot,
         defaultImageUrl: string,
         email: string,
         opt_size: number | undefined = 500,
@@ -438,8 +438,8 @@ export class Helper {
             'https://www.gravatar.com/avatar/{0}?s={1}&r={2}&d=404',
             [md5(email), opt_size, opt_rating],
         );
-        imageNode.setAttribute('src', src);
-        imageNode.setAttribute(
+        imageKnot.setAttribute('src', src);
+        imageKnot.setAttribute(
             'onError',
             format("this.onerror=null;this.src='{0}';", [defaultImageUrl]),
         );

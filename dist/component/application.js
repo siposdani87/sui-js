@@ -148,8 +148,8 @@ export class Application {
      * @return {undefined}
      */
     _initCertificate() {
-        const rootNode = new Query('html').getKnot();
-        rootNode.addClass('sui-js');
+        const rootKnot = new Query('html').getKnot();
+        rootKnot.addClass('sui-js');
     }
     /**
      * @private

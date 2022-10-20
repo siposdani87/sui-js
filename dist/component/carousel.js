@@ -10,7 +10,7 @@ export class Carousel {
      * @param {!Object=} opt_options
      */
     constructor(dom, opt_selector = '.carousel', opt_options = {}) {
-        this.carouselNode = new Query(opt_selector, dom).getKnot();
+        this.carouselKnot = new Query(opt_selector, dom).getKnot();
         this._setOptions(opt_options);
         this._init();
     }

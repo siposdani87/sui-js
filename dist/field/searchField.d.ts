@@ -5,7 +5,7 @@ import { Knot } from '../core/knot';
  * @extends {BaseField}
  */
 export declare class SearchField extends BaseField<HTMLInputElement> {
-    holderNode: Knot;
+    holderKnot: Knot;
     /**
      * @param {!Knot} input
      * @param {!Knot} label

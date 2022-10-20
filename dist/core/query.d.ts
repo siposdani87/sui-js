@@ -15,4 +15,8 @@ export declare class Query<T extends HTMLElement = HTMLElement> extends Collecti
      * @return {!Knot}
      */
     getKnot(): Knot<T>;
+    /**
+     * @return {Array<!Knot>}
+     */
+    getKnots(): Knot[];
 }

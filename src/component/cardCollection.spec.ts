@@ -3,8 +3,8 @@ import { CardCollection } from './cardCollection';
 
 describe('cardCollection', () => {
     it('should be instance of CardCollection', () => {
-        const node = new Query('.template-view').getKnot();
-        const cardCollection = new CardCollection(node);
+        const knot = new Query('.template-view').getKnot();
+        const cardCollection = new CardCollection(knot);
 
         expect(cardCollection).toBeInstanceOf(CardCollection);
     });

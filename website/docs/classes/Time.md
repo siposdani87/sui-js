@@ -10,18 +10,18 @@ custom_edit_url: null
 
 ### constructor
 
-• **new Time**(`node`, `options`)
+• **new Time**(`knot`, `options`)
 
 #### Parameters
 
 | Name | Type |
 | :------ | :------ |
-| `node` | [`Knot`](Knot.md)<`HTMLElement`\> |
+| `knot` | [`Knot`](Knot.md)<`HTMLElement`\> |
 | `options` | `Object` |
 
 #### Defined in
 
-[component/time.ts:16](https://github.com/siposdani87/sui-js/blob/0baad71/src/component/time.ts#L16)
+[component/time.ts:16](https://github.com/siposdani87/sui-js/blob/bf1be67/src/component/time.ts#L16)
 
 ## Properties
 
@@ -31,27 +31,27 @@ custom_edit_url: null
 
 #### Defined in
 
-[component/time.ts:10](https://github.com/siposdani87/sui-js/blob/0baad71/src/component/time.ts#L10)
+[component/time.ts:10](https://github.com/siposdani87/sui-js/blob/bf1be67/src/component/time.ts#L10)
 
 ___
 
-### pointerNode
+### pointerKnot
 
-• **pointerNode**: [`Knot`](Knot.md)<`HTMLElement`\>
+• **pointerKnot**: [`Knot`](Knot.md)<`HTMLElement`\>
 
 #### Defined in
 
-[component/time.ts:11](https://github.com/siposdani87/sui-js/blob/0baad71/src/component/time.ts#L11)
+[component/time.ts:11](https://github.com/siposdani87/sui-js/blob/bf1be67/src/component/time.ts#L11)
 
 ___
 
-### timeNode
+### timeKnot
 
-• **timeNode**: [`Knot`](Knot.md)<`HTMLElement`\>
+• **timeKnot**: [`Knot`](Knot.md)<`HTMLElement`\>
 
 #### Defined in
 
-[component/time.ts:9](https://github.com/siposdani87/sui-js/blob/0baad71/src/component/time.ts#L9)
+[component/time.ts:9](https://github.com/siposdani87/sui-js/blob/bf1be67/src/component/time.ts#L9)
 
 ## Methods
 
@@ -74,7 +74,7 @@ ___
 
 #### Defined in
 
-[component/time.ts:103](https://github.com/siposdani87/sui-js/blob/0baad71/src/component/time.ts#L103)
+[component/time.ts:103](https://github.com/siposdani87/sui-js/blob/bf1be67/src/component/time.ts#L103)
 
 ___
 
@@ -88,13 +88,13 @@ ___
 
 #### Defined in
 
-[component/time.ts:33](https://github.com/siposdani87/sui-js/blob/0baad71/src/component/time.ts#L33)
+[component/time.ts:33](https://github.com/siposdani87/sui-js/blob/bf1be67/src/component/time.ts#L33)
 
 ___
 
-### \_initCircleNode
+### \_initCircleKnot
 
-▸ `Private` **_initCircleNode**(): `void`
+▸ `Private` **_initCircleKnot**(): `void`
 
 #### Returns
 
@@ -102,13 +102,13 @@ ___
 
 #### Defined in
 
-[component/time.ts:41](https://github.com/siposdani87/sui-js/blob/0baad71/src/component/time.ts#L41)
+[component/time.ts:41](https://github.com/siposdani87/sui-js/blob/bf1be67/src/component/time.ts#L41)
 
 ___
 
-### \_initPointerNode
+### \_initPointerKnot
 
-▸ `Private` **_initPointerNode**(): `void`
+▸ `Private` **_initPointerKnot**(): `void`
 
 #### Returns
 
@@ -116,7 +116,7 @@ ___
 
 #### Defined in
 
-[component/time.ts:71](https://github.com/siposdani87/sui-js/blob/0baad71/src/component/time.ts#L71)
+[component/time.ts:71](https://github.com/siposdani87/sui-js/blob/bf1be67/src/component/time.ts#L71)
 
 ___
 
@@ -137,7 +137,7 @@ ___
 
 #### Defined in
 
-[component/time.ts:57](https://github.com/siposdani87/sui-js/blob/0baad71/src/component/time.ts#L57)
+[component/time.ts:57](https://github.com/siposdani87/sui-js/blob/bf1be67/src/component/time.ts#L57)
 
 ___
 
@@ -158,7 +158,7 @@ ___
 
 #### Defined in
 
-[component/time.ts:133](https://github.com/siposdani87/sui-js/blob/0baad71/src/component/time.ts#L133)
+[component/time.ts:133](https://github.com/siposdani87/sui-js/blob/bf1be67/src/component/time.ts#L133)
 
 ___
 
@@ -183,7 +183,7 @@ ___
 
 #### Defined in
 
-[component/time.ts:150](https://github.com/siposdani87/sui-js/blob/0baad71/src/component/time.ts#L150)
+[component/time.ts:150](https://github.com/siposdani87/sui-js/blob/bf1be67/src/component/time.ts#L150)
 
 ___
 
@@ -203,7 +203,7 @@ ___
 
 #### Defined in
 
-[component/time.ts:26](https://github.com/siposdani87/sui-js/blob/0baad71/src/component/time.ts#L26)
+[component/time.ts:26](https://github.com/siposdani87/sui-js/blob/bf1be67/src/component/time.ts#L26)
 
 ___
 
@@ -226,7 +226,7 @@ ___
 
 #### Defined in
 
-[component/time.ts:87](https://github.com/siposdani87/sui-js/blob/0baad71/src/component/time.ts#L87)
+[component/time.ts:87](https://github.com/siposdani87/sui-js/blob/bf1be67/src/component/time.ts#L87)
 
 ___
 
@@ -246,4 +246,4 @@ ___
 
 #### Defined in
 
-[component/time.ts:190](https://github.com/siposdani87/sui-js/blob/0baad71/src/component/time.ts#L190)
+[component/time.ts:190](https://github.com/siposdani87/sui-js/blob/bf1be67/src/component/time.ts#L190)

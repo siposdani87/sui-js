@@ -8,14 +8,14 @@ import { consoleWarn } from '../utils/log';
  */
 export class Header {
     options: Objekt;
-    headerNode: Knot;
+    headerKnot: Knot;
     leftMenuButton: Knot;
     topMenuButton: Knot;
-    brandNode: Knot;
-    brandNodeImage: Knot;
-    brandNodeTitle: Knot;
-    mainContainerNode: Knot;
-    templateViewNode: Knot;
+    brandKnot: Knot;
+    brandKnotImage: Knot;
+    brandKnotTitle: Knot;
+    mainContainerKnot: Knot;
+    templateViewKnot: Knot;
     /**
      * @param {!Object=} opt_options
      */
@@ -38,31 +38,31 @@ export class Header {
      * @return {undefined}
      */
     private _init(): void {
-        this.headerNode = new Query('#header').getKnot();
+        this.headerKnot = new Query('#header').getKnot();
 
         this.leftMenuButton = new Query(
             '#open-left-menu',
-            this.headerNode,
+            this.headerKnot,
         ).getKnot();
         this.topMenuButton = new Query(
             '#toggle-top-menu',
-            this.headerNode,
+            this.headerKnot,
         ).getKnot();
 
-        this.brandNode = new Query('.brand', this.headerNode).getKnot();
-        this.brandNode.setAttribute('href', 'javascript:void(0)');
-        this.brandNode.addEventListener('click', () => {
+        this.brandKnot = new Query('.brand', this.headerKnot).getKnot();
+        this.brandKnot.setAttribute('href', 'javascript:void(0)');
+        this.brandKnot.addEventListener('click', () => {
             this.eventLogoClick();
         });
 
-        this.brandNodeImage = new Query('.brand img', this.brandNode).getKnot();
-        this.brandNodeTitle = new Query(
+        this.brandKnotImage = new Query('.brand img', this.brandKnot).getKnot();
+        this.brandKnotTitle = new Query(
             '.brand .app-title',
-            this.brandNode,
+            this.brandKnot,
         ).getKnot();
 
-        this.mainContainerNode = new Query('.main-container').getKnot();
-        this.templateViewNode = new Query('.template-view').getKnot();
+        this.mainContainerKnot = new Query('.main-container').getKnot();
+        this.templateViewKnot = new Query('.template-view').getKnot();
     }
     /**
      * @return {undefined}
@@ -75,61 +75,61 @@ export class Header {
      * @return {undefined}
      */
     setTitle(title: string): void {
-        this.brandNodeTitle.setHtml(title);
+        this.brandKnotTitle.setHtml(title);
     }
     /**
      * @param {string} url
      * @return {undefined}
      */
     setUrl(url: string): void {
-        this.brandNode.setAttribute('href', url);
+        this.brandKnot.setAttribute('href', url);
     }
     /**
      * @param {string} imagePath
      * @return {undefined}
      */
     setImage(imagePath: string): void {
-        this.brandNodeImage.setAttribute('src', imagePath);
+        this.brandKnotImage.setAttribute('src', imagePath);
     }
     /**
      * @return {undefined}
      */
     open(): void {
-        this.headerNode.addClass('open');
+        this.headerKnot.addClass('open');
     }
     /**
      * @return {undefined}
      */
     close(): void {
-        this.headerNode.removeClass('open');
+        this.headerKnot.removeClass('open');
     }
     /**
      * @return {undefined}
      */
     show(): void {
-        this.headerNode.removeClass('hidden');
-        this.mainContainerNode.addClass('header-padding');
-        this.templateViewNode.addClass('has-header');
+        this.headerKnot.removeClass('hidden');
+        this.mainContainerKnot.addClass('header-padding');
+        this.templateViewKnot.addClass('has-header');
     }
     /**
      * @return {undefined}
      */
     hide(): void {
-        this.headerNode.addClass('hidden');
-        this.mainContainerNode.removeClass('header-padding');
-        this.templateViewNode.removeClass('has-header');
+        this.headerKnot.addClass('hidden');
+        this.mainContainerKnot.removeClass('header-padding');
+        this.templateViewKnot.removeClass('has-header');
     }
     /**
      * @return {undefined}
      */
     showShadow(): void {
-        this.headerNode.addClass('shadow');
+        this.headerKnot.addClass('shadow');
     }
     /**
      * @return {undefined}
      */
     hideShadow(): void {
-        this.headerNode.removeClass('shadow');
+        this.headerKnot.removeClass('shadow');
     }
     /**
      * @return {undefined}

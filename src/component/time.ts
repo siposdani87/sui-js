@@ -6,15 +6,15 @@ import { consoleWarn } from '../utils/log';
  * @class
  */
 export class Time {
-    timeNode: Knot;
+    timeKnot: Knot;
     options: Objekt;
-    pointerNode: Knot;
+    pointerKnot: Knot;
     /**
-     * @param {!Knot} node
+     * @param {!Knot} knot
      * @param {!Object} options
      */
-    constructor(node: Knot, options: Object) {
-        this.timeNode = node;
+    constructor(knot: Knot, options: Object) {
+        this.timeKnot = knot;
         this._setOptions(options);
         this._init();
     }
@@ -31,21 +31,21 @@ export class Time {
      * @return {undefined}
      */
     private _init(): void {
-        this._initCircleNode();
-        this._initPointerNode();
+        this._initCircleKnot();
+        this._initPointerKnot();
     }
     /**
      * @private
      * @return {undefined}
      */
-    private _initCircleNode(): void {
-        const circleNode = new Knot('div');
-        circleNode.addClass('circle');
-        this.timeNode.appendChild(circleNode);
-        const circleNodeStyle = window.getComputedStyle(circleNode.getNode());
-        const width = parseInt(circleNodeStyle.width.slice(0, -2), 10);
-        const height = parseInt(circleNodeStyle.height.slice(0, -2), 10);
-        this.timeNode.removeChild(circleNode);
+    private _initCircleKnot(): void {
+        const circleKnot = new Knot('div');
+        circleKnot.addClass('circle');
+        this.timeKnot.appendChild(circleKnot);
+        const circleKnotStyle = window.getComputedStyle(circleKnot.getNode());
+        const width = parseInt(circleKnotStyle.width.slice(0, -2), 10);
+        const height = parseInt(circleKnotStyle.height.slice(0, -2), 10);
+        this.timeKnot.removeChild(circleKnot);
         this._initSize(width, height);
     }
     /**
@@ -55,11 +55,11 @@ export class Time {
      * @return {undefined}
      */
     private _initSize(width: number, height: number): void {
-        const timeNodeStyle = window.getComputedStyle(this.timeNode.getNode());
+        const timeKnotStyle = window.getComputedStyle(this.timeKnot.getNode());
         this.options.width =
-            parseInt(timeNodeStyle.width.slice(0, -2), 10) - width;
+            parseInt(timeKnotStyle.width.slice(0, -2), 10) - width;
         this.options.height =
-            parseInt(timeNodeStyle.height.slice(0, -2), 10) - height;
+            parseInt(timeKnotStyle.height.slice(0, -2), 10) - height;
 
         this.options.radius_x = this.options.width / 2;
         this.options.radius_y = this.options.height / 2;
@@ -68,14 +68,14 @@ export class Time {
      * @private
      * @return {undefined}
      */
-    private _initPointerNode(): void {
-        const centerPointNode = new Knot('div');
-        centerPointNode.addClass('center-point');
-        this.timeNode.appendChild(centerPointNode);
+    private _initPointerKnot(): void {
+        const centerPointKnot = new Knot('div');
+        centerPointKnot.addClass('center-point');
+        this.timeKnot.appendChild(centerPointKnot);
 
-        this.pointerNode = new Knot('div');
-        this.pointerNode.addClass('pointer');
-        this.timeNode.appendChild(this.pointerNode);
+        this.pointerKnot = new Knot('div');
+        this.pointerKnot.addClass('pointer');
+        this.timeKnot.appendChild(this.pointerKnot);
     }
     /**
      * @param {number} start
@@ -109,7 +109,7 @@ export class Time {
         let k = 0;
         for (let i = start; i <= n; i++) {
             const circle = new Knot('div');
-            this.timeNode.appendChild(circle);
+            this.timeKnot.appendChild(circle);
 
             if (i % opt_j === 0) {
                 const text =
@@ -179,7 +179,7 @@ export class Time {
             const radian = (360 / (n + 1 - start) / 180) * i * Math.PI;
             const degrees = radian * (180 / Math.PI) - 90;
 
-            this.pointerNode.setStyle({
+            this.pointerKnot.setStyle({
                 transform: 'rotate(' + degrees + 'deg)',
             });
         }

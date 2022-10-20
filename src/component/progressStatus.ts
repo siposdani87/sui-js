@@ -6,10 +6,10 @@ import { Query } from '../core/query';
  * @class
  */
 export class ProgressStatus {
-    progressStatusNode: Knot;
+    progressStatusKnot: Knot;
     options: Objekt;
-    iconNode: Knot;
-    textNode: Knot;
+    iconKnot: Knot;
+    textKnot: Knot;
     /**
      * @param {!Knot} dom
      * @param {string=} opt_selector
@@ -20,7 +20,7 @@ export class ProgressStatus {
         opt_selector: string | undefined = '.progress-status',
         opt_options: Object | undefined = {},
     ) {
-        this.progressStatusNode = new Query(opt_selector, dom).getKnot();
+        this.progressStatusKnot = new Query(opt_selector, dom).getKnot();
         this._setOptions(opt_options);
         this._init();
     }
@@ -44,8 +44,8 @@ export class ProgressStatus {
      * @return {undefined}
      */
     private _init(): void {
-        this.iconNode = new Query('.icon', this.progressStatusNode).getKnot();
-        this.textNode = new Query('.text', this.progressStatusNode).getKnot();
+        this.iconKnot = new Query('.icon', this.progressStatusKnot).getKnot();
+        this.textKnot = new Query('.text', this.progressStatusKnot).getKnot();
     }
     /**
      * @private
@@ -59,16 +59,16 @@ export class ProgressStatus {
         text: string,
         opt_icon: string | undefined = '',
     ): void {
-        this.progressStatusNode.removeClass([
+        this.progressStatusKnot.removeClass([
             this.options.errorStyle,
             this.options.successStyle,
             this.options.infoStyle,
             this.options.warningStyle,
         ]);
-        this.progressStatusNode.addClass(cssClass);
-        this.textNode.setHtml(text);
+        this.progressStatusKnot.addClass(cssClass);
+        this.textKnot.setHtml(text);
         if (opt_icon) {
-            this.iconNode.setHtml(opt_icon);
+            this.iconKnot.setHtml(opt_icon);
         }
     }
     /**

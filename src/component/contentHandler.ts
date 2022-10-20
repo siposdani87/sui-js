@@ -5,15 +5,15 @@ import { Objekt } from '../core/objekt';
  * @class
  */
 export class ContentHandler {
-    containerNode: Knot;
+    containerKnot: Knot;
     options: Objekt;
-    contentNode: Knot;
+    contentKnot: Knot;
     /**
-     * @param {!Knot} containerNode
+     * @param {!Knot} containerKnot
      * @param {!Object=} opt_options
      */
-    constructor(containerNode: Knot, opt_options: Object | undefined = {}) {
-        this.containerNode = containerNode;
+    constructor(containerKnot: Knot, opt_options: Object | undefined = {}) {
+        this.containerKnot = containerKnot;
         this._setOptions(opt_options);
         this._init();
     }
@@ -35,19 +35,19 @@ export class ContentHandler {
      * @return {undefined}
      */
     private _init(): void {
-        this.contentNode = new Knot('div');
-        this.contentNode.addClass('content-handler');
-        this.containerNode.insertAfter(this.contentNode);
+        this.contentKnot = new Knot('div');
+        this.contentKnot.addClass('content-handler');
+        this.containerKnot.insertAfter(this.contentKnot);
 
         if (this.options.image_url) {
-            const imageNode = new Knot('img');
-            imageNode.setAttribute('src', this.options.image_url);
-            this.contentNode.appendChild(imageNode);
+            const imageKnot = new Knot('img');
+            imageKnot.setAttribute('src', this.options.image_url);
+            this.contentKnot.appendChild(imageKnot);
         }
         if (this.options.text) {
-            const textNode = new Knot('p');
-            textNode.setHtml(this.options.text);
-            this.contentNode.appendChild(textNode);
+            const textKnot = new Knot('p');
+            textKnot.setHtml(this.options.text);
+            this.contentKnot.appendChild(textKnot);
         }
 
         this.show();
@@ -56,14 +56,14 @@ export class ContentHandler {
      * @return {undefined}
      */
     show(): void {
-        this.contentNode.addClass('visible-flex');
-        this.containerNode.addClass('hidden');
+        this.contentKnot.addClass('visible-flex');
+        this.containerKnot.addClass('hidden');
     }
     /**
      * @return {undefined}
      */
     hide(): void {
-        this.contentNode.removeClass('visible-flex');
-        this.containerNode.removeClass('hidden');
+        this.contentKnot.removeClass('visible-flex');
+        this.containerKnot.removeClass('hidden');
     }
 }

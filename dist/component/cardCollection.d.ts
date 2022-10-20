@@ -7,7 +7,7 @@ import { Pager } from './pager';
  * @class
  */
 export declare class CardCollection {
-    cardCollectionNode: Knot;
+    cardCollectionKnot: Knot;
     ctrl: any;
     options: Objekt;
     collection: Collection<Objekt>;
@@ -15,8 +15,8 @@ export declare class CardCollection {
     pager: Pager;
     contentHandler: ContentHandler;
     body: Knot;
-    cardFooterNode: Knot;
-    pagerNode: Knot;
+    cardFooterKnot: Knot;
+    pagerKnot: Knot;
     cardTemplate: Knot<HTMLTemplateElement>;
     template: string;
     /**
@@ -57,7 +57,7 @@ export declare class CardCollection {
      * @param {!Objekt} item
      * @return {!Knot}
      */
-    private _getCardNode;
+    private _getCardKnot;
     /**
      * @param {number=} opt_page
      * @return {undefined}
@@ -69,11 +69,11 @@ export declare class CardCollection {
      */
     eventAction(params: Objekt): void;
     /**
-     * @param {!Knot} cardNode
+     * @param {!Knot} cardKnot
      * @param {!Objekt} item
      * @return {undefined}
      */
-    eventCardNode(cardNode: Knot, item: Objekt): void;
+    eventCardKnot(cardKnot: Knot, item: Objekt): void;
     /**
      * @private
      * @param {!Objekt} item

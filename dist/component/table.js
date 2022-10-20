@@ -20,7 +20,7 @@ export class Table {
      * @param {!Object=} opt_options
      */
     constructor(dom, opt_selector = 'table', opt_options = {}) {
-        this.tableNode = new Query(opt_selector, dom).getKnot();
+        this.tableKnot = new Query(opt_selector, dom).getKnot();
         this._setOptions(opt_options);
         this._init();
     }
@@ -58,8 +58,8 @@ export class Table {
         this.collection = new Collection();
         this.query = '';
         this.actions = [];
-        if (!this.tableNode.getId()) {
-            this.tableNode.setId(generateId('table'));
+        if (!this.tableKnot.getId()) {
+            this.tableKnot.setId(generateId('table'));
             this._initContentHandler();
             this._initHeader();
             this._initSearch();
@@ -74,7 +74,7 @@ export class Table {
      * @return {undefined}
      */
     _initContentHandler() {
-        this.contentHandler = new ContentHandler(this.tableNode, this.options.no_content);
+        this.contentHandler = new ContentHandler(this.tableKnot, this.options.no_content);
     }
     /**
      * @private
@@ -82,46 +82,46 @@ export class Table {
      */
     _initSearch() {
         if (this.options.columns[this.options.columns.length - 1] === 'search') {
-            const searchNode = new Knot('div');
-            searchNode.addClass([
+            const searchKnot = new Knot('div');
+            searchKnot.addClass([
                 'mdl-textfield',
                 'mdl-js-textfield',
                 'mdl-textfield--expandable',
             ]);
-            this.headerNodes
-                .get(this.headerNodes.size() - 1)
-                .insert(searchNode);
-            const labelNode = new Knot('label');
-            labelNode.addClass([
+            this.headerKnots
+                .get(this.headerKnots.size() - 1)
+                .insert(searchKnot);
+            const labelKnot = new Knot('label');
+            labelKnot.addClass([
                 'mdl-button',
                 'mdl-js-button',
                 'mdl-button--icon',
             ]);
-            labelNode.setFor('table-search');
-            searchNode.appendChild(labelNode);
-            const iconNode = new Knot('em');
-            iconNode.addClass('material-icons');
-            iconNode.setHtml('search');
-            labelNode.appendChild(iconNode);
+            labelKnot.setFor('table-search');
+            searchKnot.appendChild(labelKnot);
+            const iconKnot = new Knot('em');
+            iconKnot.addClass('material-icons');
+            iconKnot.setHtml('search');
+            labelKnot.appendChild(iconKnot);
             const inputBlock = new Knot('div');
             inputBlock.addClass('mdl-textfield__expandable-holder');
-            searchNode.appendChild(inputBlock);
-            const inputNode = new Knot('input');
-            inputNode.setAttribute('type', 'text');
-            inputNode.setId('table-search');
-            inputNode.addClass('mdl-textfield__input');
-            inputNode.addEventListener('keypress', (inputNode, event) => {
+            searchKnot.appendChild(inputBlock);
+            const inputKnot = new Knot('input');
+            inputKnot.setAttribute('type', 'text');
+            inputKnot.setId('table-search');
+            inputKnot.addClass('mdl-textfield__input');
+            inputKnot.addEventListener('keypress', (inputKnot, event) => {
                 if (eq(event.keyCode, 13)) {
-                    this.query = inputNode.getNode().value;
+                    this.query = inputKnot.getNode().value;
                     this.refresh(1);
                 }
                 return true;
             });
-            inputBlock.appendChild(inputNode);
-            const subLabelNode = new Knot('label');
-            subLabelNode.addClass('mdl-textfield__label');
-            inputBlock.appendChild(subLabelNode);
-            mdl(searchNode);
+            inputBlock.appendChild(inputKnot);
+            const subLabelKnot = new Knot('label');
+            subLabelKnot.addClass('mdl-textfield__label');
+            inputBlock.appendChild(subLabelKnot);
+            mdl(searchKnot);
         }
     }
     /**
@@ -130,47 +130,47 @@ export class Table {
      */
     _initHeader() {
         this.headerTexts = [];
-        this.headerNodes = new Query('thead th', this.tableNode);
-        this.headerNodes.each((headerNode, columnIndex) => {
-            const text = headerNode.getHtml();
+        this.headerKnots = new Query('thead th', this.tableKnot);
+        this.headerKnots.each((headerKnot, columnIndex) => {
+            const text = headerKnot.getHtml();
             this.headerTexts.push(text);
-            this._renderHeader(headerNode, columnIndex);
+            this._renderHeader(headerKnot, columnIndex);
         });
     }
     /**
      * @private
-     * @param {!Knot} headerNode
+     * @param {!Knot} headerKnot
      * @param {number} columnIndex
      * @return {undefined}
      */
-    _renderHeader(headerNode, columnIndex) {
+    _renderHeader(headerKnot, columnIndex) {
         const column = this.options.columns[columnIndex];
         if (inArray(['search', 'actions'], column)) {
-            headerNode.addClass('actions');
+            headerKnot.addClass('actions');
         }
         const columnsWithOrder = this.options.sorted.filter((sort) => {
             return contain(sort, column);
         });
         if (columnsWithOrder.length === 1) {
-            headerNode.setData('column', columnsWithOrder[0]);
-            headerNode.addEventListener('click', (headerNode) => {
-                const column = headerNode.getData('column');
+            headerKnot.setData('column', columnsWithOrder[0]);
+            headerKnot.addEventListener('click', (headerKnot) => {
+                const column = headerKnot.getData('column');
                 this._toggleSorting(column);
             });
-            const iconsContainerNode = new Knot('span');
-            iconsContainerNode.addClass('icons');
-            headerNode.appendChild(iconsContainerNode);
+            const iconsContainerKnot = new Knot('span');
+            iconsContainerKnot.addClass('icons');
+            headerKnot.appendChild(iconsContainerKnot);
             const iconUp = new Knot('em');
             iconUp.addClass(['material-icons', 'asc']);
             iconUp.setHtml('arrow_drop_up');
-            iconsContainerNode.appendChild(iconUp);
+            iconsContainerKnot.appendChild(iconUp);
             const iconDown = new Knot('em');
             iconDown.addClass(['material-icons', 'desc']);
             iconDown.setHtml('arrow_drop_down');
-            iconsContainerNode.appendChild(iconDown);
+            iconsContainerKnot.appendChild(iconDown);
         }
-        const headerTitle = headerNode.getAttribute('title');
-        const headerDesc = headerNode.getAttribute('desc');
+        const headerTitle = headerKnot.getAttribute('title');
+        const headerDesc = headerKnot.getAttribute('desc');
         if (headerTitle || headerDesc) {
             const iconInfo = new Knot('em');
             if (headerTitle) {
@@ -181,7 +181,7 @@ export class Table {
             }
             iconInfo.addClass(['material-icons', 'info']);
             iconInfo.setHtml('info');
-            headerNode.appendChild(iconInfo);
+            headerKnot.appendChild(iconInfo);
             const tooltip = new Tooltip(iconInfo, 'BOTTOM');
             tooltip.render();
         }
@@ -192,17 +192,17 @@ export class Table {
      */
     _initStructure() {
         this.tbody = new Knot('tbody');
-        this.tableNode.appendChild(this.tbody);
+        this.tableKnot.appendChild(this.tbody);
         this.tfoot = new Knot('tfoot');
-        this.tableNode.appendChild(this.tfoot);
+        this.tableKnot.appendChild(this.tfoot);
         const footerRow = new Knot('tr');
-        const statisticsNode = new Knot('td');
-        statisticsNode.addClass('pager-statistics');
-        footerRow.appendChild(statisticsNode);
-        const pagerNode = new Knot('td');
-        pagerNode.addClass('pager');
-        pagerNode.setAttribute('colspan', this.headerNodes.size() - 1);
-        footerRow.appendChild(pagerNode);
+        const statisticsKnot = new Knot('td');
+        statisticsKnot.addClass('pager-statistics');
+        footerRow.appendChild(statisticsKnot);
+        const pagerKnot = new Knot('td');
+        pagerKnot.addClass('pager');
+        pagerKnot.setAttribute('colspan', this.headerKnots.size() - 1);
+        footerRow.appendChild(pagerKnot);
         this.tfoot.appendChild(footerRow);
         this.pager = new Pager(this.tfoot, ['.pager', '.pager-statistics'], this.options);
         this.pager.eventAction = (page) => {
@@ -257,9 +257,9 @@ export class Table {
         const column = this.options.columns[i];
         if ((eq(this.options.sort.column, null) && eq(i, 0)) ||
             eq(column, this.options.sort.column)) {
-            const iconNode = new Query(format('.icons em.{0}', [this.options.sort.order]), head).getKnot();
-            if (!iconNode.isEmpty()) {
-                iconNode.addClass('active');
+            const iconKnot = new Query(format('.icons em.{0}', [this.options.sort.order]), head).getKnot();
+            if (!iconKnot.isEmpty()) {
+                iconKnot.addClass('active');
             }
         }
     }
@@ -269,7 +269,7 @@ export class Table {
      */
     _updateSorting() {
         this._resetSorting();
-        this.headerNodes.each((head, i) => {
+        this.headerKnots.each((head, i) => {
             this._handleSortingColumn(head, i);
         });
         this.refresh();
@@ -290,7 +290,7 @@ export class Table {
      * @return {undefined}
      */
     _resetSorting() {
-        const icons = new Query('thead th .icons em', this.tableNode);
+        const icons = new Query('thead th .icons em', this.tableKnot);
         icons.each((icon) => {
             icon.removeClass('active');
         });
@@ -310,8 +310,8 @@ export class Table {
      */
     _addHeaderRow(item, rowIndex) {
         const headerRow = new Knot('tr');
-        headerRow.addEventListener('click', (node) => {
-            node.toggleClass('opened');
+        headerRow.addEventListener('click', (knot) => {
+            knot.toggleClass('opened');
             const dataRow = headerRow.getNextSibling();
             dataRow.toggleClass('open');
         });
@@ -320,8 +320,8 @@ export class Table {
         this.tbody.appendChild(headerRow);
         const headerNameCell = new Knot('td');
         headerRow.appendChild(headerNameCell);
-        this._renderDataNodeByKnot(item, rowIndex, this._getColumn(), headerNameCell);
-        headerNameCell.setAttribute('colspan', this.headerNodes.size() - 2);
+        this._renderDataKnotByKnot(item, rowIndex, this._getColumn(), headerNameCell);
+        headerNameCell.setAttribute('colspan', this.headerKnots.size() - 2);
         const headerActionCell = new Knot('td');
         headerRow.appendChild(headerActionCell);
         this._renderActions(headerActionCell, item);
@@ -357,9 +357,9 @@ export class Table {
         tableRow.addClass(['data'].concat(cssClasses));
         this.tbody.appendChild(tableRow);
         each(this.options.columns, (column, columnIndex) => {
-            const tableDataNode = new Knot('td');
-            tableRow.appendChild(tableDataNode);
-            this._renderDataNode(tableDataNode, item, rowIndex, column, columnIndex);
+            const tableDataKnot = new Knot('td');
+            tableRow.appendChild(tableDataKnot);
+            this._renderDataKnot(tableDataKnot, item, rowIndex, column, columnIndex);
         });
     }
     /**
@@ -374,14 +374,14 @@ export class Table {
      * @param {!Objekt} item
      * @param {number} rowIndex
      * @param {string} column
-     * @param {!Knot} parentNode
+     * @param {!Knot} parentKnot
      * @return {undefined}
      */
-    _renderDataNodeByKnot(item, rowIndex, column, parentNode) {
+    _renderDataKnotByKnot(item, rowIndex, column, parentKnot) {
         let result = '';
         const calculation = this.options.calculations[column];
         if (isFunction(calculation)) {
-            result = calculation(item, this.pager.offset + rowIndex, parentNode);
+            result = calculation(item, this.pager.offset + rowIndex, parentKnot);
         }
         else {
             result = item.get(column, '');
@@ -395,11 +395,11 @@ export class Table {
         }
         eachArray(items, (item) => {
             if (!instanceOf(item, Knot)) {
-                const dataNode = new Knot('span');
-                dataNode.setHtml(item);
-                item = dataNode;
+                const dataKnot = new Knot('span');
+                dataKnot.setHtml(item);
+                item = dataKnot;
             }
-            parentNode.appendChild(item);
+            parentKnot.appendChild(item);
             if (item.getAttribute('title') || item.getAttribute('desc')) {
                 const tooltip = new Tooltip(item);
                 tooltip.render();
@@ -408,100 +408,100 @@ export class Table {
     }
     /**
      * @private
-     * @param {!Knot} tableDataNode
+     * @param {!Knot} tableDataKnot
      * @param {!Objekt} item
      * @param {number} rowIndex
      * @param {string} column
      * @param {number} columnIndex
      * @return {undefined}
      */
-    _renderDataNode(tableDataNode, item, rowIndex, column, columnIndex) {
+    _renderDataKnot(tableDataKnot, item, rowIndex, column, columnIndex) {
         if (inArray(['search', 'actions'], column)) {
-            this._renderActions(tableDataNode, item);
+            this._renderActions(tableDataKnot, item);
         }
         else {
-            const labelNode = new Knot('span');
-            labelNode.addClass('label');
-            labelNode.setHtml(this.headerTexts[columnIndex]);
-            this._renderHeader(labelNode, columnIndex);
-            this._handleSortingColumn(labelNode, columnIndex);
-            tableDataNode.appendChild(labelNode);
-            this._renderDataNodeByKnot(item, rowIndex, column, tableDataNode);
+            const labelKnot = new Knot('span');
+            labelKnot.addClass('label');
+            labelKnot.setHtml(this.headerTexts[columnIndex]);
+            this._renderHeader(labelKnot, columnIndex);
+            this._handleSortingColumn(labelKnot, columnIndex);
+            tableDataKnot.appendChild(labelKnot);
+            this._renderDataKnotByKnot(item, rowIndex, column, tableDataKnot);
         }
     }
     /**
      * @private
-     * @param {!Knot} tableDataNode
+     * @param {!Knot} tableDataKnot
      * @param {!Objekt} item
      * @return {undefined}
      */
-    _renderActions(tableDataNode, item) {
-        const containerNode = new Knot('div');
-        tableDataNode.addClass('actions');
-        tableDataNode.appendChild(containerNode);
+    _renderActions(tableDataKnot, item) {
+        const containerKnot = new Knot('div');
+        tableDataKnot.addClass('actions');
+        tableDataKnot.appendChild(containerKnot);
         if (this.actions.length > 3) {
-            containerNode.addClass('dropDown');
-            this._renderDropDownNode(containerNode, item);
+            containerKnot.addClass('dropDown');
+            this._renderDropDownKnot(containerKnot, item);
         }
         else {
-            this._renderActionNodes(containerNode, item);
+            this._renderActionKnots(containerKnot, item);
         }
     }
     /**
      * @private
-     * @param {!Knot} containerNode
+     * @param {!Knot} containerKnot
      * @param {!Objekt} item
      * @return {undefined}
      */
-    _renderActionNodes(containerNode, item) {
+    _renderActionKnots(containerKnot, item) {
         each(this.actions, (action) => {
-            this._createActionButton(containerNode, action, item);
+            this._createActionButton(containerKnot, action, item);
         });
     }
     /**
      * @private
-     * @param {!Knot} dropDownNode
+     * @param {!Knot} dropDownKnot
      * @param {!Objekt} item
      * @return {undefined}
      */
-    _renderDropDownNode(dropDownNode, item) {
-        const dropDown = new Dropdown(dropDownNode);
+    _renderDropDownKnot(dropDownKnot, item) {
+        const dropDown = new Dropdown(dropDownKnot);
         dropDown.setActions(this.actions, item);
     }
     /**
      * @private
-     * @param {!Knot} containerNode
+     * @param {!Knot} containerKnot
      * @param {{style: !Function, click: !Function}} action
      * @param {!Objekt} item
      * @return {undefined}
      */
-    _createActionButton(containerNode, action, item) {
+    _createActionButton(containerKnot, action, item) {
         const [icon, title, disabled, removed] = action.style(item);
         if (!removed) {
-            const buttonNode = new Knot('button');
-            containerNode.appendChild(buttonNode);
-            buttonNode.addClass([
+            const buttonKnot = new Knot('button');
+            containerKnot.appendChild(buttonKnot);
+            buttonKnot.addClass([
                 'mdl-button',
                 'mdl-js-button',
                 'mdl-button--icon',
                 'mdl-button--primary',
             ]);
             if (disabled) {
-                buttonNode.setAttribute('disabled');
+                buttonKnot.setAttribute('disabled');
             }
             else {
-                buttonNode.addEventListener('click', () => {
+                buttonKnot.addEventListener('click', () => {
                     action.click(item);
                 });
             }
             if (title) {
-                const tooltip = new Tooltip(buttonNode);
+                const tooltip = new Tooltip(buttonKnot);
                 tooltip.render(title);
             }
-            const iconNode = new Knot('em');
-            iconNode.addClass('material-icons');
-            iconNode.setHtml(icon);
-            buttonNode.appendChild(iconNode);
+            const iconKnot = new Knot('em');
+            iconKnot.addClass('material-icons');
+            iconKnot.setHtml(icon);
+            buttonKnot.appendChild(iconKnot);
         }
     }
     /**
@@ -553,7 +553,7 @@ export class Table {
      * @return {undefined}
      */
     render() {
-        if (!this.tableNode.isEmpty()) {
+        if (!this.tableKnot.isEmpty()) {
             this._updateSorting();
         }
     }

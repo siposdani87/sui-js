@@ -71,14 +71,14 @@ export class ProgressBar {
     }
     /**
      * @private
-     * @param {!Knot} node
+     * @param {!Knot} knot
      * @return {!ProcessBar}
      */
-    _getProgressBar(node) {
-        node.addClass('mdl-js-progress');
-        node.addEventListener('mdl-componentupgraded', (node) => {
+    _getProgressBar(knot) {
+        knot.addClass('mdl-js-progress');
+        knot.addEventListener('mdl-componentupgraded', (knot) => {
             this.async.parallelFunction(() => {
-                return node;
+                return knot;
             });
         });
         return {

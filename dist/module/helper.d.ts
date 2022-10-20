@@ -33,7 +33,7 @@ export declare class Helper {
      */
     link(selector: string, dom: Knot, opt_callback: Function | undefined, opt_href?: string | undefined, opt_description?: string | undefined, opt_allowAccess?: boolean | undefined, opt_cssClasses?: string[] | undefined): Knot;
     /**
-     * @param {!Knot} linkNode
+     * @param {!Knot} linkKnot
      * @param {!Function=} opt_callback
      * @param {string=} opt_href
      * @param {string=} opt_description
@@ -41,7 +41,7 @@ export declare class Helper {
      * @param {!Array=} opt_cssClasses
      * @return {undefined}
      */
-    linkElement(linkNode: Knot, opt_callback: Function | undefined, opt_href?: string | undefined, opt_description?: string | undefined, opt_allowAccess?: boolean | undefined, opt_cssClasses?: string[] | undefined): void;
+    linkElement(linkKnot: Knot, opt_callback: Function | undefined, opt_href?: string | undefined, opt_description?: string | undefined, opt_allowAccess?: boolean | undefined, opt_cssClasses?: string[] | undefined): void;
     /**
      * @param {string} name
      * @param {!Function} callback
@@ -70,14 +70,14 @@ export declare class Helper {
      */
     button(selector: string, dom: Knot, callback: Function, opt_description?: string | undefined, opt_allowAccess?: boolean | undefined, opt_cssClasses?: string[] | undefined): Knot;
     /**
-     * @param {!Knot} buttonNode
+     * @param {!Knot} buttonKnot
      * @param {!Function=} opt_callback
      * @param {string=} opt_description
      * @param {boolean=} opt_allowAccess
      * @param {!Array=} opt_cssClasses
      * @return {undefined}
      */
-    buttonElement(buttonNode: Knot, opt_callback: Function | undefined, opt_description?: string | undefined, opt_allowAccess?: boolean | undefined, opt_cssClasses?: string[] | undefined): void;
+    buttonElement(buttonKnot: Knot, opt_callback: Function | undefined, opt_description?: string | undefined, opt_allowAccess?: boolean | undefined, opt_cssClasses?: string[] | undefined): void;
     /**
      * @param {string} iconName
      * @param {!Function} callback
@@ -105,34 +105,34 @@ export declare class Helper {
      */
     iconButton(selector: string, dom: Knot, callback: Function, opt_description?: string | undefined, opt_allowAccess?: boolean | undefined, opt_cssClasses?: string[] | undefined): Knot;
     /**
-     * @param {!Knot} buttonNode
+     * @param {!Knot} buttonKnot
      * @param {!Function=} opt_callback
      * @param {string=} opt_description
      * @param {boolean=} opt_allowAccess
      * @param {!Array=} opt_cssClasses
      * @return {undefined}
      */
-    iconButtonElement(buttonNode: Knot, opt_callback: Function | undefined, opt_description?: string | undefined, opt_allowAccess?: boolean | undefined, opt_cssClasses?: string[] | undefined): void;
+    iconButtonElement(buttonKnot: Knot, opt_callback: Function | undefined, opt_description?: string | undefined, opt_allowAccess?: boolean | undefined, opt_cssClasses?: string[] | undefined): void;
     /**
      * @private
      * @param {string} iconName
-     * @param {!Knot} parentNode
+     * @param {!Knot} parentKnot
      * @return {undefined}
      */
-    private _createIconNode;
+    private _createIconKnot;
     /**
-     * @param {!Knot} node
+     * @param {!Knot} knot
      * @param {string=} opt_description
      * @return {undefined}
      */
     private _setTooltip;
     /**
-     * @param {!Knot} imageNode
+     * @param {!Knot} imageKnot
      * @param {string} defaultImageUrl
      * @param {string} email
      * @param {number=} opt_size
      * @param {string=} opt_rating
      * @return {undefined}
      */
-    setGravatar(imageNode: Knot, defaultImageUrl: string, email: string, opt_size?: number | undefined, opt_rating?: string | undefined): void;
+    setGravatar(imageKnot: Knot, defaultImageUrl: string, email: string, opt_size?: number | undefined, opt_rating?: string | undefined): void;
 }

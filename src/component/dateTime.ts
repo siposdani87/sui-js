@@ -18,21 +18,21 @@ type DateTimeConfig = {
  * @class
  */
 export class DateTime {
-    datetimeNode: Knot;
+    datetimeKnot: Knot;
     options: Objekt;
     types: {
         [key: string]: DateTimeConfig;
     };
     config: DateTimeConfig;
-    calendarNode: Knot;
-    clockNode: Knot;
+    calendarKnot: Knot;
+    clockKnot: Knot;
     value: Date;
     /**
-     * @param {!Knot} node
+     * @param {!Knot} knot
      * @param {!Object} options
      */
-    constructor(node: Knot, options: Object) {
-        this.datetimeNode = node;
+    constructor(knot: Knot, options: Object) {
+        this.datetimeKnot = knot;
         this._setOptions(options);
         this._init();
     }
@@ -102,38 +102,38 @@ export class DateTime {
      * @return {undefined}
      */
     private _initStructure(): void {
-        this._initDateTimeNode();
-        this._initCalendarNode();
-        this._initClockNode();
+        this._initDateTimeKnot();
+        this._initCalendarKnot();
+        this._initClockKnot();
     }
     /**
      * @private
      * @return {undefined}
      */
-    private _initDateTimeNode(): void {
-        this.datetimeNode.addClass('datetime');
-        this.datetimeNode.removeChildren();
+    private _initDateTimeKnot(): void {
+        this.datetimeKnot.addClass('datetime');
+        this.datetimeKnot.removeChildren();
     }
     /**
      * @private
      * @return {undefined}
      */
-    private _initCalendarNode(): void {
+    private _initCalendarKnot(): void {
         if (this.config.calendar_type) {
-            this.calendarNode = new Knot('div');
-            this.calendarNode.addClass('calendar');
-            this.datetimeNode.appendChild(this.calendarNode);
+            this.calendarKnot = new Knot('div');
+            this.calendarKnot.addClass('calendar');
+            this.datetimeKnot.appendChild(this.calendarKnot);
         }
     }
     /**
      * @private
      * @return {undefined}
      */
-    private _initClockNode(): void {
+    private _initClockKnot(): void {
         if (this.config.clock_type) {
-            this.clockNode = new Knot('div');
-            this.clockNode.addClass('clock');
-            this.datetimeNode.appendChild(this.clockNode);
+            this.clockKnot = new Knot('div');
+            this.clockKnot.addClass('clock');
+            this.datetimeKnot.appendChild(this.clockKnot);
         }
     }
     /**
@@ -179,7 +179,7 @@ export class DateTime {
      */
     private _drawCalendar(): void {
         if (this.config.calendar_type) {
-            const calendar = new Calendar(this.calendarNode, {
+            const calendar = new Calendar(this.calendarKnot, {
                 date: this.value,
                 type: this.config.calendar_type,
             });
@@ -207,7 +207,7 @@ export class DateTime {
      */
     private _drawClock(): void {
         if (this.config.clock_type) {
-            const clock = new Clock(this.clockNode, {
+            const clock = new Clock(this.clockKnot, {
                 time: this.value,
                 type: this.config.clock_type,
             });

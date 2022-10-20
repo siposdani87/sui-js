@@ -34,13 +34,13 @@ export class Template {
      * @return {undefined}
      */
     _init() {
-        this.viewNode = new Query(this.options.selector).getKnot();
+        this.viewKnot = new Query(this.options.selector).getKnot();
     }
     /**
      * @return {!Knot}
      */
-    getViewNode() {
-        return this.viewNode;
+    getViewKnot() {
+        return this.viewKnot;
     }
     /**
      * @param {string} url
@@ -49,17 +49,17 @@ export class Template {
      */
     load(url, opt_force = false) {
         const deferred = new Deferred();
-        const templateUrl = this.viewNode.getAttribute('data-template-url');
-        const locale = this.viewNode.getAttribute('data-locale');
+        const templateUrl = this.viewKnot.getAttribute('data-template-url');
+        const locale = this.viewKnot.getAttribute('data-locale');
         if (!opt_force &&
             contain(this.options.locale, locale) &&
             contain(url, templateUrl)) {
-            this.viewNode.removeAttribute('data-locale');
-            const node = new Query('.page-content', this.viewNode).getKnot();
-            deferred.resolve(node);
+            this.viewKnot.removeAttribute('data-locale');
+            const knot = new Query('.page-content', this.viewKnot).getKnot();
+            deferred.resolve(knot);
         }
         else {
-            this.viewNode.setAttribute('data-template-url', url);
+            this.viewKnot.setAttribute('data-template-url', url);
             this.http.get(url).then((data) => {
                 deferred.resolve(this._handleData(data, false));
             }, (data) => {
@@ -75,9 +75,9 @@ export class Template {
      * @return {!Knot}
      */
     _handleData(data, error) {
-        const node = new Query('.page-content', data).getKnot();
+        const knot = new Query('.page-content', data).getKnot();
         if (error) {
-            const messageKnot = new Query('.message', node).getKnot();
+            const messageKnot = new Query('.message', knot).getKnot();
             const message = {
                 content: messageKnot.getText(),
                 type: messageKnot.getAttribute('class').split(' ')[1],
@@ -85,9 +85,9 @@ export class Template {
             this.eventError(message);
         }
         else {
-            this.viewNode.insert(node);
+            this.viewKnot.insert(knot);
         }
-        return node;
+        return knot;
     }
     /**
      * @param {!Object} message

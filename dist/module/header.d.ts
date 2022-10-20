@@ -5,14 +5,14 @@ import { Objekt } from '../core/objekt';
  */
 export declare class Header {
     options: Objekt;
-    headerNode: Knot;
+    headerKnot: Knot;
     leftMenuButton: Knot;
     topMenuButton: Knot;
-    brandNode: Knot;
-    brandNodeImage: Knot;
-    brandNodeTitle: Knot;
-    mainContainerNode: Knot;
-    templateViewNode: Knot;
+    brandKnot: Knot;
+    brandKnotImage: Knot;
+    brandKnotTitle: Knot;
+    mainContainerKnot: Knot;
+    templateViewKnot: Knot;
     /**
      * @param {!Object=} opt_options
      */

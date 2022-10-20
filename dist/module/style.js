@@ -50,20 +50,20 @@ export class Style {
             deferred.resolve(true);
         }
         else {
-            const node = new Knot('link');
-            node.setId(id);
-            node.setAttribute('href', urlWithQueryString(url, opt_params));
-            node.setAttribute('rel', opt_rel);
-            node.setAttribute('media', opt_media);
-            node.setAttribute('onload', () => {
+            const linkKnot = new Knot('link');
+            linkKnot.setId(id);
+            linkKnot.setAttribute('href', urlWithQueryString(url, opt_params));
+            linkKnot.setAttribute('rel', opt_rel);
+            linkKnot.setAttribute('media', opt_media);
+            linkKnot.setAttribute('onload', () => {
                 this.progressBar.hide();
                 deferred.resolve(true);
             });
-            node.setAttribute('onerror', () => {
+            linkKnot.setAttribute('onerror', () => {
                 this.progressBar.hide();
                 deferred.reject(false);
             });
-            this.head.appendChild(node);
+            this.head.appendChild(linkKnot);
         }
         return deferred.promise();
     }

@@ -28,7 +28,7 @@ export declare class Month {
     /**
      * @return {!Knot}
      */
-    getNode(): Knot;
+    getKnot(): Knot;
     /**
      * @param {!Date} date
      */

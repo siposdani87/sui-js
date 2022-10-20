@@ -29,9 +29,9 @@ export declare class Flash {
      * @param {string=} opt_id
      * @return {!Knot}
      */
-    _getFlashNode(type: string, message: string, opt_duration?: number | undefined, opt_closeCallback?: (Function | null) | undefined, opt_id?: string | undefined): Knot;
+    _getFlashKnot(type: string, message: string, opt_duration?: number | undefined, opt_closeCallback?: (Function | null) | undefined, opt_id?: string | undefined): Knot;
     /**
-     * @param {!Knot} flashNode
+     * @param {!Knot} flashKnot
      * @param {?Function=} opt_closeCallback
      * @return {!Knot}
      */

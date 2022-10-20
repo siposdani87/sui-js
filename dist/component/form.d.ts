@@ -7,7 +7,7 @@ import { Knot } from '../core';
  * @extends {Collection}
  */
 export declare class Form extends Collection<BaseField<HTMLInputElement>> {
-    formNode: Knot<HTMLFormElement>;
+    formKnot: Knot<HTMLFormElement>;
     previousModel: Objekt;
     model: Objekt;
     initFields: string[];
@@ -124,20 +124,20 @@ export declare class Form extends Collection<BaseField<HTMLInputElement>> {
     unlock(): void;
     /**
      * @param {!Objekt} model
-     * @param {!Knot} node
+     * @param {!Knot} knot
      * @return {undefined}
      */
-    eventSubmit(model: Objekt, node: Knot): void;
+    eventSubmit(model: Objekt, knot: Knot): void;
     /**
      * @param {!Objekt} model
-     * @param {!Knot} node
+     * @param {!Knot} knot
      * @return {undefined}
      */
-    eventReset(model: Objekt, node: Knot): void;
+    eventReset(model: Objekt, knot: Knot): void;
     /**
      * @param {!Objekt} model
-     * @param {!Knot} node
+     * @param {!Knot} knot
      * @return {undefined}
      */
-    eventButton(model: Objekt, node: Knot): void;
+    eventButton(model: Objekt, knot: Knot): void;
 }

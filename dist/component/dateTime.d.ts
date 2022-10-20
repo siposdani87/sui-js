@@ -12,20 +12,20 @@ declare type DateTimeConfig = {
  * @class
  */
 export declare class DateTime {
-    datetimeNode: Knot;
+    datetimeKnot: Knot;
     options: Objekt;
     types: {
         [key: string]: DateTimeConfig;
     };
     config: DateTimeConfig;
-    calendarNode: Knot;
-    clockNode: Knot;
+    calendarKnot: Knot;
+    clockKnot: Knot;
     value: Date;
     /**
-     * @param {!Knot} node
+     * @param {!Knot} knot
      * @param {!Object} options
      */
-    constructor(node: Knot, options: Object);
+    constructor(knot: Knot, options: Object);
     /**
      * @private
      * @param {!Object} options
@@ -51,17 +51,17 @@ export declare class DateTime {
      * @private
      * @return {undefined}
      */
-    private _initDateTimeNode;
+    private _initDateTimeKnot;
     /**
      * @private
      * @return {undefined}
      */
-    private _initCalendarNode;
+    private _initCalendarKnot;
     /**
      * @private
      * @return {undefined}
      */
-    private _initClockNode;
+    private _initClockKnot;
     /**
      * @return {!DateTimeConfig}
      */

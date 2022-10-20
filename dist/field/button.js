@@ -31,8 +31,8 @@ export class Button extends BaseField {
             'mdl-js-ripple-effect',
             'mdl-button--accent',
         ]);
-        this.input.addEventListener('click', (node) => {
-            this.eventClick(node);
+        this.input.addEventListener('click', (knot) => {
+            this.eventClick(knot);
         });
         this.refresh();
     }

@@ -70,17 +70,17 @@ export class TextareaField extends BaseField {
             'textbox',
         ]);
         this.richText.setHtml(value);
-        this.richText.addEventListener('keydown', (_node, event) => {
+        this.richText.addEventListener('keydown', (_knot, event) => {
             if (event.keyCode === 13) {
                 document.execCommand('defaultParagraphSeparator', false, 'p');
             }
             return true;
         });
-        this.richText.addEventListener('keyup', (node) => {
-            this._setValue(node.getHtml(true));
+        this.richText.addEventListener('keyup', (knot) => {
+            this._setValue(knot.getHtml(true));
             return true;
         });
-        this.richText.addEventListener('paste', (_node, e) => {
+        this.richText.addEventListener('paste', (_knot, e) => {
             let text = '';
             if (e.clipboardData) {
                 text = e.clipboardData.getData('text/plain');
@@ -97,8 +97,8 @@ export class TextareaField extends BaseField {
             return false;
         });
         this.input.insertAfter(this.richText);
-        this.richTextNode = this.richText.getNode();
-        this.richTextNode.contentEditable = 'true';
+        this.richTextKnot = this.richText.getNode();
+        this.richTextKnot.contentEditable = 'true';
         this._renderToolbarButtons();
     }
     /**
@@ -113,9 +113,9 @@ export class TextareaField extends BaseField {
      * @return {undefined}
      */
     _renderToolbarButtons() {
-        this.toolbarNode = new Knot('div');
-        this.toolbarNode.addClass('toolbar');
-        this.input.insertBefore(this.toolbarNode);
+        this.toolbarKnot = new Knot('div');
+        this.toolbarKnot.addClass('toolbar');
+        this.input.insertBefore(this.toolbarKnot);
         this._renderToolbarButton('undo', () => {
             this._formatDoc('undo');
         });
@@ -151,14 +151,14 @@ export class TextareaField extends BaseField {
      * @return {undefined}
      */
     _renderToolbarButton(iconName, action) {
-        const boldButtonNode = new Knot('a');
-        boldButtonNode.setAttribute('href', 'javascript:void(0)');
-        boldButtonNode.addClass('material-icons');
-        boldButtonNode.setHtml(iconName);
-        boldButtonNode.addEventListener('click', () => {
+        const boldButtonKnot = new Knot('a');
+        boldButtonKnot.setAttribute('href', 'javascript:void(0)');
+        boldButtonKnot.addClass('material-icons');
+        boldButtonKnot.setHtml(iconName);
+        boldButtonKnot.addEventListener('click', () => {
             action();
         });
-        this.toolbarNode.appendChild(boldButtonNode);
+        this.toolbarKnot.appendChild(boldButtonKnot);
     }
     /**
      * @private
@@ -185,7 +185,7 @@ export class TextareaField extends BaseField {
     _formatDoc(sCmd, opt_sValue) {
         if (!this._isHtmlMode()) {
             document.execCommand(sCmd, false, opt_sValue);
-            this._setValue(this.richTextNode.innerHTML);
+            this._setValue(this.richTextKnot.innerHTML);
         }
     }
     /**
@@ -202,7 +202,7 @@ export class TextareaField extends BaseField {
             this.richText.removeClass('hidden');
             this.input.addClass('hidden');
         }
-        this.richTextNode.focus();
+        this.richTextKnot.focus();
     }
     /**
      * @override
@@ -212,7 +212,7 @@ export class TextareaField extends BaseField {
             this.inputBlock.addClass('is-invalid');
         }
         if (this._isRichText() && this.isDisabled()) {
-            this.richTextNode.contentEditable = 'false';
+            this.richTextKnot.contentEditable = 'false';
         }
         mdl(this.inputBlock);
     }
@@ -233,7 +233,7 @@ export class TextareaField extends BaseField {
      */
     setValue(value) {
         if (this._isRichText()) {
-            this.richTextNode.innerHTML = value;
+            this.richTextKnot.innerHTML = value;
         }
         this._setValue(value);
     }

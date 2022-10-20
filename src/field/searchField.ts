@@ -9,7 +9,7 @@ import { consoleWarn } from '../utils/log';
  * @extends {BaseField}
  */
 export class SearchField extends BaseField<HTMLInputElement> {
-    holderNode: Knot;
+    holderKnot: Knot;
     /**
      * @param {!Knot} input
      * @param {!Knot} label
@@ -63,19 +63,19 @@ export class SearchField extends BaseField<HTMLInputElement> {
             'mdl-js-button',
             'mdl-button--icon',
         ]);
-        const iconNode = new Knot('em');
-        iconNode.addClass(['material-icons', 'search-button']);
-        iconNode.setHtml('search');
-        this.label.insert(iconNode);
+        const iconKnot = new Knot('em');
+        iconKnot.addClass(['material-icons', 'search-button']);
+        iconKnot.setHtml('search');
+        this.label.insert(iconKnot);
 
-        this.holderNode = new Knot('div');
-        this.holderNode.addClass('mdl-textfield__expandable-holder');
-        this.holderNode.appendChild(this.input);
-        this.inputBlock.appendChild(this.holderNode);
+        this.holderKnot = new Knot('div');
+        this.holderKnot.addClass('mdl-textfield__expandable-holder');
+        this.holderKnot.appendChild(this.input);
+        this.inputBlock.appendChild(this.holderKnot);
 
-        const labelNode = new Knot('label');
-        labelNode.addClass('mdl-textfield__label');
-        this.holderNode.appendChild(labelNode);
+        const labelKnot = new Knot('label');
+        labelKnot.addClass('mdl-textfield__label');
+        this.holderKnot.appendChild(labelKnot);
 
         this._initClearButton();
         this.refresh();
@@ -106,7 +106,7 @@ export class SearchField extends BaseField<HTMLInputElement> {
                 this.eventEnter('');
             }
         });
-        this.holderNode.appendChild(clearButton);
+        this.holderKnot.appendChild(clearButton);
     }
     /**
      * @param {string} value

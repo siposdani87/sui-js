@@ -20,15 +20,15 @@ import { Listener } from '../utils';
  */
 export class Knot<T extends HTMLElement = HTMLElement> {
     node: T;
-    parentNode: Knot;
+    parentKnot: Knot;
     listenerStoreKey: string;
     /**
      * @param {?T|string} node
-     * @param {!Knot=} opt_parentNode
+     * @param {!Knot=} opt_parentKnot
      */
     constructor(
         node: (T | HTMLElement | string) | null,
-        opt_parentNode?: Knot | undefined,
+        opt_parentKnot?: Knot | undefined,
     ) {
         if (isString(node)) {
             if (contain(node as string, '<') && contain(node as string, '</')) {
@@ -40,7 +40,7 @@ export class Knot<T extends HTMLElement = HTMLElement> {
             }
         }
         this.node = node as T;
-        this.parentNode = opt_parentNode;
+        this.parentKnot = opt_parentKnot;
         this.listenerStoreKey = '_listeners';
     }
     /**
@@ -245,7 +245,10 @@ export class Knot<T extends HTMLElement = HTMLElement> {
      * @param {!Function=} opt_callback
      * @return {!Function}
      */
-    addEventListener(eventName: string, opt_callback?: Function): Function {
+    addEventListener(
+        eventName: string,
+        opt_callback?: (knot: Knot<T>, event: any) => any,
+    ): Function {
         let listener: any = noop();
         if (opt_callback) {
             listener = (event) => {
@@ -279,7 +282,7 @@ export class Knot<T extends HTMLElement = HTMLElement> {
      * @param {string} eventName
      * @return {!Array<Listener>}
      */
-    private _getListenersFromStore(eventName: string): Array<Listener> {
+    private _getListenersFromStore(eventName: string): Listener[] {
         if (
             this.node[this.listenerStoreKey] ||
             this.node[this.listenerStoreKey][eventName]
@@ -337,11 +340,11 @@ export class Knot<T extends HTMLElement = HTMLElement> {
         return new Knot<K>(node, this);
     }
     /**
-     * @param {!Knot} node
+     * @param {!Knot} knot
      * @return {undefined}
      */
-    appendChild(node: Knot): void {
-        this.node.appendChild(node.getNode());
+    appendChild(knot: Knot): void {
+        this.node.appendChild(knot.getNode());
     }
     /**
      * @return {undefined}
@@ -358,13 +361,13 @@ export class Knot<T extends HTMLElement = HTMLElement> {
         return this.node.hasChildNodes();
     }
     /**
-     * @param {!Knot} node
+     * @param {!Knot} knot
      * @return {undefined}
      */
-    removeChild(node: Knot): void {
+    removeChild(knot: Knot): void {
         if (this.hasChildren()) {
             try {
-                this.node.removeChild(node.getNode());
+                this.node.removeChild(knot.getNode());
             } catch (e) {
                 consoleWarn(e);
             }
@@ -380,64 +383,64 @@ export class Knot<T extends HTMLElement = HTMLElement> {
         }
     }
     /**
-     * @param {!Knot} node
+     * @param {!Knot} knot
      * @return {undefined}
      */
-    insert(node: Knot): void {
+    insert(knot: Knot): void {
         this.removeChildren();
-        this.appendChild(node);
+        this.appendChild(knot);
     }
     /**
-     * @param {!Knot} node
+     * @param {!Knot} knot
      * @return {boolean}
      */
-    beforeChild(node: Knot): boolean {
-        const referenceNode =
+    beforeChild(knot: Knot): boolean {
+        const referenceKnot =
             this.node.firstChild || this.node.firstElementChild;
-        if (referenceNode) {
-            this.node.insertBefore(node.getNode(), referenceNode);
+        if (referenceKnot) {
+            this.node.insertBefore(knot.getNode(), referenceKnot);
             return true;
         }
         // TODO: refactor to use other technique
-        this.node.insertBefore(node.getNode(), referenceNode);
+        this.node.insertBefore(knot.getNode(), referenceKnot);
         return false;
     }
     /**
      * @deprecated
-     * @param {!Knot} node
+     * @param {!Knot} knot
      * @return {boolean}
      */
-    afterChild(node: Knot): boolean {
+    afterChild(knot: Knot): boolean {
         const parentElement = this._getParentElement();
         if (parentElement) {
-            parentElement.appendChild(node.getNode());
+            parentElement.appendChild(knot.getNode());
             return true;
         }
         return false;
     }
     /**
-     * @param {!Knot} node
+     * @param {!Knot} knot
      * @return {boolean}
      */
-    insertBefore(node: Knot): boolean {
+    insertBefore(knot: Knot): boolean {
         const parentElement = this._getParentElement();
         if (parentElement) {
-            parentElement.insertBefore(node.getNode(), this.node);
+            parentElement.insertBefore(knot.getNode(), this.node);
             return true;
         }
         return false;
     }
     /**
-     * @param {!Knot} node
+     * @param {!Knot} knot
      * @return {boolean}
      */
-    insertAfter(node: Knot): boolean {
-        const nextSiblingNode = this.getNextSibling();
+    insertAfter(knot: Knot): boolean {
+        const nextSiblingKnot = this.getNextSibling();
         const parentElement = this._getParentElement();
         if (parentElement) {
             parentElement.insertBefore(
-                node.getNode(),
-                nextSiblingNode.getNode(),
+                knot.getNode(),
+                nextSiblingKnot.getNode(),
             );
             return true;
         }
@@ -445,13 +448,13 @@ export class Knot<T extends HTMLElement = HTMLElement> {
     }
     /**
      * @deprecated
-     * @param {!Knot} node
+     * @param {!Knot} knot
      * @return {boolean}
      */
-    replaceChild(node: Knot): boolean {
+    replaceChild(knot: Knot): boolean {
         const parentElement = this._getParentElement();
         if (parentElement) {
-            parentElement.replaceChild(node.getNode(), this.node);
+            parentElement.replaceChild(knot.getNode(), this.node);
             return true;
         }
         return false;
@@ -460,9 +463,9 @@ export class Knot<T extends HTMLElement = HTMLElement> {
      * @return {!Knot}
      */
     getNextSibling(): Knot {
-        const referenceNode =
+        const referenceKnot =
             this.node.nextSibling || this.node.nextElementSibling;
-        return new Knot(referenceNode as T);
+        return new Knot(referenceKnot as T);
     }
     /**
      * @param {!string} text
@@ -535,7 +538,7 @@ export class Knot<T extends HTMLElement = HTMLElement> {
     /**
      * @return {?Knot}
      */
-    getParentNode(): Knot | null {
+    getParentKnot(): Knot | null {
         const parentElement = this._getParentElement();
         if (parentElement) {
             return new Knot(parentElement);
@@ -546,8 +549,8 @@ export class Knot<T extends HTMLElement = HTMLElement> {
      * @return {?HTMLElement}
      */
     private _getParentElement(): HTMLElement | null {
-        if (this.parentNode && !this.parentNode.isEmpty()) {
-            return this.parentNode.getNode();
+        if (this.parentKnot && !this.parentKnot.isEmpty()) {
+            return this.parentKnot.getNode();
         } else if (this.node) {
             return this.node.parentElement;
         }
@@ -605,27 +608,5 @@ export class Knot<T extends HTMLElement = HTMLElement> {
             return this.node.outerHTML;
         }
         return this.node.innerHTML;
-    }
-    /**
-     * @param {boolean=} opt_deep
-     * @return {?Knot}
-     */
-    cloneNode(opt_deep: boolean | undefined = false): Knot | null {
-        if (!this.isEmpty()) {
-            const cloneNode = this.node.cloneNode(opt_deep) as HTMLElement;
-            return new Knot(cloneNode, this.parentNode);
-        }
-        return null;
-    }
-    /**
-     * @deprecated
-     * @return {undefined}
-     */
-    clearNode(): void {
-        const cloneNode = this.cloneNode(true);
-        if (cloneNode) {
-            this.replaceChild(cloneNode);
-            this.node = cloneNode.getNode() as T;
-        }
     }
 }

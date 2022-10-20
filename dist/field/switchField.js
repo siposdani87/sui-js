@@ -31,9 +31,9 @@ export class SwitchField extends BaseCheckboxField {
         this.input.addClass('mdl-switch__input');
         this.label.insert(this.input);
         this.label.appendChild(this.spanLabel);
-        this.dataLabelNode = new Knot('span');
-        this.dataLabelNode.addClass('field-label');
-        this.label.insertBefore(this.dataLabelNode);
+        this.dataLabelKnot = new Knot('span');
+        this.dataLabelKnot.addClass('field-label');
+        this.label.insertBefore(this.dataLabelKnot);
         this.refresh();
     }
 }

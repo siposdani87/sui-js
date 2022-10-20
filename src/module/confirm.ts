@@ -84,7 +84,7 @@ export class Confirm extends BaseModal {
             if (opt_type === 'choice') {
                 cancelCssClasses.push('mdl-button--primary');
             }
-            const cancelButton = new Knot('button');
+            const cancelButton = new Knot<HTMLButtonElement>('button');
             cancelButton.setAttribute('type', 'button');
             cancelButton.setHtml(opt_cancelText);
             cancelButton.addClass(cancelCssClasses);
@@ -101,7 +101,7 @@ export class Confirm extends BaseModal {
             'mdl-js-ripple-effect',
             'mdl-button--primary',
         ];
-        const okButton = new Knot('button');
+        const okButton = new Knot<HTMLButtonElement>('button');
         okButton.setAttribute('type', 'button');
         okButton.setHtml(okText);
         okButton.addClass(okCssClasses);

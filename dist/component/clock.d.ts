@@ -4,7 +4,7 @@ import { Knot } from '../core/knot';
  * @class
  */
 export declare class Clock {
-    clockNode: Knot;
+    clockKnot: Knot;
     options: Objekt;
     modes: string[];
     types: {
@@ -12,20 +12,20 @@ export declare class Clock {
         minute: string;
     };
     activeMode: string;
-    headerNode: Knot;
-    periodHeaderNode: Knot;
+    headerKnot: Knot;
+    periodHeaderKnot: Knot;
     period: string;
     time: Date;
-    minutesHeaderNode: Knot;
-    hoursHeaderNode: Knot;
-    contentNode: Knot;
+    minutesHeaderKnot: Knot;
+    hoursHeaderKnot: Knot;
+    contentKnot: Knot;
     hours: number;
     minutes: number;
     /**
-     * @param {!Knot} node
+     * @param {!Knot} knot
      * @param {!Object} options
      */
-    constructor(node: Knot, options: Object);
+    constructor(knot: Knot, options: Object);
     /**
      * @private
      * @param {!Object} options
@@ -53,12 +53,12 @@ export declare class Clock {
      * @private
      * @return {undefined}
      */
-    private _initHeaderNode;
+    private _initHeaderKnot;
     /**
      * @private
      * @return {undefined}
      */
-    private _initPeriodHeaderNode;
+    private _initPeriodHeaderKnot;
     /**
      * @private
      * @return {undefined}
@@ -68,12 +68,12 @@ export declare class Clock {
      * @private
      * @return {undefined}
      */
-    private _initMinutesHeaderNode;
+    private _initMinutesHeaderKnot;
     /**
      * @private
      * @return {undefined}
      */
-    private _initHoursHeaderNode;
+    private _initHoursHeaderKnot;
     /**
      * @private
      * @param {string} mode
@@ -84,17 +84,17 @@ export declare class Clock {
      * @private
      * @return {undefined}
      */
-    private _initSeparatorHeaderNode;
+    private _initSeparatorHeaderKnot;
     /**
      * @private
      * @return {undefined}
      */
-    private _initContentNode;
+    private _initContentKnot;
     /**
      * @private
      * @return {!Knot}
      */
-    private _getTimeNode;
+    private _getTimeKnot;
     /**
      * @private
      * @param {number} hours
@@ -142,13 +142,13 @@ export declare class Clock {
     draw(): void;
     /**
      * @private
-     * @param {!Knot} timeNode
+     * @param {!Knot} timeKnot
      * @return {undefined}
      */
     private _drawMinutes;
     /**
      * @private
-     * @param {!Knot} timeNode
+     * @param {!Knot} timeKnot
      * @return {undefined}
      */
     private _drawHours;

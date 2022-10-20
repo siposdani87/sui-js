@@ -58,26 +58,26 @@ export class PopupContainer {
         }
     }
     /**
-     * @param {!Knot} popupNode
+     * @param {!Knot} popupKnot
      * @return {undefined}
      */
-    setPosition(popupNode) {
-        // const containerNode = this.container.getNode();
-        // const top = containerNode.offsetHeight - containerNode.scrollHeight;
+    setPosition(popupKnot) {
+        // const containerKnot = this.container.getKnot();
+        // const top = containerKnot.offsetHeight - containerKnot.scrollHeight;
         // const absoluteTop = top === 0 ? 'auto' : top + 'px';
-        // let left = containerNode.offsetWidth - containerNode.scrollWidth;
+        // let left = containerKnot.offsetWidth - containerKnot.scrollWidth;
         // let absoluteLeft = left === 0 ? 'auto' : left + 'px';
-        popupNode.setStyle({
+        popupKnot.setStyle({
             // 'top': 0, // absoluteTop,
             left: 0, // absoluteLeft
         });
     }
     /**
-     * @param {!Knot} popupNode
+     * @param {!Knot} popupKnot
      * @return {undefined}
      */
-    clearPosition(popupNode) {
-        popupNode.setStyle({
+    clearPosition(popupKnot) {
+        popupKnot.setStyle({
             top: 'auto',
             bottom: 'auto',
             left: 'auto',

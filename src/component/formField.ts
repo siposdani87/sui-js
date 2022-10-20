@@ -63,7 +63,7 @@ export const parseInputBlock = (
         (eq(tagName, 'input') || eq(tagName, 'button')) &&
         !inArray(['hidden', 'reset', 'submit', 'button'], tagType)
     ) {
-        inputBlock = inputBlock.getParentNode() as Knot<any>;
+        inputBlock = inputBlock.getParentKnot() as Knot<any>;
     }
 
     tagName = inputBlock.getTagName();
@@ -149,7 +149,7 @@ const _convertToField = (
                         input,
                         label,
                         error,
-                        inputBlock.getParentNode(),
+                        inputBlock.getParentKnot(),
                         false,
                     );
                 } else if (inputs.size() === 1) {

@@ -12,7 +12,7 @@ export class DateTimeField extends BaseField<HTMLInputElement> {
     datetimeContainer: Knot;
     datetimeInput: Knot;
     format: string;
-    datetimeNode: Knot;
+    datetimeKnot: Knot;
     datetime: DateTime;
     popup: Popup;
     /**
@@ -65,8 +65,8 @@ export class DateTimeField extends BaseField<HTMLInputElement> {
         const type = this.input.getAttribute('type');
         const value = this.getValue().toString();
 
-        this.datetimeNode = new Knot('div');
-        this.datetime = new DateTime(this.datetimeNode, {
+        this.datetimeKnot = new Knot('div');
+        this.datetime = new DateTime(this.datetimeKnot, {
             value: value,
             type: type,
         });
@@ -74,7 +74,7 @@ export class DateTimeField extends BaseField<HTMLInputElement> {
             this.setValue(value);
         };
 
-        this.popup = new Popup(this.datetimeNode, this.inputBlock);
+        this.popup = new Popup(this.datetimeKnot, this.inputBlock);
         this.popup.eventClose = () => {
             this.datetimeInput.removeClass('active');
         };
@@ -93,12 +93,12 @@ export class DateTimeField extends BaseField<HTMLInputElement> {
             this.label.addClass('field-label');
         }
 
-        const iconNode = new Knot('a');
-        iconNode.setAttribute('href', 'javascript:void(0)');
-        iconNode.addClass(['material-icons', 'size-24', 'expander']);
-        iconNode.setHtml('date_range');
-        iconNode.addEventListener('click', this._onClick.bind(this));
-        this.actionContainerNode.appendChild(iconNode);
+        const iconKnot = new Knot('a');
+        iconKnot.setAttribute('href', 'javascript:void(0)');
+        iconKnot.addClass(['material-icons', 'size-24', 'expander']);
+        iconKnot.setHtml('date_range');
+        iconKnot.addEventListener('click', this._onClick.bind(this));
+        this.actionContainerKnot.appendChild(iconKnot);
 
         this.refresh();
         this.datetime.draw();
@@ -144,21 +144,21 @@ export class DateTimeField extends BaseField<HTMLInputElement> {
         if (value) {
             const date = DateIO.parse(value, this.datetime.getConfig().format);
             const formattedValue = DateIO.format(date, this.format);
-            const tagNode = new Knot('div');
-            tagNode.addClass('field-tag');
-            tagNode.setHtml(formattedValue);
-            this.datetimeInput.appendChild(tagNode);
+            const tagKnot = new Knot('div');
+            tagKnot.addClass('field-tag');
+            tagKnot.setHtml(formattedValue);
+            this.datetimeInput.appendChild(tagKnot);
 
             if (this.isEnabled()) {
-                const iconNode = new Knot('a');
-                iconNode.setAttribute('href', 'javascript:void(0)');
-                iconNode.addClass(['material-icons', 'size-18', 'close']);
-                iconNode.setHtml('close');
-                iconNode.addEventListener('click', () => {
+                const iconKnot = new Knot('a');
+                iconKnot.setAttribute('href', 'javascript:void(0)');
+                iconKnot.addClass(['material-icons', 'size-18', 'close']);
+                iconKnot.setHtml('close');
+                iconKnot.addEventListener('click', () => {
                     this.setValue('');
                 });
-                tagNode.addClass('tag-with-action');
-                tagNode.appendChild(iconNode);
+                tagKnot.addClass('tag-with-action');
+                tagKnot.appendChild(iconKnot);
             }
         }
     }

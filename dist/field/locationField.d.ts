@@ -11,8 +11,8 @@ export declare class LocationField extends BaseField<HTMLInputElement> {
     icon: IconOptions;
     advancedButton: Knot;
     map: GoogleMap;
-    mapLockNode: Knot;
-    advancedNode: Knot;
+    mapLockKnot: Knot;
+    advancedKnot: Knot;
     latitudeInput: Knot<HTMLInputElement>;
     longitudeInput: Knot<HTMLInputElement>;
     /**

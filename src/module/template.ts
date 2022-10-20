@@ -12,7 +12,7 @@ import { Knot, Promize } from '../core';
 export class Template {
     http: Http;
     options: Objekt;
-    viewNode: Knot;
+    viewKnot: Knot;
     /**
      * @param {!Http} http
      * @param {!Object=} opt_options
@@ -41,13 +41,13 @@ export class Template {
      * @return {undefined}
      */
     private _init(): void {
-        this.viewNode = new Query(this.options.selector).getKnot();
+        this.viewKnot = new Query(this.options.selector).getKnot();
     }
     /**
      * @return {!Knot}
      */
-    getViewNode(): Knot {
-        return this.viewNode;
+    getViewKnot(): Knot {
+        return this.viewKnot;
     }
     /**
      * @param {string} url
@@ -56,18 +56,18 @@ export class Template {
      */
     load(url: string, opt_force: boolean | undefined = false): Promize {
         const deferred = new Deferred();
-        const templateUrl = this.viewNode.getAttribute('data-template-url');
-        const locale = this.viewNode.getAttribute('data-locale');
+        const templateUrl = this.viewKnot.getAttribute('data-template-url');
+        const locale = this.viewKnot.getAttribute('data-locale');
         if (
             !opt_force &&
             contain(this.options.locale, locale) &&
             contain(url, templateUrl)
         ) {
-            this.viewNode.removeAttribute('data-locale');
-            const node = new Query('.page-content', this.viewNode).getKnot();
-            deferred.resolve(node);
+            this.viewKnot.removeAttribute('data-locale');
+            const knot = new Query('.page-content', this.viewKnot).getKnot();
+            deferred.resolve(knot);
         } else {
-            this.viewNode.setAttribute('data-template-url', url);
+            this.viewKnot.setAttribute('data-template-url', url);
             this.http.get(url).then(
                 (data) => {
                     deferred.resolve(this._handleData(data, false));
@@ -86,18 +86,18 @@ export class Template {
      * @return {!Knot}
      */
     private _handleData(data: Knot, error: boolean): Knot {
-        const node = new Query('.page-content', data).getKnot();
+        const knot = new Query('.page-content', data).getKnot();
         if (error) {
-            const messageKnot = new Query('.message', node).getKnot();
+            const messageKnot = new Query('.message', knot).getKnot();
             const message = {
                 content: messageKnot.getText(),
                 type: messageKnot.getAttribute('class').split(' ')[1],
             };
             this.eventError(message);
         } else {
-            this.viewNode.insert(node);
+            this.viewKnot.insert(knot);
         }
-        return node;
+        return knot;
     }
     /**
      * @param {!Object} message

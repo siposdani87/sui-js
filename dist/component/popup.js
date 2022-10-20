@@ -30,11 +30,11 @@ export class Popup {
      * @return {undefined}
      */
     _draw() {
-        this.popupNode = new Knot('div');
-        this.popupNode.addClass(['popup', 'hidden']);
+        this.popupKnot = new Knot('div');
+        this.popupKnot.addClass(['popup', 'hidden']);
         this.parent.addClass('popup-parent');
-        this.parent.appendChild(this.popupNode);
-        this.popupNode.appendChild(this.content);
+        this.parent.appendChild(this.popupKnot);
+        this.popupKnot.appendChild(this.content);
         this._initCloseButton();
     }
     /**
@@ -54,11 +54,11 @@ export class Popup {
             btnClose.addEventListener('click', () => {
                 this.close();
             });
-            this.popupNode.appendChild(btnClose);
-            const iconNode = new Knot('em');
-            iconNode.addClass('material-icons');
-            iconNode.setHtml('close');
-            btnClose.appendChild(iconNode);
+            this.popupKnot.appendChild(btnClose);
+            const iconKnot = new Knot('em');
+            iconKnot.addClass('material-icons');
+            iconKnot.setHtml('close');
+            btnClose.appendChild(iconKnot);
             mdl(btnClose);
         }
     }
@@ -68,16 +68,16 @@ export class Popup {
     open() {
         this.popupContainer.closeAll();
         this.popupContainer.push(Popup, this);
-        this.popupNode.removeClass('hidden');
-        this.popupContainer.setPosition(this.popupNode);
+        this.popupKnot.removeClass('hidden');
+        this.popupContainer.setPosition(this.popupKnot);
     }
     /**
      * @return {undefined}
      */
     close() {
         this.popupContainer.delete(this);
-        this.popupContainer.clearPosition(this.popupNode);
-        this.popupNode.addClass('hidden');
+        this.popupContainer.clearPosition(this.popupKnot);
+        this.popupKnot.addClass('hidden');
         this.eventClose();
     }
     /**
@@ -101,6 +101,6 @@ export class Popup {
      * @return {boolean}
      */
     isOpened() {
-        return !this.popupNode.hasClass('hidden');
+        return !this.popupKnot.hasClass('hidden');
     }
 }

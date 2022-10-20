@@ -4,14 +4,14 @@ import { Objekt } from '../core/objekt';
  * @class
  */
 export declare class ContentHandler {
-    containerNode: Knot;
+    containerKnot: Knot;
     options: Objekt;
-    contentNode: Knot;
+    contentKnot: Knot;
     /**
-     * @param {!Knot} containerNode
+     * @param {!Knot} containerKnot
      * @param {!Object=} opt_options
      */
-    constructor(containerNode: Knot, opt_options?: Object | undefined);
+    constructor(containerKnot: Knot, opt_options?: Object | undefined);
     /**
      * @private
      * @param {!Object=} opt_options

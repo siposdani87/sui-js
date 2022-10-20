@@ -7,9 +7,9 @@ import { consoleWarn } from '../utils/log';
 export class Knot {
     /**
      * @param {?T|string} node
-     * @param {!Knot=} opt_parentNode
+     * @param {!Knot=} opt_parentKnot
      */
-    constructor(node, opt_parentNode) {
+    constructor(node, opt_parentKnot) {
         if (isString(node)) {
             if (contain(node, '<') && contain(node, '</')) {
                 const template = document.createElement('template');
@@ -21,7 +21,7 @@ export class Knot {
             }
         }
         this.node = node;
-        this.parentNode = opt_parentNode;
+        this.parentKnot = opt_parentKnot;
         this.listenerStoreKey = '_listeners';
     }
     /**
@@ -291,11 +291,11 @@ export class Knot {
         return new Knot(node, this);
     }
     /**
-     * @param {!Knot} node
+     * @param {!Knot} knot
      * @return {undefined}
      */
-    appendChild(node) {
-        this.node.appendChild(node.getNode());
+    appendChild(knot) {
+        this.node.appendChild(knot.getNode());
     }
     /**
      * @return {undefined}
@@ -312,13 +312,13 @@ export class Knot {
         return this.node.hasChildNodes();
     }
     /**
-     * @param {!Knot} node
+     * @param {!Knot} knot
      * @return {undefined}
      */
-    removeChild(node) {
+    removeChild(knot) {
         if (this.hasChildren()) {
             try {
-                this.node.removeChild(node.getNode());
+                this.node.removeChild(knot.getNode());
             }
             catch (e) {
                 consoleWarn(e);
@@ -335,74 +335,74 @@ export class Knot {
         }
     }
     /**
-     * @param {!Knot} node
+     * @param {!Knot} knot
      * @return {undefined}
      */
-    insert(node) {
+    insert(knot) {
         this.removeChildren();
-        this.appendChild(node);
+        this.appendChild(knot);
     }
     /**
-     * @param {!Knot} node
+     * @param {!Knot} knot
      * @return {boolean}
      */
-    beforeChild(node) {
-        const referenceNode = this.node.firstChild || this.node.firstElementChild;
-        if (referenceNode) {
-            this.node.insertBefore(node.getNode(), referenceNode);
+    beforeChild(knot) {
+        const referenceKnot = this.node.firstChild || this.node.firstElementChild;
+        if (referenceKnot) {
+            this.node.insertBefore(knot.getNode(), referenceKnot);
             return true;
         }
         // TODO: refactor to use other technique
-        this.node.insertBefore(node.getNode(), referenceNode);
+        this.node.insertBefore(knot.getNode(), referenceKnot);
         return false;
     }
     /**
      * @deprecated
-     * @param {!Knot} node
+     * @param {!Knot} knot
      * @return {boolean}
      */
-    afterChild(node) {
+    afterChild(knot) {
         const parentElement = this._getParentElement();
         if (parentElement) {
-            parentElement.appendChild(node.getNode());
+            parentElement.appendChild(knot.getNode());
             return true;
         }
         return false;
     }
     /**
-     * @param {!Knot} node
+     * @param {!Knot} knot
      * @return {boolean}
      */
-    insertBefore(node) {
+    insertBefore(knot) {
         const parentElement = this._getParentElement();
         if (parentElement) {
-            parentElement.insertBefore(node.getNode(), this.node);
+            parentElement.insertBefore(knot.getNode(), this.node);
             return true;
         }
         return false;
     }
     /**
-     * @param {!Knot} node
+     * @param {!Knot} knot
      * @return {boolean}
      */
-    insertAfter(node) {
-        const nextSiblingNode = this.getNextSibling();
+    insertAfter(knot) {
+        const nextSiblingKnot = this.getNextSibling();
         const parentElement = this._getParentElement();
         if (parentElement) {
-            parentElement.insertBefore(node.getNode(), nextSiblingNode.getNode());
+            parentElement.insertBefore(knot.getNode(), nextSiblingKnot.getNode());
             return true;
         }
         return false;
     }
     /**
      * @deprecated
-     * @param {!Knot} node
+     * @param {!Knot} knot
      * @return {boolean}
      */
-    replaceChild(node) {
+    replaceChild(knot) {
         const parentElement = this._getParentElement();
         if (parentElement) {
-            parentElement.replaceChild(node.getNode(), this.node);
+            parentElement.replaceChild(knot.getNode(), this.node);
             return true;
         }
         return false;
@@ -411,8 +411,8 @@ export class Knot {
      * @return {!Knot}
      */
     getNextSibling() {
-        const referenceNode = this.node.nextSibling || this.node.nextElementSibling;
-        return new Knot(referenceNode);
+        const referenceKnot = this.node.nextSibling || this.node.nextElementSibling;
+        return new Knot(referenceKnot);
     }
     /**
      * @param {!string} text
@@ -483,7 +483,7 @@ export class Knot {
     /**
      * @return {?Knot}
      */
-    getParentNode() {
+    getParentKnot() {
         const parentElement = this._getParentElement();
         if (parentElement) {
             return new Knot(parentElement);
@@ -494,8 +494,8 @@ export class Knot {
      * @return {?HTMLElement}
      */
     _getParentElement() {
-        if (this.parentNode && !this.parentNode.isEmpty()) {
-            return this.parentNode.getNode();
+        if (this.parentKnot && !this.parentKnot.isEmpty()) {
+            return this.parentKnot.getNode();
         }
         else if (this.node) {
             return this.node.parentElement;
@@ -554,27 +554,5 @@ export class Knot {
             return this.node.outerHTML;
         }
         return this.node.innerHTML;
-    }
-    /**
-     * @param {boolean=} opt_deep
-     * @return {?Knot}
-     */
-    cloneNode(opt_deep = false) {
-        if (!this.isEmpty()) {
-            const cloneNode = this.node.cloneNode(opt_deep);
-            return new Knot(cloneNode, this.parentNode);
-        }
-        return null;
-    }
-    /**
-     * @deprecated
-     * @return {undefined}
-     */
-    clearNode() {
-        const cloneNode = this.cloneNode(true);
-        if (cloneNode) {
-            this.replaceChild(cloneNode);
-            this.node = cloneNode.getNode();
-        }
     }
 }

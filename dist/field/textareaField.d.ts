@@ -6,8 +6,8 @@ import { Knot } from '../core/knot';
  */
 export declare class TextareaField extends BaseField<HTMLInputElement> {
     richText: Knot;
-    richTextNode: HTMLElement;
-    toolbarNode: Knot;
+    richTextKnot: HTMLElement;
+    toolbarKnot: Knot;
     htmlMode: boolean;
     /**
      * @param {!Knot} input

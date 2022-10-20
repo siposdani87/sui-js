@@ -5,10 +5,10 @@ import { Objekt } from '../core/objekt';
  */
 export declare class Footer {
     options: Objekt;
-    footerNode: Knot;
-    templateViewNode: Knot;
-    contentNode: Knot;
-    localesNode: Knot;
+    footerKnot: Knot;
+    templateViewKnot: Knot;
+    contentKnot: Knot;
+    localesKnot: Knot;
     /**
      * @param {!Object=} opt_options
      */
@@ -33,10 +33,10 @@ export declare class Footer {
      */
     hide(): void;
     /**
-     * @param {!Knot} contentNode
+     * @param {!Knot} contentKnot
      * @return {undefined}
      */
-    setContent(contentNode: Knot): void;
+    setContent(contentKnot: Knot): void;
     /**
      * @return {!Knot}
      */

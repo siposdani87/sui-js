@@ -25,11 +25,17 @@ export class Query extends Collection {
      * @return {!Knot}
      */
     getKnot() {
-        let firstNode = this.get(0);
-        if (!firstNode) {
-            firstNode = new Knot(null);
+        let firstKnot = this.get(0);
+        if (!firstKnot) {
+            firstKnot = new Knot(null);
         }
-        return firstNode;
+        return firstKnot;
+    }
+    /**
+     * @return {Array<!Knot>}
+     */
+    getKnots() {
+        return this.getItems();
     }
 }
 /**

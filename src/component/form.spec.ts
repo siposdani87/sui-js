@@ -3,8 +3,8 @@ import { Form } from './form';
 
 describe('form', () => {
     it('should be instance of Form', () => {
-        const node = new Query('.template-view').getKnot();
-        const form = new Form(node);
+        const knot = new Query('.template-view').getKnot();
+        const form = new Form(knot);
 
         expect(form).toBeInstanceOf(Form);
     });

@@ -82,10 +82,10 @@ export class Pager {
             previousButton.addEventListener('click', () => {
                 this._previous();
             });
-            const iconNode = new Knot('em');
-            iconNode.addClass('material-icons');
-            iconNode.setHtml('chevron_left');
-            previousButton.appendChild(iconNode);
+            const iconKnot = new Knot('em');
+            iconKnot.addClass('material-icons');
+            iconKnot.setHtml('chevron_left');
+            previousButton.appendChild(iconKnot);
             mdl(previousButton);
             this.pager.appendChild(previousButton);
         }
@@ -105,10 +105,10 @@ export class Pager {
             nextButton.addEventListener('click', () => {
                 this._next();
             });
-            const iconNode = new Knot('em');
-            iconNode.addClass('material-icons');
-            iconNode.setHtml('chevron_right');
-            nextButton.appendChild(iconNode);
+            const iconKnot = new Knot('em');
+            iconKnot.addClass('material-icons');
+            iconKnot.setHtml('chevron_right');
+            nextButton.appendChild(iconKnot);
             mdl(nextButton);
             this.pager.appendChild(nextButton);
         }
@@ -121,23 +121,23 @@ export class Pager {
         const pagers = this._getPagers();
         if (pagers.length > 1) {
             each(pagers, (pager) => {
-                const pageNode = new Knot('button');
-                pageNode.setData('page', pager.page);
-                pageNode.setHtml(pager.text);
-                pageNode.addClass([
+                const pageKnot = new Knot('button');
+                pageKnot.setData('page', pager.page);
+                pageKnot.setHtml(pager.text);
+                pageKnot.addClass([
                     'mdl-button',
                     'mdl-js-button',
                     'mdl-js-ripple-effect',
                 ]);
                 if (this.page === pager.page) {
-                    pageNode.addClass('mdl-button--accent');
+                    pageKnot.addClass('mdl-button--accent');
                 }
-                pageNode.addEventListener('click', (node) => {
-                    const page = node.getData('page');
+                pageKnot.addEventListener('click', (knot) => {
+                    const page = knot.getData('page');
                     this._go(page);
                 });
-                mdl(pageNode);
-                this.pager.appendChild(pageNode);
+                mdl(pageKnot);
+                this.pager.appendChild(pageKnot);
             });
         }
     }

@@ -37,13 +37,13 @@ export declare class PopupContainer {
      */
     closeAll(): void;
     /**
-     * @param {!Knot} popupNode
+     * @param {!Knot} popupKnot
      * @return {undefined}
      */
-    setPosition(popupNode: Knot): void;
+    setPosition(popupKnot: Knot): void;
     /**
-     * @param {!Knot} popupNode
+     * @param {!Knot} popupKnot
      * @return {undefined}
      */
-    clearPosition(popupNode: Knot): void;
+    clearPosition(popupKnot: Knot): void;
 }

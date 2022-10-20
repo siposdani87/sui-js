@@ -5,7 +5,7 @@ import { Knot } from '../core';
 export declare class BaseModal {
     windowWidth: number;
     windowHeight: number;
-    mainContainerNode: Knot;
+    mainContainerKnot: Knot;
     hasBlur: boolean;
     modal: Knot;
     btnMinimize: Knot;

@@ -29,7 +29,7 @@ export declare type LatLng = {
  * @class
  */
 export declare class GoogleMap {
-    mapNode: Knot;
+    mapKnot: Knot;
     options: Objekt;
     map: google.maps.Map;
     markerIcons: {

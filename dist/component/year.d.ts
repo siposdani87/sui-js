@@ -28,7 +28,7 @@ export declare class Year {
     /**
      * @return {!Knot}
      */
-    getNode(): Knot;
+    getKnot(): Knot;
     /**
      * @param {!Date} date
      */

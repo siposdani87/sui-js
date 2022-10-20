@@ -5,7 +5,7 @@ import { Day } from './day';
  * @class
  */
 export declare class Calendar {
-    calendarNode: Knot;
+    calendarKnot: Knot;
     options: Objekt;
     maxDays: number;
     maxMonths: number;
@@ -19,13 +19,13 @@ export declare class Calendar {
         week: string;
         range: string;
     };
-    headerNode: Knot;
-    currentModeNode: Knot;
-    contentNode: Knot;
-    yearsNode: Knot;
-    monthsNode: Knot;
-    weekDaysNode: Knot;
-    daysNode: Knot;
+    headerKnot: Knot;
+    currentModeKnot: Knot;
+    contentKnot: Knot;
+    yearsKnot: Knot;
+    monthsKnot: Knot;
+    weekDaysKnot: Knot;
+    daysKnot: Knot;
     previous: {
         day: Date;
         month: Date;
@@ -42,10 +42,10 @@ export declare class Calendar {
     days: Day[];
     selectedDate: Date;
     /**
-     * @param {!Knot} node
+     * @param {!Knot} knot
      * @param {!Object} options
      */
-    constructor(node: Knot, options: Object);
+    constructor(knot: Knot, options: Object);
     /**
      * @private
      * @param {!Object} options
@@ -66,12 +66,12 @@ export declare class Calendar {
      * @private
      * @return {undefined}
      */
-    private _initHeaderNode;
+    private _initHeaderKnot;
     /**
      * @private
      * @return {undefined}
      */
-    private _initContentNode;
+    private _initContentKnot;
     /**
      * @private
      * @param {number} direction

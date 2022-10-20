@@ -45,33 +45,33 @@ export class Dropdown {
      * @return {undefined}
      */
     _appendButton() {
-        this.buttonNode = new Knot('button');
-        this.buttonNode.setId(this.options.id);
-        this.buttonNode.addClass([
+        this.buttonKnot = new Knot('button');
+        this.buttonKnot.setId(this.options.id);
+        this.buttonKnot.addClass([
             'mdl-button',
             'mdl-js-button',
             'mdl-button--icon',
         ]);
-        const iconNode = new Knot('em');
-        iconNode.addClass('material-icons');
-        iconNode.setHtml('more_vert');
-        this.buttonNode.appendChild(iconNode);
-        this.dropdown.appendChild(this.buttonNode);
+        const iconKnot = new Knot('em');
+        iconKnot.addClass('material-icons');
+        iconKnot.setHtml('more_vert');
+        this.buttonKnot.appendChild(iconKnot);
+        this.dropdown.appendChild(this.buttonKnot);
     }
     /**
      * @private
      * @return {undefined}
      */
     _appendMenu() {
-        this.menuNode = new Knot('ul');
-        this.menuNode.setFor(this.options.id);
-        this.menuNode.addClass([
+        this.menuKnot = new Knot('ul');
+        this.menuKnot.setFor(this.options.id);
+        this.menuKnot.addClass([
             'mdl-menu',
             'mdl-menu--bottom-right',
             'mdl-js-menu',
             'mdl-js-ripple-effect',
         ]);
-        this.dropdown.appendChild(this.menuNode);
+        this.dropdown.appendChild(this.menuKnot);
     }
     /**
      * @param {!Array} actions
@@ -82,8 +82,8 @@ export class Dropdown {
         this.actions = actions;
         this.item = item;
         this._renderMenu();
-        mdl(this.menuNode);
-        mdl(this.buttonNode);
+        mdl(this.menuKnot);
+        mdl(this.buttonKnot);
     }
     /**
      * @private
@@ -93,16 +93,16 @@ export class Dropdown {
         eachArray(this.actions, (action) => {
             const [icon, title, disabled, removed] = action.style(this.item);
             if (!removed) {
-                const menuKnotNode = new Knot('li');
-                menuKnotNode.addClass('mdl-menu__item');
-                menuKnotNode.setHtml(title || icon);
+                const menuKnotKnot = new Knot('li');
+                menuKnotKnot.addClass('mdl-menu__item');
+                menuKnotKnot.setHtml(title || icon);
                 if (disabled) {
-                    menuKnotNode.setAttribute('disabled');
+                    menuKnotKnot.setAttribute('disabled');
                 }
-                menuKnotNode.addEventListener('click', () => {
+                menuKnotKnot.addEventListener('click', () => {
                     action.click(this.item);
                 });
-                this.menuNode.appendChild(menuKnotNode);
+                this.menuKnot.appendChild(menuKnotKnot);
             }
         });
     }

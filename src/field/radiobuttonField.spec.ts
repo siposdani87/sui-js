@@ -4,8 +4,8 @@ import { RadiobuttonField } from './radiobuttonField';
 
 describe('radiobuttonField', () => {
     it('should be instance of RadiobuttonField', () => {
-        const node = new Query('.template-view').getKnot();
-        const form = new Form(node);
+        const knot = new Query('.template-view').getKnot();
+        const form = new Form(knot);
         const inputBlock = new Query<HTMLElement>(
             '.input-block.field-radio',
         ).getKnot();

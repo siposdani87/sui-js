@@ -75,7 +75,7 @@ const _createMapLabelByMarkerByPosition = (
  * @class
  */
 export class GoogleMap {
-    mapNode: Knot;
+    mapKnot: Knot;
     options: Objekt;
     map: google.maps.Map;
     markerIcons: {
@@ -98,7 +98,7 @@ export class GoogleMap {
         opt_selector: string | undefined = '.map',
         opt_options: Object | undefined = {},
     ) {
-        this.mapNode = new Query(opt_selector, dom).getKnot();
+        this.mapKnot = new Query(opt_selector, dom).getKnot();
         this._setOptions(opt_options);
         this._init();
     }
@@ -179,7 +179,7 @@ export class GoogleMap {
      */
     private _initMap(): void {
         this.map = new google.maps.Map(
-            this.mapNode.getNode(),
+            this.mapKnot.getNode(),
             this.options as google.maps.MapOptions,
         );
 

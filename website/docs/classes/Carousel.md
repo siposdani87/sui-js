@@ -22,17 +22,17 @@ custom_edit_url: null
 
 #### Defined in
 
-[component/carousel.ts:16](https://github.com/siposdani87/sui-js/blob/0baad71/src/component/carousel.ts#L16)
+[component/carousel.ts:16](https://github.com/siposdani87/sui-js/blob/bf1be67/src/component/carousel.ts#L16)
 
 ## Properties
 
-### carouselNode
+### carouselKnot
 
-• **carouselNode**: [`Knot`](Knot.md)<`HTMLElement`\>
+• **carouselKnot**: [`Knot`](Knot.md)<`HTMLElement`\>
 
 #### Defined in
 
-[component/carousel.ts:9](https://github.com/siposdani87/sui-js/blob/0baad71/src/component/carousel.ts#L9)
+[component/carousel.ts:9](https://github.com/siposdani87/sui-js/blob/bf1be67/src/component/carousel.ts#L9)
 
 ___
 
@@ -42,7 +42,7 @@ ___
 
 #### Defined in
 
-[component/carousel.ts:10](https://github.com/siposdani87/sui-js/blob/0baad71/src/component/carousel.ts#L10)
+[component/carousel.ts:10](https://github.com/siposdani87/sui-js/blob/bf1be67/src/component/carousel.ts#L10)
 
 ## Methods
 
@@ -56,7 +56,7 @@ ___
 
 #### Defined in
 
-[component/carousel.ts:39](https://github.com/siposdani87/sui-js/blob/0baad71/src/component/carousel.ts#L39)
+[component/carousel.ts:39](https://github.com/siposdani87/sui-js/blob/bf1be67/src/component/carousel.ts#L39)
 
 ___
 
@@ -76,4 +76,4 @@ ___
 
 #### Defined in
 
-[component/carousel.ts:30](https://github.com/siposdani87/sui-js/blob/0baad71/src/component/carousel.ts#L30)
+[component/carousel.ts:30](https://github.com/siposdani87/sui-js/blob/bf1be67/src/component/carousel.ts#L30)

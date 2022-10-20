@@ -16,8 +16,8 @@ export class BaseField<T extends HTMLInputElement> {
     inputBlock: Knot;
     form?: Form;
     errorTooltip: Tooltip;
-    infoContainerNode: Knot;
-    actionContainerNode: Knot;
+    infoContainerKnot: Knot;
+    actionContainerKnot: Knot;
     disabled: boolean;
     /**
      * @param {!Knot} input
@@ -56,11 +56,11 @@ export class BaseField<T extends HTMLInputElement> {
         consoleInfo('BaseField.eventChange()', value, previousValue);
     }
     /**
-     * @param {!Knot} node
+     * @param {!Knot} knot
      * @return {undefined}
      */
-    eventClick(node: Knot): void {
-        consoleWarn('Button.eventClick()', node);
+    eventClick(knot: Knot): void {
+        consoleWarn('Button.eventClick()', knot);
     }
     /**
      * @return {undefined}
@@ -147,15 +147,15 @@ export class BaseField<T extends HTMLInputElement> {
         } else if (opt_showMessage) {
             this.setError(this.input.getNode().validationMessage);
         }
-        const upgradedNode = this._getUpgradedNode();
-        if (opt_force && upgradedNode) {
+        const upgradedKnot = this._getUpgradedKnot();
+        if (opt_force && upgradedKnot) {
             if (this.getValue()) {
-                upgradedNode.addClass('is-dirty');
+                upgradedKnot.addClass('is-dirty');
             }
             if (isValid) {
-                upgradedNode.removeClass('is-invalid');
+                upgradedKnot.removeClass('is-invalid');
             } else {
-                upgradedNode.addClass('is-invalid');
+                upgradedKnot.addClass('is-invalid');
             }
         }
     }
@@ -163,8 +163,9 @@ export class BaseField<T extends HTMLInputElement> {
      * @return {boolean}
      */
     isValidityValid(): boolean {
-        const node = this.input.getNode();
-        return node.validity.valid;
+        const inputNode = this.input.getNode();
+
+        return inputNode.validity.valid;
     }
     /**
      * @return {boolean}
@@ -176,7 +177,7 @@ export class BaseField<T extends HTMLInputElement> {
      * @private
      * @return {!Knot}
      */
-    private _getUpgradedNode(): Knot {
+    private _getUpgradedKnot(): Knot {
         return this.inputBlock;
     }
     /**
@@ -307,14 +308,14 @@ export class BaseField<T extends HTMLInputElement> {
      */
     private _setInfoContainer(): void {
         if (this.inputBlock && !this.inputBlock.isEmpty()) {
-            this.infoContainerNode = new Query(
+            this.infoContainerKnot = new Query(
                 '.info-container',
                 this.inputBlock,
             ).getKnot();
-            if (this.infoContainerNode.isEmpty()) {
-                this.infoContainerNode = new Knot('div');
-                this.infoContainerNode.addClass(['info-container']);
-                this.inputBlock.appendChild(this.infoContainerNode);
+            if (this.infoContainerKnot.isEmpty()) {
+                this.infoContainerKnot = new Knot('div');
+                this.infoContainerKnot.addClass(['info-container']);
+                this.inputBlock.appendChild(this.infoContainerKnot);
             }
         }
     }
@@ -324,14 +325,14 @@ export class BaseField<T extends HTMLInputElement> {
      */
     private _setActionContainer(): void {
         if (this.inputBlock && !this.inputBlock.isEmpty()) {
-            this.actionContainerNode = new Query(
+            this.actionContainerKnot = new Query(
                 '.action-container',
                 this.inputBlock,
             ).getKnot();
-            if (this.actionContainerNode.isEmpty()) {
-                this.actionContainerNode = new Knot('div');
-                this.actionContainerNode.addClass(['action-container']);
-                this.inputBlock.appendChild(this.actionContainerNode);
+            if (this.actionContainerKnot.isEmpty()) {
+                this.actionContainerKnot = new Knot('div');
+                this.actionContainerKnot.addClass(['action-container']);
+                this.inputBlock.appendChild(this.actionContainerKnot);
             }
         }
     }
@@ -346,7 +347,7 @@ export class BaseField<T extends HTMLInputElement> {
         if (title || description) {
             let infoButton = new Query(
                 'a.info-button',
-                this.infoContainerNode,
+                this.infoContainerKnot,
             ).getKnot();
             if (!infoButton.isEmpty()) {
                 infoButton.remove();
@@ -357,7 +358,7 @@ export class BaseField<T extends HTMLInputElement> {
             infoButton.setAttribute('href', 'javascript:void(0)');
             infoButton.addClass(['info-button', 'material-icons']);
             infoButton.setHtml('info');
-            this.infoContainerNode.appendChild(infoButton);
+            this.infoContainerKnot.appendChild(infoButton);
             const tooltip = new Tooltip(infoButton, 'LEFT');
             tooltip.render();
         }

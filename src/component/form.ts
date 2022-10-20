@@ -12,7 +12,7 @@ import { Knot } from '../core';
  * @extends {Collection}
  */
 export class Form extends Collection<BaseField<HTMLInputElement>> {
-    formNode: Knot<HTMLFormElement>;
+    formKnot: Knot<HTMLFormElement>;
     previousModel: Objekt;
     model: Objekt;
     initFields: string[];
@@ -23,15 +23,15 @@ export class Form extends Collection<BaseField<HTMLInputElement>> {
      * @param {string=} opt_selector
      */
     constructor(dom: Knot, opt_selector: string | undefined = 'form') {
-        const formNode = new Query<HTMLFormElement>(
+        const formKnot = new Query<HTMLFormElement>(
             opt_selector,
             dom,
         ).getKnot();
-        formNode.setAttribute('novalidate');
+        formKnot.setAttribute('novalidate');
         super([], FormField, {
-            parent: formNode,
+            parent: formKnot,
         });
-        this.formNode = formNode;
+        this.formKnot = formKnot;
 
         this._init();
     }
@@ -64,7 +64,7 @@ export class Form extends Collection<BaseField<HTMLInputElement>> {
      * @return {undefined}
      */
     private _initFormEvent(): void {
-        this.formNode.addEventListener('keydown', (_node, event) => {
+        this.formKnot.addEventListener('keydown', (_knot, event) => {
             const textArea = /textarea/i.test(
                 (event.target || event.srcElement).tagName,
             );
@@ -87,10 +87,10 @@ export class Form extends Collection<BaseField<HTMLInputElement>> {
      * @return {undefined}
      */
     private _initSubmitFormEvent(): void {
-        this.formNode.addEventListener('submit', (node, event) => {
+        this.formKnot.addEventListener('submit', (knot, event) => {
             event.preventDefault();
             if (this.checkValidity(true)) {
-                this.eventSubmit(this.model, node);
+                this.eventSubmit(this.model, knot);
             }
         });
     }
@@ -99,9 +99,9 @@ export class Form extends Collection<BaseField<HTMLInputElement>> {
      * @return {undefined}
      */
     private _initResetFormEvent(): void {
-        this.formNode.addEventListener('reset', (node, event) => {
+        this.formKnot.addEventListener('reset', (knot, event) => {
             event.preventDefault();
-            this.eventReset(this.model, node);
+            this.eventReset(this.model, knot);
         });
     }
     /**
@@ -111,7 +111,7 @@ export class Form extends Collection<BaseField<HTMLInputElement>> {
     private _initFields(): void {
         const fields = new Query(
             this.fieldClasses.concat(this.buttonClasses).join(', '),
-            this.formNode,
+            this.formKnot,
         ).getItems();
 
         this.load(fields);
@@ -133,8 +133,8 @@ export class Form extends Collection<BaseField<HTMLInputElement>> {
                 field.getPreviousValue = () => {
                     this._getPreviousValue(field);
                 };
-                field.eventClick = (node) => {
-                    this.eventButton(this.model, node);
+                field.eventClick = (knot) => {
+                    this.eventButton(this.model, knot);
                 };
                 if (!inArray(updatedFields, fieldName)) {
                     this._setValue(fieldName, field.getValue());
@@ -264,7 +264,7 @@ export class Form extends Collection<BaseField<HTMLInputElement>> {
         this.each((field) => {
             field.checkValidity(opt_force, opt_showMessage);
         });
-        return this.formNode.getNode().checkValidity();
+        return this.formKnot.getNode().checkValidity();
     }
     /**
      * @return {boolean}
@@ -324,26 +324,26 @@ export class Form extends Collection<BaseField<HTMLInputElement>> {
     }
     /**
      * @param {!Objekt} model
-     * @param {!Knot} node
+     * @param {!Knot} knot
      * @return {undefined}
      */
-    eventSubmit(model: Objekt, node: Knot): void {
-        consoleWarn('Form.eventSubmit()', model, node);
+    eventSubmit(model: Objekt, knot: Knot): void {
+        consoleWarn('Form.eventSubmit()', model, knot);
     }
     /**
      * @param {!Objekt} model
-     * @param {!Knot} node
+     * @param {!Knot} knot
      * @return {undefined}
      */
-    eventReset(model: Objekt, node: Knot): void {
-        consoleWarn('Form.eventReset()', model, node);
+    eventReset(model: Objekt, knot: Knot): void {
+        consoleWarn('Form.eventReset()', model, knot);
     }
     /**
      * @param {!Objekt} model
-     * @param {!Knot} node
+     * @param {!Knot} knot
      * @return {undefined}
      */
-    eventButton(model: Objekt, node: Knot): void {
-        consoleWarn('Form.eventButton()', model, node);
+    eventButton(model: Objekt, knot: Knot): void {
+        consoleWarn('Form.eventButton()', model, knot);
     }
 }

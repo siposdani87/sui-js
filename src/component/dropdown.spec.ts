@@ -3,8 +3,8 @@ import { Dropdown } from './dropdown';
 
 describe('dropdown', () => {
     it('should be instance of Dropdown', () => {
-        const node = new Query('.template-view').getKnot();
-        const dropdown = new Dropdown(node);
+        const knot = new Query('.template-view').getKnot();
+        const dropdown = new Dropdown(knot);
 
         expect(dropdown).toBeInstanceOf(Dropdown);
     });

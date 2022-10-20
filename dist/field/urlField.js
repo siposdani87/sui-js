@@ -53,10 +53,10 @@ export class UrlField extends BaseField {
             this.label.addClass('mdl-textfield__label');
         }
         if (this.protocol) {
-            const protocolNode = new Knot('span');
-            protocolNode.addClass('protocol');
-            protocolNode.setHtml(this.protocol);
-            this.input.insertAfter(protocolNode);
+            const protocolKnot = new Knot('span');
+            protocolKnot.addClass('protocol');
+            protocolKnot.setHtml(this.protocol);
+            this.input.insertAfter(protocolKnot);
         }
         this.refresh();
     }
