@@ -24,6 +24,7 @@
  * @author Dániel Sipos
  */
 
+export * from './common/config';
 export * from './component';
 export * from './core';
 export * from './field';

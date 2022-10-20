@@ -184,6 +184,7 @@ export class Module {
         });
 
         this.eventAfterInit();
+
         const async = new Async();
         async.serial(calls).then(
             () => {
