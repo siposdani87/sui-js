@@ -1,4 +1,4 @@
-import { coreResources } from '../core';
+import { coreResources } from '../common/config';
 import { Application } from './application';
 
 describe('application', () => {
