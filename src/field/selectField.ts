@@ -24,14 +24,14 @@ import { mdl } from '../utils/render';
 export class SelectField extends BaseField<HTMLInputElement> {
     query: string;
     ids: string[];
-    containerNode: Knot;
-    listNode: Knot;
+    containerKnot: Knot;
+    listKnot: Knot;
     popup: Popup;
     options: Collection<Objekt>;
-    iconNode: Knot;
-    selectContainerNode: Knot;
-    selectNode: Knot;
-    searchInputNode: Knot<HTMLInputElement>;
+    iconKnot: Knot;
+    selectContainerKnot: Knot;
+    selectKnot: Knot;
+    searchInputKnot: Knot<HTMLInputElement>;
     /**
      * @param {!Knot} input
      * @param {!Knot} label
@@ -72,14 +72,14 @@ export class SelectField extends BaseField<HTMLInputElement> {
      * @return {undefined}
      */
     private _initPopup(): void {
-        this.containerNode = new Knot('div');
+        this.containerKnot = new Knot('div');
         this._drawSearchInput();
 
-        this.listNode = new Knot('div');
-        this.listNode.addClass('options-list');
-        this.containerNode.appendChild(this.listNode);
+        this.listKnot = new Knot('div');
+        this.listKnot.addClass('options-list');
+        this.containerKnot.appendChild(this.listKnot);
 
-        this.popup = new Popup(this.containerNode, this.inputBlock);
+        this.popup = new Popup(this.containerKnot, this.inputBlock);
     }
     /**
      * @private
@@ -98,19 +98,19 @@ export class SelectField extends BaseField<HTMLInputElement> {
     private _initOptions(): void {
         this.options = new Collection();
 
-        const optionNodes = new Query('option', this.input);
-        optionNodes.each((optionNode) => {
-            const value = optionNode.getAttribute('value') || '';
-            const image = optionNode.getAttribute('data-image') || '';
-            const item = optionNode.getAttribute('data-item') || {};
-            const text = optionNode.getText() || '';
+        const optionKnots = new Query('option', this.input);
+        optionKnots.each((optionKnot) => {
+            const value = optionKnot.getAttribute('value') || '';
+            const image = optionKnot.getAttribute('data-image') || '';
+            const item = optionKnot.getAttribute('data-item') || {};
+            const text = optionKnot.getText() || '';
             const option = new Objekt({
                 id: value,
                 name: text,
                 image: image,
                 item: item,
             });
-            option.setRaw('option_node', optionNode);
+            option.setRaw('option_node', optionKnot);
             this.options.push(option);
         });
     }
@@ -123,16 +123,16 @@ export class SelectField extends BaseField<HTMLInputElement> {
             this.label.addClass('field-label');
         }
 
-        this.iconNode = new Knot('a');
-        this.iconNode.setAttribute('href', 'javascript:void(0)');
-        this.iconNode.addClass(['material-icons', 'size-24', 'expander']);
-        this.iconNode.setHtml('expand_more');
-        this.iconNode.addEventListener('click', () => {
+        this.iconKnot = new Knot('a');
+        this.iconKnot.setAttribute('href', 'javascript:void(0)');
+        this.iconKnot.addClass(['material-icons', 'size-24', 'expander']);
+        this.iconKnot.setHtml('expand_more');
+        this.iconKnot.addEventListener('click', () => {
             if (this.isEnabled()) {
                 this.open();
             }
         });
-        this.actionContainerNode.appendChild(this.iconNode);
+        this.actionContainerKnot.appendChild(this.iconKnot);
 
         this.refresh();
     }
@@ -141,11 +141,11 @@ export class SelectField extends BaseField<HTMLInputElement> {
      * @return {undefined}
      */
     refresh(): void {
-        const selectContainerNode = new Query(
+        const selectContainerKnot = new Query(
             '.select-container',
             this.inputBlock,
         ).getKnot();
-        selectContainerNode.remove();
+        selectContainerKnot.remove();
 
         if (this.isDisabled()) {
             this.inputBlock.addClass('is-disabled');
@@ -153,18 +153,18 @@ export class SelectField extends BaseField<HTMLInputElement> {
             this.inputBlock.removeClass('is-disabled');
         }
 
-        this.selectContainerNode = new Knot('div');
-        this.selectContainerNode.addClass('select-container');
-        this.selectContainerNode.addEventListener('click', () => {
+        this.selectContainerKnot = new Knot('div');
+        this.selectContainerKnot.addClass('select-container');
+        this.selectContainerKnot.addEventListener('click', () => {
             if (this.isEnabled()) {
                 this.open();
             }
         });
-        this.input.insertAfter(this.selectContainerNode);
+        this.input.insertAfter(this.selectContainerKnot);
 
-        this.selectNode = new Knot('div');
-        this.selectNode.addClass('select-input');
-        this.selectContainerNode.appendChild(this.selectNode);
+        this.selectKnot = new Knot('div');
+        this.selectKnot.addClass('select-input');
+        this.selectContainerKnot.appendChild(this.selectKnot);
 
         const ids = this._getSelectedIds();
         this._setSelectTags(ids);
@@ -220,16 +220,16 @@ export class SelectField extends BaseField<HTMLInputElement> {
      * @return {undefined}
      */
     showLoader(): void {
-        this.iconNode.setHtml('refresh');
-        this.iconNode.addClass('rotate');
+        this.iconKnot.setHtml('refresh');
+        this.iconKnot.addClass('rotate');
     }
     /**
      * @private
      * @return {undefined}
      */
     private _hideLoader(): void {
-        this.iconNode.setHtml('expand_more');
-        this.iconNode.removeClass('rotate');
+        this.iconKnot.setHtml('expand_more');
+        this.iconKnot.removeClass('rotate');
     }
     /**
      * @param {!Array<!Objekt>} items
@@ -244,10 +244,10 @@ export class SelectField extends BaseField<HTMLInputElement> {
         opt_name: string | undefined = 'name',
         opt_image: string | undefined = '',
     ): void {
-        const optionNodes = new Query('option', this.input);
-        optionNodes.each((optionNode) => {
-            if (optionNode.getAttribute('value')) {
-                optionNode.remove();
+        const optionKnots = new Query('option', this.input);
+        optionKnots.each((optionKnot) => {
+            if (optionKnot.getAttribute('value')) {
+                optionKnot.remove();
             }
         });
 
@@ -258,12 +258,12 @@ export class SelectField extends BaseField<HTMLInputElement> {
             if (opt_image) {
                 image = item.get(opt_image);
             }
-            const optionNode = new Knot('option');
-            optionNode.setAttribute('value', value);
-            optionNode.setAttribute('data-image', image);
-            optionNode.setAttribute('data-item', item);
-            optionNode.setHtml(name);
-            this.input.appendChild(optionNode);
+            const optionKnot = new Knot('option');
+            optionKnot.setAttribute('value', value);
+            optionKnot.setAttribute('data-image', image);
+            optionKnot.setAttribute('data-item', item);
+            optionKnot.setHtml(name);
+            this.input.appendChild(optionKnot);
         });
 
         this._initOptions();
@@ -334,30 +334,30 @@ export class SelectField extends BaseField<HTMLInputElement> {
         if (!isArray(tags)) {
             tags = [tags as Objekt];
         }
-        this.selectNode.removeChildren();
+        this.selectKnot.removeChildren();
 
         each(tags, (tag) => {
-            const tagNode = new Knot('div');
-            tagNode.addClass('field-tag');
-            tagNode.setHtml(tag.get('name'));
+            const tagKnot = new Knot('div');
+            tagKnot.addClass('field-tag');
+            tagKnot.setHtml(tag.get('name'));
             if (this.isEnabled()) {
-                tagNode.addEventListener('click', () => {
+                tagKnot.addEventListener('click', () => {
                     this.open();
                 });
             }
-            this.selectNode.appendChild(tagNode);
+            this.selectKnot.appendChild(tagKnot);
 
             const id = tag.get('id');
             if (neq(id, '') && this.isEnabled()) {
-                const iconNode = new Knot('a');
-                iconNode.setAttribute('href', 'javascript:void(0)');
-                iconNode.addClass(['material-icons', 'size-18', 'close']);
-                iconNode.setHtml('close');
-                iconNode.addEventListener('click', () => {
+                const iconKnot = new Knot('a');
+                iconKnot.setAttribute('href', 'javascript:void(0)');
+                iconKnot.addClass(['material-icons', 'size-18', 'close']);
+                iconKnot.setHtml('close');
+                iconKnot.addEventListener('click', () => {
                     this._handleSelectedId(id);
                 });
-                tagNode.addClass('tag-with-action');
-                tagNode.appendChild(iconNode);
+                tagKnot.addClass('tag-with-action');
+                tagKnot.appendChild(iconKnot);
             }
         });
     }
@@ -370,15 +370,15 @@ export class SelectField extends BaseField<HTMLInputElement> {
         this.options.each((option) => {
             const id = option.get('id');
             const selected = inArray(ids, id);
-            const optionNode =
+            const optionKnot =
                 option.get<Knot<HTMLOptionElement>>('option_node');
-            const node = optionNode.getNode();
+            const optionNode = optionKnot.getNode();
             if (selected) {
-                node.setAttribute('selected', 'selected');
+                optionNode.setAttribute('selected', 'selected');
             } else {
-                node.removeAttribute('selected');
+                optionNode.removeAttribute('selected');
             }
-            node.selected = selected;
+            optionNode.selected = selected;
         });
         this._change();
     }
@@ -389,10 +389,10 @@ export class SelectField extends BaseField<HTMLInputElement> {
     private _getSelectedIds(): Array<any> {
         const ids = [];
         this.options.each((option) => {
-            const optionNode =
+            const optionKnot =
                 option.get<Knot<HTMLOptionElement>>('option_node');
-            const node = optionNode.getNode();
-            if (node.selected) {
+            const optionNode = optionKnot.getNode();
+            if (optionNode.selected) {
                 const id = option.get('id');
                 ids.push(id);
             }
@@ -435,7 +435,7 @@ export class SelectField extends BaseField<HTMLInputElement> {
      * @return {undefined}
      */
     private _drawKnots(items: Array<any>): void {
-        this.listNode.removeChildren();
+        this.listKnot.removeChildren();
         const ids = this._getSelectedIds();
         each(items, (item) => {
             const id = item.get('id');
@@ -447,19 +447,19 @@ export class SelectField extends BaseField<HTMLInputElement> {
             listKnot.addEventListener('click', () => {
                 this._handleSelectedId(id);
             });
-            this.listNode.appendChild(listKnot);
+            this.listKnot.appendChild(listKnot);
 
             const image = item.get('image');
             if (image) {
-                const imageNode = new Knot('img');
-                imageNode.setAttribute('src', image);
-                listKnot.appendChild(imageNode);
+                const imageKnot = new Knot('img');
+                imageKnot.setAttribute('src', image);
+                listKnot.appendChild(imageKnot);
             }
 
             const name = item.get('name');
-            const nameNode = new Knot('span');
-            nameNode.setHtml(name);
-            listKnot.appendChild(nameNode);
+            const nameKnot = new Knot('span');
+            nameKnot.setHtml(name);
+            listKnot.appendChild(nameKnot);
         });
     }
     /**
@@ -467,36 +467,36 @@ export class SelectField extends BaseField<HTMLInputElement> {
      * @return {undefined}
      */
     private _drawSearchInput(): void {
-        const searchParentNode = new Knot('div');
-        searchParentNode.addClass('search-box');
-        this.containerNode.appendChild(searchParentNode);
+        const searchParentKnot = new Knot('div');
+        searchParentKnot.addClass('search-box');
+        this.containerKnot.appendChild(searchParentKnot);
 
-        const searchNode = new Knot('div');
-        searchNode.addClass(['mdl-textfield', 'mdl-js-textfield']);
-        searchNode.addEventListener('click', () => {
+        const searchKnot = new Knot('div');
+        searchKnot.addClass(['mdl-textfield', 'mdl-js-textfield']);
+        searchKnot.addEventListener('click', () => {
             // empty function
         });
-        searchParentNode.appendChild(searchNode);
+        searchParentKnot.appendChild(searchKnot);
 
         const id = generateId('select');
 
-        this.searchInputNode = new Knot<HTMLInputElement>('input');
-        this.searchInputNode.setId(id);
-        this.searchInputNode.setAttribute('type', 'text');
-        this.searchInputNode.addClass('mdl-textfield__input');
-        this.searchInputNode.addEventListener('keyup', (input) => {
-            const node = input.getNode();
-            this._search(node.value);
+        this.searchInputKnot = new Knot<HTMLInputElement>('input');
+        this.searchInputKnot.setId(id);
+        this.searchInputKnot.setAttribute('type', 'text');
+        this.searchInputKnot.addClass('mdl-textfield__input');
+        this.searchInputKnot.addEventListener('keyup', (input) => {
+            const inputNode = input.getNode();
+            this._search(inputNode.value);
             return true;
         });
-        searchNode.appendChild(this.searchInputNode);
+        searchKnot.appendChild(this.searchInputKnot);
 
-        const labelNode = new Knot('label');
-        labelNode.setFor(id);
-        labelNode.addClass('mdl-textfield__label');
-        searchNode.appendChild(labelNode);
+        const labelKnot = new Knot('label');
+        labelKnot.setFor(id);
+        labelKnot.addClass('mdl-textfield__label');
+        searchKnot.appendChild(labelKnot);
 
-        mdl(searchNode);
+        mdl(searchKnot);
     }
     /**
      * @return {undefined}
@@ -504,7 +504,7 @@ export class SelectField extends BaseField<HTMLInputElement> {
     open(): void {
         this._search(this.query);
         this.popup.open();
-        this.searchInputNode.getNode().focus();
+        this.searchInputKnot.getNode().focus();
     }
     /**
      * @return {undefined}
@@ -519,8 +519,8 @@ export class SelectField extends BaseField<HTMLInputElement> {
      */
     private _search(query: string): void {
         this.query = query;
-        this.searchInputNode.getNode().value = query;
-        this.searchInputNode.set('value', query);
+        this.searchInputKnot.getNode().value = query;
+        this.searchInputKnot.set('value', query);
 
         const regExp = new RegExp(query, 'i');
         const items = [];

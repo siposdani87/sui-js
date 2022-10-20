@@ -70,7 +70,7 @@ export class LocationField extends BaseField {
                 this.eventSearch(inputNode.value);
             }
         });
-        this.actionContainerNode.appendChild(searchButton);
+        this.actionContainerKnot.appendChild(searchButton);
     }
     /**
      * @private
@@ -86,7 +86,7 @@ export class LocationField extends BaseField {
                 this._toggleAdvancedInputs();
             }
         });
-        this.actionContainerNode.appendChild(this.advancedButton);
+        this.actionContainerKnot.appendChild(this.advancedButton);
     }
     /**
      * @param {string} address
@@ -129,10 +129,10 @@ export class LocationField extends BaseField {
      */
     refresh() {
         if (this.isDisabled()) {
-            this.mapLockNode.addClass('map-lock');
+            this.mapLockKnot.addClass('map-lock');
         }
         else {
-            this.mapLockNode.removeClass('map-lock');
+            this.mapLockKnot.removeClass('map-lock');
         }
         mdl(this.inputBlock);
     }
@@ -142,25 +142,25 @@ export class LocationField extends BaseField {
      */
     _toggleAdvancedInputs() {
         this.advancedButton.toggleClass('active');
-        this.advancedNode.toggleClass('hidden');
+        this.advancedKnot.toggleClass('hidden');
     }
     /**
      * @private
      * @return {undefined}
      */
     _renderAdvancedInputs() {
-        this.advancedNode = new Knot('div');
-        this.advancedNode.addClass(['advanced', 'row', 'hidden']);
-        this.inputBlock.appendChild(this.advancedNode);
-        this.latitudeInput = this._renderAdvancedInput(generateId('latitude'), this.input.getData('latitude'), (inputNode) => {
+        this.advancedKnot = new Knot('div');
+        this.advancedKnot.addClass(['advanced', 'row', 'hidden']);
+        this.inputBlock.appendChild(this.advancedKnot);
+        this.latitudeInput = this._renderAdvancedInput(generateId('latitude'), this.input.getData('latitude'), (inputKnot) => {
             const location = this.getValue();
-            const latitude = inputNode.getNode().value;
+            const latitude = inputKnot.getNode().value;
             location['latitude'] = latitude;
             this.setValue(location);
         });
-        this.longitudeInput = this._renderAdvancedInput(generateId('longitude'), this.input.getData('longitude'), (inputNode) => {
+        this.longitudeInput = this._renderAdvancedInput(generateId('longitude'), this.input.getData('longitude'), (inputKnot) => {
             const location = this.getValue();
-            const longitude = inputNode.getNode().value;
+            const longitude = inputKnot.getNode().value;
             location['longitude'] = longitude;
             this.setValue(location);
         });
@@ -173,26 +173,26 @@ export class LocationField extends BaseField {
      * @return {!Knot<HTMLInputElement>}
      */
     _renderAdvancedInput(id, labelText, callback) {
-        const blockNode = new Knot('div');
-        blockNode.addClass('col-6');
-        this.advancedNode.appendChild(blockNode);
-        const boxNode = new Knot('div');
-        boxNode.addClass([
+        const blockKnot = new Knot('div');
+        blockKnot.addClass('col-6');
+        this.advancedKnot.appendChild(blockKnot);
+        const boxKnot = new Knot('div');
+        boxKnot.addClass([
             'mdl-textfield',
             'mdl-js-textfield',
             'mdl-textfield--floating-label',
         ]);
-        blockNode.appendChild(boxNode);
+        blockKnot.appendChild(boxKnot);
         const advancedLabel = new Knot('label');
         advancedLabel.setFor(id);
         advancedLabel.addClass('mdl-textfield__label');
         advancedLabel.setHtml(labelText);
-        boxNode.appendChild(advancedLabel);
+        boxKnot.appendChild(advancedLabel);
         const advancedInput = new Knot('input');
         advancedInput.setId(id);
         advancedInput.setAttribute('type', 'text');
         advancedInput.addClass('mdl-textfield__input');
-        boxNode.appendChild(advancedInput);
+        boxKnot.appendChild(advancedInput);
         this._setAdditionalLabel(advancedLabel);
         advancedInput.addEventListener('change', (input) => {
             callback(input);
@@ -205,12 +205,12 @@ export class LocationField extends BaseField {
      * @return {undefined}
      */
     _renderMap() {
-        const mapNode = new Knot('div');
-        mapNode.addClass('map');
-        this.inputBlock.appendChild(mapNode);
-        this.mapLockNode = new Knot('div');
-        this.mapLockNode.addClass('map-lock');
-        this.inputBlock.appendChild(this.mapLockNode);
+        const mapKnot = new Knot('div');
+        mapKnot.addClass('map');
+        this.inputBlock.appendChild(mapKnot);
+        this.mapLockKnot = new Knot('div');
+        this.mapLockKnot.addClass('map-lock');
+        this.inputBlock.appendChild(this.mapLockKnot);
         this.map = new GoogleMap(this.inputBlock, '.map', {
             zoom: 12,
             scrollwheel: true,

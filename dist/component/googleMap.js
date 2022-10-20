@@ -41,7 +41,7 @@ export class GoogleMap {
      * @param {!Object=} opt_options
      */
     constructor(dom, opt_selector = '.map', opt_options = {}) {
-        this.mapNode = new Query(opt_selector, dom).getKnot();
+        this.mapKnot = new Query(opt_selector, dom).getKnot();
         this._setOptions(opt_options);
         this._init();
     }
@@ -115,7 +115,7 @@ export class GoogleMap {
      * @return {undefined}
      */
     _initMap() {
-        this.map = new google.maps.Map(this.mapNode.getNode(), this.options);
+        this.map = new google.maps.Map(this.mapKnot.getNode(), this.options);
         this._unbindEventsToMap();
         this._bindEventsToMap();
     }

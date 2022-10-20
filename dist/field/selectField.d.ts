@@ -10,14 +10,14 @@ import { Objekt } from '../core/objekt';
 export declare class SelectField extends BaseField<HTMLInputElement> {
     query: string;
     ids: string[];
-    containerNode: Knot;
-    listNode: Knot;
+    containerKnot: Knot;
+    listKnot: Knot;
     popup: Popup;
     options: Collection<Objekt>;
-    iconNode: Knot;
-    selectContainerNode: Knot;
-    selectNode: Knot;
-    searchInputNode: Knot<HTMLInputElement>;
+    iconKnot: Knot;
+    selectContainerKnot: Knot;
+    selectKnot: Knot;
+    searchInputKnot: Knot<HTMLInputElement>;
     /**
      * @param {!Knot} input
      * @param {!Knot} label

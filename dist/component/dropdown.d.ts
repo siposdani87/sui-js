@@ -11,8 +11,8 @@ export declare class Dropdown {
     collection: Collection<Objekt>;
     actions: Action[];
     item: Object;
-    buttonNode: Knot;
-    menuNode: Knot;
+    buttonKnot: Knot;
+    menuKnot: Knot;
     /**
      * @param {!Knot} element
      * @param {!Object=} opt_options

@@ -3,8 +3,8 @@ import { TabPanel } from './tabPanel';
 
 describe('tabPanel', () => {
     it('should be instance of TabPanel', () => {
-        const node = new Query('.template-view').getKnot();
-        const tabPanel = new TabPanel(node);
+        const knot = new Query('.template-view').getKnot();
+        const tabPanel = new TabPanel(knot);
 
         expect(tabPanel).toBeInstanceOf(TabPanel);
     });

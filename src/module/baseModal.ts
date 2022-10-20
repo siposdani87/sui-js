@@ -9,7 +9,7 @@ import { Knot } from '../core';
 export class BaseModal {
     windowWidth: number;
     windowHeight: number;
-    mainContainerNode: Knot;
+    mainContainerKnot: Knot;
     hasBlur: boolean;
     modal: Knot;
     btnMinimize: Knot;
@@ -32,7 +32,7 @@ export class BaseModal {
         this.windowWidth = 0;
         this.windowHeight = 0;
 
-        this.mainContainerNode = new Query('.main-container').getKnot();
+        this.mainContainerKnot = new Query('.main-container').getKnot();
         this.hasBlur = false;
 
         this._initButtons();
@@ -127,9 +127,9 @@ export class BaseModal {
      * @return {undefined}
      */
     open(opt_allowClose: boolean | undefined = true): void {
-        this.hasBlur = this.mainContainerNode.hasClass('blur');
+        this.hasBlur = this.mainContainerKnot.hasClass('blur');
         if (!this.hasBlur) {
-            this.mainContainerNode.addClass('blur');
+            this.mainContainerKnot.addClass('blur');
             this.body.addClass('overflow-hidden');
         }
 
@@ -150,7 +150,7 @@ export class BaseModal {
         clearInterval(this.interval);
 
         if (!this.hasBlur) {
-            this.mainContainerNode.removeClass('blur');
+            this.mainContainerKnot.removeClass('blur');
             this.body.removeClass('overflow-hidden');
         }
 

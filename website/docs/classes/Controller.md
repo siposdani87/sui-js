@@ -24,7 +24,7 @@ custom_edit_url: null
 
 #### Defined in
 
-common/controller.ts:8
+[common/controller.ts:8](https://github.com/siposdani87/sui-js/blob/bf1be67/src/common/controller.ts#L8)
 
 ___
 
@@ -38,4 +38,4 @@ ___
 
 #### Defined in
 
-common/controller.ts:14
+[common/controller.ts:14](https://github.com/siposdani87/sui-js/blob/bf1be67/src/common/controller.ts#L14)

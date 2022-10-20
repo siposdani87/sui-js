@@ -6,7 +6,7 @@ import { Form } from '../component';
  * @extends {BaseField}
  */
 export declare class RadiobuttonField extends BaseField<HTMLInputElement> {
-    dataLabelNode: Knot;
+    dataLabelKnot: Knot;
     spanLabel: Knot;
     /**
      * @param {!Knot} input

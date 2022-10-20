@@ -12,8 +12,8 @@ export declare class BaseField<T extends HTMLInputElement> {
     inputBlock: Knot;
     form?: Form;
     errorTooltip: Tooltip;
-    infoContainerNode: Knot;
-    actionContainerNode: Knot;
+    infoContainerKnot: Knot;
+    actionContainerKnot: Knot;
     disabled: boolean;
     /**
      * @param {!Knot} input
@@ -29,10 +29,10 @@ export declare class BaseField<T extends HTMLInputElement> {
      */
     eventChange(value: any, previousValue: any): void;
     /**
-     * @param {!Knot} node
+     * @param {!Knot} knot
      * @return {undefined}
      */
-    eventClick(node: Knot): void;
+    eventClick(knot: Knot): void;
     /**
      * @return {undefined}
      */
@@ -87,7 +87,7 @@ export declare class BaseField<T extends HTMLInputElement> {
      * @private
      * @return {!Knot}
      */
-    private _getUpgradedNode;
+    private _getUpgradedKnot;
     /**
      * @param {!Object|!Function|!Array|boolean|number|string|null|undefined} value
      * @return {undefined}

@@ -10,11 +10,11 @@ import { Year } from './year';
  */
 export class Calendar {
     /**
-     * @param {!Knot} node
+     * @param {!Knot} knot
      * @param {!Object} options
      */
-    constructor(node, options) {
-        this.calendarNode = node;
+    constructor(knot, options) {
+        this.calendarKnot = knot;
         this._setOptions(options);
         this._init();
     }
@@ -49,8 +49,8 @@ export class Calendar {
      * @return {undefined}
      */
     _initStructure() {
-        this._initHeaderNode();
-        this._initContentNode();
+        this._initHeaderKnot();
+        this._initContentKnot();
         this._initMode(this.types[this.options.type]);
         const date = this.options.date;
         this._setSelectedDate(date);
@@ -60,10 +60,10 @@ export class Calendar {
      * @private
      * @return {undefined}
      */
-    _initHeaderNode() {
-        this.headerNode = new Knot('div');
-        this.headerNode.addClass('header');
-        this.calendarNode.appendChild(this.headerNode);
+    _initHeaderKnot() {
+        this.headerKnot = new Knot('div');
+        this.headerKnot.addClass('header');
+        this.calendarKnot.appendChild(this.headerKnot);
         const previousButton = new Knot('a');
         previousButton.setAttribute('href', 'javascript:void(0)');
         previousButton.addClass([
@@ -72,19 +72,19 @@ export class Calendar {
             'mdl-js-button',
             'mdl-button--icon',
         ]);
-        const prevIconNode = new Knot('em');
-        prevIconNode.addClass('material-icons');
-        prevIconNode.setHtml('chevron_left');
-        previousButton.appendChild(prevIconNode);
+        const prevIconKnot = new Knot('em');
+        prevIconKnot.addClass('material-icons');
+        prevIconKnot.setHtml('chevron_left');
+        previousButton.appendChild(prevIconKnot);
         previousButton.addEventListener('click', this._previous.bind(this));
-        this.headerNode.appendChild(previousButton);
-        this.currentModeNode = new Knot('span');
-        this.currentModeNode.addClass('current-mode');
-        this.currentModeNode.addEventListener('click', () => {
+        this.headerKnot.appendChild(previousButton);
+        this.currentModeKnot = new Knot('span');
+        this.currentModeKnot.addClass('current-mode');
+        this.currentModeKnot.addEventListener('click', () => {
             this._changeMode(-1);
             this.draw();
         });
-        this.headerNode.appendChild(this.currentModeNode);
+        this.headerKnot.appendChild(this.currentModeKnot);
         const nextButton = new Knot('a');
         nextButton.setAttribute('href', 'javascript:void(0)');
         nextButton.addClass([
@@ -93,21 +93,21 @@ export class Calendar {
             'mdl-js-button',
             'mdl-button--icon',
         ]);
-        const nextIconNode = new Knot('em');
-        nextIconNode.addClass('material-icons');
-        nextIconNode.setHtml('chevron_right');
-        nextButton.appendChild(nextIconNode);
+        const nextIconKnot = new Knot('em');
+        nextIconKnot.addClass('material-icons');
+        nextIconKnot.setHtml('chevron_right');
+        nextButton.appendChild(nextIconKnot);
         nextButton.addEventListener('click', this._next.bind(this));
-        this.headerNode.appendChild(nextButton);
+        this.headerKnot.appendChild(nextButton);
     }
     /**
      * @private
      * @return {undefined}
      */
-    _initContentNode() {
-        this.contentNode = new Knot('div');
-        this.contentNode.addClass('content');
-        this.calendarNode.appendChild(this.contentNode);
+    _initContentKnot() {
+        this.contentKnot = new Knot('div');
+        this.contentKnot.addClass('content');
+        this.calendarKnot.appendChild(this.contentKnot);
     }
     /**
      * @private
@@ -161,7 +161,7 @@ export class Calendar {
      * @return {undefined}
      */
     _initMode(mode) {
-        this.contentNode.removeChildren();
+        this.contentKnot.removeChildren();
         this.activeMode = mode;
         this._switchMode(this._initDaysMode.bind(this), this._initMonthsMode.bind(this), this._initYearsMode.bind(this));
     }
@@ -170,30 +170,30 @@ export class Calendar {
      * @return {undefined}
      */
     _initYearsMode() {
-        this.yearsNode = new Knot('div');
-        this.yearsNode.addClass('years');
-        this.contentNode.appendChild(this.yearsNode);
+        this.yearsKnot = new Knot('div');
+        this.yearsKnot.addClass('years');
+        this.contentKnot.appendChild(this.yearsKnot);
     }
     /**
      * @private
      * @return {undefined}
      */
     _initMonthsMode() {
-        this.monthsNode = new Knot('div');
-        this.monthsNode.addClass('months');
-        this.contentNode.appendChild(this.monthsNode);
+        this.monthsKnot = new Knot('div');
+        this.monthsKnot.addClass('months');
+        this.contentKnot.appendChild(this.monthsKnot);
     }
     /**
      * @private
      * @return {undefined}
      */
     _initDaysMode() {
-        this.weekDaysNode = new Knot('div');
-        this.weekDaysNode.addClass('week-days');
-        this.contentNode.appendChild(this.weekDaysNode);
-        this.daysNode = new Knot('div');
-        this.daysNode.addClass('days');
-        this.contentNode.appendChild(this.daysNode);
+        this.weekDaysKnot = new Knot('div');
+        this.weekDaysKnot.addClass('week-days');
+        this.contentKnot.appendChild(this.weekDaysKnot);
+        this.daysKnot = new Knot('div');
+        this.daysKnot.addClass('days');
+        this.contentKnot.appendChild(this.daysKnot);
     }
     /**
      * @private
@@ -298,21 +298,21 @@ export class Calendar {
      * @return {undefined}
      */
     _drawHeader(format) {
-        this.currentModeNode.removeChildren();
+        this.currentModeKnot.removeChildren();
         const text = format ? DateIO.format(this.current.day, format) : '';
-        this.currentModeNode.setHtml(text);
+        this.currentModeKnot.setHtml(text);
     }
     /**
      * @private
      * @return {undefined}
      */
     _drawMonths() {
-        this.monthsNode.removeChildren();
+        this.monthsKnot.removeChildren();
         for (let i = 0; i < this.maxMonths; i++) {
             const month = new Month(DateIO.setMonth(this.current.day, i), this.selectedDate, {});
             month.eventClick = this._onClick.bind(this);
-            const node = month.getNode();
-            this.monthsNode.appendChild(node);
+            const monthKnot = month.getKnot();
+            this.monthsKnot.appendChild(monthKnot);
         }
     }
     /**
@@ -320,14 +320,14 @@ export class Calendar {
      * @return {undefined}
      */
     _drawYears() {
-        this.yearsNode.removeChildren();
+        this.yearsKnot.removeChildren();
         const startYear = DateIO.getYear(this.current.day) -
             (DateIO.getYear(this.current.day) % this.maxYears);
         for (let i = startYear; i < startYear + this.maxYears; i++) {
             const year = new Year(DateIO.setYear(this.current.day, i), this.selectedDate, {});
             year.eventClick = this._onClick.bind(this);
-            const node = year.getNode();
-            this.yearsNode.appendChild(node);
+            const yearKnot = year.getKnot();
+            this.yearsKnot.appendChild(yearKnot);
         }
     }
     /**
@@ -335,14 +335,14 @@ export class Calendar {
      * @return {undefined}
      */
     _drawWeekDays() {
-        this.weekDaysNode.removeChildren();
+        this.weekDaysKnot.removeChildren();
         const firstDOW = DateIO.startOfWeek(new Date());
         for (let i = 0; i < 7; i++) {
             const text = DateIO.format(DateIO.addDays(firstDOW, i), 'EEEEEE');
-            const node = new Knot('span');
-            node.addClass('day');
-            node.setHtml(text);
-            this.weekDaysNode.appendChild(node);
+            const knot = new Knot('span');
+            knot.addClass('day');
+            knot.setHtml(text);
+            this.weekDaysKnot.appendChild(knot);
         }
     }
     /**
@@ -350,11 +350,11 @@ export class Calendar {
      * @return {undefined}
      */
     _drawDays() {
-        this.daysNode.removeChildren();
+        this.daysKnot.removeChildren();
         for (let i = 0; i < this.days.length; i++) {
             const day = this.days[i];
-            const node = day.getNode();
-            this.daysNode.appendChild(node);
+            const dayKnot = day.getKnot();
+            this.daysKnot.appendChild(dayKnot);
         }
     }
     /**

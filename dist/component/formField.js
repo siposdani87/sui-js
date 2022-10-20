@@ -43,7 +43,7 @@ export const parseInputBlock = (inputBlock) => {
     const tagType = inputBlock.getAttribute('type');
     if ((eq(tagName, 'input') || eq(tagName, 'button')) &&
         !inArray(['hidden', 'reset', 'submit', 'button'], tagType)) {
-        inputBlock = inputBlock.getParentNode();
+        inputBlock = inputBlock.getParentKnot();
     }
     tagName = inputBlock.getTagName();
     if (eq(tagName, 'div')) {
@@ -104,7 +104,7 @@ const _convertToField = (input, label, error, inputBlock, form) => {
                     result = new DateTimeRangeField(inputs.get(0), label, error, inputBlock, true);
                 }
                 else if (inputs.size() === 0) {
-                    result = new DateTimeRangeField(input, label, error, inputBlock.getParentNode(), false);
+                    result = new DateTimeRangeField(input, label, error, inputBlock.getParentKnot(), false);
                 }
                 else if (inputs.size() === 1) {
                     result = new DateTimeField(input, label, error, inputBlock);

@@ -4,10 +4,10 @@ import { Objekt } from '../core/objekt';
  * @class
  */
 export declare class ProgressStatus {
-    progressStatusNode: Knot;
+    progressStatusKnot: Knot;
     options: Objekt;
-    iconNode: Knot;
-    textNode: Knot;
+    iconKnot: Knot;
+    textKnot: Knot;
     /**
      * @param {!Knot} dom
      * @param {string=} opt_selector

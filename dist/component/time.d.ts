@@ -4,14 +4,14 @@ import { Knot } from '../core/knot';
  * @class
  */
 export declare class Time {
-    timeNode: Knot;
+    timeKnot: Knot;
     options: Objekt;
-    pointerNode: Knot;
+    pointerKnot: Knot;
     /**
-     * @param {!Knot} node
+     * @param {!Knot} knot
      * @param {!Object} options
      */
-    constructor(node: Knot, options: Object);
+    constructor(knot: Knot, options: Object);
     /**
      * @private
      * @param {!Object} options
@@ -27,7 +27,7 @@ export declare class Time {
      * @private
      * @return {undefined}
      */
-    private _initCircleNode;
+    private _initCircleKnot;
     /**
      * @private
      * @param {number} width
@@ -39,7 +39,7 @@ export declare class Time {
      * @private
      * @return {undefined}
      */
-    private _initPointerNode;
+    private _initPointerKnot;
     /**
      * @param {number} start
      * @param {number} n

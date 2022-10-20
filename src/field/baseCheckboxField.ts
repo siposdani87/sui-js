@@ -11,7 +11,7 @@ import { mdl } from '../utils/render';
 export class BaseCheckboxField extends BaseField<HTMLInputElement> {
     hiddenInput: Knot;
     spanLabel: Knot;
-    dataLabelNode: Knot;
+    dataLabelKnot: Knot;
     /**
      * @param {!Knot} input
      * @param {!Knot} label
@@ -122,9 +122,9 @@ export class BaseCheckboxField extends BaseField<HTMLInputElement> {
         const dataLabelText = this.label.getAttribute('data-label');
         if (dataLabelText) {
             const labelText = this._getLabelRequiredText(dataLabelText);
-            this.dataLabelNode.setHtml(labelText);
+            this.dataLabelKnot.setHtml(labelText);
         } else {
-            this.dataLabelNode.setHtml('');
+            this.dataLabelKnot.setHtml('');
         }
         if (this.isDisabled()) {
             this.inputBlock.addClass('is-disabled');

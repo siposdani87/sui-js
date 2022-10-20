@@ -4,7 +4,7 @@ import { Knot } from '../core';
  */
 export declare class LeftMenu {
     body: Knot;
-    mainContainerNode: Knot;
+    mainContainerKnot: Knot;
     leftMenu: Knot;
     mainMenu: Knot;
     subMenu: Knot;

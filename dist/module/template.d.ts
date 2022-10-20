@@ -7,7 +7,7 @@ import { Knot, Promize } from '../core';
 export declare class Template {
     http: Http;
     options: Objekt;
-    viewNode: Knot;
+    viewKnot: Knot;
     /**
      * @param {!Http} http
      * @param {!Object=} opt_options
@@ -27,7 +27,7 @@ export declare class Template {
     /**
      * @return {!Knot}
      */
-    getViewNode(): Knot;
+    getViewKnot(): Knot;
     /**
      * @param {string} url
      * @param {boolean=} opt_force

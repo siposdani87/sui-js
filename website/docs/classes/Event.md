@@ -14,7 +14,7 @@ custom_edit_url: null
 
 #### Defined in
 
-[module/event.ts:13](https://github.com/siposdani87/sui-js/blob/0baad71/src/module/event.ts#L13)
+[module/event.ts:13](https://github.com/siposdani87/sui-js/blob/bf1be67/src/module/event.ts#L13)
 
 ## Properties
 
@@ -24,7 +24,7 @@ custom_edit_url: null
 
 #### Defined in
 
-[module/event.ts:10](https://github.com/siposdani87/sui-js/blob/0baad71/src/module/event.ts#L10)
+[module/event.ts:10](https://github.com/siposdani87/sui-js/blob/bf1be67/src/module/event.ts#L10)
 
 ## Methods
 
@@ -45,7 +45,7 @@ custom_edit_url: null
 
 #### Defined in
 
-[module/event.ts:53](https://github.com/siposdani87/sui-js/blob/0baad71/src/module/event.ts#L53)
+[module/event.ts:53](https://github.com/siposdani87/sui-js/blob/bf1be67/src/module/event.ts#L53)
 
 ___
 
@@ -67,7 +67,7 @@ ___
 
 #### Defined in
 
-[module/event.ts:64](https://github.com/siposdani87/sui-js/blob/0baad71/src/module/event.ts#L64)
+[module/event.ts:64](https://github.com/siposdani87/sui-js/blob/bf1be67/src/module/event.ts#L64)
 
 ___
 
@@ -87,7 +87,7 @@ ___
 
 #### Defined in
 
-[module/event.ts:43](https://github.com/siposdani87/sui-js/blob/0baad71/src/module/event.ts#L43)
+[module/event.ts:43](https://github.com/siposdani87/sui-js/blob/bf1be67/src/module/event.ts#L43)
 
 ___
 
@@ -108,7 +108,7 @@ ___
 
 #### Defined in
 
-[module/event.ts:33](https://github.com/siposdani87/sui-js/blob/0baad71/src/module/event.ts#L33)
+[module/event.ts:33](https://github.com/siposdani87/sui-js/blob/bf1be67/src/module/event.ts#L33)
 
 ___
 
@@ -129,4 +129,4 @@ ___
 
 #### Defined in
 
-[module/event.ts:21](https://github.com/siposdani87/sui-js/blob/0baad71/src/module/event.ts#L21)
+[module/event.ts:21](https://github.com/siposdani87/sui-js/blob/bf1be67/src/module/event.ts#L21)

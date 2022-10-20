@@ -7,7 +7,7 @@ import { consoleInfo } from '../utils/log';
  * @class
  */
 export class Canvas {
-    canvasNode: Knot<HTMLCanvasElement>;
+    canvasKnot: Knot<HTMLCanvasElement>;
     canvasRaw: HTMLCanvasElement;
     context: CanvasRenderingContext2D;
     /**
@@ -23,15 +23,15 @@ export class Canvas {
      * @return {undefined}
      */
     private _init(opt_selector?: Knot | string): void {
-        this.canvasNode = opt_selector as Knot<HTMLCanvasElement>;
+        this.canvasKnot = opt_selector as Knot<HTMLCanvasElement>;
         if (isString(opt_selector)) {
-            this.canvasNode = new Query<HTMLCanvasElement>(
+            this.canvasKnot = new Query<HTMLCanvasElement>(
                 opt_selector as string,
             ).getKnot();
         } else if (isUndefined(opt_selector)) {
-            this.canvasNode = new Knot<HTMLCanvasElement>('canvas');
+            this.canvasKnot = new Knot<HTMLCanvasElement>('canvas');
         }
-        this.canvasRaw = this.canvasNode.getNode();
+        this.canvasRaw = this.canvasKnot.getNode();
         this.context = this.canvasRaw.getContext('2d');
     }
     /**
@@ -39,8 +39,8 @@ export class Canvas {
      * @return {undefined}
      */
     private _initEvents(): void {
-        this.canvasNode.addEventListener('mousemove', (canvasNode, event) => {
-            const rect = canvasNode.getNode().getBoundingClientRect();
+        this.canvasKnot.addEventListener('mousemove', (canvasKnot, event) => {
+            const rect = canvasKnot.getNode().getBoundingClientRect();
             const x = event.clientX - rect.left;
             const y = event.clientY - rect.top;
             this.eventMouseMove(x, y);
@@ -160,14 +160,14 @@ export class Canvas {
      * @param {number=} opt_height
      */
     drawImage(
-        image: Knot<HTMLImageElement>,
+        imageKnot: Knot<HTMLImageElement>,
         opt_width?: number,
         opt_height?: number,
     ) {
-        const width = opt_width || typeCast(image.getAttribute('width'));
-        const height = opt_height || typeCast(image.getAttribute('height'));
+        const width = opt_width || typeCast(imageKnot.getAttribute('width'));
+        const height = opt_height || typeCast(imageKnot.getAttribute('height'));
         this.context.save();
-        this.context.drawImage(image.getNode(), 0, 0, width, height);
+        this.context.drawImage(imageKnot.getNode(), 0, 0, width, height);
         this.context.restore();
     }
     /**

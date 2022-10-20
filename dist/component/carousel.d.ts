@@ -4,7 +4,7 @@ import { Objekt } from '../core/objekt';
  * @class
  */
 export declare class Carousel {
-    carouselNode: Knot;
+    carouselKnot: Knot;
     options: Objekt;
     /**
      * @param {!Knot} dom

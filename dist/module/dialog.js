@@ -52,11 +52,11 @@ export class Dialog extends BaseModal {
         this._reset();
         const deferred = new Deferred();
         this.http.get(url).then((data) => {
-            const node = this._handleDom(data);
-            deferred.resolve(node);
+            const knot = this._handleDom(data);
+            deferred.resolve(knot);
         }, (data) => {
-            const node = this._handleMessage(data);
-            deferred.reject(node);
+            const knot = this._handleMessage(data);
+            deferred.reject(knot);
             this.open();
         });
         return deferred.promise();
@@ -66,27 +66,27 @@ export class Dialog extends BaseModal {
      * @return {!Knot}
      */
     _handleMessage(dom) {
-        const messageNode = new Query('.message', dom).getKnot();
+        const messageKnot = new Query('.message', dom).getKnot();
         const title = new Query('title', dom).getKnot();
         this._setTitle(title.getText());
-        this.modalBody.insert(messageNode);
-        mdl(messageNode);
-        return messageNode;
+        this.modalBody.insert(messageKnot);
+        mdl(messageKnot);
+        return messageKnot;
     }
     /**
      * @param {!Knot} dom
      * @return {!Knot}
      */
     _handleDom(dom) {
-        const titleNode = new Query('#title', dom).getKnot();
-        if (!titleNode.isEmpty()) {
-            this._setTitle(titleNode.getText());
+        const titleKnot = new Query('#title', dom).getKnot();
+        if (!titleKnot.isEmpty()) {
+            this._setTitle(titleKnot.getText());
         }
-        const contentNode = new Query('#content', dom).getKnot();
-        this.modalBody.insert(contentNode);
-        mdl(contentNode);
+        const contentKnot = new Query('#content', dom).getKnot();
+        this.modalBody.insert(contentKnot);
+        mdl(contentKnot);
         this._handleActions(dom);
-        return contentNode;
+        return contentKnot;
     }
     /**
      * @param {!Knot} dom
@@ -94,9 +94,9 @@ export class Dialog extends BaseModal {
      */
     _handleActions(dom) {
         this.modalFooter.removeClass('hidden');
-        const actionNode = new Query('#action', dom).getKnot();
-        if (!actionNode.isEmpty()) {
-            const buttons = new Query('button', actionNode);
+        const actionKnot = new Query('#action', dom).getKnot();
+        if (!actionKnot.isEmpty()) {
+            const buttons = new Query('button', actionKnot);
             const size = buttons.size();
             let actions = [this._actionOK.bind(this)];
             let cssClasses = ['mdl-button--primary'];
@@ -116,8 +116,8 @@ export class Dialog extends BaseModal {
                 button.addClass(buttonClasses);
                 button.addEventListener('click', actions[i]);
             });
-            this.modalFooter.insert(actionNode);
-            mdl(actionNode);
+            this.modalFooter.insert(actionKnot);
+            mdl(actionKnot);
         }
         else {
             this.modalFooter.removeChildren();

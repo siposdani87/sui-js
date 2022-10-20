@@ -3,7 +3,7 @@ import { Knot } from '../core/knot';
  * @class
  */
 export declare class Canvas {
-    canvasNode: Knot<HTMLCanvasElement>;
+    canvasKnot: Knot<HTMLCanvasElement>;
     canvasRaw: HTMLCanvasElement;
     context: CanvasRenderingContext2D;
     /**
@@ -70,7 +70,7 @@ export declare class Canvas {
      * @param {number=} opt_width
      * @param {number=} opt_height
      */
-    drawImage(image: Knot<HTMLImageElement>, opt_width?: number, opt_height?: number): void;
+    drawImage(imageKnot: Knot<HTMLImageElement>, opt_width?: number, opt_height?: number): void;
     /**
      * @param {number} x
      * @param {number} y

@@ -8,8 +8,8 @@ describe('formField', () => {
         const inputBlock = new Query<HTMLInputElement>(
             '.input-block',
         ).getKnot();
-        const node = new Query('.template-view').getKnot();
-        const form = new Form(node);
+        const knot = new Query('.template-view').getKnot();
+        const form = new Form(knot);
         const formField = FormField(inputBlock, form);
 
         expect(formField).toBeInstanceOf(TextField);

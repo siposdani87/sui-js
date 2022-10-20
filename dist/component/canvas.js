@@ -19,14 +19,14 @@ export class Canvas {
      * @return {undefined}
      */
     _init(opt_selector) {
-        this.canvasNode = opt_selector;
+        this.canvasKnot = opt_selector;
         if (isString(opt_selector)) {
-            this.canvasNode = new Query(opt_selector).getKnot();
+            this.canvasKnot = new Query(opt_selector).getKnot();
         }
         else if (isUndefined(opt_selector)) {
-            this.canvasNode = new Knot('canvas');
+            this.canvasKnot = new Knot('canvas');
         }
-        this.canvasRaw = this.canvasNode.getNode();
+        this.canvasRaw = this.canvasKnot.getNode();
         this.context = this.canvasRaw.getContext('2d');
     }
     /**
@@ -34,8 +34,8 @@ export class Canvas {
      * @return {undefined}
      */
     _initEvents() {
-        this.canvasNode.addEventListener('mousemove', (canvasNode, event) => {
-            const rect = canvasNode.getNode().getBoundingClientRect();
+        this.canvasKnot.addEventListener('mousemove', (canvasKnot, event) => {
+            const rect = canvasKnot.getNode().getBoundingClientRect();
             const x = event.clientX - rect.left;
             const y = event.clientY - rect.top;
             this.eventMouseMove(x, y);
@@ -137,11 +137,11 @@ export class Canvas {
      * @param {number=} opt_width
      * @param {number=} opt_height
      */
-    drawImage(image, opt_width, opt_height) {
-        const width = opt_width || typeCast(image.getAttribute('width'));
-        const height = opt_height || typeCast(image.getAttribute('height'));
+    drawImage(imageKnot, opt_width, opt_height) {
+        const width = opt_width || typeCast(imageKnot.getAttribute('width'));
+        const height = opt_height || typeCast(imageKnot.getAttribute('height'));
         this.context.save();
-        this.context.drawImage(image.getNode(), 0, 0, width, height);
+        this.context.drawImage(imageKnot.getNode(), 0, 0, width, height);
         this.context.restore();
     }
     /**

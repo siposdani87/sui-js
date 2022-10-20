@@ -10,7 +10,7 @@ export declare class DateTimeField extends BaseField<HTMLInputElement> {
     datetimeContainer: Knot;
     datetimeInput: Knot;
     format: string;
-    datetimeNode: Knot;
+    datetimeKnot: Knot;
     datetime: DateTime;
     popup: Popup;
     /**

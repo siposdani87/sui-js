@@ -60,7 +60,7 @@ export class RangeField extends BaseField {
             this.inputBlock.removeClass('is-disabled');
         }
         // TODO: check the tooltip
-        /* const containerNode = new Query(
+        /* const containerKnot = new Query(
             '.mdl-slider__container',
             this.inputBlock,
         ).getKnot(); */
@@ -74,8 +74,8 @@ export class RangeField extends BaseField {
      * @return {undefined}
      */
     setValue(value) {
-        const inputNode = this.input.getNode();
-        inputNode['MaterialSlider']['change'](value);
+        const inputKnot = this.input.getNode();
+        inputKnot['MaterialSlider']['change'](value);
         this.tooltip.render(value);
     }
 }

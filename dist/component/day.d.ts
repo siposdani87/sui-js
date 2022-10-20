@@ -28,7 +28,7 @@ export declare class Day {
     /**
      * @return {!Knot}
      */
-    getNode(): Knot;
+    getKnot(): Knot;
     /**
      * @param {!Date} date
      */

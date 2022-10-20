@@ -3,8 +3,8 @@ import { Time } from './time';
 
 describe('time', () => {
     it('should be instance of Time', () => {
-        const node = new Query('.template-view').getKnot();
-        const time = new Time(node, {
+        const knot = new Query('.template-view').getKnot();
+        const time = new Time(knot, {
             selected: [],
         });
 

@@ -46,12 +46,12 @@ export class SelectField extends BaseField {
      * @return {undefined}
      */
     _initPopup() {
-        this.containerNode = new Knot('div');
+        this.containerKnot = new Knot('div');
         this._drawSearchInput();
-        this.listNode = new Knot('div');
-        this.listNode.addClass('options-list');
-        this.containerNode.appendChild(this.listNode);
-        this.popup = new Popup(this.containerNode, this.inputBlock);
+        this.listKnot = new Knot('div');
+        this.listKnot.addClass('options-list');
+        this.containerKnot.appendChild(this.listKnot);
+        this.popup = new Popup(this.containerKnot, this.inputBlock);
     }
     /**
      * @private
@@ -69,19 +69,19 @@ export class SelectField extends BaseField {
      */
     _initOptions() {
         this.options = new Collection();
-        const optionNodes = new Query('option', this.input);
-        optionNodes.each((optionNode) => {
-            const value = optionNode.getAttribute('value') || '';
-            const image = optionNode.getAttribute('data-image') || '';
-            const item = optionNode.getAttribute('data-item') || {};
-            const text = optionNode.getText() || '';
+        const optionKnots = new Query('option', this.input);
+        optionKnots.each((optionKnot) => {
+            const value = optionKnot.getAttribute('value') || '';
+            const image = optionKnot.getAttribute('data-image') || '';
+            const item = optionKnot.getAttribute('data-item') || {};
+            const text = optionKnot.getText() || '';
             const option = new Objekt({
                 id: value,
                 name: text,
                 image: image,
                 item: item,
             });
-            option.setRaw('option_node', optionNode);
+            option.setRaw('option_node', optionKnot);
             this.options.push(option);
         });
     }
@@ -93,16 +93,16 @@ export class SelectField extends BaseField {
         if (this.label && this.label.exists()) {
             this.label.addClass('field-label');
         }
-        this.iconNode = new Knot('a');
-        this.iconNode.setAttribute('href', 'javascript:void(0)');
-        this.iconNode.addClass(['material-icons', 'size-24', 'expander']);
-        this.iconNode.setHtml('expand_more');
-        this.iconNode.addEventListener('click', () => {
+        this.iconKnot = new Knot('a');
+        this.iconKnot.setAttribute('href', 'javascript:void(0)');
+        this.iconKnot.addClass(['material-icons', 'size-24', 'expander']);
+        this.iconKnot.setHtml('expand_more');
+        this.iconKnot.addEventListener('click', () => {
             if (this.isEnabled()) {
                 this.open();
             }
         });
-        this.actionContainerNode.appendChild(this.iconNode);
+        this.actionContainerKnot.appendChild(this.iconKnot);
         this.refresh();
     }
     /**
@@ -110,25 +110,25 @@ export class SelectField extends BaseField {
      * @return {undefined}
      */
     refresh() {
-        const selectContainerNode = new Query('.select-container', this.inputBlock).getKnot();
-        selectContainerNode.remove();
+        const selectContainerKnot = new Query('.select-container', this.inputBlock).getKnot();
+        selectContainerKnot.remove();
         if (this.isDisabled()) {
             this.inputBlock.addClass('is-disabled');
         }
         else {
             this.inputBlock.removeClass('is-disabled');
         }
-        this.selectContainerNode = new Knot('div');
-        this.selectContainerNode.addClass('select-container');
-        this.selectContainerNode.addEventListener('click', () => {
+        this.selectContainerKnot = new Knot('div');
+        this.selectContainerKnot.addClass('select-container');
+        this.selectContainerKnot.addEventListener('click', () => {
             if (this.isEnabled()) {
                 this.open();
             }
         });
-        this.input.insertAfter(this.selectContainerNode);
-        this.selectNode = new Knot('div');
-        this.selectNode.addClass('select-input');
-        this.selectContainerNode.appendChild(this.selectNode);
+        this.input.insertAfter(this.selectContainerKnot);
+        this.selectKnot = new Knot('div');
+        this.selectKnot.addClass('select-input');
+        this.selectContainerKnot.appendChild(this.selectKnot);
         const ids = this._getSelectedIds();
         this._setSelectTags(ids);
     }
@@ -173,16 +173,16 @@ export class SelectField extends BaseField {
      * @return {undefined}
      */
     showLoader() {
-        this.iconNode.setHtml('refresh');
-        this.iconNode.addClass('rotate');
+        this.iconKnot.setHtml('refresh');
+        this.iconKnot.addClass('rotate');
     }
     /**
      * @private
      * @return {undefined}
      */
     _hideLoader() {
-        this.iconNode.setHtml('expand_more');
-        this.iconNode.removeClass('rotate');
+        this.iconKnot.setHtml('expand_more');
+        this.iconKnot.removeClass('rotate');
     }
     /**
      * @param {!Array<!Objekt>} items
@@ -192,10 +192,10 @@ export class SelectField extends BaseField {
      * @return {undefined}
      */
     setOptions(items, opt_value = 'value', opt_name = 'name', opt_image = '') {
-        const optionNodes = new Query('option', this.input);
-        optionNodes.each((optionNode) => {
-            if (optionNode.getAttribute('value')) {
-                optionNode.remove();
+        const optionKnots = new Query('option', this.input);
+        optionKnots.each((optionKnot) => {
+            if (optionKnot.getAttribute('value')) {
+                optionKnot.remove();
             }
         });
         each(items, (item) => {
@@ -205,12 +205,12 @@ export class SelectField extends BaseField {
             if (opt_image) {
                 image = item.get(opt_image);
             }
-            const optionNode = new Knot('option');
-            optionNode.setAttribute('value', value);
-            optionNode.setAttribute('data-image', image);
-            optionNode.setAttribute('data-item', item);
-            optionNode.setHtml(name);
-            this.input.appendChild(optionNode);
+            const optionKnot = new Knot('option');
+            optionKnot.setAttribute('value', value);
+            optionKnot.setAttribute('data-image', image);
+            optionKnot.setAttribute('data-item', item);
+            optionKnot.setHtml(name);
+            this.input.appendChild(optionKnot);
         });
         this._initOptions();
         this._hideLoader();
@@ -283,28 +283,28 @@ export class SelectField extends BaseField {
         if (!isArray(tags)) {
             tags = [tags];
         }
-        this.selectNode.removeChildren();
+        this.selectKnot.removeChildren();
         each(tags, (tag) => {
-            const tagNode = new Knot('div');
-            tagNode.addClass('field-tag');
-            tagNode.setHtml(tag.get('name'));
+            const tagKnot = new Knot('div');
+            tagKnot.addClass('field-tag');
+            tagKnot.setHtml(tag.get('name'));
             if (this.isEnabled()) {
-                tagNode.addEventListener('click', () => {
+                tagKnot.addEventListener('click', () => {
                     this.open();
                 });
             }
-            this.selectNode.appendChild(tagNode);
+            this.selectKnot.appendChild(tagKnot);
             const id = tag.get('id');
             if (neq(id, '') && this.isEnabled()) {
-                const iconNode = new Knot('a');
-                iconNode.setAttribute('href', 'javascript:void(0)');
-                iconNode.addClass(['material-icons', 'size-18', 'close']);
-                iconNode.setHtml('close');
-                iconNode.addEventListener('click', () => {
+                const iconKnot = new Knot('a');
+                iconKnot.setAttribute('href', 'javascript:void(0)');
+                iconKnot.addClass(['material-icons', 'size-18', 'close']);
+                iconKnot.setHtml('close');
+                iconKnot.addEventListener('click', () => {
                     this._handleSelectedId(id);
                 });
-                tagNode.addClass('tag-with-action');
-                tagNode.appendChild(iconNode);
+                tagKnot.addClass('tag-with-action');
+                tagKnot.appendChild(iconKnot);
             }
         });
     }
@@ -317,15 +317,15 @@ export class SelectField extends BaseField {
         this.options.each((option) => {
             const id = option.get('id');
             const selected = inArray(ids, id);
-            const optionNode = option.get('option_node');
-            const node = optionNode.getNode();
+            const optionKnot = option.get('option_node');
+            const optionNode = optionKnot.getNode();
             if (selected) {
-                node.setAttribute('selected', 'selected');
+                optionNode.setAttribute('selected', 'selected');
             }
             else {
-                node.removeAttribute('selected');
+                optionNode.removeAttribute('selected');
             }
-            node.selected = selected;
+            optionNode.selected = selected;
         });
         this._change();
     }
@@ -336,9 +336,9 @@ export class SelectField extends BaseField {
     _getSelectedIds() {
         const ids = [];
         this.options.each((option) => {
-            const optionNode = option.get('option_node');
-            const node = optionNode.getNode();
-            if (node.selected) {
+            const optionKnot = option.get('option_node');
+            const optionNode = optionKnot.getNode();
+            if (optionNode.selected) {
                 const id = option.get('id');
                 ids.push(id);
             }
@@ -384,7 +384,7 @@ export class SelectField extends BaseField {
      * @return {undefined}
      */
     _drawKnots(items) {
-        this.listNode.removeChildren();
+        this.listKnot.removeChildren();
         const ids = this._getSelectedIds();
         each(items, (item) => {
             const id = item.get('id');
@@ -396,17 +396,17 @@ export class SelectField extends BaseField {
             listKnot.addEventListener('click', () => {
                 this._handleSelectedId(id);
             });
-            this.listNode.appendChild(listKnot);
+            this.listKnot.appendChild(listKnot);
             const image = item.get('image');
             if (image) {
-                const imageNode = new Knot('img');
-                imageNode.setAttribute('src', image);
-                listKnot.appendChild(imageNode);
+                const imageKnot = new Knot('img');
+                imageKnot.setAttribute('src', image);
+                listKnot.appendChild(imageKnot);
             }
             const name = item.get('name');
-            const nameNode = new Knot('span');
-            nameNode.setHtml(name);
-            listKnot.appendChild(nameNode);
+            const nameKnot = new Knot('span');
+            nameKnot.setHtml(name);
+            listKnot.appendChild(nameKnot);
         });
     }
     /**
@@ -414,31 +414,31 @@ export class SelectField extends BaseField {
      * @return {undefined}
      */
     _drawSearchInput() {
-        const searchParentNode = new Knot('div');
-        searchParentNode.addClass('search-box');
-        this.containerNode.appendChild(searchParentNode);
-        const searchNode = new Knot('div');
-        searchNode.addClass(['mdl-textfield', 'mdl-js-textfield']);
-        searchNode.addEventListener('click', () => {
+        const searchParentKnot = new Knot('div');
+        searchParentKnot.addClass('search-box');
+        this.containerKnot.appendChild(searchParentKnot);
+        const searchKnot = new Knot('div');
+        searchKnot.addClass(['mdl-textfield', 'mdl-js-textfield']);
+        searchKnot.addEventListener('click', () => {
             // empty function
         });
-        searchParentNode.appendChild(searchNode);
+        searchParentKnot.appendChild(searchKnot);
         const id = generateId('select');
-        this.searchInputNode = new Knot('input');
-        this.searchInputNode.setId(id);
-        this.searchInputNode.setAttribute('type', 'text');
-        this.searchInputNode.addClass('mdl-textfield__input');
-        this.searchInputNode.addEventListener('keyup', (input) => {
-            const node = input.getNode();
-            this._search(node.value);
+        this.searchInputKnot = new Knot('input');
+        this.searchInputKnot.setId(id);
+        this.searchInputKnot.setAttribute('type', 'text');
+        this.searchInputKnot.addClass('mdl-textfield__input');
+        this.searchInputKnot.addEventListener('keyup', (input) => {
+            const inputNode = input.getNode();
+            this._search(inputNode.value);
             return true;
         });
-        searchNode.appendChild(this.searchInputNode);
-        const labelNode = new Knot('label');
-        labelNode.setFor(id);
-        labelNode.addClass('mdl-textfield__label');
-        searchNode.appendChild(labelNode);
-        mdl(searchNode);
+        searchKnot.appendChild(this.searchInputKnot);
+        const labelKnot = new Knot('label');
+        labelKnot.setFor(id);
+        labelKnot.addClass('mdl-textfield__label');
+        searchKnot.appendChild(labelKnot);
+        mdl(searchKnot);
     }
     /**
      * @return {undefined}
@@ -446,7 +446,7 @@ export class SelectField extends BaseField {
     open() {
         this._search(this.query);
         this.popup.open();
-        this.searchInputNode.getNode().focus();
+        this.searchInputKnot.getNode().focus();
     }
     /**
      * @return {undefined}
@@ -461,8 +461,8 @@ export class SelectField extends BaseField {
      */
     _search(query) {
         this.query = query;
-        this.searchInputNode.getNode().value = query;
-        this.searchInputNode.set('value', query);
+        this.searchInputKnot.getNode().value = query;
+        this.searchInputKnot.set('value', query);
         const regExp = new RegExp(query, 'i');
         const items = [];
         this.options.each((option) => {

@@ -11,7 +11,7 @@ export declare class DateTimeRangeField extends BaseField<HTMLInputElement> {
     datetimeContainer: Knot;
     datetimeInput: Knot;
     format: string;
-    datetimeNode: Knot;
+    datetimeKnot: Knot;
     datetime: DateTime;
     popup: Popup;
     /**

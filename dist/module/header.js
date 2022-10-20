@@ -27,18 +27,18 @@ export class Header {
      * @return {undefined}
      */
     _init() {
-        this.headerNode = new Query('#header').getKnot();
-        this.leftMenuButton = new Query('#open-left-menu', this.headerNode).getKnot();
-        this.topMenuButton = new Query('#toggle-top-menu', this.headerNode).getKnot();
-        this.brandNode = new Query('.brand', this.headerNode).getKnot();
-        this.brandNode.setAttribute('href', 'javascript:void(0)');
-        this.brandNode.addEventListener('click', () => {
+        this.headerKnot = new Query('#header').getKnot();
+        this.leftMenuButton = new Query('#open-left-menu', this.headerKnot).getKnot();
+        this.topMenuButton = new Query('#toggle-top-menu', this.headerKnot).getKnot();
+        this.brandKnot = new Query('.brand', this.headerKnot).getKnot();
+        this.brandKnot.setAttribute('href', 'javascript:void(0)');
+        this.brandKnot.addEventListener('click', () => {
             this.eventLogoClick();
         });
-        this.brandNodeImage = new Query('.brand img', this.brandNode).getKnot();
-        this.brandNodeTitle = new Query('.brand .app-title', this.brandNode).getKnot();
-        this.mainContainerNode = new Query('.main-container').getKnot();
-        this.templateViewNode = new Query('.template-view').getKnot();
+        this.brandKnotImage = new Query('.brand img', this.brandKnot).getKnot();
+        this.brandKnotTitle = new Query('.brand .app-title', this.brandKnot).getKnot();
+        this.mainContainerKnot = new Query('.main-container').getKnot();
+        this.templateViewKnot = new Query('.template-view').getKnot();
     }
     /**
      * @return {undefined}
@@ -51,61 +51,61 @@ export class Header {
      * @return {undefined}
      */
     setTitle(title) {
-        this.brandNodeTitle.setHtml(title);
+        this.brandKnotTitle.setHtml(title);
     }
     /**
      * @param {string} url
      * @return {undefined}
      */
     setUrl(url) {
-        this.brandNode.setAttribute('href', url);
+        this.brandKnot.setAttribute('href', url);
     }
     /**
      * @param {string} imagePath
      * @return {undefined}
      */
     setImage(imagePath) {
-        this.brandNodeImage.setAttribute('src', imagePath);
+        this.brandKnotImage.setAttribute('src', imagePath);
     }
     /**
      * @return {undefined}
      */
     open() {
-        this.headerNode.addClass('open');
+        this.headerKnot.addClass('open');
     }
     /**
      * @return {undefined}
      */
     close() {
-        this.headerNode.removeClass('open');
+        this.headerKnot.removeClass('open');
     }
     /**
      * @return {undefined}
      */
     show() {
-        this.headerNode.removeClass('hidden');
-        this.mainContainerNode.addClass('header-padding');
-        this.templateViewNode.addClass('has-header');
+        this.headerKnot.removeClass('hidden');
+        this.mainContainerKnot.addClass('header-padding');
+        this.templateViewKnot.addClass('has-header');
     }
     /**
      * @return {undefined}
      */
     hide() {
-        this.headerNode.addClass('hidden');
-        this.mainContainerNode.removeClass('header-padding');
-        this.templateViewNode.removeClass('has-header');
+        this.headerKnot.addClass('hidden');
+        this.mainContainerKnot.removeClass('header-padding');
+        this.templateViewKnot.removeClass('has-header');
     }
     /**
      * @return {undefined}
      */
     showShadow() {
-        this.headerNode.addClass('shadow');
+        this.headerKnot.addClass('shadow');
     }
     /**
      * @return {undefined}
      */
     hideShadow() {
-        this.headerNode.removeClass('shadow');
+        this.headerKnot.removeClass('shadow');
     }
     /**
      * @return {undefined}

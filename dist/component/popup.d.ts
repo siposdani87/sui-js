@@ -8,7 +8,7 @@ export declare class Popup {
     parent?: Knot;
     withClose: boolean;
     popupContainer: PopupContainer;
-    popupNode: Knot;
+    popupKnot: Knot;
     /**
      * @param {!Knot} content
      * @param {!Knot} parent

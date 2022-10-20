@@ -34,8 +34,8 @@ export class Button extends BaseField<HTMLInputElement> {
             'mdl-button--accent',
         ]);
 
-        this.input.addEventListener('click', (node) => {
-            this.eventClick(node);
+        this.input.addEventListener('click', (knot) => {
+            this.eventClick(knot);
         });
 
         this.refresh();

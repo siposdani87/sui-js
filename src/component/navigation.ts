@@ -12,7 +12,7 @@ export class Navigation {
     http?: Http;
     options: Objekt;
     container: Collection<Objekt>;
-    linkNodeKey: string;
+    linkKnotKey: string;
     /**
      * @param {!Http=} opt_http
      * @param {!Object=} opt_options
@@ -39,7 +39,7 @@ export class Navigation {
     private _init(): void {
         this.container = new Collection();
 
-        this.linkNodeKey = 'node';
+        this.linkKnotKey = 'node';
     }
     /**
      * @param {!Objekt} item
@@ -91,8 +91,8 @@ export class Navigation {
         counterSpan.addClass('counter');
         counterSpan.setHtml(counter);
 
-        const linkNode = item.get<Knot>(this.linkNodeKey);
-        linkNode.beforeChild(counterSpan);
+        const linkKnot = item.get<Knot>(this.linkKnotKey);
+        linkKnot.beforeChild(counterSpan);
     }
     /**
      * @param {string} id
@@ -112,16 +112,16 @@ export class Navigation {
         opt_data: Object | undefined = {},
     ): void {
         const item = this._setKnot(id, title, action, opt_href, opt_data);
-        const iconNode = new Knot('em');
-        iconNode.addClass(['material-icons']);
-        iconNode.setHtml(icon);
+        const iconKnot = new Knot('em');
+        iconKnot.addClass(['material-icons']);
+        iconKnot.setHtml(icon);
 
         const imageSpan = new Knot('span');
         imageSpan.addClass('image');
-        imageSpan.appendChild(iconNode);
+        imageSpan.appendChild(iconKnot);
 
-        const linkNode = item.get<Knot>(this.linkNodeKey);
-        linkNode.beforeChild(imageSpan);
+        const linkKnot = item.get<Knot>(this.linkKnotKey);
+        linkKnot.beforeChild(imageSpan);
     }
     /**
      * @param {string} id
@@ -168,8 +168,8 @@ export class Navigation {
             imageSpan.appendChild(imageTag);
         }
 
-        const linkNode = item.get<Knot>(this.linkNodeKey);
-        linkNode.beforeChild(imageSpan);
+        const linkKnot = item.get<Knot>(this.linkKnotKey);
+        linkKnot.beforeChild(imageSpan);
     }
     /**
      * @param {string} id
@@ -204,17 +204,17 @@ export class Navigation {
         opt_href: string | undefined = '',
         opt_data: Object | undefined = {},
     ): Objekt {
-        const linkNode = new Knot('a');
+        const linkKnot = new Knot('a');
         if (title) {
             const titleSpan = new Knot('span');
             titleSpan.addClass('title');
             titleSpan.setHtml(title);
-            linkNode.appendChild(titleSpan);
+            linkKnot.appendChild(titleSpan);
         }
-        linkNode.setAttribute('href', opt_href || 'javascript:void(0)');
-        const href = linkNode.getAttribute('href');
+        linkKnot.setAttribute('href', opt_href || 'javascript:void(0)');
+        const href = linkKnot.getAttribute('href');
 
-        const listener = linkNode.addEventListener('click', () => {
+        const listener = linkKnot.addEventListener('click', () => {
             action(href);
         });
 
@@ -226,7 +226,7 @@ export class Navigation {
             action: action,
             listener: listener,
         });
-        item.setRaw(this.linkNodeKey, linkNode);
+        item.setRaw(this.linkKnotKey, linkKnot);
 
         this.container.push(item);
 
@@ -242,14 +242,14 @@ export class Navigation {
         });
     }
     /**
-     * @param {!Knot} containerNode
+     * @param {!Knot} containerKnot
      * @return {undefined}
      */
-    bindToContainer(containerNode: Knot): void {
-        containerNode.removeChildren();
+    bindToContainer(containerKnot: Knot): void {
+        containerKnot.removeChildren();
         this.each((item) => {
-            const linkNode = item.get(this.linkNodeKey);
-            containerNode.appendChild(linkNode);
+            const linkKnot = item.get(this.linkKnotKey);
+            containerKnot.appendChild(linkKnot);
         });
     }
     /**
@@ -268,10 +268,10 @@ export class Navigation {
      * @return {undefined}
      */
     private _disabled(item: Objekt): void {
-        const linkNode = item.get<Knot>(this.linkNodeKey);
-        linkNode.addClass('disabled');
-        linkNode.removeEventListener('click', item.get('listener'));
-        linkNode.setAttribute('href', 'javascript:void(0)');
+        const linkKnot = item.get<Knot>(this.linkKnotKey);
+        linkKnot.addClass('disabled');
+        linkKnot.removeEventListener('click', item.get('listener'));
+        linkKnot.setAttribute('href', 'javascript:void(0)');
     }
     /**
      * @param {string} id
@@ -290,12 +290,12 @@ export class Navigation {
      */
     private _enabled(item: Objekt): void {
         this._disabled(item);
-        const linkNode = item.get<Knot>(this.linkNodeKey);
-        linkNode.removeClass('disabled');
+        const linkKnot = item.get<Knot>(this.linkKnotKey);
+        linkKnot.removeClass('disabled');
         const action = item.get<Function>('action');
         const href = item.get<string>('href');
-        linkNode.setAttribute('href', href);
-        const listener = linkNode.addEventListener('click', () => {
+        linkKnot.setAttribute('href', href);
+        const listener = linkKnot.addEventListener('click', () => {
             action(href);
         });
         item.set('listener', listener);
@@ -306,14 +306,14 @@ export class Navigation {
      */
     setActive(id: string): void {
         this.each((item) => {
-            const linkNode = item.get(this.linkNodeKey);
-            linkNode.removeClass('active');
+            const linkKnot = item.get(this.linkKnotKey);
+            linkKnot.removeClass('active');
             const itemId = item.get('id');
             if (
                 (itemId[itemId.length - 1] === '.' && contain(id, itemId)) ||
                 eq(id, itemId)
             ) {
-                linkNode.addClass('active');
+                linkKnot.addClass('active');
             }
         });
     }
@@ -322,8 +322,8 @@ export class Navigation {
      */
     setAllInactive(): void {
         this.each((item) => {
-            const linkNode = item.get(this.linkNodeKey);
-            linkNode.removeClass('active');
+            const linkKnot = item.get(this.linkKnotKey);
+            linkKnot.removeClass('active');
         });
     }
     /**
@@ -333,8 +333,8 @@ export class Navigation {
     show(id: string): void {
         const item = this.container.findById(id);
         if (item) {
-            const linkNode = item.get<Knot>(this.linkNodeKey);
-            linkNode.removeClass('hidden');
+            const linkKnot = item.get<Knot>(this.linkKnotKey);
+            linkKnot.removeClass('hidden');
             this._enabled(item);
         }
     }
@@ -345,8 +345,8 @@ export class Navigation {
     hide(id: string): void {
         const item = this.container.findById(id);
         if (item) {
-            const linkNode = item.get<Knot>(this.linkNodeKey);
-            linkNode.addClass('hidden');
+            const linkKnot = item.get<Knot>(this.linkKnotKey);
+            linkKnot.addClass('hidden');
             this._disabled(item);
         }
     }

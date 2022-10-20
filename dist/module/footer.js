@@ -26,67 +26,67 @@ export class Footer {
      * @return {undefined}
      */
     _init() {
-        this.footerNode = new Query('#footer').getKnot();
-        this.templateViewNode = new Query('.template-view').getKnot();
-        this.contentNode = new Query('.content', this.footerNode).getKnot();
-        this.localesNode = new Query('.locales', this.footerNode).getKnot();
+        this.footerKnot = new Query('#footer').getKnot();
+        this.templateViewKnot = new Query('.template-view').getKnot();
+        this.contentKnot = new Query('.content', this.footerKnot).getKnot();
+        this.localesKnot = new Query('.locales', this.footerKnot).getKnot();
     }
     /**
      * @return {undefined}
      */
     show() {
-        this.footerNode.removeClass(['static', 'hidden', 'has-footer']);
-        const contentNode = new Query('.page-content.fullscreen', this.templateViewNode).getKnot();
-        if (contentNode && !contentNode.isEmpty()) {
-            const isLightContent = contentNode.hasClass('light');
+        this.footerKnot.removeClass(['static', 'hidden', 'has-footer']);
+        const contentKnot = new Query('.page-content.fullscreen', this.templateViewKnot).getKnot();
+        if (contentKnot && !contentKnot.isEmpty()) {
+            const isLightContent = contentKnot.hasClass('light');
             if (isLightContent) {
-                this.footerNode.addClass('dark');
+                this.footerKnot.addClass('dark');
             }
             else {
-                this.footerNode.removeClass('dark');
+                this.footerKnot.removeClass('dark');
             }
-            this.footerNode.addClass('static');
-            this.templateViewNode.addClass('has-footer');
+            this.footerKnot.addClass('static');
+            this.templateViewKnot.addClass('has-footer');
         }
     }
     /**
      * @return {undefined}
      */
     hide() {
-        this.footerNode.addClass('hidden');
-        this.footerNode.removeClass('static');
-        this.templateViewNode.removeClass('has-footer');
+        this.footerKnot.addClass('hidden');
+        this.footerKnot.removeClass('static');
+        this.templateViewKnot.removeClass('has-footer');
     }
     /**
-     * @param {!Knot} contentNode
+     * @param {!Knot} contentKnot
      * @return {undefined}
      */
-    setContent(contentNode) {
-        this.contentNode.appendChild(contentNode);
+    setContent(contentKnot) {
+        this.contentKnot.appendChild(contentKnot);
     }
     /**
      * @return {!Knot}
      */
     getLocalesContainer() {
-        return this.localesNode;
+        return this.localesKnot;
     }
     /**
      * @return {undefined}
      */
     open() {
-        this.footerNode.addClass('open');
+        this.footerKnot.addClass('open');
     }
     /**
      * @return {undefined}
      */
     close() {
-        this.footerNode.removeClass('open');
+        this.footerKnot.removeClass('open');
     }
     /**
      * @return {boolean}
      */
     isOpened() {
-        return this.footerNode.hasClass('open');
+        return this.footerKnot.hasClass('open');
     }
     /**
      * @return {undefined}

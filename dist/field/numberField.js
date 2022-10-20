@@ -42,9 +42,9 @@ export class NumberField extends BaseField {
      * @return {undefined}
      */
     _initButtons() {
-        const actionNode = new Knot('span');
-        actionNode.addClass('step-change');
-        this.actionContainerNode.appendChild(actionNode);
+        const actionKnot = new Knot('span');
+        actionKnot.addClass('step-change');
+        this.actionContainerKnot.appendChild(actionKnot);
         const upButton = new Knot('a');
         upButton.setAttribute('href', 'javascript:void(0)');
         upButton.addClass(['up-button', 'material-icons']);
@@ -56,7 +56,7 @@ export class NumberField extends BaseField {
                 this.setValue(value);
             }
         });
-        actionNode.appendChild(upButton);
+        actionKnot.appendChild(upButton);
         const downButton = new Knot('a');
         downButton.setAttribute('href', 'javascript:void(0)');
         downButton.addClass(['down-button', 'material-icons']);
@@ -68,7 +68,7 @@ export class NumberField extends BaseField {
                 this.setValue(value);
             }
         });
-        actionNode.appendChild(downButton);
+        actionKnot.appendChild(downButton);
     }
     /**
      * @private

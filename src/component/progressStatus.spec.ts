@@ -3,8 +3,8 @@ import { ProgressStatus } from './progressStatus';
 
 describe('progressStatus', () => {
     it('should be instance of ProgressStatus', () => {
-        const node = new Query('.template-view').getKnot();
-        const progressStatus = new ProgressStatus(node);
+        const knot = new Query('.template-view').getKnot();
+        const progressStatus = new ProgressStatus(knot);
 
         expect(progressStatus).toBeInstanceOf(ProgressStatus);
     });

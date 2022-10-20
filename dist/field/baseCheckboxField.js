@@ -99,10 +99,10 @@ export class BaseCheckboxField extends BaseField {
         const dataLabelText = this.label.getAttribute('data-label');
         if (dataLabelText) {
             const labelText = this._getLabelRequiredText(dataLabelText);
-            this.dataLabelNode.setHtml(labelText);
+            this.dataLabelKnot.setHtml(labelText);
         }
         else {
-            this.dataLabelNode.setHtml('');
+            this.dataLabelKnot.setHtml('');
         }
         if (this.isDisabled()) {
             this.inputBlock.addClass('is-disabled');

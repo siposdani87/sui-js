@@ -14,16 +14,16 @@ custom_edit_url: null
 
 ## Methods
 
-### \_createIconNode
+### \_createIconKnot
 
-▸ `Private` **_createIconNode**(`iconName`, `parentNode`): `void`
+▸ `Private` **_createIconKnot**(`iconName`, `parentKnot`): `void`
 
 #### Parameters
 
 | Name | Type |
 | :------ | :------ |
 | `iconName` | `string` |
-| `parentNode` | [`Knot`](Knot.md)<`HTMLElement`\> |
+| `parentKnot` | [`Knot`](Knot.md)<`HTMLElement`\> |
 
 #### Returns
 
@@ -31,19 +31,19 @@ custom_edit_url: null
 
 #### Defined in
 
-[module/helper.ts:400](https://github.com/siposdani87/sui-js/blob/0baad71/src/module/helper.ts#L400)
+[module/helper.ts:400](https://github.com/siposdani87/sui-js/blob/bf1be67/src/module/helper.ts#L400)
 
 ___
 
 ### \_setTooltip
 
-▸ `Private` **_setTooltip**(`node`, `opt_description?`): `void`
+▸ `Private` **_setTooltip**(`knot`, `opt_description?`): `void`
 
 #### Parameters
 
 | Name | Type | Default value |
 | :------ | :------ | :------ |
-| `node` | [`Knot`](Knot.md)<`HTMLElement`\> | `undefined` |
+| `knot` | [`Knot`](Knot.md)<`HTMLElement`\> | `undefined` |
 | `opt_description` | `string` | `''` |
 
 #### Returns
@@ -52,7 +52,7 @@ ___
 
 #### Defined in
 
-[module/helper.ts:411](https://github.com/siposdani87/sui-js/blob/0baad71/src/module/helper.ts#L411)
+[module/helper.ts:411](https://github.com/siposdani87/sui-js/blob/bf1be67/src/module/helper.ts#L411)
 
 ___
 
@@ -77,19 +77,19 @@ ___
 
 #### Defined in
 
-[module/helper.ts:197](https://github.com/siposdani87/sui-js/blob/0baad71/src/module/helper.ts#L197)
+[module/helper.ts:197](https://github.com/siposdani87/sui-js/blob/bf1be67/src/module/helper.ts#L197)
 
 ___
 
 ### buttonElement
 
-▸ **buttonElement**(`buttonNode`, `opt_callback`, `opt_description?`, `opt_allowAccess?`, `opt_cssClasses?`): `void`
+▸ **buttonElement**(`buttonKnot`, `opt_callback`, `opt_description?`, `opt_allowAccess?`, `opt_cssClasses?`): `void`
 
 #### Parameters
 
 | Name | Type | Default value |
 | :------ | :------ | :------ |
-| `buttonNode` | [`Knot`](Knot.md)<`HTMLElement`\> | `undefined` |
+| `buttonKnot` | [`Knot`](Knot.md)<`HTMLElement`\> | `undefined` |
 | `opt_callback` | `Function` | `undefined` |
 | `opt_description` | `string` | `''` |
 | `opt_allowAccess` | `boolean` | `true` |
@@ -101,7 +101,7 @@ ___
 
 #### Defined in
 
-[module/helper.ts:223](https://github.com/siposdani87/sui-js/blob/0baad71/src/module/helper.ts#L223)
+[module/helper.ts:223](https://github.com/siposdani87/sui-js/blob/bf1be67/src/module/helper.ts#L223)
 
 ___
 
@@ -125,7 +125,7 @@ ___
 
 #### Defined in
 
-[module/helper.ts:146](https://github.com/siposdani87/sui-js/blob/0baad71/src/module/helper.ts#L146)
+[module/helper.ts:146](https://github.com/siposdani87/sui-js/blob/bf1be67/src/module/helper.ts#L146)
 
 ___
 
@@ -149,7 +149,7 @@ ___
 
 #### Defined in
 
-[module/helper.ts:267](https://github.com/siposdani87/sui-js/blob/0baad71/src/module/helper.ts#L267)
+[module/helper.ts:267](https://github.com/siposdani87/sui-js/blob/bf1be67/src/module/helper.ts#L267)
 
 ___
 
@@ -174,7 +174,7 @@ ___
 
 #### Defined in
 
-[module/helper.ts:21](https://github.com/siposdani87/sui-js/blob/0baad71/src/module/helper.ts#L21)
+[module/helper.ts:21](https://github.com/siposdani87/sui-js/blob/bf1be67/src/module/helper.ts#L21)
 
 ___
 
@@ -199,19 +199,19 @@ ___
 
 #### Defined in
 
-[module/helper.ts:324](https://github.com/siposdani87/sui-js/blob/0baad71/src/module/helper.ts#L324)
+[module/helper.ts:324](https://github.com/siposdani87/sui-js/blob/bf1be67/src/module/helper.ts#L324)
 
 ___
 
 ### iconButtonElement
 
-▸ **iconButtonElement**(`buttonNode`, `opt_callback`, `opt_description?`, `opt_allowAccess?`, `opt_cssClasses?`): `void`
+▸ **iconButtonElement**(`buttonKnot`, `opt_callback`, `opt_description?`, `opt_allowAccess?`, `opt_cssClasses?`): `void`
 
 #### Parameters
 
 | Name | Type | Default value |
 | :------ | :------ | :------ |
-| `buttonNode` | [`Knot`](Knot.md)<`HTMLElement`\> | `undefined` |
+| `buttonKnot` | [`Knot`](Knot.md)<`HTMLElement`\> | `undefined` |
 | `opt_callback` | `Function` | `undefined` |
 | `opt_description` | `string` | `''` |
 | `opt_allowAccess` | `boolean` | `true` |
@@ -223,7 +223,7 @@ ___
 
 #### Defined in
 
-[module/helper.ts:354](https://github.com/siposdani87/sui-js/blob/0baad71/src/module/helper.ts#L354)
+[module/helper.ts:354](https://github.com/siposdani87/sui-js/blob/bf1be67/src/module/helper.ts#L354)
 
 ___
 
@@ -249,19 +249,19 @@ ___
 
 #### Defined in
 
-[module/helper.ts:76](https://github.com/siposdani87/sui-js/blob/0baad71/src/module/helper.ts#L76)
+[module/helper.ts:76](https://github.com/siposdani87/sui-js/blob/bf1be67/src/module/helper.ts#L76)
 
 ___
 
 ### linkElement
 
-▸ **linkElement**(`linkNode`, `opt_callback`, `opt_href?`, `opt_description?`, `opt_allowAccess?`, `opt_cssClasses?`): `void`
+▸ **linkElement**(`linkKnot`, `opt_callback`, `opt_href?`, `opt_description?`, `opt_allowAccess?`, `opt_cssClasses?`): `void`
 
 #### Parameters
 
 | Name | Type | Default value |
 | :------ | :------ | :------ |
-| `linkNode` | [`Knot`](Knot.md)<`HTMLElement`\> | `undefined` |
+| `linkKnot` | [`Knot`](Knot.md)<`HTMLElement`\> | `undefined` |
 | `opt_callback` | `Function` | `undefined` |
 | `opt_href` | `string` | `''` |
 | `opt_description` | `string` | `''` |
@@ -274,7 +274,7 @@ ___
 
 #### Defined in
 
-[module/helper.ts:105](https://github.com/siposdani87/sui-js/blob/0baad71/src/module/helper.ts#L105)
+[module/helper.ts:105](https://github.com/siposdani87/sui-js/blob/bf1be67/src/module/helper.ts#L105)
 
 ___
 
@@ -297,7 +297,7 @@ ___
 
 #### Defined in
 
-[module/helper.ts:171](https://github.com/siposdani87/sui-js/blob/0baad71/src/module/helper.ts#L171)
+[module/helper.ts:171](https://github.com/siposdani87/sui-js/blob/bf1be67/src/module/helper.ts#L171)
 
 ___
 
@@ -319,7 +319,7 @@ ___
 
 #### Defined in
 
-[module/helper.ts:295](https://github.com/siposdani87/sui-js/blob/0baad71/src/module/helper.ts#L295)
+[module/helper.ts:295](https://github.com/siposdani87/sui-js/blob/bf1be67/src/module/helper.ts#L295)
 
 ___
 
@@ -342,19 +342,19 @@ ___
 
 #### Defined in
 
-[module/helper.ts:48](https://github.com/siposdani87/sui-js/blob/0baad71/src/module/helper.ts#L48)
+[module/helper.ts:48](https://github.com/siposdani87/sui-js/blob/bf1be67/src/module/helper.ts#L48)
 
 ___
 
 ### setGravatar
 
-▸ **setGravatar**(`imageNode`, `defaultImageUrl`, `email`, `opt_size?`, `opt_rating?`): `void`
+▸ **setGravatar**(`imageKnot`, `defaultImageUrl`, `email`, `opt_size?`, `opt_rating?`): `void`
 
 #### Parameters
 
 | Name | Type | Default value |
 | :------ | :------ | :------ |
-| `imageNode` | [`Knot`](Knot.md)<`HTMLElement`\> | `undefined` |
+| `imageKnot` | [`Knot`](Knot.md)<`HTMLElement`\> | `undefined` |
 | `defaultImageUrl` | `string` | `undefined` |
 | `email` | `string` | `undefined` |
 | `opt_size` | `number` | `500` |
@@ -366,4 +366,4 @@ ___
 
 #### Defined in
 
-[module/helper.ts:430](https://github.com/siposdani87/sui-js/blob/0baad71/src/module/helper.ts#L430)
+[module/helper.ts:430](https://github.com/siposdani87/sui-js/blob/bf1be67/src/module/helper.ts#L430)

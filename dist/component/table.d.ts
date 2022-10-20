@@ -9,13 +9,13 @@ import { Action } from '../utils';
  * @class
  */
 export declare class Table {
-    tableNode: Knot;
+    tableKnot: Knot;
     options: Objekt;
     collection: Collection<Objekt>;
     query: string;
     actions: Action[];
     contentHandler: ContentHandler;
-    headerNodes: Query<HTMLElement>;
+    headerKnots: Query<HTMLElement>;
     headerTexts: string[];
     tbody: Knot;
     tfoot: Knot;
@@ -54,7 +54,7 @@ export declare class Table {
     private _initHeader;
     /**
      * @private
-     * @param {!Knot} headerNode
+     * @param {!Knot} headerKnot
      * @param {number} columnIndex
      * @return {undefined}
      */
@@ -140,44 +140,44 @@ export declare class Table {
      * @param {!Objekt} item
      * @param {number} rowIndex
      * @param {string} column
-     * @param {!Knot} parentNode
+     * @param {!Knot} parentKnot
      * @return {undefined}
      */
-    private _renderDataNodeByKnot;
+    private _renderDataKnotByKnot;
     /**
      * @private
-     * @param {!Knot} tableDataNode
+     * @param {!Knot} tableDataKnot
      * @param {!Objekt} item
      * @param {number} rowIndex
      * @param {string} column
      * @param {number} columnIndex
      * @return {undefined}
      */
-    private _renderDataNode;
+    private _renderDataKnot;
     /**
      * @private
-     * @param {!Knot} tableDataNode
+     * @param {!Knot} tableDataKnot
      * @param {!Objekt} item
      * @return {undefined}
      */
     private _renderActions;
     /**
      * @private
-     * @param {!Knot} containerNode
+     * @param {!Knot} containerKnot
      * @param {!Objekt} item
      * @return {undefined}
      */
-    private _renderActionNodes;
+    private _renderActionKnots;
     /**
      * @private
-     * @param {!Knot} dropDownNode
+     * @param {!Knot} dropDownKnot
      * @param {!Objekt} item
      * @return {undefined}
      */
-    private _renderDropDownNode;
+    private _renderDropDownKnot;
     /**
      * @private
-     * @param {!Knot} containerNode
+     * @param {!Knot} containerKnot
      * @param {{style: !Function, click: !Function}} action
      * @param {!Objekt} item
      * @return {undefined}

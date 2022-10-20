@@ -7,7 +7,7 @@ import { Knot } from '../core/knot';
 export declare class BaseCheckboxField extends BaseField<HTMLInputElement> {
     hiddenInput: Knot;
     spanLabel: Knot;
-    dataLabelNode: Knot;
+    dataLabelKnot: Knot;
     /**
      * @param {!Knot} input
      * @param {!Knot} label

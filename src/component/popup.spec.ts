@@ -3,10 +3,10 @@ import { Popup } from './popup';
 
 describe('popup', () => {
     it('should be instance of Popup', () => {
-        const content = new Knot('<span>content message</span>');
-        const node = new Query('.template-view').getKnot();
+        const contentKnot = new Knot('<span>content message</span>');
+        const knot = new Query('.template-view').getKnot();
 
-        const popup = new Popup(content, node);
+        const popup = new Popup(contentKnot, knot);
 
         expect(popup).toBeInstanceOf(Popup);
     });

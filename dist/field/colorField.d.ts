@@ -9,8 +9,8 @@ import { Knot } from '../core/knot';
  */
 export declare class ColorField extends BaseField<HTMLInputElement> {
     tooltip: Tooltip;
-    previewNode: Knot;
-    colorNode: Knot;
+    previewKnot: Knot;
+    colorKnot: Knot;
     popup: Popup;
     canvas: Canvas;
     image: Knot<HTMLImageElement>;

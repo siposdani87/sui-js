@@ -50,15 +50,16 @@ export class Year {
     /**
      * @return {!Knot}
      */
-    getNode(): Knot {
-        const node = new Knot('span');
-        node.addClass(this.cssClasses);
+    getKnot(): Knot {
+        const knot = new Knot('span');
+        knot.addClass(this.cssClasses);
         const text = DateIO.format(this.date, 'YYYY');
-        node.setHtml(text);
-        node.addEventListener('click', () => {
+        knot.setHtml(text);
+        knot.addEventListener('click', () => {
             this.eventClick(this.date);
         });
-        return node;
+
+        return knot;
     }
     /**
      * @param {!Date} date

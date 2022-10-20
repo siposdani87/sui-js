@@ -7,7 +7,7 @@ import { Knot } from '../core';
  */
 export class LeftMenu {
     body: Knot;
-    mainContainerNode: Knot;
+    mainContainerKnot: Knot;
     leftMenu: Knot;
     mainMenu: Knot;
     subMenu: Knot;
@@ -26,7 +26,7 @@ export class LeftMenu {
      */
     private _init(): void {
         this.body = new Query('body').getKnot();
-        this.mainContainerNode = new Query('.main-container').getKnot();
+        this.mainContainerKnot = new Query('.main-container').getKnot();
         this.leftMenu = new Query('#left-menu').getKnot();
 
         this.mainMenu = new Query('.main-menu', this.leftMenu).getKnot();
@@ -94,7 +94,7 @@ export class LeftMenu {
      */
     open(opt_title: string | undefined = ''): void {
         this.body.addClass('overflow-hidden');
-        this.mainContainerNode.addClass('blur');
+        this.mainContainerKnot.addClass('blur');
 
         this.leftMenu.addClass('visible');
 
@@ -105,7 +105,7 @@ export class LeftMenu {
      */
     close(): void {
         this.body.removeClass('overflow-hidden');
-        this.mainContainerNode.removeClass('blur');
+        this.mainContainerKnot.removeClass('blur');
         this.leftMenu.removeClass('visible');
     }
     /**

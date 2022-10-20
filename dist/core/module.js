@@ -193,7 +193,7 @@ export class Module {
             }
             else {
                 this.eventModuleLoaded(currentState);
-                this._initController(currentState, this._instances[this._injections.template].getViewNode());
+                this._initController(currentState, this._instances[this._injections.template].getViewKnot());
             }
         }, () => {
             this.eventModuleFailed(currentState);

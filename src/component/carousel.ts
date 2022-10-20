@@ -6,7 +6,7 @@ import { Query } from '../core/query';
  * @class
  */
 export class Carousel {
-    carouselNode: Knot;
+    carouselKnot: Knot;
     options: Objekt;
     /**
      * @param {!Knot} dom
@@ -18,7 +18,7 @@ export class Carousel {
         opt_selector: string | undefined = '.carousel',
         opt_options: Object | undefined = {},
     ) {
-        this.carouselNode = new Query(opt_selector, dom).getKnot();
+        this.carouselKnot = new Query(opt_selector, dom).getKnot();
         this._setOptions(opt_options);
         this._init();
     }

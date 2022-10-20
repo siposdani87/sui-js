@@ -41,12 +41,12 @@ export class RadiobuttonField extends BaseField {
         const value = this.input.getAttribute('value');
         this.modelChange(value);
         const name = this.input.getAttribute('name');
-        const radioButtonInputs = new Query(format('input[name="{0}"]', [name]), this.form.formNode);
+        const radioButtonInputs = new Query(format('input[name="{0}"]', [name]), this.form.formKnot);
         radioButtonInputs.each((radioButtonInput) => {
-            const labelNode = radioButtonInput.getParentNode();
-            labelNode.addClass('is-other-checked');
-            const inputBlockNode = labelNode.getParentNode();
-            inputBlockNode.removeClass('is-invalid');
+            const labelKnot = radioButtonInput.getParentKnot();
+            labelKnot.addClass('is-other-checked');
+            const inputBlockKnot = labelKnot.getParentKnot();
+            inputBlockKnot.removeClass('is-invalid');
         });
     }
     /**
@@ -68,9 +68,9 @@ export class RadiobuttonField extends BaseField {
         this.input.addClass('mdl-radio__button');
         this.label.insert(this.input);
         this.label.appendChild(spanLabel);
-        this.dataLabelNode = new Knot('span');
-        this.dataLabelNode.addClass('field-label');
-        this.label.insertBefore(this.dataLabelNode);
+        this.dataLabelKnot = new Knot('span');
+        this.dataLabelKnot.addClass('field-label');
+        this.label.insertBefore(this.dataLabelKnot);
         this.refresh();
     }
     /**
@@ -80,10 +80,10 @@ export class RadiobuttonField extends BaseField {
         const dataLabelText = this.label.getAttribute('data-label');
         if (dataLabelText) {
             const labelText = this._getLabelRequiredText(dataLabelText);
-            this.dataLabelNode.setHtml(labelText);
+            this.dataLabelKnot.setHtml(labelText);
         }
         else {
-            this.dataLabelNode.setHtml('');
+            this.dataLabelKnot.setHtml('');
         }
         if (this.isDisabled()) {
             this.inputBlock.addClass('is-disabled');
@@ -124,18 +124,18 @@ export class RadiobuttonField extends BaseField {
         this._getRadioButtonInputs().each((radioButtonInput) => {
             if (state) {
                 radioButtonInput.setAttribute('disabled');
-                radioButtonInput.getParentNode().addClass('is-disabled');
+                radioButtonInput.getParentKnot().addClass('is-disabled');
                 radioButtonInput
-                    .getParentNode()
-                    .getParentNode()
+                    .getParentKnot()
+                    .getParentKnot()
                     .addClass('is-disabled');
             }
             else {
                 radioButtonInput.removeAttribute('disabled');
-                radioButtonInput.getParentNode().removeClass('is-disabled');
+                radioButtonInput.getParentKnot().removeClass('is-disabled');
                 radioButtonInput
-                    .getParentNode()
-                    .getParentNode()
+                    .getParentKnot()
+                    .getParentKnot()
                     .removeClass('is-disabled');
             }
             radioButtonInput.getNode().disabled = state;
@@ -160,7 +160,7 @@ export class RadiobuttonField extends BaseField {
      */
     _getRadioButtonInputs() {
         const name = this.input.getAttribute('name');
-        return new Query(format('input[name="{0}"]', [name]), this.form.formNode);
+        return new Query(format('input[name="{0}"]', [name]), this.form.formKnot);
     }
     /**
      * @override

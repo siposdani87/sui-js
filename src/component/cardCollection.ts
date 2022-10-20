@@ -12,7 +12,7 @@ import { mdl } from '../utils/render';
  * @class
  */
 export class CardCollection {
-    cardCollectionNode: Knot;
+    cardCollectionKnot: Knot;
     ctrl: any;
     options: Objekt;
     collection: Collection<Objekt>;
@@ -20,8 +20,8 @@ export class CardCollection {
     pager: Pager;
     contentHandler: ContentHandler;
     body: Knot;
-    cardFooterNode: Knot;
-    pagerNode: Knot;
+    cardFooterKnot: Knot;
+    pagerKnot: Knot;
     cardTemplate: Knot<HTMLTemplateElement>;
     template: string;
     /**
@@ -36,7 +36,7 @@ export class CardCollection {
         opt_ctrl: (object | null) | undefined = null,
         opt_options: Object | undefined = {},
     ) {
-        this.cardCollectionNode = new Query(opt_selector, dom).getKnot();
+        this.cardCollectionKnot = new Query(opt_selector, dom).getKnot();
         this.ctrl = opt_ctrl;
         this._setOptions(opt_options);
         this._init();
@@ -73,7 +73,7 @@ export class CardCollection {
         this._initStructure();
         this._initTemplate();
         this.pager = new Pager(
-            this.cardCollectionNode,
+            this.cardCollectionKnot,
             ['.pager', '.pager-statistics'],
             this.options,
         );
@@ -87,7 +87,7 @@ export class CardCollection {
      */
     private _initContentHandler(): void {
         this.contentHandler = new ContentHandler(
-            this.cardCollectionNode,
+            this.cardCollectionKnot,
             this.options.no_content,
         );
     }
@@ -96,23 +96,23 @@ export class CardCollection {
      * @return {undefined}
      */
     private _initStructure(): void {
-        this.cardCollectionNode.addClass('card-collection');
+        this.cardCollectionKnot.addClass('card-collection');
 
         this.body = new Knot('div');
         this.body.addClass('cards');
-        this.cardCollectionNode.appendChild(this.body);
+        this.cardCollectionKnot.appendChild(this.body);
 
-        this.cardFooterNode = new Knot('div');
-        this.cardFooterNode.addClass('card-footer');
-        this.cardCollectionNode.appendChild(this.cardFooterNode);
+        this.cardFooterKnot = new Knot('div');
+        this.cardFooterKnot.addClass('card-footer');
+        this.cardCollectionKnot.appendChild(this.cardFooterKnot);
 
-        this.pagerNode = new Knot('div');
-        this.pagerNode.addClass('pager-statistics');
-        this.cardFooterNode.appendChild(this.pagerNode);
+        this.pagerKnot = new Knot('div');
+        this.pagerKnot.addClass('pager-statistics');
+        this.cardFooterKnot.appendChild(this.pagerKnot);
 
-        this.pagerNode = new Knot('div');
-        this.pagerNode.addClass('pager');
-        this.cardFooterNode.appendChild(this.pagerNode);
+        this.pagerKnot = new Knot('div');
+        this.pagerKnot.addClass('pager');
+        this.cardFooterKnot.appendChild(this.pagerKnot);
     }
     /**
      * @private
@@ -121,7 +121,7 @@ export class CardCollection {
     private _initTemplate(): void {
         this.cardTemplate = new Query<HTMLTemplateElement>(
             'template',
-            this.cardCollectionNode,
+            this.cardCollectionKnot,
         ).getKnot();
         this.cardTemplate.remove();
         this.template = this.cardTemplate.toString(false);
@@ -131,7 +131,7 @@ export class CardCollection {
      * @param {!Objekt} item
      * @return {!Knot}
      */
-    private _getCardNode(item: Objekt): Knot {
+    private _getCardKnot(item: Objekt): Knot {
         const regex = new RegExp('{{[a-zA-Z._,() ]*}}', 'g');
         const matches = this.template.match(regex);
         let cloneTemplate = this.template;
@@ -193,12 +193,12 @@ export class CardCollection {
         consoleWarn('CardCollection.eventAction()', params);
     }
     /**
-     * @param {!Knot} cardNode
+     * @param {!Knot} cardKnot
      * @param {!Objekt} item
      * @return {undefined}
      */
-    eventCardNode(cardNode: Knot, item: Objekt): void {
-        consoleWarn('CardCollection.eventCardNode()', cardNode, item);
+    eventCardKnot(cardKnot: Knot, item: Objekt): void {
+        consoleWarn('CardCollection.eventCardKnot()', cardKnot, item);
     }
     /**
      * @private
@@ -206,10 +206,10 @@ export class CardCollection {
      * @return {undefined}
      */
     private _addCard(item: Objekt): void {
-        const cardNode = this._getCardNode(item);
-        this.body.appendChild(cardNode);
-        this.eventCardNode(cardNode, item);
-        mdl(cardNode);
+        const cardKnot = this._getCardKnot(item);
+        this.body.appendChild(cardKnot);
+        this.eventCardKnot(cardKnot, item);
+        mdl(cardKnot);
     }
     /**
      * @param {!Array} items

@@ -12,7 +12,7 @@ export class BaseModal {
     _initBase() {
         this.windowWidth = 0;
         this.windowHeight = 0;
-        this.mainContainerNode = new Query('.main-container').getKnot();
+        this.mainContainerKnot = new Query('.main-container').getKnot();
         this.hasBlur = false;
         this._initButtons();
     }
@@ -105,9 +105,9 @@ export class BaseModal {
      * @return {undefined}
      */
     open(opt_allowClose = true) {
-        this.hasBlur = this.mainContainerNode.hasClass('blur');
+        this.hasBlur = this.mainContainerKnot.hasClass('blur');
         if (!this.hasBlur) {
-            this.mainContainerNode.addClass('blur');
+            this.mainContainerKnot.addClass('blur');
             this.body.addClass('overflow-hidden');
         }
         this.modal.addClass('visible-flex');
@@ -124,7 +124,7 @@ export class BaseModal {
     close() {
         clearInterval(this.interval);
         if (!this.hasBlur) {
-            this.mainContainerNode.removeClass('blur');
+            this.mainContainerKnot.removeClass('blur');
             this.body.removeClass('overflow-hidden');
         }
         this.modal.addClass('hidden');

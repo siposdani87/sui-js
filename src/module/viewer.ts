@@ -61,9 +61,9 @@ export class Viewer extends BaseModal {
      * @return {undefined}
      */
     private _setImage(imageUrl: string): void {
-        const imageNode = new Knot('img');
-        imageNode.setAttribute('src', imageUrl);
+        const imageKnot = new Knot<HTMLImageElement>('img');
+        imageKnot.setAttribute('src', imageUrl);
 
-        this.modalBody.appendChild(imageNode);
+        this.modalBody.appendChild(imageKnot);
     }
 }

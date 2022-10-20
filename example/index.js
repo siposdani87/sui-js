@@ -1,6 +1,6 @@
-const lightThemeNode = new SUI.Query('.light-theme').getItem();
-const darkThemeNode = new SUI.Query('.dark-theme').getItem();
-darkThemeNode.setHtml(lightThemeNode.getHtml(true).replace(/light-/g, 'dark-'));
+const lightThemeKnot = new SUI.Query('.light-theme').getKnot();
+const darkThemeKnot = new SUI.Query('.dark-theme').getKnot();
+darkThemeKnot.setHtml(lightThemeKnot.getHtml(true).replace(/light-/g, 'dark-'));
 
 const config = new SUI.Objekt({
     app_id: 'sui-js',

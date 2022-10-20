@@ -3,8 +3,8 @@ import { Table } from './table';
 
 describe('table', () => {
     it('should be instance of Table', () => {
-        const node = new Query('.template-view').getKnot();
-        const table = new Table(node);
+        const knot = new Query('.template-view').getKnot();
+        const table = new Table(knot);
 
         expect(table).toBeInstanceOf(Table);
     });

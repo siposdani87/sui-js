@@ -13,8 +13,8 @@ import { convertRGBToHEX } from '../utils/color';
  */
 export class ColorField extends BaseField<HTMLInputElement> {
     tooltip: Tooltip;
-    previewNode: Knot;
-    colorNode: Knot;
+    previewKnot: Knot;
+    colorKnot: Knot;
     popup: Popup;
     canvas: Canvas;
     image: Knot<HTMLImageElement>;
@@ -83,7 +83,7 @@ export class ColorField extends BaseField<HTMLInputElement> {
         this.input.addEventListener('change', (input) => {
             const inputNode = input.getNode();
             this.tooltip.setMessage(inputNode.value);
-            this.previewNode.setStyle({
+            this.previewKnot.setStyle({
                 background: inputNode.value,
             });
             this.modelChange(inputNode.value);
@@ -95,19 +95,19 @@ export class ColorField extends BaseField<HTMLInputElement> {
      * @return {undefined}
      */
     private _initPreview(): void {
-        this.previewNode = new Knot('div');
-        this.previewNode.addClass('preview');
-        this.inputBlock.beforeChild(this.previewNode);
+        this.previewKnot = new Knot('div');
+        this.previewKnot.addClass('preview');
+        this.inputBlock.beforeChild(this.previewKnot);
 
-        this.colorNode = new Knot('div');
-        this.colorNode.addClass('color');
-        this.previewNode.appendChild(this.colorNode);
+        this.colorKnot = new Knot('div');
+        this.colorKnot.addClass('color');
+        this.previewKnot.appendChild(this.colorKnot);
 
-        this.popup = new Popup(this.canvas.canvasNode, this.inputBlock);
+        this.popup = new Popup(this.canvas.canvasKnot, this.inputBlock);
 
-        this.tooltip = new Tooltip(this.previewNode);
+        this.tooltip = new Tooltip(this.previewKnot);
 
-        this.previewNode.addEventListener('click', () => {
+        this.previewKnot.addEventListener('click', () => {
             if (this.isEnabled()) {
                 this._draw();
                 this.popup.open();
@@ -160,7 +160,7 @@ export class ColorField extends BaseField<HTMLInputElement> {
         }
 
         this.canvas = new Canvas();
-        this.canvas.canvasNode.addEventListener('click', (_image, e) => {
+        this.canvas.canvasKnot.addEventListener('click', (_image, e) => {
             let x = 0;
             let y = 0;
             if (e.offsetX) {
