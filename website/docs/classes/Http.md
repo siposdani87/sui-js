@@ -20,7 +20,7 @@ custom_edit_url: null
 
 #### Defined in
 
-[module/http.ts:18](https://github.com/siposdani87/sui-js/blob/8315555/src/module/http.ts#L18)
+[module/http.ts:18](https://github.com/siposdani87/sui-js/blob/0baad71/src/module/http.ts#L18)
 
 ## Properties
 
@@ -30,7 +30,7 @@ custom_edit_url: null
 
 #### Defined in
 
-[module/http.ts:11](https://github.com/siposdani87/sui-js/blob/8315555/src/module/http.ts#L11)
+[module/http.ts:11](https://github.com/siposdani87/sui-js/blob/0baad71/src/module/http.ts#L11)
 
 ___
 
@@ -40,7 +40,7 @@ ___
 
 #### Defined in
 
-[module/http.ts:13](https://github.com/siposdani87/sui-js/blob/8315555/src/module/http.ts#L13)
+[module/http.ts:13](https://github.com/siposdani87/sui-js/blob/0baad71/src/module/http.ts#L13)
 
 ___
 
@@ -50,7 +50,7 @@ ___
 
 #### Defined in
 
-[module/http.ts:14](https://github.com/siposdani87/sui-js/blob/8315555/src/module/http.ts#L14)
+[module/http.ts:14](https://github.com/siposdani87/sui-js/blob/0baad71/src/module/http.ts#L14)
 
 ___
 
@@ -60,7 +60,7 @@ ___
 
 #### Defined in
 
-[module/http.ts:12](https://github.com/siposdani87/sui-js/blob/8315555/src/module/http.ts#L12)
+[module/http.ts:12](https://github.com/siposdani87/sui-js/blob/0baad71/src/module/http.ts#L12)
 
 ## Methods
 
@@ -80,7 +80,7 @@ ___
 
 #### Defined in
 
-[module/http.ts:157](https://github.com/siposdani87/sui-js/blob/8315555/src/module/http.ts#L157)
+[module/http.ts:157](https://github.com/siposdani87/sui-js/blob/0baad71/src/module/http.ts#L157)
 
 ___
 
@@ -94,7 +94,7 @@ ___
 
 #### Defined in
 
-[module/http.ts:145](https://github.com/siposdani87/sui-js/blob/8315555/src/module/http.ts#L145)
+[module/http.ts:145](https://github.com/siposdani87/sui-js/blob/0baad71/src/module/http.ts#L145)
 
 ___
 
@@ -108,7 +108,7 @@ ___
 
 #### Defined in
 
-[module/http.ts:39](https://github.com/siposdani87/sui-js/blob/8315555/src/module/http.ts#L39)
+[module/http.ts:39](https://github.com/siposdani87/sui-js/blob/0baad71/src/module/http.ts#L39)
 
 ___
 
@@ -128,7 +128,7 @@ ___
 
 #### Defined in
 
-[module/http.ts:27](https://github.com/siposdani87/sui-js/blob/8315555/src/module/http.ts#L27)
+[module/http.ts:27](https://github.com/siposdani87/sui-js/blob/0baad71/src/module/http.ts#L27)
 
 ___
 
@@ -151,7 +151,7 @@ ___
 
 #### Defined in
 
-[module/http.ts:130](https://github.com/siposdani87/sui-js/blob/8315555/src/module/http.ts#L130)
+[module/http.ts:130](https://github.com/siposdani87/sui-js/blob/0baad71/src/module/http.ts#L130)
 
 ___
 
@@ -172,7 +172,7 @@ ___
 
 #### Defined in
 
-[module/http.ts:183](https://github.com/siposdani87/sui-js/blob/8315555/src/module/http.ts#L183)
+[module/http.ts:183](https://github.com/siposdani87/sui-js/blob/0baad71/src/module/http.ts#L183)
 
 ___
 
@@ -192,7 +192,7 @@ ___
 
 #### Defined in
 
-[module/http.ts:175](https://github.com/siposdani87/sui-js/blob/8315555/src/module/http.ts#L175)
+[module/http.ts:175](https://github.com/siposdani87/sui-js/blob/0baad71/src/module/http.ts#L175)
 
 ___
 
@@ -214,7 +214,7 @@ ___
 
 #### Defined in
 
-[module/http.ts:65](https://github.com/siposdani87/sui-js/blob/8315555/src/module/http.ts#L65)
+[module/http.ts:65](https://github.com/siposdani87/sui-js/blob/0baad71/src/module/http.ts#L65)
 
 ___
 
@@ -237,7 +237,7 @@ ___
 
 #### Defined in
 
-[module/http.ts:112](https://github.com/siposdani87/sui-js/blob/8315555/src/module/http.ts#L112)
+[module/http.ts:112](https://github.com/siposdani87/sui-js/blob/0baad71/src/module/http.ts#L112)
 
 ___
 
@@ -260,7 +260,7 @@ ___
 
 #### Defined in
 
-[module/http.ts:76](https://github.com/siposdani87/sui-js/blob/8315555/src/module/http.ts#L76)
+[module/http.ts:76](https://github.com/siposdani87/sui-js/blob/0baad71/src/module/http.ts#L76)
 
 ___
 
@@ -283,7 +283,7 @@ ___
 
 #### Defined in
 
-[module/http.ts:94](https://github.com/siposdani87/sui-js/blob/8315555/src/module/http.ts#L94)
+[module/http.ts:94](https://github.com/siposdani87/sui-js/blob/0baad71/src/module/http.ts#L94)
 
 ___
 
@@ -304,7 +304,7 @@ ___
 
 #### Defined in
 
-[module/http.ts:49](https://github.com/siposdani87/sui-js/blob/8315555/src/module/http.ts#L49)
+[module/http.ts:49](https://github.com/siposdani87/sui-js/blob/0baad71/src/module/http.ts#L49)
 
 ___
 
@@ -324,4 +324,4 @@ ___
 
 #### Defined in
 
-[module/http.ts:56](https://github.com/siposdani87/sui-js/blob/8315555/src/module/http.ts#L56)
+[module/http.ts:56](https://github.com/siposdani87/sui-js/blob/0baad71/src/module/http.ts#L56)

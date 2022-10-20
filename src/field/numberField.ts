@@ -1,6 +1,6 @@
 import { typeCast } from '../utils/operation';
 import { BaseField } from './baseField';
-import { Item } from '../core/item';
+import { Knot } from '../core/knot';
 import { mdl } from '../utils/render';
 
 /**
@@ -9,16 +9,16 @@ import { mdl } from '../utils/render';
  */
 export class NumberField extends BaseField<HTMLInputElement> {
     /**
-     * @param {!Item} input
-     * @param {!Item} label
-     * @param {!Item} error
-     * @param {!Item} inputBlock
+     * @param {!Knot} input
+     * @param {!Knot} label
+     * @param {!Knot} error
+     * @param {!Knot} inputBlock
      */
     constructor(
-        input: Item<HTMLInputElement>,
-        label: Item,
-        error: Item,
-        inputBlock: Item,
+        input: Knot<HTMLInputElement>,
+        label: Knot,
+        error: Knot,
+        inputBlock: Knot,
     ) {
         super(input, label, error, inputBlock);
         this._init();
@@ -51,11 +51,11 @@ export class NumberField extends BaseField<HTMLInputElement> {
      * @return {undefined}
      */
     private _initButtons(): void {
-        const actionNode = new Item('span');
+        const actionNode = new Knot('span');
         actionNode.addClass('step-change');
         this.actionContainerNode.appendChild(actionNode);
 
-        const upButton = new Item('a');
+        const upButton = new Knot('a');
         upButton.setAttribute('href', 'javascript:void(0)');
         upButton.addClass(['up-button', 'material-icons']);
         upButton.setHtml('keyboard_arrow_up');
@@ -68,7 +68,7 @@ export class NumberField extends BaseField<HTMLInputElement> {
         });
         actionNode.appendChild(upButton);
 
-        const downButton = new Item('a');
+        const downButton = new Knot('a');
         downButton.setAttribute('href', 'javascript:void(0)');
         downButton.addClass(['down-button', 'material-icons']);
         downButton.setHtml('keyboard_arrow_down');

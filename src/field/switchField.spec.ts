@@ -6,7 +6,7 @@ describe('switchField', () => {
     it('should be instance of SwitchField', () => {
         const inputBlock = new Query<HTMLElement>(
             '.input-block.field-switch',
-        ).getItem();
+        ).getKnot();
         const { input, label, error } = parseInputBlock(inputBlock);
         const switchField = new SwitchField(input, label, error, inputBlock);
 

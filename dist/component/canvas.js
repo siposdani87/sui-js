@@ -1,5 +1,5 @@
 import { each, isString, isUndefined, typeCast } from '../utils/operation';
-import { Item } from '../core/item';
+import { Knot } from '../core/knot';
 import { Query } from '../core/query';
 import { consoleInfo } from '../utils/log';
 /**
@@ -7,7 +7,7 @@ import { consoleInfo } from '../utils/log';
  */
 export class Canvas {
     /**
-     * @param {!Item|string=} opt_selector
+     * @param {!Knot|string=} opt_selector
      */
     constructor(opt_selector) {
         this._init(opt_selector);
@@ -15,16 +15,16 @@ export class Canvas {
     }
     /**
      * @private
-     * @param {!Item|string=} opt_selector
+     * @param {!Knot|string=} opt_selector
      * @return {undefined}
      */
     _init(opt_selector) {
         this.canvasNode = opt_selector;
         if (isString(opt_selector)) {
-            this.canvasNode = new Query(opt_selector).getItem();
+            this.canvasNode = new Query(opt_selector).getKnot();
         }
         else if (isUndefined(opt_selector)) {
-            this.canvasNode = new Item('canvas');
+            this.canvasNode = new Knot('canvas');
         }
         this.canvasRaw = this.canvasNode.getNode();
         this.context = this.canvasRaw.getContext('2d');
@@ -133,7 +133,7 @@ export class Canvas {
         this.context.restore();
     }
     /**
-     * @param {!Item<HTMLImageElement>} image
+     * @param {!Knot<HTMLImageElement>} image
      * @param {number=} opt_width
      * @param {number=} opt_height
      */

@@ -5,12 +5,12 @@ import { Query } from '../core/query';
  */
 export class ProgressStatus {
     /**
-     * @param {!Item} dom
+     * @param {!Knot} dom
      * @param {string=} opt_selector
      * @param {!Object=} opt_options
      */
     constructor(dom, opt_selector = '.progress-status', opt_options = {}) {
-        this.progressStatusNode = new Query(opt_selector, dom).getItem();
+        this.progressStatusNode = new Query(opt_selector, dom).getKnot();
         this._setOptions(opt_options);
         this._init();
     }
@@ -34,8 +34,8 @@ export class ProgressStatus {
      * @return {undefined}
      */
     _init() {
-        this.iconNode = new Query('.icon', this.progressStatusNode).getItem();
-        this.textNode = new Query('.text', this.progressStatusNode).getItem();
+        this.iconNode = new Query('.icon', this.progressStatusNode).getKnot();
+        this.textNode = new Query('.text', this.progressStatusNode).getKnot();
     }
     /**
      * @private

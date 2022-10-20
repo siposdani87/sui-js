@@ -1,5 +1,5 @@
 import { typeCast } from '../utils/operation';
-import { Item } from '../core/item';
+import { Knot } from '../core/knot';
 import { BaseCheckboxField } from './baseCheckboxField';
 /**
  * @class
@@ -7,10 +7,10 @@ import { BaseCheckboxField } from './baseCheckboxField';
  */
 export class IconToggleField extends BaseCheckboxField {
     /**
-     * @param {!Item} input
-     * @param {!Item} label
-     * @param {!Item} error
-     * @param {!Item} inputBlock
+     * @param {!Knot} input
+     * @param {!Knot} label
+     * @param {!Knot} error
+     * @param {!Knot} inputBlock
      */
     constructor(input, label, error, inputBlock) {
         super(input, label, error, inputBlock);
@@ -27,20 +27,20 @@ export class IconToggleField extends BaseCheckboxField {
         ]);
         this.checkedIcon = this.input.getData('checked');
         this.uncheckedIcon = this.input.getData('unchecked');
-        this.icon = new Item('em');
+        this.icon = new Knot('em');
         this.icon.addClass(['mdl-icon-toggle__label', 'material-icons']);
         this.icon.setHtml(this.input.getNode().checked
             ? this.checkedIcon
             : this.uncheckedIcon);
         this.input.addClass('mdl-icon-toggle__input');
         const labelText = this.label.getText();
-        this.spanLabel = new Item('span');
+        this.spanLabel = new Knot('span');
         this.spanLabel.addClass('mdl-icon__label');
         this.spanLabel.setHtml(labelText);
         this.label.insert(this.input);
         this.label.appendChild(this.icon);
         this.label.appendChild(this.spanLabel);
-        this.dataLabelNode = new Item('span');
+        this.dataLabelNode = new Knot('span');
         this.dataLabelNode.addClass('field-label');
         this.label.insertBefore(this.dataLabelNode);
         this.refresh();

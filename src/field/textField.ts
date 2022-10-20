@@ -1,4 +1,4 @@
-import { Item } from '../core';
+import { Knot } from '../core';
 import { mdl } from '../utils/render';
 import { BaseField } from './baseField';
 
@@ -8,16 +8,16 @@ import { BaseField } from './baseField';
  */
 export class TextField extends BaseField<HTMLInputElement> {
     /**
-     * @param {!Item} input
-     * @param {!Item} label
-     * @param {!Item} error
-     * @param {!Item} inputBlock
+     * @param {!Knot} input
+     * @param {!Knot} label
+     * @param {!Knot} error
+     * @param {!Knot} inputBlock
      */
     constructor(
-        input: Item<HTMLInputElement>,
-        label: Item,
-        error: Item,
-        inputBlock: Item,
+        input: Knot<HTMLInputElement>,
+        label: Knot,
+        error: Knot,
+        inputBlock: Knot,
     ) {
         super(input, label, error, inputBlock);
         this._init();

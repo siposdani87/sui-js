@@ -1,5 +1,5 @@
 import { Collection } from '../core/collection';
-import { Item } from '../core/item';
+import { Knot } from '../core/knot';
 import { Objekt } from '../core/objekt';
 import { Http } from '../module';
 /**
@@ -79,17 +79,17 @@ export declare class Navigation {
      * @param {!Object=} opt_data
      * @return {!Objekt}
      */
-    private _setItem;
+    private _setKnot;
     /**
      * @param {!Function} next
      * @return {undefined}
      */
     each(next: Function): void;
     /**
-     * @param {!Item} containerNode
+     * @param {!Knot} containerNode
      * @return {undefined}
      */
-    bindToContainer(containerNode: Item): void;
+    bindToContainer(containerNode: Knot): void;
     /**
      * @param {string} id
      * @return {undefined}

@@ -1,6 +1,6 @@
 import { contain, each, format } from '../utils/operation';
 import { Collection } from '../core/collection';
-import { Item } from '../core/item';
+import { Knot } from '../core/knot';
 import { Objekt } from '../core/objekt';
 import { Query } from '../core/query';
 import { ContentHandler } from './contentHandler';
@@ -12,31 +12,31 @@ import { mdl } from '../utils/render';
  * @class
  */
 export class CardCollection {
-    cardCollectionNode: Item;
+    cardCollectionNode: Knot;
     ctrl: any;
     options: Objekt;
     collection: Collection<Objekt>;
     query: string;
     pager: Pager;
     contentHandler: ContentHandler;
-    body: Item;
-    cardFooterNode: Item;
-    pagerNode: Item;
-    cardTemplate: Item<HTMLTemplateElement>;
+    body: Knot;
+    cardFooterNode: Knot;
+    pagerNode: Knot;
+    cardTemplate: Knot<HTMLTemplateElement>;
     template: string;
     /**
-     * @param {!Item} dom
+     * @param {!Knot} dom
      * @param {string=} opt_selector
      * @param {?Object=} opt_ctrl
      * @param {!Object=} opt_options
      */
     constructor(
-        dom: Item,
+        dom: Knot,
         opt_selector: string | undefined = '.card-collection',
         opt_ctrl: (object | null) | undefined = null,
         opt_options: Object | undefined = {},
     ) {
-        this.cardCollectionNode = new Query(opt_selector, dom).getItem();
+        this.cardCollectionNode = new Query(opt_selector, dom).getKnot();
         this.ctrl = opt_ctrl;
         this._setOptions(opt_options);
         this._init();
@@ -98,19 +98,19 @@ export class CardCollection {
     private _initStructure(): void {
         this.cardCollectionNode.addClass('card-collection');
 
-        this.body = new Item('div');
+        this.body = new Knot('div');
         this.body.addClass('cards');
         this.cardCollectionNode.appendChild(this.body);
 
-        this.cardFooterNode = new Item('div');
+        this.cardFooterNode = new Knot('div');
         this.cardFooterNode.addClass('card-footer');
         this.cardCollectionNode.appendChild(this.cardFooterNode);
 
-        this.pagerNode = new Item('div');
+        this.pagerNode = new Knot('div');
         this.pagerNode.addClass('pager-statistics');
         this.cardFooterNode.appendChild(this.pagerNode);
 
-        this.pagerNode = new Item('div');
+        this.pagerNode = new Knot('div');
         this.pagerNode.addClass('pager');
         this.cardFooterNode.appendChild(this.pagerNode);
     }
@@ -122,16 +122,16 @@ export class CardCollection {
         this.cardTemplate = new Query<HTMLTemplateElement>(
             'template',
             this.cardCollectionNode,
-        ).getItem();
+        ).getKnot();
         this.cardTemplate.remove();
         this.template = this.cardTemplate.toString(false);
     }
     /**
      * @private
      * @param {!Objekt} item
-     * @return {!Item}
+     * @return {!Knot}
      */
-    private _getCardNode(item: Objekt): Item {
+    private _getCardNode(item: Objekt): Knot {
         const regex = new RegExp('{{[a-zA-Z._,() ]*}}', 'g');
         const matches = this.template.match(regex);
         let cloneTemplate = this.template;
@@ -166,7 +166,7 @@ export class CardCollection {
                 );
             }
         });
-        return new Item(cloneTemplate);
+        return new Knot(cloneTemplate);
     }
     /**
      * @param {number=} opt_page
@@ -193,11 +193,11 @@ export class CardCollection {
         consoleWarn('CardCollection.eventAction()', params);
     }
     /**
-     * @param {!Item} cardNode
+     * @param {!Knot} cardNode
      * @param {!Objekt} item
      * @return {undefined}
      */
-    eventCardNode(cardNode: Item, item: Objekt): void {
+    eventCardNode(cardNode: Knot, item: Objekt): void {
         consoleWarn('CardCollection.eventCardNode()', cardNode, item);
     }
     /**

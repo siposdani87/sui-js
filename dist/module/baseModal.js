@@ -12,7 +12,7 @@ export class BaseModal {
     _initBase() {
         this.windowWidth = 0;
         this.windowHeight = 0;
-        this.mainContainerNode = new Query('.main-container').getItem();
+        this.mainContainerNode = new Query('.main-container').getKnot();
         this.hasBlur = false;
         this._initButtons();
     }
@@ -30,7 +30,7 @@ export class BaseModal {
      * @return {undefined}
      */
     _initMinimizeButton() {
-        const btnMinimize = new Query('.minimize', this.modal).getItem();
+        const btnMinimize = new Query('.minimize', this.modal).getKnot();
         if (!btnMinimize.isEmpty()) {
             btnMinimize.addClass([
                 'mdl-button',
@@ -48,7 +48,7 @@ export class BaseModal {
      * @return {undefined}
      */
     _initMaximizeButton() {
-        const btnMaximize = new Query('.maximize', this.modal).getItem();
+        const btnMaximize = new Query('.maximize', this.modal).getKnot();
         if (!btnMaximize.isEmpty()) {
             btnMaximize.addClass([
                 'mdl-button',
@@ -66,7 +66,7 @@ export class BaseModal {
      * @return {undefined}
      */
     _initCloseButton() {
-        const btnClose = new Query('.close', this.modal).getItem();
+        const btnClose = new Query('.close', this.modal).getKnot();
         if (!btnClose.isEmpty()) {
             btnClose.addClass([
                 'mdl-button',

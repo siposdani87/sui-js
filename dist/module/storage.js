@@ -91,7 +91,7 @@ export class Storage {
      */
     remove(name) {
         const propertyName = this._getPropertyName(name);
-        this.storage.removeItem(propertyName);
+        this.storage.removeKnot(propertyName);
     }
     /**
      * @return {undefined}

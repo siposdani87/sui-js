@@ -1,20 +1,20 @@
 import { noop } from '../utils/operation';
 import { Query } from '../core/query';
-import { Item } from '../core';
+import { Knot } from '../core';
 
 /**
  * @class
  */
 export class LeftMenu {
-    body: Item;
-    mainContainerNode: Item;
-    leftMenu: Item;
-    mainMenu: Item;
-    subMenu: Item;
-    mainMenuContainer: Item;
-    subMenuContainer: Item;
-    mainMenuTitle: Item;
-    subMenuTitle: Item;
+    body: Knot;
+    mainContainerNode: Knot;
+    leftMenu: Knot;
+    mainMenu: Knot;
+    subMenu: Knot;
+    mainMenuContainer: Knot;
+    subMenuContainer: Knot;
+    mainMenuTitle: Knot;
+    subMenuTitle: Knot;
     /**
      */
     constructor() {
@@ -25,25 +25,25 @@ export class LeftMenu {
      * @return {undefined}
      */
     private _init(): void {
-        this.body = new Query('body').getItem();
-        this.mainContainerNode = new Query('.main-container').getItem();
-        this.leftMenu = new Query('#left-menu').getItem();
+        this.body = new Query('body').getKnot();
+        this.mainContainerNode = new Query('.main-container').getKnot();
+        this.leftMenu = new Query('#left-menu').getKnot();
 
-        this.mainMenu = new Query('.main-menu', this.leftMenu).getItem();
-        this.subMenu = new Query('.sub-menu', this.leftMenu).getItem();
+        this.mainMenu = new Query('.main-menu', this.leftMenu).getKnot();
+        this.subMenu = new Query('.sub-menu', this.leftMenu).getKnot();
         this.subMenu.addClass('hidden');
 
         this.mainMenuContainer = new Query(
             '.menu-container',
             this.mainMenu,
-        ).getItem();
+        ).getKnot();
         this.subMenuContainer = new Query(
             '.menu-container',
             this.subMenu,
-        ).getItem();
+        ).getKnot();
 
-        this.mainMenuTitle = new Query('h3', this.mainMenu).getItem();
-        this.subMenuTitle = new Query('h3', this.subMenu).getItem();
+        this.mainMenuTitle = new Query('h3', this.mainMenu).getKnot();
+        this.subMenuTitle = new Query('h3', this.subMenu).getKnot();
 
         this._initEvents();
     }
@@ -64,7 +64,7 @@ export class LeftMenu {
             return true;
         });
 
-        const openLeftMenu = new Query('#open-left-menu').getItem();
+        const openLeftMenu = new Query('#open-left-menu').getKnot();
         openLeftMenu.setAttribute('href', 'javascript:void(0)');
         openLeftMenu.addEventListener('click', () => {
             this.open();
@@ -73,7 +73,7 @@ export class LeftMenu {
         const closeLeftMenu = new Query(
             '#close-left-menu',
             this.mainMenu,
-        ).getItem();
+        ).getKnot();
         closeLeftMenu.setAttribute('href', 'javascript:void(0)');
         closeLeftMenu.addEventListener('click', () => {
             this.close();
@@ -82,7 +82,7 @@ export class LeftMenu {
         const closeSubMenu = new Query(
             '#close-sub-menu',
             this.subMenu,
-        ).getItem();
+        ).getKnot();
         closeSubMenu.setAttribute('href', 'javascript:void(0)');
         closeSubMenu.addEventListener('click', () => {
             this.closeSubMenu();
@@ -125,15 +125,15 @@ export class LeftMenu {
         this.subMenu.addClass('hidden');
     }
     /**
-     * @return {!Item}
+     * @return {!Knot}
      */
-    getMainContainer(): Item {
+    getMainContainer(): Knot {
         return this.mainMenuContainer;
     }
     /**
-     * @return {!Item}
+     * @return {!Knot}
      */
-    getSubContainer(): Item {
+    getSubContainer(): Knot {
         return this.subMenuContainer;
     }
 }

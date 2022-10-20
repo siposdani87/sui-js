@@ -1,25 +1,25 @@
-import { Item } from '../core';
+import { Knot } from '../core';
 /**
  * @class
  */
 export declare class BaseModal {
     windowWidth: number;
     windowHeight: number;
-    mainContainerNode: Item;
+    mainContainerNode: Knot;
     hasBlur: boolean;
-    modal: Item;
-    btnMinimize: Item;
-    btnMaximize: Item;
-    btnClose: Item;
-    body: Item;
+    modal: Knot;
+    btnMinimize: Knot;
+    btnMaximize: Knot;
+    btnClose: Knot;
+    body: Knot;
     interval: number;
-    modalTitle: Item;
-    modalBody: Item;
-    modalFooter: Item;
-    modalHeader: Item;
+    modalTitle: Knot;
+    modalBody: Knot;
+    modalFooter: Knot;
+    modalHeader: Knot;
     eventOK: () => void;
     eventCancel: () => void;
-    modalWindow: Item;
+    modalWindow: Knot;
     /**
      * @protected
      * @return {undefined}

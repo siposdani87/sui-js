@@ -6,7 +6,7 @@ describe('rangeField', () => {
     it('should be instance of RangeField', () => {
         const inputBlock = new Query<HTMLElement>(
             '.input-block.field-range',
-        ).getItem();
+        ).getKnot();
         const { input, label, error } = parseInputBlock(inputBlock);
         const rangeField = new RangeField(input, label, error, inputBlock);
 

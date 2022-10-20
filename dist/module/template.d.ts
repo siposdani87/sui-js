@@ -1,13 +1,13 @@
 import { Objekt } from '../core/objekt';
 import { Http } from './http';
-import { Item, Promize } from '../core';
+import { Knot, Promize } from '../core';
 /**
  * @class
  */
 export declare class Template {
     http: Http;
     options: Objekt;
-    viewNode: Item;
+    viewNode: Knot;
     /**
      * @param {!Http} http
      * @param {!Object=} opt_options
@@ -25,9 +25,9 @@ export declare class Template {
      */
     private _init;
     /**
-     * @return {!Item}
+     * @return {!Knot}
      */
-    getViewNode(): Item;
+    getViewNode(): Knot;
     /**
      * @param {string} url
      * @param {boolean=} opt_force
@@ -36,9 +36,9 @@ export declare class Template {
     load(url: string, opt_force?: boolean | undefined): Promize;
     /**
      * @private
-     * @param {!Item} data
+     * @param {!Knot} data
      * @param {boolean} error
-     * @return {!Item}
+     * @return {!Knot}
      */
     private _handleData;
     /**

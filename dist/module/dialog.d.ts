@@ -31,17 +31,17 @@ export declare class Dialog extends BaseModal {
      */
     loadTemplate(url: string): Promize;
     /**
-     * @param {!Item} dom
-     * @return {!Item}
+     * @param {!Knot} dom
+     * @return {!Knot}
      */
     private _handleMessage;
     /**
-     * @param {!Item} dom
-     * @return {!Item}
+     * @param {!Knot} dom
+     * @return {!Knot}
      */
     private _handleDom;
     /**
-     * @param {!Item} dom
+     * @param {!Knot} dom
      * @return {undefined}
      */
     private _handleActions;

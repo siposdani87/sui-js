@@ -1,4 +1,4 @@
-import { Item } from '../core/item';
+import { Knot } from '../core/knot';
 import { Objekt } from '../core/objekt';
 import { Query } from '../core/query';
 import { BaseModal } from './baseModal';
@@ -33,13 +33,13 @@ export class Viewer extends BaseModal {
      * @return {undefined}
      */
     _init() {
-        this.body = new Query('body').getItem();
-        this.modal = new Query(this.options.id, this.body).getItem();
-        this.modalWindow = new Query('#viewer-window', this.modal).getItem();
-        this.modalHeader = new Query('.modal-header', this.modal).getItem();
-        this.modalTitle = new Query('.modal-title', this.modalHeader).getItem();
-        this.modalBody = new Query('.modal-body', this.modal).getItem();
-        this.modalFooter = new Query('.modal-footer', this.modal).getItem();
+        this.body = new Query('body').getKnot();
+        this.modal = new Query(this.options.id, this.body).getKnot();
+        this.modalWindow = new Query('#viewer-window', this.modal).getKnot();
+        this.modalHeader = new Query('.modal-header', this.modal).getKnot();
+        this.modalTitle = new Query('.modal-title', this.modalHeader).getKnot();
+        this.modalBody = new Query('.modal-body', this.modal).getKnot();
+        this.modalFooter = new Query('.modal-footer', this.modal).getKnot();
     }
     /**
      * @param {string} imageUrl
@@ -57,7 +57,7 @@ export class Viewer extends BaseModal {
      * @return {undefined}
      */
     _setImage(imageUrl) {
-        const imageNode = new Item('img');
+        const imageNode = new Knot('img');
         imageNode.setAttribute('src', imageUrl);
         this.modalBody.appendChild(imageNode);
     }

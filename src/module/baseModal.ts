@@ -1,7 +1,7 @@
 import { isString, isNumber, noop, contain } from '../utils/operation';
 import { Async } from '../core/async';
 import { Query } from '../core/query';
-import { Item } from '../core';
+import { Knot } from '../core';
 
 /**
  * @class
@@ -9,21 +9,21 @@ import { Item } from '../core';
 export class BaseModal {
     windowWidth: number;
     windowHeight: number;
-    mainContainerNode: Item;
+    mainContainerNode: Knot;
     hasBlur: boolean;
-    modal: Item;
-    btnMinimize: Item;
-    btnMaximize: Item;
-    btnClose: Item;
-    body: Item;
+    modal: Knot;
+    btnMinimize: Knot;
+    btnMaximize: Knot;
+    btnClose: Knot;
+    body: Knot;
     interval: number;
-    modalTitle: Item;
-    modalBody: Item;
-    modalFooter: Item;
-    modalHeader: Item;
+    modalTitle: Knot;
+    modalBody: Knot;
+    modalFooter: Knot;
+    modalHeader: Knot;
     eventOK: () => void;
     eventCancel: () => void;
-    modalWindow: Item;
+    modalWindow: Knot;
     /**
      * @protected
      * @return {undefined}
@@ -32,7 +32,7 @@ export class BaseModal {
         this.windowWidth = 0;
         this.windowHeight = 0;
 
-        this.mainContainerNode = new Query('.main-container').getItem();
+        this.mainContainerNode = new Query('.main-container').getKnot();
         this.hasBlur = false;
 
         this._initButtons();
@@ -51,7 +51,7 @@ export class BaseModal {
      * @return {undefined}
      */
     private _initMinimizeButton(): void {
-        const btnMinimize = new Query('.minimize', this.modal).getItem();
+        const btnMinimize = new Query('.minimize', this.modal).getKnot();
         if (!btnMinimize.isEmpty()) {
             btnMinimize.addClass([
                 'mdl-button',
@@ -69,7 +69,7 @@ export class BaseModal {
      * @return {undefined}
      */
     private _initMaximizeButton(): void {
-        const btnMaximize = new Query('.maximize', this.modal).getItem();
+        const btnMaximize = new Query('.maximize', this.modal).getKnot();
         if (!btnMaximize.isEmpty()) {
             btnMaximize.addClass([
                 'mdl-button',
@@ -87,7 +87,7 @@ export class BaseModal {
      * @return {undefined}
      */
     private _initCloseButton(): void {
-        const btnClose = new Query('.close', this.modal).getItem();
+        const btnClose = new Query('.close', this.modal).getKnot();
         if (!btnClose.isEmpty()) {
             btnClose.addClass([
                 'mdl-button',

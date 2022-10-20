@@ -1,12 +1,12 @@
-import { Item } from '../core';
+import { Knot } from '../core';
 import { Header } from './header';
 /**
  * @class
  */
 export declare class TopMenu {
     header: Header;
-    topMenu: Item;
-    toggleTopMenu: Item;
+    topMenu: Knot;
+    toggleTopMenu: Knot;
     /**
      * @param {!Header} header
      */
@@ -33,7 +33,7 @@ export declare class TopMenu {
      */
     close(): void;
     /**
-     * @return {!Item}
+     * @return {!Knot}
      */
-    getContainer(): Item;
+    getContainer(): Knot;
 }

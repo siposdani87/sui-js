@@ -1,12 +1,12 @@
 import { Objekt } from '../core/objekt';
-import { Item } from '../core';
+import { Knot } from '../core';
 /**
  * @class
  */
 export declare class Loader {
     options: Objekt;
-    loader: Item;
-    spinner: Item;
+    loader: Knot;
+    spinner: Knot;
     /**
      * @param {!Object=} opt_options
      */

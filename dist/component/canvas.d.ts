@@ -1,18 +1,18 @@
-import { Item } from '../core/item';
+import { Knot } from '../core/knot';
 /**
  * @class
  */
 export declare class Canvas {
-    canvasNode: Item<HTMLCanvasElement>;
+    canvasNode: Knot<HTMLCanvasElement>;
     canvasRaw: HTMLCanvasElement;
     context: CanvasRenderingContext2D;
     /**
-     * @param {!Item|string=} opt_selector
+     * @param {!Knot|string=} opt_selector
      */
-    constructor(opt_selector?: Item | string);
+    constructor(opt_selector?: Knot | string);
     /**
      * @private
-     * @param {!Item|string=} opt_selector
+     * @param {!Knot|string=} opt_selector
      * @return {undefined}
      */
     private _init;
@@ -66,11 +66,11 @@ export declare class Canvas {
      */
     drawRectangle(x: number, y: number, width: number, height: number, rotateAngle: number, options: Object): void;
     /**
-     * @param {!Item<HTMLImageElement>} image
+     * @param {!Knot<HTMLImageElement>} image
      * @param {number=} opt_width
      * @param {number=} opt_height
      */
-    drawImage(image: Item<HTMLImageElement>, opt_width?: number, opt_height?: number): void;
+    drawImage(image: Knot<HTMLImageElement>, opt_width?: number, opt_height?: number): void;
     /**
      * @param {number} x
      * @param {number} y

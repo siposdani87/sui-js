@@ -6,7 +6,7 @@ describe('locationField', () => {
     it('should be instance of LocationField', () => {
         const inputBlock = new Query<HTMLElement>(
             '.input-block.field-number',
-        ).getItem();
+        ).getKnot();
         const { input, label, error } = parseInputBlock(inputBlock);
         const locationField = new LocationField(
             input,

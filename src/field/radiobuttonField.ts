@@ -1,6 +1,6 @@
 import { format, typeCast } from '../utils/operation';
 import { BaseField } from './baseField';
-import { Item } from '../core/item';
+import { Knot } from '../core/knot';
 import { Query } from '../core/query';
 import { Form } from '../component';
 import { mdl } from '../utils/render';
@@ -10,20 +10,20 @@ import { mdl } from '../utils/render';
  * @extends {BaseField}
  */
 export class RadiobuttonField extends BaseField<HTMLInputElement> {
-    dataLabelNode: Item;
-    spanLabel: Item;
+    dataLabelNode: Knot;
+    spanLabel: Knot;
     /**
-     * @param {!Item} input
-     * @param {!Item} label
-     * @param {!Item} error
-     * @param {!Item} inputBlock
+     * @param {!Knot} input
+     * @param {!Knot} label
+     * @param {!Knot} error
+     * @param {!Knot} inputBlock
      * @param {!Form} form
      */
     constructor(
-        input: Item<HTMLInputElement>,
-        label: Item,
-        error: Item,
-        inputBlock: Item,
+        input: Knot<HTMLInputElement>,
+        label: Knot,
+        error: Knot,
+        inputBlock: Knot,
         form: Form,
     ) {
         super(input, label, error, inputBlock, form);
@@ -79,7 +79,7 @@ export class RadiobuttonField extends BaseField<HTMLInputElement> {
 
         const labelText = this.label.getHtml(true);
 
-        const spanLabel = new Item('span');
+        const spanLabel = new Knot('span');
         spanLabel.addClass('mdl-radio__label');
         spanLabel.setHtml(labelText);
 
@@ -88,7 +88,7 @@ export class RadiobuttonField extends BaseField<HTMLInputElement> {
         this.label.insert(this.input);
         this.label.appendChild(spanLabel);
 
-        this.dataLabelNode = new Item('span');
+        this.dataLabelNode = new Knot('span');
         this.dataLabelNode.addClass('field-label');
         this.label.insertBefore(this.dataLabelNode);
 

@@ -1,26 +1,45 @@
-import { contain, each, eachArray, eq, isArray, isFunction, isInfinity, isString, isUndefined, noop, typeCast, } from '../utils/operation';
+import {
+    contain,
+    each,
+    eachArray,
+    eq,
+    isArray,
+    isFunction,
+    isInfinity,
+    isString,
+    isUndefined,
+    noop,
+    typeCast,
+} from '../utils/operation';
 import { consoleWarn } from '../utils/log';
+import { Listener } from '../utils';
+
 /**
  * @class
  * @template T
  */
-export class Item {
+export class Knot<T extends HTMLElement = HTMLElement> {
+    node: T;
+    parentNode: Knot;
+    listenerStoreKey: string;
     /**
      * @param {?T|string} node
-     * @param {!Item=} opt_parentNode
+     * @param {!Knot=} opt_parentNode
      */
-    constructor(node, opt_parentNode) {
+    constructor(
+        node: (T | HTMLElement | string) | null,
+        opt_parentNode?: Knot | undefined,
+    ) {
         if (isString(node)) {
-            if (contain(node, '<') && contain(node, '</')) {
+            if (contain(node as string, '<') && contain(node as string, '</')) {
                 const template = document.createElement('template');
-                template.innerHTML = node;
-                node = template.content.firstElementChild;
-            }
-            else {
-                node = document.createElement(node);
+                template.innerHTML = node as string;
+                node = template.content.firstElementChild as any as T;
+            } else {
+                node = document.createElement(node as string) as any as T;
             }
         }
-        this.node = node;
+        this.node = node as T;
         this.parentNode = opt_parentNode;
         this.listenerStoreKey = '_listeners';
     }
@@ -29,11 +48,10 @@ export class Item {
      * @param {boolean|number|string} value
      * @return {undefined}
      */
-    set(attribute, value) {
+    set(attribute: string, value: boolean | number | string): void {
         if (eq(attribute, 'id')) {
             this.setId(value);
-        }
-        else {
+        } else {
             this.setAttribute(attribute, value);
         }
     }
@@ -41,7 +59,7 @@ export class Item {
      * @param {!Object} properties
      * @return {undefined}
      */
-    merge(properties) {
+    merge(properties: Object): void {
         each(properties, (value, attribute) => {
             this.set(attribute, value);
         });
@@ -50,7 +68,7 @@ export class Item {
      * @param {string} attribute
      * @return {*}
      */
-    get(attribute) {
+    get(attribute: string): any {
         if (eq(attribute, 'id')) {
             return this.getId();
         }
@@ -59,48 +77,50 @@ export class Item {
     /**
      * @return {!T}
      */
-    getNode() {
+    getNode(): T {
         return this.node;
     }
     /**
      * @return {string}
      */
-    getTagName() {
+    getTagName(): string {
         return this.node.tagName.toLowerCase();
     }
     /**
      * @return {string|null}
      */
-    getId() {
+    getId(): string | null {
         return this.node.id || null;
     }
     /**
      * @param {boolean|number|string} id
      * @return {undefined}
      */
-    setId(id) {
+    setId(id: boolean | number | string): void {
         this.node.id = id.toString();
     }
     /**
      * @param {boolean|number|string} htmlFor
      * @return {undefined}
      */
-    setFor(htmlFor) {
-        this.node.htmlFor = htmlFor.toString();
+    setFor(htmlFor: boolean | number | string): void {
+        (this.node as any as HTMLLabelElement).htmlFor = htmlFor.toString();
         this.setAttribute('for', htmlFor);
     }
     /**
      * @return {string|null}
      */
-    getFor() {
-        return (this.node.htmlFor ||
-            this.getAttribute('for'));
+    getFor(): string | null {
+        return (
+            (this.node as any as HTMLLabelElement).htmlFor ||
+            this.getAttribute('for')
+        );
     }
     /**
      * @param {string} cssClass
      * @return {boolean}
      */
-    hasClass(cssClass) {
+    hasClass(cssClass: string): boolean {
         return this.node.classList.contains(cssClass);
     }
     /**
@@ -108,13 +128,15 @@ export class Item {
      * @param {!Function} callback
      * @return {undefined}
      */
-    _handleClassList(cssClasses, callback) {
+    _handleClassList(
+        cssClasses: Array<string> | string,
+        callback: Function,
+    ): void {
         if (isArray(cssClasses)) {
-            each(cssClasses, (cssClass) => {
+            each(cssClasses as Array<string>, (cssClass) => {
                 callback(cssClass);
             });
-        }
-        else {
+        } else {
             callback(cssClasses);
         }
     }
@@ -122,7 +144,7 @@ export class Item {
      * @param {!Array|string} cssClasses
      * @return {undefined}
      */
-    addClass(cssClasses) {
+    addClass(cssClasses: Array<string> | string): void {
         this._handleClassList(cssClasses, (cssClass) => {
             if (cssClass && !this.hasClass(cssClass)) {
                 this.node.classList.add(cssClass);
@@ -133,7 +155,7 @@ export class Item {
      * @param {!Array|string} cssClasses
      * @return {undefined}
      */
-    removeClass(cssClasses) {
+    removeClass(cssClasses: Array<string> | string): void {
         this._handleClassList(cssClasses, (cssClass) => {
             this.node.classList.remove(cssClass);
         });
@@ -142,7 +164,7 @@ export class Item {
      * @param {!Array|string} cssClasses
      * @return {undefined}
      */
-    toggleClass(cssClasses) {
+    toggleClass(cssClasses: Array<string> | string): void {
         this._handleClassList(cssClasses, (cssClass) => {
             this.node.classList.toggle(cssClass);
         });
@@ -150,7 +172,7 @@ export class Item {
     /**
      * @return {!Array<string>}
      */
-    getClasses() {
+    getClasses(): Array<string> {
         return this.node.classList.value.split(' ');
     }
     /**
@@ -158,31 +180,48 @@ export class Item {
      * @param {!Object|!Function|!Array|boolean|number|string|null|undefined=} opt_value
      * @return {undefined}
      */
-    setAttribute(attribute, opt_value) {
-        const value = !contain(attribute, 'data-') && isUndefined(opt_value)
-            ? attribute
-            : opt_value;
+    setAttribute(
+        attribute: string,
+        opt_value?:
+            | (
+                  | Object
+                  | Function
+                  | Array<any>
+                  | boolean
+                  | number
+                  | string
+                  | null
+                  | undefined
+              )
+            | undefined,
+    ): void {
+        const value =
+            !contain(attribute, 'data-') && isUndefined(opt_value)
+                ? attribute
+                : opt_value;
         if (isFunction(value)) {
             this.node[attribute] = value;
-        }
-        else if (contain(attribute, 'data-') &&
+        } else if (
+            contain(attribute, 'data-') &&
             !isString(value) &&
-            !isInfinity(value)) {
+            !isInfinity(value)
+        ) {
             this.node.setAttribute(attribute, JSON.stringify(value));
-        }
-        else {
-            this.node.setAttribute(attribute, value);
+        } else {
+            this.node.setAttribute(attribute, value as string);
         }
     }
     /**
      * @param {string} attribute
      * @return {*}
      */
-    getAttribute(attribute) {
+    getAttribute(attribute: string): any {
         const data = this.node.getAttribute(attribute);
-        if (contain(attribute, 'data-') &&
+        if (
+            contain(attribute, 'data-') &&
             data &&
-            (eq(data[0], '"') || eq(data[0], '[') || eq(data[0], '{'))) {
+            (eq(data[0], '"') || eq(data[0], '[') || eq(data[0], '{'))
+        ) {
             return JSON.parse(data);
         }
         return typeCast(data);
@@ -191,14 +230,14 @@ export class Item {
      * @param {string} attribute
      * @return {undefined}
      */
-    removeAttribute(attribute) {
+    removeAttribute(attribute: string): void {
         this.node.removeAttribute(attribute);
     }
     /**
      * @param {string} attribute
      * @return {boolean}
      */
-    hasAttribute(attribute) {
+    hasAttribute(attribute: string): boolean {
         return this.node.hasAttribute(attribute);
     }
     /**
@@ -206,8 +245,8 @@ export class Item {
      * @param {!Function=} opt_callback
      * @return {!Function}
      */
-    addEventListener(eventName, opt_callback) {
-        let listener = noop();
+    addEventListener(eventName: string, opt_callback?: Function): Function {
+        let listener: any = noop();
         if (opt_callback) {
             listener = (event) => {
                 event.stopPropagation();
@@ -226,7 +265,7 @@ export class Item {
      * @param {!Function} listener
      * @return {undefined}
      */
-    _addListenerToStore(eventName, listener) {
+    _addListenerToStore(eventName: string, listener: Function): void {
         if (!this.node[this.listenerStoreKey]) {
             this.node[this.listenerStoreKey] = {};
         }
@@ -240,9 +279,11 @@ export class Item {
      * @param {string} eventName
      * @return {!Array<Listener>}
      */
-    _getListenersFromStore(eventName) {
-        if (this.node[this.listenerStoreKey] ||
-            this.node[this.listenerStoreKey][eventName]) {
+    private _getListenersFromStore(eventName: string): Array<Listener> {
+        if (
+            this.node[this.listenerStoreKey] ||
+            this.node[this.listenerStoreKey][eventName]
+        ) {
             return this.node[this.listenerStoreKey][eventName];
         }
         return [];
@@ -252,14 +293,17 @@ export class Item {
      * @param {Listener} listener
      * @return {undefined}
      */
-    removeEventListener(eventName, listener) {
+    removeEventListener(
+        eventName: keyof GlobalEventHandlersEventMap,
+        listener: Listener,
+    ): void {
         this.node.removeEventListener(eventName, listener);
     }
     /**
      * @param {string} eventName
      * @return {undefined}
      */
-    removeEventListeners(eventName) {
+    removeEventListeners(eventName: keyof GlobalEventHandlersEventMap): void {
         const listeners = this._getListenersFromStore(eventName);
         eachArray(listeners, (listener) => {
             this.removeEventListener(eventName, listener);
@@ -269,14 +313,14 @@ export class Item {
      * @param {!Event} event
      * @return {undefined}
      */
-    dispatchEvent(event) {
+    dispatchEvent(event: Event): void {
         this.node.dispatchEvent(event);
     }
     /**
      * @param {string} eventName
      * @return {undefined}
      */
-    trigger(eventName) {
+    trigger(eventName: string): void {
         // https://developer.mozilla.org/en-US/docs/Web/Guide/Events/Creating_and_triggering_events
         const event = new Event(eventName);
         this.dispatchEvent(event);
@@ -284,23 +328,25 @@ export class Item {
     /**
      * @template T
      * @param {string} tagName
-     * @return {!Item}
+     * @return {!Knot}
      */
-    createElement(tagName) {
+    createElement<K extends HTMLElement = HTMLElement>(
+        tagName: string,
+    ): Knot<K> {
         const node = document.createElement(tagName);
-        return new Item(node, this);
+        return new Knot<K>(node, this);
     }
     /**
-     * @param {!Item} node
+     * @param {!Knot} node
      * @return {undefined}
      */
-    appendChild(node) {
+    appendChild(node: Knot): void {
         this.node.appendChild(node.getNode());
     }
     /**
      * @return {undefined}
      */
-    removeChildren() {
+    removeChildren(): void {
         while (this.hasChildren()) {
             this.node.removeChild(this.node.firstChild);
         }
@@ -308,19 +354,18 @@ export class Item {
     /**
      * @return {boolean}
      */
-    hasChildren() {
+    hasChildren(): boolean {
         return this.node.hasChildNodes();
     }
     /**
-     * @param {!Item} node
+     * @param {!Knot} node
      * @return {undefined}
      */
-    removeChild(node) {
+    removeChild(node: Knot): void {
         if (this.hasChildren()) {
             try {
                 this.node.removeChild(node.getNode());
-            }
-            catch (e) {
+            } catch (e) {
                 consoleWarn(e);
             }
         }
@@ -328,26 +373,27 @@ export class Item {
     /**
      * @return {undefined}
      */
-    remove() {
+    remove(): void {
         const parentElement = this._getParentElement();
         if (!this.isEmpty() && parentElement) {
             parentElement.removeChild(this.node);
         }
     }
     /**
-     * @param {!Item} node
+     * @param {!Knot} node
      * @return {undefined}
      */
-    insert(node) {
+    insert(node: Knot): void {
         this.removeChildren();
         this.appendChild(node);
     }
     /**
-     * @param {!Item} node
+     * @param {!Knot} node
      * @return {boolean}
      */
-    beforeChild(node) {
-        const referenceNode = this.node.firstChild || this.node.firstElementChild;
+    beforeChild(node: Knot): boolean {
+        const referenceNode =
+            this.node.firstChild || this.node.firstElementChild;
         if (referenceNode) {
             this.node.insertBefore(node.getNode(), referenceNode);
             return true;
@@ -358,10 +404,10 @@ export class Item {
     }
     /**
      * @deprecated
-     * @param {!Item} node
+     * @param {!Knot} node
      * @return {boolean}
      */
-    afterChild(node) {
+    afterChild(node: Knot): boolean {
         const parentElement = this._getParentElement();
         if (parentElement) {
             parentElement.appendChild(node.getNode());
@@ -370,10 +416,10 @@ export class Item {
         return false;
     }
     /**
-     * @param {!Item} node
+     * @param {!Knot} node
      * @return {boolean}
      */
-    insertBefore(node) {
+    insertBefore(node: Knot): boolean {
         const parentElement = this._getParentElement();
         if (parentElement) {
             parentElement.insertBefore(node.getNode(), this.node);
@@ -382,24 +428,27 @@ export class Item {
         return false;
     }
     /**
-     * @param {!Item} node
+     * @param {!Knot} node
      * @return {boolean}
      */
-    insertAfter(node) {
+    insertAfter(node: Knot): boolean {
         const nextSiblingNode = this.getNextSibling();
         const parentElement = this._getParentElement();
         if (parentElement) {
-            parentElement.insertBefore(node.getNode(), nextSiblingNode.getNode());
+            parentElement.insertBefore(
+                node.getNode(),
+                nextSiblingNode.getNode(),
+            );
             return true;
         }
         return false;
     }
     /**
      * @deprecated
-     * @param {!Item} node
+     * @param {!Knot} node
      * @return {boolean}
      */
-    replaceChild(node) {
+    replaceChild(node: Knot): boolean {
         const parentElement = this._getParentElement();
         if (parentElement) {
             parentElement.replaceChild(node.getNode(), this.node);
@@ -408,24 +457,25 @@ export class Item {
         return false;
     }
     /**
-     * @return {!Item}
+     * @return {!Knot}
      */
-    getNextSibling() {
-        const referenceNode = this.node.nextSibling || this.node.nextElementSibling;
-        return new Item(referenceNode);
+    getNextSibling(): Knot {
+        const referenceNode =
+            this.node.nextSibling || this.node.nextElementSibling;
+        return new Knot(referenceNode as T);
     }
     /**
      * @param {!string} text
      * @return {undefined}
      */
-    setHtml(text) {
+    setHtml(text: string): void {
         this.node.innerHTML = text;
     }
     /**
      * @param {boolean=} opt_isInner
      * @return {string}
      */
-    getHtml(opt_isInner = false) {
+    getHtml(opt_isInner: boolean | undefined = false): string {
         if (!this.isEmpty()) {
             return opt_isInner ? this.node.innerHTML : this.node.outerHTML;
         }
@@ -435,13 +485,13 @@ export class Item {
      * @param {string} text
      * @return {undefined}
      */
-    setText(text) {
+    setText(text: string): void {
         this.node.nodeValue = text;
     }
     /**
      * @return {string}
      */
-    getText() {
+    getText(): string {
         return this.node.textContent;
     }
     /**
@@ -449,7 +499,7 @@ export class Item {
      * @param {*} value
      * @return {undefined}
      */
-    setData(name, value) {
+    setData(name: string, value: any): void {
         if (!this.isEmpty()) {
             let data = value;
             if (!isString(value) && !isInfinity(value)) {
@@ -462,10 +512,12 @@ export class Item {
      * @param {string} name
      * @return {*}
      */
-    getData(name) {
+    getData(name: string): any {
         let data = this.node.dataset[name];
-        if (data &&
-            (eq(data[0], '"') || eq(data[0], '[') || eq(data[0], '{'))) {
+        if (
+            data &&
+            (eq(data[0], '"') || eq(data[0], '[') || eq(data[0], '{'))
+        ) {
             data = JSON.parse(data);
         }
         return typeCast(data);
@@ -474,30 +526,29 @@ export class Item {
      * @param {string} name
      * @return {undefined}
      */
-    removeData(name) {
+    removeData(name: string): void {
         if (!this.isEmpty()) {
             delete this.node.dataset[name];
             this.node.removeAttribute('data-' + name);
         }
     }
     /**
-     * @return {?Item}
+     * @return {?Knot}
      */
-    getParentNode() {
+    getParentNode(): Knot | null {
         const parentElement = this._getParentElement();
         if (parentElement) {
-            return new Item(parentElement);
+            return new Knot(parentElement);
         }
         return null;
     }
     /**
      * @return {?HTMLElement}
      */
-    _getParentElement() {
+    private _getParentElement(): HTMLElement | null {
         if (this.parentNode && !this.parentNode.isEmpty()) {
             return this.parentNode.getNode();
-        }
-        else if (this.node) {
+        } else if (this.node) {
             return this.node.parentElement;
         }
         return null;
@@ -505,20 +556,20 @@ export class Item {
     /**
      * @return {?CSSStyleDeclaration}
      */
-    getComputedStyle() {
+    getComputedStyle(): CSSStyleDeclaration | null {
         return window.getComputedStyle(this.node);
     }
     /**
      * @return {!CSSStyleDeclaration}
      */
-    getStyle() {
+    getStyle(): CSSStyleDeclaration {
         return this.node.style;
     }
     /**
      * @param {!Object} properties
      * @return {undefined}
      */
-    setStyle(properties) {
+    setStyle(properties: Object): void {
         each(properties, (value, propertyName) => {
             this.node.style.setProperty(propertyName, value, '');
         });
@@ -527,7 +578,7 @@ export class Item {
      * @param {!Array} properties
      * @return {undefined}
      */
-    removeStyle(properties) {
+    removeStyle(properties: Array<any>): void {
         each(properties, (property) => {
             this.node.style.removeProperty(property);
         });
@@ -535,13 +586,13 @@ export class Item {
     /**
      * @return {boolean}
      */
-    isEmpty() {
+    isEmpty(): boolean {
         return !this.node;
     }
     /**
      * @return {boolean}
      */
-    exists() {
+    exists(): boolean {
         return document.body.contains(this.node);
     }
     /**
@@ -549,7 +600,7 @@ export class Item {
      * @param {boolean=} opt_isRoot
      * @return {string}
      */
-    toString(opt_isRoot = true) {
+    toString(opt_isRoot: boolean | undefined = true): string {
         if (opt_isRoot) {
             return this.node.outerHTML;
         }
@@ -557,12 +608,12 @@ export class Item {
     }
     /**
      * @param {boolean=} opt_deep
-     * @return {?Item}
+     * @return {?Knot}
      */
-    cloneNode(opt_deep = false) {
+    cloneNode(opt_deep: boolean | undefined = false): Knot | null {
         if (!this.isEmpty()) {
-            const cloneNode = this.node.cloneNode(opt_deep);
-            return new Item(cloneNode, this.parentNode);
+            const cloneNode = this.node.cloneNode(opt_deep) as HTMLElement;
+            return new Knot(cloneNode, this.parentNode);
         }
         return null;
     }
@@ -570,11 +621,11 @@ export class Item {
      * @deprecated
      * @return {undefined}
      */
-    clearNode() {
+    clearNode(): void {
         const cloneNode = this.cloneNode(true);
         if (cloneNode) {
             this.replaceChild(cloneNode);
-            this.node = cloneNode.getNode();
+            this.node = cloneNode.getNode() as T;
         }
     }
 }

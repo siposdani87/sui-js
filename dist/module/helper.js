@@ -1,6 +1,6 @@
 import { format } from '../utils/operation';
 import { Tooltip } from '../component/tooltip';
-import { Item } from '../core/item';
+import { Knot } from '../core/knot';
 import { Query } from '../core/query';
 import { generateId, md5 } from '../utils/coder';
 import { mdl } from '../utils/render';
@@ -15,17 +15,17 @@ export class Helper {
      * @param {string=} opt_description
      * @param {boolean=} opt_allowAccess
      * @param {!Array=} opt_cssClasses
-     * @return {!Item}
+     * @return {!Knot}
      */
     createLink(name, opt_callback, opt_href = 'javascript:void(0)', opt_description = '', opt_allowAccess = true, opt_cssClasses = ['link']) {
-        const linkNode = new Item('a');
+        const linkNode = new Knot('a');
         linkNode.setHtml(name);
         this.linkElement(linkNode, opt_callback, opt_href, opt_description, opt_allowAccess, opt_cssClasses);
         return linkNode;
     }
     /**
      * @param {string} selector
-     * @param {!Item} dom
+     * @param {!Knot} dom
      * @param {!Function=} opt_callback
      * @param {!Array=} opt_cssClasses
      * @return {undefined}
@@ -38,21 +38,21 @@ export class Helper {
     }
     /**
      * @param {string} selector
-     * @param {!Item} dom
+     * @param {!Knot} dom
      * @param {!Function=} opt_callback
      * @param {string=} opt_href
      * @param {string=} opt_description
      * @param {boolean=} opt_allowAccess
      * @param {!Array=} opt_cssClasses
-     * @return {!Item}
+     * @return {!Knot}
      */
     link(selector, dom, opt_callback, opt_href = '', opt_description = '', opt_allowAccess = true, opt_cssClasses = []) {
-        const linkNode = new Query(selector, dom).getItem();
+        const linkNode = new Query(selector, dom).getKnot();
         this.linkElement(linkNode, opt_callback, opt_href, opt_description, opt_allowAccess, opt_cssClasses);
         return linkNode;
     }
     /**
-     * @param {!Item} linkNode
+     * @param {!Knot} linkNode
      * @param {!Function=} opt_callback
      * @param {string=} opt_href
      * @param {string=} opt_description
@@ -92,17 +92,17 @@ export class Helper {
      * @param {string=} opt_description
      * @param {boolean=} opt_allowAccess
      * @param {!Array=} opt_cssClasses
-     * @return {!Item}
+     * @return {!Knot}
      */
     createButton(name, callback, opt_description = '', opt_allowAccess = true, opt_cssClasses = ['mdl-button--primary']) {
-        const buttonNode = new Item('button');
+        const buttonNode = new Knot('button');
         buttonNode.setHtml(name);
         this.buttonElement(buttonNode, callback, opt_description, opt_allowAccess, opt_cssClasses);
         return buttonNode;
     }
     /**
      * @param {string} selector
-     * @param {!Item} dom
+     * @param {!Knot} dom
      * @param {!Function=} opt_callback
      * @param {!Array=} opt_cssClasses
      * @return {undefined}
@@ -115,20 +115,20 @@ export class Helper {
     }
     /**
      * @param {string} selector
-     * @param {!Item} dom
+     * @param {!Knot} dom
      * @param {!Function} callback
      * @param {string=} opt_description
      * @param {boolean=} opt_allowAccess
      * @param {!Array=} opt_cssClasses
-     * @return {!Item}
+     * @return {!Knot}
      */
     button(selector, dom, callback, opt_description = '', opt_allowAccess = true, opt_cssClasses = ['mdl-button--primary']) {
-        const buttonNode = new Query(selector, dom).getItem();
+        const buttonNode = new Query(selector, dom).getKnot();
         this.buttonElement(buttonNode, callback, opt_description, opt_allowAccess, opt_cssClasses);
         return buttonNode;
     }
     /**
-     * @param {!Item} buttonNode
+     * @param {!Knot} buttonNode
      * @param {!Function=} opt_callback
      * @param {string=} opt_description
      * @param {boolean=} opt_allowAccess
@@ -172,21 +172,21 @@ export class Helper {
      * @param {string=} opt_description
      * @param {boolean=} opt_allowAccess
      * @param {!Array=} opt_cssClasses
-     * @return {!Item}
+     * @return {!Knot}
      */
     createIconButton(iconName, callback, opt_description = '', opt_allowAccess = true, opt_cssClasses = [
         'mdl-button--accent',
         'mdl-button--fab',
         'mdl-button--mini-fab',
     ]) {
-        const buttonNode = new Item('button');
+        const buttonNode = new Knot('button');
         this._createIconNode(iconName, buttonNode);
         this.iconButtonElement(buttonNode, callback, opt_description, opt_allowAccess, opt_cssClasses);
         return buttonNode;
     }
     /**
      * @param {string} selector
-     * @param {!Item} dom
+     * @param {!Knot} dom
      * @param {!Array=} opt_cssClasses
      * @return {undefined}
      */
@@ -202,24 +202,24 @@ export class Helper {
     }
     /**
      * @param {string} selector
-     * @param {!Item} dom
+     * @param {!Knot} dom
      * @param {!Function} callback
      * @param {string=} opt_description
      * @param {boolean=} opt_allowAccess
      * @param {!Array=} opt_cssClasses
-     * @return {!Item}
+     * @return {!Knot}
      */
     iconButton(selector, dom, callback, opt_description = '', opt_allowAccess = true, opt_cssClasses = [
         'mdl-button--accent',
         'mdl-button--fab',
         'mdl-button--mini-fab',
     ]) {
-        const buttonNode = new Query(selector, dom).getItem();
+        const buttonNode = new Query(selector, dom).getKnot();
         this.iconButtonElement(buttonNode, callback, opt_description, opt_allowAccess, opt_cssClasses);
         return buttonNode;
     }
     /**
-     * @param {!Item} buttonNode
+     * @param {!Knot} buttonNode
      * @param {!Function=} opt_callback
      * @param {string=} opt_description
      * @param {boolean=} opt_allowAccess
@@ -264,17 +264,17 @@ export class Helper {
     /**
      * @private
      * @param {string} iconName
-     * @param {!Item} parentNode
+     * @param {!Knot} parentNode
      * @return {undefined}
      */
     _createIconNode(iconName, parentNode) {
-        const iconNode = new Item('em');
+        const iconNode = new Knot('em');
         iconNode.addClass('material-icons');
         iconNode.setHtml(iconName);
         parentNode.appendChild(iconNode);
     }
     /**
-     * @param {!Item} node
+     * @param {!Knot} node
      * @param {string=} opt_description
      * @return {undefined}
      */
@@ -287,7 +287,7 @@ export class Helper {
         mdl(node);
     }
     /**
-     * @param {!Item} imageNode
+     * @param {!Knot} imageNode
      * @param {string} defaultImageUrl
      * @param {string} email
      * @param {number=} opt_size

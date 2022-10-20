@@ -1,15 +1,15 @@
 import { eq } from '../utils/operation';
 import { Objekt } from '../core/objekt';
 import { Query } from '../core/query';
-import { Item } from '../core';
+import { Knot } from '../core';
 
 /**
  * @class
  */
 export class Loader {
     options: Objekt;
-    loader: Item;
-    spinner: Item;
+    loader: Knot;
+    spinner: Knot;
     /**
      * @param {!Object=} opt_options
      */
@@ -34,7 +34,7 @@ export class Loader {
      * @return {undefined}
      */
     private _init(): void {
-        this.loader = new Query('#loader').getItem();
+        this.loader = new Query('#loader').getKnot();
 
         this.spinner = this.loader.createElement('div');
         this.spinner.addClass([

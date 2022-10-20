@@ -1,5 +1,5 @@
 import { each, isString, isUndefined, typeCast } from '../utils/operation';
-import { Item } from '../core/item';
+import { Knot } from '../core/knot';
 import { Query } from '../core/query';
 import { consoleInfo } from '../utils/log';
 
@@ -7,29 +7,29 @@ import { consoleInfo } from '../utils/log';
  * @class
  */
 export class Canvas {
-    canvasNode: Item<HTMLCanvasElement>;
+    canvasNode: Knot<HTMLCanvasElement>;
     canvasRaw: HTMLCanvasElement;
     context: CanvasRenderingContext2D;
     /**
-     * @param {!Item|string=} opt_selector
+     * @param {!Knot|string=} opt_selector
      */
-    constructor(opt_selector?: Item | string) {
+    constructor(opt_selector?: Knot | string) {
         this._init(opt_selector);
         this._initEvents();
     }
     /**
      * @private
-     * @param {!Item|string=} opt_selector
+     * @param {!Knot|string=} opt_selector
      * @return {undefined}
      */
-    private _init(opt_selector?: Item | string): void {
-        this.canvasNode = opt_selector as Item<HTMLCanvasElement>;
+    private _init(opt_selector?: Knot | string): void {
+        this.canvasNode = opt_selector as Knot<HTMLCanvasElement>;
         if (isString(opt_selector)) {
             this.canvasNode = new Query<HTMLCanvasElement>(
                 opt_selector as string,
-            ).getItem();
+            ).getKnot();
         } else if (isUndefined(opt_selector)) {
-            this.canvasNode = new Item<HTMLCanvasElement>('canvas');
+            this.canvasNode = new Knot<HTMLCanvasElement>('canvas');
         }
         this.canvasRaw = this.canvasNode.getNode();
         this.context = this.canvasRaw.getContext('2d');
@@ -155,12 +155,12 @@ export class Canvas {
         this.context.restore();
     }
     /**
-     * @param {!Item<HTMLImageElement>} image
+     * @param {!Knot<HTMLImageElement>} image
      * @param {number=} opt_width
      * @param {number=} opt_height
      */
     drawImage(
-        image: Item<HTMLImageElement>,
+        image: Knot<HTMLImageElement>,
         opt_width?: number,
         opt_height?: number,
     ) {

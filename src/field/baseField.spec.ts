@@ -5,7 +5,7 @@ describe('baseField', () => {
     it('should be instance of BaseField', () => {
         const hiddenInput = new Query<HTMLInputElement>(
             '#field-hidden',
-        ).getItem();
+        ).getKnot();
         const baseField = new BaseField(hiddenInput);
 
         expect(baseField).toBeInstanceOf(BaseField);

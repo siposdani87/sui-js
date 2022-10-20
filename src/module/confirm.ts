@@ -1,4 +1,4 @@
-import { Item } from '../core/item';
+import { Knot } from '../core/knot';
 import { Objekt } from '../core/objekt';
 import { Query } from '../core/query';
 import { BaseModal } from './baseModal';
@@ -36,13 +36,13 @@ export class Confirm extends BaseModal {
      * @return {undefined}
      */
     private _init(): void {
-        this.body = new Query('body').getItem();
-        this.modal = new Query(this.options.id).getItem();
-        this.modalWindow = new Query('#confirm-window', this.modal).getItem();
-        this.modalHeader = new Query('.modal-header', this.modal).getItem();
-        this.modalTitle = new Query('.modal-title', this.modalHeader).getItem();
-        this.modalBody = new Query('.modal-body', this.modal).getItem();
-        this.modalFooter = new Query('.modal-footer', this.modal).getItem();
+        this.body = new Query('body').getKnot();
+        this.modal = new Query(this.options.id).getKnot();
+        this.modalWindow = new Query('#confirm-window', this.modal).getKnot();
+        this.modalHeader = new Query('.modal-header', this.modal).getKnot();
+        this.modalTitle = new Query('.modal-title', this.modalHeader).getKnot();
+        this.modalBody = new Query('.modal-body', this.modal).getKnot();
+        this.modalFooter = new Query('.modal-footer', this.modal).getKnot();
     }
     /**
      * @param {string} message
@@ -84,7 +84,7 @@ export class Confirm extends BaseModal {
             if (opt_type === 'choice') {
                 cancelCssClasses.push('mdl-button--primary');
             }
-            const cancelButton = new Item('button');
+            const cancelButton = new Knot('button');
             cancelButton.setAttribute('type', 'button');
             cancelButton.setHtml(opt_cancelText);
             cancelButton.addClass(cancelCssClasses);
@@ -101,7 +101,7 @@ export class Confirm extends BaseModal {
             'mdl-js-ripple-effect',
             'mdl-button--primary',
         ];
-        const okButton = new Item('button');
+        const okButton = new Knot('button');
         okButton.setAttribute('type', 'button');
         okButton.setHtml(okText);
         okButton.addClass(okCssClasses);

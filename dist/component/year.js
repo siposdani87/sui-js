@@ -1,5 +1,5 @@
 import { Objekt } from '../core';
-import { Item } from '../core/item';
+import { Knot } from '../core/knot';
 import { DateIO } from '../utils';
 import { consoleWarn } from '../utils/log';
 /**
@@ -41,10 +41,10 @@ export class Year {
         this.cssClasses = ['year', this.options.css_class, now, current];
     }
     /**
-     * @return {!Item}
+     * @return {!Knot}
      */
     getNode() {
-        const node = new Item('span');
+        const node = new Knot('span');
         node.addClass(this.cssClasses);
         const text = DateIO.format(this.date, 'YYYY');
         node.setHtml(text);

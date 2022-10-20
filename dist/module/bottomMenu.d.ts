@@ -1,11 +1,11 @@
-import { Item } from '../core';
+import { Knot } from '../core';
 import { Footer } from './footer';
 /**
  * @class
  */
 export declare class BottomMenu {
     footer: Footer;
-    bottomMenu: Item;
+    bottomMenu: Knot;
     /**
      * @param {!Footer} footer
      */
@@ -32,7 +32,7 @@ export declare class BottomMenu {
      */
     close(): void;
     /**
-     * @return {!Item}
+     * @return {!Knot}
      */
-    getContainer(): Item;
+    getContainer(): Knot;
 }

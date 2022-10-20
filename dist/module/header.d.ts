@@ -1,18 +1,18 @@
-import { Item } from '../core';
+import { Knot } from '../core';
 import { Objekt } from '../core/objekt';
 /**
  * @class
  */
 export declare class Header {
     options: Objekt;
-    headerNode: Item;
-    leftMenuButton: Item;
-    topMenuButton: Item;
-    brandNode: Item;
-    brandNodeImage: Item;
-    brandNodeTitle: Item;
-    mainContainerNode: Item;
-    templateViewNode: Item;
+    headerNode: Knot;
+    leftMenuButton: Knot;
+    topMenuButton: Knot;
+    brandNode: Knot;
+    brandNodeImage: Knot;
+    brandNodeTitle: Knot;
+    mainContainerNode: Knot;
+    templateViewNode: Knot;
     /**
      * @param {!Object=} opt_options
      */

@@ -1,6 +1,6 @@
 import { format, typeCast } from '../utils/operation';
 import { BaseField } from './baseField';
-import { Item } from '../core/item';
+import { Knot } from '../core/knot';
 import { Query } from '../core/query';
 import { mdl } from '../utils/render';
 /**
@@ -9,10 +9,10 @@ import { mdl } from '../utils/render';
  */
 export class RadiobuttonField extends BaseField {
     /**
-     * @param {!Item} input
-     * @param {!Item} label
-     * @param {!Item} error
-     * @param {!Item} inputBlock
+     * @param {!Knot} input
+     * @param {!Knot} label
+     * @param {!Knot} error
+     * @param {!Knot} inputBlock
      * @param {!Form} form
      */
     constructor(input, label, error, inputBlock, form) {
@@ -62,13 +62,13 @@ export class RadiobuttonField extends BaseField {
         const id = this.input.getId();
         this.label.setFor(id);
         const labelText = this.label.getHtml(true);
-        const spanLabel = new Item('span');
+        const spanLabel = new Knot('span');
         spanLabel.addClass('mdl-radio__label');
         spanLabel.setHtml(labelText);
         this.input.addClass('mdl-radio__button');
         this.label.insert(this.input);
         this.label.appendChild(spanLabel);
-        this.dataLabelNode = new Item('span');
+        this.dataLabelNode = new Knot('span');
         this.dataLabelNode.addClass('field-label');
         this.label.insertBefore(this.dataLabelNode);
         this.refresh();

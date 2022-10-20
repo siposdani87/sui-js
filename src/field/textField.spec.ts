@@ -6,7 +6,7 @@ describe('textField', () => {
     it('should be instance of TextField', () => {
         const inputBlock = new Query<HTMLElement>(
             '.input-block.field-text',
-        ).getItem();
+        ).getKnot();
         const { input, label, error } = parseInputBlock(inputBlock);
         const textField = new TextField(input, label, error, inputBlock);
 
@@ -16,7 +16,7 @@ describe('textField', () => {
     it('should be instance of TextField, when type tel', () => {
         const inputBlock = new Query<HTMLElement>(
             '.input-block.field-tel',
-        ).getItem();
+        ).getKnot();
         const { input, label, error } = parseInputBlock(inputBlock);
         const textField = new TextField(input, label, error, inputBlock);
 
@@ -26,7 +26,7 @@ describe('textField', () => {
     it('should be instance of TextField, when type email', () => {
         const inputBlock = new Query<HTMLElement>(
             '.input-block.field-email',
-        ).getItem();
+        ).getKnot();
         const { input, label, error } = parseInputBlock(inputBlock);
         const textField = new TextField(input, label, error, inputBlock);
 

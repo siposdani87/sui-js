@@ -1,4 +1,4 @@
-import { Item } from '../core/item';
+import { Knot } from '../core/knot';
 import { BaseCheckboxField } from './baseCheckboxField';
 /**
  * @class
@@ -6,12 +6,12 @@ import { BaseCheckboxField } from './baseCheckboxField';
  */
 export declare class CheckboxField extends BaseCheckboxField {
     /**
-     * @param {!Item} input
-     * @param {!Item} label
-     * @param {!Item} error
-     * @param {!Item} inputBlock
+     * @param {!Knot} input
+     * @param {!Knot} label
+     * @param {!Knot} error
+     * @param {!Knot} inputBlock
      */
-    constructor(input: Item<HTMLInputElement>, label: Item, error: Item, inputBlock: Item);
+    constructor(input: Knot<HTMLInputElement>, label: Knot, error: Knot, inputBlock: Knot);
     /**
      * @override
      * @return {undefined}

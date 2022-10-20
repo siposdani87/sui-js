@@ -1,6 +1,6 @@
 import { eachArray } from '../utils/operation';
 import { Collection } from '../core/collection';
-import { Item } from '../core/item';
+import { Knot } from '../core/knot';
 import { Objekt } from '../core/objekt';
 import { generateId } from '../utils/coder';
 import { Action } from '../utils';
@@ -10,18 +10,18 @@ import { mdl } from '../utils/render';
  * @class
  */
 export class Dropdown {
-    dropdown: Item;
+    dropdown: Knot;
     options: Objekt;
     collection: Collection<Objekt>;
     actions: Action[];
     item: Object;
-    buttonNode: Item;
-    menuNode: Item;
+    buttonNode: Knot;
+    menuNode: Knot;
     /**
-     * @param {!Item} element
+     * @param {!Knot} element
      * @param {!Object=} opt_options
      */
-    constructor(element: Item, opt_options: Object | undefined = {}) {
+    constructor(element: Knot, opt_options: Object | undefined = {}) {
         this.dropdown = element;
         this._setOptions(opt_options);
         this._init();
@@ -54,7 +54,7 @@ export class Dropdown {
      * @return {undefined}
      */
     private _appendButton(): void {
-        this.buttonNode = new Item('button');
+        this.buttonNode = new Knot('button');
         this.buttonNode.setId(this.options.id);
         this.buttonNode.addClass([
             'mdl-button',
@@ -62,7 +62,7 @@ export class Dropdown {
             'mdl-button--icon',
         ]);
 
-        const iconNode = new Item('em');
+        const iconNode = new Knot('em');
         iconNode.addClass('material-icons');
         iconNode.setHtml('more_vert');
         this.buttonNode.appendChild(iconNode);
@@ -74,7 +74,7 @@ export class Dropdown {
      * @return {undefined}
      */
     private _appendMenu(): void {
-        this.menuNode = new Item('ul');
+        this.menuNode = new Knot('ul');
         this.menuNode.setFor(this.options.id);
         this.menuNode.addClass([
             'mdl-menu',
@@ -105,16 +105,16 @@ export class Dropdown {
         eachArray(this.actions, (action) => {
             const [icon, title, disabled, removed] = action.style(this.item);
             if (!removed) {
-                const menuItemNode = new Item<HTMLLIElement>('li');
-                menuItemNode.addClass('mdl-menu__item');
-                menuItemNode.setHtml(title || icon);
+                const menuKnotNode = new Knot<HTMLLIElement>('li');
+                menuKnotNode.addClass('mdl-menu__item');
+                menuKnotNode.setHtml(title || icon);
                 if (disabled) {
-                    menuItemNode.setAttribute('disabled');
+                    menuKnotNode.setAttribute('disabled');
                 }
-                menuItemNode.addEventListener('click', () => {
+                menuKnotNode.addEventListener('click', () => {
                     action.click(this.item);
                 });
-                this.menuNode.appendChild(menuItemNode);
+                this.menuNode.appendChild(menuKnotNode);
             }
         });
     }

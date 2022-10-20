@@ -21,7 +21,7 @@ custom_edit_url: null
 
 #### Defined in
 
-[module/template.ts:20](https://github.com/siposdani87/sui-js/blob/8315555/src/module/template.ts#L20)
+[module/template.ts:20](https://github.com/siposdani87/sui-js/blob/0baad71/src/module/template.ts#L20)
 
 ## Properties
 
@@ -31,7 +31,7 @@ custom_edit_url: null
 
 #### Defined in
 
-[module/template.ts:13](https://github.com/siposdani87/sui-js/blob/8315555/src/module/template.ts#L13)
+[module/template.ts:13](https://github.com/siposdani87/sui-js/blob/0baad71/src/module/template.ts#L13)
 
 ___
 
@@ -41,38 +41,38 @@ ___
 
 #### Defined in
 
-[module/template.ts:14](https://github.com/siposdani87/sui-js/blob/8315555/src/module/template.ts#L14)
+[module/template.ts:14](https://github.com/siposdani87/sui-js/blob/0baad71/src/module/template.ts#L14)
 
 ___
 
 ### viewNode
 
-• **viewNode**: [`Item`](Item.md)<`HTMLElement`\>
+• **viewNode**: [`Knot`](Knot.md)<`HTMLElement`\>
 
 #### Defined in
 
-[module/template.ts:15](https://github.com/siposdani87/sui-js/blob/8315555/src/module/template.ts#L15)
+[module/template.ts:15](https://github.com/siposdani87/sui-js/blob/0baad71/src/module/template.ts#L15)
 
 ## Methods
 
 ### \_handleData
 
-▸ `Private` **_handleData**(`data`, `error`): [`Item`](Item.md)<`HTMLElement`\>
+▸ `Private` **_handleData**(`data`, `error`): [`Knot`](Knot.md)<`HTMLElement`\>
 
 #### Parameters
 
 | Name | Type |
 | :------ | :------ |
-| `data` | [`Item`](Item.md)<`HTMLElement`\> |
+| `data` | [`Knot`](Knot.md)<`HTMLElement`\> |
 | `error` | `boolean` |
 
 #### Returns
 
-[`Item`](Item.md)<`HTMLElement`\>
+[`Knot`](Knot.md)<`HTMLElement`\>
 
 #### Defined in
 
-[module/template.ts:88](https://github.com/siposdani87/sui-js/blob/8315555/src/module/template.ts#L88)
+[module/template.ts:88](https://github.com/siposdani87/sui-js/blob/0baad71/src/module/template.ts#L88)
 
 ___
 
@@ -86,7 +86,7 @@ ___
 
 #### Defined in
 
-[module/template.ts:43](https://github.com/siposdani87/sui-js/blob/8315555/src/module/template.ts#L43)
+[module/template.ts:43](https://github.com/siposdani87/sui-js/blob/0baad71/src/module/template.ts#L43)
 
 ___
 
@@ -106,7 +106,7 @@ ___
 
 #### Defined in
 
-[module/template.ts:31](https://github.com/siposdani87/sui-js/blob/8315555/src/module/template.ts#L31)
+[module/template.ts:31](https://github.com/siposdani87/sui-js/blob/0baad71/src/module/template.ts#L31)
 
 ___
 
@@ -126,21 +126,21 @@ ___
 
 #### Defined in
 
-[module/template.ts:106](https://github.com/siposdani87/sui-js/blob/8315555/src/module/template.ts#L106)
+[module/template.ts:106](https://github.com/siposdani87/sui-js/blob/0baad71/src/module/template.ts#L106)
 
 ___
 
 ### getViewNode
 
-▸ **getViewNode**(): [`Item`](Item.md)<`HTMLElement`\>
+▸ **getViewNode**(): [`Knot`](Knot.md)<`HTMLElement`\>
 
 #### Returns
 
-[`Item`](Item.md)<`HTMLElement`\>
+[`Knot`](Knot.md)<`HTMLElement`\>
 
 #### Defined in
 
-[module/template.ts:49](https://github.com/siposdani87/sui-js/blob/8315555/src/module/template.ts#L49)
+[module/template.ts:49](https://github.com/siposdani87/sui-js/blob/0baad71/src/module/template.ts#L49)
 
 ___
 
@@ -161,4 +161,4 @@ ___
 
 #### Defined in
 
-[module/template.ts:57](https://github.com/siposdani87/sui-js/blob/8315555/src/module/template.ts#L57)
+[module/template.ts:57](https://github.com/siposdani87/sui-js/blob/0baad71/src/module/template.ts#L57)

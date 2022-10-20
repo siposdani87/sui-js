@@ -1,5 +1,5 @@
 import { Objekt } from '../core';
-import { Item } from '../core/item';
+import { Knot } from '../core/knot';
 import { DateIO } from '../utils';
 import { consoleWarn } from '../utils/log';
 
@@ -48,10 +48,10 @@ export class Day {
         this.cssClasses = ['day', this.options.css_class, now, current];
     }
     /**
-     * @return {!Item}
+     * @return {!Knot}
      */
-    getNode(): Item {
-        const node = new Item('span');
+    getNode(): Knot {
+        const node = new Knot('span');
         node.addClass(this.cssClasses);
         const text = DateIO.format(this.date, 'DD');
         node.setHtml(text);

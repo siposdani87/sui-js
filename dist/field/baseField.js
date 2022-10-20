@@ -1,5 +1,5 @@
 import { eq, typeCast } from '../utils/operation';
-import { Item } from '../core/item';
+import { Knot } from '../core/knot';
 import { Query } from '../core/query';
 import { Tooltip } from '../component/tooltip';
 import { consoleInfo, consoleWarn } from '../utils/log';
@@ -9,10 +9,10 @@ import { consoleInfo, consoleWarn } from '../utils/log';
  */
 export class BaseField {
     /**
-     * @param {!Item} input
-     * @param {!Item=} opt_label
-     * @param {!Item=} opt_error
-     * @param {!Item=} opt_inputBlock
+     * @param {!Knot} input
+     * @param {!Knot=} opt_label
+     * @param {!Knot=} opt_error
+     * @param {!Knot=} opt_inputBlock
      * @param {!Form=} opt_form
      */
     constructor(input, opt_label, opt_error, opt_inputBlock, opt_form) {
@@ -37,7 +37,7 @@ export class BaseField {
         consoleInfo('BaseField.eventChange()', value, previousValue);
     }
     /**
-     * @param {!Item} node
+     * @param {!Knot} node
      * @return {undefined}
      */
     eventClick(node) {
@@ -151,7 +151,7 @@ export class BaseField {
     }
     /**
      * @private
-     * @return {!Item}
+     * @return {!Knot}
      */
     _getUpgradedNode() {
         return this.inputBlock;
@@ -287,9 +287,9 @@ export class BaseField {
      */
     _setInfoContainer() {
         if (this.inputBlock && !this.inputBlock.isEmpty()) {
-            this.infoContainerNode = new Query('.info-container', this.inputBlock).getItem();
+            this.infoContainerNode = new Query('.info-container', this.inputBlock).getKnot();
             if (this.infoContainerNode.isEmpty()) {
-                this.infoContainerNode = new Item('div');
+                this.infoContainerNode = new Knot('div');
                 this.infoContainerNode.addClass(['info-container']);
                 this.inputBlock.appendChild(this.infoContainerNode);
             }
@@ -301,9 +301,9 @@ export class BaseField {
      */
     _setActionContainer() {
         if (this.inputBlock && !this.inputBlock.isEmpty()) {
-            this.actionContainerNode = new Query('.action-container', this.inputBlock).getItem();
+            this.actionContainerNode = new Query('.action-container', this.inputBlock).getKnot();
             if (this.actionContainerNode.isEmpty()) {
-                this.actionContainerNode = new Item('div');
+                this.actionContainerNode = new Knot('div');
                 this.actionContainerNode.addClass(['action-container']);
                 this.inputBlock.appendChild(this.actionContainerNode);
             }
@@ -311,18 +311,18 @@ export class BaseField {
     }
     /**
      * @private
-     * @param {!Item} label
+     * @param {!Knot} label
      * @return {undefined}
      */
     _setInfo(label) {
         const title = label.getAttribute('title');
         const description = label.getAttribute('desc');
         if (title || description) {
-            let infoButton = new Query('a.info-button', this.infoContainerNode).getItem();
+            let infoButton = new Query('a.info-button', this.infoContainerNode).getKnot();
             if (!infoButton.isEmpty()) {
                 infoButton.remove();
             }
-            infoButton = new Item('a');
+            infoButton = new Knot('a');
             infoButton.setAttribute('title', title || '');
             infoButton.setAttribute('desc', description || '');
             infoButton.setAttribute('href', 'javascript:void(0)');
@@ -335,7 +335,7 @@ export class BaseField {
     }
     /**
      * @protected
-     * @param {!Item|undefined} label
+     * @param {!Knot|undefined} label
      * @return {undefined}
      */
     _setAdditionalLabel(label) {

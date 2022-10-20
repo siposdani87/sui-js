@@ -16,32 +16,32 @@ custom_edit_url: null
 
 | Name | Type |
 | :------ | :------ |
-| `containerNode` | [`Item`](Item.md)<`HTMLElement`\> |
+| `containerNode` | [`Knot`](Knot.md)<`HTMLElement`\> |
 | `opt_options` | `Object` |
 
 #### Defined in
 
-[component/contentHandler.ts:15](https://github.com/siposdani87/sui-js/blob/8315555/src/component/contentHandler.ts#L15)
+[component/contentHandler.ts:15](https://github.com/siposdani87/sui-js/blob/0baad71/src/component/contentHandler.ts#L15)
 
 ## Properties
 
 ### containerNode
 
-• **containerNode**: [`Item`](Item.md)<`HTMLElement`\>
+• **containerNode**: [`Knot`](Knot.md)<`HTMLElement`\>
 
 #### Defined in
 
-[component/contentHandler.ts:8](https://github.com/siposdani87/sui-js/blob/8315555/src/component/contentHandler.ts#L8)
+[component/contentHandler.ts:8](https://github.com/siposdani87/sui-js/blob/0baad71/src/component/contentHandler.ts#L8)
 
 ___
 
 ### contentNode
 
-• **contentNode**: [`Item`](Item.md)<`HTMLElement`\>
+• **contentNode**: [`Knot`](Knot.md)<`HTMLElement`\>
 
 #### Defined in
 
-[component/contentHandler.ts:10](https://github.com/siposdani87/sui-js/blob/8315555/src/component/contentHandler.ts#L10)
+[component/contentHandler.ts:10](https://github.com/siposdani87/sui-js/blob/0baad71/src/component/contentHandler.ts#L10)
 
 ___
 
@@ -51,7 +51,7 @@ ___
 
 #### Defined in
 
-[component/contentHandler.ts:9](https://github.com/siposdani87/sui-js/blob/8315555/src/component/contentHandler.ts#L9)
+[component/contentHandler.ts:9](https://github.com/siposdani87/sui-js/blob/0baad71/src/component/contentHandler.ts#L9)
 
 ## Methods
 
@@ -65,7 +65,7 @@ ___
 
 #### Defined in
 
-[component/contentHandler.ts:37](https://github.com/siposdani87/sui-js/blob/8315555/src/component/contentHandler.ts#L37)
+[component/contentHandler.ts:37](https://github.com/siposdani87/sui-js/blob/0baad71/src/component/contentHandler.ts#L37)
 
 ___
 
@@ -85,7 +85,7 @@ ___
 
 #### Defined in
 
-[component/contentHandler.ts:25](https://github.com/siposdani87/sui-js/blob/8315555/src/component/contentHandler.ts#L25)
+[component/contentHandler.ts:25](https://github.com/siposdani87/sui-js/blob/0baad71/src/component/contentHandler.ts#L25)
 
 ___
 
@@ -99,7 +99,7 @@ ___
 
 #### Defined in
 
-[component/contentHandler.ts:65](https://github.com/siposdani87/sui-js/blob/8315555/src/component/contentHandler.ts#L65)
+[component/contentHandler.ts:65](https://github.com/siposdani87/sui-js/blob/0baad71/src/component/contentHandler.ts#L65)
 
 ___
 
@@ -113,4 +113,4 @@ ___
 
 #### Defined in
 
-[component/contentHandler.ts:58](https://github.com/siposdani87/sui-js/blob/8315555/src/component/contentHandler.ts#L58)
+[component/contentHandler.ts:58](https://github.com/siposdani87/sui-js/blob/0baad71/src/component/contentHandler.ts#L58)

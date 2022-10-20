@@ -1,16 +1,16 @@
 import { mdl } from '../utils/render';
 import { BaseField } from './baseField';
-import { Item } from '../core/item';
+import { Knot } from '../core/knot';
 /**
  * @class
  * @extends {BaseField}
  */
 export class TextareaField extends BaseField {
     /**
-     * @param {!Item} input
-     * @param {!Item} label
-     * @param {!Item} error
-     * @param {!Item} inputBlock
+     * @param {!Knot} input
+     * @param {!Knot} label
+     * @param {!Knot} error
+     * @param {!Knot} inputBlock
      */
     constructor(input, label, error, inputBlock) {
         super(input, label, error, inputBlock);
@@ -63,7 +63,7 @@ export class TextareaField extends BaseField {
         let value = this.getValue();
         value =
             value.indexOf('<p>') === 0 ? value : `<p>${value || '<br />'}</p>`;
-        this.richText = new Item('div');
+        this.richText = new Knot('div');
         this.richText.addClass([
             'mdl-textfield__input',
             'mdl-textarea__input',
@@ -113,7 +113,7 @@ export class TextareaField extends BaseField {
      * @return {undefined}
      */
     _renderToolbarButtons() {
-        this.toolbarNode = new Item('div');
+        this.toolbarNode = new Knot('div');
         this.toolbarNode.addClass('toolbar');
         this.input.insertBefore(this.toolbarNode);
         this._renderToolbarButton('undo', () => {
@@ -151,7 +151,7 @@ export class TextareaField extends BaseField {
      * @return {undefined}
      */
     _renderToolbarButton(iconName, action) {
-        const boldButtonNode = new Item('a');
+        const boldButtonNode = new Knot('a');
         boldButtonNode.setAttribute('href', 'javascript:void(0)');
         boldButtonNode.addClass('material-icons');
         boldButtonNode.setHtml(iconName);

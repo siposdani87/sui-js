@@ -1,7 +1,7 @@
 import { BaseField } from './baseField';
 import { Popup } from '../component/popup';
 import { Collection } from '../core/collection';
-import { Item } from '../core/item';
+import { Knot } from '../core/knot';
 import { Objekt } from '../core/objekt';
 /**
  * @class
@@ -10,21 +10,21 @@ import { Objekt } from '../core/objekt';
 export declare class SelectField extends BaseField<HTMLInputElement> {
     query: string;
     ids: string[];
-    containerNode: Item;
-    listNode: Item;
+    containerNode: Knot;
+    listNode: Knot;
     popup: Popup;
     options: Collection<Objekt>;
-    iconNode: Item;
-    selectContainerNode: Item;
-    selectNode: Item;
-    searchInputNode: Item<HTMLInputElement>;
+    iconNode: Knot;
+    selectContainerNode: Knot;
+    selectNode: Knot;
+    searchInputNode: Knot<HTMLInputElement>;
     /**
-     * @param {!Item} input
-     * @param {!Item} label
-     * @param {!Item} error
-     * @param {!Item} inputBlock
+     * @param {!Knot} input
+     * @param {!Knot} label
+     * @param {!Knot} error
+     * @param {!Knot} inputBlock
      */
-    constructor(input: Item<HTMLInputElement>, label: Item, error: Item, inputBlock: Item);
+    constructor(input: Knot<HTMLInputElement>, label: Knot, error: Knot, inputBlock: Knot);
     /**
      * @private
      * @return {undefined}
@@ -142,7 +142,7 @@ export declare class SelectField extends BaseField<HTMLInputElement> {
      * @param {!Array} items
      * @return {undefined}
      */
-    private _drawItems;
+    private _drawKnots;
     /**
      * @private
      * @return {undefined}

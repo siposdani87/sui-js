@@ -34,10 +34,10 @@ export class Template {
      * @return {undefined}
      */
     _init() {
-        this.viewNode = new Query(this.options.selector).getItem();
+        this.viewNode = new Query(this.options.selector).getKnot();
     }
     /**
-     * @return {!Item}
+     * @return {!Knot}
      */
     getViewNode() {
         return this.viewNode;
@@ -55,7 +55,7 @@ export class Template {
             contain(this.options.locale, locale) &&
             contain(url, templateUrl)) {
             this.viewNode.removeAttribute('data-locale');
-            const node = new Query('.page-content', this.viewNode).getItem();
+            const node = new Query('.page-content', this.viewNode).getKnot();
             deferred.resolve(node);
         }
         else {
@@ -70,17 +70,17 @@ export class Template {
     }
     /**
      * @private
-     * @param {!Item} data
+     * @param {!Knot} data
      * @param {boolean} error
-     * @return {!Item}
+     * @return {!Knot}
      */
     _handleData(data, error) {
-        const node = new Query('.page-content', data).getItem();
+        const node = new Query('.page-content', data).getKnot();
         if (error) {
-            const messageItem = new Query('.message', node).getItem();
+            const messageKnot = new Query('.message', node).getKnot();
             const message = {
-                content: messageItem.getText(),
-                type: messageItem.getAttribute('class').split(' ')[1],
+                content: messageKnot.getText(),
+                type: messageKnot.getAttribute('class').split(' ')[1],
             };
             this.eventError(message);
         }

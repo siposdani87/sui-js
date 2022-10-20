@@ -1,14 +1,14 @@
-import { Item } from '../core';
+import { Knot } from '../core';
 import { Objekt } from '../core/objekt';
 /**
  * @class
  */
 export declare class Footer {
     options: Objekt;
-    footerNode: Item;
-    templateViewNode: Item;
-    contentNode: Item;
-    localesNode: Item;
+    footerNode: Knot;
+    templateViewNode: Knot;
+    contentNode: Knot;
+    localesNode: Knot;
     /**
      * @param {!Object=} opt_options
      */
@@ -33,14 +33,14 @@ export declare class Footer {
      */
     hide(): void;
     /**
-     * @param {!Item} contentNode
+     * @param {!Knot} contentNode
      * @return {undefined}
      */
-    setContent(contentNode: Item): void;
+    setContent(contentNode: Knot): void;
     /**
-     * @return {!Item}
+     * @return {!Knot}
      */
-    getLocalesContainer(): Item;
+    getLocalesContainer(): Knot;
     /**
      * @return {undefined}
      */

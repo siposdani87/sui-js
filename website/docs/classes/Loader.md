@@ -20,17 +20,17 @@ custom_edit_url: null
 
 #### Defined in
 
-[module/loader.ts:16](https://github.com/siposdani87/sui-js/blob/8315555/src/module/loader.ts#L16)
+[module/loader.ts:16](https://github.com/siposdani87/sui-js/blob/0baad71/src/module/loader.ts#L16)
 
 ## Properties
 
 ### loader
 
-• **loader**: [`Item`](Item.md)<`HTMLElement`\>
+• **loader**: [`Knot`](Knot.md)<`HTMLElement`\>
 
 #### Defined in
 
-[module/loader.ts:11](https://github.com/siposdani87/sui-js/blob/8315555/src/module/loader.ts#L11)
+[module/loader.ts:11](https://github.com/siposdani87/sui-js/blob/0baad71/src/module/loader.ts#L11)
 
 ___
 
@@ -40,17 +40,17 @@ ___
 
 #### Defined in
 
-[module/loader.ts:10](https://github.com/siposdani87/sui-js/blob/8315555/src/module/loader.ts#L10)
+[module/loader.ts:10](https://github.com/siposdani87/sui-js/blob/0baad71/src/module/loader.ts#L10)
 
 ___
 
 ### spinner
 
-• **spinner**: [`Item`](Item.md)<`HTMLElement`\>
+• **spinner**: [`Knot`](Knot.md)<`HTMLElement`\>
 
 #### Defined in
 
-[module/loader.ts:12](https://github.com/siposdani87/sui-js/blob/8315555/src/module/loader.ts#L12)
+[module/loader.ts:12](https://github.com/siposdani87/sui-js/blob/0baad71/src/module/loader.ts#L12)
 
 ## Methods
 
@@ -64,7 +64,7 @@ ___
 
 #### Defined in
 
-[module/loader.ts:36](https://github.com/siposdani87/sui-js/blob/8315555/src/module/loader.ts#L36)
+[module/loader.ts:36](https://github.com/siposdani87/sui-js/blob/0baad71/src/module/loader.ts#L36)
 
 ___
 
@@ -84,7 +84,7 @@ ___
 
 #### Defined in
 
-[module/loader.ts:25](https://github.com/siposdani87/sui-js/blob/8315555/src/module/loader.ts#L25)
+[module/loader.ts:25](https://github.com/siposdani87/sui-js/blob/0baad71/src/module/loader.ts#L25)
 
 ___
 
@@ -104,7 +104,7 @@ ___
 
 #### Defined in
 
-[module/loader.ts:60](https://github.com/siposdani87/sui-js/blob/8315555/src/module/loader.ts#L60)
+[module/loader.ts:60](https://github.com/siposdani87/sui-js/blob/0baad71/src/module/loader.ts#L60)
 
 ___
 
@@ -118,4 +118,4 @@ ___
 
 #### Defined in
 
-[module/loader.ts:51](https://github.com/siposdani87/sui-js/blob/8315555/src/module/loader.ts#L51)
+[module/loader.ts:51](https://github.com/siposdani87/sui-js/blob/0baad71/src/module/loader.ts#L51)

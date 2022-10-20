@@ -2,14 +2,14 @@ import { eq, format, isFunction, isObject, noop } from '../utils/operation';
 import { Objekt } from '../core/objekt';
 import { Query } from '../core/query';
 import { generateId } from '../utils/coder';
-import { Item } from '../core';
+import { Knot } from '../core';
 import { mdl } from '../utils/render';
 
 /**
  * @class
  */
 export class Flash {
-    container: Item;
+    container: Knot;
     options: Objekt;
     /**
      * @param {!Object=} opt_options
@@ -23,7 +23,7 @@ export class Flash {
      * @return {undefined}
      */
     private _init(): void {
-        this.container = new Query(this.options.id).getItem();
+        this.container = new Query(this.options.id).getKnot();
     }
     /**
      * @private
@@ -45,7 +45,7 @@ export class Flash {
      * @param {number=} opt_duration
      * @param {?Function=} opt_closeCallback
      * @param {string=} opt_id
-     * @return {!Item}
+     * @return {!Knot}
      */
     _getFlashNode(
         type: string,
@@ -53,7 +53,7 @@ export class Flash {
         opt_duration: number | undefined = 0,
         opt_closeCallback: (Function | null) | undefined = null,
         opt_id: string | undefined = '',
-    ): Item {
+    ): Knot {
         const flashNode = this.container.createElement('div');
         flashNode.setAttribute('data-id', opt_id || generateId('flash'));
         flashNode.addClass(['flash', type]);
@@ -71,14 +71,14 @@ export class Flash {
         return flashNode;
     }
     /**
-     * @param {!Item} flashNode
+     * @param {!Knot} flashNode
      * @param {?Function=} opt_closeCallback
-     * @return {!Item}
+     * @return {!Knot}
      */
     private _getCloseButton(
-        flashNode: Item,
+        flashNode: Knot,
         opt_closeCallback: (Function | null) | undefined = null,
-    ): Item {
+    ): Knot {
         const buttonNode = flashNode.createElement('button');
         buttonNode.addClass([
             'mdl-button',
@@ -106,7 +106,7 @@ export class Flash {
      * @param {number=} opt_duration
      * @param {?Function=} opt_closeCallback
      * @param {string=} opt_id
-     * @return {!Item}
+     * @return {!Knot}
      */
     _add(
         type: string,
@@ -114,7 +114,7 @@ export class Flash {
         opt_duration: number | undefined = 0,
         opt_closeCallback: (Function | null) | undefined = null,
         opt_id: string | undefined = '',
-    ): Item {
+    ): Knot {
         this.removeById(opt_id);
         const flashNode = this._getFlashNode(
             type,
@@ -165,12 +165,12 @@ export class Flash {
         );
     }
     /**
-     * @param {!Item} flash
+     * @param {!Knot} flash
      * @param {?Function=} opt_closeCallback
      * @return {undefined}
      */
     remove(
-        flash: Item,
+        flash: Knot,
         opt_closeCallback: (Function | null) | undefined = null,
     ): void {
         if (isFunction(opt_closeCallback)) {
@@ -183,14 +183,14 @@ export class Flash {
      * @param {number=} opt_duration
      * @param {?Function=} opt_closeCallback
      * @param {string=} opt_id
-     * @return {!Item}
+     * @return {!Knot}
      */
     addSuccess(
         message: string,
         opt_duration: number | undefined = 0,
         opt_closeCallback: (Function | null) | undefined = null,
         opt_id: string | undefined = '',
-    ): Item {
+    ): Knot {
         return this._add(
             'success',
             message,
@@ -204,14 +204,14 @@ export class Flash {
      * @param {number=} opt_duration
      * @param {?Function=} opt_closeCallback
      * @param {string=} opt_id
-     * @return {!Item}
+     * @return {!Knot}
      */
     addInfo(
         message: string,
         opt_duration: number | undefined = 0,
         opt_closeCallback: (Function | null) | undefined = null,
         opt_id: string | undefined = '',
-    ): Item {
+    ): Knot {
         return this._add(
             'info',
             message,
@@ -225,14 +225,14 @@ export class Flash {
      * @param {number=} opt_duration
      * @param {?Function=} opt_closeCallback
      * @param {string=} opt_id
-     * @return {!Item}
+     * @return {!Knot}
      */
     addWarning(
         message: string,
         opt_duration: number | undefined = 0,
         opt_closeCallback: (Function | null) | undefined = null,
         opt_id: string | undefined = '',
-    ): Item {
+    ): Knot {
         return this._add(
             'warning',
             message,
@@ -246,14 +246,14 @@ export class Flash {
      * @param {number=} opt_duration
      * @param {?Function=} opt_closeCallback
      * @param {string=} opt_id
-     * @return {!Item}
+     * @return {!Knot}
      */
     addError(
         message: string,
         opt_duration: number | undefined = 0,
         opt_closeCallback: (Function | null) | undefined = null,
         opt_id: string | undefined = '',
-    ): Item {
+    ): Knot {
         return this._add(
             'error',
             message,
@@ -267,14 +267,14 @@ export class Flash {
      * @param {number=} opt_duration
      * @param {?Function=} opt_closeCallback
      * @param {string=} opt_id
-     * @return {!Item|null}
+     * @return {!Knot|null}
      */
     addMessage(
         message: { type: string; content: string; closable: boolean },
         opt_duration: number | undefined = 0,
         opt_closeCallback: (Function | null) | undefined = null,
         opt_id: string | undefined = '',
-    ): Item | null {
+    ): Knot | null {
         if (isObject(message)) {
             const closeCallback = message['closable']
                 ? noop
@@ -294,14 +294,14 @@ export class Flash {
      * @param {number=} opt_duration
      * @param {?Function=} opt_closeCallback
      * @param {string=} opt_id
-     * @return {!Item}
+     * @return {!Knot}
      */
     addDefault(
         message: string,
         opt_duration: number | undefined = 0,
         opt_closeCallback: (Function | null) | undefined = null,
         opt_id: string | undefined = '',
-    ): Item {
+    ): Knot {
         return this._add(
             'default',
             message,

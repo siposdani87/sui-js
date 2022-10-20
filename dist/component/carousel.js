@@ -5,12 +5,12 @@ import { Query } from '../core/query';
  */
 export class Carousel {
     /**
-     * @param {!Item} dom
+     * @param {!Knot} dom
      * @param {string=} opt_selector
      * @param {!Object=} opt_options
      */
     constructor(dom, opt_selector = '.carousel', opt_options = {}) {
-        this.carouselNode = new Query(opt_selector, dom).getItem();
+        this.carouselNode = new Query(opt_selector, dom).getKnot();
         this._setOptions(opt_options);
         this._init();
     }

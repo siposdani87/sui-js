@@ -1,27 +1,27 @@
-import { Item } from './item';
+import { Knot } from './knot';
 
 describe('item', () => {
-    it('should be instance of Item', () => {
-        const item = new Item('<span>sample</span>');
+    it('should be instance of Knot', () => {
+        const knot = new Knot('<span>sample</span>');
 
-        expect(item).toBeInstanceOf(Item);
+        expect(knot).toBeInstanceOf(Knot);
     });
 
     it('attribute', () => {
-        const node = new Item('div');
+        const knot = new Knot('div');
 
         const values = ['text', null, true, false, Infinity, 0, 1, 10];
 
         for (const element of values) {
-            node.setAttribute('data', element);
-            const value = node.getAttribute('data');
+            knot.setAttribute('data', element);
+            const value = knot.getAttribute('data');
 
             expect(value).toBe(element);
         }
     });
 
     it('data-attribute', () => {
-        const node = new Item('div');
+        const knot = new Knot('div');
 
         const values = [
             '',
@@ -39,16 +39,16 @@ describe('item', () => {
         ];
 
         for (const element of values) {
-            node.setAttribute('data-value', element);
-            const value = node.getAttribute('data-value');
+            knot.setAttribute('data-value', element);
+            const value = knot.getAttribute('data-value');
 
             expect(value).toEqual(element);
         }
-        node.removeAttribute('data-value');
+        knot.removeAttribute('data-value');
     });
 
     it('data', () => {
-        const node = new Item('div');
+        const knot = new Knot('div');
 
         const values = [
             '',
@@ -66,11 +66,11 @@ describe('item', () => {
         ];
 
         for (const element of values) {
-            node.setData('value', element);
-            const value = node.getData('value');
+            knot.setData('value', element);
+            const value = knot.getData('value');
 
             expect(value).toEqual(element);
         }
-        node.removeData('value');
+        knot.removeData('value');
     });
 });

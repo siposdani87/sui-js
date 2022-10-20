@@ -1,7 +1,7 @@
 import { BaseField } from './baseField';
 import { Tooltip } from '../component/tooltip';
 // import { Query } from '../core/query';
-import { Item } from '../core';
+import { Knot } from '../core';
 import { mdl } from '../utils/render';
 
 /**
@@ -11,16 +11,16 @@ import { mdl } from '../utils/render';
 export class RangeField extends BaseField<HTMLInputElement> {
     tooltip: Tooltip;
     /**
-     * @param {!Item} input
-     * @param {!Item} label
-     * @param {!Item} error
-     * @param {!Item} inputBlock
+     * @param {!Knot} input
+     * @param {!Knot} label
+     * @param {!Knot} error
+     * @param {!Knot} inputBlock
      */
     constructor(
-        input: Item<HTMLInputElement>,
-        label: Item,
-        error: Item,
-        inputBlock: Item,
+        input: Knot<HTMLInputElement>,
+        label: Knot,
+        error: Knot,
+        inputBlock: Knot,
     ) {
         super(input, label, error, inputBlock);
         this._init();
@@ -78,7 +78,7 @@ export class RangeField extends BaseField<HTMLInputElement> {
         /* const containerNode = new Query(
             '.mdl-slider__container',
             this.inputBlock,
-        ).getItem(); */
+        ).getKnot(); */
         const value = this.getValue();
         this.tooltip = new Tooltip(this.inputBlock);
         this.tooltip.render(value);

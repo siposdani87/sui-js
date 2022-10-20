@@ -10,11 +10,11 @@ import { consoleWarn } from '../utils/log';
  */
 export class Form extends Collection {
     /**
-     * @param {!Item} dom
+     * @param {!Knot} dom
      * @param {string=} opt_selector
      */
     constructor(dom, opt_selector = 'form') {
-        const formNode = new Query(opt_selector, dom).getItem();
+        const formNode = new Query(opt_selector, dom).getKnot();
         formNode.setAttribute('novalidate');
         super([], FormField, {
             parent: formNode,
@@ -284,7 +284,7 @@ export class Form extends Collection {
     }
     /**
      * @param {!Objekt} model
-     * @param {!Item} node
+     * @param {!Knot} node
      * @return {undefined}
      */
     eventSubmit(model, node) {
@@ -292,7 +292,7 @@ export class Form extends Collection {
     }
     /**
      * @param {!Objekt} model
-     * @param {!Item} node
+     * @param {!Knot} node
      * @return {undefined}
      */
     eventReset(model, node) {
@@ -300,7 +300,7 @@ export class Form extends Collection {
     }
     /**
      * @param {!Objekt} model
-     * @param {!Item} node
+     * @param {!Knot} node
      * @return {undefined}
      */
     eventButton(model, node) {

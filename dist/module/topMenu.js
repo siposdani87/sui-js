@@ -15,8 +15,8 @@ export class TopMenu {
      * @return {undefined}
      */
     _init() {
-        this.topMenu = new Query('#top-menu', this.header.headerNode).getItem();
-        this.toggleTopMenu = new Query('#toggle-top-menu', this.header.headerNode).getItem();
+        this.topMenu = new Query('#top-menu', this.header.headerNode).getKnot();
+        this.toggleTopMenu = new Query('#toggle-top-menu', this.header.headerNode).getKnot();
         this.toggleTopMenu.setAttribute('href', 'javascript:void(0)');
         this.toggleTopMenu.addEventListener('click', () => {
             this.toggle();
@@ -58,7 +58,7 @@ export class TopMenu {
         this.header.hideShadow();
     }
     /**
-     * @return {!Item}
+     * @return {!Knot}
      */
     getContainer() {
         return this.topMenu;

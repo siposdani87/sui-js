@@ -3,7 +3,7 @@ import { BaseField } from './baseField';
 import { Canvas } from '../component/canvas';
 import { Popup } from '../component/popup';
 import { Tooltip } from '../component/tooltip';
-import { Item } from '../core/item';
+import { Knot } from '../core/knot';
 import { Query } from '../core/query';
 import { convertRGBToHEX } from '../utils/color';
 
@@ -13,23 +13,23 @@ import { convertRGBToHEX } from '../utils/color';
  */
 export class ColorField extends BaseField<HTMLInputElement> {
     tooltip: Tooltip;
-    previewNode: Item;
-    colorNode: Item;
+    previewNode: Knot;
+    colorNode: Knot;
     popup: Popup;
     canvas: Canvas;
-    image: Item<HTMLImageElement>;
+    image: Knot<HTMLImageElement>;
     colors: string[][];
     /**
-     * @param {!Item} input
-     * @param {!Item} label
-     * @param {!Item} error
-     * @param {!Item} inputBlock
+     * @param {!Knot} input
+     * @param {!Knot} label
+     * @param {!Knot} error
+     * @param {!Knot} inputBlock
      */
     constructor(
-        input: Item<HTMLInputElement>,
-        label: Item,
-        error: Item,
-        inputBlock: Item,
+        input: Knot<HTMLInputElement>,
+        label: Knot,
+        error: Knot,
+        inputBlock: Knot,
     ) {
         super(input, label, error, inputBlock);
         this._init();
@@ -95,11 +95,11 @@ export class ColorField extends BaseField<HTMLInputElement> {
      * @return {undefined}
      */
     private _initPreview(): void {
-        this.previewNode = new Item('div');
+        this.previewNode = new Knot('div');
         this.previewNode.addClass('preview');
         this.inputBlock.beforeChild(this.previewNode);
 
-        this.colorNode = new Item('div');
+        this.colorNode = new Knot('div');
         this.colorNode.addClass('color');
         this.previewNode.appendChild(this.colorNode);
 
@@ -154,7 +154,7 @@ export class ColorField extends BaseField<HTMLInputElement> {
         this.image = new Query<HTMLImageElement>(
             'img',
             this.inputBlock,
-        ).getItem();
+        ).getKnot();
         if (!this.image.isEmpty()) {
             this.image.addClass('hidden');
         }

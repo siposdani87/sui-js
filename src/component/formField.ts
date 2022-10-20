@@ -21,18 +21,18 @@ import { NumberField } from '../field/numberField';
 import { LocationField } from '../field/locationField';
 import { TextField } from '../field/textField';
 import { BaseField } from '../field/baseField';
-import { Item } from '../core/item';
+import { Knot } from '../core/knot';
 import { Form } from './form';
 
 /**
  * @constructor
  * @this {FormField}
- * @param {!Item} inputBlock
+ * @param {!Knot} inputBlock
  * @param {!Form} form
  * @return {?BaseField}
  */
 export const FormField = function (
-    inputBlock: Item<HTMLInputElement | HTMLElement>,
+    inputBlock: Knot<HTMLInputElement | HTMLElement>,
     form: Form,
 ): BaseField<HTMLInputElement> | null {
     const { input, label, error } = parseInputBlock(inputBlock);
@@ -41,17 +41,17 @@ export const FormField = function (
 };
 
 /**
- * @param {!Item} inputBlock
- * @return {{input: Item, label: Item, error: Item}}
+ * @param {!Knot} inputBlock
+ * @return {{input: Knot, label: Knot, error: Knot}}
  */
 export const parseInputBlock = (
-    inputBlock: Item<HTMLInputElement | HTMLElement>,
+    inputBlock: Knot<HTMLInputElement | HTMLElement>,
 ): {
-    input: Item<HTMLInputElement>;
-    label: Item;
-    error: Item;
+    input: Knot<HTMLInputElement>;
+    label: Knot;
+    error: Knot;
 } => {
-    let input: Item<any> = inputBlock;
+    let input: Knot<any> = inputBlock;
     let label = null;
     let error = null;
 
@@ -63,7 +63,7 @@ export const parseInputBlock = (
         (eq(tagName, 'input') || eq(tagName, 'button')) &&
         !inArray(['hidden', 'reset', 'submit', 'button'], tagType)
     ) {
-        inputBlock = inputBlock.getParentNode() as Item<any>;
+        inputBlock = inputBlock.getParentNode() as Knot<any>;
     }
 
     tagName = inputBlock.getTagName();
@@ -75,7 +75,7 @@ export const parseInputBlock = (
 
         input = inputs[inputs.length - 1];
 
-        label = new Query('label', inputBlock).getItem();
+        label = new Query('label', inputBlock).getKnot();
 
         error = inputBlock.createElement('span');
         error.addClass(['mdl-textfield__error', 'text-truncate']);
@@ -92,18 +92,18 @@ export const parseInputBlock = (
 };
 
 /**
- * @param {!Item} input
- * @param {?Item} label
- * @param {?Item} error
- * @param {!Item} inputBlock
+ * @param {!Knot} input
+ * @param {?Knot} label
+ * @param {?Knot} error
+ * @param {!Knot} inputBlock
  * @param {!Form} form
  * @return {?BaseField}
  */
 const _convertToField = (
-    input: Item<HTMLInputElement>,
-    label: Item | null,
-    error: Item | null,
-    inputBlock: Item,
+    input: Knot<HTMLInputElement>,
+    label: Knot | null,
+    error: Knot | null,
+    inputBlock: Knot,
     form: Form,
 ): BaseField<HTMLInputElement> | null => {
     input.addClass('init-field');

@@ -1,7 +1,7 @@
 import { BaseField } from './baseField';
 import { Popup } from '../component/popup';
 import { DateTime } from '../component/dateTime';
-import { Item } from '../core/item';
+import { Knot } from '../core/knot';
 import { Query } from '../core/query';
 import { DateIO } from '../utils';
 /**
@@ -10,10 +10,10 @@ import { DateIO } from '../utils';
  */
 export class DateTimeRangeField extends BaseField {
     /**
-     * @param {!Item} input
-     * @param {!Item} label
-     * @param {!Item} error
-     * @param {!Item} inputBlock
+     * @param {!Knot} input
+     * @param {!Knot} label
+     * @param {!Knot} error
+     * @param {!Knot} inputBlock
      * @param {boolean} isStartInput
      */
     constructor(input, label, error, inputBlock, isStartInput) {
@@ -28,13 +28,13 @@ export class DateTimeRangeField extends BaseField {
     _init() {
         this.inputBlock.addClass('datetime-range-field');
         this.input.addClass('hidden');
-        this.datetimeContainer = new Query('.datetime-container', this.inputBlock).getItem();
+        this.datetimeContainer = new Query('.datetime-container', this.inputBlock).getKnot();
         if (this.isStartInput) {
-            this.datetimeContainer = new Item('div');
+            this.datetimeContainer = new Knot('div');
             this.datetimeContainer.addClass('datetime-container');
             this.input.insertAfter(this.datetimeContainer);
         }
-        this.datetimeInput = new Item('div');
+        this.datetimeInput = new Knot('div');
         this.datetimeInput.addClass('datetime-input');
         this.datetimeInput.addEventListener('click', this._onClick.bind(this));
         this.datetimeContainer.appendChild(this.datetimeInput);
@@ -53,7 +53,7 @@ export class DateTimeRangeField extends BaseField {
         });
         const type = this.input.getAttribute('type');
         const value = this.getValue().toString();
-        this.datetimeNode = new Item('div');
+        this.datetimeNode = new Knot('div');
         this.datetime = new DateTime(this.datetimeNode, {
             value: value,
             type: type,
@@ -78,7 +78,7 @@ export class DateTimeRangeField extends BaseField {
         if (this.label && this.label.exists()) {
             this.label.addClass('field-label');
         }
-        const iconNode = new Item('a');
+        const iconNode = new Knot('a');
         iconNode.setAttribute('href', 'javascript:void(0)');
         iconNode.addClass(['material-icons', 'size-24', 'expander']);
         if (this.isStartInput) {
@@ -125,12 +125,12 @@ export class DateTimeRangeField extends BaseField {
         if (value) {
             const date = DateIO.parse(value, this.datetime.getConfig().format);
             const formattedValue = DateIO.format(date, this.format);
-            const tagNode = new Item('div');
+            const tagNode = new Knot('div');
             tagNode.addClass('field-tag');
             tagNode.setHtml(formattedValue);
             this.datetimeInput.appendChild(tagNode);
             if (this.isEnabled()) {
-                const iconNode = new Item('a');
+                const iconNode = new Knot('a');
                 iconNode.setAttribute('href', 'javascript:void(0)');
                 iconNode.addClass(['material-icons', 'size-18', 'close']);
                 iconNode.setHtml('close');

@@ -1,12 +1,12 @@
 import { Objekt } from '../core';
-import { Item } from '../core/item';
+import { Knot } from '../core/knot';
 import { consoleWarn } from '../utils/log';
 /**
  * @class
  */
 export class Time {
     /**
-     * @param {!Item} node
+     * @param {!Knot} node
      * @param {!Object} options
      */
     constructor(node, options) {
@@ -35,7 +35,7 @@ export class Time {
      * @return {undefined}
      */
     _initCircleNode() {
-        const circleNode = new Item('div');
+        const circleNode = new Knot('div');
         circleNode.addClass('circle');
         this.timeNode.appendChild(circleNode);
         const circleNodeStyle = window.getComputedStyle(circleNode.getNode());
@@ -64,10 +64,10 @@ export class Time {
      * @return {undefined}
      */
     _initPointerNode() {
-        const centerPointNode = new Item('div');
+        const centerPointNode = new Knot('div');
         centerPointNode.addClass('center-point');
         this.timeNode.appendChild(centerPointNode);
-        this.pointerNode = new Item('div');
+        this.pointerNode = new Knot('div');
         this.pointerNode.addClass('pointer');
         this.timeNode.appendChild(this.pointerNode);
     }
@@ -92,7 +92,7 @@ export class Time {
     _drawCircles(start, n, opt_j = 1, opt_isClockWise = true) {
         let k = 0;
         for (let i = start; i <= n; i++) {
-            const circle = new Item('div');
+            const circle = new Knot('div');
             this.timeNode.appendChild(circle);
             if (i % opt_j === 0) {
                 const text = this.options.captions && this.options.captions[k]
@@ -107,7 +107,7 @@ export class Time {
     }
     /**
      * @private
-     * @param {!Item} circle
+     * @param {!Knot} circle
      * @param {number} i
      * @return {undefined}
      */
@@ -120,7 +120,7 @@ export class Time {
     }
     /**
      * @private
-     * @param {!Item} circle
+     * @param {!Knot} circle
      * @param {number} start
      * @param {number} n
      * @param {number} i

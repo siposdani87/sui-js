@@ -1,4 +1,4 @@
-import { Item } from '../core';
+import { Knot } from '../core';
 import { Objekt } from '../core/objekt';
 import { Query } from '../core/query';
 
@@ -7,10 +7,10 @@ import { Query } from '../core/query';
  */
 export class Footer {
     options: Objekt;
-    footerNode: Item;
-    templateViewNode: Item;
-    contentNode: Item;
-    localesNode: Item;
+    footerNode: Knot;
+    templateViewNode: Knot;
+    contentNode: Knot;
+    localesNode: Knot;
     /**
      * @param {!Object=} opt_options
      */
@@ -33,10 +33,10 @@ export class Footer {
      * @return {undefined}
      */
     private _init(): void {
-        this.footerNode = new Query('#footer').getItem();
-        this.templateViewNode = new Query('.template-view').getItem();
-        this.contentNode = new Query('.content', this.footerNode).getItem();
-        this.localesNode = new Query('.locales', this.footerNode).getItem();
+        this.footerNode = new Query('#footer').getKnot();
+        this.templateViewNode = new Query('.template-view').getKnot();
+        this.contentNode = new Query('.content', this.footerNode).getKnot();
+        this.localesNode = new Query('.locales', this.footerNode).getKnot();
     }
     /**
      * @return {undefined}
@@ -46,7 +46,7 @@ export class Footer {
         const contentNode = new Query(
             '.page-content.fullscreen',
             this.templateViewNode,
-        ).getItem();
+        ).getKnot();
         if (contentNode && !contentNode.isEmpty()) {
             const isLightContent = contentNode.hasClass('light');
             if (isLightContent) {
@@ -67,16 +67,16 @@ export class Footer {
         this.templateViewNode.removeClass('has-footer');
     }
     /**
-     * @param {!Item} contentNode
+     * @param {!Knot} contentNode
      * @return {undefined}
      */
-    setContent(contentNode: Item): void {
+    setContent(contentNode: Knot): void {
         this.contentNode.appendChild(contentNode);
     }
     /**
-     * @return {!Item}
+     * @return {!Knot}
      */
-    getLocalesContainer(): Item {
+    getLocalesContainer(): Knot {
         return this.localesNode;
     }
     /**

@@ -1,4 +1,4 @@
-import { Item } from '../core/item';
+import { Knot } from '../core/knot';
 /**
  * @class
  */
@@ -10,30 +10,30 @@ export declare class Helper {
      * @param {string=} opt_description
      * @param {boolean=} opt_allowAccess
      * @param {!Array=} opt_cssClasses
-     * @return {!Item}
+     * @return {!Knot}
      */
-    createLink(name: string, opt_callback: Function | undefined, opt_href?: string | undefined, opt_description?: string | undefined, opt_allowAccess?: boolean | undefined, opt_cssClasses?: string[] | undefined): Item;
+    createLink(name: string, opt_callback: Function | undefined, opt_href?: string | undefined, opt_description?: string | undefined, opt_allowAccess?: boolean | undefined, opt_cssClasses?: string[] | undefined): Knot;
     /**
      * @param {string} selector
-     * @param {!Item} dom
+     * @param {!Knot} dom
      * @param {!Function=} opt_callback
      * @param {!Array=} opt_cssClasses
      * @return {undefined}
      */
-    multipleLink(selector: string, dom: Item, opt_callback: Function | undefined, opt_cssClasses?: string[] | undefined): void;
+    multipleLink(selector: string, dom: Knot, opt_callback: Function | undefined, opt_cssClasses?: string[] | undefined): void;
     /**
      * @param {string} selector
-     * @param {!Item} dom
+     * @param {!Knot} dom
      * @param {!Function=} opt_callback
      * @param {string=} opt_href
      * @param {string=} opt_description
      * @param {boolean=} opt_allowAccess
      * @param {!Array=} opt_cssClasses
-     * @return {!Item}
+     * @return {!Knot}
      */
-    link(selector: string, dom: Item, opt_callback: Function | undefined, opt_href?: string | undefined, opt_description?: string | undefined, opt_allowAccess?: boolean | undefined, opt_cssClasses?: string[] | undefined): Item;
+    link(selector: string, dom: Knot, opt_callback: Function | undefined, opt_href?: string | undefined, opt_description?: string | undefined, opt_allowAccess?: boolean | undefined, opt_cssClasses?: string[] | undefined): Knot;
     /**
-     * @param {!Item} linkNode
+     * @param {!Knot} linkNode
      * @param {!Function=} opt_callback
      * @param {string=} opt_href
      * @param {string=} opt_description
@@ -41,98 +41,98 @@ export declare class Helper {
      * @param {!Array=} opt_cssClasses
      * @return {undefined}
      */
-    linkElement(linkNode: Item, opt_callback: Function | undefined, opt_href?: string | undefined, opt_description?: string | undefined, opt_allowAccess?: boolean | undefined, opt_cssClasses?: string[] | undefined): void;
+    linkElement(linkNode: Knot, opt_callback: Function | undefined, opt_href?: string | undefined, opt_description?: string | undefined, opt_allowAccess?: boolean | undefined, opt_cssClasses?: string[] | undefined): void;
     /**
      * @param {string} name
      * @param {!Function} callback
      * @param {string=} opt_description
      * @param {boolean=} opt_allowAccess
      * @param {!Array=} opt_cssClasses
-     * @return {!Item}
+     * @return {!Knot}
      */
-    createButton(name: string, callback: Function, opt_description?: string | undefined, opt_allowAccess?: boolean | undefined, opt_cssClasses?: string[] | undefined): Item;
+    createButton(name: string, callback: Function, opt_description?: string | undefined, opt_allowAccess?: boolean | undefined, opt_cssClasses?: string[] | undefined): Knot;
     /**
      * @param {string} selector
-     * @param {!Item} dom
+     * @param {!Knot} dom
      * @param {!Function=} opt_callback
      * @param {!Array=} opt_cssClasses
      * @return {undefined}
      */
-    multipleButton(selector: string, dom: Item, opt_callback: Function | undefined, opt_cssClasses?: string[] | undefined): void;
+    multipleButton(selector: string, dom: Knot, opt_callback: Function | undefined, opt_cssClasses?: string[] | undefined): void;
     /**
      * @param {string} selector
-     * @param {!Item} dom
+     * @param {!Knot} dom
      * @param {!Function} callback
      * @param {string=} opt_description
      * @param {boolean=} opt_allowAccess
      * @param {!Array=} opt_cssClasses
-     * @return {!Item}
+     * @return {!Knot}
      */
-    button(selector: string, dom: Item, callback: Function, opt_description?: string | undefined, opt_allowAccess?: boolean | undefined, opt_cssClasses?: string[] | undefined): Item;
+    button(selector: string, dom: Knot, callback: Function, opt_description?: string | undefined, opt_allowAccess?: boolean | undefined, opt_cssClasses?: string[] | undefined): Knot;
     /**
-     * @param {!Item} buttonNode
+     * @param {!Knot} buttonNode
      * @param {!Function=} opt_callback
      * @param {string=} opt_description
      * @param {boolean=} opt_allowAccess
      * @param {!Array=} opt_cssClasses
      * @return {undefined}
      */
-    buttonElement(buttonNode: Item, opt_callback: Function | undefined, opt_description?: string | undefined, opt_allowAccess?: boolean | undefined, opt_cssClasses?: string[] | undefined): void;
+    buttonElement(buttonNode: Knot, opt_callback: Function | undefined, opt_description?: string | undefined, opt_allowAccess?: boolean | undefined, opt_cssClasses?: string[] | undefined): void;
     /**
      * @param {string} iconName
      * @param {!Function} callback
      * @param {string=} opt_description
      * @param {boolean=} opt_allowAccess
      * @param {!Array=} opt_cssClasses
-     * @return {!Item}
+     * @return {!Knot}
      */
-    createIconButton(iconName: string, callback: Function, opt_description?: string | undefined, opt_allowAccess?: boolean | undefined, opt_cssClasses?: string[] | undefined): Item;
+    createIconButton(iconName: string, callback: Function, opt_description?: string | undefined, opt_allowAccess?: boolean | undefined, opt_cssClasses?: string[] | undefined): Knot;
     /**
      * @param {string} selector
-     * @param {!Item} dom
+     * @param {!Knot} dom
      * @param {!Array=} opt_cssClasses
      * @return {undefined}
      */
-    multipleIconButton(selector: string, dom: Item, opt_cssClasses?: string[] | undefined): void;
+    multipleIconButton(selector: string, dom: Knot, opt_cssClasses?: string[] | undefined): void;
     /**
      * @param {string} selector
-     * @param {!Item} dom
+     * @param {!Knot} dom
      * @param {!Function} callback
      * @param {string=} opt_description
      * @param {boolean=} opt_allowAccess
      * @param {!Array=} opt_cssClasses
-     * @return {!Item}
+     * @return {!Knot}
      */
-    iconButton(selector: string, dom: Item, callback: Function, opt_description?: string | undefined, opt_allowAccess?: boolean | undefined, opt_cssClasses?: string[] | undefined): Item;
+    iconButton(selector: string, dom: Knot, callback: Function, opt_description?: string | undefined, opt_allowAccess?: boolean | undefined, opt_cssClasses?: string[] | undefined): Knot;
     /**
-     * @param {!Item} buttonNode
+     * @param {!Knot} buttonNode
      * @param {!Function=} opt_callback
      * @param {string=} opt_description
      * @param {boolean=} opt_allowAccess
      * @param {!Array=} opt_cssClasses
      * @return {undefined}
      */
-    iconButtonElement(buttonNode: Item, opt_callback: Function | undefined, opt_description?: string | undefined, opt_allowAccess?: boolean | undefined, opt_cssClasses?: string[] | undefined): void;
+    iconButtonElement(buttonNode: Knot, opt_callback: Function | undefined, opt_description?: string | undefined, opt_allowAccess?: boolean | undefined, opt_cssClasses?: string[] | undefined): void;
     /**
      * @private
      * @param {string} iconName
-     * @param {!Item} parentNode
+     * @param {!Knot} parentNode
      * @return {undefined}
      */
     private _createIconNode;
     /**
-     * @param {!Item} node
+     * @param {!Knot} node
      * @param {string=} opt_description
      * @return {undefined}
      */
     private _setTooltip;
     /**
-     * @param {!Item} imageNode
+     * @param {!Knot} imageNode
      * @param {string} defaultImageUrl
      * @param {string} email
      * @param {number=} opt_size
      * @param {string=} opt_rating
      * @return {undefined}
      */
-    setGravatar(imageNode: Item, defaultImageUrl: string, email: string, opt_size?: number | undefined, opt_rating?: string | undefined): void;
+    setGravatar(imageNode: Knot, defaultImageUrl: string, email: string, opt_size?: number | undefined, opt_rating?: string | undefined): void;
 }

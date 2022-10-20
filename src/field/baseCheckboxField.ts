@@ -1,7 +1,7 @@
 import { typeCast } from '../utils/operation';
 import { BaseField } from './baseField';
 import { Query } from '../core/query';
-import { Item } from '../core/item';
+import { Knot } from '../core/knot';
 import { mdl } from '../utils/render';
 
 /**
@@ -9,20 +9,20 @@ import { mdl } from '../utils/render';
  * @extends {BaseField}
  */
 export class BaseCheckboxField extends BaseField<HTMLInputElement> {
-    hiddenInput: Item;
-    spanLabel: Item;
-    dataLabelNode: Item;
+    hiddenInput: Knot;
+    spanLabel: Knot;
+    dataLabelNode: Knot;
     /**
-     * @param {!Item} input
-     * @param {!Item} label
-     * @param {!Item} error
-     * @param {!Item} inputBlock
+     * @param {!Knot} input
+     * @param {!Knot} label
+     * @param {!Knot} error
+     * @param {!Knot} inputBlock
      */
     constructor(
-        input: Item<HTMLInputElement>,
-        label: Item,
-        error: Item,
-        inputBlock: Item,
+        input: Knot<HTMLInputElement>,
+        label: Knot,
+        error: Knot,
+        inputBlock: Knot,
     ) {
         super(input, label, error, inputBlock);
         this._init();
@@ -35,7 +35,7 @@ export class BaseCheckboxField extends BaseField<HTMLInputElement> {
         this.hiddenInput = new Query(
             'input[type=hidden]',
             this.inputBlock,
-        ).getItem();
+        ).getKnot();
         this.inputBlock.addClass('checkbox-field');
 
         this.input.addEventListener('change', () => {

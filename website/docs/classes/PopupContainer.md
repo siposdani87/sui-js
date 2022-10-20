@@ -20,17 +20,17 @@ custom_edit_url: null
 
 #### Defined in
 
-[component/popupContainer.ts:15](https://github.com/siposdani87/sui-js/blob/8315555/src/component/popupContainer.ts#L15)
+[component/popupContainer.ts:15](https://github.com/siposdani87/sui-js/blob/0baad71/src/component/popupContainer.ts#L15)
 
 ## Properties
 
 ### container
 
-• **container**: [`Item`](Item.md)<`HTMLElement`\>
+• **container**: [`Knot`](Knot.md)<`HTMLElement`\>
 
 #### Defined in
 
-[component/popupContainer.ts:11](https://github.com/siposdani87/sui-js/blob/8315555/src/component/popupContainer.ts#L11)
+[component/popupContainer.ts:11](https://github.com/siposdani87/sui-js/blob/0baad71/src/component/popupContainer.ts#L11)
 
 ___
 
@@ -40,7 +40,7 @@ ___
 
 #### Defined in
 
-[component/popupContainer.ts:10](https://github.com/siposdani87/sui-js/blob/8315555/src/component/popupContainer.ts#L10)
+[component/popupContainer.ts:10](https://github.com/siposdani87/sui-js/blob/0baad71/src/component/popupContainer.ts#L10)
 
 ## Methods
 
@@ -54,7 +54,7 @@ ___
 
 #### Defined in
 
-[component/popupContainer.ts:23](https://github.com/siposdani87/sui-js/blob/8315555/src/component/popupContainer.ts#L23)
+[component/popupContainer.ts:23](https://github.com/siposdani87/sui-js/blob/0baad71/src/component/popupContainer.ts#L23)
 
 ___
 
@@ -74,7 +74,7 @@ ___
 
 #### Defined in
 
-[component/popupContainer.ts:31](https://github.com/siposdani87/sui-js/blob/8315555/src/component/popupContainer.ts#L31)
+[component/popupContainer.ts:31](https://github.com/siposdani87/sui-js/blob/0baad71/src/component/popupContainer.ts#L31)
 
 ___
 
@@ -86,7 +86,7 @@ ___
 
 | Name | Type |
 | :------ | :------ |
-| `popupNode` | [`Item`](Item.md)<`HTMLElement`\> |
+| `popupNode` | [`Knot`](Knot.md)<`HTMLElement`\> |
 
 #### Returns
 
@@ -94,7 +94,7 @@ ___
 
 #### Defined in
 
-[component/popupContainer.ts:84](https://github.com/siposdani87/sui-js/blob/8315555/src/component/popupContainer.ts#L84)
+[component/popupContainer.ts:84](https://github.com/siposdani87/sui-js/blob/0baad71/src/component/popupContainer.ts#L84)
 
 ___
 
@@ -108,7 +108,7 @@ ___
 
 #### Defined in
 
-[component/popupContainer.ts:58](https://github.com/siposdani87/sui-js/blob/8315555/src/component/popupContainer.ts#L58)
+[component/popupContainer.ts:58](https://github.com/siposdani87/sui-js/blob/0baad71/src/component/popupContainer.ts#L58)
 
 ___
 
@@ -128,7 +128,7 @@ ___
 
 #### Defined in
 
-[component/popupContainer.ts:50](https://github.com/siposdani87/sui-js/blob/8315555/src/component/popupContainer.ts#L50)
+[component/popupContainer.ts:50](https://github.com/siposdani87/sui-js/blob/0baad71/src/component/popupContainer.ts#L50)
 
 ___
 
@@ -149,7 +149,7 @@ ___
 
 #### Defined in
 
-[component/popupContainer.ts:40](https://github.com/siposdani87/sui-js/blob/8315555/src/component/popupContainer.ts#L40)
+[component/popupContainer.ts:40](https://github.com/siposdani87/sui-js/blob/0baad71/src/component/popupContainer.ts#L40)
 
 ___
 
@@ -161,7 +161,7 @@ ___
 
 | Name | Type |
 | :------ | :------ |
-| `popupNode` | [`Item`](Item.md)<`HTMLElement`\> |
+| `popupNode` | [`Knot`](Knot.md)<`HTMLElement`\> |
 
 #### Returns
 
@@ -169,4 +169,4 @@ ___
 
 #### Defined in
 
-[component/popupContainer.ts:69](https://github.com/siposdani87/sui-js/blob/8315555/src/component/popupContainer.ts#L69)
+[component/popupContainer.ts:69](https://github.com/siposdani87/sui-js/blob/0baad71/src/component/popupContainer.ts#L69)

@@ -3,7 +3,7 @@ import { Objekt } from '../core/objekt';
 import { Query } from '../core/query';
 import { BaseModal } from './baseModal';
 import { Http } from './http';
-import { Item, Promize } from '../core';
+import { Knot, Promize } from '../core';
 import { mdl } from '../utils/render';
 
 /**
@@ -41,13 +41,13 @@ export class Dialog extends BaseModal {
      * @return {undefined}
      */
     private _init(): void {
-        this.body = new Query('body').getItem();
-        this.modal = new Query(this.options.id, this.body).getItem();
-        this.modalWindow = new Query('#dialog-window', this.modal).getItem();
-        this.modalHeader = new Query('.modal-header', this.modal).getItem();
-        this.modalTitle = new Query('.modal-title', this.modalHeader).getItem();
-        this.modalBody = new Query('.modal-body', this.modal).getItem();
-        this.modalFooter = new Query('.modal-footer', this.modal).getItem();
+        this.body = new Query('body').getKnot();
+        this.modal = new Query(this.options.id, this.body).getKnot();
+        this.modalWindow = new Query('#dialog-window', this.modal).getKnot();
+        this.modalHeader = new Query('.modal-header', this.modal).getKnot();
+        this.modalTitle = new Query('.modal-title', this.modalHeader).getKnot();
+        this.modalBody = new Query('.modal-body', this.modal).getKnot();
+        this.modalFooter = new Query('.modal-footer', this.modal).getKnot();
     }
     /**
      * @param {string} url
@@ -70,28 +70,28 @@ export class Dialog extends BaseModal {
         return deferred.promise();
     }
     /**
-     * @param {!Item} dom
-     * @return {!Item}
+     * @param {!Knot} dom
+     * @return {!Knot}
      */
-    private _handleMessage(dom: Item): Item {
-        const messageNode = new Query('.message', dom).getItem();
-        const title = new Query('title', dom).getItem();
+    private _handleMessage(dom: Knot): Knot {
+        const messageNode = new Query('.message', dom).getKnot();
+        const title = new Query('title', dom).getKnot();
         this._setTitle(title.getText());
         this.modalBody.insert(messageNode);
         mdl(messageNode);
         return messageNode;
     }
     /**
-     * @param {!Item} dom
-     * @return {!Item}
+     * @param {!Knot} dom
+     * @return {!Knot}
      */
-    private _handleDom(dom: Item): Item {
-        const titleNode = new Query('#title', dom).getItem();
+    private _handleDom(dom: Knot): Knot {
+        const titleNode = new Query('#title', dom).getKnot();
         if (!titleNode.isEmpty()) {
             this._setTitle(titleNode.getText());
         }
 
-        const contentNode = new Query('#content', dom).getItem();
+        const contentNode = new Query('#content', dom).getKnot();
         this.modalBody.insert(contentNode);
         mdl(contentNode);
 
@@ -100,13 +100,13 @@ export class Dialog extends BaseModal {
         return contentNode;
     }
     /**
-     * @param {!Item} dom
+     * @param {!Knot} dom
      * @return {undefined}
      */
-    private _handleActions(dom: Item): void {
+    private _handleActions(dom: Knot): void {
         this.modalFooter.removeClass('hidden');
 
-        const actionNode = new Query('#action', dom).getItem();
+        const actionNode = new Query('#action', dom).getKnot();
         if (!actionNode.isEmpty()) {
             const buttons = new Query('button', actionNode);
             const size = buttons.size();

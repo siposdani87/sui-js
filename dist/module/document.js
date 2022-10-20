@@ -1,4 +1,4 @@
-import { Item } from '../core/item';
+import { Knot } from '../core/knot';
 import { Objekt } from '../core/objekt';
 import { consoleWarn } from '../utils/log';
 /**
@@ -29,7 +29,7 @@ export class Document {
     _init() {
         this.document = document;
         this.document.addEventListener('click', (event) => {
-            const target = new Item(event.target);
+            const target = new Knot(event.target);
             this.eventClick(target, event);
         });
     }
@@ -41,7 +41,7 @@ export class Document {
         this.document.title = title;
     }
     /**
-     * @param {!Item} target
+     * @param {!Knot} target
      * @param {!Event} event
      * @return {undefined}
      */

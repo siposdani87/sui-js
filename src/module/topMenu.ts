@@ -1,4 +1,4 @@
-import { Item } from '../core';
+import { Knot } from '../core';
 import { Query } from '../core/query';
 import { Header } from './header';
 
@@ -7,8 +7,8 @@ import { Header } from './header';
  */
 export class TopMenu {
     header: Header;
-    topMenu: Item;
-    toggleTopMenu: Item;
+    topMenu: Knot;
+    toggleTopMenu: Knot;
     /**
      * @param {!Header} header
      */
@@ -21,12 +21,12 @@ export class TopMenu {
      * @return {undefined}
      */
     private _init(): void {
-        this.topMenu = new Query('#top-menu', this.header.headerNode).getItem();
+        this.topMenu = new Query('#top-menu', this.header.headerNode).getKnot();
 
         this.toggleTopMenu = new Query(
             '#toggle-top-menu',
             this.header.headerNode,
-        ).getItem();
+        ).getKnot();
         this.toggleTopMenu.setAttribute('href', 'javascript:void(0)');
         this.toggleTopMenu.addEventListener('click', () => {
             this.toggle();
@@ -67,9 +67,9 @@ export class TopMenu {
         this.header.hideShadow();
     }
     /**
-     * @return {!Item}
+     * @return {!Knot}
      */
-    getContainer(): Item {
+    getContainer(): Knot {
         return this.topMenu;
     }
 }

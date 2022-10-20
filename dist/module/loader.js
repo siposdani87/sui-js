@@ -29,7 +29,7 @@ export class Loader {
      * @return {undefined}
      */
     _init() {
-        this.loader = new Query('#loader').getItem();
+        this.loader = new Query('#loader').getKnot();
         this.spinner = this.loader.createElement('div');
         this.spinner.addClass([
             'mdl-spinner',

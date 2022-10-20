@@ -1,21 +1,21 @@
 import { BaseField } from './baseField';
-import { Item } from '../core/item';
+import { Knot } from '../core/knot';
 import { Form } from '../component';
 /**
  * @class
  * @extends {BaseField}
  */
 export declare class RadiobuttonField extends BaseField<HTMLInputElement> {
-    dataLabelNode: Item;
-    spanLabel: Item;
+    dataLabelNode: Knot;
+    spanLabel: Knot;
     /**
-     * @param {!Item} input
-     * @param {!Item} label
-     * @param {!Item} error
-     * @param {!Item} inputBlock
+     * @param {!Knot} input
+     * @param {!Knot} label
+     * @param {!Knot} error
+     * @param {!Knot} inputBlock
      * @param {!Form} form
      */
-    constructor(input: Item<HTMLInputElement>, label: Item, error: Item, inputBlock: Item, form: Form);
+    constructor(input: Knot<HTMLInputElement>, label: Knot, error: Knot, inputBlock: Knot, form: Form);
     /**
      * @private
      * @return {undefined}

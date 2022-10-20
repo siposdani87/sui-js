@@ -16,12 +16,12 @@ custom_edit_url: null
 
 | Name | Type |
 | :------ | :------ |
-| `element` | [`Item`](Item.md)<`HTMLElement`\> |
+| `element` | [`Knot`](Knot.md)<`HTMLElement`\> |
 | `opt_options` | `Object` |
 
 #### Defined in
 
-[component/dropdown.ts:24](https://github.com/siposdani87/sui-js/blob/8315555/src/component/dropdown.ts#L24)
+[component/dropdown.ts:24](https://github.com/siposdani87/sui-js/blob/0baad71/src/component/dropdown.ts#L24)
 
 ## Properties
 
@@ -31,17 +31,17 @@ custom_edit_url: null
 
 #### Defined in
 
-[component/dropdown.ts:16](https://github.com/siposdani87/sui-js/blob/8315555/src/component/dropdown.ts#L16)
+[component/dropdown.ts:16](https://github.com/siposdani87/sui-js/blob/0baad71/src/component/dropdown.ts#L16)
 
 ___
 
 ### buttonNode
 
-• **buttonNode**: [`Item`](Item.md)<`HTMLElement`\>
+• **buttonNode**: [`Knot`](Knot.md)<`HTMLElement`\>
 
 #### Defined in
 
-[component/dropdown.ts:18](https://github.com/siposdani87/sui-js/blob/8315555/src/component/dropdown.ts#L18)
+[component/dropdown.ts:18](https://github.com/siposdani87/sui-js/blob/0baad71/src/component/dropdown.ts#L18)
 
 ___
 
@@ -51,17 +51,17 @@ ___
 
 #### Defined in
 
-[component/dropdown.ts:15](https://github.com/siposdani87/sui-js/blob/8315555/src/component/dropdown.ts#L15)
+[component/dropdown.ts:15](https://github.com/siposdani87/sui-js/blob/0baad71/src/component/dropdown.ts#L15)
 
 ___
 
 ### dropdown
 
-• **dropdown**: [`Item`](Item.md)<`HTMLElement`\>
+• **dropdown**: [`Knot`](Knot.md)<`HTMLElement`\>
 
 #### Defined in
 
-[component/dropdown.ts:13](https://github.com/siposdani87/sui-js/blob/8315555/src/component/dropdown.ts#L13)
+[component/dropdown.ts:13](https://github.com/siposdani87/sui-js/blob/0baad71/src/component/dropdown.ts#L13)
 
 ___
 
@@ -71,17 +71,17 @@ ___
 
 #### Defined in
 
-[component/dropdown.ts:17](https://github.com/siposdani87/sui-js/blob/8315555/src/component/dropdown.ts#L17)
+[component/dropdown.ts:17](https://github.com/siposdani87/sui-js/blob/0baad71/src/component/dropdown.ts#L17)
 
 ___
 
 ### menuNode
 
-• **menuNode**: [`Item`](Item.md)<`HTMLElement`\>
+• **menuNode**: [`Knot`](Knot.md)<`HTMLElement`\>
 
 #### Defined in
 
-[component/dropdown.ts:19](https://github.com/siposdani87/sui-js/blob/8315555/src/component/dropdown.ts#L19)
+[component/dropdown.ts:19](https://github.com/siposdani87/sui-js/blob/0baad71/src/component/dropdown.ts#L19)
 
 ___
 
@@ -91,7 +91,7 @@ ___
 
 #### Defined in
 
-[component/dropdown.ts:14](https://github.com/siposdani87/sui-js/blob/8315555/src/component/dropdown.ts#L14)
+[component/dropdown.ts:14](https://github.com/siposdani87/sui-js/blob/0baad71/src/component/dropdown.ts#L14)
 
 ## Methods
 
@@ -105,7 +105,7 @@ ___
 
 #### Defined in
 
-[component/dropdown.ts:56](https://github.com/siposdani87/sui-js/blob/8315555/src/component/dropdown.ts#L56)
+[component/dropdown.ts:56](https://github.com/siposdani87/sui-js/blob/0baad71/src/component/dropdown.ts#L56)
 
 ___
 
@@ -119,7 +119,7 @@ ___
 
 #### Defined in
 
-[component/dropdown.ts:76](https://github.com/siposdani87/sui-js/blob/8315555/src/component/dropdown.ts#L76)
+[component/dropdown.ts:76](https://github.com/siposdani87/sui-js/blob/0baad71/src/component/dropdown.ts#L76)
 
 ___
 
@@ -133,7 +133,7 @@ ___
 
 #### Defined in
 
-[component/dropdown.ts:45](https://github.com/siposdani87/sui-js/blob/8315555/src/component/dropdown.ts#L45)
+[component/dropdown.ts:45](https://github.com/siposdani87/sui-js/blob/0baad71/src/component/dropdown.ts#L45)
 
 ___
 
@@ -147,7 +147,7 @@ ___
 
 #### Defined in
 
-[component/dropdown.ts:104](https://github.com/siposdani87/sui-js/blob/8315555/src/component/dropdown.ts#L104)
+[component/dropdown.ts:104](https://github.com/siposdani87/sui-js/blob/0baad71/src/component/dropdown.ts#L104)
 
 ___
 
@@ -167,7 +167,7 @@ ___
 
 #### Defined in
 
-[component/dropdown.ts:34](https://github.com/siposdani87/sui-js/blob/8315555/src/component/dropdown.ts#L34)
+[component/dropdown.ts:34](https://github.com/siposdani87/sui-js/blob/0baad71/src/component/dropdown.ts#L34)
 
 ___
 
@@ -188,4 +188,4 @@ ___
 
 #### Defined in
 
-[component/dropdown.ts:93](https://github.com/siposdani87/sui-js/blob/8315555/src/component/dropdown.ts#L93)
+[component/dropdown.ts:93](https://github.com/siposdani87/sui-js/blob/0baad71/src/component/dropdown.ts#L93)

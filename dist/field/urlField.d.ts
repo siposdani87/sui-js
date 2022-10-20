@@ -1,5 +1,5 @@
 import { BaseField } from './baseField';
-import { Item } from '../core/item';
+import { Knot } from '../core/knot';
 /**
  * @class
  * @extends {BaseField}
@@ -7,12 +7,12 @@ import { Item } from '../core/item';
 export declare class UrlField extends BaseField<HTMLInputElement> {
     protocol: string;
     /**
-     * @param {!Item} input
-     * @param {!Item} label
-     * @param {!Item} error
-     * @param {!Item} inputBlock
+     * @param {!Knot} input
+     * @param {!Knot} label
+     * @param {!Knot} error
+     * @param {!Knot} inputBlock
      */
-    constructor(input: Item<HTMLInputElement>, label: Item, error: Item, inputBlock: Item);
+    constructor(input: Knot<HTMLInputElement>, label: Knot, error: Knot, inputBlock: Knot);
     /**
      * @private
      * @return {undefined}

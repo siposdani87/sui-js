@@ -1,20 +1,20 @@
 import { BaseField } from '../field/baseField';
-import { Item } from '../core/item';
+import { Knot } from '../core/knot';
 import { Form } from './form';
 /**
  * @constructor
  * @this {FormField}
- * @param {!Item} inputBlock
+ * @param {!Knot} inputBlock
  * @param {!Form} form
  * @return {?BaseField}
  */
-export declare const FormField: (this: any, inputBlock: Item<HTMLInputElement | HTMLElement>, form: Form) => BaseField<HTMLInputElement> | null;
+export declare const FormField: (this: any, inputBlock: Knot<HTMLInputElement | HTMLElement>, form: Form) => BaseField<HTMLInputElement> | null;
 /**
- * @param {!Item} inputBlock
- * @return {{input: Item, label: Item, error: Item}}
+ * @param {!Knot} inputBlock
+ * @return {{input: Knot, label: Knot, error: Knot}}
  */
-export declare const parseInputBlock: (inputBlock: Item<HTMLInputElement | HTMLElement>) => {
-    input: Item<HTMLInputElement>;
-    label: Item;
-    error: Item;
+export declare const parseInputBlock: (inputBlock: Knot<HTMLInputElement | HTMLElement>) => {
+    input: Knot<HTMLInputElement>;
+    label: Knot;
+    error: Knot;
 };

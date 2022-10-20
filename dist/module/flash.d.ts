@@ -1,10 +1,10 @@
 import { Objekt } from '../core/objekt';
-import { Item } from '../core';
+import { Knot } from '../core';
 /**
  * @class
  */
 export declare class Flash {
-    container: Item;
+    container: Knot;
     options: Objekt;
     /**
      * @param {!Object=} opt_options
@@ -27,13 +27,13 @@ export declare class Flash {
      * @param {number=} opt_duration
      * @param {?Function=} opt_closeCallback
      * @param {string=} opt_id
-     * @return {!Item}
+     * @return {!Knot}
      */
-    _getFlashNode(type: string, message: string, opt_duration?: number | undefined, opt_closeCallback?: (Function | null) | undefined, opt_id?: string | undefined): Item;
+    _getFlashNode(type: string, message: string, opt_duration?: number | undefined, opt_closeCallback?: (Function | null) | undefined, opt_id?: string | undefined): Knot;
     /**
-     * @param {!Item} flashNode
+     * @param {!Knot} flashNode
      * @param {?Function=} opt_closeCallback
-     * @return {!Item}
+     * @return {!Knot}
      */
     private _getCloseButton;
     /**
@@ -42,9 +42,9 @@ export declare class Flash {
      * @param {number=} opt_duration
      * @param {?Function=} opt_closeCallback
      * @param {string=} opt_id
-     * @return {!Item}
+     * @return {!Knot}
      */
-    _add(type: string, message: string, opt_duration?: number | undefined, opt_closeCallback?: (Function | null) | undefined, opt_id?: string | undefined): Item;
+    _add(type: string, message: string, opt_duration?: number | undefined, opt_closeCallback?: (Function | null) | undefined, opt_id?: string | undefined): Knot;
     /**
      * @param {string=} opt_id
      */
@@ -56,61 +56,61 @@ export declare class Flash {
      */
     private _isClosable;
     /**
-     * @param {!Item} flash
+     * @param {!Knot} flash
      * @param {?Function=} opt_closeCallback
      * @return {undefined}
      */
-    remove(flash: Item, opt_closeCallback?: (Function | null) | undefined): void;
+    remove(flash: Knot, opt_closeCallback?: (Function | null) | undefined): void;
     /**
      * @param {string} message
      * @param {number=} opt_duration
      * @param {?Function=} opt_closeCallback
      * @param {string=} opt_id
-     * @return {!Item}
+     * @return {!Knot}
      */
-    addSuccess(message: string, opt_duration?: number | undefined, opt_closeCallback?: (Function | null) | undefined, opt_id?: string | undefined): Item;
+    addSuccess(message: string, opt_duration?: number | undefined, opt_closeCallback?: (Function | null) | undefined, opt_id?: string | undefined): Knot;
     /**
      * @param {string} message
      * @param {number=} opt_duration
      * @param {?Function=} opt_closeCallback
      * @param {string=} opt_id
-     * @return {!Item}
+     * @return {!Knot}
      */
-    addInfo(message: string, opt_duration?: number | undefined, opt_closeCallback?: (Function | null) | undefined, opt_id?: string | undefined): Item;
+    addInfo(message: string, opt_duration?: number | undefined, opt_closeCallback?: (Function | null) | undefined, opt_id?: string | undefined): Knot;
     /**
      * @param {string} message
      * @param {number=} opt_duration
      * @param {?Function=} opt_closeCallback
      * @param {string=} opt_id
-     * @return {!Item}
+     * @return {!Knot}
      */
-    addWarning(message: string, opt_duration?: number | undefined, opt_closeCallback?: (Function | null) | undefined, opt_id?: string | undefined): Item;
+    addWarning(message: string, opt_duration?: number | undefined, opt_closeCallback?: (Function | null) | undefined, opt_id?: string | undefined): Knot;
     /**
      * @param {string} message
      * @param {number=} opt_duration
      * @param {?Function=} opt_closeCallback
      * @param {string=} opt_id
-     * @return {!Item}
+     * @return {!Knot}
      */
-    addError(message: string, opt_duration?: number | undefined, opt_closeCallback?: (Function | null) | undefined, opt_id?: string | undefined): Item;
+    addError(message: string, opt_duration?: number | undefined, opt_closeCallback?: (Function | null) | undefined, opt_id?: string | undefined): Knot;
     /**
      * @param {{type: string, content: string, closable: boolean}} message
      * @param {number=} opt_duration
      * @param {?Function=} opt_closeCallback
      * @param {string=} opt_id
-     * @return {!Item|null}
+     * @return {!Knot|null}
      */
     addMessage(message: {
         type: string;
         content: string;
         closable: boolean;
-    }, opt_duration?: number | undefined, opt_closeCallback?: (Function | null) | undefined, opt_id?: string | undefined): Item | null;
+    }, opt_duration?: number | undefined, opt_closeCallback?: (Function | null) | undefined, opt_id?: string | undefined): Knot | null;
     /**
      * @param {string} message
      * @param {number=} opt_duration
      * @param {?Function=} opt_closeCallback
      * @param {string=} opt_id
-     * @return {!Item}
+     * @return {!Knot}
      */
-    addDefault(message: string, opt_duration?: number | undefined, opt_closeCallback?: (Function | null) | undefined, opt_id?: string | undefined): Item;
+    addDefault(message: string, opt_duration?: number | undefined, opt_closeCallback?: (Function | null) | undefined, opt_id?: string | undefined): Knot;
 }

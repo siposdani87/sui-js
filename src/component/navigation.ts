@@ -1,6 +1,6 @@
 import { isUndefined, contain, eq } from '../utils/operation';
 import { Collection } from '../core/collection';
-import { Item } from '../core/item';
+import { Knot } from '../core/knot';
 import { Objekt } from '../core/objekt';
 import { Query } from '../core/query';
 import { Http } from '../module';
@@ -86,12 +86,12 @@ export class Navigation {
         opt_href: string | undefined = '',
         opt_data: Object | undefined = {},
     ): void {
-        const item = this._setItem(id, title, action, opt_href, opt_data);
-        const counterSpan = new Item('span');
+        const item = this._setKnot(id, title, action, opt_href, opt_data);
+        const counterSpan = new Knot('span');
         counterSpan.addClass('counter');
         counterSpan.setHtml(counter);
 
-        const linkNode = item.get<Item>(this.linkNodeKey);
+        const linkNode = item.get<Knot>(this.linkNodeKey);
         linkNode.beforeChild(counterSpan);
     }
     /**
@@ -111,16 +111,16 @@ export class Navigation {
         opt_href: string | undefined = '',
         opt_data: Object | undefined = {},
     ): void {
-        const item = this._setItem(id, title, action, opt_href, opt_data);
-        const iconNode = new Item('em');
+        const item = this._setKnot(id, title, action, opt_href, opt_data);
+        const iconNode = new Knot('em');
         iconNode.addClass(['material-icons']);
         iconNode.setHtml(icon);
 
-        const imageSpan = new Item('span');
+        const imageSpan = new Knot('span');
         imageSpan.addClass('image');
         imageSpan.appendChild(iconNode);
 
-        const linkNode = item.get<Item>(this.linkNodeKey);
+        const linkNode = item.get<Knot>(this.linkNodeKey);
         linkNode.beforeChild(imageSpan);
     }
     /**
@@ -140,9 +140,9 @@ export class Navigation {
         opt_href: string | undefined = '',
         opt_data: Object | undefined = {},
     ): void {
-        const item = this._setItem(id, title, action, opt_href, opt_data);
+        const item = this._setKnot(id, title, action, opt_href, opt_data);
 
-        const imageSpan = new Item('span');
+        const imageSpan = new Knot('span');
         imageSpan.addClass('image');
 
         if (image.indexOf('.svg') !== -1) {
@@ -156,11 +156,11 @@ export class Navigation {
                     },
                 )
                 .then((data) => {
-                    const svgTag = new Query('svg', data).getItem();
+                    const svgTag = new Query('svg', data).getKnot();
                     imageSpan.appendChild(svgTag);
                 });
         } else {
-            const imageTag = new Item('img');
+            const imageTag = new Knot('img');
             imageTag.setAttribute('src', image);
             if (title) {
                 imageTag.setAttribute('alt', title);
@@ -168,7 +168,7 @@ export class Navigation {
             imageSpan.appendChild(imageTag);
         }
 
-        const linkNode = item.get<Item>(this.linkNodeKey);
+        const linkNode = item.get<Knot>(this.linkNodeKey);
         linkNode.beforeChild(imageSpan);
     }
     /**
@@ -186,7 +186,7 @@ export class Navigation {
         opt_href: string | undefined = '',
         opt_data: Object | undefined = {},
     ): void {
-        this._setItem(id, title, action, opt_href, opt_data);
+        this._setKnot(id, title, action, opt_href, opt_data);
     }
     /**
      * @private
@@ -197,16 +197,16 @@ export class Navigation {
      * @param {!Object=} opt_data
      * @return {!Objekt}
      */
-    private _setItem(
+    private _setKnot(
         id: string,
         title: string | null,
         action: Function,
         opt_href: string | undefined = '',
         opt_data: Object | undefined = {},
     ): Objekt {
-        const linkNode = new Item('a');
+        const linkNode = new Knot('a');
         if (title) {
-            const titleSpan = new Item('span');
+            const titleSpan = new Knot('span');
             titleSpan.addClass('title');
             titleSpan.setHtml(title);
             linkNode.appendChild(titleSpan);
@@ -242,10 +242,10 @@ export class Navigation {
         });
     }
     /**
-     * @param {!Item} containerNode
+     * @param {!Knot} containerNode
      * @return {undefined}
      */
-    bindToContainer(containerNode: Item): void {
+    bindToContainer(containerNode: Knot): void {
         containerNode.removeChildren();
         this.each((item) => {
             const linkNode = item.get(this.linkNodeKey);
@@ -268,7 +268,7 @@ export class Navigation {
      * @return {undefined}
      */
     private _disabled(item: Objekt): void {
-        const linkNode = item.get<Item>(this.linkNodeKey);
+        const linkNode = item.get<Knot>(this.linkNodeKey);
         linkNode.addClass('disabled');
         linkNode.removeEventListener('click', item.get('listener'));
         linkNode.setAttribute('href', 'javascript:void(0)');
@@ -290,7 +290,7 @@ export class Navigation {
      */
     private _enabled(item: Objekt): void {
         this._disabled(item);
-        const linkNode = item.get<Item>(this.linkNodeKey);
+        const linkNode = item.get<Knot>(this.linkNodeKey);
         linkNode.removeClass('disabled');
         const action = item.get<Function>('action');
         const href = item.get<string>('href');
@@ -333,7 +333,7 @@ export class Navigation {
     show(id: string): void {
         const item = this.container.findById(id);
         if (item) {
-            const linkNode = item.get<Item>(this.linkNodeKey);
+            const linkNode = item.get<Knot>(this.linkNodeKey);
             linkNode.removeClass('hidden');
             this._enabled(item);
         }
@@ -345,7 +345,7 @@ export class Navigation {
     hide(id: string): void {
         const item = this.container.findById(id);
         if (item) {
-            const linkNode = item.get<Item>(this.linkNodeKey);
+            const linkNode = item.get<Knot>(this.linkNodeKey);
             linkNode.addClass('hidden');
             this._disabled(item);
         }

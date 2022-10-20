@@ -1,20 +1,20 @@
-import { Item } from '../core/item';
+import { Knot } from '../core/knot';
 import { PopupContainer } from './popupContainer';
 /**
  * @class
  */
 export declare class Popup {
-    content: Item;
-    parent?: Item;
+    content: Knot;
+    parent?: Knot;
     withClose: boolean;
     popupContainer: PopupContainer;
-    popupNode: Item;
+    popupNode: Knot;
     /**
-     * @param {!Item} content
-     * @param {!Item} parent
+     * @param {!Knot} content
+     * @param {!Knot} parent
      * @param {boolean=} opt_withClose
      */
-    constructor(content: Item, parent: Item, opt_withClose?: boolean | undefined);
+    constructor(content: Knot, parent: Knot, opt_withClose?: boolean | undefined);
     /**
      * @private
      * @return {undefined}

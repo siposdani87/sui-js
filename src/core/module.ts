@@ -5,7 +5,7 @@ import { Deferred } from './deferred';
 import { State } from './state';
 import { Promize } from './promize';
 import { Objekt } from './objekt';
-import { Item } from './item';
+import { Knot } from './knot';
 import { Route } from '../component/route';
 import { ClassRef, Dependency, Injection, Instance } from '../utils';
 
@@ -266,10 +266,10 @@ export class Module {
     /**
      * @private
      * @param {!Objekt} state
-     * @param {!Item} dom
+     * @param {!Knot} dom
      * @return {undefined}
      */
-    private _initController(state: Objekt, dom: Item): void {
+    private _initController(state: Objekt, dom: Knot): void {
         this._instances[this._injections.dom] = dom;
         const controller = this._modules[state.get<string>('controller')];
         if (controller) {
@@ -293,10 +293,10 @@ export class Module {
         }
     }
     /**
-     * @param {!Item} dom
+     * @param {!Knot} dom
      * @return {undefined}
      */
-    eventControllerLoaded(dom: Item): void {
+    eventControllerLoaded(dom: Knot): void {
         consoleWarn('Module.eventControllerLoaded()', dom);
     }
     /**
@@ -331,10 +331,10 @@ export class Module {
     }
     /**
      * @param {!Objekt} state
-     * @param {!Item} dom
+     * @param {!Knot} dom
      * @return {!Promize}
      */
-    eventDomChange(state: Objekt, dom: Item): Promize {
+    eventDomChange(state: Objekt, dom: Knot): Promize {
         const deferred = new Deferred();
         consoleWarn('Module.eventDomChange()', state, dom);
         deferred.resolve();

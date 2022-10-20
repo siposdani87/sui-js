@@ -4,7 +4,7 @@ import { Objekt } from '../core/objekt';
 import { Query } from '../core/query';
 import { Http } from './http';
 import { consoleWarn } from '../utils/log';
-import { Item, Promize } from '../core';
+import { Knot, Promize } from '../core';
 
 /**
  * @class
@@ -12,7 +12,7 @@ import { Item, Promize } from '../core';
 export class Template {
     http: Http;
     options: Objekt;
-    viewNode: Item;
+    viewNode: Knot;
     /**
      * @param {!Http} http
      * @param {!Object=} opt_options
@@ -41,12 +41,12 @@ export class Template {
      * @return {undefined}
      */
     private _init(): void {
-        this.viewNode = new Query(this.options.selector).getItem();
+        this.viewNode = new Query(this.options.selector).getKnot();
     }
     /**
-     * @return {!Item}
+     * @return {!Knot}
      */
-    getViewNode(): Item {
+    getViewNode(): Knot {
         return this.viewNode;
     }
     /**
@@ -64,7 +64,7 @@ export class Template {
             contain(url, templateUrl)
         ) {
             this.viewNode.removeAttribute('data-locale');
-            const node = new Query('.page-content', this.viewNode).getItem();
+            const node = new Query('.page-content', this.viewNode).getKnot();
             deferred.resolve(node);
         } else {
             this.viewNode.setAttribute('data-template-url', url);
@@ -81,17 +81,17 @@ export class Template {
     }
     /**
      * @private
-     * @param {!Item} data
+     * @param {!Knot} data
      * @param {boolean} error
-     * @return {!Item}
+     * @return {!Knot}
      */
-    private _handleData(data: Item, error: boolean): Item {
-        const node = new Query('.page-content', data).getItem();
+    private _handleData(data: Knot, error: boolean): Knot {
+        const node = new Query('.page-content', data).getKnot();
         if (error) {
-            const messageItem = new Query('.message', node).getItem();
+            const messageKnot = new Query('.message', node).getKnot();
             const message = {
-                content: messageItem.getText(),
-                type: messageItem.getAttribute('class').split(' ')[1],
+                content: messageKnot.getText(),
+                type: messageKnot.getAttribute('class').split(' ')[1],
             };
             this.eventError(message);
         } else {

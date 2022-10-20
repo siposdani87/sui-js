@@ -1,27 +1,27 @@
 import { mdl } from '../utils/render';
 import { BaseField } from './baseField';
-import { Item } from '../core/item';
+import { Knot } from '../core/knot';
 
 /**
  * @class
  * @extends {BaseField}
  */
 export class TextareaField extends BaseField<HTMLInputElement> {
-    richText: Item;
+    richText: Knot;
     richTextNode: HTMLElement;
-    toolbarNode: Item;
+    toolbarNode: Knot;
     htmlMode: boolean;
     /**
-     * @param {!Item} input
-     * @param {!Item} label
-     * @param {!Item} error
-     * @param {!Item} inputBlock
+     * @param {!Knot} input
+     * @param {!Knot} label
+     * @param {!Knot} error
+     * @param {!Knot} inputBlock
      */
     constructor(
-        input: Item<HTMLInputElement>,
-        label: Item,
-        error: Item,
-        inputBlock: Item,
+        input: Knot<HTMLInputElement>,
+        label: Knot,
+        error: Knot,
+        inputBlock: Knot,
     ) {
         super(input, label, error, inputBlock);
         this._init();
@@ -78,7 +78,7 @@ export class TextareaField extends BaseField<HTMLInputElement> {
         value =
             value.indexOf('<p>') === 0 ? value : `<p>${value || '<br />'}</p>`;
 
-        this.richText = new Item('div');
+        this.richText = new Knot('div');
         this.richText.addClass([
             'mdl-textfield__input',
             'mdl-textarea__input',
@@ -132,7 +132,7 @@ export class TextareaField extends BaseField<HTMLInputElement> {
      * @return {undefined}
      */
     private _renderToolbarButtons(): void {
-        this.toolbarNode = new Item('div');
+        this.toolbarNode = new Knot('div');
         this.toolbarNode.addClass('toolbar');
         this.input.insertBefore(this.toolbarNode);
 
@@ -179,7 +179,7 @@ export class TextareaField extends BaseField<HTMLInputElement> {
      * @return {undefined}
      */
     private _renderToolbarButton(iconName: string, action: Function): void {
-        const boldButtonNode = new Item('a');
+        const boldButtonNode = new Knot('a');
         boldButtonNode.setAttribute('href', 'javascript:void(0)');
         boldButtonNode.addClass('material-icons');
         boldButtonNode.setHtml(iconName);

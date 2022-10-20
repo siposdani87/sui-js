@@ -1,17 +1,17 @@
-import { Item } from '../core';
+import { Knot } from '../core';
 /**
  * @class
  */
 export declare class LeftMenu {
-    body: Item;
-    mainContainerNode: Item;
-    leftMenu: Item;
-    mainMenu: Item;
-    subMenu: Item;
-    mainMenuContainer: Item;
-    subMenuContainer: Item;
-    mainMenuTitle: Item;
-    subMenuTitle: Item;
+    body: Knot;
+    mainContainerNode: Knot;
+    leftMenu: Knot;
+    mainMenu: Knot;
+    subMenu: Knot;
+    mainMenuContainer: Knot;
+    subMenuContainer: Knot;
+    mainMenuTitle: Knot;
+    subMenuTitle: Knot;
     /**
      */
     constructor();
@@ -43,11 +43,11 @@ export declare class LeftMenu {
      */
     closeSubMenu(): void;
     /**
-     * @return {!Item}
+     * @return {!Knot}
      */
-    getMainContainer(): Item;
+    getMainContainer(): Knot;
     /**
-     * @return {!Item}
+     * @return {!Knot}
      */
-    getSubContainer(): Item;
+    getSubContainer(): Knot;
 }

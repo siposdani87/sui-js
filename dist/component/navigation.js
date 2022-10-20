@@ -1,6 +1,6 @@
 import { isUndefined, contain, eq } from '../utils/operation';
 import { Collection } from '../core/collection';
-import { Item } from '../core/item';
+import { Knot } from '../core/knot';
 import { Objekt } from '../core/objekt';
 import { Query } from '../core/query';
 /**
@@ -73,8 +73,8 @@ export class Navigation {
      * @return {undefined}
      */
     addCounter(id, counter, title, action, opt_href = '', opt_data = {}) {
-        const item = this._setItem(id, title, action, opt_href, opt_data);
-        const counterSpan = new Item('span');
+        const item = this._setKnot(id, title, action, opt_href, opt_data);
+        const counterSpan = new Knot('span');
         counterSpan.addClass('counter');
         counterSpan.setHtml(counter);
         const linkNode = item.get(this.linkNodeKey);
@@ -90,11 +90,11 @@ export class Navigation {
      * @return {undefined}
      */
     addIcon(id, icon, title, action, opt_href = '', opt_data = {}) {
-        const item = this._setItem(id, title, action, opt_href, opt_data);
-        const iconNode = new Item('em');
+        const item = this._setKnot(id, title, action, opt_href, opt_data);
+        const iconNode = new Knot('em');
         iconNode.addClass(['material-icons']);
         iconNode.setHtml(icon);
-        const imageSpan = new Item('span');
+        const imageSpan = new Knot('span');
         imageSpan.addClass('image');
         imageSpan.appendChild(iconNode);
         const linkNode = item.get(this.linkNodeKey);
@@ -110,8 +110,8 @@ export class Navigation {
      * @return {undefined}
      */
     addImage(id, image, title, action, opt_href = '', opt_data = {}) {
-        const item = this._setItem(id, title, action, opt_href, opt_data);
-        const imageSpan = new Item('span');
+        const item = this._setKnot(id, title, action, opt_href, opt_data);
+        const imageSpan = new Knot('span');
         imageSpan.addClass('image');
         if (image.indexOf('.svg') !== -1) {
             this.http
@@ -120,12 +120,12 @@ export class Navigation {
                 'X-Requested-With': '',
             })
                 .then((data) => {
-                const svgTag = new Query('svg', data).getItem();
+                const svgTag = new Query('svg', data).getKnot();
                 imageSpan.appendChild(svgTag);
             });
         }
         else {
-            const imageTag = new Item('img');
+            const imageTag = new Knot('img');
             imageTag.setAttribute('src', image);
             if (title) {
                 imageTag.setAttribute('alt', title);
@@ -144,7 +144,7 @@ export class Navigation {
      * @return {undefined}
      */
     addText(id, title, action, opt_href = '', opt_data = {}) {
-        this._setItem(id, title, action, opt_href, opt_data);
+        this._setKnot(id, title, action, opt_href, opt_data);
     }
     /**
      * @private
@@ -155,10 +155,10 @@ export class Navigation {
      * @param {!Object=} opt_data
      * @return {!Objekt}
      */
-    _setItem(id, title, action, opt_href = '', opt_data = {}) {
-        const linkNode = new Item('a');
+    _setKnot(id, title, action, opt_href = '', opt_data = {}) {
+        const linkNode = new Knot('a');
         if (title) {
-            const titleSpan = new Item('span');
+            const titleSpan = new Knot('span');
             titleSpan.addClass('title');
             titleSpan.setHtml(title);
             linkNode.appendChild(titleSpan);
@@ -190,7 +190,7 @@ export class Navigation {
         });
     }
     /**
-     * @param {!Item} containerNode
+     * @param {!Knot} containerNode
      * @return {undefined}
      */
     bindToContainer(containerNode) {

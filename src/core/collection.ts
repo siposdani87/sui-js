@@ -67,7 +67,7 @@ export class Collection<T extends Object = Objekt> {
      * @return {T}
      */
     push(object: Object | T): T {
-        const item = this._createItem(object);
+        const item = this._createKnot(object);
         this.items.push(item);
         return item;
     }
@@ -76,7 +76,7 @@ export class Collection<T extends Object = Objekt> {
      * @param {!Object|!T} object
      * @return {T}
      */
-    private _createItem(object: Object | T): T {
+    private _createKnot(object: Object | T): T {
         if (!instanceOf(object, this.Type)) {
             const parent = !isUndefined(this.options.parent)
                 ? this.options.parent
@@ -91,7 +91,7 @@ export class Collection<T extends Object = Objekt> {
      * @return {T}
      */
     set(index: number, object: Object | T): T {
-        const item = this._createItem(object);
+        const item = this._createKnot(object);
         if (index < this.size()) {
             this.items[index] = item;
         } else {
@@ -104,13 +104,13 @@ export class Collection<T extends Object = Objekt> {
      * @return {!T}
      */
     replace(object: Object | T): T | null {
-        const item = this._createItem(object);
+        const item = this._createKnot(object);
         if (item && instanceOf(item, Objekt)) {
             const id = (item as any as Objekt).get<Id>(this.options.id);
-            const oldItem = this.findById(id);
-            if (oldItem && instanceOf(oldItem, Objekt)) {
-                (oldItem as any as Objekt).merge(item);
-                return oldItem;
+            const oldKnot = this.findById(id);
+            if (oldKnot && instanceOf(oldKnot, Objekt)) {
+                (oldKnot as any as Objekt).merge(item);
+                return oldKnot;
             }
         }
         return null;
@@ -295,16 +295,16 @@ export class Collection<T extends Object = Objekt> {
      */
     deleteAllByCondition(conditionCallback: Function): Array<T> {
         const items = [];
-        const deletedItems = [];
+        const deletedKnots = [];
         each(this.items, (item, i) => {
             if (conditionCallback(item, i)) {
-                deletedItems.push(this.get(i));
+                deletedKnots.push(this.get(i));
             } else {
                 items.push(this.get(i));
             }
         });
         this.items = items;
-        return deletedItems;
+        return deletedKnots;
     }
     /**
      * @return {number}

@@ -1,4 +1,4 @@
-import { Item } from '../core/item';
+import { Knot } from '../core/knot';
 import { Tooltip } from '../component/tooltip';
 import { Form } from '../component';
 /**
@@ -6,33 +6,33 @@ import { Form } from '../component';
  * @class
  */
 export declare class BaseField<T extends HTMLInputElement> {
-    input: Item<T>;
-    label: Item;
-    error: Item;
-    inputBlock: Item;
+    input: Knot<T>;
+    label: Knot;
+    error: Knot;
+    inputBlock: Knot;
     form?: Form;
     errorTooltip: Tooltip;
-    infoContainerNode: Item;
-    actionContainerNode: Item;
+    infoContainerNode: Knot;
+    actionContainerNode: Knot;
     disabled: boolean;
     /**
-     * @param {!Item} input
-     * @param {!Item=} opt_label
-     * @param {!Item=} opt_error
-     * @param {!Item=} opt_inputBlock
+     * @param {!Knot} input
+     * @param {!Knot=} opt_label
+     * @param {!Knot=} opt_error
+     * @param {!Knot=} opt_inputBlock
      * @param {!Form=} opt_form
      */
-    constructor(input: Item<T>, opt_label?: Item | undefined, opt_error?: Item | undefined, opt_inputBlock?: Item | undefined, opt_form?: Form | undefined);
+    constructor(input: Knot<T>, opt_label?: Knot | undefined, opt_error?: Knot | undefined, opt_inputBlock?: Knot | undefined, opt_form?: Form | undefined);
     /**
      * @param {*} value
      * @param {*} previousValue
      */
     eventChange(value: any, previousValue: any): void;
     /**
-     * @param {!Item} node
+     * @param {!Knot} node
      * @return {undefined}
      */
-    eventClick(node: Item): void;
+    eventClick(node: Knot): void;
     /**
      * @return {undefined}
      */
@@ -85,7 +85,7 @@ export declare class BaseField<T extends HTMLInputElement> {
     isValid(): boolean;
     /**
      * @private
-     * @return {!Item}
+     * @return {!Knot}
      */
     private _getUpgradedNode;
     /**
@@ -166,16 +166,16 @@ export declare class BaseField<T extends HTMLInputElement> {
     private _setActionContainer;
     /**
      * @private
-     * @param {!Item} label
+     * @param {!Knot} label
      * @return {undefined}
      */
     private _setInfo;
     /**
      * @protected
-     * @param {!Item|undefined} label
+     * @param {!Knot|undefined} label
      * @return {undefined}
      */
-    protected _setAdditionalLabel(label: Item | undefined): void;
+    protected _setAdditionalLabel(label: Knot | undefined): void;
     /**
      * @protected
      * @param {string} labelText

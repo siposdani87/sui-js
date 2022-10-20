@@ -40,7 +40,7 @@ export declare class Collection<T extends Object = Objekt> {
      * @param {!Object|!T} object
      * @return {T}
      */
-    private _createItem;
+    private _createKnot;
     /**
      * @param {number} index
      * @param {!Object|!T} object
