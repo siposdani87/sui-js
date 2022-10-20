@@ -5,7 +5,7 @@ export * from './confirm';
 export * from './cookie';
 export * from './dialog';
 export * from './document';
-export * from './event';
+export * from './eventBus';
 export * from './flash';
 export * from './footer';
 export * from './geoLocation';

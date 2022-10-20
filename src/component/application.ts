@@ -25,7 +25,7 @@ import { Viewer } from '../module/viewer';
 import { Storage } from '../module/storage';
 import { ServiceWorker } from '../module/serviceWorker';
 import { Header } from '../module/header';
-import { Event } from '../module/event';
+import { EventBus } from '../module/eventBus';
 import { Scheduler } from '../module/scheduler';
 import { Window } from '../module/window';
 import { Promize } from '../core';
@@ -81,7 +81,7 @@ export class Application {
         this._initStorage();
         this._initLocale();
         this._initModule();
-        this._initEvent();
+        this._initEventBus();
         this._initScheduler();
         this._initLoader();
         this._initHttp();
@@ -174,7 +174,7 @@ export class Application {
         this._module.eventAfterInit = () => {
             this._instances[this._injections.progressBar].lock();
             this._instances[this._injections.loader].show();
-            this._instances[this._injections.event].call('module.afterInit');
+            this._instances[this._injections.eventBus].call('module.afterInit');
         };
 
         this._module.eventStateChange = (currentState): Promize => {
@@ -182,29 +182,29 @@ export class Application {
             this._instances[this._injections.loader].show();
             this._instances[this._injections.dialog].close();
             this._instances[this._injections.confirm].close();
-            return this._instances[this._injections.event].call(
+            return this._instances[this._injections.eventBus].call(
                 'state.change',
                 [currentState],
             );
         };
 
         this._module.eventDomChange = (state, dom): Promize => {
-            return this._instances[this._injections.event].call('dom.change', [
-                state,
-                dom,
-            ]);
+            return this._instances[this._injections.eventBus].call(
+                'dom.change',
+                [state, dom],
+            );
         };
 
         this._module.eventServiceLoaded = () => {
             // this._instances[this._injections.geoLocation].setWatcher();
             this._instances[this._injections.browser].detect();
-            this._instances[this._injections.event].call(
+            this._instances[this._injections.eventBus].call(
                 'module.serviceLoaded',
             );
         };
 
         this._module.eventServiceFailed = () => {
-            this._instances[this._injections.event].call(
+            this._instances[this._injections.eventBus].call(
                 'module.serviceFailed',
             );
         };
@@ -212,7 +212,7 @@ export class Application {
         this._module.eventModuleLoaded = (state): void => {
             this._instances[this._injections.progressBar].unlock();
             this._instances[this._injections.loader].hide(true);
-            this._instances[this._injections.event].call('module.loaded', [
+            this._instances[this._injections.eventBus].call('module.loaded', [
                 state,
             ]);
         };
@@ -220,19 +220,20 @@ export class Application {
         this._module.eventModuleFailed = (state): void => {
             this._instances[this._injections.progressBar].unlock();
             this._instances[this._injections.loader].hide(true);
-            this._instances[this._injections.event].call('module.failed', [
+            this._instances[this._injections.eventBus].call('module.failed', [
                 state,
             ]);
         };
 
         this._module.eventControllerLoaded = (dom): void => {
-            this._instances[this._injections.event].call('controller.loaded', [
-                dom,
-            ]);
+            this._instances[this._injections.eventBus].call(
+                'controller.loaded',
+                [dom],
+            );
         };
 
         this._module.eventControllerFailed = (): void => {
-            this._instances[this._injections.event].call(
+            this._instances[this._injections.eventBus].call(
                 'controller.failed',
                 [],
             );
@@ -291,24 +292,24 @@ export class Application {
             longitude,
             message,
         ) => {
-            this._instances[this._injections.event].override(
+            this._instances[this._injections.eventBus].override(
                 'geoLocation.success',
                 [message],
                 (message) => {
                     this._instances[this._injections.flash].addInfo(message);
                 },
             );
-            this._instances[this._injections.event].call('geoLocation.change', [
-                latitude,
-                longitude,
-            ]);
+            this._instances[this._injections.eventBus].call(
+                'geoLocation.change',
+                [latitude, longitude],
+            );
         };
 
         this._instances[this._injections.geoLocation].eventError = (
             message,
             code,
         ) => {
-            this._instances[this._injections.event].override(
+            this._instances[this._injections.eventBus].override(
                 'geoLocation.error',
                 [message, code],
                 (message) => {
@@ -379,7 +380,7 @@ export class Application {
             event,
         ) => {
             popupContainer.closeAll();
-            this._instances[this._injections.event].call('document.click', [
+            this._instances[this._injections.eventBus].call('document.click', [
                 target,
                 event,
             ]);
@@ -405,7 +406,7 @@ export class Application {
             this._instances[this._injections.dialog].setSize(width, height);
             this._instances[this._injections.confirm].setSize(width, height);
             this._instances[this._injections.viewer].setSize(width, height);
-            this._instances[this._injections.event].call('window.resize', [
+            this._instances[this._injections.eventBus].call('window.resize', [
                 width,
                 height,
                 event,
@@ -421,7 +422,7 @@ export class Application {
             this._instances[this._injections.dialog].setSize(width, height);
             this._instances[this._injections.confirm].setSize(width, height);
             this._instances[this._injections.viewer].setSize(width, height);
-            this._instances[this._injections.event].call(
+            this._instances[this._injections.eventBus].call(
                 'window.orientationChange',
                 [orientation, width, height, event],
             );
@@ -431,7 +432,7 @@ export class Application {
             scrollTop,
             event,
         ) => {
-            this._instances[this._injections.event].call('window.scroll', [
+            this._instances[this._injections.eventBus].call('window.scroll', [
                 scrollTop,
                 event,
             ]);
@@ -441,7 +442,7 @@ export class Application {
             colorScheme,
             event,
         ) => {
-            this._instances[this._injections.event].call(
+            this._instances[this._injections.eventBus].call(
                 'window.colorSchemeChange',
                 [colorScheme, event],
             );
@@ -459,7 +460,7 @@ export class Application {
         };
 
         this._instances[this._injections.window].eventOffline = (event) => {
-            this._instances[this._injections.event].override(
+            this._instances[this._injections.eventBus].override(
                 'window.offline',
                 [flash, event],
                 (flash) => {
@@ -474,8 +475,8 @@ export class Application {
      * @private
      * @return {undefined}
      */
-    private _initEvent(): void {
-        this._instances[this._injections.event] = new Event();
+    private _initEventBus(): void {
+        this._instances[this._injections.eventBus] = new EventBus();
     }
     /**
      * @private
@@ -494,7 +495,7 @@ export class Application {
             ...params
         ) => {
             this._instances[this._injections.progressBar].show();
-            this._instances[this._injections.event].call(
+            this._instances[this._injections.eventBus].call(
                 'http.beforeRequest',
                 params,
             );
@@ -502,7 +503,7 @@ export class Application {
         this._instances[this._injections.http].eventAfterRequest = (
             ...params
         ) => {
-            this._instances[this._injections.event].call(
+            this._instances[this._injections.eventBus].call(
                 'http.afterRequest',
                 params,
             );

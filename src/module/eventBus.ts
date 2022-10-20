@@ -6,7 +6,7 @@ import { Promize } from '../core';
 /**
  * @class
  */
-export class Event {
+export class EventBus {
     eventStore: Objekt;
     /**
      */

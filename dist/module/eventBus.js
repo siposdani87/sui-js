@@ -4,7 +4,7 @@ import { Objekt } from '../core/objekt';
 /**
  * @class
  */
-export class Event {
+export class EventBus {
     /**
      */
     constructor() {

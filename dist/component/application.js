@@ -25,7 +25,7 @@ import { Viewer } from '../module/viewer';
 import { Storage } from '../module/storage';
 import { ServiceWorker } from '../module/serviceWorker';
 import { Header } from '../module/header';
-import { Event } from '../module/event';
+import { EventBus } from '../module/eventBus';
 import { Scheduler } from '../module/scheduler';
 import { Window } from '../module/window';
 import { setDateIOLocale } from '../utils/dateio';
@@ -73,7 +73,7 @@ export class Application {
         this._initStorage();
         this._initLocale();
         this._initModule();
-        this._initEvent();
+        this._initEventBus();
         this._initScheduler();
         this._initLoader();
         this._initHttp();
@@ -160,50 +160,45 @@ export class Application {
         this._module.eventAfterInit = () => {
             this._instances[this._injections.progressBar].lock();
             this._instances[this._injections.loader].show();
-            this._instances[this._injections.event].call('module.afterInit');
+            this._instances[this._injections.eventBus].call('module.afterInit');
         };
         this._module.eventStateChange = (currentState) => {
             this._instances[this._injections.progressBar].lock();
             this._instances[this._injections.loader].show();
             this._instances[this._injections.dialog].close();
             this._instances[this._injections.confirm].close();
-            return this._instances[this._injections.event].call('state.change', [currentState]);
+            return this._instances[this._injections.eventBus].call('state.change', [currentState]);
         };
         this._module.eventDomChange = (state, dom) => {
-            return this._instances[this._injections.event].call('dom.change', [
-                state,
-                dom,
-            ]);
+            return this._instances[this._injections.eventBus].call('dom.change', [state, dom]);
         };
         this._module.eventServiceLoaded = () => {
             // this._instances[this._injections.geoLocation].setWatcher();
             this._instances[this._injections.browser].detect();
-            this._instances[this._injections.event].call('module.serviceLoaded');
+            this._instances[this._injections.eventBus].call('module.serviceLoaded');
         };
         this._module.eventServiceFailed = () => {
-            this._instances[this._injections.event].call('module.serviceFailed');
+            this._instances[this._injections.eventBus].call('module.serviceFailed');
         };
         this._module.eventModuleLoaded = (state) => {
             this._instances[this._injections.progressBar].unlock();
             this._instances[this._injections.loader].hide(true);
-            this._instances[this._injections.event].call('module.loaded', [
+            this._instances[this._injections.eventBus].call('module.loaded', [
                 state,
             ]);
         };
         this._module.eventModuleFailed = (state) => {
             this._instances[this._injections.progressBar].unlock();
             this._instances[this._injections.loader].hide(true);
-            this._instances[this._injections.event].call('module.failed', [
+            this._instances[this._injections.eventBus].call('module.failed', [
                 state,
             ]);
         };
         this._module.eventControllerLoaded = (dom) => {
-            this._instances[this._injections.event].call('controller.loaded', [
-                dom,
-            ]);
+            this._instances[this._injections.eventBus].call('controller.loaded', [dom]);
         };
         this._module.eventControllerFailed = () => {
-            this._instances[this._injections.event].call('controller.failed', []);
+            this._instances[this._injections.eventBus].call('controller.failed', []);
         };
     }
     /**
@@ -249,16 +244,13 @@ export class Application {
     _initGeoLocation() {
         this._instances[this._injections.geoLocation] = new GeoLocation();
         this._instances[this._injections.geoLocation].eventChange = (latitude, longitude, message) => {
-            this._instances[this._injections.event].override('geoLocation.success', [message], (message) => {
+            this._instances[this._injections.eventBus].override('geoLocation.success', [message], (message) => {
                 this._instances[this._injections.flash].addInfo(message);
             });
-            this._instances[this._injections.event].call('geoLocation.change', [
-                latitude,
-                longitude,
-            ]);
+            this._instances[this._injections.eventBus].call('geoLocation.change', [latitude, longitude]);
         };
         this._instances[this._injections.geoLocation].eventError = (message, code) => {
-            this._instances[this._injections.event].override('geoLocation.error', [message, code], (message) => {
+            this._instances[this._injections.eventBus].override('geoLocation.error', [message, code], (message) => {
                 this._instances[this._injections.flash].addError(message);
             });
         };
@@ -316,7 +308,7 @@ export class Application {
         this._instances[this._injections.document] = new Document();
         this._instances[this._injections.document].eventClick = (target, event) => {
             popupContainer.closeAll();
-            this._instances[this._injections.event].call('document.click', [
+            this._instances[this._injections.eventBus].call('document.click', [
                 target,
                 event,
             ]);
@@ -337,7 +329,7 @@ export class Application {
             this._instances[this._injections.dialog].setSize(width, height);
             this._instances[this._injections.confirm].setSize(width, height);
             this._instances[this._injections.viewer].setSize(width, height);
-            this._instances[this._injections.event].call('window.resize', [
+            this._instances[this._injections.eventBus].call('window.resize', [
                 width,
                 height,
                 event,
@@ -347,16 +339,16 @@ export class Application {
             this._instances[this._injections.dialog].setSize(width, height);
             this._instances[this._injections.confirm].setSize(width, height);
             this._instances[this._injections.viewer].setSize(width, height);
-            this._instances[this._injections.event].call('window.orientationChange', [orientation, width, height, event]);
+            this._instances[this._injections.eventBus].call('window.orientationChange', [orientation, width, height, event]);
         };
         this._instances[this._injections.window].eventScroll = (scrollTop, event) => {
-            this._instances[this._injections.event].call('window.scroll', [
+            this._instances[this._injections.eventBus].call('window.scroll', [
                 scrollTop,
                 event,
             ]);
         };
         this._instances[this._injections.window].eventColorSchemeChange = (colorScheme, event) => {
-            this._instances[this._injections.event].call('window.colorSchemeChange', [colorScheme, event]);
+            this._instances[this._injections.eventBus].call('window.colorSchemeChange', [colorScheme, event]);
         };
         const flash = {
             node: null,
@@ -369,7 +361,7 @@ export class Application {
             }
         };
         this._instances[this._injections.window].eventOffline = (event) => {
-            this._instances[this._injections.event].override('window.offline', [flash, event], (flash) => {
+            this._instances[this._injections.eventBus].override('window.offline', [flash, event], (flash) => {
                 flash.node = this._instances[this._injections.flash].addWarning(flash.message, flash.duration);
             });
         };
@@ -378,8 +370,8 @@ export class Application {
      * @private
      * @return {undefined}
      */
-    _initEvent() {
-        this._instances[this._injections.event] = new Event();
+    _initEventBus() {
+        this._instances[this._injections.eventBus] = new EventBus();
     }
     /**
      * @private
@@ -396,10 +388,10 @@ export class Application {
         this._instances[this._injections.http] = new Http(this.options);
         this._instances[this._injections.http].eventBeforeRequest = (...params) => {
             this._instances[this._injections.progressBar].show();
-            this._instances[this._injections.event].call('http.beforeRequest', params);
+            this._instances[this._injections.eventBus].call('http.beforeRequest', params);
         };
         this._instances[this._injections.http].eventAfterRequest = (...params) => {
-            this._instances[this._injections.event].call('http.afterRequest', params);
+            this._instances[this._injections.eventBus].call('http.afterRequest', params);
             this._instances[this._injections.progressBar].hide();
         };
     }
