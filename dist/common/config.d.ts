@@ -37,5 +37,4 @@ export declare const coreResources: {
     geoLocation: string;
     instances: string;
     console: string;
-    serviceWorker: string;
 };

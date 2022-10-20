@@ -18,7 +18,6 @@ export * from './navBar';
 export * from './progressBar';
 export * from './scheduler';
 export * from './script';
-export * from './serviceWorker';
 export * from './storage';
 export * from './style';
 export * from './template';
