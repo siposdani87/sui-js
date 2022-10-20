@@ -39,5 +39,4 @@ export const coreResources = {
     geoLocation: 'geoLocation',
     instances: 'instances',
     console: 'console',
-    serviceWorker: 'serviceWorker',
 };

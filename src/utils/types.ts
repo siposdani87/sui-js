@@ -27,7 +27,6 @@ import {
     Window,
     Document,
     Storage,
-    ServiceWorker,
 } from '../module';
 
 /**
@@ -103,7 +102,6 @@ export type Instance = {
     geoLocation: GeoLocation;
     instances: Instance;
     console: Console;
-    serviceWorker: ServiceWorker;
 };
 
 export type ClassRef = { new (...args: any[]) };

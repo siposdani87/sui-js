@@ -204,11 +204,6 @@ export declare class Application {
      * @private
      * @return {undefined}
      */
-    private _initServiceWorker;
-    /**
-     * @private
-     * @return {undefined}
-     */
     private _initRoutes;
     /**
      * @param {string} id

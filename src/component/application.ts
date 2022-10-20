@@ -23,7 +23,6 @@ import { Template } from '../module/template';
 import { TopMenu } from '../module/topMenu';
 import { Viewer } from '../module/viewer';
 import { Storage } from '../module/storage';
-import { ServiceWorker } from '../module/serviceWorker';
 import { Header } from '../module/header';
 import { EventBus } from '../module/eventBus';
 import { Scheduler } from '../module/scheduler';
@@ -72,7 +71,6 @@ export class Application {
         geoLocation: undefined,
         instances: undefined,
         console: undefined,
-        serviceWorker: undefined,
     };
     private _module: Module;
     private _routeOptions: Objekt;
@@ -140,7 +138,6 @@ export class Application {
         this._initScript();
         this._initStyle();
         this._initConfig();
-        this._initServiceWorker();
 
         this._loadModules();
     }
@@ -579,16 +576,6 @@ export class Application {
     private _initBrowser(): void {
         this._instances.browser = new Browser();
         this._instances.browser.eventMissingFeatures = (features) => {
-            this._instances.flash.addError(features.join(', '));
-        };
-    }
-    /**
-     * @private
-     * @return {undefined}
-     */
-    private _initServiceWorker(): void {
-        this._instances.serviceWorker = new ServiceWorker();
-        this._instances.serviceWorker.eventMissingFeatures = (features) => {
             this._instances.flash.addError(features.join(', '));
         };
     }
