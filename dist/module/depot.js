@@ -91,7 +91,7 @@ export class Depot {
      */
     remove(name) {
         const propertyName = this._getPropertyName(name);
-        this.storage.removeKnot(propertyName);
+        this.storage.removeItem(propertyName);
     }
     /**
      * @return {undefined}
