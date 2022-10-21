@@ -5,6 +5,7 @@ import { encrypt, decrypt } from '../utils/coder';
 /**
  * @class
  */
+// Store, Depository
 export class Storage {
     type: 'LOCAL' | 'SESSION';
     options: Objekt;

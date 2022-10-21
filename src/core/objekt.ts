@@ -18,6 +18,7 @@ import {
 /**
  * @class
  */
+// Record, Entry, Thing
 export class Objekt {
     [key: string]: any;
     /**
