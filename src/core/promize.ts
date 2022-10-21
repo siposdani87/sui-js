@@ -5,6 +5,7 @@ import { Objekt } from './objekt';
 /**
  * @class
  */
+// Hope
 export class Promize {
     options: Objekt;
     /**

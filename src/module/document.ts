@@ -5,6 +5,7 @@ import { consoleWarn } from '../utils/log';
 /**
  * @class
  */
+// Page
 export class Document {
     options: Objekt;
     document: globalThis.Document;

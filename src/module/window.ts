@@ -5,6 +5,7 @@ import { consoleWarn } from '../utils/log';
 /**
  * @class
  */
+// Screen
 export class Window {
     options: Objekt;
     window: globalThis.Window & typeof globalThis;
