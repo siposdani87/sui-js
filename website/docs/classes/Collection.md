@@ -42,7 +42,7 @@ custom_edit_url: null
 
 #### Defined in
 
-[core/collection.ts:25](https://github.com/siposdani87/sui-js/blob/bf1be67/src/core/collection.ts#L25)
+[core/collection.ts:25](https://github.com/siposdani87/sui-js/blob/cc9117e/src/core/collection.ts#L25)
 
 ## Properties
 
@@ -52,7 +52,7 @@ custom_edit_url: null
 
 #### Defined in
 
-[core/collection.ts:17](https://github.com/siposdani87/sui-js/blob/bf1be67/src/core/collection.ts#L17)
+[core/collection.ts:17](https://github.com/siposdani87/sui-js/blob/cc9117e/src/core/collection.ts#L17)
 
 ___
 
@@ -62,7 +62,7 @@ ___
 
 #### Defined in
 
-[core/collection.ts:18](https://github.com/siposdani87/sui-js/blob/bf1be67/src/core/collection.ts#L18)
+[core/collection.ts:18](https://github.com/siposdani87/sui-js/blob/cc9117e/src/core/collection.ts#L18)
 
 ___
 
@@ -72,7 +72,7 @@ ___
 
 #### Defined in
 
-[core/collection.ts:19](https://github.com/siposdani87/sui-js/blob/bf1be67/src/core/collection.ts#L19)
+[core/collection.ts:19](https://github.com/siposdani87/sui-js/blob/cc9117e/src/core/collection.ts#L19)
 
 ## Methods
 
@@ -92,7 +92,7 @@ ___
 
 #### Defined in
 
-[core/collection.ts:79](https://github.com/siposdani87/sui-js/blob/bf1be67/src/core/collection.ts#L79)
+[core/collection.ts:79](https://github.com/siposdani87/sui-js/blob/cc9117e/src/core/collection.ts#L79)
 
 ___
 
@@ -112,7 +112,7 @@ ___
 
 #### Defined in
 
-[core/collection.ts:40](https://github.com/siposdani87/sui-js/blob/bf1be67/src/core/collection.ts#L40)
+[core/collection.ts:40](https://github.com/siposdani87/sui-js/blob/cc9117e/src/core/collection.ts#L40)
 
 ___
 
@@ -126,7 +126,7 @@ ___
 
 #### Defined in
 
-[core/collection.ts:189](https://github.com/siposdani87/sui-js/blob/bf1be67/src/core/collection.ts#L189)
+[core/collection.ts:189](https://github.com/siposdani87/sui-js/blob/cc9117e/src/core/collection.ts#L189)
 
 ___
 
@@ -146,7 +146,7 @@ ___
 
 #### Defined in
 
-[core/collection.ts:247](https://github.com/siposdani87/sui-js/blob/bf1be67/src/core/collection.ts#L247)
+[core/collection.ts:247](https://github.com/siposdani87/sui-js/blob/cc9117e/src/core/collection.ts#L247)
 
 ___
 
@@ -167,7 +167,7 @@ ___
 
 #### Defined in
 
-[core/collection.ts:287](https://github.com/siposdani87/sui-js/blob/bf1be67/src/core/collection.ts#L287)
+[core/collection.ts:287](https://github.com/siposdani87/sui-js/blob/cc9117e/src/core/collection.ts#L287)
 
 ___
 
@@ -187,7 +187,7 @@ ___
 
 #### Defined in
 
-[core/collection.ts:296](https://github.com/siposdani87/sui-js/blob/bf1be67/src/core/collection.ts#L296)
+[core/collection.ts:296](https://github.com/siposdani87/sui-js/blob/cc9117e/src/core/collection.ts#L296)
 
 ___
 
@@ -208,7 +208,7 @@ ___
 
 #### Defined in
 
-[core/collection.ts:264](https://github.com/siposdani87/sui-js/blob/bf1be67/src/core/collection.ts#L264)
+[core/collection.ts:264](https://github.com/siposdani87/sui-js/blob/cc9117e/src/core/collection.ts#L264)
 
 ___
 
@@ -228,7 +228,7 @@ ___
 
 #### Defined in
 
-[core/collection.ts:273](https://github.com/siposdani87/sui-js/blob/bf1be67/src/core/collection.ts#L273)
+[core/collection.ts:273](https://github.com/siposdani87/sui-js/blob/cc9117e/src/core/collection.ts#L273)
 
 ___
 
@@ -248,7 +248,7 @@ ___
 
 #### Defined in
 
-[core/collection.ts:256](https://github.com/siposdani87/sui-js/blob/bf1be67/src/core/collection.ts#L256)
+[core/collection.ts:256](https://github.com/siposdani87/sui-js/blob/cc9117e/src/core/collection.ts#L256)
 
 ___
 
@@ -268,7 +268,7 @@ ___
 
 #### Defined in
 
-[core/collection.ts:149](https://github.com/siposdani87/sui-js/blob/bf1be67/src/core/collection.ts#L149)
+[core/collection.ts:149](https://github.com/siposdani87/sui-js/blob/cc9117e/src/core/collection.ts#L149)
 
 ___
 
@@ -289,7 +289,7 @@ ___
 
 #### Defined in
 
-[core/collection.ts:225](https://github.com/siposdani87/sui-js/blob/bf1be67/src/core/collection.ts#L225)
+[core/collection.ts:225](https://github.com/siposdani87/sui-js/blob/cc9117e/src/core/collection.ts#L225)
 
 ___
 
@@ -309,7 +309,7 @@ ___
 
 #### Defined in
 
-[core/collection.ts:234](https://github.com/siposdani87/sui-js/blob/bf1be67/src/core/collection.ts#L234)
+[core/collection.ts:234](https://github.com/siposdani87/sui-js/blob/cc9117e/src/core/collection.ts#L234)
 
 ___
 
@@ -330,7 +330,7 @@ ___
 
 #### Defined in
 
-[core/collection.ts:204](https://github.com/siposdani87/sui-js/blob/bf1be67/src/core/collection.ts#L204)
+[core/collection.ts:204](https://github.com/siposdani87/sui-js/blob/cc9117e/src/core/collection.ts#L204)
 
 ___
 
@@ -350,7 +350,7 @@ ___
 
 #### Defined in
 
-[core/collection.ts:213](https://github.com/siposdani87/sui-js/blob/bf1be67/src/core/collection.ts#L213)
+[core/collection.ts:213](https://github.com/siposdani87/sui-js/blob/cc9117e/src/core/collection.ts#L213)
 
 ___
 
@@ -370,7 +370,7 @@ ___
 
 #### Defined in
 
-[core/collection.ts:196](https://github.com/siposdani87/sui-js/blob/bf1be67/src/core/collection.ts#L196)
+[core/collection.ts:196](https://github.com/siposdani87/sui-js/blob/cc9117e/src/core/collection.ts#L196)
 
 ___
 
@@ -397,7 +397,7 @@ ___
 
 #### Defined in
 
-[core/collection.ts:160](https://github.com/siposdani87/sui-js/blob/bf1be67/src/core/collection.ts#L160)
+[core/collection.ts:160](https://github.com/siposdani87/sui-js/blob/cc9117e/src/core/collection.ts#L160)
 
 ___
 
@@ -424,7 +424,7 @@ ___
 
 #### Defined in
 
-[core/collection.ts:179](https://github.com/siposdani87/sui-js/blob/bf1be67/src/core/collection.ts#L179)
+[core/collection.ts:179](https://github.com/siposdani87/sui-js/blob/cc9117e/src/core/collection.ts#L179)
 
 ___
 
@@ -438,7 +438,7 @@ ___
 
 #### Defined in
 
-[core/collection.ts:121](https://github.com/siposdani87/sui-js/blob/bf1be67/src/core/collection.ts#L121)
+[core/collection.ts:121](https://github.com/siposdani87/sui-js/blob/cc9117e/src/core/collection.ts#L121)
 
 ___
 
@@ -460,7 +460,7 @@ ___
 
 #### Defined in
 
-[core/collection.ts:130](https://github.com/siposdani87/sui-js/blob/bf1be67/src/core/collection.ts#L130)
+[core/collection.ts:130](https://github.com/siposdani87/sui-js/blob/cc9117e/src/core/collection.ts#L130)
 
 ___
 
@@ -481,7 +481,7 @@ ___
 
 #### Defined in
 
-[core/collection.ts:320](https://github.com/siposdani87/sui-js/blob/bf1be67/src/core/collection.ts#L320)
+[core/collection.ts:320](https://github.com/siposdani87/sui-js/blob/cc9117e/src/core/collection.ts#L320)
 
 ___
 
@@ -501,7 +501,7 @@ ___
 
 #### Defined in
 
-[core/collection.ts:52](https://github.com/siposdani87/sui-js/blob/bf1be67/src/core/collection.ts#L52)
+[core/collection.ts:52](https://github.com/siposdani87/sui-js/blob/cc9117e/src/core/collection.ts#L52)
 
 ___
 
@@ -521,7 +521,7 @@ ___
 
 #### Defined in
 
-[core/collection.ts:327](https://github.com/siposdani87/sui-js/blob/bf1be67/src/core/collection.ts#L327)
+[core/collection.ts:327](https://github.com/siposdani87/sui-js/blob/cc9117e/src/core/collection.ts#L327)
 
 ___
 
@@ -541,7 +541,7 @@ ___
 
 #### Defined in
 
-[core/collection.ts:69](https://github.com/siposdani87/sui-js/blob/bf1be67/src/core/collection.ts#L69)
+[core/collection.ts:69](https://github.com/siposdani87/sui-js/blob/cc9117e/src/core/collection.ts#L69)
 
 ___
 
@@ -561,7 +561,7 @@ ___
 
 #### Defined in
 
-[core/collection.ts:61](https://github.com/siposdani87/sui-js/blob/bf1be67/src/core/collection.ts#L61)
+[core/collection.ts:61](https://github.com/siposdani87/sui-js/blob/cc9117e/src/core/collection.ts#L61)
 
 ___
 
@@ -581,7 +581,7 @@ ___
 
 #### Defined in
 
-[core/collection.ts:106](https://github.com/siposdani87/sui-js/blob/bf1be67/src/core/collection.ts#L106)
+[core/collection.ts:106](https://github.com/siposdani87/sui-js/blob/cc9117e/src/core/collection.ts#L106)
 
 ___
 
@@ -602,7 +602,7 @@ ___
 
 #### Defined in
 
-[core/collection.ts:93](https://github.com/siposdani87/sui-js/blob/bf1be67/src/core/collection.ts#L93)
+[core/collection.ts:93](https://github.com/siposdani87/sui-js/blob/cc9117e/src/core/collection.ts#L93)
 
 ___
 
@@ -616,4 +616,4 @@ ___
 
 #### Defined in
 
-[core/collection.ts:312](https://github.com/siposdani87/sui-js/blob/bf1be67/src/core/collection.ts#L312)
+[core/collection.ts:312](https://github.com/siposdani87/sui-js/blob/cc9117e/src/core/collection.ts#L312)

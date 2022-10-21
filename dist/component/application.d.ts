@@ -109,7 +109,7 @@ export declare class Application {
      * @private
      * @return {undefined}
      */
-    private _initStorage;
+    private _initDepots;
     /**
      * @private
      * @return {undefined}
@@ -119,12 +119,12 @@ export declare class Application {
      * @private
      * @return {undefined}
      */
-    private _initDocument;
+    private _initPage;
     /**
      * @private
      * @return {undefined}
      */
-    private _initWindow;
+    private _initScreen;
     /**
      * @private
      * @return {undefined}

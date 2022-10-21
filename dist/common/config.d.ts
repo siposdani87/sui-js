@@ -25,12 +25,12 @@ export declare const coreResources: {
     style: string;
     state: string;
     dom: string;
-    document: string;
-    window: string;
+    page: string;
+    screen: string;
     helper: string;
     cookie: string;
-    localStorage: string;
-    sessionStorage: string;
+    localDepot: string;
+    sessionDepot: string;
     browser: string;
     loader: string;
     progressBar: string;

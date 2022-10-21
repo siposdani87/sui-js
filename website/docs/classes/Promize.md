@@ -20,7 +20,7 @@ custom_edit_url: null
 
 #### Defined in
 
-[core/promize.ts:13](https://github.com/siposdani87/sui-js/blob/bf1be67/src/core/promize.ts#L13)
+[core/promize.ts:14](https://github.com/siposdani87/sui-js/blob/cc9117e/src/core/promize.ts#L14)
 
 ## Properties
 
@@ -30,7 +30,7 @@ custom_edit_url: null
 
 #### Defined in
 
-[core/promize.ts:9](https://github.com/siposdani87/sui-js/blob/bf1be67/src/core/promize.ts#L9)
+[core/promize.ts:10](https://github.com/siposdani87/sui-js/blob/cc9117e/src/core/promize.ts#L10)
 
 ## Methods
 
@@ -50,7 +50,7 @@ custom_edit_url: null
 
 #### Defined in
 
-[core/promize.ts:21](https://github.com/siposdani87/sui-js/blob/bf1be67/src/core/promize.ts#L21)
+[core/promize.ts:22](https://github.com/siposdani87/sui-js/blob/cc9117e/src/core/promize.ts#L22)
 
 ___
 
@@ -71,7 +71,7 @@ ___
 
 #### Defined in
 
-[core/promize.ts:105](https://github.com/siposdani87/sui-js/blob/bf1be67/src/core/promize.ts#L105)
+[core/promize.ts:106](https://github.com/siposdani87/sui-js/blob/cc9117e/src/core/promize.ts#L106)
 
 ___
 
@@ -91,7 +91,7 @@ ___
 
 #### Defined in
 
-[core/promize.ts:55](https://github.com/siposdani87/sui-js/blob/bf1be67/src/core/promize.ts#L55)
+[core/promize.ts:56](https://github.com/siposdani87/sui-js/blob/cc9117e/src/core/promize.ts#L56)
 
 ___
 
@@ -111,7 +111,7 @@ ___
 
 #### Defined in
 
-[core/promize.ts:36](https://github.com/siposdani87/sui-js/blob/bf1be67/src/core/promize.ts#L36)
+[core/promize.ts:37](https://github.com/siposdani87/sui-js/blob/cc9117e/src/core/promize.ts#L37)
 
 ___
 
@@ -133,4 +133,4 @@ ___
 
 #### Defined in
 
-[core/promize.ts:76](https://github.com/siposdani87/sui-js/blob/bf1be67/src/core/promize.ts#L76)
+[core/promize.ts:77](https://github.com/siposdani87/sui-js/blob/cc9117e/src/core/promize.ts#L77)

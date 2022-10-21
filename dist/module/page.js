@@ -1,18 +1,14 @@
 import { Knot } from '../core/knot';
 import { Objekt } from '../core/objekt';
 import { consoleWarn } from '../utils/log';
-
 /**
  * @class
  */
-// Page
-export class Document {
-    options: Objekt;
-    document: globalThis.Document;
+export class Page {
     /**
      * @param {!Object=} opt_options
      */
-    constructor(opt_options: Object | undefined = {}) {
+    constructor(opt_options = {}) {
         this._setOptions(opt_options);
         this._init();
     }
@@ -21,7 +17,7 @@ export class Document {
      * @param {!Object=} opt_options
      * @return {undefined}
      */
-    private _setOptions(opt_options: Object | undefined): void {
+    _setOptions(opt_options) {
         const _self = this;
         _self.options = new Objekt();
         _self.options.merge(opt_options);
@@ -30,10 +26,10 @@ export class Document {
      * @private
      * @return {undefined}
      */
-    private _init(): void {
+    _init() {
         this.document = document;
         this.document.addEventListener('click', (event) => {
-            const target = new Knot(event.target as HTMLElement);
+            const target = new Knot(event.target);
             this.eventClick(target, event);
         });
     }
@@ -41,7 +37,7 @@ export class Document {
      * @param {string} title
      * @return {undefined}
      */
-    setTitle(title: string): void {
+    setTitle(title) {
         this.document.title = title;
     }
     /**
@@ -49,7 +45,7 @@ export class Document {
      * @param {!Event} event
      * @return {undefined}
      */
-    eventClick(target: Knot, event: Event): void {
+    eventClick(target, event) {
         consoleWarn('Document.eventClick()', target, event);
     }
     /**
@@ -57,7 +53,7 @@ export class Document {
      * @param {string=} opt_subject
      * @return {undefined}
      */
-    mailTo(email: string, opt_subject: string | undefined = ''): void {
+    mailTo(email, opt_subject = '') {
         this.document.location.href =
             'mailto:' + email + '?subject=' + opt_subject;
     }

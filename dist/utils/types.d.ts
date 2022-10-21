@@ -1,7 +1,7 @@
 import { Application } from '../component';
 import { Knot, State } from '../core';
 import { Objekt } from '../core/objekt';
-import { BottomMenu, Browser, Confirm, Cookie, Dialog, EventBus, Flash, Footer, GeoLocation, Header, Helper, Http, LeftMenu, Loader, NavBar, ProgressBar, Scheduler, Script, Style, Template, TopMenu, Viewer, Window, Document, Storage } from '../module';
+import { BottomMenu, Browser, Confirm, Cookie, Dialog, EventBus, Flash, Footer, GeoLocation, Header, Helper, Http, LeftMenu, Loader, NavBar, ProgressBar, Scheduler, Script, Style, Template, TopMenu, Viewer, Screen, Page, Depot } from '../module';
 /**
  * @typedef {function(Element, Event)} Listener
  */
@@ -57,12 +57,12 @@ export declare type Instance = {
     style: Style;
     state: State;
     dom: Knot;
-    document: Document;
-    window: Window;
+    page: Page;
+    screen: Screen;
     helper: Helper;
     cookie: Cookie;
-    localStorage: Storage;
-    sessionStorage: Storage;
+    localDepot: Depot;
+    sessionDepot: Depot;
     browser: Browser;
     loader: Loader;
     progressBar: ProgressBar;

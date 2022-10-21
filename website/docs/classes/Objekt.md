@@ -30,7 +30,7 @@ custom_edit_url: null
 
 #### Defined in
 
-[core/objekt.ts:26](https://github.com/siposdani87/sui-js/blob/bf1be67/src/core/objekt.ts#L26)
+[core/objekt.ts:27](https://github.com/siposdani87/sui-js/blob/cc9117e/src/core/objekt.ts#L27)
 
 ## Methods
 
@@ -52,7 +52,7 @@ custom_edit_url: null
 
 #### Defined in
 
-[core/objekt.ts:250](https://github.com/siposdani87/sui-js/blob/bf1be67/src/core/objekt.ts#L250)
+[core/objekt.ts:251](https://github.com/siposdani87/sui-js/blob/cc9117e/src/core/objekt.ts#L251)
 
 ___
 
@@ -73,7 +73,7 @@ ___
 
 #### Defined in
 
-[core/objekt.ts:70](https://github.com/siposdani87/sui-js/blob/bf1be67/src/core/objekt.ts#L70)
+[core/objekt.ts:71](https://github.com/siposdani87/sui-js/blob/cc9117e/src/core/objekt.ts#L71)
 
 ___
 
@@ -94,7 +94,7 @@ ___
 
 #### Defined in
 
-[core/objekt.ts:102](https://github.com/siposdani87/sui-js/blob/bf1be67/src/core/objekt.ts#L102)
+[core/objekt.ts:103](https://github.com/siposdani87/sui-js/blob/cc9117e/src/core/objekt.ts#L103)
 
 ___
 
@@ -115,7 +115,7 @@ ___
 
 #### Defined in
 
-[core/objekt.ts:199](https://github.com/siposdani87/sui-js/blob/bf1be67/src/core/objekt.ts#L199)
+[core/objekt.ts:200](https://github.com/siposdani87/sui-js/blob/cc9117e/src/core/objekt.ts#L200)
 
 ___
 
@@ -137,7 +137,7 @@ ___
 
 #### Defined in
 
-[core/objekt.ts:135](https://github.com/siposdani87/sui-js/blob/bf1be67/src/core/objekt.ts#L135)
+[core/objekt.ts:136](https://github.com/siposdani87/sui-js/blob/cc9117e/src/core/objekt.ts#L136)
 
 ___
 
@@ -157,7 +157,7 @@ ___
 
 #### Defined in
 
-[core/objekt.ts:285](https://github.com/siposdani87/sui-js/blob/bf1be67/src/core/objekt.ts#L285)
+[core/objekt.ts:286](https://github.com/siposdani87/sui-js/blob/cc9117e/src/core/objekt.ts#L286)
 
 ___
 
@@ -171,7 +171,7 @@ ___
 
 #### Defined in
 
-[core/objekt.ts:191](https://github.com/siposdani87/sui-js/blob/bf1be67/src/core/objekt.ts#L191)
+[core/objekt.ts:192](https://github.com/siposdani87/sui-js/blob/cc9117e/src/core/objekt.ts#L192)
 
 ___
 
@@ -191,7 +191,7 @@ ___
 
 #### Defined in
 
-[core/objekt.ts:267](https://github.com/siposdani87/sui-js/blob/bf1be67/src/core/objekt.ts#L267)
+[core/objekt.ts:268](https://github.com/siposdani87/sui-js/blob/cc9117e/src/core/objekt.ts#L268)
 
 ___
 
@@ -211,7 +211,7 @@ ___
 
 #### Defined in
 
-[core/objekt.ts:294](https://github.com/siposdani87/sui-js/blob/bf1be67/src/core/objekt.ts#L294)
+[core/objekt.ts:295](https://github.com/siposdani87/sui-js/blob/cc9117e/src/core/objekt.ts#L295)
 
 ___
 
@@ -233,7 +233,7 @@ ___
 
 #### Defined in
 
-[core/objekt.ts:226](https://github.com/siposdani87/sui-js/blob/bf1be67/src/core/objekt.ts#L226)
+[core/objekt.ts:227](https://github.com/siposdani87/sui-js/blob/cc9117e/src/core/objekt.ts#L227)
 
 ___
 
@@ -254,7 +254,7 @@ ___
 
 #### Defined in
 
-[core/objekt.ts:304](https://github.com/siposdani87/sui-js/blob/bf1be67/src/core/objekt.ts#L304)
+[core/objekt.ts:305](https://github.com/siposdani87/sui-js/blob/cc9117e/src/core/objekt.ts#L305)
 
 ___
 
@@ -282,7 +282,7 @@ ___
 
 #### Defined in
 
-[core/objekt.ts:82](https://github.com/siposdani87/sui-js/blob/bf1be67/src/core/objekt.ts#L82)
+[core/objekt.ts:83](https://github.com/siposdani87/sui-js/blob/cc9117e/src/core/objekt.ts#L83)
 
 ___
 
@@ -296,7 +296,7 @@ ___
 
 #### Defined in
 
-[core/objekt.ts:278](https://github.com/siposdani87/sui-js/blob/bf1be67/src/core/objekt.ts#L278)
+[core/objekt.ts:279](https://github.com/siposdani87/sui-js/blob/cc9117e/src/core/objekt.ts#L279)
 
 ___
 
@@ -316,7 +316,7 @@ ___
 
 #### Defined in
 
-[core/objekt.ts:35](https://github.com/siposdani87/sui-js/blob/bf1be67/src/core/objekt.ts#L35)
+[core/objekt.ts:36](https://github.com/siposdani87/sui-js/blob/cc9117e/src/core/objekt.ts#L36)
 
 ___
 
@@ -336,7 +336,7 @@ ___
 
 #### Defined in
 
-[core/objekt.ts:184](https://github.com/siposdani87/sui-js/blob/bf1be67/src/core/objekt.ts#L184)
+[core/objekt.ts:185](https://github.com/siposdani87/sui-js/blob/cc9117e/src/core/objekt.ts#L185)
 
 ___
 
@@ -357,7 +357,7 @@ ___
 
 #### Defined in
 
-[core/objekt.ts:160](https://github.com/siposdani87/sui-js/blob/bf1be67/src/core/objekt.ts#L160)
+[core/objekt.ts:161](https://github.com/siposdani87/sui-js/blob/cc9117e/src/core/objekt.ts#L161)
 
 ___
 
@@ -379,4 +379,4 @@ ___
 
 #### Defined in
 
-[core/objekt.ts:171](https://github.com/siposdani87/sui-js/blob/bf1be67/src/core/objekt.ts#L171)
+[core/objekt.ts:172](https://github.com/siposdani87/sui-js/blob/cc9117e/src/core/objekt.ts#L172)

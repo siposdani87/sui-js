@@ -24,9 +24,9 @@ import {
     Template,
     TopMenu,
     Viewer,
-    Window,
-    Document,
-    Storage,
+    Screen,
+    Page,
+    Depot,
 } from '../module';
 
 /**
@@ -90,12 +90,12 @@ export type Instance = {
     style: Style;
     state: State;
     dom: Knot;
-    document: Document;
-    window: Window;
+    page: Page;
+    screen: Screen;
     helper: Helper;
     cookie: Cookie;
-    localStorage: Storage;
-    sessionStorage: Storage;
+    localDepot: Depot;
+    sessionDepot: Depot;
     browser: Browser;
     loader: Loader;
     progressBar: ProgressBar;

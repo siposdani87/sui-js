@@ -1,7 +1,7 @@
 ---
-id: "Window"
-title: "Class: Window"
-sidebar_label: "Window"
+id: "Screen"
+title: "Class: Screen"
+sidebar_label: "Screen"
 sidebar_position: 0
 custom_edit_url: null
 ---
@@ -10,7 +10,7 @@ custom_edit_url: null
 
 ### constructor
 
-• **new Window**(`opt_options?`)
+• **new Screen**(`opt_options?`)
 
 #### Parameters
 
@@ -20,7 +20,7 @@ custom_edit_url: null
 
 #### Defined in
 
-[module/window.ts:16](https://github.com/siposdani87/sui-js/blob/bf1be67/src/module/window.ts#L16)
+module/screen.ts:16
 
 ## Properties
 
@@ -30,7 +30,7 @@ custom_edit_url: null
 
 #### Defined in
 
-[module/window.ts:11](https://github.com/siposdani87/sui-js/blob/bf1be67/src/module/window.ts#L11)
+module/screen.ts:11
 
 ___
 
@@ -40,7 +40,7 @@ ___
 
 #### Defined in
 
-[module/window.ts:9](https://github.com/siposdani87/sui-js/blob/bf1be67/src/module/window.ts#L9)
+module/screen.ts:9
 
 ___
 
@@ -50,17 +50,17 @@ ___
 
 #### Defined in
 
-[module/window.ts:12](https://github.com/siposdani87/sui-js/blob/bf1be67/src/module/window.ts#L12)
+module/screen.ts:12
 
 ___
 
 ### window
 
-• **window**: `Window` & typeof `globalThis`
+• **window**: `Window`
 
 #### Defined in
 
-[module/window.ts:10](https://github.com/siposdani87/sui-js/blob/bf1be67/src/module/window.ts#L10)
+module/screen.ts:10
 
 ## Methods
 
@@ -74,7 +74,7 @@ ___
 
 #### Defined in
 
-[module/window.ts:36](https://github.com/siposdani87/sui-js/blob/bf1be67/src/module/window.ts#L36)
+module/screen.ts:36
 
 ___
 
@@ -88,7 +88,7 @@ ___
 
 #### Defined in
 
-[module/window.ts:206](https://github.com/siposdani87/sui-js/blob/bf1be67/src/module/window.ts#L206)
+module/screen.ts:206
 
 ___
 
@@ -102,7 +102,7 @@ ___
 
 #### Defined in
 
-[module/window.ts:77](https://github.com/siposdani87/sui-js/blob/bf1be67/src/module/window.ts#L77)
+module/screen.ts:77
 
 ___
 
@@ -116,7 +116,7 @@ ___
 
 #### Defined in
 
-[module/window.ts:51](https://github.com/siposdani87/sui-js/blob/bf1be67/src/module/window.ts#L51)
+module/screen.ts:51
 
 ___
 
@@ -130,7 +130,7 @@ ___
 
 #### Defined in
 
-[module/window.ts:64](https://github.com/siposdani87/sui-js/blob/bf1be67/src/module/window.ts#L64)
+module/screen.ts:64
 
 ___
 
@@ -150,7 +150,7 @@ ___
 
 #### Defined in
 
-[module/window.ts:151](https://github.com/siposdani87/sui-js/blob/bf1be67/src/module/window.ts#L151)
+module/screen.ts:151
 
 ___
 
@@ -170,7 +170,7 @@ ___
 
 #### Defined in
 
-[module/window.ts:170](https://github.com/siposdani87/sui-js/blob/bf1be67/src/module/window.ts#L170)
+module/screen.ts:170
 
 ___
 
@@ -190,7 +190,7 @@ ___
 
 #### Defined in
 
-[module/window.ts:25](https://github.com/siposdani87/sui-js/blob/bf1be67/src/module/window.ts#L25)
+module/screen.ts:25
 
 ___
 
@@ -211,7 +211,7 @@ ___
 
 #### Defined in
 
-[module/window.ts:224](https://github.com/siposdani87/sui-js/blob/bf1be67/src/module/window.ts#L224)
+module/screen.ts:224
 
 ___
 
@@ -231,7 +231,7 @@ ___
 
 #### Defined in
 
-[module/window.ts:98](https://github.com/siposdani87/sui-js/blob/bf1be67/src/module/window.ts#L98)
+module/screen.ts:98
 
 ___
 
@@ -251,7 +251,7 @@ ___
 
 #### Defined in
 
-[module/window.ts:105](https://github.com/siposdani87/sui-js/blob/bf1be67/src/module/window.ts#L105)
+module/screen.ts:105
 
 ___
 
@@ -274,7 +274,7 @@ ___
 
 #### Defined in
 
-[module/window.ts:124](https://github.com/siposdani87/sui-js/blob/bf1be67/src/module/window.ts#L124)
+module/screen.ts:124
 
 ___
 
@@ -296,7 +296,7 @@ ___
 
 #### Defined in
 
-[module/window.ts:114](https://github.com/siposdani87/sui-js/blob/bf1be67/src/module/window.ts#L114)
+module/screen.ts:114
 
 ___
 
@@ -317,7 +317,7 @@ ___
 
 #### Defined in
 
-[module/window.ts:143](https://github.com/siposdani87/sui-js/blob/bf1be67/src/module/window.ts#L143)
+module/screen.ts:143
 
 ___
 
@@ -331,7 +331,7 @@ ___
 
 #### Defined in
 
-[module/window.ts:191](https://github.com/siposdani87/sui-js/blob/bf1be67/src/module/window.ts#L191)
+module/screen.ts:191
 
 ___
 
@@ -347,7 +347,7 @@ landscape|portrait
 
 #### Defined in
 
-[module/window.ts:197](https://github.com/siposdani87/sui-js/blob/bf1be67/src/module/window.ts#L197)
+module/screen.ts:197
 
 ___
 
@@ -361,7 +361,7 @@ ___
 
 #### Defined in
 
-[module/window.ts:176](https://github.com/siposdani87/sui-js/blob/bf1be67/src/module/window.ts#L176)
+module/screen.ts:176
 
 ___
 
@@ -375,7 +375,7 @@ ___
 
 #### Defined in
 
-[module/window.ts:185](https://github.com/siposdani87/sui-js/blob/bf1be67/src/module/window.ts#L185)
+module/screen.ts:185
 
 ___
 
@@ -395,4 +395,4 @@ ___
 
 #### Defined in
 
-[module/window.ts:231](https://github.com/siposdani87/sui-js/blob/bf1be67/src/module/window.ts#L231)
+module/screen.ts:231

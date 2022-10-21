@@ -3,7 +3,7 @@ import { Module } from '../core/module';
 import { Objekt } from '../core/objekt';
 import { Query } from '../core/query';
 import { BottomMenu } from '../module/bottomMenu';
-import { Document } from '../module/document';
+import { Page } from '../module/page';
 import { Browser } from '../module/browser';
 import { Confirm } from '../module/confirm';
 import { Cookie } from '../module/cookie';
@@ -22,11 +22,11 @@ import { Style } from '../module/style';
 import { Template } from '../module/template';
 import { TopMenu } from '../module/topMenu';
 import { Viewer } from '../module/viewer';
-import { Storage } from '../module/storage';
+import { Depot } from '../module/depot';
 import { Header } from '../module/header';
 import { EventBus } from '../module/eventBus';
 import { Scheduler } from '../module/scheduler';
-import { Window } from '../module/window';
+import { Screen } from '../module/screen';
 import { setDateIOLocale } from '../utils/dateio';
 /**
  * @class
@@ -59,12 +59,12 @@ export class Application {
             style: undefined,
             state: undefined,
             dom: undefined,
-            document: undefined,
-            window: undefined,
+            page: undefined,
+            screen: undefined,
             helper: undefined,
             cookie: undefined,
-            localStorage: undefined,
-            sessionStorage: undefined,
+            localDepot: undefined,
+            sessionDepot: undefined,
             browser: undefined,
             loader: undefined,
             progressBar: undefined,
@@ -102,7 +102,7 @@ export class Application {
         this._initCertificate();
         this._initApp();
         this._initRoutes();
-        this._initStorage();
+        this._initDepots();
         this._initLocale();
         this._initModule();
         this._initEventBus();
@@ -116,8 +116,8 @@ export class Application {
         this._initCookie();
         this._initFlash();
         this._initTemplate();
-        this._initDocument();
-        this._initWindow();
+        this._initPage();
+        this._initScreen();
         this._initHelper();
         this._initHeader();
         this._initTopMenu();
@@ -143,7 +143,7 @@ export class Application {
      * @return {string}
      */
     getLocale() {
-        let locale = this._instances.localStorage.get('app.locale');
+        let locale = this._instances.localDepot.get('app.locale');
         if (!locale) {
             locale = this.options.locale;
         }
@@ -154,7 +154,7 @@ export class Application {
      * @return {undefined}
      */
     setLocale(locale) {
-        this._instances.localStorage.set('app.locale', locale);
+        this._instances.localDepot.set('app.locale', locale);
         this.options.locale = locale;
     }
     /**
@@ -314,12 +314,12 @@ export class Application {
      * @private
      * @return {undefined}
      */
-    _initStorage() {
-        this._instances.localStorage = new Storage('LOCAL', {
+    _initDepots() {
+        this._instances.localDepot = new Depot('LOCAL', {
             prefix: this.options.app_id,
             secret: this.options.secret,
         });
-        this._instances.sessionStorage = new Storage('SESSION', {
+        this._instances.sessionDepot = new Depot('SESSION', {
             prefix: this.options.app_id,
             secret: this.options.secret,
         });
@@ -335,10 +335,10 @@ export class Application {
      * @private
      * @return {undefined}
      */
-    _initDocument() {
+    _initPage() {
         const popupContainer = new PopupContainer();
-        this._instances.document = new Document();
-        this._instances.document.eventClick = (target, event) => {
+        this._instances.page = new Page();
+        this._instances.page.eventClick = (target, event) => {
             popupContainer.closeAll();
             this._instances.eventBus.call('document.click', [target, event]);
         };
@@ -347,14 +347,14 @@ export class Application {
      * @private
      * @return {undefined}
      */
-    _initWindow() {
-        this._instances.window = new Window();
-        const width = this._instances.window.getWidth();
-        const height = this._instances.window.getHeight();
+    _initScreen() {
+        this._instances.screen = new Screen();
+        const width = this._instances.screen.getWidth();
+        const height = this._instances.screen.getHeight();
         this._instances.dialog.setSize(width, height);
         this._instances.confirm.setSize(width, height);
         this._instances.viewer.setSize(width, height);
-        this._instances.window.eventResize = (width, height, event) => {
+        this._instances.screen.eventResize = (width, height, event) => {
             this._instances.dialog.setSize(width, height);
             this._instances.confirm.setSize(width, height);
             this._instances.viewer.setSize(width, height);
@@ -364,7 +364,7 @@ export class Application {
                 event,
             ]);
         };
-        this._instances.window.eventOrientationChange = (orientation, width, height, event) => {
+        this._instances.screen.eventOrientationChange = (orientation, width, height, event) => {
             this._instances.dialog.setSize(width, height);
             this._instances.confirm.setSize(width, height);
             this._instances.viewer.setSize(width, height);
@@ -375,10 +375,10 @@ export class Application {
                 event,
             ]);
         };
-        this._instances.window.eventScroll = (scrollTop, event) => {
+        this._instances.screen.eventScroll = (scrollTop, event) => {
             this._instances.eventBus.call('window.scroll', [scrollTop, event]);
         };
-        this._instances.window.eventColorSchemeChange = (colorScheme, event) => {
+        this._instances.screen.eventColorSchemeChange = (colorScheme, event) => {
             this._instances.eventBus.call('window.colorSchemeChange', [
                 colorScheme,
                 event,
@@ -389,12 +389,12 @@ export class Application {
             message: 'Unable to connect to the Internet',
             duration: Infinity,
         };
-        this._instances.window.eventOnline = () => {
+        this._instances.screen.eventOnline = () => {
             if (flash.node) {
                 this._instances.flash.remove(flash.node);
             }
         };
-        this._instances.window.eventOffline = (event) => {
+        this._instances.screen.eventOffline = (event) => {
             this._instances.eventBus.override('window.offline', [flash, event], (flash) => {
                 flash.node = this._instances[this._injections.flash].addWarning(flash.message, flash.duration);
             });
