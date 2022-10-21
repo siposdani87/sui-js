@@ -2,9 +2,9 @@ import { Objekt } from '../core/objekt';
 /**
  * @class
  */
-export declare class Window {
+export declare class Screen {
     options: Objekt;
-    window: globalThis.Window & typeof globalThis;
+    window: Window;
     document: Document;
     orientation: string;
     /**

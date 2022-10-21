@@ -1,7 +1,7 @@
 ---
-id: "Storage"
-title: "Class: Storage"
-sidebar_label: "Storage"
+id: "Depot"
+title: "Class: Depot"
+sidebar_label: "Depot"
 sidebar_position: 0
 custom_edit_url: null
 ---
@@ -10,7 +10,7 @@ custom_edit_url: null
 
 ### constructor
 
-• **new Storage**(`type`, `opt_options?`)
+• **new Depot**(`type`, `opt_options?`)
 
 #### Parameters
 
@@ -21,7 +21,7 @@ custom_edit_url: null
 
 #### Defined in
 
-[module/storage.ts:16](https://github.com/siposdani87/sui-js/blob/bf1be67/src/module/storage.ts#L16)
+module/depot.ts:16
 
 ## Properties
 
@@ -31,7 +31,7 @@ custom_edit_url: null
 
 #### Defined in
 
-[module/storage.ts:10](https://github.com/siposdani87/sui-js/blob/bf1be67/src/module/storage.ts#L10)
+module/depot.ts:10
 
 ___
 
@@ -41,7 +41,7 @@ ___
 
 #### Defined in
 
-[module/storage.ts:11](https://github.com/siposdani87/sui-js/blob/bf1be67/src/module/storage.ts#L11)
+module/depot.ts:11
 
 ___
 
@@ -51,7 +51,7 @@ ___
 
 #### Defined in
 
-[module/storage.ts:9](https://github.com/siposdani87/sui-js/blob/bf1be67/src/module/storage.ts#L9)
+module/depot.ts:9
 
 ## Methods
 
@@ -65,7 +65,7 @@ ___
 
 #### Defined in
 
-[module/storage.ts:120](https://github.com/siposdani87/sui-js/blob/bf1be67/src/module/storage.ts#L120)
+module/depot.ts:120
 
 ___
 
@@ -85,7 +85,7 @@ ___
 
 #### Defined in
 
-[module/storage.ts:159](https://github.com/siposdani87/sui-js/blob/bf1be67/src/module/storage.ts#L159)
+module/depot.ts:159
 
 ___
 
@@ -105,7 +105,7 @@ ___
 
 #### Defined in
 
-[module/storage.ts:145](https://github.com/siposdani87/sui-js/blob/bf1be67/src/module/storage.ts#L145)
+module/depot.ts:145
 
 ___
 
@@ -125,7 +125,7 @@ ___
 
 #### Defined in
 
-[module/storage.ts:65](https://github.com/siposdani87/sui-js/blob/bf1be67/src/module/storage.ts#L65)
+module/depot.ts:65
 
 ___
 
@@ -145,7 +145,7 @@ ___
 
 #### Defined in
 
-[module/storage.ts:57](https://github.com/siposdani87/sui-js/blob/bf1be67/src/module/storage.ts#L57)
+module/depot.ts:57
 
 ___
 
@@ -159,7 +159,7 @@ ___
 
 #### Defined in
 
-[module/storage.ts:44](https://github.com/siposdani87/sui-js/blob/bf1be67/src/module/storage.ts#L44)
+module/depot.ts:44
 
 ___
 
@@ -179,7 +179,7 @@ ___
 
 #### Defined in
 
-[module/storage.ts:135](https://github.com/siposdani87/sui-js/blob/bf1be67/src/module/storage.ts#L135)
+module/depot.ts:135
 
 ___
 
@@ -199,7 +199,7 @@ ___
 
 #### Defined in
 
-[module/storage.ts:30](https://github.com/siposdani87/sui-js/blob/bf1be67/src/module/storage.ts#L30)
+module/depot.ts:30
 
 ___
 
@@ -213,7 +213,7 @@ ___
 
 #### Defined in
 
-[module/storage.ts:113](https://github.com/siposdani87/sui-js/blob/bf1be67/src/module/storage.ts#L113)
+module/depot.ts:113
 
 ___
 
@@ -233,7 +233,7 @@ ___
 
 #### Defined in
 
-[module/storage.ts:90](https://github.com/siposdani87/sui-js/blob/bf1be67/src/module/storage.ts#L90)
+module/depot.ts:90
 
 ___
 
@@ -253,7 +253,7 @@ ___
 
 #### Defined in
 
-[module/storage.ts:106](https://github.com/siposdani87/sui-js/blob/bf1be67/src/module/storage.ts#L106)
+module/depot.ts:106
 
 ___
 
@@ -275,4 +275,4 @@ ___
 
 #### Defined in
 
-[module/storage.ts:76](https://github.com/siposdani87/sui-js/blob/bf1be67/src/module/storage.ts#L76)
+module/depot.ts:76

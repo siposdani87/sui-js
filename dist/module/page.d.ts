@@ -3,9 +3,9 @@ import { Objekt } from '../core/objekt';
 /**
  * @class
  */
-export declare class Document {
+export declare class Page {
     options: Objekt;
-    document: globalThis.Document;
+    document: Document;
     /**
      * @param {!Object=} opt_options
      */

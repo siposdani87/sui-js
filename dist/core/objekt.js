@@ -2,6 +2,7 @@ import { clear, copyArray, copyObject, each, eachObject, inArray, instanceOf, is
 /**
  * @class
  */
+// Record, Entry, Thing
 export class Objekt {
     /**
      * @param {!Object=} opt_object

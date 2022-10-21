@@ -1,7 +1,7 @@
 ---
-id: "Document"
-title: "Class: Document"
-sidebar_label: "Document"
+id: "Page"
+title: "Class: Page"
+sidebar_label: "Page"
 sidebar_position: 0
 custom_edit_url: null
 ---
@@ -10,7 +10,7 @@ custom_edit_url: null
 
 ### constructor
 
-• **new Document**(`opt_options?`)
+• **new Page**(`opt_options?`)
 
 #### Parameters
 
@@ -20,7 +20,7 @@ custom_edit_url: null
 
 #### Defined in
 
-[module/document.ts:14](https://github.com/siposdani87/sui-js/blob/bf1be67/src/module/document.ts#L14)
+module/page.ts:14
 
 ## Properties
 
@@ -30,7 +30,7 @@ custom_edit_url: null
 
 #### Defined in
 
-[module/document.ts:10](https://github.com/siposdani87/sui-js/blob/bf1be67/src/module/document.ts#L10)
+module/page.ts:10
 
 ___
 
@@ -40,7 +40,7 @@ ___
 
 #### Defined in
 
-[module/document.ts:9](https://github.com/siposdani87/sui-js/blob/bf1be67/src/module/document.ts#L9)
+module/page.ts:9
 
 ## Methods
 
@@ -54,7 +54,7 @@ ___
 
 #### Defined in
 
-[module/document.ts:32](https://github.com/siposdani87/sui-js/blob/bf1be67/src/module/document.ts#L32)
+module/page.ts:32
 
 ___
 
@@ -74,7 +74,7 @@ ___
 
 #### Defined in
 
-[module/document.ts:23](https://github.com/siposdani87/sui-js/blob/bf1be67/src/module/document.ts#L23)
+module/page.ts:23
 
 ___
 
@@ -95,7 +95,7 @@ ___
 
 #### Defined in
 
-[module/document.ts:51](https://github.com/siposdani87/sui-js/blob/bf1be67/src/module/document.ts#L51)
+module/page.ts:51
 
 ___
 
@@ -116,7 +116,7 @@ ___
 
 #### Defined in
 
-[module/document.ts:59](https://github.com/siposdani87/sui-js/blob/bf1be67/src/module/document.ts#L59)
+module/page.ts:59
 
 ___
 
@@ -136,4 +136,4 @@ ___
 
 #### Defined in
 
-[module/document.ts:43](https://github.com/siposdani87/sui-js/blob/bf1be67/src/module/document.ts#L43)
+module/page.ts:43

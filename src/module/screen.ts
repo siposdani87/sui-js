@@ -5,10 +5,9 @@ import { consoleWarn } from '../utils/log';
 /**
  * @class
  */
-// Screen
-export class Window {
+export class Screen {
     options: Objekt;
-    window: globalThis.Window & typeof globalThis;
+    window: Window;
     document: Document;
     orientation: string;
     /**

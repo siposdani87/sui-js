@@ -1,14 +1,17 @@
 import { Knot } from '../core/knot';
 import { Objekt } from '../core/objekt';
 import { consoleWarn } from '../utils/log';
+
 /**
  * @class
  */
-export class Document {
+export class Page {
+    options: Objekt;
+    document: Document;
     /**
      * @param {!Object=} opt_options
      */
-    constructor(opt_options = {}) {
+    constructor(opt_options: Object | undefined = {}) {
         this._setOptions(opt_options);
         this._init();
     }
@@ -17,7 +20,7 @@ export class Document {
      * @param {!Object=} opt_options
      * @return {undefined}
      */
-    _setOptions(opt_options) {
+    private _setOptions(opt_options: Object | undefined): void {
         const _self = this;
         _self.options = new Objekt();
         _self.options.merge(opt_options);
@@ -26,10 +29,10 @@ export class Document {
      * @private
      * @return {undefined}
      */
-    _init() {
+    private _init(): void {
         this.document = document;
         this.document.addEventListener('click', (event) => {
-            const target = new Knot(event.target);
+            const target = new Knot(event.target as HTMLElement);
             this.eventClick(target, event);
         });
     }
@@ -37,7 +40,7 @@ export class Document {
      * @param {string} title
      * @return {undefined}
      */
-    setTitle(title) {
+    setTitle(title: string): void {
         this.document.title = title;
     }
     /**
@@ -45,7 +48,7 @@ export class Document {
      * @param {!Event} event
      * @return {undefined}
      */
-    eventClick(target, event) {
+    eventClick(target: Knot, event: Event): void {
         consoleWarn('Document.eventClick()', target, event);
     }
     /**
@@ -53,7 +56,7 @@ export class Document {
      * @param {string=} opt_subject
      * @return {undefined}
      */
-    mailTo(email, opt_subject = '') {
+    mailTo(email: string, opt_subject: string | undefined = ''): void {
         this.document.location.href =
             'mailto:' + email + '?subject=' + opt_subject;
     }

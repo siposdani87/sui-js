@@ -2,10 +2,10 @@ import { Objekt } from '../core/objekt';
 /**
  * @class
  */
-export declare class Storage {
+export declare class Depot {
     type: 'LOCAL' | 'SESSION';
     options: Objekt;
-    storage: globalThis.Storage;
+    storage: Storage;
     /**
      * @param {string} type
      * @param {!Object} opt_options

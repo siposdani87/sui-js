@@ -3,6 +3,7 @@ import { Objekt } from './objekt';
 /**
  * @class
  */
+// Hope
 export class Promize {
     /**
      * @param {!Object=} opt_options

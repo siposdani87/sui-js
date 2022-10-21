@@ -4,7 +4,7 @@ import { consoleWarn } from '../utils/log';
 /**
  * @class
  */
-export class Window {
+export class Screen {
     /**
      * @param {!Object=} opt_options
      */
