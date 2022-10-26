@@ -25,10 +25,10 @@ import { mdl } from '../utils/render';
 /**
  * @class
  */
-export class Table {
+export class Table<T = Objekt> {
     tableKnot: Knot;
     options: Objekt;
-    collection: Collection<Objekt>;
+    collection: Collection<T>;
     query: string;
     actions: Action[];
     contentHandler: ContentHandler;
