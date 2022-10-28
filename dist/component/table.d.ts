@@ -8,10 +8,10 @@ import { Action } from '../utils';
 /**
  * @class
  */
-export declare class Table {
+export declare class Table<T = Objekt> {
     tableKnot: Knot;
     options: Objekt;
-    collection: Collection<Objekt>;
+    collection: Collection<T>;
     query: string;
     actions: Action[];
     contentHandler: ContentHandler;
