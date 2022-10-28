@@ -168,7 +168,7 @@
     form {
         display: flex;
 
-        .input-block {
+        .input-block:not(.search-field) {
             flex: 1;
             padding: 0;
             margin-left: 0.5em;
@@ -179,7 +179,7 @@
             }
         }
 
-        .mdl-textfield--expandable {
+        .search-field {
             label.mdl-button {
                 top: 0;
             }
