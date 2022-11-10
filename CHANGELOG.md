@@ -1,4 +1,8 @@
-## 0.8.0 - TBD
+## 0.9.0 - 2022-11-10
+
+* Fix style of dialog and confim
+
+## 0.8.0 - 2022-09-05
 
 * Upgrade esbuild and sass packages
 * Add algolia search to docusaurus website
