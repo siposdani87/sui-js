@@ -2,7 +2,7 @@
     height: auto;
 
     .mdl-switch__track {
-        background-color: $content-disabled-dark;
+        background-color: $light-grey-bright;
     }
 
     .mdl-switch__thumb {
@@ -15,11 +15,11 @@
 
     &.is-checked {
         .mdl-switch__track {
-            background-color: $primary-default-dark;
+            background-color: $primary-dark;
         }
 
         .mdl-switch__thumb {
-            background-color: $primary-default-light;
+            background-color: $primary-bright;
         }
 
         input[required] ~ .mdl-switch__thumb {
@@ -29,7 +29,7 @@
 
     &.is-disabled {
         .mdl-switch__track {
-            background-color: $content-disabled-dark;
+            background-color: $light-grey-bright;
         }
 
         .mdl-switch__thumb {
@@ -43,7 +43,7 @@
 
         &.is-checked {
             .mdl-switch__track {
-                background-color: $primary-default-dark;
+                background-color: $primary;
             }
 
             .mdl-switch__thumb {
