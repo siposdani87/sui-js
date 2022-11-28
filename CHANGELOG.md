@@ -1,3 +1,12 @@
+## 0.9.2 - TBD
+
+*
+
+## 0.9.1 - 2022-11-28
+
+* Fix style of page header
+* Improve style of switchField
+
 ## 0.9.0 - 2022-11-10
 
 * Fix style of dialog and confim
