@@ -1,0 +1,28 @@
+.dark-theme {
+    .mdl-progress {
+        width: 100%;
+
+        & > .progressbar {
+            background-color: $primary-bright;
+        }
+
+        & > .bufferbar {
+            background-image: linear-gradient(
+                    to right,
+                    rgba($black, 1),
+                    rgba($black, 1)
+                ),
+                linear-gradient(to right, $primary-bright, $primary-bright);
+        }
+
+        &:not(.mdl-progress__indeterminate) > .auxbar,
+        &:not(.mdl-progress--indeterminate) > .auxbar {
+            background-image: linear-gradient(
+                    to right,
+                    rgba($black, 1),
+                    rgba($black, 1)
+                ),
+                linear-gradient(to right, $primary-bright, $primary-bright);
+        }
+    }
+}

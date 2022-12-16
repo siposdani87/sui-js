@@ -8,7 +8,7 @@
     & > .bufferbar {
         background-image: linear-gradient(
                 to right,
-                rgba($white, 0.7),
+                rgba($white, 1),
                 rgba($white, 1)
             ),
             linear-gradient(to right, $primary-bright, $primary-bright);
@@ -18,8 +18,8 @@
     &:not(.mdl-progress--indeterminate) > .auxbar {
         background-image: linear-gradient(
                 to right,
-                rgba($white, 0.7),
-                rgba($white, 0.7)
+                rgba($white, 1),
+                rgba($white, 1)
             ),
             linear-gradient(to right, $primary-bright, $primary-bright);
     }
