@@ -1,4 +1,4 @@
-import { contain, format, isObject, getExtensionName, } from '../utils/operation';
+import { contain, format, isPureObject, getExtensionName, } from '../utils/operation';
 import { BaseField } from './baseField';
 import { Knot } from '../core/knot';
 import { Query } from '../core/query';
@@ -257,7 +257,7 @@ export class FileField extends BaseField {
      */
     setValue(value) {
         let imageSrc = value;
-        if (isObject(value)) {
+        if (isPureObject(value)) {
             imageSrc = value['url'];
         }
         if (imageSrc) {

@@ -14,6 +14,7 @@ import {
     isNull,
     isNumber,
     isObject,
+    isPureObject,
     isString,
     isUndefined,
     lt,
@@ -136,6 +137,12 @@ describe('operation', () => {
 
     it('should be true when input is object', () => {
         const result = isObject({});
+
+        expect(result).toEqual(true);
+    });
+
+    it('should be true when input is pure object', () => {
+        const result = isPureObject({});
 
         expect(result).toEqual(true);
     });
