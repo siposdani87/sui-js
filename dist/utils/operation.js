@@ -39,7 +39,7 @@ export const merge = (objA, objB) => {
     const obj = copyObject(objA);
     for (const key in objB) {
         if (objB.hasOwnProperty(key)) {
-            if (isObject(objB[key].constructor)) {
+            if (isPureObject(objB[key].constructor)) {
                 obj[key] = merge(obj[key], objB[key]);
             }
             else {
@@ -150,6 +150,11 @@ export const isObject = (value) => is(value, 'object');
  * @param {*} value
  * @return {boolean}
  */
+export const isPureObject = (value) => !isNull(value) && !isDate(value) && isObject(value);
+/**
+ * @param {*} value
+ * @return {boolean}
+ */
 export const isDate = (value) => instanceOf(value, Date);
 /**
  * @param {*} value
@@ -189,7 +194,7 @@ export const each = (items, next, opt_start, opt_end) => {
     if (isArray(items)) {
         eachArray(items, next, opt_start, opt_end);
     }
-    else if (isObject(items)) {
+    else if (isPureObject(items)) {
         eachObject(items, next);
     }
 };
@@ -244,7 +249,7 @@ export const clear = (items) => {
     if (isArray(items)) {
         clearArray(items);
     }
-    else if (isObject(items)) {
+    else if (isPureObject(items)) {
         clearObject(items);
     }
 };
@@ -298,7 +303,7 @@ export const inContainArray = (items, item) => {
 export const isSame = (a, b) => {
     const strA = JSON.stringify(a);
     const strB = JSON.stringify(b);
-    if (isObject(a) && isObject(b) && eq(strA.length, strB.length)) {
+    if (isPureObject(a) && isPureObject(b) && eq(strA.length, strB.length)) {
         let result = true;
         eachObject(a, (value, key) => {
             if (!isSame(b[key], value)) {
@@ -329,7 +334,7 @@ export const copy = (items) => {
     if (isArray(items)) {
         results = copyArray(items);
     }
-    else if (isObject(items)) {
+    else if (isPureObject(items)) {
         results = copyObject(items);
     }
     return results;
@@ -349,7 +354,7 @@ export const copyArray = (items) =>
 export const copyObject = (items) => {
     const results = {};
     eachObject(items, (item, key) => {
-        results[key] = isObject(item) ? copyObject(item) : item;
+        results[key] = isPureObject(item) ? copyObject(item) : item;
     });
     return results;
 };
@@ -362,7 +367,7 @@ export const isEmpty = (items) => {
     if (isArray(items)) {
         result = items.length === 0;
     }
-    else if (isObject(items)) {
+    else if (isPureObject(items)) {
         let counter = 0;
         each(items, () => {
             counter++;

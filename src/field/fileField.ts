@@ -1,7 +1,7 @@
 import {
     contain,
     format,
-    isObject,
+    isPureObject,
     getExtensionName,
 } from '../utils/operation';
 import { BaseField } from './baseField';
@@ -297,7 +297,7 @@ export class FileField extends BaseField<HTMLInputElement> {
             | undefined,
     ): void {
         let imageSrc = value;
-        if (isObject(value)) {
+        if (isPureObject(value)) {
             imageSrc = value['url'];
         }
         if (imageSrc) {

@@ -34,7 +34,7 @@ export const merge = (objA: Object, objB: Object): Object | undefined => {
     const obj = copyObject(objA);
     for (const key in objB) {
         if (objB.hasOwnProperty(key)) {
-            if (isObject(objB[key].constructor)) {
+            if (isPureObject(objB[key].constructor)) {
                 obj[key] = merge(obj[key], objB[key]);
             } else {
                 obj[key] = objB[key];
@@ -168,6 +168,13 @@ export const isObject = (value: any): boolean => is(value, 'object');
  * @param {*} value
  * @return {boolean}
  */
+export const isPureObject = (value: any): boolean =>
+    !isNull(value) && !isDate(value) && isObject(value);
+
+/**
+ * @param {*} value
+ * @return {boolean}
+ */
 export const isDate = (value: any): boolean => instanceOf(value, Date);
 
 /**
@@ -218,7 +225,7 @@ export const each = (
 ): void => {
     if (isArray(items)) {
         eachArray(items as Array<any>, next, opt_start, opt_end);
-    } else if (isObject(items)) {
+    } else if (isPureObject(items)) {
         eachObject(items, next);
     }
 };
@@ -286,7 +293,7 @@ export const sleepEach = (
 export const clear = (items: Array<any> | Object): void => {
     if (isArray(items)) {
         clearArray(items as Array<any>);
-    } else if (isObject(items)) {
+    } else if (isPureObject(items)) {
         clearObject(items);
     }
 };
@@ -348,7 +355,7 @@ export const inContainArray = (items: Array<any>, item: any): boolean => {
 export const isSame = (a: any, b: any): boolean => {
     const strA = JSON.stringify(a);
     const strB = JSON.stringify(b);
-    if (isObject(a) && isObject(b) && eq(strA.length, strB.length)) {
+    if (isPureObject(a) && isPureObject(b) && eq(strA.length, strB.length)) {
         let result = true;
         eachObject(a, (value, key) => {
             if (!isSame(b[key], value)) {
@@ -382,7 +389,7 @@ export const copy = (
     let results;
     if (isArray(items)) {
         results = copyArray(items as Array<any>);
-    } else if (isObject(items)) {
+    } else if (isPureObject(items)) {
         results = copyObject(items as Object);
     }
     return results;
@@ -404,7 +411,7 @@ export const copyArray = (items: Array<any>): Array<any> =>
 export const copyObject = (items: Object): Object => {
     const results = {};
     eachObject(items, (item, key) => {
-        results[key] = isObject(item) ? copyObject(item) : item;
+        results[key] = isPureObject(item) ? copyObject(item) : item;
     });
     return results;
 };
@@ -417,7 +424,7 @@ export const isEmpty = (items: Array<any> | Object): boolean => {
     let result = false;
     if (isArray(items)) {
         result = (items as Array<any>).length === 0;
-    } else if (isObject(items)) {
+    } else if (isPureObject(items)) {
         let counter = 0;
         each(items, () => {
             counter++;

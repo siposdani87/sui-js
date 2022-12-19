@@ -1,4 +1,4 @@
-import { eq, format, isFunction, isObject, noop } from '../utils/operation';
+import { eq, format, isFunction, isPureObject, noop } from '../utils/operation';
 import { Objekt } from '../core/objekt';
 import { Query } from '../core/query';
 import { generateId } from '../utils/coder';
@@ -181,7 +181,7 @@ export class Flash {
      * @return {!Knot|null}
      */
     addMessage(message, opt_duration = 0, opt_closeCallback = null, opt_id = '') {
-        if (isObject(message)) {
+        if (isPureObject(message)) {
             const closeCallback = message.closable ? noop : opt_closeCallback;
             return this._add(message.type, message.content, opt_duration, closeCallback, opt_id);
         }

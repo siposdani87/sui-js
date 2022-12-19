@@ -1,4 +1,4 @@
-import { noop, each, isFunction, isObject } from '../utils/operation';
+import { noop, each, isFunction } from '../utils/operation';
 import { consoleWarn } from '../utils/log';
 import { Async } from './async';
 import { Deferred } from './deferred';
@@ -160,7 +160,7 @@ export class Module {
         this._instances.state.eventChange = (currentState, previousState, force) => {
             let exit = noop();
             if (!previousState.isEmpty() &&
-                isObject(this._controller) &&
+                this._controller &&
                 isFunction(this._controller.exit)) {
                 exit = this._controller.exit.bind(this._controller);
             }
@@ -207,8 +207,7 @@ export class Module {
         if (controller) {
             this.eventDomChange(state, dom).then(() => {
                 this._controller = this._resolveDependencies(controller);
-                if (isObject(this._controller) &&
-                    isFunction(this._controller.enter)) {
+                if (this._controller && isFunction(this._controller.enter)) {
                     const enter = this._controller.enter.bind(this._controller);
                     const async = new Async();
                     async.serial([enter]).then(() => {

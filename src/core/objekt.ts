@@ -8,9 +8,7 @@ import {
     instanceOf,
     isArray,
     isEmpty,
-    isNull,
-    isObject,
-    isDate,
+    isPureObject,
     isUndefined,
     typeCast,
 } from '../utils/operation';
@@ -34,24 +32,17 @@ export class Objekt {
      * @return {!Objekt}
      */
     merge(object: any): Objekt {
-        if (isObject(object)) {
+        if (isPureObject(object)) {
             for (const key in object) {
                 if (object.hasOwnProperty(key)) {
-                    if (
-                        !isNull(object[key]) &&
-                        isObject(object[key]) &&
-                        !isArray(object[key]) &&
-                        !isDate(object[key])
-                    ) {
+                    if (isPureObject(object[key]) && !isArray(object[key])) {
                         if (!instanceOf(this[key], Objekt)) {
                             this[key] = new Objekt(this[key]);
                         }
                         this[key].merge(object[key]);
                     } else if (
                         isArray(object[key]) &&
-                        !isNull(object[key][0]) &&
-                        isObject(object[key][0]) &&
-                        !isDate(object[key][0])
+                        isPureObject(object[key][0])
                     ) {
                         this._convertObject(object, key);
                         this[key] = object[key];
@@ -113,9 +104,7 @@ export class Objekt {
                 result = object[property];
             } else if (
                 property.toString() === attributes[0] &&
-                !isNull(object[property]) &&
-                isObject(object[property]) &&
-                !isDate(object[property])
+                isPureObject(object[property])
             ) {
                 const copyAttributes = copyArray(attributes);
                 copyAttributes.shift();
@@ -143,9 +132,7 @@ export class Objekt {
                 object[property] = value;
             } else if (
                 property === attributes[0] &&
-                !isNull(object[property]) &&
-                isObject(object[property]) &&
-                !isDate(object[property])
+                isPureObject(object[property])
             ) {
                 const copyAttributes = copyArray(attributes);
                 copyAttributes.shift();
@@ -207,9 +194,7 @@ export class Objekt {
                     delete object[property];
                 } else if (
                     property === attributes[0] &&
-                    !isNull(object[property]) &&
-                    isObject(object[property]) &&
-                    !isDate(object[property])
+                    isPureObject(object[property])
                 ) {
                     const copyAttributes = copyArray(attributes);
                     copyAttributes.shift();
@@ -235,7 +220,7 @@ export class Objekt {
         eachObject(properties, (value, property) => {
             const attributesCopy = copyArray(attributes);
             attributesCopy.push(property);
-            if (!isNull(value) && isObject(value) && !isDate(value)) {
+            if (isPureObject(value)) {
                 this.each(next, value, attributesCopy);
             } else {
                 next(value, attributesCopy.join('.'));
