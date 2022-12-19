@@ -1,6 +1,12 @@
-## 0.9.2 - TBD
+## 0.9.3 - TBD
 
 *
+
+## 0.9.2 - 2022-12-19
+
+* Fix background color of tabPanel
+* Create dark style for progress
+* Create isPureObject method and use it
 
 ## 0.9.1 - 2022-11-28
 
