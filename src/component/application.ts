@@ -29,7 +29,7 @@ import { Scheduler } from '../module/scheduler';
 import { Screen } from '../module/screen';
 import { Promize } from '../core';
 import { Route } from './route';
-import { ClassRef, Injection, Instance } from '../utils';
+import { ClassRef, Injection, Instance, InstanceKey } from '../utils';
 import { setDateIOLocale } from '../utils/dateio';
 
 /**
@@ -599,7 +599,7 @@ export class Application {
      * @param {string} name
      * @return {?Object}
      */
-    getInstance(name: string): Object | null {
+    getInstance(name: InstanceKey): Object | null {
         return this._instances[name] ?? null;
     }
     /**

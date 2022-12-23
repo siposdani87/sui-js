@@ -69,6 +69,8 @@ export type Injection = {
     [key: string]: string;
 };
 
+export type InstanceKey = keyof Instance;
+
 export type Instance = {
     app: Application;
     config: Objekt;
