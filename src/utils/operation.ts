@@ -643,4 +643,5 @@ export const copyToClipboard = (str: string): void => {
     textareaElement.select();
     document.execCommand('copy');
     document.body.removeChild(textareaElement);
+    // navigator.clipboard.writeText(str);
 };
