@@ -1,11 +1,9 @@
 import { Params } from '../utils';
 import {
     isArray,
-    eachArray,
-    format,
-    isUndefined,
     typeCast,
     contain,
+    urlWithQueryString,
 } from '../utils/operation';
 
 /**
@@ -22,8 +20,8 @@ export class Router {
      */
     constructor(opt_route: string | undefined = '') {
         this.route = opt_route;
-        this.param = new RegExp('([:*])(\\w+)', 'g');
-        this.escape = new RegExp('[-[]{}()+?.,]', 'g');
+        this.param = /([:*])(\w+)/g;
+        this.escape = /[-[]{}()+?.,]/g;
 
         this._init();
     }
@@ -35,7 +33,7 @@ export class Router {
         this.paramNames = [];
         let route = this.route;
         route = route.replace(this.escape, '\\$&');
-        route = route.replace(this.param, (param, mode, paramName) => {
+        route = route.replace(this.param, (_param, mode, paramName) => {
             this.paramNames.push(paramName);
             return mode === ':' ? '([^/]*)' : '(.*)';
         });
@@ -53,23 +51,11 @@ export class Router {
                 const regex = new RegExp('[:*]' + key + '\\b');
                 if (regex.test(route)) {
                     route = route.replace(regex, param);
-                } else {
-                    const char =
-                        route.charAt(route.length - 1) === '&' ? '' : '&';
-                    route += route.indexOf('?') === -1 ? '?' : char;
-                    if (isArray(param)) {
-                        eachArray(param, (value, index) => {
-                            if (index > 0) {
-                                route += '&';
-                            }
-                            route += format('{0}[]={1}', [key, value]);
-                        });
-                    } else if (!isUndefined(param)) {
-                        route += format('{0}={1}', [key, param]);
-                    }
                 }
             }
         }
+        route = urlWithQueryString(route, opt_params);
+
         route = route.replace(this.param, '');
         return route[route.length - 1] === '?'
             ? route.substring(0, route.length - 1)
@@ -112,8 +98,8 @@ export class Router {
         const question = url.indexOf('?');
         if (question !== -1) {
             const pieces = url.substring(question + 1).split('&');
-            for (let i = 0; i < pieces.length; i++) {
-                const parts = pieces[i].replace('==', '&&').split('=');
+            for (const piece of pieces) {
+                const parts = piece.replace('==', '&&').split('=');
                 if (parts.length < 2) {
                     parts.push('');
                 }
