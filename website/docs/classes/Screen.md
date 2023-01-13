@@ -20,7 +20,7 @@ custom_edit_url: null
 
 #### Defined in
 
-module/screen.ts:16
+[module/screen.ts:16](https://github.com/siposdani87/sui-js/blob/b0b5d62/src/module/screen.ts#L16)
 
 ## Properties
 
@@ -30,7 +30,7 @@ module/screen.ts:16
 
 #### Defined in
 
-module/screen.ts:11
+[module/screen.ts:11](https://github.com/siposdani87/sui-js/blob/b0b5d62/src/module/screen.ts#L11)
 
 ___
 
@@ -40,7 +40,7 @@ ___
 
 #### Defined in
 
-module/screen.ts:9
+[module/screen.ts:9](https://github.com/siposdani87/sui-js/blob/b0b5d62/src/module/screen.ts#L9)
 
 ___
 
@@ -50,7 +50,7 @@ ___
 
 #### Defined in
 
-module/screen.ts:12
+[module/screen.ts:12](https://github.com/siposdani87/sui-js/blob/b0b5d62/src/module/screen.ts#L12)
 
 ___
 
@@ -60,7 +60,7 @@ ___
 
 #### Defined in
 
-module/screen.ts:10
+[module/screen.ts:10](https://github.com/siposdani87/sui-js/blob/b0b5d62/src/module/screen.ts#L10)
 
 ## Methods
 
@@ -74,7 +74,7 @@ module/screen.ts:10
 
 #### Defined in
 
-module/screen.ts:36
+[module/screen.ts:36](https://github.com/siposdani87/sui-js/blob/b0b5d62/src/module/screen.ts#L36)
 
 ___
 
@@ -88,7 +88,7 @@ ___
 
 #### Defined in
 
-module/screen.ts:206
+[module/screen.ts:206](https://github.com/siposdani87/sui-js/blob/b0b5d62/src/module/screen.ts#L206)
 
 ___
 
@@ -102,7 +102,7 @@ ___
 
 #### Defined in
 
-module/screen.ts:77
+[module/screen.ts:77](https://github.com/siposdani87/sui-js/blob/b0b5d62/src/module/screen.ts#L77)
 
 ___
 
@@ -116,7 +116,7 @@ ___
 
 #### Defined in
 
-module/screen.ts:51
+[module/screen.ts:51](https://github.com/siposdani87/sui-js/blob/b0b5d62/src/module/screen.ts#L51)
 
 ___
 
@@ -130,7 +130,7 @@ ___
 
 #### Defined in
 
-module/screen.ts:64
+[module/screen.ts:64](https://github.com/siposdani87/sui-js/blob/b0b5d62/src/module/screen.ts#L64)
 
 ___
 
@@ -150,7 +150,7 @@ ___
 
 #### Defined in
 
-module/screen.ts:151
+[module/screen.ts:151](https://github.com/siposdani87/sui-js/blob/b0b5d62/src/module/screen.ts#L151)
 
 ___
 
@@ -170,7 +170,7 @@ ___
 
 #### Defined in
 
-module/screen.ts:170
+[module/screen.ts:170](https://github.com/siposdani87/sui-js/blob/b0b5d62/src/module/screen.ts#L170)
 
 ___
 
@@ -190,7 +190,7 @@ ___
 
 #### Defined in
 
-module/screen.ts:25
+[module/screen.ts:25](https://github.com/siposdani87/sui-js/blob/b0b5d62/src/module/screen.ts#L25)
 
 ___
 
@@ -211,7 +211,7 @@ ___
 
 #### Defined in
 
-module/screen.ts:224
+[module/screen.ts:224](https://github.com/siposdani87/sui-js/blob/b0b5d62/src/module/screen.ts#L224)
 
 ___
 
@@ -231,7 +231,7 @@ ___
 
 #### Defined in
 
-module/screen.ts:98
+[module/screen.ts:98](https://github.com/siposdani87/sui-js/blob/b0b5d62/src/module/screen.ts#L98)
 
 ___
 
@@ -251,7 +251,7 @@ ___
 
 #### Defined in
 
-module/screen.ts:105
+[module/screen.ts:105](https://github.com/siposdani87/sui-js/blob/b0b5d62/src/module/screen.ts#L105)
 
 ___
 
@@ -274,7 +274,7 @@ ___
 
 #### Defined in
 
-module/screen.ts:124
+[module/screen.ts:124](https://github.com/siposdani87/sui-js/blob/b0b5d62/src/module/screen.ts#L124)
 
 ___
 
@@ -296,7 +296,7 @@ ___
 
 #### Defined in
 
-module/screen.ts:114
+[module/screen.ts:114](https://github.com/siposdani87/sui-js/blob/b0b5d62/src/module/screen.ts#L114)
 
 ___
 
@@ -317,7 +317,7 @@ ___
 
 #### Defined in
 
-module/screen.ts:143
+[module/screen.ts:143](https://github.com/siposdani87/sui-js/blob/b0b5d62/src/module/screen.ts#L143)
 
 ___
 
@@ -331,7 +331,7 @@ ___
 
 #### Defined in
 
-module/screen.ts:191
+[module/screen.ts:191](https://github.com/siposdani87/sui-js/blob/b0b5d62/src/module/screen.ts#L191)
 
 ___
 
@@ -347,7 +347,7 @@ landscape|portrait
 
 #### Defined in
 
-module/screen.ts:197
+[module/screen.ts:197](https://github.com/siposdani87/sui-js/blob/b0b5d62/src/module/screen.ts#L197)
 
 ___
 
@@ -361,7 +361,7 @@ ___
 
 #### Defined in
 
-module/screen.ts:176
+[module/screen.ts:176](https://github.com/siposdani87/sui-js/blob/b0b5d62/src/module/screen.ts#L176)
 
 ___
 
@@ -375,7 +375,7 @@ ___
 
 #### Defined in
 
-module/screen.ts:185
+[module/screen.ts:185](https://github.com/siposdani87/sui-js/blob/b0b5d62/src/module/screen.ts#L185)
 
 ___
 
@@ -395,4 +395,4 @@ ___
 
 #### Defined in
 
-module/screen.ts:231
+[module/screen.ts:231](https://github.com/siposdani87/sui-js/blob/b0b5d62/src/module/screen.ts#L231)
