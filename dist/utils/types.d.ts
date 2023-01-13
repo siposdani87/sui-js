@@ -36,6 +36,7 @@ export declare type IconOptions = {
 export declare type Injection = {
     [key: string]: string;
 };
+export declare type InstanceKey = keyof Instance;
 export declare type Instance = {
     app: Application;
     config: Objekt;
