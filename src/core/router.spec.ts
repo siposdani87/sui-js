@@ -8,14 +8,15 @@ describe('router', () => {
     });
 
     it('should resolve url with params', () => {
-        const stateUrl = '/users/profile';
+        const stateUrl = '/users/profile/:id';
         const params = {
             empty: undefined,
-            me: 1,
-        }
+            me: true,
+            id: 1,
+        };
         const router = new Router(stateUrl);
         const url = router.stringify(params);
 
-        expect(url).toBe(stateUrl + '?me=1');
+        expect(url).toBe('/users/profile/1?me=true');
     });
 });

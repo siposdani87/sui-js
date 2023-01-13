@@ -45,16 +45,19 @@ export class Router {
      */
     stringify(opt_params: Object | undefined = {}): string {
         let route = this.route;
+        const params = {};
         for (const key in opt_params) {
             if (opt_params.hasOwnProperty(key)) {
                 const param = opt_params[key];
                 const regex = new RegExp('[:*]' + key + '\\b');
                 if (regex.test(route)) {
                     route = route.replace(regex, param);
+                } else {
+                    params[key] = opt_params[key];
                 }
             }
         }
-        route = urlWithQueryString(route, opt_params);
+        route = urlWithQueryString(route, params);
 
         route = route.replace(this.param, '');
         return route[route.length - 1] === '?'

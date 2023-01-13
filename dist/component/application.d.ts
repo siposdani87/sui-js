@@ -1,6 +1,6 @@
 import { Objekt } from '../core/objekt';
 import { Route } from './route';
-import { ClassRef, Injection } from '../utils';
+import { ClassRef, Injection, InstanceKey } from '../utils';
 /**
  * @class
  */
@@ -215,7 +215,7 @@ export declare class Application {
      * @param {string} name
      * @return {?Object}
      */
-    getInstance(name: string): Object | null;
+    getInstance(name: InstanceKey): Object | null;
     /**
      * @return {?Object}
      */
