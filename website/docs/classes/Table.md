@@ -1,16 +1,28 @@
 ---
 id: "Table"
-title: "Class: Table"
+title: "Class: Table<T>"
 sidebar_label: "Table"
 sidebar_position: 0
 custom_edit_url: null
 ---
 
+## Type parameters
+
+| Name | Type |
+| :------ | :------ |
+| `T` | [`Objekt`](Objekt.md) |
+
 ## Constructors
 
 ### constructor
 
-• **new Table**(`dom`, `opt_selector?`, `opt_options?`)
+• **new Table**<`T`\>(`dom`, `opt_selector?`, `opt_options?`)
+
+#### Type parameters
+
+| Name | Type |
+| :------ | :------ |
+| `T` | [`Objekt`](Objekt.md) |
 
 #### Parameters
 
@@ -22,7 +34,7 @@ custom_edit_url: null
 
 #### Defined in
 
-[component/table.ts:45](https://github.com/siposdani87/sui-js/blob/cc9117e/src/component/table.ts#L45)
+[component/table.ts:45](https://github.com/siposdani87/sui-js/blob/b0b5d62/src/component/table.ts#L45)
 
 ## Properties
 
@@ -32,17 +44,17 @@ custom_edit_url: null
 
 #### Defined in
 
-[component/table.ts:33](https://github.com/siposdani87/sui-js/blob/cc9117e/src/component/table.ts#L33)
+[component/table.ts:33](https://github.com/siposdani87/sui-js/blob/b0b5d62/src/component/table.ts#L33)
 
 ___
 
 ### collection
 
-• **collection**: [`Collection`](Collection.md)<[`Objekt`](Objekt.md)\>
+• **collection**: [`Collection`](Collection.md)<`T`\>
 
 #### Defined in
 
-[component/table.ts:31](https://github.com/siposdani87/sui-js/blob/cc9117e/src/component/table.ts#L31)
+[component/table.ts:31](https://github.com/siposdani87/sui-js/blob/b0b5d62/src/component/table.ts#L31)
 
 ___
 
@@ -52,7 +64,7 @@ ___
 
 #### Defined in
 
-[component/table.ts:34](https://github.com/siposdani87/sui-js/blob/cc9117e/src/component/table.ts#L34)
+[component/table.ts:34](https://github.com/siposdani87/sui-js/blob/b0b5d62/src/component/table.ts#L34)
 
 ___
 
@@ -62,7 +74,7 @@ ___
 
 #### Defined in
 
-[component/table.ts:35](https://github.com/siposdani87/sui-js/blob/cc9117e/src/component/table.ts#L35)
+[component/table.ts:35](https://github.com/siposdani87/sui-js/blob/b0b5d62/src/component/table.ts#L35)
 
 ___
 
@@ -72,7 +84,7 @@ ___
 
 #### Defined in
 
-[component/table.ts:36](https://github.com/siposdani87/sui-js/blob/cc9117e/src/component/table.ts#L36)
+[component/table.ts:36](https://github.com/siposdani87/sui-js/blob/b0b5d62/src/component/table.ts#L36)
 
 ___
 
@@ -82,7 +94,7 @@ ___
 
 #### Defined in
 
-[component/table.ts:30](https://github.com/siposdani87/sui-js/blob/cc9117e/src/component/table.ts#L30)
+[component/table.ts:30](https://github.com/siposdani87/sui-js/blob/b0b5d62/src/component/table.ts#L30)
 
 ___
 
@@ -92,7 +104,7 @@ ___
 
 #### Defined in
 
-[component/table.ts:39](https://github.com/siposdani87/sui-js/blob/cc9117e/src/component/table.ts#L39)
+[component/table.ts:39](https://github.com/siposdani87/sui-js/blob/b0b5d62/src/component/table.ts#L39)
 
 ___
 
@@ -102,7 +114,7 @@ ___
 
 #### Defined in
 
-[component/table.ts:32](https://github.com/siposdani87/sui-js/blob/cc9117e/src/component/table.ts#L32)
+[component/table.ts:32](https://github.com/siposdani87/sui-js/blob/b0b5d62/src/component/table.ts#L32)
 
 ___
 
@@ -112,7 +124,7 @@ ___
 
 #### Defined in
 
-[component/table.ts:29](https://github.com/siposdani87/sui-js/blob/cc9117e/src/component/table.ts#L29)
+[component/table.ts:29](https://github.com/siposdani87/sui-js/blob/b0b5d62/src/component/table.ts#L29)
 
 ___
 
@@ -122,7 +134,7 @@ ___
 
 #### Defined in
 
-[component/table.ts:37](https://github.com/siposdani87/sui-js/blob/cc9117e/src/component/table.ts#L37)
+[component/table.ts:37](https://github.com/siposdani87/sui-js/blob/b0b5d62/src/component/table.ts#L37)
 
 ___
 
@@ -132,7 +144,7 @@ ___
 
 #### Defined in
 
-[component/table.ts:38](https://github.com/siposdani87/sui-js/blob/cc9117e/src/component/table.ts#L38)
+[component/table.ts:38](https://github.com/siposdani87/sui-js/blob/b0b5d62/src/component/table.ts#L38)
 
 ## Methods
 
@@ -153,7 +165,7 @@ ___
 
 #### Defined in
 
-[component/table.ts:372](https://github.com/siposdani87/sui-js/blob/cc9117e/src/component/table.ts#L372)
+[component/table.ts:372](https://github.com/siposdani87/sui-js/blob/b0b5d62/src/component/table.ts#L372)
 
 ___
 
@@ -174,7 +186,7 @@ ___
 
 #### Defined in
 
-[component/table.ts:421](https://github.com/siposdani87/sui-js/blob/cc9117e/src/component/table.ts#L421)
+[component/table.ts:421](https://github.com/siposdani87/sui-js/blob/b0b5d62/src/component/table.ts#L421)
 
 ___
 
@@ -198,7 +210,7 @@ ___
 
 #### Defined in
 
-[component/table.ts:562](https://github.com/siposdani87/sui-js/blob/cc9117e/src/component/table.ts#L562)
+[component/table.ts:562](https://github.com/siposdani87/sui-js/blob/b0b5d62/src/component/table.ts#L562)
 
 ___
 
@@ -212,7 +224,7 @@ ___
 
 #### Defined in
 
-[component/table.ts:633](https://github.com/siposdani87/sui-js/blob/cc9117e/src/component/table.ts#L633)
+[component/table.ts:633](https://github.com/siposdani87/sui-js/blob/b0b5d62/src/component/table.ts#L633)
 
 ___
 
@@ -226,7 +238,7 @@ ___
 
 #### Defined in
 
-[component/table.ts:363](https://github.com/siposdani87/sui-js/blob/cc9117e/src/component/table.ts#L363)
+[component/table.ts:363](https://github.com/siposdani87/sui-js/blob/b0b5d62/src/component/table.ts#L363)
 
 ___
 
@@ -240,7 +252,7 @@ ___
 
 #### Defined in
 
-[component/table.ts:619](https://github.com/siposdani87/sui-js/blob/cc9117e/src/component/table.ts#L619)
+[component/table.ts:619](https://github.com/siposdani87/sui-js/blob/b0b5d62/src/component/table.ts#L619)
 
 ___
 
@@ -261,7 +273,7 @@ ___
 
 #### Defined in
 
-[component/table.ts:403](https://github.com/siposdani87/sui-js/blob/cc9117e/src/component/table.ts#L403)
+[component/table.ts:403](https://github.com/siposdani87/sui-js/blob/b0b5d62/src/component/table.ts#L403)
 
 ___
 
@@ -282,7 +294,7 @@ ___
 
 #### Defined in
 
-[component/table.ts:309](https://github.com/siposdani87/sui-js/blob/cc9117e/src/component/table.ts#L309)
+[component/table.ts:309](https://github.com/siposdani87/sui-js/blob/b0b5d62/src/component/table.ts#L309)
 
 ___
 
@@ -296,7 +308,7 @@ ___
 
 #### Defined in
 
-[component/table.ts:84](https://github.com/siposdani87/sui-js/blob/cc9117e/src/component/table.ts#L84)
+[component/table.ts:84](https://github.com/siposdani87/sui-js/blob/b0b5d62/src/component/table.ts#L84)
 
 ___
 
@@ -310,7 +322,7 @@ ___
 
 #### Defined in
 
-[component/table.ts:102](https://github.com/siposdani87/sui-js/blob/cc9117e/src/component/table.ts#L102)
+[component/table.ts:102](https://github.com/siposdani87/sui-js/blob/b0b5d62/src/component/table.ts#L102)
 
 ___
 
@@ -324,7 +336,7 @@ ___
 
 #### Defined in
 
-[component/table.ts:168](https://github.com/siposdani87/sui-js/blob/cc9117e/src/component/table.ts#L168)
+[component/table.ts:168](https://github.com/siposdani87/sui-js/blob/b0b5d62/src/component/table.ts#L168)
 
 ___
 
@@ -338,7 +350,7 @@ ___
 
 #### Defined in
 
-[component/table.ts:112](https://github.com/siposdani87/sui-js/blob/cc9117e/src/component/table.ts#L112)
+[component/table.ts:112](https://github.com/siposdani87/sui-js/blob/b0b5d62/src/component/table.ts#L112)
 
 ___
 
@@ -352,7 +364,7 @@ ___
 
 #### Defined in
 
-[component/table.ts:234](https://github.com/siposdani87/sui-js/blob/cc9117e/src/component/table.ts#L234)
+[component/table.ts:234](https://github.com/siposdani87/sui-js/blob/b0b5d62/src/component/table.ts#L234)
 
 ___
 
@@ -373,7 +385,7 @@ ___
 
 #### Defined in
 
-[component/table.ts:540](https://github.com/siposdani87/sui-js/blob/cc9117e/src/component/table.ts#L540)
+[component/table.ts:540](https://github.com/siposdani87/sui-js/blob/b0b5d62/src/component/table.ts#L540)
 
 ___
 
@@ -394,7 +406,7 @@ ___
 
 #### Defined in
 
-[component/table.ts:523](https://github.com/siposdani87/sui-js/blob/cc9117e/src/component/table.ts#L523)
+[component/table.ts:523](https://github.com/siposdani87/sui-js/blob/b0b5d62/src/component/table.ts#L523)
 
 ___
 
@@ -418,7 +430,7 @@ ___
 
 #### Defined in
 
-[component/table.ts:498](https://github.com/siposdani87/sui-js/blob/cc9117e/src/component/table.ts#L498)
+[component/table.ts:498](https://github.com/siposdani87/sui-js/blob/b0b5d62/src/component/table.ts#L498)
 
 ___
 
@@ -441,7 +453,7 @@ ___
 
 #### Defined in
 
-[component/table.ts:453](https://github.com/siposdani87/sui-js/blob/cc9117e/src/component/table.ts#L453)
+[component/table.ts:453](https://github.com/siposdani87/sui-js/blob/b0b5d62/src/component/table.ts#L453)
 
 ___
 
@@ -462,7 +474,7 @@ ___
 
 #### Defined in
 
-[component/table.ts:551](https://github.com/siposdani87/sui-js/blob/cc9117e/src/component/table.ts#L551)
+[component/table.ts:551](https://github.com/siposdani87/sui-js/blob/b0b5d62/src/component/table.ts#L551)
 
 ___
 
@@ -483,7 +495,7 @@ ___
 
 #### Defined in
 
-[component/table.ts:183](https://github.com/siposdani87/sui-js/blob/cc9117e/src/component/table.ts#L183)
+[component/table.ts:183](https://github.com/siposdani87/sui-js/blob/b0b5d62/src/component/table.ts#L183)
 
 ___
 
@@ -497,7 +509,7 @@ ___
 
 #### Defined in
 
-[component/table.ts:353](https://github.com/siposdani87/sui-js/blob/cc9117e/src/component/table.ts#L353)
+[component/table.ts:353](https://github.com/siposdani87/sui-js/blob/b0b5d62/src/component/table.ts#L353)
 
 ___
 
@@ -517,7 +529,7 @@ ___
 
 #### Defined in
 
-[component/table.ts:59](https://github.com/siposdani87/sui-js/blob/cc9117e/src/component/table.ts#L59)
+[component/table.ts:59](https://github.com/siposdani87/sui-js/blob/b0b5d62/src/component/table.ts#L59)
 
 ___
 
@@ -538,7 +550,7 @@ ___
 
 #### Defined in
 
-[component/table.ts:341](https://github.com/siposdani87/sui-js/blob/cc9117e/src/component/table.ts#L341)
+[component/table.ts:341](https://github.com/siposdani87/sui-js/blob/b0b5d62/src/component/table.ts#L341)
 
 ___
 
@@ -558,7 +570,7 @@ ___
 
 #### Defined in
 
-[component/table.ts:292](https://github.com/siposdani87/sui-js/blob/cc9117e/src/component/table.ts#L292)
+[component/table.ts:292](https://github.com/siposdani87/sui-js/blob/b0b5d62/src/component/table.ts#L292)
 
 ___
 
@@ -572,7 +584,7 @@ ___
 
 #### Defined in
 
-[component/table.ts:328](https://github.com/siposdani87/sui-js/blob/cc9117e/src/component/table.ts#L328)
+[component/table.ts:328](https://github.com/siposdani87/sui-js/blob/b0b5d62/src/component/table.ts#L328)
 
 ___
 
@@ -592,7 +604,7 @@ ___
 
 #### Defined in
 
-[component/table.ts:284](https://github.com/siposdani87/sui-js/blob/cc9117e/src/component/table.ts#L284)
+[component/table.ts:284](https://github.com/siposdani87/sui-js/blob/b0b5d62/src/component/table.ts#L284)
 
 ___
 
@@ -612,7 +624,7 @@ ___
 
 #### Defined in
 
-[component/table.ts:267](https://github.com/siposdani87/sui-js/blob/cc9117e/src/component/table.ts#L267)
+[component/table.ts:267](https://github.com/siposdani87/sui-js/blob/b0b5d62/src/component/table.ts#L267)
 
 ___
 
@@ -626,7 +638,7 @@ ___
 
 #### Defined in
 
-[component/table.ts:644](https://github.com/siposdani87/sui-js/blob/cc9117e/src/component/table.ts#L644)
+[component/table.ts:644](https://github.com/siposdani87/sui-js/blob/b0b5d62/src/component/table.ts#L644)
 
 ___
 
@@ -646,7 +658,7 @@ ___
 
 #### Defined in
 
-[component/table.ts:442](https://github.com/siposdani87/sui-js/blob/cc9117e/src/component/table.ts#L442)
+[component/table.ts:442](https://github.com/siposdani87/sui-js/blob/b0b5d62/src/component/table.ts#L442)
 
 ___
 
@@ -666,7 +678,7 @@ ___
 
 #### Defined in
 
-[component/table.ts:611](https://github.com/siposdani87/sui-js/blob/cc9117e/src/component/table.ts#L611)
+[component/table.ts:611](https://github.com/siposdani87/sui-js/blob/b0b5d62/src/component/table.ts#L611)
 
 ___
 
@@ -686,4 +698,4 @@ ___
 
 #### Defined in
 
-[component/table.ts:598](https://github.com/siposdani87/sui-js/blob/cc9117e/src/component/table.ts#L598)
+[component/table.ts:598](https://github.com/siposdani87/sui-js/blob/b0b5d62/src/component/table.ts#L598)

@@ -22,7 +22,7 @@ custom_edit_url: null
 
 #### Defined in
 
-[component/month.ts:19](https://github.com/siposdani87/sui-js/blob/cc9117e/src/component/month.ts#L19)
+[component/month.ts:19](https://github.com/siposdani87/sui-js/blob/b0b5d62/src/component/month.ts#L19)
 
 ## Properties
 
@@ -32,7 +32,7 @@ custom_edit_url: null
 
 #### Defined in
 
-[component/month.ts:13](https://github.com/siposdani87/sui-js/blob/cc9117e/src/component/month.ts#L13)
+[component/month.ts:13](https://github.com/siposdani87/sui-js/blob/b0b5d62/src/component/month.ts#L13)
 
 ___
 
@@ -42,7 +42,7 @@ ___
 
 #### Defined in
 
-[component/month.ts:11](https://github.com/siposdani87/sui-js/blob/cc9117e/src/component/month.ts#L11)
+[component/month.ts:11](https://github.com/siposdani87/sui-js/blob/b0b5d62/src/component/month.ts#L11)
 
 ___
 
@@ -52,7 +52,7 @@ ___
 
 #### Defined in
 
-[component/month.ts:10](https://github.com/siposdani87/sui-js/blob/cc9117e/src/component/month.ts#L10)
+[component/month.ts:10](https://github.com/siposdani87/sui-js/blob/b0b5d62/src/component/month.ts#L10)
 
 ___
 
@@ -62,7 +62,7 @@ ___
 
 #### Defined in
 
-[component/month.ts:12](https://github.com/siposdani87/sui-js/blob/cc9117e/src/component/month.ts#L12)
+[component/month.ts:12](https://github.com/siposdani87/sui-js/blob/b0b5d62/src/component/month.ts#L12)
 
 ## Methods
 
@@ -76,7 +76,7 @@ ___
 
 #### Defined in
 
-[component/month.ts:37](https://github.com/siposdani87/sui-js/blob/cc9117e/src/component/month.ts#L37)
+[component/month.ts:37](https://github.com/siposdani87/sui-js/blob/b0b5d62/src/component/month.ts#L37)
 
 ___
 
@@ -96,7 +96,7 @@ ___
 
 #### Defined in
 
-[component/month.ts:30](https://github.com/siposdani87/sui-js/blob/cc9117e/src/component/month.ts#L30)
+[component/month.ts:30](https://github.com/siposdani87/sui-js/blob/b0b5d62/src/component/month.ts#L30)
 
 ___
 
@@ -116,7 +116,7 @@ ___
 
 #### Defined in
 
-[component/month.ts:66](https://github.com/siposdani87/sui-js/blob/cc9117e/src/component/month.ts#L66)
+[component/month.ts:66](https://github.com/siposdani87/sui-js/blob/b0b5d62/src/component/month.ts#L66)
 
 ___
 
@@ -130,4 +130,4 @@ ___
 
 #### Defined in
 
-[component/month.ts:53](https://github.com/siposdani87/sui-js/blob/cc9117e/src/component/month.ts#L53)
+[component/month.ts:53](https://github.com/siposdani87/sui-js/blob/b0b5d62/src/component/month.ts#L53)

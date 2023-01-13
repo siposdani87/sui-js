@@ -33,7 +33,7 @@ custom_edit_url: null
 
 #### Defined in
 
-[field/locationField.ts:28](https://github.com/siposdani87/sui-js/blob/cc9117e/src/field/locationField.ts#L28)
+[field/locationField.ts:28](https://github.com/siposdani87/sui-js/blob/b0b5d62/src/field/locationField.ts#L28)
 
 ## Properties
 
@@ -47,7 +47,7 @@ custom_edit_url: null
 
 #### Defined in
 
-[field/baseField.ts:20](https://github.com/siposdani87/sui-js/blob/cc9117e/src/field/baseField.ts#L20)
+[field/baseField.ts:20](https://github.com/siposdani87/sui-js/blob/b0b5d62/src/field/baseField.ts#L20)
 
 ___
 
@@ -57,7 +57,7 @@ ___
 
 #### Defined in
 
-[field/locationField.ts:16](https://github.com/siposdani87/sui-js/blob/cc9117e/src/field/locationField.ts#L16)
+[field/locationField.ts:16](https://github.com/siposdani87/sui-js/blob/b0b5d62/src/field/locationField.ts#L16)
 
 ___
 
@@ -67,7 +67,7 @@ ___
 
 #### Defined in
 
-[field/locationField.ts:19](https://github.com/siposdani87/sui-js/blob/cc9117e/src/field/locationField.ts#L19)
+[field/locationField.ts:19](https://github.com/siposdani87/sui-js/blob/b0b5d62/src/field/locationField.ts#L19)
 
 ___
 
@@ -81,7 +81,7 @@ ___
 
 #### Defined in
 
-[field/baseField.ts:21](https://github.com/siposdani87/sui-js/blob/cc9117e/src/field/baseField.ts#L21)
+[field/baseField.ts:21](https://github.com/siposdani87/sui-js/blob/b0b5d62/src/field/baseField.ts#L21)
 
 ___
 
@@ -95,7 +95,7 @@ ___
 
 #### Defined in
 
-[field/baseField.ts:15](https://github.com/siposdani87/sui-js/blob/cc9117e/src/field/baseField.ts#L15)
+[field/baseField.ts:15](https://github.com/siposdani87/sui-js/blob/b0b5d62/src/field/baseField.ts#L15)
 
 ___
 
@@ -109,7 +109,7 @@ ___
 
 #### Defined in
 
-[field/baseField.ts:18](https://github.com/siposdani87/sui-js/blob/cc9117e/src/field/baseField.ts#L18)
+[field/baseField.ts:18](https://github.com/siposdani87/sui-js/blob/b0b5d62/src/field/baseField.ts#L18)
 
 ___
 
@@ -123,7 +123,7 @@ ___
 
 #### Defined in
 
-[field/baseField.ts:17](https://github.com/siposdani87/sui-js/blob/cc9117e/src/field/baseField.ts#L17)
+[field/baseField.ts:17](https://github.com/siposdani87/sui-js/blob/b0b5d62/src/field/baseField.ts#L17)
 
 ___
 
@@ -133,7 +133,7 @@ ___
 
 #### Defined in
 
-[field/locationField.ts:15](https://github.com/siposdani87/sui-js/blob/cc9117e/src/field/locationField.ts#L15)
+[field/locationField.ts:15](https://github.com/siposdani87/sui-js/blob/b0b5d62/src/field/locationField.ts#L15)
 
 ___
 
@@ -147,7 +147,7 @@ ___
 
 #### Defined in
 
-[field/baseField.ts:19](https://github.com/siposdani87/sui-js/blob/cc9117e/src/field/baseField.ts#L19)
+[field/baseField.ts:19](https://github.com/siposdani87/sui-js/blob/b0b5d62/src/field/baseField.ts#L19)
 
 ___
 
@@ -161,7 +161,7 @@ ___
 
 #### Defined in
 
-[field/baseField.ts:13](https://github.com/siposdani87/sui-js/blob/cc9117e/src/field/baseField.ts#L13)
+[field/baseField.ts:13](https://github.com/siposdani87/sui-js/blob/b0b5d62/src/field/baseField.ts#L13)
 
 ___
 
@@ -175,7 +175,7 @@ ___
 
 #### Defined in
 
-[field/baseField.ts:16](https://github.com/siposdani87/sui-js/blob/cc9117e/src/field/baseField.ts#L16)
+[field/baseField.ts:16](https://github.com/siposdani87/sui-js/blob/b0b5d62/src/field/baseField.ts#L16)
 
 ___
 
@@ -189,7 +189,7 @@ ___
 
 #### Defined in
 
-[field/baseField.ts:14](https://github.com/siposdani87/sui-js/blob/cc9117e/src/field/baseField.ts#L14)
+[field/baseField.ts:14](https://github.com/siposdani87/sui-js/blob/b0b5d62/src/field/baseField.ts#L14)
 
 ___
 
@@ -199,7 +199,7 @@ ___
 
 #### Defined in
 
-[field/locationField.ts:20](https://github.com/siposdani87/sui-js/blob/cc9117e/src/field/locationField.ts#L20)
+[field/locationField.ts:20](https://github.com/siposdani87/sui-js/blob/b0b5d62/src/field/locationField.ts#L20)
 
 ___
 
@@ -209,7 +209,7 @@ ___
 
 #### Defined in
 
-[field/locationField.ts:21](https://github.com/siposdani87/sui-js/blob/cc9117e/src/field/locationField.ts#L21)
+[field/locationField.ts:21](https://github.com/siposdani87/sui-js/blob/b0b5d62/src/field/locationField.ts#L21)
 
 ___
 
@@ -219,7 +219,7 @@ ___
 
 #### Defined in
 
-[field/locationField.ts:17](https://github.com/siposdani87/sui-js/blob/cc9117e/src/field/locationField.ts#L17)
+[field/locationField.ts:17](https://github.com/siposdani87/sui-js/blob/b0b5d62/src/field/locationField.ts#L17)
 
 ___
 
@@ -229,7 +229,7 @@ ___
 
 #### Defined in
 
-[field/locationField.ts:18](https://github.com/siposdani87/sui-js/blob/cc9117e/src/field/locationField.ts#L18)
+[field/locationField.ts:18](https://github.com/siposdani87/sui-js/blob/b0b5d62/src/field/locationField.ts#L18)
 
 ## Methods
 
@@ -253,7 +253,7 @@ ___
 
 #### Defined in
 
-[field/baseField.ts:109](https://github.com/siposdani87/sui-js/blob/cc9117e/src/field/baseField.ts#L109)
+[field/baseField.ts:109](https://github.com/siposdani87/sui-js/blob/b0b5d62/src/field/baseField.ts#L109)
 
 ___
 
@@ -277,7 +277,7 @@ ___
 
 #### Defined in
 
-[field/baseField.ts:383](https://github.com/siposdani87/sui-js/blob/cc9117e/src/field/baseField.ts#L383)
+[field/baseField.ts:383](https://github.com/siposdani87/sui-js/blob/b0b5d62/src/field/baseField.ts#L383)
 
 ___
 
@@ -291,7 +291,7 @@ ___
 
 #### Defined in
 
-[field/locationField.ts:41](https://github.com/siposdani87/sui-js/blob/cc9117e/src/field/locationField.ts#L41)
+[field/locationField.ts:41](https://github.com/siposdani87/sui-js/blob/b0b5d62/src/field/locationField.ts#L41)
 
 ___
 
@@ -305,7 +305,7 @@ ___
 
 #### Defined in
 
-[field/locationField.ts:96](https://github.com/siposdani87/sui-js/blob/cc9117e/src/field/locationField.ts#L96)
+[field/locationField.ts:96](https://github.com/siposdani87/sui-js/blob/b0b5d62/src/field/locationField.ts#L96)
 
 ___
 
@@ -319,7 +319,7 @@ ___
 
 #### Defined in
 
-[field/locationField.ts:71](https://github.com/siposdani87/sui-js/blob/cc9117e/src/field/locationField.ts#L71)
+[field/locationField.ts:71](https://github.com/siposdani87/sui-js/blob/b0b5d62/src/field/locationField.ts#L71)
 
 ___
 
@@ -333,7 +333,7 @@ ___
 
 #### Defined in
 
-[field/locationField.ts:79](https://github.com/siposdani87/sui-js/blob/cc9117e/src/field/locationField.ts#L79)
+[field/locationField.ts:79](https://github.com/siposdani87/sui-js/blob/b0b5d62/src/field/locationField.ts#L79)
 
 ___
 
@@ -355,7 +355,7 @@ ___
 
 #### Defined in
 
-[field/locationField.ts:205](https://github.com/siposdani87/sui-js/blob/cc9117e/src/field/locationField.ts#L205)
+[field/locationField.ts:205](https://github.com/siposdani87/sui-js/blob/b0b5d62/src/field/locationField.ts#L205)
 
 ___
 
@@ -369,7 +369,7 @@ ___
 
 #### Defined in
 
-[field/locationField.ts:172](https://github.com/siposdani87/sui-js/blob/cc9117e/src/field/locationField.ts#L172)
+[field/locationField.ts:172](https://github.com/siposdani87/sui-js/blob/b0b5d62/src/field/locationField.ts#L172)
 
 ___
 
@@ -383,7 +383,7 @@ ___
 
 #### Defined in
 
-[field/locationField.ts:246](https://github.com/siposdani87/sui-js/blob/cc9117e/src/field/locationField.ts#L246)
+[field/locationField.ts:246](https://github.com/siposdani87/sui-js/blob/b0b5d62/src/field/locationField.ts#L246)
 
 ___
 
@@ -407,7 +407,7 @@ ___
 
 #### Defined in
 
-[field/baseField.ts:371](https://github.com/siposdani87/sui-js/blob/cc9117e/src/field/baseField.ts#L371)
+[field/baseField.ts:371](https://github.com/siposdani87/sui-js/blob/b0b5d62/src/field/baseField.ts#L371)
 
 ___
 
@@ -427,7 +427,7 @@ ___
 
 #### Defined in
 
-[field/locationField.ts:327](https://github.com/siposdani87/sui-js/blob/cc9117e/src/field/locationField.ts#L327)
+[field/locationField.ts:327](https://github.com/siposdani87/sui-js/blob/b0b5d62/src/field/locationField.ts#L327)
 
 ___
 
@@ -441,7 +441,7 @@ ___
 
 #### Defined in
 
-[field/locationField.ts:297](https://github.com/siposdani87/sui-js/blob/cc9117e/src/field/locationField.ts#L297)
+[field/locationField.ts:297](https://github.com/siposdani87/sui-js/blob/b0b5d62/src/field/locationField.ts#L297)
 
 ___
 
@@ -455,7 +455,7 @@ ___
 
 #### Defined in
 
-[field/locationField.ts:164](https://github.com/siposdani87/sui-js/blob/cc9117e/src/field/locationField.ts#L164)
+[field/locationField.ts:164](https://github.com/siposdani87/sui-js/blob/b0b5d62/src/field/locationField.ts#L164)
 
 ___
 
@@ -480,7 +480,7 @@ ___
 
 #### Defined in
 
-[field/baseField.ts:140](https://github.com/siposdani87/sui-js/blob/cc9117e/src/field/baseField.ts#L140)
+[field/baseField.ts:140](https://github.com/siposdani87/sui-js/blob/b0b5d62/src/field/baseField.ts#L140)
 
 ___
 
@@ -505,7 +505,7 @@ ___
 
 #### Defined in
 
-[field/baseField.ts:55](https://github.com/siposdani87/sui-js/blob/cc9117e/src/field/baseField.ts#L55)
+[field/baseField.ts:55](https://github.com/siposdani87/sui-js/blob/b0b5d62/src/field/baseField.ts#L55)
 
 ___
 
@@ -529,7 +529,7 @@ ___
 
 #### Defined in
 
-[field/baseField.ts:62](https://github.com/siposdani87/sui-js/blob/cc9117e/src/field/baseField.ts#L62)
+[field/baseField.ts:62](https://github.com/siposdani87/sui-js/blob/b0b5d62/src/field/baseField.ts#L62)
 
 ___
 
@@ -549,7 +549,7 @@ ___
 
 #### Defined in
 
-[field/locationField.ts:385](https://github.com/siposdani87/sui-js/blob/cc9117e/src/field/locationField.ts#L385)
+[field/locationField.ts:385](https://github.com/siposdani87/sui-js/blob/b0b5d62/src/field/locationField.ts#L385)
 
 ___
 
@@ -567,7 +567,7 @@ ___
 
 #### Defined in
 
-[field/baseField.ts:195](https://github.com/siposdani87/sui-js/blob/cc9117e/src/field/baseField.ts#L195)
+[field/baseField.ts:195](https://github.com/siposdani87/sui-js/blob/b0b5d62/src/field/baseField.ts#L195)
 
 ___
 
@@ -585,7 +585,7 @@ ___
 
 #### Defined in
 
-[field/baseField.ts:201](https://github.com/siposdani87/sui-js/blob/cc9117e/src/field/baseField.ts#L201)
+[field/baseField.ts:201](https://github.com/siposdani87/sui-js/blob/b0b5d62/src/field/baseField.ts#L201)
 
 ___
 
@@ -603,7 +603,7 @@ ___
 
 #### Defined in
 
-[field/baseField.ts:207](https://github.com/siposdani87/sui-js/blob/cc9117e/src/field/baseField.ts#L207)
+[field/baseField.ts:207](https://github.com/siposdani87/sui-js/blob/b0b5d62/src/field/baseField.ts#L207)
 
 ___
 
@@ -627,7 +627,7 @@ ___
 
 #### Defined in
 
-[field/baseField.ts:214](https://github.com/siposdani87/sui-js/blob/cc9117e/src/field/baseField.ts#L214)
+[field/baseField.ts:214](https://github.com/siposdani87/sui-js/blob/b0b5d62/src/field/baseField.ts#L214)
 
 ___
 
@@ -645,7 +645,7 @@ ___
 
 #### Defined in
 
-[field/baseField.ts:93](https://github.com/siposdani87/sui-js/blob/cc9117e/src/field/baseField.ts#L93)
+[field/baseField.ts:93](https://github.com/siposdani87/sui-js/blob/b0b5d62/src/field/baseField.ts#L93)
 
 ___
 
@@ -663,7 +663,7 @@ ___
 
 #### Defined in
 
-[field/baseField.ts:86](https://github.com/siposdani87/sui-js/blob/cc9117e/src/field/baseField.ts#L86)
+[field/baseField.ts:86](https://github.com/siposdani87/sui-js/blob/b0b5d62/src/field/baseField.ts#L86)
 
 ___
 
@@ -681,7 +681,7 @@ ___
 
 #### Defined in
 
-[field/locationField.ts:377](https://github.com/siposdani87/sui-js/blob/cc9117e/src/field/locationField.ts#L377)
+[field/locationField.ts:377](https://github.com/siposdani87/sui-js/blob/b0b5d62/src/field/locationField.ts#L377)
 
 ___
 
@@ -699,7 +699,7 @@ ___
 
 #### Defined in
 
-[field/baseField.ts:290](https://github.com/siposdani87/sui-js/blob/cc9117e/src/field/baseField.ts#L290)
+[field/baseField.ts:290](https://github.com/siposdani87/sui-js/blob/b0b5d62/src/field/baseField.ts#L290)
 
 ___
 
@@ -717,7 +717,7 @@ ___
 
 #### Defined in
 
-[field/baseField.ts:246](https://github.com/siposdani87/sui-js/blob/cc9117e/src/field/baseField.ts#L246)
+[field/baseField.ts:246](https://github.com/siposdani87/sui-js/blob/b0b5d62/src/field/baseField.ts#L246)
 
 ___
 
@@ -735,7 +735,7 @@ ___
 
 #### Defined in
 
-[field/baseField.ts:240](https://github.com/siposdani87/sui-js/blob/cc9117e/src/field/baseField.ts#L240)
+[field/baseField.ts:240](https://github.com/siposdani87/sui-js/blob/b0b5d62/src/field/baseField.ts#L240)
 
 ___
 
@@ -753,7 +753,7 @@ ___
 
 #### Defined in
 
-[field/baseField.ts:220](https://github.com/siposdani87/sui-js/blob/cc9117e/src/field/baseField.ts#L220)
+[field/baseField.ts:220](https://github.com/siposdani87/sui-js/blob/b0b5d62/src/field/baseField.ts#L220)
 
 ___
 
@@ -771,7 +771,7 @@ ___
 
 #### Defined in
 
-[field/baseField.ts:173](https://github.com/siposdani87/sui-js/blob/cc9117e/src/field/baseField.ts#L173)
+[field/baseField.ts:173](https://github.com/siposdani87/sui-js/blob/b0b5d62/src/field/baseField.ts#L173)
 
 ___
 
@@ -789,7 +789,7 @@ ___
 
 #### Defined in
 
-[field/baseField.ts:165](https://github.com/siposdani87/sui-js/blob/cc9117e/src/field/baseField.ts#L165)
+[field/baseField.ts:165](https://github.com/siposdani87/sui-js/blob/b0b5d62/src/field/baseField.ts#L165)
 
 ___
 
@@ -807,7 +807,7 @@ ___
 
 #### Defined in
 
-[field/baseField.ts:265](https://github.com/siposdani87/sui-js/blob/cc9117e/src/field/baseField.ts#L265)
+[field/baseField.ts:265](https://github.com/siposdani87/sui-js/blob/b0b5d62/src/field/baseField.ts#L265)
 
 ___
 
@@ -831,7 +831,7 @@ ___
 
 #### Defined in
 
-[field/baseField.ts:80](https://github.com/siposdani87/sui-js/blob/cc9117e/src/field/baseField.ts#L80)
+[field/baseField.ts:80](https://github.com/siposdani87/sui-js/blob/b0b5d62/src/field/baseField.ts#L80)
 
 ___
 
@@ -849,7 +849,7 @@ ___
 
 #### Defined in
 
-[field/locationField.ts:152](https://github.com/siposdani87/sui-js/blob/cc9117e/src/field/locationField.ts#L152)
+[field/locationField.ts:152](https://github.com/siposdani87/sui-js/blob/b0b5d62/src/field/locationField.ts#L152)
 
 ___
 
@@ -867,7 +867,7 @@ ___
 
 #### Defined in
 
-[field/locationField.ts:132](https://github.com/siposdani87/sui-js/blob/cc9117e/src/field/locationField.ts#L132)
+[field/locationField.ts:132](https://github.com/siposdani87/sui-js/blob/b0b5d62/src/field/locationField.ts#L132)
 
 ___
 
@@ -887,7 +887,7 @@ ___
 
 #### Defined in
 
-[field/locationField.ts:112](https://github.com/siposdani87/sui-js/blob/cc9117e/src/field/locationField.ts#L112)
+[field/locationField.ts:112](https://github.com/siposdani87/sui-js/blob/b0b5d62/src/field/locationField.ts#L112)
 
 ___
 
@@ -909,7 +909,7 @@ ___
 
 #### Defined in
 
-[field/locationField.ts:286](https://github.com/siposdani87/sui-js/blob/cc9117e/src/field/locationField.ts#L286)
+[field/locationField.ts:286](https://github.com/siposdani87/sui-js/blob/b0b5d62/src/field/locationField.ts#L286)
 
 ___
 
@@ -933,7 +933,7 @@ ___
 
 #### Defined in
 
-[field/baseField.ts:253](https://github.com/siposdani87/sui-js/blob/cc9117e/src/field/baseField.ts#L253)
+[field/baseField.ts:253](https://github.com/siposdani87/sui-js/blob/b0b5d62/src/field/baseField.ts#L253)
 
 ___
 
@@ -958,7 +958,7 @@ ___
 
 #### Defined in
 
-[field/baseField.ts:123](https://github.com/siposdani87/sui-js/blob/cc9117e/src/field/baseField.ts#L123)
+[field/baseField.ts:123](https://github.com/siposdani87/sui-js/blob/b0b5d62/src/field/baseField.ts#L123)
 
 ___
 
@@ -982,7 +982,7 @@ ___
 
 #### Defined in
 
-[field/baseField.ts:299](https://github.com/siposdani87/sui-js/blob/cc9117e/src/field/baseField.ts#L299)
+[field/baseField.ts:299](https://github.com/siposdani87/sui-js/blob/b0b5d62/src/field/baseField.ts#L299)
 
 ___
 
@@ -1002,7 +1002,7 @@ ___
 
 #### Defined in
 
-[field/locationField.ts:277](https://github.com/siposdani87/sui-js/blob/cc9117e/src/field/locationField.ts#L277)
+[field/locationField.ts:277](https://github.com/siposdani87/sui-js/blob/b0b5d62/src/field/locationField.ts#L277)
 
 ___
 
@@ -1026,7 +1026,7 @@ ___
 
 #### Defined in
 
-[field/baseField.ts:227](https://github.com/siposdani87/sui-js/blob/cc9117e/src/field/baseField.ts#L227)
+[field/baseField.ts:227](https://github.com/siposdani87/sui-js/blob/b0b5d62/src/field/baseField.ts#L227)
 
 ___
 
@@ -1050,7 +1050,7 @@ ___
 
 #### Defined in
 
-[field/locationField.ts:338](https://github.com/siposdani87/sui-js/blob/cc9117e/src/field/locationField.ts#L338)
+[field/locationField.ts:338](https://github.com/siposdani87/sui-js/blob/b0b5d62/src/field/locationField.ts#L338)
 
 ___
 
@@ -1074,7 +1074,7 @@ ___
 
 #### Defined in
 
-[field/baseField.ts:272](https://github.com/siposdani87/sui-js/blob/cc9117e/src/field/baseField.ts#L272)
+[field/baseField.ts:272](https://github.com/siposdani87/sui-js/blob/b0b5d62/src/field/baseField.ts#L272)
 
 ___
 
@@ -1092,7 +1092,7 @@ ___
 
 #### Defined in
 
-[field/baseField.ts:282](https://github.com/siposdani87/sui-js/blob/cc9117e/src/field/baseField.ts#L282)
+[field/baseField.ts:282](https://github.com/siposdani87/sui-js/blob/b0b5d62/src/field/baseField.ts#L282)
 
 ___
 
@@ -1113,4 +1113,4 @@ ___
 
 #### Defined in
 
-[field/locationField.ts:316](https://github.com/siposdani87/sui-js/blob/cc9117e/src/field/locationField.ts#L316)
+[field/locationField.ts:316](https://github.com/siposdani87/sui-js/blob/b0b5d62/src/field/locationField.ts#L316)
