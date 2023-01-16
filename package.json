@@ -1,6 +1,6 @@
 {
   "name": "@siposdani87/sui-js",
-  "version": "0.9.3",
+  "version": "0.9.4",
   "description": "This is a lightweight FE framework. It is written in the TypeScript language. The codebase was documented with JSDoc and compiled with ESbuild advanced settings.",
   "main": "dist/index.js",
   "typings": "dist/index.d.ts",
