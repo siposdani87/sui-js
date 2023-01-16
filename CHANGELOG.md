@@ -1,6 +1,8 @@
-## 0.9.3 - TBD
+## 0.9.3 - 2023-01-16
 
-*
+* Fix stringify method on router
+* Upgrade packages
+* Create InstanceKey type
 
 ## 0.9.2 - 2022-12-19
 
