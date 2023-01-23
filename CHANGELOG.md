@@ -1,6 +1,11 @@
-## 0.9.4 - TBD
+## 0.9.5 - TBD
 
 * 
+
+## 0.9.4 - 2023-01-23
+
+* Upgrade packages
+* Fix style of tabPanel
 
 ## 0.9.3 - 2023-01-16
 
