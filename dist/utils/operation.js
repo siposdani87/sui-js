@@ -150,7 +150,7 @@ export const isObject = (value) => is(value, 'object');
  * @param {*} value
  * @return {boolean}
  */
-export const isPureObject = (value) => !isNull(value) && !isDate(value) && isObject(value);
+export const isPureObject = (value) => !isNull(value) && !isDate(value) && !isArray(value) && isObject(value);
 /**
  * @param {*} value
  * @return {boolean}
@@ -354,7 +354,15 @@ export const copyArray = (items) =>
 export const copyObject = (items) => {
     const results = {};
     eachObject(items, (item, key) => {
-        results[key] = isPureObject(item) ? copyObject(item) : item;
+        if (isArray(item)) {
+            results[key] = copyArray(item);
+        }
+        else if (isPureObject(item)) {
+            results[key] = copyObject(item);
+        }
+        else {
+            results[key] = item;
+        }
     });
     return results;
 };
