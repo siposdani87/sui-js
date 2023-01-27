@@ -35,7 +35,7 @@ export class Objekt {
         if (isPureObject(object)) {
             for (const key in object) {
                 if (object.hasOwnProperty(key)) {
-                    if (isPureObject(object[key]) && !isArray(object[key])) {
+                    if (isPureObject(object[key])) {
                         if (!instanceOf(this[key], Objekt)) {
                             this[key] = new Objekt(this[key]);
                         }
@@ -104,7 +104,7 @@ export class Objekt {
                 result = object[property];
             } else if (
                 property.toString() === attributes[0] &&
-                isPureObject(object[property])
+                (isPureObject(object[property]) || isArray(object[property]))
             ) {
                 const copyAttributes = copyArray(attributes);
                 copyAttributes.shift();
@@ -132,7 +132,7 @@ export class Objekt {
                 object[property] = value;
             } else if (
                 property === attributes[0] &&
-                isPureObject(object[property])
+                (isPureObject(object[property]) || isArray(object[property]))
             ) {
                 const copyAttributes = copyArray(attributes);
                 copyAttributes.shift();
@@ -194,7 +194,8 @@ export class Objekt {
                     delete object[property];
                 } else if (
                     property === attributes[0] &&
-                    isPureObject(object[property])
+                    (isPureObject(object[property]) ||
+                        isArray(object[property]))
                 ) {
                     const copyAttributes = copyArray(attributes);
                     copyAttributes.shift();
@@ -220,7 +221,7 @@ export class Objekt {
         eachObject(properties, (value, property) => {
             const attributesCopy = copyArray(attributes);
             attributesCopy.push(property);
-            if (isPureObject(value)) {
+            if (isPureObject(value) || isArray(value)) {
                 this.each(next, value, attributesCopy);
             } else {
                 next(value, attributesCopy.join('.'));
@@ -240,8 +241,8 @@ export class Objekt {
     ): Object {
         const lastAttribute = attributes.pop();
         let base = object;
-        for (let i = 0; i < attributes.length; i++) {
-            base = base[attributes[i]] = base[attributes[i]] || {};
+        for (const attribute of attributes) {
+            base = base[attribute] = base[attribute] || {};
         }
         base[lastAttribute] = value;
         return object;
