@@ -108,8 +108,7 @@ export class GoogleMap {
      * @return {undefined}
      */
     private _setOptions(opt_options: Object | undefined = {}): void {
-        const _self = this;
-        _self.options = new Objekt({
+        this.options = new Objekt({
             center: {
                 lat: 47.6,
                 lng: 17.533333,
@@ -129,7 +128,6 @@ export class GoogleMap {
             },
         });
         this.options.merge(opt_options);
-        this.options = this.options.copy(true);
     }
     /**
      * @return {string}
@@ -180,7 +178,7 @@ export class GoogleMap {
     private _initMap(): void {
         this.map = new google.maps.Map(
             this.mapKnot.getNode(),
-            this.options as google.maps.MapOptions,
+            this.options.pureCopy() as google.maps.MapOptions,
         );
 
         this._unbindEventsToMap();
@@ -273,7 +271,7 @@ export class GoogleMap {
         const options = new Objekt(this.polygonOptions);
         options.merge(opt_options);
 
-        const polygon = new google.maps.Polygon(options.copy(true));
+        const polygon = new google.maps.Polygon(options.pureCopy());
         polygon.setMap(this.map);
         polygonData.setRaw('_polygon', polygon);
         this._addPointsToPolygon(polygonData, points);
@@ -865,7 +863,7 @@ export class GoogleMap {
         options.merge(opt_options);
 
         const text = title.toString();
-        const marker = new google.maps.Marker(options.copy(true));
+        const marker = new google.maps.Marker(options.pureCopy());
         marker.setPosition(new google.maps.LatLng(latitude, longitude));
         marker.setIcon(this.markerIcons[iconName].icon);
         marker.setShape(this.markerIcons[iconName].shape);
