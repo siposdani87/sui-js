@@ -1,12 +1,23 @@
 import {
+    clear,
+    clearArray,
+    clearObject,
+    contain,
+    copy,
+    copyArray,
+    copyObject,
+    each,
     eq,
     format,
     gt,
     gte,
+    inArray,
+    inContainArray,
     instanceOf,
     is,
     isArray,
     isDate,
+    isEmpty,
     isFloat,
     isFunction,
     isInfinity,
@@ -15,6 +26,7 @@ import {
     isNumber,
     isObject,
     isPureObject,
+    isSame,
     isString,
     isUndefined,
     lt,
@@ -22,6 +34,7 @@ import {
     merge,
     neq,
     noop,
+    remove,
     typeCast,
 } from './operation';
 
@@ -182,4 +195,176 @@ describe('operation', () => {
 
         expect(result).toEqual(true);
     });
+
+    /* it('each', () => {
+        expect(true).toEqual(false);
+    });
+
+    it('eachArray', () => {
+        expect(true).toEqual(false);
+    });
+
+    it('eachObject', () => {
+        expect(true).toEqual(false);
+    });
+
+    it('sleepEach', () => {
+        expect(true).toEqual(false);
+    }); */
+
+    it('clear', () => {
+        const item = {
+            id: 1
+        }
+        clear(item);
+
+        expect(item).toEqual({});
+    });
+
+    it('clearArray', () => {
+        const numbers = [2, 4, 6, 7];
+        clearArray(numbers);
+
+        expect(numbers).toEqual([]);
+    });
+
+    it('clearObject', () => {
+        const obj = {
+            id: 1
+        }
+        clearObject(obj);
+
+        expect(obj).toEqual({});
+    });
+
+    it('inArray', () => {
+        const result = inArray([3, 2, 1], 2);
+
+        expect(result).toEqual(true);
+    });
+
+    it('contain', () => {
+        const result = contain('apple', 'pp');
+
+        expect(result).toEqual(true);
+    });
+
+    it('inContainArray', () => {
+        const result = inContainArray(['apple', 'strawberry'], 'raw');
+
+        expect(result).toEqual(true);
+    });
+
+    it('isSame', () => {
+        const result = isSame({a: 1}, {a: 1});
+
+        expect(result).toEqual(true);
+    });
+
+    it('remove', () => {
+        const numbers = [2, 4, 7, 1, 3];
+        remove(numbers, 7);
+
+        expect(numbers).toEqual([2, 4, 1, 3]);
+    });
+
+    it('copy', () => {
+        const obj = {
+            id: 1,
+            arr: [],
+            obj: {
+                attr: 3.2
+            }
+        };
+        const objectCopy = copy(obj);
+
+        expect(objectCopy).toEqual(obj);
+    });
+
+    it('copyArray', () => {
+        const numbers = [{
+            id: 1
+        }, {
+            id: 2
+        }];
+        const numbersCopy = copyArray(numbers);
+
+        expect(numbersCopy).toEqual(numbers);
+
+        numbers[0].id = 3;
+        expect(numbersCopy[0].id).not.toEqual(numbers[0].id);
+    });
+
+    it('copyObject', () => {
+        const obj = {
+            id: 1,
+            arr: [],
+            obj: {
+                attr: 3.2
+            }
+        };
+        const objectCopy = copyObject(obj);
+
+        expect(objectCopy).toEqual(obj);
+    });
+
+    it('isEmpty', () => {
+        const emptyArray = isEmpty([]);
+        expect(emptyArray).toEqual(true);
+
+        const emptyObject = isEmpty({});
+        expect(emptyObject).toEqual(true);
+    });
+
+    /* it('list', () => {
+        expect(true).toEqual(false);
+    });
+
+    it('capitalize', () => {
+        expect(true).toEqual(false);
+    });
+
+    it('pluck', () => {
+        expect(true).toEqual(false);
+    });
+
+    it('pluckKeys', () => {
+        expect(true).toEqual(false);
+    });
+
+    it('scrollTo', () => {
+        expect(true).toEqual(false);
+    });
+
+    it('scrollToElement', () => {
+        expect(true).toEqual(false);
+    });
+
+    it('scrollIntoView', () => {
+        expect(true).toEqual(false);
+    });
+
+    it('debounce', () => {
+        expect(true).toEqual(false);
+    });
+
+    it('urlWithQueryString', () => {
+        expect(true).toEqual(false);
+    });
+
+    it('getQueryString', () => {
+        expect(true).toEqual(false);
+    });
+
+    it('getExtensionName', () => {
+        expect(true).toEqual(false);
+    });
+
+    it('normalize', () => {
+        expect(true).toEqual(false);
+    });
+
+    it('copyToClipboard', () => {
+        expect(true).toEqual(false);
+    }); */
 });
