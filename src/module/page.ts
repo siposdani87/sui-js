@@ -21,9 +21,8 @@ export class Page {
      * @return {undefined}
      */
     private _setOptions(opt_options: Object | undefined): void {
-        const _self = this;
-        _self.options = new Objekt();
-        _self.options.merge(opt_options);
+        this.options = new Objekt();
+        this.options.merge(opt_options);
     }
     /**
      * @private

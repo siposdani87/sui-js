@@ -28,14 +28,13 @@ export class Depot {
      * @return {undefined}
      */
     private _setOptions(opt_options: Object | undefined = {}): void {
-        const _self = this;
-        _self.options = new Objekt({
+        this.options = new Objekt({
             prefix: 'app',
             secret: 'secret',
             hours: 24 * 7,
             interval: 60 * 1000,
         });
-        _self.options.merge(opt_options);
+        this.options.merge(opt_options);
     }
     /**
      * @private

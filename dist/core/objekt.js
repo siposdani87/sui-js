@@ -199,15 +199,17 @@ export class Objekt {
         return object;
     }
     /**
-     * @param {boolean=} opt_isNative
      * @return {!Objekt}
      */
-    copy(opt_isNative = false) {
-        let result = copyObject(this);
-        if (!opt_isNative) {
-            result = new Objekt(result);
-        }
-        return result;
+    copy() {
+        const copy = this.pureCopy();
+        return new Objekt(copy);
+    }
+    /**
+     * @return {!Object}
+     */
+    pureCopy() {
+        return copyObject(this);
     }
     /**
      * @return {boolean}

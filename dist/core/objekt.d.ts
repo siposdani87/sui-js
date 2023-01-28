@@ -83,10 +83,13 @@ export declare class Objekt {
      */
     _attributesToObject(object: Object, attributes: Array<string>, value: any): Object;
     /**
-     * @param {boolean=} opt_isNative
      * @return {!Objekt}
      */
-    copy(opt_isNative?: boolean | undefined): any;
+    copy(): Objekt;
+    /**
+     * @return {!Object}
+     */
+    pureCopy(): Object;
     /**
      * @return {boolean}
      */

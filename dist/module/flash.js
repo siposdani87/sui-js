@@ -27,13 +27,12 @@ export class Flash {
      * @return {undefined}
      */
     _setOptions(opt_options = {}) {
-        const _self = this;
-        _self.options = new Objekt({
+        this.options = new Objekt({
             id: '#flashes',
             duration: 4000,
             closableTypes: ['error'],
         });
-        _self.options.merge(opt_options);
+        this.options.merge(opt_options);
     }
     /**
      * @param {string} type

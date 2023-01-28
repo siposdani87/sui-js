@@ -284,13 +284,13 @@ export const inArray = (items, item) => items.indexOf(item) !== -1;
  */
 export const contain = (str, subStr) => str.indexOf(subStr) !== -1;
 /**
- * @param {!Array} items
+ * @param {!Array<string>} items
  * @param {*} item
  * @return {boolean}
  */
 export const inContainArray = (items, item) => {
     let i = 0;
-    while (i < items.length && !contain(item, items[i])) {
+    while (i < items.length && !contain(items[i], item)) {
         i++;
     }
     return i < items.length;
@@ -343,10 +343,21 @@ export const copy = (items) => {
  * @param {!Array} items
  * @return {!Array}
  */
-export const copyArray = (items) => 
-// TODO object, array copy
-// return JSON.parse(JSON.stringify(items));
-[].concat(items);
+export const copyArray = (items) => {
+    const results = [];
+    eachArray(items, (item, index) => {
+        if (isArray(item)) {
+            results[index] = copyArray(item);
+        }
+        else if (isPureObject(item)) {
+            results[index] = copyObject(item);
+        }
+        else {
+            results[index] = item;
+        }
+    });
+    return results;
+};
 /**
  * @param {!Object} items
  * @return {!Object}

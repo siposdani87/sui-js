@@ -18,12 +18,11 @@ export class Cookie {
      * @return {undefined}
      */
     _setOptions(opt_options = {}) {
-        const _self = this;
-        _self.options = new Objekt({
+        this.options = new Objekt({
             prefix: 'app',
             hours: 24,
         });
-        _self.options.merge(opt_options);
+        this.options.merge(opt_options);
     }
     /**
      * @private
