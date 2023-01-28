@@ -157,18 +157,67 @@ describe('objekt', () => {
 
     it('copy', () => {
         const options = new Objekt({
-            attr: 0,
+            attr: false,
             obj: {
                 attr2: 0,
                 obj2: {
-                    attr3: 0,
+                    attr3: 3,
                 },
+                arr: [],
+            },
+            arr2: [2, 0, 1],
+            arr3: [],
+            obj3: {
+                attr4: null,
             },
         });
-        options.set('obj.attr2', 0);
-        const optionsCopy = options.copy();
-        optionsCopy.remove('obj.attr2');
 
-        expect(options.get('obj.attr2')).toBe(0);
+        options.set('attr', true);
+        options.set('obj.attr2', 2);
+
+        const optionsCopy = options.copy();
+        expect(options).toEqual(optionsCopy);
+
+        optionsCopy.remove('obj.attr2');
+        expect(options).not.toEqual(optionsCopy);
+        expect(options.get('obj.attr2')).toBe(2);
+
+        const optionsCopyClone = new Objekt(optionsCopy);
+        expect(optionsCopy.get('obj.arr')).toEqual([]);
+        expect(optionsCopyClone.get('arr2')).toEqual([2, 0, 1]);
+        expect(optionsCopyClone.get('arr3')).toEqual([]);
+    });
+
+    it('pureCopy', () => {
+        const options = new Objekt({
+            attr: false,
+            obj: {
+                attr2: 0,
+                obj2: {
+                    attr3: 3,
+                },
+                arr: [],
+            },
+            arr2: [2, 0, 1],
+            arr3: [],
+            obj3: {
+                attr4: null,
+            },
+        });
+
+        options.set('attr', true);
+        options.set('obj.attr2', 2);
+
+        const optionsCopy = new Objekt(options.pureCopy());
+        expect(options).toEqual(optionsCopy);
+
+        optionsCopy.remove('obj.attr2');
+        expect(options).not.toEqual(optionsCopy);
+        expect(options.get('obj.attr2')).toBe(2);
+
+        const optionsCopyClone = new Objekt(optionsCopy);
+        expect(optionsCopy.get('obj.arr')).toEqual([]);
+        expect(optionsCopyClone.get('arr2')).toEqual([2, 0, 1]);
+        expect(optionsCopyClone.get('arr3')).toEqual([]);
     });
 });
