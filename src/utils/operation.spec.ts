@@ -214,8 +214,8 @@ describe('operation', () => {
 
     it('clear', () => {
         const item = {
-            id: 1
-        }
+            id: 1,
+        };
         clear(item);
 
         expect(item).toEqual({});
@@ -230,8 +230,8 @@ describe('operation', () => {
 
     it('clearObject', () => {
         const obj = {
-            id: 1
-        }
+            id: 1,
+        };
         clearObject(obj);
 
         expect(obj).toEqual({});
@@ -256,7 +256,7 @@ describe('operation', () => {
     });
 
     it('isSame', () => {
-        const result = isSame({a: 1}, {a: 1});
+        const result = isSame({ a: 1 }, { a: 1 });
 
         expect(result).toEqual(true);
     });
@@ -273,8 +273,8 @@ describe('operation', () => {
             id: 1,
             arr: [],
             obj: {
-                attr: 3.2
-            }
+                attr: 3.2,
+            },
         };
         const objectCopy = copy(obj);
 
@@ -282,11 +282,14 @@ describe('operation', () => {
     });
 
     it('copyArray', () => {
-        const numbers = [{
-            id: 1
-        }, {
-            id: 2
-        }];
+        const numbers = [
+            {
+                id: 1,
+            },
+            {
+                id: 2,
+            },
+        ];
         const numbersCopy = copyArray(numbers);
 
         expect(numbersCopy).toEqual(numbers);
@@ -300,8 +303,8 @@ describe('operation', () => {
             id: 1,
             arr: [],
             obj: {
-                attr: 3.2
-            }
+                attr: 3.2,
+            },
         };
         const objectCopy = copyObject(obj);
 

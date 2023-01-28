@@ -29,8 +29,7 @@ export class CardCollection {
      * @return {undefined}
      */
     _setOptions(opt_options = {}) {
-        const _self = this;
-        _self.options = new Objekt({
+        this.options = new Objekt({
             no_content: {
                 image_url: null,
                 text: '',
@@ -42,7 +41,7 @@ export class CardCollection {
                 order: 'asc',
             },
         });
-        _self.options.merge(opt_options);
+        this.options.merge(opt_options);
     }
     /**
      * @private

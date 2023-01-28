@@ -22,9 +22,8 @@ export class Style {
      * @return {undefined}
      */
     _setOptions(opt_options = {}) {
-        const _self = this;
-        _self.options = new Objekt();
-        _self.options.merge(opt_options);
+        this.options = new Objekt();
+        this.options.merge(opt_options);
     }
     /**
      * @private

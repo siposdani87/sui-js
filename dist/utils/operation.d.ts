@@ -188,11 +188,11 @@ export declare const inArray: (items: Array<any>, item: any) => boolean;
  */
 export declare const contain: (str: string, subStr: string) => boolean;
 /**
- * @param {!Array} items
+ * @param {!Array<string>} items
  * @param {*} item
  * @return {boolean}
  */
-export declare const inContainArray: (items: Array<any>, item: any) => boolean;
+export declare const inContainArray: (items: Array<string>, item: string) => boolean;
 /**
  * @param {*} a
  * @param {*} b

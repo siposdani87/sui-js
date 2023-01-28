@@ -25,11 +25,10 @@ export class Dialog extends BaseModal {
      * @return {undefined}
      */
     _setOptions(opt_options = {}) {
-        const _self = this;
-        _self.options = new Objekt({
+        this.options = new Objekt({
             id: '#dialog',
         });
-        _self.options.merge(opt_options);
+        this.options.merge(opt_options);
     }
     /**
      * @private

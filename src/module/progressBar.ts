@@ -54,12 +54,11 @@ export class ProgressBar {
      * @return {undefined}
      */
     private _setOptions(opt_options: Object | undefined = {}): void {
-        const _self = this;
-        _self.options = new Objekt({
+        this.options = new Objekt({
             lock: false,
             counter: 0,
         });
-        _self.options.merge(opt_options);
+        this.options.merge(opt_options);
     }
     /**
      * @private

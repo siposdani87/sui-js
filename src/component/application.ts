@@ -88,8 +88,7 @@ export class Application {
      * @return {undefined}
      */
     private _setOptions(options: Object): void {
-        const _self = this;
-        _self.options = new Objekt({
+        this.options = new Objekt({
             app_id: 'sui-app',
             locale: navigator.language,
             backend: '',
@@ -97,7 +96,7 @@ export class Application {
             secret: 'f74pej3qpb9qmpvregu7ef33m5w6f6qz',
             theme_color: '#000',
         });
-        _self.options.merge(options);
+        this.options.merge(options);
     }
     /**
      * @private

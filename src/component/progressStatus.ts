@@ -30,14 +30,13 @@ export class ProgressStatus {
      * @return {undefined}
      */
     private _setOptions(opt_options: Object | undefined = {}): void {
-        const _self = this;
-        _self.options = new Objekt({
+        this.options = new Objekt({
             successStyle: 'success',
             infoStyle: 'info',
             warningStyle: 'warning',
             errorStyle: 'error',
         });
-        _self.options.merge(opt_options);
+        this.options.merge(opt_options);
     }
     /**
      * @private

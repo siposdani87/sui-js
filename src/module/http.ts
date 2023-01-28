@@ -25,12 +25,11 @@ export class Http {
      * @return {undefined}
      */
     private _setOptions(opt_options: Object | undefined = {}): void {
-        const _self = this;
-        _self.options = new Objekt({
+        this.options = new Objekt({
             backend: '',
             locale: '',
         });
-        _self.options.merge(opt_options);
+        this.options.merge(opt_options);
     }
     /**
      * @private

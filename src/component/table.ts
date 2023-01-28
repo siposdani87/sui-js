@@ -57,8 +57,7 @@ export class Table<T = Objekt> {
      * @return {undefined}
      */
     private _setOptions(opt_options: Object | undefined = {}): void {
-        const _self = this;
-        _self.options = new Objekt({
+        this.options = new Objekt({
             no_content: {
                 image_url: null,
                 text: '',
@@ -75,7 +74,7 @@ export class Table<T = Objekt> {
             column: null,
             rowStyle: null,
         });
-        _self.options.merge(opt_options);
+        this.options.merge(opt_options);
     }
     /**
      * @private
