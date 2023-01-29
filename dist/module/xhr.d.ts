@@ -1,7 +1,7 @@
 import { Deferred } from '../core/deferred';
 import { Objekt } from '../core/objekt';
 import { Promize } from '../core';
-declare type XhrType = [string, XMLHttpRequestResponseType, string];
+type XhrType = [string, XMLHttpRequestResponseType, string];
 /**
  * @class
  */

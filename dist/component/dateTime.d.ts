@@ -3,7 +3,7 @@ import { Knot } from '../core/knot';
 /**
  * @typedef {{format: string; calendar_type: string; clock_type: string;}} DateTimeConfig
  */
-declare type DateTimeConfig = {
+type DateTimeConfig = {
     format: string;
     calendar_type: string;
     clock_type: string;

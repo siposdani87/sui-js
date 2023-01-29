@@ -36,7 +36,7 @@ export declare class Async {
      * @param {?Array=} opt_args
      * @return {!Promize}
      */
-    _parallelWrapper(call: Function, length: number, allowEvent: boolean, index: number, opt_args?: Array<any>): Promize;
+    private _parallelWrapper;
     /**
      * @private
      * @param {number|undefined} length
@@ -47,7 +47,7 @@ export declare class Async {
      * @param {?Array=} opt_args
      * @return {!Promize}
      */
-    _parallelCaller(length: number | undefined, isError: boolean, result: any, allowEvent: boolean, index: number, opt_args?: Array<any>): Promize;
+    private _parallelCaller;
     /**
      * @private
      * @return {undefined}
@@ -80,7 +80,7 @@ export declare class Async {
      * @param {!Array=} opt_args
      * @return {!Promize}
      */
-    _serialWrapper(calls: Array<Function>, index: number, opt_args?: Array<any>): Promize;
+    private _serialWrapper;
     /**
      * @private
      * @param {!Array<!Function>} calls
@@ -89,5 +89,5 @@ export declare class Async {
      * @param {!Array=} opt_args
      * @return {!Promize}
      */
-    _serialCaller(calls: Array<Function>, index: number, result: any, opt_args?: Array<any>): Promize;
+    private _serialCaller;
 }

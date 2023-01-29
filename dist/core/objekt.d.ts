@@ -81,7 +81,7 @@ export declare class Objekt {
      * @param {*} value
      * @return {!Object}
      */
-    _attributesToObject(object: Object, attributes: Array<string>, value: any): Object;
+    private _attributesToObject;
     /**
      * @return {!Objekt}
      */

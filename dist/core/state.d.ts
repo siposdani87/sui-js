@@ -68,7 +68,7 @@ export declare class State {
      * @param {!Function} errorCallback
      * @return {undefined}
      */
-    _parsePath(urlPath: string, successCallback: (state: Route, path: string, params: Object) => void, errorCallback: (state: Route, path: string, params: Object) => void): void;
+    private _parsePath;
     /**
      * @private
      * @param {!Objekt} state
@@ -78,7 +78,7 @@ export declare class State {
      * @param {boolean=} opt_force
      * @return {undefined}
      */
-    _setHistory(state: Route, url: string, opt_params?: Object | undefined, opt_overwrite?: boolean | undefined, opt_force?: boolean | undefined): void;
+    private _setHistory;
     /**
      * @private
      * @param {boolean=} opt_force
@@ -119,7 +119,7 @@ export declare class State {
      * @param {!Object=} opt_params
      * @return {!Array}
      */
-    _resolveUrlWithState(id: string, opt_params?: Object): Array<any>;
+    private _resolveUrlWithState;
     /**
      * @param {string} id
      * @param {!Object=} opt_params

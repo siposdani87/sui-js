@@ -6,7 +6,7 @@ import { Knot } from '../core';
 /**
  * @typedef {{setProgress: function(number): undefined, setBuffer: function(number): undefined}} ProcessBar
  */
-declare type ProcessBar = {
+type ProcessBar = {
     setProgress: (value: number) => void;
     setBuffer: (value: number) => void;
 };
@@ -59,7 +59,7 @@ export declare class ProgressBar {
      * @param {!Function} confirmCallback
      * @return {undefined}
      */
-    _separateProgressBars(containerCallback: Function, headerCallback: Function, dialogCallback: Function, confirmCallback: Function): void;
+    private _separateProgressBars;
     /**
      * @private
      * @return {undefined}

@@ -5,39 +5,39 @@ import { BottomMenu, Browser, Confirm, Cookie, Dialog, EventBus, Flash, Footer, 
 /**
  * @typedef {function(Element, Event)} Listener
  */
-export declare type Listener = (this: Element, ev: Event) => any;
+export type Listener = (this: Element, ev: Event) => any;
 /**
  * @typedef {!Object} Params
  */
-export declare type Params = {
+export type Params = {
     [key: string]: string;
 };
 /**
  * @typedef {(string|number)} Id
  */
-export declare type Id = string | number;
+export type Id = string | number;
 /**
  * @typedef {{style: !Function, click: !Function}} Action
  */
-export declare type Action = {
+export type Action = {
     style: (item: Objekt) => [string, string?, boolean?, boolean?];
     click: (item: Objekt) => void;
 };
 /**
  * @typedef {{url: string, size: [number, number], origin: [number, number], anchor: [number, number], coords: Array<number>}} IconOptions
  */
-export declare type IconOptions = {
+export type IconOptions = {
     url: string;
     size: [number, number];
     origin: [number, number];
     anchor: [number, number];
     coords: number[];
 };
-export declare type Injection = {
+export type Injection = {
     [key: string]: string;
 };
-export declare type InstanceKey = keyof Instance;
-export declare type Instance = {
+export type InstanceKey = keyof Instance;
+export type Instance = {
     app: Application;
     config: Objekt;
     eventBus: EventBus;
@@ -71,13 +71,13 @@ export declare type Instance = {
     instances: Instance;
     console: Console;
 };
-export declare type ClassRef = {
+export type ClassRef = {
     new (...args: any[]): any;
 };
 /**
  * @typedef {{moduleInjections: Array<string>, moduleCallback: ClassRef}} Dependency
  */
-export declare type Dependency = {
+export type Dependency = {
     moduleInjections: string[];
     moduleCallback: ClassRef;
 };
