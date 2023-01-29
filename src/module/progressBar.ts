@@ -143,7 +143,7 @@ export class ProgressBar {
      * @param {!Function} confirmCallback
      * @return {undefined}
      */
-    _separateProgressBars(
+    private _separateProgressBars(
         containerCallback: Function,
         headerCallback: Function,
         dialogCallback: Function,

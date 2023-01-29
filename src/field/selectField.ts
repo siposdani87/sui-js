@@ -330,7 +330,7 @@ export class SelectField extends BaseField<HTMLInputElement> {
      * @private
      * @param {!Array<Objekt>|Objekt} tags
      */
-    _setTags(tags: Array<Objekt> | Objekt) {
+    private _setTags(tags: Array<Objekt> | Objekt) {
         if (!isArray(tags)) {
             tags = [tags as Objekt];
         }

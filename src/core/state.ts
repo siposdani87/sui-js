@@ -144,7 +144,7 @@ export class State {
      * @param {!Function} errorCallback
      * @return {undefined}
      */
-    _parsePath(
+    private _parsePath(
         urlPath: string,
         successCallback: (state: Route, path: string, params: Object) => void,
         errorCallback: (state: Route, path: string, params: Object) => void,
@@ -180,7 +180,7 @@ export class State {
      * @param {boolean=} opt_force
      * @return {undefined}
      */
-    _setHistory(
+    private _setHistory(
         state: Route,
         url: string,
         opt_params: Object | undefined = {},
@@ -295,7 +295,7 @@ export class State {
      * @param {!Object=} opt_params
      * @return {!Array}
      */
-    _resolveUrlWithState(id: string, opt_params?: Object): Array<any> {
+    private _resolveUrlWithState(id: string, opt_params?: Object): Array<any> {
         const route = this.routes.findById(id);
         let url = '';
         if (route) {

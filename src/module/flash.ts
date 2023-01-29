@@ -46,7 +46,7 @@ export class Flash {
      * @param {string=} opt_id
      * @return {!Knot}
      */
-    _getFlashKnot(
+    private _getFlashKnot(
         type: string,
         message: string,
         opt_duration: number | undefined = 0,
@@ -107,7 +107,7 @@ export class Flash {
      * @param {string=} opt_id
      * @return {!Knot}
      */
-    _add(
+    private _add(
         type: string,
         message: string,
         opt_duration: number | undefined = 0,
