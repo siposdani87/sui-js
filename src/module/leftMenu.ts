@@ -50,7 +50,7 @@ export class LeftMenu {
     /**
      * @private
      */
-    _initEvents() {
+    private _initEvents() {
         this.leftMenu.addEventListener('click', () => {
             this.close();
         });

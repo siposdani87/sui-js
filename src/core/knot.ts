@@ -128,7 +128,7 @@ export class Knot<T extends HTMLElement = HTMLElement> {
      * @param {!Function} callback
      * @return {undefined}
      */
-    _handleClassList(
+    private _handleClassList(
         cssClasses: Array<string> | string,
         callback: Function,
     ): void {
@@ -268,7 +268,7 @@ export class Knot<T extends HTMLElement = HTMLElement> {
      * @param {!Function} listener
      * @return {undefined}
      */
-    _addListenerToStore(eventName: string, listener: Function): void {
+    private _addListenerToStore(eventName: string, listener: Function): void {
         if (!this.node[this.listenerStoreKey]) {
             this.node[this.listenerStoreKey] = {};
         }

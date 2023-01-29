@@ -22,8 +22,7 @@ export class Objekt {
     /**
      * @param {!Object=} opt_object
      */
-    constructor(opt_object?: Object | undefined) {
-        opt_object = opt_object || {};
+    constructor(opt_object: Object | undefined = {}) {
         Object.call(this, opt_object);
         this.merge(opt_object);
     }
@@ -234,7 +233,7 @@ export class Objekt {
      * @param {*} value
      * @return {!Object}
      */
-    _attributesToObject(
+    private _attributesToObject(
         object: Object,
         attributes: Array<string>,
         value: any,

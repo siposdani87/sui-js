@@ -13,13 +13,13 @@ import { ClassRef, Dependency, Injection, Instance } from '../utils';
  * @class
  */
 export class Module {
-    _instances: Instance;
-    _injections: Injection;
+    private _instances: Instance;
+    private _injections: Injection;
 
-    _modules: {
+    private _modules: {
         [key: string]: Dependency;
     };
-    _controller: any;
+    private _controller: any;
     /**
      */
     constructor() {
@@ -227,7 +227,7 @@ export class Module {
      * @param {boolean=} opt_force
      * @return {undefined}
      */
-    _handleStateChange(
+    private _handleStateChange(
         currentState: Objekt,
         opt_force: boolean | undefined = false,
     ): void {

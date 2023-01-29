@@ -4,7 +4,7 @@ import { Promize } from './promize';
  * @class
  */
 export class Deferred {
-    _promise: Promize;
+    private _promise: Promize;
     /**
      */
     constructor() {
