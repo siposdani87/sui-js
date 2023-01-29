@@ -6,14 +6,14 @@ import { IconOptions, Id } from '../utils';
 /**
  * @typedef {{icon: string | google.maps.Icon | google.maps.Symbol, shape: google.maps.MarkerShape}} MarkerIcon
  */
-declare type MarkerIcon = {
+type MarkerIcon = {
     icon: string | google.maps.Icon | google.maps.Symbol;
     shape: google.maps.MarkerShape;
 };
 /**
  * @typedef {{latitude: number, longitude: number, weight: (string|undefined)}} WeightLatLng
  */
-export declare type WeightLatLng = {
+export type WeightLatLng = {
     latitude: number;
     longitude: number;
     weight?: number;
@@ -21,7 +21,7 @@ export declare type WeightLatLng = {
 /**
  * @typedef {{latitude: number, longitude: number}} LatLng
  */
-export declare type LatLng = {
+export type LatLng = {
     latitude: number;
     longitude: number;
 };

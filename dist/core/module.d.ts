@@ -2,17 +2,15 @@ import { Promize } from './promize';
 import { Objekt } from './objekt';
 import { Knot } from './knot';
 import { Route } from '../component/route';
-import { ClassRef, Dependency, Injection, Instance } from '../utils';
+import { ClassRef, Injection, Instance } from '../utils';
 /**
  * @class
  */
 export declare class Module {
-    _instances: Instance;
-    _injections: Injection;
-    _modules: {
-        [key: string]: Dependency;
-    };
-    _controller: any;
+    private _instances;
+    private _injections;
+    private _modules;
+    private _controller;
     /**
      */
     constructor();
@@ -67,7 +65,7 @@ export declare class Module {
      * @param {boolean=} opt_force
      * @return {undefined}
      */
-    _handleStateChange(currentState: Objekt, opt_force?: boolean | undefined): void;
+    private _handleStateChange;
     /**
      * @private
      * @param {!Objekt} state

@@ -29,7 +29,7 @@ export declare class Flash {
      * @param {string=} opt_id
      * @return {!Knot}
      */
-    _getFlashKnot(type: string, message: string, opt_duration?: number | undefined, opt_closeCallback?: (Function | null) | undefined, opt_id?: string | undefined): Knot;
+    private _getFlashKnot;
     /**
      * @param {!Knot} flashKnot
      * @param {?Function=} opt_closeCallback
@@ -44,7 +44,7 @@ export declare class Flash {
      * @param {string=} opt_id
      * @return {!Knot}
      */
-    _add(type: string, message: string, opt_duration?: number | undefined, opt_closeCallback?: (Function | null) | undefined, opt_id?: string | undefined): Knot;
+    private _add;
     /**
      * @param {string=} opt_id
      */

@@ -64,7 +64,7 @@ export declare class Knot<T extends HTMLElement = HTMLElement> {
      * @param {!Function} callback
      * @return {undefined}
      */
-    _handleClassList(cssClasses: Array<string> | string, callback: Function): void;
+    private _handleClassList;
     /**
      * @param {!Array|string} cssClasses
      * @return {undefined}
@@ -117,7 +117,7 @@ export declare class Knot<T extends HTMLElement = HTMLElement> {
      * @param {!Function} listener
      * @return {undefined}
      */
-    _addListenerToStore(eventName: string, listener: Function): void;
+    private _addListenerToStore;
     /**
      * @private
      * @param {string} eventName

@@ -23,7 +23,7 @@ export declare class LeftMenu {
     /**
      * @private
      */
-    _initEvents(): void;
+    private _initEvents;
     /**
      * @param {string=} opt_title
      * @return {undefined}

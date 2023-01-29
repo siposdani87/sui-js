@@ -7,8 +7,7 @@ export class Objekt {
     /**
      * @param {!Object=} opt_object
      */
-    constructor(opt_object) {
-        opt_object = opt_object || {};
+    constructor(opt_object = {}) {
         Object.call(this, opt_object);
         this.merge(opt_object);
     }
