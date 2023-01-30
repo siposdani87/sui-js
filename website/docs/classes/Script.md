@@ -21,7 +21,7 @@ custom_edit_url: null
 
 #### Defined in
 
-[module/script.ts:20](https://github.com/siposdani87/sui-js/blob/b0b5d62/src/module/script.ts#L20)
+[module/script.ts:20](https://github.com/siposdani87/sui-js/blob/1a445e5/src/module/script.ts#L20)
 
 ## Properties
 
@@ -31,7 +31,7 @@ custom_edit_url: null
 
 #### Defined in
 
-[module/script.ts:15](https://github.com/siposdani87/sui-js/blob/b0b5d62/src/module/script.ts#L15)
+[module/script.ts:15](https://github.com/siposdani87/sui-js/blob/1a445e5/src/module/script.ts#L15)
 
 ___
 
@@ -41,7 +41,7 @@ ___
 
 #### Defined in
 
-[module/script.ts:14](https://github.com/siposdani87/sui-js/blob/b0b5d62/src/module/script.ts#L14)
+[module/script.ts:14](https://github.com/siposdani87/sui-js/blob/1a445e5/src/module/script.ts#L14)
 
 ___
 
@@ -51,7 +51,7 @@ ___
 
 #### Defined in
 
-[module/script.ts:13](https://github.com/siposdani87/sui-js/blob/b0b5d62/src/module/script.ts#L13)
+[module/script.ts:13](https://github.com/siposdani87/sui-js/blob/1a445e5/src/module/script.ts#L13)
 
 ## Methods
 
@@ -65,7 +65,7 @@ ___
 
 #### Defined in
 
-[module/script.ts:42](https://github.com/siposdani87/sui-js/blob/b0b5d62/src/module/script.ts#L42)
+[module/script.ts:41](https://github.com/siposdani87/sui-js/blob/1a445e5/src/module/script.ts#L41)
 
 ___
 
@@ -85,7 +85,7 @@ ___
 
 #### Defined in
 
-[module/script.ts:33](https://github.com/siposdani87/sui-js/blob/b0b5d62/src/module/script.ts#L33)
+[module/script.ts:33](https://github.com/siposdani87/sui-js/blob/1a445e5/src/module/script.ts#L33)
 
 ___
 
@@ -109,7 +109,7 @@ ___
 
 #### Defined in
 
-[module/script.ts:53](https://github.com/siposdani87/sui-js/blob/b0b5d62/src/module/script.ts#L53)
+[module/script.ts:52](https://github.com/siposdani87/sui-js/blob/1a445e5/src/module/script.ts#L52)
 
 ___
 
@@ -129,4 +129,4 @@ ___
 
 #### Defined in
 
-[module/script.ts:96](https://github.com/siposdani87/sui-js/blob/b0b5d62/src/module/script.ts#L96)
+[module/script.ts:95](https://github.com/siposdani87/sui-js/blob/1a445e5/src/module/script.ts#L95)

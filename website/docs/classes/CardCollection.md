@@ -23,7 +23,7 @@ custom_edit_url: null
 
 #### Defined in
 
-[component/cardCollection.ts:33](https://github.com/siposdani87/sui-js/blob/b0b5d62/src/component/cardCollection.ts#L33)
+[component/cardCollection.ts:33](https://github.com/siposdani87/sui-js/blob/1a445e5/src/component/cardCollection.ts#L33)
 
 ## Properties
 
@@ -33,7 +33,7 @@ custom_edit_url: null
 
 #### Defined in
 
-[component/cardCollection.ts:22](https://github.com/siposdani87/sui-js/blob/b0b5d62/src/component/cardCollection.ts#L22)
+[component/cardCollection.ts:22](https://github.com/siposdani87/sui-js/blob/1a445e5/src/component/cardCollection.ts#L22)
 
 ___
 
@@ -43,7 +43,7 @@ ___
 
 #### Defined in
 
-[component/cardCollection.ts:15](https://github.com/siposdani87/sui-js/blob/b0b5d62/src/component/cardCollection.ts#L15)
+[component/cardCollection.ts:15](https://github.com/siposdani87/sui-js/blob/1a445e5/src/component/cardCollection.ts#L15)
 
 ___
 
@@ -53,7 +53,7 @@ ___
 
 #### Defined in
 
-[component/cardCollection.ts:23](https://github.com/siposdani87/sui-js/blob/b0b5d62/src/component/cardCollection.ts#L23)
+[component/cardCollection.ts:23](https://github.com/siposdani87/sui-js/blob/1a445e5/src/component/cardCollection.ts#L23)
 
 ___
 
@@ -63,7 +63,7 @@ ___
 
 #### Defined in
 
-[component/cardCollection.ts:25](https://github.com/siposdani87/sui-js/blob/b0b5d62/src/component/cardCollection.ts#L25)
+[component/cardCollection.ts:25](https://github.com/siposdani87/sui-js/blob/1a445e5/src/component/cardCollection.ts#L25)
 
 ___
 
@@ -73,7 +73,7 @@ ___
 
 #### Defined in
 
-[component/cardCollection.ts:18](https://github.com/siposdani87/sui-js/blob/b0b5d62/src/component/cardCollection.ts#L18)
+[component/cardCollection.ts:18](https://github.com/siposdani87/sui-js/blob/1a445e5/src/component/cardCollection.ts#L18)
 
 ___
 
@@ -83,7 +83,7 @@ ___
 
 #### Defined in
 
-[component/cardCollection.ts:21](https://github.com/siposdani87/sui-js/blob/b0b5d62/src/component/cardCollection.ts#L21)
+[component/cardCollection.ts:21](https://github.com/siposdani87/sui-js/blob/1a445e5/src/component/cardCollection.ts#L21)
 
 ___
 
@@ -93,7 +93,7 @@ ___
 
 #### Defined in
 
-[component/cardCollection.ts:16](https://github.com/siposdani87/sui-js/blob/b0b5d62/src/component/cardCollection.ts#L16)
+[component/cardCollection.ts:16](https://github.com/siposdani87/sui-js/blob/1a445e5/src/component/cardCollection.ts#L16)
 
 ___
 
@@ -103,7 +103,7 @@ ___
 
 #### Defined in
 
-[component/cardCollection.ts:17](https://github.com/siposdani87/sui-js/blob/b0b5d62/src/component/cardCollection.ts#L17)
+[component/cardCollection.ts:17](https://github.com/siposdani87/sui-js/blob/1a445e5/src/component/cardCollection.ts#L17)
 
 ___
 
@@ -113,7 +113,7 @@ ___
 
 #### Defined in
 
-[component/cardCollection.ts:20](https://github.com/siposdani87/sui-js/blob/b0b5d62/src/component/cardCollection.ts#L20)
+[component/cardCollection.ts:20](https://github.com/siposdani87/sui-js/blob/1a445e5/src/component/cardCollection.ts#L20)
 
 ___
 
@@ -123,7 +123,7 @@ ___
 
 #### Defined in
 
-[component/cardCollection.ts:24](https://github.com/siposdani87/sui-js/blob/b0b5d62/src/component/cardCollection.ts#L24)
+[component/cardCollection.ts:24](https://github.com/siposdani87/sui-js/blob/1a445e5/src/component/cardCollection.ts#L24)
 
 ___
 
@@ -133,7 +133,7 @@ ___
 
 #### Defined in
 
-[component/cardCollection.ts:19](https://github.com/siposdani87/sui-js/blob/b0b5d62/src/component/cardCollection.ts#L19)
+[component/cardCollection.ts:19](https://github.com/siposdani87/sui-js/blob/1a445e5/src/component/cardCollection.ts#L19)
 
 ___
 
@@ -143,7 +143,7 @@ ___
 
 #### Defined in
 
-[component/cardCollection.ts:26](https://github.com/siposdani87/sui-js/blob/b0b5d62/src/component/cardCollection.ts#L26)
+[component/cardCollection.ts:26](https://github.com/siposdani87/sui-js/blob/1a445e5/src/component/cardCollection.ts#L26)
 
 ## Methods
 
@@ -163,7 +163,7 @@ ___
 
 #### Defined in
 
-[component/cardCollection.ts:208](https://github.com/siposdani87/sui-js/blob/b0b5d62/src/component/cardCollection.ts#L208)
+[component/cardCollection.ts:207](https://github.com/siposdani87/sui-js/blob/1a445e5/src/component/cardCollection.ts#L207)
 
 ___
 
@@ -177,7 +177,7 @@ ___
 
 #### Defined in
 
-[component/cardCollection.ts:253](https://github.com/siposdani87/sui-js/blob/b0b5d62/src/component/cardCollection.ts#L253)
+[component/cardCollection.ts:252](https://github.com/siposdani87/sui-js/blob/1a445e5/src/component/cardCollection.ts#L252)
 
 ___
 
@@ -197,7 +197,7 @@ ___
 
 #### Defined in
 
-[component/cardCollection.ts:134](https://github.com/siposdani87/sui-js/blob/b0b5d62/src/component/cardCollection.ts#L134)
+[component/cardCollection.ts:133](https://github.com/siposdani87/sui-js/blob/1a445e5/src/component/cardCollection.ts#L133)
 
 ___
 
@@ -211,7 +211,7 @@ ___
 
 #### Defined in
 
-[component/cardCollection.ts:239](https://github.com/siposdani87/sui-js/blob/b0b5d62/src/component/cardCollection.ts#L239)
+[component/cardCollection.ts:238](https://github.com/siposdani87/sui-js/blob/1a445e5/src/component/cardCollection.ts#L238)
 
 ___
 
@@ -225,7 +225,7 @@ ___
 
 #### Defined in
 
-[component/cardCollection.ts:69](https://github.com/siposdani87/sui-js/blob/b0b5d62/src/component/cardCollection.ts#L69)
+[component/cardCollection.ts:68](https://github.com/siposdani87/sui-js/blob/1a445e5/src/component/cardCollection.ts#L68)
 
 ___
 
@@ -239,7 +239,7 @@ ___
 
 #### Defined in
 
-[component/cardCollection.ts:88](https://github.com/siposdani87/sui-js/blob/b0b5d62/src/component/cardCollection.ts#L88)
+[component/cardCollection.ts:87](https://github.com/siposdani87/sui-js/blob/1a445e5/src/component/cardCollection.ts#L87)
 
 ___
 
@@ -253,7 +253,7 @@ ___
 
 #### Defined in
 
-[component/cardCollection.ts:98](https://github.com/siposdani87/sui-js/blob/b0b5d62/src/component/cardCollection.ts#L98)
+[component/cardCollection.ts:97](https://github.com/siposdani87/sui-js/blob/1a445e5/src/component/cardCollection.ts#L97)
 
 ___
 
@@ -267,7 +267,7 @@ ___
 
 #### Defined in
 
-[component/cardCollection.ts:121](https://github.com/siposdani87/sui-js/blob/b0b5d62/src/component/cardCollection.ts#L121)
+[component/cardCollection.ts:120](https://github.com/siposdani87/sui-js/blob/1a445e5/src/component/cardCollection.ts#L120)
 
 ___
 
@@ -287,7 +287,7 @@ ___
 
 #### Defined in
 
-[component/cardCollection.ts:49](https://github.com/siposdani87/sui-js/blob/b0b5d62/src/component/cardCollection.ts#L49)
+[component/cardCollection.ts:49](https://github.com/siposdani87/sui-js/blob/1a445e5/src/component/cardCollection.ts#L49)
 
 ___
 
@@ -307,7 +307,7 @@ ___
 
 #### Defined in
 
-[component/cardCollection.ts:192](https://github.com/siposdani87/sui-js/blob/b0b5d62/src/component/cardCollection.ts#L192)
+[component/cardCollection.ts:191](https://github.com/siposdani87/sui-js/blob/1a445e5/src/component/cardCollection.ts#L191)
 
 ___
 
@@ -328,7 +328,7 @@ ___
 
 #### Defined in
 
-[component/cardCollection.ts:200](https://github.com/siposdani87/sui-js/blob/b0b5d62/src/component/cardCollection.ts#L200)
+[component/cardCollection.ts:199](https://github.com/siposdani87/sui-js/blob/1a445e5/src/component/cardCollection.ts#L199)
 
 ___
 
@@ -348,7 +348,7 @@ ___
 
 #### Defined in
 
-[component/cardCollection.ts:175](https://github.com/siposdani87/sui-js/blob/b0b5d62/src/component/cardCollection.ts#L175)
+[component/cardCollection.ts:174](https://github.com/siposdani87/sui-js/blob/1a445e5/src/component/cardCollection.ts#L174)
 
 ___
 
@@ -362,7 +362,7 @@ ___
 
 #### Defined in
 
-[component/cardCollection.ts:263](https://github.com/siposdani87/sui-js/blob/b0b5d62/src/component/cardCollection.ts#L263)
+[component/cardCollection.ts:262](https://github.com/siposdani87/sui-js/blob/1a445e5/src/component/cardCollection.ts#L262)
 
 ___
 
@@ -382,7 +382,7 @@ ___
 
 #### Defined in
 
-[component/cardCollection.ts:231](https://github.com/siposdani87/sui-js/blob/b0b5d62/src/component/cardCollection.ts#L231)
+[component/cardCollection.ts:230](https://github.com/siposdani87/sui-js/blob/1a445e5/src/component/cardCollection.ts#L230)
 
 ___
 
@@ -402,4 +402,4 @@ ___
 
 #### Defined in
 
-[component/cardCollection.ts:218](https://github.com/siposdani87/sui-js/blob/b0b5d62/src/component/cardCollection.ts#L218)
+[component/cardCollection.ts:217](https://github.com/siposdani87/sui-js/blob/1a445e5/src/component/cardCollection.ts#L217)
