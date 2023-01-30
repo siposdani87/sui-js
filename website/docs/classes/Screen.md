@@ -20,7 +20,7 @@ custom_edit_url: null
 
 #### Defined in
 
-[module/screen.ts:16](https://github.com/siposdani87/sui-js/blob/b0b5d62/src/module/screen.ts#L16)
+[module/screen.ts:16](https://github.com/siposdani87/sui-js/blob/1a445e5/src/module/screen.ts#L16)
 
 ## Properties
 
@@ -30,7 +30,7 @@ custom_edit_url: null
 
 #### Defined in
 
-[module/screen.ts:11](https://github.com/siposdani87/sui-js/blob/b0b5d62/src/module/screen.ts#L11)
+[module/screen.ts:11](https://github.com/siposdani87/sui-js/blob/1a445e5/src/module/screen.ts#L11)
 
 ___
 
@@ -40,7 +40,7 @@ ___
 
 #### Defined in
 
-[module/screen.ts:9](https://github.com/siposdani87/sui-js/blob/b0b5d62/src/module/screen.ts#L9)
+[module/screen.ts:9](https://github.com/siposdani87/sui-js/blob/1a445e5/src/module/screen.ts#L9)
 
 ___
 
@@ -50,7 +50,7 @@ ___
 
 #### Defined in
 
-[module/screen.ts:12](https://github.com/siposdani87/sui-js/blob/b0b5d62/src/module/screen.ts#L12)
+[module/screen.ts:12](https://github.com/siposdani87/sui-js/blob/1a445e5/src/module/screen.ts#L12)
 
 ___
 
@@ -60,7 +60,7 @@ ___
 
 #### Defined in
 
-[module/screen.ts:10](https://github.com/siposdani87/sui-js/blob/b0b5d62/src/module/screen.ts#L10)
+[module/screen.ts:10](https://github.com/siposdani87/sui-js/blob/1a445e5/src/module/screen.ts#L10)
 
 ## Methods
 
@@ -74,7 +74,7 @@ ___
 
 #### Defined in
 
-[module/screen.ts:36](https://github.com/siposdani87/sui-js/blob/b0b5d62/src/module/screen.ts#L36)
+[module/screen.ts:35](https://github.com/siposdani87/sui-js/blob/1a445e5/src/module/screen.ts#L35)
 
 ___
 
@@ -88,7 +88,7 @@ ___
 
 #### Defined in
 
-[module/screen.ts:206](https://github.com/siposdani87/sui-js/blob/b0b5d62/src/module/screen.ts#L206)
+[module/screen.ts:205](https://github.com/siposdani87/sui-js/blob/1a445e5/src/module/screen.ts#L205)
 
 ___
 
@@ -102,7 +102,7 @@ ___
 
 #### Defined in
 
-[module/screen.ts:77](https://github.com/siposdani87/sui-js/blob/b0b5d62/src/module/screen.ts#L77)
+[module/screen.ts:76](https://github.com/siposdani87/sui-js/blob/1a445e5/src/module/screen.ts#L76)
 
 ___
 
@@ -116,7 +116,7 @@ ___
 
 #### Defined in
 
-[module/screen.ts:51](https://github.com/siposdani87/sui-js/blob/b0b5d62/src/module/screen.ts#L51)
+[module/screen.ts:50](https://github.com/siposdani87/sui-js/blob/1a445e5/src/module/screen.ts#L50)
 
 ___
 
@@ -130,7 +130,7 @@ ___
 
 #### Defined in
 
-[module/screen.ts:64](https://github.com/siposdani87/sui-js/blob/b0b5d62/src/module/screen.ts#L64)
+[module/screen.ts:63](https://github.com/siposdani87/sui-js/blob/1a445e5/src/module/screen.ts#L63)
 
 ___
 
@@ -150,7 +150,7 @@ ___
 
 #### Defined in
 
-[module/screen.ts:151](https://github.com/siposdani87/sui-js/blob/b0b5d62/src/module/screen.ts#L151)
+[module/screen.ts:150](https://github.com/siposdani87/sui-js/blob/1a445e5/src/module/screen.ts#L150)
 
 ___
 
@@ -170,7 +170,7 @@ ___
 
 #### Defined in
 
-[module/screen.ts:170](https://github.com/siposdani87/sui-js/blob/b0b5d62/src/module/screen.ts#L170)
+[module/screen.ts:169](https://github.com/siposdani87/sui-js/blob/1a445e5/src/module/screen.ts#L169)
 
 ___
 
@@ -190,7 +190,7 @@ ___
 
 #### Defined in
 
-[module/screen.ts:25](https://github.com/siposdani87/sui-js/blob/b0b5d62/src/module/screen.ts#L25)
+[module/screen.ts:25](https://github.com/siposdani87/sui-js/blob/1a445e5/src/module/screen.ts#L25)
 
 ___
 
@@ -211,7 +211,7 @@ ___
 
 #### Defined in
 
-[module/screen.ts:224](https://github.com/siposdani87/sui-js/blob/b0b5d62/src/module/screen.ts#L224)
+[module/screen.ts:223](https://github.com/siposdani87/sui-js/blob/1a445e5/src/module/screen.ts#L223)
 
 ___
 
@@ -231,7 +231,7 @@ ___
 
 #### Defined in
 
-[module/screen.ts:98](https://github.com/siposdani87/sui-js/blob/b0b5d62/src/module/screen.ts#L98)
+[module/screen.ts:97](https://github.com/siposdani87/sui-js/blob/1a445e5/src/module/screen.ts#L97)
 
 ___
 
@@ -251,7 +251,7 @@ ___
 
 #### Defined in
 
-[module/screen.ts:105](https://github.com/siposdani87/sui-js/blob/b0b5d62/src/module/screen.ts#L105)
+[module/screen.ts:104](https://github.com/siposdani87/sui-js/blob/1a445e5/src/module/screen.ts#L104)
 
 ___
 
@@ -274,7 +274,7 @@ ___
 
 #### Defined in
 
-[module/screen.ts:124](https://github.com/siposdani87/sui-js/blob/b0b5d62/src/module/screen.ts#L124)
+[module/screen.ts:123](https://github.com/siposdani87/sui-js/blob/1a445e5/src/module/screen.ts#L123)
 
 ___
 
@@ -296,7 +296,7 @@ ___
 
 #### Defined in
 
-[module/screen.ts:114](https://github.com/siposdani87/sui-js/blob/b0b5d62/src/module/screen.ts#L114)
+[module/screen.ts:113](https://github.com/siposdani87/sui-js/blob/1a445e5/src/module/screen.ts#L113)
 
 ___
 
@@ -317,7 +317,7 @@ ___
 
 #### Defined in
 
-[module/screen.ts:143](https://github.com/siposdani87/sui-js/blob/b0b5d62/src/module/screen.ts#L143)
+[module/screen.ts:142](https://github.com/siposdani87/sui-js/blob/1a445e5/src/module/screen.ts#L142)
 
 ___
 
@@ -331,7 +331,7 @@ ___
 
 #### Defined in
 
-[module/screen.ts:191](https://github.com/siposdani87/sui-js/blob/b0b5d62/src/module/screen.ts#L191)
+[module/screen.ts:190](https://github.com/siposdani87/sui-js/blob/1a445e5/src/module/screen.ts#L190)
 
 ___
 
@@ -347,7 +347,7 @@ landscape|portrait
 
 #### Defined in
 
-[module/screen.ts:197](https://github.com/siposdani87/sui-js/blob/b0b5d62/src/module/screen.ts#L197)
+[module/screen.ts:196](https://github.com/siposdani87/sui-js/blob/1a445e5/src/module/screen.ts#L196)
 
 ___
 
@@ -361,7 +361,7 @@ ___
 
 #### Defined in
 
-[module/screen.ts:176](https://github.com/siposdani87/sui-js/blob/b0b5d62/src/module/screen.ts#L176)
+[module/screen.ts:175](https://github.com/siposdani87/sui-js/blob/1a445e5/src/module/screen.ts#L175)
 
 ___
 
@@ -375,7 +375,7 @@ ___
 
 #### Defined in
 
-[module/screen.ts:185](https://github.com/siposdani87/sui-js/blob/b0b5d62/src/module/screen.ts#L185)
+[module/screen.ts:184](https://github.com/siposdani87/sui-js/blob/1a445e5/src/module/screen.ts#L184)
 
 ___
 
@@ -395,4 +395,4 @@ ___
 
 #### Defined in
 
-[module/screen.ts:231](https://github.com/siposdani87/sui-js/blob/b0b5d62/src/module/screen.ts#L231)
+[module/screen.ts:230](https://github.com/siposdani87/sui-js/blob/1a445e5/src/module/screen.ts#L230)

@@ -22,7 +22,7 @@ custom_edit_url: null
 
 #### Defined in
 
-[component/googleMap.ts:96](https://github.com/siposdani87/sui-js/blob/b0b5d62/src/component/googleMap.ts#L96)
+[component/googleMap.ts:96](https://github.com/siposdani87/sui-js/blob/1a445e5/src/component/googleMap.ts#L96)
 
 ## Properties
 
@@ -32,7 +32,7 @@ custom_edit_url: null
 
 #### Defined in
 
-[component/googleMap.ts:90](https://github.com/siposdani87/sui-js/blob/b0b5d62/src/component/googleMap.ts#L90)
+[component/googleMap.ts:90](https://github.com/siposdani87/sui-js/blob/1a445e5/src/component/googleMap.ts#L90)
 
 ___
 
@@ -42,7 +42,7 @@ ___
 
 #### Defined in
 
-[component/googleMap.ts:89](https://github.com/siposdani87/sui-js/blob/b0b5d62/src/component/googleMap.ts#L89)
+[component/googleMap.ts:89](https://github.com/siposdani87/sui-js/blob/1a445e5/src/component/googleMap.ts#L89)
 
 ___
 
@@ -52,7 +52,7 @@ ___
 
 #### Defined in
 
-[component/googleMap.ts:80](https://github.com/siposdani87/sui-js/blob/b0b5d62/src/component/googleMap.ts#L80)
+[component/googleMap.ts:80](https://github.com/siposdani87/sui-js/blob/1a445e5/src/component/googleMap.ts#L80)
 
 ___
 
@@ -62,7 +62,7 @@ ___
 
 #### Defined in
 
-[component/googleMap.ts:78](https://github.com/siposdani87/sui-js/blob/b0b5d62/src/component/googleMap.ts#L78)
+[component/googleMap.ts:78](https://github.com/siposdani87/sui-js/blob/1a445e5/src/component/googleMap.ts#L78)
 
 ___
 
@@ -76,7 +76,7 @@ ___
 
 #### Defined in
 
-[component/googleMap.ts:81](https://github.com/siposdani87/sui-js/blob/b0b5d62/src/component/googleMap.ts#L81)
+[component/googleMap.ts:81](https://github.com/siposdani87/sui-js/blob/1a445e5/src/component/googleMap.ts#L81)
 
 ___
 
@@ -86,7 +86,7 @@ ___
 
 #### Defined in
 
-[component/googleMap.ts:88](https://github.com/siposdani87/sui-js/blob/b0b5d62/src/component/googleMap.ts#L88)
+[component/googleMap.ts:88](https://github.com/siposdani87/sui-js/blob/1a445e5/src/component/googleMap.ts#L88)
 
 ___
 
@@ -96,7 +96,7 @@ ___
 
 #### Defined in
 
-[component/googleMap.ts:87](https://github.com/siposdani87/sui-js/blob/b0b5d62/src/component/googleMap.ts#L87)
+[component/googleMap.ts:87](https://github.com/siposdani87/sui-js/blob/1a445e5/src/component/googleMap.ts#L87)
 
 ___
 
@@ -106,7 +106,7 @@ ___
 
 #### Defined in
 
-[component/googleMap.ts:79](https://github.com/siposdani87/sui-js/blob/b0b5d62/src/component/googleMap.ts#L79)
+[component/googleMap.ts:79](https://github.com/siposdani87/sui-js/blob/1a445e5/src/component/googleMap.ts#L79)
 
 ___
 
@@ -116,7 +116,7 @@ ___
 
 #### Defined in
 
-[component/googleMap.ts:84](https://github.com/siposdani87/sui-js/blob/b0b5d62/src/component/googleMap.ts#L84)
+[component/googleMap.ts:84](https://github.com/siposdani87/sui-js/blob/1a445e5/src/component/googleMap.ts#L84)
 
 ___
 
@@ -126,7 +126,7 @@ ___
 
 #### Defined in
 
-[component/googleMap.ts:85](https://github.com/siposdani87/sui-js/blob/b0b5d62/src/component/googleMap.ts#L85)
+[component/googleMap.ts:85](https://github.com/siposdani87/sui-js/blob/1a445e5/src/component/googleMap.ts#L85)
 
 ___
 
@@ -136,7 +136,7 @@ ___
 
 #### Defined in
 
-[component/googleMap.ts:86](https://github.com/siposdani87/sui-js/blob/b0b5d62/src/component/googleMap.ts#L86)
+[component/googleMap.ts:86](https://github.com/siposdani87/sui-js/blob/1a445e5/src/component/googleMap.ts#L86)
 
 ## Methods
 
@@ -157,7 +157,7 @@ ___
 
 #### Defined in
 
-[component/googleMap.ts:577](https://github.com/siposdani87/sui-js/blob/b0b5d62/src/component/googleMap.ts#L577)
+[component/googleMap.ts:575](https://github.com/siposdani87/sui-js/blob/1a445e5/src/component/googleMap.ts#L575)
 
 ___
 
@@ -171,7 +171,7 @@ ___
 
 #### Defined in
 
-[component/googleMap.ts:193](https://github.com/siposdani87/sui-js/blob/b0b5d62/src/component/googleMap.ts#L193)
+[component/googleMap.ts:191](https://github.com/siposdani87/sui-js/blob/1a445e5/src/component/googleMap.ts#L191)
 
 ___
 
@@ -192,7 +192,7 @@ ___
 
 #### Defined in
 
-[component/googleMap.ts:918](https://github.com/siposdani87/sui-js/blob/b0b5d62/src/component/googleMap.ts#L918)
+[component/googleMap.ts:916](https://github.com/siposdani87/sui-js/blob/1a445e5/src/component/googleMap.ts#L916)
 
 ___
 
@@ -213,7 +213,7 @@ ___
 
 #### Defined in
 
-[component/googleMap.ts:379](https://github.com/siposdani87/sui-js/blob/b0b5d62/src/component/googleMap.ts#L379)
+[component/googleMap.ts:377](https://github.com/siposdani87/sui-js/blob/1a445e5/src/component/googleMap.ts#L377)
 
 ___
 
@@ -234,7 +234,7 @@ ___
 
 #### Defined in
 
-[component/googleMap.ts:437](https://github.com/siposdani87/sui-js/blob/b0b5d62/src/component/googleMap.ts#L437)
+[component/googleMap.ts:435](https://github.com/siposdani87/sui-js/blob/1a445e5/src/component/googleMap.ts#L435)
 
 ___
 
@@ -255,7 +255,7 @@ ___
 
 #### Defined in
 
-[component/googleMap.ts:471](https://github.com/siposdani87/sui-js/blob/b0b5d62/src/component/googleMap.ts#L471)
+[component/googleMap.ts:469](https://github.com/siposdani87/sui-js/blob/1a445e5/src/component/googleMap.ts#L469)
 
 ___
 
@@ -275,7 +275,7 @@ ___
 
 #### Defined in
 
-[component/googleMap.ts:1001](https://github.com/siposdani87/sui-js/blob/b0b5d62/src/component/googleMap.ts#L1001)
+[component/googleMap.ts:999](https://github.com/siposdani87/sui-js/blob/1a445e5/src/component/googleMap.ts#L999)
 
 ___
 
@@ -295,7 +295,7 @@ ___
 
 #### Defined in
 
-[component/googleMap.ts:329](https://github.com/siposdani87/sui-js/blob/b0b5d62/src/component/googleMap.ts#L329)
+[component/googleMap.ts:327](https://github.com/siposdani87/sui-js/blob/1a445e5/src/component/googleMap.ts#L327)
 
 ___
 
@@ -315,7 +315,7 @@ ___
 
 #### Defined in
 
-[component/googleMap.ts:592](https://github.com/siposdani87/sui-js/blob/b0b5d62/src/component/googleMap.ts#L592)
+[component/googleMap.ts:590](https://github.com/siposdani87/sui-js/blob/1a445e5/src/component/googleMap.ts#L590)
 
 ___
 
@@ -335,7 +335,7 @@ ___
 
 #### Defined in
 
-[component/googleMap.ts:677](https://github.com/siposdani87/sui-js/blob/b0b5d62/src/component/googleMap.ts#L677)
+[component/googleMap.ts:675](https://github.com/siposdani87/sui-js/blob/1a445e5/src/component/googleMap.ts#L675)
 
 ___
 
@@ -349,7 +349,7 @@ ___
 
 #### Defined in
 
-[component/googleMap.ts:167](https://github.com/siposdani87/sui-js/blob/b0b5d62/src/component/googleMap.ts#L167)
+[component/googleMap.ts:165](https://github.com/siposdani87/sui-js/blob/1a445e5/src/component/googleMap.ts#L165)
 
 ___
 
@@ -363,7 +363,7 @@ ___
 
 #### Defined in
 
-[component/googleMap.ts:180](https://github.com/siposdani87/sui-js/blob/b0b5d62/src/component/googleMap.ts#L180)
+[component/googleMap.ts:178](https://github.com/siposdani87/sui-js/blob/1a445e5/src/component/googleMap.ts#L178)
 
 ___
 
@@ -377,7 +377,7 @@ ___
 
 #### Defined in
 
-[component/googleMap.ts:214](https://github.com/siposdani87/sui-js/blob/b0b5d62/src/component/googleMap.ts#L214)
+[component/googleMap.ts:212](https://github.com/siposdani87/sui-js/blob/1a445e5/src/component/googleMap.ts#L212)
 
 ___
 
@@ -398,7 +398,7 @@ ___
 
 #### Defined in
 
-[component/googleMap.ts:630](https://github.com/siposdani87/sui-js/blob/b0b5d62/src/component/googleMap.ts#L630)
+[component/googleMap.ts:628](https://github.com/siposdani87/sui-js/blob/1a445e5/src/component/googleMap.ts#L628)
 
 ___
 
@@ -419,7 +419,7 @@ ___
 
 #### Defined in
 
-[component/googleMap.ts:617](https://github.com/siposdani87/sui-js/blob/b0b5d62/src/component/googleMap.ts#L617)
+[component/googleMap.ts:615](https://github.com/siposdani87/sui-js/blob/1a445e5/src/component/googleMap.ts#L615)
 
 ___
 
@@ -439,7 +439,7 @@ ___
 
 #### Defined in
 
-[component/googleMap.ts:110](https://github.com/siposdani87/sui-js/blob/b0b5d62/src/component/googleMap.ts#L110)
+[component/googleMap.ts:110](https://github.com/siposdani87/sui-js/blob/1a445e5/src/component/googleMap.ts#L110)
 
 ___
 
@@ -453,7 +453,7 @@ ___
 
 #### Defined in
 
-[component/googleMap.ts:207](https://github.com/siposdani87/sui-js/blob/b0b5d62/src/component/googleMap.ts#L207)
+[component/googleMap.ts:205](https://github.com/siposdani87/sui-js/blob/1a445e5/src/component/googleMap.ts#L205)
 
 ___
 
@@ -473,7 +473,7 @@ ___
 
 #### Defined in
 
-[component/googleMap.ts:958](https://github.com/siposdani87/sui-js/blob/b0b5d62/src/component/googleMap.ts#L958)
+[component/googleMap.ts:956](https://github.com/siposdani87/sui-js/blob/1a445e5/src/component/googleMap.ts#L956)
 
 ___
 
@@ -493,7 +493,7 @@ ___
 
 #### Defined in
 
-[component/googleMap.ts:427](https://github.com/siposdani87/sui-js/blob/b0b5d62/src/component/googleMap.ts#L427)
+[component/googleMap.ts:425](https://github.com/siposdani87/sui-js/blob/1a445e5/src/component/googleMap.ts#L425)
 
 ___
 
@@ -513,7 +513,7 @@ ___
 
 #### Defined in
 
-[component/googleMap.ts:459](https://github.com/siposdani87/sui-js/blob/b0b5d62/src/component/googleMap.ts#L459)
+[component/googleMap.ts:457](https://github.com/siposdani87/sui-js/blob/1a445e5/src/component/googleMap.ts#L457)
 
 ___
 
@@ -535,7 +535,7 @@ ___
 
 #### Defined in
 
-[component/googleMap.ts:707](https://github.com/siposdani87/sui-js/blob/b0b5d62/src/component/googleMap.ts#L707)
+[component/googleMap.ts:705](https://github.com/siposdani87/sui-js/blob/1a445e5/src/component/googleMap.ts#L705)
 
 ___
 
@@ -556,7 +556,7 @@ ___
 
 #### Defined in
 
-[component/googleMap.ts:759](https://github.com/siposdani87/sui-js/blob/b0b5d62/src/component/googleMap.ts#L759)
+[component/googleMap.ts:757](https://github.com/siposdani87/sui-js/blob/1a445e5/src/component/googleMap.ts#L757)
 
 ___
 
@@ -582,7 +582,7 @@ ___
 
 #### Defined in
 
-[component/googleMap.ts:851](https://github.com/siposdani87/sui-js/blob/b0b5d62/src/component/googleMap.ts#L851)
+[component/googleMap.ts:849](https://github.com/siposdani87/sui-js/blob/1a445e5/src/component/googleMap.ts#L849)
 
 ___
 
@@ -607,7 +607,7 @@ ___
 
 #### Defined in
 
-[component/googleMap.ts:892](https://github.com/siposdani87/sui-js/blob/b0b5d62/src/component/googleMap.ts#L892)
+[component/googleMap.ts:890](https://github.com/siposdani87/sui-js/blob/1a445e5/src/component/googleMap.ts#L890)
 
 ___
 
@@ -633,7 +633,7 @@ ___
 
 #### Defined in
 
-[component/googleMap.ts:809](https://github.com/siposdani87/sui-js/blob/b0b5d62/src/component/googleMap.ts#L809)
+[component/googleMap.ts:807](https://github.com/siposdani87/sui-js/blob/1a445e5/src/component/googleMap.ts#L807)
 
 ___
 
@@ -657,7 +657,7 @@ ___
 
 #### Defined in
 
-[component/googleMap.ts:240](https://github.com/siposdani87/sui-js/blob/b0b5d62/src/component/googleMap.ts#L240)
+[component/googleMap.ts:238](https://github.com/siposdani87/sui-js/blob/1a445e5/src/component/googleMap.ts#L238)
 
 ___
 
@@ -681,7 +681,7 @@ ___
 
 #### Defined in
 
-[component/googleMap.ts:262](https://github.com/siposdani87/sui-js/blob/b0b5d62/src/component/googleMap.ts#L262)
+[component/googleMap.ts:260](https://github.com/siposdani87/sui-js/blob/1a445e5/src/component/googleMap.ts#L260)
 
 ___
 
@@ -703,7 +703,7 @@ ___
 
 #### Defined in
 
-[component/googleMap.ts:560](https://github.com/siposdani87/sui-js/blob/b0b5d62/src/component/googleMap.ts#L560)
+[component/googleMap.ts:558](https://github.com/siposdani87/sui-js/blob/1a445e5/src/component/googleMap.ts#L558)
 
 ___
 
@@ -724,7 +724,7 @@ ___
 
 #### Defined in
 
-[component/googleMap.ts:568](https://github.com/siposdani87/sui-js/blob/b0b5d62/src/component/googleMap.ts#L568)
+[component/googleMap.ts:566](https://github.com/siposdani87/sui-js/blob/1a445e5/src/component/googleMap.ts#L566)
 
 ___
 
@@ -747,7 +747,7 @@ ___
 
 #### Defined in
 
-[component/googleMap.ts:1103](https://github.com/siposdani87/sui-js/blob/b0b5d62/src/component/googleMap.ts#L1103)
+[component/googleMap.ts:1101](https://github.com/siposdani87/sui-js/blob/1a445e5/src/component/googleMap.ts#L1101)
 
 ___
 
@@ -768,7 +768,7 @@ ___
 
 #### Defined in
 
-[component/googleMap.ts:1077](https://github.com/siposdani87/sui-js/blob/b0b5d62/src/component/googleMap.ts#L1077)
+[component/googleMap.ts:1075](https://github.com/siposdani87/sui-js/blob/1a445e5/src/component/googleMap.ts#L1075)
 
 ___
 
@@ -789,7 +789,7 @@ ___
 
 #### Defined in
 
-[component/googleMap.ts:1085](https://github.com/siposdani87/sui-js/blob/b0b5d62/src/component/googleMap.ts#L1085)
+[component/googleMap.ts:1083](https://github.com/siposdani87/sui-js/blob/1a445e5/src/component/googleMap.ts#L1083)
 
 ___
 
@@ -810,7 +810,7 @@ ___
 
 #### Defined in
 
-[component/googleMap.ts:1093](https://github.com/siposdani87/sui-js/blob/b0b5d62/src/component/googleMap.ts#L1093)
+[component/googleMap.ts:1091](https://github.com/siposdani87/sui-js/blob/1a445e5/src/component/googleMap.ts#L1091)
 
 ___
 
@@ -831,7 +831,7 @@ ___
 
 #### Defined in
 
-[component/googleMap.ts:226](https://github.com/siposdani87/sui-js/blob/b0b5d62/src/component/googleMap.ts#L226)
+[component/googleMap.ts:224](https://github.com/siposdani87/sui-js/blob/1a445e5/src/component/googleMap.ts#L224)
 
 ___
 
@@ -854,7 +854,7 @@ ___
 
 #### Defined in
 
-[component/googleMap.ts:498](https://github.com/siposdani87/sui-js/blob/b0b5d62/src/component/googleMap.ts#L498)
+[component/googleMap.ts:496](https://github.com/siposdani87/sui-js/blob/1a445e5/src/component/googleMap.ts#L496)
 
 ___
 
@@ -877,7 +877,7 @@ ___
 
 #### Defined in
 
-[component/googleMap.ts:519](https://github.com/siposdani87/sui-js/blob/b0b5d62/src/component/googleMap.ts#L519)
+[component/googleMap.ts:517](https://github.com/siposdani87/sui-js/blob/1a445e5/src/component/googleMap.ts#L517)
 
 ___
 
@@ -900,7 +900,7 @@ ___
 
 #### Defined in
 
-[component/googleMap.ts:540](https://github.com/siposdani87/sui-js/blob/b0b5d62/src/component/googleMap.ts#L540)
+[component/googleMap.ts:538](https://github.com/siposdani87/sui-js/blob/1a445e5/src/component/googleMap.ts#L538)
 
 ___
 
@@ -920,7 +920,7 @@ ___
 
 #### Defined in
 
-[component/googleMap.ts:1049](https://github.com/siposdani87/sui-js/blob/b0b5d62/src/component/googleMap.ts#L1049)
+[component/googleMap.ts:1047](https://github.com/siposdani87/sui-js/blob/1a445e5/src/component/googleMap.ts#L1047)
 
 ___
 
@@ -940,7 +940,7 @@ ___
 
 #### Defined in
 
-[component/googleMap.ts:661](https://github.com/siposdani87/sui-js/blob/b0b5d62/src/component/googleMap.ts#L661)
+[component/googleMap.ts:659](https://github.com/siposdani87/sui-js/blob/1a445e5/src/component/googleMap.ts#L659)
 
 ___
 
@@ -959,7 +959,7 @@ ___
 
 #### Defined in
 
-[component/googleMap.ts:1206](https://github.com/siposdani87/sui-js/blob/b0b5d62/src/component/googleMap.ts#L1206)
+[component/googleMap.ts:1204](https://github.com/siposdani87/sui-js/blob/1a445e5/src/component/googleMap.ts#L1204)
 
 ___
 
@@ -984,7 +984,7 @@ ___
 
 #### Defined in
 
-[component/googleMap.ts:646](https://github.com/siposdani87/sui-js/blob/b0b5d62/src/component/googleMap.ts#L646)
+[component/googleMap.ts:644](https://github.com/siposdani87/sui-js/blob/1a445e5/src/component/googleMap.ts#L644)
 
 ___
 
@@ -1004,7 +1004,7 @@ ___
 
 #### Defined in
 
-[component/googleMap.ts:696](https://github.com/siposdani87/sui-js/blob/b0b5d62/src/component/googleMap.ts#L696)
+[component/googleMap.ts:694](https://github.com/siposdani87/sui-js/blob/1a445e5/src/component/googleMap.ts#L694)
 
 ___
 
@@ -1024,7 +1024,7 @@ ___
 
 #### Defined in
 
-[component/googleMap.ts:1223](https://github.com/siposdani87/sui-js/blob/b0b5d62/src/component/googleMap.ts#L1223)
+[component/googleMap.ts:1221](https://github.com/siposdani87/sui-js/blob/1a445e5/src/component/googleMap.ts#L1221)
 
 ___
 
@@ -1038,7 +1038,7 @@ ___
 
 #### Defined in
 
-[component/googleMap.ts:137](https://github.com/siposdani87/sui-js/blob/b0b5d62/src/component/googleMap.ts#L137)
+[component/googleMap.ts:135](https://github.com/siposdani87/sui-js/blob/1a445e5/src/component/googleMap.ts#L135)
 
 ___
 
@@ -1058,7 +1058,7 @@ ___
 
 #### Defined in
 
-[component/googleMap.ts:1014](https://github.com/siposdani87/sui-js/blob/b0b5d62/src/component/googleMap.ts#L1014)
+[component/googleMap.ts:1012](https://github.com/siposdani87/sui-js/blob/1a445e5/src/component/googleMap.ts#L1012)
 
 ___
 
@@ -1078,7 +1078,7 @@ ___
 
 #### Defined in
 
-[component/googleMap.ts:342](https://github.com/siposdani87/sui-js/blob/b0b5d62/src/component/googleMap.ts#L342)
+[component/googleMap.ts:340](https://github.com/siposdani87/sui-js/blob/1a445e5/src/component/googleMap.ts#L340)
 
 ___
 
@@ -1099,7 +1099,7 @@ ___
 
 #### Defined in
 
-[component/googleMap.ts:1064](https://github.com/siposdani87/sui-js/blob/b0b5d62/src/component/googleMap.ts#L1064)
+[component/googleMap.ts:1062](https://github.com/siposdani87/sui-js/blob/1a445e5/src/component/googleMap.ts#L1062)
 
 ___
 
@@ -1113,7 +1113,7 @@ ___
 
 #### Defined in
 
-[component/googleMap.ts:1035](https://github.com/siposdani87/sui-js/blob/b0b5d62/src/component/googleMap.ts#L1035)
+[component/googleMap.ts:1033](https://github.com/siposdani87/sui-js/blob/1a445e5/src/component/googleMap.ts#L1033)
 
 ___
 
@@ -1127,7 +1127,7 @@ ___
 
 #### Defined in
 
-[component/googleMap.ts:363](https://github.com/siposdani87/sui-js/blob/b0b5d62/src/component/googleMap.ts#L363)
+[component/googleMap.ts:361](https://github.com/siposdani87/sui-js/blob/1a445e5/src/component/googleMap.ts#L361)
 
 ___
 
@@ -1141,7 +1141,7 @@ ___
 
 #### Defined in
 
-[component/googleMap.ts:776](https://github.com/siposdani87/sui-js/blob/b0b5d62/src/component/googleMap.ts#L776)
+[component/googleMap.ts:774](https://github.com/siposdani87/sui-js/blob/1a445e5/src/component/googleMap.ts#L774)
 
 ___
 
@@ -1161,7 +1161,7 @@ ___
 
 #### Defined in
 
-[component/googleMap.ts:1021](https://github.com/siposdani87/sui-js/blob/b0b5d62/src/component/googleMap.ts#L1021)
+[component/googleMap.ts:1019](https://github.com/siposdani87/sui-js/blob/1a445e5/src/component/googleMap.ts#L1019)
 
 ___
 
@@ -1181,7 +1181,7 @@ ___
 
 #### Defined in
 
-[component/googleMap.ts:349](https://github.com/siposdani87/sui-js/blob/b0b5d62/src/component/googleMap.ts#L349)
+[component/googleMap.ts:347](https://github.com/siposdani87/sui-js/blob/1a445e5/src/component/googleMap.ts#L347)
 
 ___
 
@@ -1201,7 +1201,7 @@ ___
 
 #### Defined in
 
-[component/googleMap.ts:1154](https://github.com/siposdani87/sui-js/blob/b0b5d62/src/component/googleMap.ts#L1154)
+[component/googleMap.ts:1152](https://github.com/siposdani87/sui-js/blob/1a445e5/src/component/googleMap.ts#L1152)
 
 ___
 
@@ -1223,7 +1223,7 @@ ___
 
 #### Defined in
 
-[component/googleMap.ts:1189](https://github.com/siposdani87/sui-js/blob/b0b5d62/src/component/googleMap.ts#L1189)
+[component/googleMap.ts:1187](https://github.com/siposdani87/sui-js/blob/1a445e5/src/component/googleMap.ts#L1187)
 
 ___
 
@@ -1245,7 +1245,7 @@ ___
 
 #### Defined in
 
-[component/googleMap.ts:153](https://github.com/siposdani87/sui-js/blob/b0b5d62/src/component/googleMap.ts#L153)
+[component/googleMap.ts:151](https://github.com/siposdani87/sui-js/blob/1a445e5/src/component/googleMap.ts#L151)
 
 ___
 
@@ -1265,7 +1265,7 @@ ___
 
 #### Defined in
 
-[component/googleMap.ts:732](https://github.com/siposdani87/sui-js/blob/b0b5d62/src/component/googleMap.ts#L732)
+[component/googleMap.ts:730](https://github.com/siposdani87/sui-js/blob/1a445e5/src/component/googleMap.ts#L730)
 
 ___
 
@@ -1285,7 +1285,7 @@ ___
 
 #### Defined in
 
-[component/googleMap.ts:144](https://github.com/siposdani87/sui-js/blob/b0b5d62/src/component/googleMap.ts#L144)
+[component/googleMap.ts:142](https://github.com/siposdani87/sui-js/blob/1a445e5/src/component/googleMap.ts#L142)
 
 ___
 
@@ -1306,7 +1306,7 @@ ___
 
 #### Defined in
 
-[component/googleMap.ts:1122](https://github.com/siposdani87/sui-js/blob/b0b5d62/src/component/googleMap.ts#L1122)
+[component/googleMap.ts:1120](https://github.com/siposdani87/sui-js/blob/1a445e5/src/component/googleMap.ts#L1120)
 
 ___
 
@@ -1326,7 +1326,7 @@ ___
 
 #### Defined in
 
-[component/googleMap.ts:720](https://github.com/siposdani87/sui-js/blob/b0b5d62/src/component/googleMap.ts#L720)
+[component/googleMap.ts:718](https://github.com/siposdani87/sui-js/blob/1a445e5/src/component/googleMap.ts#L718)
 
 ___
 
@@ -1346,7 +1346,7 @@ ___
 
 #### Defined in
 
-[component/googleMap.ts:785](https://github.com/siposdani87/sui-js/blob/b0b5d62/src/component/googleMap.ts#L785)
+[component/googleMap.ts:783](https://github.com/siposdani87/sui-js/blob/1a445e5/src/component/googleMap.ts#L783)
 
 ___
 
@@ -1360,7 +1360,7 @@ ___
 
 #### Defined in
 
-[component/googleMap.ts:1216](https://github.com/siposdani87/sui-js/blob/b0b5d62/src/component/googleMap.ts#L1216)
+[component/googleMap.ts:1214](https://github.com/siposdani87/sui-js/blob/1a445e5/src/component/googleMap.ts#L1214)
 
 ___
 
@@ -1386,7 +1386,7 @@ ___
 
 #### Defined in
 
-[component/googleMap.ts:971](https://github.com/siposdani87/sui-js/blob/b0b5d62/src/component/googleMap.ts#L971)
+[component/googleMap.ts:969](https://github.com/siposdani87/sui-js/blob/1a445e5/src/component/googleMap.ts#L969)
 
 ___
 
@@ -1410,4 +1410,4 @@ ___
 
 #### Defined in
 
-[component/googleMap.ts:301](https://github.com/siposdani87/sui-js/blob/b0b5d62/src/component/googleMap.ts#L301)
+[component/googleMap.ts:299](https://github.com/siposdani87/sui-js/blob/1a445e5/src/component/googleMap.ts#L299)

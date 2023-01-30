@@ -26,17 +26,17 @@ custom_edit_url: null
 
 | Name | Type |
 | :------ | :------ |
-| `opt_object?` | `Object` |
+| `opt_object` | `Object` |
 
 #### Defined in
 
-[core/objekt.ts:25](https://github.com/siposdani87/sui-js/blob/b0b5d62/src/core/objekt.ts#L25)
+[core/objekt.ts:25](https://github.com/siposdani87/sui-js/blob/1a445e5/src/core/objekt.ts#L25)
 
 ## Methods
 
 ### \_attributesToObject
 
-▸ **_attributesToObject**(`object`, `attributes`, `value`): `Object`
+▸ `Private` **_attributesToObject**(`object`, `attributes`, `value`): `Object`
 
 #### Parameters
 
@@ -52,7 +52,7 @@ custom_edit_url: null
 
 #### Defined in
 
-[core/objekt.ts:236](https://github.com/siposdani87/sui-js/blob/b0b5d62/src/core/objekt.ts#L236)
+[core/objekt.ts:236](https://github.com/siposdani87/sui-js/blob/1a445e5/src/core/objekt.ts#L236)
 
 ___
 
@@ -73,7 +73,7 @@ ___
 
 #### Defined in
 
-[core/objekt.ts:62](https://github.com/siposdani87/sui-js/blob/b0b5d62/src/core/objekt.ts#L62)
+[core/objekt.ts:61](https://github.com/siposdani87/sui-js/blob/1a445e5/src/core/objekt.ts#L61)
 
 ___
 
@@ -94,7 +94,7 @@ ___
 
 #### Defined in
 
-[core/objekt.ts:94](https://github.com/siposdani87/sui-js/blob/b0b5d62/src/core/objekt.ts#L94)
+[core/objekt.ts:93](https://github.com/siposdani87/sui-js/blob/1a445e5/src/core/objekt.ts#L93)
 
 ___
 
@@ -115,7 +115,7 @@ ___
 
 #### Defined in
 
-[core/objekt.ts:187](https://github.com/siposdani87/sui-js/blob/b0b5d62/src/core/objekt.ts#L187)
+[core/objekt.ts:186](https://github.com/siposdani87/sui-js/blob/1a445e5/src/core/objekt.ts#L186)
 
 ___
 
@@ -137,7 +137,7 @@ ___
 
 #### Defined in
 
-[core/objekt.ts:125](https://github.com/siposdani87/sui-js/blob/b0b5d62/src/core/objekt.ts#L125)
+[core/objekt.ts:124](https://github.com/siposdani87/sui-js/blob/1a445e5/src/core/objekt.ts#L124)
 
 ___
 
@@ -157,7 +157,7 @@ ___
 
 #### Defined in
 
-[core/objekt.ts:271](https://github.com/siposdani87/sui-js/blob/b0b5d62/src/core/objekt.ts#L271)
+[core/objekt.ts:272](https://github.com/siposdani87/sui-js/blob/1a445e5/src/core/objekt.ts#L272)
 
 ___
 
@@ -171,27 +171,21 @@ ___
 
 #### Defined in
 
-[core/objekt.ts:179](https://github.com/siposdani87/sui-js/blob/b0b5d62/src/core/objekt.ts#L179)
+[core/objekt.ts:178](https://github.com/siposdani87/sui-js/blob/1a445e5/src/core/objekt.ts#L178)
 
 ___
 
 ### copy
 
-▸ **copy**(`opt_isNative?`): `any`
-
-#### Parameters
-
-| Name | Type | Default value |
-| :------ | :------ | :------ |
-| `opt_isNative` | `boolean` | `false` |
+▸ **copy**(): [`Objekt`](Objekt.md)
 
 #### Returns
 
-`any`
+[`Objekt`](Objekt.md)
 
 #### Defined in
 
-[core/objekt.ts:253](https://github.com/siposdani87/sui-js/blob/b0b5d62/src/core/objekt.ts#L253)
+[core/objekt.ts:252](https://github.com/siposdani87/sui-js/blob/1a445e5/src/core/objekt.ts#L252)
 
 ___
 
@@ -211,7 +205,7 @@ ___
 
 #### Defined in
 
-[core/objekt.ts:280](https://github.com/siposdani87/sui-js/blob/b0b5d62/src/core/objekt.ts#L280)
+[core/objekt.ts:281](https://github.com/siposdani87/sui-js/blob/1a445e5/src/core/objekt.ts#L281)
 
 ___
 
@@ -233,7 +227,7 @@ ___
 
 #### Defined in
 
-[core/objekt.ts:212](https://github.com/siposdani87/sui-js/blob/b0b5d62/src/core/objekt.ts#L212)
+[core/objekt.ts:212](https://github.com/siposdani87/sui-js/blob/1a445e5/src/core/objekt.ts#L212)
 
 ___
 
@@ -254,7 +248,7 @@ ___
 
 #### Defined in
 
-[core/objekt.ts:290](https://github.com/siposdani87/sui-js/blob/b0b5d62/src/core/objekt.ts#L290)
+[core/objekt.ts:291](https://github.com/siposdani87/sui-js/blob/1a445e5/src/core/objekt.ts#L291)
 
 ___
 
@@ -282,7 +276,7 @@ ___
 
 #### Defined in
 
-[core/objekt.ts:74](https://github.com/siposdani87/sui-js/blob/b0b5d62/src/core/objekt.ts#L74)
+[core/objekt.ts:73](https://github.com/siposdani87/sui-js/blob/1a445e5/src/core/objekt.ts#L73)
 
 ___
 
@@ -296,7 +290,7 @@ ___
 
 #### Defined in
 
-[core/objekt.ts:264](https://github.com/siposdani87/sui-js/blob/b0b5d62/src/core/objekt.ts#L264)
+[core/objekt.ts:265](https://github.com/siposdani87/sui-js/blob/1a445e5/src/core/objekt.ts#L265)
 
 ___
 
@@ -316,7 +310,21 @@ ___
 
 #### Defined in
 
-[core/objekt.ts:34](https://github.com/siposdani87/sui-js/blob/b0b5d62/src/core/objekt.ts#L34)
+[core/objekt.ts:33](https://github.com/siposdani87/sui-js/blob/1a445e5/src/core/objekt.ts#L33)
+
+___
+
+### pureCopy
+
+▸ **pureCopy**(): `Object`
+
+#### Returns
+
+`Object`
+
+#### Defined in
+
+[core/objekt.ts:259](https://github.com/siposdani87/sui-js/blob/1a445e5/src/core/objekt.ts#L259)
 
 ___
 
@@ -336,7 +344,7 @@ ___
 
 #### Defined in
 
-[core/objekt.ts:172](https://github.com/siposdani87/sui-js/blob/b0b5d62/src/core/objekt.ts#L172)
+[core/objekt.ts:171](https://github.com/siposdani87/sui-js/blob/1a445e5/src/core/objekt.ts#L171)
 
 ___
 
@@ -357,7 +365,7 @@ ___
 
 #### Defined in
 
-[core/objekt.ts:148](https://github.com/siposdani87/sui-js/blob/b0b5d62/src/core/objekt.ts#L148)
+[core/objekt.ts:147](https://github.com/siposdani87/sui-js/blob/1a445e5/src/core/objekt.ts#L147)
 
 ___
 
@@ -379,4 +387,4 @@ ___
 
 #### Defined in
 
-[core/objekt.ts:159](https://github.com/siposdani87/sui-js/blob/b0b5d62/src/core/objekt.ts#L159)
+[core/objekt.ts:158](https://github.com/siposdani87/sui-js/blob/1a445e5/src/core/objekt.ts#L158)
