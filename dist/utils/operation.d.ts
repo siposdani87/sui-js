@@ -216,10 +216,10 @@ export declare const copy: (items: Array<any> | Object) => Array<any> | Object |
  */
 export declare const copyArray: (items: Array<any>) => Array<any>;
 /**
- * @param {!Object} items
+ * @param {!Object} item
  * @return {!Object}
  */
-export declare const copyObject: (items: Object) => Object;
+export declare const copyObject: (item: Object) => Object;
 /**
  * @param {!Array|!Object} items
  * @return {boolean}

@@ -22,10 +22,10 @@ export declare class ProgressBar {
     progressBarDialog: Knot;
     progressBarConfirm: Knot;
     async: Async;
-    mProgressContainer: ProcessBar;
-    mProgressHeader: ProcessBar;
-    mProgressDialog: ProcessBar;
-    mProgressConfirm: ProcessBar;
+    processContainer: ProcessBar;
+    processHeader: ProcessBar;
+    processDialog: ProcessBar;
+    processConfirm: ProcessBar;
     progressValue: number;
     bufferValue: number;
     /**
@@ -35,8 +35,8 @@ export declare class ProgressBar {
      */
     constructor(dialog: Dialog, confirm: Confirm, opt_options?: Object | undefined);
     /**
-     * @param {!Object=} opt_options
      * @private
+     * @param {!Object=} opt_options
      * @return {undefined}
      */
     private _setOptions;
@@ -50,7 +50,7 @@ export declare class ProgressBar {
      * @param {!Knot} knot
      * @return {!ProcessBar}
      */
-    private _getProgressBar;
+    private _createProgressBar;
     /**
      * @private
      * @param {!Function} containerCallback
