@@ -1,4 +1,4 @@
-import { each, isUndefined, isFunction, eq, copyArray, } from '../utils/operation';
+import { each, isUndefined, isFunction, eq } from '../utils/operation';
 import { consoleWarn } from '../utils/log';
 import { Deferred } from './deferred';
 /**
@@ -89,7 +89,7 @@ export class Async {
         }
         this.call.sum++;
         if (eq(this.call.sum, length)) {
-            const results = opt_args || copyArray(this.call.results);
+            const results = opt_args || [...this.call.results];
             this._clear();
             if (!this.call.isError) {
                 if (allowEvent) {

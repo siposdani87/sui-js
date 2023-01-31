@@ -414,18 +414,18 @@ export const copyArray = (items: Array<any>): Array<any> => {
 };
 
 /**
- * @param {!Object} items
+ * @param {!Object} item
  * @return {!Object}
  */
-export const copyObject = (items: Object): Object => {
+export const copyObject = (item: Object): Object => {
     const results = {};
-    eachObject(items, (item, key) => {
-        if (isArray(item)) {
-            results[key] = copyArray(item as Array<any>);
-        } else if (isPureObject(item)) {
-            results[key] = copyObject(item);
+    eachObject(item, (value, key) => {
+        if (isArray(value)) {
+            results[key] = copyArray(value as Array<any>);
+        } else if (isPureObject(value)) {
+            results[key] = copyObject(value);
         } else {
-            results[key] = item;
+            results[key] = value;
         }
     });
     return results;

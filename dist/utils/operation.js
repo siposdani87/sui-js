@@ -359,20 +359,20 @@ export const copyArray = (items) => {
     return results;
 };
 /**
- * @param {!Object} items
+ * @param {!Object} item
  * @return {!Object}
  */
-export const copyObject = (items) => {
+export const copyObject = (item) => {
     const results = {};
-    eachObject(items, (item, key) => {
-        if (isArray(item)) {
-            results[key] = copyArray(item);
+    eachObject(item, (value, key) => {
+        if (isArray(value)) {
+            results[key] = copyArray(value);
         }
-        else if (isPureObject(item)) {
-            results[key] = copyObject(item);
+        else if (isPureObject(value)) {
+            results[key] = copyObject(value);
         }
         else {
-            results[key] = item;
+            results[key] = value;
         }
     });
     return results;

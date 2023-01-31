@@ -18,8 +18,8 @@ export class ProgressBar {
         this._init();
     }
     /**
-     * @param {!Object=} opt_options
      * @private
+     * @param {!Object=} opt_options
      * @return {undefined}
      */
     _setOptions(opt_options = {}) {
@@ -41,16 +41,16 @@ export class ProgressBar {
         this.async = new Async(4);
         this.async.eventComplete = (_isError, nodes) => {
             if (nodes[0]['MaterialProgress']) {
-                this.mProgressContainer = nodes[0]['MaterialProgress'];
+                this.processContainer = nodes[0]['MaterialProgress'];
             }
             if (nodes[1]['MaterialProgress']) {
-                this.mProgressHeader = nodes[1]['MaterialProgress'];
+                this.processHeader = nodes[1]['MaterialProgress'];
             }
             if (nodes[2]['MaterialProgress']) {
-                this.mProgressDialog = nodes[2]['MaterialProgress'];
+                this.processDialog = nodes[2]['MaterialProgress'];
             }
             if (nodes[3]['MaterialProgress']) {
-                this.mProgressConfirm = nodes[3]['MaterialProgress'];
+                this.processConfirm = nodes[3]['MaterialProgress'];
             }
             if (this.progressValue) {
                 this.setProgress(this.progressValue);
@@ -63,17 +63,17 @@ export class ProgressBar {
         };
         this.progressValue = 0;
         this.bufferValue = 0;
-        this.mProgressContainer = this._getProgressBar(this.progressBarContainer);
-        this.mProgressHeader = this._getProgressBar(this.progressBarHeader);
-        this.mProgressDialog = this._getProgressBar(this.progressBarDialog);
-        this.mProgressConfirm = this._getProgressBar(this.progressBarConfirm);
+        this.processContainer = this._createProgressBar(this.progressBarContainer);
+        this.processHeader = this._createProgressBar(this.progressBarHeader);
+        this.processDialog = this._createProgressBar(this.progressBarDialog);
+        this.processConfirm = this._createProgressBar(this.progressBarConfirm);
     }
     /**
      * @private
      * @param {!Knot} knot
      * @return {!ProcessBar}
      */
-    _getProgressBar(knot) {
+    _createProgressBar(knot) {
         knot.addClass('mdl-js-progress');
         knot.addEventListener('mdl-componentupgraded', (knot) => {
             this.async.parallelFunction(() => {
@@ -184,19 +184,19 @@ export class ProgressBar {
         this._progress();
         this._separateProgressBars((condition) => {
             if (condition) {
-                this.mProgressContainer.setProgress(value);
+                this.processContainer.setProgress(value);
             }
         }, (condition) => {
             if (condition) {
-                this.mProgressHeader.setProgress(value);
+                this.processHeader.setProgress(value);
             }
         }, (condition) => {
             if (condition) {
-                this.mProgressDialog.setProgress(value);
+                this.processDialog.setProgress(value);
             }
         }, (condition) => {
             if (condition) {
-                this.mProgressConfirm.setProgress(value);
+                this.processConfirm.setProgress(value);
             }
         });
     }
@@ -208,19 +208,19 @@ export class ProgressBar {
         this._progress();
         this._separateProgressBars((condition) => {
             if (condition) {
-                this.mProgressContainer.setBuffer(value);
+                this.processContainer.setBuffer(value);
             }
         }, (condition) => {
             if (condition) {
-                this.mProgressHeader.setBuffer(value);
+                this.processHeader.setBuffer(value);
             }
         }, (condition) => {
             if (condition) {
-                this.mProgressDialog.setBuffer(value);
+                this.processDialog.setBuffer(value);
             }
         }, (condition) => {
             if (condition) {
-                this.mProgressConfirm.setBuffer(value);
+                this.processConfirm.setBuffer(value);
             }
         });
     }
