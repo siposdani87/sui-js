@@ -178,7 +178,7 @@ export class GoogleMap {
     private _initMap(): void {
         this.map = new google.maps.Map(
             this.mapKnot.getNode(),
-            this.options.pureCopy() as google.maps.MapOptions,
+            this.options.copyObject() as google.maps.MapOptions,
         );
 
         this._unbindEventsToMap();
@@ -271,7 +271,7 @@ export class GoogleMap {
         const options = new Objekt(this.polygonOptions);
         options.merge(opt_options);
 
-        const polygon = new google.maps.Polygon(options.pureCopy());
+        const polygon = new google.maps.Polygon(options.copyObject());
         polygon.setMap(this.map);
         polygonData.setRaw('_polygon', polygon);
         this._addPointsToPolygon(polygonData, points);
@@ -863,7 +863,7 @@ export class GoogleMap {
         options.merge(opt_options);
 
         const text = title.toString();
-        const marker = new google.maps.Marker(options.pureCopy());
+        const marker = new google.maps.Marker(options.copyObject());
         marker.setPosition(new google.maps.LatLng(latitude, longitude));
         marker.setIcon(this.markerIcons[iconName].icon);
         marker.setShape(this.markerIcons[iconName].shape);

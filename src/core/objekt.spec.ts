@@ -188,7 +188,7 @@ describe('objekt', () => {
         expect(optionsCopyClone.get('arr3')).toEqual([]);
     });
 
-    it('pureCopy', () => {
+    it('copyObject', () => {
         const options = new Objekt({
             attr: false,
             obj: {
@@ -208,7 +208,7 @@ describe('objekt', () => {
         options.set('attr', true);
         options.set('obj.attr2', 2);
 
-        const optionsCopy = new Objekt(options.pureCopy());
+        const optionsCopy = new Objekt(options.copyObject());
         expect(options).toEqual(optionsCopy);
 
         optionsCopy.remove('obj.attr2');

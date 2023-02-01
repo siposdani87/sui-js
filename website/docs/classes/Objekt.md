@@ -314,9 +314,9 @@ ___
 
 ___
 
-### pureCopy
+### copyObject
 
-▸ **pureCopy**(): `Object`
+▸ **copyObject**(): `Object`
 
 #### Returns
 

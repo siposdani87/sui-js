@@ -248,9 +248,9 @@ ___
 
 ___
 
-### pureCopy
+### copyObject
 
-▸ **pureCopy**(): `Object`
+▸ **copyObject**(): `Object`
 
 #### Returns
 
@@ -258,7 +258,7 @@ ___
 
 #### Inherited from
 
-[Objekt](Objekt.md).[pureCopy](Objekt.md#purecopy)
+[Objekt](Objekt.md).[copyObject](Objekt.md#purecopy)
 
 #### Defined in
 
