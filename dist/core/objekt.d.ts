@@ -89,7 +89,7 @@ export declare class Objekt {
     /**
      * @return {!Object}
      */
-    pureCopy(): Object;
+    copyObject(): Object;
     /**
      * @return {boolean}
      */

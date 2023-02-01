@@ -201,13 +201,13 @@ export class Objekt {
      * @return {!Objekt}
      */
     copy() {
-        const copy = this.pureCopy();
+        const copy = this.copyObject();
         return new Objekt(copy);
     }
     /**
      * @return {!Object}
      */
-    pureCopy() {
+    copyObject() {
         return copyObject(this);
     }
     /**
