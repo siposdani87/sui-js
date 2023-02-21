@@ -231,8 +231,8 @@ export class FileField extends BaseField<HTMLInputElement> {
     private _read(file: File): void {
         if (file) {
             const filename = file.name;
-            const reader = new FileReader();
-            reader.onload = (event) => {
+            const fileReader = new FileReader();
+            fileReader.onload = (event) => {
                 const target = event.target;
                 const searchStr = ';base64,';
                 let imageSrc = (target.result as string).replace(
@@ -249,7 +249,7 @@ export class FileField extends BaseField<HTMLInputElement> {
 
                 this.modelChange(this.valueSrc);
             };
-            reader.readAsDataURL(file);
+            fileReader.readAsDataURL(file);
         }
     }
     /**
