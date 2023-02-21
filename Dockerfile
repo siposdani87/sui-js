@@ -17,7 +17,7 @@ WORKDIR /app/website
 RUN npm ci
 RUN npm run build
 
-FROM nginx:1.23-alpine as runner
+FROM nginx:1.23.3-alpine-slim as runner
 
 ENV INSTALL_PATH /usr/share/nginx/html
 
