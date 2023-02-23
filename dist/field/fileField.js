@@ -205,8 +205,8 @@ export class FileField extends BaseField {
     _read(file) {
         if (file) {
             const filename = file.name;
-            const reader = new FileReader();
-            reader.onload = (event) => {
+            const fileReader = new FileReader();
+            fileReader.onload = (event) => {
                 const target = event.target;
                 const searchStr = ';base64,';
                 let imageSrc = target.result.replace(searchStr, ';filename=' + filename + searchStr);
@@ -219,7 +219,7 @@ export class FileField extends BaseField {
                 this._handleRemoveButton();
                 this.modelChange(this.valueSrc);
             };
-            reader.readAsDataURL(file);
+            fileReader.readAsDataURL(file);
         }
     }
     /**
