@@ -13,7 +13,7 @@ It is production ready framework, I use it on my hobby project [TrophyMap](https
 
 There are many built-in features like:
 
-- controllers and services DI injections
+- controllers and services with DI injections
 - storage handlers
 - form and input fields with errors
 - route and states

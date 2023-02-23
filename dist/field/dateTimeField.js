@@ -40,21 +40,22 @@ export class DateTimeField extends BaseField {
      */
     _initInput() {
         this.format = this.input.getData('format');
-        this.input.addEventListener('change', () => {
-            const value = this.getValue().toString();
-            this.modelChange(value);
-            return true;
-        });
         const type = this.input.getAttribute('type');
         const value = this.getValue().toString();
         this.datetimeKnot = new Knot('div');
         this.datetime = new DateTime(this.datetimeKnot, {
-            value: value,
-            type: type,
+            value,
+            type,
         });
         this.datetime.eventClick = (value) => {
             this.setValue(value);
         };
+        this.input.addEventListener('change', () => {
+            const currentValue = this.getValue().toString();
+            this.datetime.setValue(currentValue);
+            this.modelChange(currentValue);
+            return true;
+        });
         this.popup = new Popup(this.datetimeKnot, this.inputBlock);
         this.popup.eventClose = () => {
             this.datetimeInput.removeClass('active');
@@ -101,7 +102,6 @@ export class DateTimeField extends BaseField {
         this._setTag(value);
         this.input.setAttribute('value', value);
         this.input.trigger('change');
-        this.datetime.setValue(value);
     }
     /**
      * @private

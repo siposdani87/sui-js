@@ -128,11 +128,8 @@ const config = {
       },
       algolia: {
         appId: 'EE0OFT8MSU',
-
         apiKey: '13d2ca1739f797a942f36b15a31d36b6',
-
         indexName: 'sui-js',
-  
         // Optional: see doc section below
         contextualSearch: true
       }
