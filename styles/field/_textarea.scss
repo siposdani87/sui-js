@@ -6,6 +6,42 @@
 
     .textbox {
         display: inline-block;
+
+        p {
+            margin: 0 0 1em;
+        }
+
+        strong,
+        b {
+            font-weight: 700;
+        }
+
+        em,
+        i {
+            font-style: italic;
+        }
+
+        u {
+            text-decoration: underline;
+        }
+
+        ul {
+            list-style: disc outside;
+            margin-bottom: 1em;
+
+            li {
+                margin-left: 2em;
+            }
+        }
+
+        ol {
+            list-style: lower-latin outside;
+            margin-bottom: 1em;
+
+            li {
+                margin-left: 2em;
+            }
+        }
     }
 
     .toolbar {
