@@ -1,0 +1,57 @@
+a {
+    color: $primary;
+    text-decoration: none;
+    font-weight: 400;
+
+    &:hover {
+        color: $primary-dark;
+        text-decoration: none;
+    }
+
+    &.link {
+        border-bottom: 1px dotted $primary;
+
+        &:hover {
+            border-bottom: 1px solid $primary-dark;
+        }
+    }
+}
+
+p {
+    margin: 0 0 1em;
+}
+
+p,
+ul,
+ol {
+    font-size: inherit;
+    line-height: inherit;
+}
+
+b,
+strong {
+    font-weight: 700;
+}
+
+i,
+em {
+    font-style: italic;
+}
+
+.dark-theme {
+    a {
+        color: $primary-bright;
+
+        &:hover {
+            color: $primary;
+        }
+
+        &.link {
+            border-bottom-color: $primary-bright;
+
+            &:hover {
+                border-bottom-color: $primary;
+            }
+        }
+    }
+}

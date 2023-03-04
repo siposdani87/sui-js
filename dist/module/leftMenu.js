@@ -64,7 +64,7 @@ export class LeftMenu {
     open(opt_title = '') {
         this.body.addClass('overflow-hidden');
         this.mainContainerKnot.addClass('blur');
-        this.leftMenu.addClass('visible');
+        this.leftMenu.addClass('visible-block');
         this.mainMenuTitle.setHtml(opt_title);
     }
     /**
@@ -73,7 +73,7 @@ export class LeftMenu {
     close() {
         this.body.removeClass('overflow-hidden');
         this.mainContainerKnot.removeClass('blur');
-        this.leftMenu.removeClass('visible');
+        this.leftMenu.removeClass('visible-block');
     }
     /**
      * @param {string=} opt_title

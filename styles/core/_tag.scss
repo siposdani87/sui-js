@@ -1,0 +1,40 @@
+.tag {
+    display: inline-block;
+    border-radius: 12px;
+    padding: 4px 10px;
+    margin: 1px 5px 1px 0;
+    white-space: nowrap;
+    border: 3px solid $deep-grey-bright;
+    font-size: 0.75em;
+    font-weight: 700;
+    color: $deep-grey-bright;
+    text-transform: uppercase;
+
+    &.text-primary {
+        border-color: $primary;
+    }
+
+    &.text-accent {
+        border-color: $accent;
+    }
+
+    &.text-success {
+        border-color: $success;
+    }
+
+    &.text-info {
+        border-color: $info;
+    }
+
+    &.text-warning {
+        border-color: $warning;
+    }
+
+    &.text-error {
+        border-color: $error;
+    }
+
+    &.text-default {
+        border-color: $black;
+    }
+}
