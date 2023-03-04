@@ -1,6 +1,24 @@
-## 0.9.6 - TBD
+## 0.9.10 - TBD
 
 * 
+
+## 0.9.9 - 2023-03-04
+
+* Improve style structure
+
+## 0.9.8 - 2023-03-02
+
+* Improve change event on dateTimeField
+
+## 0.9.7 - 2023-02-01
+
+* Rename pureCopy to copyObject
+* Upgrade docusaurus
+* Fix async results issue
+
+## 0.9.6 - 2023-01-29
+
+* Create pureCopy method
 
 ## 0.9.5 - 2023-01-27
 
