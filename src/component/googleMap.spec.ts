@@ -4,7 +4,7 @@ import { GoogleMap } from './googleMap';
 describe('googleMap', () => {
     it('should be instance of GoogleMap', () => {
         const knot = new Query('.template-view').getKnot();
-        const googleMap = new GoogleMap(knot);
+        const googleMap = new GoogleMap(knot, '.google-map');
 
         expect(googleMap).toBeInstanceOf(GoogleMap);
     });

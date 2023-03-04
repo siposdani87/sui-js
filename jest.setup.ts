@@ -136,7 +136,7 @@ beforeAll(() => {
   <div class="progress-bar"></div>
   <div class="flex-container">
     <div class="template-view" data-locale="en" data-template-url="/index.html">
-        <div class="map"></div>
+        <div class="google-map"></div>
         <div class="progress-status"></div>
         <div class="pagination">
             <div class="pager"></div>
