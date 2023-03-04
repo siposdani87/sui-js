@@ -1,63 +1,6 @@
-.truncate-container {
-    display: table;
-    table-layout: fixed;
-    width: 100%;
-    white-space: nowrap;
-}
-
 .text-truncate {
     max-width: 100%;
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
-}
-
-.text-center {
-    text-align: center;
-}
-
-.text-left {
-    text-align: left;
-}
-
-.text-right {
-    text-align: right;
-}
-
-.text-primary {
-    color: $primary;
-}
-
-.text-accent {
-    color: $accent;
-}
-
-.text-grey {
-    color: $deep-grey-bright;
-}
-
-.text-success {
-    color: $success;
-}
-
-.text-info {
-    color: $info;
-}
-
-.text-warning {
-    color: $warning;
-}
-
-.text-error {
-    color: $error;
-}
-
-.text-default {
-    color: $black;
-}
-
-.dark-theme {
-    .text-default {
-        color: $white;
-    }
 }
