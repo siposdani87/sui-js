@@ -1,6 +1,6 @@
 ## 0.9.10 - TBD
 
-* 
+* Remove unused styles
 
 ## 0.9.9 - 2023-03-04
 

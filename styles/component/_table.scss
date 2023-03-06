@@ -205,18 +205,6 @@ table {
                     white-space: nowrap;
                 }
 
-                a {
-                    &::after {
-                        content: ', ';
-                    }
-
-                    &:last-child {
-                        &::after {
-                            content: '';
-                        }
-                    }
-                }
-
                 .label {
                     display: none;
 
