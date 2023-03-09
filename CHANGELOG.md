@@ -1,6 +1,11 @@
-## 0.9.10 - TBD
+## 0.9.11 - TBD
+
+* 
+
+## 0.9.10 - 2023-03-09
 
 * Remove unused styles
+* Upgrade packages
 
 ## 0.9.9 - 2023-03-04
 
