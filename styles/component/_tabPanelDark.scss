@@ -2,9 +2,8 @@
     .tab-panel {
         .tabs {
             a {
-                border-bottom-color: $black-bright;
-                background-color: $black-bright;
-                color: $deep-grey-bright;
+                background-color: $black;
+                color: $light-grey-bright;
 
                 &:hover {
                     color: $primary-bright;
@@ -16,7 +15,7 @@
                 }
 
                 &:not(.active) {
-                    border-bottom-color: $black-bright;
+                    border-bottom-color: $black;
                 }
 
                 &.disabled {

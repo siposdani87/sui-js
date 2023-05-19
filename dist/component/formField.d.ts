@@ -8,7 +8,7 @@ import { Form } from './form';
  * @param {!Form} form
  * @return {?BaseField}
  */
-export declare const FormField: (this: any, inputBlock: Knot<HTMLInputElement | HTMLElement>, form: Form) => BaseField<HTMLInputElement> | null;
+export declare const FormField: (inputBlock: Knot<HTMLInputElement | HTMLElement>, form: Form) => BaseField<HTMLInputElement> | null;
 /**
  * @param {!Knot} inputBlock
  * @return {{input: Knot, label: Knot, error: Knot}}
