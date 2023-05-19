@@ -63,7 +63,7 @@
                 color: $primary;
                 border-right: 3px solid transparent;
 
-                &:hover {
+                &:not(.disabled):hover {
                     background-color: $light-grey-bright;
                 }
 
