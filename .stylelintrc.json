@@ -1,20 +1,20 @@
 {
     "extends": [
-        "stylelint-config-standard",
-        "stylelint-config-prettier"
+        "stylelint-config-standard"
     ],
     "plugins": [
         "stylelint-scss"
     ],
     "customSyntax": "postcss-scss",
     "rules": {
-        "number-leading-zero": "always",
         "no-descending-specificity": null,
         "at-rule-no-unknown": null,
         "selector-class-pattern": null,
         "block-no-empty": null,
         "function-no-unknown": null,
         "font-family-no-missing-generic-family-keyword": null,
-        "annotation-no-unknown": null
+        "annotation-no-unknown": null,
+        "import-notation": "string",
+        "at-rule-empty-line-before": null
     }
 }
