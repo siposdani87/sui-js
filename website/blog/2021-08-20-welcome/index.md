@@ -16,15 +16,15 @@ There are many built-in features like:
 - controllers and services with DI injections
 - storage handlers
 - form and input fields with errors
-- route and states
+- router and states
 - event management
 - life-cycle hooks
 - http requests
-- UI components (navigation, toolbar, footer, layout, leftMenu, modal, card, table, tabs, buttons, basic materialUI)
+- UI components (navigation, toolbar, footer, layout, menu, modal, card, table, tabs, buttons, basic material)
 - dynamic assets loading
 - light/dark theme and customized color palette
 
-The legacy version of SUI-JS was written in Vanilla JavaScript. It is documented and annotated with JSDoc, these options were needed to Google Closure Compiler - Advanced compilation, so the next image shows you minfied version of this JS bundle.
+The legacy version of SUI-JS was written in Vanilla JavaScript. It is documented and annotated with JSDoc, these options were needed to Google Closure Compiler - Advanced compilation, so the next image shows you minified version of this JS bundle.
 
 ![SUI-JS minified](./sui-js.png)
 
