@@ -1,8 +1,8 @@
-## 0.9.12 - TBD
+## 0.9.12 - 2023-05-19
 
-*
+* Fix style of leftMenu
 
-## 0.9.11 - 2023-05-19
+## 0.9.11 - 2023-05-17
 
 * Improve styles of dark theme
 
