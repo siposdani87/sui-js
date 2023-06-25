@@ -20,7 +20,7 @@ custom_edit_url: null
 
 #### Defined in
 
-[core/async.ts:26](https://github.com/siposdani87/sui-js/blob/1a445e5/src/core/async.ts#L26)
+[core/async.ts:20](https://github.com/siposdani87/sui-js/blob/3c5600c/src/core/async.ts#L20)
 
 ## Properties
 
@@ -39,7 +39,7 @@ custom_edit_url: null
 
 #### Defined in
 
-[core/async.ts:17](https://github.com/siposdani87/sui-js/blob/1a445e5/src/core/async.ts#L17)
+[core/async.ts:11](https://github.com/siposdani87/sui-js/blob/3c5600c/src/core/async.ts#L11)
 
 ___
 
@@ -49,7 +49,7 @@ ___
 
 #### Defined in
 
-[core/async.ts:16](https://github.com/siposdani87/sui-js/blob/1a445e5/src/core/async.ts#L16)
+[core/async.ts:10](https://github.com/siposdani87/sui-js/blob/3c5600c/src/core/async.ts#L10)
 
 ## Methods
 
@@ -63,7 +63,7 @@ ___
 
 #### Defined in
 
-[core/async.ts:180](https://github.com/siposdani87/sui-js/blob/1a445e5/src/core/async.ts#L180)
+[core/async.ts:174](https://github.com/siposdani87/sui-js/blob/3c5600c/src/core/async.ts#L174)
 
 ___
 
@@ -88,7 +88,7 @@ ___
 
 #### Defined in
 
-[core/async.ts:143](https://github.com/siposdani87/sui-js/blob/1a445e5/src/core/async.ts#L143)
+[core/async.ts:137](https://github.com/siposdani87/sui-js/blob/3c5600c/src/core/async.ts#L137)
 
 ___
 
@@ -112,7 +112,7 @@ ___
 
 #### Defined in
 
-[core/async.ts:79](https://github.com/siposdani87/sui-js/blob/1a445e5/src/core/async.ts#L79)
+[core/async.ts:73](https://github.com/siposdani87/sui-js/blob/3c5600c/src/core/async.ts#L73)
 
 ___
 
@@ -135,7 +135,7 @@ ___
 
 #### Defined in
 
-[core/async.ts:276](https://github.com/siposdani87/sui-js/blob/1a445e5/src/core/async.ts#L276)
+[core/async.ts:270](https://github.com/siposdani87/sui-js/blob/3c5600c/src/core/async.ts#L270)
 
 ___
 
@@ -157,7 +157,7 @@ ___
 
 #### Defined in
 
-[core/async.ts:237](https://github.com/siposdani87/sui-js/blob/1a445e5/src/core/async.ts#L237)
+[core/async.ts:231](https://github.com/siposdani87/sui-js/blob/3c5600c/src/core/async.ts#L231)
 
 ___
 
@@ -178,7 +178,7 @@ ___
 
 #### Defined in
 
-[core/async.ts:211](https://github.com/siposdani87/sui-js/blob/1a445e5/src/core/async.ts#L211)
+[core/async.ts:205](https://github.com/siposdani87/sui-js/blob/3c5600c/src/core/async.ts#L205)
 
 ___
 
@@ -199,7 +199,7 @@ ___
 
 #### Defined in
 
-[core/async.ts:35](https://github.com/siposdani87/sui-js/blob/1a445e5/src/core/async.ts#L35)
+[core/async.ts:29](https://github.com/siposdani87/sui-js/blob/3c5600c/src/core/async.ts#L29)
 
 ___
 
@@ -221,7 +221,7 @@ ___
 
 #### Defined in
 
-[core/async.ts:61](https://github.com/siposdani87/sui-js/blob/1a445e5/src/core/async.ts#L61)
+[core/async.ts:55](https://github.com/siposdani87/sui-js/blob/3c5600c/src/core/async.ts#L55)
 
 ___
 
@@ -242,7 +242,7 @@ ___
 
 #### Defined in
 
-[core/async.ts:219](https://github.com/siposdani87/sui-js/blob/1a445e5/src/core/async.ts#L219)
+[core/async.ts:213](https://github.com/siposdani87/sui-js/blob/3c5600c/src/core/async.ts#L213)
 
 ___
 
@@ -265,4 +265,4 @@ ___
 
 #### Defined in
 
-[core/async.ts:195](https://github.com/siposdani87/sui-js/blob/1a445e5/src/core/async.ts#L195)
+[core/async.ts:189](https://github.com/siposdani87/sui-js/blob/3c5600c/src/core/async.ts#L189)

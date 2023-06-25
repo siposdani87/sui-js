@@ -20,7 +20,7 @@ custom_edit_url: null
 
 #### Defined in
 
-[module/footer.ts:17](https://github.com/siposdani87/sui-js/blob/1a445e5/src/module/footer.ts#L17)
+[module/footer.ts:17](https://github.com/siposdani87/sui-js/blob/3c5600c/src/module/footer.ts#L17)
 
 ## Properties
 
@@ -30,7 +30,7 @@ custom_edit_url: null
 
 #### Defined in
 
-[module/footer.ts:12](https://github.com/siposdani87/sui-js/blob/1a445e5/src/module/footer.ts#L12)
+[module/footer.ts:12](https://github.com/siposdani87/sui-js/blob/3c5600c/src/module/footer.ts#L12)
 
 ___
 
@@ -40,7 +40,7 @@ ___
 
 #### Defined in
 
-[module/footer.ts:10](https://github.com/siposdani87/sui-js/blob/1a445e5/src/module/footer.ts#L10)
+[module/footer.ts:10](https://github.com/siposdani87/sui-js/blob/3c5600c/src/module/footer.ts#L10)
 
 ___
 
@@ -50,7 +50,7 @@ ___
 
 #### Defined in
 
-[module/footer.ts:13](https://github.com/siposdani87/sui-js/blob/1a445e5/src/module/footer.ts#L13)
+[module/footer.ts:13](https://github.com/siposdani87/sui-js/blob/3c5600c/src/module/footer.ts#L13)
 
 ___
 
@@ -60,7 +60,7 @@ ___
 
 #### Defined in
 
-[module/footer.ts:9](https://github.com/siposdani87/sui-js/blob/1a445e5/src/module/footer.ts#L9)
+[module/footer.ts:9](https://github.com/siposdani87/sui-js/blob/3c5600c/src/module/footer.ts#L9)
 
 ___
 
@@ -70,7 +70,7 @@ ___
 
 #### Defined in
 
-[module/footer.ts:11](https://github.com/siposdani87/sui-js/blob/1a445e5/src/module/footer.ts#L11)
+[module/footer.ts:11](https://github.com/siposdani87/sui-js/blob/3c5600c/src/module/footer.ts#L11)
 
 ## Methods
 
@@ -84,7 +84,7 @@ ___
 
 #### Defined in
 
-[module/footer.ts:34](https://github.com/siposdani87/sui-js/blob/1a445e5/src/module/footer.ts#L34)
+[module/footer.ts:34](https://github.com/siposdani87/sui-js/blob/3c5600c/src/module/footer.ts#L34)
 
 ___
 
@@ -104,7 +104,7 @@ ___
 
 #### Defined in
 
-[module/footer.ts:26](https://github.com/siposdani87/sui-js/blob/1a445e5/src/module/footer.ts#L26)
+[module/footer.ts:26](https://github.com/siposdani87/sui-js/blob/3c5600c/src/module/footer.ts#L26)
 
 ___
 
@@ -118,7 +118,7 @@ ___
 
 #### Defined in
 
-[module/footer.ts:90](https://github.com/siposdani87/sui-js/blob/1a445e5/src/module/footer.ts#L90)
+[module/footer.ts:90](https://github.com/siposdani87/sui-js/blob/3c5600c/src/module/footer.ts#L90)
 
 ___
 
@@ -132,7 +132,7 @@ ___
 
 #### Defined in
 
-[module/footer.ts:78](https://github.com/siposdani87/sui-js/blob/1a445e5/src/module/footer.ts#L78)
+[module/footer.ts:78](https://github.com/siposdani87/sui-js/blob/3c5600c/src/module/footer.ts#L78)
 
 ___
 
@@ -146,7 +146,7 @@ ___
 
 #### Defined in
 
-[module/footer.ts:63](https://github.com/siposdani87/sui-js/blob/1a445e5/src/module/footer.ts#L63)
+[module/footer.ts:63](https://github.com/siposdani87/sui-js/blob/3c5600c/src/module/footer.ts#L63)
 
 ___
 
@@ -160,7 +160,7 @@ ___
 
 #### Defined in
 
-[module/footer.ts:96](https://github.com/siposdani87/sui-js/blob/1a445e5/src/module/footer.ts#L96)
+[module/footer.ts:96](https://github.com/siposdani87/sui-js/blob/3c5600c/src/module/footer.ts#L96)
 
 ___
 
@@ -174,7 +174,7 @@ ___
 
 #### Defined in
 
-[module/footer.ts:84](https://github.com/siposdani87/sui-js/blob/1a445e5/src/module/footer.ts#L84)
+[module/footer.ts:84](https://github.com/siposdani87/sui-js/blob/3c5600c/src/module/footer.ts#L84)
 
 ___
 
@@ -194,7 +194,7 @@ ___
 
 #### Defined in
 
-[module/footer.ts:72](https://github.com/siposdani87/sui-js/blob/1a445e5/src/module/footer.ts#L72)
+[module/footer.ts:72](https://github.com/siposdani87/sui-js/blob/3c5600c/src/module/footer.ts#L72)
 
 ___
 
@@ -208,7 +208,7 @@ ___
 
 #### Defined in
 
-[module/footer.ts:43](https://github.com/siposdani87/sui-js/blob/1a445e5/src/module/footer.ts#L43)
+[module/footer.ts:43](https://github.com/siposdani87/sui-js/blob/3c5600c/src/module/footer.ts#L43)
 
 ___
 
@@ -222,4 +222,4 @@ ___
 
 #### Defined in
 
-[module/footer.ts:102](https://github.com/siposdani87/sui-js/blob/1a445e5/src/module/footer.ts#L102)
+[module/footer.ts:102](https://github.com/siposdani87/sui-js/blob/3c5600c/src/module/footer.ts#L102)

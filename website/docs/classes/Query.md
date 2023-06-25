@@ -43,7 +43,7 @@ custom_edit_url: null
 
 #### Defined in
 
-[core/query.ts:17](https://github.com/siposdani87/sui-js/blob/1a445e5/src/core/query.ts#L17)
+[core/query.ts:17](https://github.com/siposdani87/sui-js/blob/3c5600c/src/core/query.ts#L17)
 
 ## Properties
 
@@ -57,7 +57,7 @@ custom_edit_url: null
 
 #### Defined in
 
-[core/collection.ts:17](https://github.com/siposdani87/sui-js/blob/1a445e5/src/core/collection.ts#L17)
+[core/collection.ts:17](https://github.com/siposdani87/sui-js/blob/3c5600c/src/core/collection.ts#L17)
 
 ___
 
@@ -71,7 +71,7 @@ ___
 
 #### Defined in
 
-[core/collection.ts:18](https://github.com/siposdani87/sui-js/blob/1a445e5/src/core/collection.ts#L18)
+[core/collection.ts:18](https://github.com/siposdani87/sui-js/blob/3c5600c/src/core/collection.ts#L18)
 
 ___
 
@@ -85,7 +85,7 @@ ___
 
 #### Defined in
 
-[core/collection.ts:19](https://github.com/siposdani87/sui-js/blob/1a445e5/src/core/collection.ts#L19)
+[core/collection.ts:19](https://github.com/siposdani87/sui-js/blob/3c5600c/src/core/collection.ts#L19)
 
 ## Methods
 
@@ -103,7 +103,7 @@ ___
 
 #### Defined in
 
-[core/collection.ts:188](https://github.com/siposdani87/sui-js/blob/1a445e5/src/core/collection.ts#L188)
+[core/collection.ts:188](https://github.com/siposdani87/sui-js/blob/3c5600c/src/core/collection.ts#L188)
 
 ___
 
@@ -127,7 +127,7 @@ ___
 
 #### Defined in
 
-[core/collection.ts:246](https://github.com/siposdani87/sui-js/blob/1a445e5/src/core/collection.ts#L246)
+[core/collection.ts:246](https://github.com/siposdani87/sui-js/blob/3c5600c/src/core/collection.ts#L246)
 
 ___
 
@@ -152,7 +152,7 @@ ___
 
 #### Defined in
 
-[core/collection.ts:286](https://github.com/siposdani87/sui-js/blob/1a445e5/src/core/collection.ts#L286)
+[core/collection.ts:286](https://github.com/siposdani87/sui-js/blob/3c5600c/src/core/collection.ts#L286)
 
 ___
 
@@ -176,7 +176,7 @@ ___
 
 #### Defined in
 
-[core/collection.ts:295](https://github.com/siposdani87/sui-js/blob/1a445e5/src/core/collection.ts#L295)
+[core/collection.ts:295](https://github.com/siposdani87/sui-js/blob/3c5600c/src/core/collection.ts#L295)
 
 ___
 
@@ -201,7 +201,7 @@ ___
 
 #### Defined in
 
-[core/collection.ts:263](https://github.com/siposdani87/sui-js/blob/1a445e5/src/core/collection.ts#L263)
+[core/collection.ts:263](https://github.com/siposdani87/sui-js/blob/3c5600c/src/core/collection.ts#L263)
 
 ___
 
@@ -225,7 +225,7 @@ ___
 
 #### Defined in
 
-[core/collection.ts:272](https://github.com/siposdani87/sui-js/blob/1a445e5/src/core/collection.ts#L272)
+[core/collection.ts:272](https://github.com/siposdani87/sui-js/blob/3c5600c/src/core/collection.ts#L272)
 
 ___
 
@@ -249,7 +249,7 @@ ___
 
 #### Defined in
 
-[core/collection.ts:255](https://github.com/siposdani87/sui-js/blob/1a445e5/src/core/collection.ts#L255)
+[core/collection.ts:255](https://github.com/siposdani87/sui-js/blob/3c5600c/src/core/collection.ts#L255)
 
 ___
 
@@ -273,7 +273,7 @@ ___
 
 #### Defined in
 
-[core/collection.ts:148](https://github.com/siposdani87/sui-js/blob/1a445e5/src/core/collection.ts#L148)
+[core/collection.ts:148](https://github.com/siposdani87/sui-js/blob/3c5600c/src/core/collection.ts#L148)
 
 ___
 
@@ -298,7 +298,7 @@ ___
 
 #### Defined in
 
-[core/collection.ts:224](https://github.com/siposdani87/sui-js/blob/1a445e5/src/core/collection.ts#L224)
+[core/collection.ts:224](https://github.com/siposdani87/sui-js/blob/3c5600c/src/core/collection.ts#L224)
 
 ___
 
@@ -322,7 +322,7 @@ ___
 
 #### Defined in
 
-[core/collection.ts:233](https://github.com/siposdani87/sui-js/blob/1a445e5/src/core/collection.ts#L233)
+[core/collection.ts:233](https://github.com/siposdani87/sui-js/blob/3c5600c/src/core/collection.ts#L233)
 
 ___
 
@@ -347,7 +347,7 @@ ___
 
 #### Defined in
 
-[core/collection.ts:203](https://github.com/siposdani87/sui-js/blob/1a445e5/src/core/collection.ts#L203)
+[core/collection.ts:203](https://github.com/siposdani87/sui-js/blob/3c5600c/src/core/collection.ts#L203)
 
 ___
 
@@ -371,7 +371,7 @@ ___
 
 #### Defined in
 
-[core/collection.ts:212](https://github.com/siposdani87/sui-js/blob/1a445e5/src/core/collection.ts#L212)
+[core/collection.ts:212](https://github.com/siposdani87/sui-js/blob/3c5600c/src/core/collection.ts#L212)
 
 ___
 
@@ -395,7 +395,7 @@ ___
 
 #### Defined in
 
-[core/collection.ts:195](https://github.com/siposdani87/sui-js/blob/1a445e5/src/core/collection.ts#L195)
+[core/collection.ts:195](https://github.com/siposdani87/sui-js/blob/3c5600c/src/core/collection.ts#L195)
 
 ___
 
@@ -426,7 +426,7 @@ ___
 
 #### Defined in
 
-[core/collection.ts:159](https://github.com/siposdani87/sui-js/blob/1a445e5/src/core/collection.ts#L159)
+[core/collection.ts:159](https://github.com/siposdani87/sui-js/blob/3c5600c/src/core/collection.ts#L159)
 
 ___
 
@@ -457,7 +457,7 @@ ___
 
 #### Defined in
 
-[core/collection.ts:178](https://github.com/siposdani87/sui-js/blob/1a445e5/src/core/collection.ts#L178)
+[core/collection.ts:178](https://github.com/siposdani87/sui-js/blob/3c5600c/src/core/collection.ts#L178)
 
 ___
 
@@ -475,7 +475,7 @@ ___
 
 #### Defined in
 
-[core/collection.ts:120](https://github.com/siposdani87/sui-js/blob/1a445e5/src/core/collection.ts#L120)
+[core/collection.ts:120](https://github.com/siposdani87/sui-js/blob/3c5600c/src/core/collection.ts#L120)
 
 ___
 
@@ -489,7 +489,7 @@ ___
 
 #### Defined in
 
-[core/query.ts:31](https://github.com/siposdani87/sui-js/blob/1a445e5/src/core/query.ts#L31)
+[core/query.ts:31](https://github.com/siposdani87/sui-js/blob/3c5600c/src/core/query.ts#L31)
 
 ___
 
@@ -503,7 +503,7 @@ ___
 
 #### Defined in
 
-[core/query.ts:42](https://github.com/siposdani87/sui-js/blob/1a445e5/src/core/query.ts#L42)
+[core/query.ts:42](https://github.com/siposdani87/sui-js/blob/3c5600c/src/core/query.ts#L42)
 
 ___
 
@@ -529,7 +529,7 @@ ___
 
 #### Defined in
 
-[core/collection.ts:129](https://github.com/siposdani87/sui-js/blob/1a445e5/src/core/collection.ts#L129)
+[core/collection.ts:129](https://github.com/siposdani87/sui-js/blob/3c5600c/src/core/collection.ts#L129)
 
 ___
 
@@ -554,7 +554,7 @@ ___
 
 #### Defined in
 
-[core/collection.ts:319](https://github.com/siposdani87/sui-js/blob/1a445e5/src/core/collection.ts#L319)
+[core/collection.ts:319](https://github.com/siposdani87/sui-js/blob/3c5600c/src/core/collection.ts#L319)
 
 ___
 
@@ -578,7 +578,7 @@ ___
 
 #### Defined in
 
-[core/collection.ts:51](https://github.com/siposdani87/sui-js/blob/1a445e5/src/core/collection.ts#L51)
+[core/collection.ts:51](https://github.com/siposdani87/sui-js/blob/3c5600c/src/core/collection.ts#L51)
 
 ___
 
@@ -602,7 +602,7 @@ ___
 
 #### Defined in
 
-[core/collection.ts:326](https://github.com/siposdani87/sui-js/blob/1a445e5/src/core/collection.ts#L326)
+[core/collection.ts:326](https://github.com/siposdani87/sui-js/blob/3c5600c/src/core/collection.ts#L326)
 
 ___
 
@@ -626,7 +626,7 @@ ___
 
 #### Defined in
 
-[core/collection.ts:68](https://github.com/siposdani87/sui-js/blob/1a445e5/src/core/collection.ts#L68)
+[core/collection.ts:68](https://github.com/siposdani87/sui-js/blob/3c5600c/src/core/collection.ts#L68)
 
 ___
 
@@ -650,7 +650,7 @@ ___
 
 #### Defined in
 
-[core/collection.ts:60](https://github.com/siposdani87/sui-js/blob/1a445e5/src/core/collection.ts#L60)
+[core/collection.ts:60](https://github.com/siposdani87/sui-js/blob/3c5600c/src/core/collection.ts#L60)
 
 ___
 
@@ -674,7 +674,7 @@ ___
 
 #### Defined in
 
-[core/collection.ts:105](https://github.com/siposdani87/sui-js/blob/1a445e5/src/core/collection.ts#L105)
+[core/collection.ts:105](https://github.com/siposdani87/sui-js/blob/3c5600c/src/core/collection.ts#L105)
 
 ___
 
@@ -699,7 +699,7 @@ ___
 
 #### Defined in
 
-[core/collection.ts:92](https://github.com/siposdani87/sui-js/blob/1a445e5/src/core/collection.ts#L92)
+[core/collection.ts:92](https://github.com/siposdani87/sui-js/blob/3c5600c/src/core/collection.ts#L92)
 
 ___
 
@@ -717,4 +717,4 @@ ___
 
 #### Defined in
 
-[core/collection.ts:311](https://github.com/siposdani87/sui-js/blob/1a445e5/src/core/collection.ts#L311)
+[core/collection.ts:311](https://github.com/siposdani87/sui-js/blob/3c5600c/src/core/collection.ts#L311)

@@ -35,7 +35,7 @@ custom_edit_url: null
 
 #### Defined in
 
-[component/route.ts:16](https://github.com/siposdani87/sui-js/blob/1a445e5/src/component/route.ts#L16)
+[component/route.ts:16](https://github.com/siposdani87/sui-js/blob/3c5600c/src/component/route.ts#L16)
 
 ## Methods
 
@@ -59,7 +59,7 @@ custom_edit_url: null
 
 #### Defined in
 
-[core/objekt.ts:272](https://github.com/siposdani87/sui-js/blob/1a445e5/src/core/objekt.ts#L272)
+[core/objekt.ts:272](https://github.com/siposdani87/sui-js/blob/3c5600c/src/core/objekt.ts#L272)
 
 ___
 
@@ -77,7 +77,7 @@ ___
 
 #### Defined in
 
-[core/objekt.ts:178](https://github.com/siposdani87/sui-js/blob/1a445e5/src/core/objekt.ts#L178)
+[core/objekt.ts:178](https://github.com/siposdani87/sui-js/blob/3c5600c/src/core/objekt.ts#L178)
 
 ___
 
@@ -95,7 +95,25 @@ ___
 
 #### Defined in
 
-[core/objekt.ts:252](https://github.com/siposdani87/sui-js/blob/1a445e5/src/core/objekt.ts#L252)
+[core/objekt.ts:252](https://github.com/siposdani87/sui-js/blob/3c5600c/src/core/objekt.ts#L252)
+
+___
+
+### copyObject
+
+▸ **copyObject**(): `Object`
+
+#### Returns
+
+`Object`
+
+#### Inherited from
+
+[Objekt](Objekt.md).[copyObject](Objekt.md#copyobject)
+
+#### Defined in
+
+[core/objekt.ts:259](https://github.com/siposdani87/sui-js/blob/3c5600c/src/core/objekt.ts#L259)
 
 ___
 
@@ -119,7 +137,7 @@ ___
 
 #### Defined in
 
-[core/objekt.ts:281](https://github.com/siposdani87/sui-js/blob/1a445e5/src/core/objekt.ts#L281)
+[core/objekt.ts:281](https://github.com/siposdani87/sui-js/blob/3c5600c/src/core/objekt.ts#L281)
 
 ___
 
@@ -145,7 +163,7 @@ ___
 
 #### Defined in
 
-[core/objekt.ts:212](https://github.com/siposdani87/sui-js/blob/1a445e5/src/core/objekt.ts#L212)
+[core/objekt.ts:212](https://github.com/siposdani87/sui-js/blob/3c5600c/src/core/objekt.ts#L212)
 
 ___
 
@@ -170,7 +188,7 @@ ___
 
 #### Defined in
 
-[core/objekt.ts:291](https://github.com/siposdani87/sui-js/blob/1a445e5/src/core/objekt.ts#L291)
+[core/objekt.ts:291](https://github.com/siposdani87/sui-js/blob/3c5600c/src/core/objekt.ts#L291)
 
 ___
 
@@ -202,7 +220,7 @@ ___
 
 #### Defined in
 
-[core/objekt.ts:73](https://github.com/siposdani87/sui-js/blob/1a445e5/src/core/objekt.ts#L73)
+[core/objekt.ts:73](https://github.com/siposdani87/sui-js/blob/3c5600c/src/core/objekt.ts#L73)
 
 ___
 
@@ -220,7 +238,7 @@ ___
 
 #### Defined in
 
-[core/objekt.ts:265](https://github.com/siposdani87/sui-js/blob/1a445e5/src/core/objekt.ts#L265)
+[core/objekt.ts:265](https://github.com/siposdani87/sui-js/blob/3c5600c/src/core/objekt.ts#L265)
 
 ___
 
@@ -244,25 +262,7 @@ ___
 
 #### Defined in
 
-[core/objekt.ts:33](https://github.com/siposdani87/sui-js/blob/1a445e5/src/core/objekt.ts#L33)
-
-___
-
-### copyObject
-
-▸ **copyObject**(): `Object`
-
-#### Returns
-
-`Object`
-
-#### Inherited from
-
-[Objekt](Objekt.md).[copyObject](Objekt.md#purecopy)
-
-#### Defined in
-
-[core/objekt.ts:259](https://github.com/siposdani87/sui-js/blob/1a445e5/src/core/objekt.ts#L259)
+[core/objekt.ts:33](https://github.com/siposdani87/sui-js/blob/3c5600c/src/core/objekt.ts#L33)
 
 ___
 
@@ -286,7 +286,7 @@ ___
 
 #### Defined in
 
-[core/objekt.ts:171](https://github.com/siposdani87/sui-js/blob/1a445e5/src/core/objekt.ts#L171)
+[core/objekt.ts:171](https://github.com/siposdani87/sui-js/blob/3c5600c/src/core/objekt.ts#L171)
 
 ___
 
@@ -311,7 +311,7 @@ ___
 
 #### Defined in
 
-[core/objekt.ts:147](https://github.com/siposdani87/sui-js/blob/1a445e5/src/core/objekt.ts#L147)
+[core/objekt.ts:147](https://github.com/siposdani87/sui-js/blob/3c5600c/src/core/objekt.ts#L147)
 
 ___
 
@@ -337,4 +337,4 @@ ___
 
 #### Defined in
 
-[core/objekt.ts:158](https://github.com/siposdani87/sui-js/blob/1a445e5/src/core/objekt.ts#L158)
+[core/objekt.ts:158](https://github.com/siposdani87/sui-js/blob/3c5600c/src/core/objekt.ts#L158)

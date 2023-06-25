@@ -20,7 +20,7 @@ custom_edit_url: null
 
 #### Defined in
 
-[module/loader.ts:16](https://github.com/siposdani87/sui-js/blob/1a445e5/src/module/loader.ts#L16)
+[module/loader.ts:16](https://github.com/siposdani87/sui-js/blob/3c5600c/src/module/loader.ts#L16)
 
 ## Properties
 
@@ -30,7 +30,7 @@ custom_edit_url: null
 
 #### Defined in
 
-[module/loader.ts:11](https://github.com/siposdani87/sui-js/blob/1a445e5/src/module/loader.ts#L11)
+[module/loader.ts:11](https://github.com/siposdani87/sui-js/blob/3c5600c/src/module/loader.ts#L11)
 
 ___
 
@@ -40,7 +40,7 @@ ___
 
 #### Defined in
 
-[module/loader.ts:10](https://github.com/siposdani87/sui-js/blob/1a445e5/src/module/loader.ts#L10)
+[module/loader.ts:10](https://github.com/siposdani87/sui-js/blob/3c5600c/src/module/loader.ts#L10)
 
 ___
 
@@ -50,7 +50,7 @@ ___
 
 #### Defined in
 
-[module/loader.ts:12](https://github.com/siposdani87/sui-js/blob/1a445e5/src/module/loader.ts#L12)
+[module/loader.ts:12](https://github.com/siposdani87/sui-js/blob/3c5600c/src/module/loader.ts#L12)
 
 ## Methods
 
@@ -64,7 +64,7 @@ ___
 
 #### Defined in
 
-[module/loader.ts:35](https://github.com/siposdani87/sui-js/blob/1a445e5/src/module/loader.ts#L35)
+[module/loader.ts:35](https://github.com/siposdani87/sui-js/blob/3c5600c/src/module/loader.ts#L35)
 
 ___
 
@@ -84,7 +84,7 @@ ___
 
 #### Defined in
 
-[module/loader.ts:25](https://github.com/siposdani87/sui-js/blob/1a445e5/src/module/loader.ts#L25)
+[module/loader.ts:25](https://github.com/siposdani87/sui-js/blob/3c5600c/src/module/loader.ts#L25)
 
 ___
 
@@ -104,7 +104,7 @@ ___
 
 #### Defined in
 
-[module/loader.ts:59](https://github.com/siposdani87/sui-js/blob/1a445e5/src/module/loader.ts#L59)
+[module/loader.ts:59](https://github.com/siposdani87/sui-js/blob/3c5600c/src/module/loader.ts#L59)
 
 ___
 
@@ -118,4 +118,4 @@ ___
 
 #### Defined in
 
-[module/loader.ts:50](https://github.com/siposdani87/sui-js/blob/1a445e5/src/module/loader.ts#L50)
+[module/loader.ts:50](https://github.com/siposdani87/sui-js/blob/3c5600c/src/module/loader.ts#L50)

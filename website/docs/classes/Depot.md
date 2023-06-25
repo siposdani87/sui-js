@@ -21,7 +21,7 @@ custom_edit_url: null
 
 #### Defined in
 
-[module/depot.ts:16](https://github.com/siposdani87/sui-js/blob/1a445e5/src/module/depot.ts#L16)
+[module/depot.ts:16](https://github.com/siposdani87/sui-js/blob/3c5600c/src/module/depot.ts#L16)
 
 ## Properties
 
@@ -31,7 +31,7 @@ custom_edit_url: null
 
 #### Defined in
 
-[module/depot.ts:10](https://github.com/siposdani87/sui-js/blob/1a445e5/src/module/depot.ts#L10)
+[module/depot.ts:10](https://github.com/siposdani87/sui-js/blob/3c5600c/src/module/depot.ts#L10)
 
 ___
 
@@ -41,7 +41,7 @@ ___
 
 #### Defined in
 
-[module/depot.ts:11](https://github.com/siposdani87/sui-js/blob/1a445e5/src/module/depot.ts#L11)
+[module/depot.ts:11](https://github.com/siposdani87/sui-js/blob/3c5600c/src/module/depot.ts#L11)
 
 ___
 
@@ -51,7 +51,7 @@ ___
 
 #### Defined in
 
-[module/depot.ts:9](https://github.com/siposdani87/sui-js/blob/1a445e5/src/module/depot.ts#L9)
+[module/depot.ts:9](https://github.com/siposdani87/sui-js/blob/3c5600c/src/module/depot.ts#L9)
 
 ## Methods
 
@@ -65,7 +65,7 @@ ___
 
 #### Defined in
 
-[module/depot.ts:119](https://github.com/siposdani87/sui-js/blob/1a445e5/src/module/depot.ts#L119)
+[module/depot.ts:119](https://github.com/siposdani87/sui-js/blob/3c5600c/src/module/depot.ts#L119)
 
 ___
 
@@ -85,7 +85,7 @@ ___
 
 #### Defined in
 
-[module/depot.ts:158](https://github.com/siposdani87/sui-js/blob/1a445e5/src/module/depot.ts#L158)
+[module/depot.ts:158](https://github.com/siposdani87/sui-js/blob/3c5600c/src/module/depot.ts#L158)
 
 ___
 
@@ -105,7 +105,7 @@ ___
 
 #### Defined in
 
-[module/depot.ts:144](https://github.com/siposdani87/sui-js/blob/1a445e5/src/module/depot.ts#L144)
+[module/depot.ts:144](https://github.com/siposdani87/sui-js/blob/3c5600c/src/module/depot.ts#L144)
 
 ___
 
@@ -125,7 +125,7 @@ ___
 
 #### Defined in
 
-[module/depot.ts:64](https://github.com/siposdani87/sui-js/blob/1a445e5/src/module/depot.ts#L64)
+[module/depot.ts:64](https://github.com/siposdani87/sui-js/blob/3c5600c/src/module/depot.ts#L64)
 
 ___
 
@@ -145,7 +145,7 @@ ___
 
 #### Defined in
 
-[module/depot.ts:56](https://github.com/siposdani87/sui-js/blob/1a445e5/src/module/depot.ts#L56)
+[module/depot.ts:56](https://github.com/siposdani87/sui-js/blob/3c5600c/src/module/depot.ts#L56)
 
 ___
 
@@ -159,7 +159,7 @@ ___
 
 #### Defined in
 
-[module/depot.ts:43](https://github.com/siposdani87/sui-js/blob/1a445e5/src/module/depot.ts#L43)
+[module/depot.ts:43](https://github.com/siposdani87/sui-js/blob/3c5600c/src/module/depot.ts#L43)
 
 ___
 
@@ -179,7 +179,7 @@ ___
 
 #### Defined in
 
-[module/depot.ts:134](https://github.com/siposdani87/sui-js/blob/1a445e5/src/module/depot.ts#L134)
+[module/depot.ts:134](https://github.com/siposdani87/sui-js/blob/3c5600c/src/module/depot.ts#L134)
 
 ___
 
@@ -199,7 +199,7 @@ ___
 
 #### Defined in
 
-[module/depot.ts:30](https://github.com/siposdani87/sui-js/blob/1a445e5/src/module/depot.ts#L30)
+[module/depot.ts:30](https://github.com/siposdani87/sui-js/blob/3c5600c/src/module/depot.ts#L30)
 
 ___
 
@@ -213,7 +213,7 @@ ___
 
 #### Defined in
 
-[module/depot.ts:112](https://github.com/siposdani87/sui-js/blob/1a445e5/src/module/depot.ts#L112)
+[module/depot.ts:112](https://github.com/siposdani87/sui-js/blob/3c5600c/src/module/depot.ts#L112)
 
 ___
 
@@ -233,7 +233,7 @@ ___
 
 #### Defined in
 
-[module/depot.ts:89](https://github.com/siposdani87/sui-js/blob/1a445e5/src/module/depot.ts#L89)
+[module/depot.ts:89](https://github.com/siposdani87/sui-js/blob/3c5600c/src/module/depot.ts#L89)
 
 ___
 
@@ -253,7 +253,7 @@ ___
 
 #### Defined in
 
-[module/depot.ts:105](https://github.com/siposdani87/sui-js/blob/1a445e5/src/module/depot.ts#L105)
+[module/depot.ts:105](https://github.com/siposdani87/sui-js/blob/3c5600c/src/module/depot.ts#L105)
 
 ___
 
@@ -275,4 +275,4 @@ ___
 
 #### Defined in
 
-[module/depot.ts:75](https://github.com/siposdani87/sui-js/blob/1a445e5/src/module/depot.ts#L75)
+[module/depot.ts:75](https://github.com/siposdani87/sui-js/blob/3c5600c/src/module/depot.ts#L75)

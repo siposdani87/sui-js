@@ -14,7 +14,7 @@ custom_edit_url: null
 
 #### Defined in
 
-[module/scheduler.ts:11](https://github.com/siposdani87/sui-js/blob/1a445e5/src/module/scheduler.ts#L11)
+[module/scheduler.ts:11](https://github.com/siposdani87/sui-js/blob/3c5600c/src/module/scheduler.ts#L11)
 
 ## Properties
 
@@ -24,7 +24,7 @@ custom_edit_url: null
 
 #### Defined in
 
-[module/scheduler.ts:8](https://github.com/siposdani87/sui-js/blob/1a445e5/src/module/scheduler.ts#L8)
+[module/scheduler.ts:8](https://github.com/siposdani87/sui-js/blob/3c5600c/src/module/scheduler.ts#L8)
 
 ## Methods
 
@@ -38,7 +38,7 @@ custom_edit_url: null
 
 #### Defined in
 
-[module/scheduler.ts:20](https://github.com/siposdani87/sui-js/blob/1a445e5/src/module/scheduler.ts#L20)
+[module/scheduler.ts:20](https://github.com/siposdani87/sui-js/blob/3c5600c/src/module/scheduler.ts#L20)
 
 ___
 
@@ -59,4 +59,4 @@ ___
 
 #### Defined in
 
-[module/scheduler.ts:32](https://github.com/siposdani87/sui-js/blob/1a445e5/src/module/scheduler.ts#L32)
+[module/scheduler.ts:32](https://github.com/siposdani87/sui-js/blob/3c5600c/src/module/scheduler.ts#L32)
