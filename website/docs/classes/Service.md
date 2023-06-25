@@ -24,4 +24,4 @@ custom_edit_url: null
 
 #### Defined in
 
-[common/service.ts:8](https://github.com/siposdani87/sui-js/blob/1a445e5/src/common/service.ts#L8)
+[common/service.ts:8](https://github.com/siposdani87/sui-js/blob/3c5600c/src/common/service.ts#L8)
