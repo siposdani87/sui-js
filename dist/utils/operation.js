@@ -50,6 +50,7 @@ export const merge = (objA, objB) => {
     return obj;
 };
 /**
+ * @template T
  * @param {string} str
  * @param {!Object|!Array|null=} opt_params
  * @param {string=} opt_prefix
@@ -64,8 +65,9 @@ export const format = (str, opt_params = null, opt_prefix = '\\{', opt_postfix =
     return str;
 };
 /**
- * @param {*=} opt_result
- * @return {!Function}
+ * @template T
+ * @param {T=} opt_result
+ * @return {function():T}
  */
 export const noop = (opt_result) => () => {
     return opt_result;
@@ -107,10 +109,11 @@ export const lt = (a, b) => a < b;
  */
 export const lte = (a, b) => a <= b;
 /**
+ * @template T
  * @param {*} value
  * @return {boolean}
  */
-export const isArray = (value) => instanceOf(value, Array);
+export const isArray = (value) => Array.isArray(value);
 /**
  * @param {*} value
  * @return {boolean}
@@ -178,14 +181,16 @@ export const isUndefined = (value) => is(value, 'undefined');
  */
 export const is = (value, type) => typeof value === type;
 /**
+ * @template T
  * @param {*} value
- * @param {!Object} obj
+ * @param {T} obj
  * @return {boolean}
  */
 export const instanceOf = (value, obj) => value instanceof obj;
 /**
- * @param {!Array|!Object} items
- * @param {!Function} next
+ * @template T
+ * @param {!Array<T>|!Object} items
+ * @param {function(*, string|number):undefined} next
  * @param {number=} opt_start
  * @param {number=} opt_end
  * @return {undefined}
@@ -199,8 +204,9 @@ export const each = (items, next, opt_start, opt_end) => {
     }
 };
 /**
+ * @template T
  * @param {!Array} items
- * @param {!Function} next
+ * @param {function(T, number):undefined} next
  * @param {number=} opt_start
  * @param {number=} opt_end
  * @return {undefined}
@@ -214,7 +220,7 @@ export const eachArray = (items, next, opt_start, opt_end) => {
 };
 /**
  * @param {!Object} object
- * @param {!Function} next
+ * @param {function(*, string):undefined} next
  * @return {undefined}
  */
 export const eachObject = (object, next) => {
@@ -242,6 +248,7 @@ export const sleepEach = (next, i, length, duration) => {
     loop();
 };
 /**
+ * @template T
  * @param {!Array|!Object} items
  * @return {undefined}
  */
@@ -254,7 +261,8 @@ export const clear = (items) => {
     }
 };
 /**
- * @param {!Array} items
+ * @template T
+ * @param {!Array<T>} items
  * @return {undefined}
  */
 export const clearArray = (items) => {
@@ -272,8 +280,9 @@ export const clearObject = (items) => {
     }
 };
 /**
- * @param {!Array} items
- * @param {*} item
+ * @template T
+ * @param {!Array<T>} items
+ * @param {T} item
  * @return {boolean}
  */
 export const inArray = (items, item) => items.indexOf(item) !== -1;
@@ -315,8 +324,9 @@ export const isSame = (a, b) => {
     return eq(strA, strB);
 };
 /**
- * @param {!Array} items
- * @param {*} item
+ * @template T
+ * @param {!Array<T>} items
+ * @param {T} item
  * @return {undefined}
  */
 export const remove = (items, item) => {
@@ -326,8 +336,9 @@ export const remove = (items, item) => {
     }
 };
 /**
- * @param {!Array|!Object} items
- * @return {!Array|!Object|undefined}
+ * @template T
+ * @param {!Array<T>|!Object} items
+ * @return {!Array<T>|!Object|undefined}
  */
 export const copy = (items) => {
     let results;
@@ -340,6 +351,7 @@ export const copy = (items) => {
     return results;
 };
 /**
+ * @template T
  * @param {!Array} items
  * @return {!Array}
  */
@@ -378,7 +390,8 @@ export const copyObject = (item) => {
     return results;
 };
 /**
- * @param {!Array|!Object} items
+ * @template T
+ * @param {!Array<T>|!Object} items
  * @return {boolean}
  */
 export const isEmpty = (items) => {
@@ -397,8 +410,9 @@ export const isEmpty = (items) => {
 };
 /**
  * @deprecated
- * @param {!Array} args
- * @param {!Function} callback
+ * @template T
+ * @param {!Array<T>} args
+ * @param {function(*):undefined} callback
  * @return {undefined}
  */
 export const list = (args, callback) => {
@@ -410,9 +424,10 @@ export const list = (args, callback) => {
  */
 export const capitalize = (str) => str.charAt(0).toUpperCase() + str.slice(1);
 /**
- * @param {!Array} items
+ * @template T
+ * @param {!Array<T>} items
  * @param {string} attribute
- * @return {!Array}
+ * @return {!Array<T>}
  */
 export const pluck = (items, attribute) => {
     const results = [];
@@ -424,8 +439,8 @@ export const pluck = (items, attribute) => {
 };
 /**
  * @param {!Object} obj
- * @param {function(*, string)} condition
- * @return {!Array}
+ * @param {function(*, string):boolean} condition
+ * @return {!Array<string>}
  */
 export const pluckKeys = (obj, condition) => {
     const results = [];

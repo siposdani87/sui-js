@@ -132,14 +132,14 @@ export declare class SelectField extends BaseField<HTMLInputElement> {
      */
     private _getSelectedIds;
     /**
-     * @param {number} id
+     * @param {string} id
      * @return {undefined}
      * @private
      */
     private _handleSelectedId;
     /**
      * @private
-     * @param {!Array} items
+     * @param {!Array<Objekt>} items
      * @return {undefined}
      */
     private _drawKnots;

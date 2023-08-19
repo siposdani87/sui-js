@@ -208,7 +208,7 @@ export class GoogleMap {
      */
     updatePolygon(id, title, points, opt_polygonData = {}, opt_options = {}) {
         const polygonData = this.getPolygon(id);
-        each(this._cleanPolygonData(opt_polygonData), (value, key) => {
+        eachObject(this._cleanPolygonData(opt_polygonData), (value, key) => {
             polygonData.set(key, value);
         });
         const polygon = polygonData.get('_polygon');
@@ -225,7 +225,7 @@ export class GoogleMap {
      */
     _cleanPolygonData(polygonData) {
         const cleanData = new Objekt();
-        each(polygonData, (value, key) => {
+        eachObject(polygonData, (value, key) => {
             if (!inArray(['_polygon', '_map_label', '_bounds'], key)) {
                 cleanData.set(key, value);
             }
@@ -706,7 +706,7 @@ export class GoogleMap {
      */
     updateMarker(id, title, iconName, latitude, longitude, opt_markerData = {}, opt_options = {}) {
         const markerData = this.getMarker(id);
-        each(this._cleanMarkerData(opt_markerData), (value, key) => {
+        eachObject(this._cleanMarkerData(opt_markerData), (value, key) => {
             markerData.set(key, value);
         });
         const text = title.toString();
@@ -726,7 +726,7 @@ export class GoogleMap {
      */
     _cleanMarkerData(markerData) {
         const cleanData = new Objekt();
-        each(markerData, (value, key) => {
+        eachObject(markerData, (value, key) => {
             if (!inArray(['_marker', '_map_label'], key)) {
                 cleanData.set(key, value);
             }

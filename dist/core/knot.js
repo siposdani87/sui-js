@@ -1,4 +1,4 @@
-import { contain, each, eachArray, eq, isArray, isFunction, isInfinity, isString, isUndefined, noop, typeCast, } from '../utils/operation';
+import { contain, each, eachArray, eachObject, eq, isArray, isFunction, isInfinity, isString, isUndefined, noop, typeCast, } from '../utils/operation';
 import { consoleWarn } from '../utils/log';
 /**
  * @class
@@ -42,7 +42,7 @@ export class Knot {
      * @return {undefined}
      */
     merge(properties) {
-        each(properties, (value, attribute) => {
+        eachObject(properties, (value, attribute) => {
             this.set(attribute, value);
         });
     }
@@ -519,7 +519,7 @@ export class Knot {
      * @return {undefined}
      */
     setStyle(properties) {
-        each(properties, (value, propertyName) => {
+        eachObject(properties, (value, propertyName) => {
             this.node.style.setProperty(propertyName, value, '');
         });
     }

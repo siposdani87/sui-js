@@ -1,6 +1,6 @@
 /* eslint-disable no-useless-backreference */
 /* eslint-disable no-useless-escape */
-import { typeCast, each } from '../utils/operation';
+import { typeCast, eachArray } from '../utils/operation';
 import { Objekt } from '../core/objekt';
 /**
  * @class
@@ -122,7 +122,7 @@ export class Cookie {
         return regex.test(document.cookie);
     }
     /**
-     * @return {!Array}
+     * @return {!Array<string>}
      */
     getKeys() {
         const keys = document.cookie
@@ -138,7 +138,7 @@ export class Cookie {
      */
     clear() {
         const keys = this.getKeys();
-        each(keys, (key) => {
+        eachArray(keys, (key) => {
             this.remove(key);
         });
     }

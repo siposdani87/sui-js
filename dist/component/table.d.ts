@@ -8,7 +8,7 @@ import { Action } from '../utils';
 /**
  * @class
  */
-export declare class Table<T = Objekt> {
+export declare class Table<T extends Objekt = Objekt> {
     tableKnot: Knot;
     options: Objekt;
     collection: Collection<T>;
@@ -111,21 +111,21 @@ export declare class Table<T = Objekt> {
     private _getColumn;
     /**
      * @private
-     * @param {!Objekt} item
+     * @param {!T} item
      * @param {number} rowIndex
      * @return {undefined}
      */
     private _addHeaderRow;
     /**
      * @private
-     * @param {!Objekt} item
+     * @param {!T} item
      * @param {number} rowIndex
      * @return {!Array<string>}
      */
     private _getRowStyle;
     /**
      * @private
-     * @param {!Objekt} item
+     * @param {!T} item
      * @param {number} rowIndex
      * @return {undefined}
      */
@@ -137,7 +137,7 @@ export declare class Table<T = Objekt> {
     setActions(actions: Array<Action>): void;
     /**
      * @private
-     * @param {!Objekt} item
+     * @param {!T} item
      * @param {number} rowIndex
      * @param {string} column
      * @param {!Knot} parentKnot
@@ -157,21 +157,21 @@ export declare class Table<T = Objekt> {
     /**
      * @private
      * @param {!Knot} tableDataKnot
-     * @param {!Objekt} item
+     * @param {!T} item
      * @return {undefined}
      */
     private _renderActions;
     /**
      * @private
      * @param {!Knot} containerKnot
-     * @param {!Objekt} item
+     * @param {!T} item
      * @return {undefined}
      */
     private _renderActionKnots;
     /**
      * @private
      * @param {!Knot} dropDownKnot
-     * @param {!Objekt} item
+     * @param {!T} item
      * @return {undefined}
      */
     private _renderDropDownKnot;
@@ -179,7 +179,7 @@ export declare class Table<T = Objekt> {
      * @private
      * @param {!Knot} containerKnot
      * @param {{style: !Function, click: !Function}} action
-     * @param {!Objekt} item
+     * @param {!T} item
      * @return {undefined}
      */
     private _createActionButton;
@@ -195,7 +195,7 @@ export declare class Table<T = Objekt> {
     setCount(count: number): void;
     /**
      * @private
-     * @return {!Array}
+     * @return {!Array<T>}
      */
     private _getItems;
     /**

@@ -4,6 +4,7 @@
     "target": "ES2015",
     "moduleResolution": "Node",
     "declaration": true,
+    "strict": false,
     "outDir": "dist",
     "types": ["google.maps", "jest", "material-design-lite"],
     "lib": ["ESNext", "DOM"],

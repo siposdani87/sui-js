@@ -14,7 +14,7 @@ export class Dropdown {
     options: Objekt;
     collection: Collection<Objekt>;
     actions: Action[];
-    item: Object;
+    item: Objekt;
     buttonKnot: Knot;
     menuKnot: Knot;
     /**
@@ -85,11 +85,11 @@ export class Dropdown {
         this.dropdown.appendChild(this.menuKnot);
     }
     /**
-     * @param {!Array} actions
-     * @param {!Object} item
+     * @param {!Array<Action>} actions
+     * @param {!Objekt} item
      * @return {undefined}
      */
-    setActions(actions: Array<any>, item: Object): void {
+    setActions(actions: Array<Action>, item: Objekt): void {
         this.actions = actions;
         this.item = item;
         this._renderMenu();

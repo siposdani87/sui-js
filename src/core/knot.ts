@@ -2,6 +2,7 @@ import {
     contain,
     each,
     eachArray,
+    eachObject,
     eq,
     isArray,
     isFunction,
@@ -60,7 +61,7 @@ export class Knot<T extends HTMLElement = HTMLElement> {
      * @return {undefined}
      */
     merge(properties: Object): void {
-        each(properties, (value, attribute) => {
+        eachObject(properties, (value, attribute) => {
             this.set(attribute, value);
         });
     }
@@ -573,7 +574,7 @@ export class Knot<T extends HTMLElement = HTMLElement> {
      * @return {undefined}
      */
     setStyle(properties: Object): void {
-        each(properties, (value, propertyName) => {
+        eachObject(properties, (value, propertyName) => {
             this.node.style.setProperty(propertyName, value, '');
         });
     }

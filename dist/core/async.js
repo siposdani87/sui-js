@@ -1,4 +1,4 @@
-import { each, isUndefined, isFunction, eq } from '../utils/operation';
+import { isUndefined, isFunction, eq, eachArray } from '../utils/operation';
 import { consoleWarn } from '../utils/log';
 import { Deferred } from './deferred';
 /**
@@ -25,7 +25,7 @@ export class Async {
             this._clear();
         }
         else {
-            each(calls, (call, index) => {
+            eachArray(calls, (call, index) => {
                 this.call.results[index] = null;
                 this._parallelWrapper(call, calls.length, false, index, opt_args).defer(deferred);
             });

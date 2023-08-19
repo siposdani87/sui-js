@@ -73,8 +73,8 @@ export class Dropdown {
         this.dropdown.appendChild(this.menuKnot);
     }
     /**
-     * @param {!Array} actions
-     * @param {!Object} item
+     * @param {!Array<Action>} actions
+     * @param {!Objekt} item
      * @return {undefined}
      */
     setActions(actions, item) {

@@ -1,3 +1,4 @@
+import { Objekt } from '../core';
 /**
  * @param {*} value
  * @return {*}
@@ -10,148 +11,154 @@ export declare const typeCast: (value: any) => any;
  */
 export declare const merge: (objA: Object, objB: Object) => Object | undefined;
 /**
+ * @template T
  * @param {string} str
  * @param {!Object|!Array|null=} opt_params
  * @param {string=} opt_prefix
  * @param {string=} opt_postfix
  * @return {string}
  */
-export declare const format: (str: string, opt_params?: Object | Array<any> | null | undefined, opt_prefix?: string | undefined, opt_postfix?: string | undefined) => string;
+export declare const format: <T>(str: string, opt_params?: Object | T[], opt_prefix?: string | undefined, opt_postfix?: string | undefined) => string;
 /**
- * @param {*=} opt_result
- * @return {!Function}
+ * @template T
+ * @param {T=} opt_result
+ * @return {function():T}
  */
-export declare const noop: (opt_result?: any) => (() => any);
-/**
- * @param {*} a
- * @param {*} b
- * @return {boolean}
- */
-export declare const eq: (a: any, b: any) => boolean;
+export declare const noop: <T>(opt_result?: T) => () => T;
 /**
  * @param {*} a
  * @param {*} b
  * @return {boolean}
  */
-export declare const neq: (a: any, b: any) => boolean;
+export declare const eq: (a: unknown, b: unknown) => boolean;
 /**
  * @param {*} a
  * @param {*} b
  * @return {boolean}
  */
-export declare const gt: (a: any, b: any) => boolean;
+export declare const neq: (a: unknown, b: unknown) => boolean;
 /**
  * @param {*} a
  * @param {*} b
  * @return {boolean}
  */
-export declare const gte: (a: any, b: any) => boolean;
+export declare const gt: (a: unknown, b: unknown) => boolean;
 /**
  * @param {*} a
  * @param {*} b
  * @return {boolean}
  */
-export declare const lt: (a: any, b: any) => boolean;
+export declare const gte: (a: unknown, b: unknown) => boolean;
 /**
  * @param {*} a
  * @param {*} b
  * @return {boolean}
  */
-export declare const lte: (a: any, b: any) => boolean;
+export declare const lt: (a: unknown, b: unknown) => boolean;
+/**
+ * @param {*} a
+ * @param {*} b
+ * @return {boolean}
+ */
+export declare const lte: (a: unknown, b: unknown) => boolean;
+/**
+ * @template T
+ * @param {*} value
+ * @return {boolean}
+ */
+export declare const isArray: <T>(value: any) => value is T[];
 /**
  * @param {*} value
  * @return {boolean}
  */
-export declare const isArray: (value: any) => boolean;
+export declare const isFunction: (value: any) => value is Function;
 /**
  * @param {*} value
  * @return {boolean}
  */
-export declare const isFunction: (value: any) => boolean;
+export declare const isString: (value: any) => value is string;
 /**
  * @param {*} value
  * @return {boolean}
  */
-export declare const isString: (value: any) => boolean;
+export declare const isNumber: (value: any) => value is number;
 /**
  * @param {*} value
  * @return {boolean}
  */
-export declare const isNumber: (value: any) => boolean;
+export declare const isFloat: (value: any) => value is number;
 /**
  * @param {*} value
  * @return {boolean}
  */
-export declare const isFloat: (value: any) => boolean;
+export declare const isInteger: (value: any) => value is number;
 /**
  * @param {*} value
  * @return {boolean}
  */
-export declare const isInteger: (value: any) => boolean;
+export declare const isObject: (value: any) => value is Object;
 /**
  * @param {*} value
  * @return {boolean}
  */
-export declare const isObject: (value: any) => boolean;
+export declare const isPureObject: (value: any) => value is Object;
 /**
  * @param {*} value
  * @return {boolean}
  */
-export declare const isPureObject: (value: any) => boolean;
+export declare const isDate: (value: any) => value is Date;
 /**
  * @param {*} value
  * @return {boolean}
  */
-export declare const isDate: (value: any) => boolean;
+export declare const isNull: (value: any) => value is null;
 /**
  * @param {*} value
  * @return {boolean}
  */
-export declare const isNull: (value: any) => boolean;
+export declare const isInfinity: (value: any) => value is number;
 /**
  * @param {*} value
  * @return {boolean}
  */
-export declare const isInfinity: (value: any) => boolean;
-/**
- * @param {*} value
- * @return {boolean}
- */
-export declare const isUndefined: (value: any) => boolean;
+export declare const isUndefined: (value: any) => value is undefined;
 /**
  * @param {*} value
  * @param {string} type
  * @return {boolean}
  */
-export declare const is: (value: any, type: string) => boolean;
+export declare const is: (value: any, type: string) => value is string;
 /**
+ * @template T
  * @param {*} value
- * @param {!Object} obj
+ * @param {T} obj
  * @return {boolean}
  */
-export declare const instanceOf: (value: any, obj: Object) => boolean;
+export declare const instanceOf: <T>(value: any, obj: T) => boolean;
 /**
- * @param {!Array|!Object} items
- * @param {!Function} next
+ * @template T
+ * @param {!Array<T>|!Object} items
+ * @param {function(*, string|number):undefined} next
  * @param {number=} opt_start
  * @param {number=} opt_end
  * @return {undefined}
  */
-export declare const each: (items: Array<any> | Object, next: Function, opt_start?: number, opt_end?: number) => void;
+export declare const each: <T>(items: Object | T[], next: (item: any, key: string | number) => void, opt_start?: number, opt_end?: number) => void;
 /**
+ * @template T
  * @param {!Array} items
- * @param {!Function} next
+ * @param {function(T, number):undefined} next
  * @param {number=} opt_start
  * @param {number=} opt_end
  * @return {undefined}
  */
-export declare const eachArray: (items: Array<any>, next: Function, opt_start?: number | undefined, opt_end?: number | undefined) => void;
+export declare const eachArray: <T>(items: T[], next: (item: T, index: number) => void, opt_start?: number | undefined, opt_end?: number | undefined) => void;
 /**
  * @param {!Object} object
- * @param {!Function} next
+ * @param {function(*, string):undefined} next
  * @return {undefined}
  */
-export declare const eachObject: (object: Object, next: Function) => void;
+export declare const eachObject: (object: Object, next: (value: any, key: string) => void) => void;
 /**
  * @param {function(number):undefined} next
  * @param {number} i
@@ -161,26 +168,29 @@ export declare const eachObject: (object: Object, next: Function) => void;
  */
 export declare const sleepEach: (next: (_index: number) => void, i: number, length: number, duration: number) => void;
 /**
+ * @template T
  * @param {!Array|!Object} items
  * @return {undefined}
  */
-export declare const clear: (items: Array<any> | Object) => void;
+export declare const clear: <T>(items: Object | T[]) => void;
 /**
- * @param {!Array} items
+ * @template T
+ * @param {!Array<T>} items
  * @return {undefined}
  */
-export declare const clearArray: (items: Array<any>) => void;
+export declare const clearArray: <T>(items: T[]) => void;
 /**
  * @param {!Object} items
  * @return {undefined}
  */
 export declare const clearObject: (items: Object) => void;
 /**
- * @param {!Array} items
- * @param {*} item
+ * @template T
+ * @param {!Array<T>} items
+ * @param {T} item
  * @return {boolean}
  */
-export declare const inArray: (items: Array<any>, item: any) => boolean;
+export declare const inArray: <T>(items: T[], item: T) => boolean;
 /**
  * @param {string} str
  * @param {string} subStr
@@ -200,55 +210,61 @@ export declare const inContainArray: (items: Array<string>, item: string) => boo
  */
 export declare const isSame: (a: any, b: any) => boolean;
 /**
- * @param {!Array} items
- * @param {*} item
+ * @template T
+ * @param {!Array<T>} items
+ * @param {T} item
  * @return {undefined}
  */
-export declare const remove: (items: Array<any>, item: any) => void;
+export declare const remove: <T>(items: T[], item: T) => void;
 /**
- * @param {!Array|!Object} items
- * @return {!Array|!Object|undefined}
+ * @template T
+ * @param {!Array<T>|!Object} items
+ * @return {!Array<T>|!Object|undefined}
  */
-export declare const copy: (items: Array<any> | Object) => Array<any> | Object | undefined;
+export declare const copy: <T>(items: Object | T[]) => Object | T[];
 /**
+ * @template T
  * @param {!Array} items
  * @return {!Array}
  */
-export declare const copyArray: (items: Array<any>) => Array<any>;
+export declare const copyArray: <T>(items: T[]) => T[];
 /**
  * @param {!Object} item
  * @return {!Object}
  */
 export declare const copyObject: (item: Object) => Object;
 /**
- * @param {!Array|!Object} items
+ * @template T
+ * @param {!Array<T>|!Object} items
  * @return {boolean}
  */
-export declare const isEmpty: (items: Array<any> | Object) => boolean;
+export declare const isEmpty: <T>(items: Object | T[]) => boolean;
 /**
  * @deprecated
- * @param {!Array} args
- * @param {!Function} callback
+ * @template T
+ * @param {!Array<T>} args
+ * @param {function(*):undefined} callback
  * @return {undefined}
  */
-export declare const list: (args: Array<any>, callback: Function) => void;
+export declare const list: <T>(args: T[], callback: (...rest: T[]) => void) => void;
 /**
  * @param {string} str
  * @return {string}
  */
 export declare const capitalize: (str: string) => string;
 /**
- * @param {!Array} items
+ * @template T
+ * @param {!Array<T>} items
  * @param {string} attribute
- * @return {!Array}
+ * @return {!Array<T>}
  */
-export declare const pluck: (items: Array<any>, attribute: string) => Array<any>;
+export declare const pluck: <T extends Objekt>(items: T[], attribute: string) => T[];
 /**
  * @param {!Object} obj
- * @param {function(*, string)} condition
- * @return {!Array}
+ * @param {function(*, string):boolean} condition
+ * @return {!Array<string>}
  */
-export declare const pluckKeys: (obj: Object, condition: (_value: any, _key: string) => any) => Array<any>;
+export declare const pluckKeys: (obj: Object, condition: (value: any, key: string) => boolean) => Array<string>;
 /**
  * @param {number} x
  * @param {number} y
@@ -278,7 +294,7 @@ export declare const scrollIntoView: (selector: string, opt_behavior?: ScrollBeh
  * @param {boolean=} opt_immediate
  * @return {!Function}
  */
-export declare const debounce: (func: Function, opt_wait?: number | undefined, opt_immediate?: boolean | undefined) => (this: Window, ev: Event) => any;
+export declare const debounce: (func: Function, opt_wait?: number | undefined, opt_immediate?: boolean | undefined) => (this: Window, ev: Event) => void;
 /**
  * @param {string} url
  * @param {!Object=} opt_params

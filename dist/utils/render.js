@@ -1,5 +1,4 @@
 import { Knot } from '../core';
-// import { componentHandler } from 'material-design-lite';
 const componentHandler = window['componentHandler'];
 /**
  * @param {!Knot|!HTMLElement=} opt_node

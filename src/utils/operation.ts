@@ -1,3 +1,5 @@
+import { Objekt } from '../core';
+
 /**
  * @param {*} value
  * @return {*}
@@ -45,31 +47,33 @@ export const merge = (objA: Object, objB: Object): Object | undefined => {
 };
 
 /**
+ * @template T
  * @param {string} str
  * @param {!Object|!Array|null=} opt_params
  * @param {string=} opt_prefix
  * @param {string=} opt_postfix
  * @return {string}
  */
-export const format = (
+export const format = <T>(
     str: string,
-    opt_params: Object | Array<any> | null | undefined = null,
+    opt_params: Object | Array<T> | null | undefined = null,
     opt_prefix: string | undefined = '\\{',
     opt_postfix: string | undefined = '\\}',
 ): string => {
     each(opt_params, (value, key) => {
         const regex = new RegExp(opt_prefix + key + opt_postfix, 'gm');
-        str = str.replace(regex, value);
+        str = str.replace(regex, value as string);
     });
     return str;
 };
 
 /**
- * @param {*=} opt_result
- * @return {!Function}
+ * @template T
+ * @param {T=} opt_result
+ * @return {function():T}
  */
 export const noop =
-    (opt_result?: any): (() => any) =>
+    <T>(opt_result?: T): (() => T) =>
     () => {
         return opt_result;
     };
@@ -79,66 +83,69 @@ export const noop =
  * @param {*} b
  * @return {boolean}
  */
-export const eq = (a: any, b: any): boolean => a === b;
+export const eq = (a: unknown, b: unknown): boolean => a === b;
 
 /**
  * @param {*} a
  * @param {*} b
  * @return {boolean}
  */
-export const neq = (a: any, b: any): boolean => a !== b;
+export const neq = (a: unknown, b: unknown): boolean => a !== b;
 
 /**
  * @param {*} a
  * @param {*} b
  * @return {boolean}
  */
-export const gt = (a: any, b: any): boolean => a > b;
+export const gt = (a: unknown, b: unknown): boolean => a > b;
 
 /**
  * @param {*} a
  * @param {*} b
  * @return {boolean}
  */
-export const gte = (a: any, b: any): boolean => a >= b;
+export const gte = (a: unknown, b: unknown): boolean => a >= b;
 
 /**
  * @param {*} a
  * @param {*} b
  * @return {boolean}
  */
-export const lt = (a: any, b: any): boolean => a < b;
+export const lt = (a: unknown, b: unknown): boolean => a < b;
 
 /**
  * @param {*} a
  * @param {*} b
  * @return {boolean}
  */
-export const lte = (a: any, b: any): boolean => a <= b;
+export const lte = (a: unknown, b: unknown): boolean => a <= b;
+
+/**
+ * @template T
+ * @param {*} value
+ * @return {boolean}
+ */
+export const isArray = <T>(value: any): value is Array<T> =>
+    Array.isArray(value);
 
 /**
  * @param {*} value
  * @return {boolean}
  */
-export const isArray = (value: any): boolean => instanceOf(value, Array);
+export const isFunction = (value: any): value is Function =>
+    is(value, 'function');
 
 /**
  * @param {*} value
  * @return {boolean}
  */
-export const isFunction = (value: any): boolean => is(value, 'function');
+export const isString = (value: any): value is string => is(value, 'string');
 
 /**
  * @param {*} value
  * @return {boolean}
  */
-export const isString = (value: any): boolean => is(value, 'string');
-
-/**
- * @param {*} value
- * @return {boolean}
- */
-export const isNumber = (value: any): boolean =>
+export const isNumber = (value: any): value is number =>
     value !== null &&
     value !== '' &&
     !isNaN(value) &&
@@ -150,96 +157,104 @@ export const isNumber = (value: any): boolean =>
  * @param {*} value
  * @return {boolean}
  */
-export const isFloat = (value: any): boolean => parseFloat(value) === value;
+export const isFloat = (value: any): value is number =>
+    parseFloat(value) === value;
 
 /**
  * @param {*} value
  * @return {boolean}
  */
-export const isInteger = (value: any): boolean => parseInt(value, 10) === value;
+export const isInteger = (value: any): value is number =>
+    parseInt(value, 10) === value;
 
 /**
  * @param {*} value
  * @return {boolean}
  */
-export const isObject = (value: any): boolean => is(value, 'object');
+export const isObject = (value: any): value is Object => is(value, 'object');
 
 /**
  * @param {*} value
  * @return {boolean}
  */
-export const isPureObject = (value: any): boolean =>
+export const isPureObject = (value: any): value is Object =>
     !isNull(value) && !isDate(value) && !isArray(value) && isObject(value);
 
 /**
  * @param {*} value
  * @return {boolean}
  */
-export const isDate = (value: any): boolean => instanceOf(value, Date);
+export const isDate = (value: any): value is Date => instanceOf(value, Date);
 
 /**
  * @param {*} value
  * @return {boolean}
  */
-export const isNull = (value: any): boolean => value === null;
+export const isNull = (value: any): value is null => value === null;
 
 /**
  * @param {*} value
  * @return {boolean}
  */
-export const isInfinity = (value: any): boolean => value === Infinity;
+export const isInfinity = (value: any): value is typeof Infinity =>
+    value === Infinity;
 
 /**
  * @param {*} value
  * @return {boolean}
  */
-export const isUndefined = (value: any): boolean => is(value, 'undefined');
+export const isUndefined = (value: any): value is undefined =>
+    is(value, 'undefined');
 
 /**
  * @param {*} value
  * @param {string} type
  * @return {boolean}
  */
-export const is = (value: any, type: string): boolean => typeof value === type;
+export const is = (value: any, type: string): value is typeof type =>
+    typeof value === type;
 
 /**
+ * @template T
  * @param {*} value
- * @param {!Object} obj
+ * @param {T} obj
  * @return {boolean}
  */
-export const instanceOf = (value: any, obj: Object): boolean =>
+export const instanceOf = <T>(value: any, obj: T): boolean =>
     value instanceof (obj as any);
 
 /**
- * @param {!Array|!Object} items
- * @param {!Function} next
+ * @template T
+ * @param {!Array<T>|!Object} items
+ * @param {function(*, string|number):undefined} next
  * @param {number=} opt_start
  * @param {number=} opt_end
  * @return {undefined}
  */
-export const each = (
-    items: Array<any> | Object,
-    next: Function,
+export const each = <T>(
+    items: Array<T> | Object,
+    next: (item: any, key: string | number) => void,
     opt_start?: number,
     opt_end?: number,
 ): void => {
     if (isArray(items)) {
-        eachArray(items as Array<any>, next, opt_start, opt_end);
+        eachArray(items, next, opt_start, opt_end);
     } else if (isPureObject(items)) {
         eachObject(items, next);
     }
 };
 
 /**
+ * @template T
  * @param {!Array} items
- * @param {!Function} next
+ * @param {function(T, number):undefined} next
  * @param {number=} opt_start
  * @param {number=} opt_end
  * @return {undefined}
  */
-export const eachArray = (
-    items: Array<any>,
-    next: Function,
+export const eachArray = <T>(
+    items: Array<T>,
+    next: (item: T, index: number) => void,
     opt_start?: number | undefined,
     opt_end?: number | undefined,
 ): void => {
@@ -252,10 +267,13 @@ export const eachArray = (
 
 /**
  * @param {!Object} object
- * @param {!Function} next
+ * @param {function(*, string):undefined} next
  * @return {undefined}
  */
-export const eachObject = (object: Object, next: Function): void => {
+export const eachObject = (
+    object: Object,
+    next: (value: any, key: string) => void,
+): void => {
     for (const key in object) {
         if (object.hasOwnProperty(key)) {
             next(object[key], key);
@@ -287,22 +305,24 @@ export const sleepEach = (
 };
 
 /**
+ * @template T
  * @param {!Array|!Object} items
  * @return {undefined}
  */
-export const clear = (items: Array<any> | Object): void => {
+export const clear = <T>(items: Array<T> | Object): void => {
     if (isArray(items)) {
-        clearArray(items as Array<any>);
+        clearArray(items);
     } else if (isPureObject(items)) {
         clearObject(items);
     }
 };
 
 /**
- * @param {!Array} items
+ * @template T
+ * @param {!Array<T>} items
  * @return {undefined}
  */
-export const clearArray = (items: Array<any>): void => {
+export const clearArray = <T>(items: Array<T>): void => {
     items.splice(0, items.length);
 };
 
@@ -319,11 +339,12 @@ export const clearObject = (items: Object): void => {
 };
 
 /**
- * @param {!Array} items
- * @param {*} item
+ * @template T
+ * @param {!Array<T>} items
+ * @param {T} item
  * @return {boolean}
  */
-export const inArray = (items: Array<any>, item: any): boolean =>
+export const inArray = <T>(items: Array<T>, item: T): boolean =>
     items.indexOf(item) !== -1;
 
 /**
@@ -368,11 +389,12 @@ export const isSame = (a: any, b: any): boolean => {
 };
 
 /**
- * @param {!Array} items
- * @param {*} item
+ * @template T
+ * @param {!Array<T>} items
+ * @param {T} item
  * @return {undefined}
  */
-export const remove = (items: Array<any>, item: any): void => {
+export const remove = <T>(items: Array<T>, item: T): void => {
     const position = items.indexOf(item);
     if (neq(position, -1)) {
         items.splice(position, 1);
@@ -380,30 +402,32 @@ export const remove = (items: Array<any>, item: any): void => {
 };
 
 /**
- * @param {!Array|!Object} items
- * @return {!Array|!Object|undefined}
+ * @template T
+ * @param {!Array<T>|!Object} items
+ * @return {!Array<T>|!Object|undefined}
  */
-export const copy = (
-    items: Array<any> | Object,
-): Array<any> | Object | undefined => {
+export const copy = <T>(
+    items: Array<T> | Object,
+): Array<T> | Object | undefined => {
     let results;
     if (isArray(items)) {
-        results = copyArray(items as Array<any>);
+        results = copyArray(items);
     } else if (isPureObject(items)) {
-        results = copyObject(items as Object);
+        results = copyObject(items);
     }
     return results;
 };
 
 /**
+ * @template T
  * @param {!Array} items
  * @return {!Array}
  */
-export const copyArray = (items: Array<any>): Array<any> => {
+export const copyArray = <T>(items: Array<T>): Array<T> => {
     const results = [];
     eachArray(items, (item, index) => {
         if (isArray(item)) {
-            results[index] = copyArray(item as Array<any>);
+            results[index] = copyArray(item);
         } else if (isPureObject(item)) {
             results[index] = copyObject(item);
         } else {
@@ -421,7 +445,7 @@ export const copyObject = (item: Object): Object => {
     const results = {};
     eachObject(item, (value, key) => {
         if (isArray(value)) {
-            results[key] = copyArray(value as Array<any>);
+            results[key] = copyArray(value);
         } else if (isPureObject(value)) {
             results[key] = copyObject(value);
         } else {
@@ -432,13 +456,14 @@ export const copyObject = (item: Object): Object => {
 };
 
 /**
- * @param {!Array|!Object} items
+ * @template T
+ * @param {!Array<T>|!Object} items
  * @return {boolean}
  */
-export const isEmpty = (items: Array<any> | Object): boolean => {
+export const isEmpty = <T>(items: Array<T> | Object): boolean => {
     let result = false;
     if (isArray(items)) {
-        result = (items as Array<any>).length === 0;
+        result = items.length === 0;
     } else if (isPureObject(items)) {
         let counter = 0;
         each(items, () => {
@@ -451,11 +476,15 @@ export const isEmpty = (items: Array<any> | Object): boolean => {
 
 /**
  * @deprecated
- * @param {!Array} args
- * @param {!Function} callback
+ * @template T
+ * @param {!Array<T>} args
+ * @param {function(*):undefined} callback
  * @return {undefined}
  */
-export const list = (args: Array<any>, callback: Function): void => {
+export const list = <T>(
+    args: Array<T>,
+    callback: (...rest: T[]) => void,
+): void => {
     callback(...args);
 };
 
@@ -467,11 +496,15 @@ export const capitalize = (str: string): string =>
     str.charAt(0).toUpperCase() + str.slice(1);
 
 /**
- * @param {!Array} items
+ * @template T
+ * @param {!Array<T>} items
  * @param {string} attribute
- * @return {!Array}
+ * @return {!Array<T>}
  */
-export const pluck = (items: Array<any>, attribute: string): Array<any> => {
+export const pluck = <T extends Objekt>(
+    items: Array<T>,
+    attribute: string,
+): Array<T> => {
     const results = [];
     eachArray(items, (item) => {
         const result = item.get(attribute);
@@ -482,13 +515,13 @@ export const pluck = (items: Array<any>, attribute: string): Array<any> => {
 
 /**
  * @param {!Object} obj
- * @param {function(*, string)} condition
- * @return {!Array}
+ * @param {function(*, string):boolean} condition
+ * @return {!Array<string>}
  */
 export const pluckKeys = (
     obj: Object,
-    condition: (_value: any, _key: string) => any,
-): Array<any> => {
+    condition: (value: any, key: string) => boolean,
+): Array<string> => {
     const results = [];
     eachObject(obj, (value, key) => {
         if (condition(value, key)) {
@@ -580,9 +613,9 @@ export const debounce = (
     func: Function,
     opt_wait: number | undefined = 250,
     opt_immediate: boolean | undefined = false,
-): ((this: Window, ev: Event) => any) => {
+): ((this: Window, ev: Event) => void) => {
     let timeout: number;
-    return (...args): any => {
+    return (...args) => {
         const later = () => {
             timeout = null;
             if (!opt_immediate) func(...args);

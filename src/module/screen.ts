@@ -228,6 +228,9 @@ export class Screen {
      * @return {boolean}
      */
     isColorScheme(type: string): boolean {
-        return window.matchMedia?.(`(prefers-color-scheme: ${type})`)?.matches ?? false;
+        return (
+            window.matchMedia?.(`(prefers-color-scheme: ${type})`)?.matches ??
+            false
+        );
     }
 }

@@ -1,4 +1,4 @@
-import { each, instanceOf, isUndefined, clear, eq, pluck, } from '../utils/operation';
+import { each, instanceOf, isUndefined, clear, eq, pluck, eachArray, } from '../utils/operation';
 import { Objekt } from './objekt';
 /**
  * @class
@@ -50,7 +50,7 @@ export class Collection {
      * @return {T}
      */
     push(object) {
-        const item = this._createKnot(object);
+        const item = this._createItem(object);
         this.items.push(item);
         return item;
     }
@@ -59,7 +59,7 @@ export class Collection {
      * @param {!Object|!T} object
      * @return {T}
      */
-    _createKnot(object) {
+    _createItem(object) {
         if (!instanceOf(object, this.Type)) {
             const parent = !isUndefined(this.options.parent)
                 ? this.options.parent
@@ -74,7 +74,7 @@ export class Collection {
      * @return {T}
      */
     set(index, object) {
-        const item = this._createKnot(object);
+        const item = this._createItem(object);
         if (index < this.size()) {
             this.items[index] = item;
         }
@@ -88,7 +88,7 @@ export class Collection {
      * @return {!T}
      */
     replace(object) {
-        const item = this._createKnot(object);
+        const item = this._createItem(object);
         if (item && instanceOf(item, Objekt)) {
             const id = item.get(this.options.id);
             const oldKnot = this.findById(id);
@@ -114,7 +114,7 @@ export class Collection {
     iterator(callback, next, opt_items) {
         opt_items = opt_items || this.items;
         const results = [];
-        each(opt_items, (item, index) => {
+        eachArray(opt_items, (item, index) => {
             if (callback(item)) {
                 next(item, index);
                 results.push(item);
@@ -200,7 +200,7 @@ export class Collection {
      * @return {!Array<T>}
      */
     findAllBy(attribute, value) {
-        return this.findAllByCondition((item, i) => {
+        return this.findAllByCondition((_item, i) => {
             return this.get(i, attribute) === value;
         });
     }
@@ -210,7 +210,7 @@ export class Collection {
      */
     findAllByCondition(conditionCallback) {
         const items = [];
-        each(this.items, (item, i) => {
+        eachArray(this.items, (item, i) => {
             if (conditionCallback(item, i)) {
                 items.push(this.get(i));
             }
@@ -273,7 +273,7 @@ export class Collection {
     deleteAllByCondition(conditionCallback) {
         const items = [];
         const deletedKnots = [];
-        each(this.items, (item, i) => {
+        eachArray(this.items, (item, i) => {
             if (conditionCallback(item, i)) {
                 deletedKnots.push(this.get(i));
             }

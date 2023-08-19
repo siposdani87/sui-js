@@ -6,6 +6,7 @@ import {
     clear,
     eq,
     pluck,
+    eachArray,
 } from '../utils/operation';
 import { Objekt } from './objekt';
 
@@ -23,7 +24,7 @@ export class Collection<T extends Object = Objekt> {
      * @param {!Object=} opt_options
      */
     constructor(
-        opt_items: Array<any> | undefined = [],
+        opt_items: Array<T> | undefined = [],
         opt_type: any = Objekt,
         opt_options: Object = {},
     ) {
@@ -66,7 +67,7 @@ export class Collection<T extends Object = Objekt> {
      * @return {T}
      */
     push(object: Object | T): T {
-        const item = this._createKnot(object);
+        const item = this._createItem(object);
         this.items.push(item);
         return item;
     }
@@ -75,7 +76,7 @@ export class Collection<T extends Object = Objekt> {
      * @param {!Object|!T} object
      * @return {T}
      */
-    private _createKnot(object: Object | T): T {
+    private _createItem(object: Object | T): T {
         if (!instanceOf(object, this.Type)) {
             const parent = !isUndefined(this.options.parent)
                 ? this.options.parent
@@ -90,7 +91,7 @@ export class Collection<T extends Object = Objekt> {
      * @return {T}
      */
     set(index: number, object: Object | T): T {
-        const item = this._createKnot(object);
+        const item = this._createItem(object);
         if (index < this.size()) {
             this.items[index] = item;
         } else {
@@ -103,7 +104,7 @@ export class Collection<T extends Object = Objekt> {
      * @return {!T}
      */
     replace(object: Object | T): T | null {
-        const item = this._createKnot(object);
+        const item = this._createItem(object);
         if (item && instanceOf(item, Objekt)) {
             const id = (item as any as Objekt).get<Id>(this.options.id);
             const oldKnot = this.findById(id);
@@ -127,13 +128,13 @@ export class Collection<T extends Object = Objekt> {
      * @return {!Array<T>}
      */
     iterator(
-        callback: (_item: T) => any,
-        next: (_item: T, _index: number) => any,
+        callback: (_item: T) => boolean,
+        next: (_item: T, _index: number) => void,
         opt_items?: Array<T> | undefined,
     ): Array<T> {
         opt_items = opt_items || this.items;
         const results = [];
-        each(opt_items, (item, index) => {
+        eachArray(opt_items, (item, index) => {
             if (callback(item)) {
                 next(item, index);
                 results.push(item);
@@ -145,7 +146,7 @@ export class Collection<T extends Object = Objekt> {
      * @param {function(T, number)} next
      * @return {undefined}
      */
-    each(next: (_item: T, _index: number) => any): void {
+    each(next: (_item: T, _index: number) => void): void {
         this.iterator(() => {
             return true;
         }, next);
@@ -222,7 +223,7 @@ export class Collection<T extends Object = Objekt> {
      * @return {!Array<T>}
      */
     findAllBy(attribute: string, value: any): Array<T> {
-        return this.findAllByCondition((item, i) => {
+        return this.findAllByCondition((_item, i) => {
             return this.get(i, attribute) === value;
         });
     }
@@ -232,7 +233,7 @@ export class Collection<T extends Object = Objekt> {
      */
     findAllByCondition(conditionCallback: Function): Array<T> {
         const items = [];
-        each(this.items, (item, i) => {
+        eachArray(this.items, (item, i) => {
             if (conditionCallback(item, i)) {
                 items.push(this.get(i));
             }
@@ -295,7 +296,7 @@ export class Collection<T extends Object = Objekt> {
     deleteAllByCondition(conditionCallback: Function): Array<T> {
         const items = [];
         const deletedKnots = [];
-        each(this.items, (item, i) => {
+        eachArray(this.items, (item, i) => {
             if (conditionCallback(item, i)) {
                 deletedKnots.push(this.get(i));
             } else {
@@ -324,6 +325,6 @@ export class Collection<T extends Object = Objekt> {
      * @return {!Array<T>}
      */
     pluck(attribute: string): Array<T> {
-        return pluck(this.items, attribute);
+        return pluck(this.items as any[], attribute);
     }
 }
