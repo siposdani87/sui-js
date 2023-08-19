@@ -304,7 +304,7 @@ export class GoogleMap {
         opt_options: Object | undefined = {},
     ): void {
         const polygonData = this.getPolygon(id);
-        each(this._cleanPolygonData(opt_polygonData), (value, key) => {
+        eachObject(this._cleanPolygonData(opt_polygonData), (value, key) => {
             polygonData.set(key, value);
         });
 
@@ -326,7 +326,7 @@ export class GoogleMap {
      */
     private _cleanPolygonData(polygonData: Object): Objekt {
         const cleanData = new Objekt();
-        each(polygonData, (value, key) => {
+        eachObject(polygonData, (value, key) => {
             if (!inArray(['_polygon', '_map_label', '_bounds'], key)) {
                 cleanData.set(key, value);
             }
@@ -976,7 +976,7 @@ export class GoogleMap {
         opt_options: Object | undefined = {},
     ): void {
         const markerData = this.getMarker(id);
-        each(this._cleanMarkerData(opt_markerData), (value, key) => {
+        eachObject(this._cleanMarkerData(opt_markerData), (value, key) => {
             markerData.set(key, value);
         });
         const text = title.toString();
@@ -998,7 +998,7 @@ export class GoogleMap {
      */
     private _cleanMarkerData(markerData: Object): Objekt {
         const cleanData = new Objekt();
-        each(markerData, (value, key) => {
+        eachObject(markerData, (value, key) => {
             if (!inArray(['_marker', '_map_label'], key)) {
                 cleanData.set(key, value);
             }

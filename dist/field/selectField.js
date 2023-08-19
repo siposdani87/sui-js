@@ -1,4 +1,4 @@
-import { isArray, eq, format, each, neq, inArray, clear, remove, } from '../utils/operation';
+import { isArray, eq, format, neq, inArray, clear, remove, eachArray, } from '../utils/operation';
 import { BaseField } from './baseField';
 import { Popup } from '../component/popup';
 import { Collection } from '../core/collection';
@@ -198,7 +198,7 @@ export class SelectField extends BaseField {
                 optionKnot.remove();
             }
         });
-        each(items, (item) => {
+        eachArray(items, (item) => {
             const value = item.get(opt_value);
             const name = item.get(opt_name);
             let image = '';
@@ -258,7 +258,7 @@ export class SelectField extends BaseField {
      */
     _setMultipleTag(ids) {
         const options = [];
-        each(ids, (id) => {
+        eachArray(ids, (id) => {
             const option = this.options.findById(id);
             if (option) {
                 options.push(option);
@@ -284,7 +284,7 @@ export class SelectField extends BaseField {
             tags = [tags];
         }
         this.selectKnot.removeChildren();
-        each(tags, (tag) => {
+        eachArray(tags, (tag) => {
             const tagKnot = new Knot('div');
             tagKnot.addClass('field-tag');
             tagKnot.setHtml(tag.get('name'));
@@ -346,7 +346,7 @@ export class SelectField extends BaseField {
         return ids.length === 0 ? [''] : ids;
     }
     /**
-     * @param {number} id
+     * @param {string} id
      * @return {undefined}
      * @private
      */
@@ -380,13 +380,13 @@ export class SelectField extends BaseField {
     }
     /**
      * @private
-     * @param {!Array} items
+     * @param {!Array<Objekt>} items
      * @return {undefined}
      */
     _drawKnots(items) {
         this.listKnot.removeChildren();
         const ids = this._getSelectedIds();
-        each(items, (item) => {
+        eachArray(items, (item) => {
             const id = item.get('id');
             const listKnot = new Knot('a');
             listKnot.setAttribute('href', 'javascript:void(0)');

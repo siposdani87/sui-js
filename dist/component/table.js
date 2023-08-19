@@ -1,4 +1,4 @@
-import { eq, inArray, contain, format, isFunction, isArray, each, eachArray, instanceOf, } from '../utils/operation';
+import { eq, inArray, contain, format, isFunction, isArray, eachArray, instanceOf, } from '../utils/operation';
 import { Collection } from '../core/collection';
 import { Knot } from '../core/knot';
 import { Objekt } from '../core/objekt';
@@ -303,7 +303,7 @@ export class Table {
     }
     /**
      * @private
-     * @param {!Objekt} item
+     * @param {!T} item
      * @param {number} rowIndex
      * @return {undefined}
      */
@@ -327,7 +327,7 @@ export class Table {
     }
     /**
      * @private
-     * @param {!Objekt} item
+     * @param {!T} item
      * @param {number} rowIndex
      * @return {!Array<string>}
      */
@@ -346,7 +346,7 @@ export class Table {
     }
     /**
      * @private
-     * @param {!Objekt} item
+     * @param {!T} item
      * @param {number} rowIndex
      * @return {undefined}
      */
@@ -355,7 +355,7 @@ export class Table {
         const cssClasses = this._getRowStyle(item, rowIndex);
         tableRow.addClass(['data'].concat(cssClasses));
         this.tbody.appendChild(tableRow);
-        each(this.options.columns, (column, columnIndex) => {
+        eachArray(this.options.columns, (column, columnIndex) => {
             const tableDataKnot = new Knot('td');
             tableRow.appendChild(tableDataKnot);
             this._renderDataKnot(tableDataKnot, item, rowIndex, column, columnIndex);
@@ -370,7 +370,7 @@ export class Table {
     }
     /**
      * @private
-     * @param {!Objekt} item
+     * @param {!T} item
      * @param {number} rowIndex
      * @param {string} column
      * @param {!Knot} parentKnot
@@ -431,7 +431,7 @@ export class Table {
     /**
      * @private
      * @param {!Knot} tableDataKnot
-     * @param {!Objekt} item
+     * @param {!T} item
      * @return {undefined}
      */
     _renderActions(tableDataKnot, item) {
@@ -449,18 +449,18 @@ export class Table {
     /**
      * @private
      * @param {!Knot} containerKnot
-     * @param {!Objekt} item
+     * @param {!T} item
      * @return {undefined}
      */
     _renderActionKnots(containerKnot, item) {
-        each(this.actions, (action) => {
+        eachArray(this.actions, (action) => {
             this._createActionButton(containerKnot, action, item);
         });
     }
     /**
      * @private
      * @param {!Knot} dropDownKnot
-     * @param {!Objekt} item
+     * @param {!T} item
      * @return {undefined}
      */
     _renderDropDownKnot(dropDownKnot, item) {
@@ -471,7 +471,7 @@ export class Table {
      * @private
      * @param {!Knot} containerKnot
      * @param {{style: !Function, click: !Function}} action
-     * @param {!Objekt} item
+     * @param {!T} item
      * @return {undefined}
      */
     _createActionButton(containerKnot, action, item) {
@@ -527,7 +527,7 @@ export class Table {
     }
     /**
      * @private
-     * @return {!Array}
+     * @return {!Array<T>}
      */
     _getItems() {
         let items = this.collection.getItems();
@@ -542,7 +542,7 @@ export class Table {
      */
     _draw() {
         this.tbody.removeChildren();
-        each(this._getItems(), (item, rowIndex) => {
+        eachArray(this._getItems(), (item, rowIndex) => {
             this._addHeaderRow(item, rowIndex);
             this._addRow(item, rowIndex);
         });

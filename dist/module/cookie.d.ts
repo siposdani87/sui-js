@@ -55,9 +55,9 @@ export declare class Cookie {
      */
     hasKey(name: string): boolean;
     /**
-     * @return {!Array}
+     * @return {!Array<string>}
      */
-    getKeys(): Array<any>;
+    getKeys(): Array<string>;
     /**
      * @return {undefined}
      */

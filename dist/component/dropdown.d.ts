@@ -10,7 +10,7 @@ export declare class Dropdown {
     options: Objekt;
     collection: Collection<Objekt>;
     actions: Action[];
-    item: Object;
+    item: Objekt;
     buttonKnot: Knot;
     menuKnot: Knot;
     /**
@@ -40,11 +40,11 @@ export declare class Dropdown {
      */
     private _appendMenu;
     /**
-     * @param {!Array} actions
-     * @param {!Object} item
+     * @param {!Array<Action>} actions
+     * @param {!Objekt} item
      * @return {undefined}
      */
-    setActions(actions: Array<any>, item: Object): void;
+    setActions(actions: Array<Action>, item: Objekt): void;
     /**
      * @private
      * @return {undefined}

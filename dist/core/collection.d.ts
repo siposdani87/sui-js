@@ -13,7 +13,7 @@ export declare class Collection<T extends Object = Objekt> {
      * @param {!Function=} opt_type
      * @param {!Object=} opt_options
      */
-    constructor(opt_items?: Array<any> | undefined, opt_type?: any, opt_options?: Object);
+    constructor(opt_items?: Array<T> | undefined, opt_type?: any, opt_options?: Object);
     /**
      * @private
      * @param {!Object=} opt_options
@@ -40,7 +40,7 @@ export declare class Collection<T extends Object = Objekt> {
      * @param {!Object|!T} object
      * @return {T}
      */
-    private _createKnot;
+    private _createItem;
     /**
      * @param {number} index
      * @param {!Object|!T} object
@@ -62,12 +62,12 @@ export declare class Collection<T extends Object = Objekt> {
      * @param {!Array<T>=} opt_items
      * @return {!Array<T>}
      */
-    iterator(callback: (_item: T) => any, next: (_item: T, _index: number) => any, opt_items?: Array<T> | undefined): Array<T>;
+    iterator(callback: (_item: T) => boolean, next: (_item: T, _index: number) => void, opt_items?: Array<T> | undefined): Array<T>;
     /**
      * @param {function(T, number)} next
      * @return {undefined}
      */
-    each(next: (_item: T, _index: number) => any): void;
+    each(next: (_item: T, _index: number) => void): void;
     /**
      * @template K
      * @param {number} index

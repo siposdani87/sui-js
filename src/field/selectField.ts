@@ -2,11 +2,11 @@ import {
     isArray,
     eq,
     format,
-    each,
     neq,
     inArray,
     clear,
     remove,
+    eachArray,
 } from '../utils/operation';
 import { BaseField } from './baseField';
 import { Popup } from '../component/popup';
@@ -251,9 +251,9 @@ export class SelectField extends BaseField<HTMLInputElement> {
             }
         });
 
-        each(items, (item) => {
+        eachArray(items, (item) => {
             const value = item.get(opt_value);
-            const name = item.get(opt_name);
+            const name = item.get<string>(opt_name);
             let image = '';
             if (opt_image) {
                 image = item.get(opt_image);
@@ -311,7 +311,7 @@ export class SelectField extends BaseField<HTMLInputElement> {
      */
     private _setMultipleTag(ids: Array<string>): void {
         const options = [];
-        each(ids, (id) => {
+        eachArray(ids, (id) => {
             const option = this.options.findById(id);
             if (option) {
                 options.push(option);
@@ -332,11 +332,11 @@ export class SelectField extends BaseField<HTMLInputElement> {
      */
     private _setTags(tags: Array<Objekt> | Objekt) {
         if (!isArray(tags)) {
-            tags = [tags as Objekt];
+            tags = [tags];
         }
         this.selectKnot.removeChildren();
 
-        each(tags, (tag) => {
+        eachArray(tags, (tag) => {
             const tagKnot = new Knot('div');
             tagKnot.addClass('field-tag');
             tagKnot.setHtml(tag.get('name'));
@@ -347,7 +347,7 @@ export class SelectField extends BaseField<HTMLInputElement> {
             }
             this.selectKnot.appendChild(tagKnot);
 
-            const id = tag.get('id');
+            const id = tag.get<string>('id');
             if (neq(id, '') && this.isEnabled()) {
                 const iconKnot = new Knot('a');
                 iconKnot.setAttribute('href', 'javascript:void(0)');
@@ -400,11 +400,11 @@ export class SelectField extends BaseField<HTMLInputElement> {
         return ids.length === 0 ? [''] : ids;
     }
     /**
-     * @param {number} id
+     * @param {string} id
      * @return {undefined}
      * @private
      */
-    private _handleSelectedId(id: number): void {
+    private _handleSelectedId(id: string): void {
         let ids = this._getSelectedIds();
         if (this.isMultiple()) {
             if (eq(id, '') || eq(ids[0], '')) {
@@ -431,14 +431,14 @@ export class SelectField extends BaseField<HTMLInputElement> {
     }
     /**
      * @private
-     * @param {!Array} items
+     * @param {!Array<Objekt>} items
      * @return {undefined}
      */
-    private _drawKnots(items: Array<any>): void {
+    private _drawKnots(items: Array<Objekt>): void {
         this.listKnot.removeChildren();
         const ids = this._getSelectedIds();
-        each(items, (item) => {
-            const id = item.get('id');
+        eachArray(items, (item) => {
+            const id = item.get<string>('id');
             const listKnot = new Knot('a');
             listKnot.setAttribute('href', 'javascript:void(0)');
             if (inArray(ids, id)) {
@@ -456,7 +456,7 @@ export class SelectField extends BaseField<HTMLInputElement> {
                 listKnot.appendChild(imageKnot);
             }
 
-            const name = item.get('name');
+            const name = item.get<string>('name');
             const nameKnot = new Knot('span');
             nameKnot.setHtml(name);
             listKnot.appendChild(nameKnot);
@@ -523,7 +523,7 @@ export class SelectField extends BaseField<HTMLInputElement> {
         this.searchInputKnot.set('value', query);
 
         const regExp = new RegExp(query, 'i');
-        const items = [];
+        const items: Objekt[] = [];
         this.options.each((option) => {
             const name = option.get<string>('name');
             if (regExp.test(name)) {

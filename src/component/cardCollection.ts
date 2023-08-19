@@ -1,4 +1,4 @@
-import { contain, each, format } from '../utils/operation';
+import { contain, eachArray, format } from '../utils/operation';
 import { Collection } from '../core/collection';
 import { Knot } from '../core/knot';
 import { Objekt } from '../core/objekt';
@@ -134,7 +134,7 @@ export class CardCollection {
         const regex = new RegExp('{{[a-zA-Z._,() ]*}}', 'g');
         const matches = this.template.match(regex);
         let cloneTemplate = this.template;
-        each(matches, (match) => {
+        eachArray(matches, (match) => {
             const expression = match.replace('{{', '').replace('}}', '');
             if (contain(expression, 'ctrl.')) {
                 const paramsRegex = new RegExp('(([a-zA-Z._, ]*))', 'g');
@@ -142,7 +142,7 @@ export class CardCollection {
                 const fnName = expressionMatches[0].replace('ctrl.', '');
                 const fnKeys = expressionMatches[2].split(', ');
                 const fnParams = [];
-                each(fnKeys, (key) => {
+                eachArray(fnKeys, (key) => {
                     if (key === 'item') {
                         fnParams.push(item);
                     } else {
@@ -251,7 +251,7 @@ export class CardCollection {
      */
     private _draw(): void {
         this.body.removeChildren();
-        each(this._getItems(), (item) => {
+        eachArray(this._getItems(), (item) => {
             this._addCard(item);
         });
         mdl(this.body);
