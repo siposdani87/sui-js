@@ -20,7 +20,7 @@ custom_edit_url: null
 
 #### Defined in
 
-[module/header.ts:22](https://github.com/siposdani87/sui-js/blob/3c5600c/src/module/header.ts#L22)
+[module/header.ts:22](https://github.com/siposdani87/sui-js/blob/4b75724/src/module/header.ts#L22)
 
 ## Properties
 
@@ -30,7 +30,7 @@ custom_edit_url: null
 
 #### Defined in
 
-[module/header.ts:14](https://github.com/siposdani87/sui-js/blob/3c5600c/src/module/header.ts#L14)
+[module/header.ts:14](https://github.com/siposdani87/sui-js/blob/4b75724/src/module/header.ts#L14)
 
 ___
 
@@ -40,7 +40,7 @@ ___
 
 #### Defined in
 
-[module/header.ts:15](https://github.com/siposdani87/sui-js/blob/3c5600c/src/module/header.ts#L15)
+[module/header.ts:15](https://github.com/siposdani87/sui-js/blob/4b75724/src/module/header.ts#L15)
 
 ___
 
@@ -50,7 +50,7 @@ ___
 
 #### Defined in
 
-[module/header.ts:16](https://github.com/siposdani87/sui-js/blob/3c5600c/src/module/header.ts#L16)
+[module/header.ts:16](https://github.com/siposdani87/sui-js/blob/4b75724/src/module/header.ts#L16)
 
 ___
 
@@ -60,7 +60,7 @@ ___
 
 #### Defined in
 
-[module/header.ts:11](https://github.com/siposdani87/sui-js/blob/3c5600c/src/module/header.ts#L11)
+[module/header.ts:11](https://github.com/siposdani87/sui-js/blob/4b75724/src/module/header.ts#L11)
 
 ___
 
@@ -70,7 +70,7 @@ ___
 
 #### Defined in
 
-[module/header.ts:12](https://github.com/siposdani87/sui-js/blob/3c5600c/src/module/header.ts#L12)
+[module/header.ts:12](https://github.com/siposdani87/sui-js/blob/4b75724/src/module/header.ts#L12)
 
 ___
 
@@ -80,7 +80,7 @@ ___
 
 #### Defined in
 
-[module/header.ts:17](https://github.com/siposdani87/sui-js/blob/3c5600c/src/module/header.ts#L17)
+[module/header.ts:17](https://github.com/siposdani87/sui-js/blob/4b75724/src/module/header.ts#L17)
 
 ___
 
@@ -90,7 +90,7 @@ ___
 
 #### Defined in
 
-[module/header.ts:10](https://github.com/siposdani87/sui-js/blob/3c5600c/src/module/header.ts#L10)
+[module/header.ts:10](https://github.com/siposdani87/sui-js/blob/4b75724/src/module/header.ts#L10)
 
 ___
 
@@ -100,7 +100,7 @@ ___
 
 #### Defined in
 
-[module/header.ts:18](https://github.com/siposdani87/sui-js/blob/3c5600c/src/module/header.ts#L18)
+[module/header.ts:18](https://github.com/siposdani87/sui-js/blob/4b75724/src/module/header.ts#L18)
 
 ___
 
@@ -110,7 +110,7 @@ ___
 
 #### Defined in
 
-[module/header.ts:13](https://github.com/siposdani87/sui-js/blob/3c5600c/src/module/header.ts#L13)
+[module/header.ts:13](https://github.com/siposdani87/sui-js/blob/4b75724/src/module/header.ts#L13)
 
 ## Methods
 
@@ -124,7 +124,7 @@ ___
 
 #### Defined in
 
-[module/header.ts:39](https://github.com/siposdani87/sui-js/blob/3c5600c/src/module/header.ts#L39)
+[module/header.ts:39](https://github.com/siposdani87/sui-js/blob/4b75724/src/module/header.ts#L39)
 
 ___
 
@@ -144,7 +144,7 @@ ___
 
 #### Defined in
 
-[module/header.ts:31](https://github.com/siposdani87/sui-js/blob/3c5600c/src/module/header.ts#L31)
+[module/header.ts:31](https://github.com/siposdani87/sui-js/blob/4b75724/src/module/header.ts#L31)
 
 ___
 
@@ -158,7 +158,7 @@ ___
 
 #### Defined in
 
-[module/header.ts:102](https://github.com/siposdani87/sui-js/blob/3c5600c/src/module/header.ts#L102)
+[module/header.ts:102](https://github.com/siposdani87/sui-js/blob/4b75724/src/module/header.ts#L102)
 
 ___
 
@@ -172,7 +172,7 @@ ___
 
 #### Defined in
 
-[module/header.ts:69](https://github.com/siposdani87/sui-js/blob/3c5600c/src/module/header.ts#L69)
+[module/header.ts:69](https://github.com/siposdani87/sui-js/blob/4b75724/src/module/header.ts#L69)
 
 ___
 
@@ -186,7 +186,7 @@ ___
 
 #### Defined in
 
-[module/header.ts:116](https://github.com/siposdani87/sui-js/blob/3c5600c/src/module/header.ts#L116)
+[module/header.ts:116](https://github.com/siposdani87/sui-js/blob/4b75724/src/module/header.ts#L116)
 
 ___
 
@@ -200,7 +200,7 @@ ___
 
 #### Defined in
 
-[module/header.ts:142](https://github.com/siposdani87/sui-js/blob/3c5600c/src/module/header.ts#L142)
+[module/header.ts:142](https://github.com/siposdani87/sui-js/blob/4b75724/src/module/header.ts#L142)
 
 ___
 
@@ -214,7 +214,7 @@ ___
 
 #### Defined in
 
-[module/header.ts:130](https://github.com/siposdani87/sui-js/blob/3c5600c/src/module/header.ts#L130)
+[module/header.ts:130](https://github.com/siposdani87/sui-js/blob/4b75724/src/module/header.ts#L130)
 
 ___
 
@@ -228,7 +228,7 @@ ___
 
 #### Defined in
 
-[module/header.ts:154](https://github.com/siposdani87/sui-js/blob/3c5600c/src/module/header.ts#L154)
+[module/header.ts:154](https://github.com/siposdani87/sui-js/blob/4b75724/src/module/header.ts#L154)
 
 ___
 
@@ -242,7 +242,7 @@ ___
 
 #### Defined in
 
-[module/header.ts:96](https://github.com/siposdani87/sui-js/blob/3c5600c/src/module/header.ts#L96)
+[module/header.ts:96](https://github.com/siposdani87/sui-js/blob/4b75724/src/module/header.ts#L96)
 
 ___
 
@@ -262,7 +262,7 @@ ___
 
 #### Defined in
 
-[module/header.ts:90](https://github.com/siposdani87/sui-js/blob/3c5600c/src/module/header.ts#L90)
+[module/header.ts:90](https://github.com/siposdani87/sui-js/blob/4b75724/src/module/header.ts#L90)
 
 ___
 
@@ -282,7 +282,7 @@ ___
 
 #### Defined in
 
-[module/header.ts:76](https://github.com/siposdani87/sui-js/blob/3c5600c/src/module/header.ts#L76)
+[module/header.ts:76](https://github.com/siposdani87/sui-js/blob/4b75724/src/module/header.ts#L76)
 
 ___
 
@@ -302,7 +302,7 @@ ___
 
 #### Defined in
 
-[module/header.ts:83](https://github.com/siposdani87/sui-js/blob/3c5600c/src/module/header.ts#L83)
+[module/header.ts:83](https://github.com/siposdani87/sui-js/blob/4b75724/src/module/header.ts#L83)
 
 ___
 
@@ -316,7 +316,7 @@ ___
 
 #### Defined in
 
-[module/header.ts:108](https://github.com/siposdani87/sui-js/blob/3c5600c/src/module/header.ts#L108)
+[module/header.ts:108](https://github.com/siposdani87/sui-js/blob/4b75724/src/module/header.ts#L108)
 
 ___
 
@@ -330,7 +330,7 @@ ___
 
 #### Defined in
 
-[module/header.ts:136](https://github.com/siposdani87/sui-js/blob/3c5600c/src/module/header.ts#L136)
+[module/header.ts:136](https://github.com/siposdani87/sui-js/blob/4b75724/src/module/header.ts#L136)
 
 ___
 
@@ -344,7 +344,7 @@ ___
 
 #### Defined in
 
-[module/header.ts:124](https://github.com/siposdani87/sui-js/blob/3c5600c/src/module/header.ts#L124)
+[module/header.ts:124](https://github.com/siposdani87/sui-js/blob/4b75724/src/module/header.ts#L124)
 
 ___
 
@@ -358,4 +358,4 @@ ___
 
 #### Defined in
 
-[module/header.ts:148](https://github.com/siposdani87/sui-js/blob/3c5600c/src/module/header.ts#L148)
+[module/header.ts:148](https://github.com/siposdani87/sui-js/blob/4b75724/src/module/header.ts#L148)

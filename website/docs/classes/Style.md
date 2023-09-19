@@ -21,7 +21,7 @@ custom_edit_url: null
 
 #### Defined in
 
-[module/style.ts:20](https://github.com/siposdani87/sui-js/blob/3c5600c/src/module/style.ts#L20)
+[module/style.ts:20](https://github.com/siposdani87/sui-js/blob/4b75724/src/module/style.ts#L20)
 
 ## Properties
 
@@ -31,7 +31,7 @@ custom_edit_url: null
 
 #### Defined in
 
-[module/style.ts:15](https://github.com/siposdani87/sui-js/blob/3c5600c/src/module/style.ts#L15)
+[module/style.ts:15](https://github.com/siposdani87/sui-js/blob/4b75724/src/module/style.ts#L15)
 
 ___
 
@@ -41,7 +41,7 @@ ___
 
 #### Defined in
 
-[module/style.ts:14](https://github.com/siposdani87/sui-js/blob/3c5600c/src/module/style.ts#L14)
+[module/style.ts:14](https://github.com/siposdani87/sui-js/blob/4b75724/src/module/style.ts#L14)
 
 ___
 
@@ -51,7 +51,7 @@ ___
 
 #### Defined in
 
-[module/style.ts:13](https://github.com/siposdani87/sui-js/blob/3c5600c/src/module/style.ts#L13)
+[module/style.ts:13](https://github.com/siposdani87/sui-js/blob/4b75724/src/module/style.ts#L13)
 
 ## Methods
 
@@ -65,7 +65,7 @@ ___
 
 #### Defined in
 
-[module/style.ts:41](https://github.com/siposdani87/sui-js/blob/3c5600c/src/module/style.ts#L41)
+[module/style.ts:41](https://github.com/siposdani87/sui-js/blob/4b75724/src/module/style.ts#L41)
 
 ___
 
@@ -85,7 +85,7 @@ ___
 
 #### Defined in
 
-[module/style.ts:33](https://github.com/siposdani87/sui-js/blob/3c5600c/src/module/style.ts#L33)
+[module/style.ts:33](https://github.com/siposdani87/sui-js/blob/4b75724/src/module/style.ts#L33)
 
 ___
 
@@ -109,7 +109,7 @@ ___
 
 #### Defined in
 
-[module/style.ts:52](https://github.com/siposdani87/sui-js/blob/3c5600c/src/module/style.ts#L52)
+[module/style.ts:52](https://github.com/siposdani87/sui-js/blob/4b75724/src/module/style.ts#L52)
 
 ___
 
@@ -129,4 +129,4 @@ ___
 
 #### Defined in
 
-[module/style.ts:90](https://github.com/siposdani87/sui-js/blob/3c5600c/src/module/style.ts#L90)
+[module/style.ts:90](https://github.com/siposdani87/sui-js/blob/4b75724/src/module/style.ts#L90)

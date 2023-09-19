@@ -14,7 +14,7 @@ custom_edit_url: null
 
 #### Defined in
 
-[module/navBar.ts:13](https://github.com/siposdani87/sui-js/blob/3c5600c/src/module/navBar.ts#L13)
+[module/navBar.ts:13](https://github.com/siposdani87/sui-js/blob/4b75724/src/module/navBar.ts#L13)
 
 ## Properties
 
@@ -24,7 +24,7 @@ custom_edit_url: null
 
 #### Defined in
 
-[module/navBar.ts:9](https://github.com/siposdani87/sui-js/blob/3c5600c/src/module/navBar.ts#L9)
+[module/navBar.ts:9](https://github.com/siposdani87/sui-js/blob/4b75724/src/module/navBar.ts#L9)
 
 ___
 
@@ -34,7 +34,7 @@ ___
 
 #### Defined in
 
-[module/navBar.ts:8](https://github.com/siposdani87/sui-js/blob/3c5600c/src/module/navBar.ts#L8)
+[module/navBar.ts:8](https://github.com/siposdani87/sui-js/blob/4b75724/src/module/navBar.ts#L8)
 
 ___
 
@@ -44,7 +44,7 @@ ___
 
 #### Defined in
 
-[module/navBar.ts:10](https://github.com/siposdani87/sui-js/blob/3c5600c/src/module/navBar.ts#L10)
+[module/navBar.ts:10](https://github.com/siposdani87/sui-js/blob/4b75724/src/module/navBar.ts#L10)
 
 ## Methods
 
@@ -58,7 +58,7 @@ ___
 
 #### Defined in
 
-[module/navBar.ts:20](https://github.com/siposdani87/sui-js/blob/3c5600c/src/module/navBar.ts#L20)
+[module/navBar.ts:20](https://github.com/siposdani87/sui-js/blob/4b75724/src/module/navBar.ts#L20)
 
 ___
 
@@ -72,7 +72,7 @@ ___
 
 #### Defined in
 
-[module/navBar.ts:60](https://github.com/siposdani87/sui-js/blob/3c5600c/src/module/navBar.ts#L60)
+[module/navBar.ts:60](https://github.com/siposdani87/sui-js/blob/4b75724/src/module/navBar.ts#L60)
 
 ___
 
@@ -86,7 +86,7 @@ ___
 
 #### Defined in
 
-[module/navBar.ts:91](https://github.com/siposdani87/sui-js/blob/3c5600c/src/module/navBar.ts#L91)
+[module/navBar.ts:91](https://github.com/siposdani87/sui-js/blob/4b75724/src/module/navBar.ts#L91)
 
 ___
 
@@ -100,7 +100,7 @@ ___
 
 #### Defined in
 
-[module/navBar.ts:73](https://github.com/siposdani87/sui-js/blob/3c5600c/src/module/navBar.ts#L73)
+[module/navBar.ts:73](https://github.com/siposdani87/sui-js/blob/4b75724/src/module/navBar.ts#L73)
 
 ___
 
@@ -114,7 +114,7 @@ ___
 
 #### Defined in
 
-[module/navBar.ts:85](https://github.com/siposdani87/sui-js/blob/3c5600c/src/module/navBar.ts#L85)
+[module/navBar.ts:85](https://github.com/siposdani87/sui-js/blob/4b75724/src/module/navBar.ts#L85)
 
 ___
 
@@ -128,7 +128,7 @@ ___
 
 #### Defined in
 
-[module/navBar.ts:47](https://github.com/siposdani87/sui-js/blob/3c5600c/src/module/navBar.ts#L47)
+[module/navBar.ts:47](https://github.com/siposdani87/sui-js/blob/4b75724/src/module/navBar.ts#L47)
 
 ___
 
@@ -142,7 +142,7 @@ ___
 
 #### Defined in
 
-[module/navBar.ts:53](https://github.com/siposdani87/sui-js/blob/3c5600c/src/module/navBar.ts#L53)
+[module/navBar.ts:53](https://github.com/siposdani87/sui-js/blob/4b75724/src/module/navBar.ts#L53)
 
 ___
 
@@ -156,7 +156,7 @@ ___
 
 #### Defined in
 
-[module/navBar.ts:67](https://github.com/siposdani87/sui-js/blob/3c5600c/src/module/navBar.ts#L67)
+[module/navBar.ts:67](https://github.com/siposdani87/sui-js/blob/4b75724/src/module/navBar.ts#L67)
 
 ___
 
@@ -170,7 +170,7 @@ ___
 
 #### Defined in
 
-[module/navBar.ts:79](https://github.com/siposdani87/sui-js/blob/3c5600c/src/module/navBar.ts#L79)
+[module/navBar.ts:79](https://github.com/siposdani87/sui-js/blob/4b75724/src/module/navBar.ts#L79)
 
 ___
 
@@ -184,4 +184,4 @@ ___
 
 #### Defined in
 
-[module/navBar.ts:37](https://github.com/siposdani87/sui-js/blob/3c5600c/src/module/navBar.ts#L37)
+[module/navBar.ts:37](https://github.com/siposdani87/sui-js/blob/4b75724/src/module/navBar.ts#L37)

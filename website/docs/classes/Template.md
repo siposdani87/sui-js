@@ -21,7 +21,7 @@ custom_edit_url: null
 
 #### Defined in
 
-[module/template.ts:20](https://github.com/siposdani87/sui-js/blob/3c5600c/src/module/template.ts#L20)
+[module/template.ts:20](https://github.com/siposdani87/sui-js/blob/4b75724/src/module/template.ts#L20)
 
 ## Properties
 
@@ -31,7 +31,7 @@ custom_edit_url: null
 
 #### Defined in
 
-[module/template.ts:13](https://github.com/siposdani87/sui-js/blob/3c5600c/src/module/template.ts#L13)
+[module/template.ts:13](https://github.com/siposdani87/sui-js/blob/4b75724/src/module/template.ts#L13)
 
 ___
 
@@ -41,7 +41,7 @@ ___
 
 #### Defined in
 
-[module/template.ts:14](https://github.com/siposdani87/sui-js/blob/3c5600c/src/module/template.ts#L14)
+[module/template.ts:14](https://github.com/siposdani87/sui-js/blob/4b75724/src/module/template.ts#L14)
 
 ___
 
@@ -51,7 +51,7 @@ ___
 
 #### Defined in
 
-[module/template.ts:15](https://github.com/siposdani87/sui-js/blob/3c5600c/src/module/template.ts#L15)
+[module/template.ts:15](https://github.com/siposdani87/sui-js/blob/4b75724/src/module/template.ts#L15)
 
 ## Methods
 
@@ -72,7 +72,7 @@ ___
 
 #### Defined in
 
-[module/template.ts:87](https://github.com/siposdani87/sui-js/blob/3c5600c/src/module/template.ts#L87)
+[module/template.ts:87](https://github.com/siposdani87/sui-js/blob/4b75724/src/module/template.ts#L87)
 
 ___
 
@@ -86,7 +86,7 @@ ___
 
 #### Defined in
 
-[module/template.ts:42](https://github.com/siposdani87/sui-js/blob/3c5600c/src/module/template.ts#L42)
+[module/template.ts:42](https://github.com/siposdani87/sui-js/blob/4b75724/src/module/template.ts#L42)
 
 ___
 
@@ -106,7 +106,7 @@ ___
 
 #### Defined in
 
-[module/template.ts:31](https://github.com/siposdani87/sui-js/blob/3c5600c/src/module/template.ts#L31)
+[module/template.ts:31](https://github.com/siposdani87/sui-js/blob/4b75724/src/module/template.ts#L31)
 
 ___
 
@@ -128,7 +128,7 @@ ___
 
 #### Defined in
 
-[module/template.ts:105](https://github.com/siposdani87/sui-js/blob/3c5600c/src/module/template.ts#L105)
+[module/template.ts:105](https://github.com/siposdani87/sui-js/blob/4b75724/src/module/template.ts#L105)
 
 ___
 
@@ -142,7 +142,7 @@ ___
 
 #### Defined in
 
-[module/template.ts:48](https://github.com/siposdani87/sui-js/blob/3c5600c/src/module/template.ts#L48)
+[module/template.ts:48](https://github.com/siposdani87/sui-js/blob/4b75724/src/module/template.ts#L48)
 
 ___
 
@@ -163,4 +163,4 @@ ___
 
 #### Defined in
 
-[module/template.ts:56](https://github.com/siposdani87/sui-js/blob/3c5600c/src/module/template.ts#L56)
+[module/template.ts:56](https://github.com/siposdani87/sui-js/blob/4b75724/src/module/template.ts#L56)
