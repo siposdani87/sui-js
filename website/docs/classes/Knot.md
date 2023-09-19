@@ -33,7 +33,7 @@ custom_edit_url: null
 
 #### Defined in
 
-[core/knot.ts:29](https://github.com/siposdani87/sui-js/blob/3c5600c/src/core/knot.ts#L29)
+[core/knot.ts:30](https://github.com/siposdani87/sui-js/blob/4b75724/src/core/knot.ts#L30)
 
 ## Properties
 
@@ -43,7 +43,7 @@ custom_edit_url: null
 
 #### Defined in
 
-[core/knot.ts:24](https://github.com/siposdani87/sui-js/blob/3c5600c/src/core/knot.ts#L24)
+[core/knot.ts:25](https://github.com/siposdani87/sui-js/blob/4b75724/src/core/knot.ts#L25)
 
 ___
 
@@ -53,7 +53,7 @@ ___
 
 #### Defined in
 
-[core/knot.ts:22](https://github.com/siposdani87/sui-js/blob/3c5600c/src/core/knot.ts#L22)
+[core/knot.ts:23](https://github.com/siposdani87/sui-js/blob/4b75724/src/core/knot.ts#L23)
 
 ___
 
@@ -63,7 +63,7 @@ ___
 
 #### Defined in
 
-[core/knot.ts:23](https://github.com/siposdani87/sui-js/blob/3c5600c/src/core/knot.ts#L23)
+[core/knot.ts:24](https://github.com/siposdani87/sui-js/blob/4b75724/src/core/knot.ts#L24)
 
 ## Methods
 
@@ -84,7 +84,7 @@ ___
 
 #### Defined in
 
-[core/knot.ts:271](https://github.com/siposdani87/sui-js/blob/3c5600c/src/core/knot.ts#L271)
+[core/knot.ts:272](https://github.com/siposdani87/sui-js/blob/4b75724/src/core/knot.ts#L272)
 
 ___
 
@@ -104,7 +104,7 @@ ___
 
 #### Defined in
 
-[core/knot.ts:285](https://github.com/siposdani87/sui-js/blob/3c5600c/src/core/knot.ts#L285)
+[core/knot.ts:286](https://github.com/siposdani87/sui-js/blob/4b75724/src/core/knot.ts#L286)
 
 ___
 
@@ -118,7 +118,7 @@ ___
 
 #### Defined in
 
-[core/knot.ts:551](https://github.com/siposdani87/sui-js/blob/3c5600c/src/core/knot.ts#L551)
+[core/knot.ts:552](https://github.com/siposdani87/sui-js/blob/4b75724/src/core/knot.ts#L552)
 
 ___
 
@@ -139,7 +139,7 @@ ___
 
 #### Defined in
 
-[core/knot.ts:131](https://github.com/siposdani87/sui-js/blob/3c5600c/src/core/knot.ts#L131)
+[core/knot.ts:132](https://github.com/siposdani87/sui-js/blob/4b75724/src/core/knot.ts#L132)
 
 ___
 
@@ -159,7 +159,7 @@ ___
 
 #### Defined in
 
-[core/knot.ts:147](https://github.com/siposdani87/sui-js/blob/3c5600c/src/core/knot.ts#L147)
+[core/knot.ts:148](https://github.com/siposdani87/sui-js/blob/4b75724/src/core/knot.ts#L148)
 
 ___
 
@@ -180,7 +180,7 @@ ___
 
 #### Defined in
 
-[core/knot.ts:248](https://github.com/siposdani87/sui-js/blob/3c5600c/src/core/knot.ts#L248)
+[core/knot.ts:249](https://github.com/siposdani87/sui-js/blob/4b75724/src/core/knot.ts#L249)
 
 ___
 
@@ -202,7 +202,7 @@ ___
 
 #### Defined in
 
-[core/knot.ts:413](https://github.com/siposdani87/sui-js/blob/3c5600c/src/core/knot.ts#L413)
+[core/knot.ts:414](https://github.com/siposdani87/sui-js/blob/4b75724/src/core/knot.ts#L414)
 
 ___
 
@@ -222,7 +222,7 @@ ___
 
 #### Defined in
 
-[core/knot.ts:346](https://github.com/siposdani87/sui-js/blob/3c5600c/src/core/knot.ts#L346)
+[core/knot.ts:347](https://github.com/siposdani87/sui-js/blob/4b75724/src/core/knot.ts#L347)
 
 ___
 
@@ -242,7 +242,7 @@ ___
 
 #### Defined in
 
-[core/knot.ts:397](https://github.com/siposdani87/sui-js/blob/3c5600c/src/core/knot.ts#L397)
+[core/knot.ts:398](https://github.com/siposdani87/sui-js/blob/4b75724/src/core/knot.ts#L398)
 
 ___
 
@@ -268,7 +268,7 @@ ___
 
 #### Defined in
 
-[core/knot.ts:336](https://github.com/siposdani87/sui-js/blob/3c5600c/src/core/knot.ts#L336)
+[core/knot.ts:337](https://github.com/siposdani87/sui-js/blob/4b75724/src/core/knot.ts#L337)
 
 ___
 
@@ -288,7 +288,7 @@ ___
 
 #### Defined in
 
-[core/knot.ts:319](https://github.com/siposdani87/sui-js/blob/3c5600c/src/core/knot.ts#L319)
+[core/knot.ts:320](https://github.com/siposdani87/sui-js/blob/4b75724/src/core/knot.ts#L320)
 
 ___
 
@@ -302,7 +302,7 @@ ___
 
 #### Defined in
 
-[core/knot.ts:598](https://github.com/siposdani87/sui-js/blob/3c5600c/src/core/knot.ts#L598)
+[core/knot.ts:599](https://github.com/siposdani87/sui-js/blob/4b75724/src/core/knot.ts#L599)
 
 ___
 
@@ -322,7 +322,7 @@ ___
 
 #### Defined in
 
-[core/knot.ts:71](https://github.com/siposdani87/sui-js/blob/3c5600c/src/core/knot.ts#L71)
+[core/knot.ts:72](https://github.com/siposdani87/sui-js/blob/4b75724/src/core/knot.ts#L72)
 
 ___
 
@@ -342,7 +342,7 @@ ___
 
 #### Defined in
 
-[core/knot.ts:218](https://github.com/siposdani87/sui-js/blob/3c5600c/src/core/knot.ts#L218)
+[core/knot.ts:219](https://github.com/siposdani87/sui-js/blob/4b75724/src/core/knot.ts#L219)
 
 ___
 
@@ -356,7 +356,7 @@ ___
 
 #### Defined in
 
-[core/knot.ts:175](https://github.com/siposdani87/sui-js/blob/3c5600c/src/core/knot.ts#L175)
+[core/knot.ts:176](https://github.com/siposdani87/sui-js/blob/4b75724/src/core/knot.ts#L176)
 
 ___
 
@@ -370,7 +370,7 @@ ___
 
 #### Defined in
 
-[core/knot.ts:562](https://github.com/siposdani87/sui-js/blob/3c5600c/src/core/knot.ts#L562)
+[core/knot.ts:563](https://github.com/siposdani87/sui-js/blob/4b75724/src/core/knot.ts#L563)
 
 ___
 
@@ -390,7 +390,7 @@ ___
 
 #### Defined in
 
-[core/knot.ts:518](https://github.com/siposdani87/sui-js/blob/3c5600c/src/core/knot.ts#L518)
+[core/knot.ts:519](https://github.com/siposdani87/sui-js/blob/4b75724/src/core/knot.ts#L519)
 
 ___
 
@@ -404,7 +404,7 @@ ___
 
 #### Defined in
 
-[core/knot.ts:113](https://github.com/siposdani87/sui-js/blob/3c5600c/src/core/knot.ts#L113)
+[core/knot.ts:114](https://github.com/siposdani87/sui-js/blob/4b75724/src/core/knot.ts#L114)
 
 ___
 
@@ -424,7 +424,7 @@ ___
 
 #### Defined in
 
-[core/knot.ts:481](https://github.com/siposdani87/sui-js/blob/3c5600c/src/core/knot.ts#L481)
+[core/knot.ts:482](https://github.com/siposdani87/sui-js/blob/4b75724/src/core/knot.ts#L482)
 
 ___
 
@@ -438,7 +438,7 @@ ___
 
 #### Defined in
 
-[core/knot.ts:92](https://github.com/siposdani87/sui-js/blob/3c5600c/src/core/knot.ts#L92)
+[core/knot.ts:93](https://github.com/siposdani87/sui-js/blob/4b75724/src/core/knot.ts#L93)
 
 ___
 
@@ -452,7 +452,7 @@ ___
 
 #### Defined in
 
-[core/knot.ts:465](https://github.com/siposdani87/sui-js/blob/3c5600c/src/core/knot.ts#L465)
+[core/knot.ts:466](https://github.com/siposdani87/sui-js/blob/4b75724/src/core/knot.ts#L466)
 
 ___
 
@@ -466,7 +466,7 @@ ___
 
 #### Defined in
 
-[core/knot.ts:80](https://github.com/siposdani87/sui-js/blob/3c5600c/src/core/knot.ts#L80)
+[core/knot.ts:81](https://github.com/siposdani87/sui-js/blob/4b75724/src/core/knot.ts#L81)
 
 ___
 
@@ -480,7 +480,7 @@ ___
 
 #### Defined in
 
-[core/knot.ts:541](https://github.com/siposdani87/sui-js/blob/3c5600c/src/core/knot.ts#L541)
+[core/knot.ts:542](https://github.com/siposdani87/sui-js/blob/4b75724/src/core/knot.ts#L542)
 
 ___
 
@@ -494,7 +494,7 @@ ___
 
 #### Defined in
 
-[core/knot.ts:568](https://github.com/siposdani87/sui-js/blob/3c5600c/src/core/knot.ts#L568)
+[core/knot.ts:569](https://github.com/siposdani87/sui-js/blob/4b75724/src/core/knot.ts#L569)
 
 ___
 
@@ -508,7 +508,7 @@ ___
 
 #### Defined in
 
-[core/knot.ts:86](https://github.com/siposdani87/sui-js/blob/3c5600c/src/core/knot.ts#L86)
+[core/knot.ts:87](https://github.com/siposdani87/sui-js/blob/4b75724/src/core/knot.ts#L87)
 
 ___
 
@@ -522,7 +522,7 @@ ___
 
 #### Defined in
 
-[core/knot.ts:497](https://github.com/siposdani87/sui-js/blob/3c5600c/src/core/knot.ts#L497)
+[core/knot.ts:498](https://github.com/siposdani87/sui-js/blob/4b75724/src/core/knot.ts#L498)
 
 ___
 
@@ -542,7 +542,7 @@ ___
 
 #### Defined in
 
-[core/knot.ts:240](https://github.com/siposdani87/sui-js/blob/3c5600c/src/core/knot.ts#L240)
+[core/knot.ts:241](https://github.com/siposdani87/sui-js/blob/4b75724/src/core/knot.ts#L241)
 
 ___
 
@@ -556,7 +556,7 @@ ___
 
 #### Defined in
 
-[core/knot.ts:360](https://github.com/siposdani87/sui-js/blob/3c5600c/src/core/knot.ts#L360)
+[core/knot.ts:361](https://github.com/siposdani87/sui-js/blob/4b75724/src/core/knot.ts#L361)
 
 ___
 
@@ -576,7 +576,7 @@ ___
 
 #### Defined in
 
-[core/knot.ts:123](https://github.com/siposdani87/sui-js/blob/3c5600c/src/core/knot.ts#L123)
+[core/knot.ts:124](https://github.com/siposdani87/sui-js/blob/4b75724/src/core/knot.ts#L124)
 
 ___
 
@@ -596,7 +596,7 @@ ___
 
 #### Defined in
 
-[core/knot.ts:389](https://github.com/siposdani87/sui-js/blob/3c5600c/src/core/knot.ts#L389)
+[core/knot.ts:390](https://github.com/siposdani87/sui-js/blob/4b75724/src/core/knot.ts#L390)
 
 ___
 
@@ -616,7 +616,7 @@ ___
 
 #### Defined in
 
-[core/knot.ts:437](https://github.com/siposdani87/sui-js/blob/3c5600c/src/core/knot.ts#L437)
+[core/knot.ts:438](https://github.com/siposdani87/sui-js/blob/4b75724/src/core/knot.ts#L438)
 
 ___
 
@@ -636,7 +636,7 @@ ___
 
 #### Defined in
 
-[core/knot.ts:425](https://github.com/siposdani87/sui-js/blob/3c5600c/src/core/knot.ts#L425)
+[core/knot.ts:426](https://github.com/siposdani87/sui-js/blob/4b75724/src/core/knot.ts#L426)
 
 ___
 
@@ -650,7 +650,7 @@ ___
 
 #### Defined in
 
-[core/knot.ts:592](https://github.com/siposdani87/sui-js/blob/3c5600c/src/core/knot.ts#L592)
+[core/knot.ts:593](https://github.com/siposdani87/sui-js/blob/4b75724/src/core/knot.ts#L593)
 
 ___
 
@@ -670,7 +670,7 @@ ___
 
 #### Defined in
 
-[core/knot.ts:62](https://github.com/siposdani87/sui-js/blob/3c5600c/src/core/knot.ts#L62)
+[core/knot.ts:63](https://github.com/siposdani87/sui-js/blob/4b75724/src/core/knot.ts#L63)
 
 ___
 
@@ -684,7 +684,7 @@ ___
 
 #### Defined in
 
-[core/knot.ts:379](https://github.com/siposdani87/sui-js/blob/3c5600c/src/core/knot.ts#L379)
+[core/knot.ts:380](https://github.com/siposdani87/sui-js/blob/4b75724/src/core/knot.ts#L380)
 
 ___
 
@@ -704,7 +704,7 @@ ___
 
 #### Defined in
 
-[core/knot.ts:233](https://github.com/siposdani87/sui-js/blob/3c5600c/src/core/knot.ts#L233)
+[core/knot.ts:234](https://github.com/siposdani87/sui-js/blob/4b75724/src/core/knot.ts#L234)
 
 ___
 
@@ -724,7 +724,7 @@ ___
 
 #### Defined in
 
-[core/knot.ts:367](https://github.com/siposdani87/sui-js/blob/3c5600c/src/core/knot.ts#L367)
+[core/knot.ts:368](https://github.com/siposdani87/sui-js/blob/4b75724/src/core/knot.ts#L368)
 
 ___
 
@@ -738,7 +738,7 @@ ___
 
 #### Defined in
 
-[core/knot.ts:352](https://github.com/siposdani87/sui-js/blob/3c5600c/src/core/knot.ts#L352)
+[core/knot.ts:353](https://github.com/siposdani87/sui-js/blob/4b75724/src/core/knot.ts#L353)
 
 ___
 
@@ -758,7 +758,7 @@ ___
 
 #### Defined in
 
-[core/knot.ts:158](https://github.com/siposdani87/sui-js/blob/3c5600c/src/core/knot.ts#L158)
+[core/knot.ts:159](https://github.com/siposdani87/sui-js/blob/4b75724/src/core/knot.ts#L159)
 
 ___
 
@@ -778,7 +778,7 @@ ___
 
 #### Defined in
 
-[core/knot.ts:532](https://github.com/siposdani87/sui-js/blob/3c5600c/src/core/knot.ts#L532)
+[core/knot.ts:533](https://github.com/siposdani87/sui-js/blob/4b75724/src/core/knot.ts#L533)
 
 ___
 
@@ -799,7 +799,7 @@ ___
 
 #### Defined in
 
-[core/knot.ts:299](https://github.com/siposdani87/sui-js/blob/3c5600c/src/core/knot.ts#L299)
+[core/knot.ts:300](https://github.com/siposdani87/sui-js/blob/4b75724/src/core/knot.ts#L300)
 
 ___
 
@@ -819,7 +819,7 @@ ___
 
 #### Defined in
 
-[core/knot.ts:309](https://github.com/siposdani87/sui-js/blob/3c5600c/src/core/knot.ts#L309)
+[core/knot.ts:310](https://github.com/siposdani87/sui-js/blob/4b75724/src/core/knot.ts#L310)
 
 ___
 
@@ -839,7 +839,7 @@ ___
 
 #### Defined in
 
-[core/knot.ts:584](https://github.com/siposdani87/sui-js/blob/3c5600c/src/core/knot.ts#L584)
+[core/knot.ts:585](https://github.com/siposdani87/sui-js/blob/4b75724/src/core/knot.ts#L585)
 
 ___
 
@@ -861,7 +861,7 @@ ___
 
 #### Defined in
 
-[core/knot.ts:454](https://github.com/siposdani87/sui-js/blob/3c5600c/src/core/knot.ts#L454)
+[core/knot.ts:455](https://github.com/siposdani87/sui-js/blob/4b75724/src/core/knot.ts#L455)
 
 ___
 
@@ -882,7 +882,7 @@ ___
 
 #### Defined in
 
-[core/knot.ts:51](https://github.com/siposdani87/sui-js/blob/3c5600c/src/core/knot.ts#L51)
+[core/knot.ts:52](https://github.com/siposdani87/sui-js/blob/4b75724/src/core/knot.ts#L52)
 
 ___
 
@@ -903,7 +903,7 @@ ___
 
 #### Defined in
 
-[core/knot.ts:183](https://github.com/siposdani87/sui-js/blob/3c5600c/src/core/knot.ts#L183)
+[core/knot.ts:184](https://github.com/siposdani87/sui-js/blob/4b75724/src/core/knot.ts#L184)
 
 ___
 
@@ -924,7 +924,7 @@ ___
 
 #### Defined in
 
-[core/knot.ts:505](https://github.com/siposdani87/sui-js/blob/3c5600c/src/core/knot.ts#L505)
+[core/knot.ts:506](https://github.com/siposdani87/sui-js/blob/4b75724/src/core/knot.ts#L506)
 
 ___
 
@@ -944,7 +944,7 @@ ___
 
 #### Defined in
 
-[core/knot.ts:106](https://github.com/siposdani87/sui-js/blob/3c5600c/src/core/knot.ts#L106)
+[core/knot.ts:107](https://github.com/siposdani87/sui-js/blob/4b75724/src/core/knot.ts#L107)
 
 ___
 
@@ -964,7 +964,7 @@ ___
 
 #### Defined in
 
-[core/knot.ts:474](https://github.com/siposdani87/sui-js/blob/3c5600c/src/core/knot.ts#L474)
+[core/knot.ts:475](https://github.com/siposdani87/sui-js/blob/4b75724/src/core/knot.ts#L475)
 
 ___
 
@@ -984,7 +984,7 @@ ___
 
 #### Defined in
 
-[core/knot.ts:99](https://github.com/siposdani87/sui-js/blob/3c5600c/src/core/knot.ts#L99)
+[core/knot.ts:100](https://github.com/siposdani87/sui-js/blob/4b75724/src/core/knot.ts#L100)
 
 ___
 
@@ -1004,7 +1004,7 @@ ___
 
 #### Defined in
 
-[core/knot.ts:575](https://github.com/siposdani87/sui-js/blob/3c5600c/src/core/knot.ts#L575)
+[core/knot.ts:576](https://github.com/siposdani87/sui-js/blob/4b75724/src/core/knot.ts#L576)
 
 ___
 
@@ -1024,7 +1024,7 @@ ___
 
 #### Defined in
 
-[core/knot.ts:491](https://github.com/siposdani87/sui-js/blob/3c5600c/src/core/knot.ts#L491)
+[core/knot.ts:492](https://github.com/siposdani87/sui-js/blob/4b75724/src/core/knot.ts#L492)
 
 ___
 
@@ -1044,7 +1044,7 @@ ___
 
 #### Defined in
 
-[core/knot.ts:606](https://github.com/siposdani87/sui-js/blob/3c5600c/src/core/knot.ts#L606)
+[core/knot.ts:607](https://github.com/siposdani87/sui-js/blob/4b75724/src/core/knot.ts#L607)
 
 ___
 
@@ -1064,7 +1064,7 @@ ___
 
 #### Defined in
 
-[core/knot.ts:167](https://github.com/siposdani87/sui-js/blob/3c5600c/src/core/knot.ts#L167)
+[core/knot.ts:168](https://github.com/siposdani87/sui-js/blob/4b75724/src/core/knot.ts#L168)
 
 ___
 
@@ -1084,4 +1084,4 @@ ___
 
 #### Defined in
 
-[core/knot.ts:326](https://github.com/siposdani87/sui-js/blob/3c5600c/src/core/knot.ts#L326)
+[core/knot.ts:327](https://github.com/siposdani87/sui-js/blob/4b75724/src/core/knot.ts#L327)

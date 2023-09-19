@@ -21,7 +21,7 @@ custom_edit_url: null
 
 #### Defined in
 
-[component/dropdown.ts:24](https://github.com/siposdani87/sui-js/blob/3c5600c/src/component/dropdown.ts#L24)
+[component/dropdown.ts:24](https://github.com/siposdani87/sui-js/blob/4b75724/src/component/dropdown.ts#L24)
 
 ## Properties
 
@@ -31,7 +31,7 @@ custom_edit_url: null
 
 #### Defined in
 
-[component/dropdown.ts:16](https://github.com/siposdani87/sui-js/blob/3c5600c/src/component/dropdown.ts#L16)
+[component/dropdown.ts:16](https://github.com/siposdani87/sui-js/blob/4b75724/src/component/dropdown.ts#L16)
 
 ___
 
@@ -41,7 +41,7 @@ ___
 
 #### Defined in
 
-[component/dropdown.ts:18](https://github.com/siposdani87/sui-js/blob/3c5600c/src/component/dropdown.ts#L18)
+[component/dropdown.ts:18](https://github.com/siposdani87/sui-js/blob/4b75724/src/component/dropdown.ts#L18)
 
 ___
 
@@ -51,7 +51,7 @@ ___
 
 #### Defined in
 
-[component/dropdown.ts:15](https://github.com/siposdani87/sui-js/blob/3c5600c/src/component/dropdown.ts#L15)
+[component/dropdown.ts:15](https://github.com/siposdani87/sui-js/blob/4b75724/src/component/dropdown.ts#L15)
 
 ___
 
@@ -61,17 +61,17 @@ ___
 
 #### Defined in
 
-[component/dropdown.ts:13](https://github.com/siposdani87/sui-js/blob/3c5600c/src/component/dropdown.ts#L13)
+[component/dropdown.ts:13](https://github.com/siposdani87/sui-js/blob/4b75724/src/component/dropdown.ts#L13)
 
 ___
 
 ### item
 
-• **item**: `Object`
+• **item**: [`Objekt`](Objekt.md)
 
 #### Defined in
 
-[component/dropdown.ts:17](https://github.com/siposdani87/sui-js/blob/3c5600c/src/component/dropdown.ts#L17)
+[component/dropdown.ts:17](https://github.com/siposdani87/sui-js/blob/4b75724/src/component/dropdown.ts#L17)
 
 ___
 
@@ -81,7 +81,7 @@ ___
 
 #### Defined in
 
-[component/dropdown.ts:19](https://github.com/siposdani87/sui-js/blob/3c5600c/src/component/dropdown.ts#L19)
+[component/dropdown.ts:19](https://github.com/siposdani87/sui-js/blob/4b75724/src/component/dropdown.ts#L19)
 
 ___
 
@@ -91,7 +91,7 @@ ___
 
 #### Defined in
 
-[component/dropdown.ts:14](https://github.com/siposdani87/sui-js/blob/3c5600c/src/component/dropdown.ts#L14)
+[component/dropdown.ts:14](https://github.com/siposdani87/sui-js/blob/4b75724/src/component/dropdown.ts#L14)
 
 ## Methods
 
@@ -105,7 +105,7 @@ ___
 
 #### Defined in
 
-[component/dropdown.ts:55](https://github.com/siposdani87/sui-js/blob/3c5600c/src/component/dropdown.ts#L55)
+[component/dropdown.ts:55](https://github.com/siposdani87/sui-js/blob/4b75724/src/component/dropdown.ts#L55)
 
 ___
 
@@ -119,7 +119,7 @@ ___
 
 #### Defined in
 
-[component/dropdown.ts:75](https://github.com/siposdani87/sui-js/blob/3c5600c/src/component/dropdown.ts#L75)
+[component/dropdown.ts:75](https://github.com/siposdani87/sui-js/blob/4b75724/src/component/dropdown.ts#L75)
 
 ___
 
@@ -133,7 +133,7 @@ ___
 
 #### Defined in
 
-[component/dropdown.ts:44](https://github.com/siposdani87/sui-js/blob/3c5600c/src/component/dropdown.ts#L44)
+[component/dropdown.ts:44](https://github.com/siposdani87/sui-js/blob/4b75724/src/component/dropdown.ts#L44)
 
 ___
 
@@ -147,7 +147,7 @@ ___
 
 #### Defined in
 
-[component/dropdown.ts:103](https://github.com/siposdani87/sui-js/blob/3c5600c/src/component/dropdown.ts#L103)
+[component/dropdown.ts:103](https://github.com/siposdani87/sui-js/blob/4b75724/src/component/dropdown.ts#L103)
 
 ___
 
@@ -167,7 +167,7 @@ ___
 
 #### Defined in
 
-[component/dropdown.ts:34](https://github.com/siposdani87/sui-js/blob/3c5600c/src/component/dropdown.ts#L34)
+[component/dropdown.ts:34](https://github.com/siposdani87/sui-js/blob/4b75724/src/component/dropdown.ts#L34)
 
 ___
 
@@ -179,8 +179,8 @@ ___
 
 | Name | Type |
 | :------ | :------ |
-| `actions` | `any`[] |
-| `item` | `Object` |
+| `actions` | [`Action`](../modules.md#action)[] |
+| `item` | [`Objekt`](Objekt.md) |
 
 #### Returns
 
@@ -188,4 +188,4 @@ ___
 
 #### Defined in
 
-[component/dropdown.ts:92](https://github.com/siposdani87/sui-js/blob/3c5600c/src/component/dropdown.ts#L92)
+[component/dropdown.ts:92](https://github.com/siposdani87/sui-js/blob/4b75724/src/component/dropdown.ts#L92)

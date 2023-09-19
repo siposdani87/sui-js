@@ -126,6 +126,11 @@ const config = {
         theme: lightCodeTheme,
         darkTheme: darkCodeTheme,
       },
+      colorMode: {
+        defaultMode: 'light',
+        disableSwitch: false,
+        respectPrefersColorScheme: true,
+      },
       algolia: {
         appId: 'EE0OFT8MSU',
         apiKey: '13d2ca1739f797a942f36b15a31d36b6',

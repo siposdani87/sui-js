@@ -14,7 +14,7 @@ custom_edit_url: null
 
 #### Defined in
 
-[module/eventBus.ts:13](https://github.com/siposdani87/sui-js/blob/3c5600c/src/module/eventBus.ts#L13)
+[module/eventBus.ts:13](https://github.com/siposdani87/sui-js/blob/4b75724/src/module/eventBus.ts#L13)
 
 ## Properties
 
@@ -24,7 +24,7 @@ custom_edit_url: null
 
 #### Defined in
 
-[module/eventBus.ts:10](https://github.com/siposdani87/sui-js/blob/3c5600c/src/module/eventBus.ts#L10)
+[module/eventBus.ts:10](https://github.com/siposdani87/sui-js/blob/4b75724/src/module/eventBus.ts#L10)
 
 ## Methods
 
@@ -45,7 +45,7 @@ custom_edit_url: null
 
 #### Defined in
 
-[module/eventBus.ts:53](https://github.com/siposdani87/sui-js/blob/3c5600c/src/module/eventBus.ts#L53)
+[module/eventBus.ts:53](https://github.com/siposdani87/sui-js/blob/4b75724/src/module/eventBus.ts#L53)
 
 ___
 
@@ -67,7 +67,7 @@ ___
 
 #### Defined in
 
-[module/eventBus.ts:64](https://github.com/siposdani87/sui-js/blob/3c5600c/src/module/eventBus.ts#L64)
+[module/eventBus.ts:64](https://github.com/siposdani87/sui-js/blob/4b75724/src/module/eventBus.ts#L64)
 
 ___
 
@@ -87,7 +87,7 @@ ___
 
 #### Defined in
 
-[module/eventBus.ts:43](https://github.com/siposdani87/sui-js/blob/3c5600c/src/module/eventBus.ts#L43)
+[module/eventBus.ts:43](https://github.com/siposdani87/sui-js/blob/4b75724/src/module/eventBus.ts#L43)
 
 ___
 
@@ -108,7 +108,7 @@ ___
 
 #### Defined in
 
-[module/eventBus.ts:33](https://github.com/siposdani87/sui-js/blob/3c5600c/src/module/eventBus.ts#L33)
+[module/eventBus.ts:33](https://github.com/siposdani87/sui-js/blob/4b75724/src/module/eventBus.ts#L33)
 
 ___
 
@@ -129,4 +129,4 @@ ___
 
 #### Defined in
 
-[module/eventBus.ts:21](https://github.com/siposdani87/sui-js/blob/3c5600c/src/module/eventBus.ts#L21)
+[module/eventBus.ts:21](https://github.com/siposdani87/sui-js/blob/4b75724/src/module/eventBus.ts#L21)
