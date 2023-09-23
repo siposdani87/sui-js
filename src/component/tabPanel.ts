@@ -2,7 +2,7 @@ import { isNull } from '../utils/operation';
 import { Async } from '../core/async';
 import { Deferred } from '../core/deferred';
 import { Query } from '../core/query';
-import { consoleWarn } from '../utils/log';
+import { consoleDebug } from '../utils/log';
 import { Knot, Promize } from '../core';
 
 /**
@@ -99,7 +99,7 @@ export class TabPanel {
      * @return {undefined}
      */
     eventChange(panelId: string): void {
-        consoleWarn('TabPanel.eventChange()', panelId);
+        consoleDebug('TabPanel.eventChange()', panelId);
     }
     /**
      * @param {string} panelId

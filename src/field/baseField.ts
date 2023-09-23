@@ -2,7 +2,7 @@ import { eq, typeCast } from '../utils/operation';
 import { Knot } from '../core/knot';
 import { Query } from '../core/query';
 import { Tooltip } from '../component/tooltip';
-import { consoleInfo, consoleWarn } from '../utils/log';
+import { consoleDebug } from '../utils/log';
 import { Form } from '../component';
 
 /**
@@ -53,38 +53,38 @@ export class BaseField<T extends HTMLInputElement> {
      * @param {*} previousValue
      */
     eventChange(value: any, previousValue: any) {
-        consoleInfo('BaseField.eventChange()', value, previousValue);
+        consoleDebug('BaseField.eventChange()', value, previousValue);
     }
     /**
      * @param {!Knot} knot
      * @return {undefined}
      */
     eventClick(knot: Knot): void {
-        consoleWarn('Button.eventClick()', knot);
+        consoleDebug('Button.eventClick()', knot);
     }
     /**
      * @return {undefined}
      */
     render(): void {
-        consoleWarn('BaseField.render()');
+        consoleDebug('BaseField.render()');
     }
     /**
      * @return {undefined}
      */
     refresh(): void {
-        consoleWarn('BaseField.refresh()');
+        consoleDebug('BaseField.refresh()');
     }
     /**
      * @param {*} value
      */
     modelChange(value: any) {
-        consoleWarn('BaseField.modelChange()', value);
+        consoleDebug('BaseField.modelChange()', value);
     }
     /**
      * @return {*}
      */
     getPreviousValue(): any {
-        consoleWarn('BaseField.getPreviousValue()');
+        consoleDebug('BaseField.getPreviousValue()');
         return undefined;
     }
     /**
@@ -369,7 +369,7 @@ export class BaseField<T extends HTMLInputElement> {
      * @return {undefined}
      */
     protected _setAdditionalLabel(label: Knot | undefined): void {
-        if (label && label.exists()) {
+        if (label?.exists()) {
             const labelText = this._getLabelRequiredText(label.getHtml(true));
             label.setHtml(labelText);
             this._setInfo(label);
@@ -403,9 +403,7 @@ export class BaseField<T extends HTMLInputElement> {
     private _setMutation(): void {
         const observer = new MutationObserver((mutationsList) => {
             for (const mutation of mutationsList) {
-                if (mutation.attributeName === 'disabled') {
-                    this.refresh();
-                } else if (mutation.attributeName === 'required') {
+                if (mutation.attributeName === 'disabled' || mutation.attributeName === 'required') {
                     this.refresh();
                 }
             }

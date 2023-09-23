@@ -1,7 +1,7 @@
 import { Objekt } from '../core';
 import { Knot } from '../core/knot';
 import { DateIO } from '../utils';
-import { consoleWarn } from '../utils/log';
+import { consoleDebug } from '../utils/log';
 import { Calendar } from './calendar';
 import { Clock } from './clock';
 
@@ -238,6 +238,6 @@ export class DateTime {
      * @return {undefined}
      */
     eventClick(value: string): void {
-        consoleWarn('Date.eventClick()', value);
+        consoleDebug('Date.eventClick()', value);
     }
 }

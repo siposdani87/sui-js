@@ -1,6 +1,6 @@
 import { Promize } from '../core';
 import { Deferred } from '../core/deferred';
-import { consoleWarn } from '../utils/log';
+import { consoleDebug, consoleError } from '../utils/log';
 
 /**
  * @class
@@ -74,7 +74,7 @@ export class GeoLocation {
      * @return {undefined}
      */
     eventChange(latitude: number, longitude: number, message: string): void {
-        consoleWarn('GeoLocation.eventChange()', latitude, longitude, message);
+        consoleDebug('GeoLocation.eventChange()', latitude, longitude, message);
     }
     /**
      * @private
@@ -125,6 +125,6 @@ export class GeoLocation {
      * @return {undefined}
      */
     eventError(message: string, code: string): void {
-        consoleWarn('GeoLocation.eventError()', message, code);
+        consoleError('GeoLocation.eventError()', message, code);
     }
 }

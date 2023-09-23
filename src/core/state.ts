@@ -1,5 +1,5 @@
 import { eachObject, eq, format, isNull } from '../utils/operation';
-import { consoleWarn } from '../utils/log';
+import { consoleDebug, consoleWarn } from '../utils/log';
 import { Collection } from './collection';
 import { Objekt } from './objekt';
 import { Query } from './query';
@@ -397,7 +397,7 @@ export class State {
         previousState: Objekt,
         opt_force: boolean | undefined = false,
     ): void {
-        consoleWarn(
+        consoleDebug(
             'State.eventChange()',
             currentState,
             previousState,

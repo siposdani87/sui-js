@@ -1,7 +1,7 @@
 import { Promize } from '../core';
 import { Deferred } from '../core/deferred';
 import { Objekt } from '../core/objekt';
-import { consoleWarn } from '../utils/log';
+import { consoleDebug } from '../utils/log';
 import { Xhr } from './xhr';
 
 /**
@@ -172,7 +172,7 @@ export class Http {
      * @return {undefined}
      */
     eventBeforeRequest(http: Xhr): void {
-        consoleWarn('Http.eventBeforeRequest', http);
+        consoleDebug('Http.eventBeforeRequest', http);
     }
     /**
      * @param {!XMLHttpRequest} http
@@ -180,6 +180,6 @@ export class Http {
      * @return {undefined}
      */
     eventAfterRequest(http: XMLHttpRequest, response: any): void {
-        consoleWarn('Http.eventAfterRequest', http, response);
+        consoleDebug('Http.eventAfterRequest', http, response);
     }
 }

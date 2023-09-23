@@ -3,7 +3,7 @@ import { Deferred } from '../core/deferred';
 import { Objekt } from '../core/objekt';
 import { Query } from '../core/query';
 import { Http } from './http';
-import { consoleWarn } from '../utils/log';
+import { consoleError } from '../utils/log';
 import { Knot, Promize } from '../core';
 
 /**
@@ -103,6 +103,6 @@ export class Template {
      * @return {undefined}
      */
     eventError(message: { type: string; content: string }): void {
-        consoleWarn('Template.eventError()', message);
+        consoleError('Template.eventError()', message);
     }
 }
