@@ -1,5 +1,5 @@
 import { isUndefined, isFunction, eq, eachArray } from '../utils/operation';
-import { consoleWarn } from '../utils/log';
+import { consoleDebug } from '../utils/log';
 import { Deferred } from './deferred';
 import { Promize } from './promize';
 
@@ -203,7 +203,7 @@ export class Async {
      * @return {undefined}
      */
     eventComplete(isError: boolean, results: Array<any>): void {
-        consoleWarn('Async.eventComplete(isError, results)', isError, results);
+        consoleDebug('Async.eventComplete(isError, results)', isError, results);
     }
     /**
      * @param {!Array<!Function>} calls

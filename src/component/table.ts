@@ -16,7 +16,7 @@ import { ContentHandler } from './contentHandler';
 import { Dropdown } from './dropdown';
 import { Pager } from './pager';
 import { Tooltip } from './tooltip';
-import { consoleWarn } from '../utils/log';
+import { consoleDebug } from '../utils/log';
 import { generateId } from '../utils/coder';
 import { Action } from '../utils';
 import { mdl } from '../utils/render';
@@ -280,7 +280,7 @@ export class Table<T extends Objekt = Objekt> {
      * @return {undefined}
      */
     eventAction(params: Objekt): void {
-        consoleWarn('Table.eventAction()', params);
+        consoleDebug('Table.eventAction()', params);
     }
     /**
      * @private

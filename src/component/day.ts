@@ -1,7 +1,7 @@
 import { Objekt } from '../core';
 import { Knot } from '../core/knot';
 import { DateIO } from '../utils';
-import { consoleWarn } from '../utils/log';
+import { consoleDebug } from '../utils/log';
 
 /**
  * @class
@@ -65,6 +65,6 @@ export class Day {
      * @param {!Date} date
      */
     eventClick(date: Date) {
-        consoleWarn('Day.eventClick()', date);
+        consoleDebug('Day.eventClick()', date);
     }
 }

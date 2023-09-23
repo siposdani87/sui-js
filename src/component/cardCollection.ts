@@ -5,7 +5,7 @@ import { Objekt } from '../core/objekt';
 import { Query } from '../core/query';
 import { ContentHandler } from './contentHandler';
 import { Pager } from './pager';
-import { consoleWarn } from '../utils/log';
+import { consoleDebug, consoleWarn } from '../utils/log';
 import { mdl } from '../utils/render';
 
 /**
@@ -189,7 +189,7 @@ export class CardCollection {
      * @return {undefined}
      */
     eventAction(params: Objekt): void {
-        consoleWarn('CardCollection.eventAction()', params);
+        consoleDebug('CardCollection.eventAction()', params);
     }
     /**
      * @param {!Knot} cardKnot
@@ -197,7 +197,7 @@ export class CardCollection {
      * @return {undefined}
      */
     eventCardKnot(cardKnot: Knot, item: Objekt): void {
-        consoleWarn('CardCollection.eventCardKnot()', cardKnot, item);
+        consoleDebug('CardCollection.eventCardKnot()', cardKnot, item);
     }
     /**
      * @private

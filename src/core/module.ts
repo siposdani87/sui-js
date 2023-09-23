@@ -1,5 +1,5 @@
 import { noop, each, isFunction } from '../utils/operation';
-import { consoleWarn } from '../utils/log';
+import { consoleError, consoleDebug } from '../utils/log';
 import { Async } from './async';
 import { Deferred } from './deferred';
 import { State } from './state';
@@ -291,27 +291,27 @@ export class Module {
      * @return {undefined}
      */
     eventControllerLoaded(dom: Knot): void {
-        consoleWarn('Module.eventControllerLoaded()', dom);
+        consoleDebug('Module.eventControllerLoaded()', dom);
     }
     /**
      * @return {undefined}
      */
     eventControllerFailed(): void {
-        consoleWarn('Module.eventControllerFailed()');
+        consoleDebug('Module.eventControllerFailed()');
     }
     /**
      * @param {!Objekt} state
      * @return {undefined}
      */
     eventModuleFailed(state: Objekt): void {
-        consoleWarn('Module.eventModuleFailed()', state);
+        consoleDebug('Module.eventModuleFailed()', state);
     }
     /**
      * @param {!Objekt} state
      * @return {undefined}
      */
     eventModuleLoaded(state: Objekt): void {
-        consoleWarn('Module.eventModuleLoaded()', state);
+        consoleDebug('Module.eventModuleLoaded()', state);
     }
     /**
      * @param {!Objekt} state
@@ -319,7 +319,7 @@ export class Module {
      */
     eventStateChange(state: Objekt): Promize {
         const deferred = new Deferred();
-        consoleWarn('Module.eventStateChange()', state);
+        consoleDebug('Module.eventStateChange()', state);
         deferred.resolve();
         return deferred.promise();
     }
@@ -330,7 +330,7 @@ export class Module {
      */
     eventDomChange(state: Objekt, dom: Knot): Promize {
         const deferred = new Deferred();
-        consoleWarn('Module.eventDomChange()', state, dom);
+        consoleDebug('Module.eventDomChange()', state, dom);
         deferred.resolve();
         return deferred.promise();
     }
@@ -338,18 +338,18 @@ export class Module {
      * @return {undefined}
      */
     eventAfterInit(): void {
-        consoleWarn('Module.eventAfterInit()');
+        consoleDebug('Module.eventAfterInit()');
     }
     /**
      * @return {undefined}
      */
     eventServiceLoaded(): void {
-        consoleWarn('Module.eventServiceLoaded()');
+        consoleDebug('Module.eventServiceLoaded()');
     }
     /**
      * @return {undefined}
      */
     eventServiceFailed(): void {
-        consoleWarn('Module.eventServiceFailed()');
+        consoleDebug('Module.eventServiceFailed()');
     }
 }

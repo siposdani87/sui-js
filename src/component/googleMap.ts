@@ -3,7 +3,7 @@ import { Collection } from '../core/collection';
 import { Deferred } from '../core/deferred';
 import { Objekt } from '../core/objekt';
 import { Query } from '../core/query';
-import { consoleInfo } from '../utils/log';
+import { consoleDebug } from '../utils/log';
 import { Knot, Promize } from '../core';
 import { IconOptions, Id } from '../utils';
 import { MapLabel } from './mapLabel';
@@ -225,7 +225,7 @@ export class GoogleMap {
         polygonData: Objekt,
         points: Array<{ latitude: number; longitude: number }>,
     ): void {
-        consoleInfo('GoogleMap.eventPolygonChanged()', polygonData, points);
+        consoleDebug('GoogleMap.eventPolygonChanged()', polygonData, points);
     }
     /**
      * @param {Id} id
@@ -499,7 +499,7 @@ export class GoogleMap {
         longitude: number,
         event: Object,
     ): void {
-        consoleInfo(
+        consoleDebug(
             'GoogleMap.eventPolygonClick()',
             polygonData,
             latitude,
@@ -520,7 +520,7 @@ export class GoogleMap {
         longitude: number,
         event: Object,
     ): void {
-        consoleInfo(
+        consoleDebug(
             'GoogleMap.eventPolygonDoubleClick()',
             polygonData,
             latitude,
@@ -541,7 +541,7 @@ export class GoogleMap {
         longitude: number,
         event: Object,
     ): void {
-        consoleInfo(
+        consoleDebug(
             'GoogleMap.eventPolygonRightClick()',
             polygonData,
             latitude,
@@ -556,7 +556,7 @@ export class GoogleMap {
      * @return {undefined}
      */
     eventMapClick(latitude: number, longitude: number, event: Object): void {
-        consoleInfo('GoogleMap.eventMapClick()', latitude, longitude, event);
+        consoleDebug('GoogleMap.eventMapClick()', latitude, longitude, event);
     }
     /**
      * @param {string} mapType
@@ -564,7 +564,7 @@ export class GoogleMap {
      * @return {undefined}
      */
     eventMapTypeChange(mapType: string, event: Object): void {
-        consoleInfo('GoogleMap.eventMapTypeChange()', mapType, event);
+        consoleDebug('GoogleMap.eventMapTypeChange()', mapType, event);
     }
     /**
      * @private
@@ -1073,7 +1073,7 @@ export class GoogleMap {
      * @return {undefined}
      */
     eventMarkerClick(markerData: Objekt, event: Object): void {
-        consoleInfo('GoogleMap.eventMarkerClick()', markerData, event);
+        consoleDebug('GoogleMap.eventMarkerClick()', markerData, event);
     }
     /**
      * @param {!Objekt} markerData
@@ -1081,7 +1081,7 @@ export class GoogleMap {
      * @return {undefined}
      */
     eventMarkerDoubleClick(markerData: Objekt, event: Object): void {
-        consoleInfo('GoogleMap.eventMarkerDoubleClick()', markerData, event);
+        consoleDebug('GoogleMap.eventMarkerDoubleClick()', markerData, event);
     }
     /**
      * @param {!Objekt} markerData
@@ -1089,7 +1089,7 @@ export class GoogleMap {
      * @return {undefined}
      */
     eventMarkerRightClick(markerData: Objekt, event: Object): void {
-        consoleInfo('GoogleMap.eventMarkerRightClick()', markerData, event);
+        consoleDebug('GoogleMap.eventMarkerRightClick()', markerData, event);
     }
     /**
      * @param {!Objekt} markerData
@@ -1104,7 +1104,7 @@ export class GoogleMap {
         longitude: number,
         event: Object,
     ): void {
-        consoleInfo(
+        consoleDebug(
             'GoogleMap.eventMarkerChanged()',
             markerData,
             latitude,

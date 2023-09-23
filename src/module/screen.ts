@@ -1,6 +1,6 @@
 import { debounce, neq, gte } from '../utils/operation';
 import { Objekt } from '../core/objekt';
-import { consoleWarn } from '../utils/log';
+import { consoleDebug } from '../utils/log';
 
 /**
  * @class
@@ -95,14 +95,14 @@ export class Screen {
      * @return {undefined}
      */
     eventOffline(event: Event): void {
-        consoleWarn('Window.eventOffline()', event);
+        consoleDebug('Window.eventOffline()', event);
     }
     /**
      * @param {!Event} event
      * @return {undefined}
      */
     eventOnline(event: Event): void {
-        consoleWarn('Window.eventOffline()', event);
+        consoleDebug('Window.eventOffline()', event);
     }
     /**
      * @param {number} width
@@ -111,7 +111,7 @@ export class Screen {
      * @return {undefined}
      */
     eventResize(width: number, height: number, event: Event): void {
-        consoleWarn('Window.eventResize()', width, height, event);
+        consoleDebug('Window.eventResize()', width, height, event);
     }
     /**
      * @param {string} orientation
@@ -126,7 +126,7 @@ export class Screen {
         height: number,
         event: Event,
     ): void {
-        consoleWarn(
+        consoleDebug(
             'Window.eventOrientationChange()',
             orientation,
             width,
@@ -140,7 +140,7 @@ export class Screen {
      * @return {undefined}
      */
     eventScroll(scrollTop: number, event: Event): void {
-        consoleWarn('Window.eventScroll()', scrollTop, event);
+        consoleDebug('Window.eventScroll()', scrollTop, event);
     }
     /**
      * @private
@@ -221,7 +221,7 @@ export class Screen {
      * @return {undefined}
      */
     eventColorSchemeChange(colorScheme: string, event: Event): void {
-        consoleWarn('Window.eventColorSchemeChange()', colorScheme, event);
+        consoleDebug('Window.eventColorSchemeChange()', colorScheme, event);
     }
     /**
      * @param {string} type dark|light|no-preference

@@ -3,7 +3,7 @@ import { Collection } from '../core/collection';
 import { Objekt } from '../core/objekt';
 import { Query } from '../core/query';
 import { FormField } from './formField';
-import { consoleWarn } from '../utils/log';
+import { consoleDebug } from '../utils/log';
 import { BaseField } from '../field';
 import { Knot } from '../core';
 
@@ -328,7 +328,7 @@ export class Form extends Collection<BaseField<HTMLInputElement>> {
      * @return {undefined}
      */
     eventSubmit(model: Objekt, knot: Knot): void {
-        consoleWarn('Form.eventSubmit()', model, knot);
+        consoleDebug('Form.eventSubmit()', model, knot);
     }
     /**
      * @param {!Objekt} model
@@ -336,7 +336,7 @@ export class Form extends Collection<BaseField<HTMLInputElement>> {
      * @return {undefined}
      */
     eventReset(model: Objekt, knot: Knot): void {
-        consoleWarn('Form.eventReset()', model, knot);
+        consoleDebug('Form.eventReset()', model, knot);
     }
     /**
      * @param {!Objekt} model
@@ -344,6 +344,6 @@ export class Form extends Collection<BaseField<HTMLInputElement>> {
      * @return {undefined}
      */
     eventButton(model: Objekt, knot: Knot): void {
-        consoleWarn('Form.eventButton()', model, knot);
+        consoleDebug('Form.eventButton()', model, knot);
     }
 }

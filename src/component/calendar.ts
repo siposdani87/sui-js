@@ -1,7 +1,7 @@
 import { Objekt } from '../core';
 import { Knot } from '../core/knot';
 import { DateIO } from '../utils';
-import { consoleWarn } from '../utils/log';
+import { consoleDebug } from '../utils/log';
 import { Day } from './day';
 import { Month } from './month';
 import { Year } from './year';
@@ -522,6 +522,6 @@ export class Calendar {
      * @return {undefined}
      */
     eventClick(date: Date): void {
-        consoleWarn('Calendar.eventClick()', date);
+        consoleDebug('Calendar.eventClick()', date);
     }
 }
