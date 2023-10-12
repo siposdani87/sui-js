@@ -140,7 +140,7 @@ export class Module {
             visited[strId] = true;
 
             node.afters.forEach((afterId) => {
-                /* if (ancestors.includes(afterId)) {
+                if (ancestors.includes(afterId)) {
                     // if already in ancestors, a closed chain exists.
                     consoleError(
                         'Modules._topologicalSort()',
@@ -149,7 +149,7 @@ export class Module {
                         '<=>',
                         id,
                     );
-                } */
+                }
 
                 visit(afterId, ancestors);
             });

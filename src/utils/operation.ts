@@ -378,7 +378,7 @@ export const isSame = (a: any, b: any): boolean => {
     const strB = JSON.stringify(b);
     if (isPureObject(a) && isPureObject(b) && eq(strA.length, strB.length)) {
         let result = true;
-        eachObject(a, (value, key) => {
+        each(a, (value, key) => {
             if (!isSame(b[key], value)) {
                 result = false;
             }

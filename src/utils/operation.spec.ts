@@ -255,8 +255,20 @@ describe('operation', () => {
         expect(result).toEqual(true);
     });
 
-    it('isSame', () => {
+    it('isSame number', () => {
+        const result = isSame(3, 3);
+
+        expect(result).toEqual(true);
+    });
+
+    it('isSame object', () => {
         const result = isSame({ a: 1 }, { a: 1 });
+
+        expect(result).toEqual(true);
+    });
+
+    it('isSame array', () => {
+        const result = isSame([1, 2], [1, 2]);
 
         expect(result).toEqual(true);
     });
