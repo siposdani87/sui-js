@@ -1,6 +1,12 @@
-## 0.9.15 - TBD
+## 0.9.16 - TBD
 
-* 
+
+## 0.9.15 - 2023-08-12
+
+* Improve typings
+* Upgrade jest
+* Improve debug logging
+* Add color mode to doc website
 
 ## 0.9.14 - 2023-06-25
 
