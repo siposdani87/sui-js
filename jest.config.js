@@ -8,7 +8,11 @@ module.exports = {
     "src/**/*.{ts,tsx}",
     "!**/node_modules/**"
   ],
-  testResultsProcessor: 'jest-sonar-reporter',
+  reporters: ['default',  ['jest-sonar', {
+    outputDirectory: 'reports',
+    outputName: 'test-reporter.xml',
+    reportedFilePath: 'absolute'
+}]],
   setupFilesAfterEnv: ['./jest.setup.ts'],
   silent: true
 };
