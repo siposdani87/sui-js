@@ -69,24 +69,37 @@ export class Template {
             this.viewKnot.setAttribute('data-template-url', url);
             this.http.get(url).then(
                 (data) => {
-                    deferred.resolve(this._handleData(data, false));
+                    deferred.resolve(this._spaNavigate(data, false));
                 },
                 (data) => {
-                    deferred.reject(this._handleData(data, true));
+                    deferred.reject(this._spaNavigate(data, true));
                 },
             );
         }
         return deferred.promise();
     }
+
+    _spaNavigate(data: Knot, isError: boolean) {
+        // Fallback for browsers that don't support this API:
+        /* if (!document.startViewTransition) {
+            this._updateDOM(data, isError);
+          return;
+        } */
+
+        // With a transition:
+        // document.startViewTransition(() => this._updateDOM(data, isError));
+
+        this._updateDOM(data, isError);
+    }
     /**
      * @private
      * @param {!Knot} data
-     * @param {boolean} error
+     * @param {boolean} isError
      * @return {!Knot}
      */
-    private _handleData(data: Knot, error: boolean): Knot {
+    private _updateDOM(data: Knot, isError: boolean): Knot {
         const knot = new Query('.page-content', data).getKnot();
-        if (error) {
+        if (isError) {
             const messageKnot = new Query('.message', knot).getKnot();
             const message = {
                 content: messageKnot.getText(),
