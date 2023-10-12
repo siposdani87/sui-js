@@ -1,6 +1,6 @@
 import { debounce, neq, gte } from '../utils/operation';
 import { Objekt } from '../core/objekt';
-import { consoleWarn } from '../utils/log';
+import { consoleDebug } from '../utils/log';
 /**
  * @class
  */
@@ -71,14 +71,14 @@ export class Screen {
      * @return {undefined}
      */
     eventOffline(event) {
-        consoleWarn('Window.eventOffline()', event);
+        consoleDebug('Window.eventOffline()', event);
     }
     /**
      * @param {!Event} event
      * @return {undefined}
      */
     eventOnline(event) {
-        consoleWarn('Window.eventOffline()', event);
+        consoleDebug('Window.eventOffline()', event);
     }
     /**
      * @param {number} width
@@ -87,7 +87,7 @@ export class Screen {
      * @return {undefined}
      */
     eventResize(width, height, event) {
-        consoleWarn('Window.eventResize()', width, height, event);
+        consoleDebug('Window.eventResize()', width, height, event);
     }
     /**
      * @param {string} orientation
@@ -97,7 +97,7 @@ export class Screen {
      * @return {undefined}
      */
     eventOrientationChange(orientation, width, height, event) {
-        consoleWarn('Window.eventOrientationChange()', orientation, width, height, event);
+        consoleDebug('Window.eventOrientationChange()', orientation, width, height, event);
     }
     /**
      * @param {number} scrollTop
@@ -105,7 +105,7 @@ export class Screen {
      * @return {undefined}
      */
     eventScroll(scrollTop, event) {
-        consoleWarn('Window.eventScroll()', scrollTop, event);
+        consoleDebug('Window.eventScroll()', scrollTop, event);
     }
     /**
      * @private
@@ -179,7 +179,7 @@ export class Screen {
      * @return {undefined}
      */
     eventColorSchemeChange(colorScheme, event) {
-        consoleWarn('Window.eventColorSchemeChange()', colorScheme, event);
+        consoleDebug('Window.eventColorSchemeChange()', colorScheme, event);
     }
     /**
      * @param {string} type dark|light|no-preference

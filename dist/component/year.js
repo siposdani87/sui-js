@@ -1,7 +1,7 @@
 import { Objekt } from '../core';
 import { Knot } from '../core/knot';
 import { DateIO } from '../utils';
-import { consoleWarn } from '../utils/log';
+import { consoleDebug } from '../utils/log';
 /**
  * @class
  */
@@ -57,6 +57,6 @@ export class Year {
      * @param {!Date} date
      */
     eventClick(date) {
-        consoleWarn('Year.eventClick()', date);
+        consoleDebug('Year.eventClick()', date);
     }
 }

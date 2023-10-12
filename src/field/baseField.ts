@@ -403,7 +403,10 @@ export class BaseField<T extends HTMLInputElement> {
     private _setMutation(): void {
         const observer = new MutationObserver((mutationsList) => {
             for (const mutation of mutationsList) {
-                if (mutation.attributeName === 'disabled' || mutation.attributeName === 'required') {
+                if (
+                    mutation.attributeName === 'disabled' ||
+                    mutation.attributeName === 'required'
+                ) {
                     this.refresh();
                 }
             }

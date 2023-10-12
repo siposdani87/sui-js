@@ -80,13 +80,15 @@ form {
 
     input {
         &:-webkit-autofill {
-            transition: background-color 5000s ease-in-out,
+            transition:
+                background-color 5000s ease-in-out,
                 color 5000s ease-in-out;
 
             &:hover,
             &:focus,
             &:active {
-                transition: background-color 5000s ease-in-out,
+                transition:
+                    background-color 5000s ease-in-out,
                     color 5000s ease-in-out;
             }
         }

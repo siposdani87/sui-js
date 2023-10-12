@@ -2,7 +2,7 @@ import { format, each } from '../utils/operation';
 import { Knot } from '../core/knot';
 import { Objekt } from '../core/objekt';
 import { Query } from '../core/query';
-import { consoleWarn } from '../utils/log';
+import { consoleDebug } from '../utils/log';
 import { mdl } from '../utils/render';
 /**
  * @class
@@ -229,6 +229,6 @@ export class Pager {
      * @return {undefined}
      */
     eventAction(page) {
-        consoleWarn('Pager.eventAction()', page);
+        consoleDebug('Pager.eventAction()', page);
     }
 }

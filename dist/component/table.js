@@ -7,7 +7,7 @@ import { ContentHandler } from './contentHandler';
 import { Dropdown } from './dropdown';
 import { Pager } from './pager';
 import { Tooltip } from './tooltip';
-import { consoleWarn } from '../utils/log';
+import { consoleDebug } from '../utils/log';
 import { generateId } from '../utils/coder';
 import { mdl } from '../utils/render';
 /**
@@ -230,7 +230,7 @@ export class Table {
      * @return {undefined}
      */
     eventAction(params) {
-        consoleWarn('Table.eventAction()', params);
+        consoleDebug('Table.eventAction()', params);
     }
     /**
      * @private

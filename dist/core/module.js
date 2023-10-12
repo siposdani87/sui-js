@@ -1,5 +1,5 @@
 import { noop, each, isFunction } from '../utils/operation';
-import { consoleWarn } from '../utils/log';
+import { consoleError, consoleDebug } from '../utils/log';
 import { Async } from './async';
 import { Deferred } from './deferred';
 import { State } from './state';
@@ -107,16 +107,10 @@ export class Module {
             ancestors.push(id);
             visited[strId] = true;
             node.afters.forEach((afterId) => {
-                /* if (ancestors.includes(afterId)) {
+                if (ancestors.includes(afterId)) {
                     // if already in ancestors, a closed chain exists.
-                    consoleError(
-                        'Modules._topologicalSort()',
-                        'Dependency injection circular loop',
-                        afterId,
-                        '<=>',
-                        id,
-                    );
-                } */
+                    consoleError('Modules._topologicalSort()', 'Dependency injection circular loop', afterId, '<=>', id);
+                }
                 visit(afterId, ancestors);
             });
             sorted.unshift(id);
@@ -228,27 +222,27 @@ export class Module {
      * @return {undefined}
      */
     eventControllerLoaded(dom) {
-        consoleWarn('Module.eventControllerLoaded()', dom);
+        consoleDebug('Module.eventControllerLoaded()', dom);
     }
     /**
      * @return {undefined}
      */
     eventControllerFailed() {
-        consoleWarn('Module.eventControllerFailed()');
+        consoleDebug('Module.eventControllerFailed()');
     }
     /**
      * @param {!Objekt} state
      * @return {undefined}
      */
     eventModuleFailed(state) {
-        consoleWarn('Module.eventModuleFailed()', state);
+        consoleDebug('Module.eventModuleFailed()', state);
     }
     /**
      * @param {!Objekt} state
      * @return {undefined}
      */
     eventModuleLoaded(state) {
-        consoleWarn('Module.eventModuleLoaded()', state);
+        consoleDebug('Module.eventModuleLoaded()', state);
     }
     /**
      * @param {!Objekt} state
@@ -256,7 +250,7 @@ export class Module {
      */
     eventStateChange(state) {
         const deferred = new Deferred();
-        consoleWarn('Module.eventStateChange()', state);
+        consoleDebug('Module.eventStateChange()', state);
         deferred.resolve();
         return deferred.promise();
     }
@@ -267,7 +261,7 @@ export class Module {
      */
     eventDomChange(state, dom) {
         const deferred = new Deferred();
-        consoleWarn('Module.eventDomChange()', state, dom);
+        consoleDebug('Module.eventDomChange()', state, dom);
         deferred.resolve();
         return deferred.promise();
     }
@@ -275,18 +269,18 @@ export class Module {
      * @return {undefined}
      */
     eventAfterInit() {
-        consoleWarn('Module.eventAfterInit()');
+        consoleDebug('Module.eventAfterInit()');
     }
     /**
      * @return {undefined}
      */
     eventServiceLoaded() {
-        consoleWarn('Module.eventServiceLoaded()');
+        consoleDebug('Module.eventServiceLoaded()');
     }
     /**
      * @return {undefined}
      */
     eventServiceFailed() {
-        consoleWarn('Module.eventServiceFailed()');
+        consoleDebug('Module.eventServiceFailed()');
     }
 }

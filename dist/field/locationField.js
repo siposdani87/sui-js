@@ -2,7 +2,7 @@ import { eq, typeCast, isNull } from '../utils/operation';
 import { BaseField } from './baseField';
 import { GoogleMap } from '../component/googleMap';
 import { Knot } from '../core/knot';
-import { consoleInfo } from '../utils/log';
+import { consoleDebug } from '../utils/log';
 import { generateId } from '../utils/coder';
 import { mdl } from '../utils/render';
 /**
@@ -311,6 +311,6 @@ export class LocationField extends BaseField {
      * @return {undefined}
      */
     eventSearch(address) {
-        consoleInfo('Location.eventSearch()', address);
+        consoleDebug('Location.eventSearch()', address);
     }
 }

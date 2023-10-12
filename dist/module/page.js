@@ -1,6 +1,6 @@
 import { Knot } from '../core/knot';
 import { Objekt } from '../core/objekt';
-import { consoleWarn } from '../utils/log';
+import { consoleDebug } from '../utils/log';
 /**
  * @class
  */
@@ -45,7 +45,7 @@ export class Page {
      * @return {undefined}
      */
     eventClick(target, event) {
-        consoleWarn('Document.eventClick()', target, event);
+        consoleDebug('Document.eventClick()', target, event);
     }
     /**
      * @param {string} email

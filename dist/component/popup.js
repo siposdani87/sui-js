@@ -1,6 +1,6 @@
 import { Knot } from '../core/knot';
 import { PopupContainer } from './popupContainer';
-import { consoleInfo } from '../utils/log';
+import { consoleDebug } from '../utils/log';
 import { mdl } from '../utils/render';
 /**
  * @class
@@ -84,7 +84,7 @@ export class Popup {
      * @return {undefined}
      */
     eventClose() {
-        consoleInfo('Popup.eventClose()');
+        consoleDebug('Popup.eventClose()');
     }
     /**
      * @return {undefined}
