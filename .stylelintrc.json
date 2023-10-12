@@ -15,6 +15,7 @@
         "font-family-no-missing-generic-family-keyword": null,
         "annotation-no-unknown": null,
         "import-notation": "string",
-        "at-rule-empty-line-before": null
+        "at-rule-empty-line-before": null,
+        "media-query-no-invalid": null
     }
 }
