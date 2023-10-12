@@ -2,7 +2,7 @@ import { isNull } from '../utils/operation';
 import { Async } from '../core/async';
 import { Deferred } from '../core/deferred';
 import { Query } from '../core/query';
-import { consoleWarn } from '../utils/log';
+import { consoleDebug } from '../utils/log';
 /**
  * @class
  */
@@ -83,7 +83,7 @@ export class TabPanel {
      * @return {undefined}
      */
     eventChange(panelId) {
-        consoleWarn('TabPanel.eventChange()', panelId);
+        consoleDebug('TabPanel.eventChange()', panelId);
     }
     /**
      * @param {string} panelId

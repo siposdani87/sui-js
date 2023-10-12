@@ -1,6 +1,6 @@
 import { Deferred } from '../core/deferred';
 import { Objekt } from '../core/objekt';
-import { consoleWarn } from '../utils/log';
+import { consoleDebug } from '../utils/log';
 import { Xhr } from './xhr';
 /**
  * @class
@@ -135,7 +135,7 @@ export class Http {
      * @return {undefined}
      */
     eventBeforeRequest(http) {
-        consoleWarn('Http.eventBeforeRequest', http);
+        consoleDebug('Http.eventBeforeRequest', http);
     }
     /**
      * @param {!XMLHttpRequest} http
@@ -143,6 +143,6 @@ export class Http {
      * @return {undefined}
      */
     eventAfterRequest(http, response) {
-        consoleWarn('Http.eventAfterRequest', http, response);
+        consoleDebug('Http.eventAfterRequest', http, response);
     }
 }

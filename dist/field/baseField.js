@@ -2,7 +2,7 @@ import { eq, typeCast } from '../utils/operation';
 import { Knot } from '../core/knot';
 import { Query } from '../core/query';
 import { Tooltip } from '../component/tooltip';
-import { consoleInfo, consoleWarn } from '../utils/log';
+import { consoleDebug } from '../utils/log';
 /**
  * @template {T}
  * @class
@@ -34,38 +34,38 @@ export class BaseField {
      * @param {*} previousValue
      */
     eventChange(value, previousValue) {
-        consoleInfo('BaseField.eventChange()', value, previousValue);
+        consoleDebug('BaseField.eventChange()', value, previousValue);
     }
     /**
      * @param {!Knot} knot
      * @return {undefined}
      */
     eventClick(knot) {
-        consoleWarn('Button.eventClick()', knot);
+        consoleDebug('Button.eventClick()', knot);
     }
     /**
      * @return {undefined}
      */
     render() {
-        consoleWarn('BaseField.render()');
+        consoleDebug('BaseField.render()');
     }
     /**
      * @return {undefined}
      */
     refresh() {
-        consoleWarn('BaseField.refresh()');
+        consoleDebug('BaseField.refresh()');
     }
     /**
      * @param {*} value
      */
     modelChange(value) {
-        consoleWarn('BaseField.modelChange()', value);
+        consoleDebug('BaseField.modelChange()', value);
     }
     /**
      * @return {*}
      */
     getPreviousValue() {
-        consoleWarn('BaseField.getPreviousValue()');
+        consoleDebug('BaseField.getPreviousValue()');
         return undefined;
     }
     /**
@@ -339,7 +339,7 @@ export class BaseField {
      * @return {undefined}
      */
     _setAdditionalLabel(label) {
-        if (label && label.exists()) {
+        if (label === null || label === void 0 ? void 0 : label.exists()) {
             const labelText = this._getLabelRequiredText(label.getHtml(true));
             label.setHtml(labelText);
             this._setInfo(label);
@@ -371,10 +371,8 @@ export class BaseField {
     _setMutation() {
         const observer = new MutationObserver((mutationsList) => {
             for (const mutation of mutationsList) {
-                if (mutation.attributeName === 'disabled') {
-                    this.refresh();
-                }
-                else if (mutation.attributeName === 'required') {
+                if (mutation.attributeName === 'disabled' ||
+                    mutation.attributeName === 'required') {
                     this.refresh();
                 }
             }

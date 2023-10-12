@@ -2,7 +2,7 @@ import { contain } from '../utils/operation';
 import { Deferred } from '../core/deferred';
 import { Objekt } from '../core/objekt';
 import { Query } from '../core/query';
-import { consoleWarn } from '../utils/log';
+import { consoleError } from '../utils/log';
 /**
  * @class
  */
@@ -60,22 +60,32 @@ export class Template {
         else {
             this.viewKnot.setAttribute('data-template-url', url);
             this.http.get(url).then((data) => {
-                deferred.resolve(this._handleData(data, false));
+                deferred.resolve(this._spaNavigate(data, false));
             }, (data) => {
-                deferred.reject(this._handleData(data, true));
+                deferred.reject(this._spaNavigate(data, true));
             });
         }
         return deferred.promise();
     }
+    _spaNavigate(data, isError) {
+        // Fallback for browsers that don't support this API:
+        /* if (!document.startViewTransition) {
+            this._updateDOM(data, isError);
+          return;
+        } */
+        // With a transition:
+        // document.startViewTransition(() => this._updateDOM(data, isError));
+        this._updateDOM(data, isError);
+    }
     /**
      * @private
      * @param {!Knot} data
-     * @param {boolean} error
+     * @param {boolean} isError
      * @return {!Knot}
      */
-    _handleData(data, error) {
+    _updateDOM(data, isError) {
         const knot = new Query('.page-content', data).getKnot();
-        if (error) {
+        if (isError) {
             const messageKnot = new Query('.message', knot).getKnot();
             const message = {
                 content: messageKnot.getText(),
@@ -93,6 +103,6 @@ export class Template {
      * @return {undefined}
      */
     eventError(message) {
-        consoleWarn('Template.eventError()', message);
+        consoleError('Template.eventError()', message);
     }
 }

@@ -34,13 +34,14 @@ export declare class Template {
      * @return {!Promize}
      */
     load(url: string, opt_force?: boolean | undefined): Promize;
+    _spaNavigate(data: Knot, isError: boolean): void;
     /**
      * @private
      * @param {!Knot} data
-     * @param {boolean} error
+     * @param {boolean} isError
      * @return {!Knot}
      */
-    private _handleData;
+    private _updateDOM;
     /**
      * @param {!Object} message
      * @return {undefined}

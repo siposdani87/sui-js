@@ -1,7 +1,7 @@
 import { each, isString, isUndefined, typeCast } from '../utils/operation';
 import { Knot } from '../core/knot';
 import { Query } from '../core/query';
-import { consoleInfo } from '../utils/log';
+import { consoleDebug } from '../utils/log';
 /**
  * @class
  */
@@ -158,7 +158,7 @@ export class Canvas {
      * @return {undefined}
      */
     eventMouseMove(x, y) {
-        consoleInfo('Canvas.eventMouseMove()', x, y);
+        consoleDebug('Canvas.eventMouseMove()', x, y);
     }
     /**
      * @return {undefined}

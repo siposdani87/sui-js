@@ -1,6 +1,6 @@
 import { Objekt } from '../core/objekt';
 import { Query } from '../core/query';
-import { consoleWarn } from '../utils/log';
+import { consoleDebug } from '../utils/log';
 /**
  * @class
  */
@@ -43,7 +43,7 @@ export class Header {
      * @return {undefined}
      */
     eventLogoClick() {
-        consoleWarn('Header.eventLogoClick()');
+        consoleDebug('Header.eventLogoClick()');
     }
     /**
      * @param {string} title

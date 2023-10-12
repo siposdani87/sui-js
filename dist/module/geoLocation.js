@@ -1,5 +1,5 @@
 import { Deferred } from '../core/deferred';
-import { consoleWarn } from '../utils/log';
+import { consoleDebug, consoleError } from '../utils/log';
 /**
  * @class
  */
@@ -58,7 +58,7 @@ export class GeoLocation {
      * @return {undefined}
      */
     eventChange(latitude, longitude, message) {
-        consoleWarn('GeoLocation.eventChange()', latitude, longitude, message);
+        consoleDebug('GeoLocation.eventChange()', latitude, longitude, message);
     }
     /**
      * @private
@@ -96,6 +96,6 @@ export class GeoLocation {
      * @return {undefined}
      */
     eventError(message, code) {
-        consoleWarn('GeoLocation.eventError()', message, code);
+        consoleError('GeoLocation.eventError()', message, code);
     }
 }

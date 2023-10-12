@@ -1,6 +1,6 @@
 import { Objekt } from '../core';
 import { Knot } from '../core/knot';
-import { consoleWarn } from '../utils/log';
+import { consoleDebug } from '../utils/log';
 /**
  * @class
  */
@@ -158,6 +158,6 @@ export class Time {
      * @param {number} index
      */
     eventClick(index) {
-        consoleWarn('Time.eventClick()', index);
+        consoleDebug('Time.eventClick()', index);
     }
 }

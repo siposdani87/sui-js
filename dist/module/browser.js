@@ -1,5 +1,5 @@
 import { isEmpty, eq } from '../utils/operation';
-import { consoleError } from '../utils/log';
+import { consoleDebug } from '../utils/log';
 /**
  * http://browserhacks.com/
  * @class
@@ -58,7 +58,7 @@ export class Browser {
      * @return {undefined}
      */
     eventMissingFeatures(features) {
-        consoleError('Browser.eventMissingFeatures()', features);
+        consoleDebug('Browser.eventMissingFeatures()', features);
     }
     /**
      * @private

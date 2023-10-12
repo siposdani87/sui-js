@@ -2,7 +2,7 @@ import { eq } from '../utils/operation';
 import { mdl } from '../utils/render';
 import { BaseField } from './baseField';
 import { Knot } from '../core/knot';
-import { consoleWarn } from '../utils/log';
+import { consoleDebug } from '../utils/log';
 /**
  * @class
  * @extends {BaseField}
@@ -100,6 +100,6 @@ export class SearchField extends BaseField {
      * @return {undefined}
      */
     eventEnter(value) {
-        consoleWarn('Search.eventEnter()', value);
+        consoleDebug('Search.eventEnter()', value);
     }
 }

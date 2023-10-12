@@ -3,7 +3,7 @@ import { Collection } from '../core/collection';
 import { Objekt } from '../core/objekt';
 import { Query } from '../core/query';
 import { FormField } from './formField';
-import { consoleWarn } from '../utils/log';
+import { consoleDebug } from '../utils/log';
 /**
  * @class
  * @extends {Collection}
@@ -288,7 +288,7 @@ export class Form extends Collection {
      * @return {undefined}
      */
     eventSubmit(model, knot) {
-        consoleWarn('Form.eventSubmit()', model, knot);
+        consoleDebug('Form.eventSubmit()', model, knot);
     }
     /**
      * @param {!Objekt} model
@@ -296,7 +296,7 @@ export class Form extends Collection {
      * @return {undefined}
      */
     eventReset(model, knot) {
-        consoleWarn('Form.eventReset()', model, knot);
+        consoleDebug('Form.eventReset()', model, knot);
     }
     /**
      * @param {!Objekt} model
@@ -304,6 +304,6 @@ export class Form extends Collection {
      * @return {undefined}
      */
     eventButton(model, knot) {
-        consoleWarn('Form.eventButton()', model, knot);
+        consoleDebug('Form.eventButton()', model, knot);
     }
 }
