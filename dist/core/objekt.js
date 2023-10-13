@@ -7,7 +7,7 @@ export class Objekt {
     /**
      * @param {!Object=} opt_object
      */
-    constructor(opt_object = {}) {
+    constructor(opt_object) {
         Object.call(this, opt_object);
         this.merge(opt_object);
     }
@@ -49,20 +49,18 @@ export class Objekt {
         });
     }
     /**
-     * @template T
+     * @template K
      * @param {string=} opt_attribute
      * @param {*=} opt_defaultValue
      * @param {boolean=} opt_isSafe
      * @return {*}
      */
-    get(opt_attribute, opt_defaultValue, opt_isSafe = false) {
-        let value = this;
-        if (opt_attribute) {
-            const attributes = opt_isSafe
-                ? [opt_attribute]
-                : opt_attribute.split('.');
-            value = this._getByAttributes(this, attributes);
+    get(attribute, opt_defaultValue, opt_isSafe = false) {
+        if (!attribute) {
+            return this;
         }
+        const attributes = opt_isSafe ? [attribute] : attribute.split('.');
+        const value = this._getByAttributes(this, attributes);
         return !isUndefined(value) ? value : opt_defaultValue;
     }
     /**

@@ -1,12 +1,12 @@
 /**
  * @class
  */
-export declare class Objekt {
-    [key: string]: any;
+export declare class Objekt<T extends Object = Object> {
+    [key: string]: T[keyof T | any];
     /**
      * @param {!Object=} opt_object
      */
-    constructor(opt_object?: Object | undefined);
+    constructor(opt_object?: T);
     /**
      * @param {*} object
      * @return {!Objekt}
@@ -19,13 +19,13 @@ export declare class Objekt {
      */
     private _convertObject;
     /**
-     * @template T
+     * @template K
      * @param {string=} opt_attribute
      * @param {*=} opt_defaultValue
      * @param {boolean=} opt_isSafe
      * @return {*}
      */
-    get<T>(opt_attribute?: string | undefined, opt_defaultValue?: T | undefined, opt_isSafe?: boolean | undefined): T;
+    get<K>(attribute: string | undefined, opt_defaultValue?: K, opt_isSafe?: boolean | undefined): K;
     /**
      * @private
      * @param {!Object|!Objekt} object
@@ -45,14 +45,14 @@ export declare class Objekt {
      * @param {*} value
      * @return {undefined}
      */
-    set(attribute: string, value: any): void;
+    set<K>(attribute: string, value: K): void;
     /**
      * @param {string} attribute
      * @param {*} value
      * @param {boolean=} opt_isSafe
      * @return {undefined}
      */
-    setRaw(attribute: string, value: any, opt_isSafe?: boolean | undefined): void;
+    setRaw<K>(attribute: string, value: K, opt_isSafe?: boolean | undefined): void;
     /**
      * @param {string} attribute
      * @return {undefined}
@@ -74,7 +74,7 @@ export declare class Objekt {
      * @param {!Array<string>=} opt_attributes
      * @return {undefined}
      */
-    each(next: Function, opt_properties?: Object | undefined, opt_attributes?: Array<string> | undefined): void;
+    each<K>(next: (value: K, key: string) => void, opt_properties?: Object | undefined, opt_attributes?: Array<string> | undefined): void;
     /**
      * @param {!Object} object
      * @param {!Array<string>} attributes
@@ -109,5 +109,5 @@ export declare class Objekt {
      * @param {!Function} condition
      * @return {!Objekt}
      */
-    filterKeys(obj: Objekt, condition: Function): Objekt;
+    filterKeys(obj: Objekt, condition: (key: string) => boolean): Objekt;
 }

@@ -3,7 +3,6 @@ import { Objekt } from './objekt';
 /**
  * @class
  */
-// Hope
 export class Promize {
     /**
      * @param {!Object=} opt_options
@@ -32,7 +31,7 @@ export class Promize {
      */
     resolve(opt_data) {
         if (!isArray(opt_data)) {
-            opt_data = [opt_data];
+            opt_data = opt_data ? [opt_data] : [];
         }
         if (isFunction(this.options.resolve) &&
             isFunction(this.options.complete)) {

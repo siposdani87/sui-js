@@ -2,23 +2,21 @@ import { Promize } from './promize';
 /**
  * @class
  */
-export declare class Deferred {
+export declare class Deferred<T = Object, K = Object> {
     private _promise;
-    /**
-     */
     constructor();
     /**
      * @return {!Promize}
      */
-    promise(): Promize;
+    promise(): Promize<T, K>;
     /**
-     * @param {*=} opt_object
+     * @param {*=} opt_data
      * @return {undefined}
      */
-    resolve(opt_object?: any): void;
+    resolve(opt_data?: T | T[]): void;
     /**
-     * @param {*=} opt_object
+     * @param {*=} opt_data
      * @return {undefined}
      */
-    reject(opt_object?: any): void;
+    reject(opt_data?: K | K[]): void;
 }

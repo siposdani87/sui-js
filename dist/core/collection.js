@@ -1,4 +1,4 @@
-import { each, instanceOf, isUndefined, clear, eq, pluck, eachArray, } from '../utils/operation';
+import { each, instanceOf, isUndefined, clear, eq, eachArray, } from '../utils/operation';
 import { Objekt } from './objekt';
 /**
  * @class
@@ -297,12 +297,5 @@ export class Collection {
      */
     limit(offset, opt_count = 10) {
         return this.items.slice(offset, offset + opt_count);
-    }
-    /**
-     * @param {string} attribute
-     * @return {!Array<T>}
-     */
-    pluck(attribute) {
-        return pluck(this.items, attribute);
     }
 }

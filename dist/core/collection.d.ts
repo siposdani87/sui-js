@@ -4,7 +4,7 @@ import { Objekt } from './objekt';
  * @class
  * @template T
  */
-export declare class Collection<T extends Object = Objekt> {
+export declare class Collection<T extends Object = Object> {
     Type: any;
     items: T[];
     options: Objekt;
@@ -155,9 +155,4 @@ export declare class Collection<T extends Object = Objekt> {
      * @return {!Array<T>}
      */
     limit(offset: number, opt_count?: number | undefined): Array<T>;
-    /**
-     * @param {string} attribute
-     * @return {!Array<T>}
-     */
-    pluck(attribute: string): Array<T>;
 }
