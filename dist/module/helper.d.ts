@@ -12,7 +12,7 @@ export declare class Helper {
      * @param {!Array=} opt_cssClasses
      * @return {!Knot}
      */
-    createLink(name: string, opt_callback: Function | undefined, opt_href?: string | undefined, opt_description?: string | undefined, opt_allowAccess?: boolean | undefined, opt_cssClasses?: string[] | undefined): Knot;
+    createLink(name: string, opt_callback: (href: string, linkKnot: Knot) => void | undefined, opt_href?: string | undefined, opt_description?: string | undefined, opt_allowAccess?: boolean | undefined, opt_cssClasses?: string[] | undefined): Knot;
     /**
      * @param {string} selector
      * @param {!Knot} dom
@@ -20,7 +20,7 @@ export declare class Helper {
      * @param {!Array=} opt_cssClasses
      * @return {undefined}
      */
-    multipleLink(selector: string, dom: Knot, opt_callback: Function | undefined, opt_cssClasses?: string[] | undefined): void;
+    multipleLink(selector: string, dom: Knot, opt_callback: (href: string, linkKnot: Knot) => void | undefined, opt_cssClasses?: string[] | undefined): void;
     /**
      * @param {string} selector
      * @param {!Knot} dom
@@ -31,7 +31,7 @@ export declare class Helper {
      * @param {!Array=} opt_cssClasses
      * @return {!Knot}
      */
-    link(selector: string, dom: Knot, opt_callback: Function | undefined, opt_href?: string | undefined, opt_description?: string | undefined, opt_allowAccess?: boolean | undefined, opt_cssClasses?: string[] | undefined): Knot;
+    link(selector: string, dom: Knot, opt_callback: (href: string, linkKnot: Knot) => void | undefined, opt_href?: string | undefined, opt_description?: string | undefined, opt_allowAccess?: boolean | undefined, opt_cssClasses?: string[] | undefined): Knot;
     /**
      * @param {!Knot} linkKnot
      * @param {!Function=} opt_callback
@@ -41,7 +41,7 @@ export declare class Helper {
      * @param {!Array=} opt_cssClasses
      * @return {undefined}
      */
-    linkElement(linkKnot: Knot, opt_callback: Function | undefined, opt_href?: string | undefined, opt_description?: string | undefined, opt_allowAccess?: boolean | undefined, opt_cssClasses?: string[] | undefined): void;
+    linkElement(linkKnot: Knot, opt_callback: (href: string, linkKnot: Knot) => void | undefined, opt_href?: string | undefined, opt_description?: string | undefined, opt_allowAccess?: boolean | undefined, opt_cssClasses?: string[] | undefined): void;
     /**
      * @param {string} name
      * @param {!Function} callback
@@ -50,7 +50,7 @@ export declare class Helper {
      * @param {!Array=} opt_cssClasses
      * @return {!Knot}
      */
-    createButton(name: string, callback: Function, opt_description?: string | undefined, opt_allowAccess?: boolean | undefined, opt_cssClasses?: string[] | undefined): Knot;
+    createButton(name: string, callback: (id: string, button: Knot) => void, opt_description?: string | undefined, opt_allowAccess?: boolean | undefined, opt_cssClasses?: string[] | undefined): Knot;
     /**
      * @param {string} selector
      * @param {!Knot} dom
@@ -58,7 +58,7 @@ export declare class Helper {
      * @param {!Array=} opt_cssClasses
      * @return {undefined}
      */
-    multipleButton(selector: string, dom: Knot, opt_callback: Function | undefined, opt_cssClasses?: string[] | undefined): void;
+    multipleButton(selector: string, dom: Knot, opt_callback?: (id: string, button: Knot) => void, opt_cssClasses?: string[] | undefined): void;
     /**
      * @param {string} selector
      * @param {!Knot} dom
@@ -68,7 +68,7 @@ export declare class Helper {
      * @param {!Array=} opt_cssClasses
      * @return {!Knot}
      */
-    button(selector: string, dom: Knot, callback: Function, opt_description?: string | undefined, opt_allowAccess?: boolean | undefined, opt_cssClasses?: string[] | undefined): Knot;
+    button(selector: string, dom: Knot, callback: (id: string, button: Knot) => void, opt_description?: string | undefined, opt_allowAccess?: boolean | undefined, opt_cssClasses?: string[] | undefined): Knot;
     /**
      * @param {!Knot} buttonKnot
      * @param {!Function=} opt_callback
@@ -77,7 +77,7 @@ export declare class Helper {
      * @param {!Array=} opt_cssClasses
      * @return {undefined}
      */
-    buttonElement(buttonKnot: Knot, opt_callback: Function | undefined, opt_description?: string | undefined, opt_allowAccess?: boolean | undefined, opt_cssClasses?: string[] | undefined): void;
+    buttonElement(buttonKnot: Knot, opt_callback?: (id: string, button: Knot) => void, opt_description?: string | undefined, opt_allowAccess?: boolean | undefined, opt_cssClasses?: string[] | undefined): void;
     /**
      * @param {string} iconName
      * @param {!Function} callback
@@ -86,7 +86,7 @@ export declare class Helper {
      * @param {!Array=} opt_cssClasses
      * @return {!Knot}
      */
-    createIconButton(iconName: string, callback: Function, opt_description?: string | undefined, opt_allowAccess?: boolean | undefined, opt_cssClasses?: string[] | undefined): Knot;
+    createIconButton(iconName: string, callback: (id: string, button: Knot) => void, opt_description?: string | undefined, opt_allowAccess?: boolean | undefined, opt_cssClasses?: string[] | undefined): Knot;
     /**
      * @param {string} selector
      * @param {!Knot} dom
@@ -103,7 +103,7 @@ export declare class Helper {
      * @param {!Array=} opt_cssClasses
      * @return {!Knot}
      */
-    iconButton(selector: string, dom: Knot, callback: Function, opt_description?: string | undefined, opt_allowAccess?: boolean | undefined, opt_cssClasses?: string[] | undefined): Knot;
+    iconButton(selector: string, dom: Knot, callback: (id: string, button: Knot) => void, opt_description?: string | undefined, opt_allowAccess?: boolean | undefined, opt_cssClasses?: string[] | undefined): Knot;
     /**
      * @param {!Knot} buttonKnot
      * @param {!Function=} opt_callback
@@ -112,7 +112,7 @@ export declare class Helper {
      * @param {!Array=} opt_cssClasses
      * @return {undefined}
      */
-    iconButtonElement(buttonKnot: Knot, opt_callback: Function | undefined, opt_description?: string | undefined, opt_allowAccess?: boolean | undefined, opt_cssClasses?: string[] | undefined): void;
+    iconButtonElement(buttonKnot: Knot, opt_callback?: (id: string, button: Knot) => void, opt_description?: string | undefined, opt_allowAccess?: boolean | undefined, opt_cssClasses?: string[] | undefined): void;
     /**
      * @private
      * @param {string} iconName

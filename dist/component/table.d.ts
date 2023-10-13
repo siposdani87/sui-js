@@ -5,6 +5,9 @@ import { Query } from '../core/query';
 import { ContentHandler } from './contentHandler';
 import { Pager } from './pager';
 import { Action } from '../utils';
+export type TableCalculation<T = Objekt> = {
+    [key in string]: (item: T) => Knot | string;
+};
 /**
  * @class
  */

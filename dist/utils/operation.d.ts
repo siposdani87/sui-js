@@ -258,7 +258,7 @@ export declare const capitalize: (str: string) => string;
  * @param {string} attribute
  * @return {!Array<T>}
  */
-export declare const pluck: <T extends Objekt>(items: T[], attribute: string) => T[];
+export declare const pluck: <T, K extends Objekt<Object> = Objekt<Object>>(items: K[], attribute: string) => T[];
 /**
  * @param {!Object} obj
  * @param {function(*, string):boolean} condition
@@ -294,7 +294,7 @@ export declare const scrollIntoView: (selector: string, opt_behavior?: ScrollBeh
  * @param {boolean=} opt_immediate
  * @return {!Function}
  */
-export declare const debounce: (func: Function, opt_wait?: number | undefined, opt_immediate?: boolean | undefined) => (this: Window, ev: Event) => void;
+export declare const debounce: (func: (ev: Event) => void, opt_wait?: number | undefined, opt_immediate?: boolean | undefined) => (this: Window, ev: Event) => void;
 /**
  * @param {string} url
  * @param {!Object=} opt_params

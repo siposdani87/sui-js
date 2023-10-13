@@ -1,12 +1,15 @@
 import { Deferred } from '../core/deferred';
 import { Objekt } from '../core/objekt';
 import { Promize } from '../core';
-type XhrType = [string, XMLHttpRequestResponseType, string];
+export type XhrType = [string, XMLHttpRequestResponseType, string];
 /**
  * @class
  */
 export declare class Xhr {
-    options: Objekt;
+    options: Objekt<{
+        backend: string;
+        locale: string;
+    }>;
     requestHeaders: {};
     authorization: string;
     types: {
@@ -193,4 +196,3 @@ export declare class Xhr {
      */
     setBearerAuthorization(token: string): void;
 }
-export {};

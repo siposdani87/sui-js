@@ -165,10 +165,10 @@ export class State {
         state.set('templateUrl', router.stringify(opt_params));
         state.set('params', opt_params);
         if (opt_overwrite) {
-            window.history.replaceState(state.get(), state.get('title', ''), url);
+            window.history.replaceState(state, state.get('title', ''), url);
         }
         else {
-            window.history.pushState(state.get(), state.get('title', ''), url);
+            window.history.pushState(state, state.get('title', ''), url);
         }
         this._setCurrent(state);
         if (!opt_overwrite) {

@@ -1,5 +1,12 @@
+## 0.9.17 - TBD
+
+* 
+
 ## 0.9.16 - TBD
 
+* Fix callback type of link helper methods
+* Remove pluck method from Collection
+* Improve http request types
 
 ## 0.9.15 - 2023-08-12
 

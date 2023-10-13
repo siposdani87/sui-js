@@ -6,7 +6,10 @@ import { Knot, Promize } from '../core';
  */
 export declare class Template {
     http: Http;
-    options: Objekt;
+    options: Objekt<{
+        selector: string;
+        locale: string;
+    }>;
     viewKnot: Knot;
     /**
      * @param {!Http} http
@@ -34,7 +37,7 @@ export declare class Template {
      * @return {!Promize}
      */
     load(url: string, opt_force?: boolean | undefined): Promize;
-    _spaNavigate(data: Knot, isError: boolean): void;
+    _spaNavigate(data: Knot, isError: boolean): undefined;
     /**
      * @private
      * @param {!Knot} data
