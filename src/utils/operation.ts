@@ -501,15 +501,16 @@ export const capitalize = (str: string): string =>
  * @param {string} attribute
  * @return {!Array<T>}
  */
-export const pluck = <T extends Objekt>(
-    items: Array<T>,
+export const pluck = <T, K extends Objekt = Objekt>(
+    items: Array<K>,
     attribute: string,
 ): Array<T> => {
-    const results = [];
+    const results: T[] = [];
     eachArray(items, (item) => {
-        const result = item.get(attribute);
+        const result = item.get<T>(attribute);
         results.push(result);
     });
+
     return results;
 };
 
@@ -610,7 +611,7 @@ export const scrollIntoView = (
  * @return {!Function}
  */
 export const debounce = (
-    func: Function,
+    func: (ev: Event) => void,
     opt_wait: number | undefined = 250,
     opt_immediate: boolean | undefined = false,
 ): ((this: Window, ev: Event) => void) => {

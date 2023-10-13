@@ -11,7 +11,7 @@ import { Knot, Promize } from '../core';
  */
 export class Template {
     http: Http;
-    options: Objekt;
+    options: Objekt<{ selector: string; locale: string }>;
     viewKnot: Knot;
     /**
      * @param {!Http} http
@@ -79,7 +79,7 @@ export class Template {
         return deferred.promise();
     }
 
-    _spaNavigate(data: Knot, isError: boolean) {
+    _spaNavigate(data: Knot, isError: boolean): undefined {
         // Fallback for browsers that don't support this API:
         /* if (!document.startViewTransition) {
             this._updateDOM(data, isError);
