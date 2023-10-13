@@ -5,7 +5,6 @@ import {
     isUndefined,
     clear,
     eq,
-    pluck,
     eachArray,
 } from '../utils/operation';
 import { Objekt } from './objekt';
@@ -14,7 +13,7 @@ import { Objekt } from './objekt';
  * @class
  * @template T
  */
-export class Collection<T extends Object = Objekt> {
+export class Collection<T extends Object = Object> {
     Type: any;
     items: T[];
     options: Objekt;
@@ -319,12 +318,5 @@ export class Collection<T extends Object = Objekt> {
      */
     limit(offset: number, opt_count: number | undefined = 10): Array<T> {
         return this.items.slice(offset, offset + opt_count);
-    }
-    /**
-     * @param {string} attribute
-     * @return {!Array<T>}
-     */
-    pluck(attribute: string): Array<T> {
-        return pluck(this.items as any[], attribute);
     }
 }
