@@ -5,8 +5,7 @@ import { Objekt } from './objekt';
 /**
  * @class
  */
-// Hope
-export class Promize {
+export class Promize<T = Object, K = Object> {
     options: Objekt;
     /**
      * @param {!Object=} opt_options
@@ -33,9 +32,9 @@ export class Promize {
      * @param {*=} opt_data
      * @return {undefined}
      */
-    resolve(opt_data: any | undefined): void {
+    resolve(opt_data?: T | T[]): void {
         if (!isArray(opt_data)) {
-            opt_data = [opt_data];
+            opt_data = opt_data ? [opt_data] : [];
         }
         if (
             isFunction(this.options.resolve) &&
@@ -52,7 +51,7 @@ export class Promize {
      * @param {*=} opt_data
      * @return {undefined}
      */
-    reject(opt_data: any | undefined): void {
+    reject(opt_data?: K | K[]): void {
         if (!isArray(opt_data)) {
             opt_data = opt_data ? [opt_data] : [];
         }
@@ -74,9 +73,9 @@ export class Promize {
      * @return {undefined}
      */
     then(
-        resolve: Function,
-        opt_reject?: Function,
-        opt_complete?: Function,
+        resolve: (...T) => void,
+        opt_reject?: (...K) => void,
+        opt_complete?: () => void,
     ): void {
         const reject = opt_reject || noop();
         const complete = opt_complete || noop();
@@ -102,7 +101,7 @@ export class Promize {
      * @param {!Function=} opt_complete
      * @return {undefined}
      */
-    defer(defer: Deferred, opt_complete?: Function): void {
+    defer(defer: Deferred, opt_complete?: () => void): void {
         this.then(
             (...args) => {
                 defer.resolve(args);

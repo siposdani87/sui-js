@@ -17,12 +17,12 @@ import {
  * @class
  */
 // Record, Entry, Thing
-export class Objekt {
-    [key: string]: any;
+export class Objekt<T extends Object = Object> {
+    [key: string]: T[keyof T | any];
     /**
      * @param {!Object=} opt_object
      */
-    constructor(opt_object: Object | undefined = {}) {
+    constructor(opt_object?: T) {
         Object.call(this, opt_object);
         this.merge(opt_object);
     }
@@ -64,25 +64,24 @@ export class Objekt {
         });
     }
     /**
-     * @template T
+     * @template K
      * @param {string=} opt_attribute
      * @param {*=} opt_defaultValue
      * @param {boolean=} opt_isSafe
      * @return {*}
      */
-    get<T>(
-        opt_attribute?: string | undefined,
-        opt_defaultValue?: T | undefined,
+    get<K>(
+        attribute: string | undefined,
+        opt_defaultValue?: K,
         opt_isSafe: boolean | undefined = false,
-    ): T {
-        let value: Object = this;
-        if (opt_attribute) {
-            const attributes = opt_isSafe
-                ? [opt_attribute]
-                : opt_attribute.split('.');
-            value = this._getByAttributes(this, attributes);
+    ): K {
+        if (!attribute) {
+            return this as any;
         }
-        return !isUndefined(value) ? (value as T) : opt_defaultValue;
+        const attributes = opt_isSafe ? [attribute] : attribute.split('.');
+        const value = this._getByAttributes<K>(this, attributes);
+
+        return !isUndefined(value) ? value : opt_defaultValue;
     }
     /**
      * @private
@@ -90,10 +89,10 @@ export class Objekt {
      * @param {!Array<string>} attributes
      * @return {!Object|!Objekt|undefined}
      */
-    private _getByAttributes(
+    private _getByAttributes<K>(
         object: Object | Objekt,
         attributes: Array<string>,
-    ): Object | Objekt | undefined {
+    ): K | undefined {
         let result = undefined;
         each(object, (_value, property) => {
             if (
@@ -144,7 +143,7 @@ export class Objekt {
      * @param {*} value
      * @return {undefined}
      */
-    set(attribute: string, value: any): void {
+    set<K>(attribute: string, value: K): void {
         let object = {};
         object = this._attributesToObject(object, attribute.split('.'), value);
         this.merge(object);
@@ -155,9 +154,9 @@ export class Objekt {
      * @param {boolean=} opt_isSafe
      * @return {undefined}
      */
-    setRaw(
+    setRaw<K>(
         attribute: string,
-        value: any,
+        value: K,
         opt_isSafe: boolean | undefined = false,
     ): void {
         this.set(attribute, null);
@@ -209,8 +208,8 @@ export class Objekt {
      * @param {!Array<string>=} opt_attributes
      * @return {undefined}
      */
-    each(
-        next: Function,
+    each<K>(
+        next: (value: K, key: string) => void,
         opt_properties?: Object | undefined,
         opt_attributes?: Array<string> | undefined,
     ): void {
@@ -288,7 +287,7 @@ export class Objekt {
      * @param {!Function} condition
      * @return {!Objekt}
      */
-    filterKeys(obj: Objekt, condition: Function): Objekt {
+    filterKeys(obj: Objekt, condition: (key: string) => boolean): Objekt {
         const resultObj = new Objekt();
         obj.each((value, key) => {
             if (condition(key)) {

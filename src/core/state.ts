@@ -194,13 +194,13 @@ export class State {
         state.set('params', opt_params);
         if (opt_overwrite) {
             window.history.replaceState(
-                state.get(),
+                state,
                 state.get<string>('title', ''),
                 url,
             );
         } else {
             window.history.pushState(
-                state.get(),
+                state,
                 state.get<string>('title', ''),
                 url,
             );

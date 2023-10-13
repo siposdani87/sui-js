@@ -61,7 +61,11 @@ export class Http {
      * @param {!Object=} opt_headers
      * @return {!Promize}
      */
-    get(url: string, opt_params?: Object, opt_headers?: Object): Promize {
+    get<T, K>(
+        url: string,
+        opt_params?: Object,
+        opt_headers?: Object,
+    ): Promize<T, K> {
         const http = this._getRequestHandler();
         return this._getPromise(http.get(url, opt_params, opt_headers));
     }
@@ -72,12 +76,12 @@ export class Http {
      * @param {!Object=} opt_headers
      * @return {!Promize}
      */
-    post(
+    post<T, K>(
         url: string,
         opt_data?: Object,
         opt_params?: Object,
         opt_headers?: Object,
-    ): Promize {
+    ): Promize<T, K> {
         const http = this._getRequestHandler();
         return this._getPromise(
             http.post(url, opt_data, opt_params, opt_headers),
@@ -90,12 +94,12 @@ export class Http {
      * @param {!Object=} opt_headers
      * @return {!Promize}
      */
-    put(
+    put<T, K>(
         url: string,
         opt_data?: Object,
         opt_params?: Object,
         opt_headers?: Object,
-    ): Promize {
+    ): Promize<T, K> {
         const http = this._getRequestHandler();
         return this._getPromise(
             http.put(url, opt_data, opt_params, opt_headers),
@@ -108,12 +112,12 @@ export class Http {
      * @param {!Object=} opt_headers
      * @return {!Promize}
      */
-    patch(
+    patch<T, K>(
         url: string,
         opt_data?: Object,
         opt_params?: Object,
         opt_headers?: Object,
-    ): Promize {
+    ): Promize<T, K> {
         const http = this._getRequestHandler();
         return this._getPromise(
             http.patch(url, opt_data, opt_params, opt_headers),
@@ -126,12 +130,12 @@ export class Http {
      * @param {!Object=} opt_headers
      * @return {!Promize}
      */
-    delete(
+    delete<T, K>(
         url: string,
         opt_data?: Object,
         opt_params?: Object,
         opt_headers?: Object,
-    ): Promize {
+    ): Promize<T, K> {
         const http = this._getRequestHandler();
         return this._getPromise(
             http.delete(url, opt_data, opt_params, opt_headers),
@@ -153,7 +157,7 @@ export class Http {
      * @param {!Promize} promise
      * @return {!Promize}
      */
-    private _getPromise(promise: Promize): Promize {
+    private _getPromise<T, K>(promise: Promize<T, K>): Promize {
         const deferred = new Deferred();
         promise.then(
             (...params) => {
