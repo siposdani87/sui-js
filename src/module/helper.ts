@@ -20,7 +20,7 @@ export class Helper {
      */
     createLink(
         name: string,
-        opt_callback: Function | undefined,
+        opt_callback: (href: string, linkKnot: Knot) => void | undefined,
         opt_href: string | undefined = 'javascript:void(0)',
         opt_description: string | undefined = '',
         opt_allowAccess: boolean | undefined = true,
@@ -48,7 +48,7 @@ export class Helper {
     multipleLink(
         selector: string,
         dom: Knot,
-        opt_callback: Function | undefined,
+        opt_callback: (href: string, linkKnot: Knot) => void | undefined,
         opt_cssClasses: string[] | undefined = [],
     ): void {
         const linkKnots = new Query(selector, dom);
@@ -76,7 +76,7 @@ export class Helper {
     link(
         selector: string,
         dom: Knot,
-        opt_callback: Function | undefined,
+        opt_callback: (href: string, linkKnot: Knot) => void | undefined,
         opt_href: string | undefined = '',
         opt_description: string | undefined = '',
         opt_allowAccess: boolean | undefined = true,
@@ -104,7 +104,7 @@ export class Helper {
      */
     linkElement(
         linkKnot: Knot,
-        opt_callback: Function | undefined,
+        opt_callback: (href: string, linkKnot: Knot) => void | undefined,
         opt_href: string | undefined = '',
         opt_description: string | undefined = '',
         opt_allowAccess: boolean | undefined = true,
