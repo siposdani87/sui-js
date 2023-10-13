@@ -3,31 +3,30 @@ import { Promize } from './promize';
 /**
  * @class
  */
-export class Deferred {
-    private _promise: Promize;
-    /**
-     */
+export class Deferred<T = Object, K = Object> {
+    private _promise: Promize<T, K>;
+
     constructor() {
-        this._promise = new Promize();
+        this._promise = new Promize<T, K>();
     }
     /**
      * @return {!Promize}
      */
-    promise(): Promize {
+    promise(): Promize<T, K> {
         return this._promise;
     }
     /**
-     * @param {*=} opt_object
+     * @param {*=} opt_data
      * @return {undefined}
      */
-    resolve(opt_object?: any): void {
-        this._promise.resolve(opt_object);
+    resolve(opt_data?: T | T[]): void {
+        this._promise.resolve(opt_data);
     }
     /**
-     * @param {*=} opt_object
+     * @param {*=} opt_data
      * @return {undefined}
      */
-    reject(opt_object?: any): void {
-        this._promise.reject(opt_object);
+    reject(opt_data?: K | K[]): void {
+        this._promise.reject(opt_data);
     }
 }

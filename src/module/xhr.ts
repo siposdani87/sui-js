@@ -13,13 +13,13 @@ import { consoleWarn } from '../utils/log';
 import { encodeBase64 } from '../utils/coder';
 import { Promize } from '../core';
 
-type XhrType = [string, XMLHttpRequestResponseType, string];
+export type XhrType = [string, XMLHttpRequestResponseType, string];
 
 /**
  * @class
  */
 export class Xhr {
-    options: Objekt;
+    options: Objekt<{ backend: string; locale: string }>;
     requestHeaders: {};
     authorization: string;
     types: {
