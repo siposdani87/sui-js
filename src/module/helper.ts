@@ -145,7 +145,7 @@ export class Helper {
      */
     createButton(
         name: string,
-        callback: Function,
+        callback: (id: string, button: Knot) => void,
         opt_description: string | undefined = '',
         opt_allowAccess: boolean | undefined = true,
         opt_cssClasses: string[] | undefined = ['mdl-button--primary'],
@@ -171,7 +171,7 @@ export class Helper {
     multipleButton(
         selector: string,
         dom: Knot,
-        opt_callback: Function | undefined,
+        opt_callback?: (id: string, button: Knot) => void,
         opt_cssClasses: string[] | undefined = ['mdl-button--primary'],
     ): void {
         const buttonKnots = new Query(selector, dom);
@@ -197,7 +197,7 @@ export class Helper {
     button(
         selector: string,
         dom: Knot,
-        callback: Function,
+        callback: (id: string, button: Knot) => void,
         opt_description: string | undefined = '',
         opt_allowAccess: boolean | undefined = true,
         opt_cssClasses: string[] | undefined = ['mdl-button--primary'],
@@ -222,7 +222,7 @@ export class Helper {
      */
     buttonElement(
         buttonKnot: Knot,
-        opt_callback: Function | undefined,
+        opt_callback?: (id: string, button: Knot) => void,
         opt_description: string | undefined = '',
         opt_allowAccess: boolean | undefined = true,
         opt_cssClasses: string[] | undefined = ['mdl-button--primary'],
@@ -266,7 +266,7 @@ export class Helper {
      */
     createIconButton(
         iconName: string,
-        callback: Function,
+        callback: (id: string, button: Knot) => void,
         opt_description: string | undefined = '',
         opt_allowAccess: boolean | undefined = true,
         opt_cssClasses: string[] | undefined = [
@@ -324,7 +324,7 @@ export class Helper {
     iconButton(
         selector: string,
         dom: Knot,
-        callback: Function,
+        callback: (id: string, button: Knot) => void,
         opt_description: string | undefined = '',
         opt_allowAccess: boolean | undefined = true,
         opt_cssClasses: string[] | undefined = [
@@ -353,7 +353,7 @@ export class Helper {
      */
     iconButtonElement(
         buttonKnot: Knot,
-        opt_callback: Function | undefined,
+        opt_callback?: (id: string, button: Knot) => void,
         opt_description: string | undefined = '',
         opt_allowAccess: boolean | undefined = true,
         opt_cssClasses: string[] | undefined = [

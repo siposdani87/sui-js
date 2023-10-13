@@ -21,6 +21,10 @@ import { generateId } from '../utils/coder';
 import { Action } from '../utils';
 import { mdl } from '../utils/render';
 
+export type TableCalculation<T = Objekt> = {
+    [key in string]: (item: T) => Knot | string;
+};
+
 /**
  * @class
  */
