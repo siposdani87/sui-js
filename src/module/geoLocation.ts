@@ -1,4 +1,3 @@
-import { Promize } from '../core';
 import { Deferred } from '../core/deferred';
 import { consoleDebug, consoleError } from '../utils/log';
 
@@ -45,8 +44,8 @@ export class GeoLocation {
     /**
      * @return {!Promize}
      */
-    getPosition(): Promize {
-        const deferred = new Deferred();
+    getPosition() {
+        const deferred = new Deferred<[number, number], [null, null]>();
         navigator.geolocation.getCurrentPosition(
             (position) => {
                 deferred.resolve([

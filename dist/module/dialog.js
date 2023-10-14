@@ -51,10 +51,10 @@ export class Dialog extends BaseModal {
         this._reset();
         const deferred = new Deferred();
         this.http.get(url).then((data) => {
-            const knot = this._handleDom(data);
+            const knot = this._handleDom(data.get('raw'));
             deferred.resolve(knot);
         }, (data) => {
-            const knot = this._handleMessage(data);
+            const knot = this._handleMessage(data.get('raw'));
             deferred.reject(knot);
             this.open();
         });

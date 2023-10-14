@@ -1,7 +1,6 @@
 import { Knot } from '../core/knot';
 import { Objekt } from '../core/objekt';
 import { ProgressBar } from './progressBar';
-import { Promize } from '../core';
 /**
  * @class
  */
@@ -33,7 +32,7 @@ export declare class Style {
      * @param {string=} opt_media
      * @return {!Promize}
      */
-    load(id: string, url: string, opt_params?: Object, opt_rel?: string | undefined, opt_media?: string | undefined): Promize;
+    load(id: string, url: string, opt_params?: Object, opt_rel?: string | undefined, opt_media?: string | undefined): import("..").Promize<boolean, boolean>;
     /**
      * @param {string} id
      * @return {undefined}

@@ -40,7 +40,7 @@ export declare class Http {
      * @param {!Object=} opt_headers
      * @return {!Promize}
      */
-    get<T, K>(url: string, opt_params?: Object, opt_headers?: Object): Promize<T, K>;
+    get(url: string, opt_params?: Object, opt_headers?: Object): Promize<[Objekt<Object>, string], [Objekt<Object>, string]>;
     /**
      * @param {string} url
      * @param {!Object=} opt_data
@@ -48,7 +48,7 @@ export declare class Http {
      * @param {!Object=} opt_headers
      * @return {!Promize}
      */
-    post<T, K>(url: string, opt_data?: Object, opt_params?: Object, opt_headers?: Object): Promize<T, K>;
+    post(url: string, opt_data?: Object, opt_params?: Object, opt_headers?: Object): Promize<[Objekt<Object>, string], [Objekt<Object>, string]>;
     /**
      * @param {string} url
      * @param {!Object=} opt_data
@@ -56,7 +56,7 @@ export declare class Http {
      * @param {!Object=} opt_headers
      * @return {!Promize}
      */
-    put<T, K>(url: string, opt_data?: Object, opt_params?: Object, opt_headers?: Object): Promize<T, K>;
+    put(url: string, opt_data?: Object, opt_params?: Object, opt_headers?: Object): Promize<[Objekt<Object>, string], [Objekt<Object>, string]>;
     /**
      * @param {string} url
      * @param {!Object=} opt_data
@@ -64,7 +64,7 @@ export declare class Http {
      * @param {!Object=} opt_headers
      * @return {!Promize}
      */
-    patch<T, K>(url: string, opt_data?: Object, opt_params?: Object, opt_headers?: Object): Promize<T, K>;
+    patch(url: string, opt_data?: Object, opt_params?: Object, opt_headers?: Object): Promize<[Objekt<Object>, string], [Objekt<Object>, string]>;
     /**
      * @param {string} url
      * @param {!Object=} opt_data
@@ -72,12 +72,12 @@ export declare class Http {
      * @param {!Object=} opt_headers
      * @return {!Promize}
      */
-    delete<T, K>(url: string, opt_data?: Object, opt_params?: Object, opt_headers?: Object): Promize<T, K>;
+    delete(url: string, opt_data?: Object, opt_params?: Object, opt_headers?: Object): Promize<[Objekt<Object>, string], [Objekt<Object>, string]>;
     /**
      * @private
      * @return {!Xhr}
      */
-    private _getRequestHandler;
+    private _createXhrRequest;
     /**
      * @private
      * @param {!Promize} promise
@@ -85,14 +85,14 @@ export declare class Http {
      */
     private _getPromise;
     /**
-     * @param {!Xhr} http
+     * @param {!Xhr} xhr
      * @return {undefined}
      */
-    eventBeforeRequest(http: Xhr): void;
+    eventBeforeRequest(xhr: Xhr): void;
     /**
      * @param {!XMLHttpRequest} http
      * @param {*} response
      * @return {undefined}
      */
-    eventAfterRequest(http: XMLHttpRequest, response: any): void;
+    eventAfterRequest(http: XMLHttpRequest, response: Objekt, filename: string): void;
 }

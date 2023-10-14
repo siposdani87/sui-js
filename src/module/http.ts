@@ -61,13 +61,9 @@ export class Http {
      * @param {!Object=} opt_headers
      * @return {!Promize}
      */
-    get<T, K>(
-        url: string,
-        opt_params?: Object,
-        opt_headers?: Object,
-    ): Promize<T, K> {
-        const http = this._getRequestHandler();
-        return this._getPromise(http.get(url, opt_params, opt_headers));
+    get(url: string, opt_params?: Object, opt_headers?: Object) {
+        const xhr = this._createXhrRequest();
+        return this._getPromise(xhr.get(url, opt_params, opt_headers));
     }
     /**
      * @param {string} url
@@ -76,15 +72,15 @@ export class Http {
      * @param {!Object=} opt_headers
      * @return {!Promize}
      */
-    post<T, K>(
+    post(
         url: string,
         opt_data?: Object,
         opt_params?: Object,
         opt_headers?: Object,
-    ): Promize<T, K> {
-        const http = this._getRequestHandler();
+    ) {
+        const xhr = this._createXhrRequest();
         return this._getPromise(
-            http.post(url, opt_data, opt_params, opt_headers),
+            xhr.post(url, opt_data, opt_params, opt_headers),
         );
     }
     /**
@@ -94,15 +90,15 @@ export class Http {
      * @param {!Object=} opt_headers
      * @return {!Promize}
      */
-    put<T, K>(
+    put(
         url: string,
         opt_data?: Object,
         opt_params?: Object,
         opt_headers?: Object,
-    ): Promize<T, K> {
-        const http = this._getRequestHandler();
+    ) {
+        const xhr = this._createXhrRequest();
         return this._getPromise(
-            http.put(url, opt_data, opt_params, opt_headers),
+            xhr.put(url, opt_data, opt_params, opt_headers),
         );
     }
     /**
@@ -112,15 +108,15 @@ export class Http {
      * @param {!Object=} opt_headers
      * @return {!Promize}
      */
-    patch<T, K>(
+    patch(
         url: string,
         opt_data?: Object,
         opt_params?: Object,
         opt_headers?: Object,
-    ): Promize<T, K> {
-        const http = this._getRequestHandler();
+    ) {
+        const xhr = this._createXhrRequest();
         return this._getPromise(
-            http.patch(url, opt_data, opt_params, opt_headers),
+            xhr.patch(url, opt_data, opt_params, opt_headers),
         );
     }
     /**
@@ -130,60 +126,70 @@ export class Http {
      * @param {!Object=} opt_headers
      * @return {!Promize}
      */
-    delete<T, K>(
+    delete(
         url: string,
         opt_data?: Object,
         opt_params?: Object,
         opt_headers?: Object,
-    ): Promize<T, K> {
-        const http = this._getRequestHandler();
+    ) {
+        const xhr = this._createXhrRequest();
         return this._getPromise(
-            http.delete(url, opt_data, opt_params, opt_headers),
+            xhr.delete(url, opt_data, opt_params, opt_headers),
         );
     }
     /**
      * @private
      * @return {!Xhr}
      */
-    private _getRequestHandler(): Xhr {
-        const http = new Xhr(this.options);
-        this.eventBeforeRequest(http);
-        http.setBasicAuthorization(this.username, this.password);
-        http.setBearerAuthorization(this.token);
-        return http;
+    private _createXhrRequest(): Xhr {
+        const xhr = new Xhr(this.options);
+        this.eventBeforeRequest(xhr);
+        xhr.setBasicAuthorization(this.username, this.password);
+        xhr.setBearerAuthorization(this.token);
+
+        return xhr;
     }
     /**
      * @private
      * @param {!Promize} promise
      * @return {!Promize}
      */
-    private _getPromise<T, K>(promise: Promize<T, K>): Promize {
-        const deferred = new Deferred();
+    private _getPromise(
+        promise: Promize<
+            [XMLHttpRequest, Objekt, string],
+            [XMLHttpRequest, Objekt, string]
+        >,
+    ) {
+        const deferred = new Deferred<[Objekt, string], [Objekt, string]>();
         promise.then(
             (...params) => {
-                this.eventAfterRequest(...(params as [any, any]));
+                this.eventAfterRequest(...params);
                 deferred.resolve.apply(deferred, [params.slice(1)]);
             },
             (...params) => {
-                this.eventAfterRequest(...(params as [any, any]));
+                this.eventAfterRequest(...params);
                 deferred.reject.apply(deferred, [params.slice(1)]);
             },
         );
         return deferred.promise();
     }
     /**
-     * @param {!Xhr} http
+     * @param {!Xhr} xhr
      * @return {undefined}
      */
-    eventBeforeRequest(http: Xhr): void {
-        consoleDebug('Http.eventBeforeRequest', http);
+    eventBeforeRequest(xhr: Xhr): void {
+        consoleDebug('Http.eventBeforeRequest', xhr);
     }
     /**
      * @param {!XMLHttpRequest} http
      * @param {*} response
      * @return {undefined}
      */
-    eventAfterRequest(http: XMLHttpRequest, response: any): void {
-        consoleDebug('Http.eventAfterRequest', http, response);
+    eventAfterRequest(
+        http: XMLHttpRequest,
+        response: Objekt,
+        filename: string,
+    ): void {
+        consoleDebug('Http.eventAfterRequest', http, response, filename);
     }
 }

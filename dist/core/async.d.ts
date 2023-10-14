@@ -1,4 +1,3 @@
-import { Promize } from './promize';
 /**
  * @class
  */
@@ -19,7 +18,7 @@ export declare class Async {
      * @param {!Array=} opt_args
      * @return {!Promize}
      */
-    parallel(calls: Array<Function>, opt_args?: Array<any>): Promize;
+    parallel(calls: Array<Function>, opt_args?: Array<any>): import("./promize").Promize<Object, Object>;
     /**
      * @param {!Function} call
      * @param {?Array=} opt_args
@@ -72,7 +71,7 @@ export declare class Async {
      * @param {!Array=} opt_args
      * @return {!Promize}
      */
-    serial(calls: Array<Function>, opt_args?: Array<any>): Promize;
+    serial(calls: Array<Function>, opt_args?: Array<any>): import("./promize").Promize<Object, Object>;
     /**
      * @private
      * @param {!Array<!Function>} calls

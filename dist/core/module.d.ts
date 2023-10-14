@@ -1,4 +1,3 @@
-import { Promize } from './promize';
 import { Objekt } from './objekt';
 import { Knot } from './knot';
 import { Route } from '../component/route';
@@ -96,13 +95,13 @@ export declare class Module {
      * @param {!Objekt} state
      * @return {!Promize}
      */
-    eventStateChange(state: Objekt): Promize;
+    eventStateChange(state: Objekt): import("./promize").Promize<Object, Object>;
     /**
      * @param {!Objekt} state
      * @param {!Knot} dom
      * @return {!Promize}
      */
-    eventDomChange(state: Objekt, dom: Knot): Promize;
+    eventDomChange(state: Objekt, dom: Knot): import("./promize").Promize<Object, Object>;
     /**
      * @return {undefined}
      */

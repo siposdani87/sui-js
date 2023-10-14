@@ -155,7 +155,7 @@ export class Navigation {
                     },
                 )
                 .then((data) => {
-                    const svgTag = new Query('svg', data).getKnot();
+                    const svgTag = new Query('svg', data.get('raw')).getKnot();
                     imageSpan.appendChild(svgTag);
                 });
         } else {

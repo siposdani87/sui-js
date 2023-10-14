@@ -22,7 +22,11 @@ import { Action } from '../utils';
 import { mdl } from '../utils/render';
 
 export type TableCalculation<T = Objekt> = {
-    [key in string]: (item: T) => Knot | string;
+    [key in string]: (
+        item: T,
+        index: number,
+        parentKnot: Knot,
+    ) => Knot[] | Knot | string;
 };
 
 /**

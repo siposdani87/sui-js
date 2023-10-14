@@ -3,7 +3,7 @@ import { Async } from '../core/async';
 import { Deferred } from '../core/deferred';
 import { Query } from '../core/query';
 import { consoleDebug } from '../utils/log';
-import { Knot, Promize } from '../core';
+import { Knot } from '../core';
 
 /**
  * @class
@@ -105,7 +105,7 @@ export class TabPanel {
      * @param {string} panelId
      * @return {!Promize}
      */
-    setActive(panelId: string): Promize {
+    setActive(panelId: string) {
         const deferred = new Deferred();
         if (!isNull(panelId)) {
             this._setActive(panelId);

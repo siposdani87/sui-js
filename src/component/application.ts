@@ -27,7 +27,6 @@ import { Header } from '../module/header';
 import { EventBus } from '../module/eventBus';
 import { Scheduler } from '../module/scheduler';
 import { Screen } from '../module/screen';
-import { Promize } from '../core';
 import { Route } from './route';
 import { ClassRef, Injection, Instance, InstanceKey } from '../utils';
 import { setDateIOLocale } from '../utils/dateio';
@@ -203,7 +202,7 @@ export class Application {
             this._instances.eventBus.call('module.afterInit');
         };
 
-        this._module.eventStateChange = (currentState): Promize => {
+        this._module.eventStateChange = (currentState) => {
             this._instances.progressBar.lock();
             this._instances.loader.show();
             this._instances.dialog.close();
@@ -213,7 +212,7 @@ export class Application {
             ]);
         };
 
-        this._module.eventDomChange = (state, dom): Promize => {
+        this._module.eventDomChange = (state, dom) => {
             return this._instances.eventBus.call('dom.change', [state, dom]);
         };
 

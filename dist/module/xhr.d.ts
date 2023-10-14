@@ -1,7 +1,6 @@
 import { Deferred } from '../core/deferred';
 import { Objekt } from '../core/objekt';
-import { Promize } from '../core';
-export type XhrType = [string, XMLHttpRequestResponseType, string];
+type XhrType = [string, XMLHttpRequestResponseType, string];
 /**
  * @class
  */
@@ -15,8 +14,16 @@ export declare class Xhr {
     types: {
         [key: string]: XhrType;
     };
-    http: XMLHttpRequest;
-    deferred: Deferred;
+    httpRequest: XMLHttpRequest;
+    deferred: Deferred<[
+        XMLHttpRequest,
+        Objekt,
+        string
+    ], [
+        XMLHttpRequest,
+        Objekt,
+        string
+    ]>;
     /**
      * @param {!Object=} opt_options
      */
@@ -79,7 +86,7 @@ export declare class Xhr {
      * @param {!Object=} opt_headers
      * @return {!Promize}
      */
-    get(url: string, opt_params: Object | undefined, opt_headers?: Object | undefined): Promize;
+    get(url: string, opt_params: Object | undefined, opt_headers?: Object | undefined): import("..").Promize<[XMLHttpRequest, Objekt<Object>, string], [XMLHttpRequest, Objekt<Object>, string]>;
     /**
      * @param {string} url
      * @param {!Object=} opt_data
@@ -87,7 +94,7 @@ export declare class Xhr {
      * @param {!Object=} opt_headers
      * @return {!Promize}
      */
-    post(url: string, opt_data: Object | undefined, opt_params: Object | undefined, opt_headers?: Object | undefined): Promize;
+    post(url: string, opt_data: Object | undefined, opt_params: Object | undefined, opt_headers?: Object | undefined): import("..").Promize<[XMLHttpRequest, Objekt<Object>, string], [XMLHttpRequest, Objekt<Object>, string]>;
     /**
      * @param {string} url
      * @param {!Object=} opt_data
@@ -95,7 +102,7 @@ export declare class Xhr {
      * @param {!Object=} opt_headers
      * @return {!Promize}
      */
-    put(url: string, opt_data: Object | undefined, opt_params: Object | undefined, opt_headers?: Object | undefined): Promize;
+    put(url: string, opt_data: Object | undefined, opt_params: Object | undefined, opt_headers?: Object | undefined): import("..").Promize<[XMLHttpRequest, Objekt<Object>, string], [XMLHttpRequest, Objekt<Object>, string]>;
     /**
      * @param {string} url
      * @param {!Object=} opt_data
@@ -103,7 +110,7 @@ export declare class Xhr {
      * @param {!Object=} opt_headers
      * @return {!Promize}
      */
-    patch(url: string, opt_data: Object | undefined, opt_params: Object | undefined, opt_headers?: Object | undefined): Promize;
+    patch(url: string, opt_data: Object | undefined, opt_params: Object | undefined, opt_headers?: Object | undefined): import("..").Promize<[XMLHttpRequest, Objekt<Object>, string], [XMLHttpRequest, Objekt<Object>, string]>;
     /**
      * @param {string} url
      * @param {!Object=} opt_data
@@ -111,7 +118,7 @@ export declare class Xhr {
      * @param {!Object=} opt_headers
      * @return {!Promize}
      */
-    delete(url: string, opt_data: Object | undefined, opt_params: Object | undefined, opt_headers?: Object | undefined): Promize;
+    delete(url: string, opt_data: Object | undefined, opt_params: Object | undefined, opt_headers?: Object | undefined): import("..").Promize<[XMLHttpRequest, Objekt<Object>, string], [XMLHttpRequest, Objekt<Object>, string]>;
     /**
      * @private
      * @param {string} url
@@ -128,13 +135,13 @@ export declare class Xhr {
      * @param {!Object=} opt_headers
      * @return {!Promize}
      */
-    private _handleRequest;
+    private _createRequest;
     /**
      * @private
      * @param {!Object=} opt_data
      * @return {string}
      */
-    private _getRequestData;
+    private _createRequestBody;
     /**
      * @private
      * @param {*} obj
@@ -156,10 +163,10 @@ export declare class Xhr {
     private _getFilenameFromHeader;
     /**
      * @private
-     * @param {*} data
+     * @param {*} response
      * @return {!Promize}
      */
-    private _getResponseData;
+    private _handleResponseData;
     /**
      * @private
      * @param {string} urlType
@@ -178,12 +185,12 @@ export declare class Xhr {
      * @param {string} value
      * @return {undefined}
      */
-    setHeader(name: string, value: string): void;
+    private _setHeader;
     /**
      * @param {string} name
      * @return {string|null}
      */
-    getHeader(name: string): string | null;
+    private _getHeader;
     /**
      * @param {string} username
      * @param {string} password
@@ -196,3 +203,4 @@ export declare class Xhr {
      */
     setBearerAuthorization(token: string): void;
 }
+export {};

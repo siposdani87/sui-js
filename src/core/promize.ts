@@ -1,11 +1,11 @@
-import { isArray, isFunction, noop } from '../utils/operation';
+import { is, isFunction, noop } from '../utils/operation';
 import { Deferred } from './deferred';
 import { Objekt } from './objekt';
 
 /**
  * @class
  */
-export class Promize<T = Object, K = Object> {
+export class Promize<T, K> {
     options: Objekt;
     /**
      * @param {!Object=} opt_options
@@ -32,18 +32,19 @@ export class Promize<T = Object, K = Object> {
      * @param {*=} opt_data
      * @return {undefined}
      */
-    resolve(opt_data?: T | T[]): void {
-        if (!isArray(opt_data)) {
-            opt_data = opt_data ? [opt_data] : [];
+    resolve(opt_data?: T): void {
+        let data = [];
+        if (opt_data && !is(opt_data, 'array')) {
+            data = [opt_data];
         }
         if (
             isFunction(this.options.resolve) &&
             isFunction(this.options.complete)
         ) {
-            this.options.resolve.apply(this, opt_data);
-            this.options.complete.apply(this, opt_data);
+            this.options.resolve.apply(this, data);
+            this.options.complete.apply(this, data);
         } else {
-            this.options.data = opt_data;
+            this.options.data = data;
             this.options.status = true;
         }
     }
@@ -51,18 +52,19 @@ export class Promize<T = Object, K = Object> {
      * @param {*=} opt_data
      * @return {undefined}
      */
-    reject(opt_data?: K | K[]): void {
-        if (!isArray(opt_data)) {
-            opt_data = opt_data ? [opt_data] : [];
+    reject(opt_data?: K): void {
+        let data = [];
+        if (opt_data && !is(opt_data, 'array')) {
+            data = [opt_data];
         }
         if (
             isFunction(this.options.reject) &&
             isFunction(this.options.complete)
         ) {
-            this.options.reject.apply(this, opt_data);
-            this.options.complete.apply(this, opt_data);
+            this.options.reject.apply(this, data);
+            this.options.complete.apply(this, data);
         } else {
-            this.options.data = opt_data;
+            this.options.data = data;
             this.options.status = false;
         }
     }
@@ -73,9 +75,9 @@ export class Promize<T = Object, K = Object> {
      * @return {undefined}
      */
     then(
-        resolve: (...T) => void,
-        opt_reject?: (...K) => void,
-        opt_complete?: () => void,
+        resolve: (...args: T extends Array<any> ? T : [T]) => void,
+        opt_reject?: (...args: T extends Array<any> ? T : [T]) => void,
+        opt_complete?: (...args: T extends Array<any> ? T : [T]) => void,
     ): void {
         const reject = opt_reject || noop();
         const complete = opt_complete || noop();

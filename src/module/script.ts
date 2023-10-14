@@ -4,7 +4,6 @@ import { Knot } from '../core/knot';
 import { Objekt } from '../core/objekt';
 import { Query } from '../core/query';
 import { ProgressBar } from './progressBar';
-import { Promize } from '../core';
 
 /**
  * @class
@@ -55,7 +54,7 @@ export class Script {
         opt_params?: Object,
         opt_async: boolean | undefined = false,
         opt_defer: boolean | undefined = false,
-    ): Promize {
+    ) {
         this.progressBar.show();
         const deferred = new Deferred();
         const script = new Query('#' + id);

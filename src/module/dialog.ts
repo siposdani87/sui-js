@@ -3,7 +3,7 @@ import { Objekt } from '../core/objekt';
 import { Query } from '../core/query';
 import { BaseModal } from './baseModal';
 import { Http } from './http';
-import { Knot, Promize } from '../core';
+import { Knot } from '../core';
 import { mdl } from '../utils/render';
 
 /**
@@ -52,16 +52,16 @@ export class Dialog extends BaseModal {
      * @param {string} url
      * @return {!Promize}
      */
-    loadTemplate(url: string): Promize {
+    loadTemplate(url: string) {
         this._reset();
-        const deferred = new Deferred();
+        const deferred = new Deferred<Knot, Knot>();
         this.http.get(url).then(
             (data) => {
-                const knot = this._handleDom(data);
+                const knot = this._handleDom(data.get('raw'));
                 deferred.resolve(knot);
             },
             (data) => {
-                const knot = this._handleMessage(data);
+                const knot = this._handleMessage(data.get('raw'));
                 deferred.reject(knot);
                 this.open();
             },

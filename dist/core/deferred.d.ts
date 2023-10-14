@@ -13,10 +13,10 @@ export declare class Deferred<T = Object, K = Object> {
      * @param {*=} opt_data
      * @return {undefined}
      */
-    resolve(opt_data?: T | T[]): void;
+    resolve(opt_data?: T): void;
     /**
      * @param {*=} opt_data
      * @return {undefined}
      */
-    reject(opt_data?: K | K[]): void;
+    reject(opt_data?: K): void;
 }

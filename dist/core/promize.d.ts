@@ -3,7 +3,7 @@ import { Objekt } from './objekt';
 /**
  * @class
  */
-export declare class Promize<T = Object, K = Object> {
+export declare class Promize<T, K> {
     options: Objekt;
     /**
      * @param {!Object=} opt_options
@@ -19,19 +19,19 @@ export declare class Promize<T = Object, K = Object> {
      * @param {*=} opt_data
      * @return {undefined}
      */
-    resolve(opt_data?: T | T[]): void;
+    resolve(opt_data?: T): void;
     /**
      * @param {*=} opt_data
      * @return {undefined}
      */
-    reject(opt_data?: K | K[]): void;
+    reject(opt_data?: K): void;
     /**
      * @param {!Function} resolve
      * @param {!Function=} opt_reject
      * @param {!Function=} opt_complete
      * @return {undefined}
      */
-    then(resolve: (...T: any[]) => void, opt_reject?: (...K: any[]) => void, opt_complete?: () => void): void;
+    then(resolve: (...args: T extends Array<any> ? T : [T]) => void, opt_reject?: (...args: T extends Array<any> ? T : [T]) => void, opt_complete?: (...args: T extends Array<any> ? T : [T]) => void): void;
     /**
      * @param {!Deferred} defer
      * @param {!Function=} opt_complete

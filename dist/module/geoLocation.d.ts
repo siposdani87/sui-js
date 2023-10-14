@@ -1,4 +1,3 @@
-import { Promize } from '../core';
 /**
  * @class
  */
@@ -24,7 +23,7 @@ export declare class GeoLocation {
     /**
      * @return {!Promize}
      */
-    getPosition(): Promize;
+    getPosition(): import("..").Promize<[number, number], [null, null]>;
     /**
      * @return {undefined}
      */

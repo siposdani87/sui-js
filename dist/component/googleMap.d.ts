@@ -1,7 +1,7 @@
 /// <reference types="google.maps" />
 import { Collection } from '../core/collection';
 import { Objekt } from '../core/objekt';
-import { Knot, Promize } from '../core';
+import { Knot } from '../core';
 import { IconOptions, Id } from '../utils';
 /**
  * @typedef {{icon: string | google.maps.Icon | google.maps.Symbol, shape: google.maps.MarkerShape}} MarkerIcon
@@ -432,7 +432,11 @@ export declare class GoogleMap {
      * @param {string} query
      * @return {!Promize}
      */
-    searchAddress(query: string): Promize;
+    searchAddress(query: string): import("../core").Promize<[{
+        address: string;
+        latitude: number;
+        longitude: number;
+    }[]], void>;
     /**
      * @param {number} latitude
      * @param {number} longitude

@@ -60,9 +60,9 @@ export class Template {
         else {
             this.viewKnot.setAttribute('data-template-url', url);
             this.http.get(url).then((data) => {
-                deferred.resolve(this._spaNavigate(data, false));
+                deferred.resolve(this._spaNavigate(data.get('raw'), false));
             }, (data) => {
-                deferred.reject(this._spaNavigate(data, true));
+                deferred.reject(this._spaNavigate(data.get('raw'), true));
             });
         }
         return deferred.promise();

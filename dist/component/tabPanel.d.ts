@@ -1,5 +1,5 @@
 import { Query } from '../core/query';
-import { Knot, Promize } from '../core';
+import { Knot } from '../core';
 /**
  * @class
  */
@@ -49,7 +49,7 @@ export declare class TabPanel {
      * @param {string} panelId
      * @return {!Promize}
      */
-    setActive(panelId: string): Promize;
+    setActive(panelId: string): import("../core").Promize<Object, Object>;
     /**
      * @return {string}
      */

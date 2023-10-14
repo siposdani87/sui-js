@@ -7,6 +7,8 @@
 * Fix callback type of link helper methods
 * Remove pluck method from Collection
 * Improve http request types
+* Fix Function types
+* Improve Promize and Deferred typings
 
 ## 0.9.15 - 2023-08-12
 

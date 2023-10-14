@@ -56,8 +56,8 @@ export class Http {
      * @return {!Promize}
      */
     get(url, opt_params, opt_headers) {
-        const http = this._getRequestHandler();
-        return this._getPromise(http.get(url, opt_params, opt_headers));
+        const xhr = this._createXhrRequest();
+        return this._getPromise(xhr.get(url, opt_params, opt_headers));
     }
     /**
      * @param {string} url
@@ -67,8 +67,8 @@ export class Http {
      * @return {!Promize}
      */
     post(url, opt_data, opt_params, opt_headers) {
-        const http = this._getRequestHandler();
-        return this._getPromise(http.post(url, opt_data, opt_params, opt_headers));
+        const xhr = this._createXhrRequest();
+        return this._getPromise(xhr.post(url, opt_data, opt_params, opt_headers));
     }
     /**
      * @param {string} url
@@ -78,8 +78,8 @@ export class Http {
      * @return {!Promize}
      */
     put(url, opt_data, opt_params, opt_headers) {
-        const http = this._getRequestHandler();
-        return this._getPromise(http.put(url, opt_data, opt_params, opt_headers));
+        const xhr = this._createXhrRequest();
+        return this._getPromise(xhr.put(url, opt_data, opt_params, opt_headers));
     }
     /**
      * @param {string} url
@@ -89,8 +89,8 @@ export class Http {
      * @return {!Promize}
      */
     patch(url, opt_data, opt_params, opt_headers) {
-        const http = this._getRequestHandler();
-        return this._getPromise(http.patch(url, opt_data, opt_params, opt_headers));
+        const xhr = this._createXhrRequest();
+        return this._getPromise(xhr.patch(url, opt_data, opt_params, opt_headers));
     }
     /**
      * @param {string} url
@@ -100,19 +100,19 @@ export class Http {
      * @return {!Promize}
      */
     delete(url, opt_data, opt_params, opt_headers) {
-        const http = this._getRequestHandler();
-        return this._getPromise(http.delete(url, opt_data, opt_params, opt_headers));
+        const xhr = this._createXhrRequest();
+        return this._getPromise(xhr.delete(url, opt_data, opt_params, opt_headers));
     }
     /**
      * @private
      * @return {!Xhr}
      */
-    _getRequestHandler() {
-        const http = new Xhr(this.options);
-        this.eventBeforeRequest(http);
-        http.setBasicAuthorization(this.username, this.password);
-        http.setBearerAuthorization(this.token);
-        return http;
+    _createXhrRequest() {
+        const xhr = new Xhr(this.options);
+        this.eventBeforeRequest(xhr);
+        xhr.setBasicAuthorization(this.username, this.password);
+        xhr.setBearerAuthorization(this.token);
+        return xhr;
     }
     /**
      * @private
@@ -131,18 +131,18 @@ export class Http {
         return deferred.promise();
     }
     /**
-     * @param {!Xhr} http
+     * @param {!Xhr} xhr
      * @return {undefined}
      */
-    eventBeforeRequest(http) {
-        consoleDebug('Http.eventBeforeRequest', http);
+    eventBeforeRequest(xhr) {
+        consoleDebug('Http.eventBeforeRequest', xhr);
     }
     /**
      * @param {!XMLHttpRequest} http
      * @param {*} response
      * @return {undefined}
      */
-    eventAfterRequest(http, response) {
-        consoleDebug('Http.eventAfterRequest', http, response);
+    eventAfterRequest(http, response, filename) {
+        consoleDebug('Http.eventAfterRequest', http, response, filename);
     }
 }
