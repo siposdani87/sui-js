@@ -1,7 +1,6 @@
 import { isFunction, noop } from '../utils/operation';
 import { Async } from '../core/async';
 import { Objekt } from '../core/objekt';
-import { Promize } from '../core';
 
 /**
  * @class
@@ -50,7 +49,7 @@ export class EventBus {
      * @param {!Array=} opt_args
      * @return {!Promize}
      */
-    call(name: string, opt_args: Array<any> | undefined = []): Promize {
+    call(name: string, opt_args: Array<any> | undefined = []) {
         const calls = this.eventStore.get<Function[]>(name, [noop()]);
         const async = new Async();
         return async.serial(calls, opt_args);
@@ -61,7 +60,7 @@ export class EventBus {
      * @param {!Function} callback
      * @return {!Promize}
      */
-    override(name: string, args: Array<any>, callback: Function): Promize {
+    override(name: string, args: Array<any>, callback: Function) {
         const calls = this.eventStore.get<Function[]>(name, [callback]);
         const async = new Async();
         return async.serial(calls, args);

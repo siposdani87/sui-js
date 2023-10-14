@@ -4,7 +4,7 @@ import { Objekt } from '../core/objekt';
 import { Query } from '../core/query';
 import { Http } from './http';
 import { consoleError } from '../utils/log';
-import { Knot, Promize } from '../core';
+import { Knot } from '../core';
 
 /**
  * @class
@@ -53,8 +53,8 @@ export class Template {
      * @param {boolean=} opt_force
      * @return {!Promize}
      */
-    load(url: string, opt_force: boolean | undefined = false): Promize {
-        const deferred = new Deferred();
+    load(url: string, opt_force: boolean | undefined = false) {
+        const deferred = new Deferred<Knot | undefined, undefined>();
         const templateUrl = this.viewKnot.getAttribute('data-template-url');
         const locale = this.viewKnot.getAttribute('data-locale');
         if (
@@ -69,10 +69,10 @@ export class Template {
             this.viewKnot.setAttribute('data-template-url', url);
             this.http.get(url).then(
                 (data) => {
-                    deferred.resolve(this._spaNavigate(data, false));
+                    deferred.resolve(this._spaNavigate(data.get('raw'), false));
                 },
                 (data) => {
-                    deferred.reject(this._spaNavigate(data, true));
+                    deferred.reject(this._spaNavigate(data.get('raw'), true));
                 },
             );
         }

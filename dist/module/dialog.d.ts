@@ -1,7 +1,7 @@
 import { Objekt } from '../core/objekt';
 import { BaseModal } from './baseModal';
 import { Http } from './http';
-import { Promize } from '../core';
+import { Knot } from '../core';
 /**
  * @class
  * @extends {BaseModal}
@@ -29,7 +29,7 @@ export declare class Dialog extends BaseModal {
      * @param {string} url
      * @return {!Promize}
      */
-    loadTemplate(url: string): Promize;
+    loadTemplate(url: string): import("../core").Promize<Knot<HTMLElement>, Knot<HTMLElement>>;
     /**
      * @param {!Knot} dom
      * @return {!Knot}

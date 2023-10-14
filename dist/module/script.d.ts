@@ -1,7 +1,6 @@
 import { Knot } from '../core/knot';
 import { Objekt } from '../core/objekt';
 import { ProgressBar } from './progressBar';
-import { Promize } from '../core';
 /**
  * @class
  */
@@ -33,7 +32,7 @@ export declare class Script {
      * @param {boolean=} opt_defer
      * @return {!Promize}
      */
-    load(id: string, url: string, opt_params?: Object, opt_async?: boolean | undefined, opt_defer?: boolean | undefined): Promize;
+    load(id: string, url: string, opt_params?: Object, opt_async?: boolean | undefined, opt_defer?: boolean | undefined): import("..").Promize<Object, Object>;
     /**
      * @param {string} id
      * @return {undefined}

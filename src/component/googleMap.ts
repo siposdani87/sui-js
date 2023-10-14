@@ -4,7 +4,7 @@ import { Deferred } from '../core/deferred';
 import { Objekt } from '../core/objekt';
 import { Query } from '../core/query';
 import { consoleDebug } from '../utils/log';
-import { Knot, Promize } from '../core';
+import { Knot } from '../core';
 import { IconOptions, Id } from '../utils';
 import { MapLabel } from './mapLabel';
 
@@ -1149,8 +1149,11 @@ export class GoogleMap {
      * @param {string} query
      * @return {!Promize}
      */
-    searchAddress(query: string): Promize {
-        const deferred = new Deferred();
+    searchAddress(query: string) {
+        const deferred = new Deferred<
+            [{ address: string; latitude: number; longitude: number }[]],
+            void
+        >();
         const geoCoder = new google.maps.Geocoder();
         geoCoder.geocode(
             {

@@ -4,7 +4,6 @@ import { Knot } from '../core/knot';
 import { Objekt } from '../core/objekt';
 import { Query } from '../core/query';
 import { ProgressBar } from './progressBar';
-import { Promize } from '../core';
 
 /**
  * @class
@@ -55,9 +54,9 @@ export class Style {
         opt_params?: Object,
         opt_rel: string | undefined = 'stylesheet',
         opt_media: string | undefined = 'all',
-    ): Promize {
+    ) {
         this.progressBar.show();
-        const deferred = new Deferred();
+        const deferred = new Deferred<boolean, boolean>();
         const style = new Query('#' + id);
         if (style.size() > 0) {
             this.progressBar.hide();

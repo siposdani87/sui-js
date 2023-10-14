@@ -1,6 +1,6 @@
 import { Objekt } from '../core/objekt';
 import { Http } from './http';
-import { Knot, Promize } from '../core';
+import { Knot } from '../core';
 /**
  * @class
  */
@@ -36,7 +36,7 @@ export declare class Template {
      * @param {boolean=} opt_force
      * @return {!Promize}
      */
-    load(url: string, opt_force?: boolean | undefined): Promize;
+    load(url: string, opt_force?: boolean | undefined): import("../core").Promize<Knot<HTMLElement>, undefined>;
     _spaNavigate(data: Knot, isError: boolean): undefined;
     /**
      * @private

@@ -1,5 +1,4 @@
 import { Objekt } from '../core/objekt';
-import { Promize } from '../core';
 /**
  * @class
  */
@@ -28,12 +27,12 @@ export declare class EventBus {
      * @param {!Array=} opt_args
      * @return {!Promize}
      */
-    call(name: string, opt_args?: Array<any> | undefined): Promize;
+    call(name: string, opt_args?: Array<any> | undefined): import("..").Promize<Object, Object>;
     /**
      * @param {string} name
      * @param {!Array} args
      * @param {!Function} callback
      * @return {!Promize}
      */
-    override(name: string, args: Array<any>, callback: Function): Promize;
+    override(name: string, args: Array<any>, callback: Function): import("..").Promize<Object, Object>;
 }

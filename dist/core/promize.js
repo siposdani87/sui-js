@@ -1,4 +1,4 @@
-import { isArray, isFunction, noop } from '../utils/operation';
+import { is, isFunction, noop } from '../utils/operation';
 import { Objekt } from './objekt';
 /**
  * @class
@@ -30,16 +30,17 @@ export class Promize {
      * @return {undefined}
      */
     resolve(opt_data) {
-        if (!isArray(opt_data)) {
-            opt_data = opt_data ? [opt_data] : [];
+        let data = [];
+        if (opt_data && !is(opt_data, 'array')) {
+            data = [opt_data];
         }
         if (isFunction(this.options.resolve) &&
             isFunction(this.options.complete)) {
-            this.options.resolve.apply(this, opt_data);
-            this.options.complete.apply(this, opt_data);
+            this.options.resolve.apply(this, data);
+            this.options.complete.apply(this, data);
         }
         else {
-            this.options.data = opt_data;
+            this.options.data = data;
             this.options.status = true;
         }
     }
@@ -48,16 +49,17 @@ export class Promize {
      * @return {undefined}
      */
     reject(opt_data) {
-        if (!isArray(opt_data)) {
-            opt_data = opt_data ? [opt_data] : [];
+        let data = [];
+        if (opt_data && !is(opt_data, 'array')) {
+            data = [opt_data];
         }
         if (isFunction(this.options.reject) &&
             isFunction(this.options.complete)) {
-            this.options.reject.apply(this, opt_data);
-            this.options.complete.apply(this, opt_data);
+            this.options.reject.apply(this, data);
+            this.options.complete.apply(this, data);
         }
         else {
-            this.options.data = opt_data;
+            this.options.data = data;
             this.options.status = false;
         }
     }

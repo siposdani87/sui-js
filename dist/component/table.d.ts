@@ -6,7 +6,7 @@ import { ContentHandler } from './contentHandler';
 import { Pager } from './pager';
 import { Action } from '../utils';
 export type TableCalculation<T = Objekt> = {
-    [key in string]: (item: T) => Knot | string;
+    [key in string]: (item: T, index: number, parentKnot: Knot) => Knot[] | Knot | string;
 };
 /**
  * @class

@@ -9,11 +9,10 @@ import {
 } from '../utils/operation';
 import { Deferred } from '../core/deferred';
 import { Objekt } from '../core/objekt';
-import { consoleWarn } from '../utils/log';
+import { consoleError, consoleWarn } from '../utils/log';
 import { encodeBase64 } from '../utils/coder';
-import { Promize } from '../core';
 
-export type XhrType = [string, XMLHttpRequestResponseType, string];
+type XhrType = [string, XMLHttpRequestResponseType, string];
 
 /**
  * @class
@@ -25,8 +24,11 @@ export class Xhr {
     types: {
         [key: string]: XhrType;
     };
-    http: XMLHttpRequest;
-    deferred: Deferred;
+    httpRequest: XMLHttpRequest;
+    deferred: Deferred<
+        [XMLHttpRequest, Objekt, string],
+        [XMLHttpRequest, Objekt, string]
+    >;
     /**
      * @param {!Object=} opt_options
      */
@@ -57,11 +59,12 @@ export class Xhr {
 
         this._setTypes();
 
-        this.http = new XMLHttpRequest();
-        this.http.onreadystatechange = this._onReadyStateChange() as any as (
-            this: XMLHttpRequest,
-            ev: Event,
-        ) => any;
+        this.httpRequest = new XMLHttpRequest();
+        this.httpRequest.onreadystatechange =
+            this._onReadyStateChange() as any as (
+                this: XMLHttpRequest,
+                ev: Event,
+            ) => any;
 
         this.deferred = new Deferred();
     }
@@ -128,7 +131,7 @@ export class Xhr {
      */
     private _onReadyStateChange(): (_this: XMLHttpRequest, _ev: Event) => any {
         return (_this: XMLHttpRequest, _ev: Event): any => {
-            switch (this.http.readyState) {
+            switch (this.httpRequest.readyState) {
                 case 0:
                     // request not initialized
                     break;
@@ -143,16 +146,18 @@ export class Xhr {
                     break;
                 case 4:
                     // Request finished and response is ready
-                    this._getResponseData(this.http.response).then(
+                    this._handleResponseData(this.httpRequest.response).then(
                         (response) => {
-                            if (eq(this.http.status, 200)) {
-                                this.deferred.resolve(
-                                    [this.http].concat(response),
-                                );
+                            if (eq(this.httpRequest.status, 200)) {
+                                this.deferred.resolve([
+                                    this.httpRequest,
+                                    ...response,
+                                ]);
                             } else {
-                                this.deferred.reject(
-                                    [this.http].concat(response),
-                                );
+                                this.deferred.reject([
+                                    this.httpRequest,
+                                    ...response,
+                                ]);
                             }
                         },
                     );
@@ -160,7 +165,7 @@ export class Xhr {
                 default:
                     consoleWarn(
                         'Xhr._onReadyStateChange()',
-                        this.http.readyState,
+                        this.httpRequest.readyState,
                     );
                     break;
             }
@@ -176,8 +181,8 @@ export class Xhr {
         url: string,
         opt_params: Object | undefined,
         opt_headers: Object | undefined = {},
-    ): Promize {
-        return this._handleRequest('GET', url, {}, opt_params, opt_headers);
+    ) {
+        return this._createRequest('GET', url, {}, opt_params, opt_headers);
     }
     /**
      * @param {string} url
@@ -191,8 +196,8 @@ export class Xhr {
         opt_data: Object | undefined,
         opt_params: Object | undefined,
         opt_headers: Object | undefined = {},
-    ): Promize {
-        return this._handleRequest(
+    ) {
+        return this._createRequest(
             'POST',
             url,
             opt_data,
@@ -212,8 +217,8 @@ export class Xhr {
         opt_data: Object | undefined,
         opt_params: Object | undefined,
         opt_headers: Object | undefined = {},
-    ): Promize {
-        return this._handleRequest(
+    ) {
+        return this._createRequest(
             'PUT',
             url,
             opt_data,
@@ -233,8 +238,8 @@ export class Xhr {
         opt_data: Object | undefined,
         opt_params: Object | undefined,
         opt_headers: Object | undefined = {},
-    ): Promize {
-        return this._handleRequest(
+    ) {
+        return this._createRequest(
             'PATCH',
             url,
             opt_data,
@@ -254,8 +259,8 @@ export class Xhr {
         opt_data: Object | undefined,
         opt_params: Object | undefined,
         opt_headers: Object | undefined = {},
-    ): Promize {
-        return this._handleRequest(
+    ) {
+        return this._createRequest(
             'DELETE',
             url,
             opt_data,
@@ -282,18 +287,21 @@ export class Xhr {
      * @param {!Object=} opt_headers
      * @return {!Promize}
      */
-    private _handleRequest(
+    private _createRequest(
         type: string,
         url: string,
         opt_data: Object | undefined,
         opt_params: Object | undefined,
         opt_headers: Object | undefined = {},
-    ): Promize {
-        this.http.open(type, this._getUrl(url, opt_params), true);
+    ) {
+        this.httpRequest.open(type, this._getUrl(url, opt_params), true);
+
         const urlType = getExtensionName(url);
         this._setResponseType(urlType);
         this._setRequestHeaders(urlType, opt_headers);
-        this.http.send(this._getRequestData(opt_data));
+
+        this.httpRequest.send(this._createRequestBody(opt_data));
+
         return this.deferred.promise();
     }
     /**
@@ -301,10 +309,10 @@ export class Xhr {
      * @param {!Object=} opt_data
      * @return {string}
      */
-    private _getRequestData(opt_data: Object | undefined): string {
+    private _createRequestBody(opt_data?: Object): string {
         let result = '';
         if (opt_data) {
-            switch (this.getHeader('Content-Type')) {
+            switch (this._getHeader('Content-Type')) {
                 case this._getContentType('json'):
                     result = JSON.stringify(opt_data);
                     break;
@@ -369,59 +377,59 @@ export class Xhr {
         let filename = '';
 
         try {
-            if (!this.http.responseURL.startsWith(this.options.backend)) {
+            if (
+                !this.httpRequest.responseURL.startsWith(this.options.backend)
+            ) {
                 return;
             }
-            const contentDisposition = this.http.getResponseHeader(
+            const contentDisposition = this.httpRequest.getResponseHeader(
                 'Content-Disposition',
             );
             if (contentDisposition) {
                 filename = contentDisposition.match(/filename="(.+)"/)[1];
             }
-        } catch (_e) {
-            // consoleWarn(e);
+        } catch (error) {
+            consoleError('Xhr._getFilenameFromHeader', error);
         }
         return filename;
     }
     /**
      * @private
-     * @param {*} data
+     * @param {*} response
      * @return {!Promize}
      */
-    private _getResponseData(data: any): Promize {
-        const deferred = new Deferred();
+    private _handleResponseData(response: any) {
+        const deferred = new Deferred<[[Objekt, string]], undefined>();
         const filename = this._getFilenameFromHeader();
 
-        const contentType = this.http.getResponseHeader('Content-Type');
+        const contentType = this.httpRequest.getResponseHeader('Content-Type');
         if (contentType) {
             switch (contentType.split(';')[0]) {
                 case 'application/json':
-                    if (instanceOf(data, Blob)) {
+                    if (instanceOf(response, Blob)) {
                         const reader = new FileReader();
                         reader.addEventListener('loadend', (e) => {
-                            data = JSON.parse(
+                            const data = JSON.parse(
                                 (e.target.result as string) || 'null',
                             );
                             const object = new Objekt();
-                            object.merge(data);
+                            object.setRaw('raw', data);
                             deferred.resolve([[object, filename]]);
                         });
-                        reader.readAsText(data);
+                        reader.readAsText(response);
                     } else {
-                        data = isString(data)
-                            ? JSON.parse(data || 'null')
-                            : data;
+                        const data = isString(response)
+                            ? JSON.parse(response || 'null')
+                            : response;
                         const object = new Objekt();
                         object.merge(data);
                         deferred.resolve([[object, filename]]);
                     }
                     break;
                 default:
-                    // let parserHtml = new DOMParser();
-                    // result = parserHtml.parseFromString(data, 'text/html');
-                    // result = new Blob([data], {'type': contentType});
-                    // result = data;
-                    deferred.resolve([[data, filename]]);
+                    const object = new Objekt();
+                    object.setRaw('raw', response);
+                    deferred.resolve([[object, filename]]);
                     break;
             }
         }
@@ -439,30 +447,30 @@ export class Xhr {
     ): void {
         eachObject(opt_headers, (value, key) => {
             if (eq(key, 'responseType')) {
-                this.http.responseType = value;
+                this.httpRequest.responseType = value;
             } else {
-                this.setHeader(key, value);
+                this._setHeader(key, value);
             }
         });
 
-        if (isUndefined(this.getHeader('Accept'))) {
-            this.setHeader('Accept', this._getAccept(urlType));
+        if (isUndefined(this._getHeader('Accept'))) {
+            this._setHeader('Accept', this._getAccept(urlType));
         }
-        if (isUndefined(this.getHeader('Accept-Language'))) {
-            this.setHeader('Accept-Language', this.options.locale);
+        if (isUndefined(this._getHeader('Accept-Language'))) {
+            this._setHeader('Accept-Language', this.options.locale);
         }
-        if (isUndefined(this.getHeader('Content-Type'))) {
-            this.setHeader('Content-Type', this._getContentType(urlType));
+        if (isUndefined(this._getHeader('Content-Type'))) {
+            this._setHeader('Content-Type', this._getContentType(urlType));
         }
         if (
-            isUndefined(this.getHeader('Authorization')) &&
+            isUndefined(this._getHeader('Authorization')) &&
             this.authorization
         ) {
-            this.setHeader('Authorization', this.authorization);
-            this.http.withCredentials = true;
+            this._setHeader('Authorization', this.authorization);
+            this.httpRequest.withCredentials = true;
         }
-        if (isUndefined(this.getHeader('X-Requested-With'))) {
-            this.setHeader('X-Requested-With', 'XMLHttpRequest');
+        if (isUndefined(this._getHeader('X-Requested-With'))) {
+            this._setHeader('X-Requested-With', 'XMLHttpRequest');
         }
     }
     /**
@@ -471,16 +479,16 @@ export class Xhr {
      * @return {undefined}
      */
     private _setResponseType(urlType: string): void {
-        this.http.responseType = this._getResponseType(urlType);
+        this.httpRequest.responseType = this._getResponseType(urlType);
     }
     /**
      * @param {string} name
      * @param {string} value
      * @return {undefined}
      */
-    setHeader(name: string, value: string): void {
+    private _setHeader(name: string, value: string): void {
         if (name && value) {
-            this.http.setRequestHeader(name, value);
+            this.httpRequest.setRequestHeader(name, value);
         }
         this.requestHeaders[name] = value;
     }
@@ -488,7 +496,7 @@ export class Xhr {
      * @param {string} name
      * @return {string|null}
      */
-    getHeader(name: string): string | null {
+    private _getHeader(name: string): string | null {
         return this.requestHeaders[name];
     }
     /**

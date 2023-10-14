@@ -3,7 +3,6 @@ import { consoleError, consoleDebug } from '../utils/log';
 import { Async } from './async';
 import { Deferred } from './deferred';
 import { State } from './state';
-import { Promize } from './promize';
 import { Objekt } from './objekt';
 import { Knot } from './knot';
 import { Route } from '../component/route';
@@ -317,7 +316,7 @@ export class Module {
      * @param {!Objekt} state
      * @return {!Promize}
      */
-    eventStateChange(state: Objekt): Promize {
+    eventStateChange(state: Objekt) {
         const deferred = new Deferred();
         consoleDebug('Module.eventStateChange()', state);
         deferred.resolve();
@@ -328,7 +327,7 @@ export class Module {
      * @param {!Knot} dom
      * @return {!Promize}
      */
-    eventDomChange(state: Objekt, dom: Knot): Promize {
+    eventDomChange(state: Objekt, dom: Knot) {
         const deferred = new Deferred();
         consoleDebug('Module.eventDomChange()', state, dom);
         deferred.resolve();

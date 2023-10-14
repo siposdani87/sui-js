@@ -1,7 +1,6 @@
 import { isUndefined, isFunction, eq, eachArray } from '../utils/operation';
 import { consoleDebug } from '../utils/log';
 import { Deferred } from './deferred';
-import { Promize } from './promize';
 
 /**
  * @class
@@ -26,7 +25,7 @@ export class Async {
      * @param {!Array=} opt_args
      * @return {!Promize}
      */
-    parallel(calls: Array<Function>, opt_args?: Array<any>): Promize {
+    parallel(calls: Array<Function>, opt_args?: Array<any>) {
         const deferred = new Deferred();
         if (calls.length === 0) {
             const results = opt_args || this.call.results;
@@ -76,7 +75,7 @@ export class Async {
         allowEvent: boolean,
         index: number,
         opt_args?: Array<any>,
-    ): Promize {
+    ) {
         const deferred = new Deferred();
         const args = opt_args || [];
         const promise = call.apply(this, args);
@@ -141,7 +140,7 @@ export class Async {
         allowEvent: boolean,
         index: number,
         opt_args?: Array<any>,
-    ): Promize {
+    ) {
         const deferred = new Deferred();
         this.call.results[index] = result;
         if (isError) {
@@ -210,7 +209,7 @@ export class Async {
      * @param {!Array=} opt_args
      * @return {!Promize}
      */
-    serial(calls: Array<Function>, opt_args?: Array<any>): Promize {
+    serial(calls: Array<Function>, opt_args?: Array<any>) {
         const deferred = new Deferred();
         if (calls.length === 0) {
             const results = opt_args || this.call.results;
@@ -232,7 +231,7 @@ export class Async {
         calls: Array<Function>,
         index: number,
         opt_args?: Array<any>,
-    ): Promize {
+    ) {
         const deferred = new Deferred();
         const call = calls[index];
         const results = opt_args || this.call.results;
@@ -272,7 +271,7 @@ export class Async {
         index: number,
         result: any,
         opt_args?: Array<any>,
-    ): Promize {
+    ) {
         const deferred = new Deferred();
         this.call.results[index] = result;
         const nextIndex = index + 1;
