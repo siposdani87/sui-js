@@ -2,21 +2,12 @@ import { mdl } from '../utils/render';
 import { BaseField } from './baseField';
 import { Knot } from '../core/knot';
 
-/**
- * @class
- * @extends {BaseField}
- */
 export class TextareaField extends BaseField<HTMLInputElement> {
     richText: Knot;
     richTextKnot: HTMLElement;
     toolbarKnot: Knot;
     htmlMode: boolean;
-    /**
-     * @param {!Knot} input
-     * @param {!Knot} label
-     * @param {!Knot} error
-     * @param {!Knot} inputBlock
-     */
+
     constructor(
         input: Knot<HTMLInputElement>,
         label: Knot,
@@ -26,10 +17,7 @@ export class TextareaField extends BaseField<HTMLInputElement> {
         super(input, label, error, inputBlock);
         this._init();
     }
-    /**
-     * @private
-     * @return {undefined}
-     */
+
     private _init(): void {
         this.inputBlock.addClass('textarea-field');
 
@@ -48,10 +36,7 @@ export class TextareaField extends BaseField<HTMLInputElement> {
             return true;
         });
     }
-    /**
-     * @override
-     * @return {undefined}
-     */
+
     render(): void {
         this.inputBlock.addClass([
             'mdl-textfield',
@@ -68,9 +53,7 @@ export class TextareaField extends BaseField<HTMLInputElement> {
         }
         this.refresh();
     }
-    /**
-     * @return {undefined}
-     */
+
     private _renderRichText(): void {
         this.input.addClass('hidden');
 
@@ -120,17 +103,11 @@ export class TextareaField extends BaseField<HTMLInputElement> {
 
         this._renderToolbarButtons();
     }
-    /**
-     * @private
-     * @return {boolean}
-     */
+
     private _isRichText(): boolean {
         return !!this.input.getAttribute('data-rich-text');
     }
-    /**
-     * @private
-     * @return {undefined}
-     */
+
     private _renderToolbarButtons(): void {
         this.toolbarKnot = new Knot('div');
         this.toolbarKnot.addClass('toolbar');
@@ -172,12 +149,7 @@ export class TextareaField extends BaseField<HTMLInputElement> {
             this._setHtmlMode(!this._isHtmlMode());
         });
     }
-    /**
-     * @private
-     * @param {string} iconName
-     * @param {!Function} action
-     * @return {undefined}
-     */
+
     private _renderToolbarButton(iconName: string, action: Function): void {
         const boldButtonKnot = new Knot('a');
         boldButtonKnot.setAttribute('href', 'javascript:void(0)');
@@ -188,39 +160,23 @@ export class TextareaField extends BaseField<HTMLInputElement> {
         });
         this.toolbarKnot.appendChild(boldButtonKnot);
     }
-    /**
-     * @private
-     * @param {boolean} value
-     * @return {undefined}
-     */
+
     private _setHtmlMode(value: boolean): void {
         this.htmlMode = value;
         this._setDocMode(this.htmlMode);
     }
-    /**
-     * @private
-     * @return {boolean}
-     */
+
     private _isHtmlMode(): boolean {
         return this.htmlMode === true;
     }
-    /**
-     * @private
-     * @param {string} sCmd
-     * @param {*=} opt_sValue
-     * @return {undefined}
-     */
+
     private _formatDoc(sCmd: string, opt_sValue?: any | undefined): void {
         if (!this._isHtmlMode()) {
             document.execCommand(sCmd, false, opt_sValue);
             this._setValue(this.richTextKnot.innerHTML);
         }
     }
-    /**
-     * @private
-     * @param {boolean} _isHtmlMode
-     * @return {undefined}
-     */
+
     private _setDocMode(_isHtmlMode: boolean): void {
         if (_isHtmlMode) {
             this.richText.addClass('hidden');
@@ -231,9 +187,7 @@ export class TextareaField extends BaseField<HTMLInputElement> {
         }
         this.richTextKnot.focus();
     }
-    /**
-     * @override
-     */
+
     refresh() {
         if (this.isRequired() && this.getValue() === '') {
             this.inputBlock.addClass('is-invalid');
@@ -245,11 +199,7 @@ export class TextareaField extends BaseField<HTMLInputElement> {
 
         mdl(this.inputBlock);
     }
-    /**
-     * @private
-     * @param {!Object|!Function|!Array|boolean|number|string|null|undefined} value
-     * @return {undefined}
-     */
+
     private _setValue(
         value:
             | Object
@@ -265,11 +215,7 @@ export class TextareaField extends BaseField<HTMLInputElement> {
         inputNode.value = value.toString();
         this.input.trigger('change');
     }
-    /**
-     * @override
-     * @param {!Object|!Function|!Array|boolean|number|string|null|undefined} value
-     * @return {undefined}
-     */
+
     setValue(
         value:
             | Object
@@ -286,10 +232,7 @@ export class TextareaField extends BaseField<HTMLInputElement> {
         }
         this._setValue(value);
     }
-    /**
-     * @override
-     * @return {*}
-     */
+
     getValue(): any {
         return this.input.getNode().value;
     }

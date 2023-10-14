@@ -3,36 +3,23 @@ import { Objekt } from '../core/objekt';
 import { Query } from '../core/query';
 import { BaseModal } from './baseModal';
 
-/**
- * @class
- * @extends {BaseModal}
- */
 export class Viewer extends BaseModal {
     options: Objekt;
-    /**
-     * @param {!Object=} opt_options
-     */
+
     constructor(opt_options: Object | undefined = {}) {
         super();
         this._setOptions(opt_options);
         this._init();
         this._initBase();
     }
-    /**
-     * @param {!Object=} opt_options
-     * @private
-     * @return {undefined}
-     */
+
     private _setOptions(opt_options: Object | undefined = {}): void {
         this.options = new Objekt({
             id: '#viewer',
         });
         this.options.merge(opt_options);
     }
-    /**
-     * @private
-     * @return {undefined}
-     */
+
     private _init(): void {
         this.body = new Query('body').getKnot();
         this.modal = new Query(this.options.id, this.body).getKnot();
@@ -42,11 +29,7 @@ export class Viewer extends BaseModal {
         this.modalBody = new Query('.modal-body', this.modal).getKnot();
         this.modalFooter = new Query('.modal-footer', this.modal).getKnot();
     }
-    /**
-     * @param {string} imageUrl
-     * @param {string=} opt_title
-     * @return {undefined}
-     */
+
     loadImage(imageUrl: string, opt_title: string | undefined = ''): void {
         this._reset();
 
@@ -55,10 +38,7 @@ export class Viewer extends BaseModal {
 
         this.open();
     }
-    /**
-     * @param {string} imageUrl
-     * @return {undefined}
-     */
+
     private _setImage(imageUrl: string): void {
         const imageKnot = new Knot<HTMLImageElement>('img');
         imageKnot.setAttribute('src', imageUrl);

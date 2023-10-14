@@ -3,24 +3,12 @@ import { Deferred } from '../core/deferred';
 import { Objekt } from '../core/objekt';
 import { Query } from '../core/query';
 import { consoleError } from '../utils/log';
-/**
- * @class
- */
 export class Template {
-    /**
-     * @param {!Http} http
-     * @param {!Object=} opt_options
-     */
     constructor(http, opt_options = {}) {
         this.http = http;
         this._setOptions(opt_options);
         this._init();
     }
-    /**
-     * @private
-     * @param {!Object=} opt_options
-     * @return {undefined}
-     */
     _setOptions(opt_options = {}) {
         this.options = new Objekt({
             selector: '.template-view',
@@ -28,24 +16,12 @@ export class Template {
         });
         this.options.merge(opt_options);
     }
-    /**
-     * @private
-     * @return {undefined}
-     */
     _init() {
         this.viewKnot = new Query(this.options.selector).getKnot();
     }
-    /**
-     * @return {!Knot}
-     */
     getViewKnot() {
         return this.viewKnot;
     }
-    /**
-     * @param {string} url
-     * @param {boolean=} opt_force
-     * @return {!Promize}
-     */
     load(url, opt_force = false) {
         const deferred = new Deferred();
         const templateUrl = this.viewKnot.getAttribute('data-template-url');
@@ -75,14 +51,8 @@ export class Template {
         } */
         // With a transition:
         // document.startViewTransition(() => this._updateDOM(data, isError));
-        this._updateDOM(data, isError);
+        return this._updateDOM(data, isError);
     }
-    /**
-     * @private
-     * @param {!Knot} data
-     * @param {boolean} isError
-     * @return {!Knot}
-     */
     _updateDOM(data, isError) {
         const knot = new Query('.page-content', data).getKnot();
         if (isError) {
@@ -98,10 +68,6 @@ export class Template {
         }
         return knot;
     }
-    /**
-     * @param {!Object} message
-     * @return {undefined}
-     */
     eventError(message) {
         consoleError('Template.eventError()', message);
     }

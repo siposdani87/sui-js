@@ -24,13 +24,6 @@ import { BaseField } from '../field/baseField';
 import { Knot } from '../core/knot';
 import { Form } from './form';
 
-/**
- * @constructor
- * @this {FormField}
- * @param {!Knot} inputBlock
- * @param {!Form} form
- * @return {?BaseField}
- */
 export const FormField = function (
     inputBlock: Knot<HTMLInputElement | HTMLElement>,
     form: Form,
@@ -40,10 +33,6 @@ export const FormField = function (
     return _convertToField(input, label, error, inputBlock, form);
 };
 
-/**
- * @param {!Knot} inputBlock
- * @return {{input: Knot, label: Knot, error: Knot}}
- */
 export const parseInputBlock = (
     inputBlock: Knot<HTMLInputElement | HTMLElement>,
 ): {
@@ -91,14 +80,6 @@ export const parseInputBlock = (
     };
 };
 
-/**
- * @param {!Knot} input
- * @param {?Knot} label
- * @param {?Knot} error
- * @param {!Knot} inputBlock
- * @param {!Form} form
- * @return {?BaseField}
- */
 const _convertToField = (
     input: Knot<HTMLInputElement>,
     label: Knot | null,

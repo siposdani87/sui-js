@@ -1,25 +1,11 @@
 import { mdl } from '../utils/render';
 import { BaseField } from './baseField';
 import { Knot } from '../core/knot';
-/**
- * @class
- * @extends {BaseField}
- */
 export class TextareaField extends BaseField {
-    /**
-     * @param {!Knot} input
-     * @param {!Knot} label
-     * @param {!Knot} error
-     * @param {!Knot} inputBlock
-     */
     constructor(input, label, error, inputBlock) {
         super(input, label, error, inputBlock);
         this._init();
     }
-    /**
-     * @private
-     * @return {undefined}
-     */
     _init() {
         this.inputBlock.addClass('textarea-field');
         this.input.addEventListener('keyup', (input) => {
@@ -36,10 +22,6 @@ export class TextareaField extends BaseField {
             return true;
         });
     }
-    /**
-     * @override
-     * @return {undefined}
-     */
     render() {
         this.inputBlock.addClass([
             'mdl-textfield',
@@ -55,9 +37,6 @@ export class TextareaField extends BaseField {
         }
         this.refresh();
     }
-    /**
-     * @return {undefined}
-     */
     _renderRichText() {
         this.input.addClass('hidden');
         let value = this.getValue();
@@ -101,17 +80,9 @@ export class TextareaField extends BaseField {
         this.richTextKnot.contentEditable = 'true';
         this._renderToolbarButtons();
     }
-    /**
-     * @private
-     * @return {boolean}
-     */
     _isRichText() {
         return !!this.input.getAttribute('data-rich-text');
     }
-    /**
-     * @private
-     * @return {undefined}
-     */
     _renderToolbarButtons() {
         this.toolbarKnot = new Knot('div');
         this.toolbarKnot.addClass('toolbar');
@@ -144,12 +115,6 @@ export class TextareaField extends BaseField {
             this._setHtmlMode(!this._isHtmlMode());
         });
     }
-    /**
-     * @private
-     * @param {string} iconName
-     * @param {!Function} action
-     * @return {undefined}
-     */
     _renderToolbarButton(iconName, action) {
         const boldButtonKnot = new Knot('a');
         boldButtonKnot.setAttribute('href', 'javascript:void(0)');
@@ -160,39 +125,19 @@ export class TextareaField extends BaseField {
         });
         this.toolbarKnot.appendChild(boldButtonKnot);
     }
-    /**
-     * @private
-     * @param {boolean} value
-     * @return {undefined}
-     */
     _setHtmlMode(value) {
         this.htmlMode = value;
         this._setDocMode(this.htmlMode);
     }
-    /**
-     * @private
-     * @return {boolean}
-     */
     _isHtmlMode() {
         return this.htmlMode === true;
     }
-    /**
-     * @private
-     * @param {string} sCmd
-     * @param {*=} opt_sValue
-     * @return {undefined}
-     */
     _formatDoc(sCmd, opt_sValue) {
         if (!this._isHtmlMode()) {
             document.execCommand(sCmd, false, opt_sValue);
             this._setValue(this.richTextKnot.innerHTML);
         }
     }
-    /**
-     * @private
-     * @param {boolean} _isHtmlMode
-     * @return {undefined}
-     */
     _setDocMode(_isHtmlMode) {
         if (_isHtmlMode) {
             this.richText.addClass('hidden');
@@ -204,9 +149,6 @@ export class TextareaField extends BaseField {
         }
         this.richTextKnot.focus();
     }
-    /**
-     * @override
-     */
     refresh() {
         if (this.isRequired() && this.getValue() === '') {
             this.inputBlock.addClass('is-invalid');
@@ -216,31 +158,17 @@ export class TextareaField extends BaseField {
         }
         mdl(this.inputBlock);
     }
-    /**
-     * @private
-     * @param {!Object|!Function|!Array|boolean|number|string|null|undefined} value
-     * @return {undefined}
-     */
     _setValue(value) {
         const inputNode = this.input.getNode();
         inputNode.value = value.toString();
         this.input.trigger('change');
     }
-    /**
-     * @override
-     * @param {!Object|!Function|!Array|boolean|number|string|null|undefined} value
-     * @return {undefined}
-     */
     setValue(value) {
         if (this._isRichText()) {
             this.richTextKnot.innerHTML = value;
         }
         this._setValue(value);
     }
-    /**
-     * @override
-     * @return {*}
-     */
     getValue() {
         return this.input.getNode().value;
     }

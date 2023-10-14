@@ -2,36 +2,24 @@ import { debounce, neq, gte } from '../utils/operation';
 import { Objekt } from '../core/objekt';
 import { consoleDebug } from '../utils/log';
 
-/**
- * @class
- */
 export class Screen {
     options: Objekt;
     window: Window;
     document: Document;
     orientation: string;
-    /**
-     * @param {!Object=} opt_options
-     */
+
     constructor(opt_options: Object | undefined = {}) {
         this._setOptions(opt_options);
         this._init();
     }
-    /**
-     * @private
-     * @param {!Object=} opt_options
-     * @return {undefined}
-     */
+
     private _setOptions(opt_options: Object | undefined = {}): void {
         this.options = new Objekt({
             delay: 250,
         });
         this.options.merge(opt_options);
     }
-    /**
-     * @private
-     * @return {undefined}
-     */
+
     private _init(): void {
         this.window = window;
         this.document = document;
@@ -43,10 +31,7 @@ export class Screen {
         this._initConnectionEvent();
         this._initColorSchemeEvent();
     }
-    /**
-     * @private
-     * @return {undefined}
-     */
+
     private _initResizeEvent(): void {
         this.window.addEventListener(
             'resize',
@@ -56,10 +41,7 @@ export class Screen {
             false,
         );
     }
-    /**
-     * @private
-     * @return {undefined}
-     */
+
     private _initScrollEvent(): void {
         this.window.addEventListener(
             'scroll',
@@ -69,10 +51,7 @@ export class Screen {
             false,
         );
     }
-    /**
-     * @private
-     * @return {undefined}
-     */
+
     private _initConnectionEvent(): void {
         this.window.addEventListener(
             'online',
@@ -90,36 +69,19 @@ export class Screen {
             false,
         );
     }
-    /**
-     * @param {!Event} event
-     * @return {undefined}
-     */
+
     eventOffline(event: Event): void {
         consoleDebug('Window.eventOffline()', event);
     }
-    /**
-     * @param {!Event} event
-     * @return {undefined}
-     */
+
     eventOnline(event: Event): void {
         consoleDebug('Window.eventOffline()', event);
     }
-    /**
-     * @param {number} width
-     * @param {number} height
-     * @param {!Event} event
-     * @return {undefined}
-     */
+
     eventResize(width: number, height: number, event: Event): void {
         consoleDebug('Window.eventResize()', width, height, event);
     }
-    /**
-     * @param {string} orientation
-     * @param {number} width
-     * @param {number} height
-     * @param {!Event} event
-     * @return {undefined}
-     */
+
     eventOrientationChange(
         orientation: string,
         width: number,
@@ -134,19 +96,11 @@ export class Screen {
             event,
         );
     }
-    /**
-     * @param {number} scrollTop
-     * @param {!Event} event
-     * @return {undefined}
-     */
+
     eventScroll(scrollTop: number, event: Event): void {
         consoleDebug('Window.eventScroll()', scrollTop, event);
     }
-    /**
-     * @private
-     * @param {!Event} event
-     * @return {undefined}
-     */
+
     private _resize(event: Event): void {
         this.eventResize(this.getWidth(), this.getHeight(), event);
 
@@ -161,47 +115,32 @@ export class Screen {
             );
         }
     }
-    /**
-     * @private
-     * @param {!Event} event
-     * @return {undefined}
-     */
+
     private _scroll(event: Event): void {
         this.eventScroll(this.getScrollTop(), event);
     }
-    /**
-     * @return {number}
-     */
+
     getScrollTop(): number {
         return (
             this.document.documentElement.scrollTop ||
             this.document.body.scrollTop
         );
     }
-    /**
-     * @return {number}
-     */
+
     getWidth(): number {
         return this.window.innerWidth;
     }
-    /**
-     * @return {number}
-     */
+
     getHeight(): number {
         return this.window.innerHeight;
     }
-    /**
-     * @return {string} landscape|portrait
-     */
+
     getOrientation(): string {
         return gte(this.getWidth(), this.getHeight())
             ? 'landscape'
             : 'portrait';
     }
-    /**
-     * @private
-     * @return {undefined}
-     */
+
     private _initColorSchemeEvent(): void {
         if (window.matchMedia) {
             window
@@ -215,18 +154,11 @@ export class Screen {
                 });
         }
     }
-    /**
-     * @param {string} colorScheme
-     * @param {!Event} event
-     * @return {undefined}
-     */
+
     eventColorSchemeChange(colorScheme: string, event: Event): void {
         consoleDebug('Window.eventColorSchemeChange()', colorScheme, event);
     }
-    /**
-     * @param {string} type dark|light|no-preference
-     * @return {boolean}
-     */
+
     isColorScheme(type: string): boolean {
         return (
             window.matchMedia?.(`(prefers-color-scheme: ${type})`)?.matches ??

@@ -29,9 +29,6 @@ export type TableCalculation<T = Objekt> = {
     ) => Knot[] | Knot | string;
 };
 
-/**
- * @class
- */
 export class Table<T extends Objekt = Objekt> {
     tableKnot: Knot;
     options: Objekt;
@@ -44,11 +41,7 @@ export class Table<T extends Objekt = Objekt> {
     tbody: Knot;
     tfoot: Knot;
     pager: Pager;
-    /**
-     * @param {!Knot} dom
-     * @param {string=} opt_selector
-     * @param {!Object=} opt_options
-     */
+
     constructor(
         dom: Knot,
         opt_selector: string | undefined = 'table',
@@ -58,11 +51,7 @@ export class Table<T extends Objekt = Objekt> {
         this._setOptions(opt_options);
         this._init();
     }
-    /**
-     * @private
-     * @param {!Object=} opt_options
-     * @return {undefined}
-     */
+
     private _setOptions(opt_options: Object | undefined = {}): void {
         this.options = new Objekt({
             no_content: {
@@ -83,10 +72,7 @@ export class Table<T extends Objekt = Objekt> {
         });
         this.options.merge(opt_options);
     }
-    /**
-     * @private
-     * @return {undefined}
-     */
+
     private _init(): void {
         this.collection = new Collection();
         this.query = '';
@@ -101,20 +87,14 @@ export class Table<T extends Objekt = Objekt> {
             // TODO: reinit other components of table
         }
     }
-    /**
-     * @private
-     * @return {undefined}
-     */
+
     private _initContentHandler(): void {
         this.contentHandler = new ContentHandler(
             this.tableKnot,
             this.options.no_content,
         );
     }
-    /**
-     * @private
-     * @return {undefined}
-     */
+
     private _initSearch(): void {
         if (
             this.options.columns[this.options.columns.length - 1] === 'search'
@@ -167,10 +147,7 @@ export class Table<T extends Objekt = Objekt> {
             mdl(searchKnot);
         }
     }
-    /**
-     * @private
-     * @return {undefined}
-     */
+
     private _initHeader(): void {
         this.headerTexts = [];
         this.headerKnots = new Query('thead th', this.tableKnot);
@@ -180,12 +157,7 @@ export class Table<T extends Objekt = Objekt> {
             this._renderHeader(headerKnot, columnIndex);
         });
     }
-    /**
-     * @private
-     * @param {!Knot} headerKnot
-     * @param {number} columnIndex
-     * @return {undefined}
-     */
+
     private _renderHeader(headerKnot: Knot, columnIndex: number): void {
         const column = this.options.columns[columnIndex];
         if (inArray(['search', 'actions'], column)) {
@@ -233,10 +205,7 @@ export class Table<T extends Objekt = Objekt> {
             tooltip.render();
         }
     }
-    /**
-     * @private
-     * @return {undefined}
-     */
+
     private _initStructure(): void {
         this.tbody = new Knot('tbody');
         this.tableKnot.appendChild(this.tbody);
@@ -266,10 +235,7 @@ export class Table<T extends Objekt = Objekt> {
             this.refresh(page);
         };
     }
-    /**
-     * @param {number=} opt_page
-     * @return {undefined}
-     */
+
     refresh(opt_page: number | undefined = -1): void {
         if (opt_page > -1) {
             this.pager.setPage(opt_page);
@@ -283,18 +249,11 @@ export class Table<T extends Objekt = Objekt> {
         });
         this.eventAction(params);
     }
-    /**
-     * @param {!Objekt} params
-     * @return {undefined}
-     */
+
     eventAction(params: Objekt): void {
         consoleDebug('Table.eventAction()', params);
     }
-    /**
-     * @private
-     * @param {string} columnWithOrder
-     * @return {undefined}
-     */
+
     private _toggleSorting(columnWithOrder: string): void {
         const [column, direction] = columnWithOrder.split(':', 2);
         let order = direction || 'desc';
@@ -306,12 +265,7 @@ export class Table<T extends Objekt = Objekt> {
         }
         this._setSorting(column, order);
     }
-    /**
-     * @private
-     * @param {!Knot} head
-     * @param {number} i
-     * @return {undefined}
-     */
+
     private _handleSortingColumn(head: Knot, i: number): void {
         const column = this.options.columns[i];
         if (
@@ -327,10 +281,7 @@ export class Table<T extends Objekt = Objekt> {
             }
         }
     }
-    /**
-     * @private
-     * @return {undefined}
-     */
+
     private _updateSorting(): void {
         this._resetSorting();
         this.headerKnots.each((head, i) => {
@@ -338,12 +289,7 @@ export class Table<T extends Objekt = Objekt> {
         });
         this.refresh();
     }
-    /**
-     * @private
-     * @param {string} column
-     * @param {string=} opt_order
-     * @return {undefined}
-     */
+
     private _setSorting(
         column: string,
         opt_order: string | undefined = 'asc',
@@ -352,29 +298,18 @@ export class Table<T extends Objekt = Objekt> {
         this.options.sort.order = opt_order;
         this._updateSorting();
     }
-    /**
-     * @private
-     * @return {undefined}
-     */
+
     private _resetSorting(): void {
         const icons = new Query('thead th .icons em', this.tableKnot);
         icons.each((icon) => {
             icon.removeClass('active');
         });
     }
-    /**
-     * @private
-     * @return {string}
-     */
+
     private _getColumn(): string {
         return this.options.column || this.options.columns[0];
     }
-    /**
-     * @private
-     * @param {!T} item
-     * @param {number} rowIndex
-     * @return {undefined}
-     */
+
     private _addHeaderRow(item: T, rowIndex: number): void {
         const headerRow = new Knot('tr');
         headerRow.addEventListener('click', (knot) => {
@@ -400,12 +335,7 @@ export class Table<T extends Objekt = Objekt> {
         headerRow.appendChild(headerActionCell);
         this._renderActions(headerActionCell, item);
     }
-    /**
-     * @private
-     * @param {!T} item
-     * @param {number} rowIndex
-     * @return {!Array<string>}
-     */
+
     private _getRowStyle(item: T, rowIndex: number): Array<string> {
         let results = [];
         if (this.options.rowStyle && isFunction(this.options.rowStyle)) {
@@ -418,12 +348,7 @@ export class Table<T extends Objekt = Objekt> {
         }
         return results;
     }
-    /**
-     * @private
-     * @param {!T} item
-     * @param {number} rowIndex
-     * @return {undefined}
-     */
+
     private _addRow(item: T, rowIndex: number): void {
         const tableRow = new Knot('tr');
         const cssClasses = this._getRowStyle(item, rowIndex);
@@ -441,21 +366,11 @@ export class Table<T extends Objekt = Objekt> {
             );
         });
     }
-    /**
-     * @param {!Array<Action>} actions
-     * @return {undefined}
-     */
+
     setActions(actions: Array<Action>): void {
         this.actions = actions;
     }
-    /**
-     * @private
-     * @param {!T} item
-     * @param {number} rowIndex
-     * @param {string} column
-     * @param {!Knot} parentKnot
-     * @return {undefined}
-     */
+
     private _renderDataKnotByKnot(
         item: T,
         rowIndex: number,
@@ -492,15 +407,7 @@ export class Table<T extends Objekt = Objekt> {
             }
         });
     }
-    /**
-     * @private
-     * @param {!Knot} tableDataKnot
-     * @param {!Objekt} item
-     * @param {number} rowIndex
-     * @param {string} column
-     * @param {number} columnIndex
-     * @return {undefined}
-     */
+
     private _renderDataKnot(
         tableDataKnot: Knot,
         item: T,
@@ -520,12 +427,7 @@ export class Table<T extends Objekt = Objekt> {
             this._renderDataKnotByKnot(item, rowIndex, column, tableDataKnot);
         }
     }
-    /**
-     * @private
-     * @param {!Knot} tableDataKnot
-     * @param {!T} item
-     * @return {undefined}
-     */
+
     private _renderActions(tableDataKnot: Knot, item: T): void {
         const containerKnot = new Knot('div');
         tableDataKnot.addClass('actions');
@@ -537,34 +439,18 @@ export class Table<T extends Objekt = Objekt> {
             this._renderActionKnots(containerKnot, item);
         }
     }
-    /**
-     * @private
-     * @param {!Knot} containerKnot
-     * @param {!T} item
-     * @return {undefined}
-     */
+
     private _renderActionKnots(containerKnot: Knot, item: T): void {
         eachArray(this.actions, (action) => {
             this._createActionButton(containerKnot, action, item);
         });
     }
-    /**
-     * @private
-     * @param {!Knot} dropDownKnot
-     * @param {!T} item
-     * @return {undefined}
-     */
+
     private _renderDropDownKnot(dropDownKnot: Knot, item: T): void {
         const dropDown = new Dropdown(dropDownKnot);
         dropDown.setActions(this.actions, item);
     }
-    /**
-     * @private
-     * @param {!Knot} containerKnot
-     * @param {{style: !Function, click: !Function}} action
-     * @param {!T} item
-     * @return {undefined}
-     */
+
     private _createActionButton(
         containerKnot: Knot,
         action: { style: Function; click: Function },
@@ -597,10 +483,7 @@ export class Table<T extends Objekt = Objekt> {
             buttonKnot.appendChild(iconKnot);
         }
     }
-    /**
-     * @param {!Array} items
-     * @return {undefined}
-     */
+
     setData(items: Array<any>): void {
         this.collection.reload(items);
         if (this.collection.size() === 0) {
@@ -610,18 +493,12 @@ export class Table<T extends Objekt = Objekt> {
             this._draw();
         }
     }
-    /**
-     * @param {number} count
-     * @return {undefined}
-     */
+
     setCount(count: number): void {
         this.pager.setCount(count);
         this.pager.draw();
     }
-    /**
-     * @private
-     * @return {!Array<T>}
-     */
+
     private _getItems(): Array<T> {
         let items = this.collection.getItems();
         if (this.collection.size() > this.options.row_count) {
@@ -632,10 +509,7 @@ export class Table<T extends Objekt = Objekt> {
         }
         return items;
     }
-    /**
-     * @private
-     * @return {undefined}
-     */
+
     private _draw(): void {
         this.tbody.removeChildren();
         eachArray(this._getItems(), (item, rowIndex) => {
@@ -644,9 +518,7 @@ export class Table<T extends Objekt = Objekt> {
         });
         mdl(this.tbody);
     }
-    /**
-     * @return {undefined}
-     */
+
     render(): void {
         if (!this.tableKnot.isEmpty()) {
             this._updateSorting();

@@ -2,18 +2,9 @@ import { mdl } from '../utils/render';
 import { BaseField } from './baseField';
 import { Knot } from '../core/knot';
 
-/**
- * @class
- * @extends {BaseField}
- */
 export class UrlField extends BaseField<HTMLInputElement> {
     protocol: string;
-    /**
-     * @param {!Knot} input
-     * @param {!Knot} label
-     * @param {!Knot} error
-     * @param {!Knot} inputBlock
-     */
+
     constructor(
         input: Knot<HTMLInputElement>,
         label: Knot,
@@ -23,17 +14,10 @@ export class UrlField extends BaseField<HTMLInputElement> {
         super(input, label, error, inputBlock);
         this._init();
     }
-    /**
-     * @private
-     * @return {undefined}
-     */
+
     private _init(): void {
         this.inputBlock.addClass('url-field');
 
-        /**
-         * @private
-         * @const {string}
-         */
         this.protocol = this.input.getData('protocol');
 
         this.input.addEventListener('keyup', (input) => {
@@ -48,10 +32,7 @@ export class UrlField extends BaseField<HTMLInputElement> {
             return true;
         });
     }
-    /**
-     * @override
-     * @return {undefined}
-     */
+
     render(): void {
         this.inputBlock.addClass([
             'mdl-textfield',
@@ -72,9 +53,7 @@ export class UrlField extends BaseField<HTMLInputElement> {
 
         this.refresh();
     }
-    /**
-     * @override
-     */
+
     refresh() {
         if (this.isRequired() && this.getValue() === '') {
             this.inputBlock.addClass('is-invalid');

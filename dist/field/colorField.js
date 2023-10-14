@@ -6,25 +6,11 @@ import { Tooltip } from '../component/tooltip';
 import { Knot } from '../core/knot';
 import { Query } from '../core/query';
 import { convertRGBToHEX } from '../utils/color';
-/**
- * @class
- * @extends {BaseField}
- */
 export class ColorField extends BaseField {
-    /**
-     * @param {!Knot} input
-     * @param {!Knot} label
-     * @param {!Knot} error
-     * @param {!Knot} inputBlock
-     */
     constructor(input, label, error, inputBlock) {
         super(input, label, error, inputBlock);
         this._init();
     }
-    /**
-     * @private
-     * @return {undefined}
-     */
     _init() {
         this.inputBlock.addClass('color-field');
         this._initInput();
@@ -32,18 +18,12 @@ export class ColorField extends BaseField {
         this._initPreview();
         this._setMaterialColors();
     }
-    /**
-     * @override
-     */
     render() {
         if (this.label && this.label.exists()) {
             this.label.addClass('field-label');
         }
         this.refresh();
     }
-    /**
-     * @override
-     */
     refresh() {
         if (this.isRequired() && this.getValue() === '') {
             this.inputBlock.addClass('is-invalid');
@@ -57,10 +37,6 @@ export class ColorField extends BaseField {
         const color = this.getValue() || '#000000';
         this.setValue(color);
     }
-    /**
-     * @private
-     * @return {undefined}
-     */
     _initInput() {
         this.input.addClass('hidden');
         this.input.addEventListener('change', (input) => {
@@ -73,10 +49,6 @@ export class ColorField extends BaseField {
             return true;
         });
     }
-    /**
-     * @private
-     * @return {undefined}
-     */
     _initPreview() {
         this.previewKnot = new Knot('div');
         this.previewKnot.addClass('preview');
@@ -93,10 +65,6 @@ export class ColorField extends BaseField {
             }
         });
     }
-    /**
-     * @private
-     * @return {undefined}
-     */
     _draw() {
         if (!this.image.isEmpty()) {
             const width = typeCast(this.image.getAttribute('width'));
@@ -119,10 +87,6 @@ export class ColorField extends BaseField {
             }
         }
     }
-    /**
-     * @private
-     * @return {undefined}
-     */
     _initImage() {
         this.image = new Query('img', this.inputBlock).getKnot();
         if (!this.image.isEmpty()) {
@@ -146,10 +110,6 @@ export class ColorField extends BaseField {
             this.popup.close();
         });
     }
-    /**
-     * @private
-     * @return {undefined}
-     */
     _setMaterialColors() {
         const colors50 = [
             '#ffebee',

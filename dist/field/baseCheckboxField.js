@@ -2,25 +2,11 @@ import { typeCast } from '../utils/operation';
 import { BaseField } from './baseField';
 import { Query } from '../core/query';
 import { mdl } from '../utils/render';
-/**
- * @class
- * @extends {BaseField}
- */
 export class BaseCheckboxField extends BaseField {
-    /**
-     * @param {!Knot} input
-     * @param {!Knot} label
-     * @param {!Knot} error
-     * @param {!Knot} inputBlock
-     */
     constructor(input, label, error, inputBlock) {
         super(input, label, error, inputBlock);
         this._init();
     }
-    /**
-     * @protected
-     * @return {undefined}
-     */
     _init() {
         this.hiddenInput = new Query('input[type=hidden]', this.inputBlock).getKnot();
         this.inputBlock.addClass('checkbox-field');
@@ -29,18 +15,10 @@ export class BaseCheckboxField extends BaseField {
             return true;
         });
     }
-    /**
-     * @protected
-     * @return {undefined}
-     */
     _change() {
         const value = this.getValue();
         this.modelChange(value);
     }
-    /**
-     * @override
-     * @return {*}
-     */
     getValue() {
         const checked = this.input.getNode().checked;
         let value = this.hiddenInput.getAttribute('value');
@@ -49,11 +27,6 @@ export class BaseCheckboxField extends BaseField {
         }
         return typeCast(value);
     }
-    /**
-     * @override
-     * @param {!Object|!Function|!Array|boolean|number|string|null|undefined} value
-     * @return {undefined}
-     */
     setValue(value) {
         const currentValue = typeCast(this.input.getAttribute('value'));
         this.input.getNode().checked = currentValue === value;
@@ -62,11 +35,6 @@ export class BaseCheckboxField extends BaseField {
         }
         this.input.trigger('change');
     }
-    /**
-     * @override
-     * @param {boolean} state
-     * @return {undefined}
-     */
     setDisabled(state) {
         if (state) {
             this.input.setAttribute('disabled');
@@ -81,20 +49,12 @@ export class BaseCheckboxField extends BaseField {
         this.input.getNode().disabled = state;
         this.checkValidity(true, false);
     }
-    /**
-     * @override
-     * @param {string} text
-     * @return {undefined}
-     */
     setLabel(text) {
         if (this.spanLabel && !this.spanLabel.isEmpty()) {
             this.spanLabel.setHtml(text);
             this._setAdditionalLabel(this.spanLabel);
         }
     }
-    /**
-     * @override
-     */
     refresh() {
         const dataLabelText = this.label.getAttribute('data-label');
         if (dataLabelText) {

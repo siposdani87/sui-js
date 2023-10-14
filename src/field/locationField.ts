@@ -7,10 +7,6 @@ import { generateId } from '../utils/coder';
 import { IconOptions } from '../utils';
 import { mdl } from '../utils/render';
 
-/**
- * @class
- * @extends {BaseField}
- */
 export class LocationField extends BaseField<HTMLInputElement> {
     icon: IconOptions;
     advancedButton: Knot;
@@ -19,12 +15,7 @@ export class LocationField extends BaseField<HTMLInputElement> {
     advancedKnot: Knot;
     latitudeInput: Knot<HTMLInputElement>;
     longitudeInput: Knot<HTMLInputElement>;
-    /**
-     * @param {!Knot} input
-     * @param {!Knot} label
-     * @param {!Knot} error
-     * @param {!Knot} inputBlock
-     */
+
     constructor(
         input: Knot<HTMLInputElement>,
         label: Knot,
@@ -34,10 +25,7 @@ export class LocationField extends BaseField<HTMLInputElement> {
         super(input, label, error, inputBlock);
         this._init();
     }
-    /**
-     * @private
-     * @return {undefined}
-     */
+
     private _init(): void {
         this.inputBlock.addClass('location-field');
         this._initButtons();
@@ -64,18 +52,12 @@ export class LocationField extends BaseField<HTMLInputElement> {
             return true;
         });
     }
-    /**
-     * @private
-     * @return {undefined}
-     */
+
     private _initButtons(): void {
         this._initSearchButton();
         this._initAdvancedButton();
     }
-    /**
-     * @private
-     * @return {undefined}
-     */
+
     private _initSearchButton(): void {
         const searchButton = new Knot('a');
         searchButton.setAttribute('href', 'javascript:void(0)');
@@ -89,10 +71,7 @@ export class LocationField extends BaseField<HTMLInputElement> {
         });
         this.actionContainerKnot.appendChild(searchButton);
     }
-    /**
-     * @private
-     * @return {undefined}
-     */
+
     private _initAdvancedButton(): void {
         this.advancedButton = new Knot('a');
         this.advancedButton.setAttribute('href', 'javascript:void(0)');
@@ -105,10 +84,7 @@ export class LocationField extends BaseField<HTMLInputElement> {
         });
         this.actionContainerKnot.appendChild(this.advancedButton);
     }
-    /**
-     * @param {string} address
-     * @return {undefined}
-     */
+
     search(address: string): void {
         this.map.searchAddress(address).then(
             (locations) => {
@@ -125,10 +101,7 @@ export class LocationField extends BaseField<HTMLInputElement> {
             },
         );
     }
-    /**
-     * @override
-     * @return {undefined}
-     */
+
     render(): void {
         this.inputBlock.addClass([
             'mdl-textfield',
@@ -146,9 +119,7 @@ export class LocationField extends BaseField<HTMLInputElement> {
 
         this.refresh();
     }
-    /**
-     * @override
-     */
+
     refresh() {
         if (this.isDisabled()) {
             this.mapLockKnot.addClass('map-lock');
@@ -157,18 +128,12 @@ export class LocationField extends BaseField<HTMLInputElement> {
         }
         mdl(this.inputBlock);
     }
-    /**
-     * @private
-     * @return {undefined}
-     */
+
     private _toggleAdvancedInputs(): void {
         this.advancedButton.toggleClass('active');
         this.advancedKnot.toggleClass('hidden');
     }
-    /**
-     * @private
-     * @return {undefined}
-     */
+
     private _renderAdvancedInputs(): void {
         this.advancedKnot = new Knot('div');
         this.advancedKnot.addClass(['advanced', 'row', 'hidden']);
@@ -195,13 +160,7 @@ export class LocationField extends BaseField<HTMLInputElement> {
             },
         );
     }
-    /**
-     * @private
-     * @param {string} id
-     * @param {string} labelText
-     * @param {function(!Knot):undefined} callback
-     * @return {!Knot<HTMLInputElement>}
-     */
+
     private _renderAdvancedInput(
         id: string,
         labelText: string,
@@ -239,10 +198,7 @@ export class LocationField extends BaseField<HTMLInputElement> {
 
         return advancedInput;
     }
-    /**
-     * @private
-     * @return {undefined}
-     */
+
     private _renderMap(): void {
         const mapKnot = new Knot('div');
         mapKnot.addClass('map');
@@ -270,19 +226,11 @@ export class LocationField extends BaseField<HTMLInputElement> {
             this.updatePosition(latitude, longitude);
         };
     }
-    /**
-     * @param {string} mapTypeId
-     * @return {undefined}
-     */
+
     setMapType(mapTypeId: string): void {
         this.map.setMapType(mapTypeId);
     }
-    /**
-     * @param {string} mapTypeId
-     * @param {string} mapTypeName
-     * @param {!Array<?google.maps.MapTypeStyle>} mapStyles
-     * @return {undefined}
-     */
+
     setCustomMapStyle(
         mapTypeId: string,
         mapTypeName: string,
@@ -290,10 +238,7 @@ export class LocationField extends BaseField<HTMLInputElement> {
     ): void {
         this.map.setCustomMapStyle(mapTypeId, mapTypeName, mapStyles);
     }
-    /**
-     * @private
-     * @return {undefined}
-     */
+
     private _setDefaultValue(): void {
         const location = this.getValue();
         if (!isNull(location['latitude']) && !isNull(location['longitude'])) {
@@ -308,33 +253,21 @@ export class LocationField extends BaseField<HTMLInputElement> {
             this._setDataValue(location);
         }
     }
-    /**
-     * @param {number|null} latitude
-     * @param {number|null} longitude
-     * @return {undefined}
-     */
+
     updatePosition(latitude: number | null, longitude: number | null): void {
         const location = this.getValue();
         location['latitude'] = latitude;
         location['longitude'] = longitude;
         this.setValue(location);
     }
-    /**
-     * @private
-     * @param {!Object} value
-     * @return {undefined}
-     */
+
     private _setDataValue(value: Object): void {
         this.latitudeInput.getNode().value = value['latitude'] || '';
         this.longitudeInput.getNode().value = value['longitude'] || '';
         this.input.setAttribute('value', value['address'] || '');
         this.input.setData('value', value);
     }
-    /**
-     * @override
-     * @param {!Object|!Function|!Array|boolean|number|string|null|undefined} value
-     * @return {undefined}
-     */
+
     setValue(
         value:
             | Object
@@ -370,18 +303,12 @@ export class LocationField extends BaseField<HTMLInputElement> {
         }
         this.input.trigger('change');
     }
-    /**
-     * @override
-     * @return {*}
-     */
+
     getValue(): any {
         const value = this.input.getData('value');
         return typeCast(value);
     }
-    /**
-     * @param {string} address
-     * @return {undefined}
-     */
+
     eventSearch(address: string): void {
         consoleDebug('Location.eventSearch()', address);
     }

@@ -1,23 +1,11 @@
 import { Knot } from '../core/knot';
 import { Objekt } from '../core/objekt';
-/**
- * @class
- */
 export class ContentHandler {
-    /**
-     * @param {!Knot} containerKnot
-     * @param {!Object=} opt_options
-     */
     constructor(containerKnot, opt_options = {}) {
         this.containerKnot = containerKnot;
         this._setOptions(opt_options);
         this._init();
     }
-    /**
-     * @private
-     * @param {!Object=} opt_options
-     * @return {undefined}
-     */
     _setOptions(opt_options = {}) {
         this.options = new Objekt({
             image_url: null,
@@ -25,10 +13,6 @@ export class ContentHandler {
         });
         this.options.merge(opt_options);
     }
-    /**
-     * @private
-     * @return {undefined}
-     */
     _init() {
         this.contentKnot = new Knot('div');
         this.contentKnot.addClass('content-handler');
@@ -45,16 +29,10 @@ export class ContentHandler {
         }
         this.show();
     }
-    /**
-     * @return {undefined}
-     */
     show() {
         this.contentKnot.addClass('visible-flex');
         this.containerKnot.addClass('hidden');
     }
-    /**
-     * @return {undefined}
-     */
     hide() {
         this.contentKnot.removeClass('visible-flex');
         this.containerKnot.removeClass('hidden');

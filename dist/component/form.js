@@ -4,15 +4,7 @@ import { Objekt } from '../core/objekt';
 import { Query } from '../core/query';
 import { FormField } from './formField';
 import { consoleDebug } from '../utils/log';
-/**
- * @class
- * @extends {Collection}
- */
 export class Form extends Collection {
-    /**
-     * @param {!Knot} dom
-     * @param {string=} opt_selector
-     */
     constructor(dom, opt_selector = 'form') {
         const formKnot = new Query(opt_selector, dom).getKnot();
         formKnot.setAttribute('novalidate');
@@ -22,10 +14,6 @@ export class Form extends Collection {
         this.formKnot = formKnot;
         this._init();
     }
-    /**
-     * @private
-     * @return {undefined}
-     */
     _init() {
         this.previousModel = new Objekt();
         this.model = new Objekt();
@@ -44,10 +32,6 @@ export class Form extends Collection {
         this._initFields();
         this._initFormEvent();
     }
-    /**
-     * @private
-     * @return {undefined}
-     */
     _initFormEvent() {
         this.formKnot.addEventListener('keydown', (_knot, event) => {
             const textArea = /textarea/i.test((event.target || event.srcElement).tagName);
@@ -60,10 +44,6 @@ export class Form extends Collection {
         this._initSubmitFormEvent();
         this._initResetFormEvent();
     }
-    /**
-     * @private
-     * @return {undefined}
-     */
     _initSubmitFormEvent() {
         this.formKnot.addEventListener('submit', (knot, event) => {
             event.preventDefault();
@@ -72,20 +52,12 @@ export class Form extends Collection {
             }
         });
     }
-    /**
-     * @private
-     * @return {undefined}
-     */
     _initResetFormEvent() {
         this.formKnot.addEventListener('reset', (knot, event) => {
             event.preventDefault();
             this.eventReset(this.model, knot);
         });
     }
-    /**
-     * @private
-     * @return {undefined}
-     */
     _initFields() {
         const fields = new Query(this.fieldClasses.concat(this.buttonClasses).join(', '), this.formKnot).getItems();
         this.load(fields);
@@ -122,12 +94,6 @@ export class Form extends Collection {
         });
         this.initFields = this.initFields.concat(initFields);
     }
-    /**
-     * @param {!Objekt} model
-     * @param {boolean=} opt_force
-     * @param {boolean=} opt_showMessage
-     * @return {undefined}
-     */
     setModel(model, opt_force = true, opt_showMessage = false) {
         this.previousModel = this.model.copy();
         this.model.merge(model);
@@ -140,17 +106,9 @@ export class Form extends Collection {
             }
         });
     }
-    /**
-     * @return {!Objekt}
-     */
     getModel() {
         return this.model;
     }
-    /**
-     * @param {boolean=} opt_force
-     * @param {boolean=} opt_showMessage
-     * @return {undefined}
-     */
     reset(opt_force = true, opt_showMessage = false) {
         this.each((field) => {
             field.setValue();
@@ -159,12 +117,6 @@ export class Form extends Collection {
         this.previousModel = this.model.copy();
         this.model.clear();
     }
-    /**
-     * @private
-     * @param {string} name
-     * @param {*} value
-     * @return {undefined}
-     */
     _setValue(name, value) {
         const currentValue = this._getValue(name);
         if (!isSame(value, currentValue)) {
@@ -172,29 +124,13 @@ export class Form extends Collection {
             this.model.set(name, value);
         }
     }
-    /**
-     * @private
-     * @param {string} name
-     * @return {*}
-     */
     _getValue(name) {
         return this.model.get(name);
     }
-    /**
-     * @private
-     * @param {!BaseField} field
-     * @return {*}
-     */
     _getPreviousValue(field) {
         const fieldName = field.getName();
         return this.previousModel.get(fieldName);
     }
-    /**
-     * @private
-     * @param {!BaseField} field
-     * @param {*} value
-     * @return {undefined}
-     */
     _fieldValueChange(field, value) {
         const fieldName = field.getName();
         const currentValue = this._getValue(fieldName);
@@ -204,10 +140,6 @@ export class Form extends Collection {
         }
         this.checkValidity(true, false);
     }
-    /**
-     * @param {!Object} data
-     * @return {undefined}
-     */
     setErrors(data) {
         const errors = new Objekt(data);
         this.each((field) => {
@@ -216,32 +148,18 @@ export class Form extends Collection {
             field.setError(error.join(', '), true);
         });
     }
-    /**
-     * @param {boolean=} opt_force
-     * @param {boolean=} opt_showMessage
-     * @return {boolean}
-     */
     checkValidity(opt_force = false, opt_showMessage = true) {
         this.each((field) => {
             field.checkValidity(opt_force, opt_showMessage);
         });
         return this.formKnot.getNode().checkValidity();
     }
-    /**
-     * @return {boolean}
-     */
     isValid() {
         return this.checkValidity(true);
     }
-    /**
-     * @return {boolean}
-     */
     isInvalid() {
         return !this.isValid();
     }
-    /**
-     * @return {undefined}
-     */
     refresh() {
         this.deleteAllByCondition((field) => {
             const exists = field.exists();
@@ -254,18 +172,11 @@ export class Form extends Collection {
         });
         this._initFields();
     }
-    /**
-     * @param {string} name
-     * @return {!BaseField}
-     */
     findByModel(name) {
         return this.findByCondition((item) => {
             return item.getName() === name;
         });
     }
-    /**
-     * @return {undefined}
-     */
     lock() {
         this.each((field) => {
             field.disabled = field.isDisabled();
@@ -274,35 +185,17 @@ export class Form extends Collection {
             field.setDisabled(true);
         });
     }
-    /**
-     * @return {undefined}
-     */
     unlock() {
         this.each((field) => {
             field.setDisabled(field.disabled);
         });
     }
-    /**
-     * @param {!Objekt} model
-     * @param {!Knot} knot
-     * @return {undefined}
-     */
     eventSubmit(model, knot) {
         consoleDebug('Form.eventSubmit()', model, knot);
     }
-    /**
-     * @param {!Objekt} model
-     * @param {!Knot} knot
-     * @return {undefined}
-     */
     eventReset(model, knot) {
         consoleDebug('Form.eventReset()', model, knot);
     }
-    /**
-     * @param {!Objekt} model
-     * @param {!Knot} knot
-     * @return {undefined}
-     */
     eventButton(model, knot) {
         consoleDebug('Form.eventButton()', model, knot);
     }

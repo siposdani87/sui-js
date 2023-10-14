@@ -5,25 +5,11 @@ import { Knot } from '../core/knot';
 import { consoleDebug } from '../utils/log';
 import { generateId } from '../utils/coder';
 import { mdl } from '../utils/render';
-/**
- * @class
- * @extends {BaseField}
- */
 export class LocationField extends BaseField {
-    /**
-     * @param {!Knot} input
-     * @param {!Knot} label
-     * @param {!Knot} error
-     * @param {!Knot} inputBlock
-     */
     constructor(input, label, error, inputBlock) {
         super(input, label, error, inputBlock);
         this._init();
     }
-    /**
-     * @private
-     * @return {undefined}
-     */
     _init() {
         this.inputBlock.addClass('location-field');
         this._initButtons();
@@ -47,18 +33,10 @@ export class LocationField extends BaseField {
             return true;
         });
     }
-    /**
-     * @private
-     * @return {undefined}
-     */
     _initButtons() {
         this._initSearchButton();
         this._initAdvancedButton();
     }
-    /**
-     * @private
-     * @return {undefined}
-     */
     _initSearchButton() {
         const searchButton = new Knot('a');
         searchButton.setAttribute('href', 'javascript:void(0)');
@@ -72,10 +50,6 @@ export class LocationField extends BaseField {
         });
         this.actionContainerKnot.appendChild(searchButton);
     }
-    /**
-     * @private
-     * @return {undefined}
-     */
     _initAdvancedButton() {
         this.advancedButton = new Knot('a');
         this.advancedButton.setAttribute('href', 'javascript:void(0)');
@@ -88,10 +62,6 @@ export class LocationField extends BaseField {
         });
         this.actionContainerKnot.appendChild(this.advancedButton);
     }
-    /**
-     * @param {string} address
-     * @return {undefined}
-     */
     search(address) {
         this.map.searchAddress(address).then((locations) => {
             const position = locations[0];
@@ -105,10 +75,6 @@ export class LocationField extends BaseField {
             // this.setError('No location', true);
         });
     }
-    /**
-     * @override
-     * @return {undefined}
-     */
     render() {
         this.inputBlock.addClass([
             'mdl-textfield',
@@ -124,9 +90,6 @@ export class LocationField extends BaseField {
         this._setDefaultValue();
         this.refresh();
     }
-    /**
-     * @override
-     */
     refresh() {
         if (this.isDisabled()) {
             this.mapLockKnot.addClass('map-lock');
@@ -136,18 +99,10 @@ export class LocationField extends BaseField {
         }
         mdl(this.inputBlock);
     }
-    /**
-     * @private
-     * @return {undefined}
-     */
     _toggleAdvancedInputs() {
         this.advancedButton.toggleClass('active');
         this.advancedKnot.toggleClass('hidden');
     }
-    /**
-     * @private
-     * @return {undefined}
-     */
     _renderAdvancedInputs() {
         this.advancedKnot = new Knot('div');
         this.advancedKnot.addClass(['advanced', 'row', 'hidden']);
@@ -165,13 +120,6 @@ export class LocationField extends BaseField {
             this.setValue(location);
         });
     }
-    /**
-     * @private
-     * @param {string} id
-     * @param {string} labelText
-     * @param {function(!Knot):undefined} callback
-     * @return {!Knot<HTMLInputElement>}
-     */
     _renderAdvancedInput(id, labelText, callback) {
         const blockKnot = new Knot('div');
         blockKnot.addClass('col-6');
@@ -200,10 +148,6 @@ export class LocationField extends BaseField {
         });
         return advancedInput;
     }
-    /**
-     * @private
-     * @return {undefined}
-     */
     _renderMap() {
         const mapKnot = new Knot('div');
         mapKnot.addClass('map');
@@ -229,26 +173,12 @@ export class LocationField extends BaseField {
             this.updatePosition(latitude, longitude);
         };
     }
-    /**
-     * @param {string} mapTypeId
-     * @return {undefined}
-     */
     setMapType(mapTypeId) {
         this.map.setMapType(mapTypeId);
     }
-    /**
-     * @param {string} mapTypeId
-     * @param {string} mapTypeName
-     * @param {!Array<?google.maps.MapTypeStyle>} mapStyles
-     * @return {undefined}
-     */
     setCustomMapStyle(mapTypeId, mapTypeName, mapStyles) {
         this.map.setCustomMapStyle(mapTypeId, mapTypeName, mapStyles);
     }
-    /**
-     * @private
-     * @return {undefined}
-     */
     _setDefaultValue() {
         const location = this.getValue();
         if (!isNull(location['latitude']) && !isNull(location['longitude'])) {
@@ -257,33 +187,18 @@ export class LocationField extends BaseField {
             this._setDataValue(location);
         }
     }
-    /**
-     * @param {number|null} latitude
-     * @param {number|null} longitude
-     * @return {undefined}
-     */
     updatePosition(latitude, longitude) {
         const location = this.getValue();
         location['latitude'] = latitude;
         location['longitude'] = longitude;
         this.setValue(location);
     }
-    /**
-     * @private
-     * @param {!Object} value
-     * @return {undefined}
-     */
     _setDataValue(value) {
         this.latitudeInput.getNode().value = value['latitude'] || '';
         this.longitudeInput.getNode().value = value['longitude'] || '';
         this.input.setAttribute('value', value['address'] || '');
         this.input.setData('value', value);
     }
-    /**
-     * @override
-     * @param {!Object|!Function|!Array|boolean|number|string|null|undefined} value
-     * @return {undefined}
-     */
     setValue(value) {
         this._setDataValue(value);
         this.map.removeMarker(0);
@@ -298,18 +213,10 @@ export class LocationField extends BaseField {
         }
         this.input.trigger('change');
     }
-    /**
-     * @override
-     * @return {*}
-     */
     getValue() {
         const value = this.input.getData('value');
         return typeCast(value);
     }
-    /**
-     * @param {string} address
-     * @return {undefined}
-     */
     eventSearch(address) {
         consoleDebug('Location.eventSearch()', address);
     }

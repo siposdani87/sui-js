@@ -2,17 +2,7 @@ import { Knot } from '../core';
 import { mdl } from '../utils/render';
 import { BaseField } from './baseField';
 
-/**
- * @class
- * @extends {BaseField}
- */
 export class TextField extends BaseField<HTMLInputElement> {
-    /**
-     * @param {!Knot} input
-     * @param {!Knot} label
-     * @param {!Knot} error
-     * @param {!Knot} inputBlock
-     */
     constructor(
         input: Knot<HTMLInputElement>,
         label: Knot,
@@ -22,10 +12,7 @@ export class TextField extends BaseField<HTMLInputElement> {
         super(input, label, error, inputBlock);
         this._init();
     }
-    /**
-     * @private
-     * @return {undefined}
-     */
+
     private _init(): void {
         this.inputBlock.addClass('text-field');
 
@@ -41,10 +28,7 @@ export class TextField extends BaseField<HTMLInputElement> {
             return true;
         });
     }
-    /**
-     * @override
-     * @return {undefined}
-     */
+
     render(): void {
         this.inputBlock.addClass([
             'mdl-textfield',
@@ -57,10 +41,7 @@ export class TextField extends BaseField<HTMLInputElement> {
         }
         this.refresh();
     }
-    /**
-     * @override
-     * @return {undefined}
-     */
+
     refresh(): void {
         if (this.isRequired() && this.getValue() === '') {
             this.inputBlock.addClass('is-invalid');
@@ -68,10 +49,7 @@ export class TextField extends BaseField<HTMLInputElement> {
 
         mdl(this.inputBlock);
     }
-    /**
-     * @override
-     * @return {*}
-     */
+
     getValue(): any {
         return this.input.getNode().value;
     }

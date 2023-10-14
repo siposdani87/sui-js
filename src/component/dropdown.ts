@@ -6,9 +6,6 @@ import { generateId } from '../utils/coder';
 import { Action } from '../utils';
 import { mdl } from '../utils/render';
 
-/**
- * @class
- */
 export class Dropdown {
     dropdown: Knot;
     options: Objekt;
@@ -17,30 +14,20 @@ export class Dropdown {
     item: Objekt;
     buttonKnot: Knot;
     menuKnot: Knot;
-    /**
-     * @param {!Knot} element
-     * @param {!Object=} opt_options
-     */
+
     constructor(element: Knot, opt_options: Object | undefined = {}) {
         this.dropdown = element;
         this._setOptions(opt_options);
         this._init();
     }
-    /**
-     * @private
-     * @param {!Object=} opt_options
-     * @return {undefined}
-     */
+
     private _setOptions(opt_options: Object | undefined = {}): void {
         this.options = new Objekt({
             id: generateId('dropdown'),
         });
         this.options.merge(opt_options);
     }
-    /**
-     * @private
-     * @return {undefined}
-     */
+
     private _init(): void {
         this.collection = new Collection();
         this.actions = [];
@@ -48,10 +35,7 @@ export class Dropdown {
         this._appendButton();
         this._appendMenu();
     }
-    /**
-     * @private
-     * @return {undefined}
-     */
+
     private _appendButton(): void {
         this.buttonKnot = new Knot<HTMLButtonElement>('button');
         this.buttonKnot.setId(this.options.id);
@@ -68,10 +52,7 @@ export class Dropdown {
 
         this.dropdown.appendChild(this.buttonKnot);
     }
-    /**
-     * @private
-     * @return {undefined}
-     */
+
     private _appendMenu(): void {
         this.menuKnot = new Knot('ul');
         this.menuKnot.setFor(this.options.id);
@@ -84,11 +65,7 @@ export class Dropdown {
 
         this.dropdown.appendChild(this.menuKnot);
     }
-    /**
-     * @param {!Array<Action>} actions
-     * @param {!Objekt} item
-     * @return {undefined}
-     */
+
     setActions(actions: Array<Action>, item: Objekt): void {
         this.actions = actions;
         this.item = item;
@@ -96,10 +73,7 @@ export class Dropdown {
         mdl(this.menuKnot);
         mdl(this.buttonKnot);
     }
-    /**
-     * @private
-     * @return {undefined}
-     */
+
     private _renderMenu(): void {
         eachArray(this.actions, (action) => {
             const [icon, title, disabled, removed] = action.style(this.item);

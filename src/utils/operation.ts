@@ -1,9 +1,5 @@
 import { Objekt } from '../core';
 
-/**
- * @param {*} value
- * @return {*}
- */
 export const typeCast = (value: any): any => {
     let result = value;
     if (isString(value) && !contain(value, ' ')) {
@@ -27,11 +23,6 @@ export const typeCast = (value: any): any => {
     return result;
 };
 
-/**
- * @param {!Object} objA
- * @param {!Object} objB
- * @return {!Object|undefined}
- */
 export const merge = (objA: Object, objB: Object): Object | undefined => {
     const obj = copyObject(objA);
     for (const key in objB) {
@@ -46,14 +37,6 @@ export const merge = (objA: Object, objB: Object): Object | undefined => {
     return obj;
 };
 
-/**
- * @template T
- * @param {string} str
- * @param {!Object|!Array|null=} opt_params
- * @param {string=} opt_prefix
- * @param {string=} opt_postfix
- * @return {string}
- */
 export const format = <T>(
     str: string,
     opt_params: Object | Array<T> | null | undefined = null,
@@ -67,84 +50,32 @@ export const format = <T>(
     return str;
 };
 
-/**
- * @template T
- * @param {T=} opt_result
- * @return {function():T}
- */
 export const noop =
     <T>(opt_result?: T): (() => T) =>
     () => {
         return opt_result;
     };
 
-/**
- * @param {*} a
- * @param {*} b
- * @return {boolean}
- */
 export const eq = (a: unknown, b: unknown): boolean => a === b;
 
-/**
- * @param {*} a
- * @param {*} b
- * @return {boolean}
- */
 export const neq = (a: unknown, b: unknown): boolean => a !== b;
 
-/**
- * @param {*} a
- * @param {*} b
- * @return {boolean}
- */
 export const gt = (a: unknown, b: unknown): boolean => a > b;
 
-/**
- * @param {*} a
- * @param {*} b
- * @return {boolean}
- */
 export const gte = (a: unknown, b: unknown): boolean => a >= b;
 
-/**
- * @param {*} a
- * @param {*} b
- * @return {boolean}
- */
 export const lt = (a: unknown, b: unknown): boolean => a < b;
 
-/**
- * @param {*} a
- * @param {*} b
- * @return {boolean}
- */
 export const lte = (a: unknown, b: unknown): boolean => a <= b;
 
-/**
- * @template T
- * @param {*} value
- * @return {boolean}
- */
 export const isArray = <T>(value: any): value is Array<T> =>
     Array.isArray(value);
 
-/**
- * @param {*} value
- * @return {boolean}
- */
 export const isFunction = (value: any): value is Function =>
     is(value, 'function');
 
-/**
- * @param {*} value
- * @return {boolean}
- */
 export const isString = (value: any): value is string => is(value, 'string');
 
-/**
- * @param {*} value
- * @return {boolean}
- */
 export const isNumber = (value: any): value is number =>
     value !== null &&
     value !== '' &&
@@ -153,84 +84,33 @@ export const isNumber = (value: any): value is number =>
     Number(value).toString() !== 'NaN' &&
     Number(value).toString() !== 'Infinity';
 
-/**
- * @param {*} value
- * @return {boolean}
- */
 export const isFloat = (value: any): value is number =>
     parseFloat(value) === value;
 
-/**
- * @param {*} value
- * @return {boolean}
- */
 export const isInteger = (value: any): value is number =>
     parseInt(value, 10) === value;
 
-/**
- * @param {*} value
- * @return {boolean}
- */
 export const isObject = (value: any): value is Object => is(value, 'object');
 
-/**
- * @param {*} value
- * @return {boolean}
- */
 export const isPureObject = (value: any): value is Object =>
     !isNull(value) && !isDate(value) && !isArray(value) && isObject(value);
 
-/**
- * @param {*} value
- * @return {boolean}
- */
 export const isDate = (value: any): value is Date => instanceOf(value, Date);
 
-/**
- * @param {*} value
- * @return {boolean}
- */
 export const isNull = (value: any): value is null => value === null;
 
-/**
- * @param {*} value
- * @return {boolean}
- */
 export const isInfinity = (value: any): value is typeof Infinity =>
     value === Infinity;
 
-/**
- * @param {*} value
- * @return {boolean}
- */
 export const isUndefined = (value: any): value is undefined =>
     is(value, 'undefined');
 
-/**
- * @param {*} value
- * @param {string} type
- * @return {boolean}
- */
 export const is = (value: any, type: string): value is typeof type =>
     typeof value === type;
 
-/**
- * @template T
- * @param {*} value
- * @param {T} obj
- * @return {boolean}
- */
 export const instanceOf = <T>(value: any, obj: T): boolean =>
     value instanceof (obj as any);
 
-/**
- * @template T
- * @param {!Array<T>|!Object} items
- * @param {function(*, string|number):undefined} next
- * @param {number=} opt_start
- * @param {number=} opt_end
- * @return {undefined}
- */
 export const each = <T>(
     items: Array<T> | Object,
     next: (item: any, key: string | number) => void,
@@ -244,14 +124,6 @@ export const each = <T>(
     }
 };
 
-/**
- * @template T
- * @param {!Array} items
- * @param {function(T, number):undefined} next
- * @param {number=} opt_start
- * @param {number=} opt_end
- * @return {undefined}
- */
 export const eachArray = <T>(
     items: Array<T>,
     next: (item: T, index: number) => void,
@@ -265,11 +137,6 @@ export const eachArray = <T>(
     }
 };
 
-/**
- * @param {!Object} object
- * @param {function(*, string):undefined} next
- * @return {undefined}
- */
 export const eachObject = (
     object: Object,
     next: (value: any, key: string) => void,
@@ -281,13 +148,6 @@ export const eachObject = (
     }
 };
 
-/**
- * @param {function(number):undefined} next
- * @param {number} i
- * @param {number} length
- * @param {number} duration
- * @return {undefined}
- */
 export const sleepEach = (
     next: (_index: number) => void,
     i: number,
@@ -304,11 +164,6 @@ export const sleepEach = (
     loop();
 };
 
-/**
- * @template T
- * @param {!Array|!Object} items
- * @return {undefined}
- */
 export const clear = <T>(items: Array<T> | Object): void => {
     if (isArray(items)) {
         clearArray(items);
@@ -317,19 +172,10 @@ export const clear = <T>(items: Array<T> | Object): void => {
     }
 };
 
-/**
- * @template T
- * @param {!Array<T>} items
- * @return {undefined}
- */
 export const clearArray = <T>(items: Array<T>): void => {
     items.splice(0, items.length);
 };
 
-/**
- * @param {!Object} items
- * @return {undefined}
- */
 export const clearObject = (items: Object): void => {
     for (const key in items) {
         if (items.hasOwnProperty(key)) {
@@ -338,28 +184,12 @@ export const clearObject = (items: Object): void => {
     }
 };
 
-/**
- * @template T
- * @param {!Array<T>} items
- * @param {T} item
- * @return {boolean}
- */
 export const inArray = <T>(items: Array<T>, item: T): boolean =>
     items.indexOf(item) !== -1;
 
-/**
- * @param {string} str
- * @param {string} subStr
- * @return {boolean}
- */
 export const contain = (str: string, subStr: string): boolean =>
     str.indexOf(subStr) !== -1;
 
-/**
- * @param {!Array<string>} items
- * @param {*} item
- * @return {boolean}
- */
 export const inContainArray = (items: Array<string>, item: string): boolean => {
     let i = 0;
     while (i < items.length && !contain(items[i], item)) {
@@ -368,11 +198,6 @@ export const inContainArray = (items: Array<string>, item: string): boolean => {
     return i < items.length;
 };
 
-/**
- * @param {*} a
- * @param {*} b
- * @return {boolean}
- */
 export const isSame = (a: any, b: any): boolean => {
     const strA = JSON.stringify(a);
     const strB = JSON.stringify(b);
@@ -388,12 +213,6 @@ export const isSame = (a: any, b: any): boolean => {
     return eq(strA, strB);
 };
 
-/**
- * @template T
- * @param {!Array<T>} items
- * @param {T} item
- * @return {undefined}
- */
 export const remove = <T>(items: Array<T>, item: T): void => {
     const position = items.indexOf(item);
     if (neq(position, -1)) {
@@ -401,11 +220,6 @@ export const remove = <T>(items: Array<T>, item: T): void => {
     }
 };
 
-/**
- * @template T
- * @param {!Array<T>|!Object} items
- * @return {!Array<T>|!Object|undefined}
- */
 export const copy = <T>(
     items: Array<T> | Object,
 ): Array<T> | Object | undefined => {
@@ -418,11 +232,6 @@ export const copy = <T>(
     return results;
 };
 
-/**
- * @template T
- * @param {!Array} items
- * @return {!Array}
- */
 export const copyArray = <T>(items: Array<T>): Array<T> => {
     const results = [];
     eachArray(items, (item, index) => {
@@ -437,10 +246,6 @@ export const copyArray = <T>(items: Array<T>): Array<T> => {
     return results;
 };
 
-/**
- * @param {!Object} item
- * @return {!Object}
- */
 export const copyObject = (item: Object): Object => {
     const results = {};
     eachObject(item, (value, key) => {
@@ -455,11 +260,6 @@ export const copyObject = (item: Object): Object => {
     return results;
 };
 
-/**
- * @template T
- * @param {!Array<T>|!Object} items
- * @return {boolean}
- */
 export const isEmpty = <T>(items: Array<T> | Object): boolean => {
     let result = false;
     if (isArray(items)) {
@@ -474,13 +274,6 @@ export const isEmpty = <T>(items: Array<T> | Object): boolean => {
     return result;
 };
 
-/**
- * @deprecated
- * @template T
- * @param {!Array<T>} args
- * @param {function(*):undefined} callback
- * @return {undefined}
- */
 export const list = <T>(
     args: Array<T>,
     callback: (...rest: T[]) => void,
@@ -488,19 +281,9 @@ export const list = <T>(
     callback(...args);
 };
 
-/**
- * @param {string} str
- * @return {string}
- */
 export const capitalize = (str: string): string =>
     str.charAt(0).toUpperCase() + str.slice(1);
 
-/**
- * @template T
- * @param {!Array<T>} items
- * @param {string} attribute
- * @return {!Array<T>}
- */
 export const pluck = <T, K extends Objekt = Objekt>(
     items: Array<K>,
     attribute: string,
@@ -514,11 +297,6 @@ export const pluck = <T, K extends Objekt = Objekt>(
     return results;
 };
 
-/**
- * @param {!Object} obj
- * @param {function(*, string):boolean} condition
- * @return {!Array<string>}
- */
 export const pluckKeys = (
     obj: Object,
     condition: (value: any, key: string) => boolean,
@@ -533,13 +311,7 @@ export const pluckKeys = (
 };
 
 let _scrollInterval: number = null;
-/**
- * @param {number} x
- * @param {number} y
- * @param {number=} opt_duration
- * @param {number=} opt_step
- * @return {undefined}
- */
+
 export const scrollTo = (
     x: number,
     y: number,
@@ -570,14 +342,6 @@ export const scrollTo = (
     }, opt_step);
 };
 
-/**
- * @deprecated
- * @use scrollIntoView
- * @param {string} selector
- * @param {number=} opt_duration
- * @param {number=} opt_step
- * @return {undefined}
- */
 export const scrollToElement = (
     selector: string,
     opt_duration: number | undefined = 500,
@@ -590,11 +354,6 @@ export const scrollToElement = (
     scrollTo(x, y, opt_duration, opt_step);
 };
 
-/**
- * @param {string} selector
- * @param {string=} opt_behavior
- * @return {undefined}
- */
 export const scrollIntoView = (
     selector: string,
     opt_behavior: ScrollBehavior | undefined = 'smooth',
@@ -604,12 +363,6 @@ export const scrollIntoView = (
     });
 };
 
-/**
- * @param {!Function} func
- * @param {number=} opt_wait
- * @param {boolean=} opt_immediate
- * @return {!Function}
- */
 export const debounce = (
     func: (ev: Event) => void,
     opt_wait: number | undefined = 250,
@@ -628,11 +381,6 @@ export const debounce = (
     };
 };
 
-/**
- * @param {string} url
- * @param {!Object=} opt_params
- * @return {string}
- */
 export const urlWithQueryString = (
     url: string,
     opt_params?: Object | undefined,
@@ -642,10 +390,6 @@ export const urlWithQueryString = (
     return url + (queryString ? separator + queryString : '');
 };
 
-/**
- * @param {!Object=} opt_params
- * @return {string}
- */
 export const getQueryString = (opt_params?: Object): string => {
     const queries: string[] = [];
     eachObject(opt_params, (param, key) => {
@@ -660,10 +404,6 @@ export const getQueryString = (opt_params?: Object): string => {
     return isEmpty(queries) ? '' : queries.join('&');
 };
 
-/**
- * @param {string} url
- * @return {string}
- */
 export const getExtensionName = (url: string): string => {
     const realUrl = url.split('?', 2)[0];
     return realUrl.slice(
@@ -671,17 +411,9 @@ export const getExtensionName = (url: string): string => {
     );
 };
 
-/**
- * @param {string} str
- * @return {string}
- */
 export const normalize = (str: string): string =>
     str.normalize('NFD').replace(/[\u0300-\u036f]/g, '');
 
-/**
- * @param {string} str
- * @return {undefined}
- */
 export const copyToClipboard = (str: string): void => {
     const textareaElement = document.createElement('textarea');
     textareaElement.value = str;

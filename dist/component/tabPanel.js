@@ -3,16 +3,7 @@ import { Async } from '../core/async';
 import { Deferred } from '../core/deferred';
 import { Query } from '../core/query';
 import { consoleDebug } from '../utils/log';
-/**
- * @class
- */
 export class TabPanel {
-    /**
-     * @param {!Knot} dom
-     * @param {string=} opt_selector
-     * @param {string=} opt_selectedTab
-     * @param {string=} opt_defaultTab
-     */
     constructor(dom, opt_selector = '.tab-panel', opt_selectedTab = '', opt_defaultTab = '') {
         this.tabPanel = new Query(opt_selector, dom).getKnot();
         this.options = {
@@ -21,20 +12,12 @@ export class TabPanel {
         };
         this._init();
     }
-    /**
-     * @private
-     * @return {undefined}
-     */
     _init() {
         this._initTabs();
         this._initPanels();
         this.activeTab = this.options.selected_tab;
         this._setActive(this.activeTab);
     }
-    /**
-     * @private
-     * @return {undefined}
-     */
     _initTabs() {
         this.tabs = new Query('.tabs a', this.tabPanel);
         this.tabs.each((tab) => {
@@ -49,18 +32,9 @@ export class TabPanel {
             });
         });
     }
-    /**
-     * @private
-     * @return {undefined}
-     */
     _initPanels() {
         this.panels = new Query('.panel', this.tabPanel);
     }
-    /**
-     * @private
-     * @param {string} panelId
-     * @return {undefined}
-     */
     _setActive(panelId) {
         let activeTab = this.options.default_tab;
         this.panels.each((panel) => {
@@ -78,17 +52,9 @@ export class TabPanel {
         });
         this.activeTab = activeTab;
     }
-    /**
-     * @param {string} panelId
-     * @return {undefined}
-     */
     eventChange(panelId) {
         consoleDebug('TabPanel.eventChange()', panelId);
     }
-    /**
-     * @param {string} panelId
-     * @return {!Promize}
-     */
     setActive(panelId) {
         const deferred = new Deferred();
         if (!isNull(panelId)) {
@@ -107,9 +73,6 @@ export class TabPanel {
         }
         return deferred.promise();
     }
-    /**
-     * @return {string}
-     */
     getActive() {
         return this.activeTab;
     }

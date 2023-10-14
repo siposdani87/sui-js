@@ -31,9 +31,6 @@ import { Route } from './route';
 import { ClassRef, Injection, Instance, InstanceKey } from '../utils';
 import { setDateIOLocale } from '../utils/dateio';
 
-/**
- * @class
- */
 export class Application {
     options: Objekt;
     private _injections: Injection = {};
@@ -73,19 +70,12 @@ export class Application {
     };
     private _module: Module;
     private _routeOptions: Objekt;
-    /**
-     * @param {!Object} options
-     * @param {!Injection} resources
-     */
+
     constructor(options: Object, resources: Injection) {
         this._setOptions(options);
         this._init(resources);
     }
-    /**
-     * @private
-     * @param {!Object} options
-     * @return {undefined}
-     */
+
     private _setOptions(options: Object): void {
         this.options = new Objekt({
             app_id: 'sui-app',
@@ -97,11 +87,7 @@ export class Application {
         });
         this.options.merge(options);
     }
-    /**
-     * @private
-     * @param {!Injection} resources
-     * @return {undefined}
-     */
+
     private _init(resources: Injection): void {
         this._injections = resources;
 
@@ -139,16 +125,12 @@ export class Application {
 
         this._loadModules();
     }
-    /**
-     * @return {string}
-     */
+
     getLanguage(): string {
         const locale = this.getLocale();
         return locale.split('-', 2)[0];
     }
-    /**
-     * @return {string}
-     */
+
     getLocale(): string {
         let locale = this._instances.localDepot.get('app.locale');
         if (!locale) {
@@ -156,43 +138,28 @@ export class Application {
         }
         return locale;
     }
-    /**
-     * @param {string} locale
-     * @return {undefined}
-     */
+
     setLocale(locale: string): void {
         this._instances.localDepot.set('app.locale', locale);
         this.options.locale = locale;
     }
-    /**
-     * @param {string} locale
-     * @return {undefined}
-     */
+
     setLocaleWithReload(locale: string): void {
         this.setLocale(locale);
         this._instances.state.reload();
     }
-    /**
-     * @private
-     * @return {undefined}
-     */
+
     private _initLocale(): void {
         const locale = this.getLocale();
         setDateIOLocale(locale);
         this.setLocale(locale);
     }
-    /**
-     * @private
-     * @return {undefined}
-     */
+
     private _initCertificate(): void {
         const rootKnot = new Query('html').getKnot();
         rootKnot.addClass('sui-js');
     }
-    /**
-     * @private
-     * @return {undefined}
-     */
+
     private _initModule(): void {
         this._module = new Module();
 
@@ -246,47 +213,29 @@ export class Application {
             this._instances.eventBus.call('controller.failed', []);
         };
     }
-    /**
-     * @private
-     * @return {undefined}
-     */
+
     private _loadModules(): void {
         this._instances.instances = this._instances;
 
         this._module.load(this._instances, this._injections);
     }
-    /**
-     * @private
-     * @return {undefined}
-     */
+
     private _initScript(): void {
         this._instances.script = new Script(this._instances.progressBar);
     }
-    /**
-     * @private
-     * @return {undefined}
-     */
+
     private _initStyle(): void {
         this._instances.style = new Style(this._instances.progressBar);
     }
-    /**
-     * @private
-     * @return {undefined}
-     */
+
     private _initConfig(): void {
         this._instances.config = this.options;
     }
-    /**
-     * @private
-     * @return {undefined}
-     */
+
     private _initApp(): void {
         this._instances.app = this;
     }
-    /**
-     * @private
-     * @return {undefined}
-     */
+
     private _initGeoLocation(): void {
         this._instances.geoLocation = new GeoLocation();
 
@@ -318,36 +267,24 @@ export class Application {
             );
         };
     }
-    /**
-     * @private
-     * @return {undefined}
-     */
+
     private _initCookie(): void {
         this._instances.cookie = new Cookie({
             prefix: this.options.app_id,
         });
     }
-    /**
-     * @private
-     * @return {undefined}
-     */
+
     private _initLoader(): void {
         this._instances.loader = new Loader();
     }
-    /**
-     * @private
-     * @return {undefined}
-     */
+
     private _initProgressBar(): void {
         this._instances.progressBar = new ProgressBar(
             this._instances.dialog,
             this._instances.confirm,
         );
     }
-    /**
-     * @private
-     * @return {undefined}
-     */
+
     private _initDepots(): void {
         this._instances.localDepot = new Depot('LOCAL', {
             prefix: this.options.app_id,
@@ -358,17 +295,11 @@ export class Application {
             secret: this.options.secret,
         });
     }
-    /**
-     * @private
-     * @return {undefined}
-     */
+
     private _initHelper(): void {
         this._instances.helper = new Helper();
     }
-    /**
-     * @private
-     * @return {undefined}
-     */
+
     private _initPage(): void {
         const popupContainer = new PopupContainer();
         this._instances.page = new Page();
@@ -377,10 +308,7 @@ export class Application {
             this._instances.eventBus.call('document.click', [target, event]);
         };
     }
-    /**
-     * @private
-     * @return {undefined}
-     */
+
     private _initScreen(): void {
         this._instances.screen = new Screen();
         const width = this._instances.screen.getWidth();
@@ -454,24 +382,15 @@ export class Application {
             );
         };
     }
-    /**
-     * @private
-     * @return {undefined}
-     */
+
     private _initEventBus(): void {
         this._instances.eventBus = new EventBus();
     }
-    /**
-     * @private
-     * @return {undefined}
-     */
+
     private _initScheduler(): void {
         this._instances.scheduler = new Scheduler();
     }
-    /**
-     * @private
-     * @return {undefined}
-     */
+
     private _initHttp(): void {
         this._instances.http = new Http(this.options);
         this._instances.http.eventBeforeRequest = (...params) => {
@@ -483,10 +402,7 @@ export class Application {
             this._instances.progressBar.hide();
         };
     }
-    /**
-     * @private
-     * @return {undefined}
-     */
+
     private _initTemplate(): void {
         this._instances.template = new Template(this._instances.http, {
             locale: this.getLocale(),
@@ -497,120 +413,71 @@ export class Application {
             this._instances.flash.addMessage(message);
         };
     }
-    /**
-     * @private
-     * @return {undefined}
-     */
+
     private _initFlash(): void {
         this._instances.flash = new Flash();
     }
-    /**
-     * @private
-     * @return {undefined}
-     */
+
     private _initDialog(): void {
         this._instances.dialog = new Dialog(this._instances.http);
     }
-    /**
-     * @private
-     * @return {undefined}
-     */
+
     private _initConfirm(): void {
         this._instances.confirm = new Confirm();
     }
-    /**
-     * @private
-     * @return {undefined}
-     */
+
     private _initViewer(): void {
         this._instances.viewer = new Viewer();
     }
-    /**
-     * @private
-     * @return {undefined}
-     */
+
     private _initHeader(): void {
         this._instances.header = new Header();
     }
-    /**
-     * @private
-     * @return {undefined}
-     */
+
     private _initTopMenu(): void {
         this._instances.topMenu = new TopMenu(this._instances.header);
     }
-    /**
-     * @private
-     * @return {undefined}
-     */
+
     private _initNavBar(): void {
         this._instances.navBar = new NavBar();
     }
-    /**
-     * @private
-     * @return {undefined}
-     */
+
     private _initBottomMenu(): void {
         this._instances.bottomMenu = new BottomMenu(this._instances.footer);
     }
-    /**
-     * @private
-     * @return {undefined}
-     */
+
     private _initLeftMenu(): void {
         this._instances.leftMenu = new LeftMenu();
     }
-    /**
-     * @private
-     * @return {undefined}
-     */
+
     private _initFooter(): void {
         this._instances.footer = new Footer();
     }
-    /**
-     * @private
-     * @return {undefined}
-     */
+
     private _initBrowser(): void {
         this._instances.browser = new Browser();
         this._instances.browser.eventMissingFeatures = (features) => {
             this._instances.flash.addError(features.join(', '));
         };
     }
-    /**
-     * @private
-     * @return {undefined}
-     */
+
     private _initRoutes(): void {
         this._routeOptions = new Objekt();
     }
-    /**
-     * @param {string} id
-     * @param {!Object=} opt_params
-     * @return {undefined}
-     */
+
     setRootState(id: string, opt_params?: Object): void {
         this._routeOptions.set('root.id', id);
         this._routeOptions.set('root.params', opt_params);
     }
-    /**
-     * @param {string} name
-     * @return {?Object}
-     */
+
     getInstance(name: InstanceKey): Object | null {
         return this._instances[name] ?? null;
     }
-    /**
-     * @return {?Object}
-     */
+
     getController(): Object | null {
         return this._module.getController();
     }
-    /**
-     * @param {!Array<Route>} routes
-     * @param {!Array<string>} services
-     * @return {undefined}
-     */
+
     run(routes: Route[], services: string[]): void {
         if (this.options.production) {
             console.info(
@@ -626,12 +493,7 @@ export class Application {
         this._module.handleRoutes(routes, this._routeOptions);
         this._module.handleServices(services);
     }
-    /**
-     * @param {string} name
-     * @param {!Array} moduleInjections
-     * @param {!ClassRef} moduleCallback
-     * @return {string}
-     */
+
     controller(
         name: string,
         moduleInjections: string[],
@@ -639,12 +501,7 @@ export class Application {
     ): string {
         return this._module.add(name, moduleInjections, moduleCallback);
     }
-    /**
-     * @param {string} name
-     * @param {!Array} moduleInjections
-     * @param {!ClassRef} moduleCallback
-     * @return {string}
-     */
+
     service(
         name: string,
         moduleInjections: string[],

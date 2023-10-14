@@ -1,14 +1,9 @@
 import { noop, each, isFunction } from '../utils/operation';
-import { consoleError, consoleDebug } from '../utils/log';
+import { consoleDebug } from '../utils/log';
 import { Async } from './async';
 import { Deferred } from './deferred';
 import { State } from './state';
-/**
- * @class
- */
 export class Module {
-    /**
-     */
     constructor() {
         this._modules = {};
         this._controller = {
@@ -16,27 +11,13 @@ export class Module {
             exit: noop(),
         };
     }
-    /**
-     * @param {!Instance} instances
-     * @param {!Injection} injections
-     * @return {undefined}
-     */
     load(instances, injections) {
         this._instances = instances;
         this._injections = injections;
     }
-    /**
-     * @return {!Object}
-     */
     getController() {
         return this._controller;
     }
-    /**
-     * @param {string} name
-     * @param {!Array<string>} moduleInjections
-     * @param {!Function} moduleCallback
-     * @return {undefined}
-     */
     add(name, moduleInjections, moduleCallback) {
         this._modules[name] = {
             moduleInjections,
@@ -44,11 +25,6 @@ export class Module {
         };
         return name;
     }
-    /**
-     * @private
-     * @param {!Dependency} dependency
-     * @return {!Object}
-     */
     _resolveDependencies(dependency) {
         const moduleArgs = [];
         each(dependency.moduleInjections, (injection) => {
@@ -56,11 +32,6 @@ export class Module {
         });
         return new dependency.moduleCallback(...moduleArgs);
     }
-    /**
-     * @private
-     * @param {Array<string>} services
-     * @return {Array<string>}
-     */
     _getSortedServices(services) {
         const edges = services
             .map((service) => {
@@ -76,11 +47,6 @@ export class Module {
             .flat();
         return this._topologicalSort(edges).slice(1);
     }
-    /**
-     *
-     * @param {Array<Array<string>>} edges
-     * @return {Array<string>}
-     */
     _topologicalSort(edges) {
         const nodes = {};
         const sorted = [];
@@ -107,10 +73,16 @@ export class Module {
             ancestors.push(id);
             visited[strId] = true;
             node.afters.forEach((afterId) => {
-                if (ancestors.includes(afterId)) {
+                /* if (ancestors.includes(afterId)) {
                     // if already in ancestors, a closed chain exists.
-                    consoleError('Modules._topologicalSort()', 'Dependency injection circular loop', afterId, '<=>', id);
-                }
+                    consoleError(
+                        'Modules._topologicalSort()',
+                        'Dependency injection circular loop',
+                        afterId,
+                        '<=>',
+                        id,
+                    );
+                } */
                 visit(afterId, ancestors);
             });
             sorted.unshift(id);
@@ -118,10 +90,6 @@ export class Module {
         Object.keys(nodes).forEach((key) => visit(key));
         return sorted;
     }
-    /**
-     * @param {Array<string>} services
-     * @return {undefined}
-     */
     handleServices(services) {
         const sortedServices = this._getSortedServices(services);
         const calls = [];
@@ -144,11 +112,6 @@ export class Module {
             this.eventServiceFailed();
         });
     }
-    /**
-     * @param {!Array<Route>} routes
-     * @param {!Object} options
-     * @return {undefined}
-     */
     handleRoutes(routes, options) {
         this._instances.state = new State(routes, options);
         this._instances.state.eventChange = (currentState, previousState, force) => {
@@ -164,11 +127,6 @@ export class Module {
             });
         };
     }
-    /**
-     * @param {!Objekt} currentState
-     * @param {boolean=} opt_force
-     * @return {undefined}
-     */
     _handleStateChange(currentState, opt_force = false) {
         this.eventStateChange(currentState).then(() => {
             const template = currentState.get('template');
@@ -189,12 +147,6 @@ export class Module {
             this.eventModuleFailed(currentState);
         });
     }
-    /**
-     * @private
-     * @param {!Objekt} state
-     * @param {!Knot} dom
-     * @return {undefined}
-     */
     _initController(state, dom) {
         this._instances.dom = dom;
         const controller = this._modules[state.get('controller')];
@@ -217,69 +169,36 @@ export class Module {
             this.eventControllerFailed();
         }
     }
-    /**
-     * @param {!Knot} dom
-     * @return {undefined}
-     */
     eventControllerLoaded(dom) {
         consoleDebug('Module.eventControllerLoaded()', dom);
     }
-    /**
-     * @return {undefined}
-     */
     eventControllerFailed() {
         consoleDebug('Module.eventControllerFailed()');
     }
-    /**
-     * @param {!Objekt} state
-     * @return {undefined}
-     */
     eventModuleFailed(state) {
         consoleDebug('Module.eventModuleFailed()', state);
     }
-    /**
-     * @param {!Objekt} state
-     * @return {undefined}
-     */
     eventModuleLoaded(state) {
         consoleDebug('Module.eventModuleLoaded()', state);
     }
-    /**
-     * @param {!Objekt} state
-     * @return {!Promize}
-     */
     eventStateChange(state) {
         const deferred = new Deferred();
         consoleDebug('Module.eventStateChange()', state);
         deferred.resolve();
         return deferred.promise();
     }
-    /**
-     * @param {!Objekt} state
-     * @param {!Knot} dom
-     * @return {!Promize}
-     */
     eventDomChange(state, dom) {
         const deferred = new Deferred();
         consoleDebug('Module.eventDomChange()', state, dom);
         deferred.resolve();
         return deferred.promise();
     }
-    /**
-     * @return {undefined}
-     */
     eventAfterInit() {
         consoleDebug('Module.eventAfterInit()');
     }
-    /**
-     * @return {undefined}
-     */
     eventServiceLoaded() {
         consoleDebug('Module.eventServiceLoaded()');
     }
-    /**
-     * @return {undefined}
-     */
     eventServiceFailed() {
         consoleDebug('Module.eventServiceFailed()');
     }

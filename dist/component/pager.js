@@ -4,26 +4,13 @@ import { Objekt } from '../core/objekt';
 import { Query } from '../core/query';
 import { consoleDebug } from '../utils/log';
 import { mdl } from '../utils/render';
-/**
- * @class
- */
 export class Pager {
-    /**
-     * @param {!Knot} dom
-     * @param {!Array=} opt_selectors
-     * @param {!Object=} opt_options
-     */
     constructor(dom, opt_selectors = ['.pager', '.pager-statistics'], opt_options = {}) {
         this.pager = new Query(opt_selectors[0], dom).getKnot();
         this.pagerStatistics = new Query(opt_selectors[1], dom).getKnot();
         this._setOptions(opt_options);
         this._init();
     }
-    /**
-     * @private
-     * @param {!Object=} opt_options
-     * @return {undefined}
-     */
     _setOptions(opt_options = {}) {
         this.options = new Objekt({
             row_count: 10,
@@ -31,18 +18,10 @@ export class Pager {
         });
         this.options.merge(opt_options);
     }
-    /**
-     * @private
-     * @return {undefined}
-     */
     _init() {
         this.count = this.options.row_count;
         this.setPage(1);
     }
-    /**
-     * @private
-     * @return {undefined}
-     */
     _drawPager() {
         this.pager.removeChildren();
         this.pageNum = Math.ceil(this.count / this.options.row_count);
@@ -50,10 +29,6 @@ export class Pager {
         this._drawPageNumbers();
         this._drawNextButton();
     }
-    /**
-     * @private
-     * @return {undefined}
-     */
     _drawStatistics() {
         const page = this.page - 1;
         const from = page * this.options.row_count + 1;
@@ -66,10 +41,6 @@ export class Pager {
             this.pagerStatistics.setHtml('');
         }
     }
-    /**
-     * @private
-     * @return {undefined}
-     */
     _drawPreviousButton() {
         if (this.pageNum > 1) {
             const previousButton = new Knot('button');
@@ -89,10 +60,6 @@ export class Pager {
             this.pager.appendChild(previousButton);
         }
     }
-    /**
-     * @private
-     * @return {undefined}
-     */
     _drawNextButton() {
         if (this.pageNum > 1) {
             const nextButton = new Knot('button');
@@ -112,10 +79,6 @@ export class Pager {
             this.pager.appendChild(nextButton);
         }
     }
-    /**
-     * @private
-     * @return {undefined}
-     */
     _drawPageNumbers() {
         const pagers = this._getPagers();
         if (pagers.length > 1) {
@@ -140,10 +103,6 @@ export class Pager {
             });
         }
     }
-    /**
-     * @private
-     * @return {!Array<Page>}
-     */
     _getPagers() {
         const part = Math.floor((this.page - 1) / this.options.pager_num);
         const pagers = [];
@@ -171,10 +130,6 @@ export class Pager {
         }
         return pagers;
     }
-    /**
-     * @private
-     * @return {undefined}
-     */
     _next() {
         let page = this.page + 1;
         if (page > this.pageNum) {
@@ -182,10 +137,6 @@ export class Pager {
         }
         this._go(page);
     }
-    /**
-     * @private
-     * @return {undefined}
-     */
     _previous() {
         let page = this.page - 1;
         if (page < 1) {
@@ -193,41 +144,21 @@ export class Pager {
         }
         this._go(page);
     }
-    /**
-     * @param {number} count
-     * @return {undefined}
-     */
     setCount(count) {
         this.count = count;
     }
-    /**
-     * @private
-     * @param {number} page
-     * @return {undefined}
-     */
     _go(page) {
         this.setPage(page);
         this.eventAction(this.page);
     }
-    /**
-     * @param {number} page
-     * @return {undefined}
-     */
     setPage(page) {
         this.page = page;
         this.offset = (this.page - 1) * this.options.row_count;
     }
-    /**
-     * @return {undefined}
-     */
     draw() {
         this._drawStatistics();
         this._drawPager();
     }
-    /**
-     * @param {number} page
-     * @return {undefined}
-     */
     eventAction(page) {
         consoleDebug('Pager.eventAction()', page);
     }

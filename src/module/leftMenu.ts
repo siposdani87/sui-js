@@ -2,9 +2,6 @@ import { noop } from '../utils/operation';
 import { Query } from '../core/query';
 import { Knot } from '../core';
 
-/**
- * @class
- */
 export class LeftMenu {
     body: Knot;
     mainContainerKnot: Knot;
@@ -15,15 +12,11 @@ export class LeftMenu {
     subMenuContainer: Knot;
     mainMenuTitle: Knot;
     subMenuTitle: Knot;
-    /**
-     */
+
     constructor() {
         this._init();
     }
-    /**
-     * @private
-     * @return {undefined}
-     */
+
     private _init(): void {
         this.body = new Query('body').getKnot();
         this.mainContainerKnot = new Query('.main-container').getKnot();
@@ -47,9 +40,7 @@ export class LeftMenu {
 
         this._initEvents();
     }
-    /**
-     * @private
-     */
+
     private _initEvents() {
         this.leftMenu.addEventListener('click', () => {
             this.close();
@@ -88,10 +79,7 @@ export class LeftMenu {
             this.closeSubMenu();
         });
     }
-    /**
-     * @param {string=} opt_title
-     * @return {undefined}
-     */
+
     open(opt_title: string | undefined = ''): void {
         this.body.addClass('overflow-hidden');
         this.mainContainerKnot.addClass('blur');
@@ -100,39 +88,28 @@ export class LeftMenu {
 
         this.mainMenuTitle.setHtml(opt_title);
     }
-    /**
-     * @return {undefined}
-     */
+
     close(): void {
         this.body.removeClass('overflow-hidden');
         this.mainContainerKnot.removeClass('blur');
         this.leftMenu.removeClass('visible-block');
     }
-    /**
-     * @param {string=} opt_title
-     * @return {undefined}
-     */
+
     openSubMenu(opt_title: string | undefined = ''): void {
         this.mainMenu.addClass('hidden');
         this.subMenu.removeClass('hidden');
         this.subMenuTitle.setHtml(opt_title);
     }
-    /**
-     * @return {undefined}
-     */
+
     closeSubMenu(): void {
         this.mainMenu.removeClass('hidden');
         this.subMenu.addClass('hidden');
     }
-    /**
-     * @return {!Knot}
-     */
+
     getMainContainer(): Knot {
         return this.mainMenuContainer;
     }
-    /**
-     * @return {!Knot}
-     */
+
     getSubContainer(): Knot {
         return this.subMenuContainer;
     }

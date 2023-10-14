@@ -2,21 +2,10 @@
 /* eslint-disable no-useless-escape */
 import { typeCast, eachArray } from '../utils/operation';
 import { Objekt } from '../core/objekt';
-/**
- * @class
- */
 export class Cookie {
-    /**
-     * @param {!Object=} opt_options
-     */
     constructor(opt_options = {}) {
         this._setOptions(opt_options);
     }
-    /**
-     * @private
-     * @param {!Object=} opt_options
-     * @return {undefined}
-     */
     _setOptions(opt_options = {}) {
         this.options = new Objekt({
             prefix: 'app',
@@ -24,33 +13,14 @@ export class Cookie {
         });
         this.options.merge(opt_options);
     }
-    /**
-     * @private
-     * @param {string} name
-     * @return {string}
-     */
     _getPropertyName(name) {
         return [this.options.prefix, name].join('.').replace(/\./g, '_');
     }
-    /**
-     * @private
-     * @param {string} propertyName
-     * @return {string}
-     */
     _getName(propertyName) {
         const parts = propertyName.split('_');
         parts.shift();
         return parts.join('.');
     }
-    /**
-     * @param {string} name
-     * @param {string} value
-     * @param {string|number|boolean|!Date=} opt_expires
-     * @param {string=} opt_path
-     * @param {string=} opt_domain
-     * @param {boolean=} opt_secure
-     * @return {undefined}
-     */
     set(name, value, opt_expires = '', opt_path = '/', opt_domain = '', opt_secure = false) {
         const propertyName = this._getPropertyName(name);
         if (/^(?:expires|max\-age|path|domain|secure)$/i.test(propertyName)) {
@@ -86,10 +56,6 @@ export class Cookie {
                 (opt_path ? '; path=' + opt_path : '') +
                 (opt_secure ? '; secure' : '');
     }
-    /**
-     * @param {string} name
-     * @return {*}
-     */
     get(name) {
         const propertyName = this._getPropertyName(name);
         const regex = new RegExp('(?:(?:^|.*;)\\s*' +
@@ -97,23 +63,12 @@ export class Cookie {
             '\\s*\\=\\s*([^;]*).*$)|^.*$');
         return typeCast(decodeURIComponent(document.cookie.replace(regex, '$1')) || null);
     }
-    /**
-     * @param {string} name
-     * @param {string=} opt_path
-     * @param {string=} opt_domain
-     * @param {boolean=} opt_secure
-     * @return {undefined}
-     */
     remove(name, opt_path = '', opt_domain = '', opt_secure = false) {
         if (this.hasKey(name)) {
             const expires = new Date(1970, 0, 1);
             this.set(name, '', expires, opt_path, opt_domain, opt_secure);
         }
     }
-    /**
-     * @param {string} name
-     * @return {boolean}
-     */
     hasKey(name) {
         const propertyName = this._getPropertyName(name);
         const regex = new RegExp('(?:^|;\\s*)' +
@@ -121,9 +76,6 @@ export class Cookie {
             '\\s*\\=');
         return regex.test(document.cookie);
     }
-    /**
-     * @return {!Array<string>}
-     */
     getKeys() {
         const keys = document.cookie
             .replace(/((?:^|\s*;)[^\=]+)(?=;|$)|^\s*|\s*(?:\=[^;]*)?(?:\1|$)/g, '')
@@ -133,9 +85,6 @@ export class Cookie {
         }
         return keys;
     }
-    /**
-     * @return {undefined}
-     */
     clear() {
         const keys = this.getKeys();
         eachArray(keys, (key) => {

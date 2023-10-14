@@ -5,18 +5,12 @@ import { consoleDebug } from '../utils/log';
 import { Calendar } from './calendar';
 import { Clock } from './clock';
 
-/**
- * @typedef {{format: string; calendar_type: string; clock_type: string;}} DateTimeConfig
- */
 type DateTimeConfig = {
     format: string;
     calendar_type: string;
     clock_type: string;
 };
 
-/**
- * @class
- */
 export class DateTime {
     datetimeKnot: Knot;
     options: Objekt;
@@ -27,36 +21,23 @@ export class DateTime {
     calendarKnot: Knot;
     clockKnot: Knot;
     value: Date;
-    /**
-     * @param {!Knot} knot
-     * @param {!Object} options
-     */
+
     constructor(knot: Knot, options: Object) {
         this.datetimeKnot = knot;
         this._setOptions(options);
         this._init();
     }
-    /**
-     * @private
-     * @param {!Object} options
-     * @return {undefined}
-     */
+
     private _setOptions(options: Object): void {
         this.options = new Objekt(options);
     }
-    /**
-     * @private
-     * @return {undefined}
-     */
+
     private _init(): void {
         this._initVariables();
         this._initStructure();
         this._setValue(this.options.value);
     }
-    /**
-     * @private
-     * @return {undefined}
-     */
+
     private _initVariables(): void {
         this.types = {
             'datetime-local': {
@@ -97,27 +78,18 @@ export class DateTime {
         };
         this.config = this.types[this.options.type];
     }
-    /**
-     * @private
-     * @return {undefined}
-     */
+
     private _initStructure(): void {
         this._initDateTimeKnot();
         this._initCalendarKnot();
         this._initClockKnot();
     }
-    /**
-     * @private
-     * @return {undefined}
-     */
+
     private _initDateTimeKnot(): void {
         this.datetimeKnot.addClass('datetime');
         this.datetimeKnot.removeChildren();
     }
-    /**
-     * @private
-     * @return {undefined}
-     */
+
     private _initCalendarKnot(): void {
         if (this.config.calendar_type) {
             this.calendarKnot = new Knot('div');
@@ -125,10 +97,7 @@ export class DateTime {
             this.datetimeKnot.appendChild(this.calendarKnot);
         }
     }
-    /**
-     * @private
-     * @return {undefined}
-     */
+
     private _initClockKnot(): void {
         if (this.config.clock_type) {
             this.clockKnot = new Knot('div');
@@ -136,47 +105,31 @@ export class DateTime {
             this.datetimeKnot.appendChild(this.clockKnot);
         }
     }
-    /**
-     * @return {!DateTimeConfig}
-     */
+
     getConfig(): DateTimeConfig {
         return this.config;
     }
-    /**
-     * @private
-     * @param {string} value
-     * @return {undefined}
-     */
+
     private _setValue(value: string): void {
         value = value || DateIO.format(new Date(), this.config.format);
         this.value = DateIO.parse(value, this.config.format);
     }
-    /**
-     * @param {string} value
-     * @return {undefined}
-     */
+
     setValue(value: string): void {
         this._initStructure();
         this._setValue(value);
         this.draw();
     }
-    /**
-     * @return {string}
-     */
+
     getFormattedValue(): string {
         return DateIO.format(this.value, this.config.format);
     }
-    /**
-     * @return {undefined}
-     */
+
     draw(): void {
         this._drawCalendar();
         this._drawClock();
     }
-    /**
-     * @private
-     * @return {undefined}
-     */
+
     private _drawCalendar(): void {
         if (this.config.calendar_type) {
             const calendar = new Calendar(this.calendarKnot, {
@@ -201,10 +154,7 @@ export class DateTime {
             calendar.draw();
         }
     }
-    /**
-     * @private
-     * @return {undefined}
-     */
+
     private _drawClock(): void {
         if (this.config.clock_type) {
             const clock = new Clock(this.clockKnot, {
@@ -225,18 +175,12 @@ export class DateTime {
             clock.draw();
         }
     }
-    /**
-     * @private
-     * @return {undefined}
-     */
+
     private _onClick(): void {
         const formattedValue = this.getFormattedValue();
         this.eventClick(formattedValue);
     }
-    /**
-     * @param {string} value
-     * @return {undefined}
-     */
+
     eventClick(value: string): void {
         consoleDebug('Date.eventClick()', value);
     }

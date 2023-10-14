@@ -6,18 +6,13 @@ import {
     urlWithQueryString,
 } from '../utils/operation';
 
-/**
- * @class
- */
 export class Router {
     route: string;
     param: RegExp;
     escape: RegExp;
     paramNames: string[];
     regex: RegExp;
-    /**
-     * @param {string=} opt_route
-     */
+
     constructor(opt_route: string | undefined = '') {
         this.route = opt_route;
         this.param = /([:*])(\w+)/g;
@@ -25,10 +20,7 @@ export class Router {
 
         this._init();
     }
-    /**
-     * @private
-     * @return {undefined}
-     */
+
     private _init(): void {
         this.paramNames = [];
         let route = this.route;
@@ -39,10 +31,7 @@ export class Router {
         });
         this.regex = new RegExp('^' + route + '$');
     }
-    /**
-     * @param {!Object=} opt_params
-     * @return {string}
-     */
+
     stringify(opt_params: Object | undefined = {}): string {
         let route = this.route;
         const params = {};
@@ -64,10 +53,7 @@ export class Router {
             ? route.substring(0, route.length - 1)
             : route;
     }
-    /**
-     * @param {string} url
-     * @return {?RegExpMatchArray}
-     */
+
     getMatches(url: string): RegExpMatchArray {
         const questionMark = url.indexOf('?');
         if (questionMark !== -1) {
@@ -75,10 +61,7 @@ export class Router {
         }
         return url.match(this.regex);
     }
-    /**
-     * @param {string} url
-     * @return {!Object}
-     */
+
     parse(url: string): Object {
         const matches = this.getMatches(url);
         if (!matches) {
@@ -91,11 +74,7 @@ export class Router {
         }
         return params;
     }
-    /**
-     * @private
-     * @param {string} url
-     * @return {!Params}
-     */
+
     private _parseParams(url: string): Params {
         const params = {};
         const question = url.indexOf('?');

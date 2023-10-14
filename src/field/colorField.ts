@@ -7,10 +7,6 @@ import { Knot } from '../core/knot';
 import { Query } from '../core/query';
 import { convertRGBToHEX } from '../utils/color';
 
-/**
- * @class
- * @extends {BaseField}
- */
 export class ColorField extends BaseField<HTMLInputElement> {
     tooltip: Tooltip;
     previewKnot: Knot;
@@ -19,12 +15,7 @@ export class ColorField extends BaseField<HTMLInputElement> {
     canvas: Canvas;
     image: Knot<HTMLImageElement>;
     colors: string[][];
-    /**
-     * @param {!Knot} input
-     * @param {!Knot} label
-     * @param {!Knot} error
-     * @param {!Knot} inputBlock
-     */
+
     constructor(
         input: Knot<HTMLInputElement>,
         label: Knot,
@@ -34,10 +25,7 @@ export class ColorField extends BaseField<HTMLInputElement> {
         super(input, label, error, inputBlock);
         this._init();
     }
-    /**
-     * @private
-     * @return {undefined}
-     */
+
     private _init(): void {
         this.inputBlock.addClass('color-field');
 
@@ -46,9 +34,7 @@ export class ColorField extends BaseField<HTMLInputElement> {
         this._initPreview();
         this._setMaterialColors();
     }
-    /**
-     * @override
-     */
+
     render() {
         if (this.label && this.label.exists()) {
             this.label.addClass('field-label');
@@ -56,9 +42,7 @@ export class ColorField extends BaseField<HTMLInputElement> {
 
         this.refresh();
     }
-    /**
-     * @override
-     */
+
     refresh() {
         if (this.isRequired() && this.getValue() === '') {
             this.inputBlock.addClass('is-invalid');
@@ -73,10 +57,7 @@ export class ColorField extends BaseField<HTMLInputElement> {
         const color = this.getValue() || '#000000';
         this.setValue(color);
     }
-    /**
-     * @private
-     * @return {undefined}
-     */
+
     private _initInput(): void {
         this.input.addClass('hidden');
 
@@ -90,10 +71,7 @@ export class ColorField extends BaseField<HTMLInputElement> {
             return true;
         });
     }
-    /**
-     * @private
-     * @return {undefined}
-     */
+
     private _initPreview(): void {
         this.previewKnot = new Knot('div');
         this.previewKnot.addClass('preview');
@@ -114,10 +92,7 @@ export class ColorField extends BaseField<HTMLInputElement> {
             }
         });
     }
-    /**
-     * @private
-     * @return {undefined}
-     */
+
     private _draw(): void {
         if (!this.image.isEmpty()) {
             const width = typeCast(this.image.getAttribute('width'));
@@ -146,10 +121,7 @@ export class ColorField extends BaseField<HTMLInputElement> {
             }
         }
     }
-    /**
-     * @private
-     * @return {undefined}
-     */
+
     private _initImage(): void {
         this.image = new Query<HTMLImageElement>(
             'img',
@@ -181,10 +153,7 @@ export class ColorField extends BaseField<HTMLInputElement> {
             this.popup.close();
         });
     }
-    /**
-     * @private
-     * @return {undefined}
-     */
+
     private _setMaterialColors(): void {
         const colors50 = [
             '#ffebee',

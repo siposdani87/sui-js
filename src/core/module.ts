@@ -1,5 +1,5 @@
 import { noop, each, isFunction } from '../utils/operation';
-import { consoleError, consoleDebug } from '../utils/log';
+import { consoleDebug } from '../utils/log';
 import { Async } from './async';
 import { Deferred } from './deferred';
 import { State } from './state';
@@ -8,9 +8,6 @@ import { Knot } from './knot';
 import { Route } from '../component/route';
 import { ClassRef, Dependency, Injection, Instance } from '../utils';
 
-/**
- * @class
- */
 export class Module {
     private _instances: Instance;
     private _injections: Injection;
@@ -19,8 +16,7 @@ export class Module {
         [key: string]: Dependency;
     };
     private _controller: any;
-    /**
-     */
+
     constructor() {
         this._modules = {};
         this._controller = {
@@ -28,27 +24,15 @@ export class Module {
             exit: noop(),
         };
     }
-    /**
-     * @param {!Instance} instances
-     * @param {!Injection} injections
-     * @return {undefined}
-     */
     load(instances: Instance, injections: Injection): void {
         this._instances = instances;
         this._injections = injections;
     }
-    /**
-     * @return {!Object}
-     */
+
     getController(): Object {
         return this._controller;
     }
-    /**
-     * @param {string} name
-     * @param {!Array<string>} moduleInjections
-     * @param {!Function} moduleCallback
-     * @return {undefined}
-     */
+
     add(
         name: string,
         moduleInjections: string[],
@@ -60,11 +44,7 @@ export class Module {
         };
         return name;
     }
-    /**
-     * @private
-     * @param {!Dependency} dependency
-     * @return {!Object}
-     */
+
     private _resolveDependencies(dependency: Dependency): Object {
         const moduleArgs = [];
         each(dependency.moduleInjections, (injection) => {
@@ -73,11 +53,7 @@ export class Module {
 
         return new dependency.moduleCallback(...moduleArgs);
     }
-    /**
-     * @private
-     * @param {Array<string>} services
-     * @return {Array<string>}
-     */
+
     private _getSortedServices(services: string[]): string[] {
         const edges = services
             .map((service) => {
@@ -98,11 +74,7 @@ export class Module {
 
         return this._topologicalSort(edges).slice(1);
     }
-    /**
-     *
-     * @param {Array<Array<string>>} edges
-     * @return {Array<string>}
-     */
+
     private _topologicalSort(edges: string[][]): string[] {
         const nodes: {
             [key: string]: {
@@ -139,7 +111,7 @@ export class Module {
             visited[strId] = true;
 
             node.afters.forEach((afterId) => {
-                if (ancestors.includes(afterId)) {
+                /* if (ancestors.includes(afterId)) {
                     // if already in ancestors, a closed chain exists.
                     consoleError(
                         'Modules._topologicalSort()',
@@ -148,7 +120,7 @@ export class Module {
                         '<=>',
                         id,
                     );
-                }
+                } */
 
                 visit(afterId, ancestors);
             });
@@ -160,10 +132,7 @@ export class Module {
 
         return sorted;
     }
-    /**
-     * @param {Array<string>} services
-     * @return {undefined}
-     */
+
     handleServices(services: string[]): void {
         const sortedServices = this._getSortedServices(services);
         const calls = [];
@@ -194,11 +163,7 @@ export class Module {
             },
         );
     }
-    /**
-     * @param {!Array<Route>} routes
-     * @param {!Object} options
-     * @return {undefined}
-     */
+
     handleRoutes(routes: Route[], options: Object): void {
         this._instances.state = new State(routes, options);
         this._instances.state.eventChange = (
@@ -221,11 +186,7 @@ export class Module {
             });
         };
     }
-    /**
-     * @param {!Objekt} currentState
-     * @param {boolean=} opt_force
-     * @return {undefined}
-     */
+
     private _handleStateChange(
         currentState: Objekt,
         opt_force: boolean | undefined = false,
@@ -259,12 +220,7 @@ export class Module {
             },
         );
     }
-    /**
-     * @private
-     * @param {!Objekt} state
-     * @param {!Knot} dom
-     * @return {undefined}
-     */
+
     private _initController(state: Objekt, dom: Knot): void {
         this._instances.dom = dom;
         const controller = this._modules[state.get<string>('controller')];
@@ -285,69 +241,45 @@ export class Module {
             this.eventControllerFailed();
         }
     }
-    /**
-     * @param {!Knot} dom
-     * @return {undefined}
-     */
+
     eventControllerLoaded(dom: Knot): void {
         consoleDebug('Module.eventControllerLoaded()', dom);
     }
-    /**
-     * @return {undefined}
-     */
+
     eventControllerFailed(): void {
         consoleDebug('Module.eventControllerFailed()');
     }
-    /**
-     * @param {!Objekt} state
-     * @return {undefined}
-     */
+
     eventModuleFailed(state: Objekt): void {
         consoleDebug('Module.eventModuleFailed()', state);
     }
-    /**
-     * @param {!Objekt} state
-     * @return {undefined}
-     */
+
     eventModuleLoaded(state: Objekt): void {
         consoleDebug('Module.eventModuleLoaded()', state);
     }
-    /**
-     * @param {!Objekt} state
-     * @return {!Promize}
-     */
+
     eventStateChange(state: Objekt) {
         const deferred = new Deferred();
         consoleDebug('Module.eventStateChange()', state);
         deferred.resolve();
         return deferred.promise();
     }
-    /**
-     * @param {!Objekt} state
-     * @param {!Knot} dom
-     * @return {!Promize}
-     */
+
     eventDomChange(state: Objekt, dom: Knot) {
         const deferred = new Deferred();
         consoleDebug('Module.eventDomChange()', state, dom);
         deferred.resolve();
         return deferred.promise();
     }
-    /**
-     * @return {undefined}
-     */
+
     eventAfterInit(): void {
         consoleDebug('Module.eventAfterInit()');
     }
-    /**
-     * @return {undefined}
-     */
+
     eventServiceLoaded(): void {
         consoleDebug('Module.eventServiceLoaded()');
     }
-    /**
-     * @return {undefined}
-     */
+
     eventServiceFailed(): void {
         consoleDebug('Module.eventServiceFailed()');
     }

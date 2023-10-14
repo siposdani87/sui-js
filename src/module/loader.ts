@@ -3,35 +3,23 @@ import { Objekt } from '../core/objekt';
 import { Query } from '../core/query';
 import { Knot } from '../core';
 
-/**
- * @class
- */
 export class Loader {
     options: Objekt;
     loader: Knot;
     spinner: Knot;
-    /**
-     * @param {!Object=} opt_options
-     */
+
     constructor(opt_options: Object | undefined = {}) {
         this._setOptions(opt_options);
         this._init();
     }
-    /**
-     * @private
-     * @param {!Object=} opt_options
-     * @return {undefined}
-     */
+
     private _setOptions(opt_options: Object | undefined = {}): void {
         this.options = new Objekt({
             counter: 0,
         });
         this.options.merge(opt_options);
     }
-    /**
-     * @private
-     * @return {undefined}
-     */
+
     private _init(): void {
         this.loader = new Query('#loader').getKnot();
 
@@ -44,18 +32,13 @@ export class Loader {
 
         this.loader.appendChild(this.spinner);
     }
-    /**
-     * @return {undefined}
-     */
+
     show(): void {
         this.options.counter++;
         this.loader.removeClass('hidden');
         this.spinner.addClass('is-active');
     }
-    /**
-     * @param {boolean=} opt_force
-     * @return {undefined}
-     */
+
     hide(opt_force?: boolean | undefined): void {
         this.options.counter--;
         if (opt_force || eq(this.options.counter, 0)) {

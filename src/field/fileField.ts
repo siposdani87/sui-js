@@ -10,10 +10,6 @@ import { Query } from '../core/query';
 import { encodeBase64 } from '../utils/coder';
 import { mdl } from '../utils/render';
 
-/**
- * @class
- * @extends {BaseField}
- */
 export class FileField extends BaseField<HTMLInputElement> {
     imageTag: Knot;
     valueSrc: string;
@@ -21,12 +17,7 @@ export class FileField extends BaseField<HTMLInputElement> {
     removeButton: Knot;
     fileTypes: { [key: string]: [string, string] };
     fileTypeSVG: string;
-    /**
-     * @param {!Knot} input
-     * @param {!Knot} label
-     * @param {!Knot} error
-     * @param {!Knot} inputBlock
-     */
+
     constructor(
         input: Knot<HTMLInputElement>,
         label: Knot,
@@ -36,10 +27,7 @@ export class FileField extends BaseField<HTMLInputElement> {
         super(input, label, error, inputBlock);
         this._init();
     }
-    /**
-     * @private
-     * @return {undefined}
-     */
+
     private _init(): void {
         this.inputBlock.addClass('file-field');
 
@@ -56,10 +44,7 @@ export class FileField extends BaseField<HTMLInputElement> {
             return true;
         });
     }
-    /**
-     * @private
-     * @return {boolean}
-     */
+
     private _isDocument(): boolean {
         const accept = this.input.getAttribute('accept') ?? '';
         return (
@@ -68,10 +53,7 @@ export class FileField extends BaseField<HTMLInputElement> {
             contain(accept, '.pdf')
         );
     }
-    /**
-     * @private
-     * @return {undefined}
-     */
+
     private _initDefaultImg(): void {
         this.imageTag = new Query('img', this.inputBlock).getKnot();
         if (this.imageTag.isEmpty()) {
@@ -79,10 +61,7 @@ export class FileField extends BaseField<HTMLInputElement> {
             this.inputBlock.beforeChild(this.imageTag);
         }
     }
-    /**
-     * @private
-     * @return {undefined}
-     */
+
     private _initValueSrc(): void {
         this.valueSrc = this.imageTag.getAttribute('src');
 
@@ -96,10 +75,7 @@ export class FileField extends BaseField<HTMLInputElement> {
 
         this.imageTag.setAttribute('src', this.valueSrc || this.defaultSrc);
     }
-    /**
-     * @private
-     * @return {undefined}
-     */
+
     private _initRemoveButton(): void {
         this.removeButton = new Knot('a');
         this.removeButton.setAttribute('href', 'javascript:void(0)');
@@ -112,10 +88,7 @@ export class FileField extends BaseField<HTMLInputElement> {
         });
         this.actionContainerKnot.appendChild(this.removeButton);
     }
-    /**
-     * @private
-     * @return {undefined}
-     */
+
     private _initButtons(): void {
         const browseButton = new Knot('a');
         browseButton.setAttribute('href', 'javascript:void(0)');
@@ -132,19 +105,11 @@ export class FileField extends BaseField<HTMLInputElement> {
         });
         this.actionContainerKnot.appendChild(browseButton);
     }
-    /**
-     * @private
-     * @param {string} mimeType
-     * @return {!Array}
-     */
+
     private _lookupByMimeType(mimeType: string): Array<any> {
         return this.fileTypes[mimeType];
     }
-    /**
-     * @private
-     * @param {string} extension
-     * @return {!Array}
-     */
+
     private _lookupByExtension(extension: string): Array<any> {
         let results = [];
         for (const key in this.fileTypes) {
@@ -158,10 +123,7 @@ export class FileField extends BaseField<HTMLInputElement> {
         }
         return results;
     }
-    /**
-     * @private
-     * @return {undefined}
-     */
+
     private _initFileIcon(): void {
         this.fileTypes = {
             'application/vnd.openxmlformats-officedocument.wordprocessingml.document':
@@ -182,12 +144,7 @@ export class FileField extends BaseField<HTMLInputElement> {
             '<text x="220" y="380" text-anchor="middle" style="fill:#FFF;font-weight:700;font-family:Arial;font-size:120px;">TYPE</text>' +
             '</svg>';
     }
-    /**
-     * @private
-     * @param {string} type
-     * @param {string} color
-     * @return {string}
-     */
+
     private _getFileIconSrc(type: string, color: string): string {
         let svg = this.fileTypeSVG;
         svg = svg.replace('#000000', color);
@@ -195,10 +152,7 @@ export class FileField extends BaseField<HTMLInputElement> {
         const data = encodeBase64(svg);
         return format('data:image/svg+xml;base64,{0}', [data]);
     }
-    /**
-     * @override
-     * @return {undefined}
-     */
+
     render(): void {
         this.inputBlock.addClass([
             'mdl-textfield',
@@ -211,9 +165,7 @@ export class FileField extends BaseField<HTMLInputElement> {
         }
         this.refresh();
     }
-    /**
-     * @override
-     */
+
     refresh() {
         if (this.isRequired() && this.getValue() === '') {
             this.inputBlock.addClass('is-invalid');
@@ -223,11 +175,7 @@ export class FileField extends BaseField<HTMLInputElement> {
 
         mdl(this.inputBlock);
     }
-    /**
-     * @private
-     * @param {!File} file
-     * @return {undefined}
-     */
+
     private _read(file: File): void {
         if (file) {
             const filename = file.name;
@@ -252,10 +200,7 @@ export class FileField extends BaseField<HTMLInputElement> {
             fileReader.readAsDataURL(file);
         }
     }
-    /**
-     * @private
-     * @return {undefined}
-     */
+
     private _handleRemoveButton(): void {
         if (!this.isRequired() && this.valueSrc) {
             this.removeButton.removeClass('hidden');
@@ -263,10 +208,7 @@ export class FileField extends BaseField<HTMLInputElement> {
             this.removeButton.addClass('hidden');
         }
     }
-    /**
-     * @private
-     * @return {undefined}
-     */
+
     private _remove(): void {
         this.input.getNode().value = '';
         this.valueSrc = null;
@@ -280,11 +222,7 @@ export class FileField extends BaseField<HTMLInputElement> {
 
         this.modelChange(null);
     }
-    /**
-     * @override
-     * @param {!Object|!Function|!Array|boolean|number|string|null|undefined} value
-     * @return {undefined}
-     */
+
     setValue(
         value:
             | Object

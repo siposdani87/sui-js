@@ -1,18 +1,9 @@
 import { noop } from '../utils/operation';
 import { Query } from '../core/query';
-/**
- * @class
- */
 export class LeftMenu {
-    /**
-     */
     constructor() {
         this._init();
     }
-    /**
-     * @private
-     * @return {undefined}
-     */
     _init() {
         this.body = new Query('body').getKnot();
         this.mainContainerKnot = new Query('.main-container').getKnot();
@@ -26,9 +17,6 @@ export class LeftMenu {
         this.subMenuTitle = new Query('h3', this.subMenu).getKnot();
         this._initEvents();
     }
-    /**
-     * @private
-     */
     _initEvents() {
         this.leftMenu.addEventListener('click', () => {
             this.close();
@@ -57,49 +45,29 @@ export class LeftMenu {
             this.closeSubMenu();
         });
     }
-    /**
-     * @param {string=} opt_title
-     * @return {undefined}
-     */
     open(opt_title = '') {
         this.body.addClass('overflow-hidden');
         this.mainContainerKnot.addClass('blur');
         this.leftMenu.addClass('visible-block');
         this.mainMenuTitle.setHtml(opt_title);
     }
-    /**
-     * @return {undefined}
-     */
     close() {
         this.body.removeClass('overflow-hidden');
         this.mainContainerKnot.removeClass('blur');
         this.leftMenu.removeClass('visible-block');
     }
-    /**
-     * @param {string=} opt_title
-     * @return {undefined}
-     */
     openSubMenu(opt_title = '') {
         this.mainMenu.addClass('hidden');
         this.subMenu.removeClass('hidden');
         this.subMenuTitle.setHtml(opt_title);
     }
-    /**
-     * @return {undefined}
-     */
     closeSubMenu() {
         this.mainMenu.removeClass('hidden');
         this.subMenu.addClass('hidden');
     }
-    /**
-     * @return {!Knot}
-     */
     getMainContainer() {
         return this.mainMenuContainer;
     }
-    /**
-     * @return {!Knot}
-     */
     getSubContainer() {
         return this.subMenuContainer;
     }

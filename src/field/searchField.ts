@@ -4,18 +4,9 @@ import { BaseField } from './baseField';
 import { Knot } from '../core/knot';
 import { consoleDebug } from '../utils/log';
 
-/**
- * @class
- * @extends {BaseField}
- */
 export class SearchField extends BaseField<HTMLInputElement> {
     holderKnot: Knot;
-    /**
-     * @param {!Knot} input
-     * @param {!Knot} label
-     * @param {!Knot} error
-     * @param {!Knot} inputBlock
-     */
+
     constructor(
         input: Knot<HTMLInputElement>,
         label: Knot,
@@ -25,10 +16,7 @@ export class SearchField extends BaseField<HTMLInputElement> {
         super(input, label, error, inputBlock);
         this._init();
     }
-    /**
-     * @private
-     * @return {undefined}
-     */
+
     private _init(): void {
         this.input.addEventListener('keyup', (input, event) => {
             const inputNode = input.getNode();
@@ -45,10 +33,7 @@ export class SearchField extends BaseField<HTMLInputElement> {
             return true;
         });
     }
-    /**
-     * @override
-     * @return {undefined}
-     */
+
     render(): void {
         this.inputBlock.addClass([
             'search-field',
@@ -80,9 +65,7 @@ export class SearchField extends BaseField<HTMLInputElement> {
         this._initClearButton();
         this.refresh();
     }
-    /**
-     * @override
-     */
+
     refresh() {
         if (this.isRequired() && this.getValue() === '') {
             this.inputBlock.addClass('is-invalid');
@@ -90,10 +73,7 @@ export class SearchField extends BaseField<HTMLInputElement> {
 
         mdl(this.inputBlock);
     }
-    /**
-     * @private
-     * @return {undefined}
-     */
+
     private _initClearButton(): void {
         const clearButton = new Knot('a');
         clearButton.setAttribute('href', 'javascript:void(0)');
@@ -108,10 +88,7 @@ export class SearchField extends BaseField<HTMLInputElement> {
         });
         this.holderKnot.appendChild(clearButton);
     }
-    /**
-     * @param {string} value
-     * @return {undefined}
-     */
+
     eventEnter(value: string): void {
         consoleDebug('Search.eventEnter()', value);
     }

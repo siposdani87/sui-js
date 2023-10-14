@@ -3,22 +3,13 @@
 import { typeCast, eachArray } from '../utils/operation';
 import { Objekt } from '../core/objekt';
 
-/**
- * @class
- */
 export class Cookie {
     options: Objekt;
-    /**
-     * @param {!Object=} opt_options
-     */
+
     constructor(opt_options: Object | undefined = {}) {
         this._setOptions(opt_options);
     }
-    /**
-     * @private
-     * @param {!Object=} opt_options
-     * @return {undefined}
-     */
+
     private _setOptions(opt_options: Object | undefined = {}): void {
         this.options = new Objekt({
             prefix: 'app',
@@ -26,33 +17,17 @@ export class Cookie {
         });
         this.options.merge(opt_options);
     }
-    /**
-     * @private
-     * @param {string} name
-     * @return {string}
-     */
+
     private _getPropertyName(name: string): string {
         return [this.options.prefix, name].join('.').replace(/\./g, '_');
     }
-    /**
-     * @private
-     * @param {string} propertyName
-     * @return {string}
-     */
+
     private _getName(propertyName: string): string {
         const parts = propertyName.split('_');
         parts.shift();
         return parts.join('.');
     }
-    /**
-     * @param {string} name
-     * @param {string} value
-     * @param {string|number|boolean|!Date=} opt_expires
-     * @param {string=} opt_path
-     * @param {string=} opt_domain
-     * @param {boolean=} opt_secure
-     * @return {undefined}
-     */
+
     set(
         name: string,
         value: string,
@@ -94,10 +69,7 @@ export class Cookie {
             (opt_path ? '; path=' + opt_path : '') +
             (opt_secure ? '; secure' : '');
     }
-    /**
-     * @param {string} name
-     * @return {*}
-     */
+
     get(name: string): any {
         const propertyName = this._getPropertyName(name);
         const regex = new RegExp(
@@ -112,13 +84,7 @@ export class Cookie {
             decodeURIComponent(document.cookie.replace(regex, '$1')) || null,
         );
     }
-    /**
-     * @param {string} name
-     * @param {string=} opt_path
-     * @param {string=} opt_domain
-     * @param {boolean=} opt_secure
-     * @return {undefined}
-     */
+
     remove(
         name: string,
         opt_path: string | undefined = '',
@@ -130,10 +96,7 @@ export class Cookie {
             this.set(name, '', expires, opt_path, opt_domain, opt_secure);
         }
     }
-    /**
-     * @param {string} name
-     * @return {boolean}
-     */
+
     hasKey(name: string): boolean {
         const propertyName = this._getPropertyName(name);
         const regex = new RegExp(
@@ -146,9 +109,7 @@ export class Cookie {
         );
         return regex.test(document.cookie);
     }
-    /**
-     * @return {!Array<string>}
-     */
+
     getKeys(): Array<string> {
         const keys = document.cookie
             .replace(
@@ -161,9 +122,7 @@ export class Cookie {
         }
         return keys;
     }
-    /**
-     * @return {undefined}
-     */
+
     clear(): void {
         const keys = this.getKeys();
         eachArray(keys, (key) => {

@@ -4,25 +4,11 @@ import { Knot } from '../core/knot';
 import { Query } from '../core/query';
 import { encodeBase64 } from '../utils/coder';
 import { mdl } from '../utils/render';
-/**
- * @class
- * @extends {BaseField}
- */
 export class FileField extends BaseField {
-    /**
-     * @param {!Knot} input
-     * @param {!Knot} label
-     * @param {!Knot} error
-     * @param {!Knot} inputBlock
-     */
     constructor(input, label, error, inputBlock) {
         super(input, label, error, inputBlock);
         this._init();
     }
-    /**
-     * @private
-     * @return {undefined}
-     */
     _init() {
         this.inputBlock.addClass('file-field');
         this._initFileIcon();
@@ -37,10 +23,6 @@ export class FileField extends BaseField {
             return true;
         });
     }
-    /**
-     * @private
-     * @return {boolean}
-     */
     _isDocument() {
         var _a;
         const accept = (_a = this.input.getAttribute('accept')) !== null && _a !== void 0 ? _a : '';
@@ -48,10 +30,6 @@ export class FileField extends BaseField {
             contain(accept, '.xlsx') ||
             contain(accept, '.pdf'));
     }
-    /**
-     * @private
-     * @return {undefined}
-     */
     _initDefaultImg() {
         this.imageTag = new Query('img', this.inputBlock).getKnot();
         if (this.imageTag.isEmpty()) {
@@ -59,10 +37,6 @@ export class FileField extends BaseField {
             this.inputBlock.beforeChild(this.imageTag);
         }
     }
-    /**
-     * @private
-     * @return {undefined}
-     */
     _initValueSrc() {
         this.valueSrc = this.imageTag.getAttribute('src');
         this.defaultSrc = this.input.getAttribute('data-default-value');
@@ -74,10 +48,6 @@ export class FileField extends BaseField {
         }
         this.imageTag.setAttribute('src', this.valueSrc || this.defaultSrc);
     }
-    /**
-     * @private
-     * @return {undefined}
-     */
     _initRemoveButton() {
         this.removeButton = new Knot('a');
         this.removeButton.setAttribute('href', 'javascript:void(0)');
@@ -90,10 +60,6 @@ export class FileField extends BaseField {
         });
         this.actionContainerKnot.appendChild(this.removeButton);
     }
-    /**
-     * @private
-     * @return {undefined}
-     */
     _initButtons() {
         const browseButton = new Knot('a');
         browseButton.setAttribute('href', 'javascript:void(0)');
@@ -111,19 +77,9 @@ export class FileField extends BaseField {
         });
         this.actionContainerKnot.appendChild(browseButton);
     }
-    /**
-     * @private
-     * @param {string} mimeType
-     * @return {!Array}
-     */
     _lookupByMimeType(mimeType) {
         return this.fileTypes[mimeType];
     }
-    /**
-     * @private
-     * @param {string} extension
-     * @return {!Array}
-     */
     _lookupByExtension(extension) {
         let results = [];
         for (const key in this.fileTypes) {
@@ -137,10 +93,6 @@ export class FileField extends BaseField {
         }
         return results;
     }
-    /**
-     * @private
-     * @return {undefined}
-     */
     _initFileIcon() {
         this.fileTypes = {
             'application/vnd.openxmlformats-officedocument.wordprocessingml.document': ['docx', 'blue'],
@@ -158,12 +110,6 @@ export class FileField extends BaseField {
                 '<text x="220" y="380" text-anchor="middle" style="fill:#FFF;font-weight:700;font-family:Arial;font-size:120px;">TYPE</text>' +
                 '</svg>';
     }
-    /**
-     * @private
-     * @param {string} type
-     * @param {string} color
-     * @return {string}
-     */
     _getFileIconSrc(type, color) {
         let svg = this.fileTypeSVG;
         svg = svg.replace('#000000', color);
@@ -171,10 +117,6 @@ export class FileField extends BaseField {
         const data = encodeBase64(svg);
         return format('data:image/svg+xml;base64,{0}', [data]);
     }
-    /**
-     * @override
-     * @return {undefined}
-     */
     render() {
         this.inputBlock.addClass([
             'mdl-textfield',
@@ -187,9 +129,6 @@ export class FileField extends BaseField {
         }
         this.refresh();
     }
-    /**
-     * @override
-     */
     refresh() {
         if (this.isRequired() && this.getValue() === '') {
             this.inputBlock.addClass('is-invalid');
@@ -197,11 +136,6 @@ export class FileField extends BaseField {
         this._handleRemoveButton();
         mdl(this.inputBlock);
     }
-    /**
-     * @private
-     * @param {!File} file
-     * @return {undefined}
-     */
     _read(file) {
         if (file) {
             const filename = file.name;
@@ -222,10 +156,6 @@ export class FileField extends BaseField {
             fileReader.readAsDataURL(file);
         }
     }
-    /**
-     * @private
-     * @return {undefined}
-     */
     _handleRemoveButton() {
         if (!this.isRequired() && this.valueSrc) {
             this.removeButton.removeClass('hidden');
@@ -234,10 +164,6 @@ export class FileField extends BaseField {
             this.removeButton.addClass('hidden');
         }
     }
-    /**
-     * @private
-     * @return {undefined}
-     */
     _remove() {
         this.input.getNode().value = '';
         this.valueSrc = null;
@@ -250,11 +176,6 @@ export class FileField extends BaseField {
         this._handleRemoveButton();
         this.modelChange(null);
     }
-    /**
-     * @override
-     * @param {!Object|!Function|!Array|boolean|number|string|null|undefined} value
-     * @return {undefined}
-     */
     setValue(value) {
         let imageSrc = value;
         if (isPureObject(value)) {

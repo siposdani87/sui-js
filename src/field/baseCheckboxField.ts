@@ -4,20 +4,11 @@ import { Query } from '../core/query';
 import { Knot } from '../core/knot';
 import { mdl } from '../utils/render';
 
-/**
- * @class
- * @extends {BaseField}
- */
 export class BaseCheckboxField extends BaseField<HTMLInputElement> {
     hiddenInput: Knot;
     spanLabel: Knot;
     dataLabelKnot: Knot;
-    /**
-     * @param {!Knot} input
-     * @param {!Knot} label
-     * @param {!Knot} error
-     * @param {!Knot} inputBlock
-     */
+
     constructor(
         input: Knot<HTMLInputElement>,
         label: Knot,
@@ -27,10 +18,7 @@ export class BaseCheckboxField extends BaseField<HTMLInputElement> {
         super(input, label, error, inputBlock);
         this._init();
     }
-    /**
-     * @protected
-     * @return {undefined}
-     */
+
     protected _init(): void {
         this.hiddenInput = new Query(
             'input[type=hidden]',
@@ -43,18 +31,12 @@ export class BaseCheckboxField extends BaseField<HTMLInputElement> {
             return true;
         });
     }
-    /**
-     * @protected
-     * @return {undefined}
-     */
+
     protected _change(): void {
         const value = this.getValue();
         this.modelChange(value);
     }
-    /**
-     * @override
-     * @return {*}
-     */
+
     getValue(): any {
         const checked = this.input.getNode().checked;
         let value = this.hiddenInput.getAttribute('value');
@@ -63,11 +45,7 @@ export class BaseCheckboxField extends BaseField<HTMLInputElement> {
         }
         return typeCast(value);
     }
-    /**
-     * @override
-     * @param {!Object|!Function|!Array|boolean|number|string|null|undefined} value
-     * @return {undefined}
-     */
+
     setValue(
         value:
             | Object
@@ -86,11 +64,7 @@ export class BaseCheckboxField extends BaseField<HTMLInputElement> {
         }
         this.input.trigger('change');
     }
-    /**
-     * @override
-     * @param {boolean} state
-     * @return {undefined}
-     */
+
     setDisabled(state: boolean): void {
         if (state) {
             this.input.setAttribute('disabled');
@@ -104,20 +78,14 @@ export class BaseCheckboxField extends BaseField<HTMLInputElement> {
         this.input.getNode().disabled = state;
         this.checkValidity(true, false);
     }
-    /**
-     * @override
-     * @param {string} text
-     * @return {undefined}
-     */
+
     setLabel(text: string): void {
         if (this.spanLabel && !this.spanLabel.isEmpty()) {
             this.spanLabel.setHtml(text);
             this._setAdditionalLabel(this.spanLabel);
         }
     }
-    /**
-     * @override
-     */
+
     refresh() {
         const dataLabelText = this.label.getAttribute('data-label');
         if (dataLabelText) {

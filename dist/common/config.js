@@ -1,11 +1,7 @@
-/**
- */
 export let releaseMode = true;
 export const setReleaseMode = (mode) => {
     releaseMode = mode;
 };
-/**
- */
 export const coreResources = {
     app: 'app',
     config: 'config',

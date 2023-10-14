@@ -3,29 +3,14 @@ import { Objekt } from '../core/objekt';
 import { Query } from '../core/query';
 import { generateId } from '../utils/coder';
 import { mdl } from '../utils/render';
-/**
- * @class
- */
 export class Flash {
-    /**
-     * @param {!Object=} opt_options
-     */
     constructor(opt_options = {}) {
         this._setOptions(opt_options);
         this._init();
     }
-    /**
-     * @private
-     * @return {undefined}
-     */
     _init() {
         this.container = new Query(this.options.id).getKnot();
     }
-    /**
-     * @private
-     * @param {!Object=} opt_options
-     * @return {undefined}
-     */
     _setOptions(opt_options = {}) {
         this.options = new Objekt({
             id: '#flashes',
@@ -34,14 +19,6 @@ export class Flash {
         });
         this.options.merge(opt_options);
     }
-    /**
-     * @param {string} type
-     * @param {string} message
-     * @param {number=} opt_duration
-     * @param {?Function=} opt_closeCallback
-     * @param {string=} opt_id
-     * @return {!Knot}
-     */
     _getFlashKnot(type, message, opt_duration = 0, opt_closeCallback = null, opt_id = '') {
         const flashKnot = this.container.createElement('div');
         flashKnot.setAttribute('data-id', opt_id || generateId('flash'));
@@ -54,11 +31,6 @@ export class Flash {
         }
         return flashKnot;
     }
-    /**
-     * @param {!Knot} flashKnot
-     * @param {?Function=} opt_closeCallback
-     * @return {!Knot}
-     */
     _getCloseButton(flashKnot, opt_closeCallback = null) {
         const buttonKnot = flashKnot.createElement('button');
         buttonKnot.addClass([
@@ -76,14 +48,6 @@ export class Flash {
         mdl(buttonKnot);
         return buttonKnot;
     }
-    /**
-     * @param {string} type
-     * @param {string} message
-     * @param {number=} opt_duration
-     * @param {?Function=} opt_closeCallback
-     * @param {string=} opt_id
-     * @return {!Knot}
-     */
     _add(type, message, opt_duration = 0, opt_closeCallback = null, opt_id = '') {
         this.removeById(opt_id);
         const flashKnot = this._getFlashKnot(type, message, opt_duration, opt_closeCallback, opt_id);
@@ -100,9 +64,6 @@ export class Flash {
         }
         return flashKnot;
     }
-    /**
-     * @param {string=} opt_id
-     */
     removeById(opt_id = '') {
         if (opt_id) {
             const selector = format('[data-id={0}]', [opt_id]);
@@ -112,73 +73,28 @@ export class Flash {
             });
         }
     }
-    /**
-     * @param {string} type
-     * @param {?Function=} opt_closeCallback
-     * @return {boolean}
-     */
     _isClosable(type, opt_closeCallback = null) {
         return (this.options.closableTypes.indexOf(type) !== -1 ||
             isFunction(opt_closeCallback));
     }
-    /**
-     * @param {!Knot} flash
-     * @param {?Function=} opt_closeCallback
-     * @return {undefined}
-     */
     remove(flash, opt_closeCallback = null) {
         if (isFunction(opt_closeCallback)) {
             opt_closeCallback();
         }
         this.container.removeChild(flash);
     }
-    /**
-     * @param {string} message
-     * @param {number=} opt_duration
-     * @param {?Function=} opt_closeCallback
-     * @param {string=} opt_id
-     * @return {!Knot}
-     */
     addSuccess(message, opt_duration = 0, opt_closeCallback = null, opt_id = '') {
         return this._add('success', message, opt_duration, opt_closeCallback, opt_id);
     }
-    /**
-     * @param {string} message
-     * @param {number=} opt_duration
-     * @param {?Function=} opt_closeCallback
-     * @param {string=} opt_id
-     * @return {!Knot}
-     */
     addInfo(message, opt_duration = 0, opt_closeCallback = null, opt_id = '') {
         return this._add('info', message, opt_duration, opt_closeCallback, opt_id);
     }
-    /**
-     * @param {string} message
-     * @param {number=} opt_duration
-     * @param {?Function=} opt_closeCallback
-     * @param {string=} opt_id
-     * @return {!Knot}
-     */
     addWarning(message, opt_duration = 0, opt_closeCallback = null, opt_id = '') {
         return this._add('warning', message, opt_duration, opt_closeCallback, opt_id);
     }
-    /**
-     * @param {string} message
-     * @param {number=} opt_duration
-     * @param {?Function=} opt_closeCallback
-     * @param {string=} opt_id
-     * @return {!Knot}
-     */
     addError(message, opt_duration = 0, opt_closeCallback = null, opt_id = '') {
         return this._add('error', message, opt_duration, opt_closeCallback, opt_id);
     }
-    /**
-     * @param {{type: string, content: string, closable: boolean}} message
-     * @param {number=} opt_duration
-     * @param {?Function=} opt_closeCallback
-     * @param {string=} opt_id
-     * @return {!Knot|null}
-     */
     addMessage(message, opt_duration = 0, opt_closeCallback = null, opt_id = '') {
         if (isPureObject(message)) {
             const closeCallback = message.closable ? noop : opt_closeCallback;
@@ -186,13 +102,6 @@ export class Flash {
         }
         return null;
     }
-    /**
-     * @param {string} message
-     * @param {number=} opt_duration
-     * @param {?Function=} opt_closeCallback
-     * @param {string=} opt_id
-     * @return {!Knot}
-     */
     addDefault(message, opt_duration = 0, opt_closeCallback = null, opt_id = '') {
         return this._add('default', message, opt_duration, opt_closeCallback, opt_id);
     }

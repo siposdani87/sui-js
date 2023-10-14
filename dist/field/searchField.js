@@ -3,25 +3,11 @@ import { mdl } from '../utils/render';
 import { BaseField } from './baseField';
 import { Knot } from '../core/knot';
 import { consoleDebug } from '../utils/log';
-/**
- * @class
- * @extends {BaseField}
- */
 export class SearchField extends BaseField {
-    /**
-     * @param {!Knot} input
-     * @param {!Knot} label
-     * @param {!Knot} error
-     * @param {!Knot} inputBlock
-     */
     constructor(input, label, error, inputBlock) {
         super(input, label, error, inputBlock);
         this._init();
     }
-    /**
-     * @private
-     * @return {undefined}
-     */
     _init() {
         this.input.addEventListener('keyup', (input, event) => {
             const inputNode = input.getNode();
@@ -37,10 +23,6 @@ export class SearchField extends BaseField {
             return true;
         });
     }
-    /**
-     * @override
-     * @return {undefined}
-     */
     render() {
         this.inputBlock.addClass([
             'search-field',
@@ -68,19 +50,12 @@ export class SearchField extends BaseField {
         this._initClearButton();
         this.refresh();
     }
-    /**
-     * @override
-     */
     refresh() {
         if (this.isRequired() && this.getValue() === '') {
             this.inputBlock.addClass('is-invalid');
         }
         mdl(this.inputBlock);
     }
-    /**
-     * @private
-     * @return {undefined}
-     */
     _initClearButton() {
         const clearButton = new Knot('a');
         clearButton.setAttribute('href', 'javascript:void(0)');
@@ -95,10 +70,6 @@ export class SearchField extends BaseField {
         });
         this.holderKnot.appendChild(clearButton);
     }
-    /**
-     * @param {string} value
-     * @return {undefined}
-     */
     eventEnter(value) {
         consoleDebug('Search.eventEnter()', value);
     }

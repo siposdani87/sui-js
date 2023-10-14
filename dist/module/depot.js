@@ -1,24 +1,12 @@
 import { eachArray, typeCast } from '../utils/operation';
 import { Objekt } from '../core/objekt';
 import { encrypt, decrypt } from '../utils/coder';
-/**
- * @class
- */
 export class Depot {
-    /**
-     * @param {string} type
-     * @param {!Object} opt_options
-     */
     constructor(type, opt_options = {}) {
         this.type = type;
         this._setOptions(opt_options);
         this._init();
     }
-    /**
-     * @private
-     * @param {!Object=} opt_options
-     * @return {undefined}
-     */
     _setOptions(opt_options = {}) {
         this.options = new Objekt({
             prefix: 'app',
@@ -28,10 +16,6 @@ export class Depot {
         });
         this.options.merge(opt_options);
     }
-    /**
-     * @private
-     * @return {undefined}
-     */
     _init() {
         this.storage =
             this.type === 'LOCAL' ? window.localStorage : window.sessionStorage;
@@ -39,40 +23,20 @@ export class Depot {
             this._checkExpires();
         }, this.options.interval);
     }
-    /**
-     * @private
-     * @param {string} name
-     * @return {string}
-     */
     _getPropertyName(name) {
         return [this.options.prefix, name].join('.');
     }
-    /**
-     * @private
-     * @param {string} propertyName
-     * @return {string}
-     */
     _getName(propertyName) {
         const parts = propertyName.split('.');
         parts.shift();
         return parts.join('.');
     }
-    /**
-     * @param {string} name
-     * @param {*} value
-     * @param {string|number|boolean|!Date=} opt_expires
-     * @return {undefined}
-     */
     set(name, value, opt_expires) {
         const expires = this._getExpires(opt_expires);
         const encrypted = expires + ';' + encrypt(value, this.options.secret);
         const propertyName = this._getPropertyName(name);
         this.storage.setItem(propertyName, encrypted);
     }
-    /**
-     * @param {string} name
-     * @return {*}
-     */
     get(name) {
         const propertyName = this._getPropertyName(name);
         const item = this.storage.getItem(propertyName);
@@ -84,24 +48,13 @@ export class Depot {
         }
         return result;
     }
-    /**
-     * @param {string} name
-     * @return {undefined}
-     */
     remove(name) {
         const propertyName = this._getPropertyName(name);
         this.storage.removeItem(propertyName);
     }
-    /**
-     * @return {undefined}
-     */
     clear() {
         this.storage.clear();
     }
-    /**
-     * @private
-     * @return {undefined}
-     */
     _checkExpires() {
         const properyNames = Object.keys(this.storage);
         eachArray(properyNames, (properyName) => {
@@ -112,21 +65,11 @@ export class Depot {
             }
         });
     }
-    /**
-     * @private
-     * @param {string} name
-     * @return {boolean}
-     */
     _isExpired(name) {
         const date = new Date();
         const expireDate = this._getExpiresDate(name);
         return !!expireDate && date.getTime() >= expireDate.getTime();
     }
-    /**
-     * @private
-     * @param {string} name
-     * @return {?Date}
-     */
     _getExpiresDate(name) {
         const propertyName = this._getPropertyName(name);
         const item = this.storage.getItem(propertyName);
@@ -136,11 +79,6 @@ export class Depot {
         }
         return null;
     }
-    /**
-     * @private
-     * @param {string|number|boolean|!Date=} opt_expires
-     * @return {string}
-     */
     _getExpires(opt_expires) {
         const date = new Date();
         if (opt_expires) {

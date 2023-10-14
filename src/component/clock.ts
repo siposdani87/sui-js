@@ -4,9 +4,6 @@ import { DateIO } from '../utils';
 import { consoleDebug } from '../utils/log';
 import { Time } from './time';
 
-/**
- * @class
- */
 export class Clock {
     clockKnot: Knot;
     options: Objekt;
@@ -22,27 +19,17 @@ export class Clock {
     contentKnot: Knot;
     hours: number;
     minutes: number;
-    /**
-     * @param {!Knot} knot
-     * @param {!Object} options
-     */
+
     constructor(knot: Knot, options: Object) {
         this.clockKnot = knot;
         this._setOptions(options);
         this._init();
     }
-    /**
-     * @private
-     * @param {!Object} options
-     * @return {undefined}
-     */
+
     private _setOptions(options: Object): void {
         this.options = new Objekt(options);
     }
-    /**
-     * @private
-     * @return {undefined}
-     */
+
     private _init(): void {
         this.modes = ['HOUR', 'MINUTE'];
         this.types = {
@@ -52,12 +39,7 @@ export class Clock {
 
         this._initStructure();
     }
-    /**
-     * @private
-     * @param {!Function} hourCallback
-     * @param {!Function} minuteCallback
-     * @return {?Date}
-     */
+
     private _switchMode(
         hourCallback: Function,
         minuteCallback: Function,
@@ -75,10 +57,7 @@ export class Clock {
         }
         return result;
     }
-    /**
-     * @private
-     * @return {undefined}
-     */
+
     private _initStructure(): void {
         this._initHeaderKnot();
         this._initContentKnot();
@@ -86,10 +65,7 @@ export class Clock {
 
         this.setTime(this.options.time);
     }
-    /**
-     * @private
-     * @return {undefined}
-     */
+
     private _initHeaderKnot(): void {
         this.headerKnot = new Knot('div');
         this.headerKnot.addClass('header');
@@ -100,10 +76,7 @@ export class Clock {
         this._initMinutesHeaderKnot();
         this._initPeriodHeaderKnot();
     }
-    /**
-     * @private
-     * @return {undefined}
-     */
+
     private _initPeriodHeaderKnot(): void {
         this.periodHeaderKnot = new Knot('div');
         this.periodHeaderKnot.addClass('period');
@@ -113,10 +86,7 @@ export class Clock {
         );
         this.headerKnot.appendChild(this.periodHeaderKnot);
     }
-    /**
-     * @private
-     * @return {undefined}
-     */
+
     private _togglePeriod(): void {
         if (this.period === 'pm') {
             this.time = DateIO.subHours(this.time, 12);
@@ -125,10 +95,7 @@ export class Clock {
         }
         this._onClick(this.time);
     }
-    /**
-     * @private
-     * @return {undefined}
-     */
+
     private _initMinutesHeaderKnot(): void {
         this.minutesHeaderKnot = new Knot('div');
         this.minutesHeaderKnot.addClass('minutes');
@@ -137,10 +104,7 @@ export class Clock {
         });
         this.headerKnot.appendChild(this.minutesHeaderKnot);
     }
-    /**
-     * @private
-     * @return {undefined}
-     */
+
     private _initHoursHeaderKnot(): void {
         this.hoursHeaderKnot = new Knot('div');
         this.hoursHeaderKnot.addClass('hours');
@@ -149,39 +113,26 @@ export class Clock {
         });
         this.headerKnot.appendChild(this.hoursHeaderKnot);
     }
-    /**
-     * @private
-     * @param {string} mode
-     * @return {undefined}
-     */
+
     private _setMode(mode: string): void {
         this._initMode(mode);
         this.setTime(this.time);
         this.draw();
     }
-    /**
-     * @private
-     * @return {undefined}
-     */
+
     private _initSeparatorHeaderKnot(): void {
         const separatorHeaderKnot = new Knot('div');
         separatorHeaderKnot.addClass('separator');
         separatorHeaderKnot.setHtml(':');
         this.headerKnot.appendChild(separatorHeaderKnot);
     }
-    /**
-     * @private
-     * @return {undefined}
-     */
+
     private _initContentKnot(): void {
         this.contentKnot = new Knot('div');
         this.contentKnot.addClass('content');
         this.clockKnot.appendChild(this.contentKnot);
     }
-    /**
-     * @private
-     * @return {!Knot}
-     */
+
     private _getTimeKnot(): Knot {
         this.contentKnot.removeChildren();
         const hoursKnot = new Knot('div');
@@ -189,11 +140,7 @@ export class Clock {
         this.contentKnot.appendChild(hoursKnot);
         return hoursKnot;
     }
-    /**
-     * @private
-     * @param {number} hours
-     * @return {undefined}
-     */
+
     private _setHours(hours: number): void {
         this.hours = hours;
         const cssClass = this.activeMode === this.types.hour ? 'active' : null;
@@ -202,11 +149,7 @@ export class Clock {
         const text = hours < 10 ? '0' + hours : hours.toString();
         this.hoursHeaderKnot.setHtml(text);
     }
-    /**
-     * @private
-     * @param {number} minutes
-     * @return {undefined}
-     */
+
     private _setMinutes(minutes: number): void {
         this.minutes = minutes;
         const cssClass =
@@ -216,11 +159,7 @@ export class Clock {
         const text = minutes < 10 ? '0' + minutes : minutes.toString();
         this.minutesHeaderKnot.setHtml(text);
     }
-    /**
-     * @private
-     * @param {string} period
-     * @return {undefined}
-     */
+
     private _setPeriod(period: string): void {
         this.period = period;
         this.periodHeaderKnot.removeClass(['am', 'pm']);
@@ -228,10 +167,7 @@ export class Clock {
         const text = DateIO.format(this.time, 'aa');
         this.periodHeaderKnot.setHtml(text);
     }
-    /**
-     * @param {!Date} time
-     * @return {undefined}
-     */
+
     setTime(time: Date): void {
         this.time = time;
 
@@ -244,20 +180,12 @@ export class Clock {
         const period = DateIO.getHours(time) / 12 >= 1 ? 'pm' : 'am';
         this._setPeriod(period);
     }
-    /**
-     * @private
-     * @param {string} mode
-     * @return {undefined}
-     */
+
     private _initMode(mode: string): void {
         this.contentKnot.removeChildren();
         this.activeMode = mode;
     }
-    /**
-     * @private
-     * @param {number} direction
-     * @return {string}
-     */
+
     private _getMode(direction: number): string {
         let position = this.modes.indexOf(this.activeMode);
         if (position !== -1) {
@@ -266,18 +194,12 @@ export class Clock {
         const mode = this.modes[position];
         return mode ? mode : this.types[this.options.type];
     }
-    /**
-     * @private
-     * @param {number} direction
-     * @return {undefined}
-     */
+
     private _changeMode(direction: number): void {
         const mode = this._getMode(direction);
         this._initMode(mode);
     }
-    /**
-     * @return {undefined}
-     */
+
     draw(): void {
         const timeKnot = this._getTimeKnot();
 
@@ -290,11 +212,7 @@ export class Clock {
             },
         );
     }
-    /**
-     * @private
-     * @param {!Knot} timeKnot
-     * @return {undefined}
-     */
+
     private _drawMinutes(timeKnot: Knot): void {
         const timeMinutes = new Time(timeKnot, {
             selected: this.minutes,
@@ -307,11 +225,7 @@ export class Clock {
         };
         timeMinutes.draw(0, 59, 5, true);
     }
-    /**
-     * @private
-     * @param {!Knot} timeKnot
-     * @return {undefined}
-     */
+
     private _drawHours(timeKnot: Knot): void {
         const timeHours = new Time(timeKnot, {
             selected: this.hours,
@@ -325,20 +239,13 @@ export class Clock {
         };
         timeHours.draw(1, 12, 1, true);
     }
-    /**
-     * @private
-     * @param {!Date} selectedTime
-     * @return {undefined}
-     */
+
     private _onClick(selectedTime: Date): void {
         this.setTime(selectedTime);
         this.draw();
         this.eventClick(selectedTime);
     }
-    /**
-     * @param {!Date} time
-     * @return {undefined}
-     */
+
     eventClick(time: Date): void {
         consoleDebug('Clock.eventClick()', time);
     }

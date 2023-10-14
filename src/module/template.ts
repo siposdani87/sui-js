@@ -6,28 +6,18 @@ import { Http } from './http';
 import { consoleError } from '../utils/log';
 import { Knot } from '../core';
 
-/**
- * @class
- */
 export class Template {
     http: Http;
     options: Objekt<{ selector: string; locale: string }>;
     viewKnot: Knot;
-    /**
-     * @param {!Http} http
-     * @param {!Object=} opt_options
-     */
+
     constructor(http: Http, opt_options: Object | undefined = {}) {
         this.http = http;
 
         this._setOptions(opt_options);
         this._init();
     }
-    /**
-     * @private
-     * @param {!Object=} opt_options
-     * @return {undefined}
-     */
+
     private _setOptions(opt_options: Object | undefined = {}): void {
         this.options = new Objekt({
             selector: '.template-view',
@@ -35,26 +25,17 @@ export class Template {
         });
         this.options.merge(opt_options);
     }
-    /**
-     * @private
-     * @return {undefined}
-     */
+
     private _init(): void {
         this.viewKnot = new Query(this.options.selector).getKnot();
     }
-    /**
-     * @return {!Knot}
-     */
+
     getViewKnot(): Knot {
         return this.viewKnot;
     }
-    /**
-     * @param {string} url
-     * @param {boolean=} opt_force
-     * @return {!Promize}
-     */
+
     load(url: string, opt_force: boolean | undefined = false) {
-        const deferred = new Deferred<Knot | undefined, undefined>();
+        const deferred = new Deferred<Knot, Knot>();
         const templateUrl = this.viewKnot.getAttribute('data-template-url');
         const locale = this.viewKnot.getAttribute('data-locale');
         if (
@@ -79,7 +60,7 @@ export class Template {
         return deferred.promise();
     }
 
-    _spaNavigate(data: Knot, isError: boolean): undefined {
+    _spaNavigate(data: Knot, isError: boolean) {
         // Fallback for browsers that don't support this API:
         /* if (!document.startViewTransition) {
             this._updateDOM(data, isError);
@@ -89,14 +70,9 @@ export class Template {
         // With a transition:
         // document.startViewTransition(() => this._updateDOM(data, isError));
 
-        this._updateDOM(data, isError);
+        return this._updateDOM(data, isError);
     }
-    /**
-     * @private
-     * @param {!Knot} data
-     * @param {boolean} isError
-     * @return {!Knot}
-     */
+
     private _updateDOM(data: Knot, isError: boolean): Knot {
         const knot = new Query('.page-content', data).getKnot();
         if (isError) {
@@ -111,10 +87,7 @@ export class Template {
         }
         return knot;
     }
-    /**
-     * @param {!Object} message
-     * @return {undefined}
-     */
+
     eventError(message: { type: string; content: string }): void {
         consoleError('Template.eventError()', message);
     }

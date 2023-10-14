@@ -5,17 +5,11 @@ import { Objekt } from '../core/objekt';
 import { Query } from '../core/query';
 import { ProgressBar } from './progressBar';
 
-/**
- * @class
- */
 export class Style {
     progressBar: ProgressBar;
     options: Objekt;
     head: Knot;
-    /**
-     * @param {!ProgressBar} progressBar
-     * @param {!Object=} opt_options
-     */
+
     constructor(
         progressBar: ProgressBar,
         opt_options: Object | undefined = {},
@@ -24,30 +18,16 @@ export class Style {
         this._setOptions(opt_options);
         this._init();
     }
-    /**
-     * @private
-     * @param {!Object=} opt_options
-     * @return {undefined}
-     */
+
     private _setOptions(opt_options: Object | undefined = {}): void {
         this.options = new Objekt();
         this.options.merge(opt_options);
     }
-    /**
-     * @private
-     * @return {undefined}
-     */
+
     private _init(): void {
         this.head = new Query('head').getKnot();
     }
-    /**
-     * @param {string} id
-     * @param {string} url
-     * @param {!Object=} opt_params
-     * @param {string=} opt_rel
-     * @param {string=} opt_media
-     * @return {!Promize}
-     */
+
     load(
         id: string,
         url: string,
@@ -82,10 +62,7 @@ export class Style {
         }
         return deferred.promise();
     }
-    /**
-     * @param {string} id
-     * @return {undefined}
-     */
+
     remove(id: string): void {
         const style = new Query('#' + id).getKnot();
         if (!style.isEmpty()) {

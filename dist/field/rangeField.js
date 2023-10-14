@@ -1,25 +1,11 @@
 import { BaseField } from './baseField';
 import { Tooltip } from '../component/tooltip';
 import { mdl } from '../utils/render';
-/**
- * @class
- * @extends {BaseField}
- */
 export class RangeField extends BaseField {
-    /**
-     * @param {!Knot} input
-     * @param {!Knot} label
-     * @param {!Knot} error
-     * @param {!Knot} inputBlock
-     */
     constructor(input, label, error, inputBlock) {
         super(input, label, error, inputBlock);
         this._init();
     }
-    /**
-     * @private
-     * @return {undefined}
-     */
     _init() {
         this.inputBlock.addClass('range-field');
         this.input.addEventListener('input', (input) => {
@@ -29,10 +15,6 @@ export class RangeField extends BaseField {
             this.modelChange(inputNode.value);
         });
     }
-    /**
-     * @override
-     * @return {undefined}
-     */
     render() {
         this.inputBlock.addClass([
             'mdl-textfield',
@@ -45,9 +27,6 @@ export class RangeField extends BaseField {
         }
         this.refresh();
     }
-    /**
-     * @override
-     */
     refresh() {
         if (this.isRequired() && this.getValue() === '') {
             this.inputBlock.addClass('is-invalid');
@@ -68,11 +47,6 @@ export class RangeField extends BaseField {
         this.tooltip = new Tooltip(this.inputBlock);
         this.tooltip.render(value);
     }
-    /**
-     * @override
-     * @param {!Object|!Function|!Array|boolean|number|string|null|undefined} value
-     * @return {undefined}
-     */
     setValue(value) {
         const inputKnot = this.input.getNode();
         inputKnot['MaterialSlider']['change'](value);

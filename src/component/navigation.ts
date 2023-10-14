@@ -5,45 +5,29 @@ import { Objekt } from '../core/objekt';
 import { Query } from '../core/query';
 import { Http } from '../module';
 
-/**
- * @class
- */
 export class Navigation {
     http?: Http;
     options: Objekt;
     container: Collection<Objekt>;
     linkKnotKey: string;
-    /**
-     * @param {!Http=} opt_http
-     * @param {!Object=} opt_options
-     */
+
     constructor(opt_http?: Http, opt_options: Object | undefined = {}) {
         this.http = opt_http;
         this._setOptions(opt_options);
         this._init();
     }
-    /**
-     * @private
-     * @param {!Object=} opt_options
-     * @return {undefined}
-     */
+
     private _setOptions(opt_options: Object | undefined = {}): void {
         this.options = new Objekt();
         this.options.merge(opt_options);
     }
-    /**
-     * @private
-     * @return {undefined}
-     */
+
     private _init(): void {
         this.container = new Collection();
 
         this.linkKnotKey = 'node';
     }
-    /**
-     * @param {!Objekt} item
-     * @return {undefined}
-     */
+
     add(item: Objekt): void {
         const id = item.get<string>('id');
         const image = item.get<string>('image');
@@ -68,15 +52,7 @@ export class Navigation {
             this.setDisabled(id);
         }
     }
-    /**
-     * @param {string} id
-     * @param {string} counter
-     * @param {?string} title
-     * @param {!Function} action
-     * @param {string=} opt_href
-     * @param {!Object=} opt_data
-     * @return {undefined}
-     */
+
     addCounter(
         id: string,
         counter: string,
@@ -93,15 +69,7 @@ export class Navigation {
         const linkKnot = item.get<Knot>(this.linkKnotKey);
         linkKnot.beforeChild(counterSpan);
     }
-    /**
-     * @param {string} id
-     * @param {string} icon
-     * @param {?string} title
-     * @param {!Function} action
-     * @param {string=} opt_href
-     * @param {!Object=} opt_data
-     * @return {undefined}
-     */
+
     addIcon(
         id: string,
         icon: string,
@@ -122,15 +90,7 @@ export class Navigation {
         const linkKnot = item.get<Knot>(this.linkKnotKey);
         linkKnot.beforeChild(imageSpan);
     }
-    /**
-     * @param {string} id
-     * @param {string} image
-     * @param {?string} title
-     * @param {!Function} action
-     * @param {string=} opt_href
-     * @param {!Object=} opt_data
-     * @return {undefined}
-     */
+
     addImage(
         id: string,
         image: string,
@@ -170,14 +130,7 @@ export class Navigation {
         const linkKnot = item.get<Knot>(this.linkKnotKey);
         linkKnot.beforeChild(imageSpan);
     }
-    /**
-     * @param {string} id
-     * @param {string} title
-     * @param {!Function} action
-     * @param {string=} opt_href
-     * @param {!Object=} opt_data
-     * @return {undefined}
-     */
+
     addText(
         id: string,
         title: string,
@@ -187,15 +140,7 @@ export class Navigation {
     ): void {
         this._setKnot(id, title, action, opt_href, opt_data);
     }
-    /**
-     * @private
-     * @param {string} id
-     * @param {?string} title
-     * @param {!Function} action
-     * @param {string=} opt_href
-     * @param {!Object=} opt_data
-     * @return {!Objekt}
-     */
+
     private _setKnot(
         id: string,
         title: string | null,
@@ -231,19 +176,13 @@ export class Navigation {
 
         return item;
     }
-    /**
-     * @param {!Function} next
-     * @return {undefined}
-     */
+
     each(next: Function): void {
         this.container.each((item) => {
             next(item);
         });
     }
-    /**
-     * @param {!Knot} containerKnot
-     * @return {undefined}
-     */
+
     bindToContainer(containerKnot: Knot): void {
         containerKnot.removeChildren();
         this.each((item) => {
@@ -251,42 +190,28 @@ export class Navigation {
             containerKnot.appendChild(linkKnot);
         });
     }
-    /**
-     * @param {string} id
-     * @return {undefined}
-     */
+
     setDisabled(id: string): void {
         const item = this.container.findById(id);
         if (item) {
             this._disabled(item);
         }
     }
-    /**
-     * @private
-     * @param {!Objekt} item
-     * @return {undefined}
-     */
+
     private _disabled(item: Objekt): void {
         const linkKnot = item.get<Knot>(this.linkKnotKey);
         linkKnot.addClass('disabled');
         linkKnot.removeEventListener('click', item.get('listener'));
         linkKnot.setAttribute('href', 'javascript:void(0)');
     }
-    /**
-     * @param {string} id
-     * @return {undefined}
-     */
+
     setEnabled(id: string): void {
         const item = this.container.findById(id);
         if (item) {
             this._enabled(item);
         }
     }
-    /**
-     * @private
-     * @param {!Objekt} item
-     * @return {undefined}
-     */
+
     private _enabled(item: Objekt): void {
         this._disabled(item);
         const linkKnot = item.get<Knot>(this.linkKnotKey);
@@ -299,10 +224,7 @@ export class Navigation {
         });
         item.set('listener', listener);
     }
-    /**
-     * @param {string} id
-     * @return {undefined}
-     */
+
     setActive(id: string): void {
         this.each((item) => {
             const linkKnot = item.get(this.linkKnotKey);
@@ -316,19 +238,14 @@ export class Navigation {
             }
         });
     }
-    /**
-     * @return {undefined}
-     */
+
     setAllInactive(): void {
         this.each((item) => {
             const linkKnot = item.get(this.linkKnotKey);
             linkKnot.removeClass('active');
         });
     }
-    /**
-     * @param {string} id
-     * @return {undefined}
-     */
+
     show(id: string): void {
         const item = this.container.findById(id);
         if (item) {
@@ -337,10 +254,7 @@ export class Navigation {
             this._enabled(item);
         }
     }
-    /**
-     * @param {string} id
-     * @return {undefined}
-     */
+
     hide(id: string): void {
         const item = this.container.findById(id);
         if (item) {

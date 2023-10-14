@@ -3,35 +3,19 @@ import { Objekt } from '../core/objekt';
 import { Query } from '../core/query';
 import { BaseModal } from './baseModal';
 import { mdl } from '../utils/render';
-/**
- * @class
- * @extends {BaseModal}
- */
 export class Confirm extends BaseModal {
-    /**
-     * @param {!Object=} opt_options
-     */
     constructor(opt_options = {}) {
         super();
         this._setOptions(opt_options);
         this._init();
         this._initBase();
     }
-    /**
-     * @param {!Object=} opt_options
-     * @private
-     * @return {undefined}
-     */
     _setOptions(opt_options = {}) {
         this.options = new Objekt({
             id: '#confirm',
         });
         this.options.merge(opt_options);
     }
-    /**
-     * @private
-     * @return {undefined}
-     */
     _init() {
         this.body = new Query('body').getKnot();
         this.modal = new Query(this.options.id).getKnot();
@@ -41,13 +25,6 @@ export class Confirm extends BaseModal {
         this.modalBody = new Query('.modal-body', this.modal).getKnot();
         this.modalFooter = new Query('.modal-footer', this.modal).getKnot();
     }
-    /**
-     * @param {string} message
-     * @param {string} okText
-     * @param {string=} opt_cancelText
-     * @param {string=} opt_title
-     * @param {string=} opt_type
-     */
     load(message, okText, opt_cancelText = '', opt_title = '', opt_type = 'normal') {
         this._reset();
         this._setTitle(opt_title);

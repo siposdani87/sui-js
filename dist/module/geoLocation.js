@@ -1,18 +1,9 @@
 import { Deferred } from '../core/deferred';
 import { consoleDebug, consoleError } from '../utils/log';
-/**
- * @class
- */
 export class GeoLocation {
-    /**
-     */
     constructor() {
         this._init();
     }
-    /**
-     * @private
-     * @return {undefined}
-     */
     _init() {
         this.options = {
             enableHighAccuracy: true,
@@ -20,9 +11,6 @@ export class GeoLocation {
             maximumAge: Infinity,
         };
     }
-    /**
-     * @return {undefined}
-     */
     setWatcher() {
         this.watcherId = navigator.geolocation.watchPosition((position) => {
             this._handlePosition(position);
@@ -30,9 +18,6 @@ export class GeoLocation {
             this._handleError(error);
         }, this.options);
     }
-    /**
-     * @return {!Promize}
-     */
     getPosition() {
         const deferred = new Deferred();
         navigator.geolocation.getCurrentPosition((position) => {
@@ -45,35 +30,16 @@ export class GeoLocation {
         }, this.options);
         return deferred.promise();
     }
-    /**
-     * @return {undefined}
-     */
     clearWatcher() {
         navigator.geolocation.clearWatch(this.watcherId);
     }
-    /**
-     * @param {number} latitude
-     * @param {number} longitude
-     * @param {string} message
-     * @return {undefined}
-     */
     eventChange(latitude, longitude, message) {
         consoleDebug('GeoLocation.eventChange()', latitude, longitude, message);
     }
-    /**
-     * @private
-     * @param {!GeolocationPosition} position
-     * @return {undefined}
-     */
     _handlePosition(position) {
         const message = 'User allowed the request for GeoLocation.';
         this.eventChange(position.coords.latitude, position.coords.longitude, message);
     }
-    /**
-     * @private
-     * @param {!GeolocationPositionError} error
-     * @return {undefined}
-     */
     _handleError(error) {
         switch (error.code) {
             case error.PERMISSION_DENIED:
@@ -90,11 +56,6 @@ export class GeoLocation {
                 break;
         }
     }
-    /**
-     * @param {string} message
-     * @param {string} code
-     * @return {undefined}
-     */
     eventError(message, code) {
         consoleError('GeoLocation.eventError()', message, code);
     }

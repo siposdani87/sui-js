@@ -4,36 +4,23 @@ import { Query } from '../core/query';
 import { BaseModal } from './baseModal';
 import { mdl } from '../utils/render';
 
-/**
- * @class
- * @extends {BaseModal}
- */
 export class Confirm extends BaseModal {
     options: Objekt;
-    /**
-     * @param {!Object=} opt_options
-     */
+
     constructor(opt_options: Object | undefined = {}) {
         super();
         this._setOptions(opt_options);
         this._init();
         this._initBase();
     }
-    /**
-     * @param {!Object=} opt_options
-     * @private
-     * @return {undefined}
-     */
+
     private _setOptions(opt_options: Object | undefined = {}): void {
         this.options = new Objekt({
             id: '#confirm',
         });
         this.options.merge(opt_options);
     }
-    /**
-     * @private
-     * @return {undefined}
-     */
+
     private _init(): void {
         this.body = new Query('body').getKnot();
         this.modal = new Query(this.options.id).getKnot();
@@ -43,13 +30,7 @@ export class Confirm extends BaseModal {
         this.modalBody = new Query('.modal-body', this.modal).getKnot();
         this.modalFooter = new Query('.modal-footer', this.modal).getKnot();
     }
-    /**
-     * @param {string} message
-     * @param {string} okText
-     * @param {string=} opt_cancelText
-     * @param {string=} opt_title
-     * @param {string=} opt_type
-     */
+
     load(
         message: string,
         okText: string,

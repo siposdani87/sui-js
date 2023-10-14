@@ -3,25 +3,16 @@ import { Knot } from '../core/knot';
 import { Query } from '../core/query';
 import { consoleDebug } from '../utils/log';
 
-/**
- * @class
- */
 export class Canvas {
     canvasKnot: Knot<HTMLCanvasElement>;
     canvasRaw: HTMLCanvasElement;
     context: CanvasRenderingContext2D;
-    /**
-     * @param {!Knot|string=} opt_selector
-     */
+
     constructor(opt_selector?: Knot | string) {
         this._init(opt_selector);
         this._initEvents();
     }
-    /**
-     * @private
-     * @param {!Knot|string=} opt_selector
-     * @return {undefined}
-     */
+
     private _init(opt_selector?: Knot | string): void {
         this.canvasKnot = opt_selector as Knot<HTMLCanvasElement>;
         if (isString(opt_selector)) {
@@ -34,10 +25,7 @@ export class Canvas {
         this.canvasRaw = this.canvasKnot.getNode();
         this.context = this.canvasRaw.getContext('2d');
     }
-    /**
-     * @private
-     * @return {undefined}
-     */
+
     private _initEvents(): void {
         this.canvasKnot.addEventListener('mousemove', (canvasKnot, event) => {
             const rect = canvasKnot.getNode().getBoundingClientRect();
@@ -46,50 +34,28 @@ export class Canvas {
             this.eventMouseMove(x, y);
         });
     }
-    /**
-     * @param {number} width
-     * @return {undefined}
-     */
+
     setWidth(width: number): void {
         this.canvasRaw.width = width;
     }
-    /**
-     * @return {number}
-     */
+
     getWidth(): number {
         return this.canvasRaw.width;
     }
-    /**
-     * @param {number} height
-     * @return {undefined}
-     */
+
     setHeight(height: number): void {
         this.canvasRaw.height = height;
     }
-    /**
-     * @return {number}
-     */
+
     getHeight(): number {
         return this.canvasRaw.height;
     }
-    /**
-     * @param {number} width
-     * @param {number} height
-     * @return {undefined}
-     */
+
     setSize(width: number, height: number): void {
         this.setWidth(width);
         this.setHeight(height);
     }
-    /**
-     * @param {number} x
-     * @param {number} y
-     * @param {number} radius
-     * @param {number} sides
-     * @param {number} rotateAngle
-     * @param {!Object} options
-     * @return {undefined}
-     */
+
     drawPolygon(
         x: number,
         y: number,
@@ -121,15 +87,7 @@ export class Canvas {
         this.context.stroke();
         this.context.restore();
     }
-    /**
-     * @param {number} x
-     * @param {number} y
-     * @param {number} width
-     * @param {number} height
-     * @param {number} rotateAngle
-     * @param {!Object} options
-     * @return {undefined}
-     */
+
     drawRectangle(
         x: number,
         y: number,
@@ -154,11 +112,7 @@ export class Canvas {
         }
         this.context.restore();
     }
-    /**
-     * @param {!Knot<HTMLImageElement>} image
-     * @param {number=} opt_width
-     * @param {number=} opt_height
-     */
+
     drawImage(
         imageKnot: Knot<HTMLImageElement>,
         opt_width?: number,
@@ -170,25 +124,15 @@ export class Canvas {
         this.context.drawImage(imageKnot.getNode(), 0, 0, width, height);
         this.context.restore();
     }
-    /**
-     * @param {number} x
-     * @param {number} y
-     * @return {!Uint8ClampedArray}
-     */
+
     getImageDataXY(x: number, y: number): Uint8ClampedArray {
         return this.context.getImageData(x, y, 1, 1).data;
     }
-    /**
-     * @param {number} x
-     * @param {number} y
-     * @return {undefined}
-     */
+
     eventMouseMove(x: number, y: number): void {
         consoleDebug('Canvas.eventMouseMove()', x, y);
     }
-    /**
-     * @return {undefined}
-     */
+
     clear(): void {
         this.context.clearRect(0, 0, this.getWidth(), this.getHeight());
     }

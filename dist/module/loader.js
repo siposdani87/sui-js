@@ -1,32 +1,17 @@
 import { eq } from '../utils/operation';
 import { Objekt } from '../core/objekt';
 import { Query } from '../core/query';
-/**
- * @class
- */
 export class Loader {
-    /**
-     * @param {!Object=} opt_options
-     */
     constructor(opt_options = {}) {
         this._setOptions(opt_options);
         this._init();
     }
-    /**
-     * @private
-     * @param {!Object=} opt_options
-     * @return {undefined}
-     */
     _setOptions(opt_options = {}) {
         this.options = new Objekt({
             counter: 0,
         });
         this.options.merge(opt_options);
     }
-    /**
-     * @private
-     * @return {undefined}
-     */
     _init() {
         this.loader = new Query('#loader').getKnot();
         this.spinner = this.loader.createElement('div');
@@ -37,18 +22,11 @@ export class Loader {
         ]);
         this.loader.appendChild(this.spinner);
     }
-    /**
-     * @return {undefined}
-     */
     show() {
         this.options.counter++;
         this.loader.removeClass('hidden');
         this.spinner.addClass('is-active');
     }
-    /**
-     * @param {boolean=} opt_force
-     * @return {undefined}
-     */
     hide(opt_force) {
         this.options.counter--;
         if (opt_force || eq(this.options.counter, 0)) {

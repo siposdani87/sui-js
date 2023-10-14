@@ -6,17 +6,11 @@ import { Dialog } from './dialog';
 import { Confirm } from './confirm';
 import { Knot } from '../core';
 
-/**
- * @typedef {{setProgress: function(number): undefined, setBuffer: function(number): undefined}} ProcessBar
- */
 type ProcessBar = {
     setProgress: (value: number) => void;
     setBuffer: (value: number) => void;
 };
 
-/**
- * @class
- */
 export class ProgressBar {
     dialog: Dialog;
     confirm: Confirm;
@@ -32,11 +26,7 @@ export class ProgressBar {
     processConfirm: ProcessBar;
     progressValue: number;
     bufferValue: number;
-    /**
-     * @param {!Dialog} dialog
-     * @param {!Confirm} confirm
-     * @param {!Object=} opt_options
-     */
+
     constructor(
         dialog: Dialog,
         confirm: Confirm,
@@ -48,11 +38,7 @@ export class ProgressBar {
         this._setOptions(opt_options);
         this._init();
     }
-    /**
-     * @private
-     * @param {!Object=} opt_options
-     * @return {undefined}
-     */
+
     private _setOptions(opt_options: Object | undefined = {}): void {
         this.options = new Objekt({
             lock: false,
@@ -60,10 +46,7 @@ export class ProgressBar {
         });
         this.options.merge(opt_options);
     }
-    /**
-     * @private
-     * @return {undefined}
-     */
+
     private _init(): void {
         this.progressBarContainer = new Query(
             '.main-container > .progress-bar',
@@ -112,11 +95,7 @@ export class ProgressBar {
         this.processDialog = this._createProgressBar(this.progressBarDialog);
         this.processConfirm = this._createProgressBar(this.progressBarConfirm);
     }
-    /**
-     * @private
-     * @param {!Knot} knot
-     * @return {!ProcessBar}
-     */
+
     private _createProgressBar(knot: Knot): ProcessBar {
         knot.addClass('mdl-js-progress');
 
@@ -135,14 +114,7 @@ export class ProgressBar {
             },
         };
     }
-    /**
-     * @private
-     * @param {!Function} containerCallback
-     * @param {!Function} headerCallback
-     * @param {!Function} dialogCallback
-     * @param {!Function} confirmCallback
-     * @return {undefined}
-     */
+
     private _separateProgressBars(
         containerCallback: Function,
         headerCallback: Function,
@@ -154,10 +126,7 @@ export class ProgressBar {
         dialogCallback(this.dialog.isOpened() && !this.confirm.isOpened());
         confirmCallback(this.confirm.isOpened());
     }
-    /**
-     * @private
-     * @return {undefined}
-     */
+
     private _progress(): void {
         if (!this.options.get('lock')) {
             this._separateProgressBars(
@@ -192,9 +161,7 @@ export class ProgressBar {
             );
         }
     }
-    /**
-     * @return {undefined}
-     */
+
     show(): void {
         this._progress();
         this.options.counter++;
@@ -245,10 +212,7 @@ export class ProgressBar {
             },
         );
     }
-    /**
-     * @param {number} value
-     * @return {undefined}
-     */
+
     setProgress(value: number): void {
         this._progress();
         this._separateProgressBars(
@@ -274,10 +238,7 @@ export class ProgressBar {
             },
         );
     }
-    /**
-     * @param {number} value
-     * @return {undefined}
-     */
+
     setBuffer(value: number): void {
         this._progress();
         this._separateProgressBars(
@@ -303,10 +264,7 @@ export class ProgressBar {
             },
         );
     }
-    /**
-     * @param {boolean=} opt_force
-     * @return {undefined}
-     */
+
     hide(opt_force?: boolean): void {
         this.options.counter--;
         if (opt_force || eq(this.options.counter, 0)) {
@@ -329,15 +287,11 @@ export class ProgressBar {
             ]);
         }
     }
-    /**
-     * @return {undefined}
-     */
+
     lock(): void {
         this.options.set('lock', true);
     }
-    /**
-     * @return {undefined}
-     */
+
     unlock(): void {
         this.options.set('lock', false);
     }

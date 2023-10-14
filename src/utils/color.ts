@@ -1,11 +1,5 @@
 import { round } from './math';
 
-/**
- * @param {number} red
- * @param {number} green
- * @param {number} blue
- * @return {!Array<number>}
- */
 export const convertRGBToHSV = (
     red: number,
     green: number,
@@ -41,12 +35,6 @@ export const convertRGBToHSV = (
     return [Math.round(h * 360), round(s, -2), round(v, -2)];
 };
 
-/**
- * @param {number} red
- * @param {number} green
- * @param {number} blue
- * @return {string}
- */
 export const convertRGBToHEX = (
     red: number,
     green: number,
@@ -64,10 +52,6 @@ export const convertRGBToHEX = (
     return '#' + results.join('');
 };
 
-/**
- * @param {string} hexColor
- * @return {!Array<number>}
- */
 export const convertHEXToHSV = (
     hexColor: string,
 ): [h: number, s: number, v: number] => {
@@ -75,10 +59,6 @@ export const convertHEXToHSV = (
     return convertRGBToHSV(red, green, blue);
 };
 
-/**
- * @param {string} hexColor
- * @return {!Array<number, number, number>}
- */
 export const convertHEXToRGB = (
     hexColor: string,
 ): [r: number, g: number, b: number] => {
@@ -89,12 +69,6 @@ export const convertHEXToRGB = (
     return [red, green, blue];
 };
 
-/**
- * @param {number} h
- * @param {number} s
- * @param {number} v
- * @return {!Array<number>}
- */
 export const convertHSVToRGB = (
     h: number,
     s: number,
@@ -149,23 +123,11 @@ export const convertHSVToRGB = (
     ];
 };
 
-/**
- * @param {number} h
- * @param {number} s
- * @param {number} v
- * @return {string}
- */
 export const convertHSVToHEX = (h: number, s: number, v: number): string => {
     const [red, green, blue] = convertHSVToRGB(h, s, v);
     return convertRGBToHEX(red, green, blue);
 };
 
-/**
- * @param {string} hexColor
- * @param {string=} opt_lightColor
- * @param {string=} opt_darkColor
- * @return {string}
- */
 export const colorContrastYIQ = (
     hexColor: string,
     opt_lightColor: string | undefined = '#FEFEFE',
@@ -176,11 +138,6 @@ export const colorContrastYIQ = (
     return yiq >= 128 ? opt_darkColor : opt_lightColor;
 };
 
-/**
- * @param {string} hexColor
- * @param {number=} opt_diff
- * @return {string}
- */
 export const colorContrast = (
     hexColor: string,
     opt_diff: number | undefined = 0.5,

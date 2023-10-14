@@ -4,34 +4,18 @@ import { Knot } from '../core/knot';
 import { Objekt } from '../core/objekt';
 import { generateId } from '../utils/coder';
 import { mdl } from '../utils/render';
-/**
- * @class
- */
 export class Dropdown {
-    /**
-     * @param {!Knot} element
-     * @param {!Object=} opt_options
-     */
     constructor(element, opt_options = {}) {
         this.dropdown = element;
         this._setOptions(opt_options);
         this._init();
     }
-    /**
-     * @private
-     * @param {!Object=} opt_options
-     * @return {undefined}
-     */
     _setOptions(opt_options = {}) {
         this.options = new Objekt({
             id: generateId('dropdown'),
         });
         this.options.merge(opt_options);
     }
-    /**
-     * @private
-     * @return {undefined}
-     */
     _init() {
         this.collection = new Collection();
         this.actions = [];
@@ -39,10 +23,6 @@ export class Dropdown {
         this._appendButton();
         this._appendMenu();
     }
-    /**
-     * @private
-     * @return {undefined}
-     */
     _appendButton() {
         this.buttonKnot = new Knot('button');
         this.buttonKnot.setId(this.options.id);
@@ -57,10 +37,6 @@ export class Dropdown {
         this.buttonKnot.appendChild(iconKnot);
         this.dropdown.appendChild(this.buttonKnot);
     }
-    /**
-     * @private
-     * @return {undefined}
-     */
     _appendMenu() {
         this.menuKnot = new Knot('ul');
         this.menuKnot.setFor(this.options.id);
@@ -72,11 +48,6 @@ export class Dropdown {
         ]);
         this.dropdown.appendChild(this.menuKnot);
     }
-    /**
-     * @param {!Array<Action>} actions
-     * @param {!Objekt} item
-     * @return {undefined}
-     */
     setActions(actions, item) {
         this.actions = actions;
         this.item = item;
@@ -84,10 +55,6 @@ export class Dropdown {
         mdl(this.menuKnot);
         mdl(this.buttonKnot);
     }
-    /**
-     * @private
-     * @return {undefined}
-     */
     _renderMenu() {
         eachArray(this.actions, (action) => {
             const [icon, title, disabled, removed] = action.style(this.item);

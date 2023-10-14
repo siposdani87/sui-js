@@ -1,34 +1,23 @@
 import { isEmpty, eq } from '../utils/operation';
 import { consoleDebug } from '../utils/log';
 
-/**
- * http://browserhacks.com/
- * @class
- */
 export class Browser {
     features: string[];
     browsers: {
         [key: string]: boolean;
     };
     os: string;
-    /**
-     */
+
     constructor() {
         this._init();
     }
-    /**
-     * @private
-     * @return {undefined}
-     */
+
     private _init(): void {
         this._detectOS();
         this._detectBrowsers();
         this._detectMissingFeatures();
     }
-    /**
-     * @private
-     * @return {undefined}
-     */
+
     private _detectMissingFeatures(): void {
         this.features = [];
 
@@ -44,36 +33,23 @@ export class Browser {
         this._setFeature('console.warn', console.warn);
         this._setFeature('console.error', console.error);
     }
-    /**
-     * @return {undefined}
-     */
+
     detect(): void {
         if (!isEmpty(this.features)) {
             this.eventMissingFeatures(this.features);
         }
     }
-    /**
-     * @private
-     * @param {string} name
-     * @param {*} value
-     * @return {undefined}
-     */
+
     private _setFeature(name: string, value: any): void {
         if (eq(!!value, false)) {
             this.features.push(name);
         }
     }
-    /**
-     * @param {!Array} features
-     * @return {undefined}
-     */
+
     eventMissingFeatures(features: Array<any>): void {
         consoleDebug('Browser.eventMissingFeatures()', features);
     }
-    /**
-     * @private
-     * @return {undefined}
-     */
+
     private _detectBrowsers(): void {
         this.browsers = {};
 
@@ -106,10 +82,7 @@ export class Browser {
         this.browsers.chromiumEdge =
             userAgent.indexOf('edge') === -1 && userAgent.indexOf('edg') !== -1;
     }
-    /**
-     * @private
-     * @return {undefined}
-     */
+
     private _detectOS(): void {
         this.os = null;
 
@@ -137,40 +110,27 @@ export class Browser {
             this.os = 'Linux';
         }
     }
-    /**
-     * @return {boolean}
-     */
+
     isMacOS(): boolean {
         return this.os === 'macOS';
     }
-    /**
-     * @return {boolean}
-     */
+
     isIOS(): boolean {
         return this.os === 'iOS';
     }
-    /**
-     * @return {boolean}
-     */
+
     isWindows(): boolean {
         return this.os === 'Windows';
     }
-    /**
-     * @return {boolean}
-     */
+
     isAndroid(): boolean {
         return this.os === 'Android';
     }
-    /**
-     * @return {boolean}
-     */
+
     isLinux(): boolean {
         return this.os === 'Linux';
     }
-    /**
-     * @param {number=} opt_version
-     * @return {boolean}
-     */
+
     isInternetExplorer(opt_version: number | undefined): boolean {
         let result = this.browsers.lteIE10 || this.browsers.gteIE10;
         if (opt_version) {
@@ -188,51 +148,35 @@ export class Browser {
         }
         return result;
     }
-    /**
-     * @return {boolean}
-     */
+
     isEdge(): boolean {
         return this.browsers.edge;
     }
-    /**
-     * @return {boolean}
-     */
+
     isChromiumEdge(): boolean {
         return this.browsers.chromiumEdge;
     }
-    /**
-     * @return {boolean}
-     */
+
     isFirefox(): boolean {
         return this.browsers.firefox;
     }
-    /**
-     * @return {boolean}
-     */
+
     isChrome(): boolean {
         return this.browsers.chrome;
     }
-    /**
-     * @return {boolean}
-     */
+
     isOpera(): boolean {
         return this.browsers.opera;
     }
-    /**
-     * @return {boolean}
-     */
+
     isSafari(): boolean {
         return this.browsers.safari;
     }
-    /**
-     * @return {boolean}
-     */
+
     isWebkit(): boolean {
         return this.browsers.webkit;
     }
-    /**
-     * @return {boolean}
-     */
+
     isChromium(): boolean {
         return this.browsers.chromium;
     }

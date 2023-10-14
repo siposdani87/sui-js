@@ -3,22 +3,11 @@ import { Deferred } from '../core/deferred';
 import { Objekt } from '../core/objekt';
 import { consoleError, consoleWarn } from '../utils/log';
 import { encodeBase64 } from '../utils/coder';
-/**
- * @class
- */
 export class Xhr {
-    /**
-     * @param {!Object=} opt_options
-     */
     constructor(opt_options = {}) {
         this._setOptions(opt_options);
         this._init();
     }
-    /**
-     * @private
-     * @param {!Object=} opt_options
-     * @return {undefined}
-     */
     _setOptions(opt_options = {}) {
         this.options = new Objekt({
             backend: '',
@@ -26,10 +15,6 @@ export class Xhr {
         });
         this.options.merge(opt_options);
     }
-    /**
-     * @private
-     * @return {undefined}
-     */
     _init() {
         this.requestHeaders = {};
         this.authorization = null;
@@ -40,10 +25,6 @@ export class Xhr {
             this._onReadyStateChange();
         this.deferred = new Deferred();
     }
-    /**
-     * @private
-     * @return {undefined}
-     */
     _setTypes() {
         this._setType('json', ['application/json', 'json', 'application/json']);
         this._setType('form', [
@@ -55,53 +36,23 @@ export class Xhr {
         this._setType('svg', ['', 'document', 'image/svg-xml']);
         this._setType('xml', ['', 'document', 'application/xml']);
     }
-    /**
-     * @private
-     * @param {string} name
-     * @param {!XhrType} value
-     * @return {undefined}
-     */
     _setType(name, value) {
         this.types[name] = value;
     }
-    /**
-     * @private
-     * @param {string} name
-     * @return {!XhrType}
-     */
     _getType(name) {
         return this.types[name] || ['', 'text', '*/*'];
     }
-    /**
-     * @private
-     * @param {string} name
-     * @return {string}
-     */
     _getContentType(name) {
         return this._getType(name)[0];
     }
-    /**
-     * @private
-     * @param {string} name
-     * @return {string}
-     */
     _getResponseType(name) {
         return this._getType(name)[1];
     }
-    /**
-     * @private
-     * @param {string} name
-     * @return {string}
-     */
     _getAccept(name) {
         return this._getType(name)[2];
     }
-    /**
-     * @private
-     * @return {function(XMLHttpRequest, Event): undefined}
-     */
     _onReadyStateChange() {
-        return (_this, _ev) => {
+        return (_this, ev) => {
             switch (this.httpRequest.readyState) {
                 case 0:
                     // request not initialized
@@ -138,74 +89,25 @@ export class Xhr {
             }
         };
     }
-    /**
-     * @param {string} url
-     * @param {!Object=} opt_params
-     * @param {!Object=} opt_headers
-     * @return {!Promize}
-     */
     get(url, opt_params, opt_headers = {}) {
         return this._createRequest('GET', url, {}, opt_params, opt_headers);
     }
-    /**
-     * @param {string} url
-     * @param {!Object=} opt_data
-     * @param {!Object=} opt_params
-     * @param {!Object=} opt_headers
-     * @return {!Promize}
-     */
     post(url, opt_data, opt_params, opt_headers = {}) {
         return this._createRequest('POST', url, opt_data, opt_params, opt_headers);
     }
-    /**
-     * @param {string} url
-     * @param {!Object=} opt_data
-     * @param {!Object=} opt_params
-     * @param {!Object=} opt_headers
-     * @return {!Promize}
-     */
     put(url, opt_data, opt_params, opt_headers = {}) {
         return this._createRequest('PUT', url, opt_data, opt_params, opt_headers);
     }
-    /**
-     * @param {string} url
-     * @param {!Object=} opt_data
-     * @param {!Object=} opt_params
-     * @param {!Object=} opt_headers
-     * @return {!Promize}
-     */
     patch(url, opt_data, opt_params, opt_headers = {}) {
         return this._createRequest('PATCH', url, opt_data, opt_params, opt_headers);
     }
-    /**
-     * @param {string} url
-     * @param {!Object=} opt_data
-     * @param {!Object=} opt_params
-     * @param {!Object=} opt_headers
-     * @return {!Promize}
-     */
     delete(url, opt_data, opt_params, opt_headers = {}) {
         return this._createRequest('DELETE', url, opt_data, opt_params, opt_headers);
     }
-    /**
-     * @private
-     * @param {string} url
-     * @param {!Object=} opt_params
-     * @return {string}
-     */
     _getUrl(url, opt_params) {
         const uri = urlWithQueryString(url, opt_params);
         return url[0] === '/' ? this.options.backend + uri : uri;
     }
-    /**
-     * @private
-     * @param {string} type
-     * @param {string} url
-     * @param {!Object=} opt_data
-     * @param {!Object=} opt_params
-     * @param {!Object=} opt_headers
-     * @return {!Promize}
-     */
     _createRequest(type, url, opt_data, opt_params, opt_headers = {}) {
         this.httpRequest.open(type, this._getUrl(url, opt_params), true);
         const urlType = getExtensionName(url);
@@ -214,11 +116,6 @@ export class Xhr {
         this.httpRequest.send(this._createRequestBody(opt_data));
         return this.deferred.promise();
     }
-    /**
-     * @private
-     * @param {!Object=} opt_data
-     * @return {string}
-     */
     _createRequestBody(opt_data) {
         let result = '';
         if (opt_data) {
@@ -233,13 +130,6 @@ export class Xhr {
         }
         return result;
     }
-    /**
-     * @private
-     * @param {*} obj
-     * @param {string} key
-     * @param {string} stringKey
-     * @return {!Array<string>}
-     */
     _parseObject(obj, key, stringKey) {
         stringKey += stringKey ? '[' + key + ']' : key;
         let results = [];
@@ -262,11 +152,6 @@ export class Xhr {
         }
         return results;
     }
-    /**
-     * @private
-     * @param {!Object} obj
-     * @return {string}
-     */
     _stringifyObject(obj) {
         let results = [];
         for (const key in obj) {
@@ -277,10 +162,6 @@ export class Xhr {
         }
         return results.join('&');
     }
-    /**
-     * @private
-     * @return {string}
-     */
     _getFilenameFromHeader() {
         let filename = '';
         try {
@@ -297,11 +178,6 @@ export class Xhr {
         }
         return filename;
     }
-    /**
-     * @private
-     * @param {*} response
-     * @return {!Promize}
-     */
     _handleResponseData(response) {
         const deferred = new Deferred();
         const filename = this._getFilenameFromHeader();
@@ -337,12 +213,6 @@ export class Xhr {
         }
         return deferred.promise();
     }
-    /**
-     * @private
-     * @param {string} urlType
-     * @param {!Object=} opt_headers
-     * @return {undefined}
-     */
     _setRequestHeaders(urlType, opt_headers = {}) {
         eachObject(opt_headers, (value, key) => {
             if (eq(key, 'responseType')) {
@@ -370,47 +240,24 @@ export class Xhr {
             this._setHeader('X-Requested-With', 'XMLHttpRequest');
         }
     }
-    /**
-     * @private
-     * @param {string} urlType
-     * @return {undefined}
-     */
     _setResponseType(urlType) {
         this.httpRequest.responseType = this._getResponseType(urlType);
     }
-    /**
-     * @param {string} name
-     * @param {string} value
-     * @return {undefined}
-     */
     _setHeader(name, value) {
         if (name && value) {
             this.httpRequest.setRequestHeader(name, value);
         }
         this.requestHeaders[name] = value;
     }
-    /**
-     * @param {string} name
-     * @return {string|null}
-     */
     _getHeader(name) {
         return this.requestHeaders[name];
     }
-    /**
-     * @param {string} username
-     * @param {string} password
-     * @return {undefined}
-     */
     setBasicAuthorization(username, password) {
         if (username && password) {
             const hash = [username, password].join(':');
             this.authorization = 'Basic ' + encodeBase64(hash);
         }
     }
-    /**
-     * @param {string} token
-     * @return {undefined}
-     */
     setBearerAuthorization(token) {
         if (token) {
             this.authorization = 'Bearer ' + token;

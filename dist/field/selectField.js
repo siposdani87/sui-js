@@ -7,25 +7,11 @@ import { Objekt } from '../core/objekt';
 import { Query } from '../core/query';
 import { generateId } from '../utils/coder';
 import { mdl } from '../utils/render';
-/**
- * @class
- * @extends {BaseField}
- */
 export class SelectField extends BaseField {
-    /**
-     * @param {!Knot} input
-     * @param {!Knot} label
-     * @param {!Knot} error
-     * @param {!Knot} inputBlock
-     */
     constructor(input, label, error, inputBlock) {
         super(input, label, error, inputBlock);
         this._init();
     }
-    /**
-     * @private
-     * @return {undefined}
-     */
     _init() {
         this.input.addClass('hidden');
         this.inputBlock.addClass('select-field');
@@ -35,16 +21,9 @@ export class SelectField extends BaseField {
         this._initChangeEvent();
         this._initPopup();
     }
-    /**
-     * @return {boolean}
-     */
     isMultiple() {
         return this.input.hasAttribute('multiple');
     }
-    /**
-     * @private
-     * @return {undefined}
-     */
     _initPopup() {
         this.containerKnot = new Knot('div');
         this._drawSearchInput();
@@ -53,20 +32,12 @@ export class SelectField extends BaseField {
         this.containerKnot.appendChild(this.listKnot);
         this.popup = new Popup(this.containerKnot, this.inputBlock);
     }
-    /**
-     * @private
-     * @return {undefined}
-     */
     _initChangeEvent() {
         this.input.addEventListener('change', () => {
             this._change();
             return true;
         });
     }
-    /**
-     * @private
-     * @return {undefined}
-     */
     _initOptions() {
         this.options = new Collection();
         const optionKnots = new Query('option', this.input);
@@ -85,10 +56,6 @@ export class SelectField extends BaseField {
             this.options.push(option);
         });
     }
-    /**
-     * @override
-     * @return {undefined}
-     */
     render() {
         if (this.label && this.label.exists()) {
             this.label.addClass('field-label');
@@ -105,10 +72,6 @@ export class SelectField extends BaseField {
         this.actionContainerKnot.appendChild(this.iconKnot);
         this.refresh();
     }
-    /**
-     * @override
-     * @return {undefined}
-     */
     refresh() {
         const selectContainerKnot = new Query('.select-container', this.inputBlock).getKnot();
         selectContainerKnot.remove();
@@ -132,11 +95,6 @@ export class SelectField extends BaseField {
         const ids = this._getSelectedIds();
         this._setSelectTags(ids);
     }
-    /**
-     * @override
-     * @param {!Object|!Function|!Array|boolean|number|string|null|undefined} value
-     * @return {undefined}
-     */
     setValue(value) {
         this.ids = value;
         if (!isArray(value)) {
@@ -144,10 +102,6 @@ export class SelectField extends BaseField {
         }
         this._setSelectedIds(this.ids);
     }
-    /**
-     * @override
-     * @return {*}
-     */
     getValue() {
         let ids = this._getSelectedIds();
         ids = ids.filter((id) => {
@@ -155,10 +109,6 @@ export class SelectField extends BaseField {
         });
         return this.isMultiple() ? ids : ids[0] || null;
     }
-    /**
-     * @param {string=} opt_attribute
-     * @return {*}
-     */
     getOptionValue(opt_attribute) {
         const value = this.getValue();
         if (value) {
@@ -169,28 +119,14 @@ export class SelectField extends BaseField {
         }
         return value;
     }
-    /**
-     * @return {undefined}
-     */
     showLoader() {
         this.iconKnot.setHtml('refresh');
         this.iconKnot.addClass('rotate');
     }
-    /**
-     * @private
-     * @return {undefined}
-     */
     _hideLoader() {
         this.iconKnot.setHtml('expand_more');
         this.iconKnot.removeClass('rotate');
     }
-    /**
-     * @param {!Array<!Objekt>} items
-     * @param {string=} opt_value
-     * @param {string=} opt_name
-     * @param {string=} opt_image
-     * @return {undefined}
-     */
     setOptions(items, opt_value = 'value', opt_name = 'name', opt_image = '') {
         const optionKnots = new Query('option', this.input);
         optionKnots.each((optionKnot) => {
@@ -216,21 +152,12 @@ export class SelectField extends BaseField {
         this._hideLoader();
         this.setValue(this.ids);
     }
-    /**
-     * @private
-     * @return {undefined}
-     */
     _change() {
         const ids = this._getSelectedIds();
         this._setSelectTags(ids);
         const value = this.getValue();
         this.modelChange(value);
     }
-    /**
-     * @private
-     * @param {!Array} ids
-     * @return {undefined}
-     */
     _setSelectTags(ids) {
         if (this.isRequired() && ids.length === 1 && ids[0] === '') {
             this.inputBlock.addClass('is-invalid');
@@ -242,20 +169,10 @@ export class SelectField extends BaseField {
             this._setSimpleTag(ids[0]);
         }
     }
-    /**
-     * @param {string} id
-     * @return {undefined}
-     * @private
-     */
     _setSimpleTag(id) {
         const option = this.options.findById(id);
         this._setTags(option);
     }
-    /**
-     * @param {!Array<string>} ids
-     * @return {undefined}
-     * @private
-     */
     _setMultipleTag(ids) {
         const options = [];
         eachArray(ids, (id) => {
@@ -275,10 +192,6 @@ export class SelectField extends BaseField {
             this._setTags([]);
         }
     }
-    /**
-     * @private
-     * @param {!Array<Objekt>|Objekt} tags
-     */
     _setTags(tags) {
         if (!isArray(tags)) {
             tags = [tags];
@@ -308,11 +221,6 @@ export class SelectField extends BaseField {
             }
         });
     }
-    /**
-     * @private
-     * @param {!Array} ids
-     * @return {undefined}
-     */
     _setSelectedIds(ids) {
         this.options.each((option) => {
             const id = option.get('id');
@@ -329,10 +237,6 @@ export class SelectField extends BaseField {
         });
         this._change();
     }
-    /**
-     * @private
-     * @return {!Array}
-     */
     _getSelectedIds() {
         const ids = [];
         this.options.each((option) => {
@@ -345,11 +249,6 @@ export class SelectField extends BaseField {
         });
         return ids.length === 0 ? [''] : ids;
     }
-    /**
-     * @param {string} id
-     * @return {undefined}
-     * @private
-     */
     _handleSelectedId(id) {
         let ids = this._getSelectedIds();
         if (this.isMultiple()) {
@@ -378,11 +277,6 @@ export class SelectField extends BaseField {
         this._setSelectedIds(ids);
         this.close();
     }
-    /**
-     * @private
-     * @param {!Array<Objekt>} items
-     * @return {undefined}
-     */
     _drawKnots(items) {
         this.listKnot.removeChildren();
         const ids = this._getSelectedIds();
@@ -409,10 +303,6 @@ export class SelectField extends BaseField {
             listKnot.appendChild(nameKnot);
         });
     }
-    /**
-     * @private
-     * @return {undefined}
-     */
     _drawSearchInput() {
         const searchParentKnot = new Knot('div');
         searchParentKnot.addClass('search-box');
@@ -440,25 +330,14 @@ export class SelectField extends BaseField {
         searchKnot.appendChild(labelKnot);
         mdl(searchKnot);
     }
-    /**
-     * @return {undefined}
-     */
     open() {
         this._search(this.query);
         this.popup.open();
         this.searchInputKnot.getNode().focus();
     }
-    /**
-     * @return {undefined}
-     */
     close() {
         this.popup.close();
     }
-    /**
-     * @private
-     * @param {string} query
-     * @return {undefined}
-     */
     _search(query) {
         this.query = query;
         this.searchInputKnot.getNode().value = query;

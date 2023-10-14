@@ -1,20 +1,9 @@
-import { is, isFunction, noop } from '../utils/operation';
+import { isArray, isFunction, noop } from '../utils/operation';
 import { Objekt } from './objekt';
-/**
- * @class
- */
 export class Promize {
-    /**
-     * @param {!Object=} opt_options
-     */
     constructor(opt_options = {}) {
         this._setOptions(opt_options);
     }
-    /**
-     * @param {!Object=} opt_options
-     * @private
-     * @return {undefined}
-     */
     _setOptions(opt_options = {}) {
         this.options = new Objekt({
             status: null,
@@ -25,14 +14,10 @@ export class Promize {
         });
         this.options.merge(opt_options);
     }
-    /**
-     * @param {*=} opt_data
-     * @return {undefined}
-     */
     resolve(opt_data) {
         let data = [];
-        if (opt_data && !is(opt_data, 'array')) {
-            data = [opt_data];
+        if (opt_data) {
+            data = isArray(opt_data) ? opt_data : [opt_data];
         }
         if (isFunction(this.options.resolve) &&
             isFunction(this.options.complete)) {
@@ -44,14 +29,10 @@ export class Promize {
             this.options.status = true;
         }
     }
-    /**
-     * @param {*=} opt_data
-     * @return {undefined}
-     */
     reject(opt_data) {
         let data = [];
-        if (opt_data && !is(opt_data, 'array')) {
-            data = [opt_data];
+        if (opt_data) {
+            data = isArray(opt_data) ? opt_data : [opt_data];
         }
         if (isFunction(this.options.reject) &&
             isFunction(this.options.complete)) {
@@ -63,12 +44,6 @@ export class Promize {
             this.options.status = false;
         }
     }
-    /**
-     * @param {!Function} resolve
-     * @param {!Function=} opt_reject
-     * @param {!Function=} opt_complete
-     * @return {undefined}
-     */
     then(resolve, opt_reject, opt_complete) {
         const reject = opt_reject || noop();
         const complete = opt_complete || noop();
@@ -89,11 +64,6 @@ export class Promize {
                 });
         }
     }
-    /**
-     * @param {!Deferred} defer
-     * @param {!Function=} opt_complete
-     * @return {undefined}
-     */
     defer(defer, opt_complete) {
         this.then((...args) => {
             defer.resolve(args);

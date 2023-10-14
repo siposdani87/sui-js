@@ -1,9 +1,5 @@
-/**
- */
 export declare let releaseMode: boolean;
 export declare const setReleaseMode: (mode: boolean) => void;
-/**
- */
 export declare const coreResources: {
     app: string;
     config: string;

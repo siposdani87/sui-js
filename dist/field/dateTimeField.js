@@ -3,25 +3,11 @@ import { Popup } from '../component/popup';
 import { DateTime } from '../component/dateTime';
 import { Knot } from '../core/knot';
 import { DateIO } from '../utils';
-/**
- * @class
- * @extends {BaseField}
- */
 export class DateTimeField extends BaseField {
-    /**
-     * @param {!Knot} input
-     * @param {!Knot} label
-     * @param {!Knot} error
-     * @param {!Knot} inputBlock
-     */
     constructor(input, label, error, inputBlock) {
         super(input, label, error, inputBlock);
         this._init();
     }
-    /**
-     * @private
-     * @return {undefined}
-     */
     _init() {
         this.inputBlock.addClass('datetime-field');
         this.input.addClass('hidden');
@@ -34,10 +20,6 @@ export class DateTimeField extends BaseField {
         this.datetimeContainer.appendChild(this.datetimeInput);
         this._initInput();
     }
-    /**
-     * @private
-     * @return {undefined}
-     */
     _initInput() {
         this.format = this.input.getData('format');
         const type = this.input.getAttribute('type');
@@ -65,10 +47,6 @@ export class DateTimeField extends BaseField {
             this._setTag(formattedValue);
         }
     }
-    /**
-     * @override
-     * @return {undefined}
-     */
     render() {
         if (this.label && this.label.exists()) {
             this.label.addClass('field-label');
@@ -82,9 +60,6 @@ export class DateTimeField extends BaseField {
         this.refresh();
         this.datetime.draw();
     }
-    /**
-     * @override
-     */
     refresh() {
         if (this.isDisabled()) {
             this.inputBlock.addClass('is-disabled');
@@ -93,21 +68,11 @@ export class DateTimeField extends BaseField {
             this.inputBlock.removeClass('is-disabled');
         }
     }
-    /**
-     * @override
-     * @param {!Object|!Function|!Array|boolean|number|string|null|undefined} value
-     * @return {undefined}
-     */
     setValue(value) {
         this._setTag(value);
         this.input.setAttribute('value', value);
         this.input.trigger('change');
     }
-    /**
-     * @private
-     * @param {string} value
-     * @return {undefined}
-     */
     _setTag(value) {
         this.datetimeInput.removeChildren();
         if (value) {
@@ -130,10 +95,6 @@ export class DateTimeField extends BaseField {
             }
         }
     }
-    /**
-     * @private
-     * @return {undefined}
-     */
     _onClick() {
         if (this.isEnabled()) {
             this.datetimeInput.addClass('active');

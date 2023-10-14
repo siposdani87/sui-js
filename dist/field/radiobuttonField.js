@@ -3,26 +3,11 @@ import { BaseField } from './baseField';
 import { Knot } from '../core/knot';
 import { Query } from '../core/query';
 import { mdl } from '../utils/render';
-/**
- * @class
- * @extends {BaseField}
- */
 export class RadiobuttonField extends BaseField {
-    /**
-     * @param {!Knot} input
-     * @param {!Knot} label
-     * @param {!Knot} error
-     * @param {!Knot} inputBlock
-     * @param {!Form} form
-     */
     constructor(input, label, error, inputBlock, form) {
         super(input, label, error, inputBlock, form);
         this._init();
     }
-    /**
-     * @private
-     * @return {undefined}
-     */
     _init() {
         this.inputBlock.addClass('radiobutton-field');
         /* this.label.addEventListener('click', () => {
@@ -33,10 +18,6 @@ export class RadiobuttonField extends BaseField {
             return true;
         });
     }
-    /**
-     * @private
-     * @return {undefined}
-     */
     _change() {
         const value = this.input.getAttribute('value');
         this.modelChange(value);
@@ -49,10 +30,6 @@ export class RadiobuttonField extends BaseField {
             inputBlockKnot.removeClass('is-invalid');
         });
     }
-    /**
-     * @override
-     * @return {undefined}
-     */
     render() {
         this.label.addClass([
             'mdl-radio',
@@ -73,9 +50,6 @@ export class RadiobuttonField extends BaseField {
         this.label.insertBefore(this.dataLabelKnot);
         this.refresh();
     }
-    /**
-     * @override
-     */
     refresh() {
         const dataLabelText = this.label.getAttribute('data-label');
         if (dataLabelText) {
@@ -90,21 +64,12 @@ export class RadiobuttonField extends BaseField {
         }
         mdl(this.label, false);
     }
-    /**
-     * @override
-     * @param {!Object|!Function|!Array|boolean|number|string|null|undefined} value
-     * @return {undefined}
-     */
     setValue(value) {
         if (this.input.getAttribute('value') === value) {
             this.input.getNode().checked = true;
             this.input.trigger('change');
         }
     }
-    /**
-     * @override
-     * @return {*}
-     */
     getValue() {
         let value = null;
         this._getRadioButtonInputs().each((radioButtonInput) => {
@@ -115,11 +80,6 @@ export class RadiobuttonField extends BaseField {
         });
         return typeCast(value);
     }
-    /**
-     * @override
-     * @param {boolean} state
-     * @return {undefined}
-     */
     setDisabled(state) {
         this._getRadioButtonInputs().each((radioButtonInput) => {
             if (state) {
@@ -142,10 +102,6 @@ export class RadiobuttonField extends BaseField {
         });
         this.checkValidity(true, false);
     }
-    /**
-     * @override
-     * @return {boolean}
-     */
     isDisabled() {
         let isDisabled = false;
         this._getRadioButtonInputs().each((radioButtonInput) => {
@@ -155,18 +111,10 @@ export class RadiobuttonField extends BaseField {
         });
         return isDisabled;
     }
-    /**
-     * @return {!Query}
-     */
     _getRadioButtonInputs() {
         const name = this.input.getAttribute('name');
         return new Query(format('input[name="{0}"]', [name]), this.form.formKnot);
     }
-    /**
-     * @override
-     * @param {string} text
-     * @return {undefined}
-     */
     setLabel(text) {
         if (this.spanLabel && !this.spanLabel.isEmpty()) {
             this.spanLabel.setHtml(text);

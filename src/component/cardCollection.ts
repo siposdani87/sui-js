@@ -8,9 +8,6 @@ import { Pager } from './pager';
 import { consoleDebug, consoleWarn } from '../utils/log';
 import { mdl } from '../utils/render';
 
-/**
- * @class
- */
 export class CardCollection {
     cardCollectionKnot: Knot;
     ctrl: any;
@@ -24,12 +21,7 @@ export class CardCollection {
     pagerKnot: Knot;
     cardTemplate: Knot<HTMLTemplateElement>;
     template: string;
-    /**
-     * @param {!Knot} dom
-     * @param {string=} opt_selector
-     * @param {?Object=} opt_ctrl
-     * @param {!Object=} opt_options
-     */
+
     constructor(
         dom: Knot,
         opt_selector: string | undefined = '.card-collection',
@@ -41,11 +33,7 @@ export class CardCollection {
         this._setOptions(opt_options);
         this._init();
     }
-    /**
-     * @private
-     * @param {!Object=} opt_options
-     * @return {undefined}
-     */
+
     private _setOptions(opt_options: Object | undefined = {}): void {
         this.options = new Objekt({
             no_content: {
@@ -61,10 +49,7 @@ export class CardCollection {
         });
         this.options.merge(opt_options);
     }
-    /**
-     * @private
-     * @return {undefined}
-     */
+
     private _init(): void {
         this.collection = new Collection();
         this.query = '';
@@ -80,20 +65,14 @@ export class CardCollection {
             this.refresh(page);
         };
     }
-    /**
-     * @private
-     * @return {undefined}
-     */
+
     private _initContentHandler(): void {
         this.contentHandler = new ContentHandler(
             this.cardCollectionKnot,
             this.options.no_content,
         );
     }
-    /**
-     * @private
-     * @return {undefined}
-     */
+
     private _initStructure(): void {
         this.cardCollectionKnot.addClass('card-collection');
 
@@ -113,10 +92,7 @@ export class CardCollection {
         this.pagerKnot.addClass('pager');
         this.cardFooterKnot.appendChild(this.pagerKnot);
     }
-    /**
-     * @private
-     * @return {undefined}
-     */
+
     private _initTemplate(): void {
         this.cardTemplate = new Query<HTMLTemplateElement>(
             'template',
@@ -125,11 +101,7 @@ export class CardCollection {
         this.cardTemplate.remove();
         this.template = this.cardTemplate.toString(false);
     }
-    /**
-     * @private
-     * @param {!Objekt} item
-     * @return {!Knot}
-     */
+
     private _getCardKnot(item: Objekt): Knot {
         const regex = new RegExp('{{[a-zA-Z._,() ]*}}', 'g');
         const matches = this.template.match(regex);
@@ -167,10 +139,7 @@ export class CardCollection {
         });
         return new Knot(cloneTemplate);
     }
-    /**
-     * @param {number=} opt_page
-     * @return {undefined}
-     */
+
     refresh(opt_page: number | undefined = -1): void {
         if (opt_page > -1) {
             this.pager.setPage(opt_page);
@@ -184,36 +153,22 @@ export class CardCollection {
         });
         this.eventAction(params);
     }
-    /**
-     * @param {!Objekt} params
-     * @return {undefined}
-     */
+
     eventAction(params: Objekt): void {
         consoleDebug('CardCollection.eventAction()', params);
     }
-    /**
-     * @param {!Knot} cardKnot
-     * @param {!Objekt} item
-     * @return {undefined}
-     */
+
     eventCardKnot(cardKnot: Knot, item: Objekt): void {
         consoleDebug('CardCollection.eventCardKnot()', cardKnot, item);
     }
-    /**
-     * @private
-     * @param {!Objekt} item
-     * @return {undefined}
-     */
+
     private _addCard(item: Objekt): void {
         const cardKnot = this._getCardKnot(item);
         this.body.appendChild(cardKnot);
         this.eventCardKnot(cardKnot, item);
         mdl(cardKnot);
     }
-    /**
-     * @param {!Array} items
-     * @return {undefined}
-     */
+
     setData(items: Array<any>): void {
         this.collection.reload(items);
         if (this.collection.size() === 0) {
@@ -223,18 +178,12 @@ export class CardCollection {
             this._draw();
         }
     }
-    /**
-     * @param {number} count
-     * @return {undefined}
-     */
+
     setCount(count: number): void {
         this.pager.setCount(count);
         this.pager.draw();
     }
-    /**
-     * @private
-     * @return {!Array}
-     */
+
     private _getItems(): Array<any> {
         let items = this.collection.getItems();
         if (this.collection.size() > this.options.row_count) {
@@ -245,10 +194,7 @@ export class CardCollection {
         }
         return items;
     }
-    /**
-     * @private
-     * @return {undefined}
-     */
+
     private _draw(): void {
         this.body.removeChildren();
         eachArray(this._getItems(), (item) => {
@@ -256,9 +202,7 @@ export class CardCollection {
         });
         mdl(this.body);
     }
-    /**
-     * @return {undefined}
-     */
+
     render(): void {
         this.refresh();
     }

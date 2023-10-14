@@ -10,25 +10,12 @@ import { Tooltip } from './tooltip';
 import { consoleDebug } from '../utils/log';
 import { generateId } from '../utils/coder';
 import { mdl } from '../utils/render';
-/**
- * @class
- */
 export class Table {
-    /**
-     * @param {!Knot} dom
-     * @param {string=} opt_selector
-     * @param {!Object=} opt_options
-     */
     constructor(dom, opt_selector = 'table', opt_options = {}) {
         this.tableKnot = new Query(opt_selector, dom).getKnot();
         this._setOptions(opt_options);
         this._init();
     }
-    /**
-     * @private
-     * @param {!Object=} opt_options
-     * @return {undefined}
-     */
     _setOptions(opt_options = {}) {
         this.options = new Objekt({
             no_content: {
@@ -49,10 +36,6 @@ export class Table {
         });
         this.options.merge(opt_options);
     }
-    /**
-     * @private
-     * @return {undefined}
-     */
     _init() {
         this.collection = new Collection();
         this.query = '';
@@ -68,17 +51,9 @@ export class Table {
             // TODO: reinit other components of table
         }
     }
-    /**
-     * @private
-     * @return {undefined}
-     */
     _initContentHandler() {
         this.contentHandler = new ContentHandler(this.tableKnot, this.options.no_content);
     }
-    /**
-     * @private
-     * @return {undefined}
-     */
     _initSearch() {
         if (this.options.columns[this.options.columns.length - 1] === 'search') {
             const searchKnot = new Knot('div');
@@ -123,10 +98,6 @@ export class Table {
             mdl(searchKnot);
         }
     }
-    /**
-     * @private
-     * @return {undefined}
-     */
     _initHeader() {
         this.headerTexts = [];
         this.headerKnots = new Query('thead th', this.tableKnot);
@@ -136,12 +107,6 @@ export class Table {
             this._renderHeader(headerKnot, columnIndex);
         });
     }
-    /**
-     * @private
-     * @param {!Knot} headerKnot
-     * @param {number} columnIndex
-     * @return {undefined}
-     */
     _renderHeader(headerKnot, columnIndex) {
         const column = this.options.columns[columnIndex];
         if (inArray(['search', 'actions'], column)) {
@@ -185,10 +150,6 @@ export class Table {
             tooltip.render();
         }
     }
-    /**
-     * @private
-     * @return {undefined}
-     */
     _initStructure() {
         this.tbody = new Knot('tbody');
         this.tableKnot.appendChild(this.tbody);
@@ -208,10 +169,6 @@ export class Table {
             this.refresh(page);
         };
     }
-    /**
-     * @param {number=} opt_page
-     * @return {undefined}
-     */
     refresh(opt_page = -1) {
         if (opt_page > -1) {
             this.pager.setPage(opt_page);
@@ -225,18 +182,9 @@ export class Table {
         });
         this.eventAction(params);
     }
-    /**
-     * @param {!Objekt} params
-     * @return {undefined}
-     */
     eventAction(params) {
         consoleDebug('Table.eventAction()', params);
     }
-    /**
-     * @private
-     * @param {string} columnWithOrder
-     * @return {undefined}
-     */
     _toggleSorting(columnWithOrder) {
         const [column, direction] = columnWithOrder.split(':', 2);
         let order = direction || 'desc';
@@ -246,12 +194,6 @@ export class Table {
         }
         this._setSorting(column, order);
     }
-    /**
-     * @private
-     * @param {!Knot} head
-     * @param {number} i
-     * @return {undefined}
-     */
     _handleSortingColumn(head, i) {
         const column = this.options.columns[i];
         if ((eq(this.options.sort.column, null) && eq(i, 0)) ||
@@ -262,10 +204,6 @@ export class Table {
             }
         }
     }
-    /**
-     * @private
-     * @return {undefined}
-     */
     _updateSorting() {
         this._resetSorting();
         this.headerKnots.each((head, i) => {
@@ -273,40 +211,20 @@ export class Table {
         });
         this.refresh();
     }
-    /**
-     * @private
-     * @param {string} column
-     * @param {string=} opt_order
-     * @return {undefined}
-     */
     _setSorting(column, opt_order = 'asc') {
         this.options.sort.column = column;
         this.options.sort.order = opt_order;
         this._updateSorting();
     }
-    /**
-     * @private
-     * @return {undefined}
-     */
     _resetSorting() {
         const icons = new Query('thead th .icons em', this.tableKnot);
         icons.each((icon) => {
             icon.removeClass('active');
         });
     }
-    /**
-     * @private
-     * @return {string}
-     */
     _getColumn() {
         return this.options.column || this.options.columns[0];
     }
-    /**
-     * @private
-     * @param {!T} item
-     * @param {number} rowIndex
-     * @return {undefined}
-     */
     _addHeaderRow(item, rowIndex) {
         const headerRow = new Knot('tr');
         headerRow.addEventListener('click', (knot) => {
@@ -325,12 +243,6 @@ export class Table {
         headerRow.appendChild(headerActionCell);
         this._renderActions(headerActionCell, item);
     }
-    /**
-     * @private
-     * @param {!T} item
-     * @param {number} rowIndex
-     * @return {!Array<string>}
-     */
     _getRowStyle(item, rowIndex) {
         let results = [];
         if (this.options.rowStyle && isFunction(this.options.rowStyle)) {
@@ -344,12 +256,6 @@ export class Table {
         }
         return results;
     }
-    /**
-     * @private
-     * @param {!T} item
-     * @param {number} rowIndex
-     * @return {undefined}
-     */
     _addRow(item, rowIndex) {
         const tableRow = new Knot('tr');
         const cssClasses = this._getRowStyle(item, rowIndex);
@@ -361,21 +267,9 @@ export class Table {
             this._renderDataKnot(tableDataKnot, item, rowIndex, column, columnIndex);
         });
     }
-    /**
-     * @param {!Array<Action>} actions
-     * @return {undefined}
-     */
     setActions(actions) {
         this.actions = actions;
     }
-    /**
-     * @private
-     * @param {!T} item
-     * @param {number} rowIndex
-     * @param {string} column
-     * @param {!Knot} parentKnot
-     * @return {undefined}
-     */
     _renderDataKnotByKnot(item, rowIndex, column, parentKnot) {
         let result = '';
         const calculation = this.options.calculations[column];
@@ -405,15 +299,6 @@ export class Table {
             }
         });
     }
-    /**
-     * @private
-     * @param {!Knot} tableDataKnot
-     * @param {!Objekt} item
-     * @param {number} rowIndex
-     * @param {string} column
-     * @param {number} columnIndex
-     * @return {undefined}
-     */
     _renderDataKnot(tableDataKnot, item, rowIndex, column, columnIndex) {
         if (inArray(['search', 'actions'], column)) {
             this._renderActions(tableDataKnot, item);
@@ -428,12 +313,6 @@ export class Table {
             this._renderDataKnotByKnot(item, rowIndex, column, tableDataKnot);
         }
     }
-    /**
-     * @private
-     * @param {!Knot} tableDataKnot
-     * @param {!T} item
-     * @return {undefined}
-     */
     _renderActions(tableDataKnot, item) {
         const containerKnot = new Knot('div');
         tableDataKnot.addClass('actions');
@@ -446,34 +325,15 @@ export class Table {
             this._renderActionKnots(containerKnot, item);
         }
     }
-    /**
-     * @private
-     * @param {!Knot} containerKnot
-     * @param {!T} item
-     * @return {undefined}
-     */
     _renderActionKnots(containerKnot, item) {
         eachArray(this.actions, (action) => {
             this._createActionButton(containerKnot, action, item);
         });
     }
-    /**
-     * @private
-     * @param {!Knot} dropDownKnot
-     * @param {!T} item
-     * @return {undefined}
-     */
     _renderDropDownKnot(dropDownKnot, item) {
         const dropDown = new Dropdown(dropDownKnot);
         dropDown.setActions(this.actions, item);
     }
-    /**
-     * @private
-     * @param {!Knot} containerKnot
-     * @param {{style: !Function, click: !Function}} action
-     * @param {!T} item
-     * @return {undefined}
-     */
     _createActionButton(containerKnot, action, item) {
         const [icon, title, disabled, removed] = action.style(item);
         if (!removed) {
@@ -503,10 +363,6 @@ export class Table {
             buttonKnot.appendChild(iconKnot);
         }
     }
-    /**
-     * @param {!Array} items
-     * @return {undefined}
-     */
     setData(items) {
         this.collection.reload(items);
         if (this.collection.size() === 0) {
@@ -517,18 +373,10 @@ export class Table {
             this._draw();
         }
     }
-    /**
-     * @param {number} count
-     * @return {undefined}
-     */
     setCount(count) {
         this.pager.setCount(count);
         this.pager.draw();
     }
-    /**
-     * @private
-     * @return {!Array<T>}
-     */
     _getItems() {
         let items = this.collection.getItems();
         if (this.collection.size() > this.options.row_count) {
@@ -536,10 +384,6 @@ export class Table {
         }
         return items;
     }
-    /**
-     * @private
-     * @return {undefined}
-     */
     _draw() {
         this.tbody.removeChildren();
         eachArray(this._getItems(), (item, rowIndex) => {
@@ -548,9 +392,6 @@ export class Table {
         });
         mdl(this.tbody);
     }
-    /**
-     * @return {undefined}
-     */
     render() {
         if (!this.tableKnot.isEmpty()) {
             this._updateSorting();

@@ -2,33 +2,16 @@ import { Objekt } from '../core';
 import { Knot } from '../core/knot';
 import { DateIO } from '../utils';
 import { consoleDebug } from '../utils/log';
-/**
- * @class
- */
 export class Year {
-    /**
-     * @param {!Date} date
-     * @param {!Date} currentDate
-     * @param {!Object} options
-     */
     constructor(date, currentDate, options) {
         this.date = date;
         this.currentDate = currentDate;
         this._setOptions(options);
         this._init();
     }
-    /**
-     * @private
-     * @param {!Object} options
-     * @return {undefined}
-     */
     _setOptions(options) {
         this.options = new Objekt(options);
     }
-    /**
-     * @private
-     * @return {undefined}
-     */
     _init() {
         const current = DateIO.format(this.date, 'YYYY') ===
             DateIO.format(this.currentDate, 'YYYY')
@@ -40,9 +23,6 @@ export class Year {
             : null;
         this.cssClasses = ['year', this.options.css_class, now, current];
     }
-    /**
-     * @return {!Knot}
-     */
     getKnot() {
         const knot = new Knot('span');
         knot.addClass(this.cssClasses);
@@ -53,9 +33,6 @@ export class Year {
         });
         return knot;
     }
-    /**
-     * @param {!Date} date
-     */
     eventClick(date) {
         consoleDebug('Year.eventClick()', date);
     }

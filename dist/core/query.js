@@ -1,16 +1,7 @@
 import { instanceOf, isFunction } from '../utils/operation';
 import { Collection } from './collection';
 import { Knot } from './knot';
-/**
- * @class
- * @extends {Collection}
- * @template T
- */
 export class Query extends Collection {
-    /**
-     * @param {string} selector
-     * @param {!HTMLElement|!Knot=} opt_element
-     */
     constructor(selector, opt_element) {
         let element = opt_element || document;
         if (instanceOf(element, Knot)) {
@@ -21,9 +12,6 @@ export class Query extends Collection {
             parent: null,
         });
     }
-    /**
-     * @return {!Knot}
-     */
     getKnot() {
         let firstKnot = this.get(0);
         if (!firstKnot) {
@@ -31,18 +19,10 @@ export class Query extends Collection {
         }
         return firstKnot;
     }
-    /**
-     * @return {Array<!Knot>}
-     */
     getKnots() {
         return this.getItems();
     }
 }
-/**
- * @param {string} selector
- * @param {!HTMLElement} element
- * @return {!Array}
- */
 const querySelector = (selector, element) => {
     let nodeList = [];
     if (selector.indexOf(' ') !== -1 ||
