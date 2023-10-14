@@ -1,39 +1,19 @@
 import { Objekt } from '../core';
 import { Knot } from '../core/knot';
 import { consoleDebug } from '../utils/log';
-/**
- * @class
- */
 export class Time {
-    /**
-     * @param {!Knot} knot
-     * @param {!Object} options
-     */
     constructor(knot, options) {
         this.timeKnot = knot;
         this._setOptions(options);
         this._init();
     }
-    /**
-     * @private
-     * @param {!Object} options
-     * @return {undefined}
-     */
     _setOptions(options) {
         this.options = new Objekt(options);
     }
-    /**
-     * @private
-     * @return {undefined}
-     */
     _init() {
         this._initCircleKnot();
         this._initPointerKnot();
     }
-    /**
-     * @private
-     * @return {undefined}
-     */
     _initCircleKnot() {
         const circleKnot = new Knot('div');
         circleKnot.addClass('circle');
@@ -44,12 +24,6 @@ export class Time {
         this.timeKnot.removeChild(circleKnot);
         this._initSize(width, height);
     }
-    /**
-     * @private
-     * @param {number} width
-     * @param {number} height
-     * @return {undefined}
-     */
     _initSize(width, height) {
         const timeKnotStyle = window.getComputedStyle(this.timeKnot.getNode());
         this.options.width =
@@ -59,10 +33,6 @@ export class Time {
         this.options.radius_x = this.options.width / 2;
         this.options.radius_y = this.options.height / 2;
     }
-    /**
-     * @private
-     * @return {undefined}
-     */
     _initPointerKnot() {
         const centerPointKnot = new Knot('div');
         centerPointKnot.addClass('center-point');
@@ -71,24 +41,9 @@ export class Time {
         this.pointerKnot.addClass('pointer');
         this.timeKnot.appendChild(this.pointerKnot);
     }
-    /**
-     * @param {number} start
-     * @param {number} n
-     * @param {number=} opt_j
-     * @param {boolean=} opt_isClockWise
-     * @return {undefined}
-     */
     draw(start, n, opt_j = 1, opt_isClockWise = true) {
         this._drawCircles(start, n, opt_j, opt_isClockWise);
     }
-    /**
-     * @private
-     * @param {number} start
-     * @param {number} n
-     * @param {number=} opt_j
-     * @param {boolean=} opt_isClockWise
-     * @return {undefined}
-     */
     _drawCircles(start, n, opt_j = 1, opt_isClockWise = true) {
         let k = 0;
         for (let i = start; i <= n; i++) {
@@ -105,12 +60,6 @@ export class Time {
             this._setCircleEvent(circle, i);
         }
     }
-    /**
-     * @private
-     * @param {!Knot} circle
-     * @param {number} i
-     * @return {undefined}
-     */
     _setCircleEvent(circle, i) {
         circle.setData('index', i);
         circle.addEventListener('click', (circle) => {
@@ -118,16 +67,6 @@ export class Time {
             this.eventClick(index);
         });
     }
-    /**
-     * @private
-     * @param {!Knot} circle
-     * @param {number} start
-     * @param {number} n
-     * @param {number} i
-     * @param {number=} opt_j
-     * @param {boolean=} opt_isClockWise
-     * @return {undefined}
-     */
     _setCircleStyle(circle, start, n, i, opt_j = 1, opt_isClockWise = true) {
         const index = opt_j / 2 > i % opt_j ? i % opt_j : opt_j - (i % opt_j);
         const selected = this.options.selected === i ? 'selected' : null;
@@ -154,9 +93,6 @@ export class Time {
             });
         }
     }
-    /**
-     * @param {number} index
-     */
     eventClick(index) {
         consoleDebug('Time.eventClick()', index);
     }

@@ -1,5 +1,2 @@
-/**
- * @class
- */
 export class TreeView {
 }

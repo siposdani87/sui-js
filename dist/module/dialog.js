@@ -3,15 +3,7 @@ import { Objekt } from '../core/objekt';
 import { Query } from '../core/query';
 import { BaseModal } from './baseModal';
 import { mdl } from '../utils/render';
-/**
- * @class
- * @extends {BaseModal}
- */
 export class Dialog extends BaseModal {
-    /**
-     * @param {!Http} http
-     * @param {!Object=} opt_options
-     */
     constructor(http, opt_options = {}) {
         super();
         this.http = http;
@@ -19,21 +11,12 @@ export class Dialog extends BaseModal {
         this._init();
         this._initBase();
     }
-    /**
-     * @param {!Object=} opt_options
-     * @private
-     * @return {undefined}
-     */
     _setOptions(opt_options = {}) {
         this.options = new Objekt({
             id: '#dialog',
         });
         this.options.merge(opt_options);
     }
-    /**
-     * @private
-     * @return {undefined}
-     */
     _init() {
         this.body = new Query('body').getKnot();
         this.modal = new Query(this.options.id, this.body).getKnot();
@@ -43,10 +26,6 @@ export class Dialog extends BaseModal {
         this.modalBody = new Query('.modal-body', this.modal).getKnot();
         this.modalFooter = new Query('.modal-footer', this.modal).getKnot();
     }
-    /**
-     * @param {string} url
-     * @return {!Promize}
-     */
     loadTemplate(url) {
         this._reset();
         const deferred = new Deferred();
@@ -60,10 +39,6 @@ export class Dialog extends BaseModal {
         });
         return deferred.promise();
     }
-    /**
-     * @param {!Knot} dom
-     * @return {!Knot}
-     */
     _handleMessage(dom) {
         const messageKnot = new Query('.message', dom).getKnot();
         const title = new Query('title', dom).getKnot();
@@ -72,10 +47,6 @@ export class Dialog extends BaseModal {
         mdl(messageKnot);
         return messageKnot;
     }
-    /**
-     * @param {!Knot} dom
-     * @return {!Knot}
-     */
     _handleDom(dom) {
         const titleKnot = new Query('#title', dom).getKnot();
         if (!titleKnot.isEmpty()) {
@@ -87,10 +58,6 @@ export class Dialog extends BaseModal {
         this._handleActions(dom);
         return contentKnot;
     }
-    /**
-     * @param {!Knot} dom
-     * @return {undefined}
-     */
     _handleActions(dom) {
         this.modalFooter.removeClass('hidden');
         const actionKnot = new Query('#action', dom).getKnot();

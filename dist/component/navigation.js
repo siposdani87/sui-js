@@ -3,40 +3,20 @@ import { Collection } from '../core/collection';
 import { Knot } from '../core/knot';
 import { Objekt } from '../core/objekt';
 import { Query } from '../core/query';
-/**
- * @class
- */
 export class Navigation {
-    /**
-     * @param {!Http=} opt_http
-     * @param {!Object=} opt_options
-     */
     constructor(opt_http, opt_options = {}) {
         this.http = opt_http;
         this._setOptions(opt_options);
         this._init();
     }
-    /**
-     * @private
-     * @param {!Object=} opt_options
-     * @return {undefined}
-     */
     _setOptions(opt_options = {}) {
         this.options = new Objekt();
         this.options.merge(opt_options);
     }
-    /**
-     * @private
-     * @return {undefined}
-     */
     _init() {
         this.container = new Collection();
         this.linkKnotKey = 'node';
     }
-    /**
-     * @param {!Objekt} item
-     * @return {undefined}
-     */
     add(item) {
         const id = item.get('id');
         const image = item.get('image');
@@ -62,15 +42,6 @@ export class Navigation {
             this.setDisabled(id);
         }
     }
-    /**
-     * @param {string} id
-     * @param {string} counter
-     * @param {?string} title
-     * @param {!Function} action
-     * @param {string=} opt_href
-     * @param {!Object=} opt_data
-     * @return {undefined}
-     */
     addCounter(id, counter, title, action, opt_href = '', opt_data = {}) {
         const item = this._setKnot(id, title, action, opt_href, opt_data);
         const counterSpan = new Knot('span');
@@ -79,15 +50,6 @@ export class Navigation {
         const linkKnot = item.get(this.linkKnotKey);
         linkKnot.beforeChild(counterSpan);
     }
-    /**
-     * @param {string} id
-     * @param {string} icon
-     * @param {?string} title
-     * @param {!Function} action
-     * @param {string=} opt_href
-     * @param {!Object=} opt_data
-     * @return {undefined}
-     */
     addIcon(id, icon, title, action, opt_href = '', opt_data = {}) {
         const item = this._setKnot(id, title, action, opt_href, opt_data);
         const iconKnot = new Knot('em');
@@ -99,15 +61,6 @@ export class Navigation {
         const linkKnot = item.get(this.linkKnotKey);
         linkKnot.beforeChild(imageSpan);
     }
-    /**
-     * @param {string} id
-     * @param {string} image
-     * @param {?string} title
-     * @param {!Function} action
-     * @param {string=} opt_href
-     * @param {!Object=} opt_data
-     * @return {undefined}
-     */
     addImage(id, image, title, action, opt_href = '', opt_data = {}) {
         const item = this._setKnot(id, title, action, opt_href, opt_data);
         const imageSpan = new Knot('span');
@@ -134,26 +87,9 @@ export class Navigation {
         const linkKnot = item.get(this.linkKnotKey);
         linkKnot.beforeChild(imageSpan);
     }
-    /**
-     * @param {string} id
-     * @param {string} title
-     * @param {!Function} action
-     * @param {string=} opt_href
-     * @param {!Object=} opt_data
-     * @return {undefined}
-     */
     addText(id, title, action, opt_href = '', opt_data = {}) {
         this._setKnot(id, title, action, opt_href, opt_data);
     }
-    /**
-     * @private
-     * @param {string} id
-     * @param {?string} title
-     * @param {!Function} action
-     * @param {string=} opt_href
-     * @param {!Object=} opt_data
-     * @return {!Objekt}
-     */
     _setKnot(id, title, action, opt_href = '', opt_data = {}) {
         const linkKnot = new Knot('a');
         if (title) {
@@ -179,19 +115,11 @@ export class Navigation {
         this.container.push(item);
         return item;
     }
-    /**
-     * @param {!Function} next
-     * @return {undefined}
-     */
     each(next) {
         this.container.each((item) => {
             next(item);
         });
     }
-    /**
-     * @param {!Knot} containerKnot
-     * @return {undefined}
-     */
     bindToContainer(containerKnot) {
         containerKnot.removeChildren();
         this.each((item) => {
@@ -199,42 +127,24 @@ export class Navigation {
             containerKnot.appendChild(linkKnot);
         });
     }
-    /**
-     * @param {string} id
-     * @return {undefined}
-     */
     setDisabled(id) {
         const item = this.container.findById(id);
         if (item) {
             this._disabled(item);
         }
     }
-    /**
-     * @private
-     * @param {!Objekt} item
-     * @return {undefined}
-     */
     _disabled(item) {
         const linkKnot = item.get(this.linkKnotKey);
         linkKnot.addClass('disabled');
         linkKnot.removeEventListener('click', item.get('listener'));
         linkKnot.setAttribute('href', 'javascript:void(0)');
     }
-    /**
-     * @param {string} id
-     * @return {undefined}
-     */
     setEnabled(id) {
         const item = this.container.findById(id);
         if (item) {
             this._enabled(item);
         }
     }
-    /**
-     * @private
-     * @param {!Objekt} item
-     * @return {undefined}
-     */
     _enabled(item) {
         this._disabled(item);
         const linkKnot = item.get(this.linkKnotKey);
@@ -247,10 +157,6 @@ export class Navigation {
         });
         item.set('listener', listener);
     }
-    /**
-     * @param {string} id
-     * @return {undefined}
-     */
     setActive(id) {
         this.each((item) => {
             const linkKnot = item.get(this.linkKnotKey);
@@ -262,19 +168,12 @@ export class Navigation {
             }
         });
     }
-    /**
-     * @return {undefined}
-     */
     setAllInactive() {
         this.each((item) => {
             const linkKnot = item.get(this.linkKnotKey);
             linkKnot.removeClass('active');
         });
     }
-    /**
-     * @param {string} id
-     * @return {undefined}
-     */
     show(id) {
         const item = this.container.findById(id);
         if (item) {
@@ -283,10 +182,6 @@ export class Navigation {
             this._enabled(item);
         }
     }
-    /**
-     * @param {string} id
-     * @return {undefined}
-     */
     hide(id) {
         const item = this.container.findById(id);
         if (item) {

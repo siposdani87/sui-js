@@ -6,9 +6,6 @@ import { Day } from './day';
 import { Month } from './month';
 import { Year } from './year';
 
-/**
- * @class
- */
 export class Calendar {
     calendarKnot: Knot;
     options: Objekt;
@@ -36,27 +33,17 @@ export class Calendar {
     next: { day: Date; month: Date; year: Date };
     days: Day[];
     selectedDate: Date;
-    /**
-     * @param {!Knot} knot
-     * @param {!Object} options
-     */
+
     constructor(knot: Knot, options: Object) {
         this.calendarKnot = knot;
         this._setOptions(options);
         this._init();
     }
-    /**
-     * @private
-     * @param {!Object} options
-     * @return {undefined}
-     */
+
     private _setOptions(options: Object): void {
         this.options = new Objekt(options);
     }
-    /**
-     * @private
-     * @return {undefined}
-     */
+
     private _init(): void {
         this.maxDays = 7 * 6;
         this.maxMonths = 12;
@@ -73,10 +60,7 @@ export class Calendar {
 
         this._initStructure();
     }
-    /**
-     * @private
-     * @return {undefined}
-     */
+
     private _initStructure(): void {
         this._initHeaderKnot();
         this._initContentKnot();
@@ -86,10 +70,7 @@ export class Calendar {
         this._setSelectedDate(date);
         this._setDate(date);
     }
-    /**
-     * @private
-     * @return {undefined}
-     */
+
     private _initHeaderKnot(): void {
         this.headerKnot = new Knot('div');
         this.headerKnot.addClass('header');
@@ -133,29 +114,18 @@ export class Calendar {
         nextButton.addEventListener('click', this._next.bind(this));
         this.headerKnot.appendChild(nextButton);
     }
-    /**
-     * @private
-     * @return {undefined}
-     */
+
     private _initContentKnot(): void {
         this.contentKnot = new Knot('div');
         this.contentKnot.addClass('content');
         this.calendarKnot.appendChild(this.contentKnot);
     }
-    /**
-     * @private
-     * @param {number} direction
-     * @return {undefined}
-     */
+
     private _changeMode(direction: number): void {
         const mode = this._getMode(direction);
         this._initMode(mode);
     }
-    /**
-     * @private
-     * @param {number} direction
-     * @return {string}
-     */
+
     private _getMode(direction: number): string {
         let position = this.modes.indexOf(this.activeMode);
         if (position !== -1) {
@@ -164,13 +134,7 @@ export class Calendar {
         const mode = this.modes[position];
         return mode ? mode : this.types[this.options.type];
     }
-    /**
-     * @private
-     * @param {!Function} dayFun
-     * @param {!Function} monthFun
-     * @param {!Function} yearFun
-     * @return {!Object}
-     */
+
     private _switchMode(
         dayFun: Function,
         monthFun: Function,
@@ -192,11 +156,7 @@ export class Calendar {
         }
         return result;
     }
-    /**
-     * @private
-     * @param {string} mode
-     * @return {undefined}
-     */
+
     private _initMode(mode: string): void {
         this.contentKnot.removeChildren();
         this.activeMode = mode;
@@ -206,28 +166,19 @@ export class Calendar {
             this._initYearsMode.bind(this),
         );
     }
-    /**
-     * @private
-     * @return {undefined}
-     */
+
     private _initYearsMode(): void {
         this.yearsKnot = new Knot('div');
         this.yearsKnot.addClass('years');
         this.contentKnot.appendChild(this.yearsKnot);
     }
-    /**
-     * @private
-     * @return {undefined}
-     */
+
     private _initMonthsMode(): void {
         this.monthsKnot = new Knot('div');
         this.monthsKnot.addClass('months');
         this.contentKnot.appendChild(this.monthsKnot);
     }
-    /**
-     * @private
-     * @return {undefined}
-     */
+
     private _initDaysMode(): void {
         this.weekDaysKnot = new Knot('div');
         this.weekDaysKnot.addClass('week-days');
@@ -237,10 +188,7 @@ export class Calendar {
         this.daysKnot.addClass('days');
         this.contentKnot.appendChild(this.daysKnot);
     }
-    /**
-     * @private
-     * @return {undefined}
-     */
+
     private _previous(): void {
         const date = this._switchMode(
             () => {
@@ -260,10 +208,7 @@ export class Calendar {
         this._setDate(date);
         this.draw();
     }
-    /**
-     * @private
-     * @return {undefined}
-     */
+
     private _next(): void {
         const date = this._switchMode(
             () => {
@@ -279,11 +224,7 @@ export class Calendar {
         this._setDate(date);
         this.draw();
     }
-    /**
-     * @private
-     * @param {!Date} date
-     * @return {undefined}
-     */
+
     private _setDate(date: Date): void {
         this._setVariables(date);
 
@@ -291,11 +232,7 @@ export class Calendar {
         this._setCurrentMonth();
         this._setNextMonth();
     }
-    /**
-     * @private
-     * @param {!Date} date
-     * @return {undefined}
-     */
+
     private _setVariables(date: Date): void {
         this.days = [];
 
@@ -315,9 +252,7 @@ export class Calendar {
             year: DateIO.addYears(date, 1),
         };
     }
-    /**
-     * @return {undefined}
-     */
+
     draw(): void {
         this._switchMode(
             this._drawDaysStructure.bind(this),
@@ -325,45 +260,29 @@ export class Calendar {
             this._drawYearsStructure.bind(this),
         );
     }
-    /**
-     * @private
-     * @return {undefined}
-     */
+
     private _drawDaysStructure(): void {
         this._drawHeader('YYYY MMMM');
         this._drawWeekDays();
         this._drawDays();
     }
-    /**
-     * @private
-     * @return {undefined}
-     */
+
     private _drawMonthsStructure(): void {
         this._drawHeader('YYYY');
         this._drawMonths();
     }
-    /**
-     * @private
-     * @return {undefined}
-     */
+
     private _drawYearsStructure(): void {
         this._drawHeader(null);
         this._drawYears();
     }
-    /**
-     * @private
-     * @param {string|null} format
-     * @return {undefined}
-     */
+
     private _drawHeader(format: string | null): void {
         this.currentModeKnot.removeChildren();
         const text = format ? DateIO.format(this.current.day, format) : '';
         this.currentModeKnot.setHtml(text);
     }
-    /**
-     * @private
-     * @return {undefined}
-     */
+
     private _drawMonths(): void {
         this.monthsKnot.removeChildren();
         for (let i = 0; i < this.maxMonths; i++) {
@@ -377,10 +296,7 @@ export class Calendar {
             this.monthsKnot.appendChild(monthKnot);
         }
     }
-    /**
-     * @private
-     * @return {undefined}
-     */
+
     private _drawYears(): void {
         this.yearsKnot.removeChildren();
         const startYear =
@@ -397,10 +313,7 @@ export class Calendar {
             this.yearsKnot.appendChild(yearKnot);
         }
     }
-    /**
-     * @private
-     * @return {undefined}
-     */
+
     private _drawWeekDays(): void {
         this.weekDaysKnot.removeChildren();
 
@@ -414,10 +327,7 @@ export class Calendar {
             this.weekDaysKnot.appendChild(knot);
         }
     }
-    /**
-     * @private
-     * @return {undefined}
-     */
+
     private _drawDays(): void {
         this.daysKnot.removeChildren();
         for (let i = 0; i < this.days.length; i++) {
@@ -426,10 +336,7 @@ export class Calendar {
             this.daysKnot.appendChild(dayKnot);
         }
     }
-    /**
-     * @private
-     * @return {undefined}
-     */
+
     private _setPreviousMonth(): void {
         const diffDays = DateIO.getDay(DateIO.endOfMonth(this.previous.month));
         const daysInMonth = DateIO.getDaysInMonth(this.previous.month);
@@ -442,10 +349,7 @@ export class Calendar {
             this.days.push(day);
         }
     }
-    /**
-     * @private
-     * @return {undefined}
-     */
+
     private _setCurrentMonth(): void {
         const daysInMonth = DateIO.getDaysInMonth(this.current.day);
         for (let i = 1; i <= daysInMonth; i++) {
@@ -457,10 +361,7 @@ export class Calendar {
             this.days.push(day);
         }
     }
-    /**
-     * @private
-     * @return {undefined}
-     */
+
     private _setNextMonth(): void {
         const diffDays = this.maxDays - this.days.length;
         for (let i = 1; i <= diffDays; i++) {
@@ -472,11 +373,7 @@ export class Calendar {
             this.days.push(day);
         }
     }
-    /**
-     * @private
-     * @param {!Date} selectedDate
-     * @return {undefined}
-     */
+
     private _setModeDate(selectedDate: Date): void {
         let date = this.current.day;
         this._switchMode(
@@ -494,11 +391,7 @@ export class Calendar {
         this._setSelectedDate(date);
         this._setDate(date);
     }
-    /**
-     * @private
-     * @param {!Date} selectedDate
-     * @return {undefined}
-     */
+
     private _onClick(selectedDate: Date): void {
         this._setModeDate(selectedDate);
 
@@ -509,18 +402,11 @@ export class Calendar {
         this.draw();
         this.eventClick(selectedDate);
     }
-    /**
-     * @private
-     * @param {!Date} date
-     * @return {undefined}
-     */
+
     private _setSelectedDate(date: Date): void {
         this.selectedDate = date;
     }
-    /**
-     * @param {!Date} date
-     * @return {undefined}
-     */
+
     eventClick(date: Date): void {
         consoleDebug('Calendar.eventClick()', date);
     }

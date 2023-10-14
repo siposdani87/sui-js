@@ -20,21 +20,10 @@ import { RangeField } from '../field/rangeField';
 import { NumberField } from '../field/numberField';
 import { LocationField } from '../field/locationField';
 import { TextField } from '../field/textField';
-/**
- * @constructor
- * @this {FormField}
- * @param {!Knot} inputBlock
- * @param {!Form} form
- * @return {?BaseField}
- */
 export const FormField = function (inputBlock, form) {
     const { input, label, error } = parseInputBlock(inputBlock);
     return _convertToField(input, label, error, inputBlock, form);
 };
-/**
- * @param {!Knot} inputBlock
- * @return {{input: Knot, label: Knot, error: Knot}}
- */
 export const parseInputBlock = (inputBlock) => {
     let input = inputBlock;
     let label = null;
@@ -61,14 +50,6 @@ export const parseInputBlock = (inputBlock) => {
         error,
     };
 };
-/**
- * @param {!Knot} input
- * @param {?Knot} label
- * @param {?Knot} error
- * @param {!Knot} inputBlock
- * @param {!Form} form
- * @return {?BaseField}
- */
 const _convertToField = (input, label, error, inputBlock, form) => {
     input.addClass('init-field');
     const dataType = input.getData('type');

@@ -10,9 +10,6 @@ type Page = {
     page: number;
 };
 
-/**
- * @class
- */
 export class Pager {
     pager: Knot;
     pagerStatistics: Knot;
@@ -21,11 +18,7 @@ export class Pager {
     pageNum: number;
     page: number;
     offset: number;
-    /**
-     * @param {!Knot} dom
-     * @param {!Array=} opt_selectors
-     * @param {!Object=} opt_options
-     */
+
     constructor(
         dom: Knot,
         opt_selectors: string[] | undefined = ['.pager', '.pager-statistics'],
@@ -36,11 +29,7 @@ export class Pager {
         this._setOptions(opt_options);
         this._init();
     }
-    /**
-     * @private
-     * @param {!Object=} opt_options
-     * @return {undefined}
-     */
+
     private _setOptions(opt_options: Object | undefined = {}): void {
         this.options = new Objekt({
             row_count: 10,
@@ -48,18 +37,12 @@ export class Pager {
         });
         this.options.merge(opt_options);
     }
-    /**
-     * @private
-     * @return {undefined}
-     */
+
     private _init(): void {
         this.count = this.options.row_count;
         this.setPage(1);
     }
-    /**
-     * @private
-     * @return {undefined}
-     */
+
     private _drawPager(): void {
         this.pager.removeChildren();
         this.pageNum = Math.ceil(this.count / this.options.row_count);
@@ -67,10 +50,7 @@ export class Pager {
         this._drawPageNumbers();
         this._drawNextButton();
     }
-    /**
-     * @private
-     * @return {undefined}
-     */
+
     private _drawStatistics(): void {
         const page = this.page - 1;
         const from = page * this.options.row_count + 1;
@@ -84,10 +64,7 @@ export class Pager {
             this.pagerStatistics.setHtml('');
         }
     }
-    /**
-     * @private
-     * @return {undefined}
-     */
+
     private _drawPreviousButton(): void {
         if (this.pageNum > 1) {
             const previousButton = new Knot<HTMLButtonElement>('button');
@@ -107,10 +84,7 @@ export class Pager {
             this.pager.appendChild(previousButton);
         }
     }
-    /**
-     * @private
-     * @return {undefined}
-     */
+
     private _drawNextButton(): void {
         if (this.pageNum > 1) {
             const nextButton = new Knot<HTMLButtonElement>('button');
@@ -130,10 +104,7 @@ export class Pager {
             this.pager.appendChild(nextButton);
         }
     }
-    /**
-     * @private
-     * @return {undefined}
-     */
+
     private _drawPageNumbers(): void {
         const pagers = this._getPagers();
         if (pagers.length > 1) {
@@ -158,10 +129,7 @@ export class Pager {
             });
         }
     }
-    /**
-     * @private
-     * @return {!Array<Page>}
-     */
+
     private _getPagers(): Page[] {
         const part = Math.floor((this.page - 1) / this.options.pager_num);
         const pagers = [];
@@ -192,10 +160,7 @@ export class Pager {
         }
         return pagers;
     }
-    /**
-     * @private
-     * @return {undefined}
-     */
+
     private _next(): void {
         let page = this.page + 1;
         if (page > this.pageNum) {
@@ -203,10 +168,7 @@ export class Pager {
         }
         this._go(page);
     }
-    /**
-     * @private
-     * @return {undefined}
-     */
+
     private _previous(): void {
         let page = this.page - 1;
         if (page < 1) {
@@ -214,41 +176,26 @@ export class Pager {
         }
         this._go(page);
     }
-    /**
-     * @param {number} count
-     * @return {undefined}
-     */
+
     setCount(count: number): void {
         this.count = count;
     }
-    /**
-     * @private
-     * @param {number} page
-     * @return {undefined}
-     */
+
     private _go(page: number): void {
         this.setPage(page);
         this.eventAction(this.page);
     }
-    /**
-     * @param {number} page
-     * @return {undefined}
-     */
+
     setPage(page: number): void {
         this.page = page;
         this.offset = (this.page - 1) * this.options.row_count;
     }
-    /**
-     * @return {undefined}
-     */
+
     draw(): void {
         this._drawStatistics();
         this._drawPager();
     }
-    /**
-     * @param {number} page
-     * @return {undefined}
-     */
+
     eventAction(page: number): void {
         consoleDebug('Pager.eventAction()', page);
     }

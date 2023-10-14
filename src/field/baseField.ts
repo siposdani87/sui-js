@@ -5,10 +5,6 @@ import { Tooltip } from '../component/tooltip';
 import { consoleDebug } from '../utils/log';
 import { Form } from '../component';
 
-/**
- * @template {T}
- * @class
- */
 export class BaseField<T extends HTMLInputElement> {
     input: Knot<T>;
     label: Knot;
@@ -19,13 +15,7 @@ export class BaseField<T extends HTMLInputElement> {
     infoContainerKnot: Knot;
     actionContainerKnot: Knot;
     disabled: boolean;
-    /**
-     * @param {!Knot} input
-     * @param {!Knot=} opt_label
-     * @param {!Knot=} opt_error
-     * @param {!Knot=} opt_inputBlock
-     * @param {!Form=} opt_form
-     */
+
     constructor(
         input: Knot<T>,
         opt_label?: Knot | undefined,
@@ -48,64 +38,42 @@ export class BaseField<T extends HTMLInputElement> {
         this._setMutation();
         this._setAdditionalLabel(this.label);
     }
-    /**
-     * @param {*} value
-     * @param {*} previousValue
-     */
+
     eventChange(value: any, previousValue: any) {
         consoleDebug('BaseField.eventChange()', value, previousValue);
     }
-    /**
-     * @param {!Knot} knot
-     * @return {undefined}
-     */
+
     eventClick(knot: Knot): void {
         consoleDebug('Button.eventClick()', knot);
     }
-    /**
-     * @return {undefined}
-     */
+
     render(): void {
         consoleDebug('BaseField.render()');
     }
-    /**
-     * @return {undefined}
-     */
+
     refresh(): void {
         consoleDebug('BaseField.refresh()');
     }
-    /**
-     * @param {*} value
-     */
+
     modelChange(value: any) {
         consoleDebug('BaseField.modelChange()', value);
     }
-    /**
-     * @return {*}
-     */
+
     getPreviousValue(): any {
         consoleDebug('BaseField.getPreviousValue()');
         return undefined;
     }
-    /**
-     * @return {string}
-     */
+
     getName(): string {
         const name = this.input.getAttribute('name');
         return this._getAttributeName(name);
     }
-    /**
-     * @return {*}
-     */
+
     getValue(): any {
         const value = this.input.getNode().value;
         return typeCast(value);
     }
-    /**
-     * @protected
-     * @param {string} inputName
-     * @return {string}
-     */
+
     protected _getAttributeName(inputName: string): string {
         let attribute = inputName || '';
         attribute = attribute.replace(/]/g, '');
@@ -115,11 +83,7 @@ export class BaseField<T extends HTMLInputElement> {
             : attribute;
         return attribute;
     }
-    /**
-     * @param {string=} opt_message
-     * @param {boolean=} opt_isCustomError
-     * @return {undefined}
-     */
+
     setError(
         opt_message: string | undefined = '',
         opt_isCustomError: boolean | undefined = false,
@@ -132,11 +96,7 @@ export class BaseField<T extends HTMLInputElement> {
             }
         }
     }
-    /**
-     * @param {boolean=} opt_force
-     * @param {boolean=} opt_showMessage
-     * @return {undefined}
-     */
+
     checkValidity(
         opt_force: boolean | undefined = false,
         opt_showMessage: boolean | undefined = true,
@@ -159,71 +119,47 @@ export class BaseField<T extends HTMLInputElement> {
             }
         }
     }
-    /**
-     * @return {boolean}
-     */
+
     isValidityValid(): boolean {
         const inputNode = this.input.getNode();
 
         return inputNode.validity.valid;
     }
-    /**
-     * @return {boolean}
-     */
+
     isValid(): boolean {
         return this.isValidityValid();
     }
-    /**
-     * @private
-     * @return {!Knot}
-     */
+
     private _getUpgradedKnot(): Knot {
         return this.inputBlock;
     }
-    /**
-     * @param {!Object|!Function|!Array|boolean|number|string|null|undefined} value
-     * @return {undefined}
-     */
+
     setValue(value?: any): void {
         this.input.getNode().value = value;
         this.input.setAttribute('value', value);
         this.input.trigger('change');
     }
-    /**
-     * @return {boolean}
-     */
+
     exists(): boolean {
         return this.existsInputBlock() || this.existsInput();
     }
-    /**
-     * @return {boolean}
-     */
+
     existsInput(): boolean {
         return !!this.input && this.input.exists();
     }
-    /**
-     * @return {boolean}
-     */
+
     existsInputBlock(): boolean {
         return !!this.inputBlock && this.inputBlock.exists();
     }
-    /**
-     * @param {string} attribute
-     * @return {*}
-     */
+
     get(attribute: string): any {
         return this.input.get(attribute);
     }
-    /**
-     * @return {boolean}
-     */
+
     isRequired(): boolean {
         return this.input.getNode().required;
     }
-    /**
-     * @param {boolean} state
-     * @return {undefined}
-     */
+
     setRequired(state: boolean): void {
         if (state) {
             this.input.setAttribute('required');
@@ -234,22 +170,15 @@ export class BaseField<T extends HTMLInputElement> {
         this.checkValidity(true, false);
         this._setAdditionalLabel(this.label);
     }
-    /**
-     * @return {boolean}
-     */
+
     isEnabled(): boolean {
         return !this.isDisabled();
     }
-    /**
-     * @return {boolean}
-     */
+
     isDisabled(): boolean {
         return this.input.getNode().disabled;
     }
-    /**
-     * @param {boolean} state
-     * @return {undefined}
-     */
+
     setDisabled(state: boolean): void {
         if (state) {
             this.input.setAttribute('disabled');
@@ -259,16 +188,11 @@ export class BaseField<T extends HTMLInputElement> {
         this.input.getNode().disabled = state;
         this.checkValidity(true, false);
     }
-    /**
-     * @return {boolean}
-     */
+
     isVisible(): boolean {
         return !this.inputBlock.hasClass('hidden');
     }
-    /**
-     * @param {boolean} state
-     * @return {undefined}
-     */
+
     setVisibility(state: boolean): void {
         if (state) {
             this.show();
@@ -276,36 +200,26 @@ export class BaseField<T extends HTMLInputElement> {
             this.hide();
         }
     }
-    /**
-     * @return {undefined}
-     */
+
     show(): void {
         if (!this.isVisible()) {
             this.inputBlock.removeClass('hidden');
         }
     }
-    /**
-     * @return {undefined}
-     */
+
     hide(): void {
         if (this.isVisible()) {
             this.inputBlock.addClass('hidden');
         }
     }
-    /**
-     * @param {string} text
-     * @return {undefined}
-     */
+
     setLabel(text: string): void {
         if (this.label && !this.label.isEmpty()) {
             this.label.setHtml(text);
             this._setAdditionalLabel(this.label);
         }
     }
-    /**
-     * @private
-     * @return {undefined}
-     */
+
     private _setInfoContainer(): void {
         if (this.inputBlock && !this.inputBlock.isEmpty()) {
             this.infoContainerKnot = new Query(
@@ -319,10 +233,7 @@ export class BaseField<T extends HTMLInputElement> {
             }
         }
     }
-    /**
-     * @private
-     * @return {undefined}
-     */
+
     private _setActionContainer(): void {
         if (this.inputBlock && !this.inputBlock.isEmpty()) {
             this.actionContainerKnot = new Query(
@@ -336,11 +247,7 @@ export class BaseField<T extends HTMLInputElement> {
             }
         }
     }
-    /**
-     * @private
-     * @param {!Knot} label
-     * @return {undefined}
-     */
+
     private _setInfo(label: Knot): void {
         const title = label.getAttribute('title');
         const description = label.getAttribute('desc');
@@ -363,11 +270,7 @@ export class BaseField<T extends HTMLInputElement> {
             tooltip.render();
         }
     }
-    /**
-     * @protected
-     * @param {!Knot|undefined} label
-     * @return {undefined}
-     */
+
     protected _setAdditionalLabel(label: Knot | undefined): void {
         if (label?.exists()) {
             const labelText = this._getLabelRequiredText(label.getHtml(true));
@@ -375,11 +278,7 @@ export class BaseField<T extends HTMLInputElement> {
             this._setInfo(label);
         }
     }
-    /**
-     * @protected
-     * @param {string} labelText
-     * @return {string}
-     */
+
     protected _getLabelRequiredText(labelText: string): string {
         if (eq(labelText, true)) {
             return '&nbsp;';
@@ -396,10 +295,7 @@ export class BaseField<T extends HTMLInputElement> {
         }
         return labelText;
     }
-    /**
-     * @private
-     * @return {undefined}
-     */
+
     private _setMutation(): void {
         const observer = new MutationObserver((mutationsList) => {
             for (const mutation of mutationsList) {

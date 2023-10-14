@@ -4,27 +4,12 @@ import { DateTime } from '../component/dateTime';
 import { Knot } from '../core/knot';
 import { Query } from '../core/query';
 import { DateIO } from '../utils';
-/**
- * @class
- * @extends {BaseField}
- */
 export class DateTimeRangeField extends BaseField {
-    /**
-     * @param {!Knot} input
-     * @param {!Knot} label
-     * @param {!Knot} error
-     * @param {!Knot} inputBlock
-     * @param {boolean} isStartInput
-     */
     constructor(input, label, error, inputBlock, isStartInput) {
         super(input, label, error, inputBlock);
         this.isStartInput = isStartInput;
         this._init();
     }
-    /**
-     * @private
-     * @return {undefined}
-     */
     _init() {
         this.inputBlock.addClass('datetime-range-field');
         this.input.addClass('hidden');
@@ -40,10 +25,6 @@ export class DateTimeRangeField extends BaseField {
         this.datetimeContainer.appendChild(this.datetimeInput);
         this._initInput();
     }
-    /**
-     * @private
-     * @return {undefined}
-     */
     _initInput() {
         this.format = this.input.getData('format');
         this.input.addEventListener('change', () => {
@@ -70,10 +51,6 @@ export class DateTimeRangeField extends BaseField {
             this._setTag(formattedValue);
         }
     }
-    /**
-     * @override
-     * @return {undefined}
-     */
     render() {
         if (this.label && this.label.exists()) {
             this.label.addClass('field-label');
@@ -93,9 +70,6 @@ export class DateTimeRangeField extends BaseField {
         this.refresh();
         this.datetime.draw();
     }
-    /**
-     * @override
-     */
     refresh() {
         if (this.isDisabled()) {
             this.inputBlock.addClass('is-disabled');
@@ -104,22 +78,12 @@ export class DateTimeRangeField extends BaseField {
             this.inputBlock.removeClass('is-disabled');
         }
     }
-    /**
-     * @override
-     * @param {!Object|!Function|!Array|boolean|number|string|null|undefined} value
-     * @return {undefined}
-     */
     setValue(value) {
         this._setTag(value);
         this.input.setAttribute('value', value);
         this.input.trigger('change');
         this.datetime.setValue(value);
     }
-    /**
-     * @private
-     * @param {string} value
-     * @return {undefined}
-     */
     _setTag(value) {
         this.datetimeInput.removeChildren();
         if (value) {
@@ -142,10 +106,6 @@ export class DateTimeRangeField extends BaseField {
             }
         }
     }
-    /**
-     * @private
-     * @return {undefined}
-     */
     _onClick() {
         if (this.isEnabled()) {
             this.datetimeInput.addClass('active');

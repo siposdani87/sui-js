@@ -5,19 +5,7 @@ import { Query } from '../core/query';
 import { generateId, md5 } from '../utils/coder';
 import { mdl } from '../utils/render';
 
-/**
- * @class
- */
 export class Helper {
-    /**
-     * @param {string} name
-     * @param {!Function=} opt_callback
-     * @param {string=} opt_href
-     * @param {string=} opt_description
-     * @param {boolean=} opt_allowAccess
-     * @param {!Array=} opt_cssClasses
-     * @return {!Knot}
-     */
     createLink(
         name: string,
         opt_callback: (href: string, linkKnot: Knot) => void | undefined,
@@ -38,13 +26,7 @@ export class Helper {
         );
         return linkKnot;
     }
-    /**
-     * @param {string} selector
-     * @param {!Knot} dom
-     * @param {!Function=} opt_callback
-     * @param {!Array=} opt_cssClasses
-     * @return {undefined}
-     */
+
     multipleLink(
         selector: string,
         dom: Knot,
@@ -63,16 +45,7 @@ export class Helper {
             );
         });
     }
-    /**
-     * @param {string} selector
-     * @param {!Knot} dom
-     * @param {!Function=} opt_callback
-     * @param {string=} opt_href
-     * @param {string=} opt_description
-     * @param {boolean=} opt_allowAccess
-     * @param {!Array=} opt_cssClasses
-     * @return {!Knot}
-     */
+
     link(
         selector: string,
         dom: Knot,
@@ -93,15 +66,7 @@ export class Helper {
         );
         return linkKnot;
     }
-    /**
-     * @param {!Knot} linkKnot
-     * @param {!Function=} opt_callback
-     * @param {string=} opt_href
-     * @param {string=} opt_description
-     * @param {boolean=} opt_allowAccess
-     * @param {!Array=} opt_cssClasses
-     * @return {undefined}
-     */
+
     linkElement(
         linkKnot: Knot,
         opt_callback: (href: string, linkKnot: Knot) => void | undefined,
@@ -135,14 +100,7 @@ export class Helper {
             }
         }
     }
-    /**
-     * @param {string} name
-     * @param {!Function} callback
-     * @param {string=} opt_description
-     * @param {boolean=} opt_allowAccess
-     * @param {!Array=} opt_cssClasses
-     * @return {!Knot}
-     */
+
     createButton(
         name: string,
         callback: (id: string, button: Knot) => void,
@@ -161,13 +119,7 @@ export class Helper {
         );
         return buttonKnot;
     }
-    /**
-     * @param {string} selector
-     * @param {!Knot} dom
-     * @param {!Function=} opt_callback
-     * @param {!Array=} opt_cssClasses
-     * @return {undefined}
-     */
+
     multipleButton(
         selector: string,
         dom: Knot,
@@ -185,15 +137,7 @@ export class Helper {
             );
         });
     }
-    /**
-     * @param {string} selector
-     * @param {!Knot} dom
-     * @param {!Function} callback
-     * @param {string=} opt_description
-     * @param {boolean=} opt_allowAccess
-     * @param {!Array=} opt_cssClasses
-     * @return {!Knot}
-     */
+
     button(
         selector: string,
         dom: Knot,
@@ -212,14 +156,7 @@ export class Helper {
         );
         return buttonKnot;
     }
-    /**
-     * @param {!Knot} buttonKnot
-     * @param {!Function=} opt_callback
-     * @param {string=} opt_description
-     * @param {boolean=} opt_allowAccess
-     * @param {!Array=} opt_cssClasses
-     * @return {undefined}
-     */
+
     buttonElement(
         buttonKnot: Knot,
         opt_callback?: (id: string, button: Knot) => void,
@@ -256,14 +193,7 @@ export class Helper {
             }
         }
     }
-    /**
-     * @param {string} iconName
-     * @param {!Function} callback
-     * @param {string=} opt_description
-     * @param {boolean=} opt_allowAccess
-     * @param {!Array=} opt_cssClasses
-     * @return {!Knot}
-     */
+
     createIconButton(
         iconName: string,
         callback: (id: string, button: Knot) => void,
@@ -286,12 +216,7 @@ export class Helper {
         );
         return buttonKnot;
     }
-    /**
-     * @param {string} selector
-     * @param {!Knot} dom
-     * @param {!Array=} opt_cssClasses
-     * @return {undefined}
-     */
+
     multipleIconButton(
         selector: string,
         dom: Knot,
@@ -312,15 +237,7 @@ export class Helper {
             );
         });
     }
-    /**
-     * @param {string} selector
-     * @param {!Knot} dom
-     * @param {!Function} callback
-     * @param {string=} opt_description
-     * @param {boolean=} opt_allowAccess
-     * @param {!Array=} opt_cssClasses
-     * @return {!Knot}
-     */
+
     iconButton(
         selector: string,
         dom: Knot,
@@ -343,14 +260,7 @@ export class Helper {
         );
         return buttonKnot;
     }
-    /**
-     * @param {!Knot} buttonKnot
-     * @param {!Function=} opt_callback
-     * @param {string=} opt_description
-     * @param {boolean=} opt_allowAccess
-     * @param {!Array=} opt_cssClasses
-     * @return {undefined}
-     */
+
     iconButtonElement(
         buttonKnot: Knot,
         opt_callback?: (id: string, button: Knot) => void,
@@ -391,23 +301,14 @@ export class Helper {
             }
         }
     }
-    /**
-     * @private
-     * @param {string} iconName
-     * @param {!Knot} parentKnot
-     * @return {undefined}
-     */
+
     private _createIconKnot(iconName: string, parentKnot: Knot): void {
         const iconKnot = new Knot('em');
         iconKnot.addClass('material-icons');
         iconKnot.setHtml(iconName);
         parentKnot.appendChild(iconKnot);
     }
-    /**
-     * @param {!Knot} knot
-     * @param {string=} opt_description
-     * @return {undefined}
-     */
+
     private _setTooltip(
         knot: Knot,
         opt_description: string | undefined = '',
@@ -419,14 +320,7 @@ export class Helper {
         tooltip.render(opt_description);
         mdl(knot);
     }
-    /**
-     * @param {!Knot} imageKnot
-     * @param {string} defaultImageUrl
-     * @param {string} email
-     * @param {number=} opt_size
-     * @param {string=} opt_rating
-     * @return {undefined}
-     */
+
     setGravatar(
         imageKnot: Knot,
         defaultImageUrl: string,

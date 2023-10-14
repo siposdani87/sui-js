@@ -1,21 +1,11 @@
 import { isArray, typeCast, contain, urlWithQueryString, } from '../utils/operation';
-/**
- * @class
- */
 export class Router {
-    /**
-     * @param {string=} opt_route
-     */
     constructor(opt_route = '') {
         this.route = opt_route;
         this.param = /([:*])(\w+)/g;
         this.escape = /[-[]{}()+?.,]/g;
         this._init();
     }
-    /**
-     * @private
-     * @return {undefined}
-     */
     _init() {
         this.paramNames = [];
         let route = this.route;
@@ -26,10 +16,6 @@ export class Router {
         });
         this.regex = new RegExp('^' + route + '$');
     }
-    /**
-     * @param {!Object=} opt_params
-     * @return {string}
-     */
     stringify(opt_params = {}) {
         let route = this.route;
         const params = {};
@@ -51,10 +37,6 @@ export class Router {
             ? route.substring(0, route.length - 1)
             : route;
     }
-    /**
-     * @param {string} url
-     * @return {?RegExpMatchArray}
-     */
     getMatches(url) {
         const questionMark = url.indexOf('?');
         if (questionMark !== -1) {
@@ -62,10 +44,6 @@ export class Router {
         }
         return url.match(this.regex);
     }
-    /**
-     * @param {string} url
-     * @return {!Object}
-     */
     parse(url) {
         const matches = this.getMatches(url);
         if (!matches) {
@@ -78,11 +56,6 @@ export class Router {
         }
         return params;
     }
-    /**
-     * @private
-     * @param {string} url
-     * @return {!Params}
-     */
     _parseParams(url) {
         const params = {};
         const question = url.indexOf('?');

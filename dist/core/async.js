@@ -1,22 +1,11 @@
 import { isUndefined, isFunction, eq, eachArray } from '../utils/operation';
 import { consoleDebug } from '../utils/log';
 import { Deferred } from './deferred';
-/**
- * @class
- */
 export class Async {
-    /**
-     * @param {number=} opt_sum
-     */
     constructor(opt_sum) {
         this.sum = opt_sum || 0;
         this._clear();
     }
-    /**
-     * @param {!Array<!Function>} calls
-     * @param {!Array=} opt_args
-     * @return {!Promize}
-     */
     parallel(calls, opt_args) {
         const deferred = new Deferred();
         if (calls.length === 0) {
@@ -32,26 +21,11 @@ export class Async {
         }
         return deferred.promise();
     }
-    /**
-     * @param {!Function} call
-     * @param {?Array=} opt_args
-     * @param {number=} opt_index
-     * @return {undefined}
-     */
     parallelFunction(call, opt_args, opt_index) {
         const index = !isUndefined(opt_index) ? opt_index : this.call.counter++;
         this.call.results[index] = null;
         this._parallelWrapper(call, this.sum, true, index, opt_args);
     }
-    /**
-     * @private
-     * @param {!Function} call
-     * @param {number} length
-     * @param {boolean} allowEvent
-     * @param {number} index
-     * @param {?Array=} opt_args
-     * @return {!Promize}
-     */
     _parallelWrapper(call, length, allowEvent, index, opt_args) {
         const deferred = new Deferred();
         const args = opt_args || [];
@@ -71,16 +45,6 @@ export class Async {
         }
         return deferred.promise();
     }
-    /**
-     * @private
-     * @param {number|undefined} length
-     * @param {boolean} isError
-     * @param {*} result
-     * @param {boolean} allowEvent
-     * @param {number} index
-     * @param {?Array=} opt_args
-     * @return {!Promize}
-     */
     _parallelCaller(length, isError, result, allowEvent, index, opt_args) {
         const deferred = new Deferred();
         this.call.results[index] = result;
@@ -110,10 +74,6 @@ export class Async {
         }
         return deferred.promise();
     }
-    /**
-     * @private
-     * @return {undefined}
-     */
     _clear() {
         this.call = {
             sum: 0,
@@ -122,32 +82,15 @@ export class Async {
             results: [],
         };
     }
-    /**
-     * @param {number} sum
-     * @param {boolean} isError
-     * @param {number} counter
-     * @param {!Array} results
-     * @return {undefined}
-     */
     setStatus(sum, isError, counter, results) {
         this.call.sum = sum;
         this.call.isError = isError;
         this.call.counter = counter;
         this.call.results = results;
     }
-    /**
-     * @param {boolean} isError
-     * @param {!Array} results
-     * @return {undefined}
-     */
     eventComplete(isError, results) {
         consoleDebug('Async.eventComplete(isError, results)', isError, results);
     }
-    /**
-     * @param {!Array<!Function>} calls
-     * @param {!Array=} opt_args
-     * @return {!Promize}
-     */
     serial(calls, opt_args) {
         const deferred = new Deferred();
         if (calls.length === 0) {
@@ -160,13 +103,6 @@ export class Async {
         }
         return deferred.promise();
     }
-    /**
-     * @private
-     * @param {!Array<!Function>} calls
-     * @param {number} index
-     * @param {!Array=} opt_args
-     * @return {!Promize}
-     */
     _serialWrapper(calls, index, opt_args) {
         const deferred = new Deferred();
         const call = calls[index];
@@ -191,14 +127,6 @@ export class Async {
         }
         return deferred.promise();
     }
-    /**
-     * @private
-     * @param {!Array<!Function>} calls
-     * @param {number} index
-     * @param {*} result
-     * @param {!Array=} opt_args
-     * @return {!Promize}
-     */
     _serialCaller(calls, index, result, opt_args) {
         const deferred = new Deferred();
         this.call.results[index] = result;

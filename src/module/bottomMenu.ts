@@ -2,23 +2,15 @@ import { Knot } from '../core';
 import { Query } from '../core/query';
 import { Footer } from './footer';
 
-/**
- * @class
- */
 export class BottomMenu {
     footer: Footer;
     bottomMenu: Knot;
-    /**
-     * @param {!Footer} footer
-     */
+
     constructor(footer: Footer) {
         this.footer = footer;
         this._init();
     }
-    /**
-     * @private
-     * @return {undefined}
-     */
+
     private _init(): void {
         this.bottomMenu = new Query(
             '#bottom-menu',
@@ -43,9 +35,7 @@ export class BottomMenu {
             this.toggle();
         });
     }
-    /**
-     * @return {undefined}
-     */
+
     toggle(): void {
         if (this.isOpened()) {
             this.close();
@@ -53,29 +43,21 @@ export class BottomMenu {
             this.open();
         }
     }
-    /**
-     * @return {boolean}
-     */
+
     isOpened(): boolean {
         return this.bottomMenu.hasClass('visible-flex');
     }
-    /**
-     * @return {undefined}
-     */
+
     open(): void {
         this.bottomMenu.addClass('visible-flex');
         this.footer.open();
     }
-    /**
-     * @return {undefined}
-     */
+
     close(): void {
         this.bottomMenu.removeClass('visible-flex');
         this.footer.close();
     }
-    /**
-     * @return {!Knot}
-     */
+
     getContainer(): Knot {
         return this.bottomMenu;
     }

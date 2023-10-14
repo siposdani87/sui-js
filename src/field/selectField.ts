@@ -17,10 +17,6 @@ import { Query } from '../core/query';
 import { generateId } from '../utils/coder';
 import { mdl } from '../utils/render';
 
-/**
- * @class
- * @extends {BaseField}
- */
 export class SelectField extends BaseField<HTMLInputElement> {
     query: string;
     ids: string[];
@@ -32,12 +28,7 @@ export class SelectField extends BaseField<HTMLInputElement> {
     selectContainerKnot: Knot;
     selectKnot: Knot;
     searchInputKnot: Knot<HTMLInputElement>;
-    /**
-     * @param {!Knot} input
-     * @param {!Knot} label
-     * @param {!Knot} error
-     * @param {!Knot} inputBlock
-     */
+
     constructor(
         input: Knot<HTMLInputElement>,
         label: Knot,
@@ -47,10 +38,7 @@ export class SelectField extends BaseField<HTMLInputElement> {
         super(input, label, error, inputBlock);
         this._init();
     }
-    /**
-     * @private
-     * @return {undefined}
-     */
+
     private _init(): void {
         this.input.addClass('hidden');
         this.inputBlock.addClass('select-field');
@@ -61,16 +49,11 @@ export class SelectField extends BaseField<HTMLInputElement> {
         this._initChangeEvent();
         this._initPopup();
     }
-    /**
-     * @return {boolean}
-     */
+
     isMultiple(): boolean {
         return this.input.hasAttribute('multiple');
     }
-    /**
-     * @private
-     * @return {undefined}
-     */
+
     private _initPopup(): void {
         this.containerKnot = new Knot('div');
         this._drawSearchInput();
@@ -81,20 +64,14 @@ export class SelectField extends BaseField<HTMLInputElement> {
 
         this.popup = new Popup(this.containerKnot, this.inputBlock);
     }
-    /**
-     * @private
-     * @return {undefined}
-     */
+
     private _initChangeEvent(): void {
         this.input.addEventListener('change', () => {
             this._change();
             return true;
         });
     }
-    /**
-     * @private
-     * @return {undefined}
-     */
+
     private _initOptions(): void {
         this.options = new Collection();
 
@@ -114,10 +91,7 @@ export class SelectField extends BaseField<HTMLInputElement> {
             this.options.push(option);
         });
     }
-    /**
-     * @override
-     * @return {undefined}
-     */
+
     render(): void {
         if (this.label && this.label.exists()) {
             this.label.addClass('field-label');
@@ -136,10 +110,7 @@ export class SelectField extends BaseField<HTMLInputElement> {
 
         this.refresh();
     }
-    /**
-     * @override
-     * @return {undefined}
-     */
+
     refresh(): void {
         const selectContainerKnot = new Query(
             '.select-container',
@@ -169,11 +140,7 @@ export class SelectField extends BaseField<HTMLInputElement> {
         const ids = this._getSelectedIds();
         this._setSelectTags(ids);
     }
-    /**
-     * @override
-     * @param {!Object|!Function|!Array|boolean|number|string|null|undefined} value
-     * @return {undefined}
-     */
+
     setValue(
         value:
             | Object
@@ -191,10 +158,7 @@ export class SelectField extends BaseField<HTMLInputElement> {
         }
         this._setSelectedIds(this.ids);
     }
-    /**
-     * @override
-     * @return {*}
-     */
+
     getValue(): any {
         let ids = this._getSelectedIds();
         ids = ids.filter((id) => {
@@ -202,10 +166,7 @@ export class SelectField extends BaseField<HTMLInputElement> {
         });
         return this.isMultiple() ? ids : ids[0] || null;
     }
-    /**
-     * @param {string=} opt_attribute
-     * @return {*}
-     */
+
     getOptionValue(opt_attribute?: string): any {
         const value = this.getValue();
         if (value) {
@@ -216,28 +177,17 @@ export class SelectField extends BaseField<HTMLInputElement> {
         }
         return value;
     }
-    /**
-     * @return {undefined}
-     */
+
     showLoader(): void {
         this.iconKnot.setHtml('refresh');
         this.iconKnot.addClass('rotate');
     }
-    /**
-     * @private
-     * @return {undefined}
-     */
+
     private _hideLoader(): void {
         this.iconKnot.setHtml('expand_more');
         this.iconKnot.removeClass('rotate');
     }
-    /**
-     * @param {!Array<!Objekt>} items
-     * @param {string=} opt_value
-     * @param {string=} opt_name
-     * @param {string=} opt_image
-     * @return {undefined}
-     */
+
     setOptions(
         items: Array<Objekt>,
         opt_value: string | undefined = 'value',
@@ -270,21 +220,14 @@ export class SelectField extends BaseField<HTMLInputElement> {
         this._hideLoader();
         this.setValue(this.ids);
     }
-    /**
-     * @private
-     * @return {undefined}
-     */
+
     private _change(): void {
         const ids = this._getSelectedIds();
         this._setSelectTags(ids);
         const value = this.getValue();
         this.modelChange(value);
     }
-    /**
-     * @private
-     * @param {!Array} ids
-     * @return {undefined}
-     */
+
     private _setSelectTags(ids: Array<any>): void {
         if (this.isRequired() && ids.length === 1 && ids[0] === '') {
             this.inputBlock.addClass('is-invalid');
@@ -295,20 +238,12 @@ export class SelectField extends BaseField<HTMLInputElement> {
             this._setSimpleTag(ids[0]);
         }
     }
-    /**
-     * @param {string} id
-     * @return {undefined}
-     * @private
-     */
+
     private _setSimpleTag(id: string): void {
         const option = this.options.findById(id);
         this._setTags(option);
     }
-    /**
-     * @param {!Array<string>} ids
-     * @return {undefined}
-     * @private
-     */
+
     private _setMultipleTag(ids: Array<string>): void {
         const options = [];
         eachArray(ids, (id) => {
@@ -326,10 +261,7 @@ export class SelectField extends BaseField<HTMLInputElement> {
             this._setTags([]);
         }
     }
-    /**
-     * @private
-     * @param {!Array<Objekt>|Objekt} tags
-     */
+
     private _setTags(tags: Array<Objekt> | Objekt) {
         if (!isArray(tags)) {
             tags = [tags];
@@ -361,11 +293,7 @@ export class SelectField extends BaseField<HTMLInputElement> {
             }
         });
     }
-    /**
-     * @private
-     * @param {!Array} ids
-     * @return {undefined}
-     */
+
     private _setSelectedIds(ids: Array<any>): void {
         this.options.each((option) => {
             const id = option.get('id');
@@ -382,10 +310,7 @@ export class SelectField extends BaseField<HTMLInputElement> {
         });
         this._change();
     }
-    /**
-     * @private
-     * @return {!Array}
-     */
+
     private _getSelectedIds(): Array<any> {
         const ids = [];
         this.options.each((option) => {
@@ -399,11 +324,7 @@ export class SelectField extends BaseField<HTMLInputElement> {
         });
         return ids.length === 0 ? [''] : ids;
     }
-    /**
-     * @param {string} id
-     * @return {undefined}
-     * @private
-     */
+
     private _handleSelectedId(id: string): void {
         let ids = this._getSelectedIds();
         if (this.isMultiple()) {
@@ -429,11 +350,7 @@ export class SelectField extends BaseField<HTMLInputElement> {
         this._setSelectedIds(ids);
         this.close();
     }
-    /**
-     * @private
-     * @param {!Array<Objekt>} items
-     * @return {undefined}
-     */
+
     private _drawKnots(items: Array<Objekt>): void {
         this.listKnot.removeChildren();
         const ids = this._getSelectedIds();
@@ -462,10 +379,7 @@ export class SelectField extends BaseField<HTMLInputElement> {
             listKnot.appendChild(nameKnot);
         });
     }
-    /**
-     * @private
-     * @return {undefined}
-     */
+
     private _drawSearchInput(): void {
         const searchParentKnot = new Knot('div');
         searchParentKnot.addClass('search-box');
@@ -498,25 +412,17 @@ export class SelectField extends BaseField<HTMLInputElement> {
 
         mdl(searchKnot);
     }
-    /**
-     * @return {undefined}
-     */
+
     open(): void {
         this._search(this.query);
         this.popup.open();
         this.searchInputKnot.getNode().focus();
     }
-    /**
-     * @return {undefined}
-     */
+
     close(): void {
         this.popup.close();
     }
-    /**
-     * @private
-     * @param {string} query
-     * @return {undefined}
-     */
+
     private _search(query: string): void {
         this.query = query;
         this.searchInputKnot.getNode().value = query;

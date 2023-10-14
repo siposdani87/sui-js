@@ -5,20 +5,10 @@ import { Query } from '../core/query';
 import { Form } from '../component';
 import { mdl } from '../utils/render';
 
-/**
- * @class
- * @extends {BaseField}
- */
 export class RadiobuttonField extends BaseField<HTMLInputElement> {
     dataLabelKnot: Knot;
     spanLabel: Knot;
-    /**
-     * @param {!Knot} input
-     * @param {!Knot} label
-     * @param {!Knot} error
-     * @param {!Knot} inputBlock
-     * @param {!Form} form
-     */
+
     constructor(
         input: Knot<HTMLInputElement>,
         label: Knot,
@@ -29,10 +19,7 @@ export class RadiobuttonField extends BaseField<HTMLInputElement> {
         super(input, label, error, inputBlock, form);
         this._init();
     }
-    /**
-     * @private
-     * @return {undefined}
-     */
+
     private _init(): void {
         this.inputBlock.addClass('radiobutton-field');
 
@@ -44,10 +31,7 @@ export class RadiobuttonField extends BaseField<HTMLInputElement> {
             return true;
         });
     }
-    /**
-     * @private
-     * @return {undefined}
-     */
+
     private _change(): void {
         const value = this.input.getAttribute('value');
         this.modelChange(value);
@@ -64,10 +48,7 @@ export class RadiobuttonField extends BaseField<HTMLInputElement> {
             inputBlockKnot.removeClass('is-invalid');
         });
     }
-    /**
-     * @override
-     * @return {undefined}
-     */
+
     render(): void {
         this.label.addClass([
             'mdl-radio',
@@ -94,9 +75,7 @@ export class RadiobuttonField extends BaseField<HTMLInputElement> {
 
         this.refresh();
     }
-    /**
-     * @override
-     */
+
     refresh() {
         const dataLabelText = this.label.getAttribute('data-label');
         if (dataLabelText) {
@@ -111,11 +90,7 @@ export class RadiobuttonField extends BaseField<HTMLInputElement> {
 
         mdl(this.label, false);
     }
-    /**
-     * @override
-     * @param {!Object|!Function|!Array|boolean|number|string|null|undefined} value
-     * @return {undefined}
-     */
+
     setValue(
         value:
             | Object
@@ -132,10 +107,7 @@ export class RadiobuttonField extends BaseField<HTMLInputElement> {
             this.input.trigger('change');
         }
     }
-    /**
-     * @override
-     * @return {*}
-     */
+
     getValue(): any {
         let value = null;
         this._getRadioButtonInputs().each((radioButtonInput) => {
@@ -146,11 +118,7 @@ export class RadiobuttonField extends BaseField<HTMLInputElement> {
         });
         return typeCast(value);
     }
-    /**
-     * @override
-     * @param {boolean} state
-     * @return {undefined}
-     */
+
     setDisabled(state: boolean): void {
         this._getRadioButtonInputs().each((radioButtonInput) => {
             if (state) {
@@ -172,10 +140,7 @@ export class RadiobuttonField extends BaseField<HTMLInputElement> {
         });
         this.checkValidity(true, false);
     }
-    /**
-     * @override
-     * @return {boolean}
-     */
+
     isDisabled(): boolean {
         let isDisabled = false;
         this._getRadioButtonInputs().each((radioButtonInput) => {
@@ -185,9 +150,7 @@ export class RadiobuttonField extends BaseField<HTMLInputElement> {
         });
         return isDisabled;
     }
-    /**
-     * @return {!Query}
-     */
+
     private _getRadioButtonInputs(): Query<HTMLInputElement> {
         const name = this.input.getAttribute('name');
         return new Query<HTMLInputElement>(
@@ -195,11 +158,7 @@ export class RadiobuttonField extends BaseField<HTMLInputElement> {
             this.form.formKnot,
         );
     }
-    /**
-     * @override
-     * @param {string} text
-     * @return {undefined}
-     */
+
     setLabel(text: string): void {
         if (this.spanLabel && !this.spanLabel.isEmpty()) {
             this.spanLabel.setHtml(text);

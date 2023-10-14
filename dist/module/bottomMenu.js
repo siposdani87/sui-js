@@ -1,19 +1,9 @@
 import { Query } from '../core/query';
-/**
- * @class
- */
 export class BottomMenu {
-    /**
-     * @param {!Footer} footer
-     */
     constructor(footer) {
         this.footer = footer;
         this._init();
     }
-    /**
-     * @private
-     * @return {undefined}
-     */
     _init() {
         this.bottomMenu = new Query('#bottom-menu', this.footer.footerKnot).getKnot();
         const openBottomMenu = new Query('#open-bottom-menu', this.footer.footerKnot).getKnot();
@@ -27,9 +17,6 @@ export class BottomMenu {
             this.toggle();
         });
     }
-    /**
-     * @return {undefined}
-     */
     toggle() {
         if (this.isOpened()) {
             this.close();
@@ -38,29 +25,17 @@ export class BottomMenu {
             this.open();
         }
     }
-    /**
-     * @return {boolean}
-     */
     isOpened() {
         return this.bottomMenu.hasClass('visible-flex');
     }
-    /**
-     * @return {undefined}
-     */
     open() {
         this.bottomMenu.addClass('visible-flex');
         this.footer.open();
     }
-    /**
-     * @return {undefined}
-     */
     close() {
         this.bottomMenu.removeClass('visible-flex');
         this.footer.close();
     }
-    /**
-     * @return {!Knot}
-     */
     getContainer() {
         return this.bottomMenu;
     }

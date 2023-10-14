@@ -2,26 +2,13 @@ import { eq } from '../utils/operation';
 import { Async } from '../core/async';
 import { Objekt } from '../core/objekt';
 import { Query } from '../core/query';
-/**
- * @class
- */
 export class ProgressBar {
-    /**
-     * @param {!Dialog} dialog
-     * @param {!Confirm} confirm
-     * @param {!Object=} opt_options
-     */
     constructor(dialog, confirm, opt_options = {}) {
         this.dialog = dialog;
         this.confirm = confirm;
         this._setOptions(opt_options);
         this._init();
     }
-    /**
-     * @private
-     * @param {!Object=} opt_options
-     * @return {undefined}
-     */
     _setOptions(opt_options = {}) {
         this.options = new Objekt({
             lock: false,
@@ -29,10 +16,6 @@ export class ProgressBar {
         });
         this.options.merge(opt_options);
     }
-    /**
-     * @private
-     * @return {undefined}
-     */
     _init() {
         this.progressBarContainer = new Query('.main-container > .progress-bar').getKnot();
         this.progressBarHeader = new Query('#header > .progress-bar').getKnot();
@@ -68,11 +51,6 @@ export class ProgressBar {
         this.processDialog = this._createProgressBar(this.progressBarDialog);
         this.processConfirm = this._createProgressBar(this.progressBarConfirm);
     }
-    /**
-     * @private
-     * @param {!Knot} knot
-     * @return {!ProcessBar}
-     */
     _createProgressBar(knot) {
         knot.addClass('mdl-js-progress');
         knot.addEventListener('mdl-componentupgraded', (knot) => {
@@ -89,24 +67,12 @@ export class ProgressBar {
             },
         };
     }
-    /**
-     * @private
-     * @param {!Function} containerCallback
-     * @param {!Function} headerCallback
-     * @param {!Function} dialogCallback
-     * @param {!Function} confirmCallback
-     * @return {undefined}
-     */
     _separateProgressBars(containerCallback, headerCallback, dialogCallback, confirmCallback) {
         containerCallback(!this.dialog.isOpened() && !this.confirm.isOpened());
         headerCallback(!this.dialog.isOpened() && !this.confirm.isOpened());
         dialogCallback(this.dialog.isOpened() && !this.confirm.isOpened());
         confirmCallback(this.confirm.isOpened());
     }
-    /**
-     * @private
-     * @return {undefined}
-     */
     _progress() {
         if (!this.options.get('lock')) {
             this._separateProgressBars((condition) => {
@@ -140,9 +106,6 @@ export class ProgressBar {
             });
         }
     }
-    /**
-     * @return {undefined}
-     */
     show() {
         this._progress();
         this.options.counter++;
@@ -176,10 +139,6 @@ export class ProgressBar {
             }
         });
     }
-    /**
-     * @param {number} value
-     * @return {undefined}
-     */
     setProgress(value) {
         this._progress();
         this._separateProgressBars((condition) => {
@@ -200,10 +159,6 @@ export class ProgressBar {
             }
         });
     }
-    /**
-     * @param {number} value
-     * @return {undefined}
-     */
     setBuffer(value) {
         this._progress();
         this._separateProgressBars((condition) => {
@@ -224,10 +179,6 @@ export class ProgressBar {
             }
         });
     }
-    /**
-     * @param {boolean=} opt_force
-     * @return {undefined}
-     */
     hide(opt_force) {
         this.options.counter--;
         if (opt_force || eq(this.options.counter, 0)) {
@@ -250,15 +201,9 @@ export class ProgressBar {
             ]);
         }
     }
-    /**
-     * @return {undefined}
-     */
     lock() {
         this.options.set('lock', true);
     }
-    /**
-     * @return {undefined}
-     */
     unlock() {
         this.options.set('lock', false);
     }

@@ -3,9 +3,6 @@ import { Async } from '../core/async';
 import { Query } from '../core/query';
 import { Knot } from '../core';
 
-/**
- * @class
- */
 export class BaseModal {
     windowWidth: number;
     windowHeight: number;
@@ -24,10 +21,7 @@ export class BaseModal {
     eventOK: () => void;
     eventCancel: () => void;
     modalWindow: Knot;
-    /**
-     * @protected
-     * @return {undefined}
-     */
+
     protected _initBase(): void {
         this.windowWidth = 0;
         this.windowHeight = 0;
@@ -37,19 +31,13 @@ export class BaseModal {
 
         this._initButtons();
     }
-    /**
-     * @private
-     * @return {undefined}
-     */
+
     private _initButtons(): void {
         this._initCloseButton();
         this._initMinimizeButton();
         this._initMaximizeButton();
     }
-    /**
-     * @private
-     * @return {undefined}
-     */
+
     private _initMinimizeButton(): void {
         const btnMinimize = new Query('.minimize', this.modal).getKnot();
         if (!btnMinimize.isEmpty()) {
@@ -64,10 +52,7 @@ export class BaseModal {
             this.btnMinimize = btnMinimize;
         }
     }
-    /**
-     * @private
-     * @return {undefined}
-     */
+
     private _initMaximizeButton(): void {
         const btnMaximize = new Query('.maximize', this.modal).getKnot();
         if (!btnMaximize.isEmpty()) {
@@ -82,10 +67,7 @@ export class BaseModal {
             this.btnMaximize = btnMaximize;
         }
     }
-    /**
-     * @private
-     * @return {undefined}
-     */
+
     private _initCloseButton(): void {
         const btnClose = new Query('.close', this.modal).getKnot();
         if (!btnClose.isEmpty()) {
@@ -100,17 +82,11 @@ export class BaseModal {
             this.btnClose = btnClose;
         }
     }
-    /**
-     * @return {boolean}
-     */
+
     isOpened(): boolean {
         return this.modal.hasClass('visible-flex');
     }
-    /**
-     * @private
-     * @param {boolean=} opt_allowClose
-     * @return {undefined}
-     */
+
     private _handleCloseButton(
         opt_allowClose: boolean | undefined = true,
     ): void {
@@ -122,10 +98,7 @@ export class BaseModal {
             }
         }
     }
-    /**
-     * @param {boolean=} opt_allowClose
-     * @return {undefined}
-     */
+
     open(opt_allowClose: boolean | undefined = true): void {
         this.hasBlur = this.mainContainerKnot.hasClass('blur');
         if (!this.hasBlur) {
@@ -143,9 +116,7 @@ export class BaseModal {
             this._handleCenterPosition();
         }, 1000);
     }
-    /**
-     * @return {undefined}
-     */
+
     close(): void {
         clearInterval(this.interval);
 
@@ -161,11 +132,7 @@ export class BaseModal {
         this.modalBody.removeChildren();
         this.modalFooter.removeChildren();
     }
-    /**
-     * @protected
-     * @param {string=} opt_title
-     * @return {undefined}
-     */
+
     protected _setTitle(opt_title: string | undefined): void {
         this.modalTitle.setHtml(opt_title);
 
@@ -178,60 +145,38 @@ export class BaseModal {
             this.modalHeader.addClass('hidden');
         }
     }
-    /**
-     * @protected
-     * @return {undefined}
-     */
+
     protected _reset(): void {
         this.eventOK = noop();
         this.eventCancel = noop();
     }
-    /**
-     * @protected
-     * @return {undefined}
-     */
+
     protected _actionOK(): void {
         const async = new Async();
         const calls = [this.eventOK.bind(this), this.close.bind(this)];
         async.serial(calls);
     }
-    /**
-     * @protected
-     * @return {undefined}
-     */
+
     protected _actionCancel(): void {
         const async = new Async();
         const calls = [this.eventCancel.bind(this), this.close.bind(this)];
         async.serial(calls);
     }
-    /**
-     * @private
-     * @return {undefined}
-     */
+
     private _actionMinimize(): void {
         // empty function
     }
-    /**
-     * @private
-     * @return {undefined}
-     */
+
     private _actionMaximize(): void {
         // empty function
     }
-    /**
-     * @param {number} width
-     * @param {number} height
-     * @return {undefined}
-     */
+
     setSize(width: number, height: number): void {
         this.windowWidth = width;
         this.windowHeight = height;
         this._handleCenterPosition();
     }
-    /**
-     * @private
-     * @return {undefined}
-     */
+
     private _handleCenterPosition(): void {
         const style = this.modalWindow.getComputedStyle();
         const styleHeight = style.getPropertyValue('height');

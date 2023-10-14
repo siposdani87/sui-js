@@ -3,17 +3,7 @@ import { BaseField } from './baseField';
 import { Knot } from '../core/knot';
 import { mdl } from '../utils/render';
 
-/**
- * @class
- * @extends {BaseField}
- */
 export class NumberField extends BaseField<HTMLInputElement> {
-    /**
-     * @param {!Knot} input
-     * @param {!Knot} label
-     * @param {!Knot} error
-     * @param {!Knot} inputBlock
-     */
     constructor(
         input: Knot<HTMLInputElement>,
         label: Knot,
@@ -23,10 +13,7 @@ export class NumberField extends BaseField<HTMLInputElement> {
         super(input, label, error, inputBlock);
         this._init();
     }
-    /**
-     * @private
-     * @return {undefined}
-     */
+
     private _init(): void {
         this.inputBlock.addClass('number-field');
 
@@ -46,10 +33,7 @@ export class NumberField extends BaseField<HTMLInputElement> {
             return true;
         });
     }
-    /**
-     * @private
-     * @return {undefined}
-     */
+
     private _initButtons(): void {
         const actionKnot = new Knot('span');
         actionKnot.addClass('step-change');
@@ -81,10 +65,7 @@ export class NumberField extends BaseField<HTMLInputElement> {
         });
         actionKnot.appendChild(downButton);
     }
-    /**
-     * @private
-     * @return {undefined}
-     */
+
     private _checkValue(): void {
         const value = this.getValue();
         const min = this._getMin();
@@ -96,34 +77,22 @@ export class NumberField extends BaseField<HTMLInputElement> {
             this.setValue(max);
         }
     }
-    /**
-     * @private
-     * @return {number}
-     */
+
     private _getMax(): number {
         const max = this.input.getAttribute('max') || 9999999999;
         return typeCast(max);
     }
-    /**
-     * @private
-     * @return {number}
-     */
+
     private _getMin(): number {
         const min = this.input.getAttribute('min') || 0;
         return typeCast(min);
     }
-    /**
-     * @private
-     * @return {number}
-     */
+
     private _getStep(): number {
         const step = this.input.getAttribute('step') || 1;
         return typeCast(step);
     }
-    /**
-     * @override
-     * @return {undefined}
-     */
+
     render(): void {
         this.inputBlock.addClass([
             'mdl-textfield',
@@ -136,9 +105,7 @@ export class NumberField extends BaseField<HTMLInputElement> {
         }
         this.refresh();
     }
-    /**
-     * @override
-     */
+
     refresh() {
         if (this.isRequired() && this.getValue() === '') {
             this.inputBlock.addClass('is-invalid');

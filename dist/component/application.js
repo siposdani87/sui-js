@@ -28,14 +28,7 @@ import { EventBus } from '../module/eventBus';
 import { Scheduler } from '../module/scheduler';
 import { Screen } from '../module/screen';
 import { setDateIOLocale } from '../utils/dateio';
-/**
- * @class
- */
 export class Application {
-    /**
-     * @param {!Object} options
-     * @param {!Injection} resources
-     */
     constructor(options, resources) {
         this._injections = {};
         this._instances = {
@@ -75,11 +68,6 @@ export class Application {
         this._setOptions(options);
         this._init(resources);
     }
-    /**
-     * @private
-     * @param {!Object} options
-     * @return {undefined}
-     */
     _setOptions(options) {
         this.options = new Objekt({
             app_id: 'sui-app',
@@ -91,11 +79,6 @@ export class Application {
         });
         this.options.merge(options);
     }
-    /**
-     * @private
-     * @param {!Injection} resources
-     * @return {undefined}
-     */
     _init(resources) {
         this._injections = resources;
         this._initCertificate();
@@ -131,16 +114,10 @@ export class Application {
         this._initConfig();
         this._loadModules();
     }
-    /**
-     * @return {string}
-     */
     getLanguage() {
         const locale = this.getLocale();
         return locale.split('-', 2)[0];
     }
-    /**
-     * @return {string}
-     */
     getLocale() {
         let locale = this._instances.localDepot.get('app.locale');
         if (!locale) {
@@ -148,43 +125,23 @@ export class Application {
         }
         return locale;
     }
-    /**
-     * @param {string} locale
-     * @return {undefined}
-     */
     setLocale(locale) {
         this._instances.localDepot.set('app.locale', locale);
         this.options.locale = locale;
     }
-    /**
-     * @param {string} locale
-     * @return {undefined}
-     */
     setLocaleWithReload(locale) {
         this.setLocale(locale);
         this._instances.state.reload();
     }
-    /**
-     * @private
-     * @return {undefined}
-     */
     _initLocale() {
         const locale = this.getLocale();
         setDateIOLocale(locale);
         this.setLocale(locale);
     }
-    /**
-     * @private
-     * @return {undefined}
-     */
     _initCertificate() {
         const rootKnot = new Query('html').getKnot();
         rootKnot.addClass('sui-js');
     }
-    /**
-     * @private
-     * @return {undefined}
-     */
     _initModule() {
         this._module = new Module();
         this._module.eventAfterInit = () => {
@@ -229,46 +186,22 @@ export class Application {
             this._instances.eventBus.call('controller.failed', []);
         };
     }
-    /**
-     * @private
-     * @return {undefined}
-     */
     _loadModules() {
         this._instances.instances = this._instances;
         this._module.load(this._instances, this._injections);
     }
-    /**
-     * @private
-     * @return {undefined}
-     */
     _initScript() {
         this._instances.script = new Script(this._instances.progressBar);
     }
-    /**
-     * @private
-     * @return {undefined}
-     */
     _initStyle() {
         this._instances.style = new Style(this._instances.progressBar);
     }
-    /**
-     * @private
-     * @return {undefined}
-     */
     _initConfig() {
         this._instances.config = this.options;
     }
-    /**
-     * @private
-     * @return {undefined}
-     */
     _initApp() {
         this._instances.app = this;
     }
-    /**
-     * @private
-     * @return {undefined}
-     */
     _initGeoLocation() {
         this._instances.geoLocation = new GeoLocation();
         this._instances.geoLocation.eventChange = (latitude, longitude, message) => {
@@ -286,33 +219,17 @@ export class Application {
             });
         };
     }
-    /**
-     * @private
-     * @return {undefined}
-     */
     _initCookie() {
         this._instances.cookie = new Cookie({
             prefix: this.options.app_id,
         });
     }
-    /**
-     * @private
-     * @return {undefined}
-     */
     _initLoader() {
         this._instances.loader = new Loader();
     }
-    /**
-     * @private
-     * @return {undefined}
-     */
     _initProgressBar() {
         this._instances.progressBar = new ProgressBar(this._instances.dialog, this._instances.confirm);
     }
-    /**
-     * @private
-     * @return {undefined}
-     */
     _initDepots() {
         this._instances.localDepot = new Depot('LOCAL', {
             prefix: this.options.app_id,
@@ -323,17 +240,9 @@ export class Application {
             secret: this.options.secret,
         });
     }
-    /**
-     * @private
-     * @return {undefined}
-     */
     _initHelper() {
         this._instances.helper = new Helper();
     }
-    /**
-     * @private
-     * @return {undefined}
-     */
     _initPage() {
         const popupContainer = new PopupContainer();
         this._instances.page = new Page();
@@ -342,10 +251,6 @@ export class Application {
             this._instances.eventBus.call('document.click', [target, event]);
         };
     }
-    /**
-     * @private
-     * @return {undefined}
-     */
     _initScreen() {
         this._instances.screen = new Screen();
         const width = this._instances.screen.getWidth();
@@ -399,24 +304,12 @@ export class Application {
             });
         };
     }
-    /**
-     * @private
-     * @return {undefined}
-     */
     _initEventBus() {
         this._instances.eventBus = new EventBus();
     }
-    /**
-     * @private
-     * @return {undefined}
-     */
     _initScheduler() {
         this._instances.scheduler = new Scheduler();
     }
-    /**
-     * @private
-     * @return {undefined}
-     */
     _initHttp() {
         this._instances.http = new Http(this.options);
         this._instances.http.eventBeforeRequest = (...params) => {
@@ -428,10 +321,6 @@ export class Application {
             this._instances.progressBar.hide();
         };
     }
-    /**
-     * @private
-     * @return {undefined}
-     */
     _initTemplate() {
         this._instances.template = new Template(this._instances.http, {
             locale: this.getLocale(),
@@ -442,121 +331,56 @@ export class Application {
             this._instances.flash.addMessage(message);
         };
     }
-    /**
-     * @private
-     * @return {undefined}
-     */
     _initFlash() {
         this._instances.flash = new Flash();
     }
-    /**
-     * @private
-     * @return {undefined}
-     */
     _initDialog() {
         this._instances.dialog = new Dialog(this._instances.http);
     }
-    /**
-     * @private
-     * @return {undefined}
-     */
     _initConfirm() {
         this._instances.confirm = new Confirm();
     }
-    /**
-     * @private
-     * @return {undefined}
-     */
     _initViewer() {
         this._instances.viewer = new Viewer();
     }
-    /**
-     * @private
-     * @return {undefined}
-     */
     _initHeader() {
         this._instances.header = new Header();
     }
-    /**
-     * @private
-     * @return {undefined}
-     */
     _initTopMenu() {
         this._instances.topMenu = new TopMenu(this._instances.header);
     }
-    /**
-     * @private
-     * @return {undefined}
-     */
     _initNavBar() {
         this._instances.navBar = new NavBar();
     }
-    /**
-     * @private
-     * @return {undefined}
-     */
     _initBottomMenu() {
         this._instances.bottomMenu = new BottomMenu(this._instances.footer);
     }
-    /**
-     * @private
-     * @return {undefined}
-     */
     _initLeftMenu() {
         this._instances.leftMenu = new LeftMenu();
     }
-    /**
-     * @private
-     * @return {undefined}
-     */
     _initFooter() {
         this._instances.footer = new Footer();
     }
-    /**
-     * @private
-     * @return {undefined}
-     */
     _initBrowser() {
         this._instances.browser = new Browser();
         this._instances.browser.eventMissingFeatures = (features) => {
             this._instances.flash.addError(features.join(', '));
         };
     }
-    /**
-     * @private
-     * @return {undefined}
-     */
     _initRoutes() {
         this._routeOptions = new Objekt();
     }
-    /**
-     * @param {string} id
-     * @param {!Object=} opt_params
-     * @return {undefined}
-     */
     setRootState(id, opt_params) {
         this._routeOptions.set('root.id', id);
         this._routeOptions.set('root.params', opt_params);
     }
-    /**
-     * @param {string} name
-     * @return {?Object}
-     */
     getInstance(name) {
         var _a;
         return (_a = this._instances[name]) !== null && _a !== void 0 ? _a : null;
     }
-    /**
-     * @return {?Object}
-     */
     getController() {
         return this._module.getController();
     }
-    /**
-     * @param {!Array<Route>} routes
-     * @param {!Array<string>} services
-     * @return {undefined}
-     */
     run(routes, services) {
         if (this.options.production) {
             console.info('%cApplication run in production environment...', `font-weight:bold;color:${this.options.theme_color};`);
@@ -567,21 +391,9 @@ export class Application {
         this._module.handleRoutes(routes, this._routeOptions);
         this._module.handleServices(services);
     }
-    /**
-     * @param {string} name
-     * @param {!Array} moduleInjections
-     * @param {!ClassRef} moduleCallback
-     * @return {string}
-     */
     controller(name, moduleInjections, moduleCallback) {
         return this._module.add(name, moduleInjections, moduleCallback);
     }
-    /**
-     * @param {string} name
-     * @param {!Array} moduleInjections
-     * @param {!ClassRef} moduleCallback
-     * @return {string}
-     */
     service(name, moduleInjections, moduleCallback) {
         return this._module.add(name, moduleInjections, moduleCallback);
     }

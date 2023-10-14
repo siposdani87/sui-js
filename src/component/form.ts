@@ -7,10 +7,6 @@ import { consoleDebug } from '../utils/log';
 import { BaseField } from '../field';
 import { Knot } from '../core';
 
-/**
- * @class
- * @extends {Collection}
- */
 export class Form extends Collection<BaseField<HTMLInputElement>> {
     formKnot: Knot<HTMLFormElement>;
     previousModel: Objekt;
@@ -18,10 +14,7 @@ export class Form extends Collection<BaseField<HTMLInputElement>> {
     initFields: string[];
     buttonClasses: string[];
     fieldClasses: string[];
-    /**
-     * @param {!Knot} dom
-     * @param {string=} opt_selector
-     */
+
     constructor(dom: Knot, opt_selector: string | undefined = 'form') {
         const formKnot = new Query<HTMLFormElement>(
             opt_selector,
@@ -35,10 +28,7 @@ export class Form extends Collection<BaseField<HTMLInputElement>> {
 
         this._init();
     }
-    /**
-     * @private
-     * @return {undefined}
-     */
+
     private _init(): void {
         this.previousModel = new Objekt();
         this.model = new Objekt();
@@ -59,10 +49,7 @@ export class Form extends Collection<BaseField<HTMLInputElement>> {
         this._initFields();
         this._initFormEvent();
     }
-    /**
-     * @private
-     * @return {undefined}
-     */
+
     private _initFormEvent(): void {
         this.formKnot.addEventListener('keydown', (_knot, event) => {
             const textArea = /textarea/i.test(
@@ -82,10 +69,7 @@ export class Form extends Collection<BaseField<HTMLInputElement>> {
         this._initSubmitFormEvent();
         this._initResetFormEvent();
     }
-    /**
-     * @private
-     * @return {undefined}
-     */
+
     private _initSubmitFormEvent(): void {
         this.formKnot.addEventListener('submit', (knot, event) => {
             event.preventDefault();
@@ -94,20 +78,14 @@ export class Form extends Collection<BaseField<HTMLInputElement>> {
             }
         });
     }
-    /**
-     * @private
-     * @return {undefined}
-     */
+
     private _initResetFormEvent(): void {
         this.formKnot.addEventListener('reset', (knot, event) => {
             event.preventDefault();
             this.eventReset(this.model, knot);
         });
     }
-    /**
-     * @private
-     * @return {undefined}
-     */
+
     private _initFields(): void {
         const fields = new Query(
             this.fieldClasses.concat(this.buttonClasses).join(', '),
@@ -148,12 +126,7 @@ export class Form extends Collection<BaseField<HTMLInputElement>> {
         });
         this.initFields = this.initFields.concat(initFields);
     }
-    /**
-     * @param {!Objekt} model
-     * @param {boolean=} opt_force
-     * @param {boolean=} opt_showMessage
-     * @return {undefined}
-     */
+
     setModel(
         model: Objekt,
         opt_force: boolean | undefined = true,
@@ -170,17 +143,11 @@ export class Form extends Collection<BaseField<HTMLInputElement>> {
             }
         });
     }
-    /**
-     * @return {!Objekt}
-     */
+
     getModel(): Objekt {
         return this.model;
     }
-    /**
-     * @param {boolean=} opt_force
-     * @param {boolean=} opt_showMessage
-     * @return {undefined}
-     */
+
     reset(
         opt_force: boolean | undefined = true,
         opt_showMessage: boolean | undefined = false,
@@ -192,12 +159,7 @@ export class Form extends Collection<BaseField<HTMLInputElement>> {
         this.previousModel = this.model.copy();
         this.model.clear();
     }
-    /**
-     * @private
-     * @param {string} name
-     * @param {*} value
-     * @return {undefined}
-     */
+
     private _setValue(name: string, value: any): void {
         const currentValue = this._getValue(name);
         if (!isSame(value, currentValue)) {
@@ -205,29 +167,16 @@ export class Form extends Collection<BaseField<HTMLInputElement>> {
             this.model.set(name, value);
         }
     }
-    /**
-     * @private
-     * @param {string} name
-     * @return {*}
-     */
+
     private _getValue(name: string): any {
         return this.model.get(name);
     }
-    /**
-     * @private
-     * @param {!BaseField} field
-     * @return {*}
-     */
+
     private _getPreviousValue(field: BaseField<HTMLInputElement>): any {
         const fieldName = field.getName();
         return this.previousModel.get(fieldName);
     }
-    /**
-     * @private
-     * @param {!BaseField} field
-     * @param {*} value
-     * @return {undefined}
-     */
+
     private _fieldValueChange(
         field: BaseField<HTMLInputElement>,
         value: any,
@@ -240,10 +189,7 @@ export class Form extends Collection<BaseField<HTMLInputElement>> {
         }
         this.checkValidity(true, false);
     }
-    /**
-     * @param {!Object} data
-     * @return {undefined}
-     */
+
     setErrors(data: Object): void {
         const errors = new Objekt(data);
         this.each((field) => {
@@ -252,11 +198,7 @@ export class Form extends Collection<BaseField<HTMLInputElement>> {
             field.setError(error.join(', '), true);
         });
     }
-    /**
-     * @param {boolean=} opt_force
-     * @param {boolean=} opt_showMessage
-     * @return {boolean}
-     */
+
     checkValidity(
         opt_force: boolean | undefined = false,
         opt_showMessage: boolean | undefined = true,
@@ -266,21 +208,15 @@ export class Form extends Collection<BaseField<HTMLInputElement>> {
         });
         return this.formKnot.getNode().checkValidity();
     }
-    /**
-     * @return {boolean}
-     */
+
     isValid(): boolean {
         return this.checkValidity(true);
     }
-    /**
-     * @return {boolean}
-     */
+
     isInvalid(): boolean {
         return !this.isValid();
     }
-    /**
-     * @return {undefined}
-     */
+
     refresh(): void {
         this.deleteAllByCondition((field) => {
             const exists = field.exists();
@@ -294,18 +230,13 @@ export class Form extends Collection<BaseField<HTMLInputElement>> {
 
         this._initFields();
     }
-    /**
-     * @param {string} name
-     * @return {!BaseField}
-     */
+
     findByModel<T = BaseField<HTMLInputElement>>(name: string): T {
         return this.findByCondition((item) => {
             return item.getName() === name;
         }) as any as T;
     }
-    /**
-     * @return {undefined}
-     */
+
     lock(): void {
         this.each((field) => {
             field.disabled = field.isDisabled();
@@ -314,35 +245,21 @@ export class Form extends Collection<BaseField<HTMLInputElement>> {
             field.setDisabled(true);
         });
     }
-    /**
-     * @return {undefined}
-     */
+
     unlock(): void {
         this.each((field) => {
             field.setDisabled(field.disabled);
         });
     }
-    /**
-     * @param {!Objekt} model
-     * @param {!Knot} knot
-     * @return {undefined}
-     */
+
     eventSubmit(model: Objekt, knot: Knot): void {
         consoleDebug('Form.eventSubmit()', model, knot);
     }
-    /**
-     * @param {!Objekt} model
-     * @param {!Knot} knot
-     * @return {undefined}
-     */
+
     eventReset(model: Objekt, knot: Knot): void {
         consoleDebug('Form.eventReset()', model, knot);
     }
-    /**
-     * @param {!Objekt} model
-     * @param {!Knot} knot
-     * @return {undefined}
-     */
+
     eventButton(model: Objekt, knot: Knot): void {
         consoleDebug('Form.eventButton()', model, knot);
     }

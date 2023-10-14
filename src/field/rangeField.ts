@@ -4,18 +4,9 @@ import { Tooltip } from '../component/tooltip';
 import { Knot } from '../core';
 import { mdl } from '../utils/render';
 
-/**
- * @class
- * @extends {BaseField}
- */
 export class RangeField extends BaseField<HTMLInputElement> {
     tooltip: Tooltip;
-    /**
-     * @param {!Knot} input
-     * @param {!Knot} label
-     * @param {!Knot} error
-     * @param {!Knot} inputBlock
-     */
+
     constructor(
         input: Knot<HTMLInputElement>,
         label: Knot,
@@ -25,10 +16,7 @@ export class RangeField extends BaseField<HTMLInputElement> {
         super(input, label, error, inputBlock);
         this._init();
     }
-    /**
-     * @private
-     * @return {undefined}
-     */
+
     private _init(): void {
         this.inputBlock.addClass('range-field');
 
@@ -39,10 +27,7 @@ export class RangeField extends BaseField<HTMLInputElement> {
             this.modelChange(inputNode.value);
         });
     }
-    /**
-     * @override
-     * @return {undefined}
-     */
+
     render(): void {
         this.inputBlock.addClass([
             'mdl-textfield',
@@ -58,9 +43,7 @@ export class RangeField extends BaseField<HTMLInputElement> {
 
         this.refresh();
     }
-    /**
-     * @override
-     */
+
     refresh() {
         if (this.isRequired() && this.getValue() === '') {
             this.inputBlock.addClass('is-invalid');
@@ -83,11 +66,7 @@ export class RangeField extends BaseField<HTMLInputElement> {
         this.tooltip = new Tooltip(this.inputBlock);
         this.tooltip.render(value);
     }
-    /**
-     * @override
-     * @param {!Object|!Function|!Array|boolean|number|string|null|undefined} value
-     * @return {undefined}
-     */
+
     setValue(
         value:
             | Object

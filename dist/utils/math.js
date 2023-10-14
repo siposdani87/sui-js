@@ -1,10 +1,3 @@
-/**
- * @param {number} price
- * @param {string=} opt_delimiter
- * @param {string=} opt_separator
- * @param {number=} opt_precision
- * @return {string}
- */
 export const readableCurrency = (price, opt_delimiter = ' ', opt_separator = ',', opt_precision = 0) => {
     if (!price) {
         price = 0;
@@ -25,11 +18,6 @@ export const readableCurrency = (price, opt_delimiter = ' ', opt_separator = ','
     }
     return currency;
 };
-/**
- * @param {number} num
- * @param {boolean=} opt_around
- * @return {string}
- */
 export const readableNumber = (num, opt_around = false) => {
     const siValues = [
         { value: 1e24, symbol: 'Y' },
@@ -58,14 +46,6 @@ export const readableNumber = (num, opt_around = false) => {
     }
     return result;
 };
-/**
- * Decimal adjustment of a number.
- *
- * @param {string} type The type of adjustment.
- * @param {number} value The number.
- * @param {number} exp The exponent (the 10 logarithm of the adjustment base).
- * @return {number} The adjusted value.
- */
 const decimalAdjust = (type, value, exp) => {
     // If the exp is undefined or zero...
     if (typeof exp === 'undefined' || +exp === 0) {
@@ -84,36 +64,9 @@ const decimalAdjust = (type, value, exp) => {
     parts = value.toString().split('e');
     return +(parts[0] + 'e' + (parts[1] ? +parts[1] + exp : exp));
 };
-/**
- * Decimal round
- *
- * @param {number} value
- * @param {number} exp
- * @return {number}
- */
 export const round = (value, exp) => decimalAdjust('round', value, exp);
-/**
- * Decimal floor
- *
- * @param {number} value
- * @param {number} exp
- * @return {number}
- */
 export const floor = (value, exp) => decimalAdjust('floor', value, exp);
-/**
- * Decimal ceil
- *
- * @param {number} value
- * @param {number} exp
- * @return {number}
- */
 export const ceil = (value, exp) => decimalAdjust('ceil', value, exp);
-/**
- * @param {number} min
- * @param {number} max
- * @param {boolean=} opt_onlyFloat
- * @return {number}
- */
 export const random = (min, max, opt_onlyFloat = false) => {
     let result;
     if (opt_onlyFloat) {

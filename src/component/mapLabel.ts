@@ -1,13 +1,7 @@
-/**
- * @class
- */
 export class MapLabel {
     private canvas: HTMLCanvasElement;
     private overlayView: google.maps.OverlayView;
-    /**
-     * @constructor
-     * @param {Object.<string, *>=} opt_options
-     */
+
     constructor(opt_options?: Object) {
         this.overlayView = new google.maps.OverlayView();
 
@@ -64,11 +58,7 @@ export class MapLabel {
                 return this.draw();
         }
     }
-    /**
-     * Draws the label to the canvas 2d context.
-     * @private
-     * @return {undefined}
-     */
+
     private _drawCanvas(): void {
         if (!this.canvas) return;
 
@@ -120,12 +110,7 @@ export class MapLabel {
             panes.mapPane.appendChild(this.canvas);
         }
     }
-    /**
-     * Gets the appropriate margin-left for the canvas.
-     * @private
-     * @param {number} textWidth  the width of the text, in pixels.
-     * @return {number} the margin-left, in pixels.
-     */
+
     private _getMarginLeft(textWidth: number): number {
         switch (this.overlayView.get('align')) {
             case 'left':
@@ -162,11 +147,7 @@ export class MapLabel {
 
         style['visibility'] = this._getVisible();
     }
-    /**
-     * Get the visibility of the label.
-     * @private
-     * @return {string} blank string if visible, 'hidden' if invisible.
-     */
+
     private _getVisible(): string {
         const minZoom: number = this.overlayView.get('minZoom');
         const maxZoom: number = this.overlayView.get('maxZoom');

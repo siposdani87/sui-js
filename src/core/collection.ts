@@ -9,19 +9,11 @@ import {
 } from '../utils/operation';
 import { Objekt } from './objekt';
 
-/**
- * @class
- * @template T
- */
 export class Collection<T extends Object = Object> {
     Type: any;
     items: T[];
     options: Objekt;
-    /**
-     * @param {!Array=} opt_items
-     * @param {!Function=} opt_type
-     * @param {!Object=} opt_options
-     */
+
     constructor(
         opt_items: Array<T> | undefined = [],
         opt_type: any = Objekt,
@@ -32,11 +24,7 @@ export class Collection<T extends Object = Object> {
         this.items = [];
         this.load(opt_items);
     }
-    /**
-     * @private
-     * @param {!Object=} opt_options
-     * @return {undefined}
-     */
+
     private _setOptions(opt_options: Object | undefined = {}): void {
         this.options = new Objekt({
             id: 'id',
@@ -44,37 +32,24 @@ export class Collection<T extends Object = Object> {
         });
         this.options.merge(opt_options);
     }
-    /**
-     * @param {!Array<Object|T>} items
-     * @return {undefined}
-     */
+
     load(objects: Array<Object | T>): void {
         each(objects, (object) => {
             this.push(object);
         });
     }
-    /**
-     * @param {!Array<Object|T>} items
-     * @return {undefined}
-     */
+
     reload(objects: Array<Object | T>): void {
         this.clear();
         this.load(objects);
     }
-    /**
-     * @param {!Object|!T} object
-     * @return {T}
-     */
+
     push(object: Object | T): T {
         const item = this._createItem(object);
         this.items.push(item);
         return item;
     }
-    /**
-     * @private
-     * @param {!Object|!T} object
-     * @return {T}
-     */
+
     private _createItem(object: Object | T): T {
         if (!instanceOf(object, this.Type)) {
             const parent = !isUndefined(this.options.parent)
@@ -84,11 +59,7 @@ export class Collection<T extends Object = Object> {
         }
         return object as T;
     }
-    /**
-     * @param {number} index
-     * @param {!Object|!T} object
-     * @return {T}
-     */
+
     set(index: number, object: Object | T): T {
         const item = this._createItem(object);
         if (index < this.size()) {
@@ -98,10 +69,7 @@ export class Collection<T extends Object = Object> {
         }
         return item;
     }
-    /**
-     * @param {!Object|!T} object
-     * @return {!T}
-     */
+
     replace(object: Object | T): T | null {
         const item = this._createItem(object);
         if (item && instanceOf(item, Objekt)) {
@@ -114,18 +82,11 @@ export class Collection<T extends Object = Object> {
         }
         return null;
     }
-    /**
-     * @return {!Array<T>}
-     */
+
     getItems(): Array<T> {
         return this.items;
     }
-    /**
-     * @param {function(T)} callback
-     * @param {function(T, number)} next
-     * @param {!Array<T>=} opt_items
-     * @return {!Array<T>}
-     */
+
     iterator(
         callback: (_item: T) => boolean,
         next: (_item: T, _index: number) => void,
@@ -141,21 +102,13 @@ export class Collection<T extends Object = Object> {
         });
         return results;
     }
-    /**
-     * @param {function(T, number)} next
-     * @return {undefined}
-     */
+
     each(next: (_item: T, _index: number) => void): void {
         this.iterator(() => {
             return true;
         }, next);
     }
-    /**
-     * @template K
-     * @param {number} index
-     * @param {string=} opt_attribute
-     * @return {T|*}
-     */
+
     get<K = T>(
         index: number,
         opt_attribute?: string | undefined,
@@ -169,12 +122,7 @@ export class Collection<T extends Object = Object> {
         }
         return null;
     }
-    /**
-     * @template K
-     * @param {Id} id
-     * @param {string=} opt_attribute
-     * @return {T|*}
-     */
+
     getById<K = T>(id: Id, opt_attribute?: string): T | K {
         const item = this.findById(id);
         if (item && opt_attribute && instanceOf(item, Objekt)) {
@@ -182,33 +130,21 @@ export class Collection<T extends Object = Object> {
         }
         return item;
     }
-    /**
-     * @return {undefined}
-     */
+
     clear(): void {
         clear(this.items);
     }
-    /**
-     * @param {Id} id
-     * @return {!T}
-     */
+
     findById(id: Id): T {
         return this.findBy(this.options.id, id);
     }
-    /**
-     * @param {string} attribute
-     * @param {*} value
-     * @return {!T}
-     */
+
     findBy(attribute: string, value: any): T {
         return this.findByCondition((_item, i) => {
             return this.get(i, attribute) === value;
         });
     }
-    /**
-     * @param {!Function} conditionCallback
-     * @return {!T}
-     */
+
     findByCondition(conditionCallback: Function): T {
         let i = 0;
         while (i < this.items.length && !conditionCallback(this.items[i], i)) {
@@ -216,20 +152,13 @@ export class Collection<T extends Object = Object> {
         }
         return this.get(i);
     }
-    /**
-     * @param {string} attribute
-     * @param {*} value
-     * @return {!Array<T>}
-     */
+
     findAllBy(attribute: string, value: any): Array<T> {
         return this.findAllByCondition((_item, i) => {
             return this.get(i, attribute) === value;
         });
     }
-    /**
-     * @param {!Function} conditionCallback
-     * @return {!Array<T>}
-     */
+
     findAllByCondition(conditionCallback: Function): Array<T> {
         const items = [];
         eachArray(this.items, (item, i) => {
@@ -239,36 +168,23 @@ export class Collection<T extends Object = Object> {
         });
         return items;
     }
-    /**
-     * @param {!Object|!T} value
-     * @return {!T}
-     */
+
     delete(value: Object | T): T {
         return this.deleteByCondition((item) => {
             return eq(item, value);
         });
     }
-    /**
-     * @param {Id} id
-     * @return {!T}
-     */
+
     deleteById(id: Id): T {
         return this.deleteBy(this.options.id, id);
     }
-    /**
-     * @param {string} attribute
-     * @param {*} value
-     * @return {!T}
-     */
+
     deleteBy(attribute: string, value: any): T {
         return this.deleteByCondition((item, i) => {
             return this.get(i, attribute) === value;
         });
     }
-    /**
-     * @param {!Function} conditionCallback
-     * @return {!T}
-     */
+
     deleteByCondition(conditionCallback: Function): T {
         let i = 0;
         while (i < this.items.length && !conditionCallback(this.items[i], i)) {
@@ -278,20 +194,13 @@ export class Collection<T extends Object = Object> {
         this.items.splice(i, 1);
         return item;
     }
-    /**
-     * @param {string} attribute
-     * @param {*} value
-     * @return {!Array<T>}
-     */
+
     deleteAllBy(attribute: string, value: any): Array<T> {
         return this.deleteAllByCondition((_item, i) => {
             return this.get(i, attribute) === value;
         });
     }
-    /**
-     * @param {!Function} conditionCallback
-     * @return {!Array<T>}
-     */
+
     deleteAllByCondition(conditionCallback: Function): Array<T> {
         const items = [];
         const deletedKnots = [];
@@ -305,17 +214,11 @@ export class Collection<T extends Object = Object> {
         this.items = items;
         return deletedKnots;
     }
-    /**
-     * @return {number}
-     */
+
     size(): number {
         return this.items.length;
     }
-    /**
-     * @param {number} offset
-     * @param {number=} opt_count
-     * @return {!Array<T>}
-     */
+
     limit(offset: number, opt_count: number | undefined = 10): Array<T> {
         return this.items.slice(offset, offset + opt_count);
     }

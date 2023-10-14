@@ -3,20 +3,13 @@ import { PopupContainer } from './popupContainer';
 import { consoleDebug } from '../utils/log';
 import { mdl } from '../utils/render';
 
-/**
- * @class
- */
 export class Popup {
     content: Knot;
     parent?: Knot;
     withClose: boolean;
     popupContainer: PopupContainer;
     popupKnot: Knot;
-    /**
-     * @param {!Knot} content
-     * @param {!Knot} parent
-     * @param {boolean=} opt_withClose
-     */
+
     constructor(
         content: Knot,
         parent: Knot,
@@ -27,18 +20,12 @@ export class Popup {
         this.withClose = opt_withClose;
         this._init();
     }
-    /**
-     * @private
-     * @return {undefined}
-     */
+
     private _init(): void {
         this.popupContainer = new PopupContainer();
         this._draw();
     }
-    /**
-     * @private
-     * @return {undefined}
-     */
+
     private _draw(): void {
         this.popupKnot = new Knot('div');
         this.popupKnot.addClass(['popup', 'hidden']);
@@ -50,10 +37,7 @@ export class Popup {
 
         this._initCloseButton();
     }
-    /**
-     * @private
-     * @return {undefined}
-     */
+
     private _initCloseButton(): void {
         if (this.withClose) {
             const btnClose = new Knot<HTMLButtonElement>('button');
@@ -77,33 +61,25 @@ export class Popup {
             mdl(btnClose);
         }
     }
-    /**
-     * @return {undefined}
-     */
+
     open(): void {
         this.popupContainer.closeAll();
         this.popupContainer.push(Popup, this);
         this.popupKnot.removeClass('hidden');
         this.popupContainer.setPosition(this.popupKnot);
     }
-    /**
-     * @return {undefined}
-     */
+
     close(): void {
         this.popupContainer.delete(this);
         this.popupContainer.clearPosition(this.popupKnot);
         this.popupKnot.addClass('hidden');
         this.eventClose();
     }
-    /**
-     * @return {undefined}
-     */
+
     eventClose(): void {
         consoleDebug('Popup.eventClose()');
     }
-    /**
-     * @return {undefined}
-     */
+
     toggle(): void {
         if (this.isOpened()) {
             this.close();
@@ -111,9 +87,7 @@ export class Popup {
             this.open();
         }
     }
-    /**
-     * @return {boolean}
-     */
+
     isOpened(): boolean {
         return !this.popupKnot.hasClass('hidden');
     }

@@ -15,18 +15,11 @@ import {
 import { consoleWarn } from '../utils/log';
 import { Listener } from '../utils';
 
-/**
- * @class
- * @template T
- */
 export class Knot<T extends HTMLElement = HTMLElement> {
     node: T;
     parentKnot: Knot;
     listenerStoreKey: string;
-    /**
-     * @param {?T|string} node
-     * @param {!Knot=} opt_parentKnot
-     */
+
     constructor(
         node: (T | HTMLElement | string) | null,
         opt_parentKnot?: Knot | undefined,
@@ -44,11 +37,7 @@ export class Knot<T extends HTMLElement = HTMLElement> {
         this.parentKnot = opt_parentKnot;
         this.listenerStoreKey = '_listeners';
     }
-    /**
-     * @param {string} attribute
-     * @param {boolean|number|string} value
-     * @return {undefined}
-     */
+
     set(attribute: string, value: boolean | number | string): void {
         if (eq(attribute, 'id')) {
             this.setId(value);
@@ -56,79 +45,52 @@ export class Knot<T extends HTMLElement = HTMLElement> {
             this.setAttribute(attribute, value);
         }
     }
-    /**
-     * @param {!Object} properties
-     * @return {undefined}
-     */
+
     merge(properties: Object): void {
         eachObject(properties, (value, attribute) => {
             this.set(attribute, value);
         });
     }
-    /**
-     * @param {string} attribute
-     * @return {*}
-     */
+
     get(attribute: string): any {
         if (eq(attribute, 'id')) {
             return this.getId();
         }
         return this.getAttribute(attribute);
     }
-    /**
-     * @return {!T}
-     */
+
     getNode(): T {
         return this.node;
     }
-    /**
-     * @return {string}
-     */
+
     getTagName(): string {
         return this.node.tagName.toLowerCase();
     }
-    /**
-     * @return {string|null}
-     */
+
     getId(): string | null {
         return this.node.id || null;
     }
-    /**
-     * @param {boolean|number|string} id
-     * @return {undefined}
-     */
+
     setId(id: boolean | number | string): void {
         this.node.id = id.toString();
     }
-    /**
-     * @param {boolean|number|string} htmlFor
-     * @return {undefined}
-     */
+
     setFor(htmlFor: boolean | number | string): void {
         (this.node as any as HTMLLabelElement).htmlFor = htmlFor.toString();
         this.setAttribute('for', htmlFor);
     }
-    /**
-     * @return {string|null}
-     */
+
     getFor(): string | null {
         return (
             (this.node as any as HTMLLabelElement).htmlFor ||
             this.getAttribute('for')
         );
     }
-    /**
-     * @param {string} cssClass
-     * @return {boolean}
-     */
+
     hasClass(cssClass: string): boolean {
         return this.node.classList.contains(cssClass);
     }
-    /**
-     * @param {!Array|string} cssClasses
-     * @param {!Function} callback
-     * @return {undefined}
-     */
+
     private _handleClassList(
         cssClasses: Array<string> | string,
         callback: Function,
@@ -141,10 +103,7 @@ export class Knot<T extends HTMLElement = HTMLElement> {
             callback(cssClasses);
         }
     }
-    /**
-     * @param {!Array|string} cssClasses
-     * @return {undefined}
-     */
+
     addClass(cssClasses: Array<string> | string): void {
         this._handleClassList(cssClasses, (cssClass) => {
             if (cssClass && !this.hasClass(cssClass)) {
@@ -152,35 +111,23 @@ export class Knot<T extends HTMLElement = HTMLElement> {
             }
         });
     }
-    /**
-     * @param {!Array|string} cssClasses
-     * @return {undefined}
-     */
+
     removeClass(cssClasses: Array<string> | string): void {
         this._handleClassList(cssClasses, (cssClass) => {
             this.node.classList.remove(cssClass);
         });
     }
-    /**
-     * @param {!Array|string} cssClasses
-     * @return {undefined}
-     */
+
     toggleClass(cssClasses: Array<string> | string): void {
         this._handleClassList(cssClasses, (cssClass) => {
             this.node.classList.toggle(cssClass);
         });
     }
-    /**
-     * @return {!Array<string>}
-     */
+
     getClasses(): Array<string> {
         return this.node.classList.value.split(' ');
     }
-    /**
-     * @param {string} attribute
-     * @param {!Object|!Function|!Array|boolean|number|string|null|undefined=} opt_value
-     * @return {undefined}
-     */
+
     setAttribute(
         attribute: string,
         opt_value?:
@@ -212,10 +159,7 @@ export class Knot<T extends HTMLElement = HTMLElement> {
             this.node.setAttribute(attribute, value as string);
         }
     }
-    /**
-     * @param {string} attribute
-     * @return {*}
-     */
+
     getAttribute(attribute: string): any {
         const data = this.node.getAttribute(attribute);
         if (
@@ -227,25 +171,15 @@ export class Knot<T extends HTMLElement = HTMLElement> {
         }
         return typeCast(data);
     }
-    /**
-     * @param {string} attribute
-     * @return {undefined}
-     */
+
     removeAttribute(attribute: string): void {
         this.node.removeAttribute(attribute);
     }
-    /**
-     * @param {string} attribute
-     * @return {boolean}
-     */
+
     hasAttribute(attribute: string): boolean {
         return this.node.hasAttribute(attribute);
     }
-    /**
-     * @param {string} eventName
-     * @param {!Function=} opt_callback
-     * @return {!Function}
-     */
+
     addEventListener(
         eventName: string,
         opt_callback?: (knot: Knot<T>, event: any) => any,
@@ -263,12 +197,7 @@ export class Knot<T extends HTMLElement = HTMLElement> {
         }
         return listener;
     }
-    /**
-     * @private
-     * @param {string} eventName
-     * @param {!Function} listener
-     * @return {undefined}
-     */
+
     private _addListenerToStore(eventName: string, listener: Function): void {
         if (!this.node[this.listenerStoreKey]) {
             this.node[this.listenerStoreKey] = {};
@@ -278,11 +207,7 @@ export class Knot<T extends HTMLElement = HTMLElement> {
         }
         this.node[this.listenerStoreKey][eventName].push(listener);
     }
-    /**
-     * @private
-     * @param {string} eventName
-     * @return {!Array<Listener>}
-     */
+
     private _getListenersFromStore(eventName: string): Listener[] {
         if (
             this.node[this.listenerStoreKey] ||
@@ -292,79 +217,52 @@ export class Knot<T extends HTMLElement = HTMLElement> {
         }
         return [];
     }
-    /**
-     * @param {string} eventName
-     * @param {Listener} listener
-     * @return {undefined}
-     */
+
     removeEventListener(
         eventName: keyof GlobalEventHandlersEventMap,
         listener: Listener,
     ): void {
         this.node.removeEventListener(eventName, listener);
     }
-    /**
-     * @param {string} eventName
-     * @return {undefined}
-     */
+
     removeEventListeners(eventName: keyof GlobalEventHandlersEventMap): void {
         const listeners = this._getListenersFromStore(eventName);
         eachArray(listeners, (listener) => {
             this.removeEventListener(eventName, listener);
         });
     }
-    /**
-     * @param {!Event} event
-     * @return {undefined}
-     */
+
     dispatchEvent(event: Event): void {
         this.node.dispatchEvent(event);
     }
-    /**
-     * @param {string} eventName
-     * @return {undefined}
-     */
+
     trigger(eventName: string): void {
         // https://developer.mozilla.org/en-US/docs/Web/Guide/Events/Creating_and_triggering_events
         const event = new Event(eventName);
         this.dispatchEvent(event);
     }
-    /**
-     * @template T
-     * @param {string} tagName
-     * @return {!Knot}
-     */
+
     createElement<K extends HTMLElement = HTMLElement>(
         tagName: string,
     ): Knot<K> {
         const node = document.createElement(tagName);
         return new Knot<K>(node, this);
     }
-    /**
-     * @param {!Knot} knot
-     * @return {undefined}
-     */
+
     appendChild(knot: Knot): void {
         this.node.appendChild(knot.getNode());
     }
-    /**
-     * @return {undefined}
-     */
+
     removeChildren(): void {
         while (this.hasChildren()) {
             this.node.removeChild(this.node.firstChild);
         }
     }
-    /**
-     * @return {boolean}
-     */
+
     hasChildren(): boolean {
         return this.node.hasChildNodes();
     }
-    /**
-     * @param {!Knot} knot
-     * @return {undefined}
-     */
+
     removeChild(knot: Knot): void {
         if (this.hasChildren()) {
             try {
@@ -374,27 +272,19 @@ export class Knot<T extends HTMLElement = HTMLElement> {
             }
         }
     }
-    /**
-     * @return {undefined}
-     */
+
     remove(): void {
         const parentElement = this._getParentElement();
         if (!this.isEmpty() && parentElement) {
             parentElement.removeChild(this.node);
         }
     }
-    /**
-     * @param {!Knot} knot
-     * @return {undefined}
-     */
+
     insert(knot: Knot): void {
         this.removeChildren();
         this.appendChild(knot);
     }
-    /**
-     * @param {!Knot} knot
-     * @return {boolean}
-     */
+
     beforeChild(knot: Knot): boolean {
         const referenceKnot =
             this.node.firstChild || this.node.firstElementChild;
@@ -406,11 +296,7 @@ export class Knot<T extends HTMLElement = HTMLElement> {
         this.node.insertBefore(knot.getNode(), referenceKnot);
         return false;
     }
-    /**
-     * @deprecated
-     * @param {!Knot} knot
-     * @return {boolean}
-     */
+
     afterChild(knot: Knot): boolean {
         const parentElement = this._getParentElement();
         if (parentElement) {
@@ -419,10 +305,7 @@ export class Knot<T extends HTMLElement = HTMLElement> {
         }
         return false;
     }
-    /**
-     * @param {!Knot} knot
-     * @return {boolean}
-     */
+
     insertBefore(knot: Knot): boolean {
         const parentElement = this._getParentElement();
         if (parentElement) {
@@ -431,10 +314,7 @@ export class Knot<T extends HTMLElement = HTMLElement> {
         }
         return false;
     }
-    /**
-     * @param {!Knot} knot
-     * @return {boolean}
-     */
+
     insertAfter(knot: Knot): boolean {
         const nextSiblingKnot = this.getNextSibling();
         const parentElement = this._getParentElement();
@@ -447,11 +327,7 @@ export class Knot<T extends HTMLElement = HTMLElement> {
         }
         return false;
     }
-    /**
-     * @deprecated
-     * @param {!Knot} knot
-     * @return {boolean}
-     */
+
     replaceChild(knot: Knot): boolean {
         const parentElement = this._getParentElement();
         if (parentElement) {
@@ -460,49 +336,32 @@ export class Knot<T extends HTMLElement = HTMLElement> {
         }
         return false;
     }
-    /**
-     * @return {!Knot}
-     */
+
     getNextSibling(): Knot {
         const referenceKnot =
             this.node.nextSibling || this.node.nextElementSibling;
         return new Knot(referenceKnot as T);
     }
-    /**
-     * @param {!string} text
-     * @return {undefined}
-     */
+
     setHtml(text: string): void {
         this.node.innerHTML = text;
     }
-    /**
-     * @param {boolean=} opt_isInner
-     * @return {string}
-     */
+
     getHtml(opt_isInner: boolean | undefined = false): string {
         if (!this.isEmpty()) {
             return opt_isInner ? this.node.innerHTML : this.node.outerHTML;
         }
         return '';
     }
-    /**
-     * @param {string} text
-     * @return {undefined}
-     */
+
     setText(text: string): void {
         this.node.nodeValue = text;
     }
-    /**
-     * @return {string}
-     */
+
     getText(): string {
         return this.node.textContent;
     }
-    /**
-     * @param {string} name
-     * @param {*} value
-     * @return {undefined}
-     */
+
     setData(name: string, value: any): void {
         if (!this.isEmpty()) {
             let data = value;
@@ -512,10 +371,7 @@ export class Knot<T extends HTMLElement = HTMLElement> {
             this.node.dataset[name] = data;
         }
     }
-    /**
-     * @param {string} name
-     * @return {*}
-     */
+
     getData(name: string): any {
         let data = this.node.dataset[name];
         if (
@@ -526,19 +382,14 @@ export class Knot<T extends HTMLElement = HTMLElement> {
         }
         return typeCast(data);
     }
-    /**
-     * @param {string} name
-     * @return {undefined}
-     */
+
     removeData(name: string): void {
         if (!this.isEmpty()) {
             delete this.node.dataset[name];
             this.node.removeAttribute('data-' + name);
         }
     }
-    /**
-     * @return {?Knot}
-     */
+
     getParentKnot(): Knot | null {
         const parentElement = this._getParentElement();
         if (parentElement) {
@@ -546,9 +397,7 @@ export class Knot<T extends HTMLElement = HTMLElement> {
         }
         return null;
     }
-    /**
-     * @return {?HTMLElement}
-     */
+
     private _getParentElement(): HTMLElement | null {
         if (this.parentKnot && !this.parentKnot.isEmpty()) {
             return this.parentKnot.getNode();
@@ -557,53 +406,35 @@ export class Knot<T extends HTMLElement = HTMLElement> {
         }
         return null;
     }
-    /**
-     * @return {?CSSStyleDeclaration}
-     */
+
     getComputedStyle(): CSSStyleDeclaration | null {
         return window.getComputedStyle(this.node);
     }
-    /**
-     * @return {!CSSStyleDeclaration}
-     */
+
     getStyle(): CSSStyleDeclaration {
         return this.node.style;
     }
-    /**
-     * @param {!Object} properties
-     * @return {undefined}
-     */
+
     setStyle(properties: Object): void {
         eachObject(properties, (value, propertyName) => {
             this.node.style.setProperty(propertyName, value, '');
         });
     }
-    /**
-     * @param {!Array} properties
-     * @return {undefined}
-     */
+
     removeStyle(properties: Array<any>): void {
         each(properties, (property) => {
             this.node.style.removeProperty(property);
         });
     }
-    /**
-     * @return {boolean}
-     */
+
     isEmpty(): boolean {
         return !this.node;
     }
-    /**
-     * @return {boolean}
-     */
+
     exists(): boolean {
         return document.body.contains(this.node);
     }
-    /**
-     * @override
-     * @param {boolean=} opt_isRoot
-     * @return {string}
-     */
+
     toString(opt_isRoot: boolean | undefined = true): string {
         if (opt_isRoot) {
             return this.node.outerHTML;

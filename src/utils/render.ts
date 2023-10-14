@@ -2,11 +2,6 @@ import { Knot } from '../core';
 
 const componentHandler = window['componentHandler'];
 
-/**
- * @param {!Knot|!HTMLElement=} opt_node
- * @param {boolean=} opt_forceDowngrade
- * @return {undefined}
- */
 export const mdl = (
     opt_node?: Knot | HTMLElement,
     opt_forceDowngrade = true,
