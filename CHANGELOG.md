@@ -2,7 +2,7 @@
 
 * 
 
-## 0.9.16 - TBD
+## 0.9.16 - 2023-10-15
 
 * Fix callback type of link helper methods
 * Remove pluck method from Collection
