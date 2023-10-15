@@ -21,7 +21,7 @@ custom_edit_url: null
 
 #### Defined in
 
-[module/script.ts:20](https://github.com/siposdani87/sui-js/blob/4b75724/src/module/script.ts#L20)
+[module/script.ts:13](https://github.com/siposdani87/sui-js/blob/ad456a5/src/module/script.ts#L13)
 
 ## Properties
 
@@ -31,17 +31,17 @@ custom_edit_url: null
 
 #### Defined in
 
-[module/script.ts:15](https://github.com/siposdani87/sui-js/blob/4b75724/src/module/script.ts#L15)
+[module/script.ts:11](https://github.com/siposdani87/sui-js/blob/ad456a5/src/module/script.ts#L11)
 
 ___
 
 ### options
 
-• **options**: [`Objekt`](Objekt.md)
+• **options**: [`Objekt`](Objekt.md)<`Object`\>
 
 #### Defined in
 
-[module/script.ts:14](https://github.com/siposdani87/sui-js/blob/4b75724/src/module/script.ts#L14)
+[module/script.ts:10](https://github.com/siposdani87/sui-js/blob/ad456a5/src/module/script.ts#L10)
 
 ___
 
@@ -51,7 +51,7 @@ ___
 
 #### Defined in
 
-[module/script.ts:13](https://github.com/siposdani87/sui-js/blob/4b75724/src/module/script.ts#L13)
+[module/script.ts:9](https://github.com/siposdani87/sui-js/blob/ad456a5/src/module/script.ts#L9)
 
 ## Methods
 
@@ -65,7 +65,7 @@ ___
 
 #### Defined in
 
-[module/script.ts:41](https://github.com/siposdani87/sui-js/blob/4b75724/src/module/script.ts#L41)
+[module/script.ts:27](https://github.com/siposdani87/sui-js/blob/ad456a5/src/module/script.ts#L27)
 
 ___
 
@@ -85,13 +85,13 @@ ___
 
 #### Defined in
 
-[module/script.ts:33](https://github.com/siposdani87/sui-js/blob/4b75724/src/module/script.ts#L33)
+[module/script.ts:22](https://github.com/siposdani87/sui-js/blob/ad456a5/src/module/script.ts#L22)
 
 ___
 
 ### load
 
-▸ **load**(`id`, `url`, `opt_params?`, `opt_async?`, `opt_defer?`): [`Promize`](Promize.md)
+▸ **load**(`id`, `url`, `opt_params?`, `opt_async?`, `opt_defer?`): [`Promize`](Promize.md)<`Object`, `Object`\>
 
 #### Parameters
 
@@ -105,11 +105,11 @@ ___
 
 #### Returns
 
-[`Promize`](Promize.md)
+[`Promize`](Promize.md)<`Object`, `Object`\>
 
 #### Defined in
 
-[module/script.ts:52](https://github.com/siposdani87/sui-js/blob/4b75724/src/module/script.ts#L52)
+[module/script.ts:31](https://github.com/siposdani87/sui-js/blob/ad456a5/src/module/script.ts#L31)
 
 ___
 
@@ -129,4 +129,4 @@ ___
 
 #### Defined in
 
-[module/script.ts:95](https://github.com/siposdani87/sui-js/blob/4b75724/src/module/script.ts#L95)
+[module/script.ts:71](https://github.com/siposdani87/sui-js/blob/ad456a5/src/module/script.ts#L71)

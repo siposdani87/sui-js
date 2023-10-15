@@ -20,7 +20,7 @@ custom_edit_url: null
 
 #### Defined in
 
-[module/footer.ts:17](https://github.com/siposdani87/sui-js/blob/4b75724/src/module/footer.ts#L17)
+[module/footer.ts:12](https://github.com/siposdani87/sui-js/blob/ad456a5/src/module/footer.ts#L12)
 
 ## Properties
 
@@ -30,7 +30,7 @@ custom_edit_url: null
 
 #### Defined in
 
-[module/footer.ts:12](https://github.com/siposdani87/sui-js/blob/4b75724/src/module/footer.ts#L12)
+[module/footer.ts:9](https://github.com/siposdani87/sui-js/blob/ad456a5/src/module/footer.ts#L9)
 
 ___
 
@@ -40,7 +40,7 @@ ___
 
 #### Defined in
 
-[module/footer.ts:10](https://github.com/siposdani87/sui-js/blob/4b75724/src/module/footer.ts#L10)
+[module/footer.ts:7](https://github.com/siposdani87/sui-js/blob/ad456a5/src/module/footer.ts#L7)
 
 ___
 
@@ -50,17 +50,17 @@ ___
 
 #### Defined in
 
-[module/footer.ts:13](https://github.com/siposdani87/sui-js/blob/4b75724/src/module/footer.ts#L13)
+[module/footer.ts:10](https://github.com/siposdani87/sui-js/blob/ad456a5/src/module/footer.ts#L10)
 
 ___
 
 ### options
 
-• **options**: [`Objekt`](Objekt.md)
+• **options**: [`Objekt`](Objekt.md)<`Object`\>
 
 #### Defined in
 
-[module/footer.ts:9](https://github.com/siposdani87/sui-js/blob/4b75724/src/module/footer.ts#L9)
+[module/footer.ts:6](https://github.com/siposdani87/sui-js/blob/ad456a5/src/module/footer.ts#L6)
 
 ___
 
@@ -70,7 +70,7 @@ ___
 
 #### Defined in
 
-[module/footer.ts:11](https://github.com/siposdani87/sui-js/blob/4b75724/src/module/footer.ts#L11)
+[module/footer.ts:8](https://github.com/siposdani87/sui-js/blob/ad456a5/src/module/footer.ts#L8)
 
 ## Methods
 
@@ -84,7 +84,7 @@ ___
 
 #### Defined in
 
-[module/footer.ts:34](https://github.com/siposdani87/sui-js/blob/4b75724/src/module/footer.ts#L34)
+[module/footer.ts:22](https://github.com/siposdani87/sui-js/blob/ad456a5/src/module/footer.ts#L22)
 
 ___
 
@@ -104,7 +104,7 @@ ___
 
 #### Defined in
 
-[module/footer.ts:26](https://github.com/siposdani87/sui-js/blob/4b75724/src/module/footer.ts#L26)
+[module/footer.ts:17](https://github.com/siposdani87/sui-js/blob/ad456a5/src/module/footer.ts#L17)
 
 ___
 
@@ -118,7 +118,7 @@ ___
 
 #### Defined in
 
-[module/footer.ts:90](https://github.com/siposdani87/sui-js/blob/4b75724/src/module/footer.ts#L90)
+[module/footer.ts:65](https://github.com/siposdani87/sui-js/blob/ad456a5/src/module/footer.ts#L65)
 
 ___
 
@@ -132,7 +132,7 @@ ___
 
 #### Defined in
 
-[module/footer.ts:78](https://github.com/siposdani87/sui-js/blob/4b75724/src/module/footer.ts#L78)
+[module/footer.ts:57](https://github.com/siposdani87/sui-js/blob/ad456a5/src/module/footer.ts#L57)
 
 ___
 
@@ -146,7 +146,7 @@ ___
 
 #### Defined in
 
-[module/footer.ts:63](https://github.com/siposdani87/sui-js/blob/4b75724/src/module/footer.ts#L63)
+[module/footer.ts:47](https://github.com/siposdani87/sui-js/blob/ad456a5/src/module/footer.ts#L47)
 
 ___
 
@@ -160,7 +160,7 @@ ___
 
 #### Defined in
 
-[module/footer.ts:96](https://github.com/siposdani87/sui-js/blob/4b75724/src/module/footer.ts#L96)
+[module/footer.ts:69](https://github.com/siposdani87/sui-js/blob/ad456a5/src/module/footer.ts#L69)
 
 ___
 
@@ -174,7 +174,7 @@ ___
 
 #### Defined in
 
-[module/footer.ts:84](https://github.com/siposdani87/sui-js/blob/4b75724/src/module/footer.ts#L84)
+[module/footer.ts:61](https://github.com/siposdani87/sui-js/blob/ad456a5/src/module/footer.ts#L61)
 
 ___
 
@@ -194,7 +194,7 @@ ___
 
 #### Defined in
 
-[module/footer.ts:72](https://github.com/siposdani87/sui-js/blob/4b75724/src/module/footer.ts#L72)
+[module/footer.ts:53](https://github.com/siposdani87/sui-js/blob/ad456a5/src/module/footer.ts#L53)
 
 ___
 
@@ -208,7 +208,7 @@ ___
 
 #### Defined in
 
-[module/footer.ts:43](https://github.com/siposdani87/sui-js/blob/4b75724/src/module/footer.ts#L43)
+[module/footer.ts:29](https://github.com/siposdani87/sui-js/blob/ad456a5/src/module/footer.ts#L29)
 
 ___
 
@@ -222,4 +222,4 @@ ___
 
 #### Defined in
 
-[module/footer.ts:102](https://github.com/siposdani87/sui-js/blob/4b75724/src/module/footer.ts#L102)
+[module/footer.ts:73](https://github.com/siposdani87/sui-js/blob/ad456a5/src/module/footer.ts#L73)

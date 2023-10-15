@@ -22,7 +22,7 @@ custom_edit_url: null
 
 #### Defined in
 
-[component/carousel.ts:16](https://github.com/siposdani87/sui-js/blob/4b75724/src/component/carousel.ts#L16)
+[component/carousel.ts:9](https://github.com/siposdani87/sui-js/blob/ad456a5/src/component/carousel.ts#L9)
 
 ## Properties
 
@@ -32,17 +32,17 @@ custom_edit_url: null
 
 #### Defined in
 
-[component/carousel.ts:9](https://github.com/siposdani87/sui-js/blob/4b75724/src/component/carousel.ts#L9)
+[component/carousel.ts:6](https://github.com/siposdani87/sui-js/blob/ad456a5/src/component/carousel.ts#L6)
 
 ___
 
 ### options
 
-• **options**: [`Objekt`](Objekt.md)
+• **options**: [`Objekt`](Objekt.md)<`Object`\>
 
 #### Defined in
 
-[component/carousel.ts:10](https://github.com/siposdani87/sui-js/blob/4b75724/src/component/carousel.ts#L10)
+[component/carousel.ts:7](https://github.com/siposdani87/sui-js/blob/ad456a5/src/component/carousel.ts#L7)
 
 ## Methods
 
@@ -56,7 +56,7 @@ ___
 
 #### Defined in
 
-[component/carousel.ts:38](https://github.com/siposdani87/sui-js/blob/4b75724/src/component/carousel.ts#L38)
+[component/carousel.ts:24](https://github.com/siposdani87/sui-js/blob/ad456a5/src/component/carousel.ts#L24)
 
 ___
 
@@ -76,4 +76,4 @@ ___
 
 #### Defined in
 
-[component/carousel.ts:30](https://github.com/siposdani87/sui-js/blob/4b75724/src/component/carousel.ts#L30)
+[component/carousel.ts:19](https://github.com/siposdani87/sui-js/blob/ad456a5/src/component/carousel.ts#L19)

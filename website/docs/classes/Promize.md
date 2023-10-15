@@ -1,16 +1,30 @@
 ---
 id: "Promize"
-title: "Class: Promize"
+title: "Class: Promize<T, K>"
 sidebar_label: "Promize"
 sidebar_position: 0
 custom_edit_url: null
 ---
 
+## Type parameters
+
+| Name | Type |
+| :------ | :------ |
+| `T` | `Object` |
+| `K` | `Object` |
+
 ## Constructors
 
 ### constructor
 
-• **new Promize**(`opt_options?`)
+• **new Promize**<`T`, `K`\>(`opt_options?`)
+
+#### Type parameters
+
+| Name | Type |
+| :------ | :------ |
+| `T` | `Object` |
+| `K` | `Object` |
 
 #### Parameters
 
@@ -20,17 +34,17 @@ custom_edit_url: null
 
 #### Defined in
 
-[core/promize.ts:14](https://github.com/siposdani87/sui-js/blob/4b75724/src/core/promize.ts#L14)
+[core/promize.ts:8](https://github.com/siposdani87/sui-js/blob/ad456a5/src/core/promize.ts#L8)
 
 ## Properties
 
 ### options
 
-• **options**: [`Objekt`](Objekt.md)
+• **options**: [`Objekt`](Objekt.md)<`Object`\>
 
 #### Defined in
 
-[core/promize.ts:10](https://github.com/siposdani87/sui-js/blob/4b75724/src/core/promize.ts#L10)
+[core/promize.ts:6](https://github.com/siposdani87/sui-js/blob/ad456a5/src/core/promize.ts#L6)
 
 ## Methods
 
@@ -50,7 +64,7 @@ custom_edit_url: null
 
 #### Defined in
 
-[core/promize.ts:22](https://github.com/siposdani87/sui-js/blob/4b75724/src/core/promize.ts#L22)
+[core/promize.ts:12](https://github.com/siposdani87/sui-js/blob/ad456a5/src/core/promize.ts#L12)
 
 ___
 
@@ -62,8 +76,8 @@ ___
 
 | Name | Type |
 | :------ | :------ |
-| `defer` | [`Deferred`](Deferred.md) |
-| `opt_complete?` | `Function` |
+| `defer` | [`Deferred`](Deferred.md)<`Object`, `Object`\> |
+| `opt_complete?` | () => `void` |
 
 #### Returns
 
@@ -71,19 +85,19 @@ ___
 
 #### Defined in
 
-[core/promize.ts:105](https://github.com/siposdani87/sui-js/blob/4b75724/src/core/promize.ts#L105)
+[core/promize.ts:82](https://github.com/siposdani87/sui-js/blob/ad456a5/src/core/promize.ts#L82)
 
 ___
 
 ### reject
 
-▸ **reject**(`opt_data`): `void`
+▸ **reject**(`opt_data?`): `void`
 
 #### Parameters
 
 | Name | Type |
 | :------ | :------ |
-| `opt_data` | `any` |
+| `opt_data?` | `K` |
 
 #### Returns
 
@@ -91,19 +105,19 @@ ___
 
 #### Defined in
 
-[core/promize.ts:55](https://github.com/siposdani87/sui-js/blob/4b75724/src/core/promize.ts#L55)
+[core/promize.ts:40](https://github.com/siposdani87/sui-js/blob/ad456a5/src/core/promize.ts#L40)
 
 ___
 
 ### resolve
 
-▸ **resolve**(`opt_data`): `void`
+▸ **resolve**(`opt_data?`): `void`
 
 #### Parameters
 
 | Name | Type |
 | :------ | :------ |
-| `opt_data` | `any` |
+| `opt_data?` | `T` |
 
 #### Returns
 
@@ -111,7 +125,7 @@ ___
 
 #### Defined in
 
-[core/promize.ts:36](https://github.com/siposdani87/sui-js/blob/4b75724/src/core/promize.ts#L36)
+[core/promize.ts:23](https://github.com/siposdani87/sui-js/blob/ad456a5/src/core/promize.ts#L23)
 
 ___
 
@@ -123,9 +137,9 @@ ___
 
 | Name | Type |
 | :------ | :------ |
-| `resolve` | `Function` |
-| `opt_reject?` | `Function` |
-| `opt_complete?` | `Function` |
+| `resolve` | (...`args`: `T` extends `any`[] ? `T` : [`T`]) => `void` |
+| `opt_reject?` | (...`args`: `K` extends `any`[] ? `K` : [`K`]) => `void` |
+| `opt_complete?` | (...`args`: `T` extends `any`[] ? `T` : [`T`]) => `void` |
 
 #### Returns
 
@@ -133,4 +147,4 @@ ___
 
 #### Defined in
 
-[core/promize.ts:76](https://github.com/siposdani87/sui-js/blob/4b75724/src/core/promize.ts#L76)
+[core/promize.ts:57](https://github.com/siposdani87/sui-js/blob/ad456a5/src/core/promize.ts#L57)

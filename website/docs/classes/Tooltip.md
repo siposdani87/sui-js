@@ -6,8 +6,6 @@ sidebar_position: 0
 custom_edit_url: null
 ---
 
-https://www.getmdl.io/components/index.html#tooltips-section
-
 ## Constructors
 
 ### constructor
@@ -16,14 +14,14 @@ https://www.getmdl.io/components/index.html#tooltips-section
 
 #### Parameters
 
-| Name | Type | Default value | Description |
-| :------ | :------ | :------ | :------ |
-| `element` | [`Knot`](Knot.md)<`HTMLElement`\> | `undefined` |  |
-| `opt_position` | `string` | `'TOP'` | TOP\|BOTTOM\|LEFT\|RIGHT |
+| Name | Type | Default value |
+| :------ | :------ | :------ |
+| `element` | [`Knot`](Knot.md)<`HTMLElement`\> | `undefined` |
+| `opt_position` | `string` | `'TOP'` |
 
 #### Defined in
 
-[component/tooltip.ts:20](https://github.com/siposdani87/sui-js/blob/4b75724/src/component/tooltip.ts#L20)
+[component/tooltip.ts:13](https://github.com/siposdani87/sui-js/blob/ad456a5/src/component/tooltip.ts#L13)
 
 ## Properties
 
@@ -33,7 +31,7 @@ https://www.getmdl.io/components/index.html#tooltips-section
 
 #### Defined in
 
-[component/tooltip.ts:12](https://github.com/siposdani87/sui-js/blob/4b75724/src/component/tooltip.ts#L12)
+[component/tooltip.ts:8](https://github.com/siposdani87/sui-js/blob/ad456a5/src/component/tooltip.ts#L8)
 
 ___
 
@@ -43,7 +41,7 @@ ___
 
 #### Defined in
 
-[component/tooltip.ts:14](https://github.com/siposdani87/sui-js/blob/4b75724/src/component/tooltip.ts#L14)
+[component/tooltip.ts:10](https://github.com/siposdani87/sui-js/blob/ad456a5/src/component/tooltip.ts#L10)
 
 ___
 
@@ -53,7 +51,7 @@ ___
 
 #### Defined in
 
-[component/tooltip.ts:15](https://github.com/siposdani87/sui-js/blob/4b75724/src/component/tooltip.ts#L15)
+[component/tooltip.ts:11](https://github.com/siposdani87/sui-js/blob/ad456a5/src/component/tooltip.ts#L11)
 
 ___
 
@@ -63,7 +61,7 @@ ___
 
 #### Defined in
 
-[component/tooltip.ts:13](https://github.com/siposdani87/sui-js/blob/4b75724/src/component/tooltip.ts#L13)
+[component/tooltip.ts:9](https://github.com/siposdani87/sui-js/blob/ad456a5/src/component/tooltip.ts#L9)
 
 ## Methods
 
@@ -77,7 +75,7 @@ ___
 
 #### Defined in
 
-[component/tooltip.ts:73](https://github.com/siposdani87/sui-js/blob/4b75724/src/component/tooltip.ts#L73)
+[component/tooltip.ts:53](https://github.com/siposdani87/sui-js/blob/ad456a5/src/component/tooltip.ts#L53)
 
 ___
 
@@ -97,7 +95,7 @@ ___
 
 #### Defined in
 
-[component/tooltip.ts:59](https://github.com/siposdani87/sui-js/blob/4b75724/src/component/tooltip.ts#L59)
+[component/tooltip.ts:42](https://github.com/siposdani87/sui-js/blob/ad456a5/src/component/tooltip.ts#L42)
 
 ___
 
@@ -111,7 +109,7 @@ ___
 
 #### Defined in
 
-[component/tooltip.ts:105](https://github.com/siposdani87/sui-js/blob/4b75724/src/component/tooltip.ts#L105)
+[component/tooltip.ts:79](https://github.com/siposdani87/sui-js/blob/ad456a5/src/component/tooltip.ts#L79)
 
 ___
 
@@ -125,7 +123,7 @@ ___
 
 #### Defined in
 
-[component/tooltip.ts:52](https://github.com/siposdani87/sui-js/blob/4b75724/src/component/tooltip.ts#L52)
+[component/tooltip.ts:38](https://github.com/siposdani87/sui-js/blob/ad456a5/src/component/tooltip.ts#L38)
 
 ___
 
@@ -145,7 +143,7 @@ ___
 
 #### Defined in
 
-[component/tooltip.ts:31](https://github.com/siposdani87/sui-js/blob/4b75724/src/component/tooltip.ts#L31)
+[component/tooltip.ts:20](https://github.com/siposdani87/sui-js/blob/ad456a5/src/component/tooltip.ts#L20)
 
 ___
 
@@ -159,7 +157,7 @@ ___
 
 #### Defined in
 
-[component/tooltip.ts:136](https://github.com/siposdani87/sui-js/blob/4b75724/src/component/tooltip.ts#L136)
+[component/tooltip.ts:103](https://github.com/siposdani87/sui-js/blob/ad456a5/src/component/tooltip.ts#L103)
 
 ___
 
@@ -173,7 +171,7 @@ ___
 
 #### Defined in
 
-[component/tooltip.ts:142](https://github.com/siposdani87/sui-js/blob/4b75724/src/component/tooltip.ts#L142)
+[component/tooltip.ts:107](https://github.com/siposdani87/sui-js/blob/ad456a5/src/component/tooltip.ts#L107)
 
 ___
 
@@ -187,7 +185,7 @@ ___
 
 #### Defined in
 
-[component/tooltip.ts:130](https://github.com/siposdani87/sui-js/blob/4b75724/src/component/tooltip.ts#L130)
+[component/tooltip.ts:99](https://github.com/siposdani87/sui-js/blob/ad456a5/src/component/tooltip.ts#L99)
 
 ___
 
@@ -207,7 +205,7 @@ ___
 
 #### Defined in
 
-[component/tooltip.ts:96](https://github.com/siposdani87/sui-js/blob/4b75724/src/component/tooltip.ts#L96)
+[component/tooltip.ts:73](https://github.com/siposdani87/sui-js/blob/ad456a5/src/component/tooltip.ts#L73)
 
 ___
 
@@ -227,7 +225,7 @@ ___
 
 #### Defined in
 
-[component/tooltip.ts:116](https://github.com/siposdani87/sui-js/blob/4b75724/src/component/tooltip.ts#L116)
+[component/tooltip.ts:87](https://github.com/siposdani87/sui-js/blob/ad456a5/src/component/tooltip.ts#L87)
 
 ___
 
@@ -241,4 +239,4 @@ ___
 
 #### Defined in
 
-[component/tooltip.ts:148](https://github.com/siposdani87/sui-js/blob/4b75724/src/component/tooltip.ts#L148)
+[component/tooltip.ts:111](https://github.com/siposdani87/sui-js/blob/ad456a5/src/component/tooltip.ts#L111)

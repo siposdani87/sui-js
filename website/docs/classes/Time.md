@@ -21,17 +21,17 @@ custom_edit_url: null
 
 #### Defined in
 
-[component/time.ts:16](https://github.com/siposdani87/sui-js/blob/4b75724/src/component/time.ts#L16)
+[component/time.ts:10](https://github.com/siposdani87/sui-js/blob/ad456a5/src/component/time.ts#L10)
 
 ## Properties
 
 ### options
 
-• **options**: [`Objekt`](Objekt.md)
+• **options**: [`Objekt`](Objekt.md)<`Object`\>
 
 #### Defined in
 
-[component/time.ts:10](https://github.com/siposdani87/sui-js/blob/4b75724/src/component/time.ts#L10)
+[component/time.ts:7](https://github.com/siposdani87/sui-js/blob/ad456a5/src/component/time.ts#L7)
 
 ___
 
@@ -41,7 +41,7 @@ ___
 
 #### Defined in
 
-[component/time.ts:11](https://github.com/siposdani87/sui-js/blob/4b75724/src/component/time.ts#L11)
+[component/time.ts:8](https://github.com/siposdani87/sui-js/blob/ad456a5/src/component/time.ts#L8)
 
 ___
 
@@ -51,7 +51,7 @@ ___
 
 #### Defined in
 
-[component/time.ts:9](https://github.com/siposdani87/sui-js/blob/4b75724/src/component/time.ts#L9)
+[component/time.ts:6](https://github.com/siposdani87/sui-js/blob/ad456a5/src/component/time.ts#L6)
 
 ## Methods
 
@@ -74,7 +74,7 @@ ___
 
 #### Defined in
 
-[component/time.ts:103](https://github.com/siposdani87/sui-js/blob/4b75724/src/component/time.ts#L103)
+[component/time.ts:66](https://github.com/siposdani87/sui-js/blob/ad456a5/src/component/time.ts#L66)
 
 ___
 
@@ -88,7 +88,7 @@ ___
 
 #### Defined in
 
-[component/time.ts:33](https://github.com/siposdani87/sui-js/blob/4b75724/src/component/time.ts#L33)
+[component/time.ts:20](https://github.com/siposdani87/sui-js/blob/ad456a5/src/component/time.ts#L20)
 
 ___
 
@@ -102,7 +102,7 @@ ___
 
 #### Defined in
 
-[component/time.ts:41](https://github.com/siposdani87/sui-js/blob/4b75724/src/component/time.ts#L41)
+[component/time.ts:25](https://github.com/siposdani87/sui-js/blob/ad456a5/src/component/time.ts#L25)
 
 ___
 
@@ -116,7 +116,7 @@ ___
 
 #### Defined in
 
-[component/time.ts:71](https://github.com/siposdani87/sui-js/blob/4b75724/src/component/time.ts#L71)
+[component/time.ts:47](https://github.com/siposdani87/sui-js/blob/ad456a5/src/component/time.ts#L47)
 
 ___
 
@@ -137,7 +137,7 @@ ___
 
 #### Defined in
 
-[component/time.ts:57](https://github.com/siposdani87/sui-js/blob/4b75724/src/component/time.ts#L57)
+[component/time.ts:36](https://github.com/siposdani87/sui-js/blob/ad456a5/src/component/time.ts#L36)
 
 ___
 
@@ -158,7 +158,7 @@ ___
 
 #### Defined in
 
-[component/time.ts:133](https://github.com/siposdani87/sui-js/blob/4b75724/src/component/time.ts#L133)
+[component/time.ts:91](https://github.com/siposdani87/sui-js/blob/ad456a5/src/component/time.ts#L91)
 
 ___
 
@@ -183,7 +183,7 @@ ___
 
 #### Defined in
 
-[component/time.ts:150](https://github.com/siposdani87/sui-js/blob/4b75724/src/component/time.ts#L150)
+[component/time.ts:99](https://github.com/siposdani87/sui-js/blob/ad456a5/src/component/time.ts#L99)
 
 ___
 
@@ -203,7 +203,7 @@ ___
 
 #### Defined in
 
-[component/time.ts:26](https://github.com/siposdani87/sui-js/blob/4b75724/src/component/time.ts#L26)
+[component/time.ts:16](https://github.com/siposdani87/sui-js/blob/ad456a5/src/component/time.ts#L16)
 
 ___
 
@@ -226,7 +226,7 @@ ___
 
 #### Defined in
 
-[component/time.ts:87](https://github.com/siposdani87/sui-js/blob/4b75724/src/component/time.ts#L87)
+[component/time.ts:57](https://github.com/siposdani87/sui-js/blob/ad456a5/src/component/time.ts#L57)
 
 ___
 
@@ -246,4 +246,4 @@ ___
 
 #### Defined in
 
-[component/time.ts:190](https://github.com/siposdani87/sui-js/blob/4b75724/src/component/time.ts#L190)
+[component/time.ts:137](https://github.com/siposdani87/sui-js/blob/ad456a5/src/component/time.ts#L137)

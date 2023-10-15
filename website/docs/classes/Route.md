@@ -35,13 +35,13 @@ custom_edit_url: null
 
 #### Defined in
 
-[component/route.ts:16](https://github.com/siposdani87/sui-js/blob/4b75724/src/component/route.ts#L16)
+[component/route.ts:4](https://github.com/siposdani87/sui-js/blob/ad456a5/src/component/route.ts#L4)
 
 ## Methods
 
 ### allowKeys
 
-▸ **allowKeys**(`keys`): [`Objekt`](Objekt.md)
+▸ **allowKeys**(`keys`): [`Objekt`](Objekt.md)<`Object`\>
 
 #### Parameters
 
@@ -51,7 +51,7 @@ custom_edit_url: null
 
 #### Returns
 
-[`Objekt`](Objekt.md)
+[`Objekt`](Objekt.md)<`Object`\>
 
 #### Inherited from
 
@@ -59,7 +59,7 @@ custom_edit_url: null
 
 #### Defined in
 
-[core/objekt.ts:272](https://github.com/siposdani87/sui-js/blob/4b75724/src/core/objekt.ts#L272)
+[core/objekt.ts:206](https://github.com/siposdani87/sui-js/blob/ad456a5/src/core/objekt.ts#L206)
 
 ___
 
@@ -77,17 +77,17 @@ ___
 
 #### Defined in
 
-[core/objekt.ts:178](https://github.com/siposdani87/sui-js/blob/4b75724/src/core/objekt.ts#L178)
+[core/objekt.ts:135](https://github.com/siposdani87/sui-js/blob/ad456a5/src/core/objekt.ts#L135)
 
 ___
 
 ### copy
 
-▸ **copy**(): [`Objekt`](Objekt.md)
+▸ **copy**(): [`Objekt`](Objekt.md)<`Object`\>
 
 #### Returns
 
-[`Objekt`](Objekt.md)
+[`Objekt`](Objekt.md)<`Object`\>
 
 #### Inherited from
 
@@ -95,7 +95,7 @@ ___
 
 #### Defined in
 
-[core/objekt.ts:252](https://github.com/siposdani87/sui-js/blob/4b75724/src/core/objekt.ts#L252)
+[core/objekt.ts:193](https://github.com/siposdani87/sui-js/blob/ad456a5/src/core/objekt.ts#L193)
 
 ___
 
@@ -113,13 +113,13 @@ ___
 
 #### Defined in
 
-[core/objekt.ts:259](https://github.com/siposdani87/sui-js/blob/4b75724/src/core/objekt.ts#L259)
+[core/objekt.ts:198](https://github.com/siposdani87/sui-js/blob/ad456a5/src/core/objekt.ts#L198)
 
 ___
 
 ### denyKeys
 
-▸ **denyKeys**(`keys`): [`Objekt`](Objekt.md)
+▸ **denyKeys**(`keys`): [`Objekt`](Objekt.md)<`Object`\>
 
 #### Parameters
 
@@ -129,7 +129,7 @@ ___
 
 #### Returns
 
-[`Objekt`](Objekt.md)
+[`Objekt`](Objekt.md)<`Object`\>
 
 #### Inherited from
 
@@ -137,19 +137,25 @@ ___
 
 #### Defined in
 
-[core/objekt.ts:281](https://github.com/siposdani87/sui-js/blob/4b75724/src/core/objekt.ts#L281)
+[core/objekt.ts:212](https://github.com/siposdani87/sui-js/blob/ad456a5/src/core/objekt.ts#L212)
 
 ___
 
 ### each
 
-▸ **each**(`next`, `opt_properties?`, `opt_attributes?`): `void`
+▸ **each**<`K`\>(`next`, `opt_properties?`, `opt_attributes?`): `void`
+
+#### Type parameters
+
+| Name |
+| :------ |
+| `K` |
 
 #### Parameters
 
 | Name | Type |
 | :------ | :------ |
-| `next` | `Function` |
+| `next` | (`value`: `K`, `key`: `string`) => `void` |
 | `opt_properties?` | `Object` |
 | `opt_attributes?` | `string`[] |
 
@@ -163,24 +169,24 @@ ___
 
 #### Defined in
 
-[core/objekt.ts:212](https://github.com/siposdani87/sui-js/blob/4b75724/src/core/objekt.ts#L212)
+[core/objekt.ts:160](https://github.com/siposdani87/sui-js/blob/ad456a5/src/core/objekt.ts#L160)
 
 ___
 
 ### filterKeys
 
-▸ **filterKeys**(`obj`, `condition`): [`Objekt`](Objekt.md)
+▸ **filterKeys**(`obj`, `condition`): [`Objekt`](Objekt.md)<`Object`\>
 
 #### Parameters
 
 | Name | Type |
 | :------ | :------ |
-| `obj` | [`Objekt`](Objekt.md) |
-| `condition` | `Function` |
+| `obj` | [`Objekt`](Objekt.md)<`Object`\> |
+| `condition` | (`key`: `string`) => `boolean` |
 
 #### Returns
 
-[`Objekt`](Objekt.md)
+[`Objekt`](Objekt.md)<`Object`\>
 
 #### Inherited from
 
@@ -188,31 +194,31 @@ ___
 
 #### Defined in
 
-[core/objekt.ts:291](https://github.com/siposdani87/sui-js/blob/4b75724/src/core/objekt.ts#L291)
+[core/objekt.ts:218](https://github.com/siposdani87/sui-js/blob/ad456a5/src/core/objekt.ts#L218)
 
 ___
 
 ### get
 
-▸ **get**<`T`\>(`opt_attribute?`, `opt_defaultValue?`, `opt_isSafe?`): `T`
+▸ **get**<`K`\>(`attribute`, `opt_defaultValue?`, `opt_isSafe?`): `K`
 
 #### Type parameters
 
 | Name |
 | :------ |
-| `T` |
+| `K` |
 
 #### Parameters
 
 | Name | Type | Default value |
 | :------ | :------ | :------ |
-| `opt_attribute?` | `string` | `undefined` |
-| `opt_defaultValue?` | `T` | `undefined` |
+| `attribute` | `string` | `undefined` |
+| `opt_defaultValue?` | `K` | `undefined` |
 | `opt_isSafe` | `boolean` | `false` |
 
 #### Returns
 
-`T`
+`K`
 
 #### Inherited from
 
@@ -220,7 +226,7 @@ ___
 
 #### Defined in
 
-[core/objekt.ts:73](https://github.com/siposdani87/sui-js/blob/4b75724/src/core/objekt.ts#L73)
+[core/objekt.ts:55](https://github.com/siposdani87/sui-js/blob/ad456a5/src/core/objekt.ts#L55)
 
 ___
 
@@ -238,13 +244,13 @@ ___
 
 #### Defined in
 
-[core/objekt.ts:265](https://github.com/siposdani87/sui-js/blob/4b75724/src/core/objekt.ts#L265)
+[core/objekt.ts:202](https://github.com/siposdani87/sui-js/blob/ad456a5/src/core/objekt.ts#L202)
 
 ___
 
 ### merge
 
-▸ **merge**(`object`): [`Objekt`](Objekt.md)
+▸ **merge**(`object`): [`Objekt`](Objekt.md)<`Object`\>
 
 #### Parameters
 
@@ -254,7 +260,7 @@ ___
 
 #### Returns
 
-[`Objekt`](Objekt.md)
+[`Objekt`](Objekt.md)<`Object`\>
 
 #### Inherited from
 
@@ -262,7 +268,7 @@ ___
 
 #### Defined in
 
-[core/objekt.ts:33](https://github.com/siposdani87/sui-js/blob/4b75724/src/core/objekt.ts#L33)
+[core/objekt.ts:25](https://github.com/siposdani87/sui-js/blob/ad456a5/src/core/objekt.ts#L25)
 
 ___
 
@@ -286,20 +292,26 @@ ___
 
 #### Defined in
 
-[core/objekt.ts:171](https://github.com/siposdani87/sui-js/blob/4b75724/src/core/objekt.ts#L171)
+[core/objekt.ts:130](https://github.com/siposdani87/sui-js/blob/ad456a5/src/core/objekt.ts#L130)
 
 ___
 
 ### set
 
-▸ **set**(`attribute`, `value`): `void`
+▸ **set**<`K`\>(`attribute`, `value`): `void`
+
+#### Type parameters
+
+| Name |
+| :------ |
+| `K` |
 
 #### Parameters
 
 | Name | Type |
 | :------ | :------ |
 | `attribute` | `string` |
-| `value` | `any` |
+| `value` | `K` |
 
 #### Returns
 
@@ -311,20 +323,26 @@ ___
 
 #### Defined in
 
-[core/objekt.ts:147](https://github.com/siposdani87/sui-js/blob/4b75724/src/core/objekt.ts#L147)
+[core/objekt.ts:114](https://github.com/siposdani87/sui-js/blob/ad456a5/src/core/objekt.ts#L114)
 
 ___
 
 ### setRaw
 
-▸ **setRaw**(`attribute`, `value`, `opt_isSafe?`): `void`
+▸ **setRaw**<`K`\>(`attribute`, `value`, `opt_isSafe?`): `void`
+
+#### Type parameters
+
+| Name |
+| :------ |
+| `K` |
 
 #### Parameters
 
 | Name | Type | Default value |
 | :------ | :------ | :------ |
 | `attribute` | `string` | `undefined` |
-| `value` | `any` | `undefined` |
+| `value` | `K` | `undefined` |
 | `opt_isSafe` | `boolean` | `false` |
 
 #### Returns
@@ -337,4 +355,4 @@ ___
 
 #### Defined in
 
-[core/objekt.ts:158](https://github.com/siposdani87/sui-js/blob/4b75724/src/core/objekt.ts#L158)
+[core/objekt.ts:120](https://github.com/siposdani87/sui-js/blob/ad456a5/src/core/objekt.ts#L120)
