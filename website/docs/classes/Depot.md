@@ -21,17 +21,17 @@ custom_edit_url: null
 
 #### Defined in
 
-[module/depot.ts:16](https://github.com/siposdani87/sui-js/blob/4b75724/src/module/depot.ts#L16)
+[module/depot.ts:10](https://github.com/siposdani87/sui-js/blob/ad456a5/src/module/depot.ts#L10)
 
 ## Properties
 
 ### options
 
-• **options**: [`Objekt`](Objekt.md)
+• **options**: [`Objekt`](Objekt.md)<`Object`\>
 
 #### Defined in
 
-[module/depot.ts:10](https://github.com/siposdani87/sui-js/blob/4b75724/src/module/depot.ts#L10)
+[module/depot.ts:7](https://github.com/siposdani87/sui-js/blob/ad456a5/src/module/depot.ts#L7)
 
 ___
 
@@ -41,7 +41,7 @@ ___
 
 #### Defined in
 
-[module/depot.ts:11](https://github.com/siposdani87/sui-js/blob/4b75724/src/module/depot.ts#L11)
+[module/depot.ts:8](https://github.com/siposdani87/sui-js/blob/ad456a5/src/module/depot.ts#L8)
 
 ___
 
@@ -51,7 +51,7 @@ ___
 
 #### Defined in
 
-[module/depot.ts:9](https://github.com/siposdani87/sui-js/blob/4b75724/src/module/depot.ts#L9)
+[module/depot.ts:6](https://github.com/siposdani87/sui-js/blob/ad456a5/src/module/depot.ts#L6)
 
 ## Methods
 
@@ -65,7 +65,7 @@ ___
 
 #### Defined in
 
-[module/depot.ts:119](https://github.com/siposdani87/sui-js/blob/4b75724/src/module/depot.ts#L119)
+[module/depot.ts:82](https://github.com/siposdani87/sui-js/blob/ad456a5/src/module/depot.ts#L82)
 
 ___
 
@@ -85,7 +85,7 @@ ___
 
 #### Defined in
 
-[module/depot.ts:158](https://github.com/siposdani87/sui-js/blob/4b75724/src/module/depot.ts#L158)
+[module/depot.ts:109](https://github.com/siposdani87/sui-js/blob/ad456a5/src/module/depot.ts#L109)
 
 ___
 
@@ -105,7 +105,7 @@ ___
 
 #### Defined in
 
-[module/depot.ts:144](https://github.com/siposdani87/sui-js/blob/4b75724/src/module/depot.ts#L144)
+[module/depot.ts:99](https://github.com/siposdani87/sui-js/blob/ad456a5/src/module/depot.ts#L99)
 
 ___
 
@@ -125,7 +125,7 @@ ___
 
 #### Defined in
 
-[module/depot.ts:64](https://github.com/siposdani87/sui-js/blob/4b75724/src/module/depot.ts#L64)
+[module/depot.ts:43](https://github.com/siposdani87/sui-js/blob/ad456a5/src/module/depot.ts#L43)
 
 ___
 
@@ -145,7 +145,7 @@ ___
 
 #### Defined in
 
-[module/depot.ts:56](https://github.com/siposdani87/sui-js/blob/4b75724/src/module/depot.ts#L56)
+[module/depot.ts:39](https://github.com/siposdani87/sui-js/blob/ad456a5/src/module/depot.ts#L39)
 
 ___
 
@@ -159,7 +159,7 @@ ___
 
 #### Defined in
 
-[module/depot.ts:43](https://github.com/siposdani87/sui-js/blob/4b75724/src/module/depot.ts#L43)
+[module/depot.ts:30](https://github.com/siposdani87/sui-js/blob/ad456a5/src/module/depot.ts#L30)
 
 ___
 
@@ -179,7 +179,7 @@ ___
 
 #### Defined in
 
-[module/depot.ts:134](https://github.com/siposdani87/sui-js/blob/4b75724/src/module/depot.ts#L134)
+[module/depot.ts:93](https://github.com/siposdani87/sui-js/blob/ad456a5/src/module/depot.ts#L93)
 
 ___
 
@@ -199,7 +199,7 @@ ___
 
 #### Defined in
 
-[module/depot.ts:30](https://github.com/siposdani87/sui-js/blob/4b75724/src/module/depot.ts#L30)
+[module/depot.ts:20](https://github.com/siposdani87/sui-js/blob/ad456a5/src/module/depot.ts#L20)
 
 ___
 
@@ -213,7 +213,7 @@ ___
 
 #### Defined in
 
-[module/depot.ts:112](https://github.com/siposdani87/sui-js/blob/4b75724/src/module/depot.ts#L112)
+[module/depot.ts:78](https://github.com/siposdani87/sui-js/blob/ad456a5/src/module/depot.ts#L78)
 
 ___
 
@@ -233,7 +233,7 @@ ___
 
 #### Defined in
 
-[module/depot.ts:89](https://github.com/siposdani87/sui-js/blob/4b75724/src/module/depot.ts#L89)
+[module/depot.ts:60](https://github.com/siposdani87/sui-js/blob/ad456a5/src/module/depot.ts#L60)
 
 ___
 
@@ -253,7 +253,7 @@ ___
 
 #### Defined in
 
-[module/depot.ts:105](https://github.com/siposdani87/sui-js/blob/4b75724/src/module/depot.ts#L105)
+[module/depot.ts:73](https://github.com/siposdani87/sui-js/blob/ad456a5/src/module/depot.ts#L73)
 
 ___
 
@@ -275,4 +275,4 @@ ___
 
 #### Defined in
 
-[module/depot.ts:75](https://github.com/siposdani87/sui-js/blob/4b75724/src/module/depot.ts#L75)
+[module/depot.ts:49](https://github.com/siposdani87/sui-js/blob/ad456a5/src/module/depot.ts#L49)

@@ -22,7 +22,7 @@ custom_edit_url: null
 
 #### Defined in
 
-[component/pager.ts:29](https://github.com/siposdani87/sui-js/blob/4b75724/src/component/pager.ts#L29)
+[component/pager.ts:22](https://github.com/siposdani87/sui-js/blob/ad456a5/src/component/pager.ts#L22)
 
 ## Properties
 
@@ -32,7 +32,7 @@ custom_edit_url: null
 
 #### Defined in
 
-[component/pager.ts:20](https://github.com/siposdani87/sui-js/blob/4b75724/src/component/pager.ts#L20)
+[component/pager.ts:17](https://github.com/siposdani87/sui-js/blob/ad456a5/src/component/pager.ts#L17)
 
 ___
 
@@ -42,17 +42,17 @@ ___
 
 #### Defined in
 
-[component/pager.ts:23](https://github.com/siposdani87/sui-js/blob/4b75724/src/component/pager.ts#L23)
+[component/pager.ts:20](https://github.com/siposdani87/sui-js/blob/ad456a5/src/component/pager.ts#L20)
 
 ___
 
 ### options
 
-• **options**: [`Objekt`](Objekt.md)
+• **options**: [`Objekt`](Objekt.md)<`Object`\>
 
 #### Defined in
 
-[component/pager.ts:19](https://github.com/siposdani87/sui-js/blob/4b75724/src/component/pager.ts#L19)
+[component/pager.ts:16](https://github.com/siposdani87/sui-js/blob/ad456a5/src/component/pager.ts#L16)
 
 ___
 
@@ -62,7 +62,7 @@ ___
 
 #### Defined in
 
-[component/pager.ts:22](https://github.com/siposdani87/sui-js/blob/4b75724/src/component/pager.ts#L22)
+[component/pager.ts:19](https://github.com/siposdani87/sui-js/blob/ad456a5/src/component/pager.ts#L19)
 
 ___
 
@@ -72,7 +72,7 @@ ___
 
 #### Defined in
 
-[component/pager.ts:21](https://github.com/siposdani87/sui-js/blob/4b75724/src/component/pager.ts#L21)
+[component/pager.ts:18](https://github.com/siposdani87/sui-js/blob/ad456a5/src/component/pager.ts#L18)
 
 ___
 
@@ -82,7 +82,7 @@ ___
 
 #### Defined in
 
-[component/pager.ts:17](https://github.com/siposdani87/sui-js/blob/4b75724/src/component/pager.ts#L17)
+[component/pager.ts:14](https://github.com/siposdani87/sui-js/blob/ad456a5/src/component/pager.ts#L14)
 
 ___
 
@@ -92,7 +92,7 @@ ___
 
 #### Defined in
 
-[component/pager.ts:18](https://github.com/siposdani87/sui-js/blob/4b75724/src/component/pager.ts#L18)
+[component/pager.ts:15](https://github.com/siposdani87/sui-js/blob/ad456a5/src/component/pager.ts#L15)
 
 ## Methods
 
@@ -106,7 +106,7 @@ ___
 
 #### Defined in
 
-[component/pager.ts:114](https://github.com/siposdani87/sui-js/blob/4b75724/src/component/pager.ts#L114)
+[component/pager.ts:88](https://github.com/siposdani87/sui-js/blob/ad456a5/src/component/pager.ts#L88)
 
 ___
 
@@ -120,7 +120,7 @@ ___
 
 #### Defined in
 
-[component/pager.ts:137](https://github.com/siposdani87/sui-js/blob/4b75724/src/component/pager.ts#L137)
+[component/pager.ts:108](https://github.com/siposdani87/sui-js/blob/ad456a5/src/component/pager.ts#L108)
 
 ___
 
@@ -134,7 +134,7 @@ ___
 
 #### Defined in
 
-[component/pager.ts:63](https://github.com/siposdani87/sui-js/blob/4b75724/src/component/pager.ts#L63)
+[component/pager.ts:46](https://github.com/siposdani87/sui-js/blob/ad456a5/src/component/pager.ts#L46)
 
 ___
 
@@ -148,7 +148,7 @@ ___
 
 #### Defined in
 
-[component/pager.ts:91](https://github.com/siposdani87/sui-js/blob/4b75724/src/component/pager.ts#L91)
+[component/pager.ts:68](https://github.com/siposdani87/sui-js/blob/ad456a5/src/component/pager.ts#L68)
 
 ___
 
@@ -162,7 +162,7 @@ ___
 
 #### Defined in
 
-[component/pager.ts:74](https://github.com/siposdani87/sui-js/blob/4b75724/src/component/pager.ts#L74)
+[component/pager.ts:54](https://github.com/siposdani87/sui-js/blob/ad456a5/src/component/pager.ts#L54)
 
 ___
 
@@ -176,7 +176,7 @@ ___
 
 #### Defined in
 
-[component/pager.ts:165](https://github.com/siposdani87/sui-js/blob/4b75724/src/component/pager.ts#L165)
+[component/pager.ts:133](https://github.com/siposdani87/sui-js/blob/ad456a5/src/component/pager.ts#L133)
 
 ___
 
@@ -196,7 +196,7 @@ ___
 
 #### Defined in
 
-[component/pager.ts:229](https://github.com/siposdani87/sui-js/blob/4b75724/src/component/pager.ts#L229)
+[component/pager.ts:184](https://github.com/siposdani87/sui-js/blob/ad456a5/src/component/pager.ts#L184)
 
 ___
 
@@ -210,7 +210,7 @@ ___
 
 #### Defined in
 
-[component/pager.ts:55](https://github.com/siposdani87/sui-js/blob/4b75724/src/component/pager.ts#L55)
+[component/pager.ts:41](https://github.com/siposdani87/sui-js/blob/ad456a5/src/component/pager.ts#L41)
 
 ___
 
@@ -224,7 +224,7 @@ ___
 
 #### Defined in
 
-[component/pager.ts:199](https://github.com/siposdani87/sui-js/blob/4b75724/src/component/pager.ts#L199)
+[component/pager.ts:164](https://github.com/siposdani87/sui-js/blob/ad456a5/src/component/pager.ts#L164)
 
 ___
 
@@ -238,7 +238,7 @@ ___
 
 #### Defined in
 
-[component/pager.ts:210](https://github.com/siposdani87/sui-js/blob/4b75724/src/component/pager.ts#L210)
+[component/pager.ts:172](https://github.com/siposdani87/sui-js/blob/ad456a5/src/component/pager.ts#L172)
 
 ___
 
@@ -258,7 +258,7 @@ ___
 
 #### Defined in
 
-[component/pager.ts:44](https://github.com/siposdani87/sui-js/blob/4b75724/src/component/pager.ts#L44)
+[component/pager.ts:33](https://github.com/siposdani87/sui-js/blob/ad456a5/src/component/pager.ts#L33)
 
 ___
 
@@ -272,7 +272,7 @@ ___
 
 #### Defined in
 
-[component/pager.ts:244](https://github.com/siposdani87/sui-js/blob/4b75724/src/component/pager.ts#L244)
+[component/pager.ts:194](https://github.com/siposdani87/sui-js/blob/ad456a5/src/component/pager.ts#L194)
 
 ___
 
@@ -292,7 +292,7 @@ ___
 
 #### Defined in
 
-[component/pager.ts:252](https://github.com/siposdani87/sui-js/blob/4b75724/src/component/pager.ts#L252)
+[component/pager.ts:199](https://github.com/siposdani87/sui-js/blob/ad456a5/src/component/pager.ts#L199)
 
 ___
 
@@ -312,7 +312,7 @@ ___
 
 #### Defined in
 
-[component/pager.ts:221](https://github.com/siposdani87/sui-js/blob/4b75724/src/component/pager.ts#L221)
+[component/pager.ts:180](https://github.com/siposdani87/sui-js/blob/ad456a5/src/component/pager.ts#L180)
 
 ___
 
@@ -332,4 +332,4 @@ ___
 
 #### Defined in
 
-[component/pager.ts:237](https://github.com/siposdani87/sui-js/blob/4b75724/src/component/pager.ts#L237)
+[component/pager.ts:189](https://github.com/siposdani87/sui-js/blob/ad456a5/src/component/pager.ts#L189)

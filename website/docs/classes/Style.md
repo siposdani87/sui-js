@@ -21,7 +21,7 @@ custom_edit_url: null
 
 #### Defined in
 
-[module/style.ts:20](https://github.com/siposdani87/sui-js/blob/4b75724/src/module/style.ts#L20)
+[module/style.ts:13](https://github.com/siposdani87/sui-js/blob/ad456a5/src/module/style.ts#L13)
 
 ## Properties
 
@@ -31,17 +31,17 @@ custom_edit_url: null
 
 #### Defined in
 
-[module/style.ts:15](https://github.com/siposdani87/sui-js/blob/4b75724/src/module/style.ts#L15)
+[module/style.ts:11](https://github.com/siposdani87/sui-js/blob/ad456a5/src/module/style.ts#L11)
 
 ___
 
 ### options
 
-• **options**: [`Objekt`](Objekt.md)
+• **options**: [`Objekt`](Objekt.md)<`Object`\>
 
 #### Defined in
 
-[module/style.ts:14](https://github.com/siposdani87/sui-js/blob/4b75724/src/module/style.ts#L14)
+[module/style.ts:10](https://github.com/siposdani87/sui-js/blob/ad456a5/src/module/style.ts#L10)
 
 ___
 
@@ -51,7 +51,7 @@ ___
 
 #### Defined in
 
-[module/style.ts:13](https://github.com/siposdani87/sui-js/blob/4b75724/src/module/style.ts#L13)
+[module/style.ts:9](https://github.com/siposdani87/sui-js/blob/ad456a5/src/module/style.ts#L9)
 
 ## Methods
 
@@ -65,7 +65,7 @@ ___
 
 #### Defined in
 
-[module/style.ts:41](https://github.com/siposdani87/sui-js/blob/4b75724/src/module/style.ts#L41)
+[module/style.ts:27](https://github.com/siposdani87/sui-js/blob/ad456a5/src/module/style.ts#L27)
 
 ___
 
@@ -85,13 +85,13 @@ ___
 
 #### Defined in
 
-[module/style.ts:33](https://github.com/siposdani87/sui-js/blob/4b75724/src/module/style.ts#L33)
+[module/style.ts:22](https://github.com/siposdani87/sui-js/blob/ad456a5/src/module/style.ts#L22)
 
 ___
 
 ### load
 
-▸ **load**(`id`, `url`, `opt_params?`, `opt_rel?`, `opt_media?`): [`Promize`](Promize.md)
+▸ **load**(`id`, `url`, `opt_params?`, `opt_rel?`, `opt_media?`): [`Promize`](Promize.md)<`boolean`, `boolean`\>
 
 #### Parameters
 
@@ -105,11 +105,11 @@ ___
 
 #### Returns
 
-[`Promize`](Promize.md)
+[`Promize`](Promize.md)<`boolean`, `boolean`\>
 
 #### Defined in
 
-[module/style.ts:52](https://github.com/siposdani87/sui-js/blob/4b75724/src/module/style.ts#L52)
+[module/style.ts:31](https://github.com/siposdani87/sui-js/blob/ad456a5/src/module/style.ts#L31)
 
 ___
 
@@ -129,4 +129,4 @@ ___
 
 #### Defined in
 
-[module/style.ts:90](https://github.com/siposdani87/sui-js/blob/4b75724/src/module/style.ts#L90)
+[module/style.ts:66](https://github.com/siposdani87/sui-js/blob/ad456a5/src/module/style.ts#L66)

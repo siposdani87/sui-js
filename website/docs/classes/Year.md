@@ -22,7 +22,7 @@ custom_edit_url: null
 
 #### Defined in
 
-[component/year.ts:19](https://github.com/siposdani87/sui-js/blob/4b75724/src/component/year.ts#L19)
+[component/year.ts:12](https://github.com/siposdani87/sui-js/blob/ad456a5/src/component/year.ts#L12)
 
 ## Properties
 
@@ -32,7 +32,7 @@ custom_edit_url: null
 
 #### Defined in
 
-[component/year.ts:13](https://github.com/siposdani87/sui-js/blob/4b75724/src/component/year.ts#L13)
+[component/year.ts:10](https://github.com/siposdani87/sui-js/blob/ad456a5/src/component/year.ts#L10)
 
 ___
 
@@ -42,7 +42,7 @@ ___
 
 #### Defined in
 
-[component/year.ts:11](https://github.com/siposdani87/sui-js/blob/4b75724/src/component/year.ts#L11)
+[component/year.ts:8](https://github.com/siposdani87/sui-js/blob/ad456a5/src/component/year.ts#L8)
 
 ___
 
@@ -52,17 +52,17 @@ ___
 
 #### Defined in
 
-[component/year.ts:10](https://github.com/siposdani87/sui-js/blob/4b75724/src/component/year.ts#L10)
+[component/year.ts:7](https://github.com/siposdani87/sui-js/blob/ad456a5/src/component/year.ts#L7)
 
 ___
 
 ### options
 
-• **options**: [`Objekt`](Objekt.md)
+• **options**: [`Objekt`](Objekt.md)<`Object`\>
 
 #### Defined in
 
-[component/year.ts:12](https://github.com/siposdani87/sui-js/blob/4b75724/src/component/year.ts#L12)
+[component/year.ts:9](https://github.com/siposdani87/sui-js/blob/ad456a5/src/component/year.ts#L9)
 
 ## Methods
 
@@ -76,7 +76,7 @@ ___
 
 #### Defined in
 
-[component/year.ts:37](https://github.com/siposdani87/sui-js/blob/4b75724/src/component/year.ts#L37)
+[component/year.ts:23](https://github.com/siposdani87/sui-js/blob/ad456a5/src/component/year.ts#L23)
 
 ___
 
@@ -96,7 +96,7 @@ ___
 
 #### Defined in
 
-[component/year.ts:30](https://github.com/siposdani87/sui-js/blob/4b75724/src/component/year.ts#L30)
+[component/year.ts:19](https://github.com/siposdani87/sui-js/blob/ad456a5/src/component/year.ts#L19)
 
 ___
 
@@ -116,7 +116,7 @@ ___
 
 #### Defined in
 
-[component/year.ts:67](https://github.com/siposdani87/sui-js/blob/4b75724/src/component/year.ts#L67)
+[component/year.ts:49](https://github.com/siposdani87/sui-js/blob/ad456a5/src/component/year.ts#L49)
 
 ___
 
@@ -130,4 +130,4 @@ ___
 
 #### Defined in
 
-[component/year.ts:53](https://github.com/siposdani87/sui-js/blob/4b75724/src/component/year.ts#L53)
+[component/year.ts:37](https://github.com/siposdani87/sui-js/blob/ad456a5/src/component/year.ts#L37)

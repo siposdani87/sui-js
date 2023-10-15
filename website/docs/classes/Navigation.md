@@ -21,17 +21,17 @@ custom_edit_url: null
 
 #### Defined in
 
-[component/navigation.ts:20](https://github.com/siposdani87/sui-js/blob/4b75724/src/component/navigation.ts#L20)
+[component/navigation.ts:14](https://github.com/siposdani87/sui-js/blob/ad456a5/src/component/navigation.ts#L14)
 
 ## Properties
 
 ### container
 
-• **container**: [`Collection`](Collection.md)<[`Objekt`](Objekt.md)\>
+• **container**: [`Collection`](Collection.md)<[`Objekt`](Objekt.md)<`Object`\>\>
 
 #### Defined in
 
-[component/navigation.ts:14](https://github.com/siposdani87/sui-js/blob/4b75724/src/component/navigation.ts#L14)
+[component/navigation.ts:11](https://github.com/siposdani87/sui-js/blob/ad456a5/src/component/navigation.ts#L11)
 
 ___
 
@@ -41,7 +41,7 @@ ___
 
 #### Defined in
 
-[component/navigation.ts:12](https://github.com/siposdani87/sui-js/blob/4b75724/src/component/navigation.ts#L12)
+[component/navigation.ts:9](https://github.com/siposdani87/sui-js/blob/ad456a5/src/component/navigation.ts#L9)
 
 ___
 
@@ -51,17 +51,17 @@ ___
 
 #### Defined in
 
-[component/navigation.ts:15](https://github.com/siposdani87/sui-js/blob/4b75724/src/component/navigation.ts#L15)
+[component/navigation.ts:12](https://github.com/siposdani87/sui-js/blob/ad456a5/src/component/navigation.ts#L12)
 
 ___
 
 ### options
 
-• **options**: [`Objekt`](Objekt.md)
+• **options**: [`Objekt`](Objekt.md)<`Object`\>
 
 #### Defined in
 
-[component/navigation.ts:13](https://github.com/siposdani87/sui-js/blob/4b75724/src/component/navigation.ts#L13)
+[component/navigation.ts:10](https://github.com/siposdani87/sui-js/blob/ad456a5/src/component/navigation.ts#L10)
 
 ## Methods
 
@@ -73,7 +73,7 @@ ___
 
 | Name | Type |
 | :------ | :------ |
-| `item` | [`Objekt`](Objekt.md) |
+| `item` | [`Objekt`](Objekt.md)<`Object`\> |
 
 #### Returns
 
@@ -81,7 +81,7 @@ ___
 
 #### Defined in
 
-[component/navigation.ts:269](https://github.com/siposdani87/sui-js/blob/4b75724/src/component/navigation.ts#L269)
+[component/navigation.ts:201](https://github.com/siposdani87/sui-js/blob/ad456a5/src/component/navigation.ts#L201)
 
 ___
 
@@ -93,7 +93,7 @@ ___
 
 | Name | Type |
 | :------ | :------ |
-| `item` | [`Objekt`](Objekt.md) |
+| `item` | [`Objekt`](Objekt.md)<`Object`\> |
 
 #### Returns
 
@@ -101,7 +101,7 @@ ___
 
 #### Defined in
 
-[component/navigation.ts:290](https://github.com/siposdani87/sui-js/blob/4b75724/src/component/navigation.ts#L290)
+[component/navigation.ts:215](https://github.com/siposdani87/sui-js/blob/ad456a5/src/component/navigation.ts#L215)
 
 ___
 
@@ -115,13 +115,13 @@ ___
 
 #### Defined in
 
-[component/navigation.ts:38](https://github.com/siposdani87/sui-js/blob/4b75724/src/component/navigation.ts#L38)
+[component/navigation.ts:25](https://github.com/siposdani87/sui-js/blob/ad456a5/src/component/navigation.ts#L25)
 
 ___
 
 ### \_setKnot
 
-▸ `Private` **_setKnot**(`id`, `title`, `action`, `opt_href?`, `opt_data?`): [`Objekt`](Objekt.md)
+▸ `Private` **_setKnot**(`id`, `title`, `action`, `opt_href?`, `opt_data?`): [`Objekt`](Objekt.md)<`Object`\>
 
 #### Parameters
 
@@ -135,11 +135,11 @@ ___
 
 #### Returns
 
-[`Objekt`](Objekt.md)
+[`Objekt`](Objekt.md)<`Object`\>
 
 #### Defined in
 
-[component/navigation.ts:199](https://github.com/siposdani87/sui-js/blob/4b75724/src/component/navigation.ts#L199)
+[component/navigation.ts:144](https://github.com/siposdani87/sui-js/blob/ad456a5/src/component/navigation.ts#L144)
 
 ___
 
@@ -159,7 +159,7 @@ ___
 
 #### Defined in
 
-[component/navigation.ts:30](https://github.com/siposdani87/sui-js/blob/4b75724/src/component/navigation.ts#L30)
+[component/navigation.ts:20](https://github.com/siposdani87/sui-js/blob/ad456a5/src/component/navigation.ts#L20)
 
 ___
 
@@ -171,7 +171,7 @@ ___
 
 | Name | Type |
 | :------ | :------ |
-| `item` | [`Objekt`](Objekt.md) |
+| `item` | [`Objekt`](Objekt.md)<`Object`\> |
 
 #### Returns
 
@@ -179,7 +179,7 @@ ___
 
 #### Defined in
 
-[component/navigation.ts:47](https://github.com/siposdani87/sui-js/blob/4b75724/src/component/navigation.ts#L47)
+[component/navigation.ts:31](https://github.com/siposdani87/sui-js/blob/ad456a5/src/component/navigation.ts#L31)
 
 ___
 
@@ -204,7 +204,7 @@ ___
 
 #### Defined in
 
-[component/navigation.ts:80](https://github.com/siposdani87/sui-js/blob/4b75724/src/component/navigation.ts#L80)
+[component/navigation.ts:56](https://github.com/siposdani87/sui-js/blob/ad456a5/src/component/navigation.ts#L56)
 
 ___
 
@@ -229,7 +229,7 @@ ___
 
 #### Defined in
 
-[component/navigation.ts:105](https://github.com/siposdani87/sui-js/blob/4b75724/src/component/navigation.ts#L105)
+[component/navigation.ts:73](https://github.com/siposdani87/sui-js/blob/ad456a5/src/component/navigation.ts#L73)
 
 ___
 
@@ -254,7 +254,7 @@ ___
 
 #### Defined in
 
-[component/navigation.ts:134](https://github.com/siposdani87/sui-js/blob/4b75724/src/component/navigation.ts#L134)
+[component/navigation.ts:94](https://github.com/siposdani87/sui-js/blob/ad456a5/src/component/navigation.ts#L94)
 
 ___
 
@@ -278,7 +278,7 @@ ___
 
 #### Defined in
 
-[component/navigation.ts:181](https://github.com/siposdani87/sui-js/blob/4b75724/src/component/navigation.ts#L181)
+[component/navigation.ts:134](https://github.com/siposdani87/sui-js/blob/ad456a5/src/component/navigation.ts#L134)
 
 ___
 
@@ -298,7 +298,7 @@ ___
 
 #### Defined in
 
-[component/navigation.ts:247](https://github.com/siposdani87/sui-js/blob/4b75724/src/component/navigation.ts#L247)
+[component/navigation.ts:186](https://github.com/siposdani87/sui-js/blob/ad456a5/src/component/navigation.ts#L186)
 
 ___
 
@@ -318,7 +318,7 @@ ___
 
 #### Defined in
 
-[component/navigation.ts:238](https://github.com/siposdani87/sui-js/blob/4b75724/src/component/navigation.ts#L238)
+[component/navigation.ts:180](https://github.com/siposdani87/sui-js/blob/ad456a5/src/component/navigation.ts#L180)
 
 ___
 
@@ -338,7 +338,7 @@ ___
 
 #### Defined in
 
-[component/navigation.ts:344](https://github.com/siposdani87/sui-js/blob/4b75724/src/component/navigation.ts#L344)
+[component/navigation.ts:258](https://github.com/siposdani87/sui-js/blob/ad456a5/src/component/navigation.ts#L258)
 
 ___
 
@@ -358,7 +358,7 @@ ___
 
 #### Defined in
 
-[component/navigation.ts:306](https://github.com/siposdani87/sui-js/blob/4b75724/src/component/navigation.ts#L306)
+[component/navigation.ts:228](https://github.com/siposdani87/sui-js/blob/ad456a5/src/component/navigation.ts#L228)
 
 ___
 
@@ -372,7 +372,7 @@ ___
 
 #### Defined in
 
-[component/navigation.ts:322](https://github.com/siposdani87/sui-js/blob/4b75724/src/component/navigation.ts#L322)
+[component/navigation.ts:242](https://github.com/siposdani87/sui-js/blob/ad456a5/src/component/navigation.ts#L242)
 
 ___
 
@@ -392,7 +392,7 @@ ___
 
 #### Defined in
 
-[component/navigation.ts:258](https://github.com/siposdani87/sui-js/blob/4b75724/src/component/navigation.ts#L258)
+[component/navigation.ts:194](https://github.com/siposdani87/sui-js/blob/ad456a5/src/component/navigation.ts#L194)
 
 ___
 
@@ -412,7 +412,7 @@ ___
 
 #### Defined in
 
-[component/navigation.ts:279](https://github.com/siposdani87/sui-js/blob/4b75724/src/component/navigation.ts#L279)
+[component/navigation.ts:208](https://github.com/siposdani87/sui-js/blob/ad456a5/src/component/navigation.ts#L208)
 
 ___
 
@@ -432,4 +432,4 @@ ___
 
 #### Defined in
 
-[component/navigation.ts:332](https://github.com/siposdani87/sui-js/blob/4b75724/src/component/navigation.ts#L332)
+[component/navigation.ts:249](https://github.com/siposdani87/sui-js/blob/ad456a5/src/component/navigation.ts#L249)

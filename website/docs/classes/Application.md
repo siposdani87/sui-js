@@ -21,7 +21,7 @@ custom_edit_url: null
 
 #### Defined in
 
-[component/application.ts:81](https://github.com/siposdani87/sui-js/blob/4b75724/src/component/application.ts#L81)
+[component/application.ts:74](https://github.com/siposdani87/sui-js/blob/ad456a5/src/component/application.ts#L74)
 
 ## Properties
 
@@ -31,7 +31,7 @@ custom_edit_url: null
 
 #### Defined in
 
-[component/application.ts:40](https://github.com/siposdani87/sui-js/blob/4b75724/src/component/application.ts#L40)
+[component/application.ts:36](https://github.com/siposdani87/sui-js/blob/ad456a5/src/component/application.ts#L36)
 
 ___
 
@@ -41,7 +41,7 @@ ___
 
 #### Defined in
 
-[component/application.ts:41](https://github.com/siposdani87/sui-js/blob/4b75724/src/component/application.ts#L41)
+[component/application.ts:37](https://github.com/siposdani87/sui-js/blob/ad456a5/src/component/application.ts#L37)
 
 ___
 
@@ -51,27 +51,27 @@ ___
 
 #### Defined in
 
-[component/application.ts:75](https://github.com/siposdani87/sui-js/blob/4b75724/src/component/application.ts#L75)
+[component/application.ts:71](https://github.com/siposdani87/sui-js/blob/ad456a5/src/component/application.ts#L71)
 
 ___
 
 ### \_routeOptions
 
-• `Private` **\_routeOptions**: [`Objekt`](Objekt.md)
+• `Private` **\_routeOptions**: [`Objekt`](Objekt.md)<`Object`\>
 
 #### Defined in
 
-[component/application.ts:76](https://github.com/siposdani87/sui-js/blob/4b75724/src/component/application.ts#L76)
+[component/application.ts:72](https://github.com/siposdani87/sui-js/blob/ad456a5/src/component/application.ts#L72)
 
 ___
 
 ### options
 
-• **options**: [`Objekt`](Objekt.md)
+• **options**: [`Objekt`](Objekt.md)<`Object`\>
 
 #### Defined in
 
-[component/application.ts:39](https://github.com/siposdani87/sui-js/blob/4b75724/src/component/application.ts#L39)
+[component/application.ts:35](https://github.com/siposdani87/sui-js/blob/ad456a5/src/component/application.ts#L35)
 
 ## Methods
 
@@ -91,7 +91,7 @@ ___
 
 #### Defined in
 
-[component/application.ts:106](https://github.com/siposdani87/sui-js/blob/4b75724/src/component/application.ts#L106)
+[component/application.ts:91](https://github.com/siposdani87/sui-js/blob/ad456a5/src/component/application.ts#L91)
 
 ___
 
@@ -105,7 +105,7 @@ ___
 
 #### Defined in
 
-[component/application.ts:284](https://github.com/siposdani87/sui-js/blob/4b75724/src/component/application.ts#L284)
+[component/application.ts:235](https://github.com/siposdani87/sui-js/blob/ad456a5/src/component/application.ts#L235)
 
 ___
 
@@ -119,7 +119,7 @@ ___
 
 #### Defined in
 
-[component/application.ts:554](https://github.com/siposdani87/sui-js/blob/4b75724/src/component/application.ts#L554)
+[component/application.ts:445](https://github.com/siposdani87/sui-js/blob/ad456a5/src/component/application.ts#L445)
 
 ___
 
@@ -133,7 +133,7 @@ ___
 
 #### Defined in
 
-[component/application.ts:575](https://github.com/siposdani87/sui-js/blob/4b75724/src/component/application.ts#L575)
+[component/application.ts:457](https://github.com/siposdani87/sui-js/blob/ad456a5/src/component/application.ts#L457)
 
 ___
 
@@ -147,7 +147,7 @@ ___
 
 #### Defined in
 
-[component/application.ts:189](https://github.com/siposdani87/sui-js/blob/4b75724/src/component/application.ts#L189)
+[component/application.ts:158](https://github.com/siposdani87/sui-js/blob/ad456a5/src/component/application.ts#L158)
 
 ___
 
@@ -161,7 +161,7 @@ ___
 
 #### Defined in
 
-[component/application.ts:277](https://github.com/siposdani87/sui-js/blob/4b75724/src/component/application.ts#L277)
+[component/application.ts:231](https://github.com/siposdani87/sui-js/blob/ad456a5/src/component/application.ts#L231)
 
 ___
 
@@ -175,7 +175,7 @@ ___
 
 #### Defined in
 
-[component/application.ts:519](https://github.com/siposdani87/sui-js/blob/4b75724/src/component/application.ts#L519)
+[component/application.ts:425](https://github.com/siposdani87/sui-js/blob/ad456a5/src/component/application.ts#L425)
 
 ___
 
@@ -189,7 +189,7 @@ ___
 
 #### Defined in
 
-[component/application.ts:326](https://github.com/siposdani87/sui-js/blob/4b75724/src/component/application.ts#L326)
+[component/application.ts:271](https://github.com/siposdani87/sui-js/blob/ad456a5/src/component/application.ts#L271)
 
 ___
 
@@ -203,7 +203,7 @@ ___
 
 #### Defined in
 
-[component/application.ts:352](https://github.com/siposdani87/sui-js/blob/4b75724/src/component/application.ts#L352)
+[component/application.ts:288](https://github.com/siposdani87/sui-js/blob/ad456a5/src/component/application.ts#L288)
 
 ___
 
@@ -217,7 +217,7 @@ ___
 
 #### Defined in
 
-[component/application.ts:512](https://github.com/siposdani87/sui-js/blob/4b75724/src/component/application.ts#L512)
+[component/application.ts:421](https://github.com/siposdani87/sui-js/blob/ad456a5/src/component/application.ts#L421)
 
 ___
 
@@ -231,7 +231,7 @@ ___
 
 #### Defined in
 
-[component/application.ts:462](https://github.com/siposdani87/sui-js/blob/4b75724/src/component/application.ts#L462)
+[component/application.ts:386](https://github.com/siposdani87/sui-js/blob/ad456a5/src/component/application.ts#L386)
 
 ___
 
@@ -245,7 +245,7 @@ ___
 
 #### Defined in
 
-[component/application.ts:505](https://github.com/siposdani87/sui-js/blob/4b75724/src/component/application.ts#L505)
+[component/application.ts:417](https://github.com/siposdani87/sui-js/blob/ad456a5/src/component/application.ts#L417)
 
 ___
 
@@ -259,7 +259,7 @@ ___
 
 #### Defined in
 
-[component/application.ts:568](https://github.com/siposdani87/sui-js/blob/4b75724/src/component/application.ts#L568)
+[component/application.ts:453](https://github.com/siposdani87/sui-js/blob/ad456a5/src/component/application.ts#L453)
 
 ___
 
@@ -273,7 +273,7 @@ ___
 
 #### Defined in
 
-[component/application.ts:291](https://github.com/siposdani87/sui-js/blob/4b75724/src/component/application.ts#L291)
+[component/application.ts:239](https://github.com/siposdani87/sui-js/blob/ad456a5/src/component/application.ts#L239)
 
 ___
 
@@ -287,7 +287,7 @@ ___
 
 #### Defined in
 
-[component/application.ts:533](https://github.com/siposdani87/sui-js/blob/4b75724/src/component/application.ts#L533)
+[component/application.ts:433](https://github.com/siposdani87/sui-js/blob/ad456a5/src/component/application.ts#L433)
 
 ___
 
@@ -301,7 +301,7 @@ ___
 
 #### Defined in
 
-[component/application.ts:366](https://github.com/siposdani87/sui-js/blob/4b75724/src/component/application.ts#L366)
+[component/application.ts:299](https://github.com/siposdani87/sui-js/blob/ad456a5/src/component/application.ts#L299)
 
 ___
 
@@ -315,7 +315,7 @@ ___
 
 #### Defined in
 
-[component/application.ts:476](https://github.com/siposdani87/sui-js/blob/4b75724/src/component/application.ts#L476)
+[component/application.ts:394](https://github.com/siposdani87/sui-js/blob/ad456a5/src/component/application.ts#L394)
 
 ___
 
@@ -329,7 +329,7 @@ ___
 
 #### Defined in
 
-[component/application.ts:561](https://github.com/siposdani87/sui-js/blob/4b75724/src/component/application.ts#L561)
+[component/application.ts:449](https://github.com/siposdani87/sui-js/blob/ad456a5/src/component/application.ts#L449)
 
 ___
 
@@ -343,7 +343,7 @@ ___
 
 #### Defined in
 
-[component/application.ts:335](https://github.com/siposdani87/sui-js/blob/4b75724/src/component/application.ts#L335)
+[component/application.ts:277](https://github.com/siposdani87/sui-js/blob/ad456a5/src/component/application.ts#L277)
 
 ___
 
@@ -357,7 +357,7 @@ ___
 
 #### Defined in
 
-[component/application.ts:180](https://github.com/siposdani87/sui-js/blob/4b75724/src/component/application.ts#L180)
+[component/application.ts:152](https://github.com/siposdani87/sui-js/blob/ad456a5/src/component/application.ts#L152)
 
 ___
 
@@ -371,7 +371,7 @@ ___
 
 #### Defined in
 
-[component/application.ts:197](https://github.com/siposdani87/sui-js/blob/4b75724/src/component/application.ts#L197)
+[component/application.ts:163](https://github.com/siposdani87/sui-js/blob/ad456a5/src/component/application.ts#L163)
 
 ___
 
@@ -385,7 +385,7 @@ ___
 
 #### Defined in
 
-[component/application.ts:547](https://github.com/siposdani87/sui-js/blob/4b75724/src/component/application.ts#L547)
+[component/application.ts:441](https://github.com/siposdani87/sui-js/blob/ad456a5/src/component/application.ts#L441)
 
 ___
 
@@ -399,7 +399,7 @@ ___
 
 #### Defined in
 
-[component/application.ts:373](https://github.com/siposdani87/sui-js/blob/4b75724/src/component/application.ts#L373)
+[component/application.ts:303](https://github.com/siposdani87/sui-js/blob/ad456a5/src/component/application.ts#L303)
 
 ___
 
@@ -413,7 +413,7 @@ ___
 
 #### Defined in
 
-[component/application.ts:342](https://github.com/siposdani87/sui-js/blob/4b75724/src/component/application.ts#L342)
+[component/application.ts:281](https://github.com/siposdani87/sui-js/blob/ad456a5/src/component/application.ts#L281)
 
 ___
 
@@ -427,7 +427,7 @@ ___
 
 #### Defined in
 
-[component/application.ts:585](https://github.com/siposdani87/sui-js/blob/4b75724/src/component/application.ts#L585)
+[component/application.ts:464](https://github.com/siposdani87/sui-js/blob/ad456a5/src/component/application.ts#L464)
 
 ___
 
@@ -441,7 +441,7 @@ ___
 
 #### Defined in
 
-[component/application.ts:469](https://github.com/siposdani87/sui-js/blob/4b75724/src/component/application.ts#L469)
+[component/application.ts:390](https://github.com/siposdani87/sui-js/blob/ad456a5/src/component/application.ts#L390)
 
 ___
 
@@ -455,7 +455,7 @@ ___
 
 #### Defined in
 
-[component/application.ts:385](https://github.com/siposdani87/sui-js/blob/4b75724/src/component/application.ts#L385)
+[component/application.ts:312](https://github.com/siposdani87/sui-js/blob/ad456a5/src/component/application.ts#L312)
 
 ___
 
@@ -469,7 +469,7 @@ ___
 
 #### Defined in
 
-[component/application.ts:263](https://github.com/siposdani87/sui-js/blob/4b75724/src/component/application.ts#L263)
+[component/application.ts:223](https://github.com/siposdani87/sui-js/blob/ad456a5/src/component/application.ts#L223)
 
 ___
 
@@ -483,7 +483,7 @@ ___
 
 #### Defined in
 
-[component/application.ts:270](https://github.com/siposdani87/sui-js/blob/4b75724/src/component/application.ts#L270)
+[component/application.ts:227](https://github.com/siposdani87/sui-js/blob/ad456a5/src/component/application.ts#L227)
 
 ___
 
@@ -497,7 +497,7 @@ ___
 
 #### Defined in
 
-[component/application.ts:491](https://github.com/siposdani87/sui-js/blob/4b75724/src/component/application.ts#L491)
+[component/application.ts:406](https://github.com/siposdani87/sui-js/blob/ad456a5/src/component/application.ts#L406)
 
 ___
 
@@ -511,7 +511,7 @@ ___
 
 #### Defined in
 
-[component/application.ts:540](https://github.com/siposdani87/sui-js/blob/4b75724/src/component/application.ts#L540)
+[component/application.ts:437](https://github.com/siposdani87/sui-js/blob/ad456a5/src/component/application.ts#L437)
 
 ___
 
@@ -525,7 +525,7 @@ ___
 
 #### Defined in
 
-[component/application.ts:526](https://github.com/siposdani87/sui-js/blob/4b75724/src/component/application.ts#L526)
+[component/application.ts:429](https://github.com/siposdani87/sui-js/blob/ad456a5/src/component/application.ts#L429)
 
 ___
 
@@ -539,7 +539,7 @@ ___
 
 #### Defined in
 
-[component/application.ts:254](https://github.com/siposdani87/sui-js/blob/4b75724/src/component/application.ts#L254)
+[component/application.ts:217](https://github.com/siposdani87/sui-js/blob/ad456a5/src/component/application.ts#L217)
 
 ___
 
@@ -559,7 +559,7 @@ ___
 
 #### Defined in
 
-[component/application.ts:90](https://github.com/siposdani87/sui-js/blob/4b75724/src/component/application.ts#L90)
+[component/application.ts:79](https://github.com/siposdani87/sui-js/blob/ad456a5/src/component/application.ts#L79)
 
 ___
 
@@ -581,7 +581,7 @@ ___
 
 #### Defined in
 
-[component/application.ts:636](https://github.com/siposdani87/sui-js/blob/4b75724/src/component/application.ts#L636)
+[component/application.ts:497](https://github.com/siposdani87/sui-js/blob/ad456a5/src/component/application.ts#L497)
 
 ___
 
@@ -595,7 +595,7 @@ ___
 
 #### Defined in
 
-[component/application.ts:607](https://github.com/siposdani87/sui-js/blob/4b75724/src/component/application.ts#L607)
+[component/application.ts:477](https://github.com/siposdani87/sui-js/blob/ad456a5/src/component/application.ts#L477)
 
 ___
 
@@ -615,7 +615,7 @@ ___
 
 #### Defined in
 
-[component/application.ts:601](https://github.com/siposdani87/sui-js/blob/4b75724/src/component/application.ts#L601)
+[component/application.ts:473](https://github.com/siposdani87/sui-js/blob/ad456a5/src/component/application.ts#L473)
 
 ___
 
@@ -629,7 +629,7 @@ ___
 
 #### Defined in
 
-[component/application.ts:146](https://github.com/siposdani87/sui-js/blob/4b75724/src/component/application.ts#L146)
+[component/application.ts:129](https://github.com/siposdani87/sui-js/blob/ad456a5/src/component/application.ts#L129)
 
 ___
 
@@ -643,7 +643,7 @@ ___
 
 #### Defined in
 
-[component/application.ts:153](https://github.com/siposdani87/sui-js/blob/4b75724/src/component/application.ts#L153)
+[component/application.ts:134](https://github.com/siposdani87/sui-js/blob/ad456a5/src/component/application.ts#L134)
 
 ___
 
@@ -664,7 +664,7 @@ ___
 
 #### Defined in
 
-[component/application.ts:615](https://github.com/siposdani87/sui-js/blob/4b75724/src/component/application.ts#L615)
+[component/application.ts:481](https://github.com/siposdani87/sui-js/blob/ad456a5/src/component/application.ts#L481)
 
 ___
 
@@ -686,7 +686,7 @@ ___
 
 #### Defined in
 
-[component/application.ts:649](https://github.com/siposdani87/sui-js/blob/4b75724/src/component/application.ts#L649)
+[component/application.ts:505](https://github.com/siposdani87/sui-js/blob/ad456a5/src/component/application.ts#L505)
 
 ___
 
@@ -706,7 +706,7 @@ ___
 
 #### Defined in
 
-[component/application.ts:164](https://github.com/siposdani87/sui-js/blob/4b75724/src/component/application.ts#L164)
+[component/application.ts:142](https://github.com/siposdani87/sui-js/blob/ad456a5/src/component/application.ts#L142)
 
 ___
 
@@ -726,7 +726,7 @@ ___
 
 #### Defined in
 
-[component/application.ts:172](https://github.com/siposdani87/sui-js/blob/4b75724/src/component/application.ts#L172)
+[component/application.ts:147](https://github.com/siposdani87/sui-js/blob/ad456a5/src/component/application.ts#L147)
 
 ___
 
@@ -747,4 +747,4 @@ ___
 
 #### Defined in
 
-[component/application.ts:593](https://github.com/siposdani87/sui-js/blob/4b75724/src/component/application.ts#L593)
+[component/application.ts:468](https://github.com/siposdani87/sui-js/blob/ad456a5/src/component/application.ts#L468)

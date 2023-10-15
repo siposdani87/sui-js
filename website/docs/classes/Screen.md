@@ -20,7 +20,7 @@ custom_edit_url: null
 
 #### Defined in
 
-[module/screen.ts:16](https://github.com/siposdani87/sui-js/blob/4b75724/src/module/screen.ts#L16)
+[module/screen.ts:11](https://github.com/siposdani87/sui-js/blob/ad456a5/src/module/screen.ts#L11)
 
 ## Properties
 
@@ -30,17 +30,17 @@ custom_edit_url: null
 
 #### Defined in
 
-[module/screen.ts:11](https://github.com/siposdani87/sui-js/blob/4b75724/src/module/screen.ts#L11)
+[module/screen.ts:8](https://github.com/siposdani87/sui-js/blob/ad456a5/src/module/screen.ts#L8)
 
 ___
 
 ### options
 
-• **options**: [`Objekt`](Objekt.md)
+• **options**: [`Objekt`](Objekt.md)<`Object`\>
 
 #### Defined in
 
-[module/screen.ts:9](https://github.com/siposdani87/sui-js/blob/4b75724/src/module/screen.ts#L9)
+[module/screen.ts:6](https://github.com/siposdani87/sui-js/blob/ad456a5/src/module/screen.ts#L6)
 
 ___
 
@@ -50,7 +50,7 @@ ___
 
 #### Defined in
 
-[module/screen.ts:12](https://github.com/siposdani87/sui-js/blob/4b75724/src/module/screen.ts#L12)
+[module/screen.ts:9](https://github.com/siposdani87/sui-js/blob/ad456a5/src/module/screen.ts#L9)
 
 ___
 
@@ -60,7 +60,7 @@ ___
 
 #### Defined in
 
-[module/screen.ts:10](https://github.com/siposdani87/sui-js/blob/4b75724/src/module/screen.ts#L10)
+[module/screen.ts:7](https://github.com/siposdani87/sui-js/blob/ad456a5/src/module/screen.ts#L7)
 
 ## Methods
 
@@ -74,7 +74,7 @@ ___
 
 #### Defined in
 
-[module/screen.ts:35](https://github.com/siposdani87/sui-js/blob/4b75724/src/module/screen.ts#L35)
+[module/screen.ts:23](https://github.com/siposdani87/sui-js/blob/ad456a5/src/module/screen.ts#L23)
 
 ___
 
@@ -88,7 +88,7 @@ ___
 
 #### Defined in
 
-[module/screen.ts:205](https://github.com/siposdani87/sui-js/blob/4b75724/src/module/screen.ts#L205)
+[module/screen.ts:144](https://github.com/siposdani87/sui-js/blob/ad456a5/src/module/screen.ts#L144)
 
 ___
 
@@ -102,7 +102,7 @@ ___
 
 #### Defined in
 
-[module/screen.ts:76](https://github.com/siposdani87/sui-js/blob/4b75724/src/module/screen.ts#L76)
+[module/screen.ts:55](https://github.com/siposdani87/sui-js/blob/ad456a5/src/module/screen.ts#L55)
 
 ___
 
@@ -116,7 +116,7 @@ ___
 
 #### Defined in
 
-[module/screen.ts:50](https://github.com/siposdani87/sui-js/blob/4b75724/src/module/screen.ts#L50)
+[module/screen.ts:35](https://github.com/siposdani87/sui-js/blob/ad456a5/src/module/screen.ts#L35)
 
 ___
 
@@ -130,7 +130,7 @@ ___
 
 #### Defined in
 
-[module/screen.ts:63](https://github.com/siposdani87/sui-js/blob/4b75724/src/module/screen.ts#L63)
+[module/screen.ts:45](https://github.com/siposdani87/sui-js/blob/ad456a5/src/module/screen.ts#L45)
 
 ___
 
@@ -150,7 +150,7 @@ ___
 
 #### Defined in
 
-[module/screen.ts:150](https://github.com/siposdani87/sui-js/blob/4b75724/src/module/screen.ts#L150)
+[module/screen.ts:104](https://github.com/siposdani87/sui-js/blob/ad456a5/src/module/screen.ts#L104)
 
 ___
 
@@ -170,7 +170,7 @@ ___
 
 #### Defined in
 
-[module/screen.ts:169](https://github.com/siposdani87/sui-js/blob/4b75724/src/module/screen.ts#L169)
+[module/screen.ts:119](https://github.com/siposdani87/sui-js/blob/ad456a5/src/module/screen.ts#L119)
 
 ___
 
@@ -190,7 +190,7 @@ ___
 
 #### Defined in
 
-[module/screen.ts:25](https://github.com/siposdani87/sui-js/blob/4b75724/src/module/screen.ts#L25)
+[module/screen.ts:16](https://github.com/siposdani87/sui-js/blob/ad456a5/src/module/screen.ts#L16)
 
 ___
 
@@ -211,7 +211,7 @@ ___
 
 #### Defined in
 
-[module/screen.ts:223](https://github.com/siposdani87/sui-js/blob/4b75724/src/module/screen.ts#L223)
+[module/screen.ts:158](https://github.com/siposdani87/sui-js/blob/ad456a5/src/module/screen.ts#L158)
 
 ___
 
@@ -231,7 +231,7 @@ ___
 
 #### Defined in
 
-[module/screen.ts:97](https://github.com/siposdani87/sui-js/blob/4b75724/src/module/screen.ts#L97)
+[module/screen.ts:73](https://github.com/siposdani87/sui-js/blob/ad456a5/src/module/screen.ts#L73)
 
 ___
 
@@ -251,7 +251,7 @@ ___
 
 #### Defined in
 
-[module/screen.ts:104](https://github.com/siposdani87/sui-js/blob/4b75724/src/module/screen.ts#L104)
+[module/screen.ts:77](https://github.com/siposdani87/sui-js/blob/ad456a5/src/module/screen.ts#L77)
 
 ___
 
@@ -274,7 +274,7 @@ ___
 
 #### Defined in
 
-[module/screen.ts:123](https://github.com/siposdani87/sui-js/blob/4b75724/src/module/screen.ts#L123)
+[module/screen.ts:85](https://github.com/siposdani87/sui-js/blob/ad456a5/src/module/screen.ts#L85)
 
 ___
 
@@ -296,7 +296,7 @@ ___
 
 #### Defined in
 
-[module/screen.ts:113](https://github.com/siposdani87/sui-js/blob/4b75724/src/module/screen.ts#L113)
+[module/screen.ts:81](https://github.com/siposdani87/sui-js/blob/ad456a5/src/module/screen.ts#L81)
 
 ___
 
@@ -317,7 +317,7 @@ ___
 
 #### Defined in
 
-[module/screen.ts:142](https://github.com/siposdani87/sui-js/blob/4b75724/src/module/screen.ts#L142)
+[module/screen.ts:100](https://github.com/siposdani87/sui-js/blob/ad456a5/src/module/screen.ts#L100)
 
 ___
 
@@ -331,7 +331,7 @@ ___
 
 #### Defined in
 
-[module/screen.ts:190](https://github.com/siposdani87/sui-js/blob/4b75724/src/module/screen.ts#L190)
+[module/screen.ts:134](https://github.com/siposdani87/sui-js/blob/ad456a5/src/module/screen.ts#L134)
 
 ___
 
@@ -343,11 +343,9 @@ ___
 
 `string`
 
-landscape|portrait
-
 #### Defined in
 
-[module/screen.ts:196](https://github.com/siposdani87/sui-js/blob/4b75724/src/module/screen.ts#L196)
+[module/screen.ts:138](https://github.com/siposdani87/sui-js/blob/ad456a5/src/module/screen.ts#L138)
 
 ___
 
@@ -361,7 +359,7 @@ ___
 
 #### Defined in
 
-[module/screen.ts:175](https://github.com/siposdani87/sui-js/blob/4b75724/src/module/screen.ts#L175)
+[module/screen.ts:123](https://github.com/siposdani87/sui-js/blob/ad456a5/src/module/screen.ts#L123)
 
 ___
 
@@ -375,7 +373,7 @@ ___
 
 #### Defined in
 
-[module/screen.ts:184](https://github.com/siposdani87/sui-js/blob/4b75724/src/module/screen.ts#L184)
+[module/screen.ts:130](https://github.com/siposdani87/sui-js/blob/ad456a5/src/module/screen.ts#L130)
 
 ___
 
@@ -385,9 +383,9 @@ ___
 
 #### Parameters
 
-| Name | Type | Description |
-| :------ | :------ | :------ |
-| `type` | `string` | dark\|light\|no-preference |
+| Name | Type |
+| :------ | :------ |
+| `type` | `string` |
 
 #### Returns
 
@@ -395,4 +393,4 @@ ___
 
 #### Defined in
 
-[module/screen.ts:230](https://github.com/siposdani87/sui-js/blob/4b75724/src/module/screen.ts#L230)
+[module/screen.ts:162](https://github.com/siposdani87/sui-js/blob/ad456a5/src/module/screen.ts#L162)

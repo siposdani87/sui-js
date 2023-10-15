@@ -21,7 +21,7 @@ custom_edit_url: null
 
 #### Defined in
 
-[component/contentHandler.ts:15](https://github.com/siposdani87/sui-js/blob/4b75724/src/component/contentHandler.ts#L15)
+[component/contentHandler.ts:9](https://github.com/siposdani87/sui-js/blob/ad456a5/src/component/contentHandler.ts#L9)
 
 ## Properties
 
@@ -31,7 +31,7 @@ custom_edit_url: null
 
 #### Defined in
 
-[component/contentHandler.ts:8](https://github.com/siposdani87/sui-js/blob/4b75724/src/component/contentHandler.ts#L8)
+[component/contentHandler.ts:5](https://github.com/siposdani87/sui-js/blob/ad456a5/src/component/contentHandler.ts#L5)
 
 ___
 
@@ -41,17 +41,17 @@ ___
 
 #### Defined in
 
-[component/contentHandler.ts:10](https://github.com/siposdani87/sui-js/blob/4b75724/src/component/contentHandler.ts#L10)
+[component/contentHandler.ts:7](https://github.com/siposdani87/sui-js/blob/ad456a5/src/component/contentHandler.ts#L7)
 
 ___
 
 ### options
 
-• **options**: [`Objekt`](Objekt.md)
+• **options**: [`Objekt`](Objekt.md)<`Object`\>
 
 #### Defined in
 
-[component/contentHandler.ts:9](https://github.com/siposdani87/sui-js/blob/4b75724/src/component/contentHandler.ts#L9)
+[component/contentHandler.ts:6](https://github.com/siposdani87/sui-js/blob/ad456a5/src/component/contentHandler.ts#L6)
 
 ## Methods
 
@@ -65,7 +65,7 @@ ___
 
 #### Defined in
 
-[component/contentHandler.ts:36](https://github.com/siposdani87/sui-js/blob/4b75724/src/component/contentHandler.ts#L36)
+[component/contentHandler.ts:23](https://github.com/siposdani87/sui-js/blob/ad456a5/src/component/contentHandler.ts#L23)
 
 ___
 
@@ -85,7 +85,7 @@ ___
 
 #### Defined in
 
-[component/contentHandler.ts:25](https://github.com/siposdani87/sui-js/blob/4b75724/src/component/contentHandler.ts#L25)
+[component/contentHandler.ts:15](https://github.com/siposdani87/sui-js/blob/ad456a5/src/component/contentHandler.ts#L15)
 
 ___
 
@@ -99,7 +99,7 @@ ___
 
 #### Defined in
 
-[component/contentHandler.ts:64](https://github.com/siposdani87/sui-js/blob/4b75724/src/component/contentHandler.ts#L64)
+[component/contentHandler.ts:47](https://github.com/siposdani87/sui-js/blob/ad456a5/src/component/contentHandler.ts#L47)
 
 ___
 
@@ -113,4 +113,4 @@ ___
 
 #### Defined in
 
-[component/contentHandler.ts:57](https://github.com/siposdani87/sui-js/blob/4b75724/src/component/contentHandler.ts#L57)
+[component/contentHandler.ts:42](https://github.com/siposdani87/sui-js/blob/ad456a5/src/component/contentHandler.ts#L42)

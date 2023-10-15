@@ -1,56 +1,70 @@
 ---
 id: "Deferred"
-title: "Class: Deferred"
+title: "Class: Deferred<T, K>"
 sidebar_label: "Deferred"
 sidebar_position: 0
 custom_edit_url: null
 ---
 
+## Type parameters
+
+| Name | Type |
+| :------ | :------ |
+| `T` | `Object` |
+| `K` | `Object` |
+
 ## Constructors
 
 ### constructor
 
-• **new Deferred**()
+• **new Deferred**<`T`, `K`\>()
+
+#### Type parameters
+
+| Name | Type |
+| :------ | :------ |
+| `T` | `Object` |
+| `K` | `Object` |
 
 #### Defined in
 
-[core/deferred.ts:10](https://github.com/siposdani87/sui-js/blob/4b75724/src/core/deferred.ts#L10)
+[core/deferred.ts:6](https://github.com/siposdani87/sui-js/blob/ad456a5/src/core/deferred.ts#L6)
 
 ## Properties
 
 ### \_promise
 
-• `Private` **\_promise**: [`Promize`](Promize.md)
+• `Private` **\_promise**: [`Promize`](Promize.md)<`T`, `K`\>
 
 #### Defined in
 
-[core/deferred.ts:7](https://github.com/siposdani87/sui-js/blob/4b75724/src/core/deferred.ts#L7)
+[core/deferred.ts:4](https://github.com/siposdani87/sui-js/blob/ad456a5/src/core/deferred.ts#L4)
 
 ## Methods
 
 ### promise
 
-▸ **promise**(): [`Promize`](Promize.md)
+▸ **promise**(): [`Promize`](Promize.md)<`T`, `K`\>
 
 #### Returns
 
-[`Promize`](Promize.md)
+[`Promize`](Promize.md)<`T`, `K`\>
 
 #### Defined in
 
-[core/deferred.ts:16](https://github.com/siposdani87/sui-js/blob/4b75724/src/core/deferred.ts#L16)
+[core/deferred.ts:10](https://github.com/siposdani87/sui-js/blob/ad456a5/src/core/deferred.ts#L10)
 
 ___
 
 ### reject
 
-▸ **reject**(`opt_object?`): `void`
+▸ **reject**(`opt_data?`): `void`
 
 #### Parameters
 
 | Name | Type |
 | :------ | :------ |
-| `opt_object?` | `any` |
+| `opt_data?` | `K` |
 
 #### Returns
 
@@ -58,19 +72,19 @@ ___
 
 #### Defined in
 
-[core/deferred.ts:30](https://github.com/siposdani87/sui-js/blob/4b75724/src/core/deferred.ts#L30)
+[core/deferred.ts:18](https://github.com/siposdani87/sui-js/blob/ad456a5/src/core/deferred.ts#L18)
 
 ___
 
 ### resolve
 
-▸ **resolve**(`opt_object?`): `void`
+▸ **resolve**(`opt_data?`): `void`
 
 #### Parameters
 
 | Name | Type |
 | :------ | :------ |
-| `opt_object?` | `any` |
+| `opt_data?` | `T` |
 
 #### Returns
 
@@ -78,4 +92,4 @@ ___
 
 #### Defined in
 
-[core/deferred.ts:23](https://github.com/siposdani87/sui-js/blob/4b75724/src/core/deferred.ts#L23)
+[core/deferred.ts:14](https://github.com/siposdani87/sui-js/blob/ad456a5/src/core/deferred.ts#L14)

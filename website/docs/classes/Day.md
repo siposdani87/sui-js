@@ -22,7 +22,7 @@ custom_edit_url: null
 
 #### Defined in
 
-[component/day.ts:19](https://github.com/siposdani87/sui-js/blob/4b75724/src/component/day.ts#L19)
+[component/day.ts:12](https://github.com/siposdani87/sui-js/blob/ad456a5/src/component/day.ts#L12)
 
 ## Properties
 
@@ -32,7 +32,7 @@ custom_edit_url: null
 
 #### Defined in
 
-[component/day.ts:13](https://github.com/siposdani87/sui-js/blob/4b75724/src/component/day.ts#L13)
+[component/day.ts:10](https://github.com/siposdani87/sui-js/blob/ad456a5/src/component/day.ts#L10)
 
 ___
 
@@ -42,7 +42,7 @@ ___
 
 #### Defined in
 
-[component/day.ts:11](https://github.com/siposdani87/sui-js/blob/4b75724/src/component/day.ts#L11)
+[component/day.ts:8](https://github.com/siposdani87/sui-js/blob/ad456a5/src/component/day.ts#L8)
 
 ___
 
@@ -52,17 +52,17 @@ ___
 
 #### Defined in
 
-[component/day.ts:10](https://github.com/siposdani87/sui-js/blob/4b75724/src/component/day.ts#L10)
+[component/day.ts:7](https://github.com/siposdani87/sui-js/blob/ad456a5/src/component/day.ts#L7)
 
 ___
 
 ### options
 
-• **options**: [`Objekt`](Objekt.md)
+• **options**: [`Objekt`](Objekt.md)<`Object`\>
 
 #### Defined in
 
-[component/day.ts:12](https://github.com/siposdani87/sui-js/blob/4b75724/src/component/day.ts#L12)
+[component/day.ts:9](https://github.com/siposdani87/sui-js/blob/ad456a5/src/component/day.ts#L9)
 
 ## Methods
 
@@ -76,7 +76,7 @@ ___
 
 #### Defined in
 
-[component/day.ts:37](https://github.com/siposdani87/sui-js/blob/4b75724/src/component/day.ts#L37)
+[component/day.ts:23](https://github.com/siposdani87/sui-js/blob/ad456a5/src/component/day.ts#L23)
 
 ___
 
@@ -96,7 +96,7 @@ ___
 
 #### Defined in
 
-[component/day.ts:30](https://github.com/siposdani87/sui-js/blob/4b75724/src/component/day.ts#L30)
+[component/day.ts:19](https://github.com/siposdani87/sui-js/blob/ad456a5/src/component/day.ts#L19)
 
 ___
 
@@ -116,7 +116,7 @@ ___
 
 #### Defined in
 
-[component/day.ts:67](https://github.com/siposdani87/sui-js/blob/4b75724/src/component/day.ts#L67)
+[component/day.ts:49](https://github.com/siposdani87/sui-js/blob/ad456a5/src/component/day.ts#L49)
 
 ___
 
@@ -130,4 +130,4 @@ ___
 
 #### Defined in
 
-[component/day.ts:53](https://github.com/siposdani87/sui-js/blob/4b75724/src/component/day.ts#L53)
+[component/day.ts:37](https://github.com/siposdani87/sui-js/blob/ad456a5/src/component/day.ts#L37)

@@ -14,7 +14,7 @@ custom_edit_url: null
 
 #### Defined in
 
-[core/module.ts:25](https://github.com/siposdani87/sui-js/blob/4b75724/src/core/module.ts#L25)
+[core/module.ts:20](https://github.com/siposdani87/sui-js/blob/ad456a5/src/core/module.ts#L20)
 
 ## Properties
 
@@ -24,7 +24,7 @@ custom_edit_url: null
 
 #### Defined in
 
-[core/module.ts:22](https://github.com/siposdani87/sui-js/blob/4b75724/src/core/module.ts#L22)
+[core/module.ts:18](https://github.com/siposdani87/sui-js/blob/ad456a5/src/core/module.ts#L18)
 
 ___
 
@@ -34,7 +34,7 @@ ___
 
 #### Defined in
 
-[core/module.ts:17](https://github.com/siposdani87/sui-js/blob/4b75724/src/core/module.ts#L17)
+[core/module.ts:13](https://github.com/siposdani87/sui-js/blob/ad456a5/src/core/module.ts#L13)
 
 ___
 
@@ -44,7 +44,7 @@ ___
 
 #### Defined in
 
-[core/module.ts:16](https://github.com/siposdani87/sui-js/blob/4b75724/src/core/module.ts#L16)
+[core/module.ts:12](https://github.com/siposdani87/sui-js/blob/ad456a5/src/core/module.ts#L12)
 
 ___
 
@@ -58,7 +58,7 @@ ___
 
 #### Defined in
 
-[core/module.ts:19](https://github.com/siposdani87/sui-js/blob/4b75724/src/core/module.ts#L19)
+[core/module.ts:15](https://github.com/siposdani87/sui-js/blob/ad456a5/src/core/module.ts#L15)
 
 ## Methods
 
@@ -78,7 +78,7 @@ ___
 
 #### Defined in
 
-[core/module.ts:82](https://github.com/siposdani87/sui-js/blob/4b75724/src/core/module.ts#L82)
+[core/module.ts:57](https://github.com/siposdani87/sui-js/blob/ad456a5/src/core/module.ts#L57)
 
 ___
 
@@ -90,7 +90,7 @@ ___
 
 | Name | Type | Default value |
 | :------ | :------ | :------ |
-| `currentState` | [`Objekt`](Objekt.md) | `undefined` |
+| `currentState` | [`Objekt`](Objekt.md)<`Object`\> | `undefined` |
 | `opt_force` | `boolean` | `false` |
 
 #### Returns
@@ -99,7 +99,7 @@ ___
 
 #### Defined in
 
-[core/module.ts:230](https://github.com/siposdani87/sui-js/blob/4b75724/src/core/module.ts#L230)
+[core/module.ts:190](https://github.com/siposdani87/sui-js/blob/ad456a5/src/core/module.ts#L190)
 
 ___
 
@@ -111,7 +111,7 @@ ___
 
 | Name | Type |
 | :------ | :------ |
-| `state` | [`Objekt`](Objekt.md) |
+| `state` | [`Objekt`](Objekt.md)<`Object`\> |
 | `dom` | [`Knot`](Knot.md)<`HTMLElement`\> |
 
 #### Returns
@@ -120,7 +120,7 @@ ___
 
 #### Defined in
 
-[core/module.ts:269](https://github.com/siposdani87/sui-js/blob/4b75724/src/core/module.ts#L269)
+[core/module.ts:224](https://github.com/siposdani87/sui-js/blob/ad456a5/src/core/module.ts#L224)
 
 ___
 
@@ -140,7 +140,7 @@ ___
 
 #### Defined in
 
-[core/module.ts:69](https://github.com/siposdani87/sui-js/blob/4b75724/src/core/module.ts#L69)
+[core/module.ts:48](https://github.com/siposdani87/sui-js/blob/ad456a5/src/core/module.ts#L48)
 
 ___
 
@@ -160,7 +160,7 @@ ___
 
 #### Defined in
 
-[core/module.ts:107](https://github.com/siposdani87/sui-js/blob/4b75724/src/core/module.ts#L107)
+[core/module.ts:78](https://github.com/siposdani87/sui-js/blob/ad456a5/src/core/module.ts#L78)
 
 ___
 
@@ -182,7 +182,7 @@ ___
 
 #### Defined in
 
-[core/module.ts:53](https://github.com/siposdani87/sui-js/blob/4b75724/src/core/module.ts#L53)
+[core/module.ts:36](https://github.com/siposdani87/sui-js/blob/ad456a5/src/core/module.ts#L36)
 
 ___
 
@@ -196,7 +196,7 @@ ___
 
 #### Defined in
 
-[core/module.ts:340](https://github.com/siposdani87/sui-js/blob/4b75724/src/core/module.ts#L340)
+[core/module.ts:275](https://github.com/siposdani87/sui-js/blob/ad456a5/src/core/module.ts#L275)
 
 ___
 
@@ -210,7 +210,7 @@ ___
 
 #### Defined in
 
-[core/module.ts:299](https://github.com/siposdani87/sui-js/blob/4b75724/src/core/module.ts#L299)
+[core/module.ts:249](https://github.com/siposdani87/sui-js/blob/ad456a5/src/core/module.ts#L249)
 
 ___
 
@@ -230,28 +230,28 @@ ___
 
 #### Defined in
 
-[core/module.ts:293](https://github.com/siposdani87/sui-js/blob/4b75724/src/core/module.ts#L293)
+[core/module.ts:245](https://github.com/siposdani87/sui-js/blob/ad456a5/src/core/module.ts#L245)
 
 ___
 
 ### eventDomChange
 
-▸ **eventDomChange**(`state`, `dom`): [`Promize`](Promize.md)
+▸ **eventDomChange**(`state`, `dom`): [`Promize`](Promize.md)<`Object`, `Object`\>
 
 #### Parameters
 
 | Name | Type |
 | :------ | :------ |
-| `state` | [`Objekt`](Objekt.md) |
+| `state` | [`Objekt`](Objekt.md)<`Object`\> |
 | `dom` | [`Knot`](Knot.md)<`HTMLElement`\> |
 
 #### Returns
 
-[`Promize`](Promize.md)
+[`Promize`](Promize.md)<`Object`, `Object`\>
 
 #### Defined in
 
-[core/module.ts:331](https://github.com/siposdani87/sui-js/blob/4b75724/src/core/module.ts#L331)
+[core/module.ts:268](https://github.com/siposdani87/sui-js/blob/ad456a5/src/core/module.ts#L268)
 
 ___
 
@@ -263,7 +263,7 @@ ___
 
 | Name | Type |
 | :------ | :------ |
-| `state` | [`Objekt`](Objekt.md) |
+| `state` | [`Objekt`](Objekt.md)<`Object`\> |
 
 #### Returns
 
@@ -271,7 +271,7 @@ ___
 
 #### Defined in
 
-[core/module.ts:306](https://github.com/siposdani87/sui-js/blob/4b75724/src/core/module.ts#L306)
+[core/module.ts:253](https://github.com/siposdani87/sui-js/blob/ad456a5/src/core/module.ts#L253)
 
 ___
 
@@ -283,7 +283,7 @@ ___
 
 | Name | Type |
 | :------ | :------ |
-| `state` | [`Objekt`](Objekt.md) |
+| `state` | [`Objekt`](Objekt.md)<`Object`\> |
 
 #### Returns
 
@@ -291,7 +291,7 @@ ___
 
 #### Defined in
 
-[core/module.ts:313](https://github.com/siposdani87/sui-js/blob/4b75724/src/core/module.ts#L313)
+[core/module.ts:257](https://github.com/siposdani87/sui-js/blob/ad456a5/src/core/module.ts#L257)
 
 ___
 
@@ -305,7 +305,7 @@ ___
 
 #### Defined in
 
-[core/module.ts:352](https://github.com/siposdani87/sui-js/blob/4b75724/src/core/module.ts#L352)
+[core/module.ts:283](https://github.com/siposdani87/sui-js/blob/ad456a5/src/core/module.ts#L283)
 
 ___
 
@@ -319,27 +319,27 @@ ___
 
 #### Defined in
 
-[core/module.ts:346](https://github.com/siposdani87/sui-js/blob/4b75724/src/core/module.ts#L346)
+[core/module.ts:279](https://github.com/siposdani87/sui-js/blob/ad456a5/src/core/module.ts#L279)
 
 ___
 
 ### eventStateChange
 
-▸ **eventStateChange**(`state`): [`Promize`](Promize.md)
+▸ **eventStateChange**(`state`): [`Promize`](Promize.md)<`Object`, `Object`\>
 
 #### Parameters
 
 | Name | Type |
 | :------ | :------ |
-| `state` | [`Objekt`](Objekt.md) |
+| `state` | [`Objekt`](Objekt.md)<`Object`\> |
 
 #### Returns
 
-[`Promize`](Promize.md)
+[`Promize`](Promize.md)<`Object`, `Object`\>
 
 #### Defined in
 
-[core/module.ts:320](https://github.com/siposdani87/sui-js/blob/4b75724/src/core/module.ts#L320)
+[core/module.ts:261](https://github.com/siposdani87/sui-js/blob/ad456a5/src/core/module.ts#L261)
 
 ___
 
@@ -353,7 +353,7 @@ ___
 
 #### Defined in
 
-[core/module.ts:44](https://github.com/siposdani87/sui-js/blob/4b75724/src/core/module.ts#L44)
+[core/module.ts:32](https://github.com/siposdani87/sui-js/blob/ad456a5/src/core/module.ts#L32)
 
 ___
 
@@ -374,7 +374,7 @@ ___
 
 #### Defined in
 
-[core/module.ts:203](https://github.com/siposdani87/sui-js/blob/4b75724/src/core/module.ts#L203)
+[core/module.ts:167](https://github.com/siposdani87/sui-js/blob/ad456a5/src/core/module.ts#L167)
 
 ___
 
@@ -394,7 +394,7 @@ ___
 
 #### Defined in
 
-[core/module.ts:168](https://github.com/siposdani87/sui-js/blob/4b75724/src/core/module.ts#L168)
+[core/module.ts:136](https://github.com/siposdani87/sui-js/blob/ad456a5/src/core/module.ts#L136)
 
 ___
 
@@ -415,4 +415,4 @@ ___
 
 #### Defined in
 
-[core/module.ts:37](https://github.com/siposdani87/sui-js/blob/4b75724/src/core/module.ts#L37)
+[core/module.ts:27](https://github.com/siposdani87/sui-js/blob/ad456a5/src/core/module.ts#L27)

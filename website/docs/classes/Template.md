@@ -21,7 +21,7 @@ custom_edit_url: null
 
 #### Defined in
 
-[module/template.ts:20](https://github.com/siposdani87/sui-js/blob/4b75724/src/module/template.ts#L20)
+[module/template.ts:14](https://github.com/siposdani87/sui-js/blob/ad456a5/src/module/template.ts#L14)
 
 ## Properties
 
@@ -31,17 +31,17 @@ custom_edit_url: null
 
 #### Defined in
 
-[module/template.ts:13](https://github.com/siposdani87/sui-js/blob/4b75724/src/module/template.ts#L13)
+[module/template.ts:10](https://github.com/siposdani87/sui-js/blob/ad456a5/src/module/template.ts#L10)
 
 ___
 
 ### options
 
-• **options**: [`Objekt`](Objekt.md)
+• **options**: [`Objekt`](Objekt.md)<{ `locale`: `string` ; `selector`: `string`  }\>
 
 #### Defined in
 
-[module/template.ts:14](https://github.com/siposdani87/sui-js/blob/4b75724/src/module/template.ts#L14)
+[module/template.ts:11](https://github.com/siposdani87/sui-js/blob/ad456a5/src/module/template.ts#L11)
 
 ___
 
@@ -51,30 +51,9 @@ ___
 
 #### Defined in
 
-[module/template.ts:15](https://github.com/siposdani87/sui-js/blob/4b75724/src/module/template.ts#L15)
+[module/template.ts:12](https://github.com/siposdani87/sui-js/blob/ad456a5/src/module/template.ts#L12)
 
 ## Methods
-
-### \_handleData
-
-▸ `Private` **_handleData**(`data`, `error`): [`Knot`](Knot.md)<`HTMLElement`\>
-
-#### Parameters
-
-| Name | Type |
-| :------ | :------ |
-| `data` | [`Knot`](Knot.md)<`HTMLElement`\> |
-| `error` | `boolean` |
-
-#### Returns
-
-[`Knot`](Knot.md)<`HTMLElement`\>
-
-#### Defined in
-
-[module/template.ts:87](https://github.com/siposdani87/sui-js/blob/4b75724/src/module/template.ts#L87)
-
-___
 
 ### \_init
 
@@ -86,7 +65,7 @@ ___
 
 #### Defined in
 
-[module/template.ts:42](https://github.com/siposdani87/sui-js/blob/4b75724/src/module/template.ts#L42)
+[module/template.ts:29](https://github.com/siposdani87/sui-js/blob/ad456a5/src/module/template.ts#L29)
 
 ___
 
@@ -106,7 +85,49 @@ ___
 
 #### Defined in
 
-[module/template.ts:31](https://github.com/siposdani87/sui-js/blob/4b75724/src/module/template.ts#L31)
+[module/template.ts:21](https://github.com/siposdani87/sui-js/blob/ad456a5/src/module/template.ts#L21)
+
+___
+
+### \_spaNavigate
+
+▸ **_spaNavigate**(`data`, `isError`): [`Knot`](Knot.md)<`HTMLElement`\>
+
+#### Parameters
+
+| Name | Type |
+| :------ | :------ |
+| `data` | [`Knot`](Knot.md)<`HTMLElement`\> |
+| `isError` | `boolean` |
+
+#### Returns
+
+[`Knot`](Knot.md)<`HTMLElement`\>
+
+#### Defined in
+
+[module/template.ts:63](https://github.com/siposdani87/sui-js/blob/ad456a5/src/module/template.ts#L63)
+
+___
+
+### \_updateDOM
+
+▸ `Private` **_updateDOM**(`data`, `isError`): [`Knot`](Knot.md)<`HTMLElement`\>
+
+#### Parameters
+
+| Name | Type |
+| :------ | :------ |
+| `data` | [`Knot`](Knot.md)<`HTMLElement`\> |
+| `isError` | `boolean` |
+
+#### Returns
+
+[`Knot`](Knot.md)<`HTMLElement`\>
+
+#### Defined in
+
+[module/template.ts:76](https://github.com/siposdani87/sui-js/blob/ad456a5/src/module/template.ts#L76)
 
 ___
 
@@ -128,7 +149,7 @@ ___
 
 #### Defined in
 
-[module/template.ts:105](https://github.com/siposdani87/sui-js/blob/4b75724/src/module/template.ts#L105)
+[module/template.ts:91](https://github.com/siposdani87/sui-js/blob/ad456a5/src/module/template.ts#L91)
 
 ___
 
@@ -142,13 +163,13 @@ ___
 
 #### Defined in
 
-[module/template.ts:48](https://github.com/siposdani87/sui-js/blob/4b75724/src/module/template.ts#L48)
+[module/template.ts:33](https://github.com/siposdani87/sui-js/blob/ad456a5/src/module/template.ts#L33)
 
 ___
 
 ### load
 
-▸ **load**(`url`, `opt_force?`): [`Promize`](Promize.md)
+▸ **load**(`url`, `opt_force?`): [`Promize`](Promize.md)<[`Knot`](Knot.md)<`HTMLElement`\>, [`Knot`](Knot.md)<`HTMLElement`\>\>
 
 #### Parameters
 
@@ -159,8 +180,8 @@ ___
 
 #### Returns
 
-[`Promize`](Promize.md)
+[`Promize`](Promize.md)<[`Knot`](Knot.md)<`HTMLElement`\>, [`Knot`](Knot.md)<`HTMLElement`\>\>
 
 #### Defined in
 
-[module/template.ts:56](https://github.com/siposdani87/sui-js/blob/4b75724/src/module/template.ts#L56)
+[module/template.ts:37](https://github.com/siposdani87/sui-js/blob/ad456a5/src/module/template.ts#L37)

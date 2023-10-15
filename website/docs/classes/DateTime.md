@@ -21,7 +21,7 @@ custom_edit_url: null
 
 #### Defined in
 
-[component/dateTime.ts:34](https://github.com/siposdani87/sui-js/blob/4b75724/src/component/dateTime.ts#L34)
+[component/dateTime.ts:25](https://github.com/siposdani87/sui-js/blob/ad456a5/src/component/dateTime.ts#L25)
 
 ## Properties
 
@@ -31,7 +31,7 @@ custom_edit_url: null
 
 #### Defined in
 
-[component/dateTime.ts:27](https://github.com/siposdani87/sui-js/blob/4b75724/src/component/dateTime.ts#L27)
+[component/dateTime.ts:21](https://github.com/siposdani87/sui-js/blob/ad456a5/src/component/dateTime.ts#L21)
 
 ___
 
@@ -41,7 +41,7 @@ ___
 
 #### Defined in
 
-[component/dateTime.ts:28](https://github.com/siposdani87/sui-js/blob/4b75724/src/component/dateTime.ts#L28)
+[component/dateTime.ts:22](https://github.com/siposdani87/sui-js/blob/ad456a5/src/component/dateTime.ts#L22)
 
 ___
 
@@ -51,7 +51,7 @@ ___
 
 #### Defined in
 
-[component/dateTime.ts:26](https://github.com/siposdani87/sui-js/blob/4b75724/src/component/dateTime.ts#L26)
+[component/dateTime.ts:20](https://github.com/siposdani87/sui-js/blob/ad456a5/src/component/dateTime.ts#L20)
 
 ___
 
@@ -61,17 +61,17 @@ ___
 
 #### Defined in
 
-[component/dateTime.ts:21](https://github.com/siposdani87/sui-js/blob/4b75724/src/component/dateTime.ts#L21)
+[component/dateTime.ts:15](https://github.com/siposdani87/sui-js/blob/ad456a5/src/component/dateTime.ts#L15)
 
 ___
 
 ### options
 
-• **options**: [`Objekt`](Objekt.md)
+• **options**: [`Objekt`](Objekt.md)<`Object`\>
 
 #### Defined in
 
-[component/dateTime.ts:22](https://github.com/siposdani87/sui-js/blob/4b75724/src/component/dateTime.ts#L22)
+[component/dateTime.ts:16](https://github.com/siposdani87/sui-js/blob/ad456a5/src/component/dateTime.ts#L16)
 
 ___
 
@@ -85,7 +85,7 @@ ___
 
 #### Defined in
 
-[component/dateTime.ts:23](https://github.com/siposdani87/sui-js/blob/4b75724/src/component/dateTime.ts#L23)
+[component/dateTime.ts:17](https://github.com/siposdani87/sui-js/blob/ad456a5/src/component/dateTime.ts#L17)
 
 ___
 
@@ -95,7 +95,7 @@ ___
 
 #### Defined in
 
-[component/dateTime.ts:29](https://github.com/siposdani87/sui-js/blob/4b75724/src/component/dateTime.ts#L29)
+[component/dateTime.ts:23](https://github.com/siposdani87/sui-js/blob/ad456a5/src/component/dateTime.ts#L23)
 
 ## Methods
 
@@ -109,7 +109,7 @@ ___
 
 #### Defined in
 
-[component/dateTime.ts:180](https://github.com/siposdani87/sui-js/blob/4b75724/src/component/dateTime.ts#L180)
+[component/dateTime.ts:133](https://github.com/siposdani87/sui-js/blob/ad456a5/src/component/dateTime.ts#L133)
 
 ___
 
@@ -123,7 +123,7 @@ ___
 
 #### Defined in
 
-[component/dateTime.ts:208](https://github.com/siposdani87/sui-js/blob/4b75724/src/component/dateTime.ts#L208)
+[component/dateTime.ts:158](https://github.com/siposdani87/sui-js/blob/ad456a5/src/component/dateTime.ts#L158)
 
 ___
 
@@ -137,7 +137,7 @@ ___
 
 #### Defined in
 
-[component/dateTime.ts:51](https://github.com/siposdani87/sui-js/blob/4b75724/src/component/dateTime.ts#L51)
+[component/dateTime.ts:35](https://github.com/siposdani87/sui-js/blob/ad456a5/src/component/dateTime.ts#L35)
 
 ___
 
@@ -151,7 +151,7 @@ ___
 
 #### Defined in
 
-[component/dateTime.ts:121](https://github.com/siposdani87/sui-js/blob/4b75724/src/component/dateTime.ts#L121)
+[component/dateTime.ts:93](https://github.com/siposdani87/sui-js/blob/ad456a5/src/component/dateTime.ts#L93)
 
 ___
 
@@ -165,7 +165,7 @@ ___
 
 #### Defined in
 
-[component/dateTime.ts:132](https://github.com/siposdani87/sui-js/blob/4b75724/src/component/dateTime.ts#L132)
+[component/dateTime.ts:101](https://github.com/siposdani87/sui-js/blob/ad456a5/src/component/dateTime.ts#L101)
 
 ___
 
@@ -179,7 +179,7 @@ ___
 
 #### Defined in
 
-[component/dateTime.ts:113](https://github.com/siposdani87/sui-js/blob/4b75724/src/component/dateTime.ts#L113)
+[component/dateTime.ts:88](https://github.com/siposdani87/sui-js/blob/ad456a5/src/component/dateTime.ts#L88)
 
 ___
 
@@ -193,7 +193,7 @@ ___
 
 #### Defined in
 
-[component/dateTime.ts:104](https://github.com/siposdani87/sui-js/blob/4b75724/src/component/dateTime.ts#L104)
+[component/dateTime.ts:82](https://github.com/siposdani87/sui-js/blob/ad456a5/src/component/dateTime.ts#L82)
 
 ___
 
@@ -207,7 +207,7 @@ ___
 
 #### Defined in
 
-[component/dateTime.ts:60](https://github.com/siposdani87/sui-js/blob/4b75724/src/component/dateTime.ts#L60)
+[component/dateTime.ts:41](https://github.com/siposdani87/sui-js/blob/ad456a5/src/component/dateTime.ts#L41)
 
 ___
 
@@ -221,7 +221,7 @@ ___
 
 #### Defined in
 
-[component/dateTime.ts:232](https://github.com/siposdani87/sui-js/blob/4b75724/src/component/dateTime.ts#L232)
+[component/dateTime.ts:179](https://github.com/siposdani87/sui-js/blob/ad456a5/src/component/dateTime.ts#L179)
 
 ___
 
@@ -241,7 +241,7 @@ ___
 
 #### Defined in
 
-[component/dateTime.ts:44](https://github.com/siposdani87/sui-js/blob/4b75724/src/component/dateTime.ts#L44)
+[component/dateTime.ts:31](https://github.com/siposdani87/sui-js/blob/ad456a5/src/component/dateTime.ts#L31)
 
 ___
 
@@ -261,7 +261,7 @@ ___
 
 #### Defined in
 
-[component/dateTime.ts:150](https://github.com/siposdani87/sui-js/blob/4b75724/src/component/dateTime.ts#L150)
+[component/dateTime.ts:113](https://github.com/siposdani87/sui-js/blob/ad456a5/src/component/dateTime.ts#L113)
 
 ___
 
@@ -275,7 +275,7 @@ ___
 
 #### Defined in
 
-[component/dateTime.ts:172](https://github.com/siposdani87/sui-js/blob/4b75724/src/component/dateTime.ts#L172)
+[component/dateTime.ts:128](https://github.com/siposdani87/sui-js/blob/ad456a5/src/component/dateTime.ts#L128)
 
 ___
 
@@ -295,7 +295,7 @@ ___
 
 #### Defined in
 
-[component/dateTime.ts:240](https://github.com/siposdani87/sui-js/blob/4b75724/src/component/dateTime.ts#L240)
+[component/dateTime.ts:184](https://github.com/siposdani87/sui-js/blob/ad456a5/src/component/dateTime.ts#L184)
 
 ___
 
@@ -309,7 +309,7 @@ ___
 
 #### Defined in
 
-[component/dateTime.ts:142](https://github.com/siposdani87/sui-js/blob/4b75724/src/component/dateTime.ts#L142)
+[component/dateTime.ts:109](https://github.com/siposdani87/sui-js/blob/ad456a5/src/component/dateTime.ts#L109)
 
 ___
 
@@ -323,7 +323,7 @@ ___
 
 #### Defined in
 
-[component/dateTime.ts:166](https://github.com/siposdani87/sui-js/blob/4b75724/src/component/dateTime.ts#L166)
+[component/dateTime.ts:124](https://github.com/siposdani87/sui-js/blob/ad456a5/src/component/dateTime.ts#L124)
 
 ___
 
@@ -343,4 +343,4 @@ ___
 
 #### Defined in
 
-[component/dateTime.ts:158](https://github.com/siposdani87/sui-js/blob/4b75724/src/component/dateTime.ts#L158)
+[component/dateTime.ts:118](https://github.com/siposdani87/sui-js/blob/ad456a5/src/component/dateTime.ts#L118)

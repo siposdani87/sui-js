@@ -20,7 +20,7 @@ custom_edit_url: null
 
 #### Defined in
 
-[module/page.ts:14](https://github.com/siposdani87/sui-js/blob/4b75724/src/module/page.ts#L14)
+[module/page.ts:9](https://github.com/siposdani87/sui-js/blob/ad456a5/src/module/page.ts#L9)
 
 ## Properties
 
@@ -30,17 +30,17 @@ custom_edit_url: null
 
 #### Defined in
 
-[module/page.ts:10](https://github.com/siposdani87/sui-js/blob/4b75724/src/module/page.ts#L10)
+[module/page.ts:7](https://github.com/siposdani87/sui-js/blob/ad456a5/src/module/page.ts#L7)
 
 ___
 
 ### options
 
-• **options**: [`Objekt`](Objekt.md)
+• **options**: [`Objekt`](Objekt.md)<`Object`\>
 
 #### Defined in
 
-[module/page.ts:9](https://github.com/siposdani87/sui-js/blob/4b75724/src/module/page.ts#L9)
+[module/page.ts:6](https://github.com/siposdani87/sui-js/blob/ad456a5/src/module/page.ts#L6)
 
 ## Methods
 
@@ -54,7 +54,7 @@ ___
 
 #### Defined in
 
-[module/page.ts:31](https://github.com/siposdani87/sui-js/blob/4b75724/src/module/page.ts#L31)
+[module/page.ts:19](https://github.com/siposdani87/sui-js/blob/ad456a5/src/module/page.ts#L19)
 
 ___
 
@@ -74,7 +74,7 @@ ___
 
 #### Defined in
 
-[module/page.ts:23](https://github.com/siposdani87/sui-js/blob/4b75724/src/module/page.ts#L23)
+[module/page.ts:14](https://github.com/siposdani87/sui-js/blob/ad456a5/src/module/page.ts#L14)
 
 ___
 
@@ -95,7 +95,7 @@ ___
 
 #### Defined in
 
-[module/page.ts:50](https://github.com/siposdani87/sui-js/blob/4b75724/src/module/page.ts#L50)
+[module/page.ts:31](https://github.com/siposdani87/sui-js/blob/ad456a5/src/module/page.ts#L31)
 
 ___
 
@@ -116,7 +116,7 @@ ___
 
 #### Defined in
 
-[module/page.ts:58](https://github.com/siposdani87/sui-js/blob/4b75724/src/module/page.ts#L58)
+[module/page.ts:35](https://github.com/siposdani87/sui-js/blob/ad456a5/src/module/page.ts#L35)
 
 ___
 
@@ -136,4 +136,4 @@ ___
 
 #### Defined in
 
-[module/page.ts:42](https://github.com/siposdani87/sui-js/blob/4b75724/src/module/page.ts#L42)
+[module/page.ts:27](https://github.com/siposdani87/sui-js/blob/ad456a5/src/module/page.ts#L27)

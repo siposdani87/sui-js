@@ -20,7 +20,7 @@ custom_edit_url: null
 
 #### Defined in
 
-[core/async.ts:20](https://github.com/siposdani87/sui-js/blob/4b75724/src/core/async.ts#L20)
+[core/async.ts:14](https://github.com/siposdani87/sui-js/blob/ad456a5/src/core/async.ts#L14)
 
 ## Properties
 
@@ -39,7 +39,7 @@ custom_edit_url: null
 
 #### Defined in
 
-[core/async.ts:11](https://github.com/siposdani87/sui-js/blob/4b75724/src/core/async.ts#L11)
+[core/async.ts:7](https://github.com/siposdani87/sui-js/blob/ad456a5/src/core/async.ts#L7)
 
 ___
 
@@ -49,7 +49,7 @@ ___
 
 #### Defined in
 
-[core/async.ts:10](https://github.com/siposdani87/sui-js/blob/4b75724/src/core/async.ts#L10)
+[core/async.ts:6](https://github.com/siposdani87/sui-js/blob/ad456a5/src/core/async.ts#L6)
 
 ## Methods
 
@@ -63,13 +63,13 @@ ___
 
 #### Defined in
 
-[core/async.ts:174](https://github.com/siposdani87/sui-js/blob/4b75724/src/core/async.ts#L174)
+[core/async.ts:139](https://github.com/siposdani87/sui-js/blob/ad456a5/src/core/async.ts#L139)
 
 ___
 
 ### \_parallelCaller
 
-▸ `Private` **_parallelCaller**(`length`, `isError`, `result`, `allowEvent`, `index`, `opt_args?`): [`Promize`](Promize.md)
+▸ `Private` **_parallelCaller**(`length`, `isError`, `result`, `allowEvent`, `index`, `opt_args?`): [`Promize`](Promize.md)<`Object`, `Object`\>
 
 #### Parameters
 
@@ -84,17 +84,17 @@ ___
 
 #### Returns
 
-[`Promize`](Promize.md)
+[`Promize`](Promize.md)<`Object`, `Object`\>
 
 #### Defined in
 
-[core/async.ts:137](https://github.com/siposdani87/sui-js/blob/4b75724/src/core/async.ts#L137)
+[core/async.ts:105](https://github.com/siposdani87/sui-js/blob/ad456a5/src/core/async.ts#L105)
 
 ___
 
 ### \_parallelWrapper
 
-▸ `Private` **_parallelWrapper**(`call`, `length`, `allowEvent`, `index`, `opt_args?`): [`Promize`](Promize.md)
+▸ `Private` **_parallelWrapper**(`call`, `length`, `allowEvent`, `index`, `opt_args?`): [`Promize`](Promize.md)<`Object`, `Object`\>
 
 #### Parameters
 
@@ -108,17 +108,17 @@ ___
 
 #### Returns
 
-[`Promize`](Promize.md)
+[`Promize`](Promize.md)<`Object`, `Object`\>
 
 #### Defined in
 
-[core/async.ts:73](https://github.com/siposdani87/sui-js/blob/4b75724/src/core/async.ts#L73)
+[core/async.ts:50](https://github.com/siposdani87/sui-js/blob/ad456a5/src/core/async.ts#L50)
 
 ___
 
 ### \_serialCaller
 
-▸ `Private` **_serialCaller**(`calls`, `index`, `result`, `opt_args?`): [`Promize`](Promize.md)
+▸ `Private` **_serialCaller**(`calls`, `index`, `result`, `opt_args?`): [`Promize`](Promize.md)<`Object`, `Object`\>
 
 #### Parameters
 
@@ -131,17 +131,17 @@ ___
 
 #### Returns
 
-[`Promize`](Promize.md)
+[`Promize`](Promize.md)<`Object`, `Object`\>
 
 #### Defined in
 
-[core/async.ts:270](https://github.com/siposdani87/sui-js/blob/4b75724/src/core/async.ts#L270)
+[core/async.ts:208](https://github.com/siposdani87/sui-js/blob/ad456a5/src/core/async.ts#L208)
 
 ___
 
 ### \_serialWrapper
 
-▸ `Private` **_serialWrapper**(`calls`, `index`, `opt_args?`): [`Promize`](Promize.md)
+▸ `Private` **_serialWrapper**(`calls`, `index`, `opt_args?`): [`Promize`](Promize.md)<`Object`, `Object`\>
 
 #### Parameters
 
@@ -153,11 +153,11 @@ ___
 
 #### Returns
 
-[`Promize`](Promize.md)
+[`Promize`](Promize.md)<`Object`, `Object`\>
 
 #### Defined in
 
-[core/async.ts:231](https://github.com/siposdani87/sui-js/blob/4b75724/src/core/async.ts#L231)
+[core/async.ts:176](https://github.com/siposdani87/sui-js/blob/ad456a5/src/core/async.ts#L176)
 
 ___
 
@@ -178,13 +178,13 @@ ___
 
 #### Defined in
 
-[core/async.ts:205](https://github.com/siposdani87/sui-js/blob/4b75724/src/core/async.ts#L205)
+[core/async.ts:160](https://github.com/siposdani87/sui-js/blob/ad456a5/src/core/async.ts#L160)
 
 ___
 
 ### parallel
 
-▸ **parallel**(`calls`, `opt_args?`): [`Promize`](Promize.md)
+▸ **parallel**(`calls`, `opt_args?`): [`Promize`](Promize.md)<`Object`, `Object`\>
 
 #### Parameters
 
@@ -195,11 +195,11 @@ ___
 
 #### Returns
 
-[`Promize`](Promize.md)
+[`Promize`](Promize.md)<`Object`, `Object`\>
 
 #### Defined in
 
-[core/async.ts:29](https://github.com/siposdani87/sui-js/blob/4b75724/src/core/async.ts#L29)
+[core/async.ts:19](https://github.com/siposdani87/sui-js/blob/ad456a5/src/core/async.ts#L19)
 
 ___
 
@@ -221,13 +221,13 @@ ___
 
 #### Defined in
 
-[core/async.ts:55](https://github.com/siposdani87/sui-js/blob/4b75724/src/core/async.ts#L55)
+[core/async.ts:40](https://github.com/siposdani87/sui-js/blob/ad456a5/src/core/async.ts#L40)
 
 ___
 
 ### serial
 
-▸ **serial**(`calls`, `opt_args?`): [`Promize`](Promize.md)
+▸ **serial**(`calls`, `opt_args?`): [`Promize`](Promize.md)<`Object`, `Object`\>
 
 #### Parameters
 
@@ -238,11 +238,11 @@ ___
 
 #### Returns
 
-[`Promize`](Promize.md)
+[`Promize`](Promize.md)<`Object`, `Object`\>
 
 #### Defined in
 
-[core/async.ts:213](https://github.com/siposdani87/sui-js/blob/4b75724/src/core/async.ts#L213)
+[core/async.ts:164](https://github.com/siposdani87/sui-js/blob/ad456a5/src/core/async.ts#L164)
 
 ___
 
@@ -265,4 +265,4 @@ ___
 
 #### Defined in
 
-[core/async.ts:189](https://github.com/siposdani87/sui-js/blob/4b75724/src/core/async.ts#L189)
+[core/async.ts:148](https://github.com/siposdani87/sui-js/blob/ad456a5/src/core/async.ts#L148)
