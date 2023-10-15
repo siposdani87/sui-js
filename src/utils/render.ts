@@ -3,12 +3,12 @@ import { Knot } from '../core';
 const componentHandler = window['componentHandler'];
 
 export const mdl = (
-    opt_node?: Knot | HTMLElement,
+    node: Knot | HTMLElement,
     opt_forceDowngrade = true,
 ): void => {
-    const element = opt_node instanceof Knot ? opt_node.getNode() : opt_node;
+    const element = node instanceof Knot ? node.getNode() : node;
 
-    if (opt_node) {
+    if (node) {
         if (opt_forceDowngrade) {
             componentHandler.downgradeElements(element);
         }

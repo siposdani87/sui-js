@@ -6,7 +6,7 @@ export class Query<T extends HTMLElement = HTMLElement> extends Collection<
     Knot<T>
 > {
     constructor(selector: string, opt_element?: HTMLElement | Knot) {
-        let element = opt_element || (document as any as HTMLElement);
+        let element = opt_element ?? (document as any as HTMLElement);
         if (instanceOf(element, Knot)) {
             element = (element as Knot).getNode();
         }
@@ -20,7 +20,7 @@ export class Query<T extends HTMLElement = HTMLElement> extends Collection<
     getKnot(): Knot<T> {
         let firstKnot = this.get(0);
         if (!firstKnot) {
-            firstKnot = new Knot(null);
+            firstKnot = new Knot<T>(null);
         }
         return firstKnot;
     }
@@ -35,18 +35,18 @@ const querySelector = (selector: string, element: HTMLElement): Array<any> => {
     if (
         selector.indexOf(' ') !== -1 ||
         selector.split('.').length - 1 > 1 ||
-        (selector.indexOf('.') > -1 && selector.indexOf('.') !== 0) ||
+        (selector.indexOf('.') > -1 && !selector.startsWith('.')) ||
         selector.indexOf('[') !== -1
     ) {
         nodeList = element.querySelectorAll(selector);
-    } else if (selector.indexOf('#') === 0) {
+    } else if (selector.startsWith('#')) {
         let docElement = element as any as Document;
         if (!isFunction(docElement.getElementById)) {
             docElement = document;
         }
         const node = docElement.getElementById(selector.replace('#', ''));
         nodeList.push(node);
-    } else if (selector.indexOf('.') === 0) {
+    } else if (selector.startsWith('.')) {
         nodeList = element.getElementsByClassName(selector.replace('.', ''));
     } else {
         nodeList = element.getElementsByTagName(selector);

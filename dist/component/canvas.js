@@ -15,8 +15,8 @@ export class Canvas {
         else if (isUndefined(opt_selector)) {
             this.canvasKnot = new Knot('canvas');
         }
-        this.canvasRaw = this.canvasKnot.getNode();
-        this.context = this.canvasRaw.getContext('2d');
+        this.canvasElement = this.canvasKnot.getNode();
+        this.context = this.canvasElement.getContext('2d');
     }
     _initEvents() {
         this.canvasKnot.addEventListener('mousemove', (canvasKnot, event) => {
@@ -27,16 +27,16 @@ export class Canvas {
         });
     }
     setWidth(width) {
-        this.canvasRaw.width = width;
+        this.canvasElement.width = width;
     }
     getWidth() {
-        return this.canvasRaw.width;
+        return this.canvasElement.width;
     }
     setHeight(height) {
-        this.canvasRaw.height = height;
+        this.canvasElement.height = height;
     }
     getHeight() {
-        return this.canvasRaw.height;
+        return this.canvasElement.height;
     }
     setSize(width, height) {
         this.setWidth(width);

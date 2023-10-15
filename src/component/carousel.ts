@@ -4,7 +4,7 @@ import { Query } from '../core/query';
 
 export class Carousel {
     carouselKnot: Knot;
-    options: Objekt;
+    options!: Objekt;
 
     constructor(
         dom: Knot,

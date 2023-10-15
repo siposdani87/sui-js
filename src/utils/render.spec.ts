@@ -6,8 +6,11 @@ describe('render', () => {
             window['componentHandler'],
             'upgradeDom',
         );
+        const element = document.getElementsByClassName(
+            '.template-view',
+        )[0] as HTMLElement;
 
-        mdl();
+        mdl(element);
 
         expect(upgradeDomSpy).toBeCalled();
         upgradeDomSpy.mockRestore();
