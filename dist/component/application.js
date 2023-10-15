@@ -81,8 +81,8 @@ export class Application {
     }
     _init(resources) {
         this._injections = resources;
-        this._initCertificate();
         this._initApp();
+        this._initCertificate();
         this._initRoutes();
         this._initDepots();
         this._initLocale();
@@ -162,7 +162,6 @@ export class Application {
             return this._instances.eventBus.call('dom.change', [state, dom]);
         };
         this._module.eventServiceLoaded = () => {
-            // this._instances.geoLocation.setWatcher();
             this._instances.browser.detect();
             this._instances.eventBus.call('module.serviceLoaded');
         };

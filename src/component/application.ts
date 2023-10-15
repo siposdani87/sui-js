@@ -32,7 +32,7 @@ import { ClassRef, Injection, Instance, InstanceKey } from '../utils';
 import { setDateIOLocale } from '../utils/dateio';
 
 export class Application {
-    options: Objekt;
+    public options!: Objekt;
     private _injections: Injection = {};
     private _instances: Instance = {
         app: undefined,
@@ -91,8 +91,8 @@ export class Application {
     private _init(resources: Injection): void {
         this._injections = resources;
 
-        this._initCertificate();
         this._initApp();
+        this._initCertificate();
         this._initRoutes();
         this._initDepots();
         this._initLocale();
@@ -184,7 +184,6 @@ export class Application {
         };
 
         this._module.eventServiceLoaded = () => {
-            // this._instances.geoLocation.setWatcher();
             this._instances.browser.detect();
             this._instances.eventBus.call('module.serviceLoaded');
         };

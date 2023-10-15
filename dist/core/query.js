@@ -3,7 +3,7 @@ import { Collection } from './collection';
 import { Knot } from './knot';
 export class Query extends Collection {
     constructor(selector, opt_element) {
-        let element = opt_element || document;
+        let element = opt_element !== null && opt_element !== void 0 ? opt_element : document;
         if (instanceOf(element, Knot)) {
             element = element.getNode();
         }
@@ -27,11 +27,11 @@ const querySelector = (selector, element) => {
     let nodeList = [];
     if (selector.indexOf(' ') !== -1 ||
         selector.split('.').length - 1 > 1 ||
-        (selector.indexOf('.') > -1 && selector.indexOf('.') !== 0) ||
+        (selector.indexOf('.') > -1 && !selector.startsWith('.')) ||
         selector.indexOf('[') !== -1) {
         nodeList = element.querySelectorAll(selector);
     }
-    else if (selector.indexOf('#') === 0) {
+    else if (selector.startsWith('#')) {
         let docElement = element;
         if (!isFunction(docElement.getElementById)) {
             docElement = document;
@@ -39,7 +39,7 @@ const querySelector = (selector, element) => {
         const node = docElement.getElementById(selector.replace('#', ''));
         nodeList.push(node);
     }
-    else if (selector.indexOf('.') === 0) {
+    else if (selector.startsWith('.')) {
         nodeList = element.getElementsByClassName(selector.replace('.', ''));
     }
     else {

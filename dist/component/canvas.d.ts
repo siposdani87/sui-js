@@ -1,7 +1,7 @@
 import { Knot } from '../core/knot';
 export declare class Canvas {
     canvasKnot: Knot<HTMLCanvasElement>;
-    canvasRaw: HTMLCanvasElement;
+    canvasElement: HTMLCanvasElement;
     context: CanvasRenderingContext2D;
     constructor(opt_selector?: Knot | string);
     private _init;

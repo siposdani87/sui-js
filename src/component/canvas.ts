@@ -5,8 +5,8 @@ import { consoleDebug } from '../utils/log';
 
 export class Canvas {
     canvasKnot: Knot<HTMLCanvasElement>;
-    canvasRaw: HTMLCanvasElement;
-    context: CanvasRenderingContext2D;
+    canvasElement: HTMLCanvasElement;
+    context!: CanvasRenderingContext2D;
 
     constructor(opt_selector?: Knot | string) {
         this._init(opt_selector);
@@ -17,13 +17,13 @@ export class Canvas {
         this.canvasKnot = opt_selector as Knot<HTMLCanvasElement>;
         if (isString(opt_selector)) {
             this.canvasKnot = new Query<HTMLCanvasElement>(
-                opt_selector as string,
+                opt_selector,
             ).getKnot();
         } else if (isUndefined(opt_selector)) {
             this.canvasKnot = new Knot<HTMLCanvasElement>('canvas');
         }
-        this.canvasRaw = this.canvasKnot.getNode();
-        this.context = this.canvasRaw.getContext('2d');
+        this.canvasElement = this.canvasKnot.getNode();
+        this.context = this.canvasElement.getContext('2d')!;
     }
 
     private _initEvents(): void {
@@ -36,19 +36,19 @@ export class Canvas {
     }
 
     setWidth(width: number): void {
-        this.canvasRaw.width = width;
+        this.canvasElement.width = width;
     }
 
     getWidth(): number {
-        return this.canvasRaw.width;
+        return this.canvasElement.width;
     }
 
     setHeight(height: number): void {
-        this.canvasRaw.height = height;
+        this.canvasElement.height = height;
     }
 
     getHeight(): number {
-        return this.canvasRaw.height;
+        return this.canvasElement.height;
     }
 
     setSize(width: number, height: number): void {
