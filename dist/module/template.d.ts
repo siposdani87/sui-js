@@ -13,7 +13,7 @@ export declare class Template {
     private _init;
     getViewKnot(): Knot;
     load(url: string, opt_force?: boolean | undefined): import("../core").Promize<Knot<HTMLElement>, Knot<HTMLElement>>;
-    _spaNavigate(data: Knot, isError: boolean): Knot<HTMLElement>;
+    _spaNavigate(data: Knot, isError: boolean): Knot;
     private _updateDOM;
     eventError(message: {
         type: string;
