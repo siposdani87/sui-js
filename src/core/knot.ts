@@ -17,7 +17,7 @@ import { Listener } from '../utils';
 
 export class Knot<T extends HTMLElement = HTMLElement> {
     node: T;
-    parentKnot: Knot;
+    parentKnot: Knot | undefined;
     listenerStoreKey: string;
 
     constructor(
@@ -25,17 +25,21 @@ export class Knot<T extends HTMLElement = HTMLElement> {
         opt_parentKnot?: Knot | undefined,
     ) {
         if (isString(node)) {
-            if (contain(node as string, '<') && contain(node as string, '</')) {
+            if (contain(node, '<') && contain(node, '</')) {
                 const template = document.createElement('template');
-                template.innerHTML = node as string;
+                template.innerHTML = node;
                 node = template.content.firstElementChild as any as T;
             } else {
-                node = document.createElement(node as string) as any as T;
+                node = document.createElement(node) as any as T;
             }
         }
         this.node = node as T;
         this.parentKnot = opt_parentKnot;
         this.listenerStoreKey = '_listeners';
+    }
+
+    setParentKnot(parentKnot: Knot | undefined): void {
+        this.parentKnot = parentKnot;
     }
 
     set(attribute: string, value: boolean | number | string): void {
@@ -96,7 +100,7 @@ export class Knot<T extends HTMLElement = HTMLElement> {
         callback: Function,
     ): void {
         if (isArray(cssClasses)) {
-            each(cssClasses as Array<string>, (cssClass) => {
+            each(cssClasses, (cssClass) => {
                 callback(cssClass);
             });
         } else {

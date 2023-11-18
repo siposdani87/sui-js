@@ -16,6 +16,9 @@ export class Knot {
         this.parentKnot = opt_parentKnot;
         this.listenerStoreKey = '_listeners';
     }
+    setParentKnot(parentKnot) {
+        this.parentKnot = parentKnot;
+    }
     set(attribute, value) {
         if (eq(attribute, 'id')) {
             this.setId(value);
