@@ -3,6 +3,7 @@ import clsx from 'clsx';
 import styles from './styles.module.css';
 
 type FeatureItem = {
+  id: string;
   title: string;
   Svg: React.ComponentType<React.ComponentProps<'svg'>>;
   description: JSX.Element;
@@ -10,6 +11,7 @@ type FeatureItem = {
 
 const FeatureList: FeatureItem[] = [
   {
+    id: 'easy-to-use',
     title: 'Easy to Use',
     Svg: require('@site/static/img/easy_to_use.svg').default,
     description: (
@@ -20,6 +22,7 @@ const FeatureList: FeatureItem[] = [
     ),
   },
   {
+    id: 'business-logic',
     title: 'Focus on Business Logic',
     Svg: require('@site/static/img/business_logic.svg').default,
     description: (
@@ -30,6 +33,7 @@ const FeatureList: FeatureItem[] = [
     ),
   },
   {
+    id: 'typescript',
     title: 'Powered by TypeScript',
     Svg: require('@site/static/img/typescript.svg').default,
     description: (
@@ -41,11 +45,11 @@ const FeatureList: FeatureItem[] = [
   },
 ];
 
-function Feature({title, Svg, description}: FeatureItem) {
+function Feature({title, Svg, description}: Readonly<FeatureItem>) {
   return (
     <div className={clsx('col col--4')}>
       <div className="text--center">
-        <Svg className={styles.featureSvg} role="img" />
+        <Svg className={styles.featureSvg} />
       </div>
       <div className="text--center padding-horiz--md">
         <h3>{title}</h3>
@@ -60,8 +64,8 @@ export default function HomepageFeatures(): JSX.Element {
     <section className={styles.features}>
       <div className="container">
         <div className="row">
-          {FeatureList.map((props, idx) => (
-            <Feature key={idx} {...props} />
+          {FeatureList.map((props) => (
+            <Feature key={props.id} {...props} />
           ))}
         </div>
       </div>
