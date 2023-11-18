@@ -10,7 +10,7 @@ custom_edit_url: null
 
 ### constructor
 
-• **new Script**(`progressBar`, `opt_options?`)
+• **new Script**(`progressBar`, `opt_options?`): [`Script`](Script.md)
 
 #### Parameters
 
@@ -19,29 +19,33 @@ custom_edit_url: null
 | `progressBar` | [`ProgressBar`](ProgressBar.md) |
 | `opt_options` | `Object` |
 
+#### Returns
+
+[`Script`](Script.md)
+
 #### Defined in
 
-[module/script.ts:13](https://github.com/siposdani87/sui-js/blob/ad456a5/src/module/script.ts#L13)
+[module/script.ts:13](https://github.com/siposdani87/sui-js/blob/9aff0f0/src/module/script.ts#L13)
 
 ## Properties
 
 ### head
 
-• **head**: [`Knot`](Knot.md)<`HTMLElement`\>
+• **head**: [`Knot`](Knot.md)\<`HTMLElement`\>
 
 #### Defined in
 
-[module/script.ts:11](https://github.com/siposdani87/sui-js/blob/ad456a5/src/module/script.ts#L11)
+[module/script.ts:11](https://github.com/siposdani87/sui-js/blob/9aff0f0/src/module/script.ts#L11)
 
 ___
 
 ### options
 
-• **options**: [`Objekt`](Objekt.md)<`Object`\>
+• **options**: [`Objekt`](Objekt.md)\<`Object`\>
 
 #### Defined in
 
-[module/script.ts:10](https://github.com/siposdani87/sui-js/blob/ad456a5/src/module/script.ts#L10)
+[module/script.ts:10](https://github.com/siposdani87/sui-js/blob/9aff0f0/src/module/script.ts#L10)
 
 ___
 
@@ -51,13 +55,13 @@ ___
 
 #### Defined in
 
-[module/script.ts:9](https://github.com/siposdani87/sui-js/blob/ad456a5/src/module/script.ts#L9)
+[module/script.ts:9](https://github.com/siposdani87/sui-js/blob/9aff0f0/src/module/script.ts#L9)
 
 ## Methods
 
 ### \_init
 
-▸ `Private` **_init**(): `void`
+▸ **_init**(): `void`
 
 #### Returns
 
@@ -65,13 +69,13 @@ ___
 
 #### Defined in
 
-[module/script.ts:27](https://github.com/siposdani87/sui-js/blob/ad456a5/src/module/script.ts#L27)
+[module/script.ts:27](https://github.com/siposdani87/sui-js/blob/9aff0f0/src/module/script.ts#L27)
 
 ___
 
 ### \_setOptions
 
-▸ `Private` **_setOptions**(`opt_options?`): `void`
+▸ **_setOptions**(`opt_options?`): `void`
 
 #### Parameters
 
@@ -85,13 +89,13 @@ ___
 
 #### Defined in
 
-[module/script.ts:22](https://github.com/siposdani87/sui-js/blob/ad456a5/src/module/script.ts#L22)
+[module/script.ts:22](https://github.com/siposdani87/sui-js/blob/9aff0f0/src/module/script.ts#L22)
 
 ___
 
 ### load
 
-▸ **load**(`id`, `url`, `opt_params?`, `opt_async?`, `opt_defer?`): [`Promize`](Promize.md)<`Object`, `Object`\>
+▸ **load**(`id`, `url`, `opt_params?`, `opt_async?`, `opt_defer?`): [`Promize`](Promize.md)\<`Object`, `Object`\>
 
 #### Parameters
 
@@ -105,11 +109,11 @@ ___
 
 #### Returns
 
-[`Promize`](Promize.md)<`Object`, `Object`\>
+[`Promize`](Promize.md)\<`Object`, `Object`\>
 
 #### Defined in
 
-[module/script.ts:31](https://github.com/siposdani87/sui-js/blob/ad456a5/src/module/script.ts#L31)
+[module/script.ts:31](https://github.com/siposdani87/sui-js/blob/9aff0f0/src/module/script.ts#L31)
 
 ___
 
@@ -129,4 +133,4 @@ ___
 
 #### Defined in
 
-[module/script.ts:71](https://github.com/siposdani87/sui-js/blob/ad456a5/src/module/script.ts#L71)
+[module/script.ts:71](https://github.com/siposdani87/sui-js/blob/9aff0f0/src/module/script.ts#L71)

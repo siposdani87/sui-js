@@ -10,7 +10,7 @@ custom_edit_url: null
 
 ### constructor
 
-• **new Screen**(`opt_options?`)
+• **new Screen**(`opt_options?`): [`Screen`](Screen.md)
 
 #### Parameters
 
@@ -18,9 +18,13 @@ custom_edit_url: null
 | :------ | :------ |
 | `opt_options` | `Object` |
 
+#### Returns
+
+[`Screen`](Screen.md)
+
 #### Defined in
 
-[module/screen.ts:11](https://github.com/siposdani87/sui-js/blob/ad456a5/src/module/screen.ts#L11)
+[module/screen.ts:11](https://github.com/siposdani87/sui-js/blob/9aff0f0/src/module/screen.ts#L11)
 
 ## Properties
 
@@ -30,17 +34,17 @@ custom_edit_url: null
 
 #### Defined in
 
-[module/screen.ts:8](https://github.com/siposdani87/sui-js/blob/ad456a5/src/module/screen.ts#L8)
+[module/screen.ts:8](https://github.com/siposdani87/sui-js/blob/9aff0f0/src/module/screen.ts#L8)
 
 ___
 
 ### options
 
-• **options**: [`Objekt`](Objekt.md)<`Object`\>
+• **options**: [`Objekt`](Objekt.md)\<`Object`\>
 
 #### Defined in
 
-[module/screen.ts:6](https://github.com/siposdani87/sui-js/blob/ad456a5/src/module/screen.ts#L6)
+[module/screen.ts:6](https://github.com/siposdani87/sui-js/blob/9aff0f0/src/module/screen.ts#L6)
 
 ___
 
@@ -50,7 +54,7 @@ ___
 
 #### Defined in
 
-[module/screen.ts:9](https://github.com/siposdani87/sui-js/blob/ad456a5/src/module/screen.ts#L9)
+[module/screen.ts:9](https://github.com/siposdani87/sui-js/blob/9aff0f0/src/module/screen.ts#L9)
 
 ___
 
@@ -60,13 +64,13 @@ ___
 
 #### Defined in
 
-[module/screen.ts:7](https://github.com/siposdani87/sui-js/blob/ad456a5/src/module/screen.ts#L7)
+[module/screen.ts:7](https://github.com/siposdani87/sui-js/blob/9aff0f0/src/module/screen.ts#L7)
 
 ## Methods
 
 ### \_init
 
-▸ `Private` **_init**(): `void`
+▸ **_init**(): `void`
 
 #### Returns
 
@@ -74,13 +78,13 @@ ___
 
 #### Defined in
 
-[module/screen.ts:23](https://github.com/siposdani87/sui-js/blob/ad456a5/src/module/screen.ts#L23)
+[module/screen.ts:23](https://github.com/siposdani87/sui-js/blob/9aff0f0/src/module/screen.ts#L23)
 
 ___
 
 ### \_initColorSchemeEvent
 
-▸ `Private` **_initColorSchemeEvent**(): `void`
+▸ **_initColorSchemeEvent**(): `void`
 
 #### Returns
 
@@ -88,13 +92,13 @@ ___
 
 #### Defined in
 
-[module/screen.ts:144](https://github.com/siposdani87/sui-js/blob/ad456a5/src/module/screen.ts#L144)
+[module/screen.ts:144](https://github.com/siposdani87/sui-js/blob/9aff0f0/src/module/screen.ts#L144)
 
 ___
 
 ### \_initConnectionEvent
 
-▸ `Private` **_initConnectionEvent**(): `void`
+▸ **_initConnectionEvent**(): `void`
 
 #### Returns
 
@@ -102,13 +106,13 @@ ___
 
 #### Defined in
 
-[module/screen.ts:55](https://github.com/siposdani87/sui-js/blob/ad456a5/src/module/screen.ts#L55)
+[module/screen.ts:55](https://github.com/siposdani87/sui-js/blob/9aff0f0/src/module/screen.ts#L55)
 
 ___
 
 ### \_initResizeEvent
 
-▸ `Private` **_initResizeEvent**(): `void`
+▸ **_initResizeEvent**(): `void`
 
 #### Returns
 
@@ -116,13 +120,13 @@ ___
 
 #### Defined in
 
-[module/screen.ts:35](https://github.com/siposdani87/sui-js/blob/ad456a5/src/module/screen.ts#L35)
+[module/screen.ts:35](https://github.com/siposdani87/sui-js/blob/9aff0f0/src/module/screen.ts#L35)
 
 ___
 
 ### \_initScrollEvent
 
-▸ `Private` **_initScrollEvent**(): `void`
+▸ **_initScrollEvent**(): `void`
 
 #### Returns
 
@@ -130,13 +134,13 @@ ___
 
 #### Defined in
 
-[module/screen.ts:45](https://github.com/siposdani87/sui-js/blob/ad456a5/src/module/screen.ts#L45)
+[module/screen.ts:45](https://github.com/siposdani87/sui-js/blob/9aff0f0/src/module/screen.ts#L45)
 
 ___
 
 ### \_resize
 
-▸ `Private` **_resize**(`event`): `void`
+▸ **_resize**(`event`): `void`
 
 #### Parameters
 
@@ -150,13 +154,13 @@ ___
 
 #### Defined in
 
-[module/screen.ts:104](https://github.com/siposdani87/sui-js/blob/ad456a5/src/module/screen.ts#L104)
+[module/screen.ts:104](https://github.com/siposdani87/sui-js/blob/9aff0f0/src/module/screen.ts#L104)
 
 ___
 
 ### \_scroll
 
-▸ `Private` **_scroll**(`event`): `void`
+▸ **_scroll**(`event`): `void`
 
 #### Parameters
 
@@ -170,13 +174,13 @@ ___
 
 #### Defined in
 
-[module/screen.ts:119](https://github.com/siposdani87/sui-js/blob/ad456a5/src/module/screen.ts#L119)
+[module/screen.ts:119](https://github.com/siposdani87/sui-js/blob/9aff0f0/src/module/screen.ts#L119)
 
 ___
 
 ### \_setOptions
 
-▸ `Private` **_setOptions**(`opt_options?`): `void`
+▸ **_setOptions**(`opt_options?`): `void`
 
 #### Parameters
 
@@ -190,7 +194,7 @@ ___
 
 #### Defined in
 
-[module/screen.ts:16](https://github.com/siposdani87/sui-js/blob/ad456a5/src/module/screen.ts#L16)
+[module/screen.ts:16](https://github.com/siposdani87/sui-js/blob/9aff0f0/src/module/screen.ts#L16)
 
 ___
 
@@ -211,7 +215,7 @@ ___
 
 #### Defined in
 
-[module/screen.ts:158](https://github.com/siposdani87/sui-js/blob/ad456a5/src/module/screen.ts#L158)
+[module/screen.ts:158](https://github.com/siposdani87/sui-js/blob/9aff0f0/src/module/screen.ts#L158)
 
 ___
 
@@ -231,7 +235,7 @@ ___
 
 #### Defined in
 
-[module/screen.ts:73](https://github.com/siposdani87/sui-js/blob/ad456a5/src/module/screen.ts#L73)
+[module/screen.ts:73](https://github.com/siposdani87/sui-js/blob/9aff0f0/src/module/screen.ts#L73)
 
 ___
 
@@ -251,7 +255,7 @@ ___
 
 #### Defined in
 
-[module/screen.ts:77](https://github.com/siposdani87/sui-js/blob/ad456a5/src/module/screen.ts#L77)
+[module/screen.ts:77](https://github.com/siposdani87/sui-js/blob/9aff0f0/src/module/screen.ts#L77)
 
 ___
 
@@ -274,7 +278,7 @@ ___
 
 #### Defined in
 
-[module/screen.ts:85](https://github.com/siposdani87/sui-js/blob/ad456a5/src/module/screen.ts#L85)
+[module/screen.ts:85](https://github.com/siposdani87/sui-js/blob/9aff0f0/src/module/screen.ts#L85)
 
 ___
 
@@ -296,7 +300,7 @@ ___
 
 #### Defined in
 
-[module/screen.ts:81](https://github.com/siposdani87/sui-js/blob/ad456a5/src/module/screen.ts#L81)
+[module/screen.ts:81](https://github.com/siposdani87/sui-js/blob/9aff0f0/src/module/screen.ts#L81)
 
 ___
 
@@ -317,7 +321,7 @@ ___
 
 #### Defined in
 
-[module/screen.ts:100](https://github.com/siposdani87/sui-js/blob/ad456a5/src/module/screen.ts#L100)
+[module/screen.ts:100](https://github.com/siposdani87/sui-js/blob/9aff0f0/src/module/screen.ts#L100)
 
 ___
 
@@ -331,7 +335,7 @@ ___
 
 #### Defined in
 
-[module/screen.ts:134](https://github.com/siposdani87/sui-js/blob/ad456a5/src/module/screen.ts#L134)
+[module/screen.ts:134](https://github.com/siposdani87/sui-js/blob/9aff0f0/src/module/screen.ts#L134)
 
 ___
 
@@ -345,7 +349,7 @@ ___
 
 #### Defined in
 
-[module/screen.ts:138](https://github.com/siposdani87/sui-js/blob/ad456a5/src/module/screen.ts#L138)
+[module/screen.ts:138](https://github.com/siposdani87/sui-js/blob/9aff0f0/src/module/screen.ts#L138)
 
 ___
 
@@ -359,7 +363,7 @@ ___
 
 #### Defined in
 
-[module/screen.ts:123](https://github.com/siposdani87/sui-js/blob/ad456a5/src/module/screen.ts#L123)
+[module/screen.ts:123](https://github.com/siposdani87/sui-js/blob/9aff0f0/src/module/screen.ts#L123)
 
 ___
 
@@ -373,7 +377,7 @@ ___
 
 #### Defined in
 
-[module/screen.ts:130](https://github.com/siposdani87/sui-js/blob/ad456a5/src/module/screen.ts#L130)
+[module/screen.ts:130](https://github.com/siposdani87/sui-js/blob/9aff0f0/src/module/screen.ts#L130)
 
 ___
 
@@ -393,4 +397,4 @@ ___
 
 #### Defined in
 
-[module/screen.ts:162](https://github.com/siposdani87/sui-js/blob/ad456a5/src/module/screen.ts#L162)
+[module/screen.ts:162](https://github.com/siposdani87/sui-js/blob/9aff0f0/src/module/screen.ts#L162)

@@ -10,7 +10,7 @@ custom_edit_url: null
 
 ### constructor
 
-• **new TopMenu**(`header`)
+• **new TopMenu**(`header`): [`TopMenu`](TopMenu.md)
 
 #### Parameters
 
@@ -18,9 +18,13 @@ custom_edit_url: null
 | :------ | :------ |
 | `header` | [`Header`](Header.md) |
 
+#### Returns
+
+[`TopMenu`](TopMenu.md)
+
 #### Defined in
 
-[module/topMenu.ts:10](https://github.com/siposdani87/sui-js/blob/ad456a5/src/module/topMenu.ts#L10)
+[module/topMenu.ts:10](https://github.com/siposdani87/sui-js/blob/9aff0f0/src/module/topMenu.ts#L10)
 
 ## Properties
 
@@ -30,33 +34,33 @@ custom_edit_url: null
 
 #### Defined in
 
-[module/topMenu.ts:6](https://github.com/siposdani87/sui-js/blob/ad456a5/src/module/topMenu.ts#L6)
+[module/topMenu.ts:6](https://github.com/siposdani87/sui-js/blob/9aff0f0/src/module/topMenu.ts#L6)
 
 ___
 
 ### toggleTopMenu
 
-• **toggleTopMenu**: [`Knot`](Knot.md)<`HTMLElement`\>
+• **toggleTopMenu**: [`Knot`](Knot.md)\<`HTMLElement`\>
 
 #### Defined in
 
-[module/topMenu.ts:8](https://github.com/siposdani87/sui-js/blob/ad456a5/src/module/topMenu.ts#L8)
+[module/topMenu.ts:8](https://github.com/siposdani87/sui-js/blob/9aff0f0/src/module/topMenu.ts#L8)
 
 ___
 
 ### topMenu
 
-• **topMenu**: [`Knot`](Knot.md)<`HTMLElement`\>
+• **topMenu**: [`Knot`](Knot.md)\<`HTMLElement`\>
 
 #### Defined in
 
-[module/topMenu.ts:7](https://github.com/siposdani87/sui-js/blob/ad456a5/src/module/topMenu.ts#L7)
+[module/topMenu.ts:7](https://github.com/siposdani87/sui-js/blob/9aff0f0/src/module/topMenu.ts#L7)
 
 ## Methods
 
 ### \_init
 
-▸ `Private` **_init**(): `void`
+▸ **_init**(): `void`
 
 #### Returns
 
@@ -64,7 +68,7 @@ ___
 
 #### Defined in
 
-[module/topMenu.ts:15](https://github.com/siposdani87/sui-js/blob/ad456a5/src/module/topMenu.ts#L15)
+[module/topMenu.ts:15](https://github.com/siposdani87/sui-js/blob/9aff0f0/src/module/topMenu.ts#L15)
 
 ___
 
@@ -78,21 +82,21 @@ ___
 
 #### Defined in
 
-[module/topMenu.ts:47](https://github.com/siposdani87/sui-js/blob/ad456a5/src/module/topMenu.ts#L47)
+[module/topMenu.ts:47](https://github.com/siposdani87/sui-js/blob/9aff0f0/src/module/topMenu.ts#L47)
 
 ___
 
 ### getContainer
 
-▸ **getContainer**(): [`Knot`](Knot.md)<`HTMLElement`\>
+▸ **getContainer**(): [`Knot`](Knot.md)\<`HTMLElement`\>
 
 #### Returns
 
-[`Knot`](Knot.md)<`HTMLElement`\>
+[`Knot`](Knot.md)\<`HTMLElement`\>
 
 #### Defined in
 
-[module/topMenu.ts:54](https://github.com/siposdani87/sui-js/blob/ad456a5/src/module/topMenu.ts#L54)
+[module/topMenu.ts:54](https://github.com/siposdani87/sui-js/blob/9aff0f0/src/module/topMenu.ts#L54)
 
 ___
 
@@ -106,7 +110,7 @@ ___
 
 #### Defined in
 
-[module/topMenu.ts:36](https://github.com/siposdani87/sui-js/blob/ad456a5/src/module/topMenu.ts#L36)
+[module/topMenu.ts:36](https://github.com/siposdani87/sui-js/blob/9aff0f0/src/module/topMenu.ts#L36)
 
 ___
 
@@ -120,7 +124,7 @@ ___
 
 #### Defined in
 
-[module/topMenu.ts:40](https://github.com/siposdani87/sui-js/blob/ad456a5/src/module/topMenu.ts#L40)
+[module/topMenu.ts:40](https://github.com/siposdani87/sui-js/blob/9aff0f0/src/module/topMenu.ts#L40)
 
 ___
 
@@ -134,4 +138,4 @@ ___
 
 #### Defined in
 
-[module/topMenu.ts:28](https://github.com/siposdani87/sui-js/blob/ad456a5/src/module/topMenu.ts#L28)
+[module/topMenu.ts:28](https://github.com/siposdani87/sui-js/blob/9aff0f0/src/module/topMenu.ts#L28)

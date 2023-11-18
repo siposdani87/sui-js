@@ -17,7 +17,7 @@ custom_edit_url: null
 
 ### constructor
 
-• **new Deferred**<`T`, `K`\>()
+• **new Deferred**\<`T`, `K`\>(): [`Deferred`](Deferred.md)\<`T`, `K`\>
 
 #### Type parameters
 
@@ -26,33 +26,37 @@ custom_edit_url: null
 | `T` | `Object` |
 | `K` | `Object` |
 
+#### Returns
+
+[`Deferred`](Deferred.md)\<`T`, `K`\>
+
 #### Defined in
 
-[core/deferred.ts:6](https://github.com/siposdani87/sui-js/blob/ad456a5/src/core/deferred.ts#L6)
+[core/deferred.ts:6](https://github.com/siposdani87/sui-js/blob/9aff0f0/src/core/deferred.ts#L6)
 
 ## Properties
 
 ### \_promise
 
-• `Private` **\_promise**: [`Promize`](Promize.md)<`T`, `K`\>
+• `Private` **\_promise**: [`Promize`](Promize.md)\<`T`, `K`\>
 
 #### Defined in
 
-[core/deferred.ts:4](https://github.com/siposdani87/sui-js/blob/ad456a5/src/core/deferred.ts#L4)
+[core/deferred.ts:4](https://github.com/siposdani87/sui-js/blob/9aff0f0/src/core/deferred.ts#L4)
 
 ## Methods
 
 ### promise
 
-▸ **promise**(): [`Promize`](Promize.md)<`T`, `K`\>
+▸ **promise**(): [`Promize`](Promize.md)\<`T`, `K`\>
 
 #### Returns
 
-[`Promize`](Promize.md)<`T`, `K`\>
+[`Promize`](Promize.md)\<`T`, `K`\>
 
 #### Defined in
 
-[core/deferred.ts:10](https://github.com/siposdani87/sui-js/blob/ad456a5/src/core/deferred.ts#L10)
+[core/deferred.ts:10](https://github.com/siposdani87/sui-js/blob/9aff0f0/src/core/deferred.ts#L10)
 
 ___
 
@@ -72,7 +76,7 @@ ___
 
 #### Defined in
 
-[core/deferred.ts:18](https://github.com/siposdani87/sui-js/blob/ad456a5/src/core/deferred.ts#L18)
+[core/deferred.ts:18](https://github.com/siposdani87/sui-js/blob/9aff0f0/src/core/deferred.ts#L18)
 
 ___
 
@@ -92,4 +96,4 @@ ___
 
 #### Defined in
 
-[core/deferred.ts:14](https://github.com/siposdani87/sui-js/blob/ad456a5/src/core/deferred.ts#L14)
+[core/deferred.ts:14](https://github.com/siposdani87/sui-js/blob/9aff0f0/src/core/deferred.ts#L14)

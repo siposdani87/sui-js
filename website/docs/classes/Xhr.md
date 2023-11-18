@@ -10,7 +10,7 @@ custom_edit_url: null
 
 ### constructor
 
-• **new Xhr**(`opt_options?`)
+• **new Xhr**(`opt_options?`): [`Xhr`](Xhr.md)
 
 #### Parameters
 
@@ -18,9 +18,13 @@ custom_edit_url: null
 | :------ | :------ |
 | `opt_options` | `Object` |
 
+#### Returns
+
+[`Xhr`](Xhr.md)
+
 #### Defined in
 
-[module/xhr.ts:30](https://github.com/siposdani87/sui-js/blob/ad456a5/src/module/xhr.ts#L30)
+[module/xhr.ts:30](https://github.com/siposdani87/sui-js/blob/9aff0f0/src/module/xhr.ts#L30)
 
 ## Properties
 
@@ -30,17 +34,17 @@ custom_edit_url: null
 
 #### Defined in
 
-[module/xhr.ts:20](https://github.com/siposdani87/sui-js/blob/ad456a5/src/module/xhr.ts#L20)
+[module/xhr.ts:20](https://github.com/siposdani87/sui-js/blob/9aff0f0/src/module/xhr.ts#L20)
 
 ___
 
 ### deferred
 
-• **deferred**: [`Deferred`](Deferred.md)<[`XMLHttpRequest`, [`Objekt`](Objekt.md)<`Object`\>, `string`], [`XMLHttpRequest`, [`Objekt`](Objekt.md)<`Object`\>, `string`]\>
+• **deferred**: [`Deferred`](Deferred.md)\<[`XMLHttpRequest`, [`Objekt`](Objekt.md)\<`Object`\>, `string`], [`XMLHttpRequest`, [`Objekt`](Objekt.md)\<`Object`\>, `string`]\>
 
 #### Defined in
 
-[module/xhr.ts:25](https://github.com/siposdani87/sui-js/blob/ad456a5/src/module/xhr.ts#L25)
+[module/xhr.ts:25](https://github.com/siposdani87/sui-js/blob/9aff0f0/src/module/xhr.ts#L25)
 
 ___
 
@@ -50,17 +54,17 @@ ___
 
 #### Defined in
 
-[module/xhr.ts:24](https://github.com/siposdani87/sui-js/blob/ad456a5/src/module/xhr.ts#L24)
+[module/xhr.ts:24](https://github.com/siposdani87/sui-js/blob/9aff0f0/src/module/xhr.ts#L24)
 
 ___
 
 ### options
 
-• **options**: [`Objekt`](Objekt.md)<{ `backend`: `string` ; `locale`: `string`  }\>
+• **options**: [`Objekt`](Objekt.md)\<\{ `backend`: `string` ; `locale`: `string`  }\>
 
 #### Defined in
 
-[module/xhr.ts:18](https://github.com/siposdani87/sui-js/blob/ad456a5/src/module/xhr.ts#L18)
+[module/xhr.ts:18](https://github.com/siposdani87/sui-js/blob/9aff0f0/src/module/xhr.ts#L18)
 
 ___
 
@@ -70,7 +74,7 @@ ___
 
 #### Defined in
 
-[module/xhr.ts:19](https://github.com/siposdani87/sui-js/blob/ad456a5/src/module/xhr.ts#L19)
+[module/xhr.ts:19](https://github.com/siposdani87/sui-js/blob/9aff0f0/src/module/xhr.ts#L19)
 
 ___
 
@@ -84,13 +88,13 @@ ___
 
 #### Defined in
 
-[module/xhr.ts:21](https://github.com/siposdani87/sui-js/blob/ad456a5/src/module/xhr.ts#L21)
+[module/xhr.ts:21](https://github.com/siposdani87/sui-js/blob/9aff0f0/src/module/xhr.ts#L21)
 
 ## Methods
 
 ### \_createRequest
 
-▸ `Private` **_createRequest**(`type`, `url`, `opt_data`, `opt_params`, `opt_headers?`): [`Promize`](Promize.md)<[`XMLHttpRequest`, [`Objekt`](Objekt.md)<`Object`\>, `string`], [`XMLHttpRequest`, [`Objekt`](Objekt.md)<`Object`\>, `string`]\>
+▸ **_createRequest**(`type`, `url`, `opt_data`, `opt_params`, `opt_headers?`): [`Promize`](Promize.md)\<[`XMLHttpRequest`, [`Objekt`](Objekt.md)\<`Object`\>, `string`], [`XMLHttpRequest`, [`Objekt`](Objekt.md)\<`Object`\>, `string`]\>
 
 #### Parameters
 
@@ -104,17 +108,17 @@ ___
 
 #### Returns
 
-[`Promize`](Promize.md)<[`XMLHttpRequest`, [`Objekt`](Objekt.md)<`Object`\>, `string`], [`XMLHttpRequest`, [`Objekt`](Objekt.md)<`Object`\>, `string`]\>
+[`Promize`](Promize.md)\<[`XMLHttpRequest`, [`Objekt`](Objekt.md)\<`Object`\>, `string`], [`XMLHttpRequest`, [`Objekt`](Objekt.md)\<`Object`\>, `string`]\>
 
 #### Defined in
 
-[module/xhr.ts:209](https://github.com/siposdani87/sui-js/blob/ad456a5/src/module/xhr.ts#L209)
+[module/xhr.ts:209](https://github.com/siposdani87/sui-js/blob/9aff0f0/src/module/xhr.ts#L209)
 
 ___
 
 ### \_createRequestBody
 
-▸ `Private` **_createRequestBody**(`opt_data?`): `string`
+▸ **_createRequestBody**(`opt_data?`): `string`
 
 #### Parameters
 
@@ -128,13 +132,13 @@ ___
 
 #### Defined in
 
-[module/xhr.ts:227](https://github.com/siposdani87/sui-js/blob/ad456a5/src/module/xhr.ts#L227)
+[module/xhr.ts:227](https://github.com/siposdani87/sui-js/blob/9aff0f0/src/module/xhr.ts#L227)
 
 ___
 
 ### \_getAccept
 
-▸ `Private` **_getAccept**(`name`): `string`
+▸ **_getAccept**(`name`): `string`
 
 #### Parameters
 
@@ -148,13 +152,13 @@ ___
 
 #### Defined in
 
-[module/xhr.ts:89](https://github.com/siposdani87/sui-js/blob/ad456a5/src/module/xhr.ts#L89)
+[module/xhr.ts:89](https://github.com/siposdani87/sui-js/blob/9aff0f0/src/module/xhr.ts#L89)
 
 ___
 
 ### \_getContentType
 
-▸ `Private` **_getContentType**(`name`): `string`
+▸ **_getContentType**(`name`): `string`
 
 #### Parameters
 
@@ -168,13 +172,13 @@ ___
 
 #### Defined in
 
-[module/xhr.ts:81](https://github.com/siposdani87/sui-js/blob/ad456a5/src/module/xhr.ts#L81)
+[module/xhr.ts:81](https://github.com/siposdani87/sui-js/blob/9aff0f0/src/module/xhr.ts#L81)
 
 ___
 
 ### \_getFilenameFromHeader
 
-▸ `Private` **_getFilenameFromHeader**(): `string`
+▸ **_getFilenameFromHeader**(): `string`
 
 #### Returns
 
@@ -182,13 +186,13 @@ ___
 
 #### Defined in
 
-[module/xhr.ts:278](https://github.com/siposdani87/sui-js/blob/ad456a5/src/module/xhr.ts#L278)
+[module/xhr.ts:278](https://github.com/siposdani87/sui-js/blob/9aff0f0/src/module/xhr.ts#L278)
 
 ___
 
 ### \_getHeader
 
-▸ `Private` **_getHeader**(`name`): `string`
+▸ **_getHeader**(`name`): `string`
 
 #### Parameters
 
@@ -202,13 +206,13 @@ ___
 
 #### Defined in
 
-[module/xhr.ts:381](https://github.com/siposdani87/sui-js/blob/ad456a5/src/module/xhr.ts#L381)
+[module/xhr.ts:381](https://github.com/siposdani87/sui-js/blob/9aff0f0/src/module/xhr.ts#L381)
 
 ___
 
 ### \_getResponseType
 
-▸ `Private` **_getResponseType**(`name`): `XMLHttpRequestResponseType`
+▸ **_getResponseType**(`name`): `XMLHttpRequestResponseType`
 
 #### Parameters
 
@@ -222,13 +226,13 @@ ___
 
 #### Defined in
 
-[module/xhr.ts:85](https://github.com/siposdani87/sui-js/blob/ad456a5/src/module/xhr.ts#L85)
+[module/xhr.ts:85](https://github.com/siposdani87/sui-js/blob/9aff0f0/src/module/xhr.ts#L85)
 
 ___
 
 ### \_getType
 
-▸ `Private` **_getType**(`name`): `XhrType`
+▸ **_getType**(`name`): `XhrType`
 
 #### Parameters
 
@@ -242,13 +246,13 @@ ___
 
 #### Defined in
 
-[module/xhr.ts:77](https://github.com/siposdani87/sui-js/blob/ad456a5/src/module/xhr.ts#L77)
+[module/xhr.ts:77](https://github.com/siposdani87/sui-js/blob/9aff0f0/src/module/xhr.ts#L77)
 
 ___
 
 ### \_getUrl
 
-▸ `Private` **_getUrl**(`url`, `opt_params`): `string`
+▸ **_getUrl**(`url`, `opt_params`): `string`
 
 #### Parameters
 
@@ -263,13 +267,13 @@ ___
 
 #### Defined in
 
-[module/xhr.ts:204](https://github.com/siposdani87/sui-js/blob/ad456a5/src/module/xhr.ts#L204)
+[module/xhr.ts:204](https://github.com/siposdani87/sui-js/blob/9aff0f0/src/module/xhr.ts#L204)
 
 ___
 
 ### \_handleResponseData
 
-▸ `Private` **_handleResponseData**(`response`): [`Promize`](Promize.md)<[[[`Objekt`](Objekt.md)<`Object`\>, `string`]], `undefined`\>
+▸ **_handleResponseData**(`response`): [`Promize`](Promize.md)\<[[[`Objekt`](Objekt.md)\<`Object`\>, `string`]], `undefined`\>
 
 #### Parameters
 
@@ -279,17 +283,17 @@ ___
 
 #### Returns
 
-[`Promize`](Promize.md)<[[[`Objekt`](Objekt.md)<`Object`\>, `string`]], `undefined`\>
+[`Promize`](Promize.md)\<[[[`Objekt`](Objekt.md)\<`Object`\>, `string`]], `undefined`\>
 
 #### Defined in
 
-[module/xhr.ts:299](https://github.com/siposdani87/sui-js/blob/ad456a5/src/module/xhr.ts#L299)
+[module/xhr.ts:299](https://github.com/siposdani87/sui-js/blob/9aff0f0/src/module/xhr.ts#L299)
 
 ___
 
 ### \_init
 
-▸ `Private` **_init**(): `void`
+▸ **_init**(): `void`
 
 #### Returns
 
@@ -297,13 +301,13 @@ ___
 
 #### Defined in
 
-[module/xhr.ts:43](https://github.com/siposdani87/sui-js/blob/ad456a5/src/module/xhr.ts#L43)
+[module/xhr.ts:43](https://github.com/siposdani87/sui-js/blob/9aff0f0/src/module/xhr.ts#L43)
 
 ___
 
 ### \_onReadyStateChange
 
-▸ `Private` **_onReadyStateChange**(): (`_this`: `XMLHttpRequest`, `ev`: `Event`) => `any`
+▸ **_onReadyStateChange**(): (`_this`: `XMLHttpRequest`, `ev`: `Event`) => `any`
 
 #### Returns
 
@@ -324,13 +328,13 @@ ___
 
 #### Defined in
 
-[module/xhr.ts:93](https://github.com/siposdani87/sui-js/blob/ad456a5/src/module/xhr.ts#L93)
+[module/xhr.ts:93](https://github.com/siposdani87/sui-js/blob/9aff0f0/src/module/xhr.ts#L93)
 
 ___
 
 ### \_parseObject
 
-▸ `Private` **_parseObject**(`obj`, `key`, `stringKey`): `string`[]
+▸ **_parseObject**(`obj`, `key`, `stringKey`): `string`[]
 
 #### Parameters
 
@@ -346,13 +350,13 @@ ___
 
 #### Defined in
 
-[module/xhr.ts:242](https://github.com/siposdani87/sui-js/blob/ad456a5/src/module/xhr.ts#L242)
+[module/xhr.ts:242](https://github.com/siposdani87/sui-js/blob/9aff0f0/src/module/xhr.ts#L242)
 
 ___
 
 ### \_setHeader
 
-▸ `Private` **_setHeader**(`name`, `value`): `void`
+▸ **_setHeader**(`name`, `value`): `void`
 
 #### Parameters
 
@@ -367,13 +371,13 @@ ___
 
 #### Defined in
 
-[module/xhr.ts:374](https://github.com/siposdani87/sui-js/blob/ad456a5/src/module/xhr.ts#L374)
+[module/xhr.ts:374](https://github.com/siposdani87/sui-js/blob/9aff0f0/src/module/xhr.ts#L374)
 
 ___
 
 ### \_setOptions
 
-▸ `Private` **_setOptions**(`opt_options?`): `void`
+▸ **_setOptions**(`opt_options?`): `void`
 
 #### Parameters
 
@@ -387,13 +391,13 @@ ___
 
 #### Defined in
 
-[module/xhr.ts:35](https://github.com/siposdani87/sui-js/blob/ad456a5/src/module/xhr.ts#L35)
+[module/xhr.ts:35](https://github.com/siposdani87/sui-js/blob/9aff0f0/src/module/xhr.ts#L35)
 
 ___
 
 ### \_setRequestHeaders
 
-▸ `Private` **_setRequestHeaders**(`urlType`, `opt_headers?`): `void`
+▸ **_setRequestHeaders**(`urlType`, `opt_headers?`): `void`
 
 #### Parameters
 
@@ -408,13 +412,13 @@ ___
 
 #### Defined in
 
-[module/xhr.ts:337](https://github.com/siposdani87/sui-js/blob/ad456a5/src/module/xhr.ts#L337)
+[module/xhr.ts:337](https://github.com/siposdani87/sui-js/blob/9aff0f0/src/module/xhr.ts#L337)
 
 ___
 
 ### \_setResponseType
 
-▸ `Private` **_setResponseType**(`urlType`): `void`
+▸ **_setResponseType**(`urlType`): `void`
 
 #### Parameters
 
@@ -428,13 +432,13 @@ ___
 
 #### Defined in
 
-[module/xhr.ts:370](https://github.com/siposdani87/sui-js/blob/ad456a5/src/module/xhr.ts#L370)
+[module/xhr.ts:370](https://github.com/siposdani87/sui-js/blob/9aff0f0/src/module/xhr.ts#L370)
 
 ___
 
 ### \_setType
 
-▸ `Private` **_setType**(`name`, `value`): `void`
+▸ **_setType**(`name`, `value`): `void`
 
 #### Parameters
 
@@ -449,13 +453,13 @@ ___
 
 #### Defined in
 
-[module/xhr.ts:73](https://github.com/siposdani87/sui-js/blob/ad456a5/src/module/xhr.ts#L73)
+[module/xhr.ts:73](https://github.com/siposdani87/sui-js/blob/9aff0f0/src/module/xhr.ts#L73)
 
 ___
 
 ### \_setTypes
 
-▸ `Private` **_setTypes**(): `void`
+▸ **_setTypes**(): `void`
 
 #### Returns
 
@@ -463,13 +467,13 @@ ___
 
 #### Defined in
 
-[module/xhr.ts:60](https://github.com/siposdani87/sui-js/blob/ad456a5/src/module/xhr.ts#L60)
+[module/xhr.ts:60](https://github.com/siposdani87/sui-js/blob/9aff0f0/src/module/xhr.ts#L60)
 
 ___
 
 ### \_stringifyObject
 
-▸ `Private` **_stringifyObject**(`obj`): `string`
+▸ **_stringifyObject**(`obj`): `string`
 
 #### Parameters
 
@@ -483,13 +487,13 @@ ___
 
 #### Defined in
 
-[module/xhr.ts:267](https://github.com/siposdani87/sui-js/blob/ad456a5/src/module/xhr.ts#L267)
+[module/xhr.ts:267](https://github.com/siposdani87/sui-js/blob/9aff0f0/src/module/xhr.ts#L267)
 
 ___
 
 ### delete
 
-▸ **delete**(`url`, `opt_data`, `opt_params`, `opt_headers?`): [`Promize`](Promize.md)<[`XMLHttpRequest`, [`Objekt`](Objekt.md)<`Object`\>, `string`], [`XMLHttpRequest`, [`Objekt`](Objekt.md)<`Object`\>, `string`]\>
+▸ **delete**(`url`, `opt_data`, `opt_params`, `opt_headers?`): [`Promize`](Promize.md)\<[`XMLHttpRequest`, [`Objekt`](Objekt.md)\<`Object`\>, `string`], [`XMLHttpRequest`, [`Objekt`](Objekt.md)\<`Object`\>, `string`]\>
 
 #### Parameters
 
@@ -502,17 +506,17 @@ ___
 
 #### Returns
 
-[`Promize`](Promize.md)<[`XMLHttpRequest`, [`Objekt`](Objekt.md)<`Object`\>, `string`], [`XMLHttpRequest`, [`Objekt`](Objekt.md)<`Object`\>, `string`]\>
+[`Promize`](Promize.md)\<[`XMLHttpRequest`, [`Objekt`](Objekt.md)\<`Object`\>, `string`], [`XMLHttpRequest`, [`Objekt`](Objekt.md)\<`Object`\>, `string`]\>
 
 #### Defined in
 
-[module/xhr.ts:189](https://github.com/siposdani87/sui-js/blob/ad456a5/src/module/xhr.ts#L189)
+[module/xhr.ts:189](https://github.com/siposdani87/sui-js/blob/9aff0f0/src/module/xhr.ts#L189)
 
 ___
 
 ### get
 
-▸ **get**(`url`, `opt_params`, `opt_headers?`): [`Promize`](Promize.md)<[`XMLHttpRequest`, [`Objekt`](Objekt.md)<`Object`\>, `string`], [`XMLHttpRequest`, [`Objekt`](Objekt.md)<`Object`\>, `string`]\>
+▸ **get**(`url`, `opt_params`, `opt_headers?`): [`Promize`](Promize.md)\<[`XMLHttpRequest`, [`Objekt`](Objekt.md)\<`Object`\>, `string`], [`XMLHttpRequest`, [`Objekt`](Objekt.md)\<`Object`\>, `string`]\>
 
 #### Parameters
 
@@ -524,17 +528,17 @@ ___
 
 #### Returns
 
-[`Promize`](Promize.md)<[`XMLHttpRequest`, [`Objekt`](Objekt.md)<`Object`\>, `string`], [`XMLHttpRequest`, [`Objekt`](Objekt.md)<`Object`\>, `string`]\>
+[`Promize`](Promize.md)\<[`XMLHttpRequest`, [`Objekt`](Objekt.md)\<`Object`\>, `string`], [`XMLHttpRequest`, [`Objekt`](Objekt.md)\<`Object`\>, `string`]\>
 
 #### Defined in
 
-[module/xhr.ts:136](https://github.com/siposdani87/sui-js/blob/ad456a5/src/module/xhr.ts#L136)
+[module/xhr.ts:136](https://github.com/siposdani87/sui-js/blob/9aff0f0/src/module/xhr.ts#L136)
 
 ___
 
 ### patch
 
-▸ **patch**(`url`, `opt_data`, `opt_params`, `opt_headers?`): [`Promize`](Promize.md)<[`XMLHttpRequest`, [`Objekt`](Objekt.md)<`Object`\>, `string`], [`XMLHttpRequest`, [`Objekt`](Objekt.md)<`Object`\>, `string`]\>
+▸ **patch**(`url`, `opt_data`, `opt_params`, `opt_headers?`): [`Promize`](Promize.md)\<[`XMLHttpRequest`, [`Objekt`](Objekt.md)\<`Object`\>, `string`], [`XMLHttpRequest`, [`Objekt`](Objekt.md)\<`Object`\>, `string`]\>
 
 #### Parameters
 
@@ -547,17 +551,17 @@ ___
 
 #### Returns
 
-[`Promize`](Promize.md)<[`XMLHttpRequest`, [`Objekt`](Objekt.md)<`Object`\>, `string`], [`XMLHttpRequest`, [`Objekt`](Objekt.md)<`Object`\>, `string`]\>
+[`Promize`](Promize.md)\<[`XMLHttpRequest`, [`Objekt`](Objekt.md)\<`Object`\>, `string`], [`XMLHttpRequest`, [`Objekt`](Objekt.md)\<`Object`\>, `string`]\>
 
 #### Defined in
 
-[module/xhr.ts:174](https://github.com/siposdani87/sui-js/blob/ad456a5/src/module/xhr.ts#L174)
+[module/xhr.ts:174](https://github.com/siposdani87/sui-js/blob/9aff0f0/src/module/xhr.ts#L174)
 
 ___
 
 ### post
 
-▸ **post**(`url`, `opt_data`, `opt_params`, `opt_headers?`): [`Promize`](Promize.md)<[`XMLHttpRequest`, [`Objekt`](Objekt.md)<`Object`\>, `string`], [`XMLHttpRequest`, [`Objekt`](Objekt.md)<`Object`\>, `string`]\>
+▸ **post**(`url`, `opt_data`, `opt_params`, `opt_headers?`): [`Promize`](Promize.md)\<[`XMLHttpRequest`, [`Objekt`](Objekt.md)\<`Object`\>, `string`], [`XMLHttpRequest`, [`Objekt`](Objekt.md)\<`Object`\>, `string`]\>
 
 #### Parameters
 
@@ -570,17 +574,17 @@ ___
 
 #### Returns
 
-[`Promize`](Promize.md)<[`XMLHttpRequest`, [`Objekt`](Objekt.md)<`Object`\>, `string`], [`XMLHttpRequest`, [`Objekt`](Objekt.md)<`Object`\>, `string`]\>
+[`Promize`](Promize.md)\<[`XMLHttpRequest`, [`Objekt`](Objekt.md)\<`Object`\>, `string`], [`XMLHttpRequest`, [`Objekt`](Objekt.md)\<`Object`\>, `string`]\>
 
 #### Defined in
 
-[module/xhr.ts:144](https://github.com/siposdani87/sui-js/blob/ad456a5/src/module/xhr.ts#L144)
+[module/xhr.ts:144](https://github.com/siposdani87/sui-js/blob/9aff0f0/src/module/xhr.ts#L144)
 
 ___
 
 ### put
 
-▸ **put**(`url`, `opt_data`, `opt_params`, `opt_headers?`): [`Promize`](Promize.md)<[`XMLHttpRequest`, [`Objekt`](Objekt.md)<`Object`\>, `string`], [`XMLHttpRequest`, [`Objekt`](Objekt.md)<`Object`\>, `string`]\>
+▸ **put**(`url`, `opt_data`, `opt_params`, `opt_headers?`): [`Promize`](Promize.md)\<[`XMLHttpRequest`, [`Objekt`](Objekt.md)\<`Object`\>, `string`], [`XMLHttpRequest`, [`Objekt`](Objekt.md)\<`Object`\>, `string`]\>
 
 #### Parameters
 
@@ -593,11 +597,11 @@ ___
 
 #### Returns
 
-[`Promize`](Promize.md)<[`XMLHttpRequest`, [`Objekt`](Objekt.md)<`Object`\>, `string`], [`XMLHttpRequest`, [`Objekt`](Objekt.md)<`Object`\>, `string`]\>
+[`Promize`](Promize.md)\<[`XMLHttpRequest`, [`Objekt`](Objekt.md)\<`Object`\>, `string`], [`XMLHttpRequest`, [`Objekt`](Objekt.md)\<`Object`\>, `string`]\>
 
 #### Defined in
 
-[module/xhr.ts:159](https://github.com/siposdani87/sui-js/blob/ad456a5/src/module/xhr.ts#L159)
+[module/xhr.ts:159](https://github.com/siposdani87/sui-js/blob/9aff0f0/src/module/xhr.ts#L159)
 
 ___
 
@@ -618,7 +622,7 @@ ___
 
 #### Defined in
 
-[module/xhr.ts:385](https://github.com/siposdani87/sui-js/blob/ad456a5/src/module/xhr.ts#L385)
+[module/xhr.ts:385](https://github.com/siposdani87/sui-js/blob/9aff0f0/src/module/xhr.ts#L385)
 
 ___
 
@@ -638,4 +642,4 @@ ___
 
 #### Defined in
 
-[module/xhr.ts:392](https://github.com/siposdani87/sui-js/blob/ad456a5/src/module/xhr.ts#L392)
+[module/xhr.ts:392](https://github.com/siposdani87/sui-js/blob/9aff0f0/src/module/xhr.ts#L392)

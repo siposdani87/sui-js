@@ -16,7 +16,7 @@ custom_edit_url: null
 
 ### constructor
 
-• **new Confirm**(`opt_options?`)
+• **new Confirm**(`opt_options?`): [`Confirm`](Confirm.md)
 
 #### Parameters
 
@@ -24,19 +24,23 @@ custom_edit_url: null
 | :------ | :------ |
 | `opt_options` | `Object` |
 
+#### Returns
+
+[`Confirm`](Confirm.md)
+
 #### Overrides
 
 [BaseModal](BaseModal.md).[constructor](BaseModal.md#constructor)
 
 #### Defined in
 
-[module/confirm.ts:10](https://github.com/siposdani87/sui-js/blob/ad456a5/src/module/confirm.ts#L10)
+[module/confirm.ts:10](https://github.com/siposdani87/sui-js/blob/9aff0f0/src/module/confirm.ts#L10)
 
 ## Properties
 
 ### body
 
-• **body**: [`Knot`](Knot.md)<`HTMLElement`\>
+• **body**: [`Knot`](Knot.md)\<`HTMLElement`\>
 
 #### Inherited from
 
@@ -44,13 +48,13 @@ custom_edit_url: null
 
 #### Defined in
 
-[module/baseModal.ts:15](https://github.com/siposdani87/sui-js/blob/ad456a5/src/module/baseModal.ts#L15)
+[module/baseModal.ts:15](https://github.com/siposdani87/sui-js/blob/9aff0f0/src/module/baseModal.ts#L15)
 
 ___
 
 ### btnClose
 
-• **btnClose**: [`Knot`](Knot.md)<`HTMLElement`\>
+• **btnClose**: [`Knot`](Knot.md)\<`HTMLElement`\>
 
 #### Inherited from
 
@@ -58,13 +62,13 @@ ___
 
 #### Defined in
 
-[module/baseModal.ts:14](https://github.com/siposdani87/sui-js/blob/ad456a5/src/module/baseModal.ts#L14)
+[module/baseModal.ts:14](https://github.com/siposdani87/sui-js/blob/9aff0f0/src/module/baseModal.ts#L14)
 
 ___
 
 ### btnMaximize
 
-• **btnMaximize**: [`Knot`](Knot.md)<`HTMLElement`\>
+• **btnMaximize**: [`Knot`](Knot.md)\<`HTMLElement`\>
 
 #### Inherited from
 
@@ -72,13 +76,13 @@ ___
 
 #### Defined in
 
-[module/baseModal.ts:13](https://github.com/siposdani87/sui-js/blob/ad456a5/src/module/baseModal.ts#L13)
+[module/baseModal.ts:13](https://github.com/siposdani87/sui-js/blob/9aff0f0/src/module/baseModal.ts#L13)
 
 ___
 
 ### btnMinimize
 
-• **btnMinimize**: [`Knot`](Knot.md)<`HTMLElement`\>
+• **btnMinimize**: [`Knot`](Knot.md)\<`HTMLElement`\>
 
 #### Inherited from
 
@@ -86,7 +90,7 @@ ___
 
 #### Defined in
 
-[module/baseModal.ts:12](https://github.com/siposdani87/sui-js/blob/ad456a5/src/module/baseModal.ts#L12)
+[module/baseModal.ts:12](https://github.com/siposdani87/sui-js/blob/9aff0f0/src/module/baseModal.ts#L12)
 
 ___
 
@@ -108,7 +112,7 @@ ___
 
 #### Defined in
 
-[module/baseModal.ts:22](https://github.com/siposdani87/sui-js/blob/ad456a5/src/module/baseModal.ts#L22)
+[module/baseModal.ts:22](https://github.com/siposdani87/sui-js/blob/9aff0f0/src/module/baseModal.ts#L22)
 
 ___
 
@@ -130,7 +134,7 @@ ___
 
 #### Defined in
 
-[module/baseModal.ts:21](https://github.com/siposdani87/sui-js/blob/ad456a5/src/module/baseModal.ts#L21)
+[module/baseModal.ts:21](https://github.com/siposdani87/sui-js/blob/9aff0f0/src/module/baseModal.ts#L21)
 
 ___
 
@@ -144,7 +148,7 @@ ___
 
 #### Defined in
 
-[module/baseModal.ts:10](https://github.com/siposdani87/sui-js/blob/ad456a5/src/module/baseModal.ts#L10)
+[module/baseModal.ts:10](https://github.com/siposdani87/sui-js/blob/9aff0f0/src/module/baseModal.ts#L10)
 
 ___
 
@@ -158,13 +162,13 @@ ___
 
 #### Defined in
 
-[module/baseModal.ts:16](https://github.com/siposdani87/sui-js/blob/ad456a5/src/module/baseModal.ts#L16)
+[module/baseModal.ts:16](https://github.com/siposdani87/sui-js/blob/9aff0f0/src/module/baseModal.ts#L16)
 
 ___
 
 ### mainContainerKnot
 
-• **mainContainerKnot**: [`Knot`](Knot.md)<`HTMLElement`\>
+• **mainContainerKnot**: [`Knot`](Knot.md)\<`HTMLElement`\>
 
 #### Inherited from
 
@@ -172,13 +176,13 @@ ___
 
 #### Defined in
 
-[module/baseModal.ts:9](https://github.com/siposdani87/sui-js/blob/ad456a5/src/module/baseModal.ts#L9)
+[module/baseModal.ts:9](https://github.com/siposdani87/sui-js/blob/9aff0f0/src/module/baseModal.ts#L9)
 
 ___
 
 ### modal
 
-• **modal**: [`Knot`](Knot.md)<`HTMLElement`\>
+• **modal**: [`Knot`](Knot.md)\<`HTMLElement`\>
 
 #### Inherited from
 
@@ -186,13 +190,13 @@ ___
 
 #### Defined in
 
-[module/baseModal.ts:11](https://github.com/siposdani87/sui-js/blob/ad456a5/src/module/baseModal.ts#L11)
+[module/baseModal.ts:11](https://github.com/siposdani87/sui-js/blob/9aff0f0/src/module/baseModal.ts#L11)
 
 ___
 
 ### modalBody
 
-• **modalBody**: [`Knot`](Knot.md)<`HTMLElement`\>
+• **modalBody**: [`Knot`](Knot.md)\<`HTMLElement`\>
 
 #### Inherited from
 
@@ -200,13 +204,13 @@ ___
 
 #### Defined in
 
-[module/baseModal.ts:18](https://github.com/siposdani87/sui-js/blob/ad456a5/src/module/baseModal.ts#L18)
+[module/baseModal.ts:18](https://github.com/siposdani87/sui-js/blob/9aff0f0/src/module/baseModal.ts#L18)
 
 ___
 
 ### modalFooter
 
-• **modalFooter**: [`Knot`](Knot.md)<`HTMLElement`\>
+• **modalFooter**: [`Knot`](Knot.md)\<`HTMLElement`\>
 
 #### Inherited from
 
@@ -214,13 +218,13 @@ ___
 
 #### Defined in
 
-[module/baseModal.ts:19](https://github.com/siposdani87/sui-js/blob/ad456a5/src/module/baseModal.ts#L19)
+[module/baseModal.ts:19](https://github.com/siposdani87/sui-js/blob/9aff0f0/src/module/baseModal.ts#L19)
 
 ___
 
 ### modalHeader
 
-• **modalHeader**: [`Knot`](Knot.md)<`HTMLElement`\>
+• **modalHeader**: [`Knot`](Knot.md)\<`HTMLElement`\>
 
 #### Inherited from
 
@@ -228,13 +232,13 @@ ___
 
 #### Defined in
 
-[module/baseModal.ts:20](https://github.com/siposdani87/sui-js/blob/ad456a5/src/module/baseModal.ts#L20)
+[module/baseModal.ts:20](https://github.com/siposdani87/sui-js/blob/9aff0f0/src/module/baseModal.ts#L20)
 
 ___
 
 ### modalTitle
 
-• **modalTitle**: [`Knot`](Knot.md)<`HTMLElement`\>
+• **modalTitle**: [`Knot`](Knot.md)\<`HTMLElement`\>
 
 #### Inherited from
 
@@ -242,13 +246,13 @@ ___
 
 #### Defined in
 
-[module/baseModal.ts:17](https://github.com/siposdani87/sui-js/blob/ad456a5/src/module/baseModal.ts#L17)
+[module/baseModal.ts:17](https://github.com/siposdani87/sui-js/blob/9aff0f0/src/module/baseModal.ts#L17)
 
 ___
 
 ### modalWindow
 
-• **modalWindow**: [`Knot`](Knot.md)<`HTMLElement`\>
+• **modalWindow**: [`Knot`](Knot.md)\<`HTMLElement`\>
 
 #### Inherited from
 
@@ -256,17 +260,17 @@ ___
 
 #### Defined in
 
-[module/baseModal.ts:23](https://github.com/siposdani87/sui-js/blob/ad456a5/src/module/baseModal.ts#L23)
+[module/baseModal.ts:23](https://github.com/siposdani87/sui-js/blob/9aff0f0/src/module/baseModal.ts#L23)
 
 ___
 
 ### options
 
-• **options**: [`Objekt`](Objekt.md)<`Object`\>
+• **options**: [`Objekt`](Objekt.md)\<`Object`\>
 
 #### Defined in
 
-[module/confirm.ts:8](https://github.com/siposdani87/sui-js/blob/ad456a5/src/module/confirm.ts#L8)
+[module/confirm.ts:8](https://github.com/siposdani87/sui-js/blob/9aff0f0/src/module/confirm.ts#L8)
 
 ___
 
@@ -280,7 +284,7 @@ ___
 
 #### Defined in
 
-[module/baseModal.ts:8](https://github.com/siposdani87/sui-js/blob/ad456a5/src/module/baseModal.ts#L8)
+[module/baseModal.ts:8](https://github.com/siposdani87/sui-js/blob/9aff0f0/src/module/baseModal.ts#L8)
 
 ___
 
@@ -294,13 +298,13 @@ ___
 
 #### Defined in
 
-[module/baseModal.ts:7](https://github.com/siposdani87/sui-js/blob/ad456a5/src/module/baseModal.ts#L7)
+[module/baseModal.ts:7](https://github.com/siposdani87/sui-js/blob/9aff0f0/src/module/baseModal.ts#L7)
 
 ## Methods
 
 ### \_actionCancel
 
-▸ `Protected` **_actionCancel**(): `void`
+▸ **_actionCancel**(): `void`
 
 #### Returns
 
@@ -312,13 +316,13 @@ ___
 
 #### Defined in
 
-[module/baseModal.ts:160](https://github.com/siposdani87/sui-js/blob/ad456a5/src/module/baseModal.ts#L160)
+[module/baseModal.ts:160](https://github.com/siposdani87/sui-js/blob/9aff0f0/src/module/baseModal.ts#L160)
 
 ___
 
 ### \_actionOK
 
-▸ `Protected` **_actionOK**(): `void`
+▸ **_actionOK**(): `void`
 
 #### Returns
 
@@ -330,13 +334,13 @@ ___
 
 #### Defined in
 
-[module/baseModal.ts:154](https://github.com/siposdani87/sui-js/blob/ad456a5/src/module/baseModal.ts#L154)
+[module/baseModal.ts:154](https://github.com/siposdani87/sui-js/blob/9aff0f0/src/module/baseModal.ts#L154)
 
 ___
 
 ### \_init
 
-▸ `Private` **_init**(): `void`
+▸ **_init**(): `void`
 
 #### Returns
 
@@ -344,13 +348,13 @@ ___
 
 #### Defined in
 
-[module/confirm.ts:24](https://github.com/siposdani87/sui-js/blob/ad456a5/src/module/confirm.ts#L24)
+[module/confirm.ts:24](https://github.com/siposdani87/sui-js/blob/9aff0f0/src/module/confirm.ts#L24)
 
 ___
 
 ### \_initBase
 
-▸ `Protected` **_initBase**(): `void`
+▸ **_initBase**(): `void`
 
 #### Returns
 
@@ -362,13 +366,13 @@ ___
 
 #### Defined in
 
-[module/baseModal.ts:25](https://github.com/siposdani87/sui-js/blob/ad456a5/src/module/baseModal.ts#L25)
+[module/baseModal.ts:25](https://github.com/siposdani87/sui-js/blob/9aff0f0/src/module/baseModal.ts#L25)
 
 ___
 
 ### \_reset
 
-▸ `Protected` **_reset**(): `void`
+▸ **_reset**(): `void`
 
 #### Returns
 
@@ -380,13 +384,13 @@ ___
 
 #### Defined in
 
-[module/baseModal.ts:149](https://github.com/siposdani87/sui-js/blob/ad456a5/src/module/baseModal.ts#L149)
+[module/baseModal.ts:149](https://github.com/siposdani87/sui-js/blob/9aff0f0/src/module/baseModal.ts#L149)
 
 ___
 
 ### \_setOptions
 
-▸ `Private` **_setOptions**(`opt_options?`): `void`
+▸ **_setOptions**(`opt_options?`): `void`
 
 #### Parameters
 
@@ -400,13 +404,13 @@ ___
 
 #### Defined in
 
-[module/confirm.ts:17](https://github.com/siposdani87/sui-js/blob/ad456a5/src/module/confirm.ts#L17)
+[module/confirm.ts:17](https://github.com/siposdani87/sui-js/blob/9aff0f0/src/module/confirm.ts#L17)
 
 ___
 
 ### \_setTitle
 
-▸ `Protected` **_setTitle**(`opt_title`): `void`
+▸ **_setTitle**(`opt_title`): `void`
 
 #### Parameters
 
@@ -424,7 +428,7 @@ ___
 
 #### Defined in
 
-[module/baseModal.ts:136](https://github.com/siposdani87/sui-js/blob/ad456a5/src/module/baseModal.ts#L136)
+[module/baseModal.ts:136](https://github.com/siposdani87/sui-js/blob/9aff0f0/src/module/baseModal.ts#L136)
 
 ___
 
@@ -442,7 +446,7 @@ ___
 
 #### Defined in
 
-[module/baseModal.ts:120](https://github.com/siposdani87/sui-js/blob/ad456a5/src/module/baseModal.ts#L120)
+[module/baseModal.ts:120](https://github.com/siposdani87/sui-js/blob/9aff0f0/src/module/baseModal.ts#L120)
 
 ___
 
@@ -460,7 +464,7 @@ ___
 
 #### Defined in
 
-[module/baseModal.ts:86](https://github.com/siposdani87/sui-js/blob/ad456a5/src/module/baseModal.ts#L86)
+[module/baseModal.ts:86](https://github.com/siposdani87/sui-js/blob/9aff0f0/src/module/baseModal.ts#L86)
 
 ___
 
@@ -484,7 +488,7 @@ ___
 
 #### Defined in
 
-[module/confirm.ts:34](https://github.com/siposdani87/sui-js/blob/ad456a5/src/module/confirm.ts#L34)
+[module/confirm.ts:34](https://github.com/siposdani87/sui-js/blob/9aff0f0/src/module/confirm.ts#L34)
 
 ___
 
@@ -508,7 +512,7 @@ ___
 
 #### Defined in
 
-[module/baseModal.ts:102](https://github.com/siposdani87/sui-js/blob/ad456a5/src/module/baseModal.ts#L102)
+[module/baseModal.ts:102](https://github.com/siposdani87/sui-js/blob/9aff0f0/src/module/baseModal.ts#L102)
 
 ___
 
@@ -533,4 +537,4 @@ ___
 
 #### Defined in
 
-[module/baseModal.ts:174](https://github.com/siposdani87/sui-js/blob/ad456a5/src/module/baseModal.ts#L174)
+[module/baseModal.ts:174](https://github.com/siposdani87/sui-js/blob/9aff0f0/src/module/baseModal.ts#L174)

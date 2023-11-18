@@ -10,38 +10,42 @@ custom_edit_url: null
 
 ### constructor
 
-• **new DateTime**(`knot`, `options`)
+• **new DateTime**(`knot`, `options`): [`DateTime`](DateTime.md)
 
 #### Parameters
 
 | Name | Type |
 | :------ | :------ |
-| `knot` | [`Knot`](Knot.md)<`HTMLElement`\> |
+| `knot` | [`Knot`](Knot.md)\<`HTMLElement`\> |
 | `options` | `Object` |
+
+#### Returns
+
+[`DateTime`](DateTime.md)
 
 #### Defined in
 
-[component/dateTime.ts:25](https://github.com/siposdani87/sui-js/blob/ad456a5/src/component/dateTime.ts#L25)
+[component/dateTime.ts:25](https://github.com/siposdani87/sui-js/blob/9aff0f0/src/component/dateTime.ts#L25)
 
 ## Properties
 
 ### calendarKnot
 
-• **calendarKnot**: [`Knot`](Knot.md)<`HTMLElement`\>
+• **calendarKnot**: [`Knot`](Knot.md)\<`HTMLElement`\>
 
 #### Defined in
 
-[component/dateTime.ts:21](https://github.com/siposdani87/sui-js/blob/ad456a5/src/component/dateTime.ts#L21)
+[component/dateTime.ts:21](https://github.com/siposdani87/sui-js/blob/9aff0f0/src/component/dateTime.ts#L21)
 
 ___
 
 ### clockKnot
 
-• **clockKnot**: [`Knot`](Knot.md)<`HTMLElement`\>
+• **clockKnot**: [`Knot`](Knot.md)\<`HTMLElement`\>
 
 #### Defined in
 
-[component/dateTime.ts:22](https://github.com/siposdani87/sui-js/blob/ad456a5/src/component/dateTime.ts#L22)
+[component/dateTime.ts:22](https://github.com/siposdani87/sui-js/blob/9aff0f0/src/component/dateTime.ts#L22)
 
 ___
 
@@ -51,27 +55,27 @@ ___
 
 #### Defined in
 
-[component/dateTime.ts:20](https://github.com/siposdani87/sui-js/blob/ad456a5/src/component/dateTime.ts#L20)
+[component/dateTime.ts:20](https://github.com/siposdani87/sui-js/blob/9aff0f0/src/component/dateTime.ts#L20)
 
 ___
 
 ### datetimeKnot
 
-• **datetimeKnot**: [`Knot`](Knot.md)<`HTMLElement`\>
+• **datetimeKnot**: [`Knot`](Knot.md)\<`HTMLElement`\>
 
 #### Defined in
 
-[component/dateTime.ts:15](https://github.com/siposdani87/sui-js/blob/ad456a5/src/component/dateTime.ts#L15)
+[component/dateTime.ts:15](https://github.com/siposdani87/sui-js/blob/9aff0f0/src/component/dateTime.ts#L15)
 
 ___
 
 ### options
 
-• **options**: [`Objekt`](Objekt.md)<`Object`\>
+• **options**: [`Objekt`](Objekt.md)\<`Object`\>
 
 #### Defined in
 
-[component/dateTime.ts:16](https://github.com/siposdani87/sui-js/blob/ad456a5/src/component/dateTime.ts#L16)
+[component/dateTime.ts:16](https://github.com/siposdani87/sui-js/blob/9aff0f0/src/component/dateTime.ts#L16)
 
 ___
 
@@ -85,7 +89,7 @@ ___
 
 #### Defined in
 
-[component/dateTime.ts:17](https://github.com/siposdani87/sui-js/blob/ad456a5/src/component/dateTime.ts#L17)
+[component/dateTime.ts:17](https://github.com/siposdani87/sui-js/blob/9aff0f0/src/component/dateTime.ts#L17)
 
 ___
 
@@ -95,13 +99,13 @@ ___
 
 #### Defined in
 
-[component/dateTime.ts:23](https://github.com/siposdani87/sui-js/blob/ad456a5/src/component/dateTime.ts#L23)
+[component/dateTime.ts:23](https://github.com/siposdani87/sui-js/blob/9aff0f0/src/component/dateTime.ts#L23)
 
 ## Methods
 
 ### \_drawCalendar
 
-▸ `Private` **_drawCalendar**(): `void`
+▸ **_drawCalendar**(): `void`
 
 #### Returns
 
@@ -109,13 +113,13 @@ ___
 
 #### Defined in
 
-[component/dateTime.ts:133](https://github.com/siposdani87/sui-js/blob/ad456a5/src/component/dateTime.ts#L133)
+[component/dateTime.ts:133](https://github.com/siposdani87/sui-js/blob/9aff0f0/src/component/dateTime.ts#L133)
 
 ___
 
 ### \_drawClock
 
-▸ `Private` **_drawClock**(): `void`
+▸ **_drawClock**(): `void`
 
 #### Returns
 
@@ -123,13 +127,13 @@ ___
 
 #### Defined in
 
-[component/dateTime.ts:158](https://github.com/siposdani87/sui-js/blob/ad456a5/src/component/dateTime.ts#L158)
+[component/dateTime.ts:158](https://github.com/siposdani87/sui-js/blob/9aff0f0/src/component/dateTime.ts#L158)
 
 ___
 
 ### \_init
 
-▸ `Private` **_init**(): `void`
+▸ **_init**(): `void`
 
 #### Returns
 
@@ -137,13 +141,13 @@ ___
 
 #### Defined in
 
-[component/dateTime.ts:35](https://github.com/siposdani87/sui-js/blob/ad456a5/src/component/dateTime.ts#L35)
+[component/dateTime.ts:35](https://github.com/siposdani87/sui-js/blob/9aff0f0/src/component/dateTime.ts#L35)
 
 ___
 
 ### \_initCalendarKnot
 
-▸ `Private` **_initCalendarKnot**(): `void`
+▸ **_initCalendarKnot**(): `void`
 
 #### Returns
 
@@ -151,13 +155,13 @@ ___
 
 #### Defined in
 
-[component/dateTime.ts:93](https://github.com/siposdani87/sui-js/blob/ad456a5/src/component/dateTime.ts#L93)
+[component/dateTime.ts:93](https://github.com/siposdani87/sui-js/blob/9aff0f0/src/component/dateTime.ts#L93)
 
 ___
 
 ### \_initClockKnot
 
-▸ `Private` **_initClockKnot**(): `void`
+▸ **_initClockKnot**(): `void`
 
 #### Returns
 
@@ -165,13 +169,13 @@ ___
 
 #### Defined in
 
-[component/dateTime.ts:101](https://github.com/siposdani87/sui-js/blob/ad456a5/src/component/dateTime.ts#L101)
+[component/dateTime.ts:101](https://github.com/siposdani87/sui-js/blob/9aff0f0/src/component/dateTime.ts#L101)
 
 ___
 
 ### \_initDateTimeKnot
 
-▸ `Private` **_initDateTimeKnot**(): `void`
+▸ **_initDateTimeKnot**(): `void`
 
 #### Returns
 
@@ -179,13 +183,13 @@ ___
 
 #### Defined in
 
-[component/dateTime.ts:88](https://github.com/siposdani87/sui-js/blob/ad456a5/src/component/dateTime.ts#L88)
+[component/dateTime.ts:88](https://github.com/siposdani87/sui-js/blob/9aff0f0/src/component/dateTime.ts#L88)
 
 ___
 
 ### \_initStructure
 
-▸ `Private` **_initStructure**(): `void`
+▸ **_initStructure**(): `void`
 
 #### Returns
 
@@ -193,13 +197,13 @@ ___
 
 #### Defined in
 
-[component/dateTime.ts:82](https://github.com/siposdani87/sui-js/blob/ad456a5/src/component/dateTime.ts#L82)
+[component/dateTime.ts:82](https://github.com/siposdani87/sui-js/blob/9aff0f0/src/component/dateTime.ts#L82)
 
 ___
 
 ### \_initVariables
 
-▸ `Private` **_initVariables**(): `void`
+▸ **_initVariables**(): `void`
 
 #### Returns
 
@@ -207,13 +211,13 @@ ___
 
 #### Defined in
 
-[component/dateTime.ts:41](https://github.com/siposdani87/sui-js/blob/ad456a5/src/component/dateTime.ts#L41)
+[component/dateTime.ts:41](https://github.com/siposdani87/sui-js/blob/9aff0f0/src/component/dateTime.ts#L41)
 
 ___
 
 ### \_onClick
 
-▸ `Private` **_onClick**(): `void`
+▸ **_onClick**(): `void`
 
 #### Returns
 
@@ -221,13 +225,13 @@ ___
 
 #### Defined in
 
-[component/dateTime.ts:179](https://github.com/siposdani87/sui-js/blob/ad456a5/src/component/dateTime.ts#L179)
+[component/dateTime.ts:179](https://github.com/siposdani87/sui-js/blob/9aff0f0/src/component/dateTime.ts#L179)
 
 ___
 
 ### \_setOptions
 
-▸ `Private` **_setOptions**(`options`): `void`
+▸ **_setOptions**(`options`): `void`
 
 #### Parameters
 
@@ -241,13 +245,13 @@ ___
 
 #### Defined in
 
-[component/dateTime.ts:31](https://github.com/siposdani87/sui-js/blob/ad456a5/src/component/dateTime.ts#L31)
+[component/dateTime.ts:31](https://github.com/siposdani87/sui-js/blob/9aff0f0/src/component/dateTime.ts#L31)
 
 ___
 
 ### \_setValue
 
-▸ `Private` **_setValue**(`value`): `void`
+▸ **_setValue**(`value`): `void`
 
 #### Parameters
 
@@ -261,7 +265,7 @@ ___
 
 #### Defined in
 
-[component/dateTime.ts:113](https://github.com/siposdani87/sui-js/blob/ad456a5/src/component/dateTime.ts#L113)
+[component/dateTime.ts:113](https://github.com/siposdani87/sui-js/blob/9aff0f0/src/component/dateTime.ts#L113)
 
 ___
 
@@ -275,7 +279,7 @@ ___
 
 #### Defined in
 
-[component/dateTime.ts:128](https://github.com/siposdani87/sui-js/blob/ad456a5/src/component/dateTime.ts#L128)
+[component/dateTime.ts:128](https://github.com/siposdani87/sui-js/blob/9aff0f0/src/component/dateTime.ts#L128)
 
 ___
 
@@ -295,7 +299,7 @@ ___
 
 #### Defined in
 
-[component/dateTime.ts:184](https://github.com/siposdani87/sui-js/blob/ad456a5/src/component/dateTime.ts#L184)
+[component/dateTime.ts:184](https://github.com/siposdani87/sui-js/blob/9aff0f0/src/component/dateTime.ts#L184)
 
 ___
 
@@ -309,7 +313,7 @@ ___
 
 #### Defined in
 
-[component/dateTime.ts:109](https://github.com/siposdani87/sui-js/blob/ad456a5/src/component/dateTime.ts#L109)
+[component/dateTime.ts:109](https://github.com/siposdani87/sui-js/blob/9aff0f0/src/component/dateTime.ts#L109)
 
 ___
 
@@ -323,7 +327,7 @@ ___
 
 #### Defined in
 
-[component/dateTime.ts:124](https://github.com/siposdani87/sui-js/blob/ad456a5/src/component/dateTime.ts#L124)
+[component/dateTime.ts:124](https://github.com/siposdani87/sui-js/blob/9aff0f0/src/component/dateTime.ts#L124)
 
 ___
 
@@ -343,4 +347,4 @@ ___
 
 #### Defined in
 
-[component/dateTime.ts:118](https://github.com/siposdani87/sui-js/blob/ad456a5/src/component/dateTime.ts#L118)
+[component/dateTime.ts:118](https://github.com/siposdani87/sui-js/blob/9aff0f0/src/component/dateTime.ts#L118)

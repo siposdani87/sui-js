@@ -10,7 +10,7 @@ custom_edit_url: null
 
 ### constructor
 
-• **new Http**(`opt_options?`)
+• **new Http**(`opt_options?`): [`Http`](Http.md)
 
 #### Parameters
 
@@ -18,19 +18,23 @@ custom_edit_url: null
 | :------ | :------ |
 | `opt_options` | `Object` |
 
+#### Returns
+
+[`Http`](Http.md)
+
 #### Defined in
 
-[module/http.ts:13](https://github.com/siposdani87/sui-js/blob/ad456a5/src/module/http.ts#L13)
+[module/http.ts:13](https://github.com/siposdani87/sui-js/blob/9aff0f0/src/module/http.ts#L13)
 
 ## Properties
 
 ### options
 
-• **options**: [`Objekt`](Objekt.md)<`Object`\>
+• **options**: [`Objekt`](Objekt.md)\<`Object`\>
 
 #### Defined in
 
-[module/http.ts:8](https://github.com/siposdani87/sui-js/blob/ad456a5/src/module/http.ts#L8)
+[module/http.ts:8](https://github.com/siposdani87/sui-js/blob/9aff0f0/src/module/http.ts#L8)
 
 ___
 
@@ -40,7 +44,7 @@ ___
 
 #### Defined in
 
-[module/http.ts:10](https://github.com/siposdani87/sui-js/blob/ad456a5/src/module/http.ts#L10)
+[module/http.ts:10](https://github.com/siposdani87/sui-js/blob/9aff0f0/src/module/http.ts#L10)
 
 ___
 
@@ -50,7 +54,7 @@ ___
 
 #### Defined in
 
-[module/http.ts:11](https://github.com/siposdani87/sui-js/blob/ad456a5/src/module/http.ts#L11)
+[module/http.ts:11](https://github.com/siposdani87/sui-js/blob/9aff0f0/src/module/http.ts#L11)
 
 ___
 
@@ -60,13 +64,13 @@ ___
 
 #### Defined in
 
-[module/http.ts:9](https://github.com/siposdani87/sui-js/blob/ad456a5/src/module/http.ts#L9)
+[module/http.ts:9](https://github.com/siposdani87/sui-js/blob/9aff0f0/src/module/http.ts#L9)
 
 ## Methods
 
 ### \_createXhrRequest
 
-▸ `Private` **_createXhrRequest**(): [`Xhr`](Xhr.md)
+▸ **_createXhrRequest**(): [`Xhr`](Xhr.md)
 
 #### Returns
 
@@ -74,33 +78,33 @@ ___
 
 #### Defined in
 
-[module/http.ts:94](https://github.com/siposdani87/sui-js/blob/ad456a5/src/module/http.ts#L94)
+[module/http.ts:94](https://github.com/siposdani87/sui-js/blob/9aff0f0/src/module/http.ts#L94)
 
 ___
 
 ### \_getPromise
 
-▸ `Private` **_getPromise**(`promise`): [`Promize`](Promize.md)<[[`Objekt`](Objekt.md)<`Object`\>, `string`], [[`Objekt`](Objekt.md)<`Object`\>, `string`]\>
+▸ **_getPromise**(`promise`): [`Promize`](Promize.md)\<[[`Objekt`](Objekt.md)\<`Object`\>, `string`], [[`Objekt`](Objekt.md)\<`Object`\>, `string`]\>
 
 #### Parameters
 
 | Name | Type |
 | :------ | :------ |
-| `promise` | [`Promize`](Promize.md)<[`XMLHttpRequest`, [`Objekt`](Objekt.md)<`Object`\>, `string`], [`XMLHttpRequest`, [`Objekt`](Objekt.md)<`Object`\>, `string`]\> |
+| `promise` | [`Promize`](Promize.md)\<[`XMLHttpRequest`, [`Objekt`](Objekt.md)\<`Object`\>, `string`], [`XMLHttpRequest`, [`Objekt`](Objekt.md)\<`Object`\>, `string`]\> |
 
 #### Returns
 
-[`Promize`](Promize.md)<[[`Objekt`](Objekt.md)<`Object`\>, `string`], [[`Objekt`](Objekt.md)<`Object`\>, `string`]\>
+[`Promize`](Promize.md)\<[[`Objekt`](Objekt.md)\<`Object`\>, `string`], [[`Objekt`](Objekt.md)\<`Object`\>, `string`]\>
 
 #### Defined in
 
-[module/http.ts:103](https://github.com/siposdani87/sui-js/blob/ad456a5/src/module/http.ts#L103)
+[module/http.ts:103](https://github.com/siposdani87/sui-js/blob/9aff0f0/src/module/http.ts#L103)
 
 ___
 
 ### \_init
 
-▸ `Private` **_init**(): `void`
+▸ **_init**(): `void`
 
 #### Returns
 
@@ -108,13 +112,13 @@ ___
 
 #### Defined in
 
-[module/http.ts:26](https://github.com/siposdani87/sui-js/blob/ad456a5/src/module/http.ts#L26)
+[module/http.ts:26](https://github.com/siposdani87/sui-js/blob/9aff0f0/src/module/http.ts#L26)
 
 ___
 
 ### \_setOptions
 
-▸ `Private` **_setOptions**(`opt_options?`): `void`
+▸ **_setOptions**(`opt_options?`): `void`
 
 #### Parameters
 
@@ -128,13 +132,13 @@ ___
 
 #### Defined in
 
-[module/http.ts:18](https://github.com/siposdani87/sui-js/blob/ad456a5/src/module/http.ts#L18)
+[module/http.ts:18](https://github.com/siposdani87/sui-js/blob/9aff0f0/src/module/http.ts#L18)
 
 ___
 
 ### delete
 
-▸ **delete**(`url`, `opt_data?`, `opt_params?`, `opt_headers?`): [`Promize`](Promize.md)<[[`Objekt`](Objekt.md)<`Object`\>, `string`], [[`Objekt`](Objekt.md)<`Object`\>, `string`]\>
+▸ **delete**(`url`, `opt_data?`, `opt_params?`, `opt_headers?`): [`Promize`](Promize.md)\<[[`Objekt`](Objekt.md)\<`Object`\>, `string`], [[`Objekt`](Objekt.md)\<`Object`\>, `string`]\>
 
 #### Parameters
 
@@ -147,11 +151,11 @@ ___
 
 #### Returns
 
-[`Promize`](Promize.md)<[[`Objekt`](Objekt.md)<`Object`\>, `string`], [[`Objekt`](Objekt.md)<`Object`\>, `string`]\>
+[`Promize`](Promize.md)\<[[`Objekt`](Objekt.md)\<`Object`\>, `string`], [[`Objekt`](Objekt.md)\<`Object`\>, `string`]\>
 
 #### Defined in
 
-[module/http.ts:82](https://github.com/siposdani87/sui-js/blob/ad456a5/src/module/http.ts#L82)
+[module/http.ts:82](https://github.com/siposdani87/sui-js/blob/9aff0f0/src/module/http.ts#L82)
 
 ___
 
@@ -164,7 +168,7 @@ ___
 | Name | Type |
 | :------ | :------ |
 | `http` | `XMLHttpRequest` |
-| `response` | [`Objekt`](Objekt.md)<`Object`\> |
+| `response` | [`Objekt`](Objekt.md)\<`Object`\> |
 | `filename` | `string` |
 
 #### Returns
@@ -173,7 +177,7 @@ ___
 
 #### Defined in
 
-[module/http.ts:127](https://github.com/siposdani87/sui-js/blob/ad456a5/src/module/http.ts#L127)
+[module/http.ts:127](https://github.com/siposdani87/sui-js/blob/9aff0f0/src/module/http.ts#L127)
 
 ___
 
@@ -193,13 +197,13 @@ ___
 
 #### Defined in
 
-[module/http.ts:123](https://github.com/siposdani87/sui-js/blob/ad456a5/src/module/http.ts#L123)
+[module/http.ts:123](https://github.com/siposdani87/sui-js/blob/9aff0f0/src/module/http.ts#L123)
 
 ___
 
 ### get
 
-▸ **get**(`url`, `opt_params?`, `opt_headers?`): [`Promize`](Promize.md)<[[`Objekt`](Objekt.md)<`Object`\>, `string`], [[`Objekt`](Objekt.md)<`Object`\>, `string`]\>
+▸ **get**(`url`, `opt_params?`, `opt_headers?`): [`Promize`](Promize.md)\<[[`Objekt`](Objekt.md)\<`Object`\>, `string`], [[`Objekt`](Objekt.md)\<`Object`\>, `string`]\>
 
 #### Parameters
 
@@ -211,17 +215,17 @@ ___
 
 #### Returns
 
-[`Promize`](Promize.md)<[[`Objekt`](Objekt.md)<`Object`\>, `string`], [[`Objekt`](Objekt.md)<`Object`\>, `string`]\>
+[`Promize`](Promize.md)\<[[`Objekt`](Objekt.md)\<`Object`\>, `string`], [[`Objekt`](Objekt.md)\<`Object`\>, `string`]\>
 
 #### Defined in
 
-[module/http.ts:41](https://github.com/siposdani87/sui-js/blob/ad456a5/src/module/http.ts#L41)
+[module/http.ts:41](https://github.com/siposdani87/sui-js/blob/9aff0f0/src/module/http.ts#L41)
 
 ___
 
 ### patch
 
-▸ **patch**(`url`, `opt_data?`, `opt_params?`, `opt_headers?`): [`Promize`](Promize.md)<[[`Objekt`](Objekt.md)<`Object`\>, `string`], [[`Objekt`](Objekt.md)<`Object`\>, `string`]\>
+▸ **patch**(`url`, `opt_data?`, `opt_params?`, `opt_headers?`): [`Promize`](Promize.md)\<[[`Objekt`](Objekt.md)\<`Object`\>, `string`], [[`Objekt`](Objekt.md)\<`Object`\>, `string`]\>
 
 #### Parameters
 
@@ -234,17 +238,17 @@ ___
 
 #### Returns
 
-[`Promize`](Promize.md)<[[`Objekt`](Objekt.md)<`Object`\>, `string`], [[`Objekt`](Objekt.md)<`Object`\>, `string`]\>
+[`Promize`](Promize.md)\<[[`Objekt`](Objekt.md)\<`Object`\>, `string`], [[`Objekt`](Objekt.md)\<`Object`\>, `string`]\>
 
 #### Defined in
 
-[module/http.ts:70](https://github.com/siposdani87/sui-js/blob/ad456a5/src/module/http.ts#L70)
+[module/http.ts:70](https://github.com/siposdani87/sui-js/blob/9aff0f0/src/module/http.ts#L70)
 
 ___
 
 ### post
 
-▸ **post**(`url`, `opt_data?`, `opt_params?`, `opt_headers?`): [`Promize`](Promize.md)<[[`Objekt`](Objekt.md)<`Object`\>, `string`], [[`Objekt`](Objekt.md)<`Object`\>, `string`]\>
+▸ **post**(`url`, `opt_data?`, `opt_params?`, `opt_headers?`): [`Promize`](Promize.md)\<[[`Objekt`](Objekt.md)\<`Object`\>, `string`], [[`Objekt`](Objekt.md)\<`Object`\>, `string`]\>
 
 #### Parameters
 
@@ -257,17 +261,17 @@ ___
 
 #### Returns
 
-[`Promize`](Promize.md)<[[`Objekt`](Objekt.md)<`Object`\>, `string`], [[`Objekt`](Objekt.md)<`Object`\>, `string`]\>
+[`Promize`](Promize.md)\<[[`Objekt`](Objekt.md)\<`Object`\>, `string`], [[`Objekt`](Objekt.md)\<`Object`\>, `string`]\>
 
 #### Defined in
 
-[module/http.ts:46](https://github.com/siposdani87/sui-js/blob/ad456a5/src/module/http.ts#L46)
+[module/http.ts:46](https://github.com/siposdani87/sui-js/blob/9aff0f0/src/module/http.ts#L46)
 
 ___
 
 ### put
 
-▸ **put**(`url`, `opt_data?`, `opt_params?`, `opt_headers?`): [`Promize`](Promize.md)<[[`Objekt`](Objekt.md)<`Object`\>, `string`], [[`Objekt`](Objekt.md)<`Object`\>, `string`]\>
+▸ **put**(`url`, `opt_data?`, `opt_params?`, `opt_headers?`): [`Promize`](Promize.md)\<[[`Objekt`](Objekt.md)\<`Object`\>, `string`], [[`Objekt`](Objekt.md)\<`Object`\>, `string`]\>
 
 #### Parameters
 
@@ -280,11 +284,11 @@ ___
 
 #### Returns
 
-[`Promize`](Promize.md)<[[`Objekt`](Objekt.md)<`Object`\>, `string`], [[`Objekt`](Objekt.md)<`Object`\>, `string`]\>
+[`Promize`](Promize.md)\<[[`Objekt`](Objekt.md)\<`Object`\>, `string`], [[`Objekt`](Objekt.md)\<`Object`\>, `string`]\>
 
 #### Defined in
 
-[module/http.ts:58](https://github.com/siposdani87/sui-js/blob/ad456a5/src/module/http.ts#L58)
+[module/http.ts:58](https://github.com/siposdani87/sui-js/blob/9aff0f0/src/module/http.ts#L58)
 
 ___
 
@@ -305,7 +309,7 @@ ___
 
 #### Defined in
 
-[module/http.ts:32](https://github.com/siposdani87/sui-js/blob/ad456a5/src/module/http.ts#L32)
+[module/http.ts:32](https://github.com/siposdani87/sui-js/blob/9aff0f0/src/module/http.ts#L32)
 
 ___
 
@@ -325,4 +329,4 @@ ___
 
 #### Defined in
 
-[module/http.ts:37](https://github.com/siposdani87/sui-js/blob/ad456a5/src/module/http.ts#L37)
+[module/http.ts:37](https://github.com/siposdani87/sui-js/blob/9aff0f0/src/module/http.ts#L37)

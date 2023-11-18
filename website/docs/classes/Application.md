@@ -10,7 +10,7 @@ custom_edit_url: null
 
 ### constructor
 
-• **new Application**(`options`, `resources`)
+• **new Application**(`options`, `resources`): [`Application`](Application.md)
 
 #### Parameters
 
@@ -19,9 +19,13 @@ custom_edit_url: null
 | `options` | `Object` |
 | `resources` | [`Injection`](../modules.md#injection) |
 
+#### Returns
+
+[`Application`](Application.md)
+
 #### Defined in
 
-[component/application.ts:74](https://github.com/siposdani87/sui-js/blob/ad456a5/src/component/application.ts#L74)
+[component/application.ts:74](https://github.com/siposdani87/sui-js/blob/9aff0f0/src/component/application.ts#L74)
 
 ## Properties
 
@@ -31,7 +35,7 @@ custom_edit_url: null
 
 #### Defined in
 
-[component/application.ts:36](https://github.com/siposdani87/sui-js/blob/ad456a5/src/component/application.ts#L36)
+[component/application.ts:36](https://github.com/siposdani87/sui-js/blob/9aff0f0/src/component/application.ts#L36)
 
 ___
 
@@ -41,7 +45,7 @@ ___
 
 #### Defined in
 
-[component/application.ts:37](https://github.com/siposdani87/sui-js/blob/ad456a5/src/component/application.ts#L37)
+[component/application.ts:37](https://github.com/siposdani87/sui-js/blob/9aff0f0/src/component/application.ts#L37)
 
 ___
 
@@ -51,33 +55,33 @@ ___
 
 #### Defined in
 
-[component/application.ts:71](https://github.com/siposdani87/sui-js/blob/ad456a5/src/component/application.ts#L71)
+[component/application.ts:71](https://github.com/siposdani87/sui-js/blob/9aff0f0/src/component/application.ts#L71)
 
 ___
 
 ### \_routeOptions
 
-• `Private` **\_routeOptions**: [`Objekt`](Objekt.md)<`Object`\>
+• `Private` **\_routeOptions**: [`Objekt`](Objekt.md)\<`Object`\>
 
 #### Defined in
 
-[component/application.ts:72](https://github.com/siposdani87/sui-js/blob/ad456a5/src/component/application.ts#L72)
+[component/application.ts:72](https://github.com/siposdani87/sui-js/blob/9aff0f0/src/component/application.ts#L72)
 
 ___
 
 ### options
 
-• **options**: [`Objekt`](Objekt.md)<`Object`\>
+• **options**: [`Objekt`](Objekt.md)\<`Object`\>
 
 #### Defined in
 
-[component/application.ts:35](https://github.com/siposdani87/sui-js/blob/ad456a5/src/component/application.ts#L35)
+[component/application.ts:35](https://github.com/siposdani87/sui-js/blob/9aff0f0/src/component/application.ts#L35)
 
 ## Methods
 
 ### \_init
 
-▸ `Private` **_init**(`resources`): `void`
+▸ **_init**(`resources`): `void`
 
 #### Parameters
 
@@ -91,13 +95,13 @@ ___
 
 #### Defined in
 
-[component/application.ts:91](https://github.com/siposdani87/sui-js/blob/ad456a5/src/component/application.ts#L91)
+[component/application.ts:91](https://github.com/siposdani87/sui-js/blob/9aff0f0/src/component/application.ts#L91)
 
 ___
 
 ### \_initApp
 
-▸ `Private` **_initApp**(): `void`
+▸ **_initApp**(): `void`
 
 #### Returns
 
@@ -105,13 +109,13 @@ ___
 
 #### Defined in
 
-[component/application.ts:235](https://github.com/siposdani87/sui-js/blob/ad456a5/src/component/application.ts#L235)
+[component/application.ts:234](https://github.com/siposdani87/sui-js/blob/9aff0f0/src/component/application.ts#L234)
 
 ___
 
 ### \_initBottomMenu
 
-▸ `Private` **_initBottomMenu**(): `void`
+▸ **_initBottomMenu**(): `void`
 
 #### Returns
 
@@ -119,13 +123,13 @@ ___
 
 #### Defined in
 
-[component/application.ts:445](https://github.com/siposdani87/sui-js/blob/ad456a5/src/component/application.ts#L445)
+[component/application.ts:444](https://github.com/siposdani87/sui-js/blob/9aff0f0/src/component/application.ts#L444)
 
 ___
 
 ### \_initBrowser
 
-▸ `Private` **_initBrowser**(): `void`
+▸ **_initBrowser**(): `void`
 
 #### Returns
 
@@ -133,13 +137,13 @@ ___
 
 #### Defined in
 
-[component/application.ts:457](https://github.com/siposdani87/sui-js/blob/ad456a5/src/component/application.ts#L457)
+[component/application.ts:456](https://github.com/siposdani87/sui-js/blob/9aff0f0/src/component/application.ts#L456)
 
 ___
 
 ### \_initCertificate
 
-▸ `Private` **_initCertificate**(): `void`
+▸ **_initCertificate**(): `void`
 
 #### Returns
 
@@ -147,13 +151,13 @@ ___
 
 #### Defined in
 
-[component/application.ts:158](https://github.com/siposdani87/sui-js/blob/ad456a5/src/component/application.ts#L158)
+[component/application.ts:158](https://github.com/siposdani87/sui-js/blob/9aff0f0/src/component/application.ts#L158)
 
 ___
 
 ### \_initConfig
 
-▸ `Private` **_initConfig**(): `void`
+▸ **_initConfig**(): `void`
 
 #### Returns
 
@@ -161,13 +165,13 @@ ___
 
 #### Defined in
 
-[component/application.ts:231](https://github.com/siposdani87/sui-js/blob/ad456a5/src/component/application.ts#L231)
+[component/application.ts:230](https://github.com/siposdani87/sui-js/blob/9aff0f0/src/component/application.ts#L230)
 
 ___
 
 ### \_initConfirm
 
-▸ `Private` **_initConfirm**(): `void`
+▸ **_initConfirm**(): `void`
 
 #### Returns
 
@@ -175,13 +179,13 @@ ___
 
 #### Defined in
 
-[component/application.ts:425](https://github.com/siposdani87/sui-js/blob/ad456a5/src/component/application.ts#L425)
+[component/application.ts:424](https://github.com/siposdani87/sui-js/blob/9aff0f0/src/component/application.ts#L424)
 
 ___
 
 ### \_initCookie
 
-▸ `Private` **_initCookie**(): `void`
+▸ **_initCookie**(): `void`
 
 #### Returns
 
@@ -189,13 +193,13 @@ ___
 
 #### Defined in
 
-[component/application.ts:271](https://github.com/siposdani87/sui-js/blob/ad456a5/src/component/application.ts#L271)
+[component/application.ts:270](https://github.com/siposdani87/sui-js/blob/9aff0f0/src/component/application.ts#L270)
 
 ___
 
 ### \_initDepots
 
-▸ `Private` **_initDepots**(): `void`
+▸ **_initDepots**(): `void`
 
 #### Returns
 
@@ -203,13 +207,13 @@ ___
 
 #### Defined in
 
-[component/application.ts:288](https://github.com/siposdani87/sui-js/blob/ad456a5/src/component/application.ts#L288)
+[component/application.ts:287](https://github.com/siposdani87/sui-js/blob/9aff0f0/src/component/application.ts#L287)
 
 ___
 
 ### \_initDialog
 
-▸ `Private` **_initDialog**(): `void`
+▸ **_initDialog**(): `void`
 
 #### Returns
 
@@ -217,13 +221,13 @@ ___
 
 #### Defined in
 
-[component/application.ts:421](https://github.com/siposdani87/sui-js/blob/ad456a5/src/component/application.ts#L421)
+[component/application.ts:420](https://github.com/siposdani87/sui-js/blob/9aff0f0/src/component/application.ts#L420)
 
 ___
 
 ### \_initEventBus
 
-▸ `Private` **_initEventBus**(): `void`
+▸ **_initEventBus**(): `void`
 
 #### Returns
 
@@ -231,13 +235,13 @@ ___
 
 #### Defined in
 
-[component/application.ts:386](https://github.com/siposdani87/sui-js/blob/ad456a5/src/component/application.ts#L386)
+[component/application.ts:385](https://github.com/siposdani87/sui-js/blob/9aff0f0/src/component/application.ts#L385)
 
 ___
 
 ### \_initFlash
 
-▸ `Private` **_initFlash**(): `void`
+▸ **_initFlash**(): `void`
 
 #### Returns
 
@@ -245,13 +249,13 @@ ___
 
 #### Defined in
 
-[component/application.ts:417](https://github.com/siposdani87/sui-js/blob/ad456a5/src/component/application.ts#L417)
+[component/application.ts:416](https://github.com/siposdani87/sui-js/blob/9aff0f0/src/component/application.ts#L416)
 
 ___
 
 ### \_initFooter
 
-▸ `Private` **_initFooter**(): `void`
+▸ **_initFooter**(): `void`
 
 #### Returns
 
@@ -259,13 +263,13 @@ ___
 
 #### Defined in
 
-[component/application.ts:453](https://github.com/siposdani87/sui-js/blob/ad456a5/src/component/application.ts#L453)
+[component/application.ts:452](https://github.com/siposdani87/sui-js/blob/9aff0f0/src/component/application.ts#L452)
 
 ___
 
 ### \_initGeoLocation
 
-▸ `Private` **_initGeoLocation**(): `void`
+▸ **_initGeoLocation**(): `void`
 
 #### Returns
 
@@ -273,13 +277,13 @@ ___
 
 #### Defined in
 
-[component/application.ts:239](https://github.com/siposdani87/sui-js/blob/ad456a5/src/component/application.ts#L239)
+[component/application.ts:238](https://github.com/siposdani87/sui-js/blob/9aff0f0/src/component/application.ts#L238)
 
 ___
 
 ### \_initHeader
 
-▸ `Private` **_initHeader**(): `void`
+▸ **_initHeader**(): `void`
 
 #### Returns
 
@@ -287,13 +291,13 @@ ___
 
 #### Defined in
 
-[component/application.ts:433](https://github.com/siposdani87/sui-js/blob/ad456a5/src/component/application.ts#L433)
+[component/application.ts:432](https://github.com/siposdani87/sui-js/blob/9aff0f0/src/component/application.ts#L432)
 
 ___
 
 ### \_initHelper
 
-▸ `Private` **_initHelper**(): `void`
+▸ **_initHelper**(): `void`
 
 #### Returns
 
@@ -301,13 +305,13 @@ ___
 
 #### Defined in
 
-[component/application.ts:299](https://github.com/siposdani87/sui-js/blob/ad456a5/src/component/application.ts#L299)
+[component/application.ts:298](https://github.com/siposdani87/sui-js/blob/9aff0f0/src/component/application.ts#L298)
 
 ___
 
 ### \_initHttp
 
-▸ `Private` **_initHttp**(): `void`
+▸ **_initHttp**(): `void`
 
 #### Returns
 
@@ -315,13 +319,13 @@ ___
 
 #### Defined in
 
-[component/application.ts:394](https://github.com/siposdani87/sui-js/blob/ad456a5/src/component/application.ts#L394)
+[component/application.ts:393](https://github.com/siposdani87/sui-js/blob/9aff0f0/src/component/application.ts#L393)
 
 ___
 
 ### \_initLeftMenu
 
-▸ `Private` **_initLeftMenu**(): `void`
+▸ **_initLeftMenu**(): `void`
 
 #### Returns
 
@@ -329,13 +333,13 @@ ___
 
 #### Defined in
 
-[component/application.ts:449](https://github.com/siposdani87/sui-js/blob/ad456a5/src/component/application.ts#L449)
+[component/application.ts:448](https://github.com/siposdani87/sui-js/blob/9aff0f0/src/component/application.ts#L448)
 
 ___
 
 ### \_initLoader
 
-▸ `Private` **_initLoader**(): `void`
+▸ **_initLoader**(): `void`
 
 #### Returns
 
@@ -343,13 +347,13 @@ ___
 
 #### Defined in
 
-[component/application.ts:277](https://github.com/siposdani87/sui-js/blob/ad456a5/src/component/application.ts#L277)
+[component/application.ts:276](https://github.com/siposdani87/sui-js/blob/9aff0f0/src/component/application.ts#L276)
 
 ___
 
 ### \_initLocale
 
-▸ `Private` **_initLocale**(): `void`
+▸ **_initLocale**(): `void`
 
 #### Returns
 
@@ -357,13 +361,13 @@ ___
 
 #### Defined in
 
-[component/application.ts:152](https://github.com/siposdani87/sui-js/blob/ad456a5/src/component/application.ts#L152)
+[component/application.ts:152](https://github.com/siposdani87/sui-js/blob/9aff0f0/src/component/application.ts#L152)
 
 ___
 
 ### \_initModule
 
-▸ `Private` **_initModule**(): `void`
+▸ **_initModule**(): `void`
 
 #### Returns
 
@@ -371,13 +375,13 @@ ___
 
 #### Defined in
 
-[component/application.ts:163](https://github.com/siposdani87/sui-js/blob/ad456a5/src/component/application.ts#L163)
+[component/application.ts:163](https://github.com/siposdani87/sui-js/blob/9aff0f0/src/component/application.ts#L163)
 
 ___
 
 ### \_initNavBar
 
-▸ `Private` **_initNavBar**(): `void`
+▸ **_initNavBar**(): `void`
 
 #### Returns
 
@@ -385,13 +389,13 @@ ___
 
 #### Defined in
 
-[component/application.ts:441](https://github.com/siposdani87/sui-js/blob/ad456a5/src/component/application.ts#L441)
+[component/application.ts:440](https://github.com/siposdani87/sui-js/blob/9aff0f0/src/component/application.ts#L440)
 
 ___
 
 ### \_initPage
 
-▸ `Private` **_initPage**(): `void`
+▸ **_initPage**(): `void`
 
 #### Returns
 
@@ -399,13 +403,13 @@ ___
 
 #### Defined in
 
-[component/application.ts:303](https://github.com/siposdani87/sui-js/blob/ad456a5/src/component/application.ts#L303)
+[component/application.ts:302](https://github.com/siposdani87/sui-js/blob/9aff0f0/src/component/application.ts#L302)
 
 ___
 
 ### \_initProgressBar
 
-▸ `Private` **_initProgressBar**(): `void`
+▸ **_initProgressBar**(): `void`
 
 #### Returns
 
@@ -413,13 +417,13 @@ ___
 
 #### Defined in
 
-[component/application.ts:281](https://github.com/siposdani87/sui-js/blob/ad456a5/src/component/application.ts#L281)
+[component/application.ts:280](https://github.com/siposdani87/sui-js/blob/9aff0f0/src/component/application.ts#L280)
 
 ___
 
 ### \_initRoutes
 
-▸ `Private` **_initRoutes**(): `void`
+▸ **_initRoutes**(): `void`
 
 #### Returns
 
@@ -427,13 +431,13 @@ ___
 
 #### Defined in
 
-[component/application.ts:464](https://github.com/siposdani87/sui-js/blob/ad456a5/src/component/application.ts#L464)
+[component/application.ts:463](https://github.com/siposdani87/sui-js/blob/9aff0f0/src/component/application.ts#L463)
 
 ___
 
 ### \_initScheduler
 
-▸ `Private` **_initScheduler**(): `void`
+▸ **_initScheduler**(): `void`
 
 #### Returns
 
@@ -441,13 +445,13 @@ ___
 
 #### Defined in
 
-[component/application.ts:390](https://github.com/siposdani87/sui-js/blob/ad456a5/src/component/application.ts#L390)
+[component/application.ts:389](https://github.com/siposdani87/sui-js/blob/9aff0f0/src/component/application.ts#L389)
 
 ___
 
 ### \_initScreen
 
-▸ `Private` **_initScreen**(): `void`
+▸ **_initScreen**(): `void`
 
 #### Returns
 
@@ -455,13 +459,13 @@ ___
 
 #### Defined in
 
-[component/application.ts:312](https://github.com/siposdani87/sui-js/blob/ad456a5/src/component/application.ts#L312)
+[component/application.ts:311](https://github.com/siposdani87/sui-js/blob/9aff0f0/src/component/application.ts#L311)
 
 ___
 
 ### \_initScript
 
-▸ `Private` **_initScript**(): `void`
+▸ **_initScript**(): `void`
 
 #### Returns
 
@@ -469,13 +473,13 @@ ___
 
 #### Defined in
 
-[component/application.ts:223](https://github.com/siposdani87/sui-js/blob/ad456a5/src/component/application.ts#L223)
+[component/application.ts:222](https://github.com/siposdani87/sui-js/blob/9aff0f0/src/component/application.ts#L222)
 
 ___
 
 ### \_initStyle
 
-▸ `Private` **_initStyle**(): `void`
+▸ **_initStyle**(): `void`
 
 #### Returns
 
@@ -483,13 +487,13 @@ ___
 
 #### Defined in
 
-[component/application.ts:227](https://github.com/siposdani87/sui-js/blob/ad456a5/src/component/application.ts#L227)
+[component/application.ts:226](https://github.com/siposdani87/sui-js/blob/9aff0f0/src/component/application.ts#L226)
 
 ___
 
 ### \_initTemplate
 
-▸ `Private` **_initTemplate**(): `void`
+▸ **_initTemplate**(): `void`
 
 #### Returns
 
@@ -497,13 +501,13 @@ ___
 
 #### Defined in
 
-[component/application.ts:406](https://github.com/siposdani87/sui-js/blob/ad456a5/src/component/application.ts#L406)
+[component/application.ts:405](https://github.com/siposdani87/sui-js/blob/9aff0f0/src/component/application.ts#L405)
 
 ___
 
 ### \_initTopMenu
 
-▸ `Private` **_initTopMenu**(): `void`
+▸ **_initTopMenu**(): `void`
 
 #### Returns
 
@@ -511,13 +515,13 @@ ___
 
 #### Defined in
 
-[component/application.ts:437](https://github.com/siposdani87/sui-js/blob/ad456a5/src/component/application.ts#L437)
+[component/application.ts:436](https://github.com/siposdani87/sui-js/blob/9aff0f0/src/component/application.ts#L436)
 
 ___
 
 ### \_initViewer
 
-▸ `Private` **_initViewer**(): `void`
+▸ **_initViewer**(): `void`
 
 #### Returns
 
@@ -525,13 +529,13 @@ ___
 
 #### Defined in
 
-[component/application.ts:429](https://github.com/siposdani87/sui-js/blob/ad456a5/src/component/application.ts#L429)
+[component/application.ts:428](https://github.com/siposdani87/sui-js/blob/9aff0f0/src/component/application.ts#L428)
 
 ___
 
 ### \_loadModules
 
-▸ `Private` **_loadModules**(): `void`
+▸ **_loadModules**(): `void`
 
 #### Returns
 
@@ -539,13 +543,13 @@ ___
 
 #### Defined in
 
-[component/application.ts:217](https://github.com/siposdani87/sui-js/blob/ad456a5/src/component/application.ts#L217)
+[component/application.ts:216](https://github.com/siposdani87/sui-js/blob/9aff0f0/src/component/application.ts#L216)
 
 ___
 
 ### \_setOptions
 
-▸ `Private` **_setOptions**(`options`): `void`
+▸ **_setOptions**(`options`): `void`
 
 #### Parameters
 
@@ -559,7 +563,7 @@ ___
 
 #### Defined in
 
-[component/application.ts:79](https://github.com/siposdani87/sui-js/blob/ad456a5/src/component/application.ts#L79)
+[component/application.ts:79](https://github.com/siposdani87/sui-js/blob/9aff0f0/src/component/application.ts#L79)
 
 ___
 
@@ -581,7 +585,7 @@ ___
 
 #### Defined in
 
-[component/application.ts:497](https://github.com/siposdani87/sui-js/blob/ad456a5/src/component/application.ts#L497)
+[component/application.ts:496](https://github.com/siposdani87/sui-js/blob/9aff0f0/src/component/application.ts#L496)
 
 ___
 
@@ -595,7 +599,7 @@ ___
 
 #### Defined in
 
-[component/application.ts:477](https://github.com/siposdani87/sui-js/blob/ad456a5/src/component/application.ts#L477)
+[component/application.ts:476](https://github.com/siposdani87/sui-js/blob/9aff0f0/src/component/application.ts#L476)
 
 ___
 
@@ -615,7 +619,7 @@ ___
 
 #### Defined in
 
-[component/application.ts:473](https://github.com/siposdani87/sui-js/blob/ad456a5/src/component/application.ts#L473)
+[component/application.ts:472](https://github.com/siposdani87/sui-js/blob/9aff0f0/src/component/application.ts#L472)
 
 ___
 
@@ -629,7 +633,7 @@ ___
 
 #### Defined in
 
-[component/application.ts:129](https://github.com/siposdani87/sui-js/blob/ad456a5/src/component/application.ts#L129)
+[component/application.ts:129](https://github.com/siposdani87/sui-js/blob/9aff0f0/src/component/application.ts#L129)
 
 ___
 
@@ -643,7 +647,7 @@ ___
 
 #### Defined in
 
-[component/application.ts:134](https://github.com/siposdani87/sui-js/blob/ad456a5/src/component/application.ts#L134)
+[component/application.ts:134](https://github.com/siposdani87/sui-js/blob/9aff0f0/src/component/application.ts#L134)
 
 ___
 
@@ -664,7 +668,7 @@ ___
 
 #### Defined in
 
-[component/application.ts:481](https://github.com/siposdani87/sui-js/blob/ad456a5/src/component/application.ts#L481)
+[component/application.ts:480](https://github.com/siposdani87/sui-js/blob/9aff0f0/src/component/application.ts#L480)
 
 ___
 
@@ -686,7 +690,7 @@ ___
 
 #### Defined in
 
-[component/application.ts:505](https://github.com/siposdani87/sui-js/blob/ad456a5/src/component/application.ts#L505)
+[component/application.ts:504](https://github.com/siposdani87/sui-js/blob/9aff0f0/src/component/application.ts#L504)
 
 ___
 
@@ -706,7 +710,7 @@ ___
 
 #### Defined in
 
-[component/application.ts:142](https://github.com/siposdani87/sui-js/blob/ad456a5/src/component/application.ts#L142)
+[component/application.ts:142](https://github.com/siposdani87/sui-js/blob/9aff0f0/src/component/application.ts#L142)
 
 ___
 
@@ -726,7 +730,7 @@ ___
 
 #### Defined in
 
-[component/application.ts:147](https://github.com/siposdani87/sui-js/blob/ad456a5/src/component/application.ts#L147)
+[component/application.ts:147](https://github.com/siposdani87/sui-js/blob/9aff0f0/src/component/application.ts#L147)
 
 ___
 
@@ -747,4 +751,4 @@ ___
 
 #### Defined in
 
-[component/application.ts:468](https://github.com/siposdani87/sui-js/blob/ad456a5/src/component/application.ts#L468)
+[component/application.ts:467](https://github.com/siposdani87/sui-js/blob/9aff0f0/src/component/application.ts#L467)

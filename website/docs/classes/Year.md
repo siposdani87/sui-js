@@ -10,7 +10,7 @@ custom_edit_url: null
 
 ### constructor
 
-• **new Year**(`date`, `currentDate`, `options`)
+• **new Year**(`date`, `currentDate`, `options`): [`Year`](Year.md)
 
 #### Parameters
 
@@ -20,9 +20,13 @@ custom_edit_url: null
 | `currentDate` | `Date` |
 | `options` | `Object` |
 
+#### Returns
+
+[`Year`](Year.md)
+
 #### Defined in
 
-[component/year.ts:12](https://github.com/siposdani87/sui-js/blob/ad456a5/src/component/year.ts#L12)
+[component/year.ts:12](https://github.com/siposdani87/sui-js/blob/9aff0f0/src/component/year.ts#L12)
 
 ## Properties
 
@@ -32,7 +36,7 @@ custom_edit_url: null
 
 #### Defined in
 
-[component/year.ts:10](https://github.com/siposdani87/sui-js/blob/ad456a5/src/component/year.ts#L10)
+[component/year.ts:10](https://github.com/siposdani87/sui-js/blob/9aff0f0/src/component/year.ts#L10)
 
 ___
 
@@ -42,7 +46,7 @@ ___
 
 #### Defined in
 
-[component/year.ts:8](https://github.com/siposdani87/sui-js/blob/ad456a5/src/component/year.ts#L8)
+[component/year.ts:8](https://github.com/siposdani87/sui-js/blob/9aff0f0/src/component/year.ts#L8)
 
 ___
 
@@ -52,23 +56,23 @@ ___
 
 #### Defined in
 
-[component/year.ts:7](https://github.com/siposdani87/sui-js/blob/ad456a5/src/component/year.ts#L7)
+[component/year.ts:7](https://github.com/siposdani87/sui-js/blob/9aff0f0/src/component/year.ts#L7)
 
 ___
 
 ### options
 
-• **options**: [`Objekt`](Objekt.md)<`Object`\>
+• **options**: [`Objekt`](Objekt.md)\<`Object`\>
 
 #### Defined in
 
-[component/year.ts:9](https://github.com/siposdani87/sui-js/blob/ad456a5/src/component/year.ts#L9)
+[component/year.ts:9](https://github.com/siposdani87/sui-js/blob/9aff0f0/src/component/year.ts#L9)
 
 ## Methods
 
 ### \_init
 
-▸ `Private` **_init**(): `void`
+▸ **_init**(): `void`
 
 #### Returns
 
@@ -76,13 +80,13 @@ ___
 
 #### Defined in
 
-[component/year.ts:23](https://github.com/siposdani87/sui-js/blob/ad456a5/src/component/year.ts#L23)
+[component/year.ts:23](https://github.com/siposdani87/sui-js/blob/9aff0f0/src/component/year.ts#L23)
 
 ___
 
 ### \_setOptions
 
-▸ `Private` **_setOptions**(`options`): `void`
+▸ **_setOptions**(`options`): `void`
 
 #### Parameters
 
@@ -96,7 +100,7 @@ ___
 
 #### Defined in
 
-[component/year.ts:19](https://github.com/siposdani87/sui-js/blob/ad456a5/src/component/year.ts#L19)
+[component/year.ts:19](https://github.com/siposdani87/sui-js/blob/9aff0f0/src/component/year.ts#L19)
 
 ___
 
@@ -116,18 +120,18 @@ ___
 
 #### Defined in
 
-[component/year.ts:49](https://github.com/siposdani87/sui-js/blob/ad456a5/src/component/year.ts#L49)
+[component/year.ts:49](https://github.com/siposdani87/sui-js/blob/9aff0f0/src/component/year.ts#L49)
 
 ___
 
 ### getKnot
 
-▸ **getKnot**(): [`Knot`](Knot.md)<`HTMLElement`\>
+▸ **getKnot**(): [`Knot`](Knot.md)\<`HTMLElement`\>
 
 #### Returns
 
-[`Knot`](Knot.md)<`HTMLElement`\>
+[`Knot`](Knot.md)\<`HTMLElement`\>
 
 #### Defined in
 
-[component/year.ts:37](https://github.com/siposdani87/sui-js/blob/ad456a5/src/component/year.ts#L37)
+[component/year.ts:37](https://github.com/siposdani87/sui-js/blob/9aff0f0/src/component/year.ts#L37)

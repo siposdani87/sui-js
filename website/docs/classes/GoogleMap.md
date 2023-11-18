@@ -10,19 +10,23 @@ custom_edit_url: null
 
 ### constructor
 
-• **new GoogleMap**(`dom`, `opt_selector?`, `opt_options?`)
+• **new GoogleMap**(`dom`, `opt_selector?`, `opt_options?`): [`GoogleMap`](GoogleMap.md)
 
 #### Parameters
 
 | Name | Type | Default value |
 | :------ | :------ | :------ |
-| `dom` | [`Knot`](Knot.md)<`HTMLElement`\> | `undefined` |
+| `dom` | [`Knot`](Knot.md)\<`HTMLElement`\> | `undefined` |
 | `opt_selector` | `string` | `'.map'` |
 | `opt_options` | `Object` | `{}` |
 
+#### Returns
+
+[`GoogleMap`](GoogleMap.md)
+
 #### Defined in
 
-[component/googleMap.ts:69](https://github.com/siposdani87/sui-js/blob/ad456a5/src/component/googleMap.ts#L69)
+[component/googleMap.ts:69](https://github.com/siposdani87/sui-js/blob/9aff0f0/src/component/googleMap.ts#L69)
 
 ## Properties
 
@@ -32,17 +36,17 @@ custom_edit_url: null
 
 #### Defined in
 
-[component/googleMap.ts:67](https://github.com/siposdani87/sui-js/blob/ad456a5/src/component/googleMap.ts#L67)
+[component/googleMap.ts:67](https://github.com/siposdani87/sui-js/blob/9aff0f0/src/component/googleMap.ts#L67)
 
 ___
 
 ### heatmapOptions
 
-• **heatmapOptions**: [`Objekt`](Objekt.md)<`Object`\>
+• **heatmapOptions**: [`Objekt`](Objekt.md)\<`Object`\>
 
 #### Defined in
 
-[component/googleMap.ts:66](https://github.com/siposdani87/sui-js/blob/ad456a5/src/component/googleMap.ts#L66)
+[component/googleMap.ts:66](https://github.com/siposdani87/sui-js/blob/9aff0f0/src/component/googleMap.ts#L66)
 
 ___
 
@@ -52,17 +56,17 @@ ___
 
 #### Defined in
 
-[component/googleMap.ts:57](https://github.com/siposdani87/sui-js/blob/ad456a5/src/component/googleMap.ts#L57)
+[component/googleMap.ts:57](https://github.com/siposdani87/sui-js/blob/9aff0f0/src/component/googleMap.ts#L57)
 
 ___
 
 ### mapKnot
 
-• **mapKnot**: [`Knot`](Knot.md)<`HTMLElement`\>
+• **mapKnot**: [`Knot`](Knot.md)\<`HTMLElement`\>
 
 #### Defined in
 
-[component/googleMap.ts:55](https://github.com/siposdani87/sui-js/blob/ad456a5/src/component/googleMap.ts#L55)
+[component/googleMap.ts:55](https://github.com/siposdani87/sui-js/blob/9aff0f0/src/component/googleMap.ts#L55)
 
 ___
 
@@ -76,37 +80,37 @@ ___
 
 #### Defined in
 
-[component/googleMap.ts:58](https://github.com/siposdani87/sui-js/blob/ad456a5/src/component/googleMap.ts#L58)
+[component/googleMap.ts:58](https://github.com/siposdani87/sui-js/blob/9aff0f0/src/component/googleMap.ts#L58)
 
 ___
 
 ### markerOptions
 
-• **markerOptions**: [`Objekt`](Objekt.md)<`Object`\>
+• **markerOptions**: [`Objekt`](Objekt.md)\<`Object`\>
 
 #### Defined in
 
-[component/googleMap.ts:65](https://github.com/siposdani87/sui-js/blob/ad456a5/src/component/googleMap.ts#L65)
+[component/googleMap.ts:65](https://github.com/siposdani87/sui-js/blob/9aff0f0/src/component/googleMap.ts#L65)
 
 ___
 
 ### markers
 
-• **markers**: [`Collection`](Collection.md)<[`Objekt`](Objekt.md)<`Object`\>\>
+• **markers**: [`Collection`](Collection.md)\<[`Objekt`](Objekt.md)\<`Object`\>\>
 
 #### Defined in
 
-[component/googleMap.ts:64](https://github.com/siposdani87/sui-js/blob/ad456a5/src/component/googleMap.ts#L64)
+[component/googleMap.ts:64](https://github.com/siposdani87/sui-js/blob/9aff0f0/src/component/googleMap.ts#L64)
 
 ___
 
 ### options
 
-• **options**: [`Objekt`](Objekt.md)<`Object`\>
+• **options**: [`Objekt`](Objekt.md)\<`Object`\>
 
 #### Defined in
 
-[component/googleMap.ts:56](https://github.com/siposdani87/sui-js/blob/ad456a5/src/component/googleMap.ts#L56)
+[component/googleMap.ts:56](https://github.com/siposdani87/sui-js/blob/9aff0f0/src/component/googleMap.ts#L56)
 
 ___
 
@@ -116,40 +120,40 @@ ___
 
 #### Defined in
 
-[component/googleMap.ts:61](https://github.com/siposdani87/sui-js/blob/ad456a5/src/component/googleMap.ts#L61)
+[component/googleMap.ts:61](https://github.com/siposdani87/sui-js/blob/9aff0f0/src/component/googleMap.ts#L61)
 
 ___
 
 ### polygonOptions
 
-• **polygonOptions**: [`Objekt`](Objekt.md)<`Object`\>
+• **polygonOptions**: [`Objekt`](Objekt.md)\<`Object`\>
 
 #### Defined in
 
-[component/googleMap.ts:62](https://github.com/siposdani87/sui-js/blob/ad456a5/src/component/googleMap.ts#L62)
+[component/googleMap.ts:62](https://github.com/siposdani87/sui-js/blob/9aff0f0/src/component/googleMap.ts#L62)
 
 ___
 
 ### polygons
 
-• **polygons**: [`Collection`](Collection.md)<[`Objekt`](Objekt.md)<`Object`\>\>
+• **polygons**: [`Collection`](Collection.md)\<[`Objekt`](Objekt.md)\<`Object`\>\>
 
 #### Defined in
 
-[component/googleMap.ts:63](https://github.com/siposdani87/sui-js/blob/ad456a5/src/component/googleMap.ts#L63)
+[component/googleMap.ts:63](https://github.com/siposdani87/sui-js/blob/9aff0f0/src/component/googleMap.ts#L63)
 
 ## Methods
 
 ### \_addPointsToPolygon
 
-▸ `Private` **_addPointsToPolygon**(`polygonData`, `points`): `void`
+▸ **_addPointsToPolygon**(`polygonData`, `points`): `void`
 
 #### Parameters
 
 | Name | Type |
 | :------ | :------ |
-| `polygonData` | [`Objekt`](Objekt.md)<`Object`\> |
-| `points` | { `latitude`: `number` ; `longitude`: `number`  }[] |
+| `polygonData` | [`Objekt`](Objekt.md)\<`Object`\> |
+| `points` | \{ `latitude`: `number` ; `longitude`: `number`  }[] |
 
 #### Returns
 
@@ -157,13 +161,13 @@ ___
 
 #### Defined in
 
-[component/googleMap.ts:428](https://github.com/siposdani87/sui-js/blob/ad456a5/src/component/googleMap.ts#L428)
+[component/googleMap.ts:428](https://github.com/siposdani87/sui-js/blob/9aff0f0/src/component/googleMap.ts#L428)
 
 ___
 
 ### \_bindEventsToMap
 
-▸ `Private` **_bindEventsToMap**(): `void`
+▸ **_bindEventsToMap**(): `void`
 
 #### Returns
 
@@ -171,20 +175,20 @@ ___
 
 #### Defined in
 
-[component/googleMap.ts:141](https://github.com/siposdani87/sui-js/blob/ad456a5/src/component/googleMap.ts#L141)
+[component/googleMap.ts:141](https://github.com/siposdani87/sui-js/blob/9aff0f0/src/component/googleMap.ts#L141)
 
 ___
 
 ### \_bindEventsToMarker
 
-▸ `Private` **_bindEventsToMarker**(`marker`, `markerData`): `void`
+▸ **_bindEventsToMarker**(`marker`, `markerData`): `void`
 
 #### Parameters
 
 | Name | Type |
 | :------ | :------ |
 | `marker` | `Marker` |
-| `markerData` | [`Objekt`](Objekt.md)<`Object`\> |
+| `markerData` | [`Objekt`](Objekt.md)\<`Object`\> |
 
 #### Returns
 
@@ -192,20 +196,20 @@ ___
 
 #### Defined in
 
-[component/googleMap.ts:692](https://github.com/siposdani87/sui-js/blob/ad456a5/src/component/googleMap.ts#L692)
+[component/googleMap.ts:692](https://github.com/siposdani87/sui-js/blob/9aff0f0/src/component/googleMap.ts#L692)
 
 ___
 
 ### \_bindEventsToPolygon
 
-▸ `Private` **_bindEventsToPolygon**(`polygon`, `polygonData`): `void`
+▸ **_bindEventsToPolygon**(`polygon`, `polygonData`): `void`
 
 #### Parameters
 
 | Name | Type |
 | :------ | :------ |
 | `polygon` | `Polygon` |
-| `polygonData` | [`Objekt`](Objekt.md)<`Object`\> |
+| `polygonData` | [`Objekt`](Objekt.md)\<`Object`\> |
 
 #### Returns
 
@@ -213,20 +217,20 @@ ___
 
 #### Defined in
 
-[component/googleMap.ts:280](https://github.com/siposdani87/sui-js/blob/ad456a5/src/component/googleMap.ts#L280)
+[component/googleMap.ts:280](https://github.com/siposdani87/sui-js/blob/9aff0f0/src/component/googleMap.ts#L280)
 
 ___
 
 ### \_bindEventsToPolygonPath
 
-▸ `Private` **_bindEventsToPolygonPath**(`polygon`, `polygonData`): `void`
+▸ **_bindEventsToPolygonPath**(`polygon`, `polygonData`): `void`
 
 #### Parameters
 
 | Name | Type |
 | :------ | :------ |
 | `polygon` | `Polygon` |
-| `polygonData` | [`Objekt`](Objekt.md)<`Object`\> |
+| `polygonData` | [`Objekt`](Objekt.md)\<`Object`\> |
 
 #### Returns
 
@@ -234,20 +238,20 @@ ___
 
 #### Defined in
 
-[component/googleMap.ts:329](https://github.com/siposdani87/sui-js/blob/ad456a5/src/component/googleMap.ts#L329)
+[component/googleMap.ts:329](https://github.com/siposdani87/sui-js/blob/9aff0f0/src/component/googleMap.ts#L329)
 
 ___
 
 ### \_callPolygonChangeEvent
 
-▸ `Private` **_callPolygonChangeEvent**(`polygon`, `polygonData`): `void`
+▸ **_callPolygonChangeEvent**(`polygon`, `polygonData`): `void`
 
 #### Parameters
 
 | Name | Type |
 | :------ | :------ |
 | `polygon` | `Polygon` |
-| `polygonData` | [`Objekt`](Objekt.md)<`Object`\> |
+| `polygonData` | [`Objekt`](Objekt.md)\<`Object`\> |
 
 #### Returns
 
@@ -255,13 +259,13 @@ ___
 
 #### Defined in
 
-[component/googleMap.ts:354](https://github.com/siposdani87/sui-js/blob/ad456a5/src/component/googleMap.ts#L354)
+[component/googleMap.ts:354](https://github.com/siposdani87/sui-js/blob/9aff0f0/src/component/googleMap.ts#L354)
 
 ___
 
 ### \_cleanMarkerData
 
-▸ `Private` **_cleanMarkerData**(`markerData`): [`Objekt`](Objekt.md)<`Object`\>
+▸ **_cleanMarkerData**(`markerData`): [`Objekt`](Objekt.md)\<`Object`\>
 
 #### Parameters
 
@@ -271,17 +275,17 @@ ___
 
 #### Returns
 
-[`Objekt`](Objekt.md)<`Object`\>
+[`Objekt`](Objekt.md)\<`Object`\>
 
 #### Defined in
 
-[component/googleMap.ts:760](https://github.com/siposdani87/sui-js/blob/ad456a5/src/component/googleMap.ts#L760)
+[component/googleMap.ts:760](https://github.com/siposdani87/sui-js/blob/9aff0f0/src/component/googleMap.ts#L760)
 
 ___
 
 ### \_cleanPolygonData
 
-▸ `Private` **_cleanPolygonData**(`polygonData`): [`Objekt`](Objekt.md)<`Object`\>
+▸ **_cleanPolygonData**(`polygonData`): [`Objekt`](Objekt.md)\<`Object`\>
 
 #### Parameters
 
@@ -291,17 +295,17 @@ ___
 
 #### Returns
 
-[`Objekt`](Objekt.md)<`Object`\>
+[`Objekt`](Objekt.md)\<`Object`\>
 
 #### Defined in
 
-[component/googleMap.ts:243](https://github.com/siposdani87/sui-js/blob/ad456a5/src/component/googleMap.ts#L243)
+[component/googleMap.ts:243](https://github.com/siposdani87/sui-js/blob/9aff0f0/src/component/googleMap.ts#L243)
 
 ___
 
 ### \_convertPointsToPath
 
-▸ `Private` **_convertPointsToPath**(`points`): `LatLng`[]
+▸ **_convertPointsToPath**(`points`): `LatLng`[]
 
 #### Parameters
 
@@ -315,33 +319,33 @@ ___
 
 #### Defined in
 
-[component/googleMap.ts:439](https://github.com/siposdani87/sui-js/blob/ad456a5/src/component/googleMap.ts#L439)
+[component/googleMap.ts:439](https://github.com/siposdani87/sui-js/blob/9aff0f0/src/component/googleMap.ts#L439)
 
 ___
 
 ### \_getPointsFromPolygon
 
-▸ `Private` **_getPointsFromPolygon**(`polygonData`): { `latitude`: `number` ; `longitude`: `number`  }[]
+▸ **_getPointsFromPolygon**(`polygonData`): \{ `latitude`: `number` ; `longitude`: `number`  }[]
 
 #### Parameters
 
 | Name | Type |
 | :------ | :------ |
-| `polygonData` | [`Objekt`](Objekt.md)<`Object`\> |
+| `polygonData` | [`Objekt`](Objekt.md)\<`Object`\> |
 
 #### Returns
 
-{ `latitude`: `number` ; `longitude`: `number`  }[]
+\{ `latitude`: `number` ; `longitude`: `number`  }[]
 
 #### Defined in
 
-[component/googleMap.ts:504](https://github.com/siposdani87/sui-js/blob/ad456a5/src/component/googleMap.ts#L504)
+[component/googleMap.ts:504](https://github.com/siposdani87/sui-js/blob/9aff0f0/src/component/googleMap.ts#L504)
 
 ___
 
 ### \_init
 
-▸ `Private` **_init**(): `void`
+▸ **_init**(): `void`
 
 #### Returns
 
@@ -349,13 +353,13 @@ ___
 
 #### Defined in
 
-[component/googleMap.ts:121](https://github.com/siposdani87/sui-js/blob/ad456a5/src/component/googleMap.ts#L121)
+[component/googleMap.ts:121](https://github.com/siposdani87/sui-js/blob/9aff0f0/src/component/googleMap.ts#L121)
 
 ___
 
 ### \_initMap
 
-▸ `Private` **_initMap**(): `void`
+▸ **_initMap**(): `void`
 
 #### Returns
 
@@ -363,13 +367,13 @@ ___
 
 #### Defined in
 
-[component/googleMap.ts:131](https://github.com/siposdani87/sui-js/blob/ad456a5/src/component/googleMap.ts#L131)
+[component/googleMap.ts:131](https://github.com/siposdani87/sui-js/blob/9aff0f0/src/component/googleMap.ts#L131)
 
 ___
 
 ### \_initOverlay
 
-▸ `Private` **_initOverlay**(): `void`
+▸ **_initOverlay**(): `void`
 
 #### Returns
 
@@ -377,19 +381,19 @@ ___
 
 #### Defined in
 
-[component/googleMap.ts:156](https://github.com/siposdani87/sui-js/blob/ad456a5/src/component/googleMap.ts#L156)
+[component/googleMap.ts:156](https://github.com/siposdani87/sui-js/blob/9aff0f0/src/component/googleMap.ts#L156)
 
 ___
 
 ### \_setBoundsByPath
 
-▸ `Private` **_setBoundsByPath**(`polygonData`, `path`): `void`
+▸ **_setBoundsByPath**(`polygonData`, `path`): `void`
 
 #### Parameters
 
 | Name | Type |
 | :------ | :------ |
-| `polygonData` | [`Objekt`](Objekt.md)<`Object`\> |
+| `polygonData` | [`Objekt`](Objekt.md)\<`Object`\> |
 | `path` | `LatLng`[] |
 
 #### Returns
@@ -398,20 +402,20 @@ ___
 
 #### Defined in
 
-[component/googleMap.ts:467](https://github.com/siposdani87/sui-js/blob/ad456a5/src/component/googleMap.ts#L467)
+[component/googleMap.ts:467](https://github.com/siposdani87/sui-js/blob/9aff0f0/src/component/googleMap.ts#L467)
 
 ___
 
 ### \_setBoundsByPoints
 
-▸ `Private` **_setBoundsByPoints**(`polygonData`, `points`): `void`
+▸ **_setBoundsByPoints**(`polygonData`, `points`): `void`
 
 #### Parameters
 
 | Name | Type |
 | :------ | :------ |
-| `polygonData` | [`Objekt`](Objekt.md)<`Object`\> |
-| `points` | { `latitude`: `number` ; `longitude`: `number`  }[] |
+| `polygonData` | [`Objekt`](Objekt.md)\<`Object`\> |
+| `points` | \{ `latitude`: `number` ; `longitude`: `number`  }[] |
 
 #### Returns
 
@@ -419,13 +423,13 @@ ___
 
 #### Defined in
 
-[component/googleMap.ts:459](https://github.com/siposdani87/sui-js/blob/ad456a5/src/component/googleMap.ts#L459)
+[component/googleMap.ts:459](https://github.com/siposdani87/sui-js/blob/9aff0f0/src/component/googleMap.ts#L459)
 
 ___
 
 ### \_setOptions
 
-▸ `Private` **_setOptions**(`opt_options?`): `void`
+▸ **_setOptions**(`opt_options?`): `void`
 
 #### Parameters
 
@@ -439,13 +443,13 @@ ___
 
 #### Defined in
 
-[component/googleMap.ts:79](https://github.com/siposdani87/sui-js/blob/ad456a5/src/component/googleMap.ts#L79)
+[component/googleMap.ts:79](https://github.com/siposdani87/sui-js/blob/9aff0f0/src/component/googleMap.ts#L79)
 
 ___
 
 ### \_unbindEventsToMap
 
-▸ `Private` **_unbindEventsToMap**(): `void`
+▸ **_unbindEventsToMap**(): `void`
 
 #### Returns
 
@@ -453,13 +457,13 @@ ___
 
 #### Defined in
 
-[component/googleMap.ts:152](https://github.com/siposdani87/sui-js/blob/ad456a5/src/component/googleMap.ts#L152)
+[component/googleMap.ts:152](https://github.com/siposdani87/sui-js/blob/9aff0f0/src/component/googleMap.ts#L152)
 
 ___
 
 ### \_unbindEventsToMarker
 
-▸ `Private` **_unbindEventsToMarker**(`marker`): `void`
+▸ **_unbindEventsToMarker**(`marker`): `void`
 
 #### Parameters
 
@@ -473,13 +477,13 @@ ___
 
 #### Defined in
 
-[component/googleMap.ts:729](https://github.com/siposdani87/sui-js/blob/ad456a5/src/component/googleMap.ts#L729)
+[component/googleMap.ts:729](https://github.com/siposdani87/sui-js/blob/9aff0f0/src/component/googleMap.ts#L729)
 
 ___
 
 ### \_unbindEventsToPolygon
 
-▸ `Private` **_unbindEventsToPolygon**(`polygon`): `void`
+▸ **_unbindEventsToPolygon**(`polygon`): `void`
 
 #### Parameters
 
@@ -493,13 +497,13 @@ ___
 
 #### Defined in
 
-[component/googleMap.ts:324](https://github.com/siposdani87/sui-js/blob/ad456a5/src/component/googleMap.ts#L324)
+[component/googleMap.ts:324](https://github.com/siposdani87/sui-js/blob/9aff0f0/src/component/googleMap.ts#L324)
 
 ___
 
 ### \_unbindEventsToPolygonPath
 
-▸ `Private` **_unbindEventsToPolygonPath**(`polygon`): `void`
+▸ **_unbindEventsToPolygonPath**(`polygon`): `void`
 
 #### Parameters
 
@@ -513,7 +517,7 @@ ___
 
 #### Defined in
 
-[component/googleMap.ts:347](https://github.com/siposdani87/sui-js/blob/ad456a5/src/component/googleMap.ts#L347)
+[component/googleMap.ts:347](https://github.com/siposdani87/sui-js/blob/9aff0f0/src/component/googleMap.ts#L347)
 
 ___
 
@@ -525,7 +529,7 @@ ___
 
 | Name | Type |
 | :------ | :------ |
-| `polygonData` | [`Objekt`](Objekt.md)<`Object`\> |
+| `polygonData` | [`Objekt`](Objekt.md)\<`Object`\> |
 | `latitude` | `number` |
 | `longitude` | `number` |
 
@@ -535,7 +539,7 @@ ___
 
 #### Defined in
 
-[component/googleMap.ts:526](https://github.com/siposdani87/sui-js/blob/ad456a5/src/component/googleMap.ts#L526)
+[component/googleMap.ts:526](https://github.com/siposdani87/sui-js/blob/9aff0f0/src/component/googleMap.ts#L526)
 
 ___
 
@@ -556,7 +560,7 @@ ___
 
 #### Defined in
 
-[component/googleMap.ts:568](https://github.com/siposdani87/sui-js/blob/ad456a5/src/component/googleMap.ts#L568)
+[component/googleMap.ts:568](https://github.com/siposdani87/sui-js/blob/9aff0f0/src/component/googleMap.ts#L568)
 
 ___
 
@@ -582,7 +586,7 @@ ___
 
 #### Defined in
 
-[component/googleMap.ts:637](https://github.com/siposdani87/sui-js/blob/ad456a5/src/component/googleMap.ts#L637)
+[component/googleMap.ts:637](https://github.com/siposdani87/sui-js/blob/9aff0f0/src/component/googleMap.ts#L637)
 
 ___
 
@@ -607,7 +611,7 @@ ___
 
 #### Defined in
 
-[component/googleMap.ts:670](https://github.com/siposdani87/sui-js/blob/ad456a5/src/component/googleMap.ts#L670)
+[component/googleMap.ts:670](https://github.com/siposdani87/sui-js/blob/9aff0f0/src/component/googleMap.ts#L670)
 
 ___
 
@@ -633,7 +637,7 @@ ___
 
 #### Defined in
 
-[component/googleMap.ts:604](https://github.com/siposdani87/sui-js/blob/ad456a5/src/component/googleMap.ts#L604)
+[component/googleMap.ts:604](https://github.com/siposdani87/sui-js/blob/9aff0f0/src/component/googleMap.ts#L604)
 
 ___
 
@@ -647,7 +651,7 @@ ___
 | :------ | :------ |
 | `id` | [`Id`](../modules.md#id) |
 | `title` | `string` |
-| `points` | { `latitude`: `number` ; `longitude`: `number`  }[] |
+| `points` | \{ `latitude`: `number` ; `longitude`: `number`  }[] |
 | `opt_polygonData` | `Object` |
 | `opt_options` | `Object` |
 
@@ -657,7 +661,7 @@ ___
 
 #### Defined in
 
-[component/googleMap.ts:171](https://github.com/siposdani87/sui-js/blob/ad456a5/src/component/googleMap.ts#L171)
+[component/googleMap.ts:171](https://github.com/siposdani87/sui-js/blob/9aff0f0/src/component/googleMap.ts#L171)
 
 ___
 
@@ -671,7 +675,7 @@ ___
 | :------ | :------ |
 | `id` | [`Id`](../modules.md#id) |
 | `title` | `string` |
-| `points` | { `latitude`: `number` ; `longitude`: `number`  }[] |
+| `points` | \{ `latitude`: `number` ; `longitude`: `number`  }[] |
 | `opt_polygonData` | `Object` |
 | `opt_options` | `Object` |
 
@@ -681,7 +685,7 @@ ___
 
 #### Defined in
 
-[component/googleMap.ts:186](https://github.com/siposdani87/sui-js/blob/ad456a5/src/component/googleMap.ts#L186)
+[component/googleMap.ts:186](https://github.com/siposdani87/sui-js/blob/9aff0f0/src/component/googleMap.ts#L186)
 
 ___
 
@@ -703,7 +707,7 @@ ___
 
 #### Defined in
 
-[component/googleMap.ts:420](https://github.com/siposdani87/sui-js/blob/ad456a5/src/component/googleMap.ts#L420)
+[component/googleMap.ts:420](https://github.com/siposdani87/sui-js/blob/9aff0f0/src/component/googleMap.ts#L420)
 
 ___
 
@@ -724,7 +728,7 @@ ___
 
 #### Defined in
 
-[component/googleMap.ts:424](https://github.com/siposdani87/sui-js/blob/ad456a5/src/component/googleMap.ts#L424)
+[component/googleMap.ts:424](https://github.com/siposdani87/sui-js/blob/9aff0f0/src/component/googleMap.ts#L424)
 
 ___
 
@@ -736,7 +740,7 @@ ___
 
 | Name | Type |
 | :------ | :------ |
-| `markerData` | [`Objekt`](Objekt.md)<`Object`\> |
+| `markerData` | [`Objekt`](Objekt.md)\<`Object`\> |
 | `latitude` | `number` |
 | `longitude` | `number` |
 | `event` | `Object` |
@@ -747,7 +751,7 @@ ___
 
 #### Defined in
 
-[component/googleMap.ts:829](https://github.com/siposdani87/sui-js/blob/ad456a5/src/component/googleMap.ts#L829)
+[component/googleMap.ts:829](https://github.com/siposdani87/sui-js/blob/9aff0f0/src/component/googleMap.ts#L829)
 
 ___
 
@@ -759,7 +763,7 @@ ___
 
 | Name | Type |
 | :------ | :------ |
-| `markerData` | [`Objekt`](Objekt.md)<`Object`\> |
+| `markerData` | [`Objekt`](Objekt.md)\<`Object`\> |
 | `event` | `Object` |
 
 #### Returns
@@ -768,7 +772,7 @@ ___
 
 #### Defined in
 
-[component/googleMap.ts:817](https://github.com/siposdani87/sui-js/blob/ad456a5/src/component/googleMap.ts#L817)
+[component/googleMap.ts:817](https://github.com/siposdani87/sui-js/blob/9aff0f0/src/component/googleMap.ts#L817)
 
 ___
 
@@ -780,7 +784,7 @@ ___
 
 | Name | Type |
 | :------ | :------ |
-| `markerData` | [`Objekt`](Objekt.md)<`Object`\> |
+| `markerData` | [`Objekt`](Objekt.md)\<`Object`\> |
 | `event` | `Object` |
 
 #### Returns
@@ -789,7 +793,7 @@ ___
 
 #### Defined in
 
-[component/googleMap.ts:821](https://github.com/siposdani87/sui-js/blob/ad456a5/src/component/googleMap.ts#L821)
+[component/googleMap.ts:821](https://github.com/siposdani87/sui-js/blob/9aff0f0/src/component/googleMap.ts#L821)
 
 ___
 
@@ -801,7 +805,7 @@ ___
 
 | Name | Type |
 | :------ | :------ |
-| `markerData` | [`Objekt`](Objekt.md)<`Object`\> |
+| `markerData` | [`Objekt`](Objekt.md)\<`Object`\> |
 | `event` | `Object` |
 
 #### Returns
@@ -810,7 +814,7 @@ ___
 
 #### Defined in
 
-[component/googleMap.ts:825](https://github.com/siposdani87/sui-js/blob/ad456a5/src/component/googleMap.ts#L825)
+[component/googleMap.ts:825](https://github.com/siposdani87/sui-js/blob/9aff0f0/src/component/googleMap.ts#L825)
 
 ___
 
@@ -822,8 +826,8 @@ ___
 
 | Name | Type |
 | :------ | :------ |
-| `polygonData` | [`Objekt`](Objekt.md)<`Object`\> |
-| `points` | { `latitude`: `number` ; `longitude`: `number`  }[] |
+| `polygonData` | [`Objekt`](Objekt.md)\<`Object`\> |
+| `points` | \{ `latitude`: `number` ; `longitude`: `number`  }[] |
 
 #### Returns
 
@@ -831,7 +835,7 @@ ___
 
 #### Defined in
 
-[component/googleMap.ts:164](https://github.com/siposdani87/sui-js/blob/ad456a5/src/component/googleMap.ts#L164)
+[component/googleMap.ts:164](https://github.com/siposdani87/sui-js/blob/9aff0f0/src/component/googleMap.ts#L164)
 
 ___
 
@@ -843,7 +847,7 @@ ___
 
 | Name | Type |
 | :------ | :------ |
-| `polygonData` | [`Objekt`](Objekt.md)<`Object`\> |
+| `polygonData` | [`Objekt`](Objekt.md)\<`Object`\> |
 | `latitude` | `number` |
 | `longitude` | `number` |
 | `event` | `Object` |
@@ -854,7 +858,7 @@ ___
 
 #### Defined in
 
-[component/googleMap.ts:375](https://github.com/siposdani87/sui-js/blob/ad456a5/src/component/googleMap.ts#L375)
+[component/googleMap.ts:375](https://github.com/siposdani87/sui-js/blob/9aff0f0/src/component/googleMap.ts#L375)
 
 ___
 
@@ -866,7 +870,7 @@ ___
 
 | Name | Type |
 | :------ | :------ |
-| `polygonData` | [`Objekt`](Objekt.md)<`Object`\> |
+| `polygonData` | [`Objekt`](Objekt.md)\<`Object`\> |
 | `latitude` | `number` |
 | `longitude` | `number` |
 | `event` | `Object` |
@@ -877,7 +881,7 @@ ___
 
 #### Defined in
 
-[component/googleMap.ts:390](https://github.com/siposdani87/sui-js/blob/ad456a5/src/component/googleMap.ts#L390)
+[component/googleMap.ts:390](https://github.com/siposdani87/sui-js/blob/9aff0f0/src/component/googleMap.ts#L390)
 
 ___
 
@@ -889,7 +893,7 @@ ___
 
 | Name | Type |
 | :------ | :------ |
-| `polygonData` | [`Objekt`](Objekt.md)<`Object`\> |
+| `polygonData` | [`Objekt`](Objekt.md)\<`Object`\> |
 | `latitude` | `number` |
 | `longitude` | `number` |
 | `event` | `Object` |
@@ -900,7 +904,7 @@ ___
 
 #### Defined in
 
-[component/googleMap.ts:405](https://github.com/siposdani87/sui-js/blob/ad456a5/src/component/googleMap.ts#L405)
+[component/googleMap.ts:405](https://github.com/siposdani87/sui-js/blob/9aff0f0/src/component/googleMap.ts#L405)
 
 ___
 
@@ -920,7 +924,7 @@ ___
 
 #### Defined in
 
-[component/googleMap.ts:797](https://github.com/siposdani87/sui-js/blob/ad456a5/src/component/googleMap.ts#L797)
+[component/googleMap.ts:797](https://github.com/siposdani87/sui-js/blob/9aff0f0/src/component/googleMap.ts#L797)
 
 ___
 
@@ -940,7 +944,7 @@ ___
 
 #### Defined in
 
-[component/googleMap.ts:492](https://github.com/siposdani87/sui-js/blob/ad456a5/src/component/googleMap.ts#L492)
+[component/googleMap.ts:492](https://github.com/siposdani87/sui-js/blob/9aff0f0/src/component/googleMap.ts#L492)
 
 ___
 
@@ -959,7 +963,7 @@ ___
 
 #### Defined in
 
-[component/googleMap.ts:921](https://github.com/siposdani87/sui-js/blob/ad456a5/src/component/googleMap.ts#L921)
+[component/googleMap.ts:921](https://github.com/siposdani87/sui-js/blob/9aff0f0/src/component/googleMap.ts#L921)
 
 ___
 
@@ -971,7 +975,7 @@ ___
 
 | Name | Type |
 | :------ | :------ |
-| `polygonData` | [`Objekt`](Objekt.md)<`Object`\> |
+| `polygonData` | [`Objekt`](Objekt.md)\<`Object`\> |
 
 #### Returns
 
@@ -984,7 +988,7 @@ ___
 
 #### Defined in
 
-[component/googleMap.ts:480](https://github.com/siposdani87/sui-js/blob/ad456a5/src/component/googleMap.ts#L480)
+[component/googleMap.ts:480](https://github.com/siposdani87/sui-js/blob/9aff0f0/src/component/googleMap.ts#L480)
 
 ___
 
@@ -996,7 +1000,7 @@ ___
 
 | Name | Type |
 | :------ | :------ |
-| `polygonData` | [`Objekt`](Objekt.md)<`Object`\> |
+| `polygonData` | [`Objekt`](Objekt.md)\<`Object`\> |
 
 #### Returns
 
@@ -1004,7 +1008,7 @@ ___
 
 #### Defined in
 
-[component/googleMap.ts:520](https://github.com/siposdani87/sui-js/blob/ad456a5/src/component/googleMap.ts#L520)
+[component/googleMap.ts:520](https://github.com/siposdani87/sui-js/blob/9aff0f0/src/component/googleMap.ts#L520)
 
 ___
 
@@ -1024,7 +1028,7 @@ ___
 
 #### Defined in
 
-[component/googleMap.ts:933](https://github.com/siposdani87/sui-js/blob/ad456a5/src/component/googleMap.ts#L933)
+[component/googleMap.ts:933](https://github.com/siposdani87/sui-js/blob/9aff0f0/src/component/googleMap.ts#L933)
 
 ___
 
@@ -1038,13 +1042,13 @@ ___
 
 #### Defined in
 
-[component/googleMap.ts:102](https://github.com/siposdani87/sui-js/blob/ad456a5/src/component/googleMap.ts#L102)
+[component/googleMap.ts:102](https://github.com/siposdani87/sui-js/blob/9aff0f0/src/component/googleMap.ts#L102)
 
 ___
 
 ### getMarker
 
-▸ **getMarker**(`id`): [`Objekt`](Objekt.md)<`Object`\>
+▸ **getMarker**(`id`): [`Objekt`](Objekt.md)\<`Object`\>
 
 #### Parameters
 
@@ -1054,17 +1058,17 @@ ___
 
 #### Returns
 
-[`Objekt`](Objekt.md)<`Object`\>
+[`Objekt`](Objekt.md)\<`Object`\>
 
 #### Defined in
 
-[component/googleMap.ts:770](https://github.com/siposdani87/sui-js/blob/ad456a5/src/component/googleMap.ts#L770)
+[component/googleMap.ts:770](https://github.com/siposdani87/sui-js/blob/9aff0f0/src/component/googleMap.ts#L770)
 
 ___
 
 ### getPolygon
 
-▸ **getPolygon**(`id`): [`Objekt`](Objekt.md)<`Object`\>
+▸ **getPolygon**(`id`): [`Objekt`](Objekt.md)\<`Object`\>
 
 #### Parameters
 
@@ -1074,11 +1078,11 @@ ___
 
 #### Returns
 
-[`Objekt`](Objekt.md)<`Object`\>
+[`Objekt`](Objekt.md)\<`Object`\>
 
 #### Defined in
 
-[component/googleMap.ts:253](https://github.com/siposdani87/sui-js/blob/ad456a5/src/component/googleMap.ts#L253)
+[component/googleMap.ts:253](https://github.com/siposdani87/sui-js/blob/9aff0f0/src/component/googleMap.ts#L253)
 
 ___
 
@@ -1099,7 +1103,7 @@ ___
 
 #### Defined in
 
-[component/googleMap.ts:808](https://github.com/siposdani87/sui-js/blob/ad456a5/src/component/googleMap.ts#L808)
+[component/googleMap.ts:808](https://github.com/siposdani87/sui-js/blob/9aff0f0/src/component/googleMap.ts#L808)
 
 ___
 
@@ -1113,7 +1117,7 @@ ___
 
 #### Defined in
 
-[component/googleMap.ts:786](https://github.com/siposdani87/sui-js/blob/ad456a5/src/component/googleMap.ts#L786)
+[component/googleMap.ts:786](https://github.com/siposdani87/sui-js/blob/9aff0f0/src/component/googleMap.ts#L786)
 
 ___
 
@@ -1127,7 +1131,7 @@ ___
 
 #### Defined in
 
-[component/googleMap.ts:269](https://github.com/siposdani87/sui-js/blob/ad456a5/src/component/googleMap.ts#L269)
+[component/googleMap.ts:269](https://github.com/siposdani87/sui-js/blob/9aff0f0/src/component/googleMap.ts#L269)
 
 ___
 
@@ -1141,7 +1145,7 @@ ___
 
 #### Defined in
 
-[component/googleMap.ts:583](https://github.com/siposdani87/sui-js/blob/ad456a5/src/component/googleMap.ts#L583)
+[component/googleMap.ts:583](https://github.com/siposdani87/sui-js/blob/9aff0f0/src/component/googleMap.ts#L583)
 
 ___
 
@@ -1161,7 +1165,7 @@ ___
 
 #### Defined in
 
-[component/googleMap.ts:774](https://github.com/siposdani87/sui-js/blob/ad456a5/src/component/googleMap.ts#L774)
+[component/googleMap.ts:774](https://github.com/siposdani87/sui-js/blob/9aff0f0/src/component/googleMap.ts#L774)
 
 ___
 
@@ -1181,13 +1185,13 @@ ___
 
 #### Defined in
 
-[component/googleMap.ts:257](https://github.com/siposdani87/sui-js/blob/ad456a5/src/component/googleMap.ts#L257)
+[component/googleMap.ts:257](https://github.com/siposdani87/sui-js/blob/9aff0f0/src/component/googleMap.ts#L257)
 
 ___
 
 ### searchAddress
 
-▸ **searchAddress**(`query`): [`Promize`](Promize.md)<[{ `address`: `string` ; `latitude`: `number` ; `longitude`: `number`  }[]], `void`\>
+▸ **searchAddress**(`query`): [`Promize`](Promize.md)\<[\{ `address`: `string` ; `latitude`: `number` ; `longitude`: `number`  }[]], `void`\>
 
 #### Parameters
 
@@ -1197,11 +1201,11 @@ ___
 
 #### Returns
 
-[`Promize`](Promize.md)<[{ `address`: `string` ; `latitude`: `number` ; `longitude`: `number`  }[]], `void`\>
+[`Promize`](Promize.md)\<[\{ `address`: `string` ; `latitude`: `number` ; `longitude`: `number`  }[]], `void`\>
 
 #### Defined in
 
-[component/googleMap.ts:873](https://github.com/siposdani87/sui-js/blob/ad456a5/src/component/googleMap.ts#L873)
+[component/googleMap.ts:873](https://github.com/siposdani87/sui-js/blob/9aff0f0/src/component/googleMap.ts#L873)
 
 ___
 
@@ -1223,7 +1227,7 @@ ___
 
 #### Defined in
 
-[component/googleMap.ts:906](https://github.com/siposdani87/sui-js/blob/ad456a5/src/component/googleMap.ts#L906)
+[component/googleMap.ts:906](https://github.com/siposdani87/sui-js/blob/9aff0f0/src/component/googleMap.ts#L906)
 
 ___
 
@@ -1245,7 +1249,7 @@ ___
 
 #### Defined in
 
-[component/googleMap.ts:110](https://github.com/siposdani87/sui-js/blob/ad456a5/src/component/googleMap.ts#L110)
+[component/googleMap.ts:110](https://github.com/siposdani87/sui-js/blob/9aff0f0/src/component/googleMap.ts#L110)
 
 ___
 
@@ -1265,7 +1269,7 @@ ___
 
 #### Defined in
 
-[component/googleMap.ts:545](https://github.com/siposdani87/sui-js/blob/ad456a5/src/component/googleMap.ts#L545)
+[component/googleMap.ts:545](https://github.com/siposdani87/sui-js/blob/9aff0f0/src/component/googleMap.ts#L545)
 
 ___
 
@@ -1285,7 +1289,7 @@ ___
 
 #### Defined in
 
-[component/googleMap.ts:106](https://github.com/siposdani87/sui-js/blob/ad456a5/src/component/googleMap.ts#L106)
+[component/googleMap.ts:106](https://github.com/siposdani87/sui-js/blob/9aff0f0/src/component/googleMap.ts#L106)
 
 ___
 
@@ -1306,7 +1310,7 @@ ___
 
 #### Defined in
 
-[component/googleMap.ts:844](https://github.com/siposdani87/sui-js/blob/ad456a5/src/component/googleMap.ts#L844)
+[component/googleMap.ts:844](https://github.com/siposdani87/sui-js/blob/9aff0f0/src/component/googleMap.ts#L844)
 
 ___
 
@@ -1326,7 +1330,7 @@ ___
 
 #### Defined in
 
-[component/googleMap.ts:536](https://github.com/siposdani87/sui-js/blob/ad456a5/src/component/googleMap.ts#L536)
+[component/googleMap.ts:536](https://github.com/siposdani87/sui-js/blob/9aff0f0/src/component/googleMap.ts#L536)
 
 ___
 
@@ -1346,7 +1350,7 @@ ___
 
 #### Defined in
 
-[component/googleMap.ts:589](https://github.com/siposdani87/sui-js/blob/ad456a5/src/component/googleMap.ts#L589)
+[component/googleMap.ts:589](https://github.com/siposdani87/sui-js/blob/9aff0f0/src/component/googleMap.ts#L589)
 
 ___
 
@@ -1360,7 +1364,7 @@ ___
 
 #### Defined in
 
-[component/googleMap.ts:929](https://github.com/siposdani87/sui-js/blob/ad456a5/src/component/googleMap.ts#L929)
+[component/googleMap.ts:929](https://github.com/siposdani87/sui-js/blob/9aff0f0/src/component/googleMap.ts#L929)
 
 ___
 
@@ -1386,7 +1390,7 @@ ___
 
 #### Defined in
 
-[component/googleMap.ts:733](https://github.com/siposdani87/sui-js/blob/ad456a5/src/component/googleMap.ts#L733)
+[component/googleMap.ts:733](https://github.com/siposdani87/sui-js/blob/9aff0f0/src/component/googleMap.ts#L733)
 
 ___
 
@@ -1400,7 +1404,7 @@ ___
 | :------ | :------ |
 | `id` | [`Id`](../modules.md#id) |
 | `title` | `string` |
-| `points` | { `latitude`: `number` ; `longitude`: `number`  }[] |
+| `points` | \{ `latitude`: `number` ; `longitude`: `number`  }[] |
 | `opt_polygonData` | `Object` |
 | `opt_options` | `Object` |
 
@@ -1410,4 +1414,4 @@ ___
 
 #### Defined in
 
-[component/googleMap.ts:218](https://github.com/siposdani87/sui-js/blob/ad456a5/src/component/googleMap.ts#L218)
+[component/googleMap.ts:218](https://github.com/siposdani87/sui-js/blob/9aff0f0/src/component/googleMap.ts#L218)

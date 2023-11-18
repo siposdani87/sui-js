@@ -10,54 +10,58 @@ custom_edit_url: null
 
 ### constructor
 
-• **new Time**(`knot`, `options`)
+• **new Time**(`knot`, `options`): [`Time`](Time.md)
 
 #### Parameters
 
 | Name | Type |
 | :------ | :------ |
-| `knot` | [`Knot`](Knot.md)<`HTMLElement`\> |
+| `knot` | [`Knot`](Knot.md)\<`HTMLElement`\> |
 | `options` | `Object` |
+
+#### Returns
+
+[`Time`](Time.md)
 
 #### Defined in
 
-[component/time.ts:10](https://github.com/siposdani87/sui-js/blob/ad456a5/src/component/time.ts#L10)
+[component/time.ts:10](https://github.com/siposdani87/sui-js/blob/9aff0f0/src/component/time.ts#L10)
 
 ## Properties
 
 ### options
 
-• **options**: [`Objekt`](Objekt.md)<`Object`\>
+• **options**: [`Objekt`](Objekt.md)\<`Object`\>
 
 #### Defined in
 
-[component/time.ts:7](https://github.com/siposdani87/sui-js/blob/ad456a5/src/component/time.ts#L7)
+[component/time.ts:7](https://github.com/siposdani87/sui-js/blob/9aff0f0/src/component/time.ts#L7)
 
 ___
 
 ### pointerKnot
 
-• **pointerKnot**: [`Knot`](Knot.md)<`HTMLElement`\>
+• **pointerKnot**: [`Knot`](Knot.md)\<`HTMLElement`\>
 
 #### Defined in
 
-[component/time.ts:8](https://github.com/siposdani87/sui-js/blob/ad456a5/src/component/time.ts#L8)
+[component/time.ts:8](https://github.com/siposdani87/sui-js/blob/9aff0f0/src/component/time.ts#L8)
 
 ___
 
 ### timeKnot
 
-• **timeKnot**: [`Knot`](Knot.md)<`HTMLElement`\>
+• **timeKnot**: [`Knot`](Knot.md)\<`HTMLElement`\>
 
 #### Defined in
 
-[component/time.ts:6](https://github.com/siposdani87/sui-js/blob/ad456a5/src/component/time.ts#L6)
+[component/time.ts:6](https://github.com/siposdani87/sui-js/blob/9aff0f0/src/component/time.ts#L6)
 
 ## Methods
 
 ### \_drawCircles
 
-▸ `Private` **_drawCircles**(`start`, `n`, `opt_j?`, `opt_isClockWise?`): `void`
+▸ **_drawCircles**(`start`, `n`, `opt_j?`, `opt_isClockWise?`): `void`
 
 #### Parameters
 
@@ -74,13 +78,13 @@ ___
 
 #### Defined in
 
-[component/time.ts:66](https://github.com/siposdani87/sui-js/blob/ad456a5/src/component/time.ts#L66)
+[component/time.ts:66](https://github.com/siposdani87/sui-js/blob/9aff0f0/src/component/time.ts#L66)
 
 ___
 
 ### \_init
 
-▸ `Private` **_init**(): `void`
+▸ **_init**(): `void`
 
 #### Returns
 
@@ -88,13 +92,13 @@ ___
 
 #### Defined in
 
-[component/time.ts:20](https://github.com/siposdani87/sui-js/blob/ad456a5/src/component/time.ts#L20)
+[component/time.ts:20](https://github.com/siposdani87/sui-js/blob/9aff0f0/src/component/time.ts#L20)
 
 ___
 
 ### \_initCircleKnot
 
-▸ `Private` **_initCircleKnot**(): `void`
+▸ **_initCircleKnot**(): `void`
 
 #### Returns
 
@@ -102,13 +106,13 @@ ___
 
 #### Defined in
 
-[component/time.ts:25](https://github.com/siposdani87/sui-js/blob/ad456a5/src/component/time.ts#L25)
+[component/time.ts:25](https://github.com/siposdani87/sui-js/blob/9aff0f0/src/component/time.ts#L25)
 
 ___
 
 ### \_initPointerKnot
 
-▸ `Private` **_initPointerKnot**(): `void`
+▸ **_initPointerKnot**(): `void`
 
 #### Returns
 
@@ -116,13 +120,13 @@ ___
 
 #### Defined in
 
-[component/time.ts:47](https://github.com/siposdani87/sui-js/blob/ad456a5/src/component/time.ts#L47)
+[component/time.ts:47](https://github.com/siposdani87/sui-js/blob/9aff0f0/src/component/time.ts#L47)
 
 ___
 
 ### \_initSize
 
-▸ `Private` **_initSize**(`width`, `height`): `void`
+▸ **_initSize**(`width`, `height`): `void`
 
 #### Parameters
 
@@ -137,19 +141,19 @@ ___
 
 #### Defined in
 
-[component/time.ts:36](https://github.com/siposdani87/sui-js/blob/ad456a5/src/component/time.ts#L36)
+[component/time.ts:36](https://github.com/siposdani87/sui-js/blob/9aff0f0/src/component/time.ts#L36)
 
 ___
 
 ### \_setCircleEvent
 
-▸ `Private` **_setCircleEvent**(`circle`, `i`): `void`
+▸ **_setCircleEvent**(`circle`, `i`): `void`
 
 #### Parameters
 
 | Name | Type |
 | :------ | :------ |
-| `circle` | [`Knot`](Knot.md)<`HTMLElement`\> |
+| `circle` | [`Knot`](Knot.md)\<`HTMLElement`\> |
 | `i` | `number` |
 
 #### Returns
@@ -158,19 +162,19 @@ ___
 
 #### Defined in
 
-[component/time.ts:91](https://github.com/siposdani87/sui-js/blob/ad456a5/src/component/time.ts#L91)
+[component/time.ts:91](https://github.com/siposdani87/sui-js/blob/9aff0f0/src/component/time.ts#L91)
 
 ___
 
 ### \_setCircleStyle
 
-▸ `Private` **_setCircleStyle**(`circle`, `start`, `n`, `i`, `opt_j?`, `opt_isClockWise?`): `void`
+▸ **_setCircleStyle**(`circle`, `start`, `n`, `i`, `opt_j?`, `opt_isClockWise?`): `void`
 
 #### Parameters
 
 | Name | Type | Default value |
 | :------ | :------ | :------ |
-| `circle` | [`Knot`](Knot.md)<`HTMLElement`\> | `undefined` |
+| `circle` | [`Knot`](Knot.md)\<`HTMLElement`\> | `undefined` |
 | `start` | `number` | `undefined` |
 | `n` | `number` | `undefined` |
 | `i` | `number` | `undefined` |
@@ -183,13 +187,13 @@ ___
 
 #### Defined in
 
-[component/time.ts:99](https://github.com/siposdani87/sui-js/blob/ad456a5/src/component/time.ts#L99)
+[component/time.ts:99](https://github.com/siposdani87/sui-js/blob/9aff0f0/src/component/time.ts#L99)
 
 ___
 
 ### \_setOptions
 
-▸ `Private` **_setOptions**(`options`): `void`
+▸ **_setOptions**(`options`): `void`
 
 #### Parameters
 
@@ -203,7 +207,7 @@ ___
 
 #### Defined in
 
-[component/time.ts:16](https://github.com/siposdani87/sui-js/blob/ad456a5/src/component/time.ts#L16)
+[component/time.ts:16](https://github.com/siposdani87/sui-js/blob/9aff0f0/src/component/time.ts#L16)
 
 ___
 
@@ -226,7 +230,7 @@ ___
 
 #### Defined in
 
-[component/time.ts:57](https://github.com/siposdani87/sui-js/blob/ad456a5/src/component/time.ts#L57)
+[component/time.ts:57](https://github.com/siposdani87/sui-js/blob/9aff0f0/src/component/time.ts#L57)
 
 ___
 
@@ -246,4 +250,4 @@ ___
 
 #### Defined in
 
-[component/time.ts:137](https://github.com/siposdani87/sui-js/blob/ad456a5/src/component/time.ts#L137)
+[component/time.ts:137](https://github.com/siposdani87/sui-js/blob/9aff0f0/src/component/time.ts#L137)
