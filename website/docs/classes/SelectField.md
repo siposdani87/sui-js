@@ -8,7 +8,7 @@ custom_edit_url: null
 
 ## Hierarchy
 
-- [`BaseField`](BaseField.md)<`HTMLInputElement`\>
+- [`BaseField`](BaseField.md)\<`HTMLInputElement`\>
 
   ↳ **`SelectField`**
 
@@ -16,16 +16,20 @@ custom_edit_url: null
 
 ### constructor
 
-• **new SelectField**(`input`, `label`, `error`, `inputBlock`)
+• **new SelectField**(`input`, `label`, `error`, `inputBlock`): [`SelectField`](SelectField.md)
 
 #### Parameters
 
 | Name | Type |
 | :------ | :------ |
-| `input` | [`Knot`](Knot.md)<`HTMLInputElement`\> |
-| `label` | [`Knot`](Knot.md)<`HTMLElement`\> |
-| `error` | [`Knot`](Knot.md)<`HTMLElement`\> |
-| `inputBlock` | [`Knot`](Knot.md)<`HTMLElement`\> |
+| `input` | [`Knot`](Knot.md)\<`HTMLInputElement`\> |
+| `label` | [`Knot`](Knot.md)\<`HTMLElement`\> |
+| `error` | [`Knot`](Knot.md)\<`HTMLElement`\> |
+| `inputBlock` | [`Knot`](Knot.md)\<`HTMLElement`\> |
+
+#### Returns
+
+[`SelectField`](SelectField.md)
 
 #### Overrides
 
@@ -33,13 +37,13 @@ custom_edit_url: null
 
 #### Defined in
 
-[field/selectField.ts:32](https://github.com/siposdani87/sui-js/blob/ad456a5/src/field/selectField.ts#L32)
+[field/selectField.ts:32](https://github.com/siposdani87/sui-js/blob/9aff0f0/src/field/selectField.ts#L32)
 
 ## Properties
 
 ### actionContainerKnot
 
-• **actionContainerKnot**: [`Knot`](Knot.md)<`HTMLElement`\>
+• **actionContainerKnot**: [`Knot`](Knot.md)\<`HTMLElement`\>
 
 #### Inherited from
 
@@ -47,17 +51,17 @@ custom_edit_url: null
 
 #### Defined in
 
-[field/baseField.ts:16](https://github.com/siposdani87/sui-js/blob/ad456a5/src/field/baseField.ts#L16)
+[field/baseField.ts:16](https://github.com/siposdani87/sui-js/blob/9aff0f0/src/field/baseField.ts#L16)
 
 ___
 
 ### containerKnot
 
-• **containerKnot**: [`Knot`](Knot.md)<`HTMLElement`\>
+• **containerKnot**: [`Knot`](Knot.md)\<`HTMLElement`\>
 
 #### Defined in
 
-[field/selectField.ts:23](https://github.com/siposdani87/sui-js/blob/ad456a5/src/field/selectField.ts#L23)
+[field/selectField.ts:23](https://github.com/siposdani87/sui-js/blob/9aff0f0/src/field/selectField.ts#L23)
 
 ___
 
@@ -71,13 +75,13 @@ ___
 
 #### Defined in
 
-[field/baseField.ts:17](https://github.com/siposdani87/sui-js/blob/ad456a5/src/field/baseField.ts#L17)
+[field/baseField.ts:17](https://github.com/siposdani87/sui-js/blob/9aff0f0/src/field/baseField.ts#L17)
 
 ___
 
 ### error
 
-• **error**: [`Knot`](Knot.md)<`HTMLElement`\>
+• **error**: [`Knot`](Knot.md)\<`HTMLElement`\>
 
 #### Inherited from
 
@@ -85,7 +89,7 @@ ___
 
 #### Defined in
 
-[field/baseField.ts:11](https://github.com/siposdani87/sui-js/blob/ad456a5/src/field/baseField.ts#L11)
+[field/baseField.ts:11](https://github.com/siposdani87/sui-js/blob/9aff0f0/src/field/baseField.ts#L11)
 
 ___
 
@@ -99,7 +103,7 @@ ___
 
 #### Defined in
 
-[field/baseField.ts:14](https://github.com/siposdani87/sui-js/blob/ad456a5/src/field/baseField.ts#L14)
+[field/baseField.ts:14](https://github.com/siposdani87/sui-js/blob/9aff0f0/src/field/baseField.ts#L14)
 
 ___
 
@@ -113,17 +117,17 @@ ___
 
 #### Defined in
 
-[field/baseField.ts:13](https://github.com/siposdani87/sui-js/blob/ad456a5/src/field/baseField.ts#L13)
+[field/baseField.ts:13](https://github.com/siposdani87/sui-js/blob/9aff0f0/src/field/baseField.ts#L13)
 
 ___
 
 ### iconKnot
 
-• **iconKnot**: [`Knot`](Knot.md)<`HTMLElement`\>
+• **iconKnot**: [`Knot`](Knot.md)\<`HTMLElement`\>
 
 #### Defined in
 
-[field/selectField.ts:27](https://github.com/siposdani87/sui-js/blob/ad456a5/src/field/selectField.ts#L27)
+[field/selectField.ts:27](https://github.com/siposdani87/sui-js/blob/9aff0f0/src/field/selectField.ts#L27)
 
 ___
 
@@ -133,13 +137,13 @@ ___
 
 #### Defined in
 
-[field/selectField.ts:22](https://github.com/siposdani87/sui-js/blob/ad456a5/src/field/selectField.ts#L22)
+[field/selectField.ts:22](https://github.com/siposdani87/sui-js/blob/9aff0f0/src/field/selectField.ts#L22)
 
 ___
 
 ### infoContainerKnot
 
-• **infoContainerKnot**: [`Knot`](Knot.md)<`HTMLElement`\>
+• **infoContainerKnot**: [`Knot`](Knot.md)\<`HTMLElement`\>
 
 #### Inherited from
 
@@ -147,13 +151,13 @@ ___
 
 #### Defined in
 
-[field/baseField.ts:15](https://github.com/siposdani87/sui-js/blob/ad456a5/src/field/baseField.ts#L15)
+[field/baseField.ts:15](https://github.com/siposdani87/sui-js/blob/9aff0f0/src/field/baseField.ts#L15)
 
 ___
 
 ### input
 
-• **input**: [`Knot`](Knot.md)<`HTMLInputElement`\>
+• **input**: [`Knot`](Knot.md)\<`HTMLInputElement`\>
 
 #### Inherited from
 
@@ -161,13 +165,13 @@ ___
 
 #### Defined in
 
-[field/baseField.ts:9](https://github.com/siposdani87/sui-js/blob/ad456a5/src/field/baseField.ts#L9)
+[field/baseField.ts:9](https://github.com/siposdani87/sui-js/blob/9aff0f0/src/field/baseField.ts#L9)
 
 ___
 
 ### inputBlock
 
-• **inputBlock**: [`Knot`](Knot.md)<`HTMLElement`\>
+• **inputBlock**: [`Knot`](Knot.md)\<`HTMLElement`\>
 
 #### Inherited from
 
@@ -175,13 +179,13 @@ ___
 
 #### Defined in
 
-[field/baseField.ts:12](https://github.com/siposdani87/sui-js/blob/ad456a5/src/field/baseField.ts#L12)
+[field/baseField.ts:12](https://github.com/siposdani87/sui-js/blob/9aff0f0/src/field/baseField.ts#L12)
 
 ___
 
 ### label
 
-• **label**: [`Knot`](Knot.md)<`HTMLElement`\>
+• **label**: [`Knot`](Knot.md)\<`HTMLElement`\>
 
 #### Inherited from
 
@@ -189,27 +193,27 @@ ___
 
 #### Defined in
 
-[field/baseField.ts:10](https://github.com/siposdani87/sui-js/blob/ad456a5/src/field/baseField.ts#L10)
+[field/baseField.ts:10](https://github.com/siposdani87/sui-js/blob/9aff0f0/src/field/baseField.ts#L10)
 
 ___
 
 ### listKnot
 
-• **listKnot**: [`Knot`](Knot.md)<`HTMLElement`\>
+• **listKnot**: [`Knot`](Knot.md)\<`HTMLElement`\>
 
 #### Defined in
 
-[field/selectField.ts:24](https://github.com/siposdani87/sui-js/blob/ad456a5/src/field/selectField.ts#L24)
+[field/selectField.ts:24](https://github.com/siposdani87/sui-js/blob/9aff0f0/src/field/selectField.ts#L24)
 
 ___
 
 ### options
 
-• **options**: [`Collection`](Collection.md)<[`Objekt`](Objekt.md)<`Object`\>\>
+• **options**: [`Collection`](Collection.md)\<[`Objekt`](Objekt.md)\<`Object`\>\>
 
 #### Defined in
 
-[field/selectField.ts:26](https://github.com/siposdani87/sui-js/blob/ad456a5/src/field/selectField.ts#L26)
+[field/selectField.ts:26](https://github.com/siposdani87/sui-js/blob/9aff0f0/src/field/selectField.ts#L26)
 
 ___
 
@@ -219,7 +223,7 @@ ___
 
 #### Defined in
 
-[field/selectField.ts:25](https://github.com/siposdani87/sui-js/blob/ad456a5/src/field/selectField.ts#L25)
+[field/selectField.ts:25](https://github.com/siposdani87/sui-js/blob/9aff0f0/src/field/selectField.ts#L25)
 
 ___
 
@@ -229,43 +233,43 @@ ___
 
 #### Defined in
 
-[field/selectField.ts:21](https://github.com/siposdani87/sui-js/blob/ad456a5/src/field/selectField.ts#L21)
+[field/selectField.ts:21](https://github.com/siposdani87/sui-js/blob/9aff0f0/src/field/selectField.ts#L21)
 
 ___
 
 ### searchInputKnot
 
-• **searchInputKnot**: [`Knot`](Knot.md)<`HTMLInputElement`\>
+• **searchInputKnot**: [`Knot`](Knot.md)\<`HTMLInputElement`\>
 
 #### Defined in
 
-[field/selectField.ts:30](https://github.com/siposdani87/sui-js/blob/ad456a5/src/field/selectField.ts#L30)
+[field/selectField.ts:30](https://github.com/siposdani87/sui-js/blob/9aff0f0/src/field/selectField.ts#L30)
 
 ___
 
 ### selectContainerKnot
 
-• **selectContainerKnot**: [`Knot`](Knot.md)<`HTMLElement`\>
+• **selectContainerKnot**: [`Knot`](Knot.md)\<`HTMLElement`\>
 
 #### Defined in
 
-[field/selectField.ts:28](https://github.com/siposdani87/sui-js/blob/ad456a5/src/field/selectField.ts#L28)
+[field/selectField.ts:28](https://github.com/siposdani87/sui-js/blob/9aff0f0/src/field/selectField.ts#L28)
 
 ___
 
 ### selectKnot
 
-• **selectKnot**: [`Knot`](Knot.md)<`HTMLElement`\>
+• **selectKnot**: [`Knot`](Knot.md)\<`HTMLElement`\>
 
 #### Defined in
 
-[field/selectField.ts:29](https://github.com/siposdani87/sui-js/blob/ad456a5/src/field/selectField.ts#L29)
+[field/selectField.ts:29](https://github.com/siposdani87/sui-js/blob/9aff0f0/src/field/selectField.ts#L29)
 
 ## Methods
 
 ### \_change
 
-▸ `Private` **_change**(): `void`
+▸ **_change**(): `void`
 
 #### Returns
 
@@ -273,19 +277,19 @@ ___
 
 #### Defined in
 
-[field/selectField.ts:224](https://github.com/siposdani87/sui-js/blob/ad456a5/src/field/selectField.ts#L224)
+[field/selectField.ts:224](https://github.com/siposdani87/sui-js/blob/9aff0f0/src/field/selectField.ts#L224)
 
 ___
 
 ### \_drawKnots
 
-▸ `Private` **_drawKnots**(`items`): `void`
+▸ **_drawKnots**(`items`): `void`
 
 #### Parameters
 
 | Name | Type |
 | :------ | :------ |
-| `items` | [`Objekt`](Objekt.md)<`Object`\>[] |
+| `items` | [`Objekt`](Objekt.md)\<`Object`\>[] |
 
 #### Returns
 
@@ -293,13 +297,13 @@ ___
 
 #### Defined in
 
-[field/selectField.ts:354](https://github.com/siposdani87/sui-js/blob/ad456a5/src/field/selectField.ts#L354)
+[field/selectField.ts:354](https://github.com/siposdani87/sui-js/blob/9aff0f0/src/field/selectField.ts#L354)
 
 ___
 
 ### \_drawSearchInput
 
-▸ `Private` **_drawSearchInput**(): `void`
+▸ **_drawSearchInput**(): `void`
 
 #### Returns
 
@@ -307,13 +311,13 @@ ___
 
 #### Defined in
 
-[field/selectField.ts:383](https://github.com/siposdani87/sui-js/blob/ad456a5/src/field/selectField.ts#L383)
+[field/selectField.ts:383](https://github.com/siposdani87/sui-js/blob/9aff0f0/src/field/selectField.ts#L383)
 
 ___
 
 ### \_getAttributeName
 
-▸ `Protected` **_getAttributeName**(`inputName`): `string`
+▸ **_getAttributeName**(`inputName`): `string`
 
 #### Parameters
 
@@ -331,13 +335,13 @@ ___
 
 #### Defined in
 
-[field/baseField.ts:77](https://github.com/siposdani87/sui-js/blob/ad456a5/src/field/baseField.ts#L77)
+[field/baseField.ts:77](https://github.com/siposdani87/sui-js/blob/9aff0f0/src/field/baseField.ts#L77)
 
 ___
 
 ### \_getLabelRequiredText
 
-▸ `Protected` **_getLabelRequiredText**(`labelText`): `string`
+▸ **_getLabelRequiredText**(`labelText`): `string`
 
 #### Parameters
 
@@ -355,13 +359,13 @@ ___
 
 #### Defined in
 
-[field/baseField.ts:282](https://github.com/siposdani87/sui-js/blob/ad456a5/src/field/baseField.ts#L282)
+[field/baseField.ts:282](https://github.com/siposdani87/sui-js/blob/9aff0f0/src/field/baseField.ts#L282)
 
 ___
 
 ### \_getSelectedIds
 
-▸ `Private` **_getSelectedIds**(): `any`[]
+▸ **_getSelectedIds**(): `any`[]
 
 #### Returns
 
@@ -369,13 +373,13 @@ ___
 
 #### Defined in
 
-[field/selectField.ts:314](https://github.com/siposdani87/sui-js/blob/ad456a5/src/field/selectField.ts#L314)
+[field/selectField.ts:314](https://github.com/siposdani87/sui-js/blob/9aff0f0/src/field/selectField.ts#L314)
 
 ___
 
 ### \_handleSelectedId
 
-▸ `Private` **_handleSelectedId**(`id`): `void`
+▸ **_handleSelectedId**(`id`): `void`
 
 #### Parameters
 
@@ -389,13 +393,13 @@ ___
 
 #### Defined in
 
-[field/selectField.ts:328](https://github.com/siposdani87/sui-js/blob/ad456a5/src/field/selectField.ts#L328)
+[field/selectField.ts:328](https://github.com/siposdani87/sui-js/blob/9aff0f0/src/field/selectField.ts#L328)
 
 ___
 
 ### \_hideLoader
 
-▸ `Private` **_hideLoader**(): `void`
+▸ **_hideLoader**(): `void`
 
 #### Returns
 
@@ -403,13 +407,13 @@ ___
 
 #### Defined in
 
-[field/selectField.ts:186](https://github.com/siposdani87/sui-js/blob/ad456a5/src/field/selectField.ts#L186)
+[field/selectField.ts:186](https://github.com/siposdani87/sui-js/blob/9aff0f0/src/field/selectField.ts#L186)
 
 ___
 
 ### \_init
 
-▸ `Private` **_init**(): `void`
+▸ **_init**(): `void`
 
 #### Returns
 
@@ -417,13 +421,13 @@ ___
 
 #### Defined in
 
-[field/selectField.ts:42](https://github.com/siposdani87/sui-js/blob/ad456a5/src/field/selectField.ts#L42)
+[field/selectField.ts:42](https://github.com/siposdani87/sui-js/blob/9aff0f0/src/field/selectField.ts#L42)
 
 ___
 
 ### \_initChangeEvent
 
-▸ `Private` **_initChangeEvent**(): `void`
+▸ **_initChangeEvent**(): `void`
 
 #### Returns
 
@@ -431,13 +435,13 @@ ___
 
 #### Defined in
 
-[field/selectField.ts:68](https://github.com/siposdani87/sui-js/blob/ad456a5/src/field/selectField.ts#L68)
+[field/selectField.ts:68](https://github.com/siposdani87/sui-js/blob/9aff0f0/src/field/selectField.ts#L68)
 
 ___
 
 ### \_initOptions
 
-▸ `Private` **_initOptions**(): `void`
+▸ **_initOptions**(): `void`
 
 #### Returns
 
@@ -445,13 +449,13 @@ ___
 
 #### Defined in
 
-[field/selectField.ts:75](https://github.com/siposdani87/sui-js/blob/ad456a5/src/field/selectField.ts#L75)
+[field/selectField.ts:75](https://github.com/siposdani87/sui-js/blob/9aff0f0/src/field/selectField.ts#L75)
 
 ___
 
 ### \_initPopup
 
-▸ `Private` **_initPopup**(): `void`
+▸ **_initPopup**(): `void`
 
 #### Returns
 
@@ -459,13 +463,13 @@ ___
 
 #### Defined in
 
-[field/selectField.ts:57](https://github.com/siposdani87/sui-js/blob/ad456a5/src/field/selectField.ts#L57)
+[field/selectField.ts:57](https://github.com/siposdani87/sui-js/blob/9aff0f0/src/field/selectField.ts#L57)
 
 ___
 
 ### \_search
 
-▸ `Private` **_search**(`query`): `void`
+▸ **_search**(`query`): `void`
 
 #### Parameters
 
@@ -479,19 +483,19 @@ ___
 
 #### Defined in
 
-[field/selectField.ts:426](https://github.com/siposdani87/sui-js/blob/ad456a5/src/field/selectField.ts#L426)
+[field/selectField.ts:426](https://github.com/siposdani87/sui-js/blob/9aff0f0/src/field/selectField.ts#L426)
 
 ___
 
 ### \_setAdditionalLabel
 
-▸ `Protected` **_setAdditionalLabel**(`label`): `void`
+▸ **_setAdditionalLabel**(`label`): `void`
 
 #### Parameters
 
 | Name | Type |
 | :------ | :------ |
-| `label` | [`Knot`](Knot.md)<`HTMLElement`\> |
+| `label` | [`Knot`](Knot.md)\<`HTMLElement`\> |
 
 #### Returns
 
@@ -503,13 +507,13 @@ ___
 
 #### Defined in
 
-[field/baseField.ts:274](https://github.com/siposdani87/sui-js/blob/ad456a5/src/field/baseField.ts#L274)
+[field/baseField.ts:274](https://github.com/siposdani87/sui-js/blob/9aff0f0/src/field/baseField.ts#L274)
 
 ___
 
 ### \_setMultipleTag
 
-▸ `Private` **_setMultipleTag**(`ids`): `void`
+▸ **_setMultipleTag**(`ids`): `void`
 
 #### Parameters
 
@@ -523,13 +527,13 @@ ___
 
 #### Defined in
 
-[field/selectField.ts:247](https://github.com/siposdani87/sui-js/blob/ad456a5/src/field/selectField.ts#L247)
+[field/selectField.ts:247](https://github.com/siposdani87/sui-js/blob/9aff0f0/src/field/selectField.ts#L247)
 
 ___
 
 ### \_setSelectTags
 
-▸ `Private` **_setSelectTags**(`ids`): `void`
+▸ **_setSelectTags**(`ids`): `void`
 
 #### Parameters
 
@@ -543,13 +547,13 @@ ___
 
 #### Defined in
 
-[field/selectField.ts:231](https://github.com/siposdani87/sui-js/blob/ad456a5/src/field/selectField.ts#L231)
+[field/selectField.ts:231](https://github.com/siposdani87/sui-js/blob/9aff0f0/src/field/selectField.ts#L231)
 
 ___
 
 ### \_setSelectedIds
 
-▸ `Private` **_setSelectedIds**(`ids`): `void`
+▸ **_setSelectedIds**(`ids`): `void`
 
 #### Parameters
 
@@ -563,13 +567,13 @@ ___
 
 #### Defined in
 
-[field/selectField.ts:297](https://github.com/siposdani87/sui-js/blob/ad456a5/src/field/selectField.ts#L297)
+[field/selectField.ts:297](https://github.com/siposdani87/sui-js/blob/9aff0f0/src/field/selectField.ts#L297)
 
 ___
 
 ### \_setSimpleTag
 
-▸ `Private` **_setSimpleTag**(`id`): `void`
+▸ **_setSimpleTag**(`id`): `void`
 
 #### Parameters
 
@@ -583,19 +587,19 @@ ___
 
 #### Defined in
 
-[field/selectField.ts:242](https://github.com/siposdani87/sui-js/blob/ad456a5/src/field/selectField.ts#L242)
+[field/selectField.ts:242](https://github.com/siposdani87/sui-js/blob/9aff0f0/src/field/selectField.ts#L242)
 
 ___
 
 ### \_setTags
 
-▸ `Private` **_setTags**(`tags`): `void`
+▸ **_setTags**(`tags`): `void`
 
 #### Parameters
 
 | Name | Type |
 | :------ | :------ |
-| `tags` | [`Objekt`](Objekt.md)<`Object`\> \| [`Objekt`](Objekt.md)<`Object`\>[] |
+| `tags` | [`Objekt`](Objekt.md)\<`Object`\> \| [`Objekt`](Objekt.md)\<`Object`\>[] |
 
 #### Returns
 
@@ -603,7 +607,7 @@ ___
 
 #### Defined in
 
-[field/selectField.ts:265](https://github.com/siposdani87/sui-js/blob/ad456a5/src/field/selectField.ts#L265)
+[field/selectField.ts:265](https://github.com/siposdani87/sui-js/blob/9aff0f0/src/field/selectField.ts#L265)
 
 ___
 
@@ -628,7 +632,7 @@ ___
 
 #### Defined in
 
-[field/baseField.ts:100](https://github.com/siposdani87/sui-js/blob/ad456a5/src/field/baseField.ts#L100)
+[field/baseField.ts:100](https://github.com/siposdani87/sui-js/blob/9aff0f0/src/field/baseField.ts#L100)
 
 ___
 
@@ -642,7 +646,7 @@ ___
 
 #### Defined in
 
-[field/selectField.ts:422](https://github.com/siposdani87/sui-js/blob/ad456a5/src/field/selectField.ts#L422)
+[field/selectField.ts:422](https://github.com/siposdani87/sui-js/blob/9aff0f0/src/field/selectField.ts#L422)
 
 ___
 
@@ -667,7 +671,7 @@ ___
 
 #### Defined in
 
-[field/baseField.ts:42](https://github.com/siposdani87/sui-js/blob/ad456a5/src/field/baseField.ts#L42)
+[field/baseField.ts:42](https://github.com/siposdani87/sui-js/blob/9aff0f0/src/field/baseField.ts#L42)
 
 ___
 
@@ -679,7 +683,7 @@ ___
 
 | Name | Type |
 | :------ | :------ |
-| `knot` | [`Knot`](Knot.md)<`HTMLElement`\> |
+| `knot` | [`Knot`](Knot.md)\<`HTMLElement`\> |
 
 #### Returns
 
@@ -691,7 +695,7 @@ ___
 
 #### Defined in
 
-[field/baseField.ts:46](https://github.com/siposdani87/sui-js/blob/ad456a5/src/field/baseField.ts#L46)
+[field/baseField.ts:46](https://github.com/siposdani87/sui-js/blob/9aff0f0/src/field/baseField.ts#L46)
 
 ___
 
@@ -709,7 +713,7 @@ ___
 
 #### Defined in
 
-[field/baseField.ts:143](https://github.com/siposdani87/sui-js/blob/ad456a5/src/field/baseField.ts#L143)
+[field/baseField.ts:143](https://github.com/siposdani87/sui-js/blob/9aff0f0/src/field/baseField.ts#L143)
 
 ___
 
@@ -727,7 +731,7 @@ ___
 
 #### Defined in
 
-[field/baseField.ts:147](https://github.com/siposdani87/sui-js/blob/ad456a5/src/field/baseField.ts#L147)
+[field/baseField.ts:147](https://github.com/siposdani87/sui-js/blob/9aff0f0/src/field/baseField.ts#L147)
 
 ___
 
@@ -745,7 +749,7 @@ ___
 
 #### Defined in
 
-[field/baseField.ts:151](https://github.com/siposdani87/sui-js/blob/ad456a5/src/field/baseField.ts#L151)
+[field/baseField.ts:151](https://github.com/siposdani87/sui-js/blob/9aff0f0/src/field/baseField.ts#L151)
 
 ___
 
@@ -769,7 +773,7 @@ ___
 
 #### Defined in
 
-[field/baseField.ts:155](https://github.com/siposdani87/sui-js/blob/ad456a5/src/field/baseField.ts#L155)
+[field/baseField.ts:155](https://github.com/siposdani87/sui-js/blob/9aff0f0/src/field/baseField.ts#L155)
 
 ___
 
@@ -787,7 +791,7 @@ ___
 
 #### Defined in
 
-[field/baseField.ts:67](https://github.com/siposdani87/sui-js/blob/ad456a5/src/field/baseField.ts#L67)
+[field/baseField.ts:67](https://github.com/siposdani87/sui-js/blob/9aff0f0/src/field/baseField.ts#L67)
 
 ___
 
@@ -807,7 +811,7 @@ ___
 
 #### Defined in
 
-[field/selectField.ts:170](https://github.com/siposdani87/sui-js/blob/ad456a5/src/field/selectField.ts#L170)
+[field/selectField.ts:170](https://github.com/siposdani87/sui-js/blob/9aff0f0/src/field/selectField.ts#L170)
 
 ___
 
@@ -825,7 +829,7 @@ ___
 
 #### Defined in
 
-[field/baseField.ts:62](https://github.com/siposdani87/sui-js/blob/ad456a5/src/field/baseField.ts#L62)
+[field/baseField.ts:62](https://github.com/siposdani87/sui-js/blob/9aff0f0/src/field/baseField.ts#L62)
 
 ___
 
@@ -843,7 +847,7 @@ ___
 
 #### Defined in
 
-[field/selectField.ts:162](https://github.com/siposdani87/sui-js/blob/ad456a5/src/field/selectField.ts#L162)
+[field/selectField.ts:162](https://github.com/siposdani87/sui-js/blob/9aff0f0/src/field/selectField.ts#L162)
 
 ___
 
@@ -861,7 +865,7 @@ ___
 
 #### Defined in
 
-[field/baseField.ts:210](https://github.com/siposdani87/sui-js/blob/ad456a5/src/field/baseField.ts#L210)
+[field/baseField.ts:210](https://github.com/siposdani87/sui-js/blob/9aff0f0/src/field/baseField.ts#L210)
 
 ___
 
@@ -879,7 +883,7 @@ ___
 
 #### Defined in
 
-[field/baseField.ts:178](https://github.com/siposdani87/sui-js/blob/ad456a5/src/field/baseField.ts#L178)
+[field/baseField.ts:178](https://github.com/siposdani87/sui-js/blob/9aff0f0/src/field/baseField.ts#L178)
 
 ___
 
@@ -897,7 +901,7 @@ ___
 
 #### Defined in
 
-[field/baseField.ts:174](https://github.com/siposdani87/sui-js/blob/ad456a5/src/field/baseField.ts#L174)
+[field/baseField.ts:174](https://github.com/siposdani87/sui-js/blob/9aff0f0/src/field/baseField.ts#L174)
 
 ___
 
@@ -911,7 +915,7 @@ ___
 
 #### Defined in
 
-[field/selectField.ts:53](https://github.com/siposdani87/sui-js/blob/ad456a5/src/field/selectField.ts#L53)
+[field/selectField.ts:53](https://github.com/siposdani87/sui-js/blob/9aff0f0/src/field/selectField.ts#L53)
 
 ___
 
@@ -929,7 +933,7 @@ ___
 
 #### Defined in
 
-[field/baseField.ts:159](https://github.com/siposdani87/sui-js/blob/ad456a5/src/field/baseField.ts#L159)
+[field/baseField.ts:159](https://github.com/siposdani87/sui-js/blob/9aff0f0/src/field/baseField.ts#L159)
 
 ___
 
@@ -947,7 +951,7 @@ ___
 
 #### Defined in
 
-[field/baseField.ts:129](https://github.com/siposdani87/sui-js/blob/ad456a5/src/field/baseField.ts#L129)
+[field/baseField.ts:129](https://github.com/siposdani87/sui-js/blob/9aff0f0/src/field/baseField.ts#L129)
 
 ___
 
@@ -965,7 +969,7 @@ ___
 
 #### Defined in
 
-[field/baseField.ts:123](https://github.com/siposdani87/sui-js/blob/ad456a5/src/field/baseField.ts#L123)
+[field/baseField.ts:123](https://github.com/siposdani87/sui-js/blob/9aff0f0/src/field/baseField.ts#L123)
 
 ___
 
@@ -983,7 +987,7 @@ ___
 
 #### Defined in
 
-[field/baseField.ts:192](https://github.com/siposdani87/sui-js/blob/ad456a5/src/field/baseField.ts#L192)
+[field/baseField.ts:192](https://github.com/siposdani87/sui-js/blob/9aff0f0/src/field/baseField.ts#L192)
 
 ___
 
@@ -1007,7 +1011,7 @@ ___
 
 #### Defined in
 
-[field/baseField.ts:58](https://github.com/siposdani87/sui-js/blob/ad456a5/src/field/baseField.ts#L58)
+[field/baseField.ts:58](https://github.com/siposdani87/sui-js/blob/9aff0f0/src/field/baseField.ts#L58)
 
 ___
 
@@ -1021,7 +1025,7 @@ ___
 
 #### Defined in
 
-[field/selectField.ts:416](https://github.com/siposdani87/sui-js/blob/ad456a5/src/field/selectField.ts#L416)
+[field/selectField.ts:416](https://github.com/siposdani87/sui-js/blob/9aff0f0/src/field/selectField.ts#L416)
 
 ___
 
@@ -1039,7 +1043,7 @@ ___
 
 #### Defined in
 
-[field/selectField.ts:114](https://github.com/siposdani87/sui-js/blob/ad456a5/src/field/selectField.ts#L114)
+[field/selectField.ts:114](https://github.com/siposdani87/sui-js/blob/9aff0f0/src/field/selectField.ts#L114)
 
 ___
 
@@ -1057,7 +1061,7 @@ ___
 
 #### Defined in
 
-[field/selectField.ts:95](https://github.com/siposdani87/sui-js/blob/ad456a5/src/field/selectField.ts#L95)
+[field/selectField.ts:95](https://github.com/siposdani87/sui-js/blob/9aff0f0/src/field/selectField.ts#L95)
 
 ___
 
@@ -1081,7 +1085,7 @@ ___
 
 #### Defined in
 
-[field/baseField.ts:182](https://github.com/siposdani87/sui-js/blob/ad456a5/src/field/baseField.ts#L182)
+[field/baseField.ts:182](https://github.com/siposdani87/sui-js/blob/9aff0f0/src/field/baseField.ts#L182)
 
 ___
 
@@ -1106,7 +1110,7 @@ ___
 
 #### Defined in
 
-[field/baseField.ts:87](https://github.com/siposdani87/sui-js/blob/ad456a5/src/field/baseField.ts#L87)
+[field/baseField.ts:87](https://github.com/siposdani87/sui-js/blob/9aff0f0/src/field/baseField.ts#L87)
 
 ___
 
@@ -1130,7 +1134,7 @@ ___
 
 #### Defined in
 
-[field/baseField.ts:216](https://github.com/siposdani87/sui-js/blob/ad456a5/src/field/baseField.ts#L216)
+[field/baseField.ts:216](https://github.com/siposdani87/sui-js/blob/9aff0f0/src/field/baseField.ts#L216)
 
 ___
 
@@ -1142,7 +1146,7 @@ ___
 
 | Name | Type | Default value |
 | :------ | :------ | :------ |
-| `items` | [`Objekt`](Objekt.md)<`Object`\>[] | `undefined` |
+| `items` | [`Objekt`](Objekt.md)\<`Object`\>[] | `undefined` |
 | `opt_value` | `string` | `'value'` |
 | `opt_name` | `string` | `'name'` |
 | `opt_image` | `string` | `''` |
@@ -1153,7 +1157,7 @@ ___
 
 #### Defined in
 
-[field/selectField.ts:191](https://github.com/siposdani87/sui-js/blob/ad456a5/src/field/selectField.ts#L191)
+[field/selectField.ts:191](https://github.com/siposdani87/sui-js/blob/9aff0f0/src/field/selectField.ts#L191)
 
 ___
 
@@ -1177,7 +1181,7 @@ ___
 
 #### Defined in
 
-[field/baseField.ts:163](https://github.com/siposdani87/sui-js/blob/ad456a5/src/field/baseField.ts#L163)
+[field/baseField.ts:163](https://github.com/siposdani87/sui-js/blob/9aff0f0/src/field/baseField.ts#L163)
 
 ___
 
@@ -1201,7 +1205,7 @@ ___
 
 #### Defined in
 
-[field/selectField.ts:144](https://github.com/siposdani87/sui-js/blob/ad456a5/src/field/selectField.ts#L144)
+[field/selectField.ts:144](https://github.com/siposdani87/sui-js/blob/9aff0f0/src/field/selectField.ts#L144)
 
 ___
 
@@ -1225,7 +1229,7 @@ ___
 
 #### Defined in
 
-[field/baseField.ts:196](https://github.com/siposdani87/sui-js/blob/ad456a5/src/field/baseField.ts#L196)
+[field/baseField.ts:196](https://github.com/siposdani87/sui-js/blob/9aff0f0/src/field/baseField.ts#L196)
 
 ___
 
@@ -1243,7 +1247,7 @@ ___
 
 #### Defined in
 
-[field/baseField.ts:204](https://github.com/siposdani87/sui-js/blob/ad456a5/src/field/baseField.ts#L204)
+[field/baseField.ts:204](https://github.com/siposdani87/sui-js/blob/9aff0f0/src/field/baseField.ts#L204)
 
 ___
 
@@ -1257,4 +1261,4 @@ ___
 
 #### Defined in
 
-[field/selectField.ts:181](https://github.com/siposdani87/sui-js/blob/ad456a5/src/field/selectField.ts#L181)
+[field/selectField.ts:181](https://github.com/siposdani87/sui-js/blob/9aff0f0/src/field/selectField.ts#L181)

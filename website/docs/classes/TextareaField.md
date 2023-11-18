@@ -8,7 +8,7 @@ custom_edit_url: null
 
 ## Hierarchy
 
-- [`BaseField`](BaseField.md)<`HTMLInputElement`\>
+- [`BaseField`](BaseField.md)\<`HTMLInputElement`\>
 
   ↳ **`TextareaField`**
 
@@ -16,16 +16,20 @@ custom_edit_url: null
 
 ### constructor
 
-• **new TextareaField**(`input`, `label`, `error`, `inputBlock`)
+• **new TextareaField**(`input`, `label`, `error`, `inputBlock`): [`TextareaField`](TextareaField.md)
 
 #### Parameters
 
 | Name | Type |
 | :------ | :------ |
-| `input` | [`Knot`](Knot.md)<`HTMLInputElement`\> |
-| `label` | [`Knot`](Knot.md)<`HTMLElement`\> |
-| `error` | [`Knot`](Knot.md)<`HTMLElement`\> |
-| `inputBlock` | [`Knot`](Knot.md)<`HTMLElement`\> |
+| `input` | [`Knot`](Knot.md)\<`HTMLInputElement`\> |
+| `label` | [`Knot`](Knot.md)\<`HTMLElement`\> |
+| `error` | [`Knot`](Knot.md)\<`HTMLElement`\> |
+| `inputBlock` | [`Knot`](Knot.md)\<`HTMLElement`\> |
+
+#### Returns
+
+[`TextareaField`](TextareaField.md)
 
 #### Overrides
 
@@ -33,13 +37,13 @@ custom_edit_url: null
 
 #### Defined in
 
-[field/textareaField.ts:11](https://github.com/siposdani87/sui-js/blob/ad456a5/src/field/textareaField.ts#L11)
+[field/textareaField.ts:11](https://github.com/siposdani87/sui-js/blob/9aff0f0/src/field/textareaField.ts#L11)
 
 ## Properties
 
 ### actionContainerKnot
 
-• **actionContainerKnot**: [`Knot`](Knot.md)<`HTMLElement`\>
+• **actionContainerKnot**: [`Knot`](Knot.md)\<`HTMLElement`\>
 
 #### Inherited from
 
@@ -47,7 +51,7 @@ custom_edit_url: null
 
 #### Defined in
 
-[field/baseField.ts:16](https://github.com/siposdani87/sui-js/blob/ad456a5/src/field/baseField.ts#L16)
+[field/baseField.ts:16](https://github.com/siposdani87/sui-js/blob/9aff0f0/src/field/baseField.ts#L16)
 
 ___
 
@@ -61,13 +65,13 @@ ___
 
 #### Defined in
 
-[field/baseField.ts:17](https://github.com/siposdani87/sui-js/blob/ad456a5/src/field/baseField.ts#L17)
+[field/baseField.ts:17](https://github.com/siposdani87/sui-js/blob/9aff0f0/src/field/baseField.ts#L17)
 
 ___
 
 ### error
 
-• **error**: [`Knot`](Knot.md)<`HTMLElement`\>
+• **error**: [`Knot`](Knot.md)\<`HTMLElement`\>
 
 #### Inherited from
 
@@ -75,7 +79,7 @@ ___
 
 #### Defined in
 
-[field/baseField.ts:11](https://github.com/siposdani87/sui-js/blob/ad456a5/src/field/baseField.ts#L11)
+[field/baseField.ts:11](https://github.com/siposdani87/sui-js/blob/9aff0f0/src/field/baseField.ts#L11)
 
 ___
 
@@ -89,7 +93,7 @@ ___
 
 #### Defined in
 
-[field/baseField.ts:14](https://github.com/siposdani87/sui-js/blob/ad456a5/src/field/baseField.ts#L14)
+[field/baseField.ts:14](https://github.com/siposdani87/sui-js/blob/9aff0f0/src/field/baseField.ts#L14)
 
 ___
 
@@ -103,7 +107,7 @@ ___
 
 #### Defined in
 
-[field/baseField.ts:13](https://github.com/siposdani87/sui-js/blob/ad456a5/src/field/baseField.ts#L13)
+[field/baseField.ts:13](https://github.com/siposdani87/sui-js/blob/9aff0f0/src/field/baseField.ts#L13)
 
 ___
 
@@ -113,13 +117,13 @@ ___
 
 #### Defined in
 
-[field/textareaField.ts:9](https://github.com/siposdani87/sui-js/blob/ad456a5/src/field/textareaField.ts#L9)
+[field/textareaField.ts:9](https://github.com/siposdani87/sui-js/blob/9aff0f0/src/field/textareaField.ts#L9)
 
 ___
 
 ### infoContainerKnot
 
-• **infoContainerKnot**: [`Knot`](Knot.md)<`HTMLElement`\>
+• **infoContainerKnot**: [`Knot`](Knot.md)\<`HTMLElement`\>
 
 #### Inherited from
 
@@ -127,13 +131,13 @@ ___
 
 #### Defined in
 
-[field/baseField.ts:15](https://github.com/siposdani87/sui-js/blob/ad456a5/src/field/baseField.ts#L15)
+[field/baseField.ts:15](https://github.com/siposdani87/sui-js/blob/9aff0f0/src/field/baseField.ts#L15)
 
 ___
 
 ### input
 
-• **input**: [`Knot`](Knot.md)<`HTMLInputElement`\>
+• **input**: [`Knot`](Knot.md)\<`HTMLInputElement`\>
 
 #### Inherited from
 
@@ -141,13 +145,13 @@ ___
 
 #### Defined in
 
-[field/baseField.ts:9](https://github.com/siposdani87/sui-js/blob/ad456a5/src/field/baseField.ts#L9)
+[field/baseField.ts:9](https://github.com/siposdani87/sui-js/blob/9aff0f0/src/field/baseField.ts#L9)
 
 ___
 
 ### inputBlock
 
-• **inputBlock**: [`Knot`](Knot.md)<`HTMLElement`\>
+• **inputBlock**: [`Knot`](Knot.md)\<`HTMLElement`\>
 
 #### Inherited from
 
@@ -155,13 +159,13 @@ ___
 
 #### Defined in
 
-[field/baseField.ts:12](https://github.com/siposdani87/sui-js/blob/ad456a5/src/field/baseField.ts#L12)
+[field/baseField.ts:12](https://github.com/siposdani87/sui-js/blob/9aff0f0/src/field/baseField.ts#L12)
 
 ___
 
 ### label
 
-• **label**: [`Knot`](Knot.md)<`HTMLElement`\>
+• **label**: [`Knot`](Knot.md)\<`HTMLElement`\>
 
 #### Inherited from
 
@@ -169,17 +173,17 @@ ___
 
 #### Defined in
 
-[field/baseField.ts:10](https://github.com/siposdani87/sui-js/blob/ad456a5/src/field/baseField.ts#L10)
+[field/baseField.ts:10](https://github.com/siposdani87/sui-js/blob/9aff0f0/src/field/baseField.ts#L10)
 
 ___
 
 ### richText
 
-• **richText**: [`Knot`](Knot.md)<`HTMLElement`\>
+• **richText**: [`Knot`](Knot.md)\<`HTMLElement`\>
 
 #### Defined in
 
-[field/textareaField.ts:6](https://github.com/siposdani87/sui-js/blob/ad456a5/src/field/textareaField.ts#L6)
+[field/textareaField.ts:6](https://github.com/siposdani87/sui-js/blob/9aff0f0/src/field/textareaField.ts#L6)
 
 ___
 
@@ -189,23 +193,23 @@ ___
 
 #### Defined in
 
-[field/textareaField.ts:7](https://github.com/siposdani87/sui-js/blob/ad456a5/src/field/textareaField.ts#L7)
+[field/textareaField.ts:7](https://github.com/siposdani87/sui-js/blob/9aff0f0/src/field/textareaField.ts#L7)
 
 ___
 
 ### toolbarKnot
 
-• **toolbarKnot**: [`Knot`](Knot.md)<`HTMLElement`\>
+• **toolbarKnot**: [`Knot`](Knot.md)\<`HTMLElement`\>
 
 #### Defined in
 
-[field/textareaField.ts:8](https://github.com/siposdani87/sui-js/blob/ad456a5/src/field/textareaField.ts#L8)
+[field/textareaField.ts:8](https://github.com/siposdani87/sui-js/blob/9aff0f0/src/field/textareaField.ts#L8)
 
 ## Methods
 
 ### \_formatDoc
 
-▸ `Private` **_formatDoc**(`sCmd`, `opt_sValue?`): `void`
+▸ **_formatDoc**(`sCmd`, `opt_sValue?`): `void`
 
 #### Parameters
 
@@ -220,13 +224,13 @@ ___
 
 #### Defined in
 
-[field/textareaField.ts:173](https://github.com/siposdani87/sui-js/blob/ad456a5/src/field/textareaField.ts#L173)
+[field/textareaField.ts:173](https://github.com/siposdani87/sui-js/blob/9aff0f0/src/field/textareaField.ts#L173)
 
 ___
 
 ### \_getAttributeName
 
-▸ `Protected` **_getAttributeName**(`inputName`): `string`
+▸ **_getAttributeName**(`inputName`): `string`
 
 #### Parameters
 
@@ -244,13 +248,13 @@ ___
 
 #### Defined in
 
-[field/baseField.ts:77](https://github.com/siposdani87/sui-js/blob/ad456a5/src/field/baseField.ts#L77)
+[field/baseField.ts:77](https://github.com/siposdani87/sui-js/blob/9aff0f0/src/field/baseField.ts#L77)
 
 ___
 
 ### \_getLabelRequiredText
 
-▸ `Protected` **_getLabelRequiredText**(`labelText`): `string`
+▸ **_getLabelRequiredText**(`labelText`): `string`
 
 #### Parameters
 
@@ -268,13 +272,13 @@ ___
 
 #### Defined in
 
-[field/baseField.ts:282](https://github.com/siposdani87/sui-js/blob/ad456a5/src/field/baseField.ts#L282)
+[field/baseField.ts:282](https://github.com/siposdani87/sui-js/blob/9aff0f0/src/field/baseField.ts#L282)
 
 ___
 
 ### \_init
 
-▸ `Private` **_init**(): `void`
+▸ **_init**(): `void`
 
 #### Returns
 
@@ -282,13 +286,13 @@ ___
 
 #### Defined in
 
-[field/textareaField.ts:21](https://github.com/siposdani87/sui-js/blob/ad456a5/src/field/textareaField.ts#L21)
+[field/textareaField.ts:21](https://github.com/siposdani87/sui-js/blob/9aff0f0/src/field/textareaField.ts#L21)
 
 ___
 
 ### \_isHtmlMode
 
-▸ `Private` **_isHtmlMode**(): `boolean`
+▸ **_isHtmlMode**(): `boolean`
 
 #### Returns
 
@@ -296,13 +300,13 @@ ___
 
 #### Defined in
 
-[field/textareaField.ts:169](https://github.com/siposdani87/sui-js/blob/ad456a5/src/field/textareaField.ts#L169)
+[field/textareaField.ts:169](https://github.com/siposdani87/sui-js/blob/9aff0f0/src/field/textareaField.ts#L169)
 
 ___
 
 ### \_isRichText
 
-▸ `Private` **_isRichText**(): `boolean`
+▸ **_isRichText**(): `boolean`
 
 #### Returns
 
@@ -310,13 +314,13 @@ ___
 
 #### Defined in
 
-[field/textareaField.ts:107](https://github.com/siposdani87/sui-js/blob/ad456a5/src/field/textareaField.ts#L107)
+[field/textareaField.ts:107](https://github.com/siposdani87/sui-js/blob/9aff0f0/src/field/textareaField.ts#L107)
 
 ___
 
 ### \_renderRichText
 
-▸ `Private` **_renderRichText**(): `void`
+▸ **_renderRichText**(): `void`
 
 #### Returns
 
@@ -324,13 +328,13 @@ ___
 
 #### Defined in
 
-[field/textareaField.ts:57](https://github.com/siposdani87/sui-js/blob/ad456a5/src/field/textareaField.ts#L57)
+[field/textareaField.ts:57](https://github.com/siposdani87/sui-js/blob/9aff0f0/src/field/textareaField.ts#L57)
 
 ___
 
 ### \_renderToolbarButton
 
-▸ `Private` **_renderToolbarButton**(`iconName`, `action`): `void`
+▸ **_renderToolbarButton**(`iconName`, `action`): `void`
 
 #### Parameters
 
@@ -345,13 +349,13 @@ ___
 
 #### Defined in
 
-[field/textareaField.ts:153](https://github.com/siposdani87/sui-js/blob/ad456a5/src/field/textareaField.ts#L153)
+[field/textareaField.ts:153](https://github.com/siposdani87/sui-js/blob/9aff0f0/src/field/textareaField.ts#L153)
 
 ___
 
 ### \_renderToolbarButtons
 
-▸ `Private` **_renderToolbarButtons**(): `void`
+▸ **_renderToolbarButtons**(): `void`
 
 #### Returns
 
@@ -359,19 +363,19 @@ ___
 
 #### Defined in
 
-[field/textareaField.ts:111](https://github.com/siposdani87/sui-js/blob/ad456a5/src/field/textareaField.ts#L111)
+[field/textareaField.ts:111](https://github.com/siposdani87/sui-js/blob/9aff0f0/src/field/textareaField.ts#L111)
 
 ___
 
 ### \_setAdditionalLabel
 
-▸ `Protected` **_setAdditionalLabel**(`label`): `void`
+▸ **_setAdditionalLabel**(`label`): `void`
 
 #### Parameters
 
 | Name | Type |
 | :------ | :------ |
-| `label` | [`Knot`](Knot.md)<`HTMLElement`\> |
+| `label` | [`Knot`](Knot.md)\<`HTMLElement`\> |
 
 #### Returns
 
@@ -383,13 +387,13 @@ ___
 
 #### Defined in
 
-[field/baseField.ts:274](https://github.com/siposdani87/sui-js/blob/ad456a5/src/field/baseField.ts#L274)
+[field/baseField.ts:274](https://github.com/siposdani87/sui-js/blob/9aff0f0/src/field/baseField.ts#L274)
 
 ___
 
 ### \_setDocMode
 
-▸ `Private` **_setDocMode**(`_isHtmlMode`): `void`
+▸ **_setDocMode**(`_isHtmlMode`): `void`
 
 #### Parameters
 
@@ -403,13 +407,13 @@ ___
 
 #### Defined in
 
-[field/textareaField.ts:180](https://github.com/siposdani87/sui-js/blob/ad456a5/src/field/textareaField.ts#L180)
+[field/textareaField.ts:180](https://github.com/siposdani87/sui-js/blob/9aff0f0/src/field/textareaField.ts#L180)
 
 ___
 
 ### \_setHtmlMode
 
-▸ `Private` **_setHtmlMode**(`value`): `void`
+▸ **_setHtmlMode**(`value`): `void`
 
 #### Parameters
 
@@ -423,13 +427,13 @@ ___
 
 #### Defined in
 
-[field/textareaField.ts:164](https://github.com/siposdani87/sui-js/blob/ad456a5/src/field/textareaField.ts#L164)
+[field/textareaField.ts:164](https://github.com/siposdani87/sui-js/blob/9aff0f0/src/field/textareaField.ts#L164)
 
 ___
 
 ### \_setValue
 
-▸ `Private` **_setValue**(`value`): `void`
+▸ **_setValue**(`value`): `void`
 
 #### Parameters
 
@@ -443,7 +447,7 @@ ___
 
 #### Defined in
 
-[field/textareaField.ts:203](https://github.com/siposdani87/sui-js/blob/ad456a5/src/field/textareaField.ts#L203)
+[field/textareaField.ts:203](https://github.com/siposdani87/sui-js/blob/9aff0f0/src/field/textareaField.ts#L203)
 
 ___
 
@@ -468,7 +472,7 @@ ___
 
 #### Defined in
 
-[field/baseField.ts:100](https://github.com/siposdani87/sui-js/blob/ad456a5/src/field/baseField.ts#L100)
+[field/baseField.ts:100](https://github.com/siposdani87/sui-js/blob/9aff0f0/src/field/baseField.ts#L100)
 
 ___
 
@@ -493,7 +497,7 @@ ___
 
 #### Defined in
 
-[field/baseField.ts:42](https://github.com/siposdani87/sui-js/blob/ad456a5/src/field/baseField.ts#L42)
+[field/baseField.ts:42](https://github.com/siposdani87/sui-js/blob/9aff0f0/src/field/baseField.ts#L42)
 
 ___
 
@@ -505,7 +509,7 @@ ___
 
 | Name | Type |
 | :------ | :------ |
-| `knot` | [`Knot`](Knot.md)<`HTMLElement`\> |
+| `knot` | [`Knot`](Knot.md)\<`HTMLElement`\> |
 
 #### Returns
 
@@ -517,7 +521,7 @@ ___
 
 #### Defined in
 
-[field/baseField.ts:46](https://github.com/siposdani87/sui-js/blob/ad456a5/src/field/baseField.ts#L46)
+[field/baseField.ts:46](https://github.com/siposdani87/sui-js/blob/9aff0f0/src/field/baseField.ts#L46)
 
 ___
 
@@ -535,7 +539,7 @@ ___
 
 #### Defined in
 
-[field/baseField.ts:143](https://github.com/siposdani87/sui-js/blob/ad456a5/src/field/baseField.ts#L143)
+[field/baseField.ts:143](https://github.com/siposdani87/sui-js/blob/9aff0f0/src/field/baseField.ts#L143)
 
 ___
 
@@ -553,7 +557,7 @@ ___
 
 #### Defined in
 
-[field/baseField.ts:147](https://github.com/siposdani87/sui-js/blob/ad456a5/src/field/baseField.ts#L147)
+[field/baseField.ts:147](https://github.com/siposdani87/sui-js/blob/9aff0f0/src/field/baseField.ts#L147)
 
 ___
 
@@ -571,7 +575,7 @@ ___
 
 #### Defined in
 
-[field/baseField.ts:151](https://github.com/siposdani87/sui-js/blob/ad456a5/src/field/baseField.ts#L151)
+[field/baseField.ts:151](https://github.com/siposdani87/sui-js/blob/9aff0f0/src/field/baseField.ts#L151)
 
 ___
 
@@ -595,7 +599,7 @@ ___
 
 #### Defined in
 
-[field/baseField.ts:155](https://github.com/siposdani87/sui-js/blob/ad456a5/src/field/baseField.ts#L155)
+[field/baseField.ts:155](https://github.com/siposdani87/sui-js/blob/9aff0f0/src/field/baseField.ts#L155)
 
 ___
 
@@ -613,7 +617,7 @@ ___
 
 #### Defined in
 
-[field/baseField.ts:67](https://github.com/siposdani87/sui-js/blob/ad456a5/src/field/baseField.ts#L67)
+[field/baseField.ts:67](https://github.com/siposdani87/sui-js/blob/9aff0f0/src/field/baseField.ts#L67)
 
 ___
 
@@ -631,7 +635,7 @@ ___
 
 #### Defined in
 
-[field/baseField.ts:62](https://github.com/siposdani87/sui-js/blob/ad456a5/src/field/baseField.ts#L62)
+[field/baseField.ts:62](https://github.com/siposdani87/sui-js/blob/9aff0f0/src/field/baseField.ts#L62)
 
 ___
 
@@ -649,7 +653,7 @@ ___
 
 #### Defined in
 
-[field/textareaField.ts:236](https://github.com/siposdani87/sui-js/blob/ad456a5/src/field/textareaField.ts#L236)
+[field/textareaField.ts:236](https://github.com/siposdani87/sui-js/blob/9aff0f0/src/field/textareaField.ts#L236)
 
 ___
 
@@ -667,7 +671,7 @@ ___
 
 #### Defined in
 
-[field/baseField.ts:210](https://github.com/siposdani87/sui-js/blob/ad456a5/src/field/baseField.ts#L210)
+[field/baseField.ts:210](https://github.com/siposdani87/sui-js/blob/9aff0f0/src/field/baseField.ts#L210)
 
 ___
 
@@ -685,7 +689,7 @@ ___
 
 #### Defined in
 
-[field/baseField.ts:178](https://github.com/siposdani87/sui-js/blob/ad456a5/src/field/baseField.ts#L178)
+[field/baseField.ts:178](https://github.com/siposdani87/sui-js/blob/9aff0f0/src/field/baseField.ts#L178)
 
 ___
 
@@ -703,7 +707,7 @@ ___
 
 #### Defined in
 
-[field/baseField.ts:174](https://github.com/siposdani87/sui-js/blob/ad456a5/src/field/baseField.ts#L174)
+[field/baseField.ts:174](https://github.com/siposdani87/sui-js/blob/9aff0f0/src/field/baseField.ts#L174)
 
 ___
 
@@ -721,7 +725,7 @@ ___
 
 #### Defined in
 
-[field/baseField.ts:159](https://github.com/siposdani87/sui-js/blob/ad456a5/src/field/baseField.ts#L159)
+[field/baseField.ts:159](https://github.com/siposdani87/sui-js/blob/9aff0f0/src/field/baseField.ts#L159)
 
 ___
 
@@ -739,7 +743,7 @@ ___
 
 #### Defined in
 
-[field/baseField.ts:129](https://github.com/siposdani87/sui-js/blob/ad456a5/src/field/baseField.ts#L129)
+[field/baseField.ts:129](https://github.com/siposdani87/sui-js/blob/9aff0f0/src/field/baseField.ts#L129)
 
 ___
 
@@ -757,7 +761,7 @@ ___
 
 #### Defined in
 
-[field/baseField.ts:123](https://github.com/siposdani87/sui-js/blob/ad456a5/src/field/baseField.ts#L123)
+[field/baseField.ts:123](https://github.com/siposdani87/sui-js/blob/9aff0f0/src/field/baseField.ts#L123)
 
 ___
 
@@ -775,7 +779,7 @@ ___
 
 #### Defined in
 
-[field/baseField.ts:192](https://github.com/siposdani87/sui-js/blob/ad456a5/src/field/baseField.ts#L192)
+[field/baseField.ts:192](https://github.com/siposdani87/sui-js/blob/9aff0f0/src/field/baseField.ts#L192)
 
 ___
 
@@ -799,7 +803,7 @@ ___
 
 #### Defined in
 
-[field/baseField.ts:58](https://github.com/siposdani87/sui-js/blob/ad456a5/src/field/baseField.ts#L58)
+[field/baseField.ts:58](https://github.com/siposdani87/sui-js/blob/9aff0f0/src/field/baseField.ts#L58)
 
 ___
 
@@ -817,7 +821,7 @@ ___
 
 #### Defined in
 
-[field/textareaField.ts:191](https://github.com/siposdani87/sui-js/blob/ad456a5/src/field/textareaField.ts#L191)
+[field/textareaField.ts:191](https://github.com/siposdani87/sui-js/blob/9aff0f0/src/field/textareaField.ts#L191)
 
 ___
 
@@ -835,7 +839,7 @@ ___
 
 #### Defined in
 
-[field/textareaField.ts:40](https://github.com/siposdani87/sui-js/blob/ad456a5/src/field/textareaField.ts#L40)
+[field/textareaField.ts:40](https://github.com/siposdani87/sui-js/blob/9aff0f0/src/field/textareaField.ts#L40)
 
 ___
 
@@ -859,7 +863,7 @@ ___
 
 #### Defined in
 
-[field/baseField.ts:182](https://github.com/siposdani87/sui-js/blob/ad456a5/src/field/baseField.ts#L182)
+[field/baseField.ts:182](https://github.com/siposdani87/sui-js/blob/9aff0f0/src/field/baseField.ts#L182)
 
 ___
 
@@ -884,7 +888,7 @@ ___
 
 #### Defined in
 
-[field/baseField.ts:87](https://github.com/siposdani87/sui-js/blob/ad456a5/src/field/baseField.ts#L87)
+[field/baseField.ts:87](https://github.com/siposdani87/sui-js/blob/9aff0f0/src/field/baseField.ts#L87)
 
 ___
 
@@ -908,7 +912,7 @@ ___
 
 #### Defined in
 
-[field/baseField.ts:216](https://github.com/siposdani87/sui-js/blob/ad456a5/src/field/baseField.ts#L216)
+[field/baseField.ts:216](https://github.com/siposdani87/sui-js/blob/9aff0f0/src/field/baseField.ts#L216)
 
 ___
 
@@ -932,7 +936,7 @@ ___
 
 #### Defined in
 
-[field/baseField.ts:163](https://github.com/siposdani87/sui-js/blob/ad456a5/src/field/baseField.ts#L163)
+[field/baseField.ts:163](https://github.com/siposdani87/sui-js/blob/9aff0f0/src/field/baseField.ts#L163)
 
 ___
 
@@ -956,7 +960,7 @@ ___
 
 #### Defined in
 
-[field/textareaField.ts:219](https://github.com/siposdani87/sui-js/blob/ad456a5/src/field/textareaField.ts#L219)
+[field/textareaField.ts:219](https://github.com/siposdani87/sui-js/blob/9aff0f0/src/field/textareaField.ts#L219)
 
 ___
 
@@ -980,7 +984,7 @@ ___
 
 #### Defined in
 
-[field/baseField.ts:196](https://github.com/siposdani87/sui-js/blob/ad456a5/src/field/baseField.ts#L196)
+[field/baseField.ts:196](https://github.com/siposdani87/sui-js/blob/9aff0f0/src/field/baseField.ts#L196)
 
 ___
 
@@ -998,4 +1002,4 @@ ___
 
 #### Defined in
 
-[field/baseField.ts:204](https://github.com/siposdani87/sui-js/blob/ad456a5/src/field/baseField.ts#L204)
+[field/baseField.ts:204](https://github.com/siposdani87/sui-js/blob/9aff0f0/src/field/baseField.ts#L204)

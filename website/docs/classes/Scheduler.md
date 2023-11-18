@@ -10,27 +10,31 @@ custom_edit_url: null
 
 ### constructor
 
-• **new Scheduler**()
+• **new Scheduler**(): [`Scheduler`](Scheduler.md)
+
+#### Returns
+
+[`Scheduler`](Scheduler.md)
 
 #### Defined in
 
-[module/scheduler.ts:7](https://github.com/siposdani87/sui-js/blob/ad456a5/src/module/scheduler.ts#L7)
+[module/scheduler.ts:7](https://github.com/siposdani87/sui-js/blob/9aff0f0/src/module/scheduler.ts#L7)
 
 ## Properties
 
 ### schedulerStore
 
-• **schedulerStore**: [`Objekt`](Objekt.md)<`Object`\>
+• **schedulerStore**: [`Objekt`](Objekt.md)\<`Object`\>
 
 #### Defined in
 
-[module/scheduler.ts:5](https://github.com/siposdani87/sui-js/blob/ad456a5/src/module/scheduler.ts#L5)
+[module/scheduler.ts:5](https://github.com/siposdani87/sui-js/blob/9aff0f0/src/module/scheduler.ts#L5)
 
 ## Methods
 
 ### \_callRunner
 
-▸ `Private` **_callRunner**(): `void`
+▸ **_callRunner**(): `void`
 
 #### Returns
 
@@ -38,7 +42,7 @@ custom_edit_url: null
 
 #### Defined in
 
-[module/scheduler.ts:13](https://github.com/siposdani87/sui-js/blob/ad456a5/src/module/scheduler.ts#L13)
+[module/scheduler.ts:13](https://github.com/siposdani87/sui-js/blob/9aff0f0/src/module/scheduler.ts#L13)
 
 ___
 
@@ -59,4 +63,4 @@ ___
 
 #### Defined in
 
-[module/scheduler.ts:21](https://github.com/siposdani87/sui-js/blob/ad456a5/src/module/scheduler.ts#L21)
+[module/scheduler.ts:21](https://github.com/siposdani87/sui-js/blob/9aff0f0/src/module/scheduler.ts#L21)

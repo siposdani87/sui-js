@@ -16,25 +16,29 @@ custom_edit_url: null
 
 ### constructor
 
-• **new Table**<`T`\>(`dom`, `opt_selector?`, `opt_options?`)
+• **new Table**\<`T`\>(`dom`, `opt_selector?`, `opt_options?`): [`Table`](Table.md)\<`T`\>
 
 #### Type parameters
 
 | Name | Type |
 | :------ | :------ |
-| `T` | extends [`Objekt`](Objekt.md)<`Object`, `T`\> = [`Objekt`](Objekt.md)<`Object`\> |
+| `T` | extends [`Objekt`](Objekt.md)\<`Object`\> = [`Objekt`](Objekt.md)\<`Object`\> |
 
 #### Parameters
 
 | Name | Type | Default value |
 | :------ | :------ | :------ |
-| `dom` | [`Knot`](Knot.md)<`HTMLElement`\> | `undefined` |
+| `dom` | [`Knot`](Knot.md)\<`HTMLElement`\> | `undefined` |
 | `opt_selector` | `string` | `'table'` |
 | `opt_options` | `Object` | `{}` |
 
+#### Returns
+
+[`Table`](Table.md)\<`T`\>
+
 #### Defined in
 
-[component/table.ts:45](https://github.com/siposdani87/sui-js/blob/ad456a5/src/component/table.ts#L45)
+[component/table.ts:45](https://github.com/siposdani87/sui-js/blob/9aff0f0/src/component/table.ts#L45)
 
 ## Properties
 
@@ -44,17 +48,17 @@ custom_edit_url: null
 
 #### Defined in
 
-[component/table.ts:37](https://github.com/siposdani87/sui-js/blob/ad456a5/src/component/table.ts#L37)
+[component/table.ts:37](https://github.com/siposdani87/sui-js/blob/9aff0f0/src/component/table.ts#L37)
 
 ___
 
 ### collection
 
-• **collection**: [`Collection`](Collection.md)<`T`\>
+• **collection**: [`Collection`](Collection.md)\<`T`\>
 
 #### Defined in
 
-[component/table.ts:35](https://github.com/siposdani87/sui-js/blob/ad456a5/src/component/table.ts#L35)
+[component/table.ts:35](https://github.com/siposdani87/sui-js/blob/9aff0f0/src/component/table.ts#L35)
 
 ___
 
@@ -64,17 +68,17 @@ ___
 
 #### Defined in
 
-[component/table.ts:38](https://github.com/siposdani87/sui-js/blob/ad456a5/src/component/table.ts#L38)
+[component/table.ts:38](https://github.com/siposdani87/sui-js/blob/9aff0f0/src/component/table.ts#L38)
 
 ___
 
 ### headerKnots
 
-• **headerKnots**: [`Query`](Query.md)<`HTMLElement`\>
+• **headerKnots**: [`Query`](Query.md)\<`HTMLElement`\>
 
 #### Defined in
 
-[component/table.ts:39](https://github.com/siposdani87/sui-js/blob/ad456a5/src/component/table.ts#L39)
+[component/table.ts:39](https://github.com/siposdani87/sui-js/blob/9aff0f0/src/component/table.ts#L39)
 
 ___
 
@@ -84,17 +88,17 @@ ___
 
 #### Defined in
 
-[component/table.ts:40](https://github.com/siposdani87/sui-js/blob/ad456a5/src/component/table.ts#L40)
+[component/table.ts:40](https://github.com/siposdani87/sui-js/blob/9aff0f0/src/component/table.ts#L40)
 
 ___
 
 ### options
 
-• **options**: [`Objekt`](Objekt.md)<`Object`\>
+• **options**: [`Objekt`](Objekt.md)\<`Object`\>
 
 #### Defined in
 
-[component/table.ts:34](https://github.com/siposdani87/sui-js/blob/ad456a5/src/component/table.ts#L34)
+[component/table.ts:34](https://github.com/siposdani87/sui-js/blob/9aff0f0/src/component/table.ts#L34)
 
 ___
 
@@ -104,7 +108,7 @@ ___
 
 #### Defined in
 
-[component/table.ts:43](https://github.com/siposdani87/sui-js/blob/ad456a5/src/component/table.ts#L43)
+[component/table.ts:43](https://github.com/siposdani87/sui-js/blob/9aff0f0/src/component/table.ts#L43)
 
 ___
 
@@ -114,43 +118,43 @@ ___
 
 #### Defined in
 
-[component/table.ts:36](https://github.com/siposdani87/sui-js/blob/ad456a5/src/component/table.ts#L36)
+[component/table.ts:36](https://github.com/siposdani87/sui-js/blob/9aff0f0/src/component/table.ts#L36)
 
 ___
 
 ### tableKnot
 
-• **tableKnot**: [`Knot`](Knot.md)<`HTMLElement`\>
+• **tableKnot**: [`Knot`](Knot.md)\<`HTMLElement`\>
 
 #### Defined in
 
-[component/table.ts:33](https://github.com/siposdani87/sui-js/blob/ad456a5/src/component/table.ts#L33)
+[component/table.ts:33](https://github.com/siposdani87/sui-js/blob/9aff0f0/src/component/table.ts#L33)
 
 ___
 
 ### tbody
 
-• **tbody**: [`Knot`](Knot.md)<`HTMLElement`\>
+• **tbody**: [`Knot`](Knot.md)\<`HTMLElement`\>
 
 #### Defined in
 
-[component/table.ts:41](https://github.com/siposdani87/sui-js/blob/ad456a5/src/component/table.ts#L41)
+[component/table.ts:41](https://github.com/siposdani87/sui-js/blob/9aff0f0/src/component/table.ts#L41)
 
 ___
 
 ### tfoot
 
-• **tfoot**: [`Knot`](Knot.md)<`HTMLElement`\>
+• **tfoot**: [`Knot`](Knot.md)\<`HTMLElement`\>
 
 #### Defined in
 
-[component/table.ts:42](https://github.com/siposdani87/sui-js/blob/ad456a5/src/component/table.ts#L42)
+[component/table.ts:42](https://github.com/siposdani87/sui-js/blob/9aff0f0/src/component/table.ts#L42)
 
 ## Methods
 
 ### \_addHeaderRow
 
-▸ `Private` **_addHeaderRow**(`item`, `rowIndex`): `void`
+▸ **_addHeaderRow**(`item`, `rowIndex`): `void`
 
 #### Parameters
 
@@ -165,13 +169,13 @@ ___
 
 #### Defined in
 
-[component/table.ts:313](https://github.com/siposdani87/sui-js/blob/ad456a5/src/component/table.ts#L313)
+[component/table.ts:313](https://github.com/siposdani87/sui-js/blob/9aff0f0/src/component/table.ts#L313)
 
 ___
 
 ### \_addRow
 
-▸ `Private` **_addRow**(`item`, `rowIndex`): `void`
+▸ **_addRow**(`item`, `rowIndex`): `void`
 
 #### Parameters
 
@@ -186,19 +190,19 @@ ___
 
 #### Defined in
 
-[component/table.ts:352](https://github.com/siposdani87/sui-js/blob/ad456a5/src/component/table.ts#L352)
+[component/table.ts:352](https://github.com/siposdani87/sui-js/blob/9aff0f0/src/component/table.ts#L352)
 
 ___
 
 ### \_createActionButton
 
-▸ `Private` **_createActionButton**(`containerKnot`, `action`, `item`): `void`
+▸ **_createActionButton**(`containerKnot`, `action`, `item`): `void`
 
 #### Parameters
 
 | Name | Type |
 | :------ | :------ |
-| `containerKnot` | [`Knot`](Knot.md)<`HTMLElement`\> |
+| `containerKnot` | [`Knot`](Knot.md)\<`HTMLElement`\> |
 | `action` | `Object` |
 | `action.click` | `Function` |
 | `action.style` | `Function` |
@@ -210,13 +214,13 @@ ___
 
 #### Defined in
 
-[component/table.ts:454](https://github.com/siposdani87/sui-js/blob/ad456a5/src/component/table.ts#L454)
+[component/table.ts:454](https://github.com/siposdani87/sui-js/blob/9aff0f0/src/component/table.ts#L454)
 
 ___
 
 ### \_draw
 
-▸ `Private` **_draw**(): `void`
+▸ **_draw**(): `void`
 
 #### Returns
 
@@ -224,13 +228,13 @@ ___
 
 #### Defined in
 
-[component/table.ts:513](https://github.com/siposdani87/sui-js/blob/ad456a5/src/component/table.ts#L513)
+[component/table.ts:513](https://github.com/siposdani87/sui-js/blob/9aff0f0/src/component/table.ts#L513)
 
 ___
 
 ### \_getColumn
 
-▸ `Private` **_getColumn**(): `string`
+▸ **_getColumn**(): `string`
 
 #### Returns
 
@@ -238,13 +242,13 @@ ___
 
 #### Defined in
 
-[component/table.ts:309](https://github.com/siposdani87/sui-js/blob/ad456a5/src/component/table.ts#L309)
+[component/table.ts:309](https://github.com/siposdani87/sui-js/blob/9aff0f0/src/component/table.ts#L309)
 
 ___
 
 ### \_getItems
 
-▸ `Private` **_getItems**(): `T`[]
+▸ **_getItems**(): `T`[]
 
 #### Returns
 
@@ -252,13 +256,13 @@ ___
 
 #### Defined in
 
-[component/table.ts:502](https://github.com/siposdani87/sui-js/blob/ad456a5/src/component/table.ts#L502)
+[component/table.ts:502](https://github.com/siposdani87/sui-js/blob/9aff0f0/src/component/table.ts#L502)
 
 ___
 
 ### \_getRowStyle
 
-▸ `Private` **_getRowStyle**(`item`, `rowIndex`): `string`[]
+▸ **_getRowStyle**(`item`, `rowIndex`): `string`[]
 
 #### Parameters
 
@@ -273,19 +277,19 @@ ___
 
 #### Defined in
 
-[component/table.ts:339](https://github.com/siposdani87/sui-js/blob/ad456a5/src/component/table.ts#L339)
+[component/table.ts:339](https://github.com/siposdani87/sui-js/blob/9aff0f0/src/component/table.ts#L339)
 
 ___
 
 ### \_handleSortingColumn
 
-▸ `Private` **_handleSortingColumn**(`head`, `i`): `void`
+▸ **_handleSortingColumn**(`head`, `i`): `void`
 
 #### Parameters
 
 | Name | Type |
 | :------ | :------ |
-| `head` | [`Knot`](Knot.md)<`HTMLElement`\> |
+| `head` | [`Knot`](Knot.md)\<`HTMLElement`\> |
 | `i` | `number` |
 
 #### Returns
@@ -294,13 +298,13 @@ ___
 
 #### Defined in
 
-[component/table.ts:269](https://github.com/siposdani87/sui-js/blob/ad456a5/src/component/table.ts#L269)
+[component/table.ts:269](https://github.com/siposdani87/sui-js/blob/9aff0f0/src/component/table.ts#L269)
 
 ___
 
 ### \_init
 
-▸ `Private` **_init**(): `void`
+▸ **_init**(): `void`
 
 #### Returns
 
@@ -308,13 +312,13 @@ ___
 
 #### Defined in
 
-[component/table.ts:76](https://github.com/siposdani87/sui-js/blob/ad456a5/src/component/table.ts#L76)
+[component/table.ts:76](https://github.com/siposdani87/sui-js/blob/9aff0f0/src/component/table.ts#L76)
 
 ___
 
 ### \_initContentHandler
 
-▸ `Private` **_initContentHandler**(): `void`
+▸ **_initContentHandler**(): `void`
 
 #### Returns
 
@@ -322,13 +326,13 @@ ___
 
 #### Defined in
 
-[component/table.ts:91](https://github.com/siposdani87/sui-js/blob/ad456a5/src/component/table.ts#L91)
+[component/table.ts:91](https://github.com/siposdani87/sui-js/blob/9aff0f0/src/component/table.ts#L91)
 
 ___
 
 ### \_initHeader
 
-▸ `Private` **_initHeader**(): `void`
+▸ **_initHeader**(): `void`
 
 #### Returns
 
@@ -336,13 +340,13 @@ ___
 
 #### Defined in
 
-[component/table.ts:151](https://github.com/siposdani87/sui-js/blob/ad456a5/src/component/table.ts#L151)
+[component/table.ts:151](https://github.com/siposdani87/sui-js/blob/9aff0f0/src/component/table.ts#L151)
 
 ___
 
 ### \_initSearch
 
-▸ `Private` **_initSearch**(): `void`
+▸ **_initSearch**(): `void`
 
 #### Returns
 
@@ -350,13 +354,13 @@ ___
 
 #### Defined in
 
-[component/table.ts:98](https://github.com/siposdani87/sui-js/blob/ad456a5/src/component/table.ts#L98)
+[component/table.ts:98](https://github.com/siposdani87/sui-js/blob/9aff0f0/src/component/table.ts#L98)
 
 ___
 
 ### \_initStructure
 
-▸ `Private` **_initStructure**(): `void`
+▸ **_initStructure**(): `void`
 
 #### Returns
 
@@ -364,19 +368,19 @@ ___
 
 #### Defined in
 
-[component/table.ts:209](https://github.com/siposdani87/sui-js/blob/ad456a5/src/component/table.ts#L209)
+[component/table.ts:209](https://github.com/siposdani87/sui-js/blob/9aff0f0/src/component/table.ts#L209)
 
 ___
 
 ### \_renderActionKnots
 
-▸ `Private` **_renderActionKnots**(`containerKnot`, `item`): `void`
+▸ **_renderActionKnots**(`containerKnot`, `item`): `void`
 
 #### Parameters
 
 | Name | Type |
 | :------ | :------ |
-| `containerKnot` | [`Knot`](Knot.md)<`HTMLElement`\> |
+| `containerKnot` | [`Knot`](Knot.md)\<`HTMLElement`\> |
 | `item` | `T` |
 
 #### Returns
@@ -385,19 +389,19 @@ ___
 
 #### Defined in
 
-[component/table.ts:443](https://github.com/siposdani87/sui-js/blob/ad456a5/src/component/table.ts#L443)
+[component/table.ts:443](https://github.com/siposdani87/sui-js/blob/9aff0f0/src/component/table.ts#L443)
 
 ___
 
 ### \_renderActions
 
-▸ `Private` **_renderActions**(`tableDataKnot`, `item`): `void`
+▸ **_renderActions**(`tableDataKnot`, `item`): `void`
 
 #### Parameters
 
 | Name | Type |
 | :------ | :------ |
-| `tableDataKnot` | [`Knot`](Knot.md)<`HTMLElement`\> |
+| `tableDataKnot` | [`Knot`](Knot.md)\<`HTMLElement`\> |
 | `item` | `T` |
 
 #### Returns
@@ -406,19 +410,19 @@ ___
 
 #### Defined in
 
-[component/table.ts:431](https://github.com/siposdani87/sui-js/blob/ad456a5/src/component/table.ts#L431)
+[component/table.ts:431](https://github.com/siposdani87/sui-js/blob/9aff0f0/src/component/table.ts#L431)
 
 ___
 
 ### \_renderDataKnot
 
-▸ `Private` **_renderDataKnot**(`tableDataKnot`, `item`, `rowIndex`, `column`, `columnIndex`): `void`
+▸ **_renderDataKnot**(`tableDataKnot`, `item`, `rowIndex`, `column`, `columnIndex`): `void`
 
 #### Parameters
 
 | Name | Type |
 | :------ | :------ |
-| `tableDataKnot` | [`Knot`](Knot.md)<`HTMLElement`\> |
+| `tableDataKnot` | [`Knot`](Knot.md)\<`HTMLElement`\> |
 | `item` | `T` |
 | `rowIndex` | `number` |
 | `column` | `string` |
@@ -430,13 +434,13 @@ ___
 
 #### Defined in
 
-[component/table.ts:411](https://github.com/siposdani87/sui-js/blob/ad456a5/src/component/table.ts#L411)
+[component/table.ts:411](https://github.com/siposdani87/sui-js/blob/9aff0f0/src/component/table.ts#L411)
 
 ___
 
 ### \_renderDataKnotByKnot
 
-▸ `Private` **_renderDataKnotByKnot**(`item`, `rowIndex`, `column`, `parentKnot`): `void`
+▸ **_renderDataKnotByKnot**(`item`, `rowIndex`, `column`, `parentKnot`): `void`
 
 #### Parameters
 
@@ -445,7 +449,7 @@ ___
 | `item` | `T` |
 | `rowIndex` | `number` |
 | `column` | `string` |
-| `parentKnot` | [`Knot`](Knot.md)<`HTMLElement`\> |
+| `parentKnot` | [`Knot`](Knot.md)\<`HTMLElement`\> |
 
 #### Returns
 
@@ -453,19 +457,19 @@ ___
 
 #### Defined in
 
-[component/table.ts:374](https://github.com/siposdani87/sui-js/blob/ad456a5/src/component/table.ts#L374)
+[component/table.ts:374](https://github.com/siposdani87/sui-js/blob/9aff0f0/src/component/table.ts#L374)
 
 ___
 
 ### \_renderDropDownKnot
 
-▸ `Private` **_renderDropDownKnot**(`dropDownKnot`, `item`): `void`
+▸ **_renderDropDownKnot**(`dropDownKnot`, `item`): `void`
 
 #### Parameters
 
 | Name | Type |
 | :------ | :------ |
-| `dropDownKnot` | [`Knot`](Knot.md)<`HTMLElement`\> |
+| `dropDownKnot` | [`Knot`](Knot.md)\<`HTMLElement`\> |
 | `item` | `T` |
 
 #### Returns
@@ -474,19 +478,19 @@ ___
 
 #### Defined in
 
-[component/table.ts:449](https://github.com/siposdani87/sui-js/blob/ad456a5/src/component/table.ts#L449)
+[component/table.ts:449](https://github.com/siposdani87/sui-js/blob/9aff0f0/src/component/table.ts#L449)
 
 ___
 
 ### \_renderHeader
 
-▸ `Private` **_renderHeader**(`headerKnot`, `columnIndex`): `void`
+▸ **_renderHeader**(`headerKnot`, `columnIndex`): `void`
 
 #### Parameters
 
 | Name | Type |
 | :------ | :------ |
-| `headerKnot` | [`Knot`](Knot.md)<`HTMLElement`\> |
+| `headerKnot` | [`Knot`](Knot.md)\<`HTMLElement`\> |
 | `columnIndex` | `number` |
 
 #### Returns
@@ -495,13 +499,13 @@ ___
 
 #### Defined in
 
-[component/table.ts:161](https://github.com/siposdani87/sui-js/blob/ad456a5/src/component/table.ts#L161)
+[component/table.ts:161](https://github.com/siposdani87/sui-js/blob/9aff0f0/src/component/table.ts#L161)
 
 ___
 
 ### \_resetSorting
 
-▸ `Private` **_resetSorting**(): `void`
+▸ **_resetSorting**(): `void`
 
 #### Returns
 
@@ -509,13 +513,13 @@ ___
 
 #### Defined in
 
-[component/table.ts:302](https://github.com/siposdani87/sui-js/blob/ad456a5/src/component/table.ts#L302)
+[component/table.ts:302](https://github.com/siposdani87/sui-js/blob/9aff0f0/src/component/table.ts#L302)
 
 ___
 
 ### \_setOptions
 
-▸ `Private` **_setOptions**(`opt_options?`): `void`
+▸ **_setOptions**(`opt_options?`): `void`
 
 #### Parameters
 
@@ -529,13 +533,13 @@ ___
 
 #### Defined in
 
-[component/table.ts:55](https://github.com/siposdani87/sui-js/blob/ad456a5/src/component/table.ts#L55)
+[component/table.ts:55](https://github.com/siposdani87/sui-js/blob/9aff0f0/src/component/table.ts#L55)
 
 ___
 
 ### \_setSorting
 
-▸ `Private` **_setSorting**(`column`, `opt_order?`): `void`
+▸ **_setSorting**(`column`, `opt_order?`): `void`
 
 #### Parameters
 
@@ -550,13 +554,13 @@ ___
 
 #### Defined in
 
-[component/table.ts:293](https://github.com/siposdani87/sui-js/blob/ad456a5/src/component/table.ts#L293)
+[component/table.ts:293](https://github.com/siposdani87/sui-js/blob/9aff0f0/src/component/table.ts#L293)
 
 ___
 
 ### \_toggleSorting
 
-▸ `Private` **_toggleSorting**(`columnWithOrder`): `void`
+▸ **_toggleSorting**(`columnWithOrder`): `void`
 
 #### Parameters
 
@@ -570,13 +574,13 @@ ___
 
 #### Defined in
 
-[component/table.ts:257](https://github.com/siposdani87/sui-js/blob/ad456a5/src/component/table.ts#L257)
+[component/table.ts:257](https://github.com/siposdani87/sui-js/blob/9aff0f0/src/component/table.ts#L257)
 
 ___
 
 ### \_updateSorting
 
-▸ `Private` **_updateSorting**(): `void`
+▸ **_updateSorting**(): `void`
 
 #### Returns
 
@@ -584,7 +588,7 @@ ___
 
 #### Defined in
 
-[component/table.ts:285](https://github.com/siposdani87/sui-js/blob/ad456a5/src/component/table.ts#L285)
+[component/table.ts:285](https://github.com/siposdani87/sui-js/blob/9aff0f0/src/component/table.ts#L285)
 
 ___
 
@@ -596,7 +600,7 @@ ___
 
 | Name | Type |
 | :------ | :------ |
-| `params` | [`Objekt`](Objekt.md)<`Object`\> |
+| `params` | [`Objekt`](Objekt.md)\<`Object`\> |
 
 #### Returns
 
@@ -604,7 +608,7 @@ ___
 
 #### Defined in
 
-[component/table.ts:253](https://github.com/siposdani87/sui-js/blob/ad456a5/src/component/table.ts#L253)
+[component/table.ts:253](https://github.com/siposdani87/sui-js/blob/9aff0f0/src/component/table.ts#L253)
 
 ___
 
@@ -624,7 +628,7 @@ ___
 
 #### Defined in
 
-[component/table.ts:239](https://github.com/siposdani87/sui-js/blob/ad456a5/src/component/table.ts#L239)
+[component/table.ts:239](https://github.com/siposdani87/sui-js/blob/9aff0f0/src/component/table.ts#L239)
 
 ___
 
@@ -638,7 +642,7 @@ ___
 
 #### Defined in
 
-[component/table.ts:522](https://github.com/siposdani87/sui-js/blob/ad456a5/src/component/table.ts#L522)
+[component/table.ts:522](https://github.com/siposdani87/sui-js/blob/9aff0f0/src/component/table.ts#L522)
 
 ___
 
@@ -658,7 +662,7 @@ ___
 
 #### Defined in
 
-[component/table.ts:370](https://github.com/siposdani87/sui-js/blob/ad456a5/src/component/table.ts#L370)
+[component/table.ts:370](https://github.com/siposdani87/sui-js/blob/9aff0f0/src/component/table.ts#L370)
 
 ___
 
@@ -678,7 +682,7 @@ ___
 
 #### Defined in
 
-[component/table.ts:497](https://github.com/siposdani87/sui-js/blob/ad456a5/src/component/table.ts#L497)
+[component/table.ts:497](https://github.com/siposdani87/sui-js/blob/9aff0f0/src/component/table.ts#L497)
 
 ___
 
@@ -698,4 +702,4 @@ ___
 
 #### Defined in
 
-[component/table.ts:487](https://github.com/siposdani87/sui-js/blob/ad456a5/src/component/table.ts#L487)
+[component/table.ts:487](https://github.com/siposdani87/sui-js/blob/9aff0f0/src/component/table.ts#L487)

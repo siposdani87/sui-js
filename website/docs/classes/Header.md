@@ -10,7 +10,7 @@ custom_edit_url: null
 
 ### constructor
 
-• **new Header**(`opt_options?`)
+• **new Header**(`opt_options?`): [`Header`](Header.md)
 
 #### Parameters
 
@@ -18,105 +18,109 @@ custom_edit_url: null
 | :------ | :------ |
 | `opt_options` | `Object` |
 
+#### Returns
+
+[`Header`](Header.md)
+
 #### Defined in
 
-[module/header.ts:17](https://github.com/siposdani87/sui-js/blob/ad456a5/src/module/header.ts#L17)
+[module/header.ts:17](https://github.com/siposdani87/sui-js/blob/9aff0f0/src/module/header.ts#L17)
 
 ## Properties
 
 ### brandKnot
 
-• **brandKnot**: [`Knot`](Knot.md)<`HTMLElement`\>
+• **brandKnot**: [`Knot`](Knot.md)\<`HTMLElement`\>
 
 #### Defined in
 
-[module/header.ts:11](https://github.com/siposdani87/sui-js/blob/ad456a5/src/module/header.ts#L11)
+[module/header.ts:11](https://github.com/siposdani87/sui-js/blob/9aff0f0/src/module/header.ts#L11)
 
 ___
 
 ### brandKnotImage
 
-• **brandKnotImage**: [`Knot`](Knot.md)<`HTMLElement`\>
+• **brandKnotImage**: [`Knot`](Knot.md)\<`HTMLElement`\>
 
 #### Defined in
 
-[module/header.ts:12](https://github.com/siposdani87/sui-js/blob/ad456a5/src/module/header.ts#L12)
+[module/header.ts:12](https://github.com/siposdani87/sui-js/blob/9aff0f0/src/module/header.ts#L12)
 
 ___
 
 ### brandKnotTitle
 
-• **brandKnotTitle**: [`Knot`](Knot.md)<`HTMLElement`\>
+• **brandKnotTitle**: [`Knot`](Knot.md)\<`HTMLElement`\>
 
 #### Defined in
 
-[module/header.ts:13](https://github.com/siposdani87/sui-js/blob/ad456a5/src/module/header.ts#L13)
+[module/header.ts:13](https://github.com/siposdani87/sui-js/blob/9aff0f0/src/module/header.ts#L13)
 
 ___
 
 ### headerKnot
 
-• **headerKnot**: [`Knot`](Knot.md)<`HTMLElement`\>
+• **headerKnot**: [`Knot`](Knot.md)\<`HTMLElement`\>
 
 #### Defined in
 
-[module/header.ts:8](https://github.com/siposdani87/sui-js/blob/ad456a5/src/module/header.ts#L8)
+[module/header.ts:8](https://github.com/siposdani87/sui-js/blob/9aff0f0/src/module/header.ts#L8)
 
 ___
 
 ### leftMenuButton
 
-• **leftMenuButton**: [`Knot`](Knot.md)<`HTMLElement`\>
+• **leftMenuButton**: [`Knot`](Knot.md)\<`HTMLElement`\>
 
 #### Defined in
 
-[module/header.ts:9](https://github.com/siposdani87/sui-js/blob/ad456a5/src/module/header.ts#L9)
+[module/header.ts:9](https://github.com/siposdani87/sui-js/blob/9aff0f0/src/module/header.ts#L9)
 
 ___
 
 ### mainContainerKnot
 
-• **mainContainerKnot**: [`Knot`](Knot.md)<`HTMLElement`\>
+• **mainContainerKnot**: [`Knot`](Knot.md)\<`HTMLElement`\>
 
 #### Defined in
 
-[module/header.ts:14](https://github.com/siposdani87/sui-js/blob/ad456a5/src/module/header.ts#L14)
+[module/header.ts:14](https://github.com/siposdani87/sui-js/blob/9aff0f0/src/module/header.ts#L14)
 
 ___
 
 ### options
 
-• **options**: [`Objekt`](Objekt.md)<`Object`\>
+• **options**: [`Objekt`](Objekt.md)\<`Object`\>
 
 #### Defined in
 
-[module/header.ts:7](https://github.com/siposdani87/sui-js/blob/ad456a5/src/module/header.ts#L7)
+[module/header.ts:7](https://github.com/siposdani87/sui-js/blob/9aff0f0/src/module/header.ts#L7)
 
 ___
 
 ### templateViewKnot
 
-• **templateViewKnot**: [`Knot`](Knot.md)<`HTMLElement`\>
+• **templateViewKnot**: [`Knot`](Knot.md)\<`HTMLElement`\>
 
 #### Defined in
 
-[module/header.ts:15](https://github.com/siposdani87/sui-js/blob/ad456a5/src/module/header.ts#L15)
+[module/header.ts:15](https://github.com/siposdani87/sui-js/blob/9aff0f0/src/module/header.ts#L15)
 
 ___
 
 ### topMenuButton
 
-• **topMenuButton**: [`Knot`](Knot.md)<`HTMLElement`\>
+• **topMenuButton**: [`Knot`](Knot.md)\<`HTMLElement`\>
 
 #### Defined in
 
-[module/header.ts:10](https://github.com/siposdani87/sui-js/blob/ad456a5/src/module/header.ts#L10)
+[module/header.ts:10](https://github.com/siposdani87/sui-js/blob/9aff0f0/src/module/header.ts#L10)
 
 ## Methods
 
 ### \_init
 
-▸ `Private` **_init**(): `void`
+▸ **_init**(): `void`
 
 #### Returns
 
@@ -124,13 +128,13 @@ ___
 
 #### Defined in
 
-[module/header.ts:27](https://github.com/siposdani87/sui-js/blob/ad456a5/src/module/header.ts#L27)
+[module/header.ts:27](https://github.com/siposdani87/sui-js/blob/9aff0f0/src/module/header.ts#L27)
 
 ___
 
 ### \_setOptions
 
-▸ `Private` **_setOptions**(`opt_options?`): `void`
+▸ **_setOptions**(`opt_options?`): `void`
 
 #### Parameters
 
@@ -144,7 +148,7 @@ ___
 
 #### Defined in
 
-[module/header.ts:22](https://github.com/siposdani87/sui-js/blob/ad456a5/src/module/header.ts#L22)
+[module/header.ts:22](https://github.com/siposdani87/sui-js/blob/9aff0f0/src/module/header.ts#L22)
 
 ___
 
@@ -158,7 +162,7 @@ ___
 
 #### Defined in
 
-[module/header.ts:75](https://github.com/siposdani87/sui-js/blob/ad456a5/src/module/header.ts#L75)
+[module/header.ts:75](https://github.com/siposdani87/sui-js/blob/9aff0f0/src/module/header.ts#L75)
 
 ___
 
@@ -172,7 +176,7 @@ ___
 
 #### Defined in
 
-[module/header.ts:55](https://github.com/siposdani87/sui-js/blob/ad456a5/src/module/header.ts#L55)
+[module/header.ts:55](https://github.com/siposdani87/sui-js/blob/9aff0f0/src/module/header.ts#L55)
 
 ___
 
@@ -186,7 +190,7 @@ ___
 
 #### Defined in
 
-[module/header.ts:85](https://github.com/siposdani87/sui-js/blob/ad456a5/src/module/header.ts#L85)
+[module/header.ts:85](https://github.com/siposdani87/sui-js/blob/9aff0f0/src/module/header.ts#L85)
 
 ___
 
@@ -200,7 +204,7 @@ ___
 
 #### Defined in
 
-[module/header.ts:103](https://github.com/siposdani87/sui-js/blob/ad456a5/src/module/header.ts#L103)
+[module/header.ts:103](https://github.com/siposdani87/sui-js/blob/9aff0f0/src/module/header.ts#L103)
 
 ___
 
@@ -214,7 +218,7 @@ ___
 
 #### Defined in
 
-[module/header.ts:95](https://github.com/siposdani87/sui-js/blob/ad456a5/src/module/header.ts#L95)
+[module/header.ts:95](https://github.com/siposdani87/sui-js/blob/9aff0f0/src/module/header.ts#L95)
 
 ___
 
@@ -228,7 +232,7 @@ ___
 
 #### Defined in
 
-[module/header.ts:111](https://github.com/siposdani87/sui-js/blob/ad456a5/src/module/header.ts#L111)
+[module/header.ts:111](https://github.com/siposdani87/sui-js/blob/9aff0f0/src/module/header.ts#L111)
 
 ___
 
@@ -242,7 +246,7 @@ ___
 
 #### Defined in
 
-[module/header.ts:71](https://github.com/siposdani87/sui-js/blob/ad456a5/src/module/header.ts#L71)
+[module/header.ts:71](https://github.com/siposdani87/sui-js/blob/9aff0f0/src/module/header.ts#L71)
 
 ___
 
@@ -262,7 +266,7 @@ ___
 
 #### Defined in
 
-[module/header.ts:67](https://github.com/siposdani87/sui-js/blob/ad456a5/src/module/header.ts#L67)
+[module/header.ts:67](https://github.com/siposdani87/sui-js/blob/9aff0f0/src/module/header.ts#L67)
 
 ___
 
@@ -282,7 +286,7 @@ ___
 
 #### Defined in
 
-[module/header.ts:59](https://github.com/siposdani87/sui-js/blob/ad456a5/src/module/header.ts#L59)
+[module/header.ts:59](https://github.com/siposdani87/sui-js/blob/9aff0f0/src/module/header.ts#L59)
 
 ___
 
@@ -302,7 +306,7 @@ ___
 
 #### Defined in
 
-[module/header.ts:63](https://github.com/siposdani87/sui-js/blob/ad456a5/src/module/header.ts#L63)
+[module/header.ts:63](https://github.com/siposdani87/sui-js/blob/9aff0f0/src/module/header.ts#L63)
 
 ___
 
@@ -316,7 +320,7 @@ ___
 
 #### Defined in
 
-[module/header.ts:79](https://github.com/siposdani87/sui-js/blob/ad456a5/src/module/header.ts#L79)
+[module/header.ts:79](https://github.com/siposdani87/sui-js/blob/9aff0f0/src/module/header.ts#L79)
 
 ___
 
@@ -330,7 +334,7 @@ ___
 
 #### Defined in
 
-[module/header.ts:99](https://github.com/siposdani87/sui-js/blob/ad456a5/src/module/header.ts#L99)
+[module/header.ts:99](https://github.com/siposdani87/sui-js/blob/9aff0f0/src/module/header.ts#L99)
 
 ___
 
@@ -344,7 +348,7 @@ ___
 
 #### Defined in
 
-[module/header.ts:91](https://github.com/siposdani87/sui-js/blob/ad456a5/src/module/header.ts#L91)
+[module/header.ts:91](https://github.com/siposdani87/sui-js/blob/9aff0f0/src/module/header.ts#L91)
 
 ___
 
@@ -358,4 +362,4 @@ ___
 
 #### Defined in
 
-[module/header.ts:107](https://github.com/siposdani87/sui-js/blob/ad456a5/src/module/header.ts#L107)
+[module/header.ts:107](https://github.com/siposdani87/sui-js/blob/9aff0f0/src/module/header.ts#L107)

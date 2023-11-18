@@ -10,7 +10,7 @@ custom_edit_url: null
 
 ### constructor
 
-• **new Day**(`date`, `currentDate`, `options`)
+• **new Day**(`date`, `currentDate`, `options`): [`Day`](Day.md)
 
 #### Parameters
 
@@ -20,9 +20,13 @@ custom_edit_url: null
 | `currentDate` | `Date` |
 | `options` | `Object` |
 
+#### Returns
+
+[`Day`](Day.md)
+
 #### Defined in
 
-[component/day.ts:12](https://github.com/siposdani87/sui-js/blob/ad456a5/src/component/day.ts#L12)
+[component/day.ts:12](https://github.com/siposdani87/sui-js/blob/9aff0f0/src/component/day.ts#L12)
 
 ## Properties
 
@@ -32,7 +36,7 @@ custom_edit_url: null
 
 #### Defined in
 
-[component/day.ts:10](https://github.com/siposdani87/sui-js/blob/ad456a5/src/component/day.ts#L10)
+[component/day.ts:10](https://github.com/siposdani87/sui-js/blob/9aff0f0/src/component/day.ts#L10)
 
 ___
 
@@ -42,7 +46,7 @@ ___
 
 #### Defined in
 
-[component/day.ts:8](https://github.com/siposdani87/sui-js/blob/ad456a5/src/component/day.ts#L8)
+[component/day.ts:8](https://github.com/siposdani87/sui-js/blob/9aff0f0/src/component/day.ts#L8)
 
 ___
 
@@ -52,23 +56,23 @@ ___
 
 #### Defined in
 
-[component/day.ts:7](https://github.com/siposdani87/sui-js/blob/ad456a5/src/component/day.ts#L7)
+[component/day.ts:7](https://github.com/siposdani87/sui-js/blob/9aff0f0/src/component/day.ts#L7)
 
 ___
 
 ### options
 
-• **options**: [`Objekt`](Objekt.md)<`Object`\>
+• **options**: [`Objekt`](Objekt.md)\<`Object`\>
 
 #### Defined in
 
-[component/day.ts:9](https://github.com/siposdani87/sui-js/blob/ad456a5/src/component/day.ts#L9)
+[component/day.ts:9](https://github.com/siposdani87/sui-js/blob/9aff0f0/src/component/day.ts#L9)
 
 ## Methods
 
 ### \_init
 
-▸ `Private` **_init**(): `void`
+▸ **_init**(): `void`
 
 #### Returns
 
@@ -76,13 +80,13 @@ ___
 
 #### Defined in
 
-[component/day.ts:23](https://github.com/siposdani87/sui-js/blob/ad456a5/src/component/day.ts#L23)
+[component/day.ts:23](https://github.com/siposdani87/sui-js/blob/9aff0f0/src/component/day.ts#L23)
 
 ___
 
 ### \_setOptions
 
-▸ `Private` **_setOptions**(`options`): `void`
+▸ **_setOptions**(`options`): `void`
 
 #### Parameters
 
@@ -96,7 +100,7 @@ ___
 
 #### Defined in
 
-[component/day.ts:19](https://github.com/siposdani87/sui-js/blob/ad456a5/src/component/day.ts#L19)
+[component/day.ts:19](https://github.com/siposdani87/sui-js/blob/9aff0f0/src/component/day.ts#L19)
 
 ___
 
@@ -116,18 +120,18 @@ ___
 
 #### Defined in
 
-[component/day.ts:49](https://github.com/siposdani87/sui-js/blob/ad456a5/src/component/day.ts#L49)
+[component/day.ts:49](https://github.com/siposdani87/sui-js/blob/9aff0f0/src/component/day.ts#L49)
 
 ___
 
 ### getKnot
 
-▸ **getKnot**(): [`Knot`](Knot.md)<`HTMLElement`\>
+▸ **getKnot**(): [`Knot`](Knot.md)\<`HTMLElement`\>
 
 #### Returns
 
-[`Knot`](Knot.md)<`HTMLElement`\>
+[`Knot`](Knot.md)\<`HTMLElement`\>
 
 #### Defined in
 
-[component/day.ts:37](https://github.com/siposdani87/sui-js/blob/ad456a5/src/component/day.ts#L37)
+[component/day.ts:37](https://github.com/siposdani87/sui-js/blob/9aff0f0/src/component/day.ts#L37)

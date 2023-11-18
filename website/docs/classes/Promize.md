@@ -17,7 +17,7 @@ custom_edit_url: null
 
 ### constructor
 
-• **new Promize**<`T`, `K`\>(`opt_options?`)
+• **new Promize**\<`T`, `K`\>(`opt_options?`): [`Promize`](Promize.md)\<`T`, `K`\>
 
 #### Type parameters
 
@@ -32,25 +32,29 @@ custom_edit_url: null
 | :------ | :------ |
 | `opt_options` | `Object` |
 
+#### Returns
+
+[`Promize`](Promize.md)\<`T`, `K`\>
+
 #### Defined in
 
-[core/promize.ts:8](https://github.com/siposdani87/sui-js/blob/ad456a5/src/core/promize.ts#L8)
+[core/promize.ts:8](https://github.com/siposdani87/sui-js/blob/9aff0f0/src/core/promize.ts#L8)
 
 ## Properties
 
 ### options
 
-• **options**: [`Objekt`](Objekt.md)<`Object`\>
+• **options**: [`Objekt`](Objekt.md)\<`Object`\>
 
 #### Defined in
 
-[core/promize.ts:6](https://github.com/siposdani87/sui-js/blob/ad456a5/src/core/promize.ts#L6)
+[core/promize.ts:6](https://github.com/siposdani87/sui-js/blob/9aff0f0/src/core/promize.ts#L6)
 
 ## Methods
 
 ### \_setOptions
 
-▸ `Private` **_setOptions**(`opt_options?`): `void`
+▸ **_setOptions**(`opt_options?`): `void`
 
 #### Parameters
 
@@ -64,7 +68,7 @@ custom_edit_url: null
 
 #### Defined in
 
-[core/promize.ts:12](https://github.com/siposdani87/sui-js/blob/ad456a5/src/core/promize.ts#L12)
+[core/promize.ts:12](https://github.com/siposdani87/sui-js/blob/9aff0f0/src/core/promize.ts#L12)
 
 ___
 
@@ -76,7 +80,7 @@ ___
 
 | Name | Type |
 | :------ | :------ |
-| `defer` | [`Deferred`](Deferred.md)<`Object`, `Object`\> |
+| `defer` | [`Deferred`](Deferred.md)\<`Object`, `Object`\> |
 | `opt_complete?` | () => `void` |
 
 #### Returns
@@ -85,7 +89,7 @@ ___
 
 #### Defined in
 
-[core/promize.ts:82](https://github.com/siposdani87/sui-js/blob/ad456a5/src/core/promize.ts#L82)
+[core/promize.ts:82](https://github.com/siposdani87/sui-js/blob/9aff0f0/src/core/promize.ts#L82)
 
 ___
 
@@ -105,7 +109,7 @@ ___
 
 #### Defined in
 
-[core/promize.ts:40](https://github.com/siposdani87/sui-js/blob/ad456a5/src/core/promize.ts#L40)
+[core/promize.ts:40](https://github.com/siposdani87/sui-js/blob/9aff0f0/src/core/promize.ts#L40)
 
 ___
 
@@ -125,7 +129,7 @@ ___
 
 #### Defined in
 
-[core/promize.ts:23](https://github.com/siposdani87/sui-js/blob/ad456a5/src/core/promize.ts#L23)
+[core/promize.ts:23](https://github.com/siposdani87/sui-js/blob/9aff0f0/src/core/promize.ts#L23)
 
 ___
 
@@ -147,4 +151,4 @@ ___
 
 #### Defined in
 
-[core/promize.ts:57](https://github.com/siposdani87/sui-js/blob/ad456a5/src/core/promize.ts#L57)
+[core/promize.ts:57](https://github.com/siposdani87/sui-js/blob/9aff0f0/src/core/promize.ts#L57)

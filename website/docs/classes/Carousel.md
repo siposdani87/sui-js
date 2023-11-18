@@ -10,45 +10,49 @@ custom_edit_url: null
 
 ### constructor
 
-• **new Carousel**(`dom`, `opt_selector?`, `opt_options?`)
+• **new Carousel**(`dom`, `opt_selector?`, `opt_options?`): [`Carousel`](Carousel.md)
 
 #### Parameters
 
 | Name | Type | Default value |
 | :------ | :------ | :------ |
-| `dom` | [`Knot`](Knot.md)<`HTMLElement`\> | `undefined` |
+| `dom` | [`Knot`](Knot.md)\<`HTMLElement`\> | `undefined` |
 | `opt_selector` | `string` | `'.carousel'` |
 | `opt_options` | `Object` | `{}` |
 
+#### Returns
+
+[`Carousel`](Carousel.md)
+
 #### Defined in
 
-[component/carousel.ts:9](https://github.com/siposdani87/sui-js/blob/ad456a5/src/component/carousel.ts#L9)
+[component/carousel.ts:9](https://github.com/siposdani87/sui-js/blob/9aff0f0/src/component/carousel.ts#L9)
 
 ## Properties
 
 ### carouselKnot
 
-• **carouselKnot**: [`Knot`](Knot.md)<`HTMLElement`\>
+• **carouselKnot**: [`Knot`](Knot.md)\<`HTMLElement`\>
 
 #### Defined in
 
-[component/carousel.ts:6](https://github.com/siposdani87/sui-js/blob/ad456a5/src/component/carousel.ts#L6)
+[component/carousel.ts:6](https://github.com/siposdani87/sui-js/blob/9aff0f0/src/component/carousel.ts#L6)
 
 ___
 
 ### options
 
-• **options**: [`Objekt`](Objekt.md)<`Object`\>
+• **options**: [`Objekt`](Objekt.md)\<`Object`\>
 
 #### Defined in
 
-[component/carousel.ts:7](https://github.com/siposdani87/sui-js/blob/ad456a5/src/component/carousel.ts#L7)
+[component/carousel.ts:7](https://github.com/siposdani87/sui-js/blob/9aff0f0/src/component/carousel.ts#L7)
 
 ## Methods
 
 ### \_init
 
-▸ `Private` **_init**(): `void`
+▸ **_init**(): `void`
 
 #### Returns
 
@@ -56,13 +60,13 @@ ___
 
 #### Defined in
 
-[component/carousel.ts:24](https://github.com/siposdani87/sui-js/blob/ad456a5/src/component/carousel.ts#L24)
+[component/carousel.ts:24](https://github.com/siposdani87/sui-js/blob/9aff0f0/src/component/carousel.ts#L24)
 
 ___
 
 ### \_setOptions
 
-▸ `Private` **_setOptions**(`opt_options?`): `void`
+▸ **_setOptions**(`opt_options?`): `void`
 
 #### Parameters
 
@@ -76,4 +80,4 @@ ___
 
 #### Defined in
 
-[component/carousel.ts:19](https://github.com/siposdani87/sui-js/blob/ad456a5/src/component/carousel.ts#L19)
+[component/carousel.ts:19](https://github.com/siposdani87/sui-js/blob/9aff0f0/src/component/carousel.ts#L19)

@@ -16,7 +16,7 @@ custom_edit_url: null
 
 ### constructor
 
-• **new Knot**<`T`\>(`node`, `opt_parentKnot?`)
+• **new Knot**\<`T`\>(`node`, `opt_parentKnot?`): [`Knot`](Knot.md)\<`T`\>
 
 #### Type parameters
 
@@ -29,11 +29,15 @@ custom_edit_url: null
 | Name | Type |
 | :------ | :------ |
 | `node` | `string` \| `HTMLElement` \| `T` |
-| `opt_parentKnot?` | [`Knot`](Knot.md)<`HTMLElement`\> |
+| `opt_parentKnot?` | [`Knot`](Knot.md)\<`HTMLElement`\> |
+
+#### Returns
+
+[`Knot`](Knot.md)\<`T`\>
 
 #### Defined in
 
-[core/knot.ts:23](https://github.com/siposdani87/sui-js/blob/ad456a5/src/core/knot.ts#L23)
+[core/knot.ts:23](https://github.com/siposdani87/sui-js/blob/9aff0f0/src/core/knot.ts#L23)
 
 ## Properties
 
@@ -43,7 +47,7 @@ custom_edit_url: null
 
 #### Defined in
 
-[core/knot.ts:21](https://github.com/siposdani87/sui-js/blob/ad456a5/src/core/knot.ts#L21)
+[core/knot.ts:21](https://github.com/siposdani87/sui-js/blob/9aff0f0/src/core/knot.ts#L21)
 
 ___
 
@@ -53,23 +57,23 @@ ___
 
 #### Defined in
 
-[core/knot.ts:19](https://github.com/siposdani87/sui-js/blob/ad456a5/src/core/knot.ts#L19)
+[core/knot.ts:19](https://github.com/siposdani87/sui-js/blob/9aff0f0/src/core/knot.ts#L19)
 
 ___
 
 ### parentKnot
 
-• **parentKnot**: [`Knot`](Knot.md)<`HTMLElement`\>
+• **parentKnot**: [`Knot`](Knot.md)\<`HTMLElement`\>
 
 #### Defined in
 
-[core/knot.ts:20](https://github.com/siposdani87/sui-js/blob/ad456a5/src/core/knot.ts#L20)
+[core/knot.ts:20](https://github.com/siposdani87/sui-js/blob/9aff0f0/src/core/knot.ts#L20)
 
 ## Methods
 
 ### \_addListenerToStore
 
-▸ `Private` **_addListenerToStore**(`eventName`, `listener`): `void`
+▸ **_addListenerToStore**(`eventName`, `listener`): `void`
 
 #### Parameters
 
@@ -84,13 +88,13 @@ ___
 
 #### Defined in
 
-[core/knot.ts:201](https://github.com/siposdani87/sui-js/blob/ad456a5/src/core/knot.ts#L201)
+[core/knot.ts:205](https://github.com/siposdani87/sui-js/blob/9aff0f0/src/core/knot.ts#L205)
 
 ___
 
 ### \_getListenersFromStore
 
-▸ `Private` **_getListenersFromStore**(`eventName`): [`Listener`](../modules.md#listener)[]
+▸ **_getListenersFromStore**(`eventName`): [`Listener`](../modules.md#listener)[]
 
 #### Parameters
 
@@ -104,13 +108,13 @@ ___
 
 #### Defined in
 
-[core/knot.ts:211](https://github.com/siposdani87/sui-js/blob/ad456a5/src/core/knot.ts#L211)
+[core/knot.ts:215](https://github.com/siposdani87/sui-js/blob/9aff0f0/src/core/knot.ts#L215)
 
 ___
 
 ### \_getParentElement
 
-▸ `Private` **_getParentElement**(): `HTMLElement`
+▸ **_getParentElement**(): `HTMLElement`
 
 #### Returns
 
@@ -118,13 +122,13 @@ ___
 
 #### Defined in
 
-[core/knot.ts:401](https://github.com/siposdani87/sui-js/blob/ad456a5/src/core/knot.ts#L401)
+[core/knot.ts:405](https://github.com/siposdani87/sui-js/blob/9aff0f0/src/core/knot.ts#L405)
 
 ___
 
 ### \_handleClassList
 
-▸ `Private` **_handleClassList**(`cssClasses`, `callback`): `void`
+▸ **_handleClassList**(`cssClasses`, `callback`): `void`
 
 #### Parameters
 
@@ -139,7 +143,7 @@ ___
 
 #### Defined in
 
-[core/knot.ts:94](https://github.com/siposdani87/sui-js/blob/ad456a5/src/core/knot.ts#L94)
+[core/knot.ts:98](https://github.com/siposdani87/sui-js/blob/9aff0f0/src/core/knot.ts#L98)
 
 ___
 
@@ -159,7 +163,7 @@ ___
 
 #### Defined in
 
-[core/knot.ts:107](https://github.com/siposdani87/sui-js/blob/ad456a5/src/core/knot.ts#L107)
+[core/knot.ts:111](https://github.com/siposdani87/sui-js/blob/9aff0f0/src/core/knot.ts#L111)
 
 ___
 
@@ -172,7 +176,7 @@ ___
 | Name | Type |
 | :------ | :------ |
 | `eventName` | `string` |
-| `opt_callback?` | (`knot`: [`Knot`](Knot.md)<`T`\>, `event`: `any`) => `any` |
+| `opt_callback?` | (`knot`: [`Knot`](Knot.md)\<`T`\>, `event`: `any`) => `any` |
 
 #### Returns
 
@@ -180,7 +184,7 @@ ___
 
 #### Defined in
 
-[core/knot.ts:183](https://github.com/siposdani87/sui-js/blob/ad456a5/src/core/knot.ts#L183)
+[core/knot.ts:187](https://github.com/siposdani87/sui-js/blob/9aff0f0/src/core/knot.ts#L187)
 
 ___
 
@@ -192,7 +196,7 @@ ___
 
 | Name | Type |
 | :------ | :------ |
-| `knot` | [`Knot`](Knot.md)<`HTMLElement`\> |
+| `knot` | [`Knot`](Knot.md)\<`HTMLElement`\> |
 
 #### Returns
 
@@ -200,7 +204,7 @@ ___
 
 #### Defined in
 
-[core/knot.ts:300](https://github.com/siposdani87/sui-js/blob/ad456a5/src/core/knot.ts#L300)
+[core/knot.ts:304](https://github.com/siposdani87/sui-js/blob/9aff0f0/src/core/knot.ts#L304)
 
 ___
 
@@ -212,7 +216,7 @@ ___
 
 | Name | Type |
 | :------ | :------ |
-| `knot` | [`Knot`](Knot.md)<`HTMLElement`\> |
+| `knot` | [`Knot`](Knot.md)\<`HTMLElement`\> |
 
 #### Returns
 
@@ -220,7 +224,7 @@ ___
 
 #### Defined in
 
-[core/knot.ts:252](https://github.com/siposdani87/sui-js/blob/ad456a5/src/core/knot.ts#L252)
+[core/knot.ts:256](https://github.com/siposdani87/sui-js/blob/9aff0f0/src/core/knot.ts#L256)
 
 ___
 
@@ -232,7 +236,7 @@ ___
 
 | Name | Type |
 | :------ | :------ |
-| `knot` | [`Knot`](Knot.md)<`HTMLElement`\> |
+| `knot` | [`Knot`](Knot.md)\<`HTMLElement`\> |
 
 #### Returns
 
@@ -240,13 +244,13 @@ ___
 
 #### Defined in
 
-[core/knot.ts:288](https://github.com/siposdani87/sui-js/blob/ad456a5/src/core/knot.ts#L288)
+[core/knot.ts:292](https://github.com/siposdani87/sui-js/blob/9aff0f0/src/core/knot.ts#L292)
 
 ___
 
 ### createElement
 
-▸ **createElement**<`K`\>(`tagName`): [`Knot`](Knot.md)<`K`\>
+▸ **createElement**\<`K`\>(`tagName`): [`Knot`](Knot.md)\<`K`\>
 
 #### Type parameters
 
@@ -262,11 +266,11 @@ ___
 
 #### Returns
 
-[`Knot`](Knot.md)<`K`\>
+[`Knot`](Knot.md)\<`K`\>
 
 #### Defined in
 
-[core/knot.ts:245](https://github.com/siposdani87/sui-js/blob/ad456a5/src/core/knot.ts#L245)
+[core/knot.ts:249](https://github.com/siposdani87/sui-js/blob/9aff0f0/src/core/knot.ts#L249)
 
 ___
 
@@ -286,7 +290,7 @@ ___
 
 #### Defined in
 
-[core/knot.ts:235](https://github.com/siposdani87/sui-js/blob/ad456a5/src/core/knot.ts#L235)
+[core/knot.ts:239](https://github.com/siposdani87/sui-js/blob/9aff0f0/src/core/knot.ts#L239)
 
 ___
 
@@ -300,7 +304,7 @@ ___
 
 #### Defined in
 
-[core/knot.ts:434](https://github.com/siposdani87/sui-js/blob/ad456a5/src/core/knot.ts#L434)
+[core/knot.ts:438](https://github.com/siposdani87/sui-js/blob/9aff0f0/src/core/knot.ts#L438)
 
 ___
 
@@ -320,7 +324,7 @@ ___
 
 #### Defined in
 
-[core/knot.ts:55](https://github.com/siposdani87/sui-js/blob/ad456a5/src/core/knot.ts#L55)
+[core/knot.ts:59](https://github.com/siposdani87/sui-js/blob/9aff0f0/src/core/knot.ts#L59)
 
 ___
 
@@ -340,7 +344,7 @@ ___
 
 #### Defined in
 
-[core/knot.ts:163](https://github.com/siposdani87/sui-js/blob/ad456a5/src/core/knot.ts#L163)
+[core/knot.ts:167](https://github.com/siposdani87/sui-js/blob/9aff0f0/src/core/knot.ts#L167)
 
 ___
 
@@ -354,7 +358,7 @@ ___
 
 #### Defined in
 
-[core/knot.ts:127](https://github.com/siposdani87/sui-js/blob/ad456a5/src/core/knot.ts#L127)
+[core/knot.ts:131](https://github.com/siposdani87/sui-js/blob/9aff0f0/src/core/knot.ts#L131)
 
 ___
 
@@ -368,7 +372,7 @@ ___
 
 #### Defined in
 
-[core/knot.ts:410](https://github.com/siposdani87/sui-js/blob/ad456a5/src/core/knot.ts#L410)
+[core/knot.ts:414](https://github.com/siposdani87/sui-js/blob/9aff0f0/src/core/knot.ts#L414)
 
 ___
 
@@ -388,7 +392,7 @@ ___
 
 #### Defined in
 
-[core/knot.ts:375](https://github.com/siposdani87/sui-js/blob/ad456a5/src/core/knot.ts#L375)
+[core/knot.ts:379](https://github.com/siposdani87/sui-js/blob/9aff0f0/src/core/knot.ts#L379)
 
 ___
 
@@ -402,7 +406,7 @@ ___
 
 #### Defined in
 
-[core/knot.ts:83](https://github.com/siposdani87/sui-js/blob/ad456a5/src/core/knot.ts#L83)
+[core/knot.ts:87](https://github.com/siposdani87/sui-js/blob/9aff0f0/src/core/knot.ts#L87)
 
 ___
 
@@ -422,7 +426,7 @@ ___
 
 #### Defined in
 
-[core/knot.ts:350](https://github.com/siposdani87/sui-js/blob/ad456a5/src/core/knot.ts#L350)
+[core/knot.ts:354](https://github.com/siposdani87/sui-js/blob/9aff0f0/src/core/knot.ts#L354)
 
 ___
 
@@ -436,21 +440,21 @@ ___
 
 #### Defined in
 
-[core/knot.ts:70](https://github.com/siposdani87/sui-js/blob/ad456a5/src/core/knot.ts#L70)
+[core/knot.ts:74](https://github.com/siposdani87/sui-js/blob/9aff0f0/src/core/knot.ts#L74)
 
 ___
 
 ### getNextSibling
 
-▸ **getNextSibling**(): [`Knot`](Knot.md)<`HTMLElement`\>
+▸ **getNextSibling**(): [`Knot`](Knot.md)\<`HTMLElement`\>
 
 #### Returns
 
-[`Knot`](Knot.md)<`HTMLElement`\>
+[`Knot`](Knot.md)\<`HTMLElement`\>
 
 #### Defined in
 
-[core/knot.ts:340](https://github.com/siposdani87/sui-js/blob/ad456a5/src/core/knot.ts#L340)
+[core/knot.ts:344](https://github.com/siposdani87/sui-js/blob/9aff0f0/src/core/knot.ts#L344)
 
 ___
 
@@ -464,21 +468,21 @@ ___
 
 #### Defined in
 
-[core/knot.ts:62](https://github.com/siposdani87/sui-js/blob/ad456a5/src/core/knot.ts#L62)
+[core/knot.ts:66](https://github.com/siposdani87/sui-js/blob/9aff0f0/src/core/knot.ts#L66)
 
 ___
 
 ### getParentKnot
 
-▸ **getParentKnot**(): [`Knot`](Knot.md)<`HTMLElement`\>
+▸ **getParentKnot**(): [`Knot`](Knot.md)\<`HTMLElement`\>
 
 #### Returns
 
-[`Knot`](Knot.md)<`HTMLElement`\>
+[`Knot`](Knot.md)\<`HTMLElement`\>
 
 #### Defined in
 
-[core/knot.ts:393](https://github.com/siposdani87/sui-js/blob/ad456a5/src/core/knot.ts#L393)
+[core/knot.ts:397](https://github.com/siposdani87/sui-js/blob/9aff0f0/src/core/knot.ts#L397)
 
 ___
 
@@ -492,7 +496,7 @@ ___
 
 #### Defined in
 
-[core/knot.ts:414](https://github.com/siposdani87/sui-js/blob/ad456a5/src/core/knot.ts#L414)
+[core/knot.ts:418](https://github.com/siposdani87/sui-js/blob/9aff0f0/src/core/knot.ts#L418)
 
 ___
 
@@ -506,7 +510,7 @@ ___
 
 #### Defined in
 
-[core/knot.ts:66](https://github.com/siposdani87/sui-js/blob/ad456a5/src/core/knot.ts#L66)
+[core/knot.ts:70](https://github.com/siposdani87/sui-js/blob/9aff0f0/src/core/knot.ts#L70)
 
 ___
 
@@ -520,7 +524,7 @@ ___
 
 #### Defined in
 
-[core/knot.ts:361](https://github.com/siposdani87/sui-js/blob/ad456a5/src/core/knot.ts#L361)
+[core/knot.ts:365](https://github.com/siposdani87/sui-js/blob/9aff0f0/src/core/knot.ts#L365)
 
 ___
 
@@ -540,7 +544,7 @@ ___
 
 #### Defined in
 
-[core/knot.ts:179](https://github.com/siposdani87/sui-js/blob/ad456a5/src/core/knot.ts#L179)
+[core/knot.ts:183](https://github.com/siposdani87/sui-js/blob/9aff0f0/src/core/knot.ts#L183)
 
 ___
 
@@ -554,7 +558,7 @@ ___
 
 #### Defined in
 
-[core/knot.ts:262](https://github.com/siposdani87/sui-js/blob/ad456a5/src/core/knot.ts#L262)
+[core/knot.ts:266](https://github.com/siposdani87/sui-js/blob/9aff0f0/src/core/knot.ts#L266)
 
 ___
 
@@ -574,7 +578,7 @@ ___
 
 #### Defined in
 
-[core/knot.ts:90](https://github.com/siposdani87/sui-js/blob/ad456a5/src/core/knot.ts#L90)
+[core/knot.ts:94](https://github.com/siposdani87/sui-js/blob/9aff0f0/src/core/knot.ts#L94)
 
 ___
 
@@ -586,7 +590,7 @@ ___
 
 | Name | Type |
 | :------ | :------ |
-| `knot` | [`Knot`](Knot.md)<`HTMLElement`\> |
+| `knot` | [`Knot`](Knot.md)\<`HTMLElement`\> |
 
 #### Returns
 
@@ -594,7 +598,7 @@ ___
 
 #### Defined in
 
-[core/knot.ts:283](https://github.com/siposdani87/sui-js/blob/ad456a5/src/core/knot.ts#L283)
+[core/knot.ts:287](https://github.com/siposdani87/sui-js/blob/9aff0f0/src/core/knot.ts#L287)
 
 ___
 
@@ -606,7 +610,7 @@ ___
 
 | Name | Type |
 | :------ | :------ |
-| `knot` | [`Knot`](Knot.md)<`HTMLElement`\> |
+| `knot` | [`Knot`](Knot.md)\<`HTMLElement`\> |
 
 #### Returns
 
@@ -614,7 +618,7 @@ ___
 
 #### Defined in
 
-[core/knot.ts:318](https://github.com/siposdani87/sui-js/blob/ad456a5/src/core/knot.ts#L318)
+[core/knot.ts:322](https://github.com/siposdani87/sui-js/blob/9aff0f0/src/core/knot.ts#L322)
 
 ___
 
@@ -626,7 +630,7 @@ ___
 
 | Name | Type |
 | :------ | :------ |
-| `knot` | [`Knot`](Knot.md)<`HTMLElement`\> |
+| `knot` | [`Knot`](Knot.md)\<`HTMLElement`\> |
 
 #### Returns
 
@@ -634,7 +638,7 @@ ___
 
 #### Defined in
 
-[core/knot.ts:309](https://github.com/siposdani87/sui-js/blob/ad456a5/src/core/knot.ts#L309)
+[core/knot.ts:313](https://github.com/siposdani87/sui-js/blob/9aff0f0/src/core/knot.ts#L313)
 
 ___
 
@@ -648,7 +652,7 @@ ___
 
 #### Defined in
 
-[core/knot.ts:430](https://github.com/siposdani87/sui-js/blob/ad456a5/src/core/knot.ts#L430)
+[core/knot.ts:434](https://github.com/siposdani87/sui-js/blob/9aff0f0/src/core/knot.ts#L434)
 
 ___
 
@@ -668,7 +672,7 @@ ___
 
 #### Defined in
 
-[core/knot.ts:49](https://github.com/siposdani87/sui-js/blob/ad456a5/src/core/knot.ts#L49)
+[core/knot.ts:53](https://github.com/siposdani87/sui-js/blob/9aff0f0/src/core/knot.ts#L53)
 
 ___
 
@@ -682,7 +686,7 @@ ___
 
 #### Defined in
 
-[core/knot.ts:276](https://github.com/siposdani87/sui-js/blob/ad456a5/src/core/knot.ts#L276)
+[core/knot.ts:280](https://github.com/siposdani87/sui-js/blob/9aff0f0/src/core/knot.ts#L280)
 
 ___
 
@@ -702,7 +706,7 @@ ___
 
 #### Defined in
 
-[core/knot.ts:175](https://github.com/siposdani87/sui-js/blob/ad456a5/src/core/knot.ts#L175)
+[core/knot.ts:179](https://github.com/siposdani87/sui-js/blob/9aff0f0/src/core/knot.ts#L179)
 
 ___
 
@@ -714,7 +718,7 @@ ___
 
 | Name | Type |
 | :------ | :------ |
-| `knot` | [`Knot`](Knot.md)<`HTMLElement`\> |
+| `knot` | [`Knot`](Knot.md)\<`HTMLElement`\> |
 
 #### Returns
 
@@ -722,7 +726,7 @@ ___
 
 #### Defined in
 
-[core/knot.ts:266](https://github.com/siposdani87/sui-js/blob/ad456a5/src/core/knot.ts#L266)
+[core/knot.ts:270](https://github.com/siposdani87/sui-js/blob/9aff0f0/src/core/knot.ts#L270)
 
 ___
 
@@ -736,7 +740,7 @@ ___
 
 #### Defined in
 
-[core/knot.ts:256](https://github.com/siposdani87/sui-js/blob/ad456a5/src/core/knot.ts#L256)
+[core/knot.ts:260](https://github.com/siposdani87/sui-js/blob/9aff0f0/src/core/knot.ts#L260)
 
 ___
 
@@ -756,7 +760,7 @@ ___
 
 #### Defined in
 
-[core/knot.ts:115](https://github.com/siposdani87/sui-js/blob/ad456a5/src/core/knot.ts#L115)
+[core/knot.ts:119](https://github.com/siposdani87/sui-js/blob/9aff0f0/src/core/knot.ts#L119)
 
 ___
 
@@ -776,7 +780,7 @@ ___
 
 #### Defined in
 
-[core/knot.ts:386](https://github.com/siposdani87/sui-js/blob/ad456a5/src/core/knot.ts#L386)
+[core/knot.ts:390](https://github.com/siposdani87/sui-js/blob/9aff0f0/src/core/knot.ts#L390)
 
 ___
 
@@ -797,7 +801,7 @@ ___
 
 #### Defined in
 
-[core/knot.ts:221](https://github.com/siposdani87/sui-js/blob/ad456a5/src/core/knot.ts#L221)
+[core/knot.ts:225](https://github.com/siposdani87/sui-js/blob/9aff0f0/src/core/knot.ts#L225)
 
 ___
 
@@ -817,7 +821,7 @@ ___
 
 #### Defined in
 
-[core/knot.ts:228](https://github.com/siposdani87/sui-js/blob/ad456a5/src/core/knot.ts#L228)
+[core/knot.ts:232](https://github.com/siposdani87/sui-js/blob/9aff0f0/src/core/knot.ts#L232)
 
 ___
 
@@ -837,7 +841,7 @@ ___
 
 #### Defined in
 
-[core/knot.ts:424](https://github.com/siposdani87/sui-js/blob/ad456a5/src/core/knot.ts#L424)
+[core/knot.ts:428](https://github.com/siposdani87/sui-js/blob/9aff0f0/src/core/knot.ts#L428)
 
 ___
 
@@ -849,7 +853,7 @@ ___
 
 | Name | Type |
 | :------ | :------ |
-| `knot` | [`Knot`](Knot.md)<`HTMLElement`\> |
+| `knot` | [`Knot`](Knot.md)\<`HTMLElement`\> |
 
 #### Returns
 
@@ -857,7 +861,7 @@ ___
 
 #### Defined in
 
-[core/knot.ts:331](https://github.com/siposdani87/sui-js/blob/ad456a5/src/core/knot.ts#L331)
+[core/knot.ts:335](https://github.com/siposdani87/sui-js/blob/9aff0f0/src/core/knot.ts#L335)
 
 ___
 
@@ -878,7 +882,7 @@ ___
 
 #### Defined in
 
-[core/knot.ts:41](https://github.com/siposdani87/sui-js/blob/ad456a5/src/core/knot.ts#L41)
+[core/knot.ts:45](https://github.com/siposdani87/sui-js/blob/9aff0f0/src/core/knot.ts#L45)
 
 ___
 
@@ -899,7 +903,7 @@ ___
 
 #### Defined in
 
-[core/knot.ts:131](https://github.com/siposdani87/sui-js/blob/ad456a5/src/core/knot.ts#L131)
+[core/knot.ts:135](https://github.com/siposdani87/sui-js/blob/9aff0f0/src/core/knot.ts#L135)
 
 ___
 
@@ -920,7 +924,7 @@ ___
 
 #### Defined in
 
-[core/knot.ts:365](https://github.com/siposdani87/sui-js/blob/ad456a5/src/core/knot.ts#L365)
+[core/knot.ts:369](https://github.com/siposdani87/sui-js/blob/9aff0f0/src/core/knot.ts#L369)
 
 ___
 
@@ -940,7 +944,7 @@ ___
 
 #### Defined in
 
-[core/knot.ts:78](https://github.com/siposdani87/sui-js/blob/ad456a5/src/core/knot.ts#L78)
+[core/knot.ts:82](https://github.com/siposdani87/sui-js/blob/9aff0f0/src/core/knot.ts#L82)
 
 ___
 
@@ -960,7 +964,7 @@ ___
 
 #### Defined in
 
-[core/knot.ts:346](https://github.com/siposdani87/sui-js/blob/ad456a5/src/core/knot.ts#L346)
+[core/knot.ts:350](https://github.com/siposdani87/sui-js/blob/9aff0f0/src/core/knot.ts#L350)
 
 ___
 
@@ -980,7 +984,27 @@ ___
 
 #### Defined in
 
-[core/knot.ts:74](https://github.com/siposdani87/sui-js/blob/ad456a5/src/core/knot.ts#L74)
+[core/knot.ts:78](https://github.com/siposdani87/sui-js/blob/9aff0f0/src/core/knot.ts#L78)
+
+___
+
+### setParentKnot
+
+▸ **setParentKnot**(`parentKnot`): `void`
+
+#### Parameters
+
+| Name | Type |
+| :------ | :------ |
+| `parentKnot` | [`Knot`](Knot.md)\<`HTMLElement`\> |
+
+#### Returns
+
+`void`
+
+#### Defined in
+
+[core/knot.ts:41](https://github.com/siposdani87/sui-js/blob/9aff0f0/src/core/knot.ts#L41)
 
 ___
 
@@ -1000,7 +1024,7 @@ ___
 
 #### Defined in
 
-[core/knot.ts:418](https://github.com/siposdani87/sui-js/blob/ad456a5/src/core/knot.ts#L418)
+[core/knot.ts:422](https://github.com/siposdani87/sui-js/blob/9aff0f0/src/core/knot.ts#L422)
 
 ___
 
@@ -1020,7 +1044,7 @@ ___
 
 #### Defined in
 
-[core/knot.ts:357](https://github.com/siposdani87/sui-js/blob/ad456a5/src/core/knot.ts#L357)
+[core/knot.ts:361](https://github.com/siposdani87/sui-js/blob/9aff0f0/src/core/knot.ts#L361)
 
 ___
 
@@ -1040,7 +1064,7 @@ ___
 
 #### Defined in
 
-[core/knot.ts:438](https://github.com/siposdani87/sui-js/blob/ad456a5/src/core/knot.ts#L438)
+[core/knot.ts:442](https://github.com/siposdani87/sui-js/blob/9aff0f0/src/core/knot.ts#L442)
 
 ___
 
@@ -1060,7 +1084,7 @@ ___
 
 #### Defined in
 
-[core/knot.ts:121](https://github.com/siposdani87/sui-js/blob/ad456a5/src/core/knot.ts#L121)
+[core/knot.ts:125](https://github.com/siposdani87/sui-js/blob/9aff0f0/src/core/knot.ts#L125)
 
 ___
 
@@ -1080,4 +1104,4 @@ ___
 
 #### Defined in
 
-[core/knot.ts:239](https://github.com/siposdani87/sui-js/blob/ad456a5/src/core/knot.ts#L239)
+[core/knot.ts:243](https://github.com/siposdani87/sui-js/blob/9aff0f0/src/core/knot.ts#L243)

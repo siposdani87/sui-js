@@ -10,7 +10,7 @@ custom_edit_url: null
 
 ### constructor
 
-• **new Page**(`opt_options?`)
+• **new Page**(`opt_options?`): [`Page`](Page.md)
 
 #### Parameters
 
@@ -18,9 +18,13 @@ custom_edit_url: null
 | :------ | :------ |
 | `opt_options` | `Object` |
 
+#### Returns
+
+[`Page`](Page.md)
+
 #### Defined in
 
-[module/page.ts:9](https://github.com/siposdani87/sui-js/blob/ad456a5/src/module/page.ts#L9)
+[module/page.ts:9](https://github.com/siposdani87/sui-js/blob/9aff0f0/src/module/page.ts#L9)
 
 ## Properties
 
@@ -30,23 +34,23 @@ custom_edit_url: null
 
 #### Defined in
 
-[module/page.ts:7](https://github.com/siposdani87/sui-js/blob/ad456a5/src/module/page.ts#L7)
+[module/page.ts:7](https://github.com/siposdani87/sui-js/blob/9aff0f0/src/module/page.ts#L7)
 
 ___
 
 ### options
 
-• **options**: [`Objekt`](Objekt.md)<`Object`\>
+• **options**: [`Objekt`](Objekt.md)\<`Object`\>
 
 #### Defined in
 
-[module/page.ts:6](https://github.com/siposdani87/sui-js/blob/ad456a5/src/module/page.ts#L6)
+[module/page.ts:6](https://github.com/siposdani87/sui-js/blob/9aff0f0/src/module/page.ts#L6)
 
 ## Methods
 
 ### \_init
 
-▸ `Private` **_init**(): `void`
+▸ **_init**(): `void`
 
 #### Returns
 
@@ -54,13 +58,13 @@ ___
 
 #### Defined in
 
-[module/page.ts:19](https://github.com/siposdani87/sui-js/blob/ad456a5/src/module/page.ts#L19)
+[module/page.ts:19](https://github.com/siposdani87/sui-js/blob/9aff0f0/src/module/page.ts#L19)
 
 ___
 
 ### \_setOptions
 
-▸ `Private` **_setOptions**(`opt_options`): `void`
+▸ **_setOptions**(`opt_options`): `void`
 
 #### Parameters
 
@@ -74,7 +78,7 @@ ___
 
 #### Defined in
 
-[module/page.ts:14](https://github.com/siposdani87/sui-js/blob/ad456a5/src/module/page.ts#L14)
+[module/page.ts:14](https://github.com/siposdani87/sui-js/blob/9aff0f0/src/module/page.ts#L14)
 
 ___
 
@@ -86,7 +90,7 @@ ___
 
 | Name | Type |
 | :------ | :------ |
-| `target` | [`Knot`](Knot.md)<`HTMLElement`\> |
+| `target` | [`Knot`](Knot.md)\<`HTMLElement`\> |
 | `event` | `Event` |
 
 #### Returns
@@ -95,7 +99,7 @@ ___
 
 #### Defined in
 
-[module/page.ts:31](https://github.com/siposdani87/sui-js/blob/ad456a5/src/module/page.ts#L31)
+[module/page.ts:31](https://github.com/siposdani87/sui-js/blob/9aff0f0/src/module/page.ts#L31)
 
 ___
 
@@ -116,7 +120,7 @@ ___
 
 #### Defined in
 
-[module/page.ts:35](https://github.com/siposdani87/sui-js/blob/ad456a5/src/module/page.ts#L35)
+[module/page.ts:35](https://github.com/siposdani87/sui-js/blob/9aff0f0/src/module/page.ts#L35)
 
 ___
 
@@ -136,4 +140,4 @@ ___
 
 #### Defined in
 
-[module/page.ts:27](https://github.com/siposdani87/sui-js/blob/ad456a5/src/module/page.ts#L27)
+[module/page.ts:27](https://github.com/siposdani87/sui-js/blob/9aff0f0/src/module/page.ts#L27)

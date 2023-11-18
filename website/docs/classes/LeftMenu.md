@@ -10,107 +10,111 @@ custom_edit_url: null
 
 ### constructor
 
-• **new LeftMenu**()
+• **new LeftMenu**(): [`LeftMenu`](LeftMenu.md)
+
+#### Returns
+
+[`LeftMenu`](LeftMenu.md)
 
 #### Defined in
 
-[module/leftMenu.ts:16](https://github.com/siposdani87/sui-js/blob/ad456a5/src/module/leftMenu.ts#L16)
+[module/leftMenu.ts:16](https://github.com/siposdani87/sui-js/blob/9aff0f0/src/module/leftMenu.ts#L16)
 
 ## Properties
 
 ### body
 
-• **body**: [`Knot`](Knot.md)<`HTMLElement`\>
+• **body**: [`Knot`](Knot.md)\<`HTMLElement`\>
 
 #### Defined in
 
-[module/leftMenu.ts:6](https://github.com/siposdani87/sui-js/blob/ad456a5/src/module/leftMenu.ts#L6)
+[module/leftMenu.ts:6](https://github.com/siposdani87/sui-js/blob/9aff0f0/src/module/leftMenu.ts#L6)
 
 ___
 
 ### leftMenu
 
-• **leftMenu**: [`Knot`](Knot.md)<`HTMLElement`\>
+• **leftMenu**: [`Knot`](Knot.md)\<`HTMLElement`\>
 
 #### Defined in
 
-[module/leftMenu.ts:8](https://github.com/siposdani87/sui-js/blob/ad456a5/src/module/leftMenu.ts#L8)
+[module/leftMenu.ts:8](https://github.com/siposdani87/sui-js/blob/9aff0f0/src/module/leftMenu.ts#L8)
 
 ___
 
 ### mainContainerKnot
 
-• **mainContainerKnot**: [`Knot`](Knot.md)<`HTMLElement`\>
+• **mainContainerKnot**: [`Knot`](Knot.md)\<`HTMLElement`\>
 
 #### Defined in
 
-[module/leftMenu.ts:7](https://github.com/siposdani87/sui-js/blob/ad456a5/src/module/leftMenu.ts#L7)
+[module/leftMenu.ts:7](https://github.com/siposdani87/sui-js/blob/9aff0f0/src/module/leftMenu.ts#L7)
 
 ___
 
 ### mainMenu
 
-• **mainMenu**: [`Knot`](Knot.md)<`HTMLElement`\>
+• **mainMenu**: [`Knot`](Knot.md)\<`HTMLElement`\>
 
 #### Defined in
 
-[module/leftMenu.ts:9](https://github.com/siposdani87/sui-js/blob/ad456a5/src/module/leftMenu.ts#L9)
+[module/leftMenu.ts:9](https://github.com/siposdani87/sui-js/blob/9aff0f0/src/module/leftMenu.ts#L9)
 
 ___
 
 ### mainMenuContainer
 
-• **mainMenuContainer**: [`Knot`](Knot.md)<`HTMLElement`\>
+• **mainMenuContainer**: [`Knot`](Knot.md)\<`HTMLElement`\>
 
 #### Defined in
 
-[module/leftMenu.ts:11](https://github.com/siposdani87/sui-js/blob/ad456a5/src/module/leftMenu.ts#L11)
+[module/leftMenu.ts:11](https://github.com/siposdani87/sui-js/blob/9aff0f0/src/module/leftMenu.ts#L11)
 
 ___
 
 ### mainMenuTitle
 
-• **mainMenuTitle**: [`Knot`](Knot.md)<`HTMLElement`\>
+• **mainMenuTitle**: [`Knot`](Knot.md)\<`HTMLElement`\>
 
 #### Defined in
 
-[module/leftMenu.ts:13](https://github.com/siposdani87/sui-js/blob/ad456a5/src/module/leftMenu.ts#L13)
+[module/leftMenu.ts:13](https://github.com/siposdani87/sui-js/blob/9aff0f0/src/module/leftMenu.ts#L13)
 
 ___
 
 ### subMenu
 
-• **subMenu**: [`Knot`](Knot.md)<`HTMLElement`\>
+• **subMenu**: [`Knot`](Knot.md)\<`HTMLElement`\>
 
 #### Defined in
 
-[module/leftMenu.ts:10](https://github.com/siposdani87/sui-js/blob/ad456a5/src/module/leftMenu.ts#L10)
+[module/leftMenu.ts:10](https://github.com/siposdani87/sui-js/blob/9aff0f0/src/module/leftMenu.ts#L10)
 
 ___
 
 ### subMenuContainer
 
-• **subMenuContainer**: [`Knot`](Knot.md)<`HTMLElement`\>
+• **subMenuContainer**: [`Knot`](Knot.md)\<`HTMLElement`\>
 
 #### Defined in
 
-[module/leftMenu.ts:12](https://github.com/siposdani87/sui-js/blob/ad456a5/src/module/leftMenu.ts#L12)
+[module/leftMenu.ts:12](https://github.com/siposdani87/sui-js/blob/9aff0f0/src/module/leftMenu.ts#L12)
 
 ___
 
 ### subMenuTitle
 
-• **subMenuTitle**: [`Knot`](Knot.md)<`HTMLElement`\>
+• **subMenuTitle**: [`Knot`](Knot.md)\<`HTMLElement`\>
 
 #### Defined in
 
-[module/leftMenu.ts:14](https://github.com/siposdani87/sui-js/blob/ad456a5/src/module/leftMenu.ts#L14)
+[module/leftMenu.ts:14](https://github.com/siposdani87/sui-js/blob/9aff0f0/src/module/leftMenu.ts#L14)
 
 ## Methods
 
 ### \_init
 
-▸ `Private` **_init**(): `void`
+▸ **_init**(): `void`
 
 #### Returns
 
@@ -118,13 +122,13 @@ ___
 
 #### Defined in
 
-[module/leftMenu.ts:20](https://github.com/siposdani87/sui-js/blob/ad456a5/src/module/leftMenu.ts#L20)
+[module/leftMenu.ts:20](https://github.com/siposdani87/sui-js/blob/9aff0f0/src/module/leftMenu.ts#L20)
 
 ___
 
 ### \_initEvents
 
-▸ `Private` **_initEvents**(): `void`
+▸ **_initEvents**(): `void`
 
 #### Returns
 
@@ -132,7 +136,7 @@ ___
 
 #### Defined in
 
-[module/leftMenu.ts:44](https://github.com/siposdani87/sui-js/blob/ad456a5/src/module/leftMenu.ts#L44)
+[module/leftMenu.ts:44](https://github.com/siposdani87/sui-js/blob/9aff0f0/src/module/leftMenu.ts#L44)
 
 ___
 
@@ -146,7 +150,7 @@ ___
 
 #### Defined in
 
-[module/leftMenu.ts:92](https://github.com/siposdani87/sui-js/blob/ad456a5/src/module/leftMenu.ts#L92)
+[module/leftMenu.ts:92](https://github.com/siposdani87/sui-js/blob/9aff0f0/src/module/leftMenu.ts#L92)
 
 ___
 
@@ -160,35 +164,35 @@ ___
 
 #### Defined in
 
-[module/leftMenu.ts:104](https://github.com/siposdani87/sui-js/blob/ad456a5/src/module/leftMenu.ts#L104)
+[module/leftMenu.ts:104](https://github.com/siposdani87/sui-js/blob/9aff0f0/src/module/leftMenu.ts#L104)
 
 ___
 
 ### getMainContainer
 
-▸ **getMainContainer**(): [`Knot`](Knot.md)<`HTMLElement`\>
+▸ **getMainContainer**(): [`Knot`](Knot.md)\<`HTMLElement`\>
 
 #### Returns
 
-[`Knot`](Knot.md)<`HTMLElement`\>
+[`Knot`](Knot.md)\<`HTMLElement`\>
 
 #### Defined in
 
-[module/leftMenu.ts:109](https://github.com/siposdani87/sui-js/blob/ad456a5/src/module/leftMenu.ts#L109)
+[module/leftMenu.ts:109](https://github.com/siposdani87/sui-js/blob/9aff0f0/src/module/leftMenu.ts#L109)
 
 ___
 
 ### getSubContainer
 
-▸ **getSubContainer**(): [`Knot`](Knot.md)<`HTMLElement`\>
+▸ **getSubContainer**(): [`Knot`](Knot.md)\<`HTMLElement`\>
 
 #### Returns
 
-[`Knot`](Knot.md)<`HTMLElement`\>
+[`Knot`](Knot.md)\<`HTMLElement`\>
 
 #### Defined in
 
-[module/leftMenu.ts:113](https://github.com/siposdani87/sui-js/blob/ad456a5/src/module/leftMenu.ts#L113)
+[module/leftMenu.ts:113](https://github.com/siposdani87/sui-js/blob/9aff0f0/src/module/leftMenu.ts#L113)
 
 ___
 
@@ -208,7 +212,7 @@ ___
 
 #### Defined in
 
-[module/leftMenu.ts:83](https://github.com/siposdani87/sui-js/blob/ad456a5/src/module/leftMenu.ts#L83)
+[module/leftMenu.ts:83](https://github.com/siposdani87/sui-js/blob/9aff0f0/src/module/leftMenu.ts#L83)
 
 ___
 
@@ -228,4 +232,4 @@ ___
 
 #### Defined in
 
-[module/leftMenu.ts:98](https://github.com/siposdani87/sui-js/blob/ad456a5/src/module/leftMenu.ts#L98)
+[module/leftMenu.ts:98](https://github.com/siposdani87/sui-js/blob/9aff0f0/src/module/leftMenu.ts#L98)

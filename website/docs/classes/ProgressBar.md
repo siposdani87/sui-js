@@ -10,7 +10,7 @@ custom_edit_url: null
 
 ### constructor
 
-• **new ProgressBar**(`dialog`, `confirm`, `opt_options?`)
+• **new ProgressBar**(`dialog`, `confirm`, `opt_options?`): [`ProgressBar`](ProgressBar.md)
 
 #### Parameters
 
@@ -20,9 +20,13 @@ custom_edit_url: null
 | `confirm` | [`Confirm`](Confirm.md) |
 | `opt_options` | `Object` |
 
+#### Returns
+
+[`ProgressBar`](ProgressBar.md)
+
 #### Defined in
 
-[module/progressBar.ts:30](https://github.com/siposdani87/sui-js/blob/ad456a5/src/module/progressBar.ts#L30)
+[module/progressBar.ts:30](https://github.com/siposdani87/sui-js/blob/9aff0f0/src/module/progressBar.ts#L30)
 
 ## Properties
 
@@ -32,7 +36,7 @@ custom_edit_url: null
 
 #### Defined in
 
-[module/progressBar.ts:22](https://github.com/siposdani87/sui-js/blob/ad456a5/src/module/progressBar.ts#L22)
+[module/progressBar.ts:22](https://github.com/siposdani87/sui-js/blob/9aff0f0/src/module/progressBar.ts#L22)
 
 ___
 
@@ -42,7 +46,7 @@ ___
 
 #### Defined in
 
-[module/progressBar.ts:28](https://github.com/siposdani87/sui-js/blob/ad456a5/src/module/progressBar.ts#L28)
+[module/progressBar.ts:28](https://github.com/siposdani87/sui-js/blob/9aff0f0/src/module/progressBar.ts#L28)
 
 ___
 
@@ -52,7 +56,7 @@ ___
 
 #### Defined in
 
-[module/progressBar.ts:16](https://github.com/siposdani87/sui-js/blob/ad456a5/src/module/progressBar.ts#L16)
+[module/progressBar.ts:16](https://github.com/siposdani87/sui-js/blob/9aff0f0/src/module/progressBar.ts#L16)
 
 ___
 
@@ -62,17 +66,17 @@ ___
 
 #### Defined in
 
-[module/progressBar.ts:15](https://github.com/siposdani87/sui-js/blob/ad456a5/src/module/progressBar.ts#L15)
+[module/progressBar.ts:15](https://github.com/siposdani87/sui-js/blob/9aff0f0/src/module/progressBar.ts#L15)
 
 ___
 
 ### options
 
-• **options**: [`Objekt`](Objekt.md)<`Object`\>
+• **options**: [`Objekt`](Objekt.md)\<`Object`\>
 
 #### Defined in
 
-[module/progressBar.ts:17](https://github.com/siposdani87/sui-js/blob/ad456a5/src/module/progressBar.ts#L17)
+[module/progressBar.ts:17](https://github.com/siposdani87/sui-js/blob/9aff0f0/src/module/progressBar.ts#L17)
 
 ___
 
@@ -82,7 +86,7 @@ ___
 
 #### Defined in
 
-[module/progressBar.ts:26](https://github.com/siposdani87/sui-js/blob/ad456a5/src/module/progressBar.ts#L26)
+[module/progressBar.ts:26](https://github.com/siposdani87/sui-js/blob/9aff0f0/src/module/progressBar.ts#L26)
 
 ___
 
@@ -92,7 +96,7 @@ ___
 
 #### Defined in
 
-[module/progressBar.ts:23](https://github.com/siposdani87/sui-js/blob/ad456a5/src/module/progressBar.ts#L23)
+[module/progressBar.ts:23](https://github.com/siposdani87/sui-js/blob/9aff0f0/src/module/progressBar.ts#L23)
 
 ___
 
@@ -102,7 +106,7 @@ ___
 
 #### Defined in
 
-[module/progressBar.ts:25](https://github.com/siposdani87/sui-js/blob/ad456a5/src/module/progressBar.ts#L25)
+[module/progressBar.ts:25](https://github.com/siposdani87/sui-js/blob/9aff0f0/src/module/progressBar.ts#L25)
 
 ___
 
@@ -112,47 +116,47 @@ ___
 
 #### Defined in
 
-[module/progressBar.ts:24](https://github.com/siposdani87/sui-js/blob/ad456a5/src/module/progressBar.ts#L24)
+[module/progressBar.ts:24](https://github.com/siposdani87/sui-js/blob/9aff0f0/src/module/progressBar.ts#L24)
 
 ___
 
 ### progressBarConfirm
 
-• **progressBarConfirm**: [`Knot`](Knot.md)<`HTMLElement`\>
+• **progressBarConfirm**: [`Knot`](Knot.md)\<`HTMLElement`\>
 
 #### Defined in
 
-[module/progressBar.ts:21](https://github.com/siposdani87/sui-js/blob/ad456a5/src/module/progressBar.ts#L21)
+[module/progressBar.ts:21](https://github.com/siposdani87/sui-js/blob/9aff0f0/src/module/progressBar.ts#L21)
 
 ___
 
 ### progressBarContainer
 
-• **progressBarContainer**: [`Knot`](Knot.md)<`HTMLElement`\>
+• **progressBarContainer**: [`Knot`](Knot.md)\<`HTMLElement`\>
 
 #### Defined in
 
-[module/progressBar.ts:18](https://github.com/siposdani87/sui-js/blob/ad456a5/src/module/progressBar.ts#L18)
+[module/progressBar.ts:18](https://github.com/siposdani87/sui-js/blob/9aff0f0/src/module/progressBar.ts#L18)
 
 ___
 
 ### progressBarDialog
 
-• **progressBarDialog**: [`Knot`](Knot.md)<`HTMLElement`\>
+• **progressBarDialog**: [`Knot`](Knot.md)\<`HTMLElement`\>
 
 #### Defined in
 
-[module/progressBar.ts:20](https://github.com/siposdani87/sui-js/blob/ad456a5/src/module/progressBar.ts#L20)
+[module/progressBar.ts:20](https://github.com/siposdani87/sui-js/blob/9aff0f0/src/module/progressBar.ts#L20)
 
 ___
 
 ### progressBarHeader
 
-• **progressBarHeader**: [`Knot`](Knot.md)<`HTMLElement`\>
+• **progressBarHeader**: [`Knot`](Knot.md)\<`HTMLElement`\>
 
 #### Defined in
 
-[module/progressBar.ts:19](https://github.com/siposdani87/sui-js/blob/ad456a5/src/module/progressBar.ts#L19)
+[module/progressBar.ts:19](https://github.com/siposdani87/sui-js/blob/9aff0f0/src/module/progressBar.ts#L19)
 
 ___
 
@@ -162,19 +166,19 @@ ___
 
 #### Defined in
 
-[module/progressBar.ts:27](https://github.com/siposdani87/sui-js/blob/ad456a5/src/module/progressBar.ts#L27)
+[module/progressBar.ts:27](https://github.com/siposdani87/sui-js/blob/9aff0f0/src/module/progressBar.ts#L27)
 
 ## Methods
 
 ### \_createProgressBar
 
-▸ `Private` **_createProgressBar**(`knot`): `ProcessBar`
+▸ **_createProgressBar**(`knot`): `ProcessBar`
 
 #### Parameters
 
 | Name | Type |
 | :------ | :------ |
-| `knot` | [`Knot`](Knot.md)<`HTMLElement`\> |
+| `knot` | [`Knot`](Knot.md)\<`HTMLElement`\> |
 
 #### Returns
 
@@ -182,13 +186,13 @@ ___
 
 #### Defined in
 
-[module/progressBar.ts:99](https://github.com/siposdani87/sui-js/blob/ad456a5/src/module/progressBar.ts#L99)
+[module/progressBar.ts:99](https://github.com/siposdani87/sui-js/blob/9aff0f0/src/module/progressBar.ts#L99)
 
 ___
 
 ### \_init
 
-▸ `Private` **_init**(): `void`
+▸ **_init**(): `void`
 
 #### Returns
 
@@ -196,13 +200,13 @@ ___
 
 #### Defined in
 
-[module/progressBar.ts:50](https://github.com/siposdani87/sui-js/blob/ad456a5/src/module/progressBar.ts#L50)
+[module/progressBar.ts:50](https://github.com/siposdani87/sui-js/blob/9aff0f0/src/module/progressBar.ts#L50)
 
 ___
 
 ### \_progress
 
-▸ `Private` **_progress**(): `void`
+▸ **_progress**(): `void`
 
 #### Returns
 
@@ -210,13 +214,13 @@ ___
 
 #### Defined in
 
-[module/progressBar.ts:130](https://github.com/siposdani87/sui-js/blob/ad456a5/src/module/progressBar.ts#L130)
+[module/progressBar.ts:130](https://github.com/siposdani87/sui-js/blob/9aff0f0/src/module/progressBar.ts#L130)
 
 ___
 
 ### \_separateProgressBars
 
-▸ `Private` **_separateProgressBars**(`containerCallback`, `headerCallback`, `dialogCallback`, `confirmCallback`): `void`
+▸ **_separateProgressBars**(`containerCallback`, `headerCallback`, `dialogCallback`, `confirmCallback`): `void`
 
 #### Parameters
 
@@ -233,13 +237,13 @@ ___
 
 #### Defined in
 
-[module/progressBar.ts:118](https://github.com/siposdani87/sui-js/blob/ad456a5/src/module/progressBar.ts#L118)
+[module/progressBar.ts:118](https://github.com/siposdani87/sui-js/blob/9aff0f0/src/module/progressBar.ts#L118)
 
 ___
 
 ### \_setOptions
 
-▸ `Private` **_setOptions**(`opt_options?`): `void`
+▸ **_setOptions**(`opt_options?`): `void`
 
 #### Parameters
 
@@ -253,7 +257,7 @@ ___
 
 #### Defined in
 
-[module/progressBar.ts:42](https://github.com/siposdani87/sui-js/blob/ad456a5/src/module/progressBar.ts#L42)
+[module/progressBar.ts:42](https://github.com/siposdani87/sui-js/blob/9aff0f0/src/module/progressBar.ts#L42)
 
 ___
 
@@ -273,7 +277,7 @@ ___
 
 #### Defined in
 
-[module/progressBar.ts:268](https://github.com/siposdani87/sui-js/blob/ad456a5/src/module/progressBar.ts#L268)
+[module/progressBar.ts:268](https://github.com/siposdani87/sui-js/blob/9aff0f0/src/module/progressBar.ts#L268)
 
 ___
 
@@ -287,7 +291,7 @@ ___
 
 #### Defined in
 
-[module/progressBar.ts:291](https://github.com/siposdani87/sui-js/blob/ad456a5/src/module/progressBar.ts#L291)
+[module/progressBar.ts:291](https://github.com/siposdani87/sui-js/blob/9aff0f0/src/module/progressBar.ts#L291)
 
 ___
 
@@ -307,7 +311,7 @@ ___
 
 #### Defined in
 
-[module/progressBar.ts:242](https://github.com/siposdani87/sui-js/blob/ad456a5/src/module/progressBar.ts#L242)
+[module/progressBar.ts:242](https://github.com/siposdani87/sui-js/blob/9aff0f0/src/module/progressBar.ts#L242)
 
 ___
 
@@ -327,7 +331,7 @@ ___
 
 #### Defined in
 
-[module/progressBar.ts:216](https://github.com/siposdani87/sui-js/blob/ad456a5/src/module/progressBar.ts#L216)
+[module/progressBar.ts:216](https://github.com/siposdani87/sui-js/blob/9aff0f0/src/module/progressBar.ts#L216)
 
 ___
 
@@ -341,7 +345,7 @@ ___
 
 #### Defined in
 
-[module/progressBar.ts:165](https://github.com/siposdani87/sui-js/blob/ad456a5/src/module/progressBar.ts#L165)
+[module/progressBar.ts:165](https://github.com/siposdani87/sui-js/blob/9aff0f0/src/module/progressBar.ts#L165)
 
 ___
 
@@ -355,4 +359,4 @@ ___
 
 #### Defined in
 
-[module/progressBar.ts:295](https://github.com/siposdani87/sui-js/blob/ad456a5/src/module/progressBar.ts#L295)
+[module/progressBar.ts:295](https://github.com/siposdani87/sui-js/blob/9aff0f0/src/module/progressBar.ts#L295)

@@ -10,47 +10,51 @@ custom_edit_url: null
 
 ### constructor
 
-• **new NavBar**()
+• **new NavBar**(): [`NavBar`](NavBar.md)
+
+#### Returns
+
+[`NavBar`](NavBar.md)
 
 #### Defined in
 
-[module/navBar.ts:9](https://github.com/siposdani87/sui-js/blob/ad456a5/src/module/navBar.ts#L9)
+[module/navBar.ts:9](https://github.com/siposdani87/sui-js/blob/9aff0f0/src/module/navBar.ts#L9)
 
 ## Properties
 
 ### navBar
 
-• **navBar**: [`Knot`](Knot.md)<`HTMLElement`\>
+• **navBar**: [`Knot`](Knot.md)\<`HTMLElement`\>
 
 #### Defined in
 
-[module/navBar.ts:6](https://github.com/siposdani87/sui-js/blob/ad456a5/src/module/navBar.ts#L6)
+[module/navBar.ts:6](https://github.com/siposdani87/sui-js/blob/9aff0f0/src/module/navBar.ts#L6)
 
 ___
 
 ### navBarHeader
 
-• **navBarHeader**: [`Knot`](Knot.md)<`HTMLElement`\>
+• **navBarHeader**: [`Knot`](Knot.md)\<`HTMLElement`\>
 
 #### Defined in
 
-[module/navBar.ts:5](https://github.com/siposdani87/sui-js/blob/ad456a5/src/module/navBar.ts#L5)
+[module/navBar.ts:5](https://github.com/siposdani87/sui-js/blob/9aff0f0/src/module/navBar.ts#L5)
 
 ___
 
 ### toggleNavBarIcon
 
-• **toggleNavBarIcon**: [`Knot`](Knot.md)<`HTMLElement`\>
+• **toggleNavBarIcon**: [`Knot`](Knot.md)\<`HTMLElement`\>
 
 #### Defined in
 
-[module/navBar.ts:7](https://github.com/siposdani87/sui-js/blob/ad456a5/src/module/navBar.ts#L7)
+[module/navBar.ts:7](https://github.com/siposdani87/sui-js/blob/9aff0f0/src/module/navBar.ts#L7)
 
 ## Methods
 
 ### \_init
 
-▸ `Private` **_init**(): `void`
+▸ **_init**(): `void`
 
 #### Returns
 
@@ -58,7 +62,7 @@ ___
 
 #### Defined in
 
-[module/navBar.ts:13](https://github.com/siposdani87/sui-js/blob/ad456a5/src/module/navBar.ts#L13)
+[module/navBar.ts:13](https://github.com/siposdani87/sui-js/blob/9aff0f0/src/module/navBar.ts#L13)
 
 ___
 
@@ -72,21 +76,21 @@ ___
 
 #### Defined in
 
-[module/navBar.ts:45](https://github.com/siposdani87/sui-js/blob/ad456a5/src/module/navBar.ts#L45)
+[module/navBar.ts:45](https://github.com/siposdani87/sui-js/blob/9aff0f0/src/module/navBar.ts#L45)
 
 ___
 
 ### getContainer
 
-▸ **getContainer**(): [`Knot`](Knot.md)<`HTMLElement`\>
+▸ **getContainer**(): [`Knot`](Knot.md)\<`HTMLElement`\>
 
 #### Returns
 
-[`Knot`](Knot.md)<`HTMLElement`\>
+[`Knot`](Knot.md)\<`HTMLElement`\>
 
 #### Defined in
 
-[module/navBar.ts:66](https://github.com/siposdani87/sui-js/blob/ad456a5/src/module/navBar.ts#L66)
+[module/navBar.ts:66](https://github.com/siposdani87/sui-js/blob/9aff0f0/src/module/navBar.ts#L66)
 
 ___
 
@@ -100,7 +104,7 @@ ___
 
 #### Defined in
 
-[module/navBar.ts:54](https://github.com/siposdani87/sui-js/blob/ad456a5/src/module/navBar.ts#L54)
+[module/navBar.ts:54](https://github.com/siposdani87/sui-js/blob/9aff0f0/src/module/navBar.ts#L54)
 
 ___
 
@@ -114,7 +118,7 @@ ___
 
 #### Defined in
 
-[module/navBar.ts:62](https://github.com/siposdani87/sui-js/blob/ad456a5/src/module/navBar.ts#L62)
+[module/navBar.ts:62](https://github.com/siposdani87/sui-js/blob/9aff0f0/src/module/navBar.ts#L62)
 
 ___
 
@@ -128,7 +132,7 @@ ___
 
 #### Defined in
 
-[module/navBar.ts:36](https://github.com/siposdani87/sui-js/blob/ad456a5/src/module/navBar.ts#L36)
+[module/navBar.ts:36](https://github.com/siposdani87/sui-js/blob/9aff0f0/src/module/navBar.ts#L36)
 
 ___
 
@@ -142,7 +146,7 @@ ___
 
 #### Defined in
 
-[module/navBar.ts:40](https://github.com/siposdani87/sui-js/blob/ad456a5/src/module/navBar.ts#L40)
+[module/navBar.ts:40](https://github.com/siposdani87/sui-js/blob/9aff0f0/src/module/navBar.ts#L40)
 
 ___
 
@@ -156,7 +160,7 @@ ___
 
 #### Defined in
 
-[module/navBar.ts:50](https://github.com/siposdani87/sui-js/blob/ad456a5/src/module/navBar.ts#L50)
+[module/navBar.ts:50](https://github.com/siposdani87/sui-js/blob/9aff0f0/src/module/navBar.ts#L50)
 
 ___
 
@@ -170,7 +174,7 @@ ___
 
 #### Defined in
 
-[module/navBar.ts:58](https://github.com/siposdani87/sui-js/blob/ad456a5/src/module/navBar.ts#L58)
+[module/navBar.ts:58](https://github.com/siposdani87/sui-js/blob/9aff0f0/src/module/navBar.ts#L58)
 
 ___
 
@@ -184,4 +188,4 @@ ___
 
 #### Defined in
 
-[module/navBar.ts:28](https://github.com/siposdani87/sui-js/blob/ad456a5/src/module/navBar.ts#L28)
+[module/navBar.ts:28](https://github.com/siposdani87/sui-js/blob/9aff0f0/src/module/navBar.ts#L28)

@@ -10,11 +10,15 @@ custom_edit_url: null
 
 ### constructor
 
-• **new Browser**()
+• **new Browser**(): [`Browser`](Browser.md)
+
+#### Returns
+
+[`Browser`](Browser.md)
 
 #### Defined in
 
-[module/browser.ts:11](https://github.com/siposdani87/sui-js/blob/ad456a5/src/module/browser.ts#L11)
+[module/browser.ts:11](https://github.com/siposdani87/sui-js/blob/9aff0f0/src/module/browser.ts#L11)
 
 ## Properties
 
@@ -28,7 +32,7 @@ custom_edit_url: null
 
 #### Defined in
 
-[module/browser.ts:6](https://github.com/siposdani87/sui-js/blob/ad456a5/src/module/browser.ts#L6)
+[module/browser.ts:6](https://github.com/siposdani87/sui-js/blob/9aff0f0/src/module/browser.ts#L6)
 
 ___
 
@@ -38,7 +42,7 @@ ___
 
 #### Defined in
 
-[module/browser.ts:5](https://github.com/siposdani87/sui-js/blob/ad456a5/src/module/browser.ts#L5)
+[module/browser.ts:5](https://github.com/siposdani87/sui-js/blob/9aff0f0/src/module/browser.ts#L5)
 
 ___
 
@@ -48,13 +52,13 @@ ___
 
 #### Defined in
 
-[module/browser.ts:9](https://github.com/siposdani87/sui-js/blob/ad456a5/src/module/browser.ts#L9)
+[module/browser.ts:9](https://github.com/siposdani87/sui-js/blob/9aff0f0/src/module/browser.ts#L9)
 
 ## Methods
 
 ### \_detectBrowsers
 
-▸ `Private` **_detectBrowsers**(): `void`
+▸ **_detectBrowsers**(): `void`
 
 #### Returns
 
@@ -62,13 +66,13 @@ ___
 
 #### Defined in
 
-[module/browser.ts:53](https://github.com/siposdani87/sui-js/blob/ad456a5/src/module/browser.ts#L53)
+[module/browser.ts:53](https://github.com/siposdani87/sui-js/blob/9aff0f0/src/module/browser.ts#L53)
 
 ___
 
 ### \_detectMissingFeatures
 
-▸ `Private` **_detectMissingFeatures**(): `void`
+▸ **_detectMissingFeatures**(): `void`
 
 #### Returns
 
@@ -76,13 +80,13 @@ ___
 
 #### Defined in
 
-[module/browser.ts:21](https://github.com/siposdani87/sui-js/blob/ad456a5/src/module/browser.ts#L21)
+[module/browser.ts:21](https://github.com/siposdani87/sui-js/blob/9aff0f0/src/module/browser.ts#L21)
 
 ___
 
 ### \_detectOS
 
-▸ `Private` **_detectOS**(): `void`
+▸ **_detectOS**(): `void`
 
 #### Returns
 
@@ -90,13 +94,13 @@ ___
 
 #### Defined in
 
-[module/browser.ts:86](https://github.com/siposdani87/sui-js/blob/ad456a5/src/module/browser.ts#L86)
+[module/browser.ts:86](https://github.com/siposdani87/sui-js/blob/9aff0f0/src/module/browser.ts#L86)
 
 ___
 
 ### \_init
 
-▸ `Private` **_init**(): `void`
+▸ **_init**(): `void`
 
 #### Returns
 
@@ -104,13 +108,13 @@ ___
 
 #### Defined in
 
-[module/browser.ts:15](https://github.com/siposdani87/sui-js/blob/ad456a5/src/module/browser.ts#L15)
+[module/browser.ts:15](https://github.com/siposdani87/sui-js/blob/9aff0f0/src/module/browser.ts#L15)
 
 ___
 
 ### \_setFeature
 
-▸ `Private` **_setFeature**(`name`, `value`): `void`
+▸ **_setFeature**(`name`, `value`): `void`
 
 #### Parameters
 
@@ -125,7 +129,7 @@ ___
 
 #### Defined in
 
-[module/browser.ts:43](https://github.com/siposdani87/sui-js/blob/ad456a5/src/module/browser.ts#L43)
+[module/browser.ts:43](https://github.com/siposdani87/sui-js/blob/9aff0f0/src/module/browser.ts#L43)
 
 ___
 
@@ -139,7 +143,7 @@ ___
 
 #### Defined in
 
-[module/browser.ts:37](https://github.com/siposdani87/sui-js/blob/ad456a5/src/module/browser.ts#L37)
+[module/browser.ts:37](https://github.com/siposdani87/sui-js/blob/9aff0f0/src/module/browser.ts#L37)
 
 ___
 
@@ -159,7 +163,7 @@ ___
 
 #### Defined in
 
-[module/browser.ts:49](https://github.com/siposdani87/sui-js/blob/ad456a5/src/module/browser.ts#L49)
+[module/browser.ts:49](https://github.com/siposdani87/sui-js/blob/9aff0f0/src/module/browser.ts#L49)
 
 ___
 
@@ -173,7 +177,7 @@ ___
 
 #### Defined in
 
-[module/browser.ts:126](https://github.com/siposdani87/sui-js/blob/ad456a5/src/module/browser.ts#L126)
+[module/browser.ts:126](https://github.com/siposdani87/sui-js/blob/9aff0f0/src/module/browser.ts#L126)
 
 ___
 
@@ -187,7 +191,7 @@ ___
 
 #### Defined in
 
-[module/browser.ts:164](https://github.com/siposdani87/sui-js/blob/ad456a5/src/module/browser.ts#L164)
+[module/browser.ts:164](https://github.com/siposdani87/sui-js/blob/9aff0f0/src/module/browser.ts#L164)
 
 ___
 
@@ -201,7 +205,7 @@ ___
 
 #### Defined in
 
-[module/browser.ts:180](https://github.com/siposdani87/sui-js/blob/ad456a5/src/module/browser.ts#L180)
+[module/browser.ts:180](https://github.com/siposdani87/sui-js/blob/9aff0f0/src/module/browser.ts#L180)
 
 ___
 
@@ -215,7 +219,7 @@ ___
 
 #### Defined in
 
-[module/browser.ts:156](https://github.com/siposdani87/sui-js/blob/ad456a5/src/module/browser.ts#L156)
+[module/browser.ts:156](https://github.com/siposdani87/sui-js/blob/9aff0f0/src/module/browser.ts#L156)
 
 ___
 
@@ -229,7 +233,7 @@ ___
 
 #### Defined in
 
-[module/browser.ts:152](https://github.com/siposdani87/sui-js/blob/ad456a5/src/module/browser.ts#L152)
+[module/browser.ts:152](https://github.com/siposdani87/sui-js/blob/9aff0f0/src/module/browser.ts#L152)
 
 ___
 
@@ -243,7 +247,7 @@ ___
 
 #### Defined in
 
-[module/browser.ts:160](https://github.com/siposdani87/sui-js/blob/ad456a5/src/module/browser.ts#L160)
+[module/browser.ts:160](https://github.com/siposdani87/sui-js/blob/9aff0f0/src/module/browser.ts#L160)
 
 ___
 
@@ -257,7 +261,7 @@ ___
 
 #### Defined in
 
-[module/browser.ts:118](https://github.com/siposdani87/sui-js/blob/ad456a5/src/module/browser.ts#L118)
+[module/browser.ts:118](https://github.com/siposdani87/sui-js/blob/9aff0f0/src/module/browser.ts#L118)
 
 ___
 
@@ -277,7 +281,7 @@ ___
 
 #### Defined in
 
-[module/browser.ts:134](https://github.com/siposdani87/sui-js/blob/ad456a5/src/module/browser.ts#L134)
+[module/browser.ts:134](https://github.com/siposdani87/sui-js/blob/9aff0f0/src/module/browser.ts#L134)
 
 ___
 
@@ -291,7 +295,7 @@ ___
 
 #### Defined in
 
-[module/browser.ts:130](https://github.com/siposdani87/sui-js/blob/ad456a5/src/module/browser.ts#L130)
+[module/browser.ts:130](https://github.com/siposdani87/sui-js/blob/9aff0f0/src/module/browser.ts#L130)
 
 ___
 
@@ -305,7 +309,7 @@ ___
 
 #### Defined in
 
-[module/browser.ts:114](https://github.com/siposdani87/sui-js/blob/ad456a5/src/module/browser.ts#L114)
+[module/browser.ts:114](https://github.com/siposdani87/sui-js/blob/9aff0f0/src/module/browser.ts#L114)
 
 ___
 
@@ -319,7 +323,7 @@ ___
 
 #### Defined in
 
-[module/browser.ts:168](https://github.com/siposdani87/sui-js/blob/ad456a5/src/module/browser.ts#L168)
+[module/browser.ts:168](https://github.com/siposdani87/sui-js/blob/9aff0f0/src/module/browser.ts#L168)
 
 ___
 
@@ -333,7 +337,7 @@ ___
 
 #### Defined in
 
-[module/browser.ts:172](https://github.com/siposdani87/sui-js/blob/ad456a5/src/module/browser.ts#L172)
+[module/browser.ts:172](https://github.com/siposdani87/sui-js/blob/9aff0f0/src/module/browser.ts#L172)
 
 ___
 
@@ -347,7 +351,7 @@ ___
 
 #### Defined in
 
-[module/browser.ts:176](https://github.com/siposdani87/sui-js/blob/ad456a5/src/module/browser.ts#L176)
+[module/browser.ts:176](https://github.com/siposdani87/sui-js/blob/9aff0f0/src/module/browser.ts#L176)
 
 ___
 
@@ -361,4 +365,4 @@ ___
 
 #### Defined in
 
-[module/browser.ts:122](https://github.com/siposdani87/sui-js/blob/ad456a5/src/module/browser.ts#L122)
+[module/browser.ts:122](https://github.com/siposdani87/sui-js/blob/9aff0f0/src/module/browser.ts#L122)

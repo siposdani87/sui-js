@@ -10,7 +10,7 @@ custom_edit_url: null
 
 ### constructor
 
-• **new Footer**(`opt_options?`)
+• **new Footer**(`opt_options?`): [`Footer`](Footer.md)
 
 #### Parameters
 
@@ -18,65 +18,69 @@ custom_edit_url: null
 | :------ | :------ |
 | `opt_options` | `Object` |
 
+#### Returns
+
+[`Footer`](Footer.md)
+
 #### Defined in
 
-[module/footer.ts:12](https://github.com/siposdani87/sui-js/blob/ad456a5/src/module/footer.ts#L12)
+[module/footer.ts:12](https://github.com/siposdani87/sui-js/blob/9aff0f0/src/module/footer.ts#L12)
 
 ## Properties
 
 ### contentKnot
 
-• **contentKnot**: [`Knot`](Knot.md)<`HTMLElement`\>
+• **contentKnot**: [`Knot`](Knot.md)\<`HTMLElement`\>
 
 #### Defined in
 
-[module/footer.ts:9](https://github.com/siposdani87/sui-js/blob/ad456a5/src/module/footer.ts#L9)
+[module/footer.ts:9](https://github.com/siposdani87/sui-js/blob/9aff0f0/src/module/footer.ts#L9)
 
 ___
 
 ### footerKnot
 
-• **footerKnot**: [`Knot`](Knot.md)<`HTMLElement`\>
+• **footerKnot**: [`Knot`](Knot.md)\<`HTMLElement`\>
 
 #### Defined in
 
-[module/footer.ts:7](https://github.com/siposdani87/sui-js/blob/ad456a5/src/module/footer.ts#L7)
+[module/footer.ts:7](https://github.com/siposdani87/sui-js/blob/9aff0f0/src/module/footer.ts#L7)
 
 ___
 
 ### localesKnot
 
-• **localesKnot**: [`Knot`](Knot.md)<`HTMLElement`\>
+• **localesKnot**: [`Knot`](Knot.md)\<`HTMLElement`\>
 
 #### Defined in
 
-[module/footer.ts:10](https://github.com/siposdani87/sui-js/blob/ad456a5/src/module/footer.ts#L10)
+[module/footer.ts:10](https://github.com/siposdani87/sui-js/blob/9aff0f0/src/module/footer.ts#L10)
 
 ___
 
 ### options
 
-• **options**: [`Objekt`](Objekt.md)<`Object`\>
+• **options**: [`Objekt`](Objekt.md)\<`Object`\>
 
 #### Defined in
 
-[module/footer.ts:6](https://github.com/siposdani87/sui-js/blob/ad456a5/src/module/footer.ts#L6)
+[module/footer.ts:6](https://github.com/siposdani87/sui-js/blob/9aff0f0/src/module/footer.ts#L6)
 
 ___
 
 ### templateViewKnot
 
-• **templateViewKnot**: [`Knot`](Knot.md)<`HTMLElement`\>
+• **templateViewKnot**: [`Knot`](Knot.md)\<`HTMLElement`\>
 
 #### Defined in
 
-[module/footer.ts:8](https://github.com/siposdani87/sui-js/blob/ad456a5/src/module/footer.ts#L8)
+[module/footer.ts:8](https://github.com/siposdani87/sui-js/blob/9aff0f0/src/module/footer.ts#L8)
 
 ## Methods
 
 ### \_init
 
-▸ `Private` **_init**(): `void`
+▸ **_init**(): `void`
 
 #### Returns
 
@@ -84,13 +88,13 @@ ___
 
 #### Defined in
 
-[module/footer.ts:22](https://github.com/siposdani87/sui-js/blob/ad456a5/src/module/footer.ts#L22)
+[module/footer.ts:22](https://github.com/siposdani87/sui-js/blob/9aff0f0/src/module/footer.ts#L22)
 
 ___
 
 ### \_setOptions
 
-▸ `Private` **_setOptions**(`opt_options?`): `void`
+▸ **_setOptions**(`opt_options?`): `void`
 
 #### Parameters
 
@@ -104,7 +108,7 @@ ___
 
 #### Defined in
 
-[module/footer.ts:17](https://github.com/siposdani87/sui-js/blob/ad456a5/src/module/footer.ts#L17)
+[module/footer.ts:17](https://github.com/siposdani87/sui-js/blob/9aff0f0/src/module/footer.ts#L17)
 
 ___
 
@@ -118,21 +122,21 @@ ___
 
 #### Defined in
 
-[module/footer.ts:65](https://github.com/siposdani87/sui-js/blob/ad456a5/src/module/footer.ts#L65)
+[module/footer.ts:65](https://github.com/siposdani87/sui-js/blob/9aff0f0/src/module/footer.ts#L65)
 
 ___
 
 ### getLocalesContainer
 
-▸ **getLocalesContainer**(): [`Knot`](Knot.md)<`HTMLElement`\>
+▸ **getLocalesContainer**(): [`Knot`](Knot.md)\<`HTMLElement`\>
 
 #### Returns
 
-[`Knot`](Knot.md)<`HTMLElement`\>
+[`Knot`](Knot.md)\<`HTMLElement`\>
 
 #### Defined in
 
-[module/footer.ts:57](https://github.com/siposdani87/sui-js/blob/ad456a5/src/module/footer.ts#L57)
+[module/footer.ts:57](https://github.com/siposdani87/sui-js/blob/9aff0f0/src/module/footer.ts#L57)
 
 ___
 
@@ -146,7 +150,7 @@ ___
 
 #### Defined in
 
-[module/footer.ts:47](https://github.com/siposdani87/sui-js/blob/ad456a5/src/module/footer.ts#L47)
+[module/footer.ts:47](https://github.com/siposdani87/sui-js/blob/9aff0f0/src/module/footer.ts#L47)
 
 ___
 
@@ -160,7 +164,7 @@ ___
 
 #### Defined in
 
-[module/footer.ts:69](https://github.com/siposdani87/sui-js/blob/ad456a5/src/module/footer.ts#L69)
+[module/footer.ts:69](https://github.com/siposdani87/sui-js/blob/9aff0f0/src/module/footer.ts#L69)
 
 ___
 
@@ -174,7 +178,7 @@ ___
 
 #### Defined in
 
-[module/footer.ts:61](https://github.com/siposdani87/sui-js/blob/ad456a5/src/module/footer.ts#L61)
+[module/footer.ts:61](https://github.com/siposdani87/sui-js/blob/9aff0f0/src/module/footer.ts#L61)
 
 ___
 
@@ -186,7 +190,7 @@ ___
 
 | Name | Type |
 | :------ | :------ |
-| `contentKnot` | [`Knot`](Knot.md)<`HTMLElement`\> |
+| `contentKnot` | [`Knot`](Knot.md)\<`HTMLElement`\> |
 
 #### Returns
 
@@ -194,7 +198,7 @@ ___
 
 #### Defined in
 
-[module/footer.ts:53](https://github.com/siposdani87/sui-js/blob/ad456a5/src/module/footer.ts#L53)
+[module/footer.ts:53](https://github.com/siposdani87/sui-js/blob/9aff0f0/src/module/footer.ts#L53)
 
 ___
 
@@ -208,7 +212,7 @@ ___
 
 #### Defined in
 
-[module/footer.ts:29](https://github.com/siposdani87/sui-js/blob/ad456a5/src/module/footer.ts#L29)
+[module/footer.ts:29](https://github.com/siposdani87/sui-js/blob/9aff0f0/src/module/footer.ts#L29)
 
 ___
 
@@ -222,4 +226,4 @@ ___
 
 #### Defined in
 
-[module/footer.ts:73](https://github.com/siposdani87/sui-js/blob/ad456a5/src/module/footer.ts#L73)
+[module/footer.ts:73](https://github.com/siposdani87/sui-js/blob/9aff0f0/src/module/footer.ts#L73)

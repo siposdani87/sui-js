@@ -10,7 +10,11 @@ custom_edit_url: null
 
 ### constructor
 
-• **new Controller**()
+• **new Controller**(): [`Controller`](Controller.md)
+
+#### Returns
+
+[`Controller`](Controller.md)
 
 ## Methods
 
@@ -24,7 +28,7 @@ custom_edit_url: null
 
 #### Defined in
 
-[common/controller.ts:2](https://github.com/siposdani87/sui-js/blob/ad456a5/src/common/controller.ts#L2)
+[common/controller.ts:2](https://github.com/siposdani87/sui-js/blob/9aff0f0/src/common/controller.ts#L2)
 
 ___
 
@@ -38,4 +42,4 @@ ___
 
 #### Defined in
 
-[common/controller.ts:6](https://github.com/siposdani87/sui-js/blob/ad456a5/src/common/controller.ts#L6)
+[common/controller.ts:6](https://github.com/siposdani87/sui-js/blob/9aff0f0/src/common/controller.ts#L6)

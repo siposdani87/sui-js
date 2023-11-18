@@ -8,7 +8,7 @@ custom_edit_url: null
 
 ## Hierarchy
 
-- [`BaseField`](BaseField.md)<`HTMLInputElement`\>
+- [`BaseField`](BaseField.md)\<`HTMLInputElement`\>
 
   ↳ **`LocationField`**
 
@@ -16,16 +16,20 @@ custom_edit_url: null
 
 ### constructor
 
-• **new LocationField**(`input`, `label`, `error`, `inputBlock`)
+• **new LocationField**(`input`, `label`, `error`, `inputBlock`): [`LocationField`](LocationField.md)
 
 #### Parameters
 
 | Name | Type |
 | :------ | :------ |
-| `input` | [`Knot`](Knot.md)<`HTMLInputElement`\> |
-| `label` | [`Knot`](Knot.md)<`HTMLElement`\> |
-| `error` | [`Knot`](Knot.md)<`HTMLElement`\> |
-| `inputBlock` | [`Knot`](Knot.md)<`HTMLElement`\> |
+| `input` | [`Knot`](Knot.md)\<`HTMLInputElement`\> |
+| `label` | [`Knot`](Knot.md)\<`HTMLElement`\> |
+| `error` | [`Knot`](Knot.md)\<`HTMLElement`\> |
+| `inputBlock` | [`Knot`](Knot.md)\<`HTMLElement`\> |
+
+#### Returns
+
+[`LocationField`](LocationField.md)
 
 #### Overrides
 
@@ -33,13 +37,13 @@ custom_edit_url: null
 
 #### Defined in
 
-[field/locationField.ts:19](https://github.com/siposdani87/sui-js/blob/ad456a5/src/field/locationField.ts#L19)
+[field/locationField.ts:19](https://github.com/siposdani87/sui-js/blob/9aff0f0/src/field/locationField.ts#L19)
 
 ## Properties
 
 ### actionContainerKnot
 
-• **actionContainerKnot**: [`Knot`](Knot.md)<`HTMLElement`\>
+• **actionContainerKnot**: [`Knot`](Knot.md)\<`HTMLElement`\>
 
 #### Inherited from
 
@@ -47,27 +51,27 @@ custom_edit_url: null
 
 #### Defined in
 
-[field/baseField.ts:16](https://github.com/siposdani87/sui-js/blob/ad456a5/src/field/baseField.ts#L16)
+[field/baseField.ts:16](https://github.com/siposdani87/sui-js/blob/9aff0f0/src/field/baseField.ts#L16)
 
 ___
 
 ### advancedButton
 
-• **advancedButton**: [`Knot`](Knot.md)<`HTMLElement`\>
+• **advancedButton**: [`Knot`](Knot.md)\<`HTMLElement`\>
 
 #### Defined in
 
-[field/locationField.ts:12](https://github.com/siposdani87/sui-js/blob/ad456a5/src/field/locationField.ts#L12)
+[field/locationField.ts:12](https://github.com/siposdani87/sui-js/blob/9aff0f0/src/field/locationField.ts#L12)
 
 ___
 
 ### advancedKnot
 
-• **advancedKnot**: [`Knot`](Knot.md)<`HTMLElement`\>
+• **advancedKnot**: [`Knot`](Knot.md)\<`HTMLElement`\>
 
 #### Defined in
 
-[field/locationField.ts:15](https://github.com/siposdani87/sui-js/blob/ad456a5/src/field/locationField.ts#L15)
+[field/locationField.ts:15](https://github.com/siposdani87/sui-js/blob/9aff0f0/src/field/locationField.ts#L15)
 
 ___
 
@@ -81,13 +85,13 @@ ___
 
 #### Defined in
 
-[field/baseField.ts:17](https://github.com/siposdani87/sui-js/blob/ad456a5/src/field/baseField.ts#L17)
+[field/baseField.ts:17](https://github.com/siposdani87/sui-js/blob/9aff0f0/src/field/baseField.ts#L17)
 
 ___
 
 ### error
 
-• **error**: [`Knot`](Knot.md)<`HTMLElement`\>
+• **error**: [`Knot`](Knot.md)\<`HTMLElement`\>
 
 #### Inherited from
 
@@ -95,7 +99,7 @@ ___
 
 #### Defined in
 
-[field/baseField.ts:11](https://github.com/siposdani87/sui-js/blob/ad456a5/src/field/baseField.ts#L11)
+[field/baseField.ts:11](https://github.com/siposdani87/sui-js/blob/9aff0f0/src/field/baseField.ts#L11)
 
 ___
 
@@ -109,7 +113,7 @@ ___
 
 #### Defined in
 
-[field/baseField.ts:14](https://github.com/siposdani87/sui-js/blob/ad456a5/src/field/baseField.ts#L14)
+[field/baseField.ts:14](https://github.com/siposdani87/sui-js/blob/9aff0f0/src/field/baseField.ts#L14)
 
 ___
 
@@ -123,7 +127,7 @@ ___
 
 #### Defined in
 
-[field/baseField.ts:13](https://github.com/siposdani87/sui-js/blob/ad456a5/src/field/baseField.ts#L13)
+[field/baseField.ts:13](https://github.com/siposdani87/sui-js/blob/9aff0f0/src/field/baseField.ts#L13)
 
 ___
 
@@ -133,13 +137,13 @@ ___
 
 #### Defined in
 
-[field/locationField.ts:11](https://github.com/siposdani87/sui-js/blob/ad456a5/src/field/locationField.ts#L11)
+[field/locationField.ts:11](https://github.com/siposdani87/sui-js/blob/9aff0f0/src/field/locationField.ts#L11)
 
 ___
 
 ### infoContainerKnot
 
-• **infoContainerKnot**: [`Knot`](Knot.md)<`HTMLElement`\>
+• **infoContainerKnot**: [`Knot`](Knot.md)\<`HTMLElement`\>
 
 #### Inherited from
 
@@ -147,13 +151,13 @@ ___
 
 #### Defined in
 
-[field/baseField.ts:15](https://github.com/siposdani87/sui-js/blob/ad456a5/src/field/baseField.ts#L15)
+[field/baseField.ts:15](https://github.com/siposdani87/sui-js/blob/9aff0f0/src/field/baseField.ts#L15)
 
 ___
 
 ### input
 
-• **input**: [`Knot`](Knot.md)<`HTMLInputElement`\>
+• **input**: [`Knot`](Knot.md)\<`HTMLInputElement`\>
 
 #### Inherited from
 
@@ -161,13 +165,13 @@ ___
 
 #### Defined in
 
-[field/baseField.ts:9](https://github.com/siposdani87/sui-js/blob/ad456a5/src/field/baseField.ts#L9)
+[field/baseField.ts:9](https://github.com/siposdani87/sui-js/blob/9aff0f0/src/field/baseField.ts#L9)
 
 ___
 
 ### inputBlock
 
-• **inputBlock**: [`Knot`](Knot.md)<`HTMLElement`\>
+• **inputBlock**: [`Knot`](Knot.md)\<`HTMLElement`\>
 
 #### Inherited from
 
@@ -175,13 +179,13 @@ ___
 
 #### Defined in
 
-[field/baseField.ts:12](https://github.com/siposdani87/sui-js/blob/ad456a5/src/field/baseField.ts#L12)
+[field/baseField.ts:12](https://github.com/siposdani87/sui-js/blob/9aff0f0/src/field/baseField.ts#L12)
 
 ___
 
 ### label
 
-• **label**: [`Knot`](Knot.md)<`HTMLElement`\>
+• **label**: [`Knot`](Knot.md)\<`HTMLElement`\>
 
 #### Inherited from
 
@@ -189,27 +193,27 @@ ___
 
 #### Defined in
 
-[field/baseField.ts:10](https://github.com/siposdani87/sui-js/blob/ad456a5/src/field/baseField.ts#L10)
+[field/baseField.ts:10](https://github.com/siposdani87/sui-js/blob/9aff0f0/src/field/baseField.ts#L10)
 
 ___
 
 ### latitudeInput
 
-• **latitudeInput**: [`Knot`](Knot.md)<`HTMLInputElement`\>
+• **latitudeInput**: [`Knot`](Knot.md)\<`HTMLInputElement`\>
 
 #### Defined in
 
-[field/locationField.ts:16](https://github.com/siposdani87/sui-js/blob/ad456a5/src/field/locationField.ts#L16)
+[field/locationField.ts:16](https://github.com/siposdani87/sui-js/blob/9aff0f0/src/field/locationField.ts#L16)
 
 ___
 
 ### longitudeInput
 
-• **longitudeInput**: [`Knot`](Knot.md)<`HTMLInputElement`\>
+• **longitudeInput**: [`Knot`](Knot.md)\<`HTMLInputElement`\>
 
 #### Defined in
 
-[field/locationField.ts:17](https://github.com/siposdani87/sui-js/blob/ad456a5/src/field/locationField.ts#L17)
+[field/locationField.ts:17](https://github.com/siposdani87/sui-js/blob/9aff0f0/src/field/locationField.ts#L17)
 
 ___
 
@@ -219,23 +223,23 @@ ___
 
 #### Defined in
 
-[field/locationField.ts:13](https://github.com/siposdani87/sui-js/blob/ad456a5/src/field/locationField.ts#L13)
+[field/locationField.ts:13](https://github.com/siposdani87/sui-js/blob/9aff0f0/src/field/locationField.ts#L13)
 
 ___
 
 ### mapLockKnot
 
-• **mapLockKnot**: [`Knot`](Knot.md)<`HTMLElement`\>
+• **mapLockKnot**: [`Knot`](Knot.md)\<`HTMLElement`\>
 
 #### Defined in
 
-[field/locationField.ts:14](https://github.com/siposdani87/sui-js/blob/ad456a5/src/field/locationField.ts#L14)
+[field/locationField.ts:14](https://github.com/siposdani87/sui-js/blob/9aff0f0/src/field/locationField.ts#L14)
 
 ## Methods
 
 ### \_getAttributeName
 
-▸ `Protected` **_getAttributeName**(`inputName`): `string`
+▸ **_getAttributeName**(`inputName`): `string`
 
 #### Parameters
 
@@ -253,13 +257,13 @@ ___
 
 #### Defined in
 
-[field/baseField.ts:77](https://github.com/siposdani87/sui-js/blob/ad456a5/src/field/baseField.ts#L77)
+[field/baseField.ts:77](https://github.com/siposdani87/sui-js/blob/9aff0f0/src/field/baseField.ts#L77)
 
 ___
 
 ### \_getLabelRequiredText
 
-▸ `Protected` **_getLabelRequiredText**(`labelText`): `string`
+▸ **_getLabelRequiredText**(`labelText`): `string`
 
 #### Parameters
 
@@ -277,13 +281,13 @@ ___
 
 #### Defined in
 
-[field/baseField.ts:282](https://github.com/siposdani87/sui-js/blob/ad456a5/src/field/baseField.ts#L282)
+[field/baseField.ts:282](https://github.com/siposdani87/sui-js/blob/9aff0f0/src/field/baseField.ts#L282)
 
 ___
 
 ### \_init
 
-▸ `Private` **_init**(): `void`
+▸ **_init**(): `void`
 
 #### Returns
 
@@ -291,13 +295,13 @@ ___
 
 #### Defined in
 
-[field/locationField.ts:29](https://github.com/siposdani87/sui-js/blob/ad456a5/src/field/locationField.ts#L29)
+[field/locationField.ts:29](https://github.com/siposdani87/sui-js/blob/9aff0f0/src/field/locationField.ts#L29)
 
 ___
 
 ### \_initAdvancedButton
 
-▸ `Private` **_initAdvancedButton**(): `void`
+▸ **_initAdvancedButton**(): `void`
 
 #### Returns
 
@@ -305,13 +309,13 @@ ___
 
 #### Defined in
 
-[field/locationField.ts:75](https://github.com/siposdani87/sui-js/blob/ad456a5/src/field/locationField.ts#L75)
+[field/locationField.ts:75](https://github.com/siposdani87/sui-js/blob/9aff0f0/src/field/locationField.ts#L75)
 
 ___
 
 ### \_initButtons
 
-▸ `Private` **_initButtons**(): `void`
+▸ **_initButtons**(): `void`
 
 #### Returns
 
@@ -319,13 +323,13 @@ ___
 
 #### Defined in
 
-[field/locationField.ts:56](https://github.com/siposdani87/sui-js/blob/ad456a5/src/field/locationField.ts#L56)
+[field/locationField.ts:56](https://github.com/siposdani87/sui-js/blob/9aff0f0/src/field/locationField.ts#L56)
 
 ___
 
 ### \_initSearchButton
 
-▸ `Private` **_initSearchButton**(): `void`
+▸ **_initSearchButton**(): `void`
 
 #### Returns
 
@@ -333,13 +337,13 @@ ___
 
 #### Defined in
 
-[field/locationField.ts:61](https://github.com/siposdani87/sui-js/blob/ad456a5/src/field/locationField.ts#L61)
+[field/locationField.ts:61](https://github.com/siposdani87/sui-js/blob/9aff0f0/src/field/locationField.ts#L61)
 
 ___
 
 ### \_renderAdvancedInput
 
-▸ `Private` **_renderAdvancedInput**(`id`, `labelText`, `callback`): [`Knot`](Knot.md)<`HTMLInputElement`\>
+▸ **_renderAdvancedInput**(`id`, `labelText`, `callback`): [`Knot`](Knot.md)\<`HTMLInputElement`\>
 
 #### Parameters
 
@@ -347,21 +351,21 @@ ___
 | :------ | :------ |
 | `id` | `string` |
 | `labelText` | `string` |
-| `callback` | (`arg0`: [`Knot`](Knot.md)<`HTMLInputElement`\>) => `void` |
+| `callback` | (`arg0`: [`Knot`](Knot.md)\<`HTMLInputElement`\>) => `void` |
 
 #### Returns
 
-[`Knot`](Knot.md)<`HTMLInputElement`\>
+[`Knot`](Knot.md)\<`HTMLInputElement`\>
 
 #### Defined in
 
-[field/locationField.ts:164](https://github.com/siposdani87/sui-js/blob/ad456a5/src/field/locationField.ts#L164)
+[field/locationField.ts:164](https://github.com/siposdani87/sui-js/blob/9aff0f0/src/field/locationField.ts#L164)
 
 ___
 
 ### \_renderAdvancedInputs
 
-▸ `Private` **_renderAdvancedInputs**(): `void`
+▸ **_renderAdvancedInputs**(): `void`
 
 #### Returns
 
@@ -369,13 +373,13 @@ ___
 
 #### Defined in
 
-[field/locationField.ts:137](https://github.com/siposdani87/sui-js/blob/ad456a5/src/field/locationField.ts#L137)
+[field/locationField.ts:137](https://github.com/siposdani87/sui-js/blob/9aff0f0/src/field/locationField.ts#L137)
 
 ___
 
 ### \_renderMap
 
-▸ `Private` **_renderMap**(): `void`
+▸ **_renderMap**(): `void`
 
 #### Returns
 
@@ -383,19 +387,19 @@ ___
 
 #### Defined in
 
-[field/locationField.ts:202](https://github.com/siposdani87/sui-js/blob/ad456a5/src/field/locationField.ts#L202)
+[field/locationField.ts:202](https://github.com/siposdani87/sui-js/blob/9aff0f0/src/field/locationField.ts#L202)
 
 ___
 
 ### \_setAdditionalLabel
 
-▸ `Protected` **_setAdditionalLabel**(`label`): `void`
+▸ **_setAdditionalLabel**(`label`): `void`
 
 #### Parameters
 
 | Name | Type |
 | :------ | :------ |
-| `label` | [`Knot`](Knot.md)<`HTMLElement`\> |
+| `label` | [`Knot`](Knot.md)\<`HTMLElement`\> |
 
 #### Returns
 
@@ -407,13 +411,13 @@ ___
 
 #### Defined in
 
-[field/baseField.ts:274](https://github.com/siposdani87/sui-js/blob/ad456a5/src/field/baseField.ts#L274)
+[field/baseField.ts:274](https://github.com/siposdani87/sui-js/blob/9aff0f0/src/field/baseField.ts#L274)
 
 ___
 
 ### \_setDataValue
 
-▸ `Private` **_setDataValue**(`value`): `void`
+▸ **_setDataValue**(`value`): `void`
 
 #### Parameters
 
@@ -427,13 +431,13 @@ ___
 
 #### Defined in
 
-[field/locationField.ts:264](https://github.com/siposdani87/sui-js/blob/ad456a5/src/field/locationField.ts#L264)
+[field/locationField.ts:264](https://github.com/siposdani87/sui-js/blob/9aff0f0/src/field/locationField.ts#L264)
 
 ___
 
 ### \_setDefaultValue
 
-▸ `Private` **_setDefaultValue**(): `void`
+▸ **_setDefaultValue**(): `void`
 
 #### Returns
 
@@ -441,13 +445,13 @@ ___
 
 #### Defined in
 
-[field/locationField.ts:242](https://github.com/siposdani87/sui-js/blob/ad456a5/src/field/locationField.ts#L242)
+[field/locationField.ts:242](https://github.com/siposdani87/sui-js/blob/9aff0f0/src/field/locationField.ts#L242)
 
 ___
 
 ### \_toggleAdvancedInputs
 
-▸ `Private` **_toggleAdvancedInputs**(): `void`
+▸ **_toggleAdvancedInputs**(): `void`
 
 #### Returns
 
@@ -455,7 +459,7 @@ ___
 
 #### Defined in
 
-[field/locationField.ts:132](https://github.com/siposdani87/sui-js/blob/ad456a5/src/field/locationField.ts#L132)
+[field/locationField.ts:132](https://github.com/siposdani87/sui-js/blob/9aff0f0/src/field/locationField.ts#L132)
 
 ___
 
@@ -480,7 +484,7 @@ ___
 
 #### Defined in
 
-[field/baseField.ts:100](https://github.com/siposdani87/sui-js/blob/ad456a5/src/field/baseField.ts#L100)
+[field/baseField.ts:100](https://github.com/siposdani87/sui-js/blob/9aff0f0/src/field/baseField.ts#L100)
 
 ___
 
@@ -505,7 +509,7 @@ ___
 
 #### Defined in
 
-[field/baseField.ts:42](https://github.com/siposdani87/sui-js/blob/ad456a5/src/field/baseField.ts#L42)
+[field/baseField.ts:42](https://github.com/siposdani87/sui-js/blob/9aff0f0/src/field/baseField.ts#L42)
 
 ___
 
@@ -517,7 +521,7 @@ ___
 
 | Name | Type |
 | :------ | :------ |
-| `knot` | [`Knot`](Knot.md)<`HTMLElement`\> |
+| `knot` | [`Knot`](Knot.md)\<`HTMLElement`\> |
 
 #### Returns
 
@@ -529,7 +533,7 @@ ___
 
 #### Defined in
 
-[field/baseField.ts:46](https://github.com/siposdani87/sui-js/blob/ad456a5/src/field/baseField.ts#L46)
+[field/baseField.ts:46](https://github.com/siposdani87/sui-js/blob/9aff0f0/src/field/baseField.ts#L46)
 
 ___
 
@@ -549,7 +553,7 @@ ___
 
 #### Defined in
 
-[field/locationField.ts:312](https://github.com/siposdani87/sui-js/blob/ad456a5/src/field/locationField.ts#L312)
+[field/locationField.ts:312](https://github.com/siposdani87/sui-js/blob/9aff0f0/src/field/locationField.ts#L312)
 
 ___
 
@@ -567,7 +571,7 @@ ___
 
 #### Defined in
 
-[field/baseField.ts:143](https://github.com/siposdani87/sui-js/blob/ad456a5/src/field/baseField.ts#L143)
+[field/baseField.ts:143](https://github.com/siposdani87/sui-js/blob/9aff0f0/src/field/baseField.ts#L143)
 
 ___
 
@@ -585,7 +589,7 @@ ___
 
 #### Defined in
 
-[field/baseField.ts:147](https://github.com/siposdani87/sui-js/blob/ad456a5/src/field/baseField.ts#L147)
+[field/baseField.ts:147](https://github.com/siposdani87/sui-js/blob/9aff0f0/src/field/baseField.ts#L147)
 
 ___
 
@@ -603,7 +607,7 @@ ___
 
 #### Defined in
 
-[field/baseField.ts:151](https://github.com/siposdani87/sui-js/blob/ad456a5/src/field/baseField.ts#L151)
+[field/baseField.ts:151](https://github.com/siposdani87/sui-js/blob/9aff0f0/src/field/baseField.ts#L151)
 
 ___
 
@@ -627,7 +631,7 @@ ___
 
 #### Defined in
 
-[field/baseField.ts:155](https://github.com/siposdani87/sui-js/blob/ad456a5/src/field/baseField.ts#L155)
+[field/baseField.ts:155](https://github.com/siposdani87/sui-js/blob/9aff0f0/src/field/baseField.ts#L155)
 
 ___
 
@@ -645,7 +649,7 @@ ___
 
 #### Defined in
 
-[field/baseField.ts:67](https://github.com/siposdani87/sui-js/blob/ad456a5/src/field/baseField.ts#L67)
+[field/baseField.ts:67](https://github.com/siposdani87/sui-js/blob/9aff0f0/src/field/baseField.ts#L67)
 
 ___
 
@@ -663,7 +667,7 @@ ___
 
 #### Defined in
 
-[field/baseField.ts:62](https://github.com/siposdani87/sui-js/blob/ad456a5/src/field/baseField.ts#L62)
+[field/baseField.ts:62](https://github.com/siposdani87/sui-js/blob/9aff0f0/src/field/baseField.ts#L62)
 
 ___
 
@@ -681,7 +685,7 @@ ___
 
 #### Defined in
 
-[field/locationField.ts:307](https://github.com/siposdani87/sui-js/blob/ad456a5/src/field/locationField.ts#L307)
+[field/locationField.ts:307](https://github.com/siposdani87/sui-js/blob/9aff0f0/src/field/locationField.ts#L307)
 
 ___
 
@@ -699,7 +703,7 @@ ___
 
 #### Defined in
 
-[field/baseField.ts:210](https://github.com/siposdani87/sui-js/blob/ad456a5/src/field/baseField.ts#L210)
+[field/baseField.ts:210](https://github.com/siposdani87/sui-js/blob/9aff0f0/src/field/baseField.ts#L210)
 
 ___
 
@@ -717,7 +721,7 @@ ___
 
 #### Defined in
 
-[field/baseField.ts:178](https://github.com/siposdani87/sui-js/blob/ad456a5/src/field/baseField.ts#L178)
+[field/baseField.ts:178](https://github.com/siposdani87/sui-js/blob/9aff0f0/src/field/baseField.ts#L178)
 
 ___
 
@@ -735,7 +739,7 @@ ___
 
 #### Defined in
 
-[field/baseField.ts:174](https://github.com/siposdani87/sui-js/blob/ad456a5/src/field/baseField.ts#L174)
+[field/baseField.ts:174](https://github.com/siposdani87/sui-js/blob/9aff0f0/src/field/baseField.ts#L174)
 
 ___
 
@@ -753,7 +757,7 @@ ___
 
 #### Defined in
 
-[field/baseField.ts:159](https://github.com/siposdani87/sui-js/blob/ad456a5/src/field/baseField.ts#L159)
+[field/baseField.ts:159](https://github.com/siposdani87/sui-js/blob/9aff0f0/src/field/baseField.ts#L159)
 
 ___
 
@@ -771,7 +775,7 @@ ___
 
 #### Defined in
 
-[field/baseField.ts:129](https://github.com/siposdani87/sui-js/blob/ad456a5/src/field/baseField.ts#L129)
+[field/baseField.ts:129](https://github.com/siposdani87/sui-js/blob/9aff0f0/src/field/baseField.ts#L129)
 
 ___
 
@@ -789,7 +793,7 @@ ___
 
 #### Defined in
 
-[field/baseField.ts:123](https://github.com/siposdani87/sui-js/blob/ad456a5/src/field/baseField.ts#L123)
+[field/baseField.ts:123](https://github.com/siposdani87/sui-js/blob/9aff0f0/src/field/baseField.ts#L123)
 
 ___
 
@@ -807,7 +811,7 @@ ___
 
 #### Defined in
 
-[field/baseField.ts:192](https://github.com/siposdani87/sui-js/blob/ad456a5/src/field/baseField.ts#L192)
+[field/baseField.ts:192](https://github.com/siposdani87/sui-js/blob/9aff0f0/src/field/baseField.ts#L192)
 
 ___
 
@@ -831,7 +835,7 @@ ___
 
 #### Defined in
 
-[field/baseField.ts:58](https://github.com/siposdani87/sui-js/blob/ad456a5/src/field/baseField.ts#L58)
+[field/baseField.ts:58](https://github.com/siposdani87/sui-js/blob/9aff0f0/src/field/baseField.ts#L58)
 
 ___
 
@@ -849,7 +853,7 @@ ___
 
 #### Defined in
 
-[field/locationField.ts:123](https://github.com/siposdani87/sui-js/blob/ad456a5/src/field/locationField.ts#L123)
+[field/locationField.ts:123](https://github.com/siposdani87/sui-js/blob/9aff0f0/src/field/locationField.ts#L123)
 
 ___
 
@@ -867,7 +871,7 @@ ___
 
 #### Defined in
 
-[field/locationField.ts:105](https://github.com/siposdani87/sui-js/blob/ad456a5/src/field/locationField.ts#L105)
+[field/locationField.ts:105](https://github.com/siposdani87/sui-js/blob/9aff0f0/src/field/locationField.ts#L105)
 
 ___
 
@@ -887,7 +891,7 @@ ___
 
 #### Defined in
 
-[field/locationField.ts:88](https://github.com/siposdani87/sui-js/blob/ad456a5/src/field/locationField.ts#L88)
+[field/locationField.ts:88](https://github.com/siposdani87/sui-js/blob/9aff0f0/src/field/locationField.ts#L88)
 
 ___
 
@@ -909,7 +913,7 @@ ___
 
 #### Defined in
 
-[field/locationField.ts:234](https://github.com/siposdani87/sui-js/blob/ad456a5/src/field/locationField.ts#L234)
+[field/locationField.ts:234](https://github.com/siposdani87/sui-js/blob/9aff0f0/src/field/locationField.ts#L234)
 
 ___
 
@@ -933,7 +937,7 @@ ___
 
 #### Defined in
 
-[field/baseField.ts:182](https://github.com/siposdani87/sui-js/blob/ad456a5/src/field/baseField.ts#L182)
+[field/baseField.ts:182](https://github.com/siposdani87/sui-js/blob/9aff0f0/src/field/baseField.ts#L182)
 
 ___
 
@@ -958,7 +962,7 @@ ___
 
 #### Defined in
 
-[field/baseField.ts:87](https://github.com/siposdani87/sui-js/blob/ad456a5/src/field/baseField.ts#L87)
+[field/baseField.ts:87](https://github.com/siposdani87/sui-js/blob/9aff0f0/src/field/baseField.ts#L87)
 
 ___
 
@@ -982,7 +986,7 @@ ___
 
 #### Defined in
 
-[field/baseField.ts:216](https://github.com/siposdani87/sui-js/blob/ad456a5/src/field/baseField.ts#L216)
+[field/baseField.ts:216](https://github.com/siposdani87/sui-js/blob/9aff0f0/src/field/baseField.ts#L216)
 
 ___
 
@@ -1002,7 +1006,7 @@ ___
 
 #### Defined in
 
-[field/locationField.ts:230](https://github.com/siposdani87/sui-js/blob/ad456a5/src/field/locationField.ts#L230)
+[field/locationField.ts:230](https://github.com/siposdani87/sui-js/blob/9aff0f0/src/field/locationField.ts#L230)
 
 ___
 
@@ -1026,7 +1030,7 @@ ___
 
 #### Defined in
 
-[field/baseField.ts:163](https://github.com/siposdani87/sui-js/blob/ad456a5/src/field/baseField.ts#L163)
+[field/baseField.ts:163](https://github.com/siposdani87/sui-js/blob/9aff0f0/src/field/baseField.ts#L163)
 
 ___
 
@@ -1050,7 +1054,7 @@ ___
 
 #### Defined in
 
-[field/locationField.ts:271](https://github.com/siposdani87/sui-js/blob/ad456a5/src/field/locationField.ts#L271)
+[field/locationField.ts:271](https://github.com/siposdani87/sui-js/blob/9aff0f0/src/field/locationField.ts#L271)
 
 ___
 
@@ -1074,7 +1078,7 @@ ___
 
 #### Defined in
 
-[field/baseField.ts:196](https://github.com/siposdani87/sui-js/blob/ad456a5/src/field/baseField.ts#L196)
+[field/baseField.ts:196](https://github.com/siposdani87/sui-js/blob/9aff0f0/src/field/baseField.ts#L196)
 
 ___
 
@@ -1092,7 +1096,7 @@ ___
 
 #### Defined in
 
-[field/baseField.ts:204](https://github.com/siposdani87/sui-js/blob/ad456a5/src/field/baseField.ts#L204)
+[field/baseField.ts:204](https://github.com/siposdani87/sui-js/blob/9aff0f0/src/field/baseField.ts#L204)
 
 ___
 
@@ -1113,4 +1117,4 @@ ___
 
 #### Defined in
 
-[field/locationField.ts:257](https://github.com/siposdani87/sui-js/blob/ad456a5/src/field/locationField.ts#L257)
+[field/locationField.ts:257](https://github.com/siposdani87/sui-js/blob/9aff0f0/src/field/locationField.ts#L257)

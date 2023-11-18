@@ -10,7 +10,7 @@ custom_edit_url: null
 
 ### constructor
 
-• **new Depot**(`type`, `opt_options?`)
+• **new Depot**(`type`, `opt_options?`): [`Depot`](Depot.md)
 
 #### Parameters
 
@@ -19,19 +19,23 @@ custom_edit_url: null
 | `type` | ``"LOCAL"`` \| ``"SESSION"`` |
 | `opt_options` | `Object` |
 
+#### Returns
+
+[`Depot`](Depot.md)
+
 #### Defined in
 
-[module/depot.ts:10](https://github.com/siposdani87/sui-js/blob/ad456a5/src/module/depot.ts#L10)
+[module/depot.ts:10](https://github.com/siposdani87/sui-js/blob/9aff0f0/src/module/depot.ts#L10)
 
 ## Properties
 
 ### options
 
-• **options**: [`Objekt`](Objekt.md)<`Object`\>
+• **options**: [`Objekt`](Objekt.md)\<`Object`\>
 
 #### Defined in
 
-[module/depot.ts:7](https://github.com/siposdani87/sui-js/blob/ad456a5/src/module/depot.ts#L7)
+[module/depot.ts:7](https://github.com/siposdani87/sui-js/blob/9aff0f0/src/module/depot.ts#L7)
 
 ___
 
@@ -41,7 +45,7 @@ ___
 
 #### Defined in
 
-[module/depot.ts:8](https://github.com/siposdani87/sui-js/blob/ad456a5/src/module/depot.ts#L8)
+[module/depot.ts:8](https://github.com/siposdani87/sui-js/blob/9aff0f0/src/module/depot.ts#L8)
 
 ___
 
@@ -51,13 +55,13 @@ ___
 
 #### Defined in
 
-[module/depot.ts:6](https://github.com/siposdani87/sui-js/blob/ad456a5/src/module/depot.ts#L6)
+[module/depot.ts:6](https://github.com/siposdani87/sui-js/blob/9aff0f0/src/module/depot.ts#L6)
 
 ## Methods
 
 ### \_checkExpires
 
-▸ `Private` **_checkExpires**(): `void`
+▸ **_checkExpires**(): `void`
 
 #### Returns
 
@@ -65,13 +69,13 @@ ___
 
 #### Defined in
 
-[module/depot.ts:82](https://github.com/siposdani87/sui-js/blob/ad456a5/src/module/depot.ts#L82)
+[module/depot.ts:82](https://github.com/siposdani87/sui-js/blob/9aff0f0/src/module/depot.ts#L82)
 
 ___
 
 ### \_getExpires
 
-▸ `Private` **_getExpires**(`opt_expires?`): `string`
+▸ **_getExpires**(`opt_expires?`): `string`
 
 #### Parameters
 
@@ -85,13 +89,13 @@ ___
 
 #### Defined in
 
-[module/depot.ts:109](https://github.com/siposdani87/sui-js/blob/ad456a5/src/module/depot.ts#L109)
+[module/depot.ts:109](https://github.com/siposdani87/sui-js/blob/9aff0f0/src/module/depot.ts#L109)
 
 ___
 
 ### \_getExpiresDate
 
-▸ `Private` **_getExpiresDate**(`name`): `Date`
+▸ **_getExpiresDate**(`name`): `Date`
 
 #### Parameters
 
@@ -105,13 +109,13 @@ ___
 
 #### Defined in
 
-[module/depot.ts:99](https://github.com/siposdani87/sui-js/blob/ad456a5/src/module/depot.ts#L99)
+[module/depot.ts:99](https://github.com/siposdani87/sui-js/blob/9aff0f0/src/module/depot.ts#L99)
 
 ___
 
 ### \_getName
 
-▸ `Private` **_getName**(`propertyName`): `string`
+▸ **_getName**(`propertyName`): `string`
 
 #### Parameters
 
@@ -125,13 +129,13 @@ ___
 
 #### Defined in
 
-[module/depot.ts:43](https://github.com/siposdani87/sui-js/blob/ad456a5/src/module/depot.ts#L43)
+[module/depot.ts:43](https://github.com/siposdani87/sui-js/blob/9aff0f0/src/module/depot.ts#L43)
 
 ___
 
 ### \_getPropertyName
 
-▸ `Private` **_getPropertyName**(`name`): `string`
+▸ **_getPropertyName**(`name`): `string`
 
 #### Parameters
 
@@ -145,13 +149,13 @@ ___
 
 #### Defined in
 
-[module/depot.ts:39](https://github.com/siposdani87/sui-js/blob/ad456a5/src/module/depot.ts#L39)
+[module/depot.ts:39](https://github.com/siposdani87/sui-js/blob/9aff0f0/src/module/depot.ts#L39)
 
 ___
 
 ### \_init
 
-▸ `Private` **_init**(): `void`
+▸ **_init**(): `void`
 
 #### Returns
 
@@ -159,13 +163,13 @@ ___
 
 #### Defined in
 
-[module/depot.ts:30](https://github.com/siposdani87/sui-js/blob/ad456a5/src/module/depot.ts#L30)
+[module/depot.ts:30](https://github.com/siposdani87/sui-js/blob/9aff0f0/src/module/depot.ts#L30)
 
 ___
 
 ### \_isExpired
 
-▸ `Private` **_isExpired**(`name`): `boolean`
+▸ **_isExpired**(`name`): `boolean`
 
 #### Parameters
 
@@ -179,13 +183,13 @@ ___
 
 #### Defined in
 
-[module/depot.ts:93](https://github.com/siposdani87/sui-js/blob/ad456a5/src/module/depot.ts#L93)
+[module/depot.ts:93](https://github.com/siposdani87/sui-js/blob/9aff0f0/src/module/depot.ts#L93)
 
 ___
 
 ### \_setOptions
 
-▸ `Private` **_setOptions**(`opt_options?`): `void`
+▸ **_setOptions**(`opt_options?`): `void`
 
 #### Parameters
 
@@ -199,7 +203,7 @@ ___
 
 #### Defined in
 
-[module/depot.ts:20](https://github.com/siposdani87/sui-js/blob/ad456a5/src/module/depot.ts#L20)
+[module/depot.ts:20](https://github.com/siposdani87/sui-js/blob/9aff0f0/src/module/depot.ts#L20)
 
 ___
 
@@ -213,7 +217,7 @@ ___
 
 #### Defined in
 
-[module/depot.ts:78](https://github.com/siposdani87/sui-js/blob/ad456a5/src/module/depot.ts#L78)
+[module/depot.ts:78](https://github.com/siposdani87/sui-js/blob/9aff0f0/src/module/depot.ts#L78)
 
 ___
 
@@ -233,7 +237,7 @@ ___
 
 #### Defined in
 
-[module/depot.ts:60](https://github.com/siposdani87/sui-js/blob/ad456a5/src/module/depot.ts#L60)
+[module/depot.ts:60](https://github.com/siposdani87/sui-js/blob/9aff0f0/src/module/depot.ts#L60)
 
 ___
 
@@ -253,7 +257,7 @@ ___
 
 #### Defined in
 
-[module/depot.ts:73](https://github.com/siposdani87/sui-js/blob/ad456a5/src/module/depot.ts#L73)
+[module/depot.ts:73](https://github.com/siposdani87/sui-js/blob/9aff0f0/src/module/depot.ts#L73)
 
 ___
 
@@ -275,4 +279,4 @@ ___
 
 #### Defined in
 
-[module/depot.ts:49](https://github.com/siposdani87/sui-js/blob/ad456a5/src/module/depot.ts#L49)
+[module/depot.ts:49](https://github.com/siposdani87/sui-js/blob/9aff0f0/src/module/depot.ts#L49)

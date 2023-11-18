@@ -10,7 +10,7 @@ custom_edit_url: null
 
 ### constructor
 
-• **new Loader**(`opt_options?`)
+• **new Loader**(`opt_options?`): [`Loader`](Loader.md)
 
 #### Parameters
 
@@ -18,45 +18,49 @@ custom_edit_url: null
 | :------ | :------ |
 | `opt_options` | `Object` |
 
+#### Returns
+
+[`Loader`](Loader.md)
+
 #### Defined in
 
-[module/loader.ts:11](https://github.com/siposdani87/sui-js/blob/ad456a5/src/module/loader.ts#L11)
+[module/loader.ts:11](https://github.com/siposdani87/sui-js/blob/9aff0f0/src/module/loader.ts#L11)
 
 ## Properties
 
 ### loader
 
-• **loader**: [`Knot`](Knot.md)<`HTMLElement`\>
+• **loader**: [`Knot`](Knot.md)\<`HTMLElement`\>
 
 #### Defined in
 
-[module/loader.ts:8](https://github.com/siposdani87/sui-js/blob/ad456a5/src/module/loader.ts#L8)
+[module/loader.ts:8](https://github.com/siposdani87/sui-js/blob/9aff0f0/src/module/loader.ts#L8)
 
 ___
 
 ### options
 
-• **options**: [`Objekt`](Objekt.md)<`Object`\>
+• **options**: [`Objekt`](Objekt.md)\<`Object`\>
 
 #### Defined in
 
-[module/loader.ts:7](https://github.com/siposdani87/sui-js/blob/ad456a5/src/module/loader.ts#L7)
+[module/loader.ts:7](https://github.com/siposdani87/sui-js/blob/9aff0f0/src/module/loader.ts#L7)
 
 ___
 
 ### spinner
 
-• **spinner**: [`Knot`](Knot.md)<`HTMLElement`\>
+• **spinner**: [`Knot`](Knot.md)\<`HTMLElement`\>
 
 #### Defined in
 
-[module/loader.ts:9](https://github.com/siposdani87/sui-js/blob/ad456a5/src/module/loader.ts#L9)
+[module/loader.ts:9](https://github.com/siposdani87/sui-js/blob/9aff0f0/src/module/loader.ts#L9)
 
 ## Methods
 
 ### \_init
 
-▸ `Private` **_init**(): `void`
+▸ **_init**(): `void`
 
 #### Returns
 
@@ -64,13 +68,13 @@ ___
 
 #### Defined in
 
-[module/loader.ts:23](https://github.com/siposdani87/sui-js/blob/ad456a5/src/module/loader.ts#L23)
+[module/loader.ts:23](https://github.com/siposdani87/sui-js/blob/9aff0f0/src/module/loader.ts#L23)
 
 ___
 
 ### \_setOptions
 
-▸ `Private` **_setOptions**(`opt_options?`): `void`
+▸ **_setOptions**(`opt_options?`): `void`
 
 #### Parameters
 
@@ -84,7 +88,7 @@ ___
 
 #### Defined in
 
-[module/loader.ts:16](https://github.com/siposdani87/sui-js/blob/ad456a5/src/module/loader.ts#L16)
+[module/loader.ts:16](https://github.com/siposdani87/sui-js/blob/9aff0f0/src/module/loader.ts#L16)
 
 ___
 
@@ -104,7 +108,7 @@ ___
 
 #### Defined in
 
-[module/loader.ts:42](https://github.com/siposdani87/sui-js/blob/ad456a5/src/module/loader.ts#L42)
+[module/loader.ts:42](https://github.com/siposdani87/sui-js/blob/9aff0f0/src/module/loader.ts#L42)
 
 ___
 
@@ -118,4 +122,4 @@ ___
 
 #### Defined in
 
-[module/loader.ts:36](https://github.com/siposdani87/sui-js/blob/ad456a5/src/module/loader.ts#L36)
+[module/loader.ts:36](https://github.com/siposdani87/sui-js/blob/9aff0f0/src/module/loader.ts#L36)
