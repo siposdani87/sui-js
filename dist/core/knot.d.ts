@@ -1,9 +1,10 @@
 import { Listener } from '../utils';
 export declare class Knot<T extends HTMLElement = HTMLElement> {
     node: T;
-    parentKnot: Knot;
+    parentKnot: Knot | undefined;
     listenerStoreKey: string;
     constructor(node: (T | HTMLElement | string) | null, opt_parentKnot?: Knot | undefined);
+    setParentKnot(parentKnot: Knot | undefined): void;
     set(attribute: string, value: boolean | number | string): void;
     merge(properties: Object): void;
     get(attribute: string): any;
