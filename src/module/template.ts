@@ -60,21 +60,28 @@ export class Template {
         return deferred.promise();
     }
 
-    _spaNavigate(data: Knot, isError: boolean) {
-        // Fallback for browsers that don't support this API:
-        /* if (!document.startViewTransition) {
-            this._updateDOM(data, isError);
-          return;
-        } */
+    _spaNavigate(data: Knot, isError: boolean): Knot {
+        const knot = new Query('.page-content', data).getKnot();
+        this._updateDOM(knot, isError);
 
-        // With a transition:
-        // document.startViewTransition(() => this._updateDOM(data, isError));
+        return knot;
 
-        return this._updateDOM(data, isError);
+        // FIXME: ViewTransition not working properly
+        /*
+        knot.setParentKnot(this.viewKnot);
+        if (!document.startViewTransition) {
+            this._updateDOM(knot, isError);
+
+            return knot;
+        }
+
+        document.startViewTransition(() => this._updateDOM(knot, isError));
+
+        return knot; 
+        */
     }
 
-    private _updateDOM(data: Knot, isError: boolean): Knot {
-        const knot = new Query('.page-content', data).getKnot();
+    private _updateDOM(knot: Knot, isError: boolean): void {
         if (isError) {
             const messageKnot = new Query('.message', knot).getKnot();
             const message = {
@@ -85,7 +92,6 @@ export class Template {
         } else {
             this.viewKnot.insert(knot);
         }
-        return knot;
     }
 
     eventError(message: { type: string; content: string }): void {
