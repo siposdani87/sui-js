@@ -45,10 +45,12 @@ export class Template {
     }
     _spaNavigate(data, isError) {
         const knot = new Query('.page-content', data).getKnot();
-        knot.setParentKnot(this.viewKnot);
         this._updateDOM(knot, isError);
         return knot;
-        /* if (!document.startViewTransition) {
+        // FIXME: ViewTransition not working properly
+        /*
+        knot.setParentKnot(this.viewKnot);
+        if (!document.startViewTransition) {
             this._updateDOM(knot, isError);
 
             return knot;
@@ -56,7 +58,8 @@ export class Template {
 
         document.startViewTransition(() => this._updateDOM(knot, isError));
 
-        return knot; */
+        return knot;
+        */
     }
     _updateDOM(knot, isError) {
         if (isError) {

@@ -53,3 +53,9 @@ If you encounter any problems feel free to open an [issue](https://github.com/si
 ## Sponsors
 
 This project is generously supported by [TrophyMap](https://trophymap.org), [I18Nature](https://i18nature.com), and several other amazing organizations.
+
+## Special thanks  
+  
+Jetbrains is now supporting this library with an open-source license, which will allow a better code! 🎉  
+  
+![jetbrains-logo](https://user-images.githubusercontent.com/5957244/150580991-863d6fba-1090-4924-b26c-be19c6310f24.svg) 
