@@ -1,6 +1,13 @@
-## 0.9.17 - TBD
+## 1.0.0 - TBD
 
 * 
+
+## 0.9.17 - 2024-03-22
+
+* Upgrade packages
+* Add Jetbrains support to homepage
+* Create setParent method on Node
+* Create prototype of viewTransition
 
 ## 0.9.16 - 2023-10-15
 
