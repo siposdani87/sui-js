@@ -1,6 +1,6 @@
-FROM --platform=$BUILDPLATFORM node:16 as builder
+FROM --platform=$BUILDPLATFORM node:20.10 as builder
 
-RUN npm install -g npm@9.4.0
+# RUN npm install -g npm@9.4.0
 
 # Install dependencies
 WORKDIR /app
