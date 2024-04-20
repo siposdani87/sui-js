@@ -56,11 +56,11 @@
     "@googlemaps/jest-mocks": "2.21.4",
     "@types/crypto-js": "4.2.2",
     "@types/dom-view-transitions": "1.0.4",
-    "@types/google.maps": "3.55.5",
+    "@types/google.maps": "3.55.7",
     "@types/jest": "29.5.12",
     "@types/material-design-lite": "1.1.22",
-    "@typescript-eslint/eslint-plugin": "7.3.1",
-    "@typescript-eslint/parser": "7.3.1",
+    "@typescript-eslint/eslint-plugin": "7.7.0",
+    "@typescript-eslint/parser": "7.7.0",
     "browser-sync": "2.29.3",
     "connect-modrewrite": "0.10.2",
     "esbuild": "0.20.2",
@@ -81,11 +81,11 @@
     "postcss-scss": "4.0.9",
     "prettier": "3.2.5",
     "readdirsync2": "1.0.2",
-    "sass": "1.72.0",
-    "stylelint": "16.2.1",
+    "sass": "1.75.0",
+    "stylelint": "16.3.1",
     "stylelint-config-standard": "36.0.0",
     "stylelint-scss": "6.2.1",
     "ts-jest": "29.1.2",
-    "typescript": "5.4.3"
+    "typescript": "5.4.5"
   }
 }

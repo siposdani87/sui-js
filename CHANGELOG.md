@@ -1,6 +1,11 @@
-## 1.0.0 - TBD
+# Changelog
 
-* 
+All notable changes to this project will be documented in this file.
+
+## 1.0.0 - 2024-04-20
+
+* Fix parse method of DateIO
+* Upgrade packages
 
 ## 0.9.17 - 2024-03-22
 
