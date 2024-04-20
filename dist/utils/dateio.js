@@ -21,7 +21,7 @@ export const DateIO = {
     parse: (dateString = new Date().toISOString(), formatString) => {
         if (formatString) {
             try {
-                return parse(dateString, convertToISOFormat(formatString), new Date());
+                return parse(dateString.toString(), convertToISOFormat(formatString), new Date());
             }
             catch (error) {
                 console.error('parse', {
@@ -32,7 +32,7 @@ export const DateIO = {
             }
         }
         try {
-            return parseISO(dateString);
+            return parseISO(dateString.toString());
         }
         catch (error) {
             console.error('parseISO', {

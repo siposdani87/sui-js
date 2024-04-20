@@ -1,6 +1,6 @@
-import { convertToISOFormat, setDateIOLocale } from './dateio';
+import { DateIO, convertToISOFormat, setDateIOLocale } from './dateio';
 
-describe('math', () => {
+describe('dateio', () => {
     it('should be readable currency', () => {
         const newLocale = 'hu-HU';
 
@@ -11,5 +11,17 @@ describe('math', () => {
         const isoFormat = convertToISOFormat('YYYY-MM-DD');
 
         expect(isoFormat).toEqual('yyyy-MM-dd');
+    });
+
+    it('should parse number format of year', () => {
+        const date = DateIO.parse(2024, 'YYYY');
+
+        expect(date.getFullYear()).toEqual(2024);
+    });
+
+    it('should parse string format of year', () => {
+        const date = DateIO.parse('2024', 'YYYY');
+
+        expect(date.getFullYear()).toEqual(2024);
     });
 });

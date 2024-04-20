@@ -58,13 +58,13 @@ export const convertToISOFormat = (formatString: string): string => {
 
 export const DateIO = {
     parse: (
-        dateString: string = new Date().toISOString(),
+        dateString: number | string = new Date().toISOString(),
         formatString?: string,
     ): Date => {
         if (formatString) {
             try {
                 return parse(
-                    dateString,
+                    dateString.toString(),
                     convertToISOFormat(formatString),
                     new Date(),
                 );
@@ -77,7 +77,7 @@ export const DateIO = {
             }
         }
         try {
-            return parseISO(dateString);
+            return parseISO(dateString.toString());
         } catch (error) {
             console.error('parseISO', {
                 error,

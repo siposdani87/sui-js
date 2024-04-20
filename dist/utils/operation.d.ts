@@ -46,7 +46,7 @@ export declare const pluckKeys: (obj: Object, condition: (value: any, key: strin
 export declare const scrollTo: (x: number, y: number, opt_duration?: number | undefined, opt_step?: number | undefined) => void;
 export declare const scrollToElement: (selector: string, opt_duration?: number | undefined, opt_step?: number | undefined) => void;
 export declare const scrollIntoView: (selector: string, opt_behavior?: ScrollBehavior | undefined) => void;
-export declare const debounce: (func: (ev: Event) => void, opt_wait?: number | undefined, opt_immediate?: boolean | undefined) => (this: Window, ev: Event) => void;
+export declare const debounce: (func: (ev: Event) => void, opt_wait?: number | undefined, opt_immediate?: boolean | undefined) => ((this: Window, ev: Event) => void);
 export declare const urlWithQueryString: (url: string, opt_params?: Object | undefined) => string;
 export declare const getQueryString: (opt_params?: Object) => string;
 export declare const getExtensionName: (url: string) => string;
