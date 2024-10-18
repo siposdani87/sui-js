@@ -1,6 +1,9 @@
+@use '../core/colors';
+@use '../mixins/breakpoints';
+
 .dark-theme {
     #footer {
-        background-color: $black;
+        background-color: colors.$black;
 
         &.static {
             background-color: transparent;
@@ -8,38 +11,38 @@
             &.dark {
                 .content,
                 .locales {
-                    color: $white;
+                    color: colors.$white;
 
                     a {
-                        color: $primary-bright;
+                        color: colors.$primary-bright;
 
                         &:hover,
                         &.active {
-                            color: $primary;
+                            color: colors.$primary;
                         }
                     }
                 }
 
                 #open-bottom-menu,
                 #close-bottom-menu {
-                    color: $primary-bright;
+                    color: colors.$primary-bright;
                 }
 
                 #bottom-menu {
                     a {
-                        color: $primary-bright;
+                        color: colors.$primary-bright;
 
                         &:hover,
                         &.active {
-                            color: $primary;
+                            color: colors.$primary;
                         }
                     }
                 }
             }
 
             &.open.dark {
-                @include media-breakpoint-down(sm) {
-                    background-color: $deep-grey;
+                @include breakpoints.media-breakpoint-down(sm) {
+                    background-color: colors.$deep-grey;
                 }
             }
         }

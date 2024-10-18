@@ -1,9 +1,12 @@
+@use '../core/colors';
+@use '../mixins/breakpoints';
+
 #top-menu {
     display: flex;
     flex-flow: row wrap;
-    background-color: $primary-dark;
+    background-color: colors.$primary-dark;
 
-    @include media-breakpoint-down(md) {
+    @include breakpoints.media-breakpoint-down(md) {
         flex-flow: column wrap;
         flex: 1 100%;
         display: none;
@@ -16,20 +19,20 @@
         text-decoration: none;
         height: 50px;
         padding: 0 1em;
-        color: $primary-bright;
+        color: colors.$primary-bright;
 
-        @include media-breakpoint-down(md) {
+        @include breakpoints.media-breakpoint-down(md) {
             justify-content: space-between;
-            border-top: 1px solid $primary;
+            border-top: 1px solid colors.$primary;
         }
 
         &:hover {
-            color: $primary-text;
+            color: colors.$primary-text;
         }
 
         &.active {
-            color: $primary-text;
-            background-color: $primary-bright;
+            color: colors.$primary-text;
+            background-color: colors.$primary-bright;
         }
 
         .image {

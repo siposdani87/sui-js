@@ -1,9 +1,11 @@
+@use '../core/variables';
+
 .dark-theme {
     .file-field {
         input[type='file'] {
             &.mdl-textfield__input {
                 &::-webkit-file-upload-button {
-                    color: $content-default-dark;
+                    color: variables.$content-default-dark;
                 }
             }
         }
@@ -14,7 +16,7 @@
             }
 
             .browse-button {
-                color: $primary-disabled-dark;
+                color: variables.$primary-disabled-dark;
             }
         }
     }

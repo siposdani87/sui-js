@@ -1,5 +1,7 @@
+@use '../core/variables';
+
 #loader {
-    z-index: $zindex-loader;
+    z-index: variables.$zindex-loader;
     position: fixed;
     width: 100%;
     display: flex;

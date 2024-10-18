@@ -1,6 +1,9 @@
+@use '../core/colors';
+@use '../core/variables';
+
 .mdl-button {
-    font-family: $font-family-body;
-    color: $black;
+    font-family: variables.$font-family-body;
+    color: colors.$black;
 
     &:not(.mdl-button--fab) {
         border-radius: 20px;

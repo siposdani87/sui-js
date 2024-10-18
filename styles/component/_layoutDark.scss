@@ -1,26 +1,28 @@
+@use '../core/colors';
+
 .dark-theme {
     .page-content {
         &.fullscreen {
             display: flex;
-            background-color: $black-bright;
-            color: $white;
+            background-color: colors.$black-bright;
+            color: colors.$white;
 
             &.light {
-                background-color: $black;
+                background-color: colors.$black;
                 color: inherit;
             }
         }
     }
 
     .page-header {
-        background-color: $black;
-        color: $white;
+        background-color: colors.$black;
+        color: colors.$white;
 
         h1 {
             a,
             span {
                 &::after {
-                    color: $deep-grey-bright;
+                    color: colors.$deep-grey-bright;
                 }
             }
         }

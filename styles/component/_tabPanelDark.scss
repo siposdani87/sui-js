@@ -1,25 +1,27 @@
+@use '../core/colors';
+
 .dark-theme {
     .tab-panel {
         .tabs {
             a {
-                background-color: $black;
-                color: $light-grey-bright;
+                background-color: colors.$black;
+                color: colors.$light-grey-bright;
 
                 &:hover {
-                    color: $primary-bright;
+                    color: colors.$primary-bright;
                 }
 
                 &.active {
-                    border-bottom-color: $accent-bright;
-                    color: $primary-bright;
+                    border-bottom-color: colors.$accent-bright;
+                    color: colors.$primary-bright;
                 }
 
                 &:not(.active) {
-                    border-bottom-color: $black;
+                    border-bottom-color: colors.$black;
                 }
 
                 &.disabled {
-                    color: $deep-grey;
+                    color: colors.$deep-grey;
                 }
             }
         }

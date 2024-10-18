@@ -1,9 +1,11 @@
+@use '../core/variables';
+
 .dark-theme {
     .mdl-textfield__label {
-        color: $label-default-dark;
+        color: variables.$label-default-dark;
 
         &::after {
-            background-color: $primary-default-dark;
+            background-color: variables.$primary-default-dark;
         }
     }
 
@@ -11,7 +13,7 @@
     .mdl-switch__label,
     .mdl-checkbox__label,
     .mdl-radio__label {
-        color: $label-default-dark;
+        color: variables.$label-default-dark;
     }
 
     .mdl-textfield {
@@ -20,20 +22,20 @@
         &.is-focused,
         &.has-placeholder {
             .mdl-textfield__label {
-                color: $label-default-dark;
+                color: variables.$label-default-dark;
             }
         }
 
         &.is-disabled {
             .mdl-textfield__label {
-                color: $label-disabled-dark !important;
+                color: variables.$label-disabled-dark !important;
             }
         }
 
         &.is-invalid {
             .mdl-textfield__label {
                 &::after {
-                    background-color: $error-default-dark;
+                    background-color: variables.$error-default-dark;
                 }
             }
         }
@@ -45,7 +47,7 @@
             .mdl-switch__label,
             .mdl-checkbox__label,
             .mdl-radio__label {
-                color: $label-disabled-dark !important;
+                color: variables.$label-disabled-dark !important;
             }
         }
     }

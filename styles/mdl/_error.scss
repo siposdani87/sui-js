@@ -1,6 +1,8 @@
+@use '../core/variables';
+
 .mdl-textfield__error {
     display: block;
-    color: $error-default-light;
+    color: variables.$error-default-light;
 
     &::first-letter {
         text-transform: capitalize;
@@ -9,7 +11,7 @@
 
 .is-disabled {
     .mdl-textfield__error {
-        color: $error-disabled-light;
+        color: variables.$error-disabled-light;
     }
 }
 

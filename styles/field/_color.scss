@@ -1,3 +1,5 @@
+@use '../core/variables';
+
 .color-field {
     .preview {
         margin-right: 10px;
@@ -6,7 +8,7 @@
         height: 24px;
         vertical-align: middle;
         border-radius: 50%;
-        border: 1px solid $input-default-light;
+        border: 1px solid variables.$input-default-light;
 
         &:focus {
             outline: none;
@@ -22,16 +24,16 @@
     }
 
     .field-label {
-        color: $label-default-light;
+        color: variables.$label-default-light;
     }
 
     &.is-disabled {
         .field-label {
-            color: $label-disabled-light;
+            color: variables.$label-disabled-light;
         }
 
         .preview {
-            border: 1px dotted $input-disabled-light;
+            border: 1px dotted variables.$input-disabled-light;
 
             .color {
                 opacity: 0.3;

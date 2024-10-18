@@ -1,45 +1,47 @@
+@use '../core/variables';
+
 .mdl-checkbox {
     height: auto;
 
     .mdl-checkbox__box-outline {
-        border-color: $checkbox-default-light;
+        border-color: variables.$checkbox-default-light;
     }
 
     input[required] ~ .mdl-checkbox__box-outline {
-        border-color: $error-default-light;
+        border-color: variables.$error-default-light;
     }
 
     &.is-checked {
         .mdl-checkbox__box-outline {
-            border-color: $primary-default-light;
+            border-color: variables.$primary-default-light;
         }
 
         .mdl-checkbox__tick-outline {
-            background-color: $primary-default-light;
+            background-color: variables.$primary-default-light;
         }
 
         input[required] ~ .mdl-checkbox__box-outline {
-            border-color: $primary-default-light;
+            border-color: variables.$primary-default-light;
         }
     }
 
     &.is-disabled {
         .mdl-checkbox__box-outline {
-            border-color: $checkbox-disabled-light;
+            border-color: variables.$checkbox-disabled-light;
         }
 
         input[required] ~ .mdl-checkbox__box-outline {
-            border-color: $error-disabled-light;
+            border-color: variables.$error-disabled-light;
             border-style: dotted;
         }
 
         &.is-checked {
             .mdl-checkbox__box-outline {
-                border-color: $primary-disabled-light;
+                border-color: variables.$primary-disabled-light;
             }
 
             .mdl-checkbox__tick-outline {
-                background-color: $primary-disabled-light;
+                background-color: variables.$primary-disabled-light;
             }
         }
     }
