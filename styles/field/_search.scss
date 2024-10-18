@@ -1,3 +1,5 @@
+@use '../core/variables';
+
 .search-field {
     &.mdl-textfield--expandable .mdl-button--icon {
         top: 20px;
@@ -20,11 +22,11 @@
         position: absolute;
         right: 5px;
         top: 4px;
-        color: $primary-default-light;
+        color: variables.$primary-default-light;
     }
 
     .search-button {
-        color: $primary-default-light;
+        color: variables.$primary-default-light;
     }
 
     &.is-focused,
@@ -37,7 +39,7 @@
     &.is-disabled {
         .clear-button,
         .search-button {
-            color: $primary-disabled-light;
+            color: variables.$primary-disabled-light;
         }
     }
 }

@@ -1,12 +1,14 @@
+@use '../core/variables';
+
 .mdl-icon-toggle {
     .mdl-icon-toggle__label {
-        color: $checkbox-default-light;
+        color: variables.$checkbox-default-light;
         border: 2px solid transparent;
         line-height: 1.2;
     }
 
     input[required] ~ .mdl-icon-toggle__label {
-        border-color: $error-default-light;
+        border-color: variables.$error-default-light;
     }
 
     &.is-checked {
@@ -15,23 +17,23 @@
         }
 
         .mdl-icon-toggle__label {
-            color: $primary-default-light;
+            color: variables.$primary-default-light;
         }
     }
 
     &.is-disabled {
         input[required] ~ .mdl-icon-toggle__label {
             border-style: dotted;
-            border-color: $error-disabled-light;
+            border-color: variables.$error-disabled-light;
         }
 
         .mdl-icon-toggle__label {
-            color: $checkbox-disabled-light;
+            color: variables.$checkbox-disabled-light;
         }
 
         &.is-checked {
             .mdl-icon-toggle__label {
-                color: $primary-disabled-light;
+                color: variables.$primary-disabled-light;
             }
         }
     }

@@ -1,9 +1,12 @@
+@use '../core/colors';
+@use '../core/variables';
+
 #confirm {
-    z-index: $zindex-confirm;
+    z-index: variables.$zindex-confirm;
     position: fixed;
     width: 100%;
     height: 100%;
-    background-color: rgba($black, 0.7);
+    background-color: rgba(colors.$black, 0.7);
     justify-content: center;
     overflow-y: auto;
 
@@ -17,9 +20,9 @@
 
     #confirm-window {
         position: absolute;
-        background-color: $white;
-        color: $black;
-        box-shadow: 8px 8px 100px 0 rgba($black, 0.75);
+        background-color: colors.$white;
+        color: colors.$black;
+        box-shadow: 8px 8px 100px 0 rgba(colors.$black, 0.75);
         min-width: 360px;
         max-width: 720px;
         border-radius: 3px;
@@ -50,7 +53,7 @@
             align-items: center;
 
             &::before {
-                font-family: $font-family-icons;
+                font-family: variables.$font-family-icons;
                 vertical-align: middle;
                 padding-right: 0.5em;
                 font-size: 2em;
@@ -58,51 +61,51 @@
         }
 
         &.error {
-            border-top: 3px solid $error;
+            border-top: 3px solid variables.$error;
 
             .modal-body {
                 &::before {
                     content: '\E99A';
-                    color: $error;
+                    color: variables.$error;
                 }
             }
         }
 
         &.warning {
-            border-top: 3px solid $warning;
+            border-top: 3px solid variables.$warning;
 
             .modal-body {
                 &::before {
                     content: '\E000';
-                    color: $warning;
+                    color: variables.$warning;
                 }
             }
         }
 
         &.info {
-            border-top: 3px solid $info;
+            border-top: 3px solid variables.$info;
 
             .modal-body {
                 &::before {
                     content: '\E88E';
-                    color: $info;
+                    color: variables.$info;
                 }
             }
         }
 
         &.success {
-            border-top: 3px solid $success;
+            border-top: 3px solid variables.$success;
 
             .modal-body {
                 &::before {
                     content: '\E876';
-                    color: $success;
+                    color: variables.$success;
                 }
             }
         }
 
         &.choice {
-            border-top: 3px solid $accent;
+            border-top: 3px solid colors.$accent;
         }
 
         .modal-footer {

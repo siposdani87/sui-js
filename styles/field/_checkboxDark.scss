@@ -1,12 +1,14 @@
+@use '../core/variables';
+
 .dark-theme {
     .checkbox-field {
         .field-label {
-            color: $label-default-dark;
+            color: variables.$label-default-dark;
         }
 
         &.is-disabled {
             .field-label {
-                color: $label-disabled-dark;
+                color: variables.$label-disabled-dark;
             }
         }
     }

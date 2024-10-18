@@ -1,23 +1,25 @@
+@use '../core/colors';
+
 .dark-theme {
     .time {
-        background-color: $black;
+        background-color: colors.$black;
 
         .center-point {
-            background-color: $accent;
+            background-color: colors.$accent;
         }
 
         .pointer {
-            background-color: $accent;
+            background-color: colors.$accent;
         }
 
         .circle {
             &.selected {
-                background-color: $accent;
-                color: $accent-text;
+                background-color: colors.$accent;
+                color: colors.$accent-text;
             }
 
             &:hover {
-                border-color: $accent;
+                border-color: colors.$accent;
             }
         }
     }

@@ -1,53 +1,56 @@
+@use '../core/colors';
+@use '../core/variables';
+
 .dark-theme {
     .select-field {
         .expander {
-            color: $primary-default-dark;
+            color: variables.$primary-default-dark;
         }
 
         .field-label {
-            color: $label-default-dark;
+            color: variables.$label-default-dark;
         }
 
         .select-input {
-            border-color: $input-default-dark;
+            border-color: variables.$input-default-dark;
         }
 
         .options-list {
             a {
-                color: $white;
+                color: colors.$white;
 
                 &:hover {
-                    background-color: $input-disabled-dark;
+                    background-color: variables.$input-disabled-dark;
                 }
 
                 &.selected {
-                    background-color: $input-default-dark;
+                    background-color: variables.$input-default-dark;
                 }
             }
         }
 
         &.is-invalid {
             .select-input {
-                border-color: $error-default-dark;
+                border-color: variables.$error-default-dark;
             }
         }
 
         &.is-disabled {
             .field-label {
-                color: $label-disabled-dark;
+                color: variables.$label-disabled-dark;
             }
 
             .expander {
-                color: $primary-disabled-dark;
+                color: variables.$primary-disabled-dark;
             }
 
             .select-input {
-                border-color: $input-disabled-dark;
+                border-color: variables.$input-disabled-dark;
             }
 
             &.is-invalid {
                 .select-input {
-                    border-color: $error-disabled-dark;
+                    border-color: variables.$error-disabled-dark;
                 }
             }
         }

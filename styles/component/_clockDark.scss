@@ -1,20 +1,22 @@
+@use '../core/colors';
+
 .dark-theme {
     .clock {
-        background-color: $deep-grey;
+        background-color: colors.$deep-grey;
 
         .header {
-            background-color: $primary-dark;
-            color: $deep-grey-bright;
+            background-color: colors.$primary-dark;
+            color: colors.$deep-grey-bright;
 
             .hours {
                 &.active {
-                    color: $primary-text;
+                    color: colors.$primary-text;
                 }
             }
 
             .minutes {
                 &.active {
-                    color: $primary-text;
+                    color: colors.$primary-text;
                 }
             }
         }

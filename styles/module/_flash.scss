@@ -1,5 +1,9 @@
+@use '../core/colors';
+@use '../core/variables';
+@use '../mixins/breakpoints';
+
 .flash-container {
-    z-index: $zindex-flash;
+    z-index: variables.$zindex-flash;
     position: fixed;
     width: 100%;
     display: flex;
@@ -10,11 +14,11 @@
     #flashes {
         width: 480px;
 
-        @include media-breakpoint-down(sm) {
+        @include breakpoints.media-breakpoint-down(sm) {
             width: 320px;
         }
 
-        @include media-breakpoint-down(xs) {
+        @include breakpoints.media-breakpoint-down(xs) {
             width: 90%;
         }
 
@@ -25,12 +29,12 @@
             pointer-events: visiblepainted;
             margin-bottom: 20px;
             padding: 15px 30px;
-            box-shadow: 5px 5px 15px -5px rgba($black, 0.75);
-            background-color: $light-grey-bright;
+            box-shadow: 5px 5px 15px -5px rgba(colors.$black, 0.75);
+            background-color: colors.$light-grey-bright;
             border-radius: 3px;
             min-height: 45px;
             clear: both;
-            border-top: 5px solid $deep-grey-bright;
+            border-top: 5px solid colors.$deep-grey-bright;
 
             &.closable {
                 cursor: pointer;
@@ -43,19 +47,19 @@
             }
 
             &.success {
-                border-color: $success;
+                border-color: variables.$success;
             }
 
             &.info {
-                border-color: $info;
+                border-color: variables.$info;
             }
 
             &.warning {
-                border-color: $warning;
+                border-color: variables.$warning;
             }
 
             &.error {
-                border-color: $error;
+                border-color: variables.$error;
             }
         }
     }

@@ -1,26 +1,28 @@
+@use '../core/variables';
+
 .dark-theme {
     .mdl-textfield {
         .mdl-textfield__input {
-            color: $content-default-dark;
-            border: 1px solid $input-default-dark;
+            color: variables.$content-default-dark;
+            border: 1px solid variables.$input-default-dark;
         }
 
         &.is-invalid {
             .mdl-textfield__input {
-                border-color: $error-default-dark;
+                border-color: variables.$error-default-dark;
             }
         }
 
         &.is-disabled {
             .mdl-textfield__input {
-                color: $content-disabled-dark;
+                color: variables.$content-disabled-dark;
                 border-style: dotted;
-                border-color: $input-disabled-dark;
+                border-color: variables.$input-disabled-dark;
             }
 
             &.is-invalid {
                 .mdl-textfield__input {
-                    border-color: $error-disabled-dark;
+                    border-color: variables.$error-disabled-dark;
                 }
             }
         }

@@ -1,16 +1,18 @@
+@use '../core/colors';
+
 .calendar {
     position: relative;
     box-sizing: content-box;
     width: 250px;
     height: 290px;
-    background-color: $light-grey;
+    background-color: colors.$light-grey;
 
     .header {
         display: flex;
         align-items: center;
         height: 50px;
-        background-color: $primary;
-        color: $white;
+        background-color: colors.$primary;
+        color: colors.$white;
 
         .previous {
             flex: 0 1 32px;
@@ -33,7 +35,7 @@
 
     .content {
         .week-days {
-            background-color: $white;
+            background-color: colors.$white;
             height: 30px;
             display: flex;
             flex-flow: row wrap;
@@ -50,7 +52,7 @@
         .days {
             display: flex;
             flex-flow: row wrap;
-            background-color: $white;
+            background-color: colors.$white;
             height: 210px;
 
             .day {
@@ -63,44 +65,44 @@
                 justify-content: center;
 
                 &:hover {
-                    border: 1px solid $accent;
+                    border: 1px solid colors.$accent;
                 }
 
                 &.now {
-                    background-color: $light-grey;
+                    background-color: colors.$light-grey;
                 }
 
                 &.previous-month {
-                    color: $light-grey-dark;
+                    color: colors.$light-grey-dark;
 
                     &.now {
-                        color: $white;
+                        color: colors.$white;
                     }
 
                     &.current {
-                        color: $white;
+                        color: colors.$white;
                     }
                 }
 
                 &.current-month {
-                    color: $black;
+                    color: colors.$black;
                 }
 
                 &.next-month {
-                    color: $light-grey-dark;
+                    color: colors.$light-grey-dark;
 
                     &.now {
-                        color: $white;
+                        color: colors.$white;
                     }
 
                     &.current {
-                        color: $white;
+                        color: colors.$white;
                     }
                 }
 
                 &.current {
-                    background-color: $accent;
-                    color: $accent-text;
+                    background-color: colors.$accent;
+                    color: colors.$accent-text;
                 }
             }
         }
@@ -108,7 +110,7 @@
         .months {
             display: flex;
             flex-flow: row wrap;
-            background-color: $white;
+            background-color: colors.$white;
             height: 240px;
 
             .month {
@@ -120,16 +122,16 @@
                 border: 1px solid transparent;
 
                 &:hover {
-                    border: 1px solid $accent;
+                    border: 1px solid colors.$accent;
                 }
 
                 &.now {
-                    background-color: $light-grey;
+                    background-color: colors.$light-grey;
                 }
 
                 &.current {
-                    background-color: $accent;
-                    color: $accent-text;
+                    background-color: colors.$accent;
+                    color: colors.$accent-text;
                 }
             }
         }
@@ -137,7 +139,7 @@
         .years {
             display: flex;
             flex-flow: row wrap;
-            background-color: $white;
+            background-color: colors.$white;
             height: 240px;
 
             .year {
@@ -149,16 +151,16 @@
                 border: 1px solid transparent;
 
                 &:hover {
-                    border: 1px solid $accent;
+                    border: 1px solid colors.$accent;
                 }
 
                 &.now {
-                    background-color: $light-grey;
+                    background-color: colors.$light-grey;
                 }
 
                 &.current {
-                    background-color: $accent;
-                    color: $accent-text;
+                    background-color: colors.$accent;
+                    color: colors.$accent-text;
                 }
             }
         }

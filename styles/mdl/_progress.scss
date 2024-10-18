@@ -1,26 +1,36 @@
+@use '../core/colors';
+
 .mdl-progress {
     width: 100%;
 
     & > .progressbar {
-        background-color: $primary-bright;
+        background-color: colors.$primary-bright;
     }
 
     & > .bufferbar {
         background-image: linear-gradient(
                 to right,
-                rgba($white, 1),
-                rgba($white, 1)
+                rgba(colors.$white, 1),
+                rgba(colors.$white, 1)
             ),
-            linear-gradient(to right, $primary-bright, $primary-bright);
+            linear-gradient(
+                to right,
+                colors.$primary-bright,
+                colors.$primary-bright
+            );
     }
 
     &:not(.mdl-progress__indeterminate) > .auxbar,
     &:not(.mdl-progress--indeterminate) > .auxbar {
         background-image: linear-gradient(
                 to right,
-                rgba($white, 1),
-                rgba($white, 1)
+                rgba(colors.$white, 1),
+                rgba(colors.$white, 1)
             ),
-            linear-gradient(to right, $primary-bright, $primary-bright);
+            linear-gradient(
+                to right,
+                colors.$primary-bright,
+                colors.$primary-bright
+            );
     }
 }

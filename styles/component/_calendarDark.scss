@@ -1,96 +1,98 @@
+@use '../core/colors';
+
 .dark-theme {
     .calendar {
-        background-color: $deep-grey;
+        background-color: colors.$deep-grey;
 
         .header {
-            background-color: $primary-dark;
-            color: $white;
+            background-color: colors.$primary-dark;
+            color: colors.$white;
         }
 
         .content {
             .week-days {
-                background-color: $black;
+                background-color: colors.$black;
             }
 
             .days {
-                background-color: $black;
+                background-color: colors.$black;
 
                 .day {
                     &:hover {
-                        border-color: $accent;
+                        border-color: colors.$accent;
                     }
 
                     &.now {
-                        background-color: $deep-grey;
+                        background-color: colors.$deep-grey;
                     }
 
                     &.previous-month {
-                        color: $deep-grey-bright;
+                        color: colors.$deep-grey-bright;
 
                         &.now {
-                            color: $white;
+                            color: colors.$white;
                         }
 
                         &.current {
-                            color: $white;
+                            color: colors.$white;
                         }
                     }
 
                     &.current-month {
-                        color: $white;
+                        color: colors.$white;
                     }
 
                     &.next-month {
-                        color: $deep-grey-bright;
+                        color: colors.$deep-grey-bright;
 
                         &.now {
-                            color: $white;
+                            color: colors.$white;
                         }
 
                         &.current {
-                            color: $white;
+                            color: colors.$white;
                         }
                     }
 
                     &.current {
-                        background-color: $accent;
-                        color: $accent-text;
+                        background-color: colors.$accent;
+                        color: colors.$accent-text;
                     }
                 }
             }
 
             .months {
-                background-color: $black;
+                background-color: colors.$black;
 
                 .month {
                     &:hover {
-                        border-color: $accent;
+                        border-color: colors.$accent;
                     }
 
                     &.now {
-                        background-color: $deep-grey;
+                        background-color: colors.$deep-grey;
                     }
 
                     &.current {
-                        background-color: $accent;
+                        background-color: colors.$accent;
                     }
                 }
             }
 
             .years {
-                background-color: $black;
+                background-color: colors.$black;
 
                 .year {
                     &:hover {
-                        border-color: $accent;
+                        border-color: colors.$accent;
                     }
 
                     &.now {
-                        background-color: $deep-grey;
+                        background-color: colors.$deep-grey;
                     }
 
                     &.current {
-                        background-color: $accent;
+                        background-color: colors.$accent;
                     }
                 }
             }

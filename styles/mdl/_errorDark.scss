@@ -1,11 +1,13 @@
+@use '../core/variables';
+
 .dark-theme {
     .mdl-textfield__error {
-        color: $error-default-dark;
+        color: variables.$error-default-dark;
     }
 
     .is-disabled {
         .mdl-textfield__error {
-            color: $error-disabled-dark;
+            color: variables.$error-disabled-dark;
         }
     }
 }

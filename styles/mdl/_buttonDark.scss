@@ -1,13 +1,15 @@
+@use '../core/colors';
+
 .dark-theme {
     .mdl-button {
-        color: $white-dark;
+        color: colors.$white-dark;
     }
 
     .mdl-button--primary {
-        color: $primary-bright;
+        color: colors.$primary-bright;
     }
 
     .mdl-button--accent {
-        color: $accent-bright;
+        color: colors.$accent-bright;
     }
 }

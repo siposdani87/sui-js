@@ -1,11 +1,14 @@
+@use '../core/colors';
+@use '../core/variables';
+
 .input-block {
     .field-tag {
         position: relative;
         display: inline-block;
         padding: 1px 10px;
         margin: 0 2px 2px 0;
-        background-color: $input-default-light;
-        color: $content-default-light;
+        background-color: variables.$input-default-light;
+        color: variables.$content-default-light;
         border-radius: 3px;
 
         &.tag-with-action {
@@ -16,31 +19,31 @@
             position: absolute;
             right: 5px;
             top: 4px;
-            color: $content-default-light;
+            color: variables.$content-default-light;
 
             &:hover {
-                color: $content-default-light;
+                color: variables.$content-default-light;
             }
         }
     }
 
     .active {
         .field-tag {
-            background-color: $accent-default-light;
-            color: $accent-text;
+            background-color: variables.$accent-default-light;
+            color: colors.$accent-text;
         }
     }
 
     &.is-disabled {
         .field-tag {
-            color: $content-disabled-light;
-            background-color: $input-disabled-light;
+            color: variables.$content-disabled-light;
+            background-color: variables.$input-disabled-light;
 
             .close {
-                color: $content-disabled-light;
+                color: variables.$content-disabled-light;
 
                 &:hover {
-                    color: $content-disabled-light;
+                    color: variables.$content-disabled-light;
                 }
             }
         }

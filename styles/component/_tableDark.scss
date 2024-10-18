@@ -1,67 +1,70 @@
+@use '../core/colors';
+@use '../mixins/breakpoints';
+
 .dark-theme {
     table {
         thead {
             tr {
-                border-bottom-color: $deep-grey-bright;
+                border-bottom-color: colors.$deep-grey-bright;
 
                 th {
                     .icons {
-                        color: $deep-grey-bright;
+                        color: colors.$deep-grey-bright;
 
                         em {
                             &.active {
-                                color: $white;
+                                color: colors.$white;
                             }
                         }
                     }
 
                     .info {
-                        color: $primary-bright;
+                        color: colors.$primary-bright;
                     }
                 }
             }
         }
 
         tbody {
-            @include media-breakpoint-down(sm) {
-                border-color: $deep-grey;
+            @include breakpoints.media-breakpoint-down(sm) {
+                border-color: colors.$deep-grey;
             }
 
             tr {
-                border-top-color: $deep-grey;
+                border-top-color: colors.$deep-grey;
 
                 &:nth-child(4n + 0) {
-                    background-color: $black;
+                    background-color: colors.$black;
                 }
 
                 &.header {
                     &:hover {
-                        background-color: $deep-grey;
+                        background-color: colors.$deep-grey;
                     }
 
                     &.active {
-                        background-color: $deep-grey;
+                        background-color: colors.$deep-grey;
                     }
                 }
 
                 &.data {
-                    @include media-breakpoint-down(sm) {
-                        background-color: $deep-grey-dark;
+                    @include breakpoints.media-breakpoint-down(sm) {
+                        background-color: colors.$deep-grey-dark;
 
                         &.open {
                             td {
-                                border-bottom-color: $light-grey;
+                                border-bottom-color: colors.$light-grey;
                             }
                         }
                     }
 
                     .label {
                         span {
-                            color: $deep-grey-bright;
+                            color: colors.$deep-grey-bright;
 
                             em {
                                 &.active {
-                                    color: $white;
+                                    color: colors.$white;
                                 }
                             }
                         }

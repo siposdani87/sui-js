@@ -1,12 +1,14 @@
+@use 'colors';
+
 html,
 body {
     &.dark-theme {
-        color: $white;
+        color: colors.$white;
     }
 }
 
 body {
     &.dark-theme {
-        background-color: $black-dark;
+        background-color: colors.$black-dark;
     }
 }

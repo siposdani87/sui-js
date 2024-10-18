@@ -1,11 +1,13 @@
+@use '../core/colors';
+
 .dark-theme {
     #dialog {
-        background-color: rgba($black, 0.7);
+        background-color: rgba(colors.$black, 0.7);
 
         #dialog-window {
-            background-color: $black;
-            color: $white;
-            box-shadow: 8px 8px 75px 0 rgba($black-dark, 0.8);
+            background-color: colors.$black;
+            color: colors.$white;
+            box-shadow: 8px 8px 75px 0 rgba(colors.$black-dark, 0.8);
         }
     }
 }

@@ -1,33 +1,35 @@
+@use '../core/colors';
+
 .dark-theme {
     #left-menu {
         &.black-backdrop {
-            background-color: rgba($black, 0.7);
+            background-color: rgba(colors.$black, 0.7);
         }
 
         .main-menu,
         .sub-menu {
-            background-color: $black-dark;
-            box-shadow: 2px 0 20px 0 rgba($black-dark, 0.8);
+            background-color: colors.$black-dark;
+            box-shadow: 2px 0 20px 0 rgba(colors.$black-dark, 0.8);
 
             a {
-                color: $white;
+                color: colors.$white;
             }
 
             .menu-container {
                 a {
-                    color: $primary-bright;
+                    color: colors.$primary-bright;
 
                     &:not(.disabled):hover {
-                        background-color: $black-bright;
+                        background-color: colors.$black-bright;
                     }
 
                     &.active {
-                        background-color: $black;
-                        border-right-color: $accent;
+                        background-color: colors.$black;
+                        border-right-color: colors.$accent;
                     }
 
                     &.disabled {
-                        color: $black-bright;
+                        color: colors.$black-bright;
 
                         .image {
                             img {
@@ -36,7 +38,7 @@
 
                             svg,
                             path {
-                                fill: $black-bright;
+                                fill: colors.$black-bright;
                             }
                         }
                     }
@@ -44,7 +46,7 @@
                     .image {
                         svg,
                         path {
-                            fill: $primary-bright;
+                            fill: colors.$primary-bright;
                         }
                     }
                 }

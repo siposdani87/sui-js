@@ -1,52 +1,54 @@
+@use '../core/colors';
+
 .dark-theme {
     .card-collection {
         .card {
-            background-color: $black;
-            border-color: $black-bright;
-            box-shadow: 0 0 5px 0 rgba($black, 0.2);
+            background-color: colors.$black;
+            border-color: colors.$black-bright;
+            box-shadow: 0 0 5px 0 rgba(colors.$black, 0.2);
 
             &:hover {
-                box-shadow: 0 0 5px 0 rgba($black, 0.3);
-                background-color: $black-bright;
+                box-shadow: 0 0 5px 0 rgba(colors.$black, 0.3);
+                background-color: colors.$black-bright;
 
                 .title,
                 .title-with-actions {
-                    border-bottom-color: $deep-grey-dark;
+                    border-bottom-color: colors.$deep-grey-dark;
                 }
             }
 
             .title,
             .title-with-actions {
-                color: $white;
-                border-bottom-color: $black-bright;
+                color: colors.$white;
+                border-bottom-color: colors.$black-bright;
             }
 
             .header {
-                background-color: $black;
-                color: $white;
+                background-color: colors.$black;
+                color: colors.$white;
 
                 .title {
-                    color: $white;
-                    background-color: rgba($black, 0.7);
-                    border-bottom-color: $accent-bright;
+                    color: colors.$white;
+                    background-color: rgba(colors.$black, 0.7);
+                    border-bottom-color: colors.$accent-bright;
                 }
             }
 
             .content {
-                color: $white;
+                color: colors.$white;
 
                 .info {
-                    color: $primary-bright;
+                    color: colors.$primary-bright;
 
                     em {
-                        color: $deep-grey-bright;
+                        color: colors.$deep-grey-bright;
                     }
                 }
             }
 
             .footer {
                 .caption {
-                    color: $black-bright;
+                    color: colors.$black-bright;
                 }
             }
         }
