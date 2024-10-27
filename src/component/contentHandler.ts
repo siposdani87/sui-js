@@ -6,13 +6,13 @@ export class ContentHandler {
     options: Objekt;
     contentKnot: Knot;
 
-    constructor(containerKnot: Knot, opt_options: Object | undefined = {}) {
+    constructor(containerKnot: Knot, opt_options: object | undefined = {}) {
         this.containerKnot = containerKnot;
         this._setOptions(opt_options);
         this._init();
     }
 
-    private _setOptions(opt_options: Object | undefined = {}): void {
+    private _setOptions(opt_options: object | undefined = {}): void {
         this.options = new Objekt({
             image_url: null,
             text: '',

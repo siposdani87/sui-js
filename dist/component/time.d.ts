@@ -4,7 +4,7 @@ export declare class Time {
     timeKnot: Knot;
     options: Objekt;
     pointerKnot: Knot;
-    constructor(knot: Knot, options: Object);
+    constructor(knot: Knot, options: object);
     private _setOptions;
     private _init;
     private _initCircleKnot;

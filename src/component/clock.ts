@@ -20,13 +20,13 @@ export class Clock {
     hours: number;
     minutes: number;
 
-    constructor(knot: Knot, options: Object) {
+    constructor(knot: Knot, options: object) {
         this.clockKnot = knot;
         this._setOptions(options);
         this._init();
     }
 
-    private _setOptions(options: Object): void {
+    private _setOptions(options: object): void {
         this.options = new Objekt(options);
     }
 

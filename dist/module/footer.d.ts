@@ -6,7 +6,7 @@ export declare class Footer {
     templateViewKnot: Knot;
     contentKnot: Knot;
     localesKnot: Knot;
-    constructor(opt_options?: Object | undefined);
+    constructor(opt_options?: object | undefined);
     private _setOptions;
     private _init;
     show(): void;

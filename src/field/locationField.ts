@@ -261,7 +261,7 @@ export class LocationField extends BaseField<HTMLInputElement> {
         this.setValue(location);
     }
 
-    private _setDataValue(value: Object): void {
+    private _setDataValue(value: object): void {
         this.latitudeInput.getNode().value = value['latitude'] || '';
         this.longitudeInput.getNode().value = value['longitude'] || '';
         this.input.setAttribute('value', value['address'] || '');
@@ -270,7 +270,7 @@ export class LocationField extends BaseField<HTMLInputElement> {
 
     setValue(
         value:
-            | Object
+            | object
             | Function
             | Array<any>
             | boolean
@@ -279,7 +279,7 @@ export class LocationField extends BaseField<HTMLInputElement> {
             | null
             | undefined,
     ): void {
-        this._setDataValue(value as Object);
+        this._setDataValue(value as object);
         this.map.removeMarker(0);
         if (!isNull(value['latitude']) && !isNull(value['longitude'])) {
             this.map.setCenter(value['latitude'], value['longitude']);

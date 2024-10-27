@@ -45,14 +45,14 @@ export class Table<T extends Objekt = Objekt> {
     constructor(
         dom: Knot,
         opt_selector: string | undefined = 'table',
-        opt_options: Object | undefined = {},
+        opt_options: object | undefined = {},
     ) {
         this.tableKnot = new Query(opt_selector, dom).getKnot();
         this._setOptions(opt_options);
         this._init();
     }
 
-    private _setOptions(opt_options: Object | undefined = {}): void {
+    private _setOptions(opt_options: object | undefined = {}): void {
         this.options = new Objekt({
             no_content: {
                 image_url: null,

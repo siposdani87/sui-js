@@ -69,14 +69,14 @@ export class GoogleMap {
     constructor(
         dom: Knot,
         opt_selector: string | undefined = '.map',
-        opt_options: Object | undefined = {},
+        opt_options: object | undefined = {},
     ) {
         this.mapKnot = new Query(opt_selector, dom).getKnot();
         this._setOptions(opt_options);
         this._init();
     }
 
-    private _setOptions(opt_options: Object | undefined = {}): void {
+    private _setOptions(opt_options: object | undefined = {}): void {
         this.options = new Objekt({
             center: {
                 lat: 47.6,
@@ -172,8 +172,8 @@ export class GoogleMap {
         id: Id,
         title: string,
         points: Array<{ latitude: number; longitude: number }>,
-        opt_polygonData: Object | undefined = {},
-        opt_options: Object | undefined = {},
+        opt_polygonData: object | undefined = {},
+        opt_options: object | undefined = {},
     ): void {
         const polygon = this.getPolygon(id);
         if (polygon) {
@@ -187,8 +187,8 @@ export class GoogleMap {
         id: Id,
         title: string,
         points: Array<{ latitude: number; longitude: number }>,
-        opt_polygonData: Object | undefined = {},
-        opt_options: Object | undefined = {},
+        opt_polygonData: object | undefined = {},
+        opt_options: object | undefined = {},
     ): void {
         const polygonData = new Objekt(opt_polygonData);
         if (!polygonData.get('id')) {
@@ -219,8 +219,8 @@ export class GoogleMap {
         id: Id,
         title: string,
         points: Array<{ latitude: number; longitude: number }>,
-        opt_polygonData: Object | undefined = {},
-        opt_options: Object | undefined = {},
+        opt_polygonData: object | undefined = {},
+        opt_options: object | undefined = {},
     ): void {
         const polygonData = this.getPolygon(id);
         eachObject(this._cleanPolygonData(opt_polygonData), (value, key) => {
@@ -240,7 +240,7 @@ export class GoogleMap {
         );
     }
 
-    private _cleanPolygonData(polygonData: Object): Objekt {
+    private _cleanPolygonData(polygonData: object): Objekt {
         const cleanData = new Objekt();
         eachObject(polygonData, (value, key) => {
             if (!inArray(['_polygon', '_map_label', '_bounds'], key)) {
@@ -376,7 +376,7 @@ export class GoogleMap {
         polygonData: Objekt,
         latitude: number,
         longitude: number,
-        event: Object,
+        event: object,
     ): void {
         consoleDebug(
             'GoogleMap.eventPolygonClick()',
@@ -391,7 +391,7 @@ export class GoogleMap {
         polygonData: Objekt,
         latitude: number,
         longitude: number,
-        event: Object,
+        event: object,
     ): void {
         consoleDebug(
             'GoogleMap.eventPolygonDoubleClick()',
@@ -406,7 +406,7 @@ export class GoogleMap {
         polygonData: Objekt,
         latitude: number,
         longitude: number,
-        event: Object,
+        event: object,
     ): void {
         consoleDebug(
             'GoogleMap.eventPolygonRightClick()',
@@ -417,11 +417,11 @@ export class GoogleMap {
         );
     }
 
-    eventMapClick(latitude: number, longitude: number, event: Object): void {
+    eventMapClick(latitude: number, longitude: number, event: object): void {
         consoleDebug('GoogleMap.eventMapClick()', latitude, longitude, event);
     }
 
-    eventMapTypeChange(mapType: string, event: Object): void {
+    eventMapTypeChange(mapType: string, event: object): void {
         consoleDebug('GoogleMap.eventMapTypeChange()', mapType, event);
     }
 
@@ -533,7 +533,7 @@ export class GoogleMap {
         path.push(new google.maps.LatLng(latitude, longitude));
     }
 
-    setMarkers(opt_options: Object | undefined = {}): void {
+    setMarkers(opt_options: object | undefined = {}): void {
         this.markers = new Collection();
 
         this.markerOptions = new Objekt({
@@ -542,7 +542,7 @@ export class GoogleMap {
         this.markerOptions.merge(opt_options);
     }
 
-    setHeatmap(opt_options: Object | undefined = {}): void {
+    setHeatmap(opt_options: object | undefined = {}): void {
         const gradient = [
             'rgba(102, 255, 0, 0)',
             'rgba(102, 255, 0, 1)',
@@ -567,7 +567,7 @@ export class GoogleMap {
 
     createHeatmap(
         points: Array<WeightLatLng>,
-        opt_heatmapOptions: Object | undefined = {},
+        opt_heatmapOptions: object | undefined = {},
     ): void {
         this.heatmap = new google.maps.visualization.HeatmapLayer({
             data: this._convertPointsToPath(points),
@@ -586,7 +586,7 @@ export class GoogleMap {
         }
     }
 
-    setPolygons(opt_options: Object | undefined = {}): void {
+    setPolygons(opt_options: object | undefined = {}): void {
         this.polygons = new Collection();
 
         this.polygonOptions = new Objekt({
@@ -607,8 +607,8 @@ export class GoogleMap {
         iconName: string,
         latitude: number,
         longitude: number,
-        opt_markerData: Object | undefined = {},
-        opt_options: Object | undefined = {},
+        opt_markerData: object | undefined = {},
+        opt_options: object | undefined = {},
     ): void {
         const marker = this.getMarker(id);
         if (marker) {
@@ -640,8 +640,8 @@ export class GoogleMap {
         iconName: string,
         latitude: number,
         longitude: number,
-        opt_markerData: Object | undefined = {},
-        opt_options: Object | undefined = {},
+        opt_markerData: object | undefined = {},
+        opt_options: object | undefined = {},
     ): void {
         const markerData = new Objekt(opt_markerData);
         if (!markerData.get('id')) {
@@ -673,7 +673,7 @@ export class GoogleMap {
         iconName: string,
         x: number,
         y: number,
-        markerData: Object | undefined = {},
+        markerData: object | undefined = {},
     ): void {
         const point = new google.maps.Point(x, y);
         const projection = this.overlay.getProjection();
@@ -736,8 +736,8 @@ export class GoogleMap {
         iconName: string,
         latitude: number,
         longitude: number,
-        opt_markerData: Object | undefined = {},
-        opt_options: Object | undefined = {},
+        opt_markerData: object | undefined = {},
+        opt_options: object | undefined = {},
     ): void {
         const markerData = this.getMarker(id);
         eachObject(this._cleanMarkerData(opt_markerData), (value, key) => {
@@ -757,7 +757,7 @@ export class GoogleMap {
         mapLabel.set('text', text);
     }
 
-    private _cleanMarkerData(markerData: Object): Objekt {
+    private _cleanMarkerData(markerData: object): Objekt {
         const cleanData = new Objekt();
         eachObject(markerData, (value, key) => {
             if (!inArray(['_marker', '_map_label'], key)) {
@@ -814,15 +814,15 @@ export class GoogleMap {
         infoWindow.open(this.map, marker);
     }
 
-    eventMarkerClick(markerData: Objekt, event: Object): void {
+    eventMarkerClick(markerData: Objekt, event: object): void {
         consoleDebug('GoogleMap.eventMarkerClick()', markerData, event);
     }
 
-    eventMarkerDoubleClick(markerData: Objekt, event: Object): void {
+    eventMarkerDoubleClick(markerData: Objekt, event: object): void {
         consoleDebug('GoogleMap.eventMarkerDoubleClick()', markerData, event);
     }
 
-    eventMarkerRightClick(markerData: Objekt, event: Object): void {
+    eventMarkerRightClick(markerData: Objekt, event: object): void {
         consoleDebug('GoogleMap.eventMarkerRightClick()', markerData, event);
     }
 
@@ -830,7 +830,7 @@ export class GoogleMap {
         markerData: Objekt,
         latitude: number,
         longitude: number,
-        event: Object,
+        event: object,
     ): void {
         consoleDebug(
             'GoogleMap.eventMarkerChanged()',

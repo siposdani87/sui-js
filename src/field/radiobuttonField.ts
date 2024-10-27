@@ -93,7 +93,7 @@ export class RadiobuttonField extends BaseField<HTMLInputElement> {
 
     setValue(
         value:
-            | Object
+            | object
             | Function
             | Array<any>
             | boolean

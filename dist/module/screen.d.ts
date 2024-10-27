@@ -4,7 +4,7 @@ export declare class Screen {
     window: Window;
     document: Document;
     orientation: string;
-    constructor(opt_options?: Object | undefined);
+    constructor(opt_options?: object | undefined);
     private _setOptions;
     private _init;
     private _initResizeEvent;

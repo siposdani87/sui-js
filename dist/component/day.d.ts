@@ -5,7 +5,7 @@ export declare class Day {
     currentDate: Date;
     options: Objekt;
     cssClasses: string[];
-    constructor(date: Date, currentDate: Date, options: Object);
+    constructor(date: Date, currentDate: Date, options: object);
     private _setOptions;
     private _init;
     getKnot(): Knot;

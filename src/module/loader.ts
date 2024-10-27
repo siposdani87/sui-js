@@ -8,12 +8,12 @@ export class Loader {
     loader: Knot;
     spinner: Knot;
 
-    constructor(opt_options: Object | undefined = {}) {
+    constructor(opt_options: object | undefined = {}) {
         this._setOptions(opt_options);
         this._init();
     }
 
-    private _setOptions(opt_options: Object | undefined = {}): void {
+    private _setOptions(opt_options: object | undefined = {}): void {
         this.options = new Objekt({
             counter: 0,
         });

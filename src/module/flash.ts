@@ -9,7 +9,7 @@ export class Flash {
     container: Knot;
     options: Objekt;
 
-    constructor(opt_options: Object | undefined = {}) {
+    constructor(opt_options: object | undefined = {}) {
         this._setOptions(opt_options);
         this._init();
     }
@@ -18,7 +18,7 @@ export class Flash {
         this.container = new Query(this.options.id).getKnot();
     }
 
-    private _setOptions(opt_options: Object | undefined = {}): void {
+    private _setOptions(opt_options: object | undefined = {}): void {
         this.options = new Objekt({
             id: '#flashes',
             duration: 4000,

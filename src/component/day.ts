@@ -9,14 +9,14 @@ export class Day {
     options: Objekt;
     cssClasses: string[];
 
-    constructor(date: Date, currentDate: Date, options: Object) {
+    constructor(date: Date, currentDate: Date, options: object) {
         this.date = date;
         this.currentDate = currentDate;
         this._setOptions(options);
         this._init();
     }
 
-    private _setOptions(options: Object): void {
+    private _setOptions(options: object): void {
         this.options = new Objekt(options);
     }
 

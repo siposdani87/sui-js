@@ -124,13 +124,13 @@ export class Xhr {
                     result = JSON.stringify(opt_data);
                     break;
                 case this._getContentType('form'):
-                    result = this._stringifyObject(opt_data);
+                    result = this._stringifyobject(opt_data);
                     break;
             }
         }
         return result;
     }
-    _parseObject(obj, key, stringKey) {
+    _parseobject(obj, key, stringKey) {
         stringKey += stringKey ? '[' + key + ']' : key;
         let results = [];
         if (obj instanceof Array) {
@@ -142,7 +142,7 @@ export class Xhr {
         else if (typeof obj === 'object') {
             for (const j in obj) {
                 if (obj.hasOwnProperty(j)) {
-                    const pairs = this._parseObject(obj[j], j, stringKey);
+                    const pairs = this._parseobject(obj[j], j, stringKey);
                     results = results.concat(pairs);
                 }
             }
@@ -152,11 +152,11 @@ export class Xhr {
         }
         return results;
     }
-    _stringifyObject(obj) {
+    _stringifyobject(obj) {
         let results = [];
         for (const key in obj) {
             if (obj.hasOwnProperty(key)) {
-                const pair = this._parseObject(obj[key], key, '');
+                const pair = this._parseobject(obj[key], key, '');
                 results = results.concat(pair);
             }
         }
@@ -189,9 +189,9 @@ export class Xhr {
                         const reader = new FileReader();
                         reader.addEventListener('loadend', (e) => {
                             const data = JSON.parse(e.target.result || 'null');
-                            const object = new Objekt();
-                            object.setRaw('raw', data);
-                            deferred.resolve([[object, filename]]);
+                            const objekt = new Objekt();
+                            objekt.setRaw('raw', data);
+                            deferred.resolve([[objekt, filename]]);
                         });
                         reader.readAsText(response);
                     }
@@ -199,15 +199,15 @@ export class Xhr {
                         const data = isString(response)
                             ? JSON.parse(response || 'null')
                             : response;
-                        const object = new Objekt();
-                        object.merge(data);
-                        deferred.resolve([[object, filename]]);
+                        const objekt = new Objekt();
+                        objekt.merge(data);
+                        deferred.resolve([[objekt, filename]]);
                     }
                     break;
                 default:
-                    const object = new Objekt();
-                    object.setRaw('raw', response);
-                    deferred.resolve([[object, filename]]);
+                    const objekt = new Objekt();
+                    objekt.setRaw('raw', response);
+                    deferred.resolve([[objekt, filename]]);
                     break;
             }
         }

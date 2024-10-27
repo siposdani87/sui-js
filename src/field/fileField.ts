@@ -113,7 +113,7 @@ export class FileField extends BaseField<HTMLInputElement> {
     private _lookupByExtension(extension: string): Array<any> {
         let results = [];
         for (const key in this.fileTypes) {
-            if (Object.hasOwnProperty.call(this.fileTypes, key)) {
+            if (Object.hasOwn(this.fileTypes, key)) {
                 const fileType = this.fileTypes[key];
                 if (fileType[0] === extension) {
                     const color = fileType[1];
@@ -225,7 +225,7 @@ export class FileField extends BaseField<HTMLInputElement> {
 
     setValue(
         value:
-            | Object
+            | object
             | Function
             | Array<any>
             | boolean

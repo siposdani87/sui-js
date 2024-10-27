@@ -11,13 +11,13 @@ export class Navigation {
     container: Collection<Objekt>;
     linkKnotKey: string;
 
-    constructor(opt_http?: Http, opt_options: Object | undefined = {}) {
+    constructor(opt_http?: Http, opt_options: object | undefined = {}) {
         this.http = opt_http;
         this._setOptions(opt_options);
         this._init();
     }
 
-    private _setOptions(opt_options: Object | undefined = {}): void {
+    private _setOptions(opt_options: object | undefined = {}): void {
         this.options = new Objekt();
         this.options.merge(opt_options);
     }
@@ -59,7 +59,7 @@ export class Navigation {
         title: string | null,
         action: Function,
         opt_href: string | undefined = '',
-        opt_data: Object | undefined = {},
+        opt_data: object | undefined = {},
     ): void {
         const item = this._setKnot(id, title, action, opt_href, opt_data);
         const counterSpan = new Knot('span');
@@ -76,7 +76,7 @@ export class Navigation {
         title: string | null,
         action: Function,
         opt_href: string | undefined = '',
-        opt_data: Object | undefined = {},
+        opt_data: object | undefined = {},
     ): void {
         const item = this._setKnot(id, title, action, opt_href, opt_data);
         const iconKnot = new Knot('em');
@@ -97,7 +97,7 @@ export class Navigation {
         title: string | null,
         action: Function,
         opt_href: string | undefined = '',
-        opt_data: Object | undefined = {},
+        opt_data: object | undefined = {},
     ): void {
         const item = this._setKnot(id, title, action, opt_href, opt_data);
 
@@ -136,7 +136,7 @@ export class Navigation {
         title: string,
         action: Function,
         opt_href: string | undefined = '',
-        opt_data: Object | undefined = {},
+        opt_data: object | undefined = {},
     ): void {
         this._setKnot(id, title, action, opt_href, opt_data);
     }
@@ -146,7 +146,7 @@ export class Navigation {
         title: string | null,
         action: Function,
         opt_href: string | undefined = '',
-        opt_data: Object | undefined = {},
+        opt_data: object | undefined = {},
     ): Objekt {
         const linkKnot = new Knot('a');
         if (title) {

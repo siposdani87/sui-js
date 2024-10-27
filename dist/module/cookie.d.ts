@@ -1,7 +1,7 @@
 import { Objekt } from '../core/objekt';
 export declare class Cookie {
     options: Objekt;
-    constructor(opt_options?: Object | undefined);
+    constructor(opt_options?: object | undefined);
     private _setOptions;
     private _getPropertyName;
     private _getName;

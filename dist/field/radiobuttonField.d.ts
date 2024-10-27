@@ -9,7 +9,7 @@ export declare class RadiobuttonField extends BaseField<HTMLInputElement> {
     private _change;
     render(): void;
     refresh(): void;
-    setValue(value: Object | Function | Array<any> | boolean | number | string | null | undefined): void;
+    setValue(value: object | Function | Array<any> | boolean | number | string | null | undefined): void;
     getValue(): any;
     setDisabled(state: boolean): void;
     isDisabled(): boolean;

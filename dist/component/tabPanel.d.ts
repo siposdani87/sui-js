@@ -15,6 +15,6 @@ export declare class TabPanel {
     private _initPanels;
     private _setActive;
     eventChange(panelId: string): void;
-    setActive(panelId: string): import("../core").Promize<Object, Object>;
+    setActive(panelId: string): import("../core").Promize<object, object>;
     getActive(): string;
 }

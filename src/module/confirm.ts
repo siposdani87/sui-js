@@ -7,14 +7,14 @@ import { mdl } from '../utils/render';
 export class Confirm extends BaseModal {
     options: Objekt;
 
-    constructor(opt_options: Object | undefined = {}) {
+    constructor(opt_options: object | undefined = {}) {
         super();
         this._setOptions(opt_options);
         this._init();
         this._initBase();
     }
 
-    private _setOptions(opt_options: Object | undefined = {}): void {
+    private _setOptions(opt_options: object | undefined = {}): void {
         this.options = new Objekt({
             id: '#confirm',
         });

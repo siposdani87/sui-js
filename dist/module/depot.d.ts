@@ -3,7 +3,7 @@ export declare class Depot {
     type: 'LOCAL' | 'SESSION';
     options: Objekt;
     storage: Storage;
-    constructor(type: 'LOCAL' | 'SESSION', opt_options?: Object | undefined);
+    constructor(type: 'LOCAL' | 'SESSION', opt_options?: object | undefined);
     private _setOptions;
     private _init;
     private _getPropertyName;

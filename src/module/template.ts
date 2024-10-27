@@ -11,14 +11,14 @@ export class Template {
     options: Objekt<{ selector: string; locale: string }>;
     viewKnot: Knot;
 
-    constructor(http: Http, opt_options: Object | undefined = {}) {
+    constructor(http: Http, opt_options: object | undefined = {}) {
         this.http = http;
 
         this._setOptions(opt_options);
         this._init();
     }
 
-    private _setOptions(opt_options: Object | undefined = {}): void {
+    private _setOptions(opt_options: object | undefined = {}): void {
         this.options = new Objekt({
             selector: '.template-view',
             locale: navigator.language,

@@ -7,5 +7,5 @@ export declare class IconToggleField extends BaseCheckboxField {
     constructor(input: Knot<HTMLInputElement>, label: Knot, error: Knot, inputBlock: Knot);
     render(): void;
     protected _change(): void;
-    setValue(value: Object | Function | Array<any> | boolean | number | string | null | undefined): void;
+    setValue(value: object | Function | Array<any> | boolean | number | string | null | undefined): void;
 }

@@ -10,12 +10,12 @@ export class Http {
     password: string;
     token: string;
 
-    constructor(opt_options: Object | undefined = {}) {
+    constructor(opt_options: object | undefined = {}) {
         this._setOptions(opt_options);
         this._init();
     }
 
-    private _setOptions(opt_options: Object | undefined = {}): void {
+    private _setOptions(opt_options: object | undefined = {}): void {
         this.options = new Objekt({
             backend: '',
             locale: '',
@@ -38,16 +38,16 @@ export class Http {
         this.token = token;
     }
 
-    get(url: string, opt_params?: Object, opt_headers?: Object) {
+    get(url: string, opt_params?: object, opt_headers?: object) {
         const xhr = this._createXhrRequest();
         return this._getPromise(xhr.get(url, opt_params, opt_headers));
     }
 
     post(
         url: string,
-        opt_data?: Object,
-        opt_params?: Object,
-        opt_headers?: Object,
+        opt_data?: object,
+        opt_params?: object,
+        opt_headers?: object,
     ) {
         const xhr = this._createXhrRequest();
         return this._getPromise(
@@ -57,9 +57,9 @@ export class Http {
 
     put(
         url: string,
-        opt_data?: Object,
-        opt_params?: Object,
-        opt_headers?: Object,
+        opt_data?: object,
+        opt_params?: object,
+        opt_headers?: object,
     ) {
         const xhr = this._createXhrRequest();
         return this._getPromise(
@@ -69,9 +69,9 @@ export class Http {
 
     patch(
         url: string,
-        opt_data?: Object,
-        opt_params?: Object,
-        opt_headers?: Object,
+        opt_data?: object,
+        opt_params?: object,
+        opt_headers?: object,
     ) {
         const xhr = this._createXhrRequest();
         return this._getPromise(
@@ -81,9 +81,9 @@ export class Http {
 
     delete(
         url: string,
-        opt_data?: Object,
-        opt_params?: Object,
-        opt_headers?: Object,
+        opt_data?: object,
+        opt_params?: object,
+        opt_headers?: object,
     ) {
         const xhr = this._createXhrRequest();
         return this._getPromise(

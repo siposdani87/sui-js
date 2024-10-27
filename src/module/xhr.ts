@@ -16,7 +16,9 @@ type XhrType = [string, XMLHttpRequestResponseType, string];
 
 export class Xhr {
     options: Objekt<{ backend: string; locale: string }>;
-    requestHeaders: {};
+    requestHeaders: {
+        [key: string]: string;
+    };
     authorization: string;
     types: {
         [key: string]: XhrType;
@@ -27,12 +29,12 @@ export class Xhr {
         [XMLHttpRequest, Objekt, string]
     >;
 
-    constructor(opt_options: Object | undefined = {}) {
+    constructor(opt_options: object | undefined = {}) {
         this._setOptions(opt_options);
         this._init();
     }
 
-    private _setOptions(opt_options: Object | undefined = {}): void {
+    private _setOptions(opt_options: object | undefined = {}): void {
         this.options = new Objekt({
             backend: '',
             locale: '',
@@ -135,17 +137,17 @@ export class Xhr {
 
     get(
         url: string,
-        opt_params: Object | undefined,
-        opt_headers: Object | undefined = {},
+        opt_params: object | undefined,
+        opt_headers: object | undefined = {},
     ) {
         return this._createRequest('GET', url, {}, opt_params, opt_headers);
     }
 
     post(
         url: string,
-        opt_data: Object | undefined,
-        opt_params: Object | undefined,
-        opt_headers: Object | undefined = {},
+        opt_data: object | undefined,
+        opt_params: object | undefined,
+        opt_headers: object | undefined = {},
     ) {
         return this._createRequest(
             'POST',
@@ -158,9 +160,9 @@ export class Xhr {
 
     put(
         url: string,
-        opt_data: Object | undefined,
-        opt_params: Object | undefined,
-        opt_headers: Object | undefined = {},
+        opt_data: object | undefined,
+        opt_params: object | undefined,
+        opt_headers: object | undefined = {},
     ) {
         return this._createRequest(
             'PUT',
@@ -173,9 +175,9 @@ export class Xhr {
 
     patch(
         url: string,
-        opt_data: Object | undefined,
-        opt_params: Object | undefined,
-        opt_headers: Object | undefined = {},
+        opt_data: object | undefined,
+        opt_params: object | undefined,
+        opt_headers: object | undefined = {},
     ) {
         return this._createRequest(
             'PATCH',
@@ -188,9 +190,9 @@ export class Xhr {
 
     delete(
         url: string,
-        opt_data: Object | undefined,
-        opt_params: Object | undefined,
-        opt_headers: Object | undefined = {},
+        opt_data: object | undefined,
+        opt_params: object | undefined,
+        opt_headers: object | undefined = {},
     ) {
         return this._createRequest(
             'DELETE',
@@ -201,7 +203,7 @@ export class Xhr {
         );
     }
 
-    private _getUrl(url: string, opt_params: Object | undefined): string {
+    private _getUrl(url: string, opt_params: object | undefined): string {
         const uri = urlWithQueryString(url, opt_params);
         return url[0] === '/' ? this.options.backend + uri : uri;
     }
@@ -209,9 +211,9 @@ export class Xhr {
     private _createRequest(
         type: string,
         url: string,
-        opt_data: Object | undefined,
-        opt_params: Object | undefined,
-        opt_headers: Object | undefined = {},
+        opt_data: object | undefined,
+        opt_params: object | undefined,
+        opt_headers: object | undefined = {},
     ) {
         this.httpRequest.open(type, this._getUrl(url, opt_params), true);
 
@@ -224,7 +226,7 @@ export class Xhr {
         return this.deferred.promise();
     }
 
-    private _createRequestBody(opt_data?: Object): string {
+    private _createRequestBody(opt_data?: object): string {
         let result = '';
         if (opt_data) {
             switch (this._getHeader('Content-Type')) {
@@ -232,14 +234,14 @@ export class Xhr {
                     result = JSON.stringify(opt_data);
                     break;
                 case this._getContentType('form'):
-                    result = this._stringifyObject(opt_data);
+                    result = this._stringifyobject(opt_data);
                     break;
             }
         }
         return result;
     }
 
-    private _parseObject(
+    private _parseobject(
         obj: any,
         key: string,
         stringKey: string,
@@ -254,7 +256,7 @@ export class Xhr {
         } else if (typeof obj === 'object') {
             for (const j in obj) {
                 if (obj.hasOwnProperty(j)) {
-                    const pairs = this._parseObject(obj[j], j, stringKey);
+                    const pairs = this._parseobject(obj[j], j, stringKey);
                     results = results.concat(pairs);
                 }
             }
@@ -264,11 +266,11 @@ export class Xhr {
         return results;
     }
 
-    private _stringifyObject(obj: Object): string {
+    private _stringifyobject(obj: object): string {
         let results = [];
         for (const key in obj) {
             if (obj.hasOwnProperty(key)) {
-                const pair = this._parseObject(obj[key], key, '');
+                const pair = this._parseobject(obj[key], key, '');
                 results = results.concat(pair);
             }
         }
@@ -310,24 +312,24 @@ export class Xhr {
                             const data = JSON.parse(
                                 (e.target.result as string) || 'null',
                             );
-                            const object = new Objekt();
-                            object.setRaw('raw', data);
-                            deferred.resolve([[object, filename]]);
+                            const objekt = new Objekt();
+                            objekt.setRaw('raw', data);
+                            deferred.resolve([[objekt, filename]]);
                         });
                         reader.readAsText(response);
                     } else {
                         const data = isString(response)
                             ? JSON.parse(response || 'null')
                             : response;
-                        const object = new Objekt();
-                        object.merge(data);
-                        deferred.resolve([[object, filename]]);
+                        const objekt = new Objekt();
+                        objekt.merge(data);
+                        deferred.resolve([[objekt, filename]]);
                     }
                     break;
                 default:
-                    const object = new Objekt();
-                    object.setRaw('raw', response);
-                    deferred.resolve([[object, filename]]);
+                    const objekt = new Objekt();
+                    objekt.setRaw('raw', response);
+                    deferred.resolve([[objekt, filename]]);
                     break;
             }
         }
@@ -336,7 +338,7 @@ export class Xhr {
 
     private _setRequestHeaders(
         urlType: string,
-        opt_headers: Object | undefined = {},
+        opt_headers: object | undefined = {},
     ): void {
         eachObject(opt_headers, (value, key) => {
             if (eq(key, 'responseType')) {

@@ -15,7 +15,7 @@ export declare class DateTimeRangeField extends BaseField<HTMLInputElement> {
     private _initInput;
     render(): void;
     refresh(): void;
-    setValue(value: Object | Function | Array<any> | boolean | number | string | null | undefined): void;
+    setValue(value: object | Function | Array<any> | boolean | number | string | null | undefined): void;
     private _setTag;
     private _onClick;
 }

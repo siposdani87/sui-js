@@ -28,7 +28,7 @@ export declare class LocationField extends BaseField<HTMLInputElement> {
     private _setDefaultValue;
     updatePosition(latitude: number | null, longitude: number | null): void;
     private _setDataValue;
-    setValue(value: Object | Function | Array<any> | boolean | number | string | null | undefined): void;
+    setValue(value: object | Function | Array<any> | boolean | number | string | null | undefined): void;
     getValue(): any;
     eventSearch(address: string): void;
 }

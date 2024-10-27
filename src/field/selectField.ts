@@ -143,7 +143,7 @@ export class SelectField extends BaseField<HTMLInputElement> {
 
     setValue(
         value:
-            | Object
+            | object
             | Function
             | Array<any>
             | boolean
@@ -202,7 +202,7 @@ export class SelectField extends BaseField<HTMLInputElement> {
         });
 
         eachArray(items, (item) => {
-            const value = item.get(opt_value);
+            const value = item.get<string>(opt_value);
             const name = item.get<string>(opt_name);
             let image = '';
             if (opt_image) {
@@ -366,7 +366,7 @@ export class SelectField extends BaseField<HTMLInputElement> {
             });
             this.listKnot.appendChild(listKnot);
 
-            const image = item.get('image');
+            const image = item.get<string>('image');
             if (image) {
                 const imageKnot = new Knot('img');
                 imageKnot.setAttribute('src', image);
