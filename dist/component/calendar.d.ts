@@ -38,7 +38,7 @@ export declare class Calendar {
     };
     days: Day[];
     selectedDate: Date;
-    constructor(knot: Knot, options: Object);
+    constructor(knot: Knot, options: object);
     private _setOptions;
     private _init;
     private _initStructure;

@@ -17,7 +17,7 @@ export class Objekt {
                     }
                     else if (isArray(object[key]) &&
                         isPureObject(object[key][0])) {
-                        this._convertObject(object, key);
+                        this._convertobject(object, key);
                         this[key] = object[key];
                     }
                     else {
@@ -28,7 +28,7 @@ export class Objekt {
         }
         return this;
     }
-    _convertObject(object, key) {
+    _convertobject(object, key) {
         each(object[key], (obj, i) => {
             object[key][i] = new Objekt(obj);
         });
@@ -72,7 +72,7 @@ export class Objekt {
     }
     set(attribute, value) {
         let object = {};
-        object = this._attributesToObject(object, attribute.split('.'), value);
+        object = this._attributesToobject(object, attribute.split('.'), value);
         this.merge(object);
     }
     setRaw(attribute, value, opt_isSafe = false) {
@@ -117,7 +117,7 @@ export class Objekt {
             }
         });
     }
-    _attributesToObject(object, attributes, value) {
+    _attributesToobject(object, attributes, value) {
         const lastAttribute = attributes.pop();
         let base = object;
         for (const attribute of attributes) {

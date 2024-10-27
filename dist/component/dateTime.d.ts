@@ -15,7 +15,7 @@ export declare class DateTime {
     calendarKnot: Knot;
     clockKnot: Knot;
     value: Date;
-    constructor(knot: Knot, options: Object);
+    constructor(knot: Knot, options: object);
     private _setOptions;
     private _init;
     private _initVariables;

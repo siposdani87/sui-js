@@ -9,14 +9,14 @@ export class Carousel {
     constructor(
         dom: Knot,
         opt_selector: string | undefined = '.carousel',
-        opt_options: Object | undefined = {},
+        opt_options: object | undefined = {},
     ) {
         this.carouselKnot = new Query(opt_selector, dom).getKnot();
         this._setOptions(opt_options);
         this._init();
     }
 
-    private _setOptions(opt_options: Object | undefined = {}): void {
+    private _setOptions(opt_options: object | undefined = {}): void {
         this.options = new Objekt({});
         this.options.merge(opt_options);
     }

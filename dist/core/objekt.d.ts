@@ -1,8 +1,8 @@
-export declare class Objekt<T extends Object = Object> {
+export declare class Objekt<T extends object = object> {
     [key: string]: T[keyof T | any];
     constructor(opt_object?: T);
     merge(object: any): Objekt;
-    private _convertObject;
+    private _convertobject;
     get<K>(attribute: string | undefined, opt_defaultValue?: K, opt_isSafe?: boolean | undefined): K;
     private _getByAttributes;
     private _setByAttributes;
@@ -11,10 +11,10 @@ export declare class Objekt<T extends Object = Object> {
     remove(attribute: string): void;
     clear(): void;
     private _removeByAttributes;
-    each<K>(next: (value: K, key: string) => void, opt_properties?: Object | undefined, opt_attributes?: Array<string> | undefined): void;
-    private _attributesToObject;
+    each<K>(next: (value: K, key: string) => void, opt_properties?: object | undefined, opt_attributes?: Array<string> | undefined): void;
+    private _attributesToobject;
     copy(): Objekt;
-    copyObject(): Object;
+    copyObject(): object;
     isEmpty(): boolean;
     allowKeys(keys: Array<string>): Objekt;
     denyKeys(keys: Array<string>): Objekt;

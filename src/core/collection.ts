@@ -9,7 +9,7 @@ import {
 } from '../utils/operation';
 import { Objekt } from './objekt';
 
-export class Collection<T extends Object = Object> {
+export class Collection<T extends object = object> {
     Type: any;
     items: T[];
     options: Objekt;
@@ -17,7 +17,7 @@ export class Collection<T extends Object = Object> {
     constructor(
         opt_items: Array<T> | undefined = [],
         opt_type: any = Objekt,
-        opt_options: Object = {},
+        opt_options: object = {},
     ) {
         this.Type = opt_type;
         this._setOptions(opt_options);
@@ -25,7 +25,7 @@ export class Collection<T extends Object = Object> {
         this.load(opt_items);
     }
 
-    private _setOptions(opt_options: Object | undefined = {}): void {
+    private _setOptions(opt_options: object | undefined = {}): void {
         this.options = new Objekt({
             id: 'id',
             parent: undefined,
@@ -33,24 +33,24 @@ export class Collection<T extends Object = Object> {
         this.options.merge(opt_options);
     }
 
-    load(objects: Array<Object | T>): void {
+    load(objects: Array<object | T>): void {
         each(objects, (object) => {
             this.push(object);
         });
     }
 
-    reload(objects: Array<Object | T>): void {
+    reload(objects: Array<object | T>): void {
         this.clear();
         this.load(objects);
     }
 
-    push(object: Object | T): T {
+    push(object: object | T): T {
         const item = this._createItem(object);
         this.items.push(item);
         return item;
     }
 
-    private _createItem(object: Object | T): T {
+    private _createItem(object: object | T): T {
         if (!instanceOf(object, this.Type)) {
             const parent = !isUndefined(this.options.parent)
                 ? this.options.parent
@@ -60,7 +60,7 @@ export class Collection<T extends Object = Object> {
         return object as T;
     }
 
-    set(index: number, object: Object | T): T {
+    set(index: number, object: object | T): T {
         const item = this._createItem(object);
         if (index < this.size()) {
             this.items[index] = item;
@@ -70,7 +70,7 @@ export class Collection<T extends Object = Object> {
         return item;
     }
 
-    replace(object: Object | T): T | null {
+    replace(object: object | T): T | null {
         const item = this._createItem(object);
         if (item && instanceOf(item, Objekt)) {
             const id = (item as any as Objekt).get<Id>(this.options.id);
@@ -169,7 +169,7 @@ export class Collection<T extends Object = Object> {
         return items;
     }
 
-    delete(value: Object | T): T {
+    delete(value: object | T): T {
         return this.deleteByCondition((item) => {
             return eq(item, value);
         });

@@ -22,7 +22,7 @@ export declare class SelectField extends BaseField<HTMLInputElement> {
     private _initOptions;
     render(): void;
     refresh(): void;
-    setValue(value: Object | Function | Array<any> | boolean | number | string | null | undefined): void;
+    setValue(value: object | Function | Array<any> | boolean | number | string | null | undefined): void;
     getValue(): any;
     getOptionValue(opt_attribute?: string): any;
     showLoader(): void;

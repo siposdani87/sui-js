@@ -2,7 +2,7 @@
 export declare class MapLabel {
     private canvas;
     private overlayView;
-    constructor(opt_options?: Object);
+    constructor(opt_options?: object);
     bindTo(key: string, target: google.maps.MVCObject, targetKey?: string, noNotify?: boolean): void;
     set(key: string, value: any): void;
     setMap(map: google.maps.Map | google.maps.StreetViewPanorama): void;

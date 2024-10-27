@@ -202,7 +202,7 @@ export class TextareaField extends BaseField<HTMLInputElement> {
 
     private _setValue(
         value:
-            | Object
+            | object
             | Function
             | Array<any>
             | boolean
@@ -218,7 +218,7 @@ export class TextareaField extends BaseField<HTMLInputElement> {
 
     setValue(
         value:
-            | Object
+            | object
             | Function
             | Array<any>
             | boolean

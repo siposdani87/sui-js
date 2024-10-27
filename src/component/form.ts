@@ -190,7 +190,7 @@ export class Form extends Collection<BaseField<HTMLInputElement>> {
         this.checkValidity(true, false);
     }
 
-    setErrors(data: Object): void {
+    setErrors(data: object): void {
         const errors = new Objekt(data);
         this.each((field) => {
             const name = field.getName();

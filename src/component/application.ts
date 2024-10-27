@@ -71,12 +71,12 @@ export class Application {
     private _module: Module;
     private _routeOptions: Objekt;
 
-    constructor(options: Object, resources: Injection) {
+    constructor(options: object, resources: Injection) {
         this._setOptions(options);
         this._init(resources);
     }
 
-    private _setOptions(options: Object): void {
+    private _setOptions(options: object): void {
         this.options = new Objekt({
             app_id: 'sui-app',
             locale: navigator.language,
@@ -464,16 +464,16 @@ export class Application {
         this._routeOptions = new Objekt();
     }
 
-    setRootState(id: string, opt_params?: Object): void {
+    setRootState(id: string, opt_params?: object): void {
         this._routeOptions.set('root.id', id);
         this._routeOptions.set('root.params', opt_params);
     }
 
-    getInstance(name: InstanceKey): Object | null {
+    getInstance(name: InstanceKey): object | null {
         return this._instances[name] ?? null;
     }
 
-    getController(): Object | null {
+    getController(): object | null {
         return this._module.getController();
     }
 

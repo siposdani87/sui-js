@@ -11,14 +11,14 @@ export class ProgressStatus {
     constructor(
         dom: Knot,
         opt_selector: string | undefined = '.progress-status',
-        opt_options: Object | undefined = {},
+        opt_options: object | undefined = {},
     ) {
         this.progressStatusKnot = new Query(opt_selector, dom).getKnot();
         this._setOptions(opt_options);
         this._init();
     }
 
-    private _setOptions(opt_options: Object | undefined = {}): void {
+    private _setOptions(opt_options: object | undefined = {}): void {
         this.options = new Objekt({
             successStyle: 'success',
             infoStyle: 'info',

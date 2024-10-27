@@ -13,7 +13,7 @@ export class State {
     basePath: string;
     options: Objekt;
 
-    constructor(routes: Route[], opt_options: Object | undefined = {}) {
+    constructor(routes: Route[], opt_options: object | undefined = {}) {
         this._current = new Objekt();
         this._previous = this._current;
 
@@ -23,7 +23,7 @@ export class State {
         this._init();
     }
 
-    private _setOptions(opt_options: Object | undefined = {}): void {
+    private _setOptions(opt_options: object | undefined = {}): void {
         this.options = new Objekt({
             root: {
                 id: 'root',
@@ -106,14 +106,14 @@ export class State {
 
     private _parsePath(
         urlPath: string,
-        successCallback: (state: Route, path: string, params: Object) => void,
-        errorCallback: (state: Route, path: string, params: Object) => void,
+        successCallback: (state: Route, path: string, params: object) => void,
+        errorCallback: (state: Route, path: string, params: object) => void,
     ): void {
         const path = urlPath[0] === '#' ? urlPath.substring(1) : urlPath;
         const states = this.routes.getItems();
 
         let state: Route = null;
-        let params: Object = null;
+        let params: object = null;
         let matches: RegExpMatchArray = null;
 
         let i = 0;
@@ -135,7 +135,7 @@ export class State {
     private _setHistory(
         state: Route,
         url: string,
-        opt_params: Object | undefined = {},
+        opt_params: object | undefined = {},
         opt_overwrite: boolean | undefined = false,
         opt_force: boolean | undefined = false,
     ): void {
@@ -184,7 +184,7 @@ export class State {
 
     go(
         id: string,
-        opt_params?: Object,
+        opt_params?: object,
         opt_overwrite: boolean | undefined = false,
         opt_force: boolean | undefined = false,
     ): void {
@@ -218,7 +218,7 @@ export class State {
         }
     }
 
-    private _resolveUrlWithState(id: string, opt_params?: Object): Array<any> {
+    private _resolveUrlWithState(id: string, opt_params?: object): Array<any> {
         const route = this.routes.findById(id);
         let url = '';
         if (route) {
@@ -229,7 +229,7 @@ export class State {
         return [url, route];
     }
 
-    resolveUrl(id: string, opt_params?: Object): string {
+    resolveUrl(id: string, opt_params?: object): string {
         const url = this._resolveUrlWithState(id, opt_params)[0];
         return this._getRealUrl(url);
     }
@@ -256,7 +256,7 @@ export class State {
 
     goBack(
         id: string,
-        opt_params?: Object,
+        opt_params?: object,
         opt_overwrite: boolean | undefined = false,
         opt_force: boolean | undefined = false,
     ): void {
@@ -296,7 +296,7 @@ export class State {
         );
     }
 
-    setParams(properties: Object): void {
+    setParams(properties: object): void {
         eachObject(properties, (value, name) => {
             this.setParam(name, value);
         });

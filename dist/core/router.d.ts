@@ -6,8 +6,8 @@ export declare class Router {
     regex: RegExp;
     constructor(opt_route?: string | undefined);
     private _init;
-    stringify(opt_params?: Object | undefined): string;
+    stringify(opt_params?: object | undefined): string;
     getMatches(url: string): RegExpMatchArray;
-    parse(url: string): Object;
+    parse(url: string): object;
     private _parseParams;
 }

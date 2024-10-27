@@ -15,13 +15,13 @@ export class Dropdown {
     buttonKnot: Knot;
     menuKnot: Knot;
 
-    constructor(element: Knot, opt_options: Object | undefined = {}) {
+    constructor(element: Knot, opt_options: object | undefined = {}) {
         this.dropdown = element;
         this._setOptions(opt_options);
         this._init();
     }
 
-    private _setOptions(opt_options: Object | undefined = {}): void {
+    private _setOptions(opt_options: object | undefined = {}): void {
         this.options = new Objekt({
             id: generateId('dropdown'),
         });

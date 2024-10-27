@@ -30,7 +30,7 @@ export class ProgressBar {
     constructor(
         dialog: Dialog,
         confirm: Confirm,
-        opt_options: Object | undefined = {},
+        opt_options: object | undefined = {},
     ) {
         this.dialog = dialog;
         this.confirm = confirm;
@@ -39,7 +39,7 @@ export class ProgressBar {
         this._init();
     }
 
-    private _setOptions(opt_options: Object | undefined = {}): void {
+    private _setOptions(opt_options: object | undefined = {}): void {
         this.options = new Objekt({
             lock: false,
             counter: 0,
