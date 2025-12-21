@@ -16,6 +16,7 @@
         "annotation-no-unknown": null,
         "import-notation": "string",
         "at-rule-empty-line-before": null,
-        "media-query-no-invalid": null
+        "media-query-no-invalid": null,
+        "declaration-property-value-no-unknown": null
     }
 }

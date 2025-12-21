@@ -9,7 +9,8 @@
         }
 
         & > .bufferbar {
-            background-image: linear-gradient(
+            background-image:
+                linear-gradient(
                     to right,
                     rgba(colors.$black, 1),
                     rgba(colors.$black, 1)
@@ -23,7 +24,8 @@
 
         &:not(.mdl-progress__indeterminate) > .auxbar,
         &:not(.mdl-progress--indeterminate) > .auxbar {
-            background-image: linear-gradient(
+            background-image:
+                linear-gradient(
                     to right,
                     rgba(colors.$black, 1),
                     rgba(colors.$black, 1)
