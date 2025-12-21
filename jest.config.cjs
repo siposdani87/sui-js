@@ -14,5 +14,6 @@ module.exports = {
     reportedFilePath: 'absolute'
 }]],
   setupFilesAfterEnv: ['./jest.setup.ts'],
-  silent: true
+  silent: true,
+  forceExit: true
 };
