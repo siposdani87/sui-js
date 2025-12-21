@@ -97,11 +97,11 @@
 }
 
 @mixin make-col-push($size, $columns: variables.$grid-columns) {
-    left: if($size > 0, math.percentage(math.div($size, $columns)), auto);
+    left: if(sass($size > 0): math.percentage(math.div($size, $columns)); else: auto);
 }
 
 @mixin make-col-pull($size, $columns: variables.$grid-columns) {
-    right: if($size > 0, math.percentage(math.div($size, $columns)), auto);
+    right: if(sass($size > 0): math.percentage(math.div($size, $columns)); else: auto);
 }
 
 @mixin make-col-modifier($type, $size, $columns) {
