@@ -1,4 +1,3 @@
-/// <reference types="google.maps" />
 import { BaseField } from './baseField';
 import { GoogleMap } from '../component/googleMap';
 import { Knot } from '../core/knot';

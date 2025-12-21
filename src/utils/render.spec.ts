@@ -12,7 +12,7 @@ describe('render', () => {
 
         mdl(element);
 
-        expect(upgradeDomSpy).toBeCalled();
+        expect(upgradeDomSpy).toHaveBeenCalled();
         upgradeDomSpy.mockRestore();
     });
 });

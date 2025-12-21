@@ -1,4 +1,3 @@
-/// <reference types="google.maps" />
 import { Collection } from '../core/collection';
 import { Objekt } from '../core/objekt';
 import { Knot } from '../core';

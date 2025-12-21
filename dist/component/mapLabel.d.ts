@@ -1,4 +1,3 @@
-/// <reference types="google.maps" />
 export declare class MapLabel {
     private canvas;
     private overlayView;
