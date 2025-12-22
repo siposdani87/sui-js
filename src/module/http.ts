@@ -110,11 +110,13 @@ export class Http {
         promise.then(
             (...params) => {
                 this.eventAfterRequest(...params);
-                deferred.resolve.apply(deferred, [params.slice(1)]);
+                const [, ...rest] = params;
+                deferred.resolve(rest as [Objekt, string]);
             },
             (...params) => {
                 this.eventAfterRequest(...params);
-                deferred.reject.apply(deferred, [params.slice(1)]);
+                const [, ...rest] = params;
+                deferred.reject(rest as [Objekt, string]);
             },
         );
         return deferred.promise();
