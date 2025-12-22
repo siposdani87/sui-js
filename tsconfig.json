@@ -11,6 +11,27 @@
     "skipLibCheck": true,
     "noImplicitAny": false,
     "esModuleInterop": true,
+
+    /* Incremental Strict Mode - Phase 1 (Enabled) */
+    "strictFunctionTypes": true,
+    "strictBindCallApply": true,
+    "noImplicitThis": true,
+    "alwaysStrict": true,
+    "noImplicitReturns": true,
+    "noFallthroughCasesInSwitch": true,
+    "allowUnreachableCode": false,
+    "allowUnusedLabels": false,
+
+    /* Additional Type Checking (Optional - Not Yet Enabled) */
+    "noUnusedLocals": false,
+    "noUnusedParameters": false,
+    "noUncheckedIndexedAccess": false,
+
+    /* Phase 2 - Requires Code Changes (Not Yet Enabled) */
+    // "noImplicitOverride": true,       // Requires adding 'override' keywords (~60 methods)
+    // "strictNullChecks": true,         // Requires null checks throughout codebase
+    // "strictPropertyInitialization": true,  // Requires definite assignment in constructors
+    // "noImplicitAny": true,            // Requires explicit types everywhere
   },
   "include": [
     "src/**/*"

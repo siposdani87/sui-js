@@ -284,7 +284,7 @@ export class Xhr {
             if (
                 !this.httpRequest.responseURL.startsWith(this.options.backend)
             ) {
-                return;
+                return '';
             }
             const contentDisposition = this.httpRequest.getResponseHeader(
                 'Content-Disposition',
