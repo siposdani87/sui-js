@@ -13,7 +13,6 @@ export default [
             'dist/*',
             'example/*',
             'website/*',
-            'gulpfile.cjs',
             'jest.config.cjs',
             'jest.setup.ts',
             '**/*.spec.ts',
