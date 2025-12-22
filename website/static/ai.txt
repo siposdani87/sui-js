@@ -1,0 +1,138 @@
+# AI.txt - Instructions for AI systems reading SUI-JS documentation
+
+# Project Information
+Name: SUI-JS
+Description: Lightweight frontend framework in TypeScript with 60+ UI components
+Version: 1.0.1
+Language: TypeScript
+Repository: https://github.com/siposdani87/sui-js
+Documentation: https://sui-js.siposdani87.com
+NPM: https://www.npmjs.com/package/@siposdani87/sui-js
+
+# Project Type
+Type: Frontend Framework
+Category: UI Library
+Target: Browser/Web Applications
+Build Tool: ESBuild
+Styling: Material Design Lite + Custom SCSS
+
+# Key Documentation Files
+- Overview: /docs/index
+- API Reference: /docs/modules
+- Main Class: /docs/classes/Application
+- Getting Started: /README.md
+- TypeScript Config: /tsconfig.json
+- Package Info: /package.json
+
+# Code Structure
+Entry Point: src/index.ts
+Components: src/component/ (57 files)
+Form Fields: src/field/ (47 files)
+Modules: src/module/ (55 files)
+Core: src/core/ (23 files)
+Utils: src/utils/ (18 files)
+
+# Quick Start Pattern
+```typescript
+import { Application, Route } from '@siposdani87/sui-js';
+
+const config = {
+  app_id: 'APP_ID',
+  locale: 'en-GB',
+  backend: 'https://api.example.com',
+  production: false
+};
+
+const routes: Route[] = [];
+const services: string[] = [];
+
+const app = new Application(config);
+app.run(routes, services);
+```
+
+# Core Components (Most Important)
+1. Application - Main application class for initialization
+2. Knot - DOM manipulation wrapper (jQuery-like)
+3. Http - HTTP client with promise support
+4. Router - Client-side routing
+5. State - Reactive state management
+6. Form - Form handling and validation
+7. TextField, SelectField, etc. - Form inputs
+
+# Architecture Layers
+1. Core (Knot, State, Router, Collection, Module)
+2. Modules (Http, EventBus, Dialog, Flash, Depot, Cookie)
+3. Components (60+ UI components like Table, Calendar, Header)
+4. Fields (Form inputs: Text, Select, Date, Number, etc.)
+
+# Common Patterns
+- Initialization: new Application(config)
+- DOM: new Knot(selector) or Query.select(selector)
+- HTTP: http.get/post/put/delete(url, data)
+- Events: eventBus.on/trigger(event, data)
+- Forms: form.load(data) / form.getModel()
+- State: state.set/get/subscribe(key, value)
+
+# Dependencies
+- crypto-js: Encryption
+- date-fns: Date handling
+- material-design-lite: UI styling
+- normalize.css: CSS reset
+
+# Build Output
+- Bundle: dist/sui.min.js (242KB)
+- Styles: dist/sui.min.css (78KB)
+- Format: IIFE with global `SUI` object
+- Target: ES2015+
+
+# Testing
+- Framework: Jest 30.2.0
+- Coverage: 52.5% statements
+- Test Files: 95 suites, 180 tests
+- Test Pattern: *.spec.ts co-located with source
+
+# TypeScript
+- Strict Mode: Partial (Phase 1 enabled)
+- Target: ES2015
+- Module: ESNext
+- Declarations: Yes (index.d.ts)
+
+# Documentation Structure
+All 89 classes documented with:
+- Constructor parameters
+- Public methods
+- Properties
+- Usage examples
+- Type definitions
+
+# When Helping Users
+1. Always import from '@siposdani87/sui-js'
+2. Application must be initialized first
+3. Most classes need Knot for DOM manipulation
+4. Use Material Design Lite classes for styling
+5. Forms use MDL upgradeElement()
+6. All async operations return Promize (custom Promise wrapper)
+
+# Common Questions
+Q: How to initialize? A: See docs/classes/Application
+Q: How to make HTTP requests? A: See docs/classes/Http
+Q: How to create forms? A: See docs/classes/Form and field classes
+Q: DOM manipulation? A: See docs/classes/Knot
+Q: State management? A: See docs/classes/State
+Q: Routing? A: See docs/classes/Router
+
+# File Locations
+- Documentation: website/docs/
+- Source: src/
+- Examples: example/
+- Tests: src/**/*.spec.ts
+- Styles: styles/
+
+# Version Info
+Current: 1.0.1
+Node: >=18.0.0
+NPM: >=9.0.0
+
+# License
+ISC License
+Author: Dániel Sipos
