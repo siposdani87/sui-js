@@ -5,3 +5,10 @@
 node_modules
 
 .claude
+
+# Coverage reports (HTML)
+coverage/*.html
+coverage/*.css
+coverage/*.js
+coverage/*.png
+coverage/src/

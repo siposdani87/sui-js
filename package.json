@@ -28,8 +28,7 @@
     "serve": "npx serve . -p 4000",
     "test": "npx jest",
     "test:coverage": "npx jest --coverage",
-    "test:watch": "npx jest --watch",
-    "test:coverage:open": "npx jest --coverage && open coverage/index.html"
+    "test:watch": "npx jest --watch"
   },
   "license": "ISC",
   "private": false,
