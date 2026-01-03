@@ -3,7 +3,7 @@ module.exports = {
   testEnvironment: 'jsdom',
   collectCoverage: true,
   coverageDirectory: 'coverage',
-  coverageReporters: ['lcovonly', 'text', 'text-summary', 'html'],
+  coverageReporters: ['lcovonly', 'text', 'text-summary'],
   collectCoverageFrom: [
     "src/**/*.{ts,tsx}",
     "!**/node_modules/**",
