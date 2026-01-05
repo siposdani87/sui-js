@@ -18,7 +18,7 @@ custom_edit_url: null
 
 #### Defined in
 
-[module/geoLocation.ts:12](https://github.com/siposdani87/sui-js/blob/9aff0f0/src/module/geoLocation.ts#L12)
+[module/geoLocation.ts:12](https://github.com/siposdani87/sui-js/blob/fa20298/src/module/geoLocation.ts#L12)
 
 ## Properties
 
@@ -36,7 +36,7 @@ custom_edit_url: null
 
 #### Defined in
 
-[module/geoLocation.ts:5](https://github.com/siposdani87/sui-js/blob/9aff0f0/src/module/geoLocation.ts#L5)
+[module/geoLocation.ts:5](https://github.com/siposdani87/sui-js/blob/fa20298/src/module/geoLocation.ts#L5)
 
 ___
 
@@ -46,63 +46,9 @@ ___
 
 #### Defined in
 
-[module/geoLocation.ts:10](https://github.com/siposdani87/sui-js/blob/9aff0f0/src/module/geoLocation.ts#L10)
+[module/geoLocation.ts:10](https://github.com/siposdani87/sui-js/blob/fa20298/src/module/geoLocation.ts#L10)
 
 ## Methods
-
-### \_handleError
-
-▸ **_handleError**(`error`): `void`
-
-#### Parameters
-
-| Name | Type |
-| :------ | :------ |
-| `error` | `GeolocationPositionError` |
-
-#### Returns
-
-`void`
-
-#### Defined in
-
-[module/geoLocation.ts:70](https://github.com/siposdani87/sui-js/blob/9aff0f0/src/module/geoLocation.ts#L70)
-
-___
-
-### \_handlePosition
-
-▸ **_handlePosition**(`position`): `void`
-
-#### Parameters
-
-| Name | Type |
-| :------ | :------ |
-| `position` | `GeolocationPosition` |
-
-#### Returns
-
-`void`
-
-#### Defined in
-
-[module/geoLocation.ts:61](https://github.com/siposdani87/sui-js/blob/9aff0f0/src/module/geoLocation.ts#L61)
-
-___
-
-### \_init
-
-▸ **_init**(): `void`
-
-#### Returns
-
-`void`
-
-#### Defined in
-
-[module/geoLocation.ts:16](https://github.com/siposdani87/sui-js/blob/9aff0f0/src/module/geoLocation.ts#L16)
-
-___
 
 ### clearWatcher
 
@@ -114,7 +60,7 @@ ___
 
 #### Defined in
 
-[module/geoLocation.ts:53](https://github.com/siposdani87/sui-js/blob/9aff0f0/src/module/geoLocation.ts#L53)
+[module/geoLocation.ts:53](https://github.com/siposdani87/sui-js/blob/fa20298/src/module/geoLocation.ts#L53)
 
 ___
 
@@ -136,7 +82,7 @@ ___
 
 #### Defined in
 
-[module/geoLocation.ts:57](https://github.com/siposdani87/sui-js/blob/9aff0f0/src/module/geoLocation.ts#L57)
+[module/geoLocation.ts:57](https://github.com/siposdani87/sui-js/blob/fa20298/src/module/geoLocation.ts#L57)
 
 ___
 
@@ -157,7 +103,7 @@ ___
 
 #### Defined in
 
-[module/geoLocation.ts:96](https://github.com/siposdani87/sui-js/blob/9aff0f0/src/module/geoLocation.ts#L96)
+[module/geoLocation.ts:96](https://github.com/siposdani87/sui-js/blob/fa20298/src/module/geoLocation.ts#L96)
 
 ___
 
@@ -171,7 +117,7 @@ ___
 
 #### Defined in
 
-[module/geoLocation.ts:36](https://github.com/siposdani87/sui-js/blob/9aff0f0/src/module/geoLocation.ts#L36)
+[module/geoLocation.ts:36](https://github.com/siposdani87/sui-js/blob/fa20298/src/module/geoLocation.ts#L36)
 
 ___
 
@@ -185,4 +131,4 @@ ___
 
 #### Defined in
 
-[module/geoLocation.ts:24](https://github.com/siposdani87/sui-js/blob/9aff0f0/src/module/geoLocation.ts#L24)
+[module/geoLocation.ts:24](https://github.com/siposdani87/sui-js/blob/fa20298/src/module/geoLocation.ts#L24)

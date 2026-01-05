@@ -17,7 +17,7 @@ custom_edit_url: null
 | Name | Type |
 | :------ | :------ |
 | `element` | [`Knot`](Knot.md)\<`HTMLElement`\> |
-| `opt_options` | `Object` |
+| `opt_options` | `object` |
 
 #### Returns
 
@@ -25,17 +25,17 @@ custom_edit_url: null
 
 #### Defined in
 
-[component/dropdown.ts:18](https://github.com/siposdani87/sui-js/blob/9aff0f0/src/component/dropdown.ts#L18)
+[component/dropdown.ts:18](https://github.com/siposdani87/sui-js/blob/fa20298/src/component/dropdown.ts#L18)
 
 ## Properties
 
 ### actions
 
-• **actions**: [`Action`](../modules.md#action)[]
+• **actions**: [`Action`](../#action)[]
 
 #### Defined in
 
-[component/dropdown.ts:13](https://github.com/siposdani87/sui-js/blob/9aff0f0/src/component/dropdown.ts#L13)
+[component/dropdown.ts:13](https://github.com/siposdani87/sui-js/blob/fa20298/src/component/dropdown.ts#L13)
 
 ___
 
@@ -45,17 +45,17 @@ ___
 
 #### Defined in
 
-[component/dropdown.ts:15](https://github.com/siposdani87/sui-js/blob/9aff0f0/src/component/dropdown.ts#L15)
+[component/dropdown.ts:15](https://github.com/siposdani87/sui-js/blob/fa20298/src/component/dropdown.ts#L15)
 
 ___
 
 ### collection
 
-• **collection**: [`Collection`](Collection.md)\<[`Objekt`](Objekt.md)\<`Object`\>\>
+• **collection**: [`Collection`](Collection.md)\<[`Objekt`](Objekt.md)\<`object`\>\>
 
 #### Defined in
 
-[component/dropdown.ts:12](https://github.com/siposdani87/sui-js/blob/9aff0f0/src/component/dropdown.ts#L12)
+[component/dropdown.ts:12](https://github.com/siposdani87/sui-js/blob/fa20298/src/component/dropdown.ts#L12)
 
 ___
 
@@ -65,17 +65,17 @@ ___
 
 #### Defined in
 
-[component/dropdown.ts:10](https://github.com/siposdani87/sui-js/blob/9aff0f0/src/component/dropdown.ts#L10)
+[component/dropdown.ts:10](https://github.com/siposdani87/sui-js/blob/fa20298/src/component/dropdown.ts#L10)
 
 ___
 
 ### item
 
-• **item**: [`Objekt`](Objekt.md)\<`Object`\>
+• **item**: [`Objekt`](Objekt.md)\<`object`\>
 
 #### Defined in
 
-[component/dropdown.ts:14](https://github.com/siposdani87/sui-js/blob/9aff0f0/src/component/dropdown.ts#L14)
+[component/dropdown.ts:14](https://github.com/siposdani87/sui-js/blob/fa20298/src/component/dropdown.ts#L14)
 
 ___
 
@@ -85,95 +85,19 @@ ___
 
 #### Defined in
 
-[component/dropdown.ts:16](https://github.com/siposdani87/sui-js/blob/9aff0f0/src/component/dropdown.ts#L16)
+[component/dropdown.ts:16](https://github.com/siposdani87/sui-js/blob/fa20298/src/component/dropdown.ts#L16)
 
 ___
 
 ### options
 
-• **options**: [`Objekt`](Objekt.md)\<`Object`\>
+• **options**: [`Objekt`](Objekt.md)\<`object`\>
 
 #### Defined in
 
-[component/dropdown.ts:11](https://github.com/siposdani87/sui-js/blob/9aff0f0/src/component/dropdown.ts#L11)
+[component/dropdown.ts:11](https://github.com/siposdani87/sui-js/blob/fa20298/src/component/dropdown.ts#L11)
 
 ## Methods
-
-### \_appendButton
-
-▸ **_appendButton**(): `void`
-
-#### Returns
-
-`void`
-
-#### Defined in
-
-[component/dropdown.ts:39](https://github.com/siposdani87/sui-js/blob/9aff0f0/src/component/dropdown.ts#L39)
-
-___
-
-### \_appendMenu
-
-▸ **_appendMenu**(): `void`
-
-#### Returns
-
-`void`
-
-#### Defined in
-
-[component/dropdown.ts:56](https://github.com/siposdani87/sui-js/blob/9aff0f0/src/component/dropdown.ts#L56)
-
-___
-
-### \_init
-
-▸ **_init**(): `void`
-
-#### Returns
-
-`void`
-
-#### Defined in
-
-[component/dropdown.ts:31](https://github.com/siposdani87/sui-js/blob/9aff0f0/src/component/dropdown.ts#L31)
-
-___
-
-### \_renderMenu
-
-▸ **_renderMenu**(): `void`
-
-#### Returns
-
-`void`
-
-#### Defined in
-
-[component/dropdown.ts:77](https://github.com/siposdani87/sui-js/blob/9aff0f0/src/component/dropdown.ts#L77)
-
-___
-
-### \_setOptions
-
-▸ **_setOptions**(`opt_options?`): `void`
-
-#### Parameters
-
-| Name | Type |
-| :------ | :------ |
-| `opt_options` | `Object` |
-
-#### Returns
-
-`void`
-
-#### Defined in
-
-[component/dropdown.ts:24](https://github.com/siposdani87/sui-js/blob/9aff0f0/src/component/dropdown.ts#L24)
-
-___
 
 ### setActions
 
@@ -183,8 +107,8 @@ ___
 
 | Name | Type |
 | :------ | :------ |
-| `actions` | [`Action`](../modules.md#action)[] |
-| `item` | [`Objekt`](Objekt.md)\<`Object`\> |
+| `actions` | [`Action`](../#action)[] |
+| `item` | [`Objekt`](Objekt.md)\<`object`\> |
 
 #### Returns
 
@@ -192,4 +116,4 @@ ___
 
 #### Defined in
 
-[component/dropdown.ts:69](https://github.com/siposdani87/sui-js/blob/9aff0f0/src/component/dropdown.ts#L69)
+[component/dropdown.ts:69](https://github.com/siposdani87/sui-js/blob/fa20298/src/component/dropdown.ts#L69)

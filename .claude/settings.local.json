@@ -20,7 +20,12 @@
       "Bash(npx jest --version)",
       "Bash(npx jest:*)",
       "Bash(git rm:*)",
-      "Bash(npx sass:*)"
+      "Bash(npx sass:*)",
+      "Bash(npm run clean:*)",
+      "Bash(npm view:*)",
+      "Bash(node --version:*)",
+      "Bash(npx tsc:*)",
+      "Bash(npm run tsc-test:*)"
     ]
   }
 }

@@ -17,7 +17,7 @@ custom_edit_url: null
 | Name | Type |
 | :------ | :------ |
 | `routes` | [`Route`](Route.md)[] |
-| `opt_options` | `Object` |
+| `opt_options` | `object` |
 
 #### Returns
 
@@ -25,29 +25,9 @@ custom_edit_url: null
 
 #### Defined in
 
-[core/state.ts:16](https://github.com/siposdani87/sui-js/blob/9aff0f0/src/core/state.ts#L16)
+[core/state.ts:16](https://github.com/siposdani87/sui-js/blob/fa20298/src/core/state.ts#L16)
 
 ## Properties
-
-### \_current
-
-• `Private` **\_current**: [`Objekt`](Objekt.md)\<`Object`\>
-
-#### Defined in
-
-[core/state.ts:10](https://github.com/siposdani87/sui-js/blob/9aff0f0/src/core/state.ts#L10)
-
-___
-
-### \_previous
-
-• `Private` **\_previous**: [`Objekt`](Objekt.md)\<`Object`\>
-
-#### Defined in
-
-[core/state.ts:11](https://github.com/siposdani87/sui-js/blob/9aff0f0/src/core/state.ts#L11)
-
-___
 
 ### basePath
 
@@ -55,17 +35,17 @@ ___
 
 #### Defined in
 
-[core/state.ts:13](https://github.com/siposdani87/sui-js/blob/9aff0f0/src/core/state.ts#L13)
+[core/state.ts:13](https://github.com/siposdani87/sui-js/blob/fa20298/src/core/state.ts#L13)
 
 ___
 
 ### options
 
-• **options**: [`Objekt`](Objekt.md)\<`Object`\>
+• **options**: [`Objekt`](Objekt.md)\<`object`\>
 
 #### Defined in
 
-[core/state.ts:14](https://github.com/siposdani87/sui-js/blob/9aff0f0/src/core/state.ts#L14)
+[core/state.ts:14](https://github.com/siposdani87/sui-js/blob/fa20298/src/core/state.ts#L14)
 
 ___
 
@@ -75,240 +55,9 @@ ___
 
 #### Defined in
 
-[core/state.ts:12](https://github.com/siposdani87/sui-js/blob/9aff0f0/src/core/state.ts#L12)
+[core/state.ts:12](https://github.com/siposdani87/sui-js/blob/fa20298/src/core/state.ts#L12)
 
 ## Methods
-
-### \_getRealUrl
-
-▸ **_getRealUrl**(`url`): `string`
-
-#### Parameters
-
-| Name | Type |
-| :------ | :------ |
-| `url` | `string` |
-
-#### Returns
-
-`string`
-
-#### Defined in
-
-[core/state.ts:56](https://github.com/siposdani87/sui-js/blob/9aff0f0/src/core/state.ts#L56)
-
-___
-
-### \_getUrlPrefix
-
-▸ **_getUrlPrefix**(): `string`
-
-#### Returns
-
-`string`
-
-#### Defined in
-
-[core/state.ts:52](https://github.com/siposdani87/sui-js/blob/9aff0f0/src/core/state.ts#L52)
-
-___
-
-### \_init
-
-▸ **_init**(): `void`
-
-#### Returns
-
-`void`
-
-#### Defined in
-
-[core/state.ts:36](https://github.com/siposdani87/sui-js/blob/9aff0f0/src/core/state.ts#L36)
-
-___
-
-### \_initPopstate
-
-▸ **_initPopstate**(): `void`
-
-#### Returns
-
-`void`
-
-#### Defined in
-
-[core/state.ts:68](https://github.com/siposdani87/sui-js/blob/9aff0f0/src/core/state.ts#L68)
-
-___
-
-### \_parsePath
-
-▸ **_parsePath**(`urlPath`, `successCallback`, `errorCallback`): `void`
-
-#### Parameters
-
-| Name | Type |
-| :------ | :------ |
-| `urlPath` | `string` |
-| `successCallback` | (`state`: [`Route`](Route.md), `path`: `string`, `params`: `Object`) => `void` |
-| `errorCallback` | (`state`: [`Route`](Route.md), `path`: `string`, `params`: `Object`) => `void` |
-
-#### Returns
-
-`void`
-
-#### Defined in
-
-[core/state.ts:107](https://github.com/siposdani87/sui-js/blob/9aff0f0/src/core/state.ts#L107)
-
-___
-
-### \_parseUrl
-
-▸ **_parseUrl**(): `void`
-
-#### Returns
-
-`void`
-
-#### Defined in
-
-[core/state.ts:86](https://github.com/siposdani87/sui-js/blob/9aff0f0/src/core/state.ts#L86)
-
-___
-
-### \_resolveUrlWithState
-
-▸ **_resolveUrlWithState**(`id`, `opt_params?`): `any`[]
-
-#### Parameters
-
-| Name | Type |
-| :------ | :------ |
-| `id` | `string` |
-| `opt_params?` | `Object` |
-
-#### Returns
-
-`any`[]
-
-#### Defined in
-
-[core/state.ts:221](https://github.com/siposdani87/sui-js/blob/9aff0f0/src/core/state.ts#L221)
-
-___
-
-### \_setBasePath
-
-▸ **_setBasePath**(): `void`
-
-#### Returns
-
-`void`
-
-#### Defined in
-
-[core/state.ts:60](https://github.com/siposdani87/sui-js/blob/9aff0f0/src/core/state.ts#L60)
-
-___
-
-### \_setCurrent
-
-▸ **_setCurrent**(`state`): `void`
-
-#### Parameters
-
-| Name | Type |
-| :------ | :------ |
-| `state` | [`Objekt`](Objekt.md)\<`Object`\> |
-
-#### Returns
-
-`void`
-
-#### Defined in
-
-[core/state.ts:172](https://github.com/siposdani87/sui-js/blob/9aff0f0/src/core/state.ts#L172)
-
-___
-
-### \_setHistory
-
-▸ **_setHistory**(`state`, `url`, `opt_params?`, `opt_overwrite?`, `opt_force?`): `void`
-
-#### Parameters
-
-| Name | Type | Default value |
-| :------ | :------ | :------ |
-| `state` | [`Route`](Route.md) | `undefined` |
-| `url` | `string` | `undefined` |
-| `opt_params` | `Object` | `{}` |
-| `opt_overwrite` | `boolean` | `false` |
-| `opt_force` | `boolean` | `false` |
-
-#### Returns
-
-`void`
-
-#### Defined in
-
-[core/state.ts:135](https://github.com/siposdani87/sui-js/blob/9aff0f0/src/core/state.ts#L135)
-
-___
-
-### \_setOptions
-
-▸ **_setOptions**(`opt_options?`): `void`
-
-#### Parameters
-
-| Name | Type |
-| :------ | :------ |
-| `opt_options` | `Object` |
-
-#### Returns
-
-`void`
-
-#### Defined in
-
-[core/state.ts:26](https://github.com/siposdani87/sui-js/blob/9aff0f0/src/core/state.ts#L26)
-
-___
-
-### \_setRealUrls
-
-▸ **_setRealUrls**(): `void`
-
-#### Returns
-
-`void`
-
-#### Defined in
-
-[core/state.ts:44](https://github.com/siposdani87/sui-js/blob/9aff0f0/src/core/state.ts#L44)
-
-___
-
-### \_triggerChange
-
-▸ **_triggerChange**(`opt_force?`): `void`
-
-#### Parameters
-
-| Name | Type | Default value |
-| :------ | :------ | :------ |
-| `opt_force` | `boolean` | `false` |
-
-#### Returns
-
-`void`
-
-#### Defined in
-
-[core/state.ts:166](https://github.com/siposdani87/sui-js/blob/9aff0f0/src/core/state.ts#L166)
-
-___
 
 ### back
 
@@ -320,7 +69,7 @@ ___
 
 #### Defined in
 
-[core/state.ts:270](https://github.com/siposdani87/sui-js/blob/9aff0f0/src/core/state.ts#L270)
+[core/state.ts:270](https://github.com/siposdani87/sui-js/blob/fa20298/src/core/state.ts#L270)
 
 ___
 
@@ -332,8 +81,8 @@ ___
 
 | Name | Type | Default value |
 | :------ | :------ | :------ |
-| `currentState` | [`Objekt`](Objekt.md)\<`Object`\> | `undefined` |
-| `previousState` | [`Objekt`](Objekt.md)\<`Object`\> | `undefined` |
+| `currentState` | [`Objekt`](Objekt.md)\<`object`\> | `undefined` |
+| `previousState` | [`Objekt`](Objekt.md)\<`object`\> | `undefined` |
 | `opt_force` | `boolean` | `false` |
 
 #### Returns
@@ -342,7 +91,7 @@ ___
 
 #### Defined in
 
-[core/state.ts:286](https://github.com/siposdani87/sui-js/blob/9aff0f0/src/core/state.ts#L286)
+[core/state.ts:286](https://github.com/siposdani87/sui-js/blob/fa20298/src/core/state.ts#L286)
 
 ___
 
@@ -356,7 +105,7 @@ ___
 
 #### Defined in
 
-[core/state.ts:282](https://github.com/siposdani87/sui-js/blob/9aff0f0/src/core/state.ts#L282)
+[core/state.ts:282](https://github.com/siposdani87/sui-js/blob/fa20298/src/core/state.ts#L282)
 
 ___
 
@@ -383,7 +132,7 @@ ___
 
 #### Defined in
 
-[core/state.ts:177](https://github.com/siposdani87/sui-js/blob/9aff0f0/src/core/state.ts#L177)
+[core/state.ts:177](https://github.com/siposdani87/sui-js/blob/fa20298/src/core/state.ts#L177)
 
 ___
 
@@ -410,21 +159,21 @@ ___
 
 #### Defined in
 
-[core/state.ts:316](https://github.com/siposdani87/sui-js/blob/9aff0f0/src/core/state.ts#L316)
+[core/state.ts:316](https://github.com/siposdani87/sui-js/blob/fa20298/src/core/state.ts#L316)
 
 ___
 
 ### getParams
 
-▸ **getParams**(): [`Objekt`](Objekt.md)\<`Object`\>
+▸ **getParams**(): [`Objekt`](Objekt.md)\<`object`\>
 
 #### Returns
 
-[`Objekt`](Objekt.md)\<`Object`\>
+[`Objekt`](Objekt.md)\<`object`\>
 
 #### Defined in
 
-[core/state.ts:312](https://github.com/siposdani87/sui-js/blob/9aff0f0/src/core/state.ts#L312)
+[core/state.ts:312](https://github.com/siposdani87/sui-js/blob/fa20298/src/core/state.ts#L312)
 
 ___
 
@@ -451,7 +200,7 @@ ___
 
 #### Defined in
 
-[core/state.ts:181](https://github.com/siposdani87/sui-js/blob/9aff0f0/src/core/state.ts#L181)
+[core/state.ts:181](https://github.com/siposdani87/sui-js/blob/fa20298/src/core/state.ts#L181)
 
 ___
 
@@ -465,7 +214,7 @@ ___
 
 #### Defined in
 
-[core/state.ts:329](https://github.com/siposdani87/sui-js/blob/9aff0f0/src/core/state.ts#L329)
+[core/state.ts:329](https://github.com/siposdani87/sui-js/blob/fa20298/src/core/state.ts#L329)
 
 ___
 
@@ -478,7 +227,7 @@ ___
 | Name | Type | Default value |
 | :------ | :------ | :------ |
 | `id` | `string` | `undefined` |
-| `opt_params?` | `Object` | `undefined` |
+| `opt_params?` | `object` | `undefined` |
 | `opt_overwrite` | `boolean` | `false` |
 | `opt_force` | `boolean` | `false` |
 
@@ -488,7 +237,7 @@ ___
 
 #### Defined in
 
-[core/state.ts:185](https://github.com/siposdani87/sui-js/blob/9aff0f0/src/core/state.ts#L185)
+[core/state.ts:185](https://github.com/siposdani87/sui-js/blob/fa20298/src/core/state.ts#L185)
 
 ___
 
@@ -501,7 +250,7 @@ ___
 | Name | Type | Default value |
 | :------ | :------ | :------ |
 | `id` | `string` | `undefined` |
-| `opt_params?` | `Object` | `undefined` |
+| `opt_params?` | `object` | `undefined` |
 | `opt_overwrite` | `boolean` | `false` |
 | `opt_force` | `boolean` | `false` |
 
@@ -511,7 +260,7 @@ ___
 
 #### Defined in
 
-[core/state.ts:257](https://github.com/siposdani87/sui-js/blob/9aff0f0/src/core/state.ts#L257)
+[core/state.ts:257](https://github.com/siposdani87/sui-js/blob/fa20298/src/core/state.ts#L257)
 
 ___
 
@@ -532,7 +281,7 @@ ___
 
 #### Defined in
 
-[core/state.ts:245](https://github.com/siposdani87/sui-js/blob/9aff0f0/src/core/state.ts#L245)
+[core/state.ts:245](https://github.com/siposdani87/sui-js/blob/fa20298/src/core/state.ts#L245)
 
 ___
 
@@ -554,7 +303,7 @@ ___
 
 #### Defined in
 
-[core/state.ts:237](https://github.com/siposdani87/sui-js/blob/9aff0f0/src/core/state.ts#L237)
+[core/state.ts:237](https://github.com/siposdani87/sui-js/blob/fa20298/src/core/state.ts#L237)
 
 ___
 
@@ -575,7 +324,7 @@ ___
 
 #### Defined in
 
-[core/state.ts:274](https://github.com/siposdani87/sui-js/blob/9aff0f0/src/core/state.ts#L274)
+[core/state.ts:274](https://github.com/siposdani87/sui-js/blob/fa20298/src/core/state.ts#L274)
 
 ___
 
@@ -595,7 +344,7 @@ ___
 
 #### Defined in
 
-[core/state.ts:325](https://github.com/siposdani87/sui-js/blob/9aff0f0/src/core/state.ts#L325)
+[core/state.ts:325](https://github.com/siposdani87/sui-js/blob/fa20298/src/core/state.ts#L325)
 
 ___
 
@@ -609,7 +358,7 @@ ___
 
 #### Defined in
 
-[core/state.ts:321](https://github.com/siposdani87/sui-js/blob/9aff0f0/src/core/state.ts#L321)
+[core/state.ts:321](https://github.com/siposdani87/sui-js/blob/fa20298/src/core/state.ts#L321)
 
 ___
 
@@ -622,7 +371,7 @@ ___
 | Name | Type |
 | :------ | :------ |
 | `id` | `string` |
-| `opt_params?` | `Object` |
+| `opt_params?` | `object` |
 
 #### Returns
 
@@ -630,7 +379,7 @@ ___
 
 #### Defined in
 
-[core/state.ts:232](https://github.com/siposdani87/sui-js/blob/9aff0f0/src/core/state.ts#L232)
+[core/state.ts:232](https://github.com/siposdani87/sui-js/blob/fa20298/src/core/state.ts#L232)
 
 ___
 
@@ -644,7 +393,7 @@ ___
 
 #### Defined in
 
-[core/state.ts:82](https://github.com/siposdani87/sui-js/blob/9aff0f0/src/core/state.ts#L82)
+[core/state.ts:82](https://github.com/siposdani87/sui-js/blob/fa20298/src/core/state.ts#L82)
 
 ___
 
@@ -665,7 +414,7 @@ ___
 
 #### Defined in
 
-[core/state.ts:305](https://github.com/siposdani87/sui-js/blob/9aff0f0/src/core/state.ts#L305)
+[core/state.ts:305](https://github.com/siposdani87/sui-js/blob/fa20298/src/core/state.ts#L305)
 
 ___
 
@@ -677,7 +426,7 @@ ___
 
 | Name | Type |
 | :------ | :------ |
-| `properties` | `Object` |
+| `properties` | `object` |
 
 #### Returns
 
@@ -685,4 +434,4 @@ ___
 
 #### Defined in
 
-[core/state.ts:299](https://github.com/siposdani87/sui-js/blob/9aff0f0/src/core/state.ts#L299)
+[core/state.ts:299](https://github.com/siposdani87/sui-js/blob/fa20298/src/core/state.ts#L299)

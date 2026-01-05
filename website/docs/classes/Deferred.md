@@ -10,8 +10,8 @@ custom_edit_url: null
 
 | Name | Type |
 | :------ | :------ |
-| `T` | `Object` |
-| `K` | `Object` |
+| `T` | `object` |
+| `K` | `object` |
 
 ## Constructors
 
@@ -23,8 +23,8 @@ custom_edit_url: null
 
 | Name | Type |
 | :------ | :------ |
-| `T` | `Object` |
-| `K` | `Object` |
+| `T` | `object` |
+| `K` | `object` |
 
 #### Returns
 
@@ -32,17 +32,7 @@ custom_edit_url: null
 
 #### Defined in
 
-[core/deferred.ts:6](https://github.com/siposdani87/sui-js/blob/9aff0f0/src/core/deferred.ts#L6)
-
-## Properties
-
-### \_promise
-
-• `Private` **\_promise**: [`Promize`](Promize.md)\<`T`, `K`\>
-
-#### Defined in
-
-[core/deferred.ts:4](https://github.com/siposdani87/sui-js/blob/9aff0f0/src/core/deferred.ts#L4)
+[core/deferred.ts:6](https://github.com/siposdani87/sui-js/blob/fa20298/src/core/deferred.ts#L6)
 
 ## Methods
 
@@ -56,7 +46,7 @@ custom_edit_url: null
 
 #### Defined in
 
-[core/deferred.ts:10](https://github.com/siposdani87/sui-js/blob/9aff0f0/src/core/deferred.ts#L10)
+[core/deferred.ts:10](https://github.com/siposdani87/sui-js/blob/fa20298/src/core/deferred.ts#L10)
 
 ___
 
@@ -76,7 +66,7 @@ ___
 
 #### Defined in
 
-[core/deferred.ts:18](https://github.com/siposdani87/sui-js/blob/9aff0f0/src/core/deferred.ts#L18)
+[core/deferred.ts:18](https://github.com/siposdani87/sui-js/blob/fa20298/src/core/deferred.ts#L18)
 
 ___
 
@@ -96,4 +86,4 @@ ___
 
 #### Defined in
 
-[core/deferred.ts:14](https://github.com/siposdani87/sui-js/blob/9aff0f0/src/core/deferred.ts#L14)
+[core/deferred.ts:14](https://github.com/siposdani87/sui-js/blob/fa20298/src/core/deferred.ts#L14)

@@ -18,48 +18,6 @@ custom_edit_url: null
 
 ## Methods
 
-### \_createIconKnot
-
-▸ **_createIconKnot**(`iconName`, `parentKnot`): `void`
-
-#### Parameters
-
-| Name | Type |
-| :------ | :------ |
-| `iconName` | `string` |
-| `parentKnot` | [`Knot`](Knot.md)\<`HTMLElement`\> |
-
-#### Returns
-
-`void`
-
-#### Defined in
-
-[module/helper.ts:305](https://github.com/siposdani87/sui-js/blob/9aff0f0/src/module/helper.ts#L305)
-
-___
-
-### \_setTooltip
-
-▸ **_setTooltip**(`knot`, `opt_description?`): `void`
-
-#### Parameters
-
-| Name | Type | Default value |
-| :------ | :------ | :------ |
-| `knot` | [`Knot`](Knot.md)\<`HTMLElement`\> | `undefined` |
-| `opt_description` | `string` | `''` |
-
-#### Returns
-
-`void`
-
-#### Defined in
-
-[module/helper.ts:312](https://github.com/siposdani87/sui-js/blob/9aff0f0/src/module/helper.ts#L312)
-
-___
-
 ### button
 
 ▸ **button**(`selector`, `dom`, `callback`, `opt_description?`, `opt_allowAccess?`, `opt_cssClasses?`): [`Knot`](Knot.md)\<`HTMLElement`\>
@@ -81,7 +39,7 @@ ___
 
 #### Defined in
 
-[module/helper.ts:141](https://github.com/siposdani87/sui-js/blob/9aff0f0/src/module/helper.ts#L141)
+[module/helper.ts:141](https://github.com/siposdani87/sui-js/blob/fa20298/src/module/helper.ts#L141)
 
 ___
 
@@ -105,7 +63,7 @@ ___
 
 #### Defined in
 
-[module/helper.ts:160](https://github.com/siposdani87/sui-js/blob/9aff0f0/src/module/helper.ts#L160)
+[module/helper.ts:160](https://github.com/siposdani87/sui-js/blob/fa20298/src/module/helper.ts#L160)
 
 ___
 
@@ -129,7 +87,7 @@ ___
 
 #### Defined in
 
-[module/helper.ts:104](https://github.com/siposdani87/sui-js/blob/9aff0f0/src/module/helper.ts#L104)
+[module/helper.ts:104](https://github.com/siposdani87/sui-js/blob/fa20298/src/module/helper.ts#L104)
 
 ___
 
@@ -153,7 +111,7 @@ ___
 
 #### Defined in
 
-[module/helper.ts:197](https://github.com/siposdani87/sui-js/blob/9aff0f0/src/module/helper.ts#L197)
+[module/helper.ts:197](https://github.com/siposdani87/sui-js/blob/fa20298/src/module/helper.ts#L197)
 
 ___
 
@@ -178,7 +136,7 @@ ___
 
 #### Defined in
 
-[module/helper.ts:9](https://github.com/siposdani87/sui-js/blob/9aff0f0/src/module/helper.ts#L9)
+[module/helper.ts:9](https://github.com/siposdani87/sui-js/blob/fa20298/src/module/helper.ts#L9)
 
 ___
 
@@ -203,7 +161,7 @@ ___
 
 #### Defined in
 
-[module/helper.ts:241](https://github.com/siposdani87/sui-js/blob/9aff0f0/src/module/helper.ts#L241)
+[module/helper.ts:241](https://github.com/siposdani87/sui-js/blob/fa20298/src/module/helper.ts#L241)
 
 ___
 
@@ -227,7 +185,7 @@ ___
 
 #### Defined in
 
-[module/helper.ts:264](https://github.com/siposdani87/sui-js/blob/9aff0f0/src/module/helper.ts#L264)
+[module/helper.ts:264](https://github.com/siposdani87/sui-js/blob/fa20298/src/module/helper.ts#L264)
 
 ___
 
@@ -253,7 +211,7 @@ ___
 
 #### Defined in
 
-[module/helper.ts:49](https://github.com/siposdani87/sui-js/blob/9aff0f0/src/module/helper.ts#L49)
+[module/helper.ts:49](https://github.com/siposdani87/sui-js/blob/fa20298/src/module/helper.ts#L49)
 
 ___
 
@@ -278,7 +236,7 @@ ___
 
 #### Defined in
 
-[module/helper.ts:70](https://github.com/siposdani87/sui-js/blob/9aff0f0/src/module/helper.ts#L70)
+[module/helper.ts:70](https://github.com/siposdani87/sui-js/blob/fa20298/src/module/helper.ts#L70)
 
 ___
 
@@ -301,7 +259,7 @@ ___
 
 #### Defined in
 
-[module/helper.ts:123](https://github.com/siposdani87/sui-js/blob/9aff0f0/src/module/helper.ts#L123)
+[module/helper.ts:123](https://github.com/siposdani87/sui-js/blob/fa20298/src/module/helper.ts#L123)
 
 ___
 
@@ -323,7 +281,7 @@ ___
 
 #### Defined in
 
-[module/helper.ts:220](https://github.com/siposdani87/sui-js/blob/9aff0f0/src/module/helper.ts#L220)
+[module/helper.ts:220](https://github.com/siposdani87/sui-js/blob/fa20298/src/module/helper.ts#L220)
 
 ___
 
@@ -346,7 +304,7 @@ ___
 
 #### Defined in
 
-[module/helper.ts:30](https://github.com/siposdani87/sui-js/blob/9aff0f0/src/module/helper.ts#L30)
+[module/helper.ts:30](https://github.com/siposdani87/sui-js/blob/fa20298/src/module/helper.ts#L30)
 
 ___
 
@@ -370,4 +328,4 @@ ___
 
 #### Defined in
 
-[module/helper.ts:324](https://github.com/siposdani87/sui-js/blob/9aff0f0/src/module/helper.ts#L324)
+[module/helper.ts:324](https://github.com/siposdani87/sui-js/blob/fa20298/src/module/helper.ts#L324)

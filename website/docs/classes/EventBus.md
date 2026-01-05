@@ -18,23 +18,23 @@ custom_edit_url: null
 
 #### Defined in
 
-[module/eventBus.ts:8](https://github.com/siposdani87/sui-js/blob/9aff0f0/src/module/eventBus.ts#L8)
+[module/eventBus.ts:8](https://github.com/siposdani87/sui-js/blob/fa20298/src/module/eventBus.ts#L8)
 
 ## Properties
 
 ### eventStore
 
-• **eventStore**: [`Objekt`](Objekt.md)\<`Object`\>
+• **eventStore**: [`Objekt`](Objekt.md)\<`object`\>
 
 #### Defined in
 
-[module/eventBus.ts:6](https://github.com/siposdani87/sui-js/blob/9aff0f0/src/module/eventBus.ts#L6)
+[module/eventBus.ts:6](https://github.com/siposdani87/sui-js/blob/fa20298/src/module/eventBus.ts#L6)
 
 ## Methods
 
 ### call
 
-▸ **call**(`name`, `opt_args?`): [`Promize`](Promize.md)\<`Object`, `Object`\>
+▸ **call**(`name`, `opt_args?`): [`Promize`](Promize.md)\<`object`, `object`\>
 
 #### Parameters
 
@@ -45,17 +45,17 @@ custom_edit_url: null
 
 #### Returns
 
-[`Promize`](Promize.md)\<`Object`, `Object`\>
+[`Promize`](Promize.md)\<`object`, `object`\>
 
 #### Defined in
 
-[module/eventBus.ts:35](https://github.com/siposdani87/sui-js/blob/9aff0f0/src/module/eventBus.ts#L35)
+[module/eventBus.ts:35](https://github.com/siposdani87/sui-js/blob/fa20298/src/module/eventBus.ts#L35)
 
 ___
 
 ### override
 
-▸ **override**(`name`, `args`, `callback`): [`Promize`](Promize.md)\<`Object`, `Object`\>
+▸ **override**(`name`, `args`, `callback`): [`Promize`](Promize.md)\<`object`, `object`\>
 
 #### Parameters
 
@@ -67,11 +67,11 @@ ___
 
 #### Returns
 
-[`Promize`](Promize.md)\<`Object`, `Object`\>
+[`Promize`](Promize.md)\<`object`, `object`\>
 
 #### Defined in
 
-[module/eventBus.ts:41](https://github.com/siposdani87/sui-js/blob/9aff0f0/src/module/eventBus.ts#L41)
+[module/eventBus.ts:41](https://github.com/siposdani87/sui-js/blob/fa20298/src/module/eventBus.ts#L41)
 
 ___
 
@@ -91,7 +91,7 @@ ___
 
 #### Defined in
 
-[module/eventBus.ts:29](https://github.com/siposdani87/sui-js/blob/9aff0f0/src/module/eventBus.ts#L29)
+[module/eventBus.ts:29](https://github.com/siposdani87/sui-js/blob/fa20298/src/module/eventBus.ts#L29)
 
 ___
 
@@ -112,7 +112,7 @@ ___
 
 #### Defined in
 
-[module/eventBus.ts:21](https://github.com/siposdani87/sui-js/blob/9aff0f0/src/module/eventBus.ts#L21)
+[module/eventBus.ts:21](https://github.com/siposdani87/sui-js/blob/fa20298/src/module/eventBus.ts#L21)
 
 ___
 
@@ -133,4 +133,4 @@ ___
 
 #### Defined in
 
-[module/eventBus.ts:12](https://github.com/siposdani87/sui-js/blob/9aff0f0/src/module/eventBus.ts#L12)
+[module/eventBus.ts:12](https://github.com/siposdani87/sui-js/blob/fa20298/src/module/eventBus.ts#L12)
