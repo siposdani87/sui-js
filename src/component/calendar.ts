@@ -34,13 +34,13 @@ export class Calendar {
     days: Day[];
     selectedDate: Date;
 
-    constructor(knot: Knot, options: Object) {
+    constructor(knot: Knot, options: object) {
         this.calendarKnot = knot;
         this._setOptions(options);
         this._init();
     }
 
-    private _setOptions(options: Object): void {
+    private _setOptions(options: object): void {
         this.options = new Objekt(options);
     }
 

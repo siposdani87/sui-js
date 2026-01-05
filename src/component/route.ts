@@ -7,7 +7,7 @@ export class Route extends Objekt {
         url: string,
         controller: string,
         opt_template: string | undefined = '',
-        opt_params: Object | undefined = {},
+        opt_params: object | undefined = {},
     ) {
         super();
 

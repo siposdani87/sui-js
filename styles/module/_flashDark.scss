@@ -1,24 +1,27 @@
+@use '../core/colors';
+@use '../core/variables';
+
 .dark-theme {
     .flash-container {
         #flashes {
             .flash {
-                box-shadow: 5px 5px 15px -5px rgba($black-dark, 0.8);
-                background-color: $black;
+                box-shadow: 5px 5px 15px -5px rgba(colors.$black-dark, 0.8);
+                background-color: colors.$black;
 
                 &.success {
-                    border-color: $success-bright;
+                    border-color: variables.$success-bright;
                 }
 
                 &.info {
-                    border-color: $info-bright;
+                    border-color: variables.$info-bright;
                 }
 
                 &.warning {
-                    border-color: $warning-bright;
+                    border-color: variables.$warning-bright;
                 }
 
                 &.error {
-                    border-color: $error-bright;
+                    border-color: variables.$error-bright;
                 }
             }
         }

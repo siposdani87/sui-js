@@ -1,7 +1,9 @@
+@use '../core/variables';
+
 .dark-theme {
     .url-field {
         .protocol {
-            background-color: $input-default-dark;
+            background-color: variables.$input-default-dark;
         }
     }
 }

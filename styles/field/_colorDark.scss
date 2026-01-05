@@ -1,7 +1,9 @@
+@use '../core/variables';
+
 .dark-theme {
     .color-field {
         .preview {
-            border: 1px solid $input-default-dark;
+            border: 1px solid variables.$input-default-dark;
         }
 
         // input[required] ~ .preview {
@@ -9,16 +11,16 @@
         // }
 
         .field-label {
-            color: $label-default-dark;
+            color: variables.$label-default-dark;
         }
 
         &.is-disabled {
             .field-label {
-                color: $label-disabled-dark;
+                color: variables.$label-disabled-dark;
             }
 
             .preview {
-                border-color: $input-disabled-dark;
+                border-color: variables.$input-disabled-dark;
             }
 
             // input[required] ~ .preview {

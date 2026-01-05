@@ -14,7 +14,7 @@ import {
 } from '../utils/operation';
 
 // Record, Entry, Thing
-export class Objekt<T extends Object = Object> {
+export class Objekt<T extends object = object> {
     [key: string]: T[keyof T | any];
 
     constructor(opt_object?: T) {
@@ -35,7 +35,7 @@ export class Objekt<T extends Object = Object> {
                         isArray(object[key]) &&
                         isPureObject(object[key][0])
                     ) {
-                        this._convertObject(object, key);
+                        this._convertobject(object, key);
                         this[key] = object[key];
                     } else {
                         this[key] = typeCast(object[key]);
@@ -46,7 +46,7 @@ export class Objekt<T extends Object = Object> {
         return this;
     }
 
-    private _convertObject(object: any, key: string): void {
+    private _convertobject(object: any, key: string): void {
         each(object[key], (obj, i) => {
             object[key][i] = new Objekt(obj);
         });
@@ -67,7 +67,7 @@ export class Objekt<T extends Object = Object> {
     }
 
     private _getByAttributes<K>(
-        object: Object | Objekt,
+        object: object | Objekt,
         attributes: Array<string>,
     ): K | undefined {
         let result = undefined;
@@ -93,7 +93,7 @@ export class Objekt<T extends Object = Object> {
     }
 
     private _setByAttributes(
-        object: Object | Objekt,
+        object: object | Objekt,
         attributes: Array<string>,
         value: any,
     ): void {
@@ -113,7 +113,7 @@ export class Objekt<T extends Object = Object> {
 
     set<K>(attribute: string, value: K): void {
         let object = {};
-        object = this._attributesToObject(object, attribute.split('.'), value);
+        object = this._attributesToobject(object, attribute.split('.'), value);
         this.merge(object);
     }
 
@@ -137,7 +137,7 @@ export class Objekt<T extends Object = Object> {
     }
 
     private _removeByAttributes(
-        object: Object | Objekt,
+        object: object | Objekt,
         attributes: Array<string>,
     ): void {
         for (const property in object) {
@@ -159,7 +159,7 @@ export class Objekt<T extends Object = Object> {
 
     each<K>(
         next: (value: K, key: string) => void,
-        opt_properties?: Object | undefined,
+        opt_properties?: object | undefined,
         opt_attributes?: Array<string> | undefined,
     ): void {
         const properties = opt_properties || this;
@@ -176,11 +176,11 @@ export class Objekt<T extends Object = Object> {
         });
     }
 
-    private _attributesToObject(
-        object: Object,
+    private _attributesToobject(
+        object: object,
         attributes: Array<string>,
         value: any,
-    ): Object {
+    ): object {
         const lastAttribute = attributes.pop();
         let base = object;
         for (const attribute of attributes) {
@@ -195,7 +195,7 @@ export class Objekt<T extends Object = Object> {
         return new Objekt(copy);
     }
 
-    copyObject(): Object {
+    copyObject(): object {
         return copyObject(this);
     }
 

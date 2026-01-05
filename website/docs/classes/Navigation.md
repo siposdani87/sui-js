@@ -17,7 +17,7 @@ custom_edit_url: null
 | Name | Type |
 | :------ | :------ |
 | `opt_http?` | [`Http`](Http.md) |
-| `opt_options` | `Object` |
+| `opt_options` | `object` |
 
 #### Returns
 
@@ -25,17 +25,17 @@ custom_edit_url: null
 
 #### Defined in
 
-[component/navigation.ts:14](https://github.com/siposdani87/sui-js/blob/9aff0f0/src/component/navigation.ts#L14)
+[component/navigation.ts:14](https://github.com/siposdani87/sui-js/blob/fa20298/src/component/navigation.ts#L14)
 
 ## Properties
 
 ### container
 
-• **container**: [`Collection`](Collection.md)\<[`Objekt`](Objekt.md)\<`Object`\>\>
+• **container**: [`Collection`](Collection.md)\<[`Objekt`](Objekt.md)\<`object`\>\>
 
 #### Defined in
 
-[component/navigation.ts:11](https://github.com/siposdani87/sui-js/blob/9aff0f0/src/component/navigation.ts#L11)
+[component/navigation.ts:11](https://github.com/siposdani87/sui-js/blob/fa20298/src/component/navigation.ts#L11)
 
 ___
 
@@ -45,7 +45,7 @@ ___
 
 #### Defined in
 
-[component/navigation.ts:9](https://github.com/siposdani87/sui-js/blob/9aff0f0/src/component/navigation.ts#L9)
+[component/navigation.ts:9](https://github.com/siposdani87/sui-js/blob/fa20298/src/component/navigation.ts#L9)
 
 ___
 
@@ -55,117 +55,19 @@ ___
 
 #### Defined in
 
-[component/navigation.ts:12](https://github.com/siposdani87/sui-js/blob/9aff0f0/src/component/navigation.ts#L12)
+[component/navigation.ts:12](https://github.com/siposdani87/sui-js/blob/fa20298/src/component/navigation.ts#L12)
 
 ___
 
 ### options
 
-• **options**: [`Objekt`](Objekt.md)\<`Object`\>
+• **options**: [`Objekt`](Objekt.md)\<`object`\>
 
 #### Defined in
 
-[component/navigation.ts:10](https://github.com/siposdani87/sui-js/blob/9aff0f0/src/component/navigation.ts#L10)
+[component/navigation.ts:10](https://github.com/siposdani87/sui-js/blob/fa20298/src/component/navigation.ts#L10)
 
 ## Methods
-
-### \_disabled
-
-▸ **_disabled**(`item`): `void`
-
-#### Parameters
-
-| Name | Type |
-| :------ | :------ |
-| `item` | [`Objekt`](Objekt.md)\<`Object`\> |
-
-#### Returns
-
-`void`
-
-#### Defined in
-
-[component/navigation.ts:201](https://github.com/siposdani87/sui-js/blob/9aff0f0/src/component/navigation.ts#L201)
-
-___
-
-### \_enabled
-
-▸ **_enabled**(`item`): `void`
-
-#### Parameters
-
-| Name | Type |
-| :------ | :------ |
-| `item` | [`Objekt`](Objekt.md)\<`Object`\> |
-
-#### Returns
-
-`void`
-
-#### Defined in
-
-[component/navigation.ts:215](https://github.com/siposdani87/sui-js/blob/9aff0f0/src/component/navigation.ts#L215)
-
-___
-
-### \_init
-
-▸ **_init**(): `void`
-
-#### Returns
-
-`void`
-
-#### Defined in
-
-[component/navigation.ts:25](https://github.com/siposdani87/sui-js/blob/9aff0f0/src/component/navigation.ts#L25)
-
-___
-
-### \_setKnot
-
-▸ **_setKnot**(`id`, `title`, `action`, `opt_href?`, `opt_data?`): [`Objekt`](Objekt.md)\<`Object`\>
-
-#### Parameters
-
-| Name | Type | Default value |
-| :------ | :------ | :------ |
-| `id` | `string` | `undefined` |
-| `title` | `string` | `undefined` |
-| `action` | `Function` | `undefined` |
-| `opt_href` | `string` | `''` |
-| `opt_data` | `Object` | `{}` |
-
-#### Returns
-
-[`Objekt`](Objekt.md)\<`Object`\>
-
-#### Defined in
-
-[component/navigation.ts:144](https://github.com/siposdani87/sui-js/blob/9aff0f0/src/component/navigation.ts#L144)
-
-___
-
-### \_setOptions
-
-▸ **_setOptions**(`opt_options?`): `void`
-
-#### Parameters
-
-| Name | Type |
-| :------ | :------ |
-| `opt_options` | `Object` |
-
-#### Returns
-
-`void`
-
-#### Defined in
-
-[component/navigation.ts:20](https://github.com/siposdani87/sui-js/blob/9aff0f0/src/component/navigation.ts#L20)
-
-___
 
 ### add
 
@@ -175,7 +77,7 @@ ___
 
 | Name | Type |
 | :------ | :------ |
-| `item` | [`Objekt`](Objekt.md)\<`Object`\> |
+| `item` | [`Objekt`](Objekt.md)\<`object`\> |
 
 #### Returns
 
@@ -183,7 +85,7 @@ ___
 
 #### Defined in
 
-[component/navigation.ts:31](https://github.com/siposdani87/sui-js/blob/9aff0f0/src/component/navigation.ts#L31)
+[component/navigation.ts:31](https://github.com/siposdani87/sui-js/blob/fa20298/src/component/navigation.ts#L31)
 
 ___
 
@@ -200,7 +102,7 @@ ___
 | `title` | `string` | `undefined` |
 | `action` | `Function` | `undefined` |
 | `opt_href` | `string` | `''` |
-| `opt_data` | `Object` | `{}` |
+| `opt_data` | `object` | `{}` |
 
 #### Returns
 
@@ -208,7 +110,7 @@ ___
 
 #### Defined in
 
-[component/navigation.ts:56](https://github.com/siposdani87/sui-js/blob/9aff0f0/src/component/navigation.ts#L56)
+[component/navigation.ts:56](https://github.com/siposdani87/sui-js/blob/fa20298/src/component/navigation.ts#L56)
 
 ___
 
@@ -225,7 +127,7 @@ ___
 | `title` | `string` | `undefined` |
 | `action` | `Function` | `undefined` |
 | `opt_href` | `string` | `''` |
-| `opt_data` | `Object` | `{}` |
+| `opt_data` | `object` | `{}` |
 
 #### Returns
 
@@ -233,7 +135,7 @@ ___
 
 #### Defined in
 
-[component/navigation.ts:73](https://github.com/siposdani87/sui-js/blob/9aff0f0/src/component/navigation.ts#L73)
+[component/navigation.ts:73](https://github.com/siposdani87/sui-js/blob/fa20298/src/component/navigation.ts#L73)
 
 ___
 
@@ -250,7 +152,7 @@ ___
 | `title` | `string` | `undefined` |
 | `action` | `Function` | `undefined` |
 | `opt_href` | `string` | `''` |
-| `opt_data` | `Object` | `{}` |
+| `opt_data` | `object` | `{}` |
 
 #### Returns
 
@@ -258,7 +160,7 @@ ___
 
 #### Defined in
 
-[component/navigation.ts:94](https://github.com/siposdani87/sui-js/blob/9aff0f0/src/component/navigation.ts#L94)
+[component/navigation.ts:94](https://github.com/siposdani87/sui-js/blob/fa20298/src/component/navigation.ts#L94)
 
 ___
 
@@ -274,7 +176,7 @@ ___
 | `title` | `string` | `undefined` |
 | `action` | `Function` | `undefined` |
 | `opt_href` | `string` | `''` |
-| `opt_data` | `Object` | `{}` |
+| `opt_data` | `object` | `{}` |
 
 #### Returns
 
@@ -282,7 +184,7 @@ ___
 
 #### Defined in
 
-[component/navigation.ts:134](https://github.com/siposdani87/sui-js/blob/9aff0f0/src/component/navigation.ts#L134)
+[component/navigation.ts:134](https://github.com/siposdani87/sui-js/blob/fa20298/src/component/navigation.ts#L134)
 
 ___
 
@@ -302,7 +204,7 @@ ___
 
 #### Defined in
 
-[component/navigation.ts:186](https://github.com/siposdani87/sui-js/blob/9aff0f0/src/component/navigation.ts#L186)
+[component/navigation.ts:186](https://github.com/siposdani87/sui-js/blob/fa20298/src/component/navigation.ts#L186)
 
 ___
 
@@ -322,7 +224,7 @@ ___
 
 #### Defined in
 
-[component/navigation.ts:180](https://github.com/siposdani87/sui-js/blob/9aff0f0/src/component/navigation.ts#L180)
+[component/navigation.ts:180](https://github.com/siposdani87/sui-js/blob/fa20298/src/component/navigation.ts#L180)
 
 ___
 
@@ -342,7 +244,7 @@ ___
 
 #### Defined in
 
-[component/navigation.ts:258](https://github.com/siposdani87/sui-js/blob/9aff0f0/src/component/navigation.ts#L258)
+[component/navigation.ts:258](https://github.com/siposdani87/sui-js/blob/fa20298/src/component/navigation.ts#L258)
 
 ___
 
@@ -362,7 +264,7 @@ ___
 
 #### Defined in
 
-[component/navigation.ts:228](https://github.com/siposdani87/sui-js/blob/9aff0f0/src/component/navigation.ts#L228)
+[component/navigation.ts:228](https://github.com/siposdani87/sui-js/blob/fa20298/src/component/navigation.ts#L228)
 
 ___
 
@@ -376,7 +278,7 @@ ___
 
 #### Defined in
 
-[component/navigation.ts:242](https://github.com/siposdani87/sui-js/blob/9aff0f0/src/component/navigation.ts#L242)
+[component/navigation.ts:242](https://github.com/siposdani87/sui-js/blob/fa20298/src/component/navigation.ts#L242)
 
 ___
 
@@ -396,7 +298,7 @@ ___
 
 #### Defined in
 
-[component/navigation.ts:194](https://github.com/siposdani87/sui-js/blob/9aff0f0/src/component/navigation.ts#L194)
+[component/navigation.ts:194](https://github.com/siposdani87/sui-js/blob/fa20298/src/component/navigation.ts#L194)
 
 ___
 
@@ -416,7 +318,7 @@ ___
 
 #### Defined in
 
-[component/navigation.ts:208](https://github.com/siposdani87/sui-js/blob/9aff0f0/src/component/navigation.ts#L208)
+[component/navigation.ts:208](https://github.com/siposdani87/sui-js/blob/fa20298/src/component/navigation.ts#L208)
 
 ___
 
@@ -436,4 +338,4 @@ ___
 
 #### Defined in
 
-[component/navigation.ts:249](https://github.com/siposdani87/sui-js/blob/9aff0f0/src/component/navigation.ts#L249)
+[component/navigation.ts:249](https://github.com/siposdani87/sui-js/blob/fa20298/src/component/navigation.ts#L249)

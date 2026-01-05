@@ -1,3 +1,7 @@
+@use 'sass:list';
+@use 'sass:map';
+@use '../core/variables';
+
 // Breakpoint viewport sizes and media queries.
 //
 // Breakpoints are defined as a map of (name: minimum width), order from small to large:
@@ -16,14 +20,16 @@
 //    md
 @function breakpoint-next(
     $name,
-    $breakpoints: $grid-breakpoints,
-    $breakpoint-names: map-keys($breakpoints)
+    $breakpoints: variables.$grid-breakpoints,
+    $breakpoint-names: map.keys($breakpoints)
 ) {
-    $n: index($breakpoint-names, $name);
+    $n: list.index($breakpoint-names, $name);
     @return if(
-        $n < length($breakpoint-names),
-        nth($breakpoint-names, $n + 1),
-        null
+        sass($n < list.length($breakpoint-names)): list.nth(
+                $breakpoint-names,
+                $n + 1
+            )
+            ; else: null
     );
 }
 
@@ -31,9 +37,9 @@
 //
 //    >> breakpoint-min(sm, (xs: 0, sm: 576px, md: 768px, lg: 992px, xl: 1200px))
 //    576px
-@function breakpoint-min($name, $breakpoints: $grid-breakpoints) {
-    $min: map-get($breakpoints, $name);
-    @return if($min != 0, $min, null);
+@function breakpoint-min($name, $breakpoints: variables.$grid-breakpoints) {
+    $min: map.get($breakpoints, $name);
+    @return if(sass($min != 0): $min; else: null);
 }
 
 // Maximum breakpoint width. Null for the largest (last) breakpoint.
@@ -41,9 +47,11 @@
 //
 //    >> breakpoint-max(sm, (xs: 0, sm: 576px, md: 768px, lg: 992px, xl: 1200px))
 //    767px
-@function breakpoint-max($name, $breakpoints: $grid-breakpoints) {
+@function breakpoint-max($name, $breakpoints: variables.$grid-breakpoints) {
     $next: breakpoint-next($name, $breakpoints);
-    @return if($next, breakpoint-min($next, $breakpoints) - 1px, null);
+    @return if(
+        sass($next): breakpoint-min($next, $breakpoints) - 1px; else: null
+    );
 }
 
 // Returns a blank string if smallest breakpoint, otherwise returns the name with a dash infront.
@@ -53,8 +61,11 @@
 //    ""  (Returns a blank string)
 //    >> breakpoint-infix(sm, (xs: 0, sm: 576px, md: 768px, lg: 992px, xl: 1200px))
 //    "-sm"
-@function breakpoint-infix($name, $breakpoints: $grid-breakpoints) {
-    @return if(breakpoint-min($name, $breakpoints) == null, '', '-#{$name}');
+@function breakpoint-infix($name, $breakpoints: variables.$grid-breakpoints) {
+    @return if(
+        sass(breakpoint-min($name, $breakpoints) == null): '' ;
+            else: '-#{$name}'
+    );
 }
 
 @mixin media-orientation($orientation: false) {
@@ -72,7 +83,7 @@
 @mixin media-breakpoint-up(
     $name,
     $orientation: false,
-    $breakpoints: $grid-breakpoints
+    $breakpoints: variables.$grid-breakpoints
 ) {
     $min: breakpoint-min($name, $breakpoints);
     @include media-orientation($orientation) {
@@ -91,7 +102,7 @@
 @mixin media-breakpoint-down(
     $name,
     $orientation: false,
-    $breakpoints: $grid-breakpoints
+    $breakpoints: variables.$grid-breakpoints
 ) {
     $max: breakpoint-max($name, $breakpoints);
     @include media-orientation($orientation) {
@@ -111,7 +122,7 @@
     $lower,
     $upper,
     $orientation: false,
-    $breakpoints: $grid-breakpoints
+    $breakpoints: variables.$grid-breakpoints
 ) {
     @include media-orientation($orientation) {
         @include media-breakpoint-up($lower, $breakpoints) {
@@ -128,7 +139,7 @@
 @mixin media-breakpoint-only(
     $name,
     $orientation: false,
-    $breakpoints: $grid-breakpoints
+    $breakpoints: variables.$grid-breakpoints
 ) {
     @include media-orientation($orientation) {
         @include media-breakpoint-between($name, $name, $breakpoints) {

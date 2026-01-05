@@ -1,6 +1,8 @@
+@use '../core/variables';
+
 .mdl-textfield__label {
     font-size: 16px;
-    color: $label-default-light;
+    color: variables.$label-default-light;
     top: -4px;
     display: block;
     text-overflow: ellipsis;
@@ -10,7 +12,7 @@
     }
 
     &::after {
-        background-color: $primary-default-light;
+        background-color: variables.$primary-default-light;
     }
 }
 
@@ -21,7 +23,7 @@
     &.has-placeholder {
         .mdl-textfield__label {
             font-size: 16px;
-            color: $label-default-light;
+            color: variables.$label-default-light;
             visibility: visible;
         }
     }
@@ -36,14 +38,14 @@
 
     &.is-disabled {
         .mdl-textfield__label {
-            color: $label-disabled-light !important;
+            color: variables.$label-disabled-light !important;
         }
     }
 
     &.is-invalid {
         .mdl-textfield__label {
             &::after {
-                background-color: $error-default-light;
+                background-color: variables.$error-default-light;
             }
         }
     }
@@ -55,7 +57,7 @@
 .mdl-radio__label {
     display: inline-block;
     font-size: 16px;
-    color: $label-default-light;
+    color: variables.$label-default-light;
 
     &::first-letter {
         text-transform: capitalize;
@@ -88,7 +90,7 @@ label {
         .mdl-switch__label,
         .mdl-checkbox__label,
         .mdl-radio__label {
-            color: $label-disabled-light !important;
+            color: variables.$label-disabled-light !important;
         }
     }
 }

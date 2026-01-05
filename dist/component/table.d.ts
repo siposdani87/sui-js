@@ -20,7 +20,7 @@ export declare class Table<T extends Objekt = Objekt> {
     tbody: Knot;
     tfoot: Knot;
     pager: Pager;
-    constructor(dom: Knot, opt_selector?: string | undefined, opt_options?: Object | undefined);
+    constructor(dom: Knot, opt_selector?: string | undefined, opt_options?: object | undefined);
     private _setOptions;
     private _init;
     private _initContentHandler;

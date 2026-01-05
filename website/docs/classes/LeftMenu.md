@@ -18,7 +18,7 @@ custom_edit_url: null
 
 #### Defined in
 
-[module/leftMenu.ts:16](https://github.com/siposdani87/sui-js/blob/9aff0f0/src/module/leftMenu.ts#L16)
+[module/leftMenu.ts:16](https://github.com/siposdani87/sui-js/blob/fa20298/src/module/leftMenu.ts#L16)
 
 ## Properties
 
@@ -28,7 +28,7 @@ custom_edit_url: null
 
 #### Defined in
 
-[module/leftMenu.ts:6](https://github.com/siposdani87/sui-js/blob/9aff0f0/src/module/leftMenu.ts#L6)
+[module/leftMenu.ts:6](https://github.com/siposdani87/sui-js/blob/fa20298/src/module/leftMenu.ts#L6)
 
 ___
 
@@ -38,7 +38,7 @@ ___
 
 #### Defined in
 
-[module/leftMenu.ts:8](https://github.com/siposdani87/sui-js/blob/9aff0f0/src/module/leftMenu.ts#L8)
+[module/leftMenu.ts:8](https://github.com/siposdani87/sui-js/blob/fa20298/src/module/leftMenu.ts#L8)
 
 ___
 
@@ -48,7 +48,7 @@ ___
 
 #### Defined in
 
-[module/leftMenu.ts:7](https://github.com/siposdani87/sui-js/blob/9aff0f0/src/module/leftMenu.ts#L7)
+[module/leftMenu.ts:7](https://github.com/siposdani87/sui-js/blob/fa20298/src/module/leftMenu.ts#L7)
 
 ___
 
@@ -58,7 +58,7 @@ ___
 
 #### Defined in
 
-[module/leftMenu.ts:9](https://github.com/siposdani87/sui-js/blob/9aff0f0/src/module/leftMenu.ts#L9)
+[module/leftMenu.ts:9](https://github.com/siposdani87/sui-js/blob/fa20298/src/module/leftMenu.ts#L9)
 
 ___
 
@@ -68,7 +68,7 @@ ___
 
 #### Defined in
 
-[module/leftMenu.ts:11](https://github.com/siposdani87/sui-js/blob/9aff0f0/src/module/leftMenu.ts#L11)
+[module/leftMenu.ts:11](https://github.com/siposdani87/sui-js/blob/fa20298/src/module/leftMenu.ts#L11)
 
 ___
 
@@ -78,7 +78,7 @@ ___
 
 #### Defined in
 
-[module/leftMenu.ts:13](https://github.com/siposdani87/sui-js/blob/9aff0f0/src/module/leftMenu.ts#L13)
+[module/leftMenu.ts:13](https://github.com/siposdani87/sui-js/blob/fa20298/src/module/leftMenu.ts#L13)
 
 ___
 
@@ -88,7 +88,7 @@ ___
 
 #### Defined in
 
-[module/leftMenu.ts:10](https://github.com/siposdani87/sui-js/blob/9aff0f0/src/module/leftMenu.ts#L10)
+[module/leftMenu.ts:10](https://github.com/siposdani87/sui-js/blob/fa20298/src/module/leftMenu.ts#L10)
 
 ___
 
@@ -98,7 +98,7 @@ ___
 
 #### Defined in
 
-[module/leftMenu.ts:12](https://github.com/siposdani87/sui-js/blob/9aff0f0/src/module/leftMenu.ts#L12)
+[module/leftMenu.ts:12](https://github.com/siposdani87/sui-js/blob/fa20298/src/module/leftMenu.ts#L12)
 
 ___
 
@@ -108,37 +108,9 @@ ___
 
 #### Defined in
 
-[module/leftMenu.ts:14](https://github.com/siposdani87/sui-js/blob/9aff0f0/src/module/leftMenu.ts#L14)
+[module/leftMenu.ts:14](https://github.com/siposdani87/sui-js/blob/fa20298/src/module/leftMenu.ts#L14)
 
 ## Methods
-
-### \_init
-
-▸ **_init**(): `void`
-
-#### Returns
-
-`void`
-
-#### Defined in
-
-[module/leftMenu.ts:20](https://github.com/siposdani87/sui-js/blob/9aff0f0/src/module/leftMenu.ts#L20)
-
-___
-
-### \_initEvents
-
-▸ **_initEvents**(): `void`
-
-#### Returns
-
-`void`
-
-#### Defined in
-
-[module/leftMenu.ts:44](https://github.com/siposdani87/sui-js/blob/9aff0f0/src/module/leftMenu.ts#L44)
-
-___
 
 ### close
 
@@ -150,7 +122,7 @@ ___
 
 #### Defined in
 
-[module/leftMenu.ts:92](https://github.com/siposdani87/sui-js/blob/9aff0f0/src/module/leftMenu.ts#L92)
+[module/leftMenu.ts:92](https://github.com/siposdani87/sui-js/blob/fa20298/src/module/leftMenu.ts#L92)
 
 ___
 
@@ -164,7 +136,7 @@ ___
 
 #### Defined in
 
-[module/leftMenu.ts:104](https://github.com/siposdani87/sui-js/blob/9aff0f0/src/module/leftMenu.ts#L104)
+[module/leftMenu.ts:104](https://github.com/siposdani87/sui-js/blob/fa20298/src/module/leftMenu.ts#L104)
 
 ___
 
@@ -178,7 +150,7 @@ ___
 
 #### Defined in
 
-[module/leftMenu.ts:109](https://github.com/siposdani87/sui-js/blob/9aff0f0/src/module/leftMenu.ts#L109)
+[module/leftMenu.ts:109](https://github.com/siposdani87/sui-js/blob/fa20298/src/module/leftMenu.ts#L109)
 
 ___
 
@@ -192,7 +164,7 @@ ___
 
 #### Defined in
 
-[module/leftMenu.ts:113](https://github.com/siposdani87/sui-js/blob/9aff0f0/src/module/leftMenu.ts#L113)
+[module/leftMenu.ts:113](https://github.com/siposdani87/sui-js/blob/fa20298/src/module/leftMenu.ts#L113)
 
 ___
 
@@ -212,7 +184,7 @@ ___
 
 #### Defined in
 
-[module/leftMenu.ts:83](https://github.com/siposdani87/sui-js/blob/9aff0f0/src/module/leftMenu.ts#L83)
+[module/leftMenu.ts:83](https://github.com/siposdani87/sui-js/blob/fa20298/src/module/leftMenu.ts#L83)
 
 ___
 
@@ -232,4 +204,4 @@ ___
 
 #### Defined in
 
-[module/leftMenu.ts:98](https://github.com/siposdani87/sui-js/blob/9aff0f0/src/module/leftMenu.ts#L98)
+[module/leftMenu.ts:98](https://github.com/siposdani87/sui-js/blob/fa20298/src/module/leftMenu.ts#L98)

@@ -10,7 +10,7 @@ custom_edit_url: null
 
 | Name | Type |
 | :------ | :------ |
-| `T` | extends `Object` = `Object` |
+| `T` | extends `object` = `object` |
 
 ## Hierarchy
 
@@ -32,7 +32,7 @@ custom_edit_url: null
 
 | Name | Type |
 | :------ | :------ |
-| `T` | extends `Object` = `Object` |
+| `T` | extends `object` = `object` |
 
 #### Parameters
 
@@ -46,126 +46,13 @@ custom_edit_url: null
 
 #### Defined in
 
-[core/objekt.ts:20](https://github.com/siposdani87/sui-js/blob/9aff0f0/src/core/objekt.ts#L20)
+[core/objekt.ts:20](https://github.com/siposdani87/sui-js/blob/fa20298/src/core/objekt.ts#L20)
 
 ## Methods
 
-### \_attributesToObject
-
-▸ **_attributesToObject**(`object`, `attributes`, `value`): `Object`
-
-#### Parameters
-
-| Name | Type |
-| :------ | :------ |
-| `object` | `Object` |
-| `attributes` | `string`[] |
-| `value` | `any` |
-
-#### Returns
-
-`Object`
-
-#### Defined in
-
-[core/objekt.ts:179](https://github.com/siposdani87/sui-js/blob/9aff0f0/src/core/objekt.ts#L179)
-
-___
-
-### \_convertObject
-
-▸ **_convertObject**(`object`, `key`): `void`
-
-#### Parameters
-
-| Name | Type |
-| :------ | :------ |
-| `object` | `any` |
-| `key` | `string` |
-
-#### Returns
-
-`void`
-
-#### Defined in
-
-[core/objekt.ts:49](https://github.com/siposdani87/sui-js/blob/9aff0f0/src/core/objekt.ts#L49)
-
-___
-
-### \_getByAttributes
-
-▸ **_getByAttributes**\<`K`\>(`object`, `attributes`): `K`
-
-#### Type parameters
-
-| Name |
-| :------ |
-| `K` |
-
-#### Parameters
-
-| Name | Type |
-| :------ | :------ |
-| `object` | `Object` \| [`Objekt`](Objekt.md)\<`Object`\> |
-| `attributes` | `string`[] |
-
-#### Returns
-
-`K`
-
-#### Defined in
-
-[core/objekt.ts:69](https://github.com/siposdani87/sui-js/blob/9aff0f0/src/core/objekt.ts#L69)
-
-___
-
-### \_removeByAttributes
-
-▸ **_removeByAttributes**(`object`, `attributes`): `void`
-
-#### Parameters
-
-| Name | Type |
-| :------ | :------ |
-| `object` | `Object` \| [`Objekt`](Objekt.md)\<`Object`\> |
-| `attributes` | `string`[] |
-
-#### Returns
-
-`void`
-
-#### Defined in
-
-[core/objekt.ts:139](https://github.com/siposdani87/sui-js/blob/9aff0f0/src/core/objekt.ts#L139)
-
-___
-
-### \_setByAttributes
-
-▸ **_setByAttributes**(`object`, `attributes`, `value`): `void`
-
-#### Parameters
-
-| Name | Type |
-| :------ | :------ |
-| `object` | `Object` \| [`Objekt`](Objekt.md)\<`Object`\> |
-| `attributes` | `string`[] |
-| `value` | `any` |
-
-#### Returns
-
-`void`
-
-#### Defined in
-
-[core/objekt.ts:95](https://github.com/siposdani87/sui-js/blob/9aff0f0/src/core/objekt.ts#L95)
-
-___
-
 ### allowKeys
 
-▸ **allowKeys**(`keys`): [`Objekt`](Objekt.md)\<`Object`\>
+▸ **allowKeys**(`keys`): [`Objekt`](Objekt.md)\<`object`\>
 
 #### Parameters
 
@@ -175,11 +62,11 @@ ___
 
 #### Returns
 
-[`Objekt`](Objekt.md)\<`Object`\>
+[`Objekt`](Objekt.md)\<`object`\>
 
 #### Defined in
 
-[core/objekt.ts:206](https://github.com/siposdani87/sui-js/blob/9aff0f0/src/core/objekt.ts#L206)
+[core/objekt.ts:206](https://github.com/siposdani87/sui-js/blob/fa20298/src/core/objekt.ts#L206)
 
 ___
 
@@ -193,41 +80,41 @@ ___
 
 #### Defined in
 
-[core/objekt.ts:135](https://github.com/siposdani87/sui-js/blob/9aff0f0/src/core/objekt.ts#L135)
+[core/objekt.ts:135](https://github.com/siposdani87/sui-js/blob/fa20298/src/core/objekt.ts#L135)
 
 ___
 
 ### copy
 
-▸ **copy**(): [`Objekt`](Objekt.md)\<`Object`\>
+▸ **copy**(): [`Objekt`](Objekt.md)\<`object`\>
 
 #### Returns
 
-[`Objekt`](Objekt.md)\<`Object`\>
+[`Objekt`](Objekt.md)\<`object`\>
 
 #### Defined in
 
-[core/objekt.ts:193](https://github.com/siposdani87/sui-js/blob/9aff0f0/src/core/objekt.ts#L193)
+[core/objekt.ts:193](https://github.com/siposdani87/sui-js/blob/fa20298/src/core/objekt.ts#L193)
 
 ___
 
 ### copyObject
 
-▸ **copyObject**(): `Object`
+▸ **copyObject**(): `object`
 
 #### Returns
 
-`Object`
+`object`
 
 #### Defined in
 
-[core/objekt.ts:198](https://github.com/siposdani87/sui-js/blob/9aff0f0/src/core/objekt.ts#L198)
+[core/objekt.ts:198](https://github.com/siposdani87/sui-js/blob/fa20298/src/core/objekt.ts#L198)
 
 ___
 
 ### denyKeys
 
-▸ **denyKeys**(`keys`): [`Objekt`](Objekt.md)\<`Object`\>
+▸ **denyKeys**(`keys`): [`Objekt`](Objekt.md)\<`object`\>
 
 #### Parameters
 
@@ -237,11 +124,11 @@ ___
 
 #### Returns
 
-[`Objekt`](Objekt.md)\<`Object`\>
+[`Objekt`](Objekt.md)\<`object`\>
 
 #### Defined in
 
-[core/objekt.ts:212](https://github.com/siposdani87/sui-js/blob/9aff0f0/src/core/objekt.ts#L212)
+[core/objekt.ts:212](https://github.com/siposdani87/sui-js/blob/fa20298/src/core/objekt.ts#L212)
 
 ___
 
@@ -260,7 +147,7 @@ ___
 | Name | Type |
 | :------ | :------ |
 | `next` | (`value`: `K`, `key`: `string`) => `void` |
-| `opt_properties?` | `Object` |
+| `opt_properties?` | `object` |
 | `opt_attributes?` | `string`[] |
 
 #### Returns
@@ -269,28 +156,28 @@ ___
 
 #### Defined in
 
-[core/objekt.ts:160](https://github.com/siposdani87/sui-js/blob/9aff0f0/src/core/objekt.ts#L160)
+[core/objekt.ts:160](https://github.com/siposdani87/sui-js/blob/fa20298/src/core/objekt.ts#L160)
 
 ___
 
 ### filterKeys
 
-▸ **filterKeys**(`obj`, `condition`): [`Objekt`](Objekt.md)\<`Object`\>
+▸ **filterKeys**(`obj`, `condition`): [`Objekt`](Objekt.md)\<`object`\>
 
 #### Parameters
 
 | Name | Type |
 | :------ | :------ |
-| `obj` | [`Objekt`](Objekt.md)\<`Object`\> |
+| `obj` | [`Objekt`](Objekt.md)\<`object`\> |
 | `condition` | (`key`: `string`) => `boolean` |
 
 #### Returns
 
-[`Objekt`](Objekt.md)\<`Object`\>
+[`Objekt`](Objekt.md)\<`object`\>
 
 #### Defined in
 
-[core/objekt.ts:218](https://github.com/siposdani87/sui-js/blob/9aff0f0/src/core/objekt.ts#L218)
+[core/objekt.ts:218](https://github.com/siposdani87/sui-js/blob/fa20298/src/core/objekt.ts#L218)
 
 ___
 
@@ -318,7 +205,7 @@ ___
 
 #### Defined in
 
-[core/objekt.ts:55](https://github.com/siposdani87/sui-js/blob/9aff0f0/src/core/objekt.ts#L55)
+[core/objekt.ts:55](https://github.com/siposdani87/sui-js/blob/fa20298/src/core/objekt.ts#L55)
 
 ___
 
@@ -332,13 +219,13 @@ ___
 
 #### Defined in
 
-[core/objekt.ts:202](https://github.com/siposdani87/sui-js/blob/9aff0f0/src/core/objekt.ts#L202)
+[core/objekt.ts:202](https://github.com/siposdani87/sui-js/blob/fa20298/src/core/objekt.ts#L202)
 
 ___
 
 ### merge
 
-▸ **merge**(`object`): [`Objekt`](Objekt.md)\<`Object`\>
+▸ **merge**(`object`): [`Objekt`](Objekt.md)\<`object`\>
 
 #### Parameters
 
@@ -348,11 +235,11 @@ ___
 
 #### Returns
 
-[`Objekt`](Objekt.md)\<`Object`\>
+[`Objekt`](Objekt.md)\<`object`\>
 
 #### Defined in
 
-[core/objekt.ts:25](https://github.com/siposdani87/sui-js/blob/9aff0f0/src/core/objekt.ts#L25)
+[core/objekt.ts:25](https://github.com/siposdani87/sui-js/blob/fa20298/src/core/objekt.ts#L25)
 
 ___
 
@@ -372,7 +259,7 @@ ___
 
 #### Defined in
 
-[core/objekt.ts:130](https://github.com/siposdani87/sui-js/blob/9aff0f0/src/core/objekt.ts#L130)
+[core/objekt.ts:130](https://github.com/siposdani87/sui-js/blob/fa20298/src/core/objekt.ts#L130)
 
 ___
 
@@ -399,7 +286,7 @@ ___
 
 #### Defined in
 
-[core/objekt.ts:114](https://github.com/siposdani87/sui-js/blob/9aff0f0/src/core/objekt.ts#L114)
+[core/objekt.ts:114](https://github.com/siposdani87/sui-js/blob/fa20298/src/core/objekt.ts#L114)
 
 ___
 
@@ -427,4 +314,4 @@ ___
 
 #### Defined in
 
-[core/objekt.ts:120](https://github.com/siposdani87/sui-js/blob/9aff0f0/src/core/objekt.ts#L120)
+[core/objekt.ts:120](https://github.com/siposdani87/sui-js/blob/fa20298/src/core/objekt.ts#L120)

@@ -38,7 +38,7 @@ custom_edit_url: null
 
 #### Defined in
 
-[field/radiobuttonField.ts:12](https://github.com/siposdani87/sui-js/blob/9aff0f0/src/field/radiobuttonField.ts#L12)
+[field/radiobuttonField.ts:12](https://github.com/siposdani87/sui-js/blob/fa20298/src/field/radiobuttonField.ts#L12)
 
 ## Properties
 
@@ -52,7 +52,7 @@ custom_edit_url: null
 
 #### Defined in
 
-[field/baseField.ts:16](https://github.com/siposdani87/sui-js/blob/9aff0f0/src/field/baseField.ts#L16)
+[field/baseField.ts:16](https://github.com/siposdani87/sui-js/blob/fa20298/src/field/baseField.ts#L16)
 
 ___
 
@@ -62,7 +62,7 @@ ___
 
 #### Defined in
 
-[field/radiobuttonField.ts:9](https://github.com/siposdani87/sui-js/blob/9aff0f0/src/field/radiobuttonField.ts#L9)
+[field/radiobuttonField.ts:9](https://github.com/siposdani87/sui-js/blob/fa20298/src/field/radiobuttonField.ts#L9)
 
 ___
 
@@ -76,7 +76,7 @@ ___
 
 #### Defined in
 
-[field/baseField.ts:17](https://github.com/siposdani87/sui-js/blob/9aff0f0/src/field/baseField.ts#L17)
+[field/baseField.ts:17](https://github.com/siposdani87/sui-js/blob/fa20298/src/field/baseField.ts#L17)
 
 ___
 
@@ -90,7 +90,7 @@ ___
 
 #### Defined in
 
-[field/baseField.ts:11](https://github.com/siposdani87/sui-js/blob/9aff0f0/src/field/baseField.ts#L11)
+[field/baseField.ts:11](https://github.com/siposdani87/sui-js/blob/fa20298/src/field/baseField.ts#L11)
 
 ___
 
@@ -104,7 +104,7 @@ ___
 
 #### Defined in
 
-[field/baseField.ts:14](https://github.com/siposdani87/sui-js/blob/9aff0f0/src/field/baseField.ts#L14)
+[field/baseField.ts:14](https://github.com/siposdani87/sui-js/blob/fa20298/src/field/baseField.ts#L14)
 
 ___
 
@@ -118,7 +118,7 @@ ___
 
 #### Defined in
 
-[field/baseField.ts:13](https://github.com/siposdani87/sui-js/blob/9aff0f0/src/field/baseField.ts#L13)
+[field/baseField.ts:13](https://github.com/siposdani87/sui-js/blob/fa20298/src/field/baseField.ts#L13)
 
 ___
 
@@ -132,7 +132,7 @@ ___
 
 #### Defined in
 
-[field/baseField.ts:15](https://github.com/siposdani87/sui-js/blob/9aff0f0/src/field/baseField.ts#L15)
+[field/baseField.ts:15](https://github.com/siposdani87/sui-js/blob/fa20298/src/field/baseField.ts#L15)
 
 ___
 
@@ -146,7 +146,7 @@ ___
 
 #### Defined in
 
-[field/baseField.ts:9](https://github.com/siposdani87/sui-js/blob/9aff0f0/src/field/baseField.ts#L9)
+[field/baseField.ts:9](https://github.com/siposdani87/sui-js/blob/fa20298/src/field/baseField.ts#L9)
 
 ___
 
@@ -160,7 +160,7 @@ ___
 
 #### Defined in
 
-[field/baseField.ts:12](https://github.com/siposdani87/sui-js/blob/9aff0f0/src/field/baseField.ts#L12)
+[field/baseField.ts:12](https://github.com/siposdani87/sui-js/blob/fa20298/src/field/baseField.ts#L12)
 
 ___
 
@@ -174,7 +174,7 @@ ___
 
 #### Defined in
 
-[field/baseField.ts:10](https://github.com/siposdani87/sui-js/blob/9aff0f0/src/field/baseField.ts#L10)
+[field/baseField.ts:10](https://github.com/siposdani87/sui-js/blob/fa20298/src/field/baseField.ts#L10)
 
 ___
 
@@ -184,23 +184,9 @@ ___
 
 #### Defined in
 
-[field/radiobuttonField.ts:10](https://github.com/siposdani87/sui-js/blob/9aff0f0/src/field/radiobuttonField.ts#L10)
+[field/radiobuttonField.ts:10](https://github.com/siposdani87/sui-js/blob/fa20298/src/field/radiobuttonField.ts#L10)
 
 ## Methods
-
-### \_change
-
-▸ **_change**(): `void`
-
-#### Returns
-
-`void`
-
-#### Defined in
-
-[field/radiobuttonField.ts:35](https://github.com/siposdani87/sui-js/blob/9aff0f0/src/field/radiobuttonField.ts#L35)
-
-___
 
 ### \_getAttributeName
 
@@ -222,7 +208,7 @@ ___
 
 #### Defined in
 
-[field/baseField.ts:77](https://github.com/siposdani87/sui-js/blob/9aff0f0/src/field/baseField.ts#L77)
+[field/baseField.ts:77](https://github.com/siposdani87/sui-js/blob/fa20298/src/field/baseField.ts#L77)
 
 ___
 
@@ -246,35 +232,7 @@ ___
 
 #### Defined in
 
-[field/baseField.ts:282](https://github.com/siposdani87/sui-js/blob/9aff0f0/src/field/baseField.ts#L282)
-
-___
-
-### \_getRadioButtonInputs
-
-▸ **_getRadioButtonInputs**(): [`Query`](Query.md)\<`HTMLInputElement`\>
-
-#### Returns
-
-[`Query`](Query.md)\<`HTMLInputElement`\>
-
-#### Defined in
-
-[field/radiobuttonField.ts:154](https://github.com/siposdani87/sui-js/blob/9aff0f0/src/field/radiobuttonField.ts#L154)
-
-___
-
-### \_init
-
-▸ **_init**(): `void`
-
-#### Returns
-
-`void`
-
-#### Defined in
-
-[field/radiobuttonField.ts:23](https://github.com/siposdani87/sui-js/blob/9aff0f0/src/field/radiobuttonField.ts#L23)
+[field/baseField.ts:282](https://github.com/siposdani87/sui-js/blob/fa20298/src/field/baseField.ts#L282)
 
 ___
 
@@ -298,7 +256,7 @@ ___
 
 #### Defined in
 
-[field/baseField.ts:274](https://github.com/siposdani87/sui-js/blob/9aff0f0/src/field/baseField.ts#L274)
+[field/baseField.ts:274](https://github.com/siposdani87/sui-js/blob/fa20298/src/field/baseField.ts#L274)
 
 ___
 
@@ -323,7 +281,7 @@ ___
 
 #### Defined in
 
-[field/baseField.ts:100](https://github.com/siposdani87/sui-js/blob/9aff0f0/src/field/baseField.ts#L100)
+[field/baseField.ts:100](https://github.com/siposdani87/sui-js/blob/fa20298/src/field/baseField.ts#L100)
 
 ___
 
@@ -348,7 +306,7 @@ ___
 
 #### Defined in
 
-[field/baseField.ts:42](https://github.com/siposdani87/sui-js/blob/9aff0f0/src/field/baseField.ts#L42)
+[field/baseField.ts:42](https://github.com/siposdani87/sui-js/blob/fa20298/src/field/baseField.ts#L42)
 
 ___
 
@@ -372,7 +330,7 @@ ___
 
 #### Defined in
 
-[field/baseField.ts:46](https://github.com/siposdani87/sui-js/blob/9aff0f0/src/field/baseField.ts#L46)
+[field/baseField.ts:46](https://github.com/siposdani87/sui-js/blob/fa20298/src/field/baseField.ts#L46)
 
 ___
 
@@ -390,7 +348,7 @@ ___
 
 #### Defined in
 
-[field/baseField.ts:143](https://github.com/siposdani87/sui-js/blob/9aff0f0/src/field/baseField.ts#L143)
+[field/baseField.ts:143](https://github.com/siposdani87/sui-js/blob/fa20298/src/field/baseField.ts#L143)
 
 ___
 
@@ -408,7 +366,7 @@ ___
 
 #### Defined in
 
-[field/baseField.ts:147](https://github.com/siposdani87/sui-js/blob/9aff0f0/src/field/baseField.ts#L147)
+[field/baseField.ts:147](https://github.com/siposdani87/sui-js/blob/fa20298/src/field/baseField.ts#L147)
 
 ___
 
@@ -426,7 +384,7 @@ ___
 
 #### Defined in
 
-[field/baseField.ts:151](https://github.com/siposdani87/sui-js/blob/9aff0f0/src/field/baseField.ts#L151)
+[field/baseField.ts:151](https://github.com/siposdani87/sui-js/blob/fa20298/src/field/baseField.ts#L151)
 
 ___
 
@@ -450,7 +408,7 @@ ___
 
 #### Defined in
 
-[field/baseField.ts:155](https://github.com/siposdani87/sui-js/blob/9aff0f0/src/field/baseField.ts#L155)
+[field/baseField.ts:155](https://github.com/siposdani87/sui-js/blob/fa20298/src/field/baseField.ts#L155)
 
 ___
 
@@ -468,7 +426,7 @@ ___
 
 #### Defined in
 
-[field/baseField.ts:67](https://github.com/siposdani87/sui-js/blob/9aff0f0/src/field/baseField.ts#L67)
+[field/baseField.ts:67](https://github.com/siposdani87/sui-js/blob/fa20298/src/field/baseField.ts#L67)
 
 ___
 
@@ -486,7 +444,7 @@ ___
 
 #### Defined in
 
-[field/baseField.ts:62](https://github.com/siposdani87/sui-js/blob/9aff0f0/src/field/baseField.ts#L62)
+[field/baseField.ts:62](https://github.com/siposdani87/sui-js/blob/fa20298/src/field/baseField.ts#L62)
 
 ___
 
@@ -504,7 +462,7 @@ ___
 
 #### Defined in
 
-[field/radiobuttonField.ts:111](https://github.com/siposdani87/sui-js/blob/9aff0f0/src/field/radiobuttonField.ts#L111)
+[field/radiobuttonField.ts:111](https://github.com/siposdani87/sui-js/blob/fa20298/src/field/radiobuttonField.ts#L111)
 
 ___
 
@@ -522,7 +480,7 @@ ___
 
 #### Defined in
 
-[field/baseField.ts:210](https://github.com/siposdani87/sui-js/blob/9aff0f0/src/field/baseField.ts#L210)
+[field/baseField.ts:210](https://github.com/siposdani87/sui-js/blob/fa20298/src/field/baseField.ts#L210)
 
 ___
 
@@ -540,7 +498,7 @@ ___
 
 #### Defined in
 
-[field/radiobuttonField.ts:144](https://github.com/siposdani87/sui-js/blob/9aff0f0/src/field/radiobuttonField.ts#L144)
+[field/radiobuttonField.ts:144](https://github.com/siposdani87/sui-js/blob/fa20298/src/field/radiobuttonField.ts#L144)
 
 ___
 
@@ -558,7 +516,7 @@ ___
 
 #### Defined in
 
-[field/baseField.ts:174](https://github.com/siposdani87/sui-js/blob/9aff0f0/src/field/baseField.ts#L174)
+[field/baseField.ts:174](https://github.com/siposdani87/sui-js/blob/fa20298/src/field/baseField.ts#L174)
 
 ___
 
@@ -576,7 +534,7 @@ ___
 
 #### Defined in
 
-[field/baseField.ts:159](https://github.com/siposdani87/sui-js/blob/9aff0f0/src/field/baseField.ts#L159)
+[field/baseField.ts:159](https://github.com/siposdani87/sui-js/blob/fa20298/src/field/baseField.ts#L159)
 
 ___
 
@@ -594,7 +552,7 @@ ___
 
 #### Defined in
 
-[field/baseField.ts:129](https://github.com/siposdani87/sui-js/blob/9aff0f0/src/field/baseField.ts#L129)
+[field/baseField.ts:129](https://github.com/siposdani87/sui-js/blob/fa20298/src/field/baseField.ts#L129)
 
 ___
 
@@ -612,7 +570,7 @@ ___
 
 #### Defined in
 
-[field/baseField.ts:123](https://github.com/siposdani87/sui-js/blob/9aff0f0/src/field/baseField.ts#L123)
+[field/baseField.ts:123](https://github.com/siposdani87/sui-js/blob/fa20298/src/field/baseField.ts#L123)
 
 ___
 
@@ -630,7 +588,7 @@ ___
 
 #### Defined in
 
-[field/baseField.ts:192](https://github.com/siposdani87/sui-js/blob/9aff0f0/src/field/baseField.ts#L192)
+[field/baseField.ts:192](https://github.com/siposdani87/sui-js/blob/fa20298/src/field/baseField.ts#L192)
 
 ___
 
@@ -654,7 +612,7 @@ ___
 
 #### Defined in
 
-[field/baseField.ts:58](https://github.com/siposdani87/sui-js/blob/9aff0f0/src/field/baseField.ts#L58)
+[field/baseField.ts:58](https://github.com/siposdani87/sui-js/blob/fa20298/src/field/baseField.ts#L58)
 
 ___
 
@@ -672,7 +630,7 @@ ___
 
 #### Defined in
 
-[field/radiobuttonField.ts:79](https://github.com/siposdani87/sui-js/blob/9aff0f0/src/field/radiobuttonField.ts#L79)
+[field/radiobuttonField.ts:79](https://github.com/siposdani87/sui-js/blob/fa20298/src/field/radiobuttonField.ts#L79)
 
 ___
 
@@ -690,7 +648,7 @@ ___
 
 #### Defined in
 
-[field/radiobuttonField.ts:52](https://github.com/siposdani87/sui-js/blob/9aff0f0/src/field/radiobuttonField.ts#L52)
+[field/radiobuttonField.ts:52](https://github.com/siposdani87/sui-js/blob/fa20298/src/field/radiobuttonField.ts#L52)
 
 ___
 
@@ -714,7 +672,7 @@ ___
 
 #### Defined in
 
-[field/radiobuttonField.ts:122](https://github.com/siposdani87/sui-js/blob/9aff0f0/src/field/radiobuttonField.ts#L122)
+[field/radiobuttonField.ts:122](https://github.com/siposdani87/sui-js/blob/fa20298/src/field/radiobuttonField.ts#L122)
 
 ___
 
@@ -739,7 +697,7 @@ ___
 
 #### Defined in
 
-[field/baseField.ts:87](https://github.com/siposdani87/sui-js/blob/9aff0f0/src/field/baseField.ts#L87)
+[field/baseField.ts:87](https://github.com/siposdani87/sui-js/blob/fa20298/src/field/baseField.ts#L87)
 
 ___
 
@@ -763,7 +721,7 @@ ___
 
 #### Defined in
 
-[field/radiobuttonField.ts:162](https://github.com/siposdani87/sui-js/blob/9aff0f0/src/field/radiobuttonField.ts#L162)
+[field/radiobuttonField.ts:162](https://github.com/siposdani87/sui-js/blob/fa20298/src/field/radiobuttonField.ts#L162)
 
 ___
 
@@ -787,7 +745,7 @@ ___
 
 #### Defined in
 
-[field/baseField.ts:163](https://github.com/siposdani87/sui-js/blob/9aff0f0/src/field/baseField.ts#L163)
+[field/baseField.ts:163](https://github.com/siposdani87/sui-js/blob/fa20298/src/field/baseField.ts#L163)
 
 ___
 
@@ -799,7 +757,7 @@ ___
 
 | Name | Type |
 | :------ | :------ |
-| `value` | `string` \| `number` \| `boolean` \| `Object` \| `Function` \| `any`[] |
+| `value` | `string` \| `number` \| `boolean` \| `object` \| `Function` \| `any`[] |
 
 #### Returns
 
@@ -811,7 +769,7 @@ ___
 
 #### Defined in
 
-[field/radiobuttonField.ts:94](https://github.com/siposdani87/sui-js/blob/9aff0f0/src/field/radiobuttonField.ts#L94)
+[field/radiobuttonField.ts:94](https://github.com/siposdani87/sui-js/blob/fa20298/src/field/radiobuttonField.ts#L94)
 
 ___
 
@@ -835,7 +793,7 @@ ___
 
 #### Defined in
 
-[field/baseField.ts:196](https://github.com/siposdani87/sui-js/blob/9aff0f0/src/field/baseField.ts#L196)
+[field/baseField.ts:196](https://github.com/siposdani87/sui-js/blob/fa20298/src/field/baseField.ts#L196)
 
 ___
 
@@ -853,4 +811,4 @@ ___
 
 #### Defined in
 
-[field/baseField.ts:204](https://github.com/siposdani87/sui-js/blob/9aff0f0/src/field/baseField.ts#L204)
+[field/baseField.ts:204](https://github.com/siposdani87/sui-js/blob/fa20298/src/field/baseField.ts#L204)

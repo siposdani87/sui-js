@@ -50,7 +50,7 @@ export class Knot<T extends HTMLElement = HTMLElement> {
         }
     }
 
-    merge(properties: Object): void {
+    merge(properties: object): void {
         eachObject(properties, (value, attribute) => {
             this.set(attribute, value);
         });
@@ -136,7 +136,7 @@ export class Knot<T extends HTMLElement = HTMLElement> {
         attribute: string,
         opt_value?:
             | (
-                  | Object
+                  | object
                   | Function
                   | Array<any>
                   | boolean
@@ -419,7 +419,7 @@ export class Knot<T extends HTMLElement = HTMLElement> {
         return this.node.style;
     }
 
-    setStyle(properties: Object): void {
+    setStyle(properties: object): void {
         eachObject(properties, (value, propertyName) => {
             this.node.style.setProperty(propertyName, value, '');
         });

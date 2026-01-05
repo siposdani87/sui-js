@@ -9,7 +9,7 @@ export class Depot {
 
     constructor(
         type: 'LOCAL' | 'SESSION',
-        opt_options: Object | undefined = {},
+        opt_options: object | undefined = {},
     ) {
         this.type = type;
 
@@ -17,7 +17,7 @@ export class Depot {
         this._init();
     }
 
-    private _setOptions(opt_options: Object | undefined = {}): void {
+    private _setOptions(opt_options: object | undefined = {}): void {
         this.options = new Objekt({
             prefix: 'app',
             secret: 'secret',

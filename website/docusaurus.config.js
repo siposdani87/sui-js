@@ -6,7 +6,7 @@ const prism = require('prism-react-renderer');
 /** @type {import('@docusaurus/types').Config} */
 const config = {
   title: 'SUI-JS',
-  tagline: 'Micro Frontend Framework',
+  tagline: 'Lightweight Frontend Framework in TypeScript',
   url: 'https://sui-js.siposdani87.com',
   baseUrl: '/',
   onBrokenLinks: 'warn',
@@ -33,6 +33,10 @@ const config = {
         entryPoints: ['../src/index.ts'],
         tsconfig: '../tsconfig.json',
         out: '.',
+        readme: 'none',
+        excludePrivate: true,
+        excludeProtected: false,
+        excludeExternals: true,
       },
     ],
   ],
@@ -56,6 +60,12 @@ const config = {
         theme: {
           customCss: require.resolve('./src/css/custom.css'),
         },
+        sitemap: {
+          changefreq: 'weekly',
+          priority: 0.5,
+          ignorePatterns: ['/tags/**', '/blog/tags/**'],
+          filename: 'sitemap.xml',
+        },
       }),
     ],
   ],
@@ -63,6 +73,18 @@ const config = {
   themeConfig:
     /** @type {import('@docusaurus/preset-classic').ThemeConfig} */
     ({
+      // AI-friendly metadata
+      metadata: [
+        {name: 'keywords', content: 'typescript, framework, frontend, ui, components, material-design, web-framework, spa, single-page-application'},
+        {name: 'description', content: 'SUI-JS is a lightweight frontend framework written in TypeScript with 60+ UI components, Material Design styling, and comprehensive API'},
+        {name: 'og:type', content: 'website'},
+        {name: 'og:image', content: 'https://sui-js.siposdani87.com/img/sui-js-og.png'},
+        {name: 'og:description', content: 'Lightweight frontend framework in TypeScript with Material Design components'},
+        {name: 'twitter:card', content: 'summary_large_image'},
+        {name: 'twitter:creator', content: '@siposdani87'},
+        {name: 'robots', content: 'index, follow'},
+        {name: 'author', content: 'Dániel Sipos'},
+      ],
       navbar: {
         title: 'SUI-JS',
         logo: {
@@ -91,7 +113,7 @@ const config = {
             title: 'Docs',
             items: [
               {
-                label: 'Readme',
+                label: 'ReadMe',
                 to: '/docs',
               },
             ],
@@ -100,8 +122,8 @@ const config = {
             title: 'Community',
             items: [
               {
-                label: 'Twitter',
-                href: 'https://twitter.com/siposdani87',
+                label: 'x.com/siposdani87',
+                href: 'https://x.com/siposdani87',
               },
             ],
           },

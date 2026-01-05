@@ -16,7 +16,7 @@ export declare class CardCollection {
     pagerKnot: Knot;
     cardTemplate: Knot<HTMLTemplateElement>;
     template: string;
-    constructor(dom: Knot, opt_selector?: string | undefined, opt_ctrl?: (object | null) | undefined, opt_options?: Object | undefined);
+    constructor(dom: Knot, opt_selector?: string | undefined, opt_ctrl?: (object | null) | undefined, opt_options?: object | undefined);
     private _setOptions;
     private _init;
     private _initContentHandler;

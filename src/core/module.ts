@@ -29,7 +29,7 @@ export class Module {
         this._injections = injections;
     }
 
-    getController(): Object {
+    getController(): object {
         return this._controller;
     }
 
@@ -45,7 +45,7 @@ export class Module {
         return name;
     }
 
-    private _resolveDependencies(dependency: Dependency): Object {
+    private _resolveDependencies(dependency: Dependency): object {
         const moduleArgs = [];
         each(dependency.moduleInjections, (injection) => {
             moduleArgs.push(this._instances[injection] || injection);
@@ -164,7 +164,7 @@ export class Module {
         );
     }
 
-    handleRoutes(routes: Route[], options: Object): void {
+    handleRoutes(routes: Route[], options: object): void {
         this._instances.state = new State(routes, options);
         this._instances.state.eventChange = (
             currentState,

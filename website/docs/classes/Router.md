@@ -24,7 +24,7 @@ custom_edit_url: null
 
 #### Defined in
 
-[core/router.ts:16](https://github.com/siposdani87/sui-js/blob/9aff0f0/src/core/router.ts#L16)
+[core/router.ts:16](https://github.com/siposdani87/sui-js/blob/fa20298/src/core/router.ts#L16)
 
 ## Properties
 
@@ -34,7 +34,7 @@ custom_edit_url: null
 
 #### Defined in
 
-[core/router.ts:12](https://github.com/siposdani87/sui-js/blob/9aff0f0/src/core/router.ts#L12)
+[core/router.ts:12](https://github.com/siposdani87/sui-js/blob/fa20298/src/core/router.ts#L12)
 
 ___
 
@@ -44,7 +44,7 @@ ___
 
 #### Defined in
 
-[core/router.ts:11](https://github.com/siposdani87/sui-js/blob/9aff0f0/src/core/router.ts#L11)
+[core/router.ts:11](https://github.com/siposdani87/sui-js/blob/fa20298/src/core/router.ts#L11)
 
 ___
 
@@ -54,7 +54,7 @@ ___
 
 #### Defined in
 
-[core/router.ts:13](https://github.com/siposdani87/sui-js/blob/9aff0f0/src/core/router.ts#L13)
+[core/router.ts:13](https://github.com/siposdani87/sui-js/blob/fa20298/src/core/router.ts#L13)
 
 ___
 
@@ -64,7 +64,7 @@ ___
 
 #### Defined in
 
-[core/router.ts:14](https://github.com/siposdani87/sui-js/blob/9aff0f0/src/core/router.ts#L14)
+[core/router.ts:14](https://github.com/siposdani87/sui-js/blob/fa20298/src/core/router.ts#L14)
 
 ___
 
@@ -74,43 +74,9 @@ ___
 
 #### Defined in
 
-[core/router.ts:10](https://github.com/siposdani87/sui-js/blob/9aff0f0/src/core/router.ts#L10)
+[core/router.ts:10](https://github.com/siposdani87/sui-js/blob/fa20298/src/core/router.ts#L10)
 
 ## Methods
-
-### \_init
-
-▸ **_init**(): `void`
-
-#### Returns
-
-`void`
-
-#### Defined in
-
-[core/router.ts:24](https://github.com/siposdani87/sui-js/blob/9aff0f0/src/core/router.ts#L24)
-
-___
-
-### \_parseParams
-
-▸ **_parseParams**(`url`): [`Params`](../modules.md#params)
-
-#### Parameters
-
-| Name | Type |
-| :------ | :------ |
-| `url` | `string` |
-
-#### Returns
-
-[`Params`](../modules.md#params)
-
-#### Defined in
-
-[core/router.ts:78](https://github.com/siposdani87/sui-js/blob/9aff0f0/src/core/router.ts#L78)
-
-___
 
 ### getMatches
 
@@ -128,13 +94,13 @@ ___
 
 #### Defined in
 
-[core/router.ts:57](https://github.com/siposdani87/sui-js/blob/9aff0f0/src/core/router.ts#L57)
+[core/router.ts:57](https://github.com/siposdani87/sui-js/blob/fa20298/src/core/router.ts#L57)
 
 ___
 
 ### parse
 
-▸ **parse**(`url`): `Object`
+▸ **parse**(`url`): `object`
 
 #### Parameters
 
@@ -144,11 +110,11 @@ ___
 
 #### Returns
 
-`Object`
+`object`
 
 #### Defined in
 
-[core/router.ts:65](https://github.com/siposdani87/sui-js/blob/9aff0f0/src/core/router.ts#L65)
+[core/router.ts:65](https://github.com/siposdani87/sui-js/blob/fa20298/src/core/router.ts#L65)
 
 ___
 
@@ -160,7 +126,7 @@ ___
 
 | Name | Type |
 | :------ | :------ |
-| `opt_params` | `Object` |
+| `opt_params` | `object` |
 
 #### Returns
 
@@ -168,4 +134,4 @@ ___
 
 #### Defined in
 
-[core/router.ts:35](https://github.com/siposdani87/sui-js/blob/9aff0f0/src/core/router.ts#L35)
+[core/router.ts:35](https://github.com/siposdani87/sui-js/blob/fa20298/src/core/router.ts#L35)

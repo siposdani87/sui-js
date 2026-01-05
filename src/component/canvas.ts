@@ -62,7 +62,7 @@ export class Canvas {
         radius: number,
         sides: number,
         rotateAngle: number,
-        options: Object,
+        options: object,
     ): void {
         if (sides < 3) {
             return;
@@ -94,7 +94,7 @@ export class Canvas {
         width: number,
         height: number,
         rotateAngle: number,
-        options: Object,
+        options: object,
     ): void {
         this.context.save();
         this.context.translate(x, y);

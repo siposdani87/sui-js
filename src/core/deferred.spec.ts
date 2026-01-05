@@ -17,7 +17,7 @@ describe('deferred', () => {
 
     it('ajaxResolve', () => {
         const ajaxResolve = () => {
-            const deferred = new Deferred();
+            const deferred = new Deferred<number, number>();
             window.setTimeout(() => {
                 deferred.resolve(1);
             }, 100);
@@ -36,7 +36,7 @@ describe('deferred', () => {
 
     it('funcResolve', () => {
         const funcResolve = () => {
-            const deferred = new Deferred();
+            const deferred = new Deferred<number, number>();
             deferred.resolve(2);
             return deferred.promise();
         };
@@ -53,7 +53,7 @@ describe('deferred', () => {
 
     it('ajaxReject', () => {
         const ajaxReject = () => {
-            const deferred = new Deferred();
+            const deferred = new Deferred<number, number>();
             window.setTimeout(() => {
                 deferred.reject(1);
             }, 100);
@@ -72,7 +72,7 @@ describe('deferred', () => {
 
     it('funcReject', () => {
         const funcReject = () => {
-            const deferred = new Deferred();
+            const deferred = new Deferred<number, number>();
             deferred.reject(2);
             return deferred.promise();
         };

@@ -1,3 +1,5 @@
+@use '../core/colors';
+
 .tab-panel {
     display: flex;
     flex-flow: column nowrap;
@@ -10,33 +12,33 @@
         a {
             flex: 0 1 100%;
             display: flex;
-            border-bottom: 4px solid $light-grey;
+            border-bottom: 4px solid colors.$light-grey;
             align-items: center;
             justify-content: center;
             text-align: center;
-            background-color: $light-grey;
+            background-color: colors.$light-grey;
             padding: 5px 10px 1px;
             text-decoration: none;
-            color: $black;
+            color: colors.$black;
             text-transform: uppercase;
 
             &:hover {
-                color: $primary-dark;
+                color: colors.$primary-dark;
             }
 
             &.active {
-                border-bottom-color: $accent;
-                color: $primary-dark;
+                border-bottom-color: colors.$accent;
+                color: colors.$primary-dark;
                 z-index: 1;
                 font-weight: 500;
             }
 
             &:not(.active) {
-                border-bottom-color: $light-grey;
+                border-bottom-color: colors.$light-grey;
             }
 
             &.disabled {
-                color: $light-grey;
+                color: colors.$light-grey;
             }
         }
     }

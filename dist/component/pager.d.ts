@@ -8,7 +8,7 @@ export declare class Pager {
     pageNum: number;
     page: number;
     offset: number;
-    constructor(dom: Knot, opt_selectors?: string[] | undefined, opt_options?: Object | undefined);
+    constructor(dom: Knot, opt_selectors?: string[] | undefined, opt_options?: object | undefined);
     private _setOptions;
     private _init;
     private _drawPager;

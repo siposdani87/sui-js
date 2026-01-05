@@ -1,10 +1,12 @@
+@use '../core/variables';
+
 .location-field {
     .search-button,
     .advanced-button {
-        color: $primary-default-light;
+        color: variables.$primary-default-light;
 
         &.active {
-            color: $accent-default-light;
+            color: variables.$accent-default-light;
         }
     }
 
@@ -14,7 +16,7 @@
     }
 
     .map-lock {
-        background-color: rgba($input-disabled-light, 0.9);
+        background-color: rgba(variables.$input-disabled-light, 0.9);
         position: absolute;
         bottom: 20px;
         width: 100%;
@@ -23,7 +25,7 @@
 
     .map {
         margin-top: 20px;
-        border: 1px solid $input-default-light;
+        border: 1px solid variables.$input-default-light;
         border-radius: 3px;
         min-height: 200px;
         height: 200px;
@@ -42,12 +44,12 @@
 
     &.is-disabled {
         label {
-            color: $label-disabled-light;
+            color: variables.$label-disabled-light;
         }
 
         .search-button,
         .advanced-button {
-            color: $primary-disabled-light;
+            color: variables.$primary-disabled-light;
         }
     }
 }

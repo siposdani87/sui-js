@@ -10,7 +10,7 @@ export declare class Dropdown {
     item: Objekt;
     buttonKnot: Knot;
     menuKnot: Knot;
-    constructor(element: Knot, opt_options?: Object | undefined);
+    constructor(element: Knot, opt_options?: object | undefined);
     private _setOptions;
     private _init;
     private _appendButton;

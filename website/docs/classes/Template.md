@@ -17,7 +17,7 @@ custom_edit_url: null
 | Name | Type |
 | :------ | :------ |
 | `http` | [`Http`](Http.md) |
-| `opt_options` | `Object` |
+| `opt_options` | `object` |
 
 #### Returns
 
@@ -25,7 +25,7 @@ custom_edit_url: null
 
 #### Defined in
 
-[module/template.ts:14](https://github.com/siposdani87/sui-js/blob/9aff0f0/src/module/template.ts#L14)
+[module/template.ts:14](https://github.com/siposdani87/sui-js/blob/fa20298/src/module/template.ts#L14)
 
 ## Properties
 
@@ -35,7 +35,7 @@ custom_edit_url: null
 
 #### Defined in
 
-[module/template.ts:10](https://github.com/siposdani87/sui-js/blob/9aff0f0/src/module/template.ts#L10)
+[module/template.ts:10](https://github.com/siposdani87/sui-js/blob/fa20298/src/module/template.ts#L10)
 
 ___
 
@@ -45,7 +45,7 @@ ___
 
 #### Defined in
 
-[module/template.ts:11](https://github.com/siposdani87/sui-js/blob/9aff0f0/src/module/template.ts#L11)
+[module/template.ts:11](https://github.com/siposdani87/sui-js/blob/fa20298/src/module/template.ts#L11)
 
 ___
 
@@ -55,43 +55,9 @@ ___
 
 #### Defined in
 
-[module/template.ts:12](https://github.com/siposdani87/sui-js/blob/9aff0f0/src/module/template.ts#L12)
+[module/template.ts:12](https://github.com/siposdani87/sui-js/blob/fa20298/src/module/template.ts#L12)
 
 ## Methods
-
-### \_init
-
-▸ **_init**(): `void`
-
-#### Returns
-
-`void`
-
-#### Defined in
-
-[module/template.ts:29](https://github.com/siposdani87/sui-js/blob/9aff0f0/src/module/template.ts#L29)
-
-___
-
-### \_setOptions
-
-▸ **_setOptions**(`opt_options?`): `void`
-
-#### Parameters
-
-| Name | Type |
-| :------ | :------ |
-| `opt_options` | `Object` |
-
-#### Returns
-
-`void`
-
-#### Defined in
-
-[module/template.ts:21](https://github.com/siposdani87/sui-js/blob/9aff0f0/src/module/template.ts#L21)
-
-___
 
 ### \_spaNavigate
 
@@ -110,28 +76,7 @@ ___
 
 #### Defined in
 
-[module/template.ts:63](https://github.com/siposdani87/sui-js/blob/9aff0f0/src/module/template.ts#L63)
-
-___
-
-### \_updateDOM
-
-▸ **_updateDOM**(`knot`, `isError`): `void`
-
-#### Parameters
-
-| Name | Type |
-| :------ | :------ |
-| `knot` | [`Knot`](Knot.md)\<`HTMLElement`\> |
-| `isError` | `boolean` |
-
-#### Returns
-
-`void`
-
-#### Defined in
-
-[module/template.ts:84](https://github.com/siposdani87/sui-js/blob/9aff0f0/src/module/template.ts#L84)
+[module/template.ts:63](https://github.com/siposdani87/sui-js/blob/fa20298/src/module/template.ts#L63)
 
 ___
 
@@ -153,7 +98,7 @@ ___
 
 #### Defined in
 
-[module/template.ts:97](https://github.com/siposdani87/sui-js/blob/9aff0f0/src/module/template.ts#L97)
+[module/template.ts:97](https://github.com/siposdani87/sui-js/blob/fa20298/src/module/template.ts#L97)
 
 ___
 
@@ -167,7 +112,7 @@ ___
 
 #### Defined in
 
-[module/template.ts:33](https://github.com/siposdani87/sui-js/blob/9aff0f0/src/module/template.ts#L33)
+[module/template.ts:33](https://github.com/siposdani87/sui-js/blob/fa20298/src/module/template.ts#L33)
 
 ___
 
@@ -188,4 +133,4 @@ ___
 
 #### Defined in
 
-[module/template.ts:37](https://github.com/siposdani87/sui-js/blob/9aff0f0/src/module/template.ts#L37)
+[module/template.ts:37](https://github.com/siposdani87/sui-js/blob/fa20298/src/module/template.ts#L37)

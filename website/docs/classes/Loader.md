@@ -16,7 +16,7 @@ custom_edit_url: null
 
 | Name | Type |
 | :------ | :------ |
-| `opt_options` | `Object` |
+| `opt_options` | `object` |
 
 #### Returns
 
@@ -24,7 +24,7 @@ custom_edit_url: null
 
 #### Defined in
 
-[module/loader.ts:11](https://github.com/siposdani87/sui-js/blob/9aff0f0/src/module/loader.ts#L11)
+[module/loader.ts:11](https://github.com/siposdani87/sui-js/blob/fa20298/src/module/loader.ts#L11)
 
 ## Properties
 
@@ -34,17 +34,17 @@ custom_edit_url: null
 
 #### Defined in
 
-[module/loader.ts:8](https://github.com/siposdani87/sui-js/blob/9aff0f0/src/module/loader.ts#L8)
+[module/loader.ts:8](https://github.com/siposdani87/sui-js/blob/fa20298/src/module/loader.ts#L8)
 
 ___
 
 ### options
 
-• **options**: [`Objekt`](Objekt.md)\<`Object`\>
+• **options**: [`Objekt`](Objekt.md)\<`object`\>
 
 #### Defined in
 
-[module/loader.ts:7](https://github.com/siposdani87/sui-js/blob/9aff0f0/src/module/loader.ts#L7)
+[module/loader.ts:7](https://github.com/siposdani87/sui-js/blob/fa20298/src/module/loader.ts#L7)
 
 ___
 
@@ -54,43 +54,9 @@ ___
 
 #### Defined in
 
-[module/loader.ts:9](https://github.com/siposdani87/sui-js/blob/9aff0f0/src/module/loader.ts#L9)
+[module/loader.ts:9](https://github.com/siposdani87/sui-js/blob/fa20298/src/module/loader.ts#L9)
 
 ## Methods
-
-### \_init
-
-▸ **_init**(): `void`
-
-#### Returns
-
-`void`
-
-#### Defined in
-
-[module/loader.ts:23](https://github.com/siposdani87/sui-js/blob/9aff0f0/src/module/loader.ts#L23)
-
-___
-
-### \_setOptions
-
-▸ **_setOptions**(`opt_options?`): `void`
-
-#### Parameters
-
-| Name | Type |
-| :------ | :------ |
-| `opt_options` | `Object` |
-
-#### Returns
-
-`void`
-
-#### Defined in
-
-[module/loader.ts:16](https://github.com/siposdani87/sui-js/blob/9aff0f0/src/module/loader.ts#L16)
-
-___
 
 ### hide
 
@@ -108,7 +74,7 @@ ___
 
 #### Defined in
 
-[module/loader.ts:42](https://github.com/siposdani87/sui-js/blob/9aff0f0/src/module/loader.ts#L42)
+[module/loader.ts:42](https://github.com/siposdani87/sui-js/blob/fa20298/src/module/loader.ts#L42)
 
 ___
 
@@ -122,4 +88,4 @@ ___
 
 #### Defined in
 
-[module/loader.ts:36](https://github.com/siposdani87/sui-js/blob/9aff0f0/src/module/loader.ts#L36)
+[module/loader.ts:36](https://github.com/siposdani87/sui-js/blob/fa20298/src/module/loader.ts#L36)

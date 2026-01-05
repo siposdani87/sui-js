@@ -1,5 +1,5 @@
 import { Promize } from './promize';
-export declare class Deferred<T = Object, K = Object> {
+export declare class Deferred<T = object, K = object> {
     private _promise;
     constructor();
     promise(): Promize<T, K>;

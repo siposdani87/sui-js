@@ -2,7 +2,7 @@ export class MapLabel {
     private canvas: HTMLCanvasElement;
     private overlayView: google.maps.OverlayView;
 
-    constructor(opt_options?: Object) {
+    constructor(opt_options?: object) {
         this.overlayView = new google.maps.OverlayView();
 
         this.overlayView.set('fontFamily', 'sans-serif');

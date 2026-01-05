@@ -16,7 +16,7 @@ custom_edit_url: null
 
 | Name | Type |
 | :------ | :------ |
-| `opt_options` | `Object` |
+| `opt_options` | `object` |
 
 #### Returns
 
@@ -24,7 +24,7 @@ custom_edit_url: null
 
 #### Defined in
 
-[module/flash.ts:12](https://github.com/siposdani87/sui-js/blob/9aff0f0/src/module/flash.ts#L12)
+[module/flash.ts:12](https://github.com/siposdani87/sui-js/blob/fa20298/src/module/flash.ts#L12)
 
 ## Properties
 
@@ -34,143 +34,19 @@ custom_edit_url: null
 
 #### Defined in
 
-[module/flash.ts:9](https://github.com/siposdani87/sui-js/blob/9aff0f0/src/module/flash.ts#L9)
+[module/flash.ts:9](https://github.com/siposdani87/sui-js/blob/fa20298/src/module/flash.ts#L9)
 
 ___
 
 ### options
 
-• **options**: [`Objekt`](Objekt.md)\<`Object`\>
+• **options**: [`Objekt`](Objekt.md)\<`object`\>
 
 #### Defined in
 
-[module/flash.ts:10](https://github.com/siposdani87/sui-js/blob/9aff0f0/src/module/flash.ts#L10)
+[module/flash.ts:10](https://github.com/siposdani87/sui-js/blob/fa20298/src/module/flash.ts#L10)
 
 ## Methods
-
-### \_add
-
-▸ **_add**(`type`, `message`, `opt_duration?`, `opt_closeCallback?`, `opt_id?`): [`Knot`](Knot.md)\<`HTMLElement`\>
-
-#### Parameters
-
-| Name | Type | Default value |
-| :------ | :------ | :------ |
-| `type` | `string` | `undefined` |
-| `message` | `string` | `undefined` |
-| `opt_duration` | `number` | `0` |
-| `opt_closeCallback` | `Function` | `null` |
-| `opt_id` | `string` | `''` |
-
-#### Returns
-
-[`Knot`](Knot.md)\<`HTMLElement`\>
-
-#### Defined in
-
-[module/flash.ts:80](https://github.com/siposdani87/sui-js/blob/9aff0f0/src/module/flash.ts#L80)
-
-___
-
-### \_getCloseButton
-
-▸ **_getCloseButton**(`flashKnot`, `opt_closeCallback?`): [`Knot`](Knot.md)\<`HTMLElement`\>
-
-#### Parameters
-
-| Name | Type | Default value |
-| :------ | :------ | :------ |
-| `flashKnot` | [`Knot`](Knot.md)\<`HTMLElement`\> | `undefined` |
-| `opt_closeCallback` | `Function` | `null` |
-
-#### Returns
-
-[`Knot`](Knot.md)\<`HTMLElement`\>
-
-#### Defined in
-
-[module/flash.ts:54](https://github.com/siposdani87/sui-js/blob/9aff0f0/src/module/flash.ts#L54)
-
-___
-
-### \_getFlashKnot
-
-▸ **_getFlashKnot**(`type`, `message`, `opt_duration?`, `opt_closeCallback?`, `opt_id?`): [`Knot`](Knot.md)\<`HTMLElement`\>
-
-#### Parameters
-
-| Name | Type | Default value |
-| :------ | :------ | :------ |
-| `type` | `string` | `undefined` |
-| `message` | `string` | `undefined` |
-| `opt_duration` | `number` | `0` |
-| `opt_closeCallback` | `Function` | `null` |
-| `opt_id` | `string` | `''` |
-
-#### Returns
-
-[`Knot`](Knot.md)\<`HTMLElement`\>
-
-#### Defined in
-
-[module/flash.ts:30](https://github.com/siposdani87/sui-js/blob/9aff0f0/src/module/flash.ts#L30)
-
-___
-
-### \_init
-
-▸ **_init**(): `void`
-
-#### Returns
-
-`void`
-
-#### Defined in
-
-[module/flash.ts:17](https://github.com/siposdani87/sui-js/blob/9aff0f0/src/module/flash.ts#L17)
-
-___
-
-### \_isClosable
-
-▸ **_isClosable**(`type`, `opt_closeCallback?`): `boolean`
-
-#### Parameters
-
-| Name | Type | Default value |
-| :------ | :------ | :------ |
-| `type` | `string` | `undefined` |
-| `opt_closeCallback` | `Function` | `null` |
-
-#### Returns
-
-`boolean`
-
-#### Defined in
-
-[module/flash.ts:121](https://github.com/siposdani87/sui-js/blob/9aff0f0/src/module/flash.ts#L121)
-
-___
-
-### \_setOptions
-
-▸ **_setOptions**(`opt_options?`): `void`
-
-#### Parameters
-
-| Name | Type |
-| :------ | :------ |
-| `opt_options` | `Object` |
-
-#### Returns
-
-`void`
-
-#### Defined in
-
-[module/flash.ts:21](https://github.com/siposdani87/sui-js/blob/9aff0f0/src/module/flash.ts#L21)
-
-___
 
 ### addDefault
 
@@ -191,7 +67,7 @@ ___
 
 #### Defined in
 
-[module/flash.ts:220](https://github.com/siposdani87/sui-js/blob/9aff0f0/src/module/flash.ts#L220)
+[module/flash.ts:220](https://github.com/siposdani87/sui-js/blob/fa20298/src/module/flash.ts#L220)
 
 ___
 
@@ -214,7 +90,7 @@ ___
 
 #### Defined in
 
-[module/flash.ts:186](https://github.com/siposdani87/sui-js/blob/9aff0f0/src/module/flash.ts#L186)
+[module/flash.ts:186](https://github.com/siposdani87/sui-js/blob/fa20298/src/module/flash.ts#L186)
 
 ___
 
@@ -237,7 +113,7 @@ ___
 
 #### Defined in
 
-[module/flash.ts:156](https://github.com/siposdani87/sui-js/blob/9aff0f0/src/module/flash.ts#L156)
+[module/flash.ts:156](https://github.com/siposdani87/sui-js/blob/fa20298/src/module/flash.ts#L156)
 
 ___
 
@@ -263,7 +139,7 @@ ___
 
 #### Defined in
 
-[module/flash.ts:201](https://github.com/siposdani87/sui-js/blob/9aff0f0/src/module/flash.ts#L201)
+[module/flash.ts:201](https://github.com/siposdani87/sui-js/blob/fa20298/src/module/flash.ts#L201)
 
 ___
 
@@ -286,7 +162,7 @@ ___
 
 #### Defined in
 
-[module/flash.ts:141](https://github.com/siposdani87/sui-js/blob/9aff0f0/src/module/flash.ts#L141)
+[module/flash.ts:141](https://github.com/siposdani87/sui-js/blob/fa20298/src/module/flash.ts#L141)
 
 ___
 
@@ -309,7 +185,7 @@ ___
 
 #### Defined in
 
-[module/flash.ts:171](https://github.com/siposdani87/sui-js/blob/9aff0f0/src/module/flash.ts#L171)
+[module/flash.ts:171](https://github.com/siposdani87/sui-js/blob/fa20298/src/module/flash.ts#L171)
 
 ___
 
@@ -330,7 +206,7 @@ ___
 
 #### Defined in
 
-[module/flash.ts:131](https://github.com/siposdani87/sui-js/blob/9aff0f0/src/module/flash.ts#L131)
+[module/flash.ts:131](https://github.com/siposdani87/sui-js/blob/fa20298/src/module/flash.ts#L131)
 
 ___
 
@@ -350,4 +226,4 @@ ___
 
 #### Defined in
 
-[module/flash.ts:111](https://github.com/siposdani87/sui-js/blob/9aff0f0/src/module/flash.ts#L111)
+[module/flash.ts:111](https://github.com/siposdani87/sui-js/blob/fa20298/src/module/flash.ts#L111)

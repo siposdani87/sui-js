@@ -1,8 +1,10 @@
+@use '../core/colors';
+
 .time {
     position: relative;
     height: 100%;
     width: 100%;
-    background-color: $white;
+    background-color: colors.$white;
     border-radius: 50%;
 
     .center-point {
@@ -12,7 +14,7 @@
         width: 6px;
         height: 6px;
         border-radius: 50%;
-        background-color: $accent;
+        background-color: colors.$accent;
     }
 
     .pointer {
@@ -21,7 +23,7 @@
         left: calc(50% - 1px);
         width: calc(50% - 35px / 2);
         height: 2px;
-        background-color: $accent;
+        background-color: colors.$accent;
         transform-origin: 1px 1px;
     }
 
@@ -36,12 +38,12 @@
         cursor: pointer;
 
         &.selected {
-            background-color: $accent;
-            color: $accent-text;
+            background-color: colors.$accent;
+            color: colors.$accent-text;
         }
 
         &:hover {
-            border: 1px solid $accent;
+            border: 1px solid colors.$accent;
         }
     }
 }

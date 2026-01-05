@@ -1,3 +1,9 @@
+@use 'sass:list';
+@use 'sass:map';
+@use 'sass:math';
+@use 'sass:string';
+@use 'colors';
+
 // Variables
 
 @mixin _assert-ascending($map, $map-name) {
@@ -7,7 +13,7 @@
     @each $key, $num in $map {
         @if $prev-num == null {
             // Do nothing
-        } @else if not comparable($prev-num, $num) {
+        } @else if not math.compatible($prev-num, $num) {
             @warn 'Potentially invalid value for #{$map-name}: This map must be in ascending order, but key `#{$key}` has value #{$num} whose unit makes it incomparable to #{$prev-num}, the value of the previous key `#{$prev-key}` !';
         } @else if $prev-num >= $num {
             @warn 'Invalid value for #{$map-name}: This map must be in ascending order, but key `#{$key}` has value #{$num} which isn`t greater than #{$prev-num}, the value of the previous key `#{$prev-key}` !';
@@ -25,12 +31,12 @@
 // @param {String} $replace ('') - New value
 // @return {String} - Updated string
 @function str-replace($string, $search, $replace: '') {
-    $index: str-index($string, $search);
+    $index: string.index($string, $search);
 
     @if $index {
-        @return str-slice($string, 1, $index - 1) + $replace +
+        @return string.slice($string, 1, $index - 1) + $replace +
             str-replace(
-                str-slice($string, $index + str-length($search)),
+                string.slice($string, $index + string.length($search)),
                 $search,
                 $replace
             );
@@ -40,8 +46,8 @@
 }
 
 @mixin _assert-starts-at-zero($map) {
-    $values: map-values($map);
-    $first-value: nth($values, 1);
+    $values: map.values($map);
+    $first-value: list.nth($values, 1);
 
     @if $first-value != 0 {
         @warn 'First breakpoint in `$grid-breakpoints` must start at 0, but starts at #{$first-value}.';
@@ -111,8 +117,8 @@ $border-width: 1px !default;
 //
 // Settings for the `<body>` element.
 
-$body-bg: $white !default;
-$body-color: $light-grey !default;
+$body-bg: colors.$white !default;
+$body-color: colors.$light-grey !default;
 
 // Grid breakpoints
 //
@@ -204,66 +210,66 @@ $zindex-loader: 150 !default;
 
 // Flash defaults
 
-$success-bright: $green-bright;
-$success: $green;
-$success-dark: $green-dark;
-$success-text: $white;
+$success-bright: colors.$green-bright !default;
+$success: colors.$green !default;
+$success-dark: colors.$green-dark !default;
+$success-text: colors.$white !default;
 
-$info-bright: $blue-bright;
-$info: $blue;
-$info-dark: $blue-dark;
-$info-text: $white;
+$info-bright: colors.$blue-bright !default;
+$info: colors.$blue !default;
+$info-dark: colors.$blue-dark !default;
+$info-text: colors.$white !default;
 
-$warning-bright: $amber-bright;
-$warning: $amber;
-$warning-dark: $amber-dark;
-$warning-text: $white;
+$warning-bright: colors.$amber-bright !default;
+$warning: colors.$amber !default;
+$warning-dark: colors.$amber-dark !default;
+$warning-text: colors.$white !default;
 
-$error-bright: $red-bright;
-$error: $red;
-$error-dark: $red-dark;
-$error-text: $white;
+$error-bright: colors.$red-bright !default;
+$error: colors.$red !default;
+$error-dark: colors.$red-dark !default;
+$error-text: colors.$white !default;
 
 // Form field defaults
 
-$label-default-light: $deep-grey; // 7
-$label-disabled-light: $light-grey-dark; // 5
+$label-default-light: colors.$deep-grey !default; // 7
+$label-disabled-light: colors.$light-grey-dark !default; // 5
 
-$label-default-dark: $light-grey-dark; // 5
-$label-disabled-dark: $deep-grey; // 7
+$label-default-dark: colors.$light-grey-dark !default; // 5
+$label-disabled-dark: colors.$deep-grey !default; // 7
 
-$input-default-light: $light-grey-dark; // 5
-$input-disabled-light: $light-grey; // 4
+$input-default-light: colors.$light-grey-dark !default; // 5
+$input-disabled-light: colors.$light-grey !default; // 4
 
-$input-default-dark: $deep-grey; // 7
-$input-disabled-dark: $deep-grey-dark; // 8
+$input-default-dark: colors.$deep-grey !default; // 7
+$input-disabled-dark: colors.$deep-grey-dark !default; // 8
 
-$content-default-light: $black; // 10
-$content-disabled-light: $deep-grey-bright; // 6
+$content-default-light: colors.$black !default; // 10
+$content-disabled-light: colors.$deep-grey-bright !default; // 6
 
-$content-default-dark: $white; // 1
-$content-disabled-dark: $light-grey-dark; // 5
+$content-default-dark: colors.$white !default; // 1
+$content-disabled-dark: colors.$light-grey-dark !default; // 5
 
-$checkbox-default-light: $deep-grey-bright; // 6
-$checkbox-disabled-light: $light-grey; // 4
+$checkbox-default-light: colors.$deep-grey-bright !default; // 6
+$checkbox-disabled-light: colors.$light-grey !default; // 4
 
-$checkbox-default-dark: $light-grey; // 4
-$checkbox-disabled-dark: $deep-grey; // 7
+$checkbox-default-dark: colors.$light-grey !default; // 4
+$checkbox-disabled-dark: colors.$deep-grey !default; // 7
 
-$primary-default-light: $primary;
-$primary-disabled-light: $light-grey-dark; // 5
+$primary-default-light: colors.$primary !default;
+$primary-disabled-light: colors.$light-grey-dark !default; // 5
 
-$primary-default-dark: $primary-bright;
-$primary-disabled-dark: $deep-grey; // 7
+$primary-default-dark: colors.$primary-bright !default;
+$primary-disabled-dark: colors.$deep-grey !default; // 7
 
-$accent-default-light: $accent;
-$accent-disabled-light: $light-grey-dark; // 5
+$accent-default-light: colors.$accent !default;
+$accent-disabled-light: colors.$light-grey-dark !default; // 5
 
-$accent-default-dark: $accent-bright;
-$accent-disabled-dark: $deep-grey; // 7
+$accent-default-dark: colors.$accent-bright !default;
+$accent-disabled-dark: colors.$deep-grey !default; // 7
 
-$error-default-light: $red;
-$error-disabled-light: $red-dark;
+$error-default-light: colors.$red !default;
+$error-disabled-light: colors.$red-dark !default;
 
-$error-default-dark: $red-bright;
-$error-disabled-dark: $red-dark;
+$error-default-dark: colors.$red-bright !default;
+$error-disabled-dark: colors.$red-dark !default;

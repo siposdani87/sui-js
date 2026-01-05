@@ -18,7 +18,7 @@ custom_edit_url: null
 | :------ | :------ |
 | `date` | `Date` |
 | `currentDate` | `Date` |
-| `options` | `Object` |
+| `options` | `object` |
 
 #### Returns
 
@@ -26,7 +26,7 @@ custom_edit_url: null
 
 #### Defined in
 
-[component/day.ts:12](https://github.com/siposdani87/sui-js/blob/9aff0f0/src/component/day.ts#L12)
+[component/day.ts:12](https://github.com/siposdani87/sui-js/blob/fa20298/src/component/day.ts#L12)
 
 ## Properties
 
@@ -36,7 +36,7 @@ custom_edit_url: null
 
 #### Defined in
 
-[component/day.ts:10](https://github.com/siposdani87/sui-js/blob/9aff0f0/src/component/day.ts#L10)
+[component/day.ts:10](https://github.com/siposdani87/sui-js/blob/fa20298/src/component/day.ts#L10)
 
 ___
 
@@ -46,7 +46,7 @@ ___
 
 #### Defined in
 
-[component/day.ts:8](https://github.com/siposdani87/sui-js/blob/9aff0f0/src/component/day.ts#L8)
+[component/day.ts:8](https://github.com/siposdani87/sui-js/blob/fa20298/src/component/day.ts#L8)
 
 ___
 
@@ -56,53 +56,19 @@ ___
 
 #### Defined in
 
-[component/day.ts:7](https://github.com/siposdani87/sui-js/blob/9aff0f0/src/component/day.ts#L7)
+[component/day.ts:7](https://github.com/siposdani87/sui-js/blob/fa20298/src/component/day.ts#L7)
 
 ___
 
 ### options
 
-• **options**: [`Objekt`](Objekt.md)\<`Object`\>
+• **options**: [`Objekt`](Objekt.md)\<`object`\>
 
 #### Defined in
 
-[component/day.ts:9](https://github.com/siposdani87/sui-js/blob/9aff0f0/src/component/day.ts#L9)
+[component/day.ts:9](https://github.com/siposdani87/sui-js/blob/fa20298/src/component/day.ts#L9)
 
 ## Methods
-
-### \_init
-
-▸ **_init**(): `void`
-
-#### Returns
-
-`void`
-
-#### Defined in
-
-[component/day.ts:23](https://github.com/siposdani87/sui-js/blob/9aff0f0/src/component/day.ts#L23)
-
-___
-
-### \_setOptions
-
-▸ **_setOptions**(`options`): `void`
-
-#### Parameters
-
-| Name | Type |
-| :------ | :------ |
-| `options` | `Object` |
-
-#### Returns
-
-`void`
-
-#### Defined in
-
-[component/day.ts:19](https://github.com/siposdani87/sui-js/blob/9aff0f0/src/component/day.ts#L19)
-
-___
 
 ### eventClick
 
@@ -120,7 +86,7 @@ ___
 
 #### Defined in
 
-[component/day.ts:49](https://github.com/siposdani87/sui-js/blob/9aff0f0/src/component/day.ts#L49)
+[component/day.ts:49](https://github.com/siposdani87/sui-js/blob/fa20298/src/component/day.ts#L49)
 
 ___
 
@@ -134,4 +100,4 @@ ___
 
 #### Defined in
 
-[component/day.ts:37](https://github.com/siposdani87/sui-js/blob/9aff0f0/src/component/day.ts#L37)
+[component/day.ts:37](https://github.com/siposdani87/sui-js/blob/fa20298/src/component/day.ts#L37)

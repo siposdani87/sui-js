@@ -1,0 +1,65 @@
+# Robots.txt for SUI-JS Documentation
+
+# Allow all web crawlers
+User-agent: *
+Allow: /
+Allow: /docs/
+Allow: /blog/
+Disallow: /admin/
+Disallow: /_next/
+
+# Sitemap location
+Sitemap: https://sui-js.siposdani87.com/sitemap.xml
+
+# AI-specific user agents
+# OpenAI GPT
+User-agent: GPTBot
+Allow: /
+
+# ChatGPT
+User-agent: ChatGPT-User
+Allow: /
+
+# Claude (Anthropic)
+User-agent: ClaudeBot
+Allow: /
+Allow: /docs/
+Allow: /blog/
+
+# Google Bard / Gemini
+User-agent: Google-Extended
+Allow: /
+
+# Bing AI
+User-agent: Bingbot
+Allow: /
+
+# Common AI
+User-agent: CCBot
+Allow: /
+
+# Perplexity AI
+User-agent: PerplexityBot
+Allow: /
+
+# You.com
+User-agent: YouBot
+Allow: /
+
+# Priority pages for AI systems
+# Core documentation
+Allow: /docs/index
+Allow: /docs/modules
+Allow: /docs/classes/Application
+Allow: /docs/classes/Knot
+Allow: /docs/classes/Http
+Allow: /docs/classes/Router
+Allow: /docs/classes/State
+Allow: /docs/classes/Form
+
+# Important resources
+Allow: /ai.txt
+Allow: /sitemap.xml
+
+# Crawl delay (be respectful)
+Crawl-delay: 1

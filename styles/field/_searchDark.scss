@@ -1,17 +1,19 @@
+@use '../core/variables';
+
 .dark-theme {
     .search-field {
         .clear-button {
-            color: $primary-default-dark;
+            color: variables.$primary-default-dark;
         }
 
         .search-button {
-            color: $primary-default-dark;
+            color: variables.$primary-default-dark;
         }
 
         &.is-disabled {
             .clear-button,
             .search-button {
-                color: $primary-disabled-dark;
+                color: variables.$primary-disabled-dark;
             }
         }
     }

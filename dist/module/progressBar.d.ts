@@ -22,7 +22,7 @@ export declare class ProgressBar {
     processConfirm: ProcessBar;
     progressValue: number;
     bufferValue: number;
-    constructor(dialog: Dialog, confirm: Confirm, opt_options?: Object | undefined);
+    constructor(dialog: Dialog, confirm: Confirm, opt_options?: object | undefined);
     private _setOptions;
     private _init;
     private _createProgressBar;

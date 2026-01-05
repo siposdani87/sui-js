@@ -1,3 +1,6 @@
+@use '../core/colors';
+@use '../core/variables';
+
 .select-field {
     @keyframes rotation {
         0% {
@@ -18,7 +21,7 @@
     }
 
     .expander {
-        color: $primary-default-light;
+        color: variables.$primary-default-light;
 
         &.rotate {
             animation-name: rotation;
@@ -32,14 +35,14 @@
         font-size: 16px;
         position: absolute;
         top: -2px;
-        color: $label-default-light;
+        color: variables.$label-default-light;
     }
 
     .select-input {
         width: 100%;
         display: inline-block;
         padding: 2px 30px 0 2px;
-        border: 1px solid $input-default-light;
+        border: 1px solid variables.$input-default-light;
         border-radius: 3px;
         min-height: 32px;
         cursor: pointer;
@@ -57,16 +60,16 @@
 
         a {
             display: block;
-            color: $black;
+            color: colors.$black;
             text-decoration: none;
             padding: 3px 8px;
 
             &:hover {
-                background-color: $input-disabled-light;
+                background-color: variables.$input-disabled-light;
             }
 
             &.selected {
-                background-color: $input-default-light;
+                background-color: variables.$input-default-light;
             }
 
             img {
@@ -81,27 +84,27 @@
 
     &.is-invalid {
         .select-input {
-            border-color: $error-default-light;
+            border-color: variables.$error-default-light;
         }
     }
 
     &.is-disabled {
         .field-label {
-            color: $label-disabled-light;
+            color: variables.$label-disabled-light;
         }
 
         .expander {
-            color: $primary-disabled-light;
+            color: variables.$primary-disabled-light;
         }
 
         .select-input {
             border-style: dotted;
-            border-color: $input-disabled-light;
+            border-color: variables.$input-disabled-light;
         }
 
         &.is-invalid {
             .select-input {
-                border-color: $error-disabled-light;
+                border-color: variables.$error-disabled-light;
             }
         }
     }

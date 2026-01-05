@@ -5,7 +5,7 @@ import { Knot } from '../core';
 export declare class Dialog extends BaseModal {
     http: Http;
     options: Objekt;
-    constructor(http: Http, opt_options?: Object | undefined);
+    constructor(http: Http, opt_options?: object | undefined);
     private _setOptions;
     private _init;
     loadTemplate(url: string): import("../core").Promize<Knot<HTMLElement>, Knot<HTMLElement>>;

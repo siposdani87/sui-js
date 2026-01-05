@@ -1,3 +1,5 @@
+@use '../core/variables';
+
 .textarea-field {
     .mdl-textarea__input {
         resize: none;
@@ -54,7 +56,7 @@
     &.is-disabled {
         .toolbar {
             a {
-                color: $label-disabled-light !important;
+                color: variables.$label-disabled-light !important;
             }
         }
     }

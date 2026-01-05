@@ -22,7 +22,7 @@ export declare class Form extends Collection<BaseField<HTMLInputElement>> {
     private _getValue;
     private _getPreviousValue;
     private _fieldValueChange;
-    setErrors(data: Object): void;
+    setErrors(data: object): void;
     checkValidity(opt_force?: boolean | undefined, opt_showMessage?: boolean | undefined): boolean;
     isValid(): boolean;
     isInvalid(): boolean;

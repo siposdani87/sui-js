@@ -18,7 +18,7 @@ custom_edit_url: null
 | :------ | :------ | :------ |
 | `dom` | [`Knot`](Knot.md)\<`HTMLElement`\> | `undefined` |
 | `opt_selector` | `string` | `'.progress-status'` |
-| `opt_options` | `Object` | `{}` |
+| `opt_options` | `object` | `{}` |
 
 #### Returns
 
@@ -26,7 +26,7 @@ custom_edit_url: null
 
 #### Defined in
 
-[component/progressStatus.ts:11](https://github.com/siposdani87/sui-js/blob/9aff0f0/src/component/progressStatus.ts#L11)
+[component/progressStatus.ts:11](https://github.com/siposdani87/sui-js/blob/fa20298/src/component/progressStatus.ts#L11)
 
 ## Properties
 
@@ -36,17 +36,17 @@ custom_edit_url: null
 
 #### Defined in
 
-[component/progressStatus.ts:8](https://github.com/siposdani87/sui-js/blob/9aff0f0/src/component/progressStatus.ts#L8)
+[component/progressStatus.ts:8](https://github.com/siposdani87/sui-js/blob/fa20298/src/component/progressStatus.ts#L8)
 
 ___
 
 ### options
 
-• **options**: [`Objekt`](Objekt.md)\<`Object`\>
+• **options**: [`Objekt`](Objekt.md)\<`object`\>
 
 #### Defined in
 
-[component/progressStatus.ts:7](https://github.com/siposdani87/sui-js/blob/9aff0f0/src/component/progressStatus.ts#L7)
+[component/progressStatus.ts:7](https://github.com/siposdani87/sui-js/blob/fa20298/src/component/progressStatus.ts#L7)
 
 ___
 
@@ -56,7 +56,7 @@ ___
 
 #### Defined in
 
-[component/progressStatus.ts:6](https://github.com/siposdani87/sui-js/blob/9aff0f0/src/component/progressStatus.ts#L6)
+[component/progressStatus.ts:6](https://github.com/siposdani87/sui-js/blob/fa20298/src/component/progressStatus.ts#L6)
 
 ___
 
@@ -66,65 +66,9 @@ ___
 
 #### Defined in
 
-[component/progressStatus.ts:9](https://github.com/siposdani87/sui-js/blob/9aff0f0/src/component/progressStatus.ts#L9)
+[component/progressStatus.ts:9](https://github.com/siposdani87/sui-js/blob/fa20298/src/component/progressStatus.ts#L9)
 
 ## Methods
-
-### \_init
-
-▸ **_init**(): `void`
-
-#### Returns
-
-`void`
-
-#### Defined in
-
-[component/progressStatus.ts:31](https://github.com/siposdani87/sui-js/blob/9aff0f0/src/component/progressStatus.ts#L31)
-
-___
-
-### \_setOptions
-
-▸ **_setOptions**(`opt_options?`): `void`
-
-#### Parameters
-
-| Name | Type |
-| :------ | :------ |
-| `opt_options` | `Object` |
-
-#### Returns
-
-`void`
-
-#### Defined in
-
-[component/progressStatus.ts:21](https://github.com/siposdani87/sui-js/blob/9aff0f0/src/component/progressStatus.ts#L21)
-
-___
-
-### \_setStatus
-
-▸ **_setStatus**(`cssClass`, `text`, `opt_icon?`): `void`
-
-#### Parameters
-
-| Name | Type | Default value |
-| :------ | :------ | :------ |
-| `cssClass` | `string` | `undefined` |
-| `text` | `string` | `undefined` |
-| `opt_icon` | `string` | `''` |
-
-#### Returns
-
-`void`
-
-#### Defined in
-
-[component/progressStatus.ts:36](https://github.com/siposdani87/sui-js/blob/9aff0f0/src/component/progressStatus.ts#L36)
-
-___
 
 ### setError
 
@@ -143,7 +87,7 @@ ___
 
 #### Defined in
 
-[component/progressStatus.ts:66](https://github.com/siposdani87/sui-js/blob/9aff0f0/src/component/progressStatus.ts#L66)
+[component/progressStatus.ts:66](https://github.com/siposdani87/sui-js/blob/fa20298/src/component/progressStatus.ts#L66)
 
 ___
 
@@ -164,7 +108,7 @@ ___
 
 #### Defined in
 
-[component/progressStatus.ts:58](https://github.com/siposdani87/sui-js/blob/9aff0f0/src/component/progressStatus.ts#L58)
+[component/progressStatus.ts:58](https://github.com/siposdani87/sui-js/blob/fa20298/src/component/progressStatus.ts#L58)
 
 ___
 
@@ -185,7 +129,7 @@ ___
 
 #### Defined in
 
-[component/progressStatus.ts:54](https://github.com/siposdani87/sui-js/blob/9aff0f0/src/component/progressStatus.ts#L54)
+[component/progressStatus.ts:54](https://github.com/siposdani87/sui-js/blob/fa20298/src/component/progressStatus.ts#L54)
 
 ___
 
@@ -206,4 +150,4 @@ ___
 
 #### Defined in
 
-[component/progressStatus.ts:62](https://github.com/siposdani87/sui-js/blob/9aff0f0/src/component/progressStatus.ts#L62)
+[component/progressStatus.ts:62](https://github.com/siposdani87/sui-js/blob/fa20298/src/component/progressStatus.ts#L62)

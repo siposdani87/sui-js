@@ -10,7 +10,7 @@ custom_edit_url: null
 
 | Name | Type |
 | :------ | :------ |
-| `T` | extends `Object` = `Object` |
+| `T` | extends `object` = `object` |
 
 ## Hierarchy
 
@@ -30,7 +30,7 @@ custom_edit_url: null
 
 | Name | Type |
 | :------ | :------ |
-| `T` | extends `Object` = `Object` |
+| `T` | extends `object` = `object` |
 
 #### Parameters
 
@@ -38,7 +38,7 @@ custom_edit_url: null
 | :------ | :------ | :------ |
 | `opt_items` | `T`[] | `[]` |
 | `opt_type` | `any` | `Objekt` |
-| `opt_options` | `Object` | `{}` |
+| `opt_options` | `object` | `{}` |
 
 #### Returns
 
@@ -46,7 +46,7 @@ custom_edit_url: null
 
 #### Defined in
 
-[core/collection.ts:17](https://github.com/siposdani87/sui-js/blob/9aff0f0/src/core/collection.ts#L17)
+[core/collection.ts:17](https://github.com/siposdani87/sui-js/blob/fa20298/src/core/collection.ts#L17)
 
 ## Properties
 
@@ -56,7 +56,7 @@ custom_edit_url: null
 
 #### Defined in
 
-[core/collection.ts:13](https://github.com/siposdani87/sui-js/blob/9aff0f0/src/core/collection.ts#L13)
+[core/collection.ts:13](https://github.com/siposdani87/sui-js/blob/fa20298/src/core/collection.ts#L13)
 
 ___
 
@@ -66,59 +66,19 @@ ___
 
 #### Defined in
 
-[core/collection.ts:14](https://github.com/siposdani87/sui-js/blob/9aff0f0/src/core/collection.ts#L14)
+[core/collection.ts:14](https://github.com/siposdani87/sui-js/blob/fa20298/src/core/collection.ts#L14)
 
 ___
 
 ### options
 
-• **options**: [`Objekt`](Objekt.md)\<`Object`\>
+• **options**: [`Objekt`](Objekt.md)\<`object`\>
 
 #### Defined in
 
-[core/collection.ts:15](https://github.com/siposdani87/sui-js/blob/9aff0f0/src/core/collection.ts#L15)
+[core/collection.ts:15](https://github.com/siposdani87/sui-js/blob/fa20298/src/core/collection.ts#L15)
 
 ## Methods
-
-### \_createItem
-
-▸ **_createItem**(`object`): `T`
-
-#### Parameters
-
-| Name | Type |
-| :------ | :------ |
-| `object` | `Object` \| `T` |
-
-#### Returns
-
-`T`
-
-#### Defined in
-
-[core/collection.ts:53](https://github.com/siposdani87/sui-js/blob/9aff0f0/src/core/collection.ts#L53)
-
-___
-
-### \_setOptions
-
-▸ **_setOptions**(`opt_options?`): `void`
-
-#### Parameters
-
-| Name | Type |
-| :------ | :------ |
-| `opt_options` | `Object` |
-
-#### Returns
-
-`void`
-
-#### Defined in
-
-[core/collection.ts:28](https://github.com/siposdani87/sui-js/blob/9aff0f0/src/core/collection.ts#L28)
-
-___
 
 ### clear
 
@@ -130,7 +90,7 @@ ___
 
 #### Defined in
 
-[core/collection.ts:134](https://github.com/siposdani87/sui-js/blob/9aff0f0/src/core/collection.ts#L134)
+[core/collection.ts:134](https://github.com/siposdani87/sui-js/blob/fa20298/src/core/collection.ts#L134)
 
 ___
 
@@ -142,7 +102,7 @@ ___
 
 | Name | Type |
 | :------ | :------ |
-| `value` | `Object` \| `T` |
+| `value` | `object` \| `T` |
 
 #### Returns
 
@@ -150,7 +110,7 @@ ___
 
 #### Defined in
 
-[core/collection.ts:172](https://github.com/siposdani87/sui-js/blob/9aff0f0/src/core/collection.ts#L172)
+[core/collection.ts:172](https://github.com/siposdani87/sui-js/blob/fa20298/src/core/collection.ts#L172)
 
 ___
 
@@ -171,7 +131,7 @@ ___
 
 #### Defined in
 
-[core/collection.ts:198](https://github.com/siposdani87/sui-js/blob/9aff0f0/src/core/collection.ts#L198)
+[core/collection.ts:198](https://github.com/siposdani87/sui-js/blob/fa20298/src/core/collection.ts#L198)
 
 ___
 
@@ -191,7 +151,7 @@ ___
 
 #### Defined in
 
-[core/collection.ts:204](https://github.com/siposdani87/sui-js/blob/9aff0f0/src/core/collection.ts#L204)
+[core/collection.ts:204](https://github.com/siposdani87/sui-js/blob/fa20298/src/core/collection.ts#L204)
 
 ___
 
@@ -212,7 +172,7 @@ ___
 
 #### Defined in
 
-[core/collection.ts:182](https://github.com/siposdani87/sui-js/blob/9aff0f0/src/core/collection.ts#L182)
+[core/collection.ts:182](https://github.com/siposdani87/sui-js/blob/fa20298/src/core/collection.ts#L182)
 
 ___
 
@@ -232,7 +192,7 @@ ___
 
 #### Defined in
 
-[core/collection.ts:188](https://github.com/siposdani87/sui-js/blob/9aff0f0/src/core/collection.ts#L188)
+[core/collection.ts:188](https://github.com/siposdani87/sui-js/blob/fa20298/src/core/collection.ts#L188)
 
 ___
 
@@ -244,7 +204,7 @@ ___
 
 | Name | Type |
 | :------ | :------ |
-| `id` | [`Id`](../modules.md#id) |
+| `id` | [`Id`](../#id) |
 
 #### Returns
 
@@ -252,7 +212,7 @@ ___
 
 #### Defined in
 
-[core/collection.ts:178](https://github.com/siposdani87/sui-js/blob/9aff0f0/src/core/collection.ts#L178)
+[core/collection.ts:178](https://github.com/siposdani87/sui-js/blob/fa20298/src/core/collection.ts#L178)
 
 ___
 
@@ -272,7 +232,7 @@ ___
 
 #### Defined in
 
-[core/collection.ts:106](https://github.com/siposdani87/sui-js/blob/9aff0f0/src/core/collection.ts#L106)
+[core/collection.ts:106](https://github.com/siposdani87/sui-js/blob/fa20298/src/core/collection.ts#L106)
 
 ___
 
@@ -293,7 +253,7 @@ ___
 
 #### Defined in
 
-[core/collection.ts:156](https://github.com/siposdani87/sui-js/blob/9aff0f0/src/core/collection.ts#L156)
+[core/collection.ts:156](https://github.com/siposdani87/sui-js/blob/fa20298/src/core/collection.ts#L156)
 
 ___
 
@@ -313,7 +273,7 @@ ___
 
 #### Defined in
 
-[core/collection.ts:162](https://github.com/siposdani87/sui-js/blob/9aff0f0/src/core/collection.ts#L162)
+[core/collection.ts:162](https://github.com/siposdani87/sui-js/blob/fa20298/src/core/collection.ts#L162)
 
 ___
 
@@ -334,7 +294,7 @@ ___
 
 #### Defined in
 
-[core/collection.ts:142](https://github.com/siposdani87/sui-js/blob/9aff0f0/src/core/collection.ts#L142)
+[core/collection.ts:142](https://github.com/siposdani87/sui-js/blob/fa20298/src/core/collection.ts#L142)
 
 ___
 
@@ -354,7 +314,7 @@ ___
 
 #### Defined in
 
-[core/collection.ts:148](https://github.com/siposdani87/sui-js/blob/9aff0f0/src/core/collection.ts#L148)
+[core/collection.ts:148](https://github.com/siposdani87/sui-js/blob/fa20298/src/core/collection.ts#L148)
 
 ___
 
@@ -366,7 +326,7 @@ ___
 
 | Name | Type |
 | :------ | :------ |
-| `id` | [`Id`](../modules.md#id) |
+| `id` | [`Id`](../#id) |
 
 #### Returns
 
@@ -374,7 +334,7 @@ ___
 
 #### Defined in
 
-[core/collection.ts:138](https://github.com/siposdani87/sui-js/blob/9aff0f0/src/core/collection.ts#L138)
+[core/collection.ts:138](https://github.com/siposdani87/sui-js/blob/fa20298/src/core/collection.ts#L138)
 
 ___
 
@@ -401,7 +361,7 @@ ___
 
 #### Defined in
 
-[core/collection.ts:112](https://github.com/siposdani87/sui-js/blob/9aff0f0/src/core/collection.ts#L112)
+[core/collection.ts:112](https://github.com/siposdani87/sui-js/blob/fa20298/src/core/collection.ts#L112)
 
 ___
 
@@ -419,7 +379,7 @@ ___
 
 | Name | Type |
 | :------ | :------ |
-| `id` | [`Id`](../modules.md#id) |
+| `id` | [`Id`](../#id) |
 | `opt_attribute?` | `string` |
 
 #### Returns
@@ -428,7 +388,7 @@ ___
 
 #### Defined in
 
-[core/collection.ts:126](https://github.com/siposdani87/sui-js/blob/9aff0f0/src/core/collection.ts#L126)
+[core/collection.ts:126](https://github.com/siposdani87/sui-js/blob/fa20298/src/core/collection.ts#L126)
 
 ___
 
@@ -442,7 +402,7 @@ ___
 
 #### Defined in
 
-[core/collection.ts:86](https://github.com/siposdani87/sui-js/blob/9aff0f0/src/core/collection.ts#L86)
+[core/collection.ts:86](https://github.com/siposdani87/sui-js/blob/fa20298/src/core/collection.ts#L86)
 
 ___
 
@@ -464,7 +424,7 @@ ___
 
 #### Defined in
 
-[core/collection.ts:90](https://github.com/siposdani87/sui-js/blob/9aff0f0/src/core/collection.ts#L90)
+[core/collection.ts:90](https://github.com/siposdani87/sui-js/blob/fa20298/src/core/collection.ts#L90)
 
 ___
 
@@ -485,7 +445,7 @@ ___
 
 #### Defined in
 
-[core/collection.ts:222](https://github.com/siposdani87/sui-js/blob/9aff0f0/src/core/collection.ts#L222)
+[core/collection.ts:222](https://github.com/siposdani87/sui-js/blob/fa20298/src/core/collection.ts#L222)
 
 ___
 
@@ -497,7 +457,7 @@ ___
 
 | Name | Type |
 | :------ | :------ |
-| `objects` | (`Object` \| `T`)[] |
+| `objects` | (`object` \| `T`)[] |
 
 #### Returns
 
@@ -505,7 +465,7 @@ ___
 
 #### Defined in
 
-[core/collection.ts:36](https://github.com/siposdani87/sui-js/blob/9aff0f0/src/core/collection.ts#L36)
+[core/collection.ts:36](https://github.com/siposdani87/sui-js/blob/fa20298/src/core/collection.ts#L36)
 
 ___
 
@@ -517,7 +477,7 @@ ___
 
 | Name | Type |
 | :------ | :------ |
-| `object` | `Object` \| `T` |
+| `object` | `object` \| `T` |
 
 #### Returns
 
@@ -525,7 +485,7 @@ ___
 
 #### Defined in
 
-[core/collection.ts:47](https://github.com/siposdani87/sui-js/blob/9aff0f0/src/core/collection.ts#L47)
+[core/collection.ts:47](https://github.com/siposdani87/sui-js/blob/fa20298/src/core/collection.ts#L47)
 
 ___
 
@@ -537,7 +497,7 @@ ___
 
 | Name | Type |
 | :------ | :------ |
-| `objects` | (`Object` \| `T`)[] |
+| `objects` | (`object` \| `T`)[] |
 
 #### Returns
 
@@ -545,7 +505,7 @@ ___
 
 #### Defined in
 
-[core/collection.ts:42](https://github.com/siposdani87/sui-js/blob/9aff0f0/src/core/collection.ts#L42)
+[core/collection.ts:42](https://github.com/siposdani87/sui-js/blob/fa20298/src/core/collection.ts#L42)
 
 ___
 
@@ -557,7 +517,7 @@ ___
 
 | Name | Type |
 | :------ | :------ |
-| `object` | `Object` \| `T` |
+| `object` | `object` \| `T` |
 
 #### Returns
 
@@ -565,7 +525,7 @@ ___
 
 #### Defined in
 
-[core/collection.ts:73](https://github.com/siposdani87/sui-js/blob/9aff0f0/src/core/collection.ts#L73)
+[core/collection.ts:73](https://github.com/siposdani87/sui-js/blob/fa20298/src/core/collection.ts#L73)
 
 ___
 
@@ -578,7 +538,7 @@ ___
 | Name | Type |
 | :------ | :------ |
 | `index` | `number` |
-| `object` | `Object` \| `T` |
+| `object` | `object` \| `T` |
 
 #### Returns
 
@@ -586,7 +546,7 @@ ___
 
 #### Defined in
 
-[core/collection.ts:63](https://github.com/siposdani87/sui-js/blob/9aff0f0/src/core/collection.ts#L63)
+[core/collection.ts:63](https://github.com/siposdani87/sui-js/blob/fa20298/src/core/collection.ts#L63)
 
 ___
 
@@ -600,4 +560,4 @@ ___
 
 #### Defined in
 
-[core/collection.ts:218](https://github.com/siposdani87/sui-js/blob/9aff0f0/src/core/collection.ts#L218)
+[core/collection.ts:218](https://github.com/siposdani87/sui-js/blob/fa20298/src/core/collection.ts#L218)

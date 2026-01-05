@@ -6,7 +6,7 @@ export declare class Knot<T extends HTMLElement = HTMLElement> {
     constructor(node: (T | HTMLElement | string) | null, opt_parentKnot?: Knot | undefined);
     setParentKnot(parentKnot: Knot | undefined): void;
     set(attribute: string, value: boolean | number | string): void;
-    merge(properties: Object): void;
+    merge(properties: object): void;
     get(attribute: string): any;
     getNode(): T;
     getTagName(): string;
@@ -20,7 +20,7 @@ export declare class Knot<T extends HTMLElement = HTMLElement> {
     removeClass(cssClasses: Array<string> | string): void;
     toggleClass(cssClasses: Array<string> | string): void;
     getClasses(): Array<string>;
-    setAttribute(attribute: string, opt_value?: (Object | Function | Array<any> | boolean | number | string | null | undefined) | undefined): void;
+    setAttribute(attribute: string, opt_value?: (object | Function | Array<any> | boolean | number | string | null | undefined) | undefined): void;
     getAttribute(attribute: string): any;
     removeAttribute(attribute: string): void;
     hasAttribute(attribute: string): boolean;
@@ -55,7 +55,7 @@ export declare class Knot<T extends HTMLElement = HTMLElement> {
     private _getParentElement;
     getComputedStyle(): CSSStyleDeclaration | null;
     getStyle(): CSSStyleDeclaration;
-    setStyle(properties: Object): void;
+    setStyle(properties: object): void;
     removeStyle(properties: Array<any>): void;
     isEmpty(): boolean;
     exists(): boolean;
