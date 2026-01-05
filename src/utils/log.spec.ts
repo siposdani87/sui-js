@@ -7,7 +7,7 @@ describe('log', () => {
 
         consoleLog(message);
 
-        expect(logSpy).toBeCalledWith(message);
+        expect(logSpy).toHaveBeenCalledWith(message);
         logSpy.mockRestore();
     });
 });

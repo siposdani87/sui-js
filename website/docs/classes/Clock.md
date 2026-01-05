@@ -17,7 +17,7 @@ custom_edit_url: null
 | Name | Type |
 | :------ | :------ |
 | `knot` | [`Knot`](Knot.md)\<`HTMLElement`\> |
-| `options` | `Object` |
+| `options` | `object` |
 
 #### Returns
 
@@ -25,7 +25,7 @@ custom_edit_url: null
 
 #### Defined in
 
-[component/clock.ts:23](https://github.com/siposdani87/sui-js/blob/9aff0f0/src/component/clock.ts#L23)
+[component/clock.ts:23](https://github.com/siposdani87/sui-js/blob/fa20298/src/component/clock.ts#L23)
 
 ## Properties
 
@@ -35,7 +35,7 @@ custom_edit_url: null
 
 #### Defined in
 
-[component/clock.ts:12](https://github.com/siposdani87/sui-js/blob/9aff0f0/src/component/clock.ts#L12)
+[component/clock.ts:12](https://github.com/siposdani87/sui-js/blob/fa20298/src/component/clock.ts#L12)
 
 ___
 
@@ -45,7 +45,7 @@ ___
 
 #### Defined in
 
-[component/clock.ts:8](https://github.com/siposdani87/sui-js/blob/9aff0f0/src/component/clock.ts#L8)
+[component/clock.ts:8](https://github.com/siposdani87/sui-js/blob/fa20298/src/component/clock.ts#L8)
 
 ___
 
@@ -55,7 +55,7 @@ ___
 
 #### Defined in
 
-[component/clock.ts:19](https://github.com/siposdani87/sui-js/blob/9aff0f0/src/component/clock.ts#L19)
+[component/clock.ts:19](https://github.com/siposdani87/sui-js/blob/fa20298/src/component/clock.ts#L19)
 
 ___
 
@@ -65,7 +65,7 @@ ___
 
 #### Defined in
 
-[component/clock.ts:13](https://github.com/siposdani87/sui-js/blob/9aff0f0/src/component/clock.ts#L13)
+[component/clock.ts:13](https://github.com/siposdani87/sui-js/blob/fa20298/src/component/clock.ts#L13)
 
 ___
 
@@ -75,7 +75,7 @@ ___
 
 #### Defined in
 
-[component/clock.ts:20](https://github.com/siposdani87/sui-js/blob/9aff0f0/src/component/clock.ts#L20)
+[component/clock.ts:20](https://github.com/siposdani87/sui-js/blob/fa20298/src/component/clock.ts#L20)
 
 ___
 
@@ -85,7 +85,7 @@ ___
 
 #### Defined in
 
-[component/clock.ts:18](https://github.com/siposdani87/sui-js/blob/9aff0f0/src/component/clock.ts#L18)
+[component/clock.ts:18](https://github.com/siposdani87/sui-js/blob/fa20298/src/component/clock.ts#L18)
 
 ___
 
@@ -95,7 +95,7 @@ ___
 
 #### Defined in
 
-[component/clock.ts:21](https://github.com/siposdani87/sui-js/blob/9aff0f0/src/component/clock.ts#L21)
+[component/clock.ts:21](https://github.com/siposdani87/sui-js/blob/fa20298/src/component/clock.ts#L21)
 
 ___
 
@@ -105,7 +105,7 @@ ___
 
 #### Defined in
 
-[component/clock.ts:17](https://github.com/siposdani87/sui-js/blob/9aff0f0/src/component/clock.ts#L17)
+[component/clock.ts:17](https://github.com/siposdani87/sui-js/blob/fa20298/src/component/clock.ts#L17)
 
 ___
 
@@ -115,17 +115,17 @@ ___
 
 #### Defined in
 
-[component/clock.ts:10](https://github.com/siposdani87/sui-js/blob/9aff0f0/src/component/clock.ts#L10)
+[component/clock.ts:10](https://github.com/siposdani87/sui-js/blob/fa20298/src/component/clock.ts#L10)
 
 ___
 
 ### options
 
-• **options**: [`Objekt`](Objekt.md)\<`Object`\>
+• **options**: [`Objekt`](Objekt.md)\<`object`\>
 
 #### Defined in
 
-[component/clock.ts:9](https://github.com/siposdani87/sui-js/blob/9aff0f0/src/component/clock.ts#L9)
+[component/clock.ts:9](https://github.com/siposdani87/sui-js/blob/fa20298/src/component/clock.ts#L9)
 
 ___
 
@@ -135,7 +135,7 @@ ___
 
 #### Defined in
 
-[component/clock.ts:15](https://github.com/siposdani87/sui-js/blob/9aff0f0/src/component/clock.ts#L15)
+[component/clock.ts:15](https://github.com/siposdani87/sui-js/blob/fa20298/src/component/clock.ts#L15)
 
 ___
 
@@ -145,7 +145,7 @@ ___
 
 #### Defined in
 
-[component/clock.ts:14](https://github.com/siposdani87/sui-js/blob/9aff0f0/src/component/clock.ts#L14)
+[component/clock.ts:14](https://github.com/siposdani87/sui-js/blob/fa20298/src/component/clock.ts#L14)
 
 ___
 
@@ -155,7 +155,7 @@ ___
 
 #### Defined in
 
-[component/clock.ts:16](https://github.com/siposdani87/sui-js/blob/9aff0f0/src/component/clock.ts#L16)
+[component/clock.ts:16](https://github.com/siposdani87/sui-js/blob/fa20298/src/component/clock.ts#L16)
 
 ___
 
@@ -172,390 +172,9 @@ ___
 
 #### Defined in
 
-[component/clock.ts:11](https://github.com/siposdani87/sui-js/blob/9aff0f0/src/component/clock.ts#L11)
+[component/clock.ts:11](https://github.com/siposdani87/sui-js/blob/fa20298/src/component/clock.ts#L11)
 
 ## Methods
-
-### \_changeMode
-
-▸ **_changeMode**(`direction`): `void`
-
-#### Parameters
-
-| Name | Type |
-| :------ | :------ |
-| `direction` | `number` |
-
-#### Returns
-
-`void`
-
-#### Defined in
-
-[component/clock.ts:198](https://github.com/siposdani87/sui-js/blob/9aff0f0/src/component/clock.ts#L198)
-
-___
-
-### \_drawHours
-
-▸ **_drawHours**(`timeKnot`): `void`
-
-#### Parameters
-
-| Name | Type |
-| :------ | :------ |
-| `timeKnot` | [`Knot`](Knot.md)\<`HTMLElement`\> |
-
-#### Returns
-
-`void`
-
-#### Defined in
-
-[component/clock.ts:229](https://github.com/siposdani87/sui-js/blob/9aff0f0/src/component/clock.ts#L229)
-
-___
-
-### \_drawMinutes
-
-▸ **_drawMinutes**(`timeKnot`): `void`
-
-#### Parameters
-
-| Name | Type |
-| :------ | :------ |
-| `timeKnot` | [`Knot`](Knot.md)\<`HTMLElement`\> |
-
-#### Returns
-
-`void`
-
-#### Defined in
-
-[component/clock.ts:216](https://github.com/siposdani87/sui-js/blob/9aff0f0/src/component/clock.ts#L216)
-
-___
-
-### \_getMode
-
-▸ **_getMode**(`direction`): `string`
-
-#### Parameters
-
-| Name | Type |
-| :------ | :------ |
-| `direction` | `number` |
-
-#### Returns
-
-`string`
-
-#### Defined in
-
-[component/clock.ts:189](https://github.com/siposdani87/sui-js/blob/9aff0f0/src/component/clock.ts#L189)
-
-___
-
-### \_getTimeKnot
-
-▸ **_getTimeKnot**(): [`Knot`](Knot.md)\<`HTMLElement`\>
-
-#### Returns
-
-[`Knot`](Knot.md)\<`HTMLElement`\>
-
-#### Defined in
-
-[component/clock.ts:136](https://github.com/siposdani87/sui-js/blob/9aff0f0/src/component/clock.ts#L136)
-
-___
-
-### \_init
-
-▸ **_init**(): `void`
-
-#### Returns
-
-`void`
-
-#### Defined in
-
-[component/clock.ts:33](https://github.com/siposdani87/sui-js/blob/9aff0f0/src/component/clock.ts#L33)
-
-___
-
-### \_initContentKnot
-
-▸ **_initContentKnot**(): `void`
-
-#### Returns
-
-`void`
-
-#### Defined in
-
-[component/clock.ts:130](https://github.com/siposdani87/sui-js/blob/9aff0f0/src/component/clock.ts#L130)
-
-___
-
-### \_initHeaderKnot
-
-▸ **_initHeaderKnot**(): `void`
-
-#### Returns
-
-`void`
-
-#### Defined in
-
-[component/clock.ts:69](https://github.com/siposdani87/sui-js/blob/9aff0f0/src/component/clock.ts#L69)
-
-___
-
-### \_initHoursHeaderKnot
-
-▸ **_initHoursHeaderKnot**(): `void`
-
-#### Returns
-
-`void`
-
-#### Defined in
-
-[component/clock.ts:108](https://github.com/siposdani87/sui-js/blob/9aff0f0/src/component/clock.ts#L108)
-
-___
-
-### \_initMinutesHeaderKnot
-
-▸ **_initMinutesHeaderKnot**(): `void`
-
-#### Returns
-
-`void`
-
-#### Defined in
-
-[component/clock.ts:99](https://github.com/siposdani87/sui-js/blob/9aff0f0/src/component/clock.ts#L99)
-
-___
-
-### \_initMode
-
-▸ **_initMode**(`mode`): `void`
-
-#### Parameters
-
-| Name | Type |
-| :------ | :------ |
-| `mode` | `string` |
-
-#### Returns
-
-`void`
-
-#### Defined in
-
-[component/clock.ts:184](https://github.com/siposdani87/sui-js/blob/9aff0f0/src/component/clock.ts#L184)
-
-___
-
-### \_initPeriodHeaderKnot
-
-▸ **_initPeriodHeaderKnot**(): `void`
-
-#### Returns
-
-`void`
-
-#### Defined in
-
-[component/clock.ts:80](https://github.com/siposdani87/sui-js/blob/9aff0f0/src/component/clock.ts#L80)
-
-___
-
-### \_initSeparatorHeaderKnot
-
-▸ **_initSeparatorHeaderKnot**(): `void`
-
-#### Returns
-
-`void`
-
-#### Defined in
-
-[component/clock.ts:123](https://github.com/siposdani87/sui-js/blob/9aff0f0/src/component/clock.ts#L123)
-
-___
-
-### \_initStructure
-
-▸ **_initStructure**(): `void`
-
-#### Returns
-
-`void`
-
-#### Defined in
-
-[component/clock.ts:61](https://github.com/siposdani87/sui-js/blob/9aff0f0/src/component/clock.ts#L61)
-
-___
-
-### \_onClick
-
-▸ **_onClick**(`selectedTime`): `void`
-
-#### Parameters
-
-| Name | Type |
-| :------ | :------ |
-| `selectedTime` | `Date` |
-
-#### Returns
-
-`void`
-
-#### Defined in
-
-[component/clock.ts:243](https://github.com/siposdani87/sui-js/blob/9aff0f0/src/component/clock.ts#L243)
-
-___
-
-### \_setHours
-
-▸ **_setHours**(`hours`): `void`
-
-#### Parameters
-
-| Name | Type |
-| :------ | :------ |
-| `hours` | `number` |
-
-#### Returns
-
-`void`
-
-#### Defined in
-
-[component/clock.ts:144](https://github.com/siposdani87/sui-js/blob/9aff0f0/src/component/clock.ts#L144)
-
-___
-
-### \_setMinutes
-
-▸ **_setMinutes**(`minutes`): `void`
-
-#### Parameters
-
-| Name | Type |
-| :------ | :------ |
-| `minutes` | `number` |
-
-#### Returns
-
-`void`
-
-#### Defined in
-
-[component/clock.ts:153](https://github.com/siposdani87/sui-js/blob/9aff0f0/src/component/clock.ts#L153)
-
-___
-
-### \_setMode
-
-▸ **_setMode**(`mode`): `void`
-
-#### Parameters
-
-| Name | Type |
-| :------ | :------ |
-| `mode` | `string` |
-
-#### Returns
-
-`void`
-
-#### Defined in
-
-[component/clock.ts:117](https://github.com/siposdani87/sui-js/blob/9aff0f0/src/component/clock.ts#L117)
-
-___
-
-### \_setOptions
-
-▸ **_setOptions**(`options`): `void`
-
-#### Parameters
-
-| Name | Type |
-| :------ | :------ |
-| `options` | `Object` |
-
-#### Returns
-
-`void`
-
-#### Defined in
-
-[component/clock.ts:29](https://github.com/siposdani87/sui-js/blob/9aff0f0/src/component/clock.ts#L29)
-
-___
-
-### \_setPeriod
-
-▸ **_setPeriod**(`period`): `void`
-
-#### Parameters
-
-| Name | Type |
-| :------ | :------ |
-| `period` | `string` |
-
-#### Returns
-
-`void`
-
-#### Defined in
-
-[component/clock.ts:163](https://github.com/siposdani87/sui-js/blob/9aff0f0/src/component/clock.ts#L163)
-
-___
-
-### \_switchMode
-
-▸ **_switchMode**(`hourCallback`, `minuteCallback`): `Date`
-
-#### Parameters
-
-| Name | Type |
-| :------ | :------ |
-| `hourCallback` | `Function` |
-| `minuteCallback` | `Function` |
-
-#### Returns
-
-`Date`
-
-#### Defined in
-
-[component/clock.ts:43](https://github.com/siposdani87/sui-js/blob/9aff0f0/src/component/clock.ts#L43)
-
-___
-
-### \_togglePeriod
-
-▸ **_togglePeriod**(): `void`
-
-#### Returns
-
-`void`
-
-#### Defined in
-
-[component/clock.ts:90](https://github.com/siposdani87/sui-js/blob/9aff0f0/src/component/clock.ts#L90)
-
-___
 
 ### draw
 
@@ -567,7 +186,7 @@ ___
 
 #### Defined in
 
-[component/clock.ts:203](https://github.com/siposdani87/sui-js/blob/9aff0f0/src/component/clock.ts#L203)
+[component/clock.ts:203](https://github.com/siposdani87/sui-js/blob/fa20298/src/component/clock.ts#L203)
 
 ___
 
@@ -587,7 +206,7 @@ ___
 
 #### Defined in
 
-[component/clock.ts:249](https://github.com/siposdani87/sui-js/blob/9aff0f0/src/component/clock.ts#L249)
+[component/clock.ts:249](https://github.com/siposdani87/sui-js/blob/fa20298/src/component/clock.ts#L249)
 
 ___
 
@@ -607,4 +226,4 @@ ___
 
 #### Defined in
 
-[component/clock.ts:171](https://github.com/siposdani87/sui-js/blob/9aff0f0/src/component/clock.ts#L171)
+[component/clock.ts:171](https://github.com/siposdani87/sui-js/blob/fa20298/src/component/clock.ts#L171)

@@ -8,7 +8,7 @@ export declare class BaseCheckboxField extends BaseField<HTMLInputElement> {
     protected _init(): void;
     protected _change(): void;
     getValue(): any;
-    setValue(value: Object | Function | Array<any> | boolean | number | string | null | undefined): void;
+    setValue(value: object | Function | Array<any> | boolean | number | string | null | undefined): void;
     setDisabled(state: boolean): void;
     setLabel(text: string): void;
     refresh(): void;

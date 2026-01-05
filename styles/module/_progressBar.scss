@@ -1,6 +1,8 @@
+@use '../core/variables';
+
 .main-container > .progress-bar {
     position: fixed;
-    z-index: $zindex-progress-bar;
+    z-index: variables.$zindex-progress-bar;
 }
 
 #header > .progress-bar {

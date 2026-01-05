@@ -326,8 +326,8 @@ describe('operation', () => {
         const emptyArray = isEmpty([]);
         expect(emptyArray).toEqual(true);
 
-        const emptyObject = isEmpty({});
-        expect(emptyObject).toEqual(true);
+        const emptyobject = isEmpty({});
+        expect(emptyobject).toEqual(true);
     });
 
     /* it('list', () => {

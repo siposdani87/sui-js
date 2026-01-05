@@ -65,7 +65,7 @@ export class IconToggleField extends BaseCheckboxField {
 
     setValue(
         value:
-            | Object
+            | object
             | Function
             | Array<any>
             | boolean

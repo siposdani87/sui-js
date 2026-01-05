@@ -1,3 +1,5 @@
+@use '../core/variables';
+
 .radiobutton-field {
     &.input-block {
         padding-top: 0;
@@ -8,7 +10,7 @@
         white-space: nowrap;
         overflow: hidden;
         text-overflow: ellipsis;
-        color: $label-default-light;
+        color: variables.$label-default-light;
 
         &::first-letter {
             text-transform: capitalize;
@@ -17,7 +19,7 @@
 
     &.is-disabled {
         .field-label {
-            color: $label-disabled-light;
+            color: variables.$label-disabled-light;
         }
     }
 }

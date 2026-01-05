@@ -3,7 +3,7 @@ import { Knot } from '../core';
 export declare class Flash {
     container: Knot;
     options: Objekt;
-    constructor(opt_options?: Object | undefined);
+    constructor(opt_options?: object | undefined);
     private _init;
     private _setOptions;
     private _getFlashKnot;

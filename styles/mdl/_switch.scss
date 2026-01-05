@@ -1,25 +1,28 @@
+@use '../core/colors';
+@use '../core/variables';
+
 .mdl-switch {
     height: auto;
 
     .mdl-switch__track {
-        background-color: $light-grey-bright;
+        background-color: colors.$light-grey-bright;
     }
 
     .mdl-switch__thumb {
-        background-color: $checkbox-default-light;
+        background-color: variables.$checkbox-default-light;
     }
 
     input[required] ~ .mdl-switch__thumb {
-        border: 2px solid $error-default-light;
+        border: 2px solid variables.$error-default-light;
     }
 
     &.is-checked {
         .mdl-switch__track {
-            background-color: $primary-dark;
+            background-color: colors.$primary-dark;
         }
 
         .mdl-switch__thumb {
-            background-color: $primary-bright;
+            background-color: colors.$primary-bright;
         }
 
         input[required] ~ .mdl-switch__thumb {
@@ -29,25 +32,25 @@
 
     &.is-disabled {
         .mdl-switch__track {
-            background-color: $light-grey-bright;
+            background-color: colors.$light-grey-bright;
         }
 
         .mdl-switch__thumb {
-            background-color: $checkbox-disabled-light;
+            background-color: variables.$checkbox-disabled-light;
         }
 
         input[required] ~ .mdl-switch__thumb {
             border-style: dotted;
-            border-color: $error-disabled-light;
+            border-color: variables.$error-disabled-light;
         }
 
         &.is-checked {
             .mdl-switch__track {
-                background-color: $primary;
+                background-color: colors.$primary;
             }
 
             .mdl-switch__thumb {
-                background-color: $checkbox-disabled-light;
+                background-color: variables.$checkbox-disabled-light;
             }
         }
     }

@@ -7,7 +7,7 @@ export declare class Application {
     private _instances;
     private _module;
     private _routeOptions;
-    constructor(options: Object, resources: Injection);
+    constructor(options: object, resources: Injection);
     private _setOptions;
     private _init;
     getLanguage(): string;
@@ -46,9 +46,9 @@ export declare class Application {
     private _initFooter;
     private _initBrowser;
     private _initRoutes;
-    setRootState(id: string, opt_params?: Object): void;
-    getInstance(name: InstanceKey): Object | null;
-    getController(): Object | null;
+    setRootState(id: string, opt_params?: object): void;
+    getInstance(name: InstanceKey): object | null;
+    getController(): object | null;
     run(routes: Route[], services: string[]): void;
     controller(name: string, moduleInjections: string[], moduleCallback: ClassRef): string;
     service(name: string, moduleInjections: string[], moduleCallback: ClassRef): string;

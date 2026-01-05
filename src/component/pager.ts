@@ -22,7 +22,7 @@ export class Pager {
     constructor(
         dom: Knot,
         opt_selectors: string[] | undefined = ['.pager', '.pager-statistics'],
-        opt_options: Object | undefined = {},
+        opt_options: object | undefined = {},
     ) {
         this.pager = new Query(opt_selectors[0], dom).getKnot();
         this.pagerStatistics = new Query(opt_selectors[1], dom).getKnot();
@@ -30,7 +30,7 @@ export class Pager {
         this._init();
     }
 
-    private _setOptions(opt_options: Object | undefined = {}): void {
+    private _setOptions(opt_options: object | undefined = {}): void {
         this.options = new Objekt({
             row_count: 10,
             pager_num: 4,

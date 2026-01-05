@@ -1,21 +1,25 @@
+@use '../core/colors';
+@use '../core/variables';
+@use '../mixins/breakpoints';
+
 .nav-bar-header {
     position: fixed;
     width: 100%;
     top: 0;
-    z-index: $zindex-nav-bar;
+    z-index: variables.$zindex-nav-bar;
     min-height: 50px;
 
     #toggle-nav-bar {
         position: absolute;
         right: 10px;
         top: 3px;
-        color: $accent;
+        color: colors.$accent;
 
         &:hover {
-            color: $accent-dark;
+            color: colors.$accent-dark;
         }
 
-        @include media-breakpoint-up(md) {
+        @include breakpoints.media-breakpoint-up(md) {
             display: none;
         }
     }
@@ -28,40 +32,40 @@
 
         &.open {
             display: flex;
-            background-color: $primary-dark;
+            background-color: colors.$primary-dark;
             opacity: 0.9;
-            box-shadow: 0 2px 20px 0 rgba($black, 0.75);
+            box-shadow: 0 2px 20px 0 rgba(colors.$black, 0.75);
             border-bottom: 0;
 
-            @include media-breakpoint-up(md) {
-                border-bottom: 1px solid rgba($light-grey, 0.5);
+            @include breakpoints.media-breakpoint-up(md) {
+                border-bottom: 1px solid rgba(colors.$light-grey, 0.5);
                 box-shadow: none;
                 opacity: 1;
                 background-color: transparent;
             }
 
             & + #toggle-nav-bar {
-                color: $white;
+                color: colors.$white;
 
                 &:hover {
-                    color: $white-dark;
+                    color: colors.$white-dark;
                 }
             }
         }
 
         &.shadow {
-            background-color: $primary-dark;
+            background-color: colors.$primary-dark;
             opacity: 0.9;
-            box-shadow: 0 2px 20px 0 rgba($black, 0.75);
+            box-shadow: 0 2px 20px 0 rgba(colors.$black, 0.75);
             border-bottom: 0;
             backdrop-filter: blur(4px);
         }
 
-        @include media-breakpoint-up(sm) {
-            border-bottom: 1px solid rgba($light-grey, 0.5);
+        @include breakpoints.media-breakpoint-up(sm) {
+            border-bottom: 1px solid rgba(colors.$light-grey, 0.5);
         }
 
-        @include media-breakpoint-down(sm) {
+        @include breakpoints.media-breakpoint-down(sm) {
             flex-flow: column nowrap;
             display: none;
         }
@@ -72,24 +76,24 @@
             align-items: center;
             text-decoration: none;
             padding: 0.5em 0.8em;
-            color: $white;
+            color: colors.$white;
             text-transform: uppercase;
             font-size: 0.8em;
 
-            @include media-breakpoint-down(sm) {
+            @include breakpoints.media-breakpoint-down(sm) {
                 justify-content: center;
-                border-bottom: 1px solid $primary-bright;
+                border-bottom: 1px solid colors.$primary-bright;
             }
 
             &:hover {
-                color: $white-dark;
+                color: colors.$white-dark;
             }
 
             &.active {
-                color: $white-dark;
+                color: colors.$white-dark;
                 padding: 0.5em 0.8em 0.3em;
-                border-bottom: 0.2em solid $accent;
-                background-color: $primary-dark;
+                border-bottom: 0.2em solid colors.$accent;
+                background-color: colors.$primary-dark;
             }
 
             .image {
@@ -107,7 +111,7 @@
             }
 
             &:last-child {
-                @include media-breakpoint-down(sm) {
+                @include breakpoints.media-breakpoint-down(sm) {
                     border-bottom: 0;
                 }
             }

@@ -18,7 +18,7 @@ custom_edit_url: null
 | :------ | :------ |
 | `date` | `Date` |
 | `currentDate` | `Date` |
-| `options` | `Object` |
+| `options` | `object` |
 
 #### Returns
 
@@ -26,7 +26,7 @@ custom_edit_url: null
 
 #### Defined in
 
-[component/month.ts:12](https://github.com/siposdani87/sui-js/blob/9aff0f0/src/component/month.ts#L12)
+[component/month.ts:12](https://github.com/siposdani87/sui-js/blob/fa20298/src/component/month.ts#L12)
 
 ## Properties
 
@@ -36,7 +36,7 @@ custom_edit_url: null
 
 #### Defined in
 
-[component/month.ts:10](https://github.com/siposdani87/sui-js/blob/9aff0f0/src/component/month.ts#L10)
+[component/month.ts:10](https://github.com/siposdani87/sui-js/blob/fa20298/src/component/month.ts#L10)
 
 ___
 
@@ -46,7 +46,7 @@ ___
 
 #### Defined in
 
-[component/month.ts:8](https://github.com/siposdani87/sui-js/blob/9aff0f0/src/component/month.ts#L8)
+[component/month.ts:8](https://github.com/siposdani87/sui-js/blob/fa20298/src/component/month.ts#L8)
 
 ___
 
@@ -56,53 +56,19 @@ ___
 
 #### Defined in
 
-[component/month.ts:7](https://github.com/siposdani87/sui-js/blob/9aff0f0/src/component/month.ts#L7)
+[component/month.ts:7](https://github.com/siposdani87/sui-js/blob/fa20298/src/component/month.ts#L7)
 
 ___
 
 ### options
 
-• **options**: [`Objekt`](Objekt.md)\<`Object`\>
+• **options**: [`Objekt`](Objekt.md)\<`object`\>
 
 #### Defined in
 
-[component/month.ts:9](https://github.com/siposdani87/sui-js/blob/9aff0f0/src/component/month.ts#L9)
+[component/month.ts:9](https://github.com/siposdani87/sui-js/blob/fa20298/src/component/month.ts#L9)
 
 ## Methods
-
-### \_init
-
-▸ **_init**(): `void`
-
-#### Returns
-
-`void`
-
-#### Defined in
-
-[component/month.ts:23](https://github.com/siposdani87/sui-js/blob/9aff0f0/src/component/month.ts#L23)
-
-___
-
-### \_setOptions
-
-▸ **_setOptions**(`options`): `void`
-
-#### Parameters
-
-| Name | Type |
-| :------ | :------ |
-| `options` | `Object` |
-
-#### Returns
-
-`void`
-
-#### Defined in
-
-[component/month.ts:19](https://github.com/siposdani87/sui-js/blob/9aff0f0/src/component/month.ts#L19)
-
-___
 
 ### eventClick
 
@@ -120,7 +86,7 @@ ___
 
 #### Defined in
 
-[component/month.ts:48](https://github.com/siposdani87/sui-js/blob/9aff0f0/src/component/month.ts#L48)
+[component/month.ts:48](https://github.com/siposdani87/sui-js/blob/fa20298/src/component/month.ts#L48)
 
 ___
 
@@ -134,4 +100,4 @@ ___
 
 #### Defined in
 
-[component/month.ts:37](https://github.com/siposdani87/sui-js/blob/9aff0f0/src/component/month.ts#L37)
+[component/month.ts:37](https://github.com/siposdani87/sui-js/blob/fa20298/src/component/month.ts#L37)

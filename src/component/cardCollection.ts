@@ -26,7 +26,7 @@ export class CardCollection {
         dom: Knot,
         opt_selector: string | undefined = '.card-collection',
         opt_ctrl: (object | null) | undefined = null,
-        opt_options: Object | undefined = {},
+        opt_options: object | undefined = {},
     ) {
         this.cardCollectionKnot = new Query(opt_selector, dom).getKnot();
         this.ctrl = opt_ctrl;
@@ -34,7 +34,7 @@ export class CardCollection {
         this._init();
     }
 
-    private _setOptions(opt_options: Object | undefined = {}): void {
+    private _setOptions(opt_options: object | undefined = {}): void {
         this.options = new Objekt({
             no_content: {
                 image_url: null,

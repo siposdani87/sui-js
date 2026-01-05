@@ -1,17 +1,19 @@
+@use '../core/variables';
+
 .dark-theme {
     .number-field {
         .up-button {
-            color: $primary-default-dark;
+            color: variables.$primary-default-dark;
         }
 
         .down-button {
-            color: $primary-default-dark;
+            color: variables.$primary-default-dark;
         }
 
         &.is-disabled {
             .up-button,
             .down-button {
-                color: $primary-disabled-dark;
+                color: variables.$primary-disabled-dark;
             }
         }
     }

@@ -18,7 +18,7 @@ export declare class Clock {
     contentKnot: Knot;
     hours: number;
     minutes: number;
-    constructor(knot: Knot, options: Object);
+    constructor(knot: Knot, options: object);
     private _setOptions;
     private _init;
     private _switchMode;

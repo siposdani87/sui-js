@@ -17,7 +17,7 @@ custom_edit_url: null
 | Name | Type |
 | :------ | :------ |
 | `containerKnot` | [`Knot`](Knot.md)\<`HTMLElement`\> |
-| `opt_options` | `Object` |
+| `opt_options` | `object` |
 
 #### Returns
 
@@ -25,7 +25,7 @@ custom_edit_url: null
 
 #### Defined in
 
-[component/contentHandler.ts:9](https://github.com/siposdani87/sui-js/blob/9aff0f0/src/component/contentHandler.ts#L9)
+[component/contentHandler.ts:9](https://github.com/siposdani87/sui-js/blob/fa20298/src/component/contentHandler.ts#L9)
 
 ## Properties
 
@@ -35,7 +35,7 @@ custom_edit_url: null
 
 #### Defined in
 
-[component/contentHandler.ts:5](https://github.com/siposdani87/sui-js/blob/9aff0f0/src/component/contentHandler.ts#L5)
+[component/contentHandler.ts:5](https://github.com/siposdani87/sui-js/blob/fa20298/src/component/contentHandler.ts#L5)
 
 ___
 
@@ -45,53 +45,19 @@ ___
 
 #### Defined in
 
-[component/contentHandler.ts:7](https://github.com/siposdani87/sui-js/blob/9aff0f0/src/component/contentHandler.ts#L7)
+[component/contentHandler.ts:7](https://github.com/siposdani87/sui-js/blob/fa20298/src/component/contentHandler.ts#L7)
 
 ___
 
 ### options
 
-• **options**: [`Objekt`](Objekt.md)\<`Object`\>
+• **options**: [`Objekt`](Objekt.md)\<`object`\>
 
 #### Defined in
 
-[component/contentHandler.ts:6](https://github.com/siposdani87/sui-js/blob/9aff0f0/src/component/contentHandler.ts#L6)
+[component/contentHandler.ts:6](https://github.com/siposdani87/sui-js/blob/fa20298/src/component/contentHandler.ts#L6)
 
 ## Methods
-
-### \_init
-
-▸ **_init**(): `void`
-
-#### Returns
-
-`void`
-
-#### Defined in
-
-[component/contentHandler.ts:23](https://github.com/siposdani87/sui-js/blob/9aff0f0/src/component/contentHandler.ts#L23)
-
-___
-
-### \_setOptions
-
-▸ **_setOptions**(`opt_options?`): `void`
-
-#### Parameters
-
-| Name | Type |
-| :------ | :------ |
-| `opt_options` | `Object` |
-
-#### Returns
-
-`void`
-
-#### Defined in
-
-[component/contentHandler.ts:15](https://github.com/siposdani87/sui-js/blob/9aff0f0/src/component/contentHandler.ts#L15)
-
-___
 
 ### hide
 
@@ -103,7 +69,7 @@ ___
 
 #### Defined in
 
-[component/contentHandler.ts:47](https://github.com/siposdani87/sui-js/blob/9aff0f0/src/component/contentHandler.ts#L47)
+[component/contentHandler.ts:47](https://github.com/siposdani87/sui-js/blob/fa20298/src/component/contentHandler.ts#L47)
 
 ___
 
@@ -117,4 +83,4 @@ ___
 
 #### Defined in
 
-[component/contentHandler.ts:42](https://github.com/siposdani87/sui-js/blob/9aff0f0/src/component/contentHandler.ts#L42)
+[component/contentHandler.ts:42](https://github.com/siposdani87/sui-js/blob/fa20298/src/component/contentHandler.ts#L42)

@@ -12,14 +12,14 @@ export class Script {
 
     constructor(
         progressBar: ProgressBar,
-        opt_options: Object | undefined = {},
+        opt_options: object | undefined = {},
     ) {
         this.progressBar = progressBar;
         this._setOptions(opt_options);
         this._init();
     }
 
-    private _setOptions(opt_options: Object | undefined = {}): void {
+    private _setOptions(opt_options: object | undefined = {}): void {
         this.options = new Objekt();
         this.options.merge(opt_options);
     }
@@ -31,7 +31,7 @@ export class Script {
     load(
         id: string,
         url: string,
-        opt_params?: Object,
+        opt_params?: object,
         opt_async: boolean | undefined = false,
         opt_defer: boolean | undefined = false,
     ) {

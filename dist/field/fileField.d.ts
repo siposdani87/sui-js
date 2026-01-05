@@ -25,5 +25,5 @@ export declare class FileField extends BaseField<HTMLInputElement> {
     private _read;
     private _handleRemoveButton;
     private _remove;
-    setValue(value: Object | Function | Array<any> | boolean | number | string | null | undefined): void;
+    setValue(value: object | Function | Array<any> | boolean | number | string | null | undefined): void;
 }

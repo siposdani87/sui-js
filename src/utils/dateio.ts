@@ -74,6 +74,7 @@ export const DateIO = {
                     dateString,
                     formatString,
                 });
+                return new Date();
             }
         }
         try {
@@ -84,6 +85,7 @@ export const DateIO = {
                 dateString,
                 formatString,
             });
+            return new Date();
         }
     },
     format: (date: Date, formatString?: string): string => {

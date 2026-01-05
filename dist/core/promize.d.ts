@@ -1,8 +1,8 @@
 import { Deferred } from './deferred';
 import { Objekt } from './objekt';
-export declare class Promize<T = Object, K = Object> {
+export declare class Promize<T = object, K = object> {
     options: Objekt;
-    constructor(opt_options?: Object | undefined);
+    constructor(opt_options?: object | undefined);
     private _setOptions;
     resolve(opt_data?: T): void;
     reject(opt_data?: K): void;

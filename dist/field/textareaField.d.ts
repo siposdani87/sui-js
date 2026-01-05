@@ -18,6 +18,6 @@ export declare class TextareaField extends BaseField<HTMLInputElement> {
     private _setDocMode;
     refresh(): void;
     private _setValue;
-    setValue(value: Object | Function | Array<any> | boolean | number | string | null | undefined): void;
+    setValue(value: object | Function | Array<any> | boolean | number | string | null | undefined): void;
     getValue(): any;
 }

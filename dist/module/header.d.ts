@@ -10,7 +10,7 @@ export declare class Header {
     brandKnotTitle: Knot;
     mainContainerKnot: Knot;
     templateViewKnot: Knot;
-    constructor(opt_options?: Object | undefined);
+    constructor(opt_options?: object | undefined);
     private _setOptions;
     private _init;
     eventLogoClick(): void;

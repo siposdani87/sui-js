@@ -3,7 +3,7 @@ import { Objekt } from '../core/objekt';
 export declare class Page {
     options: Objekt;
     document: Document;
-    constructor(opt_options?: Object | undefined);
+    constructor(opt_options?: object | undefined);
     private _setOptions;
     private _init;
     setTitle(title: string): void;

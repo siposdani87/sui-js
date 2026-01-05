@@ -23,7 +23,7 @@ export const typeCast = (value: any): any => {
     return result;
 };
 
-export const merge = (objA: Object, objB: Object): Object | undefined => {
+export const merge = (objA: object, objB: object): object | undefined => {
     const obj = copyObject(objA);
     for (const key in objB) {
         if (objB.hasOwnProperty(key)) {
@@ -39,7 +39,7 @@ export const merge = (objA: Object, objB: Object): Object | undefined => {
 
 export const format = <T>(
     str: string,
-    opt_params: Object | Array<T> | null | undefined = null,
+    opt_params: object | Array<T> | null | undefined = null,
     opt_prefix: string | undefined = '\\{',
     opt_postfix: string | undefined = '\\}',
 ): string => {
@@ -90,9 +90,9 @@ export const isFloat = (value: any): value is number =>
 export const isInteger = (value: any): value is number =>
     parseInt(value, 10) === value;
 
-export const isObject = (value: any): value is Object => is(value, 'object');
+export const isObject = (value: any): value is object => is(value, 'object');
 
-export const isPureObject = (value: any): value is Object =>
+export const isPureObject = (value: any): value is object =>
     !isNull(value) && !isDate(value) && !isArray(value) && isObject(value);
 
 export const isDate = (value: any): value is Date => instanceOf(value, Date);
@@ -112,7 +112,7 @@ export const instanceOf = <T>(value: any, obj: T): boolean =>
     value instanceof (obj as any);
 
 export const each = <T>(
-    items: Array<T> | Object,
+    items: Array<T> | object,
     next: (item: any, key: string | number) => void,
     opt_start?: number,
     opt_end?: number,
@@ -138,7 +138,7 @@ export const eachArray = <T>(
 };
 
 export const eachObject = (
-    object: Object,
+    object: object,
     next: (value: any, key: string) => void,
 ): void => {
     for (const key in object) {
@@ -164,7 +164,7 @@ export const sleepEach = (
     loop();
 };
 
-export const clear = <T>(items: Array<T> | Object): void => {
+export const clear = <T>(items: Array<T> | object): void => {
     if (isArray(items)) {
         clearArray(items);
     } else if (isPureObject(items)) {
@@ -176,7 +176,7 @@ export const clearArray = <T>(items: Array<T>): void => {
     items.splice(0, items.length);
 };
 
-export const clearObject = (items: Object): void => {
+export const clearObject = (items: object): void => {
     for (const key in items) {
         if (items.hasOwnProperty(key)) {
             delete items[key];
@@ -221,8 +221,8 @@ export const remove = <T>(items: Array<T>, item: T): void => {
 };
 
 export const copy = <T>(
-    items: Array<T> | Object,
-): Array<T> | Object | undefined => {
+    items: Array<T> | object,
+): Array<T> | object | undefined => {
     let results;
     if (isArray(items)) {
         results = copyArray(items);
@@ -246,7 +246,7 @@ export const copyArray = <T>(items: Array<T>): Array<T> => {
     return results;
 };
 
-export const copyObject = (item: Object): Object => {
+export const copyObject = (item: object): object => {
     const results = {};
     eachObject(item, (value, key) => {
         if (isArray(value)) {
@@ -260,7 +260,7 @@ export const copyObject = (item: Object): Object => {
     return results;
 };
 
-export const isEmpty = <T>(items: Array<T> | Object): boolean => {
+export const isEmpty = <T>(items: Array<T> | object): boolean => {
     let result = false;
     if (isArray(items)) {
         result = items.length === 0;
@@ -298,7 +298,7 @@ export const pluck = <T, K extends Objekt = Objekt>(
 };
 
 export const pluckKeys = (
-    obj: Object,
+    obj: object,
     condition: (value: any, key: string) => boolean,
 ): Array<string> => {
     const results = [];
@@ -383,14 +383,14 @@ export const debounce = (
 
 export const urlWithQueryString = (
     url: string,
-    opt_params?: Object | undefined,
+    opt_params?: object | undefined,
 ): string => {
     const queryString = getQueryString(opt_params);
     const separator = contain(url, '?') ? '&' : '?';
     return url + (queryString ? separator + queryString : '');
 };
 
-export const getQueryString = (opt_params?: Object): string => {
+export const getQueryString = (opt_params?: object): string => {
     const queries: string[] = [];
     eachObject(opt_params, (param, key) => {
         if (isArray(param)) {

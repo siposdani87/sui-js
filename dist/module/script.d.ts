@@ -5,9 +5,9 @@ export declare class Script {
     progressBar: ProgressBar;
     options: Objekt;
     head: Knot;
-    constructor(progressBar: ProgressBar, opt_options?: Object | undefined);
+    constructor(progressBar: ProgressBar, opt_options?: object | undefined);
     private _setOptions;
     private _init;
-    load(id: string, url: string, opt_params?: Object, opt_async?: boolean | undefined, opt_defer?: boolean | undefined): import("..").Promize<Object, Object>;
+    load(id: string, url: string, opt_params?: object, opt_async?: boolean | undefined, opt_defer?: boolean | undefined): import("..").Promize<object, object>;
     remove(id: string): void;
 }

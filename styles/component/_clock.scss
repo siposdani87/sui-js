@@ -1,12 +1,14 @@
+@use '../core/colors';
+
 .clock {
-    background-color: $light-grey;
+    background-color: colors.$light-grey;
     height: 290px;
     width: 250px;
 
     .header {
         height: 50px;
-        background-color: $primary;
-        color: $deep-grey-bright;
+        background-color: colors.$primary;
+        color: colors.$deep-grey-bright;
         display: flex;
         justify-content: center;
         align-items: center;
@@ -17,7 +19,7 @@
             cursor: pointer;
 
             &.active {
-                color: $primary-text;
+                color: colors.$primary-text;
             }
         }
 
@@ -29,7 +31,7 @@
             cursor: pointer;
 
             &.active {
-                color: $primary-text;
+                color: colors.$primary-text;
             }
         }
 

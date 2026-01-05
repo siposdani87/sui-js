@@ -1,20 +1,24 @@
+@use '../core/colors';
+@use '../core/variables';
+@use '../mixins/breakpoints';
+
 #header {
-    background-color: $primary-dark;
+    background-color: colors.$primary-dark;
     position: fixed;
     width: 100%;
     top: 0;
     display: flex;
     flex-flow: row wrap;
     justify-content: space-between;
-    z-index: $zindex-header;
-    color: $white;
+    z-index: variables.$zindex-header;
+    color: colors.$white;
 
     &.shadow {
-        box-shadow: 0 2px 20px 0 rgba($black, 0.75);
+        box-shadow: 0 2px 20px 0 rgba(colors.$black, 0.75);
     }
 
     &.open {
-        z-index: $zindex-header-open;
+        z-index: variables.$zindex-header-open;
     }
 
     .menu {
@@ -23,7 +27,7 @@
         justify-content: space-between;
         height: 50px;
 
-        @include media-breakpoint-down(md) {
+        @include breakpoints.media-breakpoint-down(md) {
             flex: 1 100%;
         }
 
@@ -32,7 +36,7 @@
             flex-flow: row nowrap;
             align-items: center;
             text-decoration: none;
-            color: $light-grey;
+            color: colors.$light-grey;
             font-size: 1.5rem;
 
             &:hover {
@@ -55,18 +59,18 @@
 
         #open-left-menu {
             margin-left: 0.5em;
-            color: $light-grey;
+            color: colors.$light-grey;
         }
 
         #toggle-top-menu {
-            color: $light-grey;
+            color: colors.$light-grey;
 
-            @include media-breakpoint-up(lg) {
+            @include breakpoints.media-breakpoint-up(lg) {
                 display: none;
             }
 
             &.active {
-                color: $accent;
+                color: colors.$accent;
             }
         }
     }

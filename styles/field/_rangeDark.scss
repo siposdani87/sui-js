@@ -1,42 +1,44 @@
+@use '../core/variables';
+
 .dark-theme {
     .range-field {
         .mdl-slider {
-            background-color: $input-default-dark;
+            background-color: variables.$input-default-dark;
         }
 
         .mdl-slider::-webkit-slider-thumb,
         .mdl-slider:active::-webkit-slider-thumb {
-            background: $primary-default-dark;
+            background: variables.$primary-default-dark;
         }
 
         .mdl-slider::-moz-range-thumb,
         .mdl-slider:active::-moz-range-thumb {
-            background: $primary-default-dark;
+            background: variables.$primary-default-dark;
         }
 
         .mdl-slider::-ms-thumb,
         .mdl-slider:active::-ms-thumb {
-            background: $primary-default-dark;
+            background: variables.$primary-default-dark;
         }
 
         &.is-disabled {
             .mdl-slider {
-                background-color: $input-disabled-dark;
+                background-color: variables.$input-disabled-dark;
             }
 
             .mdl-slider::-webkit-slider-thumb,
             .mdl-slider:active::-webkit-slider-thumb {
-                background: $primary-disabled-dark;
+                background: variables.$primary-disabled-dark;
             }
 
             .mdl-slider::-moz-range-thumb,
             .mdl-slider:active::-moz-range-thumb {
-                background: $primary-disabled-dark;
+                background: variables.$primary-disabled-dark;
             }
 
             .mdl-slider::-ms-thumb,
             .mdl-slider:active::-ms-thumb {
-                background: $primary-disabled-dark;
+                background: variables.$primary-disabled-dark;
             }
         }
     }

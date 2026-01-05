@@ -27,7 +27,7 @@ custom_edit_url: null
 
 #### Defined in
 
-[component/tabPanel.ts:15](https://github.com/siposdani87/sui-js/blob/9aff0f0/src/component/tabPanel.ts#L15)
+[component/tabPanel.ts:15](https://github.com/siposdani87/sui-js/blob/fa20298/src/component/tabPanel.ts#L15)
 
 ## Properties
 
@@ -37,7 +37,7 @@ custom_edit_url: null
 
 #### Defined in
 
-[component/tabPanel.ts:11](https://github.com/siposdani87/sui-js/blob/9aff0f0/src/component/tabPanel.ts#L11)
+[component/tabPanel.ts:11](https://github.com/siposdani87/sui-js/blob/fa20298/src/component/tabPanel.ts#L11)
 
 ___
 
@@ -54,7 +54,7 @@ ___
 
 #### Defined in
 
-[component/tabPanel.ts:10](https://github.com/siposdani87/sui-js/blob/9aff0f0/src/component/tabPanel.ts#L10)
+[component/tabPanel.ts:10](https://github.com/siposdani87/sui-js/blob/fa20298/src/component/tabPanel.ts#L10)
 
 ___
 
@@ -64,7 +64,7 @@ ___
 
 #### Defined in
 
-[component/tabPanel.ts:13](https://github.com/siposdani87/sui-js/blob/9aff0f0/src/component/tabPanel.ts#L13)
+[component/tabPanel.ts:13](https://github.com/siposdani87/sui-js/blob/fa20298/src/component/tabPanel.ts#L13)
 
 ___
 
@@ -74,7 +74,7 @@ ___
 
 #### Defined in
 
-[component/tabPanel.ts:9](https://github.com/siposdani87/sui-js/blob/9aff0f0/src/component/tabPanel.ts#L9)
+[component/tabPanel.ts:9](https://github.com/siposdani87/sui-js/blob/fa20298/src/component/tabPanel.ts#L9)
 
 ___
 
@@ -84,71 +84,9 @@ ___
 
 #### Defined in
 
-[component/tabPanel.ts:12](https://github.com/siposdani87/sui-js/blob/9aff0f0/src/component/tabPanel.ts#L12)
+[component/tabPanel.ts:12](https://github.com/siposdani87/sui-js/blob/fa20298/src/component/tabPanel.ts#L12)
 
 ## Methods
-
-### \_init
-
-▸ **_init**(): `void`
-
-#### Returns
-
-`void`
-
-#### Defined in
-
-[component/tabPanel.ts:29](https://github.com/siposdani87/sui-js/blob/9aff0f0/src/component/tabPanel.ts#L29)
-
-___
-
-### \_initPanels
-
-▸ **_initPanels**(): `void`
-
-#### Returns
-
-`void`
-
-#### Defined in
-
-[component/tabPanel.ts:52](https://github.com/siposdani87/sui-js/blob/9aff0f0/src/component/tabPanel.ts#L52)
-
-___
-
-### \_initTabs
-
-▸ **_initTabs**(): `void`
-
-#### Returns
-
-`void`
-
-#### Defined in
-
-[component/tabPanel.ts:37](https://github.com/siposdani87/sui-js/blob/9aff0f0/src/component/tabPanel.ts#L37)
-
-___
-
-### \_setActive
-
-▸ **_setActive**(`panelId`): `void`
-
-#### Parameters
-
-| Name | Type |
-| :------ | :------ |
-| `panelId` | `string` |
-
-#### Returns
-
-`void`
-
-#### Defined in
-
-[component/tabPanel.ts:56](https://github.com/siposdani87/sui-js/blob/9aff0f0/src/component/tabPanel.ts#L56)
-
-___
 
 ### eventChange
 
@@ -166,7 +104,7 @@ ___
 
 #### Defined in
 
-[component/tabPanel.ts:77](https://github.com/siposdani87/sui-js/blob/9aff0f0/src/component/tabPanel.ts#L77)
+[component/tabPanel.ts:77](https://github.com/siposdani87/sui-js/blob/fa20298/src/component/tabPanel.ts#L77)
 
 ___
 
@@ -180,13 +118,13 @@ ___
 
 #### Defined in
 
-[component/tabPanel.ts:99](https://github.com/siposdani87/sui-js/blob/9aff0f0/src/component/tabPanel.ts#L99)
+[component/tabPanel.ts:99](https://github.com/siposdani87/sui-js/blob/fa20298/src/component/tabPanel.ts#L99)
 
 ___
 
 ### setActive
 
-▸ **setActive**(`panelId`): [`Promize`](Promize.md)\<`Object`, `Object`\>
+▸ **setActive**(`panelId`): [`Promize`](Promize.md)\<`object`, `object`\>
 
 #### Parameters
 
@@ -196,8 +134,8 @@ ___
 
 #### Returns
 
-[`Promize`](Promize.md)\<`Object`, `Object`\>
+[`Promize`](Promize.md)\<`object`, `object`\>
 
 #### Defined in
 
-[component/tabPanel.ts:81](https://github.com/siposdani87/sui-js/blob/9aff0f0/src/component/tabPanel.ts#L81)
+[component/tabPanel.ts:81](https://github.com/siposdani87/sui-js/blob/fa20298/src/component/tabPanel.ts#L81)

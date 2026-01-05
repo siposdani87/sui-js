@@ -1,50 +1,52 @@
+@use '../core/variables';
+
 .dark-theme {
     .mdl-radio {
         .mdl-radio__outer-circle {
-            border-color: $checkbox-default-dark;
+            border-color: variables.$checkbox-default-dark;
         }
 
         input[required] ~ .mdl-radio__outer-circle {
-            border-color: $error-default-dark;
+            border-color: variables.$error-default-dark;
         }
 
         &.is-other-checked {
             input[required] ~ .mdl-radio__outer-circle {
-                border-color: $checkbox-default-dark;
+                border-color: variables.$checkbox-default-dark;
             }
         }
 
         &.is-checked {
             .mdl-radio__outer-circle {
-                border-color: $primary-default-dark;
+                border-color: variables.$primary-default-dark;
             }
 
             .mdl-radio__inner-circle {
-                background-color: $primary-default-dark;
+                background-color: variables.$primary-default-dark;
             }
 
             input[required] ~ .mdl-radio__outer-circle {
-                border-color: $primary-default-dark;
+                border-color: variables.$primary-default-dark;
             }
         }
 
         &.is-disabled {
             .mdl-radio__outer-circle {
-                border-color: $checkbox-disabled-dark;
+                border-color: variables.$checkbox-disabled-dark;
             }
 
             input[required] ~ .mdl-radio__outer-circle {
                 border-style: dotted;
-                border-color: $error-disabled-dark;
+                border-color: variables.$error-disabled-dark;
             }
 
             &.is-checked {
                 .mdl-radio__outer-circle {
-                    border-color: $primary-disabled-dark;
+                    border-color: variables.$primary-disabled-dark;
                 }
 
                 .mdl-radio__inner-circle {
-                    background-color: $primary-disabled-dark;
+                    background-color: variables.$primary-disabled-dark;
                 }
             }
         }

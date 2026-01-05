@@ -1,12 +1,17 @@
+@use 'sass:map';
+@use '../core/variables';
+@use 'breakpoints';
+@use 'grid';
+
 // Framework grid generation
 //
 // Used only by Bootstrap to generate the correct number of grid classes given
 // any value of `$grid-columns`.
 
 @mixin make-grid-columns(
-    $columns: $grid-columns,
-    $gutters: $grid-gutter-widths,
-    $breakpoints: $grid-breakpoints
+    $columns: variables.$grid-columns,
+    $gutters: variables.$grid-gutter-widths,
+    $breakpoints: variables.$grid-breakpoints
 ) {
     // Common properties for all breakpoints
     %grid-column {
@@ -14,11 +19,11 @@
         width: 100%;
         min-height: 1px; // Prevent columns from collapsing when empty
 
-        @include make-gutters($gutters);
+        @include grid.make-gutters($gutters);
     }
 
-    @each $breakpoint in map-keys($breakpoints) {
-        $infix: breakpoint-infix($breakpoint, $breakpoints);
+    @each $breakpoint in map.keys($breakpoints) {
+        $infix: breakpoints.breakpoint-infix($breakpoint, $breakpoints);
 
         // Allow columns to stretch full width below their breakpoints
         @for $i from 1 through $columns {
@@ -31,7 +36,11 @@
             @extend %grid-column;
         }
 
-        @include media-breakpoint-up($breakpoint, false, $breakpoints) {
+        @include breakpoints.media-breakpoint-up(
+            $breakpoint,
+            false,
+            $breakpoints
+        ) {
             // Provide basic `.col-{bp}` classes for equal-width flexbox columns
             .col#{$infix} {
                 flex-basis: 0;
@@ -46,14 +55,18 @@
 
             @for $i from 1 through $columns {
                 .col#{$infix}-#{$i} {
-                    @include make-col($i, $columns);
+                    @include grid.make-col($i, $columns);
                 }
             }
 
             @each $modifier in (pull, push) {
                 @for $i from 0 through $columns {
                     .#{$modifier}#{$infix}-#{$i} {
-                        @include make-col-modifier($modifier, $i, $columns);
+                        @include grid.make-col-modifier(
+                            $modifier,
+                            $i,
+                            $columns
+                        );
                     }
                 }
             }
@@ -63,7 +76,7 @@
                 @if not($infix == '' and $i == 0) {
                     // Avoid emitting useless .offset-xs-0
                     .offset#{$infix}-#{$i} {
-                        @include make-col-modifier(offset, $i, $columns);
+                        @include grid.make-col-modifier(offset, $i, $columns);
                     }
                 }
             }

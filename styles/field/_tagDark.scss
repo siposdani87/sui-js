@@ -1,35 +1,38 @@
+@use '../core/colors';
+@use '../core/variables';
+
 .dark-theme {
     .input-block {
         .field-tag {
-            background-color: $input-default-dark;
-            color: $content-default-dark;
+            background-color: variables.$input-default-dark;
+            color: variables.$content-default-dark;
 
             .close {
-                color: $content-default-dark;
+                color: variables.$content-default-dark;
 
                 &:hover {
-                    color: $content-default-dark;
+                    color: variables.$content-default-dark;
                 }
             }
         }
 
         .active {
             .field-tag {
-                background-color: $accent-default-dark;
-                color: $accent-text;
+                background-color: variables.$accent-default-dark;
+                color: colors.$accent-text;
             }
         }
 
         &.is-disabled {
             .field-tag {
-                background-color: $input-disabled-dark;
-                color: $content-disabled-dark;
+                background-color: variables.$input-disabled-dark;
+                color: variables.$content-disabled-dark;
 
                 .close {
-                    color: $content-disabled-dark;
+                    color: variables.$content-disabled-dark;
 
                     &:hover {
-                        color: $content-disabled-dark;
+                        color: variables.$content-disabled-dark;
                     }
                 }
             }

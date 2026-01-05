@@ -1,17 +1,17 @@
 import { Id } from '../utils';
 import { Objekt } from './objekt';
-export declare class Collection<T extends Object = Object> {
+export declare class Collection<T extends object = object> {
     Type: any;
     items: T[];
     options: Objekt;
-    constructor(opt_items?: Array<T> | undefined, opt_type?: any, opt_options?: Object);
+    constructor(opt_items?: Array<T> | undefined, opt_type?: any, opt_options?: object);
     private _setOptions;
-    load(objects: Array<Object | T>): void;
-    reload(objects: Array<Object | T>): void;
-    push(object: Object | T): T;
+    load(objects: Array<object | T>): void;
+    reload(objects: Array<object | T>): void;
+    push(object: object | T): T;
     private _createItem;
-    set(index: number, object: Object | T): T;
-    replace(object: Object | T): T | null;
+    set(index: number, object: object | T): T;
+    replace(object: object | T): T | null;
     getItems(): Array<T>;
     iterator(callback: (_item: T) => boolean, next: (_item: T, _index: number) => void, opt_items?: Array<T> | undefined): Array<T>;
     each(next: (_item: T, _index: number) => void): void;
@@ -23,7 +23,7 @@ export declare class Collection<T extends Object = Object> {
     findByCondition(conditionCallback: Function): T;
     findAllBy(attribute: string, value: any): Array<T>;
     findAllByCondition(conditionCallback: Function): Array<T>;
-    delete(value: Object | T): T;
+    delete(value: object | T): T;
     deleteById(id: Id): T;
     deleteBy(attribute: string, value: any): T;
     deleteByCondition(conditionCallback: Function): T;

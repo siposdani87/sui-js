@@ -8,7 +8,7 @@ export declare class Template {
         locale: string;
     }>;
     viewKnot: Knot;
-    constructor(http: Http, opt_options?: Object | undefined);
+    constructor(http: Http, opt_options?: object | undefined);
     private _setOptions;
     private _init;
     getViewKnot(): Knot;

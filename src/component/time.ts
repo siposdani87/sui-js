@@ -7,13 +7,13 @@ export class Time {
     options: Objekt;
     pointerKnot: Knot;
 
-    constructor(knot: Knot, options: Object) {
+    constructor(knot: Knot, options: object) {
         this.timeKnot = knot;
         this._setOptions(options);
         this._init();
     }
 
-    private _setOptions(options: Object): void {
+    private _setOptions(options: object): void {
         this.options = new Objekt(options);
     }
 

@@ -18,33 +18,19 @@ custom_edit_url: null
 
 #### Defined in
 
-[module/scheduler.ts:7](https://github.com/siposdani87/sui-js/blob/9aff0f0/src/module/scheduler.ts#L7)
+[module/scheduler.ts:7](https://github.com/siposdani87/sui-js/blob/fa20298/src/module/scheduler.ts#L7)
 
 ## Properties
 
 ### schedulerStore
 
-• **schedulerStore**: [`Objekt`](Objekt.md)\<`Object`\>
+• **schedulerStore**: [`Objekt`](Objekt.md)\<`object`\>
 
 #### Defined in
 
-[module/scheduler.ts:5](https://github.com/siposdani87/sui-js/blob/9aff0f0/src/module/scheduler.ts#L5)
+[module/scheduler.ts:5](https://github.com/siposdani87/sui-js/blob/fa20298/src/module/scheduler.ts#L5)
 
 ## Methods
-
-### \_callRunner
-
-▸ **_callRunner**(): `void`
-
-#### Returns
-
-`void`
-
-#### Defined in
-
-[module/scheduler.ts:13](https://github.com/siposdani87/sui-js/blob/9aff0f0/src/module/scheduler.ts#L13)
-
-___
 
 ### everyDay
 
@@ -63,4 +49,4 @@ ___
 
 #### Defined in
 
-[module/scheduler.ts:21](https://github.com/siposdani87/sui-js/blob/9aff0f0/src/module/scheduler.ts#L21)
+[module/scheduler.ts:21](https://github.com/siposdani87/sui-js/blob/fa20298/src/module/scheduler.ts#L21)

@@ -17,7 +17,7 @@ custom_edit_url: null
 | Name | Type |
 | :------ | :------ |
 | `progressBar` | [`ProgressBar`](ProgressBar.md) |
-| `opt_options` | `Object` |
+| `opt_options` | `object` |
 
 #### Returns
 
@@ -25,7 +25,7 @@ custom_edit_url: null
 
 #### Defined in
 
-[module/style.ts:13](https://github.com/siposdani87/sui-js/blob/9aff0f0/src/module/style.ts#L13)
+[module/style.ts:13](https://github.com/siposdani87/sui-js/blob/fa20298/src/module/style.ts#L13)
 
 ## Properties
 
@@ -35,17 +35,17 @@ custom_edit_url: null
 
 #### Defined in
 
-[module/style.ts:11](https://github.com/siposdani87/sui-js/blob/9aff0f0/src/module/style.ts#L11)
+[module/style.ts:11](https://github.com/siposdani87/sui-js/blob/fa20298/src/module/style.ts#L11)
 
 ___
 
 ### options
 
-• **options**: [`Objekt`](Objekt.md)\<`Object`\>
+• **options**: [`Objekt`](Objekt.md)\<`object`\>
 
 #### Defined in
 
-[module/style.ts:10](https://github.com/siposdani87/sui-js/blob/9aff0f0/src/module/style.ts#L10)
+[module/style.ts:10](https://github.com/siposdani87/sui-js/blob/fa20298/src/module/style.ts#L10)
 
 ___
 
@@ -55,43 +55,9 @@ ___
 
 #### Defined in
 
-[module/style.ts:9](https://github.com/siposdani87/sui-js/blob/9aff0f0/src/module/style.ts#L9)
+[module/style.ts:9](https://github.com/siposdani87/sui-js/blob/fa20298/src/module/style.ts#L9)
 
 ## Methods
-
-### \_init
-
-▸ **_init**(): `void`
-
-#### Returns
-
-`void`
-
-#### Defined in
-
-[module/style.ts:27](https://github.com/siposdani87/sui-js/blob/9aff0f0/src/module/style.ts#L27)
-
-___
-
-### \_setOptions
-
-▸ **_setOptions**(`opt_options?`): `void`
-
-#### Parameters
-
-| Name | Type |
-| :------ | :------ |
-| `opt_options` | `Object` |
-
-#### Returns
-
-`void`
-
-#### Defined in
-
-[module/style.ts:22](https://github.com/siposdani87/sui-js/blob/9aff0f0/src/module/style.ts#L22)
-
-___
 
 ### load
 
@@ -103,7 +69,7 @@ ___
 | :------ | :------ | :------ |
 | `id` | `string` | `undefined` |
 | `url` | `string` | `undefined` |
-| `opt_params?` | `Object` | `undefined` |
+| `opt_params?` | `object` | `undefined` |
 | `opt_rel` | `string` | `'stylesheet'` |
 | `opt_media` | `string` | `'all'` |
 
@@ -113,7 +79,7 @@ ___
 
 #### Defined in
 
-[module/style.ts:31](https://github.com/siposdani87/sui-js/blob/9aff0f0/src/module/style.ts#L31)
+[module/style.ts:31](https://github.com/siposdani87/sui-js/blob/fa20298/src/module/style.ts#L31)
 
 ___
 
@@ -133,4 +99,4 @@ ___
 
 #### Defined in
 
-[module/style.ts:66](https://github.com/siposdani87/sui-js/blob/9aff0f0/src/module/style.ts#L66)
+[module/style.ts:66](https://github.com/siposdani87/sui-js/blob/fa20298/src/module/style.ts#L66)

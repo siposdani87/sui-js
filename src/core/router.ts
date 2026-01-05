@@ -32,7 +32,7 @@ export class Router {
         this.regex = new RegExp('^' + route + '$');
     }
 
-    stringify(opt_params: Object | undefined = {}): string {
+    stringify(opt_params: object | undefined = {}): string {
         let route = this.route;
         const params = {};
         for (const key in opt_params) {
@@ -62,7 +62,7 @@ export class Router {
         return url.match(this.regex);
     }
 
-    parse(url: string): Object {
+    parse(url: string): object {
         const matches = this.getMatches(url);
         if (!matches) {
             return {};

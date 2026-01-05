@@ -1,6 +1,6 @@
-@import 'core/colors';
-@import 'core/variables';
+@use 'core/colors';
+@use 'core/variables';
 
-@import 'mixins/breakpoints';
-@import 'mixins/gridFramework';
-@import 'mixins/grid';
+@use 'mixins/breakpoints';
+@use 'mixins/gridFramework';
+@use 'mixins/grid';
