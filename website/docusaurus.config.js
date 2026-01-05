@@ -113,7 +113,7 @@ const config = {
             title: 'Docs',
             items: [
               {
-                label: 'Readme',
+                label: 'ReadMe',
                 to: '/docs',
               },
             ],
@@ -122,8 +122,8 @@ const config = {
             title: 'Community',
             items: [
               {
-                label: 'Twitter',
-                href: 'https://twitter.com/siposdani87',
+                label: 'x.com/siposdani87',
+                href: 'https://x.com/siposdani87',
               },
             ],
           },

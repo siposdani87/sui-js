@@ -24,7 +24,7 @@ custom_edit_url: null
 
 #### Defined in
 
-[component/canvas.ts:11](https://github.com/siposdani87/sui-js/blob/9aff0f0/src/component/canvas.ts#L11)
+[component/canvas.ts:11](https://github.com/siposdani87/sui-js/blob/fa20298/src/component/canvas.ts#L11)
 
 ## Properties
 
@@ -34,7 +34,7 @@ custom_edit_url: null
 
 #### Defined in
 
-[component/canvas.ts:8](https://github.com/siposdani87/sui-js/blob/9aff0f0/src/component/canvas.ts#L8)
+[component/canvas.ts:8](https://github.com/siposdani87/sui-js/blob/fa20298/src/component/canvas.ts#L8)
 
 ___
 
@@ -44,7 +44,7 @@ ___
 
 #### Defined in
 
-[component/canvas.ts:7](https://github.com/siposdani87/sui-js/blob/9aff0f0/src/component/canvas.ts#L7)
+[component/canvas.ts:7](https://github.com/siposdani87/sui-js/blob/fa20298/src/component/canvas.ts#L7)
 
 ___
 
@@ -54,43 +54,9 @@ ___
 
 #### Defined in
 
-[component/canvas.ts:9](https://github.com/siposdani87/sui-js/blob/9aff0f0/src/component/canvas.ts#L9)
+[component/canvas.ts:9](https://github.com/siposdani87/sui-js/blob/fa20298/src/component/canvas.ts#L9)
 
 ## Methods
-
-### \_init
-
-▸ **_init**(`opt_selector?`): `void`
-
-#### Parameters
-
-| Name | Type |
-| :------ | :------ |
-| `opt_selector?` | `string` \| [`Knot`](Knot.md)\<`HTMLElement`\> |
-
-#### Returns
-
-`void`
-
-#### Defined in
-
-[component/canvas.ts:16](https://github.com/siposdani87/sui-js/blob/9aff0f0/src/component/canvas.ts#L16)
-
-___
-
-### \_initEvents
-
-▸ **_initEvents**(): `void`
-
-#### Returns
-
-`void`
-
-#### Defined in
-
-[component/canvas.ts:29](https://github.com/siposdani87/sui-js/blob/9aff0f0/src/component/canvas.ts#L29)
-
-___
 
 ### clear
 
@@ -102,7 +68,7 @@ ___
 
 #### Defined in
 
-[component/canvas.ts:136](https://github.com/siposdani87/sui-js/blob/9aff0f0/src/component/canvas.ts#L136)
+[component/canvas.ts:136](https://github.com/siposdani87/sui-js/blob/fa20298/src/component/canvas.ts#L136)
 
 ___
 
@@ -124,7 +90,7 @@ ___
 
 #### Defined in
 
-[component/canvas.ts:116](https://github.com/siposdani87/sui-js/blob/9aff0f0/src/component/canvas.ts#L116)
+[component/canvas.ts:116](https://github.com/siposdani87/sui-js/blob/fa20298/src/component/canvas.ts#L116)
 
 ___
 
@@ -141,7 +107,7 @@ ___
 | `radius` | `number` |
 | `sides` | `number` |
 | `rotateAngle` | `number` |
-| `options` | `Object` |
+| `options` | `object` |
 
 #### Returns
 
@@ -149,7 +115,7 @@ ___
 
 #### Defined in
 
-[component/canvas.ts:59](https://github.com/siposdani87/sui-js/blob/9aff0f0/src/component/canvas.ts#L59)
+[component/canvas.ts:59](https://github.com/siposdani87/sui-js/blob/fa20298/src/component/canvas.ts#L59)
 
 ___
 
@@ -166,7 +132,7 @@ ___
 | `width` | `number` |
 | `height` | `number` |
 | `rotateAngle` | `number` |
-| `options` | `Object` |
+| `options` | `object` |
 
 #### Returns
 
@@ -174,7 +140,7 @@ ___
 
 #### Defined in
 
-[component/canvas.ts:91](https://github.com/siposdani87/sui-js/blob/9aff0f0/src/component/canvas.ts#L91)
+[component/canvas.ts:91](https://github.com/siposdani87/sui-js/blob/fa20298/src/component/canvas.ts#L91)
 
 ___
 
@@ -195,7 +161,7 @@ ___
 
 #### Defined in
 
-[component/canvas.ts:132](https://github.com/siposdani87/sui-js/blob/9aff0f0/src/component/canvas.ts#L132)
+[component/canvas.ts:132](https://github.com/siposdani87/sui-js/blob/fa20298/src/component/canvas.ts#L132)
 
 ___
 
@@ -209,7 +175,7 @@ ___
 
 #### Defined in
 
-[component/canvas.ts:50](https://github.com/siposdani87/sui-js/blob/9aff0f0/src/component/canvas.ts#L50)
+[component/canvas.ts:50](https://github.com/siposdani87/sui-js/blob/fa20298/src/component/canvas.ts#L50)
 
 ___
 
@@ -230,7 +196,7 @@ ___
 
 #### Defined in
 
-[component/canvas.ts:128](https://github.com/siposdani87/sui-js/blob/9aff0f0/src/component/canvas.ts#L128)
+[component/canvas.ts:128](https://github.com/siposdani87/sui-js/blob/fa20298/src/component/canvas.ts#L128)
 
 ___
 
@@ -244,7 +210,7 @@ ___
 
 #### Defined in
 
-[component/canvas.ts:42](https://github.com/siposdani87/sui-js/blob/9aff0f0/src/component/canvas.ts#L42)
+[component/canvas.ts:42](https://github.com/siposdani87/sui-js/blob/fa20298/src/component/canvas.ts#L42)
 
 ___
 
@@ -264,7 +230,7 @@ ___
 
 #### Defined in
 
-[component/canvas.ts:46](https://github.com/siposdani87/sui-js/blob/9aff0f0/src/component/canvas.ts#L46)
+[component/canvas.ts:46](https://github.com/siposdani87/sui-js/blob/fa20298/src/component/canvas.ts#L46)
 
 ___
 
@@ -285,7 +251,7 @@ ___
 
 #### Defined in
 
-[component/canvas.ts:54](https://github.com/siposdani87/sui-js/blob/9aff0f0/src/component/canvas.ts#L54)
+[component/canvas.ts:54](https://github.com/siposdani87/sui-js/blob/fa20298/src/component/canvas.ts#L54)
 
 ___
 
@@ -305,4 +271,4 @@ ___
 
 #### Defined in
 
-[component/canvas.ts:38](https://github.com/siposdani87/sui-js/blob/9aff0f0/src/component/canvas.ts#L38)
+[component/canvas.ts:38](https://github.com/siposdani87/sui-js/blob/fa20298/src/component/canvas.ts#L38)

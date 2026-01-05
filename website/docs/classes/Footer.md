@@ -16,7 +16,7 @@ custom_edit_url: null
 
 | Name | Type |
 | :------ | :------ |
-| `opt_options` | `Object` |
+| `opt_options` | `object` |
 
 #### Returns
 
@@ -24,7 +24,7 @@ custom_edit_url: null
 
 #### Defined in
 
-[module/footer.ts:12](https://github.com/siposdani87/sui-js/blob/9aff0f0/src/module/footer.ts#L12)
+[module/footer.ts:12](https://github.com/siposdani87/sui-js/blob/fa20298/src/module/footer.ts#L12)
 
 ## Properties
 
@@ -34,7 +34,7 @@ custom_edit_url: null
 
 #### Defined in
 
-[module/footer.ts:9](https://github.com/siposdani87/sui-js/blob/9aff0f0/src/module/footer.ts#L9)
+[module/footer.ts:9](https://github.com/siposdani87/sui-js/blob/fa20298/src/module/footer.ts#L9)
 
 ___
 
@@ -44,7 +44,7 @@ ___
 
 #### Defined in
 
-[module/footer.ts:7](https://github.com/siposdani87/sui-js/blob/9aff0f0/src/module/footer.ts#L7)
+[module/footer.ts:7](https://github.com/siposdani87/sui-js/blob/fa20298/src/module/footer.ts#L7)
 
 ___
 
@@ -54,17 +54,17 @@ ___
 
 #### Defined in
 
-[module/footer.ts:10](https://github.com/siposdani87/sui-js/blob/9aff0f0/src/module/footer.ts#L10)
+[module/footer.ts:10](https://github.com/siposdani87/sui-js/blob/fa20298/src/module/footer.ts#L10)
 
 ___
 
 ### options
 
-• **options**: [`Objekt`](Objekt.md)\<`Object`\>
+• **options**: [`Objekt`](Objekt.md)\<`object`\>
 
 #### Defined in
 
-[module/footer.ts:6](https://github.com/siposdani87/sui-js/blob/9aff0f0/src/module/footer.ts#L6)
+[module/footer.ts:6](https://github.com/siposdani87/sui-js/blob/fa20298/src/module/footer.ts#L6)
 
 ___
 
@@ -74,43 +74,9 @@ ___
 
 #### Defined in
 
-[module/footer.ts:8](https://github.com/siposdani87/sui-js/blob/9aff0f0/src/module/footer.ts#L8)
+[module/footer.ts:8](https://github.com/siposdani87/sui-js/blob/fa20298/src/module/footer.ts#L8)
 
 ## Methods
-
-### \_init
-
-▸ **_init**(): `void`
-
-#### Returns
-
-`void`
-
-#### Defined in
-
-[module/footer.ts:22](https://github.com/siposdani87/sui-js/blob/9aff0f0/src/module/footer.ts#L22)
-
-___
-
-### \_setOptions
-
-▸ **_setOptions**(`opt_options?`): `void`
-
-#### Parameters
-
-| Name | Type |
-| :------ | :------ |
-| `opt_options` | `Object` |
-
-#### Returns
-
-`void`
-
-#### Defined in
-
-[module/footer.ts:17](https://github.com/siposdani87/sui-js/blob/9aff0f0/src/module/footer.ts#L17)
-
-___
 
 ### close
 
@@ -122,7 +88,7 @@ ___
 
 #### Defined in
 
-[module/footer.ts:65](https://github.com/siposdani87/sui-js/blob/9aff0f0/src/module/footer.ts#L65)
+[module/footer.ts:65](https://github.com/siposdani87/sui-js/blob/fa20298/src/module/footer.ts#L65)
 
 ___
 
@@ -136,7 +102,7 @@ ___
 
 #### Defined in
 
-[module/footer.ts:57](https://github.com/siposdani87/sui-js/blob/9aff0f0/src/module/footer.ts#L57)
+[module/footer.ts:57](https://github.com/siposdani87/sui-js/blob/fa20298/src/module/footer.ts#L57)
 
 ___
 
@@ -150,7 +116,7 @@ ___
 
 #### Defined in
 
-[module/footer.ts:47](https://github.com/siposdani87/sui-js/blob/9aff0f0/src/module/footer.ts#L47)
+[module/footer.ts:47](https://github.com/siposdani87/sui-js/blob/fa20298/src/module/footer.ts#L47)
 
 ___
 
@@ -164,7 +130,7 @@ ___
 
 #### Defined in
 
-[module/footer.ts:69](https://github.com/siposdani87/sui-js/blob/9aff0f0/src/module/footer.ts#L69)
+[module/footer.ts:69](https://github.com/siposdani87/sui-js/blob/fa20298/src/module/footer.ts#L69)
 
 ___
 
@@ -178,7 +144,7 @@ ___
 
 #### Defined in
 
-[module/footer.ts:61](https://github.com/siposdani87/sui-js/blob/9aff0f0/src/module/footer.ts#L61)
+[module/footer.ts:61](https://github.com/siposdani87/sui-js/blob/fa20298/src/module/footer.ts#L61)
 
 ___
 
@@ -198,7 +164,7 @@ ___
 
 #### Defined in
 
-[module/footer.ts:53](https://github.com/siposdani87/sui-js/blob/9aff0f0/src/module/footer.ts#L53)
+[module/footer.ts:53](https://github.com/siposdani87/sui-js/blob/fa20298/src/module/footer.ts#L53)
 
 ___
 
@@ -212,7 +178,7 @@ ___
 
 #### Defined in
 
-[module/footer.ts:29](https://github.com/siposdani87/sui-js/blob/9aff0f0/src/module/footer.ts#L29)
+[module/footer.ts:29](https://github.com/siposdani87/sui-js/blob/fa20298/src/module/footer.ts#L29)
 
 ___
 
@@ -226,4 +192,4 @@ ___
 
 #### Defined in
 
-[module/footer.ts:73](https://github.com/siposdani87/sui-js/blob/9aff0f0/src/module/footer.ts#L73)
+[module/footer.ts:73](https://github.com/siposdani87/sui-js/blob/fa20298/src/module/footer.ts#L73)
