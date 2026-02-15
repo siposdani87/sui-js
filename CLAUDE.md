@@ -62,3 +62,25 @@ npx jest --testNamePattern="should do something"
 - Prettier: 4-space indent, single quotes, trailing commas, semicolons
 - EditorConfig: 4 spaces (2 for JSON/YAML), LF line endings
 - ESLint: flat config format (`eslint.config.js`)
+
+## Implementation Roadmap
+
+Three improvement plans exist. Execute in this order:
+
+### 1. Testing Improvement (do first)
+- **Full plan:** `TESTING_IMPROVEMENT_PLAN.md`
+- **Claude Code instructions:** `.claude/plans/testing.md`
+- **Why first:** Builds safety net before type-level and doc changes. Coverage 52% → 78%, tests 180 → ~580.
+- **Phases:** Infrastructure → Core → Utils → Module (critical) → Field → Component
+
+### 2. TypeScript Strict Mode (do second)
+- **Full plan:** `TYPESCRIPT_STRICT_MODE_PLAN.md`
+- **Claude Code instructions:** `.claude/plans/strict-mode.md`
+- **Why second:** With tests protecting against regressions, type changes are safe. Fixes types before writing docs.
+- **Phases:** Preparation → noImplicitOverride → noImplicitAny → strictNullChecks → strictPropertyInitialization → strict:true
+
+### 3. Documentation (do last)
+- **Full plan:** `DOCUMENTATION_PLAN.md`
+- **Claude Code instructions:** `.claude/plans/documentation.md`
+- **Why last:** JSDoc should describe final type signatures (after strict mode). Two tracks: JSDoc + Docusaurus.
+- **Phases:** Core JSDoc → Utils JSDoc → Module JSDoc → Component JSDoc → Field JSDoc + Site enhancements
