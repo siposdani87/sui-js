@@ -60,6 +60,29 @@ describe('ComponentName', () => {
 
 These validate that constructors don't throw, but test **zero** behavior.
 
+### Approach: Modern Best Practices
+
+**Rewrite existing skeleton tests** and add new ones. The 87 single-`instanceof` tests should be replaced with proper behavioral test suites. Existing tests with issues (broken async, manual loops, missing cleanup) should also be fixed. Use modern Jest best practices:
+
+- **Nested `describe` blocks** — group tests by method or feature, not flat single-test files
+- **`beforeEach` / `afterEach`** — proper setup and teardown per test
+- **Isolated DOM** — create minimal DOM per test in `beforeEach`, remove in `afterEach`; avoid relying on shared global DOM from `jest.setup.ts`
+- **`test.each` / `describe.each`** — parameterized tests instead of manual `for` loops
+- **`jest.fn()`** — verify callbacks, event handlers, and async resolution
+- **`jest.useFakeTimers()`** — test scheduled/timed operations deterministically
+- **Specific matchers** — use `toHaveLength`, `toMatchObject`, `toBeNull`, `toContain`, `toThrow` instead of generic `toBe(true)`
+- **Error paths and edge cases** — test null input, empty arrays, boundary values, invalid data
+- **Proper mock lifecycle** — save originals in `beforeEach`, restore in `afterEach`
+
+**Anti-patterns to avoid:**
+- Single `instanceof` smoke tests (test zero behavior)
+- Manual `for` loops for parameterized tests
+- Non-awaited `.then()` assertions (may never execute)
+- Shared mutable global DOM without cleanup
+- Testing only happy paths
+
+See `.claude/testing-guide.md` for detailed code examples of all patterns.
+
 ---
 
 ## Test Infrastructure Upgrades
@@ -159,6 +182,37 @@ describe('Dropdown', () => {
 ### 5. Uncomment Existing Tests
 
 `operation.spec.ts` has ~12 commented-out test cases for `each()`, `eachArray()`, `eachObject()`, `sleepEach()`, `list()`, `capitalize()`, `pluck()`. These should be restored.
+
+### 6. Fix Existing Tests
+
+Existing tests with quality issues should be rewritten during each phase:
+
+**`deferred.spec.ts`** (6 tests) — fix non-awaited `.then()` assertions; use `jest.fn()` for Promize callbacks:
+```typescript
+// Before (assertion may never run)
+deferred.resolve(1);
+deferred.promise().then((value) => {
+    expect(value).toBe(1);
+});
+
+// After (verified synchronously)
+const onResolve = jest.fn();
+deferred.promise().then(onResolve);
+deferred.resolve(1);
+expect(onResolve).toHaveBeenCalledWith(1);
+```
+
+**`knot.spec.ts`** (4 tests) — replace manual `for` loops with `test.each`; add `afterEach` cleanup
+
+**`objekt.spec.ts`** (14 tests) — restructure into nested `describe` blocks by method; add edge cases
+
+**`router.spec.ts`** (2 tests) — expand with `test.each` for parameter patterns
+
+**`operation.spec.ts`** (53 tests) — restore commented-out tests; restructure into `describe` blocks by category; replace manual loops with `test.each`
+
+**`coder.spec.ts`** (8 tests), **`color.spec.ts`** (8 tests), **`math.spec.ts`** (14 tests), **`dateio.spec.ts`** (4 tests) — restructure into nested `describe` blocks; add edge case coverage
+
+**All 87 skeleton tests** — replace single `instanceof` checks with full behavioral test suites during the relevant phase
 
 ---
 
@@ -555,67 +609,75 @@ Object.defineProperty(navigator, 'geolocation', { value: mockGeolocation });
 **Target:** 58% → **75%** statements, 36% → **55%** branches
 **Files:** 24 field types, all with skeleton tests
 
-### Common Test Pattern for All Fields
+### Common Test Structure for All Fields
 
-Every field spec should be expanded with these standard tests:
+Every field spec should be rewritten with isolated DOM, nested describes, and proper assertions:
 
 ```typescript
 describe('FieldName', () => {
     let field: FieldName;
+    let container: HTMLElement;
 
     beforeEach(() => {
-        const inputBlock = new Query('.input-block.field-type').getKnot();
-        const { input, label, error } = parseInputBlock(inputBlock);
+        container = document.createElement('div');
+        container.innerHTML = `
+            <div class="input-block field-type">
+                <input type="text" name="test-field" />
+                <label>Test</label>
+                <span class="error"></span>
+            </div>
+        `;
+        document.body.appendChild(container);
+
+        const inputBlock = new Knot(container.querySelector('.input-block')!);
+        const input = new Knot(container.querySelector('input')!);
+        const label = new Knot(container.querySelector('label')!);
+        const error = new Knot(container.querySelector('.error')!);
         field = new FieldName(input, label, error, inputBlock);
     });
 
-    it('should be instance of FieldName', () => {
-        expect(field).toBeInstanceOf(FieldName);
+    afterEach(() => {
+        container.remove();
     });
 
-    it('should get and set value', () => {
-        field.setValue('test-value');
-        expect(field.getValue()).toBe('test-value');
+    describe('getValue / setValue', () => {
+        it('should set and return value', () => {
+            field.setValue('test-value');
+            expect(field.getValue()).toBe('test-value');
+        });
+
+        it('should track previous value', () => {
+            field.setValue('first');
+            field.setValue('second');
+            expect(field.getPreviousValue()).toBe('first');
+        });
     });
 
-    it('should get previous value after change', () => {
-        field.setValue('first');
-        field.setValue('second');
-        expect(field.getPreviousValue()).toBe('first');
+    describe('validation', () => {
+        it('should be invalid when empty and required', () => {
+            // set required attribute on input
+            expect(field.isValid()).toBe(false);
+        });
+
+        it('should be valid with value', () => {
+            field.setValue('value');
+            expect(field.isValid()).toBe(true);
+        });
     });
 
-    it('should validate required field', () => {
-        // Test with required attribute
-        expect(field.isValid()).toBe(false); // empty
-        field.setValue('value');
-        expect(field.isValid()).toBe(true);
+    describe('disabled state', () => {
+        it('should toggle disabled', () => {
+            field.setDisabled(true);
+            expect(field.isDisabled()).toBe(true);
+            field.setDisabled(false);
+            expect(field.isDisabled()).toBe(false);
+        });
     });
 
-    it('should set and check disabled state', () => {
-        field.setDisabled(true);
-        expect(field.isDisabled()).toBe(true);
-        field.setDisabled(false);
-        expect(field.isDisabled()).toBe(false);
-    });
-
-    it('should set label text', () => {
-        field.setLabel('New Label');
-        // assert label content changed
-    });
-
-    it('should show error state', () => {
-        field.setError('Error message');
-        // assert error is displayed
-    });
-
-    it('should render correctly', () => {
-        field.render();
-        // assert DOM structure is correct
-    });
-
-    it('should refresh correctly', () => {
-        field.refresh();
-        // assert DOM is updated
+    describe('render', () => {
+        it('should render without errors', () => {
+            expect(() => field.render()).not.toThrow();
+        });
     });
 });
 ```
@@ -802,6 +864,437 @@ describe('FieldName', () => {
 
 ---
 
+## Phase 6: Missing File Tests (`src/common/`)
+
+**Target:** Add test coverage for files not covered by Phase 1–5
+**Files:** 3 production files with zero tests
+
+### config.spec.ts (new file, target 5+)
+
+```
+- should set release mode to true
+- should set release mode to false
+- should return current release mode
+- should default to release mode off
+- should affect logging behavior when release mode changes
+```
+
+### controller.spec.ts (new file, target 8+)
+
+```
+- should instantiate
+- should call enter() on activation
+- should call exit() on deactivation
+- should receive injected dependencies
+- should handle missing dependencies gracefully
+- should call lifecycle methods in correct order
+- should support multiple enter/exit cycles
+- should not throw when exit() called without prior enter()
+```
+
+### service.spec.ts (new file, target 6+)
+
+```
+- should instantiate
+- should register in DI container
+- should be retrievable after registration
+- should support singleton pattern
+- should handle initialization with options
+- should expose public API methods
+```
+
+---
+
+## Phase 7: Module Export Validation
+
+**Target:** Ensure all public classes are exported from the package entry point
+**Files:** 1 new test file
+
+### index.spec.ts (new file, target 15+)
+
+The `src/index.ts` is the single entry point re-exporting all modules. There is no test verifying completeness — a class could be accidentally removed from barrel exports (e.g., `treeView` is already commented out in `component/index.ts`) without detection.
+
+```typescript
+import * as SUI from './index';
+
+describe('Module exports', () => {
+    describe('core exports', () => {
+        it.each([
+            'Knot', 'Objekt', 'Query', 'Collection',
+            'State', 'Module', 'Deferred', 'Promize', 'Async',
+        ])('should export %s', (name) => {
+            expect(SUI[name]).toBeDefined();
+        });
+    });
+
+    describe('field exports', () => {
+        it.each([
+            'TextField', 'SelectField', 'CheckboxField',
+            'RadiobuttonField', 'FileField', 'DateTimeField',
+            'NumberField', 'ColorField', 'TextareaField',
+            'LocationField', 'RangeField', 'SearchField',
+            'UrlField', 'HiddenField', 'SwitchField',
+            'IconToggleField', 'AutoCompleteField',
+        ])('should export %s', (name) => {
+            expect(SUI[name]).toBeDefined();
+        });
+    });
+
+    describe('component exports', () => {
+        it.each([
+            'Application', 'Form', 'Table', 'Calendar',
+            'Dropdown', 'Navigation', 'Pager', 'TabPanel',
+            'Popup', 'PopupContainer', 'GoogleMap',
+        ])('should export %s', (name) => {
+            expect(SUI[name]).toBeDefined();
+        });
+    });
+
+    describe('module exports', () => {
+        it.each([
+            'Http', 'EventBus', 'Dialog', 'Confirm',
+            'Cookie', 'Depot', 'Browser', 'Screen',
+            'Template', 'Scheduler', 'Flash',
+        ])('should export %s', (name) => {
+            expect(SUI[name]).toBeDefined();
+        });
+    });
+
+    describe('utils exports', () => {
+        it.each([
+            'DateIO', 'Coder', 'Color', 'Math',
+        ])('should export %s', (name) => {
+            expect(SUI[name]).toBeDefined();
+        });
+    });
+});
+```
+
+---
+
+## Phase 8: Memory Leak Tests
+
+**Target:** Verify event listener cleanup and component disposal
+**Priority:** Critical — 109 `addEventListener` calls vs only 8 `removeEventListener` calls (13:1 ratio)
+
+### The Problem
+
+Multiple modules add DOM/window event listeners but never remove them:
+
+| File | Listeners Added | Cleanup Method |
+|------|----------------|----------------|
+| `module/screen.ts` | resize, scroll, online, offline | None |
+| `module/page.ts` | document click | None |
+| `component/form.ts` | keydown, submit, reset | None |
+| `component/popup.ts` | close button click | None |
+| `component/carousel.ts` | touch events | None |
+| `module/helper.ts` | resize, orientation | None |
+
+Additionally, `PopupContainer` stores state on `window['popup_collection']` which is never cleaned up.
+
+### Test Strategy
+
+Use a helper to count listeners before/after lifecycle:
+
+```typescript
+function countListeners(element: EventTarget): number {
+    // Use Knot's internal listener store
+    return (element as any)['_listeners']?.length ?? 0;
+}
+```
+
+### memory-leak.spec.ts (new file, target 15-20)
+
+```
+- should remove all event listeners when Knot is destroyed
+- should not leak listeners after repeated Popup open/close cycles
+- should clean up Form listeners on destroy
+- should remove Screen resize/scroll listeners on cleanup
+- should remove Page document click listener on cleanup
+- should clean up Carousel touch listeners on destroy
+- should not grow window['popup_collection'] after repeated popup creation
+- should clean up Helper resize/orientation listeners
+- should not leak listeners after Dialog open/close cycle
+- should not leak listeners after Confirm open/close cycle
+- should clean up Timer/Scheduler intervals on destroy
+- should not retain references to removed Knot nodes
+- should clean up EventBus subscriptions when module is destroyed
+- should not leak DOM nodes after repeated Table re-render
+- should clean up Navigation click listeners on destroy
+```
+
+### Implementation Note
+
+This phase likely requires adding `destroy()` methods to components that lack them. Each test should verify:
+1. Create component → check initial listener count
+2. Interact with component (open, click, resize, etc.)
+3. Call `destroy()` or equivalent cleanup
+4. Verify listener count returns to zero
+
+---
+
+## Phase 9: Integration Tests
+
+**Target:** Test module interactions and end-to-end workflows
+**Files:** New `src/__integration__/` directory or `*.integration.spec.ts` naming
+
+### The Gap
+
+Phase 1–5 tests each class in isolation. These integration tests verify that classes work together correctly.
+
+### application-lifecycle.integration.spec.ts (target 8+)
+
+```
+- should initialize all core modules (EventBus, Http, Router, Screen)
+- should route to correct controller on URL change
+- should trigger state.change → module.afterInit → controller.loaded sequence
+- should propagate EventBus events through Application to modules
+- should handle routing errors gracefully (404 route)
+- should clean up previous controller when navigating to new route
+- should pass DI instances to controllers correctly
+- should call controller exit() before enter() on route change
+```
+
+### form-field.integration.spec.ts (target 10+)
+
+```
+- should initialize all field types from DOM
+- should collect form model as Objekt from all fields
+- should cascade validation across all fields on submit
+- should prevent submission when any field is invalid
+- should reset all fields to initial values on reset
+- should set model data and update field values
+- should handle field enable/disable affecting form validity
+- should fire change event when any field value changes
+- should lock/unlock all fields simultaneously
+- should handle dynamic field addition and removal
+```
+
+### http-template-flash.integration.spec.ts (target 6+)
+
+```
+- should load template via HTTP and render into DOM
+- should show flash error message on HTTP failure
+- should show flash success message on HTTP success
+- should handle network timeout with appropriate flash message
+- should retry failed template loads
+- should handle concurrent HTTP requests without race conditions
+```
+
+### eventbus-module.integration.spec.ts (target 6+)
+
+```
+- should deliver events from one module to another
+- should support multiple subscribers across modules
+- should handle unsubscribe during event delivery
+- should preserve event delivery order
+- should isolate event namespaces between modules
+- should handle events fired during module initialization
+```
+
+---
+
+## Phase 10: Async Leak Detection & Timer Tests
+
+**Target:** Fix `forceExit: true` requirement and ensure clean test teardown
+**Priority:** High — Jest currently cannot shut down cleanly
+
+### The Problem
+
+`jest.config.cjs` has `forceExit: true`, indicating hanging async operations. Test output shows:
+> Force exiting Jest: Have you considered using `--detectOpenHandles` to detect async operations that kept running after all tests finished?
+
+Root causes:
+- `deferred.spec.ts` has non-awaited `.then()` assertions with `setTimeout`
+- `Scheduler` creates timers without cleanup tests
+- XHR mocks may leave pending requests
+- Debounced functions in `Screen`, `Helper` leave active timers
+
+### Infrastructure Changes
+
+```javascript
+// jest.config.cjs — add after forceExit
+detectOpenHandles: true, // Enable temporarily to find leaking handles
+```
+
+### async-cleanup.spec.ts (new file, target 10-15)
+
+```
+- should not leave pending timers after Scheduler destroy
+- should not leave pending XHR requests after Http abort
+- should not leave pending timers after debounce cancellation
+- should clean up setTimeout in Deferred after resolution
+- should clean up setTimeout in Deferred after rejection
+- should not leave pending intervals after Screen cleanup
+- should not leave pending timers after Helper cleanup
+- should cancel all pending Promize chains on module destroy
+- should handle rapid resolve/reject without leaking
+- should clean up animation frames after component destroy
+```
+
+### Timer Test Pattern
+
+All tests involving timers should use fake timers:
+
+```typescript
+describe('Scheduler', () => {
+    beforeEach(() => {
+        jest.useFakeTimers();
+    });
+
+    afterEach(() => {
+        jest.runOnlyPendingTimers();
+        jest.useRealTimers();
+    });
+
+    it('should execute callback after delay', () => {
+        const callback = jest.fn();
+        scheduler.setTimeout(callback, 1000);
+        jest.advanceTimersByTime(1000);
+        expect(callback).toHaveBeenCalledTimes(1);
+    });
+});
+```
+
+---
+
+## Phase 11: Error Boundary & Failure Mode Tests
+
+**Target:** Verify graceful handling of error scenarios
+**Files:** Distributed across existing spec files + new error-scenarios.spec.ts
+
+### error-scenarios.spec.ts (new file, target 15-20)
+
+```
+- should handle controller throw during initialization without crashing Application
+- should handle Template.load() network failure gracefully
+- should handle localStorage quota exceeded in Depot
+- should handle sessionStorage quota exceeded in Depot
+- should handle Google Maps API load failure
+- should handle invalid JSON response in Http
+- should handle malformed URL in Router
+- should handle missing DOM element in Query without throwing
+- should handle null/undefined Knot operations gracefully
+- should handle EventBus handler throw without blocking other subscribers
+- should handle Form submission with destroyed fields
+- should handle Cookie access when cookies are disabled
+- should handle navigator.geolocation permission denied
+- should handle navigator.geolocation position unavailable
+- should handle invalid date input in DateIO
+- should handle Collection operations on empty collection
+- should handle concurrent Http requests when one fails
+```
+
+---
+
+## Phase 12: Snapshot Tests
+
+**Target:** Catch unintended DOM structure changes in UI components
+**Priority:** Medium — add after unit tests are solid
+
+### Snapshot Test Strategy
+
+Use `toMatchSnapshot()` for complex rendered output. Store snapshots in `__snapshots__/` directories next to spec files.
+
+### Components to Snapshot (target 15-20)
+
+```
+- Calendar — month view with days grid
+- Table — header and row structure
+- Form — rendered field layout with labels and errors
+- Dropdown — open state with menu items
+- Navigation — rendered nav items with active state
+- Dialog — open state with header, body, footer
+- Confirm — open state with action buttons
+- Pager — rendered pagination controls
+- TabPanel — tabs with active panel
+- Flash — rendered flash messages (success, error, warning)
+- LeftMenu — open state with main and sub menus
+- Header — rendered header with brand and menu buttons
+- CardCollection — rendered card grid with template
+- ProgressStatus — rendered progress indicator
+- Tooltip — rendered tooltip with content
+```
+
+### Snapshot Test Pattern
+
+```typescript
+describe('Calendar snapshots', () => {
+    it('should match month view snapshot', () => {
+        const container = document.createElement('div');
+        // ... setup calendar
+        calendar.render();
+        expect(container.innerHTML).toMatchSnapshot();
+    });
+
+    it('should match month view with selected date', () => {
+        calendar.selectDate(new Date(2024, 5, 15));
+        calendar.render();
+        expect(container.innerHTML).toMatchSnapshot();
+    });
+});
+```
+
+**Note:** Run `npx jest --updateSnapshot` when intentional DOM changes are made.
+
+---
+
+## Phase 13: Accessibility (a11y) Tests
+
+**Target:** Verify keyboard navigation, ARIA attributes, and screen reader support
+**Priority:** Medium — requires `jest-axe` dependency
+
+### Infrastructure
+
+```bash
+npm install --save-dev jest-axe @types/jest-axe
+```
+
+### a11y Test Pattern
+
+```typescript
+import { axe, toHaveNoViolations } from 'jest-axe';
+expect.extend(toHaveNoViolations);
+
+describe('Dialog a11y', () => {
+    it('should have no accessibility violations', async () => {
+        dialog.open('Title', '<p>Content</p>');
+        const results = await axe(document.getElementById('dialog'));
+        expect(results).toHaveNoViolations();
+    });
+});
+```
+
+### a11y Tests per Component (target 15-20)
+
+```
+- Dialog should have role="dialog" and aria-modal="true"
+- Dialog should trap focus within modal when open
+- Dialog should return focus to trigger element on close
+- Confirm should have role="alertdialog"
+- Dropdown should have aria-expanded attribute
+- Dropdown should support Arrow key navigation
+- Form fields should have associated labels (aria-labelledby)
+- Form errors should use aria-describedby
+- Navigation should have role="navigation"
+- TabPanel should have role="tablist" with aria-selected
+- Flash messages should use role="alert" for screen readers
+- Pager buttons should have aria-label for screen readers
+- Close buttons should have aria-label="Close"
+- Icon-only buttons should have accessible names
+- Calendar should support keyboard date selection
+```
+
+### Implementation Note
+
+This phase may require source code changes to add ARIA attributes. Each a11y test should:
+1. Render the component
+2. Run `axe()` for automated checks
+3. Verify specific keyboard interactions
+4. Verify ARIA attributes are present and correct
+
+---
+
 ## Coverage Targets by Phase
 
 | Phase | Statements | Branches | Functions | Lines |
@@ -811,7 +1304,15 @@ describe('FieldName', () => {
 | After Phase 2 (Utils) | 62% | 48% | 55% | 62% |
 | After Phase 3 (Module) | 68% | 52% | 60% | 68% |
 | After Phase 4 (Field) | 73% | 56% | 65% | 73% |
-| After Phase 5 (Component) | **78%** | **60%** | **70%** | **78%** |
+| After Phase 5 (Component) | 78% | 60% | 70% | 78% |
+| After Phase 6 (Common) | 79% | 61% | 71% | 79% |
+| After Phase 7 (Exports) | 79% | 61% | 71% | 79% |
+| After Phase 8 (Memory) | 80% | 62% | 72% | 80% |
+| After Phase 9 (Integration) | 82% | 65% | 74% | 82% |
+| After Phase 10 (Async) | 83% | 66% | 75% | 83% |
+| After Phase 11 (Errors) | 84% | 68% | 77% | 84% |
+| After Phase 12 (Snapshots) | 84% | 68% | 77% | 84% |
+| After Phase 13 (a11y) | **85%** | **69%** | **78%** | **85%** |
 
 ### Update Thresholds in jest.config.cjs
 
@@ -838,13 +1339,23 @@ coverageThreshold: {
     },
 },
 
-// Final (after Phase 5)
+// After Phase 5
 coverageThreshold: {
     global: {
         statements: 75,
         branches: 55,
         functions: 65,
         lines: 75,
+    },
+},
+
+// Final (after Phase 13)
+coverageThreshold: {
+    global: {
+        statements: 82,
+        branches: 65,
+        functions: 74,
+        lines: 82,
     },
 },
 ```
@@ -861,21 +1372,33 @@ coverageThreshold: {
 | Phase 3: Module | 15+ | ~120 | Critical |
 | Phase 4: Field | 20+ | ~100 | High |
 | Phase 5: Component | 10+ | ~80 | Medium |
-| **Total** | **~60** | **~400** | |
+| Phase 6: Common | 3 | ~19 | Medium |
+| Phase 7: Exports | 1 | ~15 | High |
+| Phase 8: Memory Leaks | 10+ | ~18 | Critical |
+| Phase 9: Integration | 4 | ~30 | High |
+| Phase 10: Async/Timers | 5+ | ~12 | High |
+| Phase 11: Error Boundaries | 1+ | ~17 | Medium |
+| Phase 12: Snapshots | 15 | ~17 | Medium |
+| Phase 13: Accessibility | 10+ | ~17 | Medium |
+| **Total** | **~110** | **~545** | |
 
-This would bring the test suite from **180 → ~580 test cases**.
+This would bring the test suite from **180 → ~725 test cases**.
 
 ---
 
 ## Execution Guidelines
 
 1. **Each phase is a separate PR** — merge and verify coverage increases before proceeding
-2. **Run coverage after each file** — `npx jest --coverage src/path/file.spec.ts`
-3. **Prioritize branches** — branch coverage (34.91%) is the weakest metric
-4. **Don't test trivially** — avoid testing simple getters/setters unless they contain logic
-5. **Mock external dependencies** — XMLHttpRequest, localStorage, navigator, Google Maps
-6. **Use existing DOM from jest.setup.ts** — leverage the pre-built DOM structure where possible
-7. **Create isolated DOM for new tests** — when the global DOM doesn't have the needed structure
-8. **Fix async tests** — always `await` promises or use `done` callback
-9. **Test error paths** — most current tests only cover happy paths
-10. **Test edge cases** — null inputs, empty arrays, boundary values
+2. **Rewrite, don't extend** — replace skeleton tests with proper suites; existing `instanceof` tests have no value
+3. **Run coverage after each file** — `npx jest --coverage src/path/file.spec.ts`
+4. **Prioritize branches** — branch coverage (34.91%) is the weakest metric
+5. **Isolate test DOM** — create minimal DOM in `beforeEach`, clean up in `afterEach`; use `jest.setup.ts` DOM only for full-page integration tests (Application, Form)
+6. **Mock with lifecycle** — save originals in `beforeEach`, restore in `afterEach`; use `jest.useFakeTimers()` for timing
+7. **Use `test.each` / `describe.each`** — parameterized tests for type variants and conversion functions
+8. **Use `jest.fn()`** — verify event handlers, callbacks, and Promize resolution (synchronous, not native Promise)
+9. **Test error paths** — null inputs, missing elements, invalid data, permission denied
+10. **Test edge cases** — empty arrays, boundary values, duplicate IDs, large numbers
+11. **Use specific matchers** — `toHaveLength`, `toMatchObject`, `toBeNull`, `toContain`, `toThrow` over generic `toBe`
+12. **Phase 6–13 require source changes** — some phases (Memory Leaks, Accessibility) will need `destroy()` methods and ARIA attributes added to production code
+13. **Add `jest-axe` dependency** — required for Phase 13 (Accessibility), install before starting that phase
+14. **Enable `detectOpenHandles`** — turn on temporarily in Phase 10 to identify async leaks, then remove once fixed
