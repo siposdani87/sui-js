@@ -7,15 +7,44 @@ import { Knot } from '../core/knot';
 import { Query } from '../core/query';
 import { convertRGBToHEX } from '../utils/color';
 
+/**
+ * Color picker field with a Material Design color palette and a
+ * {@link Canvas}-based image picker.  Displays a color preview swatch and
+ * opens a {@link Popup} with selectable colors on click.
+ *
+ * @example
+ * const input = new Query<HTMLInputElement>('input.color', formKnot).getKnot();
+ * const field = new ColorField(input, label, error, inputBlock);
+ * field.render();
+ *
+ * @see {@link BaseField}
+ * @see {@link Canvas}
+ * @see {@link Popup}
+ * @see {@link Tooltip}
+ * @category Field
+ */
 export class ColorField extends BaseField<HTMLInputElement> {
+    /** Tooltip displaying the current hex color value. */
     tooltip!: Tooltip;
+    /** Swatch element previewing the selected color. */
     previewKnot!: Knot;
+    /** Inner element within the preview swatch. */
     colorKnot!: Knot;
+    /** Popup overlay containing the color palette. */
     popup!: Popup;
+    /** Canvas used to render the color palette or image picker. */
     canvas!: Canvas;
+    /** Optional image element used as a custom color source. */
     image!: Knot<HTMLImageElement>;
+    /** Two-dimensional array of Material Design color hex values. */
     colors!: string[][];
 
+    /**
+     * @param input The underlying `<input>` element wrapped in a {@link Knot}.
+     * @param label The associated label element.
+     * @param error The element used to display validation errors.
+     * @param inputBlock The block-level container wrapping the entire field.
+     */
     constructor(
         input: Knot<HTMLInputElement>,
         label: Knot,
@@ -26,6 +55,10 @@ export class ColorField extends BaseField<HTMLInputElement> {
         this._init();
     }
 
+    /**
+     * Initializes the color field, input listeners, image source, preview
+     * swatch, and Material Design color palette.
+     */
     private _init(): void {
         this.inputBlock.addClass('color-field');
 
@@ -35,6 +68,11 @@ export class ColorField extends BaseField<HTMLInputElement> {
         this._setMaterialColors();
     }
 
+    /**
+     * Renders the field label and refreshes the visual state.
+     *
+     * @override
+     */
     override render() {
         if (this.label && this.label.exists()) {
             this.label.addClass('field-label');
@@ -43,6 +81,12 @@ export class ColorField extends BaseField<HTMLInputElement> {
         this.refresh();
     }
 
+    /**
+     * Validates required state, updates disabled styling, and applies the
+     * current color value to the preview swatch.
+     *
+     * @override
+     */
     override refresh() {
         if (this.isRequired() && this.getValue() === '') {
             this.inputBlock.addClass('is-invalid');
@@ -58,6 +102,10 @@ export class ColorField extends BaseField<HTMLInputElement> {
         this.setValue(color);
     }
 
+    /**
+     * Hides the native input and wires up the change event to update the
+     * preview and tooltip.
+     */
     private _initInput(): void {
         this.input.addClass('hidden');
 
@@ -72,6 +120,10 @@ export class ColorField extends BaseField<HTMLInputElement> {
         });
     }
 
+    /**
+     * Creates the preview swatch, popup overlay, and tooltip, then binds
+     * the click handler to open the color picker.
+     */
     private _initPreview(): void {
         this.previewKnot = new Knot('div');
         this.previewKnot.addClass('preview');
@@ -93,6 +145,9 @@ export class ColorField extends BaseField<HTMLInputElement> {
         });
     }
 
+    /**
+     * Draws the color palette or image onto the canvas.
+     */
     private _draw(): void {
         if (!this.image.isEmpty()) {
             const width = typeCast(this.image.getAttribute('width'));
@@ -122,6 +177,10 @@ export class ColorField extends BaseField<HTMLInputElement> {
         }
     }
 
+    /**
+     * Locates an optional `<img>` element, creates the {@link Canvas},
+     * and binds pixel-click to color selection.
+     */
     private _initImage(): void {
         this.image = new Query<HTMLImageElement>(
             'img',
@@ -154,6 +213,10 @@ export class ColorField extends BaseField<HTMLInputElement> {
         });
     }
 
+    /**
+     * Populates the {@link colors} array with Material Design color swatches
+     * ranging from shade 50 through 900.
+     */
     private _setMaterialColors(): void {
         const colors50 = [
             '#ffebee',

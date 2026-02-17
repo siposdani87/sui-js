@@ -2,9 +2,27 @@ import { mdl } from '../utils/render';
 import { BaseField } from './baseField';
 import { Knot } from '../core/knot';
 
+/**
+ * @description URL input field with optional protocol prefix display (e.g., "https://").
+ *
+ * @example
+ * const urlField = new UrlField(inputKnot, labelKnot, errorKnot, inputBlockKnot);
+ * urlField.render();
+ *
+ * @see {@link BaseField}
+ *
+ * @category Field
+ */
 export class UrlField extends BaseField<HTMLInputElement> {
     protocol!: string;
 
+    /**
+     * @description Creates a new UrlField instance.
+     * @param {Knot<HTMLInputElement>} input - The URL input element.
+     * @param {Knot} label - The label element.
+     * @param {Knot} error - The error message element.
+     * @param {Knot} inputBlock - The container block element.
+     */
     constructor(
         input: Knot<HTMLInputElement>,
         label: Knot,
@@ -15,6 +33,9 @@ export class UrlField extends BaseField<HTMLInputElement> {
         this._init();
     }
 
+    /**
+     * @description Initializes the field by reading the protocol data attribute and attaching input event listeners.
+     */
     private _init(): void {
         this.inputBlock.addClass('url-field');
 
@@ -33,6 +54,10 @@ export class UrlField extends BaseField<HTMLInputElement> {
         });
     }
 
+    /**
+     * @description Applies MDL textfield classes and renders the protocol prefix span if configured.
+     * @override
+     */
     override render(): void {
         this.inputBlock.addClass([
             'mdl-textfield',
@@ -54,6 +79,10 @@ export class UrlField extends BaseField<HTMLInputElement> {
         this.refresh();
     }
 
+    /**
+     * @description Marks the field as invalid when required and empty, then upgrades MDL components.
+     * @override
+     */
     override refresh() {
         if (this.isRequired() && this.getValue() === '') {
             this.inputBlock.addClass('is-invalid');

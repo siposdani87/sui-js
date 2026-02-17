@@ -7,15 +7,43 @@ import { generateId } from '../utils/coder';
 import { IconOptions } from '../utils';
 import { mdl } from '../utils/render';
 
+/**
+ * Location picker field with an embedded {@link GoogleMap}, geocoding search,
+ * and manual latitude/longitude inputs.  The user can search for an address,
+ * click the map, or drag a marker to set the location.
+ *
+ * @example
+ * const input = new Query<HTMLInputElement>('input.location', formKnot).getKnot();
+ * const field = new LocationField(input, label, error, inputBlock);
+ * field.render();
+ * field.eventSearch = (address) => field.search(address);
+ *
+ * @see {@link BaseField}
+ * @see {@link GoogleMap}
+ * @category Field
+ */
 export class LocationField extends BaseField<HTMLInputElement> {
+    /** Icon options for the map marker, read from the input's `data-icon` attribute. */
     icon!: IconOptions;
+    /** Button element that toggles the advanced lat/lng inputs. */
     advancedButton!: Knot;
+    /** Embedded {@link GoogleMap} instance for location selection. */
     map!: GoogleMap;
+    /** Overlay element that prevents map interaction when the field is disabled. */
     mapLockKnot!: Knot;
+    /** Container for the advanced latitude/longitude input elements. */
     advancedKnot!: Knot;
+    /** Text input for manual latitude entry. */
     latitudeInput!: Knot<HTMLInputElement>;
+    /** Text input for manual longitude entry. */
     longitudeInput!: Knot<HTMLInputElement>;
 
+    /**
+     * @param input The underlying `<input>` element wrapped in a {@link Knot}.
+     * @param label The associated label element.
+     * @param error The element used to display validation errors.
+     * @param inputBlock The block-level container wrapping the entire field.
+     */
     constructor(
         input: Knot<HTMLInputElement>,
         label: Knot,
@@ -26,6 +54,9 @@ export class LocationField extends BaseField<HTMLInputElement> {
         this._init();
     }
 
+    /**
+     * Initializes buttons, icon options, and address/change event listeners.
+     */
     private _init(): void {
         this.inputBlock.addClass('location-field');
         this._initButtons();
@@ -53,11 +84,17 @@ export class LocationField extends BaseField<HTMLInputElement> {
         });
     }
 
+    /**
+     * Creates the search and advanced-toggle action buttons.
+     */
     private _initButtons(): void {
         this._initSearchButton();
         this._initAdvancedButton();
     }
 
+    /**
+     * Creates the search button and binds its click to trigger geocoding.
+     */
     private _initSearchButton(): void {
         const searchButton = new Knot('a');
         searchButton.setAttribute('href', 'javascript:void(0)');
@@ -72,6 +109,9 @@ export class LocationField extends BaseField<HTMLInputElement> {
         this.actionContainerKnot.appendChild(searchButton);
     }
 
+    /**
+     * Creates the advanced-toggle button that shows/hides lat/lng inputs.
+     */
     private _initAdvancedButton(): void {
         this.advancedButton = new Knot('a');
         this.advancedButton.setAttribute('href', 'javascript:void(0)');
@@ -85,6 +125,15 @@ export class LocationField extends BaseField<HTMLInputElement> {
         this.actionContainerKnot.appendChild(this.advancedButton);
     }
 
+    /**
+     * Geocodes the given address using the embedded map and updates the
+     * field value with the first result.
+     *
+     * @param address The address string to geocode.
+     *
+     * @example
+     * locationField.search('Budapest, Hungary');
+     */
     search(address: string): void {
         this.map.searchAddress(address).then(
             (locations) => {
@@ -102,6 +151,12 @@ export class LocationField extends BaseField<HTMLInputElement> {
         );
     }
 
+    /**
+     * Applies MDL text-field classes, renders the advanced inputs, map, and
+     * default value, then refreshes the visual state.
+     *
+     * @override
+     */
     override render(): void {
         this.inputBlock.addClass([
             'mdl-textfield',
@@ -120,6 +175,12 @@ export class LocationField extends BaseField<HTMLInputElement> {
         this.refresh();
     }
 
+    /**
+     * Toggles the map lock overlay based on the disabled state and upgrades
+     * MDL components.
+     *
+     * @override
+     */
     override refresh() {
         if (this.isDisabled()) {
             this.mapLockKnot.addClass('map-lock');
@@ -129,11 +190,17 @@ export class LocationField extends BaseField<HTMLInputElement> {
         mdl(this.inputBlock);
     }
 
+    /**
+     * Toggles visibility of the advanced latitude/longitude input panel.
+     */
     private _toggleAdvancedInputs(): void {
         this.advancedButton.toggleClass('active');
         this.advancedKnot.toggleClass('hidden');
     }
 
+    /**
+     * Creates the advanced panel containing latitude and longitude inputs.
+     */
     private _renderAdvancedInputs(): void {
         this.advancedKnot = new Knot('div');
         this.advancedKnot.addClass(['advanced', 'row', 'hidden']);
@@ -161,6 +228,14 @@ export class LocationField extends BaseField<HTMLInputElement> {
         );
     }
 
+    /**
+     * Creates a single labelled MDL text input for the advanced panel.
+     *
+     * @param id Unique DOM id for the input element.
+     * @param labelText Display label for the input.
+     * @param callback Handler invoked on change with the input {@link Knot}.
+     * @returns The created input {@link Knot}.
+     */
     private _renderAdvancedInput(
         id: string,
         labelText: string,
@@ -199,6 +274,10 @@ export class LocationField extends BaseField<HTMLInputElement> {
         return advancedInput;
     }
 
+    /**
+     * Creates the map container and embedded {@link GoogleMap}, configuring
+     * marker icons and map interaction events.
+     */
     private _renderMap(): void {
         const mapKnot = new Knot('div');
         mapKnot.addClass('map');
@@ -227,10 +306,28 @@ export class LocationField extends BaseField<HTMLInputElement> {
         };
     }
 
+    /**
+     * Changes the map type (e.g. satellite, terrain) on the embedded map.
+     *
+     * @param mapTypeId The Google Maps map type identifier.
+     *
+     * @example
+     * locationField.setMapType('satellite');
+     */
     setMapType(mapTypeId: string): void {
         this.map.setMapType(mapTypeId);
     }
 
+    /**
+     * Applies a custom styled map type to the embedded map.
+     *
+     * @param mapTypeId Unique identifier for the custom map type.
+     * @param mapTypeName Display name shown in the map type selector.
+     * @param mapStyles Array of Google Maps style rules.
+     *
+     * @example
+     * locationField.setCustomMapStyle('dark', 'Dark Mode', darkStyles);
+     */
     setCustomMapStyle(
         mapTypeId: string,
         mapTypeName: string,
@@ -239,6 +336,10 @@ export class LocationField extends BaseField<HTMLInputElement> {
         this.map.setCustomMapStyle(mapTypeId, mapTypeName, mapStyles);
     }
 
+    /**
+     * Reads the initial location from the field value and places a marker
+     * on the map if coordinates are present.
+     */
     private _setDefaultValue(): void {
         const location = this.getValue() as Record<string, any>;
         if (!isNull(location['latitude']) && !isNull(location['longitude'])) {
@@ -254,6 +355,15 @@ export class LocationField extends BaseField<HTMLInputElement> {
         }
     }
 
+    /**
+     * Updates the stored latitude/longitude and refreshes the marker.
+     *
+     * @param latitude The new latitude, or `null` to clear.
+     * @param longitude The new longitude, or `null` to clear.
+     *
+     * @example
+     * locationField.updatePosition(47.4979, 19.0402);
+     */
     updatePosition(latitude: number | null, longitude: number | null): void {
         const location = this.getValue() as Record<string, any>;
         location['latitude'] = latitude;
@@ -261,6 +371,12 @@ export class LocationField extends BaseField<HTMLInputElement> {
         this.setValue(location);
     }
 
+    /**
+     * Synchronizes the location data into the advanced inputs and the
+     * hidden input's data attribute.
+     *
+     * @param value Location object with `address`, `latitude`, and `longitude` keys.
+     */
     private _setDataValue(value: Record<string, any>): void {
         this.latitudeInput.getNode().value = value['latitude'] || '';
         this.longitudeInput.getNode().value = value['longitude'] || '';
@@ -268,6 +384,13 @@ export class LocationField extends BaseField<HTMLInputElement> {
         this.input.setData('value', value);
     }
 
+    /**
+     * Sets the location value, updates the advanced inputs, repositions the
+     * map center and marker, and triggers a change event.
+     *
+     * @param value A location object with `address`, `latitude`, and `longitude` keys.
+     * @override
+     */
     override setValue(
         value:
             | object
@@ -305,11 +428,23 @@ export class LocationField extends BaseField<HTMLInputElement> {
         this.input.trigger('change');
     }
 
+    /**
+     * Returns the current location object stored in the input's data attribute.
+     *
+     * @returns The location object with `address`, `latitude`, and `longitude`.
+     * @override
+     */
     override getValue(): any {
         const value = this.input.getData('value');
         return typeCast(value);
     }
 
+    /**
+     * Overridable event callback invoked when the user triggers an address
+     * search via Enter key or the search button.
+     *
+     * @param address The address string entered by the user.
+     */
     eventSearch(address: string): void {
         consoleDebug('Location.eventSearch()', address);
     }

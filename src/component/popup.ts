@@ -3,6 +3,20 @@ import { PopupContainer } from './popupContainer';
 import { consoleDebug } from '../utils/log';
 import { mdl } from '../utils/render';
 
+/**
+ * @description Toggleable popup overlay that attaches content to a parent element.
+ * Supports optional close button and integrates with the global {@link PopupContainer}
+ * for lifecycle management.
+ *
+ * @example
+ * const popup = new Popup(contentKnot, parentKnot, true);
+ * popup.eventClose = () => console.log('Popup closed');
+ * popup.toggle();
+ *
+ * @see {@link PopupContainer} for global popup lifecycle management
+ *
+ * @category Component
+ */
 export class Popup {
     content: Knot;
     parent?: Knot;
@@ -10,6 +24,12 @@ export class Popup {
     popupContainer!: PopupContainer;
     popupKnot!: Knot;
 
+    /**
+     * @description Creates a new Popup with content attached to a parent element.
+     * @param {Knot} content - The content to display inside the popup.
+     * @param {Knot} parent - The parent element the popup is attached to.
+     * @param {boolean} [opt_withClose] - Whether to show a close button.
+     */
     constructor(
         content: Knot,
         parent: Knot,
@@ -21,11 +41,17 @@ export class Popup {
         this._init();
     }
 
+    /**
+     * @description Initializes the popup container and draws the popup DOM.
+     */
     private _init(): void {
         this.popupContainer = new PopupContainer();
         this._draw();
     }
 
+    /**
+     * @description Creates the popup DOM structure and appends it to the parent element.
+     */
     private _draw(): void {
         this.popupKnot = new Knot('div');
         this.popupKnot.addClass(['popup', 'hidden']);
@@ -38,6 +64,9 @@ export class Popup {
         this._initCloseButton();
     }
 
+    /**
+     * @description Adds an MDL close button to the popup when withClose is enabled.
+     */
     private _initCloseButton(): void {
         if (this.withClose) {
             const btnClose = new Knot<HTMLButtonElement>('button');
@@ -62,6 +91,12 @@ export class Popup {
         }
     }
 
+    /**
+     * @description Opens the popup, closing all other popups first, and positions it within the container.
+     *
+     * @example
+     * popup.open();
+     */
     open(): void {
         this.popupContainer.closeAll();
         this.popupContainer.push(Popup, this);
@@ -69,6 +104,12 @@ export class Popup {
         this.popupContainer.setPosition(this.popupKnot);
     }
 
+    /**
+     * @description Closes the popup, removes it from the container, and fires the eventClose callback.
+     *
+     * @example
+     * popup.close();
+     */
     close(): void {
         this.popupContainer.delete(this);
         this.popupContainer.clearPosition(this.popupKnot);
@@ -76,10 +117,22 @@ export class Popup {
         this.eventClose();
     }
 
+    /**
+     * @description Called when the popup is closed. Override to handle close events.
+     *
+     * @example
+     * popup.eventClose = () => cleanup();
+     */
     eventClose(): void {
         consoleDebug('Popup.eventClose()');
     }
 
+    /**
+     * @description Toggles the popup between open and closed states.
+     *
+     * @example
+     * button.addEventListener('click', () => popup.toggle());
+     */
     toggle(): void {
         if (this.isOpened()) {
             this.close();
@@ -88,6 +141,13 @@ export class Popup {
         }
     }
 
+    /**
+     * @description Checks whether the popup is currently open.
+     * @returns {boolean} True if the popup is visible.
+     *
+     * @example
+     * if (popup.isOpened()) { popup.close(); }
+     */
     isOpened(): boolean {
         return !this.popupKnot.hasClass('hidden');
     }

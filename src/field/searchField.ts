@@ -4,9 +4,28 @@ import { BaseField } from './baseField';
 import { Knot } from '../core/knot';
 import { consoleDebug } from '../utils/log';
 
+/**
+ * @description Expandable search input field with clear button and enter key handling.
+ *
+ * @example
+ * const searchField = new SearchField(inputKnot, labelKnot, errorKnot, inputBlockKnot);
+ * searchField.eventEnter = (value) => { console.log('Search:', value); };
+ * searchField.render();
+ *
+ * @see {@link BaseField}
+ *
+ * @category Field
+ */
 export class SearchField extends BaseField<HTMLInputElement> {
     holderKnot!: Knot;
 
+    /**
+     * @description Creates a new SearchField instance.
+     * @param {Knot<HTMLInputElement>} input - The search input element.
+     * @param {Knot} label - The label element.
+     * @param {Knot} error - The error message element.
+     * @param {Knot} inputBlock - The container block element.
+     */
     constructor(
         input: Knot<HTMLInputElement>,
         label: Knot,
@@ -17,6 +36,9 @@ export class SearchField extends BaseField<HTMLInputElement> {
         this._init();
     }
 
+    /**
+     * @description Initializes keyup and change event listeners on the input.
+     */
     private _init(): void {
         this.input.addEventListener('keyup', (input, event) => {
             const inputNode = input.getNode();
@@ -34,6 +56,10 @@ export class SearchField extends BaseField<HTMLInputElement> {
         });
     }
 
+    /**
+     * @description Builds the expandable MDL search field layout with icon, holder, label, and clear button.
+     * @override
+     */
     override render(): void {
         this.inputBlock.addClass([
             'search-field',
@@ -66,6 +92,10 @@ export class SearchField extends BaseField<HTMLInputElement> {
         this.refresh();
     }
 
+    /**
+     * @description Marks the field as invalid when required and empty, then upgrades MDL components.
+     * @override
+     */
     override refresh() {
         if (this.isRequired() && this.getValue() === '') {
             this.inputBlock.addClass('is-invalid');
@@ -74,6 +104,9 @@ export class SearchField extends BaseField<HTMLInputElement> {
         mdl(this.inputBlock);
     }
 
+    /**
+     * @description Creates a clear button that resets the field value and triggers eventEnter.
+     */
     private _initClearButton(): void {
         const clearButton = new Knot('a');
         clearButton.setAttribute('href', 'javascript:void(0)');
@@ -89,6 +122,10 @@ export class SearchField extends BaseField<HTMLInputElement> {
         this.holderKnot.appendChild(clearButton);
     }
 
+    /**
+     * @description Called when the user presses Enter or clears the search field. Override to handle search submission.
+     * @param {string} value - The current search input value.
+     */
     eventEnter(value: string): void {
         consoleDebug('Search.eventEnter()', value);
     }

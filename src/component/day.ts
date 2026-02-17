@@ -3,12 +3,29 @@ import { Knot } from '../core/knot';
 import { DateIO } from '../utils';
 import { consoleDebug } from '../utils/log';
 
+/**
+ * @description Represents a single day cell in the {@link Calendar} grid, with CSS classes for current, now, and month context.
+ * @example
+ * const day = new Day(new Date(), selectedDate, { css_class: 'current-month' });
+ * const knot = day.getKnot();
+ * @see {@link Calendar}
+ * @see {@link DateIO}
+ * @category Component
+ */
 export class Day {
     date: Date;
     currentDate: Date;
     options!: Objekt;
     cssClasses!: string[];
 
+    /**
+     * @description Creates a new Day instance.
+     * @param {Date} date - The date this cell represents.
+     * @param {Date} currentDate - The currently selected date, used for highlight comparison.
+     * @param {object} options - Configuration options including `css_class`.
+     * @example
+     * const day = new Day(new Date(2024, 0, 15), selectedDate, { css_class: 'current-month' });
+     */
     constructor(date: Date, currentDate: Date, options: object) {
         this.date = date;
         this.currentDate = currentDate;
@@ -16,10 +33,17 @@ export class Day {
         this._init();
     }
 
+    /**
+     * @description Merges user options into an {@link Objekt} instance.
+     * @param {object} options - Raw configuration options.
+     */
     private _setOptions(options: object): void {
         this.options = new Objekt(options);
     }
 
+    /**
+     * @description Computes CSS classes for 'current' and 'now' states based on date comparisons.
+     */
     private _init(): void {
         const current =
             DateIO.format(this.date, 'YYYY-MM-DD') ===
@@ -34,6 +58,13 @@ export class Day {
         this.cssClasses = ['day', this.options.css_class, now, current];
     }
 
+    /**
+     * @description Creates and returns a styled {@link Knot} element representing this day cell with a click handler.
+     * @returns {Knot} The day cell DOM element wrapper.
+     * @example
+     * const dayKnot = day.getKnot();
+     * container.appendChild(dayKnot);
+     */
     getKnot(): Knot {
         const knot = new Knot('span');
         knot.addClass(this.cssClasses);
@@ -46,6 +77,12 @@ export class Day {
         return knot;
     }
 
+    /**
+     * @description Overridable callback fired when this day cell is clicked. Defaults to a debug log.
+     * @param {Date} date - The date of the clicked day.
+     * @example
+     * day.eventClick = (date) => { console.log('Clicked:', date); };
+     */
     eventClick(date: Date) {
         consoleDebug('Day.eventClick()', date);
     }

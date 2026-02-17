@@ -5,10 +5,31 @@ import { Query } from '../core/query';
 import { Form } from '../component';
 import { mdl } from '../utils/render';
 
+/**
+ * @description Radio button group field with MDL styling. Manages a set of radio inputs sharing the same name,
+ * handling checked state, disabled state, and label rendering across all buttons in the group.
+ *
+ * @example
+ * const radioField = new RadiobuttonField(inputKnot, labelKnot, errorKnot, inputBlockKnot, form);
+ * radioField.render();
+ *
+ * @see {@link BaseField}
+ * @see {@link Form}
+ *
+ * @category Field
+ */
 export class RadiobuttonField extends BaseField<HTMLInputElement> {
     dataLabelKnot!: Knot;
     spanLabel!: Knot;
 
+    /**
+     * @description Creates a new RadiobuttonField instance.
+     * @param {Knot<HTMLInputElement>} input - The radio input element.
+     * @param {Knot} label - The label element.
+     * @param {Knot} error - The error message element.
+     * @param {Knot} inputBlock - The container block element.
+     * @param {Form} form - The parent form instance used to query sibling radio inputs.
+     */
     constructor(
         input: Knot<HTMLInputElement>,
         label: Knot,
@@ -20,6 +41,9 @@ export class RadiobuttonField extends BaseField<HTMLInputElement> {
         this._init();
     }
 
+    /**
+     * @description Initializes the field by adding CSS class and attaching the change event listener.
+     */
     private _init(): void {
         this.inputBlock.addClass('radiobutton-field');
 
@@ -32,6 +56,9 @@ export class RadiobuttonField extends BaseField<HTMLInputElement> {
         });
     }
 
+    /**
+     * @description Handles radio button selection by notifying the model and marking sibling inputs as other-checked.
+     */
     private _change(): void {
         const value = this.input.getAttribute('value');
         this.modelChange(value);
@@ -49,6 +76,10 @@ export class RadiobuttonField extends BaseField<HTMLInputElement> {
         });
     }
 
+    /**
+     * @description Builds the MDL radio button layout with label, icon, and data-label elements.
+     * @override
+     */
     override render(): void {
         this.label.addClass([
             'mdl-radio',
@@ -76,6 +107,10 @@ export class RadiobuttonField extends BaseField<HTMLInputElement> {
         this.refresh();
     }
 
+    /**
+     * @description Updates the data-label text, manages the disabled state, and upgrades MDL components.
+     * @override
+     */
     override refresh() {
         const dataLabelText = this.label.getAttribute('data-label');
         if (dataLabelText) {
@@ -91,6 +126,11 @@ export class RadiobuttonField extends BaseField<HTMLInputElement> {
         mdl(this.label, false);
     }
 
+    /**
+     * @description Checks the radio button whose value attribute matches the given value and triggers a change event.
+     * @param {object | Function | Array<any> | boolean | number | string | null | undefined} value - The value to select.
+     * @override
+     */
     override setValue(
         value:
             | object
@@ -108,6 +148,11 @@ export class RadiobuttonField extends BaseField<HTMLInputElement> {
         }
     }
 
+    /**
+     * @description Returns the value of the currently checked radio button in the group, or null if none is selected.
+     * @returns {any} The type-cast value of the checked radio button.
+     * @override
+     */
     override getValue(): any {
         let value = null;
         this._getRadioButtonInputs().each((radioButtonInput) => {
@@ -119,6 +164,11 @@ export class RadiobuttonField extends BaseField<HTMLInputElement> {
         return typeCast(value);
     }
 
+    /**
+     * @description Sets the disabled state on all radio buttons in the group and their parent elements.
+     * @param {boolean} state - True to disable, false to enable.
+     * @override
+     */
     override setDisabled(state: boolean): void {
         this._getRadioButtonInputs().each((radioButtonInput) => {
             if (state) {
@@ -141,6 +191,11 @@ export class RadiobuttonField extends BaseField<HTMLInputElement> {
         this.checkValidity(true, false);
     }
 
+    /**
+     * @description Returns true if any radio button in the group is disabled.
+     * @returns {boolean}
+     * @override
+     */
     override isDisabled(): boolean {
         let isDisabled = false;
         this._getRadioButtonInputs().each((radioButtonInput) => {
@@ -151,6 +206,10 @@ export class RadiobuttonField extends BaseField<HTMLInputElement> {
         return isDisabled;
     }
 
+    /**
+     * @description Queries the parent form for all radio inputs sharing the same name attribute.
+     * @returns {Query<HTMLInputElement>}
+     */
     private _getRadioButtonInputs(): Query<HTMLInputElement> {
         const name = this.input.getAttribute('name');
         return new Query<HTMLInputElement>(
@@ -159,6 +218,11 @@ export class RadiobuttonField extends BaseField<HTMLInputElement> {
         );
     }
 
+    /**
+     * @description Updates the span label text for this radio button option.
+     * @param {string} text - The new label text.
+     * @override
+     */
     override setLabel(text: string): void {
         if (this.spanLabel && !this.spanLabel.isEmpty()) {
             this.spanLabel.setHtml(text);

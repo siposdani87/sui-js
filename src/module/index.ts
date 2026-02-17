@@ -1,3 +1,12 @@
+/**
+ * Module barrel export. Re-exports all module classes that provide
+ * application-level features such as HTTP communication, UI chrome
+ * (header, footer, menus, navigation), dialogs, storage, and
+ * dynamic resource loading.
+ *
+ * @module module
+ */
+
 export * from './baseModal';
 export * from './bottomMenu';
 export * from './browser';
