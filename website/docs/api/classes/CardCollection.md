@@ -1,6 +1,6 @@
 # Class: CardCollection
 
-Defined in: [component/cardCollection.ts:27](https://github.com/siposdani87/sui-js/blob/433cda184a013753ef41bb6ba61d0b3944481fa1/src/component/cardCollection.ts#L27)
+Defined in: [component/cardCollection.ts:27](https://github.com/siposdani87/sui-js/blob/27883240db7565f37a562e906b93c8d6552ac058/src/component/cardCollection.ts#L27)
 
 ## Description
 
@@ -28,7 +28,7 @@ cards.render();
 
 > **new CardCollection**(`dom`, `opt_selector?`, `opt_ctrl?`, `opt_options?`): `CardCollection`
 
-Defined in: [component/cardCollection.ts:48](https://github.com/siposdani87/sui-js/blob/433cda184a013753ef41bb6ba61d0b3944481fa1/src/component/cardCollection.ts#L48)
+Defined in: [component/cardCollection.ts:48](https://github.com/siposdani87/sui-js/blob/27883240db7565f37a562e906b93c8d6552ac058/src/component/cardCollection.ts#L48)
 
 #### Parameters
 
@@ -70,7 +70,7 @@ Creates a new CardCollection bound to a DOM container with optional controller a
 
 > **body**: [`Knot`](Knot.md)
 
-Defined in: [component/cardCollection.ts:35](https://github.com/siposdani87/sui-js/blob/433cda184a013753ef41bb6ba61d0b3944481fa1/src/component/cardCollection.ts#L35)
+Defined in: [component/cardCollection.ts:35](https://github.com/siposdani87/sui-js/blob/27883240db7565f37a562e906b93c8d6552ac058/src/component/cardCollection.ts#L35)
 
 ***
 
@@ -78,7 +78,7 @@ Defined in: [component/cardCollection.ts:35](https://github.com/siposdani87/sui-
 
 > **cardCollectionKnot**: [`Knot`](Knot.md)
 
-Defined in: [component/cardCollection.ts:28](https://github.com/siposdani87/sui-js/blob/433cda184a013753ef41bb6ba61d0b3944481fa1/src/component/cardCollection.ts#L28)
+Defined in: [component/cardCollection.ts:28](https://github.com/siposdani87/sui-js/blob/27883240db7565f37a562e906b93c8d6552ac058/src/component/cardCollection.ts#L28)
 
 ***
 
@@ -86,7 +86,7 @@ Defined in: [component/cardCollection.ts:28](https://github.com/siposdani87/sui-
 
 > **cardFooterKnot**: [`Knot`](Knot.md)
 
-Defined in: [component/cardCollection.ts:36](https://github.com/siposdani87/sui-js/blob/433cda184a013753ef41bb6ba61d0b3944481fa1/src/component/cardCollection.ts#L36)
+Defined in: [component/cardCollection.ts:36](https://github.com/siposdani87/sui-js/blob/27883240db7565f37a562e906b93c8d6552ac058/src/component/cardCollection.ts#L36)
 
 ***
 
@@ -94,7 +94,7 @@ Defined in: [component/cardCollection.ts:36](https://github.com/siposdani87/sui-
 
 > **cardTemplate**: [`Knot`](Knot.md)\<`HTMLTemplateElement`\>
 
-Defined in: [component/cardCollection.ts:38](https://github.com/siposdani87/sui-js/blob/433cda184a013753ef41bb6ba61d0b3944481fa1/src/component/cardCollection.ts#L38)
+Defined in: [component/cardCollection.ts:38](https://github.com/siposdani87/sui-js/blob/27883240db7565f37a562e906b93c8d6552ac058/src/component/cardCollection.ts#L38)
 
 ***
 
@@ -102,7 +102,7 @@ Defined in: [component/cardCollection.ts:38](https://github.com/siposdani87/sui-
 
 > **collection**: [`Collection`](Collection.md)\<[`Objekt`](Objekt.md)\<`object`\>\>
 
-Defined in: [component/cardCollection.ts:31](https://github.com/siposdani87/sui-js/blob/433cda184a013753ef41bb6ba61d0b3944481fa1/src/component/cardCollection.ts#L31)
+Defined in: [component/cardCollection.ts:31](https://github.com/siposdani87/sui-js/blob/27883240db7565f37a562e906b93c8d6552ac058/src/component/cardCollection.ts#L31)
 
 ***
 
@@ -110,7 +110,7 @@ Defined in: [component/cardCollection.ts:31](https://github.com/siposdani87/sui-
 
 > **contentHandler**: [`ContentHandler`](ContentHandler.md)
 
-Defined in: [component/cardCollection.ts:34](https://github.com/siposdani87/sui-js/blob/433cda184a013753ef41bb6ba61d0b3944481fa1/src/component/cardCollection.ts#L34)
+Defined in: [component/cardCollection.ts:34](https://github.com/siposdani87/sui-js/blob/27883240db7565f37a562e906b93c8d6552ac058/src/component/cardCollection.ts#L34)
 
 ***
 
@@ -118,7 +118,7 @@ Defined in: [component/cardCollection.ts:34](https://github.com/siposdani87/sui-
 
 > **ctrl**: `any`
 
-Defined in: [component/cardCollection.ts:29](https://github.com/siposdani87/sui-js/blob/433cda184a013753ef41bb6ba61d0b3944481fa1/src/component/cardCollection.ts#L29)
+Defined in: [component/cardCollection.ts:29](https://github.com/siposdani87/sui-js/blob/27883240db7565f37a562e906b93c8d6552ac058/src/component/cardCollection.ts#L29)
 
 ***
 
@@ -126,7 +126,7 @@ Defined in: [component/cardCollection.ts:29](https://github.com/siposdani87/sui-
 
 > **options**: [`Objekt`](Objekt.md)
 
-Defined in: [component/cardCollection.ts:30](https://github.com/siposdani87/sui-js/blob/433cda184a013753ef41bb6ba61d0b3944481fa1/src/component/cardCollection.ts#L30)
+Defined in: [component/cardCollection.ts:30](https://github.com/siposdani87/sui-js/blob/27883240db7565f37a562e906b93c8d6552ac058/src/component/cardCollection.ts#L30)
 
 ***
 
@@ -134,7 +134,7 @@ Defined in: [component/cardCollection.ts:30](https://github.com/siposdani87/sui-
 
 > **pager**: [`Pager`](Pager.md)
 
-Defined in: [component/cardCollection.ts:33](https://github.com/siposdani87/sui-js/blob/433cda184a013753ef41bb6ba61d0b3944481fa1/src/component/cardCollection.ts#L33)
+Defined in: [component/cardCollection.ts:33](https://github.com/siposdani87/sui-js/blob/27883240db7565f37a562e906b93c8d6552ac058/src/component/cardCollection.ts#L33)
 
 ***
 
@@ -142,7 +142,7 @@ Defined in: [component/cardCollection.ts:33](https://github.com/siposdani87/sui-
 
 > **pagerKnot**: [`Knot`](Knot.md)
 
-Defined in: [component/cardCollection.ts:37](https://github.com/siposdani87/sui-js/blob/433cda184a013753ef41bb6ba61d0b3944481fa1/src/component/cardCollection.ts#L37)
+Defined in: [component/cardCollection.ts:37](https://github.com/siposdani87/sui-js/blob/27883240db7565f37a562e906b93c8d6552ac058/src/component/cardCollection.ts#L37)
 
 ***
 
@@ -150,7 +150,7 @@ Defined in: [component/cardCollection.ts:37](https://github.com/siposdani87/sui-
 
 > **query**: `string`
 
-Defined in: [component/cardCollection.ts:32](https://github.com/siposdani87/sui-js/blob/433cda184a013753ef41bb6ba61d0b3944481fa1/src/component/cardCollection.ts#L32)
+Defined in: [component/cardCollection.ts:32](https://github.com/siposdani87/sui-js/blob/27883240db7565f37a562e906b93c8d6552ac058/src/component/cardCollection.ts#L32)
 
 ***
 
@@ -158,7 +158,7 @@ Defined in: [component/cardCollection.ts:32](https://github.com/siposdani87/sui-
 
 > **template**: `string`
 
-Defined in: [component/cardCollection.ts:39](https://github.com/siposdani87/sui-js/blob/433cda184a013753ef41bb6ba61d0b3944481fa1/src/component/cardCollection.ts#L39)
+Defined in: [component/cardCollection.ts:39](https://github.com/siposdani87/sui-js/blob/27883240db7565f37a562e906b93c8d6552ac058/src/component/cardCollection.ts#L39)
 
 ## Methods
 
@@ -166,7 +166,7 @@ Defined in: [component/cardCollection.ts:39](https://github.com/siposdani87/sui-
 
 > **eventAction**(`params`): `void`
 
-Defined in: [component/cardCollection.ts:217](https://github.com/siposdani87/sui-js/blob/433cda184a013753ef41bb6ba61d0b3944481fa1/src/component/cardCollection.ts#L217)
+Defined in: [component/cardCollection.ts:217](https://github.com/siposdani87/sui-js/blob/27883240db7565f37a562e906b93c8d6552ac058/src/component/cardCollection.ts#L217)
 
 #### Parameters
 
@@ -198,7 +198,7 @@ cards.eventAction = (params) => {
 
 > **eventCardKnot**(`cardKnot`, `item`): `void`
 
-Defined in: [component/cardCollection.ts:231](https://github.com/siposdani87/sui-js/blob/433cda184a013753ef41bb6ba61d0b3944481fa1/src/component/cardCollection.ts#L231)
+Defined in: [component/cardCollection.ts:231](https://github.com/siposdani87/sui-js/blob/27883240db7565f37a562e906b93c8d6552ac058/src/component/cardCollection.ts#L231)
 
 #### Parameters
 
@@ -236,7 +236,7 @@ cards.eventCardKnot = (cardKnot, item) => {
 
 > **refresh**(`opt_page?`): `void`
 
-Defined in: [component/cardCollection.ts:194](https://github.com/siposdani87/sui-js/blob/433cda184a013753ef41bb6ba61d0b3944481fa1/src/component/cardCollection.ts#L194)
+Defined in: [component/cardCollection.ts:194](https://github.com/siposdani87/sui-js/blob/27883240db7565f37a562e906b93c8d6552ac058/src/component/cardCollection.ts#L194)
 
 #### Parameters
 
@@ -266,7 +266,7 @@ cards.refresh(1); // Refresh from page 1
 
 > **render**(): `void`
 
-Defined in: [component/cardCollection.ts:307](https://github.com/siposdani87/sui-js/blob/433cda184a013753ef41bb6ba61d0b3944481fa1/src/component/cardCollection.ts#L307)
+Defined in: [component/cardCollection.ts:307](https://github.com/siposdani87/sui-js/blob/27883240db7565f37a562e906b93c8d6552ac058/src/component/cardCollection.ts#L307)
 
 #### Returns
 
@@ -288,7 +288,7 @@ cards.render();
 
 > **setCount**(`count`): `void`
 
-Defined in: [component/cardCollection.ts:270](https://github.com/siposdani87/sui-js/blob/433cda184a013753ef41bb6ba61d0b3944481fa1/src/component/cardCollection.ts#L270)
+Defined in: [component/cardCollection.ts:270](https://github.com/siposdani87/sui-js/blob/27883240db7565f37a562e906b93c8d6552ac058/src/component/cardCollection.ts#L270)
 
 #### Parameters
 
@@ -318,7 +318,7 @@ cards.setCount(response.total);
 
 > **setData**(`items`): `void`
 
-Defined in: [component/cardCollection.ts:253](https://github.com/siposdani87/sui-js/blob/433cda184a013753ef41bb6ba61d0b3944481fa1/src/component/cardCollection.ts#L253)
+Defined in: [component/cardCollection.ts:253](https://github.com/siposdani87/sui-js/blob/27883240db7565f37a562e906b93c8d6552ac058/src/component/cardCollection.ts#L253)
 
 #### Parameters
 

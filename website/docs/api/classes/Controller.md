@@ -1,6 +1,6 @@
 # Class: Controller
 
-Defined in: [common/controller.ts:22](https://github.com/siposdani87/sui-js/blob/433cda184a013753ef41bb6ba61d0b3944481fa1/src/common/controller.ts#L22)
+Defined in: [common/controller.ts:22](https://github.com/siposdani87/sui-js/blob/27883240db7565f37a562e906b93c8d6552ac058/src/common/controller.ts#L22)
 
 Base controller class with `enter()` and `exit()` lifecycle hooks.
 
@@ -44,7 +44,7 @@ class HomeController extends Controller {
 
 > **enter**(): `void`
 
-Defined in: [common/controller.ts:26](https://github.com/siposdani87/sui-js/blob/433cda184a013753ef41bb6ba61d0b3944481fa1/src/common/controller.ts#L26)
+Defined in: [common/controller.ts:26](https://github.com/siposdani87/sui-js/blob/27883240db7565f37a562e906b93c8d6552ac058/src/common/controller.ts#L26)
 
 Called when the controller becomes active. Override to initialize page logic.
 
@@ -58,7 +58,7 @@ Called when the controller becomes active. Override to initialize page logic.
 
 > **exit**(): `void`
 
-Defined in: [common/controller.ts:33](https://github.com/siposdani87/sui-js/blob/433cda184a013753ef41bb6ba61d0b3944481fa1/src/common/controller.ts#L33)
+Defined in: [common/controller.ts:33](https://github.com/siposdani87/sui-js/blob/27883240db7565f37a562e906b93c8d6552ac058/src/common/controller.ts#L33)
 
 Called when the controller is deactivated. Override to clean up resources.
 

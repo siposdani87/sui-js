@@ -1,6 +1,6 @@
 # Class: Xhr
 
-Defined in: [module/xhr.ts:51](https://github.com/siposdani87/sui-js/blob/433cda184a013753ef41bb6ba61d0b3944481fa1/src/module/xhr.ts#L51)
+Defined in: [module/xhr.ts:51](https://github.com/siposdani87/sui-js/blob/27883240db7565f37a562e906b93c8d6552ac058/src/module/xhr.ts#L51)
 
 Low-level XMLHttpRequest wrapper that manages content-type detection,
 request headers, authentication, and response parsing. Each instance
@@ -41,7 +41,7 @@ xhr.get('/users.json', { page: 1 }).then(
 
 > **new Xhr**(`opt_options?`): `Xhr`
 
-Defined in: [module/xhr.ts:78](https://github.com/siposdani87/sui-js/blob/433cda184a013753ef41bb6ba61d0b3944481fa1/src/module/xhr.ts#L78)
+Defined in: [module/xhr.ts:78](https://github.com/siposdani87/sui-js/blob/27883240db7565f37a562e906b93c8d6552ac058/src/module/xhr.ts#L78)
 
 Creates a new Xhr instance configured with the given options.
 
@@ -69,7 +69,7 @@ const xhr = new Xhr({ backend: '/api', locale: 'hu' });
 
 > **authorization**: `string` \| `null`
 
-Defined in: [module/xhr.ts:56](https://github.com/siposdani87/sui-js/blob/433cda184a013753ef41bb6ba61d0b3944481fa1/src/module/xhr.ts#L56)
+Defined in: [module/xhr.ts:56](https://github.com/siposdani87/sui-js/blob/27883240db7565f37a562e906b93c8d6552ac058/src/module/xhr.ts#L56)
 
 ***
 
@@ -77,7 +77,7 @@ Defined in: [module/xhr.ts:56](https://github.com/siposdani87/sui-js/blob/433cda
 
 > **deferred**: [`Deferred`](Deferred.md)\<\[`XMLHttpRequest`, [`Objekt`](Objekt.md)\<`object`\>, `string`\], \[`XMLHttpRequest`, [`Objekt`](Objekt.md)\<`object`\>, `string`\]\>
 
-Defined in: [module/xhr.ts:61](https://github.com/siposdani87/sui-js/blob/433cda184a013753ef41bb6ba61d0b3944481fa1/src/module/xhr.ts#L61)
+Defined in: [module/xhr.ts:61](https://github.com/siposdani87/sui-js/blob/27883240db7565f37a562e906b93c8d6552ac058/src/module/xhr.ts#L61)
 
 ***
 
@@ -85,7 +85,7 @@ Defined in: [module/xhr.ts:61](https://github.com/siposdani87/sui-js/blob/433cda
 
 > **httpRequest**: `XMLHttpRequest`
 
-Defined in: [module/xhr.ts:60](https://github.com/siposdani87/sui-js/blob/433cda184a013753ef41bb6ba61d0b3944481fa1/src/module/xhr.ts#L60)
+Defined in: [module/xhr.ts:60](https://github.com/siposdani87/sui-js/blob/27883240db7565f37a562e906b93c8d6552ac058/src/module/xhr.ts#L60)
 
 ***
 
@@ -93,7 +93,7 @@ Defined in: [module/xhr.ts:60](https://github.com/siposdani87/sui-js/blob/433cda
 
 > **options**: [`Objekt`](Objekt.md)\<\{ `backend`: `string`; `locale`: `string`; \}\>
 
-Defined in: [module/xhr.ts:52](https://github.com/siposdani87/sui-js/blob/433cda184a013753ef41bb6ba61d0b3944481fa1/src/module/xhr.ts#L52)
+Defined in: [module/xhr.ts:52](https://github.com/siposdani87/sui-js/blob/27883240db7565f37a562e906b93c8d6552ac058/src/module/xhr.ts#L52)
 
 ***
 
@@ -101,7 +101,7 @@ Defined in: [module/xhr.ts:52](https://github.com/siposdani87/sui-js/blob/433cda
 
 > **requestHeaders**: `object`
 
-Defined in: [module/xhr.ts:53](https://github.com/siposdani87/sui-js/blob/433cda184a013753ef41bb6ba61d0b3944481fa1/src/module/xhr.ts#L53)
+Defined in: [module/xhr.ts:53](https://github.com/siposdani87/sui-js/blob/27883240db7565f37a562e906b93c8d6552ac058/src/module/xhr.ts#L53)
 
 #### Index Signature
 
@@ -113,7 +113,7 @@ Defined in: [module/xhr.ts:53](https://github.com/siposdani87/sui-js/blob/433cda
 
 > **types**: `object`
 
-Defined in: [module/xhr.ts:57](https://github.com/siposdani87/sui-js/blob/433cda184a013753ef41bb6ba61d0b3944481fa1/src/module/xhr.ts#L57)
+Defined in: [module/xhr.ts:57](https://github.com/siposdani87/sui-js/blob/27883240db7565f37a562e906b93c8d6552ac058/src/module/xhr.ts#L57)
 
 #### Index Signature
 
@@ -125,7 +125,7 @@ Defined in: [module/xhr.ts:57](https://github.com/siposdani87/sui-js/blob/433cda
 
 > **delete**(`url`, `opt_data?`, `opt_params?`, `opt_headers?`): [`Promize`](Promize.md)\<\[`XMLHttpRequest`, [`Objekt`](Objekt.md)\<`object`\>, `string`\], \[`XMLHttpRequest`, [`Objekt`](Objekt.md)\<`object`\>, `string`\]\>
 
-Defined in: [module/xhr.ts:373](https://github.com/siposdani87/sui-js/blob/433cda184a013753ef41bb6ba61d0b3944481fa1/src/module/xhr.ts#L373)
+Defined in: [module/xhr.ts:373](https://github.com/siposdani87/sui-js/blob/27883240db7565f37a562e906b93c8d6552ac058/src/module/xhr.ts#L373)
 
 Sends an HTTP DELETE request to the specified URL.
 
@@ -177,7 +177,7 @@ xhr.delete('/users/1.json').then(
 
 > **get**(`url`, `opt_params?`, `opt_headers?`): [`Promize`](Promize.md)\<\[`XMLHttpRequest`, [`Objekt`](Objekt.md)\<`object`\>, `string`\], \[`XMLHttpRequest`, [`Objekt`](Objekt.md)\<`object`\>, `string`\]\>
 
-Defined in: [module/xhr.ts:252](https://github.com/siposdani87/sui-js/blob/433cda184a013753ef41bb6ba61d0b3944481fa1/src/module/xhr.ts#L252)
+Defined in: [module/xhr.ts:252](https://github.com/siposdani87/sui-js/blob/27883240db7565f37a562e906b93c8d6552ac058/src/module/xhr.ts#L252)
 
 Sends an HTTP GET request to the specified URL.
 
@@ -223,7 +223,7 @@ xhr.get('/users.json', { page: 2 }).then(
 
 > **patch**(`url`, `opt_data?`, `opt_params?`, `opt_headers?`): [`Promize`](Promize.md)\<\[`XMLHttpRequest`, [`Objekt`](Objekt.md)\<`object`\>, `string`\], \[`XMLHttpRequest`, [`Objekt`](Objekt.md)\<`object`\>, `string`\]\>
 
-Defined in: [module/xhr.ts:341](https://github.com/siposdani87/sui-js/blob/433cda184a013753ef41bb6ba61d0b3944481fa1/src/module/xhr.ts#L341)
+Defined in: [module/xhr.ts:341](https://github.com/siposdani87/sui-js/blob/27883240db7565f37a562e906b93c8d6552ac058/src/module/xhr.ts#L341)
 
 Sends an HTTP PATCH request to the specified URL.
 
@@ -275,7 +275,7 @@ xhr.patch('/users/1.json', { email: 'new@example.com' }).then(
 
 > **post**(`url`, `opt_data?`, `opt_params?`, `opt_headers?`): [`Promize`](Promize.md)\<\[`XMLHttpRequest`, [`Objekt`](Objekt.md)\<`object`\>, `string`\], \[`XMLHttpRequest`, [`Objekt`](Objekt.md)\<`object`\>, `string`\]\>
 
-Defined in: [module/xhr.ts:277](https://github.com/siposdani87/sui-js/blob/433cda184a013753ef41bb6ba61d0b3944481fa1/src/module/xhr.ts#L277)
+Defined in: [module/xhr.ts:277](https://github.com/siposdani87/sui-js/blob/27883240db7565f37a562e906b93c8d6552ac058/src/module/xhr.ts#L277)
 
 Sends an HTTP POST request to the specified URL.
 
@@ -327,7 +327,7 @@ xhr.post('/users.json', { name: 'Alice' }).then(
 
 > **put**(`url`, `opt_data?`, `opt_params?`, `opt_headers?`): [`Promize`](Promize.md)\<\[`XMLHttpRequest`, [`Objekt`](Objekt.md)\<`object`\>, `string`\], \[`XMLHttpRequest`, [`Objekt`](Objekt.md)\<`object`\>, `string`\]\>
 
-Defined in: [module/xhr.ts:309](https://github.com/siposdani87/sui-js/blob/433cda184a013753ef41bb6ba61d0b3944481fa1/src/module/xhr.ts#L309)
+Defined in: [module/xhr.ts:309](https://github.com/siposdani87/sui-js/blob/27883240db7565f37a562e906b93c8d6552ac058/src/module/xhr.ts#L309)
 
 Sends an HTTP PUT request to the specified URL.
 
@@ -379,7 +379,7 @@ xhr.put('/users/1.json', { name: 'Alice Updated' }).then(
 
 > **setBasicAuthorization**(`username`, `password`): `void`
 
-Defined in: [module/xhr.ts:671](https://github.com/siposdani87/sui-js/blob/433cda184a013753ef41bb6ba61d0b3944481fa1/src/module/xhr.ts#L671)
+Defined in: [module/xhr.ts:671](https://github.com/siposdani87/sui-js/blob/27883240db7565f37a562e906b93c8d6552ac058/src/module/xhr.ts#L671)
 
 Sets HTTP Basic authentication credentials. The username and password
 are Base64-encoded into an `Authorization: Basic <hash>` header value
@@ -416,7 +416,7 @@ xhr.setBasicAuthorization('admin', 's3cret');
 
 > **setBearerAuthorization**(`token`): `void`
 
-Defined in: [module/xhr.ts:689](https://github.com/siposdani87/sui-js/blob/433cda184a013753ef41bb6ba61d0b3944481fa1/src/module/xhr.ts#L689)
+Defined in: [module/xhr.ts:689](https://github.com/siposdani87/sui-js/blob/27883240db7565f37a562e906b93c8d6552ac058/src/module/xhr.ts#L689)
 
 Sets a Bearer token for authentication. The token is stored as an
 `Authorization: Bearer <token>` header value applied when the

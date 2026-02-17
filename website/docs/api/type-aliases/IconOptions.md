@@ -2,7 +2,7 @@
 
 > **IconOptions** = `object`
 
-Defined in: [utils/types.ts:97](https://github.com/siposdani87/sui-js/blob/433cda184a013753ef41bb6ba61d0b3944481fa1/src/utils/types.ts#L97)
+Defined in: [utils/types.ts:97](https://github.com/siposdani87/sui-js/blob/27883240db7565f37a562e906b93c8d6552ac058/src/utils/types.ts#L97)
 
 Google Maps marker icon configuration.
 
@@ -15,7 +15,7 @@ and clickable region coordinates for a custom map marker icon.
 
 > **anchor**: \[`number`, `number`\]
 
-Defined in: [utils/types.ts:105](https://github.com/siposdani87/sui-js/blob/433cda184a013753ef41bb6ba61d0b3944481fa1/src/utils/types.ts#L105)
+Defined in: [utils/types.ts:105](https://github.com/siposdani87/sui-js/blob/27883240db7565f37a562e906b93c8d6552ac058/src/utils/types.ts#L105)
 
 Anchor point relative to the icon as `[x, y]` in pixels.
 
@@ -25,7 +25,7 @@ Anchor point relative to the icon as `[x, y]` in pixels.
 
 > **coords**: `number`[]
 
-Defined in: [utils/types.ts:107](https://github.com/siposdani87/sui-js/blob/433cda184a013753ef41bb6ba61d0b3944481fa1/src/utils/types.ts#L107)
+Defined in: [utils/types.ts:107](https://github.com/siposdani87/sui-js/blob/27883240db7565f37a562e906b93c8d6552ac058/src/utils/types.ts#L107)
 
 Array of pixel coordinates defining the clickable polygon region.
 
@@ -35,7 +35,7 @@ Array of pixel coordinates defining the clickable polygon region.
 
 > **origin**: \[`number`, `number`\]
 
-Defined in: [utils/types.ts:103](https://github.com/siposdani87/sui-js/blob/433cda184a013753ef41bb6ba61d0b3944481fa1/src/utils/types.ts#L103)
+Defined in: [utils/types.ts:103](https://github.com/siposdani87/sui-js/blob/27883240db7565f37a562e906b93c8d6552ac058/src/utils/types.ts#L103)
 
 Sprite sheet origin as `[x, y]` in pixels.
 
@@ -45,7 +45,7 @@ Sprite sheet origin as `[x, y]` in pixels.
 
 > **size**: \[`number`, `number`\]
 
-Defined in: [utils/types.ts:101](https://github.com/siposdani87/sui-js/blob/433cda184a013753ef41bb6ba61d0b3944481fa1/src/utils/types.ts#L101)
+Defined in: [utils/types.ts:101](https://github.com/siposdani87/sui-js/blob/27883240db7565f37a562e906b93c8d6552ac058/src/utils/types.ts#L101)
 
 Width and height of the icon in pixels as `[width, height]`.
 
@@ -55,6 +55,6 @@ Width and height of the icon in pixels as `[width, height]`.
 
 > **url**: `string`
 
-Defined in: [utils/types.ts:99](https://github.com/siposdani87/sui-js/blob/433cda184a013753ef41bb6ba61d0b3944481fa1/src/utils/types.ts#L99)
+Defined in: [utils/types.ts:99](https://github.com/siposdani87/sui-js/blob/27883240db7565f37a562e906b93c8d6552ac058/src/utils/types.ts#L99)
 
 URL of the icon image.

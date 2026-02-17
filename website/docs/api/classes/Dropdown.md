@@ -1,6 +1,6 @@
 # Class: Dropdown
 
-Defined in: [component/dropdown.ts:21](https://github.com/siposdani87/sui-js/blob/433cda184a013753ef41bb6ba61d0b3944481fa1/src/component/dropdown.ts#L21)
+Defined in: [component/dropdown.ts:21](https://github.com/siposdani87/sui-js/blob/27883240db7565f37a562e906b93c8d6552ac058/src/component/dropdown.ts#L21)
 
 ## Description
 
@@ -24,7 +24,7 @@ dropdown.setActions(actions, item);
 
 > **new Dropdown**(`element`, `opt_options?`): `Dropdown`
 
-Defined in: [component/dropdown.ts:35](https://github.com/siposdani87/sui-js/blob/433cda184a013753ef41bb6ba61d0b3944481fa1/src/component/dropdown.ts#L35)
+Defined in: [component/dropdown.ts:35](https://github.com/siposdani87/sui-js/blob/27883240db7565f37a562e906b93c8d6552ac058/src/component/dropdown.ts#L35)
 
 #### Parameters
 
@@ -54,7 +54,7 @@ Creates a new Dropdown attached to the given element.
 
 > **actions**: [`Action`](../type-aliases/Action.md)[]
 
-Defined in: [component/dropdown.ts:25](https://github.com/siposdani87/sui-js/blob/433cda184a013753ef41bb6ba61d0b3944481fa1/src/component/dropdown.ts#L25)
+Defined in: [component/dropdown.ts:25](https://github.com/siposdani87/sui-js/blob/27883240db7565f37a562e906b93c8d6552ac058/src/component/dropdown.ts#L25)
 
 ***
 
@@ -62,7 +62,7 @@ Defined in: [component/dropdown.ts:25](https://github.com/siposdani87/sui-js/blo
 
 > **buttonKnot**: [`Knot`](Knot.md)
 
-Defined in: [component/dropdown.ts:27](https://github.com/siposdani87/sui-js/blob/433cda184a013753ef41bb6ba61d0b3944481fa1/src/component/dropdown.ts#L27)
+Defined in: [component/dropdown.ts:27](https://github.com/siposdani87/sui-js/blob/27883240db7565f37a562e906b93c8d6552ac058/src/component/dropdown.ts#L27)
 
 ***
 
@@ -70,7 +70,7 @@ Defined in: [component/dropdown.ts:27](https://github.com/siposdani87/sui-js/blo
 
 > **collection**: [`Collection`](Collection.md)\<[`Objekt`](Objekt.md)\<`object`\>\>
 
-Defined in: [component/dropdown.ts:24](https://github.com/siposdani87/sui-js/blob/433cda184a013753ef41bb6ba61d0b3944481fa1/src/component/dropdown.ts#L24)
+Defined in: [component/dropdown.ts:24](https://github.com/siposdani87/sui-js/blob/27883240db7565f37a562e906b93c8d6552ac058/src/component/dropdown.ts#L24)
 
 ***
 
@@ -78,7 +78,7 @@ Defined in: [component/dropdown.ts:24](https://github.com/siposdani87/sui-js/blo
 
 > **dropdown**: [`Knot`](Knot.md)
 
-Defined in: [component/dropdown.ts:22](https://github.com/siposdani87/sui-js/blob/433cda184a013753ef41bb6ba61d0b3944481fa1/src/component/dropdown.ts#L22)
+Defined in: [component/dropdown.ts:22](https://github.com/siposdani87/sui-js/blob/27883240db7565f37a562e906b93c8d6552ac058/src/component/dropdown.ts#L22)
 
 ***
 
@@ -86,7 +86,7 @@ Defined in: [component/dropdown.ts:22](https://github.com/siposdani87/sui-js/blo
 
 > **item**: [`Objekt`](Objekt.md)\<`object`\> \| `null`
 
-Defined in: [component/dropdown.ts:26](https://github.com/siposdani87/sui-js/blob/433cda184a013753ef41bb6ba61d0b3944481fa1/src/component/dropdown.ts#L26)
+Defined in: [component/dropdown.ts:26](https://github.com/siposdani87/sui-js/blob/27883240db7565f37a562e906b93c8d6552ac058/src/component/dropdown.ts#L26)
 
 ***
 
@@ -94,7 +94,7 @@ Defined in: [component/dropdown.ts:26](https://github.com/siposdani87/sui-js/blo
 
 > **menuKnot**: [`Knot`](Knot.md)
 
-Defined in: [component/dropdown.ts:28](https://github.com/siposdani87/sui-js/blob/433cda184a013753ef41bb6ba61d0b3944481fa1/src/component/dropdown.ts#L28)
+Defined in: [component/dropdown.ts:28](https://github.com/siposdani87/sui-js/blob/27883240db7565f37a562e906b93c8d6552ac058/src/component/dropdown.ts#L28)
 
 ***
 
@@ -102,7 +102,7 @@ Defined in: [component/dropdown.ts:28](https://github.com/siposdani87/sui-js/blo
 
 > **options**: [`Objekt`](Objekt.md)
 
-Defined in: [component/dropdown.ts:23](https://github.com/siposdani87/sui-js/blob/433cda184a013753ef41bb6ba61d0b3944481fa1/src/component/dropdown.ts#L23)
+Defined in: [component/dropdown.ts:23](https://github.com/siposdani87/sui-js/blob/27883240db7565f37a562e906b93c8d6552ac058/src/component/dropdown.ts#L23)
 
 ## Methods
 
@@ -110,7 +110,7 @@ Defined in: [component/dropdown.ts:23](https://github.com/siposdani87/sui-js/blo
 
 > **setActions**(`actions`, `item`): `void`
 
-Defined in: [component/dropdown.ts:109](https://github.com/siposdani87/sui-js/blob/433cda184a013753ef41bb6ba61d0b3944481fa1/src/component/dropdown.ts#L109)
+Defined in: [component/dropdown.ts:109](https://github.com/siposdani87/sui-js/blob/27883240db7565f37a562e906b93c8d6552ac058/src/component/dropdown.ts#L109)
 
 #### Parameters
 

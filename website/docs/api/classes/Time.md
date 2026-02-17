@@ -1,6 +1,6 @@
 # Class: Time
 
-Defined in: [component/time.ts:15](https://github.com/siposdani87/sui-js/blob/433cda184a013753ef41bb6ba61d0b3944481fa1/src/component/time.ts#L15)
+Defined in: [component/time.ts:15](https://github.com/siposdani87/sui-js/blob/27883240db7565f37a562e906b93c8d6552ac058/src/component/time.ts#L15)
 
 ## Description
 
@@ -25,7 +25,7 @@ time.draw(1, 12, 1, true);
 
 > **new Time**(`knot`, `options`): `Time`
 
-Defined in: [component/time.ts:27](https://github.com/siposdani87/sui-js/blob/433cda184a013753ef41bb6ba61d0b3944481fa1/src/component/time.ts#L27)
+Defined in: [component/time.ts:27](https://github.com/siposdani87/sui-js/blob/27883240db7565f37a562e906b93c8d6552ac058/src/component/time.ts#L27)
 
 #### Parameters
 
@@ -61,7 +61,7 @@ const time = new Time(new Knot('div'), { selected: 10, captions: ['00', '05'] })
 
 > **options**: [`Objekt`](Objekt.md)
 
-Defined in: [component/time.ts:17](https://github.com/siposdani87/sui-js/blob/433cda184a013753ef41bb6ba61d0b3944481fa1/src/component/time.ts#L17)
+Defined in: [component/time.ts:17](https://github.com/siposdani87/sui-js/blob/27883240db7565f37a562e906b93c8d6552ac058/src/component/time.ts#L17)
 
 ***
 
@@ -69,7 +69,7 @@ Defined in: [component/time.ts:17](https://github.com/siposdani87/sui-js/blob/43
 
 > **pointerKnot**: [`Knot`](Knot.md)
 
-Defined in: [component/time.ts:18](https://github.com/siposdani87/sui-js/blob/433cda184a013753ef41bb6ba61d0b3944481fa1/src/component/time.ts#L18)
+Defined in: [component/time.ts:18](https://github.com/siposdani87/sui-js/blob/27883240db7565f37a562e906b93c8d6552ac058/src/component/time.ts#L18)
 
 ***
 
@@ -77,7 +77,7 @@ Defined in: [component/time.ts:18](https://github.com/siposdani87/sui-js/blob/43
 
 > **timeKnot**: [`Knot`](Knot.md)
 
-Defined in: [component/time.ts:16](https://github.com/siposdani87/sui-js/blob/433cda184a013753ef41bb6ba61d0b3944481fa1/src/component/time.ts#L16)
+Defined in: [component/time.ts:16](https://github.com/siposdani87/sui-js/blob/27883240db7565f37a562e906b93c8d6552ac058/src/component/time.ts#L16)
 
 ## Methods
 
@@ -85,7 +85,7 @@ Defined in: [component/time.ts:16](https://github.com/siposdani87/sui-js/blob/43
 
 > **draw**(`start`, `n`, `opt_j?`, `opt_isClockWise?`): `void`
 
-Defined in: [component/time.ts:102](https://github.com/siposdani87/sui-js/blob/433cda184a013753ef41bb6ba61d0b3944481fa1/src/component/time.ts#L102)
+Defined in: [component/time.ts:102](https://github.com/siposdani87/sui-js/blob/27883240db7565f37a562e906b93c8d6552ac058/src/component/time.ts#L102)
 
 #### Parameters
 
@@ -134,7 +134,7 @@ time.draw(0, 59, 5, true);   // Minutes: 0-59 with labels every 5
 
 > **eventClick**(`index`): `void`
 
-Defined in: [component/time.ts:209](https://github.com/siposdani87/sui-js/blob/433cda184a013753ef41bb6ba61d0b3944481fa1/src/component/time.ts#L209)
+Defined in: [component/time.ts:209](https://github.com/siposdani87/sui-js/blob/27883240db7565f37a562e906b93c8d6552ac058/src/component/time.ts#L209)
 
 #### Parameters
 

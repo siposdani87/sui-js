@@ -2,7 +2,7 @@
 
 > **eachArray**\<`T`\>(`items`, `next`, `opt_start?`, `opt_end?`): `void`
 
-Defined in: [utils/operation.ts:434](https://github.com/siposdani87/sui-js/blob/433cda184a013753ef41bb6ba61d0b3944481fa1/src/utils/operation.ts#L434)
+Defined in: [utils/operation.ts:434](https://github.com/siposdani87/sui-js/blob/27883240db7565f37a562e906b93c8d6552ac058/src/utils/operation.ts#L434)
 
 Iterates over an array, invoking a callback for each element.
 

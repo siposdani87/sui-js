@@ -2,7 +2,7 @@
 
 > **readableNumber**(`num`, `opt_around?`): `string`
 
-Defined in: [utils/math.ts:79](https://github.com/siposdani87/sui-js/blob/433cda184a013753ef41bb6ba61d0b3944481fa1/src/utils/math.ts#L79)
+Defined in: [utils/math.ts:79](https://github.com/siposdani87/sui-js/blob/27883240db7565f37a562e906b93c8d6552ac058/src/utils/math.ts#L79)
 
 Converts a large number into a compact, human-readable string using
 SI suffixes (K, M, G, T, P, E, Z, Y).

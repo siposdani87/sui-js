@@ -1,6 +1,6 @@
 # Class: Screen
 
-Defined in: [module/screen.ts:38](https://github.com/siposdani87/sui-js/blob/433cda184a013753ef41bb6ba61d0b3944481fa1/src/module/screen.ts#L38)
+Defined in: [module/screen.ts:38](https://github.com/siposdani87/sui-js/blob/27883240db7565f37a562e906b93c8d6552ac058/src/module/screen.ts#L38)
 
 Window event manager that listens for and dispatches browser-level
 events including resize, scroll, online/offline connectivity, and
@@ -44,7 +44,7 @@ screen.getOrientation(); // 'landscape' or 'portrait'
 
 > **new Screen**(`opt_options?`): `Screen`
 
-Defined in: [module/screen.ts:52](https://github.com/siposdani87/sui-js/blob/433cda184a013753ef41bb6ba61d0b3944481fa1/src/module/screen.ts#L52)
+Defined in: [module/screen.ts:52](https://github.com/siposdani87/sui-js/blob/27883240db7565f37a562e906b93c8d6552ac058/src/module/screen.ts#L52)
 
 Creates a new Screen instance, initializes window and document
 references, and sets up event listeners for resize, scroll,
@@ -69,7 +69,7 @@ Configuration options. Supports `delay` (number)
 
 > **document**: `Document`
 
-Defined in: [module/screen.ts:41](https://github.com/siposdani87/sui-js/blob/433cda184a013753ef41bb6ba61d0b3944481fa1/src/module/screen.ts#L41)
+Defined in: [module/screen.ts:41](https://github.com/siposdani87/sui-js/blob/27883240db7565f37a562e906b93c8d6552ac058/src/module/screen.ts#L41)
 
 ***
 
@@ -77,7 +77,7 @@ Defined in: [module/screen.ts:41](https://github.com/siposdani87/sui-js/blob/433
 
 > **options**: [`Objekt`](Objekt.md)
 
-Defined in: [module/screen.ts:39](https://github.com/siposdani87/sui-js/blob/433cda184a013753ef41bb6ba61d0b3944481fa1/src/module/screen.ts#L39)
+Defined in: [module/screen.ts:39](https://github.com/siposdani87/sui-js/blob/27883240db7565f37a562e906b93c8d6552ac058/src/module/screen.ts#L39)
 
 ***
 
@@ -85,7 +85,7 @@ Defined in: [module/screen.ts:39](https://github.com/siposdani87/sui-js/blob/433
 
 > **orientation**: `string`
 
-Defined in: [module/screen.ts:42](https://github.com/siposdani87/sui-js/blob/433cda184a013753ef41bb6ba61d0b3944481fa1/src/module/screen.ts#L42)
+Defined in: [module/screen.ts:42](https://github.com/siposdani87/sui-js/blob/27883240db7565f37a562e906b93c8d6552ac058/src/module/screen.ts#L42)
 
 ***
 
@@ -93,7 +93,7 @@ Defined in: [module/screen.ts:42](https://github.com/siposdani87/sui-js/blob/433
 
 > **window**: `Window`
 
-Defined in: [module/screen.ts:40](https://github.com/siposdani87/sui-js/blob/433cda184a013753ef41bb6ba61d0b3944481fa1/src/module/screen.ts#L40)
+Defined in: [module/screen.ts:40](https://github.com/siposdani87/sui-js/blob/27883240db7565f37a562e906b93c8d6552ac058/src/module/screen.ts#L40)
 
 ## Methods
 
@@ -101,7 +101,7 @@ Defined in: [module/screen.ts:40](https://github.com/siposdani87/sui-js/blob/433
 
 > **eventColorSchemeChange**(`colorScheme`, `event`): `void`
 
-Defined in: [module/screen.ts:316](https://github.com/siposdani87/sui-js/blob/433cda184a013753ef41bb6ba61d0b3944481fa1/src/module/screen.ts#L316)
+Defined in: [module/screen.ts:316](https://github.com/siposdani87/sui-js/blob/27883240db7565f37a562e906b93c8d6552ac058/src/module/screen.ts#L316)
 
 Called when the system color scheme preference changes between
 light and dark mode. Override this method to implement custom
@@ -131,7 +131,7 @@ The native media query change event.
 
 > **eventOffline**(`event`): `void`
 
-Defined in: [module/screen.ts:139](https://github.com/siposdani87/sui-js/blob/433cda184a013753ef41bb6ba61d0b3944481fa1/src/module/screen.ts#L139)
+Defined in: [module/screen.ts:139](https://github.com/siposdani87/sui-js/blob/27883240db7565f37a562e906b93c8d6552ac058/src/module/screen.ts#L139)
 
 Called when the browser goes offline. Override this method to
 implement custom offline behavior such as showing a notification
@@ -155,7 +155,7 @@ The native offline event.
 
 > **eventOnline**(`event`): `void`
 
-Defined in: [module/screen.ts:150](https://github.com/siposdani87/sui-js/blob/433cda184a013753ef41bb6ba61d0b3944481fa1/src/module/screen.ts#L150)
+Defined in: [module/screen.ts:150](https://github.com/siposdani87/sui-js/blob/27883240db7565f37a562e906b93c8d6552ac058/src/module/screen.ts#L150)
 
 Called when the browser comes back online. Override this method
 to implement custom online behavior such as re-syncing data or
@@ -179,7 +179,7 @@ The native online event.
 
 > **eventOrientationChange**(`orientation`, `width`, `height`, `event`): `void`
 
-Defined in: [module/screen.ts:177](https://github.com/siposdani87/sui-js/blob/433cda184a013753ef41bb6ba61d0b3944481fa1/src/module/screen.ts#L177)
+Defined in: [module/screen.ts:177](https://github.com/siposdani87/sui-js/blob/27883240db7565f37a562e906b93c8d6552ac058/src/module/screen.ts#L177)
 
 Called when the device orientation changes between landscape and
 portrait. Override this method to implement custom
@@ -221,7 +221,7 @@ The native resize event that triggered the orientation change.
 
 > **eventResize**(`width`, `height`, `event`): `void`
 
-Defined in: [module/screen.ts:163](https://github.com/siposdani87/sui-js/blob/433cda184a013753ef41bb6ba61d0b3944481fa1/src/module/screen.ts#L163)
+Defined in: [module/screen.ts:163](https://github.com/siposdani87/sui-js/blob/27883240db7565f37a562e906b93c8d6552ac058/src/module/screen.ts#L163)
 
 Called when the window is resized. Override this method to
 implement custom resize behavior such as adjusting layouts or
@@ -257,7 +257,7 @@ The native resize event.
 
 > **eventScroll**(`scrollTop`, `event`): `void`
 
-Defined in: [module/screen.ts:200](https://github.com/siposdani87/sui-js/blob/433cda184a013753ef41bb6ba61d0b3944481fa1/src/module/screen.ts#L200)
+Defined in: [module/screen.ts:200](https://github.com/siposdani87/sui-js/blob/27883240db7565f37a562e906b93c8d6552ac058/src/module/screen.ts#L200)
 
 Called when the window is scrolled. Override this method to
 implement custom scroll behavior such as infinite scrolling
@@ -287,7 +287,7 @@ The native scroll event.
 
 > **getHeight**(): `number`
 
-Defined in: [module/screen.ts:270](https://github.com/siposdani87/sui-js/blob/433cda184a013753ef41bb6ba61d0b3944481fa1/src/module/screen.ts#L270)
+Defined in: [module/screen.ts:270](https://github.com/siposdani87/sui-js/blob/27883240db7565f37a562e906b93c8d6552ac058/src/module/screen.ts#L270)
 
 Returns the current inner height of the browser window.
 
@@ -309,7 +309,7 @@ const height = screen.getHeight();
 
 > **getOrientation**(): `string`
 
-Defined in: [module/screen.ts:284](https://github.com/siposdani87/sui-js/blob/433cda184a013753ef41bb6ba61d0b3944481fa1/src/module/screen.ts#L284)
+Defined in: [module/screen.ts:284](https://github.com/siposdani87/sui-js/blob/27883240db7565f37a562e906b93c8d6552ac058/src/module/screen.ts#L284)
 
 Determines the current screen orientation based on the aspect
 ratio of the window dimensions.
@@ -333,7 +333,7 @@ const orientation = screen.getOrientation(); // 'landscape'
 
 > **getScrollTop**(): `number`
 
-Defined in: [module/screen.ts:243](https://github.com/siposdani87/sui-js/blob/433cda184a013753ef41bb6ba61d0b3944481fa1/src/module/screen.ts#L243)
+Defined in: [module/screen.ts:243](https://github.com/siposdani87/sui-js/blob/27883240db7565f37a562e906b93c8d6552ac058/src/module/screen.ts#L243)
 
 Returns the current vertical scroll position of the document.
 
@@ -355,7 +355,7 @@ const scrollY = screen.getScrollTop();
 
 > **getWidth**(): `number`
 
-Defined in: [module/screen.ts:258](https://github.com/siposdani87/sui-js/blob/433cda184a013753ef41bb6ba61d0b3944481fa1/src/module/screen.ts#L258)
+Defined in: [module/screen.ts:258](https://github.com/siposdani87/sui-js/blob/27883240db7565f37a562e906b93c8d6552ac058/src/module/screen.ts#L258)
 
 Returns the current inner width of the browser window.
 
@@ -377,7 +377,7 @@ const width = screen.getWidth();
 
 > **isColorScheme**(`type`): `boolean`
 
-Defined in: [module/screen.ts:333](https://github.com/siposdani87/sui-js/blob/433cda184a013753ef41bb6ba61d0b3944481fa1/src/module/screen.ts#L333)
+Defined in: [module/screen.ts:333](https://github.com/siposdani87/sui-js/blob/27883240db7565f37a562e906b93c8d6552ac058/src/module/screen.ts#L333)
 
 Checks whether the system currently uses the specified color
 scheme preference.

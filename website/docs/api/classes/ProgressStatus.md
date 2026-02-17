@@ -1,6 +1,6 @@
 # Class: ProgressStatus
 
-Defined in: [component/progressStatus.ts:16](https://github.com/siposdani87/sui-js/blob/433cda184a013753ef41bb6ba61d0b3944481fa1/src/component/progressStatus.ts#L16)
+Defined in: [component/progressStatus.ts:16](https://github.com/siposdani87/sui-js/blob/27883240db7565f37a562e906b93c8d6552ac058/src/component/progressStatus.ts#L16)
 
 ## Description
 
@@ -21,7 +21,7 @@ status.setError('Upload failed', 'error');
 
 > **new ProgressStatus**(`dom`, `opt_selector?`, `opt_options?`): `ProgressStatus`
 
-Defined in: [component/progressStatus.ts:28](https://github.com/siposdani87/sui-js/blob/433cda184a013753ef41bb6ba61d0b3944481fa1/src/component/progressStatus.ts#L28)
+Defined in: [component/progressStatus.ts:28](https://github.com/siposdani87/sui-js/blob/27883240db7565f37a562e906b93c8d6552ac058/src/component/progressStatus.ts#L28)
 
 #### Parameters
 
@@ -57,7 +57,7 @@ Creates a new ProgressStatus bound to a DOM container.
 
 > **iconKnot**: [`Knot`](Knot.md)
 
-Defined in: [component/progressStatus.ts:19](https://github.com/siposdani87/sui-js/blob/433cda184a013753ef41bb6ba61d0b3944481fa1/src/component/progressStatus.ts#L19)
+Defined in: [component/progressStatus.ts:19](https://github.com/siposdani87/sui-js/blob/27883240db7565f37a562e906b93c8d6552ac058/src/component/progressStatus.ts#L19)
 
 ***
 
@@ -65,7 +65,7 @@ Defined in: [component/progressStatus.ts:19](https://github.com/siposdani87/sui-
 
 > **options**: [`Objekt`](Objekt.md)
 
-Defined in: [component/progressStatus.ts:18](https://github.com/siposdani87/sui-js/blob/433cda184a013753ef41bb6ba61d0b3944481fa1/src/component/progressStatus.ts#L18)
+Defined in: [component/progressStatus.ts:18](https://github.com/siposdani87/sui-js/blob/27883240db7565f37a562e906b93c8d6552ac058/src/component/progressStatus.ts#L18)
 
 ***
 
@@ -73,7 +73,7 @@ Defined in: [component/progressStatus.ts:18](https://github.com/siposdani87/sui-
 
 > **progressStatusKnot**: [`Knot`](Knot.md)
 
-Defined in: [component/progressStatus.ts:17](https://github.com/siposdani87/sui-js/blob/433cda184a013753ef41bb6ba61d0b3944481fa1/src/component/progressStatus.ts#L17)
+Defined in: [component/progressStatus.ts:17](https://github.com/siposdani87/sui-js/blob/27883240db7565f37a562e906b93c8d6552ac058/src/component/progressStatus.ts#L17)
 
 ***
 
@@ -81,7 +81,7 @@ Defined in: [component/progressStatus.ts:17](https://github.com/siposdani87/sui-
 
 > **textKnot**: [`Knot`](Knot.md)
 
-Defined in: [component/progressStatus.ts:20](https://github.com/siposdani87/sui-js/blob/433cda184a013753ef41bb6ba61d0b3944481fa1/src/component/progressStatus.ts#L20)
+Defined in: [component/progressStatus.ts:20](https://github.com/siposdani87/sui-js/blob/27883240db7565f37a562e906b93c8d6552ac058/src/component/progressStatus.ts#L20)
 
 ## Methods
 
@@ -89,7 +89,7 @@ Defined in: [component/progressStatus.ts:20](https://github.com/siposdani87/sui-
 
 > **setError**(`text`, `opt_icon?`): `void`
 
-Defined in: [component/progressStatus.ts:128](https://github.com/siposdani87/sui-js/blob/433cda184a013753ef41bb6ba61d0b3944481fa1/src/component/progressStatus.ts#L128)
+Defined in: [component/progressStatus.ts:128](https://github.com/siposdani87/sui-js/blob/27883240db7565f37a562e906b93c8d6552ac058/src/component/progressStatus.ts#L128)
 
 #### Parameters
 
@@ -125,7 +125,7 @@ status.setError('Connection failed', 'error');
 
 > **setInfo**(`text`, `opt_icon?`): `void`
 
-Defined in: [component/progressStatus.ts:104](https://github.com/siposdani87/sui-js/blob/433cda184a013753ef41bb6ba61d0b3944481fa1/src/component/progressStatus.ts#L104)
+Defined in: [component/progressStatus.ts:104](https://github.com/siposdani87/sui-js/blob/27883240db7565f37a562e906b93c8d6552ac058/src/component/progressStatus.ts#L104)
 
 #### Parameters
 
@@ -161,7 +161,7 @@ status.setInfo('Processing...', 'info');
 
 > **setSuccess**(`text`, `opt_icon?`): `void`
 
-Defined in: [component/progressStatus.ts:92](https://github.com/siposdani87/sui-js/blob/433cda184a013753ef41bb6ba61d0b3944481fa1/src/component/progressStatus.ts#L92)
+Defined in: [component/progressStatus.ts:92](https://github.com/siposdani87/sui-js/blob/27883240db7565f37a562e906b93c8d6552ac058/src/component/progressStatus.ts#L92)
 
 #### Parameters
 
@@ -197,7 +197,7 @@ status.setSuccess('Operation completed', 'check_circle');
 
 > **setWarning**(`text`, `opt_icon?`): `void`
 
-Defined in: [component/progressStatus.ts:116](https://github.com/siposdani87/sui-js/blob/433cda184a013753ef41bb6ba61d0b3944481fa1/src/component/progressStatus.ts#L116)
+Defined in: [component/progressStatus.ts:116](https://github.com/siposdani87/sui-js/blob/27883240db7565f37a562e906b93c8d6552ac058/src/component/progressStatus.ts#L116)
 
 #### Parameters
 

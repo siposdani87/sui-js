@@ -1,6 +1,6 @@
 # Class: Form
 
-Defined in: [component/form.ts:27](https://github.com/siposdani87/sui-js/blob/433cda184a013753ef41bb6ba61d0b3944481fa1/src/component/form.ts#L27)
+Defined in: [component/form.ts:27](https://github.com/siposdani87/sui-js/blob/27883240db7565f37a562e906b93c8d6552ac058/src/component/form.ts#L27)
 
 ## Description
 
@@ -33,7 +33,7 @@ form.eventSubmit = (model, knot) => {
 
 > **new Form**(`dom`, `opt_selector?`): `Form`
 
-Defined in: [component/form.ts:41](https://github.com/siposdani87/sui-js/blob/433cda184a013753ef41bb6ba61d0b3944481fa1/src/component/form.ts#L41)
+Defined in: [component/form.ts:41](https://github.com/siposdani87/sui-js/blob/27883240db7565f37a562e906b93c8d6552ac058/src/component/form.ts#L41)
 
 #### Parameters
 
@@ -67,7 +67,7 @@ Creates a new Form instance bound to the form element found within the given DOM
 
 > **buttonClasses**: `string`[]
 
-Defined in: [component/form.ts:32](https://github.com/siposdani87/sui-js/blob/433cda184a013753ef41bb6ba61d0b3944481fa1/src/component/form.ts#L32)
+Defined in: [component/form.ts:32](https://github.com/siposdani87/sui-js/blob/27883240db7565f37a562e906b93c8d6552ac058/src/component/form.ts#L32)
 
 ***
 
@@ -75,7 +75,7 @@ Defined in: [component/form.ts:32](https://github.com/siposdani87/sui-js/blob/43
 
 > **fieldClasses**: `string`[]
 
-Defined in: [component/form.ts:33](https://github.com/siposdani87/sui-js/blob/433cda184a013753ef41bb6ba61d0b3944481fa1/src/component/form.ts#L33)
+Defined in: [component/form.ts:33](https://github.com/siposdani87/sui-js/blob/27883240db7565f37a562e906b93c8d6552ac058/src/component/form.ts#L33)
 
 ***
 
@@ -83,7 +83,7 @@ Defined in: [component/form.ts:33](https://github.com/siposdani87/sui-js/blob/43
 
 > **formKnot**: [`Knot`](Knot.md)\<`HTMLFormElement`\>
 
-Defined in: [component/form.ts:28](https://github.com/siposdani87/sui-js/blob/433cda184a013753ef41bb6ba61d0b3944481fa1/src/component/form.ts#L28)
+Defined in: [component/form.ts:28](https://github.com/siposdani87/sui-js/blob/27883240db7565f37a562e906b93c8d6552ac058/src/component/form.ts#L28)
 
 ***
 
@@ -91,7 +91,7 @@ Defined in: [component/form.ts:28](https://github.com/siposdani87/sui-js/blob/43
 
 > **initFields**: `string`[]
 
-Defined in: [component/form.ts:31](https://github.com/siposdani87/sui-js/blob/433cda184a013753ef41bb6ba61d0b3944481fa1/src/component/form.ts#L31)
+Defined in: [component/form.ts:31](https://github.com/siposdani87/sui-js/blob/27883240db7565f37a562e906b93c8d6552ac058/src/component/form.ts#L31)
 
 ***
 
@@ -99,7 +99,7 @@ Defined in: [component/form.ts:31](https://github.com/siposdani87/sui-js/blob/43
 
 > **items**: [`BaseField`](BaseField.md)\<`HTMLInputElement`\>[]
 
-Defined in: [core/collection.ts:41](https://github.com/siposdani87/sui-js/blob/433cda184a013753ef41bb6ba61d0b3944481fa1/src/core/collection.ts#L41)
+Defined in: [core/collection.ts:41](https://github.com/siposdani87/sui-js/blob/27883240db7565f37a562e906b93c8d6552ac058/src/core/collection.ts#L41)
 
 #### Inherited from
 
@@ -111,7 +111,7 @@ Defined in: [core/collection.ts:41](https://github.com/siposdani87/sui-js/blob/4
 
 > **model**: [`Objekt`](Objekt.md)
 
-Defined in: [component/form.ts:30](https://github.com/siposdani87/sui-js/blob/433cda184a013753ef41bb6ba61d0b3944481fa1/src/component/form.ts#L30)
+Defined in: [component/form.ts:30](https://github.com/siposdani87/sui-js/blob/27883240db7565f37a562e906b93c8d6552ac058/src/component/form.ts#L30)
 
 ***
 
@@ -119,7 +119,7 @@ Defined in: [component/form.ts:30](https://github.com/siposdani87/sui-js/blob/43
 
 > **options**: [`Objekt`](Objekt.md)
 
-Defined in: [core/collection.ts:42](https://github.com/siposdani87/sui-js/blob/433cda184a013753ef41bb6ba61d0b3944481fa1/src/core/collection.ts#L42)
+Defined in: [core/collection.ts:42](https://github.com/siposdani87/sui-js/blob/27883240db7565f37a562e906b93c8d6552ac058/src/core/collection.ts#L42)
 
 #### Inherited from
 
@@ -131,7 +131,7 @@ Defined in: [core/collection.ts:42](https://github.com/siposdani87/sui-js/blob/4
 
 > **previousModel**: [`Objekt`](Objekt.md)
 
-Defined in: [component/form.ts:29](https://github.com/siposdani87/sui-js/blob/433cda184a013753ef41bb6ba61d0b3944481fa1/src/component/form.ts#L29)
+Defined in: [component/form.ts:29](https://github.com/siposdani87/sui-js/blob/27883240db7565f37a562e906b93c8d6552ac058/src/component/form.ts#L29)
 
 ***
 
@@ -139,7 +139,7 @@ Defined in: [component/form.ts:29](https://github.com/siposdani87/sui-js/blob/43
 
 > **Type**: `any`
 
-Defined in: [core/collection.ts:40](https://github.com/siposdani87/sui-js/blob/433cda184a013753ef41bb6ba61d0b3944481fa1/src/core/collection.ts#L40)
+Defined in: [core/collection.ts:40](https://github.com/siposdani87/sui-js/blob/27883240db7565f37a562e906b93c8d6552ac058/src/core/collection.ts#L40)
 
 #### Inherited from
 
@@ -151,7 +151,7 @@ Defined in: [core/collection.ts:40](https://github.com/siposdani87/sui-js/blob/4
 
 > **checkValidity**(`opt_force?`, `opt_showMessage?`): `boolean`
 
-Defined in: [component/form.ts:308](https://github.com/siposdani87/sui-js/blob/433cda184a013753ef41bb6ba61d0b3944481fa1/src/component/form.ts#L308)
+Defined in: [component/form.ts:308](https://github.com/siposdani87/sui-js/blob/27883240db7565f37a562e906b93c8d6552ac058/src/component/form.ts#L308)
 
 #### Parameters
 
@@ -191,7 +191,7 @@ if (form.checkValidity()) {
 
 > **clear**(): `void`
 
-Defined in: [core/collection.ts:355](https://github.com/siposdani87/sui-js/blob/433cda184a013753ef41bb6ba61d0b3944481fa1/src/core/collection.ts#L355)
+Defined in: [core/collection.ts:355](https://github.com/siposdani87/sui-js/blob/27883240db7565f37a562e906b93c8d6552ac058/src/core/collection.ts#L355)
 
 Removes all items from the collection, resetting its size to zero.
 
@@ -217,7 +217,7 @@ col.size(); // 0
 
 > **delete**(`value`): [`BaseField`](BaseField.md)\<`HTMLInputElement`\> \| `null`
 
-Defined in: [core/collection.ts:475](https://github.com/siposdani87/sui-js/blob/433cda184a013753ef41bb6ba61d0b3944481fa1/src/core/collection.ts#L475)
+Defined in: [core/collection.ts:475](https://github.com/siposdani87/sui-js/blob/27883240db7565f37a562e906b93c8d6552ac058/src/core/collection.ts#L475)
 
 Removes the first item that is strictly equal to the given value
 (reference equality via [eq](../functions/eq.md)).
@@ -255,7 +255,7 @@ col.size(); // 0
 
 > **deleteAllBy**(`attribute`, `value`): [`BaseField`](BaseField.md)\<`HTMLInputElement`\>[]
 
-Defined in: [core/collection.ts:561](https://github.com/siposdani87/sui-js/blob/433cda184a013753ef41bb6ba61d0b3944481fa1/src/core/collection.ts#L561)
+Defined in: [core/collection.ts:561](https://github.com/siposdani87/sui-js/blob/27883240db7565f37a562e906b93c8d6552ac058/src/core/collection.ts#L561)
 
 Removes all items where the given attribute equals the specified value.
 
@@ -302,7 +302,7 @@ col.size();     // 1
 
 > **deleteAllByCondition**(`conditionCallback`): [`BaseField`](BaseField.md)\<`HTMLInputElement`\>[]
 
-Defined in: [core/collection.ts:583](https://github.com/siposdani87/sui-js/blob/433cda184a013753ef41bb6ba61d0b3944481fa1/src/core/collection.ts#L583)
+Defined in: [core/collection.ts:583](https://github.com/siposdani87/sui-js/blob/27883240db7565f37a562e906b93c8d6552ac058/src/core/collection.ts#L583)
 
 Removes all items for which the condition callback returns `true`.
 The internal array is rebuilt to contain only non-matching items.
@@ -343,7 +343,7 @@ col.size();     // 1 (id 2 remains)
 
 > **deleteBy**(`attribute`, `value`): [`BaseField`](BaseField.md)\<`HTMLInputElement`\> \| `null`
 
-Defined in: [core/collection.ts:514](https://github.com/siposdani87/sui-js/blob/433cda184a013753ef41bb6ba61d0b3944481fa1/src/core/collection.ts#L514)
+Defined in: [core/collection.ts:514](https://github.com/siposdani87/sui-js/blob/27883240db7565f37a562e906b93c8d6552ac058/src/core/collection.ts#L514)
 
 Removes the first item where the given attribute equals the specified
 value.
@@ -389,7 +389,7 @@ col.size(); // 1
 
 > **deleteByCondition**(`conditionCallback`): [`BaseField`](BaseField.md)\<`HTMLInputElement`\> \| `null`
 
-Defined in: [core/collection.ts:534](https://github.com/siposdani87/sui-js/blob/433cda184a013753ef41bb6ba61d0b3944481fa1/src/core/collection.ts#L534)
+Defined in: [core/collection.ts:534](https://github.com/siposdani87/sui-js/blob/27883240db7565f37a562e906b93c8d6552ac058/src/core/collection.ts#L534)
 
 Removes the first item for which the condition callback returns `true`.
 The item is spliced from the internal array and returned.
@@ -428,7 +428,7 @@ col.size();        // 2
 
 > **deleteById**(`id`): [`BaseField`](BaseField.md)\<`HTMLInputElement`\> \| `null`
 
-Defined in: [core/collection.ts:494](https://github.com/siposdani87/sui-js/blob/433cda184a013753ef41bb6ba61d0b3944481fa1/src/core/collection.ts#L494)
+Defined in: [core/collection.ts:494](https://github.com/siposdani87/sui-js/blob/27883240db7565f37a562e906b93c8d6552ac058/src/core/collection.ts#L494)
 
 Removes the first item whose configured ID attribute matches the
 given value.
@@ -466,7 +466,7 @@ col.size();        // 1
 
 > **each**(`next`): `void`
 
-Defined in: [core/collection.ts:283](https://github.com/siposdani87/sui-js/blob/433cda184a013753ef41bb6ba61d0b3944481fa1/src/core/collection.ts#L283)
+Defined in: [core/collection.ts:283](https://github.com/siposdani87/sui-js/blob/27883240db7565f37a562e906b93c8d6552ac058/src/core/collection.ts#L283)
 
 Iterates over every item in the collection, invoking the callback for
 each one. This is a convenience wrapper around [Collection.iterator](Collection.md#iterator)
@@ -505,7 +505,7 @@ col.each((item, index) => {
 
 > **eventButton**(`model`, `knot`): `void`
 
-Defined in: [component/form.ts:435](https://github.com/siposdani87/sui-js/blob/433cda184a013753ef41bb6ba61d0b3944481fa1/src/component/form.ts#L435)
+Defined in: [component/form.ts:435](https://github.com/siposdani87/sui-js/blob/27883240db7565f37a562e906b93c8d6552ac058/src/component/form.ts#L435)
 
 #### Parameters
 
@@ -535,7 +535,7 @@ Called when a non-submit/non-reset button inside the form is clicked. Override t
 
 > **eventReset**(`model`, `knot`): `void`
 
-Defined in: [component/form.ts:426](https://github.com/siposdani87/sui-js/blob/433cda184a013753ef41bb6ba61d0b3944481fa1/src/component/form.ts#L426)
+Defined in: [component/form.ts:426](https://github.com/siposdani87/sui-js/blob/27883240db7565f37a562e906b93c8d6552ac058/src/component/form.ts#L426)
 
 #### Parameters
 
@@ -565,7 +565,7 @@ Called when the form reset button is clicked. Override to handle reset logic.
 
 > **eventSubmit**(`model`, `knot`): `void`
 
-Defined in: [component/form.ts:417](https://github.com/siposdani87/sui-js/blob/433cda184a013753ef41bb6ba61d0b3944481fa1/src/component/form.ts#L417)
+Defined in: [component/form.ts:417](https://github.com/siposdani87/sui-js/blob/27883240db7565f37a562e906b93c8d6552ac058/src/component/form.ts#L417)
 
 #### Parameters
 
@@ -595,7 +595,7 @@ Called when the form is submitted and passes validation. Override to handle subm
 
 > **findAllBy**(`attribute`, `value`): [`BaseField`](BaseField.md)\<`HTMLInputElement`\>[]
 
-Defined in: [core/collection.ts:434](https://github.com/siposdani87/sui-js/blob/433cda184a013753ef41bb6ba61d0b3944481fa1/src/core/collection.ts#L434)
+Defined in: [core/collection.ts:434](https://github.com/siposdani87/sui-js/blob/27883240db7565f37a562e906b93c8d6552ac058/src/core/collection.ts#L434)
 
 Returns all items where the given attribute equals the specified value
 (strict equality).
@@ -641,7 +641,7 @@ col.findAllBy('role', 'user').length; // 2
 
 > **findAllByCondition**(`conditionCallback`): [`BaseField`](BaseField.md)\<`HTMLInputElement`\>[]
 
-Defined in: [core/collection.ts:452](https://github.com/siposdani87/sui-js/blob/433cda184a013753ef41bb6ba61d0b3944481fa1/src/core/collection.ts#L452)
+Defined in: [core/collection.ts:452](https://github.com/siposdani87/sui-js/blob/27883240db7565f37a562e906b93c8d6552ac058/src/core/collection.ts#L452)
 
 Returns all items for which the condition callback returns `true`.
 
@@ -678,7 +678,7 @@ items.length; // 2
 
 > **findBy**(`attribute`, `value`): [`BaseField`](BaseField.md)\<`HTMLInputElement`\> \| `null`
 
-Defined in: [core/collection.ts:391](https://github.com/siposdani87/sui-js/blob/433cda184a013753ef41bb6ba61d0b3944481fa1/src/core/collection.ts#L391)
+Defined in: [core/collection.ts:391](https://github.com/siposdani87/sui-js/blob/27883240db7565f37a562e906b93c8d6552ac058/src/core/collection.ts#L391)
 
 Finds the first item where the given attribute equals the specified
 value (strict equality).
@@ -723,7 +723,7 @@ col.findBy('role', 'admin').get('id'); // 1
 
 > **findByCondition**(`conditionCallback`): [`BaseField`](BaseField.md)\<`HTMLInputElement`\> \| `null`
 
-Defined in: [core/collection.ts:410](https://github.com/siposdani87/sui-js/blob/433cda184a013753ef41bb6ba61d0b3944481fa1/src/core/collection.ts#L410)
+Defined in: [core/collection.ts:410](https://github.com/siposdani87/sui-js/blob/27883240db7565f37a562e906b93c8d6552ac058/src/core/collection.ts#L410)
 
 Finds the first item for which the condition callback returns `true`.
 Items are tested sequentially from index 0.
@@ -761,7 +761,7 @@ item.get('id'); // 2
 
 > **findById**(`id`): [`BaseField`](BaseField.md)\<`HTMLInputElement`\> \| `null`
 
-Defined in: [core/collection.ts:372](https://github.com/siposdani87/sui-js/blob/433cda184a013753ef41bb6ba61d0b3944481fa1/src/core/collection.ts#L372)
+Defined in: [core/collection.ts:372](https://github.com/siposdani87/sui-js/blob/27883240db7565f37a562e906b93c8d6552ac058/src/core/collection.ts#L372)
 
 Finds the first item whose configured ID attribute matches the given
 value.
@@ -799,7 +799,7 @@ col.findById(99);          // null
 
 > **findByModel**\<`T`\>(`name`): `T`
 
-Defined in: [component/form.ts:377](https://github.com/siposdani87/sui-js/blob/433cda184a013753ef41bb6ba61d0b3944481fa1/src/component/form.ts#L377)
+Defined in: [component/form.ts:377](https://github.com/siposdani87/sui-js/blob/27883240db7565f37a562e906b93c8d6552ac058/src/component/form.ts#L377)
 
 #### Type Parameters
 
@@ -839,7 +839,7 @@ const emailField = form.findByModel<TextField>('email');
 
 > **get**\<`K`\>(`index`, `opt_attribute?`): [`BaseField`](BaseField.md)\<`HTMLInputElement`\> \| `K` \| `null`
 
-Defined in: [core/collection.ts:307](https://github.com/siposdani87/sui-js/blob/433cda184a013753ef41bb6ba61d0b3944481fa1/src/core/collection.ts#L307)
+Defined in: [core/collection.ts:307](https://github.com/siposdani87/sui-js/blob/27883240db7565f37a562e906b93c8d6552ac058/src/core/collection.ts#L307)
 
 Returns the item at the given index. If `opt_attribute` is provided
 and the item is an [Objekt](Objekt.md), the attribute value is extracted
@@ -894,7 +894,7 @@ col.get(99);          // null
 
 > **getById**\<`K`\>(`id`, `opt_attribute?`): [`BaseField`](BaseField.md)\<`HTMLInputElement`\> \| `K` \| `null`
 
-Defined in: [core/collection.ts:339](https://github.com/siposdani87/sui-js/blob/433cda184a013753ef41bb6ba61d0b3944481fa1/src/core/collection.ts#L339)
+Defined in: [core/collection.ts:339](https://github.com/siposdani87/sui-js/blob/27883240db7565f37a562e906b93c8d6552ac058/src/core/collection.ts#L339)
 
 Finds an item by its ID and optionally extracts an attribute value.
 Combines [Collection.findById](Collection.md#findbyid) and [Objekt.get](Objekt.md#get) in a
@@ -949,7 +949,7 @@ col.getById(999);         // null
 
 > **getItems**(): [`BaseField`](BaseField.md)\<`HTMLInputElement`\>[]
 
-Defined in: [core/collection.ts:225](https://github.com/siposdani87/sui-js/blob/433cda184a013753ef41bb6ba61d0b3944481fa1/src/core/collection.ts#L225)
+Defined in: [core/collection.ts:225](https://github.com/siposdani87/sui-js/blob/27883240db7565f37a562e906b93c8d6552ac058/src/core/collection.ts#L225)
 
 Returns the raw internal array of items. The returned array is the
 same reference used internally, so mutations will affect the
@@ -978,7 +978,7 @@ col.getItems().length; // 2
 
 > **getModel**(): [`Objekt`](Objekt.md)
 
-Defined in: [component/form.ts:204](https://github.com/siposdani87/sui-js/blob/433cda184a013753ef41bb6ba61d0b3944481fa1/src/component/form.ts#L204)
+Defined in: [component/form.ts:204](https://github.com/siposdani87/sui-js/blob/27883240db7565f37a562e906b93c8d6552ac058/src/component/form.ts#L204)
 
 #### Returns
 
@@ -1003,7 +1003,7 @@ console.log(data.get('name'));
 
 > **isInvalid**(): `boolean`
 
-Defined in: [component/form.ts:342](https://github.com/siposdani87/sui-js/blob/433cda184a013753ef41bb6ba61d0b3944481fa1/src/component/form.ts#L342)
+Defined in: [component/form.ts:342](https://github.com/siposdani87/sui-js/blob/27883240db7565f37a562e906b93c8d6552ac058/src/component/form.ts#L342)
 
 #### Returns
 
@@ -1029,7 +1029,7 @@ if (form.isInvalid()) {
 
 > **isValid**(): `boolean`
 
-Defined in: [component/form.ts:328](https://github.com/siposdani87/sui-js/blob/433cda184a013753ef41bb6ba61d0b3944481fa1/src/component/form.ts#L328)
+Defined in: [component/form.ts:328](https://github.com/siposdani87/sui-js/blob/27883240db7565f37a562e906b93c8d6552ac058/src/component/form.ts#L328)
 
 #### Returns
 
@@ -1055,7 +1055,7 @@ if (form.isValid()) {
 
 > **iterator**(`callback`, `next`, `opt_items?`): [`BaseField`](BaseField.md)\<`HTMLInputElement`\>[]
 
-Defined in: [core/collection.ts:252](https://github.com/siposdani87/sui-js/blob/433cda184a013753ef41bb6ba61d0b3944481fa1/src/core/collection.ts#L252)
+Defined in: [core/collection.ts:252](https://github.com/siposdani87/sui-js/blob/27883240db7565f37a562e906b93c8d6552ac058/src/core/collection.ts#L252)
 
 Core iteration method that filters and processes items in a single
 pass. The `callback` predicate determines which items to include, and
@@ -1113,7 +1113,7 @@ const evens = col.iterator(
 
 > **limit**(`offset`, `opt_count?`): [`BaseField`](BaseField.md)\<`HTMLInputElement`\>[]
 
-Defined in: [core/collection.ts:625](https://github.com/siposdani87/sui-js/blob/433cda184a013753ef41bb6ba61d0b3944481fa1/src/core/collection.ts#L625)
+Defined in: [core/collection.ts:625](https://github.com/siposdani87/sui-js/blob/27883240db7565f37a562e906b93c8d6552ac058/src/core/collection.ts#L625)
 
 Returns a slice of the collection's items for pagination. The slice
 starts at `offset` and contains up to `opt_count` items.
@@ -1158,7 +1158,7 @@ col.limit(3);    // [Objekt{id:4}, Objekt{id:5}]
 
 > **load**(`objects`): `void`
 
-Defined in: [core/collection.ts:102](https://github.com/siposdani87/sui-js/blob/433cda184a013753ef41bb6ba61d0b3944481fa1/src/core/collection.ts#L102)
+Defined in: [core/collection.ts:102](https://github.com/siposdani87/sui-js/blob/27883240db7565f37a562e906b93c8d6552ac058/src/core/collection.ts#L102)
 
 Appends each object in the array to this collection. Plain objects are
 automatically wrapped via the configured `Type` constructor.
@@ -1193,7 +1193,7 @@ col.size(); // 2
 
 > **lock**(): `void`
 
-Defined in: [component/form.ts:391](https://github.com/siposdani87/sui-js/blob/433cda184a013753ef41bb6ba61d0b3944481fa1/src/component/form.ts#L391)
+Defined in: [component/form.ts:391](https://github.com/siposdani87/sui-js/blob/27883240db7565f37a562e906b93c8d6552ac058/src/component/form.ts#L391)
 
 #### Returns
 
@@ -1217,7 +1217,7 @@ form.unlock();
 
 > **push**(`object`): [`BaseField`](BaseField.md)
 
-Defined in: [core/collection.ts:138](https://github.com/siposdani87/sui-js/blob/433cda184a013753ef41bb6ba61d0b3944481fa1/src/core/collection.ts#L138)
+Defined in: [core/collection.ts:138](https://github.com/siposdani87/sui-js/blob/27883240db7565f37a562e906b93c8d6552ac058/src/core/collection.ts#L138)
 
 Adds a single item to the end of the collection. If the item is a
 plain object (not already an instance of `Type`), it is wrapped via
@@ -1255,7 +1255,7 @@ item.get('name'); // 'Eve'
 
 > **refresh**(): `void`
 
-Defined in: [component/form.ts:353](https://github.com/siposdani87/sui-js/blob/433cda184a013753ef41bb6ba61d0b3944481fa1/src/component/form.ts#L353)
+Defined in: [component/form.ts:353](https://github.com/siposdani87/sui-js/blob/27883240db7565f37a562e906b93c8d6552ac058/src/component/form.ts#L353)
 
 #### Returns
 
@@ -1278,7 +1278,7 @@ form.refresh();
 
 > **reload**(`objects`): `void`
 
-Defined in: [core/collection.ts:120](https://github.com/siposdani87/sui-js/blob/433cda184a013753ef41bb6ba61d0b3944481fa1/src/core/collection.ts#L120)
+Defined in: [core/collection.ts:120](https://github.com/siposdani87/sui-js/blob/27883240db7565f37a562e906b93c8d6552ac058/src/core/collection.ts#L120)
 
 Clears all existing items and loads the given objects, effectively
 replacing the entire collection contents.
@@ -1314,7 +1314,7 @@ col.size(); // 2
 
 > **replace**(`object`): [`BaseField`](BaseField.md)\<`HTMLInputElement`\> \| `null`
 
-Defined in: [core/collection.ts:201](https://github.com/siposdani87/sui-js/blob/433cda184a013753ef41bb6ba61d0b3944481fa1/src/core/collection.ts#L201)
+Defined in: [core/collection.ts:201](https://github.com/siposdani87/sui-js/blob/27883240db7565f37a562e906b93c8d6552ac058/src/core/collection.ts#L201)
 
 Finds an existing item by its ID and merges the given object's
 properties into it. This is useful for updating an item in-place
@@ -1354,7 +1354,7 @@ col.findById(1).get('name'); // 'Alicia'
 
 > **reset**(`opt_force?`, `opt_showMessage?`): `void`
 
-Defined in: [component/form.ts:217](https://github.com/siposdani87/sui-js/blob/433cda184a013753ef41bb6ba61d0b3944481fa1/src/component/form.ts#L217)
+Defined in: [component/form.ts:217](https://github.com/siposdani87/sui-js/blob/27883240db7565f37a562e906b93c8d6552ac058/src/component/form.ts#L217)
 
 #### Parameters
 
@@ -1390,7 +1390,7 @@ form.reset();
 
 > **set**(`index`, `object`): [`BaseField`](BaseField.md)
 
-Defined in: [core/collection.ts:176](https://github.com/siposdani87/sui-js/blob/433cda184a013753ef41bb6ba61d0b3944481fa1/src/core/collection.ts#L176)
+Defined in: [core/collection.ts:176](https://github.com/siposdani87/sui-js/blob/27883240db7565f37a562e906b93c8d6552ac058/src/core/collection.ts#L176)
 
 Sets an item at a specific index in the collection. If the index is
 within the current bounds, the existing item is replaced. If the index
@@ -1434,7 +1434,7 @@ col.get(0).get('id'); // 10
 
 > **setErrors**(`data`): `void`
 
-Defined in: [component/form.ts:287](https://github.com/siposdani87/sui-js/blob/433cda184a013753ef41bb6ba61d0b3944481fa1/src/component/form.ts#L287)
+Defined in: [component/form.ts:287](https://github.com/siposdani87/sui-js/blob/27883240db7565f37a562e906b93c8d6552ac058/src/component/form.ts#L287)
 
 #### Parameters
 
@@ -1464,7 +1464,7 @@ form.setErrors({ email: ['Email is required'], name: ['Name is too short'] });
 
 > **setModel**(`model`, `opt_force?`, `opt_showMessage?`): `void`
 
-Defined in: [component/form.ts:178](https://github.com/siposdani87/sui-js/blob/433cda184a013753ef41bb6ba61d0b3944481fa1/src/component/form.ts#L178)
+Defined in: [component/form.ts:178](https://github.com/siposdani87/sui-js/blob/27883240db7565f37a562e906b93c8d6552ac058/src/component/form.ts#L178)
 
 #### Parameters
 
@@ -1506,7 +1506,7 @@ form.setModel(new Objekt({ name: 'Jane', age: 30 }));
 
 > **size**(): `number`
 
-Defined in: [core/collection.ts:606](https://github.com/siposdani87/sui-js/blob/433cda184a013753ef41bb6ba61d0b3944481fa1/src/core/collection.ts#L606)
+Defined in: [core/collection.ts:606](https://github.com/siposdani87/sui-js/blob/27883240db7565f37a562e906b93c8d6552ac058/src/core/collection.ts#L606)
 
 Returns the number of items currently in the collection.
 
@@ -1533,7 +1533,7 @@ col.size(); // 2
 
 > **unlock**(): `void`
 
-Defined in: [component/form.ts:406](https://github.com/siposdani87/sui-js/blob/433cda184a013753ef41bb6ba61d0b3944481fa1/src/component/form.ts#L406)
+Defined in: [component/form.ts:406](https://github.com/siposdani87/sui-js/blob/27883240db7565f37a562e906b93c8d6552ac058/src/component/form.ts#L406)
 
 #### Returns
 

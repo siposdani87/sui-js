@@ -1,6 +1,6 @@
 # Class: BaseModal
 
-Defined in: [module/baseModal.ts:38](https://github.com/siposdani87/sui-js/blob/433cda184a013753ef41bb6ba61d0b3944481fa1/src/module/baseModal.ts#L38)
+Defined in: [module/baseModal.ts:38](https://github.com/siposdani87/sui-js/blob/27883240db7565f37a562e906b93c8d6552ac058/src/module/baseModal.ts#L38)
 
 Abstract base class for modal dialog windows. Provides shared
 functionality for opening, closing, positioning, and managing modal
@@ -59,7 +59,7 @@ class CustomModal extends BaseModal {
 
 > **body**: [`Knot`](Knot.md)
 
-Defined in: [module/baseModal.ts:47](https://github.com/siposdani87/sui-js/blob/433cda184a013753ef41bb6ba61d0b3944481fa1/src/module/baseModal.ts#L47)
+Defined in: [module/baseModal.ts:47](https://github.com/siposdani87/sui-js/blob/27883240db7565f37a562e906b93c8d6552ac058/src/module/baseModal.ts#L47)
 
 ***
 
@@ -67,7 +67,7 @@ Defined in: [module/baseModal.ts:47](https://github.com/siposdani87/sui-js/blob/
 
 > **btnClose**: [`Knot`](Knot.md)
 
-Defined in: [module/baseModal.ts:46](https://github.com/siposdani87/sui-js/blob/433cda184a013753ef41bb6ba61d0b3944481fa1/src/module/baseModal.ts#L46)
+Defined in: [module/baseModal.ts:46](https://github.com/siposdani87/sui-js/blob/27883240db7565f37a562e906b93c8d6552ac058/src/module/baseModal.ts#L46)
 
 ***
 
@@ -75,7 +75,7 @@ Defined in: [module/baseModal.ts:46](https://github.com/siposdani87/sui-js/blob/
 
 > **btnMaximize**: [`Knot`](Knot.md)
 
-Defined in: [module/baseModal.ts:45](https://github.com/siposdani87/sui-js/blob/433cda184a013753ef41bb6ba61d0b3944481fa1/src/module/baseModal.ts#L45)
+Defined in: [module/baseModal.ts:45](https://github.com/siposdani87/sui-js/blob/27883240db7565f37a562e906b93c8d6552ac058/src/module/baseModal.ts#L45)
 
 ***
 
@@ -83,7 +83,7 @@ Defined in: [module/baseModal.ts:45](https://github.com/siposdani87/sui-js/blob/
 
 > **btnMinimize**: [`Knot`](Knot.md)
 
-Defined in: [module/baseModal.ts:44](https://github.com/siposdani87/sui-js/blob/433cda184a013753ef41bb6ba61d0b3944481fa1/src/module/baseModal.ts#L44)
+Defined in: [module/baseModal.ts:44](https://github.com/siposdani87/sui-js/blob/27883240db7565f37a562e906b93c8d6552ac058/src/module/baseModal.ts#L44)
 
 ***
 
@@ -91,7 +91,7 @@ Defined in: [module/baseModal.ts:44](https://github.com/siposdani87/sui-js/blob/
 
 > **eventCancel**: () => `void`
 
-Defined in: [module/baseModal.ts:54](https://github.com/siposdani87/sui-js/blob/433cda184a013753ef41bb6ba61d0b3944481fa1/src/module/baseModal.ts#L54)
+Defined in: [module/baseModal.ts:54](https://github.com/siposdani87/sui-js/blob/27883240db7565f37a562e906b93c8d6552ac058/src/module/baseModal.ts#L54)
 
 #### Returns
 
@@ -103,7 +103,7 @@ Defined in: [module/baseModal.ts:54](https://github.com/siposdani87/sui-js/blob/
 
 > **eventOK**: () => `void`
 
-Defined in: [module/baseModal.ts:53](https://github.com/siposdani87/sui-js/blob/433cda184a013753ef41bb6ba61d0b3944481fa1/src/module/baseModal.ts#L53)
+Defined in: [module/baseModal.ts:53](https://github.com/siposdani87/sui-js/blob/27883240db7565f37a562e906b93c8d6552ac058/src/module/baseModal.ts#L53)
 
 #### Returns
 
@@ -115,7 +115,7 @@ Defined in: [module/baseModal.ts:53](https://github.com/siposdani87/sui-js/blob/
 
 > **hasBlur**: `boolean`
 
-Defined in: [module/baseModal.ts:42](https://github.com/siposdani87/sui-js/blob/433cda184a013753ef41bb6ba61d0b3944481fa1/src/module/baseModal.ts#L42)
+Defined in: [module/baseModal.ts:42](https://github.com/siposdani87/sui-js/blob/27883240db7565f37a562e906b93c8d6552ac058/src/module/baseModal.ts#L42)
 
 ***
 
@@ -123,7 +123,7 @@ Defined in: [module/baseModal.ts:42](https://github.com/siposdani87/sui-js/blob/
 
 > **interval**: `number`
 
-Defined in: [module/baseModal.ts:48](https://github.com/siposdani87/sui-js/blob/433cda184a013753ef41bb6ba61d0b3944481fa1/src/module/baseModal.ts#L48)
+Defined in: [module/baseModal.ts:48](https://github.com/siposdani87/sui-js/blob/27883240db7565f37a562e906b93c8d6552ac058/src/module/baseModal.ts#L48)
 
 ***
 
@@ -131,7 +131,7 @@ Defined in: [module/baseModal.ts:48](https://github.com/siposdani87/sui-js/blob/
 
 > **mainContainerKnot**: [`Knot`](Knot.md)
 
-Defined in: [module/baseModal.ts:41](https://github.com/siposdani87/sui-js/blob/433cda184a013753ef41bb6ba61d0b3944481fa1/src/module/baseModal.ts#L41)
+Defined in: [module/baseModal.ts:41](https://github.com/siposdani87/sui-js/blob/27883240db7565f37a562e906b93c8d6552ac058/src/module/baseModal.ts#L41)
 
 ***
 
@@ -139,7 +139,7 @@ Defined in: [module/baseModal.ts:41](https://github.com/siposdani87/sui-js/blob/
 
 > **modal**: [`Knot`](Knot.md)
 
-Defined in: [module/baseModal.ts:43](https://github.com/siposdani87/sui-js/blob/433cda184a013753ef41bb6ba61d0b3944481fa1/src/module/baseModal.ts#L43)
+Defined in: [module/baseModal.ts:43](https://github.com/siposdani87/sui-js/blob/27883240db7565f37a562e906b93c8d6552ac058/src/module/baseModal.ts#L43)
 
 ***
 
@@ -147,7 +147,7 @@ Defined in: [module/baseModal.ts:43](https://github.com/siposdani87/sui-js/blob/
 
 > **modalBody**: [`Knot`](Knot.md)
 
-Defined in: [module/baseModal.ts:50](https://github.com/siposdani87/sui-js/blob/433cda184a013753ef41bb6ba61d0b3944481fa1/src/module/baseModal.ts#L50)
+Defined in: [module/baseModal.ts:50](https://github.com/siposdani87/sui-js/blob/27883240db7565f37a562e906b93c8d6552ac058/src/module/baseModal.ts#L50)
 
 ***
 
@@ -155,7 +155,7 @@ Defined in: [module/baseModal.ts:50](https://github.com/siposdani87/sui-js/blob/
 
 > **modalFooter**: [`Knot`](Knot.md)
 
-Defined in: [module/baseModal.ts:51](https://github.com/siposdani87/sui-js/blob/433cda184a013753ef41bb6ba61d0b3944481fa1/src/module/baseModal.ts#L51)
+Defined in: [module/baseModal.ts:51](https://github.com/siposdani87/sui-js/blob/27883240db7565f37a562e906b93c8d6552ac058/src/module/baseModal.ts#L51)
 
 ***
 
@@ -163,7 +163,7 @@ Defined in: [module/baseModal.ts:51](https://github.com/siposdani87/sui-js/blob/
 
 > **modalHeader**: [`Knot`](Knot.md)
 
-Defined in: [module/baseModal.ts:52](https://github.com/siposdani87/sui-js/blob/433cda184a013753ef41bb6ba61d0b3944481fa1/src/module/baseModal.ts#L52)
+Defined in: [module/baseModal.ts:52](https://github.com/siposdani87/sui-js/blob/27883240db7565f37a562e906b93c8d6552ac058/src/module/baseModal.ts#L52)
 
 ***
 
@@ -171,7 +171,7 @@ Defined in: [module/baseModal.ts:52](https://github.com/siposdani87/sui-js/blob/
 
 > **modalTitle**: [`Knot`](Knot.md)
 
-Defined in: [module/baseModal.ts:49](https://github.com/siposdani87/sui-js/blob/433cda184a013753ef41bb6ba61d0b3944481fa1/src/module/baseModal.ts#L49)
+Defined in: [module/baseModal.ts:49](https://github.com/siposdani87/sui-js/blob/27883240db7565f37a562e906b93c8d6552ac058/src/module/baseModal.ts#L49)
 
 ***
 
@@ -179,7 +179,7 @@ Defined in: [module/baseModal.ts:49](https://github.com/siposdani87/sui-js/blob/
 
 > **modalWindow**: [`Knot`](Knot.md)
 
-Defined in: [module/baseModal.ts:55](https://github.com/siposdani87/sui-js/blob/433cda184a013753ef41bb6ba61d0b3944481fa1/src/module/baseModal.ts#L55)
+Defined in: [module/baseModal.ts:55](https://github.com/siposdani87/sui-js/blob/27883240db7565f37a562e906b93c8d6552ac058/src/module/baseModal.ts#L55)
 
 ***
 
@@ -187,7 +187,7 @@ Defined in: [module/baseModal.ts:55](https://github.com/siposdani87/sui-js/blob/
 
 > **windowHeight**: `number`
 
-Defined in: [module/baseModal.ts:40](https://github.com/siposdani87/sui-js/blob/433cda184a013753ef41bb6ba61d0b3944481fa1/src/module/baseModal.ts#L40)
+Defined in: [module/baseModal.ts:40](https://github.com/siposdani87/sui-js/blob/27883240db7565f37a562e906b93c8d6552ac058/src/module/baseModal.ts#L40)
 
 ***
 
@@ -195,7 +195,7 @@ Defined in: [module/baseModal.ts:40](https://github.com/siposdani87/sui-js/blob/
 
 > **windowWidth**: `number`
 
-Defined in: [module/baseModal.ts:39](https://github.com/siposdani87/sui-js/blob/433cda184a013753ef41bb6ba61d0b3944481fa1/src/module/baseModal.ts#L39)
+Defined in: [module/baseModal.ts:39](https://github.com/siposdani87/sui-js/blob/27883240db7565f37a562e906b93c8d6552ac058/src/module/baseModal.ts#L39)
 
 ## Methods
 
@@ -203,7 +203,7 @@ Defined in: [module/baseModal.ts:39](https://github.com/siposdani87/sui-js/blob/
 
 > `protected` **\_actionCancel**(): `void`
 
-Defined in: [module/baseModal.ts:281](https://github.com/siposdani87/sui-js/blob/433cda184a013753ef41bb6ba61d0b3944481fa1/src/module/baseModal.ts#L281)
+Defined in: [module/baseModal.ts:281](https://github.com/siposdani87/sui-js/blob/27883240db7565f37a562e906b93c8d6552ac058/src/module/baseModal.ts#L281)
 
 Executes the Cancel callback followed by closing the modal. Uses
 [Async](Async.md) serial execution to ensure the callback completes
@@ -219,7 +219,7 @@ before the modal is closed.
 
 > `protected` **\_actionOK**(): `void`
 
-Defined in: [module/baseModal.ts:270](https://github.com/siposdani87/sui-js/blob/433cda184a013753ef41bb6ba61d0b3944481fa1/src/module/baseModal.ts#L270)
+Defined in: [module/baseModal.ts:270](https://github.com/siposdani87/sui-js/blob/27883240db7565f37a562e906b93c8d6552ac058/src/module/baseModal.ts#L270)
 
 Executes the OK callback followed by closing the modal. Uses
 [Async](Async.md) serial execution to ensure the callback completes
@@ -235,7 +235,7 @@ before the modal is closed.
 
 > `protected` **\_initBase**(): `void`
 
-Defined in: [module/baseModal.ts:62](https://github.com/siposdani87/sui-js/blob/433cda184a013753ef41bb6ba61d0b3944481fa1/src/module/baseModal.ts#L62)
+Defined in: [module/baseModal.ts:62](https://github.com/siposdani87/sui-js/blob/27883240db7565f37a562e906b93c8d6552ac058/src/module/baseModal.ts#L62)
 
 Initializes shared base state including window dimensions, the main
 container reference for blur effects, and all modal control buttons.
@@ -251,7 +251,7 @@ Must be called by subclasses after their own DOM references are set.
 
 > `protected` **\_reset**(): `void`
 
-Defined in: [module/baseModal.ts:260](https://github.com/siposdani87/sui-js/blob/433cda184a013753ef41bb6ba61d0b3944481fa1/src/module/baseModal.ts#L260)
+Defined in: [module/baseModal.ts:260](https://github.com/siposdani87/sui-js/blob/27883240db7565f37a562e906b93c8d6552ac058/src/module/baseModal.ts#L260)
 
 Resets the OK and Cancel event callbacks to no-op functions.
 Called before loading new content to ensure stale callbacks from
@@ -267,7 +267,7 @@ a previous modal session are not carried over.
 
 > `protected` **\_setTitle**(`opt_title`): `void`
 
-Defined in: [module/baseModal.ts:242](https://github.com/siposdani87/sui-js/blob/433cda184a013753ef41bb6ba61d0b3944481fa1/src/module/baseModal.ts#L242)
+Defined in: [module/baseModal.ts:242](https://github.com/siposdani87/sui-js/blob/27883240db7565f37a562e906b93c8d6552ac058/src/module/baseModal.ts#L242)
 
 Sets the modal header title text. Shows the header when the title
 is a non-empty string or a number; hides it otherwise.
@@ -290,7 +290,7 @@ The title text to display in the modal header.
 
 > **close**(): `void`
 
-Defined in: [module/baseModal.ts:220](https://github.com/siposdani87/sui-js/blob/433cda184a013753ef41bb6ba61d0b3944481fa1/src/module/baseModal.ts#L220)
+Defined in: [module/baseModal.ts:220](https://github.com/siposdani87/sui-js/blob/27883240db7565f37a562e906b93c8d6552ac058/src/module/baseModal.ts#L220)
 
 Closes the modal dialog and clears its content. Removes the blur
 overlay from `.main-container` (unless another modal applied it),
@@ -313,7 +313,7 @@ dialog.close();
 
 > **isOpened**(): `boolean`
 
-Defined in: [module/baseModal.ts:150](https://github.com/siposdani87/sui-js/blob/433cda184a013753ef41bb6ba61d0b3944481fa1/src/module/baseModal.ts#L150)
+Defined in: [module/baseModal.ts:150](https://github.com/siposdani87/sui-js/blob/27883240db7565f37a562e906b93c8d6552ac058/src/module/baseModal.ts#L150)
 
 Checks whether the modal is currently visible.
 
@@ -338,7 +338,7 @@ if (!dialog.isOpened()) {
 
 > **open**(`opt_allowClose?`): `void`
 
-Defined in: [module/baseModal.ts:193](https://github.com/siposdani87/sui-js/blob/433cda184a013753ef41bb6ba61d0b3944481fa1/src/module/baseModal.ts#L193)
+Defined in: [module/baseModal.ts:193](https://github.com/siposdani87/sui-js/blob/27883240db7565f37a562e906b93c8d6552ac058/src/module/baseModal.ts#L193)
 
 Opens the modal dialog with a blur overlay on the main container.
 Applies the `blur` class to `.main-container`, shows the modal,
@@ -381,7 +381,7 @@ dialog.open(false);
 
 > **setSize**(`width`, `height`): `void`
 
-Defined in: [module/baseModal.ts:316](https://github.com/siposdani87/sui-js/blob/433cda184a013753ef41bb6ba61d0b3944481fa1/src/module/baseModal.ts#L316)
+Defined in: [module/baseModal.ts:316](https://github.com/siposdani87/sui-js/blob/27883240db7565f37a562e906b93c8d6552ac058/src/module/baseModal.ts#L316)
 
 Updates the stored window dimensions and recalculates the modal
 center position. Typically called when the browser window is

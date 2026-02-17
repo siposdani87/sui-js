@@ -2,7 +2,7 @@
 
 > **getQueryString**(`opt_params?`): `string`
 
-Defined in: [utils/operation.ts:1015](https://github.com/siposdani87/sui-js/blob/433cda184a013753ef41bb6ba61d0b3944481fa1/src/utils/operation.ts#L1015)
+Defined in: [utils/operation.ts:1015](https://github.com/siposdani87/sui-js/blob/27883240db7565f37a562e906b93c8d6552ac058/src/utils/operation.ts#L1015)
 
 Builds a query string from an object of key-value pairs.
 

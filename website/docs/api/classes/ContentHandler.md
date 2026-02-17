@@ -1,6 +1,6 @@
 # Class: ContentHandler
 
-Defined in: [component/contentHandler.ts:18](https://github.com/siposdani87/sui-js/blob/433cda184a013753ef41bb6ba61d0b3944481fa1/src/component/contentHandler.ts#L18)
+Defined in: [component/contentHandler.ts:18](https://github.com/siposdani87/sui-js/blob/27883240db7565f37a562e906b93c8d6552ac058/src/component/contentHandler.ts#L18)
 
 ## Description
 
@@ -26,7 +26,7 @@ handler.hide(); // Hide placeholder, show container
 
 > **new ContentHandler**(`containerKnot`, `opt_options?`): `ContentHandler`
 
-Defined in: [component/contentHandler.ts:28](https://github.com/siposdani87/sui-js/blob/433cda184a013753ef41bb6ba61d0b3944481fa1/src/component/contentHandler.ts#L28)
+Defined in: [component/contentHandler.ts:28](https://github.com/siposdani87/sui-js/blob/27883240db7565f37a562e906b93c8d6552ac058/src/component/contentHandler.ts#L28)
 
 #### Parameters
 
@@ -56,7 +56,7 @@ Creates a new ContentHandler attached to a container element.
 
 > **containerKnot**: [`Knot`](Knot.md)
 
-Defined in: [component/contentHandler.ts:19](https://github.com/siposdani87/sui-js/blob/433cda184a013753ef41bb6ba61d0b3944481fa1/src/component/contentHandler.ts#L19)
+Defined in: [component/contentHandler.ts:19](https://github.com/siposdani87/sui-js/blob/27883240db7565f37a562e906b93c8d6552ac058/src/component/contentHandler.ts#L19)
 
 ***
 
@@ -64,7 +64,7 @@ Defined in: [component/contentHandler.ts:19](https://github.com/siposdani87/sui-
 
 > **contentKnot**: [`Knot`](Knot.md)
 
-Defined in: [component/contentHandler.ts:21](https://github.com/siposdani87/sui-js/blob/433cda184a013753ef41bb6ba61d0b3944481fa1/src/component/contentHandler.ts#L21)
+Defined in: [component/contentHandler.ts:21](https://github.com/siposdani87/sui-js/blob/27883240db7565f37a562e906b93c8d6552ac058/src/component/contentHandler.ts#L21)
 
 ***
 
@@ -72,7 +72,7 @@ Defined in: [component/contentHandler.ts:21](https://github.com/siposdani87/sui-
 
 > **options**: [`Objekt`](Objekt.md)
 
-Defined in: [component/contentHandler.ts:20](https://github.com/siposdani87/sui-js/blob/433cda184a013753ef41bb6ba61d0b3944481fa1/src/component/contentHandler.ts#L20)
+Defined in: [component/contentHandler.ts:20](https://github.com/siposdani87/sui-js/blob/27883240db7565f37a562e906b93c8d6552ac058/src/component/contentHandler.ts#L20)
 
 ## Methods
 
@@ -80,7 +80,7 @@ Defined in: [component/contentHandler.ts:20](https://github.com/siposdani87/sui-
 
 > **hide**(): `void`
 
-Defined in: [component/contentHandler.ts:85](https://github.com/siposdani87/sui-js/blob/433cda184a013753ef41bb6ba61d0b3944481fa1/src/component/contentHandler.ts#L85)
+Defined in: [component/contentHandler.ts:85](https://github.com/siposdani87/sui-js/blob/27883240db7565f37a562e906b93c8d6552ac058/src/component/contentHandler.ts#L85)
 
 #### Returns
 
@@ -102,7 +102,7 @@ handler.hide();
 
 > **show**(): `void`
 
-Defined in: [component/contentHandler.ts:74](https://github.com/siposdani87/sui-js/blob/433cda184a013753ef41bb6ba61d0b3944481fa1/src/component/contentHandler.ts#L74)
+Defined in: [component/contentHandler.ts:74](https://github.com/siposdani87/sui-js/blob/27883240db7565f37a562e906b93c8d6552ac058/src/component/contentHandler.ts#L74)
 
 #### Returns
 

@@ -1,6 +1,6 @@
 # Class: Promize\<T, K\>
 
-Defined in: [core/promize.ts:35](https://github.com/siposdani87/sui-js/blob/433cda184a013753ef41bb6ba61d0b3944481fa1/src/core/promize.ts#L35)
+Defined in: [core/promize.ts:35](https://github.com/siposdani87/sui-js/blob/27883240db7565f37a562e906b93c8d6552ac058/src/core/promize.ts#L35)
 
 The framework's custom promise implementation, used instead of native
 `Promise` throughout the codebase. Promize supports resolve/reject
@@ -51,7 +51,7 @@ promize.resolve('Success');
 
 > **new Promize**\<`T`, `K`\>(`opt_options?`): `Promize`\<`T`, `K`\>
 
-Defined in: [core/promize.ts:45](https://github.com/siposdani87/sui-js/blob/433cda184a013753ef41bb6ba61d0b3944481fa1/src/core/promize.ts#L45)
+Defined in: [core/promize.ts:45](https://github.com/siposdani87/sui-js/blob/27883240db7565f37a562e906b93c8d6552ac058/src/core/promize.ts#L45)
 
 Creates a new Promize instance in an unsettled state.
 
@@ -75,7 +75,7 @@ Optional configuration object merged into the
 
 > **options**: [`Objekt`](Objekt.md)
 
-Defined in: [core/promize.ts:36](https://github.com/siposdani87/sui-js/blob/433cda184a013753ef41bb6ba61d0b3944481fa1/src/core/promize.ts#L36)
+Defined in: [core/promize.ts:36](https://github.com/siposdani87/sui-js/blob/27883240db7565f37a562e906b93c8d6552ac058/src/core/promize.ts#L36)
 
 ## Methods
 
@@ -83,7 +83,7 @@ Defined in: [core/promize.ts:36](https://github.com/siposdani87/sui-js/blob/433c
 
 > **defer**(`defer`, `opt_complete?`): `void`
 
-Defined in: [core/promize.ts:198](https://github.com/siposdani87/sui-js/blob/433cda184a013753ef41bb6ba61d0b3944481fa1/src/core/promize.ts#L198)
+Defined in: [core/promize.ts:198](https://github.com/siposdani87/sui-js/blob/27883240db7565f37a562e906b93c8d6552ac058/src/core/promize.ts#L198)
 
 Chains this promise to a [Deferred](Deferred.md), forwarding the resolution
 or rejection to the deferred's promise. This is used internally to
@@ -124,7 +124,7 @@ promize.resolve('result');
 
 > **reject**(`opt_data?`): `void`
 
-Defined in: [core/promize.ts:113](https://github.com/siposdani87/sui-js/blob/433cda184a013753ef41bb6ba61d0b3944481fa1/src/core/promize.ts#L113)
+Defined in: [core/promize.ts:113](https://github.com/siposdani87/sui-js/blob/27883240db7565f37a562e906b93c8d6552ac058/src/core/promize.ts#L113)
 
 Rejects the promise with the given data. If `then()` callbacks have
 already been registered, the reject and complete callbacks are invoked
@@ -159,7 +159,7 @@ promize.reject(new Error('Failed'));
 
 > **resolve**(`opt_data?`): `void`
 
-Defined in: [core/promize.ts:81](https://github.com/siposdani87/sui-js/blob/433cda184a013753ef41bb6ba61d0b3944481fa1/src/core/promize.ts#L81)
+Defined in: [core/promize.ts:81](https://github.com/siposdani87/sui-js/blob/27883240db7565f37a562e906b93c8d6552ac058/src/core/promize.ts#L81)
 
 Resolves the promise with the given data. If `then()` callbacks have
 already been registered, they are invoked immediately. Otherwise the
@@ -194,7 +194,7 @@ promize.resolve(42); // logs: 42
 
 > **then**(`resolve`, `opt_reject?`, `opt_complete?`): `void`
 
-Defined in: [core/promize.ts:157](https://github.com/siposdani87/sui-js/blob/433cda184a013753ef41bb6ba61d0b3944481fa1/src/core/promize.ts#L157)
+Defined in: [core/promize.ts:157](https://github.com/siposdani87/sui-js/blob/27883240db7565f37a562e906b93c8d6552ac058/src/core/promize.ts#L157)
 
 Registers resolve, reject, and complete callbacks on this promise.
 

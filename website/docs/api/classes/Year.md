@@ -1,6 +1,6 @@
 # Class: Year
 
-Defined in: [component/year.ts:15](https://github.com/siposdani87/sui-js/blob/433cda184a013753ef41bb6ba61d0b3944481fa1/src/component/year.ts#L15)
+Defined in: [component/year.ts:15](https://github.com/siposdani87/sui-js/blob/27883240db7565f37a562e906b93c8d6552ac058/src/component/year.ts#L15)
 
 ## Description
 
@@ -24,7 +24,7 @@ const knot = year.getKnot();
 
 > **new Year**(`date`, `currentDate`, `options`): `Year`
 
-Defined in: [component/year.ts:29](https://github.com/siposdani87/sui-js/blob/433cda184a013753ef41bb6ba61d0b3944481fa1/src/component/year.ts#L29)
+Defined in: [component/year.ts:29](https://github.com/siposdani87/sui-js/blob/27883240db7565f37a562e906b93c8d6552ac058/src/component/year.ts#L29)
 
 #### Parameters
 
@@ -66,7 +66,7 @@ const year = new Year(new Date(2024, 0, 1), selectedDate, {});
 
 > **cssClasses**: `string`[]
 
-Defined in: [component/year.ts:19](https://github.com/siposdani87/sui-js/blob/433cda184a013753ef41bb6ba61d0b3944481fa1/src/component/year.ts#L19)
+Defined in: [component/year.ts:19](https://github.com/siposdani87/sui-js/blob/27883240db7565f37a562e906b93c8d6552ac058/src/component/year.ts#L19)
 
 ***
 
@@ -74,7 +74,7 @@ Defined in: [component/year.ts:19](https://github.com/siposdani87/sui-js/blob/43
 
 > **currentDate**: `Date`
 
-Defined in: [component/year.ts:17](https://github.com/siposdani87/sui-js/blob/433cda184a013753ef41bb6ba61d0b3944481fa1/src/component/year.ts#L17)
+Defined in: [component/year.ts:17](https://github.com/siposdani87/sui-js/blob/27883240db7565f37a562e906b93c8d6552ac058/src/component/year.ts#L17)
 
 ***
 
@@ -82,7 +82,7 @@ Defined in: [component/year.ts:17](https://github.com/siposdani87/sui-js/blob/43
 
 > **date**: `Date`
 
-Defined in: [component/year.ts:16](https://github.com/siposdani87/sui-js/blob/433cda184a013753ef41bb6ba61d0b3944481fa1/src/component/year.ts#L16)
+Defined in: [component/year.ts:16](https://github.com/siposdani87/sui-js/blob/27883240db7565f37a562e906b93c8d6552ac058/src/component/year.ts#L16)
 
 ***
 
@@ -90,7 +90,7 @@ Defined in: [component/year.ts:16](https://github.com/siposdani87/sui-js/blob/43
 
 > **options**: [`Objekt`](Objekt.md)
 
-Defined in: [component/year.ts:18](https://github.com/siposdani87/sui-js/blob/433cda184a013753ef41bb6ba61d0b3944481fa1/src/component/year.ts#L18)
+Defined in: [component/year.ts:18](https://github.com/siposdani87/sui-js/blob/27883240db7565f37a562e906b93c8d6552ac058/src/component/year.ts#L18)
 
 ## Methods
 
@@ -98,7 +98,7 @@ Defined in: [component/year.ts:18](https://github.com/siposdani87/sui-js/blob/43
 
 > **eventClick**(`date`): `void`
 
-Defined in: [component/year.ts:86](https://github.com/siposdani87/sui-js/blob/433cda184a013753ef41bb6ba61d0b3944481fa1/src/component/year.ts#L86)
+Defined in: [component/year.ts:86](https://github.com/siposdani87/sui-js/blob/27883240db7565f37a562e906b93c8d6552ac058/src/component/year.ts#L86)
 
 #### Parameters
 
@@ -128,7 +128,7 @@ year.eventClick = (date) => { console.log('Clicked:', date); };
 
 > **getKnot**(): [`Knot`](Knot.md)
 
-Defined in: [component/year.ts:68](https://github.com/siposdani87/sui-js/blob/433cda184a013753ef41bb6ba61d0b3944481fa1/src/component/year.ts#L68)
+Defined in: [component/year.ts:68](https://github.com/siposdani87/sui-js/blob/27883240db7565f37a562e906b93c8d6552ac058/src/component/year.ts#L68)
 
 #### Returns
 

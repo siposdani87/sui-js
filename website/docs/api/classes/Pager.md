@@ -1,6 +1,6 @@
 # Class: Pager
 
-Defined in: [component/pager.ts:31](https://github.com/siposdani87/sui-js/blob/433cda184a013753ef41bb6ba61d0b3944481fa1/src/component/pager.ts#L31)
+Defined in: [component/pager.ts:31](https://github.com/siposdani87/sui-js/blob/27883240db7565f37a562e906b93c8d6552ac058/src/component/pager.ts#L31)
 
 ## Description
 
@@ -27,7 +27,7 @@ pager.draw();
 
 > **new Pager**(`dom`, `opt_selectors?`, `opt_options?`): `Pager`
 
-Defined in: [component/pager.ts:46](https://github.com/siposdani87/sui-js/blob/433cda184a013753ef41bb6ba61d0b3944481fa1/src/component/pager.ts#L46)
+Defined in: [component/pager.ts:46](https://github.com/siposdani87/sui-js/blob/27883240db7565f37a562e906b93c8d6552ac058/src/component/pager.ts#L46)
 
 #### Parameters
 
@@ -63,7 +63,7 @@ Creates a new Pager instance bound to pager and statistics elements within the g
 
 > **count**: `number`
 
-Defined in: [component/pager.ts:35](https://github.com/siposdani87/sui-js/blob/433cda184a013753ef41bb6ba61d0b3944481fa1/src/component/pager.ts#L35)
+Defined in: [component/pager.ts:35](https://github.com/siposdani87/sui-js/blob/27883240db7565f37a562e906b93c8d6552ac058/src/component/pager.ts#L35)
 
 ***
 
@@ -71,7 +71,7 @@ Defined in: [component/pager.ts:35](https://github.com/siposdani87/sui-js/blob/4
 
 > **offset**: `number`
 
-Defined in: [component/pager.ts:38](https://github.com/siposdani87/sui-js/blob/433cda184a013753ef41bb6ba61d0b3944481fa1/src/component/pager.ts#L38)
+Defined in: [component/pager.ts:38](https://github.com/siposdani87/sui-js/blob/27883240db7565f37a562e906b93c8d6552ac058/src/component/pager.ts#L38)
 
 ***
 
@@ -79,7 +79,7 @@ Defined in: [component/pager.ts:38](https://github.com/siposdani87/sui-js/blob/4
 
 > **options**: [`Objekt`](Objekt.md)
 
-Defined in: [component/pager.ts:34](https://github.com/siposdani87/sui-js/blob/433cda184a013753ef41bb6ba61d0b3944481fa1/src/component/pager.ts#L34)
+Defined in: [component/pager.ts:34](https://github.com/siposdani87/sui-js/blob/27883240db7565f37a562e906b93c8d6552ac058/src/component/pager.ts#L34)
 
 ***
 
@@ -87,7 +87,7 @@ Defined in: [component/pager.ts:34](https://github.com/siposdani87/sui-js/blob/4
 
 > **page**: `number`
 
-Defined in: [component/pager.ts:37](https://github.com/siposdani87/sui-js/blob/433cda184a013753ef41bb6ba61d0b3944481fa1/src/component/pager.ts#L37)
+Defined in: [component/pager.ts:37](https://github.com/siposdani87/sui-js/blob/27883240db7565f37a562e906b93c8d6552ac058/src/component/pager.ts#L37)
 
 ***
 
@@ -95,7 +95,7 @@ Defined in: [component/pager.ts:37](https://github.com/siposdani87/sui-js/blob/4
 
 > **pageNum**: `number`
 
-Defined in: [component/pager.ts:36](https://github.com/siposdani87/sui-js/blob/433cda184a013753ef41bb6ba61d0b3944481fa1/src/component/pager.ts#L36)
+Defined in: [component/pager.ts:36](https://github.com/siposdani87/sui-js/blob/27883240db7565f37a562e906b93c8d6552ac058/src/component/pager.ts#L36)
 
 ***
 
@@ -103,7 +103,7 @@ Defined in: [component/pager.ts:36](https://github.com/siposdani87/sui-js/blob/4
 
 > **pager**: [`Knot`](Knot.md)
 
-Defined in: [component/pager.ts:32](https://github.com/siposdani87/sui-js/blob/433cda184a013753ef41bb6ba61d0b3944481fa1/src/component/pager.ts#L32)
+Defined in: [component/pager.ts:32](https://github.com/siposdani87/sui-js/blob/27883240db7565f37a562e906b93c8d6552ac058/src/component/pager.ts#L32)
 
 ***
 
@@ -111,7 +111,7 @@ Defined in: [component/pager.ts:32](https://github.com/siposdani87/sui-js/blob/4
 
 > **pagerStatistics**: [`Knot`](Knot.md)
 
-Defined in: [component/pager.ts:33](https://github.com/siposdani87/sui-js/blob/433cda184a013753ef41bb6ba61d0b3944481fa1/src/component/pager.ts#L33)
+Defined in: [component/pager.ts:33](https://github.com/siposdani87/sui-js/blob/27883240db7565f37a562e906b93c8d6552ac058/src/component/pager.ts#L33)
 
 ## Methods
 
@@ -119,7 +119,7 @@ Defined in: [component/pager.ts:33](https://github.com/siposdani87/sui-js/blob/4
 
 > **draw**(): `void`
 
-Defined in: [component/pager.ts:276](https://github.com/siposdani87/sui-js/blob/433cda184a013753ef41bb6ba61d0b3944481fa1/src/component/pager.ts#L276)
+Defined in: [component/pager.ts:276](https://github.com/siposdani87/sui-js/blob/27883240db7565f37a562e906b93c8d6552ac058/src/component/pager.ts#L276)
 
 #### Returns
 
@@ -142,7 +142,7 @@ pager.draw();
 
 > **eventAction**(`page`): `void`
 
-Defined in: [component/pager.ts:290](https://github.com/siposdani87/sui-js/blob/433cda184a013753ef41bb6ba61d0b3944481fa1/src/component/pager.ts#L290)
+Defined in: [component/pager.ts:290](https://github.com/siposdani87/sui-js/blob/27883240db7565f37a562e906b93c8d6552ac058/src/component/pager.ts#L290)
 
 #### Parameters
 
@@ -174,7 +174,7 @@ pager.eventAction = (page) => {
 
 > **setCount**(`count`): `void`
 
-Defined in: [component/pager.ts:244](https://github.com/siposdani87/sui-js/blob/433cda184a013753ef41bb6ba61d0b3944481fa1/src/component/pager.ts#L244)
+Defined in: [component/pager.ts:244](https://github.com/siposdani87/sui-js/blob/27883240db7565f37a562e906b93c8d6552ac058/src/component/pager.ts#L244)
 
 #### Parameters
 
@@ -205,7 +205,7 @@ pager.draw();
 
 > **setPage**(`page`): `void`
 
-Defined in: [component/pager.ts:264](https://github.com/siposdani87/sui-js/blob/433cda184a013753ef41bb6ba61d0b3944481fa1/src/component/pager.ts#L264)
+Defined in: [component/pager.ts:264](https://github.com/siposdani87/sui-js/blob/27883240db7565f37a562e906b93c8d6552ac058/src/component/pager.ts#L264)
 
 #### Parameters
 

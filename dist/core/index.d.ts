@@ -1,3 +1,9 @@
+/**
+ * Core module — framework primitives for data, DOM, routing, and async control flow.
+ *
+ * @module core
+ * @category Core
+ */
 export * from './async';
 export * from './collection';
 export * from './deferred';

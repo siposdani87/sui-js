@@ -2,7 +2,7 @@
 
 > **inContainArray**(`items`, `item`): `boolean`
 
-Defined in: [utils/operation.ts:593](https://github.com/siposdani87/sui-js/blob/433cda184a013753ef41bb6ba61d0b3944481fa1/src/utils/operation.ts#L593)
+Defined in: [utils/operation.ts:593](https://github.com/siposdani87/sui-js/blob/27883240db7565f37a562e906b93c8d6552ac058/src/utils/operation.ts#L593)
 
 Checks whether any element in a string array contains the given substring.
 

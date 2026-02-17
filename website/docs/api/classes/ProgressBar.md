@@ -1,6 +1,6 @@
 # Class: ProgressBar
 
-Defined in: [module/progressBar.ts:46](https://github.com/siposdani87/sui-js/blob/433cda184a013753ef41bb6ba61d0b3944481fa1/src/module/progressBar.ts#L46)
+Defined in: [module/progressBar.ts:46](https://github.com/siposdani87/sui-js/blob/27883240db7565f37a562e906b93c8d6552ac058/src/module/progressBar.ts#L46)
 
 Manages Material Design Lite progress bars across multiple application
 containers: main content, header, dialog, and confirm window.
@@ -40,7 +40,7 @@ progressBar.setBuffer(90);
 
 > **new ProgressBar**(`dialog`, `confirm`, `opt_options?`): `ProgressBar`
 
-Defined in: [module/progressBar.ts:73](https://github.com/siposdani87/sui-js/blob/433cda184a013753ef41bb6ba61d0b3944481fa1/src/module/progressBar.ts#L73)
+Defined in: [module/progressBar.ts:73](https://github.com/siposdani87/sui-js/blob/27883240db7565f37a562e906b93c8d6552ac058/src/module/progressBar.ts#L73)
 
 Creates a new ProgressBar instance and initializes MDL progress bar
 elements in all four containers.
@@ -78,7 +78,7 @@ Optional configuration
 
 > **async**: [`Async`](Async.md)
 
-Defined in: [module/progressBar.ts:54](https://github.com/siposdani87/sui-js/blob/433cda184a013753ef41bb6ba61d0b3944481fa1/src/module/progressBar.ts#L54)
+Defined in: [module/progressBar.ts:54](https://github.com/siposdani87/sui-js/blob/27883240db7565f37a562e906b93c8d6552ac058/src/module/progressBar.ts#L54)
 
 ***
 
@@ -86,7 +86,7 @@ Defined in: [module/progressBar.ts:54](https://github.com/siposdani87/sui-js/blo
 
 > **bufferValue**: `number`
 
-Defined in: [module/progressBar.ts:60](https://github.com/siposdani87/sui-js/blob/433cda184a013753ef41bb6ba61d0b3944481fa1/src/module/progressBar.ts#L60)
+Defined in: [module/progressBar.ts:60](https://github.com/siposdani87/sui-js/blob/27883240db7565f37a562e906b93c8d6552ac058/src/module/progressBar.ts#L60)
 
 ***
 
@@ -94,7 +94,7 @@ Defined in: [module/progressBar.ts:60](https://github.com/siposdani87/sui-js/blo
 
 > **confirm**: [`Confirm`](Confirm.md)
 
-Defined in: [module/progressBar.ts:48](https://github.com/siposdani87/sui-js/blob/433cda184a013753ef41bb6ba61d0b3944481fa1/src/module/progressBar.ts#L48)
+Defined in: [module/progressBar.ts:48](https://github.com/siposdani87/sui-js/blob/27883240db7565f37a562e906b93c8d6552ac058/src/module/progressBar.ts#L48)
 
 ***
 
@@ -102,7 +102,7 @@ Defined in: [module/progressBar.ts:48](https://github.com/siposdani87/sui-js/blo
 
 > **dialog**: [`Dialog`](Dialog.md)
 
-Defined in: [module/progressBar.ts:47](https://github.com/siposdani87/sui-js/blob/433cda184a013753ef41bb6ba61d0b3944481fa1/src/module/progressBar.ts#L47)
+Defined in: [module/progressBar.ts:47](https://github.com/siposdani87/sui-js/blob/27883240db7565f37a562e906b93c8d6552ac058/src/module/progressBar.ts#L47)
 
 ***
 
@@ -110,7 +110,7 @@ Defined in: [module/progressBar.ts:47](https://github.com/siposdani87/sui-js/blo
 
 > **options**: [`Objekt`](Objekt.md)
 
-Defined in: [module/progressBar.ts:49](https://github.com/siposdani87/sui-js/blob/433cda184a013753ef41bb6ba61d0b3944481fa1/src/module/progressBar.ts#L49)
+Defined in: [module/progressBar.ts:49](https://github.com/siposdani87/sui-js/blob/27883240db7565f37a562e906b93c8d6552ac058/src/module/progressBar.ts#L49)
 
 ***
 
@@ -118,7 +118,7 @@ Defined in: [module/progressBar.ts:49](https://github.com/siposdani87/sui-js/blo
 
 > **processConfirm**: `ProcessBar`
 
-Defined in: [module/progressBar.ts:58](https://github.com/siposdani87/sui-js/blob/433cda184a013753ef41bb6ba61d0b3944481fa1/src/module/progressBar.ts#L58)
+Defined in: [module/progressBar.ts:58](https://github.com/siposdani87/sui-js/blob/27883240db7565f37a562e906b93c8d6552ac058/src/module/progressBar.ts#L58)
 
 ***
 
@@ -126,7 +126,7 @@ Defined in: [module/progressBar.ts:58](https://github.com/siposdani87/sui-js/blo
 
 > **processContainer**: `ProcessBar`
 
-Defined in: [module/progressBar.ts:55](https://github.com/siposdani87/sui-js/blob/433cda184a013753ef41bb6ba61d0b3944481fa1/src/module/progressBar.ts#L55)
+Defined in: [module/progressBar.ts:55](https://github.com/siposdani87/sui-js/blob/27883240db7565f37a562e906b93c8d6552ac058/src/module/progressBar.ts#L55)
 
 ***
 
@@ -134,7 +134,7 @@ Defined in: [module/progressBar.ts:55](https://github.com/siposdani87/sui-js/blo
 
 > **processDialog**: `ProcessBar`
 
-Defined in: [module/progressBar.ts:57](https://github.com/siposdani87/sui-js/blob/433cda184a013753ef41bb6ba61d0b3944481fa1/src/module/progressBar.ts#L57)
+Defined in: [module/progressBar.ts:57](https://github.com/siposdani87/sui-js/blob/27883240db7565f37a562e906b93c8d6552ac058/src/module/progressBar.ts#L57)
 
 ***
 
@@ -142,7 +142,7 @@ Defined in: [module/progressBar.ts:57](https://github.com/siposdani87/sui-js/blo
 
 > **processHeader**: `ProcessBar`
 
-Defined in: [module/progressBar.ts:56](https://github.com/siposdani87/sui-js/blob/433cda184a013753ef41bb6ba61d0b3944481fa1/src/module/progressBar.ts#L56)
+Defined in: [module/progressBar.ts:56](https://github.com/siposdani87/sui-js/blob/27883240db7565f37a562e906b93c8d6552ac058/src/module/progressBar.ts#L56)
 
 ***
 
@@ -150,7 +150,7 @@ Defined in: [module/progressBar.ts:56](https://github.com/siposdani87/sui-js/blo
 
 > **progressBarConfirm**: [`Knot`](Knot.md)
 
-Defined in: [module/progressBar.ts:53](https://github.com/siposdani87/sui-js/blob/433cda184a013753ef41bb6ba61d0b3944481fa1/src/module/progressBar.ts#L53)
+Defined in: [module/progressBar.ts:53](https://github.com/siposdani87/sui-js/blob/27883240db7565f37a562e906b93c8d6552ac058/src/module/progressBar.ts#L53)
 
 ***
 
@@ -158,7 +158,7 @@ Defined in: [module/progressBar.ts:53](https://github.com/siposdani87/sui-js/blo
 
 > **progressBarContainer**: [`Knot`](Knot.md)
 
-Defined in: [module/progressBar.ts:50](https://github.com/siposdani87/sui-js/blob/433cda184a013753ef41bb6ba61d0b3944481fa1/src/module/progressBar.ts#L50)
+Defined in: [module/progressBar.ts:50](https://github.com/siposdani87/sui-js/blob/27883240db7565f37a562e906b93c8d6552ac058/src/module/progressBar.ts#L50)
 
 ***
 
@@ -166,7 +166,7 @@ Defined in: [module/progressBar.ts:50](https://github.com/siposdani87/sui-js/blo
 
 > **progressBarDialog**: [`Knot`](Knot.md)
 
-Defined in: [module/progressBar.ts:52](https://github.com/siposdani87/sui-js/blob/433cda184a013753ef41bb6ba61d0b3944481fa1/src/module/progressBar.ts#L52)
+Defined in: [module/progressBar.ts:52](https://github.com/siposdani87/sui-js/blob/27883240db7565f37a562e906b93c8d6552ac058/src/module/progressBar.ts#L52)
 
 ***
 
@@ -174,7 +174,7 @@ Defined in: [module/progressBar.ts:52](https://github.com/siposdani87/sui-js/blo
 
 > **progressBarHeader**: [`Knot`](Knot.md)
 
-Defined in: [module/progressBar.ts:51](https://github.com/siposdani87/sui-js/blob/433cda184a013753ef41bb6ba61d0b3944481fa1/src/module/progressBar.ts#L51)
+Defined in: [module/progressBar.ts:51](https://github.com/siposdani87/sui-js/blob/27883240db7565f37a562e906b93c8d6552ac058/src/module/progressBar.ts#L51)
 
 ***
 
@@ -182,7 +182,7 @@ Defined in: [module/progressBar.ts:51](https://github.com/siposdani87/sui-js/blo
 
 > **progressValue**: `number`
 
-Defined in: [module/progressBar.ts:59](https://github.com/siposdani87/sui-js/blob/433cda184a013753ef41bb6ba61d0b3944481fa1/src/module/progressBar.ts#L59)
+Defined in: [module/progressBar.ts:59](https://github.com/siposdani87/sui-js/blob/27883240db7565f37a562e906b93c8d6552ac058/src/module/progressBar.ts#L59)
 
 ## Methods
 
@@ -190,7 +190,7 @@ Defined in: [module/progressBar.ts:59](https://github.com/siposdani87/sui-js/blo
 
 > **hide**(`opt_force?`): `void`
 
-Defined in: [module/progressBar.ts:383](https://github.com/siposdani87/sui-js/blob/433cda184a013753ef41bb6ba61d0b3944481fa1/src/module/progressBar.ts#L383)
+Defined in: [module/progressBar.ts:383](https://github.com/siposdani87/sui-js/blob/27883240db7565f37a562e906b93c8d6552ac058/src/module/progressBar.ts#L383)
 
 Decrements the reference counter and hides all progress bars when the
 counter reaches zero. If `opt_force` is true, the counter is reset to
@@ -222,7 +222,7 @@ progressBar.hide(true);   // force-hides immediately
 
 > **lock**(): `void`
 
-Defined in: [module/progressBar.ts:415](https://github.com/siposdani87/sui-js/blob/433cda184a013753ef41bb6ba61d0b3944481fa1/src/module/progressBar.ts#L415)
+Defined in: [module/progressBar.ts:415](https://github.com/siposdani87/sui-js/blob/27883240db7565f37a562e906b93c8d6552ac058/src/module/progressBar.ts#L415)
 
 Locks the progress bar, preventing any further progress display until
 [unlock](#unlock) is called. Existing indeterminate animations remain
@@ -245,7 +245,7 @@ progressBar.show(); // no visible effect
 
 > **setBuffer**(`value`): `void`
 
-Defined in: [module/progressBar.ts:345](https://github.com/siposdani87/sui-js/blob/433cda184a013753ef41bb6ba61d0b3944481fa1/src/module/progressBar.ts#L345)
+Defined in: [module/progressBar.ts:345](https://github.com/siposdani87/sui-js/blob/27883240db7565f37a562e906b93c8d6552ac058/src/module/progressBar.ts#L345)
 
 Sets the buffer value on the appropriate progress bar(s). The buffer
 represents how much data has been loaded ahead of the current progress.
@@ -274,7 +274,7 @@ progressBar.setBuffer(80);
 
 > **setProgress**(`value`): `void`
 
-Defined in: [module/progressBar.ts:310](https://github.com/siposdani87/sui-js/blob/433cda184a013753ef41bb6ba61d0b3944481fa1/src/module/progressBar.ts#L310)
+Defined in: [module/progressBar.ts:310](https://github.com/siposdani87/sui-js/blob/27883240db7565f37a562e906b93c8d6552ac058/src/module/progressBar.ts#L310)
 
 Sets a determinate progress value on the appropriate bar(s).
 
@@ -302,7 +302,7 @@ progressBar.setProgress(50); // 50% complete
 
 > **show**(): `void`
 
-Defined in: [module/progressBar.ts:251](https://github.com/siposdani87/sui-js/blob/433cda184a013753ef41bb6ba61d0b3944481fa1/src/module/progressBar.ts#L251)
+Defined in: [module/progressBar.ts:251](https://github.com/siposdani87/sui-js/blob/27883240db7565f37a562e906b93c8d6552ac058/src/module/progressBar.ts#L251)
 
 Activates the indeterminate progress animation on the appropriate bar(s)
 and increments the reference counter.
@@ -328,7 +328,7 @@ progressBar.hide();
 
 > **unlock**(): `void`
 
-Defined in: [module/progressBar.ts:426](https://github.com/siposdani87/sui-js/blob/433cda184a013753ef41bb6ba61d0b3944481fa1/src/module/progressBar.ts#L426)
+Defined in: [module/progressBar.ts:426](https://github.com/siposdani87/sui-js/blob/27883240db7565f37a562e906b93c8d6552ac058/src/module/progressBar.ts#L426)
 
 Unlocks the progress bar, allowing progress display to resume.
 

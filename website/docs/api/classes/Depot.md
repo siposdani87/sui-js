@@ -1,6 +1,6 @@
 # Class: Depot
 
-Defined in: [module/depot.ts:39](https://github.com/siposdani87/sui-js/blob/433cda184a013753ef41bb6ba61d0b3944481fa1/src/module/depot.ts#L39)
+Defined in: [module/depot.ts:39](https://github.com/siposdani87/sui-js/blob/27883240db7565f37a562e906b93c8d6552ac058/src/module/depot.ts#L39)
 
 Encrypted browser storage wrapper for localStorage and sessionStorage.
 Depot stores values with AES encryption using a configurable secret,
@@ -45,7 +45,7 @@ sessionDepot.set('temp', 'data');
 
 > **new Depot**(`type`, `opt_options?`): `Depot`
 
-Defined in: [module/depot.ts:57](https://github.com/siposdani87/sui-js/blob/433cda184a013753ef41bb6ba61d0b3944481fa1/src/module/depot.ts#L57)
+Defined in: [module/depot.ts:57](https://github.com/siposdani87/sui-js/blob/27883240db7565f37a562e906b93c8d6552ac058/src/module/depot.ts#L57)
 
 Creates a new Depot instance backed by either localStorage or
 sessionStorage. Initializes the storage backend and starts the
@@ -80,7 +80,7 @@ Configuration options. Supports `prefix` (string)
 
 > **options**: [`Objekt`](Objekt.md)
 
-Defined in: [module/depot.ts:41](https://github.com/siposdani87/sui-js/blob/433cda184a013753ef41bb6ba61d0b3944481fa1/src/module/depot.ts#L41)
+Defined in: [module/depot.ts:41](https://github.com/siposdani87/sui-js/blob/27883240db7565f37a562e906b93c8d6552ac058/src/module/depot.ts#L41)
 
 ***
 
@@ -88,7 +88,7 @@ Defined in: [module/depot.ts:41](https://github.com/siposdani87/sui-js/blob/433c
 
 > **storage**: `Storage`
 
-Defined in: [module/depot.ts:42](https://github.com/siposdani87/sui-js/blob/433cda184a013753ef41bb6ba61d0b3944481fa1/src/module/depot.ts#L42)
+Defined in: [module/depot.ts:42](https://github.com/siposdani87/sui-js/blob/27883240db7565f37a562e906b93c8d6552ac058/src/module/depot.ts#L42)
 
 ***
 
@@ -96,7 +96,7 @@ Defined in: [module/depot.ts:42](https://github.com/siposdani87/sui-js/blob/433c
 
 > **type**: `"LOCAL"` \| `"SESSION"`
 
-Defined in: [module/depot.ts:40](https://github.com/siposdani87/sui-js/blob/433cda184a013753ef41bb6ba61d0b3944481fa1/src/module/depot.ts#L40)
+Defined in: [module/depot.ts:40](https://github.com/siposdani87/sui-js/blob/27883240db7565f37a562e906b93c8d6552ac058/src/module/depot.ts#L40)
 
 ## Methods
 
@@ -104,7 +104,7 @@ Defined in: [module/depot.ts:40](https://github.com/siposdani87/sui-js/blob/433c
 
 > **clear**(): `void`
 
-Defined in: [module/depot.ts:199](https://github.com/siposdani87/sui-js/blob/433cda184a013753ef41bb6ba61d0b3944481fa1/src/module/depot.ts#L199)
+Defined in: [module/depot.ts:199](https://github.com/siposdani87/sui-js/blob/27883240db7565f37a562e906b93c8d6552ac058/src/module/depot.ts#L199)
 
 Clears all entries from the underlying storage backend. This
 removes all keys, not just those managed by this Depot instance.
@@ -127,7 +127,7 @@ depot.clear();
 
 > **get**(`name`): `any`
 
-Defined in: [module/depot.ts:162](https://github.com/siposdani87/sui-js/blob/433cda184a013753ef41bb6ba61d0b3944481fa1/src/module/depot.ts#L162)
+Defined in: [module/depot.ts:162](https://github.com/siposdani87/sui-js/blob/27883240db7565f37a562e906b93c8d6552ac058/src/module/depot.ts#L162)
 
 Retrieves and decrypts a value from storage by its logical name.
 The decrypted value is automatically type-cast, so stored numeric
@@ -163,7 +163,7 @@ depot.get('nonexistent'); // null
 
 > **remove**(`name`): `void`
 
-Defined in: [module/depot.ts:185](https://github.com/siposdani87/sui-js/blob/433cda184a013753ef41bb6ba61d0b3944481fa1/src/module/depot.ts#L185)
+Defined in: [module/depot.ts:185](https://github.com/siposdani87/sui-js/blob/27883240db7565f37a562e906b93c8d6552ac058/src/module/depot.ts#L185)
 
 Removes a single entry from storage by its logical name.
 
@@ -193,7 +193,7 @@ depot.get('token'); // null
 
 > **set**(`name`, `value`, `opt_expires?`): `void`
 
-Defined in: [module/depot.ts:136](https://github.com/siposdani87/sui-js/blob/433cda184a013753ef41bb6ba61d0b3944481fa1/src/module/depot.ts#L136)
+Defined in: [module/depot.ts:136](https://github.com/siposdani87/sui-js/blob/27883240db7565f37a562e906b93c8d6552ac058/src/module/depot.ts#L136)
 
 Stores a value in the selected storage backend. The value is
 AES-encrypted with the configured secret and stored alongside

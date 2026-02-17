@@ -1,6 +1,6 @@
 # Class: Router
 
-Defined in: [core/router.ts:39](https://github.com/siposdani87/sui-js/blob/433cda184a013753ef41bb6ba61d0b3944481fa1/src/core/router.ts#L39)
+Defined in: [core/router.ts:39](https://github.com/siposdani87/sui-js/blob/27883240db7565f37a562e906b93c8d6552ac058/src/core/router.ts#L39)
 
 Handles URL pattern matching and parameter extraction for client-side
 routing. A Router instance compiles a route pattern string into a regular
@@ -41,7 +41,7 @@ const url = router.stringify({ userId: 42, postId: 7 });
 
 > **new Router**(`opt_route?`): `Router`
 
-Defined in: [core/router.ts:54](https://github.com/siposdani87/sui-js/blob/433cda184a013753ef41bb6ba61d0b3944481fa1/src/core/router.ts#L54)
+Defined in: [core/router.ts:54](https://github.com/siposdani87/sui-js/blob/27883240db7565f37a562e906b93c8d6552ac058/src/core/router.ts#L54)
 
 Creates a new Router for the given route pattern. The pattern is
 compiled into a regular expression during construction, and
@@ -66,7 +66,7 @@ Route pattern string containing `:param` or `*param`
 
 > **escape**: `RegExp`
 
-Defined in: [core/router.ts:42](https://github.com/siposdani87/sui-js/blob/433cda184a013753ef41bb6ba61d0b3944481fa1/src/core/router.ts#L42)
+Defined in: [core/router.ts:42](https://github.com/siposdani87/sui-js/blob/27883240db7565f37a562e906b93c8d6552ac058/src/core/router.ts#L42)
 
 ***
 
@@ -74,7 +74,7 @@ Defined in: [core/router.ts:42](https://github.com/siposdani87/sui-js/blob/433cd
 
 > **param**: `RegExp`
 
-Defined in: [core/router.ts:41](https://github.com/siposdani87/sui-js/blob/433cda184a013753ef41bb6ba61d0b3944481fa1/src/core/router.ts#L41)
+Defined in: [core/router.ts:41](https://github.com/siposdani87/sui-js/blob/27883240db7565f37a562e906b93c8d6552ac058/src/core/router.ts#L41)
 
 ***
 
@@ -82,7 +82,7 @@ Defined in: [core/router.ts:41](https://github.com/siposdani87/sui-js/blob/433cd
 
 > **paramNames**: `string`[]
 
-Defined in: [core/router.ts:43](https://github.com/siposdani87/sui-js/blob/433cda184a013753ef41bb6ba61d0b3944481fa1/src/core/router.ts#L43)
+Defined in: [core/router.ts:43](https://github.com/siposdani87/sui-js/blob/27883240db7565f37a562e906b93c8d6552ac058/src/core/router.ts#L43)
 
 ***
 
@@ -90,7 +90,7 @@ Defined in: [core/router.ts:43](https://github.com/siposdani87/sui-js/blob/433cd
 
 > **regex**: `RegExp`
 
-Defined in: [core/router.ts:44](https://github.com/siposdani87/sui-js/blob/433cda184a013753ef41bb6ba61d0b3944481fa1/src/core/router.ts#L44)
+Defined in: [core/router.ts:44](https://github.com/siposdani87/sui-js/blob/27883240db7565f37a562e906b93c8d6552ac058/src/core/router.ts#L44)
 
 ***
 
@@ -98,7 +98,7 @@ Defined in: [core/router.ts:44](https://github.com/siposdani87/sui-js/blob/433cd
 
 > **route**: `string`
 
-Defined in: [core/router.ts:40](https://github.com/siposdani87/sui-js/blob/433cda184a013753ef41bb6ba61d0b3944481fa1/src/core/router.ts#L40)
+Defined in: [core/router.ts:40](https://github.com/siposdani87/sui-js/blob/27883240db7565f37a562e906b93c8d6552ac058/src/core/router.ts#L40)
 
 ## Methods
 
@@ -106,7 +106,7 @@ Defined in: [core/router.ts:40](https://github.com/siposdani87/sui-js/blob/433cd
 
 > **getMatches**(`url`): `RegExpMatchArray` \| `null`
 
-Defined in: [core/router.ts:130](https://github.com/siposdani87/sui-js/blob/433cda184a013753ef41bb6ba61d0b3944481fa1/src/core/router.ts#L130)
+Defined in: [core/router.ts:130](https://github.com/siposdani87/sui-js/blob/27883240db7565f37a562e906b93c8d6552ac058/src/core/router.ts#L130)
 
 Tests whether a URL path matches the compiled route pattern. The
 query string portion of the URL (if present) is stripped before
@@ -141,7 +141,7 @@ router.getMatches('/posts/42');    // null
 
 > **parse**(`url`): `object`
 
-Defined in: [core/router.ts:154](https://github.com/siposdani87/sui-js/blob/433cda184a013753ef41bb6ba61d0b3944481fa1/src/core/router.ts#L154)
+Defined in: [core/router.ts:154](https://github.com/siposdani87/sui-js/blob/27883240db7565f37a562e906b93c8d6552ac058/src/core/router.ts#L154)
 
 Extracts named parameters from a URL that matches the route pattern.
 Combines both path-segment parameters (from `:param` and `*param`
@@ -179,7 +179,7 @@ const params = router.parse('/items/99?sort=name');
 
 > **stringify**(`opt_params?`): `string`
 
-Defined in: [core/router.ts:95](https://github.com/siposdani87/sui-js/blob/433cda184a013753ef41bb6ba61d0b3944481fa1/src/core/router.ts#L95)
+Defined in: [core/router.ts:95](https://github.com/siposdani87/sui-js/blob/27883240db7565f37a562e906b93c8d6552ac058/src/core/router.ts#L95)
 
 Builds a URL string from the route pattern by substituting parameter
 values into placeholders. Any parameters that do not correspond to

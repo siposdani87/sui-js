@@ -1,6 +1,6 @@
 # Class: Helper
 
-Defined in: [module/helper.ts:46](https://github.com/siposdani87/sui-js/blob/433cda184a013753ef41bb6ba61d0b3944481fa1/src/module/helper.ts#L46)
+Defined in: [module/helper.ts:46](https://github.com/siposdani87/sui-js/blob/27883240db7565f37a562e906b93c8d6552ac058/src/module/helper.ts#L46)
 
 UI element factory for creating and enhancing styled links, buttons,
 and icon buttons with Material Design Lite classes. Helper provides
@@ -59,7 +59,7 @@ const iconBtn = helper.createIconButton('delete', (id, button) => {
 
 > **button**(`selector`, `dom`, `callback`, `opt_description?`, `opt_allowAccess?`, `opt_cssClasses?`): [`Knot`](Knot.md)
 
-Defined in: [module/helper.ts:299](https://github.com/siposdani87/sui-js/blob/433cda184a013753ef41bb6ba61d0b3944481fa1/src/module/helper.ts#L299)
+Defined in: [module/helper.ts:299](https://github.com/siposdani87/sui-js/blob/27883240db7565f37a562e906b93c8d6552ac058/src/module/helper.ts#L299)
 
 Selects a single element matching the CSS selector within the
 given DOM container and enhances it as a button via
@@ -125,7 +125,7 @@ const btn = helper.button('.submit-btn', formKnot, (id, button) => {
 
 > **buttonElement**(`buttonKnot`, `opt_callback?`, `opt_description?`, `opt_allowAccess?`, `opt_cssClasses?`): `void`
 
-Defined in: [module/helper.ts:336](https://github.com/siposdani87/sui-js/blob/433cda184a013753ef41bb6ba61d0b3944481fa1/src/module/helper.ts#L336)
+Defined in: [module/helper.ts:336](https://github.com/siposdani87/sui-js/blob/27883240db7565f37a562e906b93c8d6552ac058/src/module/helper.ts#L336)
 
 Enhances an existing button [Knot](Knot.md) with Material Design Lite
 classes, click handling, and a tooltip. Applies base MDL button
@@ -180,7 +180,7 @@ Additional MDL CSS classes to add.
 
 > **createButton**(`name`, `callback`, `opt_description?`, `opt_allowAccess?`, `opt_cssClasses?`): [`Knot`](Knot.md)
 
-Defined in: [module/helper.ts:231](https://github.com/siposdani87/sui-js/blob/433cda184a013753ef41bb6ba61d0b3944481fa1/src/module/helper.ts#L231)
+Defined in: [module/helper.ts:231](https://github.com/siposdani87/sui-js/blob/27883240db7565f37a562e906b93c8d6552ac058/src/module/helper.ts#L231)
 
 Creates a new `<button>` element with the given display name
 and enhances it with Material Design Lite classes, click handling,
@@ -240,7 +240,7 @@ const btn = helper.createButton('Save', (id, button) => {
 
 > **createIconButton**(`iconName`, `callback`, `opt_description?`, `opt_allowAccess?`, `opt_cssClasses?`): [`Knot`](Knot.md)
 
-Defined in: [module/helper.ts:393](https://github.com/siposdani87/sui-js/blob/433cda184a013753ef41bb6ba61d0b3944481fa1/src/module/helper.ts#L393)
+Defined in: [module/helper.ts:393](https://github.com/siposdani87/sui-js/blob/27883240db7565f37a562e906b93c8d6552ac058/src/module/helper.ts#L393)
 
 Creates a new `<button>` element with a Material icon and enhances
 it with icon button styling, click handling, and a tooltip via
@@ -301,7 +301,7 @@ const deleteBtn = helper.createIconButton('delete', (id, button) => {
 
 > **createLink**(`name`, `opt_callback`, `opt_href?`, `opt_description?`, `opt_allowAccess?`, `opt_cssClasses?`): [`Knot`](Knot.md)
 
-Defined in: [module/helper.ts:68](https://github.com/siposdani87/sui-js/blob/433cda184a013753ef41bb6ba61d0b3944481fa1/src/module/helper.ts#L68)
+Defined in: [module/helper.ts:68](https://github.com/siposdani87/sui-js/blob/27883240db7565f37a562e906b93c8d6552ac058/src/module/helper.ts#L68)
 
 Creates a new anchor (`<a>`) element with the given display name
 and enhances it with click handling, tooltip, and CSS classes
@@ -368,7 +368,7 @@ const link = helper.createLink('Home', (href, knot) => {
 
 > **iconButton**(`selector`, `dom`, `callback`, `opt_description?`, `opt_allowAccess?`, `opt_cssClasses?`): [`Knot`](Knot.md)
 
-Defined in: [module/helper.ts:471](https://github.com/siposdani87/sui-js/blob/433cda184a013753ef41bb6ba61d0b3944481fa1/src/module/helper.ts#L471)
+Defined in: [module/helper.ts:471](https://github.com/siposdani87/sui-js/blob/27883240db7565f37a562e906b93c8d6552ac058/src/module/helper.ts#L471)
 
 Selects a single element matching the CSS selector within the
 given DOM container and enhances it as an icon button via
@@ -438,7 +438,7 @@ const editBtn = helper.iconButton('.edit-btn', containerKnot,
 
 > **iconButtonElement**(`buttonKnot`, `opt_callback?`, `opt_description?`, `opt_allowAccess?`, `opt_cssClasses?`): `void`
 
-Defined in: [module/helper.ts:513](https://github.com/siposdani87/sui-js/blob/433cda184a013753ef41bb6ba61d0b3944481fa1/src/module/helper.ts#L513)
+Defined in: [module/helper.ts:513](https://github.com/siposdani87/sui-js/blob/27883240db7565f37a562e906b93c8d6552ac058/src/module/helper.ts#L513)
 
 Enhances an existing button [Knot](Knot.md) with icon button styling.
 Applies base MDL classes (`mdl-button`, `mdl-js-button`,
@@ -494,7 +494,7 @@ Additional MDL CSS classes for icon button
 
 > **link**(`selector`, `dom`, `opt_callback`, `opt_href?`, `opt_description?`, `opt_allowAccess?`, `opt_cssClasses?`): [`Knot`](Knot.md)
 
-Defined in: [module/helper.ts:139](https://github.com/siposdani87/sui-js/blob/433cda184a013753ef41bb6ba61d0b3944481fa1/src/module/helper.ts#L139)
+Defined in: [module/helper.ts:139](https://github.com/siposdani87/sui-js/blob/27883240db7565f37a562e906b93c8d6552ac058/src/module/helper.ts#L139)
 
 Selects a single element matching the CSS selector within the
 given DOM container and enhances it as a link via
@@ -566,7 +566,7 @@ const link = helper.link('.nav-home', containerKnot, (href, knot) => {
 
 > **linkElement**(`linkKnot`, `opt_callback`, `opt_href?`, `opt_description?`, `opt_allowAccess?`, `opt_cssClasses?`): `void`
 
-Defined in: [module/helper.ts:178](https://github.com/siposdani87/sui-js/blob/433cda184a013753ef41bb6ba61d0b3944481fa1/src/module/helper.ts#L178)
+Defined in: [module/helper.ts:178](https://github.com/siposdani87/sui-js/blob/27883240db7565f37a562e906b93c8d6552ac058/src/module/helper.ts#L178)
 
 Enhances an existing anchor [Knot](Knot.md) with CSS classes, click
 handling, and a tooltip. Generates an ID if the element does not
@@ -626,7 +626,7 @@ CSS classes to add to the link element.
 
 > **multipleButton**(`selector`, `dom`, `opt_callback?`, `opt_cssClasses?`): `void`
 
-Defined in: [module/helper.ts:261](https://github.com/siposdani87/sui-js/blob/433cda184a013753ef41bb6ba61d0b3944481fa1/src/module/helper.ts#L261)
+Defined in: [module/helper.ts:261](https://github.com/siposdani87/sui-js/blob/27883240db7565f37a562e906b93c8d6552ac058/src/module/helper.ts#L261)
 
 Selects all elements matching the CSS selector within the given
 DOM container and enhances each as a button via
@@ -669,7 +669,7 @@ Additional MDL CSS classes to add.
 
 > **multipleIconButton**(`selector`, `dom`, `opt_cssClasses?`): `void`
 
-Defined in: [module/helper.ts:426](https://github.com/siposdani87/sui-js/blob/433cda184a013753ef41bb6ba61d0b3944481fa1/src/module/helper.ts#L426)
+Defined in: [module/helper.ts:426](https://github.com/siposdani87/sui-js/blob/27883240db7565f37a562e906b93c8d6552ac058/src/module/helper.ts#L426)
 
 Selects all elements matching the CSS selector within the given
 DOM container and enhances each as an icon button via
@@ -706,7 +706,7 @@ Additional MDL CSS classes for icon button
 
 > **multipleLink**(`selector`, `dom`, `opt_callback`, `opt_cssClasses?`): `void`
 
-Defined in: [module/helper.ts:99](https://github.com/siposdani87/sui-js/blob/433cda184a013753ef41bb6ba61d0b3944481fa1/src/module/helper.ts#L99)
+Defined in: [module/helper.ts:99](https://github.com/siposdani87/sui-js/blob/27883240db7565f37a562e906b93c8d6552ac058/src/module/helper.ts#L99)
 
 Selects all elements matching the CSS selector within the given
 DOM container and enhances each as a link via [linkElement](#linkelement).
@@ -748,7 +748,7 @@ CSS classes to add to each matched element.
 
 > **setGravatar**(`imageKnot`, `defaultImageUrl`, `email`, `opt_size?`, `opt_rating?`): `void`
 
-Defined in: [module/helper.ts:605](https://github.com/siposdani87/sui-js/blob/433cda184a013753ef41bb6ba61d0b3944481fa1/src/module/helper.ts#L605)
+Defined in: [module/helper.ts:605](https://github.com/siposdani87/sui-js/blob/27883240db7565f37a562e906b93c8d6552ac058/src/module/helper.ts#L605)
 
 Sets a Gravatar image on the given image [Knot](Knot.md) based on
 the provided email address. Uses MD5 hashing of the email for

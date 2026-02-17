@@ -1,6 +1,6 @@
 # Class: Table\<T\>
 
-Defined in: [component/table.ts:72](https://github.com/siposdani87/sui-js/blob/433cda184a013753ef41bb6ba61d0b3944481fa1/src/component/table.ts#L72)
+Defined in: [component/table.ts:72](https://github.com/siposdani87/sui-js/blob/27883240db7565f37a562e906b93c8d6552ac058/src/component/table.ts#L72)
 
 ## Description
 
@@ -49,7 +49,7 @@ The row data type, must extend [Objekt](Objekt.md).
 
 > **new Table**\<`T`\>(`dom`, `opt_selector?`, `opt_options?`): `Table`\<`T`\>
 
-Defined in: [component/table.ts:92](https://github.com/siposdani87/sui-js/blob/433cda184a013753ef41bb6ba61d0b3944481fa1/src/component/table.ts#L92)
+Defined in: [component/table.ts:92](https://github.com/siposdani87/sui-js/blob/27883240db7565f37a562e906b93c8d6552ac058/src/component/table.ts#L92)
 
 #### Parameters
 
@@ -85,7 +85,7 @@ Creates a new Table instance bound to the table element found within the given D
 
 > **actions**: [`Action`](../type-aliases/Action.md)[]
 
-Defined in: [component/table.ts:77](https://github.com/siposdani87/sui-js/blob/433cda184a013753ef41bb6ba61d0b3944481fa1/src/component/table.ts#L77)
+Defined in: [component/table.ts:77](https://github.com/siposdani87/sui-js/blob/27883240db7565f37a562e906b93c8d6552ac058/src/component/table.ts#L77)
 
 ***
 
@@ -93,7 +93,7 @@ Defined in: [component/table.ts:77](https://github.com/siposdani87/sui-js/blob/4
 
 > **collection**: [`Collection`](Collection.md)\<`T`\>
 
-Defined in: [component/table.ts:75](https://github.com/siposdani87/sui-js/blob/433cda184a013753ef41bb6ba61d0b3944481fa1/src/component/table.ts#L75)
+Defined in: [component/table.ts:75](https://github.com/siposdani87/sui-js/blob/27883240db7565f37a562e906b93c8d6552ac058/src/component/table.ts#L75)
 
 ***
 
@@ -101,7 +101,7 @@ Defined in: [component/table.ts:75](https://github.com/siposdani87/sui-js/blob/4
 
 > **contentHandler**: [`ContentHandler`](ContentHandler.md)
 
-Defined in: [component/table.ts:78](https://github.com/siposdani87/sui-js/blob/433cda184a013753ef41bb6ba61d0b3944481fa1/src/component/table.ts#L78)
+Defined in: [component/table.ts:78](https://github.com/siposdani87/sui-js/blob/27883240db7565f37a562e906b93c8d6552ac058/src/component/table.ts#L78)
 
 ***
 
@@ -109,7 +109,7 @@ Defined in: [component/table.ts:78](https://github.com/siposdani87/sui-js/blob/4
 
 > **headerKnots**: [`Query`](Query.md)\<`HTMLElement`\>
 
-Defined in: [component/table.ts:79](https://github.com/siposdani87/sui-js/blob/433cda184a013753ef41bb6ba61d0b3944481fa1/src/component/table.ts#L79)
+Defined in: [component/table.ts:79](https://github.com/siposdani87/sui-js/blob/27883240db7565f37a562e906b93c8d6552ac058/src/component/table.ts#L79)
 
 ***
 
@@ -117,7 +117,7 @@ Defined in: [component/table.ts:79](https://github.com/siposdani87/sui-js/blob/4
 
 > **headerTexts**: `string`[]
 
-Defined in: [component/table.ts:80](https://github.com/siposdani87/sui-js/blob/433cda184a013753ef41bb6ba61d0b3944481fa1/src/component/table.ts#L80)
+Defined in: [component/table.ts:80](https://github.com/siposdani87/sui-js/blob/27883240db7565f37a562e906b93c8d6552ac058/src/component/table.ts#L80)
 
 ***
 
@@ -125,7 +125,7 @@ Defined in: [component/table.ts:80](https://github.com/siposdani87/sui-js/blob/4
 
 > **options**: [`Objekt`](Objekt.md)
 
-Defined in: [component/table.ts:74](https://github.com/siposdani87/sui-js/blob/433cda184a013753ef41bb6ba61d0b3944481fa1/src/component/table.ts#L74)
+Defined in: [component/table.ts:74](https://github.com/siposdani87/sui-js/blob/27883240db7565f37a562e906b93c8d6552ac058/src/component/table.ts#L74)
 
 ***
 
@@ -133,7 +133,7 @@ Defined in: [component/table.ts:74](https://github.com/siposdani87/sui-js/blob/4
 
 > **pager**: [`Pager`](Pager.md)
 
-Defined in: [component/table.ts:83](https://github.com/siposdani87/sui-js/blob/433cda184a013753ef41bb6ba61d0b3944481fa1/src/component/table.ts#L83)
+Defined in: [component/table.ts:83](https://github.com/siposdani87/sui-js/blob/27883240db7565f37a562e906b93c8d6552ac058/src/component/table.ts#L83)
 
 ***
 
@@ -141,7 +141,7 @@ Defined in: [component/table.ts:83](https://github.com/siposdani87/sui-js/blob/4
 
 > **query**: `string`
 
-Defined in: [component/table.ts:76](https://github.com/siposdani87/sui-js/blob/433cda184a013753ef41bb6ba61d0b3944481fa1/src/component/table.ts#L76)
+Defined in: [component/table.ts:76](https://github.com/siposdani87/sui-js/blob/27883240db7565f37a562e906b93c8d6552ac058/src/component/table.ts#L76)
 
 ***
 
@@ -149,7 +149,7 @@ Defined in: [component/table.ts:76](https://github.com/siposdani87/sui-js/blob/4
 
 > **tableKnot**: [`Knot`](Knot.md)
 
-Defined in: [component/table.ts:73](https://github.com/siposdani87/sui-js/blob/433cda184a013753ef41bb6ba61d0b3944481fa1/src/component/table.ts#L73)
+Defined in: [component/table.ts:73](https://github.com/siposdani87/sui-js/blob/27883240db7565f37a562e906b93c8d6552ac058/src/component/table.ts#L73)
 
 ***
 
@@ -157,7 +157,7 @@ Defined in: [component/table.ts:73](https://github.com/siposdani87/sui-js/blob/4
 
 > **tbody**: [`Knot`](Knot.md)
 
-Defined in: [component/table.ts:81](https://github.com/siposdani87/sui-js/blob/433cda184a013753ef41bb6ba61d0b3944481fa1/src/component/table.ts#L81)
+Defined in: [component/table.ts:81](https://github.com/siposdani87/sui-js/blob/27883240db7565f37a562e906b93c8d6552ac058/src/component/table.ts#L81)
 
 ***
 
@@ -165,7 +165,7 @@ Defined in: [component/table.ts:81](https://github.com/siposdani87/sui-js/blob/4
 
 > **tfoot**: [`Knot`](Knot.md)
 
-Defined in: [component/table.ts:82](https://github.com/siposdani87/sui-js/blob/433cda184a013753ef41bb6ba61d0b3944481fa1/src/component/table.ts#L82)
+Defined in: [component/table.ts:82](https://github.com/siposdani87/sui-js/blob/27883240db7565f37a562e906b93c8d6552ac058/src/component/table.ts#L82)
 
 ## Methods
 
@@ -173,7 +173,7 @@ Defined in: [component/table.ts:82](https://github.com/siposdani87/sui-js/blob/4
 
 > **eventAction**(`params`): `void`
 
-Defined in: [component/table.ts:337](https://github.com/siposdani87/sui-js/blob/433cda184a013753ef41bb6ba61d0b3944481fa1/src/component/table.ts#L337)
+Defined in: [component/table.ts:337](https://github.com/siposdani87/sui-js/blob/27883240db7565f37a562e906b93c8d6552ac058/src/component/table.ts#L337)
 
 #### Parameters
 
@@ -197,7 +197,7 @@ Called when the table needs data (on refresh, sort, page, or search). Override t
 
 > **refresh**(`opt_page?`): `void`
 
-Defined in: [component/table.ts:319](https://github.com/siposdani87/sui-js/blob/433cda184a013753ef41bb6ba61d0b3944481fa1/src/component/table.ts#L319)
+Defined in: [component/table.ts:319](https://github.com/siposdani87/sui-js/blob/27883240db7565f37a562e906b93c8d6552ac058/src/component/table.ts#L319)
 
 #### Parameters
 
@@ -228,7 +228,7 @@ table.refresh(1); // reload from page 1
 
 > **render**(): `void`
 
-Defined in: [component/table.ts:723](https://github.com/siposdani87/sui-js/blob/433cda184a013753ef41bb6ba61d0b3944481fa1/src/component/table.ts#L723)
+Defined in: [component/table.ts:723](https://github.com/siposdani87/sui-js/blob/27883240db7565f37a562e906b93c8d6552ac058/src/component/table.ts#L723)
 
 #### Returns
 
@@ -250,7 +250,7 @@ table.render();
 
 > **setActions**(`actions`): `void`
 
-Defined in: [component/table.ts:505](https://github.com/siposdani87/sui-js/blob/433cda184a013753ef41bb6ba61d0b3944481fa1/src/component/table.ts#L505)
+Defined in: [component/table.ts:505](https://github.com/siposdani87/sui-js/blob/27883240db7565f37a562e906b93c8d6552ac058/src/component/table.ts#L505)
 
 #### Parameters
 
@@ -283,7 +283,7 @@ table.setActions([
 
 > **setCount**(`count`): `void`
 
-Defined in: [component/table.ts:685](https://github.com/siposdani87/sui-js/blob/433cda184a013753ef41bb6ba61d0b3944481fa1/src/component/table.ts#L685)
+Defined in: [component/table.ts:685](https://github.com/siposdani87/sui-js/blob/27883240db7565f37a562e906b93c8d6552ac058/src/component/table.ts#L685)
 
 #### Parameters
 
@@ -313,7 +313,7 @@ table.setCount(150);
 
 > **setData**(`items`): `void`
 
-Defined in: [component/table.ts:667](https://github.com/siposdani87/sui-js/blob/433cda184a013753ef41bb6ba61d0b3944481fa1/src/component/table.ts#L667)
+Defined in: [component/table.ts:667](https://github.com/siposdani87/sui-js/blob/27883240db7565f37a562e906b93c8d6552ac058/src/component/table.ts#L667)
 
 #### Parameters
 

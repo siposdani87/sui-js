@@ -1,6 +1,6 @@
 # Class: BottomMenu
 
-Defined in: [module/bottomMenu.ts:21](https://github.com/siposdani87/sui-js/blob/433cda184a013753ef41bb6ba61d0b3944481fa1/src/module/bottomMenu.ts#L21)
+Defined in: [module/bottomMenu.ts:21](https://github.com/siposdani87/sui-js/blob/27883240db7565f37a562e906b93c8d6552ac058/src/module/bottomMenu.ts#L21)
 
 Popup menu rendered inside the application [Footer](Footer.md). Toggling
 the menu also opens/closes the footer's expanded state.
@@ -27,7 +27,7 @@ const container = bottomMenu.getContainer();
 
 > **new BottomMenu**(`footer`): `BottomMenu`
 
-Defined in: [module/bottomMenu.ts:32](https://github.com/siposdani87/sui-js/blob/433cda184a013753ef41bb6ba61d0b3944481fa1/src/module/bottomMenu.ts#L32)
+Defined in: [module/bottomMenu.ts:32](https://github.com/siposdani87/sui-js/blob/27883240db7565f37a562e906b93c8d6552ac058/src/module/bottomMenu.ts#L32)
 
 Creates a new BottomMenu instance and binds the toggle click events
 within the provided footer.
@@ -51,7 +51,7 @@ The application footer instance that
 
 > **bottomMenu**: [`Knot`](Knot.md)
 
-Defined in: [module/bottomMenu.ts:23](https://github.com/siposdani87/sui-js/blob/433cda184a013753ef41bb6ba61d0b3944481fa1/src/module/bottomMenu.ts#L23)
+Defined in: [module/bottomMenu.ts:23](https://github.com/siposdani87/sui-js/blob/27883240db7565f37a562e906b93c8d6552ac058/src/module/bottomMenu.ts#L23)
 
 ***
 
@@ -59,7 +59,7 @@ Defined in: [module/bottomMenu.ts:23](https://github.com/siposdani87/sui-js/blob
 
 > **footer**: [`Footer`](Footer.md)
 
-Defined in: [module/bottomMenu.ts:22](https://github.com/siposdani87/sui-js/blob/433cda184a013753ef41bb6ba61d0b3944481fa1/src/module/bottomMenu.ts#L22)
+Defined in: [module/bottomMenu.ts:22](https://github.com/siposdani87/sui-js/blob/27883240db7565f37a562e906b93c8d6552ac058/src/module/bottomMenu.ts#L22)
 
 ## Methods
 
@@ -67,7 +67,7 @@ Defined in: [module/bottomMenu.ts:22](https://github.com/siposdani87/sui-js/blob
 
 > **close**(): `void`
 
-Defined in: [module/bottomMenu.ts:103](https://github.com/siposdani87/sui-js/blob/433cda184a013753ef41bb6ba61d0b3944481fa1/src/module/bottomMenu.ts#L103)
+Defined in: [module/bottomMenu.ts:103](https://github.com/siposdani87/sui-js/blob/27883240db7565f37a562e906b93c8d6552ac058/src/module/bottomMenu.ts#L103)
 
 Closes the bottom menu by hiding it and collapsing the footer.
 
@@ -81,7 +81,7 @@ Closes the bottom menu by hiding it and collapsing the footer.
 
 > **getContainer**(): [`Knot`](Knot.md)
 
-Defined in: [module/bottomMenu.ts:118](https://github.com/siposdani87/sui-js/blob/433cda184a013753ef41bb6ba61d0b3944481fa1/src/module/bottomMenu.ts#L118)
+Defined in: [module/bottomMenu.ts:118](https://github.com/siposdani87/sui-js/blob/27883240db7565f37a562e906b93c8d6552ac058/src/module/bottomMenu.ts#L118)
 
 Returns the menu container [Knot](Knot.md) where menu items should be
 appended.
@@ -105,7 +105,7 @@ container.appendChild(menuItemKnot);
 
 > **isOpened**(): `boolean`
 
-Defined in: [module/bottomMenu.ts:85](https://github.com/siposdani87/sui-js/blob/433cda184a013753ef41bb6ba61d0b3944481fa1/src/module/bottomMenu.ts#L85)
+Defined in: [module/bottomMenu.ts:85](https://github.com/siposdani87/sui-js/blob/27883240db7565f37a562e906b93c8d6552ac058/src/module/bottomMenu.ts#L85)
 
 Checks whether the bottom menu is currently visible.
 
@@ -121,7 +121,7 @@ True if the menu is open, false otherwise.
 
 > **open**(): `void`
 
-Defined in: [module/bottomMenu.ts:95](https://github.com/siposdani87/sui-js/blob/433cda184a013753ef41bb6ba61d0b3944481fa1/src/module/bottomMenu.ts#L95)
+Defined in: [module/bottomMenu.ts:95](https://github.com/siposdani87/sui-js/blob/27883240db7565f37a562e906b93c8d6552ac058/src/module/bottomMenu.ts#L95)
 
 Opens the bottom menu by making it visible and expanding the footer.
 
@@ -141,7 +141,7 @@ bottomMenu.open();
 
 > **toggle**(): `void`
 
-Defined in: [module/bottomMenu.ts:72](https://github.com/siposdani87/sui-js/blob/433cda184a013753ef41bb6ba61d0b3944481fa1/src/module/bottomMenu.ts#L72)
+Defined in: [module/bottomMenu.ts:72](https://github.com/siposdani87/sui-js/blob/27883240db7565f37a562e906b93c8d6552ac058/src/module/bottomMenu.ts#L72)
 
 Toggles the bottom menu between its open and closed states.
 

@@ -2,7 +2,7 @@
 
 > **Dependency** = `object`
 
-Defined in: [utils/types.ts:237](https://github.com/siposdani87/sui-js/blob/433cda184a013753ef41bb6ba61d0b3944481fa1/src/utils/types.ts#L237)
+Defined in: [utils/types.ts:237](https://github.com/siposdani87/sui-js/blob/27883240db7565f37a562e906b93c8d6552ac058/src/utils/types.ts#L237)
 
 Module dependency descriptor for the DI system.
 
@@ -16,7 +16,7 @@ requires them. The DI container resolves each token in
 
 > **moduleCallback**: [`ClassRef`](ClassRef.md)
 
-Defined in: [utils/types.ts:241](https://github.com/siposdani87/sui-js/blob/433cda184a013753ef41bb6ba61d0b3944481fa1/src/utils/types.ts#L241)
+Defined in: [utils/types.ts:241](https://github.com/siposdani87/sui-js/blob/27883240db7565f37a562e906b93c8d6552ac058/src/utils/types.ts#L241)
 
 The module constructor to instantiate with the resolved dependencies.
 
@@ -26,6 +26,6 @@ The module constructor to instantiate with the resolved dependencies.
 
 > **moduleInjections**: `string`[]
 
-Defined in: [utils/types.ts:239](https://github.com/siposdani87/sui-js/blob/433cda184a013753ef41bb6ba61d0b3944481fa1/src/utils/types.ts#L239)
+Defined in: [utils/types.ts:239](https://github.com/siposdani87/sui-js/blob/27883240db7565f37a562e906b93c8d6552ac058/src/utils/types.ts#L239)
 
 Ordered list of injection token names to resolve.

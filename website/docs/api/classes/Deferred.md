@@ -1,6 +1,6 @@
 # Class: Deferred\<T, K\>
 
-Defined in: [core/deferred.ts:29](https://github.com/siposdani87/sui-js/blob/433cda184a013753ef41bb6ba61d0b3944481fa1/src/core/deferred.ts#L29)
+Defined in: [core/deferred.ts:29](https://github.com/siposdani87/sui-js/blob/27883240db7565f37a562e906b93c8d6552ac058/src/core/deferred.ts#L29)
 
 A deferred pattern wrapper around [Promize](Promize.md) that separates promise
 creation from resolution. The Deferred holds an internal [Promize](Promize.md)
@@ -47,7 +47,7 @@ deferred.resolve('Operation complete');
 
 > **new Deferred**\<`T`, `K`\>(): `Deferred`\<`T`, `K`\>
 
-Defined in: [core/deferred.ts:35](https://github.com/siposdani87/sui-js/blob/433cda184a013753ef41bb6ba61d0b3944481fa1/src/core/deferred.ts#L35)
+Defined in: [core/deferred.ts:35](https://github.com/siposdani87/sui-js/blob/27883240db7565f37a562e906b93c8d6552ac058/src/core/deferred.ts#L35)
 
 Creates a new Deferred instance with an unsettled [Promize](Promize.md).
 
@@ -61,7 +61,7 @@ Creates a new Deferred instance with an unsettled [Promize](Promize.md).
 
 > **promise**(): [`Promize`](Promize.md)\<`T`, `K`\>
 
-Defined in: [core/deferred.ts:52](https://github.com/siposdani87/sui-js/blob/433cda184a013753ef41bb6ba61d0b3944481fa1/src/core/deferred.ts#L52)
+Defined in: [core/deferred.ts:52](https://github.com/siposdani87/sui-js/blob/27883240db7565f37a562e906b93c8d6552ac058/src/core/deferred.ts#L52)
 
 Returns the underlying [Promize](Promize.md) instance so that consumers can
 register `then()` callbacks without having access to the resolve/reject
@@ -88,7 +88,7 @@ deferred.resolve(42);
 
 > **reject**(`opt_data?`): `void`
 
-Defined in: [core/deferred.ts:82](https://github.com/siposdani87/sui-js/blob/433cda184a013753ef41bb6ba61d0b3944481fa1/src/core/deferred.ts#L82)
+Defined in: [core/deferred.ts:82](https://github.com/siposdani87/sui-js/blob/27883240db7565f37a562e906b93c8d6552ac058/src/core/deferred.ts#L82)
 
 Rejects the deferred's [Promize](Promize.md) with the given data, triggering
 any registered reject and complete callbacks.
@@ -119,7 +119,7 @@ deferred.reject(new Error('Something went wrong'));
 
 > **resolve**(`opt_data?`): `void`
 
-Defined in: [core/deferred.ts:67](https://github.com/siposdani87/sui-js/blob/433cda184a013753ef41bb6ba61d0b3944481fa1/src/core/deferred.ts#L67)
+Defined in: [core/deferred.ts:67](https://github.com/siposdani87/sui-js/blob/27883240db7565f37a562e906b93c8d6552ac058/src/core/deferred.ts#L67)
 
 Resolves the deferred's [Promize](Promize.md) with the given data, triggering
 any registered resolve and complete callbacks.

@@ -1,6 +1,6 @@
 # Class: Style
 
-Defined in: [module/style.ts:27](https://github.com/siposdani87/sui-js/blob/433cda184a013753ef41bb6ba61d0b3944481fa1/src/module/style.ts#L27)
+Defined in: [module/style.ts:27](https://github.com/siposdani87/sui-js/blob/27883240db7565f37a562e906b93c8d6552ac058/src/module/style.ts#L27)
 
 Dynamic stylesheet loader that appends `<link>` tags to the document
 `<head>`. Each stylesheet is identified by a unique ID; loading a
@@ -30,7 +30,7 @@ style.load('theme-dark', '/css/dark-theme.css').then(() => {
 
 > **new Style**(`progressBar`, `opt_options?`): `Style`
 
-Defined in: [module/style.ts:40](https://github.com/siposdani87/sui-js/blob/433cda184a013753ef41bb6ba61d0b3944481fa1/src/module/style.ts#L40)
+Defined in: [module/style.ts:40](https://github.com/siposdani87/sui-js/blob/27883240db7565f37a562e906b93c8d6552ac058/src/module/style.ts#L40)
 
 Creates a new Style loader instance.
 
@@ -60,7 +60,7 @@ Optional configuration
 
 > **head**: [`Knot`](Knot.md)
 
-Defined in: [module/style.ts:30](https://github.com/siposdani87/sui-js/blob/433cda184a013753ef41bb6ba61d0b3944481fa1/src/module/style.ts#L30)
+Defined in: [module/style.ts:30](https://github.com/siposdani87/sui-js/blob/27883240db7565f37a562e906b93c8d6552ac058/src/module/style.ts#L30)
 
 ***
 
@@ -68,7 +68,7 @@ Defined in: [module/style.ts:30](https://github.com/siposdani87/sui-js/blob/433c
 
 > **options**: [`Objekt`](Objekt.md)
 
-Defined in: [module/style.ts:29](https://github.com/siposdani87/sui-js/blob/433cda184a013753ef41bb6ba61d0b3944481fa1/src/module/style.ts#L29)
+Defined in: [module/style.ts:29](https://github.com/siposdani87/sui-js/blob/27883240db7565f37a562e906b93c8d6552ac058/src/module/style.ts#L29)
 
 ***
 
@@ -76,7 +76,7 @@ Defined in: [module/style.ts:29](https://github.com/siposdani87/sui-js/blob/433c
 
 > **progressBar**: [`ProgressBar`](ProgressBar.md)
 
-Defined in: [module/style.ts:28](https://github.com/siposdani87/sui-js/blob/433cda184a013753ef41bb6ba61d0b3944481fa1/src/module/style.ts#L28)
+Defined in: [module/style.ts:28](https://github.com/siposdani87/sui-js/blob/27883240db7565f37a562e906b93c8d6552ac058/src/module/style.ts#L28)
 
 ## Methods
 
@@ -84,7 +84,7 @@ Defined in: [module/style.ts:28](https://github.com/siposdani87/sui-js/blob/433c
 
 > **load**(`id`, `url`, `opt_params?`, `opt_rel?`, `opt_media?`): [`Promize`](Promize.md)\<`boolean`, `boolean`\>
 
-Defined in: [module/style.ts:86](https://github.com/siposdani87/sui-js/blob/433cda184a013753ef41bb6ba61d0b3944481fa1/src/module/style.ts#L86)
+Defined in: [module/style.ts:86](https://github.com/siposdani87/sui-js/blob/27883240db7565f37a562e906b93c8d6552ac058/src/module/style.ts#L86)
 
 Loads a CSS stylesheet by appending a `<link>` tag to the document
 head. If a link with the given ID already exists in the DOM, the
@@ -145,7 +145,7 @@ style.load('print-css', '/css/print.css', {}, 'stylesheet', 'print');
 
 > **remove**(`id`): `void`
 
-Defined in: [module/style.ts:131](https://github.com/siposdani87/sui-js/blob/433cda184a013753ef41bb6ba61d0b3944481fa1/src/module/style.ts#L131)
+Defined in: [module/style.ts:131](https://github.com/siposdani87/sui-js/blob/27883240db7565f37a562e906b93c8d6552ac058/src/module/style.ts#L131)
 
 Removes a previously loaded stylesheet element from the DOM by its
 ID. If no element with the given ID exists or the element is empty,

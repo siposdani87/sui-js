@@ -1,6 +1,6 @@
 # Class: Service
 
-Defined in: [common/service.ts:19](https://github.com/siposdani87/sui-js/blob/433cda184a013753ef41bb6ba61d0b3944481fa1/src/common/service.ts#L19)
+Defined in: [common/service.ts:19](https://github.com/siposdani87/sui-js/blob/27883240db7565f37a562e906b93c8d6552ac058/src/common/service.ts#L19)
 
 Base service class with an `enter()` lifecycle hook.
 
@@ -41,7 +41,7 @@ class AuthService extends Service {
 
 > **enter**(): `void`
 
-Defined in: [common/service.ts:23](https://github.com/siposdani87/sui-js/blob/433cda184a013753ef41bb6ba61d0b3944481fa1/src/common/service.ts#L23)
+Defined in: [common/service.ts:23](https://github.com/siposdani87/sui-js/blob/27883240db7565f37a562e906b93c8d6552ac058/src/common/service.ts#L23)
 
 Called when the service is activated. Override to perform initialization.
 

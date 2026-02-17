@@ -7,13 +7,40 @@ import { ContentHandler } from './contentHandler';
 import { Pager } from './pager';
 import { consoleDebug, consoleWarn } from '../utils/log';
 import { mdl } from '../utils/render';
+/**
+ * @description Card-based data display component with template rendering and pagination.
+ * Renders data items as cards using an HTML template element, with built-in
+ * paging and empty-content handling.
+ *
+ * @example
+ * const cards = new CardCollection(containerKnot, '.card-collection', ctrl, { row_count: 12 });
+ * cards.eventAction = (params) => http.get('/api/items', params);
+ * cards.render();
+ *
+ * @see {@link Pager} for the pagination control
+ * @see {@link ContentHandler} for the empty-content placeholder
+ * @see {@link Collection} for the underlying data collection
+ *
+ * @category Component
+ */
 export class CardCollection {
+    /**
+     * @description Creates a new CardCollection bound to a DOM container with optional controller and options.
+     * @param {Knot} dom - The parent DOM element.
+     * @param {string} [opt_selector] - CSS selector for the card collection container.
+     * @param {object | null} [opt_ctrl] - Controller object for template expression evaluation.
+     * @param {object} [opt_options] - Configuration options (row_count, pager_num, sort, no_content).
+     */
     constructor(dom, opt_selector = '.card-collection', opt_ctrl = null, opt_options = {}) {
         this.cardCollectionKnot = new Query(opt_selector, dom).getKnot();
         this.ctrl = opt_ctrl;
         this._setOptions(opt_options);
         this._init();
     }
+    /**
+     * @description Merges user options with defaults (no_content, row_count, pager_num, sort).
+     * @param {object} [opt_options] - Configuration overrides.
+     */
     _setOptions(opt_options = {}) {
         this.options = new Objekt({
             no_content: {
@@ -29,6 +56,9 @@ export class CardCollection {
         });
         this.options.merge(opt_options);
     }
+    /**
+     * @description Initializes the collection, content handler, DOM structure, template, and pager.
+     */
     _init() {
         this.collection = new Collection();
         this.query = '';
@@ -40,9 +70,15 @@ export class CardCollection {
             this.refresh(page);
         };
     }
+    /**
+     * @description Creates the content handler for empty-state display.
+     */
     _initContentHandler() {
         this.contentHandler = new ContentHandler(this.cardCollectionKnot, this.options.no_content);
     }
+    /**
+     * @description Builds the card body, footer, and pager DOM structure.
+     */
     _initStructure() {
         this.cardCollectionKnot.addClass('card-collection');
         this.body = new Knot('div');
@@ -58,11 +94,19 @@ export class CardCollection {
         this.pagerKnot.addClass('pager');
         this.cardFooterKnot.appendChild(this.pagerKnot);
     }
+    /**
+     * @description Extracts and removes the HTML template element for card rendering.
+     */
     _initTemplate() {
         this.cardTemplate = new Query('template', this.cardCollectionKnot).getKnot();
         this.cardTemplate.remove();
         this.template = this.cardTemplate.toString(false);
     }
+    /**
+     * @description Renders a single card by replacing template expressions with item data and controller methods.
+     * @param {Objekt} item - The data item to render.
+     * @returns {Knot} The rendered card DOM element.
+     */
     _getCardKnot(item) {
         const regex = new RegExp('{{[a-zA-Z._,() ]*}}', 'g');
         const matches = this.template.match(regex);
@@ -100,6 +144,13 @@ export class CardCollection {
         });
         return new Knot(cloneTemplate);
     }
+    /**
+     * @description Refreshes the card collection by triggering eventAction with current query, sort, and paging params.
+     * @param {number} [opt_page] - Page number to navigate to before refreshing (-1 keeps current page).
+     *
+     * @example
+     * cards.refresh(1); // Refresh from page 1
+     */
     refresh(opt_page = -1) {
         if (opt_page > -1) {
             this.pager.setPage(opt_page);
@@ -113,18 +164,48 @@ export class CardCollection {
         });
         this.eventAction(params);
     }
+    /**
+     * @description Called when data needs to be fetched. Override to load data from a backend.
+     * @param {Objekt} params - Query parameters including query, column, order, offset, and limit.
+     *
+     * @example
+     * cards.eventAction = (params) => {
+     *     http.get('/api/items', params).then((response) => cards.setData(response.items));
+     * };
+     */
     eventAction(params) {
         consoleDebug('CardCollection.eventAction()', params);
     }
+    /**
+     * @description Called after each card is rendered. Override to attach event listeners or modify card DOM.
+     * @param {Knot} cardKnot - The rendered card DOM element.
+     * @param {Objekt} item - The data item associated with the card.
+     *
+     * @example
+     * cards.eventCardKnot = (cardKnot, item) => {
+     *     cardKnot.addEventListener('click', () => navigate(item.get('id')));
+     * };
+     */
     eventCardKnot(cardKnot, item) {
         consoleDebug('CardCollection.eventCardKnot()', cardKnot, item);
     }
+    /**
+     * @description Renders a card for the given item and appends it to the body.
+     * @param {Objekt} item - The data item to render as a card.
+     */
     _addCard(item) {
         const cardKnot = this._getCardKnot(item);
         this.body.appendChild(cardKnot);
         this.eventCardKnot(cardKnot, item);
         mdl(cardKnot);
     }
+    /**
+     * @description Loads data items into the collection and renders cards, or shows the empty-content placeholder.
+     * @param {Array<any>} items - Array of data items to display.
+     *
+     * @example
+     * cards.setData([{ id: 1, name: 'Item 1' }, { id: 2, name: 'Item 2' }]);
+     */
     setData(items) {
         this.collection.reload(items);
         if (this.collection.size() === 0) {
@@ -135,10 +216,21 @@ export class CardCollection {
             this._draw();
         }
     }
+    /**
+     * @description Sets the total item count and redraws the pager.
+     * @param {number} count - Total number of items across all pages.
+     *
+     * @example
+     * cards.setCount(response.total);
+     */
     setCount(count) {
         this.pager.setCount(count);
         this.pager.draw();
     }
+    /**
+     * @description Returns items for the current page, applying limit when collection exceeds row_count.
+     * @returns {Array<any>} The items to display on the current page.
+     */
     _getItems() {
         let items = this.collection.getItems();
         if (this.collection.size() > this.options.row_count) {
@@ -146,6 +238,9 @@ export class CardCollection {
         }
         return items;
     }
+    /**
+     * @description Clears the card body and renders cards for the current page items.
+     */
     _draw() {
         this.body.removeChildren();
         eachArray(this._getItems(), (item) => {
@@ -153,6 +248,12 @@ export class CardCollection {
         });
         mdl(this.body);
     }
+    /**
+     * @description Initiates the initial data fetch and render cycle.
+     *
+     * @example
+     * cards.render();
+     */
     render() {
         this.refresh();
     }

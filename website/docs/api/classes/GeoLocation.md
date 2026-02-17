@@ -1,6 +1,6 @@
 # Class: GeoLocation
 
-Defined in: [module/geoLocation.ts:39](https://github.com/siposdani87/sui-js/blob/433cda184a013753ef41bb6ba61d0b3944481fa1/src/module/geoLocation.ts#L39)
+Defined in: [module/geoLocation.ts:39](https://github.com/siposdani87/sui-js/blob/27883240db7565f37a562e906b93c8d6552ac058/src/module/geoLocation.ts#L39)
 
 Wrapper around the browser Geolocation API that provides both
 one-shot position retrieval and continuous position watching. Uses
@@ -46,7 +46,7 @@ geo.clearWatcher();
 
 > **new GeoLocation**(): `GeoLocation`
 
-Defined in: [module/geoLocation.ts:51](https://github.com/siposdani87/sui-js/blob/433cda184a013753ef41bb6ba61d0b3944481fa1/src/module/geoLocation.ts#L51)
+Defined in: [module/geoLocation.ts:51](https://github.com/siposdani87/sui-js/blob/27883240db7565f37a562e906b93c8d6552ac058/src/module/geoLocation.ts#L51)
 
 Creates a new GeoLocation instance with default geolocation
 options (high accuracy, 5-second timeout, infinite cache age).
@@ -61,7 +61,7 @@ options (high accuracy, 5-second timeout, infinite cache age).
 
 > **options**: `object`
 
-Defined in: [module/geoLocation.ts:40](https://github.com/siposdani87/sui-js/blob/433cda184a013753ef41bb6ba61d0b3944481fa1/src/module/geoLocation.ts#L40)
+Defined in: [module/geoLocation.ts:40](https://github.com/siposdani87/sui-js/blob/27883240db7565f37a562e906b93c8d6552ac058/src/module/geoLocation.ts#L40)
 
 #### enableHighAccuracy
 
@@ -81,7 +81,7 @@ Defined in: [module/geoLocation.ts:40](https://github.com/siposdani87/sui-js/blo
 
 > **watcherId**: `number`
 
-Defined in: [module/geoLocation.ts:45](https://github.com/siposdani87/sui-js/blob/433cda184a013753ef41bb6ba61d0b3944481fa1/src/module/geoLocation.ts#L45)
+Defined in: [module/geoLocation.ts:45](https://github.com/siposdani87/sui-js/blob/27883240db7565f37a562e906b93c8d6552ac058/src/module/geoLocation.ts#L45)
 
 ## Methods
 
@@ -89,7 +89,7 @@ Defined in: [module/geoLocation.ts:45](https://github.com/siposdani87/sui-js/blo
 
 > **clearWatcher**(): `void`
 
-Defined in: [module/geoLocation.ts:132](https://github.com/siposdani87/sui-js/blob/433cda184a013753ef41bb6ba61d0b3944481fa1/src/module/geoLocation.ts#L132)
+Defined in: [module/geoLocation.ts:132](https://github.com/siposdani87/sui-js/blob/27883240db7565f37a562e906b93c8d6552ac058/src/module/geoLocation.ts#L132)
 
 Stops the continuous position watcher started by [setWatcher](#setwatcher).
 
@@ -111,7 +111,7 @@ geo.clearWatcher();
 
 > **eventChange**(`latitude`, `longitude`, `message`): `void`
 
-Defined in: [module/geoLocation.ts:145](https://github.com/siposdani87/sui-js/blob/433cda184a013753ef41bb6ba61d0b3944481fa1/src/module/geoLocation.ts#L145)
+Defined in: [module/geoLocation.ts:145](https://github.com/siposdani87/sui-js/blob/27883240db7565f37a562e906b93c8d6552ac058/src/module/geoLocation.ts#L145)
 
 Called when a new position is successfully obtained, either from
 the watcher or the position handler. Override this method to
@@ -147,7 +147,7 @@ A descriptive message about the position event.
 
 > **eventError**(`message`, `code`): `void`
 
-Defined in: [module/geoLocation.ts:205](https://github.com/siposdani87/sui-js/blob/433cda184a013753ef41bb6ba61d0b3944481fa1/src/module/geoLocation.ts#L205)
+Defined in: [module/geoLocation.ts:205](https://github.com/siposdani87/sui-js/blob/27883240db7565f37a562e906b93c8d6552ac058/src/module/geoLocation.ts#L205)
 
 Called when a geolocation error occurs. Override this method to
 implement custom error handling such as showing user notifications
@@ -178,7 +178,7 @@ A machine-readable error code: `'permission_denied'`,
 
 > **getPosition**(): [`Promize`](Promize.md)\<\[`number`, `number`\], \[`null`, `null`\]\>
 
-Defined in: [module/geoLocation.ts:107](https://github.com/siposdani87/sui-js/blob/433cda184a013753ef41bb6ba61d0b3944481fa1/src/module/geoLocation.ts#L107)
+Defined in: [module/geoLocation.ts:107](https://github.com/siposdani87/sui-js/blob/27883240db7565f37a562e906b93c8d6552ac058/src/module/geoLocation.ts#L107)
 
 Requests the device's current position as a one-shot query.
 Returns a [Promize](Promize.md) that resolves with a `[latitude, longitude]`
@@ -207,7 +207,7 @@ geo.getPosition().then(
 
 > **setWatcher**(): `void`
 
-Defined in: [module/geoLocation.ts:80](https://github.com/siposdani87/sui-js/blob/433cda184a013753ef41bb6ba61d0b3944481fa1/src/module/geoLocation.ts#L80)
+Defined in: [module/geoLocation.ts:80](https://github.com/siposdani87/sui-js/blob/27883240db7565f37a562e906b93c8d6552ac058/src/module/geoLocation.ts#L80)
 
 Starts continuous position watching using the browser's
 `watchPosition` API. Each successful position update triggers

@@ -1,6 +1,6 @@
 # Class: Carousel
 
-Defined in: [component/carousel.ts:11](https://github.com/siposdani87/sui-js/blob/433cda184a013753ef41bb6ba61d0b3944481fa1/src/component/carousel.ts#L11)
+Defined in: [component/carousel.ts:11](https://github.com/siposdani87/sui-js/blob/27883240db7565f37a562e906b93c8d6552ac058/src/component/carousel.ts#L11)
 
 ## Description
 
@@ -13,7 +13,7 @@ carousel implementation.
 
 > **new Carousel**(`dom`, `opt_selector?`, `opt_options?`): `Carousel`
 
-Defined in: [component/carousel.ts:21](https://github.com/siposdani87/sui-js/blob/433cda184a013753ef41bb6ba61d0b3944481fa1/src/component/carousel.ts#L21)
+Defined in: [component/carousel.ts:21](https://github.com/siposdani87/sui-js/blob/27883240db7565f37a562e906b93c8d6552ac058/src/component/carousel.ts#L21)
 
 #### Parameters
 
@@ -49,7 +49,7 @@ Creates a new Carousel bound to a DOM container.
 
 > **carouselKnot**: [`Knot`](Knot.md)
 
-Defined in: [component/carousel.ts:12](https://github.com/siposdani87/sui-js/blob/433cda184a013753ef41bb6ba61d0b3944481fa1/src/component/carousel.ts#L12)
+Defined in: [component/carousel.ts:12](https://github.com/siposdani87/sui-js/blob/27883240db7565f37a562e906b93c8d6552ac058/src/component/carousel.ts#L12)
 
 ***
 
@@ -57,4 +57,4 @@ Defined in: [component/carousel.ts:12](https://github.com/siposdani87/sui-js/blo
 
 > **options**: [`Objekt`](Objekt.md)
 
-Defined in: [component/carousel.ts:13](https://github.com/siposdani87/sui-js/blob/433cda184a013753ef41bb6ba61d0b3944481fa1/src/component/carousel.ts#L13)
+Defined in: [component/carousel.ts:13](https://github.com/siposdani87/sui-js/blob/27883240db7565f37a562e906b93c8d6552ac058/src/component/carousel.ts#L13)

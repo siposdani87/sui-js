@@ -1,6 +1,6 @@
 # Class: Waiter
 
-Defined in: [component/waiter.ts:12](https://github.com/siposdani87/sui-js/blob/433cda184a013753ef41bb6ba61d0b3944481fa1/src/component/waiter.ts#L12)
+Defined in: [component/waiter.ts:12](https://github.com/siposdani87/sui-js/blob/27883240db7565f37a562e906b93c8d6552ac058/src/component/waiter.ts#L12)
 
 ## Description
 
@@ -21,7 +21,7 @@ waiter.advancedWaiting(() => search(query), 500);
 
 > **new Waiter**(): `Waiter`
 
-Defined in: [component/waiter.ts:20](https://github.com/siposdani87/sui-js/blob/433cda184a013753ef41bb6ba61d0b3944481fa1/src/component/waiter.ts#L20)
+Defined in: [component/waiter.ts:20](https://github.com/siposdani87/sui-js/blob/27883240db7565f37a562e906b93c8d6552ac058/src/component/waiter.ts#L20)
 
 #### Returns
 
@@ -37,7 +37,7 @@ Creates a new Waiter with zeroed counters.
 
 > **counter**: `number`
 
-Defined in: [component/waiter.ts:14](https://github.com/siposdani87/sui-js/blob/433cda184a013753ef41bb6ba61d0b3944481fa1/src/component/waiter.ts#L14)
+Defined in: [component/waiter.ts:14](https://github.com/siposdani87/sui-js/blob/27883240db7565f37a562e906b93c8d6552ac058/src/component/waiter.ts#L14)
 
 ***
 
@@ -45,7 +45,7 @@ Defined in: [component/waiter.ts:14](https://github.com/siposdani87/sui-js/blob/
 
 > **intervall**: `number`
 
-Defined in: [component/waiter.ts:15](https://github.com/siposdani87/sui-js/blob/433cda184a013753ef41bb6ba61d0b3944481fa1/src/component/waiter.ts#L15)
+Defined in: [component/waiter.ts:15](https://github.com/siposdani87/sui-js/blob/27883240db7565f37a562e906b93c8d6552ac058/src/component/waiter.ts#L15)
 
 ***
 
@@ -53,7 +53,7 @@ Defined in: [component/waiter.ts:15](https://github.com/siposdani87/sui-js/blob/
 
 > **timeoutWaiting**: `number`
 
-Defined in: [component/waiter.ts:13](https://github.com/siposdani87/sui-js/blob/433cda184a013753ef41bb6ba61d0b3944481fa1/src/component/waiter.ts#L13)
+Defined in: [component/waiter.ts:13](https://github.com/siposdani87/sui-js/blob/27883240db7565f37a562e906b93c8d6552ac058/src/component/waiter.ts#L13)
 
 ## Methods
 
@@ -61,7 +61,7 @@ Defined in: [component/waiter.ts:13](https://github.com/siposdani87/sui-js/blob/
 
 > **advancedWaiting**(`callback`, `opt_duration?`): `void`
 
-Defined in: [component/waiter.ts:36](https://github.com/siposdani87/sui-js/blob/433cda184a013753ef41bb6ba61d0b3944481fa1/src/component/waiter.ts#L36)
+Defined in: [component/waiter.ts:36](https://github.com/siposdani87/sui-js/blob/27883240db7565f37a562e906b93c8d6552ac058/src/component/waiter.ts#L36)
 
 #### Parameters
 
@@ -100,7 +100,7 @@ input.addEventListener('keyup', () => {
 
 > **simpleWaiting**(`callback`, `opt_duration?`): `void`
 
-Defined in: [component/waiter.ts:99](https://github.com/siposdani87/sui-js/blob/433cda184a013753ef41bb6ba61d0b3944481fa1/src/component/waiter.ts#L99)
+Defined in: [component/waiter.ts:99](https://github.com/siposdani87/sui-js/blob/27883240db7565f37a562e906b93c8d6552ac058/src/component/waiter.ts#L99)
 
 #### Parameters
 
@@ -136,7 +136,7 @@ waiter.simpleWaiting(() => save(), 1000);
 
 > **startAdvancedWaiting**(): `void`
 
-Defined in: [component/waiter.ts:86](https://github.com/siposdani87/sui-js/blob/433cda184a013753ef41bb6ba61d0b3944481fa1/src/component/waiter.ts#L86)
+Defined in: [component/waiter.ts:86](https://github.com/siposdani87/sui-js/blob/27883240db7565f37a562e906b93c8d6552ac058/src/component/waiter.ts#L86)
 
 #### Returns
 
@@ -159,7 +159,7 @@ waiter.startAdvancedWaiting(); // Resume debounce
 
 > **stopAdvancedWaiting**(): `void`
 
-Defined in: [component/waiter.ts:72](https://github.com/siposdani87/sui-js/blob/433cda184a013753ef41bb6ba61d0b3944481fa1/src/component/waiter.ts#L72)
+Defined in: [component/waiter.ts:72](https://github.com/siposdani87/sui-js/blob/27883240db7565f37a562e906b93c8d6552ac058/src/component/waiter.ts#L72)
 
 #### Returns
 

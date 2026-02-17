@@ -3,11 +3,36 @@ import { Popup } from '../component/popup';
 import { DateTime } from '../component/dateTime';
 import { Knot } from '../core/knot';
 import { DateIO } from '../utils';
+/**
+ * Date/time picker field that presents a {@link DateTime} component inside a
+ * {@link Popup} overlay.  The selected value is displayed as a formatted tag
+ * in the input area.
+ *
+ * @example
+ * const input = new Query<HTMLInputElement>('input.datetime', formKnot).getKnot();
+ * const field = new DateTimeField(input, label, error, inputBlock);
+ * field.render();
+ *
+ * @see {@link BaseField}
+ * @see {@link DateTime}
+ * @see {@link Popup}
+ * @see {@link DateIO}
+ * @category Field
+ */
 export class DateTimeField extends BaseField {
+    /**
+     * @param input The underlying `<input>` element wrapped in a {@link Knot}.
+     * @param label The associated label element.
+     * @param error The element used to display validation errors.
+     * @param inputBlock The block-level container wrapping the entire field.
+     */
     constructor(input, label, error, inputBlock) {
         super(input, label, error, inputBlock);
         this._init();
     }
+    /**
+     * Initializes the datetime container, input display, and inner components.
+     */
     _init() {
         this.inputBlock.addClass('datetime-field');
         this.input.addClass('hidden');
@@ -20,6 +45,10 @@ export class DateTimeField extends BaseField {
         this.datetimeContainer.appendChild(this.datetimeInput);
         this._initInput();
     }
+    /**
+     * Creates the {@link DateTime} picker, wires up change events, and
+     * initializes the {@link Popup} overlay.
+     */
     _initInput() {
         this.format = this.input.getData('format');
         const type = this.input.getAttribute('type');
@@ -47,6 +76,11 @@ export class DateTimeField extends BaseField {
             this._setTag(formattedValue);
         }
     }
+    /**
+     * Renders the field label, expander icon, and draws the datetime picker.
+     *
+     * @override
+     */
     render() {
         if (this.label && this.label.exists()) {
             this.label.addClass('field-label');
@@ -60,6 +94,11 @@ export class DateTimeField extends BaseField {
         this.refresh();
         this.datetime.draw();
     }
+    /**
+     * Updates the disabled visual state of the field.
+     *
+     * @override
+     */
     refresh() {
         if (this.isDisabled()) {
             this.inputBlock.addClass('is-disabled');
@@ -68,11 +107,23 @@ export class DateTimeField extends BaseField {
             this.inputBlock.removeClass('is-disabled');
         }
     }
+    /**
+     * Sets the field value, updates the display tag, and triggers a change event.
+     *
+     * @param value The new date/time value.
+     * @override
+     */
     setValue(value) {
         this._setTag(value);
         this.input.setAttribute('value', value);
         this.input.trigger('change');
     }
+    /**
+     * Renders a formatted date/time tag inside the display area with an
+     * optional close button.
+     *
+     * @param value The raw date/time string to format and display.
+     */
     _setTag(value) {
         this.datetimeInput.removeChildren();
         if (value) {
@@ -95,6 +146,9 @@ export class DateTimeField extends BaseField {
             }
         }
     }
+    /**
+     * Handles click on the input area or expander icon to toggle the popup.
+     */
     _onClick() {
         if (this.isEnabled()) {
             this.datetimeInput.addClass('active');

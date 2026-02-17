@@ -2,7 +2,7 @@
 
 > **noop**\<`T`\>(`opt_result?`): () => `T` \| `undefined`
 
-Defined in: [utils/operation.ts:129](https://github.com/siposdani87/sui-js/blob/433cda184a013753ef41bb6ba61d0b3944481fa1/src/utils/operation.ts#L129)
+Defined in: [utils/operation.ts:129](https://github.com/siposdani87/sui-js/blob/27883240db7565f37a562e906b93c8d6552ac058/src/utils/operation.ts#L129)
 
 Returns a function that always returns the given value (or `undefined`).
 

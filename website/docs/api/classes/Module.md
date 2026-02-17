@@ -1,6 +1,6 @@
 # Class: Module
 
-Defined in: [core/module.ts:46](https://github.com/siposdani87/sui-js/blob/433cda184a013753ef41bb6ba61d0b3944481fa1/src/core/module.ts#L46)
+Defined in: [core/module.ts:46](https://github.com/siposdani87/sui-js/blob/27883240db7565f37a562e906b93c8d6552ac058/src/core/module.ts#L46)
 
 Base class for the application's revealing module pattern. Module manages
 dependency injection, service lifecycle, and controller routing. It acts
@@ -46,7 +46,7 @@ module.handleServices(['userService', 'authService']);
 
 > **new Module**(): `Module`
 
-Defined in: [core/module.ts:59](https://github.com/siposdani87/sui-js/blob/433cda184a013753ef41bb6ba61d0b3944481fa1/src/core/module.ts#L59)
+Defined in: [core/module.ts:59](https://github.com/siposdani87/sui-js/blob/27883240db7565f37a562e906b93c8d6552ac058/src/core/module.ts#L59)
 
 Creates a new Module instance with an empty module registry and a
 default no-op controller.
@@ -61,7 +61,7 @@ default no-op controller.
 
 > **add**(`name`, `moduleInjections`, `moduleCallback`): `string`
 
-Defined in: [core/module.ts:116](https://github.com/siposdani87/sui-js/blob/433cda184a013753ef41bb6ba61d0b3944481fa1/src/core/module.ts#L116)
+Defined in: [core/module.ts:116](https://github.com/siposdani87/sui-js/blob/27883240db7565f37a562e906b93c8d6552ac058/src/core/module.ts#L116)
 
 Registers a named module (service or controller) with its dependency
 injection list and constructor reference. The module is stored
@@ -109,7 +109,7 @@ module.add('dashboardCtrl', ['http', 'config', 'dom'], DashboardController);
 
 > **eventAfterInit**(): `void`
 
-Defined in: [core/module.ts:494](https://github.com/siposdani87/sui-js/blob/433cda184a013753ef41bb6ba61d0b3944481fa1/src/core/module.ts#L494)
+Defined in: [core/module.ts:494](https://github.com/siposdani87/sui-js/blob/27883240db7565f37a562e906b93c8d6552ac058/src/core/module.ts#L494)
 
 Overridable lifecycle hook called after all service initialization
 calls have been queued but before they begin executing. Logs by
@@ -125,7 +125,7 @@ default; override to perform early setup tasks.
 
 > **eventControllerFailed**(): `void`
 
-Defined in: [core/module.ts:420](https://github.com/siposdani87/sui-js/blob/433cda184a013753ef41bb6ba61d0b3944481fa1/src/core/module.ts#L420)
+Defined in: [core/module.ts:420](https://github.com/siposdani87/sui-js/blob/27883240db7565f37a562e906b93c8d6552ac058/src/core/module.ts#L420)
 
 Overridable lifecycle hook called when no controller is found for
 the current route. Logs by default; override to show error states.
@@ -140,7 +140,7 @@ the current route. Logs by default; override to show error states.
 
 > **eventControllerLoaded**(`dom`): `void`
 
-Defined in: [core/module.ts:412](https://github.com/siposdani87/sui-js/blob/433cda184a013753ef41bb6ba61d0b3944481fa1/src/core/module.ts#L412)
+Defined in: [core/module.ts:412](https://github.com/siposdani87/sui-js/blob/27883240db7565f37a562e906b93c8d6552ac058/src/core/module.ts#L412)
 
 Overridable lifecycle hook called when a controller has been
 successfully loaded and its `enter()` method has completed.
@@ -164,7 +164,7 @@ The [Knot](Knot.md) DOM container rendered by the controller.
 
 > **eventDomChange**(`state`, `dom`): [`Promize`](Promize.md)\<`object`, `object`\>
 
-Defined in: [core/module.ts:482](https://github.com/siposdani87/sui-js/blob/433cda184a013753ef41bb6ba61d0b3944481fa1/src/core/module.ts#L482)
+Defined in: [core/module.ts:482](https://github.com/siposdani87/sui-js/blob/27883240db7565f37a562e906b93c8d6552ac058/src/core/module.ts#L482)
 
 Overridable lifecycle hook called when the DOM container is ready
 for the new controller. Returns a [Promize](Promize.md) to allow
@@ -201,7 +201,7 @@ A [Promize](Promize.md) that must be resolved to continue
 
 > **eventModuleFailed**(`state`): `void`
 
-Defined in: [core/module.ts:432](https://github.com/siposdani87/sui-js/blob/433cda184a013753ef41bb6ba61d0b3944481fa1/src/core/module.ts#L432)
+Defined in: [core/module.ts:432](https://github.com/siposdani87/sui-js/blob/27883240db7565f37a562e906b93c8d6552ac058/src/core/module.ts#L432)
 
 Overridable lifecycle hook called when a module (template) fails
 to load for the given state. Logs by default; override to display
@@ -226,7 +226,7 @@ The [Objekt](Objekt.md) representing the state whose
 
 > **eventModuleLoaded**(`state`): `void`
 
-Defined in: [core/module.ts:444](https://github.com/siposdani87/sui-js/blob/433cda184a013753ef41bb6ba61d0b3944481fa1/src/core/module.ts#L444)
+Defined in: [core/module.ts:444](https://github.com/siposdani87/sui-js/blob/27883240db7565f37a562e906b93c8d6552ac058/src/core/module.ts#L444)
 
 Overridable lifecycle hook called when a module (template) has
 been successfully loaded for the given state. Logs by default;
@@ -251,7 +251,7 @@ The [Objekt](Objekt.md) representing the state whose
 
 > **eventServiceFailed**(): `void`
 
-Defined in: [core/module.ts:512](https://github.com/siposdani87/sui-js/blob/433cda184a013753ef41bb6ba61d0b3944481fa1/src/core/module.ts#L512)
+Defined in: [core/module.ts:512](https://github.com/siposdani87/sui-js/blob/27883240db7565f37a562e906b93c8d6552ac058/src/core/module.ts#L512)
 
 Overridable lifecycle hook called when service initialization
 fails. Logs by default; override to handle initialization errors
@@ -267,7 +267,7 @@ gracefully.
 
 > **eventServiceLoaded**(): `void`
 
-Defined in: [core/module.ts:503](https://github.com/siposdani87/sui-js/blob/433cda184a013753ef41bb6ba61d0b3944481fa1/src/core/module.ts#L503)
+Defined in: [core/module.ts:503](https://github.com/siposdani87/sui-js/blob/27883240db7565f37a562e906b93c8d6552ac058/src/core/module.ts#L503)
 
 Overridable lifecycle hook called when all registered services
 have been successfully initialized. Logs by default; override to
@@ -283,7 +283,7 @@ signal application readiness.
 
 > **eventStateChange**(`state`): [`Promize`](Promize.md)\<`object`, `object`\>
 
-Defined in: [core/module.ts:461](https://github.com/siposdani87/sui-js/blob/433cda184a013753ef41bb6ba61d0b3944481fa1/src/core/module.ts#L461)
+Defined in: [core/module.ts:461](https://github.com/siposdani87/sui-js/blob/27883240db7565f37a562e906b93c8d6552ac058/src/core/module.ts#L461)
 
 Overridable lifecycle hook called when the application state
 changes. Returns a [Promize](Promize.md) to allow asynchronous operations
@@ -314,7 +314,7 @@ A [Promize](Promize.md) that must be resolved to continue the
 
 > **getController**(): `object`
 
-Defined in: [core/module.ts:95](https://github.com/siposdani87/sui-js/blob/433cda184a013753ef41bb6ba61d0b3944481fa1/src/core/module.ts#L95)
+Defined in: [core/module.ts:95](https://github.com/siposdani87/sui-js/blob/27883240db7565f37a562e906b93c8d6552ac058/src/core/module.ts#L95)
 
 Returns the current controller object. The controller is the module
 instance associated with the active route, exposing `enter()` and
@@ -338,7 +338,7 @@ const controller = module.getController();
 
 > **handleRoutes**(`routes`, `options`): `void`
 
-Defined in: [core/module.ts:306](https://github.com/siposdani87/sui-js/blob/433cda184a013753ef41bb6ba61d0b3944481fa1/src/core/module.ts#L306)
+Defined in: [core/module.ts:306](https://github.com/siposdani87/sui-js/blob/27883240db7565f37a562e906b93c8d6552ac058/src/core/module.ts#L306)
 
 Sets up the [State](State.md) instance with route definitions and wires
 state change events to the controller lifecycle. When the state
@@ -380,7 +380,7 @@ module.handleRoutes([
 
 > **handleServices**(`services`): `void`
 
-Defined in: [core/module.ts:258](https://github.com/siposdani87/sui-js/blob/433cda184a013753ef41bb6ba61d0b3944481fa1/src/core/module.ts#L258)
+Defined in: [core/module.ts:258](https://github.com/siposdani87/sui-js/blob/27883240db7565f37a562e906b93c8d6552ac058/src/core/module.ts#L258)
 
 Resolves and initializes services in topological order, respecting
 their declared dependency injections. Each service is instantiated
@@ -416,7 +416,7 @@ module.handleServices(['http', 'eventBus', 'userService']);
 
 > **load**(`instances`, `injections`): `void`
 
-Defined in: [core/module.ts:80](https://github.com/siposdani87/sui-js/blob/433cda184a013753ef41bb6ba61d0b3944481fa1/src/core/module.ts#L80)
+Defined in: [core/module.ts:80](https://github.com/siposdani87/sui-js/blob/27883240db7565f37a562e906b93c8d6552ac058/src/core/module.ts#L80)
 
 Receives the framework's shared instances map and injection name
 mappings. This must be called before `handleServices()` so that

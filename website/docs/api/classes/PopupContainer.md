@@ -1,6 +1,6 @@
 # Class: PopupContainer
 
-Defined in: [component/popupContainer.ts:18](https://github.com/siposdani87/sui-js/blob/433cda184a013753ef41bb6ba61d0b3944481fa1/src/component/popupContainer.ts#L18)
+Defined in: [component/popupContainer.ts:18](https://github.com/siposdani87/sui-js/blob/27883240db7565f37a562e906b93c8d6552ac058/src/component/popupContainer.ts#L18)
 
 ## Description
 
@@ -24,7 +24,7 @@ container.closeAll();
 
 > **new PopupContainer**(`opt_selector?`): `PopupContainer`
 
-Defined in: [component/popupContainer.ts:26](https://github.com/siposdani87/sui-js/blob/433cda184a013753ef41bb6ba61d0b3944481fa1/src/component/popupContainer.ts#L26)
+Defined in: [component/popupContainer.ts:26](https://github.com/siposdani87/sui-js/blob/27883240db7565f37a562e906b93c8d6552ac058/src/component/popupContainer.ts#L26)
 
 #### Parameters
 
@@ -48,7 +48,7 @@ Creates a new PopupContainer bound to a DOM container element.
 
 > **container**: [`Knot`](Knot.md)
 
-Defined in: [component/popupContainer.ts:20](https://github.com/siposdani87/sui-js/blob/433cda184a013753ef41bb6ba61d0b3944481fa1/src/component/popupContainer.ts#L20)
+Defined in: [component/popupContainer.ts:20](https://github.com/siposdani87/sui-js/blob/27883240db7565f37a562e906b93c8d6552ac058/src/component/popupContainer.ts#L20)
 
 ***
 
@@ -56,7 +56,7 @@ Defined in: [component/popupContainer.ts:20](https://github.com/siposdani87/sui-
 
 > **selector**: `string`
 
-Defined in: [component/popupContainer.ts:19](https://github.com/siposdani87/sui-js/blob/433cda184a013753ef41bb6ba61d0b3944481fa1/src/component/popupContainer.ts#L19)
+Defined in: [component/popupContainer.ts:19](https://github.com/siposdani87/sui-js/blob/27883240db7565f37a562e906b93c8d6552ac058/src/component/popupContainer.ts#L19)
 
 ## Methods
 
@@ -64,7 +64,7 @@ Defined in: [component/popupContainer.ts:19](https://github.com/siposdani87/sui-
 
 > **clearPosition**(`popupKnot`): `void`
 
-Defined in: [component/popupContainer.ts:115](https://github.com/siposdani87/sui-js/blob/433cda184a013753ef41bb6ba61d0b3944481fa1/src/component/popupContainer.ts#L115)
+Defined in: [component/popupContainer.ts:115](https://github.com/siposdani87/sui-js/blob/27883240db7565f37a562e906b93c8d6552ac058/src/component/popupContainer.ts#L115)
 
 #### Parameters
 
@@ -94,7 +94,7 @@ container.clearPosition(popupKnot);
 
 > **closeAll**(): `void`
 
-Defined in: [component/popupContainer.ts:81](https://github.com/siposdani87/sui-js/blob/433cda184a013753ef41bb6ba61d0b3944481fa1/src/component/popupContainer.ts#L81)
+Defined in: [component/popupContainer.ts:81](https://github.com/siposdani87/sui-js/blob/27883240db7565f37a562e906b93c8d6552ac058/src/component/popupContainer.ts#L81)
 
 #### Returns
 
@@ -116,7 +116,7 @@ container.closeAll();
 
 > **delete**(`popup`): `void`
 
-Defined in: [component/popupContainer.ts:69](https://github.com/siposdani87/sui-js/blob/433cda184a013753ef41bb6ba61d0b3944481fa1/src/component/popupContainer.ts#L69)
+Defined in: [component/popupContainer.ts:69](https://github.com/siposdani87/sui-js/blob/27883240db7565f37a562e906b93c8d6552ac058/src/component/popupContainer.ts#L69)
 
 #### Parameters
 
@@ -146,7 +146,7 @@ container.delete(popupInstance);
 
 > **push**(`type`, `popup`): `void`
 
-Defined in: [component/popupContainer.ts:55](https://github.com/siposdani87/sui-js/blob/433cda184a013753ef41bb6ba61d0b3944481fa1/src/component/popupContainer.ts#L55)
+Defined in: [component/popupContainer.ts:55](https://github.com/siposdani87/sui-js/blob/27883240db7565f37a562e906b93c8d6552ac058/src/component/popupContainer.ts#L55)
 
 #### Parameters
 
@@ -182,7 +182,7 @@ container.push(Popup, popupInstance);
 
 > **setPosition**(`popupKnot`): `void`
 
-Defined in: [component/popupContainer.ts:96](https://github.com/siposdani87/sui-js/blob/433cda184a013753ef41bb6ba61d0b3944481fa1/src/component/popupContainer.ts#L96)
+Defined in: [component/popupContainer.ts:96](https://github.com/siposdani87/sui-js/blob/27883240db7565f37a562e906b93c8d6552ac058/src/component/popupContainer.ts#L96)
 
 #### Parameters
 

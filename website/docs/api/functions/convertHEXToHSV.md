@@ -2,7 +2,7 @@
 
 > **convertHEXToHSV**(`hexColor`): \[`number`, `number`, `number`\]
 
-Defined in: [utils/color.ts:114](https://github.com/siposdani87/sui-js/blob/433cda184a013753ef41bb6ba61d0b3944481fa1/src/utils/color.ts#L114)
+Defined in: [utils/color.ts:114](https://github.com/siposdani87/sui-js/blob/27883240db7565f37a562e906b93c8d6552ac058/src/utils/color.ts#L114)
 
 Converts a hexadecimal color string to HSV representation.
 

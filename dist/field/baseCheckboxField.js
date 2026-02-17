@@ -2,11 +2,33 @@ import { typeCast } from '../utils/operation';
 import { BaseField } from './baseField';
 import { Query } from '../core/query';
 import { mdl } from '../utils/render';
+/**
+ * @description Base class for checkbox-like fields (checkbox, switch, icon toggle).
+ * Extends {@link BaseField} with checked state handling and hidden input support.
+ * @category Field
+ * @example
+ * // Typically extended by concrete checkbox field classes:
+ * const checkbox = new CheckboxField(inputKnot, labelKnot, errorKnot, inputBlockKnot);
+ * checkbox.setValue(true);
+ * @see {@link CheckboxField}
+ * @see {@link SwitchField}
+ * @see {@link IconToggleField}
+ */
 export class BaseCheckboxField extends BaseField {
+    /**
+     * @description Creates a new BaseCheckboxField instance.
+     * @param {Knot<HTMLInputElement>} input - The checkbox input element wrapped in a Knot.
+     * @param {Knot} label - The label element wrapped in a Knot.
+     * @param {Knot} error - The error element wrapped in a Knot.
+     * @param {Knot} inputBlock - The input block container wrapped in a Knot.
+     */
     constructor(input, label, error, inputBlock) {
         super(input, label, error, inputBlock);
         this._init();
     }
+    /**
+     * @description Initializes the checkbox field by locating the hidden input and binding the change event.
+     */
     _init() {
         this.hiddenInput = new Query('input[type=hidden]', this.inputBlock).getKnot();
         this.inputBlock.addClass('checkbox-field');
@@ -15,10 +37,17 @@ export class BaseCheckboxField extends BaseField {
             return true;
         });
     }
+    /**
+     * @description Handles the change event by reading the current value and notifying the model.
+     */
     _change() {
         const value = this.getValue();
         this.modelChange(value);
     }
+    /**
+     * @description Returns the field's value based on the checked state. Returns the input value if checked, or the hidden input value if unchecked.
+     * @returns {*} The type-cast value of the checked or hidden input.
+     */
     getValue() {
         const checked = this.input.getNode().checked;
         let value = this.hiddenInput.getAttribute('value');
@@ -27,6 +56,10 @@ export class BaseCheckboxField extends BaseField {
         }
         return typeCast(value);
     }
+    /**
+     * @description Sets the field's checked state by comparing the value against the input's value attribute.
+     * @param {object | Function | Array<any> | boolean | number | string | null | undefined} value - The value to set.
+     */
     setValue(value) {
         const currentValue = typeCast(this.input.getAttribute('value'));
         this.input.getNode().checked = currentValue === value;
@@ -35,6 +68,10 @@ export class BaseCheckboxField extends BaseField {
         }
         this.input.trigger('change');
     }
+    /**
+     * @description Sets the disabled state, updating both the input and the label/input block styling.
+     * @param {boolean} state - True to disable the field, false to enable it.
+     */
     setDisabled(state) {
         if (state) {
             this.input.setAttribute('disabled');
@@ -49,12 +86,19 @@ export class BaseCheckboxField extends BaseField {
         this.input.getNode().disabled = state;
         this.checkValidity(true, false);
     }
+    /**
+     * @description Sets the label text on the span label element instead of the main label.
+     * @param {string} text - The new label text.
+     */
     setLabel(text) {
         if (this.spanLabel && !this.spanLabel.isEmpty()) {
             this.spanLabel.setHtml(text);
             this._setAdditionalLabel(this.spanLabel);
         }
     }
+    /**
+     * @description Refreshes the field's visual state by updating the data label text and MDL styling.
+     */
     refresh() {
         const dataLabelText = this.label.getAttribute('data-label');
         if (dataLabelText) {

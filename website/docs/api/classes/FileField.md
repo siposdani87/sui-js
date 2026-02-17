@@ -1,6 +1,6 @@
 # Class: FileField
 
-Defined in: [field/fileField.ts:26](https://github.com/siposdani87/sui-js/blob/433cda184a013753ef41bb6ba61d0b3944481fa1/src/field/fileField.ts#L26)
+Defined in: [field/fileField.ts:26](https://github.com/siposdani87/sui-js/blob/27883240db7565f37a562e906b93c8d6552ac058/src/field/fileField.ts#L26)
 
 File upload field with image preview, document type icons, and remove
 functionality.  Supports image files (shown as thumbnails) and document
@@ -28,7 +28,7 @@ field.render();
 
 > **new FileField**(`input`, `label`, `error`, `inputBlock`): `FileField`
 
-Defined in: [field/fileField.ts:46](https://github.com/siposdani87/sui-js/blob/433cda184a013753ef41bb6ba61d0b3944481fa1/src/field/fileField.ts#L46)
+Defined in: [field/fileField.ts:46](https://github.com/siposdani87/sui-js/blob/27883240db7565f37a562e906b93c8d6552ac058/src/field/fileField.ts#L46)
 
 #### Parameters
 
@@ -70,7 +70,7 @@ The block-level container wrapping the entire field.
 
 > **actionContainerKnot**: [`Knot`](Knot.md)
 
-Defined in: [field/baseField.ts:29](https://github.com/siposdani87/sui-js/blob/433cda184a013753ef41bb6ba61d0b3944481fa1/src/field/baseField.ts#L29)
+Defined in: [field/baseField.ts:29](https://github.com/siposdani87/sui-js/blob/27883240db7565f37a562e906b93c8d6552ac058/src/field/baseField.ts#L29)
 
 #### Inherited from
 
@@ -82,7 +82,7 @@ Defined in: [field/baseField.ts:29](https://github.com/siposdani87/sui-js/blob/4
 
 > **defaultSrc**: `string`
 
-Defined in: [field/fileField.ts:32](https://github.com/siposdani87/sui-js/blob/433cda184a013753ef41bb6ba61d0b3944481fa1/src/field/fileField.ts#L32)
+Defined in: [field/fileField.ts:32](https://github.com/siposdani87/sui-js/blob/27883240db7565f37a562e906b93c8d6552ac058/src/field/fileField.ts#L32)
 
 Default placeholder image source shown when no file is selected.
 
@@ -92,7 +92,7 @@ Default placeholder image source shown when no file is selected.
 
 > **disabled**: `boolean`
 
-Defined in: [field/baseField.ts:30](https://github.com/siposdani87/sui-js/blob/433cda184a013753ef41bb6ba61d0b3944481fa1/src/field/baseField.ts#L30)
+Defined in: [field/baseField.ts:30](https://github.com/siposdani87/sui-js/blob/27883240db7565f37a562e906b93c8d6552ac058/src/field/baseField.ts#L30)
 
 #### Inherited from
 
@@ -104,7 +104,7 @@ Defined in: [field/baseField.ts:30](https://github.com/siposdani87/sui-js/blob/4
 
 > **error**: [`Knot`](Knot.md)
 
-Defined in: [field/baseField.ts:24](https://github.com/siposdani87/sui-js/blob/433cda184a013753ef41bb6ba61d0b3944481fa1/src/field/baseField.ts#L24)
+Defined in: [field/baseField.ts:24](https://github.com/siposdani87/sui-js/blob/27883240db7565f37a562e906b93c8d6552ac058/src/field/baseField.ts#L24)
 
 #### Inherited from
 
@@ -116,7 +116,7 @@ Defined in: [field/baseField.ts:24](https://github.com/siposdani87/sui-js/blob/4
 
 > **errorTooltip**: [`Tooltip`](Tooltip.md)
 
-Defined in: [field/baseField.ts:27](https://github.com/siposdani87/sui-js/blob/433cda184a013753ef41bb6ba61d0b3944481fa1/src/field/baseField.ts#L27)
+Defined in: [field/baseField.ts:27](https://github.com/siposdani87/sui-js/blob/27883240db7565f37a562e906b93c8d6552ac058/src/field/baseField.ts#L27)
 
 #### Inherited from
 
@@ -128,7 +128,7 @@ Defined in: [field/baseField.ts:27](https://github.com/siposdani87/sui-js/blob/4
 
 > **fileTypes**: `object`
 
-Defined in: [field/fileField.ts:36](https://github.com/siposdani87/sui-js/blob/433cda184a013753ef41bb6ba61d0b3944481fa1/src/field/fileField.ts#L36)
+Defined in: [field/fileField.ts:36](https://github.com/siposdani87/sui-js/blob/27883240db7565f37a562e906b93c8d6552ac058/src/field/fileField.ts#L36)
 
 Map of MIME types to `[extension, color]` tuples for document icons.
 
@@ -142,7 +142,7 @@ Map of MIME types to `[extension, color]` tuples for document icons.
 
 > **fileTypeSVG**: `string`
 
-Defined in: [field/fileField.ts:38](https://github.com/siposdani87/sui-js/blob/433cda184a013753ef41bb6ba61d0b3944481fa1/src/field/fileField.ts#L38)
+Defined in: [field/fileField.ts:38](https://github.com/siposdani87/sui-js/blob/27883240db7565f37a562e906b93c8d6552ac058/src/field/fileField.ts#L38)
 
 SVG template string used to generate document-type file icons.
 
@@ -152,7 +152,7 @@ SVG template string used to generate document-type file icons.
 
 > `optional` **form**: [`Form`](Form.md)
 
-Defined in: [field/baseField.ts:26](https://github.com/siposdani87/sui-js/blob/433cda184a013753ef41bb6ba61d0b3944481fa1/src/field/baseField.ts#L26)
+Defined in: [field/baseField.ts:26](https://github.com/siposdani87/sui-js/blob/27883240db7565f37a562e906b93c8d6552ac058/src/field/baseField.ts#L26)
 
 #### Inherited from
 
@@ -164,7 +164,7 @@ Defined in: [field/baseField.ts:26](https://github.com/siposdani87/sui-js/blob/4
 
 > **imageTag**: [`Knot`](Knot.md)
 
-Defined in: [field/fileField.ts:28](https://github.com/siposdani87/sui-js/blob/433cda184a013753ef41bb6ba61d0b3944481fa1/src/field/fileField.ts#L28)
+Defined in: [field/fileField.ts:28](https://github.com/siposdani87/sui-js/blob/27883240db7565f37a562e906b93c8d6552ac058/src/field/fileField.ts#L28)
 
 Image element used to preview the uploaded file or placeholder icon.
 
@@ -174,7 +174,7 @@ Image element used to preview the uploaded file or placeholder icon.
 
 > **infoContainerKnot**: [`Knot`](Knot.md)
 
-Defined in: [field/baseField.ts:28](https://github.com/siposdani87/sui-js/blob/433cda184a013753ef41bb6ba61d0b3944481fa1/src/field/baseField.ts#L28)
+Defined in: [field/baseField.ts:28](https://github.com/siposdani87/sui-js/blob/27883240db7565f37a562e906b93c8d6552ac058/src/field/baseField.ts#L28)
 
 #### Inherited from
 
@@ -186,7 +186,7 @@ Defined in: [field/baseField.ts:28](https://github.com/siposdani87/sui-js/blob/4
 
 > **input**: [`Knot`](Knot.md)\<`HTMLInputElement`\>
 
-Defined in: [field/baseField.ts:22](https://github.com/siposdani87/sui-js/blob/433cda184a013753ef41bb6ba61d0b3944481fa1/src/field/baseField.ts#L22)
+Defined in: [field/baseField.ts:22](https://github.com/siposdani87/sui-js/blob/27883240db7565f37a562e906b93c8d6552ac058/src/field/baseField.ts#L22)
 
 #### Inherited from
 
@@ -198,7 +198,7 @@ Defined in: [field/baseField.ts:22](https://github.com/siposdani87/sui-js/blob/4
 
 > **inputBlock**: [`Knot`](Knot.md)
 
-Defined in: [field/baseField.ts:25](https://github.com/siposdani87/sui-js/blob/433cda184a013753ef41bb6ba61d0b3944481fa1/src/field/baseField.ts#L25)
+Defined in: [field/baseField.ts:25](https://github.com/siposdani87/sui-js/blob/27883240db7565f37a562e906b93c8d6552ac058/src/field/baseField.ts#L25)
 
 #### Inherited from
 
@@ -210,7 +210,7 @@ Defined in: [field/baseField.ts:25](https://github.com/siposdani87/sui-js/blob/4
 
 > **label**: [`Knot`](Knot.md)
 
-Defined in: [field/baseField.ts:23](https://github.com/siposdani87/sui-js/blob/433cda184a013753ef41bb6ba61d0b3944481fa1/src/field/baseField.ts#L23)
+Defined in: [field/baseField.ts:23](https://github.com/siposdani87/sui-js/blob/27883240db7565f37a562e906b93c8d6552ac058/src/field/baseField.ts#L23)
 
 #### Inherited from
 
@@ -222,7 +222,7 @@ Defined in: [field/baseField.ts:23](https://github.com/siposdani87/sui-js/blob/4
 
 > **removeButton**: [`Knot`](Knot.md)
 
-Defined in: [field/fileField.ts:34](https://github.com/siposdani87/sui-js/blob/433cda184a013753ef41bb6ba61d0b3944481fa1/src/field/fileField.ts#L34)
+Defined in: [field/fileField.ts:34](https://github.com/siposdani87/sui-js/blob/27883240db7565f37a562e906b93c8d6552ac058/src/field/fileField.ts#L34)
 
 Button element that removes the currently uploaded file.
 
@@ -232,7 +232,7 @@ Button element that removes the currently uploaded file.
 
 > **valueSrc**: `string` \| `null`
 
-Defined in: [field/fileField.ts:30](https://github.com/siposdani87/sui-js/blob/433cda184a013753ef41bb6ba61d0b3944481fa1/src/field/fileField.ts#L30)
+Defined in: [field/fileField.ts:30](https://github.com/siposdani87/sui-js/blob/27883240db7565f37a562e906b93c8d6552ac058/src/field/fileField.ts#L30)
 
 Base64 data URL of the currently uploaded file, or `null` if empty.
 
@@ -242,7 +242,7 @@ Base64 data URL of the currently uploaded file, or `null` if empty.
 
 > `protected` **\_getAttributeName**(`inputName`): `string`
 
-Defined in: [field/baseField.ts:157](https://github.com/siposdani87/sui-js/blob/433cda184a013753ef41bb6ba61d0b3944481fa1/src/field/baseField.ts#L157)
+Defined in: [field/baseField.ts:157](https://github.com/siposdani87/sui-js/blob/27883240db7565f37a562e906b93c8d6552ac058/src/field/baseField.ts#L157)
 
 #### Parameters
 
@@ -272,7 +272,7 @@ Converts an HTML input name attribute to dot notation by replacing brackets.
 
 > `protected` **\_getLabelRequiredText**(`labelText`): `string`
 
-Defined in: [field/baseField.ts:520](https://github.com/siposdani87/sui-js/blob/433cda184a013753ef41bb6ba61d0b3944481fa1/src/field/baseField.ts#L520)
+Defined in: [field/baseField.ts:520](https://github.com/siposdani87/sui-js/blob/27883240db7565f37a562e906b93c8d6552ac058/src/field/baseField.ts#L520)
 
 #### Parameters
 
@@ -302,7 +302,7 @@ Appends or removes the required asterisk (*) postfix from the label text.
 
 > `protected` **\_setAdditionalLabel**(`label`): `void`
 
-Defined in: [field/baseField.ts:507](https://github.com/siposdani87/sui-js/blob/433cda184a013753ef41bb6ba61d0b3944481fa1/src/field/baseField.ts#L507)
+Defined in: [field/baseField.ts:507](https://github.com/siposdani87/sui-js/blob/27883240db7565f37a562e906b93c8d6552ac058/src/field/baseField.ts#L507)
 
 #### Parameters
 
@@ -330,7 +330,7 @@ Updates the label text with a required indicator and sets up the info tooltip.
 
 > **checkValidity**(`opt_force?`, `opt_showMessage?`): `void`
 
-Defined in: [field/baseField.ts:196](https://github.com/siposdani87/sui-js/blob/433cda184a013753ef41bb6ba61d0b3944481fa1/src/field/baseField.ts#L196)
+Defined in: [field/baseField.ts:196](https://github.com/siposdani87/sui-js/blob/27883240db7565f37a562e906b93c8d6552ac058/src/field/baseField.ts#L196)
 
 #### Parameters
 
@@ -371,7 +371,7 @@ field.checkValidity(true, false); // force visual update, suppress message
 
 > **eventChange**(`value`, `previousValue`): `void`
 
-Defined in: [field/baseField.ts:72](https://github.com/siposdani87/sui-js/blob/433cda184a013753ef41bb6ba61d0b3944481fa1/src/field/baseField.ts#L72)
+Defined in: [field/baseField.ts:72](https://github.com/siposdani87/sui-js/blob/27883240db7565f37a562e906b93c8d6552ac058/src/field/baseField.ts#L72)
 
 #### Parameters
 
@@ -413,7 +413,7 @@ field.eventChange = (value, previousValue) => {
 
 > **eventClick**(`knot`): `void`
 
-Defined in: [field/baseField.ts:84](https://github.com/siposdani87/sui-js/blob/433cda184a013753ef41bb6ba61d0b3944481fa1/src/field/baseField.ts#L84)
+Defined in: [field/baseField.ts:84](https://github.com/siposdani87/sui-js/blob/27883240db7565f37a562e906b93c8d6552ac058/src/field/baseField.ts#L84)
 
 #### Parameters
 
@@ -449,7 +449,7 @@ field.eventClick = (knot) => {
 
 > **exists**(): `boolean`
 
-Defined in: [field/baseField.ts:273](https://github.com/siposdani87/sui-js/blob/433cda184a013753ef41bb6ba61d0b3944481fa1/src/field/baseField.ts#L273)
+Defined in: [field/baseField.ts:273](https://github.com/siposdani87/sui-js/blob/27883240db7565f37a562e906b93c8d6552ac058/src/field/baseField.ts#L273)
 
 #### Returns
 
@@ -479,7 +479,7 @@ if (field.exists()) {
 
 > **existsInput**(): `boolean`
 
-Defined in: [field/baseField.ts:285](https://github.com/siposdani87/sui-js/blob/433cda184a013753ef41bb6ba61d0b3944481fa1/src/field/baseField.ts#L285)
+Defined in: [field/baseField.ts:285](https://github.com/siposdani87/sui-js/blob/27883240db7565f37a562e906b93c8d6552ac058/src/field/baseField.ts#L285)
 
 #### Returns
 
@@ -509,7 +509,7 @@ if (field.existsInput()) {
 
 > **existsInputBlock**(): `boolean`
 
-Defined in: [field/baseField.ts:297](https://github.com/siposdani87/sui-js/blob/433cda184a013753ef41bb6ba61d0b3944481fa1/src/field/baseField.ts#L297)
+Defined in: [field/baseField.ts:297](https://github.com/siposdani87/sui-js/blob/27883240db7565f37a562e906b93c8d6552ac058/src/field/baseField.ts#L297)
 
 #### Returns
 
@@ -539,7 +539,7 @@ if (field.existsInputBlock()) {
 
 > **get**(`attribute`): `any`
 
-Defined in: [field/baseField.ts:308](https://github.com/siposdani87/sui-js/blob/433cda184a013753ef41bb6ba61d0b3944481fa1/src/field/baseField.ts#L308)
+Defined in: [field/baseField.ts:308](https://github.com/siposdani87/sui-js/blob/27883240db7565f37a562e906b93c8d6552ac058/src/field/baseField.ts#L308)
 
 #### Parameters
 
@@ -575,7 +575,7 @@ const type = field.get('type'); // 'text'
 
 > **getName**(): `string`
 
-Defined in: [field/baseField.ts:136](https://github.com/siposdani87/sui-js/blob/433cda184a013753ef41bb6ba61d0b3944481fa1/src/field/baseField.ts#L136)
+Defined in: [field/baseField.ts:136](https://github.com/siposdani87/sui-js/blob/27883240db7565f37a562e906b93c8d6552ac058/src/field/baseField.ts#L136)
 
 #### Returns
 
@@ -604,7 +604,7 @@ const name = field.getName(); // 'user.address.city'
 
 > **getPreviousValue**(): `any`
 
-Defined in: [field/baseField.ts:124](https://github.com/siposdani87/sui-js/blob/433cda184a013753ef41bb6ba61d0b3944481fa1/src/field/baseField.ts#L124)
+Defined in: [field/baseField.ts:124](https://github.com/siposdani87/sui-js/blob/27883240db7565f37a562e906b93c8d6552ac058/src/field/baseField.ts#L124)
 
 #### Returns
 
@@ -632,7 +632,7 @@ const prev = field.getPreviousValue();
 
 > **getValue**(): `any`
 
-Defined in: [field/baseField.ts:147](https://github.com/siposdani87/sui-js/blob/433cda184a013753ef41bb6ba61d0b3944481fa1/src/field/baseField.ts#L147)
+Defined in: [field/baseField.ts:147](https://github.com/siposdani87/sui-js/blob/27883240db7565f37a562e906b93c8d6552ac058/src/field/baseField.ts#L147)
 
 #### Returns
 
@@ -660,7 +660,7 @@ const value = field.getValue();
 
 > **hide**(): `void`
 
-Defined in: [field/baseField.ts:423](https://github.com/siposdani87/sui-js/blob/433cda184a013753ef41bb6ba61d0b3944481fa1/src/field/baseField.ts#L423)
+Defined in: [field/baseField.ts:423](https://github.com/siposdani87/sui-js/blob/27883240db7565f37a562e906b93c8d6552ac058/src/field/baseField.ts#L423)
 
 #### Returns
 
@@ -686,7 +686,7 @@ field.hide();
 
 > **isDisabled**(): `boolean`
 
-Defined in: [field/baseField.ts:361](https://github.com/siposdani87/sui-js/blob/433cda184a013753ef41bb6ba61d0b3944481fa1/src/field/baseField.ts#L361)
+Defined in: [field/baseField.ts:361](https://github.com/siposdani87/sui-js/blob/27883240db7565f37a562e906b93c8d6552ac058/src/field/baseField.ts#L361)
 
 #### Returns
 
@@ -716,7 +716,7 @@ if (field.isDisabled()) {
 
 > **isEnabled**(): `boolean`
 
-Defined in: [field/baseField.ts:349](https://github.com/siposdani87/sui-js/blob/433cda184a013753ef41bb6ba61d0b3944481fa1/src/field/baseField.ts#L349)
+Defined in: [field/baseField.ts:349](https://github.com/siposdani87/sui-js/blob/27883240db7565f37a562e906b93c8d6552ac058/src/field/baseField.ts#L349)
 
 #### Returns
 
@@ -746,7 +746,7 @@ if (field.isEnabled()) {
 
 > **isRequired**(): `boolean`
 
-Defined in: [field/baseField.ts:320](https://github.com/siposdani87/sui-js/blob/433cda184a013753ef41bb6ba61d0b3944481fa1/src/field/baseField.ts#L320)
+Defined in: [field/baseField.ts:320](https://github.com/siposdani87/sui-js/blob/27883240db7565f37a562e906b93c8d6552ac058/src/field/baseField.ts#L320)
 
 #### Returns
 
@@ -776,7 +776,7 @@ if (field.isRequired()) {
 
 > **isValid**(): `boolean`
 
-Defined in: [field/baseField.ts:241](https://github.com/siposdani87/sui-js/blob/433cda184a013753ef41bb6ba61d0b3944481fa1/src/field/baseField.ts#L241)
+Defined in: [field/baseField.ts:241](https://github.com/siposdani87/sui-js/blob/27883240db7565f37a562e906b93c8d6552ac058/src/field/baseField.ts#L241)
 
 #### Returns
 
@@ -806,7 +806,7 @@ if (field.isValid()) {
 
 > **isValidityValid**(): `boolean`
 
-Defined in: [field/baseField.ts:227](https://github.com/siposdani87/sui-js/blob/433cda184a013753ef41bb6ba61d0b3944481fa1/src/field/baseField.ts#L227)
+Defined in: [field/baseField.ts:227](https://github.com/siposdani87/sui-js/blob/27883240db7565f37a562e906b93c8d6552ac058/src/field/baseField.ts#L227)
 
 #### Returns
 
@@ -836,7 +836,7 @@ if (field.isValidityValid()) {
 
 > **isVisible**(): `boolean`
 
-Defined in: [field/baseField.ts:389](https://github.com/siposdani87/sui-js/blob/433cda184a013753ef41bb6ba61d0b3944481fa1/src/field/baseField.ts#L389)
+Defined in: [field/baseField.ts:389](https://github.com/siposdani87/sui-js/blob/27883240db7565f37a562e906b93c8d6552ac058/src/field/baseField.ts#L389)
 
 #### Returns
 
@@ -866,7 +866,7 @@ if (field.isVisible()) {
 
 > **modelChange**(`value`): `void`
 
-Defined in: [field/baseField.ts:114](https://github.com/siposdani87/sui-js/blob/433cda184a013753ef41bb6ba61d0b3944481fa1/src/field/baseField.ts#L114)
+Defined in: [field/baseField.ts:114](https://github.com/siposdani87/sui-js/blob/27883240db7565f37a562e906b93c8d6552ac058/src/field/baseField.ts#L114)
 
 #### Parameters
 
@@ -902,7 +902,7 @@ field.modelChange = (value) => {
 
 > **refresh**(): `void`
 
-Defined in: [field/fileField.ts:250](https://github.com/siposdani87/sui-js/blob/433cda184a013753ef41bb6ba61d0b3944481fa1/src/field/fileField.ts#L250)
+Defined in: [field/fileField.ts:250](https://github.com/siposdani87/sui-js/blob/27883240db7565f37a562e906b93c8d6552ac058/src/field/fileField.ts#L250)
 
 Validates required state, toggles the remove button visibility, and
 upgrades MDL components.
@@ -921,7 +921,7 @@ upgrades MDL components.
 
 > **render**(): `void`
 
-Defined in: [field/fileField.ts:231](https://github.com/siposdani87/sui-js/blob/433cda184a013753ef41bb6ba61d0b3944481fa1/src/field/fileField.ts#L231)
+Defined in: [field/fileField.ts:231](https://github.com/siposdani87/sui-js/blob/27883240db7565f37a562e906b93c8d6552ac058/src/field/fileField.ts#L231)
 
 Applies MDL text-field classes and refreshes the visual state.
 
@@ -939,7 +939,7 @@ Applies MDL text-field classes and refreshes the visual state.
 
 > **setDisabled**(`state`): `void`
 
-Defined in: [field/baseField.ts:371](https://github.com/siposdani87/sui-js/blob/433cda184a013753ef41bb6ba61d0b3944481fa1/src/field/baseField.ts#L371)
+Defined in: [field/baseField.ts:371](https://github.com/siposdani87/sui-js/blob/27883240db7565f37a562e906b93c8d6552ac058/src/field/baseField.ts#L371)
 
 #### Parameters
 
@@ -973,7 +973,7 @@ field.setDisabled(true);
 
 > **setError**(`opt_message?`, `opt_isCustomError?`): `void`
 
-Defined in: [field/baseField.ts:175](https://github.com/siposdani87/sui-js/blob/433cda184a013753ef41bb6ba61d0b3944481fa1/src/field/baseField.ts#L175)
+Defined in: [field/baseField.ts:175](https://github.com/siposdani87/sui-js/blob/27883240db7565f37a562e906b93c8d6552ac058/src/field/baseField.ts#L175)
 
 #### Parameters
 
@@ -1014,7 +1014,7 @@ field.setError(''); // clears the error
 
 > **setLabel**(`text`): `void`
 
-Defined in: [field/baseField.ts:435](https://github.com/siposdani87/sui-js/blob/433cda184a013753ef41bb6ba61d0b3944481fa1/src/field/baseField.ts#L435)
+Defined in: [field/baseField.ts:435](https://github.com/siposdani87/sui-js/blob/27883240db7565f37a562e906b93c8d6552ac058/src/field/baseField.ts#L435)
 
 #### Parameters
 
@@ -1048,7 +1048,7 @@ field.setLabel('Email Address');
 
 > **setRequired**(`state`): `void`
 
-Defined in: [field/baseField.ts:330](https://github.com/siposdani87/sui-js/blob/433cda184a013753ef41bb6ba61d0b3944481fa1/src/field/baseField.ts#L330)
+Defined in: [field/baseField.ts:330](https://github.com/siposdani87/sui-js/blob/27883240db7565f37a562e906b93c8d6552ac058/src/field/baseField.ts#L330)
 
 #### Parameters
 
@@ -1082,7 +1082,7 @@ field.setRequired(true);
 
 > **setValue**(`value`): `void`
 
-Defined in: [field/fileField.ts:327](https://github.com/siposdani87/sui-js/blob/433cda184a013753ef41bb6ba61d0b3944481fa1/src/field/fileField.ts#L327)
+Defined in: [field/fileField.ts:327](https://github.com/siposdani87/sui-js/blob/27883240db7565f37a562e906b93c8d6552ac058/src/field/fileField.ts#L327)
 
 Sets the field value from a URL string or an object with a `url`
 property, updates the image preview, and notifies the model.
@@ -1109,7 +1109,7 @@ The file URL or object containing a `url` key.
 
 > **setVisibility**(`state`): `void`
 
-Defined in: [field/baseField.ts:399](https://github.com/siposdani87/sui-js/blob/433cda184a013753ef41bb6ba61d0b3944481fa1/src/field/baseField.ts#L399)
+Defined in: [field/baseField.ts:399](https://github.com/siposdani87/sui-js/blob/27883240db7565f37a562e906b93c8d6552ac058/src/field/baseField.ts#L399)
 
 #### Parameters
 
@@ -1143,7 +1143,7 @@ field.setVisibility(false); // hides the field
 
 > **show**(): `void`
 
-Defined in: [field/baseField.ts:412](https://github.com/siposdani87/sui-js/blob/433cda184a013753ef41bb6ba61d0b3944481fa1/src/field/baseField.ts#L412)
+Defined in: [field/baseField.ts:412](https://github.com/siposdani87/sui-js/blob/27883240db7565f37a562e906b93c8d6552ac058/src/field/baseField.ts#L412)
 
 #### Returns
 

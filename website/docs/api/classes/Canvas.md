@@ -1,6 +1,6 @@
 # Class: Canvas
 
-Defined in: [component/canvas.ts:21](https://github.com/siposdani87/sui-js/blob/433cda184a013753ef41bb6ba61d0b3944481fa1/src/component/canvas.ts#L21)
+Defined in: [component/canvas.ts:21](https://github.com/siposdani87/sui-js/blob/27883240db7565f37a562e906b93c8d6552ac058/src/component/canvas.ts#L21)
 
 HTML5 Canvas wrapper for 2D drawing operations.
 
@@ -28,7 +28,7 @@ canvas.drawRectangle(10, 10, 100, 50, 0, { fillStyle: '#FF0000' });
 
 > **new Canvas**(`opt_selector?`): `Canvas`
 
-Defined in: [component/canvas.ts:30](https://github.com/siposdani87/sui-js/blob/433cda184a013753ef41bb6ba61d0b3944481fa1/src/component/canvas.ts#L30)
+Defined in: [component/canvas.ts:30](https://github.com/siposdani87/sui-js/blob/27883240db7565f37a562e906b93c8d6552ac058/src/component/canvas.ts#L30)
 
 #### Parameters
 
@@ -49,7 +49,7 @@ A [Knot](Knot.md) wrapping a canvas element, a CSS selector
 
 > **canvasElement**: `HTMLCanvasElement`
 
-Defined in: [component/canvas.ts:23](https://github.com/siposdani87/sui-js/blob/433cda184a013753ef41bb6ba61d0b3944481fa1/src/component/canvas.ts#L23)
+Defined in: [component/canvas.ts:23](https://github.com/siposdani87/sui-js/blob/27883240db7565f37a562e906b93c8d6552ac058/src/component/canvas.ts#L23)
 
 ***
 
@@ -57,7 +57,7 @@ Defined in: [component/canvas.ts:23](https://github.com/siposdani87/sui-js/blob/
 
 > **canvasKnot**: [`Knot`](Knot.md)\<`HTMLCanvasElement`\>
 
-Defined in: [component/canvas.ts:22](https://github.com/siposdani87/sui-js/blob/433cda184a013753ef41bb6ba61d0b3944481fa1/src/component/canvas.ts#L22)
+Defined in: [component/canvas.ts:22](https://github.com/siposdani87/sui-js/blob/27883240db7565f37a562e906b93c8d6552ac058/src/component/canvas.ts#L22)
 
 ***
 
@@ -65,7 +65,7 @@ Defined in: [component/canvas.ts:22](https://github.com/siposdani87/sui-js/blob/
 
 > **context**: `CanvasRenderingContext2D`
 
-Defined in: [component/canvas.ts:24](https://github.com/siposdani87/sui-js/blob/433cda184a013753ef41bb6ba61d0b3944481fa1/src/component/canvas.ts#L24)
+Defined in: [component/canvas.ts:24](https://github.com/siposdani87/sui-js/blob/27883240db7565f37a562e906b93c8d6552ac058/src/component/canvas.ts#L24)
 
 ## Methods
 
@@ -73,7 +73,7 @@ Defined in: [component/canvas.ts:24](https://github.com/siposdani87/sui-js/blob/
 
 > **clear**(): `void`
 
-Defined in: [component/canvas.ts:269](https://github.com/siposdani87/sui-js/blob/433cda184a013753ef41bb6ba61d0b3944481fa1/src/component/canvas.ts#L269)
+Defined in: [component/canvas.ts:269](https://github.com/siposdani87/sui-js/blob/27883240db7565f37a562e906b93c8d6552ac058/src/component/canvas.ts#L269)
 
 Clears the entire canvas.
 
@@ -93,7 +93,7 @@ canvas.clear();
 
 > **drawImage**(`imageKnot`, `opt_width?`, `opt_height?`): `void`
 
-Defined in: [component/canvas.ts:228](https://github.com/siposdani87/sui-js/blob/433cda184a013753ef41bb6ba61d0b3944481fa1/src/component/canvas.ts#L228)
+Defined in: [component/canvas.ts:228](https://github.com/siposdani87/sui-js/blob/27883240db7565f37a562e906b93c8d6552ac058/src/component/canvas.ts#L228)
 
 Draws an image onto the canvas from an image [Knot](Knot.md).
 
@@ -135,7 +135,7 @@ canvas.drawImage(img, 200, 150);
 
 > **drawPolygon**(`x`, `y`, `radius`, `sides`, `rotateAngle`, `options`): `void`
 
-Defined in: [component/canvas.ts:142](https://github.com/siposdani87/sui-js/blob/433cda184a013753ef41bb6ba61d0b3944481fa1/src/component/canvas.ts#L142)
+Defined in: [component/canvas.ts:142](https://github.com/siposdani87/sui-js/blob/27883240db7565f37a562e906b93c8d6552ac058/src/component/canvas.ts#L142)
 
 Draws a regular polygon on the canvas.
 
@@ -196,7 +196,7 @@ canvas.drawPolygon(100, 100, 50, 6, 0, {
 
 > **drawRectangle**(`x`, `y`, `width`, `height`, `rotateAngle`, `options`): `void`
 
-Defined in: [component/canvas.ts:191](https://github.com/siposdani87/sui-js/blob/433cda184a013753ef41bb6ba61d0b3944481fa1/src/component/canvas.ts#L191)
+Defined in: [component/canvas.ts:191](https://github.com/siposdani87/sui-js/blob/27883240db7565f37a562e906b93c8d6552ac058/src/component/canvas.ts#L191)
 
 Draws a rectangle on the canvas with optional rotation.
 
@@ -258,7 +258,7 @@ canvas.drawRectangle(10, 10, 200, 100, 0, {
 
 > **eventMouseMove**(`x`, `y`): `void`
 
-Defined in: [component/canvas.ts:259](https://github.com/siposdani87/sui-js/blob/433cda184a013753ef41bb6ba61d0b3944481fa1/src/component/canvas.ts#L259)
+Defined in: [component/canvas.ts:259](https://github.com/siposdani87/sui-js/blob/27883240db7565f37a562e906b93c8d6552ac058/src/component/canvas.ts#L259)
 
 Called when the mouse moves over the canvas. Override to handle mouse tracking.
 
@@ -286,7 +286,7 @@ The y-coordinate relative to the canvas.
 
 > **getHeight**(): `number`
 
-Defined in: [component/canvas.ts:108](https://github.com/siposdani87/sui-js/blob/433cda184a013753ef41bb6ba61d0b3944481fa1/src/component/canvas.ts#L108)
+Defined in: [component/canvas.ts:108](https://github.com/siposdani87/sui-js/blob/27883240db7565f37a562e906b93c8d6552ac058/src/component/canvas.ts#L108)
 
 Returns the current canvas height in pixels.
 
@@ -308,7 +308,7 @@ const h = canvas.getHeight();
 
 > **getImageDataXY**(`x`, `y`): `Uint8ClampedArray`
 
-Defined in: [component/canvas.ts:250](https://github.com/siposdani87/sui-js/blob/433cda184a013753ef41bb6ba61d0b3944481fa1/src/component/canvas.ts#L250)
+Defined in: [component/canvas.ts:250](https://github.com/siposdani87/sui-js/blob/27883240db7565f37a562e906b93c8d6552ac058/src/component/canvas.ts#L250)
 
 Returns the RGBA pixel data at a specific canvas coordinate.
 
@@ -344,7 +344,7 @@ const [r, g, b, a] = canvas.getImageDataXY(50, 50);
 
 > **getWidth**(): `number`
 
-Defined in: [component/canvas.ts:84](https://github.com/siposdani87/sui-js/blob/433cda184a013753ef41bb6ba61d0b3944481fa1/src/component/canvas.ts#L84)
+Defined in: [component/canvas.ts:84](https://github.com/siposdani87/sui-js/blob/27883240db7565f37a562e906b93c8d6552ac058/src/component/canvas.ts#L84)
 
 Returns the current canvas width in pixels.
 
@@ -366,7 +366,7 @@ const w = canvas.getWidth();
 
 > **setHeight**(`height`): `void`
 
-Defined in: [component/canvas.ts:96](https://github.com/siposdani87/sui-js/blob/433cda184a013753ef41bb6ba61d0b3944481fa1/src/component/canvas.ts#L96)
+Defined in: [component/canvas.ts:96](https://github.com/siposdani87/sui-js/blob/27883240db7565f37a562e906b93c8d6552ac058/src/component/canvas.ts#L96)
 
 Sets the canvas height in pixels.
 
@@ -394,7 +394,7 @@ canvas.setHeight(600);
 
 > **setSize**(`width`, `height`): `void`
 
-Defined in: [component/canvas.ts:121](https://github.com/siposdani87/sui-js/blob/433cda184a013753ef41bb6ba61d0b3944481fa1/src/component/canvas.ts#L121)
+Defined in: [component/canvas.ts:121](https://github.com/siposdani87/sui-js/blob/27883240db7565f37a562e906b93c8d6552ac058/src/component/canvas.ts#L121)
 
 Sets both the canvas width and height in pixels.
 
@@ -428,7 +428,7 @@ canvas.setSize(800, 600);
 
 > **setWidth**(`width`): `void`
 
-Defined in: [component/canvas.ts:72](https://github.com/siposdani87/sui-js/blob/433cda184a013753ef41bb6ba61d0b3944481fa1/src/component/canvas.ts#L72)
+Defined in: [component/canvas.ts:72](https://github.com/siposdani87/sui-js/blob/27883240db7565f37a562e906b93c8d6552ac058/src/component/canvas.ts#L72)
 
 Sets the canvas width in pixels.
 

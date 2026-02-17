@@ -1,6 +1,6 @@
 # Class: DateTime
 
-Defined in: [component/dateTime.ts:30](https://github.com/siposdani87/sui-js/blob/433cda184a013753ef41bb6ba61d0b3944481fa1/src/component/dateTime.ts#L30)
+Defined in: [component/dateTime.ts:30](https://github.com/siposdani87/sui-js/blob/27883240db7565f37a562e906b93c8d6552ac058/src/component/dateTime.ts#L30)
 
 ## Description
 
@@ -27,7 +27,7 @@ dt.draw();
 
 > **new DateTime**(`knot`, `options`): `DateTime`
 
-Defined in: [component/dateTime.ts:48](https://github.com/siposdani87/sui-js/blob/433cda184a013753ef41bb6ba61d0b3944481fa1/src/component/dateTime.ts#L48)
+Defined in: [component/dateTime.ts:48](https://github.com/siposdani87/sui-js/blob/27883240db7565f37a562e906b93c8d6552ac058/src/component/dateTime.ts#L48)
 
 #### Parameters
 
@@ -63,7 +63,7 @@ const dt = new DateTime(new Knot('div'), { type: 'date', value: '2024-01-15' });
 
 > **calendarKnot**: [`Knot`](Knot.md)
 
-Defined in: [component/dateTime.ts:37](https://github.com/siposdani87/sui-js/blob/433cda184a013753ef41bb6ba61d0b3944481fa1/src/component/dateTime.ts#L37)
+Defined in: [component/dateTime.ts:37](https://github.com/siposdani87/sui-js/blob/27883240db7565f37a562e906b93c8d6552ac058/src/component/dateTime.ts#L37)
 
 ***
 
@@ -71,7 +71,7 @@ Defined in: [component/dateTime.ts:37](https://github.com/siposdani87/sui-js/blo
 
 > **clockKnot**: [`Knot`](Knot.md)
 
-Defined in: [component/dateTime.ts:38](https://github.com/siposdani87/sui-js/blob/433cda184a013753ef41bb6ba61d0b3944481fa1/src/component/dateTime.ts#L38)
+Defined in: [component/dateTime.ts:38](https://github.com/siposdani87/sui-js/blob/27883240db7565f37a562e906b93c8d6552ac058/src/component/dateTime.ts#L38)
 
 ***
 
@@ -79,7 +79,7 @@ Defined in: [component/dateTime.ts:38](https://github.com/siposdani87/sui-js/blo
 
 > **config**: `DateTimeConfig`
 
-Defined in: [component/dateTime.ts:36](https://github.com/siposdani87/sui-js/blob/433cda184a013753ef41bb6ba61d0b3944481fa1/src/component/dateTime.ts#L36)
+Defined in: [component/dateTime.ts:36](https://github.com/siposdani87/sui-js/blob/27883240db7565f37a562e906b93c8d6552ac058/src/component/dateTime.ts#L36)
 
 ***
 
@@ -87,7 +87,7 @@ Defined in: [component/dateTime.ts:36](https://github.com/siposdani87/sui-js/blo
 
 > **datetimeKnot**: [`Knot`](Knot.md)
 
-Defined in: [component/dateTime.ts:31](https://github.com/siposdani87/sui-js/blob/433cda184a013753ef41bb6ba61d0b3944481fa1/src/component/dateTime.ts#L31)
+Defined in: [component/dateTime.ts:31](https://github.com/siposdani87/sui-js/blob/27883240db7565f37a562e906b93c8d6552ac058/src/component/dateTime.ts#L31)
 
 ***
 
@@ -95,7 +95,7 @@ Defined in: [component/dateTime.ts:31](https://github.com/siposdani87/sui-js/blo
 
 > **options**: [`Objekt`](Objekt.md)
 
-Defined in: [component/dateTime.ts:32](https://github.com/siposdani87/sui-js/blob/433cda184a013753ef41bb6ba61d0b3944481fa1/src/component/dateTime.ts#L32)
+Defined in: [component/dateTime.ts:32](https://github.com/siposdani87/sui-js/blob/27883240db7565f37a562e906b93c8d6552ac058/src/component/dateTime.ts#L32)
 
 ***
 
@@ -103,7 +103,7 @@ Defined in: [component/dateTime.ts:32](https://github.com/siposdani87/sui-js/blo
 
 > **types**: `object`
 
-Defined in: [component/dateTime.ts:33](https://github.com/siposdani87/sui-js/blob/433cda184a013753ef41bb6ba61d0b3944481fa1/src/component/dateTime.ts#L33)
+Defined in: [component/dateTime.ts:33](https://github.com/siposdani87/sui-js/blob/27883240db7565f37a562e906b93c8d6552ac058/src/component/dateTime.ts#L33)
 
 #### Index Signature
 
@@ -115,7 +115,7 @@ Defined in: [component/dateTime.ts:33](https://github.com/siposdani87/sui-js/blo
 
 > **value**: `Date`
 
-Defined in: [component/dateTime.ts:39](https://github.com/siposdani87/sui-js/blob/433cda184a013753ef41bb6ba61d0b3944481fa1/src/component/dateTime.ts#L39)
+Defined in: [component/dateTime.ts:39](https://github.com/siposdani87/sui-js/blob/27883240db7565f37a562e906b93c8d6552ac058/src/component/dateTime.ts#L39)
 
 ## Methods
 
@@ -123,7 +123,7 @@ Defined in: [component/dateTime.ts:39](https://github.com/siposdani87/sui-js/blo
 
 > **draw**(): `void`
 
-Defined in: [component/dateTime.ts:201](https://github.com/siposdani87/sui-js/blob/433cda184a013753ef41bb6ba61d0b3944481fa1/src/component/dateTime.ts#L201)
+Defined in: [component/dateTime.ts:201](https://github.com/siposdani87/sui-js/blob/27883240db7565f37a562e906b93c8d6552ac058/src/component/dateTime.ts#L201)
 
 #### Returns
 
@@ -145,7 +145,7 @@ dt.draw();
 
 > **eventClick**(`value`): `void`
 
-Defined in: [component/dateTime.ts:272](https://github.com/siposdani87/sui-js/blob/433cda184a013753ef41bb6ba61d0b3944481fa1/src/component/dateTime.ts#L272)
+Defined in: [component/dateTime.ts:272](https://github.com/siposdani87/sui-js/blob/27883240db7565f37a562e906b93c8d6552ac058/src/component/dateTime.ts#L272)
 
 #### Parameters
 
@@ -175,7 +175,7 @@ dt.eventClick = (value) => { console.log('Changed:', value); };
 
 > **getConfig**(): `DateTimeConfig`
 
-Defined in: [component/dateTime.ts:161](https://github.com/siposdani87/sui-js/blob/433cda184a013753ef41bb6ba61d0b3944481fa1/src/component/dateTime.ts#L161)
+Defined in: [component/dateTime.ts:161](https://github.com/siposdani87/sui-js/blob/27883240db7565f37a562e906b93c8d6552ac058/src/component/dateTime.ts#L161)
 
 #### Returns
 
@@ -200,7 +200,7 @@ console.log(config.format); // 'YYYY-MM-DD'
 
 > **getFormattedValue**(): `string`
 
-Defined in: [component/dateTime.ts:192](https://github.com/siposdani87/sui-js/blob/433cda184a013753ef41bb6ba61d0b3944481fa1/src/component/dateTime.ts#L192)
+Defined in: [component/dateTime.ts:192](https://github.com/siposdani87/sui-js/blob/27883240db7565f37a562e906b93c8d6552ac058/src/component/dateTime.ts#L192)
 
 #### Returns
 
@@ -224,7 +224,7 @@ const formatted = dt.getFormattedValue(); // '2024-01-15'
 
 > **setValue**(`value`): `void`
 
-Defined in: [component/dateTime.ts:180](https://github.com/siposdani87/sui-js/blob/433cda184a013753ef41bb6ba61d0b3944481fa1/src/component/dateTime.ts#L180)
+Defined in: [component/dateTime.ts:180](https://github.com/siposdani87/sui-js/blob/27883240db7565f37a562e906b93c8d6552ac058/src/component/dateTime.ts#L180)
 
 #### Parameters
 

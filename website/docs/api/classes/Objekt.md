@@ -1,6 +1,6 @@
 # Class: Objekt\<T\>
 
-Defined in: [core/objekt.ts:39](https://github.com/siposdani87/sui-js/blob/433cda184a013753ef41bb6ba61d0b3944481fa1/src/core/objekt.ts#L39)
+Defined in: [core/objekt.ts:39](https://github.com/siposdani87/sui-js/blob/27883240db7565f37a562e906b93c8d6552ac058/src/core/objekt.ts#L39)
 
 Recursive object wrapper that provides dot-notation access to nested
 properties. Objekt serves as the foundational data container throughout the
@@ -47,7 +47,7 @@ config.get('server.port');       // 8080
 
 > **new Objekt**\<`T`\>(`opt_object?`): `Objekt`\<`T`\>
 
-Defined in: [core/objekt.ts:53](https://github.com/siposdani87/sui-js/blob/433cda184a013753ef41bb6ba61d0b3944481fa1/src/core/objekt.ts#L53)
+Defined in: [core/objekt.ts:53](https://github.com/siposdani87/sui-js/blob/27883240db7565f37a562e906b93c8d6552ac058/src/core/objekt.ts#L53)
 
 Creates a new Objekt instance, optionally populated with the properties
 of the given plain object. Nested plain objects are recursively converted
@@ -78,7 +78,7 @@ obj.get('address.city'); // 'Paris'
 
 > **allowKeys**(`keys`): `Objekt`
 
-Defined in: [core/objekt.ts:446](https://github.com/siposdani87/sui-js/blob/433cda184a013753ef41bb6ba61d0b3944481fa1/src/core/objekt.ts#L446)
+Defined in: [core/objekt.ts:446](https://github.com/siposdani87/sui-js/blob/27883240db7565f37a562e906b93c8d6552ac058/src/core/objekt.ts#L446)
 
 Creates a new Objekt containing only the properties whose
 dot-notation keys appear in the given allowlist. All other properties
@@ -113,7 +113,7 @@ filtered.get('age');  // undefined
 
 > **clear**(): `void`
 
-Defined in: [core/objekt.ts:290](https://github.com/siposdani87/sui-js/blob/433cda184a013753ef41bb6ba61d0b3944481fa1/src/core/objekt.ts#L290)
+Defined in: [core/objekt.ts:290](https://github.com/siposdani87/sui-js/blob/27883240db7565f37a562e906b93c8d6552ac058/src/core/objekt.ts#L290)
 
 Removes all properties from this Objekt, leaving it empty.
 
@@ -135,7 +135,7 @@ obj.isEmpty(); // true
 
 > **copy**(): `Objekt`
 
-Defined in: [core/objekt.ts:399](https://github.com/siposdani87/sui-js/blob/433cda184a013753ef41bb6ba61d0b3944481fa1/src/core/objekt.ts#L399)
+Defined in: [core/objekt.ts:399](https://github.com/siposdani87/sui-js/blob/27883240db7565f37a562e906b93c8d6552ac058/src/core/objekt.ts#L399)
 
 Creates a deep copy of this Objekt, returning a new independent
 instance with the same data.
@@ -162,7 +162,7 @@ original.get('x.y'); // 1 (unchanged)
 
 > **copyObject**(): `object`
 
-Defined in: [core/objekt.ts:414](https://github.com/siposdani87/sui-js/blob/433cda184a013753ef41bb6ba61d0b3944481fa1/src/core/objekt.ts#L414)
+Defined in: [core/objekt.ts:414](https://github.com/siposdani87/sui-js/blob/27883240db7565f37a562e906b93c8d6552ac058/src/core/objekt.ts#L414)
 
 Returns a deep copy of this Objekt's data as a plain JavaScript object.
 
@@ -186,7 +186,7 @@ const plain = obj.copyObject();
 
 > **denyKeys**(`keys`): `Objekt`
 
-Defined in: [core/objekt.ts:465](https://github.com/siposdani87/sui-js/blob/433cda184a013753ef41bb6ba61d0b3944481fa1/src/core/objekt.ts#L465)
+Defined in: [core/objekt.ts:465](https://github.com/siposdani87/sui-js/blob/27883240db7565f37a562e906b93c8d6552ac058/src/core/objekt.ts#L465)
 
 Creates a new Objekt excluding the properties whose dot-notation keys
 appear in the given denylist. All other properties are kept.
@@ -220,7 +220,7 @@ safe.get('name');     // 'Alice'
 
 > **each**\<`K`\>(`next`, `opt_properties?`, `opt_attributes?`): `void`
 
-Defined in: [core/objekt.ts:344](https://github.com/siposdani87/sui-js/blob/433cda184a013753ef41bb6ba61d0b3944481fa1/src/core/objekt.ts#L344)
+Defined in: [core/objekt.ts:344](https://github.com/siposdani87/sui-js/blob/27883240db7565f37a562e906b93c8d6552ac058/src/core/objekt.ts#L344)
 
 Recursively iterates over every leaf value in this Objekt (or a
 sub-tree), invoking the callback with the value and its full
@@ -278,7 +278,7 @@ obj.each((value, key) => {
 
 > **filterKeys**(`obj`, `condition`): `Objekt`
 
-Defined in: [core/objekt.ts:487](https://github.com/siposdani87/sui-js/blob/433cda184a013753ef41bb6ba61d0b3944481fa1/src/core/objekt.ts#L487)
+Defined in: [core/objekt.ts:487](https://github.com/siposdani87/sui-js/blob/27883240db7565f37a562e906b93c8d6552ac058/src/core/objekt.ts#L487)
 
 Creates a new Objekt by iterating over the leaf values of the source
 Objekt and including only those whose dot-notation keys satisfy the
@@ -320,7 +320,7 @@ result.get('b'); // undefined
 
 > **get**\<`K`\>(`attribute`, `opt_defaultValue?`, `opt_isSafe?`): `K`
 
-Defined in: [core/objekt.ts:136](https://github.com/siposdani87/sui-js/blob/433cda184a013753ef41bb6ba61d0b3944481fa1/src/core/objekt.ts#L136)
+Defined in: [core/objekt.ts:136](https://github.com/siposdani87/sui-js/blob/27883240db7565f37a562e906b93c8d6552ac058/src/core/objekt.ts#L136)
 
 Retrieves a value from this Objekt using a dot-notation path. When the
 path resolves to a nested Objekt, that Objekt is returned. If the path
@@ -383,7 +383,7 @@ obj.get('user.name', '', true);   // undefined (literal key 'user.name')
 
 > **isEmpty**(): `boolean`
 
-Defined in: [core/objekt.ts:428](https://github.com/siposdani87/sui-js/blob/433cda184a013753ef41bb6ba61d0b3944481fa1/src/core/objekt.ts#L428)
+Defined in: [core/objekt.ts:428](https://github.com/siposdani87/sui-js/blob/27883240db7565f37a562e906b93c8d6552ac058/src/core/objekt.ts#L428)
 
 Checks whether this Objekt has no properties.
 
@@ -407,7 +407,7 @@ new Objekt({ a: 1 }).isEmpty(); // false
 
 > **merge**(`object`): `Objekt`
 
-Defined in: [core/objekt.ts:73](https://github.com/siposdani87/sui-js/blob/433cda184a013753ef41bb6ba61d0b3944481fa1/src/core/objekt.ts#L73)
+Defined in: [core/objekt.ts:73](https://github.com/siposdani87/sui-js/blob/27883240db7565f37a562e906b93c8d6552ac058/src/core/objekt.ts#L73)
 
 Recursively merges the properties of the given object into this Objekt.
 Plain-object values are converted to Objekt instances so the full API
@@ -443,7 +443,7 @@ obj.get('c.d'); // 3
 
 > **remove**(`attribute`): `void`
 
-Defined in: [core/objekt.ts:277](https://github.com/siposdani87/sui-js/blob/433cda184a013753ef41bb6ba61d0b3944481fa1/src/core/objekt.ts#L277)
+Defined in: [core/objekt.ts:277](https://github.com/siposdani87/sui-js/blob/27883240db7565f37a562e906b93c8d6552ac058/src/core/objekt.ts#L277)
 
 Removes the property at the given dot-notation path. If the path
 includes nested segments, only the leaf property is deleted.
@@ -475,7 +475,7 @@ obj.get('a.c'); // 2
 
 > **set**\<`K`\>(`attribute`, `value`): `void`
 
-Defined in: [core/objekt.ts:227](https://github.com/siposdani87/sui-js/blob/433cda184a013753ef41bb6ba61d0b3944481fa1/src/core/objekt.ts#L227)
+Defined in: [core/objekt.ts:227](https://github.com/siposdani87/sui-js/blob/27883240db7565f37a562e906b93c8d6552ac058/src/core/objekt.ts#L227)
 
 Sets a value at the given dot-notation path. Intermediate objects are
 created as needed and merged into this Objekt, so the full path is
@@ -521,7 +521,7 @@ obj.get('theme.color'); // 'blue'
 
 > **setRaw**\<`K`\>(`attribute`, `value`, `opt_isSafe?`): `void`
 
-Defined in: [core/objekt.ts:255](https://github.com/siposdani87/sui-js/blob/433cda184a013753ef41bb6ba61d0b3944481fa1/src/core/objekt.ts#L255)
+Defined in: [core/objekt.ts:255](https://github.com/siposdani87/sui-js/blob/27883240db7565f37a562e906b93c8d6552ac058/src/core/objekt.ts#L255)
 
 Sets a value at the given path, bypassing the recursive merge used by
 [Objekt.set](#set). This is useful when the value is not a plain object

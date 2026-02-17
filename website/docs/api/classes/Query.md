@@ -1,6 +1,6 @@
 # Class: Query\<T\>
 
-Defined in: [core/query.ts:28](https://github.com/siposdani87/sui-js/blob/433cda184a013753ef41bb6ba61d0b3944481fa1/src/core/query.ts#L28)
+Defined in: [core/query.ts:28](https://github.com/siposdani87/sui-js/blob/27883240db7565f37a562e906b93c8d6552ac058/src/core/query.ts#L28)
 
 A DOM query result collection that selects elements matching a CSS selector
 and wraps them as [Knot](Knot.md) instances within a [Collection](Collection.md).
@@ -44,7 +44,7 @@ const allLinks = links.getKnots();
 
 > **new Query**\<`T`\>(`selector`, `opt_element?`): `Query`\<`T`\>
 
-Defined in: [core/query.ts:39](https://github.com/siposdani87/sui-js/blob/433cda184a013753ef41bb6ba61d0b3944481fa1/src/core/query.ts#L39)
+Defined in: [core/query.ts:39](https://github.com/siposdani87/sui-js/blob/27883240db7565f37a562e906b93c8d6552ac058/src/core/query.ts#L39)
 
 Creates a new Query by selecting DOM elements matching the given CSS
 selector and wrapping each result in a [Knot](Knot.md).
@@ -78,7 +78,7 @@ Parent element or [Knot](Knot.md) to scope the query
 
 > **items**: [`Knot`](Knot.md)\<`T`\>[]
 
-Defined in: [core/collection.ts:41](https://github.com/siposdani87/sui-js/blob/433cda184a013753ef41bb6ba61d0b3944481fa1/src/core/collection.ts#L41)
+Defined in: [core/collection.ts:41](https://github.com/siposdani87/sui-js/blob/27883240db7565f37a562e906b93c8d6552ac058/src/core/collection.ts#L41)
 
 #### Inherited from
 
@@ -90,7 +90,7 @@ Defined in: [core/collection.ts:41](https://github.com/siposdani87/sui-js/blob/4
 
 > **options**: [`Objekt`](Objekt.md)
 
-Defined in: [core/collection.ts:42](https://github.com/siposdani87/sui-js/blob/433cda184a013753ef41bb6ba61d0b3944481fa1/src/core/collection.ts#L42)
+Defined in: [core/collection.ts:42](https://github.com/siposdani87/sui-js/blob/27883240db7565f37a562e906b93c8d6552ac058/src/core/collection.ts#L42)
 
 #### Inherited from
 
@@ -102,7 +102,7 @@ Defined in: [core/collection.ts:42](https://github.com/siposdani87/sui-js/blob/4
 
 > **Type**: `any`
 
-Defined in: [core/collection.ts:40](https://github.com/siposdani87/sui-js/blob/433cda184a013753ef41bb6ba61d0b3944481fa1/src/core/collection.ts#L40)
+Defined in: [core/collection.ts:40](https://github.com/siposdani87/sui-js/blob/27883240db7565f37a562e906b93c8d6552ac058/src/core/collection.ts#L40)
 
 #### Inherited from
 
@@ -114,7 +114,7 @@ Defined in: [core/collection.ts:40](https://github.com/siposdani87/sui-js/blob/4
 
 > **clear**(): `void`
 
-Defined in: [core/collection.ts:355](https://github.com/siposdani87/sui-js/blob/433cda184a013753ef41bb6ba61d0b3944481fa1/src/core/collection.ts#L355)
+Defined in: [core/collection.ts:355](https://github.com/siposdani87/sui-js/blob/27883240db7565f37a562e906b93c8d6552ac058/src/core/collection.ts#L355)
 
 Removes all items from the collection, resetting its size to zero.
 
@@ -140,7 +140,7 @@ col.size(); // 0
 
 > **delete**(`value`): [`Knot`](Knot.md)\<`T`\> \| `null`
 
-Defined in: [core/collection.ts:475](https://github.com/siposdani87/sui-js/blob/433cda184a013753ef41bb6ba61d0b3944481fa1/src/core/collection.ts#L475)
+Defined in: [core/collection.ts:475](https://github.com/siposdani87/sui-js/blob/27883240db7565f37a562e906b93c8d6552ac058/src/core/collection.ts#L475)
 
 Removes the first item that is strictly equal to the given value
 (reference equality via [eq](../functions/eq.md)).
@@ -178,7 +178,7 @@ col.size(); // 0
 
 > **deleteAllBy**(`attribute`, `value`): [`Knot`](Knot.md)\<`T`\>[]
 
-Defined in: [core/collection.ts:561](https://github.com/siposdani87/sui-js/blob/433cda184a013753ef41bb6ba61d0b3944481fa1/src/core/collection.ts#L561)
+Defined in: [core/collection.ts:561](https://github.com/siposdani87/sui-js/blob/27883240db7565f37a562e906b93c8d6552ac058/src/core/collection.ts#L561)
 
 Removes all items where the given attribute equals the specified value.
 
@@ -225,7 +225,7 @@ col.size();     // 1
 
 > **deleteAllByCondition**(`conditionCallback`): [`Knot`](Knot.md)\<`T`\>[]
 
-Defined in: [core/collection.ts:583](https://github.com/siposdani87/sui-js/blob/433cda184a013753ef41bb6ba61d0b3944481fa1/src/core/collection.ts#L583)
+Defined in: [core/collection.ts:583](https://github.com/siposdani87/sui-js/blob/27883240db7565f37a562e906b93c8d6552ac058/src/core/collection.ts#L583)
 
 Removes all items for which the condition callback returns `true`.
 The internal array is rebuilt to contain only non-matching items.
@@ -266,7 +266,7 @@ col.size();     // 1 (id 2 remains)
 
 > **deleteBy**(`attribute`, `value`): [`Knot`](Knot.md)\<`T`\> \| `null`
 
-Defined in: [core/collection.ts:514](https://github.com/siposdani87/sui-js/blob/433cda184a013753ef41bb6ba61d0b3944481fa1/src/core/collection.ts#L514)
+Defined in: [core/collection.ts:514](https://github.com/siposdani87/sui-js/blob/27883240db7565f37a562e906b93c8d6552ac058/src/core/collection.ts#L514)
 
 Removes the first item where the given attribute equals the specified
 value.
@@ -312,7 +312,7 @@ col.size(); // 1
 
 > **deleteByCondition**(`conditionCallback`): [`Knot`](Knot.md)\<`T`\> \| `null`
 
-Defined in: [core/collection.ts:534](https://github.com/siposdani87/sui-js/blob/433cda184a013753ef41bb6ba61d0b3944481fa1/src/core/collection.ts#L534)
+Defined in: [core/collection.ts:534](https://github.com/siposdani87/sui-js/blob/27883240db7565f37a562e906b93c8d6552ac058/src/core/collection.ts#L534)
 
 Removes the first item for which the condition callback returns `true`.
 The item is spliced from the internal array and returned.
@@ -351,7 +351,7 @@ col.size();        // 2
 
 > **deleteById**(`id`): [`Knot`](Knot.md)\<`T`\> \| `null`
 
-Defined in: [core/collection.ts:494](https://github.com/siposdani87/sui-js/blob/433cda184a013753ef41bb6ba61d0b3944481fa1/src/core/collection.ts#L494)
+Defined in: [core/collection.ts:494](https://github.com/siposdani87/sui-js/blob/27883240db7565f37a562e906b93c8d6552ac058/src/core/collection.ts#L494)
 
 Removes the first item whose configured ID attribute matches the
 given value.
@@ -389,7 +389,7 @@ col.size();        // 1
 
 > **each**(`next`): `void`
 
-Defined in: [core/collection.ts:283](https://github.com/siposdani87/sui-js/blob/433cda184a013753ef41bb6ba61d0b3944481fa1/src/core/collection.ts#L283)
+Defined in: [core/collection.ts:283](https://github.com/siposdani87/sui-js/blob/27883240db7565f37a562e906b93c8d6552ac058/src/core/collection.ts#L283)
 
 Iterates over every item in the collection, invoking the callback for
 each one. This is a convenience wrapper around [Collection.iterator](Collection.md#iterator)
@@ -428,7 +428,7 @@ col.each((item, index) => {
 
 > **findAllBy**(`attribute`, `value`): [`Knot`](Knot.md)\<`T`\>[]
 
-Defined in: [core/collection.ts:434](https://github.com/siposdani87/sui-js/blob/433cda184a013753ef41bb6ba61d0b3944481fa1/src/core/collection.ts#L434)
+Defined in: [core/collection.ts:434](https://github.com/siposdani87/sui-js/blob/27883240db7565f37a562e906b93c8d6552ac058/src/core/collection.ts#L434)
 
 Returns all items where the given attribute equals the specified value
 (strict equality).
@@ -474,7 +474,7 @@ col.findAllBy('role', 'user').length; // 2
 
 > **findAllByCondition**(`conditionCallback`): [`Knot`](Knot.md)\<`T`\>[]
 
-Defined in: [core/collection.ts:452](https://github.com/siposdani87/sui-js/blob/433cda184a013753ef41bb6ba61d0b3944481fa1/src/core/collection.ts#L452)
+Defined in: [core/collection.ts:452](https://github.com/siposdani87/sui-js/blob/27883240db7565f37a562e906b93c8d6552ac058/src/core/collection.ts#L452)
 
 Returns all items for which the condition callback returns `true`.
 
@@ -511,7 +511,7 @@ items.length; // 2
 
 > **findBy**(`attribute`, `value`): [`Knot`](Knot.md)\<`T`\> \| `null`
 
-Defined in: [core/collection.ts:391](https://github.com/siposdani87/sui-js/blob/433cda184a013753ef41bb6ba61d0b3944481fa1/src/core/collection.ts#L391)
+Defined in: [core/collection.ts:391](https://github.com/siposdani87/sui-js/blob/27883240db7565f37a562e906b93c8d6552ac058/src/core/collection.ts#L391)
 
 Finds the first item where the given attribute equals the specified
 value (strict equality).
@@ -556,7 +556,7 @@ col.findBy('role', 'admin').get('id'); // 1
 
 > **findByCondition**(`conditionCallback`): [`Knot`](Knot.md)\<`T`\> \| `null`
 
-Defined in: [core/collection.ts:410](https://github.com/siposdani87/sui-js/blob/433cda184a013753ef41bb6ba61d0b3944481fa1/src/core/collection.ts#L410)
+Defined in: [core/collection.ts:410](https://github.com/siposdani87/sui-js/blob/27883240db7565f37a562e906b93c8d6552ac058/src/core/collection.ts#L410)
 
 Finds the first item for which the condition callback returns `true`.
 Items are tested sequentially from index 0.
@@ -594,7 +594,7 @@ item.get('id'); // 2
 
 > **findById**(`id`): [`Knot`](Knot.md)\<`T`\> \| `null`
 
-Defined in: [core/collection.ts:372](https://github.com/siposdani87/sui-js/blob/433cda184a013753ef41bb6ba61d0b3944481fa1/src/core/collection.ts#L372)
+Defined in: [core/collection.ts:372](https://github.com/siposdani87/sui-js/blob/27883240db7565f37a562e906b93c8d6552ac058/src/core/collection.ts#L372)
 
 Finds the first item whose configured ID attribute matches the given
 value.
@@ -632,7 +632,7 @@ col.findById(99);          // null
 
 > **get**\<`K`\>(`index`, `opt_attribute?`): [`Knot`](Knot.md)\<`T`\> \| `K` \| `null`
 
-Defined in: [core/collection.ts:307](https://github.com/siposdani87/sui-js/blob/433cda184a013753ef41bb6ba61d0b3944481fa1/src/core/collection.ts#L307)
+Defined in: [core/collection.ts:307](https://github.com/siposdani87/sui-js/blob/27883240db7565f37a562e906b93c8d6552ac058/src/core/collection.ts#L307)
 
 Returns the item at the given index. If `opt_attribute` is provided
 and the item is an [Objekt](Objekt.md), the attribute value is extracted
@@ -687,7 +687,7 @@ col.get(99);          // null
 
 > **getById**\<`K`\>(`id`, `opt_attribute?`): [`Knot`](Knot.md)\<`T`\> \| `K` \| `null`
 
-Defined in: [core/collection.ts:339](https://github.com/siposdani87/sui-js/blob/433cda184a013753ef41bb6ba61d0b3944481fa1/src/core/collection.ts#L339)
+Defined in: [core/collection.ts:339](https://github.com/siposdani87/sui-js/blob/27883240db7565f37a562e906b93c8d6552ac058/src/core/collection.ts#L339)
 
 Finds an item by its ID and optionally extracts an attribute value.
 Combines [Collection.findById](Collection.md#findbyid) and [Objekt.get](Objekt.md#get) in a
@@ -742,7 +742,7 @@ col.getById(999);         // null
 
 > **getItems**(): [`Knot`](Knot.md)\<`T`\>[]
 
-Defined in: [core/collection.ts:225](https://github.com/siposdani87/sui-js/blob/433cda184a013753ef41bb6ba61d0b3944481fa1/src/core/collection.ts#L225)
+Defined in: [core/collection.ts:225](https://github.com/siposdani87/sui-js/blob/27883240db7565f37a562e906b93c8d6552ac058/src/core/collection.ts#L225)
 
 Returns the raw internal array of items. The returned array is the
 same reference used internally, so mutations will affect the
@@ -771,7 +771,7 @@ col.getItems().length; // 2
 
 > **getKnot**(): [`Knot`](Knot.md)\<`T`\>
 
-Defined in: [core/query.ts:61](https://github.com/siposdani87/sui-js/blob/433cda184a013753ef41bb6ba61d0b3944481fa1/src/core/query.ts#L61)
+Defined in: [core/query.ts:61](https://github.com/siposdani87/sui-js/blob/27883240db7565f37a562e906b93c8d6552ac058/src/core/query.ts#L61)
 
 Returns the first matched element as a [Knot](Knot.md). If the query
 matched no elements, returns an empty Knot (wrapping `null`).
@@ -796,7 +796,7 @@ console.log(header.getNode().textContent);
 
 > **getKnots**(): [`Knot`](Knot.md)\<`HTMLElement`\>[]
 
-Defined in: [core/query.ts:78](https://github.com/siposdani87/sui-js/blob/433cda184a013753ef41bb6ba61d0b3944481fa1/src/core/query.ts#L78)
+Defined in: [core/query.ts:78](https://github.com/siposdani87/sui-js/blob/27883240db7565f37a562e906b93c8d6552ac058/src/core/query.ts#L78)
 
 Returns all matched elements as an array of [Knot](Knot.md) instances.
 
@@ -820,7 +820,7 @@ buttons.forEach((knot) => knot.addClass('styled'));
 
 > **iterator**(`callback`, `next`, `opt_items?`): [`Knot`](Knot.md)\<`T`\>[]
 
-Defined in: [core/collection.ts:252](https://github.com/siposdani87/sui-js/blob/433cda184a013753ef41bb6ba61d0b3944481fa1/src/core/collection.ts#L252)
+Defined in: [core/collection.ts:252](https://github.com/siposdani87/sui-js/blob/27883240db7565f37a562e906b93c8d6552ac058/src/core/collection.ts#L252)
 
 Core iteration method that filters and processes items in a single
 pass. The `callback` predicate determines which items to include, and
@@ -878,7 +878,7 @@ const evens = col.iterator(
 
 > **limit**(`offset`, `opt_count?`): [`Knot`](Knot.md)\<`T`\>[]
 
-Defined in: [core/collection.ts:625](https://github.com/siposdani87/sui-js/blob/433cda184a013753ef41bb6ba61d0b3944481fa1/src/core/collection.ts#L625)
+Defined in: [core/collection.ts:625](https://github.com/siposdani87/sui-js/blob/27883240db7565f37a562e906b93c8d6552ac058/src/core/collection.ts#L625)
 
 Returns a slice of the collection's items for pagination. The slice
 starts at `offset` and contains up to `opt_count` items.
@@ -923,7 +923,7 @@ col.limit(3);    // [Objekt{id:4}, Objekt{id:5}]
 
 > **load**(`objects`): `void`
 
-Defined in: [core/collection.ts:102](https://github.com/siposdani87/sui-js/blob/433cda184a013753ef41bb6ba61d0b3944481fa1/src/core/collection.ts#L102)
+Defined in: [core/collection.ts:102](https://github.com/siposdani87/sui-js/blob/27883240db7565f37a562e906b93c8d6552ac058/src/core/collection.ts#L102)
 
 Appends each object in the array to this collection. Plain objects are
 automatically wrapped via the configured `Type` constructor.
@@ -958,7 +958,7 @@ col.size(); // 2
 
 > **push**(`object`): [`Knot`](Knot.md)
 
-Defined in: [core/collection.ts:138](https://github.com/siposdani87/sui-js/blob/433cda184a013753ef41bb6ba61d0b3944481fa1/src/core/collection.ts#L138)
+Defined in: [core/collection.ts:138](https://github.com/siposdani87/sui-js/blob/27883240db7565f37a562e906b93c8d6552ac058/src/core/collection.ts#L138)
 
 Adds a single item to the end of the collection. If the item is a
 plain object (not already an instance of `Type`), it is wrapped via
@@ -996,7 +996,7 @@ item.get('name'); // 'Eve'
 
 > **reload**(`objects`): `void`
 
-Defined in: [core/collection.ts:120](https://github.com/siposdani87/sui-js/blob/433cda184a013753ef41bb6ba61d0b3944481fa1/src/core/collection.ts#L120)
+Defined in: [core/collection.ts:120](https://github.com/siposdani87/sui-js/blob/27883240db7565f37a562e906b93c8d6552ac058/src/core/collection.ts#L120)
 
 Clears all existing items and loads the given objects, effectively
 replacing the entire collection contents.
@@ -1032,7 +1032,7 @@ col.size(); // 2
 
 > **replace**(`object`): [`Knot`](Knot.md)\<`T`\> \| `null`
 
-Defined in: [core/collection.ts:201](https://github.com/siposdani87/sui-js/blob/433cda184a013753ef41bb6ba61d0b3944481fa1/src/core/collection.ts#L201)
+Defined in: [core/collection.ts:201](https://github.com/siposdani87/sui-js/blob/27883240db7565f37a562e906b93c8d6552ac058/src/core/collection.ts#L201)
 
 Finds an existing item by its ID and merges the given object's
 properties into it. This is useful for updating an item in-place
@@ -1072,7 +1072,7 @@ col.findById(1).get('name'); // 'Alicia'
 
 > **set**(`index`, `object`): [`Knot`](Knot.md)
 
-Defined in: [core/collection.ts:176](https://github.com/siposdani87/sui-js/blob/433cda184a013753ef41bb6ba61d0b3944481fa1/src/core/collection.ts#L176)
+Defined in: [core/collection.ts:176](https://github.com/siposdani87/sui-js/blob/27883240db7565f37a562e906b93c8d6552ac058/src/core/collection.ts#L176)
 
 Sets an item at a specific index in the collection. If the index is
 within the current bounds, the existing item is replaced. If the index
@@ -1116,7 +1116,7 @@ col.get(0).get('id'); // 10
 
 > **size**(): `number`
 
-Defined in: [core/collection.ts:606](https://github.com/siposdani87/sui-js/blob/433cda184a013753ef41bb6ba61d0b3944481fa1/src/core/collection.ts#L606)
+Defined in: [core/collection.ts:606](https://github.com/siposdani87/sui-js/blob/27883240db7565f37a562e906b93c8d6552ac058/src/core/collection.ts#L606)
 
 Returns the number of items currently in the collection.
 

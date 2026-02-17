@@ -1,6 +1,6 @@
 # Class: Day
 
-Defined in: [component/day.ts:15](https://github.com/siposdani87/sui-js/blob/433cda184a013753ef41bb6ba61d0b3944481fa1/src/component/day.ts#L15)
+Defined in: [component/day.ts:15](https://github.com/siposdani87/sui-js/blob/27883240db7565f37a562e906b93c8d6552ac058/src/component/day.ts#L15)
 
 ## Description
 
@@ -24,7 +24,7 @@ const knot = day.getKnot();
 
 > **new Day**(`date`, `currentDate`, `options`): `Day`
 
-Defined in: [component/day.ts:29](https://github.com/siposdani87/sui-js/blob/433cda184a013753ef41bb6ba61d0b3944481fa1/src/component/day.ts#L29)
+Defined in: [component/day.ts:29](https://github.com/siposdani87/sui-js/blob/27883240db7565f37a562e906b93c8d6552ac058/src/component/day.ts#L29)
 
 #### Parameters
 
@@ -66,7 +66,7 @@ const day = new Day(new Date(2024, 0, 15), selectedDate, { css_class: 'current-m
 
 > **cssClasses**: `string`[]
 
-Defined in: [component/day.ts:19](https://github.com/siposdani87/sui-js/blob/433cda184a013753ef41bb6ba61d0b3944481fa1/src/component/day.ts#L19)
+Defined in: [component/day.ts:19](https://github.com/siposdani87/sui-js/blob/27883240db7565f37a562e906b93c8d6552ac058/src/component/day.ts#L19)
 
 ***
 
@@ -74,7 +74,7 @@ Defined in: [component/day.ts:19](https://github.com/siposdani87/sui-js/blob/433
 
 > **currentDate**: `Date`
 
-Defined in: [component/day.ts:17](https://github.com/siposdani87/sui-js/blob/433cda184a013753ef41bb6ba61d0b3944481fa1/src/component/day.ts#L17)
+Defined in: [component/day.ts:17](https://github.com/siposdani87/sui-js/blob/27883240db7565f37a562e906b93c8d6552ac058/src/component/day.ts#L17)
 
 ***
 
@@ -82,7 +82,7 @@ Defined in: [component/day.ts:17](https://github.com/siposdani87/sui-js/blob/433
 
 > **date**: `Date`
 
-Defined in: [component/day.ts:16](https://github.com/siposdani87/sui-js/blob/433cda184a013753ef41bb6ba61d0b3944481fa1/src/component/day.ts#L16)
+Defined in: [component/day.ts:16](https://github.com/siposdani87/sui-js/blob/27883240db7565f37a562e906b93c8d6552ac058/src/component/day.ts#L16)
 
 ***
 
@@ -90,7 +90,7 @@ Defined in: [component/day.ts:16](https://github.com/siposdani87/sui-js/blob/433
 
 > **options**: [`Objekt`](Objekt.md)
 
-Defined in: [component/day.ts:18](https://github.com/siposdani87/sui-js/blob/433cda184a013753ef41bb6ba61d0b3944481fa1/src/component/day.ts#L18)
+Defined in: [component/day.ts:18](https://github.com/siposdani87/sui-js/blob/27883240db7565f37a562e906b93c8d6552ac058/src/component/day.ts#L18)
 
 ## Methods
 
@@ -98,7 +98,7 @@ Defined in: [component/day.ts:18](https://github.com/siposdani87/sui-js/blob/433
 
 > **eventClick**(`date`): `void`
 
-Defined in: [component/day.ts:86](https://github.com/siposdani87/sui-js/blob/433cda184a013753ef41bb6ba61d0b3944481fa1/src/component/day.ts#L86)
+Defined in: [component/day.ts:86](https://github.com/siposdani87/sui-js/blob/27883240db7565f37a562e906b93c8d6552ac058/src/component/day.ts#L86)
 
 #### Parameters
 
@@ -128,7 +128,7 @@ day.eventClick = (date) => { console.log('Clicked:', date); };
 
 > **getKnot**(): [`Knot`](Knot.md)
 
-Defined in: [component/day.ts:68](https://github.com/siposdani87/sui-js/blob/433cda184a013753ef41bb6ba61d0b3944481fa1/src/component/day.ts#L68)
+Defined in: [component/day.ts:68](https://github.com/siposdani87/sui-js/blob/27883240db7565f37a562e906b93c8d6552ac058/src/component/day.ts#L68)
 
 #### Returns
 

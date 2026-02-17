@@ -16,6 +16,7 @@ export default [
             'jest.config.cjs',
             'jest.setup.ts',
             '**/*.spec.ts',
+            'src/test-helpers.ts',
         ],
     },
     eslint.configs.recommended,
@@ -43,9 +44,8 @@ export default [
             ...tseslint.configs.recommended.rules,
             ...prettierConfig.rules,
             '@typescript-eslint/no-explicit-any': 'warn',
-            '@typescript-eslint/ban-types': 'error',
             '@typescript-eslint/no-this-alias': 'off',
-            '@typescript-eslint/no-unsafe-function-type': 'error',
+            '@typescript-eslint/no-unsafe-function-type': 'warn',
             '@typescript-eslint/no-unused-vars': [
                 'error',
                 {

@@ -1,6 +1,6 @@
 # Class: State
 
-Defined in: [core/state.ts:38](https://github.com/siposdani87/sui-js/blob/433cda184a013753ef41bb6ba61d0b3944481fa1/src/core/state.ts#L38)
+Defined in: [core/state.ts:38](https://github.com/siposdani87/sui-js/blob/27883240db7565f37a562e906b93c8d6552ac058/src/core/state.ts#L38)
 
 Manages application state via URL-based routing using the browser
 History API. State maintains a collection of [Route](Route.md) definitions,
@@ -40,7 +40,7 @@ state.getParam('id'); // 42
 
 > **new State**(`routes`, `opt_options?`): `State`
 
-Defined in: [core/state.ts:55](https://github.com/siposdani87/sui-js/blob/433cda184a013753ef41bb6ba61d0b3944481fa1/src/core/state.ts#L55)
+Defined in: [core/state.ts:55](https://github.com/siposdani87/sui-js/blob/27883240db7565f37a562e906b93c8d6552ac058/src/core/state.ts#L55)
 
 Creates a new State instance with the given route definitions and
 options. Initializes the base path, parses the current URL, and
@@ -72,7 +72,7 @@ Configuration options. Supports `root.id` and
 
 > **basePath**: `string`
 
-Defined in: [core/state.ts:42](https://github.com/siposdani87/sui-js/blob/433cda184a013753ef41bb6ba61d0b3944481fa1/src/core/state.ts#L42)
+Defined in: [core/state.ts:42](https://github.com/siposdani87/sui-js/blob/27883240db7565f37a562e906b93c8d6552ac058/src/core/state.ts#L42)
 
 ***
 
@@ -80,7 +80,7 @@ Defined in: [core/state.ts:42](https://github.com/siposdani87/sui-js/blob/433cda
 
 > **options**: [`Objekt`](Objekt.md)
 
-Defined in: [core/state.ts:43](https://github.com/siposdani87/sui-js/blob/433cda184a013753ef41bb6ba61d0b3944481fa1/src/core/state.ts#L43)
+Defined in: [core/state.ts:43](https://github.com/siposdani87/sui-js/blob/27883240db7565f37a562e906b93c8d6552ac058/src/core/state.ts#L43)
 
 ***
 
@@ -88,7 +88,7 @@ Defined in: [core/state.ts:43](https://github.com/siposdani87/sui-js/blob/433cda
 
 > **routes**: [`Collection`](Collection.md)\<[`Route`](Route.md)\>
 
-Defined in: [core/state.ts:41](https://github.com/siposdani87/sui-js/blob/433cda184a013753ef41bb6ba61d0b3944481fa1/src/core/state.ts#L41)
+Defined in: [core/state.ts:41](https://github.com/siposdani87/sui-js/blob/27883240db7565f37a562e906b93c8d6552ac058/src/core/state.ts#L41)
 
 ## Methods
 
@@ -96,7 +96,7 @@ Defined in: [core/state.ts:41](https://github.com/siposdani87/sui-js/blob/433cda
 
 > **back**(): `void`
 
-Defined in: [core/state.ts:512](https://github.com/siposdani87/sui-js/blob/433cda184a013753ef41bb6ba61d0b3944481fa1/src/core/state.ts#L512)
+Defined in: [core/state.ts:512](https://github.com/siposdani87/sui-js/blob/27883240db7565f37a562e906b93c8d6552ac058/src/core/state.ts#L512)
 
 Navigates one step back in browser history.
 
@@ -116,7 +116,7 @@ state.back();
 
 > **eventChange**(`currentState`, `previousState`, `opt_force?`): `void`
 
-Defined in: [core/state.ts:558](https://github.com/siposdani87/sui-js/blob/433cda184a013753ef41bb6ba61d0b3944481fa1/src/core/state.ts#L558)
+Defined in: [core/state.ts:558](https://github.com/siposdani87/sui-js/blob/27883240db7565f37a562e906b93c8d6552ac058/src/core/state.ts#L558)
 
 Called when the application state changes due to navigation. This
 is a hook method intended to be overridden by subclasses (such as
@@ -155,7 +155,7 @@ Whether the change was forced (e.g., navigating
 
 > **forward**(): `void`
 
-Defined in: [core/state.ts:542](https://github.com/siposdani87/sui-js/blob/433cda184a013753ef41bb6ba61d0b3944481fa1/src/core/state.ts#L542)
+Defined in: [core/state.ts:542](https://github.com/siposdani87/sui-js/blob/27883240db7565f37a562e906b93c8d6552ac058/src/core/state.ts#L542)
 
 Navigates one step forward in browser history.
 
@@ -175,7 +175,7 @@ state.forward();
 
 > **getCurrent**\<`T`\>(`opt_attribute?`, `opt_defaultValue?`): `T`
 
-Defined in: [core/state.ts:317](https://github.com/siposdani87/sui-js/blob/433cda184a013753ef41bb6ba61d0b3944481fa1/src/core/state.ts#L317)
+Defined in: [core/state.ts:317](https://github.com/siposdani87/sui-js/blob/27883240db7565f37a562e906b93c8d6552ac058/src/core/state.ts#L317)
 
 Retrieves the current route state or a specific attribute from it.
 When called without arguments, returns the full current state as
@@ -223,7 +223,7 @@ const routeId = state.getCurrent<string>('id');
 
 > **getParam**\<`T`\>(`name`, `opt_defaultValue?`): `T`
 
-Defined in: [core/state.ts:625](https://github.com/siposdani87/sui-js/blob/433cda184a013753ef41bb6ba61d0b3944481fa1/src/core/state.ts#L625)
+Defined in: [core/state.ts:625](https://github.com/siposdani87/sui-js/blob/27883240db7565f37a562e906b93c8d6552ac058/src/core/state.ts#L625)
 
 Retrieves a single parameter value from the current route by name.
 Returns the default value if the parameter does not exist.
@@ -267,7 +267,7 @@ const page = state.getParam<number>('page', 1);
 
 > **getParams**(): [`Objekt`](Objekt.md)
 
-Defined in: [core/state.ts:610](https://github.com/siposdani87/sui-js/blob/433cda184a013753ef41bb6ba61d0b3944481fa1/src/core/state.ts#L610)
+Defined in: [core/state.ts:610](https://github.com/siposdani87/sui-js/blob/27883240db7565f37a562e906b93c8d6552ac058/src/core/state.ts#L610)
 
 Returns all parameters of the current route as an [Objekt](Objekt.md).
 
@@ -291,7 +291,7 @@ console.log(params.get('id'));
 
 > **getPrevious**\<`T`\>(`opt_attribute?`, `opt_defaultValue?`): `T`
 
-Defined in: [core/state.ts:335](https://github.com/siposdani87/sui-js/blob/433cda184a013753ef41bb6ba61d0b3944481fa1/src/core/state.ts#L335)
+Defined in: [core/state.ts:335](https://github.com/siposdani87/sui-js/blob/27883240db7565f37a562e906b93c8d6552ac058/src/core/state.ts#L335)
 
 Retrieves the previous route state or a specific attribute from it.
 Works identically to [getCurrent](#getcurrent) but returns the state that
@@ -338,7 +338,7 @@ const previousId = state.getPrevious<string>('id');
 
 > **getRoot**(): `any`[]
 
-Defined in: [core/state.ts:662](https://github.com/siposdani87/sui-js/blob/433cda184a013753ef41bb6ba61d0b3944481fa1/src/core/state.ts#L662)
+Defined in: [core/state.ts:662](https://github.com/siposdani87/sui-js/blob/27883240db7565f37a562e906b93c8d6552ac058/src/core/state.ts#L662)
 
 Returns the configured root route ID and parameters as a
 two-element array.
@@ -361,7 +361,7 @@ const [rootId, rootParams] = state.getRoot();
 
 > **go**(`id`, `opt_params?`, `opt_overwrite?`, `opt_force?`): `void`
 
-Defined in: [core/state.ts:365](https://github.com/siposdani87/sui-js/blob/433cda184a013753ef41bb6ba61d0b3944481fa1/src/core/state.ts#L365)
+Defined in: [core/state.ts:365](https://github.com/siposdani87/sui-js/blob/27883240db7565f37a562e906b93c8d6552ac058/src/core/state.ts#L365)
 
 Navigates to a route by its ID or by a direct URL path. When given
 a route ID, resolves the URL from the registered routes and
@@ -423,7 +423,7 @@ state.go('home', {}, true);
 
 > **goBack**(`id`, `opt_params?`, `opt_overwrite?`, `opt_force?`): `void`
 
-Defined in: [core/state.ts:493](https://github.com/siposdani87/sui-js/blob/433cda184a013753ef41bb6ba61d0b3944481fa1/src/core/state.ts#L493)
+Defined in: [core/state.ts:493](https://github.com/siposdani87/sui-js/blob/27883240db7565f37a562e906b93c8d6552ac058/src/core/state.ts#L493)
 
 Navigates to a fallback route if browser history is empty, otherwise
 goes back one step in history. Useful for "back" buttons that need
@@ -474,7 +474,7 @@ state.goBack('dashboard', { tab: 'overview' });
 
 > **goRoot**(`opt_overwrite?`, `opt_force?`): `void`
 
-Defined in: [core/state.ts:466](https://github.com/siposdani87/sui-js/blob/433cda184a013753ef41bb6ba61d0b3944481fa1/src/core/state.ts#L466)
+Defined in: [core/state.ts:466](https://github.com/siposdani87/sui-js/blob/27883240db7565f37a562e906b93c8d6552ac058/src/core/state.ts#L466)
 
 Navigates to the configured root route. The root route ID and
 parameters are defined in the constructor options.
@@ -509,7 +509,7 @@ state.goRoot(); // Navigate to the root/home route
 
 > **goState**(`state`, `opt_overwrite?`, `opt_force?`): `void`
 
-Defined in: [core/state.ts:449](https://github.com/siposdani87/sui-js/blob/433cda184a013753ef41bb6ba61d0b3944481fa1/src/core/state.ts#L449)
+Defined in: [core/state.ts:449](https://github.com/siposdani87/sui-js/blob/27883240db7565f37a562e906b93c8d6552ac058/src/core/state.ts#L449)
 
 Navigates to a route using an existing [Route](Route.md) object. Extracts
 the route's ID and parameters and delegates to [go](#go).
@@ -551,7 +551,7 @@ state.goState(route);
 
 > **redirect**(`url`, `opt_inTab?`): `void`
 
-Defined in: [core/state.ts:528](https://github.com/siposdani87/sui-js/blob/433cda184a013753ef41bb6ba61d0b3944481fa1/src/core/state.ts#L528)
+Defined in: [core/state.ts:528](https://github.com/siposdani87/sui-js/blob/27883240db7565f37a562e906b93c8d6552ac058/src/core/state.ts#L528)
 
 Performs a full page navigation to the given URL. Unlike [go](#go),
 this does not use the History API and causes a complete page load.
@@ -589,7 +589,7 @@ state.redirect('https://docs.example.com', true); // New tab
 
 > **refresh**(`opt_force?`): `void`
 
-Defined in: [core/state.ts:650](https://github.com/siposdani87/sui-js/blob/433cda184a013753ef41bb6ba61d0b3944481fa1/src/core/state.ts#L650)
+Defined in: [core/state.ts:650](https://github.com/siposdani87/sui-js/blob/27883240db7565f37a562e906b93c8d6552ac058/src/core/state.ts#L650)
 
 Re-triggers the [eventChange](#eventchange) callback for the current state
 without navigating. Useful for forcing a view re-render.
@@ -620,7 +620,7 @@ state.refresh(true);   // Force re-trigger
 
 > **reload**(): `void`
 
-Defined in: [core/state.ts:636](https://github.com/siposdani87/sui-js/blob/433cda184a013753ef41bb6ba61d0b3944481fa1/src/core/state.ts#L636)
+Defined in: [core/state.ts:636](https://github.com/siposdani87/sui-js/blob/27883240db7565f37a562e906b93c8d6552ac058/src/core/state.ts#L636)
 
 Performs a full page reload, discarding all client-side state.
 
@@ -640,7 +640,7 @@ state.reload();
 
 > **resolveUrl**(`id`, `opt_params?`): `string`
 
-Defined in: [core/state.ts:433](https://github.com/siposdani87/sui-js/blob/433cda184a013753ef41bb6ba61d0b3944481fa1/src/core/state.ts#L433)
+Defined in: [core/state.ts:433](https://github.com/siposdani87/sui-js/blob/27883240db7565f37a562e906b93c8d6552ac058/src/core/state.ts#L433)
 
 Builds a full navigable URL for a route ID and parameters, including
 the routing prefix (hash or path-based). Useful for generating
@@ -679,7 +679,7 @@ const href = state.resolveUrl('user', { id: 42 });
 
 > **run**(): `void`
 
-Defined in: [core/state.ts:166](https://github.com/siposdani87/sui-js/blob/433cda184a013753ef41bb6ba61d0b3944481fa1/src/core/state.ts#L166)
+Defined in: [core/state.ts:166](https://github.com/siposdani87/sui-js/blob/27883240db7565f37a562e906b93c8d6552ac058/src/core/state.ts#L166)
 
 Triggers the initial state change after construction. Call this
 method to begin routing and notify listeners of the current state.
@@ -701,7 +701,7 @@ state.run(); // Fires eventChange with the initial route
 
 > **setParam**(`name`, `value`): `void`
 
-Defined in: [core/state.ts:594](https://github.com/siposdani87/sui-js/blob/433cda184a013753ef41bb6ba61d0b3944481fa1/src/core/state.ts#L594)
+Defined in: [core/state.ts:594](https://github.com/siposdani87/sui-js/blob/27883240db7565f37a562e906b93c8d6552ac058/src/core/state.ts#L594)
 
 Sets a single URL parameter on the current route and re-navigates
 with the updated parameters (replacing the current history entry).
@@ -736,7 +736,7 @@ state.setParam('page', 3);
 
 > **setParams**(`properties`): `void`
 
-Defined in: [core/state.ts:579](https://github.com/siposdani87/sui-js/blob/433cda184a013753ef41bb6ba61d0b3944481fa1/src/core/state.ts#L579)
+Defined in: [core/state.ts:579](https://github.com/siposdani87/sui-js/blob/27883240db7565f37a562e906b93c8d6552ac058/src/core/state.ts#L579)
 
 Sets multiple URL parameters at once on the current route. Each
 key-value pair is applied individually via [setParam](#setparam).

@@ -1,6 +1,6 @@
 # Class: Template
 
-Defined in: [module/template.ts:43](https://github.com/siposdani87/sui-js/blob/433cda184a013753ef41bb6ba61d0b3944481fa1/src/module/template.ts#L43)
+Defined in: [module/template.ts:43](https://github.com/siposdani87/sui-js/blob/27883240db7565f37a562e906b93c8d6552ac058/src/module/template.ts#L43)
 
 SPA template loader that fetches page content from the server via
 [Http](Http.md) and inserts it into the view container. Supports
@@ -45,7 +45,7 @@ template.load('/pages/dashboard').then(
 
 > **new Template**(`http`, `opt_options?`): `Template`
 
-Defined in: [module/template.ts:58](https://github.com/siposdani87/sui-js/blob/433cda184a013753ef41bb6ba61d0b3944481fa1/src/module/template.ts#L58)
+Defined in: [module/template.ts:58](https://github.com/siposdani87/sui-js/blob/27883240db7565f37a562e906b93c8d6552ac058/src/module/template.ts#L58)
 
 Creates a new Template instance.
 
@@ -77,7 +77,7 @@ Configuration options merged with defaults.
 
 > **http**: [`Http`](Http.md)
 
-Defined in: [module/template.ts:44](https://github.com/siposdani87/sui-js/blob/433cda184a013753ef41bb6ba61d0b3944481fa1/src/module/template.ts#L44)
+Defined in: [module/template.ts:44](https://github.com/siposdani87/sui-js/blob/27883240db7565f37a562e906b93c8d6552ac058/src/module/template.ts#L44)
 
 ***
 
@@ -85,7 +85,7 @@ Defined in: [module/template.ts:44](https://github.com/siposdani87/sui-js/blob/4
 
 > **options**: [`Objekt`](Objekt.md)\<\{ `locale`: `string`; `selector`: `string`; \}\>
 
-Defined in: [module/template.ts:45](https://github.com/siposdani87/sui-js/blob/433cda184a013753ef41bb6ba61d0b3944481fa1/src/module/template.ts#L45)
+Defined in: [module/template.ts:45](https://github.com/siposdani87/sui-js/blob/27883240db7565f37a562e906b93c8d6552ac058/src/module/template.ts#L45)
 
 ***
 
@@ -93,7 +93,7 @@ Defined in: [module/template.ts:45](https://github.com/siposdani87/sui-js/blob/4
 
 > **viewKnot**: [`Knot`](Knot.md)
 
-Defined in: [module/template.ts:46](https://github.com/siposdani87/sui-js/blob/433cda184a013753ef41bb6ba61d0b3944481fa1/src/module/template.ts#L46)
+Defined in: [module/template.ts:46](https://github.com/siposdani87/sui-js/blob/27883240db7565f37a562e906b93c8d6552ac058/src/module/template.ts#L46)
 
 ## Methods
 
@@ -101,7 +101,7 @@ Defined in: [module/template.ts:46](https://github.com/siposdani87/sui-js/blob/4
 
 > **\_spaNavigate**(`data`, `isError`): [`Knot`](Knot.md)
 
-Defined in: [module/template.ts:166](https://github.com/siposdani87/sui-js/blob/433cda184a013753ef41bb6ba61d0b3944481fa1/src/module/template.ts#L166)
+Defined in: [module/template.ts:166](https://github.com/siposdani87/sui-js/blob/27883240db7565f37a562e906b93c8d6552ac058/src/module/template.ts#L166)
 
 Extracts the `.page-content` element from the response DOM and
 delegates to `_updateDOM()` for insertion or error handling.
@@ -132,7 +132,7 @@ The extracted page content Knot.
 
 > **eventError**(`message`): `void`
 
-Defined in: [module/template.ts:221](https://github.com/siposdani87/sui-js/blob/433cda184a013753ef41bb6ba61d0b3944481fa1/src/module/template.ts#L221)
+Defined in: [module/template.ts:221](https://github.com/siposdani87/sui-js/blob/27883240db7565f37a562e906b93c8d6552ac058/src/module/template.ts#L221)
 
 Overridable hook called when a template load results in an error.
 The default implementation logs the error to the console. Override
@@ -172,7 +172,7 @@ template.eventError = (message) => {
 
 > **getViewKnot**(): [`Knot`](Knot.md)
 
-Defined in: [module/template.ts:96](https://github.com/siposdani87/sui-js/blob/433cda184a013753ef41bb6ba61d0b3944481fa1/src/module/template.ts#L96)
+Defined in: [module/template.ts:96](https://github.com/siposdani87/sui-js/blob/27883240db7565f37a562e906b93c8d6552ac058/src/module/template.ts#L96)
 
 Returns the main view container [Knot](Knot.md) where page content
 is rendered.
@@ -196,7 +196,7 @@ viewContainer.addClass('loading');
 
 > **load**(`url`, `opt_force?`): [`Promize`](Promize.md)\<[`Knot`](Knot.md)\<`HTMLElement`\>, [`Knot`](Knot.md)\<`HTMLElement`\>\>
 
-Defined in: [module/template.ts:132](https://github.com/siposdani87/sui-js/blob/433cda184a013753ef41bb6ba61d0b3944481fa1/src/module/template.ts#L132)
+Defined in: [module/template.ts:132](https://github.com/siposdani87/sui-js/blob/27883240db7565f37a562e906b93c8d6552ac058/src/module/template.ts#L132)
 
 Loads page content from the given URL into the view container.
 

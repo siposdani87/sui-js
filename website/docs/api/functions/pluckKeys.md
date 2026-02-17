@@ -2,7 +2,7 @@
 
 > **pluckKeys**(`obj`, `condition`): `string`[]
 
-Defined in: [utils/operation.ts:823](https://github.com/siposdani87/sui-js/blob/433cda184a013753ef41bb6ba61d0b3944481fa1/src/utils/operation.ts#L823)
+Defined in: [utils/operation.ts:823](https://github.com/siposdani87/sui-js/blob/27883240db7565f37a562e906b93c8d6552ac058/src/utils/operation.ts#L823)
 
 Returns the keys of an object for which a condition function returns `true`.
 

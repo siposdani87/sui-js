@@ -2,7 +2,7 @@
 
 > **round**(`value`, `exp`): `number`
 
-Defined in: [utils/math.ts:163](https://github.com/siposdani87/sui-js/blob/433cda184a013753ef41bb6ba61d0b3944481fa1/src/utils/math.ts#L163)
+Defined in: [utils/math.ts:163](https://github.com/siposdani87/sui-js/blob/27883240db7565f37a562e906b93c8d6552ac058/src/utils/math.ts#L163)
 
 Precision-safe rounding to a given decimal place using the
 shift-round-shift-back technique via decimalAdjust.

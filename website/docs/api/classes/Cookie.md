@@ -1,6 +1,6 @@
 # Class: Cookie
 
-Defined in: [module/cookie.ts:34](https://github.com/siposdani87/sui-js/blob/433cda184a013753ef41bb6ba61d0b3944481fa1/src/module/cookie.ts#L34)
+Defined in: [module/cookie.ts:34](https://github.com/siposdani87/sui-js/blob/27883240db7565f37a562e906b93c8d6552ac058/src/module/cookie.ts#L34)
 
 Browser cookie management with automatic key prefixing. Cookie provides
 a structured API for reading, writing, and deleting browser cookies,
@@ -39,7 +39,7 @@ cookie.hasKey('token'); // false
 
 > **new Cookie**(`opt_options?`): `Cookie`
 
-Defined in: [module/cookie.ts:45](https://github.com/siposdani87/sui-js/blob/433cda184a013753ef41bb6ba61d0b3944481fa1/src/module/cookie.ts#L45)
+Defined in: [module/cookie.ts:45](https://github.com/siposdani87/sui-js/blob/27883240db7565f37a562e906b93c8d6552ac058/src/module/cookie.ts#L45)
 
 Creates a new Cookie instance with the given options. The default
 prefix is `'app'` and the default expiration is 24 hours.
@@ -64,7 +64,7 @@ Configuration options. Supports `prefix` (string)
 
 > **options**: [`Objekt`](Objekt.md)
 
-Defined in: [module/cookie.ts:35](https://github.com/siposdani87/sui-js/blob/433cda184a013753ef41bb6ba61d0b3944481fa1/src/module/cookie.ts#L35)
+Defined in: [module/cookie.ts:35](https://github.com/siposdani87/sui-js/blob/27883240db7565f37a562e906b93c8d6552ac058/src/module/cookie.ts#L35)
 
 ## Methods
 
@@ -72,7 +72,7 @@ Defined in: [module/cookie.ts:35](https://github.com/siposdani87/sui-js/blob/433
 
 > **clear**(): `void`
 
-Defined in: [module/cookie.ts:276](https://github.com/siposdani87/sui-js/blob/433cda184a013753ef41bb6ba61d0b3944481fa1/src/module/cookie.ts#L276)
+Defined in: [module/cookie.ts:276](https://github.com/siposdani87/sui-js/blob/27883240db7565f37a562e906b93c8d6552ac058/src/module/cookie.ts#L276)
 
 Removes all cookies managed by this instance by iterating over
 all known keys and calling [remove](#remove) for each.
@@ -96,7 +96,7 @@ cookie.getKeys(); // []
 
 > **get**(`name`): `any`
 
-Defined in: [module/cookie.ts:175](https://github.com/siposdani87/sui-js/blob/433cda184a013753ef41bb6ba61d0b3944481fa1/src/module/cookie.ts#L175)
+Defined in: [module/cookie.ts:175](https://github.com/siposdani87/sui-js/blob/27883240db7565f37a562e906b93c8d6552ac058/src/module/cookie.ts#L175)
 
 Reads a cookie value by its logical name and returns it with
 automatic type-casting. Numeric strings are returned as numbers,
@@ -133,7 +133,7 @@ cookie.get('active'); // true (boolean)
 
 > **getKeys**(): `string`[]
 
-Defined in: [module/cookie.ts:253](https://github.com/siposdani87/sui-js/blob/433cda184a013753ef41bb6ba61d0b3944481fa1/src/module/cookie.ts#L253)
+Defined in: [module/cookie.ts:253](https://github.com/siposdani87/sui-js/blob/27883240db7565f37a562e906b93c8d6552ac058/src/module/cookie.ts#L253)
 
 Returns an array of all logical cookie names currently stored
 under this instance's prefix. The prefix is stripped from each
@@ -159,7 +159,7 @@ cookie.getKeys(); // ['a', 'b']
 
 > **hasKey**(`name`): `boolean`
 
-Defined in: [module/cookie.ts:228](https://github.com/siposdani87/sui-js/blob/433cda184a013753ef41bb6ba61d0b3944481fa1/src/module/cookie.ts#L228)
+Defined in: [module/cookie.ts:228](https://github.com/siposdani87/sui-js/blob/27883240db7565f37a562e906b93c8d6552ac058/src/module/cookie.ts#L228)
 
 Checks whether a cookie with the given logical name exists in
 the browser's cookie store.
@@ -192,7 +192,7 @@ cookie.hasKey('missing'); // false
 
 > **remove**(`name`, `opt_path?`, `opt_domain?`, `opt_secure?`): `void`
 
-Defined in: [module/cookie.ts:204](https://github.com/siposdani87/sui-js/blob/433cda184a013753ef41bb6ba61d0b3944481fa1/src/module/cookie.ts#L204)
+Defined in: [module/cookie.ts:204](https://github.com/siposdani87/sui-js/blob/27883240db7565f37a562e906b93c8d6552ac058/src/module/cookie.ts#L204)
 
 Deletes a cookie by setting its expiration to the Unix epoch.
 The cookie is only removed if it currently exists.
@@ -241,7 +241,7 @@ cookie.get('token'); // null
 
 > **set**(`name`, `value`, `opt_expires?`, `opt_path?`, `opt_domain?`, `opt_secure?`): `void`
 
-Defined in: [module/cookie.ts:117](https://github.com/siposdani87/sui-js/blob/433cda184a013753ef41bb6ba61d0b3944481fa1/src/module/cookie.ts#L117)
+Defined in: [module/cookie.ts:117](https://github.com/siposdani87/sui-js/blob/27883240db7565f37a562e906b93c8d6552ac058/src/module/cookie.ts#L117)
 
 Stores a cookie with the given name and value. The name is
 automatically prefixed. Expiration can be specified as a number

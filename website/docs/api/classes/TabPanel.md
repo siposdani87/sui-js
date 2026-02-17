@@ -1,6 +1,6 @@
 # Class: TabPanel
 
-Defined in: [component/tabPanel.ts:23](https://github.com/siposdani87/sui-js/blob/433cda184a013753ef41bb6ba61d0b3944481fa1/src/component/tabPanel.ts#L23)
+Defined in: [component/tabPanel.ts:23](https://github.com/siposdani87/sui-js/blob/27883240db7565f37a562e906b93c8d6552ac058/src/component/tabPanel.ts#L23)
 
 ## Description
 
@@ -27,7 +27,7 @@ tabPanel.setActive('settings');
 
 > **new TabPanel**(`dom`, `opt_selector?`, `opt_selectedTab?`, `opt_defaultTab?`): `TabPanel`
 
-Defined in: [component/tabPanel.ts:37](https://github.com/siposdani87/sui-js/blob/433cda184a013753ef41bb6ba61d0b3944481fa1/src/component/tabPanel.ts#L37)
+Defined in: [component/tabPanel.ts:37](https://github.com/siposdani87/sui-js/blob/27883240db7565f37a562e906b93c8d6552ac058/src/component/tabPanel.ts#L37)
 
 #### Parameters
 
@@ -69,7 +69,7 @@ Creates a new TabPanel bound to a DOM container.
 
 > **activeTab**: `string`
 
-Defined in: [component/tabPanel.ts:26](https://github.com/siposdani87/sui-js/blob/433cda184a013753ef41bb6ba61d0b3944481fa1/src/component/tabPanel.ts#L26)
+Defined in: [component/tabPanel.ts:26](https://github.com/siposdani87/sui-js/blob/27883240db7565f37a562e906b93c8d6552ac058/src/component/tabPanel.ts#L26)
 
 ***
 
@@ -77,7 +77,7 @@ Defined in: [component/tabPanel.ts:26](https://github.com/siposdani87/sui-js/blo
 
 > **options**: `object`
 
-Defined in: [component/tabPanel.ts:25](https://github.com/siposdani87/sui-js/blob/433cda184a013753ef41bb6ba61d0b3944481fa1/src/component/tabPanel.ts#L25)
+Defined in: [component/tabPanel.ts:25](https://github.com/siposdani87/sui-js/blob/27883240db7565f37a562e906b93c8d6552ac058/src/component/tabPanel.ts#L25)
 
 #### default\_tab
 
@@ -93,7 +93,7 @@ Defined in: [component/tabPanel.ts:25](https://github.com/siposdani87/sui-js/blo
 
 > **panels**: [`Query`](Query.md)
 
-Defined in: [component/tabPanel.ts:28](https://github.com/siposdani87/sui-js/blob/433cda184a013753ef41bb6ba61d0b3944481fa1/src/component/tabPanel.ts#L28)
+Defined in: [component/tabPanel.ts:28](https://github.com/siposdani87/sui-js/blob/27883240db7565f37a562e906b93c8d6552ac058/src/component/tabPanel.ts#L28)
 
 ***
 
@@ -101,7 +101,7 @@ Defined in: [component/tabPanel.ts:28](https://github.com/siposdani87/sui-js/blo
 
 > **tabPanel**: [`Knot`](Knot.md)
 
-Defined in: [component/tabPanel.ts:24](https://github.com/siposdani87/sui-js/blob/433cda184a013753ef41bb6ba61d0b3944481fa1/src/component/tabPanel.ts#L24)
+Defined in: [component/tabPanel.ts:24](https://github.com/siposdani87/sui-js/blob/27883240db7565f37a562e906b93c8d6552ac058/src/component/tabPanel.ts#L24)
 
 ***
 
@@ -109,7 +109,7 @@ Defined in: [component/tabPanel.ts:24](https://github.com/siposdani87/sui-js/blo
 
 > **tabs**: [`Query`](Query.md)
 
-Defined in: [component/tabPanel.ts:27](https://github.com/siposdani87/sui-js/blob/433cda184a013753ef41bb6ba61d0b3944481fa1/src/component/tabPanel.ts#L27)
+Defined in: [component/tabPanel.ts:27](https://github.com/siposdani87/sui-js/blob/27883240db7565f37a562e906b93c8d6552ac058/src/component/tabPanel.ts#L27)
 
 ## Methods
 
@@ -117,7 +117,7 @@ Defined in: [component/tabPanel.ts:27](https://github.com/siposdani87/sui-js/blo
 
 > **eventChange**(`panelId`): `void`
 
-Defined in: [component/tabPanel.ts:119](https://github.com/siposdani87/sui-js/blob/433cda184a013753ef41bb6ba61d0b3944481fa1/src/component/tabPanel.ts#L119)
+Defined in: [component/tabPanel.ts:119](https://github.com/siposdani87/sui-js/blob/27883240db7565f37a562e906b93c8d6552ac058/src/component/tabPanel.ts#L119)
 
 #### Parameters
 
@@ -147,7 +147,7 @@ tabPanel.eventChange = (panelId) => loadPanelContent(panelId);
 
 > **getActive**(): `string`
 
-Defined in: [component/tabPanel.ts:156](https://github.com/siposdani87/sui-js/blob/433cda184a013753ef41bb6ba61d0b3944481fa1/src/component/tabPanel.ts#L156)
+Defined in: [component/tabPanel.ts:156](https://github.com/siposdani87/sui-js/blob/27883240db7565f37a562e906b93c8d6552ac058/src/component/tabPanel.ts#L156)
 
 #### Returns
 
@@ -171,7 +171,7 @@ const activeId = tabPanel.getActive();
 
 > **setActive**(`panelId`): [`Promize`](Promize.md)\<`object`, `object`\>
 
-Defined in: [component/tabPanel.ts:131](https://github.com/siposdani87/sui-js/blob/433cda184a013753ef41bb6ba61d0b3944481fa1/src/component/tabPanel.ts#L131)
+Defined in: [component/tabPanel.ts:131](https://github.com/siposdani87/sui-js/blob/27883240db7565f37a562e906b93c8d6552ac058/src/component/tabPanel.ts#L131)
 
 #### Parameters
 

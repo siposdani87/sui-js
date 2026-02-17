@@ -1,6 +1,6 @@
 # Class: Popup
 
-Defined in: [component/popup.ts:20](https://github.com/siposdani87/sui-js/blob/433cda184a013753ef41bb6ba61d0b3944481fa1/src/component/popup.ts#L20)
+Defined in: [component/popup.ts:20](https://github.com/siposdani87/sui-js/blob/27883240db7565f37a562e906b93c8d6552ac058/src/component/popup.ts#L20)
 
 ## Description
 
@@ -26,7 +26,7 @@ popup.toggle();
 
 > **new Popup**(`content`, `parent`, `opt_withClose?`): `Popup`
 
-Defined in: [component/popup.ts:33](https://github.com/siposdani87/sui-js/blob/433cda184a013753ef41bb6ba61d0b3944481fa1/src/component/popup.ts#L33)
+Defined in: [component/popup.ts:33](https://github.com/siposdani87/sui-js/blob/27883240db7565f37a562e906b93c8d6552ac058/src/component/popup.ts#L33)
 
 #### Parameters
 
@@ -62,7 +62,7 @@ Creates a new Popup with content attached to a parent element.
 
 > **content**: [`Knot`](Knot.md)
 
-Defined in: [component/popup.ts:21](https://github.com/siposdani87/sui-js/blob/433cda184a013753ef41bb6ba61d0b3944481fa1/src/component/popup.ts#L21)
+Defined in: [component/popup.ts:21](https://github.com/siposdani87/sui-js/blob/27883240db7565f37a562e906b93c8d6552ac058/src/component/popup.ts#L21)
 
 ***
 
@@ -70,7 +70,7 @@ Defined in: [component/popup.ts:21](https://github.com/siposdani87/sui-js/blob/4
 
 > `optional` **parent**: [`Knot`](Knot.md)\<`HTMLElement`\>
 
-Defined in: [component/popup.ts:22](https://github.com/siposdani87/sui-js/blob/433cda184a013753ef41bb6ba61d0b3944481fa1/src/component/popup.ts#L22)
+Defined in: [component/popup.ts:22](https://github.com/siposdani87/sui-js/blob/27883240db7565f37a562e906b93c8d6552ac058/src/component/popup.ts#L22)
 
 ***
 
@@ -78,7 +78,7 @@ Defined in: [component/popup.ts:22](https://github.com/siposdani87/sui-js/blob/4
 
 > **popupContainer**: [`PopupContainer`](PopupContainer.md)
 
-Defined in: [component/popup.ts:24](https://github.com/siposdani87/sui-js/blob/433cda184a013753ef41bb6ba61d0b3944481fa1/src/component/popup.ts#L24)
+Defined in: [component/popup.ts:24](https://github.com/siposdani87/sui-js/blob/27883240db7565f37a562e906b93c8d6552ac058/src/component/popup.ts#L24)
 
 ***
 
@@ -86,7 +86,7 @@ Defined in: [component/popup.ts:24](https://github.com/siposdani87/sui-js/blob/4
 
 > **popupKnot**: [`Knot`](Knot.md)
 
-Defined in: [component/popup.ts:25](https://github.com/siposdani87/sui-js/blob/433cda184a013753ef41bb6ba61d0b3944481fa1/src/component/popup.ts#L25)
+Defined in: [component/popup.ts:25](https://github.com/siposdani87/sui-js/blob/27883240db7565f37a562e906b93c8d6552ac058/src/component/popup.ts#L25)
 
 ***
 
@@ -94,7 +94,7 @@ Defined in: [component/popup.ts:25](https://github.com/siposdani87/sui-js/blob/4
 
 > **withClose**: `boolean`
 
-Defined in: [component/popup.ts:23](https://github.com/siposdani87/sui-js/blob/433cda184a013753ef41bb6ba61d0b3944481fa1/src/component/popup.ts#L23)
+Defined in: [component/popup.ts:23](https://github.com/siposdani87/sui-js/blob/27883240db7565f37a562e906b93c8d6552ac058/src/component/popup.ts#L23)
 
 ## Methods
 
@@ -102,7 +102,7 @@ Defined in: [component/popup.ts:23](https://github.com/siposdani87/sui-js/blob/4
 
 > **close**(): `void`
 
-Defined in: [component/popup.ts:113](https://github.com/siposdani87/sui-js/blob/433cda184a013753ef41bb6ba61d0b3944481fa1/src/component/popup.ts#L113)
+Defined in: [component/popup.ts:113](https://github.com/siposdani87/sui-js/blob/27883240db7565f37a562e906b93c8d6552ac058/src/component/popup.ts#L113)
 
 #### Returns
 
@@ -124,7 +124,7 @@ popup.close();
 
 > **eventClose**(): `void`
 
-Defined in: [component/popup.ts:126](https://github.com/siposdani87/sui-js/blob/433cda184a013753ef41bb6ba61d0b3944481fa1/src/component/popup.ts#L126)
+Defined in: [component/popup.ts:126](https://github.com/siposdani87/sui-js/blob/27883240db7565f37a562e906b93c8d6552ac058/src/component/popup.ts#L126)
 
 #### Returns
 
@@ -146,7 +146,7 @@ popup.eventClose = () => cleanup();
 
 > **isOpened**(): `boolean`
 
-Defined in: [component/popup.ts:151](https://github.com/siposdani87/sui-js/blob/433cda184a013753ef41bb6ba61d0b3944481fa1/src/component/popup.ts#L151)
+Defined in: [component/popup.ts:151](https://github.com/siposdani87/sui-js/blob/27883240db7565f37a562e906b93c8d6552ac058/src/component/popup.ts#L151)
 
 #### Returns
 
@@ -170,7 +170,7 @@ if (popup.isOpened()) { popup.close(); }
 
 > **open**(): `void`
 
-Defined in: [component/popup.ts:100](https://github.com/siposdani87/sui-js/blob/433cda184a013753ef41bb6ba61d0b3944481fa1/src/component/popup.ts#L100)
+Defined in: [component/popup.ts:100](https://github.com/siposdani87/sui-js/blob/27883240db7565f37a562e906b93c8d6552ac058/src/component/popup.ts#L100)
 
 #### Returns
 
@@ -192,7 +192,7 @@ popup.open();
 
 > **toggle**(): `void`
 
-Defined in: [component/popup.ts:136](https://github.com/siposdani87/sui-js/blob/433cda184a013753ef41bb6ba61d0b3944481fa1/src/component/popup.ts#L136)
+Defined in: [component/popup.ts:136](https://github.com/siposdani87/sui-js/blob/27883240db7565f37a562e906b93c8d6552ac058/src/component/popup.ts#L136)
 
 #### Returns
 

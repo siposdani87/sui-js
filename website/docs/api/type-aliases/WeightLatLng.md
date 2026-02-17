@@ -2,7 +2,7 @@
 
 > **WeightLatLng** = `object`
 
-Defined in: [component/googleMap.ts:22](https://github.com/siposdani87/sui-js/blob/433cda184a013753ef41bb6ba61d0b3944481fa1/src/component/googleMap.ts#L22)
+Defined in: [component/googleMap.ts:22](https://github.com/siposdani87/sui-js/blob/27883240db7565f37a562e906b93c8d6552ac058/src/component/googleMap.ts#L22)
 
 Geographic coordinate with an optional weight value, used for heatmap data points.
 
@@ -12,7 +12,7 @@ Geographic coordinate with an optional weight value, used for heatmap data point
 
 > **latitude**: `number`
 
-Defined in: [component/googleMap.ts:23](https://github.com/siposdani87/sui-js/blob/433cda184a013753ef41bb6ba61d0b3944481fa1/src/component/googleMap.ts#L23)
+Defined in: [component/googleMap.ts:23](https://github.com/siposdani87/sui-js/blob/27883240db7565f37a562e906b93c8d6552ac058/src/component/googleMap.ts#L23)
 
 ***
 
@@ -20,7 +20,7 @@ Defined in: [component/googleMap.ts:23](https://github.com/siposdani87/sui-js/bl
 
 > **longitude**: `number`
 
-Defined in: [component/googleMap.ts:24](https://github.com/siposdani87/sui-js/blob/433cda184a013753ef41bb6ba61d0b3944481fa1/src/component/googleMap.ts#L24)
+Defined in: [component/googleMap.ts:24](https://github.com/siposdani87/sui-js/blob/27883240db7565f37a562e906b93c8d6552ac058/src/component/googleMap.ts#L24)
 
 ***
 
@@ -28,4 +28,4 @@ Defined in: [component/googleMap.ts:24](https://github.com/siposdani87/sui-js/bl
 
 > `optional` **weight**: `number`
 
-Defined in: [component/googleMap.ts:25](https://github.com/siposdani87/sui-js/blob/433cda184a013753ef41bb6ba61d0b3944481fa1/src/component/googleMap.ts#L25)
+Defined in: [component/googleMap.ts:25](https://github.com/siposdani87/sui-js/blob/27883240db7565f37a562e906b93c8d6552ac058/src/component/googleMap.ts#L25)

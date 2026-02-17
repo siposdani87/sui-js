@@ -2,7 +2,7 @@
 
 > **TableCalculation**\<`T`\> = \{ \[key in string\]: (item: T, index: number, parentKnot: Knot) =\> Knot\[\] \| Knot \| string \}
 
-Defined in: [component/table.ts:33](https://github.com/siposdani87/sui-js/blob/433cda184a013753ef41bb6ba61d0b3944481fa1/src/component/table.ts#L33)
+Defined in: [component/table.ts:33](https://github.com/siposdani87/sui-js/blob/27883240db7565f37a562e906b93c8d6552ac058/src/component/table.ts#L33)
 
 ## Type Parameters
 

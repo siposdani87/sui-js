@@ -2,7 +2,7 @@
 
 > **Action** = `object`
 
-Defined in: [utils/types.ts:82](https://github.com/siposdani87/sui-js/blob/433cda184a013753ef41bb6ba61d0b3944481fa1/src/utils/types.ts#L82)
+Defined in: [utils/types.ts:82](https://github.com/siposdani87/sui-js/blob/27883240db7565f37a562e906b93c8d6552ac058/src/utils/types.ts#L82)
 
 Action descriptor for table rows and card collection items.
 
@@ -17,7 +17,7 @@ when the action is triggered.
 
 > **click**: (`item`) => `void`
 
-Defined in: [utils/types.ts:86](https://github.com/siposdani87/sui-js/blob/433cda184a013753ef41bb6ba61d0b3944481fa1/src/utils/types.ts#L86)
+Defined in: [utils/types.ts:86](https://github.com/siposdani87/sui-js/blob/27883240db7565f37a562e906b93c8d6552ac058/src/utils/types.ts#L86)
 
 Handler invoked when the action is clicked for the given item.
 
@@ -37,7 +37,7 @@ Handler invoked when the action is clicked for the given item.
 
 > **style**: (`item`) => \[`string`, `string`?, `boolean`?, `boolean`?\]
 
-Defined in: [utils/types.ts:84](https://github.com/siposdani87/sui-js/blob/433cda184a013753ef41bb6ba61d0b3944481fa1/src/utils/types.ts#L84)
+Defined in: [utils/types.ts:84](https://github.com/siposdani87/sui-js/blob/27883240db7565f37a562e906b93c8d6552ac058/src/utils/types.ts#L84)
 
 Returns `[cssClass, iconName?, isVisible?, isDisabled?]` for the given item.
 

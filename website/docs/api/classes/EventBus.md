@@ -1,6 +1,6 @@
 # Class: EventBus
 
-Defined in: [module/eventBus.ts:35](https://github.com/siposdani87/sui-js/blob/433cda184a013753ef41bb6ba61d0b3944481fa1/src/module/eventBus.ts#L35)
+Defined in: [module/eventBus.ts:35](https://github.com/siposdani87/sui-js/blob/27883240db7565f37a562e906b93c8d6552ac058/src/module/eventBus.ts#L35)
 
 Publish/subscribe event system that uses an [Objekt](Objekt.md) as the
 internal event store. Each named event can have multiple callback
@@ -41,7 +41,7 @@ eventBus.remove('user.login', onUserLogin);
 
 > **new EventBus**(): `EventBus`
 
-Defined in: [module/eventBus.ts:41](https://github.com/siposdani87/sui-js/blob/433cda184a013753ef41bb6ba61d0b3944481fa1/src/module/eventBus.ts#L41)
+Defined in: [module/eventBus.ts:41](https://github.com/siposdani87/sui-js/blob/27883240db7565f37a562e906b93c8d6552ac058/src/module/eventBus.ts#L41)
 
 Creates a new EventBus with an empty event store.
 
@@ -55,7 +55,7 @@ Creates a new EventBus with an empty event store.
 
 > **eventStore**: [`Objekt`](Objekt.md)
 
-Defined in: [module/eventBus.ts:36](https://github.com/siposdani87/sui-js/blob/433cda184a013753ef41bb6ba61d0b3944481fa1/src/module/eventBus.ts#L36)
+Defined in: [module/eventBus.ts:36](https://github.com/siposdani87/sui-js/blob/27883240db7565f37a562e906b93c8d6552ac058/src/module/eventBus.ts#L36)
 
 ## Methods
 
@@ -63,7 +63,7 @@ Defined in: [module/eventBus.ts:36](https://github.com/siposdani87/sui-js/blob/4
 
 > **call**(`name`, `opt_args?`): [`Promize`](Promize.md)\<`object`, `object`\>
 
-Defined in: [module/eventBus.ts:122](https://github.com/siposdani87/sui-js/blob/433cda184a013753ef41bb6ba61d0b3944481fa1/src/module/eventBus.ts#L122)
+Defined in: [module/eventBus.ts:122](https://github.com/siposdani87/sui-js/blob/27883240db7565f37a562e906b93c8d6552ac058/src/module/eventBus.ts#L122)
 
 Invokes all callbacks registered for the named event in serial
 order via [Async](Async.md). If no callbacks are registered, a single
@@ -104,7 +104,7 @@ eventBus.call('app.ready', [config]).then(() => {
 
 > **override**(`name`, `args`, `callback`): [`Promize`](Promize.md)\<`object`, `object`\>
 
-Defined in: [module/eventBus.ts:145](https://github.com/siposdani87/sui-js/blob/433cda184a013753ef41bb6ba61d0b3944481fa1/src/module/eventBus.ts#L145)
+Defined in: [module/eventBus.ts:145](https://github.com/siposdani87/sui-js/blob/27883240db7565f37a562e906b93c8d6552ac058/src/module/eventBus.ts#L145)
 
 Invokes the registered callbacks for the named event, or falls back
 to the provided callback if no listeners have been registered. This
@@ -152,7 +152,7 @@ eventBus.override('confirm.action', [message], (msg) => {
 
 > **pop**(`name`): `void`
 
-Defined in: [module/eventBus.ts:101](https://github.com/siposdani87/sui-js/blob/433cda184a013753ef41bb6ba61d0b3944481fa1/src/module/eventBus.ts#L101)
+Defined in: [module/eventBus.ts:101](https://github.com/siposdani87/sui-js/blob/27883240db7565f37a562e906b93c8d6552ac058/src/module/eventBus.ts#L101)
 
 Removes the most recently registered callback for the named event.
 This is a convenience method when the caller does not hold a
@@ -182,7 +182,7 @@ eventBus.pop('data.loaded');
 
 > **remove**(`name`, `callback`): `void`
 
-Defined in: [module/eventBus.ts:83](https://github.com/siposdani87/sui-js/blob/433cda184a013753ef41bb6ba61d0b3944481fa1/src/module/eventBus.ts#L83)
+Defined in: [module/eventBus.ts:83](https://github.com/siposdani87/sui-js/blob/27883240db7565f37a562e906b93c8d6552ac058/src/module/eventBus.ts#L83)
 
 Removes a specific callback from the named event's callback list.
 Uses reference equality, so the exact function reference originally
@@ -218,7 +218,7 @@ eventBus.remove('data.loaded', handler);
 
 > **set**(`name`, `callback`): `Function`
 
-Defined in: [module/eventBus.ts:63](https://github.com/siposdani87/sui-js/blob/433cda184a013753ef41bb6ba61d0b3944481fa1/src/module/eventBus.ts#L63)
+Defined in: [module/eventBus.ts:63](https://github.com/siposdani87/sui-js/blob/27883240db7565f37a562e906b93c8d6552ac058/src/module/eventBus.ts#L63)
 
 Registers a callback function for the named event. If the callback
 is a valid function, it is appended to the event's callback list.

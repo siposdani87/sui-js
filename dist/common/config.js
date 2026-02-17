@@ -1,7 +1,23 @@
+/**
+ * Global release mode flag controlling debug behavior.
+ *
+ * @category Common
+ */
 export let releaseMode = true;
+/**
+ * Sets the global release mode flag.
+ *
+ * @param {boolean} mode Whether release mode is enabled.
+ * @category Common
+ */
 export const setReleaseMode = (mode) => {
     releaseMode = mode;
 };
+/**
+ * Mapping of core dependency injection resource names used by {@link Application}.
+ *
+ * @category Common
+ */
 export const coreResources = {
     app: 'app',
     config: 'config',

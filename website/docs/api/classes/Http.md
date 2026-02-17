@@ -1,6 +1,6 @@
 # Class: Http
 
-Defined in: [module/http.ts:37](https://github.com/siposdani87/sui-js/blob/433cda184a013753ef41bb6ba61d0b3944481fa1/src/module/http.ts#L37)
+Defined in: [module/http.ts:37](https://github.com/siposdani87/sui-js/blob/27883240db7565f37a562e906b93c8d6552ac058/src/module/http.ts#L37)
 
 High-level HTTP client that wraps [Xhr](Xhr.md) to provide a simplified
 request API with built-in authentication management. Http adds an
@@ -41,7 +41,7 @@ http.get('/users').then(
 
 > **new Http**(`opt_options?`): `Http`
 
-Defined in: [module/http.ts:54](https://github.com/siposdani87/sui-js/blob/433cda184a013753ef41bb6ba61d0b3944481fa1/src/module/http.ts#L54)
+Defined in: [module/http.ts:54](https://github.com/siposdani87/sui-js/blob/27883240db7565f37a562e906b93c8d6552ac058/src/module/http.ts#L54)
 
 Creates a new Http client instance.
 
@@ -69,7 +69,7 @@ const http = new Http({ backend: '/api/v1', locale: 'hu' });
 
 > **options**: [`Objekt`](Objekt.md)
 
-Defined in: [module/http.ts:38](https://github.com/siposdani87/sui-js/blob/433cda184a013753ef41bb6ba61d0b3944481fa1/src/module/http.ts#L38)
+Defined in: [module/http.ts:38](https://github.com/siposdani87/sui-js/blob/27883240db7565f37a562e906b93c8d6552ac058/src/module/http.ts#L38)
 
 ***
 
@@ -77,7 +77,7 @@ Defined in: [module/http.ts:38](https://github.com/siposdani87/sui-js/blob/433cd
 
 > **password**: `string` \| `null`
 
-Defined in: [module/http.ts:40](https://github.com/siposdani87/sui-js/blob/433cda184a013753ef41bb6ba61d0b3944481fa1/src/module/http.ts#L40)
+Defined in: [module/http.ts:40](https://github.com/siposdani87/sui-js/blob/27883240db7565f37a562e906b93c8d6552ac058/src/module/http.ts#L40)
 
 ***
 
@@ -85,7 +85,7 @@ Defined in: [module/http.ts:40](https://github.com/siposdani87/sui-js/blob/433cd
 
 > **token**: `string` \| `null`
 
-Defined in: [module/http.ts:41](https://github.com/siposdani87/sui-js/blob/433cda184a013753ef41bb6ba61d0b3944481fa1/src/module/http.ts#L41)
+Defined in: [module/http.ts:41](https://github.com/siposdani87/sui-js/blob/27883240db7565f37a562e906b93c8d6552ac058/src/module/http.ts#L41)
 
 ***
 
@@ -93,7 +93,7 @@ Defined in: [module/http.ts:41](https://github.com/siposdani87/sui-js/blob/433cd
 
 > **username**: `string` \| `null`
 
-Defined in: [module/http.ts:39](https://github.com/siposdani87/sui-js/blob/433cda184a013753ef41bb6ba61d0b3944481fa1/src/module/http.ts#L39)
+Defined in: [module/http.ts:39](https://github.com/siposdani87/sui-js/blob/27883240db7565f37a562e906b93c8d6552ac058/src/module/http.ts#L39)
 
 ## Methods
 
@@ -101,7 +101,7 @@ Defined in: [module/http.ts:39](https://github.com/siposdani87/sui-js/blob/433cd
 
 > **delete**(`url`, `opt_data?`, `opt_params?`, `opt_headers?`): [`Promize`](Promize.md)\<\[[`Objekt`](Objekt.md)\<`object`\>, `string`\], \[[`Objekt`](Objekt.md)\<`object`\>, `string`\]\>
 
-Defined in: [module/http.ts:232](https://github.com/siposdani87/sui-js/blob/433cda184a013753ef41bb6ba61d0b3944481fa1/src/module/http.ts#L232)
+Defined in: [module/http.ts:232](https://github.com/siposdani87/sui-js/blob/27883240db7565f37a562e906b93c8d6552ac058/src/module/http.ts#L232)
 
 Sends an HTTP DELETE request to the specified URL.
 
@@ -153,7 +153,7 @@ http.delete('/users/1').then(
 
 > **eventAfterRequest**(`http`, `response`, `filename`): `void`
 
-Defined in: [module/http.ts:310](https://github.com/siposdani87/sui-js/blob/433cda184a013753ef41bb6ba61d0b3944481fa1/src/module/http.ts#L310)
+Defined in: [module/http.ts:310](https://github.com/siposdani87/sui-js/blob/27883240db7565f37a562e906b93c8d6552ac058/src/module/http.ts#L310)
 
 Called after each request completes (on both success and failure).
 Override this method to implement cross-cutting post-request logic
@@ -190,7 +190,7 @@ The filename extracted from the
 
 > **eventBeforeRequest**(`xhr`): `void`
 
-Defined in: [module/http.ts:296](https://github.com/siposdani87/sui-js/blob/433cda184a013753ef41bb6ba61d0b3944481fa1/src/module/http.ts#L296)
+Defined in: [module/http.ts:296](https://github.com/siposdani87/sui-js/blob/27883240db7565f37a562e906b93c8d6552ac058/src/module/http.ts#L296)
 
 Called before each request is sent. Override this method to inspect or
 modify the [Xhr](Xhr.md) instance (e.g. add custom headers or logging).
@@ -213,7 +213,7 @@ The Xhr instance that will execute the request.
 
 > **get**(`url`, `opt_params?`, `opt_headers?`): [`Promize`](Promize.md)\<\[[`Objekt`](Objekt.md)\<`object`\>, `string`\], \[[`Objekt`](Objekt.md)\<`object`\>, `string`\]\>
 
-Defined in: [module/http.ts:127](https://github.com/siposdani87/sui-js/blob/433cda184a013753ef41bb6ba61d0b3944481fa1/src/module/http.ts#L127)
+Defined in: [module/http.ts:127](https://github.com/siposdani87/sui-js/blob/27883240db7565f37a562e906b93c8d6552ac058/src/module/http.ts#L127)
 
 Sends an HTTP GET request to the specified URL.
 
@@ -259,7 +259,7 @@ http.get('/users', { page: 1 }).then(
 
 > **patch**(`url`, `opt_data?`, `opt_params?`, `opt_headers?`): [`Promize`](Promize.md)\<\[[`Objekt`](Objekt.md)\<`object`\>, `string`\], \[[`Objekt`](Objekt.md)\<`object`\>, `string`\]\>
 
-Defined in: [module/http.ts:204](https://github.com/siposdani87/sui-js/blob/433cda184a013753ef41bb6ba61d0b3944481fa1/src/module/http.ts#L204)
+Defined in: [module/http.ts:204](https://github.com/siposdani87/sui-js/blob/27883240db7565f37a562e906b93c8d6552ac058/src/module/http.ts#L204)
 
 Sends an HTTP PATCH request to the specified URL.
 
@@ -311,7 +311,7 @@ http.patch('/users/1', { email: 'new@example.com' }).then(
 
 > **post**(`url`, `opt_data?`, `opt_params?`, `opt_headers?`): [`Promize`](Promize.md)\<\[[`Objekt`](Objekt.md)\<`object`\>, `string`\], \[[`Objekt`](Objekt.md)\<`object`\>, `string`\]\>
 
-Defined in: [module/http.ts:148](https://github.com/siposdani87/sui-js/blob/433cda184a013753ef41bb6ba61d0b3944481fa1/src/module/http.ts#L148)
+Defined in: [module/http.ts:148](https://github.com/siposdani87/sui-js/blob/27883240db7565f37a562e906b93c8d6552ac058/src/module/http.ts#L148)
 
 Sends an HTTP POST request to the specified URL.
 
@@ -363,7 +363,7 @@ http.post('/users', { name: 'Alice' }).then(
 
 > **put**(`url`, `opt_data?`, `opt_params?`, `opt_headers?`): [`Promize`](Promize.md)\<\[[`Objekt`](Objekt.md)\<`object`\>, `string`\], \[[`Objekt`](Objekt.md)\<`object`\>, `string`\]\>
 
-Defined in: [module/http.ts:176](https://github.com/siposdani87/sui-js/blob/433cda184a013753ef41bb6ba61d0b3944481fa1/src/module/http.ts#L176)
+Defined in: [module/http.ts:176](https://github.com/siposdani87/sui-js/blob/27883240db7565f37a562e906b93c8d6552ac058/src/module/http.ts#L176)
 
 Sends an HTTP PUT request to the specified URL.
 
@@ -415,7 +415,7 @@ http.put('/users/1', { name: 'Alice Updated' }).then(
 
 > **setBasicAuthorization**(`username`, `password`): `void`
 
-Defined in: [module/http.ts:93](https://github.com/siposdani87/sui-js/blob/433cda184a013753ef41bb6ba61d0b3944481fa1/src/module/http.ts#L93)
+Defined in: [module/http.ts:93](https://github.com/siposdani87/sui-js/blob/27883240db7565f37a562e906b93c8d6552ac058/src/module/http.ts#L93)
 
 Stores HTTP Basic authentication credentials. On each subsequent
 request the credentials are forwarded to the underlying [Xhr](Xhr.md)
@@ -451,7 +451,7 @@ http.setBasicAuthorization('admin', 's3cret');
 
 > **setBearerAuthorization**(`token`): `void`
 
-Defined in: [module/http.ts:108](https://github.com/siposdani87/sui-js/blob/433cda184a013753ef41bb6ba61d0b3944481fa1/src/module/http.ts#L108)
+Defined in: [module/http.ts:108](https://github.com/siposdani87/sui-js/blob/27883240db7565f37a562e906b93c8d6552ac058/src/module/http.ts#L108)
 
 Stores a Bearer token for authentication. On each subsequent request
 the token is forwarded to the underlying [Xhr](Xhr.md) instance, which

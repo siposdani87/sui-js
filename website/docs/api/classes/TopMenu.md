@@ -1,6 +1,6 @@
 # Class: TopMenu
 
-Defined in: [module/topMenu.ts:21](https://github.com/siposdani87/sui-js/blob/433cda184a013753ef41bb6ba61d0b3944481fa1/src/module/topMenu.ts#L21)
+Defined in: [module/topMenu.ts:21](https://github.com/siposdani87/sui-js/blob/27883240db7565f37a562e906b93c8d6552ac058/src/module/topMenu.ts#L21)
 
 Dropdown menu rendered inside the application [Header](Header.md). Toggling
 the menu also opens/closes the header's expanded state and manages
@@ -27,7 +27,7 @@ const container = topMenu.getContainer();
 
 > **new TopMenu**(`header`): `TopMenu`
 
-Defined in: [module/topMenu.ts:33](https://github.com/siposdani87/sui-js/blob/433cda184a013753ef41bb6ba61d0b3944481fa1/src/module/topMenu.ts#L33)
+Defined in: [module/topMenu.ts:33](https://github.com/siposdani87/sui-js/blob/27883240db7565f37a562e906b93c8d6552ac058/src/module/topMenu.ts#L33)
 
 Creates a new TopMenu instance and binds the toggle click event
 within the provided header.
@@ -51,7 +51,7 @@ The application header instance that
 
 > **header**: [`Header`](Header.md)
 
-Defined in: [module/topMenu.ts:22](https://github.com/siposdani87/sui-js/blob/433cda184a013753ef41bb6ba61d0b3944481fa1/src/module/topMenu.ts#L22)
+Defined in: [module/topMenu.ts:22](https://github.com/siposdani87/sui-js/blob/27883240db7565f37a562e906b93c8d6552ac058/src/module/topMenu.ts#L22)
 
 ***
 
@@ -59,7 +59,7 @@ Defined in: [module/topMenu.ts:22](https://github.com/siposdani87/sui-js/blob/43
 
 > **toggleTopMenu**: [`Knot`](Knot.md)
 
-Defined in: [module/topMenu.ts:24](https://github.com/siposdani87/sui-js/blob/433cda184a013753ef41bb6ba61d0b3944481fa1/src/module/topMenu.ts#L24)
+Defined in: [module/topMenu.ts:24](https://github.com/siposdani87/sui-js/blob/27883240db7565f37a562e906b93c8d6552ac058/src/module/topMenu.ts#L24)
 
 ***
 
@@ -67,7 +67,7 @@ Defined in: [module/topMenu.ts:24](https://github.com/siposdani87/sui-js/blob/43
 
 > **topMenu**: [`Knot`](Knot.md)
 
-Defined in: [module/topMenu.ts:23](https://github.com/siposdani87/sui-js/blob/433cda184a013753ef41bb6ba61d0b3944481fa1/src/module/topMenu.ts#L23)
+Defined in: [module/topMenu.ts:23](https://github.com/siposdani87/sui-js/blob/27883240db7565f37a562e906b93c8d6552ac058/src/module/topMenu.ts#L23)
 
 ## Methods
 
@@ -75,7 +75,7 @@ Defined in: [module/topMenu.ts:23](https://github.com/siposdani87/sui-js/blob/43
 
 > **close**(): `void`
 
-Defined in: [module/topMenu.ts:98](https://github.com/siposdani87/sui-js/blob/433cda184a013753ef41bb6ba61d0b3944481fa1/src/module/topMenu.ts#L98)
+Defined in: [module/topMenu.ts:98](https://github.com/siposdani87/sui-js/blob/27883240db7565f37a562e906b93c8d6552ac058/src/module/topMenu.ts#L98)
 
 Closes the top menu by collapsing the header, hiding the menu
 container, deactivating the toggle button, and removing the
@@ -91,7 +91,7 @@ header shadow.
 
 > **getContainer**(): [`Knot`](Knot.md)
 
-Defined in: [module/topMenu.ts:115](https://github.com/siposdani87/sui-js/blob/433cda184a013753ef41bb6ba61d0b3944481fa1/src/module/topMenu.ts#L115)
+Defined in: [module/topMenu.ts:115](https://github.com/siposdani87/sui-js/blob/27883240db7565f37a562e906b93c8d6552ac058/src/module/topMenu.ts#L115)
 
 Returns the menu container [Knot](Knot.md) where menu items should be
 appended.
@@ -115,7 +115,7 @@ container.appendChild(menuItemKnot);
 
 > **isOpened**(): `boolean`
 
-Defined in: [module/topMenu.ts:74](https://github.com/siposdani87/sui-js/blob/433cda184a013753ef41bb6ba61d0b3944481fa1/src/module/topMenu.ts#L74)
+Defined in: [module/topMenu.ts:74](https://github.com/siposdani87/sui-js/blob/27883240db7565f37a562e906b93c8d6552ac058/src/module/topMenu.ts#L74)
 
 Checks whether the top menu is currently visible.
 
@@ -131,7 +131,7 @@ True if the menu is open, false otherwise.
 
 > **open**(): `void`
 
-Defined in: [module/topMenu.ts:86](https://github.com/siposdani87/sui-js/blob/433cda184a013753ef41bb6ba61d0b3944481fa1/src/module/topMenu.ts#L86)
+Defined in: [module/topMenu.ts:86](https://github.com/siposdani87/sui-js/blob/27883240db7565f37a562e906b93c8d6552ac058/src/module/topMenu.ts#L86)
 
 Opens the top menu by expanding the header, showing the menu
 container, activating the toggle button, and displaying the
@@ -153,7 +153,7 @@ topMenu.open();
 
 > **toggle**(): `void`
 
-Defined in: [module/topMenu.ts:61](https://github.com/siposdani87/sui-js/blob/433cda184a013753ef41bb6ba61d0b3944481fa1/src/module/topMenu.ts#L61)
+Defined in: [module/topMenu.ts:61](https://github.com/siposdani87/sui-js/blob/27883240db7565f37a562e906b93c8d6552ac058/src/module/topMenu.ts#L61)
 
 Toggles the top menu between its open and closed states.
 

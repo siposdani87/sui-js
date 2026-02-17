@@ -1,6 +1,6 @@
 # Class: Month
 
-Defined in: [component/month.ts:15](https://github.com/siposdani87/sui-js/blob/433cda184a013753ef41bb6ba61d0b3944481fa1/src/component/month.ts#L15)
+Defined in: [component/month.ts:15](https://github.com/siposdani87/sui-js/blob/27883240db7565f37a562e906b93c8d6552ac058/src/component/month.ts#L15)
 
 ## Description
 
@@ -24,7 +24,7 @@ const knot = month.getKnot();
 
 > **new Month**(`date`, `currentDate`, `options`): `Month`
 
-Defined in: [component/month.ts:29](https://github.com/siposdani87/sui-js/blob/433cda184a013753ef41bb6ba61d0b3944481fa1/src/component/month.ts#L29)
+Defined in: [component/month.ts:29](https://github.com/siposdani87/sui-js/blob/27883240db7565f37a562e906b93c8d6552ac058/src/component/month.ts#L29)
 
 #### Parameters
 
@@ -66,7 +66,7 @@ const month = new Month(new Date(2024, 5, 1), selectedDate, {});
 
 > **cssClasses**: `string`[]
 
-Defined in: [component/month.ts:19](https://github.com/siposdani87/sui-js/blob/433cda184a013753ef41bb6ba61d0b3944481fa1/src/component/month.ts#L19)
+Defined in: [component/month.ts:19](https://github.com/siposdani87/sui-js/blob/27883240db7565f37a562e906b93c8d6552ac058/src/component/month.ts#L19)
 
 ***
 
@@ -74,7 +74,7 @@ Defined in: [component/month.ts:19](https://github.com/siposdani87/sui-js/blob/4
 
 > **currentDate**: `Date`
 
-Defined in: [component/month.ts:17](https://github.com/siposdani87/sui-js/blob/433cda184a013753ef41bb6ba61d0b3944481fa1/src/component/month.ts#L17)
+Defined in: [component/month.ts:17](https://github.com/siposdani87/sui-js/blob/27883240db7565f37a562e906b93c8d6552ac058/src/component/month.ts#L17)
 
 ***
 
@@ -82,7 +82,7 @@ Defined in: [component/month.ts:17](https://github.com/siposdani87/sui-js/blob/4
 
 > **date**: `Date`
 
-Defined in: [component/month.ts:16](https://github.com/siposdani87/sui-js/blob/433cda184a013753ef41bb6ba61d0b3944481fa1/src/component/month.ts#L16)
+Defined in: [component/month.ts:16](https://github.com/siposdani87/sui-js/blob/27883240db7565f37a562e906b93c8d6552ac058/src/component/month.ts#L16)
 
 ***
 
@@ -90,7 +90,7 @@ Defined in: [component/month.ts:16](https://github.com/siposdani87/sui-js/blob/4
 
 > **options**: [`Objekt`](Objekt.md)
 
-Defined in: [component/month.ts:18](https://github.com/siposdani87/sui-js/blob/433cda184a013753ef41bb6ba61d0b3944481fa1/src/component/month.ts#L18)
+Defined in: [component/month.ts:18](https://github.com/siposdani87/sui-js/blob/27883240db7565f37a562e906b93c8d6552ac058/src/component/month.ts#L18)
 
 ## Methods
 
@@ -98,7 +98,7 @@ Defined in: [component/month.ts:18](https://github.com/siposdani87/sui-js/blob/4
 
 > **eventClick**(`date`): `void`
 
-Defined in: [component/month.ts:85](https://github.com/siposdani87/sui-js/blob/433cda184a013753ef41bb6ba61d0b3944481fa1/src/component/month.ts#L85)
+Defined in: [component/month.ts:85](https://github.com/siposdani87/sui-js/blob/27883240db7565f37a562e906b93c8d6552ac058/src/component/month.ts#L85)
 
 #### Parameters
 
@@ -128,7 +128,7 @@ month.eventClick = (date) => { console.log('Clicked:', date); };
 
 > **getKnot**(): [`Knot`](Knot.md)
 
-Defined in: [component/month.ts:68](https://github.com/siposdani87/sui-js/blob/433cda184a013753ef41bb6ba61d0b3944481fa1/src/component/month.ts#L68)
+Defined in: [component/month.ts:68](https://github.com/siposdani87/sui-js/blob/27883240db7565f37a562e906b93c8d6552ac058/src/component/month.ts#L68)
 
 #### Returns
 

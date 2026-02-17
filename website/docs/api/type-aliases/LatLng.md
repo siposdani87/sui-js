@@ -2,7 +2,7 @@
 
 > **LatLng** = `object`
 
-Defined in: [component/googleMap.ts:31](https://github.com/siposdani87/sui-js/blob/433cda184a013753ef41bb6ba61d0b3944481fa1/src/component/googleMap.ts#L31)
+Defined in: [component/googleMap.ts:31](https://github.com/siposdani87/sui-js/blob/27883240db7565f37a562e906b93c8d6552ac058/src/component/googleMap.ts#L31)
 
 Geographic coordinate with latitude and longitude.
 
@@ -12,7 +12,7 @@ Geographic coordinate with latitude and longitude.
 
 > **latitude**: `number`
 
-Defined in: [component/googleMap.ts:32](https://github.com/siposdani87/sui-js/blob/433cda184a013753ef41bb6ba61d0b3944481fa1/src/component/googleMap.ts#L32)
+Defined in: [component/googleMap.ts:32](https://github.com/siposdani87/sui-js/blob/27883240db7565f37a562e906b93c8d6552ac058/src/component/googleMap.ts#L32)
 
 ***
 
@@ -20,4 +20,4 @@ Defined in: [component/googleMap.ts:32](https://github.com/siposdani87/sui-js/bl
 
 > **longitude**: `number`
 
-Defined in: [component/googleMap.ts:33](https://github.com/siposdani87/sui-js/blob/433cda184a013753ef41bb6ba61d0b3944481fa1/src/component/googleMap.ts#L33)
+Defined in: [component/googleMap.ts:33](https://github.com/siposdani87/sui-js/blob/27883240db7565f37a562e906b93c8d6552ac058/src/component/googleMap.ts#L33)

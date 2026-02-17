@@ -1,6 +1,6 @@
 # Class: Navigation
 
-Defined in: [component/navigation.ts:28](https://github.com/siposdani87/sui-js/blob/433cda184a013753ef41bb6ba61d0b3944481fa1/src/component/navigation.ts#L28)
+Defined in: [component/navigation.ts:28](https://github.com/siposdani87/sui-js/blob/27883240db7565f37a562e906b93c8d6552ac058/src/component/navigation.ts#L28)
 
 Navigation link manager supporting icons, images, counters, and text links.
 
@@ -33,7 +33,7 @@ nav.setActive('home');
 
 > **new Navigation**(`opt_http?`, `opt_options?`): `Navigation`
 
-Defined in: [component/navigation.ts:38](https://github.com/siposdani87/sui-js/blob/433cda184a013753ef41bb6ba61d0b3944481fa1/src/component/navigation.ts#L38)
+Defined in: [component/navigation.ts:38](https://github.com/siposdani87/sui-js/blob/27883240db7565f37a562e906b93c8d6552ac058/src/component/navigation.ts#L38)
 
 #### Parameters
 
@@ -59,7 +59,7 @@ Configuration options merged via [Objekt](Objekt.md).
 
 > **container**: [`Collection`](Collection.md)\<[`Objekt`](Objekt.md)\<`object`\>\>
 
-Defined in: [component/navigation.ts:31](https://github.com/siposdani87/sui-js/blob/433cda184a013753ef41bb6ba61d0b3944481fa1/src/component/navigation.ts#L31)
+Defined in: [component/navigation.ts:31](https://github.com/siposdani87/sui-js/blob/27883240db7565f37a562e906b93c8d6552ac058/src/component/navigation.ts#L31)
 
 ***
 
@@ -67,7 +67,7 @@ Defined in: [component/navigation.ts:31](https://github.com/siposdani87/sui-js/b
 
 > `optional` **http**: [`Http`](Http.md)
 
-Defined in: [component/navigation.ts:29](https://github.com/siposdani87/sui-js/blob/433cda184a013753ef41bb6ba61d0b3944481fa1/src/component/navigation.ts#L29)
+Defined in: [component/navigation.ts:29](https://github.com/siposdani87/sui-js/blob/27883240db7565f37a562e906b93c8d6552ac058/src/component/navigation.ts#L29)
 
 ***
 
@@ -75,7 +75,7 @@ Defined in: [component/navigation.ts:29](https://github.com/siposdani87/sui-js/b
 
 > **linkKnotKey**: `string`
 
-Defined in: [component/navigation.ts:32](https://github.com/siposdani87/sui-js/blob/433cda184a013753ef41bb6ba61d0b3944481fa1/src/component/navigation.ts#L32)
+Defined in: [component/navigation.ts:32](https://github.com/siposdani87/sui-js/blob/27883240db7565f37a562e906b93c8d6552ac058/src/component/navigation.ts#L32)
 
 ***
 
@@ -83,7 +83,7 @@ Defined in: [component/navigation.ts:32](https://github.com/siposdani87/sui-js/b
 
 > **options**: [`Objekt`](Objekt.md)
 
-Defined in: [component/navigation.ts:30](https://github.com/siposdani87/sui-js/blob/433cda184a013753ef41bb6ba61d0b3944481fa1/src/component/navigation.ts#L30)
+Defined in: [component/navigation.ts:30](https://github.com/siposdani87/sui-js/blob/27883240db7565f37a562e906b93c8d6552ac058/src/component/navigation.ts#L30)
 
 ## Methods
 
@@ -91,7 +91,7 @@ Defined in: [component/navigation.ts:30](https://github.com/siposdani87/sui-js/b
 
 > **add**(`item`): `void`
 
-Defined in: [component/navigation.ts:81](https://github.com/siposdani87/sui-js/blob/433cda184a013753ef41bb6ba61d0b3944481fa1/src/component/navigation.ts#L81)
+Defined in: [component/navigation.ts:81](https://github.com/siposdani87/sui-js/blob/27883240db7565f37a562e906b93c8d6552ac058/src/component/navigation.ts#L81)
 
 Adds a navigation item, automatically selecting the appropriate type (image, icon, counter, or text).
 
@@ -132,7 +132,7 @@ nav.add(new Objekt({
 
 > **addCounter**(`id`, `counter`, `title`, `action`, `opt_href?`, `opt_data?`): `void`
 
-Defined in: [component/navigation.ts:119](https://github.com/siposdani87/sui-js/blob/433cda184a013753ef41bb6ba61d0b3944481fa1/src/component/navigation.ts#L119)
+Defined in: [component/navigation.ts:119](https://github.com/siposdani87/sui-js/blob/27883240db7565f37a562e906b93c8d6552ac058/src/component/navigation.ts#L119)
 
 Creates a navigation item with a numeric or text counter badge.
 
@@ -190,7 +190,7 @@ nav.addCounter('notifications', '5', 'Alerts', (href) => {}, '/alerts');
 
 > **addIcon**(`id`, `icon`, `title`, `action`, `opt_href?`, `opt_data?`): `void`
 
-Defined in: [component/navigation.ts:149](https://github.com/siposdani87/sui-js/blob/433cda184a013753ef41bb6ba61d0b3944481fa1/src/component/navigation.ts#L149)
+Defined in: [component/navigation.ts:149](https://github.com/siposdani87/sui-js/blob/27883240db7565f37a562e906b93c8d6552ac058/src/component/navigation.ts#L149)
 
 Creates a navigation item with a Material Design icon.
 
@@ -248,7 +248,7 @@ nav.addIcon('home', 'home', 'Home', (href) => {}, '/');
 
 > **addImage**(`id`, `image`, `title`, `action`, `opt_href?`, `opt_data?`): `void`
 
-Defined in: [component/navigation.ts:183](https://github.com/siposdani87/sui-js/blob/433cda184a013753ef41bb6ba61d0b3944481fa1/src/component/navigation.ts#L183)
+Defined in: [component/navigation.ts:183](https://github.com/siposdani87/sui-js/blob/27883240db7565f37a562e906b93c8d6552ac058/src/component/navigation.ts#L183)
 
 Creates a navigation item with an image (SVG loaded via [Http](Http.md) or a bitmap img tag).
 
@@ -306,7 +306,7 @@ nav.addImage('logo', '/logo.svg', 'Home', (href) => {}, '/');
 
 > **addText**(`id`, `title`, `action`, `opt_href?`, `opt_data?`): `void`
 
-Defined in: [component/navigation.ts:235](https://github.com/siposdani87/sui-js/blob/433cda184a013753ef41bb6ba61d0b3944481fa1/src/component/navigation.ts#L235)
+Defined in: [component/navigation.ts:235](https://github.com/siposdani87/sui-js/blob/27883240db7565f37a562e906b93c8d6552ac058/src/component/navigation.ts#L235)
 
 Creates a navigation item with a plain text label only.
 
@@ -358,7 +358,7 @@ nav.addText('about', 'About Us', (href) => {}, '/about');
 
 > **bindToContainer**(`containerKnot`): `void`
 
-Defined in: [component/navigation.ts:314](https://github.com/siposdani87/sui-js/blob/433cda184a013753ef41bb6ba61d0b3944481fa1/src/component/navigation.ts#L314)
+Defined in: [component/navigation.ts:314](https://github.com/siposdani87/sui-js/blob/27883240db7565f37a562e906b93c8d6552ac058/src/component/navigation.ts#L314)
 
 Appends all navigation link knots to the specified container, replacing its children.
 
@@ -386,7 +386,7 @@ nav.bindToContainer(new Query('.nav-container').getKnot());
 
 > **each**(`next`): `void`
 
-Defined in: [component/navigation.ts:300](https://github.com/siposdani87/sui-js/blob/433cda184a013753ef41bb6ba61d0b3944481fa1/src/component/navigation.ts#L300)
+Defined in: [component/navigation.ts:300](https://github.com/siposdani87/sui-js/blob/27883240db7565f37a562e906b93c8d6552ac058/src/component/navigation.ts#L300)
 
 Iterates over all navigation items in the collection.
 
@@ -416,7 +416,7 @@ nav.each((item) => {
 
 > **hide**(`id`): `void`
 
-Defined in: [component/navigation.ts:444](https://github.com/siposdani87/sui-js/blob/433cda184a013753ef41bb6ba61d0b3944481fa1/src/component/navigation.ts#L444)
+Defined in: [component/navigation.ts:444](https://github.com/siposdani87/sui-js/blob/27883240db7565f37a562e906b93c8d6552ac058/src/component/navigation.ts#L444)
 
 Hides a navigation item and disables it.
 
@@ -444,7 +444,7 @@ nav.hide('admin');
 
 > **setActive**(`id`): `void`
 
-Defined in: [component/navigation.ts:392](https://github.com/siposdani87/sui-js/blob/433cda184a013753ef41bb6ba61d0b3944481fa1/src/component/navigation.ts#L392)
+Defined in: [component/navigation.ts:392](https://github.com/siposdani87/sui-js/blob/27883240db7565f37a562e906b93c8d6552ac058/src/component/navigation.ts#L392)
 
 Sets the active state on matching navigation items by ID.
 
@@ -478,7 +478,7 @@ nav.setActive('settings.general'); // also activates 'settings.' prefix items
 
 > **setAllInactive**(): `void`
 
-Defined in: [component/navigation.ts:412](https://github.com/siposdani87/sui-js/blob/433cda184a013753ef41bb6ba61d0b3944481fa1/src/component/navigation.ts#L412)
+Defined in: [component/navigation.ts:412](https://github.com/siposdani87/sui-js/blob/27883240db7565f37a562e906b93c8d6552ac058/src/component/navigation.ts#L412)
 
 Removes the active state from all navigation items.
 
@@ -498,7 +498,7 @@ nav.setAllInactive();
 
 > **setDisabled**(`id`): `void`
 
-Defined in: [component/navigation.ts:330](https://github.com/siposdani87/sui-js/blob/433cda184a013753ef41bb6ba61d0b3944481fa1/src/component/navigation.ts#L330)
+Defined in: [component/navigation.ts:330](https://github.com/siposdani87/sui-js/blob/27883240db7565f37a562e906b93c8d6552ac058/src/component/navigation.ts#L330)
 
 Disables a navigation item by ID, preventing click interactions.
 
@@ -526,7 +526,7 @@ nav.setDisabled('settings');
 
 > **setEnabled**(`id`): `void`
 
-Defined in: [component/navigation.ts:356](https://github.com/siposdani87/sui-js/blob/433cda184a013753ef41bb6ba61d0b3944481fa1/src/component/navigation.ts#L356)
+Defined in: [component/navigation.ts:356](https://github.com/siposdani87/sui-js/blob/27883240db7565f37a562e906b93c8d6552ac058/src/component/navigation.ts#L356)
 
 Enables a navigation item by ID, restoring click interactions.
 
@@ -554,7 +554,7 @@ nav.setEnabled('settings');
 
 > **show**(`id`): `void`
 
-Defined in: [component/navigation.ts:427](https://github.com/siposdani87/sui-js/blob/433cda184a013753ef41bb6ba61d0b3944481fa1/src/component/navigation.ts#L427)
+Defined in: [component/navigation.ts:427](https://github.com/siposdani87/sui-js/blob/27883240db7565f37a562e906b93c8d6552ac058/src/component/navigation.ts#L427)
 
 Shows a hidden navigation item and enables it.
 

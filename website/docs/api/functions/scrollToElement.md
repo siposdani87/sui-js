@@ -2,7 +2,7 @@
 
 > **scrollToElement**(`selector`, `opt_duration?`, `opt_step?`): `void`
 
-Defined in: [utils/operation.ts:898](https://github.com/siposdani87/sui-js/blob/433cda184a013753ef41bb6ba61d0b3944481fa1/src/utils/operation.ts#L898)
+Defined in: [utils/operation.ts:898](https://github.com/siposdani87/sui-js/blob/27883240db7565f37a562e906b93c8d6552ac058/src/utils/operation.ts#L898)
 
 Performs an animated smooth scroll to a DOM element's position.
 

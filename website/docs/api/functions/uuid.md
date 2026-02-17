@@ -2,7 +2,7 @@
 
 > **uuid**(): `string`
 
-Defined in: [utils/coder.ts:157](https://github.com/siposdani87/sui-js/blob/433cda184a013753ef41bb6ba61d0b3944481fa1/src/utils/coder.ts#L157)
+Defined in: [utils/coder.ts:157](https://github.com/siposdani87/sui-js/blob/27883240db7565f37a562e906b93c8d6552ac058/src/utils/coder.ts#L157)
 
 Generates a v4-like UUID string with proper version and variant bits.
 

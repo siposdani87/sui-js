@@ -4,20 +4,49 @@ import { DateIO } from '../utils';
 import { consoleDebug } from '../utils/log';
 import { Calendar } from './calendar';
 import { Clock } from './clock';
+/**
+ * @description Combined date and time picker that composes a {@link Calendar} and {@link Clock} based on the input type.
+ * @example
+ * const knot = new Knot('div');
+ * const dt = new DateTime(knot, { type: 'datetime-local', value: '2024-01-15T10:30:00' });
+ * dt.eventClick = (formattedValue) => { console.log(formattedValue); };
+ * dt.draw();
+ * @see {@link Calendar}
+ * @see {@link Clock}
+ * @see {@link DateIO}
+ * @category Component
+ */
 export class DateTime {
+    /**
+     * @description Creates a new DateTime instance.
+     * @param {Knot} knot - The container DOM element wrapper.
+     * @param {object} options - Configuration options including `type` and `value`.
+     * @example
+     * const dt = new DateTime(new Knot('div'), { type: 'date', value: '2024-01-15' });
+     */
     constructor(knot, options) {
         this.datetimeKnot = knot;
         this._setOptions(options);
         this._init();
     }
+    /**
+     * @description Merges user options into an {@link Objekt} instance.
+     * @param {object} options - Raw configuration options.
+     */
     _setOptions(options) {
         this.options = new Objekt(options);
     }
+    /**
+     * @description Initializes type configurations, DOM structure, and sets the initial value.
+     */
     _init() {
         this._initVariables();
         this._initStructure();
         this._setValue(this.options.value);
     }
+    /**
+     * @description Defines the format and component type mappings for each supported input type.
+     */
     _initVariables() {
         this.types = {
             'datetime-local': {
@@ -58,15 +87,24 @@ export class DateTime {
         };
         this.config = this.types[this.options.type];
     }
+    /**
+     * @description Builds the datetime DOM structure with optional calendar and clock containers.
+     */
     _initStructure() {
         this._initDateTimeKnot();
         this._initCalendarKnot();
         this._initClockKnot();
     }
+    /**
+     * @description Adds the datetime CSS class and clears any existing children from the container.
+     */
     _initDateTimeKnot() {
         this.datetimeKnot.addClass('datetime');
         this.datetimeKnot.removeChildren();
     }
+    /**
+     * @description Creates the calendar container knot if the config requires a calendar component.
+     */
     _initCalendarKnot() {
         if (this.config.calendar_type) {
             this.calendarKnot = new Knot('div');
@@ -74,6 +112,9 @@ export class DateTime {
             this.datetimeKnot.appendChild(this.calendarKnot);
         }
     }
+    /**
+     * @description Creates the clock container knot if the config requires a clock component.
+     */
     _initClockKnot() {
         if (this.config.clock_type) {
             this.clockKnot = new Knot('div');
@@ -81,25 +122,56 @@ export class DateTime {
             this.datetimeKnot.appendChild(this.clockKnot);
         }
     }
+    /**
+     * @description Returns the active DateTimeConfig for the current input type.
+     * @returns {DateTimeConfig} The format configuration.
+     * @example
+     * const config = dt.getConfig();
+     * console.log(config.format); // 'YYYY-MM-DD'
+     */
     getConfig() {
         return this.config;
     }
+    /**
+     * @description Parses and stores the date value string, defaulting to the current date if empty.
+     * @param {string} value - The date/time string to parse.
+     */
     _setValue(value) {
         value = value || DateIO.format(new Date(), this.config.format);
         this.value = DateIO.parse(value, this.config.format);
     }
+    /**
+     * @description Sets a new value, rebuilds the DOM structure, and redraws both calendar and clock.
+     * @param {string} value - The date/time string to set.
+     * @example
+     * dt.setValue('2024-06-20T14:30:00');
+     */
     setValue(value) {
         this._initStructure();
         this._setValue(value);
         this.draw();
     }
+    /**
+     * @description Returns the current value formatted according to the active config's format string.
+     * @returns {string} The formatted date/time string.
+     * @example
+     * const formatted = dt.getFormattedValue(); // '2024-01-15'
+     */
     getFormattedValue() {
         return DateIO.format(this.value, this.config.format);
     }
+    /**
+     * @description Renders both the calendar and clock components based on the active configuration.
+     * @example
+     * dt.draw();
+     */
     draw() {
         this._drawCalendar();
         this._drawClock();
     }
+    /**
+     * @description Creates and draws the {@link Calendar} component if the config includes a calendar type.
+     */
     _drawCalendar() {
         if (this.config.calendar_type) {
             const calendar = new Calendar(this.calendarKnot, {
@@ -115,6 +187,9 @@ export class DateTime {
             calendar.draw();
         }
     }
+    /**
+     * @description Creates and draws the {@link Clock} component if the config includes a clock type.
+     */
     _drawClock() {
         if (this.config.clock_type) {
             const clock = new Clock(this.clockKnot, {
@@ -129,10 +204,19 @@ export class DateTime {
             clock.draw();
         }
     }
+    /**
+     * @description Handles internal click by formatting the current value and firing the event callback.
+     */
     _onClick() {
         const formattedValue = this.getFormattedValue();
         this.eventClick(formattedValue);
     }
+    /**
+     * @description Overridable callback fired when the date/time value changes. Defaults to a debug log.
+     * @param {string} value - The formatted date/time string.
+     * @example
+     * dt.eventClick = (value) => { console.log('Changed:', value); };
+     */
     eventClick(value) {
         consoleDebug('Date.eventClick()', value);
     }

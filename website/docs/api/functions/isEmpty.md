@@ -2,7 +2,7 @@
 
 > **isEmpty**\<`T`\>(`items`): `boolean`
 
-Defined in: [utils/operation.ts:733](https://github.com/siposdani87/sui-js/blob/433cda184a013753ef41bb6ba61d0b3944481fa1/src/utils/operation.ts#L733)
+Defined in: [utils/operation.ts:733](https://github.com/siposdani87/sui-js/blob/27883240db7565f37a562e906b93c8d6552ac058/src/utils/operation.ts#L733)
 
 Checks whether an array or object is empty.
 

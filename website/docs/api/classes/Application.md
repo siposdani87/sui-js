@@ -1,6 +1,6 @@
 # Class: Application
 
-Defined in: [component/application.ts:51](https://github.com/siposdani87/sui-js/blob/433cda184a013753ef41bb6ba61d0b3944481fa1/src/component/application.ts#L51)
+Defined in: [component/application.ts:51](https://github.com/siposdani87/sui-js/blob/27883240db7565f37a562e906b93c8d6552ac058/src/component/application.ts#L51)
 
 ## Description
 
@@ -29,7 +29,7 @@ app.run(routes, ['authService']);
 
 > **new Application**(`options`, `resources`): `Application`
 
-Defined in: [component/application.ts:65](https://github.com/siposdani87/sui-js/blob/433cda184a013753ef41bb6ba61d0b3944481fa1/src/component/application.ts#L65)
+Defined in: [component/application.ts:65](https://github.com/siposdani87/sui-js/blob/27883240db7565f37a562e906b93c8d6552ac058/src/component/application.ts#L65)
 
 #### Parameters
 
@@ -60,7 +60,7 @@ initializes all framework modules.
 
 > **options**: [`Objekt`](Objekt.md)
 
-Defined in: [component/application.ts:52](https://github.com/siposdani87/sui-js/blob/433cda184a013753ef41bb6ba61d0b3944481fa1/src/component/application.ts#L52)
+Defined in: [component/application.ts:52](https://github.com/siposdani87/sui-js/blob/27883240db7565f37a562e906b93c8d6552ac058/src/component/application.ts#L52)
 
 ## Methods
 
@@ -68,7 +68,7 @@ Defined in: [component/application.ts:52](https://github.com/siposdani87/sui-js/
 
 > **controller**(`name`, `moduleInjections`, `moduleCallback`): `string`
 
-Defined in: [component/application.ts:673](https://github.com/siposdani87/sui-js/blob/433cda184a013753ef41bb6ba61d0b3944481fa1/src/component/application.ts#L673)
+Defined in: [component/application.ts:673](https://github.com/siposdani87/sui-js/blob/27883240db7565f37a562e906b93c8d6552ac058/src/component/application.ts#L673)
 
 #### Parameters
 
@@ -112,7 +112,7 @@ app.controller('homeCtrl', ['http', 'template'], HomeController);
 
 > **getController**(): `object` \| `null`
 
-Defined in: [component/application.ts:630](https://github.com/siposdani87/sui-js/blob/433cda184a013753ef41bb6ba61d0b3944481fa1/src/component/application.ts#L630)
+Defined in: [component/application.ts:630](https://github.com/siposdani87/sui-js/blob/27883240db7565f37a562e906b93c8d6552ac058/src/component/application.ts#L630)
 
 #### Returns
 
@@ -136,7 +136,7 @@ const ctrl = app.getController();
 
 > **getInstance**(`name`): `object` \| `null`
 
-Defined in: [component/application.ts:618](https://github.com/siposdani87/sui-js/blob/433cda184a013753ef41bb6ba61d0b3944481fa1/src/component/application.ts#L618)
+Defined in: [component/application.ts:618](https://github.com/siposdani87/sui-js/blob/27883240db7565f37a562e906b93c8d6552ac058/src/component/application.ts#L618)
 
 #### Parameters
 
@@ -168,7 +168,7 @@ const http = app.getInstance('http');
 
 > **getLanguage**(): `string`
 
-Defined in: [component/application.ts:136](https://github.com/siposdani87/sui-js/blob/433cda184a013753ef41bb6ba61d0b3944481fa1/src/component/application.ts#L136)
+Defined in: [component/application.ts:136](https://github.com/siposdani87/sui-js/blob/27883240db7565f37a562e906b93c8d6552ac058/src/component/application.ts#L136)
 
 #### Returns
 
@@ -192,7 +192,7 @@ const lang = app.getLanguage(); // 'en'
 
 > **getLocale**(): `string`
 
-Defined in: [component/application.ts:150](https://github.com/siposdani87/sui-js/blob/433cda184a013753ef41bb6ba61d0b3944481fa1/src/component/application.ts#L150)
+Defined in: [component/application.ts:150](https://github.com/siposdani87/sui-js/blob/27883240db7565f37a562e906b93c8d6552ac058/src/component/application.ts#L150)
 
 #### Returns
 
@@ -217,7 +217,7 @@ const locale = app.getLocale(); // 'en-US'
 
 > **run**(`routes`, `services`): `void`
 
-Defined in: [component/application.ts:646](https://github.com/siposdani87/sui-js/blob/433cda184a013753ef41bb6ba61d0b3944481fa1/src/component/application.ts#L646)
+Defined in: [component/application.ts:646](https://github.com/siposdani87/sui-js/blob/27883240db7565f37a562e906b93c8d6552ac058/src/component/application.ts#L646)
 
 #### Parameters
 
@@ -256,7 +256,7 @@ app.run(
 
 > **service**(`name`, `moduleInjections`, `moduleCallback`): `string`
 
-Defined in: [component/application.ts:692](https://github.com/siposdani87/sui-js/blob/433cda184a013753ef41bb6ba61d0b3944481fa1/src/component/application.ts#L692)
+Defined in: [component/application.ts:692](https://github.com/siposdani87/sui-js/blob/27883240db7565f37a562e906b93c8d6552ac058/src/component/application.ts#L692)
 
 #### Parameters
 
@@ -300,7 +300,7 @@ app.service('authService', ['http', 'localDepot'], AuthService);
 
 > **setLocale**(`locale`): `void`
 
-Defined in: [component/application.ts:166](https://github.com/siposdani87/sui-js/blob/433cda184a013753ef41bb6ba61d0b3944481fa1/src/component/application.ts#L166)
+Defined in: [component/application.ts:166](https://github.com/siposdani87/sui-js/blob/27883240db7565f37a562e906b93c8d6552ac058/src/component/application.ts#L166)
 
 #### Parameters
 
@@ -330,7 +330,7 @@ app.setLocale('hu-HU');
 
 > **setLocaleWithReload**(`locale`): `void`
 
-Defined in: [component/application.ts:179](https://github.com/siposdani87/sui-js/blob/433cda184a013753ef41bb6ba61d0b3944481fa1/src/component/application.ts#L179)
+Defined in: [component/application.ts:179](https://github.com/siposdani87/sui-js/blob/27883240db7565f37a562e906b93c8d6552ac058/src/component/application.ts#L179)
 
 #### Parameters
 
@@ -360,7 +360,7 @@ app.setLocaleWithReload('de-DE');
 
 > **setRootState**(`id`, `opt_params?`): `void`
 
-Defined in: [component/application.ts:604](https://github.com/siposdani87/sui-js/blob/433cda184a013753ef41bb6ba61d0b3944481fa1/src/component/application.ts#L604)
+Defined in: [component/application.ts:604](https://github.com/siposdani87/sui-js/blob/27883240db7565f37a562e906b93c8d6552ac058/src/component/application.ts#L604)
 
 #### Parameters
 

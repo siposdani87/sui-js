@@ -1,6 +1,6 @@
 # Class: GoogleMap
 
-Defined in: [component/googleMap.ts:97](https://github.com/siposdani87/sui-js/blob/433cda184a013753ef41bb6ba61d0b3944481fa1/src/component/googleMap.ts#L97)
+Defined in: [component/googleMap.ts:97](https://github.com/siposdani87/sui-js/blob/27883240db7565f37a562e906b93c8d6552ac058/src/component/googleMap.ts#L97)
 
 Google Maps wrapper with support for markers, polygons, heatmaps, geocoding, and custom map styles.
 
@@ -34,7 +34,7 @@ googleMap.createMarker('m1', 'My Marker', 'default', 47.6, 17.53);
 
 > **new GoogleMap**(`dom`, `opt_selector?`, `opt_options?`): `GoogleMap`
 
-Defined in: [component/googleMap.ts:117](https://github.com/siposdani87/sui-js/blob/433cda184a013753ef41bb6ba61d0b3944481fa1/src/component/googleMap.ts#L117)
+Defined in: [component/googleMap.ts:117](https://github.com/siposdani87/sui-js/blob/27883240db7565f37a562e906b93c8d6552ac058/src/component/googleMap.ts#L117)
 
 #### Parameters
 
@@ -66,7 +66,7 @@ Google Maps configuration options merged with defaults.
 
 > **heatmap**: `HeatmapLayer`
 
-Defined in: [component/googleMap.ts:110](https://github.com/siposdani87/sui-js/blob/433cda184a013753ef41bb6ba61d0b3944481fa1/src/component/googleMap.ts#L110)
+Defined in: [component/googleMap.ts:110](https://github.com/siposdani87/sui-js/blob/27883240db7565f37a562e906b93c8d6552ac058/src/component/googleMap.ts#L110)
 
 ***
 
@@ -74,7 +74,7 @@ Defined in: [component/googleMap.ts:110](https://github.com/siposdani87/sui-js/b
 
 > **heatmapOptions**: [`Objekt`](Objekt.md)
 
-Defined in: [component/googleMap.ts:109](https://github.com/siposdani87/sui-js/blob/433cda184a013753ef41bb6ba61d0b3944481fa1/src/component/googleMap.ts#L109)
+Defined in: [component/googleMap.ts:109](https://github.com/siposdani87/sui-js/blob/27883240db7565f37a562e906b93c8d6552ac058/src/component/googleMap.ts#L109)
 
 ***
 
@@ -82,7 +82,7 @@ Defined in: [component/googleMap.ts:109](https://github.com/siposdani87/sui-js/b
 
 > **map**: `Map`
 
-Defined in: [component/googleMap.ts:100](https://github.com/siposdani87/sui-js/blob/433cda184a013753ef41bb6ba61d0b3944481fa1/src/component/googleMap.ts#L100)
+Defined in: [component/googleMap.ts:100](https://github.com/siposdani87/sui-js/blob/27883240db7565f37a562e906b93c8d6552ac058/src/component/googleMap.ts#L100)
 
 ***
 
@@ -90,7 +90,7 @@ Defined in: [component/googleMap.ts:100](https://github.com/siposdani87/sui-js/b
 
 > **mapKnot**: [`Knot`](Knot.md)
 
-Defined in: [component/googleMap.ts:98](https://github.com/siposdani87/sui-js/blob/433cda184a013753ef41bb6ba61d0b3944481fa1/src/component/googleMap.ts#L98)
+Defined in: [component/googleMap.ts:98](https://github.com/siposdani87/sui-js/blob/27883240db7565f37a562e906b93c8d6552ac058/src/component/googleMap.ts#L98)
 
 ***
 
@@ -98,7 +98,7 @@ Defined in: [component/googleMap.ts:98](https://github.com/siposdani87/sui-js/bl
 
 > **markerIcons**: `object`
 
-Defined in: [component/googleMap.ts:101](https://github.com/siposdani87/sui-js/blob/433cda184a013753ef41bb6ba61d0b3944481fa1/src/component/googleMap.ts#L101)
+Defined in: [component/googleMap.ts:101](https://github.com/siposdani87/sui-js/blob/27883240db7565f37a562e906b93c8d6552ac058/src/component/googleMap.ts#L101)
 
 #### Index Signature
 
@@ -110,7 +110,7 @@ Defined in: [component/googleMap.ts:101](https://github.com/siposdani87/sui-js/b
 
 > **markerOptions**: [`Objekt`](Objekt.md)
 
-Defined in: [component/googleMap.ts:108](https://github.com/siposdani87/sui-js/blob/433cda184a013753ef41bb6ba61d0b3944481fa1/src/component/googleMap.ts#L108)
+Defined in: [component/googleMap.ts:108](https://github.com/siposdani87/sui-js/blob/27883240db7565f37a562e906b93c8d6552ac058/src/component/googleMap.ts#L108)
 
 ***
 
@@ -118,7 +118,7 @@ Defined in: [component/googleMap.ts:108](https://github.com/siposdani87/sui-js/b
 
 > **markers**: [`Collection`](Collection.md)\<[`Objekt`](Objekt.md)\<`object`\>\>
 
-Defined in: [component/googleMap.ts:107](https://github.com/siposdani87/sui-js/blob/433cda184a013753ef41bb6ba61d0b3944481fa1/src/component/googleMap.ts#L107)
+Defined in: [component/googleMap.ts:107](https://github.com/siposdani87/sui-js/blob/27883240db7565f37a562e906b93c8d6552ac058/src/component/googleMap.ts#L107)
 
 ***
 
@@ -126,7 +126,7 @@ Defined in: [component/googleMap.ts:107](https://github.com/siposdani87/sui-js/b
 
 > **options**: [`Objekt`](Objekt.md)
 
-Defined in: [component/googleMap.ts:99](https://github.com/siposdani87/sui-js/blob/433cda184a013753ef41bb6ba61d0b3944481fa1/src/component/googleMap.ts#L99)
+Defined in: [component/googleMap.ts:99](https://github.com/siposdani87/sui-js/blob/27883240db7565f37a562e906b93c8d6552ac058/src/component/googleMap.ts#L99)
 
 ***
 
@@ -134,7 +134,7 @@ Defined in: [component/googleMap.ts:99](https://github.com/siposdani87/sui-js/bl
 
 > **overlay**: `OverlayView`
 
-Defined in: [component/googleMap.ts:104](https://github.com/siposdani87/sui-js/blob/433cda184a013753ef41bb6ba61d0b3944481fa1/src/component/googleMap.ts#L104)
+Defined in: [component/googleMap.ts:104](https://github.com/siposdani87/sui-js/blob/27883240db7565f37a562e906b93c8d6552ac058/src/component/googleMap.ts#L104)
 
 ***
 
@@ -142,7 +142,7 @@ Defined in: [component/googleMap.ts:104](https://github.com/siposdani87/sui-js/b
 
 > **polygonOptions**: [`Objekt`](Objekt.md)
 
-Defined in: [component/googleMap.ts:105](https://github.com/siposdani87/sui-js/blob/433cda184a013753ef41bb6ba61d0b3944481fa1/src/component/googleMap.ts#L105)
+Defined in: [component/googleMap.ts:105](https://github.com/siposdani87/sui-js/blob/27883240db7565f37a562e906b93c8d6552ac058/src/component/googleMap.ts#L105)
 
 ***
 
@@ -150,7 +150,7 @@ Defined in: [component/googleMap.ts:105](https://github.com/siposdani87/sui-js/b
 
 > **polygons**: [`Collection`](Collection.md)\<[`Objekt`](Objekt.md)\<`object`\>\>
 
-Defined in: [component/googleMap.ts:106](https://github.com/siposdani87/sui-js/blob/433cda184a013753ef41bb6ba61d0b3944481fa1/src/component/googleMap.ts#L106)
+Defined in: [component/googleMap.ts:106](https://github.com/siposdani87/sui-js/blob/27883240db7565f37a562e906b93c8d6552ac058/src/component/googleMap.ts#L106)
 
 ## Methods
 
@@ -158,7 +158,7 @@ Defined in: [component/googleMap.ts:106](https://github.com/siposdani87/sui-js/b
 
 > **addPointToPolygon**(`polygonData`, `latitude`, `longitude`): `void`
 
-Defined in: [component/googleMap.ts:819](https://github.com/siposdani87/sui-js/blob/433cda184a013753ef41bb6ba61d0b3944481fa1/src/component/googleMap.ts#L819)
+Defined in: [component/googleMap.ts:819](https://github.com/siposdani87/sui-js/blob/27883240db7565f37a562e906b93c8d6552ac058/src/component/googleMap.ts#L819)
 
 Appends a vertex to an existing polygon's path.
 
@@ -198,7 +198,7 @@ googleMap.addPointToPolygon(polygonData, 47.65, 17.55);
 
 > **createHeatmap**(`points`, `opt_heatmapOptions?`): `void`
 
-Defined in: [component/googleMap.ts:890](https://github.com/siposdani87/sui-js/blob/433cda184a013753ef41bb6ba61d0b3944481fa1/src/component/googleMap.ts#L890)
+Defined in: [component/googleMap.ts:890](https://github.com/siposdani87/sui-js/blob/27883240db7565f37a562e906b93c8d6552ac058/src/component/googleMap.ts#L890)
 
 Creates a heatmap layer on the map from weighted coordinate data.
 
@@ -236,7 +236,7 @@ googleMap.createHeatmap([
 
 > **createMarker**(`id`, `title`, `iconName`, `latitude`, `longitude`, `opt_markerData?`, `opt_options?`): `void`
 
-Defined in: [component/googleMap.ts:1001](https://github.com/siposdani87/sui-js/blob/433cda184a013753ef41bb6ba61d0b3944481fa1/src/component/googleMap.ts#L1001)
+Defined in: [component/googleMap.ts:1001](https://github.com/siposdani87/sui-js/blob/27883240db7565f37a562e906b93c8d6552ac058/src/component/googleMap.ts#L1001)
 
 Creates a new marker on the map with an associated MapLabel.
 
@@ -300,7 +300,7 @@ googleMap.createMarker('m1', 'Home', 'default', 47.6, 17.5);
 
 > **createMarkerByXY**(`id`, `title`, `iconName`, `x`, `y`, `markerData?`): `void`
 
-Defined in: [component/googleMap.ts:1047](https://github.com/siposdani87/sui-js/blob/433cda184a013753ef41bb6ba61d0b3944481fa1/src/component/googleMap.ts#L1047)
+Defined in: [component/googleMap.ts:1047](https://github.com/siposdani87/sui-js/blob/27883240db7565f37a562e906b93c8d6552ac058/src/component/googleMap.ts#L1047)
 
 Creates a marker from pixel coordinates, converting them to geographic coordinates.
 
@@ -358,7 +358,7 @@ googleMap.createMarkerByXY('m2', 'Dropped', 'default', 150, 200);
 
 > **createOrUpdateMarker**(`id`, `title`, `iconName`, `latitude`, `longitude`, `opt_markerData?`, `opt_options?`): `void`
 
-Defined in: [component/googleMap.ts:954](https://github.com/siposdani87/sui-js/blob/433cda184a013753ef41bb6ba61d0b3944481fa1/src/component/googleMap.ts#L954)
+Defined in: [component/googleMap.ts:954](https://github.com/siposdani87/sui-js/blob/27883240db7565f37a562e906b93c8d6552ac058/src/component/googleMap.ts#L954)
 
 Creates a new marker or updates an existing one identified by ID.
 
@@ -422,7 +422,7 @@ googleMap.createOrUpdateMarker('m1', 'Location', 'default', 47.6, 17.5);
 
 > **createOrUpdatePolygon**(`id`, `title`, `points`, `opt_polygonData?`, `opt_options?`): `void`
 
-Defined in: [component/googleMap.ts:287](https://github.com/siposdani87/sui-js/blob/433cda184a013753ef41bb6ba61d0b3944481fa1/src/component/googleMap.ts#L287)
+Defined in: [component/googleMap.ts:287](https://github.com/siposdani87/sui-js/blob/27883240db7565f37a562e906b93c8d6552ac058/src/component/googleMap.ts#L287)
 
 Creates a new polygon or updates an existing one identified by ID.
 
@@ -478,7 +478,7 @@ googleMap.createOrUpdatePolygon('p1', 'Area', [
 
 > **createPolygon**(`id`, `title`, `points`, `opt_polygonData?`, `opt_options?`): `void`
 
-Defined in: [component/googleMap.ts:318](https://github.com/siposdani87/sui-js/blob/433cda184a013753ef41bb6ba61d0b3944481fa1/src/component/googleMap.ts#L318)
+Defined in: [component/googleMap.ts:318](https://github.com/siposdani87/sui-js/blob/27883240db7565f37a562e906b93c8d6552ac058/src/component/googleMap.ts#L318)
 
 Creates a new polygon on the map with a label at its center.
 
@@ -534,7 +534,7 @@ googleMap.createPolygon('p1', 'Field', [
 
 > **eventMapClick**(`latitude`, `longitude`, `event`): `void`
 
-Defined in: [component/googleMap.ts:646](https://github.com/siposdani87/sui-js/blob/433cda184a013753ef41bb6ba61d0b3944481fa1/src/component/googleMap.ts#L646)
+Defined in: [component/googleMap.ts:646](https://github.com/siposdani87/sui-js/blob/27883240db7565f37a562e906b93c8d6552ac058/src/component/googleMap.ts#L646)
 
 Called when the map is clicked. Override to handle map clicks.
 
@@ -568,7 +568,7 @@ The native map event.
 
 > **eventMapTypeChange**(`mapType`, `event`): `void`
 
-Defined in: [component/googleMap.ts:655](https://github.com/siposdani87/sui-js/blob/433cda184a013753ef41bb6ba61d0b3944481fa1/src/component/googleMap.ts#L655)
+Defined in: [component/googleMap.ts:655](https://github.com/siposdani87/sui-js/blob/27883240db7565f37a562e906b93c8d6552ac058/src/component/googleMap.ts#L655)
 
 Called when the map type changes. Override to handle map type changes.
 
@@ -596,7 +596,7 @@ The native map event.
 
 > **eventMarkerChanged**(`markerData`, `latitude`, `longitude`, `event`): `void`
 
-Defined in: [component/googleMap.ts:1296](https://github.com/siposdani87/sui-js/blob/433cda184a013753ef41bb6ba61d0b3944481fa1/src/component/googleMap.ts#L1296)
+Defined in: [component/googleMap.ts:1296](https://github.com/siposdani87/sui-js/blob/27883240db7565f37a562e906b93c8d6552ac058/src/component/googleMap.ts#L1296)
 
 Called when a marker is dragged to a new position. Override to handle marker moves.
 
@@ -636,7 +636,7 @@ The native map event.
 
 > **eventMarkerClick**(`markerData`, `event`): `void`
 
-Defined in: [component/googleMap.ts:1267](https://github.com/siposdani87/sui-js/blob/433cda184a013753ef41bb6ba61d0b3944481fa1/src/component/googleMap.ts#L1267)
+Defined in: [component/googleMap.ts:1267](https://github.com/siposdani87/sui-js/blob/27883240db7565f37a562e906b93c8d6552ac058/src/component/googleMap.ts#L1267)
 
 Called when a marker is clicked. Override to handle marker clicks.
 
@@ -664,7 +664,7 @@ The native map event.
 
 > **eventMarkerDoubleClick**(`markerData`, `event`): `void`
 
-Defined in: [component/googleMap.ts:1276](https://github.com/siposdani87/sui-js/blob/433cda184a013753ef41bb6ba61d0b3944481fa1/src/component/googleMap.ts#L1276)
+Defined in: [component/googleMap.ts:1276](https://github.com/siposdani87/sui-js/blob/27883240db7565f37a562e906b93c8d6552ac058/src/component/googleMap.ts#L1276)
 
 Called when a marker is double-clicked. Override to handle marker double-clicks.
 
@@ -692,7 +692,7 @@ The native map event.
 
 > **eventMarkerRightClick**(`markerData`, `event`): `void`
 
-Defined in: [component/googleMap.ts:1285](https://github.com/siposdani87/sui-js/blob/433cda184a013753ef41bb6ba61d0b3944481fa1/src/component/googleMap.ts#L1285)
+Defined in: [component/googleMap.ts:1285](https://github.com/siposdani87/sui-js/blob/27883240db7565f37a562e906b93c8d6552ac058/src/component/googleMap.ts#L1285)
 
 Called when a marker is right-clicked. Override to handle marker right-clicks.
 
@@ -720,7 +720,7 @@ The native map event.
 
 > **eventPolygonChanged**(`polygonData`, `points`): `void`
 
-Defined in: [component/googleMap.ts:264](https://github.com/siposdani87/sui-js/blob/433cda184a013753ef41bb6ba61d0b3944481fa1/src/component/googleMap.ts#L264)
+Defined in: [component/googleMap.ts:264](https://github.com/siposdani87/sui-js/blob/27883240db7565f37a562e906b93c8d6552ac058/src/component/googleMap.ts#L264)
 
 Called when a polygon's path changes. Override to handle polygon edits.
 
@@ -748,7 +748,7 @@ The updated array of polygon vertex coordinates.
 
 > **eventPolygonClick**(`polygonData`, `latitude`, `longitude`, `event`): `void`
 
-Defined in: [component/googleMap.ts:581](https://github.com/siposdani87/sui-js/blob/433cda184a013753ef41bb6ba61d0b3944481fa1/src/component/googleMap.ts#L581)
+Defined in: [component/googleMap.ts:581](https://github.com/siposdani87/sui-js/blob/27883240db7565f37a562e906b93c8d6552ac058/src/component/googleMap.ts#L581)
 
 Called when a polygon is clicked. Override to handle polygon clicks.
 
@@ -788,7 +788,7 @@ The native map event.
 
 > **eventPolygonDoubleClick**(`polygonData`, `latitude`, `longitude`, `event`): `void`
 
-Defined in: [component/googleMap.ts:603](https://github.com/siposdani87/sui-js/blob/433cda184a013753ef41bb6ba61d0b3944481fa1/src/component/googleMap.ts#L603)
+Defined in: [component/googleMap.ts:603](https://github.com/siposdani87/sui-js/blob/27883240db7565f37a562e906b93c8d6552ac058/src/component/googleMap.ts#L603)
 
 Called when a polygon is double-clicked. Override to handle polygon double-clicks.
 
@@ -828,7 +828,7 @@ The native map event.
 
 > **eventPolygonRightClick**(`polygonData`, `latitude`, `longitude`, `event`): `void`
 
-Defined in: [component/googleMap.ts:625](https://github.com/siposdani87/sui-js/blob/433cda184a013753ef41bb6ba61d0b3944481fa1/src/component/googleMap.ts#L625)
+Defined in: [component/googleMap.ts:625](https://github.com/siposdani87/sui-js/blob/27883240db7565f37a562e906b93c8d6552ac058/src/component/googleMap.ts#L625)
 
 Called when a polygon is right-clicked. Override to handle polygon right-clicks.
 
@@ -868,7 +868,7 @@ The native map event.
 
 > **fitMarkerToMap**(`markerId`): `void`
 
-Defined in: [component/googleMap.ts:1233](https://github.com/siposdani87/sui-js/blob/433cda184a013753ef41bb6ba61d0b3944481fa1/src/component/googleMap.ts#L1233)
+Defined in: [component/googleMap.ts:1233](https://github.com/siposdani87/sui-js/blob/27883240db7565f37a562e906b93c8d6552ac058/src/component/googleMap.ts#L1233)
 
 Centers the map on a specific marker's position.
 
@@ -896,7 +896,7 @@ googleMap.fitMarkerToMap('m1');
 
 > **fitPolygonToMap**(`polygonId`): `void`
 
-Defined in: [component/googleMap.ts:761](https://github.com/siposdani87/sui-js/blob/433cda184a013753ef41bb6ba61d0b3944481fa1/src/component/googleMap.ts#L761)
+Defined in: [component/googleMap.ts:761](https://github.com/siposdani87/sui-js/blob/27883240db7565f37a562e906b93c8d6552ac058/src/component/googleMap.ts#L761)
 
 Pans and zooms the map to fit a polygon's bounds.
 
@@ -924,7 +924,7 @@ googleMap.fitPolygonToMap('p1');
 
 > **getCenter**(): `object`
 
-Defined in: [component/googleMap.ts:1435](https://github.com/siposdani87/sui-js/blob/433cda184a013753ef41bb6ba61d0b3944481fa1/src/component/googleMap.ts#L1435)
+Defined in: [component/googleMap.ts:1435](https://github.com/siposdani87/sui-js/blob/27883240db7565f37a562e906b93c8d6552ac058/src/component/googleMap.ts#L1435)
 
 Returns the current center coordinates of the map.
 
@@ -955,7 +955,7 @@ const center = googleMap.getCenter();
 
 > **getCenterOfPolygon**(`polygonData`): `object`
 
-Defined in: [component/googleMap.ts:741](https://github.com/siposdani87/sui-js/blob/433cda184a013753ef41bb6ba61d0b3944481fa1/src/component/googleMap.ts#L741)
+Defined in: [component/googleMap.ts:741](https://github.com/siposdani87/sui-js/blob/27883240db7565f37a562e906b93c8d6552ac058/src/component/googleMap.ts#L741)
 
 Returns the geographic center of a polygon's bounding box.
 
@@ -994,7 +994,7 @@ const center = googleMap.getCenterOfPolygon(polygonData);
 
 > **getComputeArea**(`polygonData`): `number`
 
-Defined in: [component/googleMap.ts:803](https://github.com/siposdani87/sui-js/blob/433cda184a013753ef41bb6ba61d0b3944481fa1/src/component/googleMap.ts#L803)
+Defined in: [component/googleMap.ts:803](https://github.com/siposdani87/sui-js/blob/27883240db7565f37a562e906b93c8d6552ac058/src/component/googleMap.ts#L803)
 
 Computes the area of a polygon in square meters using spherical geometry.
 
@@ -1024,7 +1024,7 @@ const area = googleMap.getComputeArea(polygonData);
 
 > **getDinamicRadius**(`radiusPx`): `number`
 
-Defined in: [component/googleMap.ts:1462](https://github.com/siposdani87/sui-js/blob/433cda184a013753ef41bb6ba61d0b3944481fa1/src/component/googleMap.ts#L1462)
+Defined in: [component/googleMap.ts:1462](https://github.com/siposdani87/sui-js/blob/27883240db7565f37a562e906b93c8d6552ac058/src/component/googleMap.ts#L1462)
 
 Converts a pixel radius to a geographic distance in meters based on the current zoom and projection.
 
@@ -1054,7 +1054,7 @@ const meters = googleMap.getDinamicRadius(50);
 
 > **getMapType**(): `string`
 
-Defined in: [component/googleMap.ts:162](https://github.com/siposdani87/sui-js/blob/433cda184a013753ef41bb6ba61d0b3944481fa1/src/component/googleMap.ts#L162)
+Defined in: [component/googleMap.ts:162](https://github.com/siposdani87/sui-js/blob/27883240db7565f37a562e906b93c8d6552ac058/src/component/googleMap.ts#L162)
 
 Returns the current map type identifier (e.g. terrain, satellite).
 
@@ -1076,7 +1076,7 @@ const mapType = googleMap.getMapType();
 
 > **getMarker**(`id`): [`Objekt`](Objekt.md)\<`object`\> \| `null`
 
-Defined in: [component/googleMap.ts:1184](https://github.com/siposdani87/sui-js/blob/433cda184a013753ef41bb6ba61d0b3944481fa1/src/component/googleMap.ts#L1184)
+Defined in: [component/googleMap.ts:1184](https://github.com/siposdani87/sui-js/blob/27883240db7565f37a562e906b93c8d6552ac058/src/component/googleMap.ts#L1184)
 
 Retrieves a marker data object by its identifier.
 
@@ -1106,7 +1106,7 @@ const marker = googleMap.getMarker('m1');
 
 > **getPolygon**(`id`): [`Objekt`](Objekt.md)\<`object`\> \| `null`
 
-Defined in: [component/googleMap.ts:415](https://github.com/siposdani87/sui-js/blob/433cda184a013753ef41bb6ba61d0b3944481fa1/src/component/googleMap.ts#L415)
+Defined in: [component/googleMap.ts:415](https://github.com/siposdani87/sui-js/blob/27883240db7565f37a562e906b93c8d6552ac058/src/component/googleMap.ts#L415)
 
 Retrieves a polygon data object by its identifier.
 
@@ -1136,7 +1136,7 @@ const polygon = googleMap.getPolygon('p1');
 
 > **openInfoWindow**(`markerId`, `content`): `void`
 
-Defined in: [component/googleMap.ts:1253](https://github.com/siposdani87/sui-js/blob/433cda184a013753ef41bb6ba61d0b3944481fa1/src/component/googleMap.ts#L1253)
+Defined in: [component/googleMap.ts:1253](https://github.com/siposdani87/sui-js/blob/27883240db7565f37a562e906b93c8d6552ac058/src/component/googleMap.ts#L1253)
 
 Opens an info window above a marker with HTML content.
 
@@ -1170,7 +1170,7 @@ googleMap.openInfoWindow('m1', '<h3>Details</h3><p>More info</p>');
 
 > **removeAllMarker**(): `void`
 
-Defined in: [component/googleMap.ts:1214](https://github.com/siposdani87/sui-js/blob/433cda184a013753ef41bb6ba61d0b3944481fa1/src/component/googleMap.ts#L1214)
+Defined in: [component/googleMap.ts:1214](https://github.com/siposdani87/sui-js/blob/27883240db7565f37a562e906b93c8d6552ac058/src/component/googleMap.ts#L1214)
 
 Removes all markers and their labels from the map.
 
@@ -1190,7 +1190,7 @@ googleMap.removeAllMarker();
 
 > **removeAllPolygon**(): `void`
 
-Defined in: [component/googleMap.ts:445](https://github.com/siposdani87/sui-js/blob/433cda184a013753ef41bb6ba61d0b3944481fa1/src/component/googleMap.ts#L445)
+Defined in: [component/googleMap.ts:445](https://github.com/siposdani87/sui-js/blob/27883240db7565f37a562e906b93c8d6552ac058/src/component/googleMap.ts#L445)
 
 Removes all polygons and their labels from the map.
 
@@ -1210,7 +1210,7 @@ googleMap.removeAllPolygon();
 
 > **removeHeatmap**(): `void`
 
-Defined in: [component/googleMap.ts:911](https://github.com/siposdani87/sui-js/blob/433cda184a013753ef41bb6ba61d0b3944481fa1/src/component/googleMap.ts#L911)
+Defined in: [component/googleMap.ts:911](https://github.com/siposdani87/sui-js/blob/27883240db7565f37a562e906b93c8d6552ac058/src/component/googleMap.ts#L911)
 
 Removes the current heatmap layer from the map.
 
@@ -1230,7 +1230,7 @@ googleMap.removeHeatmap();
 
 > **removeMarker**(`id`): `void`
 
-Defined in: [component/googleMap.ts:1196](https://github.com/siposdani87/sui-js/blob/433cda184a013753ef41bb6ba61d0b3944481fa1/src/component/googleMap.ts#L1196)
+Defined in: [component/googleMap.ts:1196](https://github.com/siposdani87/sui-js/blob/27883240db7565f37a562e906b93c8d6552ac058/src/component/googleMap.ts#L1196)
 
 Removes a marker and its label from the map.
 
@@ -1258,7 +1258,7 @@ googleMap.removeMarker('m1');
 
 > **removePolygon**(`id`): `void`
 
-Defined in: [component/googleMap.ts:427](https://github.com/siposdani87/sui-js/blob/433cda184a013753ef41bb6ba61d0b3944481fa1/src/component/googleMap.ts#L427)
+Defined in: [component/googleMap.ts:427](https://github.com/siposdani87/sui-js/blob/27883240db7565f37a562e906b93c8d6552ac058/src/component/googleMap.ts#L427)
 
 Removes a polygon and its label from the map.
 
@@ -1286,7 +1286,7 @@ googleMap.removePolygon('p1');
 
 > **searchAddress**(`query`): [`Promize`](Promize.md)\<\[`object`[]\], `void`\>
 
-Defined in: [component/googleMap.ts:1366](https://github.com/siposdani87/sui-js/blob/433cda184a013753ef41bb6ba61d0b3944481fa1/src/component/googleMap.ts#L1366)
+Defined in: [component/googleMap.ts:1366](https://github.com/siposdani87/sui-js/blob/27883240db7565f37a562e906b93c8d6552ac058/src/component/googleMap.ts#L1366)
 
 Geocodes an address query and returns matching locations.
 
@@ -1318,7 +1318,7 @@ googleMap.searchAddress('Budapest').then(([results]) => {
 
 > **setCenter**(`latitude`, `longitude`, `opt_boundCheck?`): `void`
 
-Defined in: [component/googleMap.ts:1411](https://github.com/siposdani87/sui-js/blob/433cda184a013753ef41bb6ba61d0b3944481fa1/src/component/googleMap.ts#L1411)
+Defined in: [component/googleMap.ts:1411](https://github.com/siposdani87/sui-js/blob/27883240db7565f37a562e906b93c8d6552ac058/src/component/googleMap.ts#L1411)
 
 Sets the map center to the specified coordinates.
 
@@ -1359,7 +1359,7 @@ googleMap.setCenter(47.6, 17.5, true); // only if out of bounds
 
 > **setCustomMapStyle**(`mapTypeId`, `mapTypeName`, `mapStyles`): `void`
 
-Defined in: [component/googleMap.ts:190](https://github.com/siposdani87/sui-js/blob/433cda184a013753ef41bb6ba61d0b3944481fa1/src/component/googleMap.ts#L190)
+Defined in: [component/googleMap.ts:190](https://github.com/siposdani87/sui-js/blob/27883240db7565f37a562e906b93c8d6552ac058/src/component/googleMap.ts#L190)
 
 Registers a custom styled map type on the map instance.
 
@@ -1401,7 +1401,7 @@ googleMap.setCustomMapStyle('custom', 'Custom Style', [
 
 > **setHeatmap**(`opt_options?`): `void`
 
-Defined in: [component/googleMap.ts:854](https://github.com/siposdani87/sui-js/blob/433cda184a013753ef41bb6ba61d0b3944481fa1/src/component/googleMap.ts#L854)
+Defined in: [component/googleMap.ts:854](https://github.com/siposdani87/sui-js/blob/27883240db7565f37a562e906b93c8d6552ac058/src/component/googleMap.ts#L854)
 
 Initializes the heatmap configuration with default gradient and options.
 
@@ -1429,7 +1429,7 @@ googleMap.setHeatmap({ opacity: 0.8, radius: 20 });
 
 > **setMapType**(`mapTypeId`): `void`
 
-Defined in: [component/googleMap.ts:174](https://github.com/siposdani87/sui-js/blob/433cda184a013753ef41bb6ba61d0b3944481fa1/src/component/googleMap.ts#L174)
+Defined in: [component/googleMap.ts:174](https://github.com/siposdani87/sui-js/blob/27883240db7565f37a562e906b93c8d6552ac058/src/component/googleMap.ts#L174)
 
 Sets the map type to display.
 
@@ -1457,7 +1457,7 @@ googleMap.setMapType('satellite');
 
 > **setMarkerIcon**(`name`, `iconOptions`): `void`
 
-Defined in: [component/googleMap.ts:1326](https://github.com/siposdani87/sui-js/blob/433cda184a013753ef41bb6ba61d0b3944481fa1/src/component/googleMap.ts#L1326)
+Defined in: [component/googleMap.ts:1326](https://github.com/siposdani87/sui-js/blob/27883240db7565f37a562e906b93c8d6552ac058/src/component/googleMap.ts#L1326)
 
 Registers a named marker icon configuration for use with marker creation.
 
@@ -1497,7 +1497,7 @@ googleMap.setMarkerIcon('default', {
 
 > **setMarkers**(`opt_options?`): `void`
 
-Defined in: [component/googleMap.ts:837](https://github.com/siposdani87/sui-js/blob/433cda184a013753ef41bb6ba61d0b3944481fa1/src/component/googleMap.ts#L837)
+Defined in: [component/googleMap.ts:837](https://github.com/siposdani87/sui-js/blob/27883240db7565f37a562e906b93c8d6552ac058/src/component/googleMap.ts#L837)
 
 Initializes or resets the marker [Collection](Collection.md) and default marker options.
 
@@ -1525,7 +1525,7 @@ googleMap.setMarkers({ draggable: true });
 
 > **setPolygons**(`opt_options?`): `void`
 
-Defined in: [component/googleMap.ts:925](https://github.com/siposdani87/sui-js/blob/433cda184a013753ef41bb6ba61d0b3944481fa1/src/component/googleMap.ts#L925)
+Defined in: [component/googleMap.ts:925](https://github.com/siposdani87/sui-js/blob/27883240db7565f37a562e906b93c8d6552ac058/src/component/googleMap.ts#L925)
 
 Initializes or resets the polygon [Collection](Collection.md) and default polygon options.
 
@@ -1553,7 +1553,7 @@ googleMap.setPolygons({ fillColor: '#00FF00', editable: true });
 
 > **triggerResize**(): `void`
 
-Defined in: [component/googleMap.ts:1449](https://github.com/siposdani87/sui-js/blob/433cda184a013753ef41bb6ba61d0b3944481fa1/src/component/googleMap.ts#L1449)
+Defined in: [component/googleMap.ts:1449](https://github.com/siposdani87/sui-js/blob/27883240db7565f37a562e906b93c8d6552ac058/src/component/googleMap.ts#L1449)
 
 Triggers a map resize event, useful after the map container size changes.
 
@@ -1573,7 +1573,7 @@ googleMap.triggerResize();
 
 > **updateMarker**(`id`, `title`, `iconName`, `latitude`, `longitude`, `opt_markerData?`, `opt_options?`): `void`
 
-Defined in: [component/googleMap.ts:1133](https://github.com/siposdani87/sui-js/blob/433cda184a013753ef41bb6ba61d0b3944481fa1/src/component/googleMap.ts#L1133)
+Defined in: [component/googleMap.ts:1133](https://github.com/siposdani87/sui-js/blob/27883240db7565f37a562e906b93c8d6552ac058/src/component/googleMap.ts#L1133)
 
 Updates an existing marker's data, icon, title, and position.
 
@@ -1637,7 +1637,7 @@ googleMap.updateMarker('m1', 'New Title', 'default', 47.65, 17.55);
 
 > **updatePolygon**(`id`, `title`, `points`, `opt_polygonData?`, `opt_options?`): `void`
 
-Defined in: [component/googleMap.ts:366](https://github.com/siposdani87/sui-js/blob/433cda184a013753ef41bb6ba61d0b3944481fa1/src/component/googleMap.ts#L366)
+Defined in: [component/googleMap.ts:366](https://github.com/siposdani87/sui-js/blob/27883240db7565f37a562e906b93c8d6552ac058/src/component/googleMap.ts#L366)
 
 Updates an existing polygon's data, path, and label.
 

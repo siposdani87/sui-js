@@ -2,7 +2,7 @@
 
 > **mdl**(`node`, `opt_forceDowngrade?`): `void`
 
-Defined in: [utils/render.ts:44](https://github.com/siposdani87/sui-js/blob/433cda184a013753ef41bb6ba61d0b3944481fa1/src/utils/render.ts#L44)
+Defined in: [utils/render.ts:44](https://github.com/siposdani87/sui-js/blob/27883240db7565f37a562e906b93c8d6552ac058/src/utils/render.ts#L44)
 
 Triggers a Material Design Lite component upgrade on a DOM element.
 

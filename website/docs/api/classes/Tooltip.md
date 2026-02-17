@@ -1,6 +1,6 @@
 # Class: Tooltip
 
-Defined in: [component/tooltip.ts:19](https://github.com/siposdani87/sui-js/blob/433cda184a013753ef41bb6ba61d0b3944481fa1/src/component/tooltip.ts#L19)
+Defined in: [component/tooltip.ts:19](https://github.com/siposdani87/sui-js/blob/27883240db7565f37a562e906b93c8d6552ac058/src/component/tooltip.ts#L19)
 
 ## Description
 
@@ -24,7 +24,7 @@ tooltip.render('Click to submit');
 
 > **new Tooltip**(`element`, `opt_position?`): `Tooltip`
 
-Defined in: [component/tooltip.ts:30](https://github.com/siposdani87/sui-js/blob/433cda184a013753ef41bb6ba61d0b3944481fa1/src/component/tooltip.ts#L30)
+Defined in: [component/tooltip.ts:30](https://github.com/siposdani87/sui-js/blob/27883240db7565f37a562e906b93c8d6552ac058/src/component/tooltip.ts#L30)
 
 #### Parameters
 
@@ -54,7 +54,7 @@ Creates a new Tooltip for the given element with directional positioning.
 
 > **element**: [`Knot`](Knot.md)
 
-Defined in: [component/tooltip.ts:20](https://github.com/siposdani87/sui-js/blob/433cda184a013753ef41bb6ba61d0b3944481fa1/src/component/tooltip.ts#L20)
+Defined in: [component/tooltip.ts:20](https://github.com/siposdani87/sui-js/blob/27883240db7565f37a562e906b93c8d6552ac058/src/component/tooltip.ts#L20)
 
 ***
 
@@ -62,7 +62,7 @@ Defined in: [component/tooltip.ts:20](https://github.com/siposdani87/sui-js/blob
 
 > **positionCssClass**: `string`
 
-Defined in: [component/tooltip.ts:22](https://github.com/siposdani87/sui-js/blob/433cda184a013753ef41bb6ba61d0b3944481fa1/src/component/tooltip.ts#L22)
+Defined in: [component/tooltip.ts:22](https://github.com/siposdani87/sui-js/blob/27883240db7565f37a562e906b93c8d6552ac058/src/component/tooltip.ts#L22)
 
 ***
 
@@ -70,7 +70,7 @@ Defined in: [component/tooltip.ts:22](https://github.com/siposdani87/sui-js/blob
 
 > **tooltip**: [`Knot`](Knot.md)
 
-Defined in: [component/tooltip.ts:23](https://github.com/siposdani87/sui-js/blob/433cda184a013753ef41bb6ba61d0b3944481fa1/src/component/tooltip.ts#L23)
+Defined in: [component/tooltip.ts:23](https://github.com/siposdani87/sui-js/blob/27883240db7565f37a562e906b93c8d6552ac058/src/component/tooltip.ts#L23)
 
 ***
 
@@ -78,7 +78,7 @@ Defined in: [component/tooltip.ts:23](https://github.com/siposdani87/sui-js/blob
 
 > **valid**: `boolean`
 
-Defined in: [component/tooltip.ts:21](https://github.com/siposdani87/sui-js/blob/433cda184a013753ef41bb6ba61d0b3944481fa1/src/component/tooltip.ts#L21)
+Defined in: [component/tooltip.ts:21](https://github.com/siposdani87/sui-js/blob/27883240db7565f37a562e906b93c8d6552ac058/src/component/tooltip.ts#L21)
 
 ## Methods
 
@@ -86,7 +86,7 @@ Defined in: [component/tooltip.ts:21](https://github.com/siposdani87/sui-js/blob
 
 > **close**(): `void`
 
-Defined in: [component/tooltip.ts:164](https://github.com/siposdani87/sui-js/blob/433cda184a013753ef41bb6ba61d0b3944481fa1/src/component/tooltip.ts#L164)
+Defined in: [component/tooltip.ts:164](https://github.com/siposdani87/sui-js/blob/27883240db7565f37a562e906b93c8d6552ac058/src/component/tooltip.ts#L164)
 
 #### Returns
 
@@ -108,7 +108,7 @@ tooltip.close();
 
 > **isOpen**(): `boolean`
 
-Defined in: [component/tooltip.ts:175](https://github.com/siposdani87/sui-js/blob/433cda184a013753ef41bb6ba61d0b3944481fa1/src/component/tooltip.ts#L175)
+Defined in: [component/tooltip.ts:175](https://github.com/siposdani87/sui-js/blob/27883240db7565f37a562e906b93c8d6552ac058/src/component/tooltip.ts#L175)
 
 #### Returns
 
@@ -132,7 +132,7 @@ if (tooltip.isOpen()) { tooltip.close(); }
 
 > **open**(): `void`
 
-Defined in: [component/tooltip.ts:154](https://github.com/siposdani87/sui-js/blob/433cda184a013753ef41bb6ba61d0b3944481fa1/src/component/tooltip.ts#L154)
+Defined in: [component/tooltip.ts:154](https://github.com/siposdani87/sui-js/blob/27883240db7565f37a562e906b93c8d6552ac058/src/component/tooltip.ts#L154)
 
 #### Returns
 
@@ -154,7 +154,7 @@ tooltip.open();
 
 > **render**(`opt_message?`): `void`
 
-Defined in: [component/tooltip.ts:112](https://github.com/siposdani87/sui-js/blob/433cda184a013753ef41bb6ba61d0b3944481fa1/src/component/tooltip.ts#L112)
+Defined in: [component/tooltip.ts:112](https://github.com/siposdani87/sui-js/blob/27883240db7565f37a562e906b93c8d6552ac058/src/component/tooltip.ts#L112)
 
 #### Parameters
 
@@ -184,7 +184,7 @@ tooltip.render('Helpful hint');
 
 > **setMessage**(`opt_message?`): `void`
 
-Defined in: [component/tooltip.ts:136](https://github.com/siposdani87/sui-js/blob/433cda184a013753ef41bb6ba61d0b3944481fa1/src/component/tooltip.ts#L136)
+Defined in: [component/tooltip.ts:136](https://github.com/siposdani87/sui-js/blob/27883240db7565f37a562e906b93c8d6552ac058/src/component/tooltip.ts#L136)
 
 #### Parameters
 
@@ -214,7 +214,7 @@ tooltip.setMessage('Updated tooltip text');
 
 > **toggle**(): `void`
 
-Defined in: [component/tooltip.ts:185](https://github.com/siposdani87/sui-js/blob/433cda184a013753ef41bb6ba61d0b3944481fa1/src/component/tooltip.ts#L185)
+Defined in: [component/tooltip.ts:185](https://github.com/siposdani87/sui-js/blob/27883240db7565f37a562e906b93c8d6552ac058/src/component/tooltip.ts#L185)
 
 #### Returns
 

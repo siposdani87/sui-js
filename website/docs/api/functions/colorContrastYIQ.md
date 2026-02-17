@@ -2,7 +2,7 @@
 
 > **colorContrastYIQ**(`hexColor`, `opt_lightColor?`, `opt_darkColor?`): `string`
 
-Defined in: [utils/color.ts:277](https://github.com/siposdani87/sui-js/blob/433cda184a013753ef41bb6ba61d0b3944481fa1/src/utils/color.ts#L277)
+Defined in: [utils/color.ts:277](https://github.com/siposdani87/sui-js/blob/27883240db7565f37a562e906b93c8d6552ac058/src/utils/color.ts#L277)
 
 Returns a contrasting text color (light or dark) for a given background
 color, determined by the YIQ luminance formula.

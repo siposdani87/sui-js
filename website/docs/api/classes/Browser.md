@@ -1,6 +1,6 @@
 # Class: Browser
 
-Defined in: [module/browser.ts:30](https://github.com/siposdani87/sui-js/blob/433cda184a013753ef41bb6ba61d0b3944481fa1/src/module/browser.ts#L30)
+Defined in: [module/browser.ts:30](https://github.com/siposdani87/sui-js/blob/27883240db7565f37a562e906b93c8d6552ac058/src/module/browser.ts#L30)
 
 Detects the current browser type and operating system from the
 user-agent string and platform properties. Browser also checks for
@@ -37,7 +37,7 @@ if (browser.isMacOS()) {
 
 > **new Browser**(): `Browser`
 
-Defined in: [module/browser.ts:41](https://github.com/siposdani87/sui-js/blob/433cda184a013753ef41bb6ba61d0b3944481fa1/src/module/browser.ts#L41)
+Defined in: [module/browser.ts:41](https://github.com/siposdani87/sui-js/blob/27883240db7565f37a562e906b93c8d6552ac058/src/module/browser.ts#L41)
 
 Creates a new Browser instance and immediately detects the OS,
 browser type, and missing features.
@@ -52,7 +52,7 @@ browser type, and missing features.
 
 > **browsers**: `object`
 
-Defined in: [module/browser.ts:32](https://github.com/siposdani87/sui-js/blob/433cda184a013753ef41bb6ba61d0b3944481fa1/src/module/browser.ts#L32)
+Defined in: [module/browser.ts:32](https://github.com/siposdani87/sui-js/blob/27883240db7565f37a562e906b93c8d6552ac058/src/module/browser.ts#L32)
 
 #### Index Signature
 
@@ -64,7 +64,7 @@ Defined in: [module/browser.ts:32](https://github.com/siposdani87/sui-js/blob/43
 
 > **features**: `string`[]
 
-Defined in: [module/browser.ts:31](https://github.com/siposdani87/sui-js/blob/433cda184a013753ef41bb6ba61d0b3944481fa1/src/module/browser.ts#L31)
+Defined in: [module/browser.ts:31](https://github.com/siposdani87/sui-js/blob/27883240db7565f37a562e906b93c8d6552ac058/src/module/browser.ts#L31)
 
 ***
 
@@ -72,7 +72,7 @@ Defined in: [module/browser.ts:31](https://github.com/siposdani87/sui-js/blob/43
 
 > **os**: `string` \| `null`
 
-Defined in: [module/browser.ts:35](https://github.com/siposdani87/sui-js/blob/433cda184a013753ef41bb6ba61d0b3944481fa1/src/module/browser.ts#L35)
+Defined in: [module/browser.ts:35](https://github.com/siposdani87/sui-js/blob/27883240db7565f37a562e906b93c8d6552ac058/src/module/browser.ts#L35)
 
 ## Methods
 
@@ -80,7 +80,7 @@ Defined in: [module/browser.ts:35](https://github.com/siposdani87/sui-js/blob/43
 
 > **detect**(): `void`
 
-Defined in: [module/browser.ts:84](https://github.com/siposdani87/sui-js/blob/433cda184a013753ef41bb6ba61d0b3944481fa1/src/module/browser.ts#L84)
+Defined in: [module/browser.ts:84](https://github.com/siposdani87/sui-js/blob/27883240db7565f37a562e906b93c8d6552ac058/src/module/browser.ts#L84)
 
 Triggers the [Browser.eventMissingFeatures](#eventmissingfeatures) hook if one or
 more required browser features are unavailable. Call this method
@@ -103,7 +103,7 @@ browser.detect();
 
 > **eventMissingFeatures**(`features`): `void`
 
-Defined in: [module/browser.ts:109](https://github.com/siposdani87/sui-js/blob/433cda184a013753ef41bb6ba61d0b3944481fa1/src/module/browser.ts#L109)
+Defined in: [module/browser.ts:109](https://github.com/siposdani87/sui-js/blob/27883240db7565f37a562e906b93c8d6552ac058/src/module/browser.ts#L109)
 
 Called by [Browser.detect](#detect) when one or more required browser
 features are missing. Override this method to display a warning to
@@ -127,7 +127,7 @@ List of missing feature identifiers.
 
 > **isAndroid**(): `boolean`
 
-Defined in: [module/browser.ts:235](https://github.com/siposdani87/sui-js/blob/433cda184a013753ef41bb6ba61d0b3944481fa1/src/module/browser.ts#L235)
+Defined in: [module/browser.ts:235](https://github.com/siposdani87/sui-js/blob/27883240db7565f37a562e906b93c8d6552ac058/src/module/browser.ts#L235)
 
 Checks whether the detected operating system is Android.
 
@@ -151,7 +151,7 @@ if (browser.isAndroid()) {
 
 > **isChrome**(): `boolean`
 
-Defined in: [module/browser.ts:342](https://github.com/siposdani87/sui-js/blob/433cda184a013753ef41bb6ba61d0b3944481fa1/src/module/browser.ts#L342)
+Defined in: [module/browser.ts:342](https://github.com/siposdani87/sui-js/blob/27883240db7565f37a562e906b93c8d6552ac058/src/module/browser.ts#L342)
 
 Checks whether the browser is Google Chrome (with Chrome Web Store
 support, distinguishing it from other Chromium-based browsers).
@@ -176,7 +176,7 @@ if (browser.isChrome()) {
 
 > **isChromium**(): `boolean`
 
-Defined in: [module/browser.ts:399](https://github.com/siposdani87/sui-js/blob/433cda184a013753ef41bb6ba61d0b3944481fa1/src/module/browser.ts#L399)
+Defined in: [module/browser.ts:399](https://github.com/siposdani87/sui-js/blob/27883240db7565f37a562e906b93c8d6552ac058/src/module/browser.ts#L399)
 
 Checks whether the browser is built on the Chromium engine
 (includes Chrome, Chromium Edge, Opera, and other Chromium forks).
@@ -201,7 +201,7 @@ if (browser.isChromium()) {
 
 > **isChromiumEdge**(): `boolean`
 
-Defined in: [module/browser.ts:313](https://github.com/siposdani87/sui-js/blob/433cda184a013753ef41bb6ba61d0b3944481fa1/src/module/browser.ts#L313)
+Defined in: [module/browser.ts:313](https://github.com/siposdani87/sui-js/blob/27883240db7565f37a562e906b93c8d6552ac058/src/module/browser.ts#L313)
 
 Checks whether the browser is Chromium-based Microsoft Edge.
 
@@ -225,7 +225,7 @@ if (browser.isChromiumEdge()) {
 
 > **isEdge**(): `boolean`
 
-Defined in: [module/browser.ts:299](https://github.com/siposdani87/sui-js/blob/433cda184a013753ef41bb6ba61d0b3944481fa1/src/module/browser.ts#L299)
+Defined in: [module/browser.ts:299](https://github.com/siposdani87/sui-js/blob/27883240db7565f37a562e906b93c8d6552ac058/src/module/browser.ts#L299)
 
 Checks whether the browser is legacy Microsoft Edge (EdgeHTML engine).
 
@@ -249,7 +249,7 @@ if (browser.isEdge()) {
 
 > **isFirefox**(): `boolean`
 
-Defined in: [module/browser.ts:327](https://github.com/siposdani87/sui-js/blob/433cda184a013753ef41bb6ba61d0b3944481fa1/src/module/browser.ts#L327)
+Defined in: [module/browser.ts:327](https://github.com/siposdani87/sui-js/blob/27883240db7565f37a562e906b93c8d6552ac058/src/module/browser.ts#L327)
 
 Checks whether the browser is Mozilla Firefox.
 
@@ -273,7 +273,7 @@ if (browser.isFirefox()) {
 
 > **isInternetExplorer**(`opt_version?`): `boolean`
 
-Defined in: [module/browser.ts:271](https://github.com/siposdani87/sui-js/blob/433cda184a013753ef41bb6ba61d0b3944481fa1/src/module/browser.ts#L271)
+Defined in: [module/browser.ts:271](https://github.com/siposdani87/sui-js/blob/27883240db7565f37a562e906b93c8d6552ac058/src/module/browser.ts#L271)
 
 Checks whether the browser is any version of Internet Explorer.
 When `opt_version` is provided, checks for that specific version
@@ -312,7 +312,7 @@ if (browser.isInternetExplorer(11)) {
 
 > **isIOS**(): `boolean`
 
-Defined in: [module/browser.ts:207](https://github.com/siposdani87/sui-js/blob/433cda184a013753ef41bb6ba61d0b3944481fa1/src/module/browser.ts#L207)
+Defined in: [module/browser.ts:207](https://github.com/siposdani87/sui-js/blob/27883240db7565f37a562e906b93c8d6552ac058/src/module/browser.ts#L207)
 
 Checks whether the detected operating system is iOS.
 
@@ -336,7 +336,7 @@ if (browser.isIOS()) {
 
 > **isLinux**(): `boolean`
 
-Defined in: [module/browser.ts:249](https://github.com/siposdani87/sui-js/blob/433cda184a013753ef41bb6ba61d0b3944481fa1/src/module/browser.ts#L249)
+Defined in: [module/browser.ts:249](https://github.com/siposdani87/sui-js/blob/27883240db7565f37a562e906b93c8d6552ac058/src/module/browser.ts#L249)
 
 Checks whether the detected operating system is Linux.
 
@@ -360,7 +360,7 @@ if (browser.isLinux()) {
 
 > **isMacOS**(): `boolean`
 
-Defined in: [module/browser.ts:193](https://github.com/siposdani87/sui-js/blob/433cda184a013753ef41bb6ba61d0b3944481fa1/src/module/browser.ts#L193)
+Defined in: [module/browser.ts:193](https://github.com/siposdani87/sui-js/blob/27883240db7565f37a562e906b93c8d6552ac058/src/module/browser.ts#L193)
 
 Checks whether the detected operating system is macOS.
 
@@ -384,7 +384,7 @@ if (browser.isMacOS()) {
 
 > **isOpera**(): `boolean`
 
-Defined in: [module/browser.ts:356](https://github.com/siposdani87/sui-js/blob/433cda184a013753ef41bb6ba61d0b3944481fa1/src/module/browser.ts#L356)
+Defined in: [module/browser.ts:356](https://github.com/siposdani87/sui-js/blob/27883240db7565f37a562e906b93c8d6552ac058/src/module/browser.ts#L356)
 
 Checks whether the browser is Opera.
 
@@ -408,7 +408,7 @@ if (browser.isOpera()) {
 
 > **isSafari**(): `boolean`
 
-Defined in: [module/browser.ts:370](https://github.com/siposdani87/sui-js/blob/433cda184a013753ef41bb6ba61d0b3944481fa1/src/module/browser.ts#L370)
+Defined in: [module/browser.ts:370](https://github.com/siposdani87/sui-js/blob/27883240db7565f37a562e906b93c8d6552ac058/src/module/browser.ts#L370)
 
 Checks whether the browser is Apple Safari.
 
@@ -432,7 +432,7 @@ if (browser.isSafari()) {
 
 > **isWebkit**(): `boolean`
 
-Defined in: [module/browser.ts:384](https://github.com/siposdani87/sui-js/blob/433cda184a013753ef41bb6ba61d0b3944481fa1/src/module/browser.ts#L384)
+Defined in: [module/browser.ts:384](https://github.com/siposdani87/sui-js/blob/27883240db7565f37a562e906b93c8d6552ac058/src/module/browser.ts#L384)
 
 Checks whether the browser uses the WebKit rendering engine.
 
@@ -456,7 +456,7 @@ if (browser.isWebkit()) {
 
 > **isWindows**(): `boolean`
 
-Defined in: [module/browser.ts:221](https://github.com/siposdani87/sui-js/blob/433cda184a013753ef41bb6ba61d0b3944481fa1/src/module/browser.ts#L221)
+Defined in: [module/browser.ts:221](https://github.com/siposdani87/sui-js/blob/27883240db7565f37a562e906b93c8d6552ac058/src/module/browser.ts#L221)
 
 Checks whether the detected operating system is Windows.
 

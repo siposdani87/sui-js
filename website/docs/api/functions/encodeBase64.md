@@ -2,7 +2,7 @@
 
 > **encodeBase64**(`text`): `string`
 
-Defined in: [utils/coder.ts:20](https://github.com/siposdani87/sui-js/blob/433cda184a013753ef41bb6ba61d0b3944481fa1/src/utils/coder.ts#L20)
+Defined in: [utils/coder.ts:20](https://github.com/siposdani87/sui-js/blob/27883240db7565f37a562e906b93c8d6552ac058/src/utils/coder.ts#L20)
 
 Encodes a UTF-8 string to its Base64 representation using crypto-js.
 

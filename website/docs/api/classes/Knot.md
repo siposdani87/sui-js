@@ -1,6 +1,6 @@
 # Class: Knot\<T\>
 
-Defined in: [core/knot.ts:46](https://github.com/siposdani87/sui-js/blob/433cda184a013753ef41bb6ba61d0b3944481fa1/src/core/knot.ts#L46)
+Defined in: [core/knot.ts:46](https://github.com/siposdani87/sui-js/blob/27883240db7565f37a562e906b93c8d6552ac058/src/core/knot.ts#L46)
 
 DOM element wrapper that provides a convenient, chainable API for
 manipulating HTML elements.  Every element managed by the SUI framework
@@ -45,7 +45,7 @@ const link = new Knot<HTMLAnchorElement>('<a href="/home">Home</a>');
 
 > **new Knot**\<`T`\>(`node`, `opt_parentKnot?`): `Knot`\<`T`\>
 
-Defined in: [core/knot.ts:72](https://github.com/siposdani87/sui-js/blob/433cda184a013753ef41bb6ba61d0b3944481fa1/src/core/knot.ts#L72)
+Defined in: [core/knot.ts:72](https://github.com/siposdani87/sui-js/blob/27883240db7565f37a562e906b93c8d6552ac058/src/core/knot.ts#L72)
 
 Creates a new Knot by wrapping an existing element, creating one from
 a tag name, or parsing an HTML string.
@@ -89,7 +89,7 @@ const child = new Knot(document.getElementById('child'), parentKnot);
 
 > **listenerStoreKey**: `string`
 
-Defined in: [core/knot.ts:52](https://github.com/siposdani87/sui-js/blob/433cda184a013753ef41bb6ba61d0b3944481fa1/src/core/knot.ts#L52)
+Defined in: [core/knot.ts:52](https://github.com/siposdani87/sui-js/blob/27883240db7565f37a562e906b93c8d6552ac058/src/core/knot.ts#L52)
 
 Property name used to store event listeners on the DOM node.
 
@@ -99,7 +99,7 @@ Property name used to store event listeners on the DOM node.
 
 > **node**: `T`
 
-Defined in: [core/knot.ts:48](https://github.com/siposdani87/sui-js/blob/433cda184a013753ef41bb6ba61d0b3944481fa1/src/core/knot.ts#L48)
+Defined in: [core/knot.ts:48](https://github.com/siposdani87/sui-js/blob/27883240db7565f37a562e906b93c8d6552ac058/src/core/knot.ts#L48)
 
 The underlying DOM element managed by this wrapper.
 
@@ -109,7 +109,7 @@ The underlying DOM element managed by this wrapper.
 
 > **parentKnot**: `Knot`\<`HTMLElement`\> \| `undefined`
 
-Defined in: [core/knot.ts:50](https://github.com/siposdani87/sui-js/blob/433cda184a013753ef41bb6ba61d0b3944481fa1/src/core/knot.ts#L50)
+Defined in: [core/knot.ts:50](https://github.com/siposdani87/sui-js/blob/27883240db7565f37a562e906b93c8d6552ac058/src/core/knot.ts#L50)
 
 Logical parent in the framework's element tree.
 
@@ -119,7 +119,7 @@ Logical parent in the framework's element tree.
 
 > **addClass**(`cssClasses`): `void`
 
-Defined in: [core/knot.ts:271](https://github.com/siposdani87/sui-js/blob/433cda184a013753ef41bb6ba61d0b3944481fa1/src/core/knot.ts#L271)
+Defined in: [core/knot.ts:271](https://github.com/siposdani87/sui-js/blob/27883240db7565f37a562e906b93c8d6552ac058/src/core/knot.ts#L271)
 
 Adds one or more CSS classes to the element. Classes that are
 already present are not duplicated.
@@ -150,7 +150,7 @@ knot.addClass(['card', 'elevation-2']);
 
 > **addEventListener**(`eventName`, `opt_callback?`): `Function`
 
-Defined in: [core/knot.ts:444](https://github.com/siposdani87/sui-js/blob/433cda184a013753ef41bb6ba61d0b3944481fa1/src/core/knot.ts#L444)
+Defined in: [core/knot.ts:444](https://github.com/siposdani87/sui-js/blob/27883240db7565f37a562e906b93c8d6552ac058/src/core/knot.ts#L444)
 
 Attaches an event listener to the element. The native event is
 automatically stopped from propagating. If the callback returns a
@@ -198,7 +198,7 @@ knot.addEventListener('click', (knot, event) => {
 
 > **afterChild**(`knot`): `boolean`
 
-Defined in: [core/knot.ts:689](https://github.com/siposdani87/sui-js/blob/433cda184a013753ef41bb6ba61d0b3944481fa1/src/core/knot.ts#L689)
+Defined in: [core/knot.ts:689](https://github.com/siposdani87/sui-js/blob/27883240db7565f37a562e906b93c8d6552ac058/src/core/knot.ts#L689)
 
 Appends a Knot after the last child by appending it to the parent
 element.
@@ -230,7 +230,7 @@ list.afterChild(newLastItem);
 
 > **appendChild**(`knot`): `void`
 
-Defined in: [core/knot.ts:583](https://github.com/siposdani87/sui-js/blob/433cda184a013753ef41bb6ba61d0b3944481fa1/src/core/knot.ts#L583)
+Defined in: [core/knot.ts:583](https://github.com/siposdani87/sui-js/blob/27883240db7565f37a562e906b93c8d6552ac058/src/core/knot.ts#L583)
 
 Appends a child Knot's element to this element in the DOM.
 
@@ -260,7 +260,7 @@ container.appendChild(paragraph);
 
 > **beforeChild**(`knot`): `boolean`
 
-Defined in: [core/knot.ts:667](https://github.com/siposdani87/sui-js/blob/433cda184a013753ef41bb6ba61d0b3944481fa1/src/core/knot.ts#L667)
+Defined in: [core/knot.ts:667](https://github.com/siposdani87/sui-js/blob/27883240db7565f37a562e906b93c8d6552ac058/src/core/knot.ts#L667)
 
 Inserts a Knot before the first child of this element. If there
 are no existing children, the element is still inserted using
@@ -292,7 +292,7 @@ list.beforeChild(newFirstItem);
 
 > **createElement**\<`K`\>(`tagName`): `Knot`\<`K`\>
 
-Defined in: [core/knot.ts:567](https://github.com/siposdani87/sui-js/blob/433cda184a013753ef41bb6ba61d0b3944481fa1/src/core/knot.ts#L567)
+Defined in: [core/knot.ts:567](https://github.com/siposdani87/sui-js/blob/27883240db7565f37a562e906b93c8d6552ac058/src/core/knot.ts#L567)
 
 Creates a new child element and returns it as a Knot whose
 [Knot.parentKnot](#parentknot) points to this instance.
@@ -330,7 +330,7 @@ li.setText('Item 1');
 
 > **dispatchEvent**(`event`): `void`
 
-Defined in: [core/knot.ts:539](https://github.com/siposdani87/sui-js/blob/433cda184a013753ef41bb6ba61d0b3944481fa1/src/core/knot.ts#L539)
+Defined in: [core/knot.ts:539](https://github.com/siposdani87/sui-js/blob/27883240db7565f37a562e906b93c8d6552ac058/src/core/knot.ts#L539)
 
 Dispatches a DOM event on the underlying element.
 
@@ -358,7 +358,7 @@ knot.dispatchEvent(new CustomEvent('my-event', { detail: 42 }));
 
 > **exists**(): `boolean`
 
-Defined in: [core/knot.ts:1005](https://github.com/siposdani87/sui-js/blob/433cda184a013753ef41bb6ba61d0b3944481fa1/src/core/knot.ts#L1005)
+Defined in: [core/knot.ts:1005](https://github.com/siposdani87/sui-js/blob/27883240db7565f37a562e906b93c8d6552ac058/src/core/knot.ts#L1005)
 
 Checks whether the element is currently attached to the document
 body. Useful for verifying an element has not been removed from
@@ -384,7 +384,7 @@ if (knot.exists()) {
 
 > **get**(`attribute`): `any`
 
-Defined in: [core/knot.ts:145](https://github.com/siposdani87/sui-js/blob/433cda184a013753ef41bb6ba61d0b3944481fa1/src/core/knot.ts#L145)
+Defined in: [core/knot.ts:145](https://github.com/siposdani87/sui-js/blob/27883240db7565f37a562e906b93c8d6552ac058/src/core/knot.ts#L145)
 
 Retrieves the value of an attribute. Delegates to [Knot.getId](#getid)
 when the attribute is `'id'`, otherwise calls
@@ -417,7 +417,7 @@ const href = knot.get('href');
 
 > **getAttribute**(`attribute`): `any`
 
-Defined in: [core/knot.ts:388](https://github.com/siposdani87/sui-js/blob/433cda184a013753ef41bb6ba61d0b3944481fa1/src/core/knot.ts#L388)
+Defined in: [core/knot.ts:388](https://github.com/siposdani87/sui-js/blob/27883240db7565f37a562e906b93c8d6552ac058/src/core/knot.ts#L388)
 
 Reads an attribute from the element. For `data-*` attributes whose
 stored value begins with `"`, `[`, or `{`, the value is
@@ -452,7 +452,7 @@ const count = knot.getAttribute('data-count'); // 42 (number)
 
 > **getClasses**(): `string`[]
 
-Defined in: [core/knot.ts:316](https://github.com/siposdani87/sui-js/blob/433cda184a013753ef41bb6ba61d0b3944481fa1/src/core/knot.ts#L316)
+Defined in: [core/knot.ts:316](https://github.com/siposdani87/sui-js/blob/27883240db7565f37a562e906b93c8d6552ac058/src/core/knot.ts#L316)
 
 Returns all CSS classes currently applied to the element.
 
@@ -474,7 +474,7 @@ const classes = knot.getClasses(); // ['card', 'elevation-2']
 
 > **getComputedStyle**(): `CSSStyleDeclaration` \| `null`
 
-Defined in: [core/knot.ts:935](https://github.com/siposdani87/sui-js/blob/433cda184a013753ef41bb6ba61d0b3944481fa1/src/core/knot.ts#L935)
+Defined in: [core/knot.ts:935](https://github.com/siposdani87/sui-js/blob/27883240db7565f37a562e906b93c8d6552ac058/src/core/knot.ts#L935)
 
 Returns the computed style of the element as resolved by the
 browser's layout engine.
@@ -499,7 +499,7 @@ const color = style.getPropertyValue('color');
 
 > **getData**(`name`): `any`
 
-Defined in: [core/knot.ts:865](https://github.com/siposdani87/sui-js/blob/433cda184a013753ef41bb6ba61d0b3944481fa1/src/core/knot.ts#L865)
+Defined in: [core/knot.ts:865](https://github.com/siposdani87/sui-js/blob/27883240db7565f37a562e906b93c8d6552ac058/src/core/knot.ts#L865)
 
 Reads a `data-*` attribute from the element. Values that were
 JSON-serialized by [Knot.setData](#setdata) are automatically parsed
@@ -534,7 +534,7 @@ const config = knot.getData('config');   // { theme: 'dark' }
 
 > **getFor**(): `string` \| `null`
 
-Defined in: [core/knot.ts:222](https://github.com/siposdani87/sui-js/blob/433cda184a013753ef41bb6ba61d0b3944481fa1/src/core/knot.ts#L222)
+Defined in: [core/knot.ts:222](https://github.com/siposdani87/sui-js/blob/27883240db7565f37a562e906b93c8d6552ac058/src/core/knot.ts#L222)
 
 Returns the `for` attribute value from a `<label>` element.
 Reads the DOM property first, falling back to the HTML attribute.
@@ -557,7 +557,7 @@ const targetId = label.getFor(); // 'email-input'
 
 > **getHtml**(`opt_isInner?`): `string`
 
-Defined in: [core/knot.ts:797](https://github.com/siposdani87/sui-js/blob/433cda184a013753ef41bb6ba61d0b3944481fa1/src/core/knot.ts#L797)
+Defined in: [core/knot.ts:797](https://github.com/siposdani87/sui-js/blob/27883240db7565f37a562e906b93c8d6552ac058/src/core/knot.ts#L797)
 
 Returns the HTML representation of the element. By default returns
 the outer HTML (including the element's own tag). Pass `true` to
@@ -591,7 +591,7 @@ const inner = knot.getHtml(true);   // '...'
 
 > **getId**(): `string` \| `null`
 
-Defined in: [core/knot.ts:184](https://github.com/siposdani87/sui-js/blob/433cda184a013753ef41bb6ba61d0b3944481fa1/src/core/knot.ts#L184)
+Defined in: [core/knot.ts:184](https://github.com/siposdani87/sui-js/blob/27883240db7565f37a562e906b93c8d6552ac058/src/core/knot.ts#L184)
 
 Returns the element's `id`, or `null` if no id is set.
 
@@ -613,7 +613,7 @@ const id = knot.getId(); // 'main-nav' or null
 
 > **getNextSibling**(): `Knot`
 
-Defined in: [core/knot.ts:768](https://github.com/siposdani87/sui-js/blob/433cda184a013753ef41bb6ba61d0b3944481fa1/src/core/knot.ts#L768)
+Defined in: [core/knot.ts:768](https://github.com/siposdani87/sui-js/blob/27883240db7565f37a562e906b93c8d6552ac058/src/core/knot.ts#L768)
 
 Returns the next sibling of this element, wrapped in a new Knot.
 Falls back to `nextElementSibling` if `nextSibling` is not
@@ -637,7 +637,7 @@ const next = knot.getNextSibling();
 
 > **getNode**(): `T`
 
-Defined in: [core/knot.ts:161](https://github.com/siposdani87/sui-js/blob/433cda184a013753ef41bb6ba61d0b3944481fa1/src/core/knot.ts#L161)
+Defined in: [core/knot.ts:161](https://github.com/siposdani87/sui-js/blob/27883240db7565f37a562e906b93c8d6552ac058/src/core/knot.ts#L161)
 
 Returns the raw DOM element wrapped by this Knot, allowing direct
 access to native DOM APIs when needed.
@@ -661,7 +661,7 @@ input.focus();
 
 > **getParentKnot**(): `Knot`\<`HTMLElement`\> \| `null`
 
-Defined in: [core/knot.ts:902](https://github.com/siposdani87/sui-js/blob/433cda184a013753ef41bb6ba61d0b3944481fa1/src/core/knot.ts#L902)
+Defined in: [core/knot.ts:902](https://github.com/siposdani87/sui-js/blob/27883240db7565f37a562e906b93c8d6552ac058/src/core/knot.ts#L902)
 
 Returns the parent element wrapped in a new Knot. Prefers the
 logical [Knot.parentKnot](#parentknot) if set; otherwise uses the
@@ -687,7 +687,7 @@ if (parent) { parent.addClass('has-child'); }
 
 > **getStyle**(): `CSSStyleDeclaration`
 
-Defined in: [core/knot.ts:947](https://github.com/siposdani87/sui-js/blob/433cda184a013753ef41bb6ba61d0b3944481fa1/src/core/knot.ts#L947)
+Defined in: [core/knot.ts:947](https://github.com/siposdani87/sui-js/blob/27883240db7565f37a562e906b93c8d6552ac058/src/core/knot.ts#L947)
 
 Returns the element's inline `style` object, allowing direct
 reads and writes of individual CSS properties.
@@ -710,7 +710,7 @@ const display = knot.getStyle().display;
 
 > **getTagName**(): `string`
 
-Defined in: [core/knot.ts:173](https://github.com/siposdani87/sui-js/blob/433cda184a013753ef41bb6ba61d0b3944481fa1/src/core/knot.ts#L173)
+Defined in: [core/knot.ts:173](https://github.com/siposdani87/sui-js/blob/27883240db7565f37a562e906b93c8d6552ac058/src/core/knot.ts#L173)
 
 Returns the lower-cased tag name of the underlying element
 (e.g. `'div'`, `'input'`).
@@ -733,7 +733,7 @@ const tag = knot.getTagName(); // 'div'
 
 > **getText**(): `string`
 
-Defined in: [core/knot.ts:824](https://github.com/siposdani87/sui-js/blob/433cda184a013753ef41bb6ba61d0b3944481fa1/src/core/knot.ts#L824)
+Defined in: [core/knot.ts:824](https://github.com/siposdani87/sui-js/blob/27883240db7565f37a562e906b93c8d6552ac058/src/core/knot.ts#L824)
 
 Returns the combined text content of the element and all its
 descendants.
@@ -756,7 +756,7 @@ const label = knot.getText();
 
 > **hasAttribute**(`attribute`): `boolean`
 
-Defined in: [core/knot.ts:419](https://github.com/siposdani87/sui-js/blob/433cda184a013753ef41bb6ba61d0b3944481fa1/src/core/knot.ts#L419)
+Defined in: [core/knot.ts:419](https://github.com/siposdani87/sui-js/blob/27883240db7565f37a562e906b93c8d6552ac058/src/core/knot.ts#L419)
 
 Checks whether the element has the specified attribute.
 
@@ -786,7 +786,7 @@ if (knot.hasAttribute('data-loaded')) { ... }
 
 > **hasChildren**(): `boolean`
 
-Defined in: [core/knot.ts:606](https://github.com/siposdani87/sui-js/blob/433cda184a013753ef41bb6ba61d0b3944481fa1/src/core/knot.ts#L606)
+Defined in: [core/knot.ts:606](https://github.com/siposdani87/sui-js/blob/27883240db7565f37a562e906b93c8d6552ac058/src/core/knot.ts#L606)
 
 Checks whether the element has any child nodes.
 
@@ -808,7 +808,7 @@ if (knot.hasChildren()) { ... }
 
 > **hasClass**(`cssClass`): `boolean`
 
-Defined in: [core/knot.ts:237](https://github.com/siposdani87/sui-js/blob/433cda184a013753ef41bb6ba61d0b3944481fa1/src/core/knot.ts#L237)
+Defined in: [core/knot.ts:237](https://github.com/siposdani87/sui-js/blob/27883240db7565f37a562e906b93c8d6552ac058/src/core/knot.ts#L237)
 
 Checks whether the element has the given CSS class.
 
@@ -838,7 +838,7 @@ if (knot.hasClass('active')) { ... }
 
 > **insert**(`knot`): `void`
 
-Defined in: [core/knot.ts:652](https://github.com/siposdani87/sui-js/blob/433cda184a013753ef41bb6ba61d0b3944481fa1/src/core/knot.ts#L652)
+Defined in: [core/knot.ts:652](https://github.com/siposdani87/sui-js/blob/27883240db7565f37a562e906b93c8d6552ac058/src/core/knot.ts#L652)
 
 Replaces all children of this element with a single new child.
 Equivalent to calling [Knot.removeChildren](#removechildren) followed by
@@ -868,7 +868,7 @@ container.insert(newContent);
 
 > **insertAfter**(`knot`): `boolean`
 
-Defined in: [core/knot.ts:727](https://github.com/siposdani87/sui-js/blob/433cda184a013753ef41bb6ba61d0b3944481fa1/src/core/knot.ts#L727)
+Defined in: [core/knot.ts:727](https://github.com/siposdani87/sui-js/blob/27883240db7565f37a562e906b93c8d6552ac058/src/core/knot.ts#L727)
 
 Inserts a Knot immediately after this element in the DOM, as a
 sibling.
@@ -900,7 +900,7 @@ existingKnot.insertAfter(newSibling);
 
 > **insertBefore**(`knot`): `boolean`
 
-Defined in: [core/knot.ts:708](https://github.com/siposdani87/sui-js/blob/433cda184a013753ef41bb6ba61d0b3944481fa1/src/core/knot.ts#L708)
+Defined in: [core/knot.ts:708](https://github.com/siposdani87/sui-js/blob/27883240db7565f37a562e906b93c8d6552ac058/src/core/knot.ts#L708)
 
 Inserts a Knot immediately before this element in the DOM, as a
 sibling.
@@ -932,7 +932,7 @@ existingKnot.insertBefore(newSibling);
 
 > **isEmpty**(): `boolean`
 
-Defined in: [core/knot.ts:990](https://github.com/siposdani87/sui-js/blob/433cda184a013753ef41bb6ba61d0b3944481fa1/src/core/knot.ts#L990)
+Defined in: [core/knot.ts:990](https://github.com/siposdani87/sui-js/blob/27883240db7565f37a562e906b93c8d6552ac058/src/core/knot.ts#L990)
 
 Checks whether the underlying DOM node reference is falsy
 (e.g. `null` or `undefined`), indicating this Knot does not
@@ -956,7 +956,7 @@ if (knot.isEmpty()) { return; }
 
 > **merge**(`properties`): `void`
 
-Defined in: [core/knot.ts:128](https://github.com/siposdani87/sui-js/blob/433cda184a013753ef41bb6ba61d0b3944481fa1/src/core/knot.ts#L128)
+Defined in: [core/knot.ts:128](https://github.com/siposdani87/sui-js/blob/27883240db7565f37a562e906b93c8d6552ac058/src/core/knot.ts#L128)
 
 Sets multiple attributes at once by iterating over the supplied
 key-value pairs and delegating each to [Knot.set](#set).
@@ -986,7 +986,7 @@ knot.merge({ id: 'logo', class: 'brand', title: 'Home' });
 
 > **remove**(): `void`
 
-Defined in: [core/knot.ts:636](https://github.com/siposdani87/sui-js/blob/433cda184a013753ef41bb6ba61d0b3944481fa1/src/core/knot.ts#L636)
+Defined in: [core/knot.ts:636](https://github.com/siposdani87/sui-js/blob/27883240db7565f37a562e906b93c8d6552ac058/src/core/knot.ts#L636)
 
 Removes this element from its parent in the DOM. Uses the logical
 [Knot.parentKnot](#parentknot) if available, otherwise falls back to the
@@ -1008,7 +1008,7 @@ knot.remove(); // detaches from the DOM tree
 
 > **removeAttribute**(`attribute`): `void`
 
-Defined in: [core/knot.ts:407](https://github.com/siposdani87/sui-js/blob/433cda184a013753ef41bb6ba61d0b3944481fa1/src/core/knot.ts#L407)
+Defined in: [core/knot.ts:407](https://github.com/siposdani87/sui-js/blob/27883240db7565f37a562e906b93c8d6552ac058/src/core/knot.ts#L407)
 
 Removes an attribute from the element.
 
@@ -1036,7 +1036,7 @@ knot.removeAttribute('disabled');
 
 > **removeChild**(`knot`): `void`
 
-Defined in: [core/knot.ts:618](https://github.com/siposdani87/sui-js/blob/433cda184a013753ef41bb6ba61d0b3944481fa1/src/core/knot.ts#L618)
+Defined in: [core/knot.ts:618](https://github.com/siposdani87/sui-js/blob/27883240db7565f37a562e906b93c8d6552ac058/src/core/knot.ts#L618)
 
 Removes a specific child Knot from this element. Logs a warning
 if the child is not found instead of throwing.
@@ -1065,7 +1065,7 @@ parent.removeChild(child);
 
 > **removeChildren**(): `void`
 
-Defined in: [core/knot.ts:593](https://github.com/siposdani87/sui-js/blob/433cda184a013753ef41bb6ba61d0b3944481fa1/src/core/knot.ts#L593)
+Defined in: [core/knot.ts:593](https://github.com/siposdani87/sui-js/blob/27883240db7565f37a562e906b93c8d6552ac058/src/core/knot.ts#L593)
 
 Removes all child nodes from the element, leaving it empty.
 
@@ -1085,7 +1085,7 @@ knot.removeChildren(); // clears all inner content
 
 > **removeClass**(`cssClasses`): `void`
 
-Defined in: [core/knot.ts:288](https://github.com/siposdani87/sui-js/blob/433cda184a013753ef41bb6ba61d0b3944481fa1/src/core/knot.ts#L288)
+Defined in: [core/knot.ts:288](https://github.com/siposdani87/sui-js/blob/27883240db7565f37a562e906b93c8d6552ac058/src/core/knot.ts#L288)
 
 Removes one or more CSS classes from the element.
 
@@ -1115,7 +1115,7 @@ knot.removeClass(['fade-in', 'animate']);
 
 > **removeData**(`name`): `void`
 
-Defined in: [core/knot.ts:884](https://github.com/siposdani87/sui-js/blob/433cda184a013753ef41bb6ba61d0b3944481fa1/src/core/knot.ts#L884)
+Defined in: [core/knot.ts:884](https://github.com/siposdani87/sui-js/blob/27883240db7565f37a562e906b93c8d6552ac058/src/core/knot.ts#L884)
 
 Removes a `data-*` attribute from the element by deleting both
 the `dataset` property and the corresponding HTML attribute.
@@ -1144,7 +1144,7 @@ knot.removeData('userId');
 
 > **removeEventListener**(`eventName`, `listener`): `void`
 
-Defined in: [core/knot.ts:509](https://github.com/siposdani87/sui-js/blob/433cda184a013753ef41bb6ba61d0b3944481fa1/src/core/knot.ts#L509)
+Defined in: [core/knot.ts:509](https://github.com/siposdani87/sui-js/blob/27883240db7565f37a562e906b93c8d6552ac058/src/core/knot.ts#L509)
 
 Removes a single, previously registered event listener from the
 element.
@@ -1181,7 +1181,7 @@ knot.removeEventListener('click', listener);
 
 > **removeEventListeners**(`eventName`): `void`
 
-Defined in: [core/knot.ts:525](https://github.com/siposdani87/sui-js/blob/433cda184a013753ef41bb6ba61d0b3944481fa1/src/core/knot.ts#L525)
+Defined in: [core/knot.ts:525](https://github.com/siposdani87/sui-js/blob/27883240db7565f37a562e906b93c8d6552ac058/src/core/knot.ts#L525)
 
 Removes all listeners previously registered for the given event
 name via [Knot.addEventListener](#addeventlistener). Uses the internal listener
@@ -1211,7 +1211,7 @@ knot.removeEventListeners('click');
 
 > **removeStyle**(`properties`): `void`
 
-Defined in: [core/knot.ts:975](https://github.com/siposdani87/sui-js/blob/433cda184a013753ef41bb6ba61d0b3944481fa1/src/core/knot.ts#L975)
+Defined in: [core/knot.ts:975](https://github.com/siposdani87/sui-js/blob/27883240db7565f37a562e906b93c8d6552ac058/src/core/knot.ts#L975)
 
 Removes one or more inline CSS properties from the element.
 
@@ -1240,7 +1240,7 @@ knot.removeStyle(['background-color', 'opacity']);
 
 > **replaceChild**(`knot`): `boolean`
 
-Defined in: [core/knot.ts:750](https://github.com/siposdani87/sui-js/blob/433cda184a013753ef41bb6ba61d0b3944481fa1/src/core/knot.ts#L750)
+Defined in: [core/knot.ts:750](https://github.com/siposdani87/sui-js/blob/27883240db7565f37a562e906b93c8d6552ac058/src/core/knot.ts#L750)
 
 Replaces this element in the DOM with the provided Knot's element.
 
@@ -1272,7 +1272,7 @@ oldKnot.replaceChild(newKnot);
 
 > **set**(`attribute`, `value`): `void`
 
-Defined in: [core/knot.ts:111](https://github.com/siposdani87/sui-js/blob/433cda184a013753ef41bb6ba61d0b3944481fa1/src/core/knot.ts#L111)
+Defined in: [core/knot.ts:111](https://github.com/siposdani87/sui-js/blob/27883240db7565f37a562e906b93c8d6552ac058/src/core/knot.ts#L111)
 
 Sets an attribute on the underlying element. If the attribute is
 `'id'`, delegates to [Knot.setId](#setid) for consistent handling.
@@ -1309,7 +1309,7 @@ knot.set('id', 'main-nav');
 
 > **setAttribute**(`attribute`, `opt_value?`): `void`
 
-Defined in: [core/knot.ts:343](https://github.com/siposdani87/sui-js/blob/433cda184a013753ef41bb6ba61d0b3944481fa1/src/core/knot.ts#L343)
+Defined in: [core/knot.ts:343](https://github.com/siposdani87/sui-js/blob/27883240db7565f37a562e906b93c8d6552ac058/src/core/knot.ts#L343)
 
 Sets a single attribute on the underlying element. Handles three
 special cases:
@@ -1358,7 +1358,7 @@ knot.setAttribute('disabled');
 
 > **setData**(`name`, `value`): `void`
 
-Defined in: [core/knot.ts:842](https://github.com/siposdani87/sui-js/blob/433cda184a013753ef41bb6ba61d0b3944481fa1/src/core/knot.ts#L842)
+Defined in: [core/knot.ts:842](https://github.com/siposdani87/sui-js/blob/27883240db7565f37a562e906b93c8d6552ac058/src/core/knot.ts#L842)
 
 Sets a `data-*` attribute on the element via the `dataset` API.
 Non-string, non-Infinity values are JSON-serialized before being
@@ -1398,7 +1398,7 @@ knot.setData('config', { theme: 'dark', lang: 'en' });
 
 > **setFor**(`htmlFor`): `void`
 
-Defined in: [core/knot.ts:209](https://github.com/siposdani87/sui-js/blob/433cda184a013753ef41bb6ba61d0b3944481fa1/src/core/knot.ts#L209)
+Defined in: [core/knot.ts:209](https://github.com/siposdani87/sui-js/blob/27883240db7565f37a562e906b93c8d6552ac058/src/core/knot.ts#L209)
 
 Sets the `for` attribute on a `<label>` element, linking it to a
 form control by id. Updates both the DOM property and the HTML
@@ -1429,7 +1429,7 @@ label.setFor('email-input');
 
 > **setHtml**(`text`): `void`
 
-Defined in: [core/knot.ts:781](https://github.com/siposdani87/sui-js/blob/433cda184a013753ef41bb6ba61d0b3944481fa1/src/core/knot.ts#L781)
+Defined in: [core/knot.ts:781](https://github.com/siposdani87/sui-js/blob/27883240db7565f37a562e906b93c8d6552ac058/src/core/knot.ts#L781)
 
 Sets the inner HTML content of the element.
 
@@ -1457,7 +1457,7 @@ knot.setHtml('<strong>Bold</strong> text');
 
 > **setId**(`id`): `void`
 
-Defined in: [core/knot.ts:195](https://github.com/siposdani87/sui-js/blob/433cda184a013753ef41bb6ba61d0b3944481fa1/src/core/knot.ts#L195)
+Defined in: [core/knot.ts:195](https://github.com/siposdani87/sui-js/blob/27883240db7565f37a562e906b93c8d6552ac058/src/core/knot.ts#L195)
 
 Sets the element's `id` attribute.
 
@@ -1485,7 +1485,7 @@ knot.setId('sidebar');
 
 > **setParentKnot**(`parentKnot`): `void`
 
-Defined in: [core/knot.ts:96](https://github.com/siposdani87/sui-js/blob/433cda184a013753ef41bb6ba61d0b3944481fa1/src/core/knot.ts#L96)
+Defined in: [core/knot.ts:96](https://github.com/siposdani87/sui-js/blob/27883240db7565f37a562e906b93c8d6552ac058/src/core/knot.ts#L96)
 
 Replaces the logical parent tracked by this Knot.
 
@@ -1508,7 +1508,7 @@ The new parent Knot, or `undefined` to clear
 
 > **setStyle**(`properties`): `void`
 
-Defined in: [core/knot.ts:961](https://github.com/siposdani87/sui-js/blob/433cda184a013753ef41bb6ba61d0b3944481fa1/src/core/knot.ts#L961)
+Defined in: [core/knot.ts:961](https://github.com/siposdani87/sui-js/blob/27883240db7565f37a562e906b93c8d6552ac058/src/core/knot.ts#L961)
 
 Sets one or more inline CSS properties on the element using
 `style.setProperty`.
@@ -1539,7 +1539,7 @@ knot.setStyle({ 'background-color': '#fff', 'opacity': '0.9' });
 
 > **setText**(`text`): `void`
 
-Defined in: [core/knot.ts:812](https://github.com/siposdani87/sui-js/blob/433cda184a013753ef41bb6ba61d0b3944481fa1/src/core/knot.ts#L812)
+Defined in: [core/knot.ts:812](https://github.com/siposdani87/sui-js/blob/27883240db7565f37a562e906b93c8d6552ac058/src/core/knot.ts#L812)
 
 Sets the text content of the node via `nodeValue`. Useful for
 text nodes; for element content prefer [Knot.setHtml](#sethtml).
@@ -1568,7 +1568,7 @@ textNode.setText('Updated label');
 
 > **toggleClass**(`cssClasses`): `void`
 
-Defined in: [core/knot.ts:303](https://github.com/siposdani87/sui-js/blob/433cda184a013753ef41bb6ba61d0b3944481fa1/src/core/knot.ts#L303)
+Defined in: [core/knot.ts:303](https://github.com/siposdani87/sui-js/blob/27883240db7565f37a562e906b93c8d6552ac058/src/core/knot.ts#L303)
 
 Toggles one or more CSS classes on the element. Each class is
 added if absent, or removed if present.
@@ -1598,7 +1598,7 @@ knot.toggleClass('expanded');
 
 > **toString**(`opt_isRoot?`): `string`
 
-Defined in: [core/knot.ts:1020](https://github.com/siposdani87/sui-js/blob/433cda184a013753ef41bb6ba61d0b3944481fa1/src/core/knot.ts#L1020)
+Defined in: [core/knot.ts:1020](https://github.com/siposdani87/sui-js/blob/27883240db7565f37a562e906b93c8d6552ac058/src/core/knot.ts#L1020)
 
 Returns an HTML string representation of the element.
 
@@ -1631,7 +1631,7 @@ const inner = knot.toString(false); // '...'
 
 > **trigger**(`eventName`): `void`
 
-Defined in: [core/knot.ts:551](https://github.com/siposdani87/sui-js/blob/433cda184a013753ef41bb6ba61d0b3944481fa1/src/core/knot.ts#L551)
+Defined in: [core/knot.ts:551](https://github.com/siposdani87/sui-js/blob/27883240db7565f37a562e906b93c8d6552ac058/src/core/knot.ts#L551)
 
 Creates and dispatches a synthetic DOM event, triggering any
 listeners bound to the given event name.

@@ -1,6 +1,6 @@
 # Class: Flash
 
-Defined in: [module/flash.ts:50](https://github.com/siposdani87/sui-js/blob/433cda184a013753ef41bb6ba61d0b3944481fa1/src/module/flash.ts#L50)
+Defined in: [module/flash.ts:50](https://github.com/siposdani87/sui-js/blob/27883240db7565f37a562e906b93c8d6552ac058/src/module/flash.ts#L50)
 
 Flash message notification system for displaying temporary, styled
 messages to the user. Supports multiple message types (`'success'`,
@@ -55,7 +55,7 @@ flash.removeById('upload-progress');
 
 > **new Flash**(`opt_options?`): `Flash`
 
-Defined in: [module/flash.ts:64](https://github.com/siposdani87/sui-js/blob/433cda184a013753ef41bb6ba61d0b3944481fa1/src/module/flash.ts#L64)
+Defined in: [module/flash.ts:64](https://github.com/siposdani87/sui-js/blob/27883240db7565f37a562e906b93c8d6552ac058/src/module/flash.ts#L64)
 
 Creates a new Flash instance.
 
@@ -82,7 +82,7 @@ Configuration options merged with defaults.
 
 > **container**: [`Knot`](Knot.md)
 
-Defined in: [module/flash.ts:51](https://github.com/siposdani87/sui-js/blob/433cda184a013753ef41bb6ba61d0b3944481fa1/src/module/flash.ts#L51)
+Defined in: [module/flash.ts:51](https://github.com/siposdani87/sui-js/blob/27883240db7565f37a562e906b93c8d6552ac058/src/module/flash.ts#L51)
 
 ***
 
@@ -90,7 +90,7 @@ Defined in: [module/flash.ts:51](https://github.com/siposdani87/sui-js/blob/433c
 
 > **options**: [`Objekt`](Objekt.md)
 
-Defined in: [module/flash.ts:52](https://github.com/siposdani87/sui-js/blob/433cda184a013753ef41bb6ba61d0b3944481fa1/src/module/flash.ts#L52)
+Defined in: [module/flash.ts:52](https://github.com/siposdani87/sui-js/blob/27883240db7565f37a562e906b93c8d6552ac058/src/module/flash.ts#L52)
 
 ## Methods
 
@@ -98,7 +98,7 @@ Defined in: [module/flash.ts:52](https://github.com/siposdani87/sui-js/blob/433c
 
 > **addDefault**(`message`, `opt_duration?`, `opt_closeCallback?`, `opt_id?`): [`Knot`](Knot.md)
 
-Defined in: [module/flash.ts:454](https://github.com/siposdani87/sui-js/blob/433cda184a013753ef41bb6ba61d0b3944481fa1/src/module/flash.ts#L454)
+Defined in: [module/flash.ts:454](https://github.com/siposdani87/sui-js/blob/27883240db7565f37a562e906b93c8d6552ac058/src/module/flash.ts#L454)
 
 Adds a default-type flash message with no special styling.
 
@@ -148,7 +148,7 @@ flash.addDefault('Action completed.');
 
 > **addError**(`message`, `opt_duration?`, `opt_closeCallback?`, `opt_id?`): [`Knot`](Knot.md)
 
-Defined in: [module/flash.ts:374](https://github.com/siposdani87/sui-js/blob/433cda184a013753ef41bb6ba61d0b3944481fa1/src/module/flash.ts#L374)
+Defined in: [module/flash.ts:374](https://github.com/siposdani87/sui-js/blob/27883240db7565f37a562e906b93c8d6552ac058/src/module/flash.ts#L374)
 
 Adds an error-type flash message. Error messages are closable by
 default (they display a close button and do not auto-dismiss).
@@ -206,7 +206,7 @@ flash.addError('Connection lost.', 0, () => {
 
 > **addInfo**(`message`, `opt_duration?`, `opt_closeCallback?`, `opt_id?`): [`Knot`](Knot.md)
 
-Defined in: [module/flash.ts:309](https://github.com/siposdani87/sui-js/blob/433cda184a013753ef41bb6ba61d0b3944481fa1/src/module/flash.ts#L309)
+Defined in: [module/flash.ts:309](https://github.com/siposdani87/sui-js/blob/27883240db7565f37a562e906b93c8d6552ac058/src/module/flash.ts#L309)
 
 Adds an info-type flash message.
 
@@ -256,7 +256,7 @@ flash.addInfo('New version available.');
 
 > **addMessage**(`message`, `opt_duration?`, `opt_closeCallback?`, `opt_id?`): [`Knot`](Knot.md)\<`HTMLElement`\> \| `null`
 
-Defined in: [module/flash.ts:421](https://github.com/siposdani87/sui-js/blob/433cda184a013753ef41bb6ba61d0b3944481fa1/src/module/flash.ts#L421)
+Defined in: [module/flash.ts:421](https://github.com/siposdani87/sui-js/blob/27883240db7565f37a562e906b93c8d6552ac058/src/module/flash.ts#L421)
 
 Adds a flash message from a structured message object. The object
 must contain `type` and `content` properties. When the `closable`
@@ -335,7 +335,7 @@ flash.addMessage({
 
 > **addSuccess**(`message`, `opt_duration?`, `opt_closeCallback?`, `opt_id?`): [`Knot`](Knot.md)
 
-Defined in: [module/flash.ts:280](https://github.com/siposdani87/sui-js/blob/433cda184a013753ef41bb6ba61d0b3944481fa1/src/module/flash.ts#L280)
+Defined in: [module/flash.ts:280](https://github.com/siposdani87/sui-js/blob/27883240db7565f37a562e906b93c8d6552ac058/src/module/flash.ts#L280)
 
 Adds a success-type flash message.
 
@@ -385,7 +385,7 @@ flash.addSuccess('Profile updated successfully.');
 
 > **addWarning**(`message`, `opt_duration?`, `opt_closeCallback?`, `opt_id?`): [`Knot`](Knot.md)
 
-Defined in: [module/flash.ts:338](https://github.com/siposdani87/sui-js/blob/433cda184a013753ef41bb6ba61d0b3944481fa1/src/module/flash.ts#L338)
+Defined in: [module/flash.ts:338](https://github.com/siposdani87/sui-js/blob/27883240db7565f37a562e906b93c8d6552ac058/src/module/flash.ts#L338)
 
 Adds a warning-type flash message.
 
@@ -435,7 +435,7 @@ flash.addWarning('Disk space is running low.');
 
 > **remove**(`flash`, `opt_closeCallback?`): `void`
 
-Defined in: [module/flash.ts:256](https://github.com/siposdani87/sui-js/blob/433cda184a013753ef41bb6ba61d0b3944481fa1/src/module/flash.ts#L256)
+Defined in: [module/flash.ts:256](https://github.com/siposdani87/sui-js/blob/27883240db7565f37a562e906b93c8d6552ac058/src/module/flash.ts#L256)
 
 Removes a flash message from the container and invokes the
 optional close callback.
@@ -473,7 +473,7 @@ flash.remove(flashKnot);
 
 > **removeById**(`opt_id?`): `void`
 
-Defined in: [module/flash.ts:214](https://github.com/siposdani87/sui-js/blob/433cda184a013753ef41bb6ba61d0b3944481fa1/src/module/flash.ts#L214)
+Defined in: [module/flash.ts:214](https://github.com/siposdani87/sui-js/blob/27883240db7565f37a562e906b93c8d6552ac058/src/module/flash.ts#L214)
 
 Removes all flash messages with the given data-id attribute from
 the container.

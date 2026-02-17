@@ -2,7 +2,7 @@
 
 > **md5**(`str`): `string`
 
-Defined in: [utils/coder.ts:103](https://github.com/siposdani87/sui-js/blob/433cda184a013753ef41bb6ba61d0b3944481fa1/src/utils/coder.ts#L103)
+Defined in: [utils/coder.ts:103](https://github.com/siposdani87/sui-js/blob/27883240db7565f37a562e906b93c8d6552ac058/src/utils/coder.ts#L103)
 
 Computes the MD5 hash of a string using crypto-js.
 

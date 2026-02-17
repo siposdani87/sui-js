@@ -1,6 +1,6 @@
 # Class: ColorField
 
-Defined in: [field/colorField.ts:26](https://github.com/siposdani87/sui-js/blob/433cda184a013753ef41bb6ba61d0b3944481fa1/src/field/colorField.ts#L26)
+Defined in: [field/colorField.ts:26](https://github.com/siposdani87/sui-js/blob/27883240db7565f37a562e906b93c8d6552ac058/src/field/colorField.ts#L26)
 
 Color picker field with a Material Design color palette and a
 [Canvas](Canvas.md)-based image picker.  Displays a color preview swatch and
@@ -31,7 +31,7 @@ field.render();
 
 > **new ColorField**(`input`, `label`, `error`, `inputBlock`): `ColorField`
 
-Defined in: [field/colorField.ts:48](https://github.com/siposdani87/sui-js/blob/433cda184a013753ef41bb6ba61d0b3944481fa1/src/field/colorField.ts#L48)
+Defined in: [field/colorField.ts:48](https://github.com/siposdani87/sui-js/blob/27883240db7565f37a562e906b93c8d6552ac058/src/field/colorField.ts#L48)
 
 #### Parameters
 
@@ -73,7 +73,7 @@ The block-level container wrapping the entire field.
 
 > **actionContainerKnot**: [`Knot`](Knot.md)
 
-Defined in: [field/baseField.ts:29](https://github.com/siposdani87/sui-js/blob/433cda184a013753ef41bb6ba61d0b3944481fa1/src/field/baseField.ts#L29)
+Defined in: [field/baseField.ts:29](https://github.com/siposdani87/sui-js/blob/27883240db7565f37a562e906b93c8d6552ac058/src/field/baseField.ts#L29)
 
 #### Inherited from
 
@@ -85,7 +85,7 @@ Defined in: [field/baseField.ts:29](https://github.com/siposdani87/sui-js/blob/4
 
 > **canvas**: [`Canvas`](Canvas.md)
 
-Defined in: [field/colorField.ts:36](https://github.com/siposdani87/sui-js/blob/433cda184a013753ef41bb6ba61d0b3944481fa1/src/field/colorField.ts#L36)
+Defined in: [field/colorField.ts:36](https://github.com/siposdani87/sui-js/blob/27883240db7565f37a562e906b93c8d6552ac058/src/field/colorField.ts#L36)
 
 Canvas used to render the color palette or image picker.
 
@@ -95,7 +95,7 @@ Canvas used to render the color palette or image picker.
 
 > **colorKnot**: [`Knot`](Knot.md)
 
-Defined in: [field/colorField.ts:32](https://github.com/siposdani87/sui-js/blob/433cda184a013753ef41bb6ba61d0b3944481fa1/src/field/colorField.ts#L32)
+Defined in: [field/colorField.ts:32](https://github.com/siposdani87/sui-js/blob/27883240db7565f37a562e906b93c8d6552ac058/src/field/colorField.ts#L32)
 
 Inner element within the preview swatch.
 
@@ -105,7 +105,7 @@ Inner element within the preview swatch.
 
 > **colors**: `string`[][]
 
-Defined in: [field/colorField.ts:40](https://github.com/siposdani87/sui-js/blob/433cda184a013753ef41bb6ba61d0b3944481fa1/src/field/colorField.ts#L40)
+Defined in: [field/colorField.ts:40](https://github.com/siposdani87/sui-js/blob/27883240db7565f37a562e906b93c8d6552ac058/src/field/colorField.ts#L40)
 
 Two-dimensional array of Material Design color hex values.
 
@@ -115,7 +115,7 @@ Two-dimensional array of Material Design color hex values.
 
 > **disabled**: `boolean`
 
-Defined in: [field/baseField.ts:30](https://github.com/siposdani87/sui-js/blob/433cda184a013753ef41bb6ba61d0b3944481fa1/src/field/baseField.ts#L30)
+Defined in: [field/baseField.ts:30](https://github.com/siposdani87/sui-js/blob/27883240db7565f37a562e906b93c8d6552ac058/src/field/baseField.ts#L30)
 
 #### Inherited from
 
@@ -127,7 +127,7 @@ Defined in: [field/baseField.ts:30](https://github.com/siposdani87/sui-js/blob/4
 
 > **error**: [`Knot`](Knot.md)
 
-Defined in: [field/baseField.ts:24](https://github.com/siposdani87/sui-js/blob/433cda184a013753ef41bb6ba61d0b3944481fa1/src/field/baseField.ts#L24)
+Defined in: [field/baseField.ts:24](https://github.com/siposdani87/sui-js/blob/27883240db7565f37a562e906b93c8d6552ac058/src/field/baseField.ts#L24)
 
 #### Inherited from
 
@@ -139,7 +139,7 @@ Defined in: [field/baseField.ts:24](https://github.com/siposdani87/sui-js/blob/4
 
 > **errorTooltip**: [`Tooltip`](Tooltip.md)
 
-Defined in: [field/baseField.ts:27](https://github.com/siposdani87/sui-js/blob/433cda184a013753ef41bb6ba61d0b3944481fa1/src/field/baseField.ts#L27)
+Defined in: [field/baseField.ts:27](https://github.com/siposdani87/sui-js/blob/27883240db7565f37a562e906b93c8d6552ac058/src/field/baseField.ts#L27)
 
 #### Inherited from
 
@@ -151,7 +151,7 @@ Defined in: [field/baseField.ts:27](https://github.com/siposdani87/sui-js/blob/4
 
 > `optional` **form**: [`Form`](Form.md)
 
-Defined in: [field/baseField.ts:26](https://github.com/siposdani87/sui-js/blob/433cda184a013753ef41bb6ba61d0b3944481fa1/src/field/baseField.ts#L26)
+Defined in: [field/baseField.ts:26](https://github.com/siposdani87/sui-js/blob/27883240db7565f37a562e906b93c8d6552ac058/src/field/baseField.ts#L26)
 
 #### Inherited from
 
@@ -163,7 +163,7 @@ Defined in: [field/baseField.ts:26](https://github.com/siposdani87/sui-js/blob/4
 
 > **image**: [`Knot`](Knot.md)\<`HTMLImageElement`\>
 
-Defined in: [field/colorField.ts:38](https://github.com/siposdani87/sui-js/blob/433cda184a013753ef41bb6ba61d0b3944481fa1/src/field/colorField.ts#L38)
+Defined in: [field/colorField.ts:38](https://github.com/siposdani87/sui-js/blob/27883240db7565f37a562e906b93c8d6552ac058/src/field/colorField.ts#L38)
 
 Optional image element used as a custom color source.
 
@@ -173,7 +173,7 @@ Optional image element used as a custom color source.
 
 > **infoContainerKnot**: [`Knot`](Knot.md)
 
-Defined in: [field/baseField.ts:28](https://github.com/siposdani87/sui-js/blob/433cda184a013753ef41bb6ba61d0b3944481fa1/src/field/baseField.ts#L28)
+Defined in: [field/baseField.ts:28](https://github.com/siposdani87/sui-js/blob/27883240db7565f37a562e906b93c8d6552ac058/src/field/baseField.ts#L28)
 
 #### Inherited from
 
@@ -185,7 +185,7 @@ Defined in: [field/baseField.ts:28](https://github.com/siposdani87/sui-js/blob/4
 
 > **input**: [`Knot`](Knot.md)\<`HTMLInputElement`\>
 
-Defined in: [field/baseField.ts:22](https://github.com/siposdani87/sui-js/blob/433cda184a013753ef41bb6ba61d0b3944481fa1/src/field/baseField.ts#L22)
+Defined in: [field/baseField.ts:22](https://github.com/siposdani87/sui-js/blob/27883240db7565f37a562e906b93c8d6552ac058/src/field/baseField.ts#L22)
 
 #### Inherited from
 
@@ -197,7 +197,7 @@ Defined in: [field/baseField.ts:22](https://github.com/siposdani87/sui-js/blob/4
 
 > **inputBlock**: [`Knot`](Knot.md)
 
-Defined in: [field/baseField.ts:25](https://github.com/siposdani87/sui-js/blob/433cda184a013753ef41bb6ba61d0b3944481fa1/src/field/baseField.ts#L25)
+Defined in: [field/baseField.ts:25](https://github.com/siposdani87/sui-js/blob/27883240db7565f37a562e906b93c8d6552ac058/src/field/baseField.ts#L25)
 
 #### Inherited from
 
@@ -209,7 +209,7 @@ Defined in: [field/baseField.ts:25](https://github.com/siposdani87/sui-js/blob/4
 
 > **label**: [`Knot`](Knot.md)
 
-Defined in: [field/baseField.ts:23](https://github.com/siposdani87/sui-js/blob/433cda184a013753ef41bb6ba61d0b3944481fa1/src/field/baseField.ts#L23)
+Defined in: [field/baseField.ts:23](https://github.com/siposdani87/sui-js/blob/27883240db7565f37a562e906b93c8d6552ac058/src/field/baseField.ts#L23)
 
 #### Inherited from
 
@@ -221,7 +221,7 @@ Defined in: [field/baseField.ts:23](https://github.com/siposdani87/sui-js/blob/4
 
 > **popup**: [`Popup`](Popup.md)
 
-Defined in: [field/colorField.ts:34](https://github.com/siposdani87/sui-js/blob/433cda184a013753ef41bb6ba61d0b3944481fa1/src/field/colorField.ts#L34)
+Defined in: [field/colorField.ts:34](https://github.com/siposdani87/sui-js/blob/27883240db7565f37a562e906b93c8d6552ac058/src/field/colorField.ts#L34)
 
 Popup overlay containing the color palette.
 
@@ -231,7 +231,7 @@ Popup overlay containing the color palette.
 
 > **previewKnot**: [`Knot`](Knot.md)
 
-Defined in: [field/colorField.ts:30](https://github.com/siposdani87/sui-js/blob/433cda184a013753ef41bb6ba61d0b3944481fa1/src/field/colorField.ts#L30)
+Defined in: [field/colorField.ts:30](https://github.com/siposdani87/sui-js/blob/27883240db7565f37a562e906b93c8d6552ac058/src/field/colorField.ts#L30)
 
 Swatch element previewing the selected color.
 
@@ -241,7 +241,7 @@ Swatch element previewing the selected color.
 
 > **tooltip**: [`Tooltip`](Tooltip.md)
 
-Defined in: [field/colorField.ts:28](https://github.com/siposdani87/sui-js/blob/433cda184a013753ef41bb6ba61d0b3944481fa1/src/field/colorField.ts#L28)
+Defined in: [field/colorField.ts:28](https://github.com/siposdani87/sui-js/blob/27883240db7565f37a562e906b93c8d6552ac058/src/field/colorField.ts#L28)
 
 Tooltip displaying the current hex color value.
 
@@ -251,7 +251,7 @@ Tooltip displaying the current hex color value.
 
 > `protected` **\_getAttributeName**(`inputName`): `string`
 
-Defined in: [field/baseField.ts:157](https://github.com/siposdani87/sui-js/blob/433cda184a013753ef41bb6ba61d0b3944481fa1/src/field/baseField.ts#L157)
+Defined in: [field/baseField.ts:157](https://github.com/siposdani87/sui-js/blob/27883240db7565f37a562e906b93c8d6552ac058/src/field/baseField.ts#L157)
 
 #### Parameters
 
@@ -281,7 +281,7 @@ Converts an HTML input name attribute to dot notation by replacing brackets.
 
 > `protected` **\_getLabelRequiredText**(`labelText`): `string`
 
-Defined in: [field/baseField.ts:520](https://github.com/siposdani87/sui-js/blob/433cda184a013753ef41bb6ba61d0b3944481fa1/src/field/baseField.ts#L520)
+Defined in: [field/baseField.ts:520](https://github.com/siposdani87/sui-js/blob/27883240db7565f37a562e906b93c8d6552ac058/src/field/baseField.ts#L520)
 
 #### Parameters
 
@@ -311,7 +311,7 @@ Appends or removes the required asterisk (*) postfix from the label text.
 
 > `protected` **\_setAdditionalLabel**(`label`): `void`
 
-Defined in: [field/baseField.ts:507](https://github.com/siposdani87/sui-js/blob/433cda184a013753ef41bb6ba61d0b3944481fa1/src/field/baseField.ts#L507)
+Defined in: [field/baseField.ts:507](https://github.com/siposdani87/sui-js/blob/27883240db7565f37a562e906b93c8d6552ac058/src/field/baseField.ts#L507)
 
 #### Parameters
 
@@ -339,7 +339,7 @@ Updates the label text with a required indicator and sets up the info tooltip.
 
 > **checkValidity**(`opt_force?`, `opt_showMessage?`): `void`
 
-Defined in: [field/baseField.ts:196](https://github.com/siposdani87/sui-js/blob/433cda184a013753ef41bb6ba61d0b3944481fa1/src/field/baseField.ts#L196)
+Defined in: [field/baseField.ts:196](https://github.com/siposdani87/sui-js/blob/27883240db7565f37a562e906b93c8d6552ac058/src/field/baseField.ts#L196)
 
 #### Parameters
 
@@ -380,7 +380,7 @@ field.checkValidity(true, false); // force visual update, suppress message
 
 > **eventChange**(`value`, `previousValue`): `void`
 
-Defined in: [field/baseField.ts:72](https://github.com/siposdani87/sui-js/blob/433cda184a013753ef41bb6ba61d0b3944481fa1/src/field/baseField.ts#L72)
+Defined in: [field/baseField.ts:72](https://github.com/siposdani87/sui-js/blob/27883240db7565f37a562e906b93c8d6552ac058/src/field/baseField.ts#L72)
 
 #### Parameters
 
@@ -422,7 +422,7 @@ field.eventChange = (value, previousValue) => {
 
 > **eventClick**(`knot`): `void`
 
-Defined in: [field/baseField.ts:84](https://github.com/siposdani87/sui-js/blob/433cda184a013753ef41bb6ba61d0b3944481fa1/src/field/baseField.ts#L84)
+Defined in: [field/baseField.ts:84](https://github.com/siposdani87/sui-js/blob/27883240db7565f37a562e906b93c8d6552ac058/src/field/baseField.ts#L84)
 
 #### Parameters
 
@@ -458,7 +458,7 @@ field.eventClick = (knot) => {
 
 > **exists**(): `boolean`
 
-Defined in: [field/baseField.ts:273](https://github.com/siposdani87/sui-js/blob/433cda184a013753ef41bb6ba61d0b3944481fa1/src/field/baseField.ts#L273)
+Defined in: [field/baseField.ts:273](https://github.com/siposdani87/sui-js/blob/27883240db7565f37a562e906b93c8d6552ac058/src/field/baseField.ts#L273)
 
 #### Returns
 
@@ -488,7 +488,7 @@ if (field.exists()) {
 
 > **existsInput**(): `boolean`
 
-Defined in: [field/baseField.ts:285](https://github.com/siposdani87/sui-js/blob/433cda184a013753ef41bb6ba61d0b3944481fa1/src/field/baseField.ts#L285)
+Defined in: [field/baseField.ts:285](https://github.com/siposdani87/sui-js/blob/27883240db7565f37a562e906b93c8d6552ac058/src/field/baseField.ts#L285)
 
 #### Returns
 
@@ -518,7 +518,7 @@ if (field.existsInput()) {
 
 > **existsInputBlock**(): `boolean`
 
-Defined in: [field/baseField.ts:297](https://github.com/siposdani87/sui-js/blob/433cda184a013753ef41bb6ba61d0b3944481fa1/src/field/baseField.ts#L297)
+Defined in: [field/baseField.ts:297](https://github.com/siposdani87/sui-js/blob/27883240db7565f37a562e906b93c8d6552ac058/src/field/baseField.ts#L297)
 
 #### Returns
 
@@ -548,7 +548,7 @@ if (field.existsInputBlock()) {
 
 > **get**(`attribute`): `any`
 
-Defined in: [field/baseField.ts:308](https://github.com/siposdani87/sui-js/blob/433cda184a013753ef41bb6ba61d0b3944481fa1/src/field/baseField.ts#L308)
+Defined in: [field/baseField.ts:308](https://github.com/siposdani87/sui-js/blob/27883240db7565f37a562e906b93c8d6552ac058/src/field/baseField.ts#L308)
 
 #### Parameters
 
@@ -584,7 +584,7 @@ const type = field.get('type'); // 'text'
 
 > **getName**(): `string`
 
-Defined in: [field/baseField.ts:136](https://github.com/siposdani87/sui-js/blob/433cda184a013753ef41bb6ba61d0b3944481fa1/src/field/baseField.ts#L136)
+Defined in: [field/baseField.ts:136](https://github.com/siposdani87/sui-js/blob/27883240db7565f37a562e906b93c8d6552ac058/src/field/baseField.ts#L136)
 
 #### Returns
 
@@ -613,7 +613,7 @@ const name = field.getName(); // 'user.address.city'
 
 > **getPreviousValue**(): `any`
 
-Defined in: [field/baseField.ts:124](https://github.com/siposdani87/sui-js/blob/433cda184a013753ef41bb6ba61d0b3944481fa1/src/field/baseField.ts#L124)
+Defined in: [field/baseField.ts:124](https://github.com/siposdani87/sui-js/blob/27883240db7565f37a562e906b93c8d6552ac058/src/field/baseField.ts#L124)
 
 #### Returns
 
@@ -641,7 +641,7 @@ const prev = field.getPreviousValue();
 
 > **getValue**(): `any`
 
-Defined in: [field/baseField.ts:147](https://github.com/siposdani87/sui-js/blob/433cda184a013753ef41bb6ba61d0b3944481fa1/src/field/baseField.ts#L147)
+Defined in: [field/baseField.ts:147](https://github.com/siposdani87/sui-js/blob/27883240db7565f37a562e906b93c8d6552ac058/src/field/baseField.ts#L147)
 
 #### Returns
 
@@ -669,7 +669,7 @@ const value = field.getValue();
 
 > **hide**(): `void`
 
-Defined in: [field/baseField.ts:423](https://github.com/siposdani87/sui-js/blob/433cda184a013753ef41bb6ba61d0b3944481fa1/src/field/baseField.ts#L423)
+Defined in: [field/baseField.ts:423](https://github.com/siposdani87/sui-js/blob/27883240db7565f37a562e906b93c8d6552ac058/src/field/baseField.ts#L423)
 
 #### Returns
 
@@ -695,7 +695,7 @@ field.hide();
 
 > **isDisabled**(): `boolean`
 
-Defined in: [field/baseField.ts:361](https://github.com/siposdani87/sui-js/blob/433cda184a013753ef41bb6ba61d0b3944481fa1/src/field/baseField.ts#L361)
+Defined in: [field/baseField.ts:361](https://github.com/siposdani87/sui-js/blob/27883240db7565f37a562e906b93c8d6552ac058/src/field/baseField.ts#L361)
 
 #### Returns
 
@@ -725,7 +725,7 @@ if (field.isDisabled()) {
 
 > **isEnabled**(): `boolean`
 
-Defined in: [field/baseField.ts:349](https://github.com/siposdani87/sui-js/blob/433cda184a013753ef41bb6ba61d0b3944481fa1/src/field/baseField.ts#L349)
+Defined in: [field/baseField.ts:349](https://github.com/siposdani87/sui-js/blob/27883240db7565f37a562e906b93c8d6552ac058/src/field/baseField.ts#L349)
 
 #### Returns
 
@@ -755,7 +755,7 @@ if (field.isEnabled()) {
 
 > **isRequired**(): `boolean`
 
-Defined in: [field/baseField.ts:320](https://github.com/siposdani87/sui-js/blob/433cda184a013753ef41bb6ba61d0b3944481fa1/src/field/baseField.ts#L320)
+Defined in: [field/baseField.ts:320](https://github.com/siposdani87/sui-js/blob/27883240db7565f37a562e906b93c8d6552ac058/src/field/baseField.ts#L320)
 
 #### Returns
 
@@ -785,7 +785,7 @@ if (field.isRequired()) {
 
 > **isValid**(): `boolean`
 
-Defined in: [field/baseField.ts:241](https://github.com/siposdani87/sui-js/blob/433cda184a013753ef41bb6ba61d0b3944481fa1/src/field/baseField.ts#L241)
+Defined in: [field/baseField.ts:241](https://github.com/siposdani87/sui-js/blob/27883240db7565f37a562e906b93c8d6552ac058/src/field/baseField.ts#L241)
 
 #### Returns
 
@@ -815,7 +815,7 @@ if (field.isValid()) {
 
 > **isValidityValid**(): `boolean`
 
-Defined in: [field/baseField.ts:227](https://github.com/siposdani87/sui-js/blob/433cda184a013753ef41bb6ba61d0b3944481fa1/src/field/baseField.ts#L227)
+Defined in: [field/baseField.ts:227](https://github.com/siposdani87/sui-js/blob/27883240db7565f37a562e906b93c8d6552ac058/src/field/baseField.ts#L227)
 
 #### Returns
 
@@ -845,7 +845,7 @@ if (field.isValidityValid()) {
 
 > **isVisible**(): `boolean`
 
-Defined in: [field/baseField.ts:389](https://github.com/siposdani87/sui-js/blob/433cda184a013753ef41bb6ba61d0b3944481fa1/src/field/baseField.ts#L389)
+Defined in: [field/baseField.ts:389](https://github.com/siposdani87/sui-js/blob/27883240db7565f37a562e906b93c8d6552ac058/src/field/baseField.ts#L389)
 
 #### Returns
 
@@ -875,7 +875,7 @@ if (field.isVisible()) {
 
 > **modelChange**(`value`): `void`
 
-Defined in: [field/baseField.ts:114](https://github.com/siposdani87/sui-js/blob/433cda184a013753ef41bb6ba61d0b3944481fa1/src/field/baseField.ts#L114)
+Defined in: [field/baseField.ts:114](https://github.com/siposdani87/sui-js/blob/27883240db7565f37a562e906b93c8d6552ac058/src/field/baseField.ts#L114)
 
 #### Parameters
 
@@ -911,7 +911,7 @@ field.modelChange = (value) => {
 
 > **refresh**(): `void`
 
-Defined in: [field/colorField.ts:90](https://github.com/siposdani87/sui-js/blob/433cda184a013753ef41bb6ba61d0b3944481fa1/src/field/colorField.ts#L90)
+Defined in: [field/colorField.ts:90](https://github.com/siposdani87/sui-js/blob/27883240db7565f37a562e906b93c8d6552ac058/src/field/colorField.ts#L90)
 
 Validates required state, updates disabled styling, and applies the
 current color value to the preview swatch.
@@ -930,7 +930,7 @@ current color value to the preview swatch.
 
 > **render**(): `void`
 
-Defined in: [field/colorField.ts:76](https://github.com/siposdani87/sui-js/blob/433cda184a013753ef41bb6ba61d0b3944481fa1/src/field/colorField.ts#L76)
+Defined in: [field/colorField.ts:76](https://github.com/siposdani87/sui-js/blob/27883240db7565f37a562e906b93c8d6552ac058/src/field/colorField.ts#L76)
 
 Renders the field label and refreshes the visual state.
 
@@ -948,7 +948,7 @@ Renders the field label and refreshes the visual state.
 
 > **setDisabled**(`state`): `void`
 
-Defined in: [field/baseField.ts:371](https://github.com/siposdani87/sui-js/blob/433cda184a013753ef41bb6ba61d0b3944481fa1/src/field/baseField.ts#L371)
+Defined in: [field/baseField.ts:371](https://github.com/siposdani87/sui-js/blob/27883240db7565f37a562e906b93c8d6552ac058/src/field/baseField.ts#L371)
 
 #### Parameters
 
@@ -982,7 +982,7 @@ field.setDisabled(true);
 
 > **setError**(`opt_message?`, `opt_isCustomError?`): `void`
 
-Defined in: [field/baseField.ts:175](https://github.com/siposdani87/sui-js/blob/433cda184a013753ef41bb6ba61d0b3944481fa1/src/field/baseField.ts#L175)
+Defined in: [field/baseField.ts:175](https://github.com/siposdani87/sui-js/blob/27883240db7565f37a562e906b93c8d6552ac058/src/field/baseField.ts#L175)
 
 #### Parameters
 
@@ -1023,7 +1023,7 @@ field.setError(''); // clears the error
 
 > **setLabel**(`text`): `void`
 
-Defined in: [field/baseField.ts:435](https://github.com/siposdani87/sui-js/blob/433cda184a013753ef41bb6ba61d0b3944481fa1/src/field/baseField.ts#L435)
+Defined in: [field/baseField.ts:435](https://github.com/siposdani87/sui-js/blob/27883240db7565f37a562e906b93c8d6552ac058/src/field/baseField.ts#L435)
 
 #### Parameters
 
@@ -1057,7 +1057,7 @@ field.setLabel('Email Address');
 
 > **setRequired**(`state`): `void`
 
-Defined in: [field/baseField.ts:330](https://github.com/siposdani87/sui-js/blob/433cda184a013753ef41bb6ba61d0b3944481fa1/src/field/baseField.ts#L330)
+Defined in: [field/baseField.ts:330](https://github.com/siposdani87/sui-js/blob/27883240db7565f37a562e906b93c8d6552ac058/src/field/baseField.ts#L330)
 
 #### Parameters
 
@@ -1091,7 +1091,7 @@ field.setRequired(true);
 
 > **setValue**(`value?`): `void`
 
-Defined in: [field/baseField.ts:259](https://github.com/siposdani87/sui-js/blob/433cda184a013753ef41bb6ba61d0b3944481fa1/src/field/baseField.ts#L259)
+Defined in: [field/baseField.ts:259](https://github.com/siposdani87/sui-js/blob/27883240db7565f37a562e906b93c8d6552ac058/src/field/baseField.ts#L259)
 
 #### Parameters
 
@@ -1125,7 +1125,7 @@ field.setValue('new value');
 
 > **setVisibility**(`state`): `void`
 
-Defined in: [field/baseField.ts:399](https://github.com/siposdani87/sui-js/blob/433cda184a013753ef41bb6ba61d0b3944481fa1/src/field/baseField.ts#L399)
+Defined in: [field/baseField.ts:399](https://github.com/siposdani87/sui-js/blob/27883240db7565f37a562e906b93c8d6552ac058/src/field/baseField.ts#L399)
 
 #### Parameters
 
@@ -1159,7 +1159,7 @@ field.setVisibility(false); // hides the field
 
 > **show**(): `void`
 
-Defined in: [field/baseField.ts:412](https://github.com/siposdani87/sui-js/blob/433cda184a013753ef41bb6ba61d0b3944481fa1/src/field/baseField.ts#L412)
+Defined in: [field/baseField.ts:412](https://github.com/siposdani87/sui-js/blob/27883240db7565f37a562e906b93c8d6552ac058/src/field/baseField.ts#L412)
 
 #### Returns
 

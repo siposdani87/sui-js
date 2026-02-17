@@ -1,6 +1,6 @@
 # Class: Async
 
-Defined in: [core/async.ts:45](https://github.com/siposdani87/sui-js/blob/433cda184a013753ef41bb6ba61d0b3944481fa1/src/core/async.ts#L45)
+Defined in: [core/async.ts:45](https://github.com/siposdani87/sui-js/blob/27883240db7565f37a562e906b93c8d6552ac058/src/core/async.ts#L45)
 
 Provides serial and parallel execution of asynchronous function calls
 using the framework's [Deferred](Deferred.md)/[Promize](Promize.md) system rather than
@@ -52,7 +52,7 @@ async.parallel([
 
 > **new Async**(`opt_sum?`): `Async`
 
-Defined in: [core/async.ts:61](https://github.com/siposdani87/sui-js/blob/433cda184a013753ef41bb6ba61d0b3944481fa1/src/core/async.ts#L61)
+Defined in: [core/async.ts:61](https://github.com/siposdani87/sui-js/blob/27883240db7565f37a562e906b93c8d6552ac058/src/core/async.ts#L61)
 
 Creates a new Async instance.
 
@@ -76,7 +76,7 @@ Optional expected count for parallel batch operations
 
 > **call**: `object`
 
-Defined in: [core/async.ts:47](https://github.com/siposdani87/sui-js/blob/433cda184a013753ef41bb6ba61d0b3944481fa1/src/core/async.ts#L47)
+Defined in: [core/async.ts:47](https://github.com/siposdani87/sui-js/blob/27883240db7565f37a562e906b93c8d6552ac058/src/core/async.ts#L47)
 
 #### counter
 
@@ -100,7 +100,7 @@ Defined in: [core/async.ts:47](https://github.com/siposdani87/sui-js/blob/433cda
 
 > **sum**: `number`
 
-Defined in: [core/async.ts:46](https://github.com/siposdani87/sui-js/blob/433cda184a013753ef41bb6ba61d0b3944481fa1/src/core/async.ts#L46)
+Defined in: [core/async.ts:46](https://github.com/siposdani87/sui-js/blob/27883240db7565f37a562e906b93c8d6552ac058/src/core/async.ts#L46)
 
 ## Methods
 
@@ -108,7 +108,7 @@ Defined in: [core/async.ts:46](https://github.com/siposdani87/sui-js/blob/433cda
 
 > **eventComplete**(`isError`, `results`): `void`
 
-Defined in: [core/async.ts:315](https://github.com/siposdani87/sui-js/blob/433cda184a013753ef41bb6ba61d0b3944481fa1/src/core/async.ts#L315)
+Defined in: [core/async.ts:315](https://github.com/siposdani87/sui-js/blob/27883240db7565f37a562e906b93c8d6552ac058/src/core/async.ts#L315)
 
 Overridable hook called when a parallel batch started via
 `parallelFunction()` completes (i.e., all expected functions have
@@ -149,7 +149,7 @@ async.eventComplete = (isError, results) => {
 
 > **parallel**(`calls`, `opt_args?`): [`Promize`](Promize.md)\<`object`, `object`\>
 
-Defined in: [core/async.ts:87](https://github.com/siposdani87/sui-js/blob/433cda184a013753ef41bb6ba61d0b3944481fa1/src/core/async.ts#L87)
+Defined in: [core/async.ts:87](https://github.com/siposdani87/sui-js/blob/27883240db7565f37a562e906b93c8d6552ac058/src/core/async.ts#L87)
 
 Executes an array of functions concurrently. Each function may return
 a [Promize](Promize.md) for asynchronous work or a synchronous value. The
@@ -196,7 +196,7 @@ async.parallel([
 
 > **parallelFunction**(`call`, `opt_args?`, `opt_index?`): `void`
 
-Defined in: [core/async.ts:132](https://github.com/siposdani87/sui-js/blob/433cda184a013753ef41bb6ba61d0b3944481fa1/src/core/async.ts#L132)
+Defined in: [core/async.ts:132](https://github.com/siposdani87/sui-js/blob/27883240db7565f37a562e906b93c8d6552ac058/src/core/async.ts#L132)
 
 Adds a single function to an ongoing parallel batch. Unlike
 `parallel()`, this method does not return a promise; instead, the
@@ -250,7 +250,7 @@ async.parallelFunction(() => loadItem(3));
 
 > **serial**(`calls`, `opt_args?`): [`Promize`](Promize.md)\<`object`, `object`\>
 
-Defined in: [core/async.ts:342](https://github.com/siposdani87/sui-js/blob/433cda184a013753ef41bb6ba61d0b3944481fa1/src/core/async.ts#L342)
+Defined in: [core/async.ts:342](https://github.com/siposdani87/sui-js/blob/27883240db7565f37a562e906b93c8d6552ac058/src/core/async.ts#L342)
 
 Executes an array of functions sequentially, one after another. Each
 function receives the optional args concatenated with accumulated
@@ -299,7 +299,7 @@ async.serial([
 
 > **setStatus**(`sum`, `isError`, `counter`, `results`): `void`
 
-Defined in: [core/async.ts:287](https://github.com/siposdani87/sui-js/blob/433cda184a013753ef41bb6ba61d0b3944481fa1/src/core/async.ts#L287)
+Defined in: [core/async.ts:287](https://github.com/siposdani87/sui-js/blob/27883240db7565f37a562e906b93c8d6552ac058/src/core/async.ts#L287)
 
 Manually sets the internal counter state. This is primarily used for
 testing or external control scenarios where the internal tracking

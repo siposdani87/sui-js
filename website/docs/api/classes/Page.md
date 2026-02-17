@@ -1,6 +1,6 @@
 # Class: Page
 
-Defined in: [module/page.ts:32](https://github.com/siposdani87/sui-js/blob/433cda184a013753ef41bb6ba61d0b3944481fa1/src/module/page.ts#L32)
+Defined in: [module/page.ts:32](https://github.com/siposdani87/sui-js/blob/27883240db7565f37a562e906b93c8d6552ac058/src/module/page.ts#L32)
 
 Document-level utilities for managing the page title, handling
 document-wide click events, and triggering common browser actions
@@ -38,7 +38,7 @@ page.mailTo('support@example.com', 'Help Request');
 
 > **new Page**(`opt_options?`): `Page`
 
-Defined in: [module/page.ts:42](https://github.com/siposdani87/sui-js/blob/433cda184a013753ef41bb6ba61d0b3944481fa1/src/module/page.ts#L42)
+Defined in: [module/page.ts:42](https://github.com/siposdani87/sui-js/blob/27883240db7565f37a562e906b93c8d6552ac058/src/module/page.ts#L42)
 
 Creates a new Page instance and registers a document-level click
 event listener.
@@ -61,7 +61,7 @@ Configuration options to merge with defaults.
 
 > **document**: `Document`
 
-Defined in: [module/page.ts:34](https://github.com/siposdani87/sui-js/blob/433cda184a013753ef41bb6ba61d0b3944481fa1/src/module/page.ts#L34)
+Defined in: [module/page.ts:34](https://github.com/siposdani87/sui-js/blob/27883240db7565f37a562e906b93c8d6552ac058/src/module/page.ts#L34)
 
 ***
 
@@ -69,7 +69,7 @@ Defined in: [module/page.ts:34](https://github.com/siposdani87/sui-js/blob/433cd
 
 > **options**: [`Objekt`](Objekt.md)
 
-Defined in: [module/page.ts:33](https://github.com/siposdani87/sui-js/blob/433cda184a013753ef41bb6ba61d0b3944481fa1/src/module/page.ts#L33)
+Defined in: [module/page.ts:33](https://github.com/siposdani87/sui-js/blob/27883240db7565f37a562e906b93c8d6552ac058/src/module/page.ts#L33)
 
 ## Methods
 
@@ -77,7 +77,7 @@ Defined in: [module/page.ts:33](https://github.com/siposdani87/sui-js/blob/433cd
 
 > **eventClick**(`target`, `event`): `void`
 
-Defined in: [module/page.ts:89](https://github.com/siposdani87/sui-js/blob/433cda184a013753ef41bb6ba61d0b3944481fa1/src/module/page.ts#L89)
+Defined in: [module/page.ts:89](https://github.com/siposdani87/sui-js/blob/27883240db7565f37a562e906b93c8d6552ac058/src/module/page.ts#L89)
 
 Called when any element in the document is clicked. Override this
 method to implement centralized click handling such as event
@@ -107,7 +107,7 @@ The native click event.
 
 > **mailTo**(`email`, `opt_subject?`): `void`
 
-Defined in: [module/page.ts:104](https://github.com/siposdani87/sui-js/blob/433cda184a013753ef41bb6ba61d0b3944481fa1/src/module/page.ts#L104)
+Defined in: [module/page.ts:104](https://github.com/siposdani87/sui-js/blob/27883240db7565f37a562e906b93c8d6552ac058/src/module/page.ts#L104)
 
 Opens the user's default email client with a new message
 pre-addressed to the given email and optionally pre-filled
@@ -143,7 +143,7 @@ page.mailTo('support@example.com', 'Bug Report');
 
 > **setTitle**(`title`): `void`
 
-Defined in: [module/page.ts:77](https://github.com/siposdani87/sui-js/blob/433cda184a013753ef41bb6ba61d0b3944481fa1/src/module/page.ts#L77)
+Defined in: [module/page.ts:77](https://github.com/siposdani87/sui-js/blob/27883240db7565f37a562e906b93c8d6552ac058/src/module/page.ts#L77)
 
 Sets the document title displayed in the browser tab.
 

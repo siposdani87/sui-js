@@ -1,6 +1,6 @@
 # Class: LocationField
 
-Defined in: [field/locationField.ts:25](https://github.com/siposdani87/sui-js/blob/433cda184a013753ef41bb6ba61d0b3944481fa1/src/field/locationField.ts#L25)
+Defined in: [field/locationField.ts:25](https://github.com/siposdani87/sui-js/blob/27883240db7565f37a562e906b93c8d6552ac058/src/field/locationField.ts#L25)
 
 Location picker field with an embedded [GoogleMap](GoogleMap.md), geocoding search,
 and manual latitude/longitude inputs.  The user can search for an address,
@@ -30,7 +30,7 @@ field.eventSearch = (address) => field.search(address);
 
 > **new LocationField**(`input`, `label`, `error`, `inputBlock`): `LocationField`
 
-Defined in: [field/locationField.ts:47](https://github.com/siposdani87/sui-js/blob/433cda184a013753ef41bb6ba61d0b3944481fa1/src/field/locationField.ts#L47)
+Defined in: [field/locationField.ts:47](https://github.com/siposdani87/sui-js/blob/27883240db7565f37a562e906b93c8d6552ac058/src/field/locationField.ts#L47)
 
 #### Parameters
 
@@ -72,7 +72,7 @@ The block-level container wrapping the entire field.
 
 > **actionContainerKnot**: [`Knot`](Knot.md)
 
-Defined in: [field/baseField.ts:29](https://github.com/siposdani87/sui-js/blob/433cda184a013753ef41bb6ba61d0b3944481fa1/src/field/baseField.ts#L29)
+Defined in: [field/baseField.ts:29](https://github.com/siposdani87/sui-js/blob/27883240db7565f37a562e906b93c8d6552ac058/src/field/baseField.ts#L29)
 
 #### Inherited from
 
@@ -84,7 +84,7 @@ Defined in: [field/baseField.ts:29](https://github.com/siposdani87/sui-js/blob/4
 
 > **advancedButton**: [`Knot`](Knot.md)
 
-Defined in: [field/locationField.ts:29](https://github.com/siposdani87/sui-js/blob/433cda184a013753ef41bb6ba61d0b3944481fa1/src/field/locationField.ts#L29)
+Defined in: [field/locationField.ts:29](https://github.com/siposdani87/sui-js/blob/27883240db7565f37a562e906b93c8d6552ac058/src/field/locationField.ts#L29)
 
 Button element that toggles the advanced lat/lng inputs.
 
@@ -94,7 +94,7 @@ Button element that toggles the advanced lat/lng inputs.
 
 > **advancedKnot**: [`Knot`](Knot.md)
 
-Defined in: [field/locationField.ts:35](https://github.com/siposdani87/sui-js/blob/433cda184a013753ef41bb6ba61d0b3944481fa1/src/field/locationField.ts#L35)
+Defined in: [field/locationField.ts:35](https://github.com/siposdani87/sui-js/blob/27883240db7565f37a562e906b93c8d6552ac058/src/field/locationField.ts#L35)
 
 Container for the advanced latitude/longitude input elements.
 
@@ -104,7 +104,7 @@ Container for the advanced latitude/longitude input elements.
 
 > **disabled**: `boolean`
 
-Defined in: [field/baseField.ts:30](https://github.com/siposdani87/sui-js/blob/433cda184a013753ef41bb6ba61d0b3944481fa1/src/field/baseField.ts#L30)
+Defined in: [field/baseField.ts:30](https://github.com/siposdani87/sui-js/blob/27883240db7565f37a562e906b93c8d6552ac058/src/field/baseField.ts#L30)
 
 #### Inherited from
 
@@ -116,7 +116,7 @@ Defined in: [field/baseField.ts:30](https://github.com/siposdani87/sui-js/blob/4
 
 > **error**: [`Knot`](Knot.md)
 
-Defined in: [field/baseField.ts:24](https://github.com/siposdani87/sui-js/blob/433cda184a013753ef41bb6ba61d0b3944481fa1/src/field/baseField.ts#L24)
+Defined in: [field/baseField.ts:24](https://github.com/siposdani87/sui-js/blob/27883240db7565f37a562e906b93c8d6552ac058/src/field/baseField.ts#L24)
 
 #### Inherited from
 
@@ -128,7 +128,7 @@ Defined in: [field/baseField.ts:24](https://github.com/siposdani87/sui-js/blob/4
 
 > **errorTooltip**: [`Tooltip`](Tooltip.md)
 
-Defined in: [field/baseField.ts:27](https://github.com/siposdani87/sui-js/blob/433cda184a013753ef41bb6ba61d0b3944481fa1/src/field/baseField.ts#L27)
+Defined in: [field/baseField.ts:27](https://github.com/siposdani87/sui-js/blob/27883240db7565f37a562e906b93c8d6552ac058/src/field/baseField.ts#L27)
 
 #### Inherited from
 
@@ -140,7 +140,7 @@ Defined in: [field/baseField.ts:27](https://github.com/siposdani87/sui-js/blob/4
 
 > `optional` **form**: [`Form`](Form.md)
 
-Defined in: [field/baseField.ts:26](https://github.com/siposdani87/sui-js/blob/433cda184a013753ef41bb6ba61d0b3944481fa1/src/field/baseField.ts#L26)
+Defined in: [field/baseField.ts:26](https://github.com/siposdani87/sui-js/blob/27883240db7565f37a562e906b93c8d6552ac058/src/field/baseField.ts#L26)
 
 #### Inherited from
 
@@ -152,7 +152,7 @@ Defined in: [field/baseField.ts:26](https://github.com/siposdani87/sui-js/blob/4
 
 > **icon**: [`IconOptions`](../type-aliases/IconOptions.md)
 
-Defined in: [field/locationField.ts:27](https://github.com/siposdani87/sui-js/blob/433cda184a013753ef41bb6ba61d0b3944481fa1/src/field/locationField.ts#L27)
+Defined in: [field/locationField.ts:27](https://github.com/siposdani87/sui-js/blob/27883240db7565f37a562e906b93c8d6552ac058/src/field/locationField.ts#L27)
 
 Icon options for the map marker, read from the input's `data-icon` attribute.
 
@@ -162,7 +162,7 @@ Icon options for the map marker, read from the input's `data-icon` attribute.
 
 > **infoContainerKnot**: [`Knot`](Knot.md)
 
-Defined in: [field/baseField.ts:28](https://github.com/siposdani87/sui-js/blob/433cda184a013753ef41bb6ba61d0b3944481fa1/src/field/baseField.ts#L28)
+Defined in: [field/baseField.ts:28](https://github.com/siposdani87/sui-js/blob/27883240db7565f37a562e906b93c8d6552ac058/src/field/baseField.ts#L28)
 
 #### Inherited from
 
@@ -174,7 +174,7 @@ Defined in: [field/baseField.ts:28](https://github.com/siposdani87/sui-js/blob/4
 
 > **input**: [`Knot`](Knot.md)\<`HTMLInputElement`\>
 
-Defined in: [field/baseField.ts:22](https://github.com/siposdani87/sui-js/blob/433cda184a013753ef41bb6ba61d0b3944481fa1/src/field/baseField.ts#L22)
+Defined in: [field/baseField.ts:22](https://github.com/siposdani87/sui-js/blob/27883240db7565f37a562e906b93c8d6552ac058/src/field/baseField.ts#L22)
 
 #### Inherited from
 
@@ -186,7 +186,7 @@ Defined in: [field/baseField.ts:22](https://github.com/siposdani87/sui-js/blob/4
 
 > **inputBlock**: [`Knot`](Knot.md)
 
-Defined in: [field/baseField.ts:25](https://github.com/siposdani87/sui-js/blob/433cda184a013753ef41bb6ba61d0b3944481fa1/src/field/baseField.ts#L25)
+Defined in: [field/baseField.ts:25](https://github.com/siposdani87/sui-js/blob/27883240db7565f37a562e906b93c8d6552ac058/src/field/baseField.ts#L25)
 
 #### Inherited from
 
@@ -198,7 +198,7 @@ Defined in: [field/baseField.ts:25](https://github.com/siposdani87/sui-js/blob/4
 
 > **label**: [`Knot`](Knot.md)
 
-Defined in: [field/baseField.ts:23](https://github.com/siposdani87/sui-js/blob/433cda184a013753ef41bb6ba61d0b3944481fa1/src/field/baseField.ts#L23)
+Defined in: [field/baseField.ts:23](https://github.com/siposdani87/sui-js/blob/27883240db7565f37a562e906b93c8d6552ac058/src/field/baseField.ts#L23)
 
 #### Inherited from
 
@@ -210,7 +210,7 @@ Defined in: [field/baseField.ts:23](https://github.com/siposdani87/sui-js/blob/4
 
 > **latitudeInput**: [`Knot`](Knot.md)\<`HTMLInputElement`\>
 
-Defined in: [field/locationField.ts:37](https://github.com/siposdani87/sui-js/blob/433cda184a013753ef41bb6ba61d0b3944481fa1/src/field/locationField.ts#L37)
+Defined in: [field/locationField.ts:37](https://github.com/siposdani87/sui-js/blob/27883240db7565f37a562e906b93c8d6552ac058/src/field/locationField.ts#L37)
 
 Text input for manual latitude entry.
 
@@ -220,7 +220,7 @@ Text input for manual latitude entry.
 
 > **longitudeInput**: [`Knot`](Knot.md)\<`HTMLInputElement`\>
 
-Defined in: [field/locationField.ts:39](https://github.com/siposdani87/sui-js/blob/433cda184a013753ef41bb6ba61d0b3944481fa1/src/field/locationField.ts#L39)
+Defined in: [field/locationField.ts:39](https://github.com/siposdani87/sui-js/blob/27883240db7565f37a562e906b93c8d6552ac058/src/field/locationField.ts#L39)
 
 Text input for manual longitude entry.
 
@@ -230,7 +230,7 @@ Text input for manual longitude entry.
 
 > **map**: [`GoogleMap`](GoogleMap.md)
 
-Defined in: [field/locationField.ts:31](https://github.com/siposdani87/sui-js/blob/433cda184a013753ef41bb6ba61d0b3944481fa1/src/field/locationField.ts#L31)
+Defined in: [field/locationField.ts:31](https://github.com/siposdani87/sui-js/blob/27883240db7565f37a562e906b93c8d6552ac058/src/field/locationField.ts#L31)
 
 Embedded [GoogleMap](GoogleMap.md) instance for location selection.
 
@@ -240,7 +240,7 @@ Embedded [GoogleMap](GoogleMap.md) instance for location selection.
 
 > **mapLockKnot**: [`Knot`](Knot.md)
 
-Defined in: [field/locationField.ts:33](https://github.com/siposdani87/sui-js/blob/433cda184a013753ef41bb6ba61d0b3944481fa1/src/field/locationField.ts#L33)
+Defined in: [field/locationField.ts:33](https://github.com/siposdani87/sui-js/blob/27883240db7565f37a562e906b93c8d6552ac058/src/field/locationField.ts#L33)
 
 Overlay element that prevents map interaction when the field is disabled.
 
@@ -250,7 +250,7 @@ Overlay element that prevents map interaction when the field is disabled.
 
 > `protected` **\_getAttributeName**(`inputName`): `string`
 
-Defined in: [field/baseField.ts:157](https://github.com/siposdani87/sui-js/blob/433cda184a013753ef41bb6ba61d0b3944481fa1/src/field/baseField.ts#L157)
+Defined in: [field/baseField.ts:157](https://github.com/siposdani87/sui-js/blob/27883240db7565f37a562e906b93c8d6552ac058/src/field/baseField.ts#L157)
 
 #### Parameters
 
@@ -280,7 +280,7 @@ Converts an HTML input name attribute to dot notation by replacing brackets.
 
 > `protected` **\_getLabelRequiredText**(`labelText`): `string`
 
-Defined in: [field/baseField.ts:520](https://github.com/siposdani87/sui-js/blob/433cda184a013753ef41bb6ba61d0b3944481fa1/src/field/baseField.ts#L520)
+Defined in: [field/baseField.ts:520](https://github.com/siposdani87/sui-js/blob/27883240db7565f37a562e906b93c8d6552ac058/src/field/baseField.ts#L520)
 
 #### Parameters
 
@@ -310,7 +310,7 @@ Appends or removes the required asterisk (*) postfix from the label text.
 
 > `protected` **\_setAdditionalLabel**(`label`): `void`
 
-Defined in: [field/baseField.ts:507](https://github.com/siposdani87/sui-js/blob/433cda184a013753ef41bb6ba61d0b3944481fa1/src/field/baseField.ts#L507)
+Defined in: [field/baseField.ts:507](https://github.com/siposdani87/sui-js/blob/27883240db7565f37a562e906b93c8d6552ac058/src/field/baseField.ts#L507)
 
 #### Parameters
 
@@ -338,7 +338,7 @@ Updates the label text with a required indicator and sets up the info tooltip.
 
 > **checkValidity**(`opt_force?`, `opt_showMessage?`): `void`
 
-Defined in: [field/baseField.ts:196](https://github.com/siposdani87/sui-js/blob/433cda184a013753ef41bb6ba61d0b3944481fa1/src/field/baseField.ts#L196)
+Defined in: [field/baseField.ts:196](https://github.com/siposdani87/sui-js/blob/27883240db7565f37a562e906b93c8d6552ac058/src/field/baseField.ts#L196)
 
 #### Parameters
 
@@ -379,7 +379,7 @@ field.checkValidity(true, false); // force visual update, suppress message
 
 > **eventChange**(`value`, `previousValue`): `void`
 
-Defined in: [field/baseField.ts:72](https://github.com/siposdani87/sui-js/blob/433cda184a013753ef41bb6ba61d0b3944481fa1/src/field/baseField.ts#L72)
+Defined in: [field/baseField.ts:72](https://github.com/siposdani87/sui-js/blob/27883240db7565f37a562e906b93c8d6552ac058/src/field/baseField.ts#L72)
 
 #### Parameters
 
@@ -421,7 +421,7 @@ field.eventChange = (value, previousValue) => {
 
 > **eventClick**(`knot`): `void`
 
-Defined in: [field/baseField.ts:84](https://github.com/siposdani87/sui-js/blob/433cda184a013753ef41bb6ba61d0b3944481fa1/src/field/baseField.ts#L84)
+Defined in: [field/baseField.ts:84](https://github.com/siposdani87/sui-js/blob/27883240db7565f37a562e906b93c8d6552ac058/src/field/baseField.ts#L84)
 
 #### Parameters
 
@@ -457,7 +457,7 @@ field.eventClick = (knot) => {
 
 > **eventSearch**(`address`): `void`
 
-Defined in: [field/locationField.ts:448](https://github.com/siposdani87/sui-js/blob/433cda184a013753ef41bb6ba61d0b3944481fa1/src/field/locationField.ts#L448)
+Defined in: [field/locationField.ts:448](https://github.com/siposdani87/sui-js/blob/27883240db7565f37a562e906b93c8d6552ac058/src/field/locationField.ts#L448)
 
 Overridable event callback invoked when the user triggers an address
 search via Enter key or the search button.
@@ -480,7 +480,7 @@ The address string entered by the user.
 
 > **exists**(): `boolean`
 
-Defined in: [field/baseField.ts:273](https://github.com/siposdani87/sui-js/blob/433cda184a013753ef41bb6ba61d0b3944481fa1/src/field/baseField.ts#L273)
+Defined in: [field/baseField.ts:273](https://github.com/siposdani87/sui-js/blob/27883240db7565f37a562e906b93c8d6552ac058/src/field/baseField.ts#L273)
 
 #### Returns
 
@@ -510,7 +510,7 @@ if (field.exists()) {
 
 > **existsInput**(): `boolean`
 
-Defined in: [field/baseField.ts:285](https://github.com/siposdani87/sui-js/blob/433cda184a013753ef41bb6ba61d0b3944481fa1/src/field/baseField.ts#L285)
+Defined in: [field/baseField.ts:285](https://github.com/siposdani87/sui-js/blob/27883240db7565f37a562e906b93c8d6552ac058/src/field/baseField.ts#L285)
 
 #### Returns
 
@@ -540,7 +540,7 @@ if (field.existsInput()) {
 
 > **existsInputBlock**(): `boolean`
 
-Defined in: [field/baseField.ts:297](https://github.com/siposdani87/sui-js/blob/433cda184a013753ef41bb6ba61d0b3944481fa1/src/field/baseField.ts#L297)
+Defined in: [field/baseField.ts:297](https://github.com/siposdani87/sui-js/blob/27883240db7565f37a562e906b93c8d6552ac058/src/field/baseField.ts#L297)
 
 #### Returns
 
@@ -570,7 +570,7 @@ if (field.existsInputBlock()) {
 
 > **get**(`attribute`): `any`
 
-Defined in: [field/baseField.ts:308](https://github.com/siposdani87/sui-js/blob/433cda184a013753ef41bb6ba61d0b3944481fa1/src/field/baseField.ts#L308)
+Defined in: [field/baseField.ts:308](https://github.com/siposdani87/sui-js/blob/27883240db7565f37a562e906b93c8d6552ac058/src/field/baseField.ts#L308)
 
 #### Parameters
 
@@ -606,7 +606,7 @@ const type = field.get('type'); // 'text'
 
 > **getName**(): `string`
 
-Defined in: [field/baseField.ts:136](https://github.com/siposdani87/sui-js/blob/433cda184a013753ef41bb6ba61d0b3944481fa1/src/field/baseField.ts#L136)
+Defined in: [field/baseField.ts:136](https://github.com/siposdani87/sui-js/blob/27883240db7565f37a562e906b93c8d6552ac058/src/field/baseField.ts#L136)
 
 #### Returns
 
@@ -635,7 +635,7 @@ const name = field.getName(); // 'user.address.city'
 
 > **getPreviousValue**(): `any`
 
-Defined in: [field/baseField.ts:124](https://github.com/siposdani87/sui-js/blob/433cda184a013753ef41bb6ba61d0b3944481fa1/src/field/baseField.ts#L124)
+Defined in: [field/baseField.ts:124](https://github.com/siposdani87/sui-js/blob/27883240db7565f37a562e906b93c8d6552ac058/src/field/baseField.ts#L124)
 
 #### Returns
 
@@ -663,7 +663,7 @@ const prev = field.getPreviousValue();
 
 > **getValue**(): `any`
 
-Defined in: [field/locationField.ts:437](https://github.com/siposdani87/sui-js/blob/433cda184a013753ef41bb6ba61d0b3944481fa1/src/field/locationField.ts#L437)
+Defined in: [field/locationField.ts:437](https://github.com/siposdani87/sui-js/blob/27883240db7565f37a562e906b93c8d6552ac058/src/field/locationField.ts#L437)
 
 Returns the current location object stored in the input's data attribute.
 
@@ -683,7 +683,7 @@ The location object with `address`, `latitude`, and `longitude`.
 
 > **hide**(): `void`
 
-Defined in: [field/baseField.ts:423](https://github.com/siposdani87/sui-js/blob/433cda184a013753ef41bb6ba61d0b3944481fa1/src/field/baseField.ts#L423)
+Defined in: [field/baseField.ts:423](https://github.com/siposdani87/sui-js/blob/27883240db7565f37a562e906b93c8d6552ac058/src/field/baseField.ts#L423)
 
 #### Returns
 
@@ -709,7 +709,7 @@ field.hide();
 
 > **isDisabled**(): `boolean`
 
-Defined in: [field/baseField.ts:361](https://github.com/siposdani87/sui-js/blob/433cda184a013753ef41bb6ba61d0b3944481fa1/src/field/baseField.ts#L361)
+Defined in: [field/baseField.ts:361](https://github.com/siposdani87/sui-js/blob/27883240db7565f37a562e906b93c8d6552ac058/src/field/baseField.ts#L361)
 
 #### Returns
 
@@ -739,7 +739,7 @@ if (field.isDisabled()) {
 
 > **isEnabled**(): `boolean`
 
-Defined in: [field/baseField.ts:349](https://github.com/siposdani87/sui-js/blob/433cda184a013753ef41bb6ba61d0b3944481fa1/src/field/baseField.ts#L349)
+Defined in: [field/baseField.ts:349](https://github.com/siposdani87/sui-js/blob/27883240db7565f37a562e906b93c8d6552ac058/src/field/baseField.ts#L349)
 
 #### Returns
 
@@ -769,7 +769,7 @@ if (field.isEnabled()) {
 
 > **isRequired**(): `boolean`
 
-Defined in: [field/baseField.ts:320](https://github.com/siposdani87/sui-js/blob/433cda184a013753ef41bb6ba61d0b3944481fa1/src/field/baseField.ts#L320)
+Defined in: [field/baseField.ts:320](https://github.com/siposdani87/sui-js/blob/27883240db7565f37a562e906b93c8d6552ac058/src/field/baseField.ts#L320)
 
 #### Returns
 
@@ -799,7 +799,7 @@ if (field.isRequired()) {
 
 > **isValid**(): `boolean`
 
-Defined in: [field/baseField.ts:241](https://github.com/siposdani87/sui-js/blob/433cda184a013753ef41bb6ba61d0b3944481fa1/src/field/baseField.ts#L241)
+Defined in: [field/baseField.ts:241](https://github.com/siposdani87/sui-js/blob/27883240db7565f37a562e906b93c8d6552ac058/src/field/baseField.ts#L241)
 
 #### Returns
 
@@ -829,7 +829,7 @@ if (field.isValid()) {
 
 > **isValidityValid**(): `boolean`
 
-Defined in: [field/baseField.ts:227](https://github.com/siposdani87/sui-js/blob/433cda184a013753ef41bb6ba61d0b3944481fa1/src/field/baseField.ts#L227)
+Defined in: [field/baseField.ts:227](https://github.com/siposdani87/sui-js/blob/27883240db7565f37a562e906b93c8d6552ac058/src/field/baseField.ts#L227)
 
 #### Returns
 
@@ -859,7 +859,7 @@ if (field.isValidityValid()) {
 
 > **isVisible**(): `boolean`
 
-Defined in: [field/baseField.ts:389](https://github.com/siposdani87/sui-js/blob/433cda184a013753ef41bb6ba61d0b3944481fa1/src/field/baseField.ts#L389)
+Defined in: [field/baseField.ts:389](https://github.com/siposdani87/sui-js/blob/27883240db7565f37a562e906b93c8d6552ac058/src/field/baseField.ts#L389)
 
 #### Returns
 
@@ -889,7 +889,7 @@ if (field.isVisible()) {
 
 > **modelChange**(`value`): `void`
 
-Defined in: [field/baseField.ts:114](https://github.com/siposdani87/sui-js/blob/433cda184a013753ef41bb6ba61d0b3944481fa1/src/field/baseField.ts#L114)
+Defined in: [field/baseField.ts:114](https://github.com/siposdani87/sui-js/blob/27883240db7565f37a562e906b93c8d6552ac058/src/field/baseField.ts#L114)
 
 #### Parameters
 
@@ -925,7 +925,7 @@ field.modelChange = (value) => {
 
 > **refresh**(): `void`
 
-Defined in: [field/locationField.ts:184](https://github.com/siposdani87/sui-js/blob/433cda184a013753ef41bb6ba61d0b3944481fa1/src/field/locationField.ts#L184)
+Defined in: [field/locationField.ts:184](https://github.com/siposdani87/sui-js/blob/27883240db7565f37a562e906b93c8d6552ac058/src/field/locationField.ts#L184)
 
 Toggles the map lock overlay based on the disabled state and upgrades
 MDL components.
@@ -944,7 +944,7 @@ MDL components.
 
 > **render**(): `void`
 
-Defined in: [field/locationField.ts:160](https://github.com/siposdani87/sui-js/blob/433cda184a013753ef41bb6ba61d0b3944481fa1/src/field/locationField.ts#L160)
+Defined in: [field/locationField.ts:160](https://github.com/siposdani87/sui-js/blob/27883240db7565f37a562e906b93c8d6552ac058/src/field/locationField.ts#L160)
 
 Applies MDL text-field classes, renders the advanced inputs, map, and
 default value, then refreshes the visual state.
@@ -963,7 +963,7 @@ default value, then refreshes the visual state.
 
 > **search**(`address`): `void`
 
-Defined in: [field/locationField.ts:137](https://github.com/siposdani87/sui-js/blob/433cda184a013753ef41bb6ba61d0b3944481fa1/src/field/locationField.ts#L137)
+Defined in: [field/locationField.ts:137](https://github.com/siposdani87/sui-js/blob/27883240db7565f37a562e906b93c8d6552ac058/src/field/locationField.ts#L137)
 
 Geocodes the given address using the embedded map and updates the
 field value with the first result.
@@ -992,7 +992,7 @@ locationField.search('Budapest, Hungary');
 
 > **setCustomMapStyle**(`mapTypeId`, `mapTypeName`, `mapStyles`): `void`
 
-Defined in: [field/locationField.ts:331](https://github.com/siposdani87/sui-js/blob/433cda184a013753ef41bb6ba61d0b3944481fa1/src/field/locationField.ts#L331)
+Defined in: [field/locationField.ts:331](https://github.com/siposdani87/sui-js/blob/27883240db7565f37a562e906b93c8d6552ac058/src/field/locationField.ts#L331)
 
 Applies a custom styled map type to the embedded map.
 
@@ -1032,7 +1032,7 @@ locationField.setCustomMapStyle('dark', 'Dark Mode', darkStyles);
 
 > **setDisabled**(`state`): `void`
 
-Defined in: [field/baseField.ts:371](https://github.com/siposdani87/sui-js/blob/433cda184a013753ef41bb6ba61d0b3944481fa1/src/field/baseField.ts#L371)
+Defined in: [field/baseField.ts:371](https://github.com/siposdani87/sui-js/blob/27883240db7565f37a562e906b93c8d6552ac058/src/field/baseField.ts#L371)
 
 #### Parameters
 
@@ -1066,7 +1066,7 @@ field.setDisabled(true);
 
 > **setError**(`opt_message?`, `opt_isCustomError?`): `void`
 
-Defined in: [field/baseField.ts:175](https://github.com/siposdani87/sui-js/blob/433cda184a013753ef41bb6ba61d0b3944481fa1/src/field/baseField.ts#L175)
+Defined in: [field/baseField.ts:175](https://github.com/siposdani87/sui-js/blob/27883240db7565f37a562e906b93c8d6552ac058/src/field/baseField.ts#L175)
 
 #### Parameters
 
@@ -1107,7 +1107,7 @@ field.setError(''); // clears the error
 
 > **setLabel**(`text`): `void`
 
-Defined in: [field/baseField.ts:435](https://github.com/siposdani87/sui-js/blob/433cda184a013753ef41bb6ba61d0b3944481fa1/src/field/baseField.ts#L435)
+Defined in: [field/baseField.ts:435](https://github.com/siposdani87/sui-js/blob/27883240db7565f37a562e906b93c8d6552ac058/src/field/baseField.ts#L435)
 
 #### Parameters
 
@@ -1141,7 +1141,7 @@ field.setLabel('Email Address');
 
 > **setMapType**(`mapTypeId`): `void`
 
-Defined in: [field/locationField.ts:317](https://github.com/siposdani87/sui-js/blob/433cda184a013753ef41bb6ba61d0b3944481fa1/src/field/locationField.ts#L317)
+Defined in: [field/locationField.ts:317](https://github.com/siposdani87/sui-js/blob/27883240db7565f37a562e906b93c8d6552ac058/src/field/locationField.ts#L317)
 
 Changes the map type (e.g. satellite, terrain) on the embedded map.
 
@@ -1169,7 +1169,7 @@ locationField.setMapType('satellite');
 
 > **setRequired**(`state`): `void`
 
-Defined in: [field/baseField.ts:330](https://github.com/siposdani87/sui-js/blob/433cda184a013753ef41bb6ba61d0b3944481fa1/src/field/baseField.ts#L330)
+Defined in: [field/baseField.ts:330](https://github.com/siposdani87/sui-js/blob/27883240db7565f37a562e906b93c8d6552ac058/src/field/baseField.ts#L330)
 
 #### Parameters
 
@@ -1203,7 +1203,7 @@ field.setRequired(true);
 
 > **setValue**(`value`): `void`
 
-Defined in: [field/locationField.ts:394](https://github.com/siposdani87/sui-js/blob/433cda184a013753ef41bb6ba61d0b3944481fa1/src/field/locationField.ts#L394)
+Defined in: [field/locationField.ts:394](https://github.com/siposdani87/sui-js/blob/27883240db7565f37a562e906b93c8d6552ac058/src/field/locationField.ts#L394)
 
 Sets the location value, updates the advanced inputs, repositions the
 map center and marker, and triggers a change event.
@@ -1230,7 +1230,7 @@ A location object with `address`, `latitude`, and `longitude` keys.
 
 > **setVisibility**(`state`): `void`
 
-Defined in: [field/baseField.ts:399](https://github.com/siposdani87/sui-js/blob/433cda184a013753ef41bb6ba61d0b3944481fa1/src/field/baseField.ts#L399)
+Defined in: [field/baseField.ts:399](https://github.com/siposdani87/sui-js/blob/27883240db7565f37a562e906b93c8d6552ac058/src/field/baseField.ts#L399)
 
 #### Parameters
 
@@ -1264,7 +1264,7 @@ field.setVisibility(false); // hides the field
 
 > **show**(): `void`
 
-Defined in: [field/baseField.ts:412](https://github.com/siposdani87/sui-js/blob/433cda184a013753ef41bb6ba61d0b3944481fa1/src/field/baseField.ts#L412)
+Defined in: [field/baseField.ts:412](https://github.com/siposdani87/sui-js/blob/27883240db7565f37a562e906b93c8d6552ac058/src/field/baseField.ts#L412)
 
 #### Returns
 
@@ -1290,7 +1290,7 @@ field.show();
 
 > **updatePosition**(`latitude`, `longitude`): `void`
 
-Defined in: [field/locationField.ts:367](https://github.com/siposdani87/sui-js/blob/433cda184a013753ef41bb6ba61d0b3944481fa1/src/field/locationField.ts#L367)
+Defined in: [field/locationField.ts:367](https://github.com/siposdani87/sui-js/blob/27883240db7565f37a562e906b93c8d6552ac058/src/field/locationField.ts#L367)
 
 Updates the stored latitude/longitude and refreshes the marker.
 
