@@ -37,6 +37,9 @@ const config = {
         excludePrivate: true,
         excludeProtected: false,
         excludeExternals: true,
+        categorizeByGroup: true,
+        categoryOrder: ['Core', 'Component', 'Module', 'Field', 'Utility', 'Common', '*'],
+        sort: ['alphabetical'],
       },
     ],
   ],
@@ -94,9 +97,21 @@ const config = {
         items: [
           {
             type: 'doc',
-            docId: 'index',
+            docId: 'intro',
             position: 'left',
             label: 'Docs',
+          },
+          {
+            type: 'doc',
+            docId: 'guides/getting-started',
+            position: 'left',
+            label: 'Guides',
+          },
+          {
+            type: 'doc',
+            docId: 'index',
+            position: 'left',
+            label: 'API',
           },
           {to: '/blog', label: 'Blog', position: 'left'},
           {
@@ -113,7 +128,11 @@ const config = {
             title: 'Docs',
             items: [
               {
-                label: 'ReadMe',
+                label: 'Getting Started',
+                to: '/docs/guides/getting-started',
+              },
+              {
+                label: 'API Reference',
                 to: '/docs',
               },
             ],
