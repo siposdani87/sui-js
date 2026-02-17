@@ -15,11 +15,11 @@ export class HiddenField extends BaseField<HTMLInputElement> {
         });
     }
 
-    render(): void {
+    override render(): void {
         // empty method
     }
 
-    refresh() {
+    override refresh() {
         // empty method
     }
 }

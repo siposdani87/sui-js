@@ -4,8 +4,8 @@ import { encrypt, decrypt } from '../utils/coder';
 
 export class Depot {
     type: 'LOCAL' | 'SESSION';
-    options: Objekt;
-    storage: Storage;
+    options!: Objekt;
+    storage!: Storage;
 
     constructor(
         type: 'LOCAL' | 'SESSION',

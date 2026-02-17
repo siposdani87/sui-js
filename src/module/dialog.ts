@@ -8,7 +8,7 @@ import { mdl } from '../utils/render';
 
 export class Dialog extends BaseModal {
     http: Http;
-    options: Objekt;
+    options!: Objekt;
 
     constructor(http: Http, opt_options: object | undefined = {}) {
         super();

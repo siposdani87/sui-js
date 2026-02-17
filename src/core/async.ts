@@ -4,7 +4,7 @@ import { Deferred } from './deferred';
 
 export class Async {
     sum: number;
-    call: {
+    call!: {
         results: any[];
         counter: number;
         sum: number;
@@ -59,7 +59,7 @@ export class Async {
         const promise = call.apply(this, args);
         if (promise && isFunction(promise.then)) {
             promise.then(
-                (object) => {
+                (object: any) => {
                     this._parallelCaller(
                         length,
                         false,
@@ -69,7 +69,7 @@ export class Async {
                         opt_args,
                     ).defer(deferred);
                 },
-                (object) => {
+                (object: any) => {
                     this._parallelCaller(
                         length,
                         true,
@@ -185,7 +185,7 @@ export class Async {
         const promise = call.apply(this, args);
         if (promise && isFunction(promise.then)) {
             promise.then(
-                (result) => {
+                (result: any) => {
                     this._serialCaller(calls, index, result, opt_args).defer(
                         deferred,
                     );

@@ -9,8 +9,8 @@ import { Route } from '../component/route';
 import { ClassRef, Dependency, Injection, Instance } from '../utils';
 
 export class Module {
-    private _instances: Instance;
-    private _injections: Injection;
+    private _instances!: Instance;
+    private _injections!: Injection;
 
     private _modules: {
         [key: string]: Dependency;
@@ -46,9 +46,9 @@ export class Module {
     }
 
     private _resolveDependencies(dependency: Dependency): object {
-        const moduleArgs = [];
-        each(dependency.moduleInjections, (injection) => {
-            moduleArgs.push(this._instances[injection] || injection);
+        const moduleArgs: any[] = [];
+        each(dependency.moduleInjections, (injection: any) => {
+            moduleArgs.push((this._instances as Record<string, any>)[injection] || injection);
         });
 
         return new dependency.moduleCallback(...moduleArgs);
@@ -63,7 +63,7 @@ export class Module {
                     services.includes(moduleInjection),
                 );
                 if (moduleInjections.length === 0) {
-                    moduleInjections.push(null);
+                    moduleInjections.push(null as unknown as string);
                 }
                 return moduleInjections.map((injection) => [
                     injection,
@@ -135,15 +135,15 @@ export class Module {
 
     handleServices(services: string[]): void {
         const sortedServices = this._getSortedServices(services);
-        const calls = [];
-        each(sortedServices, (serviceName) => {
+        const calls: Array<() => any> = [];
+        each(sortedServices, (serviceName: any) => {
             const moduleCall = () => {
-                this._instances[serviceName] = this._resolveDependencies(
+                (this._instances as Record<string, any>)[serviceName] = this._resolveDependencies(
                     this._modules[serviceName],
                 );
 
-                if (isFunction(this._instances[serviceName].enter)) {
-                    return this._instances[serviceName].enter();
+                if (isFunction((this._instances as Record<string, any>)[serviceName].enter)) {
+                    return (this._instances as Record<string, any>)[serviceName].enter();
                 }
                 return noop();
             };
@@ -209,7 +209,7 @@ export class Module {
                     this.eventModuleLoaded(currentState);
                     this._initController(
                         currentState,
-                        this._instances[
+                        (this._instances as Record<string, any>)[
                             this._injections.template
                         ].getViewKnot(),
                     );

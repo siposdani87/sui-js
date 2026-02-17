@@ -4,34 +4,25 @@
     "target": "ES2015",
     "moduleResolution": "Node",
     "declaration": true,
-    "strict": false,
+    "strict": true,
     "outDir": "dist",
     "types": ["google.maps", "jest", "material-design-lite", "dom-view-transitions"],
     "lib": ["ESNext", "DOM"],
     "skipLibCheck": true,
-    "noImplicitAny": false,
+    "noImplicitAny": true,
     "esModuleInterop": true,
 
-    /* Incremental Strict Mode - Phase 1 (Enabled) */
-    "strictFunctionTypes": true,
-    "strictBindCallApply": true,
-    "noImplicitThis": true,
-    "alwaysStrict": true,
+    /* Additional Strict Checks (not part of strict) */
     "noImplicitReturns": true,
     "noFallthroughCasesInSwitch": true,
+    "noImplicitOverride": true,
     "allowUnreachableCode": false,
     "allowUnusedLabels": false,
 
     /* Additional Type Checking (Optional - Not Yet Enabled) */
     "noUnusedLocals": false,
     "noUnusedParameters": false,
-    "noUncheckedIndexedAccess": false,
-
-    /* Phase 2 - Requires Code Changes (Not Yet Enabled) */
-    // "noImplicitOverride": true,       // Requires adding 'override' keywords (~60 methods)
-    // "strictNullChecks": true,         // Requires null checks throughout codebase
-    // "strictPropertyInitialization": true,  // Requires definite assignment in constructors
-    // "noImplicitAny": true,            // Requires explicit types everywhere
+    "noUncheckedIndexedAccess": false
   },
   "include": [
     "src/**/*"

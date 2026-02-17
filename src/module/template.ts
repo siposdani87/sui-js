@@ -8,8 +8,8 @@ import { Knot } from '../core';
 
 export class Template {
     http: Http;
-    options: Objekt<{ selector: string; locale: string }>;
-    viewKnot: Knot;
+    options!: Objekt<{ selector: string; locale: string }>;
+    viewKnot!: Knot;
 
     constructor(http: Http, opt_options: object | undefined = {}) {
         this.http = http;

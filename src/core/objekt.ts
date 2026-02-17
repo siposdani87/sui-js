@@ -24,21 +24,22 @@ export class Objekt<T extends object = object> {
 
     merge(object: any): Objekt {
         if (isPureObject(object)) {
-            for (const key in object) {
-                if (object.hasOwnProperty(key)) {
-                    if (isPureObject(object[key])) {
+            const obj = object as Record<string, any>;
+            for (const key in obj) {
+                if (obj.hasOwnProperty(key)) {
+                    if (isPureObject(obj[key])) {
                         if (!instanceOf(this[key], Objekt)) {
                             this[key] = new Objekt(this[key]);
                         }
-                        this[key].merge(object[key]);
+                        this[key].merge(obj[key]);
                     } else if (
-                        isArray(object[key]) &&
-                        isPureObject(object[key][0])
+                        isArray(obj[key]) &&
+                        isPureObject(obj[key][0])
                     ) {
-                        this._convertobject(object, key);
-                        this[key] = object[key];
+                        this._convertobject(obj, key);
+                        this[key] = obj[key];
                     } else {
-                        this[key] = typeCast(object[key]);
+                        this[key] = typeCast(obj[key]);
                     }
                 }
             }
@@ -63,7 +64,7 @@ export class Objekt<T extends object = object> {
         const attributes = opt_isSafe ? [attribute] : attribute.split('.');
         const value = this._getByAttributes<K>(this, attributes);
 
-        return !isUndefined(value) ? value : opt_defaultValue;
+        return !isUndefined(value) ? value : opt_defaultValue!;
     }
 
     private _getByAttributes<K>(
@@ -71,20 +72,21 @@ export class Objekt<T extends object = object> {
         attributes: Array<string>,
     ): K | undefined {
         let result = undefined;
+        const obj = object as Record<string, any>;
         each(object, (_value, property) => {
             if (
                 attributes.length === 1 &&
                 property.toString() === attributes[0]
             ) {
-                result = object[property];
+                result = obj[property];
             } else if (
                 property.toString() === attributes[0] &&
-                (isPureObject(object[property]) || isArray(object[property]))
+                (isPureObject(obj[property]) || isArray(obj[property]))
             ) {
                 const copyAttributes = copyArray(attributes);
                 copyAttributes.shift();
                 result = this._getByAttributes(
-                    object[property],
+                    obj[property],
                     copyAttributes,
                 );
             }
@@ -97,16 +99,17 @@ export class Objekt<T extends object = object> {
         attributes: Array<string>,
         value: any,
     ): void {
-        eachObject(object, (_oldValue, property) => {
+        const obj = object as Record<string, any>;
+        eachObject(obj, (_oldValue, property) => {
             if (attributes.length === 1 && property === attributes[0]) {
-                object[property] = value;
+                obj[property] = value;
             } else if (
                 property === attributes[0] &&
-                (isPureObject(object[property]) || isArray(object[property]))
+                (isPureObject(obj[property]) || isArray(obj[property]))
             ) {
                 const copyAttributes = copyArray(attributes);
                 copyAttributes.shift();
-                this._setByAttributes(object[property], copyAttributes, value);
+                this._setByAttributes(obj[property], copyAttributes, value);
             }
         });
     }
@@ -140,18 +143,19 @@ export class Objekt<T extends object = object> {
         object: object | Objekt,
         attributes: Array<string>,
     ): void {
-        for (const property in object) {
-            if (object.hasOwnProperty(property)) {
+        const obj = object as Record<string, any>;
+        for (const property in obj) {
+            if (obj.hasOwnProperty(property)) {
                 if (attributes.length === 1 && property === attributes[0]) {
-                    delete object[property];
+                    delete obj[property];
                 } else if (
                     property === attributes[0] &&
-                    (isPureObject(object[property]) ||
-                        isArray(object[property]))
+                    (isPureObject(obj[property]) ||
+                        isArray(obj[property]))
                 ) {
                     const copyAttributes = copyArray(attributes);
                     copyAttributes.shift();
-                    this._removeByAttributes(object[property], copyAttributes);
+                    this._removeByAttributes(obj[property], copyAttributes);
                 }
             }
         }
@@ -182,11 +186,11 @@ export class Objekt<T extends object = object> {
         value: any,
     ): object {
         const lastAttribute = attributes.pop();
-        let base = object;
+        let base: Record<string, any> = object as Record<string, any>;
         for (const attribute of attributes) {
             base = base[attribute] = base[attribute] || {};
         }
-        base[lastAttribute] = value;
+        base[lastAttribute!] = value;
         return object;
     }
 

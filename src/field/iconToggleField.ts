@@ -3,9 +3,9 @@ import { Knot } from '../core/knot';
 import { BaseCheckboxField } from './baseCheckboxField';
 
 export class IconToggleField extends BaseCheckboxField {
-    checkedIcon: string;
-    uncheckedIcon: string;
-    icon: Knot;
+    checkedIcon!: string;
+    uncheckedIcon!: string;
+    icon!: Knot;
 
     constructor(
         input: Knot<HTMLInputElement>,
@@ -16,7 +16,7 @@ export class IconToggleField extends BaseCheckboxField {
         super(input, label, error, inputBlock);
     }
 
-    render(): void {
+    override render(): void {
         this.label.addClass([
             'mdl-icon-toggle',
             'mdl-js-icon-toggle',
@@ -53,7 +53,7 @@ export class IconToggleField extends BaseCheckboxField {
         this.refresh();
     }
 
-    protected _change(): void {
+    protected override _change(): void {
         const value = this.getValue();
         this.icon.setHtml(
             this.input.getNode().checked
@@ -63,7 +63,7 @@ export class IconToggleField extends BaseCheckboxField {
         this.modelChange(value);
     }
 
-    setValue(
+    override setValue(
         value:
             | object
             | Function

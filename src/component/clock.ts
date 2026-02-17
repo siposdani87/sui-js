@@ -6,19 +6,19 @@ import { Time } from './time';
 
 export class Clock {
     clockKnot: Knot;
-    options: Objekt;
-    modes: string[];
-    types: { hour: string; minute: string };
-    activeMode: string;
-    headerKnot: Knot;
-    periodHeaderKnot: Knot;
-    period: string;
-    time: Date;
-    minutesHeaderKnot: Knot;
-    hoursHeaderKnot: Knot;
-    contentKnot: Knot;
-    hours: number;
-    minutes: number;
+    options!: Objekt;
+    modes!: string[];
+    types!: { hour: string; minute: string };
+    activeMode!: string;
+    headerKnot!: Knot;
+    periodHeaderKnot!: Knot;
+    period!: string;
+    time!: Date;
+    minutesHeaderKnot!: Knot;
+    hoursHeaderKnot!: Knot;
+    contentKnot!: Knot;
+    hours!: number;
+    minutes!: number;
 
     constructor(knot: Knot, options: object) {
         this.clockKnot = knot;
@@ -61,7 +61,7 @@ export class Clock {
     private _initStructure(): void {
         this._initHeaderKnot();
         this._initContentKnot();
-        this._initMode(this.types[this.options.type]);
+        this._initMode(this.types[this.options.type as keyof typeof this.types]);
 
         this.setTime(this.options.time);
     }
@@ -143,7 +143,7 @@ export class Clock {
 
     private _setHours(hours: number): void {
         this.hours = hours;
-        const cssClass = this.activeMode === this.types.hour ? 'active' : null;
+        const cssClass = this.activeMode === this.types.hour ? 'active' : '';
         this.hoursHeaderKnot.removeClass('active');
         this.hoursHeaderKnot.addClass(['hours', cssClass]);
         const text = hours < 10 ? '0' + hours : hours.toString();
@@ -153,7 +153,7 @@ export class Clock {
     private _setMinutes(minutes: number): void {
         this.minutes = minutes;
         const cssClass =
-            this.activeMode === this.types.minute ? 'active' : null;
+            this.activeMode === this.types.minute ? 'active' : '';
         this.minutesHeaderKnot.removeClass('active');
         this.minutesHeaderKnot.addClass(['minutes', cssClass]);
         const text = minutes < 10 ? '0' + minutes : minutes.toString();
@@ -192,7 +192,7 @@ export class Clock {
             position += direction;
         }
         const mode = this.modes[position];
-        return mode ? mode : this.types[this.options.type];
+        return mode ? mode : this.types[this.options.type as keyof typeof this.types];
     }
 
     private _changeMode(direction: number): void {

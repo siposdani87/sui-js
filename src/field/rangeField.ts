@@ -5,7 +5,7 @@ import { Knot } from '../core';
 import { mdl } from '../utils/render';
 
 export class RangeField extends BaseField<HTMLInputElement> {
-    tooltip: Tooltip;
+    tooltip!: Tooltip;
 
     constructor(
         input: Knot<HTMLInputElement>,
@@ -28,7 +28,7 @@ export class RangeField extends BaseField<HTMLInputElement> {
         });
     }
 
-    render(): void {
+    override render(): void {
         this.inputBlock.addClass([
             'mdl-textfield',
             'mdl-js-textfield',
@@ -44,7 +44,7 @@ export class RangeField extends BaseField<HTMLInputElement> {
         this.refresh();
     }
 
-    refresh() {
+    override refresh() {
         if (this.isRequired() && this.getValue() === '') {
             this.inputBlock.addClass('is-invalid');
         }
@@ -67,7 +67,7 @@ export class RangeField extends BaseField<HTMLInputElement> {
         this.tooltip.render(value);
     }
 
-    setValue(
+    override setValue(
         value:
             | object
             | Function
@@ -79,7 +79,7 @@ export class RangeField extends BaseField<HTMLInputElement> {
             | undefined,
     ): void {
         const inputKnot = this.input.getNode();
-        inputKnot['MaterialSlider']['change'](value);
+        (inputKnot as any)['MaterialSlider']['change'](value);
         this.tooltip.render(value as string);
     }
 }

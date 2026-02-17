@@ -59,7 +59,7 @@ export const readableNumber = (
 const decimalAdjust = (type: string, value: number, exp: number): number => {
     // If the exp is undefined or zero...
     if (typeof exp === 'undefined' || +exp === 0) {
-        return Math[type](value);
+        return (Math as Record<string, any>)[type](value);
     }
     value = +value;
     exp = +exp;
@@ -69,7 +69,7 @@ const decimalAdjust = (type: string, value: number, exp: number): number => {
     }
     // Shift
     let parts = value.toString().split('e');
-    value = Math[type](+(parts[0] + 'e' + (parts[1] ? +parts[1] - exp : -exp)));
+    value = (Math as Record<string, any>)[type](+(parts[0] + 'e' + (parts[1] ? +parts[1] - exp : -exp)));
     // Shift back
     parts = value.toString().split('e');
     return +(parts[0] + 'e' + (parts[1] ? +parts[1] + exp : exp));

@@ -15,16 +15,16 @@ import { encodeBase64 } from '../utils/coder';
 type XhrType = [string, XMLHttpRequestResponseType, string];
 
 export class Xhr {
-    options: Objekt<{ backend: string; locale: string }>;
-    requestHeaders: {
+    options!: Objekt<{ backend: string; locale: string }>;
+    requestHeaders!: {
         [key: string]: string;
     };
-    authorization: string;
-    types: {
+    authorization!: string | null;
+    types!: {
         [key: string]: XhrType;
     };
-    httpRequest: XMLHttpRequest;
-    deferred: Deferred<
+    httpRequest!: XMLHttpRequest;
+    deferred!: Deferred<
         [XMLHttpRequest, Objekt, string],
         [XMLHttpRequest, Objekt, string]
     >;
@@ -247,7 +247,7 @@ export class Xhr {
         stringKey: string,
     ): Array<string> {
         stringKey += stringKey ? '[' + key + ']' : key;
-        let results = [];
+        let results: string[] = [];
         if (obj instanceof Array) {
             stringKey += '[]';
             for (let i = 0; i < obj.length; i++) {
@@ -267,10 +267,10 @@ export class Xhr {
     }
 
     private _stringifyobject(obj: object): string {
-        let results = [];
+        let results: string[] = [];
         for (const key in obj) {
-            if (obj.hasOwnProperty(key)) {
-                const pair = this._parseobject(obj[key], key, '');
+            if ((obj as Record<string, any>).hasOwnProperty(key)) {
+                const pair = this._parseobject((obj as Record<string, any>)[key], key, '');
                 results = results.concat(pair);
             }
         }
@@ -290,7 +290,7 @@ export class Xhr {
                 'Content-Disposition',
             );
             if (contentDisposition) {
-                filename = contentDisposition.match(/filename="(.+)"/)[1];
+                filename = contentDisposition.match(/filename="(.+)"/)![1];
             }
         } catch (error) {
             consoleError('Xhr._getFilenameFromHeader', error);
@@ -310,7 +310,7 @@ export class Xhr {
                         const reader = new FileReader();
                         reader.addEventListener('loadend', (e) => {
                             const data = JSON.parse(
-                                (e.target.result as string) || 'null',
+                                (e.target!.result as string) || 'null',
                             );
                             const objekt = new Objekt();
                             objekt.setRaw('raw', data);
@@ -384,14 +384,14 @@ export class Xhr {
         return this.requestHeaders[name];
     }
 
-    setBasicAuthorization(username: string, password: string): void {
+    setBasicAuthorization(username: string | null, password: string | null): void {
         if (username && password) {
             const hash = [username, password].join(':');
             this.authorization = 'Basic ' + encodeBase64(hash);
         }
     }
 
-    setBearerAuthorization(token: string): void {
+    setBearerAuthorization(token: string | null): void {
         if (token) {
             this.authorization = 'Bearer ' + token;
         }

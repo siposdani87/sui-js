@@ -4,23 +4,23 @@ import { Query } from '../core/query';
 import { Knot } from '../core';
 
 export class BaseModal {
-    windowWidth: number;
-    windowHeight: number;
-    mainContainerKnot: Knot;
-    hasBlur: boolean;
-    modal: Knot;
-    btnMinimize: Knot;
-    btnMaximize: Knot;
-    btnClose: Knot;
-    body: Knot;
-    interval: number;
-    modalTitle: Knot;
-    modalBody: Knot;
-    modalFooter: Knot;
-    modalHeader: Knot;
-    eventOK: () => void;
-    eventCancel: () => void;
-    modalWindow: Knot;
+    windowWidth!: number;
+    windowHeight!: number;
+    mainContainerKnot!: Knot;
+    hasBlur!: boolean;
+    modal!: Knot;
+    btnMinimize!: Knot;
+    btnMaximize!: Knot;
+    btnClose!: Knot;
+    body!: Knot;
+    interval!: number;
+    modalTitle!: Knot;
+    modalBody!: Knot;
+    modalFooter!: Knot;
+    modalHeader!: Knot;
+    eventOK!: () => void;
+    eventCancel!: () => void;
+    modalWindow!: Knot;
 
     protected _initBase(): void {
         this.windowWidth = 0;
@@ -134,7 +134,7 @@ export class BaseModal {
     }
 
     protected _setTitle(opt_title: string | undefined): void {
-        this.modalTitle.setHtml(opt_title);
+        this.modalTitle.setHtml(opt_title ?? '');
 
         if (
             (isString(opt_title) && opt_title.length > 0) ||
@@ -178,7 +178,7 @@ export class BaseModal {
     }
 
     private _handleCenterPosition(): void {
-        const style = this.modalWindow.getComputedStyle();
+        const style = this.modalWindow.getComputedStyle()!;
         const styleHeight = style.getPropertyValue('height');
         if (contain(styleHeight, 'px')) {
             const height = parseInt(styleHeight.slice(0, -2), 10);

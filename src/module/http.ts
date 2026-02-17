@@ -5,10 +5,10 @@ import { consoleDebug } from '../utils/log';
 import { Xhr } from './xhr';
 
 export class Http {
-    options: Objekt;
-    username: string;
-    password: string;
-    token: string;
+    options!: Objekt;
+    username!: string | null;
+    password!: string | null;
+    token!: string | null;
 
     constructor(opt_options: object | undefined = {}) {
         this._setOptions(opt_options);

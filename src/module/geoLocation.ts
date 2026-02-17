@@ -2,12 +2,12 @@ import { Deferred } from '../core/deferred';
 import { consoleDebug, consoleError } from '../utils/log';
 
 export class GeoLocation {
-    options: {
+    options!: {
         enableHighAccuracy: boolean;
         timeout: number;
         maximumAge: number;
     };
-    watcherId: number;
+    watcherId!: number;
 
     constructor() {
         this._init();

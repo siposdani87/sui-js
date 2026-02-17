@@ -6,8 +6,8 @@ import { Form } from '../component';
 import { mdl } from '../utils/render';
 
 export class RadiobuttonField extends BaseField<HTMLInputElement> {
-    dataLabelKnot: Knot;
-    spanLabel: Knot;
+    dataLabelKnot!: Knot;
+    spanLabel!: Knot;
 
     constructor(
         input: Knot<HTMLInputElement>,
@@ -39,23 +39,23 @@ export class RadiobuttonField extends BaseField<HTMLInputElement> {
         const name = this.input.getAttribute('name');
         const radioButtonInputs = new Query(
             format('input[name="{0}"]', [name]),
-            this.form.formKnot,
+            this.form!.formKnot,
         );
         radioButtonInputs.each((radioButtonInput) => {
-            const labelKnot = radioButtonInput.getParentKnot();
+            const labelKnot = radioButtonInput.getParentKnot()!;
             labelKnot.addClass('is-other-checked');
-            const inputBlockKnot = labelKnot.getParentKnot();
+            const inputBlockKnot = labelKnot.getParentKnot()!;
             inputBlockKnot.removeClass('is-invalid');
         });
     }
 
-    render(): void {
+    override render(): void {
         this.label.addClass([
             'mdl-radio',
             'mdl-js-radio',
             'mdl-js-ripple-effect',
         ]);
-        const id = this.input.getId();
+        const id = this.input.getId()!;
         this.label.setFor(id);
 
         const labelText = this.label.getHtml(true);
@@ -76,7 +76,7 @@ export class RadiobuttonField extends BaseField<HTMLInputElement> {
         this.refresh();
     }
 
-    refresh() {
+    override refresh() {
         const dataLabelText = this.label.getAttribute('data-label');
         if (dataLabelText) {
             const labelText = this._getLabelRequiredText(dataLabelText);
@@ -91,7 +91,7 @@ export class RadiobuttonField extends BaseField<HTMLInputElement> {
         mdl(this.label, false);
     }
 
-    setValue(
+    override setValue(
         value:
             | object
             | Function
@@ -108,7 +108,7 @@ export class RadiobuttonField extends BaseField<HTMLInputElement> {
         }
     }
 
-    getValue(): any {
+    override getValue(): any {
         let value = null;
         this._getRadioButtonInputs().each((radioButtonInput) => {
             const checked = radioButtonInput.getNode().checked;
@@ -119,21 +119,21 @@ export class RadiobuttonField extends BaseField<HTMLInputElement> {
         return typeCast(value);
     }
 
-    setDisabled(state: boolean): void {
+    override setDisabled(state: boolean): void {
         this._getRadioButtonInputs().each((radioButtonInput) => {
             if (state) {
                 radioButtonInput.setAttribute('disabled');
-                radioButtonInput.getParentKnot().addClass('is-disabled');
+                radioButtonInput.getParentKnot()!.addClass('is-disabled');
                 radioButtonInput
-                    .getParentKnot()
-                    .getParentKnot()
+                    .getParentKnot()!
+                    .getParentKnot()!
                     .addClass('is-disabled');
             } else {
                 radioButtonInput.removeAttribute('disabled');
-                radioButtonInput.getParentKnot().removeClass('is-disabled');
+                radioButtonInput.getParentKnot()!.removeClass('is-disabled');
                 radioButtonInput
-                    .getParentKnot()
-                    .getParentKnot()
+                    .getParentKnot()!
+                    .getParentKnot()!
                     .removeClass('is-disabled');
             }
             radioButtonInput.getNode().disabled = state;
@@ -141,7 +141,7 @@ export class RadiobuttonField extends BaseField<HTMLInputElement> {
         this.checkValidity(true, false);
     }
 
-    isDisabled(): boolean {
+    override isDisabled(): boolean {
         let isDisabled = false;
         this._getRadioButtonInputs().each((radioButtonInput) => {
             if (radioButtonInput.getNode().disabled) {
@@ -155,11 +155,11 @@ export class RadiobuttonField extends BaseField<HTMLInputElement> {
         const name = this.input.getAttribute('name');
         return new Query<HTMLInputElement>(
             format('input[name="{0}"]', [name]),
-            this.form.formKnot,
+            this.form!.formKnot,
         );
     }
 
-    setLabel(text: string): void {
+    override setLabel(text: string): void {
         if (this.spanLabel && !this.spanLabel.isEmpty()) {
             this.spanLabel.setHtml(text);
             this._setAdditionalLabel(this.spanLabel);

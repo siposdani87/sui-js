@@ -3,15 +3,15 @@ import { Query } from '../core/query';
 import { Knot } from '../core';
 
 export class LeftMenu {
-    body: Knot;
-    mainContainerKnot: Knot;
-    leftMenu: Knot;
-    mainMenu: Knot;
-    subMenu: Knot;
-    mainMenuContainer: Knot;
-    subMenuContainer: Knot;
-    mainMenuTitle: Knot;
-    subMenuTitle: Knot;
+    body!: Knot;
+    mainContainerKnot!: Knot;
+    leftMenu!: Knot;
+    mainMenu!: Knot;
+    subMenu!: Knot;
+    mainMenuContainer!: Knot;
+    subMenuContainer!: Knot;
+    mainMenuTitle!: Knot;
+    subMenuTitle!: Knot;
 
     constructor() {
         this._init();

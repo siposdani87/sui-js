@@ -9,11 +9,11 @@ import { Knot } from '../core';
 
 export class Form extends Collection<BaseField<HTMLInputElement>> {
     formKnot: Knot<HTMLFormElement>;
-    previousModel: Objekt;
-    model: Objekt;
-    initFields: string[];
-    buttonClasses: string[];
-    fieldClasses: string[];
+    previousModel!: Objekt;
+    model!: Objekt;
+    initFields!: string[];
+    buttonClasses!: string[];
+    fieldClasses!: string[];
 
     constructor(dom: Knot, opt_selector: string | undefined = 'form') {
         const formKnot = new Query<HTMLFormElement>(
@@ -94,8 +94,8 @@ export class Form extends Collection<BaseField<HTMLInputElement>> {
 
         this.load(fields);
 
-        const updatedFields = [];
-        const initFields = [];
+        const updatedFields: string[] = [];
+        const initFields: string[] = [];
         this.each((field) => {
             const fieldName = field.getName();
             if (inArray(this.initFields, fieldName)) {
@@ -218,7 +218,7 @@ export class Form extends Collection<BaseField<HTMLInputElement>> {
     }
 
     refresh(): void {
-        this.deleteAllByCondition((field) => {
+        this.deleteAllByCondition((field: BaseField<HTMLInputElement>) => {
             const exists = field.exists();
             if (!exists) {
                 const fieldName = field.getName();
@@ -232,7 +232,7 @@ export class Form extends Collection<BaseField<HTMLInputElement>> {
     }
 
     findByModel<T = BaseField<HTMLInputElement>>(name: string): T {
-        return this.findByCondition((item) => {
+        return this.findByCondition((item: BaseField<HTMLInputElement>) => {
             return item.getName() === name;
         }) as any as T;
     }

@@ -5,12 +5,12 @@ import { Knot } from '../core/knot';
 import { DateIO } from '../utils';
 
 export class DateTimeField extends BaseField<HTMLInputElement> {
-    datetimeContainer: Knot;
-    datetimeInput: Knot;
-    format: string;
-    datetimeKnot: Knot;
-    datetime: DateTime;
-    popup: Popup;
+    datetimeContainer!: Knot;
+    datetimeInput!: Knot;
+    format!: string;
+    datetimeKnot!: Knot;
+    datetime!: DateTime;
+    popup!: Popup;
 
     constructor(
         input: Knot<HTMLInputElement>,
@@ -70,7 +70,7 @@ export class DateTimeField extends BaseField<HTMLInputElement> {
         }
     }
 
-    render(): void {
+    override render(): void {
         if (this.label && this.label.exists()) {
             this.label.addClass('field-label');
         }
@@ -86,7 +86,7 @@ export class DateTimeField extends BaseField<HTMLInputElement> {
         this.datetime.draw();
     }
 
-    refresh() {
+    override refresh() {
         if (this.isDisabled()) {
             this.inputBlock.addClass('is-disabled');
         } else {
@@ -94,7 +94,7 @@ export class DateTimeField extends BaseField<HTMLInputElement> {
         }
     }
 
-    setValue(
+    override setValue(
         value:
             | object
             | Function

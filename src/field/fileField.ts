@@ -11,12 +11,12 @@ import { encodeBase64 } from '../utils/coder';
 import { mdl } from '../utils/render';
 
 export class FileField extends BaseField<HTMLInputElement> {
-    imageTag: Knot;
-    valueSrc: string;
-    defaultSrc: string;
-    removeButton: Knot;
-    fileTypes: { [key: string]: [string, string] };
-    fileTypeSVG: string;
+    imageTag!: Knot;
+    valueSrc!: string | null;
+    defaultSrc!: string;
+    removeButton!: Knot;
+    fileTypes!: { [key: string]: [string, string] };
+    fileTypeSVG!: string;
 
     constructor(
         input: Knot<HTMLInputElement>,
@@ -39,7 +39,7 @@ export class FileField extends BaseField<HTMLInputElement> {
 
         this.input.addEventListener('change', (inputKnot) => {
             const inputNode = inputKnot.getNode();
-            const file = inputNode.files[0];
+            const file = inputNode.files![0];
             this._read(file);
             return true;
         });
@@ -111,7 +111,7 @@ export class FileField extends BaseField<HTMLInputElement> {
     }
 
     private _lookupByExtension(extension: string): Array<any> {
-        let results = [];
+        let results: any[] = [];
         for (const key in this.fileTypes) {
             if (Object.hasOwn(this.fileTypes, key)) {
                 const fileType = this.fileTypes[key];
@@ -153,7 +153,7 @@ export class FileField extends BaseField<HTMLInputElement> {
         return format('data:image/svg+xml;base64,{0}', [data]);
     }
 
-    render(): void {
+    override render(): void {
         this.inputBlock.addClass([
             'mdl-textfield',
             'mdl-js-textfield',
@@ -166,7 +166,7 @@ export class FileField extends BaseField<HTMLInputElement> {
         this.refresh();
     }
 
-    refresh() {
+    override refresh() {
         if (this.isRequired() && this.getValue() === '') {
             this.inputBlock.addClass('is-invalid');
         }
@@ -181,7 +181,7 @@ export class FileField extends BaseField<HTMLInputElement> {
             const filename = file.name;
             const fileReader = new FileReader();
             fileReader.onload = (event) => {
-                const target = event.target;
+                const target = event.target!;
                 const searchStr = ';base64,';
                 let imageSrc = (target.result as string).replace(
                     searchStr,
@@ -223,7 +223,7 @@ export class FileField extends BaseField<HTMLInputElement> {
         this.modelChange(null);
     }
 
-    setValue(
+    override setValue(
         value:
             | object
             | Function
@@ -236,7 +236,7 @@ export class FileField extends BaseField<HTMLInputElement> {
     ): void {
         let imageSrc = value;
         if (isPureObject(value)) {
-            imageSrc = value['url'];
+            imageSrc = (value as Record<string, any>)['url'];
         }
         if (imageSrc) {
             this.valueSrc = imageSrc as string;

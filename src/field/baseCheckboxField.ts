@@ -5,9 +5,9 @@ import { Knot } from '../core/knot';
 import { mdl } from '../utils/render';
 
 export class BaseCheckboxField extends BaseField<HTMLInputElement> {
-    hiddenInput: Knot;
-    spanLabel: Knot;
-    dataLabelKnot: Knot;
+    hiddenInput!: Knot;
+    spanLabel!: Knot;
+    dataLabelKnot!: Knot;
 
     constructor(
         input: Knot<HTMLInputElement>,
@@ -37,7 +37,7 @@ export class BaseCheckboxField extends BaseField<HTMLInputElement> {
         this.modelChange(value);
     }
 
-    getValue(): any {
+    override getValue(): any {
         const checked = this.input.getNode().checked;
         let value = this.hiddenInput.getAttribute('value');
         if (checked) {
@@ -46,7 +46,7 @@ export class BaseCheckboxField extends BaseField<HTMLInputElement> {
         return typeCast(value);
     }
 
-    setValue(
+    override setValue(
         value:
             | object
             | Function
@@ -65,7 +65,7 @@ export class BaseCheckboxField extends BaseField<HTMLInputElement> {
         this.input.trigger('change');
     }
 
-    setDisabled(state: boolean): void {
+    override setDisabled(state: boolean): void {
         if (state) {
             this.input.setAttribute('disabled');
             this.label.addClass('is-disabled');
@@ -79,14 +79,14 @@ export class BaseCheckboxField extends BaseField<HTMLInputElement> {
         this.checkValidity(true, false);
     }
 
-    setLabel(text: string): void {
+    override setLabel(text: string): void {
         if (this.spanLabel && !this.spanLabel.isEmpty()) {
             this.spanLabel.setHtml(text);
             this._setAdditionalLabel(this.spanLabel);
         }
     }
 
-    refresh() {
+    override refresh() {
         const dataLabelText = this.label.getAttribute('data-label');
         if (dataLabelText) {
             const labelText = this._getLabelRequiredText(dataLabelText);

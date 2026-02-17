@@ -4,7 +4,7 @@ import { typeCast, eachArray } from '../utils/operation';
 import { Objekt } from '../core/objekt';
 
 export class Cookie {
-    options: Objekt;
+    options!: Objekt;
 
     constructor(opt_options: object | undefined = {}) {
         this._setOptions(opt_options);

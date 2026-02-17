@@ -7,8 +7,8 @@ import { mdl } from '../utils/render';
 export class Tooltip {
     element: Knot;
     valid: boolean;
-    positionCssClass: string;
-    tooltip: Knot;
+    positionCssClass!: string;
+    tooltip!: Knot;
 
     constructor(element: Knot, opt_position: string | undefined = 'TOP') {
         this.element = element;
@@ -47,7 +47,7 @@ export class Tooltip {
             }
             opt_message = this.element.getAttribute('title') || opt_message;
         }
-        return opt_message;
+        return opt_message ?? '';
     }
 
     private _createTooltip(): void {

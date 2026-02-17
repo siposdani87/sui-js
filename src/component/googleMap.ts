@@ -53,18 +53,18 @@ const _createMapLabelByMarkerByPosition = (
 
 export class GoogleMap {
     mapKnot: Knot;
-    options: Objekt;
-    map: google.maps.Map;
-    markerIcons: {
+    options!: Objekt;
+    map!: google.maps.Map;
+    markerIcons!: {
         [key: string]: MarkerIcon;
     };
-    overlay: google.maps.OverlayView;
-    polygonOptions: Objekt;
-    polygons: Collection<Objekt>;
-    markers: Collection<Objekt>;
-    markerOptions: Objekt;
-    heatmapOptions: Objekt;
-    heatmap: google.maps.visualization.HeatmapLayer;
+    overlay!: google.maps.OverlayView;
+    polygonOptions!: Objekt;
+    polygons!: Collection<Objekt>;
+    markers!: Collection<Objekt>;
+    markerOptions!: Objekt;
+    heatmapOptions!: Objekt;
+    heatmap!: google.maps.visualization.HeatmapLayer;
 
     constructor(
         dom: Knot,
@@ -100,7 +100,7 @@ export class GoogleMap {
     }
 
     getMapType(): string {
-        return this.map.getMapTypeId();
+        return this.map.getMapTypeId()!;
     }
 
     setMapType(mapTypeId: string): void {
@@ -139,12 +139,12 @@ export class GoogleMap {
     }
 
     private _bindEventsToMap(): void {
-        this.map.addListener('click', (event) => {
+        this.map.addListener('click', (event: any) => {
             const vertex = event.latLng;
             this.eventMapClick(vertex.lat(), vertex.lng(), event);
         });
 
-        this.map.addListener('maptypeid_changed', (event) => {
+        this.map.addListener('maptypeid_changed', (event: any) => {
             this.eventMapTypeChange(this.getMapType(), event);
         });
     }
@@ -222,7 +222,7 @@ export class GoogleMap {
         opt_polygonData: object | undefined = {},
         opt_options: object | undefined = {},
     ): void {
-        const polygonData = this.getPolygon(id);
+        const polygonData = this.getPolygon(id)!;
         eachObject(this._cleanPolygonData(opt_polygonData), (value, key) => {
             polygonData.set(key, value);
         });
@@ -250,7 +250,7 @@ export class GoogleMap {
         return cleanData;
     }
 
-    getPolygon(id: Id): Objekt {
+    getPolygon(id: Id): Objekt | null {
         return this.polygons.findById(id);
     }
 
@@ -283,7 +283,7 @@ export class GoogleMap {
     ): void {
         const cleanPolygonData = this._cleanPolygonData(polygonData);
 
-        polygon.addListener('rightclick', (event) => {
+        polygon.addListener('rightclick', (event: any) => {
             if (event.vertex) {
                 const path = polygon.getPath();
                 path.removeAt(event.vertex);
@@ -298,7 +298,7 @@ export class GoogleMap {
             }
         });
 
-        polygon.addListener('click', (event) => {
+        polygon.addListener('click', (event: any) => {
             const vertex = event.latLng;
             this.eventPolygonClick(
                 cleanPolygonData,
@@ -308,7 +308,7 @@ export class GoogleMap {
             );
         });
 
-        polygon.addListener('dblclick', (event) => {
+        polygon.addListener('dblclick', (event: any) => {
             const vertex = event.latLng;
             this.eventPolygonDoubleClick(
                 cleanPolygonData,
@@ -439,7 +439,7 @@ export class GoogleMap {
     private _convertPointsToPath(
         points: Array<WeightLatLng>,
     ): Array<google.maps.LatLng> {
-        const path = [];
+        const path: any[] = [];
         each(points, (point) => {
             let vertex: any = new google.maps.LatLng(
                 point.latitude,
@@ -507,7 +507,7 @@ export class GoogleMap {
         const polygon = polygonData.get<google.maps.Polygon>('_polygon');
         const path = polygon.getPath().getArray();
         this._setBoundsByPath(polygonData, path);
-        const points = [];
+        const points: Array<{ latitude: number; longitude: number }> = [];
         each(path, (vertex) => {
             points.push({
                 latitude: vertex.lat(),
@@ -677,7 +677,7 @@ export class GoogleMap {
     ): void {
         const point = new google.maps.Point(x, y);
         const projection = this.overlay.getProjection();
-        const location = projection.fromContainerPixelToLatLng(point);
+        const location = projection.fromContainerPixelToLatLng(point)!;
 
         this.createMarker(
             id,
@@ -695,26 +695,26 @@ export class GoogleMap {
     ): void {
         const cleanMarkerData = this._cleanMarkerData(markerData);
 
-        marker.addListener('click', (event) => {
+        marker.addListener('click', (event: any) => {
             this.eventMarkerClick(cleanMarkerData, event);
         });
 
-        marker.addListener('dblclick', (event) => {
+        marker.addListener('dblclick', (event: any) => {
             this.eventMarkerDoubleClick(cleanMarkerData, event);
         });
 
-        marker.addListener('rightclick', (event) => {
+        marker.addListener('rightclick', (event: any) => {
             this.eventMarkerRightClick(cleanMarkerData, event);
         });
 
-        marker.addListener('drag', (_event) => {
-            const vertex = marker.getPosition();
+        marker.addListener('drag', (_event: any) => {
+            const vertex = marker.getPosition()!;
             const mapLabel = markerData.get<MapLabel>('_map_label');
             mapLabel.set('position', vertex);
         });
 
-        marker.addListener('dragend', (event) => {
-            const vertex = marker.getPosition();
+        marker.addListener('dragend', (event: any) => {
+            const vertex = marker.getPosition()!;
             const latitude = vertex.lat();
             const longitude = vertex.lng();
             this.eventMarkerChanged(
@@ -739,7 +739,7 @@ export class GoogleMap {
         opt_markerData: object | undefined = {},
         opt_options: object | undefined = {},
     ): void {
-        const markerData = this.getMarker(id);
+        const markerData = this.getMarker(id)!;
         eachObject(this._cleanMarkerData(opt_markerData), (value, key) => {
             markerData.set(key, value);
         });
@@ -767,7 +767,7 @@ export class GoogleMap {
         return cleanData;
     }
 
-    getMarker(id: Id): Objekt {
+    getMarker(id: Id): Objekt | null {
         return this.markers.findById(id);
     }
 
@@ -775,7 +775,7 @@ export class GoogleMap {
         const markerData = this.getMarker(id);
         if (markerData) {
             const mapLabel = markerData.get<MapLabel>('_map_label');
-            mapLabel.setMap(null);
+            mapLabel.setMap(null as any);
             const marker = markerData.get<google.maps.Marker>('_marker');
             marker.setMap(null);
             this._unbindEventsToMarker(marker);
@@ -786,7 +786,7 @@ export class GoogleMap {
     removeAllMarker(): void {
         this.markers.each((markerData) => {
             const mapLabel = markerData.get<MapLabel>('_map_label');
-            mapLabel.setMap(null);
+            mapLabel.setMap(null as any);
             const marker = markerData.get<google.maps.Marker>('_marker');
             marker.setMap(null);
             this._unbindEventsToMarker(marker);
@@ -798,7 +798,7 @@ export class GoogleMap {
         const markerData = this.getMarker(markerId);
         if (markerData) {
             const marker = markerData.get<google.maps.Marker>('_marker');
-            const vertex = marker.getPosition();
+            const vertex = marker.getPosition()!;
             const latitude = vertex.lat();
             const longitude = vertex.lng();
             this.setCenter(latitude, longitude);
@@ -806,7 +806,7 @@ export class GoogleMap {
     }
 
     openInfoWindow(markerId: string | number, content: string): void {
-        const markerData = this.getMarker(markerId);
+        const markerData = this.getMarker(markerId)!;
         const marker = markerData.get<google.maps.Marker>('_marker');
         const infoWindow = new google.maps.InfoWindow({
             content: content.toString(),
@@ -883,9 +883,10 @@ export class GoogleMap {
             (results, status) => {
                 if (
                     status === google.maps.GeocoderStatus.OK &&
+                    results &&
                     results.length > 0
                 ) {
-                    const points = [];
+                    const points: Array<{ address: string; latitude: number; longitude: number }> = [];
                     each(results, (result) => {
                         const point = {
                             address: result.formatted_address,
@@ -910,7 +911,7 @@ export class GoogleMap {
     ): void {
         const position = new google.maps.LatLng(latitude, longitude);
         if (opt_boundCheck) {
-            if (!this.map.getBounds().contains(position)) {
+            if (!this.map.getBounds()!.contains(position)) {
                 this.map.setCenter(position);
             }
         } else {
@@ -919,7 +920,7 @@ export class GoogleMap {
     }
 
     getCenter(): { latitude: number; longitude: number } {
-        const vertex = this.map.getCenter();
+        const vertex = this.map.getCenter()!;
         return {
             latitude: vertex.lat(),
             longitude: vertex.lng(),
@@ -935,8 +936,8 @@ export class GoogleMap {
         const point2 = new google.maps.Point(radiusPx, radiusPx);
 
         const projection = this.overlay.getProjection();
-        const location1 = projection.fromContainerPixelToLatLng(point1);
-        const location2 = projection.fromContainerPixelToLatLng(point2);
+        const location1 = projection.fromContainerPixelToLatLng(point1)!;
+        const location2 = projection.fromContainerPixelToLatLng(point2)!;
 
         const latLng1 = new google.maps.LatLng(
             location1.lat(),

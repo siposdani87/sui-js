@@ -13,14 +13,14 @@ type DateTimeConfig = {
 
 export class DateTime {
     datetimeKnot: Knot;
-    options: Objekt;
-    types: {
+    options!: Objekt;
+    types!: {
         [key: string]: DateTimeConfig;
     };
-    config: DateTimeConfig;
-    calendarKnot: Knot;
-    clockKnot: Knot;
-    value: Date;
+    config!: DateTimeConfig;
+    calendarKnot!: Knot;
+    clockKnot!: Knot;
+    value!: Date;
 
     constructor(knot: Knot, options: object) {
         this.datetimeKnot = knot;

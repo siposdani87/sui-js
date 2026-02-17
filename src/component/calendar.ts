@@ -8,31 +8,31 @@ import { Year } from './year';
 
 export class Calendar {
     calendarKnot: Knot;
-    options: Objekt;
-    maxDays: number;
-    maxMonths: number;
-    maxYears: number;
-    modes: string[];
-    activeMode: string;
-    types: {
+    options!: Objekt;
+    maxDays!: number;
+    maxMonths!: number;
+    maxYears!: number;
+    modes!: string[];
+    activeMode!: string;
+    types!: {
         date: string;
         month: string;
         year: string;
         week: string;
         range: string;
     };
-    headerKnot: Knot;
-    currentModeKnot: Knot;
-    contentKnot: Knot;
-    yearsKnot: Knot;
-    monthsKnot: Knot;
-    weekDaysKnot: Knot;
-    daysKnot: Knot;
-    previous: { day: Date; month: Date; year: Date };
-    current: { day: Date };
-    next: { day: Date; month: Date; year: Date };
-    days: Day[];
-    selectedDate: Date;
+    headerKnot!: Knot;
+    currentModeKnot!: Knot;
+    contentKnot!: Knot;
+    yearsKnot!: Knot;
+    monthsKnot!: Knot;
+    weekDaysKnot!: Knot;
+    daysKnot!: Knot;
+    previous!: { day: Date; month: Date; year: Date };
+    current!: { day: Date };
+    next!: { day: Date; month: Date; year: Date };
+    days!: Day[];
+    selectedDate!: Date;
 
     constructor(knot: Knot, options: object) {
         this.calendarKnot = knot;
@@ -64,7 +64,7 @@ export class Calendar {
     private _initStructure(): void {
         this._initHeaderKnot();
         this._initContentKnot();
-        this._initMode(this.types[this.options.type]);
+        this._initMode(this.types[this.options.type as keyof typeof this.types]);
 
         const date: Date = this.options.date;
         this._setSelectedDate(date);
@@ -132,7 +132,7 @@ export class Calendar {
             position += direction;
         }
         const mode = this.modes[position];
-        return mode ? mode : this.types[this.options.type];
+        return mode ? mode : this.types[this.options.type as keyof typeof this.types];
     }
 
     private _switchMode(
@@ -395,7 +395,7 @@ export class Calendar {
     private _onClick(selectedDate: Date): void {
         this._setModeDate(selectedDate);
 
-        const mode = this.types[this.options.type];
+        const mode = this.types[this.options.type as keyof typeof this.types];
         if (this.activeMode !== mode) {
             this._changeMode(1);
         }

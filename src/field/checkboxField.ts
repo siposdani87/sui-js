@@ -11,13 +11,13 @@ export class CheckboxField extends BaseCheckboxField {
         super(input, label, error, inputBlock);
     }
 
-    render(): void {
+    override render(): void {
         this.label.addClass([
             'mdl-checkbox',
             'mdl-js-checkbox',
             'mdl-js-ripple-effect',
         ]);
-        const id = this.input.getId();
+        const id = this.input.getId()!;
         this.label.setFor(id);
 
         const labelText = this.label.getHtml(true);

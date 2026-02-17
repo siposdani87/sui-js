@@ -7,9 +7,9 @@ import { Http } from '../module';
 
 export class Navigation {
     http?: Http;
-    options: Objekt;
-    container: Collection<Objekt>;
-    linkKnotKey: string;
+    options!: Objekt;
+    container!: Collection<Objekt>;
+    linkKnotKey!: string;
 
     constructor(opt_http?: Http, opt_options: object | undefined = {}) {
         this.http = opt_http;
@@ -105,7 +105,7 @@ export class Navigation {
         imageSpan.addClass('image');
 
         if (image.indexOf('.svg') !== -1) {
-            this.http
+            this.http!
                 .get(
                     image,
                     {},
@@ -185,8 +185,8 @@ export class Navigation {
 
     bindToContainer(containerKnot: Knot): void {
         containerKnot.removeChildren();
-        this.each((item) => {
-            const linkKnot = item.get(this.linkKnotKey);
+        this.each((item: Objekt) => {
+            const linkKnot = item.get<Knot>(this.linkKnotKey);
             containerKnot.appendChild(linkKnot);
         });
     }
@@ -226,10 +226,10 @@ export class Navigation {
     }
 
     setActive(id: string): void {
-        this.each((item) => {
-            const linkKnot = item.get(this.linkKnotKey);
+        this.each((item: Objekt) => {
+            const linkKnot = item.get<Knot>(this.linkKnotKey);
             linkKnot.removeClass('active');
-            const itemId = item.get('id');
+            const itemId = item.get<string>('id');
             if (
                 (itemId[itemId.length - 1] === '.' && contain(id, itemId)) ||
                 eq(id, itemId)
@@ -240,8 +240,8 @@ export class Navigation {
     }
 
     setAllInactive(): void {
-        this.each((item) => {
-            const linkKnot = item.get(this.linkKnotKey);
+        this.each((item: Objekt) => {
+            const linkKnot = item.get<Knot>(this.linkKnotKey);
             linkKnot.removeClass('active');
         });
     }

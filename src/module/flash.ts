@@ -6,8 +6,8 @@ import { Knot } from '../core';
 import { mdl } from '../utils/render';
 
 export class Flash {
-    container: Knot;
-    options: Objekt;
+    container!: Knot;
+    options!: Objekt;
 
     constructor(opt_options: object | undefined = {}) {
         this._setOptions(opt_options);

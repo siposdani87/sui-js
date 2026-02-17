@@ -4,9 +4,9 @@ import { Query } from '../core/query';
 
 export class ProgressStatus {
     progressStatusKnot: Knot;
-    options: Objekt;
-    iconKnot: Knot;
-    textKnot: Knot;
+    options!: Objekt;
+    iconKnot!: Knot;
+    textKnot!: Knot;
 
     constructor(
         dom: Knot,

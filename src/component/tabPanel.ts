@@ -8,9 +8,9 @@ import { Knot } from '../core';
 export class TabPanel {
     tabPanel: Knot;
     options: { selected_tab: string; default_tab: string };
-    activeTab: string;
-    tabs: Query;
-    panels: Query;
+    activeTab!: string;
+    tabs!: Query;
+    panels!: Query;
 
     constructor(
         dom: Knot,

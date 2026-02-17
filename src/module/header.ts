@@ -4,15 +4,15 @@ import { Query } from '../core/query';
 import { consoleDebug } from '../utils/log';
 
 export class Header {
-    options: Objekt;
-    headerKnot: Knot;
-    leftMenuButton: Knot;
-    topMenuButton: Knot;
-    brandKnot: Knot;
-    brandKnotImage: Knot;
-    brandKnotTitle: Knot;
-    mainContainerKnot: Knot;
-    templateViewKnot: Knot;
+    options!: Objekt;
+    headerKnot!: Knot;
+    leftMenuButton!: Knot;
+    topMenuButton!: Knot;
+    brandKnot!: Knot;
+    brandKnotImage!: Knot;
+    brandKnotTitle!: Knot;
+    mainContainerKnot!: Knot;
+    templateViewKnot!: Knot;
 
     constructor(opt_options: object | undefined = {}) {
         this._setOptions(opt_options);

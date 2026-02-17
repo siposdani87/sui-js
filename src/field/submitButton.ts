@@ -12,7 +12,7 @@ export class SubmitButton extends BaseField<HTMLInputElement> {
         this.input.setAttribute('name', 'submit');
     }
 
-    render(): void {
+    override render(): void {
         this.input.addClass([
             'mdl-button',
             'mdl-js-button',
@@ -23,7 +23,7 @@ export class SubmitButton extends BaseField<HTMLInputElement> {
         this.refresh();
     }
 
-    refresh() {
+    override refresh() {
         mdl(this.input);
     }
 }

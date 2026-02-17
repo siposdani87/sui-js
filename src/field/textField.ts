@@ -29,7 +29,7 @@ export class TextField extends BaseField<HTMLInputElement> {
         });
     }
 
-    render(): void {
+    override render(): void {
         this.inputBlock.addClass([
             'mdl-textfield',
             'mdl-js-textfield',
@@ -42,7 +42,7 @@ export class TextField extends BaseField<HTMLInputElement> {
         this.refresh();
     }
 
-    refresh(): void {
+    override refresh(): void {
         if (this.isRequired() && this.getValue() === '') {
             this.inputBlock.addClass('is-invalid');
         }
@@ -50,7 +50,7 @@ export class TextField extends BaseField<HTMLInputElement> {
         mdl(this.inputBlock);
     }
 
-    getValue(): any {
+    override getValue(): any {
         return this.input.getNode().value;
     }
 }

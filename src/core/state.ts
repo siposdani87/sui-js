@@ -10,8 +10,8 @@ export class State {
     private _current: Objekt;
     private _previous: Objekt;
     routes: Collection<Route>;
-    basePath: string;
-    options: Objekt;
+    basePath!: string;
+    options!: Objekt;
 
     constructor(routes: Route[], opt_options: object | undefined = {}) {
         this._current = new Objekt();
@@ -112,9 +112,9 @@ export class State {
         const path = urlPath[0] === '#' ? urlPath.substring(1) : urlPath;
         const states = this.routes.getItems();
 
-        let state: Route = null;
-        let params: object = null;
-        let matches: RegExpMatchArray = null;
+        let state: Route | null = null;
+        let params: object | null = null;
+        let matches: RegExpMatchArray | null = null;
 
         let i = 0;
         while (i < states.length && isNull(matches)) {
@@ -128,7 +128,7 @@ export class State {
         if (state && params && matches) {
             successCallback(state, path, params);
         } else {
-            errorCallback(state, path, params);
+            errorCallback(state!, path, params!);
         }
     }
 

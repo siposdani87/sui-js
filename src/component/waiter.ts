@@ -1,7 +1,7 @@
 export class Waiter {
     timeoutWaiting: number;
     counter: number;
-    intervall: number;
+    intervall!: number;
 
     constructor() {
         this.timeoutWaiting = 0;

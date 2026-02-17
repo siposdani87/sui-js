@@ -5,7 +5,7 @@ import { Knot } from '../core/knot';
 import { consoleDebug } from '../utils/log';
 
 export class SearchField extends BaseField<HTMLInputElement> {
-    holderKnot: Knot;
+    holderKnot!: Knot;
 
     constructor(
         input: Knot<HTMLInputElement>,
@@ -34,7 +34,7 @@ export class SearchField extends BaseField<HTMLInputElement> {
         });
     }
 
-    render(): void {
+    override render(): void {
         this.inputBlock.addClass([
             'search-field',
             'mdl-textfield',
@@ -66,7 +66,7 @@ export class SearchField extends BaseField<HTMLInputElement> {
         this.refresh();
     }
 
-    refresh() {
+    override refresh() {
         if (this.isRequired() && this.getValue() === '') {
             this.inputBlock.addClass('is-invalid');
         }

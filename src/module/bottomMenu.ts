@@ -4,7 +4,7 @@ import { Footer } from './footer';
 
 export class BottomMenu {
     footer: Footer;
-    bottomMenu: Knot;
+    bottomMenu!: Knot;
 
     constructor(footer: Footer) {
         this.footer = footer;

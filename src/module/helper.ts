@@ -183,7 +183,7 @@ export class Helper {
                 buttonKnot.addClass(cssClasses);
                 if (opt_callback) {
                     buttonKnot.addEventListener('click', () => {
-                        opt_callback(buttonKnot.getId(), buttonKnot);
+                        opt_callback(buttonKnot.getId()!, buttonKnot);
                     });
                 }
 
@@ -291,7 +291,7 @@ export class Helper {
                 buttonKnot.addClass(cssClasses);
                 if (opt_callback) {
                     buttonKnot.addEventListener('click', () => {
-                        opt_callback(buttonKnot.getId(), buttonKnot);
+                        opt_callback(buttonKnot.getId()!, buttonKnot);
                     });
                 }
 

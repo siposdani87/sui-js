@@ -3,11 +3,11 @@ import { Objekt } from '../core/objekt';
 import { Query } from '../core/query';
 
 export class Footer {
-    options: Objekt;
-    footerKnot: Knot;
-    templateViewKnot: Knot;
-    contentKnot: Knot;
-    localesKnot: Knot;
+    options!: Objekt;
+    footerKnot!: Knot;
+    templateViewKnot!: Knot;
+    contentKnot!: Knot;
+    localesKnot!: Knot;
 
     constructor(opt_options: object | undefined = {}) {
         this._setOptions(opt_options);

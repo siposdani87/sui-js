@@ -23,8 +23,8 @@ export const typeCast = (value: any): any => {
     return result;
 };
 
-export const merge = (objA: object, objB: object): object | undefined => {
-    const obj = copyObject(objA);
+export const merge = (objA: Record<string, any>, objB: Record<string, any>): object | undefined => {
+    const obj = copyObject(objA) as Record<string, any>;
     for (const key in objB) {
         if (objB.hasOwnProperty(key)) {
             if (isPureObject(objB[key].constructor)) {
@@ -43,7 +43,7 @@ export const format = <T>(
     opt_prefix: string | undefined = '\\{',
     opt_postfix: string | undefined = '\\}',
 ): string => {
-    each(opt_params, (value, key) => {
+    each(opt_params as object | Array<T>, (value, key) => {
         const regex = new RegExp(opt_prefix + key + opt_postfix, 'gm');
         str = str.replace(regex, value as string);
     });
@@ -51,7 +51,7 @@ export const format = <T>(
 };
 
 export const noop =
-    <T>(opt_result?: T): (() => T) =>
+    <T>(opt_result?: T): (() => T | undefined) =>
     () => {
         return opt_result;
     };
@@ -60,13 +60,17 @@ export const eq = (a: unknown, b: unknown): boolean => a === b;
 
 export const neq = (a: unknown, b: unknown): boolean => a !== b;
 
-export const gt = (a: unknown, b: unknown): boolean => a > b;
+export const gt = (a: unknown, b: unknown): boolean =>
+    (a as number) > (b as number);
 
-export const gte = (a: unknown, b: unknown): boolean => a >= b;
+export const gte = (a: unknown, b: unknown): boolean =>
+    (a as number) >= (b as number);
 
-export const lt = (a: unknown, b: unknown): boolean => a < b;
+export const lt = (a: unknown, b: unknown): boolean =>
+    (a as number) < (b as number);
 
-export const lte = (a: unknown, b: unknown): boolean => a <= b;
+export const lte = (a: unknown, b: unknown): boolean =>
+    (a as number) <= (b as number);
 
 export const isArray = <T>(value: any): value is Array<T> =>
     Array.isArray(value);
@@ -138,7 +142,7 @@ export const eachArray = <T>(
 };
 
 export const eachObject = (
-    object: object,
+    object: Record<string, any>,
     next: (value: any, key: string) => void,
 ): void => {
     for (const key in object) {
@@ -176,7 +180,7 @@ export const clearArray = <T>(items: Array<T>): void => {
     items.splice(0, items.length);
 };
 
-export const clearObject = (items: object): void => {
+export const clearObject = (items: Record<string, any>): void => {
     for (const key in items) {
         if (items.hasOwnProperty(key)) {
             delete items[key];
@@ -203,8 +207,8 @@ export const isSame = (a: any, b: any): boolean => {
     const strB = JSON.stringify(b);
     if (isPureObject(a) && isPureObject(b) && eq(strA.length, strB.length)) {
         let result = true;
-        each(a, (value, key) => {
-            if (!isSame(b[key], value)) {
+        each(a, (value: any, key: string | number) => {
+            if (!isSame((b as Record<string, any>)[key], value)) {
                 result = false;
             }
         });
@@ -233,7 +237,7 @@ export const copy = <T>(
 };
 
 export const copyArray = <T>(items: Array<T>): Array<T> => {
-    const results = [];
+    const results: any[] = [];
     eachArray(items, (item, index) => {
         if (isArray(item)) {
             results[index] = copyArray(item);
@@ -247,8 +251,8 @@ export const copyArray = <T>(items: Array<T>): Array<T> => {
 };
 
 export const copyObject = (item: object): object => {
-    const results = {};
-    eachObject(item, (value, key) => {
+    const results: Record<string, any> = {};
+    eachObject(item as Record<string, any>, (value, key) => {
         if (isArray(value)) {
             results[key] = copyArray(value);
         } else if (isPureObject(value)) {
@@ -301,8 +305,8 @@ export const pluckKeys = (
     obj: object,
     condition: (value: any, key: string) => boolean,
 ): Array<string> => {
-    const results = [];
-    eachObject(obj, (value, key) => {
+    const results: string[] = [];
+    eachObject(obj as Record<string, any>, (value, key) => {
         if (condition(value, key)) {
             results.push(key);
         }
@@ -310,7 +314,7 @@ export const pluckKeys = (
     return results;
 };
 
-let _scrollInterval: number = null;
+let _scrollInterval: number | null = null;
 
 export const scrollTo = (
     x: number,
@@ -318,7 +322,7 @@ export const scrollTo = (
     opt_duration: number | undefined = 500,
     opt_step: number | undefined = 20,
 ): void => {
-    clearInterval(_scrollInterval);
+    clearInterval(_scrollInterval!);
     let scrollStepX = -(window.scrollX - x) / (opt_duration / opt_step);
     let scrollStepY = -(window.scrollY - y) / (opt_duration / opt_step);
     _scrollInterval = setInterval(() => {
@@ -337,7 +341,7 @@ export const scrollTo = (
         if (window.scrollX !== x || window.scrollY !== y) {
             window.scrollBy(scrollStepX, scrollStepY);
         } else {
-            clearInterval(_scrollInterval);
+            clearInterval(_scrollInterval!);
         }
     }, opt_step);
 };
@@ -358,7 +362,7 @@ export const scrollIntoView = (
     selector: string,
     opt_behavior: ScrollBehavior | undefined = 'smooth',
 ): void => {
-    document.querySelector(selector).scrollIntoView({
+    document.querySelector(selector)!.scrollIntoView({
         behavior: opt_behavior,
     });
 };
@@ -371,7 +375,7 @@ export const debounce = (
     let timeout: number;
     return (...args) => {
         const later = () => {
-            timeout = null;
+            timeout = null as unknown as number;
             if (!opt_immediate) func(...args);
         };
         const callNow = opt_immediate && !timeout;
@@ -392,7 +396,7 @@ export const urlWithQueryString = (
 
 export const getQueryString = (opt_params?: object): string => {
     const queries: string[] = [];
-    eachObject(opt_params, (param, key) => {
+    eachObject(opt_params as Record<string, any>, (param, key) => {
         if (isArray(param)) {
             eachArray(param, (value) => {
                 queries.push(format('{0}[]={1}', [key, value]));

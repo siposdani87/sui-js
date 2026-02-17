@@ -3,8 +3,8 @@ import { Objekt } from '../core/objekt';
 import { consoleDebug } from '../utils/log';
 
 export class Page {
-    options: Objekt;
-    document: Document;
+    options!: Objekt;
+    document!: Document;
 
     constructor(opt_options: object | undefined = {}) {
         this._setOptions(opt_options);

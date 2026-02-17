@@ -31,16 +31,16 @@ export type TableCalculation<T = Objekt> = {
 
 export class Table<T extends Objekt = Objekt> {
     tableKnot: Knot;
-    options: Objekt;
-    collection: Collection<T>;
-    query: string;
-    actions: Action[];
-    contentHandler: ContentHandler;
-    headerKnots: Query<HTMLElement>;
-    headerTexts: string[];
-    tbody: Knot;
-    tfoot: Knot;
-    pager: Pager;
+    options!: Objekt;
+    collection!: Collection<T>;
+    query!: string;
+    actions!: Action[];
+    contentHandler!: ContentHandler;
+    headerKnots!: Query<HTMLElement>;
+    headerTexts!: string[];
+    tbody!: Knot;
+    tfoot!: Knot;
+    pager!: Pager;
 
     constructor(
         dom: Knot,
@@ -106,7 +106,7 @@ export class Table<T extends Objekt = Objekt> {
                 'mdl-textfield--expandable',
             ]);
             this.headerKnots
-                .get(this.headerKnots.size() - 1)
+                .get(this.headerKnots.size() - 1)!
                 .insert(searchKnot);
 
             const labelKnot = new Knot('label');
@@ -163,7 +163,7 @@ export class Table<T extends Objekt = Objekt> {
         if (inArray(['search', 'actions'], column)) {
             headerKnot.addClass('actions');
         }
-        const columnsWithOrder = this.options.sorted.filter((sort) => {
+        const columnsWithOrder = this.options.sorted.filter((sort: any) => {
             return contain(sort, column);
         });
         if (columnsWithOrder.length === 1) {
@@ -388,21 +388,21 @@ export class Table<T extends Objekt = Objekt> {
         } else {
             result = item.get(column, '');
         }
-        let items = [];
+        let items: any[] = [];
         if (!isArray(result)) {
             items = [result];
         } else {
             items = result as any;
         }
-        eachArray(items, (item) => {
+        eachArray(items, (item: any) => {
             if (!instanceOf(item, Knot)) {
                 const dataKnot = new Knot('span');
-                dataKnot.setHtml(item);
+                dataKnot.setHtml(item as string);
                 item = dataKnot;
             }
-            parentKnot.appendChild(item);
-            if (item.getAttribute('title') || item.getAttribute('desc')) {
-                const tooltip = new Tooltip(item);
+            parentKnot.appendChild(item as Knot);
+            if ((item as Knot).getAttribute('title') || (item as Knot).getAttribute('desc')) {
+                const tooltip = new Tooltip(item as Knot);
                 tooltip.render();
             }
         });

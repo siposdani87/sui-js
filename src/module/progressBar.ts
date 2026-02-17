@@ -14,18 +14,18 @@ type ProcessBar = {
 export class ProgressBar {
     dialog: Dialog;
     confirm: Confirm;
-    options: Objekt;
-    progressBarContainer: Knot;
-    progressBarHeader: Knot;
-    progressBarDialog: Knot;
-    progressBarConfirm: Knot;
-    async: Async;
-    processContainer: ProcessBar;
-    processHeader: ProcessBar;
-    processDialog: ProcessBar;
-    processConfirm: ProcessBar;
-    progressValue: number;
-    bufferValue: number;
+    options!: Objekt;
+    progressBarContainer!: Knot;
+    progressBarHeader!: Knot;
+    progressBarDialog!: Knot;
+    progressBarConfirm!: Knot;
+    async!: Async;
+    processContainer!: ProcessBar;
+    processHeader!: ProcessBar;
+    processDialog!: ProcessBar;
+    processConfirm!: ProcessBar;
+    progressValue!: number;
+    bufferValue!: number;
 
     constructor(
         dialog: Dialog,
@@ -116,10 +116,10 @@ export class ProgressBar {
     }
 
     private _separateProgressBars(
-        containerCallback: Function,
-        headerCallback: Function,
-        dialogCallback: Function,
-        confirmCallback: Function,
+        containerCallback: (condition: boolean) => void,
+        headerCallback: (condition: boolean) => void,
+        dialogCallback: (condition: boolean) => void,
+        confirmCallback: (condition: boolean) => void,
     ): void {
         containerCallback(!this.dialog.isOpened() && !this.confirm.isOpened());
         headerCallback(!this.dialog.isOpened() && !this.confirm.isOpened());
@@ -130,28 +130,28 @@ export class ProgressBar {
     private _progress(): void {
         if (!this.options.get('lock')) {
             this._separateProgressBars(
-                (condition) => {
+                (condition: boolean) => {
                     if (condition) {
                         this.progressBarContainer.addClass('mdl-progress');
                     } else {
                         this.progressBarContainer.removeClass('mdl-progress');
                     }
                 },
-                (condition) => {
+                (condition: boolean) => {
                     if (condition) {
                         this.progressBarHeader.addClass('mdl-progress');
                     } else {
                         this.progressBarHeader.removeClass('mdl-progress');
                     }
                 },
-                (condition) => {
+                (condition: boolean) => {
                     if (condition) {
                         this.progressBarDialog.addClass('mdl-progress');
                     } else {
                         this.progressBarDialog.removeClass('mdl-progress');
                     }
                 },
-                (condition) => {
+                (condition: boolean) => {
                     if (condition) {
                         this.progressBarConfirm.addClass('mdl-progress');
                     } else {
@@ -166,7 +166,7 @@ export class ProgressBar {
         this._progress();
         this.options.counter++;
         this._separateProgressBars(
-            (condition) => {
+            (condition: boolean) => {
                 if (condition) {
                     this.progressBarContainer.addClass(
                         'mdl-progress__indeterminate',
@@ -177,7 +177,7 @@ export class ProgressBar {
                     );
                 }
             },
-            (condition) => {
+            (condition: boolean) => {
                 if (condition) {
                     this.progressBarHeader.addClass(
                         'mdl-progress__indeterminate',
@@ -188,7 +188,7 @@ export class ProgressBar {
                     );
                 }
             },
-            (condition) => {
+            (condition: boolean) => {
                 if (condition) {
                     this.progressBarDialog.addClass(
                         'mdl-progress__indeterminate',
@@ -199,7 +199,7 @@ export class ProgressBar {
                     );
                 }
             },
-            (condition) => {
+            (condition: boolean) => {
                 if (condition) {
                     this.progressBarConfirm.addClass(
                         'mdl-progress__indeterminate',
@@ -216,22 +216,22 @@ export class ProgressBar {
     setProgress(value: number): void {
         this._progress();
         this._separateProgressBars(
-            (condition) => {
+            (condition: boolean) => {
                 if (condition) {
                     this.processContainer.setProgress(value);
                 }
             },
-            (condition) => {
+            (condition: boolean) => {
                 if (condition) {
                     this.processHeader.setProgress(value);
                 }
             },
-            (condition) => {
+            (condition: boolean) => {
                 if (condition) {
                     this.processDialog.setProgress(value);
                 }
             },
-            (condition) => {
+            (condition: boolean) => {
                 if (condition) {
                     this.processConfirm.setProgress(value);
                 }
@@ -242,22 +242,22 @@ export class ProgressBar {
     setBuffer(value: number): void {
         this._progress();
         this._separateProgressBars(
-            (condition) => {
+            (condition: boolean) => {
                 if (condition) {
                     this.processContainer.setBuffer(value);
                 }
             },
-            (condition) => {
+            (condition: boolean) => {
                 if (condition) {
                     this.processHeader.setBuffer(value);
                 }
             },
-            (condition) => {
+            (condition: boolean) => {
                 if (condition) {
                     this.processDialog.setBuffer(value);
                 }
             },
-            (condition) => {
+            (condition: boolean) => {
                 if (condition) {
                     this.processConfirm.setBuffer(value);
                 }

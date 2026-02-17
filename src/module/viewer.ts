@@ -4,7 +4,7 @@ import { Query } from '../core/query';
 import { BaseModal } from './baseModal';
 
 export class Viewer extends BaseModal {
-    options: Objekt;
+    options!: Objekt;
 
     constructor(opt_options: object | undefined = {}) {
         super();

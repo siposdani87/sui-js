@@ -4,8 +4,8 @@ import { consoleDebug } from '../utils/log';
 
 export class Time {
     timeKnot: Knot;
-    options: Objekt;
-    pointerKnot: Knot;
+    options!: Objekt;
+    pointerKnot!: Knot;
 
     constructor(knot: Knot, options: object) {
         this.timeKnot = knot;
@@ -105,7 +105,7 @@ export class Time {
         opt_isClockWise: boolean | undefined = true,
     ): void {
         const index = opt_j / 2 > i % opt_j ? i % opt_j : opt_j - (i % opt_j);
-        const selected = this.options.selected === i ? 'selected' : null;
+        const selected = this.options.selected === i ? 'selected' : '';
         const top =
             this.options.radius_y +
             this.options.radius_y *

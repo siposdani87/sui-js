@@ -2,11 +2,11 @@ import { isEmpty, eq } from '../utils/operation';
 import { consoleDebug } from '../utils/log';
 
 export class Browser {
-    features: string[];
-    browsers: {
+    features!: string[];
+    browsers!: {
         [key: string]: boolean;
     };
-    os: string;
+    os!: string | null;
 
     constructor() {
         this._init();
@@ -57,12 +57,12 @@ export class Browser {
 
         this.browsers.webkit =
             'WebkitAppearance' in document.documentElement.style;
-        this.browsers.chromium = !!window['chrome'];
+        this.browsers.chromium = !!(window as Record<string, any>)['chrome'];
         this.browsers.chrome =
-            !!window['chrome'] && !!window['chrome']['webstore'];
+            !!(window as Record<string, any>)['chrome'] && !!(window as Record<string, any>)['chrome']['webstore'];
 
         this.browsers.opera =
-            !!window['opera'] || /opera|opr/i.test(navigator.userAgent);
+            !!(window as Record<string, any>)['opera'] || /opera|opr/i.test(navigator.userAgent);
 
         this.browsers.firefox =
             'MozAppearance' in document.documentElement.style;
@@ -74,7 +74,7 @@ export class Browser {
             '-ms-user-select' in document.documentElement.style;
         this.browsers.lteIE10 = /*@cc_on!@*/ false;
         this.browsers.gteIE10 =
-            document.body.style['msTouchAction'] !== undefined;
+            (document.body.style as unknown as Record<string, any>)['msTouchAction'] !== undefined;
         this.browsers.IE11 =
             '-ms-scroll-limit' in document.documentElement.style &&
             '-ms-ime-align' in document.documentElement.style;

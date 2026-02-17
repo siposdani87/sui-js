@@ -8,12 +8,12 @@ import { mdl } from '../utils/render';
 
 export class Dropdown {
     dropdown: Knot;
-    options: Objekt;
-    collection: Collection<Objekt>;
-    actions: Action[];
-    item: Objekt;
-    buttonKnot: Knot;
-    menuKnot: Knot;
+    options!: Objekt;
+    collection!: Collection<Objekt>;
+    actions!: Action[];
+    item!: Objekt | null;
+    buttonKnot!: Knot;
+    menuKnot!: Knot;
 
     constructor(element: Knot, opt_options: object | undefined = {}) {
         this.dropdown = element;
@@ -76,7 +76,7 @@ export class Dropdown {
 
     private _renderMenu(): void {
         eachArray(this.actions, (action) => {
-            const [icon, title, disabled, removed] = action.style(this.item);
+            const [icon, title, disabled, removed] = action.style(this.item!);
             if (!removed) {
                 const menuKnotKnot = new Knot<HTMLLIElement>('li');
                 menuKnotKnot.addClass('mdl-menu__item');
@@ -85,7 +85,7 @@ export class Dropdown {
                     menuKnotKnot.setAttribute('disabled');
                 }
                 menuKnotKnot.addEventListener('click', () => {
-                    action.click(this.item);
+                    action.click(this.item!);
                 });
                 this.menuKnot.appendChild(menuKnotKnot);
             }

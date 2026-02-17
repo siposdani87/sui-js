@@ -1,5 +1,5 @@
 export class MapLabel {
-    private canvas: HTMLCanvasElement;
+    private canvas!: HTMLCanvasElement;
     private overlayView: google.maps.OverlayView;
 
     constructor(opt_options?: object) {
@@ -42,7 +42,7 @@ export class MapLabel {
         this.overlayView.draw = this.draw.bind(this);
     }
 
-    notify(prop) {
+    notify(prop: string) {
         switch (prop) {
             case 'fontFamily':
             case 'fontSize':
@@ -66,6 +66,7 @@ export class MapLabel {
         style.zIndex = this.overlayView.get('zIndex');
 
         const ctx = this.canvas.getContext('2d');
+        if (!ctx) return;
         ctx.clearRect(0, 0, this.canvas.width, this.canvas.height);
         ctx.strokeStyle = this.overlayView.get('strokeColor');
         ctx.fillStyle = this.overlayView.get('fontColor');
@@ -99,7 +100,7 @@ export class MapLabel {
         const style = this.canvas.style;
         style.position = 'absolute';
 
-        const ctx = this.canvas.getContext('2d');
+        const ctx = this.canvas.getContext('2d')!;
         ctx.lineJoin = 'round';
         ctx.textBaseline = 'top';
 
@@ -142,8 +143,8 @@ export class MapLabel {
 
         const style = this.canvas.style;
 
-        style['top'] = pos.y + 'px';
-        style['left'] = pos.x + 'px';
+        style['top'] = pos!.y + 'px';
+        style['left'] = pos!.x + 'px';
 
         style['visibility'] = this._getVisible();
     }
@@ -161,7 +162,7 @@ export class MapLabel {
             return '';
         }
 
-        const mapZoom = map.getZoom();
+        const mapZoom = map.getZoom()!;
         if (mapZoom < minZoom || mapZoom > maxZoom) {
             return 'hidden';
         }

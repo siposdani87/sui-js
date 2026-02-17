@@ -13,11 +13,11 @@ type Page = {
 export class Pager {
     pager: Knot;
     pagerStatistics: Knot;
-    options: Objekt;
-    count: number;
-    pageNum: number;
-    page: number;
-    offset: number;
+    options!: Objekt;
+    count!: number;
+    pageNum!: number;
+    page!: number;
+    offset!: number;
 
     constructor(
         dom: Knot,
@@ -143,7 +143,7 @@ export class Pager {
             const page = part * this.options.pager_num + i;
             if (page <= this.pageNum) {
                 pagers.push({
-                    text: page,
+                    text: page.toString(),
                     page: page,
                 });
             }

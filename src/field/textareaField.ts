@@ -3,10 +3,10 @@ import { BaseField } from './baseField';
 import { Knot } from '../core/knot';
 
 export class TextareaField extends BaseField<HTMLInputElement> {
-    richText: Knot;
-    richTextKnot: HTMLElement;
-    toolbarKnot: Knot;
-    htmlMode: boolean;
+    richText!: Knot;
+    richTextKnot!: HTMLElement;
+    toolbarKnot!: Knot;
+    htmlMode!: boolean;
 
     constructor(
         input: Knot<HTMLInputElement>,
@@ -37,7 +37,7 @@ export class TextareaField extends BaseField<HTMLInputElement> {
         });
     }
 
-    render(): void {
+    override render(): void {
         this.inputBlock.addClass([
             'mdl-textfield',
             'mdl-js-textfield',
@@ -85,8 +85,8 @@ export class TextareaField extends BaseField<HTMLInputElement> {
             let text = '';
             if (e.clipboardData) {
                 text = e.clipboardData.getData('text/plain');
-            } else if (window['clipboardData']) {
-                text = window['clipboardData'].getData('Text');
+            } else if ((window as any)['clipboardData']) {
+                text = (window as any)['clipboardData'].getData('Text');
             }
             if (document.queryCommandSupported('insertHTML')) {
                 document.execCommand('insertHTML', false, text);
@@ -188,7 +188,7 @@ export class TextareaField extends BaseField<HTMLInputElement> {
         this.richTextKnot.focus();
     }
 
-    refresh() {
+    override refresh() {
         if (this.isRequired() && this.getValue() === '') {
             this.inputBlock.addClass('is-invalid');
         }
@@ -212,11 +212,11 @@ export class TextareaField extends BaseField<HTMLInputElement> {
             | undefined,
     ): void {
         const inputNode = this.input.getNode();
-        inputNode.value = value.toString();
+        inputNode.value = value!.toString();
         this.input.trigger('change');
     }
 
-    setValue(
+    override setValue(
         value:
             | object
             | Function
@@ -233,7 +233,7 @@ export class TextareaField extends BaseField<HTMLInputElement> {
         this._setValue(value);
     }
 
-    getValue(): any {
+    override getValue(): any {
         return this.input.getNode().value;
     }
 }

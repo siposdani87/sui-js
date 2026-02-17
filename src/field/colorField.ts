@@ -8,13 +8,13 @@ import { Query } from '../core/query';
 import { convertRGBToHEX } from '../utils/color';
 
 export class ColorField extends BaseField<HTMLInputElement> {
-    tooltip: Tooltip;
-    previewKnot: Knot;
-    colorKnot: Knot;
-    popup: Popup;
-    canvas: Canvas;
-    image: Knot<HTMLImageElement>;
-    colors: string[][];
+    tooltip!: Tooltip;
+    previewKnot!: Knot;
+    colorKnot!: Knot;
+    popup!: Popup;
+    canvas!: Canvas;
+    image!: Knot<HTMLImageElement>;
+    colors!: string[][];
 
     constructor(
         input: Knot<HTMLInputElement>,
@@ -35,7 +35,7 @@ export class ColorField extends BaseField<HTMLInputElement> {
         this._setMaterialColors();
     }
 
-    render() {
+    override render() {
         if (this.label && this.label.exists()) {
             this.label.addClass('field-label');
         }
@@ -43,7 +43,7 @@ export class ColorField extends BaseField<HTMLInputElement> {
         this.refresh();
     }
 
-    refresh() {
+    override refresh() {
         if (this.isRequired() && this.getValue() === '') {
             this.inputBlock.addClass('is-invalid');
         }

@@ -11,10 +11,10 @@ export class BaseField<T extends HTMLInputElement> {
     error: Knot;
     inputBlock: Knot;
     form?: Form;
-    errorTooltip: Tooltip;
-    infoContainerKnot: Knot;
-    actionContainerKnot: Knot;
-    disabled: boolean;
+    errorTooltip!: Tooltip;
+    infoContainerKnot!: Knot;
+    actionContainerKnot!: Knot;
+    disabled!: boolean;
 
     constructor(
         input: Knot<T>,
@@ -24,9 +24,9 @@ export class BaseField<T extends HTMLInputElement> {
         opt_form?: Form | undefined,
     ) {
         this.input = input;
-        this.label = opt_label;
-        this.error = opt_error;
-        this.inputBlock = opt_inputBlock;
+        this.label = opt_label!;
+        this.error = opt_error!;
+        this.inputBlock = opt_inputBlock!;
         this.form = opt_form;
 
         if (this.error) {

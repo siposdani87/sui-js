@@ -12,7 +12,7 @@ import { Objekt } from './objekt';
 export class Collection<T extends object = object> {
     Type: any;
     items: T[];
-    options: Objekt;
+    options!: Objekt;
 
     constructor(
         opt_items: Array<T> | undefined = [],
@@ -93,7 +93,7 @@ export class Collection<T extends object = object> {
         opt_items?: Array<T> | undefined,
     ): Array<T> {
         opt_items = opt_items || this.items;
-        const results = [];
+        const results: T[] = [];
         eachArray(opt_items, (item, index) => {
             if (callback(item)) {
                 next(item, index);
@@ -123,7 +123,7 @@ export class Collection<T extends object = object> {
         return null;
     }
 
-    getById<K = T>(id: Id, opt_attribute?: string): T | K {
+    getById<K = T>(id: Id, opt_attribute?: string): T | K | null {
         const item = this.findById(id);
         if (item && opt_attribute && instanceOf(item, Objekt)) {
             return (item as any as Objekt).get<K>(opt_attribute);
@@ -135,80 +135,80 @@ export class Collection<T extends object = object> {
         clear(this.items);
     }
 
-    findById(id: Id): T {
+    findById(id: Id): T | null {
         return this.findBy(this.options.id, id);
     }
 
-    findBy(attribute: string, value: any): T {
-        return this.findByCondition((_item, i) => {
+    findBy(attribute: string, value: any): T | null {
+        return this.findByCondition((_item: T, i: number) => {
             return this.get(i, attribute) === value;
         });
     }
 
-    findByCondition(conditionCallback: Function): T {
+    findByCondition(conditionCallback: Function): T | null {
         let i = 0;
         while (i < this.items.length && !conditionCallback(this.items[i], i)) {
             i++;
         }
-        return this.get(i);
+        return this.get(i) as T | null;
     }
 
     findAllBy(attribute: string, value: any): Array<T> {
-        return this.findAllByCondition((_item, i) => {
+        return this.findAllByCondition((_item: T, i: number) => {
             return this.get(i, attribute) === value;
         });
     }
 
     findAllByCondition(conditionCallback: Function): Array<T> {
-        const items = [];
+        const items: T[] = [];
         eachArray(this.items, (item, i) => {
             if (conditionCallback(item, i)) {
-                items.push(this.get(i));
+                items.push(this.get(i) as T);
             }
         });
         return items;
     }
 
-    delete(value: object | T): T {
-        return this.deleteByCondition((item) => {
+    delete(value: object | T): T | null {
+        return this.deleteByCondition((item: T) => {
             return eq(item, value);
         });
     }
 
-    deleteById(id: Id): T {
+    deleteById(id: Id): T | null {
         return this.deleteBy(this.options.id, id);
     }
 
-    deleteBy(attribute: string, value: any): T {
-        return this.deleteByCondition((item, i) => {
+    deleteBy(attribute: string, value: any): T | null {
+        return this.deleteByCondition((item: T, i: number) => {
             return this.get(i, attribute) === value;
         });
     }
 
-    deleteByCondition(conditionCallback: Function): T {
+    deleteByCondition(conditionCallback: Function): T | null {
         let i = 0;
         while (i < this.items.length && !conditionCallback(this.items[i], i)) {
             i++;
         }
-        const item = this.get(i);
+        const item = this.get(i) as T | null;
         this.items.splice(i, 1);
         return item;
     }
 
     deleteAllBy(attribute: string, value: any): Array<T> {
-        return this.deleteAllByCondition((_item, i) => {
+        return this.deleteAllByCondition((_item: T, i: number) => {
             return this.get(i, attribute) === value;
         });
     }
 
     deleteAllByCondition(conditionCallback: Function): Array<T> {
-        const items = [];
-        const deletedKnots = [];
+        const items: T[] = [];
+        const deletedKnots: T[] = [];
         eachArray(this.items, (item, i) => {
             if (conditionCallback(item, i)) {
-                deletedKnots.push(this.get(i));
+                deletedKnots.push(this.get(i) as T);
             } else {
-                items.push(this.get(i));
+                items.push(this.get(i) as T);
             }
         });
         this.items = items;

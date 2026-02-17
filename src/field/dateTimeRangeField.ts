@@ -7,12 +7,12 @@ import { DateIO } from '../utils';
 
 export class DateTimeRangeField extends BaseField<HTMLInputElement> {
     isStartInput: boolean;
-    datetimeContainer: Knot;
-    datetimeInput: Knot;
-    format: string;
-    datetimeKnot: Knot;
-    datetime: DateTime;
-    popup: Popup;
+    datetimeContainer!: Knot;
+    datetimeInput!: Knot;
+    format!: string;
+    datetimeKnot!: Knot;
+    datetime!: DateTime;
+    popup!: Popup;
 
     constructor(
         input: Knot<HTMLInputElement>,
@@ -81,7 +81,7 @@ export class DateTimeRangeField extends BaseField<HTMLInputElement> {
         }
     }
 
-    render(): void {
+    override render(): void {
         if (this.label && this.label.exists()) {
             this.label.addClass('field-label');
         }
@@ -102,7 +102,7 @@ export class DateTimeRangeField extends BaseField<HTMLInputElement> {
         this.datetime.draw();
     }
 
-    refresh() {
+    override refresh() {
         if (this.isDisabled()) {
             this.inputBlock.addClass('is-disabled');
         } else {
@@ -110,7 +110,7 @@ export class DateTimeRangeField extends BaseField<HTMLInputElement> {
         }
     }
 
-    setValue(
+    override setValue(
         value:
             | object
             | Function

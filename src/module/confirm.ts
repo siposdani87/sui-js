@@ -5,7 +5,7 @@ import { BaseModal } from './baseModal';
 import { mdl } from '../utils/render';
 
 export class Confirm extends BaseModal {
-    options: Objekt;
+    options!: Objekt;
 
     constructor(opt_options: object | undefined = {}) {
         super();

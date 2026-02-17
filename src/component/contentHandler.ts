@@ -3,8 +3,8 @@ import { Objekt } from '../core/objekt';
 
 export class ContentHandler {
     containerKnot: Knot;
-    options: Objekt;
-    contentKnot: Knot;
+    options!: Objekt;
+    contentKnot!: Knot;
 
     constructor(containerKnot: Knot, opt_options: object | undefined = {}) {
         this.containerKnot = containerKnot;

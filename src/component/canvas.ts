@@ -4,8 +4,8 @@ import { Query } from '../core/query';
 import { consoleDebug } from '../utils/log';
 
 export class Canvas {
-    canvasKnot: Knot<HTMLCanvasElement>;
-    canvasElement: HTMLCanvasElement;
+    canvasKnot!: Knot<HTMLCanvasElement>;
+    canvasElement!: HTMLCanvasElement;
     context!: CanvasRenderingContext2D;
 
     constructor(opt_selector?: Knot | string) {
@@ -80,8 +80,8 @@ export class Canvas {
             );
         }
         this.context.closePath();
-        each(options, (value, key) => {
-            this.context[key] = value;
+        each(options, (value: any, key: string | number) => {
+            (this.context as any)[key] = value;
         });
         this.context.fill();
         this.context.stroke();
@@ -101,13 +101,13 @@ export class Canvas {
         this.context.beginPath();
         this.context.rotate(rotateAngle);
         this.context.rect(0, 0, width, height);
-        each(options, (value, key) => {
-            this.context[key] = value;
+        each(options, (value: any, key: string | number) => {
+            (this.context as any)[key] = value;
         });
-        if (options['fillStyle']) {
+        if ((options as Record<string, any>)['fillStyle']) {
             this.context.fill();
         }
-        if (options['strokeStyle']) {
+        if ((options as Record<string, any>)['strokeStyle']) {
             this.context.stroke();
         }
         this.context.restore();

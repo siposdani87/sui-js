@@ -91,7 +91,9 @@ export type Instance = {
     console: Console;
 };
 
-export type ClassRef = { new (...args: any[]) };
+export type Nullable<T> = T | null;
+
+export type ClassRef = { new (...args: any[]): any };
 
 export type Dependency = {
     moduleInjections: string[];

@@ -93,7 +93,7 @@ export class NumberField extends BaseField<HTMLInputElement> {
         return typeCast(step);
     }
 
-    render(): void {
+    override render(): void {
         this.inputBlock.addClass([
             'mdl-textfield',
             'mdl-js-textfield',
@@ -106,7 +106,7 @@ export class NumberField extends BaseField<HTMLInputElement> {
         this.refresh();
     }
 
-    refresh() {
+    override refresh() {
         if (this.isRequired() && this.getValue() === '') {
             this.inputBlock.addClass('is-invalid');
         }

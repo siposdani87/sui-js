@@ -18,16 +18,16 @@ import { generateId } from '../utils/coder';
 import { mdl } from '../utils/render';
 
 export class SelectField extends BaseField<HTMLInputElement> {
-    query: string;
-    ids: string[];
-    containerKnot: Knot;
-    listKnot: Knot;
-    popup: Popup;
-    options: Collection<Objekt>;
-    iconKnot: Knot;
-    selectContainerKnot: Knot;
-    selectKnot: Knot;
-    searchInputKnot: Knot<HTMLInputElement>;
+    query!: string;
+    ids!: string[];
+    containerKnot!: Knot;
+    listKnot!: Knot;
+    popup!: Popup;
+    options!: Collection<Objekt>;
+    iconKnot!: Knot;
+    selectContainerKnot!: Knot;
+    selectKnot!: Knot;
+    searchInputKnot!: Knot<HTMLInputElement>;
 
     constructor(
         input: Knot<HTMLInputElement>,
@@ -92,7 +92,7 @@ export class SelectField extends BaseField<HTMLInputElement> {
         });
     }
 
-    render(): void {
+    override render(): void {
         if (this.label && this.label.exists()) {
             this.label.addClass('field-label');
         }
@@ -111,7 +111,7 @@ export class SelectField extends BaseField<HTMLInputElement> {
         this.refresh();
     }
 
-    refresh(): void {
+    override refresh(): void {
         const selectContainerKnot = new Query(
             '.select-container',
             this.inputBlock,
@@ -141,7 +141,7 @@ export class SelectField extends BaseField<HTMLInputElement> {
         this._setSelectTags(ids);
     }
 
-    setValue(
+    override setValue(
         value:
             | object
             | Function
@@ -159,7 +159,7 @@ export class SelectField extends BaseField<HTMLInputElement> {
         this._setSelectedIds(this.ids);
     }
 
-    getValue(): any {
+    override getValue(): any {
         let ids = this._getSelectedIds();
         ids = ids.filter((id) => {
             return !eq(id, '');
@@ -172,7 +172,7 @@ export class SelectField extends BaseField<HTMLInputElement> {
         if (value) {
             const option = this.options.findById(value);
             return opt_attribute
-                ? option.get(format('item.{0}', [opt_attribute]))
+                ? option!.get(format('item.{0}', [opt_attribute]))
                 : option;
         }
         return value;
@@ -241,11 +241,11 @@ export class SelectField extends BaseField<HTMLInputElement> {
 
     private _setSimpleTag(id: string): void {
         const option = this.options.findById(id);
-        this._setTags(option);
+        this._setTags(option!);
     }
 
     private _setMultipleTag(ids: Array<string>): void {
-        const options = [];
+        const options: Objekt[] = [];
         eachArray(ids, (id) => {
             const option = this.options.findById(id);
             if (option) {
@@ -255,7 +255,7 @@ export class SelectField extends BaseField<HTMLInputElement> {
         if (neq(options.length, 0)) {
             this._setTags(options);
         } else if (this.isRequired()) {
-            const option = this.options.get(0);
+            const option = this.options.get(0)!;
             this._setTags(option);
         } else if (eq(ids.length, 0)) {
             this._setTags([]);
@@ -312,7 +312,7 @@ export class SelectField extends BaseField<HTMLInputElement> {
     }
 
     private _getSelectedIds(): Array<any> {
-        const ids = [];
+        const ids: any[] = [];
         this.options.each((option) => {
             const optionKnot =
                 option.get<Knot<HTMLOptionElement>>('option_node');

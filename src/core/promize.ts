@@ -3,7 +3,7 @@ import { Deferred } from './deferred';
 import { Objekt } from './objekt';
 
 export class Promize<T = object, K = object> {
-    options: Objekt;
+    options!: Objekt;
 
     constructor(opt_options: object | undefined = {}) {
         this._setOptions(opt_options);
@@ -21,7 +21,7 @@ export class Promize<T = object, K = object> {
     }
 
     resolve(opt_data?: T): void {
-        let data = [];
+        let data: any[] = [];
         if (opt_data) {
             data = isArray(opt_data) ? opt_data : [opt_data];
         }
@@ -38,7 +38,7 @@ export class Promize<T = object, K = object> {
     }
 
     reject(opt_data?: K): void {
-        let data = [];
+        let data: any[] = [];
         if (opt_data) {
             data = isArray(opt_data) ? opt_data : [opt_data];
         }

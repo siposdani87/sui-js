@@ -4,8 +4,8 @@ import { Header } from './header';
 
 export class TopMenu {
     header: Header;
-    topMenu: Knot;
-    toggleTopMenu: Knot;
+    topMenu!: Knot;
+    toggleTopMenu!: Knot;
 
     constructor(header: Header) {
         this.header = header;

@@ -4,9 +4,9 @@ import { Query } from '../core/query';
 import { Knot } from '../core';
 
 export class Loader {
-    options: Objekt;
-    loader: Knot;
-    spinner: Knot;
+    options!: Objekt;
+    loader!: Knot;
+    spinner!: Knot;
 
     constructor(opt_options: object | undefined = {}) {
         this._setOptions(opt_options);

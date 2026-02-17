@@ -10,8 +10,8 @@ export class Router {
     route: string;
     param: RegExp;
     escape: RegExp;
-    paramNames: string[];
-    regex: RegExp;
+    paramNames!: string[];
+    regex!: RegExp;
 
     constructor(opt_route: string | undefined = '') {
         this.route = opt_route;
@@ -32,9 +32,9 @@ export class Router {
         this.regex = new RegExp('^' + route + '$');
     }
 
-    stringify(opt_params: object | undefined = {}): string {
+    stringify(opt_params: Record<string, any> | undefined = {}): string {
         let route = this.route;
-        const params = {};
+        const params: Record<string, any> = {};
         for (const key in opt_params) {
             if (opt_params.hasOwnProperty(key)) {
                 const param = opt_params[key];
@@ -54,7 +54,7 @@ export class Router {
             : route;
     }
 
-    getMatches(url: string): RegExpMatchArray {
+    getMatches(url: string): RegExpMatchArray | null {
         const questionMark = url.indexOf('?');
         if (questionMark !== -1) {
             url = url.substring(0, questionMark);
@@ -67,7 +67,7 @@ export class Router {
         if (!matches) {
             return {};
         }
-        const params = this._parseParams(url);
+        const params: Record<string, any> = this._parseParams(url);
         for (let i = 0; i < this.paramNames.length; i++) {
             const key = this.paramNames[i];
             params[key] = typeCast(matches[i + 1]);
@@ -76,7 +76,7 @@ export class Router {
     }
 
     private _parseParams(url: string): Params {
-        const params = {};
+        const params: Record<string, any> = {};
         const question = url.indexOf('?');
         if (question !== -1) {
             const pieces = url.substring(question + 1).split('&');

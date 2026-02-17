@@ -3,10 +3,10 @@ import { Objekt } from '../core/objekt';
 import { consoleDebug } from '../utils/log';
 
 export class Screen {
-    options: Objekt;
-    window: Window;
-    document: Document;
-    orientation: string;
+    options!: Objekt;
+    window!: Window;
+    document!: Document;
+    orientation!: string;
 
     constructor(opt_options: object | undefined = {}) {
         this._setOptions(opt_options);

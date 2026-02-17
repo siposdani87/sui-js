@@ -3,7 +3,7 @@ import { BaseField } from './baseField';
 import { Knot } from '../core/knot';
 
 export class UrlField extends BaseField<HTMLInputElement> {
-    protocol: string;
+    protocol!: string;
 
     constructor(
         input: Knot<HTMLInputElement>,
@@ -33,7 +33,7 @@ export class UrlField extends BaseField<HTMLInputElement> {
         });
     }
 
-    render(): void {
+    override render(): void {
         this.inputBlock.addClass([
             'mdl-textfield',
             'mdl-js-textfield',
@@ -54,7 +54,7 @@ export class UrlField extends BaseField<HTMLInputElement> {
         this.refresh();
     }
 
-    refresh() {
+    override refresh() {
         if (this.isRequired() && this.getValue() === '') {
             this.inputBlock.addClass('is-invalid');
         }

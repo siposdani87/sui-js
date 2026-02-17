@@ -5,7 +5,7 @@ import { Popup } from './popup';
 
 export class PopupContainer {
     selector: string;
-    container: Knot;
+    container!: Knot;
 
     constructor(opt_selector: string | undefined = 'body') {
         this.selector = opt_selector;
@@ -17,26 +17,26 @@ export class PopupContainer {
     }
 
     private _initCollection(type: Function): void {
-        window['popup_collection'] =
-            window['popup_collection'] || new Collection([], type);
+        (window as any)['popup_collection'] =
+            (window as any)['popup_collection'] || new Collection([], type);
     }
 
     push(type: Function, popup: Popup): void {
         this._initCollection(type);
-        if (window['popup_collection']) {
-            window['popup_collection'].push(popup);
+        if ((window as any)['popup_collection']) {
+            (window as any)['popup_collection'].push(popup);
         }
     }
 
     delete(popup: Popup): void {
-        if (window['popup_collection']) {
-            window['popup_collection'].delete(popup);
+        if ((window as any)['popup_collection']) {
+            (window as any)['popup_collection'].delete(popup);
         }
     }
 
     closeAll(): void {
-        if (window['popup_collection']) {
-            window['popup_collection'].each((popup) => {
+        if ((window as any)['popup_collection']) {
+            (window as any)['popup_collection'].each((popup: Popup) => {
                 popup.close();
             });
         }

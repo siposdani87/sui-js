@@ -2,9 +2,9 @@ import { Knot } from '../core';
 import { Query } from '../core/query';
 
 export class NavBar {
-    navBarHeader: Knot;
-    navBar: Knot;
-    toggleNavBarIcon: Knot;
+    navBarHeader!: Knot;
+    navBar!: Knot;
+    toggleNavBarIcon!: Knot;
 
     constructor() {
         this._init();

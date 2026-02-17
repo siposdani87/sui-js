@@ -6,8 +6,8 @@ import { consoleDebug } from '../utils/log';
 export class Day {
     date: Date;
     currentDate: Date;
-    options: Objekt;
-    cssClasses: string[];
+    options!: Objekt;
+    cssClasses!: string[];
 
     constructor(date: Date, currentDate: Date, options: object) {
         this.date = date;

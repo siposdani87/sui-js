@@ -34,42 +34,9 @@ import { setDateIOLocale } from '../utils/dateio';
 export class Application {
     public options!: Objekt;
     private _injections: Injection = {};
-    private _instances: Instance = {
-        app: undefined,
-        config: undefined,
-        eventBus: undefined,
-        scheduler: undefined,
-        http: undefined,
-        flash: undefined,
-        template: undefined,
-        dialog: undefined,
-        confirm: undefined,
-        viewer: undefined,
-        header: undefined,
-        topMenu: undefined,
-        leftMenu: undefined,
-        footer: undefined,
-        bottomMenu: undefined,
-        navBar: undefined,
-        script: undefined,
-        style: undefined,
-        state: undefined,
-        dom: undefined,
-        page: undefined,
-        screen: undefined,
-        helper: undefined,
-        cookie: undefined,
-        localDepot: undefined,
-        sessionDepot: undefined,
-        browser: undefined,
-        loader: undefined,
-        progressBar: undefined,
-        geoLocation: undefined,
-        instances: undefined,
-        console: undefined,
-    };
-    private _module: Module;
-    private _routeOptions: Objekt;
+    private _instances = {} as Instance;
+    private _module!: Module;
+    private _routeOptions!: Objekt;
 
     constructor(options: object, resources: Injection) {
         this._setOptions(options);
@@ -246,7 +213,7 @@ export class Application {
             this._instances.eventBus.override(
                 'geoLocation.success',
                 [message],
-                (message) => {
+                (message: string) => {
                     this._instances.flash.addInfo(message);
                 },
             );
@@ -260,7 +227,7 @@ export class Application {
             this._instances.eventBus.override(
                 'geoLocation.error',
                 [message, code],
-                (message) => {
+                (message: string) => {
                     this._instances.flash.addError(message);
                 },
             );
@@ -358,7 +325,7 @@ export class Application {
             ]);
         };
 
-        const flash = {
+        const flash: { node: any; message: string; duration: number } = {
             node: null,
             message: 'Unable to connect to the Internet',
             duration: Infinity,
@@ -373,8 +340,8 @@ export class Application {
             this._instances.eventBus.override(
                 'window.offline',
                 [flash, event],
-                (flash) => {
-                    flash.node = this._instances[
+                (flash: any) => {
+                    flash.node = (this._instances as Record<string, any>)[
                         this._injections.flash
                     ].addWarning(flash.message, flash.duration);
                 },

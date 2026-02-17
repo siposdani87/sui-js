@@ -11,7 +11,7 @@ export class SwitchField extends BaseCheckboxField {
         super(input, label, error, inputBlock);
     }
 
-    render(): void {
+    override render(): void {
         this.label.addClass([
             'mdl-switch',
             'mdl-js-switch',

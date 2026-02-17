@@ -7,8 +7,8 @@ export class Popup {
     content: Knot;
     parent?: Knot;
     withClose: boolean;
-    popupContainer: PopupContainer;
-    popupKnot: Knot;
+    popupContainer!: PopupContainer;
+    popupKnot!: Knot;
 
     constructor(
         content: Knot,
@@ -30,8 +30,8 @@ export class Popup {
         this.popupKnot = new Knot('div');
         this.popupKnot.addClass(['popup', 'hidden']);
 
-        this.parent.addClass('popup-parent');
-        this.parent.appendChild(this.popupKnot);
+        this.parent!.addClass('popup-parent');
+        this.parent!.appendChild(this.popupKnot);
 
         this.popupKnot.appendChild(this.content);
 

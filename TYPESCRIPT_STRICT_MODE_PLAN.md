@@ -19,11 +19,11 @@
 
 | Flag | Status | Phase |
 |------|--------|-------|
-| `noImplicitOverride` | Not enabled | Phase 1 |
-| `noImplicitAny` | Not enabled | Phase 2 |
-| `strictNullChecks` | Not enabled | Phase 3 |
-| `strictPropertyInitialization` | Not enabled | Phase 4 |
-| `strict: true` | Not enabled | Phase 5 |
+| `noImplicitOverride` | **Enabled** | Phase 1 |
+| `noImplicitAny` | **Enabled** | Phase 2 |
+| `strictNullChecks` | **Enabled** | Phase 3 |
+| `strictPropertyInitialization` | **Enabled** | Phase 4 |
+| `strict: true` | **Enabled** | Phase 5 |
 
 ## Codebase Statistics
 

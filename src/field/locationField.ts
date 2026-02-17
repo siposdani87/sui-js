@@ -8,13 +8,13 @@ import { IconOptions } from '../utils';
 import { mdl } from '../utils/render';
 
 export class LocationField extends BaseField<HTMLInputElement> {
-    icon: IconOptions;
-    advancedButton: Knot;
-    map: GoogleMap;
-    mapLockKnot: Knot;
-    advancedKnot: Knot;
-    latitudeInput: Knot<HTMLInputElement>;
-    longitudeInput: Knot<HTMLInputElement>;
+    icon!: IconOptions;
+    advancedButton!: Knot;
+    map!: GoogleMap;
+    mapLockKnot!: Knot;
+    advancedKnot!: Knot;
+    latitudeInput!: Knot<HTMLInputElement>;
+    longitudeInput!: Knot<HTMLInputElement>;
 
     constructor(
         input: Knot<HTMLInputElement>,
@@ -45,7 +45,7 @@ export class LocationField extends BaseField<HTMLInputElement> {
 
         this.input.addEventListener('change', (input) => {
             const inputNode = input.getNode();
-            const location = this.getValue();
+            const location = this.getValue() as Record<string, any>;
             location['address'] = typeCast(inputNode.value);
             this._setDataValue(location);
             this.modelChange(location);
@@ -102,7 +102,7 @@ export class LocationField extends BaseField<HTMLInputElement> {
         );
     }
 
-    render(): void {
+    override render(): void {
         this.inputBlock.addClass([
             'mdl-textfield',
             'mdl-js-textfield',
@@ -120,7 +120,7 @@ export class LocationField extends BaseField<HTMLInputElement> {
         this.refresh();
     }
 
-    refresh() {
+    override refresh() {
         if (this.isDisabled()) {
             this.mapLockKnot.addClass('map-lock');
         } else {
@@ -143,7 +143,7 @@ export class LocationField extends BaseField<HTMLInputElement> {
             generateId('latitude'),
             this.input.getData('latitude'),
             (inputKnot) => {
-                const location = this.getValue();
+                const location = this.getValue() as Record<string, any>;
                 const latitude = inputKnot.getNode().value;
                 location['latitude'] = latitude;
                 this.setValue(location);
@@ -153,7 +153,7 @@ export class LocationField extends BaseField<HTMLInputElement> {
             generateId('longitude'),
             this.input.getData('longitude'),
             (inputKnot) => {
-                const location = this.getValue();
+                const location = this.getValue() as Record<string, any>;
                 const longitude = inputKnot.getNode().value;
                 location['longitude'] = longitude;
                 this.setValue(location);
@@ -240,7 +240,7 @@ export class LocationField extends BaseField<HTMLInputElement> {
     }
 
     private _setDefaultValue(): void {
-        const location = this.getValue();
+        const location = this.getValue() as Record<string, any>;
         if (!isNull(location['latitude']) && !isNull(location['longitude'])) {
             this.map.setCenter(location['latitude'], location['longitude']);
             this.map.createMarker(
@@ -255,20 +255,20 @@ export class LocationField extends BaseField<HTMLInputElement> {
     }
 
     updatePosition(latitude: number | null, longitude: number | null): void {
-        const location = this.getValue();
+        const location = this.getValue() as Record<string, any>;
         location['latitude'] = latitude;
         location['longitude'] = longitude;
         this.setValue(location);
     }
 
-    private _setDataValue(value: object): void {
+    private _setDataValue(value: Record<string, any>): void {
         this.latitudeInput.getNode().value = value['latitude'] || '';
         this.longitudeInput.getNode().value = value['longitude'] || '';
         this.input.setAttribute('value', value['address'] || '');
         this.input.setData('value', value);
     }
 
-    setValue(
+    override setValue(
         value:
             | object
             | Function
@@ -279,32 +279,33 @@ export class LocationField extends BaseField<HTMLInputElement> {
             | null
             | undefined,
     ): void {
-        this._setDataValue(value as object);
+        const loc = value as Record<string, any>;
+        this._setDataValue(loc);
         this.map.removeMarker(0);
-        if (!isNull(value['latitude']) && !isNull(value['longitude'])) {
-            this.map.setCenter(value['latitude'], value['longitude']);
+        if (!isNull(loc['latitude']) && !isNull(loc['longitude'])) {
+            this.map.setCenter(loc['latitude'], loc['longitude']);
             if (this.map.getMarker(0)) {
                 this.map.updateMarker(
                     0,
                     '',
                     'marker',
-                    value['latitude'],
-                    value['longitude'],
+                    loc['latitude'],
+                    loc['longitude'],
                 );
             } else {
                 this.map.createMarker(
                     0,
                     '',
                     'marker',
-                    value['latitude'],
-                    value['longitude'],
+                    loc['latitude'],
+                    loc['longitude'],
                 );
             }
         }
         this.input.trigger('change');
     }
 
-    getValue(): any {
+    override getValue(): any {
         const value = this.input.getData('value');
         return typeCast(value);
     }

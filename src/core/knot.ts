@@ -109,7 +109,7 @@ export class Knot<T extends HTMLElement = HTMLElement> {
     }
 
     addClass(cssClasses: Array<string> | string): void {
-        this._handleClassList(cssClasses, (cssClass) => {
+        this._handleClassList(cssClasses, (cssClass: string) => {
             if (cssClass && !this.hasClass(cssClass)) {
                 this.node.classList.add(cssClass);
             }
@@ -117,13 +117,13 @@ export class Knot<T extends HTMLElement = HTMLElement> {
     }
 
     removeClass(cssClasses: Array<string> | string): void {
-        this._handleClassList(cssClasses, (cssClass) => {
+        this._handleClassList(cssClasses, (cssClass: string) => {
             this.node.classList.remove(cssClass);
         });
     }
 
     toggleClass(cssClasses: Array<string> | string): void {
-        this._handleClassList(cssClasses, (cssClass) => {
+        this._handleClassList(cssClasses, (cssClass: string) => {
             this.node.classList.toggle(cssClass);
         });
     }
@@ -152,7 +152,7 @@ export class Knot<T extends HTMLElement = HTMLElement> {
                 ? attribute
                 : opt_value;
         if (isFunction(value)) {
-            this.node[attribute] = value;
+            (this.node as any)[attribute] = value;
         } else if (
             contain(attribute, 'data-') &&
             !isString(value) &&
@@ -190,7 +190,7 @@ export class Knot<T extends HTMLElement = HTMLElement> {
     ): Function {
         let listener: any = noop();
         if (opt_callback) {
-            listener = (event) => {
+            listener = (event: Event) => {
                 event.stopPropagation();
                 if (!opt_callback(this, event)) {
                     event.preventDefault();
@@ -203,21 +203,23 @@ export class Knot<T extends HTMLElement = HTMLElement> {
     }
 
     private _addListenerToStore(eventName: string, listener: Function): void {
-        if (!this.node[this.listenerStoreKey]) {
-            this.node[this.listenerStoreKey] = {};
+        const node = this.node as Record<string, any>;
+        if (!node[this.listenerStoreKey]) {
+            node[this.listenerStoreKey] = {};
         }
-        if (!this.node[this.listenerStoreKey][eventName]) {
-            this.node[this.listenerStoreKey][eventName] = [];
+        if (!node[this.listenerStoreKey][eventName]) {
+            node[this.listenerStoreKey][eventName] = [];
         }
-        this.node[this.listenerStoreKey][eventName].push(listener);
+        node[this.listenerStoreKey][eventName].push(listener);
     }
 
     private _getListenersFromStore(eventName: string): Listener[] {
+        const node = this.node as Record<string, any>;
         if (
-            this.node[this.listenerStoreKey] ||
-            this.node[this.listenerStoreKey][eventName]
+            node[this.listenerStoreKey] ||
+            node[this.listenerStoreKey][eventName]
         ) {
-            return this.node[this.listenerStoreKey][eventName];
+            return node[this.listenerStoreKey][eventName];
         }
         return [];
     }
@@ -259,7 +261,7 @@ export class Knot<T extends HTMLElement = HTMLElement> {
 
     removeChildren(): void {
         while (this.hasChildren()) {
-            this.node.removeChild(this.node.firstChild);
+            this.node.removeChild(this.node.firstChild!);
         }
     }
 

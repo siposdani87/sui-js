@@ -7,8 +7,8 @@ import { ProgressBar } from './progressBar';
 
 export class Script {
     progressBar: ProgressBar;
-    options: Objekt;
-    head: Knot;
+    options!: Objekt;
+    head!: Knot;
 
     constructor(
         progressBar: ProgressBar,
