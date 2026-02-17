@@ -175,7 +175,12 @@ const _convertToField = (
                         false,
                     );
                 } else if (inputs.size() === 1) {
-                    result = new DateTimeField(input, label!, error!, inputBlock);
+                    result = new DateTimeField(
+                        input,
+                        label!,
+                        error!,
+                        inputBlock,
+                    );
                 }
                 break;
             case 'file':
@@ -192,7 +197,12 @@ const _convertToField = (
                         inputBlock,
                     );
                 } else {
-                    result = new CheckboxField(input, label!, error!, inputBlock);
+                    result = new CheckboxField(
+                        input,
+                        label!,
+                        error!,
+                        inputBlock,
+                    );
                 }
                 break;
             case 'radio':
@@ -224,7 +234,12 @@ const _convertToField = (
                 break;
             case 'text':
                 if (eq(dataType, 'location')) {
-                    result = new LocationField(input, label!, error!, inputBlock);
+                    result = new LocationField(
+                        input,
+                        label!,
+                        error!,
+                        inputBlock,
+                    );
                 } else {
                     result = new TextField(input, label!, error!, inputBlock);
                 }

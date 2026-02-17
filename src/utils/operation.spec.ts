@@ -395,10 +395,7 @@ describe('operation', () => {
     });
 
     it('pluckKeys should return keys matching condition', () => {
-        const result = pluckKeys(
-            { a: 1, b: 2, c: 3 },
-            (value) => value > 1,
-        );
+        const result = pluckKeys({ a: 1, b: 2, c: 3 }, (value) => value > 1);
 
         expect(result).toEqual(['b', 'c']);
     });
@@ -406,8 +403,16 @@ describe('operation', () => {
     it('scrollTo should call scrollBy with intervals', () => {
         jest.useFakeTimers();
         const scrollBySpy = jest.spyOn(window, 'scrollBy').mockImplementation();
-        Object.defineProperty(window, 'scrollX', { value: 0, writable: true, configurable: true });
-        Object.defineProperty(window, 'scrollY', { value: 0, writable: true, configurable: true });
+        Object.defineProperty(window, 'scrollX', {
+            value: 0,
+            writable: true,
+            configurable: true,
+        });
+        Object.defineProperty(window, 'scrollY', {
+            value: 0,
+            writable: true,
+            configurable: true,
+        });
 
         scrollTo(100, 200, 500, 20);
         jest.advanceTimersByTime(20);
@@ -426,8 +431,16 @@ describe('operation', () => {
 
         jest.useFakeTimers();
         const scrollBySpy = jest.spyOn(window, 'scrollBy').mockImplementation();
-        Object.defineProperty(window, 'scrollX', { value: 0, writable: true, configurable: true });
-        Object.defineProperty(window, 'scrollY', { value: 0, writable: true, configurable: true });
+        Object.defineProperty(window, 'scrollX', {
+            value: 0,
+            writable: true,
+            configurable: true,
+        });
+        Object.defineProperty(window, 'scrollY', {
+            value: 0,
+            writable: true,
+            configurable: true,
+        });
 
         scrollToElement('#scroll-target', 500, 20);
         jest.advanceTimersByTime(20);
@@ -482,9 +495,9 @@ describe('operation', () => {
     });
 
     it('urlWithQueryString should use & when url already has ?', () => {
-        expect(
-            urlWithQueryString('/api/data?existing=1', { page: 2 }),
-        ).toBe('/api/data?existing=1&page=2');
+        expect(urlWithQueryString('/api/data?existing=1', { page: 2 })).toBe(
+            '/api/data?existing=1&page=2',
+        );
     });
 
     it('urlWithQueryString should return url unchanged when no params', () => {

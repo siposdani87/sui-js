@@ -36,12 +36,7 @@ describe('TextField', () => {
                 '.input-block.field-text',
             ).getKnot();
             const { input, label, error } = parseInputBlock(inputBlock);
-            const textField = new TextField(
-                input,
-                label,
-                error,
-                inputBlock,
-            );
+            const textField = new TextField(input, label, error, inputBlock);
             expect(textField.getValue()).toBe('text');
         });
 
@@ -50,12 +45,7 @@ describe('TextField', () => {
                 '.input-block.field-email',
             ).getKnot();
             const { input, label, error } = parseInputBlock(inputBlock);
-            const textField = new TextField(
-                input,
-                label,
-                error,
-                inputBlock,
-            );
+            const textField = new TextField(input, label, error, inputBlock);
             expect(textField.getValue()).toBe('example@email.com');
         });
     });
@@ -66,12 +56,7 @@ describe('TextField', () => {
                 '.input-block.field-text',
             ).getKnot();
             const { input, label, error } = parseInputBlock(inputBlock);
-            const textField = new TextField(
-                input,
-                label,
-                error,
-                inputBlock,
-            );
+            const textField = new TextField(input, label, error, inputBlock);
             textField.setValue('new text');
             expect(textField.getValue()).toBe('new text');
         });
@@ -83,12 +68,7 @@ describe('TextField', () => {
                 '.input-block.field-text',
             ).getKnot();
             const { input, label, error } = parseInputBlock(inputBlock);
-            const textField = new TextField(
-                input,
-                label,
-                error,
-                inputBlock,
-            );
+            const textField = new TextField(input, label, error, inputBlock);
             textField.render();
             expect(inputBlock.hasClass('mdl-textfield')).toBe(true);
             expect(input.hasClass('mdl-textfield__input')).toBe(true);
@@ -101,12 +81,7 @@ describe('TextField', () => {
                 '.input-block.field-text',
             ).getKnot();
             const { input, label, error } = parseInputBlock(inputBlock);
-            const textField = new TextField(
-                input,
-                label,
-                error,
-                inputBlock,
-            );
+            const textField = new TextField(input, label, error, inputBlock);
             expect(textField.getName()).toBe('field.text');
         });
     });

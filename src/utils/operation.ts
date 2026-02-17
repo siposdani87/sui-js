@@ -56,7 +56,10 @@ export const typeCast = (value: any): any => {
  * // { a: 1, b: { c: 2, d: 3 }, e: 4 }
  * @category Utility
  */
-export const merge = (objA: Record<string, any>, objB: Record<string, any>): object | undefined => {
+export const merge = (
+    objA: Record<string, any>,
+    objB: Record<string, any>,
+): object | undefined => {
     const obj = copyObject(objA) as Record<string, any>;
     for (const key in objB) {
         if (objB.hasOwnProperty(key)) {

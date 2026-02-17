@@ -17,12 +17,9 @@ describe('DateIO', () => {
             ['DD/MM/YYYY', 'dd/MM/yyyy'],
             ['YYYY', 'yyyy'],
             ['MM-DD', 'MM-dd'],
-        ])(
-            'should convert %s to %s',
-            (input, expected) => {
-                expect(convertToISOFormat(input)).toBe(expected);
-            },
-        );
+        ])('should convert %s to %s', (input, expected) => {
+            expect(convertToISOFormat(input)).toBe(expected);
+        });
     });
 
     describe('parse', () => {

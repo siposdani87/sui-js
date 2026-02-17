@@ -135,7 +135,9 @@ const decimalAdjust = (type: string, value: number, exp: number): number => {
     }
     // Shift
     let parts = value.toString().split('e');
-    value = (Math as Record<string, any>)[type](+(parts[0] + 'e' + (parts[1] ? +parts[1] - exp : -exp)));
+    value = (Math as Record<string, any>)[type](
+        +(parts[0] + 'e' + (parts[1] ? +parts[1] - exp : -exp)),
+    );
     // Shift back
     parts = value.toString().split('e');
     return +(parts[0] + 'e' + (parts[1] ? +parts[1] + exp : exp));

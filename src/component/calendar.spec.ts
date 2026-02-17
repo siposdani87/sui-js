@@ -33,8 +33,7 @@ describe('Calendar', () => {
         it('should create header with previous/next buttons and mode span', () => {
             const calendar = createCalendar();
             expect(calendar.headerKnot).toBeDefined();
-            const buttons =
-                calendar.headerKnot.getNode().querySelectorAll('a');
+            const buttons = calendar.headerKnot.getNode().querySelectorAll('a');
             expect(buttons.length).toBe(2);
             expect(calendar.currentModeKnot).toBeDefined();
         });
@@ -76,46 +75,31 @@ describe('Calendar', () => {
 
     describe('header display', () => {
         it('should display year and month in DAY mode', () => {
-            const calendar = createCalendar(
-                'date',
-                new Date(2024, 5, 15),
-            );
+            const calendar = createCalendar('date', new Date(2024, 5, 15));
             calendar.draw();
-            const headerText =
-                calendar.currentModeKnot.getNode().textContent;
+            const headerText = calendar.currentModeKnot.getNode().textContent;
             expect(headerText).toContain('2024');
             expect(headerText).toContain('June');
         });
 
         it('should display year in MONTH mode', () => {
-            const calendar = createCalendar(
-                'month',
-                new Date(2024, 5, 15),
-            );
+            const calendar = createCalendar('month', new Date(2024, 5, 15));
             calendar.draw();
-            const headerText =
-                calendar.currentModeKnot.getNode().textContent;
+            const headerText = calendar.currentModeKnot.getNode().textContent;
             expect(headerText).toBe('2024');
         });
 
         it('should display empty string in YEAR mode', () => {
-            const calendar = createCalendar(
-                'year',
-                new Date(2024, 5, 15),
-            );
+            const calendar = createCalendar('year', new Date(2024, 5, 15));
             calendar.draw();
-            const headerText =
-                calendar.currentModeKnot.getNode().textContent;
+            const headerText = calendar.currentModeKnot.getNode().textContent;
             expect(headerText).toBe('');
         });
     });
 
     describe('day drawing', () => {
         it('should render 7 week day headers', () => {
-            const calendar = createCalendar(
-                'date',
-                new Date(2024, 5, 15),
-            );
+            const calendar = createCalendar('date', new Date(2024, 5, 15));
             calendar.draw();
             const weekDays = calendar.weekDaysKnot
                 .getNode()
@@ -124,22 +108,14 @@ describe('Calendar', () => {
         });
 
         it('should render 42 day cells', () => {
-            const calendar = createCalendar(
-                'date',
-                new Date(2024, 5, 15),
-            );
+            const calendar = createCalendar('date', new Date(2024, 5, 15));
             calendar.draw();
-            const days = calendar.daysKnot
-                .getNode()
-                .querySelectorAll('.day');
+            const days = calendar.daysKnot.getNode().querySelectorAll('.day');
             expect(days.length).toBe(42);
         });
 
         it('should include days from previous month', () => {
-            const calendar = createCalendar(
-                'date',
-                new Date(2024, 5, 15),
-            );
+            const calendar = createCalendar('date', new Date(2024, 5, 15));
             calendar.draw();
             const prevDays = calendar.daysKnot
                 .getNode()
@@ -148,10 +124,7 @@ describe('Calendar', () => {
         });
 
         it('should include days from current month', () => {
-            const calendar = createCalendar(
-                'date',
-                new Date(2024, 5, 15),
-            );
+            const calendar = createCalendar('date', new Date(2024, 5, 15));
             calendar.draw();
             const currentDays = calendar.daysKnot
                 .getNode()
@@ -160,10 +133,7 @@ describe('Calendar', () => {
         });
 
         it('should include days from next month', () => {
-            const calendar = createCalendar(
-                'date',
-                new Date(2024, 5, 15),
-            );
+            const calendar = createCalendar('date', new Date(2024, 5, 15));
             calendar.draw();
             const nextDays = calendar.daysKnot
                 .getNode()
@@ -172,10 +142,7 @@ describe('Calendar', () => {
         });
 
         it('should have previous + current + next = 42 days', () => {
-            const calendar = createCalendar(
-                'date',
-                new Date(2024, 5, 15),
-            );
+            const calendar = createCalendar('date', new Date(2024, 5, 15));
             calendar.draw();
             const prev = calendar.daysKnot
                 .getNode()
@@ -192,10 +159,7 @@ describe('Calendar', () => {
 
     describe('month drawing', () => {
         it('should render 12 month cells', () => {
-            const calendar = createCalendar(
-                'month',
-                new Date(2024, 5, 15),
-            );
+            const calendar = createCalendar('month', new Date(2024, 5, 15));
             calendar.draw();
             const months = calendar.monthsKnot
                 .getNode()
@@ -204,10 +168,7 @@ describe('Calendar', () => {
         });
 
         it('should display abbreviated month names', () => {
-            const calendar = createCalendar(
-                'month',
-                new Date(2024, 5, 15),
-            );
+            const calendar = createCalendar('month', new Date(2024, 5, 15));
             calendar.draw();
             const months = calendar.monthsKnot
                 .getNode()
@@ -220,10 +181,7 @@ describe('Calendar', () => {
 
     describe('year drawing', () => {
         it('should render 16 year cells', () => {
-            const calendar = createCalendar(
-                'year',
-                new Date(2024, 5, 15),
-            );
+            const calendar = createCalendar('year', new Date(2024, 5, 15));
             calendar.draw();
             const years = calendar.yearsKnot
                 .getNode()
@@ -232,10 +190,7 @@ describe('Calendar', () => {
         });
 
         it('should display years starting from aligned batch', () => {
-            const calendar = createCalendar(
-                'year',
-                new Date(2024, 5, 15),
-            );
+            const calendar = createCalendar('year', new Date(2024, 5, 15));
             calendar.draw();
             const years = calendar.yearsKnot
                 .getNode()
@@ -252,10 +207,7 @@ describe('Calendar', () => {
         }
 
         it('should navigate to previous month in DAY mode', () => {
-            const calendar = createCalendar(
-                'date',
-                new Date(2024, 5, 15),
-            );
+            const calendar = createCalendar('date', new Date(2024, 5, 15));
             calendar.draw();
 
             const buttons = getNavButtons(calendar);
@@ -266,10 +218,7 @@ describe('Calendar', () => {
         });
 
         it('should navigate to next month in DAY mode', () => {
-            const calendar = createCalendar(
-                'date',
-                new Date(2024, 5, 15),
-            );
+            const calendar = createCalendar('date', new Date(2024, 5, 15));
             calendar.draw();
 
             const buttons = getNavButtons(calendar);
@@ -280,10 +229,7 @@ describe('Calendar', () => {
         });
 
         it('should navigate to previous year in MONTH mode', () => {
-            const calendar = createCalendar(
-                'month',
-                new Date(2024, 5, 15),
-            );
+            const calendar = createCalendar('month', new Date(2024, 5, 15));
             calendar.draw();
 
             const buttons = getNavButtons(calendar);
@@ -293,10 +239,7 @@ describe('Calendar', () => {
         });
 
         it('should navigate to next year in MONTH mode', () => {
-            const calendar = createCalendar(
-                'month',
-                new Date(2024, 5, 15),
-            );
+            const calendar = createCalendar('month', new Date(2024, 5, 15));
             calendar.draw();
 
             const buttons = getNavButtons(calendar);
@@ -306,10 +249,7 @@ describe('Calendar', () => {
         });
 
         it('should navigate 16 years back in YEAR mode', () => {
-            const calendar = createCalendar(
-                'year',
-                new Date(2024, 5, 15),
-            );
+            const calendar = createCalendar('year', new Date(2024, 5, 15));
             calendar.draw();
 
             const buttons = getNavButtons(calendar);
@@ -319,10 +259,7 @@ describe('Calendar', () => {
         });
 
         it('should navigate 16 years forward in YEAR mode', () => {
-            const calendar = createCalendar(
-                'year',
-                new Date(2024, 5, 15),
-            );
+            const calendar = createCalendar('year', new Date(2024, 5, 15));
             calendar.draw();
 
             const buttons = getNavButtons(calendar);
@@ -332,10 +269,7 @@ describe('Calendar', () => {
         });
 
         it('should not go below year 0 in YEAR mode', () => {
-            const calendar = createCalendar(
-                'year',
-                new Date(10, 5, 15),
-            );
+            const calendar = createCalendar('year', new Date(10, 5, 15));
             calendar.draw();
 
             const buttons = getNavButtons(calendar);
@@ -349,10 +283,7 @@ describe('Calendar', () => {
 
     describe('mode switching', () => {
         it('should switch from DAY to MONTH on header click', () => {
-            const calendar = createCalendar(
-                'date',
-                new Date(2024, 5, 15),
-            );
+            const calendar = createCalendar('date', new Date(2024, 5, 15));
             calendar.draw();
 
             calendar.currentModeKnot
@@ -363,10 +294,7 @@ describe('Calendar', () => {
         });
 
         it('should switch from MONTH to YEAR on header click', () => {
-            const calendar = createCalendar(
-                'date',
-                new Date(2024, 5, 15),
-            );
+            const calendar = createCalendar('date', new Date(2024, 5, 15));
             calendar.draw();
 
             // First click: DAY → MONTH
@@ -382,10 +310,7 @@ describe('Calendar', () => {
         });
 
         it('should wrap back to default mode at boundary', () => {
-            const calendar = createCalendar(
-                'date',
-                new Date(2024, 5, 15),
-            );
+            const calendar = createCalendar('date', new Date(2024, 5, 15));
             calendar.draw();
 
             // DAY → MONTH → YEAR → DAY (wrap)
@@ -406,10 +331,7 @@ describe('Calendar', () => {
     describe('click handling', () => {
         it('should call eventClick when day is clicked', () => {
             const eventClickSpy = jest.fn();
-            const calendar = createCalendar(
-                'date',
-                new Date(2024, 5, 15),
-            );
+            const calendar = createCalendar('date', new Date(2024, 5, 15));
             calendar.eventClick = eventClickSpy;
             calendar.draw();
 
@@ -423,10 +345,7 @@ describe('Calendar', () => {
 
         it('should call eventClick when month is clicked', () => {
             const eventClickSpy = jest.fn();
-            const calendar = createCalendar(
-                'month',
-                new Date(2024, 5, 15),
-            );
+            const calendar = createCalendar('month', new Date(2024, 5, 15));
             calendar.eventClick = eventClickSpy;
             calendar.draw();
 
@@ -440,10 +359,7 @@ describe('Calendar', () => {
 
         it('should call eventClick when year is clicked', () => {
             const eventClickSpy = jest.fn();
-            const calendar = createCalendar(
-                'year',
-                new Date(2024, 5, 15),
-            );
+            const calendar = createCalendar('year', new Date(2024, 5, 15));
             calendar.eventClick = eventClickSpy;
             calendar.draw();
 
@@ -456,10 +372,7 @@ describe('Calendar', () => {
         });
 
         it('should zoom in mode when clicking in non-target mode', () => {
-            const calendar = createCalendar(
-                'date',
-                new Date(2024, 5, 15),
-            );
+            const calendar = createCalendar('date', new Date(2024, 5, 15));
             // Switch to YEAR mode first
             calendar.currentModeKnot
                 .getNode()
@@ -481,10 +394,7 @@ describe('Calendar', () => {
         });
 
         it('should update selectedDate on click', () => {
-            const calendar = createCalendar(
-                'date',
-                new Date(2024, 5, 15),
-            );
+            const calendar = createCalendar('date', new Date(2024, 5, 15));
             calendar.draw();
 
             const dayCells = calendar.daysKnot

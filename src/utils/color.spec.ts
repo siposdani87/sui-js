@@ -75,12 +75,9 @@ describe('Color', () => {
             [0, 1, 1, [255, 0, 0]], // red
             [120, 1, 1, [0, 255, 0]], // green
             [240, 1, 1, [0, 0, 255]], // blue
-        ])(
-            'should convert HSV(%i, %f, %f) to RGB %j',
-            (h, s, v, expected) => {
-                expect(convertHSVToRGB(h, s, v)).toEqual(expected);
-            },
-        );
+        ])('should convert HSV(%i, %f, %f) to RGB %j', (h, s, v, expected) => {
+            expect(convertHSVToRGB(h, s, v)).toEqual(expected);
+        });
     });
 
     describe('convertHSVToHEX', () => {

@@ -202,9 +202,7 @@ describe('Table', () => {
         it('should add header class to header rows', () => {
             const table = createTable();
             table.setData([{ username: 'alice' }]);
-            const headerRow = table.tbody
-                .getNode()
-                .querySelector('tr.header');
+            const headerRow = table.tbody.getNode().querySelector('tr.header');
             expect(headerRow).not.toBeNull();
         });
 
@@ -224,24 +222,18 @@ describe('Table', () => {
 
         it('should render multiple items as separate row pairs', () => {
             const table = createTable();
-            table.setData([
-                { username: 'alice' },
-                { username: 'bob' },
-            ]);
+            table.setData([{ username: 'alice' }, { username: 'bob' }]);
             const headerRows = table.tbody
                 .getNode()
                 .querySelectorAll('tr.header');
-            const dataRows = table.tbody
-                .getNode()
-                .querySelectorAll('tr.data');
+            const dataRows = table.tbody.getNode().querySelectorAll('tr.data');
             expect(headerRows.length).toBe(2);
             expect(dataRows.length).toBe(2);
         });
 
         it('should use calculation functions for computed columns', () => {
-            const calcFn = jest.fn(
-                (item: Objekt) =>
-                    item.get<string>('username', '').toUpperCase(),
+            const calcFn = jest.fn((item: Objekt) =>
+                item.get<string>('username', '').toUpperCase(),
             );
             const table = createTable({
                 calculations: { username: calcFn },
@@ -257,9 +249,7 @@ describe('Table', () => {
                 rowStyle: () => ['highlight', 'important'],
             });
             table.setData([{ username: 'alice' }]);
-            const headerRow = table.tbody
-                .getNode()
-                .querySelector('tr.header');
+            const headerRow = table.tbody.getNode().querySelector('tr.header');
             expect(headerRow?.classList.contains('highlight')).toBe(true);
             expect(headerRow?.classList.contains('important')).toBe(true);
         });
@@ -333,9 +323,7 @@ describe('Table', () => {
 
         it('should disable button when action style returns disabled', () => {
             const table = createTable();
-            table.setActions([
-                createAction('edit', 'Edit', true, false),
-            ]);
+            table.setActions([createAction('edit', 'Edit', true, false)]);
             table.setData([{ username: 'alice' }]);
             const dataRow = table.tbody.getNode().querySelector('tr.data');
             const button = dataRow?.querySelector('td.actions button');
@@ -344,14 +332,10 @@ describe('Table', () => {
 
         it('should not render button when action style returns removed', () => {
             const table = createTable();
-            table.setActions([
-                createAction('edit', 'Edit', false, true),
-            ]);
+            table.setActions([createAction('edit', 'Edit', false, true)]);
             table.setData([{ username: 'alice' }]);
             const dataRow = table.tbody.getNode().querySelector('tr.data');
-            const buttons = dataRow?.querySelectorAll(
-                'td.actions button',
-            );
+            const buttons = dataRow?.querySelectorAll('td.actions button');
             expect(buttons?.length).toBe(0);
         });
     });
@@ -376,9 +360,7 @@ describe('Table', () => {
             const eventActionSpy = jest.fn();
             table.eventAction = eventActionSpy;
 
-            const firstTh = table.tableKnot
-                .getNode()
-                .querySelector('thead th');
+            const firstTh = table.tableKnot.getNode().querySelector('thead th');
             firstTh?.dispatchEvent(new Event('click'));
 
             expect(eventActionSpy).toHaveBeenCalled();
@@ -394,17 +376,13 @@ describe('Table', () => {
             const eventActionSpy = jest.fn();
             table.eventAction = eventActionSpy;
 
-            const firstTh = table.tableKnot
-                .getNode()
-                .querySelector('thead th');
+            const firstTh = table.tableKnot.getNode().querySelector('thead th');
 
             firstTh?.dispatchEvent(new Event('click'));
-            const firstOrder =
-                eventActionSpy.mock.calls[0][0].get('order');
+            const firstOrder = eventActionSpy.mock.calls[0][0].get('order');
 
             firstTh?.dispatchEvent(new Event('click'));
-            const secondOrder =
-                eventActionSpy.mock.calls[1][0].get('order');
+            const secondOrder = eventActionSpy.mock.calls[1][0].get('order');
 
             expect(firstOrder).not.toBe(secondOrder);
         });
@@ -416,9 +394,7 @@ describe('Table', () => {
             });
             table.eventAction = jest.fn();
 
-            const firstTh = table.tableKnot
-                .getNode()
-                .querySelector('thead th');
+            const firstTh = table.tableKnot.getNode().querySelector('thead th');
             firstTh?.dispatchEvent(new Event('click'));
 
             const activeIcon = table.tableKnot

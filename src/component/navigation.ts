@@ -194,19 +194,17 @@ export class Navigation {
         imageSpan.addClass('image');
 
         if (image.indexOf('.svg') !== -1) {
-            this.http!
-                .get(
-                    image,
-                    {},
-                    {
-                        Authorization: '',
-                        'X-Requested-With': '',
-                    },
-                )
-                .then((data) => {
-                    const svgTag = new Query('svg', data.get('raw')).getKnot();
-                    imageSpan.appendChild(svgTag);
-                });
+            this.http!.get(
+                image,
+                {},
+                {
+                    Authorization: '',
+                    'X-Requested-With': '',
+                },
+            ).then((data) => {
+                const svgTag = new Query('svg', data.get('raw')).getKnot();
+                imageSpan.appendChild(svgTag);
+            });
         } else {
             const imageTag = new Knot('img');
             imageTag.setAttribute('src', image);

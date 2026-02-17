@@ -8,12 +8,7 @@ describe('SelectField', () => {
             '.input-block.field-select',
         ).getKnot();
         const { input, label, error } = parseInputBlock(inputBlock);
-        const selectField = new SelectField(
-            input,
-            label,
-            error,
-            inputBlock,
-        );
+        const selectField = new SelectField(input, label, error, inputBlock);
         expect(selectField).toBeInstanceOf(SelectField);
     });
 
@@ -22,12 +17,7 @@ describe('SelectField', () => {
             '.input-block.field-select',
         ).getKnot();
         const { input, label, error } = parseInputBlock(inputBlock);
-        const selectField = new SelectField(
-            input,
-            label,
-            error,
-            inputBlock,
-        );
+        const selectField = new SelectField(input, label, error, inputBlock);
         expect(selectField.isMultiple()).toBe(false);
     });
 
@@ -36,12 +26,7 @@ describe('SelectField', () => {
             '.input-block.field-select',
         ).getKnot();
         const { input, label, error } = parseInputBlock(inputBlock);
-        const selectField = new SelectField(
-            input,
-            label,
-            error,
-            inputBlock,
-        );
+        const selectField = new SelectField(input, label, error, inputBlock);
         const value = selectField.getValue();
         expect(value).toBeNull();
     });
@@ -51,12 +36,7 @@ describe('SelectField', () => {
             '.input-block.field-select',
         ).getKnot();
         const { input, label, error } = parseInputBlock(inputBlock);
-        const selectField = new SelectField(
-            input,
-            label,
-            error,
-            inputBlock,
-        );
+        const selectField = new SelectField(input, label, error, inputBlock);
         expect(selectField.options).toBeDefined();
     });
 
@@ -65,12 +45,7 @@ describe('SelectField', () => {
             '.input-block.field-select',
         ).getKnot();
         const { input, label, error } = parseInputBlock(inputBlock);
-        const selectField = new SelectField(
-            input,
-            label,
-            error,
-            inputBlock,
-        );
+        const selectField = new SelectField(input, label, error, inputBlock);
         expect(selectField.isDisabled()).toBe(false);
     });
 });

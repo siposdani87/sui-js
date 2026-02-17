@@ -44,12 +44,9 @@ describe('Math utilities', () => {
             [112, true, '100+'],
             [1534, false, '1.534K'],
             [1534, true, '1K+'],
-        ])(
-            'should format %i (around=%s) as %s',
-            (num, around, expected) => {
-                expect(readableNumber(num, around)).toBe(expected);
-            },
-        );
+        ])('should format %i (around=%s) as %s', (num, around, expected) => {
+            expect(readableNumber(num, around)).toBe(expected);
+        });
     });
 
     describe('round', () => {

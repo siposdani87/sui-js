@@ -35,16 +35,18 @@ describe('Confirm', () => {
         it('should create OK button', () => {
             const confirm = new Confirm();
             confirm.load('Message', 'OK');
-            const buttons =
-                confirm.modalFooter.getNode().querySelectorAll('button');
+            const buttons = confirm.modalFooter
+                .getNode()
+                .querySelectorAll('button');
             expect(buttons.length).toBeGreaterThanOrEqual(1);
         });
 
         it('should create cancel and OK buttons', () => {
             const confirm = new Confirm();
             confirm.load('Message', 'OK', 'Cancel');
-            const buttons =
-                confirm.modalFooter.getNode().querySelectorAll('button');
+            const buttons = confirm.modalFooter
+                .getNode()
+                .querySelectorAll('button');
             expect(buttons.length).toBe(2);
         });
 

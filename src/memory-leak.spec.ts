@@ -203,16 +203,18 @@ describe('Memory leak prevention', () => {
             const content = new Knot('div');
             const popup = new Popup(content, parentKnot);
 
-            const initialChildCount =
-                parentKnot.getNode().querySelectorAll('.popup').length;
+            const initialChildCount = parentKnot
+                .getNode()
+                .querySelectorAll('.popup').length;
 
             for (let i = 0; i < 5; i++) {
                 popup.open();
                 popup.close();
             }
 
-            const finalChildCount =
-                parentKnot.getNode().querySelectorAll('.popup').length;
+            const finalChildCount = parentKnot
+                .getNode()
+                .querySelectorAll('.popup').length;
             expect(finalChildCount).toBe(initialChildCount);
         });
 

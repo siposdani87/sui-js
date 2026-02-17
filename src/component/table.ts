@@ -543,7 +543,10 @@ export class Table<T extends Objekt = Objekt> {
                 item = dataKnot;
             }
             parentKnot.appendChild(item as Knot);
-            if ((item as Knot).getAttribute('title') || (item as Knot).getAttribute('desc')) {
+            if (
+                (item as Knot).getAttribute('title') ||
+                (item as Knot).getAttribute('desc')
+            ) {
                 const tooltip = new Tooltip(item as Knot);
                 tooltip.render();
             }

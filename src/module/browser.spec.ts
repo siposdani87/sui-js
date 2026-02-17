@@ -13,9 +13,14 @@ describe('Browser', () => {
 
     describe('OS detection', () => {
         it('should detect an OS or null', () => {
-            expect(
-                [null, 'macOS', 'iOS', 'Windows', 'Android', 'Linux'],
-            ).toContain(browser.os);
+            expect([
+                null,
+                'macOS',
+                'iOS',
+                'Windows',
+                'Android',
+                'Linux',
+            ]).toContain(browser.os);
         });
 
         it('should return boolean from isMacOS', () => {

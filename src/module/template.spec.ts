@@ -12,9 +12,7 @@ function createMockHttp(): Http {
     return http;
 }
 
-function setupTemplateDOM(
-    opt_attrs: Record<string, string> = {},
-): HTMLElement {
+function setupTemplateDOM(opt_attrs: Record<string, string> = {}): HTMLElement {
     const container = document.createElement('div');
     container.classList.add('template-view');
     for (const [key, value] of Object.entries(opt_attrs)) {
@@ -82,9 +80,7 @@ describe('Template', () => {
 
         it('should set default locale from navigator.language', () => {
             template = new Template(http);
-            expect(template.options.get('locale')).toBe(
-                navigator.language,
-            );
+            expect(template.options.get('locale')).toBe(navigator.language);
         });
 
         it('should allow custom locale', () => {
@@ -106,8 +102,7 @@ describe('Template', () => {
             const pageContent = document.createElement('div');
             pageContent.classList.add('page-content');
             pageContent.textContent = 'cached content';
-            const container =
-                document.body.querySelector('.template-view');
+            const container = document.body.querySelector('.template-view');
             container.appendChild(pageContent);
             container.setAttribute('data-template-url', '/home.html');
             container.setAttribute('data-locale', 'en');
@@ -125,17 +120,14 @@ describe('Template', () => {
         it('should remove data-locale attribute on cache hit', (done) => {
             const pageContent = document.createElement('div');
             pageContent.classList.add('page-content');
-            const container =
-                document.body.querySelector('.template-view');
+            const container = document.body.querySelector('.template-view');
             container.appendChild(pageContent);
             container.setAttribute('data-template-url', '/about.html');
             container.setAttribute('data-locale', 'en');
 
             template = new Template(http, { locale: 'en' });
             template.load('/about.html').then(() => {
-                expect(
-                    container.getAttribute('data-locale'),
-                ).toBeNull();
+                expect(container.getAttribute('data-locale')).toBeNull();
                 done();
             });
         });
@@ -143,10 +135,7 @@ describe('Template', () => {
 
     describe('load — fetch', () => {
         it('should make HTTP GET when URL differs', (done) => {
-            const deferred = new Deferred<
-                [Objekt, string],
-                [Objekt, string]
-            >();
+            const deferred = new Deferred<[Objekt, string], [Objekt, string]>();
             (http.get as jest.Mock).mockReturnValue(deferred.promise());
 
             template = new Template(http, { locale: 'en' });
@@ -167,15 +156,11 @@ describe('Template', () => {
         });
 
         it('should make HTTP GET when force=true even if URL matches', (done) => {
-            const container =
-                document.body.querySelector('.template-view');
+            const container = document.body.querySelector('.template-view');
             container.setAttribute('data-template-url', '/home.html');
             container.setAttribute('data-locale', 'en');
 
-            const deferred = new Deferred<
-                [Objekt, string],
-                [Objekt, string]
-            >();
+            const deferred = new Deferred<[Objekt, string], [Objekt, string]>();
             (http.get as jest.Mock).mockReturnValue(deferred.promise());
 
             template = new Template(http, { locale: 'en' });
@@ -191,33 +176,25 @@ describe('Template', () => {
         });
 
         it('should set data-template-url attribute on fetch', () => {
-            const deferred = new Deferred<
-                [Objekt, string],
-                [Objekt, string]
-            >();
+            const deferred = new Deferred<[Objekt, string], [Objekt, string]>();
             (http.get as jest.Mock).mockReturnValue(deferred.promise());
 
             template = new Template(http, { locale: 'en' });
             template.load('/new-page.html');
 
-            const container =
-                document.body.querySelector('.template-view');
+            const container = document.body.querySelector('.template-view');
             expect(container.getAttribute('data-template-url')).toBe(
                 '/new-page.html',
             );
         });
 
         it('should insert content into viewKnot on success', (done) => {
-            const deferred = new Deferred<
-                [Objekt, string],
-                [Objekt, string]
-            >();
+            const deferred = new Deferred<[Objekt, string], [Objekt, string]>();
             (http.get as jest.Mock).mockReturnValue(deferred.promise());
 
             template = new Template(http, { locale: 'en' });
             template.load('/page.html').then((knot) => {
-                const container =
-                    document.body.querySelector('.template-view');
+                const container = document.body.querySelector('.template-view');
                 expect(container.querySelector('.page-content')).not.toBeNull();
                 done();
             });
@@ -231,10 +208,7 @@ describe('Template', () => {
 
     describe('load — error', () => {
         it('should call eventError with message content and type on HTTP error', (done) => {
-            const deferred = new Deferred<
-                [Objekt, string],
-                [Objekt, string]
-            >();
+            const deferred = new Deferred<[Objekt, string], [Objekt, string]>();
             (http.get as jest.Mock).mockReturnValue(deferred.promise());
 
             template = new Template(http, { locale: 'en' });
@@ -253,10 +227,7 @@ describe('Template', () => {
                 },
             );
 
-            const responseKnot = createResponseKnot(
-                'Not found',
-                'error',
-            );
+            const responseKnot = createResponseKnot('Not found', 'error');
             const responseData = new Objekt();
             responseData.setRaw('raw', responseKnot);
             deferred.reject([responseData, '']);
@@ -275,8 +246,7 @@ describe('Template', () => {
             template = new Template(http, { locale: 'en' });
             const responseKnot = createResponseKnot('Success content');
             template._spaNavigate(responseKnot, false);
-            const container =
-                document.body.querySelector('.template-view');
+            const container = document.body.querySelector('.template-view');
             expect(container.querySelector('.page-content')).not.toBeNull();
         });
 

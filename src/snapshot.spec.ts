@@ -100,9 +100,7 @@ describe('UI Component Snapshots', () => {
 
     describe('Dialog modal', () => {
         it('should match snapshot of dialog DOM structure', () => {
-            const dialogNode = document.getElementById(
-                'dialog',
-            ) as HTMLElement;
+            const dialogNode = document.getElementById('dialog') as HTMLElement;
             expect(dialogNode).toBeDefined();
             expect(dialogNode.outerHTML).toMatchSnapshot();
         });
@@ -130,17 +128,32 @@ describe('UI Component Snapshots', () => {
         });
 
         it('should match snapshot for success message', () => {
-            flash.addSuccess('Operation completed', Infinity, null, 'snap-success');
+            flash.addSuccess(
+                'Operation completed',
+                Infinity,
+                null,
+                'snap-success',
+            );
             expect(container.getNode().outerHTML).toMatchSnapshot();
         });
 
         it('should match snapshot for error message with close button', () => {
-            flash.addError('Something went wrong', Infinity, null, 'snap-error');
+            flash.addError(
+                'Something went wrong',
+                Infinity,
+                null,
+                'snap-error',
+            );
             expect(container.getNode().outerHTML).toMatchSnapshot();
         });
 
         it('should match snapshot for warning message', () => {
-            flash.addWarning('Please check input', Infinity, null, 'snap-warning');
+            flash.addWarning(
+                'Please check input',
+                Infinity,
+                null,
+                'snap-warning',
+            );
             expect(container.getNode().outerHTML).toMatchSnapshot();
         });
 
@@ -159,9 +172,7 @@ describe('UI Component Snapshots', () => {
 
     describe('Form structure', () => {
         it('should match snapshot of form from template-view', () => {
-            const formNode = document.querySelector(
-                '.template-view form',
-            );
+            const formNode = document.querySelector('.template-view form');
             if (formNode) {
                 expect(formNode.outerHTML).toMatchSnapshot();
             }

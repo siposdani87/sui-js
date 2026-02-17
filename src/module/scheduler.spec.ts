@@ -47,10 +47,7 @@ describe('Scheduler', () => {
                 '08:00',
                 [],
             );
-            const noon = scheduler.schedulerStore.get<Function[]>(
-                '12:00',
-                [],
-            );
+            const noon = scheduler.schedulerStore.get<Function[]>('12:00', []);
             expect(morning).toHaveLength(1);
             expect(noon).toHaveLength(1);
         });

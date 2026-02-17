@@ -95,7 +95,9 @@ export class Clock {
     private _initStructure(): void {
         this._initHeaderKnot();
         this._initContentKnot();
-        this._initMode(this.types[this.options.type as keyof typeof this.types]);
+        this._initMode(
+            this.types[this.options.type as keyof typeof this.types],
+        );
 
         this.setTime(this.options.time);
     }
@@ -223,8 +225,7 @@ export class Clock {
      */
     private _setMinutes(minutes: number): void {
         this.minutes = minutes;
-        const cssClass =
-            this.activeMode === this.types.minute ? 'active' : '';
+        const cssClass = this.activeMode === this.types.minute ? 'active' : '';
         this.minutesHeaderKnot.removeClass('active');
         this.minutesHeaderKnot.addClass(['minutes', cssClass]);
         const text = minutes < 10 ? '0' + minutes : minutes.toString();
@@ -282,7 +283,9 @@ export class Clock {
             position += direction;
         }
         const mode = this.modes[position];
-        return mode ? mode : this.types[this.options.type as keyof typeof this.types];
+        return mode
+            ? mode
+            : this.types[this.options.type as keyof typeof this.types];
     }
 
     /**

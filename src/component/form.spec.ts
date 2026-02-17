@@ -31,9 +31,7 @@ describe('Form', () => {
     }
 
     function mockMdlComponents(): void {
-        const rangeInput = document.querySelector(
-            '#field-range',
-        ) as any;
+        const rangeInput = document.querySelector('#field-range') as any;
         if (rangeInput) {
             rangeInput.MaterialSlider = { change: jest.fn() };
         }
@@ -52,9 +50,9 @@ describe('Form', () => {
         });
 
         it('should set novalidate attribute on form element', () => {
-            expect(
-                form.formKnot.getNode().hasAttribute('novalidate'),
-            ).toBe(true);
+            expect(form.formKnot.getNode().hasAttribute('novalidate')).toBe(
+                true,
+            );
         });
 
         it('should initialize fields from DOM', () => {
@@ -83,17 +81,13 @@ describe('Form', () => {
 
     describe('setModel', () => {
         it('should update model values', () => {
-            form.setModel(
-                new Objekt({ field: { text: 'updated' } }),
-            );
+            form.setModel(new Objekt({ field: { text: 'updated' } }));
             expect(form.getModel().get('field.text')).toBe('updated');
         });
 
         it('should update previousModel on setModel', () => {
             const oldModel = form.getModel().copy();
-            form.setModel(
-                new Objekt({ field: { text: 'new value' } }),
-            );
+            form.setModel(new Objekt({ field: { text: 'new value' } }));
             expect(form.previousModel.get('field.text')).toBe(
                 oldModel.get('field.text'),
             );
@@ -102,18 +96,14 @@ describe('Form', () => {
         it('should call field setValue for matching fields', () => {
             const textField = form.findByModel('field.text');
             const setValueSpy = jest.spyOn(textField, 'setValue');
-            form.setModel(
-                new Objekt({ field: { text: 'spy test' } }),
-            );
+            form.setModel(new Objekt({ field: { text: 'spy test' } }));
             expect(setValueSpy).toHaveBeenCalledWith('spy test');
         });
 
         it('should call field checkValidity after setValue', () => {
             const textField = form.findByModel('field.text');
             const checkSpy = jest.spyOn(textField, 'checkValidity');
-            form.setModel(
-                new Objekt({ field: { text: 'validity test' } }),
-            );
+            form.setModel(new Objekt({ field: { text: 'validity test' } }));
             expect(checkSpy).toHaveBeenCalled();
         });
     });
@@ -203,9 +193,7 @@ describe('Form', () => {
             fragileFields.forEach((name) => {
                 const field = form.findByModel(name);
                 if (field) {
-                    jest.spyOn(field, 'setValue').mockImplementation(
-                        () => {},
-                    );
+                    jest.spyOn(field, 'setValue').mockImplementation(() => {});
                 }
             });
         });
@@ -218,18 +206,14 @@ describe('Form', () => {
         });
 
         it('should clear model', () => {
-            form.setModel(
-                new Objekt({ field: { text: 'some value' } }),
-            );
+            form.setModel(new Objekt({ field: { text: 'some value' } }));
             form.reset();
             const model = form.getModel();
             expect(model.get('field.text')).toBeUndefined();
         });
 
         it('should preserve previousModel', () => {
-            form.setModel(
-                new Objekt({ field: { text: 'before reset' } }),
-            );
+            form.setModel(new Objekt({ field: { text: 'before reset' } }));
             form.reset();
             expect(form.previousModel).toBeDefined();
         });
@@ -273,14 +257,12 @@ describe('Form', () => {
             const submitSpy = jest.fn();
             form.eventSubmit = submitSpy;
 
-            form.formKnot
-                .getNode()
-                .dispatchEvent(
-                    new Event('submit', {
-                        bubbles: true,
-                        cancelable: true,
-                    }),
-                );
+            form.formKnot.getNode().dispatchEvent(
+                new Event('submit', {
+                    bubbles: true,
+                    cancelable: true,
+                }),
+            );
 
             expect(submitSpy).toHaveBeenCalled();
             const [model] = submitSpy.mock.calls[0];
@@ -301,14 +283,12 @@ describe('Form', () => {
             const resetSpy = jest.fn();
             form.eventReset = resetSpy;
 
-            form.formKnot
-                .getNode()
-                .dispatchEvent(
-                    new Event('reset', {
-                        bubbles: true,
-                        cancelable: true,
-                    }),
-                );
+            form.formKnot.getNode().dispatchEvent(
+                new Event('reset', {
+                    bubbles: true,
+                    cancelable: true,
+                }),
+            );
 
             expect(resetSpy).toHaveBeenCalled();
             const [model] = resetSpy.mock.calls[0];
@@ -321,10 +301,7 @@ describe('Form', () => {
                 bubbles: true,
                 cancelable: true,
             });
-            const preventSpy = jest.spyOn(
-                keydownEvent,
-                'preventDefault',
-            );
+            const preventSpy = jest.spyOn(keydownEvent, 'preventDefault');
             form.formKnot.getNode().dispatchEvent(keydownEvent);
             expect(preventSpy).toHaveBeenCalled();
         });
@@ -334,9 +311,7 @@ describe('Form', () => {
         it('should update model when field value changes', () => {
             const textField = form.findByModel('field.text');
             textField.modelChange('changed value');
-            expect(form.getModel().get('field.text')).toBe(
-                'changed value',
-            );
+            expect(form.getModel().get('field.text')).toBe('changed value');
         });
 
         it('should call field eventChange with new and old values', () => {

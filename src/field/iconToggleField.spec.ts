@@ -10,12 +10,7 @@ describe('IconToggleField', () => {
             '.input-block.field-icon-toggle',
         ).getKnot();
         const { input, label, error } = parseInputBlock(inputBlock);
-        iconToggleField = new IconToggleField(
-            input,
-            label,
-            error,
-            inputBlock,
-        );
+        iconToggleField = new IconToggleField(input, label, error, inputBlock);
     });
 
     it('should be instance of IconToggleField', () => {

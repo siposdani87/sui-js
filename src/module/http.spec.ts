@@ -2,11 +2,7 @@ import { Http } from './http';
 import { Xhr } from './xhr';
 import { Objekt } from '../core/objekt';
 import { Deferred } from '../core/deferred';
-import {
-    installXhrMock,
-    uninstallXhrMock,
-    getLastXhr,
-} from '../test-helpers';
+import { installXhrMock, uninstallXhrMock, getLastXhr } from '../test-helpers';
 
 describe('Http', () => {
     let http: Http;
@@ -29,9 +25,7 @@ describe('Http', () => {
         });
 
         it('should set backend option', () => {
-            expect(http.options.get('backend')).toBe(
-                'https://api.example.com',
-            );
+            expect(http.options.get('backend')).toBe('https://api.example.com');
         });
 
         it('should set locale option', () => {
@@ -180,17 +174,11 @@ describe('Http', () => {
             const promise = http.get('/data.json');
             const mock = getLastXhr();
 
-            expect(mock.requestHeaders['Authorization']).toContain(
-                'Basic ',
-            );
+            expect(mock.requestHeaders['Authorization']).toContain('Basic ');
             expect(mock.withCredentials).toBe(true);
 
             promise.then(() => done());
-            mock.respond(
-                200,
-                { 'Content-Type': 'application/json' },
-                {},
-            );
+            mock.respond(200, { 'Content-Type': 'application/json' }, {});
         });
 
         it('should propagate bearer authorization to Xhr', (done) => {
@@ -204,11 +192,7 @@ describe('Http', () => {
             expect(mock.withCredentials).toBe(true);
 
             promise.then(() => done());
-            mock.respond(
-                200,
-                { 'Content-Type': 'application/json' },
-                {},
-            );
+            mock.respond(200, { 'Content-Type': 'application/json' }, {});
         });
 
         it('should not set authorization when credentials are null', () => {
@@ -277,11 +261,7 @@ describe('Http', () => {
                 done();
             });
 
-            mock.respond(
-                200,
-                { 'Content-Type': 'application/json' },
-                {},
-            );
+            mock.respond(200, { 'Content-Type': 'application/json' }, {});
         });
 
         it('should call eventAfterRequest on error', (done) => {
@@ -307,9 +287,7 @@ describe('Http', () => {
         });
 
         it('should call eventBeforeRequest and eventAfterRequest without error', () => {
-            expect(() =>
-                http.eventBeforeRequest({} as any),
-            ).not.toThrow();
+            expect(() => http.eventBeforeRequest({} as any)).not.toThrow();
             expect(() =>
                 http.eventAfterRequest({} as any, {} as any, ''),
             ).not.toThrow();

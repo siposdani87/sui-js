@@ -56,17 +56,13 @@ describe('Flash Integration', () => {
     });
 
     it('should return null from addMessage with non-object', () => {
-        const result = flash.addMessage(
-            'not an object' as any,
-        );
+        const result = flash.addMessage('not an object' as any);
         expect(result).toBeNull();
     });
 
     it('should add close button for error type', () => {
         const flashKnot = flash.addError('Error with close');
-        const buttons = flashKnot
-            .getNode()
-            .querySelectorAll('button');
+        const buttons = flashKnot.getNode().querySelectorAll('button');
         expect(buttons.length).toBeGreaterThan(0);
     });
 
@@ -80,11 +76,13 @@ describe('Flash Integration', () => {
 
     it('should remove flash by reference', () => {
         const flashKnot = flash.addSuccess('To be removed', Infinity);
-        const countBefore =
-            container.getNode().querySelectorAll('.flash').length;
+        const countBefore = container
+            .getNode()
+            .querySelectorAll('.flash').length;
         flash.remove(flashKnot);
-        const countAfter =
-            container.getNode().querySelectorAll('.flash').length;
+        const countAfter = container
+            .getNode()
+            .querySelectorAll('.flash').length;
         expect(countAfter).toBe(countBefore - 1);
     });
 
@@ -111,11 +109,7 @@ describe('Flash Integration', () => {
 
     it('should call close callback on remove', () => {
         const callback = jest.fn();
-        const flashKnot = flash.addSuccess(
-            'With callback',
-            Infinity,
-            callback,
-        );
+        const flashKnot = flash.addSuccess('With callback', Infinity, callback);
         flash.remove(flashKnot, callback);
         expect(callback).toHaveBeenCalled();
     });

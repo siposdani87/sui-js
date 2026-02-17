@@ -1,11 +1,4 @@
-import {
-    Knot,
-    Query,
-    Collection,
-    Objekt,
-    Router,
-    Deferred,
-} from './core';
+import { Knot, Query, Collection, Objekt, Router, Deferred } from './core';
 import { EventBus } from './module/eventBus';
 import { Depot } from './module/depot';
 import { Cookie } from './module/cookie';
@@ -108,9 +101,7 @@ describe('Error scenarios and failure modes', () => {
 
         it('should handle removing non-existent event', () => {
             const eventBus = new EventBus();
-            expect(() =>
-                eventBus.remove('no-event', jest.fn()),
-            ).not.toThrow();
+            expect(() => eventBus.remove('no-event', jest.fn())).not.toThrow();
         });
 
         it('should handle popping from non-existent event', () => {

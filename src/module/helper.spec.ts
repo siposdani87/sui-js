@@ -45,16 +45,8 @@ describe('Helper', () => {
 
         it('should remove element when allowAccess is false', () => {
             document.body.innerHTML = '<div id="container"></div>';
-            const container = new Knot(
-                document.getElementById('container'),
-            );
-            const link = helper.createLink(
-                'Link',
-                jest.fn(),
-                '',
-                '',
-                false,
-            );
+            const container = new Knot(document.getElementById('container'));
+            const link = helper.createLink('Link', jest.fn(), '', '', false);
             container.appendChild(link);
             // When allowAccess is false, linkElement calls remove()
             // The link is created but then removed by linkElement
@@ -80,13 +72,9 @@ describe('Helper', () => {
         });
 
         it('should add custom css classes', () => {
-            const button = helper.createButton(
-                'Submit',
-                jest.fn(),
-                '',
-                true,
-                ['custom-class'],
-            );
+            const button = helper.createButton('Submit', jest.fn(), '', true, [
+                'custom-class',
+            ]);
             expect(button.hasClass('custom-class')).toBe(true);
         });
 
@@ -140,14 +128,7 @@ describe('Helper', () => {
             const el = document.createElement('a');
             document.body.appendChild(el);
             const knot = new Knot(el);
-            helper.linkElement(
-                knot,
-                jest.fn(),
-                '',
-                'A tooltip',
-                true,
-                [],
-            );
+            helper.linkElement(knot, jest.fn(), '', 'A tooltip', true, []);
             // _setTooltip creates a Tooltip and calls mdl
             expect(knot.getId()).toContain('link');
         });
@@ -194,11 +175,7 @@ describe('Helper', () => {
             const el = document.createElement('img');
             document.body.appendChild(el);
             const knot = new Knot(el);
-            helper.setGravatar(
-                knot,
-                'default.png',
-                'test@example.com',
-            );
+            helper.setGravatar(knot, 'default.png', 'test@example.com');
             const src = knot.getAttribute('src');
             expect(src).toContain('gravatar.com/avatar/');
             expect(src).toContain('s=500');

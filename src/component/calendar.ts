@@ -94,7 +94,9 @@ export class Calendar {
     private _initStructure(): void {
         this._initHeaderKnot();
         this._initContentKnot();
-        this._initMode(this.types[this.options.type as keyof typeof this.types]);
+        this._initMode(
+            this.types[this.options.type as keyof typeof this.types],
+        );
 
         const date: Date = this.options.date;
         this._setSelectedDate(date);
@@ -177,7 +179,9 @@ export class Calendar {
             position += direction;
         }
         const mode = this.modes[position];
-        return mode ? mode : this.types[this.options.type as keyof typeof this.types];
+        return mode
+            ? mode
+            : this.types[this.options.type as keyof typeof this.types];
     }
 
     /**

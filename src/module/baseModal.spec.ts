@@ -21,9 +21,7 @@ describe('BaseModal', () => {
         modal = new BaseModal();
         modal.body = new Knot(document.body);
         modal.modal = new Knot(document.getElementById('test-modal'));
-        modal.modalWindow = new Knot(
-            document.getElementById('test-window'),
-        );
+        modal.modalWindow = new Knot(document.getElementById('test-window'));
         modal.modalHeader = new Knot(
             document.querySelector('.modal-header') as HTMLElement,
         );

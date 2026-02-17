@@ -496,7 +496,11 @@ export class Xhr {
         let results: string[] = [];
         for (const key in obj) {
             if ((obj as Record<string, any>).hasOwnProperty(key)) {
-                const pair = this._parseobject((obj as Record<string, any>)[key], key, '');
+                const pair = this._parseobject(
+                    (obj as Record<string, any>)[key],
+                    key,
+                    '',
+                );
                 results = results.concat(pair);
             }
         }
@@ -668,7 +672,10 @@ export class Xhr {
      * @example
      * xhr.setBasicAuthorization('admin', 's3cret');
      */
-    setBasicAuthorization(username: string | null, password: string | null): void {
+    setBasicAuthorization(
+        username: string | null,
+        password: string | null,
+    ): void {
         if (username && password) {
             const hash = [username, password].join(':');
             this.authorization = 'Basic ' + encodeBase64(hash);

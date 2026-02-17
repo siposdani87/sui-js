@@ -1379,7 +1379,11 @@ export class GoogleMap {
                     results &&
                     results.length > 0
                 ) {
-                    const points: Array<{ address: string; latitude: number; longitude: number }> = [];
+                    const points: Array<{
+                        address: string;
+                        latitude: number;
+                        longitude: number;
+                    }> = [];
                     each(results, (result) => {
                         const point = {
                             address: result.formatted_address,

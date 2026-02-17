@@ -45,8 +45,7 @@ describe('Coder', () => {
         });
 
         it('should decrypt known ciphertext', () => {
-            const encrypted =
-                'U2FsdGVkX1/2ztazRNLgdfO+0c/1jk/t1TTJOcW0a0w=';
+            const encrypted = 'U2FsdGVkX1/2ztazRNLgdfO+0c/1jk/t1TTJOcW0a0w=';
             expect(decrypt(encrypted, 'ABCDEFG')).toBe('123456');
         });
 

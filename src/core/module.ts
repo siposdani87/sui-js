@@ -137,7 +137,10 @@ export class Module {
     private _resolveDependencies(dependency: Dependency): object {
         const moduleArgs: any[] = [];
         each(dependency.moduleInjections, (injection: any) => {
-            moduleArgs.push((this._instances as Record<string, any>)[injection] || injection);
+            moduleArgs.push(
+                (this._instances as Record<string, any>)[injection] ||
+                    injection,
+            );
         });
 
         return new dependency.moduleCallback(...moduleArgs);
@@ -260,12 +263,18 @@ export class Module {
         const calls: Array<() => any> = [];
         each(sortedServices, (serviceName: any) => {
             const moduleCall = () => {
-                (this._instances as Record<string, any>)[serviceName] = this._resolveDependencies(
-                    this._modules[serviceName],
-                );
+                (this._instances as Record<string, any>)[serviceName] =
+                    this._resolveDependencies(this._modules[serviceName]);
 
-                if (isFunction((this._instances as Record<string, any>)[serviceName].enter)) {
-                    return (this._instances as Record<string, any>)[serviceName].enter();
+                if (
+                    isFunction(
+                        (this._instances as Record<string, any>)[serviceName]
+                            .enter,
+                    )
+                ) {
+                    return (this._instances as Record<string, any>)[
+                        serviceName
+                    ].enter();
                 }
                 return noop();
             };

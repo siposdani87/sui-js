@@ -135,15 +135,11 @@ describe('GeoLocation', () => {
 
     describe('event methods', () => {
         it('should call eventChange without error', () => {
-            expect(() =>
-                geo.eventChange(47.0, 19.0, 'test'),
-            ).not.toThrow();
+            expect(() => geo.eventChange(47.0, 19.0, 'test')).not.toThrow();
         });
 
         it('should call eventError without error', () => {
-            expect(() =>
-                geo.eventError('error message', 'code'),
-            ).not.toThrow();
+            expect(() => geo.eventError('error message', 'code')).not.toThrow();
         });
     });
 });

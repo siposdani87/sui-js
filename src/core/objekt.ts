@@ -80,10 +80,7 @@ export class Objekt<T extends object = object> {
                             this[key] = new Objekt(this[key]);
                         }
                         this[key].merge(obj[key]);
-                    } else if (
-                        isArray(obj[key]) &&
-                        isPureObject(obj[key][0])
-                    ) {
+                    } else if (isArray(obj[key]) && isPureObject(obj[key][0])) {
                         this._convertobject(obj, key);
                         this[key] = obj[key];
                     } else {
@@ -173,10 +170,7 @@ export class Objekt<T extends object = object> {
             ) {
                 const copyAttributes = copyArray(attributes);
                 copyAttributes.shift();
-                result = this._getByAttributes(
-                    obj[property],
-                    copyAttributes,
-                );
+                result = this._getByAttributes(obj[property], copyAttributes);
             }
         });
         return result;
@@ -309,8 +303,7 @@ export class Objekt<T extends object = object> {
                     delete obj[property];
                 } else if (
                     property === attributes[0] &&
-                    (isPureObject(obj[property]) ||
-                        isArray(obj[property]))
+                    (isPureObject(obj[property]) || isArray(obj[property]))
                 ) {
                     const copyAttributes = copyArray(attributes);
                     copyAttributes.shift();

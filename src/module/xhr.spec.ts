@@ -23,9 +23,7 @@ describe('Xhr', () => {
                 backend: 'https://api.example.com',
                 locale: 'en',
             });
-            expect(xhr.options.get('backend')).toBe(
-                'https://api.example.com',
-            );
+            expect(xhr.options.get('backend')).toBe('https://api.example.com');
             expect(xhr.options.get('locale')).toBe('en');
         });
 
@@ -151,9 +149,7 @@ describe('Xhr', () => {
             xhr.setBearerAuthorization('mytoken');
             xhr.get('/data.json', undefined);
             const mock = getLastXhr();
-            expect(mock.requestHeaders['Authorization']).toBe(
-                'Bearer mytoken',
-            );
+            expect(mock.requestHeaders['Authorization']).toBe('Bearer mytoken');
             expect(mock.withCredentials).toBe(true);
         });
 
@@ -425,11 +421,7 @@ describe('Xhr', () => {
                 done();
             });
 
-            mock.respond(
-                200,
-                { 'Content-Type': 'text/html' },
-                '<html></html>',
-            );
+            mock.respond(200, { 'Content-Type': 'text/html' }, '<html></html>');
         });
 
         it('should extract filename from Content-Disposition header', (done) => {
@@ -486,8 +478,7 @@ describe('Xhr', () => {
                 200,
                 {
                     'Content-Type': 'application/json',
-                    'Content-Disposition':
-                        'attachment; filename="report.pdf"',
+                    'Content-Disposition': 'attachment; filename="report.pdf"',
                 },
                 { ok: true },
             );

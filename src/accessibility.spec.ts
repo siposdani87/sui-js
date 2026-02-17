@@ -23,8 +23,7 @@ describe('Accessibility (a11y)', () => {
         });
 
         it('should have confirm window', () => {
-            const confirmWindow =
-                document.getElementById('confirm-window');
+            const confirmWindow = document.getElementById('confirm-window');
             expect(confirmWindow).not.toBeNull();
         });
     });
@@ -145,18 +144,12 @@ describe('Accessibility (a11y)', () => {
 
         it('should include close button for error type with default duration', () => {
             const flashKnot = flash.addError('Error with close');
-            const closeButton =
-                flashKnot.getNode().querySelector('button');
+            const closeButton = flashKnot.getNode().querySelector('button');
             expect(closeButton).not.toBeNull();
         });
 
         it('should have identifiable data-id attribute when specified', () => {
-            const flashKnot = flash.addSuccess(
-                'Test',
-                0,
-                null,
-                'a11y-test',
-            );
+            const flashKnot = flash.addSuccess('Test', 0, null, 'a11y-test');
             expect(flashKnot.getAttribute('data-id')).toBe('a11y-test');
         });
     });
@@ -213,21 +206,15 @@ describe('Accessibility (a11y)', () => {
         });
 
         it('should have main content area', () => {
-            expect(
-                document.querySelector('.template-view'),
-            ).not.toBeNull();
+            expect(document.querySelector('.template-view')).not.toBeNull();
         });
 
         it('should have navigation area', () => {
-            expect(
-                document.getElementById('nav-bar'),
-            ).not.toBeNull();
+            expect(document.getElementById('nav-bar')).not.toBeNull();
         });
 
         it('should have left menu', () => {
-            expect(
-                document.getElementById('left-menu'),
-            ).not.toBeNull();
+            expect(document.getElementById('left-menu')).not.toBeNull();
         });
 
         it('should have loader element', () => {

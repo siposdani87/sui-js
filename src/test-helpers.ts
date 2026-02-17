@@ -37,9 +37,8 @@ export class MockXMLHttpRequest {
     responseType: XMLHttpRequestResponseType = '';
     responseURL = '';
     withCredentials = false;
-    onreadystatechange:
-        | ((this: XMLHttpRequest, ev: Event) => any)
-        | null = null;
+    onreadystatechange: ((this: XMLHttpRequest, ev: Event) => any) | null =
+        null;
 
     private _responseHeaders: Record<string, string> = {};
 
@@ -62,11 +61,7 @@ export class MockXMLHttpRequest {
     }
 
     /** Simulate a complete response (readyState 4) */
-    respond(
-        status: number,
-        headers: Record<string, string>,
-        body: any,
-    ): void {
+    respond(status: number, headers: Record<string, string>, body: any): void {
         this.status = status;
         this._responseHeaders = headers;
         this.response = body;
