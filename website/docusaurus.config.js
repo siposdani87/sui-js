@@ -10,7 +10,6 @@ const config = {
   url: 'https://sui-js.siposdani87.com',
   baseUrl: '/',
   onBrokenLinks: 'warn',
-  onBrokenMarkdownLinks: 'warn',
   favicon: 'img/favicon.ico',
 
   // GitHub pages deployment config.
@@ -25,6 +24,9 @@ const config = {
     defaultLocale: 'en',
     locales: ['en'],
   },
+  markdown: {
+    format: 'detect',
+  },
   plugins: [
     [
       'docusaurus-plugin-typedoc',
@@ -32,7 +34,7 @@ const config = {
       {
         entryPoints: ['../src/index.ts'],
         tsconfig: '../tsconfig.json',
-        out: '.',
+        out: 'docs/api',
         readme: 'none',
         excludePrivate: true,
         excludeProtected: false,
@@ -109,7 +111,7 @@ const config = {
           },
           {
             type: 'doc',
-            docId: 'index',
+            docId: 'api/index',
             position: 'left',
             label: 'API',
           },
@@ -133,7 +135,7 @@ const config = {
               },
               {
                 label: 'API Reference',
-                to: '/docs',
+                to: '/docs/api',
               },
             ],
           },

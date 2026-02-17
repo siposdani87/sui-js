@@ -45,7 +45,7 @@ SUI-JS is organized in four layers:
 ## Documentation Sections
 
 - **[Guides](/docs/guides/getting-started)** — Step-by-step tutorials for common tasks
-- **[API Reference](/docs)** — Auto-generated TypeDoc documentation for all classes, functions, and types
+- **[API Reference](/docs/api)** — Auto-generated TypeDoc documentation for all classes, functions, and types
 
 ## Links
 
