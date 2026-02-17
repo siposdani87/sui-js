@@ -1,0 +1,159 @@
+// Jest Snapshot v1, https://jestjs.io/docs/snapshot-testing
+
+exports[`UI Component Snapshots Dialog modal should match snapshot of confirm DOM structure 1`] = `
+"<div class="hidden" id="confirm">
+  <div id="confirm-window">
+    <div class="progress-bar"></div>
+    <div class="modal-header">
+      <h4 class="modal-title"></h4>
+      <nav class="navigation">
+        <button class="close">
+          <em class="material-icons">close</em>
+        </button>
+      </nav>
+    </div>
+    <div class="modal-body"></div>
+    <div class="modal-footer"></div>
+  </div>
+</div>"
+`;
+
+exports[`UI Component Snapshots Dialog modal should match snapshot of dialog DOM structure 1`] = `
+"<div class="hidden" id="dialog">
+  <div id="dialog-window">
+    <div class="progress-bar"></div>
+    <div class="modal-header">
+      <h4 class="modal-title"></h4>
+      <nav class="navigation">
+        <button class="minimize hidden">
+          <em class="material-icons">fullscreen_exit</em>
+        </button>
+        <button class="maximize hidden">
+          <em class="material-icons">fullscreen</em>
+        </button>
+        <button class="close">
+          <em class="material-icons">close</em>
+        </button>
+      </nav>
+    </div>
+    <div class="modal-body"></div>
+    <div class="modal-footer"></div>
+  </div>
+</div>"
+`;
+
+exports[`UI Component Snapshots Flash messages should match snapshot for error message with close button 1`] = `"<div id="flashes"><div data-id="snap-error" class="flash error">Something went wrong</div></div>"`;
+
+exports[`UI Component Snapshots Flash messages should match snapshot for info message 1`] = `"<div id="flashes"><div data-id="snap-info" class="flash info">For your information</div></div>"`;
+
+exports[`UI Component Snapshots Flash messages should match snapshot for success message 1`] = `"<div id="flashes"><div data-id="snap-success" class="flash success">Operation completed</div></div>"`;
+
+exports[`UI Component Snapshots Flash messages should match snapshot for warning message 1`] = `"<div id="flashes"><div data-id="snap-warning" class="flash warning">Please check input</div></div>"`;
+
+exports[`UI Component Snapshots Flash messages should match snapshot with multiple messages 1`] = `"<div id="flashes"><div data-id="snap-multi-1" class="flash success">Good</div><div data-id="snap-multi-2" class="flash error">Bad</div><div data-id="snap-multi-3" class="flash warning">Ugly</div></div>"`;
+
+exports[`UI Component Snapshots Form structure should match snapshot of form from template-view 1`] = `
+"<form>
+            <div class="input-block field-text">
+                <label for="field-text">Text</label>
+                <input type="text" value="text" name="field[text]" id="field-text">
+            </div>
+            <div class="input-block field-email">
+                <label for="field-email">E-mail</label>
+                <input type="email" value="example@email.com" name="field[email]" id="field-email">
+            </div>
+            <div class="input-block field-tel">
+                <label for="field-tel">Tel</label>
+                <input type="tel" value="" name="field[tel]" id="field-tel">
+            </div>
+            <div class="input-block field-radio">
+                <label data-label="Field Radio" for="field-radio-1">Radio1</label>
+                <input type="radio" value="value1" checked="checked" name="field[radio]" id="field-radio-1">
+            </div>
+            <div class="input-block field-radio">
+                 <label for="field-radio-2">Radio2</label>
+                 <input type="radio" value="value2" name="field[radio]" id="field-radio-2">
+            </div>
+            <div class="input-block field-checkbox">
+                <label for="field-checkbox">Checkbox</label>
+                <input type="hidden" name="field[checkbox]" value="false">
+                <input type="checkbox" value="true" checked="checked" name="field[checkbox]" id="field-checkbox">
+            </div>
+            <div class="input-block field-icon-toggle">
+                <label for="field-icon-toggle">Icon Toggle</label>
+                <input type="hidden" name="field[icon-toggle]" value="false">
+                <input type="checkbox" value="true" checked="checked" name="field[icon-toggle]" id="field-icon-toggle" data-type="icon-toggle" data-checked="mood" data-unchecked="mood_bad">
+            </div>
+            <div class="input-block field-switch">
+                <label for="field-switch">Switch</label>
+                <input type="hidden" name="field[switch]" value="false">
+                <input type="checkbox" value="true" checked="checked" name="field[icon-switch]" id="field-switch" data-type="switch">
+            </div>
+            <div class="input-block field-number">
+                <label for="field-number">Number</label>
+                <input type="number" value="" name="field[number]" id="field-number">
+            </div>
+            <div class="input-block field-url">
+                <label for="field-url">Url</label>
+                <input type="url" value="" name="field[url]" id="field-url">
+            </div>
+            <div class="input-block field-range">
+                <label for="field-range">Range</label>
+                <input type="range" value="" name="field[range]" id="field-range">
+            </div>
+            <div class="input-block field-color">
+                <label for="field-color">Color</label>
+                <input type="color" value="" name="field[color]" id="field-color">
+            </div>
+            <div class="input-block field-search">
+                <label for="field-search">Search</label>
+                <input type="search" value="" name="field[search]" id="field-search">
+            </div>
+            <div class="input-block field-file">
+                <label for="field-file">File</label>
+                <input type="file" value="" accept=".jpg,.png" name="field[file]" id="field-file">
+            </div>
+            <div class="input-block field-location">
+                <label for="field-location">Location</label>
+                <input data-value="{&quot;latitude&quot;:47.7256,&quot;longitude&quot;:17.4900,&quot;address&quot;:&quot;9153 Öttevény&quot;}" data-type="location" data-icon="{&quot;url&quot;:&quot;example/images/location.png&quot;,&quot;size&quot;:[48,48],&quot;origin&quot;:[0,0],&quot;anchor&quot;:[24,48],&quot;coords&quot;:[0,0,0,48,48,48,48,0]}" data-latitude="latitude" data-longitude="longitude" type="text" name="field[location]" id="field-location">
+            </div>
+            <div class="input-block field-datetime">
+                <label for="field-datetime">Datetime</label>
+                <input id="field-datetime" name="field[datetime]" type="datetime" data-format="DD/MM/YYYY HH:mm" value="2019-06-10T10:45:21Z">
+            </div>
+            <div class="input-block field-textarea">
+                <label for="field-textarea">Textarea</label>
+                <textarea name="field[textarea]" id="field-textarea"></textarea>
+            </div>
+            <div class="input-block field-autocomplete">
+                <label for="field-autocomplete">AutoComplete</label>
+                <input type="text" value="" name="field[autocomplete]" id="field-autocomplete">
+            </div>
+            <div class="input-block field-select">
+                <label for="field-select">Select</label>
+                <select id="field-select" name="field[select]">
+                  <option value="">default</option>
+                  <option value="1">1</option>
+                  <option value="2">2</option>
+                </select>
+            </div>
+            <input type="hidden" value="1" name="field[hidden]" id="field-hidden">
+            <button name="btn-submit" type="submit">Submit</button>
+            <button name="btn-button" type="button">Button</button>
+            <button name="btn-reset" type="reset">Reset</button>
+        </form>"
+`;
+
+exports[`UI Component Snapshots Popup should match snapshot in closed state 1`] = `"<div class="popup-parent"><div class="popup hidden"><div>Popup content here</div></div></div>"`;
+
+exports[`UI Component Snapshots Popup should match snapshot in open state 1`] = `"<div class="popup-parent"><div class="popup" style="left: 0px;"><div>Popup content here</div></div></div>"`;
+
+exports[`UI Component Snapshots Popup should match snapshot with close button 1`] = `"<div class="popup-parent"><div class="popup hidden"><div>Closable popup</div><button type="button" class="close mdl-button mdl-js-button mdl-button--icon"><em class="material-icons">close</em></button></div></div>"`;
+
+exports[`UI Component Snapshots Tooltip should match snapshot for bottom position 1`] = `"<span class="mdl-tooltip mdl-tooltip--bottom" for="tooltip-test-id"></span>"`;
+
+exports[`UI Component Snapshots Tooltip should match snapshot for left position 1`] = `"<span class="mdl-tooltip mdl-tooltip--left" for="tooltip-test-id"></span>"`;
+
+exports[`UI Component Snapshots Tooltip should match snapshot for right position 1`] = `"<span class="mdl-tooltip mdl-tooltip--right" for="tooltip-test-id"></span>"`;
+
+exports[`UI Component Snapshots Tooltip should match snapshot for top position 1`] = `"<span class="mdl-tooltip mdl-tooltip--top" for="tooltip-test-id"></span>"`;
