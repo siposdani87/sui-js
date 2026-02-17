@@ -1299,84 +1299,31 @@ This phase may require source code changes to add ARIA attributes. Each a11y tes
 
 All 14 phases have been executed. Summary of outcomes:
 
-| Metric | Before | After | Plan Target |
-|--------|--------|-------|-------------|
-| Test suites | 95 | **108** | — |
-| Test cases | 180 | **1,025** | ~725 |
-| Statements | 52.5% | **65.83%** | 85% |
-| Branches | 34.91% | **52.77%** | 69% |
-| Functions | 43.8% | **60.03%** | 78% |
-| Lines | 51.79% | **65.31%** | 85% |
-| Snapshots | 0 | **15** | 15–20 |
+| Metric | Before | After (Phase 13) | After (Latest) | Plan Target |
+|--------|--------|-------------------|-----------------|-------------|
+| Test suites | 95 | 108 | **108** | — |
+| Test cases | 180 | 1,025 | **1,187** | ~725 |
+| Statements | 52.5% | 65.83% | **75.02%** | 85% |
+| Branches | 34.91% | 52.77% | **60.98%** | 69% |
+| Functions | 43.8% | 60.03% | **69.26%** | 78% |
+| Lines | 51.79% | 65.31% | **74.64%** | 85% |
+| Snapshots | 0 | 15 | **15** | 15–20 |
 
 Coverage thresholds in `jest.config.cjs` updated to: `statements: 65, branches: 52, functions: 59, lines: 65`.
 
 ---
 
-## Remaining Gaps
+## Phase 14: HTTP Layer Deep Testing
 
-Coverage reached 65% instead of the planned 85%. The gap is concentrated in 21 files with <50% statement coverage and 15 files in the 50–65% range. Closing these gaps requires mocking infrastructure and production code changes described below.
+**Target:** `xhr.ts` → 90%+, `http.ts` → 90%+, `template.ts` → 80%+
+**Impact:** ~+3% overall statements
+**Prerequisite:** XMLHttpRequest mock in `src/test-helpers.ts`
 
-### Gap 1: Low-Coverage Files (<50% Statements)
-
-These files need significant mocking or production changes to test effectively:
-
-| File | Stmts | Branches | Blocker |
-|------|-------|----------|---------|
-| `component/waiter.ts` | 12.5% | 0% | Needs timer mocking + DOM animation |
-| `component/mapLabel.ts` | 19.75% | 0% | Google Maps OverlayView API mock |
-| `module/xhr.ts` | 21.01% | 8% | Full XMLHttpRequest mock (open, send, headers, readyState lifecycle) |
-| `component/canvas.ts` | 22.58% | 14.28% | Canvas 2D context mock |
-| `component/googleMap.ts` | 23.7% | 15.87% | Deep Google Maps API mock (markers, layers, geocoding) |
-| `component/table.ts` | 23.45% | 11.84% | Complex DOM rendering + Collection integration |
-| `module/progressBar.ts` | 26.41% | 1.72% | Timer-based animations + DOM manipulation |
-| `field/textareaField.ts` | 26.92% | 26.47% | Rich text / MDL textarea rendering |
-| `module/dialog.ts` | 32.78% | 12.5% | BaseModal + dynamic content + button callbacks |
-| `module/script.ts` | 33.33% | 8.33% | Dynamic `<script>` loading in jsdom |
-| `module/style.ts` | 35.29% | 12.5% | Dynamic `<link>` stylesheet loading in jsdom |
-| `module/footer.ts` | 35.48% | 10% | Menu rendering + DOM structure |
-| `module/topMenu.ts` | 36.36% | 0% | Menu rendering + DOM structure |
-| `module/template.ts` | 38.23% | 10% | Http integration + DOM injection + caching |
-| `module/navBar.ts` | 39.13% | 0% | Menu rendering + DOM structure |
-| `module/http.ts` | 41.46% | 50% | XHR wrapper — needs xhr.ts mocked first |
-| `core/module.ts` | 44.64% | 14.28% | DI container + controller lifecycle |
-| `component/cardCollection.ts` | 44.44% | 15.78% | Template rendering + Collection integration |
-| `field/baseCheckboxField.ts` | 45.45% | 21.42% | MDL checkbox component + MutationObserver |
-| `field/selectField.ts` | 45.53% | 30.48% | Custom dropdown rendering + option management |
-| `module/header.ts` | 48.64% | 50% | Menu + progress bar + DOM structure |
-
-### Gap 2: Medium-Coverage Files (50–65% Statements)
-
-These need targeted tests for uncovered methods:
-
-| File | Stmts | Key Uncovered Areas |
-|------|-------|---------------------|
-| `module/bottomMenu.ts` | 50% | Menu open/close, item rendering |
-| `component/progressStatus.ts` | 52.63% | Status update, DOM rendering |
-| `module/leftMenu.ts` | 55.1% | Submenu toggle, active state |
-| `module/screen.ts` | 55.55% | Resize/scroll handlers, breakpoint detection |
-| `field/radiobuttonField.ts` | 59.72% | Option rendering, selection, change events |
-| `component/form.ts` | 61.06% | Submit/reset handlers, field iteration, validation cascade |
-| `component/month.ts` | 61.9% | Day grid rendering, selection |
-| `component/year.ts` | 61.9% | Month grid rendering, selection |
-| `module/depot.ts` | 62.06% | Encrypted storage, key enumeration |
-| `field/dateTimeRangeField.ts` | 63.29% | Range rendering, start/end coupling |
-| `field/colorField.ts` | 63.21% | Color picker rendering, HSV conversion |
-| `field/locationField.ts` | 63.04% | Map integration, geocoding, coordinate parsing |
-| `component/calendar.ts` | 63.82% | Month navigation, day rendering, date selection |
-| `component/dropdown.ts` | 64.44% | Menu rendering, item selection, close on outside click |
-| `field/fileField.ts` | 51.78% | File selection, preview, upload display |
-
-### Gap 3: Missing Infrastructure
-
-#### XMLHttpRequest Mock
-
-The biggest coverage blocker. `xhr.ts` (21%) and `http.ts` (41%) together represent the HTTP layer. A proper mock is needed:
+### Infrastructure: Add `createMockXHR()` to `src/test-helpers.ts`
 
 ```typescript
-// src/test-helpers.ts or dedicated mock file
 export function createMockXHR() {
-    const xhr = {
+    const xhr: any = {
         open: jest.fn(),
         send: jest.fn(),
         setRequestHeader: jest.fn(),
@@ -1386,18 +1333,19 @@ export function createMockXHR() {
         status: 0,
         responseText: '',
         response: null,
+        responseType: '',
         onreadystatechange: null as Function | null,
         onload: null as Function | null,
         onerror: null as Function | null,
         ontimeout: null as Function | null,
         upload: { addEventListener: jest.fn() },
     };
-    // Helper to simulate response
-    xhr.respond = (status: number, body: string) => {
+    xhr.respond = (status: number, body: string, headers: Record<string, string> = {}) => {
         xhr.status = status;
         xhr.readyState = 4;
         xhr.responseText = body;
         xhr.response = body;
+        xhr.getResponseHeader.mockImplementation((h: string) => headers[h] ?? null);
         xhr.onreadystatechange?.();
         xhr.onload?.();
     };
@@ -1405,15 +1353,243 @@ export function createMockXHR() {
 }
 ```
 
-This would unblock tests for: `xhr.ts`, `http.ts`, `template.ts` (uses Http for loading).
+### xhr.spec.ts (target 15+)
 
-#### Canvas 2D Context Mock
+```
+- should set request headers
+- should set authorization header (basic auth)
+- should set authorization header (bearer token)
+- should handle JSON response parsing
+- should handle text response
+- should handle blob response type
+- should extract filename from Content-Disposition header
+- should build query string for GET params
+- should handle CORS requests
+- should handle abort
+- should handle timeout
+- should handle network error
+- should handle readyState lifecycle transitions
+- should handle empty response body
+- should handle HTTP error status codes (4xx, 5xx)
+```
 
-Needed for `canvas.ts` (22%):
+### http.spec.ts (target 15+)
+
+```
+- should make GET request via XHR
+- should make POST request with JSON body
+- should make PUT request
+- should make PATCH request
+- should make DELETE request
+- should set authorization with username/password
+- should set authorization with bearer token
+- should clear authorization
+- should handle successful JSON response
+- should handle error response (4xx)
+- should handle server error (5xx)
+- should handle network timeout
+- should add default headers
+- should handle concurrent requests
+- should handle request with query parameters
+```
+
+### template.spec.ts (target 10+)
+
+```
+- should load template from URL via Http
+- should parse template variables
+- should render template with data
+- should handle missing template (404)
+- should cache loaded templates
+- should handle template with nested variables
+- should inject rendered content into DOM
+- should handle empty template
+- should handle template load network error
+- should replace existing content on re-render
+```
+
+Verify: `npx jest src/module/xhr.spec.ts src/module/http.spec.ts src/module/template.spec.ts --coverage`
+
+---
+
+## Phase 15: Deep-Test Major Components
+
+**Target:** `table.ts` → 70%+, `form.ts` → 80%+, `calendar.ts` → 80%+
+**Impact:** ~+4% overall statements
+
+### table.spec.ts (target 15+)
+
+```
+- should set table headers from column config
+- should render rows from Collection data
+- should handle empty data set
+- should sort by column (ascending)
+- should sort by column (descending)
+- should handle row click event callback
+- should render action buttons per row
+- should handle pagination integration
+- should update rows with new data
+- should handle column visibility toggle
+- should render custom cell templates
+- should handle row selection (single)
+- should handle row selection (multiple)
+- should apply row CSS classes conditionally
+- should handle large datasets without errors
+```
+
+### form.spec.ts (target 15+)
+
+```
+- should initialize form fields from DOM input elements
+- should get form model as Objekt
+- should set form model data and update fields
+- should validate all fields on submit
+- should return list of invalid fields
+- should prevent submission when any field is invalid
+- should call submit callback on valid submission
+- should reset all fields to initial values
+- should lock/unlock all fields
+- should handle field change event propagation
+- should get field by name
+- should delete field by name
+- should set button CSS classes
+- should set field CSS classes
+- should handle keydown events (Enter to submit)
+```
+
+### calendar.spec.ts (target 12+)
+
+```
+- should render current month with correct day count
+- should navigate to next month
+- should navigate to previous month
+- should select a date and emit event
+- should highlight today's date
+- should handle date range constraints (min/max)
+- should render day name headers
+- should navigate to next year
+- should navigate to previous year
+- should handle month/year picker views
+- should handle edge cases (Feb 29, month boundaries)
+- should apply selected CSS class to chosen date
+```
+
+Verify: `npx jest src/component/table.spec.ts src/component/form.spec.ts src/component/calendar.spec.ts --coverage`
+
+---
+
+## Phase 16: Add `destroy()` Methods to Production Code
+
+**Target:** Enable proper cleanup + remove `forceExit: true` from `jest.config.cjs`
+**Impact:** No direct coverage gain, but unblocks Phase 17 and fixes Jest shutdown
+
+All changes are additive — add a `destroy()` public method that removes event listeners added during construction or `_init()`.
+
+### Files to modify
+
+| File | Listeners to remove in `destroy()` |
+|------|------------------------------------|
+| `module/screen.ts` | `window` resize, scroll, online, offline |
+| `module/page.ts` | `document` click |
+| `component/form.ts` | keydown, submit, reset on form element |
+| `component/carousel.ts` | touch event listeners |
+| `module/helper.ts` | `window` resize, orientationchange |
+| `core/state.ts` | `window` popstate |
+
+### Pattern
+
+Store listener references during `_init()` so they can be removed:
 
 ```typescript
-export function createMockCanvas() {
-    const context = {
+private _onResize: () => void;
+
+_init(): void {
+    this._onResize = () => { /* ... */ };
+    window.addEventListener('resize', this._onResize);
+}
+
+destroy(): void {
+    window.removeEventListener('resize', this._onResize);
+}
+```
+
+### Update existing tests
+
+Add `afterEach` cleanup to all tests that instantiate these classes:
+
+```typescript
+afterEach(() => {
+    instance.destroy();
+});
+```
+
+### Remove `forceExit`
+
+After all `destroy()` methods are in place and tests call them in `afterEach`:
+- Remove `forceExit: true` from `jest.config.cjs`
+- Run `npx jest --detectOpenHandles` to confirm no leaking handles remain
+
+Verify: `npx tsc --noEmit && npm run test`
+
+---
+
+## Phase 17: Menu Module Tests
+
+**Target:** `footer.ts` → 70%+, `topMenu.ts` → 70%+, `navBar.ts` → 70%+, `header.ts` → 70%+, `leftMenu.ts` → 70%+, `bottomMenu.ts` → 70%+
+**Impact:** ~+3% overall statements
+
+All menu modules follow a similar pattern: receive a DOM container, render menu items from config, handle active state. Use a shared test structure.
+
+### Common test cases per menu module (target 8+ each)
+
+```
+- should instantiate with container element
+- should render menu items from config
+- should set active menu item
+- should handle menu item click callback
+- should handle empty items list
+- should toggle open/close state
+- should render submenu items (if applicable)
+- should apply CSS classes to active item
+```
+
+### Module-specific additions
+
+**header.spec.ts:**
+```
+- should render brand/logo area
+- should show/hide progress bar
+- should render menu trigger button
+```
+
+**leftMenu.spec.ts:**
+```
+- should toggle submenu expand/collapse
+- should handle nested submenu levels
+- should close other submenus on open
+```
+
+**footer.spec.ts:**
+```
+- should render footer menu items
+- should handle copyright text
+```
+
+Verify: `npx jest src/module/footer.spec.ts src/module/topMenu.spec.ts src/module/navBar.spec.ts src/module/header.spec.ts src/module/leftMenu.spec.ts src/module/bottomMenu.spec.ts --coverage`
+
+---
+
+## Phase 18: Canvas 2D Mock + Tests
+
+**Target:** `canvas.ts` → 70%+
+**Impact:** ~+1% overall statements
+**Prerequisite:** Canvas 2D context mock in `src/test-helpers.ts`
+
+### Infrastructure: Add `createMockCanvasContext()` to `src/test-helpers.ts`
+
+```typescript
+export function createMockCanvasContext() {
+    const context: any = {
         fillRect: jest.fn(),
         clearRect: jest.fn(),
         getImageData: jest.fn(() => ({ data: new Uint8ClampedArray(4) })),
@@ -1438,76 +1614,321 @@ export function createMockCanvas() {
         transform: jest.fn(),
         rect: jest.fn(),
         clip: jest.fn(),
+        canvas: { width: 300, height: 150 },
     };
-    HTMLCanvasElement.prototype.getContext = jest.fn(() => context);
     return context;
 }
 ```
 
-#### Google Maps Deep Mock
+### canvas.spec.ts (target 10+)
 
-The existing `@googlemaps/jest-mocks` covers basic constructors but not the advanced APIs used by `googleMap.ts` and `mapLabel.ts` (markers, layers, geocoding, event listeners). A supplementary mock would be needed.
+```
+- should instantiate with canvas element
+- should get 2D rendering context
+- should set canvas dimensions
+- should draw rectangle
+- should draw circle (arc)
+- should draw line path
+- should draw text
+- should draw image
+- should clear canvas
+- should handle save/restore state
+- should handle coordinate transformations (translate, scale, rotate)
+```
 
-### Gap 4: Production Code Changes Required
+Verify: `npx jest src/component/canvas.spec.ts --coverage`
 
-#### `destroy()` Methods
+---
 
-Multiple components add `window`/`document` event listeners but have no cleanup method. Adding `destroy()` would:
-- Enable proper memory leak testing
-- Allow removing `forceExit: true` from `jest.config.cjs`
-- Improve real-world usage in SPAs
+## Phase 19: Google Maps Deep Mock + Tests
 
-Files needing `destroy()`:
-- `module/screen.ts` — resize, scroll, online, offline listeners on `window`
-- `module/page.ts` — document click listener
-- `component/form.ts` — keydown, submit, reset listeners
-- `component/carousel.ts` — touch event listeners
-- `module/helper.ts` — resize, orientation listeners
-- `core/state.ts` — popstate listener on `window`
+**Target:** `googleMap.ts` → 60%+, `mapLabel.ts` → 60%+
+**Impact:** ~+2% overall statements
+**Effort:** High — requires supplementary mock beyond `@googlemaps/jest-mocks`
 
-#### ARIA Attributes
+### Infrastructure: Extend Google Maps mock
 
-For proper accessibility testing with `jest-axe`:
-- `module/dialog.ts` — add `role="dialog"`, `aria-modal="true"`
-- `module/confirm.ts` — add `role="alertdialog"`
-- `component/dropdown.ts` — add `aria-expanded`
-- `component/tabPanel.ts` — add `role="tablist"`, `aria-selected`
-- `module/flash.ts` — add `role="alert"` to flash messages
-- `component/navigation.ts` — add `role="navigation"`
-- Form fields — add `aria-describedby` for error messages
+The existing `@googlemaps/jest-mocks` covers basic constructors. Add supplementary mocks for:
+- `google.maps.Marker` — setPosition, setMap, setIcon, addListener
+- `google.maps.InfoWindow` — open, close, setContent
+- `google.maps.OverlayView` — onAdd, draw, onRemove, getProjection, getPanes
+- `google.maps.Geocoder` — geocode callback
+- `google.maps.event` — addListener, removeListener, trigger
 
-#### `jest-axe` Dependency
+### googleMap.spec.ts (target 12+)
+
+```
+- should instantiate with container element
+- should create map with center and zoom options
+- should add marker to map
+- should remove marker from map
+- should handle marker click event
+- should open info window on marker
+- should set map center
+- should set map zoom
+- should handle geocoding request
+- should handle geocoding error
+- should fit bounds to markers
+- should handle map type change
+```
+
+### mapLabel.spec.ts (target 8+)
+
+```
+- should instantiate as OverlayView
+- should draw label on map
+- should update label text
+- should position label correctly
+- should handle label click
+- should remove label from map
+- should update label style
+- should handle projection changes
+```
+
+Verify: `npx jest src/component/googleMap.spec.ts src/component/mapLabel.spec.ts --coverage`
+
+---
+
+## Phase 20: Remaining Field Tests
+
+**Target:** `selectField.ts` → 70%+, `textareaField.ts` → 65%+, `baseCheckboxField.ts` → 70%+, `radiobuttonField.ts` → 75%+, `colorField.ts` → 75%+, `fileField.ts` → 70%+, `locationField.ts` → 75%+, `dateTimeRangeField.ts` → 75%+
+**Impact:** ~+2% overall statements
+
+### selectField.spec.ts (target 10+)
+
+```
+- should render options list from data
+- should select option by value
+- should return selected value
+- should handle multiple selection mode
+- should filter options with search input
+- should handle empty options list
+- should open/close dropdown popup
+- should handle option click callback
+- should set default selected option
+- should clear selection
+```
+
+### textareaField.spec.ts (target 8+)
+
+```
+- should render textarea element
+- should set and get multiline text value
+- should handle maxlength attribute
+- should resize on content change (auto-grow)
+- should handle rich text mode (if applicable)
+- should handle empty/null value
+- should apply character count display
+- should handle disabled state
+```
+
+### baseCheckboxField.spec.ts (target 8+)
+
+```
+- should render MDL checkbox component
+- should toggle checked state
+- should return boolean value
+- should handle label click to toggle
+- should handle disabled state
+- should handle required validation
+- should emit change event on toggle
+- should handle MutationObserver for MDL upgrade
+```
+
+### Other fields — add 3-5 tests each for uncovered methods
+
+Target uncovered areas listed in the gap analysis:
+- `radiobuttonField.ts` — option rendering, selection, change events
+- `colorField.ts` — color picker rendering, HSV conversion
+- `fileField.ts` — file selection, preview, upload display
+- `locationField.ts` — map integration, geocoding, coordinate parsing
+- `dateTimeRangeField.ts` — range rendering, start/end coupling
+
+Verify: `npx jest src/field/ --coverage`
+
+---
+
+## Phase 21: Remaining Low-Coverage Modules
+
+**Target:** Each file → 65%+
+**Impact:** ~+3% overall statements
+
+### dialog.spec.ts (target 10+)
+
+```
+- should open modal with title and body
+- should close modal
+- should handle OK button callback
+- should handle Cancel button callback
+- should set custom button labels
+- should render dynamic body content
+- should handle minimize/maximize
+- should handle close on overlay click
+- should handle close on Escape key
+- should update body content after open
+```
+
+### progressBar.spec.ts (target 6+)
+
+```
+- should instantiate with container
+- should show progress bar
+- should hide progress bar
+- should set progress value (0-100)
+- should handle indeterminate mode
+- should handle timer-based animation
+```
+
+### waiter.spec.ts (target 6+)
+
+```
+- should instantiate with container
+- should show loading indicator
+- should hide loading indicator
+- should handle show/hide cycle
+- should handle DOM animation classes
+- should handle timeout auto-hide
+```
+
+### script.spec.ts (target 6+)
+
+```
+- should load external script by URL
+- should handle script load success callback
+- should handle script load error
+- should avoid loading duplicate scripts
+- should append script element to DOM
+- should handle script with attributes
+```
+
+### style.spec.ts (target 6+)
+
+```
+- should load external stylesheet by URL
+- should handle stylesheet load success
+- should handle stylesheet load error
+- should avoid loading duplicate stylesheets
+- should append link element to DOM
+- should handle stylesheet with media query
+```
+
+### module.spec.ts (DI container, target 8+)
+
+```
+- should register controller classes
+- should resolve dependencies in correct order
+- should inject instances into controllers
+- should call enter() on controller activation
+- should call exit() on controller deactivation
+- should handle controller lifecycle (enter → exit → re-enter)
+- should handle missing dependency gracefully
+- should load with multiple controllers
+```
+
+### cardCollection.spec.ts (target 6+)
+
+```
+- should instantiate with container
+- should render cards from Collection data
+- should handle empty collection
+- should apply card template
+- should handle card click callback
+- should update cards when collection changes
+```
+
+Verify: `npx jest src/module/dialog.spec.ts src/module/progressBar.spec.ts src/component/waiter.spec.ts src/module/script.spec.ts src/module/style.spec.ts src/core/module.spec.ts src/component/cardCollection.spec.ts --coverage`
+
+---
+
+## Phase 22: Medium-Coverage File Improvements
+
+**Target:** Each file → 75%+
+**Impact:** ~+2% overall statements
+
+Add targeted tests for specific uncovered methods in these files:
+
+| File | Tests to Add | Target Methods |
+|------|-------------|----------------|
+| `module/screen.ts` | 4+ | resize/scroll handlers, breakpoint detection, orientation |
+| `module/depot.ts` | 4+ | encrypted storage, key enumeration, quota handling |
+| `component/progressStatus.ts` | 3+ | status update, DOM rendering, percentage display |
+| `component/month.ts` | 4+ | day grid rendering, day selection, disabled days |
+| `component/year.ts` | 4+ | month grid rendering, month selection |
+| `component/dropdown.ts` | 4+ | menu rendering, item selection, close on outside click |
+
+Verify: `npm run test`
+
+---
+
+## Phase 23: Install `jest-axe` + Automated Accessibility Tests
+
+**Target:** Automated a11y violation scanning for all interactive components
+**Impact:** Quality improvement, no coverage change
+**Prerequisite:** ARIA attributes added to production code
+
+### Step 1: Install dependency
 
 ```bash
 npm install --save-dev jest-axe @types/jest-axe
 ```
 
-Required for automated accessibility violation scanning. Current a11y tests verify DOM structure only.
+### Step 2: Add ARIA attributes to production code
 
-### Gap 5: Open Handles / `forceExit`
+| File | Attributes to Add |
+|------|-------------------|
+| `module/dialog.ts` | `role="dialog"`, `aria-modal="true"`, `aria-labelledby` |
+| `module/confirm.ts` | `role="alertdialog"`, `aria-modal="true"` |
+| `component/dropdown.ts` | `aria-expanded`, `aria-haspopup` |
+| `component/tabPanel.ts` | `role="tablist"`, `role="tab"`, `aria-selected` |
+| `module/flash.ts` | `role="alert"` on flash messages |
+| `component/navigation.ts` | `role="navigation"` |
+| Form fields | `aria-describedby` linking to error message elements |
 
-`jest.config.cjs` still has `forceExit: true`. Root causes:
-- `Screen` constructor adds 4 `window.addEventListener` calls (resize, scroll, online, offline) that are never removed
-- `State._initPopstate()` adds a `window.addEventListener('popstate', ...)` that is never removed
-- Any test that instantiates these classes leaves open handles
+### Step 3: Add a11y test suite
 
-Fix: Add `destroy()` methods (Gap 4) and call them in `afterEach`. Then remove `forceExit: true`.
+```typescript
+import { axe, toHaveNoViolations } from 'jest-axe';
+expect.extend(toHaveNoViolations);
+```
+
+### a11y.spec.ts (target 15+)
+
+```
+- Dialog should have no a11y violations when open
+- Dialog should have role="dialog" and aria-modal="true"
+- Dialog should trap focus within modal
+- Confirm should have role="alertdialog"
+- Dropdown should have aria-expanded attribute
+- Dropdown should support Arrow key navigation
+- Form fields should have associated labels
+- Form error messages should use aria-describedby
+- Navigation should have role="navigation"
+- TabPanel should have role="tablist" with aria-selected
+- Flash messages should use role="alert"
+- Pager buttons should have aria-label
+- Close buttons should have aria-label="Close"
+- Calendar should support keyboard date selection
+- Icon-only buttons should have accessible names
+```
+
+Verify: `npx tsc --noEmit && npm run test`
 
 ---
 
-## Recommended Execution Order for Remaining Gaps
+## Coverage Targets Summary
 
-| Priority | Task | Impact | Effort |
-|----------|------|--------|--------|
-| 1 | Add XMLHttpRequest mock | Unblocks `xhr.ts`, `http.ts`, `template.ts` (~+8% stmts) | Medium |
-| 2 | Deep-test `table.ts`, `form.ts`, `calendar.ts` | Largest component coverage gains (~+4% stmts) | Medium |
-| 3 | Add `destroy()` methods to production code | Enables memory leak tests + removes `forceExit` | Medium |
-| 4 | Test menu modules (`footer`, `header`, `topMenu`, `navBar`, `leftMenu`, `bottomMenu`) | ~+3% stmts | Low |
-| 5 | Add Canvas 2D mock + test `canvas.ts` | ~+1% stmts | Low |
-| 6 | Deep Google Maps mock + test `googleMap.ts`, `mapLabel.ts` | ~+2% stmts | High |
-| 7 | Install `jest-axe` + add ARIA attributes + automated a11y tests | Quality, no coverage change | Medium |
-| 8 | Test `module.ts` DI container lifecycle | ~+1% stmts | Medium |
-| 9 | Test remaining fields (`selectField`, `textareaField`, `baseCheckboxField`) | ~+2% stmts | Medium |
-| 10 | Remove `forceExit: true` after `destroy()` methods are in place | Cleanup | Low |
+| Phase | Files | Estimated Impact | Cumulative Target |
+|-------|-------|-----------------|-------------------|
+| 14 | xhr, http, template | +3% stmts | ~78% |
+| 15 | table, form, calendar | +4% stmts | ~82% |
+| 16 | destroy() methods | +0% (infrastructure) | ~82% |
+| 17 | menu modules (6 files) | +3% stmts | ~85% |
+| 18 | canvas | +1% stmts | ~86% |
+| 19 | googleMap, mapLabel | +2% stmts | ~88% |
+| 20 | field layer (8 files) | +2% stmts | ~90% |
+| 21 | dialog, progressBar, waiter, script, style, module, cardCollection | +3% stmts | ~93% |
+| 22 | medium-coverage improvements (6 files) | +2% stmts | ~95% |
+| 23 | jest-axe + a11y | +0% (quality) | ~95% |
 
-Completing priorities 1–4 would bring coverage to approximately **78–80%**. All 10 would reach the original **85%** target.
+**Completing phases 14–17** would reach the original **85% target**.
+Completing all phases would bring coverage to approximately **95%**.
