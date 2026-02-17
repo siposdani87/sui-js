@@ -1295,110 +1295,219 @@ This phase may require source code changes to add ARIA attributes. Each a11y tes
 
 ---
 
-## Coverage Targets by Phase
+## Implementation Results (Phases 0–13)
 
-| Phase | Statements | Branches | Functions | Lines |
-|-------|-----------|----------|-----------|-------|
-| Current | 52.5% | 34.91% | 43.8% | 51.79% |
-| After Phase 1 (Core) | 58% | 42% | 50% | 58% |
-| After Phase 2 (Utils) | 62% | 48% | 55% | 62% |
-| After Phase 3 (Module) | 68% | 52% | 60% | 68% |
-| After Phase 4 (Field) | 73% | 56% | 65% | 73% |
-| After Phase 5 (Component) | 78% | 60% | 70% | 78% |
-| After Phase 6 (Common) | 79% | 61% | 71% | 79% |
-| After Phase 7 (Exports) | 79% | 61% | 71% | 79% |
-| After Phase 8 (Memory) | 80% | 62% | 72% | 80% |
-| After Phase 9 (Integration) | 82% | 65% | 74% | 82% |
-| After Phase 10 (Async) | 83% | 66% | 75% | 83% |
-| After Phase 11 (Errors) | 84% | 68% | 77% | 84% |
-| After Phase 12 (Snapshots) | 84% | 68% | 77% | 84% |
-| After Phase 13 (a11y) | **85%** | **69%** | **78%** | **85%** |
+All 14 phases have been executed. Summary of outcomes:
 
-### Update Thresholds in jest.config.cjs
+| Metric | Before | After | Plan Target |
+|--------|--------|-------|-------------|
+| Test suites | 95 | **108** | — |
+| Test cases | 180 | **1,025** | ~725 |
+| Statements | 52.5% | **65.83%** | 85% |
+| Branches | 34.91% | **52.77%** | 69% |
+| Functions | 43.8% | **60.03%** | 78% |
+| Lines | 51.79% | **65.31%** | 85% |
+| Snapshots | 0 | **15** | 15–20 |
 
-After each phase, increase the coverage thresholds:
+Coverage thresholds in `jest.config.cjs` updated to: `statements: 65, branches: 52, functions: 59, lines: 65`.
 
-```javascript
-// After Phase 1
-coverageThreshold: {
-    global: {
-        statements: 55,
-        branches: 38,
-        functions: 47,
-        lines: 55,
-    },
-},
+---
 
-// After Phase 3
-coverageThreshold: {
-    global: {
-        statements: 65,
-        branches: 48,
-        functions: 57,
-        lines: 65,
-    },
-},
+## Remaining Gaps
 
-// After Phase 5
-coverageThreshold: {
-    global: {
-        statements: 75,
-        branches: 55,
-        functions: 65,
-        lines: 75,
-    },
-},
+Coverage reached 65% instead of the planned 85%. The gap is concentrated in 21 files with <50% statement coverage and 15 files in the 50–65% range. Closing these gaps requires mocking infrastructure and production code changes described below.
 
-// Final (after Phase 13)
-coverageThreshold: {
-    global: {
-        statements: 82,
-        branches: 65,
-        functions: 74,
-        lines: 82,
-    },
-},
+### Gap 1: Low-Coverage Files (<50% Statements)
+
+These files need significant mocking or production changes to test effectively:
+
+| File | Stmts | Branches | Blocker |
+|------|-------|----------|---------|
+| `component/waiter.ts` | 12.5% | 0% | Needs timer mocking + DOM animation |
+| `component/mapLabel.ts` | 19.75% | 0% | Google Maps OverlayView API mock |
+| `module/xhr.ts` | 21.01% | 8% | Full XMLHttpRequest mock (open, send, headers, readyState lifecycle) |
+| `component/canvas.ts` | 22.58% | 14.28% | Canvas 2D context mock |
+| `component/googleMap.ts` | 23.7% | 15.87% | Deep Google Maps API mock (markers, layers, geocoding) |
+| `component/table.ts` | 23.45% | 11.84% | Complex DOM rendering + Collection integration |
+| `module/progressBar.ts` | 26.41% | 1.72% | Timer-based animations + DOM manipulation |
+| `field/textareaField.ts` | 26.92% | 26.47% | Rich text / MDL textarea rendering |
+| `module/dialog.ts` | 32.78% | 12.5% | BaseModal + dynamic content + button callbacks |
+| `module/script.ts` | 33.33% | 8.33% | Dynamic `<script>` loading in jsdom |
+| `module/style.ts` | 35.29% | 12.5% | Dynamic `<link>` stylesheet loading in jsdom |
+| `module/footer.ts` | 35.48% | 10% | Menu rendering + DOM structure |
+| `module/topMenu.ts` | 36.36% | 0% | Menu rendering + DOM structure |
+| `module/template.ts` | 38.23% | 10% | Http integration + DOM injection + caching |
+| `module/navBar.ts` | 39.13% | 0% | Menu rendering + DOM structure |
+| `module/http.ts` | 41.46% | 50% | XHR wrapper — needs xhr.ts mocked first |
+| `core/module.ts` | 44.64% | 14.28% | DI container + controller lifecycle |
+| `component/cardCollection.ts` | 44.44% | 15.78% | Template rendering + Collection integration |
+| `field/baseCheckboxField.ts` | 45.45% | 21.42% | MDL checkbox component + MutationObserver |
+| `field/selectField.ts` | 45.53% | 30.48% | Custom dropdown rendering + option management |
+| `module/header.ts` | 48.64% | 50% | Menu + progress bar + DOM structure |
+
+### Gap 2: Medium-Coverage Files (50–65% Statements)
+
+These need targeted tests for uncovered methods:
+
+| File | Stmts | Key Uncovered Areas |
+|------|-------|---------------------|
+| `module/bottomMenu.ts` | 50% | Menu open/close, item rendering |
+| `component/progressStatus.ts` | 52.63% | Status update, DOM rendering |
+| `module/leftMenu.ts` | 55.1% | Submenu toggle, active state |
+| `module/screen.ts` | 55.55% | Resize/scroll handlers, breakpoint detection |
+| `field/radiobuttonField.ts` | 59.72% | Option rendering, selection, change events |
+| `component/form.ts` | 61.06% | Submit/reset handlers, field iteration, validation cascade |
+| `component/month.ts` | 61.9% | Day grid rendering, selection |
+| `component/year.ts` | 61.9% | Month grid rendering, selection |
+| `module/depot.ts` | 62.06% | Encrypted storage, key enumeration |
+| `field/dateTimeRangeField.ts` | 63.29% | Range rendering, start/end coupling |
+| `field/colorField.ts` | 63.21% | Color picker rendering, HSV conversion |
+| `field/locationField.ts` | 63.04% | Map integration, geocoding, coordinate parsing |
+| `component/calendar.ts` | 63.82% | Month navigation, day rendering, date selection |
+| `component/dropdown.ts` | 64.44% | Menu rendering, item selection, close on outside click |
+| `field/fileField.ts` | 51.78% | File selection, preview, upload display |
+
+### Gap 3: Missing Infrastructure
+
+#### XMLHttpRequest Mock
+
+The biggest coverage blocker. `xhr.ts` (21%) and `http.ts` (41%) together represent the HTTP layer. A proper mock is needed:
+
+```typescript
+// src/test-helpers.ts or dedicated mock file
+export function createMockXHR() {
+    const xhr = {
+        open: jest.fn(),
+        send: jest.fn(),
+        setRequestHeader: jest.fn(),
+        getResponseHeader: jest.fn(),
+        abort: jest.fn(),
+        readyState: 0,
+        status: 0,
+        responseText: '',
+        response: null,
+        onreadystatechange: null as Function | null,
+        onload: null as Function | null,
+        onerror: null as Function | null,
+        ontimeout: null as Function | null,
+        upload: { addEventListener: jest.fn() },
+    };
+    // Helper to simulate response
+    xhr.respond = (status: number, body: string) => {
+        xhr.status = status;
+        xhr.readyState = 4;
+        xhr.responseText = body;
+        xhr.response = body;
+        xhr.onreadystatechange?.();
+        xhr.onload?.();
+    };
+    return xhr;
+}
 ```
 
+This would unblock tests for: `xhr.ts`, `http.ts`, `template.ts` (uses Http for loading).
+
+#### Canvas 2D Context Mock
+
+Needed for `canvas.ts` (22%):
+
+```typescript
+export function createMockCanvas() {
+    const context = {
+        fillRect: jest.fn(),
+        clearRect: jest.fn(),
+        getImageData: jest.fn(() => ({ data: new Uint8ClampedArray(4) })),
+        putImageData: jest.fn(),
+        createImageData: jest.fn(),
+        setTransform: jest.fn(),
+        drawImage: jest.fn(),
+        save: jest.fn(),
+        fillText: jest.fn(),
+        restore: jest.fn(),
+        beginPath: jest.fn(),
+        moveTo: jest.fn(),
+        lineTo: jest.fn(),
+        closePath: jest.fn(),
+        stroke: jest.fn(),
+        translate: jest.fn(),
+        scale: jest.fn(),
+        rotate: jest.fn(),
+        arc: jest.fn(),
+        fill: jest.fn(),
+        measureText: jest.fn(() => ({ width: 0 })),
+        transform: jest.fn(),
+        rect: jest.fn(),
+        clip: jest.fn(),
+    };
+    HTMLCanvasElement.prototype.getContext = jest.fn(() => context);
+    return context;
+}
+```
+
+#### Google Maps Deep Mock
+
+The existing `@googlemaps/jest-mocks` covers basic constructors but not the advanced APIs used by `googleMap.ts` and `mapLabel.ts` (markers, layers, geocoding, event listeners). A supplementary mock would be needed.
+
+### Gap 4: Production Code Changes Required
+
+#### `destroy()` Methods
+
+Multiple components add `window`/`document` event listeners but have no cleanup method. Adding `destroy()` would:
+- Enable proper memory leak testing
+- Allow removing `forceExit: true` from `jest.config.cjs`
+- Improve real-world usage in SPAs
+
+Files needing `destroy()`:
+- `module/screen.ts` — resize, scroll, online, offline listeners on `window`
+- `module/page.ts` — document click listener
+- `component/form.ts` — keydown, submit, reset listeners
+- `component/carousel.ts` — touch event listeners
+- `module/helper.ts` — resize, orientation listeners
+- `core/state.ts` — popstate listener on `window`
+
+#### ARIA Attributes
+
+For proper accessibility testing with `jest-axe`:
+- `module/dialog.ts` — add `role="dialog"`, `aria-modal="true"`
+- `module/confirm.ts` — add `role="alertdialog"`
+- `component/dropdown.ts` — add `aria-expanded`
+- `component/tabPanel.ts` — add `role="tablist"`, `aria-selected`
+- `module/flash.ts` — add `role="alert"` to flash messages
+- `component/navigation.ts` — add `role="navigation"`
+- Form fields — add `aria-describedby` for error messages
+
+#### `jest-axe` Dependency
+
+```bash
+npm install --save-dev jest-axe @types/jest-axe
+```
+
+Required for automated accessibility violation scanning. Current a11y tests verify DOM structure only.
+
+### Gap 5: Open Handles / `forceExit`
+
+`jest.config.cjs` still has `forceExit: true`. Root causes:
+- `Screen` constructor adds 4 `window.addEventListener` calls (resize, scroll, online, offline) that are never removed
+- `State._initPopstate()` adds a `window.addEventListener('popstate', ...)` that is never removed
+- Any test that instantiates these classes leaves open handles
+
+Fix: Add `destroy()` methods (Gap 4) and call them in `afterEach`. Then remove `forceExit: true`.
+
 ---
 
-## Estimated Scope
+## Recommended Execution Order for Remaining Gaps
 
-| Phase | Files Modified | New Tests | Priority |
-|-------|---------------|-----------|----------|
-| Infrastructure | 3 | 0 | Setup |
-| Phase 1: Core | 7 | ~70 | High |
-| Phase 2: Utils | 5 | ~30 | Medium |
-| Phase 3: Module | 15+ | ~120 | Critical |
-| Phase 4: Field | 20+ | ~100 | High |
-| Phase 5: Component | 10+ | ~80 | Medium |
-| Phase 6: Common | 3 | ~19 | Medium |
-| Phase 7: Exports | 1 | ~15 | High |
-| Phase 8: Memory Leaks | 10+ | ~18 | Critical |
-| Phase 9: Integration | 4 | ~30 | High |
-| Phase 10: Async/Timers | 5+ | ~12 | High |
-| Phase 11: Error Boundaries | 1+ | ~17 | Medium |
-| Phase 12: Snapshots | 15 | ~17 | Medium |
-| Phase 13: Accessibility | 10+ | ~17 | Medium |
-| **Total** | **~110** | **~545** | |
+| Priority | Task | Impact | Effort |
+|----------|------|--------|--------|
+| 1 | Add XMLHttpRequest mock | Unblocks `xhr.ts`, `http.ts`, `template.ts` (~+8% stmts) | Medium |
+| 2 | Deep-test `table.ts`, `form.ts`, `calendar.ts` | Largest component coverage gains (~+4% stmts) | Medium |
+| 3 | Add `destroy()` methods to production code | Enables memory leak tests + removes `forceExit` | Medium |
+| 4 | Test menu modules (`footer`, `header`, `topMenu`, `navBar`, `leftMenu`, `bottomMenu`) | ~+3% stmts | Low |
+| 5 | Add Canvas 2D mock + test `canvas.ts` | ~+1% stmts | Low |
+| 6 | Deep Google Maps mock + test `googleMap.ts`, `mapLabel.ts` | ~+2% stmts | High |
+| 7 | Install `jest-axe` + add ARIA attributes + automated a11y tests | Quality, no coverage change | Medium |
+| 8 | Test `module.ts` DI container lifecycle | ~+1% stmts | Medium |
+| 9 | Test remaining fields (`selectField`, `textareaField`, `baseCheckboxField`) | ~+2% stmts | Medium |
+| 10 | Remove `forceExit: true` after `destroy()` methods are in place | Cleanup | Low |
 
-This would bring the test suite from **180 → ~725 test cases**.
-
----
-
-## Execution Guidelines
-
-1. **Each phase is a separate PR** — merge and verify coverage increases before proceeding
-2. **Rewrite, don't extend** — replace skeleton tests with proper suites; existing `instanceof` tests have no value
-3. **Run coverage after each file** — `npx jest --coverage src/path/file.spec.ts`
-4. **Prioritize branches** — branch coverage (34.91%) is the weakest metric
-5. **Isolate test DOM** — create minimal DOM in `beforeEach`, clean up in `afterEach`; use `jest.setup.ts` DOM only for full-page integration tests (Application, Form)
-6. **Mock with lifecycle** — save originals in `beforeEach`, restore in `afterEach`; use `jest.useFakeTimers()` for timing
-7. **Use `test.each` / `describe.each`** — parameterized tests for type variants and conversion functions
-8. **Use `jest.fn()`** — verify event handlers, callbacks, and Promize resolution (synchronous, not native Promise)
-9. **Test error paths** — null inputs, missing elements, invalid data, permission denied
-10. **Test edge cases** — empty arrays, boundary values, duplicate IDs, large numbers
-11. **Use specific matchers** — `toHaveLength`, `toMatchObject`, `toBeNull`, `toContain`, `toThrow` over generic `toBe`
-12. **Phase 6–13 require source changes** — some phases (Memory Leaks, Accessibility) will need `destroy()` methods and ARIA attributes added to production code
-13. **Add `jest-axe` dependency** — required for Phase 13 (Accessibility), install before starting that phase
-14. **Enable `detectOpenHandles`** — turn on temporarily in Phase 10 to identify async leaks, then remove once fixed
+Completing priorities 1–4 would bring coverage to approximately **78–80%**. All 10 would reach the original **85%** target.
