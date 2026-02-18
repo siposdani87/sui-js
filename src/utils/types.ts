@@ -48,6 +48,7 @@ import {
  *
  * @category Utility
  */
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
 export type Listener = (this: Element, ev: Event) => any;
 
 /**
@@ -223,6 +224,7 @@ export type Nullable<T> = T | null;
  *
  * @category Utility
  */
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
 export type ClassRef = { new (...args: any[]): any };
 
 /**

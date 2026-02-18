@@ -104,7 +104,7 @@ describe('Collection', () => {
     describe('findAllByCondition', () => {
         it('should find all matching items', () => {
             const items = collection.findAllByCondition((item) => {
-                return item.get('id') <= 2;
+                return item.get<number>('id') <= 2;
             });
             expect(items).toHaveLength(2);
         });
@@ -136,7 +136,7 @@ describe('Collection', () => {
     describe('deleteAllByCondition', () => {
         it('should delete all matching items', () => {
             const deleted = collection.deleteAllByCondition((item) => {
-                return item.get('id') <= 2;
+                return item.get<number>('id') <= 2;
             });
             expect(deleted).toHaveLength(2);
             expect(collection.size()).toBe(1);

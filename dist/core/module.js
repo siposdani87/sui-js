@@ -114,9 +114,12 @@ export class Module {
      *     resolved dependencies.
      */
     _resolveDependencies(dependency) {
+        // eslint-disable-next-line @typescript-eslint/no-explicit-any
         const moduleArgs = [];
         each(dependency.moduleInjections, (injection) => {
-            moduleArgs.push(this._instances[injection] ||
+            moduleArgs.push(
+            // eslint-disable-next-line @typescript-eslint/no-explicit-any
+            this._instances[injection] ||
                 injection);
         });
         return new dependency.moduleCallback(...moduleArgs);
@@ -214,13 +217,18 @@ export class Module {
      */
     handleServices(services) {
         const sortedServices = this._getSortedServices(services);
+        // eslint-disable-next-line @typescript-eslint/no-explicit-any
         const calls = [];
         each(sortedServices, (serviceName) => {
             const moduleCall = () => {
+                // eslint-disable-next-line @typescript-eslint/no-explicit-any
                 this._instances[serviceName] =
                     this._resolveDependencies(this._modules[serviceName]);
-                if (isFunction(this._instances[serviceName]
+                if (isFunction(
+                // eslint-disable-next-line @typescript-eslint/no-explicit-any
+                this._instances[serviceName]
                     .enter)) {
+                    // eslint-disable-next-line @typescript-eslint/no-explicit-any
                     return this._instances[serviceName].enter();
                 }
                 return noop();
@@ -293,7 +301,9 @@ export class Module {
             }
             else {
                 this.eventModuleLoaded(currentState);
-                this._initController(currentState, this._instances[this._injections.template].getViewKnot());
+                this._initController(currentState, 
+                // eslint-disable-next-line @typescript-eslint/no-explicit-any
+                this._instances[this._injections.template].getViewKnot());
             }
         }, () => {
             this.eventModuleFailed(currentState);

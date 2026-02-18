@@ -153,10 +153,12 @@ export class GoogleMap {
      * Binds click and map type change events to the map.
      */
     _bindEventsToMap() {
+        // eslint-disable-next-line @typescript-eslint/no-explicit-any
         this.map.addListener('click', (event) => {
             const vertex = event.latLng;
             this.eventMapClick(vertex.lat(), vertex.lng(), event);
         });
+        // eslint-disable-next-line @typescript-eslint/no-explicit-any
         this.map.addListener('maptypeid_changed', (event) => {
             this.eventMapTypeChange(this.getMapType(), event);
         });
@@ -340,6 +342,7 @@ export class GoogleMap {
      */
     _bindEventsToPolygon(polygon, polygonData) {
         const cleanPolygonData = this._cleanPolygonData(polygonData);
+        // eslint-disable-next-line @typescript-eslint/no-explicit-any
         polygon.addListener('rightclick', (event) => {
             if (event.vertex) {
                 const path = polygon.getPath();
@@ -350,10 +353,12 @@ export class GoogleMap {
                 this.eventPolygonRightClick(cleanPolygonData, vertex.lat(), vertex.lng(), event);
             }
         });
+        // eslint-disable-next-line @typescript-eslint/no-explicit-any
         polygon.addListener('click', (event) => {
             const vertex = event.latLng;
             this.eventPolygonClick(cleanPolygonData, vertex.lat(), vertex.lng(), event);
         });
+        // eslint-disable-next-line @typescript-eslint/no-explicit-any
         polygon.addListener('dblclick', (event) => {
             const vertex = event.latLng;
             this.eventPolygonDoubleClick(cleanPolygonData, vertex.lat(), vertex.lng(), event);
@@ -476,8 +481,10 @@ export class GoogleMap {
      * @returns Array of Google Maps LatLng (or weighted location) instances.
      */
     _convertPointsToPath(points) {
+        // eslint-disable-next-line @typescript-eslint/no-explicit-any
         const path = [];
         each(points, (point) => {
+            // eslint-disable-next-line @typescript-eslint/no-explicit-any
             let vertex = new google.maps.LatLng(point.latitude, point.longitude);
             if (!isUndefined(point.weight)) {
                 vertex = {
@@ -778,20 +785,25 @@ export class GoogleMap {
      */
     _bindEventsToMarker(marker, markerData) {
         const cleanMarkerData = this._cleanMarkerData(markerData);
+        // eslint-disable-next-line @typescript-eslint/no-explicit-any
         marker.addListener('click', (event) => {
             this.eventMarkerClick(cleanMarkerData, event);
         });
+        // eslint-disable-next-line @typescript-eslint/no-explicit-any
         marker.addListener('dblclick', (event) => {
             this.eventMarkerDoubleClick(cleanMarkerData, event);
         });
+        // eslint-disable-next-line @typescript-eslint/no-explicit-any
         marker.addListener('rightclick', (event) => {
             this.eventMarkerRightClick(cleanMarkerData, event);
         });
+        // eslint-disable-next-line @typescript-eslint/no-explicit-any
         marker.addListener('drag', (_event) => {
             const vertex = marker.getPosition();
             const mapLabel = markerData.get('_map_label');
             mapLabel.set('position', vertex);
         });
+        // eslint-disable-next-line @typescript-eslint/no-explicit-any
         marker.addListener('dragend', (event) => {
             const vertex = marker.getPosition();
             const latitude = vertex.lat();

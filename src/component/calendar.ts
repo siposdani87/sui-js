@@ -186,17 +186,17 @@ export class Calendar {
 
     /**
      * @description Dispatches to the appropriate callback based on the active mode (DAY, MONTH, or YEAR).
-     * @param {Function} dayFun - Callback for DAY mode.
-     * @param {Function} monthFun - Callback for MONTH mode.
-     * @param {Function} yearFun - Callback for YEAR mode.
-     * @returns {Date} The result of the invoked callback.
+     * @param {() => Date | void} dayFun - Callback for DAY mode.
+     * @param {() => Date | void} monthFun - Callback for MONTH mode.
+     * @param {() => Date | void} yearFun - Callback for YEAR mode.
+     * @returns {Date | null} The result of the invoked callback.
      */
     private _switchMode(
-        dayFun: Function,
-        monthFun: Function,
-        yearFun: Function,
-    ): Date {
-        let result = null;
+        dayFun: () => Date | void,
+        monthFun: () => Date | void,
+        yearFun: () => Date | void,
+    ): Date | null {
+        let result: Date | void | null = null;
         switch (this.activeMode) {
             case 'DAY':
                 result = dayFun();
@@ -210,7 +210,7 @@ export class Calendar {
             default:
                 break;
         }
-        return result;
+        return result || null;
     }
 
     /**
@@ -277,7 +277,7 @@ export class Calendar {
                 return date;
             },
         );
-        this._setDate(date);
+        this._setDate(date!);
         this.draw();
     }
 
@@ -296,7 +296,7 @@ export class Calendar {
                 return DateIO.addYears(this.current.day, this.maxYears);
             },
         );
-        this._setDate(date);
+        this._setDate(date!);
         this.draw();
     }
 

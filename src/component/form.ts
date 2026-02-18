@@ -231,6 +231,7 @@ export class Form extends Collection<BaseField<HTMLInputElement>> {
      * @param {string} name - The field name.
      * @param {*} value - The new value.
      */
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
     private _setValue(name: string, value: any): void {
         const currentValue = this._getValue(name);
         if (!isSame(value, currentValue)) {
@@ -244,6 +245,7 @@ export class Form extends Collection<BaseField<HTMLInputElement>> {
      * @param {string} name - The field name.
      * @returns {*} The current field value.
      */
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
     private _getValue(name: string): any {
         return this.model.get(name);
     }
@@ -253,6 +255,7 @@ export class Form extends Collection<BaseField<HTMLInputElement>> {
      * @param {BaseField<HTMLInputElement>} field - The field instance.
      * @returns {*} The previous field value.
      */
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
     private _getPreviousValue(field: BaseField<HTMLInputElement>): any {
         const fieldName = field.getName();
         return this.previousModel.get(fieldName);
@@ -265,6 +268,7 @@ export class Form extends Collection<BaseField<HTMLInputElement>> {
      */
     private _fieldValueChange(
         field: BaseField<HTMLInputElement>,
+        // eslint-disable-next-line @typescript-eslint/no-explicit-any
         value: any,
     ): void {
         const fieldName = field.getName();
@@ -377,7 +381,7 @@ export class Form extends Collection<BaseField<HTMLInputElement>> {
     findByModel<T = BaseField<HTMLInputElement>>(name: string): T {
         return this.findByCondition((item: BaseField<HTMLInputElement>) => {
             return item.getName() === name;
-        }) as any as T;
+        }) as unknown as T;
     }
 
     /**

@@ -48,8 +48,8 @@ export declare class Clock {
     private _init;
     /**
      * @description Dispatches to the appropriate callback based on the active mode (HOUR or MINUTE).
-     * @param {Function} hourCallback - Callback for HOUR mode.
-     * @param {Function} minuteCallback - Callback for MINUTE mode.
+     * @param {() => Date | void} hourCallback - Callback for HOUR mode.
+     * @param {() => Date | void} minuteCallback - Callback for MINUTE mode.
      * @returns {Date | null} The result of the invoked callback, or null if no mode matches.
      */
     private _switchMode;

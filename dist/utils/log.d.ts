@@ -23,7 +23,7 @@
  * @example
  * consoleLog('User loaded', userId);
  */
-export declare const consoleLog: (...message: any[]) => void;
+export declare const consoleLog: (...message: unknown[]) => void;
 /**
  * Logs informational messages to `console.info`.
  *
@@ -35,7 +35,7 @@ export declare const consoleLog: (...message: any[]) => void;
  * @example
  * consoleInfo('Cache refreshed');
  */
-export declare const consoleInfo: (...message: any[]) => void;
+export declare const consoleInfo: (...message: unknown[]) => void;
 /**
  * Logs warning messages to `console.warn`.
  *
@@ -47,7 +47,7 @@ export declare const consoleInfo: (...message: any[]) => void;
  * @example
  * consoleWarn('Deprecated method called');
  */
-export declare const consoleWarn: (...message: any[]) => void;
+export declare const consoleWarn: (...message: unknown[]) => void;
 /**
  * Logs error messages to `console.error`.
  *
@@ -60,7 +60,7 @@ export declare const consoleWarn: (...message: any[]) => void;
  * @example
  * consoleError('Failed to load config', error);
  */
-export declare const consoleError: (...message: any[]) => void;
+export declare const consoleError: (...message: unknown[]) => void;
 /**
  * Logs debug messages to `console.debug`.
  *
@@ -73,7 +73,7 @@ export declare const consoleError: (...message: any[]) => void;
  * @example
  * consoleDebug('State transition', prevState, nextState);
  */
-export declare const consoleDebug: (...message: any[]) => void;
+export declare const consoleDebug: (...message: unknown[]) => void;
 /**
  * Asserts a condition using `console.assert`.
  *
@@ -87,4 +87,4 @@ export declare const consoleDebug: (...message: any[]) => void;
  * @example
  * consoleAssert(items.length > 0, 'Items array must not be empty');
  */
-export declare const consoleAssert: (condition: boolean, ...data: any[]) => void;
+export declare const consoleAssert: (condition: boolean, ...data: unknown[]) => void;

@@ -37,6 +37,7 @@ import {
  */
 // Record, Entry, Thing
 export class Objekt<T extends object = object> {
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
     [key: string]: T[keyof T | any];
 
     /**
@@ -70,8 +71,10 @@ export class Objekt<T extends object = object> {
      * obj.merge({ b: 2, c: { d: 3 } });
      * obj.get('c.d'); // 3
      */
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
     merge(object: any): Objekt {
         if (isPureObject(object)) {
+            // eslint-disable-next-line @typescript-eslint/no-explicit-any
             const obj = object as Record<string, any>;
             for (const key in obj) {
                 if (obj.hasOwnProperty(key)) {
@@ -99,6 +102,7 @@ export class Objekt<T extends object = object> {
      * @param {any} object The parent object containing the array.
      * @param {string} key The property name of the array to convert.
      */
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
     private _convertobject(object: any, key: string): void {
         each(object[key], (obj, i) => {
             object[key][i] = new Objekt(obj);
@@ -136,6 +140,7 @@ export class Objekt<T extends object = object> {
         opt_isSafe: boolean | undefined = false,
     ): K {
         if (!attribute) {
+            // eslint-disable-next-line @typescript-eslint/no-explicit-any
             return this as any;
         }
         const attributes = opt_isSafe ? [attribute] : attribute.split('.');
@@ -157,6 +162,7 @@ export class Objekt<T extends object = object> {
         attributes: Array<string>,
     ): K | undefined {
         let result = undefined;
+        // eslint-disable-next-line @typescript-eslint/no-explicit-any
         const obj = object as Record<string, any>;
         each(object, (_value, property) => {
             if (
@@ -187,8 +193,10 @@ export class Objekt<T extends object = object> {
     private _setByAttributes(
         object: object | Objekt,
         attributes: Array<string>,
+        // eslint-disable-next-line @typescript-eslint/no-explicit-any
         value: any,
     ): void {
+        // eslint-disable-next-line @typescript-eslint/no-explicit-any
         const obj = object as Record<string, any>;
         eachObject(obj, (_oldValue, property) => {
             if (attributes.length === 1 && property === attributes[0]) {
@@ -296,6 +304,7 @@ export class Objekt<T extends object = object> {
         object: object | Objekt,
         attributes: Array<string>,
     ): void {
+        // eslint-disable-next-line @typescript-eslint/no-explicit-any
         const obj = object as Record<string, any>;
         for (const property in obj) {
             if (obj.hasOwnProperty(property)) {
@@ -365,9 +374,11 @@ export class Objekt<T extends object = object> {
     private _attributesToobject(
         object: object,
         attributes: Array<string>,
+        // eslint-disable-next-line @typescript-eslint/no-explicit-any
         value: any,
     ): object {
         const lastAttribute = attributes.pop();
+        // eslint-disable-next-line @typescript-eslint/no-explicit-any
         let base: Record<string, any> = object as Record<string, any>;
         for (const attribute of attributes) {
             base = base[attribute] = base[attribute] || {};

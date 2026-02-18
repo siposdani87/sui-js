@@ -107,7 +107,9 @@ export class Cookie {
      * // Expire at a specific date
      * cookie.set('promo', 'sale', new Date('2025-12-31'));
      */
-    set(name, value, opt_expires = '', opt_path = '/', opt_domain = '', opt_secure = false) {
+    set(name, value, 
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+    opt_expires = '', opt_path = '/', opt_domain = '', opt_secure = false) {
         const propertyName = this._getPropertyName(name);
         if (/^(?:expires|max\-age|path|domain|secure)$/i.test(propertyName)) {
             return;
@@ -116,12 +118,15 @@ export class Cookie {
             switch (opt_expires.constructor) {
                 case Number:
                     opt_expires =
+                        // eslint-disable-next-line @typescript-eslint/no-explicit-any
                         opt_expires === Infinity
                             ? '; expires=Fri, 31 Dec 9999 23:59:59 GMT'
-                            : '; max-age=' + opt_expires * 60 * 60;
+                            : // eslint-disable-next-line @typescript-eslint/no-explicit-any
+                                '; max-age=' + opt_expires * 60 * 60;
                     break;
                 case Date:
                     opt_expires =
+                        // eslint-disable-next-line @typescript-eslint/no-explicit-any
                         '; expires=' + opt_expires.toUTCString();
                     break;
                 default:
@@ -158,6 +163,7 @@ export class Cookie {
      * cookie.set('active', 'true');
      * cookie.get('active'); // true (boolean)
      */
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
     get(name) {
         const propertyName = this._getPropertyName(name);
         const regex = new RegExp('(?:(?:^|.*;)\\s*' +

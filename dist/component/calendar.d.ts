@@ -93,10 +93,10 @@ export declare class Calendar {
     private _getMode;
     /**
      * @description Dispatches to the appropriate callback based on the active mode (DAY, MONTH, or YEAR).
-     * @param {Function} dayFun - Callback for DAY mode.
-     * @param {Function} monthFun - Callback for MONTH mode.
-     * @param {Function} yearFun - Callback for YEAR mode.
-     * @returns {Date} The result of the invoked callback.
+     * @param {() => Date | void} dayFun - Callback for DAY mode.
+     * @param {() => Date | void} monthFun - Callback for MONTH mode.
+     * @param {() => Date | void} yearFun - Callback for YEAR mode.
+     * @returns {Date | null} The result of the invoked callback.
      */
     private _switchMode;
     /**

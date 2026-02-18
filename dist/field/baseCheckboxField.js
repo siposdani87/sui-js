@@ -48,6 +48,7 @@ export class BaseCheckboxField extends BaseField {
      * @description Returns the field's value based on the checked state. Returns the input value if checked, or the hidden input value if unchecked.
      * @returns {*} The type-cast value of the checked or hidden input.
      */
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
     getValue() {
         const checked = this.input.getNode().checked;
         let value = this.hiddenInput.getAttribute('value');
@@ -58,7 +59,7 @@ export class BaseCheckboxField extends BaseField {
     }
     /**
      * @description Sets the field's checked state by comparing the value against the input's value attribute.
-     * @param {object | Function | Array<any> | boolean | number | string | null | undefined} value - The value to set.
+     * @param {object | Array<unknown> | boolean | number | string | null | undefined} value - The value to set.
      */
     setValue(value) {
         const currentValue = typeCast(this.input.getAttribute('value'));

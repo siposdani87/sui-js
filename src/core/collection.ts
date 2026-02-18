@@ -37,6 +37,7 @@ import { Objekt } from './objekt';
  * @category Core
  */
 export class Collection<T extends object = object> {
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
     Type: any;
     items: T[];
     options!: Objekt;
@@ -65,6 +66,7 @@ export class Collection<T extends object = object> {
      */
     constructor(
         opt_items: Array<T> | undefined = [],
+        // eslint-disable-next-line @typescript-eslint/no-explicit-any
         opt_type: any = Objekt,
         opt_options: object = {},
     ) {
@@ -201,10 +203,10 @@ export class Collection<T extends object = object> {
     replace(object: object | T): T | null {
         const item = this._createItem(object);
         if (item && instanceOf(item, Objekt)) {
-            const id = (item as any as Objekt).get<Id>(this.options.id);
+            const id = (item as unknown as Objekt).get<Id>(this.options.id);
             const oldKnot = this.findById(id);
             if (oldKnot && instanceOf(oldKnot, Objekt)) {
-                (oldKnot as any as Objekt).merge(item);
+                (oldKnot as unknown as Objekt).merge(item);
                 return oldKnot;
             }
         }
@@ -311,7 +313,7 @@ export class Collection<T extends object = object> {
         if (index >= 0 && index < this.items.length) {
             const item = this.items[index];
             if (item && opt_attribute && instanceOf(item, Objekt)) {
-                return (item as any as Objekt).get<K>(opt_attribute);
+                return (item as unknown as Objekt).get<K>(opt_attribute);
             }
             return item;
         }
@@ -339,7 +341,7 @@ export class Collection<T extends object = object> {
     getById<K = T>(id: Id, opt_attribute?: string): T | K | null {
         const item = this.findById(id);
         if (item && opt_attribute && instanceOf(item, Objekt)) {
-            return (item as any as Objekt).get<K>(opt_attribute);
+            return (item as unknown as Objekt).get<K>(opt_attribute);
         }
         return item;
     }
@@ -388,7 +390,7 @@ export class Collection<T extends object = object> {
      * ]);
      * col.findBy('role', 'admin').get('id'); // 1
      */
-    findBy(attribute: string, value: any): T | null {
+    findBy(attribute: string, value: unknown): T | null {
         return this.findByCondition((_item: T, i: number) => {
             return this.get(i, attribute) === value;
         });
@@ -407,7 +409,9 @@ export class Collection<T extends object = object> {
      * const item = col.findByCondition((item) => item.get('id') > 1);
      * item.get('id'); // 2
      */
-    findByCondition(conditionCallback: Function): T | null {
+    findByCondition(
+        conditionCallback: (item: T, index: number) => boolean,
+    ): T | null {
         let i = 0;
         while (i < this.items.length && !conditionCallback(this.items[i], i)) {
             i++;
@@ -431,7 +435,7 @@ export class Collection<T extends object = object> {
      * ]);
      * col.findAllBy('role', 'user').length; // 2
      */
-    findAllBy(attribute: string, value: any): Array<T> {
+    findAllBy(attribute: string, value: unknown): Array<T> {
         return this.findAllByCondition((_item: T, i: number) => {
             return this.get(i, attribute) === value;
         });
@@ -449,7 +453,9 @@ export class Collection<T extends object = object> {
      * const items = col.findAllByCondition((item) => item.get('id') >= 2);
      * items.length; // 2
      */
-    findAllByCondition(conditionCallback: Function): Array<T> {
+    findAllByCondition(
+        conditionCallback: (item: T, index: number) => boolean,
+    ): Array<T> {
         const items: T[] = [];
         eachArray(this.items, (item, i) => {
             if (conditionCallback(item, i)) {
@@ -511,7 +517,7 @@ export class Collection<T extends object = object> {
      * col.deleteBy('role', 'user');
      * col.size(); // 1
      */
-    deleteBy(attribute: string, value: any): T | null {
+    deleteBy(attribute: string, value: unknown): T | null {
         return this.deleteByCondition((item: T, i: number) => {
             return this.get(i, attribute) === value;
         });
@@ -531,7 +537,9 @@ export class Collection<T extends object = object> {
      * deleted.get('id'); // 2
      * col.size();        // 2
      */
-    deleteByCondition(conditionCallback: Function): T | null {
+    deleteByCondition(
+        conditionCallback: (item: T, index: number) => boolean,
+    ): T | null {
         let i = 0;
         while (i < this.items.length && !conditionCallback(this.items[i], i)) {
             i++;
@@ -558,7 +566,7 @@ export class Collection<T extends object = object> {
      * deleted.length; // 2
      * col.size();     // 1
      */
-    deleteAllBy(attribute: string, value: any): Array<T> {
+    deleteAllBy(attribute: string, value: unknown): Array<T> {
         return this.deleteAllByCondition((_item: T, i: number) => {
             return this.get(i, attribute) === value;
         });
@@ -580,7 +588,9 @@ export class Collection<T extends object = object> {
      * deleted.length; // 2 (ids 1 and 3)
      * col.size();     // 1 (id 2 remains)
      */
-    deleteAllByCondition(conditionCallback: Function): Array<T> {
+    deleteAllByCondition(
+        conditionCallback: (item: T, index: number) => boolean,
+    ): Array<T> {
         const items: T[] = [];
         const deletedKnots: T[] = [];
         eachArray(this.items, (item, i) => {

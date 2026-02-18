@@ -135,6 +135,7 @@ export class Depot {
      */
     set(
         name: string,
+        // eslint-disable-next-line @typescript-eslint/no-explicit-any
         value: any,
         opt_expires?: string | number | boolean | Date,
     ): void {
@@ -159,6 +160,7 @@ export class Depot {
      *
      * depot.get('nonexistent'); // null
      */
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
     get(name: string): any {
         const propertyName = this._getPropertyName(name);
         const item = this.storage.getItem(propertyName);

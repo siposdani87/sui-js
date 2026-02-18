@@ -71,7 +71,7 @@ export declare class DateTimeRangeField extends BaseField<HTMLInputElement> {
      * @param value The new date/time value.
      * @override
      */
-    setValue(value: object | Function | Array<any> | boolean | number | string | null | undefined): void;
+    setValue(value: object | Array<unknown> | boolean | number | string | null | undefined): void;
     /**
      * Renders a formatted date/time tag inside the display area with an
      * optional close button.

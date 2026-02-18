@@ -59,6 +59,7 @@ export const decodeBase64 = (encodedText: string): string => {
  * const encrypted = encrypt({ user: 'admin' }, 'secret-key');
  * // An opaque ciphertext string
  */
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
 export const encrypt = (value: any, passPhrase: string): string => {
     const item = JSON.stringify(value);
     return AES.encrypt(item, passPhrase).toString();
@@ -84,6 +85,7 @@ export const encrypt = (value: any, passPhrase: string): string => {
  * decrypt(encrypted, 'secret-key');
  * // { user: 'admin' }
  */
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
 export const decrypt = (item: string, passPhrase: string): any => {
     const value = AES.decrypt(item, passPhrase).toString(Utf8);
     return JSON.parse(value || 'null');

@@ -228,11 +228,13 @@ export class GoogleMap {
      * Binds click and map type change events to the map.
      */
     private _bindEventsToMap(): void {
+        // eslint-disable-next-line @typescript-eslint/no-explicit-any
         this.map.addListener('click', (event: any) => {
             const vertex = event.latLng;
             this.eventMapClick(vertex.lat(), vertex.lng(), event);
         });
 
+        // eslint-disable-next-line @typescript-eslint/no-explicit-any
         this.map.addListener('maptypeid_changed', (event: any) => {
             this.eventMapTypeChange(this.getMapType(), event);
         });
@@ -464,6 +466,7 @@ export class GoogleMap {
     ): void {
         const cleanPolygonData = this._cleanPolygonData(polygonData);
 
+        // eslint-disable-next-line @typescript-eslint/no-explicit-any
         polygon.addListener('rightclick', (event: any) => {
             if (event.vertex) {
                 const path = polygon.getPath();
@@ -479,6 +482,7 @@ export class GoogleMap {
             }
         });
 
+        // eslint-disable-next-line @typescript-eslint/no-explicit-any
         polygon.addListener('click', (event: any) => {
             const vertex = event.latLng;
             this.eventPolygonClick(
@@ -489,6 +493,7 @@ export class GoogleMap {
             );
         });
 
+        // eslint-disable-next-line @typescript-eslint/no-explicit-any
         polygon.addListener('dblclick', (event: any) => {
             const vertex = event.latLng;
             this.eventPolygonDoubleClick(
@@ -680,8 +685,10 @@ export class GoogleMap {
     private _convertPointsToPath(
         points: Array<WeightLatLng>,
     ): Array<google.maps.LatLng> {
+        // eslint-disable-next-line @typescript-eslint/no-explicit-any
         const path: any[] = [];
         each(points, (point) => {
+            // eslint-disable-next-line @typescript-eslint/no-explicit-any
             let vertex: any = new google.maps.LatLng(
                 point.latitude,
                 point.longitude,
@@ -1077,24 +1084,29 @@ export class GoogleMap {
     ): void {
         const cleanMarkerData = this._cleanMarkerData(markerData);
 
+        // eslint-disable-next-line @typescript-eslint/no-explicit-any
         marker.addListener('click', (event: any) => {
             this.eventMarkerClick(cleanMarkerData, event);
         });
 
+        // eslint-disable-next-line @typescript-eslint/no-explicit-any
         marker.addListener('dblclick', (event: any) => {
             this.eventMarkerDoubleClick(cleanMarkerData, event);
         });
 
+        // eslint-disable-next-line @typescript-eslint/no-explicit-any
         marker.addListener('rightclick', (event: any) => {
             this.eventMarkerRightClick(cleanMarkerData, event);
         });
 
+        // eslint-disable-next-line @typescript-eslint/no-explicit-any
         marker.addListener('drag', (_event: any) => {
             const vertex = marker.getPosition()!;
             const mapLabel = markerData.get<MapLabel>('_map_label');
             mapLabel.set('position', vertex);
         });
 
+        // eslint-disable-next-line @typescript-eslint/no-explicit-any
         marker.addListener('dragend', (event: any) => {
             const vertex = marker.getPosition()!;
             const latitude = vertex.lat();
@@ -1197,7 +1209,7 @@ export class GoogleMap {
         const markerData = this.getMarker(id);
         if (markerData) {
             const mapLabel = markerData.get<MapLabel>('_map_label');
-            mapLabel.setMap(null as any);
+            mapLabel.setMap(null);
             const marker = markerData.get<google.maps.Marker>('_marker');
             marker.setMap(null);
             this._unbindEventsToMarker(marker);
@@ -1214,7 +1226,7 @@ export class GoogleMap {
     removeAllMarker(): void {
         this.markers.each((markerData) => {
             const mapLabel = markerData.get<MapLabel>('_map_label');
-            mapLabel.setMap(null as any);
+            mapLabel.setMap(null);
             const marker = markerData.get<google.maps.Marker>('_marker');
             marker.setMap(null);
             this._unbindEventsToMarker(marker);

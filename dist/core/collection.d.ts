@@ -268,7 +268,7 @@ export declare class Collection<T extends object = object> {
      * ]);
      * col.findBy('role', 'admin').get('id'); // 1
      */
-    findBy(attribute: string, value: any): T | null;
+    findBy(attribute: string, value: unknown): T | null;
     /**
      * Finds the first item for which the condition callback returns `true`.
      * Items are tested sequentially from index 0.
@@ -282,7 +282,7 @@ export declare class Collection<T extends object = object> {
      * const item = col.findByCondition((item) => item.get('id') > 1);
      * item.get('id'); // 2
      */
-    findByCondition(conditionCallback: Function): T | null;
+    findByCondition(conditionCallback: (item: T, index: number) => boolean): T | null;
     /**
      * Returns all items where the given attribute equals the specified value
      * (strict equality).
@@ -299,7 +299,7 @@ export declare class Collection<T extends object = object> {
      * ]);
      * col.findAllBy('role', 'user').length; // 2
      */
-    findAllBy(attribute: string, value: any): Array<T>;
+    findAllBy(attribute: string, value: unknown): Array<T>;
     /**
      * Returns all items for which the condition callback returns `true`.
      *
@@ -312,7 +312,7 @@ export declare class Collection<T extends object = object> {
      * const items = col.findAllByCondition((item) => item.get('id') >= 2);
      * items.length; // 2
      */
-    findAllByCondition(conditionCallback: Function): Array<T>;
+    findAllByCondition(conditionCallback: (item: T, index: number) => boolean): Array<T>;
     /**
      * Removes the first item that is strictly equal to the given value
      * (reference equality via {@link eq}).
@@ -357,7 +357,7 @@ export declare class Collection<T extends object = object> {
      * col.deleteBy('role', 'user');
      * col.size(); // 1
      */
-    deleteBy(attribute: string, value: any): T | null;
+    deleteBy(attribute: string, value: unknown): T | null;
     /**
      * Removes the first item for which the condition callback returns `true`.
      * The item is spliced from the internal array and returned.
@@ -372,7 +372,7 @@ export declare class Collection<T extends object = object> {
      * deleted.get('id'); // 2
      * col.size();        // 2
      */
-    deleteByCondition(conditionCallback: Function): T | null;
+    deleteByCondition(conditionCallback: (item: T, index: number) => boolean): T | null;
     /**
      * Removes all items where the given attribute equals the specified value.
      *
@@ -390,7 +390,7 @@ export declare class Collection<T extends object = object> {
      * deleted.length; // 2
      * col.size();     // 1
      */
-    deleteAllBy(attribute: string, value: any): Array<T>;
+    deleteAllBy(attribute: string, value: unknown): Array<T>;
     /**
      * Removes all items for which the condition callback returns `true`.
      * The internal array is rebuilt to contain only non-matching items.
@@ -407,7 +407,7 @@ export declare class Collection<T extends object = object> {
      * deleted.length; // 2 (ids 1 and 3)
      * col.size();     // 1 (id 2 remains)
      */
-    deleteAllByCondition(conditionCallback: Function): Array<T>;
+    deleteAllByCondition(conditionCallback: (item: T, index: number) => boolean): Array<T>;
     /**
      * Returns the number of items currently in the collection.
      *

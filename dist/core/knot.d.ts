@@ -228,7 +228,7 @@ export declare class Knot<T extends HTMLElement = HTMLElement> {
      * knot.setAttribute('data-options', { page: 1, limit: 20 });
      * knot.setAttribute('disabled');
      */
-    setAttribute(attribute: string, opt_value?: (object | Function | Array<any> | boolean | number | string | null | undefined) | undefined): void;
+    setAttribute(attribute: string, opt_value?: (object | ((...args: unknown[]) => unknown) | Array<unknown> | boolean | number | string | null | undefined) | undefined): void;
     /**
      * Reads an attribute from the element. For `data-*` attributes whose
      * stored value begins with `"`, `[`, or `{`, the value is
@@ -281,7 +281,7 @@ export declare class Knot<T extends HTMLElement = HTMLElement> {
      *     return true; // allow default action
      * });
      */
-    addEventListener(eventName: string, opt_callback?: (knot: Knot<T>, event: any) => any): Function;
+    addEventListener(eventName: string, opt_callback?: (knot: Knot<T>, event: any) => any): () => void;
     /**
      * Stores a listener reference on the DOM node for later retrieval
      * and cleanup.
@@ -601,7 +601,7 @@ export declare class Knot<T extends HTMLElement = HTMLElement> {
      * @example
      * knot.removeStyle(['background-color', 'opacity']);
      */
-    removeStyle(properties: Array<any>): void;
+    removeStyle(properties: Array<string>): void;
     /**
      * Checks whether the underlying DOM node reference is falsy
      * (e.g. `null` or `undefined`), indicating this Knot does not

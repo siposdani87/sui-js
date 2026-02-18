@@ -139,7 +139,9 @@ export class Canvas {
             this.context.lineTo(radius * Math.cos(a * i), radius * Math.sin(a * i));
         }
         this.context.closePath();
+        // eslint-disable-next-line @typescript-eslint/no-explicit-any
         each(options, (value, key) => {
+            // eslint-disable-next-line @typescript-eslint/no-explicit-any
             this.context[key] = value;
         });
         this.context.fill();
@@ -169,12 +171,16 @@ export class Canvas {
         this.context.beginPath();
         this.context.rotate(rotateAngle);
         this.context.rect(0, 0, width, height);
+        // eslint-disable-next-line @typescript-eslint/no-explicit-any
         each(options, (value, key) => {
+            // eslint-disable-next-line @typescript-eslint/no-explicit-any
             this.context[key] = value;
         });
+        // eslint-disable-next-line @typescript-eslint/no-explicit-any
         if (options['fillStyle']) {
             this.context.fill();
         }
+        // eslint-disable-next-line @typescript-eslint/no-explicit-any
         if (options['strokeStyle']) {
             this.context.stroke();
         }

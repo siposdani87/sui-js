@@ -51,7 +51,7 @@ export declare class TextareaField extends BaseField<HTMLInputElement> {
     /**
      * @description Creates a single toolbar button with a material icon and click handler.
      * @param {string} iconName - The Material Icons icon name.
-     * @param {Function} action - The callback to execute on click.
+     * @param {() => void} action - The callback to execute on click.
      */
     private _renderToolbarButton;
     /**
@@ -82,19 +82,19 @@ export declare class TextareaField extends BaseField<HTMLInputElement> {
     refresh(): void;
     /**
      * @description Sets the raw input value and triggers a change event without updating the rich text div.
-     * @param {object | Function | Array<any> | boolean | number | string | null | undefined} value - The value to set.
+     * @param {object | Array<unknown> | boolean | number | string | null | undefined} value - The value to set.
      */
     private _setValue;
     /**
      * @description Sets the field value, updating both the rich text div innerHTML and the raw input.
-     * @param {object | Function | Array<any> | boolean | number | string | null | undefined} value - The value to set.
+     * @param {object | Array<unknown> | boolean | number | string | null | undefined} value - The value to set.
      * @override
      */
-    setValue(value: object | Function | Array<any> | boolean | number | string | null | undefined): void;
+    setValue(value: object | Array<unknown> | boolean | number | string | null | undefined): void;
     /**
      * @description Returns the raw textarea input value.
      * @returns {any} The current textarea value.
      * @override
      */
-    getValue(): any;
+    getValue(): string;
 }

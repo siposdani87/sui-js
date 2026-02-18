@@ -48,6 +48,7 @@ export class BaseField {
      *     console.log('Changed from', previousValue, 'to', value);
      * };
      */
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
     eventChange(value, previousValue) {
         consoleDebug('BaseField.eventChange()', value, previousValue);
     }
@@ -86,6 +87,7 @@ export class BaseField {
      *     model.set(field.getName(), value);
      * };
      */
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
     modelChange(value) {
         consoleDebug('BaseField.modelChange()', value);
     }
@@ -95,6 +97,7 @@ export class BaseField {
      * @example
      * const prev = field.getPreviousValue();
      */
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
     getPreviousValue() {
         consoleDebug('BaseField.getPreviousValue()');
         return undefined;
@@ -116,6 +119,7 @@ export class BaseField {
      * @example
      * const value = field.getValue();
      */
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
     getValue() {
         const value = this.input.getNode().value;
         return typeCast(value);
@@ -216,6 +220,7 @@ export class BaseField {
      * @example
      * field.setValue('new value');
      */
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
     setValue(value) {
         this.input.getNode().value = value;
         this.input.setAttribute('value', value);
@@ -261,6 +266,7 @@ export class BaseField {
      * @example
      * const type = field.get('type'); // 'text'
      */
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
     get(attribute) {
         return this.input.get(attribute);
     }

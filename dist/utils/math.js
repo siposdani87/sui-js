@@ -115,6 +115,7 @@ export const readableNumber = (num, opt_around = false) => {
 const decimalAdjust = (type, value, exp) => {
     // If the exp is undefined or zero...
     if (typeof exp === 'undefined' || +exp === 0) {
+        // eslint-disable-next-line @typescript-eslint/no-explicit-any
         return Math[type](value);
     }
     value = +value;
@@ -125,6 +126,7 @@ const decimalAdjust = (type, value, exp) => {
     }
     // Shift
     let parts = value.toString().split('e');
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
     value = Math[type](+(parts[0] + 'e' + (parts[1] ? +parts[1] - exp : -exp)));
     // Shift back
     parts = value.toString().split('e');

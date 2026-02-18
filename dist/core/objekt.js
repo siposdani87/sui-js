@@ -53,8 +53,10 @@ export class Objekt {
      * obj.merge({ b: 2, c: { d: 3 } });
      * obj.get('c.d'); // 3
      */
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
     merge(object) {
         if (isPureObject(object)) {
+            // eslint-disable-next-line @typescript-eslint/no-explicit-any
             const obj = object;
             for (const key in obj) {
                 if (obj.hasOwnProperty(key)) {
@@ -83,6 +85,7 @@ export class Objekt {
      * @param {any} object The parent object containing the array.
      * @param {string} key The property name of the array to convert.
      */
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
     _convertobject(object, key) {
         each(object[key], (obj, i) => {
             object[key][i] = new Objekt(obj);
@@ -115,6 +118,7 @@ export class Objekt {
      */
     get(attribute, opt_defaultValue, opt_isSafe = false) {
         if (!attribute) {
+            // eslint-disable-next-line @typescript-eslint/no-explicit-any
             return this;
         }
         const attributes = opt_isSafe ? [attribute] : attribute.split('.');
@@ -131,6 +135,7 @@ export class Objekt {
      */
     _getByAttributes(object, attributes) {
         let result = undefined;
+        // eslint-disable-next-line @typescript-eslint/no-explicit-any
         const obj = object;
         each(object, (_value, property) => {
             if (attributes.length === 1 &&
@@ -154,7 +159,10 @@ export class Objekt {
      * @param {Array<string>} attributes Remaining path segments to traverse.
      * @param {any} value The value to assign at the resolved path.
      */
-    _setByAttributes(object, attributes, value) {
+    _setByAttributes(object, attributes, 
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+    value) {
+        // eslint-disable-next-line @typescript-eslint/no-explicit-any
         const obj = object;
         eachObject(obj, (_oldValue, property) => {
             if (attributes.length === 1 && property === attributes[0]) {
@@ -249,6 +257,7 @@ export class Objekt {
      * @param {Array<string>} attributes Remaining path segments to traverse.
      */
     _removeByAttributes(object, attributes) {
+        // eslint-disable-next-line @typescript-eslint/no-explicit-any
         const obj = object;
         for (const property in obj) {
             if (obj.hasOwnProperty(property)) {
@@ -308,8 +317,11 @@ export class Objekt {
      * @param {any} value The value to assign at the deepest level.
      * @returns {object} The populated object.
      */
-    _attributesToobject(object, attributes, value) {
+    _attributesToobject(object, attributes, 
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+    value) {
         const lastAttribute = attributes.pop();
+        // eslint-disable-next-line @typescript-eslint/no-explicit-any
         let base = object;
         for (const attribute of attributes) {
             base = base[attribute] = base[attribute] || {};

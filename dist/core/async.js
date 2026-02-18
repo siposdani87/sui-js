@@ -74,6 +74,7 @@ export class Async {
      *     const [config, data] = results;
      * });
      */
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
     parallel(calls, opt_args) {
         const deferred = new Deferred();
         if (calls.length === 0) {
@@ -113,7 +114,11 @@ export class Async {
      * async.parallelFunction(() => loadItem(2));
      * async.parallelFunction(() => loadItem(3));
      */
-    parallelFunction(call, opt_args, opt_index) {
+    parallelFunction(
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+    call, 
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+    opt_args, opt_index) {
         const index = !isUndefined(opt_index) ? opt_index : this.call.counter++;
         this.call.results[index] = null;
         this._parallelWrapper(call, this.sum, true, index, opt_args);
@@ -132,14 +137,22 @@ export class Async {
      * @returns A {@link Promize} that settles when this function's result
      *     has been recorded.
      */
-    _parallelWrapper(call, length, allowEvent, index, opt_args) {
+    _parallelWrapper(
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+    call, length, allowEvent, index, 
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+    opt_args) {
         const deferred = new Deferred();
         const args = opt_args || [];
         const promise = call.apply(this, args);
         if (promise && isFunction(promise.then)) {
-            promise.then((object) => {
+            promise.then(
+            // eslint-disable-next-line @typescript-eslint/no-explicit-any
+            (object) => {
                 this._parallelCaller(length, false, object, allowEvent, index, opt_args).defer(deferred);
-            }, (object) => {
+            }, 
+            // eslint-disable-next-line @typescript-eslint/no-explicit-any
+            (object) => {
                 this._parallelCaller(length, true, object, allowEvent, index, opt_args).defer(deferred);
             });
         }
@@ -167,7 +180,11 @@ export class Async {
      *     provided (overrides the collected results array).
      * @returns A {@link Promize} that settles when the batch check completes.
      */
-    _parallelCaller(length, isError, result, allowEvent, index, opt_args) {
+    _parallelCaller(length, isError, 
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+    result, allowEvent, index, 
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+    opt_args) {
         const deferred = new Deferred();
         this.call.results[index] = result;
         if (isError) {
@@ -221,7 +238,9 @@ export class Async {
      * const async = new Async(5);
      * async.setStatus(2, false, 2, [resultA, resultB]);
      */
-    setStatus(sum, isError, counter, results) {
+    setStatus(sum, isError, counter, 
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+    results) {
         this.call.sum = sum;
         this.call.isError = isError;
         this.call.counter = counter;
@@ -243,6 +262,7 @@ export class Async {
      *     }
      * };
      */
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
     eventComplete(isError, results) {
         consoleDebug('Async.eventComplete(isError, results)', isError, results);
     }
@@ -269,6 +289,7 @@ export class Async {
      *     (error) => console.error('Step failed:', error),
      * );
      */
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
     serial(calls, opt_args) {
         const deferred = new Deferred();
         if (calls.length === 0) {
@@ -290,14 +311,20 @@ export class Async {
      * @param opt_args Optional arguments passed through to each function.
      * @returns A {@link Promize} that settles when this step completes.
      */
-    _serialWrapper(calls, index, opt_args) {
+    _serialWrapper(
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+    calls, index, 
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+    opt_args) {
         const deferred = new Deferred();
         const call = calls[index];
         const results = opt_args || this.call.results;
         const args = (opt_args || []).concat(this.call.results);
         const promise = call.apply(this, args);
         if (promise && isFunction(promise.then)) {
-            promise.then((result) => {
+            promise.then(
+            // eslint-disable-next-line @typescript-eslint/no-explicit-any
+            (result) => {
                 this._serialCaller(calls, index, result, opt_args).defer(deferred);
             }, () => {
                 const results = opt_args || this.call.results;
@@ -325,7 +352,13 @@ export class Async {
      *     continuation.
      * @returns A {@link Promize} that settles when the chain progresses.
      */
-    _serialCaller(calls, index, result, opt_args) {
+    _serialCaller(
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+    calls, index, 
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+    result, 
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+    opt_args) {
         const deferred = new Deferred();
         this.call.results[index] = result;
         const nextIndex = index + 1;

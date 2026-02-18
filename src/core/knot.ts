@@ -77,9 +77,9 @@ export class Knot<T extends HTMLElement = HTMLElement> {
             if (contain(node, '<') && contain(node, '</')) {
                 const template = document.createElement('template');
                 template.innerHTML = node;
-                node = template.content.firstElementChild as any as T;
+                node = template.content.firstElementChild as unknown as T;
             } else {
-                node = document.createElement(node) as any as T;
+                node = document.createElement(node) as unknown as T;
             }
         }
         this.node = node as T;
@@ -142,6 +142,7 @@ export class Knot<T extends HTMLElement = HTMLElement> {
      * @example
      * const href = knot.get('href');
      */
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
     get(attribute: string): any {
         if (eq(attribute, 'id')) {
             return this.getId();
@@ -207,7 +208,7 @@ export class Knot<T extends HTMLElement = HTMLElement> {
      * label.setFor('email-input');
      */
     setFor(htmlFor: boolean | number | string): void {
-        (this.node as any as HTMLLabelElement).htmlFor = htmlFor.toString();
+        (this.node as unknown as HTMLLabelElement).htmlFor = htmlFor.toString();
         this.setAttribute('for', htmlFor);
     }
 
@@ -221,7 +222,7 @@ export class Knot<T extends HTMLElement = HTMLElement> {
      */
     getFor(): string | null {
         return (
-            (this.node as any as HTMLLabelElement).htmlFor ||
+            (this.node as unknown as HTMLLabelElement).htmlFor ||
             this.getAttribute('for')
         );
     }
@@ -247,7 +248,7 @@ export class Knot<T extends HTMLElement = HTMLElement> {
      */
     private _handleClassList(
         cssClasses: Array<string> | string,
-        callback: Function,
+        callback: (cssClass: string) => void,
     ): void {
         if (isArray(cssClasses)) {
             each(cssClasses, (cssClass) => {
@@ -345,8 +346,8 @@ export class Knot<T extends HTMLElement = HTMLElement> {
         opt_value?:
             | (
                   | object
-                  | Function
-                  | Array<any>
+                  | ((...args: unknown[]) => unknown)
+                  | Array<unknown>
                   | boolean
                   | number
                   | string
@@ -360,6 +361,7 @@ export class Knot<T extends HTMLElement = HTMLElement> {
                 ? attribute
                 : opt_value;
         if (isFunction(value)) {
+            // eslint-disable-next-line @typescript-eslint/no-explicit-any
             (this.node as any)[attribute] = value;
         } else if (
             contain(attribute, 'data-') &&
@@ -385,6 +387,7 @@ export class Knot<T extends HTMLElement = HTMLElement> {
      * knot.setAttribute('data-count', 42);
      * const count = knot.getAttribute('data-count'); // 42 (number)
      */
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
     getAttribute(attribute: string): any {
         const data = this.node.getAttribute(attribute);
         if (
@@ -443,8 +446,10 @@ export class Knot<T extends HTMLElement = HTMLElement> {
      */
     addEventListener(
         eventName: string,
+        // eslint-disable-next-line @typescript-eslint/no-explicit-any
         opt_callback?: (knot: Knot<T>, event: any) => any,
-    ): Function {
+    ): () => void {
+        // eslint-disable-next-line @typescript-eslint/no-explicit-any
         let listener: any = noop();
         if (opt_callback) {
             listener = (event: Event) => {
@@ -466,7 +471,8 @@ export class Knot<T extends HTMLElement = HTMLElement> {
      * @param eventName DOM event name the listener is bound to.
      * @param listener The listener function to store.
      */
-    private _addListenerToStore(eventName: string, listener: Function): void {
+    private _addListenerToStore(eventName: string, listener: () => void): void {
+        // eslint-disable-next-line @typescript-eslint/no-explicit-any
         const node = this.node as Record<string, any>;
         if (!node[this.listenerStoreKey]) {
             node[this.listenerStoreKey] = {};
@@ -485,6 +491,7 @@ export class Knot<T extends HTMLElement = HTMLElement> {
      *     are stored.
      */
     private _getListenersFromStore(eventName: string): Listener[] {
+        // eslint-disable-next-line @typescript-eslint/no-explicit-any
         const node = this.node as Record<string, any>;
         if (
             node[this.listenerStoreKey] ||
@@ -839,6 +846,7 @@ export class Knot<T extends HTMLElement = HTMLElement> {
      * knot.setData('userId', 42);
      * knot.setData('config', { theme: 'dark', lang: 'en' });
      */
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
     setData(name: string, value: any): void {
         if (!this.isEmpty()) {
             let data = value;
@@ -862,6 +870,7 @@ export class Knot<T extends HTMLElement = HTMLElement> {
      * const userId = knot.getData('userId');   // 42
      * const config = knot.getData('config');   // { theme: 'dark' }
      */
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
     getData(name: string): any {
         let data = this.node.dataset[name];
         if (
@@ -972,7 +981,7 @@ export class Knot<T extends HTMLElement = HTMLElement> {
      * @example
      * knot.removeStyle(['background-color', 'opacity']);
      */
-    removeStyle(properties: Array<any>): void {
+    removeStyle(properties: Array<string>): void {
         each(properties, (property) => {
             this.node.style.removeProperty(property);
         });

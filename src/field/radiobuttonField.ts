@@ -128,14 +128,13 @@ export class RadiobuttonField extends BaseField<HTMLInputElement> {
 
     /**
      * @description Checks the radio button whose value attribute matches the given value and triggers a change event.
-     * @param {object | Function | Array<any> | boolean | number | string | null | undefined} value - The value to select.
+     * @param {object | Array<unknown> | boolean | number | string | null | undefined} value - The value to select.
      * @override
      */
     override setValue(
         value:
             | object
-            | Function
-            | Array<any>
+            | Array<unknown>
             | boolean
             | number
             | string
@@ -153,6 +152,7 @@ export class RadiobuttonField extends BaseField<HTMLInputElement> {
      * @returns {any} The type-cast value of the checked radio button.
      * @override
      */
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
     override getValue(): any {
         let value = null;
         this._getRadioButtonInputs().each((radioButtonInput) => {

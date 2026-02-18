@@ -50,6 +50,7 @@ export class LocationField extends BaseField {
         });
         this.input.addEventListener('change', (input) => {
             const inputNode = input.getNode();
+            // eslint-disable-next-line @typescript-eslint/no-explicit-any
             const location = this.getValue();
             location['address'] = typeCast(inputNode.value);
             this._setDataValue(location);
@@ -168,12 +169,14 @@ export class LocationField extends BaseField {
         this.advancedKnot.addClass(['advanced', 'row', 'hidden']);
         this.inputBlock.appendChild(this.advancedKnot);
         this.latitudeInput = this._renderAdvancedInput(generateId('latitude'), this.input.getData('latitude'), (inputKnot) => {
+            // eslint-disable-next-line @typescript-eslint/no-explicit-any
             const location = this.getValue();
             const latitude = inputKnot.getNode().value;
             location['latitude'] = latitude;
             this.setValue(location);
         });
         this.longitudeInput = this._renderAdvancedInput(generateId('longitude'), this.input.getData('longitude'), (inputKnot) => {
+            // eslint-disable-next-line @typescript-eslint/no-explicit-any
             const location = this.getValue();
             const longitude = inputKnot.getNode().value;
             location['longitude'] = longitude;
@@ -274,6 +277,7 @@ export class LocationField extends BaseField {
      * on the map if coordinates are present.
      */
     _setDefaultValue() {
+        // eslint-disable-next-line @typescript-eslint/no-explicit-any
         const location = this.getValue();
         if (!isNull(location['latitude']) && !isNull(location['longitude'])) {
             this.map.setCenter(location['latitude'], location['longitude']);
@@ -291,6 +295,7 @@ export class LocationField extends BaseField {
      * locationField.updatePosition(47.4979, 19.0402);
      */
     updatePosition(latitude, longitude) {
+        // eslint-disable-next-line @typescript-eslint/no-explicit-any
         const location = this.getValue();
         location['latitude'] = latitude;
         location['longitude'] = longitude;
@@ -302,6 +307,7 @@ export class LocationField extends BaseField {
      *
      * @param value Location object with `address`, `latitude`, and `longitude` keys.
      */
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
     _setDataValue(value) {
         this.latitudeInput.getNode().value = value['latitude'] || '';
         this.longitudeInput.getNode().value = value['longitude'] || '';
@@ -316,6 +322,7 @@ export class LocationField extends BaseField {
      * @override
      */
     setValue(value) {
+        // eslint-disable-next-line @typescript-eslint/no-explicit-any
         const loc = value;
         this._setDataValue(loc);
         this.map.removeMarker(0);
@@ -336,6 +343,7 @@ export class LocationField extends BaseField {
      * @returns The location object with `address`, `latitude`, and `longitude`.
      * @override
      */
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
     getValue() {
         const value = this.input.getData('value');
         return typeCast(value);

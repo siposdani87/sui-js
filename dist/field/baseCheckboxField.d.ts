@@ -39,9 +39,9 @@ export declare class BaseCheckboxField extends BaseField<HTMLInputElement> {
     getValue(): any;
     /**
      * @description Sets the field's checked state by comparing the value against the input's value attribute.
-     * @param {object | Function | Array<any> | boolean | number | string | null | undefined} value - The value to set.
+     * @param {object | Array<unknown> | boolean | number | string | null | undefined} value - The value to set.
      */
-    setValue(value: object | Function | Array<any> | boolean | number | string | null | undefined): void;
+    setValue(value: object | Array<unknown> | boolean | number | string | null | undefined): void;
     /**
      * @description Sets the disabled state, updating both the input and the label/input block styling.
      * @param {boolean} state - True to disable the field, false to enable it.

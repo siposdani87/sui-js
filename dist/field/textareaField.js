@@ -93,8 +93,10 @@ export class TextareaField extends BaseField {
             let text = '';
             if (e.clipboardData) {
                 text = e.clipboardData.getData('text/plain');
+                // eslint-disable-next-line @typescript-eslint/no-explicit-any
             }
             else if (window['clipboardData']) {
+                // eslint-disable-next-line @typescript-eslint/no-explicit-any
                 text = window['clipboardData'].getData('Text');
             }
             if (document.queryCommandSupported('insertHTML')) {
@@ -155,7 +157,7 @@ export class TextareaField extends BaseField {
     /**
      * @description Creates a single toolbar button with a material icon and click handler.
      * @param {string} iconName - The Material Icons icon name.
-     * @param {Function} action - The callback to execute on click.
+     * @param {() => void} action - The callback to execute on click.
      */
     _renderToolbarButton(iconName, action) {
         const boldButtonKnot = new Knot('a');
@@ -223,7 +225,7 @@ export class TextareaField extends BaseField {
     }
     /**
      * @description Sets the raw input value and triggers a change event without updating the rich text div.
-     * @param {object | Function | Array<any> | boolean | number | string | null | undefined} value - The value to set.
+     * @param {object | Array<unknown> | boolean | number | string | null | undefined} value - The value to set.
      */
     _setValue(value) {
         const inputNode = this.input.getNode();
@@ -232,7 +234,7 @@ export class TextareaField extends BaseField {
     }
     /**
      * @description Sets the field value, updating both the rich text div innerHTML and the raw input.
-     * @param {object | Function | Array<any> | boolean | number | string | null | undefined} value - The value to set.
+     * @param {object | Array<unknown> | boolean | number | string | null | undefined} value - The value to set.
      * @override
      */
     setValue(value) {

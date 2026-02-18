@@ -66,6 +66,7 @@ export class TextField extends BaseField {
      * @description Returns the raw string value of the input element without type-casting.
      * @returns {*} The input element's current value.
      */
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
     getValue() {
         return this.input.getNode().value;
     }

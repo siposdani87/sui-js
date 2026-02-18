@@ -63,10 +63,13 @@ export class Scheduler {
      *     console.log('Daily report');
      * });
      */
-    everyDay(time: string, callback: Function): Function {
+    everyDay(time: string, callback: () => void): () => void {
         const name = time;
         if (isFunction(callback)) {
-            const schedulers = this.schedulerStore.get<Function[]>(name, []);
+            const schedulers = this.schedulerStore.get<(() => void)[]>(
+                name,
+                [],
+            );
             schedulers.push(callback);
             this.schedulerStore.set(name, schedulers);
         }

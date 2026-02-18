@@ -50,6 +50,7 @@ export class Module {
     private _modules: {
         [key: string]: Dependency;
     };
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
     private _controller: any;
 
     /**
@@ -135,9 +136,11 @@ export class Module {
      *     resolved dependencies.
      */
     private _resolveDependencies(dependency: Dependency): object {
+        // eslint-disable-next-line @typescript-eslint/no-explicit-any
         const moduleArgs: any[] = [];
-        each(dependency.moduleInjections, (injection: any) => {
+        each(dependency.moduleInjections, (injection: string) => {
             moduleArgs.push(
+                // eslint-disable-next-line @typescript-eslint/no-explicit-any
                 (this._instances as Record<string, any>)[injection] ||
                     injection,
             );
@@ -260,18 +263,22 @@ export class Module {
      */
     handleServices(services: string[]): void {
         const sortedServices = this._getSortedServices(services);
+        // eslint-disable-next-line @typescript-eslint/no-explicit-any
         const calls: Array<() => any> = [];
-        each(sortedServices, (serviceName: any) => {
+        each(sortedServices, (serviceName: string) => {
             const moduleCall = () => {
+                // eslint-disable-next-line @typescript-eslint/no-explicit-any
                 (this._instances as Record<string, any>)[serviceName] =
                     this._resolveDependencies(this._modules[serviceName]);
 
                 if (
                     isFunction(
+                        // eslint-disable-next-line @typescript-eslint/no-explicit-any
                         (this._instances as Record<string, any>)[serviceName]
                             .enter,
                     )
                 ) {
+                    // eslint-disable-next-line @typescript-eslint/no-explicit-any
                     return (this._instances as Record<string, any>)[
                         serviceName
                     ].enter();
@@ -368,6 +375,7 @@ export class Module {
                     this.eventModuleLoaded(currentState);
                     this._initController(
                         currentState,
+                        // eslint-disable-next-line @typescript-eslint/no-explicit-any
                         (this._instances as Record<string, any>)[
                             this._injections.template
                         ].getViewKnot(),

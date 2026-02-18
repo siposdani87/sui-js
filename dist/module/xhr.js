@@ -345,7 +345,9 @@ export class Xhr {
      * @param {string} stringKey The accumulated bracket-notation key path.
      * @returns {Array<string>} Flat array of 'key=value' strings.
      */
-    _parseobject(obj, key, stringKey) {
+    _parseobject(
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+    obj, key, stringKey) {
         stringKey += stringKey ? '[' + key + ']' : key;
         let results = [];
         if (obj instanceof Array) {
@@ -377,8 +379,11 @@ export class Xhr {
     _stringifyobject(obj) {
         let results = [];
         for (const key in obj) {
+            // eslint-disable-next-line @typescript-eslint/no-explicit-any
             if (obj.hasOwnProperty(key)) {
-                const pair = this._parseobject(obj[key], key, '');
+                const pair = this._parseobject(
+                // eslint-disable-next-line @typescript-eslint/no-explicit-any
+                obj[key], key, '');
                 results = results.concat(pair);
             }
         }
@@ -416,6 +421,7 @@ export class Xhr {
      * @param {any} response The raw XMLHttpRequest response.
      * @returns {Promize} Resolves with a tuple of [Objekt, filename].
      */
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
     _handleResponseData(response) {
         const deferred = new Deferred();
         const filename = this._getFilenameFromHeader();

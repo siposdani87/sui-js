@@ -70,9 +70,9 @@ export declare class SelectField extends BaseField<HTMLInputElement> {
     refresh(): void;
     /**
      * @description Sets the selected value(s) by updating the selected state of the underlying option elements.
-     * @param {object | Function | Array<any> | boolean | number | string | null | undefined} value - The value or array of values to select.
+     * @param {object | Array<unknown> | boolean | number | string | null | undefined} value - The value or array of values to select.
      */
-    setValue(value: object | Function | Array<any> | boolean | number | string | null | undefined): void;
+    setValue(value: object | Array<unknown> | boolean | number | string | null | undefined): void;
     /**
      * @description Returns the selected value(s). Returns a single value for single-select or an array for multi-select.
      * @returns {*} The selected value(s), or null if nothing is selected.

@@ -143,7 +143,7 @@ export class SelectField extends BaseField {
     }
     /**
      * @description Sets the selected value(s) by updating the selected state of the underlying option elements.
-     * @param {object | Function | Array<any> | boolean | number | string | null | undefined} value - The value or array of values to select.
+     * @param {object | Array<unknown> | boolean | number | string | null | undefined} value - The value or array of values to select.
      */
     setValue(value) {
         this.ids = value;
@@ -156,6 +156,7 @@ export class SelectField extends BaseField {
      * @description Returns the selected value(s). Returns a single value for single-select or an array for multi-select.
      * @returns {*} The selected value(s), or null if nothing is selected.
      */
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
     getValue() {
         let ids = this._getSelectedIds();
         ids = ids.filter((id) => {
@@ -171,6 +172,7 @@ export class SelectField extends BaseField {
      * const option = selectField.getOptionValue();
      * const label = selectField.getOptionValue('label');
      */
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
     getOptionValue(opt_attribute) {
         const value = this.getValue();
         if (value) {
@@ -248,6 +250,7 @@ export class SelectField extends BaseField {
      * @description Renders the selected tags in the select container based on the given IDs.
      * @param {Array<any>} ids - The selected option IDs.
      */
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
     _setSelectTags(ids) {
         if (this.isRequired() && ids.length === 1 && ids[0] === '') {
             this.inputBlock.addClass('is-invalid');
@@ -327,6 +330,7 @@ export class SelectField extends BaseField {
      * @description Updates the selected attribute on option elements matching the given IDs.
      * @param {Array<any>} ids - The IDs to mark as selected.
      */
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
     _setSelectedIds(ids) {
         this.options.each((option) => {
             const id = option.get('id');
@@ -347,7 +351,9 @@ export class SelectField extends BaseField {
      * @description Collects the IDs of all currently selected options.
      * @returns {Array<any>} The selected IDs, or [''] if none are selected.
      */
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
     _getSelectedIds() {
+        // eslint-disable-next-line @typescript-eslint/no-explicit-any
         const ids = [];
         this.options.each((option) => {
             const optionKnot = option.get('option_node');

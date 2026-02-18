@@ -37,7 +37,7 @@ export class Query<T extends HTMLElement = HTMLElement> extends Collection<
      *     within. Defaults to the document root when omitted.
      */
     constructor(selector: string, opt_element?: HTMLElement | Knot) {
-        let element = opt_element ?? (document as any as HTMLElement);
+        let element = opt_element ?? (document as unknown as HTMLElement);
         if (instanceOf(element, Knot)) {
             element = (element as Knot).getNode();
         }
@@ -92,7 +92,9 @@ export class Query<T extends HTMLElement = HTMLElement> extends Collection<
  * @param element Parent DOM element to scope the selection within.
  * @returns An array of matched DOM elements (nulls filtered out).
  */
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
 const querySelector = (selector: string, element: HTMLElement): Array<any> => {
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
     let nodeList: any = [];
     if (
         selector.indexOf(' ') !== -1 ||
@@ -102,7 +104,7 @@ const querySelector = (selector: string, element: HTMLElement): Array<any> => {
     ) {
         nodeList = element.querySelectorAll(selector);
     } else if (selector.startsWith('#')) {
-        let docElement = element as any as Document;
+        let docElement = element as unknown as Document;
         if (!isFunction(docElement.getElementById)) {
             docElement = document;
         }

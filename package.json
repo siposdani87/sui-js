@@ -22,7 +22,7 @@
     "stylelint:coverage": "npm run stylelint -- --formatter json --output-file coverage/stylelint.json",
     "coverage": "npm run eslint:coverage && npm run stylelint:coverage",
     "format:css": "npx prettier --write 'styles/**/*.*css'",
-    "format:ts": "npx prettier --write 'src/**/*.ts*'",
+    "format:ts": "npx prettier --write 'src/**/*.{ts,tsx}'",
     "format": "npm run format:css && npm run format:ts",
     "dev": "npm run sass:watch & npm run esbuild:watch & npx serve . -p 4000",
     "serve": "npx serve . -p 4000",

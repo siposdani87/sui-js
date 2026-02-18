@@ -171,6 +171,7 @@ export class Table {
         if (inArray(['search', 'actions'], column)) {
             headerKnot.addClass('actions');
         }
+        // eslint-disable-next-line @typescript-eslint/no-explicit-any
         const columnsWithOrder = this.options.sorted.filter((sort) => {
             return contain(sort, column);
         });
@@ -412,13 +413,16 @@ export class Table {
         else {
             result = item.get(column, '');
         }
+        // eslint-disable-next-line @typescript-eslint/no-explicit-any
         let items = [];
         if (!isArray(result)) {
             items = [result];
         }
         else {
+            // eslint-disable-next-line @typescript-eslint/no-explicit-any
             items = result;
         }
+        // eslint-disable-next-line @typescript-eslint/no-explicit-any
         eachArray(items, (item) => {
             if (!instanceOf(item, Knot)) {
                 const dataKnot = new Knot('span');
@@ -497,7 +501,9 @@ export class Table {
      * @param {{ style: Function; click: Function }} action - The action descriptor.
      * @param {T} item - The row data object.
      */
-    _createActionButton(containerKnot, action, item) {
+    _createActionButton(containerKnot, 
+    // eslint-disable-next-line @typescript-eslint/no-unsafe-function-type
+    action, item) {
         const [icon, title, disabled, removed] = action.style(item);
         if (!removed) {
             const buttonKnot = new Knot('button');
@@ -535,6 +541,7 @@ export class Table {
      * @example
      * table.setData([{ id: 1, name: 'Alice' }, { id: 2, name: 'Bob' }]);
      */
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
     setData(items) {
         this.collection.reload(items);
         if (this.collection.size() === 0) {

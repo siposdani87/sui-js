@@ -118,7 +118,9 @@ export class Depot {
      * depot.set('session', 'xyz', 2); // expires in 2 hours
      * depot.set('permanent', 'data', Infinity);
      */
-    set(name, value, opt_expires) {
+    set(name, 
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+    value, opt_expires) {
         const expires = this._getExpires(opt_expires);
         const encrypted = expires + ';' + encrypt(value, this.options.secret);
         const propertyName = this._getPropertyName(name);
@@ -139,6 +141,7 @@ export class Depot {
      *
      * depot.get('nonexistent'); // null
      */
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
     get(name) {
         const propertyName = this._getPropertyName(name);
         const item = this.storage.getItem(propertyName);

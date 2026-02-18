@@ -99,14 +99,13 @@ export class RangeField extends BaseField<HTMLInputElement> {
 
     /**
      * @description Sets the slider value via the MDL MaterialSlider API and updates the tooltip display.
-     * @param {object | Function | Array<any> | boolean | number | string | null | undefined} value - The value to set.
+     * @param {object | Array<unknown> | boolean | number | string | null | undefined} value - The value to set.
      * @override
      */
     override setValue(
         value:
             | object
-            | Function
-            | Array<any>
+            | Array<unknown>
             | boolean
             | number
             | string
@@ -114,6 +113,7 @@ export class RangeField extends BaseField<HTMLInputElement> {
             | undefined,
     ): void {
         const inputKnot = this.input.getNode();
+        // eslint-disable-next-line @typescript-eslint/no-explicit-any
         (inputKnot as any)['MaterialSlider']['change'](value);
         this.tooltip.render(value as string);
     }

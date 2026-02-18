@@ -71,7 +71,7 @@ export class IconToggleField extends BaseCheckboxField {
     /**
      * Sets the toggle value and updates the displayed icon accordingly.
      *
-     * @param {object | Function | Array<any> | boolean | number | string | null | undefined} value The value to set.
+     * @param {object | Array<unknown> | boolean | number | string | null | undefined} value The value to set.
      */
     setValue(value) {
         const currentValue = typeCast(this.input.getAttribute('value'));

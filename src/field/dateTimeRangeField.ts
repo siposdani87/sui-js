@@ -169,8 +169,7 @@ export class DateTimeRangeField extends BaseField<HTMLInputElement> {
     override setValue(
         value:
             | object
-            | Function
-            | Array<any>
+            | Array<unknown>
             | boolean
             | number
             | string

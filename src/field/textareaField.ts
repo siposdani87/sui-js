@@ -115,7 +115,9 @@ export class TextareaField extends BaseField<HTMLInputElement> {
             let text = '';
             if (e.clipboardData) {
                 text = e.clipboardData.getData('text/plain');
+                // eslint-disable-next-line @typescript-eslint/no-explicit-any
             } else if ((window as any)['clipboardData']) {
+                // eslint-disable-next-line @typescript-eslint/no-explicit-any
                 text = (window as any)['clipboardData'].getData('Text');
             }
             if (document.queryCommandSupported('insertHTML')) {
@@ -190,9 +192,9 @@ export class TextareaField extends BaseField<HTMLInputElement> {
     /**
      * @description Creates a single toolbar button with a material icon and click handler.
      * @param {string} iconName - The Material Icons icon name.
-     * @param {Function} action - The callback to execute on click.
+     * @param {() => void} action - The callback to execute on click.
      */
-    private _renderToolbarButton(iconName: string, action: Function): void {
+    private _renderToolbarButton(iconName: string, action: () => void): void {
         const boldButtonKnot = new Knot('a');
         boldButtonKnot.setAttribute('href', 'javascript:void(0)');
         boldButtonKnot.addClass('material-icons');
@@ -225,7 +227,7 @@ export class TextareaField extends BaseField<HTMLInputElement> {
      * @param {string} sCmd - The execCommand command name (e.g., 'bold', 'italic').
      * @param {any} [opt_sValue] - Optional command argument.
      */
-    private _formatDoc(sCmd: string, opt_sValue?: any | undefined): void {
+    private _formatDoc(sCmd: string, opt_sValue?: string | undefined): void {
         if (!this._isHtmlMode()) {
             document.execCommand(sCmd, false, opt_sValue);
             this._setValue(this.richTextKnot.innerHTML);
@@ -265,13 +267,12 @@ export class TextareaField extends BaseField<HTMLInputElement> {
 
     /**
      * @description Sets the raw input value and triggers a change event without updating the rich text div.
-     * @param {object | Function | Array<any> | boolean | number | string | null | undefined} value - The value to set.
+     * @param {object | Array<unknown> | boolean | number | string | null | undefined} value - The value to set.
      */
     private _setValue(
         value:
             | object
-            | Function
-            | Array<any>
+            | Array<unknown>
             | boolean
             | number
             | string
@@ -285,14 +286,13 @@ export class TextareaField extends BaseField<HTMLInputElement> {
 
     /**
      * @description Sets the field value, updating both the rich text div innerHTML and the raw input.
-     * @param {object | Function | Array<any> | boolean | number | string | null | undefined} value - The value to set.
+     * @param {object | Array<unknown> | boolean | number | string | null | undefined} value - The value to set.
      * @override
      */
     override setValue(
         value:
             | object
-            | Function
-            | Array<any>
+            | Array<unknown>
             | boolean
             | number
             | string
@@ -310,7 +310,7 @@ export class TextareaField extends BaseField<HTMLInputElement> {
      * @returns {any} The current textarea value.
      * @override
      */
-    override getValue(): any {
+    override getValue(): string {
         return this.input.getNode().value;
     }
 }

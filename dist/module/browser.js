@@ -78,6 +78,7 @@ export class Browser {
      * @param {string} name The feature identifier (e.g. 'window.history').
      * @param {any} value The feature reference to test for truthiness.
      */
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
     _setFeature(name, value) {
         if (eq(!!value, false)) {
             this.features.push(name);
@@ -102,11 +103,15 @@ export class Browser {
         const userAgent = window.navigator.userAgent.toLowerCase();
         this.browsers.webkit =
             'WebkitAppearance' in document.documentElement.style;
+        // eslint-disable-next-line @typescript-eslint/no-explicit-any
         this.browsers.chromium = !!window['chrome'];
         this.browsers.chrome =
+            // eslint-disable-next-line @typescript-eslint/no-explicit-any
             !!window['chrome'] &&
+                // eslint-disable-next-line @typescript-eslint/no-explicit-any
                 !!window['chrome']['webstore'];
         this.browsers.opera =
+            // eslint-disable-next-line @typescript-eslint/no-explicit-any
             !!window['opera'] ||
                 /opera|opr/i.test(navigator.userAgent);
         this.browsers.firefox =
@@ -117,6 +122,7 @@ export class Browser {
                 '-ms-user-select' in document.documentElement.style;
         this.browsers.lteIE10 = /*@cc_on!@*/ false;
         this.browsers.gteIE10 =
+            // eslint-disable-next-line @typescript-eslint/no-explicit-any
             document.body.style['msTouchAction'] !== undefined;
         this.browsers.IE11 =
             '-ms-scroll-limit' in document.documentElement.style &&

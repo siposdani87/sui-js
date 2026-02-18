@@ -68,6 +68,7 @@ export class MapLabel {
      * label.set('text', 'Updated Label');
      * label.set('fontColor', '#FF0000');
      */
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
     public set(key: string, value: any): void {
         this.overlayView.set(key, value);
     }
@@ -81,7 +82,9 @@ export class MapLabel {
      * label.setMap(googleMap.map);
      * label.setMap(null); // remove from map
      */
-    public setMap(map: google.maps.Map | google.maps.StreetViewPanorama): void {
+    public setMap(
+        map: google.maps.Map | google.maps.StreetViewPanorama | null,
+    ): void {
         this.overlayView.setMap(map);
     }
 

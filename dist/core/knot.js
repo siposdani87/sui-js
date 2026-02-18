@@ -115,6 +115,7 @@ export class Knot {
      * @example
      * const href = knot.get('href');
      */
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
     get(attribute) {
         if (eq(attribute, 'id')) {
             return this.getId();
@@ -301,6 +302,7 @@ export class Knot {
             ? attribute
             : opt_value;
         if (isFunction(value)) {
+            // eslint-disable-next-line @typescript-eslint/no-explicit-any
             this.node[attribute] = value;
         }
         else if (contain(attribute, 'data-') &&
@@ -325,6 +327,7 @@ export class Knot {
      * knot.setAttribute('data-count', 42);
      * const count = knot.getAttribute('data-count'); // 42 (number)
      */
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
     getAttribute(attribute) {
         const data = this.node.getAttribute(attribute);
         if (contain(attribute, 'data-') &&
@@ -376,7 +379,10 @@ export class Knot {
      *     return true; // allow default action
      * });
      */
-    addEventListener(eventName, opt_callback) {
+    addEventListener(eventName, 
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+    opt_callback) {
+        // eslint-disable-next-line @typescript-eslint/no-explicit-any
         let listener = noop();
         if (opt_callback) {
             listener = (event) => {
@@ -398,6 +404,7 @@ export class Knot {
      * @param listener The listener function to store.
      */
     _addListenerToStore(eventName, listener) {
+        // eslint-disable-next-line @typescript-eslint/no-explicit-any
         const node = this.node;
         if (!node[this.listenerStoreKey]) {
             node[this.listenerStoreKey] = {};
@@ -415,6 +422,7 @@ export class Knot {
      *     are stored.
      */
     _getListenersFromStore(eventName) {
+        // eslint-disable-next-line @typescript-eslint/no-explicit-any
         const node = this.node;
         if (node[this.listenerStoreKey] ||
             node[this.listenerStoreKey][eventName]) {
@@ -736,6 +744,7 @@ export class Knot {
      * knot.setData('userId', 42);
      * knot.setData('config', { theme: 'dark', lang: 'en' });
      */
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
     setData(name, value) {
         if (!this.isEmpty()) {
             let data = value;
@@ -758,6 +767,7 @@ export class Knot {
      * const userId = knot.getData('userId');   // 42
      * const config = knot.getData('config');   // { theme: 'dark' }
      */
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
     getData(name) {
         let data = this.node.dataset[name];
         if (data &&

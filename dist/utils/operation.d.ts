@@ -141,7 +141,7 @@ export declare const lte: (a: unknown, b: unknown) => boolean;
  * @returns {boolean} `true` if the value is an array.
  * @category Utility
  */
-export declare const isArray: <T>(value: any) => value is Array<T>;
+export declare const isArray: <T>(value: unknown) => value is Array<T>;
 /**
  * Type guard that checks whether a value is a function.
  *
@@ -149,7 +149,7 @@ export declare const isArray: <T>(value: any) => value is Array<T>;
  * @returns {boolean} `true` if `typeof value === 'function'`.
  * @category Utility
  */
-export declare const isFunction: (value: any) => value is Function;
+export declare const isFunction: (value: unknown) => value is Function;
 /**
  * Type guard that checks whether a value is a string.
  *
@@ -157,7 +157,7 @@ export declare const isFunction: (value: any) => value is Function;
  * @returns {boolean} `true` if `typeof value === 'string'`.
  * @category Utility
  */
-export declare const isString: (value: any) => value is string;
+export declare const isString: (value: unknown) => value is string;
 /**
  * Type guard that checks whether a value can be safely cast to a finite number.
  *
@@ -175,7 +175,7 @@ export declare const isString: (value: any) => value is string;
  * isNumber(Infinity); // false
  * @category Utility
  */
-export declare const isNumber: (value: any) => value is number;
+export declare const isNumber: (value: unknown) => value is number;
 /**
  * Type guard that checks whether a value is a floating-point number.
  *
@@ -186,7 +186,7 @@ export declare const isNumber: (value: any) => value is number;
  * @returns {boolean} `true` if `parseFloat(value) === value`.
  * @category Utility
  */
-export declare const isFloat: (value: any) => value is number;
+export declare const isFloat: (value: unknown) => value is number;
 /**
  * Type guard that checks whether a value is an integer.
  *
@@ -197,7 +197,7 @@ export declare const isFloat: (value: any) => value is number;
  * @returns {boolean} `true` if `parseInt(value, 10) === value`.
  * @category Utility
  */
-export declare const isInteger: (value: any) => value is number;
+export declare const isInteger: (value: unknown) => value is number;
 /**
  * Type guard that checks whether a value has `typeof 'object'`.
  *
@@ -208,7 +208,7 @@ export declare const isInteger: (value: any) => value is number;
  * @returns {boolean} `true` if `typeof value === 'object'`.
  * @category Utility
  */
-export declare const isObject: (value: any) => value is object;
+export declare const isObject: (value: unknown) => value is object;
 /**
  * Type guard that checks whether a value is a plain JavaScript object.
  *
@@ -224,7 +224,7 @@ export declare const isObject: (value: any) => value is object;
  * isPureObject(new Date); // false
  * @category Utility
  */
-export declare const isPureObject: (value: any) => value is object;
+export declare const isPureObject: (value: unknown) => value is object;
 /**
  * Type guard that checks whether a value is a `Date` instance.
  *
@@ -232,7 +232,7 @@ export declare const isPureObject: (value: any) => value is object;
  * @returns {boolean} `true` if the value is an instance of `Date`.
  * @category Utility
  */
-export declare const isDate: (value: any) => value is Date;
+export declare const isDate: (value: unknown) => value is Date;
 /**
  * Type guard that checks whether a value is `null`.
  *
@@ -240,7 +240,7 @@ export declare const isDate: (value: any) => value is Date;
  * @returns {boolean} `true` if the value is strictly `null`.
  * @category Utility
  */
-export declare const isNull: (value: any) => value is null;
+export declare const isNull: (value: unknown) => value is null;
 /**
  * Type guard that checks whether a value is `Infinity`.
  *
@@ -248,7 +248,7 @@ export declare const isNull: (value: any) => value is null;
  * @returns {boolean} `true` if the value is `Infinity`.
  * @category Utility
  */
-export declare const isInfinity: (value: any) => value is typeof Infinity;
+export declare const isInfinity: (value: unknown) => value is typeof Infinity;
 /**
  * Type guard that checks whether a value is `undefined`.
  *
@@ -256,7 +256,7 @@ export declare const isInfinity: (value: any) => value is typeof Infinity;
  * @returns {boolean} `true` if `typeof value === 'undefined'`.
  * @category Utility
  */
-export declare const isUndefined: (value: any) => value is undefined;
+export declare const isUndefined: (value: unknown) => value is undefined;
 /**
  * Low-level type check using the `typeof` operator.
  *
@@ -268,7 +268,7 @@ export declare const isUndefined: (value: any) => value is undefined;
  * @returns {boolean} `true` if `typeof value === type`.
  * @category Utility
  */
-export declare const is: (value: any, type: string) => value is typeof type;
+export declare const is: (value: unknown, type: string) => value is typeof type;
 /**
  * Generic `instanceof` wrapper.
  *
@@ -282,7 +282,7 @@ export declare const is: (value: any, type: string) => value is typeof type;
  * instanceOf('hello', String);  // false
  * @category Utility
  */
-export declare const instanceOf: <T>(value: any, obj: T) => boolean;
+export declare const instanceOf: <T>(value: unknown, obj: T) => boolean;
 /**
  * Universal iterator that delegates to {@link eachArray} for arrays or
  * {@link eachObject} for plain objects.

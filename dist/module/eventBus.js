@@ -46,9 +46,9 @@ export class EventBus {
      *
      * @param {string} name The event name (dot-notation supported via
      *     {@link Objekt}).
-     * @param {Function} callback The function to invoke when the event
+     * @param {EventCallback} callback The function to invoke when the event
      *     fires.
-     * @returns {Function} The registered callback (same reference as the
+     * @returns {EventCallback} The registered callback (same reference as the
      *     input), useful for later removal.
      *
      * @example
@@ -70,7 +70,7 @@ export class EventBus {
      * passed to {@link EventBus.set} must be provided.
      *
      * @param {string} name The event name.
-     * @param {Function} callback The callback reference to remove.
+     * @param {EventCallback} callback The callback reference to remove.
      *
      * @example
      * eventBus.remove('data.loaded', handler);
@@ -112,6 +112,7 @@ export class EventBus {
      *     console.log('All ready handlers complete');
      * });
      */
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
     call(name, opt_args = []) {
         const calls = this.eventStore.get(name, [noop()]);
         const async = new Async();
@@ -125,7 +126,7 @@ export class EventBus {
      *
      * @param {string} name The event name to trigger.
      * @param {Array<any>} args Arguments passed to each callback.
-     * @param {Function} callback The fallback callback used when no
+     * @param {EventCallback} callback The fallback callback used when no
      *     listeners are registered for the event.
      * @returns {Promize} Resolves when all callbacks have been executed.
      *
@@ -134,6 +135,7 @@ export class EventBus {
      *     return window.confirm(msg);
      * });
      */
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
     override(name, args, callback) {
         const calls = this.eventStore.get(name, [callback]);
         const async = new Async();

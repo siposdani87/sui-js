@@ -101,7 +101,7 @@ export class RadiobuttonField extends BaseField {
     }
     /**
      * @description Checks the radio button whose value attribute matches the given value and triggers a change event.
-     * @param {object | Function | Array<any> | boolean | number | string | null | undefined} value - The value to select.
+     * @param {object | Array<unknown> | boolean | number | string | null | undefined} value - The value to select.
      * @override
      */
     setValue(value) {
@@ -115,6 +115,7 @@ export class RadiobuttonField extends BaseField {
      * @returns {any} The type-cast value of the checked radio button.
      * @override
      */
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
     getValue() {
         let value = null;
         this._getRadioButtonInputs().each((radioButtonInput) => {

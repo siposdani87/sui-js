@@ -150,7 +150,7 @@ export declare class LocationField extends BaseField<HTMLInputElement> {
      * @param value A location object with `address`, `latitude`, and `longitude` keys.
      * @override
      */
-    setValue(value: object | Function | Array<any> | boolean | number | string | null | undefined): void;
+    setValue(value: object | Array<unknown> | boolean | number | string | null | undefined): void;
     /**
      * Returns the current location object stored in the input's data attribute.
      *

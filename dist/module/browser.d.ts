@@ -69,7 +69,7 @@ export declare class Browser {
      *
      * @param {Array<any>} features List of missing feature identifiers.
      */
-    eventMissingFeatures(features: Array<any>): void;
+    eventMissingFeatures(features: Array<string>): void;
     /**
      * Populates the `browsers` map by inspecting CSS property support,
      * global objects, and the user-agent string.

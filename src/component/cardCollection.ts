@@ -26,6 +26,7 @@ import { mdl } from '../utils/render';
  */
 export class CardCollection {
     cardCollectionKnot: Knot;
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
     ctrl: any;
     options!: Objekt;
     collection!: Collection<Objekt>;
@@ -157,6 +158,7 @@ export class CardCollection {
                 const expressionMatches = expression.match(paramsRegex)!;
                 const fnName = expressionMatches[0].replace('ctrl.', '');
                 const fnKeys = expressionMatches[2].split(', ');
+                // eslint-disable-next-line @typescript-eslint/no-explicit-any
                 const fnParams: any[] = [];
                 eachArray(fnKeys, (key) => {
                     if (key === 'item') {
@@ -250,6 +252,7 @@ export class CardCollection {
      * @example
      * cards.setData([{ id: 1, name: 'Item 1' }, { id: 2, name: 'Item 2' }]);
      */
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
     setData(items: Array<any>): void {
         this.collection.reload(items);
         if (this.collection.size() === 0) {
@@ -276,6 +279,7 @@ export class CardCollection {
      * @description Returns items for the current page, applying limit when collection exceeds row_count.
      * @returns {Array<any>} The items to display on the current page.
      */
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
     private _getItems(): Array<any> {
         let items = this.collection.getItems();
         if (this.collection.size() > this.options.row_count) {

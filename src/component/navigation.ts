@@ -85,7 +85,7 @@ export class Navigation {
         const title = item.get<string>('title');
         const counter = item.get<string>('counter');
         const href = item.get<string>('href');
-        const action = item.get<Function>('action');
+        const action = item.get<(href: string) => void>('action');
         const disabled = item.get<boolean>('disabled');
 
         if (image) {
@@ -120,7 +120,7 @@ export class Navigation {
         id: string,
         counter: string,
         title: string | null,
-        action: Function,
+        action: (href: string) => void,
         opt_href: string | undefined = '',
         opt_data: object | undefined = {},
     ): void {
@@ -150,7 +150,7 @@ export class Navigation {
         id: string,
         icon: string,
         title: string | null,
-        action: Function,
+        action: (href: string) => void,
         opt_href: string | undefined = '',
         opt_data: object | undefined = {},
     ): void {
@@ -184,7 +184,7 @@ export class Navigation {
         id: string,
         image: string,
         title: string | null,
-        action: Function,
+        action: (href: string) => void,
         opt_href: string | undefined = '',
         opt_data: object | undefined = {},
     ): void {
@@ -233,7 +233,7 @@ export class Navigation {
     addText(
         id: string,
         title: string,
-        action: Function,
+        action: (href: string) => void,
         opt_href: string | undefined = '',
         opt_data: object | undefined = {},
     ): void {
@@ -252,7 +252,7 @@ export class Navigation {
     private _setKnot(
         id: string,
         title: string | null,
-        action: Function,
+        action: (href: string) => void,
         opt_href: string | undefined = '',
         opt_data: object | undefined = {},
     ): Objekt {
@@ -295,7 +295,7 @@ export class Navigation {
      *     console.log(item.get('id'), item.get('title'));
      * });
      */
-    each(next: Function): void {
+    each(next: (item: Objekt) => void): void {
         this.container.each((item) => {
             next(item);
         });
@@ -366,7 +366,7 @@ export class Navigation {
         this._disabled(item);
         const linkKnot = item.get<Knot>(this.linkKnotKey);
         linkKnot.removeClass('disabled');
-        const action = item.get<Function>('action');
+        const action = item.get<(href: string) => void>('action');
         const href = item.get<string>('href');
         linkKnot.setAttribute('href', href);
         const listener = linkKnot.addEventListener('click', () => {

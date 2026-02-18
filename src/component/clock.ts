@@ -67,15 +67,15 @@ export class Clock {
 
     /**
      * @description Dispatches to the appropriate callback based on the active mode (HOUR or MINUTE).
-     * @param {Function} hourCallback - Callback for HOUR mode.
-     * @param {Function} minuteCallback - Callback for MINUTE mode.
+     * @param {() => Date | void} hourCallback - Callback for HOUR mode.
+     * @param {() => Date | void} minuteCallback - Callback for MINUTE mode.
      * @returns {Date | null} The result of the invoked callback, or null if no mode matches.
      */
     private _switchMode(
-        hourCallback: Function,
-        minuteCallback: Function,
+        hourCallback: () => Date | void,
+        minuteCallback: () => Date | void,
     ): Date | null {
-        let result = null;
+        let result: Date | void | null = null;
         switch (this.activeMode) {
             case 'HOUR':
                 result = hourCallback();
@@ -86,7 +86,7 @@ export class Clock {
             default:
                 break;
         }
-        return result;
+        return result || null;
     }
 
     /**

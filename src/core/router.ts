@@ -92,8 +92,10 @@ export class Router {
      * const url = router.stringify({ category: 'books', page: '2' });
      * // '/search/books?page=2'
      */
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
     stringify(opt_params: Record<string, any> | undefined = {}): string {
         let route = this.route;
+        // eslint-disable-next-line @typescript-eslint/no-explicit-any
         const params: Record<string, any> = {};
         for (const key in opt_params) {
             if (opt_params.hasOwnProperty(key)) {
@@ -156,6 +158,7 @@ export class Router {
         if (!matches) {
             return {};
         }
+        // eslint-disable-next-line @typescript-eslint/no-explicit-any
         const params: Record<string, any> = this._parseParams(url);
         for (let i = 0; i < this.paramNames.length; i++) {
             const key = this.paramNames[i];
@@ -173,6 +176,7 @@ export class Router {
      * @returns A {@link Params} object of decoded query string parameters.
      */
     private _parseParams(url: string): Params {
+        // eslint-disable-next-line @typescript-eslint/no-explicit-any
         const params: Record<string, any> = {};
         const question = url.indexOf('?');
         if (question !== -1) {

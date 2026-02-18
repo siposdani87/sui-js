@@ -274,6 +274,7 @@ export class FileField extends BaseField {
     setValue(value) {
         let imageSrc = value;
         if (isPureObject(value)) {
+            // eslint-disable-next-line @typescript-eslint/no-explicit-any
             imageSrc = value['url'];
         }
         if (imageSrc) {
@@ -281,7 +282,7 @@ export class FileField extends BaseField {
             if (this._isDocument()) {
                 const extension = getExtensionName(imageSrc);
                 const [_mimeType, color] = this._lookupByExtension(extension);
-                imageSrc = this._getFileIconSrc(extension, color);
+                imageSrc = this._getFileIconSrc(extension, color || '');
             }
             this.imageTag.setAttribute('src', imageSrc);
             this._handleRemoveButton();

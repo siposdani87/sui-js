@@ -75,7 +75,7 @@ export declare class Async {
      *     const [config, data] = results;
      * });
      */
-    parallel(calls: Array<Function>, opt_args?: Array<any>): import("./promize").Promize<object, object>;
+    parallel(calls: Array<(...args: any[]) => any>, opt_args?: Array<any>): import("./promize").Promize<object, object>;
     /**
      * Adds a single function to an ongoing parallel batch. Unlike
      * `parallel()`, this method does not return a promise; instead, the
@@ -100,7 +100,7 @@ export declare class Async {
      * async.parallelFunction(() => loadItem(2));
      * async.parallelFunction(() => loadItem(3));
      */
-    parallelFunction(call: Function, opt_args?: Array<any>, opt_index?: number): void;
+    parallelFunction(call: (...args: any[]) => any, opt_args?: Array<any>, opt_index?: number): void;
     /**
      * Wraps a single parallel function call, handling both thenable and
      * synchronous return values, and forwarding results to
@@ -192,7 +192,7 @@ export declare class Async {
      *     (error) => console.error('Step failed:', error),
      * );
      */
-    serial(calls: Array<Function>, opt_args?: Array<any>): import("./promize").Promize<object, object>;
+    serial(calls: Array<(...args: any[]) => any>, opt_args?: Array<any>): import("./promize").Promize<object, object>;
     /**
      * Wraps a single serial step, executing the function at the given index
      * and forwarding its result to `_serialCaller()` for chain continuation.

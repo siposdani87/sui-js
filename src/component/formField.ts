@@ -72,7 +72,7 @@ export const parseInputBlock = (
     label: Knot | undefined;
     error: Knot | undefined;
 } => {
-    let input: Knot<any> = inputBlock;
+    let input: Knot<HTMLElement> = inputBlock;
     let label: Knot | undefined = undefined;
     let error: Knot | undefined = undefined;
 
@@ -84,7 +84,7 @@ export const parseInputBlock = (
         (eq(tagName, 'input') || eq(tagName, 'button')) &&
         !inArray(['hidden', 'reset', 'submit', 'button'], tagType)
     ) {
-        inputBlock = inputBlock.getParentKnot() as Knot<any>;
+        inputBlock = inputBlock.getParentKnot() as Knot<HTMLElement>;
     }
 
     tagName = inputBlock.getTagName();
@@ -106,7 +106,7 @@ export const parseInputBlock = (
     }
 
     return {
-        input,
+        input: input as Knot<HTMLInputElement>,
         label,
         error,
     };

@@ -136,7 +136,7 @@ export declare class Flash {
      * // Later, remove it programmatically:
      * flash.remove(flashKnot);
      */
-    remove(flash: Knot, opt_closeCallback?: (Function | null) | undefined): void;
+    remove(flash: Knot, opt_closeCallback?: ((() => void) | null) | undefined): void;
     /**
      * Adds a success-type flash message.
      *
@@ -151,7 +151,7 @@ export declare class Flash {
      * @example
      * flash.addSuccess('Profile updated successfully.');
      */
-    addSuccess(message: string, opt_duration?: number | undefined, opt_closeCallback?: (Function | null) | undefined, opt_id?: string | undefined): Knot;
+    addSuccess(message: string, opt_duration?: number | undefined, opt_closeCallback?: ((() => void) | null) | undefined, opt_id?: string | undefined): Knot;
     /**
      * Adds an info-type flash message.
      *
@@ -166,7 +166,7 @@ export declare class Flash {
      * @example
      * flash.addInfo('New version available.');
      */
-    addInfo(message: string, opt_duration?: number | undefined, opt_closeCallback?: (Function | null) | undefined, opt_id?: string | undefined): Knot;
+    addInfo(message: string, opt_duration?: number | undefined, opt_closeCallback?: ((() => void) | null) | undefined, opt_id?: string | undefined): Knot;
     /**
      * Adds a warning-type flash message.
      *
@@ -181,7 +181,7 @@ export declare class Flash {
      * @example
      * flash.addWarning('Disk space is running low.');
      */
-    addWarning(message: string, opt_duration?: number | undefined, opt_closeCallback?: (Function | null) | undefined, opt_id?: string | undefined): Knot;
+    addWarning(message: string, opt_duration?: number | undefined, opt_closeCallback?: ((() => void) | null) | undefined, opt_id?: string | undefined): Knot;
     /**
      * Adds an error-type flash message. Error messages are closable by
      * default (they display a close button and do not auto-dismiss).
@@ -203,7 +203,7 @@ export declare class Flash {
      *     reconnect();
      * });
      */
-    addError(message: string, opt_duration?: number | undefined, opt_closeCallback?: (Function | null) | undefined, opt_id?: string | undefined): Knot;
+    addError(message: string, opt_duration?: number | undefined, opt_closeCallback?: ((() => void) | null) | undefined, opt_id?: string | undefined): Knot;
     /**
      * Adds a flash message from a structured message object. The object
      * must contain `type` and `content` properties. When the `closable`
@@ -240,7 +240,7 @@ export declare class Flash {
         type: string;
         content: string;
         closable?: boolean;
-    }, opt_duration?: number | undefined, opt_closeCallback?: (Function | null) | undefined, opt_id?: string | undefined): Knot | null;
+    }, opt_duration?: number | undefined, opt_closeCallback?: ((() => void) | null) | undefined, opt_id?: string | undefined): Knot | null;
     /**
      * Adds a default-type flash message with no special styling.
      *
@@ -255,5 +255,5 @@ export declare class Flash {
      * @example
      * flash.addDefault('Action completed.');
      */
-    addDefault(message: string, opt_duration?: number | undefined, opt_closeCallback?: (Function | null) | undefined, opt_id?: string | undefined): Knot;
+    addDefault(message: string, opt_duration?: number | undefined, opt_closeCallback?: ((() => void) | null) | undefined, opt_id?: string | undefined): Knot;
 }

@@ -74,7 +74,7 @@ export declare class Navigation {
      * @example
      * nav.addCounter('notifications', '5', 'Alerts', (href) => {}, '/alerts');
      */
-    addCounter(id: string, counter: string, title: string | null, action: Function, opt_href?: string | undefined, opt_data?: object | undefined): void;
+    addCounter(id: string, counter: string, title: string | null, action: (href: string) => void, opt_href?: string | undefined, opt_data?: object | undefined): void;
     /**
      * Creates a navigation item with a Material Design icon.
      *
@@ -88,7 +88,7 @@ export declare class Navigation {
      * @example
      * nav.addIcon('home', 'home', 'Home', (href) => {}, '/');
      */
-    addIcon(id: string, icon: string, title: string | null, action: Function, opt_href?: string | undefined, opt_data?: object | undefined): void;
+    addIcon(id: string, icon: string, title: string | null, action: (href: string) => void, opt_href?: string | undefined, opt_data?: object | undefined): void;
     /**
      * Creates a navigation item with an image (SVG loaded via {@link Http} or a bitmap img tag).
      *
@@ -102,7 +102,7 @@ export declare class Navigation {
      * @example
      * nav.addImage('logo', '/logo.svg', 'Home', (href) => {}, '/');
      */
-    addImage(id: string, image: string, title: string | null, action: Function, opt_href?: string | undefined, opt_data?: object | undefined): void;
+    addImage(id: string, image: string, title: string | null, action: (href: string) => void, opt_href?: string | undefined, opt_data?: object | undefined): void;
     /**
      * Creates a navigation item with a plain text label only.
      *
@@ -115,7 +115,7 @@ export declare class Navigation {
      * @example
      * nav.addText('about', 'About Us', (href) => {}, '/about');
      */
-    addText(id: string, title: string, action: Function, opt_href?: string | undefined, opt_data?: object | undefined): void;
+    addText(id: string, title: string, action: (href: string) => void, opt_href?: string | undefined, opt_data?: object | undefined): void;
     /**
      * Creates the link knot element, attaches the click handler, and stores the item in the collection.
      * @param id - Unique identifier for the item.
@@ -136,7 +136,7 @@ export declare class Navigation {
      *     console.log(item.get('id'), item.get('title'));
      * });
      */
-    each(next: Function): void;
+    each(next: (item: Objekt) => void): void;
     /**
      * Appends all navigation link knots to the specified container, replacing its children.
      *

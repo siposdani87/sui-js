@@ -367,6 +367,7 @@ export class Application {
                 event,
             ]);
         };
+        // eslint-disable-next-line @typescript-eslint/no-explicit-any
         const flash = {
             node: null,
             message: 'Unable to connect to the Internet',
@@ -378,7 +379,10 @@ export class Application {
             }
         };
         this._instances.screen.eventOffline = (event) => {
-            this._instances.eventBus.override('window.offline', [flash, event], (flash) => {
+            this._instances.eventBus.override('window.offline', [flash, event], 
+            // eslint-disable-next-line @typescript-eslint/no-explicit-any
+            (flash) => {
+                // eslint-disable-next-line @typescript-eslint/no-explicit-any
                 flash.node = this._instances[this._injections.flash].addWarning(flash.message, flash.duration);
             });
         };

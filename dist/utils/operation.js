@@ -16,6 +16,7 @@
  * typeCast(42);           // 42 (unchanged, not a string)
  * @category Utility
  */
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
 export const typeCast = (value) => {
     let result = value;
     if (isString(value) && !contain(value, ' ')) {
@@ -59,7 +60,12 @@ export const typeCast = (value) => {
  * // { a: 1, b: { c: 2, d: 3 }, e: 4 }
  * @category Utility
  */
-export const merge = (objA, objB) => {
+export const merge = (
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
+objA, 
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
+objB) => {
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
     const obj = copyObject(objA);
     for (const key in objB) {
         if (objB.hasOwnProperty(key)) {
@@ -196,6 +202,7 @@ export const isArray = (value) => Array.isArray(value);
  * @returns {boolean} `true` if `typeof value === 'function'`.
  * @category Utility
  */
+// eslint-disable-next-line @typescript-eslint/no-unsafe-function-type
 export const isFunction = (value) => is(value, 'function');
 /**
  * Type guard that checks whether a value is a string.
@@ -334,7 +341,9 @@ export const is = (value, type) => typeof value === type;
  * instanceOf('hello', String);  // false
  * @category Utility
  */
-export const instanceOf = (value, obj) => value instanceof obj;
+export const instanceOf = (value, obj) => 
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
+value instanceof obj;
 /**
  * Universal iterator that delegates to {@link eachArray} for arrays or
  * {@link eachObject} for plain objects.
@@ -359,7 +368,9 @@ export const instanceOf = (value, obj) => value instanceof obj;
  * });
  * @category Utility
  */
-export const each = (items, next, opt_start, opt_end) => {
+export const each = (items, 
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
+next, opt_start, opt_end) => {
     if (isArray(items)) {
         eachArray(items, next, opt_start, opt_end);
     }
@@ -411,7 +422,11 @@ export const eachArray = (items, next, opt_start, opt_end) => {
  * // 'y' 20
  * @category Utility
  */
-export const eachObject = (object, next) => {
+export const eachObject = (
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
+object, 
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
+next) => {
     for (const key in object) {
         if (object.hasOwnProperty(key)) {
             next(object[key], key);
@@ -482,6 +497,7 @@ export const clearArray = (items) => {
  * @param {Record<string, any>} items The object to clear.
  * @category Utility
  */
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
 export const clearObject = (items) => {
     for (const key in items) {
         if (items.hasOwnProperty(key)) {
@@ -545,12 +561,15 @@ export const inContainArray = (items, item) => {
  * isSame([1, 2], [1, 3]);                              // false
  * @category Utility
  */
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
 export const isSame = (a, b) => {
     const strA = JSON.stringify(a);
     const strB = JSON.stringify(b);
     if (isPureObject(a) && isPureObject(b) && eq(strA.length, strB.length)) {
         let result = true;
+        // eslint-disable-next-line @typescript-eslint/no-explicit-any
         each(a, (value, key) => {
+            // eslint-disable-next-line @typescript-eslint/no-explicit-any
             if (!isSame(b[key], value)) {
                 result = false;
             }
@@ -606,6 +625,7 @@ export const copy = (items) => {
  * @category Utility
  */
 export const copyArray = (items) => {
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
     const results = [];
     eachArray(items, (item, index) => {
         if (isArray(item)) {
@@ -631,7 +651,9 @@ export const copyArray = (items) => {
  * @category Utility
  */
 export const copyObject = (item) => {
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
     const results = {};
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
     eachObject(item, (value, key) => {
         if (isArray(value)) {
             results[key] = copyArray(value);
@@ -739,8 +761,11 @@ export const pluck = (items, attribute) => {
  * // ['b', 'c']
  * @category Utility
  */
-export const pluckKeys = (obj, condition) => {
+export const pluckKeys = (obj, 
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
+condition) => {
     const results = [];
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
     eachObject(obj, (value, key) => {
         if (condition(value, key)) {
             results.push(key);
@@ -903,6 +928,7 @@ export const urlWithQueryString = (url, opt_params) => {
  */
 export const getQueryString = (opt_params) => {
     const queries = [];
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
     eachObject(opt_params, (param, key) => {
         if (isArray(param)) {
             eachArray(param, (value) => {

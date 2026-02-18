@@ -102,7 +102,7 @@ export class Flash {
         type: string,
         message: string,
         opt_duration: number | undefined = 0,
-        opt_closeCallback: (Function | null) | undefined = null,
+        opt_closeCallback: ((() => void) | null) | undefined = null,
         opt_id: string | undefined = '',
     ): Knot {
         const flashKnot = this.container.createElement('div');
@@ -131,7 +131,7 @@ export class Flash {
      */
     private _getCloseButton(
         flashKnot: Knot,
-        opt_closeCallback: (Function | null) | undefined = null,
+        opt_closeCallback: ((() => void) | null) | undefined = null,
     ): Knot {
         const buttonKnot = flashKnot.createElement('button');
         buttonKnot.addClass([
@@ -174,7 +174,7 @@ export class Flash {
         type: string,
         message: string,
         opt_duration: number | undefined = 0,
-        opt_closeCallback: (Function | null) | undefined = null,
+        opt_closeCallback: ((() => void) | null) | undefined = null,
         opt_id: string | undefined = '',
     ): Knot {
         this.removeById(opt_id);
@@ -232,7 +232,7 @@ export class Flash {
      */
     private _isClosable(
         type: string,
-        opt_closeCallback: (Function | null) | undefined = null,
+        opt_closeCallback: ((() => void) | null) | undefined = null,
     ): boolean {
         return (
             this.options.closableTypes.indexOf(type) !== -1 ||
@@ -255,7 +255,7 @@ export class Flash {
      */
     remove(
         flash: Knot,
-        opt_closeCallback: (Function | null) | undefined = null,
+        opt_closeCallback: ((() => void) | null) | undefined = null,
     ): void {
         if (isFunction(opt_closeCallback)) {
             opt_closeCallback();
@@ -280,7 +280,7 @@ export class Flash {
     addSuccess(
         message: string,
         opt_duration: number | undefined = 0,
-        opt_closeCallback: (Function | null) | undefined = null,
+        opt_closeCallback: ((() => void) | null) | undefined = null,
         opt_id: string | undefined = '',
     ): Knot {
         return this._add(
@@ -309,7 +309,7 @@ export class Flash {
     addInfo(
         message: string,
         opt_duration: number | undefined = 0,
-        opt_closeCallback: (Function | null) | undefined = null,
+        opt_closeCallback: ((() => void) | null) | undefined = null,
         opt_id: string | undefined = '',
     ): Knot {
         return this._add(
@@ -338,7 +338,7 @@ export class Flash {
     addWarning(
         message: string,
         opt_duration: number | undefined = 0,
-        opt_closeCallback: (Function | null) | undefined = null,
+        opt_closeCallback: ((() => void) | null) | undefined = null,
         opt_id: string | undefined = '',
     ): Knot {
         return this._add(
@@ -374,7 +374,7 @@ export class Flash {
     addError(
         message: string,
         opt_duration: number | undefined = 0,
-        opt_closeCallback: (Function | null) | undefined = null,
+        opt_closeCallback: ((() => void) | null) | undefined = null,
         opt_id: string | undefined = '',
     ): Knot {
         return this._add(
@@ -421,7 +421,7 @@ export class Flash {
     addMessage(
         message: { type: string; content: string; closable?: boolean },
         opt_duration: number | undefined = 0,
-        opt_closeCallback: (Function | null) | undefined = null,
+        opt_closeCallback: ((() => void) | null) | undefined = null,
         opt_id: string | undefined = '',
     ): Knot | null {
         if (isPureObject(message)) {
@@ -454,7 +454,7 @@ export class Flash {
     addDefault(
         message: string,
         opt_duration: number | undefined = 0,
-        opt_closeCallback: (Function | null) | undefined = null,
+        opt_closeCallback: ((() => void) | null) | undefined = null,
         opt_id: string | undefined = '',
     ): Knot {
         return this._add(

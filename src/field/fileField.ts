@@ -159,7 +159,7 @@ export class FileField extends BaseField<HTMLInputElement> {
      * @param mimeType The MIME type to look up (e.g. `'application/pdf'`).
      * @returns A tuple of `[extension, color]` or `undefined`.
      */
-    private _lookupByMimeType(mimeType: string): Array<any> {
+    private _lookupByMimeType(mimeType: string): [string, string] {
         return this.fileTypes[mimeType];
     }
 
@@ -169,8 +169,8 @@ export class FileField extends BaseField<HTMLInputElement> {
      * @param extension The file extension to look up (e.g. `'pdf'`).
      * @returns A tuple of `[mimeType, color]` or an empty array.
      */
-    private _lookupByExtension(extension: string): Array<any> {
-        let results: any[] = [];
+    private _lookupByExtension(extension: string): [string, string] | [] {
+        let results: [string, string] | [] = [];
         for (const key in this.fileTypes) {
             if (Object.hasOwn(this.fileTypes, key)) {
                 const fileType = this.fileTypes[key];
@@ -327,8 +327,7 @@ export class FileField extends BaseField<HTMLInputElement> {
     override setValue(
         value:
             | object
-            | Function
-            | Array<any>
+            | Array<unknown>
             | boolean
             | number
             | string
@@ -337,6 +336,7 @@ export class FileField extends BaseField<HTMLInputElement> {
     ): void {
         let imageSrc = value;
         if (isPureObject(value)) {
+            // eslint-disable-next-line @typescript-eslint/no-explicit-any
             imageSrc = (value as Record<string, any>)['url'];
         }
         if (imageSrc) {
@@ -344,7 +344,7 @@ export class FileField extends BaseField<HTMLInputElement> {
             if (this._isDocument()) {
                 const extension = getExtensionName(imageSrc as string);
                 const [_mimeType, color] = this._lookupByExtension(extension);
-                imageSrc = this._getFileIconSrc(extension, color);
+                imageSrc = this._getFileIconSrc(extension, color || '');
             }
             this.imageTag.setAttribute('src', imageSrc);
             this._handleRemoveButton();

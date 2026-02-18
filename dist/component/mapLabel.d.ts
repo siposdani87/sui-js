@@ -54,7 +54,7 @@ export declare class MapLabel {
      * label.setMap(googleMap.map);
      * label.setMap(null); // remove from map
      */
-    setMap(map: google.maps.Map | google.maps.StreetViewPanorama): void;
+    setMap(map: google.maps.Map | google.maps.StreetViewPanorama | null): void;
     /**
      * Wires up the overlay lifecycle methods (onAdd, onRemove, notify, draw).
      */

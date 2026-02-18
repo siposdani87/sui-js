@@ -201,7 +201,7 @@ export class ColorField extends BaseField<HTMLInputElement> {
                 x = e.layerX;
                 y = e.layerY;
             }
-            const rgb = this.canvas.getImageDataXY(x, y) as any as [
+            const rgb = this.canvas.getImageDataXY(x, y) as unknown as [
                 number,
                 number,
                 number,

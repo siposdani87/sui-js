@@ -76,6 +76,7 @@ export class LocationField extends BaseField<HTMLInputElement> {
 
         this.input.addEventListener('change', (input) => {
             const inputNode = input.getNode();
+            // eslint-disable-next-line @typescript-eslint/no-explicit-any
             const location = this.getValue() as Record<string, any>;
             location['address'] = typeCast(inputNode.value);
             this._setDataValue(location);
@@ -210,6 +211,7 @@ export class LocationField extends BaseField<HTMLInputElement> {
             generateId('latitude'),
             this.input.getData('latitude'),
             (inputKnot) => {
+                // eslint-disable-next-line @typescript-eslint/no-explicit-any
                 const location = this.getValue() as Record<string, any>;
                 const latitude = inputKnot.getNode().value;
                 location['latitude'] = latitude;
@@ -220,6 +222,7 @@ export class LocationField extends BaseField<HTMLInputElement> {
             generateId('longitude'),
             this.input.getData('longitude'),
             (inputKnot) => {
+                // eslint-disable-next-line @typescript-eslint/no-explicit-any
                 const location = this.getValue() as Record<string, any>;
                 const longitude = inputKnot.getNode().value;
                 location['longitude'] = longitude;
@@ -341,6 +344,7 @@ export class LocationField extends BaseField<HTMLInputElement> {
      * on the map if coordinates are present.
      */
     private _setDefaultValue(): void {
+        // eslint-disable-next-line @typescript-eslint/no-explicit-any
         const location = this.getValue() as Record<string, any>;
         if (!isNull(location['latitude']) && !isNull(location['longitude'])) {
             this.map.setCenter(location['latitude'], location['longitude']);
@@ -365,6 +369,7 @@ export class LocationField extends BaseField<HTMLInputElement> {
      * locationField.updatePosition(47.4979, 19.0402);
      */
     updatePosition(latitude: number | null, longitude: number | null): void {
+        // eslint-disable-next-line @typescript-eslint/no-explicit-any
         const location = this.getValue() as Record<string, any>;
         location['latitude'] = latitude;
         location['longitude'] = longitude;
@@ -377,6 +382,7 @@ export class LocationField extends BaseField<HTMLInputElement> {
      *
      * @param value Location object with `address`, `latitude`, and `longitude` keys.
      */
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
     private _setDataValue(value: Record<string, any>): void {
         this.latitudeInput.getNode().value = value['latitude'] || '';
         this.longitudeInput.getNode().value = value['longitude'] || '';
@@ -394,14 +400,14 @@ export class LocationField extends BaseField<HTMLInputElement> {
     override setValue(
         value:
             | object
-            | Function
-            | Array<any>
+            | Array<unknown>
             | boolean
             | number
             | string
             | null
             | undefined,
     ): void {
+        // eslint-disable-next-line @typescript-eslint/no-explicit-any
         const loc = value as Record<string, any>;
         this._setDataValue(loc);
         this.map.removeMarker(0);
@@ -434,6 +440,7 @@ export class LocationField extends BaseField<HTMLInputElement> {
      * @returns The location object with `address`, `latitude`, and `longitude`.
      * @override
      */
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
     override getValue(): any {
         const value = this.input.getData('value');
         return typeCast(value);

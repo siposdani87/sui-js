@@ -148,8 +148,7 @@ export class DateTimeField extends BaseField<HTMLInputElement> {
     override setValue(
         value:
             | object
-            | Function
-            | Array<any>
+            | Array<unknown>
             | boolean
             | number
             | string

@@ -163,7 +163,9 @@ export class Canvas {
             );
         }
         this.context.closePath();
+        // eslint-disable-next-line @typescript-eslint/no-explicit-any
         each(options, (value: any, key: string | number) => {
+            // eslint-disable-next-line @typescript-eslint/no-explicit-any
             (this.context as any)[key] = value;
         });
         this.context.fill();
@@ -201,12 +203,16 @@ export class Canvas {
         this.context.beginPath();
         this.context.rotate(rotateAngle);
         this.context.rect(0, 0, width, height);
+        // eslint-disable-next-line @typescript-eslint/no-explicit-any
         each(options, (value: any, key: string | number) => {
+            // eslint-disable-next-line @typescript-eslint/no-explicit-any
             (this.context as any)[key] = value;
         });
+        // eslint-disable-next-line @typescript-eslint/no-explicit-any
         if ((options as Record<string, any>)['fillStyle']) {
             this.context.fill();
         }
+        // eslint-disable-next-line @typescript-eslint/no-explicit-any
         if ((options as Record<string, any>)['strokeStyle']) {
             this.context.stroke();
         }

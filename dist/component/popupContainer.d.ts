@@ -1,5 +1,6 @@
 import { Knot } from '../core';
 import { Popup } from './popup';
+import { ClassRef } from '../utils/types';
 /**
  * @description Global popup lifecycle manager that tracks all open popups via a window-level
  * collection. Handles positioning and bulk close operations.
@@ -37,7 +38,7 @@ export declare class PopupContainer {
      * @example
      * container.push(Popup, popupInstance);
      */
-    push(type: Function, popup: Popup): void;
+    push(type: ClassRef, popup: Popup): void;
     /**
      * @description Removes a popup from the global collection.
      * @param {Popup} popup - The popup instance to remove.

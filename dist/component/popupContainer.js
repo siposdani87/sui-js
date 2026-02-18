@@ -32,7 +32,9 @@ export class PopupContainer {
      * @param {Function} type - The constructor type for the collection.
      */
     _initCollection(type) {
+        // eslint-disable-next-line @typescript-eslint/no-explicit-any
         window['popup_collection'] =
+            // eslint-disable-next-line @typescript-eslint/no-explicit-any
             window['popup_collection'] || new Collection([], type);
     }
     /**
@@ -45,7 +47,9 @@ export class PopupContainer {
      */
     push(type, popup) {
         this._initCollection(type);
+        // eslint-disable-next-line @typescript-eslint/no-explicit-any
         if (window['popup_collection']) {
+            // eslint-disable-next-line @typescript-eslint/no-explicit-any
             window['popup_collection'].push(popup);
         }
     }
@@ -57,7 +61,9 @@ export class PopupContainer {
      * container.delete(popupInstance);
      */
     delete(popup) {
+        // eslint-disable-next-line @typescript-eslint/no-explicit-any
         if (window['popup_collection']) {
+            // eslint-disable-next-line @typescript-eslint/no-explicit-any
             window['popup_collection'].delete(popup);
         }
     }
@@ -68,7 +74,9 @@ export class PopupContainer {
      * container.closeAll();
      */
     closeAll() {
+        // eslint-disable-next-line @typescript-eslint/no-explicit-any
         if (window['popup_collection']) {
+            // eslint-disable-next-line @typescript-eslint/no-explicit-any
             window['popup_collection'].each((popup) => {
                 popup.close();
             });

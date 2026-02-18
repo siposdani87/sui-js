@@ -85,7 +85,9 @@ export class Query extends Collection {
  * @param element Parent DOM element to scope the selection within.
  * @returns An array of matched DOM elements (nulls filtered out).
  */
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
 const querySelector = (selector, element) => {
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
     let nodeList = [];
     if (selector.indexOf(' ') !== -1 ||
         selector.split('.').length - 1 > 1 ||

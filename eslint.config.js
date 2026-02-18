@@ -45,7 +45,7 @@ export default [
             ...prettierConfig.rules,
             '@typescript-eslint/no-explicit-any': 'warn',
             '@typescript-eslint/no-this-alias': 'off',
-            '@typescript-eslint/no-unsafe-function-type': 'warn',
+            '@typescript-eslint/no-unsafe-function-type': 'error',
             '@typescript-eslint/no-unused-vars': [
                 'error',
                 {

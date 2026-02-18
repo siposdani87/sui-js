@@ -39,8 +39,8 @@ export declare class RangeField extends BaseField<HTMLInputElement> {
     refresh(): void;
     /**
      * @description Sets the slider value via the MDL MaterialSlider API and updates the tooltip display.
-     * @param {object | Function | Array<any> | boolean | number | string | null | undefined} value - The value to set.
+     * @param {object | Array<unknown> | boolean | number | string | null | undefined} value - The value to set.
      * @override
      */
-    setValue(value: object | Function | Array<any> | boolean | number | string | null | undefined): void;
+    setValue(value: object | Array<unknown> | boolean | number | string | null | undefined): void;
 }

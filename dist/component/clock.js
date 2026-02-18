@@ -47,8 +47,8 @@ export class Clock {
     }
     /**
      * @description Dispatches to the appropriate callback based on the active mode (HOUR or MINUTE).
-     * @param {Function} hourCallback - Callback for HOUR mode.
-     * @param {Function} minuteCallback - Callback for MINUTE mode.
+     * @param {() => Date | void} hourCallback - Callback for HOUR mode.
+     * @param {() => Date | void} minuteCallback - Callback for MINUTE mode.
      * @returns {Date | null} The result of the invoked callback, or null if no mode matches.
      */
     _switchMode(hourCallback, minuteCallback) {
@@ -63,7 +63,7 @@ export class Clock {
             default:
                 break;
         }
-        return result;
+        return result || null;
     }
     /**
      * @description Builds the full clock DOM structure including header, content, and initial mode.

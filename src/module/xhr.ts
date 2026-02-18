@@ -106,10 +106,10 @@ export class Xhr {
 
         this.httpRequest = new XMLHttpRequest();
         this.httpRequest.onreadystatechange =
-            this._onReadyStateChange() as any as (
+            this._onReadyStateChange() as unknown as (
                 this: XMLHttpRequest,
                 ev: Event,
-            ) => any;
+            ) => void;
 
         this.deferred = new Deferred();
     }
@@ -190,8 +190,8 @@ export class Xhr {
      *
      * @returns {Function} The event handler function.
      */
-    private _onReadyStateChange(): (_this: XMLHttpRequest, ev: Event) => any {
-        return (_this: XMLHttpRequest, ev: Event): any => {
+    private _onReadyStateChange(): (_this: XMLHttpRequest, ev: Event) => void {
+        return (_this: XMLHttpRequest, ev: Event): void => {
             switch (this.httpRequest.readyState) {
                 case 0:
                     // request not initialized
@@ -461,6 +461,7 @@ export class Xhr {
      * @returns {Array<string>} Flat array of 'key=value' strings.
      */
     private _parseobject(
+        // eslint-disable-next-line @typescript-eslint/no-explicit-any
         obj: any,
         key: string,
         stringKey: string,
@@ -495,8 +496,10 @@ export class Xhr {
     private _stringifyobject(obj: object): string {
         let results: string[] = [];
         for (const key in obj) {
+            // eslint-disable-next-line @typescript-eslint/no-explicit-any
             if ((obj as Record<string, any>).hasOwnProperty(key)) {
                 const pair = this._parseobject(
+                    // eslint-disable-next-line @typescript-eslint/no-explicit-any
                     (obj as Record<string, any>)[key],
                     key,
                     '',
@@ -544,6 +547,7 @@ export class Xhr {
      * @param {any} response The raw XMLHttpRequest response.
      * @returns {Promize} Resolves with a tuple of [Objekt, filename].
      */
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
     private _handleResponseData(response: any) {
         const deferred = new Deferred<[[Objekt, string]], undefined>();
         const filename = this._getFilenameFromHeader();

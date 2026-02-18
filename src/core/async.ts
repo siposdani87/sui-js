@@ -45,6 +45,7 @@ import { Deferred } from './deferred';
 export class Async {
     sum: number;
     call!: {
+        // eslint-disable-next-line @typescript-eslint/no-explicit-any
         results: any[];
         counter: number;
         sum: number;
@@ -84,7 +85,8 @@ export class Async {
      *     const [config, data] = results;
      * });
      */
-    parallel(calls: Array<Function>, opt_args?: Array<any>) {
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+    parallel(calls: Array<(...args: any[]) => any>, opt_args?: Array<any>) {
         const deferred = new Deferred();
         if (calls.length === 0) {
             const results = opt_args || this.call.results;
@@ -130,7 +132,9 @@ export class Async {
      * async.parallelFunction(() => loadItem(3));
      */
     parallelFunction(
-        call: Function,
+        // eslint-disable-next-line @typescript-eslint/no-explicit-any
+        call: (...args: any[]) => any,
+        // eslint-disable-next-line @typescript-eslint/no-explicit-any
         opt_args?: Array<any>,
         opt_index?: number,
     ): void {
@@ -154,10 +158,12 @@ export class Async {
      *     has been recorded.
      */
     private _parallelWrapper(
-        call: Function,
+        // eslint-disable-next-line @typescript-eslint/no-explicit-any
+        call: (...args: any[]) => any,
         length: number,
         allowEvent: boolean,
         index: number,
+        // eslint-disable-next-line @typescript-eslint/no-explicit-any
         opt_args?: Array<any>,
     ) {
         const deferred = new Deferred();
@@ -165,6 +171,7 @@ export class Async {
         const promise = call.apply(this, args);
         if (promise && isFunction(promise.then)) {
             promise.then(
+                // eslint-disable-next-line @typescript-eslint/no-explicit-any
                 (object: any) => {
                     this._parallelCaller(
                         length,
@@ -175,6 +182,7 @@ export class Async {
                         opt_args,
                     ).defer(deferred);
                 },
+                // eslint-disable-next-line @typescript-eslint/no-explicit-any
                 (object: any) => {
                     this._parallelCaller(
                         length,
@@ -227,9 +235,11 @@ export class Async {
     private _parallelCaller(
         length: number | undefined,
         isError: boolean,
+        // eslint-disable-next-line @typescript-eslint/no-explicit-any
         result: any,
         allowEvent: boolean,
         index: number,
+        // eslint-disable-next-line @typescript-eslint/no-explicit-any
         opt_args?: Array<any>,
     ) {
         const deferred = new Deferred();
@@ -288,6 +298,7 @@ export class Async {
         sum: number,
         isError: boolean,
         counter: number,
+        // eslint-disable-next-line @typescript-eslint/no-explicit-any
         results: Array<any>,
     ): void {
         this.call.sum = sum;
@@ -312,6 +323,7 @@ export class Async {
      *     }
      * };
      */
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
     eventComplete(isError: boolean, results: Array<any>): void {
         consoleDebug('Async.eventComplete(isError, results)', isError, results);
     }
@@ -339,7 +351,8 @@ export class Async {
      *     (error) => console.error('Step failed:', error),
      * );
      */
-    serial(calls: Array<Function>, opt_args?: Array<any>) {
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+    serial(calls: Array<(...args: any[]) => any>, opt_args?: Array<any>) {
         const deferred = new Deferred();
         if (calls.length === 0) {
             const results = opt_args || this.call.results;
@@ -361,8 +374,10 @@ export class Async {
      * @returns A {@link Promize} that settles when this step completes.
      */
     private _serialWrapper(
-        calls: Array<Function>,
+        // eslint-disable-next-line @typescript-eslint/no-explicit-any
+        calls: Array<(...args: any[]) => any>,
         index: number,
+        // eslint-disable-next-line @typescript-eslint/no-explicit-any
         opt_args?: Array<any>,
     ) {
         const deferred = new Deferred();
@@ -372,6 +387,7 @@ export class Async {
         const promise = call.apply(this, args);
         if (promise && isFunction(promise.then)) {
             promise.then(
+                // eslint-disable-next-line @typescript-eslint/no-explicit-any
                 (result: any) => {
                     this._serialCaller(calls, index, result, opt_args).defer(
                         deferred,
@@ -404,9 +420,12 @@ export class Async {
      * @returns A {@link Promize} that settles when the chain progresses.
      */
     private _serialCaller(
-        calls: Array<Function>,
+        // eslint-disable-next-line @typescript-eslint/no-explicit-any
+        calls: Array<(...args: any[]) => any>,
         index: number,
+        // eslint-disable-next-line @typescript-eslint/no-explicit-any
         result: any,
+        // eslint-disable-next-line @typescript-eslint/no-explicit-any
         opt_args?: Array<any>,
     ) {
         const deferred = new Deferred();

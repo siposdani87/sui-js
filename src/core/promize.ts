@@ -79,6 +79,7 @@ export class Promize<T = object, K = object> {
      * promize.resolve(42); // logs: 42
      */
     resolve(opt_data?: T): void {
+        // eslint-disable-next-line @typescript-eslint/no-explicit-any
         let data: any[] = [];
         if (opt_data) {
             data = isArray(opt_data) ? opt_data : [opt_data];
@@ -111,6 +112,7 @@ export class Promize<T = object, K = object> {
      * promize.reject(new Error('Failed'));
      */
     reject(opt_data?: K): void {
+        // eslint-disable-next-line @typescript-eslint/no-explicit-any
         let data: any[] = [];
         if (opt_data) {
             data = isArray(opt_data) ? opt_data : [opt_data];
@@ -155,8 +157,11 @@ export class Promize<T = object, K = object> {
      * // logs: "OK: Hello" then "Done"
      */
     then(
+        // eslint-disable-next-line @typescript-eslint/no-explicit-any
         resolve: (...args: T extends Array<any> ? T : [T]) => void,
+        // eslint-disable-next-line @typescript-eslint/no-explicit-any
         opt_reject?: (...args: K extends Array<any> ? K : [K]) => void,
+        // eslint-disable-next-line @typescript-eslint/no-explicit-any
         opt_complete?: (...args: T extends Array<any> ? T : [T]) => void,
     ): void {
         const reject = opt_reject || noop();

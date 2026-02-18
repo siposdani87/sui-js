@@ -77,7 +77,7 @@ export const parseInputBlock = (inputBlock) => {
         inputBlock.addClass('init-field');
     }
     return {
-        input,
+        input: input,
         label,
         error,
     };

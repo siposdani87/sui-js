@@ -73,6 +73,7 @@ export class Promize {
      * promize.resolve(42); // logs: 42
      */
     resolve(opt_data) {
+        // eslint-disable-next-line @typescript-eslint/no-explicit-any
         let data = [];
         if (opt_data) {
             data = isArray(opt_data) ? opt_data : [opt_data];
@@ -103,6 +104,7 @@ export class Promize {
      * promize.reject(new Error('Failed'));
      */
     reject(opt_data) {
+        // eslint-disable-next-line @typescript-eslint/no-explicit-any
         let data = [];
         if (opt_data) {
             data = isArray(opt_data) ? opt_data : [opt_data];
@@ -144,7 +146,13 @@ export class Promize {
      * promize.resolve('Hello');
      * // logs: "OK: Hello" then "Done"
      */
-    then(resolve, opt_reject, opt_complete) {
+    then(
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+    resolve, 
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+    opt_reject, 
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+    opt_complete) {
         const reject = opt_reject || noop();
         const complete = opt_complete || noop();
         switch (this.options.status) {

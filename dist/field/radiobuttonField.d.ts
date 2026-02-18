@@ -46,10 +46,10 @@ export declare class RadiobuttonField extends BaseField<HTMLInputElement> {
     refresh(): void;
     /**
      * @description Checks the radio button whose value attribute matches the given value and triggers a change event.
-     * @param {object | Function | Array<any> | boolean | number | string | null | undefined} value - The value to select.
+     * @param {object | Array<unknown> | boolean | number | string | null | undefined} value - The value to select.
      * @override
      */
-    setValue(value: object | Function | Array<any> | boolean | number | string | null | undefined): void;
+    setValue(value: object | Array<unknown> | boolean | number | string | null | undefined): void;
     /**
      * @description Returns the value of the currently checked radio button in the group, or null if none is selected.
      * @returns {any} The type-cast value of the checked radio button.

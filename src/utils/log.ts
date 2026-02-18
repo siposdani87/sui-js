@@ -26,7 +26,7 @@ import { releaseMode } from '../common/config';
  * @example
  * consoleLog('User loaded', userId);
  */
-export const consoleLog = (...message: any[]) => {
+export const consoleLog = (...message: unknown[]) => {
     if (!releaseMode) {
         console.log(...message);
     }
@@ -43,7 +43,7 @@ export const consoleLog = (...message: any[]) => {
  * @example
  * consoleInfo('Cache refreshed');
  */
-export const consoleInfo = (...message: any[]) => {
+export const consoleInfo = (...message: unknown[]) => {
     if (!releaseMode) {
         console.info(...message);
     }
@@ -60,7 +60,7 @@ export const consoleInfo = (...message: any[]) => {
  * @example
  * consoleWarn('Deprecated method called');
  */
-export const consoleWarn = (...message: any[]) => {
+export const consoleWarn = (...message: unknown[]) => {
     if (!releaseMode) {
         console.warn(...message);
     }
@@ -78,7 +78,7 @@ export const consoleWarn = (...message: any[]) => {
  * @example
  * consoleError('Failed to load config', error);
  */
-export const consoleError = (...message: any[]) => {
+export const consoleError = (...message: unknown[]) => {
     console.error(...message);
 };
 
@@ -94,7 +94,7 @@ export const consoleError = (...message: any[]) => {
  * @example
  * consoleDebug('State transition', prevState, nextState);
  */
-export const consoleDebug = (...message: any[]) => {
+export const consoleDebug = (...message: unknown[]) => {
     console.debug(...message);
 };
 
@@ -111,6 +111,6 @@ export const consoleDebug = (...message: any[]) => {
  * @example
  * consoleAssert(items.length > 0, 'Items array must not be empty');
  */
-export const consoleAssert = (condition: boolean, ...data: any[]) => {
+export const consoleAssert = (condition: boolean, ...data: unknown[]) => {
     console.assert(condition, ...data);
 };

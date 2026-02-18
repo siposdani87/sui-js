@@ -126,5 +126,5 @@ export declare class FileField extends BaseField<HTMLInputElement> {
      * @param value The file URL or object containing a `url` key.
      * @override
      */
-    setValue(value: object | Function | Array<any> | boolean | number | string | null | undefined): void;
+    setValue(value: object | Array<unknown> | boolean | number | string | null | undefined): void;
 }

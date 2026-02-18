@@ -76,8 +76,10 @@ export class Router {
      * const url = router.stringify({ category: 'books', page: '2' });
      * // '/search/books?page=2'
      */
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
     stringify(opt_params = {}) {
         let route = this.route;
+        // eslint-disable-next-line @typescript-eslint/no-explicit-any
         const params = {};
         for (const key in opt_params) {
             if (opt_params.hasOwnProperty(key)) {
@@ -138,6 +140,7 @@ export class Router {
         if (!matches) {
             return {};
         }
+        // eslint-disable-next-line @typescript-eslint/no-explicit-any
         const params = this._parseParams(url);
         for (let i = 0; i < this.paramNames.length; i++) {
             const key = this.paramNames[i];
@@ -154,6 +157,7 @@ export class Router {
      * @returns A {@link Params} object of decoded query string parameters.
      */
     _parseParams(url) {
+        // eslint-disable-next-line @typescript-eslint/no-explicit-any
         const params = {};
         const question = url.indexOf('?');
         if (question !== -1) {

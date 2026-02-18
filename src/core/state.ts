@@ -407,6 +407,7 @@ export class State {
      * @returns A two-element array of `[url, route]`, or `['', undefined]`
      *     if the route ID is not found.
      */
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
     private _resolveUrlWithState(id: string, opt_params?: object): Array<any> {
         const route = this.routes.findById(id);
         let url = '';
@@ -591,6 +592,7 @@ export class State {
      * @example
      * state.setParam('page', 3);
      */
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
     setParam(name: string, value: any): void {
         const id = this.getCurrent<string>('id');
         const params = this.getParams();
@@ -622,6 +624,7 @@ export class State {
      * const userId = state.getParam<number>('id');
      * const page = state.getParam<number>('page', 1);
      */
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
     getParam<T = string>(name: string, opt_defaultValue?: any): T {
         const params = this.getParams();
         return params.get<T>(name, opt_defaultValue);
@@ -659,6 +662,7 @@ export class State {
      * @example
      * const [rootId, rootParams] = state.getRoot();
      */
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
     getRoot(): Array<any> {
         return [this.options.root.id, this.options.root.params];
     }

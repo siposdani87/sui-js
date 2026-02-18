@@ -25,7 +25,7 @@ export class Waiter {
     /**
      * @description Schedules a callback after a debounce delay. Each call resets the timer;
      * the callback only fires when no new calls arrive within the duration.
-     * @param {Function} callback - The function to execute after the delay.
+     * @param {() => void} callback - The function to execute after the delay.
      * @param {number} [opt_duration] - Delay in milliseconds (defaults to 3000).
      *
      * @example
@@ -34,7 +34,7 @@ export class Waiter {
      * });
      */
     advancedWaiting(
-        callback: Function,
+        callback: () => void,
         opt_duration: number | undefined,
     ): void {
         const duration = opt_duration || 3000;
@@ -43,12 +43,12 @@ export class Waiter {
 
     /**
      * @description Internal handler that compares counter snapshots after the delay to determine if the callback should fire.
-     * @param {Function} callback - The function to execute.
+     * @param {() => void} callback - The function to execute.
      * @param {number} duration - Delay in milliseconds.
      * @param {number} counter - The counter snapshot at the time of scheduling.
      */
     private _advancedDelayHandler(
-        callback: Function,
+        callback: () => void,
         duration: number,
         counter: number,
     ): void {
@@ -90,25 +90,28 @@ export class Waiter {
 
     /**
      * @description Schedules a callback using a simple integer-counter debounce mechanism.
-     * @param {Function} callback - The function to execute after the delay.
+     * @param {() => void} callback - The function to execute after the delay.
      * @param {number} [opt_duration] - Delay in milliseconds (defaults to 3000).
      *
      * @example
      * waiter.simpleWaiting(() => save(), 1000);
      */
-    simpleWaiting(callback: Function, opt_duration: number | undefined): void {
+    simpleWaiting(
+        callback: () => void,
+        opt_duration: number | undefined,
+    ): void {
         const duration = opt_duration || 3000;
         this._simpleDelayHandler(callback, duration, this.counter);
     }
 
     /**
      * @description Internal handler that compares integer counter snapshots to determine if the callback should fire.
-     * @param {Function} callback - The function to execute.
+     * @param {() => void} callback - The function to execute.
      * @param {number} duration - Delay in milliseconds.
      * @param {number} counter - The counter snapshot at the time of scheduling.
      */
     private _simpleDelayHandler(
-        callback: Function,
+        callback: () => void,
         duration: number,
         counter: number,
     ): void {

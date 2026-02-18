@@ -438,6 +438,7 @@ export class Application {
             ]);
         };
 
+        // eslint-disable-next-line @typescript-eslint/no-explicit-any
         const flash: { node: any; message: string; duration: number } = {
             node: null,
             message: 'Unable to connect to the Internet',
@@ -453,7 +454,9 @@ export class Application {
             this._instances.eventBus.override(
                 'window.offline',
                 [flash, event],
+                // eslint-disable-next-line @typescript-eslint/no-explicit-any
                 (flash: any) => {
+                    // eslint-disable-next-line @typescript-eslint/no-explicit-any
                     flash.node = (this._instances as Record<string, any>)[
                         this._injections.flash
                     ].addWarning(flash.message, flash.duration);

@@ -48,5 +48,5 @@ export declare class Scheduler {
      *     console.log('Daily report');
      * });
      */
-    everyDay(time: string, callback: Function): Function;
+    everyDay(time: string, callback: () => void): () => void;
 }

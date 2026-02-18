@@ -93,6 +93,7 @@ export class Browser {
      * @param {string} name The feature identifier (e.g. 'window.history').
      * @param {any} value The feature reference to test for truthiness.
      */
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
     private _setFeature(name: string, value: any): void {
         if (eq(!!value, false)) {
             this.features.push(name);
@@ -106,7 +107,7 @@ export class Browser {
      *
      * @param {Array<any>} features List of missing feature identifiers.
      */
-    eventMissingFeatures(features: Array<any>): void {
+    eventMissingFeatures(features: Array<string>): void {
         consoleDebug('Browser.eventMissingFeatures()', features);
     }
 
@@ -121,12 +122,16 @@ export class Browser {
 
         this.browsers.webkit =
             'WebkitAppearance' in document.documentElement.style;
+        // eslint-disable-next-line @typescript-eslint/no-explicit-any
         this.browsers.chromium = !!(window as Record<string, any>)['chrome'];
         this.browsers.chrome =
+            // eslint-disable-next-line @typescript-eslint/no-explicit-any
             !!(window as Record<string, any>)['chrome'] &&
+            // eslint-disable-next-line @typescript-eslint/no-explicit-any
             !!(window as Record<string, any>)['chrome']['webstore'];
 
         this.browsers.opera =
+            // eslint-disable-next-line @typescript-eslint/no-explicit-any
             !!(window as Record<string, any>)['opera'] ||
             /opera|opr/i.test(navigator.userAgent);
 
@@ -140,6 +145,7 @@ export class Browser {
             '-ms-user-select' in document.documentElement.style;
         this.browsers.lteIE10 = /*@cc_on!@*/ false;
         this.browsers.gteIE10 =
+            // eslint-disable-next-line @typescript-eslint/no-explicit-any
             (document.body.style as unknown as Record<string, any>)[
                 'msTouchAction'
             ] !== undefined;

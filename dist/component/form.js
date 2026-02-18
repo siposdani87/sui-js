@@ -188,6 +188,7 @@ export class Form extends Collection {
      * @param {string} name - The field name.
      * @param {*} value - The new value.
      */
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
     _setValue(name, value) {
         const currentValue = this._getValue(name);
         if (!isSame(value, currentValue)) {
@@ -200,6 +201,7 @@ export class Form extends Collection {
      * @param {string} name - The field name.
      * @returns {*} The current field value.
      */
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
     _getValue(name) {
         return this.model.get(name);
     }
@@ -208,6 +210,7 @@ export class Form extends Collection {
      * @param {BaseField<HTMLInputElement>} field - The field instance.
      * @returns {*} The previous field value.
      */
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
     _getPreviousValue(field) {
         const fieldName = field.getName();
         return this.previousModel.get(fieldName);
@@ -217,7 +220,9 @@ export class Form extends Collection {
      * @param {BaseField<HTMLInputElement>} field - The field that changed.
      * @param {*} value - The new field value.
      */
-    _fieldValueChange(field, value) {
+    _fieldValueChange(field, 
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+    value) {
         const fieldName = field.getName();
         const currentValue = this._getValue(fieldName);
         if (!isSame(value, currentValue)) {

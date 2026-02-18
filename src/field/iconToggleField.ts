@@ -99,13 +99,12 @@ export class IconToggleField extends BaseCheckboxField {
     /**
      * Sets the toggle value and updates the displayed icon accordingly.
      *
-     * @param {object | Function | Array<any> | boolean | number | string | null | undefined} value The value to set.
+     * @param {object | Array<unknown> | boolean | number | string | null | undefined} value The value to set.
      */
     override setValue(
         value:
             | object
-            | Function
-            | Array<any>
+            | Array<unknown>
             | boolean
             | number
             | string

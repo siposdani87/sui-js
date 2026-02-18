@@ -18,6 +18,7 @@ import { Objekt } from '../core';
  * typeCast(42);           // 42 (unchanged, not a string)
  * @category Utility
  */
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
 export const typeCast = (value: any): any => {
     let result = value;
     if (isString(value) && !contain(value, ' ')) {
@@ -57,9 +58,12 @@ export const typeCast = (value: any): any => {
  * @category Utility
  */
 export const merge = (
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
     objA: Record<string, any>,
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
     objB: Record<string, any>,
 ): object | undefined => {
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
     const obj = copyObject(objA) as Record<string, any>;
     for (const key in objB) {
         if (objB.hasOwnProperty(key)) {
@@ -207,7 +211,7 @@ export const lte = (a: unknown, b: unknown): boolean =>
  * @returns {boolean} `true` if the value is an array.
  * @category Utility
  */
-export const isArray = <T>(value: any): value is Array<T> =>
+export const isArray = <T>(value: unknown): value is Array<T> =>
     Array.isArray(value);
 
 /**
@@ -217,7 +221,8 @@ export const isArray = <T>(value: any): value is Array<T> =>
  * @returns {boolean} `true` if `typeof value === 'function'`.
  * @category Utility
  */
-export const isFunction = (value: any): value is Function =>
+// eslint-disable-next-line @typescript-eslint/no-unsafe-function-type
+export const isFunction = (value: unknown): value is Function =>
     is(value, 'function');
 
 /**
@@ -227,7 +232,8 @@ export const isFunction = (value: any): value is Function =>
  * @returns {boolean} `true` if `typeof value === 'string'`.
  * @category Utility
  */
-export const isString = (value: any): value is string => is(value, 'string');
+export const isString = (value: unknown): value is string =>
+    is(value, 'string');
 
 /**
  * Type guard that checks whether a value can be safely cast to a finite number.
@@ -246,11 +252,11 @@ export const isString = (value: any): value is string => is(value, 'string');
  * isNumber(Infinity); // false
  * @category Utility
  */
-export const isNumber = (value: any): value is number =>
+export const isNumber = (value: unknown): value is number =>
     value !== null &&
     value !== '' &&
-    !isNaN(value) &&
-    (!inArray(['0', '+'], value?.[0]) || value === '0') &&
+    !isNaN(value as number) &&
+    (!inArray(['0', '+'], (value as string)?.[0]) || value === '0') &&
     Number(value).toString() !== 'NaN' &&
     Number(value).toString() !== 'Infinity';
 
@@ -264,8 +270,8 @@ export const isNumber = (value: any): value is number =>
  * @returns {boolean} `true` if `parseFloat(value) === value`.
  * @category Utility
  */
-export const isFloat = (value: any): value is number =>
-    parseFloat(value) === value;
+export const isFloat = (value: unknown): value is number =>
+    parseFloat(value as string) === value;
 
 /**
  * Type guard that checks whether a value is an integer.
@@ -277,8 +283,8 @@ export const isFloat = (value: any): value is number =>
  * @returns {boolean} `true` if `parseInt(value, 10) === value`.
  * @category Utility
  */
-export const isInteger = (value: any): value is number =>
-    parseInt(value, 10) === value;
+export const isInteger = (value: unknown): value is number =>
+    parseInt(value as string, 10) === value;
 
 /**
  * Type guard that checks whether a value has `typeof 'object'`.
@@ -290,7 +296,8 @@ export const isInteger = (value: any): value is number =>
  * @returns {boolean} `true` if `typeof value === 'object'`.
  * @category Utility
  */
-export const isObject = (value: any): value is object => is(value, 'object');
+export const isObject = (value: unknown): value is object =>
+    is(value, 'object');
 
 /**
  * Type guard that checks whether a value is a plain JavaScript object.
@@ -307,7 +314,7 @@ export const isObject = (value: any): value is object => is(value, 'object');
  * isPureObject(new Date); // false
  * @category Utility
  */
-export const isPureObject = (value: any): value is object =>
+export const isPureObject = (value: unknown): value is object =>
     !isNull(value) && !isDate(value) && !isArray(value) && isObject(value);
 
 /**
@@ -317,7 +324,8 @@ export const isPureObject = (value: any): value is object =>
  * @returns {boolean} `true` if the value is an instance of `Date`.
  * @category Utility
  */
-export const isDate = (value: any): value is Date => instanceOf(value, Date);
+export const isDate = (value: unknown): value is Date =>
+    instanceOf(value, Date);
 
 /**
  * Type guard that checks whether a value is `null`.
@@ -326,7 +334,7 @@ export const isDate = (value: any): value is Date => instanceOf(value, Date);
  * @returns {boolean} `true` if the value is strictly `null`.
  * @category Utility
  */
-export const isNull = (value: any): value is null => value === null;
+export const isNull = (value: unknown): value is null => value === null;
 
 /**
  * Type guard that checks whether a value is `Infinity`.
@@ -335,7 +343,7 @@ export const isNull = (value: any): value is null => value === null;
  * @returns {boolean} `true` if the value is `Infinity`.
  * @category Utility
  */
-export const isInfinity = (value: any): value is typeof Infinity =>
+export const isInfinity = (value: unknown): value is typeof Infinity =>
     value === Infinity;
 
 /**
@@ -345,7 +353,7 @@ export const isInfinity = (value: any): value is typeof Infinity =>
  * @returns {boolean} `true` if `typeof value === 'undefined'`.
  * @category Utility
  */
-export const isUndefined = (value: any): value is undefined =>
+export const isUndefined = (value: unknown): value is undefined =>
     is(value, 'undefined');
 
 /**
@@ -359,7 +367,7 @@ export const isUndefined = (value: any): value is undefined =>
  * @returns {boolean} `true` if `typeof value === type`.
  * @category Utility
  */
-export const is = (value: any, type: string): value is typeof type =>
+export const is = (value: unknown, type: string): value is typeof type =>
     typeof value === type;
 
 /**
@@ -375,7 +383,8 @@ export const is = (value: any, type: string): value is typeof type =>
  * instanceOf('hello', String);  // false
  * @category Utility
  */
-export const instanceOf = <T>(value: any, obj: T): boolean =>
+export const instanceOf = <T>(value: unknown, obj: T): boolean =>
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
     value instanceof (obj as any);
 
 /**
@@ -404,6 +413,7 @@ export const instanceOf = <T>(value: any, obj: T): boolean =>
  */
 export const each = <T>(
     items: Array<T> | object,
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
     next: (item: any, key: string | number) => void,
     opt_start?: number,
     opt_end?: number,
@@ -466,7 +476,9 @@ export const eachArray = <T>(
  * @category Utility
  */
 export const eachObject = (
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
     object: Record<string, any>,
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
     next: (value: any, key: string) => void,
 ): void => {
     for (const key in object) {
@@ -547,6 +559,7 @@ export const clearArray = <T>(items: Array<T>): void => {
  * @param {Record<string, any>} items The object to clear.
  * @category Utility
  */
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
 export const clearObject = (items: Record<string, any>): void => {
     for (const key in items) {
         if (items.hasOwnProperty(key)) {
@@ -616,12 +629,15 @@ export const inContainArray = (items: Array<string>, item: string): boolean => {
  * isSame([1, 2], [1, 3]);                              // false
  * @category Utility
  */
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
 export const isSame = (a: any, b: any): boolean => {
     const strA = JSON.stringify(a);
     const strB = JSON.stringify(b);
     if (isPureObject(a) && isPureObject(b) && eq(strA.length, strB.length)) {
         let result = true;
+        // eslint-disable-next-line @typescript-eslint/no-explicit-any
         each(a, (value: any, key: string | number) => {
+            // eslint-disable-next-line @typescript-eslint/no-explicit-any
             if (!isSame((b as Record<string, any>)[key], value)) {
                 result = false;
             }
@@ -681,6 +697,7 @@ export const copy = <T>(
  * @category Utility
  */
 export const copyArray = <T>(items: Array<T>): Array<T> => {
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
     const results: any[] = [];
     eachArray(items, (item, index) => {
         if (isArray(item)) {
@@ -705,7 +722,9 @@ export const copyArray = <T>(items: Array<T>): Array<T> => {
  * @category Utility
  */
 export const copyObject = (item: object): object => {
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
     const results: Record<string, any> = {};
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
     eachObject(item as Record<string, any>, (value, key) => {
         if (isArray(value)) {
             results[key] = copyArray(value);
@@ -825,9 +844,11 @@ export const pluck = <T, K extends Objekt = Objekt>(
  */
 export const pluckKeys = (
     obj: object,
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
     condition: (value: any, key: string) => boolean,
 ): Array<string> => {
     const results: string[] = [];
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
     eachObject(obj as Record<string, any>, (value, key) => {
         if (condition(value, key)) {
             results.push(key);
@@ -1017,6 +1038,7 @@ export const urlWithQueryString = (
  */
 export const getQueryString = (opt_params?: object): string => {
     const queries: string[] = [];
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
     eachObject(opt_params as Record<string, any>, (param, key) => {
         if (isArray(param)) {
             eachArray(param, (value) => {
