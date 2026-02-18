@@ -3,7 +3,7 @@
 # Project Information
 Name: SUI-JS
 Description: Lightweight frontend framework in TypeScript with 60+ UI components
-Version: 1.0.1
+Version: 1.1.0
 Language: TypeScript
 Repository: https://github.com/siposdani87/sui-js
 Documentation: https://sui-js.siposdani87.com
