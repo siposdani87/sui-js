@@ -1,372 +1,1405 @@
 <testExecutions version="1">
-<file path="/Users/dsipos/others/sui-js/src/utils/math.spec.ts">
-<testCase name="math should be readable currency 100" duration="5" />
-<testCase name="math should be readable number 0 from 0" duration="1" />
-<testCase name="math should be readable number 5 from 5 with around" duration="0" />
-<testCase name="math should be readable number 14 from 14" duration="0" />
-<testCase name="math should be readable number 10+ from 14 with around" duration="1" />
-<testCase name="math should be readable number 112 from 112" duration="0" />
-<testCase name="math should be readable number 100+ from 112 with around" duration="0" />
-<testCase name="math should be readable number 1.534K from 1534" duration="1" />
-<testCase name="math should be readable number 1K+ from 1534 with around" duration="0" />
-<testCase name="math should round 10 from 5 with exp 1" duration="0" />
-<testCase name="math should round 5 from 5 with exp 0" duration="0" />
-<testCase name="math should floor" duration="0" />
-<testCase name="math should ceil" duration="0" />
-<testCase name="math should be a random number" duration="1" />
+<file path="/Users/dsipos/others/sui-js/src/field/locationField.spec.ts">
+<testCase name="locationField should be instance of LocationField" duration="90" />
 </file>
-<file path="/Users/dsipos/others/sui-js/src/core/objekt.spec.ts">
-<testCase name="objekt should be instance of Objekt" duration="4" />
-<testCase name="objekt merge" duration="1" />
-<testCase name="objekt getTypedValue" duration="1" />
-<testCase name="objekt get" duration="1" />
-<testCase name="objekt set" duration="0" />
-<testCase name="objekt remove" duration="0" />
-<testCase name="objekt copy" duration="1" />
-<testCase name="objekt copyObject" duration="1" />
+<file path="/Users/dsipos/others/sui-js/src/field/numberField.spec.ts">
+<testCase name="NumberField should be instance of NumberField" duration="131" />
+<testCase name="NumberField should return field name" duration="8" />
+<testCase name="NumberField should set and get numeric value" duration="110" />
+<testCase name="NumberField should render without error" duration="5" />
+<testCase name="NumberField should check disabled state" duration="5" />
+<testCase name="NumberField should set disabled" duration="16" />
 </file>
-<file path="/Users/dsipos/others/sui-js/src/utils/coder.spec.ts">
-<testCase name="coder should be valid base64 encoded text" duration="4" />
-<testCase name="coder should be valid base64 decoded text" duration="3" />
-<testCase name="coder should be valid encrypt text" duration="2" />
-<testCase name="coder should be valid decrypt text" duration="1" />
-<testCase name="coder should be valid md5 text" duration="0" />
-<testCase name="coder should be valid guid ext" duration="0" />
-<testCase name="coder should be valid generateId text" duration="1" />
-<testCase name="coder should be valid uuid text" duration="0" />
-</file>
-<file path="/Users/dsipos/others/sui-js/src/utils/operation.spec.ts">
-<testCase name="operation should cast string to undefined" duration="4" />
-<testCase name="operation should merge two objects" duration="0" />
-<testCase name="operation should get formatted string" duration="0" />
-<testCase name="operation should create noop function" duration="0" />
-<testCase name="operation should equal the two numbers" duration="0" />
-<testCase name="operation should not equal the two numbers" duration="0" />
-<testCase name="operation should be 3 greater than 2" duration="0" />
-<testCase name="operation should be 2 greater and equal than 2" duration="0" />
-<testCase name="operation should be 2 lower than 3" duration="0" />
-<testCase name="operation should be 2 lower and equal than 2" duration="0" />
-<testCase name="operation should be true when input is array" duration="0" />
-<testCase name="operation should be true when input is function" duration="1" />
-<testCase name="operation should be true when input is string" duration="0" />
-<testCase name="operation should be true when input is number" duration="0" />
-<testCase name="operation should be true when input is float" duration="0" />
-<testCase name="operation should be true when input is integer" duration="0" />
-<testCase name="operation should be true when input is object" duration="0" />
-<testCase name="operation should be true when input is pure object" duration="0" />
-<testCase name="operation should be true when input is new Date()" duration="1" />
-<testCase name="operation should be true when input is null" duration="0" />
-<testCase name="operation should be true when input is Infinity" duration="0" />
-<testCase name="operation should be true when input is undefined" duration="0" />
-<testCase name="operation should be true when input is in specific type" duration="0" />
-<testCase name="operation should be true when input is instance of object" duration="1" />
-<testCase name="operation clear" duration="0" />
-<testCase name="operation clearArray" duration="0" />
-<testCase name="operation clearObject" duration="0" />
-<testCase name="operation inArray" duration="0" />
-<testCase name="operation contain" duration="1" />
-<testCase name="operation inContainArray" duration="0" />
-<testCase name="operation isSame number" duration="0" />
-<testCase name="operation isSame object" duration="1" />
-<testCase name="operation isSame array" duration="0" />
-<testCase name="operation remove" duration="0" />
-<testCase name="operation copy" duration="0" />
-<testCase name="operation copyArray" duration="1" />
-<testCase name="operation copyObject" duration="0" />
-<testCase name="operation isEmpty" duration="0" />
-</file>
-<file path="/Users/dsipos/others/sui-js/src/core/deferred.spec.ts">
-<testCase name="deferred should be instance of Deferred" duration="11" />
-<testCase name="deferred promise" duration="1" />
-<testCase name="deferred ajaxResolve" duration="0" />
-<testCase name="deferred funcResolve" duration="0" />
-<testCase name="deferred ajaxReject" duration="0" />
-<testCase name="deferred funcReject" duration="0" />
-</file>
-<file path="/Users/dsipos/others/sui-js/src/core/knot.spec.ts">
-<testCase name="item should be instance of Knot" duration="19" />
-<testCase name="item attribute" duration="2" />
-<testCase name="item data-attribute" duration="2" />
-<testCase name="item data" duration="2" />
-</file>
-<file path="/Users/dsipos/others/sui-js/src/utils/color.spec.ts">
-<testCase name="color should be valid HSV from RGB" duration="23" />
-<testCase name="color should be valid HEX from RGB" duration="1" />
-<testCase name="color should be valid HSV from HEX" duration="0" />
-<testCase name="color should be valid RGB from HEX" duration="0" />
-<testCase name="color should be valid RGB from HSV" duration="1" />
-<testCase name="color should be valid HEX from HSV" duration="0" />
-<testCase name="color should be valid YIQ contrast" duration="0" />
-<testCase name="color should be valid color contrast" duration="0" />
-</file>
-<file path="/Users/dsipos/others/sui-js/src/field/textareaField.spec.ts">
-<testCase name="textareaField should be instance of TextareaField" duration="26" />
-</file>
-<file path="/Users/dsipos/others/sui-js/src/field/autoCompleteField.spec.ts">
-<testCase name="autoCompleteField should be instance of AutoCompleteField" duration="11" />
+<file path="/Users/dsipos/others/sui-js/src/field/fileField.spec.ts">
+<testCase name="fileField should be instance of FileField" duration="45" />
 </file>
 <file path="/Users/dsipos/others/sui-js/src/field/dateTimeField.spec.ts">
-<testCase name="dateTimeField should be instance of DateTimeField" duration="29" />
+<testCase name="dateTimeField should be instance of DateTimeField" duration="52" />
 </file>
-<file path="/Users/dsipos/others/sui-js/src/field/baseCheckboxField.spec.ts">
-<testCase name="baseCheckboxField should be instance of BaseCheckboxField" duration="14" />
+<file path="/Users/dsipos/others/sui-js/src/field/colorField.spec.ts">
+<testCase name="ColorField should be instance of ColorField" duration="221" />
+<testCase name="ColorField should return field name" duration="17" />
+<testCase name="ColorField should set and get value" duration="35" />
+<testCase name="ColorField should check disabled state" duration="16" />
+<testCase name="ColorField should render without error" duration="47" />
 </file>
-<file path="/Users/dsipos/others/sui-js/src/field/checkboxField.spec.ts">
-<testCase name="checkboxField should be instance of CheckboxField" duration="27" />
+<file path="/Users/dsipos/others/sui-js/src/field/rangeField.spec.ts">
+<testCase name="RangeField should be instance of RangeField" duration="45" />
+<testCase name="RangeField should return field name" duration="5" />
+<testCase name="RangeField should check disabled state" duration="2" />
+<testCase name="RangeField should render without error" duration="8" />
+</file>
+<file path="/Users/dsipos/others/sui-js/src/field/urlField.spec.ts">
+<testCase name="UrlField should be instance of UrlField" duration="43" />
+<testCase name="UrlField should return field name" duration="4" />
+<testCase name="UrlField should set and get value" duration="3" />
+<testCase name="UrlField should check disabled state" duration="2" />
+<testCase name="UrlField should render without error" duration="26" />
+</file>
+<file path="/Users/dsipos/others/sui-js/src/form-field.integration.spec.ts">
+<testCase name="Form-Field Integration should initialize form with fields from DOM" duration="1338" />
+<testCase name="Form-Field Integration should collect model as object with field values" duration="437" />
+<testCase name="Form-Field Integration should set model values and reflect them in fields" duration="38" />
+<testCase name="Form-Field Integration should find field by model name" duration="24" />
+<testCase name="Form-Field Integration should return falsy for non-existent field" duration="66" />
+<testCase name="Form-Field Integration should report validity consistently" duration="44" />
+<testCase name="Form-Field Integration should lock and unlock all fields without error" duration="41" />
+<testCase name="Form-Field Integration should reset form and maintain structure" duration="67" />
+<testCase name="Form-Field Integration should check validity without error" duration="40" />
+<testCase name="Form-Field Integration should refresh all fields without error" duration="26" />
+</file>
+<file path="/Users/dsipos/others/sui-js/src/index.spec.ts">
+<testCase name="Module exports core exports should export Async" duration="0" />
+<testCase name="Module exports core exports should export Collection" duration="0" />
+<testCase name="Module exports core exports should export Deferred" duration="0" />
+<testCase name="Module exports core exports should export Knot" duration="0" />
+<testCase name="Module exports core exports should export Module" duration="1" />
+<testCase name="Module exports core exports should export Objekt" duration="0" />
+<testCase name="Module exports core exports should export Promize" duration="0" />
+<testCase name="Module exports core exports should export Query" duration="0" />
+<testCase name="Module exports core exports should export Router" duration="1" />
+<testCase name="Module exports core exports should export State" duration="0" />
+<testCase name="Module exports common exports should export Controller" duration="0" />
+<testCase name="Module exports common exports should export Service" duration="0" />
+<testCase name="Module exports common exports should export releaseMode" duration="0" />
+<testCase name="Module exports common exports should export coreResources" duration="0" />
+<testCase name="Module exports component exports should export Application" duration="0" />
+<testCase name="Module exports component exports should export Calendar" duration="1" />
+<testCase name="Module exports component exports should export Canvas" duration="0" />
+<testCase name="Module exports component exports should export CardCollection" duration="0" />
+<testCase name="Module exports component exports should export Carousel" duration="0" />
+<testCase name="Module exports component exports should export Clock" duration="0" />
+<testCase name="Module exports component exports should export ContentHandler" duration="0" />
+<testCase name="Module exports component exports should export DateTime" duration="0" />
+<testCase name="Module exports component exports should export Day" duration="1" />
+<testCase name="Module exports component exports should export Dropdown" duration="0" />
+<testCase name="Module exports component exports should export Form" duration="0" />
+<testCase name="Module exports component exports should export GoogleMap" duration="0" />
+<testCase name="Module exports component exports should export Month" duration="0" />
+<testCase name="Module exports component exports should export Navigation" duration="0" />
+<testCase name="Module exports component exports should export Pager" duration="0" />
+<testCase name="Module exports component exports should export Popup" duration="0" />
+<testCase name="Module exports component exports should export PopupContainer" duration="0" />
+<testCase name="Module exports component exports should export ProgressStatus" duration="0" />
+<testCase name="Module exports component exports should export Route" duration="0" />
+<testCase name="Module exports component exports should export Table" duration="0" />
+<testCase name="Module exports component exports should export TabPanel" duration="1" />
+<testCase name="Module exports component exports should export Time" duration="0" />
+<testCase name="Module exports component exports should export Tooltip" duration="0" />
+<testCase name="Module exports component exports should export Waiter" duration="0" />
+<testCase name="Module exports component exports should export Year" duration="0" />
+<testCase name="Module exports module exports should export BaseModal" duration="1" />
+<testCase name="Module exports module exports should export BottomMenu" duration="0" />
+<testCase name="Module exports module exports should export Browser" duration="0" />
+<testCase name="Module exports module exports should export Confirm" duration="0" />
+<testCase name="Module exports module exports should export Cookie" duration="0" />
+<testCase name="Module exports module exports should export Dialog" duration="0" />
+<testCase name="Module exports module exports should export Page" duration="0" />
+<testCase name="Module exports module exports should export EventBus" duration="0" />
+<testCase name="Module exports module exports should export Flash" duration="0" />
+<testCase name="Module exports module exports should export Footer" duration="0" />
+<testCase name="Module exports module exports should export GeoLocation" duration="1" />
+<testCase name="Module exports module exports should export Header" duration="0" />
+<testCase name="Module exports module exports should export Helper" duration="0" />
+<testCase name="Module exports module exports should export Http" duration="0" />
+<testCase name="Module exports module exports should export LeftMenu" duration="0" />
+<testCase name="Module exports module exports should export Loader" duration="0" />
+<testCase name="Module exports module exports should export NavBar" duration="0" />
+<testCase name="Module exports module exports should export ProgressBar" duration="0" />
+<testCase name="Module exports module exports should export Scheduler" duration="0" />
+<testCase name="Module exports module exports should export Script" duration="0" />
+<testCase name="Module exports module exports should export Depot" duration="0" />
+<testCase name="Module exports module exports should export Style" duration="1" />
+<testCase name="Module exports module exports should export Template" duration="0" />
+<testCase name="Module exports module exports should export TopMenu" duration="0" />
+<testCase name="Module exports module exports should export Viewer" duration="0" />
+<testCase name="Module exports module exports should export Screen" duration="0" />
+<testCase name="Module exports module exports should export Xhr" duration="0" />
+<testCase name="Module exports field exports should export AutoCompleteField" duration="0" />
+<testCase name="Module exports field exports should export BaseField" duration="0" />
+<testCase name="Module exports field exports should export Button" duration="1" />
+<testCase name="Module exports field exports should export CheckboxField" duration="0" />
+<testCase name="Module exports field exports should export ColorField" duration="0" />
+<testCase name="Module exports field exports should export DateTimeField" duration="0" />
+<testCase name="Module exports field exports should export DateTimeRangeField" duration="0" />
+<testCase name="Module exports field exports should export FileField" duration="0" />
+<testCase name="Module exports field exports should export HiddenField" duration="0" />
+<testCase name="Module exports field exports should export IconToggleField" duration="0" />
+<testCase name="Module exports field exports should export LocationField" duration="0" />
+<testCase name="Module exports field exports should export NumberField" duration="0" />
+<testCase name="Module exports field exports should export RadiobuttonField" duration="0" />
+<testCase name="Module exports field exports should export RangeField" duration="0" />
+<testCase name="Module exports field exports should export ResetButton" duration="1" />
+<testCase name="Module exports field exports should export SearchField" duration="0" />
+<testCase name="Module exports field exports should export SelectField" duration="0" />
+<testCase name="Module exports field exports should export SubmitButton" duration="0" />
+<testCase name="Module exports field exports should export SwitchField" duration="0" />
+<testCase name="Module exports field exports should export TextareaField" duration="0" />
+<testCase name="Module exports field exports should export TextField" duration="0" />
+<testCase name="Module exports field exports should export UrlField" duration="0" />
+<testCase name="Module exports utils exports should export DateIO" duration="0" />
+<testCase name="Module exports utils exports should export coder function encodeBase64" duration="0" />
+<testCase name="Module exports utils exports should export coder function decodeBase64" duration="0" />
+<testCase name="Module exports utils exports should export coder function encrypt" duration="1" />
+<testCase name="Module exports utils exports should export coder function decrypt" duration="0" />
+<testCase name="Module exports utils exports should export coder function md5" duration="0" />
+<testCase name="Module exports utils exports should export coder function guid" duration="0" />
+<testCase name="Module exports utils exports should export coder function generateId" duration="0" />
+<testCase name="Module exports utils exports should export color function convertRGBToHSV" duration="0" />
+<testCase name="Module exports utils exports should export color function convertRGBToHEX" duration="0" />
+<testCase name="Module exports utils exports should export color function convertHEXToHSV" duration="0" />
+<testCase name="Module exports utils exports should export color function convertHEXToRGB" duration="0" />
+<testCase name="Module exports utils exports should export color function convertHSVToRGB" duration="0" />
+<testCase name="Module exports utils exports should export color function convertHSVToHEX" duration="0" />
+<testCase name="Module exports utils exports should export color function colorContrastYIQ" duration="1" />
+<testCase name="Module exports utils exports should export color function colorContrast" duration="0" />
+<testCase name="Module exports utils exports should export math function readableCurrency" duration="0" />
+<testCase name="Module exports utils exports should export math function readableNumber" duration="0" />
+<testCase name="Module exports utils exports should export math function round" duration="0" />
+<testCase name="Module exports utils exports should export math function floor" duration="0" />
+<testCase name="Module exports utils exports should export math function ceil" duration="0" />
+<testCase name="Module exports utils exports should export math function random" duration="0" />
+<testCase name="Module exports should not export treeView (commented out)" duration="0" />
+</file>
+<file path="/Users/dsipos/others/sui-js/src/field/selectField.spec.ts">
+<testCase name="SelectField should be instance of SelectField" duration="10" />
+<testCase name="SelectField should not be multiple by default" duration="3" />
+<testCase name="SelectField should return null value when empty selected" duration="3" />
+<testCase name="SelectField should have options collection" duration="54" />
+<testCase name="SelectField should check disabled state" duration="3" />
 </file>
 <file path="/Users/dsipos/others/sui-js/src/field/iconToggleField.spec.ts">
-<testCase name="iconToggleField should be instance of IconToggleField" duration="20" />
+<testCase name="IconToggleField should be instance of IconToggleField" duration="11" />
+<testCase name="IconToggleField should return field name" duration="2" />
+<testCase name="IconToggleField should get value" duration="1" />
+<testCase name="IconToggleField should check disabled state" duration="2" />
 </file>
-<file path="/Users/dsipos/others/sui-js/src/field/textField.spec.ts">
-<testCase name="textField should be instance of TextField" duration="33" />
-<testCase name="textField should be instance of TextField, when type tel" duration="2" />
-<testCase name="textField should be instance of TextField, when type email" duration="3" />
+<file path="/Users/dsipos/others/sui-js/src/component/formField.spec.ts">
+<testCase name="formField should be instance of FormField" duration="275" />
 </file>
-<file path="/Users/dsipos/others/sui-js/src/component/tooltip.spec.ts">
-<testCase name="tooltip should be instance of Tooltip" duration="4" />
+<file path="/Users/dsipos/others/sui-js/src/field/searchField.spec.ts">
+<testCase name="SearchField should be instance of SearchField" duration="6" />
+<testCase name="SearchField should return field name" duration="2" />
+<testCase name="SearchField should set and get value" duration="1" />
+<testCase name="SearchField should render without error" duration="2" />
+<testCase name="SearchField should check disabled state" duration="1" />
 </file>
-<file path="/Users/dsipos/others/sui-js/src/field/dateTimeRangeField.spec.ts">
-<testCase name="dateTimeRangeField should be instance of DateTimeRangeField" duration="35" />
-</file>
-<file path="/Users/dsipos/others/sui-js/src/module/progressBar.spec.ts">
-<testCase name="progressBar should be instance of ProgressBar" duration="5" />
+<file path="/Users/dsipos/others/sui-js/src/field/textareaField.spec.ts">
+<testCase name="TextareaField should be instance of TextareaField" duration="39" />
+<testCase name="TextareaField should return field name" duration="2" />
+<testCase name="TextareaField should set and get value" duration="4" />
+<testCase name="TextareaField should render without error" duration="2" />
+<testCase name="TextareaField should check disabled state" duration="1" />
 </file>
 <file path="/Users/dsipos/others/sui-js/src/field/radiobuttonField.spec.ts">
-<testCase name="radiobuttonField should be instance of RadiobuttonField" duration="234" />
+<testCase name="RadiobuttonField should be instance of RadiobuttonField" duration="289" />
+<testCase name="RadiobuttonField should return field name" duration="33" />
+<testCase name="RadiobuttonField should get value" duration="18" />
+<testCase name="RadiobuttonField should check disabled state" duration="22" />
 </file>
-<file path="/Users/dsipos/others/sui-js/src/core/query.spec.ts">
-<testCase name="query should be instance of Query" duration="1" />
+<file path="/Users/dsipos/others/sui-js/src/field/baseField.spec.ts">
+<testCase name="BaseField with hidden input should be instance of BaseField" duration="9" />
+<testCase name="BaseField with hidden input should return field name" duration="0" />
+<testCase name="BaseField with hidden input should return value" duration="0" />
+<testCase name="BaseField with hidden input should set value" duration="1" />
+<testCase name="BaseField with hidden input should check validity" duration="0" />
+<testCase name="BaseField with hidden input should call eventChange without error" duration="0" />
+<testCase name="BaseField with hidden input should call render without error" duration="1" />
+<testCase name="BaseField with hidden input should call refresh without error" duration="0" />
+<testCase name="BaseField with hidden input should call modelChange without error" duration="0" />
+<testCase name="BaseField with hidden input should return undefined from getPreviousValue" duration="0" />
+<testCase name="BaseField with hidden input should check existsInput" duration="0" />
+<testCase name="BaseField with text input block should return field name" duration="6" />
+<testCase name="BaseField with text input block should get value" duration="1" />
+<testCase name="BaseField with text input block should set value" duration="1" />
+<testCase name="BaseField with text input block should set and clear error" duration="1" />
+<testCase name="BaseField with text input block should check required state" duration="1" />
+<testCase name="BaseField with text input block should set required state" duration="1" />
+<testCase name="BaseField with text input block should check disabled state" duration="4" />
+<testCase name="BaseField with text input block should set disabled state" duration="1" />
+<testCase name="BaseField with text input block should check visibility" duration="8" />
+<testCase name="BaseField with text input block should hide and show" duration="1" />
+<testCase name="BaseField with text input block should set visibility" duration="1" />
+<testCase name="BaseField with text input block should set label" duration="3" />
+<testCase name="BaseField with text input block should check validity" duration="1" />
+<testCase name="BaseField with text input block should force check validity" duration="1" />
+<testCase name="BaseField with text input block should check exists" duration="2" />
+<testCase name="BaseField with text input block should get attribute via get method" duration="1" />
 </file>
-<file path="/Users/dsipos/others/sui-js/src/module/helper.spec.ts">
-<testCase name="helper should be instance of Helper" duration="1" />
-</file>
-<file path="/Users/dsipos/others/sui-js/src/core/router.spec.ts">
-<testCase name="router should be instance of Router" duration="0" />
-<testCase name="router should resolve url with params" duration="1" />
+<file path="/Users/dsipos/others/sui-js/src/utils/dateio.spec.ts">
+<testCase name="DateIO setDateIOLocale should set locale without error" duration="0" />
+<testCase name="DateIO setDateIOLocale should handle unknown locale by falling back to en-US" duration="0" />
+<testCase name="DateIO convertToISOFormat should convert YYYY-MM-DD to yyyy-MM-dd" duration="0" />
+<testCase name="DateIO convertToISOFormat should convert DD/MM/YYYY to dd/MM/yyyy" duration="0" />
+<testCase name="DateIO convertToISOFormat should convert YYYY to yyyy" duration="1" />
+<testCase name="DateIO convertToISOFormat should convert MM-DD to MM-dd" duration="0" />
+<testCase name="DateIO parse should parse number format of year" duration="2" />
+<testCase name="DateIO parse should parse string format of year" duration="1" />
+<testCase name="DateIO parse should parse ISO date string" duration="0" />
+<testCase name="DateIO parse should parse date with format string" duration="1" />
+<testCase name="DateIO parse should return a Date for default (no args)" duration="1" />
+<testCase name="DateIO format should format date with custom pattern" duration="0" />
+<testCase name="DateIO format should format date to ISO string without pattern" duration="0" />
+<testCase name="DateIO date components should get year" duration="0" />
+<testCase name="DateIO date components should get month (0-indexed)" duration="1" />
+<testCase name="DateIO date components should get date" duration="0" />
+<testCase name="DateIO date components should get day of week" duration="0" />
+<testCase name="DateIO date components should get hours" duration="0" />
+<testCase name="DateIO date components should get minutes" duration="0" />
+<testCase name="DateIO date arithmetic should add days" duration="0" />
+<testCase name="DateIO date arithmetic should subtract days" duration="0" />
+<testCase name="DateIO date arithmetic should add months" duration="1" />
+<testCase name="DateIO date arithmetic should subtract months" duration="0" />
+<testCase name="DateIO date arithmetic should add years" duration="0" />
+<testCase name="DateIO date arithmetic should subtract years" duration="0" />
+<testCase name="DateIO date arithmetic should add hours" duration="0" />
+<testCase name="DateIO date arithmetic should subtract hours" duration="0" />
+<testCase name="DateIO date arithmetic should add minutes" duration="0" />
+<testCase name="DateIO date arithmetic should subtract minutes" duration="2" />
+<testCase name="DateIO setters should set year" duration="0" />
+<testCase name="DateIO setters should set month" duration="2" />
+<testCase name="DateIO setters should set date" duration="0" />
+<testCase name="DateIO setters should set hours" duration="1" />
+<testCase name="DateIO setters should set minutes" duration="0" />
+<testCase name="DateIO comparison should check isBefore" duration="0" />
+<testCase name="DateIO comparison should check isAfter" duration="2" />
+<testCase name="DateIO week and month helpers should get start of week" duration="0" />
+<testCase name="DateIO week and month helpers should get end of month" duration="1" />
+<testCase name="DateIO week and month helpers should get days in month" duration="0" />
+<testCase name="DateIO week and month helpers should get ISO week" duration="0" />
+<testCase name="DateIO week and month helpers should get week" duration="1" />
 </file>
 <file path="/Users/dsipos/others/sui-js/src/component/year.spec.ts">
 <testCase name="year should be instance of Year" duration="1" />
 </file>
-<file path="/Users/dsipos/others/sui-js/src/module/leftMenu.spec.ts">
-<testCase name="leftMenu should be instance of LeftMenu" duration="4" />
+<file path="/Users/dsipos/others/sui-js/src/field/checkboxField.spec.ts">
+<testCase name="CheckboxField should be instance of CheckboxField" duration="10" />
+<testCase name="CheckboxField should return field name" duration="2" />
+<testCase name="CheckboxField should get value" duration="3" />
+<testCase name="CheckboxField should check disabled state" duration="1" />
 </file>
-<file path="/Users/dsipos/others/sui-js/src/module/cookie.spec.ts">
-<testCase name="cookie should be instance of Cookie" duration="2" />
+<file path="/Users/dsipos/others/sui-js/src/field/autoCompleteField.spec.ts">
+<testCase name="autoCompleteField should be instance of AutoCompleteField" duration="17" />
 </file>
-<file path="/Users/dsipos/others/sui-js/src/core/promize.spec.ts">
-<testCase name="promize should be instance of Promize" duration="1" />
+<file path="/Users/dsipos/others/sui-js/src/component/month.spec.ts">
+<testCase name="month should be instance of Month" duration="1" />
 </file>
-<file path="/Users/dsipos/others/sui-js/src/component/clock.spec.ts">
-<testCase name="clock should be instance of Clock" duration="4" />
+<file path="/Users/dsipos/others/sui-js/src/component/application.spec.ts">
+<testCase name="application should run the application" duration="39" />
 </file>
-<file path="/Users/dsipos/others/sui-js/src/field/urlField.spec.ts">
-<testCase name="urlField should be instance of UrlField" duration="7" />
+<file path="/Users/dsipos/others/sui-js/src/field/baseCheckboxField.spec.ts">
+<testCase name="baseCheckboxField should be instance of BaseCheckboxField" duration="10" />
 </file>
-<file path="/Users/dsipos/others/sui-js/src/component/googleMap.spec.ts">
-<testCase name="googleMap should be instance of GoogleMap" duration="4" />
+<file path="/Users/dsipos/others/sui-js/src/field/dateTimeRangeField.spec.ts">
+<testCase name="dateTimeRangeField should be instance of DateTimeRangeField" duration="46" />
 </file>
-<file path="/Users/dsipos/others/sui-js/src/component/calendar.spec.ts">
-<testCase name="calendar should be instance of Calendar" duration="6" />
+<file path="/Users/dsipos/others/sui-js/src/field/textField.spec.ts">
+<testCase name="TextField should be instance of TextField" duration="6" />
+<testCase name="TextField should be instance of TextField, when type tel" duration="1" />
+<testCase name="TextField should be instance of TextField, when type email" duration="1" />
+<testCase name="TextField getValue should return current value" duration="1" />
+<testCase name="TextField getValue should return email value" duration="0" />
+<testCase name="TextField setValue should update value" duration="1" />
+<testCase name="TextField render should add MDL classes" duration="0" />
+<testCase name="TextField name should return field name" duration="0" />
+</file>
+<file path="/Users/dsipos/others/sui-js/src/component/form.spec.ts">
+<testCase name="Form constructor &amp; initialization should be instance of Form" duration="1400" />
+<testCase name="Form constructor &amp; initialization should set novalidate attribute on form element" duration="177" />
+<testCase name="Form constructor &amp; initialization should initialize fields from DOM" duration="176" />
+<testCase name="Form constructor &amp; initialization should initialize model with field values" duration="85" />
+<testCase name="Form getModel should return model object" duration="86" />
+<testCase name="Form getModel should contain initial field values" duration="96" />
+<testCase name="Form setModel should update model values" duration="282" />
+<testCase name="Form setModel should update previousModel on setModel" duration="251" />
+<testCase name="Form setModel should call field setValue for matching fields" duration="279" />
+<testCase name="Form setModel should call field checkValidity after setValue" duration="135" />
+<testCase name="Form findByModel should find text field by model name" duration="69" />
+<testCase name="Form findByModel should find checkbox field by model name" duration="83" />
+<testCase name="Form findByModel should find select field by model name" duration="36" />
+<testCase name="Form findByModel should find hidden field" duration="57" />
+<testCase name="Form findByModel should return null for non-existent field" duration="53" />
+<testCase name="Form validation should return boolean from checkValidity" duration="49" />
+<testCase name="Form validation should call field checkValidity on each field" duration="48" />
+<testCase name="Form validation should return boolean from isValid" duration="112" />
+<testCase name="Form validation should have isValid and isInvalid as inverses" duration="136" />
+<testCase name="Form setErrors should set error messages on matching fields" duration="51" />
+<testCase name="Form setErrors should set empty error for fields without errors" duration="64" />
+<testCase name="Form reset should call setValue on all fields" duration="268" />
+<testCase name="Form reset should clear model" duration="155" />
+<testCase name="Form reset should preserve previousModel" duration="206" />
+<testCase name="Form lock / unlock should disable all fields on lock" duration="195" />
+<testCase name="Form lock / unlock should restore previous disabled state on unlock" duration="140" />
+<testCase name="Form lock / unlock should keep disabled field disabled after unlock" duration="168" />
+<testCase name="Form form events should prevent default on submit" duration="287" />
+<testCase name="Form form events should call eventSubmit with model when form is valid" duration="178" />
+<testCase name="Form form events should prevent default on reset" duration="59" />
+<testCase name="Form form events should call eventReset with model on reset" duration="51" />
+<testCase name="Form form events should prevent Enter key in non-textarea inputs" duration="55" />
+<testCase name="Form field value change should update model when field value changes" duration="69" />
+<testCase name="Form field value change should call field eventChange with new and old values" duration="111" />
+<testCase name="Form field value change should re-validate form after field change" duration="74" />
+<testCase name="Form field value change should not update model when value is the same" duration="132" />
+<testCase name="Form refresh should re-initialize fields" duration="295" />
+<testCase name="Form event methods should have eventSubmit" duration="187" />
+<testCase name="Form event methods should have eventReset" duration="46" />
+<testCase name="Form event methods should have eventButton" duration="47" />
 </file>
 <file path="/Users/dsipos/others/sui-js/src/component/day.spec.ts">
 <testCase name="day should be instance of Day" duration="1" />
 </file>
+<file path="/Users/dsipos/others/sui-js/src/error-scenarios.spec.ts">
+<testCase name="Error scenarios and failure modes Query with missing DOM element should return empty Knot for non-existent selector" duration="0" />
+<testCase name="Error scenarios and failure modes Query with missing DOM element should handle getKnots with no matches" duration="2" />
+<testCase name="Error scenarios and failure modes Knot null/undefined operations should handle operations on empty Knot gracefully" duration="0" />
+<testCase name="Error scenarios and failure modes Knot null/undefined operations should create Knot from tag name" duration="3" />
+<testCase name="Error scenarios and failure modes Knot null/undefined operations should handle getAttribute on valid element" duration="0" />
+<testCase name="Error scenarios and failure modes Router with malformed URLs should handle empty string URL" duration="1" />
+<testCase name="Error scenarios and failure modes Router with malformed URLs should handle URL with no parameters" duration="0" />
+<testCase name="Error scenarios and failure modes Router with malformed URLs should handle URL with missing parameter values" duration="0" />
+<testCase name="Error scenarios and failure modes Router with malformed URLs should return null matches for non-matching path" duration="0" />
+<testCase name="Error scenarios and failure modes Collection operations on empty collection should handle get on empty collection" duration="1" />
+<testCase name="Error scenarios and failure modes Collection operations on empty collection should handle get with out-of-bounds index" duration="0" />
+<testCase name="Error scenarios and failure modes Collection operations on empty collection should handle each on empty collection" duration="0" />
+<testCase name="Error scenarios and failure modes Collection operations on empty collection should handle clear on empty collection" duration="0" />
+<testCase name="Error scenarios and failure modes Collection operations on empty collection should handle size on empty collection" duration="0" />
+<testCase name="Error scenarios and failure modes EventBus handler errors should handle calling event with no subscribers" duration="1" />
+<testCase name="Error scenarios and failure modes EventBus handler errors should handle removing non-existent event" duration="0" />
+<testCase name="Error scenarios and failure modes EventBus handler errors should handle popping from non-existent event" duration="0" />
+<testCase name="Error scenarios and failure modes Depot storage errors should handle getting non-existent key from LOCAL depot" duration="2" />
+<testCase name="Error scenarios and failure modes Depot storage errors should handle getting non-existent key from SESSION depot" duration="1" />
+<testCase name="Error scenarios and failure modes Depot storage errors should handle removing non-existent key" duration="1" />
+<testCase name="Error scenarios and failure modes Depot storage errors should handle clearing empty depot" duration="1" />
+<testCase name="Error scenarios and failure modes Cookie edge cases should handle getting non-existent cookie" duration="4" />
+<testCase name="Error scenarios and failure modes Cookie edge cases should handle removing non-existent cookie" duration="5" />
+<testCase name="Error scenarios and failure modes Cookie edge cases should handle hasKey for non-existent key" duration="0" />
+<testCase name="Error scenarios and failure modes DateIO edge cases should handle null date input" duration="1" />
+<testCase name="Error scenarios and failure modes DateIO edge cases should handle undefined date input" duration="0" />
+<testCase name="Error scenarios and failure modes DateIO edge cases should handle empty string date input" duration="0" />
+<testCase name="Error scenarios and failure modes DateIO edge cases should format valid date without error" duration="0" />
+<testCase name="Error scenarios and failure modes Deferred edge cases should not throw on double resolve" duration="1" />
+<testCase name="Error scenarios and failure modes Deferred edge cases should handle then without reject handler" duration="0" />
+<testCase name="Error scenarios and failure modes Deferred edge cases should handle resolve with no data" duration="0" />
+<testCase name="Error scenarios and failure modes Objekt edge cases should handle get with deeply nested missing key" duration="0" />
+<testCase name="Error scenarios and failure modes Objekt edge cases should handle merge with empty object" duration="0" />
+<testCase name="Error scenarios and failure modes Objekt edge cases should handle merge with undefined" duration="1" />
+<testCase name="Error scenarios and failure modes GeoLocation permission errors should handle geolocation instantiation" duration="0" />
+<testCase name="Error scenarios and failure modes GeoLocation permission errors should have getPosition method" duration="0" />
+</file>
+<file path="/Users/dsipos/others/sui-js/src/component/time.spec.ts">
+<testCase name="time should be instance of Time" duration="35" />
+</file>
 <file path="/Users/dsipos/others/sui-js/src/component/dateTime.spec.ts">
 <testCase name="dateTime should be instance of DateTime" duration="4" />
 </file>
-<file path="/Users/dsipos/others/sui-js/src/component/form.spec.ts">
-<testCase name="form should be instance of Form" duration="132" />
-</file>
-<file path="/Users/dsipos/others/sui-js/src/module/browser.spec.ts">
-<testCase name="browser should be instance of Browser" duration="1" />
-</file>
-<file path="/Users/dsipos/others/sui-js/src/module/loader.spec.ts">
-<testCase name="loader should be instance of Loader" duration="1" />
-</file>
-<file path="/Users/dsipos/others/sui-js/src/component/month.spec.ts">
-<testCase name="month should be instance of Month" duration="0" />
-</file>
-<file path="/Users/dsipos/others/sui-js/src/utils/render.spec.ts">
-<testCase name="render should render mdl components" duration="1" />
-</file>
-<file path="/Users/dsipos/others/sui-js/src/component/formField.spec.ts">
-<testCase name="formField should be instance of FormField" duration="121" />
-</file>
-<file path="/Users/dsipos/others/sui-js/src/field/button.spec.ts">
-<testCase name="button should be instance of Button" duration="2" />
-</file>
-<file path="/Users/dsipos/others/sui-js/src/field/hiddenField.spec.ts">
-<testCase name="hiddenField should be instance of HiddenField" duration="1" />
-</file>
 <file path="/Users/dsipos/others/sui-js/src/module/dialog.spec.ts">
-<testCase name="dialog should be instance of Dialog" duration="4" />
-</file>
-<file path="/Users/dsipos/others/sui-js/src/component/cardCollection.spec.ts">
-<testCase name="cardCollection should be instance of CardCollection" duration="3" />
-</file>
-<file path="/Users/dsipos/others/sui-js/src/component/application.spec.ts">
-<testCase name="application should run the application" duration="83" />
-</file>
-<file path="/Users/dsipos/others/sui-js/src/field/searchField.spec.ts">
-<testCase name="searchField should be instance of SearchField" duration="4" />
-</file>
-<file path="/Users/dsipos/others/sui-js/src/module/header.spec.ts">
-<testCase name="header should be instance of Header" duration="3" />
-</file>
-<file path="/Users/dsipos/others/sui-js/src/module/confirm.spec.ts">
-<testCase name="confirm should be instance of Confirm" duration="2" />
-</file>
-<file path="/Users/dsipos/others/sui-js/src/field/numberField.spec.ts">
-<testCase name="numberField should be instance of NumberField" duration="6" />
-</file>
-<file path="/Users/dsipos/others/sui-js/src/module/style.spec.ts">
-<testCase name="style should be instance of Style" duration="5" />
-</file>
-<file path="/Users/dsipos/others/sui-js/src/module/navBar.spec.ts">
-<testCase name="navBar should be instance of NavBar" duration="1" />
-</file>
-<file path="/Users/dsipos/others/sui-js/src/field/fileField.spec.ts">
-<testCase name="fileField should be instance of FileField" duration="5" />
-</file>
-<file path="/Users/dsipos/others/sui-js/src/component/route.spec.ts">
-<testCase name="route should be instance of Route" duration="0" />
-</file>
-<file path="/Users/dsipos/others/sui-js/src/module/depot.spec.ts">
-<testCase name="depot should be instance of Depot" duration="1" />
-</file>
-<file path="/Users/dsipos/others/sui-js/src/field/switchField.spec.ts">
-<testCase name="switchField should be instance of SwitchField" duration="4" />
-</file>
-<file path="/Users/dsipos/others/sui-js/src/component/time.spec.ts">
-<testCase name="time should be instance of Time" duration="14" />
-</file>
-<file path="/Users/dsipos/others/sui-js/src/module/footer.spec.ts">
-<testCase name="footer should be instance of Footer" duration="2" />
-</file>
-<file path="/Users/dsipos/others/sui-js/src/core/state.spec.ts">
-<testCase name="state should be instance of State" duration="2" />
-</file>
-<file path="/Users/dsipos/others/sui-js/src/field/rangeField.spec.ts">
-<testCase name="rangeField should be instance of RangeField" duration="4" />
-</file>
-<file path="/Users/dsipos/others/sui-js/src/module/xhr.spec.ts">
-<testCase name="xhr should be instance of Xhr" duration="2" />
-</file>
-<file path="/Users/dsipos/others/sui-js/src/module/topMenu.spec.ts">
-<testCase name="topMenu should be instance of TopMenu" duration="4" />
-</file>
-<file path="/Users/dsipos/others/sui-js/src/field/colorField.spec.ts">
-<testCase name="colorField should be instance of ColorField" duration="8" />
-</file>
-<file path="/Users/dsipos/others/sui-js/src/utils/dateio.spec.ts">
-<testCase name="dateio should be readable currency" duration="1" />
-<testCase name="dateio should convert to ISO format" duration="0" />
-<testCase name="dateio should parse number format of year" duration="1" />
-<testCase name="dateio should parse string format of year" duration="0" />
-</file>
-<file path="/Users/dsipos/others/sui-js/src/module/script.spec.ts">
-<testCase name="script should be instance of Script" duration="8" />
-</file>
-<file path="/Users/dsipos/others/sui-js/src/component/popupContainer.spec.ts">
-<testCase name="popupContainer should be instance of PopupContainer" duration="1" />
-</file>
-<file path="/Users/dsipos/others/sui-js/src/component/dropdown.spec.ts">
-<testCase name="dropdown should be instance of Dropdown" duration="3" />
-</file>
-<file path="/Users/dsipos/others/sui-js/src/component/waiter.spec.ts">
-<testCase name="waiter should be instance of Waiter" duration="1" />
-</file>
-<file path="/Users/dsipos/others/sui-js/src/field/submitButton.spec.ts">
-<testCase name="submitButton should be instance of SubmitButton" duration="4" />
-</file>
-<file path="/Users/dsipos/others/sui-js/src/utils/log.spec.ts">
-<testCase name="log should be log the message" duration="1" />
-</file>
-<file path="/Users/dsipos/others/sui-js/src/component/treeView.spec.ts">
-<testCase name="treeView should be instance of TreeView" duration="1" />
-</file>
-<file path="/Users/dsipos/others/sui-js/src/module/screen.spec.ts">
-<testCase name="screen should be instance of Screen" duration="1" />
-</file>
-<file path="/Users/dsipos/others/sui-js/src/module/eventBus.spec.ts">
-<testCase name="event should be instance of EventBus" duration="0" />
-</file>
-<file path="/Users/dsipos/others/sui-js/src/component/popup.spec.ts">
-<testCase name="popup should be instance of Popup" duration="5" />
-</file>
-<file path="/Users/dsipos/others/sui-js/src/component/mapLabel.spec.ts">
-<testCase name="mapLabel should be instance of MapLabel" duration="0" />
+<testCase name="Dialog should be instance of Dialog" duration="5" />
+<testCase name="Dialog should store http reference" duration="1" />
+<testCase name="Dialog should have loadTemplate method" duration="2" />
+<testCase name="Dialog should have open method from BaseModal" duration="0" />
+<testCase name="Dialog should have close method from BaseModal" duration="0" />
+<testCase name="Dialog should have isOpened method from BaseModal" duration="1" />
+<testCase name="Dialog should not be opened by default" duration="1" />
 </file>
 <file path="/Users/dsipos/others/sui-js/src/component/pager.spec.ts">
-<testCase name="pager should be instance of Pager" duration="1" />
+<testCase name="Pager should be instance of Pager" duration="1" />
+<testCase name="Pager setPage should set page number" duration="0" />
+<testCase name="Pager setPage should calculate offset" duration="0" />
+<testCase name="Pager setCount should set total count" duration="0" />
+<testCase name="Pager draw should draw pager without error" duration="3" />
+<testCase name="Pager draw should draw for single page" duration="1" />
+<testCase name="Pager draw should draw for many pages" duration="2" />
+<testCase name="Pager eventAction should call eventAction without error" duration="1" />
 </file>
-<file path="/Users/dsipos/others/sui-js/src/field/selectField.spec.ts">
-<testCase name="selectField should be instance of SelectField" duration="9" />
+<file path="/Users/dsipos/others/sui-js/src/component/table.spec.ts">
+<testCase name="Table constructor &amp; options should be instance of Table" duration="12" />
+<testCase name="Table constructor &amp; options should set default options" duration="2" />
+<testCase name="Table constructor &amp; options should merge custom options" duration="2" />
+<testCase name="Table structure initialization should create tbody element" duration="3" />
+<testCase name="Table structure initialization should create tfoot element" duration="2" />
+<testCase name="Table structure initialization should create pager" duration="2" />
+<testCase name="Table structure initialization should assign ID to table if none exists" duration="3" />
+<testCase name="Table structure initialization should create content handler" duration="4" />
+<testCase name="Table structure initialization should initialize header texts from th elements" duration="2" />
+<testCase name="Table structure initialization should initialize empty collection" duration="1" />
+<testCase name="Table structure initialization should initialize empty query string" duration="1" />
+<testCase name="Table setData should show content handler when data is empty" duration="1" />
+<testCase name="Table setData should hide content handler when data is provided" duration="7" />
+<testCase name="Table setData should reload collection with items" duration="5" />
+<testCase name="Table setData should render rows in tbody" duration="2" />
+<testCase name="Table setData should clear previous rows when setting new data" duration="36" />
+<testCase name="Table setCount should set count on pager" duration="94" />
+<testCase name="Table setCount should call pager draw" duration="3" />
+<testCase name="Table row rendering should render header and data rows for each item" duration="2" />
+<testCase name="Table row rendering should add header class to header rows" duration="1" />
+<testCase name="Table row rendering should add data class to data rows" duration="2" />
+<testCase name="Table row rendering should render item property values in data cells" duration="2" />
+<testCase name="Table row rendering should render multiple items as separate row pairs" duration="2" />
+<testCase name="Table row rendering should use calculation functions for computed columns" duration="2" />
+<testCase name="Table row styles should apply array of custom row styles" duration="1" />
+<testCase name="Table row styles should apply single string row style" duration="3" />
+<testCase name="Table row styles should not add extra classes when rowStyle is not set" duration="12" />
+<testCase name="Table actions should store actions array" duration="1" />
+<testCase name="Table actions should render action buttons when actions &lt;= 3" duration="18" />
+<testCase name="Table actions should render dropdown when actions &gt; 3" duration="10" />
+<testCase name="Table actions should call action click handler on button click" duration="10" />
+<testCase name="Table actions should disable button when action style returns disabled" duration="3" />
+<testCase name="Table actions should not render button when action style returns removed" duration="18" />
+<testCase name="Table sorting should add sort icons to sortable columns" duration="3" />
+<testCase name="Table sorting should call eventAction on sortable column click" duration="3" />
+<testCase name="Table sorting should alternate sort direction on repeated clicks" duration="1" />
+<testCase name="Table sorting should mark active sort icon" duration="2" />
+<testCase name="Table search should create search input when last column is search" duration="2" />
+<testCase name="Table search should not create search input when last column is not search" duration="1" />
+<testCase name="Table search should update query and refresh on Enter key" duration="1" />
+<testCase name="Table refresh should call eventAction with query params" duration="1" />
+<testCase name="Table refresh should set page on pager when page &gt; -1" duration="1" />
+<testCase name="Table refresh should not set page when page is -1" duration="1" />
+<testCase name="Table render should call eventAction via updateSorting" duration="5" />
 </file>
-<file path="/Users/dsipos/others/sui-js/src/module/geoLocation.spec.ts">
-<testCase name="geoLocation should be instance of GeoLocation" duration="2" />
+<file path="/Users/dsipos/others/sui-js/src/component/clock.spec.ts">
+<testCase name="clock should be instance of Clock" duration="3" />
 </file>
-<file path="/Users/dsipos/others/sui-js/src/component/carousel.spec.ts">
-<testCase name="carousel should be instance of Carousel" duration="1" />
+<file path="/Users/dsipos/others/sui-js/src/component/calendar.spec.ts">
+<testCase name="Calendar constructor &amp; initialization should be instance of Calendar" duration="16" />
+<testCase name="Calendar constructor &amp; initialization should create header with previous/next buttons and mode span" duration="7" />
+<testCase name="Calendar constructor &amp; initialization should create content container" duration="3" />
+<testCase name="Calendar constructor &amp; initialization should initialize in DAY mode for type date" duration="24" />
+<testCase name="Calendar constructor &amp; initialization should initialize in MONTH mode for type month" duration="6" />
+<testCase name="Calendar constructor &amp; initialization should initialize in YEAR mode for type year" duration="1" />
+<testCase name="Calendar constructor &amp; initialization should set selectedDate from options" duration="3" />
+<testCase name="Calendar constructor &amp; initialization should populate days array after construction" duration="4" />
+<testCase name="Calendar header display should display year and month in DAY mode" duration="14" />
+<testCase name="Calendar header display should display year in MONTH mode" duration="3" />
+<testCase name="Calendar header display should display empty string in YEAR mode" duration="6" />
+<testCase name="Calendar day drawing should render 7 week day headers" duration="64" />
+<testCase name="Calendar day drawing should render 42 day cells" duration="4" />
+<testCase name="Calendar day drawing should include days from previous month" duration="4" />
+<testCase name="Calendar day drawing should include days from current month" duration="7" />
+<testCase name="Calendar day drawing should include days from next month" duration="5" />
+<testCase name="Calendar day drawing should have previous + current + next = 42 days" duration="6" />
+<testCase name="Calendar month drawing should render 12 month cells" duration="3" />
+<testCase name="Calendar month drawing should display abbreviated month names" duration="2" />
+<testCase name="Calendar year drawing should render 16 year cells" duration="2" />
+<testCase name="Calendar year drawing should display years starting from aligned batch" duration="2" />
+<testCase name="Calendar navigation should navigate to previous month in DAY mode" duration="31" />
+<testCase name="Calendar navigation should navigate to next month in DAY mode" duration="30" />
+<testCase name="Calendar navigation should navigate to previous year in MONTH mode" duration="4" />
+<testCase name="Calendar navigation should navigate to next year in MONTH mode" duration="3" />
+<testCase name="Calendar navigation should navigate 16 years back in YEAR mode" duration="3" />
+<testCase name="Calendar navigation should navigate 16 years forward in YEAR mode" duration="11" />
+<testCase name="Calendar navigation should not go below year 0 in YEAR mode" duration="3" />
+<testCase name="Calendar mode switching should switch from DAY to MONTH on header click" duration="3" />
+<testCase name="Calendar mode switching should switch from MONTH to YEAR on header click" duration="5" />
+<testCase name="Calendar mode switching should wrap back to default mode at boundary" duration="41" />
+<testCase name="Calendar click handling should call eventClick when day is clicked" duration="62" />
+<testCase name="Calendar click handling should call eventClick when month is clicked" duration="23" />
+<testCase name="Calendar click handling should call eventClick when year is clicked" duration="3" />
+<testCase name="Calendar click handling should zoom in mode when clicking in non-target mode" duration="10" />
+<testCase name="Calendar click handling should update selectedDate on click" duration="10" />
 </file>
-<file path="/Users/dsipos/others/sui-js/src/module/flash.spec.ts">
-<testCase name="flash should be instance of Flash" duration="1" />
+<file path="/Users/dsipos/others/sui-js/src/field/switchField.spec.ts">
+<testCase name="SwitchField should be instance of SwitchField" duration="10" />
+<testCase name="SwitchField should return field name" duration="2" />
+<testCase name="SwitchField should get value" duration="1" />
+<testCase name="SwitchField should check disabled state" duration="1" />
 </file>
-<file path="/Users/dsipos/others/sui-js/src/component/progressStatus.spec.ts">
-<testCase name="progressStatus should be instance of ProgressStatus" duration="1" />
-</file>
-<file path="/Users/dsipos/others/sui-js/src/core/async.spec.ts">
-<testCase name="async should be instance of Async" duration="0" />
-</file>
-<file path="/Users/dsipos/others/sui-js/src/module/http.spec.ts">
-<testCase name="http should be instance of Http" duration="1" />
+<file path="/Users/dsipos/others/sui-js/src/state-routing.integration.spec.ts">
+<testCase name="State Routing Integration should initialize with routes" duration="34" />
+<testCase name="State Routing Integration should resolve URL for state by ID" duration="1" />
+<testCase name="State Routing Integration should resolve URL with parameters" duration="1" />
+<testCase name="State Routing Integration should track current state after navigation" duration="2" />
+<testCase name="State Routing Integration should track previous state after navigation" duration="4" />
+<testCase name="State Routing Integration should fire eventChange on go()" duration="2" />
+<testCase name="State Routing Integration should fire eventChange on run()" duration="1" />
+<testCase name="State Routing Integration should fire eventChange on refresh()" duration="1" />
+<testCase name="State Routing Integration should navigate with parameters and retrieve them" duration="1" />
+<testCase name="State Routing Integration should navigate to root state via goRoot()" duration="1" />
+<testCase name="State Routing Integration should get root state configuration" duration="0" />
+<testCase name="State Routing Integration should handle navigation to parameterized routes" duration="24" />
+<testCase name="State Routing Integration should overwrite history when opt_overwrite is true" duration="0" />
+<testCase name="State Routing Integration should force eventChange when opt_force is true" duration="1" />
 </file>
 <file path="/Users/dsipos/others/sui-js/src/core/collection.spec.ts">
-<testCase name="collection should be instance of Collection" duration="1" />
+<testCase name="Collection should instantiate with an array of items" duration="3" />
+<testCase name="Collection should instantiate with empty array" duration="0" />
+<testCase name="Collection push should add a new item" duration="1" />
+<testCase name="Collection push should wrap plain objects in the Type" duration="0" />
+<testCase name="Collection set should replace item at existing index" duration="2" />
+<testCase name="Collection set should push if index exceeds size" duration="0" />
+<testCase name="Collection get should return item by index" duration="1" />
+<testCase name="Collection get should return attribute value with opt_attribute" duration="0" />
+<testCase name="Collection get should return null for out-of-bounds index" duration="1" />
+<testCase name="Collection get should return null for negative index" duration="0" />
+<testCase name="Collection findById should find item by ID" duration="0" />
+<testCase name="Collection findById should return null when item not found" duration="0" />
+<testCase name="Collection findBy should find item by attribute value" duration="1" />
+<testCase name="Collection findByCondition should find item matching condition" duration="0" />
+<testCase name="Collection findByCondition should return null when no match" duration="0" />
+<testCase name="Collection findAllByCondition should find all matching items" duration="0" />
+<testCase name="Collection findAllByCondition should return empty array when no match" duration="1" />
+<testCase name="Collection deleteById should delete item by ID" duration="0" />
+<testCase name="Collection deleteByCondition should delete item matching condition" duration="0" />
+<testCase name="Collection deleteAllByCondition should delete all matching items" duration="0" />
+<testCase name="Collection replace should replace an existing item by ID" duration="0" />
+<testCase name="Collection replace should return null when ID not found" duration="0" />
+<testCase name="Collection each should iterate over all items" duration="2" />
+<testCase name="Collection clear should remove all items" duration="0" />
+<testCase name="Collection reload should clear and reload with new items" duration="0" />
+<testCase name="Collection limit should return a slice of items" duration="1" />
+<testCase name="Collection limit should handle offset" duration="0" />
+<testCase name="Collection getItems should return the internal items array" duration="0" />
+</file>
+<file path="/Users/dsipos/others/sui-js/src/utils/operation.spec.ts">
+<testCase name="operation should cast string to undefined" duration="2" />
+<testCase name="operation should merge two objects" duration="1" />
+<testCase name="operation should get formatted string" duration="1" />
+<testCase name="operation should create noop function" duration="0" />
+<testCase name="operation should equal the two numbers" duration="0" />
+<testCase name="operation should not equal the two numbers" duration="0" />
+<testCase name="operation should be 3 greater than 2" duration="1" />
+<testCase name="operation should be 2 greater and equal than 2" duration="0" />
+<testCase name="operation should be 2 lower than 3" duration="0" />
+<testCase name="operation should be 2 lower and equal than 2" duration="0" />
+<testCase name="operation should be true when input is array" duration="0" />
+<testCase name="operation should be true when input is function" duration="0" />
+<testCase name="operation should be true when input is string" duration="0" />
+<testCase name="operation should be true when input is number" duration="0" />
+<testCase name="operation should be true when input is float" duration="1" />
+<testCase name="operation should be true when input is integer" duration="0" />
+<testCase name="operation should be true when input is object" duration="0" />
+<testCase name="operation should be true when input is pure object" duration="0" />
+<testCase name="operation should be true when input is new Date()" duration="0" />
+<testCase name="operation should be true when input is null" duration="0" />
+<testCase name="operation should be true when input is Infinity" duration="0" />
+<testCase name="operation should be true when input is undefined" duration="0" />
+<testCase name="operation should be true when input is in specific type" duration="1" />
+<testCase name="operation should be true when input is instance of object" duration="0" />
+<testCase name="operation each should iterate array items" duration="0" />
+<testCase name="operation each should iterate object properties" duration="0" />
+<testCase name="operation eachArray should iterate with start and end" duration="1" />
+<testCase name="operation eachObject should iterate object key-value pairs" duration="0" />
+<testCase name="operation sleepEach should call next for each index" duration="2" />
+<testCase name="operation clear" duration="1" />
+<testCase name="operation clearArray" duration="0" />
+<testCase name="operation clearObject" duration="1" />
+<testCase name="operation inArray" duration="0" />
+<testCase name="operation contain" duration="0" />
+<testCase name="operation inContainArray" duration="1" />
+<testCase name="operation isSame number" duration="0" />
+<testCase name="operation isSame object" duration="1" />
+<testCase name="operation isSame array" duration="0" />
+<testCase name="operation remove" duration="0" />
+<testCase name="operation copy" duration="1" />
+<testCase name="operation copyArray" duration="0" />
+<testCase name="operation copyObject" duration="1" />
+<testCase name="operation isEmpty" duration="0" />
+<testCase name="operation list should spread args to callback" duration="0" />
+<testCase name="operation capitalize should uppercase first character" duration="1" />
+<testCase name="operation pluckKeys should return keys matching condition" duration="0" />
+<testCase name="operation scrollTo should call scrollBy with intervals" duration="2" />
+<testCase name="operation scrollToElement should scroll to element position" duration="5" />
+<testCase name="operation scrollIntoView should call element scrollIntoView" duration="3" />
+<testCase name="operation debounce should delay function execution" duration="2" />
+<testCase name="operation debounce with immediate should call function immediately" duration="0" />
+<testCase name="operation urlWithQueryString should append query string to url" duration="0" />
+<testCase name="operation urlWithQueryString should use &amp; when url already has ?" duration="0" />
+<testCase name="operation urlWithQueryString should return url unchanged when no params" duration="0" />
+<testCase name="operation getQueryString should build query string from object" duration="1" />
+<testCase name="operation getQueryString should handle array params with [] notation" duration="0" />
+<testCase name="operation getQueryString should skip null and undefined values" duration="1" />
+<testCase name="operation getExtensionName should extract file extension" duration="1" />
+<testCase name="operation getExtensionName should ignore query string" duration="0" />
+<testCase name="operation normalize should remove diacritical marks" duration="1" />
+<testCase name="operation copyToClipboard should copy string via execCommand" duration="1" />
+</file>
+<file path="/Users/dsipos/others/sui-js/src/core/deferred.spec.ts">
+<testCase name="Deferred should be instance of Deferred" duration="1" />
+<testCase name="Deferred should return a Promize from promise()" duration="0" />
+<testCase name="Deferred resolve should resolve synchronously and call resolve handler" duration="6" />
+<testCase name="Deferred resolve should resolve before then is called (pre-resolved)" duration="4" />
+<testCase name="Deferred reject should reject synchronously and call reject handler" duration="0" />
+<testCase name="Deferred reject should reject before then is called (pre-rejected)" duration="1" />
+<testCase name="Deferred complete handler should call complete handler after resolve" duration="4" />
+<testCase name="Deferred complete handler should call complete handler after reject" duration="4" />
+</file>
+<file path="/Users/dsipos/others/sui-js/src/component/cardCollection.spec.ts">
+<testCase name="cardCollection should be instance of CardCollection" duration="11" />
+</file>
+<file path="/Users/dsipos/others/sui-js/src/memory-leak.spec.ts">
+<testCase name="Memory leak prevention Knot event listeners should store listeners in listenerStoreKey" duration="4" />
+<testCase name="Memory leak prevention Knot event listeners should accumulate multiple listeners for same event" duration="0" />
+<testCase name="Memory leak prevention Knot event listeners should store listeners for different events separately" duration="0" />
+<testCase name="Memory leak prevention Knot event listeners should remove all listeners for an event via removeEventListeners" duration="1" />
+<testCase name="Memory leak prevention Knot event listeners should remove specific listener via removeEventListener" duration="3" />
+<testCase name="Memory leak prevention Knot event listeners should not retain listener references after removeChild" duration="3" />
+<testCase name="Memory leak prevention Knot event listeners should return noop when no callback provided" duration="0" />
+<testCase name="Memory leak prevention EventBus subscription cleanup should remove specific callback" duration="5" />
+<testCase name="Memory leak prevention EventBus subscription cleanup should not grow unbounded when set/remove cycles repeat" duration="6" />
+<testCase name="Memory leak prevention EventBus subscription cleanup should pop last callback via pop()" duration="2" />
+<testCase name="Memory leak prevention EventBus subscription cleanup should handle removing non-existent callback gracefully" duration="1" />
+<testCase name="Memory leak prevention PopupContainer collection management should not grow after push/delete cycles" duration="9" />
+<testCase name="Memory leak prevention PopupContainer collection management should delete popup from collection on close" duration="1" />
+<testCase name="Memory leak prevention Popup open/close cycles should not leak state after repeated open/close" duration="47" />
+<testCase name="Memory leak prevention Popup open/close cycles should not create multiple DOM nodes after open/close cycles" duration="3" />
+<testCase name="Memory leak prevention Collection memory management should not retain deleted items" duration="0" />
+<testCase name="Memory leak prevention Collection memory management should clear all items" duration="0" />
+<testCase name="Memory leak prevention Collection memory management should replace items completely on reload" duration="0" />
+</file>
+<file path="/Users/dsipos/others/sui-js/src/module/helper.spec.ts">
+<testCase name="Helper should be instance of Helper" duration="3" />
+<testCase name="Helper createLink should create an anchor element with name" duration="3" />
+<testCase name="Helper createLink should set html content to name" duration="17" />
+<testCase name="Helper createLink should set href attribute" duration="4" />
+<testCase name="Helper createLink should use default href when not provided" duration="1" />
+<testCase name="Helper createLink should remove element when allowAccess is false" duration="0" />
+<testCase name="Helper createButton should create a button element" duration="4" />
+<testCase name="Helper createButton should set html content to name" duration="3" />
+<testCase name="Helper createButton should add MDL css classes" duration="1" />
+<testCase name="Helper createButton should add custom css classes" duration="1" />
+<testCase name="Helper createButton should invoke callback on click" duration="10" />
+<testCase name="Helper createIconButton should create a button with icon" duration="1" />
+<testCase name="Helper createIconButton should contain icon element" duration="16" />
+<testCase name="Helper createIconButton should add icon-specific MDL classes" duration="0" />
+<testCase name="Helper linkElement should add css classes to existing link" duration="1" />
+<testCase name="Helper linkElement should set id on link without id" duration="1" />
+<testCase name="Helper linkElement should handle description via tooltip" duration="0" />
+<testCase name="Helper linkElement should remove element when access not allowed" duration="0" />
+<testCase name="Helper buttonElement should add MDL css classes to existing button" duration="2" />
+<testCase name="Helper buttonElement should set id on button without id" duration="1" />
+<testCase name="Helper buttonElement should remove element when access not allowed" duration="0" />
+<testCase name="Helper setGravatar should set src with gravatar url" duration="7" />
+<testCase name="Helper setGravatar should set onError fallback" duration="0" />
+<testCase name="Helper setGravatar should use custom size and rating" duration="0" />
+</file>
+<file path="/Users/dsipos/others/sui-js/src/core/state.spec.ts">
+<testCase name="State should instantiate with routes array" duration="12" />
+<testCase name="State should instantiate with empty routes" duration="1" />
+<testCase name="State routes collection should store routes in a collection" duration="1" />
+<testCase name="State getCurrent / getPrevious should return current state" duration="2" />
+<testCase name="State getCurrent / getPrevious should return previous state" duration="2" />
+<testCase name="State go should navigate to a route by ID" duration="4" />
+<testCase name="State go should navigate with params" duration="2" />
+<testCase name="State go should navigate by path string" duration="2" />
+<testCase name="State resolveUrl should resolve URL for a route ID" duration="2" />
+<testCase name="State goRoot should navigate to root route" duration="2" />
+<testCase name="State getRoot should return root route config" duration="1" />
+<testCase name="State refresh should trigger change event" duration="2" />
+<testCase name="State refresh should pass force flag" duration="6" />
+<testCase name="State setParam / getParam / getParams should set and get params after navigation" duration="2" />
+<testCase name="State setParam / getParam / getParams should return default value for missing param" duration="0" />
+</file>
+<file path="/Users/dsipos/others/sui-js/src/accessibility.spec.ts">
+<testCase name="Accessibility (a11y) Dialog DOM structure should have dialog element" duration="4" />
+<testCase name="Accessibility (a11y) Dialog DOM structure should have dialog window" duration="0" />
+<testCase name="Accessibility (a11y) Confirm DOM structure should have confirm element" duration="0" />
+<testCase name="Accessibility (a11y) Confirm DOM structure should have confirm window" duration="0" />
+<testCase name="Accessibility (a11y) Form field labels should have labels associated with inputs via for attribute" duration="3" />
+<testCase name="Accessibility (a11y) Form field labels should have each label pointing to an existing input" duration="1" />
+<testCase name="Accessibility (a11y) Form field labels should have input fields with name attributes" duration="1" />
+<testCase name="Accessibility (a11y) Tooltip accessibility should create tooltip span with for attribute" duration="5" />
+<testCase name="Accessibility (a11y) Tooltip accessibility should assign ID to element without one" duration="3" />
+<testCase name="Accessibility (a11y) Tooltip accessibility should create tooltip as span element" duration="2" />
+<testCase name="Accessibility (a11y) Tooltip accessibility should add mdl-tooltip CSS class" duration="0" />
+<testCase name="Accessibility (a11y) Flash message accessibility should render flash with appropriate CSS class for type" duration="4" />
+<testCase name="Accessibility (a11y) Flash message accessibility should render success flash with success class" duration="1" />
+<testCase name="Accessibility (a11y) Flash message accessibility should render warning flash with warning class" duration="0" />
+<testCase name="Accessibility (a11y) Flash message accessibility should render info flash with info class" duration="0" />
+<testCase name="Accessibility (a11y) Flash message accessibility should include close button for error type with default duration" duration="4" />
+<testCase name="Accessibility (a11y) Flash message accessibility should have identifiable data-id attribute when specified" duration="4" />
+<testCase name="Accessibility (a11y) Popup accessibility should have hidden class when closed" duration="1" />
+<testCase name="Accessibility (a11y) Popup accessibility should remove hidden class when opened" duration="5" />
+<testCase name="Accessibility (a11y) Popup accessibility should add popup-parent class to container" duration="1" />
+<testCase name="Accessibility (a11y) Structural landmarks should have header element" duration="1" />
+<testCase name="Accessibility (a11y) Structural landmarks should have footer element" duration="0" />
+<testCase name="Accessibility (a11y) Structural landmarks should have main content area" duration="1" />
+<testCase name="Accessibility (a11y) Structural landmarks should have navigation area" duration="0" />
+<testCase name="Accessibility (a11y) Structural landmarks should have left menu" duration="0" />
+<testCase name="Accessibility (a11y) Structural landmarks should have loader element" duration="0" />
+<testCase name="Accessibility (a11y) Structural landmarks should have flashes container" duration="0" />
+<testCase name="Accessibility (a11y) Structural landmarks should have viewer element" duration="1" />
+</file>
+<file path="/Users/dsipos/others/sui-js/src/utils/coder.spec.ts">
+<testCase name="Coder Base64 should encode and decode roundtrip" duration="2" />
+<testCase name="Coder Base64 should decode known base64" duration="1" />
+<testCase name="Coder Base64 should encode to known base64" duration="29" />
+<testCase name="Coder Base64 should handle empty string" duration="1" />
+<testCase name="Coder Base64 should handle special characters" duration="0" />
+<testCase name="Coder AES encrypt/decrypt should encrypt and decrypt roundtrip" duration="16" />
+<testCase name="Coder AES encrypt/decrypt should decrypt known ciphertext" duration="1" />
+<testCase name="Coder AES encrypt/decrypt should handle object values" duration="5" />
+<testCase name="Coder md5 should generate correct md5 hash" duration="0" />
+<testCase name="Coder md5 should generate different hashes for different inputs" duration="1" />
+<testCase name="Coder md5 should handle empty string" duration="0" />
+<testCase name="Coder guid should return a non-empty string" duration="0" />
+<testCase name="Coder guid should generate unique values" duration="0" />
+<testCase name="Coder generateId should include the name prefix" duration="0" />
+<testCase name="Coder generateId should contain a hyphen separator" duration="0" />
+<testCase name="Coder uuid should match UUID-like format" duration="0" />
+<testCase name="Coder uuid should have 5 segments separated by hyphens" duration="1" />
+<testCase name="Coder uuid should generate unique values" duration="0" />
+</file>
+<file path="/Users/dsipos/others/sui-js/src/core/promize.spec.ts">
+<testCase name="Promize should be instance of Promize" duration="2" />
+<testCase name="Promize resolve should resolve with a value and call resolve handler" duration="1" />
+<testCase name="Promize resolve should call then handler when already resolved (pre-resolved)" duration="0" />
+<testCase name="Promize reject should reject with a reason and call reject handler" duration="1" />
+<testCase name="Promize reject should call reject handler when already rejected (pre-rejected)" duration="0" />
+<testCase name="Promize complete handler should call complete handler after resolve" duration="0" />
+<testCase name="Promize complete handler should call complete handler after reject" duration="1" />
+<testCase name="Promize defer should defer resolution to another Deferred" duration="0" />
+</file>
+<file path="/Users/dsipos/others/sui-js/src/component/treeView.spec.ts">
+<testCase name="treeView should be instance of TreeView" duration="2" />
+</file>
+<file path="/Users/dsipos/others/sui-js/src/component/canvas.spec.ts">
+<testCase name="canvas should be instance of Canvas" duration="2" />
+</file>
+<file path="/Users/dsipos/others/sui-js/src/snapshot.spec.ts">
+<testCase name="UI Component Snapshots Tooltip should match snapshot for top position" duration="15" />
+<testCase name="UI Component Snapshots Tooltip should match snapshot for bottom position" duration="0" />
+<testCase name="UI Component Snapshots Tooltip should match snapshot for left position" duration="1" />
+<testCase name="UI Component Snapshots Tooltip should match snapshot for right position" duration="0" />
+<testCase name="UI Component Snapshots Popup should match snapshot in closed state" duration="1" />
+<testCase name="UI Component Snapshots Popup should match snapshot in open state" duration="2" />
+<testCase name="UI Component Snapshots Popup should match snapshot with close button" duration="1" />
+<testCase name="UI Component Snapshots Dialog modal should match snapshot of dialog DOM structure" duration="0" />
+<testCase name="UI Component Snapshots Dialog modal should match snapshot of confirm DOM structure" duration="0" />
+<testCase name="UI Component Snapshots Flash messages should match snapshot for success message" duration="1" />
+<testCase name="UI Component Snapshots Flash messages should match snapshot for error message with close button" duration="1" />
+<testCase name="UI Component Snapshots Flash messages should match snapshot for warning message" duration="0" />
+<testCase name="UI Component Snapshots Flash messages should match snapshot for info message" duration="1" />
+<testCase name="UI Component Snapshots Flash messages should match snapshot with multiple messages" duration="3" />
+<testCase name="UI Component Snapshots Form structure should match snapshot of form from template-view" duration="4" />
+</file>
+<file path="/Users/dsipos/others/sui-js/src/utils/render.spec.ts">
+<testCase name="render should render mdl components" duration="3" />
 </file>
 <file path="/Users/dsipos/others/sui-js/src/core/module.spec.ts">
-<testCase name="module should be instance of Module" duration="1" />
+<testCase name="Module should be instance of Module" duration="1" />
+<testCase name="Module getController should return default controller with noop enter/exit" duration="0" />
+<testCase name="Module add should register a module and return its name" duration="0" />
+<testCase name="Module load should set instances and injections" duration="0" />
+<testCase name="Module event methods should not throw when calling eventAfterInit" duration="0" />
+<testCase name="Module event methods should not throw when calling eventServiceLoaded" duration="1" />
+<testCase name="Module event methods should not throw when calling eventServiceFailed" duration="0" />
+<testCase name="Module event methods should not throw when calling eventControllerFailed" duration="0" />
+</file>
+<file path="/Users/dsipos/others/sui-js/src/field/hiddenField.spec.ts">
+<testCase name="HiddenField should be instance of HiddenField" duration="1" />
+<testCase name="HiddenField should return value" duration="1" />
+<testCase name="HiddenField should set value" duration="0" />
+<testCase name="HiddenField should return field name" duration="0" />
+<testCase name="HiddenField should render without error" duration="1" />
+<testCase name="HiddenField should refresh without error" duration="37" />
+</file>
+<file path="/Users/dsipos/others/sui-js/src/component/route.spec.ts">
+<testCase name="route should be instance of Route" duration="2" />
+</file>
+<file path="/Users/dsipos/others/sui-js/src/module/depot.spec.ts">
+<testCase name="Depot LOCAL storage should be instance of Depot" duration="1" />
+<testCase name="Depot LOCAL storage should use localStorage" duration="0" />
+<testCase name="Depot LOCAL storage should set and get a string value" duration="4" />
+<testCase name="Depot LOCAL storage should set and get a numeric value" duration="3" />
+<testCase name="Depot LOCAL storage should set and get an object value" duration="1" />
+<testCase name="Depot LOCAL storage should return null for non-existent key" duration="0" />
+<testCase name="Depot LOCAL storage should remove a key" duration="1" />
+<testCase name="Depot LOCAL storage should clear all items" duration="0" />
+<testCase name="Depot LOCAL storage should set item with custom expiry" duration="1" />
+<testCase name="Depot LOCAL storage should use prefix for property names" duration="0" />
+<testCase name="Depot SESSION storage should use sessionStorage" duration="1" />
+<testCase name="Depot SESSION storage should set and get a value" duration="0" />
+<testCase name="Depot SESSION storage should remove a value" duration="1" />
+</file>
+<file path="/Users/dsipos/others/sui-js/src/module/script.spec.ts">
+<testCase name="script should be instance of Script" duration="6" />
+</file>
+<file path="/Users/dsipos/others/sui-js/src/module/leftMenu.spec.ts">
+<testCase name="leftMenu should be instance of LeftMenu" duration="38" />
+</file>
+<file path="/Users/dsipos/others/sui-js/src/module/topMenu.spec.ts">
+<testCase name="topMenu should be instance of TopMenu" duration="8" />
+</file>
+<file path="/Users/dsipos/others/sui-js/src/core/router.spec.ts">
+<testCase name="Router should be instance of Router" duration="15" />
+<testCase name="Router stringify should resolve url with params" duration="1" />
+<testCase name="Router stringify should handle route with no params" duration="0" />
+<testCase name="Router stringify should handle multiple path params" duration="1" />
+<testCase name="Router stringify should handle empty params object" duration="0" />
+<testCase name="Router stringify should put non-path params in query string" duration="0" />
+<testCase name="Router stringify should handle unused path param placeholder" duration="0" />
+<testCase name="Router getMatches should match simple path" duration="1" />
+<testCase name="Router getMatches should not match different path" duration="0" />
+<testCase name="Router getMatches should match path with params" duration="0" />
+<testCase name="Router getMatches should strip query string before matching" duration="0" />
+<testCase name="Router parse should parse path parameters" duration="1" />
+<testCase name="Router parse should parse multiple path parameters" duration="0" />
+<testCase name="Router parse should return empty object for no match" duration="0" />
+<testCase name="Router parse should parse query string parameters" duration="1" />
+<testCase name="Router parse should handle array query params with []" duration="0" />
+<testCase name="Router parse should parse param types for route /users/:id with url /users/hello" duration="1" />
+<testCase name="Router parse should parse param types for route /users/:id with url /users/0" duration="0" />
+<testCase name="Router parse should parse param types for route /users/:id with url /users/true" duration="0" />
+</file>
+<file path="/Users/dsipos/others/sui-js/src/module/confirm.spec.ts">
+<testCase name="Confirm should be instance of Confirm" duration="9" />
+<testCase name="Confirm load should set message in modal body" duration="5" />
+<testCase name="Confirm load should create OK button" duration="6" />
+<testCase name="Confirm load should create cancel and OK buttons" duration="2" />
+<testCase name="Confirm load should set title when provided" duration="2" />
+<testCase name="Confirm load should apply type class to modal window" duration="2" />
+<testCase name="Confirm load should apply choice type with primary cancel button" duration="4" />
+</file>
+<file path="/Users/dsipos/others/sui-js/src/field/button.spec.ts">
+<testCase name="Button should be instance of Button" duration="21" />
+<testCase name="Button should set name attribute to button" duration="2" />
+<testCase name="Button should render without error" duration="7" />
+<testCase name="Button should add MDL classes on render" duration="0" />
+</file>
+<file path="/Users/dsipos/others/sui-js/src/core/query.spec.ts">
+<testCase name="Query should instantiate with a CSS selector" duration="5" />
+<testCase name="Query getKnot should return a Knot from getKnot()" duration="2" />
+<testCase name="Query getKnot should return empty Knot for non-matching selector" duration="90" />
+<testCase name="Query getKnots should return all matching knots" duration="37" />
+<testCase name="Query getKnots should return empty array for no matches" duration="0" />
+<testCase name="Query selector types should handle ID selector" duration="2" />
+<testCase name="Query selector types should handle tag selector" duration="0" />
+<testCase name="Query selector types should handle complex selector with spaces" duration="2" />
+<testCase name="Query selector types should handle attribute selector" duration="0" />
+<testCase name="Query context element should search within a specific element" duration="0" />
+<testCase name="Query context element should accept a Knot as context" duration="1" />
+</file>
+<file path="/Users/dsipos/others/sui-js/src/component/contentHandler.spec.ts">
+<testCase name="contentHandler should be instance of ContentHandler" duration="3" />
+</file>
+<file path="/Users/dsipos/others/sui-js/src/module/style.spec.ts">
+<testCase name="style should be instance of Style" duration="12" />
+</file>
+<file path="/Users/dsipos/others/sui-js/src/core/knot.spec.ts">
+<testCase name="Knot should be instance of Knot" duration="1" />
+<testCase name="Knot should create from HTML string" duration="2" />
+<testCase name="Knot should create from tag name string" duration="1" />
+<testCase name="Knot should create from existing DOM element" duration="0" />
+<testCase name="Knot attributes should set and get attribute value &quot;text&quot;" duration="1" />
+<testCase name="Knot attributes should set and get attribute value null" duration="0" />
+<testCase name="Knot attributes should set and get attribute value true" duration="1" />
+<testCase name="Knot attributes should set and get attribute value false" duration="0" />
+<testCase name="Knot attributes should set and get attribute value Infinity" duration="0" />
+<testCase name="Knot attributes should set and get attribute value 0" duration="0" />
+<testCase name="Knot attributes should set and get attribute value 1" duration="1" />
+<testCase name="Knot attributes should set and get attribute value 10" duration="0" />
+<testCase name="Knot attributes should remove attribute" duration="2" />
+<testCase name="Knot attributes should check hasAttribute" duration="0" />
+<testCase name="Knot data attributes should set and get data-attribute value &quot;&quot;" duration="1" />
+<testCase name="Knot data attributes should set and get data-attribute value &quot;text&quot;" duration="1" />
+<testCase name="Knot data attributes should set and get data-attribute value null" duration="0" />
+<testCase name="Knot data attributes should set and get data-attribute value true" duration="0" />
+<testCase name="Knot data attributes should set and get data-attribute value false" duration="0" />
+<testCase name="Knot data attributes should set and get data-attribute value undefined" duration="0" />
+<testCase name="Knot data attributes should set and get data-attribute value Infinity" duration="0" />
+<testCase name="Knot data attributes should set and get data-attribute value 0" duration="0" />
+<testCase name="Knot data attributes should set and get data-attribute value 1" duration="0" />
+<testCase name="Knot data attributes should set and get data-attribute value 10" duration="0" />
+<testCase name="Knot data attributes should set and get data-attribute value [0, 1, 10]" duration="0" />
+<testCase name="Knot data attributes should set and get data-attribute value {&quot;key&quot;: &quot;value&quot;}" duration="1" />
+<testCase name="Knot data attributes should remove data-attribute" duration="1" />
+<testCase name="Knot data should set and get data value &quot;&quot;" duration="1" />
+<testCase name="Knot data should set and get data value &quot;text&quot;" duration="0" />
+<testCase name="Knot data should set and get data value null" duration="0" />
+<testCase name="Knot data should set and get data value true" duration="0" />
+<testCase name="Knot data should set and get data value false" duration="1" />
+<testCase name="Knot data should set and get data value undefined" duration="0" />
+<testCase name="Knot data should set and get data value Infinity" duration="0" />
+<testCase name="Knot data should set and get data value 0" duration="0" />
+<testCase name="Knot data should set and get data value 1" duration="0" />
+<testCase name="Knot data should set and get data value 10" duration="1" />
+<testCase name="Knot data should set and get data value [0, 1, 10]" duration="0" />
+<testCase name="Knot data should set and get data value {&quot;key&quot;: &quot;value&quot;}" duration="0" />
+<testCase name="Knot data should remove data" duration="1" />
+<testCase name="Knot CSS classes should add a class" duration="1" />
+<testCase name="Knot CSS classes should add multiple classes" duration="0" />
+<testCase name="Knot CSS classes should remove a class" duration="1" />
+<testCase name="Knot CSS classes should toggle a class" duration="1" />
+<testCase name="Knot CSS classes should return hasClass false for missing class" duration="0" />
+<testCase name="Knot CSS classes should get all classes" duration="2" />
+<testCase name="Knot text and HTML should set and get HTML content" duration="1" />
+<testCase name="Knot text and HTML should get outer HTML" duration="1" />
+<testCase name="Knot text and HTML should get text content" duration="0" />
+<testCase name="Knot DOM manipulation should append child knot" duration="0" />
+<testCase name="Knot DOM manipulation should remove child knot" duration="2" />
+<testCase name="Knot DOM manipulation should remove all children" duration="1" />
+<testCase name="Knot DOM manipulation should insert (replace children with new knot)" duration="1" />
+<testCase name="Knot DOM manipulation should get parent knot" duration="0" />
+<testCase name="Knot DOM manipulation should remove self from DOM" duration="0" />
+<testCase name="Knot DOM manipulation should get next sibling" duration="0" />
+<testCase name="Knot event listeners should add and trigger event listener" duration="1" />
+<testCase name="Knot event listeners should return noop when no callback provided" duration="0" />
+<testCase name="Knot set and get via set/get shorthand should set and get id via set/get" duration="0" />
+<testCase name="Knot set and get via set/get shorthand should set and get regular attribute" duration="0" />
+<testCase name="Knot merge should set multiple attributes at once" duration="0" />
+<testCase name="Knot styles should set inline styles" duration="2" />
+<testCase name="Knot styles should remove inline styles" duration="1" />
+<testCase name="Knot isEmpty should return false for valid knot" duration="0" />
+<testCase name="Knot isEmpty should return true for null node" duration="1" />
+<testCase name="Knot exists should return true when in DOM" duration="0" />
+<testCase name="Knot exists should return false when not in DOM" duration="0" />
+<testCase name="Knot setParentKnot should set parent knot" duration="0" />
+<testCase name="Knot createElement should create a child knot with parent reference" duration="1" />
+<testCase name="Knot toString should return outer HTML by default" duration="0" />
+<testCase name="Knot toString should return inner HTML when opt_isRoot is false" duration="0" />
+</file>
+<file path="/Users/dsipos/others/sui-js/src/module/footer.spec.ts">
+<testCase name="footer should be instance of Footer" duration="3" />
+</file>
+<file path="/Users/dsipos/others/sui-js/src/module/header.spec.ts">
+<testCase name="header should be instance of Header" duration="7" />
+</file>
+<file path="/Users/dsipos/others/sui-js/src/module/screen.spec.ts">
+<testCase name="Screen should be instance of Screen" duration="5" />
+<testCase name="Screen dimensions should return width" duration="4" />
+<testCase name="Screen dimensions should return height" duration="2" />
+<testCase name="Screen orientation should return landscape or portrait" duration="3" />
+<testCase name="Screen orientation should store initial orientation" duration="2" />
+<testCase name="Screen scroll should return scroll top as number" duration="1" />
+<testCase name="Screen events should have eventResize method" duration="1" />
+<testCase name="Screen events should have eventScroll method" duration="1" />
+<testCase name="Screen events should have eventOnline method" duration="1" />
+<testCase name="Screen events should have eventOffline method" duration="2" />
+<testCase name="Screen events should have eventOrientationChange method" duration="1" />
+<testCase name="Screen events should have eventColorSchemeChange method" duration="1" />
+<testCase name="Screen isColorScheme should return boolean for light" duration="1" />
+<testCase name="Screen isColorScheme should return boolean for dark" duration="0" />
+</file>
+<file path="/Users/dsipos/others/sui-js/src/component/googleMap.spec.ts">
+<testCase name="googleMap should be instance of GoogleMap" duration="63" />
+</file>
+<file path="/Users/dsipos/others/sui-js/src/module/template.spec.ts">
+<testCase name="Template constructor should store the http instance" duration="12" />
+<testCase name="Template constructor should find viewKnot from default selector" duration="2" />
+<testCase name="Template constructor should use custom selector" duration="0" />
+<testCase name="Template constructor should set default locale from navigator.language" duration="1" />
+<testCase name="Template constructor should allow custom locale" duration="3" />
+<testCase name="Template getViewKnot should return the container knot" duration="0" />
+<testCase name="Template load &#x2014; cached should return .page-content knot without HTTP call when URL and locale match" duration="2" />
+<testCase name="Template load &#x2014; cached should remove data-locale attribute on cache hit" duration="1" />
+<testCase name="Template load &#x2014; fetch should make HTTP GET when URL differs" duration="2" />
+<testCase name="Template load &#x2014; fetch should make HTTP GET when force=true even if URL matches" duration="1" />
+<testCase name="Template load &#x2014; fetch should set data-template-url attribute on fetch" duration="0" />
+<testCase name="Template load &#x2014; fetch should insert content into viewKnot on success" duration="1" />
+<testCase name="Template load &#x2014; error should call eventError with message content and type on HTTP error" duration="1" />
+<testCase name="Template _spaNavigate should extract .page-content from response data" duration="0" />
+<testCase name="Template _spaNavigate should insert knot into viewKnot on success" duration="1" />
+<testCase name="Template _spaNavigate should call eventError on error" duration="0" />
+<testCase name="Template eventError should not throw when called" duration="1" />
 </file>
 <file path="/Users/dsipos/others/sui-js/src/component/navigation.spec.ts">
-<testCase name="navigation should be instance of Navigation" duration="1" />
+<testCase name="Navigation should be instance of Navigation" duration="1" />
+<testCase name="Navigation addText should add a text item" duration="1" />
+<testCase name="Navigation addIcon should add an icon item" duration="1" />
+<testCase name="Navigation addCounter should add a counter item" duration="1" />
+<testCase name="Navigation add should add text item via Objekt" duration="0" />
+<testCase name="Navigation add should add icon item via Objekt" duration="0" />
+<testCase name="Navigation add should add disabled item" duration="6" />
+<testCase name="Navigation each should iterate over items" duration="1" />
+<testCase name="Navigation setActive should mark item as active" duration="1" />
+<testCase name="Navigation setAllInactive should clear all active classes" duration="1" />
+<testCase name="Navigation setDisabled/setEnabled should disable an item" duration="0" />
+<testCase name="Navigation setDisabled/setEnabled should enable an item" duration="0" />
+<testCase name="Navigation show/hide should hide an item" duration="0" />
+<testCase name="Navigation show/hide should show a hidden item" duration="0" />
+<testCase name="Navigation bindToContainer should append items to container" duration="6" />
 </file>
-<file path="/Users/dsipos/others/sui-js/src/module/page.spec.ts">
-<testCase name="page should be instance of Page" duration="1" />
+<file path="/Users/dsipos/others/sui-js/src/field/resetButton.spec.ts">
+<testCase name="ResetButton should be instance of ResetButton" duration="51" />
+<testCase name="ResetButton should set name attribute to reset" duration="2" />
+<testCase name="ResetButton should render without error" duration="0" />
 </file>
-<file path="/Users/dsipos/others/sui-js/src/field/locationField.spec.ts">
-<testCase name="locationField should be instance of LocationField" duration="3" />
+<file path="/Users/dsipos/others/sui-js/src/component/mapLabel.spec.ts">
+<testCase name="mapLabel should be instance of MapLabel" duration="1" />
+</file>
+<file path="/Users/dsipos/others/sui-js/src/component/popup.spec.ts">
+<testCase name="Popup should be instance of Popup" duration="2" />
+<testCase name="Popup open/close should not be opened by default" duration="1" />
+<testCase name="Popup open/close should open popup" duration="1" />
+<testCase name="Popup open/close should close popup" duration="1" />
+<testCase name="Popup open/close should toggle popup" duration="1" />
+</file>
+<file path="/Users/dsipos/others/sui-js/src/field/submitButton.spec.ts">
+<testCase name="SubmitButton should be instance of SubmitButton" duration="3" />
+<testCase name="SubmitButton should set name attribute to submit" duration="0" />
+<testCase name="SubmitButton should render without error" duration="1" />
+</file>
+<file path="/Users/dsipos/others/sui-js/src/core/objekt.spec.ts">
+<testCase name="Objekt should be instance of Objekt" duration="9" />
+<testCase name="Objekt should instantiate with data" duration="0" />
+<testCase name="Objekt merge should merge properties deeply" duration="0" />
+<testCase name="Objekt merge should handle merging undefined" duration="2" />
+<testCase name="Objekt type casting should cast string values to typed values" duration="1" />
+<testCase name="Objekt get should get nested values with dot notation" duration="2" />
+<testCase name="Objekt get should return undefined for non-existent nested path" duration="2" />
+<testCase name="Objekt get should return default value when provided" duration="1" />
+<testCase name="Objekt set should set nested values with dot notation" duration="3" />
+<testCase name="Objekt remove should remove values at nested paths" duration="3" />
+<testCase name="Objekt remove should handle removing non-existent key" duration="0" />
+<testCase name="Objekt copy should create a deep copy" duration="2" />
+<testCase name="Objekt copyObject should create a plain object copy" duration="0" />
+<testCase name="Objekt isEmpty should return true for empty object" duration="0" />
+<testCase name="Objekt isEmpty should return false for non-empty object" duration="1" />
+</file>
+<file path="/Users/dsipos/others/sui-js/src/module/http.spec.ts">
+<testCase name="Http constructor &amp; options should be instance of Http" duration="1" />
+<testCase name="Http constructor &amp; options should set backend option" duration="1" />
+<testCase name="Http constructor &amp; options should set locale option" duration="0" />
+<testCase name="Http constructor &amp; options should have null credentials by default" duration="33" />
+<testCase name="Http constructor &amp; options should use empty defaults when no options provided" duration="1" />
+<testCase name="Http setBasicAuthorization should set username and password" duration="0" />
+<testCase name="Http setBearerAuthorization should set token" duration="0" />
+<testCase name="Http HTTP methods should make GET request and resolve with [Objekt, string]" duration="5" />
+<testCase name="Http HTTP methods should make POST request with data" duration="0" />
+<testCase name="Http HTTP methods should make PUT request with data" duration="0" />
+<testCase name="Http HTTP methods should make PATCH request with data" duration="1" />
+<testCase name="Http HTTP methods should make DELETE request" duration="0" />
+<testCase name="Http auth propagation should propagate basic authorization to Xhr" duration="1" />
+<testCase name="Http auth propagation should propagate bearer authorization to Xhr" duration="1" />
+<testCase name="Http auth propagation should not set authorization when credentials are null" duration="0" />
+<testCase name="Http promise transformation should strip XMLHttpRequest from resolved result" duration="1" />
+<testCase name="Http promise transformation should strip XMLHttpRequest from rejected result" duration="1" />
+<testCase name="Http event hooks should call eventBeforeRequest with Xhr before request" duration="1" />
+<testCase name="Http event hooks should call eventAfterRequest on success" duration="1" />
+<testCase name="Http event hooks should call eventAfterRequest on error" duration="0" />
+<testCase name="Http event hooks should call eventBeforeRequest and eventAfterRequest without error" duration="1" />
+</file>
+<file path="/Users/dsipos/others/sui-js/src/module/eventBus.spec.ts">
+<testCase name="EventBus should be instance of EventBus" duration="0" />
+<testCase name="EventBus set should register a callback" duration="0" />
+<testCase name="EventBus set should register multiple callbacks for same event" duration="0" />
+<testCase name="EventBus set should not register non-function values" duration="0" />
+<testCase name="EventBus remove should remove a specific callback" duration="1" />
+<testCase name="EventBus remove should only remove the specified callback" duration="0" />
+<testCase name="EventBus remove should handle removing non-existent callback" duration="0" />
+<testCase name="EventBus pop should remove last callback" duration="0" />
+<testCase name="EventBus pop should handle pop on empty event list" duration="0" />
+<testCase name="EventBus call should call registered callbacks" duration="5" />
+<testCase name="EventBus call should pass arguments to callbacks" duration="1" />
+<testCase name="EventBus call should call noop for unregistered event" duration="1" />
+<testCase name="EventBus override should use default callback when no handler set" duration="0" />
+<testCase name="EventBus override should use registered handler over default" duration="0" />
+</file>
+<file path="/Users/dsipos/others/sui-js/src/async-cleanup.spec.ts">
+<testCase name="Async cleanup and timer management Deferred resolution should resolve synchronously without timers" duration="7" />
+<testCase name="Async cleanup and timer management Deferred resolution should reject synchronously without timers" duration="1" />
+<testCase name="Async cleanup and timer management Deferred resolution should handle resolve before then" duration="0" />
+<testCase name="Async cleanup and timer management Deferred resolution should handle reject before then" duration="0" />
+<testCase name="Async cleanup and timer management Deferred resolution should call complete callback on resolve" duration="0" />
+<testCase name="Async cleanup and timer management Deferred resolution should call complete callback on reject" duration="0" />
+<testCase name="Async cleanup and timer management Promize chaining should defer resolution to another deferred" duration="1" />
+<testCase name="Async cleanup and timer management Promize chaining should handle rapid resolve without leaking" duration="16" />
+<testCase name="Async cleanup and timer management Promize chaining should handle rapid reject without leaking" duration="14" />
+<testCase name="Async cleanup and timer management Async serial execution should execute functions in order" duration="1" />
+<testCase name="Async cleanup and timer management Async serial execution should pass args to each function" duration="3" />
+<testCase name="Async cleanup and timer management Debounce timer cleanup should debounce function calls" duration="7" />
+<testCase name="Async cleanup and timer management Debounce timer cleanup should cancel previous timer on repeated calls" duration="0" />
+<testCase name="Async cleanup and timer management Debounce timer cleanup should execute immediately when opt_immediate is true" duration="1" />
+</file>
+<file path="/Users/dsipos/others/sui-js/src/component/tooltip.spec.ts">
+<testCase name="Tooltip should be instance of Tooltip" duration="54" />
+<testCase name="Tooltip positions should default to top position" duration="1" />
+<testCase name="Tooltip positions should set bottom position" duration="1" />
+<testCase name="Tooltip positions should set left position" duration="1" />
+<testCase name="Tooltip positions should set right position" duration="1" />
+<testCase name="Tooltip open/close should not be open by default" duration="1" />
+<testCase name="Tooltip open/close should open tooltip" duration="0" />
+<testCase name="Tooltip open/close should close tooltip" duration="1" />
+<testCase name="Tooltip open/close should toggle tooltip" duration="0" />
+<testCase name="Tooltip setMessage should set message content" duration="4" />
+<testCase name="Tooltip setMessage should hide tooltip when message is empty" duration="32" />
+<testCase name="Tooltip render should render with message" duration="89" />
+<testCase name="Tooltip render should render without message" duration="2" />
+</file>
+<file path="/Users/dsipos/others/sui-js/src/utils/color.spec.ts">
+<testCase name="Color convertRGBToHSV should convert RGB to HSV" duration="9" />
+<testCase name="Color convertRGBToHSV should handle pure red" duration="0" />
+<testCase name="Color convertRGBToHSV should handle black (0,0,0)" duration="1" />
+<testCase name="Color convertRGBToHSV should handle white (255,255,255)" duration="0" />
+<testCase name="Color convertRGBToHEX should convert RGB to HEX" duration="0" />
+<testCase name="Color convertRGBToHEX should handle black" duration="0" />
+<testCase name="Color convertRGBToHEX should handle white" duration="0" />
+<testCase name="Color convertRGBToHEX should pad single digit hex values" duration="0" />
+<testCase name="Color convertHEXToHSV should convert HEX to HSV" duration="1" />
+<testCase name="Color convertHEXToRGB should convert HEX to RGB" duration="1" />
+<testCase name="Color convertHEXToRGB should convert HEX green" duration="0" />
+<testCase name="Color convertHEXToRGB should convert HEX blue" duration="1" />
+<testCase name="Color convertHSVToRGB should convert HSV to RGB" duration="0" />
+<testCase name="Color convertHSVToRGB should convert HSV(0, 1, 1) to RGB [255,0,0]" duration="1" />
+<testCase name="Color convertHSVToRGB should convert HSV(120, 1, 1) to RGB [0,255,0]" duration="0" />
+<testCase name="Color convertHSVToRGB should convert HSV(240, 1, 1) to RGB [0,0,255]" duration="0" />
+<testCase name="Color convertHSVToHEX should convert HSV to HEX" duration="0" />
+<testCase name="Color colorContrastYIQ should return light color for dark input" duration="1" />
+<testCase name="Color colorContrastYIQ should return dark color for light input" duration="0" />
+<testCase name="Color colorContrastYIQ should accept custom light/dark colors" duration="0" />
+<testCase name="Color colorContrast should return contrasted color" duration="0" />
+<testCase name="Color colorContrast should handle black input" duration="0" />
+<testCase name="Color colorContrast should clamp values at 255" duration="0" />
+</file>
+<file path="/Users/dsipos/others/sui-js/src/component/dropdown.spec.ts">
+<testCase name="dropdown should be instance of Dropdown" duration="2" />
+</file>
+<file path="/Users/dsipos/others/sui-js/src/module/geoLocation.spec.ts">
+<testCase name="GeoLocation should be instance of GeoLocation" duration="1" />
+<testCase name="GeoLocation constructor should set default options" duration="1" />
+<testCase name="GeoLocation getPosition should call getCurrentPosition" duration="4" />
+<testCase name="GeoLocation getPosition should resolve with coordinates on success" duration="37" />
+<testCase name="GeoLocation getPosition should reject with nulls on error" duration="8" />
+<testCase name="GeoLocation setWatcher should call watchPosition" duration="0" />
+<testCase name="GeoLocation setWatcher should call eventChange on position update" duration="0" />
+<testCase name="GeoLocation setWatcher should call eventError on permission denied" duration="1" />
+<testCase name="GeoLocation clearWatcher should call clearWatch" duration="0" />
+<testCase name="GeoLocation event methods should call eventChange without error" duration="0" />
+<testCase name="GeoLocation event methods should call eventError without error" duration="1" />
+</file>
+<file path="/Users/dsipos/others/sui-js/src/flash.integration.spec.ts">
+<testCase name="Flash Integration should initialize with default container" duration="1" />
+<testCase name="Flash Integration should add success flash to DOM" duration="1" />
+<testCase name="Flash Integration should add error flash to DOM" duration="1" />
+<testCase name="Flash Integration should add info flash to DOM" duration="0" />
+<testCase name="Flash Integration should add warning flash to DOM" duration="0" />
+<testCase name="Flash Integration should add default flash to DOM" duration="1" />
+<testCase name="Flash Integration should add flash via addMessage with object" duration="0" />
+<testCase name="Flash Integration should return null from addMessage with non-object" duration="0" />
+<testCase name="Flash Integration should add close button for error type" duration="4" />
+<testCase name="Flash Integration should add multiple flashes to container" duration="2" />
+<testCase name="Flash Integration should remove flash by reference" duration="1" />
+<testCase name="Flash Integration should remove flash by ID" duration="1" />
+<testCase name="Flash Integration should replace flash with same ID" duration="1" />
+<testCase name="Flash Integration should call close callback on remove" duration="1" />
 </file>
 <file path="/Users/dsipos/others/sui-js/src/module/viewer.spec.ts">
 <testCase name="viewer should be instance of Viewer" duration="2" />
 </file>
-<file path="/Users/dsipos/others/sui-js/src/module/baseModal.spec.ts">
-<testCase name="baseModal should be instance of BaseModal" duration="0" />
+<file path="/Users/dsipos/others/sui-js/src/utils/log.spec.ts">
+<testCase name="log should be log the message" duration="1" />
 </file>
-<file path="/Users/dsipos/others/sui-js/src/field/resetButton.spec.ts">
-<testCase name="resetButton should be instance of ResetButton" duration="2" />
+<file path="/Users/dsipos/others/sui-js/src/module/page.spec.ts">
+<testCase name="page should be instance of Page" duration="1" />
 </file>
-<file path="/Users/dsipos/others/sui-js/src/component/table.spec.ts">
-<testCase name="table should be instance of Table" duration="3" />
+<file path="/Users/dsipos/others/sui-js/src/component/carousel.spec.ts">
+<testCase name="carousel should be instance of Carousel" duration="3" />
 </file>
-<file path="/Users/dsipos/others/sui-js/src/component/canvas.spec.ts">
-<testCase name="canvas should be instance of Canvas" duration="1" />
+<file path="/Users/dsipos/others/sui-js/src/utils/math.spec.ts">
+<testCase name="Math utilities readableCurrency should format 100" duration="3" />
+<testCase name="Math utilities readableCurrency should format 0" duration="1" />
+<testCase name="Math utilities readableCurrency should format large number with delimiter" duration="0" />
+<testCase name="Math utilities readableCurrency should use custom delimiter and separator" duration="0" />
+<testCase name="Math utilities readableCurrency should handle null/NaN gracefully" duration="0" />
+<testCase name="Math utilities readableCurrency should format with precision" duration="1" />
+<testCase name="Math utilities readableNumber should format 0 (around=false) as 0" duration="2" />
+<testCase name="Math utilities readableNumber should format 5 (around=true) as 5" duration="0" />
+<testCase name="Math utilities readableNumber should format 14 (around=false) as 14" duration="0" />
+<testCase name="Math utilities readableNumber should format 14 (around=true) as 10+" duration="0" />
+<testCase name="Math utilities readableNumber should format 112 (around=false) as 112" duration="0" />
+<testCase name="Math utilities readableNumber should format 112 (around=true) as 100+" duration="1" />
+<testCase name="Math utilities readableNumber should format 1534 (around=false) as 1.534K" duration="0" />
+<testCase name="Math utilities readableNumber should format 1534 (around=true) as 1K+" duration="0" />
+<testCase name="Math utilities round should round 5 with exp 1 to 10" duration="1" />
+<testCase name="Math utilities round should round 5 with exp 0 to 5" duration="0" />
+<testCase name="Math utilities round should round with negative exp for decimals" duration="0" />
+<testCase name="Math utilities round should return NaN for NaN input" duration="0" />
+<testCase name="Math utilities floor should floor 5 with exp 1 to 0" duration="0" />
+<testCase name="Math utilities floor should floor with exp 0" duration="0" />
+<testCase name="Math utilities floor should floor with negative exp for decimals" duration="0" />
+<testCase name="Math utilities ceil should ceil 5 with exp 1 to 10" duration="0" />
+<testCase name="Math utilities ceil should ceil with exp 0" duration="1" />
+<testCase name="Math utilities ceil should ceil with negative exp for decimals" duration="0" />
+<testCase name="Math utilities random should return integer in range by default" duration="0" />
+<testCase name="Math utilities random should return float when opt_onlyFloat is true" duration="1" />
+<testCase name="Math utilities random should return min when random is 0" duration="0" />
+</file>
+<file path="/Users/dsipos/others/sui-js/src/eventbus-module.integration.spec.ts">
+<testCase name="EventBus Module Integration should deliver events between multiple subscribers" duration="17" />
+<testCase name="EventBus Module Integration should preserve delivery order" duration="1" />
+<testCase name="EventBus Module Integration should isolate event namespaces" duration="1" />
+<testCase name="EventBus Module Integration should handle subscriber removal during event flow" duration="1" />
+<testCase name="EventBus Module Integration should pass arguments to all subscribers" duration="0" />
+<testCase name="EventBus Module Integration should handle events with no subscribers gracefully" duration="0" />
+<testCase name="EventBus Module Integration should support multiple independent EventBus instances" duration="1" />
+<testCase name="EventBus Module Integration should allow re-registering after removal" duration="0" />
+<testCase name="EventBus Module Integration should use default callback in override when no subscribers" duration="0" />
+<testCase name="EventBus Module Integration should call registered callback instead of default in override" duration="0" />
 </file>
 <file path="/Users/dsipos/others/sui-js/src/component/tabPanel.spec.ts">
-<testCase name="tabPanel should be instance of TabPanel" duration="4" />
+<testCase name="TabPanel should be instance of TabPanel" duration="7" />
+<testCase name="TabPanel getActive should return active tab id" duration="2" />
+<testCase name="TabPanel setActive should set active panel" duration="2" />
+<testCase name="TabPanel setActive should switch active panel" duration="1" />
+<testCase name="TabPanel setActive should handle null panelId" duration="1" />
+<testCase name="TabPanel eventChange should call eventChange when panel changes" duration="3" />
+</file>
+<file path="/Users/dsipos/others/sui-js/src/module/xhr.spec.ts">
+<testCase name="Xhr constructor &amp; options should set backend and locale options" duration="5" />
+<testCase name="Xhr constructor &amp; options should use empty defaults when no options provided" duration="0" />
+<testCase name="Xhr constructor &amp; options should initialize request headers as empty" duration="0" />
+<testCase name="Xhr constructor &amp; options should have null authorization by default" duration="0" />
+<testCase name="Xhr constructor &amp; options should define content types for json, form, html, svg, xml" duration="1" />
+<testCase name="Xhr constructor &amp; options should create an XMLHttpRequest instance" duration="0" />
+<testCase name="Xhr constructor &amp; options should create a deferred" duration="0" />
+<testCase name="Xhr URL construction should prefix backend for URLs starting with /" duration="0" />
+<testCase name="Xhr URL construction should not prefix backend for absolute URLs" duration="1" />
+<testCase name="Xhr URL construction should append query string params" duration="0" />
+<testCase name="Xhr URL construction should handle undefined params without query string" duration="0" />
+<testCase name="Xhr request headers should set Content-Type to application/json for .json URLs" duration="1" />
+<testCase name="Xhr request headers should set Accept to application/json for .json URLs" duration="0" />
+<testCase name="Xhr request headers should set Accept to text/html for .html URLs" duration="0" />
+<testCase name="Xhr request headers should set X-Requested-With header" duration="0" />
+<testCase name="Xhr request headers should set Accept-Language from locale" duration="13" />
+<testCase name="Xhr request headers should allow custom header overrides" duration="1" />
+<testCase name="Xhr request headers should set Authorization and withCredentials when authorization is set" duration="0" />
+<testCase name="Xhr request headers should not set Authorization when authorization is null" duration="1" />
+<testCase name="Xhr request headers should handle responseType via opt_headers" duration="0" />
+<testCase name="Xhr request headers should use fallback type for unknown extensions" duration="10" />
+<testCase name="Xhr response type should set responseType to json for .json URLs" duration="1" />
+<testCase name="Xhr response type should set responseType to document for .html URLs" duration="0" />
+<testCase name="Xhr response type should set responseType to document for .svg URLs" duration="0" />
+<testCase name="Xhr response type should set responseType to document for .xml URLs" duration="0" />
+<testCase name="Xhr response type should set responseType to text for unknown extensions" duration="5" />
+<testCase name="Xhr request body encoding should JSON.stringify body for json content type" duration="12" />
+<testCase name="Xhr request body encoding should form-encode body for form content type" duration="12" />
+<testCase name="Xhr request body encoding should form-encode nested objects" duration="3" />
+<testCase name="Xhr request body encoding should form-encode arrays" duration="1" />
+<testCase name="Xhr request body encoding should send stringified empty object for GET requests on .json URLs" duration="31" />
+<testCase name="Xhr request body encoding should send empty string when data is not provided and content type is empty" duration="0" />
+<testCase name="Xhr HTTP methods should open GET request with correct method" duration="0" />
+<testCase name="Xhr HTTP methods should open POST request with correct method" duration="0" />
+<testCase name="Xhr HTTP methods should open PUT request with correct method" duration="29" />
+<testCase name="Xhr HTTP methods should open PATCH request with correct method" duration="2" />
+<testCase name="Xhr HTTP methods should open DELETE request with correct method" duration="0" />
+<testCase name="Xhr HTTP methods should always open with async=true" duration="0" />
+<testCase name="Xhr HTTP methods should return a promise from each method" duration="10" />
+<testCase name="Xhr response handling should resolve deferred on status 200 with JSON response" duration="20" />
+<testCase name="Xhr response handling should reject deferred on status 400" duration="1" />
+<testCase name="Xhr response handling should reject deferred on status 500" duration="1" />
+<testCase name="Xhr response handling should parse JSON string response into Objekt" duration="1" />
+<testCase name="Xhr response handling should wrap non-JSON response as raw property in Objekt" duration="1" />
+<testCase name="Xhr response handling should extract filename from Content-Disposition header" duration="1" />
+<testCase name="Xhr response handling should return empty filename when no Content-Disposition" duration="1" />
+<testCase name="Xhr response handling should return empty filename when responseURL does not match backend" duration="1" />
+<testCase name="Xhr response handling should handle JSON response with content-type having charset" duration="1" />
+<testCase name="Xhr setBasicAuthorization should set Basic authorization with base64 encoded credentials" duration="2" />
+<testCase name="Xhr setBasicAuthorization should not set authorization for empty username" duration="1" />
+<testCase name="Xhr setBasicAuthorization should not set authorization for empty password" duration="0" />
+<testCase name="Xhr setBearerAuthorization should set Bearer authorization with token" duration="0" />
+<testCase name="Xhr setBearerAuthorization should not set authorization for empty token" duration="0" />
+</file>
+<file path="/Users/dsipos/others/sui-js/src/component/popupContainer.spec.ts">
+<testCase name="popupContainer should be instance of PopupContainer" duration="6" />
+</file>
+<file path="/Users/dsipos/others/sui-js/src/module/navBar.spec.ts">
+<testCase name="navBar should be instance of NavBar" duration="2" />
 </file>
 <file path="/Users/dsipos/others/sui-js/src/module/bottomMenu.spec.ts">
-<testCase name="BottomMenu should be instance of BottomMenu" duration="3" />
+<testCase name="BottomMenu should be instance of BottomMenu" duration="11" />
 </file>
-<file path="/Users/dsipos/others/sui-js/src/field/baseField.spec.ts">
-<testCase name="baseField should be instance of BaseField" duration="1" />
+<file path="/Users/dsipos/others/sui-js/src/component/waiter.spec.ts">
+<testCase name="waiter should be instance of Waiter" duration="0" />
+</file>
+<file path="/Users/dsipos/others/sui-js/src/common/config.spec.ts">
+<testCase name="Config releaseMode should be set to false in test environment" duration="3" />
+<testCase name="Config releaseMode should toggle release mode" duration="0" />
+<testCase name="Config coreResources should define all core resource keys" duration="0" />
+<testCase name="Config coreResources should have storage resources" duration="0" />
+<testCase name="Config coreResources should have UI resources" duration="1" />
+</file>
+<file path="/Users/dsipos/others/sui-js/src/module/baseModal.spec.ts">
+<testCase name="BaseModal should be instance of BaseModal" duration="6" />
+<testCase name="BaseModal isOpened should return false when not opened" duration="1" />
+<testCase name="BaseModal isOpened should return true when opened" duration="1" />
+<testCase name="BaseModal open should add visible-flex class" duration="12" />
+<testCase name="BaseModal open should add blur to main container" duration="3" />
+<testCase name="BaseModal close should remove visible-flex class" duration="2" />
+<testCase name="BaseModal close should add hidden class" duration="1" />
+<testCase name="BaseModal setSize should set window dimensions" duration="1" />
+</file>
+<file path="/Users/dsipos/others/sui-js/src/module/loader.spec.ts">
+<testCase name="loader should be instance of Loader" duration="2" />
+</file>
+<file path="/Users/dsipos/others/sui-js/src/common/service.spec.ts">
+<testCase name="Service should instantiate" duration="0" />
+<testCase name="Service should call enter without error" duration="0" />
+</file>
+<file path="/Users/dsipos/others/sui-js/src/module/progressBar.spec.ts">
+<testCase name="progressBar should be instance of ProgressBar" duration="21" />
+</file>
+<file path="/Users/dsipos/others/sui-js/src/common/controller.spec.ts">
+<testCase name="Controller should instantiate" duration="5" />
+<testCase name="Controller should call enter without error" duration="0" />
+<testCase name="Controller should call exit without error" duration="0" />
+</file>
+<file path="/Users/dsipos/others/sui-js/src/module/cookie.spec.ts">
+<testCase name="Cookie should be instance of Cookie" duration="10" />
+<testCase name="Cookie set and get should set and retrieve a cookie value" duration="34" />
+<testCase name="Cookie set and get should handle numeric values" duration="0" />
+<testCase name="Cookie set and get should return null for non-existent cookie" duration="1" />
+<testCase name="Cookie set and get should use default prefix" duration="0" />
+<testCase name="Cookie set and get should set cookie with number expires" duration="1" />
+<testCase name="Cookie set and get should set cookie with Date expires" duration="0" />
+<testCase name="Cookie set and get should not set cookie with reserved name" duration="0" />
+<testCase name="Cookie hasKey should return true for existing key" duration="0" />
+<testCase name="Cookie hasKey should return false for non-existing key" duration="1" />
+<testCase name="Cookie remove should remove an existing cookie" duration="0" />
+<testCase name="Cookie remove should not throw when removing non-existent cookie" duration="0" />
+<testCase name="Cookie getKeys should return array of keys" duration="1" />
+<testCase name="Cookie clear should remove all cookies with prefix" duration="3" />
+</file>
+<file path="/Users/dsipos/others/sui-js/src/module/browser.spec.ts">
+<testCase name="Browser should be instance of Browser" duration="3" />
+<testCase name="Browser OS detection should detect an OS or null" duration="1" />
+<testCase name="Browser OS detection should return boolean from isMacOS" duration="1" />
+<testCase name="Browser OS detection should return boolean from isIOS" duration="0" />
+<testCase name="Browser OS detection should return boolean from isWindows" duration="0" />
+<testCase name="Browser OS detection should return boolean from isAndroid" duration="0" />
+<testCase name="Browser OS detection should return boolean from isLinux" duration="0" />
+<testCase name="Browser browser detection should have browsers object" duration="0" />
+<testCase name="Browser browser detection should return boolean from isChrome" duration="1" />
+<testCase name="Browser browser detection should return boolean from isFirefox" duration="1" />
+<testCase name="Browser browser detection should return boolean from isSafari" duration="0" />
+<testCase name="Browser browser detection should return boolean from isOpera" duration="0" />
+<testCase name="Browser browser detection should return boolean from isEdge" duration="0" />
+<testCase name="Browser browser detection should return boolean from isChromiumEdge" duration="0" />
+<testCase name="Browser browser detection should return boolean from isWebkit" duration="0" />
+<testCase name="Browser browser detection should return boolean from isChromium" duration="1" />
+<testCase name="Browser browser detection should return boolean from isInternetExplorer" duration="0" />
+<testCase name="Browser browser detection should detect IE11 specifically" duration="0" />
+<testCase name="Browser browser detection should detect IE10 specifically" duration="1" />
+<testCase name="Browser browser detection should default to lteIE10 for other versions" duration="0" />
+<testCase name="Browser feature detection should have features array" duration="1" />
+<testCase name="Browser feature detection should call detect without error" duration="1" />
+<testCase name="Browser feature detection should call eventMissingFeatures" duration="2" />
+<testCase name="Browser feature detection should not call eventMissingFeatures if no missing features" duration="1" />
+</file>
+<file path="/Users/dsipos/others/sui-js/src/module/flash.spec.ts">
+<testCase name="flash should be instance of Flash" duration="8" />
+</file>
+<file path="/Users/dsipos/others/sui-js/src/component/progressStatus.spec.ts">
+<testCase name="progressStatus should be instance of ProgressStatus" duration="2" />
+</file>
+<file path="/Users/dsipos/others/sui-js/src/core/async.spec.ts">
+<testCase name="Async should instantiate" duration="4" />
+<testCase name="Async parallel should resolve for empty calls" duration="3" />
+<testCase name="Async parallel should execute parallel calls and collect results" duration="2" />
+<testCase name="Async parallel should handle single call" duration="0" />
+<testCase name="Async parallel should track error state when a call fails" duration="1" />
+<testCase name="Async parallel should handle sync calls that return undefined" duration="0" />
+<testCase name="Async serial should resolve for empty calls" duration="0" />
+<testCase name="Async serial should execute serial calls in order" duration="0" />
+<testCase name="Async serial should reject when a serial call fails" duration="1" />
+<testCase name="Async serial should handle sync calls returning undefined" duration="1" />
+<testCase name="Async setStatus should set call status fields" duration="1" />
 </file>
 <file path="/Users/dsipos/others/sui-js/src/module/scheduler.spec.ts">
-<testCase name="scheduler should be instance of Scheduler" duration="1" />
-</file>
-<file path="/Users/dsipos/others/sui-js/src/module/template.spec.ts">
-<testCase name="template should be instance of Template" duration="1" />
-</file>
-<file path="/Users/dsipos/others/sui-js/src/component/contentHandler.spec.ts">
-<testCase name="contentHandler should be instance of ContentHandler" duration="1" />
+<testCase name="Scheduler should be instance of Scheduler" duration="1" />
+<testCase name="Scheduler everyDay should register a callback for a time" duration="1" />
+<testCase name="Scheduler everyDay should store callback in scheduler store" duration="1" />
+<testCase name="Scheduler everyDay should register multiple callbacks for same time" duration="0" />
+<testCase name="Scheduler everyDay should register callbacks for different times" duration="0" />
+<testCase name="Scheduler everyDay should not register non-function" duration="1" />
 </file>
 </testExecutions>
