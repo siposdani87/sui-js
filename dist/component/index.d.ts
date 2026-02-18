@@ -1,3 +1,9 @@
+/**
+ * Component module — UI components for forms, tables, calendars, maps, and more.
+ *
+ * @module component
+ * @category Component
+ */
 export * from './application';
 export * from './calendar';
 export * from './canvas';

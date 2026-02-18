@@ -1,10 +1,30 @@
 import { mdl } from '../utils/render';
 import { BaseField } from './baseField';
+/**
+ * @description Standard text input field with Material Design Lite styling.
+ * Extends {@link BaseField} with keyup and change event handling.
+ * @category Field
+ * @example
+ * const textField = new TextField(inputKnot, labelKnot, errorKnot, inputBlockKnot);
+ * textField.render();
+ * textField.setValue('Hello world');
+ * @see {@link BaseField}
+ */
 export class TextField extends BaseField {
+    /**
+     * @description Creates a new TextField instance.
+     * @param {Knot<HTMLInputElement>} input - The text input element wrapped in a Knot.
+     * @param {Knot} label - The label element wrapped in a Knot.
+     * @param {Knot} error - The error element wrapped in a Knot.
+     * @param {Knot} inputBlock - The input block container wrapped in a Knot.
+     */
     constructor(input, label, error, inputBlock) {
         super(input, label, error, inputBlock);
         this._init();
     }
+    /**
+     * @description Initializes the text field by adding the CSS class and binding keyup and change events.
+     */
     _init() {
         this.inputBlock.addClass('text-field');
         this.input.addEventListener('keyup', (input) => {
@@ -18,6 +38,9 @@ export class TextField extends BaseField {
             return true;
         });
     }
+    /**
+     * @description Renders the text field by applying MDL text field classes to the input block, input, and label.
+     */
     render() {
         this.inputBlock.addClass([
             'mdl-textfield',
@@ -30,12 +53,20 @@ export class TextField extends BaseField {
         }
         this.refresh();
     }
+    /**
+     * @description Refreshes the text field by updating the invalid state and re-applying MDL upgrades.
+     */
     refresh() {
         if (this.isRequired() && this.getValue() === '') {
             this.inputBlock.addClass('is-invalid');
         }
         mdl(this.inputBlock);
     }
+    /**
+     * @description Returns the raw string value of the input element without type-casting.
+     * @returns {*} The input element's current value.
+     */
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
     getValue() {
         return this.input.getNode().value;
     }

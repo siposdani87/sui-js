@@ -4,13 +4,38 @@ import { Objekt } from '../core/objekt';
 import { Query } from '../core/query';
 import { consoleDebug } from '../utils/log';
 import { mdl } from '../utils/render';
+/**
+ * @description Pagination control that renders page numbers, previous/next navigation buttons,
+ * and statistics (e.g. "1-10 / 100").
+ *
+ * @example
+ * const pager = new Pager(containerKnot, ['.pager', '.pager-statistics'], { row_count: 25 });
+ * pager.eventAction = (page) => fetchData(page);
+ * pager.setCount(100);
+ * pager.draw();
+ *
+ * @see {@link Table} for table-based data display with built-in pagination
+ * @see {@link CardCollection} for card-based data display with built-in pagination
+ *
+ * @category Component
+ */
 export class Pager {
+    /**
+     * @description Creates a new Pager instance bound to pager and statistics elements within the given DOM.
+     * @param {Knot} dom - The parent DOM element containing pager selectors.
+     * @param {string[]} [opt_selectors] - CSS selectors for the pager and statistics elements.
+     * @param {object} [opt_options] - Configuration options (row_count, pager_num).
+     */
     constructor(dom, opt_selectors = ['.pager', '.pager-statistics'], opt_options = {}) {
         this.pager = new Query(opt_selectors[0], dom).getKnot();
         this.pagerStatistics = new Query(opt_selectors[1], dom).getKnot();
         this._setOptions(opt_options);
         this._init();
     }
+    /**
+     * @description Merges user options with defaults (row_count, pager_num).
+     * @param {object} [opt_options] - Configuration overrides.
+     */
     _setOptions(opt_options = {}) {
         this.options = new Objekt({
             row_count: 10,
@@ -18,10 +43,16 @@ export class Pager {
         });
         this.options.merge(opt_options);
     }
+    /**
+     * @description Initializes count and sets the page to 1.
+     */
     _init() {
         this.count = this.options.row_count;
         this.setPage(1);
     }
+    /**
+     * @description Rebuilds the pager DOM: clears existing buttons, calculates page count, and renders navigation.
+     */
     _drawPager() {
         this.pager.removeChildren();
         this.pageNum = Math.ceil(this.count / this.options.row_count);
@@ -29,6 +60,9 @@ export class Pager {
         this._drawPageNumbers();
         this._drawNextButton();
     }
+    /**
+     * @description Renders the "from-to / total" statistics text.
+     */
     _drawStatistics() {
         const page = this.page - 1;
         const from = page * this.options.row_count + 1;
@@ -41,6 +75,9 @@ export class Pager {
             this.pagerStatistics.setHtml('');
         }
     }
+    /**
+     * @description Renders the previous-page chevron button when there are multiple pages.
+     */
     _drawPreviousButton() {
         if (this.pageNum > 1) {
             const previousButton = new Knot('button');
@@ -60,6 +97,9 @@ export class Pager {
             this.pager.appendChild(previousButton);
         }
     }
+    /**
+     * @description Renders the next-page chevron button when there are multiple pages.
+     */
     _drawNextButton() {
         if (this.pageNum > 1) {
             const nextButton = new Knot('button');
@@ -79,6 +119,9 @@ export class Pager {
             this.pager.appendChild(nextButton);
         }
     }
+    /**
+     * @description Renders numbered page buttons with ellipsis for overflow ranges.
+     */
     _drawPageNumbers() {
         const pagers = this._getPagers();
         if (pagers.length > 1) {
@@ -103,6 +146,10 @@ export class Pager {
             });
         }
     }
+    /**
+     * @description Computes the visible page descriptors for the current page window.
+     * @returns {Page[]} Array of page descriptors with text and page number.
+     */
     _getPagers() {
         const part = Math.floor((this.page - 1) / this.options.pager_num);
         const pagers = [];
@@ -116,7 +163,7 @@ export class Pager {
             const page = part * this.options.pager_num + i;
             if (page <= this.pageNum) {
                 pagers.push({
-                    text: page,
+                    text: page.toString(),
                     page: page,
                 });
             }
@@ -130,6 +177,9 @@ export class Pager {
         }
         return pagers;
     }
+    /**
+     * @description Advances to the next page, wrapping to page 1 after the last page.
+     */
     _next() {
         let page = this.page + 1;
         if (page > this.pageNum) {
@@ -137,6 +187,9 @@ export class Pager {
         }
         this._go(page);
     }
+    /**
+     * @description Goes to the previous page, wrapping to the last page from page 1.
+     */
     _previous() {
         let page = this.page - 1;
         if (page < 1) {
@@ -144,21 +197,56 @@ export class Pager {
         }
         this._go(page);
     }
+    /**
+     * @description Sets the total number of items for pagination calculation.
+     * @param {number} count - Total item count.
+     *
+     * @example
+     * pager.setCount(200);
+     * pager.draw();
+     */
     setCount(count) {
         this.count = count;
     }
+    /**
+     * @description Navigates to the given page and fires the eventAction callback.
+     * @param {number} page - Target page number.
+     */
     _go(page) {
         this.setPage(page);
         this.eventAction(this.page);
     }
+    /**
+     * @description Sets the current page number and recalculates the row offset.
+     * @param {number} page - The page number to set.
+     *
+     * @example
+     * pager.setPage(3);
+     */
     setPage(page) {
         this.page = page;
         this.offset = (this.page - 1) * this.options.row_count;
     }
+    /**
+     * @description Renders the pager statistics and page navigation buttons.
+     *
+     * @example
+     * pager.setCount(totalItems);
+     * pager.draw();
+     */
     draw() {
         this._drawStatistics();
         this._drawPager();
     }
+    /**
+     * @description Called when a page navigation action occurs. Override to handle page changes.
+     * @param {number} page - The newly selected page number.
+     *
+     * @example
+     * pager.eventAction = (page) => {
+     *     fetchData({ offset: (page - 1) * rowCount });
+     * };
+     */
     eventAction(page) {
         consoleDebug('Pager.eventAction()', page);
     }

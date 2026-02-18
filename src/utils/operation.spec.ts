@@ -1,4 +1,5 @@
 import {
+    capitalize,
     clear,
     clearArray,
     clearObject,
@@ -6,8 +7,15 @@ import {
     copy,
     copyArray,
     copyObject,
+    copyToClipboard,
+    debounce,
+    each,
+    eachArray,
+    eachObject,
     eq,
     format,
+    getExtensionName,
+    getQueryString,
     gt,
     gte,
     inArray,
@@ -28,13 +36,21 @@ import {
     isSame,
     isString,
     isUndefined,
+    list,
     lt,
     lte,
     merge,
     neq,
     noop,
+    normalize,
+    pluckKeys,
     remove,
+    scrollIntoView,
+    scrollTo,
+    scrollToElement,
+    sleepEach,
     typeCast,
+    urlWithQueryString,
 } from './operation';
 
 describe('operation', () => {
@@ -195,21 +211,56 @@ describe('operation', () => {
         expect(result).toEqual(true);
     });
 
-    /* it('each', () => {
-        expect(true).toEqual(false);
+    it('each should iterate array items', () => {
+        const callback = jest.fn();
+        each([10, 20, 30], callback);
+
+        expect(callback).toHaveBeenCalledTimes(3);
+        expect(callback).toHaveBeenCalledWith(10, 0);
+        expect(callback).toHaveBeenCalledWith(20, 1);
+        expect(callback).toHaveBeenCalledWith(30, 2);
     });
 
-    it('eachArray', () => {
-        expect(true).toEqual(false);
+    it('each should iterate object properties', () => {
+        const callback = jest.fn();
+        each({ a: 1, b: 2 }, callback);
+
+        expect(callback).toHaveBeenCalledTimes(2);
+        expect(callback).toHaveBeenCalledWith(1, 'a');
+        expect(callback).toHaveBeenCalledWith(2, 'b');
     });
 
-    it('eachObject', () => {
-        expect(true).toEqual(false);
+    it('eachArray should iterate with start and end', () => {
+        const callback = jest.fn();
+        eachArray([10, 20, 30, 40, 50], callback, 1, 3);
+
+        expect(callback).toHaveBeenCalledTimes(2);
+        expect(callback).toHaveBeenCalledWith(20, 1);
+        expect(callback).toHaveBeenCalledWith(30, 2);
     });
 
-    it('sleepEach', () => {
-        expect(true).toEqual(false);
-    }); */
+    it('eachObject should iterate object key-value pairs', () => {
+        const callback = jest.fn();
+        eachObject({ x: 'hello', y: 'world' }, callback);
+
+        expect(callback).toHaveBeenCalledTimes(2);
+        expect(callback).toHaveBeenCalledWith('hello', 'x');
+        expect(callback).toHaveBeenCalledWith('world', 'y');
+    });
+
+    it('sleepEach should call next for each index', () => {
+        jest.useFakeTimers();
+        const callback = jest.fn();
+        sleepEach(callback, 0, 3, 100);
+
+        expect(callback).toHaveBeenCalledWith(0);
+        jest.advanceTimersByTime(100);
+        expect(callback).toHaveBeenCalledWith(1);
+        jest.advanceTimersByTime(100);
+        expect(callback).toHaveBeenCalledWith(2);
+        expect(callback).toHaveBeenCalledTimes(3);
+        jest.useRealTimers();
+    });
 
     it('clear', () => {
         const item = {
@@ -330,55 +381,164 @@ describe('operation', () => {
         expect(emptyobject).toEqual(true);
     });
 
-    /* it('list', () => {
-        expect(true).toEqual(false);
+    it('list should spread args to callback', () => {
+        const callback = jest.fn();
+        list([1, 2, 3], callback);
+
+        expect(callback).toHaveBeenCalledWith(1, 2, 3);
     });
 
-    it('capitalize', () => {
-        expect(true).toEqual(false);
+    it('capitalize should uppercase first character', () => {
+        expect(capitalize('hello')).toBe('Hello');
+        expect(capitalize('world')).toBe('World');
+        expect(capitalize('A')).toBe('A');
     });
 
-    it('pluck', () => {
-        expect(true).toEqual(false);
+    it('pluckKeys should return keys matching condition', () => {
+        const result = pluckKeys({ a: 1, b: 2, c: 3 }, (value) => value > 1);
+
+        expect(result).toEqual(['b', 'c']);
     });
 
-    it('pluckKeys', () => {
-        expect(true).toEqual(false);
+    it('scrollTo should call scrollBy with intervals', () => {
+        jest.useFakeTimers();
+        const scrollBySpy = jest.spyOn(window, 'scrollBy').mockImplementation();
+        Object.defineProperty(window, 'scrollX', {
+            value: 0,
+            writable: true,
+            configurable: true,
+        });
+        Object.defineProperty(window, 'scrollY', {
+            value: 0,
+            writable: true,
+            configurable: true,
+        });
+
+        scrollTo(100, 200, 500, 20);
+        jest.advanceTimersByTime(20);
+
+        expect(scrollBySpy).toHaveBeenCalled();
+        scrollBySpy.mockRestore();
+        jest.useRealTimers();
     });
 
-    it('scrollTo', () => {
-        expect(true).toEqual(false);
+    it('scrollToElement should scroll to element position', () => {
+        const el = document.createElement('div');
+        el.id = 'scroll-target';
+        Object.defineProperty(el, 'offsetLeft', { value: 50 });
+        Object.defineProperty(el, 'offsetTop', { value: 100 });
+        document.body.appendChild(el);
+
+        jest.useFakeTimers();
+        const scrollBySpy = jest.spyOn(window, 'scrollBy').mockImplementation();
+        Object.defineProperty(window, 'scrollX', {
+            value: 0,
+            writable: true,
+            configurable: true,
+        });
+        Object.defineProperty(window, 'scrollY', {
+            value: 0,
+            writable: true,
+            configurable: true,
+        });
+
+        scrollToElement('#scroll-target', 500, 20);
+        jest.advanceTimersByTime(20);
+
+        expect(scrollBySpy).toHaveBeenCalled();
+        scrollBySpy.mockRestore();
+        el.remove();
+        jest.useRealTimers();
     });
 
-    it('scrollToElement', () => {
-        expect(true).toEqual(false);
+    it('scrollIntoView should call element scrollIntoView', () => {
+        const el = document.createElement('div');
+        el.id = 'scroll-view-target';
+        el.scrollIntoView = jest.fn();
+        document.body.appendChild(el);
+
+        scrollIntoView('#scroll-view-target', 'smooth');
+
+        expect(el.scrollIntoView).toHaveBeenCalledWith({
+            behavior: 'smooth',
+        });
+        el.remove();
     });
 
-    it('scrollIntoView', () => {
-        expect(true).toEqual(false);
+    it('debounce should delay function execution', () => {
+        jest.useFakeTimers();
+        const func = jest.fn();
+        const debounced = debounce(func, 100);
+
+        debounced.call(window, new Event('click'));
+        expect(func).not.toHaveBeenCalled();
+
+        jest.advanceTimersByTime(100);
+        expect(func).toHaveBeenCalledTimes(1);
+        jest.useRealTimers();
     });
 
-    it('debounce', () => {
-        expect(true).toEqual(false);
+    it('debounce with immediate should call function immediately', () => {
+        jest.useFakeTimers();
+        const func = jest.fn();
+        const debounced = debounce(func, 100, true);
+
+        debounced.call(window, new Event('click'));
+        expect(func).toHaveBeenCalledTimes(1);
+        jest.useRealTimers();
     });
 
-    it('urlWithQueryString', () => {
-        expect(true).toEqual(false);
+    it('urlWithQueryString should append query string to url', () => {
+        expect(urlWithQueryString('/api/data', { page: 1, size: 10 })).toBe(
+            '/api/data?page=1&size=10',
+        );
     });
 
-    it('getQueryString', () => {
-        expect(true).toEqual(false);
+    it('urlWithQueryString should use & when url already has ?', () => {
+        expect(urlWithQueryString('/api/data?existing=1', { page: 2 })).toBe(
+            '/api/data?existing=1&page=2',
+        );
     });
 
-    it('getExtensionName', () => {
-        expect(true).toEqual(false);
+    it('urlWithQueryString should return url unchanged when no params', () => {
+        expect(urlWithQueryString('/api/data')).toBe('/api/data');
     });
 
-    it('normalize', () => {
-        expect(true).toEqual(false);
+    it('getQueryString should build query string from object', () => {
+        expect(getQueryString({ a: 1, b: 'test' })).toBe('a=1&b=test');
     });
 
-    it('copyToClipboard', () => {
-        expect(true).toEqual(false);
-    }); */
+    it('getQueryString should handle array params with [] notation', () => {
+        expect(getQueryString({ ids: [1, 2, 3] })).toBe(
+            'ids[]=1&ids[]=2&ids[]=3',
+        );
+    });
+
+    it('getQueryString should skip null and undefined values', () => {
+        expect(getQueryString({ a: 1, b: null, c: undefined })).toBe('a=1');
+    });
+
+    it('getExtensionName should extract file extension', () => {
+        expect(getExtensionName('photo.jpg')).toBe('jpg');
+        expect(getExtensionName('/path/to/file.png')).toBe('png');
+        expect(getExtensionName('file.tar.gz')).toBe('gz');
+    });
+
+    it('getExtensionName should ignore query string', () => {
+        expect(getExtensionName('image.jpg?w=100')).toBe('jpg');
+    });
+
+    it('normalize should remove diacritical marks', () => {
+        expect(normalize('café')).toBe('cafe');
+        expect(normalize('naïve')).toBe('naive');
+        expect(normalize('résumé')).toBe('resume');
+    });
+
+    it('copyToClipboard should copy string via execCommand', () => {
+        document.execCommand = jest.fn().mockReturnValue(true);
+
+        copyToClipboard('test string');
+
+        expect(document.execCommand).toHaveBeenCalledWith('copy');
+    });
 });

@@ -3,7 +3,7 @@
 # Project Information
 Name: SUI-JS
 Description: Lightweight frontend framework in TypeScript with 60+ UI components
-Version: 1.0.1
+Version: 1.1.0
 Language: TypeScript
 Repository: https://github.com/siposdani87/sui-js
 Documentation: https://sui-js.siposdani87.com
@@ -16,123 +16,112 @@ Target: Browser/Web Applications
 Build Tool: ESBuild
 Styling: Material Design Lite + Custom SCSS
 
-# Key Documentation Files
-- Overview: /docs/index
-- API Reference: /docs/modules
+# Key Documentation Pages
+- Overview: /docs/intro
+- Getting Started Guide: /docs/guides/getting-started
+- Architecture Guide: /docs/guides/architecture
+- API Reference: /docs
 - Main Class: /docs/classes/Application
-- Getting Started: /README.md
-- TypeScript Config: /tsconfig.json
-- Package Info: /package.json
+- Class Hierarchy: /docs/reference/class-hierarchy
+- Glossary: /docs/reference/glossary
+
+# Guide Pages
+- /docs/guides/getting-started - Install, setup, and hello world
+- /docs/guides/architecture - Layer diagram, DI, constructor pattern
+- /docs/guides/application-setup - Application config, routes, controllers
+- /docs/guides/http-requests - Http module usage, methods, responses
+- /docs/guides/state-routing - State management and client-side routing
+- /docs/guides/forms-fields - Form class and 20+ field components
+- /docs/guides/event-system - EventBus publish/subscribe messaging
+- /docs/guides/dom-manipulation - Knot and Query DOM wrapper API
+- /docs/guides/storage - Depot (Web Storage) and Cookie modules
 
 # Code Structure
 Entry Point: src/index.ts
-Components: src/component/ (57 files)
-Form Fields: src/field/ (47 files)
-Modules: src/module/ (55 files)
-Core: src/core/ (23 files)
-Utils: src/utils/ (18 files)
+Core: src/core/ (10 files) - Objekt, Knot, Query, Collection, State, Module, Deferred, Promize, Async, Router
+Modules: src/module/ (27 files) - Http, Xhr, EventBus, Dialog, Confirm, Flash, Depot, Cookie, Template, Browser, Screen, etc.
+Components: src/component/ (29 files) - Application, Form, Table, Calendar, Navigation, GoogleMap, Canvas, etc.
+Fields: src/field/ (23 files) - BaseField, TextField, SelectField, DateTimeField, FileField, etc.
+Utils: src/utils/ (8 files) - operation, dateio, color, math, coder, log, render
 
 # Quick Start Pattern
 ```typescript
 import { Application, Route } from '@siposdani87/sui-js';
 
 const config = {
-  app_id: 'APP_ID',
-  locale: 'en-GB',
-  backend: 'https://api.example.com',
-  production: false
+    app_id: 'my-app',
+    locale: 'en-GB',
+    backend: 'https://api.example.com',
+    production: false,
 };
 
-const routes: Route[] = [];
-const services: string[] = [];
+const routes: Route[] = [
+    { id: 'home', url: '/', controller: 'homeCtrl', template: 'home.html' },
+];
 
 const app = new Application(config);
-app.run(routes, services);
+app.run(routes, ['homeCtrl']);
 ```
 
-# Core Components (Most Important)
-1. Application - Main application class for initialization
-2. Knot - DOM manipulation wrapper (jQuery-like)
-3. Http - HTTP client with promise support
-4. Router - Client-side routing
-5. State - Reactive state management
-6. Form - Form handling and validation
-7. TextField, SelectField, etc. - Form inputs
-
 # Architecture Layers
-1. Core (Knot, State, Router, Collection, Module)
-2. Modules (Http, EventBus, Dialog, Flash, Depot, Cookie)
-3. Components (60+ UI components like Table, Calendar, Header)
-4. Fields (Form inputs: Text, Select, Date, Number, etc.)
+1. Core (Objekt, Knot, Query, Collection, State, Module, Deferred, Promize, Async, Router)
+2. Modules (Http, Xhr, EventBus, Dialog, Confirm, Flash, Depot, Cookie, Template, Browser, Screen, Loader, Scheduler, ProgressBar)
+3. Components (Application, Form, Table, Calendar, Navigation, GoogleMap, Canvas, CardCollection, Pager, Popup, Dropdown, Tooltip, TabPanel, Carousel)
+4. Fields (BaseField, TextField, TextareaField, NumberField, SelectField, CheckboxField, SwitchField, RadiobuttonField, DateTimeField, ColorField, FileField, LocationField, SearchField, RangeField, UrlField, HiddenField, Button, SubmitButton, ResetButton, AutoCompleteField)
 
 # Common Patterns
-- Initialization: new Application(config)
-- DOM: new Knot(selector) or Query.select(selector)
-- HTTP: http.get/post/put/delete(url, data)
-- Events: eventBus.on/trigger(event, data)
+- Constructor: constructor(opt_options) -> _setOptions() -> _init()
+- DOM: new Knot(selector) or new Query('.selector').getKnot()
+- HTTP: http.get/post/put/patch/delete(url, data?, headers?)
+- Events: eventBus.on(event, handler) / eventBus.trigger(event, data)
 - Forms: form.load(data) / form.getModel()
-- State: state.set/get/subscribe(key, value)
+- State: state.go(routeId, params)
+- Storage: depot.set/get/remove(key, value)
+- Cookies: cookie.set/get/remove(name, value)
 
 # Dependencies
-- crypto-js: Encryption
-- date-fns: Date handling
-- material-design-lite: UI styling
+- crypto-js: Encryption (AES, MD5, Base64)
+- date-fns: Date handling and formatting
+- material-design-lite: UI styling and component upgrades
 - normalize.css: CSS reset
 
 # Build Output
-- Bundle: dist/sui.min.js (242KB)
-- Styles: dist/sui.min.css (78KB)
-- Format: IIFE with global `SUI` object
+- Bundle: dist/sui.min.js (IIFE, global `SUI`)
+- Styles: dist/sui.min.css
 - Target: ES2015+
 
 # Testing
-- Framework: Jest 30.2.0
-- Coverage: 52.5% statements
-- Test Files: 95 suites, 180 tests
-- Test Pattern: *.spec.ts co-located with source
+- Framework: Jest with ts-jest and jsdom
+- Coverage: 75% statements, 61% branches, 69% functions
+- Test Suites: 108 suites, 1187 tests
+- Pattern: *.spec.ts co-located with source
 
 # TypeScript
-- Strict Mode: Partial (Phase 1 enabled)
+- Strict Mode: Enabled (noImplicitAny, strictNullChecks, strictPropertyInitialization, etc.)
 - Target: ES2015
 - Module: ESNext
 - Declarations: Yes (index.d.ts)
 
-# Documentation Structure
-All 89 classes documented with:
-- Constructor parameters
-- Public methods
-- Properties
-- Usage examples
-- Type definitions
-
 # When Helping Users
 1. Always import from '@siposdani87/sui-js'
-2. Application must be initialized first
-3. Most classes need Knot for DOM manipulation
-4. Use Material Design Lite classes for styling
-5. Forms use MDL upgradeElement()
-6. All async operations return Promize (custom Promise wrapper)
+2. Application must be initialized first via new Application(config).run(routes, services)
+3. Use Knot for DOM manipulation, not raw DOM APIs
+4. Use Objekt for data objects, not plain objects
+5. Use Material Design Lite classes for styling
+6. All async operations return Promize (custom Promise wrapper), not native Promise
+7. Optional parameters use opt_ prefix (e.g., opt_options)
+8. Private members use _ prefix (e.g., _init())
 
 # Common Questions
-Q: How to initialize? A: See docs/classes/Application
-Q: How to make HTTP requests? A: See docs/classes/Http
-Q: How to create forms? A: See docs/classes/Form and field classes
-Q: DOM manipulation? A: See docs/classes/Knot
-Q: State management? A: See docs/classes/State
-Q: Routing? A: See docs/classes/Router
-
-# File Locations
-- Documentation: website/docs/
-- Source: src/
-- Examples: example/
-- Tests: src/**/*.spec.ts
-- Styles: styles/
-
-# Version Info
-Current: 1.0.1
-Node: >=18.0.0
-NPM: >=9.0.0
+Q: How to initialize? A: See /docs/guides/getting-started and /docs/classes/Application
+Q: How to make HTTP requests? A: See /docs/guides/http-requests and /docs/classes/Http
+Q: How to create forms? A: See /docs/guides/forms-fields and /docs/classes/Form
+Q: DOM manipulation? A: See /docs/guides/dom-manipulation and /docs/classes/Knot
+Q: State management? A: See /docs/guides/state-routing and /docs/classes/State
+Q: Routing? A: See /docs/guides/state-routing and /docs/classes/Router
+Q: Storage? A: See /docs/guides/storage, /docs/classes/Depot, and /docs/classes/Cookie
+Q: Events? A: See /docs/guides/event-system and /docs/classes/EventBus
 
 # License
 ISC License
-Author: Dániel Sipos
+Author: Daniel Sipos

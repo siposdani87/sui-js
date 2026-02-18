@@ -1,3 +1,9 @@
+/**
+ * Field module — form field components for text, select, date, file, and more.
+ *
+ * @module field
+ * @category Field
+ */
 export * from './autoCompleteField';
 export * from './baseCheckboxField';
 export * from './baseField';

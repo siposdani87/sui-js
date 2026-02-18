@@ -2,12 +2,32 @@ import { mdl } from '../utils/render';
 import { BaseField } from './baseField';
 import { Knot } from '../core/knot';
 
+/**
+ * @description Textarea field with optional rich text (contentEditable) editing and formatting toolbar.
+ * When the `data-rich-text` attribute is set on the input, a WYSIWYG editor with bold, italic,
+ * underline, list, and HTML mode controls is rendered.
+ *
+ * @example
+ * const textareaField = new TextareaField(inputKnot, labelKnot, errorKnot, inputBlockKnot);
+ * textareaField.render();
+ *
+ * @see {@link BaseField}
+ *
+ * @category Field
+ */
 export class TextareaField extends BaseField<HTMLInputElement> {
-    richText: Knot;
-    richTextKnot: HTMLElement;
-    toolbarKnot: Knot;
-    htmlMode: boolean;
+    richText!: Knot;
+    richTextKnot!: HTMLElement;
+    toolbarKnot!: Knot;
+    htmlMode!: boolean;
 
+    /**
+     * @description Creates a new TextareaField instance.
+     * @param {Knot<HTMLInputElement>} input - The textarea input element.
+     * @param {Knot} label - The label element.
+     * @param {Knot} error - The error message element.
+     * @param {Knot} inputBlock - The container block element.
+     */
     constructor(
         input: Knot<HTMLInputElement>,
         label: Knot,
@@ -18,6 +38,9 @@ export class TextareaField extends BaseField<HTMLInputElement> {
         this._init();
     }
 
+    /**
+     * @description Initializes the field by adding CSS class and attaching keyup/change event listeners.
+     */
     private _init(): void {
         this.inputBlock.addClass('textarea-field');
 
@@ -37,7 +60,11 @@ export class TextareaField extends BaseField<HTMLInputElement> {
         });
     }
 
-    render(): void {
+    /**
+     * @description Applies MDL textarea classes and renders the rich text editor if configured.
+     * @override
+     */
+    override render(): void {
         this.inputBlock.addClass([
             'mdl-textfield',
             'mdl-js-textfield',
@@ -54,6 +81,9 @@ export class TextareaField extends BaseField<HTMLInputElement> {
         this.refresh();
     }
 
+    /**
+     * @description Creates the contentEditable rich text div, attaches keyboard and paste handlers, and renders toolbar buttons.
+     */
     private _renderRichText(): void {
         this.input.addClass('hidden');
 
@@ -85,8 +115,10 @@ export class TextareaField extends BaseField<HTMLInputElement> {
             let text = '';
             if (e.clipboardData) {
                 text = e.clipboardData.getData('text/plain');
-            } else if (window['clipboardData']) {
-                text = window['clipboardData'].getData('Text');
+                // eslint-disable-next-line @typescript-eslint/no-explicit-any
+            } else if ((window as any)['clipboardData']) {
+                // eslint-disable-next-line @typescript-eslint/no-explicit-any
+                text = (window as any)['clipboardData'].getData('Text');
             }
             if (document.queryCommandSupported('insertHTML')) {
                 document.execCommand('insertHTML', false, text);
@@ -104,10 +136,17 @@ export class TextareaField extends BaseField<HTMLInputElement> {
         this._renderToolbarButtons();
     }
 
+    /**
+     * @description Checks whether the input has the data-rich-text attribute enabled.
+     * @returns {boolean}
+     */
     private _isRichText(): boolean {
         return !!this.input.getAttribute('data-rich-text');
     }
 
+    /**
+     * @description Renders all formatting toolbar buttons (undo, redo, bold, italic, underline, lists, clear, code).
+     */
     private _renderToolbarButtons(): void {
         this.toolbarKnot = new Knot('div');
         this.toolbarKnot.addClass('toolbar');
@@ -150,7 +189,12 @@ export class TextareaField extends BaseField<HTMLInputElement> {
         });
     }
 
-    private _renderToolbarButton(iconName: string, action: Function): void {
+    /**
+     * @description Creates a single toolbar button with a material icon and click handler.
+     * @param {string} iconName - The Material Icons icon name.
+     * @param {() => void} action - The callback to execute on click.
+     */
+    private _renderToolbarButton(iconName: string, action: () => void): void {
         const boldButtonKnot = new Knot('a');
         boldButtonKnot.setAttribute('href', 'javascript:void(0)');
         boldButtonKnot.addClass('material-icons');
@@ -161,22 +205,39 @@ export class TextareaField extends BaseField<HTMLInputElement> {
         this.toolbarKnot.appendChild(boldButtonKnot);
     }
 
+    /**
+     * @description Toggles between rich text editing and raw HTML editing modes.
+     * @param {boolean} value - True to enable HTML mode, false for rich text mode.
+     */
     private _setHtmlMode(value: boolean): void {
         this.htmlMode = value;
         this._setDocMode(this.htmlMode);
     }
 
+    /**
+     * @description Returns whether the editor is currently in raw HTML editing mode.
+     * @returns {boolean}
+     */
     private _isHtmlMode(): boolean {
         return this.htmlMode === true;
     }
 
-    private _formatDoc(sCmd: string, opt_sValue?: any | undefined): void {
+    /**
+     * @description Executes a document formatting command on the rich text content.
+     * @param {string} sCmd - The execCommand command name (e.g., 'bold', 'italic').
+     * @param {any} [opt_sValue] - Optional command argument.
+     */
+    private _formatDoc(sCmd: string, opt_sValue?: string | undefined): void {
         if (!this._isHtmlMode()) {
             document.execCommand(sCmd, false, opt_sValue);
             this._setValue(this.richTextKnot.innerHTML);
         }
     }
 
+    /**
+     * @description Switches visibility between the rich text div and raw textarea.
+     * @param {boolean} _isHtmlMode - True to show the raw textarea, false to show the rich text editor.
+     */
     private _setDocMode(_isHtmlMode: boolean): void {
         if (_isHtmlMode) {
             this.richText.addClass('hidden');
@@ -188,7 +249,11 @@ export class TextareaField extends BaseField<HTMLInputElement> {
         this.richTextKnot.focus();
     }
 
-    refresh() {
+    /**
+     * @description Marks the field as invalid when required and empty, disables contentEditable when disabled, and upgrades MDL components.
+     * @override
+     */
+    override refresh() {
         if (this.isRequired() && this.getValue() === '') {
             this.inputBlock.addClass('is-invalid');
         }
@@ -200,11 +265,14 @@ export class TextareaField extends BaseField<HTMLInputElement> {
         mdl(this.inputBlock);
     }
 
+    /**
+     * @description Sets the raw input value and triggers a change event without updating the rich text div.
+     * @param {object | Array<unknown> | boolean | number | string | null | undefined} value - The value to set.
+     */
     private _setValue(
         value:
             | object
-            | Function
-            | Array<any>
+            | Array<unknown>
             | boolean
             | number
             | string
@@ -212,15 +280,19 @@ export class TextareaField extends BaseField<HTMLInputElement> {
             | undefined,
     ): void {
         const inputNode = this.input.getNode();
-        inputNode.value = value.toString();
+        inputNode.value = value!.toString();
         this.input.trigger('change');
     }
 
-    setValue(
+    /**
+     * @description Sets the field value, updating both the rich text div innerHTML and the raw input.
+     * @param {object | Array<unknown> | boolean | number | string | null | undefined} value - The value to set.
+     * @override
+     */
+    override setValue(
         value:
             | object
-            | Function
-            | Array<any>
+            | Array<unknown>
             | boolean
             | number
             | string
@@ -233,7 +305,12 @@ export class TextareaField extends BaseField<HTMLInputElement> {
         this._setValue(value);
     }
 
-    getValue(): any {
+    /**
+     * @description Returns the raw textarea input value.
+     * @returns {any} The current textarea value.
+     * @override
+     */
+    override getValue(): string {
         return this.input.getNode().value;
     }
 }

@@ -2,46 +2,106 @@ import { Knot } from '../core';
 import { Collection } from '../core/collection';
 import { Query } from '../core/query';
 import { Popup } from './popup';
+import { ClassRef } from '../utils/types';
 
+/**
+ * @description Global popup lifecycle manager that tracks all open popups via a window-level
+ * collection. Handles positioning and bulk close operations.
+ *
+ * @example
+ * const container = new PopupContainer();
+ * container.closeAll();
+ *
+ * @see {@link Popup} for individual popup instances
+ *
+ * @category Component
+ */
 export class PopupContainer {
     selector: string;
-    container: Knot;
+    container!: Knot;
 
+    /**
+     * @description Creates a new PopupContainer bound to a DOM container element.
+     * @param {string} [opt_selector] - CSS selector for the container element.
+     */
     constructor(opt_selector: string | undefined = 'body') {
         this.selector = opt_selector;
         this._init();
     }
 
+    /**
+     * @description Resolves the container DOM element from the selector.
+     */
     private _init(): void {
         this.container = new Query(this.selector).getKnot();
     }
 
-    private _initCollection(type: Function): void {
-        window['popup_collection'] =
-            window['popup_collection'] || new Collection([], type);
+    /**
+     * @description Lazily initializes the window-level popup collection if it does not exist.
+     * @param {Function} type - The constructor type for the collection.
+     */
+    private _initCollection(type: ClassRef): void {
+        // eslint-disable-next-line @typescript-eslint/no-explicit-any
+        (window as any)['popup_collection'] =
+            // eslint-disable-next-line @typescript-eslint/no-explicit-any
+            (window as any)['popup_collection'] || new Collection([], type);
     }
 
-    push(type: Function, popup: Popup): void {
+    /**
+     * @description Registers a popup in the global collection.
+     * @param {Function} type - The popup constructor type.
+     * @param {Popup} popup - The popup instance to register.
+     *
+     * @example
+     * container.push(Popup, popupInstance);
+     */
+    push(type: ClassRef, popup: Popup): void {
         this._initCollection(type);
-        if (window['popup_collection']) {
-            window['popup_collection'].push(popup);
+        // eslint-disable-next-line @typescript-eslint/no-explicit-any
+        if ((window as any)['popup_collection']) {
+            // eslint-disable-next-line @typescript-eslint/no-explicit-any
+            (window as any)['popup_collection'].push(popup);
         }
     }
 
+    /**
+     * @description Removes a popup from the global collection.
+     * @param {Popup} popup - The popup instance to remove.
+     *
+     * @example
+     * container.delete(popupInstance);
+     */
     delete(popup: Popup): void {
-        if (window['popup_collection']) {
-            window['popup_collection'].delete(popup);
+        // eslint-disable-next-line @typescript-eslint/no-explicit-any
+        if ((window as any)['popup_collection']) {
+            // eslint-disable-next-line @typescript-eslint/no-explicit-any
+            (window as any)['popup_collection'].delete(popup);
         }
     }
 
+    /**
+     * @description Closes all currently open popups in the global collection.
+     *
+     * @example
+     * container.closeAll();
+     */
     closeAll(): void {
-        if (window['popup_collection']) {
-            window['popup_collection'].each((popup) => {
+        // eslint-disable-next-line @typescript-eslint/no-explicit-any
+        if ((window as any)['popup_collection']) {
+            // eslint-disable-next-line @typescript-eslint/no-explicit-any
+            (window as any)['popup_collection'].each((popup: Popup) => {
                 popup.close();
             });
         }
     }
 
+    /**
+     * @description Sets the CSS position of a popup element within the container.
+     * @param {Knot} popupKnot - The popup DOM element to position.
+     *
+     * @example
+     * container.setPosition(popupKnot);
+     */
     setPosition(popupKnot: Knot): void {
         // const containerKnot = this.container.getKnot();
         // const top = containerKnot.offsetHeight - containerKnot.scrollHeight;
@@ -54,6 +114,13 @@ export class PopupContainer {
         });
     }
 
+    /**
+     * @description Resets all CSS positioning properties of a popup element to auto.
+     * @param {Knot} popupKnot - The popup DOM element to reset.
+     *
+     * @example
+     * container.clearPosition(popupKnot);
+     */
     clearPosition(popupKnot: Knot): void {
         popupKnot.setStyle({
             top: 'auto',

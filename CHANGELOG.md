@@ -2,121 +2,232 @@
 
 All notable changes to this project will be documented in this file.
 
-## 1.0.0 - 2024-04-20
+The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
+and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
-* Fix parse method of DateIO
-* Upgrade packages
+## [1.1.0] - 2026-02-18
 
-## 0.9.17 - 2024-03-22
+### Added
 
-* Upgrade packages
-* Add Jetbrains support to homepage
-* Create setParent method on Node
-* Create prototype of viewTransition
+- Comprehensive JSDoc documentation to all source files
+- Docusaurus site with guides, API reference, and Algolia search
+- Test suite expanded from 180 to 1187 tests (75% statement coverage)
 
-## 0.9.16 - 2023-10-15
+### Changed
 
-* Fix callback type of link helper methods
-* Remove pluck method from Collection
-* Improve http request types
-* Fix Function types
-* Improve Promize and Deferred typings
+- Enable TypeScript strict mode across entire codebase
+- Upgrade Docusaurus to 3.9.2 and TypeDoc to 0.28.17
+- Upgrade dev dependencies (typescript-eslint 8.56, prettier 3.8.1, sass 1.97.3)
 
-## 0.9.15 - 2023-08-12
+### Fixed
 
-* Improve typings
-* Upgrade jest
-* Improve debug logging
-* Add color mode to doc website
+- Deprecated ESLint ban-types rule replaced with no-unsafe-function-type
 
-## 0.9.14 - 2023-06-25
+## [1.0.0] - 2024-04-20
 
-* Fix listStyle of textarea
+### Changed
 
-## 0.9.13 - 2023-05-19
+- Upgrade packages
 
-* Fix hover style of leftMenu
+### Fixed
 
-## 0.9.12 - 2023-05-19
+- Parse method of DateIO
 
-* Fix style of leftMenu
+## [0.9.17] - 2024-03-22
 
-## 0.9.11 - 2023-05-17
+### Added
 
-* Improve styles of dark theme
+- setParent method on Knot
+- Prototype of viewTransition
+- JetBrains support to homepage
 
-## 0.9.10 - 2023-03-09
+### Changed
 
-* Remove unused styles
-* Upgrade packages
+- Upgrade packages
 
-## 0.9.9 - 2023-03-04
+## [0.9.16] - 2023-10-15
 
-* Improve style structure
+### Added
 
-## 0.9.8 - 2023-03-02
+- Improved Promize and Deferred typings
 
-* Improve change event on dateTimeField
+### Changed
 
-## 0.9.7 - 2023-02-01
+- Improve HTTP request types
 
-* Rename pureCopy to copyObject
-* Upgrade docusaurus
-* Fix async results issue
+### Removed
 
-## 0.9.6 - 2023-01-29
+- pluck method from Collection
 
-* Create pureCopy method
+### Fixed
 
-## 0.9.5 - 2023-01-27
+- Callback type of link helper methods
+- Function types
 
-* Fix isPureObject method
+## [0.9.15] - 2023-08-12
 
-## 0.9.4 - 2023-01-23
+### Added
 
-* Upgrade packages
-* Fix style of tabPanel
+- Color mode to documentation website
 
-## 0.9.3 - 2023-01-16
+### Changed
 
-* Fix stringify method on router
-* Upgrade packages
-* Create InstanceKey type
+- Improve typings
+- Upgrade Jest
+- Improve debug logging
 
-## 0.9.2 - 2022-12-19
+## [0.9.14] - 2023-06-25
 
-* Fix background color of tabPanel
-* Create dark style for progress
-* Create isPureObject method and use it
+### Fixed
 
-## 0.9.1 - 2022-11-28
+- listStyle of textarea
 
-* Fix style of page header
-* Improve style of switchField
+## [0.9.13] - 2023-05-19
 
-## 0.9.0 - 2022-11-10
+### Fixed
 
-* Fix style of dialog and confim
+- Hover style of leftMenu
 
-## 0.8.0 - 2022-09-05
+## [0.9.12] - 2023-05-19
 
-* Upgrade esbuild and sass packages
-* Add algolia search to docusaurus website
+### Fixed
 
-## 0.7.0 - 2022-08-13
+- Style of leftMenu
 
-* Create jest tests
-* Use docusaurus as a documentation website
+## [0.9.11] - 2023-05-17
 
-## 0.5.0 - 2021-11-10
+### Changed
 
-* Refactor JS code base to TypeScript
-* Use esbuild as a main compiler
+- Improve styles of dark theme
 
-## 0.4.0 - 2019-09-06
+## [0.9.10] - 2023-03-09
 
-* Upgrade Google Closure Compiler and Library
+### Changed
 
-## 0.1.0 - 2014-06-05
+- Upgrade packages
 
-* Initial release
+### Removed
+
+- Unused styles
+
+## [0.9.9] - 2023-03-04
+
+### Changed
+
+- Improve style structure
+
+## [0.9.8] - 2023-03-02
+
+### Changed
+
+- Improve change event on dateTimeField
+
+## [0.9.7] - 2023-02-01
+
+### Changed
+
+- Rename pureCopy to copyObject
+- Upgrade Docusaurus
+
+### Fixed
+
+- Async results issue
+
+## [0.9.6] - 2023-01-29
+
+### Added
+
+- pureCopy method
+
+## [0.9.5] - 2023-01-27
+
+### Fixed
+
+- isPureObject method
+
+## [0.9.4] - 2023-01-23
+
+### Changed
+
+- Upgrade packages
+
+### Fixed
+
+- Style of tabPanel
+
+## [0.9.3] - 2023-01-16
+
+### Added
+
+- InstanceKey type
+
+### Changed
+
+- Upgrade packages
+
+### Fixed
+
+- stringify method on router
+
+## [0.9.2] - 2022-12-19
+
+### Added
+
+- Dark style for progress
+- isPureObject method
+
+### Fixed
+
+- Background color of tabPanel
+
+## [0.9.1] - 2022-11-28
+
+### Changed
+
+- Improve style of switchField
+
+### Fixed
+
+- Style of page header
+
+## [0.9.0] - 2022-11-10
+
+### Fixed
+
+- Style of dialog and confirm
+
+## [0.8.0] - 2022-09-05
+
+### Added
+
+- Algolia search to Docusaurus website
+
+### Changed
+
+- Upgrade esbuild and sass packages
+
+## [0.7.0] - 2022-08-13
+
+### Added
+
+- Jest tests
+- Docusaurus documentation website
+
+## [0.5.0] - 2021-11-10
+
+### Changed
+
+- Refactor JavaScript codebase to TypeScript
+- Use esbuild as main compiler
+
+## [0.4.0] - 2019-09-06
+
+### Changed
+
+- Upgrade Google Closure Compiler and Library
+
+## [0.1.0] - 2014-06-05
+
+### Added
+
+- Initial release

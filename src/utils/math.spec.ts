@@ -7,93 +7,113 @@ import {
     round,
 } from './math';
 
-describe('math', () => {
-    it('should be readable currency 100', () => {
-        const price = 100;
-        const result = readableCurrency(100);
+describe('Math utilities', () => {
+    describe('readableCurrency', () => {
+        it('should format 100', () => {
+            expect(readableCurrency(100)).toBe('100');
+        });
 
-        expect(result).toEqual(price.toString());
+        it('should format 0', () => {
+            expect(readableCurrency(0)).toBe('0');
+        });
+
+        it('should format large number with delimiter', () => {
+            expect(readableCurrency(1000000)).toBe('1 000 000');
+        });
+
+        it('should use custom delimiter and separator', () => {
+            expect(readableCurrency(1234.56, '.', ',', 2)).toBe('1.234,56');
+        });
+
+        it('should handle null/NaN gracefully', () => {
+            expect(readableCurrency(null)).toBe('0');
+        });
+
+        it('should format with precision', () => {
+            expect(readableCurrency(99.99, ' ', ',', 2)).toBe('99,99');
+        });
     });
 
-    it('should be readable number 0 from 0', () => {
-        const result = readableNumber(0);
-
-        expect(result).toEqual('0');
+    describe('readableNumber', () => {
+        it.each([
+            [0, false, '0'],
+            [5, true, '5'],
+            [14, false, '14'],
+            [14, true, '10+'],
+            [112, false, '112'],
+            [112, true, '100+'],
+            [1534, false, '1.534K'],
+            [1534, true, '1K+'],
+        ])('should format %i (around=%s) as %s', (num, around, expected) => {
+            expect(readableNumber(num, around)).toBe(expected);
+        });
     });
 
-    it('should be readable number 5 from 5 with around', () => {
-        const result = readableNumber(5, true);
+    describe('round', () => {
+        it('should round 5 with exp 1 to 10', () => {
+            expect(round(5, 1)).toBe(10);
+        });
 
-        expect(result).toEqual('5');
+        it('should round 5 with exp 0 to 5', () => {
+            expect(round(5, 0)).toBe(5);
+        });
+
+        it('should round with negative exp for decimals', () => {
+            expect(round(1.555, -2)).toBe(1.56);
+        });
+
+        it('should return NaN for NaN input', () => {
+            expect(round(NaN, 0)).toBeNaN();
+        });
     });
 
-    it('should be readable number 14 from 14', () => {
-        const result = readableNumber(14);
+    describe('floor', () => {
+        it('should floor 5 with exp 1 to 0', () => {
+            expect(floor(5, 1)).toBe(0);
+        });
 
-        expect(result).toEqual('14');
+        it('should floor with exp 0', () => {
+            expect(floor(5.9, 0)).toBe(5);
+        });
+
+        it('should floor with negative exp for decimals', () => {
+            expect(floor(1.559, -2)).toBe(1.55);
+        });
     });
 
-    it('should be readable number 10+ from 14 with around', () => {
-        const result = readableNumber(14, true);
+    describe('ceil', () => {
+        it('should ceil 5 with exp 1 to 10', () => {
+            expect(ceil(5, 1)).toBe(10);
+        });
 
-        expect(result).toEqual('10+');
+        it('should ceil with exp 0', () => {
+            expect(ceil(5.1, 0)).toBe(6);
+        });
+
+        it('should ceil with negative exp for decimals', () => {
+            expect(ceil(1.551, -2)).toBe(1.56);
+        });
     });
 
-    it('should be readable number 112 from 112', () => {
-        const result = readableNumber(112);
+    describe('random', () => {
+        it('should return integer in range by default', () => {
+            jest.spyOn(Math, 'random').mockReturnValue(0.123456789);
+            const result = random(1, 2);
+            expect(result).toBe(1);
+            jest.restoreAllMocks();
+        });
 
-        expect(result).toEqual('112');
-    });
+        it('should return float when opt_onlyFloat is true', () => {
+            jest.spyOn(Math, 'random').mockReturnValue(0.5);
+            const result = random(1, 10, true);
+            expect(result).toBe(5.5);
+            jest.restoreAllMocks();
+        });
 
-    it('should be readable number 100+ from 112 with around', () => {
-        const result = readableNumber(112, true);
-
-        expect(result).toEqual('100+');
-    });
-
-    it('should be readable number 1.534K from 1534', () => {
-        const result = readableNumber(1534);
-
-        expect(result).toEqual('1.534K');
-    });
-
-    it('should be readable number 1K+ from 1534 with around', () => {
-        const result = readableNumber(1534, true);
-
-        expect(result).toEqual('1K+');
-    });
-
-    it('should round 10 from 5 with exp 1', () => {
-        const result = round(5, 1);
-
-        expect(result).toEqual(10);
-    });
-
-    it('should round 5 from 5 with exp 0', () => {
-        const result = round(5, 0);
-
-        expect(result).toEqual(5);
-    });
-
-    it('should floor', () => {
-        const result = floor(5, 1);
-
-        expect(result).toEqual(0);
-    });
-
-    it('should ceil', () => {
-        const result = ceil(5, 1);
-
-        expect(result).toEqual(10);
-    });
-
-    it('should be a random number', () => {
-        const randomSpy = jest
-            .spyOn(Math, 'random')
-            .mockReturnValue(0.123456789);
-        const result = random(1, 2);
-
-        expect(result).toEqual(1);
-        randomSpy.mockRestore();
+        it('should return min when random is 0', () => {
+            jest.spyOn(Math, 'random').mockReturnValue(0);
+            expect(random(5, 10)).toBe(5);
+            jest.restoreAllMocks();
+        });
     });
 });

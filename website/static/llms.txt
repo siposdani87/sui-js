@@ -1,0 +1,37 @@
+# SUI-JS
+
+> Lightweight frontend framework in TypeScript with 60+ UI components, Material Design styling, and comprehensive API.
+
+SUI-JS is a TypeScript framework for building single-page applications. It provides DOM manipulation (Knot), HTTP client (Http), routing (State/Router), forms (Form + 20 field types), event system (EventBus), and storage (Depot/Cookie) — all styled with Material Design Lite.
+
+## Guides
+
+- [Getting Started](https://sui-js.siposdani87.com/docs/guides/getting-started): Install, setup, and create your first application
+- [Architecture](https://sui-js.siposdani87.com/docs/guides/architecture): Four-layer design, dependency injection, constructor pattern
+- [Application Setup](https://sui-js.siposdani87.com/docs/guides/application-setup): Configure routes, controllers, and services
+- [HTTP Requests](https://sui-js.siposdani87.com/docs/guides/http-requests): Http module for GET, POST, PUT, PATCH, DELETE
+- [State & Routing](https://sui-js.siposdani87.com/docs/guides/state-routing): Client-side routing and state management
+- [Forms & Fields](https://sui-js.siposdani87.com/docs/guides/forms-fields): Form class and 20+ field components
+- [Event System](https://sui-js.siposdani87.com/docs/guides/event-system): EventBus publish/subscribe messaging
+- [DOM Manipulation](https://sui-js.siposdani87.com/docs/guides/dom-manipulation): Knot and Query DOM wrapper API
+- [Storage](https://sui-js.siposdani87.com/docs/guides/storage): Depot (Web Storage) and Cookie modules
+
+## API Reference
+
+- [API Index](https://sui-js.siposdani87.com/docs): All exported classes, functions, and types
+- [Application](https://sui-js.siposdani87.com/docs/classes/Application): Main entry point and DI container
+- [Knot](https://sui-js.siposdani87.com/docs/classes/Knot): DOM element wrapper
+- [Objekt](https://sui-js.siposdani87.com/docs/classes/Objekt): Object wrapper with dot-notation access
+- [Collection](https://sui-js.siposdani87.com/docs/classes/Collection): Typed observable collection
+- [Http](https://sui-js.siposdani87.com/docs/classes/Http): HTTP client module
+- [State](https://sui-js.siposdani87.com/docs/classes/State): State management with routing
+- [Router](https://sui-js.siposdani87.com/docs/classes/Router): Client-side URL routing
+- [EventBus](https://sui-js.siposdani87.com/docs/classes/EventBus): Publish/subscribe messaging
+- [Form](https://sui-js.siposdani87.com/docs/classes/Form): Form handling and field management
+- [Table](https://sui-js.siposdani87.com/docs/classes/Table): Data table with sorting and paging
+- [Calendar](https://sui-js.siposdani87.com/docs/classes/Calendar): Date picker calendar
+
+## Reference
+
+- [Class Hierarchy](https://sui-js.siposdani87.com/docs/reference/class-hierarchy): All classes organized by layer
+- [Glossary](https://sui-js.siposdani87.com/docs/reference/glossary): Framework terminology definitions

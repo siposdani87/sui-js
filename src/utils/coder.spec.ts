@@ -9,69 +9,101 @@ import {
     uuid,
 } from './coder';
 
-describe('coder', () => {
-    it('should be valid base64 encoded text', () => {
-        const text = '123456';
+describe('Coder', () => {
+    describe('Base64', () => {
+        it('should encode and decode roundtrip', () => {
+            const text = '123456';
+            const encoded = encodeBase64(text);
+            expect(decodeBase64(encoded)).toBe(text);
+        });
 
-        const encodedText = encodeBase64(text);
-        const newText = decodeBase64(encodedText);
+        it('should decode known base64', () => {
+            expect(decodeBase64('MTIzNDU2')).toBe('123456');
+        });
 
-        expect(newText).toEqual(text);
+        it('should encode to known base64', () => {
+            expect(encodeBase64('123456')).toBe('MTIzNDU2');
+        });
+
+        it('should handle empty string', () => {
+            const encoded = encodeBase64('');
+            expect(decodeBase64(encoded)).toBe('');
+        });
+
+        it('should handle special characters', () => {
+            const text = 'hello world! @#$%';
+            expect(decodeBase64(encodeBase64(text))).toBe(text);
+        });
     });
 
-    it('should be valid base64 decoded text', () => {
-        const encodedText = 'MTIzNDU2';
+    describe('AES encrypt/decrypt', () => {
+        it('should encrypt and decrypt roundtrip', () => {
+            const text = '123456';
+            const passPhrase = 'ABCDEFG';
+            const encrypted = encrypt(text, passPhrase);
+            expect(decrypt(encrypted, passPhrase)).toBe(text);
+        });
 
-        const text = decodeBase64(encodedText);
-        const newEncodedText = encodeBase64(text);
+        it('should decrypt known ciphertext', () => {
+            const encrypted = 'U2FsdGVkX1/2ztazRNLgdfO+0c/1jk/t1TTJOcW0a0w=';
+            expect(decrypt(encrypted, 'ABCDEFG')).toBe('123456');
+        });
 
-        expect(newEncodedText).toEqual(encodedText);
+        it('should handle object values', () => {
+            const obj = { key: 'value' };
+            const encrypted = encrypt(obj, 'secret');
+            expect(decrypt(encrypted, 'secret')).toEqual(obj);
+        });
     });
 
-    it('should be valid encrypt text', () => {
-        const text = '123456';
-        const passPhrase = 'ABCDEFG';
+    describe('md5', () => {
+        it('should generate correct md5 hash', () => {
+            expect(md5('123456')).toBe('e10adc3949ba59abbe56e057f20f883e');
+        });
 
-        const encodedText = encrypt(text, passPhrase);
-        console.log(encodedText);
-        const newText = decrypt(encodedText, passPhrase);
+        it('should generate different hashes for different inputs', () => {
+            expect(md5('abc')).not.toBe(md5('def'));
+        });
 
-        expect(newText).toEqual(text);
+        it('should handle empty string', () => {
+            expect(md5('')).toBe('d41d8cd98f00b204e9800998ecf8427e');
+        });
     });
 
-    it('should be valid decrypt text', () => {
-        const text = '123456';
-        const encodedText = 'U2FsdGVkX1/2ztazRNLgdfO+0c/1jk/t1TTJOcW0a0w=';
-        const passPhrase = 'ABCDEFG';
+    describe('guid', () => {
+        it('should return a non-empty string', () => {
+            expect(guid()).toMatch(/[a-z0-9]+/);
+        });
 
-        const decryptedText = decrypt(encodedText, passPhrase);
-
-        expect(decryptedText).toEqual(text);
+        it('should generate unique values', () => {
+            const a = guid();
+            const b = guid();
+            expect(a).not.toBe(b);
+        });
     });
 
-    it('should be valid md5 text', () => {
-        const text = '123456';
+    describe('generateId', () => {
+        it('should include the name prefix', () => {
+            expect(generateId('name')).toContain('name');
+        });
 
-        const md5Text = md5(text);
-
-        expect(md5Text).toEqual('e10adc3949ba59abbe56e057f20f883e');
+        it('should contain a hyphen separator', () => {
+            expect(generateId('test')).toContain('-');
+        });
     });
 
-    it('should be valid guid ext', () => {
-        const guidText = guid();
+    describe('uuid', () => {
+        it('should match UUID-like format', () => {
+            expect(uuid()).toMatch(/[a-z0-9-]+/);
+        });
 
-        expect(guidText).toMatch(/[a-z0-9]+/);
-    });
+        it('should have 5 segments separated by hyphens', () => {
+            const parts = uuid().split('-');
+            expect(parts).toHaveLength(5);
+        });
 
-    it('should be valid generateId text', () => {
-        const id = generateId('name');
-
-        expect(id).toEqual(expect.stringContaining('name'));
-    });
-
-    it('should be valid uuid text', () => {
-        const uuidText = uuid();
-
-        expect(uuidText).toMatch(/[a-z0-9-]+/);
+        it('should generate unique values', () => {
+            expect(uuid()).not.toBe(uuid());
+        });
     });
 });

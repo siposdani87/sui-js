@@ -1,6 +1,11 @@
 module.exports = {
   preset: 'ts-jest',
   testEnvironment: 'jsdom',
+  transform: {
+    '^.+\\.tsx?$': ['ts-jest', {
+      tsconfig: 'tsconfig.spec.json',
+    }],
+  },
   collectCoverage: true,
   coverageDirectory: 'coverage',
   coverageReporters: ['lcovonly', 'text', 'text-summary'],
@@ -13,10 +18,10 @@ module.exports = {
   // Coverage thresholds - builds will fail if coverage drops below these values
   coverageThreshold: {
     global: {
-      statements: 50,
-      branches: 33,
-      functions: 42,
-      lines: 50
+      statements: 65,
+      branches: 52,
+      functions: 59,
+      lines: 65
     }
   },
 

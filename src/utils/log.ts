@@ -1,31 +1,116 @@
+/**
+ * @module log
+ *
+ * Conditional console logging utilities.
+ *
+ * Provides thin wrappers around native `console.*` methods that respect
+ * the application's release mode setting. When `releaseMode` is `true`
+ * (imported from `../common/config`), informational logging
+ * ({@link consoleLog}, {@link consoleInfo}, {@link consoleWarn}) is
+ * suppressed to keep production output clean. Error, debug, and assert
+ * output is always emitted regardless of the mode.
+ *
+ * @category Utility
+ */
+
 import { releaseMode } from '../common/config';
 
-export const consoleLog = (...message: any[]) => {
+/**
+ * Logs messages to `console.log`.
+ *
+ * Output is suppressed when `releaseMode` is `true`.
+ *
+ * @param message - One or more values to log.
+ * @category Utility
+ *
+ * @example
+ * consoleLog('User loaded', userId);
+ */
+export const consoleLog = (...message: unknown[]) => {
     if (!releaseMode) {
         console.log(...message);
     }
 };
 
-export const consoleInfo = (...message: any[]) => {
+/**
+ * Logs informational messages to `console.info`.
+ *
+ * Output is suppressed when `releaseMode` is `true`.
+ *
+ * @param message - One or more values to log.
+ * @category Utility
+ *
+ * @example
+ * consoleInfo('Cache refreshed');
+ */
+export const consoleInfo = (...message: unknown[]) => {
     if (!releaseMode) {
         console.info(...message);
     }
 };
 
-export const consoleWarn = (...message: any[]) => {
+/**
+ * Logs warning messages to `console.warn`.
+ *
+ * Output is suppressed when `releaseMode` is `true`.
+ *
+ * @param message - One or more values to log.
+ * @category Utility
+ *
+ * @example
+ * consoleWarn('Deprecated method called');
+ */
+export const consoleWarn = (...message: unknown[]) => {
     if (!releaseMode) {
         console.warn(...message);
     }
 };
 
-export const consoleError = (...message: any[]) => {
+/**
+ * Logs error messages to `console.error`.
+ *
+ * Always outputs regardless of `releaseMode`, ensuring that errors
+ * are never silently swallowed in production.
+ *
+ * @param message - One or more values to log.
+ * @category Utility
+ *
+ * @example
+ * consoleError('Failed to load config', error);
+ */
+export const consoleError = (...message: unknown[]) => {
     console.error(...message);
 };
 
-export const consoleDebug = (...message: any[]) => {
+/**
+ * Logs debug messages to `console.debug`.
+ *
+ * Always outputs regardless of `releaseMode`, allowing fine-grained
+ * debugging that can be filtered in browser developer tools.
+ *
+ * @param message - One or more values to log.
+ * @category Utility
+ *
+ * @example
+ * consoleDebug('State transition', prevState, nextState);
+ */
+export const consoleDebug = (...message: unknown[]) => {
     console.debug(...message);
 };
 
-export const consoleAssert = (condition: boolean, ...data: any[]) => {
+/**
+ * Asserts a condition using `console.assert`.
+ *
+ * Always outputs regardless of `releaseMode`. If `condition` is falsy,
+ * the assertion message and optional data are written to the console.
+ *
+ * @param condition - The boolean condition to assert.
+ * @param data - Additional values to include in the assertion output.
+ * @category Utility
+ *
+ * @example
+ * consoleAssert(items.length > 0, 'Items array must not be empty');
+ */
+export const consoleAssert = (condition: boolean, ...data: unknown[]) => {
     console.assert(condition, ...data);
 };

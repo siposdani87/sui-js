@@ -10,7 +10,6 @@ const config = {
   url: 'https://sui-js.siposdani87.com',
   baseUrl: '/',
   onBrokenLinks: 'warn',
-  onBrokenMarkdownLinks: 'warn',
   favicon: 'img/favicon.ico',
 
   // GitHub pages deployment config.
@@ -25,6 +24,9 @@ const config = {
     defaultLocale: 'en',
     locales: ['en'],
   },
+  markdown: {
+    format: 'detect',
+  },
   plugins: [
     [
       'docusaurus-plugin-typedoc',
@@ -32,11 +34,14 @@ const config = {
       {
         entryPoints: ['../src/index.ts'],
         tsconfig: '../tsconfig.json',
-        out: '.',
+        out: 'docs/api',
         readme: 'none',
         excludePrivate: true,
         excludeProtected: false,
         excludeExternals: true,
+        categorizeByGroup: true,
+        categoryOrder: ['Core', 'Component', 'Module', 'Field', 'Utility', 'Common', '*'],
+        sort: ['alphabetical'],
       },
     ],
   ],
@@ -94,9 +99,21 @@ const config = {
         items: [
           {
             type: 'doc',
-            docId: 'index',
+            docId: 'intro',
             position: 'left',
             label: 'Docs',
+          },
+          {
+            type: 'doc',
+            docId: 'guides/getting-started',
+            position: 'left',
+            label: 'Guides',
+          },
+          {
+            type: 'doc',
+            docId: 'api/index',
+            position: 'left',
+            label: 'API',
           },
           {to: '/blog', label: 'Blog', position: 'left'},
           {
@@ -113,8 +130,12 @@ const config = {
             title: 'Docs',
             items: [
               {
-                label: 'ReadMe',
-                to: '/docs',
+                label: 'Getting Started',
+                to: '/docs/guides/getting-started',
+              },
+              {
+                label: 'API Reference',
+                to: '/docs/api',
               },
             ],
           },

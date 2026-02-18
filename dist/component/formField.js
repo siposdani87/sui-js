@@ -20,14 +20,46 @@ import { RangeField } from '../field/rangeField';
 import { NumberField } from '../field/numberField';
 import { LocationField } from '../field/locationField';
 import { TextField } from '../field/textField';
+/**
+ * @description Factory function that detects an input element's type and creates the
+ * appropriate {@link BaseField} subclass instance. Supports all standard HTML input types
+ * plus custom data-type attributes for location, switch, and icon-toggle fields.
+ *
+ * @param {Knot} inputBlock - The input block DOM element (may be the input itself or its wrapper div).
+ * @param {Form} form - The parent form instance, used for radio button grouping.
+ * @returns {BaseField | null} The created field instance, or null if the input type is unrecognized.
+ *
+ * @example
+ * const field = FormField(inputBlockKnot, formInstance);
+ * if (field) { field.render(); }
+ *
+ * @see {@link Form} for the form component that uses this factory
+ * @see {@link BaseField} for the base class all fields extend
+ *
+ * @category Component
+ */
 export const FormField = function (inputBlock, form) {
     const { input, label, error } = parseInputBlock(inputBlock);
     return _convertToField(input, label, error, inputBlock, form);
 };
+/**
+ * @description Extracts the input, label, and error elements from a form input block.
+ * Handles both raw input elements and wrapper div structures, creating error spans as needed.
+ *
+ * @param {Knot} inputBlock - The input block DOM element to parse.
+ * @returns {{ input: Knot, label: Knot | undefined, error: Knot | undefined }} The extracted input, label, and error elements.
+ *
+ * @example
+ * const { input, label, error } = parseInputBlock(inputBlockKnot);
+ *
+ * @see {@link FormField} for the factory that calls this function
+ *
+ * @category Component
+ */
 export const parseInputBlock = (inputBlock) => {
     let input = inputBlock;
-    let label = null;
-    let error = null;
+    let label = undefined;
+    let error = undefined;
     let tagName = inputBlock.getTagName();
     const tagType = inputBlock.getAttribute('type');
     if ((eq(tagName, 'input') || eq(tagName, 'button')) &&
@@ -45,11 +77,20 @@ export const parseInputBlock = (inputBlock) => {
         inputBlock.addClass('init-field');
     }
     return {
-        input,
+        input: input,
         label,
         error,
     };
 };
+/**
+ * @description Converts a parsed input element into the appropriate field class based on tag name and input type.
+ * @param {Knot} input - The input element.
+ * @param {Knot | undefined} label - The associated label element.
+ * @param {Knot | undefined} error - The associated error span element.
+ * @param {Knot} inputBlock - The wrapper block element.
+ * @param {Form} form - The parent form instance.
+ * @returns {BaseField | null} The created field instance, or null.
+ */
 const _convertToField = (input, label, error, inputBlock, form) => {
     input.addClass('init-field');
     const dataType = input.getData('type');

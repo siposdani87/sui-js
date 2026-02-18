@@ -2,12 +2,29 @@ import { Knot } from '../core';
 import { Objekt } from '../core/objekt';
 import { Query } from '../core/query';
 
+/**
+ * @description Status indicator component that displays success, info, warning, or error states
+ * with configurable icon and text.
+ *
+ * @example
+ * const status = new ProgressStatus(containerKnot, '.progress-status');
+ * status.setSuccess('Upload complete', 'check_circle');
+ * status.setError('Upload failed', 'error');
+ *
+ * @category Component
+ */
 export class ProgressStatus {
     progressStatusKnot: Knot;
-    options: Objekt;
-    iconKnot: Knot;
-    textKnot: Knot;
+    options!: Objekt;
+    iconKnot!: Knot;
+    textKnot!: Knot;
 
+    /**
+     * @description Creates a new ProgressStatus bound to a DOM container.
+     * @param {Knot} dom - The parent DOM element.
+     * @param {string} [opt_selector] - CSS selector for the progress status element.
+     * @param {object} [opt_options] - Configuration options (successStyle, infoStyle, warningStyle, errorStyle).
+     */
     constructor(
         dom: Knot,
         opt_selector: string | undefined = '.progress-status',
@@ -18,6 +35,10 @@ export class ProgressStatus {
         this._init();
     }
 
+    /**
+     * @description Merges user options with default style class names.
+     * @param {object} [opt_options] - Configuration overrides.
+     */
     private _setOptions(opt_options: object | undefined = {}): void {
         this.options = new Objekt({
             successStyle: 'success',
@@ -28,11 +49,20 @@ export class ProgressStatus {
         this.options.merge(opt_options);
     }
 
+    /**
+     * @description Queries the icon and text child elements.
+     */
     private _init(): void {
         this.iconKnot = new Query('.icon', this.progressStatusKnot).getKnot();
         this.textKnot = new Query('.text', this.progressStatusKnot).getKnot();
     }
 
+    /**
+     * @description Applies a status CSS class, updates the text, and optionally sets the icon.
+     * @param {string} cssClass - The CSS class for the status state.
+     * @param {string} text - The status text to display.
+     * @param {string} [opt_icon] - Optional Material Design icon name.
+     */
     private _setStatus(
         cssClass: string,
         text: string,
@@ -51,18 +81,50 @@ export class ProgressStatus {
         }
     }
 
+    /**
+     * @description Sets the status to success state with the given text and optional icon.
+     * @param {string} text - The success message text.
+     * @param {string} [opt_icon] - Optional Material Design icon name.
+     *
+     * @example
+     * status.setSuccess('Operation completed', 'check_circle');
+     */
     setSuccess(text: string, opt_icon: string | undefined = ''): void {
         this._setStatus(this.options.successStyle, text, opt_icon);
     }
 
+    /**
+     * @description Sets the status to info state with the given text and optional icon.
+     * @param {string} text - The info message text.
+     * @param {string} [opt_icon] - Optional Material Design icon name.
+     *
+     * @example
+     * status.setInfo('Processing...', 'info');
+     */
     setInfo(text: string, opt_icon: string | undefined = ''): void {
         this._setStatus(this.options.infoStyle, text, opt_icon);
     }
 
+    /**
+     * @description Sets the status to warning state with the given text and optional icon.
+     * @param {string} text - The warning message text.
+     * @param {string} [opt_icon] - Optional Material Design icon name.
+     *
+     * @example
+     * status.setWarning('Disk space low', 'warning');
+     */
     setWarning(text: string, opt_icon: string | undefined = ''): void {
         this._setStatus(this.options.warningStyle, text, opt_icon);
     }
 
+    /**
+     * @description Sets the status to error state with the given text and optional icon.
+     * @param {string} text - The error message text.
+     * @param {string} [opt_icon] - Optional Material Design icon name.
+     *
+     * @example
+     * status.setError('Connection failed', 'error');
+     */
     setError(text: string, opt_icon: string | undefined = ''): void {
         this._setStatus(this.options.errorStyle, text, opt_icon);
     }

@@ -4,11 +4,34 @@ import { Knot } from '../core/knot';
 import { Query } from '../core/query';
 import { encodeBase64 } from '../utils/coder';
 import { mdl } from '../utils/render';
+/**
+ * File upload field with image preview, document type icons, and remove
+ * functionality.  Supports image files (shown as thumbnails) and document
+ * types (docx, xlsx, pdf) rendered with SVG file-type icons.
+ *
+ * @example
+ * const input = new Query<HTMLInputElement>('input[type="file"]', formKnot).getKnot();
+ * const field = new FileField(input, label, error, inputBlock);
+ * field.render();
+ *
+ * @see {@link BaseField}
+ * @category Field
+ */
 export class FileField extends BaseField {
+    /**
+     * @param input The underlying `<input type="file">` element wrapped in a {@link Knot}.
+     * @param label The associated label element.
+     * @param error The element used to display validation errors.
+     * @param inputBlock The block-level container wrapping the entire field.
+     */
     constructor(input, label, error, inputBlock) {
         super(input, label, error, inputBlock);
         this._init();
     }
+    /**
+     * Initializes the file field by setting up the file icon map, remove
+     * button, browse button, default image, and change listener.
+     */
     _init() {
         this.inputBlock.addClass('file-field');
         this._initFileIcon();
@@ -23,6 +46,11 @@ export class FileField extends BaseField {
             return true;
         });
     }
+    /**
+     * Checks whether the input's `accept` attribute includes document types.
+     *
+     * @returns `true` if the field accepts docx, xlsx, or pdf files.
+     */
     _isDocument() {
         var _a;
         const accept = (_a = this.input.getAttribute('accept')) !== null && _a !== void 0 ? _a : '';
@@ -30,6 +58,9 @@ export class FileField extends BaseField {
             contain(accept, '.xlsx') ||
             contain(accept, '.pdf'));
     }
+    /**
+     * Locates or creates the `<img>` preview element inside the input block.
+     */
     _initDefaultImg() {
         this.imageTag = new Query('img', this.inputBlock).getKnot();
         if (this.imageTag.isEmpty()) {
@@ -37,6 +68,10 @@ export class FileField extends BaseField {
             this.inputBlock.beforeChild(this.imageTag);
         }
     }
+    /**
+     * Reads the initial image source from the DOM and sets the default
+     * placeholder when no value is present.
+     */
     _initValueSrc() {
         this.valueSrc = this.imageTag.getAttribute('src');
         this.defaultSrc = this.input.getAttribute('data-default-value');
@@ -48,6 +83,9 @@ export class FileField extends BaseField {
         }
         this.imageTag.setAttribute('src', this.valueSrc || this.defaultSrc);
     }
+    /**
+     * Creates the remove button and binds its click handler.
+     */
     _initRemoveButton() {
         this.removeButton = new Knot('a');
         this.removeButton.setAttribute('href', 'javascript:void(0)');
@@ -60,6 +98,9 @@ export class FileField extends BaseField {
         });
         this.actionContainerKnot.appendChild(this.removeButton);
     }
+    /**
+     * Creates the browse button that opens the native file dialog.
+     */
     _initButtons() {
         const browseButton = new Knot('a');
         browseButton.setAttribute('href', 'javascript:void(0)');
@@ -77,9 +118,21 @@ export class FileField extends BaseField {
         });
         this.actionContainerKnot.appendChild(browseButton);
     }
+    /**
+     * Finds the file type entry by MIME type.
+     *
+     * @param mimeType The MIME type to look up (e.g. `'application/pdf'`).
+     * @returns A tuple of `[extension, color]` or `undefined`.
+     */
     _lookupByMimeType(mimeType) {
         return this.fileTypes[mimeType];
     }
+    /**
+     * Finds the file type entry by file extension.
+     *
+     * @param extension The file extension to look up (e.g. `'pdf'`).
+     * @returns A tuple of `[mimeType, color]` or an empty array.
+     */
     _lookupByExtension(extension) {
         let results = [];
         for (const key in this.fileTypes) {
@@ -93,6 +146,10 @@ export class FileField extends BaseField {
         }
         return results;
     }
+    /**
+     * Defines the supported document MIME types and their corresponding
+     * extensions/colors, and sets up the SVG template for file icons.
+     */
     _initFileIcon() {
         this.fileTypes = {
             'application/vnd.openxmlformats-officedocument.wordprocessingml.document': ['docx', 'blue'],
@@ -110,6 +167,13 @@ export class FileField extends BaseField {
                 '<text x="220" y="380" text-anchor="middle" style="fill:#FFF;font-weight:700;font-family:Arial;font-size:120px;">TYPE</text>' +
                 '</svg>';
     }
+    /**
+     * Generates a base64-encoded SVG data URL for a document file icon.
+     *
+     * @param type The file extension label rendered on the icon.
+     * @param color The fill color of the icon badge.
+     * @returns A `data:image/svg+xml;base64,...` URL.
+     */
     _getFileIconSrc(type, color) {
         let svg = this.fileTypeSVG;
         svg = svg.replace('#000000', color);
@@ -117,6 +181,11 @@ export class FileField extends BaseField {
         const data = encodeBase64(svg);
         return format('data:image/svg+xml;base64,{0}', [data]);
     }
+    /**
+     * Applies MDL text-field classes and refreshes the visual state.
+     *
+     * @override
+     */
     render() {
         this.inputBlock.addClass([
             'mdl-textfield',
@@ -129,6 +198,12 @@ export class FileField extends BaseField {
         }
         this.refresh();
     }
+    /**
+     * Validates required state, toggles the remove button visibility, and
+     * upgrades MDL components.
+     *
+     * @override
+     */
     refresh() {
         if (this.isRequired() && this.getValue() === '') {
             this.inputBlock.addClass('is-invalid');
@@ -136,6 +211,11 @@ export class FileField extends BaseField {
         this._handleRemoveButton();
         mdl(this.inputBlock);
     }
+    /**
+     * Reads the selected file as a data URL and updates the preview.
+     *
+     * @param file The file selected by the user.
+     */
     _read(file) {
         if (file) {
             const filename = file.name;
@@ -156,6 +236,10 @@ export class FileField extends BaseField {
             fileReader.readAsDataURL(file);
         }
     }
+    /**
+     * Shows the remove button when a non-required field has a value,
+     * otherwise hides it.
+     */
     _handleRemoveButton() {
         if (!this.isRequired() && this.valueSrc) {
             this.removeButton.removeClass('hidden');
@@ -164,6 +248,10 @@ export class FileField extends BaseField {
             this.removeButton.addClass('hidden');
         }
     }
+    /**
+     * Clears the current file value, restores the default placeholder, and
+     * notifies the model.
+     */
     _remove() {
         this.input.getNode().value = '';
         this.valueSrc = null;
@@ -176,9 +264,17 @@ export class FileField extends BaseField {
         this._handleRemoveButton();
         this.modelChange(null);
     }
+    /**
+     * Sets the field value from a URL string or an object with a `url`
+     * property, updates the image preview, and notifies the model.
+     *
+     * @param value The file URL or object containing a `url` key.
+     * @override
+     */
     setValue(value) {
         let imageSrc = value;
         if (isPureObject(value)) {
+            // eslint-disable-next-line @typescript-eslint/no-explicit-any
             imageSrc = value['url'];
         }
         if (imageSrc) {
@@ -186,7 +282,7 @@ export class FileField extends BaseField {
             if (this._isDocument()) {
                 const extension = getExtensionName(imageSrc);
                 const [_mimeType, color] = this._lookupByExtension(extension);
-                imageSrc = this._getFileIconSrc(extension, color);
+                imageSrc = this._getFileIconSrc(extension, color || '');
             }
             this.imageTag.setAttribute('src', imageSrc);
             this._handleRemoveButton();

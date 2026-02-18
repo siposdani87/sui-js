@@ -6,44 +6,71 @@ import { Day } from './day';
 import { Month } from './month';
 import { Year } from './year';
 
+/**
+ * @description Date picker calendar with day, month, and year selection modes, navigation, and date selection.
+ * @example
+ * const calendarKnot = new Knot('div');
+ * const calendar = new Calendar(calendarKnot, { date: new Date(), type: 'date' });
+ * calendar.eventClick = (date) => { console.log(date); };
+ * calendar.draw();
+ * @see {@link Day}
+ * @see {@link Month}
+ * @see {@link Year}
+ * @see {@link DateIO}
+ * @category Component
+ */
 export class Calendar {
     calendarKnot: Knot;
-    options: Objekt;
-    maxDays: number;
-    maxMonths: number;
-    maxYears: number;
-    modes: string[];
-    activeMode: string;
-    types: {
+    options!: Objekt;
+    maxDays!: number;
+    maxMonths!: number;
+    maxYears!: number;
+    modes!: string[];
+    activeMode!: string;
+    types!: {
         date: string;
         month: string;
         year: string;
         week: string;
         range: string;
     };
-    headerKnot: Knot;
-    currentModeKnot: Knot;
-    contentKnot: Knot;
-    yearsKnot: Knot;
-    monthsKnot: Knot;
-    weekDaysKnot: Knot;
-    daysKnot: Knot;
-    previous: { day: Date; month: Date; year: Date };
-    current: { day: Date };
-    next: { day: Date; month: Date; year: Date };
-    days: Day[];
-    selectedDate: Date;
+    headerKnot!: Knot;
+    currentModeKnot!: Knot;
+    contentKnot!: Knot;
+    yearsKnot!: Knot;
+    monthsKnot!: Knot;
+    weekDaysKnot!: Knot;
+    daysKnot!: Knot;
+    previous!: { day: Date; month: Date; year: Date };
+    current!: { day: Date };
+    next!: { day: Date; month: Date; year: Date };
+    days!: Day[];
+    selectedDate!: Date;
 
+    /**
+     * @description Creates a new Calendar instance.
+     * @param {Knot} knot - The container DOM element wrapper.
+     * @param {object} options - Configuration options including `date` and `type` ('date', 'month', 'year', 'week', 'range').
+     * @example
+     * const calendar = new Calendar(new Knot('div'), { date: new Date(), type: 'date' });
+     */
     constructor(knot: Knot, options: object) {
         this.calendarKnot = knot;
         this._setOptions(options);
         this._init();
     }
 
+    /**
+     * @description Merges user options into an {@link Objekt} instance.
+     * @param {object} options - Raw configuration options.
+     */
     private _setOptions(options: object): void {
         this.options = new Objekt(options);
     }
 
+    /**
+     * @description Initializes calendar constants, mode definitions, and DOM structure.
+     */
     private _init(): void {
         this.maxDays = 7 * 6;
         this.maxMonths = 12;
@@ -61,16 +88,24 @@ export class Calendar {
         this._initStructure();
     }
 
+    /**
+     * @description Builds the full calendar DOM structure including header, content, and initial mode.
+     */
     private _initStructure(): void {
         this._initHeaderKnot();
         this._initContentKnot();
-        this._initMode(this.types[this.options.type]);
+        this._initMode(
+            this.types[this.options.type as keyof typeof this.types],
+        );
 
         const date: Date = this.options.date;
         this._setSelectedDate(date);
         this._setDate(date);
     }
 
+    /**
+     * @description Creates the header knot with previous/next navigation buttons and the current mode label.
+     */
     private _initHeaderKnot(): void {
         this.headerKnot = new Knot('div');
         this.headerKnot.addClass('header');
@@ -115,32 +150,53 @@ export class Calendar {
         this.headerKnot.appendChild(nextButton);
     }
 
+    /**
+     * @description Creates the main content container knot for calendar cells.
+     */
     private _initContentKnot(): void {
         this.contentKnot = new Knot('div');
         this.contentKnot.addClass('content');
         this.calendarKnot.appendChild(this.contentKnot);
     }
 
+    /**
+     * @description Changes the active mode by the given direction offset.
+     * @param {number} direction - Offset to move in the modes array (-1 for broader, +1 for narrower).
+     */
     private _changeMode(direction: number): void {
         const mode = this._getMode(direction);
         this._initMode(mode);
     }
 
+    /**
+     * @description Resolves the target mode name by applying the direction offset to the current mode index.
+     * @param {number} direction - Offset to move in the modes array.
+     * @returns {string} The resolved mode name, falling back to the option type's default mode.
+     */
     private _getMode(direction: number): string {
         let position = this.modes.indexOf(this.activeMode);
         if (position !== -1) {
             position += direction;
         }
         const mode = this.modes[position];
-        return mode ? mode : this.types[this.options.type];
+        return mode
+            ? mode
+            : this.types[this.options.type as keyof typeof this.types];
     }
 
+    /**
+     * @description Dispatches to the appropriate callback based on the active mode (DAY, MONTH, or YEAR).
+     * @param {() => Date | void} dayFun - Callback for DAY mode.
+     * @param {() => Date | void} monthFun - Callback for MONTH mode.
+     * @param {() => Date | void} yearFun - Callback for YEAR mode.
+     * @returns {Date | null} The result of the invoked callback.
+     */
     private _switchMode(
-        dayFun: Function,
-        monthFun: Function,
-        yearFun: Function,
-    ): Date {
-        let result = null;
+        dayFun: () => Date | void,
+        monthFun: () => Date | void,
+        yearFun: () => Date | void,
+    ): Date | null {
+        let result: Date | void | null = null;
         switch (this.activeMode) {
             case 'DAY':
                 result = dayFun();
@@ -154,9 +210,13 @@ export class Calendar {
             default:
                 break;
         }
-        return result;
+        return result || null;
     }
 
+    /**
+     * @description Clears the content area and initializes the DOM structure for the given mode.
+     * @param {string} mode - The mode to activate ('DAY', 'MONTH', or 'YEAR').
+     */
     private _initMode(mode: string): void {
         this.contentKnot.removeChildren();
         this.activeMode = mode;
@@ -167,18 +227,27 @@ export class Calendar {
         );
     }
 
+    /**
+     * @description Creates the years container knot for YEAR mode.
+     */
     private _initYearsMode(): void {
         this.yearsKnot = new Knot('div');
         this.yearsKnot.addClass('years');
         this.contentKnot.appendChild(this.yearsKnot);
     }
 
+    /**
+     * @description Creates the months container knot for MONTH mode.
+     */
     private _initMonthsMode(): void {
         this.monthsKnot = new Knot('div');
         this.monthsKnot.addClass('months');
         this.contentKnot.appendChild(this.monthsKnot);
     }
 
+    /**
+     * @description Creates the week-days header and days container knots for DAY mode.
+     */
     private _initDaysMode(): void {
         this.weekDaysKnot = new Knot('div');
         this.weekDaysKnot.addClass('week-days');
@@ -189,6 +258,9 @@ export class Calendar {
         this.contentKnot.appendChild(this.daysKnot);
     }
 
+    /**
+     * @description Navigates the calendar to the previous period based on the active mode.
+     */
     private _previous(): void {
         const date = this._switchMode(
             () => {
@@ -205,10 +277,13 @@ export class Calendar {
                 return date;
             },
         );
-        this._setDate(date);
+        this._setDate(date!);
         this.draw();
     }
 
+    /**
+     * @description Navigates the calendar to the next period based on the active mode.
+     */
     private _next(): void {
         const date = this._switchMode(
             () => {
@@ -221,10 +296,14 @@ export class Calendar {
                 return DateIO.addYears(this.current.day, this.maxYears);
             },
         );
-        this._setDate(date);
+        this._setDate(date!);
         this.draw();
     }
 
+    /**
+     * @description Sets the current date, recalculates variables, and populates day cells for all three months.
+     * @param {Date} date - The date to center the calendar on.
+     */
     private _setDate(date: Date): void {
         this._setVariables(date);
 
@@ -233,6 +312,10 @@ export class Calendar {
         this._setNextMonth();
     }
 
+    /**
+     * @description Resets the days array and computes previous, current, and next date references.
+     * @param {Date} date - The reference date for calculations.
+     */
     private _setVariables(date: Date): void {
         this.days = [];
 
@@ -253,6 +336,11 @@ export class Calendar {
         };
     }
 
+    /**
+     * @description Renders the calendar content for the current active mode.
+     * @example
+     * calendar.draw();
+     */
     draw(): void {
         this._switchMode(
             this._drawDaysStructure.bind(this),
@@ -261,28 +349,44 @@ export class Calendar {
         );
     }
 
+    /**
+     * @description Draws the header, week-day labels, and day cells for DAY mode.
+     */
     private _drawDaysStructure(): void {
         this._drawHeader('YYYY MMMM');
         this._drawWeekDays();
         this._drawDays();
     }
 
+    /**
+     * @description Draws the header and month cells for MONTH mode.
+     */
     private _drawMonthsStructure(): void {
         this._drawHeader('YYYY');
         this._drawMonths();
     }
 
+    /**
+     * @description Draws the header and year cells for YEAR mode.
+     */
     private _drawYearsStructure(): void {
         this._drawHeader(null);
         this._drawYears();
     }
 
+    /**
+     * @description Renders the header text using the given date format string.
+     * @param {string | null} format - The {@link DateIO} format string, or null for empty header.
+     */
     private _drawHeader(format: string | null): void {
         this.currentModeKnot.removeChildren();
         const text = format ? DateIO.format(this.current.day, format) : '';
         this.currentModeKnot.setHtml(text);
     }
 
+    /**
+     * @description Creates and renders {@link Month} cells for all 12 months of the current year.
+     */
     private _drawMonths(): void {
         this.monthsKnot.removeChildren();
         for (let i = 0; i < this.maxMonths; i++) {
@@ -297,6 +401,9 @@ export class Calendar {
         }
     }
 
+    /**
+     * @description Creates and renders {@link Year} cells for a block of years aligned to maxYears.
+     */
     private _drawYears(): void {
         this.yearsKnot.removeChildren();
         const startYear =
@@ -314,6 +421,9 @@ export class Calendar {
         }
     }
 
+    /**
+     * @description Renders the abbreviated week-day labels (e.g., Mo, Tu) in the header row.
+     */
     private _drawWeekDays(): void {
         this.weekDaysKnot.removeChildren();
 
@@ -328,6 +438,9 @@ export class Calendar {
         }
     }
 
+    /**
+     * @description Appends all pre-built {@link Day} knots into the days container.
+     */
     private _drawDays(): void {
         this.daysKnot.removeChildren();
         for (let i = 0; i < this.days.length; i++) {
@@ -337,6 +450,9 @@ export class Calendar {
         }
     }
 
+    /**
+     * @description Populates trailing {@link Day} cells from the previous month to fill the first week row.
+     */
     private _setPreviousMonth(): void {
         const diffDays = DateIO.getDay(DateIO.endOfMonth(this.previous.month));
         const daysInMonth = DateIO.getDaysInMonth(this.previous.month);
@@ -350,6 +466,9 @@ export class Calendar {
         }
     }
 
+    /**
+     * @description Populates {@link Day} cells for each day in the current month.
+     */
     private _setCurrentMonth(): void {
         const daysInMonth = DateIO.getDaysInMonth(this.current.day);
         for (let i = 1; i <= daysInMonth; i++) {
@@ -362,6 +481,9 @@ export class Calendar {
         }
     }
 
+    /**
+     * @description Populates leading {@link Day} cells from the next month to fill the remaining grid slots.
+     */
     private _setNextMonth(): void {
         const diffDays = this.maxDays - this.days.length;
         for (let i = 1; i <= diffDays; i++) {
@@ -374,6 +496,10 @@ export class Calendar {
         }
     }
 
+    /**
+     * @description Updates the selected and current date based on the active mode's granularity.
+     * @param {Date} selectedDate - The date selected by the user.
+     */
     private _setModeDate(selectedDate: Date): void {
         let date = this.current.day;
         this._switchMode(
@@ -392,10 +518,14 @@ export class Calendar {
         this._setDate(date);
     }
 
+    /**
+     * @description Handles click on a day, month, or year cell; updates state, advances mode, and redraws.
+     * @param {Date} selectedDate - The date associated with the clicked cell.
+     */
     private _onClick(selectedDate: Date): void {
         this._setModeDate(selectedDate);
 
-        const mode = this.types[this.options.type];
+        const mode = this.types[this.options.type as keyof typeof this.types];
         if (this.activeMode !== mode) {
             this._changeMode(1);
         }
@@ -403,10 +533,20 @@ export class Calendar {
         this.eventClick(selectedDate);
     }
 
+    /**
+     * @description Stores the given date as the currently selected date.
+     * @param {Date} date - The date to mark as selected.
+     */
     private _setSelectedDate(date: Date): void {
         this.selectedDate = date;
     }
 
+    /**
+     * @description Overridable callback fired when a date is selected. Defaults to a debug log.
+     * @param {Date} date - The selected date.
+     * @example
+     * calendar.eventClick = (date) => { console.log('Selected:', date); };
+     */
     eventClick(date: Date): void {
         consoleDebug('Calendar.eventClick()', date);
     }
