@@ -5,12 +5,12 @@ setReleaseMode(false);
 
 window['componentHandler'] = {
     upgradeDom: () => { },
-    upgradeElement: (element: HTMLElement) => { },
-    upgradeElements: (elements: HTMLCollection | HTMLElement | HTMLElement[] | NodeList) => { },
+    upgradeElement: (_element: HTMLElement) => { },
+    upgradeElements: (_elements: HTMLCollection | HTMLElement | HTMLElement[] | NodeList) => { },
     upgradeAllRegistered: () => { },
-    registerUpgradedCallback: (jsClass: string, callback: (element: HTMLElement) => any) => { },
-    register: (config: any) => { },
-    downgradeElements: (nodes: Node | Node[] | NodeList) => { }
+    registerUpgradedCallback: (_jsClass: string, _callback: (element: HTMLElement) => any) => { },
+    register: (_config: any) => { },
+    downgradeElements: (_nodes: Node | Node[] | NodeList) => { }
 };
 
 let logSpy: jest.SpyInstance | null = null;

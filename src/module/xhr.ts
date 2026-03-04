@@ -191,7 +191,7 @@ export class Xhr {
      * @returns {Function} The event handler function.
      */
     private _onReadyStateChange(): (_this: XMLHttpRequest, ev: Event) => void {
-        return (_this: XMLHttpRequest, ev: Event): void => {
+        return (_this: XMLHttpRequest, _ev: Event): void => {
             switch (this.httpRequest.readyState) {
                 case 0:
                     // request not initialized
@@ -530,7 +530,7 @@ export class Xhr {
                 'Content-Disposition',
             );
             if (contentDisposition) {
-                filename = contentDisposition.match(/filename="(.+)"/)![1];
+                filename = contentDisposition.match(/filename="(.+)"/)![1]!;
             }
         } catch (error) {
             consoleError('Xhr._getFilenameFromHeader', error);
@@ -660,7 +660,7 @@ export class Xhr {
      * @param {string} name The header name.
      * @returns {string | null} The header value, or `null` if not set.
      */
-    private _getHeader(name: string): string | null {
+    private _getHeader(name: string): string | undefined {
         return this.requestHeaders[name];
     }
 

@@ -197,7 +197,7 @@ export class Dialog extends BaseModal {
                     'mdl-button',
                     'mdl-js-button',
                     'mdl-js-ripple-effect',
-                ].concat([cssClasses[i]]);
+                ].concat([cssClasses[i]!]);
                 button.addClass(buttonClasses);
                 button.addEventListener('click', actions[i]);
             });

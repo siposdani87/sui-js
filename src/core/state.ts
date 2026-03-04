@@ -223,13 +223,13 @@ export class State {
         const path = urlPath[0] === '#' ? urlPath.substring(1) : urlPath;
         const states = this.routes.getItems();
 
-        let state: Route | null = null;
+        let state: Route | undefined | null = null;
         let params: object | null = null;
         let matches: RegExpMatchArray | null = null;
 
         let i = 0;
         while (i < states.length && isNull(matches)) {
-            state = states[i];
+            state = states[i]!;
             const stateUrl = state.get<string>('url');
             const router = new Router(stateUrl);
             matches = router.getMatches(path);

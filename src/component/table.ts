@@ -344,7 +344,10 @@ export class Table<T extends Objekt = Objekt> {
      * @param {string} columnWithOrder - Column name with optional direction (e.g., "name:asc").
      */
     private _toggleSorting(columnWithOrder: string): void {
-        const [column, direction] = columnWithOrder.split(':', 2);
+        const [column, direction] = columnWithOrder.split(':', 2) as [
+            string,
+            string | undefined,
+        ];
         let order = direction || 'desc';
         if (
             eq(this.options.sort.column, column) &&
@@ -572,7 +575,7 @@ export class Table<T extends Objekt = Objekt> {
         } else {
             const labelKnot = new Knot('span');
             labelKnot.addClass('label');
-            labelKnot.setHtml(this.headerTexts[columnIndex]);
+            labelKnot.setHtml(this.headerTexts[columnIndex] ?? '');
             this._renderHeader(labelKnot, columnIndex);
             this._handleSortingColumn(labelKnot, columnIndex);
             tableDataKnot.appendChild(labelKnot);

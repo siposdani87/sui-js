@@ -35,8 +35,8 @@ export const readableCurrency = (
     }
     price = round(price, opt_precision * -1);
     const parts = price.toFixed(opt_precision).toString().split('.');
-    const decimal = parts[1];
-    let currency = parts[0]
+    const decimal = parts[1] ?? '';
+    let currency = parts[0]!
         .split('')
         .reverse()
         .map((char, index) => {
@@ -94,8 +94,8 @@ export const readableNumber = (
     const rx = /\.0+$|(\.[0-9]*[1-9])0+$/;
     let result = '';
     let i = 0;
-    while (i < siValues.length - 1 && num < siValues[i].value) {
-        const siValue = siValues[i + 1];
+    while (i < siValues.length - 1 && num < siValues[i]!.value) {
+        const siValue = siValues[i + 1]!;
         const exp = num.toString().length - 1;
         const roundedValue = floor(num, opt_around ? exp : 0);
         const plus = roundedValue < num ? '+' : '';

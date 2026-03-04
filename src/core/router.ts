@@ -161,7 +161,7 @@ export class Router {
         // eslint-disable-next-line @typescript-eslint/no-explicit-any
         const params: Record<string, any> = this._parseParams(url);
         for (let i = 0; i < this.paramNames.length; i++) {
-            const key = this.paramNames[i];
+            const key = this.paramNames[i]!;
             params[key] = typeCast(matches[i + 1]);
         }
         return params;
@@ -186,9 +186,9 @@ export class Router {
                 if (parts.length < 2) {
                     parts.push('');
                 }
-                const key = window.decodeURIComponent(parts[0]);
+                const key = window.decodeURIComponent(parts[0]!);
                 const value = typeCast(
-                    window.decodeURIComponent(parts[1].replace('&&', '==')),
+                    window.decodeURIComponent(parts[1]!.replace('&&', '==')),
                 );
                 if (contain(key, '[]')) {
                     const realKey = key.replace('[]', '');

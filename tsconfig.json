@@ -19,10 +19,10 @@
     "allowUnreachableCode": false,
     "allowUnusedLabels": false,
 
-    /* Additional Type Checking (Optional - Not Yet Enabled) */
-    "noUnusedLocals": false,
-    "noUnusedParameters": false,
-    "noUncheckedIndexedAccess": false
+    /* Additional Type Checking */
+    "noUnusedLocals": true,
+    "noUnusedParameters": true,
+    "noUncheckedIndexedAccess": true
   },
   "include": [
     "src/**/*"

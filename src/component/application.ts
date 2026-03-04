@@ -135,7 +135,7 @@ export class Application {
      */
     getLanguage(): string {
         const locale = this.getLocale();
-        return locale.split('-', 2)[0];
+        return locale.split('-', 2)[0]!;
     }
 
     /**
@@ -458,7 +458,7 @@ export class Application {
                 (flash: any) => {
                     // eslint-disable-next-line @typescript-eslint/no-explicit-any
                     flash.node = (this._instances as Record<string, any>)[
-                        this._injections.flash
+                        this._injections.flash!
                     ].addWarning(flash.message, flash.duration);
                 },
             );

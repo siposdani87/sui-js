@@ -109,7 +109,7 @@ export class DateTime {
                 clock_type: '',
             },
         };
-        this.config = this.types[this.options.type];
+        this.config = this.types[this.options.type]!;
     }
 
     /**

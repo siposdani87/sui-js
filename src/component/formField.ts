@@ -94,7 +94,7 @@ export const parseInputBlock = (
             inputBlock,
         ).getItems();
 
-        input = inputs[inputs.length - 1];
+        input = inputs[inputs.length - 1]!;
 
         label = new Query('label', inputBlock).getKnot();
 

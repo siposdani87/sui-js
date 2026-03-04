@@ -68,8 +68,10 @@ export class FileField extends BaseField<HTMLInputElement> {
 
         this.input.addEventListener('change', (inputKnot) => {
             const inputNode = inputKnot.getNode();
-            const file = inputNode.files![0];
-            this._read(file);
+            const file = inputNode.files?.[0];
+            if (file) {
+                this._read(file);
+            }
             return true;
         });
     }
@@ -159,7 +161,7 @@ export class FileField extends BaseField<HTMLInputElement> {
      * @param mimeType The MIME type to look up (e.g. `'application/pdf'`).
      * @returns A tuple of `[extension, color]` or `undefined`.
      */
-    private _lookupByMimeType(mimeType: string): [string, string] {
+    private _lookupByMimeType(mimeType: string): [string, string] | undefined {
         return this.fileTypes[mimeType];
     }
 
@@ -173,9 +175,9 @@ export class FileField extends BaseField<HTMLInputElement> {
         let results: [string, string] | [] = [];
         for (const key in this.fileTypes) {
             if (Object.hasOwn(this.fileTypes, key)) {
-                const fileType = this.fileTypes[key];
+                const fileType = this.fileTypes[key]!;
                 if (fileType[0] === extension) {
-                    const color = fileType[1];
+                    const color = fileType[1]!;
                     results = [key, color];
                 }
             }
@@ -275,8 +277,13 @@ export class FileField extends BaseField<HTMLInputElement> {
                 );
                 this.valueSrc = imageSrc;
                 if (!contain(file.type, 'image/')) {
-                    const [type, color] = this._lookupByMimeType(file.type);
-                    imageSrc = this._getFileIconSrc(type, color);
+                    const fileType = this._lookupByMimeType(file.type);
+                    if (fileType) {
+                        imageSrc = this._getFileIconSrc(
+                            fileType[0],
+                            fileType[1],
+                        );
+                    }
                 }
                 this.imageTag.setAttribute('src', imageSrc);
                 this._handleRemoveButton();

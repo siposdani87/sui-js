@@ -453,7 +453,7 @@ export const eachArray = <T>(
     opt_start = opt_start || 0;
     opt_end = opt_end || items.length;
     for (let i = opt_start; i < opt_end; i++) {
-        next(items[i], i);
+        next(items[i]!, i);
     }
 };
 
@@ -608,7 +608,7 @@ export const contain = (str: string, subStr: string): boolean =>
  */
 export const inContainArray = (items: Array<string>, item: string): boolean => {
     let i = 0;
-    while (i < items.length && !contain(items[i], item)) {
+    while (i < items.length && !contain(items[i]!, item)) {
         i++;
     }
     return i < items.length;
@@ -925,7 +925,7 @@ export const scrollToElement = (
     opt_step: number | undefined = 20,
 ): void => {
     const nodeList = document.querySelectorAll<HTMLElement>(selector);
-    const element = nodeList[0];
+    const element = nodeList[0]!;
     const x = element.offsetLeft;
     const y = element.offsetTop;
     scrollTo(x, y, opt_duration, opt_step);
@@ -1067,7 +1067,7 @@ export const getQueryString = (opt_params?: object): string => {
  * @category Utility
  */
 export const getExtensionName = (url: string): string => {
-    const realUrl = url.split('?', 2)[0];
+    const realUrl = url.split('?', 2)[0]!;
     return realUrl.slice(
         (Math.max(0, realUrl.lastIndexOf('.')) || Infinity) + 1,
     );

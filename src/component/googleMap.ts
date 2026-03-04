@@ -556,7 +556,7 @@ export class GoogleMap {
      * @param polygonData - The associated polygon data object.
      */
     private _callPolygonChangeEvent(
-        polygon: google.maps.Polygon,
+        _polygon: google.maps.Polygon,
         polygonData: Objekt,
     ): void {
         const points = this._getPointsFromPolygon(polygonData);
@@ -1024,8 +1024,8 @@ export class GoogleMap {
         const text = title.toString();
         const marker = new google.maps.Marker(options.copyObject());
         marker.setPosition(new google.maps.LatLng(latitude, longitude));
-        marker.setIcon(this.markerIcons[iconName].icon);
-        marker.setShape(this.markerIcons[iconName].shape);
+        marker.setIcon(this.markerIcons[iconName]!.icon);
+        marker.setShape(this.markerIcons[iconName]!.shape);
         marker.setTitle(text);
         marker.setMap(this.map);
         markerData.setRaw('_marker', marker);
@@ -1159,7 +1159,7 @@ export class GoogleMap {
         const marker = markerData.get<google.maps.Marker>('_marker');
         marker.setOptions(opt_options);
 
-        const markerIcon = this.markerIcons[iconName];
+        const markerIcon = this.markerIcons[iconName]!;
         marker.setIcon(markerIcon.icon);
         marker.setShape(markerIcon.shape);
         marker.setTitle(text);

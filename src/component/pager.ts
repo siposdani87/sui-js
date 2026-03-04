@@ -48,8 +48,8 @@ export class Pager {
         opt_selectors: string[] | undefined = ['.pager', '.pager-statistics'],
         opt_options: object | undefined = {},
     ) {
-        this.pager = new Query(opt_selectors[0], dom).getKnot();
-        this.pagerStatistics = new Query(opt_selectors[1], dom).getKnot();
+        this.pager = new Query(opt_selectors[0]!, dom).getKnot();
+        this.pagerStatistics = new Query(opt_selectors[1]!, dom).getKnot();
         this._setOptions(opt_options);
         this._init();
     }

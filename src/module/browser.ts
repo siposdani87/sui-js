@@ -279,17 +279,19 @@ export class Browser {
      * }
      */
     isInternetExplorer(opt_version: number | undefined): boolean {
-        let result = this.browsers.lteIE10 || this.browsers.gteIE10;
+        let result =
+            (this.browsers.lteIE10 ?? false) ||
+            (this.browsers.gteIE10 ?? false);
         if (opt_version) {
             switch (opt_version) {
                 case 11:
-                    result = this.browsers.IE11;
+                    result = this.browsers.IE11 ?? false;
                     break;
                 case 10:
-                    result = this.browsers.IE10;
+                    result = this.browsers.IE10 ?? false;
                     break;
                 default:
-                    result = this.browsers.lteIE10;
+                    result = this.browsers.lteIE10 ?? false;
                     break;
             }
         }
@@ -307,7 +309,7 @@ export class Browser {
      * }
      */
     isEdge(): boolean {
-        return this.browsers.edge;
+        return this.browsers.edge ?? false;
     }
 
     /**
@@ -321,7 +323,7 @@ export class Browser {
      * }
      */
     isChromiumEdge(): boolean {
-        return this.browsers.chromiumEdge;
+        return this.browsers.chromiumEdge ?? false;
     }
 
     /**
@@ -335,7 +337,7 @@ export class Browser {
      * }
      */
     isFirefox(): boolean {
-        return this.browsers.firefox;
+        return this.browsers.firefox ?? false;
     }
 
     /**
@@ -350,7 +352,7 @@ export class Browser {
      * }
      */
     isChrome(): boolean {
-        return this.browsers.chrome;
+        return this.browsers.chrome ?? false;
     }
 
     /**
@@ -364,7 +366,7 @@ export class Browser {
      * }
      */
     isOpera(): boolean {
-        return this.browsers.opera;
+        return this.browsers.opera ?? false;
     }
 
     /**
@@ -378,7 +380,7 @@ export class Browser {
      * }
      */
     isSafari(): boolean {
-        return this.browsers.safari;
+        return this.browsers.safari ?? false;
     }
 
     /**
@@ -392,7 +394,7 @@ export class Browser {
      * }
      */
     isWebkit(): boolean {
-        return this.browsers.webkit;
+        return this.browsers.webkit ?? false;
     }
 
     /**
@@ -407,6 +409,6 @@ export class Browser {
      * }
      */
     isChromium(): boolean {
-        return this.browsers.chromium;
+        return this.browsers.chromium ?? false;
     }
 }

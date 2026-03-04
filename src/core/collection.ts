@@ -311,7 +311,7 @@ export class Collection<T extends object = object> {
         opt_attribute?: string | undefined,
     ): T | K | null {
         if (index >= 0 && index < this.items.length) {
-            const item = this.items[index];
+            const item = this.items[index]!;
             if (item && opt_attribute && instanceOf(item, Objekt)) {
                 return (item as unknown as Objekt).get<K>(opt_attribute);
             }
@@ -413,7 +413,7 @@ export class Collection<T extends object = object> {
         conditionCallback: (item: T, index: number) => boolean,
     ): T | null {
         let i = 0;
-        while (i < this.items.length && !conditionCallback(this.items[i], i)) {
+        while (i < this.items.length && !conditionCallback(this.items[i]!, i)) {
             i++;
         }
         return this.get(i) as T | null;
@@ -518,7 +518,7 @@ export class Collection<T extends object = object> {
      * col.size(); // 1
      */
     deleteBy(attribute: string, value: unknown): T | null {
-        return this.deleteByCondition((item: T, i: number) => {
+        return this.deleteByCondition((_item: T, i: number) => {
             return this.get(i, attribute) === value;
         });
     }
@@ -541,7 +541,7 @@ export class Collection<T extends object = object> {
         conditionCallback: (item: T, index: number) => boolean,
     ): T | null {
         let i = 0;
-        while (i < this.items.length && !conditionCallback(this.items[i], i)) {
+        while (i < this.items.length && !conditionCallback(this.items[i]!, i)) {
             i++;
         }
         const item = this.get(i) as T | null;

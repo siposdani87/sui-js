@@ -263,7 +263,7 @@ export class Cookie {
             )
             .split(/\s*(?:\=[^;]*)?;\s*/);
         for (let i = 0; i < keys.length; i++) {
-            keys[i] = this._getName(decodeURIComponent(keys[i]));
+            keys[i] = this._getName(decodeURIComponent(keys[i]!));
         }
         return keys;
     }

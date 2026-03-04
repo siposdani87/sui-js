@@ -138,7 +138,7 @@ export class LocationField extends BaseField<HTMLInputElement> {
     search(address: string): void {
         this.map.searchAddress(address).then(
             (locations) => {
-                const position = locations[0];
+                const position = locations[0]!;
                 const location = {
                     address: typeCast(address),
                     latitude: position['latitude'],

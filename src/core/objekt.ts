@@ -82,8 +82,11 @@ export class Objekt<T extends object = object> {
                         if (!instanceOf(this[key], Objekt)) {
                             this[key] = new Objekt(this[key]);
                         }
-                        this[key].merge(obj[key]);
-                    } else if (isArray(obj[key]) && isPureObject(obj[key][0])) {
+                        (this[key] as Objekt).merge(obj[key]);
+                    } else if (
+                        isArray(obj[key]) &&
+                        isPureObject((obj[key] as unknown[])[0])
+                    ) {
                         this._convertobject(obj, key);
                         this[key] = obj[key];
                     } else {

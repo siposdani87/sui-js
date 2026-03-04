@@ -58,8 +58,8 @@ export class Clock {
     private _init(): void {
         this.modes = ['HOUR', 'MINUTE'];
         this.types = {
-            hour: this.modes[0],
-            minute: this.modes[1],
+            hour: this.modes[0]!,
+            minute: this.modes[1]!,
         };
 
         this._initStructure();

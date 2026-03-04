@@ -160,10 +160,10 @@ export class Module {
     private _getSortedServices(services: string[]): string[] {
         const edges = services
             .map((service) => {
-                const moduleInjections = this._modules[
-                    service
-                ].moduleInjections.filter((moduleInjection) =>
-                    services.includes(moduleInjection),
+                const mod = this._modules[service];
+                if (!mod) return [];
+                const moduleInjections = mod.moduleInjections.filter(
+                    (moduleInjection) => services.includes(moduleInjection),
                 );
                 if (moduleInjections.length === 0) {
                     moduleInjections.push(null as unknown as string);
@@ -198,15 +198,15 @@ export class Module {
         const visited: { [key: string]: boolean } = {};
 
         edges.forEach((v) => {
-            const from = v[0];
-            const to = v[1];
+            const from = v[0]!;
+            const to = v[1]!;
             if (!nodes[from]) nodes[from] = { id: from, afters: [] };
             if (!nodes[to]) nodes[to] = { id: to, afters: [] };
-            nodes[from].afters.push(to);
+            nodes[from]!.afters.push(to);
         });
 
         const visit = (strId: string, ancestors?: string[]): void => {
-            const node = nodes[strId];
+            const node = nodes[strId]!;
             const id = node.id;
 
             if (visited[strId]) {
@@ -222,7 +222,7 @@ export class Module {
 
             visited[strId] = true;
 
-            node.afters.forEach((afterId) => {
+            node!.afters.forEach((afterId) => {
                 /* if (ancestors.includes(afterId)) {
                     // if already in ancestors, a closed chain exists.
                     consoleError(
@@ -269,7 +269,7 @@ export class Module {
             const moduleCall = () => {
                 // eslint-disable-next-line @typescript-eslint/no-explicit-any
                 (this._instances as Record<string, any>)[serviceName] =
-                    this._resolveDependencies(this._modules[serviceName]);
+                    this._resolveDependencies(this._modules[serviceName]!);
 
                 if (
                     isFunction(
@@ -377,7 +377,7 @@ export class Module {
                         currentState,
                         // eslint-disable-next-line @typescript-eslint/no-explicit-any
                         (this._instances as Record<string, any>)[
-                            this._injections.template
+                            this._injections.template!
                         ].getViewKnot(),
                     );
                 }

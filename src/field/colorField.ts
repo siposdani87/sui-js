@@ -156,7 +156,7 @@ export class ColorField extends BaseField<HTMLInputElement> {
             this.canvas.drawImage(this.image, width, height);
         } else {
             // 19x11
-            const maxX = this.colors[0].length;
+            const maxX = this.colors[0]!.length;
             const maxY = this.colors.length;
             const size = 15;
             this.canvas.setSize(maxX * size, maxY * size);
@@ -169,7 +169,7 @@ export class ColorField extends BaseField<HTMLInputElement> {
                         size,
                         0,
                         {
-                            fillStyle: this.colors[j][i],
+                            fillStyle: this.colors[j]![i]!,
                         },
                     );
                 }

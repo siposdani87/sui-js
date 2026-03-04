@@ -242,7 +242,7 @@ export class Depot {
         const propertyName = this._getPropertyName(name);
         const item = this.storage.getItem(propertyName);
         if (item) {
-            const utcString = item.split(';', 2)[0];
+            const utcString = item.split(';', 2)[0]!;
             return new Date(utcString);
         }
         return null;

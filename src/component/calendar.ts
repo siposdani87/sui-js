@@ -78,11 +78,11 @@ export class Calendar {
 
         this.modes = ['YEAR', 'MONTH', 'DAY'];
         this.types = {
-            date: this.modes[2],
-            month: this.modes[1],
-            year: this.modes[0],
-            week: this.modes[2],
-            range: this.modes[2],
+            date: this.modes[2]!,
+            month: this.modes[1]!,
+            year: this.modes[0]!,
+            week: this.modes[2]!,
+            range: this.modes[2]!,
         };
 
         this._initStructure();
@@ -444,7 +444,7 @@ export class Calendar {
     private _drawDays(): void {
         this.daysKnot.removeChildren();
         for (let i = 0; i < this.days.length; i++) {
-            const day = this.days[i];
+            const day = this.days[i]!;
             const dayKnot = day.getKnot();
             this.daysKnot.appendChild(dayKnot);
         }

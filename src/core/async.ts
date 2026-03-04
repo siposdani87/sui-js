@@ -381,7 +381,7 @@ export class Async {
         opt_args?: Array<any>,
     ) {
         const deferred = new Deferred();
-        const call = calls[index];
+        const call = calls[index]!;
         const results = opt_args || this.call.results;
         const args = (opt_args || []).concat(this.call.results);
         const promise = call.apply(this, args);
