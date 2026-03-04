@@ -520,8 +520,9 @@ export class Table<T extends Objekt = Objekt> {
         column: string,
         parentKnot: Knot,
     ): void {
-        let result = '';
         const calculation = this.options.calculations[column];
+        // eslint-disable-next-line @typescript-eslint/no-explicit-any
+        let result: any;
         if (isFunction(calculation)) {
             result = calculation(
                 item,
@@ -532,13 +533,7 @@ export class Table<T extends Objekt = Objekt> {
             result = item.get(column, '');
         }
         // eslint-disable-next-line @typescript-eslint/no-explicit-any
-        let items: any[] = [];
-        if (!isArray(result)) {
-            items = [result];
-        } else {
-            // eslint-disable-next-line @typescript-eslint/no-explicit-any
-            items = result as any;
-        }
+        const items: any[] = isArray(result) ? (result as any) : [result];
         // eslint-disable-next-line @typescript-eslint/no-explicit-any
         eachArray(items, (item: any) => {
             if (!instanceOf(item, Knot)) {
