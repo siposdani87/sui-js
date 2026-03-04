@@ -1,7 +1,7 @@
 import { eq } from '../utils/operation';
 import { Objekt } from '../core/objekt';
 import { Query } from '../core/query';
-import { Knot } from '../core';
+import type { Knot } from '../core';
 
 /**
  * Full-screen loading spinner overlay using a Material Design Lite spinner

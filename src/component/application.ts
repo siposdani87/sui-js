@@ -27,8 +27,8 @@ import { Header } from '../module/header';
 import { EventBus } from '../module/eventBus';
 import { Scheduler } from '../module/scheduler';
 import { Screen } from '../module/screen';
-import { Route } from './route';
-import { ClassRef, Injection, Instance, InstanceKey } from '../utils';
+import type { Route } from './route';
+import type { ClassRef, Injection, Instance, InstanceKey } from '../utils';
 import { setDateIOLocale } from '../utils/dateio';
 
 /**

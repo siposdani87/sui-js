@@ -3,7 +3,7 @@ import { Async } from '../core/async';
 import { Deferred } from '../core/deferred';
 import { Query } from '../core/query';
 import { consoleDebug } from '../utils/log';
-import { Knot } from '../core';
+import type { Knot } from '../core';
 
 /**
  * @description Tab panel component that manages tab/panel activation with async change events.

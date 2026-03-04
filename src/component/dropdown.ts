@@ -3,7 +3,7 @@ import { Collection } from '../core/collection';
 import { Knot } from '../core/knot';
 import { Objekt } from '../core/objekt';
 import { generateId } from '../utils/coder';
-import { Action } from '../utils';
+import type { Action } from '../utils';
 import { mdl } from '../utils/render';
 
 /**

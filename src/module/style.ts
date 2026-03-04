@@ -3,7 +3,7 @@ import { Deferred } from '../core/deferred';
 import { Knot } from '../core/knot';
 import { Objekt } from '../core/objekt';
 import { Query } from '../core/query';
-import { ProgressBar } from './progressBar';
+import type { ProgressBar } from './progressBar';
 
 /**
  * Dynamic stylesheet loader that appends `<link>` tags to the document

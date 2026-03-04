@@ -2,7 +2,7 @@ import { format, typeCast } from '../utils/operation';
 import { BaseField } from './baseField';
 import { Knot } from '../core/knot';
 import { Query } from '../core/query';
-import { Form } from '../component';
+import type { Form } from '../component';
 import { mdl } from '../utils/render';
 
 /**

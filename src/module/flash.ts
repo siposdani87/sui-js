@@ -2,7 +2,7 @@ import { eq, format, isFunction, isPureObject, noop } from '../utils/operation';
 import { Objekt } from '../core/objekt';
 import { Query } from '../core/query';
 import { generateId } from '../utils/coder';
-import { Knot } from '../core';
+import type { Knot } from '../core';
 import { mdl } from '../utils/render';
 
 /**

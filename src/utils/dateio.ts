@@ -11,12 +11,13 @@
  * @category Utility
  */
 
+import type {
+    Locale} from 'date-fns';
 import {
     parseISO,
     parse,
     format,
     isAfter,
-    Locale,
     addMinutes,
     addHours,
     subHours,

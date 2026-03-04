@@ -1,4 +1,4 @@
-import { Knot } from '../core';
+import type { Knot } from '../core';
 import { mdl } from '../utils/render';
 import { BaseField } from './baseField';
 

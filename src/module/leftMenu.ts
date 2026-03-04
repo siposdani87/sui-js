@@ -1,6 +1,6 @@
 import { noop } from '../utils/operation';
 import { Query } from '../core/query';
-import { Knot } from '../core';
+import type { Knot } from '../core';
 
 /**
  * Slide-out left sidebar navigation with a main menu panel and a

@@ -20,9 +20,9 @@ import { RangeField } from '../field/rangeField';
 import { NumberField } from '../field/numberField';
 import { LocationField } from '../field/locationField';
 import { TextField } from '../field/textField';
-import { BaseField } from '../field/baseField';
-import { Knot } from '../core/knot';
-import { Form } from './form';
+import type { BaseField } from '../field/baseField';
+import type { Knot } from '../core/knot';
+import type { Form } from './form';
 
 /**
  * @description Factory function that detects an input element's type and creates the
@@ -156,7 +156,7 @@ const _convertToField = (
             case 'time':
             case 'month':
             case 'week':
-            case 'year':
+            case 'year': {
                 const inputs = new Query<HTMLInputElement>('input', inputBlock);
                 if (inputs.size() === 2) {
                     result = new DateTimeRangeField(
@@ -183,6 +183,7 @@ const _convertToField = (
                     );
                 }
                 break;
+            }
             case 'file':
                 result = new FileField(input, label!, error!, inputBlock);
                 break;

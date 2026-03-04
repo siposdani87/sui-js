@@ -4,7 +4,7 @@ import { Collection } from './collection';
 import { Objekt } from './objekt';
 import { Query } from './query';
 import { Router } from './router';
-import { Route } from '../component';
+import type { Route } from '../component';
 
 /**
  * Manages application state via URL-based routing using the browser

@@ -1,6 +1,6 @@
-import { Knot } from '../core';
+import type { Knot } from '../core';
 import { Query } from '../core/query';
-import { Header } from './header';
+import type { Header } from './header';
 
 /**
  * Dropdown menu rendered inside the application {@link Header}. Toggling

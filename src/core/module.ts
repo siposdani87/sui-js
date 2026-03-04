@@ -3,10 +3,10 @@ import { consoleDebug } from '../utils/log';
 import { Async } from './async';
 import { Deferred } from './deferred';
 import { State } from './state';
-import { Objekt } from './objekt';
-import { Knot } from './knot';
-import { Route } from '../component/route';
-import { ClassRef, Dependency, Injection, Instance } from '../utils';
+import type { Objekt } from './objekt';
+import type { Knot } from './knot';
+import type { Route } from '../component/route';
+import type { ClassRef, Dependency, Injection, Instance } from '../utils';
 
 /**
  * Base class for the application's revealing module pattern. Module manages

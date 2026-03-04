@@ -475,7 +475,7 @@ export class Xhr {
             }
         } else if (typeof obj === 'object') {
             for (const j in obj) {
-                if (obj.hasOwnProperty(j)) {
+                if (Object.hasOwn(obj, j)) {
                     const pairs = this._parseobject(obj[j], j, stringKey);
                     results = results.concat(pairs);
                 }
@@ -497,7 +497,7 @@ export class Xhr {
         let results: string[] = [];
         for (const key in obj) {
             // eslint-disable-next-line @typescript-eslint/no-explicit-any
-            if ((obj as Record<string, any>).hasOwnProperty(key)) {
+            if (Object.hasOwn(obj as Record<string, any>, key)) {
                 const pair = this._parseobject(
                     // eslint-disable-next-line @typescript-eslint/no-explicit-any
                     (obj as Record<string, any>)[key],
@@ -576,11 +576,12 @@ export class Xhr {
                         deferred.resolve([[objekt, filename]]);
                     }
                     break;
-                default:
+                default: {
                     const objekt = new Objekt();
                     objekt.setRaw('raw', response);
                     deferred.resolve([[objekt, filename]]);
                     break;
+                }
             }
         }
         return deferred.promise();

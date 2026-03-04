@@ -1,8 +1,8 @@
-import { Knot } from '../core';
+import type { Knot } from '../core';
 import { Collection } from '../core/collection';
 import { Query } from '../core/query';
-import { Popup } from './popup';
-import { ClassRef } from '../utils/types';
+import type { Popup } from './popup';
+import type { ClassRef } from '../utils/types';
 
 /**
  * @description Global popup lifecycle manager that tracks all open popups via a window-level

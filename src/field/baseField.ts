@@ -3,7 +3,7 @@ import { Knot } from '../core/knot';
 import { Query } from '../core/query';
 import { Tooltip } from '../component/tooltip';
 import { consoleDebug } from '../utils/log';
-import { Form } from '../component';
+import type { Form } from '../component';
 
 /**
  * @description Abstract base class for all form fields. Handles validation, labeling,

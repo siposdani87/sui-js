@@ -3,7 +3,7 @@ import { Collection } from '../core/collection';
 import { Knot } from '../core/knot';
 import { Objekt } from '../core/objekt';
 import { Query } from '../core/query';
-import { Http } from '../module';
+import type { Http } from '../module';
 
 /**
  * Navigation link manager supporting icons, images, counters, and text links.

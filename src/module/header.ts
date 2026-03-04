@@ -1,4 +1,4 @@
-import { Knot } from '../core';
+import type { Knot } from '../core';
 import { Objekt } from '../core/objekt';
 import { Query } from '../core/query';
 import { consoleDebug } from '../utils/log';

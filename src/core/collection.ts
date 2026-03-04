@@ -1,4 +1,4 @@
-import { Id } from '../utils';
+import type { Id } from '../utils';
 import {
     each,
     instanceOf,

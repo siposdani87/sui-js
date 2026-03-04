@@ -1,4 +1,4 @@
-import { Promize } from '../core';
+import type { Promize } from '../core';
 import { Deferred } from '../core/deferred';
 import { Objekt } from '../core/objekt';
 import { consoleDebug } from '../utils/log';

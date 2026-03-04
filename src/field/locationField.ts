@@ -4,7 +4,7 @@ import { GoogleMap } from '../component/googleMap';
 import { Knot } from '../core/knot';
 import { consoleDebug } from '../utils/log';
 import { generateId } from '../utils/coder';
-import { IconOptions } from '../utils';
+import type { IconOptions } from '../utils';
 import { mdl } from '../utils/render';
 
 /**

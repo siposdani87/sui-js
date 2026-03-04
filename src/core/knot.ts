@@ -13,7 +13,7 @@ import {
     typeCast,
 } from '../utils/operation';
 import { consoleWarn } from '../utils/log';
-import { Listener } from '../utils';
+import type { Listener } from '../utils';
 
 /**
  * DOM element wrapper that provides a convenient, chainable API for

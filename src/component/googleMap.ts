@@ -4,8 +4,8 @@ import { Deferred } from '../core/deferred';
 import { Objekt } from '../core/objekt';
 import { Query } from '../core/query';
 import { consoleDebug } from '../utils/log';
-import { Knot } from '../core';
-import { IconOptions, Id } from '../utils';
+import type { Knot } from '../core';
+import type { IconOptions, Id } from '../utils';
 import { MapLabel } from './mapLabel';
 
 /**

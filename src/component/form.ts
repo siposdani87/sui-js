@@ -4,8 +4,8 @@ import { Objekt } from '../core/objekt';
 import { Query } from '../core/query';
 import { FormField } from './formField';
 import { consoleDebug } from '../utils/log';
-import { BaseField } from '../field';
-import { Knot } from '../core';
+import type { BaseField } from '../field';
+import type { Knot } from '../core';
 
 /**
  * @description Manages a collection of form fields with model binding, validation, and

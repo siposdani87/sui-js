@@ -1,4 +1,4 @@
-import { Objekt } from '../core';
+import type { Objekt } from '../core';
 
 /**
  * Casts string representations to their native JavaScript types.
@@ -66,7 +66,7 @@ export const merge = (
     // eslint-disable-next-line @typescript-eslint/no-explicit-any
     const obj = copyObject(objA) as Record<string, any>;
     for (const key in objB) {
-        if (objB.hasOwnProperty(key)) {
+        if (Object.hasOwn(objB, key)) {
             if (isPureObject(objB[key].constructor)) {
                 obj[key] = merge(obj[key], objB[key]);
             } else {
@@ -482,7 +482,7 @@ export const eachObject = (
     next: (value: any, key: string) => void,
 ): void => {
     for (const key in object) {
-        if (object.hasOwnProperty(key)) {
+        if (Object.hasOwn(object, key)) {
             next(object[key], key);
         }
     }
@@ -562,7 +562,7 @@ export const clearArray = <T>(items: Array<T>): void => {
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
 export const clearObject = (items: Record<string, any>): void => {
     for (const key in items) {
-        if (items.hasOwnProperty(key)) {
+        if (Object.hasOwn(items, key)) {
             delete items[key];
         }
     }

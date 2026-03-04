@@ -77,7 +77,7 @@ export class Objekt<T extends object = object> {
             // eslint-disable-next-line @typescript-eslint/no-explicit-any
             const obj = object as Record<string, any>;
             for (const key in obj) {
-                if (obj.hasOwnProperty(key)) {
+                if (Object.hasOwn(obj, key)) {
                     if (isPureObject(obj[key])) {
                         if (!instanceOf(this[key], Objekt)) {
                             this[key] = new Objekt(this[key]);
@@ -310,7 +310,7 @@ export class Objekt<T extends object = object> {
         // eslint-disable-next-line @typescript-eslint/no-explicit-any
         const obj = object as Record<string, any>;
         for (const property in obj) {
-            if (obj.hasOwnProperty(property)) {
+            if (Object.hasOwn(obj, property)) {
                 if (attributes.length === 1 && property === attributes[0]) {
                     delete obj[property];
                 } else if (

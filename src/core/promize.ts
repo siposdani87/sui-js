@@ -1,5 +1,5 @@
 import { isArray, isFunction, noop } from '../utils/operation';
-import { Deferred } from './deferred';
+import type { Deferred } from './deferred';
 import { Objekt } from './objekt';
 
 /**

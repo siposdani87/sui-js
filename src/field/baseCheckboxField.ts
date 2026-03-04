@@ -1,7 +1,7 @@
 import { typeCast } from '../utils/operation';
 import { BaseField } from './baseField';
 import { Query } from '../core/query';
-import { Knot } from '../core/knot';
+import type { Knot } from '../core/knot';
 import { mdl } from '../utils/render';
 
 /**

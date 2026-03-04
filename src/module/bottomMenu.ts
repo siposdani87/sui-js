@@ -1,6 +1,6 @@
-import { Knot } from '../core';
+import type { Knot } from '../core';
 import { Query } from '../core/query';
-import { Footer } from './footer';
+import type { Footer } from './footer';
 
 /**
  * Popup menu rendered inside the application {@link Footer}. Toggling

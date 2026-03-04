@@ -18,7 +18,7 @@ import { Pager } from './pager';
 import { Tooltip } from './tooltip';
 import { consoleDebug } from '../utils/log';
 import { generateId } from '../utils/coder';
-import { Action } from '../utils';
+import type { Action } from '../utils';
 import { mdl } from '../utils/render';
 
 /**

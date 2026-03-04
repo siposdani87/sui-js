@@ -2,8 +2,8 @@ import { Deferred } from '../core/deferred';
 import { Objekt } from '../core/objekt';
 import { Query } from '../core/query';
 import { BaseModal } from './baseModal';
-import { Http } from './http';
-import { Knot } from '../core';
+import type { Http } from './http';
+import type { Knot } from '../core';
 import { mdl } from '../utils/render';
 
 /**

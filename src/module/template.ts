@@ -2,9 +2,9 @@ import { contain } from '../utils/operation';
 import { Deferred } from '../core/deferred';
 import { Objekt } from '../core/objekt';
 import { Query } from '../core/query';
-import { Http } from './http';
+import type { Http } from './http';
 import { consoleError } from '../utils/log';
-import { Knot } from '../core';
+import type { Knot } from '../core';
 
 /**
  * SPA template loader that fetches page content from the server via

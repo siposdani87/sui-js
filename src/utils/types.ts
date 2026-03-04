@@ -9,10 +9,10 @@
  * @category Utility
  */
 
-import { Application } from '../component';
-import { Knot, State } from '../core';
-import { Objekt } from '../core/objekt';
-import {
+import type { Application } from '../component';
+import type { Knot, State } from '../core';
+import type { Objekt } from '../core/objekt';
+import type {
     BottomMenu,
     Browser,
     Confirm,

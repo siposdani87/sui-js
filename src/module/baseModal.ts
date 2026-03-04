@@ -1,7 +1,7 @@
 import { isString, isNumber, noop, contain } from '../utils/operation';
 import { Async } from '../core/async';
 import { Query } from '../core/query';
-import { Knot } from '../core';
+import type { Knot } from '../core';
 
 /**
  * Abstract base class for modal dialog windows. Provides shared

@@ -2,9 +2,9 @@ import { eq } from '../utils/operation';
 import { Async } from '../core/async';
 import { Objekt } from '../core/objekt';
 import { Query } from '../core/query';
-import { Dialog } from './dialog';
-import { Confirm } from './confirm';
-import { Knot } from '../core';
+import type { Dialog } from './dialog';
+import type { Confirm } from './confirm';
+import type { Knot } from '../core';
 
 /**
  * Internal interface representing an MDL progress bar instance with

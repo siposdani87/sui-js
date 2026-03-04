@@ -1,7 +1,7 @@
 import { BaseField } from './baseField';
 import { Tooltip } from '../component/tooltip';
 // import { Query } from '../core/query';
-import { Knot } from '../core';
+import type { Knot } from '../core';
 import { mdl } from '../utils/render';
 
 /**
