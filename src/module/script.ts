@@ -102,7 +102,6 @@ export class Script {
             const scriptKnot = new Knot<HTMLScriptElement>('script');
             scriptKnot.setId(id);
             scriptKnot.setAttribute('src', urlWithQueryString(url, opt_params));
-            // TODO: check there is a good performance solution for script load
             if (opt_async) {
                 scriptKnot.setAttribute('async');
             }

@@ -168,20 +168,6 @@ export class Template {
         this._updateDOM(knot, isError);
 
         return knot;
-
-        // FIXME: ViewTransition not working properly
-        /*
-        knot.setParentKnot(this.viewKnot);
-        if (!document.startViewTransition) {
-            this._updateDOM(knot, isError);
-
-            return knot;
-        }
-
-        document.startViewTransition(() => this._updateDOM(knot, isError));
-
-        return knot;
-        */
     }
 
     /**

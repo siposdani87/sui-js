@@ -15,9 +15,9 @@ Combined prioritization of **Improvement Plan** and **MDL Migration Plan** tasks
 |----------|------|------|------------|-----------|
 | ~~1~~ | ~~Phase 1: Stricter TypeScript~~ | ~~Improvement~~ | ~~—~~ | ~~DONE — noUnusedLocals, noUnusedParameters, noUncheckedIndexedAccess enabled~~ |
 | ~~2~~ | ~~Phase 2: ESLint Rule Tightening~~ | ~~Improvement~~ | ~~Imp. Phase 1~~ | ~~DONE — no-prototype-builtins, no-case-declarations, consistent-type-imports enabled~~ |
-| 3 | Phase 3: Code Cleanup | Improvement | Imp. Phase 2 | Remove dead code/TODOs before migration (rangeField TODO relates to MDL Phase 7) |
-| 4 | Phase 5: Build & Bundle | Improvement | — | Enables bundle size tracking during MDL migration |
-| 5 | Phase 6: CI/CD | Improvement | Imp. Phase 5 | Automated safety net before large-scale migration |
+| ~~3~~ | ~~Phase 3: Code Cleanup~~ | ~~Improvement~~ | ~~Imp. Phase 2~~ | ~~DONE — 5 TODO/FIXME removed, TreeView stub deleted, .prettierignore added~~ |
+| ~~4~~ | ~~Phase 5: Build & Bundle~~ | ~~Improvement~~ | ~~—~~ | ~~DONE — esbuild:analyze, esbuild:size-check scripts, 250KB limit in build~~ |
+| ~~5~~ | ~~Phase 6: CI/CD~~ | ~~Improvement~~ | ~~Imp. Phase 5~~ | ~~DONE — lint + build + size-check steps added to CI~~ |
 | 6 | Phase 0: MDL Infrastructure | MDL | Imp. Phases 1–3 | Start migration after code quality improvements |
 | 7 | Phase 1: MDL Buttons | MDL | MDL Phase 0 | Low risk, good first migration |
 | 8 | Phase 2: MDL Text Fields | MDL | MDL Phase 1 | Low-medium risk |

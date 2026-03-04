@@ -17,6 +17,7 @@ export default [
             'jest.setup.ts',
             '**/*.spec.ts',
             'src/test-helpers.ts',
+            'scripts/*',
         ],
     },
     eslint.configs.recommended,

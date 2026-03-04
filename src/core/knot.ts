@@ -678,8 +678,7 @@ export class Knot<T extends HTMLElement = HTMLElement> {
             this.node.insertBefore(knot.getNode(), referenceKnot);
             return true;
         }
-        // TODO: refactor to use other technique
-        this.node.insertBefore(knot.getNode(), referenceKnot);
+        this.node.appendChild(knot.getNode());
         return false;
     }
 

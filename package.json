@@ -7,13 +7,15 @@
   "typings": "dist/index.d.ts",
   "scripts": {
     "prebuild": "npm run clean && npm run lint && npm run format && npm run test && npm run coverage",
-    "build": "npm run sass && npm run tsc && npm run esbuild",
+    "build": "npm run sass && npm run tsc && npm run esbuild && npm run esbuild:size-check",
     "clean": "rm -rf dist",
     "tsc": "npx -p typescript tsc",
     "tsc-test": "npm run tsc -- --noEmit",
     "sass": "npx sass styles/sui.scss dist/sui.min.css --style compressed",
     "sass:watch": "npx sass styles/sui.scss dist/sui.min.css --style compressed --watch",
     "esbuild": "npx esbuild src/index.ts --bundle --minify --sourcemap --format=iife --global-name=SUI --outfile=dist/sui.min.js",
+    "esbuild:analyze": "npx esbuild src/index.ts --bundle --minify --format=iife --global-name=SUI --metafile=dist/meta.json --outfile=dist/sui.analyze.js && node scripts/analyze-bundle.cjs",
+    "esbuild:size-check": "node scripts/check-bundle-size.cjs",
     "esbuild:watch": "npx esbuild src/index.ts --bundle --minify --sourcemap --format=iife --global-name=SUI --outfile=dist/sui.min.js --watch",
     "lint": "npm run tsc-test && npm run stylelint && npm run eslint",
     "eslint": "npx eslint .",
@@ -45,7 +47,7 @@
     "url": "https://github.com/siposdani87/sui-js.git"
   },
   "engines": {
-    "node": ">=20.19.0",
+    "node": ">=24.0.0",
     "npm": ">=9.0.0"
   },
   "publishConfig": {

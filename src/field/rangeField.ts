@@ -1,6 +1,5 @@
 import { BaseField } from './baseField';
 import { Tooltip } from '../component/tooltip';
-// import { Query } from '../core/query';
 import type { Knot } from '../core';
 import { mdl } from '../utils/render';
 
@@ -87,11 +86,6 @@ export class RangeField extends BaseField<HTMLInputElement> {
             this.inputBlock.removeClass('is-disabled');
         }
 
-        // TODO: check the tooltip
-        /* const containerKnot = new Query(
-            '.mdl-slider__container',
-            this.inputBlock,
-        ).getKnot(); */
         const value = this.getValue();
         this.tooltip = new Tooltip(this.inputBlock);
         this.tooltip.render(value);

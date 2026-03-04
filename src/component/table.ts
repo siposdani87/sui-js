@@ -137,8 +137,6 @@ export class Table<T extends Objekt = Objekt> {
             this._initHeader();
             this._initSearch();
             this._initStructure();
-        } else {
-            // TODO: reinit other components of table
         }
     }
 
