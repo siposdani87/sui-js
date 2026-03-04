@@ -515,9 +515,7 @@ describe('Table', () => {
                 { username: 'bob' },
                 { username: 'charlie' },
             ]);
-            const dataRows = table.tbody
-                .getNode()
-                .querySelectorAll('tr.data');
+            const dataRows = table.tbody.getNode().querySelectorAll('tr.data');
             expect(dataRows.length).toBe(2);
         });
     });

@@ -405,8 +405,9 @@ export class Table {
      * @param {Knot} parentKnot - The parent cell element to append content to.
      */
     _renderDataKnotByKnot(item, rowIndex, column, parentKnot) {
-        let result = '';
         const calculation = this.options.calculations[column];
+        // eslint-disable-next-line @typescript-eslint/no-explicit-any
+        let result;
         if (isFunction(calculation)) {
             result = calculation(item, this.pager.offset + rowIndex, parentKnot);
         }
@@ -414,14 +415,7 @@ export class Table {
             result = item.get(column, '');
         }
         // eslint-disable-next-line @typescript-eslint/no-explicit-any
-        let items = [];
-        if (!isArray(result)) {
-            items = [result];
-        }
-        else {
-            // eslint-disable-next-line @typescript-eslint/no-explicit-any
-            items = result;
-        }
+        const items = isArray(result) ? result : [result];
         // eslint-disable-next-line @typescript-eslint/no-explicit-any
         eachArray(items, (item) => {
             if (!instanceOf(item, Knot)) {

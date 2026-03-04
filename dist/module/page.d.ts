@@ -30,6 +30,7 @@ import { Objekt } from '../core/objekt';
 export declare class Page {
     options: Objekt;
     document: Document;
+    private _onClick;
     /**
      * Creates a new Page instance and registers a document-level click
      * event listener.
@@ -48,6 +49,12 @@ export declare class Page {
      * document-level click event listener.
      */
     private _init;
+    /**
+     * Removes the document-level click event listener registered during
+     * initialization. Call this method to clean up when the Page
+     * instance is no longer needed.
+     */
+    destroy(): void;
     /**
      * Sets the document title displayed in the browser tab.
      *

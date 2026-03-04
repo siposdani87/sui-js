@@ -130,9 +130,7 @@ describe('LeftMenu', () => {
         });
 
         it('should return sub menu container', () => {
-            expect(leftMenu.getSubContainer()).toBe(
-                leftMenu.subMenuContainer,
-            );
+            expect(leftMenu.getSubContainer()).toBe(leftMenu.subMenuContainer);
         });
     });
 

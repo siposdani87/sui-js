@@ -589,11 +589,7 @@ describe('Xhr', () => {
             const blob = new Blob([JSON.stringify({ id: 42 })], {
                 type: 'application/json',
             });
-            mock.respond(
-                200,
-                { 'Content-Type': 'application/json' },
-                blob,
-            );
+            mock.respond(200, { 'Content-Type': 'application/json' }, blob);
         });
     });
 
@@ -628,11 +624,7 @@ describe('Xhr', () => {
                 done();
             });
 
-            mock.respond(
-                200,
-                { 'Content-Type': 'application/json' },
-                '',
-            );
+            mock.respond(200, { 'Content-Type': 'application/json' }, '');
         });
     });
 });

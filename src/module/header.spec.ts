@@ -29,9 +29,9 @@ describe('Header', () => {
 
         it('should query brandKnot', () => {
             expect(header.brandKnot).toBeDefined();
-            expect(
-                header.brandKnot.getNode().classList.contains('brand'),
-            ).toBe(true);
+            expect(header.brandKnot.getNode().classList.contains('brand')).toBe(
+                true,
+            );
         });
 
         it('should query brandKnotImage', () => {
@@ -72,9 +72,7 @@ describe('Header', () => {
     describe('setImage', () => {
         it('should set image src', () => {
             header.setImage('/logo.png');
-            expect(header.brandKnotImage.getAttribute('src')).toBe(
-                '/logo.png',
-            );
+            expect(header.brandKnotImage.getAttribute('src')).toBe('/logo.png');
         });
     });
 

@@ -33,6 +33,7 @@ import { Route } from '../component';
 export declare class State {
     private _current;
     private _previous;
+    private _onPopstate;
     routes: Collection<Route>;
     basePath: string;
     options: Objekt;
@@ -91,6 +92,12 @@ export declare class State {
      * the saved history state and triggers a state change.
      */
     private _initPopstate;
+    /**
+     * Removes the `popstate` event listener registered during
+     * initialization. Call this method to clean up when the State
+     * instance is no longer needed.
+     */
+    destroy(): void;
     /**
      * Triggers the initial state change after construction. Call this
      * method to begin routing and notify listeners of the current state.

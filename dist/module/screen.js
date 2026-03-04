@@ -75,28 +75,43 @@ export class Screen {
      * Registers a debounced resize event listener on the window.
      */
     _initResizeEvent() {
-        this.window.addEventListener('resize', debounce((event) => {
+        this._onResize = debounce((event) => {
             this._resize(event);
-        }, this.options.delay), false);
+        }, this.options.delay);
+        this.window.addEventListener('resize', this._onResize, false);
     }
     /**
      * Registers a debounced scroll event listener on the window.
      */
     _initScrollEvent() {
-        this.window.addEventListener('scroll', debounce((event) => {
+        this._onScroll = debounce((event) => {
             this._scroll(event);
-        }, this.options.delay), false);
+        }, this.options.delay);
+        this.window.addEventListener('scroll', this._onScroll, false);
     }
     /**
      * Registers online and offline event listeners on the window.
      */
     _initConnectionEvent() {
-        this.window.addEventListener('online', (event) => {
+        this._onOnline = (event) => {
             this.eventOnline(event);
-        }, false);
-        this.window.addEventListener('offline', (event) => {
+        };
+        this.window.addEventListener('online', this._onOnline, false);
+        this._onOffline = (event) => {
             this.eventOffline(event);
-        }, false);
+        };
+        this.window.addEventListener('offline', this._onOffline, false);
+    }
+    /**
+     * Removes all event listeners registered during initialization.
+     * Call this method to clean up when the Screen instance is no
+     * longer needed.
+     */
+    destroy() {
+        this.window.removeEventListener('resize', this._onResize);
+        this.window.removeEventListener('scroll', this._onScroll);
+        this.window.removeEventListener('online', this._onOnline);
+        this.window.removeEventListener('offline', this._onOffline);
     }
     /**
      * Called when the browser goes offline. Override this method to

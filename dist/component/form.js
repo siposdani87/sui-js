@@ -376,4 +376,13 @@ export class Form extends Collection {
     eventButton(model, knot) {
         consoleDebug('Form.eventButton()', model, knot);
     }
+    /**
+     * @description Removes all event listeners from the form element.
+     * Call this method to clean up when the Form instance is no longer needed.
+     */
+    destroy() {
+        this.formKnot.removeEventListeners('keydown');
+        this.formKnot.removeEventListeners('submit');
+        this.formKnot.removeEventListeners('reset');
+    }
 }

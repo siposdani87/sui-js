@@ -124,7 +124,7 @@ export class State {
      * the saved history state and triggers a state change.
      */
     _initPopstate() {
-        window.addEventListener('popstate', () => {
+        this._onPopstate = () => {
             if (window.history.state) {
                 const state = new Objekt();
                 state.merge(window.history.state);
@@ -135,7 +135,16 @@ export class State {
                 this._parseUrl();
                 this._triggerChange();
             }
-        });
+        };
+        window.addEventListener('popstate', this._onPopstate);
+    }
+    /**
+     * Removes the `popstate` event listener registered during
+     * initialization. Call this method to clean up when the State
+     * instance is no longer needed.
+     */
+    destroy() {
+        window.removeEventListener('popstate', this._onPopstate);
     }
     /**
      * Triggers the initial state change after construction. Call this

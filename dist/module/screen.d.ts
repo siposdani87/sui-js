@@ -37,6 +37,10 @@ export declare class Screen {
     window: Window;
     document: Document;
     orientation: string;
+    private _onResize;
+    private _onScroll;
+    private _onOnline;
+    private _onOffline;
     /**
      * Creates a new Screen instance, initializes window and document
      * references, and sets up event listeners for resize, scroll,
@@ -69,6 +73,12 @@ export declare class Screen {
      * Registers online and offline event listeners on the window.
      */
     private _initConnectionEvent;
+    /**
+     * Removes all event listeners registered during initialization.
+     * Call this method to clean up when the Screen instance is no
+     * longer needed.
+     */
+    destroy(): void;
     /**
      * Called when the browser goes offline. Override this method to
      * implement custom offline behavior such as showing a notification

@@ -54,10 +54,19 @@ export class Page {
      */
     _init() {
         this.document = document;
-        this.document.addEventListener('click', (event) => {
+        this._onClick = (event) => {
             const target = new Knot(event.target);
             this.eventClick(target, event);
-        });
+        };
+        this.document.addEventListener('click', this._onClick);
+    }
+    /**
+     * Removes the document-level click event listener registered during
+     * initialization. Call this method to clean up when the Page
+     * instance is no longer needed.
+     */
+    destroy() {
+        this.document.removeEventListener('click', this._onClick);
     }
     /**
      * Sets the document title displayed in the browser tab.

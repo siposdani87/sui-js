@@ -205,4 +205,9 @@ export declare class Form extends Collection<BaseField<HTMLInputElement>> {
      * @param {Knot} knot - The button DOM element.
      */
     eventButton(model: Objekt, knot: Knot): void;
+    /**
+     * @description Removes all event listeners from the form element.
+     * Call this method to clean up when the Form instance is no longer needed.
+     */
+    destroy(): void;
 }
