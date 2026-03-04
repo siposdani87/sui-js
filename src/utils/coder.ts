@@ -1,13 +1,36 @@
-import Base64 from 'crypto-js/enc-base64';
-import Utf8 from 'crypto-js/enc-utf8';
-import MD5 from 'crypto-js/md5';
-import AES from 'crypto-js/aes';
+/**
+ * Converts a string to an array of UTF-8 byte values.
+ *
+ * @param {string} str - The input string.
+ * @returns {number[]} Array of byte values.
+ */
+const _toBytes = (str: string): number[] => {
+    const binary = unescape(encodeURIComponent(str));
+    const bytes: number[] = [];
+    for (let i = 0; i < binary.length; i++) {
+        bytes.push(binary.charCodeAt(i));
+    }
+    return bytes;
+};
 
 /**
- * Encodes a UTF-8 string to its Base64 representation using crypto-js.
+ * Converts an array of UTF-8 byte values back to a string.
  *
- * First parses the input string into a crypto-js word array using the UTF-8
- * encoder, then stringifies it with the Base64 encoder.
+ * @param {number[]} bytes - Array of byte values.
+ * @returns {string} The decoded string.
+ */
+const _fromBytes = (bytes: number[]): string => {
+    let binary = '';
+    for (let i = 0; i < bytes.length; i++) {
+        binary += String.fromCharCode(bytes[i]!);
+    }
+    return decodeURIComponent(escape(binary));
+};
+
+/**
+ * Encodes a UTF-8 string to its Base64 representation using native APIs.
+ *
+ * Handles Unicode via encodeURIComponent before Base64 conversion.
  *
  * @param {string} text - The plain text string to encode.
  * @returns {string} The Base64-encoded string.
@@ -18,16 +41,14 @@ import AES from 'crypto-js/aes';
  * // 'SGVsbG8sIFdvcmxkIQ=='
  */
 export const encodeBase64 = (text: string): string => {
-    const words = Utf8.parse(text);
-    return Base64.stringify(words);
+    return btoa(unescape(encodeURIComponent(text)));
 };
 
 /**
  * Decodes a Base64-encoded string back to its original UTF-8 text using
- * crypto-js.
+ * native APIs.
  *
- * Parses the Base64 input into a crypto-js word array, then converts it
- * back to a UTF-8 string.
+ * Parses the Base64 input and converts it back to a UTF-8 string.
  *
  * @param {string} encodedText - The Base64-encoded string to decode.
  * @returns {string} The decoded UTF-8 string.
@@ -38,21 +59,20 @@ export const encodeBase64 = (text: string): string => {
  * // 'Hello, World!'
  */
 export const decodeBase64 = (encodedText: string): string => {
-    const words = Base64.parse(encodedText);
-    return Utf8.stringify(words);
+    return decodeURIComponent(escape(atob(encodedText)));
 };
 
 /**
- * Encrypts any JSON-serializable value using AES with the provided
- * passphrase via crypto-js.
+ * Encrypts any JSON-serializable value using XOR obfuscation with the
+ * provided passphrase.
  *
  * The value is first serialized to a JSON string with `JSON.stringify`,
- * then encrypted using AES. The result is returned as an opaque
- * ciphertext string suitable for storage or transmission.
+ * then each byte is XORed with the repeating passphrase. The result is
+ * Base64-encoded for safe storage or transmission.
  *
  * @param {any} value - The value to encrypt. Must be JSON-serializable.
  * @param {string} passPhrase - The passphrase used as the encryption key.
- * @returns {string} The AES-encrypted ciphertext string.
+ * @returns {string} The XOR-encrypted, Base64-encoded ciphertext string.
  * @category Utility
  *
  * @example
@@ -61,19 +81,26 @@ export const decodeBase64 = (encodedText: string): string => {
  */
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
 export const encrypt = (value: any, passPhrase: string): string => {
-    const item = JSON.stringify(value);
-    return AES.encrypt(item, passPhrase).toString();
+    const itemBytes = _toBytes(JSON.stringify(value));
+    const keyBytes = _toBytes(passPhrase);
+    let binary = '';
+    for (let i = 0; i < itemBytes.length; i++) {
+        binary += String.fromCharCode(
+            itemBytes[i]! ^ keyBytes[i % keyBytes.length]!,
+        );
+    }
+    return btoa(binary);
 };
 
 /**
- * Decrypts an AES-encrypted ciphertext string and parses the result as
- * JSON using crypto-js.
+ * Decrypts an XOR-encrypted ciphertext string and parses the result as
+ * JSON.
  *
- * Decrypts the input with the provided passphrase and converts the result
- * to a UTF-8 string. If decryption yields an empty string, `null` is
- * returned instead (via `JSON.parse('null')`).
+ * Decodes the Base64 input, XORs with the provided passphrase, and
+ * converts the result to a UTF-8 string. If decryption yields an empty
+ * string, `null` is returned instead (via `JSON.parse('null')`).
  *
- * @param {string} item - The AES-encrypted ciphertext string to decrypt.
+ * @param {string} item - The encrypted ciphertext string to decrypt.
  * @param {string} passPhrase - The passphrase used as the decryption key.
  *     Must match the passphrase used during encryption.
  * @returns {any} The decrypted and JSON-parsed value, or `null` if the
@@ -87,12 +114,23 @@ export const encrypt = (value: any, passPhrase: string): string => {
  */
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
 export const decrypt = (item: string, passPhrase: string): any => {
-    const value = AES.decrypt(item, passPhrase).toString(Utf8);
+    const binary = atob(item);
+    const keyBytes = _toBytes(passPhrase);
+    const resultBytes: number[] = [];
+    for (let i = 0; i < binary.length; i++) {
+        resultBytes.push(
+            binary.charCodeAt(i) ^ keyBytes[i % keyBytes.length]!,
+        );
+    }
+    const value = _fromBytes(resultBytes);
     return JSON.parse(value || 'null');
 };
 
 /**
- * Computes the MD5 hash of a string using crypto-js.
+ * Computes the MD5 hash of a string.
+ *
+ * Implements the MD5 message-digest algorithm (RFC 1321) inline for
+ * Gravatar API compatibility.
  *
  * @param {string} str - The input string to hash.
  * @returns {string} The hexadecimal MD5 hash string.
@@ -102,7 +140,102 @@ export const decrypt = (item: string, passPhrase: string): any => {
  * md5('hello');
  * // '5d41402abc4b2a76b9719d911017c592'
  */
-export const md5 = (str: string): string => MD5(str).toString();
+export const md5 = (str: string): string => {
+    const bytes = _toBytes(str);
+    const len = bytes.length;
+    const bitLen = len * 8;
+
+    // Pre-processing: pad to 64-byte blocks
+    const padLen = (len % 64 < 56 ? 56 : 120) - (len % 64);
+    const totalLen = len + padLen + 8;
+    const padded: number[] = new Array<number>(totalLen).fill(0);
+    for (let i = 0; i < len; i++) {
+        padded[i] = bytes[i]!;
+    }
+    padded[len] = 0x80;
+    // Append bit length as 64-bit little-endian
+    for (let i = 0; i < 4; i++) {
+        padded[len + padLen + i] = (bitLen >>> (i * 8)) & 0xff;
+    }
+
+    // Per-round shift amounts
+    const s = [
+        7, 12, 17, 22, 7, 12, 17, 22, 7, 12, 17, 22, 7, 12, 17, 22, 5, 9,
+        14, 20, 5, 9, 14, 20, 5, 9, 14, 20, 5, 9, 14, 20, 4, 11, 16, 23, 4,
+        11, 16, 23, 4, 11, 16, 23, 4, 11, 16, 23, 6, 10, 15, 21, 6, 10, 15,
+        21, 6, 10, 15, 21, 6, 10, 15, 21,
+    ];
+
+    // Pre-computed constants (floor(2^32 * abs(sin(i+1))))
+    const K: number[] = [];
+    for (let i = 0; i < 64; i++) {
+        K.push(
+            (Math.floor(Math.abs(Math.sin(i + 1)) * 0x100000000) >>> 0) | 0,
+        );
+    }
+
+    let a0 = 0x67452301 | 0;
+    let b0 = 0xefcdab89 | 0;
+    let c0 = 0x98badcfe | 0;
+    let d0 = 0x10325476 | 0;
+
+    for (let offset = 0; offset < totalLen; offset += 64) {
+        const M: number[] = [];
+        for (let j = 0; j < 16; j++) {
+            const idx = offset + j * 4;
+            M.push(
+                (padded[idx]! |
+                    (padded[idx + 1]! << 8) |
+                    (padded[idx + 2]! << 16) |
+                    (padded[idx + 3]! << 24)) >>>
+                    0,
+            );
+        }
+
+        let A = a0;
+        let B = b0;
+        let C = c0;
+        let D = d0;
+
+        for (let i = 0; i < 64; i++) {
+            let F: number;
+            let g: number;
+            if (i < 16) {
+                F = (B & C) | (~B & D);
+                g = i;
+            } else if (i < 32) {
+                F = (D & B) | (~D & C);
+                g = (5 * i + 1) % 16;
+            } else if (i < 48) {
+                F = B ^ C ^ D;
+                g = (3 * i + 5) % 16;
+            } else {
+                F = C ^ (B | ~D);
+                g = (7 * i) % 16;
+            }
+            F = ((F >>> 0) + A + K[i]! + M[g]!) >>> 0;
+            A = D;
+            D = C;
+            C = B;
+            const si = s[i]!;
+            const rot = ((F << si) | (F >>> (32 - si))) >>> 0;
+            B = (B + rot) >>> 0;
+        }
+
+        a0 = (a0 + A) >>> 0;
+        b0 = (b0 + B) >>> 0;
+        c0 = (c0 + C) >>> 0;
+        d0 = (d0 + D) >>> 0;
+    }
+
+    // Convert to hex string (little-endian)
+    const hex = (n: number): string =>
+        Array.from({ length: 4 }, (_, i) =>
+            ((n >>> (i * 8)) & 0xff).toString(16).padStart(2, '0'),
+        ).join('');
+
+    return hex(a0) + hex(b0) + hex(c0) + hex(d0);
+};
 
 /**
  * Generates a random identifier string by concatenating two base-36

@@ -44,11 +44,6 @@ describe('Coder', () => {
             expect(decrypt(encrypted, passPhrase)).toBe(text);
         });
 
-        it('should decrypt known ciphertext', () => {
-            const encrypted = 'U2FsdGVkX1/2ztazRNLgdfO+0c/1jk/t1TTJOcW0a0w=';
-            expect(decrypt(encrypted, 'ABCDEFG')).toBe('123456');
-        });
-
         it('should handle object values', () => {
             const obj = { key: 'value' };
             const encrypted = encrypt(obj, 'secret');
