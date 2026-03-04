@@ -1,4 +1,4 @@
-import { Knot } from '../core';
+import type { Knot } from '../core';
 import { Objekt } from '../core/objekt';
 /**
  * Application footer bar that manages visibility, content injection, locale

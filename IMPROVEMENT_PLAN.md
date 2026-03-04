@@ -77,11 +77,10 @@ crypto-js adds ~88KB to the bundle. The Web Crypto API is native and supports AE
 
 Update `.github/workflows/ci.yml`:
 
-1. **Add Node.js version matrix** — test on Node 20 and 22 (match engine requirement)
+1. ~~**Pin Node 24**~~ — DONE: `ci.yml`, `npm-publish.yml`, and `package.json` engines all use Node 24
 2. **Add coverage regression check** — fail if coverage drops >2%
 3. **Add lint step** — run `npm run lint` in CI (currently only runs tests)
 4. **Add build step** — run `npm run build` to verify compilation
-5. **Pin Node version in npm-publish.yml** to match engine requirement (currently v20)
 
 **Files:** `.github/workflows/ci.yml`, `.github/workflows/npm-publish.yml`
 

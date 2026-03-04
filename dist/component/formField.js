@@ -120,7 +120,7 @@ const _convertToField = (input, label, error, inputBlock, form) => {
             case 'time':
             case 'month':
             case 'week':
-            case 'year':
+            case 'year': {
                 const inputs = new Query('input', inputBlock);
                 if (inputs.size() === 2) {
                     result = new DateTimeRangeField(inputs.get(0), label, error, inputBlock, true);
@@ -132,6 +132,7 @@ const _convertToField = (input, label, error, inputBlock, form) => {
                     result = new DateTimeField(input, label, error, inputBlock);
                 }
                 break;
+            }
             case 'file':
                 result = new FileField(input, label, error, inputBlock);
                 break;

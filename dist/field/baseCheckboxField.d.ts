@@ -1,5 +1,5 @@
 import { BaseField } from './baseField';
-import { Knot } from '../core/knot';
+import type { Knot } from '../core/knot';
 /**
  * @description Base class for checkbox-like fields (checkbox, switch, icon toggle).
  * Extends {@link BaseField} with checked state handling and hidden input support.

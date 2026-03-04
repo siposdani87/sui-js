@@ -1,6 +1,6 @@
 import { Knot } from '../core/knot';
 import { Objekt } from '../core/objekt';
-import { ProgressBar } from './progressBar';
+import type { ProgressBar } from './progressBar';
 /**
  * Dynamic script loader that appends `<script>` tags to the document
  * `<head>`. Each script is identified by a unique ID; loading a script

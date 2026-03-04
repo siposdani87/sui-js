@@ -6,6 +6,8 @@ SUI-JS depends on Material Design Lite (MDL) v1.3.0, which has been unmaintained
 
 **Current coupling:** ~25 TS files use MDL JS, ~33 SCSS files reference `.mdl-*` classes (204 occurrences), 24 SCSS files in `styles/mdl/` are pure MDL overrides. ~60% of the codebase has zero MDL dependency.
 
+**Design direction:** Minimalist modern design — NOT a Material Design replication. No MDL-style animations or effects needed (no complex ripple, no MDL spinner animation, etc.). Simple CSS-only solutions preferred (`:active` states, `border` + `@keyframes` spinner, clean transitions). The goal is a clean, minimal aesthetic.
+
 ## Naming Convention
 
 All `.mdl-*` classes become `.sui-*` classes. MDL JS marker classes (`mdl-js-*`) are removed entirely. State classes (`is-active`, `is-checked`, `is-focused`, `is-dirty`, `is-disabled`, `is-invalid`) stay unchanged.
@@ -122,7 +124,7 @@ Replace `.mdl-slider*` with `.sui-slider*`. Style native `<input type="range">` 
 
 After each phase:
 - `npx tsc --noEmit` — types pass
-- `npm run test` — all 1,315+ tests pass
+- `npm run test` — all 1,625+ tests pass
 - `npm run lint` — no lint errors
 - `npm run dev` — visual inspection in browser at `:4000`
 - `grep -r "mdl-" src/` — verify no remaining MDL refs for migrated component

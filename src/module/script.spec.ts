@@ -10,9 +10,7 @@ describe('Script', () => {
             show: jest.fn(),
             hide: jest.fn(),
         };
-        script = new Script(
-            progressBar as unknown as ProgressBar,
-        );
+        script = new Script(progressBar as unknown as ProgressBar);
     });
 
     afterEach(() => {

@@ -191,9 +191,7 @@ describe('Screen', () => {
         });
 
         it('eventOnline', () => {
-            expect(() =>
-                screen.eventOnline(new Event('online')),
-            ).not.toThrow();
+            expect(() => screen.eventOnline(new Event('online'))).not.toThrow();
         });
 
         it('eventOffline', () => {

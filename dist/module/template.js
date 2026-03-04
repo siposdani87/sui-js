@@ -150,19 +150,6 @@ export class Template {
         const knot = new Query('.page-content', data).getKnot();
         this._updateDOM(knot, isError);
         return knot;
-        // FIXME: ViewTransition not working properly
-        /*
-        knot.setParentKnot(this.viewKnot);
-        if (!document.startViewTransition) {
-            this._updateDOM(knot, isError);
-
-            return knot;
-        }
-
-        document.startViewTransition(() => this._updateDOM(knot, isError));
-
-        return knot;
-        */
     }
     /**
      * Inserts the page content into the view container, or extracts

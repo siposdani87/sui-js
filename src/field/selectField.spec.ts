@@ -33,9 +33,7 @@ describe('SelectField', () => {
     }
 
     function createSelectField(container: HTMLDivElement): SelectField {
-        const inputBlock = new Query<HTMLElement>(
-            '.test-select',
-        ).getKnot();
+        const inputBlock = new Query<HTMLElement>('.test-select').getKnot();
         const { input, label, error } = parseInputBlock(inputBlock);
         return new SelectField(input, label, error, inputBlock);
     }
@@ -209,9 +207,9 @@ describe('SelectField', () => {
             const field = createSelectField(container);
             field.render();
             const spy = jest.spyOn(field as any, '_change');
-            field.input.getNode().dispatchEvent(
-                new Event('change', { bubbles: true }),
-            );
+            field.input
+                .getNode()
+                .dispatchEvent(new Event('change', { bubbles: true }));
             expect(spy).toHaveBeenCalled();
         });
     });

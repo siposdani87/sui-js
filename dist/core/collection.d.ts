@@ -1,4 +1,4 @@
-import { Id } from '../utils';
+import type { Id } from '../utils';
 import { Objekt } from './objekt';
 /**
  * Generic typed collection that wraps an array of items with find, delete,

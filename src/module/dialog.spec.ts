@@ -53,7 +53,15 @@ describe('Dialog', () => {
     });
 
     describe('loadTemplate', () => {
-        function createResponseDom(elements: Array<{ tag: string; id?: string; className?: string; text: string; children?: Array<{ tag: string; text: string }> }>): Knot {
+        function createResponseDom(
+            elements: Array<{
+                tag: string;
+                id?: string;
+                className?: string;
+                text: string;
+                children?: Array<{ tag: string; text: string }>;
+            }>,
+        ): Knot {
             const div = document.createElement('div');
             div.className = 'test-response-dom';
             for (const el of elements) {
@@ -76,7 +84,9 @@ describe('Dialog', () => {
         }
 
         afterEach(() => {
-            document.querySelectorAll('.test-response-dom').forEach((el) => el.remove());
+            document
+                .querySelectorAll('.test-response-dom')
+                .forEach((el) => el.remove());
             ['title', 'content', 'action'].forEach((id) => {
                 const el = document.getElementById(id);
                 if (el) el.remove();
@@ -153,7 +163,12 @@ describe('Dialog', () => {
             const dom = createResponseDom([
                 { tag: 'div', id: 'title', text: 'Title' },
                 { tag: 'div', id: 'content', text: 'Content' },
-                { tag: 'div', id: 'action', text: '', children: [{ tag: 'button', text: 'OK' }] },
+                {
+                    tag: 'div',
+                    id: 'action',
+                    text: '',
+                    children: [{ tag: 'button', text: 'OK' }],
+                },
             ]);
             const data = {
                 get: (key: string) => (key === 'raw' ? dom : undefined),
@@ -173,10 +188,15 @@ describe('Dialog', () => {
             const dom = createResponseDom([
                 { tag: 'div', id: 'title', text: 'Title' },
                 { tag: 'div', id: 'content', text: 'Content' },
-                { tag: 'div', id: 'action', text: '', children: [
-                    { tag: 'button', text: 'Cancel' },
-                    { tag: 'button', text: 'OK' },
-                ] },
+                {
+                    tag: 'div',
+                    id: 'action',
+                    text: '',
+                    children: [
+                        { tag: 'button', text: 'Cancel' },
+                        { tag: 'button', text: 'OK' },
+                    ],
+                },
             ]);
             const data = {
                 get: (key: string) => (key === 'raw' ? dom : undefined),
@@ -214,7 +234,11 @@ describe('Dialog', () => {
         it('should open dialog on error and reject', () => {
             const dom = createResponseDom([
                 { tag: 'title', text: 'Error' },
-                { tag: 'div', className: 'message', text: 'Something went wrong' },
+                {
+                    tag: 'div',
+                    className: 'message',
+                    text: 'Something went wrong',
+                },
             ]);
             const data = {
                 get: (key: string) => (key === 'raw' ? dom : undefined),

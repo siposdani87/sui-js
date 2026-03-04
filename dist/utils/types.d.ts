@@ -8,10 +8,10 @@
  *
  * @category Utility
  */
-import { Application } from '../component';
-import { Knot, State } from '../core';
-import { Objekt } from '../core/objekt';
-import { BottomMenu, Browser, Confirm, Cookie, Dialog, EventBus, Flash, Footer, GeoLocation, Header, Helper, Http, LeftMenu, Loader, NavBar, ProgressBar, Scheduler, Script, Style, Template, TopMenu, Viewer, Screen, Page, Depot } from '../module';
+import type { Application } from '../component';
+import type { Knot, State } from '../core';
+import type { Objekt } from '../core/objekt';
+import type { BottomMenu, Browser, Confirm, Cookie, Dialog, EventBus, Flash, Footer, GeoLocation, Header, Helper, Http, LeftMenu, Loader, NavBar, ProgressBar, Scheduler, Script, Style, Template, TopMenu, Viewer, Screen, Page, Depot } from '../module';
 /**
  * Event listener function type.
  *

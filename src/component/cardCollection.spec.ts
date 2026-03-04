@@ -183,11 +183,7 @@ describe('CardCollection', () => {
                 format: jest.fn((val: string) => val.toUpperCase()),
             };
             const knot = new Knot(container);
-            cardCollection = new CardCollection(
-                knot,
-                '.card-collection',
-                ctrl,
-            );
+            cardCollection = new CardCollection(knot, '.card-collection', ctrl);
             cardCollection.setData([{ id: 'x', name: 'hello' }]);
             expect(ctrl.format).toHaveBeenCalled();
             container.remove();

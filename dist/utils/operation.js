@@ -68,7 +68,7 @@ objB) => {
     // eslint-disable-next-line @typescript-eslint/no-explicit-any
     const obj = copyObject(objA);
     for (const key in objB) {
-        if (objB.hasOwnProperty(key)) {
+        if (Object.hasOwn(objB, key)) {
             if (isPureObject(objB[key].constructor)) {
                 obj[key] = merge(obj[key], objB[key]);
             }
@@ -428,7 +428,7 @@ object,
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
 next) => {
     for (const key in object) {
-        if (object.hasOwnProperty(key)) {
+        if (Object.hasOwn(object, key)) {
             next(object[key], key);
         }
     }
@@ -500,7 +500,7 @@ export const clearArray = (items) => {
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
 export const clearObject = (items) => {
     for (const key in items) {
-        if (items.hasOwnProperty(key)) {
+        if (Object.hasOwn(items, key)) {
             delete items[key];
         }
     }

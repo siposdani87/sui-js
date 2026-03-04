@@ -1,4 +1,4 @@
-import { Knot } from '../core';
+import type { Knot } from '../core';
 /**
  * Abstract base class for modal dialog windows. Provides shared
  * functionality for opening, closing, positioning, and managing modal

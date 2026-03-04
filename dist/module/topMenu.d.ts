@@ -1,5 +1,5 @@
-import { Knot } from '../core';
-import { Header } from './header';
+import type { Knot } from '../core';
+import type { Header } from './header';
 /**
  * Dropdown menu rendered inside the application {@link Header}. Toggling
  * the menu also opens/closes the header's expanded state and manages

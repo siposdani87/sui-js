@@ -146,7 +146,7 @@ export class Xhr {
      * @returns {Function} The event handler function.
      */
     _onReadyStateChange() {
-        return (_this, ev) => {
+        return (_this, _ev) => {
             switch (this.httpRequest.readyState) {
                 case 0:
                     // request not initialized
@@ -358,7 +358,7 @@ export class Xhr {
         }
         else if (typeof obj === 'object') {
             for (const j in obj) {
-                if (obj.hasOwnProperty(j)) {
+                if (Object.hasOwn(obj, j)) {
                     const pairs = this._parseobject(obj[j], j, stringKey);
                     results = results.concat(pairs);
                 }
@@ -380,7 +380,7 @@ export class Xhr {
         let results = [];
         for (const key in obj) {
             // eslint-disable-next-line @typescript-eslint/no-explicit-any
-            if (obj.hasOwnProperty(key)) {
+            if (Object.hasOwn(obj, key)) {
                 const pair = this._parseobject(
                 // eslint-disable-next-line @typescript-eslint/no-explicit-any
                 obj[key], key, '');
@@ -448,11 +448,12 @@ export class Xhr {
                         deferred.resolve([[objekt, filename]]);
                     }
                     break;
-                default:
+                default: {
                     const objekt = new Objekt();
                     objekt.setRaw('raw', response);
                     deferred.resolve([[objekt, filename]]);
                     break;
+                }
             }
         }
         return deferred.promise();

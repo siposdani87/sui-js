@@ -223,9 +223,7 @@ describe('Module', () => {
         });
 
         it('should not throw when calling eventControllerLoaded', () => {
-            expect(() =>
-                module.eventControllerLoaded({} as any),
-            ).not.toThrow();
+            expect(() => module.eventControllerLoaded({} as any)).not.toThrow();
         });
     });
 });

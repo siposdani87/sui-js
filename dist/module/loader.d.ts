@@ -1,5 +1,5 @@
 import { Objekt } from '../core/objekt';
-import { Knot } from '../core';
+import type { Knot } from '../core';
 /**
  * Full-screen loading spinner overlay using a Material Design Lite spinner
  * component.

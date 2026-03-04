@@ -82,7 +82,7 @@ export class Router {
         // eslint-disable-next-line @typescript-eslint/no-explicit-any
         const params = {};
         for (const key in opt_params) {
-            if (opt_params.hasOwnProperty(key)) {
+            if (Object.hasOwn(opt_params, key)) {
                 const param = opt_params[key];
                 const regex = new RegExp('[:*]' + key + '\\b');
                 if (regex.test(route)) {

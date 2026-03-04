@@ -1,4 +1,4 @@
-import { Knot } from '../core';
+import type { Knot } from '../core';
 import { BaseField } from './baseField';
 /**
  * @description Standard text input field with Material Design Lite styling.

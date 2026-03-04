@@ -1,5 +1,5 @@
 import { Query } from '../core/query';
-import { Knot } from '../core';
+import type { Knot } from '../core';
 /**
  * @description Tab panel component that manages tab/panel activation with async change events.
  * Tabs are linked to panels by href attributes, and switching triggers an overridable

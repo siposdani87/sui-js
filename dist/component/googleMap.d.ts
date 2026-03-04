@@ -1,7 +1,7 @@
 import { Collection } from '../core/collection';
 import { Objekt } from '../core/objekt';
-import { Knot } from '../core';
-import { IconOptions, Id } from '../utils';
+import type { Knot } from '../core';
+import type { IconOptions, Id } from '../utils';
 /**
  * Internal marker icon configuration containing the icon image and clickable shape.
  */

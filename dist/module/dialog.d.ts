@@ -1,7 +1,7 @@
 import { Objekt } from '../core/objekt';
 import { BaseModal } from './baseModal';
-import { Http } from './http';
-import { Knot } from '../core';
+import type { Http } from './http';
+import type { Knot } from '../core';
 /**
  * Full dialog modal that loads its content from a server endpoint via
  * {@link Http}. Extends {@link BaseModal} to provide template-based

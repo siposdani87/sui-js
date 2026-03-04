@@ -1,5 +1,5 @@
-import { Knot } from '../core';
-import { Footer } from './footer';
+import type { Knot } from '../core';
+import type { Footer } from './footer';
 /**
  * Popup menu rendered inside the application {@link Footer}. Toggling
  * the menu also opens/closes the footer's expanded state.

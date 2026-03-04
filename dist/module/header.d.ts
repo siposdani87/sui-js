@@ -1,4 +1,4 @@
-import { Knot } from '../core';
+import type { Knot } from '../core';
 import { Objekt } from '../core/objekt';
 /**
  * Application header bar that manages branding (logo image, title, URL),

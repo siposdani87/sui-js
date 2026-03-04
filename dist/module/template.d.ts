@@ -1,6 +1,6 @@
 import { Objekt } from '../core/objekt';
-import { Http } from './http';
-import { Knot } from '../core';
+import type { Http } from './http';
+import type { Knot } from '../core';
 /**
  * SPA template loader that fetches page content from the server via
  * {@link Http} and inserts it into the view container. Supports

@@ -1,4 +1,4 @@
-import { Knot } from '../core';
+import type { Knot } from '../core';
 /**
  * Slide-out left sidebar navigation with a main menu panel and a
  * secondary sub-menu panel. Opening the menu applies a blur overlay

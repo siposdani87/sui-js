@@ -1,4 +1,4 @@
-import { Listener } from '../utils';
+import type { Listener } from '../utils';
 /**
  * DOM element wrapper that provides a convenient, chainable API for
  * manipulating HTML elements.  Every element managed by the SUI framework

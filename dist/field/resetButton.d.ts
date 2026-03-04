@@ -1,4 +1,4 @@
-import { Knot } from '../core';
+import type { Knot } from '../core';
 import { BaseField } from './baseField';
 /**
  * Form reset button with MDL styling.

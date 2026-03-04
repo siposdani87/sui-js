@@ -1,7 +1,7 @@
-import { Objekt } from './objekt';
-import { Knot } from './knot';
-import { Route } from '../component/route';
-import { ClassRef, Injection, Instance } from '../utils';
+import type { Objekt } from './objekt';
+import type { Knot } from './knot';
+import type { Route } from '../component/route';
+import type { ClassRef, Injection, Instance } from '../utils';
 /**
  * Base class for the application's revealing module pattern. Module manages
  * dependency injection, service lifecycle, and controller routing. It acts

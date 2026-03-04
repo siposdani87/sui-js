@@ -1,6 +1,6 @@
-import { BaseField } from '../field/baseField';
-import { Knot } from '../core/knot';
-import { Form } from './form';
+import type { BaseField } from '../field/baseField';
+import type { Knot } from '../core/knot';
+import type { Form } from './form';
 /**
  * @description Factory function that detects an input element's type and creates the
  * appropriate {@link BaseField} subclass instance. Supports all standard HTML input types

@@ -1,4 +1,4 @@
-import { Deferred } from './deferred';
+import type { Deferred } from './deferred';
 import { Objekt } from './objekt';
 /**
  * The framework's custom promise implementation, used instead of native

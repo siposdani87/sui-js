@@ -92,9 +92,6 @@ export class Table {
             this._initSearch();
             this._initStructure();
         }
-        else {
-            // TODO: reinit other components of table
-        }
     }
     /**
      * @description Initializes the {@link ContentHandler} for displaying empty-state content.
@@ -440,13 +437,14 @@ export class Table {
      * @param {number} columnIndex - The zero-based column index.
      */
     _renderDataKnot(tableDataKnot, item, rowIndex, column, columnIndex) {
+        var _a;
         if (inArray(['search', 'actions'], column)) {
             this._renderActions(tableDataKnot, item);
         }
         else {
             const labelKnot = new Knot('span');
             labelKnot.addClass('label');
-            labelKnot.setHtml(this.headerTexts[columnIndex]);
+            labelKnot.setHtml((_a = this.headerTexts[columnIndex]) !== null && _a !== void 0 ? _a : '');
             this._renderHeader(labelKnot, columnIndex);
             this._handleSortingColumn(labelKnot, columnIndex);
             tableDataKnot.appendChild(labelKnot);

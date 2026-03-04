@@ -1,4 +1,4 @@
-import { Promize } from '../core';
+import type { Promize } from '../core';
 import { Objekt } from '../core/objekt';
 import { Xhr } from './xhr';
 /**

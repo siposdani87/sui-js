@@ -34,18 +34,18 @@ describe('ProgressBar', () => {
         it('should add mdl-progress__indeterminate class to container', () => {
             progressBar.show();
             const node = progressBar.progressBarContainer.getNode();
-            expect(
-                node.classList.contains('mdl-progress__indeterminate'),
-            ).toBe(true);
+            expect(node.classList.contains('mdl-progress__indeterminate')).toBe(
+                true,
+            );
         });
 
         it('should add classes to header bar', () => {
             progressBar.show();
             const node = progressBar.progressBarHeader.getNode();
             expect(node.classList.contains('mdl-progress')).toBe(true);
-            expect(
-                node.classList.contains('mdl-progress__indeterminate'),
-            ).toBe(true);
+            expect(node.classList.contains('mdl-progress__indeterminate')).toBe(
+                true,
+            );
         });
 
         it('should increment counter', () => {
@@ -84,9 +84,9 @@ describe('ProgressBar', () => {
             progressBar.hide();
             const node = progressBar.progressBarContainer.getNode();
             expect(node.classList.contains('mdl-progress')).toBe(false);
-            expect(
-                node.classList.contains('mdl-progress__indeterminate'),
-            ).toBe(false);
+            expect(node.classList.contains('mdl-progress__indeterminate')).toBe(
+                false,
+            );
         });
 
         it('should not remove classes when counter > 0', () => {

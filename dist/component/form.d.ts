@@ -1,7 +1,7 @@
 import { Collection } from '../core/collection';
 import { Objekt } from '../core/objekt';
-import { BaseField } from '../field';
-import { Knot } from '../core';
+import type { BaseField } from '../field';
+import type { Knot } from '../core';
 /**
  * @description Manages a collection of form fields with model binding, validation, and
  * event handling. Extends {@link Collection} to provide field iteration, lookup, and lifecycle management.

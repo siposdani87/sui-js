@@ -242,11 +242,7 @@ describe('MapLabel', () => {
 
         it('should draw stroke and fill text when strokeWeight > 0', () => {
             (mapLabel as any)._drawCanvas();
-            expect(ctx.strokeText).toHaveBeenCalledWith(
-                'Hello World',
-                2,
-                2,
-            );
+            expect(ctx.strokeText).toHaveBeenCalledWith('Hello World', 2, 2);
             expect(ctx.fillText).toHaveBeenCalledWith('Hello World', 2, 2);
         });
 

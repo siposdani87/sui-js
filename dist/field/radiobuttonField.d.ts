@@ -1,6 +1,6 @@
 import { BaseField } from './baseField';
 import { Knot } from '../core/knot';
-import { Form } from '../component';
+import type { Form } from '../component';
 /**
  * @description Radio button group field with MDL styling. Manages a set of radio inputs sharing the same name,
  * handling checked state, disabled state, and label rendering across all buttons in the group.

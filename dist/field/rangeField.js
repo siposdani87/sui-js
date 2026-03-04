@@ -68,11 +68,6 @@ export class RangeField extends BaseField {
         else {
             this.inputBlock.removeClass('is-disabled');
         }
-        // TODO: check the tooltip
-        /* const containerKnot = new Query(
-            '.mdl-slider__container',
-            this.inputBlock,
-        ).getKnot(); */
         const value = this.getValue();
         this.tooltip = new Tooltip(this.inputBlock);
         this.tooltip.render(value);

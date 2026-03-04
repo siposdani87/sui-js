@@ -79,9 +79,9 @@ export function createMockCanvasContext(): Record<string, jest.Mock | any> {
     const context: Record<string, jest.Mock | any> = {
         fillRect: jest.fn(),
         clearRect: jest.fn(),
-        getImageData: jest.fn(
-            () => ({ data: new Uint8ClampedArray([0, 0, 0, 255]) }),
-        ),
+        getImageData: jest.fn(() => ({
+            data: new Uint8ClampedArray([0, 0, 0, 255]),
+        })),
         putImageData: jest.fn(),
         createImageData: jest.fn(),
         setTransform: jest.fn(),

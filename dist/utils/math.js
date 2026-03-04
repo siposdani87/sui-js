@@ -25,12 +25,13 @@
  * // '10.000,00'
  */
 export const readableCurrency = (price, opt_delimiter = ' ', opt_separator = ',', opt_precision = 0) => {
+    var _a;
     if (!price) {
         price = 0;
     }
     price = round(price, opt_precision * -1);
     const parts = price.toFixed(opt_precision).toString().split('.');
-    const decimal = parts[1];
+    const decimal = (_a = parts[1]) !== null && _a !== void 0 ? _a : '';
     let currency = parts[0]
         .split('')
         .reverse()

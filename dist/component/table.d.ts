@@ -4,7 +4,7 @@ import { Objekt } from '../core/objekt';
 import { Query } from '../core/query';
 import { ContentHandler } from './contentHandler';
 import { Pager } from './pager';
-import { Action } from '../utils';
+import type { Action } from '../utils';
 /**
  * @description Maps column names to calculation functions that produce cell content.
  * Each function receives the row item, its index, and the parent DOM node,

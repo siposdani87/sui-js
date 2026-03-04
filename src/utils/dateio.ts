@@ -11,8 +11,7 @@
  * @category Utility
  */
 
-import type {
-    Locale} from 'date-fns';
+import type { Locale } from 'date-fns';
 import {
     parseISO,
     parse,

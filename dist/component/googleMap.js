@@ -407,7 +407,7 @@ export class GoogleMap {
      * @param polygon - The Google Maps Polygon instance.
      * @param polygonData - The associated polygon data object.
      */
-    _callPolygonChangeEvent(polygon, polygonData) {
+    _callPolygonChangeEvent(_polygon, polygonData) {
         const points = this._getPointsFromPolygon(polygonData);
         this._setBoundsByPoints(polygonData, points);
         const mapLabel = polygonData.get('_map_label');

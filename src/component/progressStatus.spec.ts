@@ -139,9 +139,7 @@ describe('ProgressStatus', () => {
 
         it('should set icon when provided', () => {
             progressStatus.setError('Error', 'error');
-            expect(progressStatus.iconKnot.getNode().textContent).toBe(
-                'error',
-            );
+            expect(progressStatus.iconKnot.getNode().textContent).toBe('error');
         });
     });
 

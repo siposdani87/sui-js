@@ -59,14 +59,15 @@ export class Objekt {
             // eslint-disable-next-line @typescript-eslint/no-explicit-any
             const obj = object;
             for (const key in obj) {
-                if (obj.hasOwnProperty(key)) {
+                if (Object.hasOwn(obj, key)) {
                     if (isPureObject(obj[key])) {
                         if (!instanceOf(this[key], Objekt)) {
                             this[key] = new Objekt(this[key]);
                         }
                         this[key].merge(obj[key]);
                     }
-                    else if (isArray(obj[key]) && isPureObject(obj[key][0])) {
+                    else if (isArray(obj[key]) &&
+                        isPureObject(obj[key][0])) {
                         this._convertobject(obj, key);
                         this[key] = obj[key];
                     }
@@ -260,7 +261,7 @@ export class Objekt {
         // eslint-disable-next-line @typescript-eslint/no-explicit-any
         const obj = object;
         for (const property in obj) {
-            if (obj.hasOwnProperty(property)) {
+            if (Object.hasOwn(obj, property)) {
                 if (attributes.length === 1 && property === attributes[0]) {
                     delete obj[property];
                 }

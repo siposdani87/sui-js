@@ -1,4 +1,4 @@
-import { Knot } from '../core';
+import type { Knot } from '../core';
 /**
  * Navigation bar component for secondary navigation such as breadcrumbs
  * or contextual links. Supports toggling between expanded and collapsed

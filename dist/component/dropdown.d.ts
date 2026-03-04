@@ -1,7 +1,7 @@
 import { Collection } from '../core/collection';
 import { Knot } from '../core/knot';
 import { Objekt } from '../core/objekt';
-import { Action } from '../utils';
+import type { Action } from '../utils';
 /**
  * @description MDL-based dropdown action menu that renders a "more" icon button with
  * a list of context actions for a data item.

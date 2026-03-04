@@ -45,9 +45,7 @@ describe('TextareaField', () => {
         it('should add MDL classes to input', () => {
             textareaField.render();
             const node = textareaField.input.getNode();
-            expect(node.classList.contains('mdl-textfield__input')).toBe(
-                true,
-            );
+            expect(node.classList.contains('mdl-textfield__input')).toBe(true);
         });
 
         it('should add MDL class to label', () => {
@@ -107,9 +105,7 @@ describe('TextareaField', () => {
 
         it('should create contentEditable div', () => {
             richTextareaField.render();
-            expect(richTextareaField.richTextKnot.contentEditable).toBe(
-                'true',
-            );
+            expect(richTextareaField.richTextKnot.contentEditable).toBe('true');
         });
 
         it('should wrap initial value in paragraph tags', () => {
@@ -148,9 +144,7 @@ describe('TextareaField', () => {
                     .classList.contains('hidden'),
             ).toBe(true);
             expect(
-                richTextareaField.input
-                    .getNode()
-                    .classList.contains('hidden'),
+                richTextareaField.input.getNode().classList.contains('hidden'),
             ).toBe(false);
         });
 
@@ -205,9 +199,9 @@ describe('TextareaField', () => {
         it('should trigger modelChange on keyup', () => {
             const spy = jest.spyOn(textareaField, 'modelChange');
             textareaField.input.getNode().value = 'typed text';
-            textareaField.input.getNode().dispatchEvent(
-                new Event('keyup', { bubbles: true }),
-            );
+            textareaField.input
+                .getNode()
+                .dispatchEvent(new Event('keyup', { bubbles: true }));
             expect(spy).toHaveBeenCalledWith('typed text');
         });
     });
@@ -216,9 +210,9 @@ describe('TextareaField', () => {
         it('should trigger modelChange on change', () => {
             const spy = jest.spyOn(textareaField, 'modelChange');
             textareaField.input.getNode().value = 'changed text';
-            textareaField.input.getNode().dispatchEvent(
-                new Event('change', { bubbles: true }),
-            );
+            textareaField.input
+                .getNode()
+                .dispatchEvent(new Event('change', { bubbles: true }));
             expect(spy).toHaveBeenCalledWith('changed text');
         });
     });

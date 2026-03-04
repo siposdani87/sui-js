@@ -1,6 +1,6 @@
 import { Collection } from './collection';
 import { Objekt } from './objekt';
-import { Route } from '../component';
+import type { Route } from '../component';
 /**
  * Manages application state via URL-based routing using the browser
  * History API. State maintains a collection of {@link Route} definitions,

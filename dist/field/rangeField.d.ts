@@ -1,6 +1,6 @@
 import { BaseField } from './baseField';
 import { Tooltip } from '../component/tooltip';
-import { Knot } from '../core';
+import type { Knot } from '../core';
 /**
  * @description MDL slider/range input field with a tooltip displaying the current value.
  *

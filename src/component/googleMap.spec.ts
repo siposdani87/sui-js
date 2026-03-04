@@ -18,11 +18,11 @@ function setupSupplementaryMocks(): void {
             computeDistanceBetween: jest.fn(() => 500),
         },
     };
-    (google.maps as any).StyledMapType = jest.fn().mockImplementation(
-        function (this: any) {
-            this.name = '';
-        },
-    );
+    (google.maps as any).StyledMapType = jest.fn().mockImplementation(function (
+        this: any,
+    ) {
+        this.name = '';
+    });
 }
 
 function createGoogleMap(opt_options?: object): GoogleMap {
@@ -196,9 +196,7 @@ describe('GoogleMap', () => {
         });
 
         it('should handle fitMarkerToMap for non-existent marker', () => {
-            expect(() =>
-                googleMap.fitMarkerToMap('nonexistent'),
-            ).not.toThrow();
+            expect(() => googleMap.fitMarkerToMap('nonexistent')).not.toThrow();
         });
 
         it('should open info window on marker', () => {
@@ -214,14 +212,7 @@ describe('GoogleMap', () => {
         });
 
         it('should use marker data id when not provided', () => {
-            googleMap.createMarker(
-                'm1',
-                'Marker',
-                'default',
-                47.6,
-                17.5,
-                {},
-            );
+            googleMap.createMarker('m1', 'Marker', 'default', 47.6, 17.5, {});
             const marker = googleMap.getMarker('m1');
             expect(marker!.get('id')).toBe('m1');
         });
@@ -271,9 +262,7 @@ describe('GoogleMap', () => {
         });
 
         it('should handle removing non-existent polygon', () => {
-            expect(() =>
-                googleMap.removePolygon('nonexistent'),
-            ).not.toThrow();
+            expect(() => googleMap.removePolygon('nonexistent')).not.toThrow();
         });
 
         it('should remove all polygons', () => {
@@ -304,8 +293,7 @@ describe('GoogleMap', () => {
             ];
             googleMap.updatePolygon('p1', 'Updated', newPoints);
             const polygonData = googleMap.getPolygon('p1')!;
-            const gPolygon =
-                polygonData.get<google.maps.Polygon>('_polygon');
+            const gPolygon = polygonData.get<google.maps.Polygon>('_polygon');
             expect(gPolygon.setPath).toHaveBeenCalled();
         });
 
@@ -341,8 +329,7 @@ describe('GoogleMap', () => {
             googleMap.createPolygon('p1', 'Polygon 1', testPoints);
             const polygonData = googleMap.getPolygon('p1')!;
             googleMap.addPointToPolygon(polygonData, 47.8, 17.8);
-            const gPolygon =
-                polygonData.get<google.maps.Polygon>('_polygon');
+            const gPolygon = polygonData.get<google.maps.Polygon>('_polygon');
             expect(gPolygon.getPath).toHaveBeenCalled();
         });
 
@@ -386,9 +373,7 @@ describe('GoogleMap', () => {
         });
 
         it('should remove heatmap', () => {
-            const points = [
-                { latitude: 47.6, longitude: 17.5, weight: 3 },
-            ];
+            const points = [{ latitude: 47.6, longitude: 17.5, weight: 3 }];
             googleMap.createHeatmap(points);
             googleMap.removeHeatmap();
             expect(googleMap.heatmap.setMap).toHaveBeenCalledWith(null);
@@ -478,7 +463,10 @@ describe('GoogleMap', () => {
             };
 
             // Ensure GeocoderStatus.OK is defined
-            (google.maps as any).GeocoderStatus = { OK: 'OK', ZERO_RESULTS: 'ZERO_RESULTS' };
+            (google.maps as any).GeocoderStatus = {
+                OK: 'OK',
+                ZERO_RESULTS: 'ZERO_RESULTS',
+            };
 
             const originalGeocoder = google.maps.Geocoder;
             (google.maps as any).Geocoder = class {
@@ -496,7 +484,10 @@ describe('GoogleMap', () => {
         it('should reject on geocoder error', () => {
             const googleMap = createGoogleMap();
 
-            (google.maps as any).GeocoderStatus = { OK: 'OK', ZERO_RESULTS: 'ZERO_RESULTS' };
+            (google.maps as any).GeocoderStatus = {
+                OK: 'OK',
+                ZERO_RESULTS: 'ZERO_RESULTS',
+            };
 
             const originalGeocoder = google.maps.Geocoder;
             (google.maps as any).Geocoder = class {
@@ -520,9 +511,7 @@ describe('GoogleMap', () => {
         });
 
         it('should have eventMapClick handler', () => {
-            expect(() =>
-                googleMap.eventMapClick(47.6, 17.5, {}),
-            ).not.toThrow();
+            expect(() => googleMap.eventMapClick(47.6, 17.5, {})).not.toThrow();
         });
 
         it('should have eventMapTypeChange handler', () => {
@@ -563,23 +552,13 @@ describe('GoogleMap', () => {
 
         it('should have eventPolygonDoubleClick handler', () => {
             expect(() =>
-                googleMap.eventPolygonDoubleClick(
-                    new Objekt(),
-                    47.6,
-                    17.5,
-                    {},
-                ),
+                googleMap.eventPolygonDoubleClick(new Objekt(), 47.6, 17.5, {}),
             ).not.toThrow();
         });
 
         it('should have eventPolygonRightClick handler', () => {
             expect(() =>
-                googleMap.eventPolygonRightClick(
-                    new Objekt(),
-                    47.6,
-                    17.5,
-                    {},
-                ),
+                googleMap.eventPolygonRightClick(new Objekt(), 47.6, 17.5, {}),
             ).not.toThrow();
         });
 

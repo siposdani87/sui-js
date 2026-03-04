@@ -1,5 +1,5 @@
 import { Objekt } from '../core/objekt';
-import { Knot } from '../core';
+import type { Knot } from '../core';
 /**
  * Flash message notification system for displaying temporary, styled
  * messages to the user. Supports multiple message types (`'success'`,

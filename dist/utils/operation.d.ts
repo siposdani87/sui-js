@@ -1,4 +1,4 @@
-import { Objekt } from '../core';
+import type { Objekt } from '../core';
 /**
  * Casts string representations to their native JavaScript types.
  *

@@ -14,9 +14,7 @@ describe('Style', () => {
     });
 
     afterEach(() => {
-        document
-            .querySelectorAll('head link[id]')
-            .forEach((el) => el.remove());
+        document.querySelectorAll('head link[id]').forEach((el) => el.remove());
     });
 
     it('should be instance of Style', () => {
@@ -37,17 +35,13 @@ describe('Style', () => {
 
         it('should set href attribute', () => {
             style.load('test-style', 'https://example.com/test.css');
-            const el = document.getElementById(
-                'test-style',
-            ) as HTMLLinkElement;
+            const el = document.getElementById('test-style') as HTMLLinkElement;
             expect(el.href).toBe('https://example.com/test.css');
         });
 
         it('should set default rel and media attributes', () => {
             style.load('test-style', 'https://example.com/test.css');
-            const el = document.getElementById(
-                'test-style',
-            ) as HTMLLinkElement;
+            const el = document.getElementById('test-style') as HTMLLinkElement;
             expect(el.rel).toBe('stylesheet');
             expect(el.media).toBe('all');
         });
@@ -60,9 +54,7 @@ describe('Style', () => {
                 'prefetch',
                 'print',
             );
-            const el = document.getElementById(
-                'test-style',
-            ) as HTMLLinkElement;
+            const el = document.getElementById('test-style') as HTMLLinkElement;
             expect(el.rel).toBe('prefetch');
             expect(el.media).toBe('print');
         });
@@ -76,9 +68,7 @@ describe('Style', () => {
             style.load('test-style', 'https://example.com/test.css', {
                 v: '2',
             });
-            const el = document.getElementById(
-                'test-style',
-            ) as HTMLLinkElement;
+            const el = document.getElementById('test-style') as HTMLLinkElement;
             expect(el.href).toContain('v=2');
         });
 
@@ -98,9 +88,7 @@ describe('Style', () => {
 
         it('should call progressBar.hide on load event', () => {
             style.load('test-style', 'https://example.com/test.css');
-            const el = document.getElementById(
-                'test-style',
-            ) as HTMLLinkElement;
+            const el = document.getElementById('test-style') as HTMLLinkElement;
             progressBar.hide.mockClear();
             if (el.onload) {
                 (el.onload as Function)(new Event('load'));
@@ -110,9 +98,7 @@ describe('Style', () => {
 
         it('should call progressBar.hide on error event', () => {
             style.load('test-style', 'https://example.com/test.css');
-            const el = document.getElementById(
-                'test-style',
-            ) as HTMLLinkElement;
+            const el = document.getElementById('test-style') as HTMLLinkElement;
             progressBar.hide.mockClear();
             if (el.onerror) {
                 (el.onerror as Function)(new Event('error'));

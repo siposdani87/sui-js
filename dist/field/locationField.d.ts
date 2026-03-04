@@ -1,7 +1,7 @@
 import { BaseField } from './baseField';
 import { GoogleMap } from '../component/googleMap';
 import { Knot } from '../core/knot';
-import { IconOptions } from '../utils';
+import type { IconOptions } from '../utils';
 /**
  * Location picker field with an embedded {@link GoogleMap}, geocoding search,
  * and manual latitude/longitude inputs.  The user can search for an address,

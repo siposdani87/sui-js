@@ -1,6 +1,6 @@
 import { Objekt } from '../core/objekt';
-import { Route } from './route';
-import { ClassRef, Injection, InstanceKey } from '../utils';
+import type { Route } from './route';
+import type { ClassRef, Injection, InstanceKey } from '../utils';
 /**
  * @description Main entry point for the SUI-JS framework. Manages the dependency injection
  * container and initializes all framework modules and services.

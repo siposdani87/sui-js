@@ -1,4 +1,4 @@
-import { Knot } from '../core';
+import type { Knot } from '../core';
 import { Objekt } from '../core/objekt';
 /**
  * @description Placeholder carousel component (stub). Reserved for future image/content

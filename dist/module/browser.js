@@ -249,17 +249,19 @@ export class Browser {
      * }
      */
     isInternetExplorer(opt_version) {
-        let result = this.browsers.lteIE10 || this.browsers.gteIE10;
+        var _a, _b, _c, _d, _e;
+        let result = ((_a = this.browsers.lteIE10) !== null && _a !== void 0 ? _a : false) ||
+            ((_b = this.browsers.gteIE10) !== null && _b !== void 0 ? _b : false);
         if (opt_version) {
             switch (opt_version) {
                 case 11:
-                    result = this.browsers.IE11;
+                    result = (_c = this.browsers.IE11) !== null && _c !== void 0 ? _c : false;
                     break;
                 case 10:
-                    result = this.browsers.IE10;
+                    result = (_d = this.browsers.IE10) !== null && _d !== void 0 ? _d : false;
                     break;
                 default:
-                    result = this.browsers.lteIE10;
+                    result = (_e = this.browsers.lteIE10) !== null && _e !== void 0 ? _e : false;
                     break;
             }
         }
@@ -276,7 +278,8 @@ export class Browser {
      * }
      */
     isEdge() {
-        return this.browsers.edge;
+        var _a;
+        return (_a = this.browsers.edge) !== null && _a !== void 0 ? _a : false;
     }
     /**
      * Checks whether the browser is Chromium-based Microsoft Edge.
@@ -289,7 +292,8 @@ export class Browser {
      * }
      */
     isChromiumEdge() {
-        return this.browsers.chromiumEdge;
+        var _a;
+        return (_a = this.browsers.chromiumEdge) !== null && _a !== void 0 ? _a : false;
     }
     /**
      * Checks whether the browser is Mozilla Firefox.
@@ -302,7 +306,8 @@ export class Browser {
      * }
      */
     isFirefox() {
-        return this.browsers.firefox;
+        var _a;
+        return (_a = this.browsers.firefox) !== null && _a !== void 0 ? _a : false;
     }
     /**
      * Checks whether the browser is Google Chrome (with Chrome Web Store
@@ -316,7 +321,8 @@ export class Browser {
      * }
      */
     isChrome() {
-        return this.browsers.chrome;
+        var _a;
+        return (_a = this.browsers.chrome) !== null && _a !== void 0 ? _a : false;
     }
     /**
      * Checks whether the browser is Opera.
@@ -329,7 +335,8 @@ export class Browser {
      * }
      */
     isOpera() {
-        return this.browsers.opera;
+        var _a;
+        return (_a = this.browsers.opera) !== null && _a !== void 0 ? _a : false;
     }
     /**
      * Checks whether the browser is Apple Safari.
@@ -342,7 +349,8 @@ export class Browser {
      * }
      */
     isSafari() {
-        return this.browsers.safari;
+        var _a;
+        return (_a = this.browsers.safari) !== null && _a !== void 0 ? _a : false;
     }
     /**
      * Checks whether the browser uses the WebKit rendering engine.
@@ -355,7 +363,8 @@ export class Browser {
      * }
      */
     isWebkit() {
-        return this.browsers.webkit;
+        var _a;
+        return (_a = this.browsers.webkit) !== null && _a !== void 0 ? _a : false;
     }
     /**
      * Checks whether the browser is built on the Chromium engine
@@ -369,6 +378,7 @@ export class Browser {
      * }
      */
     isChromium() {
-        return this.browsers.chromium;
+        var _a;
+        return (_a = this.browsers.chromium) !== null && _a !== void 0 ? _a : false;
     }
 }

@@ -470,7 +470,7 @@ export class Collection {
      * col.size(); // 1
      */
     deleteBy(attribute, value) {
-        return this.deleteByCondition((item, i) => {
+        return this.deleteByCondition((_item, i) => {
             return this.get(i, attribute) === value;
         });
     }

@@ -1,6 +1,6 @@
 import { Knot } from '../core/knot';
 import { Tooltip } from '../component/tooltip';
-import { Form } from '../component';
+import type { Form } from '../component';
 /**
  * @description Abstract base class for all form fields. Handles validation, labeling,
  * visibility, enable/disable state, and error display.

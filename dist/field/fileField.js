@@ -40,9 +40,12 @@ export class FileField extends BaseField {
         this._initDefaultImg();
         this._initValueSrc();
         this.input.addEventListener('change', (inputKnot) => {
+            var _a;
             const inputNode = inputKnot.getNode();
-            const file = inputNode.files[0];
-            this._read(file);
+            const file = (_a = inputNode.files) === null || _a === void 0 ? void 0 : _a[0];
+            if (file) {
+                this._read(file);
+            }
             return true;
         });
     }
@@ -226,8 +229,10 @@ export class FileField extends BaseField {
                 let imageSrc = target.result.replace(searchStr, ';filename=' + filename + searchStr);
                 this.valueSrc = imageSrc;
                 if (!contain(file.type, 'image/')) {
-                    const [type, color] = this._lookupByMimeType(file.type);
-                    imageSrc = this._getFileIconSrc(type, color);
+                    const fileType = this._lookupByMimeType(file.type);
+                    if (fileType) {
+                        imageSrc = this._getFileIconSrc(fileType[0], fileType[1]);
+                    }
                 }
                 this.imageTag.setAttribute('src', imageSrc);
                 this._handleRemoveButton();
