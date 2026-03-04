@@ -3,7 +3,7 @@
 # Project Information
 Name: SUI-JS
 Description: Lightweight frontend framework in TypeScript with 60+ UI components
-Version: 1.1.0
+Version: 1.2.0
 Language: TypeScript
 Repository: https://github.com/siposdani87/sui-js
 Documentation: https://sui-js.siposdani87.com
@@ -92,8 +92,8 @@ app.run(routes, ['homeCtrl']);
 
 # Testing
 - Framework: Jest with ts-jest and jsdom
-- Coverage: 75% statements, 61% branches, 69% functions
-- Test Suites: 108 suites, 1187 tests
+- Coverage: 77% statements, 62% branches, 73% functions
+- Test Suites: 108 suites, 1315 tests
 - Pattern: *.spec.ts co-located with source
 
 # TypeScript
