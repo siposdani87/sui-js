@@ -1,8 +1,10 @@
 # Plan: AI/LLM-Friendly Documentation via Docusaurus
 
+> **STATUS: COMPLETE** — All phases (1–10) executed. Comprehensive JSDoc added to all source files. Docusaurus site built with guides, API reference, and Algolia search. Completed in v1.1.0 (2026-02-18).
+
 ## Context
 
-The existing Docusaurus v3 site (`website/`) auto-generates API docs via TypeDoc, but the output is **nearly useless for AI/LLM consumption**: no method descriptions, no examples, no conceptual context — just bare type signatures. The source code has virtually zero JSDoc. This plan adds rich JSDoc to all ~100 source files and builds structured conceptual documentation optimized for AI readability.
+The existing Docusaurus v3 site (`website/`) auto-generates API docs via TypeDoc. This plan added rich JSDoc to all ~100 source files and built structured conceptual documentation optimized for AI readability.
 
 ---
 
@@ -167,3 +169,14 @@ After each phase:
 - `src/module/http.ts` — Primary before/after JSDoc example
 - `website/docusaurus.config.js` — TypeDoc plugin, llms plugin, navbar, metadata
 - `website/sidebars.js` — Sidebar restructuring
+
+---
+
+## Implementation Results
+
+All phases (1–10) have been completed. Summary:
+
+- **Track 1 (JSDoc):** Comprehensive JSDoc added to all ~750 public APIs across all 100+ source files
+- **Track 2 (Docusaurus):** Site restructured with categorized sidebar, 11 hand-written guides, AI/LLM features, Algolia search
+- **Additional:** Docusaurus upgraded to 3.9.2, TypeDoc upgraded to 0.28.17
+- **184 API documentation files** regenerated with enriched JSDoc content

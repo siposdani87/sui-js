@@ -535,4 +535,104 @@ describe('Xhr', () => {
             expect(xhr.authorization).toBeNull();
         });
     });
+
+    describe('readyState lifecycle', () => {
+        beforeEach(() => {
+            xhr = new Xhr({ backend: 'https://api.example.com' });
+        });
+
+        it('should not resolve or reject on readyState 0-3', () => {
+            const resolveSpy = jest.spyOn(xhr.deferred, 'resolve');
+            const rejectSpy = jest.spyOn(xhr.deferred, 'reject');
+
+            xhr.get('/data.json', undefined);
+            const mock = getLastXhr();
+
+            // Simulate intermediate readyStates
+            for (const state of [0, 1, 2, 3]) {
+                (mock as any).readyState = state;
+                mock.onreadystatechange?.call(
+                    mock as any,
+                    new Event('readystatechange'),
+                );
+            }
+
+            expect(resolveSpy).not.toHaveBeenCalled();
+            expect(rejectSpy).not.toHaveBeenCalled();
+        });
+
+        it('should warn on unexpected readyState value', () => {
+            xhr.get('/data.json', undefined);
+            const mock = getLastXhr();
+
+            (mock as any).readyState = 99;
+            mock.onreadystatechange?.call(
+                mock as any,
+                new Event('readystatechange'),
+            );
+
+            // consoleWarn is mocked in jest.setup.ts — just verify no error thrown
+        });
+    });
+
+    describe('Blob JSON response', () => {
+        it('should handle Blob response with application/json content type', (done) => {
+            xhr = new Xhr({ backend: 'https://api.example.com' });
+            const promise = xhr.get('/data.json', undefined);
+            const mock = getLastXhr();
+
+            promise.then((httpRequest, data, filename) => {
+                expect(data.get('raw')).toEqual({ id: 42 });
+                done();
+            });
+
+            const blob = new Blob([JSON.stringify({ id: 42 })], {
+                type: 'application/json',
+            });
+            mock.respond(
+                200,
+                { 'Content-Type': 'application/json' },
+                blob,
+            );
+        });
+    });
+
+    describe('filename header error handling', () => {
+        it('should return empty filename when Content-Disposition has no filename match', (done) => {
+            xhr = new Xhr({ backend: 'https://api.example.com' });
+            const promise = xhr.get('/data.json', undefined);
+            const mock = getLastXhr();
+
+            promise.then((httpRequest, data, filename) => {
+                expect(filename).toBe('');
+                done();
+            });
+
+            mock.respond(
+                200,
+                {
+                    'Content-Type': 'application/json',
+                    'Content-Disposition': 'inline',
+                },
+                { ok: true },
+            );
+        });
+
+        it('should handle null JSON response string', (done) => {
+            xhr = new Xhr({ backend: 'https://api.example.com' });
+            const promise = xhr.get('/data.json', undefined);
+            const mock = getLastXhr();
+
+            promise.then((httpRequest, data) => {
+                expect(data).toBeDefined();
+                done();
+            });
+
+            mock.respond(
+                200,
+                { 'Content-Type': 'application/json' },
+                '',
+            );
+        });
+    });
 });

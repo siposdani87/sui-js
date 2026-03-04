@@ -7,6 +7,10 @@ describe('Screen', () => {
         screen = new Screen({ delay: 100 });
     });
 
+    afterEach(() => {
+        screen.destroy();
+    });
+
     it('should be instance of Screen', () => {
         expect(screen).toBeInstanceOf(Screen);
     });
@@ -72,6 +76,17 @@ describe('Screen', () => {
 
         it('should return boolean for dark', () => {
             expect(typeof screen.isColorScheme('dark')).toBe('boolean');
+        });
+    });
+
+    describe('destroy', () => {
+        it('should remove window event listeners without error', () => {
+            expect(() => screen.destroy()).not.toThrow();
+        });
+
+        it('should be callable multiple times', () => {
+            screen.destroy();
+            expect(() => screen.destroy()).not.toThrow();
         });
     });
 });

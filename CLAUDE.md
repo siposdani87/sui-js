@@ -46,16 +46,18 @@ npx jest --testNamePattern="should do something"
 ## TypeScript Configuration
 
 - Target: ES2015, Module: ESNext
-- Incremental strict mode: Phase 1 enabled (strictFunctionTypes, strictBindCallApply, noImplicitThis, alwaysStrict, noImplicitReturns)
-- Phase 2 NOT yet enabled: strictNullChecks, noImplicitAny, strictPropertyInitialization
-- `@typescript-eslint/no-explicit-any` is off — `any` is allowed
+- **`strict: true`** — all strict mode flags enabled (completed in v1.1.0)
+- Additional flags: `noImplicitReturns`, `noFallthroughCasesInSwitch`, `noImplicitOverride`, `allowUnreachableCode: false`, `allowUnusedLabels: false`
+- `@typescript-eslint/no-explicit-any` is `warn` — explicit `any` is allowed but flagged
 
 ## Testing
 
 - Jest with ts-jest and jsdom environment
 - Tests colocated as `*.spec.ts` files
 - `jest.setup.ts` mocks: Material Design Lite `componentHandler`, Google Maps API, console methods
-- Coverage thresholds: statements 50%, branches 33%, functions 42%, lines 50%
+- **1,187 tests** across 108 suites (expanded from 180 tests in v1.0.0)
+- Coverage thresholds: statements 65%, branches 52%, functions 59%, lines 65%
+- Current coverage: statements 75%, branches 61%, functions 69%, lines 75%
 
 ## Formatting
 
@@ -65,22 +67,21 @@ npx jest --testNamePattern="should do something"
 
 ## Implementation Roadmap
 
-Three improvement plans exist. Execute in this order:
+Three improvement plans exist. Two are complete; testing has remaining phases.
 
-### 1. Testing Improvement (do first)
+### 1. Testing Improvement (IN PROGRESS — Phases 0–13 done, Phases 14–23 remain)
 - **Full plan:** `TESTING_IMPROVEMENT_PLAN.md`
 - **Claude Code instructions:** `.claude/plans/testing.md`
-- **Why first:** Builds safety net before type-level and doc changes. Coverage 52% → 78%, tests 180 → ~580.
-- **Phases:** Infrastructure → Core → Utils → Module (critical) → Field → Component
+- **Progress:** 180 → 1,187 tests, coverage 52% → 75%. Phases 0–13 complete (infrastructure, core, utils, module, field, component, common, exports, memory leak tests, integration tests, async cleanup, error scenarios, snapshots, a11y tests).
+- **Remaining:** Phase 14 (HTTP deep testing) → Phase 15 (major component deep testing) → Phase 16 (destroy() methods) → Phase 17 (menu modules) → Phase 18 (canvas) → Phase 19 (Google Maps) → Phase 20 (remaining fields) → Phase 21 (low-coverage modules) → Phase 22 (medium-coverage improvements) → Phase 23 (jest-axe a11y)
+- **Target:** Completing phases 14–17 reaches 85% coverage. All phases reach ~95%.
 
-### 2. TypeScript Strict Mode (do second)
+### 2. TypeScript Strict Mode — COMPLETE
 - **Full plan:** `TYPESCRIPT_STRICT_MODE_PLAN.md`
 - **Claude Code instructions:** `.claude/plans/strict-mode.md`
-- **Why second:** With tests protecting against regressions, type changes are safe. Fixes types before writing docs.
-- **Phases:** Preparation → noImplicitOverride → noImplicitAny → strictNullChecks → strictPropertyInitialization → strict:true
+- **Result:** All phases (0–5) complete. `strict: true` enabled in `tsconfig.json`. Completed in v1.1.0.
 
-### 3. Documentation (do last)
+### 3. Documentation — COMPLETE
 - **Full plan:** `DOCUMENTATION_PLAN.md`
 - **Claude Code instructions:** `.claude/plans/documentation.md`
-- **Why last:** JSDoc should describe final type signatures (after strict mode). Two tracks: JSDoc + Docusaurus.
-- **Phases:** Core JSDoc → Utils JSDoc → Module JSDoc → Component JSDoc → Field JSDoc + Site enhancements
+- **Result:** All phases (1–10) complete. Comprehensive JSDoc on all source files. Docusaurus site with guides, API reference, and Algolia search. Completed in v1.1.0.

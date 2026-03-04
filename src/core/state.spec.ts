@@ -22,6 +22,10 @@ describe('State', () => {
         state = new State(routes);
     });
 
+    afterEach(() => {
+        state.destroy();
+    });
+
     it('should instantiate with routes array', () => {
         expect(state).toBeInstanceOf(State);
     });
@@ -147,6 +151,12 @@ describe('State', () => {
             state.eventChange = eventChangeSpy;
             state.go('home');
             expect(state.getParam('missing', 'default')).toBe('default');
+        });
+    });
+
+    describe('destroy', () => {
+        it('should remove popstate listener without error', () => {
+            expect(() => state.destroy()).not.toThrow();
         });
     });
 });

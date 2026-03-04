@@ -494,4 +494,70 @@ describe('Table', () => {
             expect(eventActionSpy).toHaveBeenCalled();
         });
     });
+
+    describe('header row toggling', () => {
+        it('should toggle opened class on header row click', () => {
+            const table = createTable();
+            table.setData([{ username: 'alice' }]);
+            const headerRow = table.tbody
+                .getNode()
+                .querySelector('tr.header') as HTMLElement;
+            headerRow.dispatchEvent(new Event('click'));
+            expect(headerRow.classList.contains('opened')).toBe(true);
+        });
+    });
+
+    describe('collection slicing', () => {
+        it('should slice items when collection size exceeds row_count', () => {
+            const table = createTable({ row_count: 2 });
+            table.setData([
+                { username: 'alice' },
+                { username: 'bob' },
+                { username: 'charlie' },
+            ]);
+            const dataRows = table.tbody
+                .getNode()
+                .querySelectorAll('tr.data');
+            expect(dataRows.length).toBe(2);
+        });
+    });
+
+    describe('eventAction default', () => {
+        it('should not throw when eventAction is called with default', () => {
+            const table = createTable();
+            expect(() => table.eventAction(new Objekt())).not.toThrow();
+        });
+    });
+
+    describe('calculation returning Knot', () => {
+        it('should handle calculation returning a Knot array', () => {
+            const calcFn = jest.fn((item: Objekt) => {
+                const knot = new Knot('strong');
+                knot.setHtml(item.get<string>('username', ''));
+                return [knot];
+            });
+            const table = createTable({
+                calculations: { username: calcFn },
+            });
+            table.setData([{ username: 'alice' }]);
+            const strong = table.tbody.getNode().querySelector('strong');
+            expect(strong).not.toBeNull();
+            expect(strong?.textContent).toBe('alice');
+        });
+
+        it('should render tooltip on Knot with title attribute', () => {
+            const calcFn = jest.fn((item: Objekt) => {
+                const knot = new Knot('span');
+                knot.setAttribute('title', 'Tooltip text');
+                knot.setHtml(item.get<string>('username', ''));
+                return knot;
+            });
+            const table = createTable({
+                calculations: { username: calcFn },
+            });
+            table.setData([{ username: 'alice' }]);
+            const tooltips = document.querySelectorAll('.mdl-tooltip');
+            expect(tooltips.length).toBeGreaterThan(0);
+        });
+    });
 });

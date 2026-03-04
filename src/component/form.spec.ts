@@ -354,5 +354,23 @@ describe('Form', () => {
         it('should have eventButton', () => {
             expect(typeof form.eventButton).toBe('function');
         });
+
+        it('should not throw when calling default eventSubmit', () => {
+            expect(() =>
+                form.eventSubmit(new Objekt(), form.formKnot),
+            ).not.toThrow();
+        });
+
+        it('should not throw when calling default eventButton', () => {
+            expect(() =>
+                form.eventButton(new Objekt(), form.formKnot),
+            ).not.toThrow();
+        });
+    });
+
+    describe('destroy', () => {
+        it('should remove form event listeners without error', () => {
+            expect(() => form.destroy()).not.toThrow();
+        });
     });
 });

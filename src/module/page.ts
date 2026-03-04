@@ -32,6 +32,7 @@ import { consoleDebug } from '../utils/log';
 export class Page {
     options!: Objekt;
     document!: Document;
+    private _onClick!: EventListener;
 
     /**
      * Creates a new Page instance and registers a document-level click
@@ -60,10 +61,20 @@ export class Page {
      */
     private _init(): void {
         this.document = document;
-        this.document.addEventListener('click', (event) => {
+        this._onClick = (event) => {
             const target = new Knot(event.target as HTMLElement);
             this.eventClick(target, event);
-        });
+        };
+        this.document.addEventListener('click', this._onClick);
+    }
+
+    /**
+     * Removes the document-level click event listener registered during
+     * initialization. Call this method to clean up when the Page
+     * instance is no longer needed.
+     */
+    destroy(): void {
+        this.document.removeEventListener('click', this._onClick);
     }
 
     /**

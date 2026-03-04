@@ -439,4 +439,14 @@ export class Form extends Collection<BaseField<HTMLInputElement>> {
     eventButton(model: Objekt, knot: Knot): void {
         consoleDebug('Form.eventButton()', model, knot);
     }
+
+    /**
+     * @description Removes all event listeners from the form element.
+     * Call this method to clean up when the Form instance is no longer needed.
+     */
+    destroy(): void {
+        this.formKnot.removeEventListeners('keydown');
+        this.formKnot.removeEventListeners('submit');
+        this.formKnot.removeEventListeners('reset');
+    }
 }
