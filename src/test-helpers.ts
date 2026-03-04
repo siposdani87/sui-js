@@ -74,6 +74,65 @@ export class MockXMLHttpRequest {
     }
 }
 
+/** Create a mock Canvas 2D rendering context for jsdom (which lacks native canvas support) */
+export function createMockCanvasContext(): Record<string, jest.Mock | any> {
+    const context: Record<string, jest.Mock | any> = {
+        fillRect: jest.fn(),
+        clearRect: jest.fn(),
+        getImageData: jest.fn(
+            () => ({ data: new Uint8ClampedArray([0, 0, 0, 255]) }),
+        ),
+        putImageData: jest.fn(),
+        createImageData: jest.fn(),
+        setTransform: jest.fn(),
+        drawImage: jest.fn(),
+        save: jest.fn(),
+        fillText: jest.fn(),
+        strokeText: jest.fn(),
+        restore: jest.fn(),
+        beginPath: jest.fn(),
+        moveTo: jest.fn(),
+        lineTo: jest.fn(),
+        closePath: jest.fn(),
+        stroke: jest.fn(),
+        translate: jest.fn(),
+        scale: jest.fn(),
+        rotate: jest.fn(),
+        arc: jest.fn(),
+        fill: jest.fn(),
+        measureText: jest.fn(() => ({ width: 0 })),
+        transform: jest.fn(),
+        rect: jest.fn(),
+        clip: jest.fn(),
+        canvas: { width: 300, height: 150 },
+    };
+    return context;
+}
+
+/** Install canvas 2D context mock on HTMLCanvasElement.prototype */
+let _originalGetContext:
+    | typeof HTMLCanvasElement.prototype.getContext
+    | undefined;
+let _mockCanvasContext: Record<string, jest.Mock | any> | undefined;
+
+export function installCanvasMock(): Record<string, jest.Mock | any> {
+    const ctx = createMockCanvasContext();
+    _mockCanvasContext = ctx;
+    _originalGetContext = HTMLCanvasElement.prototype.getContext;
+    HTMLCanvasElement.prototype.getContext = jest.fn(
+        () => ctx,
+    ) as unknown as typeof HTMLCanvasElement.prototype.getContext;
+    return ctx;
+}
+
+export function uninstallCanvasMock(): void {
+    if (_originalGetContext !== undefined) {
+        HTMLCanvasElement.prototype.getContext = _originalGetContext;
+        _originalGetContext = undefined;
+    }
+    _mockCanvasContext = undefined;
+}
+
 let _originalXhr: typeof XMLHttpRequest | undefined;
 let _lastXhr: MockXMLHttpRequest | undefined;
 

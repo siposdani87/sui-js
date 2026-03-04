@@ -55,9 +55,9 @@ npx jest --testNamePattern="should do something"
 - Jest with ts-jest and jsdom environment
 - Tests colocated as `*.spec.ts` files
 - `jest.setup.ts` mocks: Material Design Lite `componentHandler`, Google Maps API, console methods
-- **1,315 tests** across 108 suites (expanded from 180 tests in v1.0.0)
-- Coverage thresholds: statements 65%, branches 52%, functions 59%, lines 65%
-- Current coverage: statements 77%, branches 62%, functions 73%, lines 77%
+- **1,625 tests** across 108 suites (expanded from 180 tests in v1.0.0)
+- Coverage thresholds: statements 88%, branches 73%, functions 85%, lines 88%
+- Current coverage: statements 88%, branches 73%, functions 85%, lines 88%
 
 ## Formatting
 
@@ -69,11 +69,11 @@ npx jest --testNamePattern="should do something"
 
 Three improvement plans exist. Two are complete; testing has remaining phases.
 
-### 1. Testing Improvement (IN PROGRESS — Phases 0–17 done, Phases 18–23 remain)
+### 1. Testing Improvement (IN PROGRESS — Phases 0–21 done, Phases 22–23 remain)
 - **Full plan:** `TESTING_IMPROVEMENT_PLAN.md`
 - **Claude Code instructions:** `.claude/plans/testing.md`
-- **Progress:** 180 → 1,315 tests, coverage 52% → 77%. Phases 0–17 complete (infrastructure, core, utils, module, field, component, common, exports, memory leak tests, integration tests, async cleanup, error scenarios, snapshots, a11y tests, HTTP deep testing, major component deep testing, destroy() methods, menu modules).
-- **Remaining:** Phase 18 (canvas) → Phase 19 (Google Maps) → Phase 20 (remaining fields) → Phase 21 (low-coverage modules) → Phase 22 (medium-coverage improvements) → Phase 23 (jest-axe a11y)
+- **Progress:** 180 → 1,625 tests, coverage 52% → 88%. Phases 0–22 complete.
+- **Remaining:** Phase 23 (jest-axe a11y)
 - **Target:** All phases reach ~95%.
 
 ### 2. TypeScript Strict Mode — COMPLETE
