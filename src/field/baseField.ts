@@ -93,7 +93,7 @@ export class BaseField<T extends HTMLInputElement> {
     }
 
     /**
-     * @description Renders the field's DOM structure and applies MDL styling. Override in subclasses to provide specific rendering.
+     * @description Renders the field's DOM structure and applies SUI styling. Override in subclasses to provide specific rendering.
      * @example
      * field.render();
      */
@@ -102,7 +102,7 @@ export class BaseField<T extends HTMLInputElement> {
     }
 
     /**
-     * @description Refreshes the field's visual state. Override in subclasses to update styling or re-apply MDL upgrades.
+     * @description Refreshes the field's visual state. Override in subclasses to update styling or re-apply SUI upgrades.
      * @example
      * field.refresh();
      */
@@ -257,7 +257,7 @@ export class BaseField<T extends HTMLInputElement> {
     }
 
     /**
-     * @description Returns the upgraded input block knot for MDL styling operations.
+     * @description Returns the upgraded input block knot for SUI styling operations.
      * @returns {Knot} The input block knot.
      */
     private _getUpgradedKnot(): Knot {

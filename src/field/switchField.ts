@@ -2,9 +2,9 @@ import { Knot } from '../core/knot';
 import { BaseCheckboxField } from './baseCheckboxField';
 
 /**
- * MDL switch toggle field.
+ * SUI switch toggle field.
  *
- * @description Extends {@link BaseCheckboxField} to render a Material Design Lite
+ * @description Extends {@link BaseCheckboxField} to render a SUI
  * switch toggle with a span label and data label element.
  *
  * @example
@@ -32,7 +32,7 @@ export class SwitchField extends BaseCheckboxField {
     }
 
     /**
-     * Renders the switch with MDL classes, label span, and data label element.
+     * Renders the switch with SUI classes, label span, and data label element.
      */
     override render(): void {
         this.label.addClass('sui-switch');

@@ -23,7 +23,7 @@ Key terms used throughout the SUI-JS framework.
 | **State** | Manages application state and integrates with the `Router` for URL-based navigation. |
 | **Depot** | A Web Storage wrapper that provides a consistent API for `localStorage` and `sessionStorage`. |
 | **EventBus** | A publish/subscribe messaging bus for decoupled communication between components. |
-| **MDL** | Material Design Lite — the CSS/JS library that provides base styling and component upgrades. |
+| **SUI** | The framework's custom SCSS styling system that provides base styles and component classes. |
 | **coreResources** | The default set of module instances (Http, EventBus, etc.) that `Application` creates during initialization. |
 | **Controller** | A user-defined class registered with `Application` that handles a route's logic and DOM setup. |
 | **Service** | A user-defined singleton class registered with `Application` for shared business logic. |

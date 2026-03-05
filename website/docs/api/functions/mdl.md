@@ -4,12 +4,11 @@
 
 Defined in: [utils/render.ts:44](https://github.com/siposdani87/sui-js/blob/27883240db7565f37a562e906b93c8d6552ac058/src/utils/render.ts#L44)
 
-Triggers a Material Design Lite component upgrade on a DOM element.
+Triggers a SUI component upgrade on a DOM element.
 
-If `opt_forceDowngrade` is `true` (the default), any existing MDL
+If `opt_forceDowngrade` is `true` (the default), any existing SUI
 components on the element are downgraded first, allowing clean
-re-initialization. When `node` is falsy the entire DOM is upgraded
-via `componentHandler.upgradeDom()`.
+re-initialization.
 
 Accepts either a [Knot](../classes/Knot.md) wrapper or a raw `HTMLElement`.
 
@@ -26,7 +25,7 @@ The element to upgrade. Pass a [Knot](../classes/Knot.md) instance or
 
 `boolean` = `true`
 
-When `true`, downgrades existing MDL
+When `true`, downgrades existing SUI
   components before upgrading. Defaults to `true`.
 
 ## Returns

@@ -61,7 +61,7 @@ export class TextareaField extends BaseField<HTMLInputElement> {
     }
 
     /**
-     * @description Applies MDL textarea classes and renders the rich text editor if configured.
+     * @description Applies SUI textarea classes and renders the rich text editor if configured.
      * @override
      */
     override render(): void {
@@ -246,7 +246,7 @@ export class TextareaField extends BaseField<HTMLInputElement> {
     }
 
     /**
-     * @description Marks the field as invalid when required and empty, disables contentEditable when disabled, and upgrades MDL components.
+     * @description Marks the field as invalid when required and empty, disables contentEditable when disabled, and upgrades SUI components.
      * @override
      */
     override refresh() {

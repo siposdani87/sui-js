@@ -55,7 +55,7 @@ export class UrlField extends BaseField<HTMLInputElement> {
     }
 
     /**
-     * @description Applies MDL textfield classes and renders the protocol prefix span if configured.
+     * @description Applies SUI textfield classes and renders the protocol prefix span if configured.
      * @override
      */
     override render(): void {
@@ -76,7 +76,7 @@ export class UrlField extends BaseField<HTMLInputElement> {
     }
 
     /**
-     * @description Marks the field as invalid when required and empty, then upgrades MDL components.
+     * @description Marks the field as invalid when required and empty, then upgrades SUI components.
      * @override
      */
     override refresh() {

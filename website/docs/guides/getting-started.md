@@ -52,7 +52,7 @@ npm run build
 
 The output is:
 - `dist/sui.min.js` — JavaScript bundle
-- `dist/sui.min.css` — Styles (Material Design Lite + custom SCSS)
+- `dist/sui.min.css` — Styles (SUI custom SCSS)
 
 ## Next Steps
 

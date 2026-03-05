@@ -5,7 +5,7 @@ import { BaseCheckboxField } from './baseCheckboxField';
 /**
  * Icon-based toggle field with checked and unchecked icon states.
  *
- * @description Extends {@link BaseCheckboxField} to render a Material Design Lite
+ * @description Extends {@link BaseCheckboxField} to render a SUI
  * icon toggle that switches between two Material Icons based on the checked state.
  * The checked and unchecked icons are read from `data-checked` and `data-unchecked`
  * attributes on the input element.
@@ -44,7 +44,7 @@ export class IconToggleField extends BaseCheckboxField {
     }
 
     /**
-     * Renders the icon toggle with MDL classes, icon element, and label span.
+     * Renders the icon toggle with SUI classes, icon element, and label span.
      */
     override render(): void {
         this.label.addClass('sui-icon-toggle');

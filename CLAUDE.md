@@ -71,16 +71,13 @@ npx jest --testNamePattern="should do something"
 Three improvement plans exist. All are complete.
 
 ### 1. Testing Improvement — COMPLETE
-- **Full plan:** `TESTING_IMPROVEMENT_PLAN.md`
 - **Claude Code instructions:** `.claude/plans/testing.md`
 - **Result:** All phases (0–23) complete. 180 → 1,657 tests, coverage 52% → 88%. jest-axe a11y tests added.
 
 ### 2. TypeScript Strict Mode — COMPLETE
-- **Full plan:** `TYPESCRIPT_STRICT_MODE_PLAN.md`
 - **Claude Code instructions:** `.claude/plans/strict-mode.md`
 - **Result:** All phases (0–5) complete. `strict: true` enabled in `tsconfig.json`. Completed in v1.1.0.
 
 ### 3. Documentation — COMPLETE
-- **Full plan:** `DOCUMENTATION_PLAN.md`
 - **Claude Code instructions:** `.claude/plans/documentation.md`
 - **Result:** All phases (1–10) complete. Comprehensive JSDoc on all source files. Docusaurus site with guides, API reference, and Algolia search. Completed in v1.1.0.

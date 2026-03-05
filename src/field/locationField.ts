@@ -153,7 +153,7 @@ export class LocationField extends BaseField<HTMLInputElement> {
     }
 
     /**
-     * Applies MDL text-field classes, renders the advanced inputs, map, and
+     * Applies SUI text-field classes, renders the advanced inputs, map, and
      * default value, then refreshes the visual state.
      *
      * @override
@@ -174,7 +174,7 @@ export class LocationField extends BaseField<HTMLInputElement> {
 
     /**
      * Toggles the map lock overlay based on the disabled state and upgrades
-     * MDL components.
+     * SUI components.
      *
      * @override
      */
@@ -230,7 +230,7 @@ export class LocationField extends BaseField<HTMLInputElement> {
     }
 
     /**
-     * Creates a single labelled MDL text input for the advanced panel.
+     * Creates a single labelled SUI text input for the advanced panel.
      *
      * @param id Unique DOM id for the input element.
      * @param labelText Display label for the input.

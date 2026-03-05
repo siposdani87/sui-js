@@ -128,7 +128,7 @@ export class BaseCheckboxField extends BaseField<HTMLInputElement> {
     }
 
     /**
-     * @description Refreshes the field's visual state by updating the data label text and MDL styling.
+     * @description Refreshes the field's visual state by updating the data label text and SUI styling.
      */
     override refresh() {
         const dataLabelText = this.label.getAttribute('data-label');

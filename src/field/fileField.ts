@@ -226,7 +226,7 @@ export class FileField extends BaseField<HTMLInputElement> {
     }
 
     /**
-     * Applies MDL text-field classes and refreshes the visual state.
+     * Applies SUI text-field classes and refreshes the visual state.
      *
      * @override
      */
@@ -241,7 +241,7 @@ export class FileField extends BaseField<HTMLInputElement> {
 
     /**
      * Validates required state, toggles the remove button visibility, and
-     * upgrades MDL components.
+     * upgrades SUI components.
      *
      * @override
      */

@@ -57,7 +57,7 @@ export class SearchField extends BaseField<HTMLInputElement> {
     }
 
     /**
-     * @description Builds the expandable MDL search field layout with icon, holder, label, and clear button.
+     * @description Builds the expandable SUI search field layout with icon, holder, label, and clear button.
      * @override
      */
     override render(): void {
@@ -88,7 +88,7 @@ export class SearchField extends BaseField<HTMLInputElement> {
     }
 
     /**
-     * @description Marks the field as invalid when required and empty, then upgrades MDL components.
+     * @description Marks the field as invalid when required and empty, then upgrades SUI components.
      * @override
      */
     override refresh() {
