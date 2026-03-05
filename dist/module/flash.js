@@ -93,6 +93,7 @@ export class Flash {
     _getFlashKnot(type, message, opt_duration = 0, opt_closeCallback = null, opt_id = '') {
         const flashKnot = this.container.createElement('div');
         flashKnot.setAttribute('data-id', opt_id || generateId('flash'));
+        flashKnot.setAttribute('role', 'alert');
         flashKnot.addClass(['flash', type]);
         flashKnot.setHtml(message);
         if (this._isClosable(type, opt_closeCallback) &&

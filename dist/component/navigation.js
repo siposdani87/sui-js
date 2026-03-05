@@ -247,6 +247,7 @@ export class Navigation {
      * nav.bindToContainer(new Query('.nav-container').getKnot());
      */
     bindToContainer(containerKnot) {
+        containerKnot.setAttribute('role', 'navigation');
         containerKnot.removeChildren();
         this.each((item) => {
             const linkKnot = item.get(this.linkKnotKey);

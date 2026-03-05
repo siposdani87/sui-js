@@ -154,6 +154,7 @@ export class BaseModal {
             this.mainContainerKnot.addClass('blur');
             this.body.addClass('overflow-hidden');
         }
+        this.modal.setAttribute('aria-modal', 'true');
         this.modal.addClass('visible-flex');
         this.modal.removeClass('hidden');
         this._handleCloseButton(opt_allowClose);
@@ -177,6 +178,7 @@ export class BaseModal {
             this.mainContainerKnot.removeClass('blur');
             this.body.removeClass('overflow-hidden');
         }
+        this.modal.setAttribute('aria-modal', 'false');
         this.modal.addClass('hidden');
         this.modal.removeClass('visible-flex');
         this.modalTitle.removeChildren();

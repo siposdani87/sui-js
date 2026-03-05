@@ -55,9 +55,10 @@ npx jest --testNamePattern="should do something"
 - Jest with ts-jest and jsdom environment
 - Tests colocated as `*.spec.ts` files
 - `jest.setup.ts` mocks: Google Maps API, console methods
-- **1,625 tests** across 108 suites (expanded from 180 tests in v1.0.0)
+- **1,657 tests** across 108 suites (expanded from 180 tests in v1.0.0)
+- Includes jest-axe automated accessibility tests
 - Coverage thresholds: statements 88%, branches 73%, functions 85%, lines 88%
-- Current coverage: statements 88%, branches 73%, functions 85%, lines 88%
+- Current coverage: statements 88.8%, branches 74.2%, functions 85.5%, lines 88.6%
 
 ## Formatting
 
@@ -67,14 +68,12 @@ npx jest --testNamePattern="should do something"
 
 ## Implementation Roadmap
 
-Three improvement plans exist. Two are complete; testing has remaining phases.
+Three improvement plans exist. All are complete.
 
-### 1. Testing Improvement (IN PROGRESS — Phases 0–21 done, Phases 22–23 remain)
+### 1. Testing Improvement — COMPLETE
 - **Full plan:** `TESTING_IMPROVEMENT_PLAN.md`
 - **Claude Code instructions:** `.claude/plans/testing.md`
-- **Progress:** 180 → 1,625 tests, coverage 52% → 88%. Phases 0–22 complete.
-- **Remaining:** Phase 23 (jest-axe a11y)
-- **Target:** All phases reach ~95%.
+- **Result:** All phases (0–23) complete. 180 → 1,657 tests, coverage 52% → 88%. jest-axe a11y tests added.
 
 ### 2. TypeScript Strict Mode — COMPLETE
 - **Full plan:** `TYPESCRIPT_STRICT_MODE_PLAN.md`

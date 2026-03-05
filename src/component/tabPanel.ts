@@ -63,9 +63,15 @@ export class TabPanel {
      * @description Queries tab anchor elements, wires click handlers, and hides single tabs.
      */
     private _initTabs(): void {
+        const tabsContainer = new Query('.tabs', this.tabPanel).getKnot();
+        if (!tabsContainer.isEmpty()) {
+            tabsContainer.setAttribute('role', 'tablist');
+        }
         this.tabs = new Query('.tabs a', this.tabPanel);
         this.tabs.each((tab) => {
             const panelId = tab.getAttribute('href').substring(1);
+            tab.setAttribute('role', 'tab');
+            tab.setAttribute('aria-selected', 'false');
             if (this.tabs.size() === 1) {
                 tab.addClass('hidden');
             }
@@ -82,6 +88,9 @@ export class TabPanel {
      */
     private _initPanels(): void {
         this.panels = new Query('.panel', this.tabPanel);
+        this.panels.each((panel) => {
+            panel.setAttribute('role', 'tabpanel');
+        });
     }
 
     /**
@@ -101,8 +110,10 @@ export class TabPanel {
 
         this.tabs.each((tab) => {
             tab.removeClass('active');
+            tab.setAttribute('aria-selected', 'false');
             if (tab.getData('panel') === panelId) {
                 tab.addClass('active');
+                tab.setAttribute('aria-selected', 'true');
             }
         });
 

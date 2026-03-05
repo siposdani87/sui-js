@@ -81,9 +81,12 @@ export class Confirm extends BaseModal {
     private _init(): void {
         this.body = new Query('body').getKnot();
         this.modal = new Query(this.options.id).getKnot();
+        this.modal.setAttribute('role', 'alertdialog');
+        this.modal.setAttribute('aria-labelledby', 'confirm-title');
         this.modalWindow = new Query('#confirm-window', this.modal).getKnot();
         this.modalHeader = new Query('.modal-header', this.modal).getKnot();
         this.modalTitle = new Query('.modal-title', this.modalHeader).getKnot();
+        this.modalTitle.setId('confirm-title');
         this.modalBody = new Query('.modal-body', this.modal).getKnot();
         this.modalFooter = new Query('.modal-footer', this.modal).getKnot();
     }

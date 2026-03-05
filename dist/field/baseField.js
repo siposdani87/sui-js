@@ -33,6 +33,11 @@ export class BaseField {
         this.form = opt_form;
         if (this.error) {
             this.errorTooltip = new Tooltip(this.error);
+            if (!this.error.isEmpty()) {
+                const errorId = (this.input.getAttribute('name') || 'field') + '-error';
+                this.error.setId(errorId);
+                this.input.setAttribute('aria-describedby', errorId);
+            }
         }
         this._setInfoContainer();
         this._setActionContainer();

@@ -68,9 +68,12 @@ export class Dialog extends BaseModal {
     _init() {
         this.body = new Query('body').getKnot();
         this.modal = new Query(this.options.id, this.body).getKnot();
+        this.modal.setAttribute('role', 'dialog');
+        this.modal.setAttribute('aria-labelledby', 'dialog-title');
         this.modalWindow = new Query('#dialog-window', this.modal).getKnot();
         this.modalHeader = new Query('.modal-header', this.modal).getKnot();
         this.modalTitle = new Query('.modal-title', this.modalHeader).getKnot();
+        this.modalTitle.setId('dialog-title');
         this.modalBody = new Query('.modal-body', this.modal).getKnot();
         this.modalFooter = new Query('.modal-footer', this.modal).getKnot();
     }

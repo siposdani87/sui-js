@@ -65,6 +65,8 @@ export class Dropdown {
     private _appendButton(): void {
         this.buttonKnot = new Knot<HTMLButtonElement>('button');
         this.buttonKnot.setId(this.options.id);
+        this.buttonKnot.setAttribute('aria-haspopup', 'menu');
+        this.buttonKnot.setAttribute('aria-expanded', 'false');
         this.buttonKnot.addClass(['sui-button', 'sui-button--icon']);
 
         const iconKnot = new Knot('em');
@@ -80,6 +82,7 @@ export class Dropdown {
      */
     private _appendMenu(): void {
         this.menuKnot = new Knot('ul');
+        this.menuKnot.setAttribute('role', 'menu');
         this.menuKnot.setFor(this.options.id);
         this.menuKnot.addClass(['sui-menu', 'sui-menu--bottom-right']);
 
@@ -109,12 +112,15 @@ export class Dropdown {
     private _bindMenuToggle(): void {
         this.buttonKnot.addEventListener('click', () => {
             this.menuKnot.toggleClass('is-visible');
+            const expanded = this.menuKnot.hasClass('is-visible');
+            this.buttonKnot.setAttribute('aria-expanded', String(expanded));
         });
 
         document.addEventListener('click', (event) => {
             const target = event.target as Node;
             if (!this.dropdown.getNode().contains(target)) {
                 this.menuKnot.removeClass('is-visible');
+                this.buttonKnot.setAttribute('aria-expanded', 'false');
             }
         });
     }
@@ -127,6 +133,7 @@ export class Dropdown {
             const [icon, title, disabled, removed] = action.style(this.item!);
             if (!removed) {
                 const menuKnotKnot = new Knot<HTMLLIElement>('li');
+                menuKnotKnot.setAttribute('role', 'menuitem');
                 menuKnotKnot.addClass('sui-menu__item');
                 menuKnotKnot.setHtml(title || icon);
                 if (disabled) {

@@ -107,6 +107,7 @@ export class Flash {
     ): Knot {
         const flashKnot = this.container.createElement('div');
         flashKnot.setAttribute('data-id', opt_id || generateId('flash'));
+        flashKnot.setAttribute('role', 'alert');
         flashKnot.addClass(['flash', type]);
         flashKnot.setHtml(message);
         if (

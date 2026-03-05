@@ -185,6 +185,7 @@ export class BaseModal {
             this.body.addClass('overflow-hidden');
         }
 
+        this.modal.setAttribute('aria-modal', 'true');
         this.modal.addClass('visible-flex');
         this.modal.removeClass('hidden');
 
@@ -213,6 +214,7 @@ export class BaseModal {
             this.body.removeClass('overflow-hidden');
         }
 
+        this.modal.setAttribute('aria-modal', 'false');
         this.modal.addClass('hidden');
         this.modal.removeClass('visible-flex');
 
