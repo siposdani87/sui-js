@@ -1,9 +1,9 @@
-FROM --platform=$BUILDPLATFORM node:24-slim as builder
+FROM --platform=$BUILDPLATFORM node:24-slim AS builder
 
-# Install dependencies
+# Install root dependencies (needed for TypeDoc to resolve TypeScript sources)
 WORKDIR /app
 COPY package.json package-lock.json ./
-RUN npm ci --ignore-scripts
+RUN npm ci --ignore-scripts --legacy-peer-deps
 
 # Copy source files needed for website build
 COPY src/ src/
@@ -17,9 +17,9 @@ RUN npm ci
 COPY website/ .
 RUN npm run build
 
-FROM nginx:1.27-alpine-slim as runner
+FROM nginx:1.27-alpine-slim AS runner
 
-ENV INSTALL_PATH /usr/share/nginx/html
+ENV INSTALL_PATH=/usr/share/nginx/html
 
 WORKDIR $INSTALL_PATH
 
