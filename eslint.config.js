@@ -2,7 +2,6 @@ import eslint from '@eslint/js';
 import tseslint from '@typescript-eslint/eslint-plugin';
 import tsparser from '@typescript-eslint/parser';
 import prettierConfig from 'eslint-config-prettier';
-import importPlugin from 'eslint-plugin-import';
 import prettierPlugin from 'eslint-plugin-prettier';
 import tsdocPlugin from 'eslint-plugin-tsdoc';
 import globals from 'globals';
@@ -39,7 +38,6 @@ export default [
             '@typescript-eslint': tseslint,
             'eslint-plugin-tsdoc': tsdocPlugin,
             prettier: prettierPlugin,
-            import: importPlugin,
         },
         rules: {
             ...tseslint.configs.recommended.rules,
@@ -60,12 +58,6 @@ export default [
             'no-prototype-builtins': 'error',
             'max-len': 'off',
             'max-lines': 'off',
-        },
-        settings: {
-            'import/resolver': {
-                typescript: true,
-                node: true,
-            },
         },
     },
 ];

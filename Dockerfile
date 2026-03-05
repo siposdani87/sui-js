@@ -3,7 +3,7 @@ FROM --platform=$BUILDPLATFORM node:24-slim AS builder
 # Install root dependencies (needed for TypeDoc to resolve TypeScript sources)
 WORKDIR /app
 COPY package.json package-lock.json ./
-RUN npm ci --ignore-scripts --legacy-peer-deps
+RUN npm ci --ignore-scripts
 
 # Copy source files needed for website build
 COPY src/ src/
