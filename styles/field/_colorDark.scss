@@ -6,9 +6,11 @@
             border: 1px solid variables.$input-default-dark;
         }
 
-        // input[required] ~ .preview {
-        //   border-color: $error-default-dark;
-        // }
+        &.is-invalid {
+            .preview {
+                border-color: variables.$error-default-dark;
+            }
+        }
 
         .field-label {
             color: variables.$label-default-dark;
@@ -20,12 +22,15 @@
             }
 
             .preview {
+                border-style: dotted;
                 border-color: variables.$input-disabled-dark;
             }
 
-            // input[required] ~ .preview {
-            //   border-color: $error-disabled-dark;
-            // }
+            &.is-invalid {
+                .preview {
+                    border-color: variables.$error-disabled-dark;
+                }
+            }
         }
     }
 }

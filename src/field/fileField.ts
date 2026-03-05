@@ -8,7 +8,7 @@ import { BaseField } from './baseField';
 import { Knot } from '../core/knot';
 import { Query } from '../core/query';
 import { encodeBase64 } from '../utils/coder';
-import { mdl } from '../utils/render';
+import { sui } from '../utils/render';
 
 /**
  * File upload field with image preview, document type icons, and remove
@@ -231,14 +231,10 @@ export class FileField extends BaseField<HTMLInputElement> {
      * @override
      */
     override render(): void {
-        this.inputBlock.addClass([
-            'mdl-textfield',
-            'mdl-js-textfield',
-            'mdl-textfield--floating-label',
-        ]);
-        this.input.addClass('mdl-textfield__input');
+        this.inputBlock.addClass(['sui-textfield']);
+        this.input.addClass('sui-textfield__input');
         if (this.label && this.label.exists()) {
-            this.label.addClass('mdl-textfield__label');
+            this.label.addClass('sui-textfield__label');
         }
         this.refresh();
     }
@@ -253,10 +249,13 @@ export class FileField extends BaseField<HTMLInputElement> {
         if (this.isRequired() && this.getValue() === '') {
             this.inputBlock.addClass('is-invalid');
         }
+        if (this.isDisabled()) {
+            this.inputBlock.addClass('is-disabled');
+        }
 
         this._handleRemoveButton();
 
-        mdl(this.inputBlock);
+        sui(this.inputBlock);
     }
 
     /**

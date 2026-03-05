@@ -1,4 +1,4 @@
-import { mdl } from '../utils/render';
+import { sui } from '../utils/render';
 import { BaseField } from './baseField';
 import { Knot } from '../core/knot';
 
@@ -59,14 +59,10 @@ export class UrlField extends BaseField<HTMLInputElement> {
      * @override
      */
     override render(): void {
-        this.inputBlock.addClass([
-            'mdl-textfield',
-            'mdl-js-textfield',
-            'mdl-textfield--floating-label',
-        ]);
-        this.input.addClass(['mdl-textfield__input']);
+        this.inputBlock.addClass(['sui-textfield']);
+        this.input.addClass(['sui-textfield__input']);
         if (this.label && this.label.exists()) {
-            this.label.addClass('mdl-textfield__label');
+            this.label.addClass('sui-textfield__label');
         }
 
         if (this.protocol) {
@@ -87,7 +83,10 @@ export class UrlField extends BaseField<HTMLInputElement> {
         if (this.isRequired() && this.getValue() === '') {
             this.inputBlock.addClass('is-invalid');
         }
+        if (this.isDisabled()) {
+            this.inputBlock.addClass('is-disabled');
+        }
 
-        mdl(this.inputBlock);
+        sui(this.inputBlock);
     }
 }

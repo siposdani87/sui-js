@@ -15,9 +15,11 @@
         }
     }
 
-    // input[required] ~ .preview {
-    //   border-color: $error-default-light;
-    // }
+    &.is-invalid {
+        .preview {
+            border-color: variables.$error-default-light;
+        }
+    }
 
     canvas {
         vertical-align: middle;
@@ -33,15 +35,18 @@
         }
 
         .preview {
-            border: 1px dotted variables.$input-disabled-light;
+            border-style: dotted;
+            border-color: variables.$input-disabled-light;
 
             .color {
                 opacity: 0.3;
             }
         }
 
-        // input[required] ~ .preview {
-        //   border-color: $error-disabled-light;
-        // }
+        &.is-invalid {
+            .preview {
+                border-color: variables.$error-disabled-light;
+            }
+        }
     }
 }

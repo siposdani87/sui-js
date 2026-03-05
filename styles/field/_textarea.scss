@@ -1,7 +1,7 @@
 @use '../core/variables';
 
 .textarea-field {
-    .mdl-textarea__input {
+    .sui-textfield__input.sui-textarea__input {
         resize: none;
         min-height: 150px;
     }

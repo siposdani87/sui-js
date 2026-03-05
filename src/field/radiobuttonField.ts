@@ -3,7 +3,7 @@ import { BaseField } from './baseField';
 import { Knot } from '../core/knot';
 import { Query } from '../core/query';
 import type { Form } from '../component';
-import { mdl } from '../utils/render';
+import { sui } from '../utils/render';
 
 /**
  * @description Radio button group field with MDL styling. Manages a set of radio inputs sharing the same name,
@@ -81,21 +81,17 @@ export class RadiobuttonField extends BaseField<HTMLInputElement> {
      * @override
      */
     override render(): void {
-        this.label.addClass([
-            'mdl-radio',
-            'mdl-js-radio',
-            'mdl-js-ripple-effect',
-        ]);
+        this.label.addClass('sui-radio');
         const id = this.input.getId()!;
         this.label.setFor(id);
 
         const labelText = this.label.getHtml(true);
 
         const spanLabel = new Knot('span');
-        spanLabel.addClass('mdl-radio__label');
+        spanLabel.addClass('sui-radio__label');
         spanLabel.setHtml(labelText);
 
-        this.input.addClass('mdl-radio__button');
+        this.input.addClass('sui-radio__button');
 
         this.label.insert(this.input);
         this.label.appendChild(spanLabel);
@@ -120,10 +116,11 @@ export class RadiobuttonField extends BaseField<HTMLInputElement> {
             this.dataLabelKnot.setHtml('');
         }
         if (this.isDisabled()) {
+            this.label.addClass('is-disabled');
             this.inputBlock.addClass('is-disabled');
         }
 
-        mdl(this.label, false);
+        sui(this.label);
     }
 
     /**
