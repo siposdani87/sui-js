@@ -143,24 +143,41 @@ export class ProgressBar {
     }
 
     /**
-     * Routes a set of callbacks to the appropriate progress bar based on
-     * the current dialog/confirm open state.
+     * Returns the progress bar containers paired with their visibility
+     * conditions based on the current dialog/confirm open state.
      *
-     * @param {Function} containerCallback - Callback for the main container bar.
-     * @param {Function} headerCallback - Callback for the header bar.
-     * @param {Function} dialogCallback - Callback for the dialog bar.
-     * @param {Function} confirmCallback - Callback for the confirm bar.
+     * @returns {Array<[Knot, boolean]>} Pairs of progress bar knots and
+     *     whether they should be active.
      */
-    private _separateProgressBars(
-        containerCallback: (condition: boolean) => void,
-        headerCallback: (condition: boolean) => void,
-        dialogCallback: (condition: boolean) => void,
-        confirmCallback: (condition: boolean) => void,
-    ): void {
-        containerCallback(!this.dialog.isOpened() && !this.confirm.isOpened());
-        headerCallback(!this.dialog.isOpened() && !this.confirm.isOpened());
-        dialogCallback(this.dialog.isOpened() && !this.confirm.isOpened());
-        confirmCallback(this.confirm.isOpened());
+    private _getProgressBarConditions(): [Knot, boolean][] {
+        const isDefault =
+            !this.dialog.isOpened() && !this.confirm.isOpened();
+        const isDialog =
+            this.dialog.isOpened() && !this.confirm.isOpened();
+        const isConfirm = this.confirm.isOpened();
+
+        return [
+            [this.progressBarContainer, isDefault],
+            [this.progressBarHeader, isDefault],
+            [this.progressBarDialog, isDialog],
+            [this.progressBarConfirm, isConfirm],
+        ];
+    }
+
+    /**
+     * Toggles a CSS class on each progress bar based on its visibility
+     * condition.
+     *
+     * @param {string} cssClass - The CSS class to toggle.
+     */
+    private _toggleProgressBarClass(cssClass: string): void {
+        for (const [knot, condition] of this._getProgressBarConditions()) {
+            if (condition) {
+                knot.addClass(cssClass);
+            } else {
+                knot.removeClass(cssClass);
+            }
+        }
     }
 
     /**
@@ -169,36 +186,7 @@ export class ProgressBar {
      */
     private _progress(): void {
         if (!this.options.get('lock')) {
-            this._separateProgressBars(
-                (condition: boolean) => {
-                    if (condition) {
-                        this.progressBarContainer.addClass('sui-progress');
-                    } else {
-                        this.progressBarContainer.removeClass('sui-progress');
-                    }
-                },
-                (condition: boolean) => {
-                    if (condition) {
-                        this.progressBarHeader.addClass('sui-progress');
-                    } else {
-                        this.progressBarHeader.removeClass('sui-progress');
-                    }
-                },
-                (condition: boolean) => {
-                    if (condition) {
-                        this.progressBarDialog.addClass('sui-progress');
-                    } else {
-                        this.progressBarDialog.removeClass('sui-progress');
-                    }
-                },
-                (condition: boolean) => {
-                    if (condition) {
-                        this.progressBarConfirm.addClass('sui-progress');
-                    } else {
-                        this.progressBarConfirm.removeClass('sui-progress');
-                    }
-                },
-            );
+            this._toggleProgressBarClass('sui-progress');
         }
     }
 
@@ -217,52 +205,29 @@ export class ProgressBar {
     show(): void {
         this._progress();
         this.options.counter++;
-        this._separateProgressBars(
-            (condition: boolean) => {
-                if (condition) {
-                    this.progressBarContainer.addClass(
-                        'sui-progress--indeterminate',
-                    );
-                } else {
-                    this.progressBarContainer.removeClass(
-                        'sui-progress--indeterminate',
-                    );
-                }
-            },
-            (condition: boolean) => {
-                if (condition) {
-                    this.progressBarHeader.addClass(
-                        'sui-progress--indeterminate',
-                    );
-                } else {
-                    this.progressBarHeader.removeClass(
-                        'sui-progress--indeterminate',
-                    );
-                }
-            },
-            (condition: boolean) => {
-                if (condition) {
-                    this.progressBarDialog.addClass(
-                        'sui-progress--indeterminate',
-                    );
-                } else {
-                    this.progressBarDialog.removeClass(
-                        'sui-progress--indeterminate',
-                    );
-                }
-            },
-            (condition: boolean) => {
-                if (condition) {
-                    this.progressBarConfirm.addClass(
-                        'sui-progress--indeterminate',
-                    );
-                } else {
-                    this.progressBarConfirm.removeClass(
-                        'sui-progress--indeterminate',
-                    );
-                }
-            },
-        );
+        this._toggleProgressBarClass('sui-progress--indeterminate');
+    }
+
+    /**
+     * Applies a callback to the bar or buffer elements whose parent
+     * progress bar is active based on the current dialog/confirm state.
+     *
+     * @param {Knot[]} elements - The inner bar or buffer elements
+     *     corresponding to container, header, dialog, and confirm.
+     * @param {(knot: Knot) => void} callback - Action to perform on
+     *     each active element.
+     */
+    private _applyToActiveBars(
+        elements: Knot[],
+        callback: (knot: Knot) => void,
+    ): void {
+        const conditions = this._getProgressBarConditions();
+        for (let i = 0; i < conditions.length; i++) {
+            const [, condition] = conditions[i]!;
+            if (condition) {
+                callback(elements[i]!);
+            }
+        }
     }
 
     /**
@@ -276,26 +241,10 @@ export class ProgressBar {
      */
     setProgress(value: number): void {
         this._progress();
-        this._separateProgressBars(
-            (condition: boolean) => {
-                if (condition) {
-                    this.barContainer.setStyle({ width: value + '%' });
-                }
-            },
-            (condition: boolean) => {
-                if (condition) {
-                    this.barHeader.setStyle({ width: value + '%' });
-                }
-            },
-            (condition: boolean) => {
-                if (condition) {
-                    this.barDialog.setStyle({ width: value + '%' });
-                }
-            },
-            (condition: boolean) => {
-                if (condition) {
-                    this.barConfirm.setStyle({ width: value + '%' });
-                }
+        this._applyToActiveBars(
+            [this.barContainer, this.barHeader, this.barDialog, this.barConfirm],
+            (bar) => {
+                bar.setStyle({ width: value + '%' });
             },
         );
     }
@@ -311,26 +260,15 @@ export class ProgressBar {
      */
     setBuffer(value: number): void {
         this._progress();
-        this._separateProgressBars(
-            (condition: boolean) => {
-                if (condition) {
-                    this.bufferContainer.setStyle({ width: value + '%' });
-                }
-            },
-            (condition: boolean) => {
-                if (condition) {
-                    this.bufferHeader.setStyle({ width: value + '%' });
-                }
-            },
-            (condition: boolean) => {
-                if (condition) {
-                    this.bufferDialog.setStyle({ width: value + '%' });
-                }
-            },
-            (condition: boolean) => {
-                if (condition) {
-                    this.bufferConfirm.setStyle({ width: value + '%' });
-                }
+        this._applyToActiveBars(
+            [
+                this.bufferContainer,
+                this.bufferHeader,
+                this.bufferDialog,
+                this.bufferConfirm,
+            ],
+            (buffer) => {
+                buffer.setStyle({ width: value + '%' });
             },
         );
     }

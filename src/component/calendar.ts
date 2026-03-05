@@ -131,7 +131,7 @@ export class Calendar {
 
         const nextButton = new Knot('a');
         nextButton.setAttribute('href', 'javascript:void(0)');
-        nextButton.addClass(['previous', 'sui-button', 'sui-button--icon']);
+        nextButton.addClass(['next', 'sui-button', 'sui-button--icon']);
         const nextIconKnot = new Knot('em');
         nextIconKnot.addClass('material-icons');
         nextIconKnot.setHtml('chevron_right');
@@ -168,10 +168,10 @@ export class Calendar {
         if (position !== -1) {
             position += direction;
         }
-        const mode = this.modes[position];
-        return mode
-            ? mode
-            : this.types[this.options.type as keyof typeof this.types];
+        return (
+            this.modes[position] ??
+            this.types[this.options.type as keyof typeof this.types]
+        );
     }
 
     /**
@@ -253,18 +253,11 @@ export class Calendar {
      */
     private _previous(): void {
         const date = this._switchMode(
+            () => this.previous.month,
+            () => this.previous.year,
             () => {
-                return this.previous.month;
-            },
-            () => {
-                return this.previous.year;
-            },
-            () => {
-                let date = DateIO.subYears(this.current.day, this.maxYears);
-                if (DateIO.getYear(date) < 0) {
-                    date = this.current.day;
-                }
-                return date;
+                const date = DateIO.subYears(this.current.day, this.maxYears);
+                return DateIO.getYear(date) < 0 ? this.current.day : date;
             },
         );
         this._setDate(date!);
@@ -276,15 +269,9 @@ export class Calendar {
      */
     private _next(): void {
         const date = this._switchMode(
-            () => {
-                return this.next.month;
-            },
-            () => {
-                return this.next.year;
-            },
-            () => {
-                return DateIO.addYears(this.current.day, this.maxYears);
-            },
+            () => this.next.month,
+            () => this.next.year,
+            () => DateIO.addYears(this.current.day, this.maxYears),
         );
         this._setDate(date!);
         this.draw();
