@@ -17,6 +17,7 @@ jobs:
     - uses: actions/setup-node@v4
       with:
         node-version: 24
+        cache: 'npm'
     - name: Install modules
       run: npm ci
     - name: Lint
@@ -25,6 +26,8 @@ jobs:
       run: npm run test
     - name: Build
       run: npm run sass && npm run tsc && npm run esbuild && npm run esbuild:size-check
+    - name: Build website
+      run: cd website && npm ci && npm run build
     - name: SonarCloud Scan
       uses: SonarSource/sonarcloud-github-action@v3
       env:

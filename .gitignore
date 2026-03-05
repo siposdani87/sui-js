@@ -12,3 +12,12 @@ coverage/*.css
 coverage/*.js
 coverage/*.png
 coverage/src/
+
+# Reports
+reports/
+
+# Orphaned TypeDoc output (generated into website/docs/api/ instead)
+website/classes/
+website/functions/
+website/type-aliases/
+website/variables/
