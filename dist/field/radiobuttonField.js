@@ -4,7 +4,7 @@ import { Knot } from '../core/knot';
 import { Query } from '../core/query';
 import { sui } from '../utils/render';
 /**
- * @description Radio button group field with MDL styling. Manages a set of radio inputs sharing the same name,
+ * @description Radio button group field with SUI styling. Manages a set of radio inputs sharing the same name,
  * handling checked state, disabled state, and label rendering across all buttons in the group.
  *
  * @example
@@ -58,7 +58,7 @@ export class RadiobuttonField extends BaseField {
         });
     }
     /**
-     * @description Builds the MDL radio button layout with label, icon, and data-label elements.
+     * @description Builds the SUI radio button layout with label, icon, and data-label elements.
      * @override
      */
     render() {
@@ -78,7 +78,7 @@ export class RadiobuttonField extends BaseField {
         this.refresh();
     }
     /**
-     * @description Updates the data-label text, manages the disabled state, and upgrades MDL components.
+     * @description Updates the data-label text, manages the disabled state, and upgrades SUI components.
      * @override
      */
     refresh() {

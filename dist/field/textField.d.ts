@@ -1,7 +1,7 @@
 import type { Knot } from '../core';
 import { BaseField } from './baseField';
 /**
- * @description Standard text input field with Material Design Lite styling.
+ * @description Standard text input field with SUI styling.
  * Extends {@link BaseField} with keyup and change event handling.
  * @category Field
  * @example
@@ -24,11 +24,11 @@ export declare class TextField extends BaseField<HTMLInputElement> {
      */
     private _init;
     /**
-     * @description Renders the text field by applying MDL text field classes to the input block, input, and label.
+     * @description Renders the text field by applying SUI text field classes to the input block, input, and label.
      */
     render(): void;
     /**
-     * @description Refreshes the text field by updating the invalid state and re-applying MDL upgrades.
+     * @description Refreshes the text field by updating the invalid state and re-applying SUI upgrades.
      */
     refresh(): void;
     /**

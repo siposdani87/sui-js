@@ -26,12 +26,12 @@ export declare class UrlField extends BaseField<HTMLInputElement> {
      */
     private _init;
     /**
-     * @description Applies MDL textfield classes and renders the protocol prefix span if configured.
+     * @description Applies SUI textfield classes and renders the protocol prefix span if configured.
      * @override
      */
     render(): void;
     /**
-     * @description Marks the field as invalid when required and empty, then upgrades MDL components.
+     * @description Marks the field as invalid when required and empty, then upgrades SUI components.
      * @override
      */
     refresh(): void;

@@ -91,14 +91,14 @@ export declare class FileField extends BaseField<HTMLInputElement> {
      */
     private _getFileIconSrc;
     /**
-     * Applies MDL text-field classes and refreshes the visual state.
+     * Applies SUI text-field classes and refreshes the visual state.
      *
      * @override
      */
     render(): void;
     /**
      * Validates required state, toggles the remove button visibility, and
-     * upgrades MDL components.
+     * upgrades SUI components.
      *
      * @override
      */

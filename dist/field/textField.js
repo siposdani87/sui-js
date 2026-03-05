@@ -1,7 +1,7 @@
 import { sui } from '../utils/render';
 import { BaseField } from './baseField';
 /**
- * @description Standard text input field with Material Design Lite styling.
+ * @description Standard text input field with SUI styling.
  * Extends {@link BaseField} with keyup and change event handling.
  * @category Field
  * @example
@@ -39,7 +39,7 @@ export class TextField extends BaseField {
         });
     }
     /**
-     * @description Renders the text field by applying MDL text field classes to the input block, input, and label.
+     * @description Renders the text field by applying SUI text field classes to the input block, input, and label.
      */
     render() {
         this.inputBlock.addClass(['sui-textfield']);
@@ -50,7 +50,7 @@ export class TextField extends BaseField {
         this.refresh();
     }
     /**
-     * @description Refreshes the text field by updating the invalid state and re-applying MDL upgrades.
+     * @description Refreshes the text field by updating the invalid state and re-applying SUI upgrades.
      */
     refresh() {
         if (this.isRequired() && this.getValue() === '') {

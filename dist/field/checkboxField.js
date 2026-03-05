@@ -1,9 +1,9 @@
 import { Knot } from '../core/knot';
 import { BaseCheckboxField } from './baseCheckboxField';
 /**
- * MDL checkbox field with label and data label display.
+ * SUI checkbox field with label and data label display.
  *
- * @description Extends {@link BaseCheckboxField} to render a Material Design Lite
+ * @description Extends {@link BaseCheckboxField} to render a SUI
  * checkbox input with a span label and a separate data label element.
  *
  * @example
@@ -25,7 +25,7 @@ export class CheckboxField extends BaseCheckboxField {
         super(input, label, error, inputBlock);
     }
     /**
-     * Renders the checkbox with MDL classes, label span, and data label element.
+     * Renders the checkbox with SUI classes, label span, and data label element.
      */
     render() {
         this.label.addClass('sui-checkbox');

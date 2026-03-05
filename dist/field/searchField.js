@@ -46,7 +46,7 @@ export class SearchField extends BaseField {
         });
     }
     /**
-     * @description Builds the expandable MDL search field layout with icon, holder, label, and clear button.
+     * @description Builds the expandable SUI search field layout with icon, holder, label, and clear button.
      * @override
      */
     render() {
@@ -72,7 +72,7 @@ export class SearchField extends BaseField {
         this.refresh();
     }
     /**
-     * @description Marks the field as invalid when required and empty, then upgrades MDL components.
+     * @description Marks the field as invalid when required and empty, then upgrades SUI components.
      * @override
      */
     refresh() {

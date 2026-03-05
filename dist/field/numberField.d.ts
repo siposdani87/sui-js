@@ -48,12 +48,12 @@ export declare class NumberField extends BaseField<HTMLInputElement> {
      */
     private _getStep;
     /**
-     * @description Applies MDL textfield classes to the input block, input, and label, then refreshes.
+     * @description Applies SUI textfield classes to the input block, input, and label, then refreshes.
      * @override
      */
     render(): void;
     /**
-     * @description Marks the field as invalid when required and empty, then upgrades MDL components.
+     * @description Marks the field as invalid when required and empty, then upgrades SUI components.
      * @override
      */
     refresh(): void;

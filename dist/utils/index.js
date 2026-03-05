@@ -5,7 +5,7 @@
  *
  * Re-exports all utility functions, types, and constants from the
  * `src/utils/` directory including date handling ({@link DateIO}),
- * conditional logging, MDL rendering helpers, color utilities, math
+ * conditional logging, rendering helpers, color utilities, math
  * operations, encoding/decoding, type-checking operations, and shared
  * type definitions.
  *

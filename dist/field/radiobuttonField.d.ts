@@ -2,7 +2,7 @@ import { BaseField } from './baseField';
 import { Knot } from '../core/knot';
 import type { Form } from '../component';
 /**
- * @description Radio button group field with MDL styling. Manages a set of radio inputs sharing the same name,
+ * @description Radio button group field with SUI styling. Manages a set of radio inputs sharing the same name,
  * handling checked state, disabled state, and label rendering across all buttons in the group.
  *
  * @example
@@ -35,12 +35,12 @@ export declare class RadiobuttonField extends BaseField<HTMLInputElement> {
      */
     private _change;
     /**
-     * @description Builds the MDL radio button layout with label, icon, and data-label elements.
+     * @description Builds the SUI radio button layout with label, icon, and data-label elements.
      * @override
      */
     render(): void;
     /**
-     * @description Updates the data-label text, manages the disabled state, and upgrades MDL components.
+     * @description Updates the data-label text, manages the disabled state, and upgrades SUI components.
      * @override
      */
     refresh(): void;

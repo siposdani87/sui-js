@@ -2,8 +2,7 @@ import { eq } from '../utils/operation';
 import { Objekt } from '../core/objekt';
 import { Query } from '../core/query';
 /**
- * Full-screen loading spinner overlay using a Material Design Lite spinner
- * component.
+ * Full-screen loading spinner overlay.
  *
  * Display is reference-counted: each {@link show} call increments an internal
  * counter, and each {@link hide} call decrements it. The spinner is only
@@ -43,7 +42,7 @@ export class Loader {
         this.options.merge(opt_options);
     }
     /**
-     * Creates the MDL spinner element and appends it to the `#loader`
+     * Creates the spinner element and appends it to the `#loader`
      * container in the DOM.
      */
     _init() {

@@ -185,7 +185,7 @@ export class FileField extends BaseField {
         return format('data:image/svg+xml;base64,{0}', [data]);
     }
     /**
-     * Applies MDL text-field classes and refreshes the visual state.
+     * Applies SUI text-field classes and refreshes the visual state.
      *
      * @override
      */
@@ -199,7 +199,7 @@ export class FileField extends BaseField {
     }
     /**
      * Validates required state, toggles the remove button visibility, and
-     * upgrades MDL components.
+     * upgrades SUI components.
      *
      * @override
      */

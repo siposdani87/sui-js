@@ -115,7 +115,7 @@ export class NumberField extends BaseField {
         return typeCast(step);
     }
     /**
-     * @description Applies MDL textfield classes to the input block, input, and label, then refreshes.
+     * @description Applies SUI textfield classes to the input block, input, and label, then refreshes.
      * @override
      */
     render() {
@@ -127,7 +127,7 @@ export class NumberField extends BaseField {
         this.refresh();
     }
     /**
-     * @description Marks the field as invalid when required and empty, then upgrades MDL components.
+     * @description Marks the field as invalid when required and empty, then upgrades SUI components.
      * @override
      */
     refresh() {
