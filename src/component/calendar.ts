@@ -113,12 +113,7 @@ export class Calendar {
 
         const previousButton = new Knot('a');
         previousButton.setAttribute('href', 'javascript:void(0)');
-        previousButton.addClass([
-            'previous',
-            'mdl-button',
-            'mdl-js-button',
-            'mdl-button--icon',
-        ]);
+        previousButton.addClass(['previous', 'sui-button', 'sui-button--icon']);
         const prevIconKnot = new Knot('em');
         prevIconKnot.addClass('material-icons');
         prevIconKnot.setHtml('chevron_left');
@@ -136,12 +131,7 @@ export class Calendar {
 
         const nextButton = new Knot('a');
         nextButton.setAttribute('href', 'javascript:void(0)');
-        nextButton.addClass([
-            'previous',
-            'mdl-button',
-            'mdl-js-button',
-            'mdl-button--icon',
-        ]);
+        nextButton.addClass(['previous', 'sui-button', 'sui-button--icon']);
         const nextIconKnot = new Knot('em');
         nextIconKnot.addClass('material-icons');
         nextIconKnot.setHtml('chevron_right');

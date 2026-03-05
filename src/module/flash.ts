@@ -3,7 +3,7 @@ import { Objekt } from '../core/objekt';
 import { Query } from '../core/query';
 import { generateId } from '../utils/coder';
 import type { Knot } from '../core';
-import { mdl } from '../utils/render';
+import { sui } from '../utils/render';
 
 /**
  * Flash message notification system for displaying temporary, styled
@@ -123,7 +123,7 @@ export class Flash {
     }
 
     /**
-     * Creates an MDL-styled close button for a flash message.
+     * Creates a styled close button for a flash message.
      *
      * @param flashKnot The flash element that this button will close.
      * @param opt_closeCallback Callback invoked when the button is clicked.
@@ -134,11 +134,7 @@ export class Flash {
         opt_closeCallback: ((() => void) | null) | undefined = null,
     ): Knot {
         const buttonKnot = flashKnot.createElement('button');
-        buttonKnot.addClass([
-            'mdl-button',
-            'mdl-js-button',
-            'mdl-button--icon',
-        ]);
+        buttonKnot.addClass(['sui-button', 'sui-button--icon']);
 
         const buttonIcon = buttonKnot.createElement('em');
         buttonIcon.addClass('material-icons');
@@ -150,7 +146,7 @@ export class Flash {
             this.remove(flashKnot, opt_closeCallback);
         });
 
-        mdl(buttonKnot);
+        sui(buttonKnot);
 
         return buttonKnot;
     }

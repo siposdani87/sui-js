@@ -1,7 +1,7 @@
 @use '../core/variables';
 
 .datetime-range-field {
-    .mdl-textfield__error {
+    .sui-textfield__error {
         &:last-of-type {
             width: 100%;
             text-align: right;
@@ -56,6 +56,12 @@
         align-items: center;
     }
 
+    &.is-invalid {
+        .datetime-input {
+            border-color: variables.$error-default-light;
+        }
+    }
+
     &.is-disabled {
         .field-label {
             color: variables.$label-disabled-light;
@@ -68,6 +74,12 @@
         .datetime-input {
             border-style: dotted;
             border-color: variables.$input-disabled-light;
+        }
+
+        &.is-invalid {
+            .datetime-input {
+                border-color: variables.$error-disabled-light;
+            }
         }
     }
 }

@@ -1,10 +1,9 @@
 import { eq } from '../utils/operation';
-import { Async } from '../core/async';
 import { Objekt } from '../core/objekt';
 import { Query } from '../core/query';
 /**
- * Manages Material Design Lite progress bars across multiple application
- * containers: main content, header, dialog, and confirm window.
+ * Manages progress bars across multiple application containers: main content,
+ * header, dialog, and confirm window.
  *
  * The ProgressBar determines which container's bar to activate based on
  * the current state of {@link Dialog} and {@link Confirm} -- when a dialog
@@ -15,6 +14,9 @@ import { Query } from '../core/query';
  * counter, and {@link hide} decrements it. The bars are only removed when
  * the counter reaches zero (or when forced). A {@link lock}/{@link unlock}
  * mechanism can suppress progress display entirely.
+ *
+ * Progress and buffer values are set via direct DOM width styling on inner
+ * bar elements.
  *
  * @see {@link Dialog}
  * @see {@link Confirm}
@@ -32,7 +34,7 @@ import { Query } from '../core/query';
  */
 export class ProgressBar {
     /**
-     * Creates a new ProgressBar instance and initializes MDL progress bar
+     * Creates a new ProgressBar instance and initializes progress bar
      * elements in all four containers.
      *
      * @param {Dialog} dialog - The application dialog instance used to
@@ -61,68 +63,46 @@ export class ProgressBar {
         this.options.merge(opt_options);
     }
     /**
-     * Queries all four progress bar DOM elements and sets up the async
-     * upgrade listener for MDL MaterialProgress components.
+     * Queries all four progress bar DOM elements and creates inner bar
+     * and buffer elements for direct width-based progress control.
      */
     _init() {
         this.progressBarContainer = new Query('.main-container > .progress-bar').getKnot();
         this.progressBarHeader = new Query('#header > .progress-bar').getKnot();
         this.progressBarDialog = new Query('#dialog-window > .progress-bar').getKnot();
         this.progressBarConfirm = new Query('#confirm-window > .progress-bar').getKnot();
-        this.async = new Async(4);
-        this.async.eventComplete = (_isError, nodes) => {
-            if (nodes[0]['MaterialProgress']) {
-                this.processContainer = nodes[0]['MaterialProgress'];
-            }
-            if (nodes[1]['MaterialProgress']) {
-                this.processHeader = nodes[1]['MaterialProgress'];
-            }
-            if (nodes[2]['MaterialProgress']) {
-                this.processDialog = nodes[2]['MaterialProgress'];
-            }
-            if (nodes[3]['MaterialProgress']) {
-                this.processConfirm = nodes[3]['MaterialProgress'];
-            }
-            if (this.progressValue) {
-                this.setProgress(this.progressValue);
-            }
-            this.progressValue = 0;
-            if (this.bufferValue) {
-                this.setBuffer(this.bufferValue);
-            }
-            this.bufferValue = 0;
-        };
-        this.progressValue = 0;
-        this.bufferValue = 0;
-        this.processContainer = this._createProgressBar(this.progressBarContainer);
-        this.processHeader = this._createProgressBar(this.progressBarHeader);
-        this.processDialog = this._createProgressBar(this.progressBarDialog);
-        this.processConfirm = this._createProgressBar(this.progressBarConfirm);
+        this.barContainer = this._createInnerBar(this.progressBarContainer);
+        this.barHeader = this._createInnerBar(this.progressBarHeader);
+        this.barDialog = this._createInnerBar(this.progressBarDialog);
+        this.barConfirm = this._createInnerBar(this.progressBarConfirm);
+        this.bufferContainer = this._createBufferBar(this.progressBarContainer);
+        this.bufferHeader = this._createBufferBar(this.progressBarHeader);
+        this.bufferDialog = this._createBufferBar(this.progressBarDialog);
+        this.bufferConfirm = this._createBufferBar(this.progressBarConfirm);
     }
     /**
-     * Initializes a single progress bar element by adding the MDL class
-     * and registering an upgrade listener to capture the MaterialProgress
-     * instance.
+     * Creates an inner progress bar element inside the given container.
      *
-     * @param {Knot} knot - The DOM wrapper for the progress bar element.
-     * @returns {ProcessBar} A temporary ProcessBar that buffers values
-     *     until the MDL component upgrades.
+     * @param {Knot} knot - The progress bar container.
+     * @returns {Knot} The inner bar element.
      */
-    _createProgressBar(knot) {
-        knot.addClass('mdl-js-progress');
-        knot.addEventListener('mdl-componentupgraded', (knot) => {
-            this.async.parallelFunction(() => {
-                return knot;
-            });
-        });
-        return {
-            setProgress: (value) => {
-                this.progressValue = value;
-            },
-            setBuffer: (value) => {
-                this.bufferValue = value;
-            },
-        };
+    _createInnerBar(knot) {
+        const bar = knot.createElement('div');
+        bar.addClass('sui-progress__bar');
+        knot.appendChild(bar);
+        return bar;
+    }
+    /**
+     * Creates a buffer bar element inside the given container.
+     *
+     * @param {Knot} knot - The progress bar container.
+     * @returns {Knot} The buffer bar element.
+     */
+    _createBufferBar(knot) {
+        const buffer = knot.createElement('div');
+        buffer.addClass('sui-progress__buffer');
+        knot.appendChild(buffer);
+        return buffer;
     }
     /**
      * Routes a set of callbacks to the appropriate progress bar based on
@@ -140,38 +120,38 @@ export class ProgressBar {
         confirmCallback(this.confirm.isOpened());
     }
     /**
-     * Activates the MDL progress class on the appropriate bar(s) unless
+     * Activates the SUI progress class on the appropriate bar(s) unless
      * the progress display is locked.
      */
     _progress() {
         if (!this.options.get('lock')) {
             this._separateProgressBars((condition) => {
                 if (condition) {
-                    this.progressBarContainer.addClass('mdl-progress');
+                    this.progressBarContainer.addClass('sui-progress');
                 }
                 else {
-                    this.progressBarContainer.removeClass('mdl-progress');
+                    this.progressBarContainer.removeClass('sui-progress');
                 }
             }, (condition) => {
                 if (condition) {
-                    this.progressBarHeader.addClass('mdl-progress');
+                    this.progressBarHeader.addClass('sui-progress');
                 }
                 else {
-                    this.progressBarHeader.removeClass('mdl-progress');
+                    this.progressBarHeader.removeClass('sui-progress');
                 }
             }, (condition) => {
                 if (condition) {
-                    this.progressBarDialog.addClass('mdl-progress');
+                    this.progressBarDialog.addClass('sui-progress');
                 }
                 else {
-                    this.progressBarDialog.removeClass('mdl-progress');
+                    this.progressBarDialog.removeClass('sui-progress');
                 }
             }, (condition) => {
                 if (condition) {
-                    this.progressBarConfirm.addClass('mdl-progress');
+                    this.progressBarConfirm.addClass('sui-progress');
                 }
                 else {
-                    this.progressBarConfirm.removeClass('mdl-progress');
+                    this.progressBarConfirm.removeClass('sui-progress');
                 }
             });
         }
@@ -193,36 +173,37 @@ export class ProgressBar {
         this.options.counter++;
         this._separateProgressBars((condition) => {
             if (condition) {
-                this.progressBarContainer.addClass('mdl-progress__indeterminate');
+                this.progressBarContainer.addClass('sui-progress--indeterminate');
             }
             else {
-                this.progressBarContainer.removeClass('mdl-progress__indeterminate');
+                this.progressBarContainer.removeClass('sui-progress--indeterminate');
             }
         }, (condition) => {
             if (condition) {
-                this.progressBarHeader.addClass('mdl-progress__indeterminate');
+                this.progressBarHeader.addClass('sui-progress--indeterminate');
             }
             else {
-                this.progressBarHeader.removeClass('mdl-progress__indeterminate');
+                this.progressBarHeader.removeClass('sui-progress--indeterminate');
             }
         }, (condition) => {
             if (condition) {
-                this.progressBarDialog.addClass('mdl-progress__indeterminate');
+                this.progressBarDialog.addClass('sui-progress--indeterminate');
             }
             else {
-                this.progressBarDialog.removeClass('mdl-progress__indeterminate');
+                this.progressBarDialog.removeClass('sui-progress--indeterminate');
             }
         }, (condition) => {
             if (condition) {
-                this.progressBarConfirm.addClass('mdl-progress__indeterminate');
+                this.progressBarConfirm.addClass('sui-progress--indeterminate');
             }
             else {
-                this.progressBarConfirm.removeClass('mdl-progress__indeterminate');
+                this.progressBarConfirm.removeClass('sui-progress--indeterminate');
             }
         });
     }
     /**
-     * Sets a determinate progress value on the appropriate bar(s).
+     * Sets a determinate progress value on the appropriate bar(s) by
+     * setting the width of the inner bar element.
      *
      * @param {number} value - The progress percentage (0--100).
      *
@@ -233,25 +214,25 @@ export class ProgressBar {
         this._progress();
         this._separateProgressBars((condition) => {
             if (condition) {
-                this.processContainer.setProgress(value);
+                this.barContainer.setStyle({ width: value + '%' });
             }
         }, (condition) => {
             if (condition) {
-                this.processHeader.setProgress(value);
+                this.barHeader.setStyle({ width: value + '%' });
             }
         }, (condition) => {
             if (condition) {
-                this.processDialog.setProgress(value);
+                this.barDialog.setStyle({ width: value + '%' });
             }
         }, (condition) => {
             if (condition) {
-                this.processConfirm.setProgress(value);
+                this.barConfirm.setStyle({ width: value + '%' });
             }
         });
     }
     /**
-     * Sets the buffer value on the appropriate progress bar(s). The buffer
-     * represents how much data has been loaded ahead of the current progress.
+     * Sets the buffer value on the appropriate progress bar(s) by setting
+     * the width of the buffer bar element.
      *
      * @param {number} value - The buffer percentage (0--100).
      *
@@ -262,19 +243,19 @@ export class ProgressBar {
         this._progress();
         this._separateProgressBars((condition) => {
             if (condition) {
-                this.processContainer.setBuffer(value);
+                this.bufferContainer.setStyle({ width: value + '%' });
             }
         }, (condition) => {
             if (condition) {
-                this.processHeader.setBuffer(value);
+                this.bufferHeader.setStyle({ width: value + '%' });
             }
         }, (condition) => {
             if (condition) {
-                this.processDialog.setBuffer(value);
+                this.bufferDialog.setStyle({ width: value + '%' });
             }
         }, (condition) => {
             if (condition) {
-                this.processConfirm.setBuffer(value);
+                this.bufferConfirm.setStyle({ width: value + '%' });
             }
         });
     }
@@ -295,27 +276,26 @@ export class ProgressBar {
         if (opt_force || eq(this.options.counter, 0)) {
             this.options.counter = 0;
             this.progressBarContainer.removeClass([
-                'mdl-progress',
-                'mdl-progress__indeterminate',
+                'sui-progress',
+                'sui-progress--indeterminate',
             ]);
             this.progressBarHeader.removeClass([
-                'mdl-progress',
-                'mdl-progress__indeterminate',
+                'sui-progress',
+                'sui-progress--indeterminate',
             ]);
             this.progressBarDialog.removeClass([
-                'mdl-progress',
-                'mdl-progress__indeterminate',
+                'sui-progress',
+                'sui-progress--indeterminate',
             ]);
             this.progressBarConfirm.removeClass([
-                'mdl-progress',
-                'mdl-progress__indeterminate',
+                'sui-progress',
+                'sui-progress--indeterminate',
             ]);
         }
     }
     /**
      * Locks the progress bar, preventing any further progress display until
-     * {@link unlock} is called. Existing indeterminate animations remain
-     * visible but new activations are suppressed.
+     * {@link unlock} is called.
      *
      * @example
      * progressBar.lock();

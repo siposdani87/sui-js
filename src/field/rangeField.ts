@@ -1,10 +1,9 @@
 import { BaseField } from './baseField';
 import { Tooltip } from '../component/tooltip';
 import type { Knot } from '../core';
-import { mdl } from '../utils/render';
 
 /**
- * @description MDL slider/range input field with a tooltip displaying the current value.
+ * @description Range slider input field with a tooltip displaying the current value.
  *
  * @example
  * const rangeField = new RangeField(inputKnot, labelKnot, errorKnot, inputBlockKnot);
@@ -50,35 +49,29 @@ export class RangeField extends BaseField<HTMLInputElement> {
     }
 
     /**
-     * @description Applies MDL slider classes to the input block and input element, then refreshes.
+     * @description Applies SUI slider classes to the input block and input element, then refreshes.
      * @override
      */
     override render(): void {
-        this.inputBlock.addClass([
-            'mdl-textfield',
-            'mdl-js-textfield',
-            'mdl-sliderfield',
-        ]);
+        this.inputBlock.addClass(['sui-textfield', 'sui-sliderfield']);
 
-        this.input.addClass(['mdl-slider', 'mdl-js-slider']);
+        this.input.addClass('sui-slider');
 
         if (this.label && this.label.exists()) {
-            this.label.addClass('mdl-textfield__label');
+            this.label.addClass('sui-textfield__label');
         }
 
         this.refresh();
     }
 
     /**
-     * @description Validates the field, upgrades MDL components, manages the disabled state, and renders the value tooltip.
+     * @description Validates the field, manages the disabled state, and renders the value tooltip.
      * @override
      */
     override refresh() {
         if (this.isRequired() && this.getValue() === '') {
             this.inputBlock.addClass('is-invalid');
         }
-
-        mdl(this.input);
 
         if (this.isDisabled()) {
             this.inputBlock.addClass('is-disabled');
@@ -92,7 +85,7 @@ export class RangeField extends BaseField<HTMLInputElement> {
     }
 
     /**
-     * @description Sets the slider value via the MDL MaterialSlider API and updates the tooltip display.
+     * @description Sets the slider value natively and updates the tooltip display.
      * @param {object | Array<unknown> | boolean | number | string | null | undefined} value - The value to set.
      * @override
      */
@@ -106,9 +99,9 @@ export class RangeField extends BaseField<HTMLInputElement> {
             | null
             | undefined,
     ): void {
-        const inputKnot = this.input.getNode();
-        // eslint-disable-next-line @typescript-eslint/no-explicit-any
-        (inputKnot as any)['MaterialSlider']['change'](value);
+        const inputNode = this.input.getNode();
+        inputNode.value = String(value ?? '');
+        inputNode.dispatchEvent(new Event('input'));
         this.tooltip.render(value as string);
     }
 }

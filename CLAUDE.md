@@ -4,7 +4,7 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 ## Project Overview
 
-SUI-JS is a lightweight TypeScript frontend framework with predefined UI components. Published as `@siposdani87/sui-js` on npm. Uses Material Design Lite for base styling, esbuild for bundling (IIFE format, global name `SUI`), and SCSS for styles.
+SUI-JS is a lightweight TypeScript frontend framework with predefined UI components. Published as `@siposdani87/sui-js` on npm. Uses custom SUI SCSS for styling, esbuild for bundling (IIFE format, global name `SUI`), and SCSS for styles.
 
 ## Commands
 
@@ -33,7 +33,7 @@ npx jest --testNamePattern="should do something"
 - **`src/module/`** — Feature modules: `Http` (XHR client), `Router`, `EventBus` (pub/sub), `Dialog`, `Confirm`, `Cookie`, `Depot` (localStorage/sessionStorage), `Template`, menus
 - **`src/field/`** — Form field components extending `BaseField`: text, select, datetime, color, file, location, etc.
 - **`src/utils/`** — Utilities: `operation.ts` (type checking, object/array ops), `dateio.ts` (date-fns wrapper), `coder.ts`, `color.ts`, `math.ts`
-- **`styles/`** — SCSS organized by component/module/field with MDL overrides
+- **`styles/`** — SCSS organized by component/module/field with SUI custom styles
 - **`src/index.ts`** — Single entry point, exports all modules
 
 ## Code Patterns
@@ -54,7 +54,7 @@ npx jest --testNamePattern="should do something"
 
 - Jest with ts-jest and jsdom environment
 - Tests colocated as `*.spec.ts` files
-- `jest.setup.ts` mocks: Material Design Lite `componentHandler`, Google Maps API, console methods
+- `jest.setup.ts` mocks: Google Maps API, console methods
 - **1,625 tests** across 108 suites (expanded from 180 tests in v1.0.0)
 - Coverage thresholds: statements 88%, branches 73%, functions 85%, lines 88%
 - Current coverage: statements 88%, branches 73%, functions 85%, lines 88%

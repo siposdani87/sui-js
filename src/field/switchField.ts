@@ -35,19 +35,15 @@ export class SwitchField extends BaseCheckboxField {
      * Renders the switch with MDL classes, label span, and data label element.
      */
     override render(): void {
-        this.label.addClass([
-            'mdl-switch',
-            'mdl-js-switch',
-            'mdl-js-ripple-effect',
-        ]);
+        this.label.addClass('sui-switch');
 
         const labelText = this.label.getText();
 
         this.spanLabel = new Knot('span');
-        this.spanLabel.addClass('mdl-switch__label');
+        this.spanLabel.addClass('sui-switch__label');
         this.spanLabel.setHtml(labelText);
 
-        this.input.addClass('mdl-switch__input');
+        this.input.addClass('sui-switch__input');
 
         this.label.insert(this.input);
         this.label.appendChild(this.spanLabel);

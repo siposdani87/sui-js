@@ -2,7 +2,7 @@ import { format, typeCast } from '../utils/operation';
 import { BaseField } from './baseField';
 import { Knot } from '../core/knot';
 import { Query } from '../core/query';
-import { mdl } from '../utils/render';
+import { sui } from '../utils/render';
 /**
  * @description Radio button group field with MDL styling. Manages a set of radio inputs sharing the same name,
  * handling checked state, disabled state, and label rendering across all buttons in the group.
@@ -62,18 +62,14 @@ export class RadiobuttonField extends BaseField {
      * @override
      */
     render() {
-        this.label.addClass([
-            'mdl-radio',
-            'mdl-js-radio',
-            'mdl-js-ripple-effect',
-        ]);
+        this.label.addClass('sui-radio');
         const id = this.input.getId();
         this.label.setFor(id);
         const labelText = this.label.getHtml(true);
         const spanLabel = new Knot('span');
-        spanLabel.addClass('mdl-radio__label');
+        spanLabel.addClass('sui-radio__label');
         spanLabel.setHtml(labelText);
-        this.input.addClass('mdl-radio__button');
+        this.input.addClass('sui-radio__button');
         this.label.insert(this.input);
         this.label.appendChild(spanLabel);
         this.dataLabelKnot = new Knot('span');
@@ -95,9 +91,10 @@ export class RadiobuttonField extends BaseField {
             this.dataLabelKnot.setHtml('');
         }
         if (this.isDisabled()) {
+            this.label.addClass('is-disabled');
             this.inputBlock.addClass('is-disabled');
         }
-        mdl(this.label, false);
+        sui(this.label);
     }
     /**
      * @description Checks the radio button whose value attribute matches the given value and triggers a change event.

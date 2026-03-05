@@ -1,12 +1,12 @@
 @use '../core/variables';
 
 .dark-theme {
-    .mdl-textfield__error {
+    .sui-textfield__error {
         color: variables.$error-default-dark;
     }
 
     .is-disabled {
-        .mdl-textfield__error {
+        .sui-textfield__error {
             color: variables.$error-disabled-dark;
         }
     }

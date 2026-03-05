@@ -3,10 +3,10 @@ import { Tooltip } from '../component/tooltip';
 import { Knot } from '../core/knot';
 import { Query } from '../core/query';
 import { generateId, md5 } from '../utils/coder';
-import { mdl } from '../utils/render';
+import { sui } from '../utils/render';
 /**
  * UI element factory for creating and enhancing styled links, buttons,
- * and icon buttons with Material Design Lite classes. Helper provides
+ * and icon buttons with SUI classes. Helper provides
  * a consistent API for building interactive UI elements with click
  * handlers, tooltips, and access control.
  *
@@ -158,7 +158,7 @@ export class Helper {
     }
     /**
      * Creates a new `<button>` element with the given display name
-     * and enhances it with Material Design Lite classes, click handling,
+     * and enhances it with SUI button classes, click handling,
      * and a tooltip via {@link buttonElement}.
      *
      * @param name The text content to display inside the button.
@@ -167,7 +167,7 @@ export class Helper {
      * @param opt_description Tooltip text shown on hover.
      * @param opt_allowAccess When `false`, the element is removed
      *     from the DOM instead of being enhanced.
-     * @param opt_cssClasses Additional MDL CSS classes to add.
+     * @param opt_cssClasses Additional CSS classes to add.
      * @returns The created button {@link Knot}.
      *
      * @example
@@ -175,7 +175,7 @@ export class Helper {
      *     console.log('Button clicked:', id);
      * }, 'Save the form');
      */
-    createButton(name, callback, opt_description = '', opt_allowAccess = true, opt_cssClasses = ['mdl-button--primary']) {
+    createButton(name, callback, opt_description = '', opt_allowAccess = true, opt_cssClasses = ['sui-button--primary']) {
         const buttonKnot = new Knot('button');
         buttonKnot.setHtml(name);
         this.buttonElement(buttonKnot, callback, opt_description, opt_allowAccess, opt_cssClasses);
@@ -190,9 +190,9 @@ export class Helper {
      * @param dom The parent {@link Knot} to search within.
      * @param opt_callback Called with the button's ID and the
      *     {@link Knot} when any matched button is clicked.
-     * @param opt_cssClasses Additional MDL CSS classes to add.
+     * @param opt_cssClasses Additional CSS classes to add.
      */
-    multipleButton(selector, dom, opt_callback, opt_cssClasses = ['mdl-button--primary']) {
+    multipleButton(selector, dom, opt_callback, opt_cssClasses = ['sui-button--primary']) {
         const buttonKnots = new Query(selector, dom);
         buttonKnots.each((buttonKnot) => {
             this.buttonElement(buttonKnot, opt_callback, '', true, opt_cssClasses);
@@ -210,7 +210,7 @@ export class Helper {
      * @param opt_description Tooltip text shown on hover.
      * @param opt_allowAccess When `false`, the element is removed
      *     from the DOM instead of being enhanced.
-     * @param opt_cssClasses Additional MDL CSS classes to add.
+     * @param opt_cssClasses Additional CSS classes to add.
      * @returns The selected and enhanced button {@link Knot}.
      *
      * @example
@@ -218,16 +218,16 @@ export class Helper {
      *     console.log('Submitting form...');
      * }, 'Submit form');
      */
-    button(selector, dom, callback, opt_description = '', opt_allowAccess = true, opt_cssClasses = ['mdl-button--primary']) {
+    button(selector, dom, callback, opt_description = '', opt_allowAccess = true, opt_cssClasses = ['sui-button--primary']) {
         const buttonKnot = new Query(selector, dom).getKnot();
         this.buttonElement(buttonKnot, callback, opt_description, opt_allowAccess, opt_cssClasses);
         return buttonKnot;
     }
     /**
-     * Enhances an existing button {@link Knot} with Material Design Lite
-     * classes, click handling, and a tooltip. Applies base MDL button
-     * classes (`mdl-button`, `mdl-js-button`, `mdl-js-ripple-effect`,
-     * `mdl-button--raised`) plus any additional classes provided.
+     * Enhances an existing button {@link Knot} with SUI
+     * classes, click handling, and a tooltip. Applies base SUI button
+     * classes (`sui-button`, `sui-button--raised`) plus any additional
+     * classes provided.
      *
      * When the element already has an ID, existing CSS classes and click
      * listeners are removed before re-applying. When `opt_allowAccess`
@@ -239,9 +239,9 @@ export class Helper {
      * @param opt_description Tooltip text shown on hover.
      * @param opt_allowAccess When `false`, the element is removed
      *     from the DOM instead of being enhanced.
-     * @param opt_cssClasses Additional MDL CSS classes to add.
+     * @param opt_cssClasses Additional CSS classes to add.
      */
-    buttonElement(buttonKnot, opt_callback, opt_description = '', opt_allowAccess = true, opt_cssClasses = ['mdl-button--primary']) {
+    buttonElement(buttonKnot, opt_callback, opt_description = '', opt_allowAccess = true, opt_cssClasses = ['sui-button--primary']) {
         if (!buttonKnot.isEmpty()) {
             if (opt_allowAccess) {
                 if (!buttonKnot.getId()) {
@@ -252,12 +252,7 @@ export class Helper {
                     buttonKnot.removeClass(oldCssClasses);
                     buttonKnot.removeEventListeners('click');
                 }
-                const cssClasses = [
-                    'mdl-button',
-                    'mdl-js-button',
-                    'mdl-js-ripple-effect',
-                    'mdl-button--raised',
-                ].concat(opt_cssClasses);
+                const cssClasses = ['sui-button', 'sui-button--raised'].concat(opt_cssClasses);
                 buttonKnot.setData('cssClasses', cssClasses);
                 buttonKnot.addClass(cssClasses);
                 if (opt_callback) {
@@ -283,7 +278,7 @@ export class Helper {
      * @param opt_description Tooltip text shown on hover.
      * @param opt_allowAccess When `false`, the element is removed
      *     from the DOM instead of being enhanced.
-     * @param opt_cssClasses Additional MDL CSS classes for icon button
+     * @param opt_cssClasses Additional CSS classes for icon button
      *     styling.
      * @returns The created icon button {@link Knot}.
      *
@@ -293,9 +288,9 @@ export class Helper {
      * }, 'Delete this item');
      */
     createIconButton(iconName, callback, opt_description = '', opt_allowAccess = true, opt_cssClasses = [
-        'mdl-button--accent',
-        'mdl-button--fab',
-        'mdl-button--mini-fab',
+        'sui-button--accent',
+        'sui-button--fab',
+        'sui-button--mini-fab',
     ]) {
         const buttonKnot = new Knot('button');
         this._createIconKnot(iconName, buttonKnot);
@@ -309,13 +304,13 @@ export class Helper {
      *
      * @param selector CSS selector to match icon button elements.
      * @param dom The parent {@link Knot} to search within.
-     * @param opt_cssClasses Additional MDL CSS classes for icon button
+     * @param opt_cssClasses Additional CSS classes for icon button
      *     styling.
      */
     multipleIconButton(selector, dom, opt_cssClasses = [
-        'mdl-button--accent',
-        'mdl-button--fab',
-        'mdl-button--mini-fab',
+        'sui-button--accent',
+        'sui-button--fab',
+        'sui-button--mini-fab',
     ]) {
         const buttonKnots = new Query(selector, dom);
         buttonKnots.each((buttonKnot) => {
@@ -334,7 +329,7 @@ export class Helper {
      * @param opt_description Tooltip text shown on hover.
      * @param opt_allowAccess When `false`, the element is removed
      *     from the DOM instead of being enhanced.
-     * @param opt_cssClasses Additional MDL CSS classes for icon button
+     * @param opt_cssClasses Additional CSS classes for icon button
      *     styling.
      * @returns The selected and enhanced icon button {@link Knot}.
      *
@@ -347,9 +342,9 @@ export class Helper {
      * );
      */
     iconButton(selector, dom, callback, opt_description = '', opt_allowAccess = true, opt_cssClasses = [
-        'mdl-button--accent',
-        'mdl-button--fab',
-        'mdl-button--mini-fab',
+        'sui-button--accent',
+        'sui-button--fab',
+        'sui-button--mini-fab',
     ]) {
         const buttonKnot = new Query(selector, dom).getKnot();
         this.iconButtonElement(buttonKnot, callback, opt_description, opt_allowAccess, opt_cssClasses);
@@ -357,8 +352,7 @@ export class Helper {
     }
     /**
      * Enhances an existing button {@link Knot} with icon button styling.
-     * Applies base MDL classes (`mdl-button`, `mdl-js-button`,
-     * `mdl-js-ripple-effect`, `mdl-button--icon`) plus any additional
+     * Applies base SUI classes (`sui-button`, `sui-button--icon`) plus any additional
      * classes provided.
      *
      * When the element already has an ID, existing CSS classes and click
@@ -371,13 +365,13 @@ export class Helper {
      * @param opt_description Tooltip text shown on hover.
      * @param opt_allowAccess When `false`, the element is removed
      *     from the DOM instead of being enhanced.
-     * @param opt_cssClasses Additional MDL CSS classes for icon button
+     * @param opt_cssClasses Additional CSS classes for icon button
      *     styling.
      */
     iconButtonElement(buttonKnot, opt_callback, opt_description = '', opt_allowAccess = true, opt_cssClasses = [
-        'mdl-button--accent',
-        'mdl-button--fab',
-        'mdl-button--mini-fab',
+        'sui-button--accent',
+        'sui-button--fab',
+        'sui-button--mini-fab',
     ]) {
         if (!buttonKnot.isEmpty()) {
             if (opt_allowAccess) {
@@ -389,12 +383,7 @@ export class Helper {
                     buttonKnot.removeClass(oldCssClasses);
                     buttonKnot.removeEventListeners('click');
                 }
-                const cssClasses = [
-                    'mdl-button',
-                    'mdl-js-button',
-                    'mdl-js-ripple-effect',
-                    'mdl-button--icon',
-                ].concat(opt_cssClasses);
+                const cssClasses = ['sui-button', 'sui-button--icon'].concat(opt_cssClasses);
                 buttonKnot.setData('cssClasses', cssClasses);
                 buttonKnot.addClass(cssClasses);
                 if (opt_callback) {
@@ -425,7 +414,7 @@ export class Helper {
     /**
      * Sets a tooltip on the given element. If a description string is
      * provided, it is also set as the `title` attribute. Initializes
-     * a {@link Tooltip} component and upgrades the element via MDL.
+     * a {@link Tooltip} component and upgrades the element via SUI.
      *
      * @param knot The {@link Knot} to attach the tooltip to.
      * @param opt_description The tooltip text to display.
@@ -436,7 +425,7 @@ export class Helper {
         }
         const tooltip = new Tooltip(knot);
         tooltip.render(opt_description);
-        mdl(knot);
+        sui(knot);
     }
     /**
      * Sets a Gravatar image on the given image {@link Knot} based on

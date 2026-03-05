@@ -1,0 +1,54 @@
+@use '../core/variables';
+
+.dark-theme {
+    .sui-radio {
+        .sui-radio__label::before {
+            border-color: variables.$checkbox-default-dark;
+        }
+
+        .sui-radio__button[required] + .sui-radio__label::before {
+            border-color: variables.$error-default-dark;
+        }
+
+        &.is-other-checked {
+            .sui-radio__button[required] + .sui-radio__label::before {
+                border-color: variables.$checkbox-default-dark;
+            }
+        }
+
+        .sui-radio__button:checked + .sui-radio__label::before {
+            border-color: variables.$primary-default-dark;
+        }
+
+        .sui-radio__button:checked + .sui-radio__label::after {
+            background-color: variables.$primary-default-dark;
+        }
+
+        .sui-radio__button[required]:checked + .sui-radio__label::before {
+            border-color: variables.$primary-default-dark;
+        }
+
+        &.is-disabled {
+            .sui-radio__label {
+                color: variables.$label-disabled-dark;
+            }
+
+            .sui-radio__label::before {
+                border-color: variables.$checkbox-disabled-dark;
+            }
+
+            .sui-radio__button[required] + .sui-radio__label::before {
+                border-style: dotted;
+                border-color: variables.$error-disabled-dark;
+            }
+
+            .sui-radio__button:checked + .sui-radio__label::before {
+                border-color: variables.$primary-disabled-dark;
+            }
+
+            .sui-radio__button:checked + .sui-radio__label::after {
+                background-color: variables.$primary-disabled-dark;
+            }
+        }
+    }
+}

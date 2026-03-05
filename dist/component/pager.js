@@ -3,7 +3,7 @@ import { Knot } from '../core/knot';
 import { Objekt } from '../core/objekt';
 import { Query } from '../core/query';
 import { consoleDebug } from '../utils/log';
-import { mdl } from '../utils/render';
+import { sui } from '../utils/render';
 /**
  * @description Pagination control that renders page numbers, previous/next navigation buttons,
  * and statistics (e.g. "1-10 / 100").
@@ -81,11 +81,7 @@ export class Pager {
     _drawPreviousButton() {
         if (this.pageNum > 1) {
             const previousButton = new Knot('button');
-            previousButton.addClass([
-                'mdl-button',
-                'mdl-js-button',
-                'mdl-js-ripple-effect',
-            ]);
+            previousButton.addClass(['sui-button']);
             previousButton.addEventListener('click', () => {
                 this._previous();
             });
@@ -93,7 +89,7 @@ export class Pager {
             iconKnot.addClass('material-icons');
             iconKnot.setHtml('chevron_left');
             previousButton.appendChild(iconKnot);
-            mdl(previousButton);
+            sui(previousButton);
             this.pager.appendChild(previousButton);
         }
     }
@@ -103,11 +99,7 @@ export class Pager {
     _drawNextButton() {
         if (this.pageNum > 1) {
             const nextButton = new Knot('button');
-            nextButton.addClass([
-                'mdl-button',
-                'mdl-js-button',
-                'mdl-js-ripple-effect',
-            ]);
+            nextButton.addClass(['sui-button']);
             nextButton.addEventListener('click', () => {
                 this._next();
             });
@@ -115,7 +107,7 @@ export class Pager {
             iconKnot.addClass('material-icons');
             iconKnot.setHtml('chevron_right');
             nextButton.appendChild(iconKnot);
-            mdl(nextButton);
+            sui(nextButton);
             this.pager.appendChild(nextButton);
         }
     }
@@ -129,19 +121,15 @@ export class Pager {
                 const pageKnot = new Knot('button');
                 pageKnot.setData('page', pager.page);
                 pageKnot.setHtml(pager.text);
-                pageKnot.addClass([
-                    'mdl-button',
-                    'mdl-js-button',
-                    'mdl-js-ripple-effect',
-                ]);
+                pageKnot.addClass(['sui-button']);
                 if (this.page === pager.page) {
-                    pageKnot.addClass('mdl-button--accent');
+                    pageKnot.addClass('sui-button--accent');
                 }
                 pageKnot.addEventListener('click', (knot) => {
                     const page = knot.getData('page');
                     this._go(page);
                 });
-                mdl(pageKnot);
+                sui(pageKnot);
                 this.pager.appendChild(pageKnot);
             });
         }

@@ -1,8 +1,7 @@
 /**
- * Encodes a UTF-8 string to its Base64 representation using crypto-js.
+ * Encodes a UTF-8 string to its Base64 representation using native APIs.
  *
- * First parses the input string into a crypto-js word array using the UTF-8
- * encoder, then stringifies it with the Base64 encoder.
+ * Handles Unicode via encodeURIComponent before Base64 conversion.
  *
  * @param {string} text - The plain text string to encode.
  * @returns {string} The Base64-encoded string.
@@ -15,10 +14,9 @@
 export declare const encodeBase64: (text: string) => string;
 /**
  * Decodes a Base64-encoded string back to its original UTF-8 text using
- * crypto-js.
+ * native APIs.
  *
- * Parses the Base64 input into a crypto-js word array, then converts it
- * back to a UTF-8 string.
+ * Parses the Base64 input and converts it back to a UTF-8 string.
  *
  * @param {string} encodedText - The Base64-encoded string to decode.
  * @returns {string} The decoded UTF-8 string.
@@ -30,16 +28,16 @@ export declare const encodeBase64: (text: string) => string;
  */
 export declare const decodeBase64: (encodedText: string) => string;
 /**
- * Encrypts any JSON-serializable value using AES with the provided
- * passphrase via crypto-js.
+ * Encrypts any JSON-serializable value using XOR obfuscation with the
+ * provided passphrase.
  *
  * The value is first serialized to a JSON string with `JSON.stringify`,
- * then encrypted using AES. The result is returned as an opaque
- * ciphertext string suitable for storage or transmission.
+ * then each byte is XORed with the repeating passphrase. The result is
+ * Base64-encoded for safe storage or transmission.
  *
  * @param {any} value - The value to encrypt. Must be JSON-serializable.
  * @param {string} passPhrase - The passphrase used as the encryption key.
- * @returns {string} The AES-encrypted ciphertext string.
+ * @returns {string} The XOR-encrypted, Base64-encoded ciphertext string.
  * @category Utility
  *
  * @example
@@ -48,14 +46,14 @@ export declare const decodeBase64: (encodedText: string) => string;
  */
 export declare const encrypt: (value: any, passPhrase: string) => string;
 /**
- * Decrypts an AES-encrypted ciphertext string and parses the result as
- * JSON using crypto-js.
+ * Decrypts an XOR-encrypted ciphertext string and parses the result as
+ * JSON.
  *
- * Decrypts the input with the provided passphrase and converts the result
- * to a UTF-8 string. If decryption yields an empty string, `null` is
- * returned instead (via `JSON.parse('null')`).
+ * Decodes the Base64 input, XORs with the provided passphrase, and
+ * converts the result to a UTF-8 string. If decryption yields an empty
+ * string, `null` is returned instead (via `JSON.parse('null')`).
  *
- * @param {string} item - The AES-encrypted ciphertext string to decrypt.
+ * @param {string} item - The encrypted ciphertext string to decrypt.
  * @param {string} passPhrase - The passphrase used as the decryption key.
  *     Must match the passphrase used during encryption.
  * @returns {any} The decrypted and JSON-parsed value, or `null` if the
@@ -69,7 +67,10 @@ export declare const encrypt: (value: any, passPhrase: string) => string;
  */
 export declare const decrypt: (item: string, passPhrase: string) => any;
 /**
- * Computes the MD5 hash of a string using crypto-js.
+ * Computes the MD5 hash of a string.
+ *
+ * Implements the MD5 message-digest algorithm (RFC 1321) inline for
+ * Gravatar API compatibility.
  *
  * @param {string} str - The input string to hash.
  * @returns {string} The hexadecimal MD5 hash string.

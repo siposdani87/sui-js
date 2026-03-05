@@ -58,11 +58,7 @@ export class Loader {
         this.loader = new Query('#loader').getKnot();
 
         this.spinner = this.loader.createElement('div');
-        this.spinner.addClass([
-            'mdl-spinner',
-            'mdl-spinner--single-color',
-            'mdl-js-spinner',
-        ]);
+        this.spinner.addClass('sui-spinner');
 
         this.loader.appendChild(this.spinner);
     }

@@ -33,22 +33,18 @@ export class IconToggleField extends BaseCheckboxField {
      * Renders the icon toggle with MDL classes, icon element, and label span.
      */
     render() {
-        this.label.addClass([
-            'mdl-icon-toggle',
-            'mdl-js-icon-toggle',
-            'mdl-js-ripple-effect',
-        ]);
+        this.label.addClass('sui-icon-toggle');
         this.checkedIcon = this.input.getData('checked');
         this.uncheckedIcon = this.input.getData('unchecked');
         this.icon = new Knot('em');
-        this.icon.addClass(['mdl-icon-toggle__label', 'material-icons']);
+        this.icon.addClass(['sui-icon-toggle__label', 'material-icons']);
         this.icon.setHtml(this.input.getNode().checked
             ? this.checkedIcon
             : this.uncheckedIcon);
-        this.input.addClass('mdl-icon-toggle__input');
+        this.input.addClass('sui-icon-toggle__input');
         const labelText = this.label.getText();
         this.spanLabel = new Knot('span');
-        this.spanLabel.addClass('mdl-icon__label');
+        this.spanLabel.addClass('sui-icon__label');
         this.spanLabel.setHtml(labelText);
         this.label.insert(this.input);
         this.label.appendChild(this.icon);

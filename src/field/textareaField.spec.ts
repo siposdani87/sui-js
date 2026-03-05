@@ -35,23 +35,22 @@ describe('TextareaField', () => {
     });
 
     describe('render', () => {
-        it('should add MDL classes to input block', () => {
+        it('should add SUI classes to input block', () => {
             textareaField.render();
             const node = textareaField.inputBlock.getNode();
-            expect(node.classList.contains('mdl-textfield')).toBe(true);
-            expect(node.classList.contains('mdl-js-textfield')).toBe(true);
+            expect(node.classList.contains('sui-textfield')).toBe(true);
         });
 
-        it('should add MDL classes to input', () => {
+        it('should add SUI classes to input', () => {
             textareaField.render();
             const node = textareaField.input.getNode();
-            expect(node.classList.contains('mdl-textfield__input')).toBe(true);
+            expect(node.classList.contains('sui-textfield__input')).toBe(true);
         });
 
-        it('should add MDL class to label', () => {
+        it('should add SUI class to label', () => {
             textareaField.render();
             const labelNode = textareaField.label.getNode();
-            expect(labelNode.classList.contains('mdl-textfield__label')).toBe(
+            expect(labelNode.classList.contains('sui-textfield__label')).toBe(
                 true,
             );
         });

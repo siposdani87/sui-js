@@ -3,7 +3,7 @@ import { Knot } from '../core/knot';
 import { Objekt } from '../core/objekt';
 import type { Action } from '../utils';
 /**
- * @description MDL-based dropdown action menu that renders a "more" icon button with
+ * @description Dropdown action menu that renders a "more" icon button with
  * a list of context actions for a data item.
  *
  * @example
@@ -38,11 +38,11 @@ export declare class Dropdown {
      */
     private _init;
     /**
-     * @description Creates and appends the MDL icon button that triggers the dropdown menu.
+     * @description Creates and appends the icon button that triggers the dropdown menu.
      */
     private _appendButton;
     /**
-     * @description Creates and appends the MDL menu list element.
+     * @description Creates and appends the menu list element.
      */
     private _appendMenu;
     /**
@@ -56,6 +56,10 @@ export declare class Dropdown {
      * ], item);
      */
     setActions(actions: Array<Action>, item: Objekt): void;
+    /**
+     * @description Binds click events to toggle menu visibility and close on outside click.
+     */
+    private _bindMenuToggle;
     /**
      * @description Renders menu items from the actions array, applying style and disabled states.
      */

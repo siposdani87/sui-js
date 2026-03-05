@@ -1,4 +1,4 @@
-import { eq, typeCast } from '../utils/operation';
+import { eq, isArray, typeCast } from '../utils/operation';
 import { Knot } from '../core/knot';
 import { Query } from '../core/query';
 import { Tooltip } from '../component/tooltip';
@@ -164,7 +164,11 @@ export class BaseField {
      * field.checkValidity(true, false); // force visual update, suppress message
      */
     checkValidity(opt_force = false, opt_showMessage = true) {
-        const isValid = this.isValid();
+        const value = this.getValue();
+        const hasValue = isArray(value) ? value.length > 0 : !!value;
+        const isValid = this.isDisabled()
+            ? !this.isRequired() || hasValue
+            : this.isValid();
         if (isValid) {
             this.setError('');
         }
@@ -173,7 +177,7 @@ export class BaseField {
         }
         const upgradedKnot = this._getUpgradedKnot();
         if (opt_force && upgradedKnot) {
-            if (this.getValue()) {
+            if (hasValue) {
                 upgradedKnot.addClass('is-dirty');
             }
             if (isValid) {
@@ -332,6 +336,14 @@ export class BaseField {
         }
         else {
             this.input.removeAttribute('disabled');
+        }
+        if (this.inputBlock && !this.inputBlock.isEmpty()) {
+            if (state) {
+                this.inputBlock.addClass('is-disabled');
+            }
+            else {
+                this.inputBlock.removeClass('is-disabled');
+            }
         }
         this.input.getNode().disabled = state;
         this.checkValidity(true, false);

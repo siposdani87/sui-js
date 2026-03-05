@@ -1,4 +1,4 @@
-import { mdl } from '../utils/render';
+import { sui } from '../utils/render';
 import { BaseField } from './baseField';
 import { Knot } from '../core/knot';
 
@@ -65,14 +65,10 @@ export class TextareaField extends BaseField<HTMLInputElement> {
      * @override
      */
     override render(): void {
-        this.inputBlock.addClass([
-            'mdl-textfield',
-            'mdl-js-textfield',
-            'mdl-textfield--floating-label',
-        ]);
-        this.input.addClass(['mdl-textfield__input', 'mdl-textarea__input']);
+        this.inputBlock.addClass(['sui-textfield']);
+        this.input.addClass(['sui-textfield__input', 'sui-textarea__input']);
         if (this.label && this.label.exists()) {
-            this.label.addClass('mdl-textfield__label');
+            this.label.addClass('sui-textfield__label');
         }
 
         if (this._isRichText()) {
@@ -93,8 +89,8 @@ export class TextareaField extends BaseField<HTMLInputElement> {
 
         this.richText = new Knot('div');
         this.richText.addClass([
-            'mdl-textfield__input',
-            'mdl-textarea__input',
+            'sui-textfield__input',
+            'sui-textarea__input',
             'textbox',
         ]);
         this.richText.setHtml(value);
@@ -258,11 +254,17 @@ export class TextareaField extends BaseField<HTMLInputElement> {
             this.inputBlock.addClass('is-invalid');
         }
 
-        if (this._isRichText() && this.isDisabled()) {
-            this.richTextKnot.contentEditable = 'false';
+        if (this._isRichText()) {
+            if (this.isDisabled()) {
+                this.inputBlock.addClass('is-disabled');
+                this.richTextKnot.contentEditable = 'false';
+            } else {
+                this.inputBlock.removeClass('is-disabled');
+                this.richTextKnot.contentEditable = 'true';
+            }
         }
 
-        mdl(this.inputBlock);
+        sui(this.inputBlock);
     }
 
     /**

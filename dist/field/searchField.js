@@ -1,5 +1,5 @@
 import { eq } from '../utils/operation';
-import { mdl } from '../utils/render';
+import { sui } from '../utils/render';
 import { BaseField } from './baseField';
 import { Knot } from '../core/knot';
 import { consoleDebug } from '../utils/log';
@@ -52,26 +52,21 @@ export class SearchField extends BaseField {
     render() {
         this.inputBlock.addClass([
             'search-field',
-            'mdl-textfield',
-            'mdl-js-textfield',
-            'mdl-textfield--expandable',
+            'sui-textfield',
+            'sui-textfield--expandable',
         ]);
-        this.input.addClass(['mdl-textfield__input']);
-        this.label.addClass([
-            'mdl-button',
-            'mdl-js-button',
-            'mdl-button--icon',
-        ]);
+        this.input.addClass(['sui-textfield__input']);
+        this.label.addClass(['sui-button', 'sui-button--icon']);
         const iconKnot = new Knot('em');
         iconKnot.addClass(['material-icons', 'search-button']);
         iconKnot.setHtml('search');
         this.label.insert(iconKnot);
         this.holderKnot = new Knot('div');
-        this.holderKnot.addClass('mdl-textfield__expandable-holder');
+        this.holderKnot.addClass('sui-textfield__expandable-holder');
         this.holderKnot.appendChild(this.input);
         this.inputBlock.appendChild(this.holderKnot);
         const labelKnot = new Knot('label');
-        labelKnot.addClass('mdl-textfield__label');
+        labelKnot.addClass('sui-textfield__label');
         this.holderKnot.appendChild(labelKnot);
         this._initClearButton();
         this.refresh();
@@ -84,7 +79,10 @@ export class SearchField extends BaseField {
         if (this.isRequired() && this.getValue() === '') {
             this.inputBlock.addClass('is-invalid');
         }
-        mdl(this.inputBlock);
+        if (this.isDisabled()) {
+            this.inputBlock.addClass('is-disabled');
+        }
+        sui(this.inputBlock);
     }
     /**
      * @description Creates a clear button that resets the field value and triggers eventEnter.

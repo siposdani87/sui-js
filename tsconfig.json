@@ -6,7 +6,7 @@
     "declaration": true,
     "strict": true,
     "outDir": "dist",
-    "types": ["google.maps", "jest", "material-design-lite", "dom-view-transitions"],
+    "types": ["google.maps", "jest", "dom-view-transitions"],
     "lib": ["ESNext", "DOM"],
     "skipLibCheck": true,
     "noImplicitAny": true,

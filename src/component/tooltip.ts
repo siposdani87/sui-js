@@ -2,11 +2,11 @@ import { isNull, format } from '../utils/operation';
 import { Knot } from '../core/knot';
 import { Query } from '../core/query';
 import { generateId } from '../utils/coder';
-import { mdl } from '../utils/render';
 
 /**
- * @description MDL tooltip wrapper with directional positioning (TOP, BOTTOM, LEFT, RIGHT).
+ * @description SUI tooltip with directional positioning (TOP, BOTTOM, LEFT, RIGHT).
  * Reads tooltip text from the element's title or desc attribute.
+ * Handles show/hide on mouseenter/mouseleave with CSS positioning.
  *
  * @example
  * const tooltip = new Tooltip(buttonKnot, 'BOTTOM');
@@ -21,6 +21,7 @@ export class Tooltip {
     valid: boolean;
     positionCssClass!: string;
     tooltip!: Knot;
+    private _position: string;
 
     /**
      * @description Creates a new Tooltip for the given element with directional positioning.
@@ -30,28 +31,29 @@ export class Tooltip {
     constructor(element: Knot, opt_position: string | undefined = 'TOP') {
         this.element = element;
         this.valid = false;
+        this._position = opt_position ?? 'TOP';
         this._initPositions(opt_position);
         this._init();
     }
 
     /**
-     * @description Maps the position string to the corresponding MDL CSS class.
+     * @description Maps the position string to the corresponding SUI CSS class.
      * @param {string} [opt_position] - Direction string.
      */
     private _initPositions(opt_position: string | undefined = ''): void {
-        this.positionCssClass = 'mdl-tooltip--top';
+        this.positionCssClass = 'sui-tooltip--top';
         switch (opt_position) {
             case 'TOP':
-                this.positionCssClass = 'mdl-tooltip--top';
+                this.positionCssClass = 'sui-tooltip--top';
                 break;
             case 'BOTTOM':
-                this.positionCssClass = 'mdl-tooltip--bottom';
+                this.positionCssClass = 'sui-tooltip--bottom';
                 break;
             case 'LEFT':
-                this.positionCssClass = 'mdl-tooltip--left';
+                this.positionCssClass = 'sui-tooltip--left';
                 break;
             case 'RIGHT':
-                this.positionCssClass = 'mdl-tooltip--right';
+                this.positionCssClass = 'sui-tooltip--right';
                 break;
         }
     }
@@ -72,7 +74,7 @@ export class Tooltip {
         if (!opt_message) {
             opt_message = this.element.getAttribute('desc') || '';
             if (opt_message) {
-                this.tooltip.addClass('mdl-tooltip--large');
+                this.tooltip.addClass('sui-tooltip--large');
             }
             opt_message = this.element.getAttribute('title') || opt_message;
         }
@@ -95,7 +97,7 @@ export class Tooltip {
         ).getKnot();
         oldElement.remove();
 
-        const cssClasses = ['mdl-tooltip', this.positionCssClass];
+        const cssClasses = ['sui-tooltip', this.positionCssClass];
         this.tooltip = new Knot('span');
         this.tooltip.addClass(cssClasses);
         this.tooltip.setFor(id);
@@ -103,7 +105,7 @@ export class Tooltip {
     }
 
     /**
-     * @description Renders the tooltip with the given or auto-detected message, and upgrades MDL components.
+     * @description Renders the tooltip with the given or auto-detected message, and binds hover events.
      * @param {string} [opt_message] - Optional explicit tooltip message.
      *
      * @example
@@ -116,14 +118,27 @@ export class Tooltip {
     }
 
     /**
-     * @description Removes desc/title attributes from the element and upgrades the MDL tooltip.
+     * @description Removes desc/title attributes from the element and binds hover events for show/hide.
      */
     private _handleAttributes(): void {
         if (this.valid) {
             this.element.removeAttribute('desc');
             this.element.removeAttribute('title');
-            mdl(this.tooltip);
+            this._bindHoverEvents();
         }
+    }
+
+    /**
+     * @description Binds mouseenter/mouseleave events on the target element to show/hide the tooltip.
+     */
+    private _bindHoverEvents(): void {
+        const el = this.element.getNode();
+        el.addEventListener('mouseenter', () => {
+            this.open();
+        });
+        el.addEventListener('mouseleave', () => {
+            this.close();
+        });
     }
 
     /**
@@ -146,12 +161,54 @@ export class Tooltip {
     }
 
     /**
+     * @description Calculates and applies the tooltip position relative to the target element.
+     */
+    private _updatePosition(): void {
+        const elementRect = this.element.getNode().getBoundingClientRect();
+        const tooltipNode = this.tooltip.getNode();
+        const tooltipRect = tooltipNode.getBoundingClientRect();
+        const gap = 8;
+        const centerX =
+            elementRect.left + (elementRect.width - tooltipRect.width) / 2;
+        const centerY =
+            elementRect.top + (elementRect.height - tooltipRect.height) / 2;
+
+        let top: number;
+        let left: number;
+
+        switch (this._position) {
+            case 'BOTTOM':
+                top = elementRect.bottom + gap;
+                left = centerX;
+                break;
+            case 'LEFT':
+                top = centerY;
+                left = elementRect.left - tooltipRect.width - gap;
+                break;
+            case 'RIGHT':
+                top = centerY;
+                left = elementRect.right + gap;
+                break;
+            default:
+                top = elementRect.top - tooltipRect.height - gap;
+                left = centerX;
+                break;
+        }
+
+        this.tooltip.setStyle({
+            top: top + 'px',
+            left: left + 'px',
+        });
+    }
+
+    /**
      * @description Programmatically opens the tooltip by adding the active CSS class.
      *
      * @example
      * tooltip.open();
      */
     open(): void {
+        this._updatePosition();
         this.tooltip.addClass('is-active');
     }
 

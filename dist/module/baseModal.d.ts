@@ -61,17 +61,17 @@ export declare class BaseModal {
     private _initButtons;
     /**
      * Initializes the minimize button if present in the modal DOM.
-     * Adds MDL button classes and binds the minimize action.
+     * Adds SUI button classes and binds the minimize action.
      */
     private _initMinimizeButton;
     /**
      * Initializes the maximize button if present in the modal DOM.
-     * Adds MDL button classes and binds the maximize action.
+     * Adds SUI button classes and binds the maximize action.
      */
     private _initMaximizeButton;
     /**
      * Initializes the close button if present in the modal DOM.
-     * Adds MDL button classes and binds the cancel action, which
+     * Adds SUI button classes and binds the cancel action, which
      * executes the cancel callback and then closes the modal.
      */
     private _initCloseButton;

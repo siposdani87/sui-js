@@ -1,10 +1,10 @@
 import type { Knot } from '../core';
 import { BaseField } from './baseField';
 /**
- * Form submit button with MDL primary styling.
+ * Form submit button with primary styling.
  *
- * @description Extends {@link BaseField} to render a Material Design Lite raised
- * primary button used for form submission.
+ * @description Extends {@link BaseField} to render a raised primary button
+ * used for form submission.
  *
  * @example
  * const submitButton = new SubmitButton(inputKnot);
@@ -24,11 +24,11 @@ export declare class SubmitButton extends BaseField<HTMLInputElement> {
      */
     private _init;
     /**
-     * Renders the submit button with MDL raised primary classes.
+     * Renders the submit button with raised primary classes.
      */
     render(): void;
     /**
-     * Refreshes the MDL submit button component.
+     * Refreshes the submit button component.
      */
     refresh(): void;
 }

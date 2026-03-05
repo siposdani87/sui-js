@@ -1,52 +1,63 @@
 /**
  * @module render
  *
- * Material Design Lite rendering utilities.
+ * Rendering utilities for SUI custom behaviors.
  *
- * Provides a helper for triggering MDL component upgrades on DOM elements
+ * Provides helpers for applying SUI custom behaviors on DOM elements
  * so that dynamically inserted markup is properly enhanced.
  *
  * @category Utility
  */
 import { Knot } from '../core';
-const componentHandler = window['componentHandler'];
 /**
- * Triggers a Material Design Lite component upgrade on a DOM element.
+ * Applies SUI custom behaviors to a DOM element.
  *
- * If `opt_forceDowngrade` is `true` (the default), any existing MDL
- * components on the element are downgraded first, allowing clean
- * re-initialization. When `node` is falsy the entire DOM is upgraded
- * via `componentHandler.upgradeDom()`.
+ * Initializes textfield state management (focus/blur/input listeners)
+ * on `.sui-textfield` elements within the given node. Uses a
+ * `data-sui-init` guard to prevent duplicate initialization.
  *
  * Accepts either a {@link Knot} wrapper or a raw `HTMLElement`.
  *
- * @param node - The element to upgrade. Pass a {@link Knot} instance or
- *   a raw `HTMLElement`. If falsy, the entire document is upgraded.
- * @param opt_forceDowngrade - When `true`, downgrades existing MDL
- *   components before upgrading. Defaults to `true`.
+ * @param node - The element to enhance. Pass a {@link Knot} instance or
+ *   a raw `HTMLElement`.
  * @category Utility
  *
  * @example
- * // Upgrade a Knot element with forced downgrade
- * mdl(myKnot);
- *
- * @example
- * // Upgrade without downgrading first
- * mdl(myKnot, false);
- *
- * @example
- * // Upgrade the entire DOM
- * mdl(null);
+ * // Enhance a Knot element with SUI behaviors
+ * sui(myKnot);
  */
-export const mdl = (node, opt_forceDowngrade = true) => {
+export const sui = (node) => {
     const element = node instanceof Knot ? node.getNode() : node;
-    if (node) {
-        if (opt_forceDowngrade) {
-            componentHandler.downgradeElements(element);
-        }
-        componentHandler.upgradeElement(element);
+    if (!element) {
+        return;
     }
-    else {
-        componentHandler.upgradeDom();
+    const textfields = element.classList.contains('sui-textfield')
+        ? [element]
+        : Array.from(element.querySelectorAll('.sui-textfield'));
+    for (const container of textfields) {
+        if (container.dataset['suiInit']) {
+            continue;
+        }
+        container.dataset['suiInit'] = '1';
+        const input = container.querySelector('.sui-textfield__input');
+        if (input) {
+            if (input.value) {
+                container.classList.add('is-dirty');
+            }
+            input.addEventListener('focus', () => {
+                container.classList.add('is-focused');
+            });
+            input.addEventListener('blur', () => {
+                container.classList.remove('is-focused');
+            });
+            input.addEventListener('input', () => {
+                if (input.value) {
+                    container.classList.add('is-dirty');
+                }
+                else {
+                    container.classList.remove('is-dirty');
+                }
+            });
+        }
     }
 };

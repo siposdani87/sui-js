@@ -2,7 +2,7 @@
 
 .file-field {
     input[type='file'] {
-        &.mdl-textfield__input {
+        &.sui-textfield__input {
             &::-webkit-file-upload-button {
                 opacity: 0;
                 width: 0;
@@ -20,8 +20,8 @@
         margin-bottom: 5px;
     }
 
-    .action-container {
-        top: 130px !important;
+    &.file-field .action-container {
+        top: 130px;
     }
 
     &.is-disabled {

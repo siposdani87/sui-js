@@ -65,10 +65,10 @@ describe('Helper', () => {
             expect(button.getHtml()).toContain('Submit');
         });
 
-        it('should add MDL css classes', () => {
+        it('should add SUI css classes', () => {
             const button = helper.createButton('Submit', jest.fn());
-            expect(button.hasClass('mdl-button')).toBe(true);
-            expect(button.hasClass('mdl-js-button')).toBe(true);
+            expect(button.hasClass('sui-button')).toBe(true);
+            expect(button.hasClass('sui-button--raised')).toBe(true);
         });
 
         it('should add custom css classes', () => {
@@ -101,9 +101,9 @@ describe('Helper', () => {
             expect(iconEl.textContent).toBe('edit');
         });
 
-        it('should add icon-specific MDL classes', () => {
+        it('should add icon-specific SUI classes', () => {
             const button = helper.createIconButton('edit', jest.fn());
-            expect(button.hasClass('mdl-button--icon')).toBe(true);
+            expect(button.hasClass('sui-button--icon')).toBe(true);
         });
     });
 
@@ -129,7 +129,7 @@ describe('Helper', () => {
             document.body.appendChild(el);
             const knot = new Knot(el);
             helper.linkElement(knot, jest.fn(), '', 'A tooltip', true, []);
-            // _setTooltip creates a Tooltip and calls mdl
+            // _setTooltip creates a Tooltip
             expect(knot.getId()).toContain('link');
         });
 
@@ -143,14 +143,13 @@ describe('Helper', () => {
     });
 
     describe('buttonElement', () => {
-        it('should add MDL css classes to existing button', () => {
+        it('should add SUI css classes to existing button', () => {
             const el = document.createElement('button');
             document.body.appendChild(el);
             const knot = new Knot(el);
             helper.buttonElement(knot, jest.fn());
-            expect(knot.hasClass('mdl-button')).toBe(true);
-            expect(knot.hasClass('mdl-js-button')).toBe(true);
-            expect(knot.hasClass('mdl-button--raised')).toBe(true);
+            expect(knot.hasClass('sui-button')).toBe(true);
+            expect(knot.hasClass('sui-button--raised')).toBe(true);
         });
 
         it('should set id on button without id', () => {

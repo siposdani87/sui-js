@@ -79,7 +79,7 @@ export declare class Flash {
      */
     private _getFlashKnot;
     /**
-     * Creates an MDL-styled close button for a flash message.
+     * Creates a styled close button for a flash message.
      *
      * @param flashKnot The flash element that this button will close.
      * @param opt_closeCallback Callback invoked when the button is clicked.

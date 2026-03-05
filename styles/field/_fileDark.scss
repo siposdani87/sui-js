@@ -3,7 +3,7 @@
 .dark-theme {
     .file-field {
         input[type='file'] {
-            &.mdl-textfield__input {
+            &.sui-textfield__input {
                 &::-webkit-file-upload-button {
                     color: variables.$content-default-dark;
                 }
@@ -16,6 +16,10 @@
             }
 
             .browse-button {
+                color: variables.$primary-disabled-dark;
+            }
+
+            .remove-button {
                 color: variables.$primary-disabled-dark;
             }
         }

@@ -6,7 +6,6 @@ import { Query } from '../core/query';
 import { ContentHandler } from './contentHandler';
 import { Pager } from './pager';
 import { consoleDebug, consoleWarn } from '../utils/log';
-import { mdl } from '../utils/render';
 
 /**
  * @description Card-based data display component with template rendering and pagination.
@@ -242,7 +241,6 @@ export class CardCollection {
         const cardKnot = this._getCardKnot(item);
         this.body.appendChild(cardKnot);
         this.eventCardKnot(cardKnot, item);
-        mdl(cardKnot);
     }
 
     /**
@@ -299,7 +297,6 @@ export class CardCollection {
         eachArray(this._getItems(), (item) => {
             this._addCard(item);
         });
-        mdl(this.body);
     }
 
     /**

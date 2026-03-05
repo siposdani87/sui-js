@@ -1,0 +1,15 @@
+@use '../core/variables';
+
+.dark-theme {
+    .sui-textfield__label {
+        color: variables.$label-default-dark;
+    }
+
+    .sui-textfield {
+        &.is-disabled {
+            .sui-textfield__label {
+                color: variables.$label-disabled-dark;
+            }
+        }
+    }
+}

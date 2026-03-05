@@ -1,0 +1,18 @@
+@use '../core/variables';
+
+.sui-textfield__label {
+    position: absolute;
+    top: 0;
+    margin-right: 10px;
+    color: variables.$label-default-light;
+    display: block;
+    text-overflow: ellipsis;
+}
+
+.sui-textfield {
+    &.is-disabled {
+        .sui-textfield__label {
+            color: variables.$label-disabled-light;
+        }
+    }
+}

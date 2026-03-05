@@ -1,4 +1,4 @@
-import { mdl } from '../utils/render';
+import { sui } from '../utils/render';
 import { BaseField } from './baseField';
 import { Knot } from '../core/knot';
 /**
@@ -46,14 +46,10 @@ export class UrlField extends BaseField {
      * @override
      */
     render() {
-        this.inputBlock.addClass([
-            'mdl-textfield',
-            'mdl-js-textfield',
-            'mdl-textfield--floating-label',
-        ]);
-        this.input.addClass(['mdl-textfield__input']);
+        this.inputBlock.addClass(['sui-textfield']);
+        this.input.addClass(['sui-textfield__input']);
         if (this.label && this.label.exists()) {
-            this.label.addClass('mdl-textfield__label');
+            this.label.addClass('sui-textfield__label');
         }
         if (this.protocol) {
             const protocolKnot = new Knot('span');
@@ -71,6 +67,9 @@ export class UrlField extends BaseField {
         if (this.isRequired() && this.getValue() === '') {
             this.inputBlock.addClass('is-invalid');
         }
-        mdl(this.inputBlock);
+        if (this.isDisabled()) {
+            this.inputBlock.addClass('is-disabled');
+        }
+        sui(this.inputBlock);
     }
 }

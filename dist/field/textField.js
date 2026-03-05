@@ -1,4 +1,4 @@
-import { mdl } from '../utils/render';
+import { sui } from '../utils/render';
 import { BaseField } from './baseField';
 /**
  * @description Standard text input field with Material Design Lite styling.
@@ -42,14 +42,10 @@ export class TextField extends BaseField {
      * @description Renders the text field by applying MDL text field classes to the input block, input, and label.
      */
     render() {
-        this.inputBlock.addClass([
-            'mdl-textfield',
-            'mdl-js-textfield',
-            'mdl-textfield--floating-label',
-        ]);
-        this.input.addClass(['mdl-textfield__input']);
+        this.inputBlock.addClass(['sui-textfield']);
+        this.input.addClass(['sui-textfield__input']);
         if (this.label && this.label.exists()) {
-            this.label.addClass('mdl-textfield__label');
+            this.label.addClass('sui-textfield__label');
         }
         this.refresh();
     }
@@ -60,7 +56,10 @@ export class TextField extends BaseField {
         if (this.isRequired() && this.getValue() === '') {
             this.inputBlock.addClass('is-invalid');
         }
-        mdl(this.inputBlock);
+        if (this.isDisabled()) {
+            this.inputBlock.addClass('is-disabled');
+        }
+        sui(this.inputBlock);
     }
     /**
      * @description Returns the raw string value of the input element without type-casting.

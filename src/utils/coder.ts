@@ -24,7 +24,11 @@ const _fromBytes = (bytes: number[]): string => {
     for (let i = 0; i < bytes.length; i++) {
         binary += String.fromCharCode(bytes[i]!);
     }
-    return decodeURIComponent(escape(binary));
+    try {
+        return decodeURIComponent(escape(binary));
+    } catch {
+        return binary;
+    }
 };
 
 /**
@@ -59,7 +63,11 @@ export const encodeBase64 = (text: string): string => {
  * // 'Hello, World!'
  */
 export const decodeBase64 = (encodedText: string): string => {
-    return decodeURIComponent(escape(atob(encodedText)));
+    try {
+        return decodeURIComponent(escape(atob(encodedText)));
+    } catch {
+        return atob(encodedText);
+    }
 };
 
 /**
@@ -114,16 +122,20 @@ export const encrypt = (value: any, passPhrase: string): string => {
  */
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
 export const decrypt = (item: string, passPhrase: string): any => {
-    const binary = atob(item);
-    const keyBytes = _toBytes(passPhrase);
-    const resultBytes: number[] = [];
-    for (let i = 0; i < binary.length; i++) {
-        resultBytes.push(
-            binary.charCodeAt(i) ^ keyBytes[i % keyBytes.length]!,
-        );
+    try {
+        const binary = atob(item);
+        const keyBytes = _toBytes(passPhrase);
+        const resultBytes: number[] = [];
+        for (let i = 0; i < binary.length; i++) {
+            resultBytes.push(
+                binary.charCodeAt(i) ^ keyBytes[i % keyBytes.length]!,
+            );
+        }
+        const value = _fromBytes(resultBytes);
+        return JSON.parse(value || 'null');
+    } catch {
+        return null;
     }
-    const value = _fromBytes(resultBytes);
-    return JSON.parse(value || 'null');
 };
 
 /**
@@ -160,18 +172,16 @@ export const md5 = (str: string): string => {
 
     // Per-round shift amounts
     const s = [
-        7, 12, 17, 22, 7, 12, 17, 22, 7, 12, 17, 22, 7, 12, 17, 22, 5, 9,
-        14, 20, 5, 9, 14, 20, 5, 9, 14, 20, 5, 9, 14, 20, 4, 11, 16, 23, 4,
-        11, 16, 23, 4, 11, 16, 23, 4, 11, 16, 23, 6, 10, 15, 21, 6, 10, 15,
-        21, 6, 10, 15, 21, 6, 10, 15, 21,
+        7, 12, 17, 22, 7, 12, 17, 22, 7, 12, 17, 22, 7, 12, 17, 22, 5, 9, 14,
+        20, 5, 9, 14, 20, 5, 9, 14, 20, 5, 9, 14, 20, 4, 11, 16, 23, 4, 11, 16,
+        23, 4, 11, 16, 23, 4, 11, 16, 23, 6, 10, 15, 21, 6, 10, 15, 21, 6, 10,
+        15, 21, 6, 10, 15, 21,
     ];
 
     // Pre-computed constants (floor(2^32 * abs(sin(i+1))))
     const K: number[] = [];
     for (let i = 0; i < 64; i++) {
-        K.push(
-            (Math.floor(Math.abs(Math.sin(i + 1)) * 0x100000000) >>> 0) | 0,
-        );
+        K.push((Math.floor(Math.abs(Math.sin(i + 1)) * 0x100000000) >>> 0) | 0);
     }
 
     let a0 = 0x67452301 | 0;

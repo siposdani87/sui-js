@@ -1,0 +1,32 @@
+@use '../core/variables';
+
+.sui-sliderfield {
+    .sui-slider {
+        appearance: none;
+        width: 100%;
+        height: 4px;
+        margin: 14px 0;
+        background-color: variables.$input-default-light;
+        border-radius: 2px;
+        outline: none;
+        cursor: pointer;
+
+        &::-webkit-slider-thumb {
+            appearance: none;
+            width: 16px;
+            height: 16px;
+            border-radius: 50%;
+            background: variables.$primary-default-light;
+            cursor: pointer;
+        }
+
+        &::-moz-range-thumb {
+            width: 16px;
+            height: 16px;
+            border: none;
+            border-radius: 50%;
+            background: variables.$primary-default-light;
+            cursor: pointer;
+        }
+    }
+}

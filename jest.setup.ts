@@ -3,16 +3,6 @@ import { setReleaseMode } from './src/common/config';
 
 setReleaseMode(false);
 
-window['componentHandler'] = {
-    upgradeDom: () => { },
-    upgradeElement: (_element: HTMLElement) => { },
-    upgradeElements: (_elements: HTMLCollection | HTMLElement | HTMLElement[] | NodeList) => { },
-    upgradeAllRegistered: () => { },
-    registerUpgradedCallback: (_jsClass: string, _callback: (element: HTMLElement) => any) => { },
-    register: (_config: any) => { },
-    downgradeElements: (_nodes: Node | Node[] | NodeList) => { }
-};
-
 let logSpy: jest.SpyInstance | null = null;
 let errorSpy: jest.SpyInstance | null = null;
 let infoSpy: jest.SpyInstance | null = null;

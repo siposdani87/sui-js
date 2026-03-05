@@ -149,7 +149,7 @@
         box-shadow: 0 2px 20px 0 rgba(colors.$black, 0.75);
     }
 
-    > .mdl-button {
+    > .sui-button {
         margin-right: 0.5em;
     }
 
@@ -180,6 +180,7 @@
 
             .action-container {
                 top: 4px;
+                position: absolute;
             }
         }
 
@@ -187,7 +188,7 @@
             padding: 0;
             margin-left: 0.5em;
 
-            label.mdl-button {
+            label.sui-button {
                 top: 0;
             }
         }
@@ -199,7 +200,7 @@
         align-items: center;
         margin-left: 0.5em;
 
-        .mdl-button {
+        .sui-button {
             margin-left: 0.3em;
         }
     }

@@ -25,16 +25,16 @@ describe('ProgressBar', () => {
     });
 
     describe('show', () => {
-        it('should add mdl-progress class to container', () => {
+        it('should add sui-progress class to container', () => {
             progressBar.show();
             const node = progressBar.progressBarContainer.getNode();
-            expect(node.classList.contains('mdl-progress')).toBe(true);
+            expect(node.classList.contains('sui-progress')).toBe(true);
         });
 
-        it('should add mdl-progress__indeterminate class to container', () => {
+        it('should add sui-progress__indeterminate class to container', () => {
             progressBar.show();
             const node = progressBar.progressBarContainer.getNode();
-            expect(node.classList.contains('mdl-progress__indeterminate')).toBe(
+            expect(node.classList.contains('sui-progress--indeterminate')).toBe(
                 true,
             );
         });
@@ -42,8 +42,8 @@ describe('ProgressBar', () => {
         it('should add classes to header bar', () => {
             progressBar.show();
             const node = progressBar.progressBarHeader.getNode();
-            expect(node.classList.contains('mdl-progress')).toBe(true);
-            expect(node.classList.contains('mdl-progress__indeterminate')).toBe(
+            expect(node.classList.contains('sui-progress')).toBe(true);
+            expect(node.classList.contains('sui-progress--indeterminate')).toBe(
                 true,
             );
         });
@@ -60,11 +60,11 @@ describe('ProgressBar', () => {
             progressBar.show();
             const dialogNode = progressBar.progressBarDialog.getNode();
             expect(
-                dialogNode.classList.contains('mdl-progress__indeterminate'),
+                dialogNode.classList.contains('sui-progress--indeterminate'),
             ).toBe(true);
             const containerNode = progressBar.progressBarContainer.getNode();
             expect(
-                containerNode.classList.contains('mdl-progress__indeterminate'),
+                containerNode.classList.contains('sui-progress--indeterminate'),
             ).toBe(false);
         });
 
@@ -73,7 +73,7 @@ describe('ProgressBar', () => {
             progressBar.show();
             const confirmNode = progressBar.progressBarConfirm.getNode();
             expect(
-                confirmNode.classList.contains('mdl-progress__indeterminate'),
+                confirmNode.classList.contains('sui-progress--indeterminate'),
             ).toBe(true);
         });
     });
@@ -83,8 +83,8 @@ describe('ProgressBar', () => {
             progressBar.show();
             progressBar.hide();
             const node = progressBar.progressBarContainer.getNode();
-            expect(node.classList.contains('mdl-progress')).toBe(false);
-            expect(node.classList.contains('mdl-progress__indeterminate')).toBe(
+            expect(node.classList.contains('sui-progress')).toBe(false);
+            expect(node.classList.contains('sui-progress--indeterminate')).toBe(
                 false,
             );
         });
@@ -103,7 +103,7 @@ describe('ProgressBar', () => {
             progressBar.hide(true);
             expect(progressBar.options.counter).toBe(0);
             const node = progressBar.progressBarContainer.getNode();
-            expect(node.classList.contains('mdl-progress')).toBe(false);
+            expect(node.classList.contains('sui-progress')).toBe(false);
         });
 
         it('should reset counter on force-hide', () => {
@@ -119,7 +119,7 @@ describe('ProgressBar', () => {
             progressBar.lock();
             progressBar.show();
             const node = progressBar.progressBarContainer.getNode();
-            expect(node.classList.contains('mdl-progress')).toBe(false);
+            expect(node.classList.contains('sui-progress')).toBe(false);
         });
 
         it('should allow progress display after unlock', () => {
@@ -127,33 +127,35 @@ describe('ProgressBar', () => {
             progressBar.unlock();
             progressBar.show();
             const node = progressBar.progressBarContainer.getNode();
-            expect(node.classList.contains('mdl-progress')).toBe(true);
+            expect(node.classList.contains('sui-progress')).toBe(true);
         });
     });
 
     describe('setProgress', () => {
-        it('should buffer progress value', () => {
+        it('should set width on inner bar element', () => {
             progressBar.setProgress(75);
-            expect(progressBar.progressValue).toBe(75);
+            const barNode = progressBar.barContainer.getNode();
+            expect(barNode.style.width).toBe('75%');
         });
 
-        it('should add mdl-progress class', () => {
+        it('should add sui-progress class', () => {
             progressBar.setProgress(50);
             const node = progressBar.progressBarContainer.getNode();
-            expect(node.classList.contains('mdl-progress')).toBe(true);
+            expect(node.classList.contains('sui-progress')).toBe(true);
         });
     });
 
     describe('setBuffer', () => {
-        it('should buffer the buffer value', () => {
+        it('should set width on buffer bar element', () => {
             progressBar.setBuffer(90);
-            expect(progressBar.bufferValue).toBe(90);
+            const bufferNode = progressBar.bufferContainer.getNode();
+            expect(bufferNode.style.width).toBe('90%');
         });
 
-        it('should add mdl-progress class', () => {
+        it('should add sui-progress class', () => {
             progressBar.setBuffer(80);
             const node = progressBar.progressBarContainer.getNode();
-            expect(node.classList.contains('mdl-progress')).toBe(true);
+            expect(node.classList.contains('sui-progress')).toBe(true);
         });
     });
 });

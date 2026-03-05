@@ -62,8 +62,11 @@ export class ColorField extends BaseField {
      * @override
      */
     refresh() {
-        if (this.isRequired() && this.getValue() === '') {
+        if (this.isRequired() && !this.getValue()) {
             this.inputBlock.addClass('is-invalid');
+        }
+        else {
+            this.inputBlock.removeClass('is-invalid');
         }
         if (this.isDisabled()) {
             this.inputBlock.addClass('is-disabled');

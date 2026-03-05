@@ -14,6 +14,12 @@
             border-color: variables.$input-default-dark;
         }
 
+        &.is-invalid {
+            .datetime-input {
+                border-color: variables.$error-default-dark;
+            }
+        }
+
         &.is-disabled {
             .field-label {
                 color: variables.$label-disabled-dark;
@@ -25,6 +31,12 @@
 
             .datetime-input {
                 border-color: variables.$input-disabled-dark;
+            }
+
+            &.is-invalid {
+                .datetime-input {
+                    border-color: variables.$error-disabled-dark;
+                }
             }
         }
     }

@@ -63,15 +63,15 @@ describe('TextField', () => {
     });
 
     describe('render', () => {
-        it('should add MDL classes', () => {
+        it('should add SUI classes', () => {
             const inputBlock = new Query<HTMLElement>(
                 '.input-block.field-text',
             ).getKnot();
             const { input, label, error } = parseInputBlock(inputBlock);
             const textField = new TextField(input, label, error, inputBlock);
             textField.render();
-            expect(inputBlock.hasClass('mdl-textfield')).toBe(true);
-            expect(input.hasClass('mdl-textfield__input')).toBe(true);
+            expect(inputBlock.hasClass('sui-textfield')).toBe(true);
+            expect(input.hasClass('sui-textfield__input')).toBe(true);
         });
     });
 

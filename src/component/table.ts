@@ -19,7 +19,7 @@ import { Tooltip } from './tooltip';
 import { consoleDebug } from '../utils/log';
 import { generateId } from '../utils/coder';
 import type { Action } from '../utils';
-import { mdl } from '../utils/render';
+import { sui } from '../utils/render';
 
 /**
  * @description Maps column names to calculation functions that produce cell content.
@@ -158,21 +158,13 @@ export class Table<T extends Objekt = Objekt> {
             this.options.columns[this.options.columns.length - 1] === 'search'
         ) {
             const searchKnot = new Knot('div');
-            searchKnot.addClass([
-                'mdl-textfield',
-                'mdl-js-textfield',
-                'mdl-textfield--expandable',
-            ]);
+            searchKnot.addClass(['sui-textfield', 'sui-textfield--expandable']);
             this.headerKnots
                 .get(this.headerKnots.size() - 1)!
                 .insert(searchKnot);
 
             const labelKnot = new Knot('label');
-            labelKnot.addClass([
-                'mdl-button',
-                'mdl-js-button',
-                'mdl-button--icon',
-            ]);
+            labelKnot.addClass(['sui-button', 'sui-button--icon']);
             labelKnot.setFor('table-search');
             searchKnot.appendChild(labelKnot);
 
@@ -182,13 +174,13 @@ export class Table<T extends Objekt = Objekt> {
             labelKnot.appendChild(iconKnot);
 
             const inputBlock = new Knot('div');
-            inputBlock.addClass('mdl-textfield__expandable-holder');
+            inputBlock.addClass('sui-textfield__expandable-holder');
             searchKnot.appendChild(inputBlock);
 
             const inputKnot = new Knot<HTMLInputElement>('input');
             inputKnot.setAttribute('type', 'text');
             inputKnot.setId('table-search');
-            inputKnot.addClass('mdl-textfield__input');
+            inputKnot.addClass('sui-textfield__input');
             inputKnot.addEventListener('keypress', (inputKnot, event) => {
                 if (eq(event.keyCode, 13)) {
                     this.query = inputKnot.getNode().value;
@@ -199,10 +191,10 @@ export class Table<T extends Objekt = Objekt> {
             inputBlock.appendChild(inputKnot);
 
             const subLabelKnot = new Knot('label');
-            subLabelKnot.addClass('mdl-textfield__label');
+            subLabelKnot.addClass('sui-textfield__label');
             inputBlock.appendChild(subLabelKnot);
 
-            mdl(searchKnot);
+            sui(searchKnot);
         }
     }
 
@@ -636,10 +628,9 @@ export class Table<T extends Objekt = Objekt> {
             const buttonKnot = new Knot<HTMLButtonElement>('button');
             containerKnot.appendChild(buttonKnot);
             buttonKnot.addClass([
-                'mdl-button',
-                'mdl-js-button',
-                'mdl-button--icon',
-                'mdl-button--primary',
+                'sui-button',
+                'sui-button--icon',
+                'sui-button--primary',
             ]);
             if (disabled) {
                 buttonKnot.setAttribute('disabled');
@@ -716,7 +707,6 @@ export class Table<T extends Objekt = Objekt> {
             this._addHeaderRow(item, rowIndex);
             this._addRow(item, rowIndex);
         });
-        mdl(this.tbody);
     }
 
     /**

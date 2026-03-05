@@ -1,40 +1,29 @@
 /**
  * @module render
  *
- * Material Design Lite rendering utilities.
+ * Rendering utilities for SUI custom behaviors.
  *
- * Provides a helper for triggering MDL component upgrades on DOM elements
+ * Provides helpers for applying SUI custom behaviors on DOM elements
  * so that dynamically inserted markup is properly enhanced.
  *
  * @category Utility
  */
 import { Knot } from '../core';
 /**
- * Triggers a Material Design Lite component upgrade on a DOM element.
+ * Applies SUI custom behaviors to a DOM element.
  *
- * If `opt_forceDowngrade` is `true` (the default), any existing MDL
- * components on the element are downgraded first, allowing clean
- * re-initialization. When `node` is falsy the entire DOM is upgraded
- * via `componentHandler.upgradeDom()`.
+ * Initializes textfield state management (focus/blur/input listeners)
+ * on `.sui-textfield` elements within the given node. Uses a
+ * `data-sui-init` guard to prevent duplicate initialization.
  *
  * Accepts either a {@link Knot} wrapper or a raw `HTMLElement`.
  *
- * @param node - The element to upgrade. Pass a {@link Knot} instance or
- *   a raw `HTMLElement`. If falsy, the entire document is upgraded.
- * @param opt_forceDowngrade - When `true`, downgrades existing MDL
- *   components before upgrading. Defaults to `true`.
+ * @param node - The element to enhance. Pass a {@link Knot} instance or
+ *   a raw `HTMLElement`.
  * @category Utility
  *
  * @example
- * // Upgrade a Knot element with forced downgrade
- * mdl(myKnot);
- *
- * @example
- * // Upgrade without downgrading first
- * mdl(myKnot, false);
- *
- * @example
- * // Upgrade the entire DOM
- * mdl(null);
+ * // Enhance a Knot element with SUI behaviors
+ * sui(myKnot);
  */
-export declare const mdl: (node: Knot | HTMLElement, opt_forceDowngrade?: boolean) => void;
+export declare const sui: (node: Knot | HTMLElement) => void;

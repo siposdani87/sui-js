@@ -4,7 +4,7 @@ import { GoogleMap } from '../component/googleMap';
 import { Knot } from '../core/knot';
 import { consoleDebug } from '../utils/log';
 import { generateId } from '../utils/coder';
-import { mdl } from '../utils/render';
+import { sui } from '../utils/render';
 /**
  * Location picker field with an embedded {@link GoogleMap}, geocoding search,
  * and manual latitude/longitude inputs.  The user can search for an address,
@@ -125,14 +125,10 @@ export class LocationField extends BaseField {
      * @override
      */
     render() {
-        this.inputBlock.addClass([
-            'mdl-textfield',
-            'mdl-js-textfield',
-            'mdl-textfield--floating-label',
-        ]);
-        this.input.addClass('mdl-textfield__input');
+        this.inputBlock.addClass(['sui-textfield']);
+        this.input.addClass('sui-textfield__input');
         if (this.label && this.label.exists()) {
-            this.label.addClass('mdl-textfield__label');
+            this.label.addClass('sui-textfield__label');
         }
         this._renderAdvancedInputs();
         this._renderMap();
@@ -147,12 +143,14 @@ export class LocationField extends BaseField {
      */
     refresh() {
         if (this.isDisabled()) {
+            this.inputBlock.addClass('is-disabled');
             this.mapLockKnot.addClass('map-lock');
         }
         else {
+            this.inputBlock.removeClass('is-disabled');
             this.mapLockKnot.removeClass('map-lock');
         }
-        mdl(this.inputBlock);
+        sui(this.inputBlock);
     }
     /**
      * Toggles visibility of the advanced latitude/longitude input panel.
@@ -196,21 +194,17 @@ export class LocationField extends BaseField {
         blockKnot.addClass('col-6');
         this.advancedKnot.appendChild(blockKnot);
         const boxKnot = new Knot('div');
-        boxKnot.addClass([
-            'mdl-textfield',
-            'mdl-js-textfield',
-            'mdl-textfield--floating-label',
-        ]);
+        boxKnot.addClass(['sui-textfield']);
         blockKnot.appendChild(boxKnot);
         const advancedLabel = new Knot('label');
         advancedLabel.setFor(id);
-        advancedLabel.addClass('mdl-textfield__label');
+        advancedLabel.addClass('sui-textfield__label');
         advancedLabel.setHtml(labelText);
         boxKnot.appendChild(advancedLabel);
         const advancedInput = new Knot('input');
         advancedInput.setId(id);
         advancedInput.setAttribute('type', 'text');
-        advancedInput.addClass('mdl-textfield__input');
+        advancedInput.addClass('sui-textfield__input');
         boxKnot.appendChild(advancedInput);
         this._setAdditionalLabel(advancedLabel);
         advancedInput.addEventListener('change', (input) => {

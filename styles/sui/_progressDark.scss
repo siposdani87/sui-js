@@ -1,0 +1,11 @@
+@use '../core/colors';
+
+.dark-theme {
+    .sui-progress {
+        background-color: colors.$black-bright;
+
+        .sui-progress__buffer {
+            opacity: 0.4;
+        }
+    }
+}

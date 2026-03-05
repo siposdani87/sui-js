@@ -1,7 +1,7 @@
 import { typeCast } from '../utils/operation';
 import { BaseField } from './baseField';
 import { Query } from '../core/query';
-import { mdl } from '../utils/render';
+import { sui } from '../utils/render';
 /**
  * @description Base class for checkbox-like fields (checkbox, switch, icon toggle).
  * Extends {@link BaseField} with checked state handling and hidden input support.
@@ -110,8 +110,9 @@ export class BaseCheckboxField extends BaseField {
             this.dataLabelKnot.setHtml('');
         }
         if (this.isDisabled()) {
+            this.label.addClass('is-disabled');
             this.inputBlock.addClass('is-disabled');
         }
-        mdl(this.label, false);
+        sui(this.label);
     }
 }

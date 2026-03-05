@@ -1,0 +1,54 @@
+@use '../core/colors';
+
+.dark-theme {
+    .sui-button {
+        color: colors.$white-dark;
+
+        &:hover {
+            background-color: rgb(255 255 255 / 8%);
+        }
+
+        &:active {
+            background-color: rgb(255 255 255 / 16%);
+        }
+
+        &:disabled {
+            color: rgb(255 255 255 / 30%);
+            background: transparent;
+            cursor: default;
+        }
+    }
+
+    .sui-button--raised {
+        &:disabled {
+            background-color: rgb(255 255 255 / 12%);
+            box-shadow: none;
+        }
+    }
+
+    .sui-button--primary {
+        color: colors.$primary-bright;
+
+        &.sui-button--raised {
+            color: colors.$white;
+
+            &:disabled {
+                background-color: rgb(255 255 255 / 12%);
+                color: rgb(255 255 255 / 30%);
+            }
+        }
+    }
+
+    .sui-button--accent {
+        color: colors.$accent-bright;
+
+        &.sui-button--raised {
+            color: colors.$white;
+
+            &:disabled {
+                background-color: rgb(255 255 255 / 12%);
+                color: rgb(255 255 255 / 30%);
+            }
+        }
+    }
+}

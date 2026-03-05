@@ -1,19 +1,10 @@
-import { Async } from '../core/async';
 import { Objekt } from '../core/objekt';
 import type { Dialog } from './dialog';
 import type { Confirm } from './confirm';
 import type { Knot } from '../core';
 /**
- * Internal interface representing an MDL progress bar instance with
- * methods to set determinate progress and buffer values.
- */
-type ProcessBar = {
-    setProgress: (value: number) => void;
-    setBuffer: (value: number) => void;
-};
-/**
- * Manages Material Design Lite progress bars across multiple application
- * containers: main content, header, dialog, and confirm window.
+ * Manages progress bars across multiple application containers: main content,
+ * header, dialog, and confirm window.
  *
  * The ProgressBar determines which container's bar to activate based on
  * the current state of {@link Dialog} and {@link Confirm} -- when a dialog
@@ -24,6 +15,9 @@ type ProcessBar = {
  * counter, and {@link hide} decrements it. The bars are only removed when
  * the counter reaches zero (or when forced). A {@link lock}/{@link unlock}
  * mechanism can suppress progress display entirely.
+ *
+ * Progress and buffer values are set via direct DOM width styling on inner
+ * bar elements.
  *
  * @see {@link Dialog}
  * @see {@link Confirm}
@@ -47,15 +41,16 @@ export declare class ProgressBar {
     progressBarHeader: Knot;
     progressBarDialog: Knot;
     progressBarConfirm: Knot;
-    async: Async;
-    processContainer: ProcessBar;
-    processHeader: ProcessBar;
-    processDialog: ProcessBar;
-    processConfirm: ProcessBar;
-    progressValue: number;
-    bufferValue: number;
+    barContainer: Knot;
+    barHeader: Knot;
+    barDialog: Knot;
+    barConfirm: Knot;
+    bufferContainer: Knot;
+    bufferHeader: Knot;
+    bufferDialog: Knot;
+    bufferConfirm: Knot;
     /**
-     * Creates a new ProgressBar instance and initializes MDL progress bar
+     * Creates a new ProgressBar instance and initializes progress bar
      * elements in all four containers.
      *
      * @param {Dialog} dialog - The application dialog instance used to
@@ -73,20 +68,24 @@ export declare class ProgressBar {
      */
     private _setOptions;
     /**
-     * Queries all four progress bar DOM elements and sets up the async
-     * upgrade listener for MDL MaterialProgress components.
+     * Queries all four progress bar DOM elements and creates inner bar
+     * and buffer elements for direct width-based progress control.
      */
     private _init;
     /**
-     * Initializes a single progress bar element by adding the MDL class
-     * and registering an upgrade listener to capture the MaterialProgress
-     * instance.
+     * Creates an inner progress bar element inside the given container.
      *
-     * @param {Knot} knot - The DOM wrapper for the progress bar element.
-     * @returns {ProcessBar} A temporary ProcessBar that buffers values
-     *     until the MDL component upgrades.
+     * @param {Knot} knot - The progress bar container.
+     * @returns {Knot} The inner bar element.
      */
-    private _createProgressBar;
+    private _createInnerBar;
+    /**
+     * Creates a buffer bar element inside the given container.
+     *
+     * @param {Knot} knot - The progress bar container.
+     * @returns {Knot} The buffer bar element.
+     */
+    private _createBufferBar;
     /**
      * Routes a set of callbacks to the appropriate progress bar based on
      * the current dialog/confirm open state.
@@ -98,7 +97,7 @@ export declare class ProgressBar {
      */
     private _separateProgressBars;
     /**
-     * Activates the MDL progress class on the appropriate bar(s) unless
+     * Activates the SUI progress class on the appropriate bar(s) unless
      * the progress display is locked.
      */
     private _progress;
@@ -116,7 +115,8 @@ export declare class ProgressBar {
      */
     show(): void;
     /**
-     * Sets a determinate progress value on the appropriate bar(s).
+     * Sets a determinate progress value on the appropriate bar(s) by
+     * setting the width of the inner bar element.
      *
      * @param {number} value - The progress percentage (0--100).
      *
@@ -125,8 +125,8 @@ export declare class ProgressBar {
      */
     setProgress(value: number): void;
     /**
-     * Sets the buffer value on the appropriate progress bar(s). The buffer
-     * represents how much data has been loaded ahead of the current progress.
+     * Sets the buffer value on the appropriate progress bar(s) by setting
+     * the width of the buffer bar element.
      *
      * @param {number} value - The buffer percentage (0--100).
      *
@@ -149,8 +149,7 @@ export declare class ProgressBar {
     hide(opt_force?: boolean): void;
     /**
      * Locks the progress bar, preventing any further progress display until
-     * {@link unlock} is called. Existing indeterminate animations remain
-     * visible but new activations are suppressed.
+     * {@link unlock} is called.
      *
      * @example
      * progressBar.lock();
@@ -166,4 +165,3 @@ export declare class ProgressBar {
      */
     unlock(): void;
 }
-export {};

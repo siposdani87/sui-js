@@ -1,18 +1,19 @@
-import { mdl } from './render';
+import { sui } from './render';
+import { Knot } from '../core';
 
 describe('render', () => {
-    it('should render mdl components', () => {
-        const upgradeDomSpy = jest.spyOn(
-            window['componentHandler'],
-            'upgradeDom',
-        );
-        const element = document.getElementsByClassName(
-            '.template-view',
-        )[0] as HTMLElement;
+    describe('sui', () => {
+        it('should accept a Knot element without error', () => {
+            const element = document.createElement('div');
+            const knot = new Knot(element);
 
-        mdl(element);
+            expect(() => sui(knot)).not.toThrow();
+        });
 
-        expect(upgradeDomSpy).toHaveBeenCalled();
-        upgradeDomSpy.mockRestore();
+        it('should accept a raw HTMLElement without error', () => {
+            const element = document.createElement('div');
+
+            expect(() => sui(element)).not.toThrow();
+        });
     });
 });

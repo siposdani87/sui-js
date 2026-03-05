@@ -2,7 +2,7 @@ import { Knot } from '../core/knot';
 import { Objekt } from '../core/objekt';
 import { Query } from '../core/query';
 import { BaseModal } from './baseModal';
-import { mdl } from '../utils/render';
+import { sui } from '../utils/render';
 /**
  * Confirmation dialog modal with customizable message, action buttons,
  * and type-based styling. Extends {@link BaseModal} to provide a simple
@@ -123,13 +123,9 @@ export class Confirm extends BaseModal {
         this.modalBody.setHtml(message);
         this.modalFooter.removeChildren();
         if (opt_cancelText) {
-            const cancelCssClasses = [
-                'mdl-button',
-                'mdl-js-button',
-                'mdl-js-ripple-effect',
-            ];
+            const cancelCssClasses = ['sui-button'];
             if (opt_type === 'choice') {
-                cancelCssClasses.push('mdl-button--primary');
+                cancelCssClasses.push('sui-button--primary');
             }
             const cancelButton = new Knot('button');
             cancelButton.setAttribute('type', 'button');
@@ -138,18 +134,13 @@ export class Confirm extends BaseModal {
             cancelButton.addEventListener('click', this._actionCancel.bind(this));
             this.modalFooter.appendChild(cancelButton);
         }
-        const okCssClasses = [
-            'mdl-button',
-            'mdl-js-button',
-            'mdl-js-ripple-effect',
-            'mdl-button--primary',
-        ];
+        const okCssClasses = ['sui-button', 'sui-button--primary'];
         const okButton = new Knot('button');
         okButton.setAttribute('type', 'button');
         okButton.setHtml(okText);
         okButton.addClass(okCssClasses);
         okButton.addEventListener('click', this._actionOK.bind(this));
         this.modalFooter.appendChild(okButton);
-        mdl(this.modalFooter);
+        sui(this.modalFooter);
     }
 }

@@ -35,21 +35,17 @@ export class CheckboxField extends BaseCheckboxField {
      * Renders the checkbox with MDL classes, label span, and data label element.
      */
     override render(): void {
-        this.label.addClass([
-            'mdl-checkbox',
-            'mdl-js-checkbox',
-            'mdl-js-ripple-effect',
-        ]);
+        this.label.addClass('sui-checkbox');
         const id = this.input.getId()!;
         this.label.setFor(id);
 
         const labelText = this.label.getHtml(true);
 
         this.spanLabel = new Knot('span');
-        this.spanLabel.addClass('mdl-checkbox__label');
+        this.spanLabel.addClass('sui-checkbox__label');
         this.spanLabel.setHtml(labelText);
 
-        this.input.addClass('mdl-checkbox__input');
+        this.input.addClass('sui-checkbox__input');
 
         this.label.insert(this.input);
         this.label.appendChild(this.spanLabel);

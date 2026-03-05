@@ -2,7 +2,6 @@ import { Deferred } from '../core/deferred';
 import { Objekt } from '../core/objekt';
 import { Query } from '../core/query';
 import { BaseModal } from './baseModal';
-import { mdl } from '../utils/render';
 /**
  * Full dialog modal that loads its content from a server endpoint via
  * {@link Http}. Extends {@link BaseModal} to provide template-based
@@ -126,7 +125,6 @@ export class Dialog extends BaseModal {
         const title = new Query('title', dom).getKnot();
         this._setTitle(title.getText());
         this.modalBody.insert(messageKnot);
-        mdl(messageKnot);
         return messageKnot;
     }
     /**
@@ -144,7 +142,6 @@ export class Dialog extends BaseModal {
         }
         const contentKnot = new Query('#content', dom).getKnot();
         this.modalBody.insert(contentKnot);
-        mdl(contentKnot);
         this._handleActions(dom);
         return contentKnot;
     }
@@ -165,25 +162,20 @@ export class Dialog extends BaseModal {
             const buttons = new Query('button', actionKnot);
             const size = buttons.size();
             let actions = [this._actionOK.bind(this)];
-            let cssClasses = ['mdl-button--primary'];
+            let cssClasses = ['sui-button--primary'];
             if (size === 2) {
                 actions = [
                     this._actionCancel.bind(this),
                     this._actionOK.bind(this),
                 ];
-                cssClasses = ['mdl-button--accent', 'mdl-button--primary'];
+                cssClasses = ['sui-button--accent', 'sui-button--primary'];
             }
             buttons.each((button, i) => {
-                const buttonClasses = [
-                    'mdl-button',
-                    'mdl-js-button',
-                    'mdl-js-ripple-effect',
-                ].concat([cssClasses[i]]);
+                const buttonClasses = ['sui-button'].concat([cssClasses[i]]);
                 button.addClass(buttonClasses);
                 button.addEventListener('click', actions[i]);
             });
             this.modalFooter.insert(actionKnot);
-            mdl(actionKnot);
         }
         else {
             this.modalFooter.removeChildren();

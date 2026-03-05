@@ -11,10 +11,6 @@
         overflow: hidden;
         text-overflow: ellipsis;
         color: variables.$label-default-light;
-
-        &::first-letter {
-            text-transform: capitalize;
-        }
     }
 
     &.is-disabled {

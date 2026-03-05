@@ -56,16 +56,12 @@ export class BaseModal {
     }
     /**
      * Initializes the minimize button if present in the modal DOM.
-     * Adds MDL button classes and binds the minimize action.
+     * Adds SUI button classes and binds the minimize action.
      */
     _initMinimizeButton() {
         const btnMinimize = new Query('.minimize', this.modal).getKnot();
         if (!btnMinimize.isEmpty()) {
-            btnMinimize.addClass([
-                'mdl-button',
-                'mdl-js-button',
-                'mdl-button--icon',
-            ]);
+            btnMinimize.addClass(['sui-button', 'sui-button--icon']);
             btnMinimize.addEventListener('click', () => {
                 this._actionMinimize();
             });
@@ -74,16 +70,12 @@ export class BaseModal {
     }
     /**
      * Initializes the maximize button if present in the modal DOM.
-     * Adds MDL button classes and binds the maximize action.
+     * Adds SUI button classes and binds the maximize action.
      */
     _initMaximizeButton() {
         const btnMaximize = new Query('.maximize', this.modal).getKnot();
         if (!btnMaximize.isEmpty()) {
-            btnMaximize.addClass([
-                'mdl-button',
-                'mdl-js-button',
-                'mdl-button--icon',
-            ]);
+            btnMaximize.addClass(['sui-button', 'sui-button--icon']);
             btnMaximize.addEventListener('click', () => {
                 this._actionMaximize();
             });
@@ -92,17 +84,13 @@ export class BaseModal {
     }
     /**
      * Initializes the close button if present in the modal DOM.
-     * Adds MDL button classes and binds the cancel action, which
+     * Adds SUI button classes and binds the cancel action, which
      * executes the cancel callback and then closes the modal.
      */
     _initCloseButton() {
         const btnClose = new Query('.close', this.modal).getKnot();
         if (!btnClose.isEmpty()) {
-            btnClose.addClass([
-                'mdl-button',
-                'mdl-js-button',
-                'mdl-button--icon',
-            ]);
+            btnClose.addClass(['sui-button', 'sui-button--icon']);
             btnClose.addEventListener('click', () => {
                 this._actionCancel();
             });

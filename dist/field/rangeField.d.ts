@@ -2,7 +2,7 @@ import { BaseField } from './baseField';
 import { Tooltip } from '../component/tooltip';
 import type { Knot } from '../core';
 /**
- * @description MDL slider/range input field with a tooltip displaying the current value.
+ * @description Range slider input field with a tooltip displaying the current value.
  *
  * @example
  * const rangeField = new RangeField(inputKnot, labelKnot, errorKnot, inputBlockKnot);
@@ -28,17 +28,17 @@ export declare class RangeField extends BaseField<HTMLInputElement> {
      */
     private _init;
     /**
-     * @description Applies MDL slider classes to the input block and input element, then refreshes.
+     * @description Applies SUI slider classes to the input block and input element, then refreshes.
      * @override
      */
     render(): void;
     /**
-     * @description Validates the field, upgrades MDL components, manages the disabled state, and renders the value tooltip.
+     * @description Validates the field, manages the disabled state, and renders the value tooltip.
      * @override
      */
     refresh(): void;
     /**
-     * @description Sets the slider value via the MDL MaterialSlider API and updates the tooltip display.
+     * @description Sets the slider value natively and updates the tooltip display.
      * @param {object | Array<unknown> | boolean | number | string | null | undefined} value - The value to set.
      * @override
      */

@@ -9,7 +9,7 @@ import { Pager } from './pager';
 import { Tooltip } from './tooltip';
 import { consoleDebug } from '../utils/log';
 import { generateId } from '../utils/coder';
-import { mdl } from '../utils/render';
+import { sui } from '../utils/render';
 /**
  * @description Data table component with sorting, paging, search, row actions, and custom
  * column calculations. Renders tabular data from a {@link Collection} with automatic
@@ -105,20 +105,12 @@ export class Table {
     _initSearch() {
         if (this.options.columns[this.options.columns.length - 1] === 'search') {
             const searchKnot = new Knot('div');
-            searchKnot.addClass([
-                'mdl-textfield',
-                'mdl-js-textfield',
-                'mdl-textfield--expandable',
-            ]);
+            searchKnot.addClass(['sui-textfield', 'sui-textfield--expandable']);
             this.headerKnots
                 .get(this.headerKnots.size() - 1)
                 .insert(searchKnot);
             const labelKnot = new Knot('label');
-            labelKnot.addClass([
-                'mdl-button',
-                'mdl-js-button',
-                'mdl-button--icon',
-            ]);
+            labelKnot.addClass(['sui-button', 'sui-button--icon']);
             labelKnot.setFor('table-search');
             searchKnot.appendChild(labelKnot);
             const iconKnot = new Knot('em');
@@ -126,12 +118,12 @@ export class Table {
             iconKnot.setHtml('search');
             labelKnot.appendChild(iconKnot);
             const inputBlock = new Knot('div');
-            inputBlock.addClass('mdl-textfield__expandable-holder');
+            inputBlock.addClass('sui-textfield__expandable-holder');
             searchKnot.appendChild(inputBlock);
             const inputKnot = new Knot('input');
             inputKnot.setAttribute('type', 'text');
             inputKnot.setId('table-search');
-            inputKnot.addClass('mdl-textfield__input');
+            inputKnot.addClass('sui-textfield__input');
             inputKnot.addEventListener('keypress', (inputKnot, event) => {
                 if (eq(event.keyCode, 13)) {
                     this.query = inputKnot.getNode().value;
@@ -141,9 +133,9 @@ export class Table {
             });
             inputBlock.appendChild(inputKnot);
             const subLabelKnot = new Knot('label');
-            subLabelKnot.addClass('mdl-textfield__label');
+            subLabelKnot.addClass('sui-textfield__label');
             inputBlock.appendChild(subLabelKnot);
-            mdl(searchKnot);
+            sui(searchKnot);
         }
     }
     /**
@@ -501,10 +493,9 @@ export class Table {
             const buttonKnot = new Knot('button');
             containerKnot.appendChild(buttonKnot);
             buttonKnot.addClass([
-                'mdl-button',
-                'mdl-js-button',
-                'mdl-button--icon',
-                'mdl-button--primary',
+                'sui-button',
+                'sui-button--icon',
+                'sui-button--primary',
             ]);
             if (disabled) {
                 buttonKnot.setAttribute('disabled');
@@ -576,7 +567,6 @@ export class Table {
             this._addHeaderRow(item, rowIndex);
             this._addRow(item, rowIndex);
         });
-        mdl(this.tbody);
     }
     /**
      * @description Renders the table by updating the sorting state and triggering a data refresh.

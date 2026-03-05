@@ -1,7 +1,7 @@
 import { Knot } from '../core/knot';
 /**
  * UI element factory for creating and enhancing styled links, buttons,
- * and icon buttons with Material Design Lite classes. Helper provides
+ * and icon buttons with SUI classes. Helper provides
  * a consistent API for building interactive UI elements with click
  * handlers, tooltips, and access control.
  *
@@ -114,7 +114,7 @@ export declare class Helper {
     linkElement(linkKnot: Knot, opt_callback: (href: string, linkKnot: Knot) => void | undefined, opt_href?: string | undefined, opt_description?: string | undefined, opt_allowAccess?: boolean | undefined, opt_cssClasses?: string[] | undefined): void;
     /**
      * Creates a new `<button>` element with the given display name
-     * and enhances it with Material Design Lite classes, click handling,
+     * and enhances it with SUI button classes, click handling,
      * and a tooltip via {@link buttonElement}.
      *
      * @param name The text content to display inside the button.
@@ -123,7 +123,7 @@ export declare class Helper {
      * @param opt_description Tooltip text shown on hover.
      * @param opt_allowAccess When `false`, the element is removed
      *     from the DOM instead of being enhanced.
-     * @param opt_cssClasses Additional MDL CSS classes to add.
+     * @param opt_cssClasses Additional CSS classes to add.
      * @returns The created button {@link Knot}.
      *
      * @example
@@ -141,7 +141,7 @@ export declare class Helper {
      * @param dom The parent {@link Knot} to search within.
      * @param opt_callback Called with the button's ID and the
      *     {@link Knot} when any matched button is clicked.
-     * @param opt_cssClasses Additional MDL CSS classes to add.
+     * @param opt_cssClasses Additional CSS classes to add.
      */
     multipleButton(selector: string, dom: Knot, opt_callback?: (id: string, button: Knot) => void, opt_cssClasses?: string[] | undefined): void;
     /**
@@ -156,7 +156,7 @@ export declare class Helper {
      * @param opt_description Tooltip text shown on hover.
      * @param opt_allowAccess When `false`, the element is removed
      *     from the DOM instead of being enhanced.
-     * @param opt_cssClasses Additional MDL CSS classes to add.
+     * @param opt_cssClasses Additional CSS classes to add.
      * @returns The selected and enhanced button {@link Knot}.
      *
      * @example
@@ -166,10 +166,10 @@ export declare class Helper {
      */
     button(selector: string, dom: Knot, callback: (id: string, button: Knot) => void, opt_description?: string | undefined, opt_allowAccess?: boolean | undefined, opt_cssClasses?: string[] | undefined): Knot;
     /**
-     * Enhances an existing button {@link Knot} with Material Design Lite
-     * classes, click handling, and a tooltip. Applies base MDL button
-     * classes (`mdl-button`, `mdl-js-button`, `mdl-js-ripple-effect`,
-     * `mdl-button--raised`) plus any additional classes provided.
+     * Enhances an existing button {@link Knot} with SUI
+     * classes, click handling, and a tooltip. Applies base SUI button
+     * classes (`sui-button`, `sui-button--raised`) plus any additional
+     * classes provided.
      *
      * When the element already has an ID, existing CSS classes and click
      * listeners are removed before re-applying. When `opt_allowAccess`
@@ -181,7 +181,7 @@ export declare class Helper {
      * @param opt_description Tooltip text shown on hover.
      * @param opt_allowAccess When `false`, the element is removed
      *     from the DOM instead of being enhanced.
-     * @param opt_cssClasses Additional MDL CSS classes to add.
+     * @param opt_cssClasses Additional CSS classes to add.
      */
     buttonElement(buttonKnot: Knot, opt_callback?: (id: string, button: Knot) => void, opt_description?: string | undefined, opt_allowAccess?: boolean | undefined, opt_cssClasses?: string[] | undefined): void;
     /**
@@ -195,7 +195,7 @@ export declare class Helper {
      * @param opt_description Tooltip text shown on hover.
      * @param opt_allowAccess When `false`, the element is removed
      *     from the DOM instead of being enhanced.
-     * @param opt_cssClasses Additional MDL CSS classes for icon button
+     * @param opt_cssClasses Additional CSS classes for icon button
      *     styling.
      * @returns The created icon button {@link Knot}.
      *
@@ -212,7 +212,7 @@ export declare class Helper {
      *
      * @param selector CSS selector to match icon button elements.
      * @param dom The parent {@link Knot} to search within.
-     * @param opt_cssClasses Additional MDL CSS classes for icon button
+     * @param opt_cssClasses Additional CSS classes for icon button
      *     styling.
      */
     multipleIconButton(selector: string, dom: Knot, opt_cssClasses?: string[] | undefined): void;
@@ -228,7 +228,7 @@ export declare class Helper {
      * @param opt_description Tooltip text shown on hover.
      * @param opt_allowAccess When `false`, the element is removed
      *     from the DOM instead of being enhanced.
-     * @param opt_cssClasses Additional MDL CSS classes for icon button
+     * @param opt_cssClasses Additional CSS classes for icon button
      *     styling.
      * @returns The selected and enhanced icon button {@link Knot}.
      *
@@ -243,8 +243,7 @@ export declare class Helper {
     iconButton(selector: string, dom: Knot, callback: (id: string, button: Knot) => void, opt_description?: string | undefined, opt_allowAccess?: boolean | undefined, opt_cssClasses?: string[] | undefined): Knot;
     /**
      * Enhances an existing button {@link Knot} with icon button styling.
-     * Applies base MDL classes (`mdl-button`, `mdl-js-button`,
-     * `mdl-js-ripple-effect`, `mdl-button--icon`) plus any additional
+     * Applies base SUI classes (`sui-button`, `sui-button--icon`) plus any additional
      * classes provided.
      *
      * When the element already has an ID, existing CSS classes and click
@@ -257,7 +256,7 @@ export declare class Helper {
      * @param opt_description Tooltip text shown on hover.
      * @param opt_allowAccess When `false`, the element is removed
      *     from the DOM instead of being enhanced.
-     * @param opt_cssClasses Additional MDL CSS classes for icon button
+     * @param opt_cssClasses Additional CSS classes for icon button
      *     styling.
      */
     iconButtonElement(buttonKnot: Knot, opt_callback?: (id: string, button: Knot) => void, opt_description?: string | undefined, opt_allowAccess?: boolean | undefined, opt_cssClasses?: string[] | undefined): void;
@@ -272,7 +271,7 @@ export declare class Helper {
     /**
      * Sets a tooltip on the given element. If a description string is
      * provided, it is also set as the `title` attribute. Initializes
-     * a {@link Tooltip} component and upgrades the element via MDL.
+     * a {@link Tooltip} component and upgrades the element via SUI.
      *
      * @param knot The {@link Knot} to attach the tooltip to.
      * @param opt_description The tooltip text to display.

@@ -36,7 +36,7 @@ export declare class Popup {
      */
     private _draw;
     /**
-     * @description Adds an MDL close button to the popup when withClose is enabled.
+     * @description Adds a close button to the popup when withClose is enabled.
      */
     private _initCloseButton;
     /**

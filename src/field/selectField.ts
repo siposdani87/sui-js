@@ -15,7 +15,7 @@ import { Knot } from '../core/knot';
 import { Objekt } from '../core/objekt';
 import { Query } from '../core/query';
 import { generateId } from '../utils/coder';
-import { mdl } from '../utils/render';
+import { sui } from '../utils/render';
 
 /**
  * @description Custom select/dropdown field with search, single/multiple selection, and tag display.
@@ -321,7 +321,8 @@ export class SelectField extends BaseField<HTMLInputElement> {
      */
     // eslint-disable-next-line @typescript-eslint/no-explicit-any
     private _setSelectTags(ids: Array<any>): void {
-        if (this.isRequired() && ids.length === 1 && ids[0] === '') {
+        const hasValue = ids.some((id) => id !== '');
+        if (this.isRequired() && !hasValue) {
             this.inputBlock.addClass('is-invalid');
         }
         if (this.isMultiple()) {
@@ -512,7 +513,7 @@ export class SelectField extends BaseField<HTMLInputElement> {
         this.containerKnot.appendChild(searchParentKnot);
 
         const searchKnot = new Knot('div');
-        searchKnot.addClass(['mdl-textfield', 'mdl-js-textfield']);
+        searchKnot.addClass(['sui-textfield']);
         searchKnot.addEventListener('click', () => {
             // empty function
         });
@@ -523,7 +524,7 @@ export class SelectField extends BaseField<HTMLInputElement> {
         this.searchInputKnot = new Knot<HTMLInputElement>('input');
         this.searchInputKnot.setId(id);
         this.searchInputKnot.setAttribute('type', 'text');
-        this.searchInputKnot.addClass('mdl-textfield__input');
+        this.searchInputKnot.addClass('sui-textfield__input');
         this.searchInputKnot.addEventListener('keyup', (input) => {
             const inputNode = input.getNode();
             this._search(inputNode.value);
@@ -533,10 +534,10 @@ export class SelectField extends BaseField<HTMLInputElement> {
 
         const labelKnot = new Knot('label');
         labelKnot.setFor(id);
-        labelKnot.addClass('mdl-textfield__label');
+        labelKnot.addClass('sui-textfield__label');
         searchKnot.appendChild(labelKnot);
 
-        mdl(searchKnot);
+        sui(searchKnot);
     }
 
     /**

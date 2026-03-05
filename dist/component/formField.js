@@ -72,7 +72,7 @@ export const parseInputBlock = (inputBlock) => {
         input = inputs[inputs.length - 1];
         label = new Query('label', inputBlock).getKnot();
         error = inputBlock.createElement('span');
-        error.addClass(['mdl-textfield__error', 'text-truncate']);
+        error.addClass(['sui-textfield__error', 'text-truncate']);
         inputBlock.appendChild(error);
         inputBlock.addClass('init-field');
     }

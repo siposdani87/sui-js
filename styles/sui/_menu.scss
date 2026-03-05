@@ -1,0 +1,51 @@
+@use '../core/colors';
+
+.sui-menu {
+    position: absolute;
+    z-index: 999;
+    display: none;
+    min-width: 124px;
+    max-height: 0;
+    margin: 0;
+    padding: 8px 0;
+    list-style: none;
+    background-color: colors.$white;
+    border-radius: 4px;
+    box-shadow:
+        0 2px 4px rgb(0 0 0 / 14%),
+        0 3px 4px rgb(0 0 0 / 12%);
+    overflow: hidden;
+    transition:
+        max-height 0.2s,
+        opacity 0.2s;
+    opacity: 0;
+
+    &.is-visible {
+        display: block;
+        max-height: 300px;
+        opacity: 1;
+    }
+}
+
+.sui-menu--bottom-right {
+    right: 0;
+    top: 100%;
+}
+
+.sui-menu__item {
+    padding: 8px 16px;
+    font-size: 14px;
+    color: colors.$black;
+    cursor: pointer;
+    white-space: nowrap;
+
+    &:hover {
+        background-color: rgb(0 0 0 / 8%);
+    }
+
+    &[disabled] {
+        color: rgb(0 0 0 / 26%);
+        cursor: default;
+        pointer-events: none;
+    }
+}

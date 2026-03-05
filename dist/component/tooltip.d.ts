@@ -1,7 +1,8 @@
 import { Knot } from '../core/knot';
 /**
- * @description MDL tooltip wrapper with directional positioning (TOP, BOTTOM, LEFT, RIGHT).
+ * @description SUI tooltip with directional positioning (TOP, BOTTOM, LEFT, RIGHT).
  * Reads tooltip text from the element's title or desc attribute.
+ * Handles show/hide on mouseenter/mouseleave with CSS positioning.
  *
  * @example
  * const tooltip = new Tooltip(buttonKnot, 'BOTTOM');
@@ -16,6 +17,7 @@ export declare class Tooltip {
     valid: boolean;
     positionCssClass: string;
     tooltip: Knot;
+    private _position;
     /**
      * @description Creates a new Tooltip for the given element with directional positioning.
      * @param {Knot} element - The element to attach the tooltip to.
@@ -23,7 +25,7 @@ export declare class Tooltip {
      */
     constructor(element: Knot, opt_position?: string | undefined);
     /**
-     * @description Maps the position string to the corresponding MDL CSS class.
+     * @description Maps the position string to the corresponding SUI CSS class.
      * @param {string} [opt_position] - Direction string.
      */
     private _initPositions;
@@ -42,7 +44,7 @@ export declare class Tooltip {
      */
     private _createTooltip;
     /**
-     * @description Renders the tooltip with the given or auto-detected message, and upgrades MDL components.
+     * @description Renders the tooltip with the given or auto-detected message, and binds hover events.
      * @param {string} [opt_message] - Optional explicit tooltip message.
      *
      * @example
@@ -50,9 +52,13 @@ export declare class Tooltip {
      */
     render(opt_message?: string | undefined): void;
     /**
-     * @description Removes desc/title attributes from the element and upgrades the MDL tooltip.
+     * @description Removes desc/title attributes from the element and binds hover events for show/hide.
      */
     private _handleAttributes;
+    /**
+     * @description Binds mouseenter/mouseleave events on the target element to show/hide the tooltip.
+     */
+    private _bindHoverEvents;
     /**
      * @description Sets the tooltip message content. Hides the tooltip when message is empty.
      * @param {string} [opt_message] - The message text to display.
@@ -61,6 +67,10 @@ export declare class Tooltip {
      * tooltip.setMessage('Updated tooltip text');
      */
     setMessage(opt_message?: string | undefined): void;
+    /**
+     * @description Calculates and applies the tooltip position relative to the target element.
+     */
+    private _updatePosition;
     /**
      * @description Programmatically opens the tooltip by adding the active CSS class.
      *

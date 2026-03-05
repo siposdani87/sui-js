@@ -1,7 +1,7 @@
 import { Knot } from '../core/knot';
 import { PopupContainer } from './popupContainer';
 import { consoleDebug } from '../utils/log';
-import { mdl } from '../utils/render';
+import { sui } from '../utils/render';
 
 /**
  * @description Toggleable popup overlay that attaches content to a parent element.
@@ -65,18 +65,13 @@ export class Popup {
     }
 
     /**
-     * @description Adds an MDL close button to the popup when withClose is enabled.
+     * @description Adds a close button to the popup when withClose is enabled.
      */
     private _initCloseButton(): void {
         if (this.withClose) {
             const btnClose = new Knot<HTMLButtonElement>('button');
             btnClose.setAttribute('type', 'button');
-            btnClose.addClass([
-                'close',
-                'mdl-button',
-                'mdl-js-button',
-                'mdl-button--icon',
-            ]);
+            btnClose.addClass(['close', 'sui-button', 'sui-button--icon']);
             btnClose.addEventListener('click', () => {
                 this.close();
             });
@@ -87,7 +82,7 @@ export class Popup {
             iconKnot.setHtml('close');
             btnClose.appendChild(iconKnot);
 
-            mdl(btnClose);
+            sui(btnClose);
         }
     }
 

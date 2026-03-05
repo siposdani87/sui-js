@@ -1,7 +1,7 @@
 import { typeCast } from '../utils/operation';
 import { BaseField } from './baseField';
 import { Knot } from '../core/knot';
-import { mdl } from '../utils/render';
+import { sui } from '../utils/render';
 /**
  * @description Numeric input field with step up/down buttons and min/max value constraints.
  *
@@ -119,14 +119,10 @@ export class NumberField extends BaseField {
      * @override
      */
     render() {
-        this.inputBlock.addClass([
-            'mdl-textfield',
-            'mdl-js-textfield',
-            'mdl-textfield--floating-label',
-        ]);
-        this.input.addClass(['mdl-textfield__input']);
+        this.inputBlock.addClass(['sui-textfield']);
+        this.input.addClass(['sui-textfield__input']);
         if (this.label && this.label.exists()) {
-            this.label.addClass('mdl-textfield__label');
+            this.label.addClass('sui-textfield__label');
         }
         this.refresh();
     }
@@ -138,6 +134,9 @@ export class NumberField extends BaseField {
         if (this.isRequired() && this.getValue() === '') {
             this.inputBlock.addClass('is-invalid');
         }
-        mdl(this.inputBlock);
+        if (this.isDisabled()) {
+            this.inputBlock.addClass('is-disabled');
+        }
+        sui(this.inputBlock);
     }
 }

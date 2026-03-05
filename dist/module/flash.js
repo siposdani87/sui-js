@@ -2,7 +2,7 @@ import { eq, format, isFunction, isPureObject, noop } from '../utils/operation';
 import { Objekt } from '../core/objekt';
 import { Query } from '../core/query';
 import { generateId } from '../utils/coder';
-import { mdl } from '../utils/render';
+import { sui } from '../utils/render';
 /**
  * Flash message notification system for displaying temporary, styled
  * messages to the user. Supports multiple message types (`'success'`,
@@ -103,7 +103,7 @@ export class Flash {
         return flashKnot;
     }
     /**
-     * Creates an MDL-styled close button for a flash message.
+     * Creates a styled close button for a flash message.
      *
      * @param flashKnot The flash element that this button will close.
      * @param opt_closeCallback Callback invoked when the button is clicked.
@@ -111,11 +111,7 @@ export class Flash {
      */
     _getCloseButton(flashKnot, opt_closeCallback = null) {
         const buttonKnot = flashKnot.createElement('button');
-        buttonKnot.addClass([
-            'mdl-button',
-            'mdl-js-button',
-            'mdl-button--icon',
-        ]);
+        buttonKnot.addClass(['sui-button', 'sui-button--icon']);
         const buttonIcon = buttonKnot.createElement('em');
         buttonIcon.addClass('material-icons');
         buttonIcon.setHtml('close');
@@ -123,7 +119,7 @@ export class Flash {
         buttonKnot.addEventListener('click', () => {
             this.remove(flashKnot, opt_closeCallback);
         });
-        mdl(buttonKnot);
+        sui(buttonKnot);
         return buttonKnot;
     }
     /**

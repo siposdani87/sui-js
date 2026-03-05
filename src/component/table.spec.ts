@@ -28,7 +28,7 @@ describe('Table', () => {
                     .querySelectorAll('.content-handler')
                     .forEach((el) => el.remove());
                 parent
-                    .querySelectorAll('.mdl-tooltip')
+                    .querySelectorAll('.sui-tooltip')
                     .forEach((el) => el.remove());
             }
         }
@@ -554,7 +554,7 @@ describe('Table', () => {
                 calculations: { username: calcFn },
             });
             table.setData([{ username: 'alice' }]);
-            const tooltips = document.querySelectorAll('.mdl-tooltip');
+            const tooltips = document.querySelectorAll('.sui-tooltip');
             expect(tooltips.length).toBeGreaterThan(0);
         });
     });

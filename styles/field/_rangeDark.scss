@@ -2,42 +2,42 @@
 
 .dark-theme {
     .range-field {
-        .mdl-slider {
+        .sui-slider {
             background-color: variables.$input-default-dark;
         }
 
-        .mdl-slider::-webkit-slider-thumb,
-        .mdl-slider:active::-webkit-slider-thumb {
+        .sui-slider::-webkit-slider-thumb,
+        .sui-slider:active::-webkit-slider-thumb {
             background: variables.$primary-default-dark;
         }
 
-        .mdl-slider::-moz-range-thumb,
-        .mdl-slider:active::-moz-range-thumb {
+        .sui-slider::-moz-range-thumb,
+        .sui-slider:active::-moz-range-thumb {
             background: variables.$primary-default-dark;
         }
 
-        .mdl-slider::-ms-thumb,
-        .mdl-slider:active::-ms-thumb {
+        .sui-slider::-ms-thumb,
+        .sui-slider:active::-ms-thumb {
             background: variables.$primary-default-dark;
         }
 
         &.is-disabled {
-            .mdl-slider {
+            .sui-slider {
                 background-color: variables.$input-disabled-dark;
             }
 
-            .mdl-slider::-webkit-slider-thumb,
-            .mdl-slider:active::-webkit-slider-thumb {
+            .sui-slider::-webkit-slider-thumb,
+            .sui-slider:active::-webkit-slider-thumb {
                 background: variables.$primary-disabled-dark;
             }
 
-            .mdl-slider::-moz-range-thumb,
-            .mdl-slider:active::-moz-range-thumb {
+            .sui-slider::-moz-range-thumb,
+            .sui-slider:active::-moz-range-thumb {
                 background: variables.$primary-disabled-dark;
             }
 
-            .mdl-slider::-ms-thumb,
-            .mdl-slider:active::-ms-thumb {
+            .sui-slider::-ms-thumb,
+            .sui-slider:active::-ms-thumb {
                 background: variables.$primary-disabled-dark;
             }
         }

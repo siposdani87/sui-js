@@ -1,48 +1,48 @@
 @use '../core/variables';
 
 .range-field {
-    .mdl-slider__container {
+    .sui-slider__container {
         height: 32px;
     }
 
-    .mdl-slider {
+    .sui-slider {
         background-color: variables.$input-default-light;
         margin: 0;
         width: 100%;
     }
 
-    .mdl-slider::-webkit-slider-thumb,
-    .mdl-slider:active::-webkit-slider-thumb {
+    .sui-slider::-webkit-slider-thumb,
+    .sui-slider:active::-webkit-slider-thumb {
         background: variables.$primary-default-light;
     }
 
-    .mdl-slider::-moz-range-thumb,
-    .mdl-slider:active::-moz-range-thumb {
+    .sui-slider::-moz-range-thumb,
+    .sui-slider:active::-moz-range-thumb {
         background: variables.$primary-default-light;
     }
 
-    .mdl-slider::-ms-thumb,
-    .mdl-slider:active::-ms-thumb {
+    .sui-slider::-ms-thumb,
+    .sui-slider:active::-ms-thumb {
         background: variables.$primary-default-light;
     }
 
     &.is-disabled {
-        .mdl-slider {
+        .sui-slider {
             background-color: variables.$input-disabled-light;
         }
 
-        .mdl-slider::-webkit-slider-thumb,
-        .mdl-slider:active::-webkit-slider-thumb {
+        .sui-slider::-webkit-slider-thumb,
+        .sui-slider:active::-webkit-slider-thumb {
             background: variables.$primary-disabled-light;
         }
 
-        .mdl-slider::-moz-range-thumb,
-        .mdl-slider:active::-moz-range-thumb {
+        .sui-slider::-moz-range-thumb,
+        .sui-slider:active::-moz-range-thumb {
             background: variables.$primary-disabled-light;
         }
 
-        .mdl-slider::-ms-thumb,
-        .mdl-slider:active::-ms-thumb {
+        .sui-slider::-ms-thumb,
+        .sui-slider:active::-ms-thumb {
             background: variables.$primary-disabled-light;
         }
     }

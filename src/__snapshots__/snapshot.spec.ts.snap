@@ -148,12 +148,12 @@ exports[`UI Component Snapshots Popup should match snapshot in closed state 1`] 
 
 exports[`UI Component Snapshots Popup should match snapshot in open state 1`] = `"<div class="popup-parent"><div class="popup" style="left: 0px;"><div>Popup content here</div></div></div>"`;
 
-exports[`UI Component Snapshots Popup should match snapshot with close button 1`] = `"<div class="popup-parent"><div class="popup hidden"><div>Closable popup</div><button type="button" class="close mdl-button mdl-js-button mdl-button--icon"><em class="material-icons">close</em></button></div></div>"`;
+exports[`UI Component Snapshots Popup should match snapshot with close button 1`] = `"<div class="popup-parent"><div class="popup hidden"><div>Closable popup</div><button type="button" class="close sui-button sui-button--icon"><em class="material-icons">close</em></button></div></div>"`;
 
-exports[`UI Component Snapshots Tooltip should match snapshot for bottom position 1`] = `"<span class="mdl-tooltip mdl-tooltip--bottom" for="tooltip-test-id"></span>"`;
+exports[`UI Component Snapshots Tooltip should match snapshot for bottom position 1`] = `"<span class="sui-tooltip sui-tooltip--bottom" for="tooltip-test-id"></span>"`;
 
-exports[`UI Component Snapshots Tooltip should match snapshot for left position 1`] = `"<span class="mdl-tooltip mdl-tooltip--left" for="tooltip-test-id"></span>"`;
+exports[`UI Component Snapshots Tooltip should match snapshot for left position 1`] = `"<span class="sui-tooltip sui-tooltip--left" for="tooltip-test-id"></span>"`;
 
-exports[`UI Component Snapshots Tooltip should match snapshot for right position 1`] = `"<span class="mdl-tooltip mdl-tooltip--right" for="tooltip-test-id"></span>"`;
+exports[`UI Component Snapshots Tooltip should match snapshot for right position 1`] = `"<span class="sui-tooltip sui-tooltip--right" for="tooltip-test-id"></span>"`;
 
-exports[`UI Component Snapshots Tooltip should match snapshot for top position 1`] = `"<span class="mdl-tooltip mdl-tooltip--top" for="tooltip-test-id"></span>"`;
+exports[`UI Component Snapshots Tooltip should match snapshot for top position 1`] = `"<span class="sui-tooltip sui-tooltip--top" for="tooltip-test-id"></span>"`;

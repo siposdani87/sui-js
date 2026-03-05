@@ -25,21 +25,13 @@ describe('Form', () => {
         }
         document
             .querySelectorAll(
-                '.template-view .mdl-tooltip, .template-view .mdl-textfield__error',
+                '.template-view .sui-tooltip, .template-view .sui-textfield__error',
             )
             .forEach((el) => el.remove());
     }
 
-    function mockMdlComponents(): void {
-        const rangeInput = document.querySelector('#field-range') as any;
-        if (rangeInput) {
-            rangeInput.MaterialSlider = { change: jest.fn() };
-        }
-    }
-
     beforeEach(() => {
         resetFormDOM();
-        mockMdlComponents();
         const knot = new Query('.template-view').getKnot();
         form = new Form(knot);
     });

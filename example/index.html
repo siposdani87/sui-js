@@ -15,8 +15,7 @@
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&subset=latin-ext">
   <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
   <link rel="stylesheet" href="node_modules/normalize.css/normalize.css">
-  <link rel="stylesheet" href="node_modules/material-design-lite/dist/material.deep_purple-pink.min.css">
-  <link rel="stylesheet" href="node_modules/@siposdani87/sui-js/dist/sui.min.css">
+  <link rel="stylesheet" href="../dist/sui.min.css">
   <style>
     .dark-theme {
       padding: 20px;
@@ -30,6 +29,18 @@
       border: 1px solid #9e9e9e;
       background-color: #fff;
       color: #212121;
+    }
+
+    .example-grid {
+      display: flex;
+      flex-wrap: wrap;
+      margin: 0 -8px;
+    }
+
+    .example-cell {
+      box-sizing: border-box;
+      width: 50%;
+      padding: 0 8px 16px;
     }
   </style>
 </head>
@@ -138,8 +149,8 @@
     <div class="progress-bar"></div>
     <div class="flex-container">
       <div class="template-view" data-locale="en" data-template-url="/index.html">
-        <div class="mdl-layout mdl-js-layout">
-          <main class="mdl-layout__content">
+        <div class="example-layout">
+          <main class="example-content">
             <div class="tab-panel">
               <div class="tabs">
                 <a href="#form-panel">Form</a>
@@ -147,33 +158,33 @@
               </div>
               <div id="form-panel" class="panel">
                 <form action="#">
-                  <div class="mdl-grid">
-                    <div class="mdl-cell mdl-cell--6-col">
+                  <div class="example-grid">
+                    <div class="example-cell">
                       <div class="light-theme">
                         <h4>light-input-text</h4>
-                        <div class="mdl-grid">
-                          <div class="mdl-cell mdl-cell--6-col">
+                        <div class="example-grid">
+                          <div class="example-cell">
                             <div class="input-block">
                               <label for="light-input-text-default">light-input-text-default</label>
                               <input id="light-input-text-default" name="light-input-text-default" type="text"
                                 value="light-input-text-default" />
                             </div>
                           </div>
-                          <div class="mdl-cell mdl-cell--6-col">
+                          <div class="example-cell">
                             <div class="input-block">
                               <label for="light-input-text-disabled">light-input-text-disabled</label>
                               <input id="light-input-text-disabled" name="light-input-text-disabled" type="text"
                                 value="light-input-text-disabled" disabled />
                             </div>
                           </div>
-                          <div class="mdl-cell mdl-cell--6-col">
+                          <div class="example-cell">
                             <div class="input-block">
                               <label for="light-input-text-required">light-input-text-required</label>
                               <input id="light-input-text-required" name="light-input-text-required" type="text"
                                 value="" required />
                             </div>
                           </div>
-                          <div class="mdl-cell mdl-cell--6-col">
+                          <div class="example-cell">
                             <div class="input-block">
                               <label for="light-input-text-disabled-required"
                                 desc="Description of input">light-input-text-disabled-required</label>
@@ -183,29 +194,29 @@
                           </div>
                         </div>
                         <h4>light-input-email</h4>
-                        <div class="mdl-grid">
-                          <div class="mdl-cell mdl-cell--6-col">
+                        <div class="example-grid">
+                          <div class="example-cell">
                             <div class="input-block">
                               <label for="light-input-email-default">light-input-email-default</label>
                               <input id="light-input-email-default" name="light-input-email-default" type="email"
                                 value="siposdani87@gmail.com" />
                             </div>
                           </div>
-                          <div class="mdl-cell mdl-cell--6-col">
+                          <div class="example-cell">
                             <div class="input-block">
                               <label for="light-input-email-disabled">light-input-email-disabled</label>
                               <input id="light-input-email-disabled" name="light-input-email-disabled" type="email"
                                 value="light-input-email-disabled" disabled />
                             </div>
                           </div>
-                          <div class="mdl-cell mdl-cell--6-col">
+                          <div class="example-cell">
                             <div class="input-block">
                               <label for="light-input-email-required">light-input-email-required</label>
                               <input id="light-input-email-required" name="light-input-email-required" type="email"
                                 value="" required />
                             </div>
                           </div>
-                          <div class="mdl-cell mdl-cell--6-col">
+                          <div class="example-cell">
                             <div class="input-block">
                               <label for="light-input-email-disabled-required"
                                 title="Description of input">light-input-email-disabled-required</label>
@@ -215,29 +226,29 @@
                           </div>
                         </div>
                         <h4>light-input-password</h4>
-                        <div class="mdl-grid">
-                          <div class="mdl-cell mdl-cell--6-col">
+                        <div class="example-grid">
+                          <div class="example-cell">
                             <div class="input-block">
                               <label for="light-input-password-default">light-input-password-default</label>
                               <input id="light-input-password-default" name="light-input-password-default"
                                 type="password" value="light-input-password-default" />
                             </div>
                           </div>
-                          <div class="mdl-cell mdl-cell--6-col">
+                          <div class="example-cell">
                             <div class="input-block">
                               <label for="light-input-password-disabled">light-input-password-disabled</label>
                               <input id="light-input-password-disabled" name="light-input-password-disabled"
                                 type="password" value="light-input-password-disabled" disabled />
                             </div>
                           </div>
-                          <div class="mdl-cell mdl-cell--6-col">
+                          <div class="example-cell">
                             <div class="input-block">
                               <label for="light-input-password-required">light-input-password-required</label>
                               <input id="light-input-password-required" name="light-input-password-required"
                                 type="password" value="" required />
                             </div>
                           </div>
-                          <div class="mdl-cell mdl-cell--6-col">
+                          <div class="example-cell">
                             <div class="input-block">
                               <label for="light-input-password-disabled-required"
                                 desc="Description of input">light-input-password-disabled-required</label>
@@ -248,29 +259,29 @@
                           </div>
                         </div>
                         <h4>light-input-color</h4>
-                        <div class="mdl-grid">
-                          <div class="mdl-cell mdl-cell--6-col">
+                        <div class="example-grid">
+                          <div class="example-cell">
                             <div class="input-block">
                               <label for="light-input-color-default">light-input-color-default</label>
                               <input id="light-input-color-default" name="light-input-color-default" type="color"
                                 value="#9ccc65" />
                             </div>
                           </div>
-                          <div class="mdl-cell mdl-cell--6-col">
+                          <div class="example-cell">
                             <div class="input-block">
                               <label for="light-input-color-disabled">light-input-color-disabled</label>
                               <input id="light-input-color-disabled" name="light-input-color-disabled" type="color"
                                 value="#9ccc65" disabled />
                             </div>
                           </div>
-                          <div class="mdl-cell mdl-cell--6-col">
+                          <div class="example-cell">
                             <div class="input-block">
                               <label for="light-input-color-required">light-input-color-required</label>
                               <input id="light-input-color-required" name="light-input-color-required" type="color"
                                 required />
                             </div>
                           </div>
-                          <div class="mdl-cell mdl-cell--6-col">
+                          <div class="example-cell">
                             <div class="input-block">
                               <label for="light-input-color-disabled-required"
                                 desc="Description of input">light-input-color-disabled-required</label>
@@ -280,29 +291,29 @@
                           </div>
                         </div>
                         <h4>light-input-number</h4>
-                        <div class="mdl-grid">
-                          <div class="mdl-cell mdl-cell--6-col">
+                        <div class="example-grid">
+                          <div class="example-cell">
                             <div class="input-block">
                               <label for="light-input-number-default">light-input-number-default</label>
                               <input id="light-input-number-default" name="light-input-number-default" type="number"
                                 value="10" />
                             </div>
                           </div>
-                          <div class="mdl-cell mdl-cell--6-col">
+                          <div class="example-cell">
                             <div class="input-block">
                               <label for="light-input-number-disabled">light-input-number-disabled</label>
                               <input id="light-input-number-disabled" name="light-input-number-disabled" type="number"
                                 value="10" disabled />
                             </div>
                           </div>
-                          <div class="mdl-cell mdl-cell--6-col">
+                          <div class="example-cell">
                             <div class="input-block">
                               <label for="light-input-number-required">light-input-number-required</label>
                               <input id="light-input-number-required" name="light-input-number-required" type="number"
                                 value="" required />
                             </div>
                           </div>
-                          <div class="mdl-cell mdl-cell--6-col">
+                          <div class="example-cell">
                             <div class="input-block">
                               <label for="light-input-number-disabled-required"
                                 desc="Description of input">light-input-number-disabled-required</label>
@@ -312,29 +323,29 @@
                           </div>
                         </div>
                         <h4>light-input-url</h4>
-                        <div class="mdl-grid">
-                          <div class="mdl-cell mdl-cell--6-col">
+                        <div class="example-grid">
+                          <div class="example-cell">
                             <div class="input-block">
                               <label for="light-input-url-default">light-input-url-default</label>
                               <input id="light-input-url-default" name="light-input-url-default" type="url"
                                 value="https://google.com" data-protocol="https://" />
                             </div>
                           </div>
-                          <div class="mdl-cell mdl-cell--6-col">
+                          <div class="example-cell">
                             <div class="input-block">
                               <label for="light-input-url-disabled">light-input-url-disabled</label>
                               <input id="light-input-url-disabled" name="light-input-url-disabled" type="url"
                                 value="https://google.com" disabled data-protocol="https://" />
                             </div>
                           </div>
-                          <div class="mdl-cell mdl-cell--6-col">
+                          <div class="example-cell">
                             <div class="input-block">
                               <label for="light-input-url-required">light-input-url-required</label>
                               <input id="light-input-url-required" name="light-input-url-required" type="url" value=""
                                 required data-protocol="https://" />
                             </div>
                           </div>
-                          <div class="mdl-cell mdl-cell--6-col">
+                          <div class="example-cell">
                             <div class="input-block">
                               <label for="light-input-url-disabled-required"
                                 title="Description of input">light-input-url-disabled-required</label>
@@ -344,23 +355,25 @@
                           </div>
                         </div>
                         <h4>light-input-file</h4>
-                        <div class="mdl-grid">
-                          <div class="mdl-cell mdl-cell--6-col">
+                        <div class="example-grid">
+                          <div class="example-cell">
                             <div class="input-block">
                               <label for="light-input-file-default">light-input-file-default</label>
                               <input id="light-input-file-default" name="light-input-file-default" type="file" value=""
-                                accept=".jpg,.png" data-default-value="https://www.gravatar.com/avatar/111111?s=200&d=mp&f=y" />
+                                accept=".jpg,.png"
+                                data-default-value="https://www.gravatar.com/avatar/111111?s=200&d=mp&f=y" />
                             </div>
                           </div>
-                          <div class="mdl-cell mdl-cell--6-col">
+                          <div class="example-cell">
                             <div class="input-block">
                               <label for="light-input-file-disabled">light-input-file-disabled</label>
                               <img src="images/sui_2.png" alt="" />
                               <input id="light-input-file-disabled" name="light-input-file-disabled" type="file"
-                                value="" accept=".jpg,.png" data-default-value="https://www.gravatar.com/avatar/111111?s=200&d=mp&f=y" disabled />
+                                value="" accept=".jpg,.png"
+                                data-default-value="https://www.gravatar.com/avatar/111111?s=200&d=mp&f=y" disabled />
                             </div>
                           </div>
-                          <div class="mdl-cell mdl-cell--6-col">
+                          <div class="example-cell">
                             <div class="input-block">
                               <label for="light-input-file-required">light-input-file-required</label>
                               <input name="light-input-file-required-name" type="hidden" value="document.docx" />
@@ -368,7 +381,7 @@
                                 value="" accept=".docx,.xlsx,.pdf" required />
                             </div>
                           </div>
-                          <div class="mdl-cell mdl-cell--6-col">
+                          <div class="example-cell">
                             <div class="input-block">
                               <label for="light-input-file-disabled-required"
                                 desc="Description of input">light-input-file-disabled-required</label>
@@ -380,29 +393,29 @@
                           </div>
                         </div>
                         <h4>light-input-search</h4>
-                        <div class="mdl-grid">
-                          <div class="mdl-cell mdl-cell--6-col">
+                        <div class="example-grid">
+                          <div class="example-cell">
                             <div class="input-block">
                               <label for="light-input-search-default">light-input-search-default</label>
                               <input id="light-input-search-default" name="light-input-search-default" type="search"
                                 value="search" />
                             </div>
                           </div>
-                          <div class="mdl-cell mdl-cell--6-col">
+                          <div class="example-cell">
                             <div class="input-block">
                               <label for="light-input-search-disabled">light-input-search-disabled</label>
                               <input id="light-input-search-disabled" name="light-input-search-disabled" type="search"
                                 value="search" disabled />
                             </div>
                           </div>
-                          <div class="mdl-cell mdl-cell--6-col">
+                          <div class="example-cell">
                             <div class="input-block">
                               <label for="light-input-search-required">light-input-search-required</label>
                               <input id="light-input-search-required" name="light-input-search-required" type="search"
                                 value="" required />
                             </div>
                           </div>
-                          <div class="mdl-cell mdl-cell--6-col">
+                          <div class="example-cell">
                             <div class="input-block">
                               <label for="light-input-search-disabled-required"
                                 desc="Description of input">light-input-search-disabled-required</label>
@@ -412,29 +425,29 @@
                           </div>
                         </div>
                         <h4>light-input-range</h4>
-                        <div class="mdl-grid">
-                          <div class="mdl-cell mdl-cell--6-col">
+                        <div class="example-grid">
+                          <div class="example-cell">
                             <div class="input-block">
                               <label for="light-input-range-default">light-input-range-default</label>
                               <input id="light-input-range-default" name="light-input-range-default" type="range"
                                 value="50" />
                             </div>
                           </div>
-                          <div class="mdl-cell mdl-cell--6-col">
+                          <div class="example-cell">
                             <div class="input-block">
                               <label for="light-input-range-disabled">light-input-range-disabled</label>
                               <input id="light-input-range-disabled" name="light-input-range-disabled" type="range"
                                 value="50" disabled />
                             </div>
                           </div>
-                          <div class="mdl-cell mdl-cell--6-col">
+                          <div class="example-cell">
                             <div class="input-block">
                               <label for="light-input-range-required">light-input-range-required</label>
                               <input id="light-input-range-required" name="light-input-range-required" type="range"
                                 value="" required />
                             </div>
                           </div>
-                          <div class="mdl-cell mdl-cell--6-col">
+                          <div class="example-cell">
                             <div class="input-block">
                               <label for="light-input-range-disabled-required"
                                 desc="Description of input">light-input-range-disabled-required</label>
@@ -444,8 +457,8 @@
                           </div>
                         </div>
                         <h4>light-select-one</h4>
-                        <div class="mdl-grid">
-                          <div class="mdl-cell mdl-cell--6-col">
+                        <div class="example-grid">
+                          <div class="example-cell">
                             <div class="input-block">
                               <label for="light-select-one-default">light-select-one-default</label>
                               <select id="light-select-one-default" name="light-select-one-default">
@@ -455,7 +468,7 @@
                               </select>
                             </div>
                           </div>
-                          <div class="mdl-cell mdl-cell--6-col">
+                          <div class="example-cell">
                             <div class="input-block">
                               <label for="light-select-one-disabled">light-select-one-disabled</label>
                               <select id="light-select-one-disabled" name="light-select-one-disabled"
@@ -466,7 +479,7 @@
                               </select>
                             </div>
                           </div>
-                          <div class="mdl-cell mdl-cell--6-col">
+                          <div class="example-cell">
                             <div class="input-block">
                               <label for="light-select-one-required">light-select-one-required</label>
                               <select id="light-select-one-required" name="light-select-one-required" required>
@@ -476,7 +489,7 @@
                               </select>
                             </div>
                           </div>
-                          <div class="mdl-cell mdl-cell--6-col">
+                          <div class="example-cell">
                             <div class="input-block">
                               <label for="light-select-one-disabled-required"
                                 desc="Description of input">light-select-one-disabled-required</label>
@@ -490,8 +503,8 @@
                           </div>
                         </div>
                         <h4>light-select-multiple</h4>
-                        <div class="mdl-grid">
-                          <div class="mdl-cell mdl-cell--6-col">
+                        <div class="example-grid">
+                          <div class="example-cell">
                             <div class="input-block">
                               <label for="light-select-multiple-default">light-select-multiple-default</label>
                               <select id="light-select-multiple-default" name="light-select-multiple-default" multiple>
@@ -501,7 +514,7 @@
                               </select>
                             </div>
                           </div>
-                          <div class="mdl-cell mdl-cell--6-col">
+                          <div class="example-cell">
                             <div class="input-block">
                               <label for="light-select-multiple-disabled">light-select-multiple-disabled</label>
                               <select id="light-select-multiple-disabled" name="light-select-multiple-disabled" multiple
@@ -512,7 +525,7 @@
                               </select>
                             </div>
                           </div>
-                          <div class="mdl-cell mdl-cell--6-col">
+                          <div class="example-cell">
                             <div class="input-block">
                               <label for="light-select-multiple-required">light-select-multiple-required</label>
                               <select id="light-select-multiple-required" name="light-select-multiple-required" multiple
@@ -523,7 +536,7 @@
                               </select>
                             </div>
                           </div>
-                          <div class="mdl-cell mdl-cell--6-col">
+                          <div class="example-cell">
                             <div class="input-block">
                               <label for="light-select-multiple-disabled-required"
                                 desc="Description of input">light-select-multiple-disabled-required</label>
@@ -537,29 +550,29 @@
                           </div>
                         </div>
                         <h4>light-datetime</h4>
-                        <div class="mdl-grid">
-                          <div class="mdl-cell mdl-cell--6-col">
+                        <div class="example-grid">
+                          <div class="example-cell">
                             <div class="input-block">
                               <label for="light-datetime-default">light-datetime-default</label>
                               <input id="light-datetime-default" name="light-datetime-default" type="datetime"
                                 data-format="DD/MM/YYYY HH:mm" value="2019-06-10T10:45:21Z" />
                             </div>
                           </div>
-                          <div class="mdl-cell mdl-cell--6-col">
+                          <div class="example-cell">
                             <div class="input-block">
                               <label for="light-datetime-disabled">light-datetime-disabled</label>
                               <input id="light-datetime-disabled" name="light-datetime-disabled" type="datetime"
                                 data-format="DD/MM/YYYY HH:mm" value="2019-06-10T10:45:21Z" disabled />
                             </div>
                           </div>
-                          <div class="mdl-cell mdl-cell--6-col">
+                          <div class="example-cell">
                             <div class="input-block">
                               <label for="light-datetime-required">light-datetime-required</label>
                               <input id="light-datetime-required" name="light-datetime-required" type="datetime"
                                 data-format="DD/MM/YYYY HH:mm" required />
                             </div>
                           </div>
-                          <div class="mdl-cell mdl-cell--6-col">
+                          <div class="example-cell">
                             <div class="input-block">
                               <label for="light-datetime-disabled-required"
                                 desc="Description of input">light-datetime-disabled-required</label>
@@ -569,8 +582,8 @@
                           </div>
                         </div>
                         <h4>light-datetime-range</h4>
-                        <div class="mdl-grid">
-                          <div class="mdl-cell mdl-cell--6-col">
+                        <div class="example-grid">
+                          <div class="example-cell">
                             <div class="input-block">
                               <label for="light-datetime-range-default">light-datetime-range-default</label>
                               <input id="light-datetime-range-default-start" name="light-datetime-range-default-start"
@@ -579,7 +592,7 @@
                                 type="datetime" data-format="DD/MM/YYYY HH:mm" value="2019-06-10T12:12:21Z" />
                             </div>
                           </div>
-                          <div class="mdl-cell mdl-cell--6-col">
+                          <div class="example-cell">
                             <div class="input-block">
                               <label for="light-datetime-range-disabled">light-datetime-range-disabled</label>
                               <input id="light-datetime-range-disabled-start" name="light-datetime-range-disabled-start"
@@ -588,7 +601,7 @@
                                 type="datetime" data-format="DD/MM/YYYY HH:mm" value="2019-06-10T12:12:21Z" disabled />
                             </div>
                           </div>
-                          <div class="mdl-cell mdl-cell--6-col">
+                          <div class="example-cell">
                             <div class="input-block">
                               <label for="light-datetime-range-required">light-datetime-range-required</label>
                               <input id="light-datetime-range-required-start" name="light-datetime-range-required-start"
@@ -597,7 +610,7 @@
                                 type="datetime" data-format="DD/MM/YYYY HH:mm" required />
                             </div>
                           </div>
-                          <div class="mdl-cell mdl-cell--6-col">
+                          <div class="example-cell">
                             <div class="input-block">
                               <label for="light-datetime-range-disabled-required"
                                 desc="Description of input">light-datetime-range-disabled-required</label>
@@ -611,8 +624,8 @@
                           </div>
                         </div>
                         <h4>light-input-checkbox</h4>
-                        <div class="mdl-grid">
-                          <div class="mdl-cell mdl-cell--6-col">
+                        <div class="example-grid">
+                          <div class="example-cell">
                             <div class="input-block">
                               <label for="light-input-checkbox-default-checked"
                                 data-label="light-input-checkbox-default-checked">light-input-checkbox-default-checked</label>
@@ -621,7 +634,7 @@
                                 name="light-input-checkbox-default-checked" type="checkbox" value="true" checked />
                             </div>
                           </div>
-                          <div class="mdl-cell mdl-cell--6-col">
+                          <div class="example-cell">
                             <div class="input-block">
                               <label for="light-input-checkbox-disabled-checked"
                                 data-label="light-input-checkbox-disabled-checked">light-input-checkbox-disabled-checked</label>
@@ -631,7 +644,7 @@
                                 disabled />
                             </div>
                           </div>
-                          <div class="mdl-cell mdl-cell--6-col">
+                          <div class="example-cell">
                             <div class="input-block">
                               <label for="light-input-checkbox-default"
                                 data-label="light-input-checkbox-default">light-input-checkbox-default</label>
@@ -640,7 +653,7 @@
                                 type="checkbox" value="true" />
                             </div>
                           </div>
-                          <div class="mdl-cell mdl-cell--6-col">
+                          <div class="example-cell">
                             <div class="input-block">
                               <label for="light-input-checkbox-disabled"
                                 data-label="light-input-checkbox-disabled">light-input-checkbox-disabled</label>
@@ -649,7 +662,7 @@
                                 type="checkbox" value="true" disabled />
                             </div>
                           </div>
-                          <div class="mdl-cell mdl-cell--6-col">
+                          <div class="example-cell">
                             <div class="input-block">
                               <label for="light-input-checkbox-required"
                                 data-label="light-input-checkbox-required">light-input-checkbox-required</label>
@@ -658,7 +671,7 @@
                                 type="checkbox" value="true" required />
                             </div>
                           </div>
-                          <div class="mdl-cell mdl-cell--6-col">
+                          <div class="example-cell">
                             <div class="input-block">
                               <label for="light-input-checkbox-disabled-required" desc="Description of input"
                                 data-label="light-input-checkbox-disabled-required">light-input-checkbox-disabled-required</label>
@@ -670,8 +683,8 @@
                           </div>
                         </div>
                         <h4>light-input-icon-toggle</h4>
-                        <div class="mdl-grid">
-                          <div class="mdl-cell mdl-cell--6-col">
+                        <div class="example-grid">
+                          <div class="example-cell">
                             <div class="input-block">
                               <label
                                 for="light-input-icon-toggle-default-checked">light-input-icon-toggle-default-checked</label>
@@ -681,7 +694,7 @@
                                 data-type="icon-toggle" data-checked="mood" data-unchecked="mood_bad" />
                             </div>
                           </div>
-                          <div class="mdl-cell mdl-cell--6-col">
+                          <div class="example-cell">
                             <div class="input-block">
                               <label
                                 for="light-input-icon-toggle-disabled-checked">light-input-icon-toggle-disabled-checked</label>
@@ -691,7 +704,7 @@
                                 disabled data-type="icon-toggle" data-checked="mood" data-unchecked="mood_bad" />
                             </div>
                           </div>
-                          <div class="mdl-cell mdl-cell--6-col">
+                          <div class="example-cell">
                             <div class="input-block">
                               <label for="light-input-icon-toggle-default">light-input-icon-toggle-default</label>
                               <input type="hidden" name="light-input-icon-toggle-default" value="false" />
@@ -700,7 +713,7 @@
                                 data-unchecked="mood_bad" />
                             </div>
                           </div>
-                          <div class="mdl-cell mdl-cell--6-col">
+                          <div class="example-cell">
                             <div class="input-block">
                               <label for="light-input-icon-toggle-disabled">light-input-icon-toggle-disabled</label>
                               <input type="hidden" name="light-input-icon-toggle-disabled" value="false" />
@@ -709,7 +722,7 @@
                                 data-unchecked="mood_bad" />
                             </div>
                           </div>
-                          <div class="mdl-cell mdl-cell--6-col">
+                          <div class="example-cell">
                             <div class="input-block">
                               <label for="light-input-icon-toggle-required">light-input-icon-toggle-required</label>
                               <input type="hidden" name="light-input-icon-toggle-required" value="false" />
@@ -718,7 +731,7 @@
                                 data-unchecked="mood_bad" />
                             </div>
                           </div>
-                          <div class="mdl-cell mdl-cell--6-col">
+                          <div class="example-cell">
                             <div class="input-block">
                               <label for="light-input-icon-toggle-disabled-required"
                                 desc="Description of input">light-input-icon-toggle-disabled-required</label>
@@ -730,8 +743,8 @@
                           </div>
                         </div>
                         <h4>light-input-switch</h4>
-                        <div class="mdl-grid">
-                          <div class="mdl-cell mdl-cell--6-col">
+                        <div class="example-grid">
+                          <div class="example-cell">
                             <div class="input-block">
                               <label for="light-input-switch-default-checked">light-input-switch-default-checked</label>
                               <input type="hidden" name="light-input-switch-default-checked" value="false" />
@@ -739,7 +752,7 @@
                                 type="checkbox" value="true" checked data-type="switch" />
                             </div>
                           </div>
-                          <div class="mdl-cell mdl-cell--6-col">
+                          <div class="example-cell">
                             <div class="input-block">
                               <label
                                 for="light-input-switch-disabled-checked">light-input-switch-disabled-checked</label>
@@ -748,7 +761,7 @@
                                 type="checkbox" value="true" checked disabled data-type="switch" />
                             </div>
                           </div>
-                          <div class="mdl-cell mdl-cell--6-col">
+                          <div class="example-cell">
                             <div class="input-block">
                               <label for="light-input-switch-default">light-input-switch-default</label>
                               <input type="hidden" name="light-input-switch-default" value="false" />
@@ -756,7 +769,7 @@
                                 value="true" data-type="switch" />
                             </div>
                           </div>
-                          <div class="mdl-cell mdl-cell--6-col">
+                          <div class="example-cell">
                             <div class="input-block">
                               <label for="light-input-switch-disabled">light-input-switch-disabled</label>
                               <input type="hidden" name="light-input-switch-disabled" value="false" />
@@ -764,7 +777,7 @@
                                 value="true" disabled data-type="switch" />
                             </div>
                           </div>
-                          <div class="mdl-cell mdl-cell--6-col">
+                          <div class="example-cell">
                             <div class="input-block">
                               <label for="light-input-switch-required">light-input-switch-required</label>
                               <input type="hidden" name="light-input-switch-required" value="false" />
@@ -772,7 +785,7 @@
                                 value="true" required data-type="switch" />
                             </div>
                           </div>
-                          <div class="mdl-cell mdl-cell--6-col">
+                          <div class="example-cell">
                             <div class="input-block">
                               <label for="light-input-switch-disabled-required"
                                 desc="Description of input">light-input-switch-disabled-required</label>
@@ -784,10 +797,10 @@
                           </div>
                         </div>
                         <h4>light-input-radiobutton</h4>
-                        <div class="mdl-grid">
-                          <div class="mdl-cell mdl-cell--6-col">
-                            <div class="mdl-grid">
-                              <div class="mdl-cell mdl-cell--6-col">
+                        <div class="example-grid">
+                          <div class="example-cell">
+                            <div class="example-grid">
+                              <div class="example-cell">
                                 <div class="input-block">
                                   <label for="light-input-radiobutton-default-yes"
                                     data-label="light-input-radiobutton-default">yes</label>
@@ -795,7 +808,7 @@
                                     type="radio" value="yes" checked />
                                 </div>
                               </div>
-                              <div class="mdl-cell mdl-cell--6-col">
+                              <div class="example-cell">
                                 <div class="input-block">
                                   <label for="light-input-radiobutton-default-no" data-label="true">no</label>
                                   <input id="light-input-radiobutton-default-no" name="light-input-radiobutton-default"
@@ -804,9 +817,9 @@
                               </div>
                             </div>
                           </div>
-                          <div class="mdl-cell mdl-cell--6-col">
-                            <div class="mdl-grid">
-                              <div class="mdl-cell mdl-cell--6-col">
+                          <div class="example-cell">
+                            <div class="example-grid">
+                              <div class="example-cell">
                                 <div class="input-block">
                                   <label for="light-input-radiobutton-disabled-yes"
                                     data-label="light-input-radiobutton-disabled">yes</label>
@@ -814,7 +827,7 @@
                                     name="light-input-radiobutton-disabled" type="radio" value="yes" disabled checked />
                                 </div>
                               </div>
-                              <div class="mdl-cell mdl-cell--6-col">
+                              <div class="example-cell">
                                 <div class="input-block">
                                   <label for="light-input-radiobutton-disabled-no" data-label="true">no</label>
                                   <input id="light-input-radiobutton-disabled-no"
@@ -823,9 +836,9 @@
                               </div>
                             </div>
                           </div>
-                          <div class="mdl-cell mdl-cell--6-col">
-                            <div class="mdl-grid">
-                              <div class="mdl-cell mdl-cell--6-col">
+                          <div class="example-cell">
+                            <div class="example-grid">
+                              <div class="example-cell">
                                 <div class="input-block">
                                   <label for="light-input-radiobutton-required-yes"
                                     data-label="light-input-radiobutton-required">yes</label>
@@ -833,7 +846,7 @@
                                     name="light-input-radiobutton-required" type="radio" value="yes" required />
                                 </div>
                               </div>
-                              <div class="mdl-cell mdl-cell--6-col">
+                              <div class="example-cell">
                                 <div class="input-block">
                                   <label for="light-input-radiobutton-required-no" data-label="true">no</label>
                                   <input id="light-input-radiobutton-required-no"
@@ -842,9 +855,9 @@
                               </div>
                             </div>
                           </div>
-                          <div class="mdl-cell mdl-cell--6-col">
-                            <div class="mdl-grid">
-                              <div class="mdl-cell mdl-cell--6-col">
+                          <div class="example-cell">
+                            <div class="example-grid">
+                              <div class="example-cell">
                                 <div class="input-block">
                                   <label for="light-input-radiobutton-disabled-required-yes"
                                     data-label="light-input-radiobutton-disabled-required">yes</label>
@@ -853,7 +866,7 @@
                                     required />
                                 </div>
                               </div>
-                              <div class="mdl-cell mdl-cell--6-col">
+                              <div class="example-cell">
                                 <div class="input-block">
                                   <label for="light-input-radiobutton-disabled-required-no" data-label="true"
                                     desc="Description of input">no</label>
@@ -866,29 +879,29 @@
                           </div>
                         </div>
                         <h4>light-rich-textarea</h4>
-                        <div class="mdl-grid">
-                          <div class="mdl-cell mdl-cell--6-col">
+                        <div class="example-grid">
+                          <div class="example-cell">
                             <div class="input-block">
                               <label for="light-rich-textarea-default">light-rich-textarea-default</label>
                               <textarea id="light-rich-textarea-default" name="light-rich-textarea-default"
                                 data-rich-text="true">light-rich-textarea-default</textarea>
                             </div>
                           </div>
-                          <div class="mdl-cell mdl-cell--6-col">
+                          <div class="example-cell">
                             <div class="input-block">
                               <label for="light-rich-textarea-disabled">light-rich-textarea-disabled</label>
                               <textarea id="light-rich-textarea-disabled" name="light-rich-textarea-disabled"
                                 data-rich-text="true" disabled>light-rich-textarea-disabled</textarea>
                             </div>
                           </div>
-                          <div class="mdl-cell mdl-cell--6-col">
+                          <div class="example-cell">
                             <div class="input-block">
                               <label for="light-rich-textarea-required">light-rich-textarea-required</label>
                               <textarea id="light-rich-textarea-required" name="light-rich-textarea-required"
                                 data-rich-text="true" required></textarea>
                             </div>
                           </div>
-                          <div class="mdl-cell mdl-cell--6-col">
+                          <div class="example-cell">
                             <div class="input-block">
                               <label for="light-rich-textarea-disabled-required"
                                 desc="Description of input">light-rich-textarea-disabled-required</label>
@@ -899,28 +912,28 @@
                           </div>
                         </div>
                         <h4>light-textarea</h4>
-                        <div class="mdl-grid">
-                          <div class="mdl-cell mdl-cell--6-col">
+                        <div class="example-grid">
+                          <div class="example-cell">
                             <div class="input-block">
                               <label for="light-textarea-default">light-textarea-default</label>
                               <textarea id="light-textarea-default"
                                 name="light-textarea-default">light-textarea-default</textarea>
                             </div>
                           </div>
-                          <div class="mdl-cell mdl-cell--6-col">
+                          <div class="example-cell">
                             <div class="input-block">
                               <label for="light-textarea-disabled">light-textarea-disabled</label>
                               <textarea id="light-textarea-disabled" name="light-textarea-disabled"
                                 disabled>light-textarea-disabled</textarea>
                             </div>
                           </div>
-                          <div class="mdl-cell mdl-cell--6-col">
+                          <div class="example-cell">
                             <div class="input-block">
                               <label for="light-textarea-required">light-textarea-required</label>
                               <textarea id="light-textarea-required" name="light-textarea-required" required></textarea>
                             </div>
                           </div>
-                          <div class="mdl-cell mdl-cell--6-col">
+                          <div class="example-cell">
                             <div class="input-block">
                               <label for="light-textarea-disabled-required"
                                 desc="Description of input">light-textarea-disabled-required</label>
@@ -930,8 +943,8 @@
                           </div>
                         </div>
                         <h4>light-location</h4>
-                        <div class="mdl-grid">
-                          <div class="mdl-cell mdl-cell--6-col">
+                        <div class="example-grid">
+                          <div class="example-cell">
                             <div class="input-block">
                               <label for="light-location-default">light-location-default</label>
                               <input
@@ -942,7 +955,7 @@
                                 name="light-location-default" id="light-location-default" />
                             </div>
                           </div>
-                          <div class="mdl-cell mdl-cell--6-col">
+                          <div class="example-cell">
                             <div class="input-block">
                               <label for="light-location-disabled">light-location-disabled</label>
                               <input
@@ -953,7 +966,7 @@
                                 name="light-location-disabled" id="light-location-disabled" disabled />
                             </div>
                           </div>
-                          <div class="mdl-cell mdl-cell--6-col">
+                          <div class="example-cell">
                             <div class="input-block">
                               <label for="light-location-required">light-location-required</label>
                               <input
@@ -964,7 +977,7 @@
                                 name="light-location-required" id="light-location-required" required />
                             </div>
                           </div>
-                          <div class="mdl-cell mdl-cell--6-col">
+                          <div class="example-cell">
                             <div class="input-block">
                               <label for="light-location-disabled-required"
                                 desc="Description of input">light-location-disabled-required</label>
@@ -983,9 +996,14 @@
                           <button type="button">Delete</button>
                           <button type="submit">Save</button>
                         </div>
+                        <div class="action-block">
+                          <button type="reset" disabled>Cancel</button>
+                          <button type="button" disabled>Delete</button>
+                          <button type="submit" disabled>Save</button>
+                        </div>
                       </div>
                     </div>
-                    <div class="mdl-cell mdl-cell--6-col">
+                    <div class="example-cell">
                       <div class="dark-theme">
 
                       </div>
@@ -1012,10 +1030,8 @@
       <div id="bottom-menu"></div>
     </footer>
   </div>
-  <script
-    src="https://maps.googleapis.com/maps/api/js?libraries=geometry,visualization"></script>
-  <script src="node_modules/material-design-lite/dist/material.min.js"></script>
-  <script src="node_modules/@siposdani87/sui-js/dist/sui.min.js"></script>
+  <script src="https://maps.googleapis.com/maps/api/js?libraries=geometry,visualization"></script>
+  <script src="../dist/sui.min.js"></script>
   <script src="index.js"></script>
 </body>
 
