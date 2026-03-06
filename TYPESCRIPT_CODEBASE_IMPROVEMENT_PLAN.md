@@ -36,7 +36,7 @@
 | # | Issue | Files | Status |
 |---|-------|-------|--------|
 | 5a | `Collection.Type` typed as `any` → constructor type | `src/core/collection.ts` | **Blocked** — `FormField` is a factory function, not a class; needs refactoring to type properly |
-| 5b | Define option interfaces instead of `Objekt` for type-safe config access | 10 files with `opt_options = {}` | Open — largest effort, warrants own sub-plan |
+| 5b | ~~Define typed `Objekt<T>` generics for type-safe config access~~ | 9 modules typed (Xhr, Http, Flash, Confirm, Dialog, Cookie, Depot, Screen, Viewer, Loader); Header/Footer/Page/Script have empty options | **Done** |
 | 5c | ~~Tighten `getValue()` return types per field subclass~~ | `TextField` → `string` (done); others use `typeCast` which is inherently `any` | Partial |
 
 ## Phase 6 — Structural: PARTIAL
@@ -50,5 +50,5 @@
 ## Implementation Notes
 
 - Each phase should be followed by `npx tsc --noEmit` and `npm run test` to verify
-- Phase 5b (option interfaces) has the highest remaining value but needs its own sub-plan
+- Phase 6b (event emitter) would be a significant API change requiring careful migration
 - Phase 6b (event emitter) would be a significant API change requiring careful migration

@@ -22,7 +22,9 @@ import { BaseModal } from './baseModal';
  * @category Module
  */
 export declare class Viewer extends BaseModal {
-    options: Objekt;
+    options: Objekt<{
+        id: string;
+    }>;
     /**
      * Creates a new Viewer instance.
      *

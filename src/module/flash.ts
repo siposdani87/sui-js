@@ -49,7 +49,7 @@ import { sui } from '../utils/render';
  */
 export class Flash {
     container!: Knot;
-    options!: Objekt;
+    options!: Objekt<{ id: string; duration: number; closableTypes: string[] }>;
 
     /**
      * Creates a new Flash instance.

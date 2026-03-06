@@ -35,7 +35,12 @@ import { Objekt } from '../core/objekt';
  */
 export declare class Depot {
     type: 'LOCAL' | 'SESSION';
-    options: Objekt;
+    options: Objekt<{
+        prefix: string;
+        secret: string;
+        hours: number;
+        interval: number;
+    }>;
     storage: Storage;
     /**
      * Creates a new Depot instance backed by either localStorage or

@@ -35,7 +35,7 @@ import { Xhr } from './xhr';
  * @category Module
  */
 export class Http {
-    options!: Objekt;
+    options!: Objekt<{ backend: string; locale: string }>;
     username!: string | null;
     password!: string | null;
     token!: string | null;

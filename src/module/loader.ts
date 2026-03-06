@@ -21,7 +21,7 @@ import type { Knot } from '../core';
  * loader.hide();
  */
 export class Loader {
-    options!: Objekt;
+    options!: Objekt<{ counter: number }>;
     loader!: Knot;
     spinner!: Knot;
 

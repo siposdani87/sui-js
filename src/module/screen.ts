@@ -36,7 +36,7 @@ import { consoleDebug } from '../utils/log';
  * @category Module
  */
 export class Screen {
-    options!: Objekt;
+    options!: Objekt<{ delay: number }>;
     window!: Window;
     document!: Document;
     orientation!: string;

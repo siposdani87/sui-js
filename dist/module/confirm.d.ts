@@ -43,7 +43,9 @@ import { BaseModal } from './baseModal';
  * @category Module
  */
 export declare class Confirm extends BaseModal {
-    options: Objekt;
+    options: Objekt<{
+        id: string;
+    }>;
     /**
      * Creates a new Confirm instance.
      *

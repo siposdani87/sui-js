@@ -38,7 +38,12 @@ import { encrypt, decrypt } from '../utils/coder';
  */
 export class Depot {
     type: 'LOCAL' | 'SESSION';
-    options!: Objekt;
+    options!: Objekt<{
+        prefix: string;
+        secret: string;
+        hours: number;
+        interval: number;
+    }>;
     storage!: Storage;
 
     /**

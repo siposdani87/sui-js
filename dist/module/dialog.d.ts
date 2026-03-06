@@ -36,7 +36,9 @@ import type { Knot } from '../core';
  */
 export declare class Dialog extends BaseModal {
     http: Http;
-    options: Objekt;
+    options: Objekt<{
+        id: string;
+    }>;
     /**
      * Creates a new Dialog instance.
      *

@@ -47,7 +47,7 @@ import { sui } from '../utils/render';
  * @category Module
  */
 export class Confirm extends BaseModal {
-    options!: Objekt;
+    options!: Objekt<{ id: string }>;
 
     /**
      * Creates a new Confirm instance.

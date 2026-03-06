@@ -1,7 +1,13 @@
+@use '../core/variables';
+
 .dark-theme {
     .textarea-field {
         .sui-textarea__input {
             resize: none;
+        }
+
+        .icon-button {
+            color: variables.$primary-default-dark;
         }
     }
 }

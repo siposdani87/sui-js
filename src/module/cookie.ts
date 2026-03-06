@@ -32,7 +32,7 @@ import { Objekt } from '../core/objekt';
  * @category Module
  */
 export class Cookie {
-    options!: Objekt;
+    options!: Objekt<{ prefix: string; hours: number }>;
 
     /**
      * Creates a new Cookie instance with the given options. The default
