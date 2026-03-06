@@ -115,22 +115,14 @@ export class Cookie {
             return;
         }
         if (opt_expires) {
-            switch (opt_expires.constructor) {
-                case Number:
-                    opt_expires =
-                        // eslint-disable-next-line @typescript-eslint/no-explicit-any
-                        opt_expires === Infinity
-                            ? '; expires=Fri, 31 Dec 9999 23:59:59 GMT'
-                            : // eslint-disable-next-line @typescript-eslint/no-explicit-any
-                                '; max-age=' + opt_expires * 60 * 60;
-                    break;
-                case Date:
-                    opt_expires =
-                        // eslint-disable-next-line @typescript-eslint/no-explicit-any
-                        '; expires=' + opt_expires.toUTCString();
-                    break;
-                default:
-                    break;
+            if (typeof opt_expires === 'number') {
+                opt_expires =
+                    opt_expires === Infinity
+                        ? '; expires=Fri, 31 Dec 9999 23:59:59 GMT'
+                        : '; max-age=' + opt_expires * 60 * 60;
+            }
+            else if (opt_expires instanceof Date) {
+                opt_expires = '; expires=' + opt_expires.toUTCString();
             }
         }
         else {

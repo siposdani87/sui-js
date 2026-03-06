@@ -69,7 +69,7 @@ objB) => {
     const obj = copyObject(objA);
     for (const key in objB) {
         if (Object.hasOwn(objB, key)) {
-            if (isPureObject(objB[key].constructor)) {
+            if (isPureObject(objB[key])) {
                 obj[key] = merge(obj[key], objB[key]);
             }
             else {

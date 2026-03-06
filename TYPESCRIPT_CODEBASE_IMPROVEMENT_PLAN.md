@@ -47,8 +47,17 @@
 | 6b | Replace mutable event callback properties (`eventChange`, `eventClick`) with internal event emitter pattern | Open |
 | 6c | Template method for `_init()` in `BaseField` to remove boilerplate from subclasses | Open |
 
+## Phase 7 — Additional Modernization: COMPLETE
+
+| # | Issue | Files | Status |
+|---|-------|-------|--------|
+| 7a | ~~Remove `event.srcElement` legacy fallback~~ | `src/component/form.ts` | **Done** |
+| 7b | ~~Replace remaining `indexOf` checks with `includes()`/`startsWith()`~~ | 7 files: `query.ts`, `browser.ts`, `flash.ts`, `depot.ts`, `navigation.ts`, `textareaField.ts` | **Done** |
+| 7c | ~~Replace `switch(x.constructor)` with `typeof`/`instanceof`~~ | `src/module/depot.ts`, `src/module/cookie.ts` | **Done** |
+| 7d | ~~**Bug fix:** `merge()` uses `isPureObject(obj.constructor)` instead of `isPureObject(obj)`~~ | `src/utils/operation.ts` | **Done** — deep merge was broken for plain objects |
+
 ## Implementation Notes
 
 - Each phase should be followed by `npx tsc --noEmit` and `npm run test` to verify
 - Phase 6b (event emitter) would be a significant API change requiring careful migration
-- Phase 6b (event emitter) would be a significant API change requiring careful migration
+- Phase 6c (template method) determined not worth pursuing — `_init()` methods are too varied across subclasses

@@ -266,22 +266,14 @@ export class Depot {
     ): string {
         const date = new Date();
         if (opt_expires) {
-            switch (opt_expires.constructor) {
-                case Number:
-                    date.setTime(
-                        date.getTime() +
-                            (opt_expires as number) * 60 * 60 * 1000,
-                    );
-                    opt_expires =
-                        opt_expires === Infinity
-                            ? 'Fri, 31 Dec 9999 23:59:59 GMT'
-                            : date.toUTCString();
-                    break;
-                case Date:
-                    opt_expires = (opt_expires as Date).toUTCString();
-                    break;
-                default:
-                    break;
+            if (typeof opt_expires === 'number') {
+                date.setTime(date.getTime() + opt_expires * 60 * 60 * 1000);
+                opt_expires =
+                    opt_expires === Infinity
+                        ? 'Fri, 31 Dec 9999 23:59:59 GMT'
+                        : date.toUTCString();
+            } else if (opt_expires instanceof Date) {
+                opt_expires = opt_expires.toUTCString();
             }
         } else {
             date.setTime(date.getTime() + this.options.hours * 60 * 60 * 1000);
