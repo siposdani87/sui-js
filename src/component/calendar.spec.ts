@@ -33,7 +33,9 @@ describe('Calendar', () => {
         it('should create header with previous/next buttons and mode span', () => {
             const calendar = createCalendar();
             expect(calendar.headerKnot).toBeDefined();
-            const buttons = calendar.headerKnot.getNode().querySelectorAll('a');
+            const buttons = calendar.headerKnot
+                .getNode()
+                .querySelectorAll('button');
             expect(buttons.length).toBe(2);
             expect(calendar.currentModeKnot).toBeDefined();
         });
@@ -203,7 +205,7 @@ describe('Calendar', () => {
 
     describe('navigation', () => {
         function getNavButtons(calendar: Calendar): NodeListOf<Element> {
-            return calendar.headerKnot.getNode().querySelectorAll('a');
+            return calendar.headerKnot.getNode().querySelectorAll('button');
         }
 
         it('should navigate to previous month in DAY mode', () => {

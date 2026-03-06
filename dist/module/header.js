@@ -49,7 +49,7 @@ export class Header {
         this.leftMenuButton = new Query('#open-left-menu', this.headerKnot).getKnot();
         this.topMenuButton = new Query('#toggle-top-menu', this.headerKnot).getKnot();
         this.brandKnot = new Query('.brand', this.headerKnot).getKnot();
-        this.brandKnot.setAttribute('href', 'javascript:void(0)');
+        this.brandKnot.setAttribute('href', '#');
         this.brandKnot.addEventListener('click', () => {
             this.eventLogoClick();
         });

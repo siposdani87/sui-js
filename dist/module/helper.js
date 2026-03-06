@@ -51,8 +51,7 @@ export class Helper {
      * @param name The text content to display inside the link.
      * @param opt_callback Called with the link's `href` and the
      *     {@link Knot} when clicked.
-     * @param opt_href The URL for the `href` attribute. Defaults to
-     *     `'javascript:void(0)'`.
+     * @param opt_href The URL for the `href` attribute. Defaults to `'#'`.
      * @param opt_description Tooltip text shown on hover.
      * @param opt_allowAccess When `false`, the element is removed
      *     from the DOM instead of being enhanced.
@@ -64,7 +63,7 @@ export class Helper {
      *     console.log('Navigate to:', href);
      * }, '/home', 'Go to homepage');
      */
-    createLink(name, opt_callback, opt_href = 'javascript:void(0)', opt_description = '', opt_allowAccess = true, opt_cssClasses = ['link']) {
+    createLink(name, opt_callback, opt_href = '#', opt_description = '', opt_allowAccess = true, opt_cssClasses = ['link']) {
         const linkKnot = new Knot('a');
         linkKnot.setHtml(name);
         this.linkElement(linkKnot, opt_callback, opt_href, opt_description, opt_allowAccess, opt_cssClasses);

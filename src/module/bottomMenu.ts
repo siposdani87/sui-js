@@ -48,7 +48,7 @@ export class BottomMenu {
             '#open-bottom-menu',
             this.footer.footerKnot,
         ).getKnot();
-        openBottomMenu.setAttribute('href', 'javascript:void(0)');
+        openBottomMenu.setAttribute('href', '#');
         openBottomMenu.addEventListener('click', () => {
             this.toggle();
         });
@@ -57,7 +57,7 @@ export class BottomMenu {
             '#close-bottom-menu',
             this.footer.footerKnot,
         ).getKnot();
-        closeBottomMenu.setAttribute('href', 'javascript:void(0)');
+        closeBottomMenu.setAttribute('href', '#');
         closeBottomMenu.addEventListener('click', () => {
             this.toggle();
         });

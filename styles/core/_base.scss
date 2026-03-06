@@ -59,6 +59,16 @@ body {
     overflow: hidden;
 }
 
+button.icon-button {
+    background: none;
+    border: none;
+    padding: 0;
+    margin: 0;
+    font: inherit;
+    color: inherit;
+    cursor: pointer;
+}
+
 .material-icons {
     font-family: variables.$font-family-icons !important;
 }

@@ -71,7 +71,7 @@ export class Header {
         ).getKnot();
 
         this.brandKnot = new Query('.brand', this.headerKnot).getKnot();
-        this.brandKnot.setAttribute('href', 'javascript:void(0)');
+        this.brandKnot.setAttribute('href', '#');
         this.brandKnot.addEventListener('click', () => {
             this.eventLogoClick();
         });

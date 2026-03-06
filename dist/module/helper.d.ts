@@ -46,8 +46,7 @@ export declare class Helper {
      * @param name The text content to display inside the link.
      * @param opt_callback Called with the link's `href` and the
      *     {@link Knot} when clicked.
-     * @param opt_href The URL for the `href` attribute. Defaults to
-     *     `'javascript:void(0)'`.
+     * @param opt_href The URL for the `href` attribute. Defaults to `'#'`.
      * @param opt_description Tooltip text shown on hover.
      * @param opt_allowAccess When `false`, the element is removed
      *     from the DOM instead of being enhanced.

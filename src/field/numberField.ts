@@ -62,9 +62,9 @@ export class NumberField extends BaseField<HTMLInputElement> {
         actionKnot.addClass('step-change');
         this.actionContainerKnot.appendChild(actionKnot);
 
-        const upButton = new Knot('a');
-        upButton.setAttribute('href', 'javascript:void(0)');
-        upButton.addClass(['up-button', 'material-icons']);
+        const upButton = new Knot('button');
+        upButton.setAttribute('type', 'button');
+        upButton.addClass(['up-button', 'icon-button', 'material-icons']);
         upButton.setHtml('keyboard_arrow_up');
         upButton.addEventListener('click', () => {
             if (this.isEnabled()) {
@@ -75,9 +75,9 @@ export class NumberField extends BaseField<HTMLInputElement> {
         });
         actionKnot.appendChild(upButton);
 
-        const downButton = new Knot('a');
-        downButton.setAttribute('href', 'javascript:void(0)');
-        downButton.addClass(['down-button', 'material-icons']);
+        const downButton = new Knot('button');
+        downButton.setAttribute('type', 'button');
+        downButton.addClass(['down-button', 'icon-button', 'material-icons']);
         downButton.setHtml('keyboard_arrow_down');
         downButton.addEventListener('click', () => {
             if (this.isEnabled()) {

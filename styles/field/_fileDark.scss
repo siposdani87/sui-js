@@ -10,6 +10,10 @@
             }
         }
 
+        .browse-button {
+            color: variables.$primary-default-dark;
+        }
+
         &.is-disabled {
             img {
                 opacity: 0.2;

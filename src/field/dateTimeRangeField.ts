@@ -130,9 +130,14 @@ export class DateTimeRangeField extends BaseField<HTMLInputElement> {
             this.label.addClass('field-label');
         }
 
-        const iconKnot = new Knot('a');
-        iconKnot.setAttribute('href', 'javascript:void(0)');
-        iconKnot.addClass(['material-icons', 'size-24', 'expander']);
+        const iconKnot = new Knot('button');
+        iconKnot.setAttribute('type', 'button');
+        iconKnot.addClass([
+            'icon-button',
+            'material-icons',
+            'size-24',
+            'expander',
+        ]);
         if (this.isStartInput) {
             iconKnot.setHtml('remove');
             this.datetimeInput.insertAfter(iconKnot);
@@ -200,9 +205,14 @@ export class DateTimeRangeField extends BaseField<HTMLInputElement> {
             this.datetimeInput.appendChild(tagKnot);
 
             if (this.isEnabled()) {
-                const iconKnot = new Knot('a');
-                iconKnot.setAttribute('href', 'javascript:void(0)');
-                iconKnot.addClass(['material-icons', 'size-18', 'close']);
+                const iconKnot = new Knot('button');
+                iconKnot.setAttribute('type', 'button');
+                iconKnot.addClass([
+                    'icon-button',
+                    'material-icons',
+                    'size-18',
+                    'close',
+                ]);
                 iconKnot.setHtml('close');
                 iconKnot.addEventListener('click', () => {
                     this.setValue('');

@@ -206,7 +206,7 @@ export class Navigation {
             titleSpan.setHtml(title);
             linkKnot.appendChild(titleSpan);
         }
-        linkKnot.setAttribute('href', opt_href || 'javascript:void(0)');
+        linkKnot.setAttribute('href', opt_href || '#');
         const href = linkKnot.getAttribute('href');
         const listener = linkKnot.addEventListener('click', () => {
             action(href);
@@ -276,7 +276,7 @@ export class Navigation {
         const linkKnot = item.get(this.linkKnotKey);
         linkKnot.addClass('disabled');
         linkKnot.removeEventListener('click', item.get('listener'));
-        linkKnot.setAttribute('href', 'javascript:void(0)');
+        linkKnot.setAttribute('href', '#');
     }
     /**
      * Enables a navigation item by ID, restoring click interactions.

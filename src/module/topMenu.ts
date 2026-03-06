@@ -46,7 +46,7 @@ export class TopMenu {
             '#toggle-top-menu',
             this.header.headerKnot,
         ).getKnot();
-        this.toggleTopMenu.setAttribute('href', 'javascript:void(0)');
+        this.toggleTopMenu.setAttribute('href', '#');
         this.toggleTopMenu.addEventListener('click', () => {
             this.toggle();
         });

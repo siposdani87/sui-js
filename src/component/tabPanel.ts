@@ -76,7 +76,7 @@ export class TabPanel {
                 tab.addClass('hidden');
             }
             tab.setData('panel', panelId);
-            tab.setAttribute('href', 'javascript:void(0)');
+            tab.setAttribute('href', '#');
             tab.addEventListener('click', () => {
                 this.setActive(panelId);
             });

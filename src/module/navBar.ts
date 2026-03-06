@@ -45,7 +45,7 @@ export class NavBar {
             '#toggle-nav-bar',
             this.navBarHeader,
         ).getKnot();
-        toggleNavBar.setAttribute('href', 'javascript:void(0)');
+        toggleNavBar.setAttribute('href', '#');
         toggleNavBar.addEventListener('click', () => {
             this.toggle();
         });

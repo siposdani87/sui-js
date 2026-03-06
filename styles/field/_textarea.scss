@@ -47,7 +47,7 @@
     }
 
     .toolbar {
-        a {
+        .icon-button {
             font-size: 20px;
             margin: 0 10px 2px 0;
         }
@@ -55,7 +55,7 @@
 
     &.is-disabled {
         .toolbar {
-            a {
+            .icon-button {
                 color: variables.$label-disabled-light !important;
             }
         }

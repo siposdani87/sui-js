@@ -73,9 +73,14 @@ export class Calendar {
         this.headerKnot = new Knot('div');
         this.headerKnot.addClass('header');
         this.calendarKnot.appendChild(this.headerKnot);
-        const previousButton = new Knot('a');
-        previousButton.setAttribute('href', 'javascript:void(0)');
-        previousButton.addClass(['previous', 'sui-button', 'sui-button--icon']);
+        const previousButton = new Knot('button');
+        previousButton.setAttribute('type', 'button');
+        previousButton.addClass([
+            'previous',
+            'icon-button',
+            'sui-button',
+            'sui-button--icon',
+        ]);
         const prevIconKnot = new Knot('em');
         prevIconKnot.addClass('material-icons');
         prevIconKnot.setHtml('chevron_left');
@@ -89,9 +94,14 @@ export class Calendar {
             this.draw();
         });
         this.headerKnot.appendChild(this.currentModeKnot);
-        const nextButton = new Knot('a');
-        nextButton.setAttribute('href', 'javascript:void(0)');
-        nextButton.addClass(['next', 'sui-button', 'sui-button--icon']);
+        const nextButton = new Knot('button');
+        nextButton.setAttribute('type', 'button');
+        nextButton.addClass([
+            'next',
+            'icon-button',
+            'sui-button',
+            'sui-button--icon',
+        ]);
         const nextIconKnot = new Knot('em');
         nextIconKnot.addClass('material-icons');
         nextIconKnot.setHtml('chevron_right');

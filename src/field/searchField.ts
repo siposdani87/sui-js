@@ -97,9 +97,9 @@ export class SearchField extends BaseField<HTMLInputElement> {
      * @description Creates a clear button that resets the field value and triggers eventEnter.
      */
     private _initClearButton(): void {
-        const clearButton = new Knot('a');
-        clearButton.setAttribute('href', 'javascript:void(0)');
-        clearButton.addClass(['material-icons', 'clear-button']);
+        const clearButton = new Knot('button');
+        clearButton.setAttribute('type', 'button');
+        clearButton.addClass(['icon-button', 'material-icons', 'clear-button']);
         clearButton.setHtml('clear');
         clearButton.addEventListener('click', () => {
             if (this.isEnabled()) {

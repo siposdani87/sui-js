@@ -140,9 +140,14 @@ export class SelectField extends BaseField<HTMLInputElement> {
             this.label.addClass('field-label');
         }
 
-        this.iconKnot = new Knot('a');
-        this.iconKnot.setAttribute('href', 'javascript:void(0)');
-        this.iconKnot.addClass(['material-icons', 'size-24', 'expander']);
+        this.iconKnot = new Knot('button');
+        this.iconKnot.setAttribute('type', 'button');
+        this.iconKnot.addClass([
+            'icon-button',
+            'material-icons',
+            'size-24',
+            'expander',
+        ]);
         this.iconKnot.setHtml('expand_more');
         this.iconKnot.addEventListener('click', () => {
             if (this.isEnabled()) {
@@ -386,9 +391,14 @@ export class SelectField extends BaseField<HTMLInputElement> {
 
             const id = tag.get<string>('id');
             if (neq(id, '') && this.isEnabled()) {
-                const iconKnot = new Knot('a');
-                iconKnot.setAttribute('href', 'javascript:void(0)');
-                iconKnot.addClass(['material-icons', 'size-18', 'close']);
+                const iconKnot = new Knot('button');
+                iconKnot.setAttribute('type', 'button');
+                iconKnot.addClass([
+                    'icon-button',
+                    'material-icons',
+                    'size-18',
+                    'close',
+                ]);
                 iconKnot.setHtml('close');
                 iconKnot.addEventListener('click', () => {
                     this._handleSelectedId(id);
@@ -480,8 +490,9 @@ export class SelectField extends BaseField<HTMLInputElement> {
         const ids = this._getSelectedIds();
         eachArray(items, (item) => {
             const id = item.get<string>('id');
-            const listKnot = new Knot('a');
-            listKnot.setAttribute('href', 'javascript:void(0)');
+            const listKnot = new Knot('button');
+            listKnot.setAttribute('type', 'button');
+            listKnot.addClass('icon-button');
             if (inArray(ids, id)) {
                 listKnot.addClass('selected');
             }

@@ -34,7 +34,7 @@ export class NavBar {
         this.navBarHeader = new Query('.nav-bar-header').getKnot();
         this.navBar = new Query('#nav-bar', this.navBarHeader).getKnot();
         const toggleNavBar = new Query('#toggle-nav-bar', this.navBarHeader).getKnot();
-        toggleNavBar.setAttribute('href', 'javascript:void(0)');
+        toggleNavBar.setAttribute('href', '#');
         toggleNavBar.addEventListener('click', () => {
             this.toggle();
         });

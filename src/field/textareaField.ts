@@ -189,9 +189,9 @@ export class TextareaField extends BaseField<HTMLInputElement> {
      * @param {() => void} action - The callback to execute on click.
      */
     private _renderToolbarButton(iconName: string, action: () => void): void {
-        const boldButtonKnot = new Knot('a');
-        boldButtonKnot.setAttribute('href', 'javascript:void(0)');
-        boldButtonKnot.addClass('material-icons');
+        const boldButtonKnot = new Knot('button');
+        boldButtonKnot.setAttribute('type', 'button');
+        boldButtonKnot.addClass(['icon-button', 'material-icons']);
         boldButtonKnot.setHtml(iconName);
         boldButtonKnot.addEventListener('click', () => {
             action();

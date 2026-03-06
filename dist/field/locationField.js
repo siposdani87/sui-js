@@ -69,9 +69,13 @@ export class LocationField extends BaseField {
      * Creates the search button and binds its click to trigger geocoding.
      */
     _initSearchButton() {
-        const searchButton = new Knot('a');
-        searchButton.setAttribute('href', 'javascript:void(0)');
-        searchButton.addClass(['search-button', 'material-icons']);
+        const searchButton = new Knot('button');
+        searchButton.setAttribute('type', 'button');
+        searchButton.addClass([
+            'search-button',
+            'icon-button',
+            'material-icons',
+        ]);
         searchButton.setHtml('pin_drop');
         searchButton.addEventListener('click', () => {
             if (this.isEnabled()) {
@@ -85,9 +89,13 @@ export class LocationField extends BaseField {
      * Creates the advanced-toggle button that shows/hides lat/lng inputs.
      */
     _initAdvancedButton() {
-        this.advancedButton = new Knot('a');
-        this.advancedButton.setAttribute('href', 'javascript:void(0)');
-        this.advancedButton.addClass(['advanced-button', 'material-icons']);
+        this.advancedButton = new Knot('button');
+        this.advancedButton.setAttribute('type', 'button');
+        this.advancedButton.addClass([
+            'advanced-button',
+            'icon-button',
+            'material-icons',
+        ]);
         this.advancedButton.setHtml('settings');
         this.advancedButton.addEventListener('click', () => {
             if (this.isEnabled()) {

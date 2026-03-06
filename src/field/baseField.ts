@@ -506,17 +506,21 @@ export class BaseField<T extends HTMLInputElement> {
         const description = label.getAttribute('desc');
         if (title || description) {
             let infoButton = new Query(
-                'a.info-button',
+                'button.info-button',
                 this.infoContainerKnot,
             ).getKnot();
             if (!infoButton.isEmpty()) {
                 infoButton.remove();
             }
-            infoButton = new Knot('a');
+            infoButton = new Knot('button');
+            infoButton.setAttribute('type', 'button');
             infoButton.setAttribute('title', title || '');
             infoButton.setAttribute('desc', description || '');
-            infoButton.setAttribute('href', 'javascript:void(0)');
-            infoButton.addClass(['info-button', 'material-icons']);
+            infoButton.addClass([
+                'info-button',
+                'icon-button',
+                'material-icons',
+            ]);
             infoButton.setHtml('info');
             this.infoContainerKnot.appendChild(infoButton);
             const tooltip = new Tooltip(infoButton, 'LEFT');

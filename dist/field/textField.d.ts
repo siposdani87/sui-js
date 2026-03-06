@@ -33,7 +33,7 @@ export declare class TextField extends BaseField<HTMLInputElement> {
     refresh(): void;
     /**
      * @description Returns the raw string value of the input element without type-casting.
-     * @returns {*} The input element's current value.
+     * @returns {string} The input element's current value.
      */
-    getValue(): any;
+    getValue(): string;
 }

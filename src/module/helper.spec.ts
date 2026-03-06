@@ -40,7 +40,7 @@ describe('Helper', () => {
 
         it('should use default href when not provided', () => {
             const link = helper.createLink('Link', jest.fn());
-            expect(link.getAttribute('href')).toBe('javascript:void(0)');
+            expect(link.getAttribute('href')).toBe('#');
         });
 
         it('should remove element when allowAccess is false', () => {

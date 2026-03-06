@@ -20,6 +20,10 @@
         margin-bottom: 5px;
     }
 
+    .browse-button {
+        color: variables.$primary-default-light;
+    }
+
     &.file-field .action-container {
         top: 130px;
     }

@@ -60,17 +60,17 @@ export class LeftMenu {
             return true;
         });
         const openLeftMenu = new Query('#open-left-menu').getKnot();
-        openLeftMenu.setAttribute('href', 'javascript:void(0)');
+        openLeftMenu.setAttribute('href', '#');
         openLeftMenu.addEventListener('click', () => {
             this.open();
         });
         const closeLeftMenu = new Query('#close-left-menu', this.mainMenu).getKnot();
-        closeLeftMenu.setAttribute('href', 'javascript:void(0)');
+        closeLeftMenu.setAttribute('href', '#');
         closeLeftMenu.addEventListener('click', () => {
             this.close();
         });
         const closeSubMenu = new Query('#close-sub-menu', this.subMenu).getKnot();
-        closeSubMenu.setAttribute('href', 'javascript:void(0)');
+        closeSubMenu.setAttribute('href', '#');
         closeSubMenu.addEventListener('click', () => {
             this.closeSubMenu();
         });
