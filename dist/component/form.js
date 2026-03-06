@@ -63,7 +63,7 @@ export class Form extends Collection {
      */
     _initFormEvent() {
         this.formKnot.addEventListener('keydown', (_knot, event) => {
-            const textArea = /textarea/i.test((event.target || event.srcElement).tagName);
+            const textArea = /textarea/i.test(event.target.tagName);
             if (!(textArea || event.key !== 'Enter')) {
                 event.preventDefault();
             }

@@ -152,9 +152,9 @@ export class Browser {
         this.browsers.IE11 =
             '-ms-scroll-limit' in document.documentElement.style &&
             '-ms-ime-align' in document.documentElement.style;
-        this.browsers.edge = userAgent.indexOf('edge') !== -1;
+        this.browsers.edge = userAgent.includes('edge');
         this.browsers.chromiumEdge =
-            userAgent.indexOf('edge') === -1 && userAgent.indexOf('edg') !== -1;
+            !userAgent.includes('edge') && userAgent.includes('edg');
     }
 
     /**
@@ -177,11 +177,11 @@ export class Browser {
         const windowsPlatforms = ['Win32', 'Win64', 'Windows', 'WinCE'];
         const iosPlatforms = ['iPhone', 'iPad', 'iPod'];
 
-        if (macosPlatforms.indexOf(platform) !== -1) {
+        if (macosPlatforms.includes(platform)) {
             this.os = 'macOS';
-        } else if (iosPlatforms.indexOf(platform) !== -1) {
+        } else if (iosPlatforms.includes(platform)) {
             this.os = 'iOS';
-        } else if (windowsPlatforms.indexOf(platform) !== -1) {
+        } else if (windowsPlatforms.includes(platform)) {
             this.os = 'Windows';
         } else if (/Android/.test(userAgent)) {
             this.os = 'Android';

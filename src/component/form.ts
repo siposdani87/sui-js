@@ -82,7 +82,7 @@ export class Form extends Collection<BaseField<HTMLInputElement>> {
     private _initFormEvent(): void {
         this.formKnot.addEventListener('keydown', (_knot, event) => {
             const textArea = /textarea/i.test(
-                (event.target || event.srcElement).tagName,
+                (event.target as HTMLElement).tagName,
             );
             if (!(textArea || event.key !== 'Enter')) {
                 event.preventDefault();

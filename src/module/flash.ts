@@ -232,7 +232,7 @@ export class Flash {
         opt_closeCallback: ((() => void) | null) | undefined = null,
     ): boolean {
         return (
-            this.options.closableTypes.indexOf(type) !== -1 ||
+            this.options.closableTypes.includes(type) ||
             isFunction(opt_closeCallback)
         );
     }

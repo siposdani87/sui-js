@@ -193,7 +193,7 @@ export class Navigation {
         const imageSpan = new Knot('span');
         imageSpan.addClass('image');
 
-        if (image.indexOf('.svg') !== -1) {
+        if (image.includes('.svg')) {
             this.http!.get(
                 image,
                 {},

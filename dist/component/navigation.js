@@ -154,7 +154,7 @@ export class Navigation {
         const item = this._setKnot(id, title, action, opt_href, opt_data);
         const imageSpan = new Knot('span');
         imageSpan.addClass('image');
-        if (image.indexOf('.svg') !== -1) {
+        if (image.includes('.svg')) {
             this.http.get(image, {}, {
                 Authorization: '',
                 'X-Requested-With': '',

@@ -89,10 +89,10 @@ export class Query extends Collection {
 const querySelector = (selector, element) => {
     // eslint-disable-next-line @typescript-eslint/no-explicit-any
     let nodeList = [];
-    if (selector.indexOf(' ') !== -1 ||
+    if (selector.includes(' ') ||
         selector.split('.').length - 1 > 1 ||
-        (selector.indexOf('.') > -1 && !selector.startsWith('.')) ||
-        selector.indexOf('[') !== -1) {
+        (selector.includes('.') && !selector.startsWith('.')) ||
+        selector.includes('[')) {
         nodeList = element.querySelectorAll(selector);
     }
     else if (selector.startsWith('#')) {

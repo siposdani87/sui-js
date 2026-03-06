@@ -183,7 +183,7 @@ export class Flash {
      * @returns True if the flash should display a close button.
      */
     _isClosable(type, opt_closeCallback = null) {
-        return (this.options.closableTypes.indexOf(type) !== -1 ||
+        return (this.options.closableTypes.includes(type) ||
             isFunction(opt_closeCallback));
     }
     /**

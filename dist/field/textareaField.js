@@ -61,8 +61,7 @@ export class TextareaField extends BaseField {
     _renderRichText() {
         this.input.addClass('hidden');
         let value = this.getValue();
-        value =
-            value.indexOf('<p>') === 0 ? value : `<p>${value || '<br />'}</p>`;
+        value = value.startsWith('<p>') ? value : `<p>${value || '<br />'}</p>`;
         this.richText = new Knot('div');
         this.richText.addClass([
             'sui-textfield__input',

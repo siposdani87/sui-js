@@ -146,7 +146,7 @@ export class Depot {
         const propertyName = this._getPropertyName(name);
         const item = this.storage.getItem(propertyName);
         let result = null;
-        if (item && item.indexOf(';') !== -1) {
+        if (item && item.includes(';')) {
             const encrypted = item.split(';', 2)[1] || encrypt(null, this.options.secret);
             const decrypted = decrypt(encrypted, this.options.secret);
             result = typeCast(decrypted);
