@@ -285,6 +285,17 @@ export declare class BaseField<T extends HTMLInputElement> {
      */
     protected _getLabelRequiredText(labelText: string): string;
     /**
+     * @description Applies common textfield SUI classes to the input block, input, and label.
+     * @param {string[]} [opt_inputBlockClasses=['sui-textfield']] - CSS classes for the input block.
+     * @param {string[]} [opt_inputClasses=['sui-textfield__input']] - CSS classes for the input element.
+     * @param {string} [opt_labelClass='sui-textfield__label'] - CSS class for the label.
+     */
+    protected _renderTextField(opt_inputBlockClasses?: string[], opt_inputClasses?: string[], opt_labelClass?: string): void;
+    /**
+     * @description Refreshes common field state: marks as invalid when required and empty, marks as disabled, and upgrades SUI.
+     */
+    protected _refreshBase(): void;
+    /**
      * @description Sets up a MutationObserver on the input to refresh the field when disabled or required attributes change.
      */
     private _setMutation;

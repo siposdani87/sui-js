@@ -87,15 +87,20 @@ export declare class ProgressBar {
      */
     private _createBufferBar;
     /**
-     * Routes a set of callbacks to the appropriate progress bar based on
-     * the current dialog/confirm open state.
+     * Returns the progress bar containers paired with their visibility
+     * conditions based on the current dialog/confirm open state.
      *
-     * @param {Function} containerCallback - Callback for the main container bar.
-     * @param {Function} headerCallback - Callback for the header bar.
-     * @param {Function} dialogCallback - Callback for the dialog bar.
-     * @param {Function} confirmCallback - Callback for the confirm bar.
+     * @returns {Array<[Knot, boolean]>} Pairs of progress bar knots and
+     *     whether they should be active.
      */
-    private _separateProgressBars;
+    private _getProgressBarConditions;
+    /**
+     * Toggles a CSS class on each progress bar based on its visibility
+     * condition.
+     *
+     * @param {string} cssClass - The CSS class to toggle.
+     */
+    private _toggleProgressBarClass;
     /**
      * Activates the SUI progress class on the appropriate bar(s) unless
      * the progress display is locked.
@@ -114,6 +119,16 @@ export declare class ProgressBar {
      * progressBar.hide();
      */
     show(): void;
+    /**
+     * Applies a callback to the bar or buffer elements whose parent
+     * progress bar is active based on the current dialog/confirm state.
+     *
+     * @param {Knot[]} elements - The inner bar or buffer elements
+     *     corresponding to container, header, dialog, and confirm.
+     * @param {(knot: Knot) => void} callback - Action to perform on
+     *     each active element.
+     */
+    private _applyToActiveBars;
     /**
      * Sets a determinate progress value on the appropriate bar(s) by
      * setting the width of the inner bar element.

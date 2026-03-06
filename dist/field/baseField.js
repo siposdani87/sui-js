@@ -2,6 +2,7 @@ import { eq, isArray, typeCast } from '../utils/operation';
 import { Knot } from '../core/knot';
 import { Query } from '../core/query';
 import { Tooltip } from '../component/tooltip';
+import { sui } from '../utils/render';
 import { consoleDebug } from '../utils/log';
 /**
  * @description Abstract base class for all form fields. Handles validation, labeling,
@@ -488,6 +489,32 @@ export class BaseField {
             labelText = labelText.replace(requiredPostfix, '');
         }
         return labelText;
+    }
+    /**
+     * @description Applies common textfield SUI classes to the input block, input, and label.
+     * @param {string[]} [opt_inputBlockClasses=['sui-textfield']] - CSS classes for the input block.
+     * @param {string[]} [opt_inputClasses=['sui-textfield__input']] - CSS classes for the input element.
+     * @param {string} [opt_labelClass='sui-textfield__label'] - CSS class for the label.
+     */
+    _renderTextField(opt_inputBlockClasses = ['sui-textfield'], opt_inputClasses = ['sui-textfield__input'], opt_labelClass = 'sui-textfield__label') {
+        var _a;
+        this.inputBlock.addClass(opt_inputBlockClasses);
+        this.input.addClass(opt_inputClasses);
+        if ((_a = this.label) === null || _a === void 0 ? void 0 : _a.exists()) {
+            this.label.addClass(opt_labelClass);
+        }
+    }
+    /**
+     * @description Refreshes common field state: marks as invalid when required and empty, marks as disabled, and upgrades SUI.
+     */
+    _refreshBase() {
+        if (this.isRequired() && this.getValue() === '') {
+            this.inputBlock.addClass('is-invalid');
+        }
+        if (this.isDisabled()) {
+            this.inputBlock.addClass('is-disabled');
+        }
+        sui(this.inputBlock);
     }
     /**
      * @description Sets up a MutationObserver on the input to refresh the field when disabled or required attributes change.

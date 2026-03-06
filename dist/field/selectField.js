@@ -100,7 +100,8 @@ export class SelectField extends BaseField {
      * @description Renders the select field by adding the label class, creating the expander icon, and refreshing the display.
      */
     render() {
-        if (this.label && this.label.exists()) {
+        var _a;
+        if ((_a = this.label) === null || _a === void 0 ? void 0 : _a.exists()) {
             this.label.addClass('field-label');
         }
         this.iconKnot = new Knot('a');

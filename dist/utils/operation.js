@@ -515,7 +515,7 @@ export const clearObject = (items) => {
  * @returns {boolean} `true` if the item is found in the array.
  * @category Utility
  */
-export const inArray = (items, item) => items.indexOf(item) !== -1;
+export const inArray = (items, item) => items.includes(item);
 /**
  * Checks whether a string contains a given substring.
  *
@@ -524,7 +524,7 @@ export const inArray = (items, item) => items.indexOf(item) !== -1;
  * @returns {boolean} `true` if the substring is found.
  * @category Utility
  */
-export const contain = (str, subStr) => str.indexOf(subStr) !== -1;
+export const contain = (str, subStr) => str.includes(subStr);
 /**
  * Checks whether any element in a string array contains the given substring.
  *
@@ -539,13 +539,7 @@ export const contain = (str, subStr) => str.indexOf(subStr) !== -1;
  * inContainArray(['text/html', 'text/plain'], 'json');       // false
  * @category Utility
  */
-export const inContainArray = (items, item) => {
-    let i = 0;
-    while (i < items.length && !contain(items[i], item)) {
-        i++;
-    }
-    return i < items.length;
-};
+export const inContainArray = (items, item) => items.some((element) => element.includes(item));
 /**
  * Performs a deep equality comparison between two values.
  *
@@ -563,20 +557,19 @@ export const inContainArray = (items, item) => {
  */
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
 export const isSame = (a, b) => {
-    const strA = JSON.stringify(a);
-    const strB = JSON.stringify(b);
-    if (isPureObject(a) && isPureObject(b) && eq(strA.length, strB.length)) {
-        let result = true;
+    if (isPureObject(a) && isPureObject(b)) {
+        const keysA = Object.keys(a);
+        const keysB = Object.keys(b);
+        if (keysA.length !== keysB.length) {
+            return false;
+        }
+        return keysA.every((key) => isSame(
         // eslint-disable-next-line @typescript-eslint/no-explicit-any
-        each(a, (value, key) => {
-            // eslint-disable-next-line @typescript-eslint/no-explicit-any
-            if (!isSame(b[key], value)) {
-                result = false;
-            }
-        });
-        return result;
+        a[key], 
+        // eslint-disable-next-line @typescript-eslint/no-explicit-any
+        b[key]));
     }
-    return eq(strA, strB);
+    return eq(JSON.stringify(a), JSON.stringify(b));
 };
 /**
  * Removes the first occurrence of an item from an array in-place.
@@ -683,18 +676,13 @@ export const copyObject = (item) => {
  * @category Utility
  */
 export const isEmpty = (items) => {
-    let result = false;
     if (isArray(items)) {
-        result = items.length === 0;
+        return items.length === 0;
     }
     else if (isPureObject(items)) {
-        let counter = 0;
-        each(items, () => {
-            counter++;
-        });
-        result = counter === 0;
+        return Object.keys(items).length === 0;
     }
-    return result;
+    return false;
 };
 /**
  * Spreads an array as individual arguments to a callback function.
@@ -985,14 +973,19 @@ export const normalize = (str) => str.normalize('NFD').replace(/[\u0300-\u036f]/
  * @category Utility
  */
 export const copyToClipboard = (str) => {
-    const textareaElement = document.createElement('textarea');
-    textareaElement.value = str;
-    textareaElement.setAttribute('readonly', '');
-    textareaElement.style.position = 'absolute';
-    textareaElement.style.left = '-9999px';
-    document.body.appendChild(textareaElement);
-    textareaElement.select();
-    document.execCommand('copy');
-    document.body.removeChild(textareaElement);
-    // navigator.clipboard.writeText(str);
+    var _a;
+    if ((_a = navigator.clipboard) === null || _a === void 0 ? void 0 : _a.writeText) {
+        navigator.clipboard.writeText(str);
+    }
+    else {
+        const textareaElement = document.createElement('textarea');
+        textareaElement.value = str;
+        textareaElement.setAttribute('readonly', '');
+        textareaElement.style.position = 'absolute';
+        textareaElement.style.left = '-9999px';
+        document.body.appendChild(textareaElement);
+        textareaElement.select();
+        document.execCommand('copy');
+        document.body.removeChild(textareaElement);
+    }
 };

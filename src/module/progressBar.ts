@@ -150,10 +150,8 @@ export class ProgressBar {
      *     whether they should be active.
      */
     private _getProgressBarConditions(): [Knot, boolean][] {
-        const isDefault =
-            !this.dialog.isOpened() && !this.confirm.isOpened();
-        const isDialog =
-            this.dialog.isOpened() && !this.confirm.isOpened();
+        const isDefault = !this.dialog.isOpened() && !this.confirm.isOpened();
+        const isDialog = this.dialog.isOpened() && !this.confirm.isOpened();
         const isConfirm = this.confirm.isOpened();
 
         return [
@@ -242,7 +240,12 @@ export class ProgressBar {
     setProgress(value: number): void {
         this._progress();
         this._applyToActiveBars(
-            [this.barContainer, this.barHeader, this.barDialog, this.barConfirm],
+            [
+                this.barContainer,
+                this.barHeader,
+                this.barDialog,
+                this.barConfirm,
+            ],
             (bar) => {
                 bar.setStyle({ width: value + '%' });
             },

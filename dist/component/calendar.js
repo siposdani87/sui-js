@@ -91,7 +91,7 @@ export class Calendar {
         this.headerKnot.appendChild(this.currentModeKnot);
         const nextButton = new Knot('a');
         nextButton.setAttribute('href', 'javascript:void(0)');
-        nextButton.addClass(['previous', 'sui-button', 'sui-button--icon']);
+        nextButton.addClass(['next', 'sui-button', 'sui-button--icon']);
         const nextIconKnot = new Knot('em');
         nextIconKnot.addClass('material-icons');
         nextIconKnot.setHtml('chevron_right');
@@ -121,14 +121,12 @@ export class Calendar {
      * @returns {string} The resolved mode name, falling back to the option type's default mode.
      */
     _getMode(direction) {
+        var _a;
         let position = this.modes.indexOf(this.activeMode);
         if (position !== -1) {
             position += direction;
         }
-        const mode = this.modes[position];
-        return mode
-            ? mode
-            : this.types[this.options.type];
+        return ((_a = this.modes[position]) !== null && _a !== void 0 ? _a : this.types[this.options.type]);
     }
     /**
      * @description Dispatches to the appropriate callback based on the active mode (DAY, MONTH, or YEAR).
@@ -194,16 +192,9 @@ export class Calendar {
      * @description Navigates the calendar to the previous period based on the active mode.
      */
     _previous() {
-        const date = this._switchMode(() => {
-            return this.previous.month;
-        }, () => {
-            return this.previous.year;
-        }, () => {
-            let date = DateIO.subYears(this.current.day, this.maxYears);
-            if (DateIO.getYear(date) < 0) {
-                date = this.current.day;
-            }
-            return date;
+        const date = this._switchMode(() => this.previous.month, () => this.previous.year, () => {
+            const date = DateIO.subYears(this.current.day, this.maxYears);
+            return DateIO.getYear(date) < 0 ? this.current.day : date;
         });
         this._setDate(date);
         this.draw();
@@ -212,13 +203,7 @@ export class Calendar {
      * @description Navigates the calendar to the next period based on the active mode.
      */
     _next() {
-        const date = this._switchMode(() => {
-            return this.next.month;
-        }, () => {
-            return this.next.year;
-        }, () => {
-            return DateIO.addYears(this.current.day, this.maxYears);
-        });
+        const date = this._switchMode(() => this.next.month, () => this.next.year, () => DateIO.addYears(this.current.day, this.maxYears));
         this._setDate(date);
         this.draw();
     }

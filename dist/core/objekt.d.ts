@@ -57,7 +57,7 @@ export declare class Objekt<T extends object = object> {
      * @param {any} object The parent object containing the array.
      * @param {string} key The property name of the array to convert.
      */
-    private _convertobject;
+    private _convertObject;
     /**
      * Retrieves a value from this Objekt using a dot-notation path. When the
      * path resolves to a nested Objekt, that Objekt is returned. If the path
@@ -201,7 +201,7 @@ export declare class Objekt<T extends object = object> {
      * @param {any} value The value to assign at the deepest level.
      * @returns {object} The populated object.
      */
-    private _attributesToobject;
+    private _attributesToObject;
     /**
      * Creates a deep copy of this Objekt, returning a new independent
      * instance with the same data.

@@ -260,7 +260,7 @@ export declare class Xhr {
      * @param {string} stringKey The accumulated bracket-notation key path.
      * @returns {Array<string>} Flat array of 'key=value' strings.
      */
-    private _parseobject;
+    private _parseObject;
     /**
      * Serializes a flat or nested object into a URL-encoded query string
      * (without the leading `?`).
@@ -268,7 +268,7 @@ export declare class Xhr {
      * @param {object} obj The object to serialize.
      * @returns {string} URL-encoded string of key=value pairs joined by `&`.
      */
-    private _stringifyobject;
+    private _stringifyObject;
     /**
      * Extracts the filename from the `Content-Disposition` response header.
      * Returns an empty string if the header is absent, unparseable, or the

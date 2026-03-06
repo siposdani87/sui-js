@@ -424,7 +424,7 @@ export class Knot {
     _getListenersFromStore(eventName) {
         // eslint-disable-next-line @typescript-eslint/no-explicit-any
         const node = this.node;
-        if (node[this.listenerStoreKey] ||
+        if (node[this.listenerStoreKey] &&
             node[this.listenerStoreKey][eventName]) {
             return node[this.listenerStoreKey][eventName];
         }

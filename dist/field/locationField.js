@@ -1,4 +1,4 @@
-import { eq, typeCast, isNull } from '../utils/operation';
+import { typeCast, isNull } from '../utils/operation';
 import { BaseField } from './baseField';
 import { GoogleMap } from '../component/googleMap';
 import { Knot } from '../core/knot';
@@ -40,7 +40,7 @@ export class LocationField extends BaseField {
         this.icon = this.input.getData('icon');
         this.input.addEventListener('keyup', (input, event) => {
             const inputNode = input.getNode();
-            if (eq(event.keyCode, 13)) {
+            if (event.key === 'Enter') {
                 this.eventSearch(inputNode.value);
             }
             else {
@@ -125,11 +125,7 @@ export class LocationField extends BaseField {
      * @override
      */
     render() {
-        this.inputBlock.addClass(['sui-textfield']);
-        this.input.addClass('sui-textfield__input');
-        if (this.label && this.label.exists()) {
-            this.label.addClass('sui-textfield__label');
-        }
+        this._renderTextField();
         this._renderAdvancedInputs();
         this._renderMap();
         this._setDefaultValue();

@@ -26,4 +26,4 @@ import { Knot } from '../core';
  * // Enhance a Knot element with SUI behaviors
  * sui(myKnot);
  */
-export declare const sui: (node: Knot | HTMLElement) => void;
+export declare function sui(node: Knot | HTMLElement): void;

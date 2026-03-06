@@ -68,7 +68,7 @@ export class Objekt {
                     }
                     else if (isArray(obj[key]) &&
                         isPureObject(obj[key][0])) {
-                        this._convertobject(obj, key);
+                        this._convertObject(obj, key);
                         this[key] = obj[key];
                     }
                     else {
@@ -87,7 +87,7 @@ export class Objekt {
      * @param {string} key The property name of the array to convert.
      */
     // eslint-disable-next-line @typescript-eslint/no-explicit-any
-    _convertobject(object, key) {
+    _convertObject(object, key) {
         each(object[key], (obj, i) => {
             object[key][i] = new Objekt(obj);
         });
@@ -135,22 +135,19 @@ export class Objekt {
      * @returns {K | undefined} The value at the resolved path, or `undefined`.
      */
     _getByAttributes(object, attributes) {
-        let result = undefined;
         // eslint-disable-next-line @typescript-eslint/no-explicit-any
         const obj = object;
-        each(object, (_value, property) => {
-            if (attributes.length === 1 &&
-                property.toString() === attributes[0]) {
-                result = obj[property];
-            }
-            else if (property.toString() === attributes[0] &&
-                (isPureObject(obj[property]) || isArray(obj[property]))) {
-                const copyAttributes = copyArray(attributes);
-                copyAttributes.shift();
-                result = this._getByAttributes(obj[property], copyAttributes);
-            }
-        });
-        return result;
+        const key = attributes[0];
+        if (isUndefined(obj[key])) {
+            return undefined;
+        }
+        if (attributes.length === 1) {
+            return obj[key];
+        }
+        if (isPureObject(obj[key]) || isArray(obj[key])) {
+            return this._getByAttributes(obj[key], attributes.slice(1));
+        }
+        return undefined;
     }
     /**
      * Recursively walks the attribute path and sets the value at the final
@@ -193,7 +190,7 @@ export class Objekt {
      */
     set(attribute, value) {
         let object = {};
-        object = this._attributesToobject(object, attribute.split('.'), value);
+        object = this._attributesToObject(object, attribute.split('.'), value);
         this.merge(object);
     }
     /**
@@ -318,7 +315,7 @@ export class Objekt {
      * @param {any} value The value to assign at the deepest level.
      * @returns {object} The populated object.
      */
-    _attributesToobject(object, attributes, 
+    _attributesToObject(object, attributes, 
     // eslint-disable-next-line @typescript-eslint/no-explicit-any
     value) {
         const lastAttribute = attributes.pop();

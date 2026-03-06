@@ -82,7 +82,8 @@ export class DateTimeField extends BaseField {
      * @override
      */
     render() {
-        if (this.label && this.label.exists()) {
+        var _a;
+        if ((_a = this.label) === null || _a === void 0 ? void 0 : _a.exists()) {
             this.label.addClass('field-label');
         }
         const iconKnot = new Knot('a');

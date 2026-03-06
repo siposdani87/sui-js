@@ -125,7 +125,7 @@ export class Table {
             inputKnot.setId('table-search');
             inputKnot.addClass('sui-textfield__input');
             inputKnot.addEventListener('keypress', (inputKnot, event) => {
-                if (eq(event.keyCode, 13)) {
+                if (event.key === 'Enter') {
                     this.query = inputKnot.getNode().value;
                     this.refresh(1);
                 }

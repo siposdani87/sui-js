@@ -26,7 +26,7 @@ import { Knot } from '../core';
  * // Enhance a Knot element with SUI behaviors
  * sui(myKnot);
  */
-export const sui = (node) => {
+export function sui(node) {
     const element = node instanceof Knot ? node.getNode() : node;
     if (!element) {
         return;
@@ -60,4 +60,4 @@ export const sui = (node) => {
             });
         }
     }
-};
+}

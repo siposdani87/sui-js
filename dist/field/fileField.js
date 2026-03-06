@@ -3,7 +3,6 @@ import { BaseField } from './baseField';
 import { Knot } from '../core/knot';
 import { Query } from '../core/query';
 import { encodeBase64 } from '../utils/coder';
-import { sui } from '../utils/render';
 /**
  * File upload field with image preview, document type icons, and remove
  * functionality.  Supports image files (shown as thumbnails) and document
@@ -190,11 +189,7 @@ export class FileField extends BaseField {
      * @override
      */
     render() {
-        this.inputBlock.addClass(['sui-textfield']);
-        this.input.addClass('sui-textfield__input');
-        if (this.label && this.label.exists()) {
-            this.label.addClass('sui-textfield__label');
-        }
+        this._renderTextField();
         this.refresh();
     }
     /**
@@ -204,14 +199,8 @@ export class FileField extends BaseField {
      * @override
      */
     refresh() {
-        if (this.isRequired() && this.getValue() === '') {
-            this.inputBlock.addClass('is-invalid');
-        }
-        if (this.isDisabled()) {
-            this.inputBlock.addClass('is-disabled');
-        }
+        this._refreshBase();
         this._handleRemoveButton();
-        sui(this.inputBlock);
     }
     /**
      * Reads the selected file as a data URL and updates the preview.

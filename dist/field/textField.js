@@ -1,4 +1,3 @@
-import { sui } from '../utils/render';
 import { BaseField } from './baseField';
 /**
  * @description Standard text input field with SUI styling.
@@ -42,24 +41,14 @@ export class TextField extends BaseField {
      * @description Renders the text field by applying SUI text field classes to the input block, input, and label.
      */
     render() {
-        this.inputBlock.addClass(['sui-textfield']);
-        this.input.addClass(['sui-textfield__input']);
-        if (this.label && this.label.exists()) {
-            this.label.addClass('sui-textfield__label');
-        }
+        this._renderTextField();
         this.refresh();
     }
     /**
      * @description Refreshes the text field by updating the invalid state and re-applying SUI upgrades.
      */
     refresh() {
-        if (this.isRequired() && this.getValue() === '') {
-            this.inputBlock.addClass('is-invalid');
-        }
-        if (this.isDisabled()) {
-            this.inputBlock.addClass('is-disabled');
-        }
-        sui(this.inputBlock);
+        this._refreshBase();
     }
     /**
      * @description Returns the raw string value of the input element without type-casting.
