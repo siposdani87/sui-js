@@ -2,6 +2,7 @@ import { eq, isArray, typeCast } from '../utils/operation';
 import { Knot } from '../core/knot';
 import { Query } from '../core/query';
 import { Tooltip } from '../component/tooltip';
+import { sui } from '../utils/render';
 import { consoleDebug } from '../utils/log';
 import type { Form } from '../component';
 
@@ -555,6 +556,37 @@ export class BaseField<T extends HTMLInputElement> {
             labelText = labelText.replace(requiredPostfix, '');
         }
         return labelText;
+    }
+
+    /**
+     * @description Applies common textfield SUI classes to the input block, input, and label.
+     * @param {string[]} [opt_inputBlockClasses=['sui-textfield']] - CSS classes for the input block.
+     * @param {string[]} [opt_inputClasses=['sui-textfield__input']] - CSS classes for the input element.
+     * @param {string} [opt_labelClass='sui-textfield__label'] - CSS class for the label.
+     */
+    protected _renderTextField(
+        opt_inputBlockClasses: string[] = ['sui-textfield'],
+        opt_inputClasses: string[] = ['sui-textfield__input'],
+        opt_labelClass: string = 'sui-textfield__label',
+    ): void {
+        this.inputBlock.addClass(opt_inputBlockClasses);
+        this.input.addClass(opt_inputClasses);
+        if (this.label?.exists()) {
+            this.label.addClass(opt_labelClass);
+        }
+    }
+
+    /**
+     * @description Refreshes common field state: marks as invalid when required and empty, marks as disabled, and upgrades SUI.
+     */
+    protected _refreshBase(): void {
+        if (this.isRequired() && this.getValue() === '') {
+            this.inputBlock.addClass('is-invalid');
+        }
+        if (this.isDisabled()) {
+            this.inputBlock.addClass('is-disabled');
+        }
+        sui(this.inputBlock);
     }
 
     /**

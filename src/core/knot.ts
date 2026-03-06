@@ -494,7 +494,7 @@ export class Knot<T extends HTMLElement = HTMLElement> {
         // eslint-disable-next-line @typescript-eslint/no-explicit-any
         const node = this.node as Record<string, any>;
         if (
-            node[this.listenerStoreKey] ||
+            node[this.listenerStoreKey] &&
             node[this.listenerStoreKey][eventName]
         ) {
             return node[this.listenerStoreKey][eventName];

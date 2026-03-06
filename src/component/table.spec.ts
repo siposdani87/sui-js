@@ -437,7 +437,7 @@ describe('Table', () => {
                 .querySelector('#table-search') as HTMLInputElement;
             searchInput.value = 'test query';
             searchInput.dispatchEvent(
-                new KeyboardEvent('keypress', { keyCode: 13 }),
+                new KeyboardEvent('keypress', { key: 'Enter' }),
             );
 
             expect(table.query).toBe('test query');

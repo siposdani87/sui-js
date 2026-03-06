@@ -53,14 +53,10 @@ export class RangeField extends BaseField<HTMLInputElement> {
      * @override
      */
     override render(): void {
-        this.inputBlock.addClass(['sui-textfield', 'sui-sliderfield']);
-
-        this.input.addClass('sui-slider');
-
-        if (this.label && this.label.exists()) {
-            this.label.addClass('sui-textfield__label');
-        }
-
+        this._renderTextField(
+            ['sui-textfield', 'sui-sliderfield'],
+            ['sui-slider'],
+        );
         this.refresh();
     }
 

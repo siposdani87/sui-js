@@ -289,7 +289,7 @@ describe('Form', () => {
 
         it('should prevent Enter key in non-textarea inputs', () => {
             const keydownEvent = new KeyboardEvent('keydown', {
-                keyCode: 13,
+                key: 'Enter',
                 bubbles: true,
                 cancelable: true,
             });

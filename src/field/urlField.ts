@@ -1,4 +1,3 @@
-import { sui } from '../utils/render';
 import { BaseField } from './baseField';
 import { Knot } from '../core/knot';
 
@@ -59,11 +58,7 @@ export class UrlField extends BaseField<HTMLInputElement> {
      * @override
      */
     override render(): void {
-        this.inputBlock.addClass(['sui-textfield']);
-        this.input.addClass(['sui-textfield__input']);
-        if (this.label && this.label.exists()) {
-            this.label.addClass('sui-textfield__label');
-        }
+        this._renderTextField();
 
         if (this.protocol) {
             const protocolKnot = new Knot('span');
@@ -80,13 +75,6 @@ export class UrlField extends BaseField<HTMLInputElement> {
      * @override
      */
     override refresh() {
-        if (this.isRequired() && this.getValue() === '') {
-            this.inputBlock.addClass('is-invalid');
-        }
-        if (this.isDisabled()) {
-            this.inputBlock.addClass('is-disabled');
-        }
-
-        sui(this.inputBlock);
+        this._refreshBase();
     }
 }

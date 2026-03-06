@@ -1,5 +1,4 @@
 import type { Knot } from '../core';
-import { sui } from '../utils/render';
 import { BaseField } from './baseField';
 
 /**
@@ -53,11 +52,7 @@ export class TextField extends BaseField<HTMLInputElement> {
      * @description Renders the text field by applying SUI text field classes to the input block, input, and label.
      */
     override render(): void {
-        this.inputBlock.addClass(['sui-textfield']);
-        this.input.addClass(['sui-textfield__input']);
-        if (this.label && this.label.exists()) {
-            this.label.addClass('sui-textfield__label');
-        }
+        this._renderTextField();
         this.refresh();
     }
 
@@ -65,14 +60,7 @@ export class TextField extends BaseField<HTMLInputElement> {
      * @description Refreshes the text field by updating the invalid state and re-applying SUI upgrades.
      */
     override refresh(): void {
-        if (this.isRequired() && this.getValue() === '') {
-            this.inputBlock.addClass('is-invalid');
-        }
-        if (this.isDisabled()) {
-            this.inputBlock.addClass('is-disabled');
-        }
-
-        sui(this.inputBlock);
+        this._refreshBase();
     }
 
     /**

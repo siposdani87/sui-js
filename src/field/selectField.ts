@@ -136,7 +136,7 @@ export class SelectField extends BaseField<HTMLInputElement> {
      * @description Renders the select field by adding the label class, creating the expander icon, and refreshing the display.
      */
     override render(): void {
-        if (this.label && this.label.exists()) {
+        if (this.label?.exists()) {
             this.label.addClass('field-label');
         }
 

@@ -1,5 +1,3 @@
-import { eq } from '../utils/operation';
-import { sui } from '../utils/render';
 import { BaseField } from './baseField';
 import { Knot } from '../core/knot';
 import { consoleDebug } from '../utils/log';
@@ -43,7 +41,7 @@ export class SearchField extends BaseField<HTMLInputElement> {
         this.input.addEventListener('keyup', (input, event) => {
             const inputNode = input.getNode();
             this.modelChange(inputNode.value);
-            if (eq(event.keyCode, 13)) {
+            if (event.key === 'Enter') {
                 this.eventEnter(inputNode.value);
             }
             return true;
@@ -92,14 +90,7 @@ export class SearchField extends BaseField<HTMLInputElement> {
      * @override
      */
     override refresh() {
-        if (this.isRequired() && this.getValue() === '') {
-            this.inputBlock.addClass('is-invalid');
-        }
-        if (this.isDisabled()) {
-            this.inputBlock.addClass('is-disabled');
-        }
-
-        sui(this.inputBlock);
+        this._refreshBase();
     }
 
     /**

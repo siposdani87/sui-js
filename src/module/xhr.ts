@@ -444,7 +444,7 @@ export class Xhr {
                     result = JSON.stringify(opt_data);
                     break;
                 case this._getContentType('form'):
-                    result = this._stringifyobject(opt_data);
+                    result = this._stringifyObject(opt_data);
                     break;
             }
         }
@@ -460,7 +460,7 @@ export class Xhr {
      * @param {string} stringKey The accumulated bracket-notation key path.
      * @returns {Array<string>} Flat array of 'key=value' strings.
      */
-    private _parseobject(
+    private _parseObject(
         // eslint-disable-next-line @typescript-eslint/no-explicit-any
         obj: any,
         key: string,
@@ -476,7 +476,7 @@ export class Xhr {
         } else if (typeof obj === 'object') {
             for (const j in obj) {
                 if (Object.hasOwn(obj, j)) {
-                    const pairs = this._parseobject(obj[j], j, stringKey);
+                    const pairs = this._parseObject(obj[j], j, stringKey);
                     results = results.concat(pairs);
                 }
             }
@@ -493,12 +493,12 @@ export class Xhr {
      * @param {object} obj The object to serialize.
      * @returns {string} URL-encoded string of key=value pairs joined by `&`.
      */
-    private _stringifyobject(obj: object): string {
+    private _stringifyObject(obj: object): string {
         let results: string[] = [];
         for (const key in obj) {
             // eslint-disable-next-line @typescript-eslint/no-explicit-any
             if (Object.hasOwn(obj as Record<string, any>, key)) {
-                const pair = this._parseobject(
+                const pair = this._parseObject(
                     // eslint-disable-next-line @typescript-eslint/no-explicit-any
                     (obj as Record<string, any>)[key],
                     key,

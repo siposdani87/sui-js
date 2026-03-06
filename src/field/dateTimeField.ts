@@ -111,7 +111,7 @@ export class DateTimeField extends BaseField<HTMLInputElement> {
      * @override
      */
     override render(): void {
-        if (this.label && this.label.exists()) {
+        if (this.label?.exists()) {
             this.label.addClass('field-label');
         }
 

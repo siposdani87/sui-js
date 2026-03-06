@@ -74,7 +74,7 @@ export class ColorField extends BaseField<HTMLInputElement> {
      * @override
      */
     override render() {
-        if (this.label && this.label.exists()) {
+        if (this.label?.exists()) {
             this.label.addClass('field-label');
         }
 
