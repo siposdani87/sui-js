@@ -23,7 +23,7 @@ export declare class HiddenField extends BaseField<HTMLInputElement> {
     /**
      * Initializes the change event listener on the hidden input.
      */
-    private _init;
+    protected _init(): void;
     /**
      * No-op render since the field is hidden.
      */

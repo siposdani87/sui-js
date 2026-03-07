@@ -13,17 +13,6 @@ import { Knot } from '../core/knot';
  */
 export class UrlField extends BaseField {
     /**
-     * @description Creates a new UrlField instance.
-     * @param {Knot<HTMLInputElement>} input - The URL input element.
-     * @param {Knot} label - The label element.
-     * @param {Knot} error - The error message element.
-     * @param {Knot} inputBlock - The container block element.
-     */
-    constructor(input, label, error, inputBlock) {
-        super(input, label, error, inputBlock);
-        this._init();
-    }
-    /**
      * @description Initializes the field by reading the protocol data attribute and attaching input event listeners.
      */
     _init() {

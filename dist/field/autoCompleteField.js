@@ -13,15 +13,4 @@ import { BaseField } from './baseField';
  * @category Field
  */
 export class AutoCompleteField extends BaseField {
-    /**
-     * Creates a new AutoCompleteField instance.
-     *
-     * @param {Knot<HTMLInputElement>} input The text input element.
-     * @param {Knot} label The label element associated with the input.
-     * @param {Knot} error The error message element.
-     * @param {Knot} inputBlock The container block for the input.
-     */
-    constructor(input, label, error, inputBlock) {
-        super(input, label, error, inputBlock);
-    }
 }

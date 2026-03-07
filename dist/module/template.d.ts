@@ -1,5 +1,6 @@
 import { Objekt } from '../core/objekt';
 import type { Http } from './http';
+import { Emitter } from '../core/emitter';
 import type { Knot } from '../core';
 /**
  * SPA template loader that fetches page content from the server via
@@ -14,7 +15,9 @@ import type { Knot } from '../core';
  * is fetched from the server and inserted into the view container.
  *
  * On error responses, the `.message` element is extracted from the
- * response and passed to the overridable `eventError()` hook.
+ * response and emitted via the `'error'` event.
+ *
+ * Register handlers with `on('error', ...)` for template load errors.
  *
  * @example
  * const template = new Template(http, {
@@ -33,9 +36,10 @@ import type { Knot } from '../core';
  *
  * @see {@link Http}
  * @see {@link Knot}
+ * @see {@link Emitter}
  * @category Module
  */
-export declare class Template {
+export declare class Template extends Emitter {
     http: Http;
     options: Objekt<{
         selector: string;
@@ -87,7 +91,7 @@ export declare class Template {
      * Otherwise, an HTTP GET request is made to fetch the content. On
      * success, the response's `.page-content` element is extracted and
      * inserted into the view container. On failure, the error content is
-     * passed to `eventError()`.
+     * emitted via the `'error'` event.
      *
      * @param url The server endpoint URL to fetch the page template from.
      * @param opt_force When true, bypasses the cache check and always
@@ -119,28 +123,10 @@ export declare class Template {
     _spaNavigate(data: Knot, isError: boolean): Knot;
     /**
      * Inserts the page content into the view container, or extracts
-     * and dispatches the error message via `eventError()`.
+     * and emits the error message via the `'error'` event.
      *
      * @param knot The page content Knot to insert.
      * @param isError Whether to treat the content as an error response.
      */
     private _updateDOM;
-    /**
-     * Overridable hook called when a template load results in an error.
-     * The default implementation logs the error to the console. Override
-     * this method to display error messages in the UI (e.g., via
-     * {@link Flash}).
-     *
-     * @param message An object containing the error `type` (CSS class)
-     *     and `content` (error text) extracted from the response.
-     *
-     * @example
-     * template.eventError = (message) => {
-     *     flash.addError(message.content);
-     * };
-     */
-    eventError(message: {
-        type: string;
-        content: string;
-    }): void;
 }

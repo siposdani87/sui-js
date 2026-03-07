@@ -1,5 +1,6 @@
 import { Knot } from '../core/knot';
 import { PopupContainer } from './popupContainer';
+import { Emitter } from '../core/emitter';
 /**
  * @description Toggleable popup overlay that attaches content to a parent element.
  * Supports optional close button and integrates with the global {@link PopupContainer}
@@ -7,14 +8,14 @@ import { PopupContainer } from './popupContainer';
  *
  * @example
  * const popup = new Popup(contentKnot, parentKnot, true);
- * popup.eventClose = () => console.log('Popup closed');
+ * popup.on('close', () => console.log('Popup closed'));
  * popup.toggle();
  *
  * @see {@link PopupContainer} for global popup lifecycle management
  *
  * @category Component
  */
-export declare class Popup {
+export declare class Popup extends Emitter {
     content: Knot;
     parent?: Knot;
     withClose: boolean;
@@ -53,13 +54,6 @@ export declare class Popup {
      * popup.close();
      */
     close(): void;
-    /**
-     * @description Called when the popup is closed. Override to handle close events.
-     *
-     * @example
-     * popup.eventClose = () => cleanup();
-     */
-    eventClose(): void;
     /**
      * @description Toggles the popup between open and closed states.
      *

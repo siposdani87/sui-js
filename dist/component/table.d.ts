@@ -4,6 +4,7 @@ import { Objekt } from '../core/objekt';
 import { Query } from '../core/query';
 import { ContentHandler } from './contentHandler';
 import { Pager } from './pager';
+import { Emitter } from '../core/emitter';
 import type { Action } from '../utils';
 /**
  * @description Maps column names to calculation functions that produce cell content.
@@ -33,12 +34,12 @@ export type TableCalculation<T = Objekt> = {
  * table.setActions([
  *     { style: (item) => ['edit', 'Edit'], click: (item) => editUser(item) },
  * ]);
- * table.eventAction = (params) => {
+ * table.on('action', (params) => {
  *     http.get('/api/users', params).then((response) => {
  *         table.setData(response.get('items'));
  *         table.setCount(response.get('count'));
  *     });
- * };
+ * });
  * table.render();
  *
  * @see {@link Pager} for pagination controls
@@ -48,7 +49,7 @@ export type TableCalculation<T = Objekt> = {
  *
  * @category Component
  */
-export declare class Table<T extends Objekt = Objekt> {
+export declare class Table<T extends Objekt = Objekt> extends Emitter {
     tableKnot: Knot;
     options: Objekt;
     collection: Collection<T>;
@@ -100,7 +101,7 @@ export declare class Table<T extends Objekt = Objekt> {
      */
     private _initStructure;
     /**
-     * @description Refreshes the table data by triggering {@link eventAction} with the current
+     * @description Refreshes the table data by emitting the 'action' event with the current
      * query, sorting, and paging parameters.
      *
      * @param {number} [opt_page=-1] - The page number to navigate to. Pass -1 to keep the current page.
@@ -109,11 +110,6 @@ export declare class Table<T extends Objekt = Objekt> {
      * table.refresh(1); // reload from page 1
      */
     refresh(opt_page?: number | undefined): void;
-    /**
-     * @description Called when the table needs data (on refresh, sort, page, or search). Override to fetch data.
-     * @param {Objekt} params - Contains query, column, order, offset, and limit.
-     */
-    eventAction(params: Objekt): void;
     /**
      * @description Toggles the sort direction for a column or switches to a new sort column.
      * @param {string} columnWithOrder - Column name with optional direction (e.g., "name:asc").

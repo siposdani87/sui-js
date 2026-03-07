@@ -2,7 +2,7 @@ import { isNull } from '../utils/operation';
 import { Async } from '../core/async';
 import { Deferred } from '../core/deferred';
 import { Query } from '../core/query';
-import { consoleDebug } from '../utils/log';
+import { Emitter } from '../core/emitter';
 /**
  * @description Tab panel component that manages tab/panel activation with async change events.
  * Tabs are linked to panels by href attributes, and switching triggers an overridable
@@ -10,7 +10,7 @@ import { consoleDebug } from '../utils/log';
  *
  * @example
  * const tabPanel = new TabPanel(containerKnot, '.tab-panel', 'details');
- * tabPanel.eventChange = (panelId) => loadContent(panelId);
+ * tabPanel.on('change', (panelId) => loadContent(panelId));
  * tabPanel.setActive('settings');
  *
  * @see {@link Async} for the async serial execution pipeline
@@ -18,7 +18,7 @@ import { consoleDebug } from '../utils/log';
  *
  * @category Component
  */
-export class TabPanel {
+export class TabPanel extends Emitter {
     /**
      * @description Creates a new TabPanel bound to a DOM container.
      * @param {Knot} dom - The parent DOM element.
@@ -27,6 +27,7 @@ export class TabPanel {
      * @param {string} [opt_defaultTab] - Fallback tab ID when no match is found.
      */
     constructor(dom, opt_selector = '.tab-panel', opt_selectedTab = '', opt_defaultTab = '') {
+        super();
         this.tabPanel = new Query(opt_selector, dom).getKnot();
         this.options = {
             selected_tab: opt_selectedTab,
@@ -99,16 +100,6 @@ export class TabPanel {
         this.activeTab = activeTab;
     }
     /**
-     * @description Called when the active tab changes. Override to handle tab change events.
-     * @param {string} panelId - The ID of the newly active panel.
-     *
-     * @example
-     * tabPanel.eventChange = (panelId) => loadPanelContent(panelId);
-     */
-    eventChange(panelId) {
-        consoleDebug('TabPanel.eventChange()', panelId);
-    }
-    /**
      * @description Activates a tab/panel by ID and fires the eventChange callback asynchronously.
      * @param {string} panelId - The panel ID to activate.
      * @returns {Promize} A promise that resolves after the change event completes.
@@ -124,7 +115,7 @@ export class TabPanel {
             async
                 .serial([
                 () => {
-                    return this.eventChange(this.getActive());
+                    return this.emit('change', this.getActive());
                 },
             ])
                 .defer(deferred);

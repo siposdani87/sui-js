@@ -1,6 +1,6 @@
 import { Knot } from '../core/knot';
 import { PopupContainer } from './popupContainer';
-import { consoleDebug } from '../utils/log';
+import { Emitter } from '../core/emitter';
 import { sui } from '../utils/render';
 /**
  * @description Toggleable popup overlay that attaches content to a parent element.
@@ -9,14 +9,14 @@ import { sui } from '../utils/render';
  *
  * @example
  * const popup = new Popup(contentKnot, parentKnot, true);
- * popup.eventClose = () => console.log('Popup closed');
+ * popup.on('close', () => console.log('Popup closed'));
  * popup.toggle();
  *
  * @see {@link PopupContainer} for global popup lifecycle management
  *
  * @category Component
  */
-export class Popup {
+export class Popup extends Emitter {
     /**
      * @description Creates a new Popup with content attached to a parent element.
      * @param {Knot} content - The content to display inside the popup.
@@ -24,6 +24,7 @@ export class Popup {
      * @param {boolean} [opt_withClose] - Whether to show a close button.
      */
     constructor(content, parent, opt_withClose = false) {
+        super();
         this.content = content;
         this.parent = parent;
         this.withClose = opt_withClose;
@@ -88,16 +89,7 @@ export class Popup {
         this.popupContainer.delete(this);
         this.popupContainer.clearPosition(this.popupKnot);
         this.popupKnot.addClass('hidden');
-        this.eventClose();
-    }
-    /**
-     * @description Called when the popup is closed. Override to handle close events.
-     *
-     * @example
-     * popup.eventClose = () => cleanup();
-     */
-    eventClose() {
-        consoleDebug('Popup.eventClose()');
+        this.emit('close');
     }
     /**
      * @description Toggles the popup between open and closed states.

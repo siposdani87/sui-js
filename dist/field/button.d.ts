@@ -21,7 +21,7 @@ export declare class Button extends BaseField<HTMLInputElement> {
     /**
      * Sets the button name attribute.
      */
-    private _init;
+    protected _init(): void;
     /**
      * Renders the button with raised accent classes and attaches the click listener.
      */

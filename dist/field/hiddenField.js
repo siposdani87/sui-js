@@ -20,7 +20,6 @@ export class HiddenField extends BaseField {
      */
     constructor(input) {
         super(input);
-        this._init();
     }
     /**
      * Initializes the change event listener on the hidden input.

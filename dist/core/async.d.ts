@@ -1,3 +1,4 @@
+import { Emitter } from './emitter';
 /**
  * Provides serial and parallel execution of asynchronous function calls
  * using the framework's {@link Deferred}/{@link Promize} system rather than
@@ -10,7 +11,7 @@
  * The `parallelFunction()` method supports dynamic, incremental additions
  * to an ongoing parallel batch when the total count is known ahead of time
  * (set via the constructor's `opt_sum` parameter). When the batch completes,
- * the overridable `eventComplete()` hook is called.
+ * the 'complete' event is emitted.
  *
  * @example
  * const async = new Async();
@@ -38,7 +39,7 @@
  * @see {@link Promize}
  * @category Core
  */
-export declare class Async {
+export declare class Async extends Emitter {
     sum: number;
     call: {
         results: any[];
@@ -79,7 +80,7 @@ export declare class Async {
     /**
      * Adds a single function to an ongoing parallel batch. Unlike
      * `parallel()`, this method does not return a promise; instead, the
-     * overridable `eventComplete()` hook is called when all expected
+     * the 'complete' event is emitted when all expected
      * functions (determined by the constructor's `opt_sum`) have finished.
      *
      * This is useful for dynamic, incremental parallel execution where
@@ -92,9 +93,9 @@ export declare class Async {
      *
      * @example
      * const async = new Async(3);
-     * async.eventComplete = (isError, results) => {
+     * async.on('complete', (isError, results) => {
      *     console.log('Batch complete:', results);
-     * };
+     * });
      *
      * async.parallelFunction(() => loadItem(1));
      * async.parallelFunction(() => loadItem(2));
@@ -108,7 +109,7 @@ export declare class Async {
      *
      * @param call The function to execute.
      * @param length Total number of expected parallel completions.
-     * @param allowEvent Whether to fire `eventComplete()` instead of
+     * @param allowEvent Whether to fire the 'complete' event instead of
      *     resolving/rejecting the deferred.
      * @param index The result index for this function.
      * @param opt_args Optional arguments passed through to the function.
@@ -119,13 +120,13 @@ export declare class Async {
     /**
      * Records a single parallel function's result and checks whether all
      * expected functions have completed. When the batch is complete, either
-     * resolves/rejects the deferred or fires `eventComplete()` depending
+     * resolves/rejects the deferred or fires the 'complete' event depending
      * on the `allowEvent` flag.
      *
      * @param length Total number of expected parallel completions.
      * @param isError Whether this function's execution resulted in an error.
      * @param result The result or error value from the function.
-     * @param allowEvent Whether to fire `eventComplete()` instead of
+     * @param allowEvent Whether to fire the 'complete' event instead of
      *     settling the deferred.
      * @param index The result index for this function.
      * @param opt_args Optional arguments used as the results payload when
@@ -152,23 +153,6 @@ export declare class Async {
      * async.setStatus(2, false, 2, [resultA, resultB]);
      */
     setStatus(sum: number, isError: boolean, counter: number, results: Array<any>): void;
-    /**
-     * Overridable hook called when a parallel batch started via
-     * `parallelFunction()` completes (i.e., all expected functions have
-     * finished). Override this method to handle batch completion events.
-     *
-     * @param isError Whether any function in the batch produced an error.
-     * @param results Array of results from all functions in the batch.
-     *
-     * @example
-     * const async = new Async(2);
-     * async.eventComplete = (isError, results) => {
-     *     if (!isError) {
-     *         console.log('All parallel functions completed:', results);
-     *     }
-     * };
-     */
-    eventComplete(isError: boolean, results: Array<any>): void;
     /**
      * Executes an array of functions sequentially, one after another. Each
      * function receives the optional args concatenated with accumulated

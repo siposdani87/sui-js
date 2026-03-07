@@ -1,15 +1,17 @@
 import { Objekt } from '../core';
 import { Knot } from '../core/knot';
+import { Emitter } from '../core/emitter';
 /**
  * @description Represents a single day cell in the {@link Calendar} grid, with CSS classes for current, now, and month context.
  * @example
  * const day = new Day(new Date(), selectedDate, { css_class: 'current-month' });
+ * day.on('click', (date) => { console.log('Clicked:', date); });
  * const knot = day.getKnot();
  * @see {@link Calendar}
  * @see {@link DateIO}
  * @category Component
  */
-export declare class Day {
+export declare class Day extends Emitter {
     date: Date;
     currentDate: Date;
     options: Objekt;
@@ -40,11 +42,4 @@ export declare class Day {
      * container.appendChild(dayKnot);
      */
     getKnot(): Knot;
-    /**
-     * @description Overridable callback fired when this day cell is clicked. Defaults to a debug log.
-     * @param {Date} date - The date of the clicked day.
-     * @example
-     * day.eventClick = (date) => { console.log('Clicked:', date); };
-     */
-    eventClick(date: Date): void;
 }

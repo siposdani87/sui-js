@@ -2,7 +2,7 @@ import { format, each } from '../utils/operation';
 import { Knot } from '../core/knot';
 import { Objekt } from '../core/objekt';
 import { Query } from '../core/query';
-import { consoleDebug } from '../utils/log';
+import { Emitter } from '../core/emitter';
 import { sui } from '../utils/render';
 /**
  * @description Pagination control that renders page numbers, previous/next navigation buttons,
@@ -10,7 +10,7 @@ import { sui } from '../utils/render';
  *
  * @example
  * const pager = new Pager(containerKnot, ['.pager', '.pager-statistics'], { row_count: 25 });
- * pager.eventAction = (page) => fetchData(page);
+ * pager.on('action', (page) => fetchData(page));
  * pager.setCount(100);
  * pager.draw();
  *
@@ -19,7 +19,7 @@ import { sui } from '../utils/render';
  *
  * @category Component
  */
-export class Pager {
+export class Pager extends Emitter {
     /**
      * @description Creates a new Pager instance bound to pager and statistics elements within the given DOM.
      * @param {Knot} dom - The parent DOM element containing pager selectors.
@@ -27,6 +27,7 @@ export class Pager {
      * @param {object} [opt_options] - Configuration options (row_count, pager_num).
      */
     constructor(dom, opt_selectors = ['.pager', '.pager-statistics'], opt_options = {}) {
+        super();
         this.pager = new Query(opt_selectors[0], dom).getKnot();
         this.pagerStatistics = new Query(opt_selectors[1], dom).getKnot();
         this._setOptions(opt_options);
@@ -202,7 +203,7 @@ export class Pager {
      */
     _go(page) {
         this.setPage(page);
-        this.eventAction(this.page);
+        this.emit('action', this.page);
     }
     /**
      * @description Sets the current page number and recalculates the row offset.
@@ -225,17 +226,5 @@ export class Pager {
     draw() {
         this._drawStatistics();
         this._drawPager();
-    }
-    /**
-     * @description Called when a page navigation action occurs. Override to handle page changes.
-     * @param {number} page - The newly selected page number.
-     *
-     * @example
-     * pager.eventAction = (page) => {
-     *     fetchData({ offset: (page - 1) * rowCount });
-     * };
-     */
-    eventAction(page) {
-        consoleDebug('Pager.eventAction()', page);
     }
 }

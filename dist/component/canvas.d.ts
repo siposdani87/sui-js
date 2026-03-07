@@ -1,3 +1,4 @@
+import { Emitter } from '../core/emitter';
 import { Knot } from '../core/knot';
 /**
  * HTML5 Canvas wrapper for 2D drawing operations.
@@ -14,7 +15,7 @@ import { Knot } from '../core/knot';
  * @see {@link Knot}
  * @category Component
  */
-export declare class Canvas {
+export declare class Canvas extends Emitter {
     canvasKnot: Knot<HTMLCanvasElement>;
     canvasElement: HTMLCanvasElement;
     context: CanvasRenderingContext2D;
@@ -137,12 +138,6 @@ export declare class Canvas {
      * const [r, g, b, a] = canvas.getImageDataXY(50, 50);
      */
     getImageDataXY(x: number, y: number): Uint8ClampedArray;
-    /**
-     * Called when the mouse moves over the canvas. Override to handle mouse tracking.
-     * @param x - The x-coordinate relative to the canvas.
-     * @param y - The y-coordinate relative to the canvas.
-     */
-    eventMouseMove(x: number, y: number): void;
     /**
      * Clears the entire canvas.
      *

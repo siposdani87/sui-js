@@ -1,11 +1,11 @@
 import { isEmpty, eq } from '../utils/operation';
-import { consoleDebug } from '../utils/log';
+import { Emitter } from '../core/emitter';
 /**
  * Detects the current browser type and operating system from the
  * user-agent string and platform properties. Browser also checks for
  * the availability of required browser features (geolocation, history,
- * storage, console) and fires the {@link Browser.eventMissingFeatures}
- * hook when any are absent.
+ * storage, console) and emits a `'missingFeatures'` event when any
+ * are absent.
  *
  * OS detection covers macOS, iOS, Windows, Android, and Linux.
  * Browser detection covers Chrome, Firefox, Safari, Edge (legacy and
@@ -14,7 +14,10 @@ import { consoleDebug } from '../utils/log';
  *
  * @example
  * const browser = new Browser();
- * browser.detect(); // triggers eventMissingFeatures if needed
+ * browser.on('missingFeatures', (features) => {
+ *     console.warn('Missing:', features);
+ * });
+ * browser.detect();
  *
  * if (browser.isChrome()) {
  *     console.log('Running on Chrome');
@@ -24,14 +27,16 @@ import { consoleDebug } from '../utils/log';
  * }
  *
  * @see {@link Application}
+ * @see {@link Emitter}
  * @category Module
  */
-export class Browser {
+export class Browser extends Emitter {
     /**
      * Creates a new Browser instance and immediately detects the OS,
      * browser type, and missing features.
      */
     constructor() {
+        super();
         this._init();
     }
     /**
@@ -59,7 +64,7 @@ export class Browser {
         this._setFeature('console.error', console.error);
     }
     /**
-     * Triggers the {@link Browser.eventMissingFeatures} hook if one or
+     * Emits the `'missingFeatures'` event if one or
      * more required browser features are unavailable. Call this method
      * after construction to notify the application of missing capabilities.
      *
@@ -69,7 +74,7 @@ export class Browser {
      */
     detect() {
         if (!isEmpty(this.features)) {
-            this.eventMissingFeatures(this.features);
+            this.emit('missingFeatures', this.features);
         }
     }
     /**
@@ -83,16 +88,6 @@ export class Browser {
         if (eq(!!value, false)) {
             this.features.push(name);
         }
-    }
-    /**
-     * Called by {@link Browser.detect} when one or more required browser
-     * features are missing. Override this method to display a warning to
-     * the user or degrade functionality gracefully.
-     *
-     * @param {Array<any>} features List of missing feature identifiers.
-     */
-    eventMissingFeatures(features) {
-        consoleDebug('Browser.eventMissingFeatures()', features);
     }
     /**
      * Populates the `browsers` map by inspecting CSS property support,

@@ -5,7 +5,8 @@ import { Objekt } from '../core/objekt';
 import { Query } from '../core/query';
 import { ContentHandler } from './contentHandler';
 import { Pager } from './pager';
-import { consoleDebug, consoleWarn } from '../utils/log';
+import { consoleWarn } from '../utils/log';
+import { Emitter } from '../core/emitter';
 /**
  * @description Card-based data display component with template rendering and pagination.
  * Renders data items as cards using an HTML template element, with built-in
@@ -13,7 +14,7 @@ import { consoleDebug, consoleWarn } from '../utils/log';
  *
  * @example
  * const cards = new CardCollection(containerKnot, '.card-collection', ctrl, { row_count: 12 });
- * cards.eventAction = (params) => http.get('/api/items', params);
+ * cards.on('action', (params) => http.get('/api/items', params));
  * cards.render();
  *
  * @see {@link Pager} for the pagination control
@@ -22,7 +23,7 @@ import { consoleDebug, consoleWarn } from '../utils/log';
  *
  * @category Component
  */
-export class CardCollection {
+export class CardCollection extends Emitter {
     /**
      * @description Creates a new CardCollection bound to a DOM container with optional controller and options.
      * @param {Knot} dom - The parent DOM element.
@@ -31,6 +32,7 @@ export class CardCollection {
      * @param {object} [opt_options] - Configuration options (row_count, pager_num, sort, no_content).
      */
     constructor(dom, opt_selector = '.card-collection', opt_ctrl = null, opt_options = {}) {
+        super();
         this.cardCollectionKnot = new Query(opt_selector, dom).getKnot();
         this.ctrl = opt_ctrl;
         this._setOptions(opt_options);
@@ -65,9 +67,9 @@ export class CardCollection {
         this._initStructure();
         this._initTemplate();
         this.pager = new Pager(this.cardCollectionKnot, ['.pager', '.pager-statistics'], this.options);
-        this.pager.eventAction = (page) => {
+        this.pager.on('action', (page) => {
             this.refresh(page);
-        };
+        });
     }
     /**
      * @description Creates the content handler for empty-state display.
@@ -145,7 +147,7 @@ export class CardCollection {
         return new Knot(cloneTemplate);
     }
     /**
-     * @description Refreshes the card collection by triggering eventAction with current query, sort, and paging params.
+     * @description Refreshes the card collection by emitting the 'action' event with current query, sort, and paging params.
      * @param {number} [opt_page] - Page number to navigate to before refreshing (-1 keeps current page).
      *
      * @example
@@ -162,32 +164,7 @@ export class CardCollection {
             offset: this.pager.offset,
             limit: this.options.row_count,
         });
-        this.eventAction(params);
-    }
-    /**
-     * @description Called when data needs to be fetched. Override to load data from a backend.
-     * @param {Objekt} params - Query parameters including query, column, order, offset, and limit.
-     *
-     * @example
-     * cards.eventAction = (params) => {
-     *     http.get('/api/items', params).then((response) => cards.setData(response.items));
-     * };
-     */
-    eventAction(params) {
-        consoleDebug('CardCollection.eventAction()', params);
-    }
-    /**
-     * @description Called after each card is rendered. Override to attach event listeners or modify card DOM.
-     * @param {Knot} cardKnot - The rendered card DOM element.
-     * @param {Objekt} item - The data item associated with the card.
-     *
-     * @example
-     * cards.eventCardKnot = (cardKnot, item) => {
-     *     cardKnot.addEventListener('click', () => navigate(item.get('id')));
-     * };
-     */
-    eventCardKnot(cardKnot, item) {
-        consoleDebug('CardCollection.eventCardKnot()', cardKnot, item);
+        this.emit('action', params);
     }
     /**
      * @description Renders a card for the given item and appends it to the body.
@@ -196,7 +173,7 @@ export class CardCollection {
     _addCard(item) {
         const cardKnot = this._getCardKnot(item);
         this.body.appendChild(cardKnot);
-        this.eventCardKnot(cardKnot, item);
+        this.emit('cardKnot', cardKnot, item);
     }
     /**
      * @description Loads data items into the collection and renders cards, or shows the empty-content placeholder.

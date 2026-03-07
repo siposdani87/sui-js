@@ -11,17 +11,6 @@ import { BaseField } from './baseField';
  */
 export class TextField extends BaseField {
     /**
-     * @description Creates a new TextField instance.
-     * @param {Knot<HTMLInputElement>} input - The text input element wrapped in a Knot.
-     * @param {Knot} label - The label element wrapped in a Knot.
-     * @param {Knot} error - The error element wrapped in a Knot.
-     * @param {Knot} inputBlock - The input block container wrapped in a Knot.
-     */
-    constructor(input, label, error, inputBlock) {
-        super(input, label, error, inputBlock);
-        this._init();
-    }
-    /**
      * @description Initializes the text field by adding the CSS class and binding keyup and change events.
      */
     _init() {

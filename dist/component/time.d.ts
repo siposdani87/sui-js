@@ -1,16 +1,17 @@
 import { Objekt } from '../core';
 import { Knot } from '../core/knot';
+import { Emitter } from '../core/emitter';
 /**
  * @description Circular time selector that renders numbered circles arranged in a ring for hour or minute selection.
  * @example
  * const timeKnot = new Knot('div');
  * const time = new Time(timeKnot, { selected: 5 });
- * time.eventClick = (index) => { console.log(index); };
+ * time.on('click', (index) => { console.log(index); });
  * time.draw(1, 12, 1, true);
  * @see {@link Clock}
  * @category Component
  */
-export declare class Time {
+export declare class Time extends Emitter {
     timeKnot: Knot;
     options: Objekt;
     pointerKnot: Knot;
@@ -80,11 +81,4 @@ export declare class Time {
      * @param {boolean} [opt_isClockWise=true] - Whether the layout direction is clockwise.
      */
     private _setCircleStyle;
-    /**
-     * @description Overridable callback fired when a circle is clicked. Defaults to a debug log.
-     * @param {number} index - The index value of the clicked circle.
-     * @example
-     * time.eventClick = (index) => { console.log('Selected:', index); };
-     */
-    eventClick(index: number): void;
 }

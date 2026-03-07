@@ -22,7 +22,7 @@ export declare class ResetButton extends BaseField<HTMLInputElement> {
     /**
      * Sets the reset button name attribute.
      */
-    private _init;
+    protected _init(): void;
     /**
      * Renders the reset button with SUI classes.
      */

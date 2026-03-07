@@ -16,17 +16,6 @@ import { sui } from '../utils/render';
  */
 export class BaseCheckboxField extends BaseField {
     /**
-     * @description Creates a new BaseCheckboxField instance.
-     * @param {Knot<HTMLInputElement>} input - The checkbox input element wrapped in a Knot.
-     * @param {Knot} label - The label element wrapped in a Knot.
-     * @param {Knot} error - The error element wrapped in a Knot.
-     * @param {Knot} inputBlock - The input block container wrapped in a Knot.
-     */
-    constructor(input, label, error, inputBlock) {
-        super(input, label, error, inputBlock);
-        this._init();
-    }
-    /**
      * @description Initializes the checkbox field by locating the hidden input and binding the change event.
      */
     _init() {

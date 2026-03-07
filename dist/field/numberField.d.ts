@@ -1,5 +1,4 @@
 import { BaseField } from './baseField';
-import { Knot } from '../core/knot';
 /**
  * @description Numeric input field with step up/down buttons and min/max value constraints.
  *
@@ -13,17 +12,9 @@ import { Knot } from '../core/knot';
  */
 export declare class NumberField extends BaseField<HTMLInputElement> {
     /**
-     * @description Creates a new NumberField instance.
-     * @param {Knot<HTMLInputElement>} input - The numeric input element.
-     * @param {Knot} label - The label element.
-     * @param {Knot} error - The error message element.
-     * @param {Knot} inputBlock - The container block element.
-     */
-    constructor(input: Knot<HTMLInputElement>, label: Knot, error: Knot, inputBlock: Knot);
-    /**
      * @description Initializes the field by adding CSS class, step buttons, and input event listeners.
      */
-    private _init;
+    protected _init(): void;
     /**
      * @description Creates step up and step down buttons in the action container.
      */

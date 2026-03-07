@@ -4,6 +4,7 @@ import { Query } from '../core/query';
 import { Tooltip } from '../component/tooltip';
 import { sui } from '../utils/render';
 import { consoleDebug } from '../utils/log';
+import { Emitter } from '../core/emitter';
 /**
  * @description Abstract base class for all form fields. Handles validation, labeling,
  * visibility, enable/disable state, and error display.
@@ -13,11 +14,17 @@ import { consoleDebug } from '../utils/log';
  * const textField = new TextField(inputKnot, labelKnot, errorKnot, inputBlockKnot);
  * textField.setValue('Hello');
  * textField.checkValidity();
+ * textField.on('change', (value, prev) => {
+ *     console.log('Changed from', prev, 'to', value);
+ * });
+ * textField.on('click', (knot) => {
+ *     console.log('Field clicked', knot);
+ * });
  * @see {@link Form}
  * @see {@link Tooltip}
  * @see {@link Knot}
  */
-export class BaseField {
+export class BaseField extends Emitter {
     /**
      * @description Creates a new BaseField instance with the given input, label, error, and input block knots.
      * @param {Knot<T>} input - The input element wrapped in a Knot.
@@ -27,6 +34,7 @@ export class BaseField {
      * @param {Form} [opt_form] - The parent form instance.
      */
     constructor(input, opt_label, opt_error, opt_inputBlock, opt_form) {
+        super();
         this.input = input;
         this.label = opt_label;
         this.error = opt_error;
@@ -44,30 +52,14 @@ export class BaseField {
         this._setActionContainer();
         this._setMutation();
         this._setAdditionalLabel(this.label);
+        this._init();
     }
     /**
-     * @description Called when the field value changes. Override in subclasses to handle change events.
-     * @param {*} value - The new field value.
-     * @param {*} previousValue - The previous field value.
-     * @example
-     * field.eventChange = (value, previousValue) => {
-     *     console.log('Changed from', previousValue, 'to', value);
-     * };
+     * @description Initialization hook called at the end of the BaseField constructor.
+     * Override in subclasses to perform field-specific setup without repeating constructor boilerplate.
      */
-    // eslint-disable-next-line @typescript-eslint/no-explicit-any
-    eventChange(value, previousValue) {
-        consoleDebug('BaseField.eventChange()', value, previousValue);
-    }
-    /**
-     * @description Called when the field is clicked. Override in subclasses to handle click events.
-     * @param {Knot} knot - The clicked knot element.
-     * @example
-     * field.eventClick = (knot) => {
-     *     console.log('Field clicked', knot);
-     * };
-     */
-    eventClick(knot) {
-        consoleDebug('Button.eventClick()', knot);
+    _init() {
+        // Override in subclasses
     }
     /**
      * @description Renders the field's DOM structure and applies SUI styling. Override in subclasses to provide specific rendering.

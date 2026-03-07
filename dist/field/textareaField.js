@@ -15,17 +15,6 @@ import { Knot } from '../core/knot';
  */
 export class TextareaField extends BaseField {
     /**
-     * @description Creates a new TextareaField instance.
-     * @param {Knot<HTMLInputElement>} input - The textarea input element.
-     * @param {Knot} label - The label element.
-     * @param {Knot} error - The error message element.
-     * @param {Knot} inputBlock - The container block element.
-     */
-    constructor(input, label, error, inputBlock) {
-        super(input, label, error, inputBlock);
-        this._init();
-    }
-    /**
      * @description Initializes the field by adding CSS class and attaching keyup/change event listeners.
      */
     _init() {

@@ -1,7 +1,7 @@
 import { noop, each, isFunction } from '../utils/operation';
-import { consoleDebug } from '../utils/log';
 import { Async } from './async';
 import { Deferred } from './deferred';
+import { Emitter } from './emitter';
 import { State } from './state';
 /**
  * Base class for the application's revealing module pattern. Module manages
@@ -14,9 +14,9 @@ import { State } from './state';
  * `handleRoutes()`, which creates a {@link State} instance and connects
  * state change events to the controller enter/exit lifecycle.
  *
- * Subclasses override the `event*` hook methods to integrate with the
- * application's UI layer (e.g., showing loaders, updating navigation,
- * rendering templates).
+ * Consumers subscribe to lifecycle events via `module.on('eventName', handler)`
+ * to integrate with the application's UI layer (e.g., showing loaders,
+ * updating navigation, rendering templates).
  *
  * @example
  * const module = new Module();
@@ -38,12 +38,13 @@ import { State } from './state';
  * @see {@link Promize}
  * @category Core
  */
-export class Module {
+export class Module extends Emitter {
     /**
      * Creates a new Module instance with an empty module registry and a
      * default no-op controller.
      */
     constructor() {
+        super();
         this._modules = {};
         this._controller = {
             enter: noop(),
@@ -208,9 +209,9 @@ export class Module {
      * and its `enter()` method (if present) is called via {@link Async}
      * serial execution.
      *
-     * After all services are initialized, `eventServiceLoaded()` is fired
+     * After all services are initialized, the 'serviceLoaded' event is emitted
      * and `state.run()` is called to activate routing. If any service
-     * fails to initialize, `eventServiceFailed()` is fired instead.
+     * fails to initialize, the 'serviceFailed' event is emitted instead.
      *
      * @param services Array of service names (as registered via `add()`)
      *     to initialize.
@@ -238,13 +239,13 @@ export class Module {
             };
             calls.push(moduleCall);
         });
-        this.eventAfterInit();
+        this.emit('afterInit');
         const async = new Async();
         async.serial(calls).then(() => {
-            this.eventServiceLoaded();
+            this.emit('serviceLoaded');
             this._instances.state.run();
         }, () => {
-            this.eventServiceFailed();
+            this.emit('serviceFailed');
         });
     }
     /**
@@ -266,7 +267,7 @@ export class Module {
      */
     handleRoutes(routes, options) {
         this._instances.state = new State(routes, options);
-        this._instances.state.eventChange = (currentState, previousState, force) => {
+        this._instances.state.on('change', (currentState, previousState, force) => {
             let exit = noop();
             if (!previousState.isEmpty() &&
                 this._controller &&
@@ -277,10 +278,10 @@ export class Module {
             async.serial([exit]).then(() => {
                 this._handleStateChange(currentState, force);
             });
-        };
+        });
     }
     /**
-     * Handles an individual state change by firing `eventStateChange()`,
+     * Handles an individual state change by emitting 'stateChange',
      * loading the template (if defined), and initializing the controller
      * for the new state.
      *
@@ -291,25 +292,31 @@ export class Module {
      *     is already cached.
      */
     _handleStateChange(currentState, opt_force = false) {
-        this.eventStateChange(currentState).then(() => {
+        var _a;
+        const stateChangeResult = (_a = this.emit('stateChange', currentState)) !== null && _a !== void 0 ? _a : (() => {
+            const d = new Deferred();
+            d.resolve();
+            return d.promise();
+        })();
+        stateChangeResult.then(() => {
             const template = currentState.get('template');
             if (template) {
                 const templateUrl = currentState.get('templateUrl');
                 this._instances.template.load(templateUrl, opt_force).then((dom) => {
-                    this.eventModuleLoaded(currentState);
+                    this.emit('moduleLoaded', currentState);
                     this._initController(currentState, dom);
                 }, () => {
-                    this.eventModuleFailed(currentState);
+                    this.emit('moduleFailed', currentState);
                 });
             }
             else {
-                this.eventModuleLoaded(currentState);
+                this.emit('moduleLoaded', currentState);
                 this._initController(currentState, 
                 // eslint-disable-next-line @typescript-eslint/no-explicit-any
                 this._instances[this._injections.template].getViewKnot());
             }
         }, () => {
-            this.eventModuleFailed(currentState);
+            this.emit('moduleFailed', currentState);
         });
     }
     /**
@@ -323,127 +330,31 @@ export class Module {
      *     should render its content.
      */
     _initController(state, dom) {
+        var _a;
         this._instances.dom = dom;
         const controller = this._modules[state.get('controller')];
         if (controller) {
-            this.eventDomChange(state, dom).then(() => {
+            const domChangeResult = (_a = this.emit('domChange', state, dom)) !== null && _a !== void 0 ? _a : (() => {
+                const d = new Deferred();
+                d.resolve();
+                return d.promise();
+            })();
+            domChangeResult.then(() => {
                 this._controller = this._resolveDependencies(controller);
                 if (this._controller && isFunction(this._controller.enter)) {
                     const enter = this._controller.enter.bind(this._controller);
                     const async = new Async();
                     async.serial([enter]).then(() => {
-                        this.eventControllerLoaded(dom);
+                        this.emit('controllerLoaded', dom);
                     });
                 }
                 else {
-                    this.eventControllerLoaded(dom);
+                    this.emit('controllerLoaded', dom);
                 }
             });
         }
         else {
-            this.eventControllerFailed();
+            this.emit('controllerFailed');
         }
-    }
-    /**
-     * Overridable lifecycle hook called when a controller has been
-     * successfully loaded and its `enter()` method has completed.
-     * Logs by default; override to integrate with the application UI.
-     *
-     * @param dom The {@link Knot} DOM container rendered by the controller.
-     */
-    eventControllerLoaded(dom) {
-        consoleDebug('Module.eventControllerLoaded()', dom);
-    }
-    /**
-     * Overridable lifecycle hook called when no controller is found for
-     * the current route. Logs by default; override to show error states.
-     */
-    eventControllerFailed() {
-        consoleDebug('Module.eventControllerFailed()');
-    }
-    /**
-     * Overridable lifecycle hook called when a module (template) fails
-     * to load for the given state. Logs by default; override to display
-     * error feedback to the user.
-     *
-     * @param state The {@link Objekt} representing the state whose
-     *     module failed to load.
-     */
-    eventModuleFailed(state) {
-        consoleDebug('Module.eventModuleFailed()', state);
-    }
-    /**
-     * Overridable lifecycle hook called when a module (template) has
-     * been successfully loaded for the given state. Logs by default;
-     * override to update navigation or page title.
-     *
-     * @param state The {@link Objekt} representing the state whose
-     *     module was loaded.
-     */
-    eventModuleLoaded(state) {
-        consoleDebug('Module.eventModuleLoaded()', state);
-    }
-    /**
-     * Overridable lifecycle hook called when the application state
-     * changes. Returns a {@link Promize} to allow asynchronous operations
-     * (such as transition animations or data prefetching) before the
-     * controller lifecycle continues.
-     *
-     * The default implementation resolves immediately. Override to
-     * insert async logic before controller initialization.
-     *
-     * @param state The {@link Objekt} representing the new active state.
-     * @returns A {@link Promize} that must be resolved to continue the
-     *     state change lifecycle.
-     */
-    eventStateChange(state) {
-        const deferred = new Deferred();
-        consoleDebug('Module.eventStateChange()', state);
-        deferred.resolve();
-        return deferred.promise();
-    }
-    /**
-     * Overridable lifecycle hook called when the DOM container is ready
-     * for the new controller. Returns a {@link Promize} to allow
-     * asynchronous operations (such as DOM preparation or cleanup)
-     * before the controller is instantiated.
-     *
-     * The default implementation resolves immediately. Override to
-     * insert async logic before controller instantiation.
-     *
-     * @param state The {@link Objekt} representing the current state.
-     * @param dom The {@link Knot} DOM container for the controller.
-     * @returns A {@link Promize} that must be resolved to continue
-     *     controller initialization.
-     */
-    eventDomChange(state, dom) {
-        const deferred = new Deferred();
-        consoleDebug('Module.eventDomChange()', state, dom);
-        deferred.resolve();
-        return deferred.promise();
-    }
-    /**
-     * Overridable lifecycle hook called after all service initialization
-     * calls have been queued but before they begin executing. Logs by
-     * default; override to perform early setup tasks.
-     */
-    eventAfterInit() {
-        consoleDebug('Module.eventAfterInit()');
-    }
-    /**
-     * Overridable lifecycle hook called when all registered services
-     * have been successfully initialized. Logs by default; override to
-     * signal application readiness.
-     */
-    eventServiceLoaded() {
-        consoleDebug('Module.eventServiceLoaded()');
-    }
-    /**
-     * Overridable lifecycle hook called when service initialization
-     * fails. Logs by default; override to handle initialization errors
-     * gracefully.
-     */
-    eventServiceFailed() {
-        consoleDebug('Module.eventServiceFailed()');
     }
 }

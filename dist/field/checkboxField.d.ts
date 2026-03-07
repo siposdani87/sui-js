@@ -1,4 +1,3 @@
-import { Knot } from '../core/knot';
 import { BaseCheckboxField } from './baseCheckboxField';
 /**
  * SUI checkbox field with label and data label display.
@@ -13,15 +12,6 @@ import { BaseCheckboxField } from './baseCheckboxField';
  * @category Field
  */
 export declare class CheckboxField extends BaseCheckboxField {
-    /**
-     * Creates a new CheckboxField instance.
-     *
-     * @param {Knot<HTMLInputElement>} input The checkbox input element.
-     * @param {Knot} label The label element associated with the checkbox.
-     * @param {Knot} error The error message element.
-     * @param {Knot} inputBlock The container block for the input.
-     */
-    constructor(input: Knot<HTMLInputElement>, label: Knot, error: Knot, inputBlock: Knot);
     /**
      * Renders the checkbox with SUI classes, label span, and data label element.
      */

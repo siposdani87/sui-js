@@ -19,17 +19,9 @@ export declare class TextareaField extends BaseField<HTMLInputElement> {
     toolbarKnot: Knot;
     htmlMode: boolean;
     /**
-     * @description Creates a new TextareaField instance.
-     * @param {Knot<HTMLInputElement>} input - The textarea input element.
-     * @param {Knot} label - The label element.
-     * @param {Knot} error - The error message element.
-     * @param {Knot} inputBlock - The container block element.
-     */
-    constructor(input: Knot<HTMLInputElement>, label: Knot, error: Knot, inputBlock: Knot);
-    /**
      * @description Initializes the field by adding CSS class and attaching keyup/change event listeners.
      */
-    private _init;
+    protected _init(): void;
     /**
      * @description Applies SUI textarea classes and renders the rich text editor if configured.
      * @override

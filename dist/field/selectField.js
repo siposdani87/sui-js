@@ -22,17 +22,6 @@ import { sui } from '../utils/render';
  */
 export class SelectField extends BaseField {
     /**
-     * @description Creates a new SelectField instance.
-     * @param {Knot<HTMLInputElement>} input - The select input element wrapped in a Knot.
-     * @param {Knot} label - The label element wrapped in a Knot.
-     * @param {Knot} error - The error element wrapped in a Knot.
-     * @param {Knot} inputBlock - The input block container wrapped in a Knot.
-     */
-    constructor(input, label, error, inputBlock) {
-        super(input, label, error, inputBlock);
-        this._init();
-    }
-    /**
      * @description Initializes the select field by hiding the native input, setting up options, events, and the popup.
      */
     _init() {

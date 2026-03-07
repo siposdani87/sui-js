@@ -185,12 +185,12 @@ export class Application {
      */
     _initModule() {
         this._module = new Module();
-        this._module.eventAfterInit = () => {
+        this._module.on('afterInit', () => {
             this._instances.progressBar.lock();
             this._instances.loader.show();
             this._instances.eventBus.call('module.afterInit');
-        };
-        this._module.eventStateChange = (currentState) => {
+        });
+        this._module.on('stateChange', (currentState) => {
             this._instances.progressBar.lock();
             this._instances.loader.show();
             this._instances.dialog.close();
@@ -198,33 +198,33 @@ export class Application {
             return this._instances.eventBus.call('state.change', [
                 currentState,
             ]);
-        };
-        this._module.eventDomChange = (state, dom) => {
+        });
+        this._module.on('domChange', (state, dom) => {
             return this._instances.eventBus.call('dom.change', [state, dom]);
-        };
-        this._module.eventServiceLoaded = () => {
+        });
+        this._module.on('serviceLoaded', () => {
             this._instances.browser.detect();
             this._instances.eventBus.call('module.serviceLoaded');
-        };
-        this._module.eventServiceFailed = () => {
+        });
+        this._module.on('serviceFailed', () => {
             this._instances.eventBus.call('module.serviceFailed');
-        };
-        this._module.eventModuleLoaded = (state) => {
+        });
+        this._module.on('moduleLoaded', (state) => {
             this._instances.progressBar.unlock();
             this._instances.loader.hide(true);
             this._instances.eventBus.call('module.loaded', [state]);
-        };
-        this._module.eventModuleFailed = (state) => {
+        });
+        this._module.on('moduleFailed', (state) => {
             this._instances.progressBar.unlock();
             this._instances.loader.hide(true);
             this._instances.eventBus.call('module.failed', [state]);
-        };
-        this._module.eventControllerLoaded = (dom) => {
+        });
+        this._module.on('controllerLoaded', (dom) => {
             this._instances.eventBus.call('controller.loaded', [dom]);
-        };
-        this._module.eventControllerFailed = () => {
+        });
+        this._module.on('controllerFailed', () => {
             this._instances.eventBus.call('controller.failed', []);
-        };
+        });
     }
     /**
      * @description Passes all resolved instances and injections to the module loader.
@@ -262,7 +262,7 @@ export class Application {
      */
     _initGeoLocation() {
         this._instances.geoLocation = new GeoLocation();
-        this._instances.geoLocation.eventChange = (latitude, longitude, message) => {
+        this._instances.geoLocation.on('change', (latitude, longitude, message) => {
             this._instances.eventBus.override('geoLocation.success', [message], (message) => {
                 this._instances.flash.addInfo(message);
             });
@@ -270,12 +270,12 @@ export class Application {
                 latitude,
                 longitude,
             ]);
-        };
-        this._instances.geoLocation.eventError = (message, code) => {
+        });
+        this._instances.geoLocation.on('error', (message, code) => {
             this._instances.eventBus.override('geoLocation.error', [message, code], (message) => {
                 this._instances.flash.addError(message);
             });
-        };
+        });
     }
     /**
      * @description Initializes the {@link Cookie} module with the application prefix.
@@ -322,10 +322,10 @@ export class Application {
     _initPage() {
         const popupContainer = new PopupContainer();
         this._instances.page = new Page();
-        this._instances.page.eventClick = (target, event) => {
+        this._instances.page.on('click', (target, event) => {
             popupContainer.closeAll();
             this._instances.eventBus.call('document.click', [target, event]);
-        };
+        });
     }
     /**
      * @description Initializes the {@link Screen} module and wires resize, orientation, scroll, and connectivity events.
@@ -337,7 +337,7 @@ export class Application {
         this._instances.dialog.setSize(width, height);
         this._instances.confirm.setSize(width, height);
         this._instances.viewer.setSize(width, height);
-        this._instances.screen.eventResize = (width, height, event) => {
+        this._instances.screen.on('resize', (width, height, event) => {
             this._instances.dialog.setSize(width, height);
             this._instances.confirm.setSize(width, height);
             this._instances.viewer.setSize(width, height);
@@ -346,8 +346,8 @@ export class Application {
                 height,
                 event,
             ]);
-        };
-        this._instances.screen.eventOrientationChange = (orientation, width, height, event) => {
+        });
+        this._instances.screen.on('orientationChange', (orientation, width, height, event) => {
             this._instances.dialog.setSize(width, height);
             this._instances.confirm.setSize(width, height);
             this._instances.viewer.setSize(width, height);
@@ -357,35 +357,35 @@ export class Application {
                 height,
                 event,
             ]);
-        };
-        this._instances.screen.eventScroll = (scrollTop, event) => {
+        });
+        this._instances.screen.on('scroll', (scrollTop, event) => {
             this._instances.eventBus.call('window.scroll', [scrollTop, event]);
-        };
-        this._instances.screen.eventColorSchemeChange = (colorScheme, event) => {
+        });
+        this._instances.screen.on('colorSchemeChange', (colorScheme, event) => {
             this._instances.eventBus.call('window.colorSchemeChange', [
                 colorScheme,
                 event,
             ]);
-        };
+        });
         // eslint-disable-next-line @typescript-eslint/no-explicit-any
         const flash = {
             node: null,
             message: 'Unable to connect to the Internet',
             duration: Infinity,
         };
-        this._instances.screen.eventOnline = () => {
+        this._instances.screen.on('online', () => {
             if (flash.node) {
                 this._instances.flash.remove(flash.node);
             }
-        };
-        this._instances.screen.eventOffline = (event) => {
+        });
+        this._instances.screen.on('offline', (event) => {
             this._instances.eventBus.override('window.offline', [flash, event], 
             // eslint-disable-next-line @typescript-eslint/no-explicit-any
             (flash) => {
                 // eslint-disable-next-line @typescript-eslint/no-explicit-any
                 flash.node = this._instances[this._injections.flash].addWarning(flash.message, flash.duration);
             });
-        };
+        });
     }
     /**
      * @description Initializes the {@link EventBus} for publish/subscribe communication.
@@ -404,14 +404,14 @@ export class Application {
      */
     _initHttp() {
         this._instances.http = new Http(this.options);
-        this._instances.http.eventBeforeRequest = (...params) => {
+        this._instances.http.on('beforeRequest', (...params) => {
             this._instances.progressBar.show();
             this._instances.eventBus.call('http.beforeRequest', params);
-        };
-        this._instances.http.eventAfterRequest = (...params) => {
+        });
+        this._instances.http.on('afterRequest', (...params) => {
             this._instances.eventBus.call('http.afterRequest', params);
             this._instances.progressBar.hide();
-        };
+        });
     }
     /**
      * @description Initializes the {@link Template} engine with HTTP client and locale.
@@ -420,11 +420,11 @@ export class Application {
         this._instances.template = new Template(this._instances.http, {
             locale: this.getLocale(),
         });
-        this._instances.template.eventError = (message) => {
+        this._instances.template.on('error', (message) => {
             this._instances.state.back();
             this._instances.loader.hide();
             this._instances.flash.addMessage(message);
-        };
+        });
     }
     /**
      * @description Initializes the {@link Flash} module for transient notifications.
@@ -491,9 +491,9 @@ export class Application {
      */
     _initBrowser() {
         this._instances.browser = new Browser();
-        this._instances.browser.eventMissingFeatures = (features) => {
+        this._instances.browser.on('missingFeatures', (features) => {
             this._instances.flash.addError(features.join(', '));
-        };
+        });
     }
     /**
      * @description Initializes the route options container.

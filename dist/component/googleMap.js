@@ -3,7 +3,7 @@ import { Collection } from '../core/collection';
 import { Deferred } from '../core/deferred';
 import { Objekt } from '../core/objekt';
 import { Query } from '../core/query';
-import { consoleDebug } from '../utils/log';
+import { Emitter } from '../core/emitter';
 import { MapLabel } from './mapLabel';
 /**
  * Creates a {@link MapLabel} bound to a marker's position and map.
@@ -54,13 +54,14 @@ const _createMapLabelByMarkerByPosition = (map, position, title) => new MapLabel
  * @see {@link Deferred}
  * @category Component
  */
-export class GoogleMap {
+export class GoogleMap extends Emitter {
     /**
      * @param dom - The parent DOM wrapper {@link Knot}.
      * @param opt_selector - CSS selector for the map container element.
      * @param opt_options - Google Maps configuration options merged with defaults.
      */
     constructor(dom, opt_selector = '.map', opt_options = {}) {
+        super();
         this.mapKnot = new Query(opt_selector, dom).getKnot();
         this._setOptions(opt_options);
         this._init();
@@ -156,11 +157,11 @@ export class GoogleMap {
         // eslint-disable-next-line @typescript-eslint/no-explicit-any
         this.map.addListener('click', (event) => {
             const vertex = event.latLng;
-            this.eventMapClick(vertex.lat(), vertex.lng(), event);
+            this.emit('mapClick', vertex.lat(), vertex.lng(), event);
         });
         // eslint-disable-next-line @typescript-eslint/no-explicit-any
         this.map.addListener('maptypeid_changed', (event) => {
-            this.eventMapTypeChange(this.getMapType(), event);
+            this.emit('mapTypeChange', this.getMapType(), event);
         });
     }
     /**
@@ -178,14 +179,6 @@ export class GoogleMap {
             // empty function
         };
         this.overlay.setMap(this.map);
-    }
-    /**
-     * Called when a polygon's path changes. Override to handle polygon edits.
-     * @param polygonData - The polygon data object (without internal properties).
-     * @param points - The updated array of polygon vertex coordinates.
-     */
-    eventPolygonChanged(polygonData, points) {
-        consoleDebug('GoogleMap.eventPolygonChanged()', polygonData, points);
     }
     /**
      * Creates a new polygon or updates an existing one identified by ID.
@@ -350,18 +343,18 @@ export class GoogleMap {
             }
             else {
                 const vertex = event.latLng;
-                this.eventPolygonRightClick(cleanPolygonData, vertex.lat(), vertex.lng(), event);
+                this.emit('polygonRightClick', cleanPolygonData, vertex.lat(), vertex.lng(), event);
             }
         });
         // eslint-disable-next-line @typescript-eslint/no-explicit-any
         polygon.addListener('click', (event) => {
             const vertex = event.latLng;
-            this.eventPolygonClick(cleanPolygonData, vertex.lat(), vertex.lng(), event);
+            this.emit('polygonClick', cleanPolygonData, vertex.lat(), vertex.lng(), event);
         });
         // eslint-disable-next-line @typescript-eslint/no-explicit-any
         polygon.addListener('dblclick', (event) => {
             const vertex = event.latLng;
-            this.eventPolygonDoubleClick(cleanPolygonData, vertex.lat(), vertex.lng(), event);
+            this.emit('polygonDoubleClick', cleanPolygonData, vertex.lat(), vertex.lng(), event);
         });
         this._bindEventsToPolygonPath(polygon, polygonData);
     }
@@ -414,54 +407,7 @@ export class GoogleMap {
         const centerLatLng = this.getCenterOfPolygon(polygonData);
         mapLabel.set('position', new google.maps.LatLng(centerLatLng.latitude, centerLatLng.longitude));
         const cleanPolygonData = this._cleanPolygonData(polygonData);
-        this.eventPolygonChanged(cleanPolygonData, points);
-    }
-    /**
-     * Called when a polygon is clicked. Override to handle polygon clicks.
-     * @param polygonData - The polygon data object (without internal properties).
-     * @param latitude - Click latitude coordinate.
-     * @param longitude - Click longitude coordinate.
-     * @param event - The native map event.
-     */
-    eventPolygonClick(polygonData, latitude, longitude, event) {
-        consoleDebug('GoogleMap.eventPolygonClick()', polygonData, latitude, longitude, event);
-    }
-    /**
-     * Called when a polygon is double-clicked. Override to handle polygon double-clicks.
-     * @param polygonData - The polygon data object (without internal properties).
-     * @param latitude - Double-click latitude coordinate.
-     * @param longitude - Double-click longitude coordinate.
-     * @param event - The native map event.
-     */
-    eventPolygonDoubleClick(polygonData, latitude, longitude, event) {
-        consoleDebug('GoogleMap.eventPolygonDoubleClick()', polygonData, latitude, longitude, event);
-    }
-    /**
-     * Called when a polygon is right-clicked. Override to handle polygon right-clicks.
-     * @param polygonData - The polygon data object (without internal properties).
-     * @param latitude - Right-click latitude coordinate.
-     * @param longitude - Right-click longitude coordinate.
-     * @param event - The native map event.
-     */
-    eventPolygonRightClick(polygonData, latitude, longitude, event) {
-        consoleDebug('GoogleMap.eventPolygonRightClick()', polygonData, latitude, longitude, event);
-    }
-    /**
-     * Called when the map is clicked. Override to handle map clicks.
-     * @param latitude - Click latitude coordinate.
-     * @param longitude - Click longitude coordinate.
-     * @param event - The native map event.
-     */
-    eventMapClick(latitude, longitude, event) {
-        consoleDebug('GoogleMap.eventMapClick()', latitude, longitude, event);
-    }
-    /**
-     * Called when the map type changes. Override to handle map type changes.
-     * @param mapType - The new map type identifier.
-     * @param event - The native map event.
-     */
-    eventMapTypeChange(mapType, event) {
-        consoleDebug('GoogleMap.eventMapTypeChange()', mapType, event);
+        this.emit('polygonChanged', cleanPolygonData, points);
     }
     /**
      * Sets the polygon path from an array of points and updates bounds.
@@ -787,15 +733,15 @@ export class GoogleMap {
         const cleanMarkerData = this._cleanMarkerData(markerData);
         // eslint-disable-next-line @typescript-eslint/no-explicit-any
         marker.addListener('click', (event) => {
-            this.eventMarkerClick(cleanMarkerData, event);
+            this.emit('markerClick', cleanMarkerData, event);
         });
         // eslint-disable-next-line @typescript-eslint/no-explicit-any
         marker.addListener('dblclick', (event) => {
-            this.eventMarkerDoubleClick(cleanMarkerData, event);
+            this.emit('markerDoubleClick', cleanMarkerData, event);
         });
         // eslint-disable-next-line @typescript-eslint/no-explicit-any
         marker.addListener('rightclick', (event) => {
-            this.eventMarkerRightClick(cleanMarkerData, event);
+            this.emit('markerRightClick', cleanMarkerData, event);
         });
         // eslint-disable-next-line @typescript-eslint/no-explicit-any
         marker.addListener('drag', (_event) => {
@@ -808,7 +754,7 @@ export class GoogleMap {
             const vertex = marker.getPosition();
             const latitude = vertex.lat();
             const longitude = vertex.lng();
-            this.eventMarkerChanged(cleanMarkerData, latitude, longitude, event);
+            this.emit('markerChanged', cleanMarkerData, latitude, longitude, event);
         });
     }
     /**
@@ -943,40 +889,6 @@ export class GoogleMap {
             content: content.toString(),
         });
         infoWindow.open(this.map, marker);
-    }
-    /**
-     * Called when a marker is clicked. Override to handle marker clicks.
-     * @param markerData - The marker data object (without internal properties).
-     * @param event - The native map event.
-     */
-    eventMarkerClick(markerData, event) {
-        consoleDebug('GoogleMap.eventMarkerClick()', markerData, event);
-    }
-    /**
-     * Called when a marker is double-clicked. Override to handle marker double-clicks.
-     * @param markerData - The marker data object (without internal properties).
-     * @param event - The native map event.
-     */
-    eventMarkerDoubleClick(markerData, event) {
-        consoleDebug('GoogleMap.eventMarkerDoubleClick()', markerData, event);
-    }
-    /**
-     * Called when a marker is right-clicked. Override to handle marker right-clicks.
-     * @param markerData - The marker data object (without internal properties).
-     * @param event - The native map event.
-     */
-    eventMarkerRightClick(markerData, event) {
-        consoleDebug('GoogleMap.eventMarkerRightClick()', markerData, event);
-    }
-    /**
-     * Called when a marker is dragged to a new position. Override to handle marker moves.
-     * @param markerData - The marker data object (without internal properties).
-     * @param latitude - New latitude after drag.
-     * @param longitude - New longitude after drag.
-     * @param event - The native map event.
-     */
-    eventMarkerChanged(markerData, latitude, longitude, event) {
-        consoleDebug('GoogleMap.eventMarkerChanged()', markerData, latitude, longitude, event);
     }
     /**
      * Registers a named marker icon configuration for use with marker creation.

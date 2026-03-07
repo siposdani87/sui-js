@@ -14,17 +14,6 @@ import { Tooltip } from '../component/tooltip';
  */
 export class RangeField extends BaseField {
     /**
-     * @description Creates a new RangeField instance.
-     * @param {Knot<HTMLInputElement>} input - The range input element.
-     * @param {Knot} label - The label element.
-     * @param {Knot} error - The error message element.
-     * @param {Knot} inputBlock - The container block element.
-     */
-    constructor(input, label, error, inputBlock) {
-        super(input, label, error, inputBlock);
-        this._init();
-    }
-    /**
      * @description Initializes the field by adding CSS class and attaching the input event listener that updates the tooltip.
      */
     _init() {

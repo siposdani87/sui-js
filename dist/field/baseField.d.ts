@@ -1,5 +1,6 @@
 import { Knot } from '../core/knot';
 import { Tooltip } from '../component/tooltip';
+import { Emitter } from '../core/emitter';
 import type { Form } from '../component';
 /**
  * @description Abstract base class for all form fields. Handles validation, labeling,
@@ -10,11 +11,17 @@ import type { Form } from '../component';
  * const textField = new TextField(inputKnot, labelKnot, errorKnot, inputBlockKnot);
  * textField.setValue('Hello');
  * textField.checkValidity();
+ * textField.on('change', (value, prev) => {
+ *     console.log('Changed from', prev, 'to', value);
+ * });
+ * textField.on('click', (knot) => {
+ *     console.log('Field clicked', knot);
+ * });
  * @see {@link Form}
  * @see {@link Tooltip}
  * @see {@link Knot}
  */
-export declare class BaseField<T extends HTMLInputElement> {
+export declare class BaseField<T extends HTMLInputElement> extends Emitter {
     input: Knot<T>;
     label: Knot;
     error: Knot;
@@ -34,24 +41,10 @@ export declare class BaseField<T extends HTMLInputElement> {
      */
     constructor(input: Knot<T>, opt_label?: Knot | undefined, opt_error?: Knot | undefined, opt_inputBlock?: Knot | undefined, opt_form?: Form | undefined);
     /**
-     * @description Called when the field value changes. Override in subclasses to handle change events.
-     * @param {*} value - The new field value.
-     * @param {*} previousValue - The previous field value.
-     * @example
-     * field.eventChange = (value, previousValue) => {
-     *     console.log('Changed from', previousValue, 'to', value);
-     * };
+     * @description Initialization hook called at the end of the BaseField constructor.
+     * Override in subclasses to perform field-specific setup without repeating constructor boilerplate.
      */
-    eventChange(value: any, previousValue: any): void;
-    /**
-     * @description Called when the field is clicked. Override in subclasses to handle click events.
-     * @param {Knot} knot - The clicked knot element.
-     * @example
-     * field.eventClick = (knot) => {
-     *     console.log('Field clicked', knot);
-     * };
-     */
-    eventClick(knot: Knot): void;
+    protected _init(): void;
     /**
      * @description Renders the field's DOM structure and applies SUI styling. Override in subclasses to provide specific rendering.
      * @example

@@ -5,7 +5,7 @@ import { Knot } from '../core/knot';
  *
  * @example
  * const searchField = new SearchField(inputKnot, labelKnot, errorKnot, inputBlockKnot);
- * searchField.eventEnter = (value) => { console.log('Search:', value); };
+ * searchField.on('enter', (value) => { console.log('Search:', value); });
  * searchField.render();
  *
  * @see {@link BaseField}
@@ -15,17 +15,9 @@ import { Knot } from '../core/knot';
 export declare class SearchField extends BaseField<HTMLInputElement> {
     holderKnot: Knot;
     /**
-     * @description Creates a new SearchField instance.
-     * @param {Knot<HTMLInputElement>} input - The search input element.
-     * @param {Knot} label - The label element.
-     * @param {Knot} error - The error message element.
-     * @param {Knot} inputBlock - The container block element.
-     */
-    constructor(input: Knot<HTMLInputElement>, label: Knot, error: Knot, inputBlock: Knot);
-    /**
      * @description Initializes keyup and change event listeners on the input.
      */
-    private _init;
+    protected _init(): void;
     /**
      * @description Builds the expandable SUI search field layout with icon, holder, label, and clear button.
      * @override
@@ -40,9 +32,4 @@ export declare class SearchField extends BaseField<HTMLInputElement> {
      * @description Creates a clear button that resets the field value and triggers eventEnter.
      */
     private _initClearButton;
-    /**
-     * @description Called when the user presses Enter or clears the search field. Override to handle search submission.
-     * @param {string} value - The current search input value.
-     */
-    eventEnter(value: string): void;
 }

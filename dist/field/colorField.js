@@ -24,16 +24,6 @@ import { convertRGBToHEX } from '../utils/color';
  */
 export class ColorField extends BaseField {
     /**
-     * @param input The underlying `<input>` element wrapped in a {@link Knot}.
-     * @param label The associated label element.
-     * @param error The element used to display validation errors.
-     * @param inputBlock The block-level container wrapping the entire field.
-     */
-    constructor(input, label, error, inputBlock) {
-        super(input, label, error, inputBlock);
-        this._init();
-    }
-    /**
      * Initializes the color field, input listeners, image source, preview
      * swatch, and Material Design color palette.
      */

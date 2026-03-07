@@ -1,12 +1,13 @@
 import { Objekt } from '../core';
 import { Knot } from '../core/knot';
+import { Emitter } from '../core/emitter';
 import { Day } from './day';
 /**
  * @description Date picker calendar with day, month, and year selection modes, navigation, and date selection.
  * @example
  * const calendarKnot = new Knot('div');
  * const calendar = new Calendar(calendarKnot, { date: new Date(), type: 'date' });
- * calendar.eventClick = (date) => { console.log(date); };
+ * calendar.on('click', (date) => { console.log(date); });
  * calendar.draw();
  * @see {@link Day}
  * @see {@link Month}
@@ -14,7 +15,7 @@ import { Day } from './day';
  * @see {@link DateIO}
  * @category Component
  */
-export declare class Calendar {
+export declare class Calendar extends Emitter {
     calendarKnot: Knot;
     options: Objekt;
     maxDays: number;
@@ -200,11 +201,4 @@ export declare class Calendar {
      * @param {Date} date - The date to mark as selected.
      */
     private _setSelectedDate;
-    /**
-     * @description Overridable callback fired when a date is selected. Defaults to a debug log.
-     * @param {Date} date - The selected date.
-     * @example
-     * calendar.eventClick = (date) => { console.log('Selected:', date); };
-     */
-    eventClick(date: Date): void;
 }

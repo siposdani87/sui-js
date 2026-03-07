@@ -21,16 +21,6 @@ import { DateIO } from '../utils';
  */
 export class DateTimeField extends BaseField {
     /**
-     * @param input The underlying `<input>` element wrapped in a {@link Knot}.
-     * @param label The associated label element.
-     * @param error The element used to display validation errors.
-     * @param inputBlock The block-level container wrapping the entire field.
-     */
-    constructor(input, label, error, inputBlock) {
-        super(input, label, error, inputBlock);
-        this._init();
-    }
-    /**
      * Initializes the datetime container, input display, and inner components.
      */
     _init() {
@@ -58,9 +48,9 @@ export class DateTimeField extends BaseField {
             value,
             type,
         });
-        this.datetime.eventClick = (value) => {
+        this.datetime.on('click', (value) => {
             this.setValue(value);
-        };
+        });
         this.input.addEventListener('change', () => {
             const currentValue = this.getValue().toString();
             this.datetime.setValue(currentValue);
@@ -68,9 +58,9 @@ export class DateTimeField extends BaseField {
             return true;
         });
         this.popup = new Popup(this.datetimeKnot, this.inputBlock);
-        this.popup.eventClose = () => {
+        this.popup.on('close', () => {
             this.datetimeInput.removeClass('active');
-        };
+        });
         if (value) {
             const formattedValue = this.datetime.getFormattedValue();
             this._setTag(formattedValue);

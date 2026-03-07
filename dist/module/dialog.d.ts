@@ -21,7 +21,7 @@ import type { Knot } from '../core';
  * const dialog = new Dialog(http);
  * dialog.loadTemplate('/api/edit-user/42').then(
  *     (contentKnot) => {
- *         dialog.eventOK = () => saveUser(contentKnot);
+ *         dialog.on('ok', () => saveUser(contentKnot));
  *         dialog.open();
  *     },
  *     (errorKnot) => {
@@ -78,7 +78,7 @@ export declare class Dialog extends BaseModal {
      * @example
      * dialog.loadTemplate('/api/confirm-delete').then(
      *     (contentKnot) => {
-     *         dialog.eventOK = () => performDelete();
+     *         dialog.on('ok', () => performDelete());
      *         dialog.open();
      *     },
      *     (errorKnot) => {

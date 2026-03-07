@@ -1,6 +1,7 @@
-import { isString, isNumber, noop, contain } from '../utils/operation';
+import { isString, isNumber, contain } from '../utils/operation';
 import { Async } from '../core/async';
 import { Query } from '../core/query';
+import { Emitter } from '../core/emitter';
 /**
  * Abstract base class for modal dialog windows. Provides shared
  * functionality for opening, closing, positioning, and managing modal
@@ -15,6 +16,9 @@ import { Query } from '../core/query';
  * The modal supports close, minimize, and maximize buttons, and
  * automatically centers itself within the viewport. Open/close actions
  * apply a blur overlay to `.main-container` and prevent body scrolling.
+ *
+ * Register handlers with `on('ok', ...)` and `on('cancel', ...)` to
+ * respond to modal confirmation and cancellation actions.
  *
  * @example
  * // BaseModal is not instantiated directly; extend it instead:
@@ -31,9 +35,10 @@ import { Query } from '../core/query';
  * @see {@link Dialog}
  * @see {@link Confirm}
  * @see {@link Viewer}
+ * @see {@link Emitter}
  * @category Module
  */
-export class BaseModal {
+export class BaseModal extends Emitter {
     /**
      * Initializes shared base state including window dimensions, the main
      * container reference for blur effects, and all modal control buttons.
@@ -202,13 +207,13 @@ export class BaseModal {
         }
     }
     /**
-     * Resets the OK and Cancel event callbacks to no-op functions.
-     * Called before loading new content to ensure stale callbacks from
-     * a previous modal session are not carried over.
+     * Removes all `'ok'` and `'cancel'` event handlers. Called before
+     * loading new content to ensure stale handlers from a previous
+     * modal session are not carried over.
      */
     _reset() {
-        this.eventOK = noop();
-        this.eventCancel = noop();
+        this.off('ok');
+        this.off('cancel');
     }
     /**
      * Executes the OK callback followed by closing the modal. Uses
@@ -217,7 +222,7 @@ export class BaseModal {
      */
     _actionOK() {
         const async = new Async();
-        const calls = [this.eventOK.bind(this), this.close.bind(this)];
+        const calls = [() => this.emit('ok'), this.close.bind(this)];
         async.serial(calls);
     }
     /**
@@ -227,7 +232,7 @@ export class BaseModal {
      */
     _actionCancel() {
         const async = new Async();
-        const calls = [this.eventCancel.bind(this), this.close.bind(this)];
+        const calls = [() => this.emit('cancel'), this.close.bind(this)];
         async.serial(calls);
     }
     /**

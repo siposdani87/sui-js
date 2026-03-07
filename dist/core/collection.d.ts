@@ -1,4 +1,5 @@
 import type { Id } from '../utils';
+import { Emitter } from './emitter';
 import { Objekt } from './objekt';
 /**
  * Constructor or factory function type for Collection items.
@@ -34,7 +35,7 @@ export type CollectionType<T> = new (...args: any[]) => T;
  * @see {@link Objekt}
  * @category Core
  */
-export declare class Collection<T extends object = object> {
+export declare class Collection<T extends object = object> extends Emitter {
     Type: CollectionType<T>;
     items: T[];
     options: Objekt;

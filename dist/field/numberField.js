@@ -14,17 +14,6 @@ import { Knot } from '../core/knot';
  */
 export class NumberField extends BaseField {
     /**
-     * @description Creates a new NumberField instance.
-     * @param {Knot<HTMLInputElement>} input - The numeric input element.
-     * @param {Knot} label - The label element.
-     * @param {Knot} error - The error message element.
-     * @param {Knot} inputBlock - The container block element.
-     */
-    constructor(input, label, error, inputBlock) {
-        super(input, label, error, inputBlock);
-        this._init();
-    }
-    /**
      * @description Initializes the field by adding CSS class, step buttons, and input event listeners.
      */
     _init() {

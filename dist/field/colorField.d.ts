@@ -35,17 +35,10 @@ export declare class ColorField extends BaseField<HTMLInputElement> {
     /** Two-dimensional array of Material Design color hex values. */
     colors: string[][];
     /**
-     * @param input The underlying `<input>` element wrapped in a {@link Knot}.
-     * @param label The associated label element.
-     * @param error The element used to display validation errors.
-     * @param inputBlock The block-level container wrapping the entire field.
-     */
-    constructor(input: Knot<HTMLInputElement>, label: Knot, error: Knot, inputBlock: Knot);
-    /**
      * Initializes the color field, input listeners, image source, preview
      * swatch, and Material Design color palette.
      */
-    private _init;
+    protected _init(): void;
     /**
      * Renders the field label and refreshes the visual state.
      *

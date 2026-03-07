@@ -2,7 +2,6 @@ import { typeCast, isNull } from '../utils/operation';
 import { BaseField } from './baseField';
 import { GoogleMap } from '../component/googleMap';
 import { Knot } from '../core/knot';
-import { consoleDebug } from '../utils/log';
 import { generateId } from '../utils/coder';
 import { sui } from '../utils/render';
 /**
@@ -14,23 +13,13 @@ import { sui } from '../utils/render';
  * const input = new Query<HTMLInputElement>('input.location', formKnot).getKnot();
  * const field = new LocationField(input, label, error, inputBlock);
  * field.render();
- * field.eventSearch = (address) => field.search(address);
+ * field.on('search', (address) => field.search(address));
  *
  * @see {@link BaseField}
  * @see {@link GoogleMap}
  * @category Field
  */
 export class LocationField extends BaseField {
-    /**
-     * @param input The underlying `<input>` element wrapped in a {@link Knot}.
-     * @param label The associated label element.
-     * @param error The element used to display validation errors.
-     * @param inputBlock The block-level container wrapping the entire field.
-     */
-    constructor(input, label, error, inputBlock) {
-        super(input, label, error, inputBlock);
-        this._init();
-    }
     /**
      * Initializes buttons, icon options, and address/change event listeners.
      */
@@ -41,7 +30,7 @@ export class LocationField extends BaseField {
         this.input.addEventListener('keyup', (input, event) => {
             const inputNode = input.getNode();
             if (event.key === 'Enter') {
-                this.eventSearch(inputNode.value);
+                this.emit('search', inputNode.value);
             }
             else {
                 input.trigger('change');
@@ -80,7 +69,7 @@ export class LocationField extends BaseField {
         searchButton.addEventListener('click', () => {
             if (this.isEnabled()) {
                 const inputNode = this.input.getNode();
-                this.eventSearch(inputNode.value);
+                this.emit('search', inputNode.value);
             }
         });
         this.actionContainerKnot.appendChild(searchButton);
@@ -236,15 +225,15 @@ export class LocationField extends BaseField {
             draggable: true,
         });
         this.map.setMarkerIcon('marker', this.icon);
-        this.map.eventMapClick = (latitude, longitude) => {
+        this.map.on('mapClick', (latitude, longitude) => {
             this.updatePosition(latitude, longitude);
-        };
-        this.map.eventMarkerRightClick = () => {
+        });
+        this.map.on('markerRightClick', () => {
             this.updatePosition(null, null);
-        };
-        this.map.eventMarkerChanged = (_data, latitude, longitude) => {
+        });
+        this.map.on('markerChanged', (_data, latitude, longitude) => {
             this.updatePosition(latitude, longitude);
-        };
+        });
     }
     /**
      * Changes the map type (e.g. satellite, terrain) on the embedded map.
@@ -345,14 +334,5 @@ export class LocationField extends BaseField {
     getValue() {
         const value = this.input.getData('value');
         return typeCast(value);
-    }
-    /**
-     * Overridable event callback invoked when the user triggers an address
-     * search via Enter key or the search button.
-     *
-     * @param address The address string entered by the user.
-     */
-    eventSearch(address) {
-        consoleDebug('Location.eventSearch()', address);
     }
 }

@@ -24,15 +24,6 @@ export declare class IconToggleField extends BaseCheckboxField {
     /** @description The icon element rendered inside the toggle label. */
     icon: Knot;
     /**
-     * Creates a new IconToggleField instance.
-     *
-     * @param {Knot<HTMLInputElement>} input The checkbox input element with icon data attributes.
-     * @param {Knot} label The label element associated with the toggle.
-     * @param {Knot} error The error message element.
-     * @param {Knot} inputBlock The container block for the input.
-     */
-    constructor(input: Knot<HTMLInputElement>, label: Knot, error: Knot, inputBlock: Knot);
-    /**
      * Renders the icon toggle with SUI classes, icon element, and label span.
      */
     render(): void;

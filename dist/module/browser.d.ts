@@ -1,9 +1,10 @@
+import { Emitter } from '../core/emitter';
 /**
  * Detects the current browser type and operating system from the
  * user-agent string and platform properties. Browser also checks for
  * the availability of required browser features (geolocation, history,
- * storage, console) and fires the {@link Browser.eventMissingFeatures}
- * hook when any are absent.
+ * storage, console) and emits a `'missingFeatures'` event when any
+ * are absent.
  *
  * OS detection covers macOS, iOS, Windows, Android, and Linux.
  * Browser detection covers Chrome, Firefox, Safari, Edge (legacy and
@@ -12,7 +13,10 @@
  *
  * @example
  * const browser = new Browser();
- * browser.detect(); // triggers eventMissingFeatures if needed
+ * browser.on('missingFeatures', (features) => {
+ *     console.warn('Missing:', features);
+ * });
+ * browser.detect();
  *
  * if (browser.isChrome()) {
  *     console.log('Running on Chrome');
@@ -22,9 +26,10 @@
  * }
  *
  * @see {@link Application}
+ * @see {@link Emitter}
  * @category Module
  */
-export declare class Browser {
+export declare class Browser extends Emitter {
     features: string[];
     browsers: {
         [key: string]: boolean;
@@ -46,7 +51,7 @@ export declare class Browser {
      */
     private _detectMissingFeatures;
     /**
-     * Triggers the {@link Browser.eventMissingFeatures} hook if one or
+     * Emits the `'missingFeatures'` event if one or
      * more required browser features are unavailable. Call this method
      * after construction to notify the application of missing capabilities.
      *
@@ -62,14 +67,6 @@ export declare class Browser {
      * @param {any} value The feature reference to test for truthiness.
      */
     private _setFeature;
-    /**
-     * Called by {@link Browser.detect} when one or more required browser
-     * features are missing. Override this method to display a warning to
-     * the user or degrade functionality gracefully.
-     *
-     * @param {Array<any>} features List of missing feature identifiers.
-     */
-    eventMissingFeatures(features: Array<string>): void;
     /**
      * Populates the `browsers` map by inspecting CSS property support,
      * global objects, and the user-agent string.

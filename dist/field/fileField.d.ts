@@ -29,17 +29,10 @@ export declare class FileField extends BaseField<HTMLInputElement> {
     /** SVG template string used to generate document-type file icons. */
     fileTypeSVG: string;
     /**
-     * @param input The underlying `<input type="file">` element wrapped in a {@link Knot}.
-     * @param label The associated label element.
-     * @param error The element used to display validation errors.
-     * @param inputBlock The block-level container wrapping the entire field.
-     */
-    constructor(input: Knot<HTMLInputElement>, label: Knot, error: Knot, inputBlock: Knot);
-    /**
      * Initializes the file field by setting up the file icon map, remove
      * button, browse button, default image, and change listener.
      */
-    private _init;
+    protected _init(): void;
     /**
      * Checks whether the input's `accept` attribute includes document types.
      *

@@ -1,7 +1,7 @@
 import { Objekt } from '../core';
 import { Knot } from '../core/knot';
 import { DateIO } from '../utils';
-import { consoleDebug } from '../utils/log';
+import { Emitter } from '../core/emitter';
 import { Calendar } from './calendar';
 import { Clock } from './clock';
 /**
@@ -9,14 +9,14 @@ import { Clock } from './clock';
  * @example
  * const knot = new Knot('div');
  * const dt = new DateTime(knot, { type: 'datetime-local', value: '2024-01-15T10:30:00' });
- * dt.eventClick = (formattedValue) => { console.log(formattedValue); };
+ * dt.on('click', (formattedValue) => { console.log(formattedValue); });
  * dt.draw();
  * @see {@link Calendar}
  * @see {@link Clock}
  * @see {@link DateIO}
  * @category Component
  */
-export class DateTime {
+export class DateTime extends Emitter {
     /**
      * @description Creates a new DateTime instance.
      * @param {Knot} knot - The container DOM element wrapper.
@@ -25,6 +25,7 @@ export class DateTime {
      * const dt = new DateTime(new Knot('div'), { type: 'date', value: '2024-01-15' });
      */
     constructor(knot, options) {
+        super();
         this.datetimeKnot = knot;
         this._setOptions(options);
         this._init();
@@ -178,12 +179,12 @@ export class DateTime {
                 date: this.value,
                 type: this.config.calendar_type,
             });
-            calendar.eventClick = (newDate) => {
+            calendar.on('click', (newDate) => {
                 this.value = DateIO.setYear(this.value, DateIO.getYear(newDate));
                 this.value = DateIO.setMonth(this.value, DateIO.getMonth(newDate));
                 this.value = DateIO.setDate(this.value, DateIO.getDate(newDate));
                 this._onClick();
-            };
+            });
             calendar.draw();
         }
     }
@@ -196,11 +197,11 @@ export class DateTime {
                 time: this.value,
                 type: this.config.clock_type,
             });
-            clock.eventClick = (newDate) => {
+            clock.on('click', (newDate) => {
                 this.value = DateIO.setHours(this.value, DateIO.getHours(newDate));
                 this.value = DateIO.setMinutes(this.value, DateIO.getMinutes(newDate));
                 this._onClick();
-            };
+            });
             clock.draw();
         }
     }
@@ -209,15 +210,6 @@ export class DateTime {
      */
     _onClick() {
         const formattedValue = this.getFormattedValue();
-        this.eventClick(formattedValue);
-    }
-    /**
-     * @description Overridable callback fired when the date/time value changes. Defaults to a debug log.
-     * @param {string} value - The formatted date/time string.
-     * @example
-     * dt.eventClick = (value) => { console.log('Changed:', value); };
-     */
-    eventClick(value) {
-        consoleDebug('Date.eventClick()', value);
+        this.emit('click', formattedValue);
     }
 }

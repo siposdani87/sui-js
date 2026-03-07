@@ -11,7 +11,7 @@ import type { IconOptions } from '../utils';
  * const input = new Query<HTMLInputElement>('input.location', formKnot).getKnot();
  * const field = new LocationField(input, label, error, inputBlock);
  * field.render();
- * field.eventSearch = (address) => field.search(address);
+ * field.on('search', (address) => field.search(address));
  *
  * @see {@link BaseField}
  * @see {@link GoogleMap}
@@ -33,16 +33,9 @@ export declare class LocationField extends BaseField<HTMLInputElement> {
     /** Text input for manual longitude entry. */
     longitudeInput: Knot<HTMLInputElement>;
     /**
-     * @param input The underlying `<input>` element wrapped in a {@link Knot}.
-     * @param label The associated label element.
-     * @param error The element used to display validation errors.
-     * @param inputBlock The block-level container wrapping the entire field.
-     */
-    constructor(input: Knot<HTMLInputElement>, label: Knot, error: Knot, inputBlock: Knot);
-    /**
      * Initializes buttons, icon options, and address/change event listeners.
      */
-    private _init;
+    protected _init(): void;
     /**
      * Creates the search and advanced-toggle action buttons.
      */
@@ -158,11 +151,4 @@ export declare class LocationField extends BaseField<HTMLInputElement> {
      * @override
      */
     getValue(): any;
-    /**
-     * Overridable event callback invoked when the user triggers an address
-     * search via Enter key or the search button.
-     *
-     * @param address The address string entered by the user.
-     */
-    eventSearch(address: string): void;
 }

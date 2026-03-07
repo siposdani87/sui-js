@@ -9,9 +9,9 @@ import type { Knot } from '../core';
  * @example
  * const form = new Form(dom, 'form');
  * form.setModel(new Objekt({ name: 'John', email: 'john@example.com' }));
- * form.eventSubmit = (model, knot) => {
+ * form.on('submit', (model, knot) => {
  *     http.post('/api/users', model);
- * };
+ * });
  *
  * @see {@link BaseField} for individual field implementations
  * @see {@link Collection} for the base collection interface
@@ -42,11 +42,11 @@ export declare class Form extends Collection<BaseField<HTMLInputElement>> {
      */
     private _initFormEvent;
     /**
-     * @description Binds the form submit event, validates, and delegates to {@link eventSubmit}.
+     * @description Binds the form submit event, validates, and emits the 'submit' event.
      */
     private _initSubmitFormEvent;
     /**
-     * @description Binds the form reset event and delegates to {@link eventReset}.
+     * @description Binds the form reset event and emits the 'reset' event.
      */
     private _initResetFormEvent;
     /**
@@ -187,24 +187,6 @@ export declare class Form extends Collection<BaseField<HTMLInputElement>> {
      * form.unlock();
      */
     unlock(): void;
-    /**
-     * @description Called when the form is submitted and passes validation. Override to handle submission.
-     * @param {Objekt} model - The current form data model.
-     * @param {Knot} knot - The form DOM element.
-     */
-    eventSubmit(model: Objekt, knot: Knot): void;
-    /**
-     * @description Called when the form reset button is clicked. Override to handle reset logic.
-     * @param {Objekt} model - The current form data model.
-     * @param {Knot} knot - The form DOM element.
-     */
-    eventReset(model: Objekt, knot: Knot): void;
-    /**
-     * @description Called when a non-submit/non-reset button inside the form is clicked. Override to handle button actions.
-     * @param {Objekt} model - The current form data model.
-     * @param {Knot} knot - The button DOM element.
-     */
-    eventButton(model: Objekt, knot: Knot): void;
     /**
      * @description Removes all event listeners from the form element.
      * Call this method to clean up when the Form instance is no longer needed.

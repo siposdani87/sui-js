@@ -1,4 +1,5 @@
 import { Query } from '../core/query';
+import { Emitter } from '../core/emitter';
 import type { Knot } from '../core';
 /**
  * @description Tab panel component that manages tab/panel activation with async change events.
@@ -7,7 +8,7 @@ import type { Knot } from '../core';
  *
  * @example
  * const tabPanel = new TabPanel(containerKnot, '.tab-panel', 'details');
- * tabPanel.eventChange = (panelId) => loadContent(panelId);
+ * tabPanel.on('change', (panelId) => loadContent(panelId));
  * tabPanel.setActive('settings');
  *
  * @see {@link Async} for the async serial execution pipeline
@@ -15,7 +16,7 @@ import type { Knot } from '../core';
  *
  * @category Component
  */
-export declare class TabPanel {
+export declare class TabPanel extends Emitter {
     tabPanel: Knot;
     options: {
         selected_tab: string;
@@ -49,14 +50,6 @@ export declare class TabPanel {
      * @param {string} panelId - The panel ID or class name to activate.
      */
     private _setActive;
-    /**
-     * @description Called when the active tab changes. Override to handle tab change events.
-     * @param {string} panelId - The ID of the newly active panel.
-     *
-     * @example
-     * tabPanel.eventChange = (panelId) => loadPanelContent(panelId);
-     */
-    eventChange(panelId: string): void;
     /**
      * @description Activates a tab/panel by ID and fires the eventChange callback asynchronously.
      * @param {string} panelId - The panel ID to activate.

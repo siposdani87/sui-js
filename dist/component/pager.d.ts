@@ -1,12 +1,13 @@
 import { Knot } from '../core/knot';
 import { Objekt } from '../core/objekt';
+import { Emitter } from '../core/emitter';
 /**
  * @description Pagination control that renders page numbers, previous/next navigation buttons,
  * and statistics (e.g. "1-10 / 100").
  *
  * @example
  * const pager = new Pager(containerKnot, ['.pager', '.pager-statistics'], { row_count: 25 });
- * pager.eventAction = (page) => fetchData(page);
+ * pager.on('action', (page) => fetchData(page));
  * pager.setCount(100);
  * pager.draw();
  *
@@ -15,7 +16,7 @@ import { Objekt } from '../core/objekt';
  *
  * @category Component
  */
-export declare class Pager {
+export declare class Pager extends Emitter {
     pager: Knot;
     pagerStatistics: Knot;
     options: Objekt;
@@ -102,14 +103,4 @@ export declare class Pager {
      * pager.draw();
      */
     draw(): void;
-    /**
-     * @description Called when a page navigation action occurs. Override to handle page changes.
-     * @param {number} page - The newly selected page number.
-     *
-     * @example
-     * pager.eventAction = (page) => {
-     *     fetchData({ offset: (page - 1) * rowCount });
-     * };
-     */
-    eventAction(page: number): void;
 }

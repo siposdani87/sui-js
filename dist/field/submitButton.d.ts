@@ -22,7 +22,7 @@ export declare class SubmitButton extends BaseField<HTMLInputElement> {
     /**
      * Sets the submit button name attribute.
      */
-    private _init;
+    protected _init(): void;
     /**
      * Renders the submit button with raised primary classes.
      */

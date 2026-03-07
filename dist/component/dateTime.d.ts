@@ -1,5 +1,6 @@
 import { Objekt } from '../core';
 import { Knot } from '../core/knot';
+import { Emitter } from '../core/emitter';
 /**
  * @description Format configuration for a specific input type, defining the date format string and which calendar/clock modes to display.
  * @category Component
@@ -14,14 +15,14 @@ type DateTimeConfig = {
  * @example
  * const knot = new Knot('div');
  * const dt = new DateTime(knot, { type: 'datetime-local', value: '2024-01-15T10:30:00' });
- * dt.eventClick = (formattedValue) => { console.log(formattedValue); };
+ * dt.on('click', (formattedValue) => { console.log(formattedValue); });
  * dt.draw();
  * @see {@link Calendar}
  * @see {@link Clock}
  * @see {@link DateIO}
  * @category Component
  */
-export declare class DateTime {
+export declare class DateTime extends Emitter {
     datetimeKnot: Knot;
     options: Objekt;
     types: {
@@ -113,12 +114,5 @@ export declare class DateTime {
      * @description Handles internal click by formatting the current value and firing the event callback.
      */
     private _onClick;
-    /**
-     * @description Overridable callback fired when the date/time value changes. Defaults to a debug log.
-     * @param {string} value - The formatted date/time string.
-     * @example
-     * dt.eventClick = (value) => { console.log('Changed:', value); };
-     */
-    eventClick(value: string): void;
 }
 export {};

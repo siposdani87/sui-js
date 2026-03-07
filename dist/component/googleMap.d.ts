@@ -1,5 +1,6 @@
 import { Collection } from '../core/collection';
 import { Objekt } from '../core/objekt';
+import { Emitter } from '../core/emitter';
 import type { Knot } from '../core';
 import type { IconOptions, Id } from '../utils';
 /**
@@ -45,7 +46,7 @@ export type LatLng = {
  * @see {@link Deferred}
  * @category Component
  */
-export declare class GoogleMap {
+export declare class GoogleMap extends Emitter {
     mapKnot: Knot;
     options: Objekt;
     map: google.maps.Map;
@@ -121,15 +122,6 @@ export declare class GoogleMap {
      * Initializes the overlay view used for coordinate projections.
      */
     private _initOverlay;
-    /**
-     * Called when a polygon's path changes. Override to handle polygon edits.
-     * @param polygonData - The polygon data object (without internal properties).
-     * @param points - The updated array of polygon vertex coordinates.
-     */
-    eventPolygonChanged(polygonData: Objekt, points: Array<{
-        latitude: number;
-        longitude: number;
-    }>): void;
     /**
      * Creates a new polygon or updates an existing one identified by ID.
      *
@@ -250,43 +242,6 @@ export declare class GoogleMap {
      * @param polygonData - The associated polygon data object.
      */
     private _callPolygonChangeEvent;
-    /**
-     * Called when a polygon is clicked. Override to handle polygon clicks.
-     * @param polygonData - The polygon data object (without internal properties).
-     * @param latitude - Click latitude coordinate.
-     * @param longitude - Click longitude coordinate.
-     * @param event - The native map event.
-     */
-    eventPolygonClick(polygonData: Objekt, latitude: number, longitude: number, event: object): void;
-    /**
-     * Called when a polygon is double-clicked. Override to handle polygon double-clicks.
-     * @param polygonData - The polygon data object (without internal properties).
-     * @param latitude - Double-click latitude coordinate.
-     * @param longitude - Double-click longitude coordinate.
-     * @param event - The native map event.
-     */
-    eventPolygonDoubleClick(polygonData: Objekt, latitude: number, longitude: number, event: object): void;
-    /**
-     * Called when a polygon is right-clicked. Override to handle polygon right-clicks.
-     * @param polygonData - The polygon data object (without internal properties).
-     * @param latitude - Right-click latitude coordinate.
-     * @param longitude - Right-click longitude coordinate.
-     * @param event - The native map event.
-     */
-    eventPolygonRightClick(polygonData: Objekt, latitude: number, longitude: number, event: object): void;
-    /**
-     * Called when the map is clicked. Override to handle map clicks.
-     * @param latitude - Click latitude coordinate.
-     * @param longitude - Click longitude coordinate.
-     * @param event - The native map event.
-     */
-    eventMapClick(latitude: number, longitude: number, event: object): void;
-    /**
-     * Called when the map type changes. Override to handle map type changes.
-     * @param mapType - The new map type identifier.
-     * @param event - The native map event.
-     */
-    eventMapTypeChange(mapType: string, event: object): void;
     /**
      * Sets the polygon path from an array of points and updates bounds.
      * @param polygonData - The polygon data object.
@@ -530,32 +485,6 @@ export declare class GoogleMap {
      * googleMap.openInfoWindow('m1', '<h3>Details</h3><p>More info</p>');
      */
     openInfoWindow(markerId: string | number, content: string): void;
-    /**
-     * Called when a marker is clicked. Override to handle marker clicks.
-     * @param markerData - The marker data object (without internal properties).
-     * @param event - The native map event.
-     */
-    eventMarkerClick(markerData: Objekt, event: object): void;
-    /**
-     * Called when a marker is double-clicked. Override to handle marker double-clicks.
-     * @param markerData - The marker data object (without internal properties).
-     * @param event - The native map event.
-     */
-    eventMarkerDoubleClick(markerData: Objekt, event: object): void;
-    /**
-     * Called when a marker is right-clicked. Override to handle marker right-clicks.
-     * @param markerData - The marker data object (without internal properties).
-     * @param event - The native map event.
-     */
-    eventMarkerRightClick(markerData: Objekt, event: object): void;
-    /**
-     * Called when a marker is dragged to a new position. Override to handle marker moves.
-     * @param markerData - The marker data object (without internal properties).
-     * @param latitude - New latitude after drag.
-     * @param longitude - New longitude after drag.
-     * @param event - The native map event.
-     */
-    eventMarkerChanged(markerData: Objekt, latitude: number, longitude: number, event: object): void;
     /**
      * Registers a named marker icon configuration for use with marker creation.
      *

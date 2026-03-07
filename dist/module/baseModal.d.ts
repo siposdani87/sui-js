@@ -1,3 +1,4 @@
+import { Emitter } from '../core/emitter';
 import type { Knot } from '../core';
 /**
  * Abstract base class for modal dialog windows. Provides shared
@@ -14,6 +15,9 @@ import type { Knot } from '../core';
  * automatically centers itself within the viewport. Open/close actions
  * apply a blur overlay to `.main-container` and prevent body scrolling.
  *
+ * Register handlers with `on('ok', ...)` and `on('cancel', ...)` to
+ * respond to modal confirmation and cancellation actions.
+ *
  * @example
  * // BaseModal is not instantiated directly; extend it instead:
  * class CustomModal extends BaseModal {
@@ -29,9 +33,10 @@ import type { Knot } from '../core';
  * @see {@link Dialog}
  * @see {@link Confirm}
  * @see {@link Viewer}
+ * @see {@link Emitter}
  * @category Module
  */
-export declare class BaseModal {
+export declare class BaseModal extends Emitter {
     windowWidth: number;
     windowHeight: number;
     mainContainerKnot: Knot;
@@ -46,8 +51,6 @@ export declare class BaseModal {
     modalBody: Knot;
     modalFooter: Knot;
     modalHeader: Knot;
-    eventOK: () => void;
-    eventCancel: () => void;
     modalWindow: Knot;
     /**
      * Initializes shared base state including window dimensions, the main
@@ -134,9 +137,9 @@ export declare class BaseModal {
      */
     protected _setTitle(opt_title: string | undefined): void;
     /**
-     * Resets the OK and Cancel event callbacks to no-op functions.
-     * Called before loading new content to ensure stale callbacks from
-     * a previous modal session are not carried over.
+     * Removes all `'ok'` and `'cancel'` event handlers. Called before
+     * loading new content to ensure stale handlers from a previous
+     * modal session are not carried over.
      */
     protected _reset(): void;
     /**

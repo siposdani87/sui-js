@@ -29,7 +29,7 @@ export declare class RadiobuttonField extends BaseField<HTMLInputElement> {
     /**
      * @description Initializes the field by adding CSS class and attaching the change event listener.
      */
-    private _init;
+    protected _init(): void;
     /**
      * @description Handles radio button selection by notifying the model and marking sibling inputs as other-checked.
      */

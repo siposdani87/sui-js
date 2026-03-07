@@ -18,16 +18,6 @@ import { encodeBase64 } from '../utils/coder';
  */
 export class FileField extends BaseField {
     /**
-     * @param input The underlying `<input type="file">` element wrapped in a {@link Knot}.
-     * @param label The associated label element.
-     * @param error The element used to display validation errors.
-     * @param inputBlock The block-level container wrapping the entire field.
-     */
-    constructor(input, label, error, inputBlock) {
-        super(input, label, error, inputBlock);
-        this._init();
-    }
-    /**
      * Initializes the file field by setting up the file icon map, remove
      * button, browse button, default image, and change listener.
      */

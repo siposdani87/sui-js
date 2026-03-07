@@ -19,7 +19,6 @@ export class Button extends BaseField {
      */
     constructor(input) {
         super(input);
-        this._init();
     }
     /**
      * Sets the button name attribute.
@@ -37,7 +36,7 @@ export class Button extends BaseField {
             'sui-button--accent',
         ]);
         this.input.addEventListener('click', (knot) => {
-            this.eventClick(knot);
+            this.emit('click', knot);
         });
         this.refresh();
     }

@@ -1,17 +1,18 @@
 import { Objekt } from '../core';
 import { Knot } from '../core/knot';
+import { Emitter } from '../core/emitter';
 /**
  * @description Time picker clock with hour and minute selection modes and AM/PM toggle.
  * @example
  * const clockKnot = new Knot('div');
  * const clock = new Clock(clockKnot, { time: new Date(), type: 'hour' });
- * clock.eventClick = (time) => { console.log(time); };
+ * clock.on('click', (time) => { console.log(time); });
  * clock.draw();
  * @see {@link Time}
  * @see {@link DateIO}
  * @category Component
  */
-export declare class Clock {
+export declare class Clock extends Emitter {
     clockKnot: Knot;
     options: Objekt;
     modes: string[];
@@ -154,11 +155,4 @@ export declare class Clock {
      * @param {Date} selectedTime - The newly selected time.
      */
     private _onClick;
-    /**
-     * @description Overridable callback fired when a time is selected. Defaults to a debug log.
-     * @param {Date} time - The selected time.
-     * @example
-     * clock.eventClick = (time) => { console.log('Selected:', time); };
-     */
-    eventClick(time: Date): void;
 }

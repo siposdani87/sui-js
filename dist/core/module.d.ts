@@ -1,5 +1,4 @@
-import type { Objekt } from './objekt';
-import type { Knot } from './knot';
+import { Emitter } from './emitter';
 import type { Route } from '../component/route';
 import type { ClassRef, Injection, Instance } from '../utils';
 /**
@@ -13,9 +12,9 @@ import type { ClassRef, Injection, Instance } from '../utils';
  * `handleRoutes()`, which creates a {@link State} instance and connects
  * state change events to the controller enter/exit lifecycle.
  *
- * Subclasses override the `event*` hook methods to integrate with the
- * application's UI layer (e.g., showing loaders, updating navigation,
- * rendering templates).
+ * Consumers subscribe to lifecycle events via `module.on('eventName', handler)`
+ * to integrate with the application's UI layer (e.g., showing loaders,
+ * updating navigation, rendering templates).
  *
  * @example
  * const module = new Module();
@@ -37,7 +36,7 @@ import type { ClassRef, Injection, Instance } from '../utils';
  * @see {@link Promize}
  * @category Core
  */
-export declare class Module {
+export declare class Module extends Emitter {
     private _instances;
     private _injections;
     private _modules;
@@ -125,9 +124,9 @@ export declare class Module {
      * and its `enter()` method (if present) is called via {@link Async}
      * serial execution.
      *
-     * After all services are initialized, `eventServiceLoaded()` is fired
+     * After all services are initialized, the 'serviceLoaded' event is emitted
      * and `state.run()` is called to activate routing. If any service
-     * fails to initialize, `eventServiceFailed()` is fired instead.
+     * fails to initialize, the 'serviceFailed' event is emitted instead.
      *
      * @param services Array of service names (as registered via `add()`)
      *     to initialize.
@@ -155,7 +154,7 @@ export declare class Module {
      */
     handleRoutes(routes: Route[], options: object): void;
     /**
-     * Handles an individual state change by firing `eventStateChange()`,
+     * Handles an individual state change by emitting 'stateChange',
      * loading the template (if defined), and initializing the controller
      * for the new state.
      *
@@ -177,82 +176,4 @@ export declare class Module {
      *     should render its content.
      */
     private _initController;
-    /**
-     * Overridable lifecycle hook called when a controller has been
-     * successfully loaded and its `enter()` method has completed.
-     * Logs by default; override to integrate with the application UI.
-     *
-     * @param dom The {@link Knot} DOM container rendered by the controller.
-     */
-    eventControllerLoaded(dom: Knot): void;
-    /**
-     * Overridable lifecycle hook called when no controller is found for
-     * the current route. Logs by default; override to show error states.
-     */
-    eventControllerFailed(): void;
-    /**
-     * Overridable lifecycle hook called when a module (template) fails
-     * to load for the given state. Logs by default; override to display
-     * error feedback to the user.
-     *
-     * @param state The {@link Objekt} representing the state whose
-     *     module failed to load.
-     */
-    eventModuleFailed(state: Objekt): void;
-    /**
-     * Overridable lifecycle hook called when a module (template) has
-     * been successfully loaded for the given state. Logs by default;
-     * override to update navigation or page title.
-     *
-     * @param state The {@link Objekt} representing the state whose
-     *     module was loaded.
-     */
-    eventModuleLoaded(state: Objekt): void;
-    /**
-     * Overridable lifecycle hook called when the application state
-     * changes. Returns a {@link Promize} to allow asynchronous operations
-     * (such as transition animations or data prefetching) before the
-     * controller lifecycle continues.
-     *
-     * The default implementation resolves immediately. Override to
-     * insert async logic before controller initialization.
-     *
-     * @param state The {@link Objekt} representing the new active state.
-     * @returns A {@link Promize} that must be resolved to continue the
-     *     state change lifecycle.
-     */
-    eventStateChange(state: Objekt): import("./promize").Promize<object, object>;
-    /**
-     * Overridable lifecycle hook called when the DOM container is ready
-     * for the new controller. Returns a {@link Promize} to allow
-     * asynchronous operations (such as DOM preparation or cleanup)
-     * before the controller is instantiated.
-     *
-     * The default implementation resolves immediately. Override to
-     * insert async logic before controller instantiation.
-     *
-     * @param state The {@link Objekt} representing the current state.
-     * @param dom The {@link Knot} DOM container for the controller.
-     * @returns A {@link Promize} that must be resolved to continue
-     *     controller initialization.
-     */
-    eventDomChange(state: Objekt, dom: Knot): import("./promize").Promize<object, object>;
-    /**
-     * Overridable lifecycle hook called after all service initialization
-     * calls have been queued but before they begin executing. Logs by
-     * default; override to perform early setup tasks.
-     */
-    eventAfterInit(): void;
-    /**
-     * Overridable lifecycle hook called when all registered services
-     * have been successfully initialized. Logs by default; override to
-     * signal application readiness.
-     */
-    eventServiceLoaded(): void;
-    /**
-     * Overridable lifecycle hook called when service initialization
-     * fails. Logs by default; override to handle initialization errors
-     * gracefully.
-     */
-    eventServiceFailed(): void;
 }

@@ -32,12 +32,19 @@ export class DateTimeRangeField extends BaseField {
     constructor(input, label, error, inputBlock, isStartInput) {
         super(input, label, error, inputBlock);
         this.isStartInput = isStartInput;
-        this._init();
+        this._initField();
+    }
+    /**
+     * @description No-op override; real initialization is deferred to the constructor
+     * so that {@link isStartInput} is available.
+     */
+    _init() {
+        // Deferred to constructor via _initField()
     }
     /**
      * Initializes the range container, input display, and inner components.
      */
-    _init() {
+    _initField() {
         this.inputBlock.addClass('datetime-range-field');
         this.input.addClass('hidden');
         this.datetimeContainer = new Query('.datetime-container', this.inputBlock).getKnot();
@@ -70,13 +77,13 @@ export class DateTimeRangeField extends BaseField {
             value: value,
             type: type,
         });
-        this.datetime.eventClick = (value) => {
+        this.datetime.on('click', (value) => {
             this.setValue(value);
-        };
+        });
         this.popup = new Popup(this.datetimeKnot, this.inputBlock);
-        this.popup.eventClose = () => {
+        this.popup.on('close', () => {
             this.datetimeInput.removeClass('active');
-        };
+        });
         if (value) {
             const formattedValue = this.datetime.getFormattedValue();
             this._setTag(formattedValue);

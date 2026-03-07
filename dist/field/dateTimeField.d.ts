@@ -32,16 +32,9 @@ export declare class DateTimeField extends BaseField<HTMLInputElement> {
     /** Popup overlay containing the datetime picker. */
     popup: Popup;
     /**
-     * @param input The underlying `<input>` element wrapped in a {@link Knot}.
-     * @param label The associated label element.
-     * @param error The element used to display validation errors.
-     * @param inputBlock The block-level container wrapping the entire field.
-     */
-    constructor(input: Knot<HTMLInputElement>, label: Knot, error: Knot, inputBlock: Knot);
-    /**
      * Initializes the datetime container, input display, and inner components.
      */
-    private _init;
+    protected _init(): void;
     /**
      * Creates the {@link DateTime} picker, wires up change events, and
      * initializes the {@link Popup} overlay.

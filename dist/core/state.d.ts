@@ -1,4 +1,5 @@
 import { Collection } from './collection';
+import { Emitter } from './emitter';
 import { Objekt } from './objekt';
 import type { Route } from '../component';
 /**
@@ -12,8 +13,7 @@ import type { Route } from '../component';
  * integrates with `window.history` for pushState/replaceState navigation
  * and handles browser back/forward via the `popstate` event.
  *
- * The {@link eventChange} method is designed to be overridden by subclasses
- * (such as {@link Module}) to react to state transitions.
+ * Listeners can subscribe to state changes via `state.on('change', handler)`.
  *
  * @example
  * const routes = [
@@ -22,6 +22,9 @@ import type { Route } from '../component';
  * ];
  *
  * const state = new State(routes, { root: { id: 'home' } });
+ * state.on('change', (currentState, previousState, force) => {
+ *     console.log('State changed to', currentState.get('id'));
+ * });
  * state.go('user', { id: 42 });
  * state.getParam('id'); // 42
  *
@@ -30,7 +33,7 @@ import type { Route } from '../component';
  * @see {@link Module}
  * @category Core
  */
-export declare class State {
+export declare class State extends Emitter {
     private _current;
     private _previous;
     private _onPopstate;
@@ -104,7 +107,7 @@ export declare class State {
      *
      * @example
      * const state = new State(routes);
-     * state.run(); // Fires eventChange with the initial route
+     * state.run(); // Emits 'change' with the initial route
      */
     run(): void;
     /**
@@ -140,7 +143,7 @@ export declare class State {
      */
     private _setHistory;
     /**
-     * Invokes {@link eventChange} with the current and previous states.
+     * Emits the 'change' event with the current and previous states.
      *
      * @param opt_force When `true`, forces the event even if the route
      *     has not changed.
@@ -300,19 +303,6 @@ export declare class State {
      */
     forward(): void;
     /**
-     * Called when the application state changes due to navigation. This
-     * is a hook method intended to be overridden by subclasses (such as
-     * {@link Module}) to respond to route transitions. The default
-     * implementation logs the state change to the console.
-     *
-     * @param currentState The newly active route state as an {@link Objekt}.
-     * @param previousState The previously active route state as an
-     *     {@link Objekt}.
-     * @param opt_force Whether the change was forced (e.g., navigating
-     *     to the same route).
-     */
-    eventChange(currentState: Objekt, previousState: Objekt, opt_force?: boolean | undefined): void;
-    /**
      * Sets multiple URL parameters at once on the current route. Each
      * key-value pair is applied individually via {@link setParam}.
      *
@@ -361,7 +351,7 @@ export declare class State {
      */
     reload(): void;
     /**
-     * Re-triggers the {@link eventChange} callback for the current state
+     * Re-emits the 'change' event for the current state
      * without navigating. Useful for forcing a view re-render.
      *
      * @param opt_force When `true`, forces the event even if the state

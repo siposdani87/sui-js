@@ -1,5 +1,6 @@
 import type { Knot } from '../core';
 import { Objekt } from '../core/objekt';
+import { Emitter } from '../core/emitter';
 /**
  * Application header bar that manages branding (logo image, title, URL),
  * visibility, shadow styling, and navigation button toggles for the
@@ -8,8 +9,12 @@ import { Objekt } from '../core/objekt';
  * The header is bound to the `#header` DOM element and adjusts padding
  * on the main container and template view when shown or hidden.
  *
+ * Register event handlers using the `on()` method inherited from
+ * {@link Emitter}. Supported events: `'logoClick'`.
+ *
  * @see {@link TopMenu}
  * @see {@link LeftMenu}
+ * @see {@link Emitter}
  * @category Module
  *
  * @example
@@ -18,7 +23,7 @@ import { Objekt } from '../core/objekt';
  * header.setImage('/assets/logo.png');
  * header.show();
  */
-export declare class Header {
+export declare class Header extends Emitter {
     options: Objekt;
     headerKnot: Knot;
     leftMenuButton: Knot;
@@ -47,17 +52,6 @@ export declare class Header {
      * event handler.
      */
     private _init;
-    /**
-     * Overridable hook called when the logo/brand element is clicked.
-     * The default implementation logs a debug message; override this
-     * method to implement custom navigation behavior.
-     *
-     * @example
-     * header.eventLogoClick = () => {
-     *     router.navigate('/home');
-     * };
-     */
-    eventLogoClick(): void;
     /**
      * Sets the application title text displayed in the header brand area.
      *

@@ -27,7 +27,6 @@ export class RadiobuttonField extends BaseField {
      */
     constructor(input, label, error, inputBlock, form) {
         super(input, label, error, inputBlock, form);
-        this._init();
     }
     /**
      * @description Initializes the field by adding CSS class and attaching the change event listener.

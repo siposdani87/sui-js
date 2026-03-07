@@ -20,7 +20,6 @@ export class ResetButton extends BaseField {
      */
     constructor(input) {
         super(input);
-        this._init();
     }
     /**
      * Sets the reset button name attribute.

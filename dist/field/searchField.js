@@ -1,12 +1,11 @@
 import { BaseField } from './baseField';
 import { Knot } from '../core/knot';
-import { consoleDebug } from '../utils/log';
 /**
  * @description Expandable search input field with clear button and enter key handling.
  *
  * @example
  * const searchField = new SearchField(inputKnot, labelKnot, errorKnot, inputBlockKnot);
- * searchField.eventEnter = (value) => { console.log('Search:', value); };
+ * searchField.on('enter', (value) => { console.log('Search:', value); });
  * searchField.render();
  *
  * @see {@link BaseField}
@@ -15,17 +14,6 @@ import { consoleDebug } from '../utils/log';
  */
 export class SearchField extends BaseField {
     /**
-     * @description Creates a new SearchField instance.
-     * @param {Knot<HTMLInputElement>} input - The search input element.
-     * @param {Knot} label - The label element.
-     * @param {Knot} error - The error message element.
-     * @param {Knot} inputBlock - The container block element.
-     */
-    constructor(input, label, error, inputBlock) {
-        super(input, label, error, inputBlock);
-        this._init();
-    }
-    /**
      * @description Initializes keyup and change event listeners on the input.
      */
     _init() {
@@ -33,7 +21,7 @@ export class SearchField extends BaseField {
             const inputNode = input.getNode();
             this.modelChange(inputNode.value);
             if (event.key === 'Enter') {
-                this.eventEnter(inputNode.value);
+                this.emit('enter', inputNode.value);
             }
             return true;
         });
@@ -88,16 +76,9 @@ export class SearchField extends BaseField {
             if (this.isEnabled()) {
                 this.inputBlock.removeClass(['is-dirty', 'is-focused']);
                 this.setValue('');
-                this.eventEnter('');
+                this.emit('enter', '');
             }
         });
         this.holderKnot.appendChild(clearButton);
-    }
-    /**
-     * @description Called when the user presses Enter or clears the search field. Override to handle search submission.
-     * @param {string} value - The current search input value.
-     */
-    eventEnter(value) {
-        consoleDebug('Search.eventEnter()', value);
     }
 }

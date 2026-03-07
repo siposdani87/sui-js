@@ -20,7 +20,6 @@ export class SubmitButton extends BaseField {
      */
     constructor(input) {
         super(input);
-        this._init();
     }
     /**
      * Sets the submit button name attribute.

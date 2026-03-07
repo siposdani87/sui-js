@@ -3,6 +3,7 @@ import { Knot } from '../core/knot';
 import { Objekt } from '../core/objekt';
 import { ContentHandler } from './contentHandler';
 import { Pager } from './pager';
+import { Emitter } from '../core/emitter';
 /**
  * @description Card-based data display component with template rendering and pagination.
  * Renders data items as cards using an HTML template element, with built-in
@@ -10,7 +11,7 @@ import { Pager } from './pager';
  *
  * @example
  * const cards = new CardCollection(containerKnot, '.card-collection', ctrl, { row_count: 12 });
- * cards.eventAction = (params) => http.get('/api/items', params);
+ * cards.on('action', (params) => http.get('/api/items', params));
  * cards.render();
  *
  * @see {@link Pager} for the pagination control
@@ -19,7 +20,7 @@ import { Pager } from './pager';
  *
  * @category Component
  */
-export declare class CardCollection {
+export declare class CardCollection extends Emitter {
     cardCollectionKnot: Knot;
     ctrl: any;
     options: Objekt;
@@ -68,34 +69,13 @@ export declare class CardCollection {
      */
     private _getCardKnot;
     /**
-     * @description Refreshes the card collection by triggering eventAction with current query, sort, and paging params.
+     * @description Refreshes the card collection by emitting the 'action' event with current query, sort, and paging params.
      * @param {number} [opt_page] - Page number to navigate to before refreshing (-1 keeps current page).
      *
      * @example
      * cards.refresh(1); // Refresh from page 1
      */
     refresh(opt_page?: number | undefined): void;
-    /**
-     * @description Called when data needs to be fetched. Override to load data from a backend.
-     * @param {Objekt} params - Query parameters including query, column, order, offset, and limit.
-     *
-     * @example
-     * cards.eventAction = (params) => {
-     *     http.get('/api/items', params).then((response) => cards.setData(response.items));
-     * };
-     */
-    eventAction(params: Objekt): void;
-    /**
-     * @description Called after each card is rendered. Override to attach event listeners or modify card DOM.
-     * @param {Knot} cardKnot - The rendered card DOM element.
-     * @param {Objekt} item - The data item associated with the card.
-     *
-     * @example
-     * cards.eventCardKnot = (cardKnot, item) => {
-     *     cardKnot.addEventListener('click', () => navigate(item.get('id')));
-     * };
-     */
-    eventCardKnot(cardKnot: Knot, item: Objekt): void;
     /**
      * @description Renders a card for the given item and appends it to the body.
      * @param {Objekt} item - The data item to render as a card.

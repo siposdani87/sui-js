@@ -1,5 +1,4 @@
 import { BaseField } from './baseField';
-import { Knot } from '../core/knot';
 /**
  * @description URL input field with optional protocol prefix display (e.g., "https://").
  *
@@ -14,17 +13,9 @@ import { Knot } from '../core/knot';
 export declare class UrlField extends BaseField<HTMLInputElement> {
     protocol: string;
     /**
-     * @description Creates a new UrlField instance.
-     * @param {Knot<HTMLInputElement>} input - The URL input element.
-     * @param {Knot} label - The label element.
-     * @param {Knot} error - The error message element.
-     * @param {Knot} inputBlock - The container block element.
-     */
-    constructor(input: Knot<HTMLInputElement>, label: Knot, error: Knot, inputBlock: Knot);
-    /**
      * @description Initializes the field by reading the protocol data attribute and attaching input event listeners.
      */
-    private _init;
+    protected _init(): void;
     /**
      * @description Applies SUI textfield classes and renders the protocol prefix span if configured.
      * @override

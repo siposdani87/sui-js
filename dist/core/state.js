@@ -1,6 +1,7 @@
 import { eachObject, eq, format, isNull } from '../utils/operation';
-import { consoleDebug, consoleWarn } from '../utils/log';
+import { consoleWarn } from '../utils/log';
 import { Collection } from './collection';
+import { Emitter } from './emitter';
 import { Objekt } from './objekt';
 import { Query } from './query';
 import { Router } from './router';
@@ -15,8 +16,7 @@ import { Router } from './router';
  * integrates with `window.history` for pushState/replaceState navigation
  * and handles browser back/forward via the `popstate` event.
  *
- * The {@link eventChange} method is designed to be overridden by subclasses
- * (such as {@link Module}) to react to state transitions.
+ * Listeners can subscribe to state changes via `state.on('change', handler)`.
  *
  * @example
  * const routes = [
@@ -25,6 +25,9 @@ import { Router } from './router';
  * ];
  *
  * const state = new State(routes, { root: { id: 'home' } });
+ * state.on('change', (currentState, previousState, force) => {
+ *     console.log('State changed to', currentState.get('id'));
+ * });
  * state.go('user', { id: 42 });
  * state.getParam('id'); // 42
  *
@@ -33,7 +36,7 @@ import { Router } from './router';
  * @see {@link Module}
  * @category Core
  */
-export class State {
+export class State extends Emitter {
     /**
      * Creates a new State instance with the given route definitions and
      * options. Initializes the base path, parses the current URL, and
@@ -45,6 +48,7 @@ export class State {
      *     `root.params` to define the fallback root route.
      */
     constructor(routes, opt_options = {}) {
+        super();
         this._current = new Objekt();
         this._previous = this._current;
         this.routes = new Collection(routes);
@@ -152,7 +156,7 @@ export class State {
      *
      * @example
      * const state = new State(routes);
-     * state.run(); // Fires eventChange with the initial route
+     * state.run(); // Emits 'change' with the initial route
      */
     run() {
         this._triggerChange();
@@ -238,7 +242,7 @@ export class State {
         }
     }
     /**
-     * Invokes {@link eventChange} with the current and previous states.
+     * Emits the 'change' event with the current and previous states.
      *
      * @param opt_force When `true`, forces the event even if the route
      *     has not changed.
@@ -246,7 +250,7 @@ export class State {
     _triggerChange(opt_force = false) {
         const currentState = this.getCurrent();
         const previousState = this.getPrevious();
-        this.eventChange(currentState, previousState, opt_force);
+        this.emit('change', currentState, previousState, opt_force);
     }
     /**
      * Updates the internal current state reference and saves the
@@ -458,21 +462,6 @@ export class State {
         window.history.forward();
     }
     /**
-     * Called when the application state changes due to navigation. This
-     * is a hook method intended to be overridden by subclasses (such as
-     * {@link Module}) to respond to route transitions. The default
-     * implementation logs the state change to the console.
-     *
-     * @param currentState The newly active route state as an {@link Objekt}.
-     * @param previousState The previously active route state as an
-     *     {@link Objekt}.
-     * @param opt_force Whether the change was forced (e.g., navigating
-     *     to the same route).
-     */
-    eventChange(currentState, previousState, opt_force = false) {
-        consoleDebug('State.eventChange()', currentState, previousState, opt_force);
-    }
-    /**
      * Sets multiple URL parameters at once on the current route. Each
      * key-value pair is applied individually via {@link setParam}.
      *
@@ -539,7 +528,7 @@ export class State {
         window.location.reload();
     }
     /**
-     * Re-triggers the {@link eventChange} callback for the current state
+     * Re-emits the 'change' event for the current state
      * without navigating. Useful for forcing a view re-render.
      *
      * @param opt_force When `true`, forces the event even if the state

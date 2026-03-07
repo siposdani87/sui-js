@@ -1,6 +1,6 @@
 import type { Promize } from '../core';
 import { Objekt } from '../core/objekt';
-import { Xhr } from './xhr';
+import { Emitter } from '../core/emitter';
 /**
  * High-level HTTP client that wraps {@link Xhr} to provide a simplified
  * request API with built-in authentication management. Http adds an
@@ -10,12 +10,12 @@ import { Xhr } from './xhr';
  * parsed {@link Objekt} response and an optional filename.
  *
  * Each request method (`get`, `post`, `put`, `patch`, `delete`) creates a
- * fresh {@link Xhr} instance, applies the stored credentials, fires the
- * {@link Http.eventBeforeRequest} hook, and returns a
+ * fresh {@link Xhr} instance, applies the stored credentials, emits the
+ * `'beforeRequest'` event, and returns a
  * {@link Promize}<[{@link Objekt}, string], [{@link Objekt}, string]>.
  *
- * Override {@link Http.eventBeforeRequest} and
- * {@link Http.eventAfterRequest} to add cross-cutting concerns such as
+ * Register handlers with `on('beforeRequest', ...)` and
+ * `on('afterRequest', ...)` to add cross-cutting concerns such as
  * loading indicators, error toasts, or request logging.
  *
  * @example
@@ -29,9 +29,10 @@ import { Xhr } from './xhr';
  *
  * @see {@link Xhr}
  * @see {@link Promize}
+ * @see {@link Emitter}
  * @category Module
  */
-export declare class Http {
+export declare class Http extends Emitter {
     options: Objekt<{
         backend: string;
         locale: string;
@@ -178,7 +179,7 @@ export declare class Http {
     private _createXhrRequest;
     /**
      * Wraps the raw {@link Xhr} promise to strip the `XMLHttpRequest`
-     * object and fire the {@link Http.eventAfterRequest} hook on both
+     * object and emit the `'afterRequest'` event on both
      * resolution and rejection.
      *
      * @param {Promize} promise The promise returned by an Xhr request method.
@@ -186,22 +187,4 @@ export declare class Http {
      *     that resolves or rejects with only the response body and filename.
      */
     private _getPromise;
-    /**
-     * Called before each request is sent. Override this method to inspect or
-     * modify the {@link Xhr} instance (e.g. add custom headers or logging).
-     *
-     * @param {Xhr} xhr The Xhr instance that will execute the request.
-     */
-    eventBeforeRequest(xhr: Xhr): void;
-    /**
-     * Called after each request completes (on both success and failure).
-     * Override this method to implement cross-cutting post-request logic
-     * such as hiding loading indicators or displaying error notifications.
-     *
-     * @param {XMLHttpRequest} http The raw XMLHttpRequest object.
-     * @param {Objekt} response The parsed response body.
-     * @param {string} filename The filename extracted from the
-     *     Content-Disposition header, or an empty string.
-     */
-    eventAfterRequest(http: XMLHttpRequest, response: Objekt, filename: string): void;
 }

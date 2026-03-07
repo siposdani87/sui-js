@@ -1,33 +1,34 @@
-import { Knot } from '../core/knot';
 import { Objekt } from '../core/objekt';
+import { Emitter } from '../core/emitter';
 /**
  * Document-level utilities for managing the page title, handling
  * document-wide click events, and triggering common browser actions
  * such as opening the email client.
  *
  * Page registers a document-level click listener that wraps the event
- * target in a {@link Knot} and dispatches to the overridable
- * {@link eventClick} method. This enables centralized click handling
- * for analytics, delegation, or global UI behaviors.
+ * target in a {@link Knot} and emits a `'click'` event. This enables
+ * centralized click handling for analytics, delegation, or global UI
+ * behaviors.
  *
  * @example
  * const page = new Page();
  *
  * page.setTitle('My Application');
  *
- * page.eventClick = (target, event) => {
+ * page.on('click', (target, event) => {
  *     if (target.hasClass('track')) {
  *         analytics.trackClick(target);
  *     }
- * };
+ * });
  *
  * page.mailTo('support@example.com', 'Help Request');
  *
  * @see {@link Knot}
  * @see {@link Objekt}
+ * @see {@link Emitter}
  * @category Module
  */
-export declare class Page {
+export declare class Page extends Emitter {
     options: Objekt;
     document: Document;
     private _onClick;
@@ -64,15 +65,6 @@ export declare class Page {
      * page.setTitle('Dashboard - My App');
      */
     setTitle(title: string): void;
-    /**
-     * Called when any element in the document is clicked. Override this
-     * method to implement centralized click handling such as event
-     * delegation, analytics tracking, or global UI behaviors.
-     *
-     * @param target The clicked element wrapped in a {@link Knot}.
-     * @param event The native click event.
-     */
-    eventClick(target: Knot, event: Event): void;
     /**
      * Opens the user's default email client with a new message
      * pre-addressed to the given email and optionally pre-filled

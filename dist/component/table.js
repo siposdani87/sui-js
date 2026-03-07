@@ -7,7 +7,7 @@ import { ContentHandler } from './contentHandler';
 import { Dropdown } from './dropdown';
 import { Pager } from './pager';
 import { Tooltip } from './tooltip';
-import { consoleDebug } from '../utils/log';
+import { Emitter } from '../core/emitter';
 import { generateId } from '../utils/coder';
 import { sui } from '../utils/render';
 /**
@@ -26,12 +26,12 @@ import { sui } from '../utils/render';
  * table.setActions([
  *     { style: (item) => ['edit', 'Edit'], click: (item) => editUser(item) },
  * ]);
- * table.eventAction = (params) => {
+ * table.on('action', (params) => {
  *     http.get('/api/users', params).then((response) => {
  *         table.setData(response.get('items'));
  *         table.setCount(response.get('count'));
  *     });
- * };
+ * });
  * table.render();
  *
  * @see {@link Pager} for pagination controls
@@ -41,7 +41,7 @@ import { sui } from '../utils/render';
  *
  * @category Component
  */
-export class Table {
+export class Table extends Emitter {
     /**
      * @description Creates a new Table instance bound to the table element found within the given DOM node.
      *
@@ -50,6 +50,7 @@ export class Table {
      * @param {object} [opt_options={}] - Configuration options (row_count, pager_num, sort, columns, calculations, sorted, rowStyle).
      */
     constructor(dom, opt_selector = 'table', opt_options = {}) {
+        super();
         this.tableKnot = new Query(opt_selector, dom).getKnot();
         this._setOptions(opt_options);
         this._init();
@@ -217,12 +218,12 @@ export class Table {
         footerRow.appendChild(pagerKnot);
         this.tfoot.appendChild(footerRow);
         this.pager = new Pager(this.tfoot, ['.pager', '.pager-statistics'], this.options);
-        this.pager.eventAction = (page) => {
+        this.pager.on('action', (page) => {
             this.refresh(page);
-        };
+        });
     }
     /**
-     * @description Refreshes the table data by triggering {@link eventAction} with the current
+     * @description Refreshes the table data by emitting the 'action' event with the current
      * query, sorting, and paging parameters.
      *
      * @param {number} [opt_page=-1] - The page number to navigate to. Pass -1 to keep the current page.
@@ -241,14 +242,7 @@ export class Table {
             offset: this.pager.offset,
             limit: this.options.row_count,
         });
-        this.eventAction(params);
-    }
-    /**
-     * @description Called when the table needs data (on refresh, sort, page, or search). Override to fetch data.
-     * @param {Objekt} params - Contains query, column, order, offset, and limit.
-     */
-    eventAction(params) {
-        consoleDebug('Table.eventAction()', params);
+        this.emit('action', params);
     }
     /**
      * @description Toggles the sort direction for a column or switches to a new sort column.

@@ -43,9 +43,14 @@ export declare class DateTimeRangeField extends BaseField<HTMLInputElement> {
      */
     constructor(input: Knot<HTMLInputElement>, label: Knot, error: Knot, inputBlock: Knot, isStartInput: boolean);
     /**
+     * @description No-op override; real initialization is deferred to the constructor
+     * so that {@link isStartInput} is available.
+     */
+    protected _init(): void;
+    /**
      * Initializes the range container, input display, and inner components.
      */
-    private _init;
+    private _initField;
     /**
      * Creates the {@link DateTime} picker, wires up change events, and
      * initializes the {@link Popup} overlay.

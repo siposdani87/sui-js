@@ -1,15 +1,17 @@
 import { Objekt } from '../core';
 import { Knot } from '../core/knot';
+import { Emitter } from '../core/emitter';
 /**
  * @description Represents a single month cell in the {@link Calendar}'s month-selection mode, with CSS classes for current and now states.
  * @example
  * const month = new Month(new Date(), selectedDate, {});
+ * month.on('click', (date) => { console.log('Clicked:', date); });
  * const knot = month.getKnot();
  * @see {@link Calendar}
  * @see {@link DateIO}
  * @category Component
  */
-export declare class Month {
+export declare class Month extends Emitter {
     date: Date;
     currentDate: Date;
     options: Objekt;
@@ -40,11 +42,4 @@ export declare class Month {
      * container.appendChild(monthKnot);
      */
     getKnot(): Knot;
-    /**
-     * @description Overridable callback fired when this month cell is clicked. Defaults to a debug log.
-     * @param {Date} date - The date of the clicked month.
-     * @example
-     * month.eventClick = (date) => { console.log('Clicked:', date); };
-     */
-    eventClick(date: Date): void;
 }

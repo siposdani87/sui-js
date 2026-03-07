@@ -1,4 +1,5 @@
 import { each, instanceOf, isUndefined, clear, eq, eachArray, } from '../utils/operation';
+import { Emitter } from './emitter';
 import { Objekt } from './objekt';
 /**
  * Generic typed collection that wraps an array of items with find, delete,
@@ -27,7 +28,7 @@ import { Objekt } from './objekt';
  * @see {@link Objekt}
  * @category Core
  */
-export class Collection {
+export class Collection extends Emitter {
     /**
      * Creates a new Collection, optionally pre-populated with initial items.
      * Each plain object in the items array is automatically wrapped using the
@@ -51,6 +52,7 @@ export class Collection {
      * const col2 = new Collection([], MyModel, { id: 'uuid' });
      */
     constructor(opt_items = [], opt_type = Objekt, opt_options = {}) {
+        super();
         this.Type = opt_type;
         this._setOptions(opt_options);
         this.items = [];

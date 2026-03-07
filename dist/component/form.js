@@ -3,7 +3,6 @@ import { Collection } from '../core/collection';
 import { Objekt } from '../core/objekt';
 import { Query } from '../core/query';
 import { FormField } from './formField';
-import { consoleDebug } from '../utils/log';
 /**
  * @description Manages a collection of form fields with model binding, validation, and
  * event handling. Extends {@link Collection} to provide field iteration, lookup, and lifecycle management.
@@ -11,9 +10,9 @@ import { consoleDebug } from '../utils/log';
  * @example
  * const form = new Form(dom, 'form');
  * form.setModel(new Objekt({ name: 'John', email: 'john@example.com' }));
- * form.eventSubmit = (model, knot) => {
+ * form.on('submit', (model, knot) => {
  *     http.post('/api/users', model);
- * };
+ * });
  *
  * @see {@link BaseField} for individual field implementations
  * @see {@link Collection} for the base collection interface
@@ -73,23 +72,23 @@ export class Form extends Collection {
         this._initResetFormEvent();
     }
     /**
-     * @description Binds the form submit event, validates, and delegates to {@link eventSubmit}.
+     * @description Binds the form submit event, validates, and emits the 'submit' event.
      */
     _initSubmitFormEvent() {
         this.formKnot.addEventListener('submit', (knot, event) => {
             event.preventDefault();
             if (this.checkValidity(true)) {
-                this.eventSubmit(this.model, knot);
+                this.emit('submit', this.model, knot);
             }
         });
     }
     /**
-     * @description Binds the form reset event and delegates to {@link eventReset}.
+     * @description Binds the form reset event and emits the 'reset' event.
      */
     _initResetFormEvent() {
         this.formKnot.addEventListener('reset', (knot, event) => {
             event.preventDefault();
-            this.eventReset(this.model, knot);
+            this.emit('reset', this.model, knot);
         });
     }
     /**
@@ -116,9 +115,9 @@ export class Form extends Collection {
                 field.getPreviousValue = () => {
                     this._getPreviousValue(field);
                 };
-                field.eventClick = (knot) => {
-                    this.eventButton(this.model, knot);
-                };
+                field.on('click', (knot) => {
+                    this.emit('button', this.model, knot);
+                });
                 if (!inArray(updatedFields, fieldName)) {
                     this._setValue(fieldName, field.getValue());
                     updatedFields.push(fieldName);
@@ -226,7 +225,7 @@ export class Form extends Collection {
         const currentValue = this._getValue(fieldName);
         if (!isSame(value, currentValue)) {
             this._setValue(fieldName, value);
-            field.eventChange(value, currentValue);
+            field.emit('change', value, currentValue);
         }
         this.checkValidity(true, false);
     }
@@ -350,30 +349,6 @@ export class Form extends Collection {
         this.each((field) => {
             field.setDisabled(field.disabled);
         });
-    }
-    /**
-     * @description Called when the form is submitted and passes validation. Override to handle submission.
-     * @param {Objekt} model - The current form data model.
-     * @param {Knot} knot - The form DOM element.
-     */
-    eventSubmit(model, knot) {
-        consoleDebug('Form.eventSubmit()', model, knot);
-    }
-    /**
-     * @description Called when the form reset button is clicked. Override to handle reset logic.
-     * @param {Objekt} model - The current form data model.
-     * @param {Knot} knot - The form DOM element.
-     */
-    eventReset(model, knot) {
-        consoleDebug('Form.eventReset()', model, knot);
-    }
-    /**
-     * @description Called when a non-submit/non-reset button inside the form is clicked. Override to handle button actions.
-     * @param {Objekt} model - The current form data model.
-     * @param {Knot} knot - The button DOM element.
-     */
-    eventButton(model, knot) {
-        consoleDebug('Form.eventButton()', model, knot);
     }
     /**
      * @description Removes all event listeners from the form element.
