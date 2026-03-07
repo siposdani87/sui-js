@@ -10,8 +10,8 @@ import { consoleError } from '../utils/log';
 import { encodeBase64 } from '../utils/coder';
 
 /**
- * Metadata about a completed HTTP response, replacing the raw
- * `XMLHttpRequest` object in the framework's public API.
+ * Metadata about a completed HTTP response, providing status,
+ * headers, and URL information to consumers.
  *
  * @category Module
  */

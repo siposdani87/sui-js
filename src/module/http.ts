@@ -9,8 +9,8 @@ import type { HttpResponse } from './xhr';
  * High-level HTTP client that wraps {@link Xhr} to provide a simplified
  * request API with built-in authentication management. Http adds an
  * authentication layer (Basic or Bearer) and event hooks on top of the
- * low-level {@link Xhr} transport, stripping the raw `XMLHttpRequest`
- * object from resolved/rejected values so consumers receive only the
+ * low-level {@link Xhr} transport, stripping the {@link HttpResponse}
+ * metadata from resolved/rejected values so consumers receive only the
  * parsed {@link Objekt} response and an optional filename.
  *
  * Each request method (`get`, `post`, `put`, `patch`, `delete`) creates a
@@ -260,8 +260,8 @@ export class Http extends Emitter {
     }
 
     /**
-     * Wraps the raw {@link Xhr} promise to strip the `XMLHttpRequest`
-     * object and emit the `'afterRequest'` event on both
+     * Wraps the raw {@link Xhr} promise to strip the {@link HttpResponse}
+     * metadata and emit the `'afterRequest'` event on both
      * resolution and rejection.
      *
      * @param {Promize} promise The promise returned by an Xhr request method.
