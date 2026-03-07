@@ -101,7 +101,7 @@ describe('Dialog', () => {
             expect(getSpy).toHaveBeenCalledWith('/api/test');
         });
 
-        it('should resolve with content knot on success', () => {
+        it('should resolve with content knot on success', async () => {
             const dom = createResponseDom([
                 { tag: 'div', id: 'title', text: 'Test Title' },
                 { tag: 'div', id: 'content', text: 'Content' },
@@ -117,6 +117,7 @@ describe('Dialog', () => {
             const thenFn = jest.fn();
             dialog.loadTemplate('/api/test').then(thenFn);
 
+            await new Promise((resolve) => setTimeout(resolve, 0));
             expect(thenFn).toHaveBeenCalled();
         });
 

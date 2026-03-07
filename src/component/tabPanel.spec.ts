@@ -32,9 +32,10 @@ describe('TabPanel', () => {
             expect(tabPanel.getActive()).toBe('panel-2');
         });
 
-        it('should handle null panelId', () => {
+        it('should handle null panelId', async () => {
             const onReject = jest.fn();
             tabPanel.setActive(null).then(jest.fn(), onReject);
+            await new Promise((resolve) => setTimeout(resolve, 0));
             expect(onReject).toHaveBeenCalled();
         });
     });

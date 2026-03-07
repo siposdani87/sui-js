@@ -1,6 +1,8 @@
 import { Module } from './module';
 import { noop } from '../utils/operation';
 
+const flushPromises = () => new Promise((resolve) => setTimeout(resolve, 0));
+
 describe('Module', () => {
     let module: Module;
 
@@ -96,7 +98,7 @@ describe('Module', () => {
             expect(spy).toHaveBeenCalled();
         });
 
-        it('should emit serviceLoaded on success', () => {
+        it('should emit serviceLoaded on success', async () => {
             const spy = jest.fn();
             module.on('serviceLoaded', spy);
             class Svc {
@@ -108,10 +110,11 @@ describe('Module', () => {
             const instances = { state: { run: jest.fn() } } as any;
             module.load(instances, {});
             module.handleServices(['svc']);
+            await flushPromises();
             expect(spy).toHaveBeenCalled();
         });
 
-        it('should call state.run after services loaded', () => {
+        it('should call state.run after services loaded', async () => {
             const runSpy = jest.fn();
             class Svc {
                 enter() {
@@ -122,6 +125,7 @@ describe('Module', () => {
             const instances = { state: { run: runSpy } } as any;
             module.load(instances, {});
             module.handleServices(['svc']);
+            await flushPromises();
             expect(runSpy).toHaveBeenCalled();
         });
 

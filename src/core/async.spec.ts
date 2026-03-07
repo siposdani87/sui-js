@@ -1,6 +1,8 @@
 import { Async } from './async';
 import { Deferred } from './deferred';
 
+const flushPromises = () => new Promise((resolve) => setTimeout(resolve, 0));
+
 describe('Async', () => {
     it('should instantiate', () => {
         const async = new Async();
@@ -8,16 +10,17 @@ describe('Async', () => {
     });
 
     describe('parallel', () => {
-        it('should resolve for empty calls', () => {
+        it('should resolve for empty calls', async () => {
             const async = new Async();
             const onResolve = jest.fn();
 
             async.parallel([]).then(onResolve);
 
+            await flushPromises();
             expect(onResolve).toHaveBeenCalled();
         });
 
-        it('should execute parallel calls and collect results', () => {
+        it('should execute parallel calls and collect results', async () => {
             const async = new Async();
             const onResolve = jest.fn();
 
@@ -34,13 +37,14 @@ describe('Async', () => {
 
             async.parallel([call1, call2]).then(onResolve);
 
+            await flushPromises();
             expect(onResolve).toHaveBeenCalled();
             const args = onResolve.mock.calls[0];
             expect(args).toContain('a');
             expect(args).toContain('b');
         });
 
-        it('should handle single call', () => {
+        it('should handle single call', async () => {
             const async = new Async();
             const onResolve = jest.fn();
 
@@ -52,11 +56,12 @@ describe('Async', () => {
 
             async.parallel([call]).then(onResolve);
 
+            await flushPromises();
             expect(onResolve).toHaveBeenCalled();
             expect(onResolve.mock.calls[0]).toContain(42);
         });
 
-        it('should track error state when a call fails', () => {
+        it('should track error state when a call fails', async () => {
             const async = new Async();
 
             const call = () => {
@@ -67,12 +72,12 @@ describe('Async', () => {
 
             async.parallel([call]);
 
+            await flushPromises();
             // After the call completes with error, call state is cleared
-            // but the error was processed through the chain
-            expect(async.call.isError).toBe(false); // cleared after completion
+            expect(async.call.isError).toBe(false);
         });
 
-        it('should handle sync calls that return undefined', () => {
+        it('should handle sync calls that return undefined', async () => {
             const async = new Async();
             const onResolve = jest.fn();
 
@@ -80,21 +85,23 @@ describe('Async', () => {
 
             async.parallel([call]).then(onResolve);
 
+            await flushPromises();
             expect(onResolve).toHaveBeenCalled();
         });
     });
 
     describe('serial', () => {
-        it('should resolve for empty calls', () => {
+        it('should resolve for empty calls', async () => {
             const async = new Async();
             const onResolve = jest.fn();
 
             async.serial([]).then(onResolve);
 
+            await flushPromises();
             expect(onResolve).toHaveBeenCalled();
         });
 
-        it('should execute serial calls in order', () => {
+        it('should execute serial calls in order', async () => {
             const async = new Async();
             const onResolve = jest.fn();
             const order: number[] = [];
@@ -114,11 +121,12 @@ describe('Async', () => {
 
             async.serial([call1, call2]).then(onResolve);
 
+            await flushPromises();
             expect(order).toEqual([1, 2]);
             expect(onResolve).toHaveBeenCalled();
         });
 
-        it('should reject when a serial call fails', () => {
+        it('should reject when a serial call fails', async () => {
             const async = new Async();
             const onResolve = jest.fn();
             const onReject = jest.fn();
@@ -132,11 +140,12 @@ describe('Async', () => {
 
             async.serial([call1, call2]).then(onResolve, onReject);
 
+            await flushPromises();
             expect(onReject).toHaveBeenCalled();
             expect(call2).not.toHaveBeenCalled();
         });
 
-        it('should handle sync calls returning undefined', () => {
+        it('should handle sync calls returning undefined', async () => {
             const async = new Async();
             const onResolve = jest.fn();
 
@@ -144,6 +153,7 @@ describe('Async', () => {
 
             async.serial([call]).then(onResolve);
 
+            await flushPromises();
             expect(onResolve).toHaveBeenCalled();
         });
     });

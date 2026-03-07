@@ -1,12 +1,11 @@
-import { isArray, isFunction, noop } from '../utils/operation';
+import { isArray, noop } from '../utils/operation';
 import type { Deferred } from './deferred';
-import { Objekt } from './objekt';
 
 /**
- * The framework's custom promise implementation, used instead of native
- * `Promise` throughout the codebase. Promize supports resolve/reject
- * semantics with deferred callback registration: callbacks can be attached
- * before or after the promise has been settled.
+ * The framework's custom promise implementation, backed internally by a native
+ * `Promise`. Promize supports resolve/reject semantics with deferred callback
+ * registration: callbacks can be attached before or after the promise has been
+ * settled.
  *
  * Data is stored and passed as arrays to support multi-argument callback
  * invocation. The generic type parameters `T` (resolve data) and `K`
@@ -33,41 +32,34 @@ import { Objekt } from './objekt';
  * @category Core
  */
 export class Promize<T = object, K = object> {
-    options!: Objekt;
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+    private _nativePromise: Promise<any[]>;
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+    private _resolve!: (value: any[]) => void;
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+    private _reject!: (value: any[]) => void;
+    private _settled: boolean = false;
 
     /**
-     * Creates a new Promize instance in an unsettled state.
+     * Creates a new Promize instance in an unsettled state, backed by
+     * a native Promise internally.
      *
-     * @param opt_options Optional configuration object merged into the
-     *     internal options. Typically left empty; used internally by the
-     *     framework for advanced scenarios.
+     * @param opt_options Optional configuration object. Kept for backward
+     *     compatibility but ignored internally.
      */
-    constructor(opt_options: object | undefined = {}) {
-        this._setOptions(opt_options);
-    }
-
-    /**
-     * Initializes the internal options with default values for status,
-     * data, and callback slots, then merges any provided overrides.
-     *
-     * @param opt_options Optional configuration to merge into defaults.
-     */
-    private _setOptions(opt_options: object | undefined = {}): void {
-        this.options = new Objekt({
-            status: null,
-            data: null,
-            resolve: null,
-            reject: null,
-            complete: null,
+    constructor(_opt_options: object | undefined = {}) {
+        this._nativePromise = new Promise((resolve, reject) => {
+            this._resolve = resolve;
+            this._reject = reject;
         });
-        this.options.merge(opt_options);
+        // Prevent unhandled rejection crashes for Promize instances
+        // that are rejected without a .then() handler registered
+        this._nativePromise.catch(noop());
     }
 
     /**
-     * Resolves the promise with the given data. If `then()` callbacks have
-     * already been registered, they are invoked immediately. Otherwise the
-     * data and settled status are stored so that callbacks registered via a
-     * later `then()` call receive the data synchronously.
+     * Resolves the promise with the given data. Callbacks registered via
+     * `then()` will be invoked on the microtask queue.
      *
      * @param opt_data Optional data to pass to the resolve callback.
      *     Non-array values are wrapped in an array for consistent
@@ -79,28 +71,18 @@ export class Promize<T = object, K = object> {
      * promize.resolve(42); // logs: 42
      */
     resolve(opt_data?: T): void {
+        if (this._settled) return;
+        this._settled = true;
         // eslint-disable-next-line @typescript-eslint/no-explicit-any
-        let data: any[] = [];
-        if (opt_data) {
-            data = isArray(opt_data) ? opt_data : [opt_data];
-        }
-        if (
-            isFunction(this.options.resolve) &&
-            isFunction(this.options.complete)
-        ) {
-            this.options.resolve.apply(this, data);
-            this.options.complete.apply(this, data);
-        } else {
-            this.options.data = data;
-            this.options.status = true;
-        }
+        const data: any[] = opt_data
+            ? (isArray(opt_data) ? opt_data : [opt_data])
+            : [];
+        this._resolve(data);
     }
 
     /**
-     * Rejects the promise with the given data. If `then()` callbacks have
-     * already been registered, the reject and complete callbacks are invoked
-     * immediately. Otherwise the data and rejected status are stored for
-     * deferred delivery.
+     * Rejects the promise with the given data. Callbacks registered via
+     * `then()` will be invoked on the microtask queue.
      *
      * @param opt_data Optional data to pass to the reject callback.
      *     Non-array values are wrapped in an array for consistent
@@ -112,30 +94,20 @@ export class Promize<T = object, K = object> {
      * promize.reject(new Error('Failed'));
      */
     reject(opt_data?: K): void {
+        if (this._settled) return;
+        this._settled = true;
         // eslint-disable-next-line @typescript-eslint/no-explicit-any
-        let data: any[] = [];
-        if (opt_data) {
-            data = isArray(opt_data) ? opt_data : [opt_data];
-        }
-        if (
-            isFunction(this.options.reject) &&
-            isFunction(this.options.complete)
-        ) {
-            this.options.reject.apply(this, data);
-            this.options.complete.apply(this, data);
-        } else {
-            this.options.data = data;
-            this.options.status = false;
-        }
+        const data: any[] = opt_data
+            ? (isArray(opt_data) ? opt_data : [opt_data])
+            : [];
+        this._reject(data);
     }
 
     /**
      * Registers resolve, reject, and complete callbacks on this promise.
      *
-     * If the promise has already been settled (resolved or rejected), the
-     * appropriate callbacks are invoked immediately with the stored data.
-     * If the promise is still pending, the callbacks are stored and will be
-     * invoked when `resolve()` or `reject()` is called.
+     * Callbacks are always invoked asynchronously on the microtask queue,
+     * whether the promise is already settled or still pending.
      *
      * @param resolve Callback invoked when the promise is resolved.
      * @param opt_reject Callback invoked when the promise is rejected.
@@ -166,22 +138,19 @@ export class Promize<T = object, K = object> {
     ): void {
         const reject = opt_reject || noop();
         const complete = opt_complete || noop();
-        switch (this.options.status) {
-            case true:
-                resolve.apply(this, this.options.data);
-                complete.apply(this, this.options.data);
-                break;
-            case false:
-                reject.apply(this, this.options.data);
-                complete.apply(this, this.options.data);
-                break;
-            default:
-                this.options.merge({
-                    resolve: resolve,
-                    reject: reject,
-                    complete: complete,
-                });
-        }
+
+        this._nativePromise.then(
+            // eslint-disable-next-line @typescript-eslint/no-explicit-any
+            (data: any) => {
+                resolve.apply(this, data);
+                complete.apply(this, data);
+            },
+            // eslint-disable-next-line @typescript-eslint/no-explicit-any
+            (data: any) => {
+                reject.apply(this, data);
+                complete.apply(this, data);
+            },
+        );
     }
 
     /**

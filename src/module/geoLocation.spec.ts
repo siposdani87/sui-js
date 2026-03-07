@@ -37,7 +37,7 @@ describe('GeoLocation', () => {
             expect(mockGeolocation.getCurrentPosition).toHaveBeenCalled();
         });
 
-        it('should resolve with coordinates on success', () => {
+        it('should resolve with coordinates on success', async () => {
             mockGeolocation.getCurrentPosition.mockImplementation(
                 (success: Function) => {
                     success({
@@ -51,10 +51,11 @@ describe('GeoLocation', () => {
 
             const onResolve = jest.fn();
             geo.getPosition().then(onResolve);
+            await new Promise((resolve) => setTimeout(resolve, 0));
             expect(onResolve).toHaveBeenCalledWith(47.4979, 19.0402);
         });
 
-        it('should reject with nulls on error', () => {
+        it('should reject with nulls on error', async () => {
             mockGeolocation.getCurrentPosition.mockImplementation(
                 (_success: Function, error: Function) => {
                     error({
@@ -70,6 +71,7 @@ describe('GeoLocation', () => {
             const onResolve = jest.fn();
             const onReject = jest.fn();
             geo.getPosition().then(onResolve, onReject);
+            await new Promise((resolve) => setTimeout(resolve, 0));
             expect(onReject).toHaveBeenCalledWith(null, null);
         });
     });
