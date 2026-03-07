@@ -1,7 +1,7 @@
 import { Objekt } from '../core';
 import { Knot } from '../core/knot';
 import { DateIO } from '../utils';
-import { consoleDebug } from '../utils/log';
+import { Emitter } from '../core/emitter';
 import { Time } from './time';
 
 /**
@@ -9,13 +9,13 @@ import { Time } from './time';
  * @example
  * const clockKnot = new Knot('div');
  * const clock = new Clock(clockKnot, { time: new Date(), type: 'hour' });
- * clock.eventClick = (time) => { console.log(time); };
+ * clock.on('click', (time) => { console.log(time); });
  * clock.draw();
  * @see {@link Time}
  * @see {@link DateIO}
  * @category Component
  */
-export class Clock {
+export class Clock extends Emitter {
     clockKnot: Knot;
     options!: Objekt;
     modes!: string[];
@@ -39,6 +39,7 @@ export class Clock {
      * const clock = new Clock(new Knot('div'), { time: new Date(), type: 'hour' });
      */
     constructor(knot: Knot, options: object) {
+        super();
         this.clockKnot = knot;
         this._setOptions(options);
         this._init();
@@ -324,11 +325,11 @@ export class Clock {
             selected: this.minutes,
             captions: ['00', '05'],
         });
-        timeMinutes.eventClick = (index) => {
+        timeMinutes.on('click', (index) => {
             this._changeMode(-1);
             const time = DateIO.setMinutes(this.time, index);
             this._onClick(time);
-        };
+        });
         timeMinutes.draw(0, 59, 5, true);
     }
 
@@ -340,13 +341,13 @@ export class Clock {
         const timeHours = new Time(timeKnot, {
             selected: this.hours,
         });
-        timeHours.eventClick = (index) => {
+        timeHours.on('click', (index) => {
             this._changeMode(1);
             let hour = this.period === 'pm' ? index + 12 : index;
             hour = hour === 24 ? 0 : hour;
             const time = DateIO.setHours(this.time, hour);
             this._onClick(time);
-        };
+        });
         timeHours.draw(1, 12, 1, true);
     }
 
@@ -357,16 +358,6 @@ export class Clock {
     private _onClick(selectedTime: Date): void {
         this.setTime(selectedTime);
         this.draw();
-        this.eventClick(selectedTime);
-    }
-
-    /**
-     * @description Overridable callback fired when a time is selected. Defaults to a debug log.
-     * @param {Date} time - The selected time.
-     * @example
-     * clock.eventClick = (time) => { console.log('Selected:', time); };
-     */
-    eventClick(time: Date): void {
-        consoleDebug('Clock.eventClick()', time);
+        this.emit('click', selectedTime);
     }
 }

@@ -244,15 +244,17 @@ describe('Http', () => {
     });
 
     describe('event hooks', () => {
-        it('should call eventBeforeRequest with Xhr before request', () => {
-            const spy = jest.spyOn(http, 'eventBeforeRequest');
+        it('should emit beforeRequest with Xhr before request', () => {
+            const spy = jest.fn();
+            http.on('beforeRequest', spy);
             http.get('/data.json');
             expect(spy).toHaveBeenCalledTimes(1);
             expect(spy).toHaveBeenCalledWith(expect.any(Xhr));
         });
 
-        it('should call eventAfterRequest on success', (done) => {
-            const spy = jest.spyOn(http, 'eventAfterRequest');
+        it('should emit afterRequest on success', (done) => {
+            const spy = jest.fn();
+            http.on('afterRequest', spy);
             const promise = http.get('/data.json');
             const mock = getLastXhr();
 
@@ -264,8 +266,9 @@ describe('Http', () => {
             mock.respond(200, { 'Content-Type': 'application/json' }, {});
         });
 
-        it('should call eventAfterRequest on error', (done) => {
-            const spy = jest.spyOn(http, 'eventAfterRequest');
+        it('should emit afterRequest on error', (done) => {
+            const spy = jest.fn();
+            http.on('afterRequest', spy);
             const promise = http.get('/data.json');
             const mock = getLastXhr();
 
@@ -286,10 +289,10 @@ describe('Http', () => {
             );
         });
 
-        it('should call eventBeforeRequest and eventAfterRequest without error', () => {
-            expect(() => http.eventBeforeRequest({} as any)).not.toThrow();
+        it('should emit beforeRequest and afterRequest without error', () => {
+            expect(() => http.emit('beforeRequest', {} as any)).not.toThrow();
             expect(() =>
-                http.eventAfterRequest({} as any, {} as any, ''),
+                http.emit('afterRequest', {} as any, {} as any, ''),
             ).not.toThrow();
         });
     });

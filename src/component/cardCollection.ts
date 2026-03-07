@@ -5,7 +5,8 @@ import { Objekt } from '../core/objekt';
 import { Query } from '../core/query';
 import { ContentHandler } from './contentHandler';
 import { Pager } from './pager';
-import { consoleDebug, consoleWarn } from '../utils/log';
+import { consoleWarn } from '../utils/log';
+import { Emitter } from '../core/emitter';
 
 /**
  * @description Card-based data display component with template rendering and pagination.
@@ -14,7 +15,7 @@ import { consoleDebug, consoleWarn } from '../utils/log';
  *
  * @example
  * const cards = new CardCollection(containerKnot, '.card-collection', ctrl, { row_count: 12 });
- * cards.eventAction = (params) => http.get('/api/items', params);
+ * cards.on('action', (params) => http.get('/api/items', params));
  * cards.render();
  *
  * @see {@link Pager} for the pagination control
@@ -23,7 +24,7 @@ import { consoleDebug, consoleWarn } from '../utils/log';
  *
  * @category Component
  */
-export class CardCollection {
+export class CardCollection extends Emitter {
     cardCollectionKnot: Knot;
     // eslint-disable-next-line @typescript-eslint/no-explicit-any
     ctrl: any;
@@ -51,6 +52,7 @@ export class CardCollection {
         opt_ctrl: (object | null) | undefined = null,
         opt_options: object | undefined = {},
     ) {
+        super();
         this.cardCollectionKnot = new Query(opt_selector, dom).getKnot();
         this.ctrl = opt_ctrl;
         this._setOptions(opt_options);
@@ -91,9 +93,9 @@ export class CardCollection {
             ['.pager', '.pager-statistics'],
             this.options,
         );
-        this.pager.eventAction = (page) => {
+        this.pager.on('action', (page) => {
             this.refresh(page);
-        };
+        });
     }
 
     /**
@@ -186,7 +188,7 @@ export class CardCollection {
     }
 
     /**
-     * @description Refreshes the card collection by triggering eventAction with current query, sort, and paging params.
+     * @description Refreshes the card collection by emitting the 'action' event with current query, sort, and paging params.
      * @param {number} [opt_page] - Page number to navigate to before refreshing (-1 keeps current page).
      *
      * @example
@@ -203,34 +205,7 @@ export class CardCollection {
             offset: this.pager.offset,
             limit: this.options.row_count,
         });
-        this.eventAction(params);
-    }
-
-    /**
-     * @description Called when data needs to be fetched. Override to load data from a backend.
-     * @param {Objekt} params - Query parameters including query, column, order, offset, and limit.
-     *
-     * @example
-     * cards.eventAction = (params) => {
-     *     http.get('/api/items', params).then((response) => cards.setData(response.items));
-     * };
-     */
-    eventAction(params: Objekt): void {
-        consoleDebug('CardCollection.eventAction()', params);
-    }
-
-    /**
-     * @description Called after each card is rendered. Override to attach event listeners or modify card DOM.
-     * @param {Knot} cardKnot - The rendered card DOM element.
-     * @param {Objekt} item - The data item associated with the card.
-     *
-     * @example
-     * cards.eventCardKnot = (cardKnot, item) => {
-     *     cardKnot.addEventListener('click', () => navigate(item.get('id')));
-     * };
-     */
-    eventCardKnot(cardKnot: Knot, item: Objekt): void {
-        consoleDebug('CardCollection.eventCardKnot()', cardKnot, item);
+        this.emit('action', params);
     }
 
     /**
@@ -240,7 +215,7 @@ export class CardCollection {
     private _addCard(item: Objekt): void {
         const cardKnot = this._getCardKnot(item);
         this.body.appendChild(cardKnot);
-        this.eventCardKnot(cardKnot, item);
+        this.emit('cardKnot', cardKnot, item);
     }
 
     /**

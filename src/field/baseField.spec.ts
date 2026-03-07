@@ -34,8 +34,8 @@ describe('BaseField', () => {
             expect(typeof field.isValid()).toBe('boolean');
         });
 
-        it('should call eventChange without error', () => {
-            expect(() => field.eventChange('a', 'b')).not.toThrow();
+        it('should emit change event without error', () => {
+            expect(() => field.emit('change', 'a', 'b')).not.toThrow();
         });
 
         it('should call render without error', () => {

@@ -2,7 +2,7 @@ import { isNull } from '../utils/operation';
 import { Async } from '../core/async';
 import { Deferred } from '../core/deferred';
 import { Query } from '../core/query';
-import { consoleDebug } from '../utils/log';
+import { Emitter } from '../core/emitter';
 import type { Knot } from '../core';
 
 /**
@@ -12,7 +12,7 @@ import type { Knot } from '../core';
  *
  * @example
  * const tabPanel = new TabPanel(containerKnot, '.tab-panel', 'details');
- * tabPanel.eventChange = (panelId) => loadContent(panelId);
+ * tabPanel.on('change', (panelId) => loadContent(panelId));
  * tabPanel.setActive('settings');
  *
  * @see {@link Async} for the async serial execution pipeline
@@ -20,7 +20,7 @@ import type { Knot } from '../core';
  *
  * @category Component
  */
-export class TabPanel {
+export class TabPanel extends Emitter {
     tabPanel: Knot;
     options: { selected_tab: string; default_tab: string };
     activeTab!: string;
@@ -40,6 +40,7 @@ export class TabPanel {
         opt_selectedTab: string | undefined = '',
         opt_defaultTab: string | undefined = '',
     ) {
+        super();
         this.tabPanel = new Query(opt_selector, dom).getKnot();
         this.options = {
             selected_tab: opt_selectedTab,
@@ -121,17 +122,6 @@ export class TabPanel {
     }
 
     /**
-     * @description Called when the active tab changes. Override to handle tab change events.
-     * @param {string} panelId - The ID of the newly active panel.
-     *
-     * @example
-     * tabPanel.eventChange = (panelId) => loadPanelContent(panelId);
-     */
-    eventChange(panelId: string): void {
-        consoleDebug('TabPanel.eventChange()', panelId);
-    }
-
-    /**
      * @description Activates a tab/panel by ID and fires the eventChange callback asynchronously.
      * @param {string} panelId - The panel ID to activate.
      * @returns {Promize} A promise that resolves after the change event completes.
@@ -147,7 +137,7 @@ export class TabPanel {
             async
                 .serial([
                     () => {
-                        return this.eventChange(this.getActive());
+                        return this.emit('change', this.getActive());
                     },
                 ])
                 .defer(deferred);

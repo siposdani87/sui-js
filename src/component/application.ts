@@ -204,13 +204,13 @@ export class Application {
     private _initModule(): void {
         this._module = new Module();
 
-        this._module.eventAfterInit = () => {
+        this._module.on('afterInit', () => {
             this._instances.progressBar.lock();
             this._instances.loader.show();
             this._instances.eventBus.call('module.afterInit');
-        };
+        });
 
-        this._module.eventStateChange = (currentState) => {
+        this._module.on('stateChange', (currentState) => {
             this._instances.progressBar.lock();
             this._instances.loader.show();
             this._instances.dialog.close();
@@ -218,40 +218,40 @@ export class Application {
             return this._instances.eventBus.call('state.change', [
                 currentState,
             ]);
-        };
+        });
 
-        this._module.eventDomChange = (state, dom) => {
+        this._module.on('domChange', (state, dom) => {
             return this._instances.eventBus.call('dom.change', [state, dom]);
-        };
+        });
 
-        this._module.eventServiceLoaded = () => {
+        this._module.on('serviceLoaded', () => {
             this._instances.browser.detect();
             this._instances.eventBus.call('module.serviceLoaded');
-        };
+        });
 
-        this._module.eventServiceFailed = () => {
+        this._module.on('serviceFailed', () => {
             this._instances.eventBus.call('module.serviceFailed');
-        };
+        });
 
-        this._module.eventModuleLoaded = (state): void => {
+        this._module.on('moduleLoaded', (state): void => {
             this._instances.progressBar.unlock();
             this._instances.loader.hide(true);
             this._instances.eventBus.call('module.loaded', [state]);
-        };
+        });
 
-        this._module.eventModuleFailed = (state): void => {
+        this._module.on('moduleFailed', (state): void => {
             this._instances.progressBar.unlock();
             this._instances.loader.hide(true);
             this._instances.eventBus.call('module.failed', [state]);
-        };
+        });
 
-        this._module.eventControllerLoaded = (dom): void => {
+        this._module.on('controllerLoaded', (dom): void => {
             this._instances.eventBus.call('controller.loaded', [dom]);
-        };
+        });
 
-        this._module.eventControllerFailed = (): void => {
+        this._module.on('controllerFailed', (): void => {
             this._instances.eventBus.call('controller.failed', []);
-        };
+        });
     }
 
     /**
@@ -297,25 +297,24 @@ export class Application {
     private _initGeoLocation(): void {
         this._instances.geoLocation = new GeoLocation();
 
-        this._instances.geoLocation.eventChange = (
-            latitude,
-            longitude,
-            message,
-        ) => {
-            this._instances.eventBus.override(
-                'geoLocation.success',
-                [message],
-                (message: string) => {
-                    this._instances.flash.addInfo(message);
-                },
-            );
-            this._instances.eventBus.call('geoLocation.change', [
-                latitude,
-                longitude,
-            ]);
-        };
+        this._instances.geoLocation.on(
+            'change',
+            (latitude, longitude, message) => {
+                this._instances.eventBus.override(
+                    'geoLocation.success',
+                    [message],
+                    (message: string) => {
+                        this._instances.flash.addInfo(message);
+                    },
+                );
+                this._instances.eventBus.call('geoLocation.change', [
+                    latitude,
+                    longitude,
+                ]);
+            },
+        );
 
-        this._instances.geoLocation.eventError = (message, code) => {
+        this._instances.geoLocation.on('error', (message, code) => {
             this._instances.eventBus.override(
                 'geoLocation.error',
                 [message, code],
@@ -323,7 +322,7 @@ export class Application {
                     this._instances.flash.addError(message);
                 },
             );
-        };
+        });
     }
 
     /**
@@ -379,10 +378,10 @@ export class Application {
     private _initPage(): void {
         const popupContainer = new PopupContainer();
         this._instances.page = new Page();
-        this._instances.page.eventClick = (target, event) => {
+        this._instances.page.on('click', (target, event) => {
             popupContainer.closeAll();
             this._instances.eventBus.call('document.click', [target, event]);
-        };
+        });
     }
 
     /**
@@ -396,7 +395,7 @@ export class Application {
         this._instances.confirm.setSize(width, height);
         this._instances.viewer.setSize(width, height);
 
-        this._instances.screen.eventResize = (width, height, event) => {
+        this._instances.screen.on('resize', (width, height, event) => {
             this._instances.dialog.setSize(width, height);
             this._instances.confirm.setSize(width, height);
             this._instances.viewer.setSize(width, height);
@@ -405,38 +404,33 @@ export class Application {
                 height,
                 event,
             ]);
-        };
+        });
 
-        this._instances.screen.eventOrientationChange = (
-            orientation,
-            width,
-            height,
-            event,
-        ) => {
-            this._instances.dialog.setSize(width, height);
-            this._instances.confirm.setSize(width, height);
-            this._instances.viewer.setSize(width, height);
-            this._instances.eventBus.call('window.orientationChange', [
-                orientation,
-                width,
-                height,
-                event,
-            ]);
-        };
+        this._instances.screen.on(
+            'orientationChange',
+            (orientation, width, height, event) => {
+                this._instances.dialog.setSize(width, height);
+                this._instances.confirm.setSize(width, height);
+                this._instances.viewer.setSize(width, height);
+                this._instances.eventBus.call('window.orientationChange', [
+                    orientation,
+                    width,
+                    height,
+                    event,
+                ]);
+            },
+        );
 
-        this._instances.screen.eventScroll = (scrollTop, event) => {
+        this._instances.screen.on('scroll', (scrollTop, event) => {
             this._instances.eventBus.call('window.scroll', [scrollTop, event]);
-        };
+        });
 
-        this._instances.screen.eventColorSchemeChange = (
-            colorScheme,
-            event,
-        ) => {
+        this._instances.screen.on('colorSchemeChange', (colorScheme, event) => {
             this._instances.eventBus.call('window.colorSchemeChange', [
                 colorScheme,
                 event,
             ]);
-        };
+        });
 
         // eslint-disable-next-line @typescript-eslint/no-explicit-any
         const flash: { node: any; message: string; duration: number } = {
@@ -444,13 +438,13 @@ export class Application {
             message: 'Unable to connect to the Internet',
             duration: Infinity,
         };
-        this._instances.screen.eventOnline = () => {
+        this._instances.screen.on('online', () => {
             if (flash.node) {
                 this._instances.flash.remove(flash.node);
             }
-        };
+        });
 
-        this._instances.screen.eventOffline = (event) => {
+        this._instances.screen.on('offline', (event) => {
             this._instances.eventBus.override(
                 'window.offline',
                 [flash, event],
@@ -462,7 +456,7 @@ export class Application {
                     ].addWarning(flash.message, flash.duration);
                 },
             );
-        };
+        });
     }
 
     /**
@@ -484,14 +478,14 @@ export class Application {
      */
     private _initHttp(): void {
         this._instances.http = new Http(this.options);
-        this._instances.http.eventBeforeRequest = (...params) => {
+        this._instances.http.on('beforeRequest', (...params) => {
             this._instances.progressBar.show();
             this._instances.eventBus.call('http.beforeRequest', params);
-        };
-        this._instances.http.eventAfterRequest = (...params) => {
+        });
+        this._instances.http.on('afterRequest', (...params) => {
             this._instances.eventBus.call('http.afterRequest', params);
             this._instances.progressBar.hide();
-        };
+        });
     }
 
     /**
@@ -501,11 +495,11 @@ export class Application {
         this._instances.template = new Template(this._instances.http, {
             locale: this.getLocale(),
         });
-        this._instances.template.eventError = (message) => {
+        this._instances.template.on('error', (message) => {
             this._instances.state.back();
             this._instances.loader.hide();
             this._instances.flash.addMessage(message);
-        };
+        });
     }
 
     /**
@@ -583,9 +577,9 @@ export class Application {
      */
     private _initBrowser(): void {
         this._instances.browser = new Browser();
-        this._instances.browser.eventMissingFeatures = (features) => {
+        this._instances.browser.on('missingFeatures', (features) => {
             this._instances.flash.addError(features.join(', '));
-        };
+        });
     }
 
     /**

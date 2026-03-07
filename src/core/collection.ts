@@ -7,6 +7,7 @@ import {
     eq,
     eachArray,
 } from '../utils/operation';
+import { Emitter } from './emitter';
 import { Objekt } from './objekt';
 
 /**
@@ -45,7 +46,7 @@ export type CollectionType<T> = new (...args: any[]) => T;
  * @see {@link Objekt}
  * @category Core
  */
-export class Collection<T extends object = object> {
+export class Collection<T extends object = object> extends Emitter {
     Type: CollectionType<T>;
     items: T[];
     options!: Objekt;
@@ -77,6 +78,7 @@ export class Collection<T extends object = object> {
         opt_type: CollectionType<T> = Objekt as unknown as CollectionType<T>,
         opt_options: object = {},
     ) {
+        super();
         this.Type = opt_type;
         this._setOptions(opt_options);
         this.items = [];

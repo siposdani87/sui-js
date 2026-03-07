@@ -14,8 +14,9 @@ import { sui } from '../utils/render';
  * and `'choice'`. The `'choice'` type applies primary styling to the
  * cancel button as well, indicating both options are equally valid.
  *
- * After calling `load()`, set `eventOK` and optionally `eventCancel`
- * callbacks before calling `open()` to display the confirmation.
+ * After calling `load()`, register `on('ok', ...)` and optionally
+ * `on('cancel', ...)` handlers before calling `open()` to display
+ * the confirmation.
  *
  * @example
  * const confirm = new Confirm();
@@ -26,7 +27,7 @@ import { sui } from '../utils/render';
  *     'Confirm Deletion',
  *     'warning',
  * );
- * confirm.eventOK = () => deleteItem(itemId);
+ * confirm.on('ok', () => deleteItem(itemId));
  * confirm.open();
  *
  * @example
@@ -38,8 +39,8 @@ import { sui } from '../utils/render';
  *     'Save Options',
  *     'choice',
  * );
- * confirm.eventOK = () => publish();
- * confirm.eventCancel = () => saveDraft();
+ * confirm.on('ok', () => publish());
+ * confirm.on('cancel', () => saveDraft());
  * confirm.open();
  *
  * @see {@link BaseModal}
@@ -98,8 +99,9 @@ export class Confirm extends BaseModal {
      * in the body, and creates OK and optional Cancel buttons in the
      * footer.
      *
-     * The caller should set `eventOK` and `eventCancel` callbacks after
-     * calling this method, then call `open()` to display the dialog.
+     * The caller should register `on('ok', ...)` and `on('cancel', ...)`
+     * handlers after calling this method, then call `open()` to display
+     * the dialog.
      *
      * @param message The HTML message content to display in the dialog
      *     body.
@@ -114,7 +116,7 @@ export class Confirm extends BaseModal {
      *
      * @example
      * confirm.load('Discard unsaved changes?', 'Discard', 'Keep Editing');
-     * confirm.eventOK = () => discardChanges();
+     * confirm.on('ok', () => discardChanges());
      * confirm.open();
      */
     load(

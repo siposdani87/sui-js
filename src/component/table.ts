@@ -16,7 +16,7 @@ import { ContentHandler } from './contentHandler';
 import { Dropdown } from './dropdown';
 import { Pager } from './pager';
 import { Tooltip } from './tooltip';
-import { consoleDebug } from '../utils/log';
+import { Emitter } from '../core/emitter';
 import { generateId } from '../utils/coder';
 import type { Action } from '../utils';
 import { sui } from '../utils/render';
@@ -54,12 +54,12 @@ export type TableCalculation<T = Objekt> = {
  * table.setActions([
  *     { style: (item) => ['edit', 'Edit'], click: (item) => editUser(item) },
  * ]);
- * table.eventAction = (params) => {
+ * table.on('action', (params) => {
  *     http.get('/api/users', params).then((response) => {
  *         table.setData(response.get('items'));
  *         table.setCount(response.get('count'));
  *     });
- * };
+ * });
  * table.render();
  *
  * @see {@link Pager} for pagination controls
@@ -69,7 +69,7 @@ export type TableCalculation<T = Objekt> = {
  *
  * @category Component
  */
-export class Table<T extends Objekt = Objekt> {
+export class Table<T extends Objekt = Objekt> extends Emitter {
     tableKnot: Knot;
     options!: Objekt;
     collection!: Collection<T>;
@@ -94,6 +94,7 @@ export class Table<T extends Objekt = Objekt> {
         opt_selector: string | undefined = 'table',
         opt_options: object | undefined = {},
     ) {
+        super();
         this.tableKnot = new Query(opt_selector, dom).getKnot();
         this._setOptions(opt_options);
         this._init();
@@ -293,13 +294,13 @@ export class Table<T extends Objekt = Objekt> {
             ['.pager', '.pager-statistics'],
             this.options,
         );
-        this.pager.eventAction = (page) => {
+        this.pager.on('action', (page) => {
             this.refresh(page);
-        };
+        });
     }
 
     /**
-     * @description Refreshes the table data by triggering {@link eventAction} with the current
+     * @description Refreshes the table data by emitting the 'action' event with the current
      * query, sorting, and paging parameters.
      *
      * @param {number} [opt_page=-1] - The page number to navigate to. Pass -1 to keep the current page.
@@ -318,15 +319,7 @@ export class Table<T extends Objekt = Objekt> {
             offset: this.pager.offset,
             limit: this.options.row_count,
         });
-        this.eventAction(params);
-    }
-
-    /**
-     * @description Called when the table needs data (on refresh, sort, page, or search). Override to fetch data.
-     * @param {Objekt} params - Contains query, column, order, offset, and limit.
-     */
-    eventAction(params: Objekt): void {
-        consoleDebug('Table.eventAction()', params);
+        this.emit('action', params);
     }
 
     /**

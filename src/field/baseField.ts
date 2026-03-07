@@ -4,6 +4,7 @@ import { Query } from '../core/query';
 import { Tooltip } from '../component/tooltip';
 import { sui } from '../utils/render';
 import { consoleDebug } from '../utils/log';
+import { Emitter } from '../core/emitter';
 import type { Form } from '../component';
 
 /**
@@ -15,11 +16,17 @@ import type { Form } from '../component';
  * const textField = new TextField(inputKnot, labelKnot, errorKnot, inputBlockKnot);
  * textField.setValue('Hello');
  * textField.checkValidity();
+ * textField.on('change', (value, prev) => {
+ *     console.log('Changed from', prev, 'to', value);
+ * });
+ * textField.on('click', (knot) => {
+ *     console.log('Field clicked', knot);
+ * });
  * @see {@link Form}
  * @see {@link Tooltip}
  * @see {@link Knot}
  */
-export class BaseField<T extends HTMLInputElement> {
+export class BaseField<T extends HTMLInputElement> extends Emitter {
     input: Knot<T>;
     label: Knot;
     error: Knot;
@@ -45,6 +52,7 @@ export class BaseField<T extends HTMLInputElement> {
         opt_inputBlock?: Knot | undefined,
         opt_form?: Form | undefined,
     ) {
+        super();
         this.input = input;
         this.label = opt_label!;
         this.error = opt_error!;
@@ -65,32 +73,6 @@ export class BaseField<T extends HTMLInputElement> {
         this._setActionContainer();
         this._setMutation();
         this._setAdditionalLabel(this.label);
-    }
-
-    /**
-     * @description Called when the field value changes. Override in subclasses to handle change events.
-     * @param {*} value - The new field value.
-     * @param {*} previousValue - The previous field value.
-     * @example
-     * field.eventChange = (value, previousValue) => {
-     *     console.log('Changed from', previousValue, 'to', value);
-     * };
-     */
-    // eslint-disable-next-line @typescript-eslint/no-explicit-any
-    eventChange(value: any, previousValue: any) {
-        consoleDebug('BaseField.eventChange()', value, previousValue);
-    }
-
-    /**
-     * @description Called when the field is clicked. Override in subclasses to handle click events.
-     * @param {Knot} knot - The clicked knot element.
-     * @example
-     * field.eventClick = (knot) => {
-     *     console.log('Field clicked', knot);
-     * };
-     */
-    eventClick(knot: Knot): void {
-        consoleDebug('Button.eventClick()', knot);
     }
 
     /**

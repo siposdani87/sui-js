@@ -1,7 +1,7 @@
 import { Objekt } from '../core';
 import { Knot } from '../core/knot';
 import { DateIO } from '../utils';
-import { consoleDebug } from '../utils/log';
+import { Emitter } from '../core/emitter';
 import { Day } from './day';
 import { Month } from './month';
 import { Year } from './year';
@@ -11,7 +11,7 @@ import { Year } from './year';
  * @example
  * const calendarKnot = new Knot('div');
  * const calendar = new Calendar(calendarKnot, { date: new Date(), type: 'date' });
- * calendar.eventClick = (date) => { console.log(date); };
+ * calendar.on('click', (date) => { console.log(date); });
  * calendar.draw();
  * @see {@link Day}
  * @see {@link Month}
@@ -19,7 +19,7 @@ import { Year } from './year';
  * @see {@link DateIO}
  * @category Component
  */
-export class Calendar {
+export class Calendar extends Emitter {
     calendarKnot: Knot;
     options!: Objekt;
     maxDays!: number;
@@ -55,6 +55,7 @@ export class Calendar {
      * const calendar = new Calendar(new Knot('div'), { date: new Date(), type: 'date' });
      */
     constructor(knot: Knot, options: object) {
+        super();
         this.calendarKnot = knot;
         this._setOptions(options);
         this._init();
@@ -382,7 +383,7 @@ export class Calendar {
                 this.selectedDate,
                 {},
             );
-            month.eventClick = this._onClick.bind(this);
+            month.on('click', this._onClick.bind(this));
             const monthKnot = month.getKnot();
             this.monthsKnot.appendChild(monthKnot);
         }
@@ -402,7 +403,7 @@ export class Calendar {
                 this.selectedDate,
                 {},
             );
-            year.eventClick = this._onClick.bind(this);
+            year.on('click', this._onClick.bind(this));
             const yearKnot = year.getKnot();
             this.yearsKnot.appendChild(yearKnot);
         }
@@ -448,7 +449,7 @@ export class Calendar {
             const day = new Day(date, this.selectedDate, {
                 css_class: 'previous-month',
             });
-            day.eventClick = this._onClick.bind(this);
+            day.on('click', this._onClick.bind(this));
             this.days.push(day);
         }
     }
@@ -463,7 +464,7 @@ export class Calendar {
             const day = new Day(date, this.selectedDate, {
                 css_class: 'current-month',
             });
-            day.eventClick = this._onClick.bind(this);
+            day.on('click', this._onClick.bind(this));
             this.days.push(day);
         }
     }
@@ -478,7 +479,7 @@ export class Calendar {
             const day = new Day(date, this.selectedDate, {
                 css_class: 'next-month',
             });
-            day.eventClick = this._onClick.bind(this);
+            day.on('click', this._onClick.bind(this));
             this.days.push(day);
         }
     }
@@ -517,7 +518,7 @@ export class Calendar {
             this._changeMode(1);
         }
         this.draw();
-        this.eventClick(selectedDate);
+        this.emit('click', selectedDate);
     }
 
     /**
@@ -526,15 +527,5 @@ export class Calendar {
      */
     private _setSelectedDate(date: Date): void {
         this.selectedDate = date;
-    }
-
-    /**
-     * @description Overridable callback fired when a date is selected. Defaults to a debug log.
-     * @param {Date} date - The selected date.
-     * @example
-     * calendar.eventClick = (date) => { console.log('Selected:', date); };
-     */
-    eventClick(date: Date): void {
-        consoleDebug('Calendar.eventClick()', date);
     }
 }

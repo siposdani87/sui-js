@@ -57,26 +57,26 @@ describe('State Routing Integration', () => {
         expect(previous).toBe('home');
     });
 
-    it('should fire eventChange on go()', () => {
+    it('should fire change event on go()', () => {
         const spy = jest.fn();
-        state.eventChange = spy;
+        state.on('change', spy);
         state.go('users');
         expect(spy).toHaveBeenCalled();
         const [currentState] = spy.mock.calls[0];
         expect(currentState.get('id')).toBe('users');
     });
 
-    it('should fire eventChange on run()', () => {
+    it('should fire change event on run()', () => {
         const spy = jest.fn();
-        state.eventChange = spy;
+        state.on('change', spy);
         state.run();
         expect(spy).toHaveBeenCalled();
     });
 
-    it('should fire eventChange on refresh()', () => {
+    it('should fire change event on refresh()', () => {
         state.go('home', undefined, true);
         const spy = jest.fn();
-        state.eventChange = spy;
+        state.on('change', spy);
         state.refresh();
         expect(spy).toHaveBeenCalled();
     });
@@ -90,7 +90,7 @@ describe('State Routing Integration', () => {
     it('should navigate to root state via goRoot()', () => {
         state.go('users', undefined, true);
         const spy = jest.fn();
-        state.eventChange = spy;
+        state.on('change', spy);
         state.goRoot();
         const current = state.getCurrent<string>('id');
         expect(current).toBe('home');
@@ -111,16 +111,16 @@ describe('State Routing Integration', () => {
 
     it('should overwrite history when opt_overwrite is true', () => {
         const spy = jest.fn();
-        state.eventChange = spy;
+        state.on('change', spy);
         state.go('users', undefined, true);
-        // When overwriting, eventChange is NOT called
+        // When overwriting, change event is NOT emitted
         expect(spy).not.toHaveBeenCalled();
     });
 
-    it('should force eventChange when opt_force is true', () => {
+    it('should force change event when opt_force is true', () => {
         state.go('users', undefined, true);
         const spy = jest.fn();
-        state.eventChange = spy;
+        state.on('change', spy);
         state.go('users', undefined, false, true);
         expect(spy).toHaveBeenCalled();
         const [, , force] = spy.mock.calls[0];

@@ -42,7 +42,7 @@ export class Button extends BaseField<HTMLInputElement> {
         ]);
 
         this.input.addEventListener('click', (knot) => {
-            this.eventClick(knot);
+            this.emit('click', knot);
         });
 
         this.refresh();

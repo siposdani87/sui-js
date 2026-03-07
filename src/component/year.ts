@@ -1,18 +1,19 @@
 import { Objekt } from '../core';
 import { Knot } from '../core/knot';
+import { Emitter } from '../core/emitter';
 import { DateIO } from '../utils';
-import { consoleDebug } from '../utils/log';
 
 /**
  * @description Represents a single year cell in the {@link Calendar}'s year-selection mode, with CSS classes for current and now states.
  * @example
  * const year = new Year(new Date(), selectedDate, {});
+ * year.on('click', (date) => { console.log('Clicked:', date); });
  * const knot = year.getKnot();
  * @see {@link Calendar}
  * @see {@link DateIO}
  * @category Component
  */
-export class Year {
+export class Year extends Emitter {
     date: Date;
     currentDate: Date;
     options!: Objekt;
@@ -27,6 +28,7 @@ export class Year {
      * const year = new Year(new Date(2024, 0, 1), selectedDate, {});
      */
     constructor(date: Date, currentDate: Date, options: object) {
+        super();
         this.date = date;
         this.currentDate = currentDate;
         this._setOptions(options);
@@ -71,19 +73,9 @@ export class Year {
         const text = DateIO.format(this.date, 'YYYY');
         knot.setHtml(text);
         knot.addEventListener('click', () => {
-            this.eventClick(this.date);
+            this.emit('click', this.date);
         });
 
         return knot;
-    }
-
-    /**
-     * @description Overridable callback fired when this year cell is clicked. Defaults to a debug log.
-     * @param {Date} date - The date of the clicked year.
-     * @example
-     * year.eventClick = (date) => { console.log('Clicked:', date); };
-     */
-    eventClick(date: Date) {
-        consoleDebug('Year.eventClick()', date);
     }
 }

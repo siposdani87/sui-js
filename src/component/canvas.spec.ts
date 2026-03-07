@@ -231,17 +231,16 @@ describe('Canvas', () => {
         });
     });
 
-    describe('eventMouseMove', () => {
-        it('should be callable and log debug output', () => {
+    describe('mouseMove event', () => {
+        it('should emit mouseMove event without error', () => {
             const canvas = new Canvas();
-            expect(() => canvas.eventMouseMove(10, 20)).not.toThrow();
+            expect(() => canvas.emit('mouseMove', 10, 20)).not.toThrow();
         });
-    });
 
-    describe('mousemove event', () => {
-        it('should call eventMouseMove on mousemove', () => {
+        it('should emit mouseMove on mousemove', () => {
             const canvas = new Canvas();
-            const spy = jest.spyOn(canvas, 'eventMouseMove');
+            const spy = jest.fn();
+            canvas.on('mouseMove', spy);
             const canvasEl = canvas.canvasElement;
 
             canvasEl.getBoundingClientRect = jest.fn(() => ({

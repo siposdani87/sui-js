@@ -1,7 +1,7 @@
 import type { Knot } from '../core';
 import { Objekt } from '../core/objekt';
 import { Query } from '../core/query';
-import { consoleDebug } from '../utils/log';
+import { Emitter } from '../core/emitter';
 
 /**
  * Application header bar that manages branding (logo image, title, URL),
@@ -11,8 +11,12 @@ import { consoleDebug } from '../utils/log';
  * The header is bound to the `#header` DOM element and adjusts padding
  * on the main container and template view when shown or hidden.
  *
+ * Register event handlers using the `on()` method inherited from
+ * {@link Emitter}. Supported events: `'logoClick'`.
+ *
  * @see {@link TopMenu}
  * @see {@link LeftMenu}
+ * @see {@link Emitter}
  * @category Module
  *
  * @example
@@ -21,7 +25,7 @@ import { consoleDebug } from '../utils/log';
  * header.setImage('/assets/logo.png');
  * header.show();
  */
-export class Header {
+export class Header extends Emitter {
     options!: Objekt;
     headerKnot!: Knot;
     leftMenuButton!: Knot;
@@ -40,6 +44,7 @@ export class Header {
      *     merged into defaults.
      */
     constructor(opt_options: object | undefined = {}) {
+        super();
         this._setOptions(opt_options);
         this._init();
     }
@@ -73,7 +78,7 @@ export class Header {
         this.brandKnot = new Query('.brand', this.headerKnot).getKnot();
         this.brandKnot.setAttribute('href', '#');
         this.brandKnot.addEventListener('click', () => {
-            this.eventLogoClick();
+            this.emit('logoClick');
         });
 
         this.brandKnotImage = new Query('.brand img', this.brandKnot).getKnot();
@@ -84,20 +89,6 @@ export class Header {
 
         this.mainContainerKnot = new Query('.main-container').getKnot();
         this.templateViewKnot = new Query('.template-view').getKnot();
-    }
-
-    /**
-     * Overridable hook called when the logo/brand element is clicked.
-     * The default implementation logs a debug message; override this
-     * method to implement custom navigation behavior.
-     *
-     * @example
-     * header.eventLogoClick = () => {
-     *     router.navigate('/home');
-     * };
-     */
-    eventLogoClick(): void {
-        consoleDebug('Header.eventLogoClick()');
     }
 
     /**

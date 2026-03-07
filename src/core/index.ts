@@ -6,6 +6,7 @@
  */
 export * from './async';
 export * from './collection';
+export * from './emitter';
 export * from './deferred';
 export * from './knot';
 export * from './module';

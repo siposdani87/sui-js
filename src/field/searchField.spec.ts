@@ -42,10 +42,10 @@ describe('SearchField', () => {
         expect(searchField.getValue()).toBe('test query');
     });
 
-    it('should call eventEnter on Enter key', () => {
+    it('should emit enter event on Enter key', () => {
         searchField.render();
         const enterSpy = jest.fn();
-        searchField.eventEnter = enterSpy;
+        searchField.on('enter', enterSpy);
         const inputNode = searchField.input.getNode();
         inputNode.value = 'search term';
         inputNode.dispatchEvent(new KeyboardEvent('keyup', { key: 'Enter' }));

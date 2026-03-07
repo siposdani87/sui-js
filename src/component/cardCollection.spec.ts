@@ -51,11 +51,12 @@ describe('CardCollection', () => {
     });
 
     describe('render', () => {
-        it('should call eventAction on render', () => {
+        it('should emit action on render', () => {
             const container = createCardCollectionDOM();
             const knot = new Knot(container);
             cardCollection = new CardCollection(knot);
-            const spy = jest.spyOn(cardCollection, 'eventAction');
+            const spy = jest.fn();
+            cardCollection.on('action', spy);
             cardCollection.render();
             expect(spy).toHaveBeenCalled();
         });
@@ -64,7 +65,8 @@ describe('CardCollection', () => {
             const container = createCardCollectionDOM();
             const knot = new Knot(container);
             cardCollection = new CardCollection(knot);
-            const spy = jest.spyOn(cardCollection, 'eventAction');
+            const spy = jest.fn();
+            cardCollection.on('action', spy);
             cardCollection.render();
             const params = spy.mock.calls[0][0];
             expect(params.get('offset')).toBeDefined();
@@ -73,11 +75,12 @@ describe('CardCollection', () => {
     });
 
     describe('refresh', () => {
-        it('should call eventAction', () => {
+        it('should emit action', () => {
             const container = createCardCollectionDOM();
             const knot = new Knot(container);
             cardCollection = new CardCollection(knot);
-            const spy = jest.spyOn(cardCollection, 'eventAction');
+            const spy = jest.fn();
+            cardCollection.on('action', spy);
             cardCollection.refresh();
             expect(spy).toHaveBeenCalled();
         });
@@ -132,11 +135,12 @@ describe('CardCollection', () => {
             expect(bodyNode.childNodes.length).toBe(2);
         });
 
-        it('should call eventCardKnot for each card', () => {
+        it('should emit cardKnot for each card', () => {
             const container = createCardCollectionDOM();
             const knot = new Knot(container);
             cardCollection = new CardCollection(knot);
-            const spy = jest.spyOn(cardCollection, 'eventCardKnot');
+            const spy = jest.fn();
+            cardCollection.on('cardKnot', spy);
             cardCollection.setData([{ id: 'a', name: 'Alpha' }]);
             expect(spy).toHaveBeenCalledTimes(1);
         });

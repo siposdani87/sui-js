@@ -2,7 +2,6 @@ import { typeCast, isNull } from '../utils/operation';
 import { BaseField } from './baseField';
 import { GoogleMap } from '../component/googleMap';
 import { Knot } from '../core/knot';
-import { consoleDebug } from '../utils/log';
 import { generateId } from '../utils/coder';
 import type { IconOptions } from '../utils';
 import { sui } from '../utils/render';
@@ -16,7 +15,7 @@ import { sui } from '../utils/render';
  * const input = new Query<HTMLInputElement>('input.location', formKnot).getKnot();
  * const field = new LocationField(input, label, error, inputBlock);
  * field.render();
- * field.eventSearch = (address) => field.search(address);
+ * field.on('search', (address) => field.search(address));
  *
  * @see {@link BaseField}
  * @see {@link GoogleMap}
@@ -67,7 +66,7 @@ export class LocationField extends BaseField<HTMLInputElement> {
             const inputNode = input.getNode();
 
             if (event.key === 'Enter') {
-                this.eventSearch(inputNode.value);
+                this.emit('search', inputNode.value);
             } else {
                 input.trigger('change');
             }
@@ -108,7 +107,7 @@ export class LocationField extends BaseField<HTMLInputElement> {
         searchButton.addEventListener('click', () => {
             if (this.isEnabled()) {
                 const inputNode = this.input.getNode();
-                this.eventSearch(inputNode.value);
+                this.emit('search', inputNode.value);
             }
         });
         this.actionContainerKnot.appendChild(searchButton);
@@ -296,15 +295,15 @@ export class LocationField extends BaseField<HTMLInputElement> {
             draggable: true,
         });
         this.map.setMarkerIcon('marker', this.icon);
-        this.map.eventMapClick = (latitude, longitude) => {
+        this.map.on('mapClick', (latitude, longitude) => {
             this.updatePosition(latitude, longitude);
-        };
-        this.map.eventMarkerRightClick = () => {
+        });
+        this.map.on('markerRightClick', () => {
             this.updatePosition(null, null);
-        };
-        this.map.eventMarkerChanged = (_data, latitude, longitude) => {
+        });
+        this.map.on('markerChanged', (_data, latitude, longitude) => {
             this.updatePosition(latitude, longitude);
-        };
+        });
     }
 
     /**
@@ -442,15 +441,5 @@ export class LocationField extends BaseField<HTMLInputElement> {
     override getValue(): any {
         const value = this.input.getData('value');
         return typeCast(value);
-    }
-
-    /**
-     * Overridable event callback invoked when the user triggers an address
-     * search via Enter key or the search button.
-     *
-     * @param address The address string entered by the user.
-     */
-    eventSearch(address: string): void {
-        consoleDebug('Location.eventSearch()', address);
     }
 }

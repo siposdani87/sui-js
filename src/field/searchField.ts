@@ -1,13 +1,12 @@
 import { BaseField } from './baseField';
 import { Knot } from '../core/knot';
-import { consoleDebug } from '../utils/log';
 
 /**
  * @description Expandable search input field with clear button and enter key handling.
  *
  * @example
  * const searchField = new SearchField(inputKnot, labelKnot, errorKnot, inputBlockKnot);
- * searchField.eventEnter = (value) => { console.log('Search:', value); };
+ * searchField.on('enter', (value) => { console.log('Search:', value); });
  * searchField.render();
  *
  * @see {@link BaseField}
@@ -42,7 +41,7 @@ export class SearchField extends BaseField<HTMLInputElement> {
             const inputNode = input.getNode();
             this.modelChange(inputNode.value);
             if (event.key === 'Enter') {
-                this.eventEnter(inputNode.value);
+                this.emit('enter', inputNode.value);
             }
             return true;
         });
@@ -105,17 +104,9 @@ export class SearchField extends BaseField<HTMLInputElement> {
             if (this.isEnabled()) {
                 this.inputBlock.removeClass(['is-dirty', 'is-focused']);
                 this.setValue('');
-                this.eventEnter('');
+                this.emit('enter', '');
             }
         });
         this.holderKnot.appendChild(clearButton);
-    }
-
-    /**
-     * @description Called when the user presses Enter or clears the search field. Override to handle search submission.
-     * @param {string} value - The current search input value.
-     */
-    eventEnter(value: string): void {
-        consoleDebug('Search.eventEnter()', value);
     }
 }

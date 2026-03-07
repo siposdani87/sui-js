@@ -510,61 +510,75 @@ describe('GoogleMap', () => {
             googleMap = createGoogleMap();
         });
 
-        it('should have eventMapClick handler', () => {
-            expect(() => googleMap.eventMapClick(47.6, 17.5, {})).not.toThrow();
-        });
-
-        it('should have eventMapTypeChange handler', () => {
+        it('should not throw when emitting mapClick with no listeners', () => {
             expect(() =>
-                googleMap.eventMapTypeChange('satellite', {}),
+                googleMap.emit('mapClick', 47.6, 17.5, {}),
             ).not.toThrow();
         });
 
-        it('should have eventMarkerClick handler', () => {
+        it('should not throw when emitting mapTypeChange with no listeners', () => {
             expect(() =>
-                googleMap.eventMarkerClick(new Objekt(), {}),
+                googleMap.emit('mapTypeChange', 'satellite', {}),
             ).not.toThrow();
         });
 
-        it('should have eventMarkerDoubleClick handler', () => {
+        it('should not throw when emitting markerClick with no listeners', () => {
             expect(() =>
-                googleMap.eventMarkerDoubleClick(new Objekt(), {}),
+                googleMap.emit('markerClick', new Objekt(), {}),
             ).not.toThrow();
         });
 
-        it('should have eventMarkerRightClick handler', () => {
+        it('should not throw when emitting markerDoubleClick with no listeners', () => {
             expect(() =>
-                googleMap.eventMarkerRightClick(new Objekt(), {}),
+                googleMap.emit('markerDoubleClick', new Objekt(), {}),
             ).not.toThrow();
         });
 
-        it('should have eventMarkerChanged handler', () => {
+        it('should not throw when emitting markerRightClick with no listeners', () => {
             expect(() =>
-                googleMap.eventMarkerChanged(new Objekt(), 47.6, 17.5, {}),
+                googleMap.emit('markerRightClick', new Objekt(), {}),
             ).not.toThrow();
         });
 
-        it('should have eventPolygonClick handler', () => {
+        it('should not throw when emitting markerChanged with no listeners', () => {
             expect(() =>
-                googleMap.eventPolygonClick(new Objekt(), 47.6, 17.5, {}),
+                googleMap.emit('markerChanged', new Objekt(), 47.6, 17.5, {}),
             ).not.toThrow();
         });
 
-        it('should have eventPolygonDoubleClick handler', () => {
+        it('should not throw when emitting polygonClick with no listeners', () => {
             expect(() =>
-                googleMap.eventPolygonDoubleClick(new Objekt(), 47.6, 17.5, {}),
+                googleMap.emit('polygonClick', new Objekt(), 47.6, 17.5, {}),
             ).not.toThrow();
         });
 
-        it('should have eventPolygonRightClick handler', () => {
+        it('should not throw when emitting polygonDoubleClick with no listeners', () => {
             expect(() =>
-                googleMap.eventPolygonRightClick(new Objekt(), 47.6, 17.5, {}),
+                googleMap.emit(
+                    'polygonDoubleClick',
+                    new Objekt(),
+                    47.6,
+                    17.5,
+                    {},
+                ),
             ).not.toThrow();
         });
 
-        it('should have eventPolygonChanged handler', () => {
+        it('should not throw when emitting polygonRightClick with no listeners', () => {
             expect(() =>
-                googleMap.eventPolygonChanged(new Objekt(), []),
+                googleMap.emit(
+                    'polygonRightClick',
+                    new Objekt(),
+                    47.6,
+                    17.5,
+                    {},
+                ),
+            ).not.toThrow();
+        });
+
+        it('should not throw when emitting polygonChanged with no listeners', () => {
+            expect(() =>
+                googleMap.emit('polygonChanged', new Objekt(), []),
             ).not.toThrow();
         });
     });

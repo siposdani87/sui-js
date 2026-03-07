@@ -352,13 +352,13 @@ describe('Table', () => {
             expect(icons.length).toBe(1);
         });
 
-        it('should call eventAction on sortable column click', () => {
+        it('should emit action on sortable column click', () => {
             const table = createTable({
                 columns: ['username', 'actions'],
                 sorted: ['username'],
             });
             const eventActionSpy = jest.fn();
-            table.eventAction = eventActionSpy;
+            table.on('action', eventActionSpy);
 
             const firstTh = table.tableKnot.getNode().querySelector('thead th');
             firstTh?.dispatchEvent(new Event('click'));
@@ -374,7 +374,7 @@ describe('Table', () => {
                 sorted: ['username'],
             });
             const eventActionSpy = jest.fn();
-            table.eventAction = eventActionSpy;
+            table.on('action', eventActionSpy);
 
             const firstTh = table.tableKnot.getNode().querySelector('thead th');
 
@@ -392,7 +392,7 @@ describe('Table', () => {
                 columns: ['username', 'actions'],
                 sorted: ['username'],
             });
-            table.eventAction = jest.fn();
+            table.on('action', jest.fn());
 
             const firstTh = table.tableKnot.getNode().querySelector('thead th');
             firstTh?.dispatchEvent(new Event('click'));
@@ -430,7 +430,7 @@ describe('Table', () => {
                 columns: ['username', 'search'],
             });
             const eventActionSpy = jest.fn();
-            table.eventAction = eventActionSpy;
+            table.on('action', eventActionSpy);
 
             const searchInput = table.tableKnot
                 .getNode()
@@ -446,10 +446,10 @@ describe('Table', () => {
     });
 
     describe('refresh', () => {
-        it('should call eventAction with query params', () => {
+        it('should emit action with query params', () => {
             const table = createTable();
             const eventActionSpy = jest.fn();
-            table.eventAction = eventActionSpy;
+            table.on('action', eventActionSpy);
 
             table.refresh();
 
@@ -462,7 +462,7 @@ describe('Table', () => {
         it('should set page on pager when page > -1', () => {
             const table = createTable();
             const setPageSpy = jest.spyOn(table.pager, 'setPage');
-            table.eventAction = jest.fn();
+            table.on('action', jest.fn());
 
             table.refresh(2);
 
@@ -472,7 +472,7 @@ describe('Table', () => {
         it('should not set page when page is -1', () => {
             const table = createTable();
             const setPageSpy = jest.spyOn(table.pager, 'setPage');
-            table.eventAction = jest.fn();
+            table.on('action', jest.fn());
 
             table.refresh();
 
@@ -481,13 +481,13 @@ describe('Table', () => {
     });
 
     describe('render', () => {
-        it('should call eventAction via updateSorting', () => {
+        it('should emit action via updateSorting', () => {
             const table = createTable({
                 columns: ['username', 'actions'],
                 sorted: ['username'],
             });
             const eventActionSpy = jest.fn();
-            table.eventAction = eventActionSpy;
+            table.on('action', eventActionSpy);
 
             table.render();
 
@@ -520,10 +520,10 @@ describe('Table', () => {
         });
     });
 
-    describe('eventAction default', () => {
-        it('should not throw when eventAction is called with default', () => {
+    describe('emit action default', () => {
+        it('should not throw when action is emitted with no listeners', () => {
             const table = createTable();
-            expect(() => table.eventAction(new Objekt())).not.toThrow();
+            expect(() => table.emit('action', new Objekt())).not.toThrow();
         });
     });
 

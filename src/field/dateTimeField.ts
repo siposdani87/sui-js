@@ -83,9 +83,9 @@ export class DateTimeField extends BaseField<HTMLInputElement> {
             value,
             type,
         });
-        this.datetime.eventClick = (value) => {
+        this.datetime.on('click', (value) => {
             this.setValue(value);
-        };
+        });
 
         this.input.addEventListener('change', () => {
             const currentValue = this.getValue().toString();
@@ -95,9 +95,9 @@ export class DateTimeField extends BaseField<HTMLInputElement> {
         });
 
         this.popup = new Popup(this.datetimeKnot, this.inputBlock);
-        this.popup.eventClose = () => {
+        this.popup.on('close', () => {
             this.datetimeInput.removeClass('active');
-        };
+        });
 
         if (value) {
             const formattedValue = this.datetime.getFormattedValue();

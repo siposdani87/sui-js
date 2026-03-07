@@ -56,7 +56,7 @@ describe('State', () => {
     describe('go', () => {
         it('should navigate to a route by ID', () => {
             const eventChangeSpy = jest.fn();
-            state.eventChange = eventChangeSpy;
+            state.on('change', eventChangeSpy);
 
             state.go('users');
 
@@ -66,7 +66,7 @@ describe('State', () => {
 
         it('should navigate with params', () => {
             const eventChangeSpy = jest.fn();
-            state.eventChange = eventChangeSpy;
+            state.on('change', eventChangeSpy);
 
             state.go('user', { id: 42 });
 
@@ -75,7 +75,7 @@ describe('State', () => {
 
         it('should navigate by path string', () => {
             const eventChangeSpy = jest.fn();
-            state.eventChange = eventChangeSpy;
+            state.on('change', eventChangeSpy);
 
             state.go('/users');
 
@@ -96,7 +96,7 @@ describe('State', () => {
                 root: { id: 'home', params: undefined },
             });
             const eventChangeSpy = jest.fn();
-            stateWithRoot.eventChange = eventChangeSpy;
+            stateWithRoot.on('change', eventChangeSpy);
 
             stateWithRoot.goRoot();
 
@@ -114,7 +114,7 @@ describe('State', () => {
     describe('refresh', () => {
         it('should trigger change event', () => {
             const eventChangeSpy = jest.fn();
-            state.eventChange = eventChangeSpy;
+            state.on('change', eventChangeSpy);
 
             state.refresh();
 
@@ -123,7 +123,7 @@ describe('State', () => {
 
         it('should pass force flag', () => {
             const eventChangeSpy = jest.fn();
-            state.eventChange = eventChangeSpy;
+            state.on('change', eventChangeSpy);
 
             state.refresh(true);
 
@@ -138,7 +138,7 @@ describe('State', () => {
     describe('setParam / getParam / getParams', () => {
         it('should set and get params after navigation', () => {
             const eventChangeSpy = jest.fn();
-            state.eventChange = eventChangeSpy;
+            state.on('change', eventChangeSpy);
 
             state.go('search');
             state.setParam('q', 'hello');
@@ -148,7 +148,7 @@ describe('State', () => {
 
         it('should return default value for missing param', () => {
             const eventChangeSpy = jest.fn();
-            state.eventChange = eventChangeSpy;
+            state.on('change', eventChangeSpy);
             state.go('home');
             expect(state.getParam('missing', 'default')).toBe('default');
         });

@@ -39,9 +39,10 @@ describe('TabPanel', () => {
         });
     });
 
-    describe('eventChange', () => {
-        it('should call eventChange when panel changes', () => {
-            const spy = jest.spyOn(tabPanel, 'eventChange');
+    describe('change event', () => {
+        it('should emit change event when panel changes', () => {
+            const spy = jest.fn();
+            tabPanel.on('change', spy);
             tabPanel.setActive('panel-1');
             expect(spy).toHaveBeenCalledWith('panel-1');
         });

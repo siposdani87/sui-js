@@ -52,9 +52,9 @@ describe('Pager', () => {
         });
     });
 
-    describe('eventAction', () => {
-        it('should call eventAction without error', () => {
-            expect(() => pager.eventAction(1)).not.toThrow();
+    describe('action event', () => {
+        it('should emit action event without error', () => {
+            expect(() => pager.emit('action', 1)).not.toThrow();
         });
     });
 });

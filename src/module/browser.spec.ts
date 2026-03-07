@@ -110,20 +110,20 @@ describe('Browser', () => {
             expect(() => browser.detect()).not.toThrow();
         });
 
-        it('should call eventMissingFeatures', () => {
-            const spy = jest.spyOn(browser, 'eventMissingFeatures');
+        it('should emit missingFeatures', () => {
+            const spy = jest.fn();
+            browser.on('missingFeatures', spy);
             browser.features = ['window.history'];
             browser.detect();
             expect(spy).toHaveBeenCalledWith(['window.history']);
-            spy.mockRestore();
         });
 
-        it('should not call eventMissingFeatures if no missing features', () => {
-            const spy = jest.spyOn(browser, 'eventMissingFeatures');
+        it('should not emit missingFeatures if no missing features', () => {
+            const spy = jest.fn();
+            browser.on('missingFeatures', spy);
             browser.features = [];
             browser.detect();
             expect(spy).not.toHaveBeenCalled();
-            spy.mockRestore();
         });
     });
 });

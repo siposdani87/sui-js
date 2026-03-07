@@ -207,12 +207,13 @@ describe('Template', () => {
     });
 
     describe('load — error', () => {
-        it('should call eventError with message content and type on HTTP error', (done) => {
+        it('should emit error with message content and type on HTTP error', (done) => {
             const deferred = new Deferred<[Objekt, string], [Objekt, string]>();
             (http.get as jest.Mock).mockReturnValue(deferred.promise());
 
             template = new Template(http, { locale: 'en' });
-            const spy = jest.spyOn(template, 'eventError');
+            const spy = jest.fn();
+            template.on('error', spy);
 
             template.load('/fail.html').then(
                 () => {
@@ -250,9 +251,10 @@ describe('Template', () => {
             expect(container.querySelector('.page-content')).not.toBeNull();
         });
 
-        it('should call eventError on error', () => {
+        it('should emit error on error', () => {
             template = new Template(http, { locale: 'en' });
-            const spy = jest.spyOn(template, 'eventError');
+            const spy = jest.fn();
+            template.on('error', spy);
             const responseKnot = createResponseKnot(
                 'Error occurred',
                 'warning',
@@ -265,11 +267,11 @@ describe('Template', () => {
         });
     });
 
-    describe('eventError', () => {
-        it('should not throw when called', () => {
+    describe('error event', () => {
+        it('should not throw when emitted', () => {
             template = new Template(http, { locale: 'en' });
             expect(() =>
-                template.eventError({
+                template.emit('error', {
                     content: 'test',
                     type: 'error',
                 }),

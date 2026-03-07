@@ -22,10 +22,10 @@ describe('Page', () => {
         });
     });
 
-    describe('eventClick', () => {
-        it('should call eventClick on document click', () => {
+    describe('click event', () => {
+        it('should emit click on document click', () => {
             const clickSpy = jest.fn();
-            page.eventClick = clickSpy;
+            page.on('click', clickSpy);
             document.dispatchEvent(new Event('click'));
             expect(clickSpy).toHaveBeenCalled();
         });
@@ -34,7 +34,7 @@ describe('Page', () => {
     describe('destroy', () => {
         it('should remove document click listener', () => {
             const clickSpy = jest.fn();
-            page.eventClick = clickSpy;
+            page.on('click', clickSpy);
             page.destroy();
             document.dispatchEvent(new Event('click'));
             expect(clickSpy).not.toHaveBeenCalled();

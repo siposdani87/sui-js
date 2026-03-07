@@ -75,8 +75,9 @@ describe('Module', () => {
             expect(order).toContain('B');
         });
 
-        it('should call eventAfterInit before services', () => {
-            const spy = jest.spyOn(module, 'eventAfterInit');
+        it('should emit afterInit before services', () => {
+            const spy = jest.fn();
+            module.on('afterInit', spy);
             class Svc {
                 enter() {
                     return noop();
@@ -89,8 +90,9 @@ describe('Module', () => {
             expect(spy).toHaveBeenCalled();
         });
 
-        it('should call eventServiceLoaded on success', () => {
-            const spy = jest.spyOn(module, 'eventServiceLoaded');
+        it('should emit serviceLoaded on success', () => {
+            const spy = jest.fn();
+            module.on('serviceLoaded', spy);
             class Svc {
                 enter() {
                     return noop();
@@ -185,45 +187,45 @@ describe('Module', () => {
         });
     });
 
-    describe('event methods', () => {
-        it('should not throw when calling eventAfterInit', () => {
-            expect(() => module.eventAfterInit()).not.toThrow();
+    describe('emit methods', () => {
+        it('should not throw when emitting afterInit', () => {
+            expect(() => module.emit('afterInit')).not.toThrow();
         });
 
-        it('should not throw when calling eventServiceLoaded', () => {
-            expect(() => module.eventServiceLoaded()).not.toThrow();
+        it('should not throw when emitting serviceLoaded', () => {
+            expect(() => module.emit('serviceLoaded')).not.toThrow();
         });
 
-        it('should not throw when calling eventServiceFailed', () => {
-            expect(() => module.eventServiceFailed()).not.toThrow();
+        it('should not throw when emitting serviceFailed', () => {
+            expect(() => module.emit('serviceFailed')).not.toThrow();
         });
 
-        it('should not throw when calling eventControllerFailed', () => {
-            expect(() => module.eventControllerFailed()).not.toThrow();
+        it('should not throw when emitting controllerFailed', () => {
+            expect(() => module.emit('controllerFailed')).not.toThrow();
         });
 
-        it('should return a promise from eventStateChange', () => {
-            const result = module.eventStateChange({} as any);
-            expect(result).toBeDefined();
-            expect(typeof result.then).toBe('function');
+        it('should not throw when emitting stateChange', () => {
+            expect(() => module.emit('stateChange', {} as any)).not.toThrow();
         });
 
-        it('should return a promise from eventDomChange', () => {
-            const result = module.eventDomChange({} as any, {} as any);
-            expect(result).toBeDefined();
-            expect(typeof result.then).toBe('function');
+        it('should not throw when emitting domChange', () => {
+            expect(() =>
+                module.emit('domChange', {} as any, {} as any),
+            ).not.toThrow();
         });
 
-        it('should not throw when calling eventModuleLoaded', () => {
-            expect(() => module.eventModuleLoaded({} as any)).not.toThrow();
+        it('should not throw when emitting moduleLoaded', () => {
+            expect(() => module.emit('moduleLoaded', {} as any)).not.toThrow();
         });
 
-        it('should not throw when calling eventModuleFailed', () => {
-            expect(() => module.eventModuleFailed({} as any)).not.toThrow();
+        it('should not throw when emitting moduleFailed', () => {
+            expect(() => module.emit('moduleFailed', {} as any)).not.toThrow();
         });
 
-        it('should not throw when calling eventControllerLoaded', () => {
-            expect(() => module.eventControllerLoaded({} as any)).not.toThrow();
+        it('should not throw when emitting controllerLoaded', () => {
+            expect(() =>
+                module.emit('controllerLoaded', {} as any),
+            ).not.toThrow();
         });
     });
 });

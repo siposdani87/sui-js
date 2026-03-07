@@ -104,14 +104,14 @@ export class DateTimeRangeField extends BaseField<HTMLInputElement> {
             value: value,
             type: type,
         });
-        this.datetime.eventClick = (value) => {
+        this.datetime.on('click', (value) => {
             this.setValue(value);
-        };
+        });
 
         this.popup = new Popup(this.datetimeKnot, this.inputBlock);
-        this.popup.eventClose = () => {
+        this.popup.on('close', () => {
             this.datetimeInput.removeClass('active');
-        };
+        });
 
         if (value) {
             const formattedValue = this.datetime.getFormattedValue();

@@ -245,9 +245,9 @@ describe('Form', () => {
             expect(preventSpy).toHaveBeenCalled();
         });
 
-        it('should call eventSubmit with model when form is valid', () => {
+        it('should call submit handler with model when form is valid', () => {
             const submitSpy = jest.fn();
-            form.eventSubmit = submitSpy;
+            form.on('submit', submitSpy);
 
             form.formKnot.getNode().dispatchEvent(
                 new Event('submit', {
@@ -271,9 +271,9 @@ describe('Form', () => {
             expect(preventSpy).toHaveBeenCalled();
         });
 
-        it('should call eventReset with model on reset', () => {
+        it('should call reset handler with model on reset', () => {
             const resetSpy = jest.fn();
-            form.eventReset = resetSpy;
+            form.on('reset', resetSpy);
 
             form.formKnot.getNode().dispatchEvent(
                 new Event('reset', {
@@ -306,9 +306,10 @@ describe('Form', () => {
             expect(form.getModel().get('field.text')).toBe('changed value');
         });
 
-        it('should call field eventChange with new and old values', () => {
+        it('should emit change on field with new and old values', () => {
             const textField = form.findByModel('field.text');
-            const changeSpy = jest.spyOn(textField, 'eventChange');
+            const changeSpy = jest.fn();
+            textField.on('change', changeSpy);
             textField.modelChange('new');
             expect(changeSpy).toHaveBeenCalledWith('new', 'text');
         });
@@ -322,7 +323,8 @@ describe('Form', () => {
 
         it('should not update model when value is the same', () => {
             const textField = form.findByModel('field.text');
-            const changeSpy = jest.spyOn(textField, 'eventChange');
+            const changeSpy = jest.fn();
+            textField.on('change', changeSpy);
             textField.modelChange('text');
             expect(changeSpy).not.toHaveBeenCalled();
         });
@@ -335,27 +337,23 @@ describe('Form', () => {
     });
 
     describe('event methods', () => {
-        it('should have eventSubmit', () => {
-            expect(typeof form.eventSubmit).toBe('function');
+        it('should have on method for registering handlers', () => {
+            expect(typeof form.on).toBe('function');
         });
 
-        it('should have eventReset', () => {
-            expect(typeof form.eventReset).toBe('function');
+        it('should have emit method for firing events', () => {
+            expect(typeof form.emit).toBe('function');
         });
 
-        it('should have eventButton', () => {
-            expect(typeof form.eventButton).toBe('function');
-        });
-
-        it('should not throw when calling default eventSubmit', () => {
+        it('should not throw when emitting submit with no listeners', () => {
             expect(() =>
-                form.eventSubmit(new Objekt(), form.formKnot),
+                form.emit('submit', new Objekt(), form.formKnot),
             ).not.toThrow();
         });
 
-        it('should not throw when calling default eventButton', () => {
+        it('should not throw when emitting button with no listeners', () => {
             expect(() =>
-                form.eventButton(new Objekt(), form.formKnot),
+                form.emit('button', new Objekt(), form.formKnot),
             ).not.toThrow();
         });
     });

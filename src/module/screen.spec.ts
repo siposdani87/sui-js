@@ -46,15 +46,17 @@ describe('Screen', () => {
     });
 
     describe('resize event', () => {
-        it('should call eventResize on window resize', () => {
-            const spy = jest.spyOn(screen, 'eventResize');
+        it('should emit resize on window resize', () => {
+            const spy = jest.fn();
+            screen.on('resize', spy);
             window.dispatchEvent(new Event('resize'));
             jest.advanceTimersByTime(200);
             expect(spy).toHaveBeenCalled();
         });
 
-        it('should pass width, height, and event to eventResize', () => {
-            const spy = jest.spyOn(screen, 'eventResize');
+        it('should pass width, height, and event to resize handler', () => {
+            const spy = jest.fn();
+            screen.on('resize', spy);
             window.dispatchEvent(new Event('resize'));
             jest.advanceTimersByTime(200);
             expect(spy).toHaveBeenCalledWith(
@@ -65,7 +67,8 @@ describe('Screen', () => {
         });
 
         it('should detect orientation change on resize', () => {
-            const spy = jest.spyOn(screen, 'eventOrientationChange');
+            const spy = jest.fn();
+            screen.on('orientationChange', spy);
             const currentOrientation = screen.orientation;
             const newOrientation =
                 currentOrientation === 'landscape' ? 'portrait' : 'landscape';
@@ -83,7 +86,8 @@ describe('Screen', () => {
         });
 
         it('should not fire orientationChange when orientation stays same', () => {
-            const spy = jest.spyOn(screen, 'eventOrientationChange');
+            const spy = jest.fn();
+            screen.on('orientationChange', spy);
             jest.spyOn(screen, 'getOrientation').mockReturnValue(
                 screen.orientation,
             );
@@ -94,15 +98,17 @@ describe('Screen', () => {
     });
 
     describe('scroll event', () => {
-        it('should call eventScroll on window scroll', () => {
-            const spy = jest.spyOn(screen, 'eventScroll');
+        it('should emit scroll on window scroll', () => {
+            const spy = jest.fn();
+            screen.on('scroll', spy);
             window.dispatchEvent(new Event('scroll'));
             jest.advanceTimersByTime(200);
             expect(spy).toHaveBeenCalled();
         });
 
-        it('should pass scrollTop and event to eventScroll', () => {
-            const spy = jest.spyOn(screen, 'eventScroll');
+        it('should pass scrollTop and event to scroll handler', () => {
+            const spy = jest.fn();
+            screen.on('scroll', spy);
             window.dispatchEvent(new Event('scroll'));
             jest.advanceTimersByTime(200);
             expect(spy).toHaveBeenCalledWith(
@@ -113,27 +119,29 @@ describe('Screen', () => {
     });
 
     describe('connection events', () => {
-        it('should call eventOnline on online event', () => {
-            const spy = jest.spyOn(screen, 'eventOnline');
+        it('should emit online on online event', () => {
+            const spy = jest.fn();
+            screen.on('online', spy);
             window.dispatchEvent(new Event('online'));
             expect(spy).toHaveBeenCalled();
         });
 
-        it('should call eventOffline on offline event', () => {
-            const spy = jest.spyOn(screen, 'eventOffline');
+        it('should emit offline on offline event', () => {
+            const spy = jest.fn();
+            screen.on('offline', spy);
             window.dispatchEvent(new Event('offline'));
             expect(spy).toHaveBeenCalled();
         });
     });
 
     describe('color scheme', () => {
-        it('should have eventColorSchemeChange method', () => {
-            expect(typeof screen.eventColorSchemeChange).toBe('function');
+        it('should have emit method', () => {
+            expect(typeof screen.emit).toBe('function');
         });
 
-        it('should not throw when calling eventColorSchemeChange', () => {
+        it('should not throw when emitting colorSchemeChange', () => {
             expect(() =>
-                screen.eventColorSchemeChange('dark', new Event('change')),
+                screen.emit('colorSchemeChange', 'dark', new Event('change')),
             ).not.toThrow();
         });
     });
@@ -159,7 +167,8 @@ describe('Screen', () => {
         });
 
         it('should stop resize events from firing', () => {
-            const spy = jest.spyOn(screen, 'eventResize');
+            const spy = jest.fn();
+            screen.on('resize', spy);
             screen.destroy();
             window.dispatchEvent(new Event('resize'));
             jest.advanceTimersByTime(200);
@@ -167,8 +176,10 @@ describe('Screen', () => {
         });
 
         it('should stop online/offline events from firing', () => {
-            const onlineSpy = jest.spyOn(screen, 'eventOnline');
-            const offlineSpy = jest.spyOn(screen, 'eventOffline');
+            const onlineSpy = jest.fn();
+            const offlineSpy = jest.fn();
+            screen.on('online', onlineSpy);
+            screen.on('offline', offlineSpy);
             screen.destroy();
             window.dispatchEvent(new Event('online'));
             window.dispatchEvent(new Event('offline'));
@@ -177,32 +188,35 @@ describe('Screen', () => {
         });
     });
 
-    describe('event methods should not throw', () => {
-        it('eventResize', () => {
+    describe('emit should not throw', () => {
+        it('resize', () => {
             expect(() =>
-                screen.eventResize(100, 200, new Event('resize')),
+                screen.emit('resize', 100, 200, new Event('resize')),
             ).not.toThrow();
         });
 
-        it('eventScroll', () => {
+        it('scroll', () => {
             expect(() =>
-                screen.eventScroll(50, new Event('scroll')),
+                screen.emit('scroll', 50, new Event('scroll')),
             ).not.toThrow();
         });
 
-        it('eventOnline', () => {
-            expect(() => screen.eventOnline(new Event('online'))).not.toThrow();
-        });
-
-        it('eventOffline', () => {
+        it('online', () => {
             expect(() =>
-                screen.eventOffline(new Event('offline')),
+                screen.emit('online', new Event('online')),
             ).not.toThrow();
         });
 
-        it('eventOrientationChange', () => {
+        it('offline', () => {
             expect(() =>
-                screen.eventOrientationChange(
+                screen.emit('offline', new Event('offline')),
+            ).not.toThrow();
+        });
+
+        it('orientationChange', () => {
+            expect(() =>
+                screen.emit(
+                    'orientationChange',
                     'landscape',
                     100,
                     200,

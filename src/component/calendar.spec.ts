@@ -331,10 +331,10 @@ describe('Calendar', () => {
     });
 
     describe('click handling', () => {
-        it('should call eventClick when day is clicked', () => {
+        it('should call click handler when day is clicked', () => {
             const eventClickSpy = jest.fn();
             const calendar = createCalendar('date', new Date(2024, 5, 15));
-            calendar.eventClick = eventClickSpy;
+            calendar.on('click', eventClickSpy);
             calendar.draw();
 
             const dayCells = calendar.daysKnot
@@ -345,10 +345,10 @@ describe('Calendar', () => {
             expect(eventClickSpy).toHaveBeenCalled();
         });
 
-        it('should call eventClick when month is clicked', () => {
+        it('should call click handler when month is clicked', () => {
             const eventClickSpy = jest.fn();
             const calendar = createCalendar('month', new Date(2024, 5, 15));
-            calendar.eventClick = eventClickSpy;
+            calendar.on('click', eventClickSpy);
             calendar.draw();
 
             const monthCells = calendar.monthsKnot
@@ -359,10 +359,10 @@ describe('Calendar', () => {
             expect(eventClickSpy).toHaveBeenCalled();
         });
 
-        it('should call eventClick when year is clicked', () => {
+        it('should call click handler when year is clicked', () => {
             const eventClickSpy = jest.fn();
             const calendar = createCalendar('year', new Date(2024, 5, 15));
-            calendar.eventClick = eventClickSpy;
+            calendar.on('click', eventClickSpy);
             calendar.draw();
 
             const yearCells = calendar.yearsKnot

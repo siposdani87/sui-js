@@ -149,14 +149,14 @@ describe('Header', () => {
         });
     });
 
-    describe('eventLogoClick', () => {
-        it('should be callable without error', () => {
-            expect(() => header.eventLogoClick()).not.toThrow();
+    describe('logoClick event', () => {
+        it('should emit logoClick without error', () => {
+            expect(() => header.emit('logoClick')).not.toThrow();
         });
 
         it('should fire on brand click', () => {
             const spy = jest.fn();
-            header.eventLogoClick = spy;
+            header.on('logoClick', spy);
             header.brandKnot.getNode().click();
             expect(spy).toHaveBeenCalled();
         });

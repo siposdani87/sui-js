@@ -39,13 +39,13 @@
 | 5b | ~~Define typed `Objekt<T>` generics for type-safe config access~~ | 9 modules typed (Xhr, Http, Flash, Confirm, Dialog, Cookie, Depot, Screen, Viewer, Loader); Header/Footer/Page/Script have empty options | **Done** |
 | 5c | ~~Tighten `getValue()` return types per field subclass~~ | `TextField` → `string` (done); others use `typeCast` which is inherently `any` | Partial |
 
-## Phase 6 — Structural: PARTIAL
+## Phase 6 — Structural: COMPLETE
 
 | # | Issue | Status |
 |---|-------|--------|
 | 6a | ~~Replace `javascript:void(0)` anchor elements with semantic buttons~~ | **Done** — field icon buttons → `<button>` with `icon-button` reset class; menu/nav toggles → `href="#"`; button reset added to `_base.scss`; `_form.scss` selectors updated |
-| 6b | Replace mutable event callback properties (`eventChange`, `eventClick`) with internal event emitter pattern | Open |
-| 6c | Template method for `_init()` in `BaseField` to remove boilerplate from subclasses | Open |
+| 6b | ~~Replace mutable event callback properties (`eventChange`, `eventClick`) with internal event emitter pattern~~ | **Done** — New `Emitter` base class (`src/core/emitter.ts`) with `on()`/`off()`/`emit()`. All 30+ classes updated to extend `Emitter`. ~120 `.eventXxx = handler` assignments replaced with `.on('xxx', handler)`. All internal `this.eventXxx()` calls replaced with `this.emit('xxx')`. 19 test files updated. |
+| 6c | Template method for `_init()` in `BaseField` to remove boilerplate from subclasses | Won't fix |
 
 ## Phase 7 — Additional Modernization: COMPLETE
 
@@ -59,5 +59,5 @@
 ## Implementation Notes
 
 - Each phase should be followed by `npx tsc --noEmit` and `npm run test` to verify
-- Phase 6b (event emitter) would be a significant API change requiring careful migration
+- Phase 6b (event emitter) completed — `Emitter` base class with `on()`/`off()`/`emit()` replaces all mutable callback properties
 - Phase 6c (template method) determined not worth pursuing — `_init()` methods are too varied across subclasses

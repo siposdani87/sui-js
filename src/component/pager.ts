@@ -2,7 +2,7 @@ import { format, each } from '../utils/operation';
 import { Knot } from '../core/knot';
 import { Objekt } from '../core/objekt';
 import { Query } from '../core/query';
-import { consoleDebug } from '../utils/log';
+import { Emitter } from '../core/emitter';
 import { sui } from '../utils/render';
 
 /**
@@ -19,7 +19,7 @@ type Page = {
  *
  * @example
  * const pager = new Pager(containerKnot, ['.pager', '.pager-statistics'], { row_count: 25 });
- * pager.eventAction = (page) => fetchData(page);
+ * pager.on('action', (page) => fetchData(page));
  * pager.setCount(100);
  * pager.draw();
  *
@@ -28,7 +28,7 @@ type Page = {
  *
  * @category Component
  */
-export class Pager {
+export class Pager extends Emitter {
     pager: Knot;
     pagerStatistics: Knot;
     options!: Objekt;
@@ -48,6 +48,7 @@ export class Pager {
         opt_selectors: string[] | undefined = ['.pager', '.pager-statistics'],
         opt_options: object | undefined = {},
     ) {
+        super();
         this.pager = new Query(opt_selectors[0]!, dom).getKnot();
         this.pagerStatistics = new Query(opt_selectors[1]!, dom).getKnot();
         this._setOptions(opt_options);
@@ -239,7 +240,7 @@ export class Pager {
      */
     private _go(page: number): void {
         this.setPage(page);
-        this.eventAction(this.page);
+        this.emit('action', this.page);
     }
 
     /**
@@ -264,18 +265,5 @@ export class Pager {
     draw(): void {
         this._drawStatistics();
         this._drawPager();
-    }
-
-    /**
-     * @description Called when a page navigation action occurs. Override to handle page changes.
-     * @param {number} page - The newly selected page number.
-     *
-     * @example
-     * pager.eventAction = (page) => {
-     *     fetchData({ offset: (page - 1) * rowCount });
-     * };
-     */
-    eventAction(page: number): void {
-        consoleDebug('Pager.eventAction()', page);
     }
 }

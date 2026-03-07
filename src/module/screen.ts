@@ -1,6 +1,6 @@
 import { debounce, neq, gte } from '../utils/operation';
 import { Objekt } from '../core/objekt';
-import { consoleDebug } from '../utils/log';
+import { Emitter } from '../core/emitter';
 
 /**
  * Window event manager that listens for and dispatches browser-level
@@ -9,33 +9,34 @@ import { consoleDebug } from '../utils/log';
  * with a configurable delay to prevent excessive handler invocations.
  *
  * Screen detects orientation changes by comparing window width and
- * height after each resize, and fires a separate
- * {@link eventOrientationChange} when the orientation shifts between
- * `'landscape'` and `'portrait'`.
+ * height after each resize, and fires a separate `'orientationChange'`
+ * event when the orientation shifts between `'landscape'` and
+ * `'portrait'`.
  *
- * Event handler methods ({@link eventResize}, {@link eventScroll},
- * {@link eventOnline}, {@link eventOffline},
- * {@link eventColorSchemeChange}) are designed to be overridden by
- * subclasses or instances to implement custom behavior.
+ * Register event handlers using the `on()` method inherited from
+ * {@link Emitter}. Supported events: `'resize'`, `'scroll'`,
+ * `'online'`, `'offline'`, `'orientationChange'`,
+ * `'colorSchemeChange'`.
  *
  * @example
  * const screen = new Screen({ delay: 300 });
  *
- * screen.eventResize = (width, height, event) => {
+ * screen.on('resize', (width, height, event) => {
  *     console.log(`Resized to ${width}x${height}`);
- * };
+ * });
  *
- * screen.eventScroll = (scrollTop, event) => {
+ * screen.on('scroll', (scrollTop, event) => {
  *     console.log('Scrolled to:', scrollTop);
- * };
+ * });
  *
  * screen.getWidth();       // current window width
  * screen.getOrientation(); // 'landscape' or 'portrait'
  *
  * @see {@link Objekt}
+ * @see {@link Emitter}
  * @category Module
  */
-export class Screen {
+export class Screen extends Emitter {
     options!: Objekt<{ delay: number }>;
     window!: Window;
     document!: Document;
@@ -54,6 +55,7 @@ export class Screen {
      *     for the debounce interval in milliseconds. Defaults to 250.
      */
     constructor(opt_options: object | undefined = {}) {
+        super();
         this._setOptions(opt_options);
         this._init();
     }
@@ -111,12 +113,12 @@ export class Screen {
      */
     private _initConnectionEvent(): void {
         this._onOnline = (event) => {
-            this.eventOnline(event);
+            this.emit('online', event);
         };
         this.window.addEventListener('online', this._onOnline, false);
 
         this._onOffline = (event) => {
-            this.eventOffline(event);
+            this.emit('offline', event);
         };
         this.window.addEventListener('offline', this._onOffline, false);
     }
@@ -134,90 +136,19 @@ export class Screen {
     }
 
     /**
-     * Called when the browser goes offline. Override this method to
-     * implement custom offline behavior such as showing a notification
-     * or disabling network-dependent features.
-     *
-     * @param event The native offline event.
-     */
-    eventOffline(event: Event): void {
-        consoleDebug('Window.eventOffline()', event);
-    }
-
-    /**
-     * Called when the browser comes back online. Override this method
-     * to implement custom online behavior such as re-syncing data or
-     * hiding offline notifications.
-     *
-     * @param event The native online event.
-     */
-    eventOnline(event: Event): void {
-        consoleDebug('Window.eventOffline()', event);
-    }
-
-    /**
-     * Called when the window is resized. Override this method to
-     * implement custom resize behavior such as adjusting layouts or
-     * recalculating dimensions.
-     *
-     * @param width The new window inner width in pixels.
-     * @param height The new window inner height in pixels.
-     * @param event The native resize event.
-     */
-    eventResize(width: number, height: number, event: Event): void {
-        consoleDebug('Window.eventResize()', width, height, event);
-    }
-
-    /**
-     * Called when the device orientation changes between landscape and
-     * portrait. Override this method to implement custom
-     * orientation-change behavior.
-     *
-     * @param orientation The new orientation: `'landscape'` or `'portrait'`.
-     * @param width The new window inner width in pixels.
-     * @param height The new window inner height in pixels.
-     * @param event The native resize event that triggered the orientation change.
-     */
-    eventOrientationChange(
-        orientation: string,
-        width: number,
-        height: number,
-        event: Event,
-    ): void {
-        consoleDebug(
-            'Window.eventOrientationChange()',
-            orientation,
-            width,
-            height,
-            event,
-        );
-    }
-
-    /**
-     * Called when the window is scrolled. Override this method to
-     * implement custom scroll behavior such as infinite scrolling
-     * or sticky headers.
-     *
-     * @param scrollTop The current vertical scroll position in pixels.
-     * @param event The native scroll event.
-     */
-    eventScroll(scrollTop: number, event: Event): void {
-        consoleDebug('Window.eventScroll()', scrollTop, event);
-    }
-
-    /**
-     * Handles the debounced resize event by dispatching to
-     * {@link eventResize} and checking for orientation changes.
+     * Handles the debounced resize event by emitting `'resize'` and
+     * checking for orientation changes.
      *
      * @param event The native resize event.
      */
     private _resize(event: Event): void {
-        this.eventResize(this.getWidth(), this.getHeight(), event);
+        this.emit('resize', this.getWidth(), this.getHeight(), event);
 
         const orientation = this.getOrientation();
         if (neq(this.orientation, orientation)) {
             this.orientation = orientation;
-            this.eventOrientationChange(
+            this.emit(
+                'orientationChange',
                 this.orientation,
                 this.getWidth(),
                 this.getHeight(),
@@ -227,13 +158,12 @@ export class Screen {
     }
 
     /**
-     * Handles the debounced scroll event by dispatching to
-     * {@link eventScroll}.
+     * Handles the debounced scroll event by emitting `'scroll'`.
      *
      * @param event The native scroll event.
      */
     private _scroll(event: Event): void {
-        this.eventScroll(this.getScrollTop(), event);
+        this.emit('scroll', this.getScrollTop(), event);
     }
 
     /**
@@ -301,24 +231,12 @@ export class Screen {
                 .matchMedia('(prefers-color-scheme: dark)')
                 .addEventListener('change', (event) => {
                     if (event.matches) {
-                        this.eventColorSchemeChange('dark', event);
+                        this.emit('colorSchemeChange', 'dark', event);
                     } else {
-                        this.eventColorSchemeChange('light', event);
+                        this.emit('colorSchemeChange', 'light', event);
                     }
                 });
         }
-    }
-
-    /**
-     * Called when the system color scheme preference changes between
-     * light and dark mode. Override this method to implement custom
-     * theme-switching behavior.
-     *
-     * @param colorScheme The new color scheme: `'dark'` or `'light'`.
-     * @param event The native media query change event.
-     */
-    eventColorSchemeChange(colorScheme: string, event: Event): void {
-        consoleDebug('Window.eventColorSchemeChange()', colorScheme, event);
     }
 
     /**
