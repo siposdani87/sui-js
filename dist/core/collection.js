@@ -35,8 +35,8 @@ export class Collection {
      *
      * @param {Array<T>} [opt_items=[]] Initial items to load into the
      *     collection. Plain objects are wrapped via `Type`.
-     * @param {any} [opt_type=Objekt] Constructor used to instantiate plain
-     *     objects added to the collection. Called as
+     * @param {CollectionType<T>} [opt_type=Objekt] Constructor used to
+     *     instantiate plain objects added to the collection. Called as
      *     `new Type(object, parent)`.
      * @param {object} [opt_options={}] Configuration options. Supports `id`
      *     (the attribute name used as the unique identifier, defaults to
@@ -50,9 +50,7 @@ export class Collection {
      * // Custom type and ID attribute
      * const col2 = new Collection([], MyModel, { id: 'uuid' });
      */
-    constructor(opt_items = [], 
-    // eslint-disable-next-line @typescript-eslint/no-explicit-any
-    opt_type = Objekt, opt_options = {}) {
+    constructor(opt_items = [], opt_type = Objekt, opt_options = {}) {
         this.Type = opt_type;
         this._setOptions(opt_options);
         this.items = [];

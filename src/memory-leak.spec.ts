@@ -239,25 +239,17 @@ describe('Memory leak prevention', () => {
         });
 
         it('should clear all items', () => {
-            const collection = new Collection<{ id: number }>(
-                [{ id: 1 }, { id: 2 }],
-                Object,
-                {
-                    id: 'id',
-                },
-            );
+            const collection = new Collection([{ id: 1 }, { id: 2 }], Objekt, {
+                id: 'id',
+            });
             collection.clear();
             expect(collection.size()).toBe(0);
         });
 
         it('should replace items completely on reload', () => {
-            const collection = new Collection<{ id: number }>(
-                [{ id: 1 }, { id: 2 }],
-                Object,
-                {
-                    id: 'id',
-                },
-            );
+            const collection = new Collection([{ id: 1 }, { id: 2 }], Objekt, {
+                id: 'id',
+            });
             collection.reload([{ id: 3 }]);
             expect(collection.size()).toBe(1);
         });

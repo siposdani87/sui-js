@@ -35,7 +35,7 @@
 
 | # | Issue | Files | Status |
 |---|-------|-------|--------|
-| 5a | `Collection.Type` typed as `any` → constructor type | `src/core/collection.ts` | **Blocked** — `FormField` is a factory function, not a class; needs refactoring to type properly |
+| 5a | ~~`Collection.Type` typed as `any` → `CollectionType<T>` constructor type~~ | `src/core/collection.ts`, `src/component/form.ts` | **Done** — `FormField` factory cast at call site |
 | 5b | ~~Define typed `Objekt<T>` generics for type-safe config access~~ | 9 modules typed (Xhr, Http, Flash, Confirm, Dialog, Cookie, Depot, Screen, Viewer, Loader); Header/Footer/Page/Script have empty options | **Done** |
 | 5c | ~~Tighten `getValue()` return types per field subclass~~ | `TextField` → `string` (done); others use `typeCast` which is inherently `any` | Partial |
 

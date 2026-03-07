@@ -1,5 +1,5 @@
 import { inArray, isSame, isUndefined, remove } from '../utils/operation';
-import { Collection } from '../core/collection';
+import { Collection, type CollectionType } from '../core/collection';
 import { Objekt } from '../core/objekt';
 import { Query } from '../core/query';
 import { FormField } from './formField';
@@ -44,9 +44,13 @@ export class Form extends Collection<BaseField<HTMLInputElement>> {
             dom,
         ).getKnot();
         formKnot.setAttribute('novalidate');
-        super([], FormField, {
-            parent: formKnot,
-        });
+        super(
+            [],
+            FormField as unknown as CollectionType<BaseField<HTMLInputElement>>,
+            {
+                parent: formKnot,
+            },
+        );
         this.formKnot = formKnot;
 
         this._init();

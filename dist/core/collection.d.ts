@@ -1,6 +1,13 @@
 import type { Id } from '../utils';
 import { Objekt } from './objekt';
 /**
+ * Constructor or factory function type for Collection items.
+ * Accepts both class constructors (`new Class(obj, parent)`) and
+ * factory functions declared with `function` keyword that can be
+ * called with `new`.
+ */
+export type CollectionType<T> = new (...args: any[]) => T;
+/**
  * Generic typed collection that wraps an array of items with find, delete,
  * iterate, and pagination operations. Items added as plain objects are
  * automatically instantiated through the configured `Type` constructor
@@ -28,7 +35,7 @@ import { Objekt } from './objekt';
  * @category Core
  */
 export declare class Collection<T extends object = object> {
-    Type: any;
+    Type: CollectionType<T>;
     items: T[];
     options: Objekt;
     /**
@@ -38,8 +45,8 @@ export declare class Collection<T extends object = object> {
      *
      * @param {Array<T>} [opt_items=[]] Initial items to load into the
      *     collection. Plain objects are wrapped via `Type`.
-     * @param {any} [opt_type=Objekt] Constructor used to instantiate plain
-     *     objects added to the collection. Called as
+     * @param {CollectionType<T>} [opt_type=Objekt] Constructor used to
+     *     instantiate plain objects added to the collection. Called as
      *     `new Type(object, parent)`.
      * @param {object} [opt_options={}] Configuration options. Supports `id`
      *     (the attribute name used as the unique identifier, defaults to
@@ -53,7 +60,7 @@ export declare class Collection<T extends object = object> {
      * // Custom type and ID attribute
      * const col2 = new Collection([], MyModel, { id: 'uuid' });
      */
-    constructor(opt_items?: Array<T> | undefined, opt_type?: any, opt_options?: object);
+    constructor(opt_items?: Array<object | T> | undefined, opt_type?: CollectionType<T>, opt_options?: object);
     /**
      * Initializes the options Objekt with defaults and merges any
      * user-provided overrides.
