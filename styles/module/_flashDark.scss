@@ -5,7 +5,7 @@
     .flash-container {
         #flashes {
             .flash {
-                box-shadow: 5px 5px 15px -5px rgba(colors.$black-dark, 0.8);
+                box-shadow: variables.$shadow-md;
                 background-color: colors.$black;
 
                 &.success {

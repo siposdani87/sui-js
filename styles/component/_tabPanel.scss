@@ -12,15 +12,15 @@
         a {
             flex: 0 1 100%;
             display: flex;
-            border-bottom: 4px solid colors.$light-grey;
+            border-bottom: 2px solid colors.$light-grey;
             align-items: center;
             justify-content: center;
             text-align: center;
             background-color: colors.$light-grey;
-            padding: 5px 10px 1px;
+            padding: 10px 16px;
             text-decoration: none;
             color: colors.$black;
-            text-transform: uppercase;
+            font-weight: 500;
 
             &:hover {
                 color: colors.$primary-dark;

@@ -1,9 +1,10 @@
 @use '../core/colors';
+@use '../core/variables';
 
 .sui-tooltip {
     position: fixed;
     z-index: 999;
-    padding: 4px 8px;
+    padding: 6px 10px;
     font-size: 14px;
     font-weight: 400;
     line-height: normal;
@@ -12,11 +13,12 @@
     text-align: initial;
     white-space: initial;
     color: colors.$white;
-    background-color: colors.$deep-grey-dark;
-    border-radius: 4px;
+    background-color: colors.$black-bright;
+    border-radius: 6px;
+    box-shadow: variables.$shadow-sm;
     opacity: 0;
     pointer-events: none;
-    transition: opacity 0.2s;
+    transition: opacity variables.$transition-base;
 
     &.is-active {
         opacity: 1;

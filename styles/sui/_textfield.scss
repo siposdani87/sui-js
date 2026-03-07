@@ -7,17 +7,21 @@
     .sui-textfield__input {
         width: 100%;
         font-size: inherit;
-        padding: 2px 10px 0;
+        padding: 8px 12px;
         border: 1px solid variables.$input-default-light;
-        border-radius: 3px;
-        min-height: 32px;
+        border-radius: variables.$radius-md;
+        min-height: 40px;
         color: variables.$content-default-light;
         background-color: transparent;
+        transition:
+            border-color variables.$transition-base,
+            box-shadow variables.$transition-base;
     }
 
     &.is-focused {
         .sui-textfield__input {
             border-color: variables.$primary-default-light;
+            box-shadow: 0 0 0 3px rgba(variables.$primary-default-light, 0.15);
         }
     }
 
@@ -44,8 +48,8 @@
         display: inline-flex;
         align-items: center;
         width: auto;
-        min-width: 32px;
-        min-height: 32px;
+        min-width: 40px;
+        min-height: 40px;
     }
 
     .sui-textfield__expandable-holder {
@@ -53,7 +57,7 @@
         position: relative;
         max-width: 0;
         overflow: hidden;
-        transition: max-width 0.3s;
+        transition: max-width variables.$transition-slow;
     }
 
     &.is-focused,

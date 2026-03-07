@@ -23,8 +23,8 @@
             content: '';
             position: absolute;
             left: 0;
-            width: 16px;
-            height: 16px;
+            width: 18px;
+            height: 18px;
             border: 2px solid variables.$checkbox-default-light;
             border-radius: 50%;
         }
@@ -32,7 +32,7 @@
         &::after {
             content: '';
             position: absolute;
-            left: 3px;
+            left: 4px;
             top: 50%;
             width: 10px;
             height: 10px;
@@ -63,6 +63,10 @@
 
     .sui-radio__button[required]:checked + .sui-radio__label::before {
         border-color: variables.$primary-default-light;
+    }
+
+    .sui-radio__button:focus-visible + .sui-radio__label::before {
+        box-shadow: 0 0 0 3px rgba(variables.$primary-default-light, 0.15);
     }
 
     &.is-disabled {

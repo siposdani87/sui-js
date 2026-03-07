@@ -26,7 +26,7 @@
     .map {
         margin-top: 20px;
         border: 1px solid variables.$input-default-light;
-        border-radius: 3px;
+        border-radius: variables.$radius-md;
         min-height: 200px;
         height: 200px;
         width: 100%;

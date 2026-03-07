@@ -25,10 +25,9 @@ table {
 
             th {
                 text-align: left;
-                padding: 5px 10px;
-                text-transform: uppercase;
+                padding: 12px 16px;
                 vertical-align: baseline;
-                font-weight: 500;
+                font-weight: 600;
                 font-family: variables.$font-family-heading;
 
                 &[data-column] {
@@ -169,9 +168,8 @@ table {
 
                 .label {
                     padding: 0 10px 0 0;
-                    text-transform: uppercase;
                     vertical-align: baseline;
-                    font-weight: 500;
+                    font-weight: 600;
                     font-family: variables.$font-family-heading;
 
                     &[data-column] {
@@ -202,7 +200,7 @@ table {
             }
 
             td {
-                padding: 5px 10px;
+                padding: 12px 16px;
 
                 &.actions {
                     text-align: right;
@@ -228,7 +226,7 @@ table {
         tr {
             td {
                 &:not(.pager) {
-                    padding: 5px 10px;
+                    padding: 12px 16px;
                 }
 
                 &.pager-statistics {

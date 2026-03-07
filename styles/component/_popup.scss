@@ -8,8 +8,8 @@
         position: absolute;
         background-color: colors.$white;
         z-index: variables.$zindex-popup;
-        box-shadow: 2px 2px 10px 0 rgba(colors.$black, 0.75);
-        border-radius: 3px;
+        box-shadow: variables.$shadow-lg;
+        border-radius: variables.$radius-md;
         overflow: hidden;
     }
 }

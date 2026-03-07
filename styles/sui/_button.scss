@@ -7,29 +7,28 @@
     justify-content: center;
     min-width: 64px;
     height: 36px;
-    padding: 0 16px;
+    padding: 8px 16px;
     border: none;
-    border-radius: 20px;
+    border-radius: variables.$radius-md;
     background: transparent;
     color: colors.$black;
     font-family: variables.$font-family-body;
     font-size: 14px;
     font-weight: 500;
-    text-transform: uppercase;
-    letter-spacing: 0.5px;
+    letter-spacing: 0.2px;
     cursor: pointer;
     outline: none;
     transition:
-        background-color 0.2s,
-        box-shadow 0.2s;
+        background-color variables.$transition-base,
+        box-shadow variables.$transition-base;
     appearance: none;
 
     &:hover {
-        background-color: rgb(0 0 0 / 8%);
+        background-color: rgb(0 0 0 / 6%);
     }
 
     &:active {
-        background-color: rgb(0 0 0 / 16%);
+        background-color: rgb(0 0 0 / 12%);
     }
 
     &:disabled {
@@ -45,20 +44,14 @@
 
 .sui-button--raised {
     background-color: colors.$light-grey;
-    box-shadow:
-        0 2px 2px 0 rgb(0 0 0 / 14%),
-        0 3px 1px -2px rgb(0 0 0 / 20%);
+    box-shadow: variables.$shadow-sm;
 
     &:hover {
-        box-shadow:
-            0 3px 3px 0 rgb(0 0 0 / 20%),
-            0 1px 7px 0 rgb(0 0 0 / 12%);
+        box-shadow: variables.$shadow-md;
     }
 
     &:active {
-        box-shadow:
-            0 4px 5px 0 rgb(0 0 0 / 14%),
-            0 1px 10px 0 rgb(0 0 0 / 12%);
+        box-shadow: variables.$shadow-sm;
     }
 
     &:disabled {
@@ -110,9 +103,7 @@
     min-width: 56px;
     padding: 0;
     border-radius: 50%;
-    box-shadow:
-        0 2px 2px 0 rgb(0 0 0 / 14%),
-        0 3px 1px -2px rgb(0 0 0 / 20%);
+    box-shadow: variables.$shadow-md;
 }
 
 .sui-button--mini-fab {

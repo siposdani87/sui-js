@@ -14,6 +14,6 @@
         display: none;
         position: absolute;
         background-color: variables.$input-default-light;
-        border-radius: 3px;
+        border-radius: variables.$radius-md;
     }
 }

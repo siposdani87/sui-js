@@ -9,7 +9,7 @@
         margin: 0 2px 2px 0;
         background-color: variables.$input-default-light;
         color: variables.$content-default-light;
-        border-radius: 3px;
+        border-radius: variables.$radius-sm;
 
         &.tag-with-action {
             padding-right: 30px;
