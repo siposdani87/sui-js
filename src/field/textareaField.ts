@@ -21,26 +21,9 @@ export class TextareaField extends BaseField<HTMLInputElement> {
     htmlMode!: boolean;
 
     /**
-     * @description Creates a new TextareaField instance.
-     * @param {Knot<HTMLInputElement>} input - The textarea input element.
-     * @param {Knot} label - The label element.
-     * @param {Knot} error - The error message element.
-     * @param {Knot} inputBlock - The container block element.
-     */
-    constructor(
-        input: Knot<HTMLInputElement>,
-        label: Knot,
-        error: Knot,
-        inputBlock: Knot,
-    ) {
-        super(input, label, error, inputBlock);
-        this._init();
-    }
-
-    /**
      * @description Initializes the field by adding CSS class and attaching keyup/change event listeners.
      */
-    private _init(): void {
+    protected override _init(): void {
         this.inputBlock.addClass('textarea-field');
 
         this.input.addEventListener('keyup', (input) => {

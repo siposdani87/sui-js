@@ -37,26 +37,10 @@ export class FileField extends BaseField<HTMLInputElement> {
     fileTypeSVG!: string;
 
     /**
-     * @param input The underlying `<input type="file">` element wrapped in a {@link Knot}.
-     * @param label The associated label element.
-     * @param error The element used to display validation errors.
-     * @param inputBlock The block-level container wrapping the entire field.
-     */
-    constructor(
-        input: Knot<HTMLInputElement>,
-        label: Knot,
-        error: Knot,
-        inputBlock: Knot,
-    ) {
-        super(input, label, error, inputBlock);
-        this._init();
-    }
-
-    /**
      * Initializes the file field by setting up the file icon map, remove
      * button, browse button, default image, and change listener.
      */
-    private _init(): void {
+    protected override _init(): void {
         this.inputBlock.addClass('file-field');
 
         this._initFileIcon();

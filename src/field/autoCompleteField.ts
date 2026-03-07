@@ -1,4 +1,3 @@
-import type { Knot } from '../core';
 import { BaseField } from './baseField';
 
 /**
@@ -14,21 +13,4 @@ import { BaseField } from './baseField';
  * @see {@link BaseField}
  * @category Field
  */
-export class AutoCompleteField extends BaseField<HTMLInputElement> {
-    /**
-     * Creates a new AutoCompleteField instance.
-     *
-     * @param {Knot<HTMLInputElement>} input The text input element.
-     * @param {Knot} label The label element associated with the input.
-     * @param {Knot} error The error message element.
-     * @param {Knot} inputBlock The container block for the input.
-     */
-    constructor(
-        input: Knot<HTMLInputElement>,
-        label: Knot,
-        error: Knot,
-        inputBlock: Knot,
-    ) {
-        super(input, label, error, inputBlock);
-    }
-}
+export class AutoCompleteField extends BaseField<HTMLInputElement> {}

@@ -1,6 +1,5 @@
 import { BaseField } from './baseField';
 import { Tooltip } from '../component/tooltip';
-import type { Knot } from '../core';
 
 /**
  * @description Range slider input field with a tooltip displaying the current value.
@@ -18,26 +17,9 @@ export class RangeField extends BaseField<HTMLInputElement> {
     tooltip!: Tooltip;
 
     /**
-     * @description Creates a new RangeField instance.
-     * @param {Knot<HTMLInputElement>} input - The range input element.
-     * @param {Knot} label - The label element.
-     * @param {Knot} error - The error message element.
-     * @param {Knot} inputBlock - The container block element.
-     */
-    constructor(
-        input: Knot<HTMLInputElement>,
-        label: Knot,
-        error: Knot,
-        inputBlock: Knot,
-    ) {
-        super(input, label, error, inputBlock);
-        this._init();
-    }
-
-    /**
      * @description Initializes the field by adding CSS class and attaching the input event listener that updates the tooltip.
      */
-    private _init(): void {
+    protected override _init(): void {
         this.inputBlock.addClass('range-field');
 
         this.input.addEventListener('input', (input) => {

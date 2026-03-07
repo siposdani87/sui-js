@@ -38,13 +38,12 @@ export class RadiobuttonField extends BaseField<HTMLInputElement> {
         form: Form,
     ) {
         super(input, label, error, inputBlock, form);
-        this._init();
     }
 
     /**
      * @description Initializes the field by adding CSS class and attaching the change event listener.
      */
-    private _init(): void {
+    protected override _init(): void {
         this.inputBlock.addClass('radiobutton-field');
 
         /* this.label.addEventListener('click', () => {

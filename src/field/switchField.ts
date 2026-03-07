@@ -15,23 +15,6 @@ import { BaseCheckboxField } from './baseCheckboxField';
  */
 export class SwitchField extends BaseCheckboxField {
     /**
-     * Creates a new SwitchField instance.
-     *
-     * @param {Knot<HTMLInputElement>} input The switch input element.
-     * @param {Knot} label The label element associated with the switch.
-     * @param {Knot} error The error message element.
-     * @param {Knot} inputBlock The container block for the input.
-     */
-    constructor(
-        input: Knot<HTMLInputElement>,
-        label: Knot,
-        error: Knot,
-        inputBlock: Knot,
-    ) {
-        super(input, label, error, inputBlock);
-    }
-
-    /**
      * Renders the switch with SUI classes, label span, and data label element.
      */
     override render(): void {

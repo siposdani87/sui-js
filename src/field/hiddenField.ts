@@ -22,13 +22,12 @@ export class HiddenField extends BaseField<HTMLInputElement> {
      */
     constructor(input: Knot<HTMLInputElement>) {
         super(input);
-        this._init();
     }
 
     /**
      * Initializes the change event listener on the hidden input.
      */
-    private _init(): void {
+    protected override _init(): void {
         this.input.addEventListener('change', (input) => {
             const inputNode = input.getNode();
             this.modelChange(inputNode.value);

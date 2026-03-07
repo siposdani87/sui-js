@@ -43,26 +43,9 @@ export class SelectField extends BaseField<HTMLInputElement> {
     searchInputKnot!: Knot<HTMLInputElement>;
 
     /**
-     * @description Creates a new SelectField instance.
-     * @param {Knot<HTMLInputElement>} input - The select input element wrapped in a Knot.
-     * @param {Knot} label - The label element wrapped in a Knot.
-     * @param {Knot} error - The error element wrapped in a Knot.
-     * @param {Knot} inputBlock - The input block container wrapped in a Knot.
-     */
-    constructor(
-        input: Knot<HTMLInputElement>,
-        label: Knot,
-        error: Knot,
-        inputBlock: Knot,
-    ) {
-        super(input, label, error, inputBlock);
-        this._init();
-    }
-
-    /**
      * @description Initializes the select field by hiding the native input, setting up options, events, and the popup.
      */
-    private _init(): void {
+    protected override _init(): void {
         this.input.addClass('hidden');
         this.inputBlock.addClass('select-field');
         this.query = '';

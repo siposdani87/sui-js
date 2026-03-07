@@ -73,6 +73,15 @@ export class BaseField<T extends HTMLInputElement> extends Emitter {
         this._setActionContainer();
         this._setMutation();
         this._setAdditionalLabel(this.label);
+        this._init();
+    }
+
+    /**
+     * @description Initialization hook called at the end of the BaseField constructor.
+     * Override in subclasses to perform field-specific setup without repeating constructor boilerplate.
+     */
+    protected _init(): void {
+        // Override in subclasses
     }
 
     /**

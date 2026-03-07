@@ -17,26 +17,9 @@ export class SearchField extends BaseField<HTMLInputElement> {
     holderKnot!: Knot;
 
     /**
-     * @description Creates a new SearchField instance.
-     * @param {Knot<HTMLInputElement>} input - The search input element.
-     * @param {Knot} label - The label element.
-     * @param {Knot} error - The error message element.
-     * @param {Knot} inputBlock - The container block element.
-     */
-    constructor(
-        input: Knot<HTMLInputElement>,
-        label: Knot,
-        error: Knot,
-        inputBlock: Knot,
-    ) {
-        super(input, label, error, inputBlock);
-        this._init();
-    }
-
-    /**
      * @description Initializes keyup and change event listeners on the input.
      */
-    private _init(): void {
+    protected override _init(): void {
         this.input.addEventListener('keyup', (input, event) => {
             const inputNode = input.getNode();
             this.modelChange(inputNode.value);

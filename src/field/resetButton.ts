@@ -22,13 +22,12 @@ export class ResetButton extends BaseField<HTMLInputElement> {
      */
     constructor(input: Knot<HTMLInputElement>) {
         super(input);
-        this._init();
     }
 
     /**
      * Sets the reset button name attribute.
      */
-    private _init(): void {
+    protected override _init(): void {
         this.input.setAttribute('name', 'reset');
     }
 

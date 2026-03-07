@@ -40,26 +40,10 @@ export class ColorField extends BaseField<HTMLInputElement> {
     colors!: string[][];
 
     /**
-     * @param input The underlying `<input>` element wrapped in a {@link Knot}.
-     * @param label The associated label element.
-     * @param error The element used to display validation errors.
-     * @param inputBlock The block-level container wrapping the entire field.
-     */
-    constructor(
-        input: Knot<HTMLInputElement>,
-        label: Knot,
-        error: Knot,
-        inputBlock: Knot,
-    ) {
-        super(input, label, error, inputBlock);
-        this._init();
-    }
-
-    /**
      * Initializes the color field, input listeners, image source, preview
      * swatch, and Material Design color palette.
      */
-    private _init(): void {
+    protected override _init(): void {
         this.inputBlock.addClass('color-field');
 
         this._initInput();

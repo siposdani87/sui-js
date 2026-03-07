@@ -55,13 +55,21 @@ export class DateTimeRangeField extends BaseField<HTMLInputElement> {
         super(input, label, error, inputBlock);
 
         this.isStartInput = isStartInput;
-        this._init();
+        this._initField();
+    }
+
+    /**
+     * @description No-op override; real initialization is deferred to the constructor
+     * so that {@link isStartInput} is available.
+     */
+    protected override _init(): void {
+        // Deferred to constructor via _initField()
     }
 
     /**
      * Initializes the range container, input display, and inner components.
      */
-    private _init(): void {
+    private _initField(): void {
         this.inputBlock.addClass('datetime-range-field');
         this.input.addClass('hidden');
 

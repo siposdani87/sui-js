@@ -16,26 +16,9 @@ export class UrlField extends BaseField<HTMLInputElement> {
     protocol!: string;
 
     /**
-     * @description Creates a new UrlField instance.
-     * @param {Knot<HTMLInputElement>} input - The URL input element.
-     * @param {Knot} label - The label element.
-     * @param {Knot} error - The error message element.
-     * @param {Knot} inputBlock - The container block element.
-     */
-    constructor(
-        input: Knot<HTMLInputElement>,
-        label: Knot,
-        error: Knot,
-        inputBlock: Knot,
-    ) {
-        super(input, label, error, inputBlock);
-        this._init();
-    }
-
-    /**
      * @description Initializes the field by reading the protocol data attribute and attaching input event listeners.
      */
-    private _init(): void {
+    protected override _init(): void {
         this.inputBlock.addClass('url-field');
 
         this.protocol = this.input.getData('protocol');
