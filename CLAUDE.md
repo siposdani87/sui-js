@@ -30,7 +30,7 @@ npx jest --testNamePattern="should do something"
 
 - **`src/core/`** — Framework primitives: `Objekt` (object wrapper with nested get/merge), `Knot` (DOM element wrapper), `Query` (selector wrapper), `Collection<T>` (typed collection), `State` (state management + routing), `Module` (revealing module pattern base)
 - **`src/component/`** — UI components: `Application` (main entry, manages DI), `Form`, `Table`, `Calendar`, `GoogleMap`, popups, etc.
-- **`src/module/`** — Feature modules: `Http` (XHR client), `Router`, `EventBus` (pub/sub), `Dialog`, `Confirm`, `Cookie`, `Depot` (localStorage/sessionStorage), `Template`, menus
+- **`src/module/`** — Feature modules: `Http` (fetch-based HTTP client), `Router`, `EventBus` (pub/sub), `Dialog`, `Confirm`, `Cookie`, `Depot` (localStorage/sessionStorage), `Template`, menus
 - **`src/field/`** — Form field components extending `BaseField`: text, select, datetime, color, file, location, etc.
 - **`src/utils/`** — Utilities: `operation.ts` (type checking, object/array ops), `dateio.ts` (date-fns wrapper), `coder.ts`, `color.ts`, `math.ts`
 - **`styles/`** — SCSS organized by component/module/field with SUI custom styles
@@ -55,10 +55,10 @@ npx jest --testNamePattern="should do something"
 - Jest with ts-jest and jsdom environment
 - Tests colocated as `*.spec.ts` files
 - `jest.setup.ts` mocks: Google Maps API, console methods
-- **1,657 tests** across 108 suites (expanded from 180 tests in v1.0.0)
+- **1,696 tests** across 109 suites (expanded from 180 tests in v1.0.0)
 - Includes jest-axe automated accessibility tests
 - Coverage thresholds: statements 88%, branches 73%, functions 85%, lines 88%
-- Current coverage: statements 88.8%, branches 74.2%, functions 85.5%, lines 88.6%
+- Current coverage: statements 89.7%, branches 75.8%, functions 86.5%, lines 89.6%
 
 ## Formatting
 
@@ -68,16 +68,20 @@ npx jest --testNamePattern="should do something"
 
 ## Implementation Roadmap
 
-Three improvement plans exist. All are complete.
+### Completed Plans
 
-### 1. Testing Improvement — COMPLETE
-- **Claude Code instructions:** `.claude/plans/testing.md`
-- **Result:** All phases (0–23) complete. 180 → 1,657 tests, coverage 52% → 88%. jest-axe a11y tests added.
+1. **Testing Improvement** — 180 → 1,696 tests, coverage 52% → 89%. jest-axe a11y tests added.
+2. **TypeScript Strict Mode** — `strict: true` enabled in `tsconfig.json`. Completed in v1.1.0.
+3. **Documentation** — Comprehensive JSDoc on all source files. Docusaurus site with guides, API reference, and Algolia search.
 
-### 2. TypeScript Strict Mode — COMPLETE
-- **Claude Code instructions:** `.claude/plans/strict-mode.md`
-- **Result:** All phases (0–5) complete. `strict: true` enabled in `tsconfig.json`. Completed in v1.1.0.
+### Modernization (v1.2.0)
 
-### 3. Documentation — COMPLETE
-- **Claude Code instructions:** `.claude/plans/documentation.md`
-- **Result:** All phases (1–10) complete. Comprehensive JSDoc on all source files. Docusaurus site with guides, API reference, and Algolia search. Completed in v1.1.0.
+See `MODERNIZATION_PRIORITY.md` for details.
+
+1. **Automatic DI** — COMPLETE. Controllers/services support `static inject` for auto-dependency detection.
+2. **Native Promise in Promize** — COMPLETE. `Promize` internally backed by native `Promise` (microtask timing).
+3. **Fetch Migration** — COMPLETE. `Xhr` uses `fetch` API instead of `XMLHttpRequest`. Exports `HttpResponse` type.
+4. **Style Modernization** — COMPLETE. Modern indigo/orange palette, system fonts, soft shadows, 8px radius, focus rings.
+5. **Example Page Cleanup** — COMPLETE. Removed MDL dependency.
+6. **TypeDoc Audit** — COMPLETE. JSDoc updated for fetch migration.
+7. **Claude Docs Audit** — COMPLETE. CLAUDE.md updated to reflect current state.
