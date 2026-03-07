@@ -325,7 +325,7 @@ Called with the link's `href` and the
 ##### opt\_href?
 
 The URL for the `href` attribute. Defaults to
-    `'javascript:void(0)'`.
+    `'#'`.
 
 `string` | `undefined`
 

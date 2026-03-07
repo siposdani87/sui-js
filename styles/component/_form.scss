@@ -43,13 +43,13 @@ form {
         .info-container {
             position: absolute;
             right: 0;
-            top: -2px;
+            top: 0;
             display: flex;
             z-index: 1;
 
-            > a,
-            > button {
+            > .info-button {
                 margin-left: 5px;
+                font-size: 20px;
             }
         }
 
