@@ -106,24 +106,35 @@ export class Module extends Emitter {
      *
      * @param name Unique name identifying this module. Used as the key
      *     in the instances map after instantiation.
-     * @param moduleInjections Array of dependency names that will be
-     *     resolved from the instances map and passed to the constructor.
-     * @param moduleCallback The constructor function (class reference)
-     *     to instantiate when resolving this module.
+     * @param moduleInjections Array of dependency names, or the class
+     *     constructor directly (uses `static inject` for auto-detection).
+     * @param opt_moduleCallback The constructor function (class reference)
+     *     to instantiate when resolving this module (required when
+     *     moduleInjections is an array).
      * @returns The registered module name.
      *
      * @example
+     * // Explicit injection array
      * module.add('dashboardCtrl', ['http', 'config', 'dom'], DashboardController);
+     * // Auto-detection via static inject
+     * module.add('dashboardCtrl', DashboardController);
      */
     add(
         name: string,
-        moduleInjections: string[],
-        moduleCallback: ClassRef,
+        moduleInjections: string[] | ClassRef,
+        opt_moduleCallback?: ClassRef,
     ): string {
-        this._modules[name] = {
-            moduleInjections,
-            moduleCallback,
-        };
+        if (typeof moduleInjections === 'function') {
+            this._modules[name] = {
+                moduleInjections: [],
+                moduleCallback: moduleInjections as ClassRef,
+            };
+        } else {
+            this._modules[name] = {
+                moduleInjections,
+                moduleCallback: opt_moduleCallback!,
+            };
+        }
         return name;
     }
 
@@ -136,10 +147,21 @@ export class Module extends Emitter {
      * @returns A new instance of the module's class, constructed with
      *     resolved dependencies.
      */
+    private _getInjections(dependency: Dependency): string[] {
+        if (dependency.moduleInjections.length > 0) {
+            return dependency.moduleInjections;
+        }
+        if (dependency.moduleCallback.inject) {
+            return [...dependency.moduleCallback.inject];
+        }
+        return [];
+    }
+
     private _resolveDependencies(dependency: Dependency): object {
+        const injections = this._getInjections(dependency);
         // eslint-disable-next-line @typescript-eslint/no-explicit-any
         const moduleArgs: any[] = [];
-        each(dependency.moduleInjections, (injection: string) => {
+        each(injections, (injection: string) => {
             moduleArgs.push(
                 // eslint-disable-next-line @typescript-eslint/no-explicit-any
                 (this._instances as Record<string, any>)[injection] ||
@@ -163,7 +185,7 @@ export class Module extends Emitter {
             .map((service) => {
                 const mod = this._modules[service];
                 if (!mod) return [];
-                const moduleInjections = mod.moduleInjections.filter(
+                const moduleInjections = this._getInjections(mod).filter(
                     (moduleInjection) => services.includes(moduleInjection),
                 );
                 if (moduleInjections.length === 0) {

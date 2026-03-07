@@ -32,6 +32,12 @@ describe('Module', () => {
             // Both registered without error
             expect(true).toBe(true);
         });
+
+        it('should register a module with class shorthand (no injection array)', () => {
+            class TestService {}
+            const name = module.add('testService', TestService);
+            expect(name).toBe('testService');
+        });
     });
 
     describe('load', () => {
@@ -144,6 +150,99 @@ describe('Module', () => {
             const instances = { state: { run: jest.fn() } } as any;
             module.load(instances, {});
             // Register in reverse order to verify topological sort
+            module.handleServices(['svcB', 'svcA']);
+
+            expect(order).toEqual(['A', 'B']);
+        });
+
+        it('should resolve dependencies via static inject', () => {
+            let receivedDep: any;
+            class SvcA {
+                name = 'svcA';
+                enter() {
+                    return noop();
+                }
+            }
+            class SvcB {
+                static inject = ['svcA'] as const;
+                constructor(dep: any) {
+                    receivedDep = dep;
+                }
+                enter() {
+                    return noop();
+                }
+            }
+
+            module.add('svcA', SvcA);
+            module.add('svcB', SvcB);
+
+            const instances = { state: { run: jest.fn() } } as any;
+            module.load(instances, {});
+            module.handleServices(['svcA', 'svcB']);
+
+            expect(receivedDep).toBeInstanceOf(SvcA);
+        });
+
+        it('should prioritize explicit array over static inject', () => {
+            let receivedDep: any;
+            class SvcA {
+                name = 'svcA';
+                enter() {
+                    return noop();
+                }
+            }
+            class SvcX {
+                name = 'svcX';
+                enter() {
+                    return noop();
+                }
+            }
+            class SvcB {
+                static inject = ['svcX'] as const;
+                constructor(dep: any) {
+                    receivedDep = dep;
+                }
+                enter() {
+                    return noop();
+                }
+            }
+
+            module.add('svcA', [], SvcA);
+            module.add('svcX', [], SvcX);
+            module.add('svcB', ['svcA'], SvcB);
+
+            const instances = { state: { run: jest.fn() } } as any;
+            module.load(instances, {});
+            module.handleServices(['svcA', 'svcX', 'svcB']);
+
+            expect(receivedDep).toBeInstanceOf(SvcA);
+        });
+
+        it('should topologically sort services using static inject', () => {
+            const order: string[] = [];
+            class SvcA {
+                constructor() {
+                    order.push('A');
+                }
+                enter() {
+                    return noop();
+                }
+            }
+            class SvcB {
+                static inject = ['svcA'] as const;
+                constructor(_svcA: SvcA) {
+                    order.push('B');
+                }
+                enter() {
+                    return noop();
+                }
+            }
+
+            module.add('svcA', SvcA);
+            module.add('svcB', SvcB);
+
+            const instances = { state: { run: jest.fn() } } as any;
+            module.load(instances, {});
             module.handleServices(['svcB', 'svcA']);
 
             expect(order).toEqual(['A', 'B']);
