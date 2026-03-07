@@ -166,9 +166,24 @@ $grid-gutter-widths: (
 // Font, line-height, and color for body text, headings, and more.
 
 // System font stack for modern, native feel
-$font-family-app: system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif !default;
-$font-family-heading: system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif !default;
-$font-family-body: system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif !default;
+$font-family-app:
+    system-ui,
+    -apple-system,
+    'Segoe UI',
+    'Roboto',
+    sans-serif !default;
+$font-family-heading:
+    system-ui,
+    -apple-system,
+    'Segoe UI',
+    'Roboto',
+    sans-serif !default;
+$font-family-body:
+    system-ui,
+    -apple-system,
+    'Segoe UI',
+    'Roboto',
+    sans-serif !default;
 $font-family-icons: 'Material Icons', sans-serif !default;
 
 $font-size-root: 16px !default;
@@ -196,9 +211,15 @@ $radius-full: 9999px !default;
 
 // Shadow scale (soft, single-layer)
 
-$shadow-sm: 0 1px 3px rgb(0 0 0 / 8%), 0 1px 2px rgb(0 0 0 / 6%) !default;
-$shadow-md: 0 4px 12px rgb(0 0 0 / 10%), 0 1px 4px rgb(0 0 0 / 6%) !default;
-$shadow-lg: 0 12px 32px rgb(0 0 0 / 12%), 0 4px 8px rgb(0 0 0 / 6%) !default;
+$shadow-sm:
+    0 1px 3px rgb(0 0 0 / 8%),
+    0 1px 2px rgb(0 0 0 / 6%) !default;
+$shadow-md:
+    0 4px 12px rgb(0 0 0 / 10%),
+    0 1px 4px rgb(0 0 0 / 6%) !default;
+$shadow-lg:
+    0 12px 32px rgb(0 0 0 / 12%),
+    0 4px 8px rgb(0 0 0 / 6%) !default;
 
 // Transition durations
 

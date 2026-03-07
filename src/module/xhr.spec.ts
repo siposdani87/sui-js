@@ -125,7 +125,11 @@ describe('Xhr', () => {
 
         it('should set Accept to text/html for .html URLs', async () => {
             xhr = new Xhr();
-            setFetchResponse(200, { 'Content-Type': 'text/html' }, '<html></html>');
+            setFetchResponse(
+                200,
+                { 'Content-Type': 'text/html' },
+                '<html></html>',
+            );
             xhr.get('/page.html', undefined);
             await flushPromises();
             const call = getLastFetchCall();
@@ -267,7 +271,11 @@ describe('Xhr', () => {
 
         it('should send empty string when data is not provided for POST', async () => {
             xhr = new Xhr();
-            setFetchResponse(200, { 'Content-Type': 'text/html' }, '<html></html>');
+            setFetchResponse(
+                200,
+                { 'Content-Type': 'text/html' },
+                '<html></html>',
+            );
             xhr.post('/page.html', undefined, undefined);
             await flushPromises();
             const call = getLastFetchCall();
@@ -566,11 +574,7 @@ describe('Xhr', () => {
 
         it('should handle null JSON response string', async () => {
             xhr = new Xhr({ backend: 'https://api.example.com' });
-            setFetchResponse(
-                200,
-                { 'Content-Type': 'application/json' },
-                '',
-            );
+            setFetchResponse(200, { 'Content-Type': 'application/json' }, '');
             const onResolve = jest.fn();
             xhr.get('/data.json', undefined).then(onResolve);
             await flushPromises();

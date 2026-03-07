@@ -170,11 +170,7 @@ describe('Http', () => {
     describe('auth propagation', () => {
         it('should propagate basic authorization to Xhr', async () => {
             http.setBasicAuthorization('admin', 'secret');
-            setFetchResponse(
-                200,
-                { 'Content-Type': 'application/json' },
-                {},
-            );
+            setFetchResponse(200, { 'Content-Type': 'application/json' }, {});
             http.get('/data.json');
             await flushPromises();
             const call = getLastFetchCall();
@@ -184,26 +180,16 @@ describe('Http', () => {
 
         it('should propagate bearer authorization to Xhr', async () => {
             http.setBearerAuthorization('my-jwt-token');
-            setFetchResponse(
-                200,
-                { 'Content-Type': 'application/json' },
-                {},
-            );
+            setFetchResponse(200, { 'Content-Type': 'application/json' }, {});
             http.get('/data.json');
             await flushPromises();
             const call = getLastFetchCall();
-            expect(call.headers['Authorization']).toBe(
-                'Bearer my-jwt-token',
-            );
+            expect(call.headers['Authorization']).toBe('Bearer my-jwt-token');
             expect(call.credentials).toBe('include');
         });
 
         it('should not set authorization when credentials are null', async () => {
-            setFetchResponse(
-                200,
-                { 'Content-Type': 'application/json' },
-                {},
-            );
+            setFetchResponse(200, { 'Content-Type': 'application/json' }, {});
             http.get('/data.json');
             await flushPromises();
             const call = getLastFetchCall();
@@ -249,11 +235,7 @@ describe('Http', () => {
         it('should emit beforeRequest with Xhr before request', () => {
             const spy = jest.fn();
             http.on('beforeRequest', spy);
-            setFetchResponse(
-                200,
-                { 'Content-Type': 'application/json' },
-                {},
-            );
+            setFetchResponse(200, { 'Content-Type': 'application/json' }, {});
             http.get('/data.json');
             expect(spy).toHaveBeenCalledTimes(1);
             expect(spy).toHaveBeenCalledWith(expect.any(Xhr));
@@ -262,11 +244,7 @@ describe('Http', () => {
         it('should emit afterRequest on success', async () => {
             const spy = jest.fn();
             http.on('afterRequest', spy);
-            setFetchResponse(
-                200,
-                { 'Content-Type': 'application/json' },
-                {},
-            );
+            setFetchResponse(200, { 'Content-Type': 'application/json' }, {});
             const onResolve = jest.fn();
             http.get('/data.json').then(onResolve);
             await flushPromises();

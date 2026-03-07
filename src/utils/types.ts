@@ -224,8 +224,11 @@ export type Nullable<T> = T | null;
  *
  * @category Utility
  */
-// eslint-disable-next-line @typescript-eslint/no-explicit-any
-export type ClassRef = { new (...args: any[]): any; inject?: readonly string[] };
+export type ClassRef = {
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+    new (...args: any[]): any;
+    inject?: readonly string[];
+};
 
 /**
  * Module dependency descriptor for the DI system.

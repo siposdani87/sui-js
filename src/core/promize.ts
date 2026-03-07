@@ -75,7 +75,9 @@ export class Promize<T = object, K = object> {
         this._settled = true;
         // eslint-disable-next-line @typescript-eslint/no-explicit-any
         const data: any[] = opt_data
-            ? (isArray(opt_data) ? opt_data : [opt_data])
+            ? isArray(opt_data)
+                ? opt_data
+                : [opt_data]
             : [];
         this._resolve(data);
     }
@@ -98,7 +100,9 @@ export class Promize<T = object, K = object> {
         this._settled = true;
         // eslint-disable-next-line @typescript-eslint/no-explicit-any
         const data: any[] = opt_data
-            ? (isArray(opt_data) ? opt_data : [opt_data])
+            ? isArray(opt_data)
+                ? opt_data
+                : [opt_data]
             : [];
         this._reject(data);
     }

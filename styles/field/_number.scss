@@ -1,6 +1,16 @@
 @use '../core/variables';
 
 .number-field {
+    input[type='number'] {
+        appearance: textfield;
+
+        &::-webkit-inner-spin-button,
+        &::-webkit-outer-spin-button {
+            appearance: none;
+            margin: 0;
+        }
+    }
+
     .step-change {
         position: relative;
         display: inline-block;

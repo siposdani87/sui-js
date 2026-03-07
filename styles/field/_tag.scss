@@ -4,7 +4,9 @@
 .input-block {
     .field-tag {
         position: relative;
-        display: inline-block;
+        display: inline-flex;
+        align-items: center;
+        min-height: 32px;
         padding: 1px 10px;
         margin: 0 2px 2px 0;
         background-color: variables.$input-default-light;
@@ -18,7 +20,7 @@
         .close {
             position: absolute;
             right: 5px;
-            top: 4px;
+            top: 7px;
             color: variables.$content-default-light;
 
             &:hover {

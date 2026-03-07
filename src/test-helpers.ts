@@ -53,8 +53,7 @@ export function installFetchMock(): void {
             input: RequestInfo | URL,
             init?: RequestInit,
         ): Promise<Response> => {
-            const url =
-                typeof input === 'string' ? input : input.toString();
+            const url = typeof input === 'string' ? input : input.toString();
             const headers: Record<string, string> = {};
             if (init?.headers) {
                 if (init.headers instanceof Headers) {
@@ -218,4 +217,3 @@ export function uninstallCanvasMock(): void {
     }
     _mockCanvasContext = undefined;
 }
-

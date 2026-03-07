@@ -197,7 +197,13 @@ export class Xhr {
         opt_params: object | undefined,
         opt_headers: object | undefined = {},
     ) {
-        return this._createRequest('GET', url, undefined, opt_params, opt_headers);
+        return this._createRequest(
+            'GET',
+            url,
+            undefined,
+            opt_params,
+            opt_headers,
+        );
     }
 
     /**
@@ -373,14 +379,15 @@ export class Xhr {
         try {
             const response = await fetch(url, init);
             const httpResponse = this._buildHttpResponse(response);
-            const [objekt, filename] = await this._handleFetchResponse(response);
+            const [objekt, filename] =
+                await this._handleFetchResponse(response);
 
             if (response.ok) {
                 this.deferred.resolve([httpResponse, objekt, filename]);
             } else {
                 this.deferred.reject([httpResponse, objekt, filename]);
             }
-        } catch (_error) {
+        } catch {
             const httpResponse: HttpResponse = {
                 status: 0,
                 statusText: 'Network Error',
@@ -532,7 +539,10 @@ export class Xhr {
      * @param {string} responseUrl The response URL.
      * @returns {string} The extracted filename, or an empty string.
      */
-    private _getFilenameFromHeader(headers: Headers, responseUrl: string): string {
+    private _getFilenameFromHeader(
+        headers: Headers,
+        responseUrl: string,
+    ): string {
         let filename = '';
 
         try {
