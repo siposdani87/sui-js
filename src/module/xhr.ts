@@ -1,25 +1,39 @@
 import {
-    eq,
     getExtensionName,
-    instanceOf,
-    isString,
     eachObject,
     isUndefined,
     urlWithQueryString,
 } from '../utils/operation';
 import { Deferred } from '../core/deferred';
 import { Objekt } from '../core/objekt';
-import { consoleError, consoleWarn } from '../utils/log';
+import { consoleError } from '../utils/log';
 import { encodeBase64 } from '../utils/coder';
 
 /**
- * Tuple describing a content type configuration for a given URL extension.
- * Elements are: [Content-Type header, XMLHttpRequest responseType, Accept header].
+ * Metadata about a completed HTTP response, replacing the raw
+ * `XMLHttpRequest` object in the framework's public API.
+ *
+ * @category Module
  */
-type XhrType = [string, XMLHttpRequestResponseType, string];
+export type HttpResponse = {
+    /** The HTTP status code (e.g. 200, 404, 500). */
+    status: number;
+    /** The HTTP status text (e.g. "OK", "Not Found"). */
+    statusText: string;
+    /** The final URL after any redirects. */
+    url: string;
+    /** Selected response headers as a flat key-value map. */
+    headers: Record<string, string>;
+};
 
 /**
- * Low-level XMLHttpRequest wrapper that manages content-type detection,
+ * Tuple describing a content type configuration for a given URL extension.
+ * Elements are: [Content-Type header, Accept header].
+ */
+type XhrType = [string, string];
+
+/**
+ * Low-level fetch API wrapper that manages content-type detection,
  * request headers, authentication, and response parsing. Each instance
  * handles exactly one HTTP request; create a new Xhr for each call.
  *
@@ -28,7 +42,7 @@ type XhrType = [string, XMLHttpRequestResponseType, string];
  * extensions default to plain text with a wildcard Accept header.
  *
  * The response is always parsed into an {@link Objekt}. JSON responses
- * are merged directly; all other content types (HTML, SVG, XML, Blob)
+ * are merged directly; all other content types (HTML, SVG, XML, text)
  * are stored under the `raw` key via `setRaw()`.
  *
  * Authentication is set via {@link Xhr.setBasicAuthorization} (HTTP Basic)
@@ -40,8 +54,8 @@ type XhrType = [string, XMLHttpRequestResponseType, string];
  * xhr.setBearerAuthorization('my-jwt-token');
  *
  * xhr.get('/users.json', { page: 1 }).then(
- *     (httpRequest, response, filename) => console.log(response),
- *     (httpRequest, error, filename) => console.error(error),
+ *     (httpResponse, response, filename) => console.log(response),
+ *     (httpResponse, error, filename) => console.error(error),
  * );
  *
  * @see {@link Http}
@@ -57,10 +71,9 @@ export class Xhr {
     types!: {
         [key: string]: XhrType;
     };
-    httpRequest!: XMLHttpRequest;
     deferred!: Deferred<
-        [XMLHttpRequest, Objekt, string],
-        [XMLHttpRequest, Objekt, string]
+        [HttpResponse, Objekt, string],
+        [HttpResponse, Objekt, string]
     >;
 
     /**
@@ -95,7 +108,7 @@ export class Xhr {
 
     /**
      * Initializes internal state: request headers, content types,
-     * the XMLHttpRequest instance, and the deferred promise.
+     * and the deferred promise.
      */
     private _init(): void {
         this.requestHeaders = {};
@@ -103,13 +116,6 @@ export class Xhr {
         this.types = {};
 
         this._setTypes();
-
-        this.httpRequest = new XMLHttpRequest();
-        this.httpRequest.onreadystatechange =
-            this._onReadyStateChange() as unknown as (
-                this: XMLHttpRequest,
-                ev: Event,
-            ) => void;
 
         this.deferred = new Deferred();
     }
@@ -119,16 +125,15 @@ export class Xhr {
      * svg, and xml.
      */
     private _setTypes(): void {
-        this._setType('json', ['application/json', 'json', 'application/json']);
+        this._setType('json', ['application/json', 'application/json']);
         this._setType('form', [
             'application/x-www-form-urlencoded',
-            'json',
             'application/json',
         ]);
 
-        this._setType('html', ['', 'document', 'text/html']);
-        this._setType('svg', ['', 'document', 'image/svg-xml']);
-        this._setType('xml', ['', 'document', 'application/xml']);
+        this._setType('html', ['', 'text/html']);
+        this._setType('svg', ['', 'image/svg-xml']);
+        this._setType('xml', ['', 'application/xml']);
     }
 
     /**
@@ -149,7 +154,7 @@ export class Xhr {
      * @returns {XhrType} The content type tuple.
      */
     private _getType(name: string): XhrType {
-        return this.types[name] || ['', 'text', '*/*'];
+        return this.types[name] || ['', '*/*'];
     }
 
     /**
@@ -163,74 +168,13 @@ export class Xhr {
     }
 
     /**
-     * Returns the XMLHttpRequest responseType for the given type name.
-     *
-     * @param {string} name The type identifier.
-     * @returns {XMLHttpRequestResponseType} The response type value.
-     */
-    private _getResponseType(name: string): XMLHttpRequestResponseType {
-        return this._getType(name)[1];
-    }
-
-    /**
      * Returns the Accept header value for the given type name.
      *
      * @param {string} name The type identifier.
      * @returns {string} The Accept header value.
      */
     private _getAccept(name: string): string {
-        return this._getType(name)[2];
-    }
-
-    /**
-     * Creates the `onreadystatechange` handler for the XMLHttpRequest.
-     * When `readyState` reaches 4 (DONE), the response is parsed via
-     * {@link Xhr._handleResponseData} and the deferred is resolved or
-     * rejected based on the HTTP status code.
-     *
-     * @returns {Function} The event handler function.
-     */
-    private _onReadyStateChange(): (_this: XMLHttpRequest, ev: Event) => void {
-        return (_this: XMLHttpRequest, _ev: Event): void => {
-            switch (this.httpRequest.readyState) {
-                case 0:
-                    // request not initialized
-                    break;
-                case 1:
-                    // server connection established
-                    break;
-                case 2:
-                    // request received
-                    break;
-                case 3:
-                    // processing request
-                    break;
-                case 4:
-                    // Request finished and response is ready
-                    this._handleResponseData(this.httpRequest.response).then(
-                        (response) => {
-                            if (eq(this.httpRequest.status, 200)) {
-                                this.deferred.resolve([
-                                    this.httpRequest,
-                                    ...response,
-                                ]);
-                            } else {
-                                this.deferred.reject([
-                                    this.httpRequest,
-                                    ...response,
-                                ]);
-                            }
-                        },
-                    );
-                    break;
-                default:
-                    consoleWarn(
-                        'Xhr._onReadyStateChange()',
-                        this.httpRequest.readyState,
-                    );
-                    break;
-            }
-        };
+        return this._getType(name)[1];
     }
 
     /**
@@ -240,13 +184,12 @@ export class Xhr {
      * @param {object} [opt_params] Query-string parameters appended to
      *     the URL.
      * @param {object} [opt_headers] Additional request headers.
-     * @returns {Promize<[XMLHttpRequest, Objekt, string], [XMLHttpRequest, Objekt, string]>}
-     *     Resolves with the raw request, parsed response, and filename;
-     *     rejects on non-200 status.
+     * @returns {Promize<[HttpResponse, Objekt, string], [HttpResponse, Objekt, string]>}
+     *     Resolves on 2xx status; rejects otherwise.
      *
      * @example
      * xhr.get('/users.json', { page: 2 }).then(
-     *     (httpRequest, response, filename) => console.log(response),
+     *     (httpResponse, response, filename) => console.log(response),
      * );
      */
     get(
@@ -254,7 +197,7 @@ export class Xhr {
         opt_params: object | undefined,
         opt_headers: object | undefined = {},
     ) {
-        return this._createRequest('GET', url, {}, opt_params, opt_headers);
+        return this._createRequest('GET', url, undefined, opt_params, opt_headers);
     }
 
     /**
@@ -265,14 +208,8 @@ export class Xhr {
      * @param {object} [opt_params] Query-string parameters appended to
      *     the URL.
      * @param {object} [opt_headers] Additional request headers.
-     * @returns {Promize<[XMLHttpRequest, Objekt, string], [XMLHttpRequest, Objekt, string]>}
-     *     Resolves with the raw request, parsed response, and filename;
-     *     rejects on non-200 status.
-     *
-     * @example
-     * xhr.post('/users.json', { name: 'Alice' }).then(
-     *     (httpRequest, response, filename) => console.log(response),
-     * );
+     * @returns {Promize<[HttpResponse, Objekt, string], [HttpResponse, Objekt, string]>}
+     *     Resolves on 2xx status; rejects otherwise.
      */
     post(
         url: string,
@@ -297,14 +234,8 @@ export class Xhr {
      * @param {object} [opt_params] Query-string parameters appended to
      *     the URL.
      * @param {object} [opt_headers] Additional request headers.
-     * @returns {Promize<[XMLHttpRequest, Objekt, string], [XMLHttpRequest, Objekt, string]>}
-     *     Resolves with the raw request, parsed response, and filename;
-     *     rejects on non-200 status.
-     *
-     * @example
-     * xhr.put('/users/1.json', { name: 'Alice Updated' }).then(
-     *     (httpRequest, response, filename) => console.log(response),
-     * );
+     * @returns {Promize<[HttpResponse, Objekt, string], [HttpResponse, Objekt, string]>}
+     *     Resolves on 2xx status; rejects otherwise.
      */
     put(
         url: string,
@@ -329,14 +260,8 @@ export class Xhr {
      * @param {object} [opt_params] Query-string parameters appended to
      *     the URL.
      * @param {object} [opt_headers] Additional request headers.
-     * @returns {Promize<[XMLHttpRequest, Objekt, string], [XMLHttpRequest, Objekt, string]>}
-     *     Resolves with the raw request, parsed response, and filename;
-     *     rejects on non-200 status.
-     *
-     * @example
-     * xhr.patch('/users/1.json', { email: 'new@example.com' }).then(
-     *     (httpRequest, response, filename) => console.log(response),
-     * );
+     * @returns {Promize<[HttpResponse, Objekt, string], [HttpResponse, Objekt, string]>}
+     *     Resolves on 2xx status; rejects otherwise.
      */
     patch(
         url: string,
@@ -361,14 +286,8 @@ export class Xhr {
      * @param {object} [opt_params] Query-string parameters appended to
      *     the URL.
      * @param {object} [opt_headers] Additional request headers.
-     * @returns {Promize<[XMLHttpRequest, Objekt, string], [XMLHttpRequest, Objekt, string]>}
-     *     Resolves with the raw request, parsed response, and filename;
-     *     rejects on non-200 status.
-     *
-     * @example
-     * xhr.delete('/users/1.json').then(
-     *     (httpRequest, response, filename) => console.log(response),
-     * );
+     * @returns {Promize<[HttpResponse, Objekt, string], [HttpResponse, Objekt, string]>}
+     *     Resolves on 2xx status; rejects otherwise.
      */
     delete(
         url: string,
@@ -399,10 +318,9 @@ export class Xhr {
     }
 
     /**
-     * Opens the XMLHttpRequest, sets response type and request headers,
-     * serializes the body, and sends the request.
+     * Builds the fetch RequestInit, calls fetch, and handles the response.
      *
-     * @param {string} type The HTTP method (GET, POST, PUT, PATCH, DELETE).
+     * @param {string} method The HTTP method (GET, POST, PUT, PATCH, DELETE).
      * @param {string} url The request URL.
      * @param {object} [opt_data] Request body payload.
      * @param {object} [opt_params] Query-string parameters.
@@ -410,27 +328,124 @@ export class Xhr {
      * @returns {Promize} The deferred promise for this request.
      */
     private _createRequest(
-        type: string,
+        method: string,
         url: string,
         opt_data: object | undefined,
         opt_params: object | undefined,
         opt_headers: object | undefined = {},
     ) {
-        this.httpRequest.open(type, this._getUrl(url, opt_params), true);
-
+        const fullUrl = this._getUrl(url, opt_params);
         const urlType = getExtensionName(url);
-        this._setResponseType(urlType);
         this._setRequestHeaders(urlType, opt_headers);
 
-        this.httpRequest.send(this._createRequestBody(opt_data));
+        const headers: Record<string, string> = {};
+        for (const [key, value] of Object.entries(this.requestHeaders)) {
+            if (key && value) {
+                headers[key] = value;
+            }
+        }
+
+        const init: RequestInit = {
+            method,
+            headers,
+        };
+
+        if (this.authorization) {
+            init.credentials = 'include';
+        }
+
+        if (method !== 'GET' && method !== 'HEAD') {
+            init.body = this._createRequestBody(opt_data);
+        }
+
+        this._executeFetch(fullUrl, init);
 
         return this.deferred.promise();
     }
 
     /**
+     * Executes the fetch call and pipes the result to the deferred.
+     *
+     * @param {string} url The fully qualified URL.
+     * @param {RequestInit} init The fetch init options.
+     */
+    private async _executeFetch(url: string, init: RequestInit): Promise<void> {
+        try {
+            const response = await fetch(url, init);
+            const httpResponse = this._buildHttpResponse(response);
+            const [objekt, filename] = await this._handleFetchResponse(response);
+
+            if (response.ok) {
+                this.deferred.resolve([httpResponse, objekt, filename]);
+            } else {
+                this.deferred.reject([httpResponse, objekt, filename]);
+            }
+        } catch (_error) {
+            const httpResponse: HttpResponse = {
+                status: 0,
+                statusText: 'Network Error',
+                url,
+                headers: {},
+            };
+            const objekt = new Objekt();
+            this.deferred.reject([httpResponse, objekt, '']);
+        }
+    }
+
+    /**
+     * Builds an HttpResponse from a fetch Response object.
+     *
+     * @param {Response} response The fetch Response.
+     * @returns {HttpResponse} The HttpResponse metadata.
+     */
+    private _buildHttpResponse(response: Response): HttpResponse {
+        const headers: Record<string, string> = {};
+        response.headers.forEach((value, key) => {
+            headers[key] = value;
+        });
+        return {
+            status: response.status,
+            statusText: response.statusText,
+            url: response.url,
+            headers,
+        };
+    }
+
+    /**
+     * Parses the fetch response body based on Content-Type and extracts
+     * the filename from the Content-Disposition header.
+     *
+     * @param {Response} response The fetch Response.
+     * @returns {Promise<[Objekt, string]>} The parsed response data and filename.
+     */
+    private async _handleFetchResponse(
+        response: Response,
+    ): Promise<[Objekt, string]> {
+        const filename = this._getFilenameFromHeader(
+            response.headers,
+            response.url,
+        );
+        const contentType = response.headers.get('Content-Type');
+
+        if (contentType) {
+            const mimeType = contentType.split(';')[0];
+            if (mimeType === 'application/json') {
+                const text = await response.text();
+                const data = JSON.parse(text || 'null');
+                const objekt = new Objekt();
+                objekt.merge(data);
+                return [objekt, filename];
+            }
+        }
+
+        const text = await response.text();
+        const objekt = new Objekt();
+        objekt.setRaw('raw', text);
+        return [objekt, filename];
+    }
+
+    /**
      * Serializes the request body based on the current Content-Type header.
-     * JSON content types produce `JSON.stringify()` output; form content
-     * types produce URL-encoded key=value pairs.
      *
      * @param {object} [opt_data] The data to serialize.
      * @returns {string} The serialized request body, or an empty string
@@ -512,23 +527,19 @@ export class Xhr {
 
     /**
      * Extracts the filename from the `Content-Disposition` response header.
-     * Returns an empty string if the header is absent, unparseable, or the
-     * response URL does not belong to the configured backend.
      *
+     * @param {Headers} headers The response headers.
+     * @param {string} responseUrl The response URL.
      * @returns {string} The extracted filename, or an empty string.
      */
-    private _getFilenameFromHeader(): string {
+    private _getFilenameFromHeader(headers: Headers, responseUrl: string): string {
         let filename = '';
 
         try {
-            if (
-                !this.httpRequest.responseURL.startsWith(this.options.backend)
-            ) {
+            if (!responseUrl.startsWith(this.options.backend)) {
                 return '';
             }
-            const contentDisposition = this.httpRequest.getResponseHeader(
-                'Content-Disposition',
-            );
+            const contentDisposition = headers.get('Content-Disposition');
             if (contentDisposition) {
                 filename = contentDisposition.match(/filename="(.+)"/)![1]!;
             }
@@ -539,59 +550,8 @@ export class Xhr {
     }
 
     /**
-     * Parses the raw response into an {@link Objekt} based on the
-     * Content-Type response header. JSON responses are merged directly
-     * into the Objekt; Blob JSON responses are read via FileReader;
-     * all other content types are stored under the `raw` key.
-     *
-     * @param {any} response The raw XMLHttpRequest response.
-     * @returns {Promize} Resolves with a tuple of [Objekt, filename].
-     */
-    // eslint-disable-next-line @typescript-eslint/no-explicit-any
-    private _handleResponseData(response: any) {
-        const deferred = new Deferred<[[Objekt, string]], undefined>();
-        const filename = this._getFilenameFromHeader();
-
-        const contentType = this.httpRequest.getResponseHeader('Content-Type');
-        if (contentType) {
-            switch (contentType.split(';')[0]) {
-                case 'application/json':
-                    if (instanceOf(response, Blob)) {
-                        const reader = new FileReader();
-                        reader.addEventListener('loadend', (e) => {
-                            const data = JSON.parse(
-                                (e.target!.result as string) || 'null',
-                            );
-                            const objekt = new Objekt();
-                            objekt.setRaw('raw', data);
-                            deferred.resolve([[objekt, filename]]);
-                        });
-                        reader.readAsText(response);
-                    } else {
-                        const data = isString(response)
-                            ? JSON.parse(response || 'null')
-                            : response;
-                        const objekt = new Objekt();
-                        objekt.merge(data);
-                        deferred.resolve([[objekt, filename]]);
-                    }
-                    break;
-                default: {
-                    const objekt = new Objekt();
-                    objekt.setRaw('raw', response);
-                    deferred.resolve([[objekt, filename]]);
-                    break;
-                }
-            }
-        }
-        return deferred.promise();
-    }
-
-    /**
-     * Applies default and caller-provided request headers to the
-     * XMLHttpRequest. Sets Accept, Accept-Language, Content-Type,
-     * Authorization, and X-Requested-With headers when not already
-     * provided by the caller.
+     * Populates the internal request headers map with defaults and
+     * caller-provided overrides.
      *
      * @param {string} urlType The URL extension type used to look up
      *     default Accept and Content-Type values.
@@ -602,11 +562,7 @@ export class Xhr {
         opt_headers: object | undefined = {},
     ): void {
         eachObject(opt_headers, (value, key) => {
-            if (eq(key, 'responseType')) {
-                this.httpRequest.responseType = value;
-            } else {
-                this._setHeader(key, value);
-            }
+            this._setHeader(key, value);
         });
 
         if (isUndefined(this._getHeader('Accept'))) {
@@ -623,7 +579,6 @@ export class Xhr {
             this.authorization
         ) {
             this._setHeader('Authorization', this.authorization);
-            this.httpRequest.withCredentials = true;
         }
         if (isUndefined(this._getHeader('X-Requested-With'))) {
             this._setHeader('X-Requested-With', 'XMLHttpRequest');
@@ -631,26 +586,12 @@ export class Xhr {
     }
 
     /**
-     * Sets the XMLHttpRequest responseType based on the URL extension type.
-     *
-     * @param {string} urlType The URL extension type.
-     */
-    private _setResponseType(urlType: string): void {
-        this.httpRequest.responseType = this._getResponseType(urlType);
-    }
-
-    /**
-     * Sets a request header on the XMLHttpRequest and records it in the
-     * internal headers map. Skips the actual `setRequestHeader` call if
-     * either the name or value is falsy.
+     * Records a request header in the internal headers map.
      *
      * @param {string} name The header name.
      * @param {string} value The header value.
      */
     private _setHeader(name: string, value: string): void {
-        if (name && value) {
-            this.httpRequest.setRequestHeader(name, value);
-        }
         this.requestHeaders[name] = value;
     }
 
@@ -659,17 +600,14 @@ export class Xhr {
      * headers map.
      *
      * @param {string} name The header name.
-     * @returns {string | null} The header value, or `null` if not set.
+     * @returns {string | undefined} The header value, or `undefined` if not set.
      */
     private _getHeader(name: string): string | undefined {
         return this.requestHeaders[name];
     }
 
     /**
-     * Sets HTTP Basic authentication credentials. The username and password
-     * are Base64-encoded into an `Authorization: Basic <hash>` header value
-     * applied when the request headers are set. Both values must be
-     * non-null for the authorization to take effect.
+     * Sets HTTP Basic authentication credentials.
      *
      * @param {string | null} username The Basic-auth username.
      * @param {string | null} password The Basic-auth password.
@@ -688,10 +626,7 @@ export class Xhr {
     }
 
     /**
-     * Sets a Bearer token for authentication. The token is stored as an
-     * `Authorization: Bearer <token>` header value applied when the
-     * request headers are set. The token must be non-null for the
-     * authorization to take effect.
+     * Sets a Bearer token for authentication.
      *
      * @param {string | null} token The bearer token (e.g. a JWT).
      *

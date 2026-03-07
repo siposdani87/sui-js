@@ -3,6 +3,7 @@ import { Deferred } from '../core/deferred';
 import { Objekt } from '../core/objekt';
 import { Emitter } from '../core/emitter';
 import { Xhr } from './xhr';
+import type { HttpResponse } from './xhr';
 
 /**
  * High-level HTTP client that wraps {@link Xhr} to provide a simplified
@@ -269,8 +270,8 @@ export class Http extends Emitter {
      */
     private _getPromise(
         promise: Promize<
-            [XMLHttpRequest, Objekt, string],
-            [XMLHttpRequest, Objekt, string]
+            [HttpResponse, Objekt, string],
+            [HttpResponse, Objekt, string]
         >,
     ) {
         const deferred = new Deferred<[Objekt, string], [Objekt, string]>();
