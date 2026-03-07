@@ -9,7 +9,7 @@ const config = new SUI.Objekt({
     backend: window.location.origin,
     production: SUI.releaseMode,
     secret: '484xlj8y4jjöyéö57hk5ghrkleéjx',
-    theme_color: '#673ab7'
+    theme_color: '#3f51b5'
 });
 const app = new SUI.Application(config, SUI.coreResources);
 
