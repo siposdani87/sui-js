@@ -1,6 +1,27 @@
+@use 'sass:color';
+@use 'sass:math';
+
 // Colors
 
-// Black & White & Grey
+// Color variant functions
+// Generates -bright and -dark variants from a base color
+
+@function _round-color($clr) {
+    $r: math.round(color.channel($clr, 'red', $space: rgb));
+    $g: math.round(color.channel($clr, 'green', $space: rgb));
+    $b: math.round(color.channel($clr, 'blue', $space: rgb));
+    @return rgb($r, $g, $b);
+}
+
+@function bright($clr) {
+    @return _round-color(color.scale($clr, $lightness: 35%));
+}
+
+@function dark($clr) {
+    @return _round-color(color.scale($clr, $lightness: -20%));
+}
+
+// Black & White & Grey (fixed scale, not computed)
 
 $white-bright: #fff !default; // 0
 $white: #fafafa !default; // 1
@@ -18,92 +39,106 @@ $black-bright: #323232 !default; // 9
 $black: #212121 !default; // 10
 $black-dark: #000 !default; // 11
 
-// Material Design Palette
+// Palette
 
-// $grey-bright: #e0e0e0 !default;
-// $grey: #9e9e9e !default;
-// $grey-dark: #616161 !default;
-
-$blue-grey-bright: #90a4ae !default;
 $blue-grey: #607d8b !default;
-$blue-grey-dark: #455a64 !default;
+$blue-grey-bright: bright($blue-grey) !default;
+$blue-grey-dark: dark($blue-grey) !default;
 
-$red-bright: #e57373 !default;
 $red: #f44336 !default;
-$red-dark: #d32f2f !default;
+$red-bright: bright($red) !default;
+$red-dark: dark($red) !default;
 
-$pink-bright: #f06292 !default;
 $pink: #e91e63 !default;
-$pink-dark: #c2185b !default;
+$pink-bright: bright($pink) !default;
+$pink-dark: dark($pink) !default;
 
-$purple-bright: #ba68c8 !default;
 $purple: #9c27b0 !default;
-$purple-dark: #7b1fa2 !default;
+$purple-bright: bright($purple) !default;
+$purple-dark: dark($purple) !default;
 
-$deep-purple-bright: #9575cd !default;
 $deep-purple: #673ab7 !default;
-$deep-purple-dark: #512da8 !default;
+$deep-purple-bright: bright($deep-purple) !default;
+$deep-purple-dark: dark($deep-purple) !default;
 
-$indigo-bright: #7986cb !default;
 $indigo: #3f51b5 !default;
-$indigo-dark: #303f9f !default;
+$indigo-bright: bright($indigo) !default;
+$indigo-dark: dark($indigo) !default;
 
-$blue-bright: #64b5f6 !default;
 $blue: #2196f3 !default;
-$blue-dark: #1976d2 !default;
+$blue-bright: bright($blue) !default;
+$blue-dark: dark($blue) !default;
 
-$light-blue-bright: #4fc3f7 !default;
 $light-blue: #03a9f4 !default;
-$light-blue-dark: #0288d1 !default;
+$light-blue-bright: bright($light-blue) !default;
+$light-blue-dark: dark($light-blue) !default;
 
-$cyan-bright: #4dd0e1 !default;
 $cyan: #00bcd4 !default;
-$cyan-dark: #0097a7 !default;
+$cyan-bright: bright($cyan) !default;
+$cyan-dark: dark($cyan) !default;
 
-$teal-bright: #4db6ac !default;
 $teal: #009688 !default;
-$teal-dark: #00796b !default;
+$teal-bright: bright($teal) !default;
+$teal-dark: dark($teal) !default;
 
-$green-bright: #81c784 !default;
 $green: #4caf50 !default;
-$green-dark: #388e3c !default;
+$green-bright: bright($green) !default;
+$green-dark: dark($green) !default;
 
-$light-green-bright: #aed581 !default;
 $light-green: #8bc34a !default;
-$light-green-dark: #689f38 !default;
+$light-green-bright: bright($light-green) !default;
+$light-green-dark: dark($light-green) !default;
 
-$lime-bright: #dce775 !default;
 $lime: #cddc39 !default;
-$lime-dark: #afb42b !default;
+$lime-bright: bright($lime) !default;
+$lime-dark: dark($lime) !default;
 
-$yellow-bright: #fff176 !default;
 $yellow: #ffeb3b !default;
-$yellow-dark: #fbc02d !default;
+$yellow-bright: bright($yellow) !default;
+$yellow-dark: dark($yellow) !default;
 
-$amber-bright: #ffd54f !default;
 $amber: #ffc107 !default;
-$amber-dark: #ffa000 !default;
+$amber-bright: bright($amber) !default;
+$amber-dark: dark($amber) !default;
 
-$orange-bright: #ffb74d !default;
 $orange: #ff9800 !default;
-$orange-dark: #f57c00 !default;
+$orange-bright: bright($orange) !default;
+$orange-dark: dark($orange) !default;
 
-$deep-orange-bright: #ff8a65 !default;
 $deep-orange: #ff5722 !default;
-$deep-orange-dark: #e64a19 !default;
+$deep-orange-bright: bright($deep-orange) !default;
+$deep-orange-dark: dark($deep-orange) !default;
 
-$brown-bright: #a1887f !default;
 $brown: #795548 !default;
-$brown-dark: #5d4037 !default;
+$brown-bright: bright($brown) !default;
+$brown-dark: dark($brown) !default;
 
 // Theme
 
-$primary-bright: $deep-purple-bright !default;
 $primary: $deep-purple !default;
-$primary-dark: $deep-purple-dark !default;
+$primary-bright: bright($primary) !default;
+$primary-dark: dark($primary) !default;
 $primary-text: $white !default;
 
-$accent-bright: $pink-bright !default;
 $accent: $pink !default;
-$accent-dark: $pink-dark !default;
+$accent-bright: bright($accent) !default;
+$accent-dark: dark($accent) !default;
 $accent-text: $white !default;
+
+// Light scheme surface colors
+
+$surface-light: $white !default;
+$surface-light-alt: $white-dark !default;
+$on-surface-light: $black !default;
+$on-surface-light-variant: $deep-grey !default;
+$outline-light: $light-grey-dark !default;
+$outline-light-variant: $light-grey !default;
+
+// Dark scheme surface colors
+
+$surface-dark: $black !default;
+$surface-dark-alt: $black-bright !default;
+$on-surface-dark: $white !default;
+$on-surface-dark-variant: $light-grey-dark !default;
+$outline-dark: $deep-grey !default;
+$outline-dark-variant: $deep-grey-dark !default;

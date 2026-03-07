@@ -2,6 +2,76 @@
 @use 'colors';
 @use 'variables';
 
+// Light scheme (default)
+:root {
+    --sui-primary: #{colors.$primary};
+    --sui-primary-bright: #{colors.$primary-bright};
+    --sui-primary-dark: #{colors.$primary-dark};
+    --sui-primary-text: #{colors.$primary-text};
+    --sui-accent: #{colors.$accent};
+    --sui-accent-bright: #{colors.$accent-bright};
+    --sui-accent-dark: #{colors.$accent-dark};
+    --sui-accent-text: #{colors.$accent-text};
+    --sui-surface: #{colors.$surface-light};
+    --sui-surface-alt: #{colors.$surface-light-alt};
+    --sui-on-surface: #{colors.$on-surface-light};
+    --sui-on-surface-variant: #{colors.$on-surface-light-variant};
+    --sui-outline: #{colors.$outline-light};
+    --sui-outline-variant: #{colors.$outline-light-variant};
+    --sui-success: #{colors.$green};
+    --sui-info: #{colors.$blue};
+    --sui-warning: #{colors.$amber};
+    --sui-error: #{colors.$red};
+
+    color-scheme: light dark;
+}
+
+// Dark scheme via prefers-color-scheme
+@media (prefers-color-scheme: dark) {
+    :root:not(.light-theme) {
+        --sui-primary: #{colors.$primary-bright};
+        --sui-primary-bright: #{colors.$primary};
+        --sui-primary-dark: #{colors.$primary-dark};
+        --sui-primary-text: #{colors.$primary-text};
+        --sui-accent: #{colors.$accent-bright};
+        --sui-accent-bright: #{colors.$accent};
+        --sui-accent-dark: #{colors.$accent-dark};
+        --sui-accent-text: #{colors.$accent-text};
+        --sui-surface: #{colors.$surface-dark};
+        --sui-surface-alt: #{colors.$surface-dark-alt};
+        --sui-on-surface: #{colors.$on-surface-dark};
+        --sui-on-surface-variant: #{colors.$on-surface-dark-variant};
+        --sui-outline: #{colors.$outline-dark};
+        --sui-outline-variant: #{colors.$outline-dark-variant};
+        --sui-success: #{colors.$green-bright};
+        --sui-info: #{colors.$blue-bright};
+        --sui-warning: #{colors.$amber-bright};
+        --sui-error: #{colors.$red-bright};
+    }
+}
+
+// Dark scheme via class override
+.dark-theme {
+    --sui-primary: #{colors.$primary-bright};
+    --sui-primary-bright: #{colors.$primary};
+    --sui-primary-dark: #{colors.$primary-dark};
+    --sui-primary-text: #{colors.$primary-text};
+    --sui-accent: #{colors.$accent-bright};
+    --sui-accent-bright: #{colors.$accent};
+    --sui-accent-dark: #{colors.$accent-dark};
+    --sui-accent-text: #{colors.$accent-text};
+    --sui-surface: #{colors.$surface-dark};
+    --sui-surface-alt: #{colors.$surface-dark-alt};
+    --sui-on-surface: #{colors.$on-surface-dark};
+    --sui-on-surface-variant: #{colors.$on-surface-dark-variant};
+    --sui-outline: #{colors.$outline-dark};
+    --sui-outline-variant: #{colors.$outline-dark-variant};
+    --sui-success: #{colors.$green-bright};
+    --sui-info: #{colors.$blue-bright};
+    --sui-warning: #{colors.$amber-bright};
+    --sui-error: #{colors.$red-bright};
+}
+
 html,
 body {
     font-family: variables.$font-family-body;
