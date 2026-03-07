@@ -94,7 +94,7 @@ export declare class Cookie {
      * // Expire at a specific date
      * cookie.set('promo', 'sale', new Date('2025-12-31'));
      */
-    set(name: string, value: string, opt_expires?: any, opt_path?: string | undefined, opt_domain?: string | undefined, opt_secure?: boolean | undefined): void;
+    set(name: string, value: string, opt_expires?: string | number | Date, opt_path?: string | undefined, opt_domain?: string | undefined, opt_secure?: boolean | undefined): void;
     /**
      * Reads a cookie value by its logical name and returns it with
      * automatic type-casting. Numeric strings are returned as numbers,

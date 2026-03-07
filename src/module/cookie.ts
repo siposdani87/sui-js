@@ -117,8 +117,7 @@ export class Cookie {
     set(
         name: string,
         value: string,
-        // eslint-disable-next-line @typescript-eslint/no-explicit-any
-        opt_expires: any = '',
+        opt_expires: string | number | Date = '',
         opt_path: string | undefined = '/',
         opt_domain: string | undefined = '',
         opt_secure: boolean | undefined = false,

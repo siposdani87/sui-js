@@ -254,12 +254,12 @@ beforeAll(() => {
     </div>
   </div>
   <footer class="hidden" id="footer">
-    <a id="close-bottom-menu" href="javascript:void(0)">
+    <a id="close-bottom-menu" href="#">
       <em class="material-icons size-40">keyboard_arrow_down</em>
     </a>
     <div class="content"></div>
     <div class="locales"></div>
-    <a id="open-bottom-menu" href="javascript:void(0)">
+    <a id="open-bottom-menu" href="#">
       <em class="material-icons size-40">keyboard_arrow_up</em>
     </a>
     <div id="bottom-menu"></div>

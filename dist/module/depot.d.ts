@@ -100,7 +100,7 @@ export declare class Depot {
      * depot.set('session', 'xyz', 2); // expires in 2 hours
      * depot.set('permanent', 'data', Infinity);
      */
-    set(name: string, value: any, opt_expires?: string | number | boolean | Date): void;
+    set(name: string, value: any, opt_expires?: string | number | Date): void;
     /**
      * Retrieves and decrypts a value from storage by its logical name.
      * The decrypted value is automatically type-cast, so stored numeric

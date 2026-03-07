@@ -107,9 +107,7 @@ export class Cookie {
      * // Expire at a specific date
      * cookie.set('promo', 'sale', new Date('2025-12-31'));
      */
-    set(name, value, 
-    // eslint-disable-next-line @typescript-eslint/no-explicit-any
-    opt_expires = '', opt_path = '/', opt_domain = '', opt_secure = false) {
+    set(name, value, opt_expires = '', opt_path = '/', opt_domain = '', opt_secure = false) {
         const propertyName = this._getPropertyName(name);
         if (/^(?:expires|max\-age|path|domain|secure)$/i.test(propertyName)) {
             return;

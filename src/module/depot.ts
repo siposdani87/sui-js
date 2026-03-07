@@ -142,7 +142,7 @@ export class Depot {
         name: string,
         // eslint-disable-next-line @typescript-eslint/no-explicit-any
         value: any,
-        opt_expires?: string | number | boolean | Date,
+        opt_expires?: string | number | Date,
     ): void {
         const expires = this._getExpires(opt_expires);
         const encrypted = expires + ';' + encrypt(value, this.options.secret);
@@ -261,9 +261,7 @@ export class Depot {
      * @param opt_expires The expiration specification.
      * @returns A UTC date string representing the expiration time.
      */
-    private _getExpires(
-        opt_expires?: string | number | boolean | Date,
-    ): string {
+    private _getExpires(opt_expires?: string | number | Date): string {
         const date = new Date();
         if (opt_expires) {
             if (typeof opt_expires === 'number') {
