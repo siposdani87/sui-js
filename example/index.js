@@ -1,5 +1,5 @@
-const lightThemeKnot = new SUI.Query('.light-theme').getKnot();
-const darkThemeKnot = new SUI.Query('.dark-theme').getKnot();
+const lightThemeKnot = new SUI.Query('#form-panel .light-theme').getKnot();
+const darkThemeKnot = new SUI.Query('#form-panel .dark-theme').getKnot();
 darkThemeKnot.setHtml(lightThemeKnot.getHtml(true).replace(/light-/g, 'dark-'));
 
 const config = new SUI.Objekt({
