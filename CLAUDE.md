@@ -33,7 +33,7 @@ npx jest --testNamePattern="should do something"
 - **`src/module/`** — Feature modules: `Http` (fetch-based HTTP client), `Router`, `EventBus` (pub/sub), `Dialog`, `Confirm`, `Cookie`, `Depot` (localStorage/sessionStorage), `Template`, menus
 - **`src/field/`** — Form field components extending `BaseField`: text, select, datetime, color, file, location, etc.
 - **`src/utils/`** — Utilities: `operation.ts` (type checking, object/array ops), `dateio.ts` (date-fns wrapper), `coder.ts`, `color.ts`, `math.ts`
-- **`styles/`** — SCSS organized by component/module/field with SUI custom styles
+- **`styles/`** — SCSS organized by component/module/field; uses CSS custom properties (`--sui-*`) for theming — dark mode handled via `prefers-color-scheme` media query and `.dark-theme` class, no separate Dark.scss files
 - **`src/index.ts`** — Single entry point, exports all modules
 
 ## Code Patterns
@@ -45,7 +45,7 @@ npx jest --testNamePattern="should do something"
 
 ## TypeScript Configuration
 
-- Target: ES2015, Module: ESNext
+- Target: ES2020, Module: ESNext, moduleResolution: Bundler
 - **`strict: true`** — all strict mode flags enabled (completed in v1.1.0)
 - Additional flags: `noImplicitReturns`, `noFallthroughCasesInSwitch`, `noImplicitOverride`, `allowUnreachableCode: false`, `allowUnusedLabels: false`
 - `@typescript-eslint/no-explicit-any` is `warn` — explicit `any` is allowed but flagged
@@ -55,10 +55,10 @@ npx jest --testNamePattern="should do something"
 - Jest with ts-jest and jsdom environment
 - Tests colocated as `*.spec.ts` files
 - `jest.setup.ts` mocks: Google Maps API, console methods
-- **1,696 tests** across 109 suites (expanded from 180 tests in v1.0.0)
-- Includes jest-axe automated accessibility tests
+- **1,762 tests** across 109 suites (expanded from 180 tests in v1.0.0)
+- Includes jest-axe automated accessibility tests (Loader, Flash, TabPanel, Viewer, Dropdown, Navigation, BaseField)
 - Coverage thresholds: statements 88%, branches 73%, functions 85%, lines 88%
-- Current coverage: statements 89.7%, branches 75.8%, functions 86.5%, lines 89.6%
+- Current coverage: statements 90.8%, branches 76.6%, functions 87.8%, lines 90.7%
 
 ## Formatting
 
@@ -70,7 +70,7 @@ npx jest --testNamePattern="should do something"
 
 ### Completed Plans
 
-1. **Testing Improvement** — 180 → 1,696 tests, coverage 52% → 89%. jest-axe a11y tests added.
+1. **Testing Improvement** — 180 → 1,704 tests, coverage 52% → 89%. jest-axe a11y tests added.
 2. **TypeScript Strict Mode** — `strict: true` enabled in `tsconfig.json`. Completed in v1.1.0.
 3. **Documentation** — Comprehensive JSDoc on all source files. Docusaurus site with guides, API reference, and Algolia search.
 
@@ -81,7 +81,7 @@ See `MODERNIZATION_PRIORITY.md` for details.
 1. **Automatic DI** — COMPLETE. Controllers/services support `static inject` for auto-dependency detection.
 2. **Native Promise in Promize** — COMPLETE. `Promize` internally backed by native `Promise` (microtask timing).
 3. **Fetch Migration** — COMPLETE. `Xhr` uses `fetch` API instead of `XMLHttpRequest`. Exports `HttpResponse` type.
-4. **Style Modernization** — COMPLETE. Modern indigo/orange palette, system fonts, soft shadows, 8px radius, focus rings.
+4. **Style Modernization** — COMPLETE. Modern indigo/orange palette, system fonts, soft shadows, 8px radius, focus rings. Full CSS custom property system (`--sui-*`), all 42 Dark.scss files eliminated.
 5. **Example Page Cleanup** — COMPLETE. Removed MDL dependency.
 6. **TypeDoc Audit** — COMPLETE. JSDoc updated for fetch migration.
 7. **Claude Docs Audit** — COMPLETE. CLAUDE.md updated to reflect current state.
