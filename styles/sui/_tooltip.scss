@@ -3,7 +3,7 @@
 
 .sui-tooltip {
     position: fixed;
-    z-index: 999;
+    z-index: variables.$zindex-tooltip;
     padding: 6px 10px;
     font-size: 14px;
     font-weight: 400;
