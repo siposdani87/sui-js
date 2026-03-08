@@ -100,5 +100,87 @@ describe('dateTimeField', () => {
             field.datetimeInput.trigger('click');
             expect(field.datetimeInput.hasClass('active')).toBe(false);
         });
+
+        it('should add active class and toggle popup when enabled', () => {
+            field.render();
+            field.setDisabled(false);
+            field.datetimeInput.getNode().click();
+            expect(field.datetimeInput.hasClass('active')).toBe(true);
+        });
+    });
+
+    describe('datetime click event', () => {
+        it('should update value when datetime emits click', () => {
+            field.render();
+            field.datetime.emit('click', '2024-03-20');
+            expect(field.getValue()).toBe('2024-03-20');
+        });
+    });
+
+    describe('popup close event', () => {
+        it('should remove active class when popup emits close', () => {
+            field.render();
+            field.datetimeInput.addClass('active');
+            field.popup.emit('close');
+            expect(field.datetimeInput.hasClass('active')).toBe(false);
+        });
+    });
+
+    describe('close button in tag', () => {
+        it('should clear value when close button is clicked', () => {
+            field.render();
+            field.setDisabled(false);
+            field.setValue('2024-06-01');
+            const closeBtn = field.datetimeInput
+                .getNode()
+                .querySelector('.close') as HTMLElement;
+            expect(closeBtn).not.toBeNull();
+            closeBtn.click();
+            expect(field.getValue()).toBe('');
+        });
+
+        it('should not show close button when disabled', () => {
+            field.render();
+            field.setDisabled(true);
+            field.setValue('2024-06-01');
+            const closeBtn = field.datetimeInput
+                .getNode()
+                .querySelector('.close');
+            expect(closeBtn).toBeNull();
+        });
+    });
+
+    describe('input change event', () => {
+        it('should trigger modelChange on input change', () => {
+            field.render();
+            const spy = jest.spyOn(field, 'modelChange');
+            field.input.setAttribute('value', '2024-09-01');
+            field.input.trigger('change');
+            expect(spy).toHaveBeenCalled();
+        });
+    });
+
+    describe('initialization with empty value', () => {
+        it('should not set tag when input has no value', () => {
+            inputBlock = new Query<HTMLElement>(
+                '.input-block.field-datetime',
+            ).getKnot();
+            const inputEl = inputBlock
+                .getNode()
+                .querySelector('input') as HTMLInputElement;
+            inputEl.value = '';
+            inputEl.setAttribute('value', '');
+            const { input, label, error } = parseInputBlock(inputBlock);
+            const emptyField = new DateTimeField(
+                input,
+                label,
+                error,
+                inputBlock,
+            );
+            const tags = emptyField.datetimeInput
+                .getNode()
+                .querySelectorAll('.field-tag');
+            expect(tags.length).toBe(0);
+        });
     });
 });

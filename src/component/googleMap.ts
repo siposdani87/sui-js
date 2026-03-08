@@ -1,4 +1,4 @@
-import { each, inArray, isUndefined, eachObject } from '../utils/operation';
+import { each, eachObject } from '../utils/operation';
 import { Collection } from '../core/collection';
 import { Deferred } from '../core/deferred';
 import { Objekt } from '../core/objekt';
@@ -6,15 +6,22 @@ import { Query } from '../core/query';
 import { Emitter } from '../core/emitter';
 import type { Knot } from '../core';
 import type { IconOptions, Id } from '../utils';
-import { MapLabel } from './mapLabel';
-
-/**
- * Internal marker icon configuration containing the icon image and clickable shape.
- */
-type MarkerIcon = {
-    icon: string | google.maps.Icon | google.maps.Symbol;
-    shape: google.maps.MarkerShape;
-};
+import {
+    type MarkerIcon,
+    createMarker as createMarkerOp,
+    updateMarker as updateMarkerOp,
+    removeMarker as removeMarkerOp,
+    removeAllMarkers,
+    setMarkerIcon as setMarkerIconOp,
+} from './mapMarkerOps';
+import {
+    convertPointsToPath,
+    createPolygon as createPolygonOp,
+    updatePolygon as updatePolygonOp,
+    removePolygon as removePolygonOp,
+    removeAllPolygons,
+    getCenterOfPolygon as getCenterOfPolygonOp,
+} from './mapPolygonOps';
 
 /**
  * Geographic coordinate with an optional weight value, used for heatmap data points.
@@ -32,46 +39,6 @@ export type LatLng = {
     latitude: number;
     longitude: number;
 };
-
-/**
- * Creates a {@link MapLabel} bound to a marker's position and map.
- * @param marker - The Google Maps marker to bind the label to.
- * @param title - The text content of the label.
- * @returns A new MapLabel instance bound to the marker.
- */
-const _createMapLabelByMarker = (
-    marker: google.maps.Marker,
-    title: string,
-): MapLabel => {
-    const mapLabel = new MapLabel({
-        text: title,
-        strokeWeight: 2,
-    });
-
-    mapLabel.bindTo('position', marker);
-    mapLabel.bindTo('map', marker);
-
-    return mapLabel;
-};
-
-/**
- * Creates a {@link MapLabel} at a fixed position on the map.
- * @param map - The Google Maps instance.
- * @param position - The geographic position for the label.
- * @param title - The text content of the label.
- * @returns A new MapLabel instance placed at the given position.
- */
-const _createMapLabelByMarkerByPosition = (
-    map: google.maps.Map,
-    position: google.maps.LatLng,
-    title: string,
-): MapLabel =>
-    new MapLabel({
-        text: title,
-        strokeWeight: 2,
-        position: position,
-        map: map,
-    });
 
 /**
  * Google Maps wrapper with support for markers, polygons, heatmaps, geocoding, and custom map styles.
@@ -138,7 +105,6 @@ export class GoogleMap extends Emitter {
             zoom: 8,
             scrollwheel: false,
             streetViewControl: false,
-            // disableDefaultUI: true,
             scaleControl: true,
             mapTypeControl: false,
             mapTypeId: google.maps.MapTypeId.TERRAIN,
@@ -221,7 +187,7 @@ export class GoogleMap extends Emitter {
             this.options.copyObject() as google.maps.MapOptions,
         );
 
-        this._unbindEventsToMap();
+        google.maps.event.clearInstanceListeners(this.map);
         this._bindEventsToMap();
     }
 
@@ -242,13 +208,6 @@ export class GoogleMap extends Emitter {
     }
 
     /**
-     * Removes all event listeners from the map instance.
-     */
-    private _unbindEventsToMap(): void {
-        google.maps.event.clearInstanceListeners(this.map);
-    }
-
-    /**
      * Initializes the overlay view used for coordinate projections.
      */
     private _initOverlay(): void {
@@ -258,6 +217,8 @@ export class GoogleMap extends Emitter {
         };
         this.overlay.setMap(this.map);
     }
+
+    // ── Polygon Operations ──────────────────────────────────────────
 
     /**
      * Creates a new polygon or updates an existing one identified by ID.
@@ -313,29 +274,17 @@ export class GoogleMap extends Emitter {
         opt_polygonData: object | undefined = {},
         opt_options: object | undefined = {},
     ): void {
-        const polygonData = new Objekt(opt_polygonData);
-        if (!polygonData.get('id')) {
-            polygonData.set('id', id);
-        }
-        const options = new Objekt(this.polygonOptions);
-        options.merge(opt_options);
-
-        const polygon = new google.maps.Polygon(options.copyObject());
-        polygon.setMap(this.map);
-        polygonData.setRaw('_polygon', polygon);
-        this._addPointsToPolygon(polygonData, points);
-
-        const latLng = this.getCenterOfPolygon(polygonData);
-        const mapLabel = _createMapLabelByMarkerByPosition(
+        createPolygonOp(
+            this,
             this.map,
-            new google.maps.LatLng(latLng.latitude, latLng.longitude),
+            this.polygons,
+            this.polygonOptions,
+            id,
             title,
+            points,
+            opt_polygonData,
+            opt_options,
         );
-        polygonData.setRaw('_map_label', mapLabel);
-
-        this.polygons.push(polygonData);
-
-        this._bindEventsToPolygon(polygon, polygonData);
     }
 
     /**
@@ -361,37 +310,15 @@ export class GoogleMap extends Emitter {
         opt_polygonData: object | undefined = {},
         opt_options: object | undefined = {},
     ): void {
-        const polygonData = this.getPolygon(id)!;
-        eachObject(this._cleanPolygonData(opt_polygonData), (value, key) => {
-            polygonData.set(key, value);
-        });
-
-        const polygon = polygonData.get<google.maps.Polygon>('_polygon');
-        polygon.setOptions(opt_options);
-        this._addPointsToPolygon(polygonData, points);
-
-        const latLng = this.getCenterOfPolygon(polygonData);
-        const mapLabel = polygonData.get<MapLabel>('_map_label');
-        mapLabel.set('text', title);
-        mapLabel.set(
-            'position',
-            new google.maps.LatLng(latLng.latitude, latLng.longitude),
+        updatePolygonOp(
+            this,
+            this.polygons,
+            id,
+            title,
+            points,
+            opt_polygonData,
+            opt_options,
         );
-    }
-
-    /**
-     * Strips internal properties (_polygon, _map_label, _bounds) from polygon data.
-     * @param polygonData - Raw polygon data object.
-     * @returns A cleaned {@link Objekt} without internal keys.
-     */
-    private _cleanPolygonData(polygonData: object): Objekt {
-        const cleanData = new Objekt();
-        eachObject(polygonData, (value, key) => {
-            if (!inArray(['_polygon', '_map_label', '_bounds'], key)) {
-                cleanData.set(key, value);
-            }
-        });
-        return cleanData;
     }
 
     /**
@@ -416,15 +343,7 @@ export class GoogleMap extends Emitter {
      * googleMap.removePolygon('p1');
      */
     removePolygon(id: Id): void {
-        const polygonData = this.getPolygon(id);
-        if (polygonData) {
-            const mapLabel = polygonData.get<MapLabel>('_map_label');
-            mapLabel.set('map', null);
-            const polygon = polygonData.get<google.maps.Polygon>('_polygon');
-            polygon.setMap(null);
-            this._unbindEventsToPolygon(polygon);
-            this.polygons.deleteById(id);
-        }
+        removePolygonOp(this.polygons, id);
     }
 
     /**
@@ -434,212 +353,7 @@ export class GoogleMap extends Emitter {
      * googleMap.removeAllPolygon();
      */
     removeAllPolygon(): void {
-        this.polygons.each((polygonData) => {
-            const polygon = polygonData.get<google.maps.Polygon>('_polygon');
-            polygon.setMap(null);
-            const mapLabel = polygonData.get<MapLabel>('_map_label');
-            mapLabel.set('map', null);
-            this._unbindEventsToPolygon(polygon);
-        });
-        this.polygons.clear();
-    }
-
-    /**
-     * Binds click, double-click, right-click, and path change events to a polygon.
-     * @param polygon - The Google Maps Polygon instance.
-     * @param polygonData - The associated polygon data object.
-     */
-    private _bindEventsToPolygon(
-        polygon: google.maps.Polygon,
-        polygonData: Objekt,
-    ): void {
-        const cleanPolygonData = this._cleanPolygonData(polygonData);
-
-        // eslint-disable-next-line @typescript-eslint/no-explicit-any
-        polygon.addListener('rightclick', (event: any) => {
-            if (event.vertex) {
-                const path = polygon.getPath();
-                path.removeAt(event.vertex);
-            } else {
-                const vertex = event.latLng;
-                this.emit(
-                    'polygonRightClick',
-                    cleanPolygonData,
-                    vertex.lat(),
-                    vertex.lng(),
-                    event,
-                );
-            }
-        });
-
-        // eslint-disable-next-line @typescript-eslint/no-explicit-any
-        polygon.addListener('click', (event: any) => {
-            const vertex = event.latLng;
-            this.emit(
-                'polygonClick',
-                cleanPolygonData,
-                vertex.lat(),
-                vertex.lng(),
-                event,
-            );
-        });
-
-        // eslint-disable-next-line @typescript-eslint/no-explicit-any
-        polygon.addListener('dblclick', (event: any) => {
-            const vertex = event.latLng;
-            this.emit(
-                'polygonDoubleClick',
-                cleanPolygonData,
-                vertex.lat(),
-                vertex.lng(),
-                event,
-            );
-        });
-
-        this._bindEventsToPolygonPath(polygon, polygonData);
-    }
-
-    /**
-     * Removes all event listeners from a polygon and its path.
-     * @param polygon - The Google Maps Polygon instance.
-     */
-    private _unbindEventsToPolygon(polygon: google.maps.Polygon): void {
-        google.maps.event.clearInstanceListeners(polygon);
-        this._unbindEventsToPolygonPath(polygon);
-    }
-
-    /**
-     * Binds insert, set, and remove events on the polygon path to trigger change callbacks.
-     * @param polygon - The Google Maps Polygon instance.
-     * @param polygonData - The associated polygon data object.
-     */
-    private _bindEventsToPolygonPath(
-        polygon: google.maps.Polygon,
-        polygonData: Objekt,
-    ): void {
-        const path = polygon.getPath();
-        if (path) {
-            path.addListener('insert_at', () => {
-                this._callPolygonChangeEvent(polygon, polygonData);
-            });
-            path.addListener('set_at', () => {
-                this._callPolygonChangeEvent(polygon, polygonData);
-            });
-            path.addListener('remove_at', () => {
-                this._callPolygonChangeEvent(polygon, polygonData);
-            });
-        }
-    }
-
-    /**
-     * Removes all event listeners from a polygon's path.
-     * @param polygon - The Google Maps Polygon instance.
-     */
-    private _unbindEventsToPolygonPath(polygon: google.maps.Polygon): void {
-        const path = polygon.getPath();
-        if (path) {
-            google.maps.event.clearInstanceListeners(path);
-        }
-    }
-
-    /**
-     * Fires the polygon change event after updating bounds and label position.
-     * @param polygon - The Google Maps Polygon instance.
-     * @param polygonData - The associated polygon data object.
-     */
-    private _callPolygonChangeEvent(
-        _polygon: google.maps.Polygon,
-        polygonData: Objekt,
-    ): void {
-        const points = this._getPointsFromPolygon(polygonData);
-        this._setBoundsByPoints(polygonData, points);
-
-        const mapLabel = polygonData.get<MapLabel>('_map_label');
-        const centerLatLng = this.getCenterOfPolygon(polygonData);
-        mapLabel.set(
-            'position',
-            new google.maps.LatLng(
-                centerLatLng.latitude,
-                centerLatLng.longitude,
-            ),
-        );
-
-        const cleanPolygonData = this._cleanPolygonData(polygonData);
-        this.emit('polygonChanged', cleanPolygonData, points);
-    }
-
-    /**
-     * Sets the polygon path from an array of points and updates bounds.
-     * @param polygonData - The polygon data object.
-     * @param points - Array of vertex coordinates.
-     */
-    private _addPointsToPolygon(
-        polygonData: Objekt,
-        points: Array<{ latitude: number; longitude: number }>,
-    ): void {
-        const polygon = polygonData.get<google.maps.Polygon>('_polygon');
-        const path = this._convertPointsToPath(points);
-        polygon.setPath(path);
-        this._bindEventsToPolygonPath(polygon, polygonData);
-        this._setBoundsByPath(polygonData, path);
-    }
-
-    /**
-     * Converts an array of coordinate objects to Google Maps LatLng instances.
-     * @param points - Array of coordinate objects with optional weight.
-     * @returns Array of Google Maps LatLng (or weighted location) instances.
-     */
-    private _convertPointsToPath(
-        points: Array<WeightLatLng>,
-    ): Array<google.maps.LatLng> {
-        // eslint-disable-next-line @typescript-eslint/no-explicit-any
-        const path: any[] = [];
-        each(points, (point) => {
-            // eslint-disable-next-line @typescript-eslint/no-explicit-any
-            let vertex: any = new google.maps.LatLng(
-                point.latitude,
-                point.longitude,
-            );
-            if (!isUndefined(point.weight)) {
-                vertex = {
-                    location: vertex,
-                    weight: point.weight,
-                };
-            }
-            path.push(vertex);
-        });
-        return path;
-    }
-
-    /**
-     * Updates the bounds on polygon data from an array of coordinate points.
-     * @param polygonData - The polygon data object.
-     * @param points - Array of vertex coordinates.
-     */
-    private _setBoundsByPoints(
-        polygonData: Objekt,
-        points: Array<{ latitude: number; longitude: number }>,
-    ): void {
-        const path = this._convertPointsToPath(points);
-        this._setBoundsByPath(polygonData, path);
-    }
-
-    /**
-     * Calculates and stores the bounding box from a path of LatLng values.
-     * @param polygonData - The polygon data object to store bounds on.
-     * @param path - Array of Google Maps LatLng instances.
-     */
-    private _setBoundsByPath(
-        polygonData: Objekt,
-        path: Array<google.maps.LatLng>,
-    ): void {
-        const bounds = new google.maps.LatLngBounds();
-        if (path.length > 0) {
-            each(path, (vertex) => {
-                bounds.extend(vertex);
-            });
-        }
-        polygonData.setRaw('_bounds', bounds);
+        removeAllPolygons(this.polygons);
     }
 
     /**
@@ -656,12 +370,7 @@ export class GoogleMap extends Emitter {
         latitude: number;
         longitude: number;
     } {
-        const bounds = polygonData.get<google.maps.LatLngBounds>('_bounds');
-        const vertex = bounds.getCenter();
-        return {
-            latitude: vertex.lat(),
-            longitude: vertex.lng(),
-        };
+        return getCenterOfPolygonOp(polygonData);
     }
 
     /**
@@ -682,27 +391,6 @@ export class GoogleMap extends Emitter {
                 this.map.fitBounds(bounds);
             }
         }
-    }
-
-    /**
-     * Extracts the current vertex coordinates from a polygon's path.
-     * @param polygonData - The polygon data object.
-     * @returns Array of latitude/longitude objects for each vertex.
-     */
-    private _getPointsFromPolygon(
-        polygonData: Objekt,
-    ): Array<{ latitude: number; longitude: number }> {
-        const polygon = polygonData.get<google.maps.Polygon>('_polygon');
-        const path = polygon.getPath().getArray();
-        this._setBoundsByPath(polygonData, path);
-        const points: Array<{ latitude: number; longitude: number }> = [];
-        each(path, (vertex) => {
-            points.push({
-                latitude: vertex.lat(),
-                longitude: vertex.lng(),
-            });
-        });
-        return points;
     }
 
     /**
@@ -741,94 +429,6 @@ export class GoogleMap extends Emitter {
     }
 
     /**
-     * Initializes or resets the marker {@link Collection} and default marker options.
-     *
-     * @param opt_options - Default marker options merged into all new markers.
-     *
-     * @example
-     * googleMap.setMarkers({ draggable: true });
-     */
-    setMarkers(opt_options: object | undefined = {}): void {
-        this.markers = new Collection();
-
-        this.markerOptions = new Objekt({
-            draggable: false,
-        });
-        this.markerOptions.merge(opt_options);
-    }
-
-    /**
-     * Initializes the heatmap configuration with default gradient and options.
-     *
-     * @param opt_options - Heatmap options to merge with defaults.
-     *
-     * @example
-     * googleMap.setHeatmap({ opacity: 0.8, radius: 20 });
-     */
-    setHeatmap(opt_options: object | undefined = {}): void {
-        const gradient = [
-            'rgba(102, 255, 0, 0)',
-            'rgba(102, 255, 0, 1)',
-            'rgba(147, 255, 0, 1)',
-            'rgba(193, 255, 0, 1)',
-            'rgba(238, 255, 0, 1)',
-            'rgba(244, 227, 0, 1)',
-            'rgba(249, 198, 0, 1)',
-            'rgba(255, 170, 0, 1)',
-            'rgba(255, 113, 0, 1)',
-            'rgba(255, 57, 0, 1)',
-            'rgba(255, 0, 0, 1)',
-        ];
-
-        this.heatmapOptions = new Objekt({
-            opacity: 0.6,
-            radius: null,
-            gradient: gradient,
-        });
-        this.heatmapOptions.merge(opt_options);
-    }
-
-    /**
-     * Creates a heatmap layer on the map from weighted coordinate data.
-     *
-     * @param points - Array of weighted geographic coordinates.
-     * @param opt_heatmapOptions - Additional heatmap options to merge.
-     *
-     * @example
-     * googleMap.setHeatmap();
-     * googleMap.createHeatmap([
-     *     { latitude: 47.6, longitude: 17.5, weight: 3 },
-     *     { latitude: 47.7, longitude: 17.6, weight: 1 },
-     * ]);
-     */
-    createHeatmap(
-        points: Array<WeightLatLng>,
-        opt_heatmapOptions: object | undefined = {},
-    ): void {
-        this.heatmap = new google.maps.visualization.HeatmapLayer({
-            data: this._convertPointsToPath(points),
-            map: this.map,
-        });
-
-        this.heatmapOptions.merge(opt_heatmapOptions);
-        eachObject(this.heatmapOptions, (value, property) => {
-            this.heatmap.set(property, value);
-        });
-    }
-
-    /**
-     * Removes the current heatmap layer from the map.
-     *
-     * @example
-     * googleMap.removeHeatmap();
-     */
-    removeHeatmap(): void {
-        if (this.heatmap) {
-            this.heatmap.setMap(null);
-        }
-    }
-
-    /**
      * Initializes or resets the polygon {@link Collection} and default polygon options.
      *
      * @param opt_options - Default polygon style options merged into all new polygons.
@@ -849,6 +449,25 @@ export class GoogleMap extends Emitter {
             editable: false,
         });
         this.polygonOptions.merge(opt_options);
+    }
+
+    // ── Marker Operations ───────────────────────────────────────────
+
+    /**
+     * Initializes or resets the marker {@link Collection} and default marker options.
+     *
+     * @param opt_options - Default marker options merged into all new markers.
+     *
+     * @example
+     * googleMap.setMarkers({ draggable: true });
+     */
+    setMarkers(opt_options: object | undefined = {}): void {
+        this.markers = new Collection();
+
+        this.markerOptions = new Objekt({
+            draggable: false,
+        });
+        this.markerOptions.merge(opt_options);
     }
 
     /**
@@ -921,28 +540,20 @@ export class GoogleMap extends Emitter {
         opt_markerData: object | undefined = {},
         opt_options: object | undefined = {},
     ): void {
-        const markerData = new Objekt(opt_markerData);
-        if (!markerData.get('id')) {
-            markerData.set('id', id);
-        }
-        const options = new Objekt(this.markerOptions);
-        options.merge(opt_options);
-
-        const text = title.toString();
-        const marker = new google.maps.Marker(options.copyObject());
-        marker.setPosition(new google.maps.LatLng(latitude, longitude));
-        marker.setIcon(this.markerIcons[iconName]!.icon);
-        marker.setShape(this.markerIcons[iconName]!.shape);
-        marker.setTitle(text);
-        marker.setMap(this.map);
-        markerData.setRaw('_marker', marker);
-
-        const mapLabel = _createMapLabelByMarker(marker, text);
-        markerData.setRaw('_map_label', mapLabel);
-
-        this.markers.push(markerData);
-
-        this._bindEventsToMarker(marker, markerData);
+        createMarkerOp(
+            this,
+            this.map,
+            this.markers,
+            this.markerOptions,
+            this.markerIcons,
+            id,
+            title,
+            iconName,
+            latitude,
+            longitude,
+            opt_markerData,
+            opt_options,
+        );
     }
 
     /**
@@ -981,62 +592,6 @@ export class GoogleMap extends Emitter {
     }
 
     /**
-     * Binds click, double-click, right-click, drag, and dragend events to a marker.
-     * @param marker - The Google Maps Marker instance.
-     * @param markerData - The associated marker data object.
-     */
-    private _bindEventsToMarker(
-        marker: google.maps.Marker,
-        markerData: Objekt,
-    ): void {
-        const cleanMarkerData = this._cleanMarkerData(markerData);
-
-        // eslint-disable-next-line @typescript-eslint/no-explicit-any
-        marker.addListener('click', (event: any) => {
-            this.emit('markerClick', cleanMarkerData, event);
-        });
-
-        // eslint-disable-next-line @typescript-eslint/no-explicit-any
-        marker.addListener('dblclick', (event: any) => {
-            this.emit('markerDoubleClick', cleanMarkerData, event);
-        });
-
-        // eslint-disable-next-line @typescript-eslint/no-explicit-any
-        marker.addListener('rightclick', (event: any) => {
-            this.emit('markerRightClick', cleanMarkerData, event);
-        });
-
-        // eslint-disable-next-line @typescript-eslint/no-explicit-any
-        marker.addListener('drag', (_event: any) => {
-            const vertex = marker.getPosition()!;
-            const mapLabel = markerData.get<MapLabel>('_map_label');
-            mapLabel.set('position', vertex);
-        });
-
-        // eslint-disable-next-line @typescript-eslint/no-explicit-any
-        marker.addListener('dragend', (event: any) => {
-            const vertex = marker.getPosition()!;
-            const latitude = vertex.lat();
-            const longitude = vertex.lng();
-            this.emit(
-                'markerChanged',
-                cleanMarkerData,
-                latitude,
-                longitude,
-                event,
-            );
-        });
-    }
-
-    /**
-     * Removes all event listeners from a marker.
-     * @param marker - The Google Maps Marker instance.
-     */
-    private _unbindEventsToMarker(marker: google.maps.Marker): void {
-        google.maps.event.clearInstanceListeners(marker);
-    }
-
-    /**
      * Updates an existing marker's data, icon, title, and position.
      *
      * @param id - The marker identifier to update.
@@ -1059,37 +614,17 @@ export class GoogleMap extends Emitter {
         opt_markerData: object | undefined = {},
         opt_options: object | undefined = {},
     ): void {
-        const markerData = this.getMarker(id)!;
-        eachObject(this._cleanMarkerData(opt_markerData), (value, key) => {
-            markerData.set(key, value);
-        });
-        const text = title.toString();
-        const marker = markerData.get<google.maps.Marker>('_marker');
-        marker.setOptions(opt_options);
-
-        const markerIcon = this.markerIcons[iconName]!;
-        marker.setIcon(markerIcon.icon);
-        marker.setShape(markerIcon.shape);
-        marker.setTitle(text);
-        marker.setPosition(new google.maps.LatLng(latitude, longitude));
-
-        const mapLabel = markerData.get<MapLabel>('_map_label');
-        mapLabel.set('text', text);
-    }
-
-    /**
-     * Strips internal properties (_marker, _map_label) from marker data.
-     * @param markerData - Raw marker data object.
-     * @returns A cleaned {@link Objekt} without internal keys.
-     */
-    private _cleanMarkerData(markerData: object): Objekt {
-        const cleanData = new Objekt();
-        eachObject(markerData, (value, key) => {
-            if (!inArray(['_marker', '_map_label'], key)) {
-                cleanData.set(key, value);
-            }
-        });
-        return cleanData;
+        updateMarkerOp(
+            this.markers,
+            this.markerIcons,
+            id,
+            title,
+            iconName,
+            latitude,
+            longitude,
+            opt_markerData,
+            opt_options,
+        );
     }
 
     /**
@@ -1114,15 +649,7 @@ export class GoogleMap extends Emitter {
      * googleMap.removeMarker('m1');
      */
     removeMarker(id: Id): void {
-        const markerData = this.getMarker(id);
-        if (markerData) {
-            const mapLabel = markerData.get<MapLabel>('_map_label');
-            mapLabel.setMap(null);
-            const marker = markerData.get<google.maps.Marker>('_marker');
-            marker.setMap(null);
-            this._unbindEventsToMarker(marker);
-            this.markers.deleteById(id);
-        }
+        removeMarkerOp(this.markers, id);
     }
 
     /**
@@ -1132,14 +659,7 @@ export class GoogleMap extends Emitter {
      * googleMap.removeAllMarker();
      */
     removeAllMarker(): void {
-        this.markers.each((markerData) => {
-            const mapLabel = markerData.get<MapLabel>('_map_label');
-            mapLabel.setMap(null);
-            const marker = markerData.get<google.maps.Marker>('_marker');
-            marker.setMap(null);
-            this._unbindEventsToMarker(marker);
-        });
-        this.markers.clear();
+        removeAllMarkers(this.markers);
     }
 
     /**
@@ -1195,33 +715,83 @@ export class GoogleMap extends Emitter {
      * });
      */
     setMarkerIcon(name: string, iconOptions: IconOptions): void {
-        // https://developers.google.com/maps/documentation/javascript/examples/marker-symbol-custom
-        const icon = {
-            url: iconOptions.url,
-            size: new google.maps.Size(
-                iconOptions.size[0],
-                iconOptions.size[1],
-            ),
-            origin: new google.maps.Point(
-                iconOptions.origin[0],
-                iconOptions.origin[1],
-            ),
-            anchor: new google.maps.Point(
-                iconOptions.anchor[0],
-                iconOptions.anchor[1],
-            ),
-        };
-
-        const shape: google.maps.MarkerShape = {
-            coords: iconOptions.coords,
-            type: 'poly',
-        };
-
-        this.markerIcons[name] = {
-            icon: icon,
-            shape: shape,
-        };
+        setMarkerIconOp(this.markerIcons, name, iconOptions);
     }
+
+    // ── Heatmap Operations ──────────────────────────────────────────
+
+    /**
+     * Initializes the heatmap configuration with default gradient and options.
+     *
+     * @param opt_options - Heatmap options to merge with defaults.
+     *
+     * @example
+     * googleMap.setHeatmap({ opacity: 0.8, radius: 20 });
+     */
+    setHeatmap(opt_options: object | undefined = {}): void {
+        const gradient = [
+            'rgba(102, 255, 0, 0)',
+            'rgba(102, 255, 0, 1)',
+            'rgba(147, 255, 0, 1)',
+            'rgba(193, 255, 0, 1)',
+            'rgba(238, 255, 0, 1)',
+            'rgba(244, 227, 0, 1)',
+            'rgba(249, 198, 0, 1)',
+            'rgba(255, 170, 0, 1)',
+            'rgba(255, 113, 0, 1)',
+            'rgba(255, 57, 0, 1)',
+            'rgba(255, 0, 0, 1)',
+        ];
+
+        this.heatmapOptions = new Objekt({
+            opacity: 0.6,
+            radius: null,
+            gradient: gradient,
+        });
+        this.heatmapOptions.merge(opt_options);
+    }
+
+    /**
+     * Creates a heatmap layer on the map from weighted coordinate data.
+     *
+     * @param points - Array of weighted geographic coordinates.
+     * @param opt_heatmapOptions - Additional heatmap options to merge.
+     *
+     * @example
+     * googleMap.setHeatmap();
+     * googleMap.createHeatmap([
+     *     { latitude: 47.6, longitude: 17.5, weight: 3 },
+     *     { latitude: 47.7, longitude: 17.6, weight: 1 },
+     * ]);
+     */
+    createHeatmap(
+        points: Array<WeightLatLng>,
+        opt_heatmapOptions: object | undefined = {},
+    ): void {
+        this.heatmap = new google.maps.visualization.HeatmapLayer({
+            data: convertPointsToPath(points),
+            map: this.map,
+        });
+
+        this.heatmapOptions.merge(opt_heatmapOptions);
+        eachObject(this.heatmapOptions, (value, property) => {
+            this.heatmap.set(property, value);
+        });
+    }
+
+    /**
+     * Removes the current heatmap layer from the map.
+     *
+     * @example
+     * googleMap.removeHeatmap();
+     */
+    removeHeatmap(): void {
+        if (this.heatmap) {
+            this.heatmap.setMap(null);
+        }
+    }
+
+    // ── Geocoding & Map Utilities ───────────────────────────────────
 
     /**
      * Geocodes an address query and returns matching locations.

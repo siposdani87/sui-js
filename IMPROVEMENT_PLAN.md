@@ -18,16 +18,16 @@ Based on a thorough exploration of the project at v1.2.0, here's a prioritized i
 
 ## 1. Test Coverage
 
-Coverage **exceeds configured thresholds** (statements 95.5% vs 95%, branches 86.3% vs 86%, functions 92.8% vs 92%, lines 95.4% vs 95%). **2,117 tests** across 110 suites.
+Coverage **exceeds configured thresholds** (statements 97.2% vs 97%, branches 87.7% vs 87%, functions 95.7% vs 95%, lines 97.2% vs 97%). **2,204 tests** across 112 suites.
 
 | Action | Priority | Impact |
 |--------|----------|--------|
 | ~~Increase coverage for `operation.ts`, `knot.ts`~~ — knot branches 85%→93%, operation branches 79%→84% | P1 | Buffer above thresholds |
 | ~~Increase coverage for largest files: `table.ts` (716 LOC)~~ — table branches 79.5%→84.6% | P1 | Buffer above thresholds |
-| Increase coverage for `googleMap.ts` (1,359 LOC) — depends heavily on Maps mocking | P1 | Buffer above thresholds |
+| ~~Increase coverage for `googleMap.ts`~~ — split into 3 files with dedicated specs (`mapMarkerOps.spec.ts`, `mapPolygonOps.spec.ts`); googleMap branches 92.9%, marker ops 87%, polygon ops 76% | P1 | Buffer above thresholds |
 | ~~Increase branch coverage in `selectField.ts`, `colorField.ts`~~ — selectField branches 50.6%→74.7%→80%, colorField functions 40%→100%, branches 60%→80% | P1 | Biggest branch gaps |
 | ~~Increase branch coverage in `baseField.ts`~~ — baseField branches 66.7%→76.3% | P1 | Remaining branch gaps |
-| Increase branch coverage in `locationField.ts` — depends heavily on Maps mocking | P1 | Remaining branch gaps |
+| ~~Increase branch coverage in `locationField.ts`~~ — expanded from 1 to 27 tests; branches 0%→50%+, functions 13%→80%+ | P1 | Remaining branch gaps |
 | ~~Add edge-case tests for `xhr.ts` (fetch error handling, abort, timeouts)~~ — 7 new tests for no Content-Type, pre-set headers | P1 | Security & correctness |
 | ~~Add integration-style tests for `application.ts` DI container~~ — 25 new tests for DI, locale, getInstance, run modes | P1 | Core framework confidence |
 | ~~Enable stricter test config (remove `strictNullChecks: false` from `tsconfig.spec.json`)~~ — removed `strictNullChecks: false` and `noImplicitAny: false` overrides; 21 spec files fixed | P2 | Catch more bugs in tests |
@@ -68,7 +68,7 @@ Current: **~223 KB JS + ~76 KB CSS** (limit: 250 KB JS, 100 KB CSS). CSS reduced
 | ~~**Modernize `moduleResolution`**~~ — changed to `Bundler` | P2 | Better module semantics |
 | ~~**Update `target` to ES2020+**~~ — changed to ES2020 | P2 | Cleaner output, smaller bundle |
 | ~~**Split `operation.ts`**~~ — split 1,108 LOC into 7 focused modules: `comparison.ts`, `typeGuards.ts`, `iteration.ts`, `arrayOps.ts`, `objectOps.ts`, `stringOps.ts`, `domOps.ts`; `operation.ts` is now a barrel re-export (zero consumer changes) | P2 | Maintainability |
-| **Split `googleMap.ts`** (1,359 LOC) — extract `MapMarker`, `MapPolygon`, `MapRoute` etc. | P2 | Maintainability |
+| ~~**Split `googleMap.ts`** (1,359 LOC) — extracted `mapMarkerOps.ts` (277 LOC, 10 functions) and `mapPolygonOps.ts` (402 LOC, 16 functions); `googleMap.ts` reduced to ~700 LOC with thin wrapper methods~~ | P2 | Maintainability |
 | ~~**Add `@typescript-eslint/strict-type-checked`** rules~~ — enabled 5 type-aware rules: `no-floating-promises`, `await-thenable`, `no-unnecessary-type-assertion` (45 auto-fixed), `no-misused-promises`, `restrict-template-expressions`; fixed 3 floating promises with `void` operator | P3 | Catch more issues |
 | **Consider branded types** for IDs, URLs, coordinates | P3 | Domain safety |
 
@@ -193,7 +193,7 @@ Current: **~223 KB JS + ~76 KB CSS** (limit: 250 KB JS, 100 KB CSS). CSS reduced
 
 9. ~~Accessibility audit (ARIA, keyboard, focus trap)~~ — escape key, focus trap, focus restoration in modals; ARIA on Viewer, Flash, Loader; expanded jest-axe tests; color contrast fixes
 10. Reduce `any` usage — deferred (most `any` is genuinely needed in utility/generic code)
-11. Split large files (`googleMap.ts`, `operation.ts`) — deferred (high interdependency, risky refactor)
+11. ~~Split large files (`googleMap.ts`, `operation.ts`)~~ — `operation.ts` split into 7 modules; `googleMap.ts` split into `mapMarkerOps.ts` + `mapPolygonOps.ts`
 12. ~~Micro-interaction animations~~ — dialog/confirm fade+scale, flash slide-in, replaced undefined bounceInDown
 
 ### Phase 4 — Advanced (COMPLETE)
