@@ -101,6 +101,76 @@ describe('Browser', () => {
         });
     });
 
+    describe('OS detection with mocked platform', () => {
+        it('should detect Windows platform', () => {
+            Object.defineProperty(window.navigator, 'platform', {
+                value: 'Win32',
+                configurable: true,
+            });
+            const winBrowser = new Browser();
+            expect(winBrowser.isWindows()).toBe(true);
+            Object.defineProperty(window.navigator, 'platform', {
+                value: '',
+                configurable: true,
+            });
+        });
+
+        it('should detect iOS platform', () => {
+            Object.defineProperty(window.navigator, 'platform', {
+                value: 'iPhone',
+                configurable: true,
+            });
+            const iosBrowser = new Browser();
+            expect(iosBrowser.isIOS()).toBe(true);
+            Object.defineProperty(window.navigator, 'platform', {
+                value: '',
+                configurable: true,
+            });
+        });
+
+        it('should detect Android from userAgent', () => {
+            Object.defineProperty(window.navigator, 'platform', {
+                value: 'Linux armv7l',
+                configurable: true,
+            });
+            Object.defineProperty(window.navigator, 'userAgent', {
+                value: 'Mozilla/5.0 (Linux; Android 10)',
+                configurable: true,
+            });
+            const androidBrowser = new Browser();
+            expect(androidBrowser.isAndroid()).toBe(true);
+            Object.defineProperty(window.navigator, 'platform', {
+                value: '',
+                configurable: true,
+            });
+            Object.defineProperty(window.navigator, 'userAgent', {
+                value: '',
+                configurable: true,
+            });
+        });
+
+        it('should detect Linux platform', () => {
+            Object.defineProperty(window.navigator, 'platform', {
+                value: 'Linux x86_64',
+                configurable: true,
+            });
+            Object.defineProperty(window.navigator, 'userAgent', {
+                value: 'Mozilla/5.0 (X11; Linux x86_64)',
+                configurable: true,
+            });
+            const linuxBrowser = new Browser();
+            expect(linuxBrowser.isLinux()).toBe(true);
+            Object.defineProperty(window.navigator, 'platform', {
+                value: '',
+                configurable: true,
+            });
+            Object.defineProperty(window.navigator, 'userAgent', {
+                value: '',
+                configurable: true,
+            });
+        });
+    });
+
     describe('feature detection', () => {
         it('should have features array', () => {
             expect(Array.isArray(browser.features)).toBe(true);

@@ -40,4 +40,16 @@ describe('Page', () => {
             expect(clickSpy).not.toHaveBeenCalled();
         });
     });
+
+    describe('mailTo', () => {
+        it('should not throw when called with email and subject', () => {
+            expect(() =>
+                page.mailTo('test@example.com', 'Subject'),
+            ).not.toThrow();
+        });
+
+        it('should not throw when called without subject', () => {
+            expect(() => page.mailTo('test@example.com')).not.toThrow();
+        });
+    });
 });

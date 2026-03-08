@@ -159,4 +159,72 @@ describe('State', () => {
             expect(() => state.destroy()).not.toThrow();
         });
     });
+
+    describe('popstate handling', () => {
+        it('should handle popstate with history state', () => {
+            const changeSpy = jest.fn();
+            state.on('change', changeSpy);
+
+            state.go('users');
+            changeSpy.mockClear();
+
+            // Simulate popstate with state object
+            window.history.replaceState({ id: 'home', url: '/' }, '', '/');
+            window.dispatchEvent(new PopStateEvent('popstate'));
+
+            expect(changeSpy).toHaveBeenCalled();
+        });
+
+        it('should handle popstate without history state', () => {
+            const changeSpy = jest.fn();
+            state.on('change', changeSpy);
+
+            // Simulate popstate without state
+            window.history.replaceState(null, '', '/');
+            window.dispatchEvent(new PopStateEvent('popstate'));
+
+            expect(changeSpy).toHaveBeenCalled();
+        });
+    });
+
+    describe('goBack', () => {
+        it('should call back when history has entries', () => {
+            const backSpy = jest.spyOn(window.history, 'go');
+            state.go('users');
+            state.goBack('home');
+            expect(backSpy).toHaveBeenCalledWith(-1);
+            backSpy.mockRestore();
+        });
+    });
+
+    describe('redirect', () => {
+        it('should open in new tab when opt_inTab is true', () => {
+            const openSpy = jest
+                .spyOn(window, 'open')
+                .mockImplementation(() => null);
+            state.redirect('https://example.com', true);
+            expect(openSpy).toHaveBeenCalledWith(
+                'https://example.com',
+                '_blank',
+            );
+            openSpy.mockRestore();
+        });
+    });
+
+    describe('forward', () => {
+        it('should call history.forward', () => {
+            const forwardSpy = jest.spyOn(window.history, 'forward');
+            state.forward();
+            expect(forwardSpy).toHaveBeenCalled();
+            forwardSpy.mockRestore();
+        });
+    });
+
+    describe('setParams', () => {
+        it('should set multiple params at once', () => {
+            state.go('search');
+            state.setParams({ q: 'hello', page: 2 });
+            expect(state.getParam('q')).toBe('hello');
+        });
+    });
 });

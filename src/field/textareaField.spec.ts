@@ -192,6 +192,75 @@ describe('TextareaField', () => {
             textareaField.render();
             expect(() => textareaField.refresh()).not.toThrow();
         });
+
+        it('should add is-invalid when required and empty', () => {
+            textareaField.render();
+            textareaField.setRequired(true);
+            textareaField.setValue('');
+            textareaField.refresh();
+            expect(textareaField.inputBlock.hasClass('is-invalid')).toBe(true);
+        });
+
+        it('should add is-disabled when disabled', () => {
+            textareaField.render();
+            textareaField.setDisabled(true);
+            textareaField.refresh();
+            expect(textareaField.inputBlock.hasClass('is-disabled')).toBe(true);
+        });
+    });
+
+    describe('refresh in rich text mode', () => {
+        let richField: TextareaField;
+
+        beforeEach(() => {
+            const container = document.createElement('div');
+            container.className = 'input-block rich-textarea-refresh';
+            const label = document.createElement('label');
+            label.setAttribute('for', 'rich-refresh');
+            label.textContent = 'Rich';
+            const textarea = document.createElement('textarea');
+            textarea.name = 'field[rich-refresh]';
+            textarea.id = 'rich-refresh';
+            textarea.setAttribute('data-rich-text', 'true');
+            textarea.value = 'content';
+            container.appendChild(label);
+            container.appendChild(textarea);
+            document.body.appendChild(container);
+
+            const ib = new Query<HTMLElement>(
+                '.input-block.rich-textarea-refresh',
+            ).getKnot();
+            const parsed = parseInputBlock(ib);
+            richField = new TextareaField(
+                parsed.input,
+                parsed.label,
+                parsed.error,
+                ib,
+            );
+        });
+
+        afterEach(() => {
+            const el = document.querySelector(
+                '.input-block.rich-textarea-refresh',
+            );
+            if (el) el.remove();
+        });
+
+        it('should disable contentEditable when disabled', () => {
+            richField.render();
+            richField.setDisabled(true);
+            richField.refresh();
+            expect(richField.richTextKnot.contentEditable).toBe('false');
+        });
+
+        it('should enable contentEditable when not disabled', () => {
+            richField.render();
+            richField.setDisabled(true);
+            richField.refresh();
+            richField.setDisabled(false);
+            richField.refresh();
+            expect(richField.richTextKnot.contentEditable).toBe('true');
+        });
     });
 
     describe('keyup event', () => {

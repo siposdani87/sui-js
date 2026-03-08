@@ -108,4 +108,35 @@ describe('Footer', () => {
             expect(footer.isOpened()).toBe(false);
         });
     });
+
+    describe('show with fullscreen content', () => {
+        it('should add dark class for light fullscreen content', () => {
+            const templateView = footer.templateViewKnot.getNode();
+            const pageContent = document.createElement('div');
+            pageContent.className = 'page-content fullscreen light';
+            templateView.appendChild(pageContent);
+
+            footer.show();
+
+            expect(footer.footerKnot.hasClass('dark')).toBe(true);
+            expect(footer.footerKnot.hasClass('static')).toBe(true);
+            expect(footer.templateViewKnot.hasClass('has-footer')).toBe(true);
+
+            pageContent.remove();
+        });
+
+        it('should remove dark class for non-light fullscreen content', () => {
+            const templateView = footer.templateViewKnot.getNode();
+            const pageContent = document.createElement('div');
+            pageContent.className = 'page-content fullscreen';
+            templateView.appendChild(pageContent);
+
+            footer.show();
+
+            expect(footer.footerKnot.hasClass('dark')).toBe(false);
+            expect(footer.footerKnot.hasClass('static')).toBe(true);
+
+            pageContent.remove();
+        });
+    });
 });

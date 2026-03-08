@@ -133,4 +133,73 @@ describe('FileField', () => {
             expect(result).toEqual([]);
         });
     });
+
+    describe('refresh', () => {
+        it('should show remove button when not required and has value', () => {
+            fileField.render();
+            fileField.setRequired(false);
+            (fileField as any).valueSrc = 'https://example.com/img.jpg';
+            fileField.refresh();
+            expect(fileField.removeButton.hasClass('hidden')).toBe(false);
+        });
+
+        it('should hide remove button when required', () => {
+            fileField.render();
+            fileField.setRequired(true);
+            (fileField as any).valueSrc = 'https://example.com/img.jpg';
+            fileField.refresh();
+            expect(fileField.removeButton.hasClass('hidden')).toBe(true);
+        });
+
+        it('should hide remove button when no value', () => {
+            fileField.render();
+            fileField.setRequired(false);
+            (fileField as any).valueSrc = null;
+            fileField.refresh();
+            expect(fileField.removeButton.hasClass('hidden')).toBe(true);
+        });
+    });
+
+    describe('_remove', () => {
+        it('should clear value and restore default', () => {
+            fileField.render();
+            (fileField as any).valueSrc = 'data:image/png;base64,abc';
+            (fileField as any)._remove();
+            expect((fileField as any).valueSrc).toBeNull();
+        });
+    });
+
+    describe('setValue with document', () => {
+        it('should render file icon for document type field', () => {
+            const container = document.createElement('div');
+            container.className = 'input-block doc-file-sv';
+            const label = document.createElement('label');
+            label.setAttribute('for', 'doc-file-sv');
+            const input = document.createElement('input');
+            input.type = 'file';
+            input.name = 'field[docsv]';
+            input.id = 'doc-file-sv';
+            input.setAttribute('accept', '.pdf');
+            container.appendChild(label);
+            container.appendChild(input);
+            document.body.appendChild(container);
+
+            const inputBlock = new Query<HTMLElement>(
+                '.input-block.doc-file-sv',
+            ).getKnot();
+            const parsed = parseInputBlock(inputBlock);
+            const docField = new FileField(
+                parsed.input,
+                parsed.label,
+                parsed.error,
+                inputBlock,
+            );
+            docField.render();
+            docField.setValue('https://example.com/report.pdf');
+            expect((docField as any).valueSrc).toBe(
+                'https://example.com/report.pdf',
+            );
+            container.remove();
+        });
+    });
 });

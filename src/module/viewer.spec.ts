@@ -44,4 +44,39 @@ describe('viewer', () => {
             true,
         );
     });
+
+    it('should set alt attribute from title', () => {
+        viewer.loadImage('/test/image.jpg', 'Alt Text');
+        const img = viewer.modalBody
+            .getNode()
+            .querySelector('img') as HTMLImageElement;
+        expect(img.getAttribute('alt')).toBe('Alt Text');
+    });
+
+    it('should set empty alt when no title', () => {
+        viewer.loadImage('/test/image.jpg');
+        const img = viewer.modalBody
+            .getNode()
+            .querySelector('img') as HTMLImageElement;
+        expect(img.getAttribute('alt')).toBe('');
+    });
+
+    it('should hide header when no title', () => {
+        viewer.loadImage('/test/image.jpg');
+        expect(viewer.modalHeader.hasClass('hidden')).toBe(true);
+    });
+
+    it('should show header when title provided', () => {
+        viewer.loadImage('/test/image.jpg', 'Photo');
+        expect(viewer.modalHeader.hasClass('hidden')).toBe(false);
+    });
+
+    it('should reset callbacks on each loadImage', () => {
+        const okSpy = jest.fn();
+        viewer.on('ok', okSpy);
+        viewer.loadImage('/test/a.jpg');
+        // After loadImage, ok handler should be reset
+        viewer.emit('ok');
+        expect(okSpy).not.toHaveBeenCalled();
+    });
 });

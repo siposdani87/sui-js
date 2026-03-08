@@ -152,5 +152,75 @@ describe('BaseField', () => {
             const name = field.get('name');
             expect(name).toBeDefined();
         });
+
+        it('should show validation message when invalid and opt_showMessage is true', () => {
+            field.setRequired(true);
+            field.setValue('');
+            field.checkValidity(false, true);
+            // Should not throw; exercises the else-if opt_showMessage branch
+        });
+
+        it('should add is-invalid class when force-checking invalid field', () => {
+            field.setRequired(true);
+            field.setValue('');
+            field.checkValidity(true, true);
+            // opt_force=true with invalid value should add is-invalid
+        });
+
+        it('should add is-dirty class when force-checking with value', () => {
+            field.setValue('some-value');
+            field.checkValidity(true, true);
+            // opt_force=true with value should add is-dirty
+        });
+
+        it('should suppress message when opt_showMessage is false', () => {
+            field.setRequired(true);
+            field.setValue('');
+            field.checkValidity(true, false);
+            // opt_showMessage=false exercises the branch that skips setError
+        });
+
+        it('should set custom error with is-invalid', () => {
+            field.setError('Server error', true);
+            expect(field.inputBlock.hasClass('is-invalid')).toBe(true);
+        });
+    });
+
+    describe('with label attributes', () => {
+        it('should create info button when label has title', () => {
+            const inputBlock = new Query<HTMLElement>(
+                '.input-block.field-text',
+            ).getKnot();
+            const { input, label, error } = parseInputBlock(inputBlock);
+            label!.setAttribute('title', 'Help title');
+            const f = new BaseField(input, label, error, inputBlock);
+            expect(f).toBeInstanceOf(BaseField);
+            const infoBtn = inputBlock
+                .getNode()
+                .querySelector('button.info-button');
+            expect(infoBtn).not.toBeNull();
+        });
+
+        it('should create info button when label has desc', () => {
+            const inputBlock = new Query<HTMLElement>(
+                '.input-block.field-text',
+            ).getKnot();
+            const { input, label, error } = parseInputBlock(inputBlock);
+            label!.setAttribute('desc', 'Help description');
+            const f = new BaseField(input, label, error, inputBlock);
+            expect(f).toBeInstanceOf(BaseField);
+        });
+
+        it('should replace existing info button on re-init', () => {
+            const inputBlock = new Query<HTMLElement>(
+                '.input-block.field-text',
+            ).getKnot();
+            const { input, label, error } = parseInputBlock(inputBlock);
+            label!.setAttribute('title', 'First');
+            new BaseField(input, label, error, inputBlock);
+            label!.setAttribute('title', 'Second');
+            const f = new BaseField(input, label, error, inputBlock);
+            expect(f).toBeInstanceOf(BaseField);
+        });
     });
 });

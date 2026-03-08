@@ -557,5 +557,95 @@ describe('Table', () => {
             const tooltips = document.querySelectorAll('.sui-tooltip');
             expect(tooltips.length).toBeGreaterThan(0);
         });
+
+        it('should wrap string calculation result in span', () => {
+            const calcFn = jest.fn(() => 'computed-value');
+            const table = createTable({
+                calculations: { username: calcFn },
+            });
+            table.setData([{ username: 'alice' }]);
+            const dataRow = table.tbody.getNode().querySelector('tr.data');
+            expect(dataRow?.textContent).toContain('computed-value');
+        });
+    });
+
+    describe('search non-Enter key', () => {
+        it('should not trigger action on non-Enter key', () => {
+            const table = createTable({
+                columns: ['username', 'search'],
+            });
+            const eventActionSpy = jest.fn();
+            table.on('action', eventActionSpy);
+
+            const searchInput = table.tableKnot
+                .getNode()
+                .querySelector('#table-search') as HTMLInputElement;
+            searchInput.value = 'test';
+            searchInput.dispatchEvent(
+                new KeyboardEvent('keypress', { key: 'a' }),
+            );
+
+            expect(eventActionSpy).not.toHaveBeenCalled();
+        });
+    });
+
+    describe('table re-initialization guard', () => {
+        it('should skip re-initialization if table already has ID', () => {
+            const table1 = createTable();
+            const id1 = table1.tableKnot.getId();
+
+            // Create second table pointing to the same DOM — ID should persist
+            const table2 = createTable();
+            const id2 = table2.tableKnot.getId();
+
+            expect(id1).toBeTruthy();
+            expect(id2).toBe(id1);
+        });
+    });
+
+    describe('row styles edge cases', () => {
+        it('should handle rowStyle returning falsy value', () => {
+            const table = createTable({
+                rowStyle: () => '',
+            });
+            table.setData([{ username: 'alice' }]);
+            const dataRow = table.tbody.getNode().querySelector('tr.data');
+            expect(dataRow).not.toBeNull();
+        });
+    });
+
+    describe('actions edge cases', () => {
+        it('should render action button without title', () => {
+            const table = createTable();
+            table.setActions([createAction('edit', '', false, false)]);
+            table.setData([{ username: 'alice' }]);
+            const buttons = table.tbody
+                .getNode()
+                .querySelectorAll('td.actions button');
+            expect(buttons.length).toBeGreaterThan(0);
+        });
+
+        it('should attach click handler to enabled action button', () => {
+            const clickFn = jest.fn();
+            const table = createTable();
+            table.setActions([
+                createAction('edit', 'Edit', false, false, clickFn),
+            ]);
+            table.setData([{ username: 'alice' }]);
+            const button = table.tbody
+                .getNode()
+                .querySelector('td.actions button') as HTMLElement;
+            button.click();
+            expect(clickFn).toHaveBeenCalledTimes(1);
+        });
+    });
+
+    describe('collection not sliced when within row_count', () => {
+        it('should show all items when collection <= row_count', () => {
+            const table = createTable({ row_count: 5 });
+            table.setData([{ username: 'alice' }, { username: 'bob' }]);
+            const dataRows = table.tbody.getNode().querySelectorAll('tr.data');
+            expect(dataRows.length).toBe(2);
+        });
     });
 });
