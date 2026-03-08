@@ -18,7 +18,7 @@ Based on a thorough exploration of the project at v1.2.0, here's a prioritized i
 
 ## 1. Test Coverage
 
-Coverage **exceeds configured thresholds** (statements 92.5% vs 91%, branches 80.5% vs 78%, functions 89.2% vs 88%, lines 92.4% vs 91%). **1,905 tests** across 109 suites.
+Coverage **exceeds configured thresholds** (statements 93.5% vs 93%, branches 83% vs 82%, functions 90% vs 89%, lines 93.4% vs 93%). **2,011 tests** across 110 suites.
 
 | Action | Priority | Impact |
 |--------|----------|--------|
@@ -56,7 +56,7 @@ Current: **~223 KB JS + ~76 KB CSS** (limit: 250 KB JS, 100 KB CSS). CSS reduced
 | ~~**Move esbuild config to file**~~ — `scripts/esbuild.config.cjs` shared config, `scripts/esbuild.cjs` build, `scripts/esbuild-watch.cjs` watch, `scripts/esbuild-analyze.cjs` analyze | P2 | Maintainability |
 | **CSS modules or CSS layers** — consider `@layer` for better cascade control | P3 | Style isolation |
 | ~~**Source map optimization**~~ — already using external source maps (esbuild `sourcemap: true` = linked mode); maps excluded from npm publish via `files` field | P3 | Already optimal |
-| **Add bundle visualization** — `esbuild:analyze` exists but no visual output | P3 | Developer experience |
+| ~~**Add bundle visualization**~~ — `esbuild:analyze` now generates `dist/bundle-report.html` with treemap by group, per-module table with bar charts, and raw esbuild analysis | P3 | Developer experience |
 
 ---
 
