@@ -8,6 +8,8 @@
     "outDir": "dist",
     "types": ["google.maps", "jest"],
     "lib": ["ESNext", "DOM"],
+    "incremental": true,
+    "tsBuildInfoFile": ".tsbuildinfo",
     "skipLibCheck": true,
     "noImplicitAny": true,
     "esModuleInterop": true,

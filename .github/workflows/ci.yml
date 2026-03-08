@@ -20,6 +20,11 @@ jobs:
         cache: 'npm'
     - name: Install modules
       run: npm ci
+    - name: Cache TypeScript incremental build
+      uses: actions/cache@v4
+      with:
+        path: .tsbuildinfo
+        key: tsbuildinfo-${{ runner.os }}-${{ hashFiles('src/**/*.ts', 'tsconfig.json') }}
     - name: Security audit
       run: npm audit --audit-level=high
     - name: Lint
