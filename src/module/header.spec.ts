@@ -11,6 +11,22 @@ describe('Header', () => {
         expect(header).toBeInstanceOf(Header);
     });
 
+    it('should accept undefined as options', () => {
+        const h = new Header(undefined);
+        expect(h).toBeInstanceOf(Header);
+    });
+
+    it('should accept explicit options object', () => {
+        const h = new Header({ custom: 'value' });
+        expect(h).toBeInstanceOf(Header);
+    });
+
+    it('should use default options when _setOptions receives undefined', () => {
+        // Exercise the default parameter branch in _setOptions (line 57)
+        (header as any)['_setOptions'](undefined);
+        expect(header.options).toBeDefined();
+    });
+
     describe('DOM references', () => {
         it('should query headerKnot', () => {
             expect(header.headerKnot).toBeDefined();

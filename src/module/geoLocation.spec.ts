@@ -127,6 +127,72 @@ describe('GeoLocation', () => {
                 'permission_denied',
             );
         });
+
+        it('should emit error on position unavailable', () => {
+            mockGeolocation.watchPosition.mockImplementation(
+                (_success: Function, error: Function) => {
+                    error({
+                        code: 2,
+                        PERMISSION_DENIED: 1,
+                        POSITION_UNAVAILABLE: 2,
+                        TIMEOUT: 3,
+                        message: 'unavailable',
+                    });
+                    return 1;
+                },
+            );
+            const spy = jest.fn();
+            geo.on('error', spy);
+            geo.setWatcher();
+            expect(spy).toHaveBeenCalledWith(
+                'Location information is unavailable.',
+                'position_unavailable',
+            );
+        });
+
+        it('should emit error on timeout', () => {
+            mockGeolocation.watchPosition.mockImplementation(
+                (_success: Function, error: Function) => {
+                    error({
+                        code: 3,
+                        PERMISSION_DENIED: 1,
+                        POSITION_UNAVAILABLE: 2,
+                        TIMEOUT: 3,
+                        message: 'timeout',
+                    });
+                    return 1;
+                },
+            );
+            const spy = jest.fn();
+            geo.on('error', spy);
+            geo.setWatcher();
+            expect(spy).toHaveBeenCalledWith(
+                'The request to get user location timed out.',
+                'timeout',
+            );
+        });
+
+        it('should emit error on unknown error code', () => {
+            mockGeolocation.watchPosition.mockImplementation(
+                (_success: Function, error: Function) => {
+                    error({
+                        code: 99,
+                        PERMISSION_DENIED: 1,
+                        POSITION_UNAVAILABLE: 2,
+                        TIMEOUT: 3,
+                        message: 'unknown',
+                    });
+                    return 1;
+                },
+            );
+            const spy = jest.fn();
+            geo.on('error', spy);
+            geo.setWatcher();
+            expect(spy).toHaveBeenCalledWith(
+                'An unknown error occurred.',
+                'unknown',
+            );
+        });
     });
 
     describe('clearWatcher', () => {

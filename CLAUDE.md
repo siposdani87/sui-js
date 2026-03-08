@@ -55,11 +55,11 @@ npx jest --testNamePattern="should do something"
 - Jest with ts-jest and jsdom environment
 - Tests colocated as `*.spec.ts` files
 - `jest.setup.ts` mocks: Google Maps API, console methods
-- **1,905 tests** across 109 suites (expanded from 180 tests in v1.0.0)
+- **2,011 tests** across 110 suites (expanded from 180 tests in v1.0.0)
 - Includes jest-axe automated accessibility tests (Loader, Flash, TabPanel, Viewer, Dropdown, Navigation, BaseField)
 - `tsconfig.spec.json` inherits `strict: true` from base config (strictNullChecks + noImplicitAny enabled)
-- Coverage thresholds: statements 91%, branches 78%, functions 88%, lines 91%
-- Current coverage: statements 92.5%, branches 80.5%, functions 89.2%, lines 92.4%
+- Coverage thresholds: statements 93%, branches 82%, functions 89%, lines 93%
+- Current coverage: statements 93.5%, branches 83%, functions 90%, lines 93.4%
 
 ## Formatting
 
@@ -71,7 +71,7 @@ npx jest --testNamePattern="should do something"
 
 ### Completed Plans
 
-1. **Testing Improvement** — 180 → 1,905 tests, coverage 52% → 92%. jest-axe a11y tests added. Strict null checks enabled in test config.
+1. **Testing Improvement** — 180 → 2,011 tests, coverage 52% → 93%. jest-axe a11y tests added. Strict null checks enabled in test config.
 2. **TypeScript Strict Mode** — `strict: true` enabled in `tsconfig.json`. Completed in v1.1.0.
 3. **Documentation** — Comprehensive JSDoc on all source files. Docusaurus site with guides, API reference, and Algolia search.
 

@@ -52,6 +52,12 @@ describe('Http', () => {
             expect(h.options.get('backend')).toBe('');
             expect(h.options.get('locale')).toBe('');
         });
+
+        it('should use empty defaults when undefined is passed', () => {
+            const h = new Http(undefined);
+            expect(h.options.get('backend')).toBe('');
+            expect(h.options.get('locale')).toBe('');
+        });
     });
 
     describe('setBasicAuthorization', () => {

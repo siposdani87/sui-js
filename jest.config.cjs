@@ -18,10 +18,10 @@ module.exports = {
   // Coverage thresholds - builds will fail if coverage drops below these values
   coverageThreshold: {
     global: {
-      statements: 91,
-      branches: 78,
-      functions: 88,
-      lines: 91
+      statements: 93,
+      branches: 82,
+      functions: 89,
+      lines: 93
     }
   },
 

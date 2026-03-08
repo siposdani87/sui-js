@@ -16,6 +16,18 @@ describe('viewer', () => {
         expect(viewer).toBeInstanceOf(Viewer);
     });
 
+    it('should accept undefined options', () => {
+        const v = new Viewer(undefined);
+        expect(v).toBeInstanceOf(Viewer);
+        v.close();
+    });
+
+    it('should accept custom options', () => {
+        const v = new Viewer({ id: '#viewer' });
+        expect(v).toBeInstanceOf(Viewer);
+        v.close();
+    });
+
     it('should load and display an image with title', () => {
         viewer.loadImage('/test/image.jpg', 'Test Image');
 
@@ -55,6 +67,14 @@ describe('viewer', () => {
 
     it('should set empty alt when no title', () => {
         viewer.loadImage('/test/image.jpg');
+        const img = viewer.modalBody
+            .getNode()
+            .querySelector('img') as HTMLImageElement;
+        expect(img.getAttribute('alt')).toBe('');
+    });
+
+    it('should set empty alt when title is undefined', () => {
+        viewer.loadImage('/test/image.jpg', undefined);
         const img = viewer.modalBody
             .getNode()
             .querySelector('img') as HTMLImageElement;
