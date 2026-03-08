@@ -222,8 +222,7 @@ export class Table<T extends Objekt = Objekt> extends Emitter {
         if (inArray(['search', 'actions'], column)) {
             headerKnot.addClass('actions');
         }
-        // eslint-disable-next-line @typescript-eslint/no-explicit-any
-        const columnsWithOrder = this.options.sorted.filter((sort: any) => {
+        const columnsWithOrder = this.options.sorted.filter((sort: string) => {
             return contain(sort, column);
         });
         if (columnsWithOrder.length === 1) {
@@ -507,8 +506,7 @@ export class Table<T extends Objekt = Objekt> extends Emitter {
         parentKnot: Knot,
     ): void {
         const calculation = this.options.calculations[column];
-        // eslint-disable-next-line @typescript-eslint/no-explicit-any
-        let result: any;
+        let result: Knot | string | (Knot | string)[];
         if (isFunction(calculation)) {
             result = calculation(
                 item,
@@ -518,10 +516,10 @@ export class Table<T extends Objekt = Objekt> extends Emitter {
         } else {
             result = item.get(column, '');
         }
-        // eslint-disable-next-line @typescript-eslint/no-explicit-any
-        const items: any[] = isArray(result) ? (result as any) : [result];
-        // eslint-disable-next-line @typescript-eslint/no-explicit-any
-        eachArray(items, (item: any) => {
+        const items: (Knot | string)[] = isArray(result)
+            ? (result as (Knot | string)[])
+            : [result as Knot | string];
+        eachArray(items, (item: Knot | string) => {
             if (!instanceOf(item, Knot)) {
                 const dataKnot = new Knot('span');
                 dataKnot.setHtml(item as string);

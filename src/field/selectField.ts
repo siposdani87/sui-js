@@ -198,10 +198,9 @@ export class SelectField extends BaseField<HTMLInputElement> {
 
     /**
      * @description Returns the selected value(s). Returns a single value for single-select or an array for multi-select.
-     * @returns {*} The selected value(s), or null if nothing is selected.
+     * @returns {string | string[] | null} The selected value(s), or null if nothing is selected.
      */
-    // eslint-disable-next-line @typescript-eslint/no-explicit-any
-    override getValue(): any {
+    override getValue(): string | string[] | null {
         let ids = this._getSelectedIds();
         ids = ids.filter((id) => {
             return !eq(id, '');
@@ -221,7 +220,7 @@ export class SelectField extends BaseField<HTMLInputElement> {
     getOptionValue(opt_attribute?: string): any {
         const value = this.getValue();
         if (value) {
-            const option = this.options.findById(value);
+            const option = this.options.findById(value as string);
             return opt_attribute
                 ? option!.get(format('item.{0}', [opt_attribute]))
                 : option;
@@ -305,10 +304,9 @@ export class SelectField extends BaseField<HTMLInputElement> {
 
     /**
      * @description Renders the selected tags in the select container based on the given IDs.
-     * @param {Array<any>} ids - The selected option IDs.
+     * @param {Array<string>} ids - The selected option IDs.
      */
-    // eslint-disable-next-line @typescript-eslint/no-explicit-any
-    private _setSelectTags(ids: Array<any>): void {
+    private _setSelectTags(ids: Array<string>): void {
         const hasValue = ids.some((id) => id !== '');
         if (this.isRequired() && !hasValue) {
             this.inputBlock.addClass('is-invalid');
@@ -316,7 +314,7 @@ export class SelectField extends BaseField<HTMLInputElement> {
         if (this.isMultiple()) {
             this._setMultipleTag(ids);
         } else {
-            this._setSimpleTag(ids[0]);
+            this._setSimpleTag(ids[0] ?? '');
         }
     }
 
@@ -394,10 +392,9 @@ export class SelectField extends BaseField<HTMLInputElement> {
 
     /**
      * @description Updates the selected attribute on option elements matching the given IDs.
-     * @param {Array<any>} ids - The IDs to mark as selected.
+     * @param {Array<string>} ids - The IDs to mark as selected.
      */
-    // eslint-disable-next-line @typescript-eslint/no-explicit-any
-    private _setSelectedIds(ids: Array<any>): void {
+    private _setSelectedIds(ids: Array<string>): void {
         this.options.each((option) => {
             const id = option.get('id');
             const selected = inArray(ids, id);
@@ -416,18 +413,16 @@ export class SelectField extends BaseField<HTMLInputElement> {
 
     /**
      * @description Collects the IDs of all currently selected options.
-     * @returns {Array<any>} The selected IDs, or [''] if none are selected.
+     * @returns {Array<string>} The selected IDs, or [''] if none are selected.
      */
-    // eslint-disable-next-line @typescript-eslint/no-explicit-any
-    private _getSelectedIds(): Array<any> {
-        // eslint-disable-next-line @typescript-eslint/no-explicit-any
-        const ids: any[] = [];
+    private _getSelectedIds(): Array<string> {
+        const ids: string[] = [];
         this.options.each((option) => {
             const optionKnot =
                 option.get<Knot<HTMLOptionElement>>('option_node');
             const optionNode = optionKnot.getNode();
             if (optionNode.selected) {
-                const id = option.get('id');
+                const id = option.get<string>('id');
                 ids.push(id);
             }
         });

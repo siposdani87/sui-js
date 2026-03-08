@@ -1,4 +1,4 @@
-import { each, isString, isUndefined, typeCast } from '../utils/operation';
+import { isString, isUndefined, typeCast } from '../utils/operation';
 import { Emitter } from '../core/emitter';
 import { Knot } from '../core/knot';
 import { Query } from '../core/query';
@@ -146,7 +146,7 @@ export class Canvas extends Emitter {
         radius: number,
         sides: number,
         rotateAngle: number,
-        options: object,
+        options: Partial<CanvasRenderingContext2D>,
     ): void {
         if (sides < 3) {
             return;
@@ -164,11 +164,7 @@ export class Canvas extends Emitter {
             );
         }
         this.context.closePath();
-        // eslint-disable-next-line @typescript-eslint/no-explicit-any
-        each(options, (value: any, key: string | number) => {
-            // eslint-disable-next-line @typescript-eslint/no-explicit-any
-            (this.context as any)[key] = value;
-        });
+        Object.assign(this.context, options);
         this.context.fill();
         this.context.stroke();
         this.context.restore();
@@ -197,24 +193,18 @@ export class Canvas extends Emitter {
         width: number,
         height: number,
         rotateAngle: number,
-        options: object,
+        options: Partial<CanvasRenderingContext2D>,
     ): void {
         this.context.save();
         this.context.translate(x, y);
         this.context.beginPath();
         this.context.rotate(rotateAngle);
         this.context.rect(0, 0, width, height);
-        // eslint-disable-next-line @typescript-eslint/no-explicit-any
-        each(options, (value: any, key: string | number) => {
-            // eslint-disable-next-line @typescript-eslint/no-explicit-any
-            (this.context as any)[key] = value;
-        });
-        // eslint-disable-next-line @typescript-eslint/no-explicit-any
-        if ((options as Record<string, any>)['fillStyle']) {
+        Object.assign(this.context, options);
+        if (options.fillStyle) {
             this.context.fill();
         }
-        // eslint-disable-next-line @typescript-eslint/no-explicit-any
-        if ((options as Record<string, any>)['strokeStyle']) {
+        if (options.strokeStyle) {
             this.context.stroke();
         }
         this.context.restore();

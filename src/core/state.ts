@@ -422,8 +422,10 @@ export class State extends Emitter {
      * @returns A two-element array of `[url, route]`, or `['', undefined]`
      *     if the route ID is not found.
      */
-    // eslint-disable-next-line @typescript-eslint/no-explicit-any
-    private _resolveUrlWithState(id: string, opt_params?: object): Array<any> {
+    private _resolveUrlWithState(
+        id: string,
+        opt_params?: object,
+    ): [string, Route | null] {
         const route = this.routes.findById(id);
         let url = '';
         if (route) {
@@ -582,8 +584,7 @@ export class State extends Emitter {
      * @example
      * state.setParam('page', 3);
      */
-    // eslint-disable-next-line @typescript-eslint/no-explicit-any
-    setParam(name: string, value: any): void {
+    setParam(name: string, value: string | number | boolean): void {
         const id = this.getCurrent<string>('id');
         const params = this.getParams();
         params.set(name, value);
@@ -614,8 +615,7 @@ export class State extends Emitter {
      * const userId = state.getParam<number>('id');
      * const page = state.getParam<number>('page', 1);
      */
-    // eslint-disable-next-line @typescript-eslint/no-explicit-any
-    getParam<T = string>(name: string, opt_defaultValue?: any): T {
+    getParam<T = string>(name: string, opt_defaultValue?: T): T {
         const params = this.getParams();
         return params.get<T>(name, opt_defaultValue);
     }
@@ -652,8 +652,7 @@ export class State extends Emitter {
      * @example
      * const [rootId, rootParams] = state.getRoot();
      */
-    // eslint-disable-next-line @typescript-eslint/no-explicit-any
-    getRoot(): Array<any> {
+    getRoot(): [string, object] {
         return [this.options.root.id, this.options.root.params];
     }
 }
