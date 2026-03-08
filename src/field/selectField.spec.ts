@@ -518,4 +518,274 @@ describe('SelectField', () => {
             );
         });
     });
+
+    describe('_setMultipleTag edge cases', () => {
+        let container: HTMLDivElement;
+
+        function createMultiSelectDOM(opt_required = false): HTMLDivElement {
+            const c = document.createElement('div');
+            c.className = 'input-block test-multi-edge';
+            const label = document.createElement('label');
+            label.setAttribute('for', 'test-multi-edge');
+            label.textContent = 'Multi Edge';
+            const select = document.createElement('select');
+            select.id = 'test-multi-edge';
+            select.name = 'field[multi-edge]';
+            select.setAttribute('multiple', 'multiple');
+            if (opt_required) {
+                select.setAttribute('required', 'required');
+            }
+            const opt0 = document.createElement('option');
+            opt0.value = '';
+            opt0.textContent = 'default';
+            const optA = document.createElement('option');
+            optA.value = 'a';
+            optA.textContent = 'Alpha';
+            const optB = document.createElement('option');
+            optB.value = 'b';
+            optB.textContent = 'Beta';
+            select.appendChild(opt0);
+            select.appendChild(optA);
+            select.appendChild(optB);
+            c.appendChild(label);
+            c.appendChild(select);
+            document.body.appendChild(c);
+            return c;
+        }
+
+        afterEach(() => {
+            if (container) container.remove();
+        });
+
+        it('should fall back to first option when required and no valid ids (line 344-346)', () => {
+            container = createMultiSelectDOM(true);
+            const inputBlock = new Query<HTMLElement>(
+                '.test-multi-edge',
+            ).getKnot();
+            const { input, label, error } = parseInputBlock(inputBlock);
+            const field = new SelectField(input, label, error, inputBlock);
+            field.render();
+            // Call _setMultipleTag with IDs that don't match any option
+            // so options array is empty, triggering the isRequired fallback
+            (field as any)._setMultipleTag(['nonexistent']);
+            const tags = (field as any).selectKnot
+                .getNode()
+                .querySelectorAll('.field-tag');
+            // Should show the first option as fallback tag
+            expect(tags.length).toBe(1);
+        });
+
+        it('should render empty tags when not required and ids is empty (line 347-348)', () => {
+            container = createMultiSelectDOM(false);
+            const inputBlock = new Query<HTMLElement>(
+                '.test-multi-edge',
+            ).getKnot();
+            const { input, label, error } = parseInputBlock(inputBlock);
+            const field = new SelectField(input, label, error, inputBlock);
+            field.render();
+            // Directly call _setMultipleTag with an empty array
+            (field as any)._setMultipleTag([]);
+            const tags = (field as any).selectKnot
+                .getNode()
+                .querySelectorAll('.field-tag');
+            expect(tags.length).toBe(0);
+        });
+    });
+
+    describe('_handleSelectedId in multiple mode', () => {
+        let container: HTMLDivElement;
+
+        function createMultiSelectDOM(): HTMLDivElement {
+            const c = document.createElement('div');
+            c.className = 'input-block test-multi-handle';
+            const label = document.createElement('label');
+            label.setAttribute('for', 'test-multi-handle');
+            label.textContent = 'Multi Handle';
+            const select = document.createElement('select');
+            select.id = 'test-multi-handle';
+            select.name = 'field[multi-handle]';
+            select.setAttribute('multiple', 'multiple');
+            const opt0 = document.createElement('option');
+            opt0.value = '';
+            opt0.textContent = 'default';
+            const optA = document.createElement('option');
+            optA.value = 'a';
+            optA.textContent = 'Alpha';
+            const optB = document.createElement('option');
+            optB.value = 'b';
+            optB.textContent = 'Beta';
+            const optC = document.createElement('option');
+            optC.value = 'c';
+            optC.textContent = 'Charlie';
+            select.appendChild(opt0);
+            select.appendChild(optA);
+            select.appendChild(optB);
+            select.appendChild(optC);
+            c.appendChild(label);
+            c.appendChild(select);
+            document.body.appendChild(c);
+            return c;
+        }
+
+        afterEach(() => {
+            if (container) container.remove();
+        });
+
+        it('should add item in multiple mode (line 444-445)', () => {
+            container = createMultiSelectDOM();
+            const inputBlock = new Query<HTMLElement>(
+                '.test-multi-handle',
+            ).getKnot();
+            const { input, label, error } = parseInputBlock(inputBlock);
+            const field = new SelectField(input, label, error, inputBlock);
+            field.render();
+            (field as any)._handleSelectedId('a');
+            expect(field.getValue()).toContain('a');
+            // Add another
+            (field as any)._handleSelectedId('b');
+            const value = field.getValue() as string[];
+            expect(value).toContain('a');
+            expect(value).toContain('b');
+        });
+
+        it('should remove item in multiple mode (line 442-443)', () => {
+            container = createMultiSelectDOM();
+            const inputBlock = new Query<HTMLElement>(
+                '.test-multi-handle',
+            ).getKnot();
+            const { input, label, error } = parseInputBlock(inputBlock);
+            const field = new SelectField(input, label, error, inputBlock);
+            field.render();
+            field.setValue(['a', 'b']);
+            // Remove 'a'
+            (field as any)._handleSelectedId('a');
+            const value = field.getValue() as string[];
+            expect(value).toContain('b');
+            expect(value).not.toContain('a');
+        });
+
+        it('should clear ids when selecting empty in multiple mode (line 439-440)', () => {
+            container = createMultiSelectDOM();
+            const inputBlock = new Query<HTMLElement>(
+                '.test-multi-handle',
+            ).getKnot();
+            const { input, label, error } = parseInputBlock(inputBlock);
+            const field = new SelectField(input, label, error, inputBlock);
+            field.render();
+            field.setValue(['a', 'b']);
+            // Select empty string to clear all
+            (field as any)._handleSelectedId('');
+            const value = field.getValue() as string[];
+            expect(value).toEqual([]);
+        });
+
+        it('should fall back to empty when all removed in multiple mode (line 447-448)', () => {
+            container = createMultiSelectDOM();
+            const inputBlock = new Query<HTMLElement>(
+                '.test-multi-handle',
+            ).getKnot();
+            const { input, label, error } = parseInputBlock(inputBlock);
+            const field = new SelectField(input, label, error, inputBlock);
+            field.render();
+            (field as any)._handleSelectedId('a');
+            expect(field.getValue()).toContain('a');
+            // Remove the only selected item
+            (field as any)._handleSelectedId('a');
+            const value = field.getValue() as string[];
+            expect(value).toEqual([]);
+        });
+    });
+
+    describe('tag click and close button interactions', () => {
+        let container: HTMLDivElement;
+
+        afterEach(() => {
+            if (container) container.remove();
+        });
+
+        it('should open popup when tag is clicked (line 368)', () => {
+            container = createSelectDOM();
+            const field = createSelectField(container);
+            field.render();
+            field.setValue('a');
+            const openSpy = jest.spyOn(field, 'open');
+            const tag = container.querySelector('.field-tag') as HTMLElement;
+            tag.dispatchEvent(new Event('click'));
+            expect(openSpy).toHaveBeenCalled();
+        });
+
+        it('should deselect when close button on tag is clicked (line 385)', () => {
+            container = createSelectDOM();
+            const field = createSelectField(container);
+            field.render();
+            field.setValue('a');
+            const closeBtn = container.querySelector(
+                '.field-tag .close',
+            ) as HTMLElement;
+            expect(closeBtn).not.toBeNull();
+            closeBtn.dispatchEvent(new Event('click'));
+            expect(field.getValue()).toBeNull();
+        });
+    });
+
+    describe('option list item click handler', () => {
+        let container: HTMLDivElement;
+
+        afterEach(() => {
+            if (container) container.remove();
+        });
+
+        it('should select option when list item is clicked (line 478)', () => {
+            container = createSelectDOM();
+            const field = createSelectField(container);
+            field.render();
+            field.open();
+            const buttons = field.listKnot.getNode().querySelectorAll('button');
+            // Click the second button (Alpha, value='a')
+            const alphaBtn = buttons[1] as HTMLElement;
+            alphaBtn.dispatchEvent(new Event('click'));
+            expect(field.getValue()).toBe('a');
+        });
+    });
+
+    describe('search input keyup handler', () => {
+        let container: HTMLDivElement;
+
+        afterEach(() => {
+            if (container) container.remove();
+        });
+
+        it('should filter options on keyup event (lines 518-520)', () => {
+            container = createSelectDOM();
+            const field = createSelectField(container);
+            field.render();
+            field.open();
+            const searchInput = field.searchInputKnot.getNode();
+            searchInput.value = 'Beta';
+            searchInput.dispatchEvent(new Event('keyup'));
+            const items = field.listKnot.getNode().querySelectorAll('button');
+            expect(items.length).toBe(1);
+            expect(field.query).toBe('Beta');
+        });
+
+        it('should show all options when search is cleared via keyup', () => {
+            container = createSelectDOM();
+            const field = createSelectField(container);
+            field.render();
+            field.open();
+            const searchInput = field.searchInputKnot.getNode();
+            // First filter
+            searchInput.value = 'Alpha';
+            searchInput.dispatchEvent(new Event('keyup'));
+            expect(
+                field.listKnot.getNode().querySelectorAll('button').length,
+            ).toBe(1);
+            // Clear search
+            searchInput.value = '';
+            searchInput.dispatchEvent(new Event('keyup'));
+            expect(
+                field.listKnot.getNode().querySelectorAll('button').length,
+            ).toBe(3);
+        });
+    });
 });

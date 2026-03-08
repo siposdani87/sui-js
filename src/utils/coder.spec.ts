@@ -34,6 +34,12 @@ describe('Coder', () => {
             const text = 'hello world! @#$%';
             expect(decodeBase64(encodeBase64(text))).toBe(text);
         });
+
+        it('should fallback for invalid UTF-8 in decodeBase64', () => {
+            // Base64 encoding of bytes [0xFF, 0xFE] which is invalid UTF-8
+            const result = decodeBase64('//4=');
+            expect(typeof result).toBe('string');
+        });
     });
 
     describe('AES encrypt/decrypt', () => {
@@ -48,6 +54,11 @@ describe('Coder', () => {
             const obj = { key: 'value' };
             const encrypted = encrypt(obj, 'secret');
             expect(decrypt(encrypted, 'secret')).toEqual(obj);
+        });
+
+        it('should return null when decrypting with wrong passphrase', () => {
+            const encrypted = encrypt('hello', 'rightKey');
+            expect(decrypt(encrypted, 'wrongKey')).toBeNull();
         });
     });
 

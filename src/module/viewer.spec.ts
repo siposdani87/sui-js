@@ -99,4 +99,19 @@ describe('viewer', () => {
         viewer.emit('ok');
         expect(okSpy).not.toHaveBeenCalled();
     });
+
+    it('should use default options when _setOptions called without argument', () => {
+        (viewer as any)['_setOptions']();
+        expect(viewer.options.get('id')).toBe('#viewer');
+    });
+
+    it('should use default title when _setImage called without opt_title', () => {
+        (viewer as any)['_setImage']('/test/fallback.jpg');
+        const img = viewer.modalBody
+            .getNode()
+            .querySelector('img:last-child') as HTMLImageElement;
+        expect(img).not.toBeNull();
+        expect(img.getAttribute('alt')).toBe('');
+        expect(img.getAttribute('src')).toBe('/test/fallback.jpg');
+    });
 });

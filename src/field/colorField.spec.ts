@@ -134,6 +134,23 @@ describe('ColorField', () => {
             expect(setValueSpy).toHaveBeenCalled();
             expect(closeSpy).toHaveBeenCalled();
         });
+
+        it('should use layerX when offsetX is not available', () => {
+            colorField.render();
+            const setValueSpy = jest.spyOn(colorField, 'setValue');
+            const clickEvent = new MouseEvent('click', {
+                clientX: 10,
+                clientY: 10,
+            });
+            Object.defineProperty(clickEvent, 'offsetX', { value: 0 });
+            Object.defineProperty(clickEvent, 'offsetY', { value: 0 });
+            Object.defineProperty(clickEvent, 'layerX', { value: 8 });
+            Object.defineProperty(clickEvent, 'layerY', { value: 8 });
+            (colorField as any).canvas.canvasKnot
+                .getNode()
+                .dispatchEvent(clickEvent);
+            expect(setValueSpy).toHaveBeenCalled();
+        });
     });
 
     describe('validation', () => {
@@ -141,8 +158,14 @@ describe('ColorField', () => {
             colorField.input.getNode().setAttribute('required', 'required');
             colorField.input.getNode().value = '';
             colorField.render();
+            jest.spyOn(colorField, 'isRequired').mockReturnValue(true);
+            jest.spyOn(colorField, 'getValue').mockReturnValue('');
             colorField.refresh();
-            // The refresh method checks isRequired() && !getValue()
+            expect(
+                (colorField as any).inputBlock
+                    .getNode()
+                    .classList.contains('is-invalid'),
+            ).toBe(true);
         });
 
         it('should add is-disabled when disabled', () => {

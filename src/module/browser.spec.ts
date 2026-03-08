@@ -102,6 +102,19 @@ describe('Browser', () => {
     });
 
     describe('OS detection with mocked platform', () => {
+        it('should detect macOS platform', () => {
+            Object.defineProperty(window.navigator, 'platform', {
+                value: 'MacIntel',
+                configurable: true,
+            });
+            const macBrowser = new Browser();
+            expect(macBrowser.isMacOS()).toBe(true);
+            Object.defineProperty(window.navigator, 'platform', {
+                value: '',
+                configurable: true,
+            });
+        });
+
         it('should detect Windows platform', () => {
             Object.defineProperty(window.navigator, 'platform', {
                 value: 'Win32',

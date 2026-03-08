@@ -323,6 +323,10 @@ describe('operation', () => {
         expect(result).toEqual(true);
     });
 
+    it('isSame objects with different key count', () => {
+        expect(isSame({ a: 1 }, { a: 1, b: 2 })).toBe(false);
+    });
+
     it('remove', () => {
         const numbers = [2, 4, 7, 1, 3];
         remove(numbers, 7);
@@ -358,6 +362,17 @@ describe('operation', () => {
 
         numbers[0]!.id = 3;
         expect(numbersCopy[0]!.id).not.toEqual(numbers[0]!.id);
+    });
+
+    it('copyArray with nested arrays', () => {
+        const nested = [
+            [1, 2],
+            [3, 4],
+        ];
+        const copy = copyArray(nested);
+        expect(copy).toEqual(nested);
+        nested[0]!.push(5);
+        expect(copy[0]).toEqual([1, 2]);
     });
 
     it('copyObject', () => {

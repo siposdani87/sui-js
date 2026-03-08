@@ -55,11 +55,11 @@ npx jest --testNamePattern="should do something"
 - Jest with ts-jest and jsdom environment
 - Tests colocated as `*.spec.ts` files
 - `jest.setup.ts` mocks: Google Maps API, console methods
-- **2,011 tests** across 110 suites (expanded from 180 tests in v1.0.0)
+- **2,117 tests** across 110 suites (expanded from 180 tests in v1.0.0)
 - Includes jest-axe automated accessibility tests (Loader, Flash, TabPanel, Viewer, Dropdown, Navigation, BaseField)
 - `tsconfig.spec.json` inherits `strict: true` from base config (strictNullChecks + noImplicitAny enabled)
-- Coverage thresholds: statements 93%, branches 82%, functions 89%, lines 93%
-- Current coverage: statements 93.5%, branches 83%, functions 90%, lines 93.4%
+- Coverage thresholds: statements 95%, branches 86%, functions 92%, lines 95%
+- Current coverage: statements 95.5%, branches 86.3%, functions 92.8%, lines 95.4%
 
 ## Formatting
 

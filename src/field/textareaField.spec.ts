@@ -113,6 +113,20 @@ describe('TextareaField', () => {
             expect(html).toContain('<p>');
         });
 
+        it('should preserve value already wrapped in paragraph tags', () => {
+            richTextareaField.input.getNode().value = '<p>already wrapped</p>';
+            richTextareaField.render();
+            const html = richTextareaField.richText.getHtml(true);
+            expect(html).toBe('<p>already wrapped</p>');
+        });
+
+        it('should use br tag when value is empty', () => {
+            richTextareaField.input.getNode().value = '';
+            richTextareaField.render();
+            const html = richTextareaField.richText.getHtml(true);
+            expect(html).toBe('<p><br></p>');
+        });
+
         it('should create toolbar with buttons', () => {
             richTextareaField.render();
             expect(richTextareaField.toolbarKnot).toBeDefined();
@@ -184,6 +198,236 @@ describe('TextareaField', () => {
             (richTextareaField as any)._setHtmlMode(true);
             (richTextareaField as any)._formatDoc('bold');
             expect(document.execCommand).not.toHaveBeenCalled();
+        });
+
+        it('should update richText on input keyup in rich text mode', () => {
+            richTextareaField.render();
+            const spy = jest.spyOn(richTextareaField.richText, 'setHtml');
+            richTextareaField.input.getNode().value = '<p>updated</p>';
+            richTextareaField.input
+                .getNode()
+                .dispatchEvent(new Event('keyup', { bubbles: true }));
+            expect(spy).toHaveBeenCalledWith('<p>updated</p>');
+        });
+
+        it('should handle Enter keydown in rich text div', () => {
+            richTextareaField.render();
+            document.execCommand = jest.fn(() => true);
+            const richNode = richTextareaField.richText.getNode();
+            richNode.dispatchEvent(
+                new KeyboardEvent('keydown', {
+                    key: 'Enter',
+                    bubbles: true,
+                }),
+            );
+            expect(document.execCommand).toHaveBeenCalledWith(
+                'defaultParagraphSeparator',
+                false,
+                'p',
+            );
+        });
+
+        it('should not call execCommand on non-Enter keydown', () => {
+            richTextareaField.render();
+            document.execCommand = jest.fn(() => true);
+            const richNode = richTextareaField.richText.getNode();
+            richNode.dispatchEvent(
+                new KeyboardEvent('keydown', {
+                    key: 'a',
+                    bubbles: true,
+                }),
+            );
+            expect(document.execCommand).not.toHaveBeenCalled();
+        });
+
+        it('should update input value on richText keyup', () => {
+            richTextareaField.render();
+            richTextareaField.richText
+                .getNode()
+                .appendChild(document.createTextNode('typed content'));
+            const spy = jest.spyOn(textareaField, 'modelChange');
+            richTextareaField.richText
+                .getNode()
+                .dispatchEvent(new Event('keyup', { bubbles: true }));
+            expect(richTextareaField.getValue()).toContain('typed content');
+        });
+
+        it('should handle paste event with clipboardData', () => {
+            richTextareaField.render();
+            document.execCommand = jest.fn(() => true);
+            document.queryCommandSupported = jest.fn(() => true);
+            const pasteEvent = new Event('paste', {
+                bubbles: true,
+            }) as any;
+            pasteEvent.clipboardData = {
+                getData: jest.fn(() => 'pasted text'),
+            };
+            richTextareaField.richText.getNode().dispatchEvent(pasteEvent);
+            expect(document.execCommand).toHaveBeenCalledWith(
+                'insertHTML',
+                false,
+                'pasted text',
+            );
+        });
+
+        it('should handle paste event with insertText fallback', () => {
+            richTextareaField.render();
+            document.execCommand = jest.fn(() => true);
+            document.queryCommandSupported = jest.fn(() => false);
+            const pasteEvent = new Event('paste', {
+                bubbles: true,
+            }) as any;
+            pasteEvent.clipboardData = {
+                getData: jest.fn(() => 'pasted text'),
+            };
+            richTextareaField.richText.getNode().dispatchEvent(pasteEvent);
+            expect(document.execCommand).toHaveBeenCalledWith(
+                'insertText',
+                false,
+                'pasted text',
+            );
+        });
+
+        it('should handle paste event with no clipboardData available', () => {
+            richTextareaField.render();
+            document.execCommand = jest.fn(() => true);
+            document.queryCommandSupported = jest.fn(() => true);
+            const pasteEvent = new Event('paste', {
+                bubbles: true,
+            }) as any;
+            pasteEvent.clipboardData = null;
+            delete (window as any)['clipboardData'];
+            richTextareaField.richText.getNode().dispatchEvent(pasteEvent);
+            expect(document.execCommand).toHaveBeenCalledWith(
+                'insertHTML',
+                false,
+                '',
+            );
+        });
+
+        it('should handle paste event with window.clipboardData fallback', () => {
+            richTextareaField.render();
+            document.execCommand = jest.fn(() => true);
+            document.queryCommandSupported = jest.fn(() => true);
+            const pasteEvent = new Event('paste', {
+                bubbles: true,
+            }) as any;
+            pasteEvent.clipboardData = null;
+            (window as any)['clipboardData'] = {
+                getData: jest.fn(() => 'window pasted'),
+            };
+            richTextareaField.richText.getNode().dispatchEvent(pasteEvent);
+            expect(document.execCommand).toHaveBeenCalledWith(
+                'insertHTML',
+                false,
+                'window pasted',
+            );
+            delete (window as any)['clipboardData'];
+        });
+
+        describe('toolbar button clicks', () => {
+            beforeEach(() => {
+                richTextareaField.render();
+                document.execCommand = jest.fn(() => true);
+            });
+
+            it('should execute undo on undo button click', () => {
+                const buttons =
+                    richTextareaField.toolbarKnot.getNode().childNodes;
+                (buttons[0] as HTMLElement).click();
+                expect(document.execCommand).toHaveBeenCalledWith(
+                    'undo',
+                    false,
+                    undefined,
+                );
+            });
+
+            it('should execute redo on redo button click', () => {
+                const buttons =
+                    richTextareaField.toolbarKnot.getNode().childNodes;
+                (buttons[1] as HTMLElement).click();
+                expect(document.execCommand).toHaveBeenCalledWith(
+                    'redo',
+                    false,
+                    undefined,
+                );
+            });
+
+            it('should execute bold on bold button click', () => {
+                const buttons =
+                    richTextareaField.toolbarKnot.getNode().childNodes;
+                (buttons[2] as HTMLElement).click();
+                expect(document.execCommand).toHaveBeenCalledWith(
+                    'bold',
+                    false,
+                    undefined,
+                );
+            });
+
+            it('should execute italic on italic button click', () => {
+                const buttons =
+                    richTextareaField.toolbarKnot.getNode().childNodes;
+                (buttons[3] as HTMLElement).click();
+                expect(document.execCommand).toHaveBeenCalledWith(
+                    'italic',
+                    false,
+                    undefined,
+                );
+            });
+
+            it('should execute underline on underline button click', () => {
+                const buttons =
+                    richTextareaField.toolbarKnot.getNode().childNodes;
+                (buttons[4] as HTMLElement).click();
+                expect(document.execCommand).toHaveBeenCalledWith(
+                    'underline',
+                    false,
+                    undefined,
+                );
+            });
+
+            it('should execute insertunorderedlist on bullet list button click', () => {
+                const buttons =
+                    richTextareaField.toolbarKnot.getNode().childNodes;
+                (buttons[5] as HTMLElement).click();
+                expect(document.execCommand).toHaveBeenCalledWith(
+                    'insertunorderedlist',
+                    false,
+                    undefined,
+                );
+            });
+
+            it('should execute insertorderedlist on numbered list button click', () => {
+                const buttons =
+                    richTextareaField.toolbarKnot.getNode().childNodes;
+                (buttons[6] as HTMLElement).click();
+                expect(document.execCommand).toHaveBeenCalledWith(
+                    'insertorderedlist',
+                    false,
+                    undefined,
+                );
+            });
+
+            it('should execute removeFormat on clear button click', () => {
+                const buttons =
+                    richTextareaField.toolbarKnot.getNode().childNodes;
+                (buttons[7] as HTMLElement).click();
+                expect(document.execCommand).toHaveBeenCalledWith(
+                    'removeFormat',
+                    false,
+                    undefined,
+                );
+            });
+
+            it('should toggle HTML mode on code button click', () => {
+                const buttons =
+                    richTextareaField.toolbarKnot.getNode().childNodes;
+                expect((richTextareaField as any)._isHtmlMode()).toBe(false);
+                (buttons[8] as HTMLElement).click();
+                expect((richTextareaField as any)._isHtmlMode()).toBe(true);
+                (buttons[8] as HTMLElement).click();
+                expect((richTextareaField as any)._isHtmlMode()).toBe(false);
+            });
         });
     });
 

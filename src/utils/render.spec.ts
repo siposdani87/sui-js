@@ -90,5 +90,10 @@ describe('render', () => {
             input.dispatchEvent(new Event('focus'));
             expect(container.classList.contains('is-focused')).toBe(true);
         });
+
+        it('should return early for falsy element', () => {
+            // eslint-disable-next-line @typescript-eslint/no-explicit-any
+            expect(() => sui(null as any)).not.toThrow();
+        });
     });
 });

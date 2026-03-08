@@ -18,14 +18,14 @@ Based on a thorough exploration of the project at v1.2.0, here's a prioritized i
 
 ## 1. Test Coverage
 
-Coverage **exceeds configured thresholds** (statements 93.5% vs 93%, branches 83% vs 82%, functions 90% vs 89%, lines 93.4% vs 93%). **2,011 tests** across 110 suites.
+Coverage **exceeds configured thresholds** (statements 95.5% vs 95%, branches 86.3% vs 86%, functions 92.8% vs 92%, lines 95.4% vs 95%). **2,117 tests** across 110 suites.
 
 | Action | Priority | Impact |
 |--------|----------|--------|
 | ~~Increase coverage for `operation.ts`, `knot.ts`~~ — knot branches 85%→93%, operation branches 79%→84% | P1 | Buffer above thresholds |
 | ~~Increase coverage for largest files: `table.ts` (716 LOC)~~ — table branches 79.5%→84.6% | P1 | Buffer above thresholds |
 | Increase coverage for `googleMap.ts` (1,359 LOC) — depends heavily on Maps mocking | P1 | Buffer above thresholds |
-| ~~Increase branch coverage in `selectField.ts`, `colorField.ts`~~ — selectField branches 50.6%→74.7%, colorField functions 40%→100% | P1 | Biggest branch gaps |
+| ~~Increase branch coverage in `selectField.ts`, `colorField.ts`~~ — selectField branches 50.6%→74.7%→80%, colorField functions 40%→100%, branches 60%→80% | P1 | Biggest branch gaps |
 | ~~Increase branch coverage in `baseField.ts`~~ — baseField branches 66.7%→76.3% | P1 | Remaining branch gaps |
 | Increase branch coverage in `locationField.ts` — depends heavily on Maps mocking | P1 | Remaining branch gaps |
 | ~~Add edge-case tests for `xhr.ts` (fetch error handling, abort, timeouts)~~ — 7 new tests for no Content-Type, pre-set headers | P1 | Security & correctness |

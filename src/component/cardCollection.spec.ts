@@ -192,5 +192,78 @@ describe('CardCollection', () => {
             expect(ctrl.format).toHaveBeenCalled();
             container.remove();
         });
+
+        it('should warn when ctrl method is missing', () => {
+            const container = document.createElement('div');
+            container.className = 'test-card-view ctrl-missing';
+            const ccDiv = document.createElement('div');
+            ccDiv.className = 'card-collection';
+            const template = document.createElement('template');
+            const cardDiv = document.createElement('div');
+            cardDiv.className = 'card';
+            cardDiv.textContent = '{{ctrl.nonExistent(name)}}';
+            template.content.appendChild(cardDiv);
+            ccDiv.appendChild(template);
+            container.appendChild(ccDiv);
+            document.body.appendChild(container);
+
+            const ctrl = {};
+            const knot = new Knot(container);
+            cardCollection = new CardCollection(knot, '.card-collection', ctrl);
+            cardCollection.setData([{ id: 'x', name: 'hello' }]);
+            // Should not throw, just warn
+            expect(cardCollection.body.getNode().childNodes.length).toBe(1);
+            container.remove();
+        });
+
+        it('should pass item when key is "item" in ctrl expression', () => {
+            const container = document.createElement('div');
+            container.className = 'test-card-view ctrl-item';
+            const ccDiv = document.createElement('div');
+            ccDiv.className = 'card-collection';
+            const template = document.createElement('template');
+            const cardDiv = document.createElement('div');
+            cardDiv.className = 'card';
+            cardDiv.textContent = '{{ctrl.render(item)}}';
+            template.content.appendChild(cardDiv);
+            ccDiv.appendChild(template);
+            container.appendChild(ccDiv);
+            document.body.appendChild(container);
+
+            const ctrl = {
+                render: jest.fn((obj: Objekt) => obj.get('name')),
+            };
+            const knot = new Knot(container);
+            cardCollection = new CardCollection(knot, '.card-collection', ctrl);
+            cardCollection.setData([{ id: 'x', name: 'ItemTest' }]);
+            expect(ctrl.render).toHaveBeenCalled();
+            const arg = ctrl.render.mock.calls[0]![0];
+            expect(arg).toBeInstanceOf(Objekt);
+            container.remove();
+        });
+    });
+
+    describe('pagination', () => {
+        it('should limit items when collection exceeds row_count', () => {
+            const container = createCardCollectionDOM();
+            const knot = new Knot(container);
+            cardCollection = new CardCollection(
+                knot,
+                '.card-collection',
+                null,
+                {
+                    row_count: 2,
+                },
+            );
+            const items = [
+                { id: '1', name: 'A' },
+                { id: '2', name: 'B' },
+                { id: '3', name: 'C' },
+                { id: '4', name: 'D' },
+            ];
+            cardCollection.setData(items);
+            const bodyNode = cardCollection.body.getNode();
+            expect(bodyNode.childNodes.length).toBe(2);
+        });
     });
 });
