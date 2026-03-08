@@ -22,6 +22,24 @@
     --sui-info: #{colors.$blue};
     --sui-warning: #{colors.$amber};
     --sui-error: #{colors.$red};
+    --sui-label: #{variables.$label-default-light};
+    --sui-label-disabled: #{variables.$label-disabled-light};
+    --sui-input: #{variables.$input-default-light};
+    --sui-input-disabled: #{variables.$input-disabled-light};
+    --sui-content: #{variables.$content-default-light};
+    --sui-content-disabled: #{variables.$content-disabled-light};
+    --sui-checkbox: #{variables.$checkbox-default-light};
+    --sui-checkbox-disabled: #{variables.$checkbox-disabled-light};
+    --sui-primary-action: #{variables.$primary-default-light};
+    --sui-primary-action-disabled: #{variables.$primary-disabled-light};
+    --sui-accent-action: #{variables.$accent-default-light};
+    --sui-accent-action-disabled: #{variables.$accent-disabled-light};
+    --sui-error-text: #{variables.$error-default-light};
+    --sui-error-text-disabled: #{variables.$error-disabled-light};
+    --sui-background: #{colors.$white};
+    --sui-overlay: rgb(0 0 0 / 50%);
+    --sui-shadow-md: #{variables.$shadow-md};
+    --sui-shadow-lg: #{variables.$shadow-lg};
 
     color-scheme: light dark;
 }
@@ -47,6 +65,26 @@
         --sui-info: #{colors.$blue-bright};
         --sui-warning: #{colors.$amber-bright};
         --sui-error: #{colors.$red-bright};
+        --sui-label: #{variables.$label-default-dark};
+        --sui-label-disabled: #{variables.$label-disabled-dark};
+        --sui-input: #{variables.$input-default-dark};
+        --sui-input-disabled: #{variables.$input-disabled-dark};
+        --sui-content: #{variables.$content-default-dark};
+        --sui-content-disabled: #{variables.$content-disabled-dark};
+        --sui-checkbox: #{variables.$checkbox-default-dark};
+        --sui-checkbox-disabled: #{variables.$checkbox-disabled-dark};
+        --sui-primary-action: #{variables.$primary-default-dark};
+        --sui-primary-action-disabled: #{variables.$primary-disabled-dark};
+        --sui-accent-action: #{variables.$accent-default-dark};
+        --sui-accent-action-disabled: #{variables.$accent-disabled-dark};
+        --sui-error-text: #{variables.$error-default-dark};
+        --sui-error-text-disabled: #{variables.$error-disabled-dark};
+        --sui-background: #{colors.$black-dark};
+        --sui-overlay: rgb(0 0 0 / 70%);
+        --sui-shadow-md:
+            0 4px 12px rgb(0 0 0 / 20%), 0 1px 4px rgb(0 0 0 / 12%);
+        --sui-shadow-lg:
+            0 12px 32px rgb(0 0 0 / 24%), 0 4px 8px rgb(0 0 0 / 12%);
     }
 }
 
@@ -70,6 +108,36 @@
     --sui-info: #{colors.$blue-bright};
     --sui-warning: #{colors.$amber-bright};
     --sui-error: #{colors.$red-bright};
+    --sui-label: #{variables.$label-default-dark};
+    --sui-label-disabled: #{variables.$label-disabled-dark};
+    --sui-input: #{variables.$input-default-dark};
+    --sui-input-disabled: #{variables.$input-disabled-dark};
+    --sui-content: #{variables.$content-default-dark};
+    --sui-content-disabled: #{variables.$content-disabled-dark};
+    --sui-checkbox: #{variables.$checkbox-default-dark};
+    --sui-checkbox-disabled: #{variables.$checkbox-disabled-dark};
+    --sui-primary-action: #{variables.$primary-default-dark};
+    --sui-primary-action-disabled: #{variables.$primary-disabled-dark};
+    --sui-accent-action: #{variables.$accent-default-dark};
+    --sui-accent-action-disabled: #{variables.$accent-disabled-dark};
+    --sui-error-text: #{variables.$error-default-dark};
+    --sui-error-text-disabled: #{variables.$error-disabled-dark};
+    --sui-background: #{colors.$black-dark};
+    --sui-overlay: rgb(0 0 0 / 70%);
+    --sui-shadow-md: 0 4px 12px rgb(0 0 0 / 20%), 0 1px 4px rgb(0 0 0 / 12%);
+    --sui-shadow-lg: 0 12px 32px rgb(0 0 0 / 24%), 0 4px 8px rgb(0 0 0 / 12%);
+}
+
+// Respect user preference for reduced motion
+@media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+        scroll-behavior: auto !important;
+    }
 }
 
 html,
@@ -77,7 +145,7 @@ body {
     font-family: variables.$font-family-body;
     font-size: variables.$font-size-root;
     font-weight: 400;
-    color: colors.$black;
+    color: var(--sui-on-surface);
     box-sizing: border-box;
 }
 
@@ -89,13 +157,13 @@ body {
         box-sizing: border-box;
     }
 
-    &:focus {
+    &:focus:not(:focus-visible) {
         outline: none;
     }
 }
 
 body {
-    background-color: colors.$white;
+    background-color: var(--sui-background);
     font-size: variables.$font-size-base;
     // 16 * 1rem = 16px
     line-height: variables.$line-height;

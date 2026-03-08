@@ -1,49 +1,47 @@
-@use '../core/variables';
-
 .range-field {
     .sui-slider__container {
         height: 32px;
     }
 
     .sui-slider {
-        background-color: variables.$input-default-light;
+        background-color: var(--sui-input);
         margin: 0;
         width: 100%;
     }
 
     .sui-slider::-webkit-slider-thumb,
     .sui-slider:active::-webkit-slider-thumb {
-        background: variables.$primary-default-light;
+        background: var(--sui-primary-action);
     }
 
     .sui-slider::-moz-range-thumb,
     .sui-slider:active::-moz-range-thumb {
-        background: variables.$primary-default-light;
+        background: var(--sui-primary-action);
     }
 
     .sui-slider::-ms-thumb,
     .sui-slider:active::-ms-thumb {
-        background: variables.$primary-default-light;
+        background: var(--sui-primary-action);
     }
 
     &.is-disabled {
         .sui-slider {
-            background-color: variables.$input-disabled-light;
+            background-color: var(--sui-input-disabled);
         }
 
         .sui-slider::-webkit-slider-thumb,
         .sui-slider:active::-webkit-slider-thumb {
-            background: variables.$primary-disabled-light;
+            background: var(--sui-primary-action-disabled);
         }
 
         .sui-slider::-moz-range-thumb,
         .sui-slider:active::-moz-range-thumb {
-            background: variables.$primary-disabled-light;
+            background: var(--sui-primary-action-disabled);
         }
 
         .sui-slider::-ms-thumb,
         .sui-slider:active::-ms-thumb {
-            background: variables.$primary-disabled-light;
+            background: var(--sui-primary-action-disabled);
         }
     }
 }

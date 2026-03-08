@@ -18,7 +18,7 @@
         position: relative;
         display: inline-flex;
         align-items: center;
-        padding-left: 28px;
+        padding-inline-start: 28px;
 
         &::before {
             content: '';
@@ -26,7 +26,7 @@
             left: 0;
             width: 18px;
             height: 18px;
-            border: 2px solid variables.$checkbox-default-light;
+            border: 2px solid var(--sui-checkbox);
             border-radius: 4px;
         }
 
@@ -45,12 +45,12 @@
     }
 
     .sui-checkbox__input[required] + .sui-checkbox__label::before {
-        border-color: variables.$error-default-light;
+        border-color: var(--sui-error-text);
     }
 
     .sui-checkbox__input:checked + .sui-checkbox__label::before {
-        background-color: variables.$primary-default-light;
-        border-color: variables.$primary-default-light;
+        background-color: var(--sui-primary-action);
+        border-color: var(--sui-primary-action);
     }
 
     .sui-checkbox__input:checked + .sui-checkbox__label::after {
@@ -58,32 +58,33 @@
     }
 
     .sui-checkbox__input[required]:checked + .sui-checkbox__label::before {
-        border-color: variables.$primary-default-light;
+        border-color: var(--sui-primary-action);
     }
 
     .sui-checkbox__input:focus-visible + .sui-checkbox__label::before {
-        box-shadow: 0 0 0 3px rgba(variables.$primary-default-light, 0.15);
+        box-shadow: 0 0 0 3px
+            color-mix(in srgb, var(--sui-primary-action) 15%, transparent);
     }
 
     &.is-disabled {
         cursor: default;
 
         .sui-checkbox__label {
-            color: variables.$label-disabled-light;
+            color: var(--sui-label-disabled);
         }
 
         .sui-checkbox__label::before {
-            border-color: variables.$checkbox-disabled-light;
+            border-color: var(--sui-checkbox-disabled);
         }
 
         .sui-checkbox__input[required] + .sui-checkbox__label::before {
-            border-color: variables.$error-disabled-light;
+            border-color: var(--sui-error-text-disabled);
             border-style: dotted;
         }
 
         .sui-checkbox__input:checked + .sui-checkbox__label::before {
-            background-color: variables.$primary-disabled-light;
-            border-color: variables.$primary-disabled-light;
+            background-color: var(--sui-primary-action-disabled);
+            border-color: var(--sui-primary-action-disabled);
         }
     }
 }

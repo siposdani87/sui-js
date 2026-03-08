@@ -1,5 +1,3 @@
-@use '../core/variables';
-
 .search-field {
     &.sui-textfield--expandable .sui-button--icon {
         top: 20px;
@@ -18,7 +16,7 @@
     }
 
     .sui-textfield__input {
-        padding-right: 36px;
+        padding-inline-end: 36px;
     }
 
     .clear-button {
@@ -27,11 +25,11 @@
         right: 5px;
         top: 50%;
         transform: translateY(-50%);
-        color: variables.$primary-default-light;
+        color: var(--sui-primary-action);
     }
 
     .search-button {
-        color: variables.$primary-default-light;
+        color: var(--sui-primary-action);
     }
 
     &.is-focused,
@@ -44,7 +42,7 @@
     &.is-disabled {
         .clear-button,
         .search-button {
-            color: variables.$primary-disabled-light;
+            color: var(--sui-primary-action-disabled);
         }
     }
 }

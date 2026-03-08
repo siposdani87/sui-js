@@ -1,6 +1,17 @@
-@use '../core/colors';
 @use '../core/variables';
 @use '../mixins/breakpoints';
+
+@keyframes flash-slide-in {
+    from {
+        opacity: 0;
+        transform: translateY(-12px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
 
 .flash-container {
     z-index: variables.$zindex-flash;
@@ -23,18 +34,17 @@
         }
 
         .flash {
-            animation-name: bounceInDown;
-            animation-duration: 1s;
+            animation: flash-slide-in variables.$transition-slow ease-out;
             position: relative;
             pointer-events: visiblepainted;
             margin-bottom: 20px;
             padding: 15px 30px;
             box-shadow: variables.$shadow-md;
-            background-color: colors.$white;
+            background-color: var(--sui-surface);
             border-radius: variables.$radius-md;
             min-height: 45px;
             clear: both;
-            border-left: 4px solid colors.$deep-grey-bright;
+            border-inline-start: 4px solid var(--sui-outline-variant);
 
             &.closable {
                 cursor: pointer;
@@ -47,19 +57,19 @@
             }
 
             &.success {
-                border-color: variables.$success;
+                border-color: var(--sui-success);
             }
 
             &.info {
-                border-color: variables.$info;
+                border-color: var(--sui-info);
             }
 
             &.warning {
-                border-color: variables.$warning;
+                border-color: var(--sui-warning);
             }
 
             &.error {
-                border-color: variables.$error;
+                border-color: var(--sui-error);
             }
         }
     }

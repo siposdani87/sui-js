@@ -1,14 +1,12 @@
-@use '../core/variables';
-
 .color-field {
     .preview {
-        margin-right: 10px;
+        margin-inline-end: 10px;
         display: inline-block;
         width: 24px;
         height: 24px;
         vertical-align: middle;
         border-radius: 50%;
-        border: 1px solid variables.$input-default-light;
+        border: 1px solid var(--sui-input);
 
         &:focus {
             outline: none;
@@ -17,7 +15,7 @@
 
     &.is-invalid {
         .preview {
-            border-color: variables.$error-default-light;
+            border-color: var(--sui-error-text);
         }
     }
 
@@ -26,17 +24,17 @@
     }
 
     .field-label {
-        color: variables.$label-default-light;
+        color: var(--sui-label);
     }
 
     &.is-disabled {
         .field-label {
-            color: variables.$label-disabled-light;
+            color: var(--sui-label-disabled);
         }
 
         .preview {
             border-style: dotted;
-            border-color: variables.$input-disabled-light;
+            border-color: var(--sui-input-disabled);
 
             .color {
                 opacity: 0.3;
@@ -45,7 +43,7 @@
 
         &.is-invalid {
             .preview {
-                border-color: variables.$error-disabled-light;
+                border-color: var(--sui-error-text-disabled);
             }
         }
     }

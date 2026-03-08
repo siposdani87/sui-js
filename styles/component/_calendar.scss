@@ -1,18 +1,16 @@
-@use '../core/colors';
-
 .calendar {
     position: relative;
     box-sizing: content-box;
     width: 250px;
     height: 290px;
-    background-color: colors.$light-grey;
+    background-color: var(--sui-outline-variant);
 
     .header {
         display: flex;
         align-items: center;
         height: 50px;
-        background-color: colors.$primary;
-        color: colors.$white;
+        background-color: var(--sui-primary-dark);
+        color: var(--sui-primary-text);
 
         .previous {
             flex: 0 1 32px;
@@ -35,7 +33,7 @@
 
     .content {
         .week-days {
-            background-color: colors.$white;
+            background-color: var(--sui-surface);
             height: 30px;
             display: flex;
             flex-flow: row wrap;
@@ -52,7 +50,7 @@
         .days {
             display: flex;
             flex-flow: row wrap;
-            background-color: colors.$white;
+            background-color: var(--sui-surface);
             height: 210px;
 
             .day {
@@ -65,44 +63,44 @@
                 justify-content: center;
 
                 &:hover {
-                    border: 1px solid colors.$accent;
+                    border: 1px solid var(--sui-accent);
                 }
 
                 &.now {
-                    background-color: colors.$light-grey;
+                    background-color: var(--sui-outline-variant);
                 }
 
                 &.previous-month {
-                    color: colors.$light-grey-dark;
+                    color: var(--sui-on-surface-variant);
 
                     &.now {
-                        color: colors.$white;
+                        color: var(--sui-on-surface);
                     }
 
                     &.current {
-                        color: colors.$white;
+                        color: var(--sui-on-surface);
                     }
                 }
 
                 &.current-month {
-                    color: colors.$black;
+                    color: var(--sui-on-surface);
                 }
 
                 &.next-month {
-                    color: colors.$light-grey-dark;
+                    color: var(--sui-on-surface-variant);
 
                     &.now {
-                        color: colors.$white;
+                        color: var(--sui-on-surface);
                     }
 
                     &.current {
-                        color: colors.$white;
+                        color: var(--sui-on-surface);
                     }
                 }
 
                 &.current {
-                    background-color: colors.$accent;
-                    color: colors.$accent-text;
+                    background-color: var(--sui-accent);
+                    color: var(--sui-accent-text);
                 }
             }
         }
@@ -110,7 +108,7 @@
         .months {
             display: flex;
             flex-flow: row wrap;
-            background-color: colors.$white;
+            background-color: var(--sui-surface);
             height: 240px;
 
             .month {
@@ -122,16 +120,16 @@
                 border: 1px solid transparent;
 
                 &:hover {
-                    border: 1px solid colors.$accent;
+                    border: 1px solid var(--sui-accent);
                 }
 
                 &.now {
-                    background-color: colors.$light-grey;
+                    background-color: var(--sui-outline-variant);
                 }
 
                 &.current {
-                    background-color: colors.$accent;
-                    color: colors.$accent-text;
+                    background-color: var(--sui-accent);
+                    color: var(--sui-accent-text);
                 }
             }
         }
@@ -139,7 +137,7 @@
         .years {
             display: flex;
             flex-flow: row wrap;
-            background-color: colors.$white;
+            background-color: var(--sui-surface);
             height: 240px;
 
             .year {
@@ -151,16 +149,16 @@
                 border: 1px solid transparent;
 
                 &:hover {
-                    border: 1px solid colors.$accent;
+                    border: 1px solid var(--sui-accent);
                 }
 
                 &.now {
-                    background-color: colors.$light-grey;
+                    background-color: var(--sui-outline-variant);
                 }
 
                 &.current {
-                    background-color: colors.$accent;
-                    color: colors.$accent-text;
+                    background-color: var(--sui-accent);
+                    color: var(--sui-accent-text);
                 }
             }
         }

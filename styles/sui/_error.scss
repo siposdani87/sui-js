@@ -1,14 +1,12 @@
-@use '../core/variables';
-
 .sui-textfield__error {
     display: block;
-    color: variables.$error-default-light;
+    color: var(--sui-error-text);
     font-size: 0.8em;
 }
 
 .is-disabled {
     .sui-textfield__error {
-        color: variables.$error-disabled-light;
+        color: var(--sui-error-text-disabled);
     }
 }
 

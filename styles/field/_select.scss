@@ -21,7 +21,7 @@
     }
 
     .expander {
-        color: variables.$primary-default-light;
+        color: var(--sui-primary-action);
 
         &.rotate {
             animation-name: rotation;
@@ -31,18 +31,18 @@
     }
 
     .field-label {
-        margin-right: 10px;
+        margin-inline-end: 10px;
         font-size: 16px;
         position: absolute;
         top: -2px;
-        color: variables.$label-default-light;
+        color: var(--sui-label);
     }
 
     .select-input {
         width: 100%;
         display: inline-block;
         padding: 3px 30px 0 3px;
-        border: 1px solid variables.$input-default-light;
+        border: 1px solid var(--sui-input);
         border-radius: variables.$radius-md;
         min-height: 40px;
         cursor: pointer;
@@ -66,16 +66,16 @@
             padding: 8px 12px;
             width: 100%;
             font-size: 1em;
-            text-align: left;
+            text-align: start;
             border-radius: variables.$radius-sm;
             transition: background-color variables.$transition-fast ease;
 
             &:hover {
-                background-color: variables.$input-disabled-light;
+                background-color: var(--sui-input-disabled);
             }
 
             &.selected {
-                background-color: variables.$input-default-light;
+                background-color: var(--sui-input);
                 font-weight: 500;
             }
 
@@ -83,7 +83,7 @@
                 display: inline-block;
                 max-height: 30px;
                 width: auto;
-                margin-right: 10px;
+                margin-inline-end: 10px;
                 padding: 2px;
                 border-radius: variables.$radius-sm;
             }
@@ -92,27 +92,27 @@
 
     &.is-invalid {
         .select-input {
-            border-color: variables.$error-default-light;
+            border-color: var(--sui-error-text);
         }
     }
 
     &.is-disabled {
         .field-label {
-            color: variables.$label-disabled-light;
+            color: var(--sui-label-disabled);
         }
 
         .expander {
-            color: variables.$primary-disabled-light;
+            color: var(--sui-primary-action-disabled);
         }
 
         .select-input {
             border-style: dotted;
-            border-color: variables.$input-disabled-light;
+            border-color: var(--sui-input-disabled);
         }
 
         &.is-invalid {
             .select-input {
-                border-color: variables.$error-disabled-light;
+                border-color: var(--sui-error-text-disabled);
             }
         }
     }

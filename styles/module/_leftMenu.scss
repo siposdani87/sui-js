@@ -10,7 +10,11 @@
     &.black-backdrop {
         animation-name: fadeIn;
         animation-duration: 0.5s;
-        background-color: rgba(colors.$black-dark, 0.7);
+        background-color: color-mix(
+            in srgb,
+            colors.$black-dark 70%,
+            transparent
+        );
         width: 100%;
         height: 100%;
     }
@@ -19,13 +23,13 @@
     .sub-menu {
         animation-name: slideInLeft;
         animation-duration: 0.5s;
-        background-color: colors.$white;
+        background-color: var(--sui-surface);
         width: 360px;
         height: 100%;
         box-shadow: variables.$shadow-lg;
 
         a {
-            color: colors.$black;
+            color: var(--sui-on-surface);
         }
 
         @include breakpoints.media-breakpoint-down(xs) {
@@ -46,7 +50,7 @@
             h3 {
                 width: 100%;
                 text-align: center;
-                margin-left: -40px;
+                margin-inline-start: -40px;
             }
         }
 
@@ -64,21 +68,21 @@
                 display: flex;
                 flex-flow: row nowrap;
                 align-items: center;
-                color: colors.$primary;
-                border-right: 3px solid transparent;
+                color: var(--sui-primary);
+                border-inline-end: 3px solid transparent;
 
                 &:not(.disabled):hover {
-                    background-color: colors.$light-grey-bright;
+                    background-color: var(--sui-surface-alt);
                 }
 
                 &.active {
                     font-weight: 500;
-                    background-color: colors.$light-grey;
-                    border-right-color: colors.$accent-dark;
+                    background-color: var(--sui-surface-alt);
+                    border-inline-end-color: var(--sui-accent);
                 }
 
                 &.disabled {
-                    color: colors.$deep-grey-bright;
+                    color: var(--sui-on-surface-variant);
                     cursor: default;
 
                     .image {
@@ -88,14 +92,14 @@
 
                         svg,
                         path {
-                            fill: colors.$deep-grey-bright;
+                            fill: var(--sui-on-surface-variant);
                         }
                     }
                 }
 
                 .image {
                     flex: 0 1 25%;
-                    padding-left: 1em;
+                    padding-inline-start: 1em;
                     width: 74px;
                     text-align: center;
 
@@ -128,7 +132,7 @@
 
                     svg,
                     path {
-                        fill: colors.$primary;
+                        fill: var(--sui-primary);
                     }
                 }
 

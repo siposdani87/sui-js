@@ -11,7 +11,7 @@
     border: none;
     border-radius: variables.$radius-md;
     background: transparent;
-    color: colors.$black;
+    color: var(--sui-on-surface);
     font-family: variables.$font-family-body;
     font-size: 14px;
     font-weight: 500;
@@ -24,21 +24,34 @@
     appearance: none;
 
     &:hover {
-        background-color: rgb(0 0 0 / 6%);
+        background-color: color-mix(
+            in srgb,
+            var(--sui-on-surface) 6%,
+            transparent
+        );
+    }
+
+    &:focus-visible {
+        outline: 2px solid var(--sui-primary);
+        outline-offset: 2px;
     }
 
     &:active {
-        background-color: rgb(0 0 0 / 12%);
+        background-color: color-mix(
+            in srgb,
+            var(--sui-on-surface) 12%,
+            transparent
+        );
     }
 
     &:disabled {
-        color: rgb(0 0 0 / 26%);
+        color: color-mix(in srgb, var(--sui-on-surface) 26%, transparent);
         cursor: default;
         background: transparent;
     }
 
     .icon {
-        margin-right: 10px;
+        margin-inline-end: 10px;
     }
 }
 
@@ -56,34 +69,46 @@
 
     &:disabled {
         box-shadow: none;
-        background-color: rgb(0 0 0 / 12%);
+        background-color: color-mix(
+            in srgb,
+            var(--sui-on-surface) 12%,
+            transparent
+        );
     }
 }
 
 .sui-button--primary {
-    color: colors.$primary;
+    color: var(--sui-primary);
 
     &.sui-button--raised {
-        background-color: colors.$primary;
+        background-color: var(--sui-primary);
         color: colors.$white;
 
         &:disabled {
-            background-color: rgb(0 0 0 / 12%);
-            color: rgb(0 0 0 / 26%);
+            background-color: color-mix(
+                in srgb,
+                var(--sui-on-surface) 12%,
+                transparent
+            );
+            color: color-mix(in srgb, var(--sui-on-surface) 26%, transparent);
         }
     }
 }
 
 .sui-button--accent {
-    color: colors.$accent;
+    color: var(--sui-accent);
 
     &.sui-button--raised {
-        background-color: colors.$accent;
+        background-color: var(--sui-accent);
         color: colors.$white;
 
         &:disabled {
-            background-color: rgb(0 0 0 / 12%);
-            color: rgb(0 0 0 / 26%);
+            background-color: color-mix(
+                in srgb,
+                var(--sui-on-surface) 12%,
+                transparent
+            );
+            color: color-mix(in srgb, var(--sui-on-surface) 26%, transparent);
         }
     }
 }

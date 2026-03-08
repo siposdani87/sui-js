@@ -4,16 +4,16 @@
     .expander {
         vertical-align: middle;
         cursor: pointer;
-        margin-left: -30px;
-        color: variables.$primary-default-light;
+        margin-inline-start: -30px;
+        color: var(--sui-primary-action);
     }
 
     .field-label {
-        margin-right: 10px;
+        margin-inline-end: 10px;
         font-size: 16px;
         position: absolute;
         top: -2px;
-        color: variables.$label-default-light;
+        color: var(--sui-label);
     }
 
     .datetime-container {
@@ -26,7 +26,7 @@
         flex: 1 0 100%;
         display: inline-block;
         padding: 3px 30px 0 3px;
-        border: 1px solid variables.$input-default-light;
+        border: 1px solid var(--sui-input);
         border-radius: variables.$radius-md;
         min-height: 40px;
         cursor: pointer;
@@ -39,27 +39,27 @@
 
     &.is-invalid {
         .datetime-input {
-            border-color: variables.$error-default-light;
+            border-color: var(--sui-error-text);
         }
     }
 
     &.is-disabled {
         .field-label {
-            color: variables.$label-disabled-light;
+            color: var(--sui-label-disabled);
         }
 
         .expander {
-            color: variables.$primary-disabled-light;
+            color: var(--sui-primary-action-disabled);
         }
 
         .datetime-input {
             border-style: dotted;
-            border-color: variables.$input-disabled-light;
+            border-color: var(--sui-input-disabled);
         }
 
         &.is-invalid {
             .datetime-input {
-                border-color: variables.$error-disabled-light;
+                border-color: var(--sui-error-text-disabled);
             }
         }
     }

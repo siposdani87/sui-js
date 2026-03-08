@@ -19,7 +19,7 @@
         position: relative;
         display: inline-flex;
         align-items: center;
-        padding-left: 52px;
+        padding-inline-start: 52px;
 
         // Track
         &::before {
@@ -28,8 +28,8 @@
             left: 0;
             width: 40px;
             height: 20px;
-            background-color: colors.$light-grey-dark;
-            border: 1px solid colors.$light-grey-dark;
+            background-color: var(--sui-outline-variant);
+            border: 1px solid var(--sui-outline-variant);
             border-radius: 10px;
             transition: background-color variables.$transition-base;
         }
@@ -41,7 +41,7 @@
             left: 0;
             width: 24px;
             height: 24px;
-            background-color: variables.$checkbox-default-light;
+            background-color: var(--sui-checkbox);
             border-radius: 50%;
             box-shadow: variables.$shadow-sm;
             transition:
@@ -51,7 +51,7 @@
     }
 
     .sui-switch__input[required] + .sui-switch__label::after {
-        border: 2px solid variables.$error-default-light;
+        border: 2px solid var(--sui-error-text);
     }
 
     .sui-switch__input:checked + .sui-switch__label::before {
@@ -72,20 +72,21 @@
         cursor: default;
 
         .sui-switch__label {
-            color: variables.$label-disabled-light;
+            color: var(--sui-label-disabled);
         }
 
         .sui-switch__label::before {
-            background-color: colors.$light-grey-bright;
+            background-color: var(--sui-outline-variant);
+            opacity: 0.5;
         }
 
         .sui-switch__label::after {
-            background-color: variables.$checkbox-disabled-light;
+            background-color: var(--sui-checkbox-disabled);
         }
 
         .sui-switch__input[required] + .sui-switch__label::after {
             border-style: dotted;
-            border-color: variables.$error-disabled-light;
+            border-color: var(--sui-error-text-disabled);
         }
 
         .sui-switch__input:checked + .sui-switch__label::before {
@@ -93,7 +94,7 @@
         }
 
         .sui-switch__input:checked + .sui-switch__label::after {
-            background-color: variables.$checkbox-disabled-light;
+            background-color: var(--sui-checkbox-disabled);
         }
     }
 }

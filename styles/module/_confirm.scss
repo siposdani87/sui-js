@@ -1,4 +1,3 @@
-@use '../core/colors';
 @use '../core/variables';
 
 #confirm {
@@ -6,9 +5,10 @@
     position: fixed;
     width: 100%;
     height: 100%;
-    background-color: rgba(colors.$black, 0.5);
+    background-color: var(--sui-overlay);
     justify-content: center;
     overflow-y: auto;
+    animation: modal-fade-in variables.$transition-base ease-out;
 
     &.center {
         align-items: center;
@@ -20,9 +20,10 @@
 
     #confirm-window {
         position: absolute;
-        background-color: colors.$white;
-        color: colors.$black;
-        box-shadow: variables.$shadow-lg;
+        background-color: var(--sui-surface);
+        color: var(--sui-on-surface);
+        box-shadow: var(--sui-shadow-lg);
+        animation: modal-scale-in variables.$transition-slow ease-out;
         min-width: 360px;
         max-width: 720px;
         border-radius: variables.$radius-lg;
@@ -54,65 +55,65 @@
             &::before {
                 font-family: variables.$font-family-icons;
                 vertical-align: middle;
-                padding-right: 0.5em;
+                padding-inline-end: 0.5em;
                 font-size: 2em;
             }
         }
 
         &.error {
-            border-top: 3px solid variables.$error;
+            border-top: 3px solid var(--sui-error);
 
             .modal-body {
                 &::before {
                     content: '\E99A';
-                    color: variables.$error;
+                    color: var(--sui-error);
                 }
             }
         }
 
         &.warning {
-            border-top: 3px solid variables.$warning;
+            border-top: 3px solid var(--sui-warning);
 
             .modal-body {
                 &::before {
                     content: '\E000';
-                    color: variables.$warning;
+                    color: var(--sui-warning);
                 }
             }
         }
 
         &.info {
-            border-top: 3px solid variables.$info;
+            border-top: 3px solid var(--sui-info);
 
             .modal-body {
                 &::before {
                     content: '\E88E';
-                    color: variables.$info;
+                    color: var(--sui-info);
                 }
             }
         }
 
         &.success {
-            border-top: 3px solid variables.$success;
+            border-top: 3px solid var(--sui-success);
 
             .modal-body {
                 &::before {
                     content: '\E876';
-                    color: variables.$success;
+                    color: var(--sui-success);
                 }
             }
         }
 
         &.choice {
-            border-top: 3px solid colors.$accent;
+            border-top: 3px solid var(--sui-accent);
         }
 
         .modal-footer {
             margin: 0 20px 20px 0;
-            text-align: right;
+            text-align: end;
 
             button {
-                margin-left: 5px;
+                margin-inline-start: 5px;
             }
         }
     }

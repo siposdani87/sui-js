@@ -8,40 +8,48 @@
         width: 100%;
         font-size: inherit;
         padding: 8px 12px;
-        border: 1px solid variables.$input-default-light;
+        border: 1px solid var(--sui-input);
         border-radius: variables.$radius-md;
         min-height: 40px;
-        color: variables.$content-default-light;
+        color: var(--sui-content);
         background-color: transparent;
         transition:
             border-color variables.$transition-base,
             box-shadow variables.$transition-base;
+
+        &:focus-visible {
+            border-color: var(--sui-primary-action);
+            box-shadow: 0 0 0 3px
+                color-mix(in srgb, var(--sui-primary-action) 15%, transparent);
+            outline: none;
+        }
     }
 
     &.is-focused {
         .sui-textfield__input {
-            border-color: variables.$primary-default-light;
-            box-shadow: 0 0 0 3px rgba(variables.$primary-default-light, 0.15);
+            border-color: var(--sui-primary-action);
+            box-shadow: 0 0 0 3px
+                color-mix(in srgb, var(--sui-primary-action) 15%, transparent);
         }
     }
 
     &.is-invalid {
         .sui-textfield__input {
-            border-color: variables.$error-default-light;
+            border-color: var(--sui-error-text);
         }
     }
 
     &.is-disabled .sui-textfield__input,
     .sui-textfield__input:disabled {
-        color: variables.$content-disabled-light;
+        color: var(--sui-content-disabled);
         border-style: dotted;
-        border-color: variables.$input-disabled-light;
+        border-color: var(--sui-input-disabled);
     }
 
     &.is-disabled.is-invalid .sui-textfield__input,
     &.is-invalid .sui-textfield__input:disabled,
     .sui-textfield__input:disabled:required {
-        border-color: variables.$error-disabled-light;
+        border-color: var(--sui-error-text-disabled);
     }
 
     &.sui-textfield--expandable {

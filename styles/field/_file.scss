@@ -1,5 +1,3 @@
-@use '../core/variables';
-
 .file-field {
     input[type='file'] {
         &.sui-textfield__input {
@@ -9,7 +7,7 @@
                 padding: 0;
                 margin: 0;
                 border: 0;
-                color: variables.$content-default-light;
+                color: var(--sui-content);
             }
         }
     }
@@ -21,7 +19,7 @@
     }
 
     .browse-button {
-        color: variables.$primary-default-light;
+        color: var(--sui-primary-action);
     }
 
     &.file-field .action-container {
@@ -35,11 +33,11 @@
         }
 
         .browse-button {
-            color: variables.$primary-disabled-light;
+            color: var(--sui-primary-action-disabled);
         }
 
         .remove-button {
-            color: variables.$primary-disabled-light;
+            color: var(--sui-primary-action-disabled);
         }
     }
 }

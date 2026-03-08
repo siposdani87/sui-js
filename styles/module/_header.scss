@@ -3,7 +3,7 @@
 @use '../mixins/breakpoints';
 
 #header {
-    background-color: colors.$primary-dark;
+    background-color: var(--sui-primary-dark);
     position: fixed;
     width: 100%;
     top: 0;
@@ -44,7 +44,7 @@
             }
 
             &.brand {
-                margin-left: 0.5em;
+                margin-inline-start: 0.5em;
             }
 
             img {
@@ -52,13 +52,13 @@
             }
 
             .app-title {
-                padding-left: 10px;
+                padding-inline-start: 10px;
                 font-size: 1rem;
             }
         }
 
         #open-left-menu {
-            margin-left: 0.5em;
+            margin-inline-start: 0.5em;
             color: colors.$light-grey;
         }
 

@@ -4,7 +4,7 @@
 #top-menu {
     display: flex;
     flex-flow: row wrap;
-    background-color: colors.$primary-dark;
+    background-color: var(--sui-primary-dark);
 
     @include breakpoints.media-breakpoint-down(md) {
         flex-flow: column wrap;
@@ -36,7 +36,7 @@
         }
 
         .image {
-            margin-right: 0.5em;
+            margin-inline-end: 0.5em;
             line-height: 0;
 
             img,

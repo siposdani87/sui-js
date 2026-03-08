@@ -13,7 +13,7 @@
         text-align: center;
         display: none;
         position: absolute;
-        background-color: variables.$input-default-light;
+        background-color: var(--sui-input);
         border-radius: variables.$radius-md;
     }
 }
