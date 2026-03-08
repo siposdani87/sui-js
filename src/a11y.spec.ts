@@ -4,6 +4,8 @@ import { Dialog } from './module/dialog';
 import { Dropdown } from './component/dropdown';
 import { TabPanel } from './component/tabPanel';
 import { Flash } from './module/flash';
+import { Loader } from './module/loader';
+import { Viewer } from './module/viewer';
 import { Navigation } from './component/navigation';
 import { BaseField } from './field/baseField';
 import { Knot } from './core/knot';
@@ -465,6 +467,110 @@ describe('Accessibility', () => {
             expect(results).toHaveNoViolations();
 
             navContainer.remove();
+        });
+
+        it('should pass axe check on loader element', async () => {
+            const loader = new Loader();
+            const loaderEl = new Query('#loader').getKnot().getNode();
+
+            const results = await axe(loaderEl);
+            expect(results).toHaveNoViolations();
+
+            loader.hide();
+        });
+
+        it('should pass axe check on flash container', async () => {
+            const flash = new Flash();
+            flash.addInfo('Accessible info', Infinity, null, 'axe-info');
+            const flashContainer = new Query('#flashes').getKnot().getNode();
+
+            const results = await axe(flashContainer);
+            expect(results).toHaveNoViolations();
+
+            flash.removeById('axe-info');
+        });
+
+        it('should pass axe check on tab panel', async () => {
+            const wrapper = document.createElement('div');
+            const tabPanel = document.createElement('div');
+            tabPanel.className = 'tab-panel';
+            const tabs = document.createElement('div');
+            tabs.className = 'tabs';
+            const tab1Link = document.createElement('a');
+            tab1Link.href = '#axe-tp-1';
+            tab1Link.textContent = 'Tab1';
+            const tab2Link = document.createElement('a');
+            tab2Link.href = '#axe-tp-2';
+            tab2Link.textContent = 'Tab2';
+            tabs.appendChild(tab1Link);
+            tabs.appendChild(tab2Link);
+            const panel1 = document.createElement('div');
+            panel1.id = 'axe-tp-1';
+            panel1.className = 'panel';
+            panel1.textContent = 'Content 1';
+            const panel2 = document.createElement('div');
+            panel2.id = 'axe-tp-2';
+            panel2.className = 'panel';
+            panel2.textContent = 'Content 2';
+            tabPanel.appendChild(tabs);
+            tabPanel.appendChild(panel1);
+            tabPanel.appendChild(panel2);
+            wrapper.appendChild(tabPanel);
+            document.body.appendChild(wrapper);
+            new TabPanel(new Knot(wrapper), '.tab-panel', 'axe-tp-1');
+
+            const results = await axe(wrapper);
+            expect(results).toHaveNoViolations();
+
+            wrapper.remove();
+        });
+    });
+
+    describe('Loader', () => {
+        it('should have role="status" on loader element', () => {
+            new Loader();
+            const loaderEl = new Query('#loader').getKnot();
+            expect(loaderEl.getNode().getAttribute('role')).toBe('status');
+        });
+
+        it('should have aria-live="polite" on loader element', () => {
+            new Loader();
+            const loaderEl = new Query('#loader').getKnot();
+            expect(loaderEl.getNode().getAttribute('aria-live')).toBe('polite');
+        });
+
+        it('should have aria-label="Loading" on loader element', () => {
+            new Loader();
+            const loaderEl = new Query('#loader').getKnot();
+            expect(loaderEl.getNode().getAttribute('aria-label')).toBe(
+                'Loading',
+            );
+        });
+    });
+
+    describe('Viewer', () => {
+        let viewer: Viewer;
+
+        beforeEach(() => {
+            viewer = new Viewer();
+        });
+
+        afterEach(() => {
+            if (viewer.isOpened()) {
+                viewer.close();
+            }
+        });
+
+        it('should have role="dialog" on viewer modal', () => {
+            const modal = new Query('#viewer').getKnot();
+            expect(modal.getNode().getAttribute('role')).toBe('dialog');
+        });
+
+        it('should have aria-labelledby="viewer-title"', () => {
+            const modal = new Query('#viewer').getKnot();
+            expect(modal.getNode().getAttribute('aria-labelledby')).toBe(
+                'viewer-title',
+            );
         });
     });
 });
