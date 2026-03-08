@@ -55,6 +55,9 @@ export class Loader {
      */
     private _init(): void {
         this.loader = new Query('#loader').getKnot();
+        this.loader.setAttribute('role', 'status');
+        this.loader.setAttribute('aria-live', 'polite');
+        this.loader.setAttribute('aria-label', 'Loading');
 
         this.spinner = this.loader.createElement('div');
         this.spinner.addClass('sui-spinner');

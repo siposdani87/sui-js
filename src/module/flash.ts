@@ -71,6 +71,8 @@ export class Flash {
      */
     private _init(): void {
         this.container = new Query(this.options.id).getKnot();
+        this.container.setAttribute('aria-live', 'polite');
+        this.container.setAttribute('aria-atomic', 'false');
     }
 
     /**

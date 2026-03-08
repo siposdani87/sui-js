@@ -780,12 +780,16 @@ export class Knot<T extends HTMLElement = HTMLElement> {
     /**
      * Sets the inner HTML content of the element.
      *
+     * **Warning:** This sets `innerHTML` directly without sanitization.
+     * Do not pass untrusted user input. For user-provided content, use
+     * {@link Knot.setSafeText} instead.
+     *
      * @param text HTML string to set as `innerHTML`.
      * @example
      * knot.setHtml('<strong>Bold</strong> text');
      */
     setHtml(text: string): void {
-        this.node.innerHTML = text;
+        this.node.innerHTML = text; // trusted content only
     }
 
     /**
@@ -805,6 +809,19 @@ export class Knot<T extends HTMLElement = HTMLElement> {
             return opt_isInner ? this.node.innerHTML : this.node.outerHTML;
         }
         return '';
+    }
+
+    /**
+     * Sets the text content of the element via `textContent`. This is
+     * XSS-safe as it does not parse HTML. Prefer this over
+     * {@link Knot.setHtml} for user-provided content.
+     *
+     * @param text Plain text string to assign.
+     * @example
+     * knot.setSafeText('User <script>alert(1)</script>'); // renders as text
+     */
+    setSafeText(text: string): void {
+        (this.node as unknown as HTMLElement).textContent = text;
     }
 
     /**

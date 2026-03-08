@@ -56,6 +56,8 @@ export class BaseModal extends Emitter {
     modalFooter!: Knot;
     modalHeader!: Knot;
     modalWindow!: Knot;
+    private _escapeHandler: ((event: KeyboardEvent) => void) | null = null;
+    private _previouslyFocusedElement: HTMLElement | null = null;
 
     /**
      * Initializes shared base state including window dimensions, the main
@@ -193,6 +195,8 @@ export class BaseModal extends Emitter {
         this.modal.removeClass('hidden');
 
         this._handleCloseButton(opt_allowClose);
+        this._bindEscapeKey(opt_allowClose);
+        this._trapFocus();
 
         this._handleCenterPosition();
         this.interval = setInterval(() => {
@@ -211,6 +215,7 @@ export class BaseModal extends Emitter {
      */
     close(): void {
         clearInterval(this.interval);
+        this._unbindEscapeKey();
 
         if (!this.hasBlur) {
             this.mainContainerKnot.removeClass('blur');
@@ -224,6 +229,11 @@ export class BaseModal extends Emitter {
         this.modalTitle.removeChildren();
         this.modalBody.removeChildren();
         this.modalFooter.removeChildren();
+
+        if (this._previouslyFocusedElement) {
+            this._previouslyFocusedElement.focus();
+            this._previouslyFocusedElement = null;
+        }
     }
 
     /**
@@ -310,6 +320,73 @@ export class BaseModal extends Emitter {
         this.windowWidth = width;
         this.windowHeight = height;
         this._handleCenterPosition();
+    }
+
+    /**
+     * Binds the Escape key to close the modal when allowed.
+     *
+     * @param opt_allowClose Whether the modal can be closed.
+     */
+    private _bindEscapeKey(opt_allowClose: boolean | undefined): void {
+        this._unbindEscapeKey();
+        if (opt_allowClose) {
+            this._escapeHandler = (event: KeyboardEvent) => {
+                if (event.key === 'Escape') {
+                    this._actionCancel();
+                }
+            };
+            document.addEventListener('keydown', this._escapeHandler);
+        }
+    }
+
+    /**
+     * Removes the Escape key handler.
+     */
+    private _unbindEscapeKey(): void {
+        if (this._escapeHandler) {
+            document.removeEventListener('keydown', this._escapeHandler);
+            this._escapeHandler = null;
+        }
+    }
+
+    /**
+     * Traps keyboard focus within the modal by listening for Tab
+     * key presses and cycling focus among focusable elements.
+     */
+    private _trapFocus(): void {
+        this._previouslyFocusedElement =
+            document.activeElement as HTMLElement | null;
+
+        const modalNode = this.modal.getNode() as HTMLElement;
+        modalNode.addEventListener('keydown', (event: KeyboardEvent) => {
+            if (event.key !== 'Tab') {
+                return;
+            }
+            const focusable = modalNode.querySelectorAll<HTMLElement>(
+                'a[href], button:not([disabled]), input:not([disabled]), select:not([disabled]), textarea:not([disabled]), [tabindex]:not([tabindex="-1"])',
+            );
+            if (focusable.length === 0) {
+                return;
+            }
+            const first = focusable.item(0);
+            const last = focusable.item(focusable.length - 1);
+            if (event.shiftKey && document.activeElement === first) {
+                event.preventDefault();
+                last?.focus();
+            } else if (!event.shiftKey && document.activeElement === last) {
+                event.preventDefault();
+                first?.focus();
+            }
+        });
+
+        setTimeout(() => {
+            const focusable = modalNode.querySelectorAll<HTMLElement>(
+                'a[href], button:not([disabled]), input:not([disabled]), select:not([disabled]), textarea:not([disabled]), [tabindex]:not([tabindex="-1"])',
+            );
+            if (focusable.length > 0) {
+                focusable.item(0)?.focus();
+            }
+        }, 0);
     }
 
     /**

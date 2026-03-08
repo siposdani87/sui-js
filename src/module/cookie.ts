@@ -147,6 +147,7 @@ export class Cookie {
             opt_expires +
             (opt_domain ? '; domain=' + opt_domain : '') +
             (opt_path ? '; path=' + opt_path : '') +
+            '; SameSite=Lax' +
             (opt_secure ? '; secure' : '');
     }
 

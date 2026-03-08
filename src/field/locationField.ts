@@ -234,7 +234,7 @@ export class LocationField extends BaseField<HTMLInputElement> {
         this.advancedKnot.appendChild(blockKnot);
 
         const boxKnot = new Knot('div');
-        boxKnot.addClass(['sui-textfield']);
+        boxKnot.addClass(['sui-textfield', 'input-block']);
         blockKnot.appendChild(boxKnot);
 
         const advancedLabel = new Knot<HTMLLabelElement>('label');
