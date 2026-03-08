@@ -28,6 +28,16 @@ jobs:
       run: npm run test
     - name: Build
       run: npm run sass && npm run tsc && npm run esbuild && npm run esbuild:size-check
+    - name: Bundle size report
+      if: github.event_name == 'pull_request'
+      run: |
+        SIZE_REPORT_FILE=size-report.md node scripts/bundle-size-diff.cjs
+        if [ -f size-report.md ]; then
+          gh pr comment ${{ github.event.pull_request.number }} --body "$(cat size-report.md)" --edit-last || \
+          gh pr comment ${{ github.event.pull_request.number }} --body "$(cat size-report.md)"
+        fi
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
     - name: Build website
       run: cd website && npm ci && npm run build
     - name: SonarCloud Scan

@@ -18,16 +18,19 @@ Based on a thorough exploration of the project at v1.2.0, here's a prioritized i
 
 ## 1. Test Coverage
 
-Coverage **exceeds configured thresholds** (statements 90.8% vs 88%, branches 76.6% vs 73%, functions 87.8% vs 85%, lines 90.7% vs 88%). **1,762 tests** across 109 suites.
+Coverage **exceeds configured thresholds** (statements 92.5% vs 91%, branches 80.5% vs 78%, functions 89.2% vs 88%, lines 92.4% vs 91%). **1,905 tests** across 109 suites.
 
 | Action | Priority | Impact |
 |--------|----------|--------|
-| Increase coverage for largest files: `googleMap.ts` (1,359 LOC), `operation.ts` (1,108 LOC), `knot.ts` (1,034 LOC), `table.ts` (716 LOC) | P1 | Buffer above thresholds |
+| ~~Increase coverage for `operation.ts`, `knot.ts`~~ — knot branches 85%→93%, operation branches 79%→84% | P1 | Buffer above thresholds |
+| ~~Increase coverage for largest files: `table.ts` (716 LOC)~~ — table branches 79.5%→84.6% | P1 | Buffer above thresholds |
+| Increase coverage for `googleMap.ts` (1,359 LOC) — depends heavily on Maps mocking | P1 | Buffer above thresholds |
 | ~~Increase branch coverage in `selectField.ts`, `colorField.ts`~~ — selectField branches 50.6%→74.7%, colorField functions 40%→100% | P1 | Biggest branch gaps |
-| Increase branch coverage in `baseField.ts`, `locationField.ts` | P1 | Remaining branch gaps |
+| ~~Increase branch coverage in `baseField.ts`~~ — baseField branches 66.7%→76.3% | P1 | Remaining branch gaps |
+| Increase branch coverage in `locationField.ts` — depends heavily on Maps mocking | P1 | Remaining branch gaps |
 | ~~Add edge-case tests for `xhr.ts` (fetch error handling, abort, timeouts)~~ — 7 new tests for no Content-Type, pre-set headers | P1 | Security & correctness |
 | ~~Add integration-style tests for `application.ts` DI container~~ — 25 new tests for DI, locale, getInstance, run modes | P1 | Core framework confidence |
-| Enable stricter test config (remove `strictNullChecks: false` from `tsconfig.spec.json`) | P2 | Catch more bugs in tests |
+| ~~Enable stricter test config (remove `strictNullChecks: false` from `tsconfig.spec.json`)~~ — removed `strictNullChecks: false` and `noImplicitAny: false` overrides; 21 spec files fixed | P2 | Catch more bugs in tests |
 
 ---
 
@@ -61,7 +64,7 @@ Current: **~223 KB JS + ~76 KB CSS** (limit: 250 KB JS, 100 KB CSS). CSS reduced
 
 | Action | Priority | Impact |
 |--------|----------|--------|
-| **Reduce `any` usage** — `@typescript-eslint/no-explicit-any` is `warn`; audit and fix | P2 | Type safety |
+| ~~**Reduce `any` usage**~~ — 22 `any` usages eliminated in table.ts, selectField.ts, canvas.ts, popupContainer.ts, state.ts; remaining ~151 are genuinely needed in utility/generic code | P2 | Type safety |
 | ~~**Modernize `moduleResolution`**~~ — changed to `Bundler` | P2 | Better module semantics |
 | ~~**Update `target` to ES2020+**~~ — changed to ES2020 | P2 | Cleaner output, smaller bundle |
 | **Split `operation.ts`** (1,108 LOC) — utility god file; split into `typeGuards.ts`, `arrayOps.ts`, `objectOps.ts` | P2 | Maintainability |
@@ -153,7 +156,7 @@ Current: **~223 KB JS + ~76 KB CSS** (limit: 250 KB JS, 100 KB CSS). CSS reduced
 
 | Action | Priority | Impact |
 |--------|----------|--------|
-| **Add bundle size diff** — comment bundle size change on PRs | P2 | Prevent bloat |
+| ~~**Add bundle size diff**~~ — CI comments bundle size report on PRs via `scripts/bundle-size-diff.cjs` | P2 | Prevent bloat |
 | **Add visual regression testing** — screenshot comparison for UI components | P2 | Style confidence |
 | **Cache improvements** — cache sass compilation, TypeScript incremental builds | P3 | CI speed |
 
