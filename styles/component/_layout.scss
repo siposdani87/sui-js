@@ -23,6 +23,7 @@
         animation-name: blur;
         animation-duration: 0.5s;
         animation-fill-mode: forwards;
+        will-change: filter;
     }
 }
 

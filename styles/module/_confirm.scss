@@ -9,6 +9,7 @@
     justify-content: center;
     overflow-y: auto;
     animation: modal-fade-in variables.$transition-base ease-out;
+    will-change: opacity;
 
     &.center {
         align-items: center;
@@ -24,6 +25,7 @@
         color: var(--sui-on-surface);
         box-shadow: var(--sui-shadow-lg);
         animation: modal-scale-in variables.$transition-slow ease-out;
+        will-change: opacity, transform;
         min-width: 360px;
         max-width: 720px;
         border-radius: variables.$radius-lg;

@@ -14,6 +14,7 @@
     &.is-active {
         opacity: 1;
         animation: sui-spinner-rotate 0.8s linear infinite;
+        will-change: transform;
     }
 }
 

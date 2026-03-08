@@ -35,6 +35,7 @@
         .sui-progress__bar {
             width: 100%;
             animation: sui-progress-indeterminate 2s linear infinite;
+            will-change: left;
         }
     }
 }

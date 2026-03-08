@@ -27,6 +27,7 @@
             animation-name: rotation;
             animation-duration: 2s;
             animation-iteration-count: infinite;
+            will-change: transform;
         }
     }
 

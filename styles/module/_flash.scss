@@ -35,6 +35,7 @@
 
         .flash {
             animation: flash-slide-in variables.$transition-slow ease-out;
+            will-change: opacity, transform;
             position: relative;
             pointer-events: visiblepainted;
             margin-bottom: 20px;
