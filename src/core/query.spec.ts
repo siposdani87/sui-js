@@ -86,7 +86,7 @@ describe('Query', () => {
             document.body.innerHTML =
                 '<div id="ctx"><span class="inner">A</span></div><span class="inner">B</span>';
 
-            const context = document.getElementById('ctx');
+            const context = document.getElementById('ctx')!;
             const query = new Query('.inner', context);
             expect(query.size()).toBe(1);
         });

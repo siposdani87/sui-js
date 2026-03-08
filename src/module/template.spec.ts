@@ -102,7 +102,7 @@ describe('Template', () => {
             const pageContent = document.createElement('div');
             pageContent.classList.add('page-content');
             pageContent.textContent = 'cached content';
-            const container = document.body.querySelector('.template-view');
+            const container = document.body.querySelector('.template-view')!;
             container.appendChild(pageContent);
             container.setAttribute('data-template-url', '/home.html');
             container.setAttribute('data-locale', 'en');
@@ -120,7 +120,7 @@ describe('Template', () => {
         it('should remove data-locale attribute on cache hit', (done) => {
             const pageContent = document.createElement('div');
             pageContent.classList.add('page-content');
-            const container = document.body.querySelector('.template-view');
+            const container = document.body.querySelector('.template-view')!;
             container.appendChild(pageContent);
             container.setAttribute('data-template-url', '/about.html');
             container.setAttribute('data-locale', 'en');
@@ -156,7 +156,7 @@ describe('Template', () => {
         });
 
         it('should make HTTP GET when force=true even if URL matches', (done) => {
-            const container = document.body.querySelector('.template-view');
+            const container = document.body.querySelector('.template-view')!;
             container.setAttribute('data-template-url', '/home.html');
             container.setAttribute('data-locale', 'en');
 
@@ -182,7 +182,7 @@ describe('Template', () => {
             template = new Template(http, { locale: 'en' });
             template.load('/new-page.html');
 
-            const container = document.body.querySelector('.template-view');
+            const container = document.body.querySelector('.template-view')!;
             expect(container.getAttribute('data-template-url')).toBe(
                 '/new-page.html',
             );
@@ -194,7 +194,8 @@ describe('Template', () => {
 
             template = new Template(http, { locale: 'en' });
             template.load('/page.html').then((knot) => {
-                const container = document.body.querySelector('.template-view');
+                const container =
+                    document.body.querySelector('.template-view')!;
                 expect(container.querySelector('.page-content')).not.toBeNull();
                 done();
             });
@@ -247,7 +248,7 @@ describe('Template', () => {
             template = new Template(http, { locale: 'en' });
             const responseKnot = createResponseKnot('Success content');
             template._spaNavigate(responseKnot, false);
-            const container = document.body.querySelector('.template-view');
+            const container = document.body.querySelector('.template-view')!;
             expect(container.querySelector('.page-content')).not.toBeNull();
         });
 

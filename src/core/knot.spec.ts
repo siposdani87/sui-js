@@ -192,7 +192,7 @@ describe('Knot', () => {
         it('should get parent knot', () => {
             const parent = knot.getParentKnot();
             expect(parent).not.toBeNull();
-            expect(parent.getNode()).toBe(document.body);
+            expect(parent!.getNode()).toBe(document.body);
         });
 
         it('should remove self from DOM', () => {
@@ -304,6 +304,141 @@ describe('Knot', () => {
         it('should return inner HTML when opt_isRoot is false', () => {
             knot.setHtml('content');
             expect(knot.toString(false)).toBe('content');
+        });
+    });
+
+    describe('constructor edge cases', () => {
+        it('should create from full HTML string with closing tag', () => {
+            const k = new Knot('<div></div>');
+            expect(k).toBeInstanceOf(Knot);
+            expect(k.getTagName()).toBe('div');
+        });
+
+        it('should create element from tag name without angle brackets', () => {
+            const k = new Knot('section');
+            expect(k).toBeInstanceOf(Knot);
+            expect(k.getTagName()).toBe('section');
+        });
+
+        it('should accept parent knot in constructor', () => {
+            const parent = new Knot('div');
+            const child = new Knot('span', parent);
+            expect(child.parentKnot).toBe(parent);
+        });
+    });
+
+    describe('getId', () => {
+        it('should return null when id is empty string', () => {
+            knot.getNode().id = '';
+            expect(knot.getId()).toBeNull();
+        });
+
+        it('should return id when set', () => {
+            knot.setId('test-id');
+            expect(knot.getId()).toBe('test-id');
+        });
+    });
+
+    describe('getFor', () => {
+        it('should return for attribute on label', () => {
+            const label = new Knot<HTMLLabelElement>('label');
+            document.body.appendChild(label.getNode());
+            label.setFor('input-id');
+            expect(label.getFor()).toBe('input-id');
+        });
+    });
+
+    describe('setAttribute edge cases', () => {
+        it('should set boolean attribute without value', () => {
+            knot.setAttribute('disabled');
+            expect(knot.hasAttribute('disabled')).toBe(true);
+        });
+    });
+
+    describe('addClass edge cases', () => {
+        it('should skip empty string in class array', () => {
+            knot.addClass(['valid', '', 'another']);
+            expect(knot.hasClass('valid')).toBe(true);
+            expect(knot.hasClass('another')).toBe(true);
+        });
+    });
+
+    describe('DOM manipulation edge cases', () => {
+        it('should handle removeChild on empty knot', () => {
+            const child = new Knot('span');
+            const emptyParent = new Knot('div');
+            // removeChild when parent has no children
+            emptyParent.removeChild(child);
+            // No error thrown
+        });
+
+        it('should handle remove on orphaned element', () => {
+            const orphan = new Knot('div');
+            orphan.remove();
+            // No error thrown
+        });
+
+        it('should return false for insertBefore on orphaned element', () => {
+            const orphan = new Knot('div');
+            const sibling = new Knot('span');
+            const result = orphan.insertBefore(sibling);
+            expect(result).toBe(false);
+        });
+
+        it('should return false for insertAfter on orphaned element', () => {
+            const orphan = new Knot('div');
+            const sibling = new Knot('span');
+            const result = orphan.insertAfter(sibling);
+            expect(result).toBe(false);
+        });
+
+        it('should return false for afterChild on orphaned element', () => {
+            const orphan = new Knot('div');
+            const child = new Knot('span');
+            const result = orphan.afterChild(child);
+            expect(result).toBe(false);
+        });
+
+        it('should handle beforeChild on element with no children', () => {
+            const parent = new Knot('div');
+            document.body.appendChild(parent.getNode());
+            const child = new Knot('span');
+            parent.beforeChild(child);
+            expect(parent.hasChildren()).toBe(true);
+        });
+
+        it('should handle replaceChild on orphaned element', () => {
+            const orphan = new Knot('div');
+            const replacement = new Knot('span');
+            const result = orphan.replaceChild(replacement);
+            expect(result).toBe(false);
+        });
+
+        it('should get next sibling as empty knot when last child', () => {
+            const child = new Knot('span');
+            knot.appendChild(child);
+            const next = child.getNextSibling();
+            expect(next.isEmpty()).toBe(true);
+        });
+    });
+
+    describe('operations on empty knot', () => {
+        it('should return empty string for getHtml on null knot', () => {
+            const nullKnot = new Knot(null);
+            expect(nullKnot.getHtml()).toBe('');
+        });
+
+        it('should return true for isEmpty on null knot', () => {
+            const nullKnot = new Knot(null);
+            expect(nullKnot.isEmpty()).toBe(true);
+        });
+    });
+
+    describe('setSafeText', () => {
+        it('should set text content safely', () => {
+            knot.setSafeText('<script>alert("xss")</script>');
+            expect(knot.getText()).toBe('<script>alert("xss")</script>');
+            expect(knot.getHtml(true)).not.toContain('<script>');
         });
     });
 });

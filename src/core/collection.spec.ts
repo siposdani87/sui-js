@@ -71,7 +71,7 @@ describe('Collection', () => {
     describe('findById', () => {
         it('should find item by ID', () => {
             const item = collection.findById(2);
-            expect(item.get('name')).toBe('Bob');
+            expect(item!.get('name')).toBe('Bob');
         });
 
         it('should return null when item not found', () => {
@@ -83,7 +83,7 @@ describe('Collection', () => {
     describe('findBy', () => {
         it('should find item by attribute value', () => {
             const item = collection.findBy('name', 'Charlie');
-            expect(item.get('id')).toBe(3);
+            expect(item!.get('id')).toBe(3);
         });
     });
 
@@ -92,7 +92,7 @@ describe('Collection', () => {
             const item = collection.findByCondition((item) => {
                 return item.get('name') === 'Bob';
             });
-            expect(item.get('id')).toBe(2);
+            expect(item!.get('id')).toBe(2);
         });
 
         it('should return null when no match', () => {
@@ -118,7 +118,7 @@ describe('Collection', () => {
     describe('deleteById', () => {
         it('should delete item by ID', () => {
             const deleted = collection.deleteById(2);
-            expect(deleted.get('name')).toBe('Bob');
+            expect(deleted!.get('name')).toBe('Bob');
             expect(collection.size()).toBe(2);
         });
     });
@@ -146,7 +146,7 @@ describe('Collection', () => {
     describe('replace', () => {
         it('should replace an existing item by ID', () => {
             const replaced = collection.replace({ id: 1, name: 'Updated' });
-            expect(replaced.get('name')).toBe('Updated');
+            expect(replaced!.get('name')).toBe('Updated');
             expect(collection.size()).toBe(3);
         });
 

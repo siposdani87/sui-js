@@ -10,7 +10,7 @@ describe('Memory leak prevention', () => {
             knot.addEventListener('click', () => {
                 return true;
             });
-            const store = knot.getNode()['_listeners'];
+            const store = (knot.getNode() as any)['_listeners'];
             expect(store).toBeDefined();
             expect(store['click']).toHaveLength(1);
         });
@@ -23,7 +23,7 @@ describe('Memory leak prevention', () => {
             knot.addEventListener('click', () => {
                 return true;
             });
-            const store = knot.getNode()['_listeners'];
+            const store = (knot.getNode() as any)['_listeners'];
             expect(store['click']).toHaveLength(2);
         });
 
@@ -35,7 +35,7 @@ describe('Memory leak prevention', () => {
             knot.addEventListener('mouseenter', () => {
                 return true;
             });
-            const store = knot.getNode()['_listeners'];
+            const store = (knot.getNode() as any)['_listeners'];
             expect(store['click']).toHaveLength(1);
             expect(store['mouseenter']).toHaveLength(1);
         });
@@ -87,7 +87,7 @@ describe('Memory leak prevention', () => {
             child.addEventListener('click', () => {
                 return true;
             });
-            const store = child.getNode()['_listeners'];
+            const store = (child.getNode() as any)['_listeners'];
             expect(store['click']).toHaveLength(1);
 
             parent.removeChild(child);
@@ -98,7 +98,7 @@ describe('Memory leak prevention', () => {
             const knot = new Knot('div');
             const listener = knot.addEventListener('click');
             expect(typeof listener).toBe('function');
-            const store = knot.getNode()['_listeners'];
+            const store = (knot.getNode() as any)['_listeners'];
             expect(store).toBeUndefined();
         });
     });
@@ -160,7 +160,9 @@ describe('Memory leak prevention', () => {
                 container.delete(popup);
             }
 
-            const collection = window['popup_collection'] as Collection<any>;
+            const collection = (window as any)[
+                'popup_collection'
+            ] as Collection<any>;
             expect(collection.size()).toBe(0);
         });
 
@@ -172,7 +174,9 @@ describe('Memory leak prevention', () => {
             const popup = new Popup(content, parentKnot);
             container.push(Popup, popup);
 
-            const collection = window['popup_collection'] as Collection<any>;
+            const collection = (window as any)[
+                'popup_collection'
+            ] as Collection<any>;
             expect(collection.size()).toBe(1);
 
             container.delete(popup);
@@ -180,7 +184,7 @@ describe('Memory leak prevention', () => {
         });
 
         afterEach(() => {
-            delete window['popup_collection'];
+            delete (window as any)['popup_collection'];
         });
     });
 
@@ -219,7 +223,7 @@ describe('Memory leak prevention', () => {
         });
 
         afterEach(() => {
-            delete window['popup_collection'];
+            delete (window as any)['popup_collection'];
         });
     });
 

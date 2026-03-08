@@ -175,9 +175,9 @@ describe('Calendar', () => {
             const months = calendar.monthsKnot
                 .getNode()
                 .querySelectorAll('.month');
-            expect(months[0].textContent).toBe('Jan');
-            expect(months[5].textContent).toBe('Jun');
-            expect(months[11].textContent).toBe('Dec');
+            expect(months[0]!.textContent).toBe('Jan');
+            expect(months[5]!.textContent).toBe('Jun');
+            expect(months[11]!.textContent).toBe('Dec');
         });
     });
 
@@ -198,8 +198,8 @@ describe('Calendar', () => {
                 .getNode()
                 .querySelectorAll('.year');
             // 2024 - (2024 % 16) = 2024 - 8 = 2016
-            expect(years[0].textContent).toBe('2016');
-            expect(years[15].textContent).toBe('2031');
+            expect(years[0]!.textContent).toBe('2016');
+            expect(years[15]!.textContent).toBe('2031');
         });
     });
 
@@ -213,7 +213,7 @@ describe('Calendar', () => {
             calendar.draw();
 
             const buttons = getNavButtons(calendar);
-            buttons[0].dispatchEvent(new Event('click'));
+            buttons[0]!.dispatchEvent(new Event('click'));
 
             expect(calendar.current.day.getMonth()).toBe(4);
             expect(calendar.current.day.getFullYear()).toBe(2024);
@@ -224,7 +224,7 @@ describe('Calendar', () => {
             calendar.draw();
 
             const buttons = getNavButtons(calendar);
-            buttons[1].dispatchEvent(new Event('click'));
+            buttons[1]!.dispatchEvent(new Event('click'));
 
             expect(calendar.current.day.getMonth()).toBe(6);
             expect(calendar.current.day.getFullYear()).toBe(2024);
@@ -235,7 +235,7 @@ describe('Calendar', () => {
             calendar.draw();
 
             const buttons = getNavButtons(calendar);
-            buttons[0].dispatchEvent(new Event('click'));
+            buttons[0]!.dispatchEvent(new Event('click'));
 
             expect(calendar.current.day.getFullYear()).toBe(2023);
         });
@@ -245,7 +245,7 @@ describe('Calendar', () => {
             calendar.draw();
 
             const buttons = getNavButtons(calendar);
-            buttons[1].dispatchEvent(new Event('click'));
+            buttons[1]!.dispatchEvent(new Event('click'));
 
             expect(calendar.current.day.getFullYear()).toBe(2025);
         });
@@ -255,7 +255,7 @@ describe('Calendar', () => {
             calendar.draw();
 
             const buttons = getNavButtons(calendar);
-            buttons[0].dispatchEvent(new Event('click'));
+            buttons[0]!.dispatchEvent(new Event('click'));
 
             expect(calendar.current.day.getFullYear()).toBe(2008);
         });
@@ -265,7 +265,7 @@ describe('Calendar', () => {
             calendar.draw();
 
             const buttons = getNavButtons(calendar);
-            buttons[1].dispatchEvent(new Event('click'));
+            buttons[1]!.dispatchEvent(new Event('click'));
 
             expect(calendar.current.day.getFullYear()).toBe(2040);
         });
@@ -275,7 +275,7 @@ describe('Calendar', () => {
             calendar.draw();
 
             const buttons = getNavButtons(calendar);
-            buttons[0].dispatchEvent(new Event('click'));
+            buttons[0]!.dispatchEvent(new Event('click'));
 
             expect(calendar.current.day.getFullYear()).toBeGreaterThanOrEqual(
                 0,
@@ -340,7 +340,7 @@ describe('Calendar', () => {
             const dayCells = calendar.daysKnot
                 .getNode()
                 .querySelectorAll('.day.current-month');
-            dayCells[0].dispatchEvent(new Event('click'));
+            dayCells[0]!.dispatchEvent(new Event('click'));
 
             expect(eventClickSpy).toHaveBeenCalled();
         });
@@ -354,7 +354,7 @@ describe('Calendar', () => {
             const monthCells = calendar.monthsKnot
                 .getNode()
                 .querySelectorAll('.month');
-            monthCells[0].dispatchEvent(new Event('click'));
+            monthCells[0]!.dispatchEvent(new Event('click'));
 
             expect(eventClickSpy).toHaveBeenCalled();
         });
@@ -368,7 +368,7 @@ describe('Calendar', () => {
             const yearCells = calendar.yearsKnot
                 .getNode()
                 .querySelectorAll('.year');
-            yearCells[0].dispatchEvent(new Event('click'));
+            yearCells[0]!.dispatchEvent(new Event('click'));
 
             expect(eventClickSpy).toHaveBeenCalled();
         });
@@ -390,7 +390,7 @@ describe('Calendar', () => {
             const yearCells = calendar.yearsKnot
                 .getNode()
                 .querySelectorAll('.year');
-            yearCells[0].dispatchEvent(new Event('click'));
+            yearCells[0]!.dispatchEvent(new Event('click'));
 
             expect(calendar.activeMode).toBe('MONTH');
         });
@@ -402,7 +402,7 @@ describe('Calendar', () => {
             const dayCells = calendar.daysKnot
                 .getNode()
                 .querySelectorAll('.day.current-month');
-            dayCells[9].dispatchEvent(new Event('click'));
+            dayCells[9]!.dispatchEvent(new Event('click'));
 
             expect(calendar.selectedDate).toBeDefined();
             expect(calendar.selectedDate.getDate()).toBe(10);

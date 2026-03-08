@@ -98,7 +98,7 @@ describe('Helper', () => {
             const button = helper.createIconButton('edit', jest.fn());
             const iconEl = button.getNode().querySelector('em');
             expect(iconEl).not.toBeNull();
-            expect(iconEl.textContent).toBe('edit');
+            expect(iconEl!.textContent).toBe('edit');
         });
 
         it('should add icon-specific SUI classes', () => {

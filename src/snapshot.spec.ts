@@ -82,7 +82,7 @@ describe('UI Component Snapshots', () => {
 
             popup.close();
             document.body.removeChild(parentKnot.getNode());
-            delete window['popup_collection'];
+            delete (window as any)['popup_collection'];
         });
 
         it('should match snapshot with close button', () => {

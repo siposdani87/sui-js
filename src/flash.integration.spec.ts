@@ -52,7 +52,7 @@ describe('Flash Integration', () => {
             content: 'Message content',
         });
         expect(flashKnot).toBeDefined();
-        expect(flashKnot.hasClass('success')).toBe(true);
+        expect(flashKnot!.hasClass('success')).toBe(true);
     });
 
     it('should return null from addMessage with non-object', () => {

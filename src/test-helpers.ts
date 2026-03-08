@@ -151,7 +151,7 @@ export function getLastFetchCall(): CapturedFetchCall {
             'No fetch calls recorded. Did you call installFetchMock()?',
         );
     }
-    return _capturedCalls[_capturedCalls.length - 1];
+    return _capturedCalls[_capturedCalls.length - 1]!;
 }
 
 /** Get all captured fetch calls */

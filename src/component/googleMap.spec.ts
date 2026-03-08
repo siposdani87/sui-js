@@ -106,10 +106,10 @@ describe('GoogleMap', () => {
         it('should register a marker icon', () => {
             const googleMap = createGoogleMap();
             googleMap.setMarkerIcon('default', testIconOptions);
-            expect(googleMap.markerIcons['default']).toBeDefined();
-            expect(googleMap.markerIcons['default'].icon).toBeDefined();
-            expect(googleMap.markerIcons['default'].shape).toBeDefined();
-            expect(googleMap.markerIcons['default'].shape.type).toBe('poly');
+            expect(googleMap.markerIcons['default']!).toBeDefined();
+            expect(googleMap.markerIcons['default']!.icon).toBeDefined();
+            expect(googleMap.markerIcons['default']!.shape).toBeDefined();
+            expect(googleMap.markerIcons['default']!.shape.type).toBe('poly');
         });
     });
 

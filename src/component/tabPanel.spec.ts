@@ -34,7 +34,9 @@ describe('TabPanel', () => {
 
         it('should handle null panelId', async () => {
             const onReject = jest.fn();
-            tabPanel.setActive(null).then(jest.fn(), onReject);
+            tabPanel
+                .setActive(null as unknown as string)
+                .then(jest.fn(), onReject);
             await new Promise((resolve) => setTimeout(resolve, 0));
             expect(onReject).toHaveBeenCalled();
         });

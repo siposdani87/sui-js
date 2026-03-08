@@ -1,5 +1,7 @@
 import * as SUI from './index';
 
+const SUIRecord = SUI as unknown as Record<string, unknown>;
+
 describe('Module exports', () => {
     describe('core exports', () => {
         it.each([
@@ -14,7 +16,7 @@ describe('Module exports', () => {
             'Router',
             'State',
         ])('should export %s', (name) => {
-            expect(SUI[name]).toBeDefined();
+            expect(SUIRecord[name]).toBeDefined();
         });
     });
 
@@ -22,7 +24,7 @@ describe('Module exports', () => {
         it.each(['Controller', 'Service', 'releaseMode', 'coreResources'])(
             'should export %s',
             (name) => {
-                expect(SUI[name]).toBeDefined();
+                expect(SUIRecord[name]).toBeDefined();
             },
         );
     });
@@ -55,7 +57,7 @@ describe('Module exports', () => {
             'Waiter',
             'Year',
         ])('should export %s', (name) => {
-            expect(SUI[name]).toBeDefined();
+            expect(SUIRecord[name]).toBeDefined();
         });
     });
 
@@ -89,7 +91,7 @@ describe('Module exports', () => {
             'Screen',
             'Xhr',
         ])('should export %s', (name) => {
-            expect(SUI[name]).toBeDefined();
+            expect(SUIRecord[name]).toBeDefined();
         });
     });
 
@@ -118,7 +120,7 @@ describe('Module exports', () => {
             'TextField',
             'UrlField',
         ])('should export %s', (name) => {
-            expect(SUI[name]).toBeDefined();
+            expect(SUIRecord[name]).toBeDefined();
         });
     });
 
@@ -136,7 +138,7 @@ describe('Module exports', () => {
             'guid',
             'generateId',
         ])('should export coder function %s', (name) => {
-            expect(SUI[name]).toBeDefined();
+            expect(SUIRecord[name]).toBeDefined();
         });
 
         it.each([
@@ -149,7 +151,7 @@ describe('Module exports', () => {
             'colorContrastYIQ',
             'colorContrast',
         ])('should export color function %s', (name) => {
-            expect(SUI[name]).toBeDefined();
+            expect(SUIRecord[name]).toBeDefined();
         });
 
         it.each([
@@ -160,11 +162,11 @@ describe('Module exports', () => {
             'ceil',
             'random',
         ])('should export math function %s', (name) => {
-            expect(SUI[name]).toBeDefined();
+            expect(SUIRecord[name]).toBeDefined();
         });
     });
 
     it('should not export treeView (commented out)', () => {
-        expect(SUI['TreeView']).toBeUndefined();
+        expect(SUIRecord['TreeView']).toBeUndefined();
     });
 });

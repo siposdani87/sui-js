@@ -13,8 +13,8 @@ describe('DateTimeRangeField', () => {
         const { input, label, error } = parseInputBlock(inputBlock);
         startField = new DateTimeRangeField(
             input,
-            label,
-            error,
+            label!,
+            error!,
             inputBlock,
             true,
         );
@@ -31,8 +31,8 @@ describe('DateTimeRangeField', () => {
         const { input, label, error } = parseInputBlock(inputBlock);
         endField = new DateTimeRangeField(
             input,
-            label,
-            error,
+            label!,
+            error!,
             inputBlock,
             false,
         );
@@ -51,8 +51,8 @@ describe('DateTimeRangeField', () => {
             const { input, label, error } = parseInputBlock(inputBlock);
             endField = new DateTimeRangeField(
                 input,
-                label,
-                error,
+                label!,
+                error!,
                 inputBlock,
                 false,
             );

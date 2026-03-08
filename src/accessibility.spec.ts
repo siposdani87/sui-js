@@ -163,7 +163,7 @@ describe('Accessibility (a11y)', () => {
 
             const popup = new Popup(content, parent);
             const popupDiv = parent.getNode().querySelector('.popup');
-            expect(popupDiv.classList.contains('hidden')).toBe(true);
+            expect(popupDiv!.classList.contains('hidden')).toBe(true);
 
             document.body.removeChild(parent.getNode());
         });
@@ -177,11 +177,11 @@ describe('Accessibility (a11y)', () => {
             const popup = new Popup(content, parent);
             popup.open();
             const popupDiv = parent.getNode().querySelector('.popup');
-            expect(popupDiv.classList.contains('hidden')).toBe(false);
+            expect(popupDiv!.classList.contains('hidden')).toBe(false);
 
             popup.close();
             document.body.removeChild(parent.getNode());
-            delete window['popup_collection'];
+            delete (window as any)['popup_collection'];
         });
 
         it('should add popup-parent class to container', () => {
