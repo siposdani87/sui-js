@@ -55,7 +55,7 @@ Current: **~223 KB JS + ~76 KB CSS** (limit: 250 KB JS, 100 KB CSS). CSS reduced
 | ~~**Add ESM bundle output**~~ — `sui.esm.js` alongside `sui.min.js` (IIFE) | P1 | Modern bundler support |
 | ~~**Move esbuild config to file**~~ — `scripts/esbuild.config.cjs` shared config, `scripts/esbuild.cjs` build, `scripts/esbuild-watch.cjs` watch, `scripts/esbuild-analyze.cjs` analyze | P2 | Maintainability |
 | **CSS modules or CSS layers** — consider `@layer` for better cascade control | P3 | Style isolation |
-| **Source map optimization** — 1.4 MB source map is large; consider `linked` mode | P3 | Smaller publish |
+| ~~**Source map optimization**~~ — already using external source maps (esbuild `sourcemap: true` = linked mode); maps excluded from npm publish via `files` field | P3 | Already optimal |
 | **Add bundle visualization** — `esbuild:analyze` exists but no visual output | P3 | Developer experience |
 
 ---
@@ -134,7 +134,7 @@ Current: **~223 KB JS + ~76 KB CSS** (limit: 250 KB JS, 100 KB CSS). CSS reduced
 |--------|----------|--------|
 | ~~**Update and improve `README.md`**~~ — rewritten with features, usage examples, badges | P1 | First impression & adoption |
 | ~~**Migration guide**~~ — v1.1→v1.2 migration guide on Docusaurus site | P1 | User retention |
-| **API docs improvements** — TypeDoc output can be enhanced with `@example` tags | P2 | Usability |
+| ~~**API docs improvements**~~ — all public methods now have `@example` JSDoc tags; added examples to Xhr HTTP methods (post, put, patch, delete) | P2 | Usability |
 | ~~**Add `CONTRIBUTING.md`**~~ — contribution guidelines, PR process | P2 | Community |
 | **Blog posts** — write about architecture decisions, modernization journey | P3 | SEO & community |
 

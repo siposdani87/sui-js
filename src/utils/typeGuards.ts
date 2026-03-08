@@ -85,8 +85,7 @@ export const isNumber = (value: unknown): value is number =>
     value !== null &&
     value !== '' &&
     !isNaN(value as number) &&
-    (!['0', '+'].includes((value as string)?.[0] ?? '') ||
-        value === '0') &&
+    (!['0', '+'].includes((value as string)?.[0] ?? '') || value === '0') &&
     Number(value).toString() !== 'NaN' &&
     Number(value).toString() !== 'Infinity';
 

@@ -32,7 +32,7 @@ npx jest --testNamePattern="should do something"
 - **`src/component/`** — UI components: `Application` (main entry, manages DI), `Form`, `Table`, `Calendar`, `GoogleMap`, popups, etc.
 - **`src/module/`** — Feature modules: `Http` (fetch-based HTTP client), `Router`, `EventBus` (pub/sub), `Dialog`, `Confirm`, `Cookie`, `Depot` (localStorage/sessionStorage), `Template`, menus
 - **`src/field/`** — Form field components extending `BaseField`: text, select, datetime, color, file, location, etc.
-- **`src/utils/`** — Utilities: `operation.ts` (type checking, object/array ops), `dateio.ts` (date-fns wrapper), `coder.ts`, `color.ts`, `math.ts`
+- **`src/utils/`** — Utilities: `operation.ts` (barrel re-export for `comparison.ts`, `typeGuards.ts`, `iteration.ts`, `arrayOps.ts`, `objectOps.ts`, `stringOps.ts`, `domOps.ts`), `dateio.ts` (date-fns wrapper), `coder.ts`, `color.ts`, `math.ts`
 - **`styles/`** — SCSS organized by component/module/field; uses CSS custom properties (`--sui-*`) for theming — dark mode handled via `prefers-color-scheme` media query and `.dark-theme` class, no separate Dark.scss files
 - **`src/index.ts`** — Single entry point, exports all modules
 
@@ -57,6 +57,7 @@ npx jest --testNamePattern="should do something"
 - `jest.setup.ts` mocks: Google Maps API, console methods
 - **1,905 tests** across 109 suites (expanded from 180 tests in v1.0.0)
 - Includes jest-axe automated accessibility tests (Loader, Flash, TabPanel, Viewer, Dropdown, Navigation, BaseField)
+- `tsconfig.spec.json` inherits `strict: true` from base config (strictNullChecks + noImplicitAny enabled)
 - Coverage thresholds: statements 91%, branches 78%, functions 88%, lines 91%
 - Current coverage: statements 92.5%, branches 80.5%, functions 89.2%, lines 92.4%
 
@@ -70,7 +71,7 @@ npx jest --testNamePattern="should do something"
 
 ### Completed Plans
 
-1. **Testing Improvement** — 180 → 1,704 tests, coverage 52% → 89%. jest-axe a11y tests added.
+1. **Testing Improvement** — 180 → 1,905 tests, coverage 52% → 92%. jest-axe a11y tests added. Strict null checks enabled in test config.
 2. **TypeScript Strict Mode** — `strict: true` enabled in `tsconfig.json`. Completed in v1.1.0.
 3. **Documentation** — Comprehensive JSDoc on all source files. Docusaurus site with guides, API reference, and Algolia search.
 

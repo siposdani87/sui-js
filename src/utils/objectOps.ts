@@ -271,4 +271,3 @@ export const urlWithQueryString = (
     const separator = contain(url, '?') ? '&' : '?';
     return url + (queryString ? separator + queryString : '');
 };
-
