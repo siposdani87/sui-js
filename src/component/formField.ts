@@ -134,10 +134,10 @@ const _convertToField = (
     const tagName = input.getTagName();
     let result = null;
     if (eq(tagName, 'textarea')) {
-        result = new TextareaField(input, label!, error!, inputBlock);
+        result = new TextareaField(input, label, error, inputBlock);
     }
     if (eq(tagName, 'select')) {
-        result = new SelectField(input, label!, error!, inputBlock);
+        result = new SelectField(input, label, error, inputBlock);
     } else if (eq(tagName, 'input') || eq(tagName, 'button')) {
         const type = input.get('type');
         switch (type) {
@@ -175,35 +175,25 @@ const _convertToField = (
                         false,
                     );
                 } else if (inputs.size() === 1) {
-                    result = new DateTimeField(
-                        input,
-                        label!,
-                        error!,
-                        inputBlock,
-                    );
+                    result = new DateTimeField(input, label, error, inputBlock);
                 }
                 break;
             }
             case 'file':
-                result = new FileField(input, label!, error!, inputBlock);
+                result = new FileField(input, label, error, inputBlock);
                 break;
             case 'checkbox':
                 if (eq(dataType, 'switch')) {
-                    result = new SwitchField(input, label!, error!, inputBlock);
+                    result = new SwitchField(input, label, error, inputBlock);
                 } else if (eq(dataType, 'icon-toggle')) {
                     result = new IconToggleField(
                         input,
-                        label!,
-                        error!,
+                        label,
+                        error,
                         inputBlock,
                     );
                 } else {
-                    result = new CheckboxField(
-                        input,
-                        label!,
-                        error!,
-                        inputBlock,
-                    );
+                    result = new CheckboxField(input, label, error, inputBlock);
                 }
                 break;
             case 'radio':
@@ -216,37 +206,32 @@ const _convertToField = (
                 );
                 break;
             case 'range':
-                result = new RangeField(input, label!, error!, inputBlock);
+                result = new RangeField(input, label, error, inputBlock);
                 break;
             case 'color':
-                result = new ColorField(input, label!, error!, inputBlock);
+                result = new ColorField(input, label, error, inputBlock);
                 break;
             case 'hidden':
                 result = new HiddenField(input);
                 break;
             case 'number':
-                result = new NumberField(input, label!, error!, inputBlock);
+                result = new NumberField(input, label, error, inputBlock);
                 break;
             case 'url':
-                result = new UrlField(input, label!, error!, inputBlock);
+                result = new UrlField(input, label, error, inputBlock);
                 break;
             case 'search':
-                result = new SearchField(input, label!, error!, inputBlock);
+                result = new SearchField(input, label, error, inputBlock);
                 break;
             case 'text':
                 if (eq(dataType, 'location')) {
-                    result = new LocationField(
-                        input,
-                        label!,
-                        error!,
-                        inputBlock,
-                    );
+                    result = new LocationField(input, label, error, inputBlock);
                 } else {
-                    result = new TextField(input, label!, error!, inputBlock);
+                    result = new TextField(input, label, error, inputBlock);
                 }
                 break;
             default:
-                result = new TextField(input, label!, error!, inputBlock);
+                result = new TextField(input, label, error, inputBlock);
                 break;
         }
     }

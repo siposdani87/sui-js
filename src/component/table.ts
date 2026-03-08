@@ -516,9 +516,7 @@ export class Table<T extends Objekt = Objekt> extends Emitter {
         } else {
             result = item.get(column, '');
         }
-        const items: (Knot | string)[] = isArray(result)
-            ? (result as (Knot | string)[])
-            : [result as Knot | string];
+        const items: (Knot | string)[] = isArray(result) ? result : [result];
         eachArray(items, (item: Knot | string) => {
             if (!instanceOf(item, Knot)) {
                 const dataKnot = new Knot('span');

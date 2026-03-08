@@ -277,6 +277,6 @@ export class Depot {
             date.setTime(date.getTime() + this.options.hours * 60 * 60 * 1000);
             opt_expires = date.toUTCString();
         }
-        return opt_expires as string;
+        return opt_expires;
     }
 }

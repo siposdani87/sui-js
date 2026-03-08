@@ -69,7 +69,7 @@ Current: **~223 KB JS + ~76 KB CSS** (limit: 250 KB JS, 100 KB CSS). CSS reduced
 | ~~**Update `target` to ES2020+**~~ — changed to ES2020 | P2 | Cleaner output, smaller bundle |
 | ~~**Split `operation.ts`**~~ — split 1,108 LOC into 7 focused modules: `comparison.ts`, `typeGuards.ts`, `iteration.ts`, `arrayOps.ts`, `objectOps.ts`, `stringOps.ts`, `domOps.ts`; `operation.ts` is now a barrel re-export (zero consumer changes) | P2 | Maintainability |
 | **Split `googleMap.ts`** (1,359 LOC) — extract `MapMarker`, `MapPolygon`, `MapRoute` etc. | P2 | Maintainability |
-| **Add `@typescript-eslint/strict-type-checked`** rules | P3 | Catch more issues |
+| ~~**Add `@typescript-eslint/strict-type-checked`** rules~~ — enabled 5 type-aware rules: `no-floating-promises`, `await-thenable`, `no-unnecessary-type-assertion` (45 auto-fixed), `no-misused-promises`, `restrict-template-expressions`; fixed 3 floating promises with `void` operator | P3 | Catch more issues |
 | **Consider branded types** for IDs, URLs, coordinates | P3 | Domain safety |
 
 ---
@@ -97,7 +97,7 @@ Current: **~223 KB JS + ~76 KB CSS** (limit: 250 KB JS, 100 KB CSS). CSS reduced
 | ~~**Add subtle micro-interactions**~~ — button `:active` press, field `:focus-visible` ring | P2 | UX quality |
 | ~~**Dialog/modal animations**~~ — fade + scale on open/close | P2 | Polish |
 | ~~**Flash/toast animations**~~ — slide-in via `flash-slide-in` keyframes | P2 | Polish |
-| **Use `will-change`** sparingly for known animated elements | P3 | Performance |
+| ~~**Use `will-change`** sparingly for known animated elements~~ — dialog/confirm overlays (opacity), dialog/confirm windows (opacity, transform), flash (opacity, transform), spinner (transform), progress indeterminate (left), layout blur (filter), select expander (transform) | P3 | Performance |
 | **Consider CSS `@starting-style`** for entry animations | P3 | Modern CSS |
 
 ---
@@ -158,7 +158,7 @@ Current: **~223 KB JS + ~76 KB CSS** (limit: 250 KB JS, 100 KB CSS). CSS reduced
 |--------|----------|--------|
 | ~~**Add bundle size diff**~~ — CI comments bundle size report on PRs via `scripts/bundle-size-diff.cjs` | P2 | Prevent bloat |
 | **Add visual regression testing** — screenshot comparison for UI components | P2 | Style confidence |
-| **Cache improvements** — cache sass compilation, TypeScript incremental builds | P3 | CI speed |
+| ~~**Cache improvements**~~ — TypeScript incremental builds (`incremental: true` + `.tsbuildinfo`); CI caches `.tsbuildinfo` via `actions/cache@v4` keyed on source hash | P3 | CI speed |
 
 ---
 

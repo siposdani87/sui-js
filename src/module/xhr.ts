@@ -384,7 +384,7 @@ export class Xhr {
             init.body = this._createRequestBody(opt_data);
         }
 
-        this._executeFetch(fullUrl, init);
+        void this._executeFetch(fullUrl, init);
 
         return this.deferred.promise();
     }

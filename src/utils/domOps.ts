@@ -144,7 +144,7 @@ export const debounce = (
  */
 export const copyToClipboard = (str: string): void => {
     if (navigator.clipboard?.writeText) {
-        navigator.clipboard.writeText(str);
+        void navigator.clipboard.writeText(str);
     } else {
         const textareaElement = document.createElement('textarea');
         textareaElement.value = str;

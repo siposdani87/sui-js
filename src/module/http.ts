@@ -279,12 +279,12 @@ export class Http extends Emitter {
             (...params) => {
                 this.emit('afterRequest', ...params);
                 const [, ...rest] = params;
-                deferred.resolve(rest as [Objekt, string]);
+                deferred.resolve(rest);
             },
             (...params) => {
                 this.emit('afterRequest', ...params);
                 const [, ...rest] = params;
-                deferred.reject(rest as [Objekt, string]);
+                deferred.reject(rest);
             },
         );
         return deferred.promise();

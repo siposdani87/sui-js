@@ -1240,7 +1240,7 @@ export class GoogleMap extends Emitter {
             void
         >();
         const geoCoder = new google.maps.Geocoder();
-        geoCoder.geocode(
+        void geoCoder.geocode(
             {
                 address: query.toString(),
             },

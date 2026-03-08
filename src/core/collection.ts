@@ -165,7 +165,7 @@ export class Collection<T extends object = object> extends Emitter {
             const parent = !isUndefined(this.options.parent)
                 ? this.options.parent
                 : this;
-            return new this.Type(object, parent) as T;
+            return new this.Type(object, parent);
         }
         return object as T;
     }
@@ -425,7 +425,7 @@ export class Collection<T extends object = object> extends Emitter {
         while (i < this.items.length && !conditionCallback(this.items[i]!, i)) {
             i++;
         }
-        return this.get(i) as T | null;
+        return this.get(i);
     }
 
     /**
@@ -553,7 +553,7 @@ export class Collection<T extends object = object> extends Emitter {
         while (i < this.items.length && !conditionCallback(this.items[i]!, i)) {
             i++;
         }
-        const item = this.get(i) as T | null;
+        const item = this.get(i);
         this.items.splice(i, 1);
         return item;
     }

@@ -157,7 +157,7 @@ export class CardCollection extends Emitter {
             if (contain(expression, 'ctrl.')) {
                 const paramsRegex = new RegExp('(([a-zA-Z._, ]*))', 'g');
                 const expressionMatches = expression.match(paramsRegex)!;
-                const fnName = expressionMatches[0]!.replace('ctrl.', '');
+                const fnName = expressionMatches[0].replace('ctrl.', '');
                 const fnKeys = expressionMatches[2]!.split(', ');
                 // eslint-disable-next-line @typescript-eslint/no-explicit-any
                 const fnParams: any[] = [];

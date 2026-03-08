@@ -168,7 +168,7 @@ export class FileField extends BaseField<HTMLInputElement> {
             if (Object.hasOwn(this.fileTypes, key)) {
                 const fileType = this.fileTypes[key]!;
                 if (fileType[0] === extension) {
-                    const color = fileType[1]!;
+                    const color = fileType[1];
                     results = [key, color];
                 }
             }

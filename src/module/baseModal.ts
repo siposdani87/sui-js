@@ -357,7 +357,7 @@ export class BaseModal extends Emitter {
         this._previouslyFocusedElement =
             document.activeElement as HTMLElement | null;
 
-        const modalNode = this.modal.getNode() as HTMLElement;
+        const modalNode = this.modal.getNode();
         modalNode.addEventListener('keydown', (event: KeyboardEvent) => {
             if (event.key !== 'Tab') {
                 return;

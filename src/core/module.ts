@@ -127,7 +127,7 @@ export class Module extends Emitter {
         if (typeof moduleInjections === 'function') {
             this._modules[name] = {
                 moduleInjections: [],
-                moduleCallback: moduleInjections as ClassRef,
+                moduleCallback: moduleInjections,
             };
         } else {
             this._modules[name] = {
@@ -225,7 +225,7 @@ export class Module extends Emitter {
             const to = v[1]!;
             if (!nodes[from]) nodes[from] = { id: from, afters: [] };
             if (!nodes[to]) nodes[to] = { id: to, afters: [] };
-            nodes[from]!.afters.push(to);
+            nodes[from].afters.push(to);
         });
 
         const visit = (strId: string, ancestors?: string[]): void => {
@@ -245,7 +245,7 @@ export class Module extends Emitter {
 
             visited[strId] = true;
 
-            node!.afters.forEach((afterId) => {
+            node.afters.forEach((afterId) => {
                 /* if (ancestors.includes(afterId)) {
                     // if already in ancestors, a closed chain exists.
                     consoleError(
