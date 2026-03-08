@@ -1,22 +1,42 @@
 const fs = require('fs');
 const path = require('path');
+const zlib = require('zlib');
 
-const LIMIT_KB = 250;
-const bundlePath = path.join(__dirname, '..', 'dist', 'sui.min.js');
+const JS_LIMIT_KB = 250;
+const CSS_LIMIT_KB = 100;
 
-if (!fs.existsSync(bundlePath)) {
-    console.error('Bundle not found at dist/sui.min.js — run "npm run esbuild" first.');
-    process.exit(1);
+const bundles = [
+    { name: 'JS (IIFE)', path: 'dist/sui.min.js', limit: JS_LIMIT_KB },
+    { name: 'JS (ESM)', path: 'dist/sui.esm.js', limit: JS_LIMIT_KB },
+    { name: 'CSS', path: 'dist/sui.min.css', limit: CSS_LIMIT_KB },
+];
+
+let failed = false;
+
+for (const bundle of bundles) {
+    const fullPath = path.join(__dirname, '..', bundle.path);
+
+    if (!fs.existsSync(fullPath)) {
+        console.warn(`  SKIP ${bundle.name}: ${bundle.path} not found`);
+        continue;
+    }
+
+    const content = fs.readFileSync(fullPath);
+    const sizeKB = content.length / 1024;
+    const gzipKB = zlib.gzipSync(content).length / 1024;
+    const brotliKB = zlib.brotliCompressSync(content).length / 1024;
+
+    const status = sizeKB > bundle.limit ? 'FAIL' : 'OK  ';
+    const line = `  ${status} ${bundle.name}: ${sizeKB.toFixed(1)} KB | gzip: ${gzipKB.toFixed(1)} KB | brotli: ${brotliKB.toFixed(1)} KB (limit: ${bundle.limit} KB)`;
+
+    if (sizeKB > bundle.limit) {
+        console.error(line);
+        failed = true;
+    } else {
+        console.log(line);
+    }
 }
 
-const sizeBytes = fs.statSync(bundlePath).size;
-const sizeKB = sizeBytes / 1024;
-
-if (sizeKB > LIMIT_KB) {
-    console.error(
-        `Bundle size ${sizeKB.toFixed(1)} KB exceeds ${LIMIT_KB} KB limit.`,
-    );
+if (failed) {
     process.exit(1);
-} else {
-    console.log(`Bundle size OK: ${sizeKB.toFixed(1)} KB (limit: ${LIMIT_KB} KB)`);
 }

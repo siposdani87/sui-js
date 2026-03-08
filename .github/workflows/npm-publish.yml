@@ -15,6 +15,7 @@ jobs:
           cache: 'npm'
           registry-url: 'https://registry.npmjs.org'
       - run: npm ci
+      - run: npm audit --audit-level=high
       - run: npm run lint
       - run: npm run test
       - run: npm run sass && npm run tsc && npm run esbuild && npm run esbuild:size-check
