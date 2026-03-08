@@ -7,14 +7,8 @@ dist
 
 .claude
 
-# Coverage reports (HTML)
-coverage/*.html
-coverage/*.css
-coverage/*.js
-coverage/*.png
-coverage/src/
-
-# Reports
+# Coverage and reports (generated)
+coverage/
 reports/
 
 # Orphaned TypeDoc output (generated into website/docs/api/ instead)
