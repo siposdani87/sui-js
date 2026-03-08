@@ -232,21 +232,22 @@ $transition-slow: 300ms !default;
 // Warning: Avoid customizing these values. They`re used for a bird`s eye view
 // of components dependent on the z-axis and are designed to all work together.
 
-$zindex-progress-bar: 101 !default;
-$zindex-popup: 95 !default;
-$zindex-nav-bar: 100 !default;
-$zindex-header: 100 !default;
-$zindex-header-open: 105 !default;
-$zindex-fullscreen: 100 !default;
-$zindex-footer: 105 !default;
-$zindex-dialog-container: 107 !default;
-$zindex-footer-static: 110 !default;
-$zindex-dialog: 115 !default;
-$zindex-viewer: 120 !default;
-$zindex-confirm: 125 !default;
-$zindex-left-menu: 130 !default;
-$zindex-flash: 140 !default;
-$zindex-loader: 150 !default;
+$zindex-popup: 10 !default;
+$zindex-progress-bar: 20 !default;
+$zindex-nav-bar: 30 !default;
+$zindex-header: 30 !default;
+$zindex-header-open: 35 !default;
+$zindex-fullscreen: 30 !default;
+$zindex-footer: 35 !default;
+$zindex-dialog-container: 40 !default;
+$zindex-footer-static: 45 !default;
+$zindex-dialog: 50 !default;
+$zindex-viewer: 60 !default;
+$zindex-confirm: 70 !default;
+$zindex-left-menu: 80 !default;
+$zindex-flash: 90 !default;
+$zindex-loader: 100 !default;
+$zindex-tooltip: 110 !default;
 
 // Flash defaults
 
@@ -308,7 +309,7 @@ $accent-disabled-light: colors.$light-grey-dark !default; // 5
 $accent-default-dark: colors.$accent-bright !default;
 $accent-disabled-dark: colors.$deep-grey !default; // 7
 
-$error-default-light: colors.$red !default;
+$error-default-light: colors.$red-dark !default;
 $error-disabled-light: colors.$red-dark !default;
 
 $error-default-dark: colors.$red-bright !default;
