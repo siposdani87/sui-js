@@ -554,6 +554,87 @@ describe('Xhr', () => {
         });
     });
 
+    describe('response with no Content-Type', () => {
+        it('should handle response with no Content-Type header', async () => {
+            xhr = new Xhr({ backend: 'https://api.example.com' });
+            setFetchResponse(200, {}, 'plain text');
+            const onResolve = jest.fn();
+            xhr.get('/data', undefined).then(onResolve);
+            await flushPromises();
+            expect(onResolve).toHaveBeenCalled();
+            const [, data] = onResolve.mock.calls[0];
+            expect(data.get('raw')).toBe('plain text');
+        });
+
+        it('should reject with no Content-Type on error status', async () => {
+            xhr = new Xhr({ backend: 'https://api.example.com' });
+            setFetchResponse(404, {}, 'not found');
+            const onReject = jest.fn();
+            xhr.get('/missing', undefined).then(jest.fn(), onReject);
+            await flushPromises();
+            expect(onReject).toHaveBeenCalled();
+            const [httpResponse, data] = onReject.mock.calls[0];
+            expect(httpResponse.status).toBe(404);
+            expect(data.get('raw')).toBe('not found');
+        });
+    });
+
+    describe('pre-set headers prevent defaults', () => {
+        it('should not override pre-set Accept header', async () => {
+            xhr = new Xhr();
+            setFetchResponse(200, { 'Content-Type': 'application/json' }, {});
+            xhr.get('/data.json', undefined, { Accept: 'text/xml' });
+            await flushPromises();
+            const call = getLastFetchCall();
+            expect(call.headers['Accept']).toBe('text/xml');
+        });
+
+        it('should not override pre-set Content-Type header', async () => {
+            xhr = new Xhr();
+            setFetchResponse(200, { 'Content-Type': 'application/json' }, {});
+            xhr.get('/data.json', undefined, {
+                'Content-Type': 'text/plain',
+            });
+            await flushPromises();
+            const call = getLastFetchCall();
+            expect(call.headers['Content-Type']).toBe('text/plain');
+        });
+
+        it('should not override pre-set X-Requested-With header', async () => {
+            xhr = new Xhr();
+            setFetchResponse(200, { 'Content-Type': 'application/json' }, {});
+            xhr.get('/data.json', undefined, {
+                'X-Requested-With': 'CustomClient',
+            });
+            await flushPromises();
+            const call = getLastFetchCall();
+            expect(call.headers['X-Requested-With']).toBe('CustomClient');
+        });
+
+        it('should not override pre-set Accept-Language header', async () => {
+            xhr = new Xhr({ locale: 'en' });
+            setFetchResponse(200, { 'Content-Type': 'application/json' }, {});
+            xhr.get('/data.json', undefined, {
+                'Accept-Language': 'fr',
+            });
+            await flushPromises();
+            const call = getLastFetchCall();
+            expect(call.headers['Accept-Language']).toBe('fr');
+        });
+
+        it('should not override pre-set Authorization header', async () => {
+            xhr = new Xhr();
+            xhr.setBearerAuthorization('token123');
+            setFetchResponse(200, { 'Content-Type': 'application/json' }, {});
+            xhr.get('/data.json', undefined, {
+                Authorization: 'Custom abc',
+            });
+            await flushPromises();
+            const call = getLastFetchCall();
+            expect(call.headers['Authorization']).toBe('Custom abc');
+        });
+    });
+
     describe('filename header error handling', () => {
         it('should return empty filename when Content-Disposition has no filename match', async () => {
             xhr = new Xhr({ backend: 'https://api.example.com' });

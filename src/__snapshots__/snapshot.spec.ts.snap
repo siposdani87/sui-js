@@ -42,15 +42,15 @@ exports[`UI Component Snapshots Dialog modal should match snapshot of dialog DOM
 </div>"
 `;
 
-exports[`UI Component Snapshots Flash messages should match snapshot for error message with close button 1`] = `"<div id="flashes"><div data-id="snap-error" role="alert" class="flash error">Something went wrong</div></div>"`;
+exports[`UI Component Snapshots Flash messages should match snapshot for error message with close button 1`] = `"<div id="flashes" aria-live="polite" aria-atomic="false"><div data-id="snap-error" role="alert" class="flash error">Something went wrong</div></div>"`;
 
-exports[`UI Component Snapshots Flash messages should match snapshot for info message 1`] = `"<div id="flashes"><div data-id="snap-info" role="alert" class="flash info">For your information</div></div>"`;
+exports[`UI Component Snapshots Flash messages should match snapshot for info message 1`] = `"<div id="flashes" aria-live="polite" aria-atomic="false"><div data-id="snap-info" role="alert" class="flash info">For your information</div></div>"`;
 
-exports[`UI Component Snapshots Flash messages should match snapshot for success message 1`] = `"<div id="flashes"><div data-id="snap-success" role="alert" class="flash success">Operation completed</div></div>"`;
+exports[`UI Component Snapshots Flash messages should match snapshot for success message 1`] = `"<div id="flashes" aria-live="polite" aria-atomic="false"><div data-id="snap-success" role="alert" class="flash success">Operation completed</div></div>"`;
 
-exports[`UI Component Snapshots Flash messages should match snapshot for warning message 1`] = `"<div id="flashes"><div data-id="snap-warning" role="alert" class="flash warning">Please check input</div></div>"`;
+exports[`UI Component Snapshots Flash messages should match snapshot for warning message 1`] = `"<div id="flashes" aria-live="polite" aria-atomic="false"><div data-id="snap-warning" role="alert" class="flash warning">Please check input</div></div>"`;
 
-exports[`UI Component Snapshots Flash messages should match snapshot with multiple messages 1`] = `"<div id="flashes"><div data-id="snap-multi-1" role="alert" class="flash success">Good</div><div data-id="snap-multi-2" role="alert" class="flash error">Bad</div><div data-id="snap-multi-3" role="alert" class="flash warning">Ugly</div></div>"`;
+exports[`UI Component Snapshots Flash messages should match snapshot with multiple messages 1`] = `"<div id="flashes" aria-live="polite" aria-atomic="false"><div data-id="snap-multi-1" role="alert" class="flash success">Good</div><div data-id="snap-multi-2" role="alert" class="flash error">Bad</div><div data-id="snap-multi-3" role="alert" class="flash warning">Ugly</div></div>"`;
 
 exports[`UI Component Snapshots Form structure should match snapshot of form from template-view 1`] = `
 "<form>

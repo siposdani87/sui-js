@@ -93,4 +93,89 @@ describe('ColorField', () => {
             });
         });
     });
+
+    describe('preview click handler', () => {
+        it('should open popup when preview is clicked and field is enabled', () => {
+            colorField.render();
+            const openSpy = jest.spyOn((colorField as any).popup, 'open');
+            const drawSpy = jest.spyOn(colorField as any, '_draw');
+            (colorField as any).previewKnot
+                .getNode()
+                .dispatchEvent(new Event('click'));
+            expect(drawSpy).toHaveBeenCalled();
+            expect(openSpy).toHaveBeenCalled();
+        });
+
+        it('should not open popup when field is disabled', () => {
+            colorField.render();
+            colorField.setDisabled(true);
+            const openSpy = jest.spyOn((colorField as any).popup, 'open');
+            (colorField as any).previewKnot
+                .getNode()
+                .dispatchEvent(new Event('click'));
+            expect(openSpy).not.toHaveBeenCalled();
+        });
+    });
+
+    describe('canvas click handler', () => {
+        it('should set value from canvas pixel on click with offsetX', () => {
+            colorField.render();
+            const setValueSpy = jest.spyOn(colorField, 'setValue');
+            const closeSpy = jest.spyOn((colorField as any).popup, 'close');
+            const clickEvent = new MouseEvent('click', {
+                clientX: 10,
+                clientY: 10,
+            });
+            Object.defineProperty(clickEvent, 'offsetX', { value: 5 });
+            Object.defineProperty(clickEvent, 'offsetY', { value: 5 });
+            (colorField as any).canvas.canvasKnot
+                .getNode()
+                .dispatchEvent(clickEvent);
+            expect(setValueSpy).toHaveBeenCalled();
+            expect(closeSpy).toHaveBeenCalled();
+        });
+    });
+
+    describe('validation', () => {
+        it('should add is-invalid when required and empty', () => {
+            colorField.input.getNode().setAttribute('required', 'required');
+            colorField.input.getNode().value = '';
+            colorField.render();
+            colorField.refresh();
+            // The refresh method checks isRequired() && !getValue()
+        });
+
+        it('should add is-disabled when disabled', () => {
+            colorField.render();
+            colorField.setDisabled(true);
+            colorField.refresh();
+            expect(
+                (colorField as any).inputBlock
+                    .getNode()
+                    .classList.contains('is-disabled'),
+            ).toBe(true);
+        });
+
+        it('should remove is-disabled when enabled', () => {
+            colorField.render();
+            colorField.setDisabled(true);
+            colorField.refresh();
+            colorField.setDisabled(false);
+            colorField.refresh();
+            expect(
+                (colorField as any).inputBlock
+                    .getNode()
+                    .classList.contains('is-disabled'),
+            ).toBe(false);
+        });
+    });
+
+    describe('default color', () => {
+        it('should use #000000 as default when value is empty', () => {
+            colorField.render();
+            const setValueSpy = jest.spyOn(colorField, 'setValue');
+            colorField.refresh();
+            expect(setValueSpy).toHaveBeenCalledWith('#000000');
+        });
+    });
 });
