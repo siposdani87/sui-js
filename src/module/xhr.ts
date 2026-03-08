@@ -216,6 +216,11 @@ export class Xhr {
      * @param {object} [opt_headers] Additional request headers.
      * @returns {Promize<[HttpResponse, Objekt, string], [HttpResponse, Objekt, string]>}
      *     Resolves on 2xx status; rejects otherwise.
+     *
+     * @example
+     * xhr.post('/users.json', { name: 'Alice', email: 'alice@example.com' }).then(
+     *     (httpResponse, response) => console.log(response),
+     * );
      */
     post(
         url: string,
@@ -242,6 +247,11 @@ export class Xhr {
      * @param {object} [opt_headers] Additional request headers.
      * @returns {Promize<[HttpResponse, Objekt, string], [HttpResponse, Objekt, string]>}
      *     Resolves on 2xx status; rejects otherwise.
+     *
+     * @example
+     * xhr.put('/users/42.json', { name: 'Alice', role: 'admin' }).then(
+     *     (httpResponse, response) => console.log(response),
+     * );
      */
     put(
         url: string,
@@ -268,6 +278,11 @@ export class Xhr {
      * @param {object} [opt_headers] Additional request headers.
      * @returns {Promize<[HttpResponse, Objekt, string], [HttpResponse, Objekt, string]>}
      *     Resolves on 2xx status; rejects otherwise.
+     *
+     * @example
+     * xhr.patch('/users/42.json', { role: 'editor' }).then(
+     *     (httpResponse, response) => console.log(response),
+     * );
      */
     patch(
         url: string,
@@ -294,6 +309,11 @@ export class Xhr {
      * @param {object} [opt_headers] Additional request headers.
      * @returns {Promize<[HttpResponse, Objekt, string], [HttpResponse, Objekt, string]>}
      *     Resolves on 2xx status; rejects otherwise.
+     *
+     * @example
+     * xhr.delete('/users/42.json').then(
+     *     (httpResponse, response) => console.log(response),
+     * );
      */
     delete(
         url: string,
