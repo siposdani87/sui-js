@@ -67,7 +67,7 @@ Current: **~223 KB JS + ~76 KB CSS** (limit: 250 KB JS, 100 KB CSS). CSS reduced
 | ~~**Reduce `any` usage**~~ — 22 `any` usages eliminated in table.ts, selectField.ts, canvas.ts, popupContainer.ts, state.ts; remaining ~151 are genuinely needed in utility/generic code | P2 | Type safety |
 | ~~**Modernize `moduleResolution`**~~ — changed to `Bundler` | P2 | Better module semantics |
 | ~~**Update `target` to ES2020+**~~ — changed to ES2020 | P2 | Cleaner output, smaller bundle |
-| **Split `operation.ts`** (1,108 LOC) — utility god file; split into `typeGuards.ts`, `arrayOps.ts`, `objectOps.ts` | P2 | Maintainability |
+| ~~**Split `operation.ts`**~~ — split 1,108 LOC into 7 focused modules: `comparison.ts`, `typeGuards.ts`, `iteration.ts`, `arrayOps.ts`, `objectOps.ts`, `stringOps.ts`, `domOps.ts`; `operation.ts` is now a barrel re-export (zero consumer changes) | P2 | Maintainability |
 | **Split `googleMap.ts`** (1,359 LOC) — extract `MapMarker`, `MapPolygon`, `MapRoute` etc. | P2 | Maintainability |
 | **Add `@typescript-eslint/strict-type-checked`** rules | P3 | Catch more issues |
 | **Consider branded types** for IDs, URLs, coordinates | P3 | Domain safety |
