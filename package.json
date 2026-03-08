@@ -5,6 +5,15 @@
   "description": "This is a lightweight FE framework. It is written in the TypeScript language. The codebase was documented with JSDoc and compiled with ESbuild advanced settings.",
   "main": "dist/index.js",
   "typings": "dist/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/sui.esm.js",
+      "default": "./dist/index.js"
+    },
+    "./styles": "./dist/sui.min.css"
+  },
+  "sideEffects": false,
   "scripts": {
     "prebuild": "npm run clean && npm run lint && npm run format && npm run test && npm run coverage",
     "build": "npm run sass && npm run tsc && npm run esbuild && npm run esbuild:size-check",
@@ -13,10 +22,11 @@
     "tsc-test": "npm run tsc -- --noEmit",
     "sass": "npx sass styles/sui.scss dist/sui.min.css --style compressed",
     "sass:watch": "npx sass styles/sui.scss dist/sui.min.css --style compressed --watch",
-    "esbuild": "npx esbuild src/index.ts --bundle --minify --sourcemap --format=iife --global-name=SUI --outfile=dist/sui.min.js",
-    "esbuild:analyze": "npx esbuild src/index.ts --bundle --minify --format=iife --global-name=SUI --metafile=dist/meta.json --outfile=dist/sui.analyze.js && node scripts/analyze-bundle.cjs",
+    "esbuild": "node scripts/esbuild.cjs",
+    "esbuild:analyze": "node scripts/esbuild-analyze.cjs",
     "esbuild:size-check": "node scripts/check-bundle-size.cjs",
-    "esbuild:watch": "npx esbuild src/index.ts --bundle --minify --sourcemap --format=iife --global-name=SUI --outfile=dist/sui.min.js --watch",
+    "esbuild:sri": "node scripts/generate-sri.cjs",
+    "esbuild:watch": "node scripts/esbuild-watch.cjs",
     "lint": "npm run tsc-test && npm run stylelint && npm run eslint",
     "eslint": "npx eslint .",
     "stylelint": "npx stylelint 'styles/**/*.{css,scss,sass}'",
@@ -54,7 +64,10 @@
     "access": "public"
   },
   "files": [
-    "dist/*",
+    "dist/*.js",
+    "dist/*.css",
+    "dist/*.d.ts",
+    "dist/*.d.ts.map",
     "src/*",
     "styles/*"
   ],
