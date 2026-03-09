@@ -41,6 +41,124 @@
       width: 50%;
       padding: 0 8px 16px;
     }
+
+    .demo-section {
+      margin-block-end: 32px;
+    }
+
+    .demo-section h3 {
+      margin-block-end: 12px;
+      font-weight: 600;
+    }
+
+    .demo-buttons {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-block-end: 16px;
+    }
+
+    .demo-buttons button {
+      cursor: pointer;
+    }
+
+    .demo-log {
+      background: var(--sui-surface-alt, #f5f5f5);
+      border: 1px solid var(--sui-outline-variant, #e0e0e0);
+      border-radius: 8px;
+      padding: 12px;
+      font-family: monospace;
+      font-size: 13px;
+      max-height: 200px;
+      overflow-y: auto;
+      white-space: pre-wrap;
+    }
+
+    .demo-depot-row {
+      display: flex;
+      gap: 8px;
+      align-items: center;
+      margin-block-end: 8px;
+    }
+
+    .demo-depot-row input {
+      padding: 6px 10px;
+      border: 1px solid var(--sui-outline, #ccc);
+      border-radius: 6px;
+    }
+
+    .progress-status-demo .progress-status {
+      margin-block-end: 8px;
+      padding: 12px;
+    }
+
+    .progress-status-demo .progress-status em {
+      font-size: 2em;
+    }
+
+    .calendar-demo {
+      max-width: 320px;
+    }
+
+    .clock-demo {
+      max-width: 320px;
+    }
+
+    .canvas-demo canvas {
+      border: 1px solid var(--sui-outline-variant, #e0e0e0);
+      border-radius: 8px;
+    }
+
+    .card-collection-demo .card-collection {
+      min-height: 100px;
+    }
+
+    .tooltip-demo-items {
+      display: flex;
+      gap: 24px;
+      flex-wrap: wrap;
+      align-items: center;
+    }
+
+    .tooltip-demo-items .tooltip-target {
+      padding: 8px 16px;
+      border: 1px solid var(--sui-outline-variant, #e0e0e0);
+      border-radius: 8px;
+      cursor: default;
+    }
+
+    .datetime-demo {
+      max-width: 320px;
+    }
+
+    .navigation-demo .navigation {
+      display: flex;
+      gap: 4px;
+    }
+
+    .popup-demo-container {
+      position: relative;
+      display: inline-block;
+    }
+
+    .dropdown-demo-container {
+      display: inline-block;
+      position: relative;
+    }
+
+    .dropdown-demo-container .sui-menu--bottom-right {
+      right: auto;
+      left: 0;
+    }
+
+    .browser-info, .screen-info {
+      font-family: monospace;
+      font-size: 14px;
+      background: var(--sui-surface-alt, #f5f5f5);
+      padding: 12px;
+      border-radius: 8px;
+      white-space: pre-line;
+    }
   </style>
 </head>
 
@@ -98,7 +216,7 @@
       <div class="modal-footer"></div>
     </div>
   </div>
-  <div class="black" id="left-menu">
+  <div class="black-backdrop" id="left-menu">
     <aside class="main-menu">
       <div class="header">
         <a id="close-left-menu">
@@ -118,8 +236,8 @@
       <div class="menu-container"></div>
     </aside>
   </div>
-  <div class="main-container">
-    <header class="hidden" id="header">
+  <div class="main-container header-padding">
+    <header id="header">
       <div class="menu">
         <a id="open-left-menu">
           <em class="material-icons size-40">menu</em>
@@ -153,7 +271,9 @@
             <div class="tab-panel">
               <div class="tabs">
                 <a href="#form-panel">Form</a>
-                <a href="#other-panel">Other</a>
+                <a href="#components-panel">Components</a>
+                <a href="#modals-panel">Modals &amp; Feedback</a>
+                <a href="#services-panel">Services</a>
               </div>
               <div id="form-panel" class="panel">
                 <form action="#">
@@ -1007,10 +1127,326 @@
 
                       </div>
                     </div>
+                  </div>
                 </form>
               </div>
-              <div id="other-panel" class="panel">
-                Other
+              <div id="components-panel" class="panel">
+
+                <div class="demo-section">
+                  <h3>Table</h3>
+                  <div class="table-responsive">
+                    <table class="demo-table">
+                      <thead>
+                        <tr>
+                          <th>Name</th>
+                          <th>Email</th>
+                          <th>Role</th>
+                          <th></th>
+                        </tr>
+                      </thead>
+                    </table>
+                  </div>
+                </div>
+
+                <div class="demo-section">
+                  <h3>Calendar</h3>
+                  <div class="calendar-demo calendar" id="calendar-container"></div>
+                </div>
+
+                <div class="demo-section">
+                  <h3>Clock</h3>
+                  <div class="clock-demo clock" id="clock-container"></div>
+                </div>
+
+                <div class="demo-section">
+                  <h3>DateTime</h3>
+                  <div class="datetime-demo datetime" id="datetime-container"></div>
+                </div>
+
+                <div class="demo-section">
+                  <h3>Card Collection</h3>
+                  <div class="card-collection-demo">
+                    <div class="card-collection" id="card-collection">
+                      <template>
+                        <div class="card">
+                          <div class="content">
+                            <h4>{{title}}</h4>
+                            <p>{{description}}</p>
+                          </div>
+                        </div>
+                      </template>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="demo-section">
+                  <h3>Progress Status</h3>
+                  <div class="progress-status-demo">
+                    <div class="progress-status" id="progress-success">
+                      <em class="icon material-icons"></em>
+                      <div class="text"></div>
+                    </div>
+                    <div class="progress-status" id="progress-info">
+                      <em class="icon material-icons"></em>
+                      <div class="text"></div>
+                    </div>
+                    <div class="progress-status" id="progress-warning">
+                      <em class="icon material-icons"></em>
+                      <div class="text"></div>
+                    </div>
+                    <div class="progress-status" id="progress-error">
+                      <em class="icon material-icons"></em>
+                      <div class="text"></div>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="demo-section">
+                  <h3>Canvas</h3>
+                  <div class="canvas-demo" id="canvas-container"></div>
+                </div>
+
+                <div class="demo-section">
+                  <h3>Tooltip</h3>
+                  <div class="tooltip-demo-items">
+                    <div class="tooltip-target" id="tooltip-top">Hover me (Top)</div>
+                    <div class="tooltip-target" id="tooltip-bottom">Hover me (Bottom)</div>
+                    <div class="tooltip-target" id="tooltip-left">Hover me (Left)</div>
+                    <div class="tooltip-target" id="tooltip-right">Hover me (Right)</div>
+                  </div>
+                </div>
+
+                <div class="demo-section">
+                  <h3>Navigation</h3>
+                  <div class="navigation-demo" id="navigation-container"></div>
+                </div>
+
+                <div class="demo-section">
+                  <h3>Dropdown</h3>
+                  <div class="dropdown-demo-container" id="dropdown-container"></div>
+                </div>
+
+                <div class="demo-section">
+                  <h3>Popup</h3>
+                  <div class="popup-demo-container" id="popup-container">
+                    <button type="button" class="sui-button sui-button--raised sui-button--primary" id="btn-popup-toggle">Toggle Popup</button>
+                  </div>
+                </div>
+
+                <div class="demo-section">
+                  <h3>ContentHandler</h3>
+                  <div class="demo-buttons">
+                    <button class="sui-button sui-button--raised sui-button--primary" id="btn-content-show">
+                      <span class="label">Show Placeholder</span>
+                    </button>
+                    <button class="sui-button sui-button--raised" id="btn-content-hide">
+                      <span class="label">Show Content</span>
+                    </button>
+                  </div>
+                  <div id="content-handler-container">
+                    <p>This is the actual content area. When there is no data, the ContentHandler placeholder replaces it.</p>
+                  </div>
+                </div>
+
+              </div>
+
+              <div id="modals-panel" class="panel">
+
+                <div class="demo-section">
+                  <h3>Dialog</h3>
+                  <div class="demo-buttons">
+                    <button class="sui-button sui-button--raised sui-button--primary" id="btn-open-dialog">
+                      <span class="label">Open Dialog</span>
+                    </button>
+                  </div>
+                </div>
+
+                <div class="demo-section">
+                  <h3>Confirm</h3>
+                  <div class="demo-buttons">
+                    <button class="sui-button sui-button--raised sui-button--primary" id="btn-confirm-normal">
+                      <span class="label">Normal</span>
+                    </button>
+                    <button class="sui-button sui-button--raised" id="btn-confirm-info">
+                      <span class="label">Info</span>
+                    </button>
+                    <button class="sui-button sui-button--raised" id="btn-confirm-warning">
+                      <span class="label">Warning</span>
+                    </button>
+                    <button class="sui-button sui-button--raised" id="btn-confirm-error">
+                      <span class="label">Error</span>
+                    </button>
+                    <button class="sui-button sui-button--raised" id="btn-confirm-success">
+                      <span class="label">Success</span>
+                    </button>
+                    <button class="sui-button sui-button--raised" id="btn-confirm-choice">
+                      <span class="label">Choice</span>
+                    </button>
+                  </div>
+                </div>
+
+                <div class="demo-section">
+                  <h3>Viewer</h3>
+                  <div class="demo-buttons">
+                    <button class="sui-button sui-button--raised sui-button--primary" id="btn-open-viewer">
+                      <span class="label">Open Viewer</span>
+                    </button>
+                  </div>
+                </div>
+
+                <div class="demo-section">
+                  <h3>Flash Messages</h3>
+                  <div class="demo-buttons">
+                    <button class="sui-button sui-button--raised" id="btn-flash-success">
+                      <span class="label">Success</span>
+                    </button>
+                    <button class="sui-button sui-button--raised" id="btn-flash-info">
+                      <span class="label">Info</span>
+                    </button>
+                    <button class="sui-button sui-button--raised" id="btn-flash-warning">
+                      <span class="label">Warning</span>
+                    </button>
+                    <button class="sui-button sui-button--raised" id="btn-flash-error">
+                      <span class="label">Error</span>
+                    </button>
+                  </div>
+                </div>
+
+                <div class="demo-section">
+                  <h3>Loader</h3>
+                  <div class="demo-buttons">
+                    <button class="sui-button sui-button--raised sui-button--primary" id="btn-loader-show">
+                      <span class="label">Show Loader (2s)</span>
+                    </button>
+                  </div>
+                </div>
+
+                <div class="demo-section">
+                  <h3>Progress Bar</h3>
+                  <div class="progress-bar-demo">
+                    <div class="demo-buttons">
+                      <button type="button" class="sui-button sui-button--raised sui-button--primary" id="btn-progress-indeterminate">Indeterminate (3s)</button>
+                      <button type="button" class="sui-button sui-button--raised" id="btn-progress-determinate">Determinate 0→100%</button>
+                      <button type="button" class="sui-button sui-button--raised" id="btn-progress-buffer">Buffer + Progress</button>
+                    </div>
+                  </div>
+                </div>
+
+              </div>
+
+              <div id="services-panel" class="panel">
+
+                <div class="demo-section">
+                  <h3>Depot (localStorage)</h3>
+                  <div class="demo-depot-row">
+                    <input type="text" id="depot-key" placeholder="Key" value="demo-key" />
+                    <input type="text" id="depot-value" placeholder="Value" value="Hello SUI-JS" />
+                    <button class="sui-button sui-button--raised sui-button--primary" id="btn-depot-set">
+                      <span class="label">Set</span>
+                    </button>
+                    <button class="sui-button sui-button--raised" id="btn-depot-get">
+                      <span class="label">Get</span>
+                    </button>
+                    <button class="sui-button sui-button--raised" id="btn-depot-remove">
+                      <span class="label">Remove</span>
+                    </button>
+                  </div>
+                  <div class="demo-log" id="depot-log">Ready.</div>
+                </div>
+
+                <div class="demo-section">
+                  <h3>Cookie</h3>
+                  <div class="demo-depot-row">
+                    <input type="text" id="cookie-key" placeholder="Key" value="demo-cookie" />
+                    <input type="text" id="cookie-value" placeholder="Value" value="cookie-value" />
+                    <button class="sui-button sui-button--raised sui-button--primary" id="btn-cookie-set">
+                      <span class="label">Set</span>
+                    </button>
+                    <button class="sui-button sui-button--raised" id="btn-cookie-get">
+                      <span class="label">Get</span>
+                    </button>
+                    <button class="sui-button sui-button--raised" id="btn-cookie-remove">
+                      <span class="label">Remove</span>
+                    </button>
+                  </div>
+                  <div class="demo-log" id="cookie-log">Ready.</div>
+                </div>
+
+                <div class="demo-section">
+                  <h3>EventBus</h3>
+                  <div class="demo-buttons">
+                    <button class="sui-button sui-button--raised sui-button--primary" id="btn-eventbus-publish">
+                      <span class="label">Publish Event</span>
+                    </button>
+                    <button class="sui-button sui-button--raised" id="btn-eventbus-subscribe">
+                      <span class="label">Subscribe</span>
+                    </button>
+                    <button class="sui-button sui-button--raised" id="btn-eventbus-unsubscribe">
+                      <span class="label">Unsubscribe</span>
+                    </button>
+                  </div>
+                  <div class="demo-log" id="eventbus-log">Ready.</div>
+                </div>
+
+                <div class="demo-section">
+                  <h3>Browser</h3>
+                  <div class="browser-info" id="browser-info"></div>
+                </div>
+
+                <div class="demo-section">
+                  <h3>Screen</h3>
+                  <div class="screen-info" id="screen-info"></div>
+                </div>
+
+                <div class="demo-section">
+                  <h3>Http / Xhr (Fetch API)</h3>
+                  <div class="demo-depot-row">
+                    <input type="text" id="xhr-url" placeholder="URL" value="https://jsonplaceholder.typicode.com/posts/1" style="flex: 1;" />
+                  </div>
+                  <div class="demo-buttons" style="margin-top: 8px;">
+                    <button class="sui-button sui-button--raised sui-button--primary" id="btn-xhr-get">
+                      <span class="label">GET</span>
+                    </button>
+                    <button class="sui-button sui-button--raised sui-button--accent" id="btn-xhr-post">
+                      <span class="label">POST</span>
+                    </button>
+                  </div>
+                  <div class="demo-log" id="xhr-log" style="max-height: 200px; overflow-y: auto;">Ready.</div>
+                </div>
+
+                <div class="demo-section">
+                  <h3>Scheduler</h3>
+                  <p style="margin-block-end: 8px; color: var(--sui-on-surface-variant);">
+                    Registers callbacks for specific times (HH:MM). Runner checks every 30s.
+                  </p>
+                  <div class="demo-depot-row">
+                    <input type="text" id="scheduler-time" placeholder="HH:MM" value="" style="width: 80px;" />
+                    <button class="sui-button sui-button--raised sui-button--primary" id="btn-scheduler-add">
+                      <span class="label">Add Task</span>
+                    </button>
+                    <button class="sui-button sui-button--raised" id="btn-scheduler-stop">
+                      <span class="label">Stop</span>
+                    </button>
+                  </div>
+                  <div class="demo-log" id="scheduler-log">Ready.</div>
+                </div>
+
+                <div class="demo-section">
+                  <h3>GeoLocation</h3>
+                  <div class="demo-buttons">
+                    <button class="sui-button sui-button--raised sui-button--primary" id="btn-geo-position">
+                      <span class="label">Get Position</span>
+                    </button>
+                    <button class="sui-button sui-button--raised" id="btn-geo-watch">
+                      <span class="label">Start Watcher</span>
+                    </button>
+                    <button class="sui-button sui-button--raised" id="btn-geo-clear">
+                      <span class="label">Stop Watcher</span>
+                    </button>
+                  </div>
+                  <div class="demo-log" id="geo-log">Ready.</div>
+                </div>
+
               </div>
             </div>
           </main>
