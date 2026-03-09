@@ -13,7 +13,8 @@ dist
 coverage/
 reports/
 
-# Orphaned TypeDoc output (generated into website/docs/api/ instead)
+# Generated TypeDoc API docs
+website/docs/api/
 website/classes/
 website/functions/
 website/type-aliases/

@@ -87,7 +87,7 @@ Screenshot comparison for UI components. Requires new dependency (e.g., Playwrig
 
 | Item | Description |
 | ---- | ----------- |
-| Blog posts | Architecture decisions, modernization journey (release posts already exist) |
+| ~~Blog posts~~ | ~~Done: architecture-decisions + modernization-journey posts~~ |
 
 ---
 
