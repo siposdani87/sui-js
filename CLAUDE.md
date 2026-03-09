@@ -69,7 +69,7 @@ npx jest --testNamePattern="should do something"
 
 ## Implementation Roadmap
 
-### Completed (v1.2.0)
+### Completed (v2.0.0)
 
 - **Testing** — 180 → 2,212 tests, coverage 97%+. jest-axe a11y tests. Strict null checks in test config.
 - **TypeScript Strict Mode** — `strict: true` in `tsconfig.json` (v1.1.0).

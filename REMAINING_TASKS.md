@@ -1,4 +1,4 @@
-# Remaining Tasks — Post v1.2.0
+# Remaining Tasks — Post v2.0.0
 
 Consolidated from all plan files. Only incomplete items included.
 
@@ -10,15 +10,15 @@ Consolidated from all plan files. Only incomplete items included.
 
 Migrate deprecated `google.maps.Marker` → `google.maps.marker.AdvancedMarkerElement`. Google deprecated the old API on Feb 21, 2024.
 
-**Scope:** 4 source files + 3 test files
+**Scope:** 5 source files + spec files
 
 | File | Change |
 | ---- | ------ |
-| `src/component/mapMarkerOps.ts` | Heaviest: `MarkerIcon` type, `setMarkerIcon()`, `createMarker()`, `updateMarker()`, event binding with DOM `addEventListener` |
-| `src/component/googleMap.ts` | Add `mapId`, update type refs, property access instead of getters |
-| `src/field/locationField.ts` | Add `mapId` to embedded map options |
-| `src/component/mapLabel.ts` | No changes (caller changes only) |
-| 3 spec files | Update mocks and assertions |
+| `src/component/mapMarkerOps.ts` (273 LOC) | Heaviest: `MarkerIcon` type, `setMarkerIcon()`, `createMarker()`, `updateMarker()`, event binding with DOM `addEventListener` |
+| `src/component/googleMap.ts` (929 LOC) | Add `mapId`, update type refs, property access instead of getters |
+| `src/component/mapPolygonOps.ts` (390 LOC) | Update marker references used in polygon operations |
+| `src/field/locationField.ts` (429 LOC) | Add `mapId` to embedded map options |
+| `src/component/mapLabel.ts` (283 LOC) | No changes (caller changes only) |
 
 **Breaking changes:** `mapId` required, `MarkerIcon` type changes, `gmpDraggable` replaces `draggable`, DOM events instead of Google Maps events.
 
@@ -28,7 +28,7 @@ Migrate deprecated `google.maps.Marker` → `google.maps.marker.AdvancedMarkerEl
 
 **Source:** `IMPROVEMENT_PLAN.md` §2
 
-Make Google Maps module lazy/optional via dynamic import. Currently the largest component (~929 + 273 + 390 = 1,592 LOC across 3 files).
+Make Google Maps module lazy/optional via dynamic import. Currently the largest component (~1,875 LOC across 4 files: `googleMap.ts`, `mapMarkerOps.ts`, `mapPolygonOps.ts`, `mapLabel.ts`).
 
 **Impact:** ~15-20 KB savings for non-map users.
 
@@ -73,23 +73,12 @@ Screenshot comparison for UI components. Requires new dependency (e.g., Playwrig
 | ---- | ----------- |
 | Branded types | Nominal types for IDs, URLs, coordinates — domain safety |
 
-### 7. Build & Tooling
-
-**Source:** `IMPROVEMENT_PLAN.md` §2, §10, §12
-
-| Item | Description |
-| ---- | ----------- |
-| ~~CHANGELOG automation~~ | ~~Done: commitlint + husky + conventional-changelog~~ |
-
-### 8. Documentation
-
-**Source:** `IMPROVEMENT_PLAN.md` §9
-
-| Item | Description |
-| ---- | ----------- |
-| ~~Blog posts~~ | ~~Done: architecture-decisions + modernization-journey posts~~ |
-
 ---
+
+## Completed
+
+- ~~CHANGELOG automation~~ — commitlint + husky + conventional-changelog
+- ~~Blog posts~~ — architecture-decisions + modernization-journey posts
 
 ## Recommended Execution Order
 
