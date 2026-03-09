@@ -3,11 +3,10 @@ import { Collection } from '../core/collection';
 import { Knot } from '../core/knot';
 import { Objekt } from '../core/objekt';
 import { generateId } from '../utils/coder';
-import { Action } from '../utils';
-import { mdl } from '../utils/render';
+import type { Action } from '../utils';
 
 /**
- * @description MDL-based dropdown action menu that renders a "more" icon button with
+ * @description Dropdown action menu that renders a "more" icon button with
  * a list of context actions for a data item.
  *
  * @example
@@ -61,16 +60,14 @@ export class Dropdown {
     }
 
     /**
-     * @description Creates and appends the MDL icon button that triggers the dropdown menu.
+     * @description Creates and appends the icon button that triggers the dropdown menu.
      */
     private _appendButton(): void {
         this.buttonKnot = new Knot<HTMLButtonElement>('button');
         this.buttonKnot.setId(this.options.id);
-        this.buttonKnot.addClass([
-            'mdl-button',
-            'mdl-js-button',
-            'mdl-button--icon',
-        ]);
+        this.buttonKnot.setAttribute('aria-haspopup', 'menu');
+        this.buttonKnot.setAttribute('aria-expanded', 'false');
+        this.buttonKnot.addClass(['sui-button', 'sui-button--icon']);
 
         const iconKnot = new Knot('em');
         iconKnot.addClass('material-icons');
@@ -81,17 +78,13 @@ export class Dropdown {
     }
 
     /**
-     * @description Creates and appends the MDL menu list element.
+     * @description Creates and appends the menu list element.
      */
     private _appendMenu(): void {
         this.menuKnot = new Knot('ul');
+        this.menuKnot.setAttribute('role', 'menu');
         this.menuKnot.setFor(this.options.id);
-        this.menuKnot.addClass([
-            'mdl-menu',
-            'mdl-menu--bottom-right',
-            'mdl-js-menu',
-            'mdl-js-ripple-effect',
-        ]);
+        this.menuKnot.addClass(['sui-menu', 'sui-menu--bottom-right']);
 
         this.dropdown.appendChild(this.menuKnot);
     }
@@ -110,8 +103,26 @@ export class Dropdown {
         this.actions = actions;
         this.item = item;
         this._renderMenu();
-        mdl(this.menuKnot);
-        mdl(this.buttonKnot);
+        this._bindMenuToggle();
+    }
+
+    /**
+     * @description Binds click events to toggle menu visibility and close on outside click.
+     */
+    private _bindMenuToggle(): void {
+        this.buttonKnot.addEventListener('click', () => {
+            this.menuKnot.toggleClass('is-visible');
+            const expanded = this.menuKnot.hasClass('is-visible');
+            this.buttonKnot.setAttribute('aria-expanded', String(expanded));
+        });
+
+        document.addEventListener('click', (event) => {
+            const target = event.target as Node;
+            if (!this.dropdown.getNode().contains(target)) {
+                this.menuKnot.removeClass('is-visible');
+                this.buttonKnot.setAttribute('aria-expanded', 'false');
+            }
+        });
     }
 
     /**
@@ -122,13 +133,15 @@ export class Dropdown {
             const [icon, title, disabled, removed] = action.style(this.item!);
             if (!removed) {
                 const menuKnotKnot = new Knot<HTMLLIElement>('li');
-                menuKnotKnot.addClass('mdl-menu__item');
+                menuKnotKnot.setAttribute('role', 'menuitem');
+                menuKnotKnot.addClass('sui-menu__item');
                 menuKnotKnot.setHtml(title || icon);
                 if (disabled) {
                     menuKnotKnot.setAttribute('disabled');
                 }
                 menuKnotKnot.addEventListener('click', () => {
                     action.click(this.item!);
+                    this.menuKnot.removeClass('is-visible');
                 });
                 this.menuKnot.appendChild(menuKnotKnot);
             }

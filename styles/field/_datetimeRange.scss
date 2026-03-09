@@ -1,26 +1,26 @@
 @use '../core/variables';
 
 .datetime-range-field {
-    .mdl-textfield__error {
+    .sui-textfield__error {
         &:last-of-type {
             width: 100%;
-            text-align: right;
+            text-align: end;
         }
     }
 
     .expander {
         vertical-align: middle;
         cursor: pointer;
-        margin-left: -30px;
-        color: variables.$primary-default-light;
+        margin-inline-start: -30px;
+        color: var(--sui-primary-action);
     }
 
     .field-label {
-        margin-right: 10px;
+        margin-inline-end: 10px;
         font-size: 16px;
         position: absolute;
         top: -2px;
-        color: variables.$label-default-light;
+        color: var(--sui-label);
     }
 
     .datetime-container {
@@ -32,20 +32,20 @@
     .datetime-input {
         flex: 1 0 50%;
         display: inline-block;
-        padding: 2px 30px 0 2px;
-        border: 1px solid variables.$input-default-light;
-        border-radius: 3px;
-        min-height: 32px;
+        padding: 3px 30px 0 3px;
+        border: 1px solid var(--sui-input);
+        border-radius: variables.$radius-md;
+        min-height: 40px;
         cursor: pointer;
 
         &:nth-of-type(2n) {
-            border-left: 0;
+            border-inline-start: 0;
             border-top-left-radius: 0;
             border-bottom-left-radius: 0;
         }
 
         &:nth-of-type(odd) {
-            border-right: 0;
+            border-inline-end: 0;
             border-top-right-radius: 0;
             border-bottom-right-radius: 0;
         }
@@ -56,18 +56,30 @@
         align-items: center;
     }
 
+    &.is-invalid {
+        .datetime-input {
+            border-color: var(--sui-error-text);
+        }
+    }
+
     &.is-disabled {
         .field-label {
-            color: variables.$label-disabled-light;
+            color: var(--sui-label-disabled);
         }
 
         .expander {
-            color: variables.$primary-disabled-light;
+            color: var(--sui-primary-action-disabled);
         }
 
         .datetime-input {
             border-style: dotted;
-            border-color: variables.$input-disabled-light;
+            border-color: var(--sui-input-disabled);
+        }
+
+        &.is-invalid {
+            .datetime-input {
+                border-color: var(--sui-error-text-disabled);
+            }
         }
     }
 }

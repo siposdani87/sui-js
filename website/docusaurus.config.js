@@ -9,7 +9,7 @@ const config = {
   tagline: 'Lightweight Frontend Framework in TypeScript',
   url: 'https://sui-js.siposdani87.com',
   baseUrl: '/',
-  onBrokenLinks: 'warn',
+  onBrokenLinks: 'throw',
   favicon: 'img/favicon.ico',
 
   // GitHub pages deployment config.
@@ -81,10 +81,9 @@ const config = {
       // AI-friendly metadata
       metadata: [
         {name: 'keywords', content: 'typescript, framework, frontend, ui, components, material-design, web-framework, spa, single-page-application'},
-        {name: 'description', content: 'SUI-JS is a lightweight frontend framework written in TypeScript with 60+ UI components, Material Design styling, and comprehensive API'},
+        {name: 'description', content: 'SUI-JS is a lightweight frontend framework written in TypeScript with 60+ UI components and comprehensive API'},
         {name: 'og:type', content: 'website'},
-        {name: 'og:image', content: 'https://sui-js.siposdani87.com/img/sui-js-og.png'},
-        {name: 'og:description', content: 'Lightweight frontend framework in TypeScript with Material Design components'},
+        {name: 'og:description', content: 'Lightweight frontend framework in TypeScript with 60+ UI components'},
         {name: 'twitter:card', content: 'summary_large_image'},
         {name: 'twitter:creator', content: '@siposdani87'},
         {name: 'robots', content: 'index, follow'},
@@ -162,7 +161,7 @@ const config = {
             ],
           },
         ],
-        copyright: `Copyright © ${new Date().getFullYear()} siposdani87, Inc. Built with Docusaurus.`,
+        copyright: `Copyright © ${new Date().getFullYear()} siposdani87. Built with Docusaurus.`,
       },
       prism: {
         theme: prism.themes.github,

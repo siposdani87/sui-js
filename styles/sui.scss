@@ -1,3 +1,18 @@
 @use 'index';
-@use 'mdl';
 @use 'theme';
+
+// SUI component styles
+@use 'sui/materialIcons';
+@use 'sui/button';
+@use 'sui/textfield';
+@use 'sui/label';
+@use 'sui/error';
+@use 'sui/checkbox';
+@use 'sui/radio';
+@use 'sui/switch';
+@use 'sui/iconToggle';
+@use 'sui/tooltip';
+@use 'sui/menu';
+@use 'sui/progress';
+@use 'sui/spinner';
+@use 'sui/slider';

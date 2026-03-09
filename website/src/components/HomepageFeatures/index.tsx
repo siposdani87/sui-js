@@ -53,7 +53,7 @@ const FeatureList: FeatureItem[] = [
                 JetBrains supports non-commercial open-source projects by
                 providing core project contributors with a set of best-in-class
                 developer tools free of charge.{' '}
-                <a href="https://jb.gg/OpenSourceSupport" target="_blanck">
+                <a href="https://jb.gg/OpenSourceSupport" target="_blank">
                     JetBrains for Open Source development
                 </a>
             </>
@@ -63,7 +63,7 @@ const FeatureList: FeatureItem[] = [
 
 function Feature({ title, Svg, description }: Readonly<FeatureItem>) {
     return (
-        <div className={clsx('col col--4')}>
+        <div className={clsx('col col--3')}>
             <div className="text--center">
                 <Svg className={styles.featureSvg} />
             </div>

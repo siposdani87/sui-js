@@ -5,6 +5,75 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [2.0.0] - 2026-03-09
+
+### Added
+
+- Test suite expanded from 1,187 to 2,212 tests (97% statement coverage, 88% branch coverage)
+- jest-axe automated accessibility tests with ARIA attributes for UI components
+- destroy() methods for State, Screen, Page, and Form with proper listener cleanup
+- Automatic DI via `static inject` for controllers and services
+- Scheduler runner with 30s interval and `stop()` method
+- Example page demos for Http/Xhr, GeoLocation, Scheduler, and ContentHandler
+- `@example` JSDoc tags to Xhr HTTP methods
+- Contributing guide, security policy, and migration docs
+- Architecture decisions and modernization journey blog posts
+- Conventional commits enforcement (commitlint + husky) and changelog automation
+- HTML bundle visualization report and SRI hash generation
+- TypeScript incremental builds and CI cache
+- Bundle size CI reporting and npm audit in CI
+
+### Changed
+
+- Split `googleMap.ts` into focused modules (`mapMarkerOps.ts`, `mapPolygonOps.ts`, `mapLabel.ts`)
+- Split `operation.ts` into 7 focused utility modules
+- Replace XMLHttpRequest with fetch API in Xhr module
+- Replace Promize internals with native Promise
+- Replace crypto-js with native implementations to reduce bundle size
+- Replace `javascript:void(0)` with semantic buttons
+- Consolidate dark mode via CSS custom properties (eliminate 42 Dark.scss files)
+- Modernize design tokens and component styles (indigo/orange palette, system fonts)
+- Normalize z-index scale and replace hardcoded values
+- Add `will-change` hints to animated elements for GPU compositing
+- Enable strict type-checked ESLint rules and fix violations
+- Enable strict null checks and `noImplicitAny` in test config
+- Enable `noUnusedLocals`, `noUnusedParameters`, `noUncheckedIndexedAccess`
+- Reduce explicit `any` usage in source files
+- Type `Collection.Type` as `CollectionType<T>` instead of `any`
+- Add typed `Objekt` generics to module option fields
+- Replace deprecated APIs and modernize `indexOf` to `includes`/`startsWith`
+- Remove MDL dependency from example page and Roboto font
+- Remove generated coverage, reports, and TypeDoc API docs from git tracking
+- Upgrade ESLint 9 → 10, Stylelint 16 → 17, globals 16 → 17
+- Bump Node.js engine requirement to >=24.0.0
+
+### Fixed
+
+- Color contrast for WCAG AA compliance
+- `is-disabled` state handling, expandable textfield, and color input states
+- Merge bug, replace constructor switch with typeof/instanceof
+- Calendar bug
+- `no-useless-assignment` lint error in table.ts for ESLint 10 compatibility
+
+## [1.2.0] - 2026-03-04
+
+### Added
+
+- 128 new tests across phases 14-17 (1187 → 1315 tests, 77% statement coverage)
+- destroy() methods for State, Screen, Page, and Form with proper listener cleanup
+- Comprehensive tests for 6 menu modules (header, footer, topMenu, navBar, leftMenu, bottomMenu)
+
+### Changed
+
+- Upgrade ESLint 9 → 10 with migration (remove --ext flag, add @eslint/js)
+- Upgrade Stylelint 16 → 17, stylelint-config-standard 39 → 40, stylelint-scss 6 → 7
+- Upgrade globals 16 → 17, eslint-plugin-tsdoc 0.5.0 → 0.5.2
+- Bump Node.js engine requirement to >=20.19.0
+
+### Fixed
+
+- no-useless-assignment lint error in table.ts for ESLint 10 compatibility
+
 ## [1.1.0] - 2026-02-18
 
 ### Added

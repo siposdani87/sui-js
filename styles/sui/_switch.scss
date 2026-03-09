@@ -1,0 +1,100 @@
+@use '../core/colors';
+@use '../core/variables';
+
+.sui-switch {
+    position: relative;
+    display: inline-flex;
+    align-items: center;
+    cursor: pointer;
+    height: auto;
+
+    .sui-switch__input {
+        position: absolute;
+        opacity: 0;
+        width: 0;
+        height: 0;
+    }
+
+    .sui-switch__label {
+        position: relative;
+        display: inline-flex;
+        align-items: center;
+        padding-inline-start: 52px;
+
+        // Track
+        &::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            width: 40px;
+            height: 20px;
+            background-color: var(--sui-outline-variant);
+            border: 1px solid var(--sui-outline-variant);
+            border-radius: 10px;
+            transition: background-color variables.$transition-base;
+        }
+
+        // Thumb
+        &::after {
+            content: '';
+            position: absolute;
+            left: 0;
+            width: 24px;
+            height: 24px;
+            background-color: var(--sui-checkbox);
+            border-radius: 50%;
+            box-shadow: variables.$shadow-sm;
+            transition:
+                left variables.$transition-base,
+                background-color variables.$transition-base;
+        }
+    }
+
+    .sui-switch__input[required] + .sui-switch__label::after {
+        border: 2px solid var(--sui-error-text);
+    }
+
+    .sui-switch__input:checked + .sui-switch__label::before {
+        background-color: colors.$primary-dark;
+        border-color: colors.$primary-dark;
+    }
+
+    .sui-switch__input:checked + .sui-switch__label::after {
+        left: 18px;
+        background-color: colors.$primary-bright;
+    }
+
+    .sui-switch__input[required]:checked + .sui-switch__label::after {
+        border-color: transparent;
+    }
+
+    &.is-disabled {
+        cursor: default;
+
+        .sui-switch__label {
+            color: var(--sui-label-disabled);
+        }
+
+        .sui-switch__label::before {
+            background-color: var(--sui-outline-variant);
+            opacity: 0.5;
+        }
+
+        .sui-switch__label::after {
+            background-color: var(--sui-checkbox-disabled);
+        }
+
+        .sui-switch__input[required] + .sui-switch__label::after {
+            border-style: dotted;
+            border-color: var(--sui-error-text-disabled);
+        }
+
+        .sui-switch__input:checked + .sui-switch__label::before {
+            background-color: colors.$primary;
+        }
+
+        .sui-switch__input:checked + .sui-switch__label::after {
+            background-color: var(--sui-checkbox-disabled);
+        }
+    }
+}

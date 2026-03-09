@@ -17,22 +17,22 @@ describe('Tooltip', () => {
     describe('positions', () => {
         it('should default to top position', () => {
             const t = new Tooltip(element);
-            expect(t.positionCssClass).toBe('mdl-tooltip--top');
+            expect(t.positionCssClass).toBe('sui-tooltip--top');
         });
 
         it('should set bottom position', () => {
             const t = new Tooltip(element, 'BOTTOM');
-            expect(t.positionCssClass).toBe('mdl-tooltip--bottom');
+            expect(t.positionCssClass).toBe('sui-tooltip--bottom');
         });
 
         it('should set left position', () => {
             const t = new Tooltip(element, 'LEFT');
-            expect(t.positionCssClass).toBe('mdl-tooltip--left');
+            expect(t.positionCssClass).toBe('sui-tooltip--left');
         });
 
         it('should set right position', () => {
             const t = new Tooltip(element, 'RIGHT');
-            expect(t.positionCssClass).toBe('mdl-tooltip--right');
+            expect(t.positionCssClass).toBe('sui-tooltip--right');
         });
     });
 

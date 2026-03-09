@@ -1,22 +1,34 @@
 {
   "name": "@siposdani87/sui-js",
-  "version": "1.1.0",
+  "version": "2.0.0",
   "type": "module",
   "description": "This is a lightweight FE framework. It is written in the TypeScript language. The codebase was documented with JSDoc and compiled with ESbuild advanced settings.",
   "main": "dist/index.js",
   "typings": "dist/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/sui.esm.js",
+      "default": "./dist/index.js"
+    },
+    "./styles": "./dist/sui.min.css"
+  },
+  "sideEffects": false,
   "scripts": {
     "prebuild": "npm run clean && npm run lint && npm run format && npm run test && npm run coverage",
-    "build": "npm run sass && npm run tsc && npm run esbuild",
+    "build": "npm run sass && npm run tsc && npm run esbuild && npm run esbuild:size-check",
     "clean": "rm -rf dist",
     "tsc": "npx -p typescript tsc",
     "tsc-test": "npm run tsc -- --noEmit",
     "sass": "npx sass styles/sui.scss dist/sui.min.css --style compressed",
     "sass:watch": "npx sass styles/sui.scss dist/sui.min.css --style compressed --watch",
-    "esbuild": "npx esbuild src/index.ts --bundle --minify --sourcemap --format=iife --global-name=SUI --outfile=dist/sui.min.js",
-    "esbuild:watch": "npx esbuild src/index.ts --bundle --minify --sourcemap --format=iife --global-name=SUI --outfile=dist/sui.min.js --watch",
+    "esbuild": "node scripts/esbuild.cjs",
+    "esbuild:analyze": "node scripts/esbuild-analyze.cjs",
+    "esbuild:size-check": "node scripts/check-bundle-size.cjs",
+    "esbuild:sri": "node scripts/generate-sri.cjs",
+    "esbuild:watch": "node scripts/esbuild-watch.cjs",
     "lint": "npm run tsc-test && npm run stylelint && npm run eslint",
-    "eslint": "npx eslint . --ext .ts,.tsx",
+    "eslint": "npx eslint .",
     "stylelint": "npx stylelint 'styles/**/*.{css,scss,sass}'",
     "eslint:coverage": "npm run eslint -- --format json --output-file coverage/eslint.json",
     "stylelint:coverage": "npm run stylelint -- --formatter json --output-file coverage/stylelint.json",
@@ -28,7 +40,9 @@
     "serve": "npx serve . -p 4000",
     "test": "npx jest",
     "test:coverage": "npx jest --coverage",
-    "test:watch": "npx jest --watch"
+    "test:watch": "npx jest --watch",
+    "changelog": "npx conventional-changelog -p conventionalcommits -i CHANGELOG.md -o CHANGELOG.md -r 1",
+    "prepare": "husky"
   },
   "license": "ISC",
   "private": false,
@@ -45,49 +59,53 @@
     "url": "https://github.com/siposdani87/sui-js.git"
   },
   "engines": {
-    "node": ">=18.0.0",
+    "node": ">=24.0.0",
     "npm": ">=9.0.0"
   },
   "publishConfig": {
     "access": "public"
   },
   "files": [
-    "dist/*",
+    "dist/*.js",
+    "dist/*.css",
+    "dist/*.d.ts",
+    "dist/*.d.ts.map",
     "src/*",
     "styles/*"
   ],
   "dependencies": {
-    "crypto-js": "4.2.0",
     "date-fns": "4.1.0",
-    "material-design-lite": "1.3.0",
     "normalize.css": "8.0.1"
   },
   "devDependencies": {
+    "@commitlint/cli": "^20.4.3",
+    "@commitlint/config-conventional": "^20.4.3",
+    "@eslint/js": "^10.0.1",
     "@googlemaps/jest-mocks": "^2.22.8",
-    "@types/crypto-js": "4.2.2",
-    "@types/dom-view-transitions": "1.0.6",
     "@types/google.maps": "3.58.1",
     "@types/jest": "30.0.0",
-    "@types/material-design-lite": "1.1.22",
+    "@types/jest-axe": "^3.5.9",
     "@typescript-eslint/eslint-plugin": "^8.56.0",
     "@typescript-eslint/parser": "^8.56.0",
+    "conventional-changelog": "^7.2.0",
     "esbuild": "^0.27.2",
-    "eslint": "9.39.2",
+    "eslint": "^10.0.2",
     "eslint-config-prettier": "10.1.8",
-    "eslint-plugin-import": "2.32.0",
     "eslint-plugin-prettier": "^5.5.5",
-    "eslint-plugin-tsdoc": "0.5.0",
-    "globals": "^16.5.0",
+    "eslint-plugin-tsdoc": "^0.5.2",
+    "globals": "^17.4.0",
+    "husky": "^9.1.7",
     "jest": "30.2.0",
+    "jest-axe": "^10.0.0",
     "jest-environment-jsdom": "30.2.0",
     "jest-sonar": "0.2.16",
     "postcss-scss": "4.0.9",
     "prettier": "^3.8.1",
     "sass": "^1.97.3",
     "serve": "^14.2.5",
-    "stylelint": "16.26.1",
-    "stylelint-config-standard": "39.0.1",
-    "stylelint-scss": "6.13.0",
+    "stylelint": "^17.4.0",
+    "stylelint-config-standard": "^40.0.0",
+    "stylelint-scss": "^7.0.0",
     "ts-jest": "29.4.6",
     "typescript": "5.9.3"
   }

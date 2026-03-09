@@ -14,10 +14,37 @@ jobs:
       with:
         # Disabling shallow clone is recommended for improving relevancy of reporting
         fetch-depth: 0
+    - uses: actions/setup-node@v4
+      with:
+        node-version: 24
+        cache: 'npm'
     - name: Install modules
       run: npm ci
+    - name: Cache TypeScript incremental build
+      uses: actions/cache@v4
+      with:
+        path: .tsbuildinfo
+        key: tsbuildinfo-${{ runner.os }}-${{ hashFiles('src/**/*.ts', 'tsconfig.json') }}
+    - name: Security audit
+      run: npm audit --audit-level=high
+    - name: Lint
+      run: npm run lint
     - name: Run tests
       run: npm run test
+    - name: Build
+      run: npm run sass && npm run tsc && npm run esbuild && npm run esbuild:size-check
+    - name: Bundle size report
+      if: github.event_name == 'pull_request'
+      run: |
+        SIZE_REPORT_FILE=size-report.md node scripts/bundle-size-diff.cjs
+        if [ -f size-report.md ]; then
+          gh pr comment ${{ github.event.pull_request.number }} --body "$(cat size-report.md)" --edit-last || \
+          gh pr comment ${{ github.event.pull_request.number }} --body "$(cat size-report.md)"
+        fi
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+    - name: Build website
+      run: cd website && npm ci && npm run build
     - name: SonarCloud Scan
       uses: SonarSource/sonarcloud-github-action@v3
       env:

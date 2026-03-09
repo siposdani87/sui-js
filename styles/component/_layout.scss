@@ -23,6 +23,7 @@
         animation-name: blur;
         animation-duration: 0.5s;
         animation-fill-mode: forwards;
+        will-change: filter;
     }
 }
 
@@ -77,14 +78,14 @@
         width: 100%;
         background-position: center;
         background-size: cover;
-        background-color: colors.$black-bright;
+        background-color: var(--sui-surface-alt);
         flex-direction: row;
         z-index: variables.$zindex-fullscreen;
-        color: colors.$white;
+        color: var(--sui-on-surface);
 
         &.light {
-            background-color: colors.$light-grey;
-            color: colors.$black;
+            background-color: var(--sui-surface);
+            color: var(--sui-on-surface);
         }
 
         &.column {
@@ -140,8 +141,8 @@
     padding: 0 1em;
     justify-content: space-between;
     align-items: center;
-    background-color: colors.$light-grey;
-    color: colors.$black;
+    background-color: var(--sui-surface);
+    color: var(--sui-on-surface);
     min-height: 50px;
     z-index: variables.$zindex-header;
 
@@ -149,8 +150,8 @@
         box-shadow: 0 2px 20px 0 rgba(colors.$black, 0.75);
     }
 
-    > .mdl-button {
-        margin-right: 0.5em;
+    > .sui-button {
+        margin-inline-end: 0.5em;
     }
 
     h1 {
@@ -164,7 +165,7 @@
             &::after {
                 content: '/';
                 padding: 0 0.3em;
-                color: colors.$deep-grey-bright;
+                color: var(--sui-on-surface-variant);
             }
         }
     }
@@ -175,19 +176,20 @@
         .input-block:not(.search-field) {
             flex: 1;
             padding: 0;
-            margin-left: 0.5em;
+            margin-inline-start: 0.5em;
             min-width: 200px;
 
             .action-container {
                 top: 4px;
+                position: absolute;
             }
         }
 
         .search-field {
             padding: 0;
-            margin-left: 0.5em;
+            margin-inline-start: 0.5em;
 
-            label.mdl-button {
+            label.sui-button {
                 top: 0;
             }
         }
@@ -197,10 +199,10 @@
         justify-content: flex-end;
         display: flex;
         align-items: center;
-        margin-left: 0.5em;
+        margin-inline-start: 0.5em;
 
-        .mdl-button {
-            margin-left: 0.3em;
+        .sui-button {
+            margin-inline-start: 0.3em;
         }
     }
 }

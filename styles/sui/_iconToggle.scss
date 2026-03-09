@@ -1,0 +1,66 @@
+.sui-icon-toggle {
+    position: relative;
+    display: inline-flex;
+    align-items: center;
+    cursor: pointer;
+
+    .sui-icon-toggle__input {
+        position: absolute;
+        opacity: 0;
+        width: 0;
+        height: 0;
+    }
+
+    .sui-icon-toggle__label {
+        color: var(--sui-checkbox);
+        border: 2px solid transparent;
+        line-height: 1;
+
+        &::selection {
+            background: none;
+        }
+    }
+
+    .sui-icon__label {
+        display: inline-block;
+        position: relative;
+        cursor: pointer;
+        font-size: 16px;
+        line-height: 24px;
+        margin: 0;
+        left: 5px;
+    }
+
+    .sui-icon-toggle__input[required] + .sui-icon-toggle__label {
+        border-color: var(--sui-error-text);
+    }
+
+    .sui-icon-toggle__input:checked ~ .sui-icon-toggle__label {
+        color: var(--sui-primary-action);
+    }
+
+    .sui-icon-toggle__input[required]:checked + .sui-icon-toggle__label {
+        border-color: transparent;
+    }
+
+    &.is-disabled {
+        cursor: default;
+
+        .sui-icon__label {
+            color: var(--sui-label-disabled);
+        }
+
+        .sui-icon-toggle__label {
+            color: var(--sui-checkbox-disabled);
+        }
+
+        .sui-icon-toggle__input[required] + .sui-icon-toggle__label {
+            border-style: dotted;
+            border-color: var(--sui-error-text-disabled);
+        }
+
+        .sui-icon-toggle__input:checked ~ .sui-icon-toggle__label {
+            color: var(--sui-primary-action-disabled);
+        }
+    }
+}

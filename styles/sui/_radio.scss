@@ -1,0 +1,97 @@
+@use '../core/variables';
+
+.sui-radio {
+    position: relative;
+    display: inline-flex;
+    align-items: center;
+    cursor: pointer;
+
+    .sui-radio__button {
+        position: absolute;
+        opacity: 0;
+        width: 0;
+        height: 0;
+    }
+
+    .sui-radio__label {
+        position: relative;
+        display: inline-flex;
+        align-items: center;
+        padding-inline-start: 28px;
+
+        &::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            width: 18px;
+            height: 18px;
+            border: 2px solid var(--sui-checkbox);
+            border-radius: 50%;
+        }
+
+        &::after {
+            content: '';
+            position: absolute;
+            left: 4px;
+            top: 50%;
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+            background-color: var(--sui-primary-action);
+            transform: translateY(-50%);
+            opacity: 0;
+        }
+    }
+
+    .sui-radio__button[required] + .sui-radio__label::before {
+        border-color: var(--sui-error-text);
+    }
+
+    &.is-other-checked {
+        .sui-radio__button[required] + .sui-radio__label::before {
+            border-color: var(--sui-checkbox);
+        }
+    }
+
+    .sui-radio__button:checked + .sui-radio__label::before {
+        border-color: var(--sui-primary-action);
+    }
+
+    .sui-radio__button:checked + .sui-radio__label::after {
+        opacity: 1;
+    }
+
+    .sui-radio__button[required]:checked + .sui-radio__label::before {
+        border-color: var(--sui-primary-action);
+    }
+
+    .sui-radio__button:focus-visible + .sui-radio__label::before {
+        box-shadow: 0 0 0 3px
+            color-mix(in srgb, var(--sui-primary-action) 15%, transparent);
+    }
+
+    &.is-disabled {
+        cursor: default;
+
+        .sui-radio__label {
+            color: var(--sui-label-disabled);
+        }
+
+        .sui-radio__label::before {
+            border-color: var(--sui-checkbox-disabled);
+        }
+
+        .sui-radio__button[required] + .sui-radio__label::before {
+            border-style: dotted;
+            border-color: var(--sui-error-text-disabled);
+        }
+
+        .sui-radio__button:checked + .sui-radio__label::before {
+            border-color: var(--sui-primary-action-disabled);
+        }
+
+        .sui-radio__button:checked + .sui-radio__label::after {
+            background-color: var(--sui-primary-action-disabled);
+        }
+    }
+}

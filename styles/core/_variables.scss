@@ -165,10 +165,25 @@ $grid-gutter-widths: (
 //
 // Font, line-height, and color for body text, headings, and more.
 
-// Pixel value used to responsively scale all typography. Applied to the `<html>` element.
-$font-family-app: 'Verdana', sans-serif !default;
-$font-family-heading: 'Helvetica', sans-serif !default;
-$font-family-body: 'Arial', sans-serif !default;
+// System font stack for modern, native feel
+$font-family-app:
+    system-ui,
+    -apple-system,
+    'Segoe UI',
+    'Roboto',
+    sans-serif !default;
+$font-family-heading:
+    system-ui,
+    -apple-system,
+    'Segoe UI',
+    'Roboto',
+    sans-serif !default;
+$font-family-body:
+    system-ui,
+    -apple-system,
+    'Segoe UI',
+    'Roboto',
+    sans-serif !default;
 $font-family-icons: 'Material Icons', sans-serif !default;
 
 $font-size-root: 16px !default;
@@ -187,26 +202,52 @@ $font-size-h6: 1em !default;
 
 $line-height: 1.5 !default;
 
+// Border-radius scale
+
+$radius-sm: 4px !default;
+$radius-md: 8px !default;
+$radius-lg: 12px !default;
+$radius-full: 9999px !default;
+
+// Shadow scale (soft, single-layer)
+
+$shadow-sm:
+    0 1px 3px rgb(0 0 0 / 8%),
+    0 1px 2px rgb(0 0 0 / 6%) !default;
+$shadow-md:
+    0 4px 12px rgb(0 0 0 / 10%),
+    0 1px 4px rgb(0 0 0 / 6%) !default;
+$shadow-lg:
+    0 12px 32px rgb(0 0 0 / 12%),
+    0 4px 8px rgb(0 0 0 / 6%) !default;
+
+// Transition durations
+
+$transition-fast: 150ms !default;
+$transition-base: 200ms !default;
+$transition-slow: 300ms !default;
+
 // Z-index master list
 //
 // Warning: Avoid customizing these values. They`re used for a bird`s eye view
 // of components dependent on the z-axis and are designed to all work together.
 
-$zindex-progress-bar: 101 !default;
-$zindex-popup: 95 !default;
-$zindex-nav-bar: 100 !default;
-$zindex-header: 100 !default;
-$zindex-header-open: 105 !default;
-$zindex-fullscreen: 100 !default;
-$zindex-footer: 105 !default;
-$zindex-dialog-container: 107 !default;
-$zindex-footer-static: 110 !default;
-$zindex-dialog: 115 !default;
-$zindex-viewer: 120 !default;
-$zindex-confirm: 125 !default;
-$zindex-left-menu: 130 !default;
-$zindex-flash: 140 !default;
-$zindex-loader: 150 !default;
+$zindex-popup: 10 !default;
+$zindex-progress-bar: 20 !default;
+$zindex-nav-bar: 30 !default;
+$zindex-header: 30 !default;
+$zindex-header-open: 35 !default;
+$zindex-fullscreen: 30 !default;
+$zindex-footer: 35 !default;
+$zindex-dialog-container: 40 !default;
+$zindex-footer-static: 45 !default;
+$zindex-dialog: 50 !default;
+$zindex-viewer: 60 !default;
+$zindex-confirm: 70 !default;
+$zindex-left-menu: 80 !default;
+$zindex-flash: 90 !default;
+$zindex-loader: 100 !default;
+$zindex-tooltip: 110 !default;
 
 // Flash defaults
 
@@ -268,7 +309,7 @@ $accent-disabled-light: colors.$light-grey-dark !default; // 5
 $accent-default-dark: colors.$accent-bright !default;
 $accent-disabled-dark: colors.$deep-grey !default; // 7
 
-$error-default-light: colors.$red !default;
+$error-default-light: colors.$red-dark !default;
 $error-disabled-light: colors.$red-dark !default;
 
 $error-default-dark: colors.$red-bright !default;

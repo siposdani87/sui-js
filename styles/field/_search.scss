@@ -1,32 +1,35 @@
-@use '../core/variables';
-
 .search-field {
-    &.mdl-textfield--expandable .mdl-button--icon {
+    &.sui-textfield--expandable .sui-button--icon {
         top: 20px;
     }
 
-    .mdl-textfield__error {
+    .sui-textfield__error {
         bottom: 0;
     }
 
-    &:not(.is-focused, .is-dirty) {
-        .mdl-textfield__expandable-holder {
-            .mdl-textfield__input {
+    &:not(.is-focused, .is-dirty, .is-invalid) {
+        .sui-textfield__expandable-holder {
+            .sui-textfield__input:not(:required) {
                 border: 0;
             }
         }
+    }
+
+    .sui-textfield__input {
+        padding-inline-end: 36px;
     }
 
     .clear-button {
         display: none;
         position: absolute;
         right: 5px;
-        top: 4px;
-        color: variables.$primary-default-light;
+        top: 50%;
+        transform: translateY(-50%);
+        color: var(--sui-primary-action);
     }
 
     .search-button {
-        color: variables.$primary-default-light;
+        color: var(--sui-primary-action);
     }
 
     &.is-focused,
@@ -39,7 +42,7 @@
     &.is-disabled {
         .clear-button,
         .search-button {
-            color: variables.$primary-disabled-light;
+            color: var(--sui-primary-action-disabled);
         }
     }
 }

@@ -24,84 +24,196 @@ export function cleanupDOM(): void {
     document.body.innerHTML = '';
 }
 
-/** Mock XMLHttpRequest for testing Xhr/Http modules */
-export class MockXMLHttpRequest {
-    method = '';
-    url = '';
-    async = true;
-    requestHeaders: Record<string, string> = {};
-    body: string | null = null;
-    readyState = 0;
-    status = 0;
-    response: any = null;
-    responseType: XMLHttpRequestResponseType = '';
-    responseURL = '';
-    withCredentials = false;
-    onreadystatechange: ((this: XMLHttpRequest, ev: Event) => any) | null =
-        null;
+/** Captured fetch call for test assertions */
+export type CapturedFetchCall = {
+    url: string;
+    method: string;
+    headers: Record<string, string>;
+    body: string | null;
+    credentials?: RequestCredentials;
+};
 
-    private _responseHeaders: Record<string, string> = {};
+let _originalFetch: typeof fetch | undefined;
+let _capturedCalls: CapturedFetchCall[] = [];
+let _pendingResponse: {
+    status: number;
+    headers: Record<string, string>;
+    body: any;
+} | null = null;
+let _fetchNetworkError: boolean = false;
 
-    open(method: string, url: string, async: boolean = true): void {
-        this.method = method;
-        this.url = url;
-        this.async = async;
-    }
+/** Replace global fetch with a test mock. Call setFetchResponse() before making requests. */
+export function installFetchMock(): void {
+    _originalFetch = globalThis.fetch;
+    _capturedCalls = [];
+    _pendingResponse = null;
+    _fetchNetworkError = false;
+    globalThis.fetch = jest.fn(
+        async (
+            input: RequestInfo | URL,
+            init?: RequestInit,
+        ): Promise<Response> => {
+            const url = typeof input === 'string' ? input : input.toString();
+            const headers: Record<string, string> = {};
+            if (init?.headers) {
+                if (init.headers instanceof Headers) {
+                    init.headers.forEach((v, k) => {
+                        headers[k] = v;
+                    });
+                } else {
+                    Object.assign(headers, init.headers);
+                }
+            }
+            _capturedCalls.push({
+                url,
+                method: init?.method || 'GET',
+                headers,
+                body: (init?.body as string) ?? null,
+                credentials: init?.credentials,
+            });
 
-    setRequestHeader(name: string, value: string): void {
-        this.requestHeaders[name] = value;
-    }
+            if (_fetchNetworkError) {
+                throw new TypeError('Failed to fetch');
+            }
 
-    send(body?: string | null): void {
-        this.body = body ?? null;
-    }
+            if (!_pendingResponse) {
+                throw new Error(
+                    'No fetch response configured. Call setFetchResponse() first.',
+                );
+            }
 
-    getResponseHeader(name: string): string | null {
-        return this._responseHeaders[name] ?? null;
-    }
+            const resp = _pendingResponse;
+            const responseHeaders = new Headers(resp.headers);
+            let bodyText: string;
+            if (typeof resp.body === 'object' && resp.body !== null) {
+                bodyText = JSON.stringify(resp.body);
+            } else if (typeof resp.body === 'string') {
+                bodyText = resp.body;
+            } else {
+                bodyText = '';
+            }
 
-    /** Simulate a complete response (readyState 4) */
-    respond(status: number, headers: Record<string, string>, body: any): void {
-        this.status = status;
-        this._responseHeaders = headers;
-        this.response = body;
-        this.responseURL = this.url;
-        this.readyState = 4;
-        this.onreadystatechange?.call(
-            this as any,
-            new Event('readystatechange'),
-        );
-    }
+            const statusTexts: Record<number, string> = {
+                200: 'OK',
+                201: 'Created',
+                204: 'No Content',
+                301: 'Moved Permanently',
+                400: 'Bad Request',
+                401: 'Unauthorized',
+                403: 'Forbidden',
+                404: 'Not Found',
+                500: 'Internal Server Error',
+            };
+            // jsdom doesn't have Response class, so build a mock
+            const mockResponse = {
+                status: resp.status,
+                statusText: statusTexts[resp.status] || '',
+                ok: resp.status >= 200 && resp.status < 300,
+                url,
+                headers: responseHeaders,
+                text: async () => bodyText,
+                json: async () => JSON.parse(bodyText || 'null'),
+            };
+            return mockResponse as unknown as Response;
+        },
+    ) as any;
 }
 
-let _originalXhr: typeof XMLHttpRequest | undefined;
-let _lastXhr: MockXMLHttpRequest | undefined;
-
-/** Replace global XMLHttpRequest with MockXMLHttpRequest */
-export function installXhrMock(): void {
-    _originalXhr = (globalThis as any).XMLHttpRequest;
-    (globalThis as any).XMLHttpRequest = function () {
-        const instance = new MockXMLHttpRequest();
-        _lastXhr = instance;
-        return instance;
-    } as any;
-}
-
-/** Restore original XMLHttpRequest */
-export function uninstallXhrMock(): void {
-    if (_originalXhr !== undefined) {
-        (globalThis as any).XMLHttpRequest = _originalXhr;
-        _originalXhr = undefined;
+/** Restore original fetch */
+export function uninstallFetchMock(): void {
+    if (_originalFetch !== undefined) {
+        globalThis.fetch = _originalFetch;
+        _originalFetch = undefined;
     }
-    _lastXhr = undefined;
+    _capturedCalls = [];
+    _pendingResponse = null;
+    _fetchNetworkError = false;
 }
 
-/** Get the most recently constructed MockXMLHttpRequest instance */
-export function getLastXhr(): MockXMLHttpRequest {
-    if (!_lastXhr) {
+/** Configure the response that the next fetch call will return */
+export function setFetchResponse(
+    status: number,
+    headers: Record<string, string>,
+    body: any,
+): void {
+    _pendingResponse = { status, headers, body };
+}
+
+/** Configure fetch to throw a network error */
+export function setFetchNetworkError(): void {
+    _fetchNetworkError = true;
+}
+
+/** Get the most recently captured fetch call */
+export function getLastFetchCall(): CapturedFetchCall {
+    if (_capturedCalls.length === 0) {
         throw new Error(
-            'No MockXMLHttpRequest instance found. Did you call installXhrMock()?',
+            'No fetch calls recorded. Did you call installFetchMock()?',
         );
     }
-    return _lastXhr;
+    return _capturedCalls[_capturedCalls.length - 1]!;
+}
+
+/** Get all captured fetch calls */
+export function getAllFetchCalls(): CapturedFetchCall[] {
+    return _capturedCalls;
+}
+
+/** Create a mock Canvas 2D rendering context for jsdom (which lacks native canvas support) */
+export function createMockCanvasContext(): Record<string, jest.Mock | any> {
+    const context: Record<string, jest.Mock | any> = {
+        fillRect: jest.fn(),
+        clearRect: jest.fn(),
+        getImageData: jest.fn(() => ({
+            data: new Uint8ClampedArray([0, 0, 0, 255]),
+        })),
+        putImageData: jest.fn(),
+        createImageData: jest.fn(),
+        setTransform: jest.fn(),
+        drawImage: jest.fn(),
+        save: jest.fn(),
+        fillText: jest.fn(),
+        strokeText: jest.fn(),
+        restore: jest.fn(),
+        beginPath: jest.fn(),
+        moveTo: jest.fn(),
+        lineTo: jest.fn(),
+        closePath: jest.fn(),
+        stroke: jest.fn(),
+        translate: jest.fn(),
+        scale: jest.fn(),
+        rotate: jest.fn(),
+        arc: jest.fn(),
+        fill: jest.fn(),
+        measureText: jest.fn(() => ({ width: 0 })),
+        transform: jest.fn(),
+        rect: jest.fn(),
+        clip: jest.fn(),
+        canvas: { width: 300, height: 150 },
+    };
+    return context;
+}
+
+/** Install canvas 2D context mock on HTMLCanvasElement.prototype */
+let _originalGetContext:
+    | typeof HTMLCanvasElement.prototype.getContext
+    | undefined;
+let _mockCanvasContext: Record<string, jest.Mock | any> | undefined;
+
+export function installCanvasMock(): Record<string, jest.Mock | any> {
+    const ctx = createMockCanvasContext();
+    _mockCanvasContext = ctx;
+    _originalGetContext = HTMLCanvasElement.prototype.getContext;
+    HTMLCanvasElement.prototype.getContext = jest.fn(
+        () => ctx,
+    ) as unknown as typeof HTMLCanvasElement.prototype.getContext;
+    return ctx;
+}
+
+export function uninstallCanvasMock(): void {
+    if (_originalGetContext !== undefined) {
+        HTMLCanvasElement.prototype.getContext = _originalGetContext;
+        _originalGetContext = undefined;
+    }
+    _mockCanvasContext = undefined;
 }

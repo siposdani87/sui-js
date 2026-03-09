@@ -33,7 +33,9 @@ describe('Calendar', () => {
         it('should create header with previous/next buttons and mode span', () => {
             const calendar = createCalendar();
             expect(calendar.headerKnot).toBeDefined();
-            const buttons = calendar.headerKnot.getNode().querySelectorAll('a');
+            const buttons = calendar.headerKnot
+                .getNode()
+                .querySelectorAll('button');
             expect(buttons.length).toBe(2);
             expect(calendar.currentModeKnot).toBeDefined();
         });
@@ -173,9 +175,9 @@ describe('Calendar', () => {
             const months = calendar.monthsKnot
                 .getNode()
                 .querySelectorAll('.month');
-            expect(months[0].textContent).toBe('Jan');
-            expect(months[5].textContent).toBe('Jun');
-            expect(months[11].textContent).toBe('Dec');
+            expect(months[0]!.textContent).toBe('Jan');
+            expect(months[5]!.textContent).toBe('Jun');
+            expect(months[11]!.textContent).toBe('Dec');
         });
     });
 
@@ -196,14 +198,14 @@ describe('Calendar', () => {
                 .getNode()
                 .querySelectorAll('.year');
             // 2024 - (2024 % 16) = 2024 - 8 = 2016
-            expect(years[0].textContent).toBe('2016');
-            expect(years[15].textContent).toBe('2031');
+            expect(years[0]!.textContent).toBe('2016');
+            expect(years[15]!.textContent).toBe('2031');
         });
     });
 
     describe('navigation', () => {
         function getNavButtons(calendar: Calendar): NodeListOf<Element> {
-            return calendar.headerKnot.getNode().querySelectorAll('a');
+            return calendar.headerKnot.getNode().querySelectorAll('button');
         }
 
         it('should navigate to previous month in DAY mode', () => {
@@ -211,7 +213,7 @@ describe('Calendar', () => {
             calendar.draw();
 
             const buttons = getNavButtons(calendar);
-            buttons[0].dispatchEvent(new Event('click'));
+            buttons[0]!.dispatchEvent(new Event('click'));
 
             expect(calendar.current.day.getMonth()).toBe(4);
             expect(calendar.current.day.getFullYear()).toBe(2024);
@@ -222,7 +224,7 @@ describe('Calendar', () => {
             calendar.draw();
 
             const buttons = getNavButtons(calendar);
-            buttons[1].dispatchEvent(new Event('click'));
+            buttons[1]!.dispatchEvent(new Event('click'));
 
             expect(calendar.current.day.getMonth()).toBe(6);
             expect(calendar.current.day.getFullYear()).toBe(2024);
@@ -233,7 +235,7 @@ describe('Calendar', () => {
             calendar.draw();
 
             const buttons = getNavButtons(calendar);
-            buttons[0].dispatchEvent(new Event('click'));
+            buttons[0]!.dispatchEvent(new Event('click'));
 
             expect(calendar.current.day.getFullYear()).toBe(2023);
         });
@@ -243,7 +245,7 @@ describe('Calendar', () => {
             calendar.draw();
 
             const buttons = getNavButtons(calendar);
-            buttons[1].dispatchEvent(new Event('click'));
+            buttons[1]!.dispatchEvent(new Event('click'));
 
             expect(calendar.current.day.getFullYear()).toBe(2025);
         });
@@ -253,7 +255,7 @@ describe('Calendar', () => {
             calendar.draw();
 
             const buttons = getNavButtons(calendar);
-            buttons[0].dispatchEvent(new Event('click'));
+            buttons[0]!.dispatchEvent(new Event('click'));
 
             expect(calendar.current.day.getFullYear()).toBe(2008);
         });
@@ -263,7 +265,7 @@ describe('Calendar', () => {
             calendar.draw();
 
             const buttons = getNavButtons(calendar);
-            buttons[1].dispatchEvent(new Event('click'));
+            buttons[1]!.dispatchEvent(new Event('click'));
 
             expect(calendar.current.day.getFullYear()).toBe(2040);
         });
@@ -273,7 +275,7 @@ describe('Calendar', () => {
             calendar.draw();
 
             const buttons = getNavButtons(calendar);
-            buttons[0].dispatchEvent(new Event('click'));
+            buttons[0]!.dispatchEvent(new Event('click'));
 
             expect(calendar.current.day.getFullYear()).toBeGreaterThanOrEqual(
                 0,
@@ -329,44 +331,44 @@ describe('Calendar', () => {
     });
 
     describe('click handling', () => {
-        it('should call eventClick when day is clicked', () => {
+        it('should call click handler when day is clicked', () => {
             const eventClickSpy = jest.fn();
             const calendar = createCalendar('date', new Date(2024, 5, 15));
-            calendar.eventClick = eventClickSpy;
+            calendar.on('click', eventClickSpy);
             calendar.draw();
 
             const dayCells = calendar.daysKnot
                 .getNode()
                 .querySelectorAll('.day.current-month');
-            dayCells[0].dispatchEvent(new Event('click'));
+            dayCells[0]!.dispatchEvent(new Event('click'));
 
             expect(eventClickSpy).toHaveBeenCalled();
         });
 
-        it('should call eventClick when month is clicked', () => {
+        it('should call click handler when month is clicked', () => {
             const eventClickSpy = jest.fn();
             const calendar = createCalendar('month', new Date(2024, 5, 15));
-            calendar.eventClick = eventClickSpy;
+            calendar.on('click', eventClickSpy);
             calendar.draw();
 
             const monthCells = calendar.monthsKnot
                 .getNode()
                 .querySelectorAll('.month');
-            monthCells[0].dispatchEvent(new Event('click'));
+            monthCells[0]!.dispatchEvent(new Event('click'));
 
             expect(eventClickSpy).toHaveBeenCalled();
         });
 
-        it('should call eventClick when year is clicked', () => {
+        it('should call click handler when year is clicked', () => {
             const eventClickSpy = jest.fn();
             const calendar = createCalendar('year', new Date(2024, 5, 15));
-            calendar.eventClick = eventClickSpy;
+            calendar.on('click', eventClickSpy);
             calendar.draw();
 
             const yearCells = calendar.yearsKnot
                 .getNode()
                 .querySelectorAll('.year');
-            yearCells[0].dispatchEvent(new Event('click'));
+            yearCells[0]!.dispatchEvent(new Event('click'));
 
             expect(eventClickSpy).toHaveBeenCalled();
         });
@@ -388,7 +390,7 @@ describe('Calendar', () => {
             const yearCells = calendar.yearsKnot
                 .getNode()
                 .querySelectorAll('.year');
-            yearCells[0].dispatchEvent(new Event('click'));
+            yearCells[0]!.dispatchEvent(new Event('click'));
 
             expect(calendar.activeMode).toBe('MONTH');
         });
@@ -400,7 +402,7 @@ describe('Calendar', () => {
             const dayCells = calendar.daysKnot
                 .getNode()
                 .querySelectorAll('.day.current-month');
-            dayCells[9].dispatchEvent(new Event('click'));
+            dayCells[9]!.dispatchEvent(new Event('click'));
 
             expect(calendar.selectedDate).toBeDefined();
             expect(calendar.selectedDate.getDate()).toBe(10);

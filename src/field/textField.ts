@@ -1,9 +1,7 @@
-import { Knot } from '../core';
-import { mdl } from '../utils/render';
 import { BaseField } from './baseField';
 
 /**
- * @description Standard text input field with Material Design Lite styling.
+ * @description Standard text input field with SUI styling.
  * Extends {@link BaseField} with keyup and change event handling.
  * @category Field
  * @example
@@ -14,26 +12,9 @@ import { BaseField } from './baseField';
  */
 export class TextField extends BaseField<HTMLInputElement> {
     /**
-     * @description Creates a new TextField instance.
-     * @param {Knot<HTMLInputElement>} input - The text input element wrapped in a Knot.
-     * @param {Knot} label - The label element wrapped in a Knot.
-     * @param {Knot} error - The error element wrapped in a Knot.
-     * @param {Knot} inputBlock - The input block container wrapped in a Knot.
-     */
-    constructor(
-        input: Knot<HTMLInputElement>,
-        label: Knot,
-        error: Knot,
-        inputBlock: Knot,
-    ) {
-        super(input, label, error, inputBlock);
-        this._init();
-    }
-
-    /**
      * @description Initializes the text field by adding the CSS class and binding keyup and change events.
      */
-    private _init(): void {
+    protected override _init(): void {
         this.inputBlock.addClass('text-field');
 
         this.input.addEventListener('keyup', (input) => {
@@ -50,38 +31,25 @@ export class TextField extends BaseField<HTMLInputElement> {
     }
 
     /**
-     * @description Renders the text field by applying MDL text field classes to the input block, input, and label.
+     * @description Renders the text field by applying SUI text field classes to the input block, input, and label.
      */
     override render(): void {
-        this.inputBlock.addClass([
-            'mdl-textfield',
-            'mdl-js-textfield',
-            'mdl-textfield--floating-label',
-        ]);
-        this.input.addClass(['mdl-textfield__input']);
-        if (this.label && this.label.exists()) {
-            this.label.addClass('mdl-textfield__label');
-        }
+        this._renderTextField();
         this.refresh();
     }
 
     /**
-     * @description Refreshes the text field by updating the invalid state and re-applying MDL upgrades.
+     * @description Refreshes the text field by updating the invalid state and re-applying SUI upgrades.
      */
     override refresh(): void {
-        if (this.isRequired() && this.getValue() === '') {
-            this.inputBlock.addClass('is-invalid');
-        }
-
-        mdl(this.inputBlock);
+        this._refreshBase();
     }
 
     /**
      * @description Returns the raw string value of the input element without type-casting.
-     * @returns {*} The input element's current value.
+     * @returns {string} The input element's current value.
      */
-    // eslint-disable-next-line @typescript-eslint/no-explicit-any
-    override getValue(): any {
+    override getValue(): string {
         return this.input.getNode().value;
     }
 }

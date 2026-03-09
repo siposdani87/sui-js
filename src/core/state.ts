@@ -1,10 +1,11 @@
 import { eachObject, eq, format, isNull } from '../utils/operation';
-import { consoleDebug, consoleWarn } from '../utils/log';
+import { consoleWarn } from '../utils/log';
 import { Collection } from './collection';
+import { Emitter } from './emitter';
 import { Objekt } from './objekt';
 import { Query } from './query';
 import { Router } from './router';
-import { Route } from '../component';
+import type { Route } from '../component';
 
 /**
  * Manages application state via URL-based routing using the browser
@@ -17,8 +18,7 @@ import { Route } from '../component';
  * integrates with `window.history` for pushState/replaceState navigation
  * and handles browser back/forward via the `popstate` event.
  *
- * The {@link eventChange} method is designed to be overridden by subclasses
- * (such as {@link Module}) to react to state transitions.
+ * Listeners can subscribe to state changes via `state.on('change', handler)`.
  *
  * @example
  * const routes = [
@@ -27,6 +27,9 @@ import { Route } from '../component';
  * ];
  *
  * const state = new State(routes, { root: { id: 'home' } });
+ * state.on('change', (currentState, previousState, force) => {
+ *     console.log('State changed to', currentState.get('id'));
+ * });
  * state.go('user', { id: 42 });
  * state.getParam('id'); // 42
  *
@@ -35,9 +38,10 @@ import { Route } from '../component';
  * @see {@link Module}
  * @category Core
  */
-export class State {
+export class State extends Emitter {
     private _current: Objekt;
     private _previous: Objekt;
+    private _onPopstate!: () => void;
     routes: Collection<Route>;
     basePath!: string;
     options!: Objekt;
@@ -53,6 +57,7 @@ export class State {
      *     `root.params` to define the fallback root route.
      */
     constructor(routes: Route[], opt_options: object | undefined = {}) {
+        super();
         this._current = new Objekt();
         this._previous = this._current;
 
@@ -142,7 +147,7 @@ export class State {
      * the saved history state and triggers a state change.
      */
     private _initPopstate(): void {
-        window.addEventListener('popstate', () => {
+        this._onPopstate = () => {
             if (window.history.state) {
                 const state = new Objekt();
                 state.merge(window.history.state);
@@ -152,7 +157,17 @@ export class State {
                 this._parseUrl();
                 this._triggerChange();
             }
-        });
+        };
+        window.addEventListener('popstate', this._onPopstate);
+    }
+
+    /**
+     * Removes the `popstate` event listener registered during
+     * initialization. Call this method to clean up when the State
+     * instance is no longer needed.
+     */
+    destroy(): void {
+        window.removeEventListener('popstate', this._onPopstate);
     }
 
     /**
@@ -161,7 +176,7 @@ export class State {
      *
      * @example
      * const state = new State(routes);
-     * state.run(); // Fires eventChange with the initial route
+     * state.run(); // Emits 'change' with the initial route
      */
     run(): void {
         this._triggerChange();
@@ -212,13 +227,13 @@ export class State {
         const path = urlPath[0] === '#' ? urlPath.substring(1) : urlPath;
         const states = this.routes.getItems();
 
-        let state: Route | null = null;
+        let state: Route | undefined | null = null;
         let params: object | null = null;
         let matches: RegExpMatchArray | null = null;
 
         let i = 0;
         while (i < states.length && isNull(matches)) {
-            state = states[i];
+            state = states[i]!;
             const stateUrl = state.get<string>('url');
             const router = new Router(stateUrl);
             matches = router.getMatches(path);
@@ -277,7 +292,7 @@ export class State {
     }
 
     /**
-     * Invokes {@link eventChange} with the current and previous states.
+     * Emits the 'change' event with the current and previous states.
      *
      * @param opt_force When `true`, forces the event even if the route
      *     has not changed.
@@ -285,7 +300,7 @@ export class State {
     private _triggerChange(opt_force: boolean | undefined = false): void {
         const currentState = this.getCurrent<Objekt>();
         const previousState = this.getPrevious<Objekt>();
-        this.eventChange(currentState, previousState, opt_force);
+        this.emit('change', currentState, previousState, opt_force);
     }
 
     /**
@@ -407,8 +422,10 @@ export class State {
      * @returns A two-element array of `[url, route]`, or `['', undefined]`
      *     if the route ID is not found.
      */
-    // eslint-disable-next-line @typescript-eslint/no-explicit-any
-    private _resolveUrlWithState(id: string, opt_params?: object): Array<any> {
+    private _resolveUrlWithState(
+        id: string,
+        opt_params?: object,
+    ): [string, Route | null] {
         const route = this.routes.findById(id);
         let url = '';
         if (route) {
@@ -545,31 +562,6 @@ export class State {
     }
 
     /**
-     * Called when the application state changes due to navigation. This
-     * is a hook method intended to be overridden by subclasses (such as
-     * {@link Module}) to respond to route transitions. The default
-     * implementation logs the state change to the console.
-     *
-     * @param currentState The newly active route state as an {@link Objekt}.
-     * @param previousState The previously active route state as an
-     *     {@link Objekt}.
-     * @param opt_force Whether the change was forced (e.g., navigating
-     *     to the same route).
-     */
-    eventChange(
-        currentState: Objekt,
-        previousState: Objekt,
-        opt_force: boolean | undefined = false,
-    ): void {
-        consoleDebug(
-            'State.eventChange()',
-            currentState,
-            previousState,
-            opt_force,
-        );
-    }
-
-    /**
      * Sets multiple URL parameters at once on the current route. Each
      * key-value pair is applied individually via {@link setParam}.
      *
@@ -592,8 +584,7 @@ export class State {
      * @example
      * state.setParam('page', 3);
      */
-    // eslint-disable-next-line @typescript-eslint/no-explicit-any
-    setParam(name: string, value: any): void {
+    setParam(name: string, value: string | number | boolean): void {
         const id = this.getCurrent<string>('id');
         const params = this.getParams();
         params.set(name, value);
@@ -624,8 +615,7 @@ export class State {
      * const userId = state.getParam<number>('id');
      * const page = state.getParam<number>('page', 1);
      */
-    // eslint-disable-next-line @typescript-eslint/no-explicit-any
-    getParam<T = string>(name: string, opt_defaultValue?: any): T {
+    getParam<T = string>(name: string, opt_defaultValue?: T): T {
         const params = this.getParams();
         return params.get<T>(name, opt_defaultValue);
     }
@@ -641,7 +631,7 @@ export class State {
     }
 
     /**
-     * Re-triggers the {@link eventChange} callback for the current state
+     * Re-emits the 'change' event for the current state
      * without navigating. Useful for forcing a view re-render.
      *
      * @param opt_force When `true`, forces the event even if the state
@@ -662,8 +652,7 @@ export class State {
      * @example
      * const [rootId, rootParams] = state.getRoot();
      */
-    // eslint-disable-next-line @typescript-eslint/no-explicit-any
-    getRoot(): Array<any> {
+    getRoot(): [string, object] {
         return [this.options.root.id, this.options.root.params];
     }
 }

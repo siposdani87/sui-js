@@ -2,7 +2,6 @@ import eslint from '@eslint/js';
 import tseslint from '@typescript-eslint/eslint-plugin';
 import tsparser from '@typescript-eslint/parser';
 import prettierConfig from 'eslint-config-prettier';
-import importPlugin from 'eslint-plugin-import';
 import prettierPlugin from 'eslint-plugin-prettier';
 import tsdocPlugin from 'eslint-plugin-tsdoc';
 import globals from 'globals';
@@ -17,6 +16,7 @@ export default [
             'jest.setup.ts',
             '**/*.spec.ts',
             'src/test-helpers.ts',
+            'scripts/*',
         ],
     },
     eslint.configs.recommended,
@@ -38,7 +38,6 @@ export default [
             '@typescript-eslint': tseslint,
             'eslint-plugin-tsdoc': tsdocPlugin,
             prettier: prettierPlugin,
-            import: importPlugin,
         },
         rules: {
             ...tseslint.configs.recommended.rules,
@@ -54,16 +53,16 @@ export default [
                     ignoreRestSiblings: true,
                 },
             ],
-            'no-case-declarations': 'off',
-            'no-prototype-builtins': 'off',
+            '@typescript-eslint/consistent-type-imports': 'error',
+            '@typescript-eslint/no-floating-promises': 'error',
+            '@typescript-eslint/await-thenable': 'error',
+            '@typescript-eslint/no-unnecessary-type-assertion': 'error',
+            '@typescript-eslint/no-misused-promises': 'error',
+            '@typescript-eslint/restrict-template-expressions': 'error',
+            'no-case-declarations': 'error',
+            'no-prototype-builtins': 'error',
             'max-len': 'off',
             'max-lines': 'off',
-        },
-        settings: {
-            'import/resolver': {
-                typescript: true,
-                node: true,
-            },
         },
     },
 ];

@@ -1,7 +1,7 @@
-import { each, isString, isUndefined, typeCast } from '../utils/operation';
+import { isString, isUndefined, typeCast } from '../utils/operation';
+import { Emitter } from '../core/emitter';
 import { Knot } from '../core/knot';
 import { Query } from '../core/query';
-import { consoleDebug } from '../utils/log';
 
 /**
  * HTML5 Canvas wrapper for 2D drawing operations.
@@ -18,7 +18,7 @@ import { consoleDebug } from '../utils/log';
  * @see {@link Knot}
  * @category Component
  */
-export class Canvas {
+export class Canvas extends Emitter {
     canvasKnot!: Knot<HTMLCanvasElement>;
     canvasElement!: HTMLCanvasElement;
     context!: CanvasRenderingContext2D;
@@ -28,6 +28,7 @@ export class Canvas {
      *     string, or undefined to create a new canvas element.
      */
     constructor(opt_selector?: Knot | string) {
+        super();
         this._init(opt_selector);
         this._initEvents();
     }
@@ -57,7 +58,7 @@ export class Canvas {
             const rect = canvasKnot.getNode().getBoundingClientRect();
             const x = event.clientX - rect.left;
             const y = event.clientY - rect.top;
-            this.eventMouseMove(x, y);
+            this.emit('mouseMove', x, y);
         });
     }
 
@@ -145,7 +146,7 @@ export class Canvas {
         radius: number,
         sides: number,
         rotateAngle: number,
-        options: object,
+        options: Partial<CanvasRenderingContext2D>,
     ): void {
         if (sides < 3) {
             return;
@@ -163,11 +164,7 @@ export class Canvas {
             );
         }
         this.context.closePath();
-        // eslint-disable-next-line @typescript-eslint/no-explicit-any
-        each(options, (value: any, key: string | number) => {
-            // eslint-disable-next-line @typescript-eslint/no-explicit-any
-            (this.context as any)[key] = value;
-        });
+        Object.assign(this.context, options);
         this.context.fill();
         this.context.stroke();
         this.context.restore();
@@ -196,24 +193,18 @@ export class Canvas {
         width: number,
         height: number,
         rotateAngle: number,
-        options: object,
+        options: Partial<CanvasRenderingContext2D>,
     ): void {
         this.context.save();
         this.context.translate(x, y);
         this.context.beginPath();
         this.context.rotate(rotateAngle);
         this.context.rect(0, 0, width, height);
-        // eslint-disable-next-line @typescript-eslint/no-explicit-any
-        each(options, (value: any, key: string | number) => {
-            // eslint-disable-next-line @typescript-eslint/no-explicit-any
-            (this.context as any)[key] = value;
-        });
-        // eslint-disable-next-line @typescript-eslint/no-explicit-any
-        if ((options as Record<string, any>)['fillStyle']) {
+        Object.assign(this.context, options);
+        if (options.fillStyle) {
             this.context.fill();
         }
-        // eslint-disable-next-line @typescript-eslint/no-explicit-any
-        if ((options as Record<string, any>)['strokeStyle']) {
+        if (options.strokeStyle) {
             this.context.stroke();
         }
         this.context.restore();
@@ -255,15 +246,6 @@ export class Canvas {
      */
     getImageDataXY(x: number, y: number): Uint8ClampedArray {
         return this.context.getImageData(x, y, 1, 1).data;
-    }
-
-    /**
-     * Called when the mouse moves over the canvas. Override to handle mouse tracking.
-     * @param x - The x-coordinate relative to the canvas.
-     * @param y - The y-coordinate relative to the canvas.
-     */
-    eventMouseMove(x: number, y: number): void {
-        consoleDebug('Canvas.eventMouseMove()', x, y);
     }
 
     /**

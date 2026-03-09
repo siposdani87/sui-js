@@ -87,10 +87,10 @@ export const convertRGBToHEX = (
     const colors: number[] = [red, green, blue];
     const results: string[] = [];
     for (let i = 0; i < colors.length; i++) {
-        if (colors[i] <= 16) {
-            results[i] = '0' + colors[i].toString(16).toUpperCase();
+        if (colors[i]! <= 16) {
+            results[i] = '0' + colors[i]!.toString(16).toUpperCase();
         } else {
-            results[i] = '' + colors[i].toString(16).toUpperCase();
+            results[i] = '' + colors[i]!.toString(16).toUpperCase();
         }
     }
     return '#' + results.join('');
@@ -314,10 +314,10 @@ export const colorContrast = (
 ): string => {
     const colors = convertHEXToRGB(hexColor);
     for (let i = 0; i < colors.length; i++) {
-        colors[i] += Math.round(colors[i] * opt_diff);
-        if (colors[i] < 0) {
+        colors[i]! += Math.round(colors[i]! * opt_diff);
+        if (colors[i]! < 0) {
             colors[i] = 0;
-        } else if (colors[i] > 255) {
+        } else if (colors[i]! > 255) {
             colors[i] = 255;
         }
     }

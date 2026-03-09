@@ -2,9 +2,8 @@ import { Deferred } from '../core/deferred';
 import { Objekt } from '../core/objekt';
 import { Query } from '../core/query';
 import { BaseModal } from './baseModal';
-import { Http } from './http';
-import { Knot } from '../core';
-import { mdl } from '../utils/render';
+import type { Http } from './http';
+import type { Knot } from '../core';
 
 /**
  * Full dialog modal that loads its content from a server endpoint via
@@ -25,7 +24,7 @@ import { mdl } from '../utils/render';
  * const dialog = new Dialog(http);
  * dialog.loadTemplate('/api/edit-user/42').then(
  *     (contentKnot) => {
- *         dialog.eventOK = () => saveUser(contentKnot);
+ *         dialog.on('ok', () => saveUser(contentKnot));
  *         dialog.open();
  *     },
  *     (errorKnot) => {
@@ -40,7 +39,7 @@ import { mdl } from '../utils/render';
  */
 export class Dialog extends BaseModal {
     http: Http;
-    options!: Objekt;
+    options!: Objekt<{ id: string }>;
 
     /**
      * Creates a new Dialog instance.
@@ -77,9 +76,12 @@ export class Dialog extends BaseModal {
     private _init(): void {
         this.body = new Query('body').getKnot();
         this.modal = new Query(this.options.id, this.body).getKnot();
+        this.modal.setAttribute('role', 'dialog');
+        this.modal.setAttribute('aria-labelledby', 'dialog-title');
         this.modalWindow = new Query('#dialog-window', this.modal).getKnot();
         this.modalHeader = new Query('.modal-header', this.modal).getKnot();
         this.modalTitle = new Query('.modal-title', this.modalHeader).getKnot();
+        this.modalTitle.setId('dialog-title');
         this.modalBody = new Query('.modal-body', this.modal).getKnot();
         this.modalFooter = new Query('.modal-footer', this.modal).getKnot();
     }
@@ -103,7 +105,7 @@ export class Dialog extends BaseModal {
      * @example
      * dialog.loadTemplate('/api/confirm-delete').then(
      *     (contentKnot) => {
-     *         dialog.eventOK = () => performDelete();
+     *         dialog.on('ok', () => performDelete());
      *         dialog.open();
      *     },
      *     (errorKnot) => {
@@ -139,7 +141,6 @@ export class Dialog extends BaseModal {
         const title = new Query('title', dom).getKnot();
         this._setTitle(title.getText());
         this.modalBody.insert(messageKnot);
-        mdl(messageKnot);
         return messageKnot;
     }
 
@@ -159,7 +160,6 @@ export class Dialog extends BaseModal {
 
         const contentKnot = new Query('#content', dom).getKnot();
         this.modalBody.insert(contentKnot);
-        mdl(contentKnot);
 
         this._handleActions(dom);
 
@@ -184,26 +184,21 @@ export class Dialog extends BaseModal {
             const buttons = new Query('button', actionKnot);
             const size = buttons.size();
             let actions = [this._actionOK.bind(this)];
-            let cssClasses = ['mdl-button--primary'];
+            let cssClasses = ['sui-button--primary'];
             if (size === 2) {
                 actions = [
                     this._actionCancel.bind(this),
                     this._actionOK.bind(this),
                 ];
-                cssClasses = ['mdl-button--accent', 'mdl-button--primary'];
+                cssClasses = ['sui-button--accent', 'sui-button--primary'];
             }
             buttons.each((button, i) => {
-                const buttonClasses = [
-                    'mdl-button',
-                    'mdl-js-button',
-                    'mdl-js-ripple-effect',
-                ].concat([cssClasses[i]]);
+                const buttonClasses = ['sui-button'].concat([cssClasses[i]!]);
                 button.addClass(buttonClasses);
                 button.addEventListener('click', actions[i]);
             });
 
             this.modalFooter.insert(actionKnot);
-            mdl(actionKnot);
         } else {
             this.modalFooter.removeChildren();
             this.modalFooter.addClass('hidden');

@@ -3,12 +3,19 @@
 .scannerwork
 
 node_modules
+dist
 
 .claude
+.playwright-mcp
+.tsbuildinfo
 
-# Coverage reports (HTML)
-coverage/*.html
-coverage/*.css
-coverage/*.js
-coverage/*.png
-coverage/src/
+# Coverage and reports (generated)
+coverage/
+reports/
+
+# Generated TypeDoc API docs
+website/docs/api/
+website/classes/
+website/functions/
+website/type-aliases/
+website/variables/

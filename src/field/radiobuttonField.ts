@@ -2,11 +2,11 @@ import { format, typeCast } from '../utils/operation';
 import { BaseField } from './baseField';
 import { Knot } from '../core/knot';
 import { Query } from '../core/query';
-import { Form } from '../component';
-import { mdl } from '../utils/render';
+import type { Form } from '../component';
+import { sui } from '../utils/render';
 
 /**
- * @description Radio button group field with MDL styling. Manages a set of radio inputs sharing the same name,
+ * @description Radio button group field with SUI styling. Manages a set of radio inputs sharing the same name,
  * handling checked state, disabled state, and label rendering across all buttons in the group.
  *
  * @example
@@ -38,13 +38,12 @@ export class RadiobuttonField extends BaseField<HTMLInputElement> {
         form: Form,
     ) {
         super(input, label, error, inputBlock, form);
-        this._init();
     }
 
     /**
      * @description Initializes the field by adding CSS class and attaching the change event listener.
      */
-    private _init(): void {
+    protected override _init(): void {
         this.inputBlock.addClass('radiobutton-field');
 
         /* this.label.addEventListener('click', () => {
@@ -77,25 +76,21 @@ export class RadiobuttonField extends BaseField<HTMLInputElement> {
     }
 
     /**
-     * @description Builds the MDL radio button layout with label, icon, and data-label elements.
+     * @description Builds the SUI radio button layout with label, icon, and data-label elements.
      * @override
      */
     override render(): void {
-        this.label.addClass([
-            'mdl-radio',
-            'mdl-js-radio',
-            'mdl-js-ripple-effect',
-        ]);
+        this.label.addClass('sui-radio');
         const id = this.input.getId()!;
         this.label.setFor(id);
 
         const labelText = this.label.getHtml(true);
 
         const spanLabel = new Knot('span');
-        spanLabel.addClass('mdl-radio__label');
+        spanLabel.addClass('sui-radio__label');
         spanLabel.setHtml(labelText);
 
-        this.input.addClass('mdl-radio__button');
+        this.input.addClass('sui-radio__button');
 
         this.label.insert(this.input);
         this.label.appendChild(spanLabel);
@@ -108,7 +103,7 @@ export class RadiobuttonField extends BaseField<HTMLInputElement> {
     }
 
     /**
-     * @description Updates the data-label text, manages the disabled state, and upgrades MDL components.
+     * @description Updates the data-label text, manages the disabled state, and upgrades SUI components.
      * @override
      */
     override refresh() {
@@ -120,10 +115,11 @@ export class RadiobuttonField extends BaseField<HTMLInputElement> {
             this.dataLabelKnot.setHtml('');
         }
         if (this.isDisabled()) {
+            this.label.addClass('is-disabled');
             this.inputBlock.addClass('is-disabled');
         }
 
-        mdl(this.label, false);
+        sui(this.label);
     }
 
     /**

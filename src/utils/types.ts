@@ -9,10 +9,10 @@
  * @category Utility
  */
 
-import { Application } from '../component';
-import { Knot, State } from '../core';
-import { Objekt } from '../core/objekt';
-import {
+import type { Application } from '../component';
+import type { Knot, State } from '../core';
+import type { Objekt } from '../core/objekt';
+import type {
     BottomMenu,
     Browser,
     Confirm,
@@ -224,8 +224,11 @@ export type Nullable<T> = T | null;
  *
  * @category Utility
  */
-// eslint-disable-next-line @typescript-eslint/no-explicit-any
-export type ClassRef = { new (...args: any[]): any };
+export type ClassRef = {
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+    new (...args: any[]): any;
+    inject?: readonly string[];
+};
 
 /**
  * Module dependency descriptor for the DI system.

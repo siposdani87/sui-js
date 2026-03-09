@@ -1,13 +1,15 @@
 {
   "compilerOptions": {
     "module": "ESNext",
-    "target": "ES2015",
-    "moduleResolution": "Node",
+    "target": "ES2020",
+    "moduleResolution": "Bundler",
     "declaration": true,
     "strict": true,
     "outDir": "dist",
-    "types": ["google.maps", "jest", "material-design-lite", "dom-view-transitions"],
+    "types": ["google.maps", "jest"],
     "lib": ["ESNext", "DOM"],
+    "incremental": true,
+    "tsBuildInfoFile": ".tsbuildinfo",
     "skipLibCheck": true,
     "noImplicitAny": true,
     "esModuleInterop": true,
@@ -19,10 +21,10 @@
     "allowUnreachableCode": false,
     "allowUnusedLabels": false,
 
-    /* Additional Type Checking (Optional - Not Yet Enabled) */
-    "noUnusedLocals": false,
-    "noUnusedParameters": false,
-    "noUncheckedIndexedAccess": false
+    /* Additional Type Checking */
+    "noUnusedLocals": true,
+    "noUnusedParameters": true,
+    "noUncheckedIndexedAccess": true
   },
   "include": [
     "src/**/*"

@@ -32,16 +32,20 @@ describe('TabPanel', () => {
             expect(tabPanel.getActive()).toBe('panel-2');
         });
 
-        it('should handle null panelId', () => {
+        it('should handle null panelId', async () => {
             const onReject = jest.fn();
-            tabPanel.setActive(null).then(jest.fn(), onReject);
+            tabPanel
+                .setActive(null as unknown as string)
+                .then(jest.fn(), onReject);
+            await new Promise((resolve) => setTimeout(resolve, 0));
             expect(onReject).toHaveBeenCalled();
         });
     });
 
-    describe('eventChange', () => {
-        it('should call eventChange when panel changes', () => {
-            const spy = jest.spyOn(tabPanel, 'eventChange');
+    describe('change event', () => {
+        it('should emit change event when panel changes', () => {
+            const spy = jest.fn();
+            tabPanel.on('change', spy);
             tabPanel.setActive('panel-1');
             expect(spy).toHaveBeenCalledWith('panel-1');
         });

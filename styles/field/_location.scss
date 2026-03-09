@@ -3,10 +3,10 @@
 .location-field {
     .search-button,
     .advanced-button {
-        color: variables.$primary-default-light;
+        color: var(--sui-primary-action);
 
         &.active {
-            color: variables.$accent-default-light;
+            color: var(--sui-accent-action);
         }
     }
 
@@ -25,8 +25,8 @@
 
     .map {
         margin-top: 20px;
-        border: 1px solid variables.$input-default-light;
-        border-radius: 3px;
+        border: 1px solid var(--sui-input);
+        border-radius: variables.$radius-md;
         min-height: 200px;
         height: 200px;
         width: 100%;
@@ -44,12 +44,12 @@
 
     &.is-disabled {
         label {
-            color: variables.$label-disabled-light;
+            color: var(--sui-label-disabled);
         }
 
         .search-button,
         .advanced-button {
-            color: variables.$primary-disabled-light;
+            color: var(--sui-primary-action-disabled);
         }
     }
 }

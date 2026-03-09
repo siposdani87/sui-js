@@ -1,0 +1,17 @@
+.sui-textfield__error {
+    display: block;
+    color: var(--sui-error-text);
+    font-size: 0.8em;
+}
+
+.is-disabled {
+    .sui-textfield__error {
+        color: var(--sui-error-text-disabled);
+    }
+}
+
+.is-invalid {
+    .sui-textfield__error {
+        visibility: visible;
+    }
+}

@@ -40,26 +40,10 @@ export class ColorField extends BaseField<HTMLInputElement> {
     colors!: string[][];
 
     /**
-     * @param input The underlying `<input>` element wrapped in a {@link Knot}.
-     * @param label The associated label element.
-     * @param error The element used to display validation errors.
-     * @param inputBlock The block-level container wrapping the entire field.
-     */
-    constructor(
-        input: Knot<HTMLInputElement>,
-        label: Knot,
-        error: Knot,
-        inputBlock: Knot,
-    ) {
-        super(input, label, error, inputBlock);
-        this._init();
-    }
-
-    /**
      * Initializes the color field, input listeners, image source, preview
      * swatch, and Material Design color palette.
      */
-    private _init(): void {
+    protected override _init(): void {
         this.inputBlock.addClass('color-field');
 
         this._initInput();
@@ -74,7 +58,7 @@ export class ColorField extends BaseField<HTMLInputElement> {
      * @override
      */
     override render() {
-        if (this.label && this.label.exists()) {
+        if (this.label?.exists()) {
             this.label.addClass('field-label');
         }
 
@@ -88,8 +72,10 @@ export class ColorField extends BaseField<HTMLInputElement> {
      * @override
      */
     override refresh() {
-        if (this.isRequired() && this.getValue() === '') {
+        if (this.isRequired() && !this.getValue()) {
             this.inputBlock.addClass('is-invalid');
+        } else {
+            this.inputBlock.removeClass('is-invalid');
         }
 
         if (this.isDisabled()) {
@@ -156,7 +142,7 @@ export class ColorField extends BaseField<HTMLInputElement> {
             this.canvas.drawImage(this.image, width, height);
         } else {
             // 19x11
-            const maxX = this.colors[0].length;
+            const maxX = this.colors[0]!.length;
             const maxY = this.colors.length;
             const size = 15;
             this.canvas.setSize(maxX * size, maxY * size);
@@ -169,7 +155,7 @@ export class ColorField extends BaseField<HTMLInputElement> {
                         size,
                         0,
                         {
-                            fillStyle: this.colors[j][i],
+                            fillStyle: this.colors[j]![i]!,
                         },
                     );
                 }

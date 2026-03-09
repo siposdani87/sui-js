@@ -2,8 +2,8 @@ import { isNull } from '../utils/operation';
 import { Async } from '../core/async';
 import { Deferred } from '../core/deferred';
 import { Query } from '../core/query';
-import { consoleDebug } from '../utils/log';
-import { Knot } from '../core';
+import { Emitter } from '../core/emitter';
+import type { Knot } from '../core';
 
 /**
  * @description Tab panel component that manages tab/panel activation with async change events.
@@ -12,7 +12,7 @@ import { Knot } from '../core';
  *
  * @example
  * const tabPanel = new TabPanel(containerKnot, '.tab-panel', 'details');
- * tabPanel.eventChange = (panelId) => loadContent(panelId);
+ * tabPanel.on('change', (panelId) => loadContent(panelId));
  * tabPanel.setActive('settings');
  *
  * @see {@link Async} for the async serial execution pipeline
@@ -20,7 +20,7 @@ import { Knot } from '../core';
  *
  * @category Component
  */
-export class TabPanel {
+export class TabPanel extends Emitter {
     tabPanel: Knot;
     options: { selected_tab: string; default_tab: string };
     activeTab!: string;
@@ -40,6 +40,7 @@ export class TabPanel {
         opt_selectedTab: string | undefined = '',
         opt_defaultTab: string | undefined = '',
     ) {
+        super();
         this.tabPanel = new Query(opt_selector, dom).getKnot();
         this.options = {
             selected_tab: opt_selectedTab,
@@ -63,14 +64,20 @@ export class TabPanel {
      * @description Queries tab anchor elements, wires click handlers, and hides single tabs.
      */
     private _initTabs(): void {
+        const tabsContainer = new Query('.tabs', this.tabPanel).getKnot();
+        if (!tabsContainer.isEmpty()) {
+            tabsContainer.setAttribute('role', 'tablist');
+        }
         this.tabs = new Query('.tabs a', this.tabPanel);
         this.tabs.each((tab) => {
             const panelId = tab.getAttribute('href').substring(1);
+            tab.setAttribute('role', 'tab');
+            tab.setAttribute('aria-selected', 'false');
             if (this.tabs.size() === 1) {
                 tab.addClass('hidden');
             }
             tab.setData('panel', panelId);
-            tab.setAttribute('href', 'javascript:void(0)');
+            tab.setAttribute('href', '#');
             tab.addEventListener('click', () => {
                 this.setActive(panelId);
             });
@@ -82,6 +89,9 @@ export class TabPanel {
      */
     private _initPanels(): void {
         this.panels = new Query('.panel', this.tabPanel);
+        this.panels.each((panel) => {
+            panel.setAttribute('role', 'tabpanel');
+        });
     }
 
     /**
@@ -101,23 +111,14 @@ export class TabPanel {
 
         this.tabs.each((tab) => {
             tab.removeClass('active');
+            tab.setAttribute('aria-selected', 'false');
             if (tab.getData('panel') === panelId) {
                 tab.addClass('active');
+                tab.setAttribute('aria-selected', 'true');
             }
         });
 
         this.activeTab = activeTab;
-    }
-
-    /**
-     * @description Called when the active tab changes. Override to handle tab change events.
-     * @param {string} panelId - The ID of the newly active panel.
-     *
-     * @example
-     * tabPanel.eventChange = (panelId) => loadPanelContent(panelId);
-     */
-    eventChange(panelId: string): void {
-        consoleDebug('TabPanel.eventChange()', panelId);
     }
 
     /**
@@ -136,7 +137,7 @@ export class TabPanel {
             async
                 .serial([
                     () => {
-                        return this.eventChange(this.getActive());
+                        return this.emit('change', this.getActive());
                     },
                 ])
                 .defer(deferred);

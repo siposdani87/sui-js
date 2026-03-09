@@ -28,7 +28,7 @@ describe('Table', () => {
                     .querySelectorAll('.content-handler')
                     .forEach((el) => el.remove());
                 parent
-                    .querySelectorAll('.mdl-tooltip')
+                    .querySelectorAll('.sui-tooltip')
                     .forEach((el) => el.remove());
             }
         }
@@ -352,13 +352,13 @@ describe('Table', () => {
             expect(icons.length).toBe(1);
         });
 
-        it('should call eventAction on sortable column click', () => {
+        it('should emit action on sortable column click', () => {
             const table = createTable({
                 columns: ['username', 'actions'],
                 sorted: ['username'],
             });
             const eventActionSpy = jest.fn();
-            table.eventAction = eventActionSpy;
+            table.on('action', eventActionSpy);
 
             const firstTh = table.tableKnot.getNode().querySelector('thead th');
             firstTh?.dispatchEvent(new Event('click'));
@@ -374,7 +374,7 @@ describe('Table', () => {
                 sorted: ['username'],
             });
             const eventActionSpy = jest.fn();
-            table.eventAction = eventActionSpy;
+            table.on('action', eventActionSpy);
 
             const firstTh = table.tableKnot.getNode().querySelector('thead th');
 
@@ -392,7 +392,7 @@ describe('Table', () => {
                 columns: ['username', 'actions'],
                 sorted: ['username'],
             });
-            table.eventAction = jest.fn();
+            table.on('action', jest.fn());
 
             const firstTh = table.tableKnot.getNode().querySelector('thead th');
             firstTh?.dispatchEvent(new Event('click'));
@@ -430,14 +430,14 @@ describe('Table', () => {
                 columns: ['username', 'search'],
             });
             const eventActionSpy = jest.fn();
-            table.eventAction = eventActionSpy;
+            table.on('action', eventActionSpy);
 
             const searchInput = table.tableKnot
                 .getNode()
                 .querySelector('#table-search') as HTMLInputElement;
             searchInput.value = 'test query';
             searchInput.dispatchEvent(
-                new KeyboardEvent('keypress', { keyCode: 13 }),
+                new KeyboardEvent('keypress', { key: 'Enter' }),
             );
 
             expect(table.query).toBe('test query');
@@ -446,10 +446,10 @@ describe('Table', () => {
     });
 
     describe('refresh', () => {
-        it('should call eventAction with query params', () => {
+        it('should emit action with query params', () => {
             const table = createTable();
             const eventActionSpy = jest.fn();
-            table.eventAction = eventActionSpy;
+            table.on('action', eventActionSpy);
 
             table.refresh();
 
@@ -462,7 +462,7 @@ describe('Table', () => {
         it('should set page on pager when page > -1', () => {
             const table = createTable();
             const setPageSpy = jest.spyOn(table.pager, 'setPage');
-            table.eventAction = jest.fn();
+            table.on('action', jest.fn());
 
             table.refresh(2);
 
@@ -472,7 +472,7 @@ describe('Table', () => {
         it('should not set page when page is -1', () => {
             const table = createTable();
             const setPageSpy = jest.spyOn(table.pager, 'setPage');
-            table.eventAction = jest.fn();
+            table.on('action', jest.fn());
 
             table.refresh();
 
@@ -481,17 +481,171 @@ describe('Table', () => {
     });
 
     describe('render', () => {
-        it('should call eventAction via updateSorting', () => {
+        it('should emit action via updateSorting', () => {
             const table = createTable({
                 columns: ['username', 'actions'],
                 sorted: ['username'],
             });
             const eventActionSpy = jest.fn();
-            table.eventAction = eventActionSpy;
+            table.on('action', eventActionSpy);
 
             table.render();
 
             expect(eventActionSpy).toHaveBeenCalled();
+        });
+    });
+
+    describe('header row toggling', () => {
+        it('should toggle opened class on header row click', () => {
+            const table = createTable();
+            table.setData([{ username: 'alice' }]);
+            const headerRow = table.tbody
+                .getNode()
+                .querySelector('tr.header') as HTMLElement;
+            headerRow.dispatchEvent(new Event('click'));
+            expect(headerRow.classList.contains('opened')).toBe(true);
+        });
+    });
+
+    describe('collection slicing', () => {
+        it('should slice items when collection size exceeds row_count', () => {
+            const table = createTable({ row_count: 2 });
+            table.setData([
+                { username: 'alice' },
+                { username: 'bob' },
+                { username: 'charlie' },
+            ]);
+            const dataRows = table.tbody.getNode().querySelectorAll('tr.data');
+            expect(dataRows.length).toBe(2);
+        });
+    });
+
+    describe('emit action default', () => {
+        it('should not throw when action is emitted with no listeners', () => {
+            const table = createTable();
+            expect(() => table.emit('action', new Objekt())).not.toThrow();
+        });
+    });
+
+    describe('calculation returning Knot', () => {
+        it('should handle calculation returning a Knot array', () => {
+            const calcFn = jest.fn((item: Objekt) => {
+                const knot = new Knot('strong');
+                knot.setHtml(item.get<string>('username', ''));
+                return [knot];
+            });
+            const table = createTable({
+                calculations: { username: calcFn },
+            });
+            table.setData([{ username: 'alice' }]);
+            const strong = table.tbody.getNode().querySelector('strong');
+            expect(strong).not.toBeNull();
+            expect(strong?.textContent).toBe('alice');
+        });
+
+        it('should render tooltip on Knot with title attribute', () => {
+            const calcFn = jest.fn((item: Objekt) => {
+                const knot = new Knot('span');
+                knot.setAttribute('title', 'Tooltip text');
+                knot.setHtml(item.get<string>('username', ''));
+                return knot;
+            });
+            const table = createTable({
+                calculations: { username: calcFn },
+            });
+            table.setData([{ username: 'alice' }]);
+            const tooltips = document.querySelectorAll('.sui-tooltip');
+            expect(tooltips.length).toBeGreaterThan(0);
+        });
+
+        it('should wrap string calculation result in span', () => {
+            const calcFn = jest.fn(() => 'computed-value');
+            const table = createTable({
+                calculations: { username: calcFn },
+            });
+            table.setData([{ username: 'alice' }]);
+            const dataRow = table.tbody.getNode().querySelector('tr.data');
+            expect(dataRow?.textContent).toContain('computed-value');
+        });
+    });
+
+    describe('search non-Enter key', () => {
+        it('should not trigger action on non-Enter key', () => {
+            const table = createTable({
+                columns: ['username', 'search'],
+            });
+            const eventActionSpy = jest.fn();
+            table.on('action', eventActionSpy);
+
+            const searchInput = table.tableKnot
+                .getNode()
+                .querySelector('#table-search') as HTMLInputElement;
+            searchInput.value = 'test';
+            searchInput.dispatchEvent(
+                new KeyboardEvent('keypress', { key: 'a' }),
+            );
+
+            expect(eventActionSpy).not.toHaveBeenCalled();
+        });
+    });
+
+    describe('table re-initialization guard', () => {
+        it('should skip re-initialization if table already has ID', () => {
+            const table1 = createTable();
+            const id1 = table1.tableKnot.getId();
+
+            // Create second table pointing to the same DOM — ID should persist
+            const table2 = createTable();
+            const id2 = table2.tableKnot.getId();
+
+            expect(id1).toBeTruthy();
+            expect(id2).toBe(id1);
+        });
+    });
+
+    describe('row styles edge cases', () => {
+        it('should handle rowStyle returning falsy value', () => {
+            const table = createTable({
+                rowStyle: () => '',
+            });
+            table.setData([{ username: 'alice' }]);
+            const dataRow = table.tbody.getNode().querySelector('tr.data');
+            expect(dataRow).not.toBeNull();
+        });
+    });
+
+    describe('actions edge cases', () => {
+        it('should render action button without title', () => {
+            const table = createTable();
+            table.setActions([createAction('edit', '', false, false)]);
+            table.setData([{ username: 'alice' }]);
+            const buttons = table.tbody
+                .getNode()
+                .querySelectorAll('td.actions button');
+            expect(buttons.length).toBeGreaterThan(0);
+        });
+
+        it('should attach click handler to enabled action button', () => {
+            const clickFn = jest.fn();
+            const table = createTable();
+            table.setActions([
+                createAction('edit', 'Edit', false, false, clickFn),
+            ]);
+            table.setData([{ username: 'alice' }]);
+            const button = table.tbody
+                .getNode()
+                .querySelector('td.actions button') as HTMLElement;
+            button.click();
+            expect(clickFn).toHaveBeenCalledTimes(1);
+        });
+    });
+
+    describe('collection not sliced when within row_count', () => {
+        it('should show all items when collection <= row_count', () => {
+            const table = createTable({ row_count: 5 });
+            table.setData([{ username: 'alice' }, { username: 'bob' }]);
+            const dataRows = table.tbody.getNode().querySelectorAll('tr.data');
+            expect(dataRows.length).toBe(2);
         });
     });
 });

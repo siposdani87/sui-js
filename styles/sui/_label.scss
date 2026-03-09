@@ -1,0 +1,16 @@
+.sui-textfield__label {
+    position: absolute;
+    top: 0;
+    margin-inline-end: 10px;
+    color: var(--sui-label);
+    display: block;
+    text-overflow: ellipsis;
+}
+
+.sui-textfield {
+    &.is-disabled {
+        .sui-textfield__label {
+            color: var(--sui-label-disabled);
+        }
+    }
+}

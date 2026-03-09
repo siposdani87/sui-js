@@ -77,14 +77,14 @@ export class Objekt<T extends object = object> {
             // eslint-disable-next-line @typescript-eslint/no-explicit-any
             const obj = object as Record<string, any>;
             for (const key in obj) {
-                if (obj.hasOwnProperty(key)) {
+                if (Object.hasOwn(obj, key)) {
                     if (isPureObject(obj[key])) {
                         if (!instanceOf(this[key], Objekt)) {
                             this[key] = new Objekt(this[key]);
                         }
-                        this[key].merge(obj[key]);
+                        (this[key] as Objekt).merge(obj[key]);
                     } else if (isArray(obj[key]) && isPureObject(obj[key][0])) {
-                        this._convertobject(obj, key);
+                        this._convertObject(obj, key);
                         this[key] = obj[key];
                     } else {
                         this[key] = typeCast(obj[key]);
@@ -103,7 +103,7 @@ export class Objekt<T extends object = object> {
      * @param {string} key The property name of the array to convert.
      */
     // eslint-disable-next-line @typescript-eslint/no-explicit-any
-    private _convertobject(object: any, key: string): void {
+    private _convertObject(object: any, key: string): void {
         each(object[key], (obj, i) => {
             object[key][i] = new Objekt(obj);
         });
@@ -161,25 +161,19 @@ export class Objekt<T extends object = object> {
         object: object | Objekt,
         attributes: Array<string>,
     ): K | undefined {
-        let result = undefined;
         // eslint-disable-next-line @typescript-eslint/no-explicit-any
         const obj = object as Record<string, any>;
-        each(object, (_value, property) => {
-            if (
-                attributes.length === 1 &&
-                property.toString() === attributes[0]
-            ) {
-                result = obj[property];
-            } else if (
-                property.toString() === attributes[0] &&
-                (isPureObject(obj[property]) || isArray(obj[property]))
-            ) {
-                const copyAttributes = copyArray(attributes);
-                copyAttributes.shift();
-                result = this._getByAttributes(obj[property], copyAttributes);
-            }
-        });
-        return result;
+        const key = attributes[0]!;
+        if (isUndefined(obj[key])) {
+            return undefined;
+        }
+        if (attributes.length === 1) {
+            return obj[key];
+        }
+        if (isPureObject(obj[key]) || isArray(obj[key])) {
+            return this._getByAttributes(obj[key], attributes.slice(1));
+        }
+        return undefined;
     }
 
     /**
@@ -228,7 +222,7 @@ export class Objekt<T extends object = object> {
      */
     set<K>(attribute: string, value: K): void {
         let object = {};
-        object = this._attributesToobject(object, attribute.split('.'), value);
+        object = this._attributesToObject(object, attribute.split('.'), value);
         this.merge(object);
     }
 
@@ -307,7 +301,7 @@ export class Objekt<T extends object = object> {
         // eslint-disable-next-line @typescript-eslint/no-explicit-any
         const obj = object as Record<string, any>;
         for (const property in obj) {
-            if (obj.hasOwnProperty(property)) {
+            if (Object.hasOwn(obj, property)) {
                 if (attributes.length === 1 && property === attributes[0]) {
                     delete obj[property];
                 } else if (
@@ -371,7 +365,7 @@ export class Objekt<T extends object = object> {
      * @param {any} value The value to assign at the deepest level.
      * @returns {object} The populated object.
      */
-    private _attributesToobject(
+    private _attributesToObject(
         object: object,
         attributes: Array<string>,
         // eslint-disable-next-line @typescript-eslint/no-explicit-any

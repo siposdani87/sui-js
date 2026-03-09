@@ -14,8 +14,8 @@ describe('RadiobuttonField', () => {
         const { input, label, error } = parseInputBlock(inputBlock);
         radiobuttonField = new RadiobuttonField(
             input,
-            label,
-            error,
+            label!,
+            error!,
             inputBlock,
             form,
         );

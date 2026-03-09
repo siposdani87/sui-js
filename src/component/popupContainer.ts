@@ -1,8 +1,8 @@
-import { Knot } from '../core';
+import type { Knot } from '../core';
 import { Collection } from '../core/collection';
 import { Query } from '../core/query';
-import { Popup } from './popup';
-import { ClassRef } from '../utils/types';
+import type { Popup } from './popup';
+import type { ClassRef } from '../utils/types';
 
 /**
  * @description Global popup lifecycle manager that tracks all open popups via a window-level
@@ -37,14 +37,30 @@ export class PopupContainer {
     }
 
     /**
+     * @description Returns the window-level popup collection.
+     */
+    private _getGlobalCollection(): Collection<Popup> | undefined {
+        return (window as unknown as Record<string, unknown>)[
+            'popup_collection'
+        ] as Collection<Popup> | undefined;
+    }
+
+    /**
+     * @description Sets the window-level popup collection.
+     */
+    private _setGlobalCollection(collection: Collection<Popup>): void {
+        (window as unknown as Record<string, unknown>)['popup_collection'] =
+            collection;
+    }
+
+    /**
      * @description Lazily initializes the window-level popup collection if it does not exist.
      * @param {Function} type - The constructor type for the collection.
      */
     private _initCollection(type: ClassRef): void {
-        // eslint-disable-next-line @typescript-eslint/no-explicit-any
-        (window as any)['popup_collection'] =
-            // eslint-disable-next-line @typescript-eslint/no-explicit-any
-            (window as any)['popup_collection'] || new Collection([], type);
+        if (!this._getGlobalCollection()) {
+            this._setGlobalCollection(new Collection([], type));
+        }
     }
 
     /**
@@ -57,11 +73,7 @@ export class PopupContainer {
      */
     push(type: ClassRef, popup: Popup): void {
         this._initCollection(type);
-        // eslint-disable-next-line @typescript-eslint/no-explicit-any
-        if ((window as any)['popup_collection']) {
-            // eslint-disable-next-line @typescript-eslint/no-explicit-any
-            (window as any)['popup_collection'].push(popup);
-        }
+        this._getGlobalCollection()?.push(popup);
     }
 
     /**
@@ -72,11 +84,7 @@ export class PopupContainer {
      * container.delete(popupInstance);
      */
     delete(popup: Popup): void {
-        // eslint-disable-next-line @typescript-eslint/no-explicit-any
-        if ((window as any)['popup_collection']) {
-            // eslint-disable-next-line @typescript-eslint/no-explicit-any
-            (window as any)['popup_collection'].delete(popup);
-        }
+        this._getGlobalCollection()?.delete(popup);
     }
 
     /**
@@ -86,13 +94,9 @@ export class PopupContainer {
      * container.closeAll();
      */
     closeAll(): void {
-        // eslint-disable-next-line @typescript-eslint/no-explicit-any
-        if ((window as any)['popup_collection']) {
-            // eslint-disable-next-line @typescript-eslint/no-explicit-any
-            (window as any)['popup_collection'].each((popup: Popup) => {
-                popup.close();
-            });
-        }
+        this._getGlobalCollection()?.each((popup: Popup) => {
+            popup.close();
+        });
     }
 
     /**

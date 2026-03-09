@@ -96,13 +96,13 @@ describe('Accessibility (a11y)', () => {
             document.body.removeChild(element.getNode());
         });
 
-        it('should add mdl-tooltip CSS class', () => {
+        it('should add sui-tooltip CSS class', () => {
             const element = new Knot('span');
             element.setAttribute('title', 'Tip');
             document.body.appendChild(element.getNode());
 
             const tooltip = new Tooltip(element, 'TOP');
-            expect(tooltip.tooltip.hasClass('mdl-tooltip')).toBe(true);
+            expect(tooltip.tooltip.hasClass('sui-tooltip')).toBe(true);
 
             document.body.removeChild(element.getNode());
         });
@@ -163,7 +163,7 @@ describe('Accessibility (a11y)', () => {
 
             const popup = new Popup(content, parent);
             const popupDiv = parent.getNode().querySelector('.popup');
-            expect(popupDiv.classList.contains('hidden')).toBe(true);
+            expect(popupDiv!.classList.contains('hidden')).toBe(true);
 
             document.body.removeChild(parent.getNode());
         });
@@ -177,11 +177,11 @@ describe('Accessibility (a11y)', () => {
             const popup = new Popup(content, parent);
             popup.open();
             const popupDiv = parent.getNode().querySelector('.popup');
-            expect(popupDiv.classList.contains('hidden')).toBe(false);
+            expect(popupDiv!.classList.contains('hidden')).toBe(false);
 
             popup.close();
             document.body.removeChild(parent.getNode());
-            delete window['popup_collection'];
+            delete (window as any)['popup_collection'];
         });
 
         it('should add popup-parent class to container', () => {

@@ -1,12 +1,12 @@
 import { noop, each, isFunction } from '../utils/operation';
-import { consoleDebug } from '../utils/log';
 import { Async } from './async';
 import { Deferred } from './deferred';
+import { Emitter } from './emitter';
 import { State } from './state';
-import { Objekt } from './objekt';
-import { Knot } from './knot';
-import { Route } from '../component/route';
-import { ClassRef, Dependency, Injection, Instance } from '../utils';
+import type { Objekt } from './objekt';
+import type { Knot } from './knot';
+import type { Route } from '../component/route';
+import type { ClassRef, Dependency, Injection, Instance } from '../utils';
 
 /**
  * Base class for the application's revealing module pattern. Module manages
@@ -19,9 +19,9 @@ import { ClassRef, Dependency, Injection, Instance } from '../utils';
  * `handleRoutes()`, which creates a {@link State} instance and connects
  * state change events to the controller enter/exit lifecycle.
  *
- * Subclasses override the `event*` hook methods to integrate with the
- * application's UI layer (e.g., showing loaders, updating navigation,
- * rendering templates).
+ * Consumers subscribe to lifecycle events via `module.on('eventName', handler)`
+ * to integrate with the application's UI layer (e.g., showing loaders,
+ * updating navigation, rendering templates).
  *
  * @example
  * const module = new Module();
@@ -43,7 +43,7 @@ import { ClassRef, Dependency, Injection, Instance } from '../utils';
  * @see {@link Promize}
  * @category Core
  */
-export class Module {
+export class Module extends Emitter {
     private _instances!: Instance;
     private _injections!: Injection;
 
@@ -58,6 +58,7 @@ export class Module {
      * default no-op controller.
      */
     constructor() {
+        super();
         this._modules = {};
         this._controller = {
             enter: noop(),
@@ -105,24 +106,35 @@ export class Module {
      *
      * @param name Unique name identifying this module. Used as the key
      *     in the instances map after instantiation.
-     * @param moduleInjections Array of dependency names that will be
-     *     resolved from the instances map and passed to the constructor.
-     * @param moduleCallback The constructor function (class reference)
-     *     to instantiate when resolving this module.
+     * @param moduleInjections Array of dependency names, or the class
+     *     constructor directly (uses `static inject` for auto-detection).
+     * @param opt_moduleCallback The constructor function (class reference)
+     *     to instantiate when resolving this module (required when
+     *     moduleInjections is an array).
      * @returns The registered module name.
      *
      * @example
+     * // Explicit injection array
      * module.add('dashboardCtrl', ['http', 'config', 'dom'], DashboardController);
+     * // Auto-detection via static inject
+     * module.add('dashboardCtrl', DashboardController);
      */
     add(
         name: string,
-        moduleInjections: string[],
-        moduleCallback: ClassRef,
+        moduleInjections: string[] | ClassRef,
+        opt_moduleCallback?: ClassRef,
     ): string {
-        this._modules[name] = {
-            moduleInjections,
-            moduleCallback,
-        };
+        if (typeof moduleInjections === 'function') {
+            this._modules[name] = {
+                moduleInjections: [],
+                moduleCallback: moduleInjections,
+            };
+        } else {
+            this._modules[name] = {
+                moduleInjections,
+                moduleCallback: opt_moduleCallback!,
+            };
+        }
         return name;
     }
 
@@ -135,10 +147,21 @@ export class Module {
      * @returns A new instance of the module's class, constructed with
      *     resolved dependencies.
      */
+    private _getInjections(dependency: Dependency): string[] {
+        if (dependency.moduleInjections.length > 0) {
+            return dependency.moduleInjections;
+        }
+        if (dependency.moduleCallback.inject) {
+            return [...dependency.moduleCallback.inject];
+        }
+        return [];
+    }
+
     private _resolveDependencies(dependency: Dependency): object {
+        const injections = this._getInjections(dependency);
         // eslint-disable-next-line @typescript-eslint/no-explicit-any
         const moduleArgs: any[] = [];
-        each(dependency.moduleInjections, (injection: string) => {
+        each(injections, (injection: string) => {
             moduleArgs.push(
                 // eslint-disable-next-line @typescript-eslint/no-explicit-any
                 (this._instances as Record<string, any>)[injection] ||
@@ -160,10 +183,10 @@ export class Module {
     private _getSortedServices(services: string[]): string[] {
         const edges = services
             .map((service) => {
-                const moduleInjections = this._modules[
-                    service
-                ].moduleInjections.filter((moduleInjection) =>
-                    services.includes(moduleInjection),
+                const mod = this._modules[service];
+                if (!mod) return [];
+                const moduleInjections = this._getInjections(mod).filter(
+                    (moduleInjection) => services.includes(moduleInjection),
                 );
                 if (moduleInjections.length === 0) {
                     moduleInjections.push(null as unknown as string);
@@ -198,15 +221,15 @@ export class Module {
         const visited: { [key: string]: boolean } = {};
 
         edges.forEach((v) => {
-            const from = v[0];
-            const to = v[1];
+            const from = v[0]!;
+            const to = v[1]!;
             if (!nodes[from]) nodes[from] = { id: from, afters: [] };
             if (!nodes[to]) nodes[to] = { id: to, afters: [] };
             nodes[from].afters.push(to);
         });
 
         const visit = (strId: string, ancestors?: string[]): void => {
-            const node = nodes[strId];
+            const node = nodes[strId]!;
             const id = node.id;
 
             if (visited[strId]) {
@@ -251,9 +274,9 @@ export class Module {
      * and its `enter()` method (if present) is called via {@link Async}
      * serial execution.
      *
-     * After all services are initialized, `eventServiceLoaded()` is fired
+     * After all services are initialized, the 'serviceLoaded' event is emitted
      * and `state.run()` is called to activate routing. If any service
-     * fails to initialize, `eventServiceFailed()` is fired instead.
+     * fails to initialize, the 'serviceFailed' event is emitted instead.
      *
      * @param services Array of service names (as registered via `add()`)
      *     to initialize.
@@ -269,7 +292,7 @@ export class Module {
             const moduleCall = () => {
                 // eslint-disable-next-line @typescript-eslint/no-explicit-any
                 (this._instances as Record<string, any>)[serviceName] =
-                    this._resolveDependencies(this._modules[serviceName]);
+                    this._resolveDependencies(this._modules[serviceName]!);
 
                 if (
                     isFunction(
@@ -288,16 +311,16 @@ export class Module {
             calls.push(moduleCall);
         });
 
-        this.eventAfterInit();
+        this.emit('afterInit');
 
         const async = new Async();
         async.serial(calls).then(
             () => {
-                this.eventServiceLoaded();
+                this.emit('serviceLoaded');
                 this._instances.state.run();
             },
             () => {
-                this.eventServiceFailed();
+                this.emit('serviceFailed');
             },
         );
     }
@@ -321,29 +344,28 @@ export class Module {
      */
     handleRoutes(routes: Route[], options: object): void {
         this._instances.state = new State(routes, options);
-        this._instances.state.eventChange = (
-            currentState,
-            previousState,
-            force,
-        ) => {
-            let exit = noop();
-            if (
-                !previousState.isEmpty() &&
-                this._controller &&
-                isFunction(this._controller.exit)
-            ) {
-                exit = this._controller.exit.bind(this._controller);
-            }
+        this._instances.state.on(
+            'change',
+            (currentState, previousState, force) => {
+                let exit = noop();
+                if (
+                    !previousState.isEmpty() &&
+                    this._controller &&
+                    isFunction(this._controller.exit)
+                ) {
+                    exit = this._controller.exit.bind(this._controller);
+                }
 
-            const async = new Async();
-            async.serial([exit]).then(() => {
-                this._handleStateChange(currentState, force);
-            });
-        };
+                const async = new Async();
+                async.serial([exit]).then(() => {
+                    this._handleStateChange(currentState, force);
+                });
+            },
+        );
     }
 
     /**
-     * Handles an individual state change by firing `eventStateChange()`,
+     * Handles an individual state change by emitting 'stateChange',
      * loading the template (if defined), and initializing the controller
      * for the new state.
      *
@@ -357,33 +379,40 @@ export class Module {
         currentState: Objekt,
         opt_force: boolean | undefined = false,
     ): void {
-        this.eventStateChange(currentState).then(
+        const stateChangeResult =
+            this.emit('stateChange', currentState) ??
+            (() => {
+                const d = new Deferred();
+                d.resolve();
+                return d.promise();
+            })();
+        stateChangeResult.then(
             () => {
                 const template = currentState.get('template');
                 if (template) {
                     const templateUrl = currentState.get<string>('templateUrl');
                     this._instances.template.load(templateUrl, opt_force).then(
                         (dom) => {
-                            this.eventModuleLoaded(currentState);
+                            this.emit('moduleLoaded', currentState);
                             this._initController(currentState, dom);
                         },
                         () => {
-                            this.eventModuleFailed(currentState);
+                            this.emit('moduleFailed', currentState);
                         },
                     );
                 } else {
-                    this.eventModuleLoaded(currentState);
+                    this.emit('moduleLoaded', currentState);
                     this._initController(
                         currentState,
                         // eslint-disable-next-line @typescript-eslint/no-explicit-any
                         (this._instances as Record<string, any>)[
-                            this._injections.template
+                            this._injections.template!
                         ].getViewKnot(),
                     );
                 }
             },
             () => {
-                this.eventModuleFailed(currentState);
+                this.emit('moduleFailed', currentState);
             },
         );
     }
@@ -402,131 +431,27 @@ export class Module {
         this._instances.dom = dom;
         const controller = this._modules[state.get<string>('controller')];
         if (controller) {
-            this.eventDomChange(state, dom).then(() => {
+            const domChangeResult =
+                this.emit('domChange', state, dom) ??
+                (() => {
+                    const d = new Deferred();
+                    d.resolve();
+                    return d.promise();
+                })();
+            domChangeResult.then(() => {
                 this._controller = this._resolveDependencies(controller);
                 if (this._controller && isFunction(this._controller.enter)) {
                     const enter = this._controller.enter.bind(this._controller);
                     const async = new Async();
                     async.serial([enter]).then(() => {
-                        this.eventControllerLoaded(dom);
+                        this.emit('controllerLoaded', dom);
                     });
                 } else {
-                    this.eventControllerLoaded(dom);
+                    this.emit('controllerLoaded', dom);
                 }
             });
         } else {
-            this.eventControllerFailed();
+            this.emit('controllerFailed');
         }
-    }
-
-    /**
-     * Overridable lifecycle hook called when a controller has been
-     * successfully loaded and its `enter()` method has completed.
-     * Logs by default; override to integrate with the application UI.
-     *
-     * @param dom The {@link Knot} DOM container rendered by the controller.
-     */
-    eventControllerLoaded(dom: Knot): void {
-        consoleDebug('Module.eventControllerLoaded()', dom);
-    }
-
-    /**
-     * Overridable lifecycle hook called when no controller is found for
-     * the current route. Logs by default; override to show error states.
-     */
-    eventControllerFailed(): void {
-        consoleDebug('Module.eventControllerFailed()');
-    }
-
-    /**
-     * Overridable lifecycle hook called when a module (template) fails
-     * to load for the given state. Logs by default; override to display
-     * error feedback to the user.
-     *
-     * @param state The {@link Objekt} representing the state whose
-     *     module failed to load.
-     */
-    eventModuleFailed(state: Objekt): void {
-        consoleDebug('Module.eventModuleFailed()', state);
-    }
-
-    /**
-     * Overridable lifecycle hook called when a module (template) has
-     * been successfully loaded for the given state. Logs by default;
-     * override to update navigation or page title.
-     *
-     * @param state The {@link Objekt} representing the state whose
-     *     module was loaded.
-     */
-    eventModuleLoaded(state: Objekt): void {
-        consoleDebug('Module.eventModuleLoaded()', state);
-    }
-
-    /**
-     * Overridable lifecycle hook called when the application state
-     * changes. Returns a {@link Promize} to allow asynchronous operations
-     * (such as transition animations or data prefetching) before the
-     * controller lifecycle continues.
-     *
-     * The default implementation resolves immediately. Override to
-     * insert async logic before controller initialization.
-     *
-     * @param state The {@link Objekt} representing the new active state.
-     * @returns A {@link Promize} that must be resolved to continue the
-     *     state change lifecycle.
-     */
-    eventStateChange(state: Objekt) {
-        const deferred = new Deferred();
-        consoleDebug('Module.eventStateChange()', state);
-        deferred.resolve();
-        return deferred.promise();
-    }
-
-    /**
-     * Overridable lifecycle hook called when the DOM container is ready
-     * for the new controller. Returns a {@link Promize} to allow
-     * asynchronous operations (such as DOM preparation or cleanup)
-     * before the controller is instantiated.
-     *
-     * The default implementation resolves immediately. Override to
-     * insert async logic before controller instantiation.
-     *
-     * @param state The {@link Objekt} representing the current state.
-     * @param dom The {@link Knot} DOM container for the controller.
-     * @returns A {@link Promize} that must be resolved to continue
-     *     controller initialization.
-     */
-    eventDomChange(state: Objekt, dom: Knot) {
-        const deferred = new Deferred();
-        consoleDebug('Module.eventDomChange()', state, dom);
-        deferred.resolve();
-        return deferred.promise();
-    }
-
-    /**
-     * Overridable lifecycle hook called after all service initialization
-     * calls have been queued but before they begin executing. Logs by
-     * default; override to perform early setup tasks.
-     */
-    eventAfterInit(): void {
-        consoleDebug('Module.eventAfterInit()');
-    }
-
-    /**
-     * Overridable lifecycle hook called when all registered services
-     * have been successfully initialized. Logs by default; override to
-     * signal application readiness.
-     */
-    eventServiceLoaded(): void {
-        consoleDebug('Module.eventServiceLoaded()');
-    }
-
-    /**
-     * Overridable lifecycle hook called when service initialization
-     * fails. Logs by default; override to handle initialization errors
-     * gracefully.
-     */
-    eventServiceFailed(): void {
-        consoleDebug('Module.eventServiceFailed()');
     }
 }

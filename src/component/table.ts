@@ -16,10 +16,10 @@ import { ContentHandler } from './contentHandler';
 import { Dropdown } from './dropdown';
 import { Pager } from './pager';
 import { Tooltip } from './tooltip';
-import { consoleDebug } from '../utils/log';
+import { Emitter } from '../core/emitter';
 import { generateId } from '../utils/coder';
-import { Action } from '../utils';
-import { mdl } from '../utils/render';
+import type { Action } from '../utils';
+import { sui } from '../utils/render';
 
 /**
  * @description Maps column names to calculation functions that produce cell content.
@@ -54,12 +54,12 @@ export type TableCalculation<T = Objekt> = {
  * table.setActions([
  *     { style: (item) => ['edit', 'Edit'], click: (item) => editUser(item) },
  * ]);
- * table.eventAction = (params) => {
+ * table.on('action', (params) => {
  *     http.get('/api/users', params).then((response) => {
  *         table.setData(response.get('items'));
  *         table.setCount(response.get('count'));
  *     });
- * };
+ * });
  * table.render();
  *
  * @see {@link Pager} for pagination controls
@@ -69,7 +69,7 @@ export type TableCalculation<T = Objekt> = {
  *
  * @category Component
  */
-export class Table<T extends Objekt = Objekt> {
+export class Table<T extends Objekt = Objekt> extends Emitter {
     tableKnot: Knot;
     options!: Objekt;
     collection!: Collection<T>;
@@ -94,6 +94,7 @@ export class Table<T extends Objekt = Objekt> {
         opt_selector: string | undefined = 'table',
         opt_options: object | undefined = {},
     ) {
+        super();
         this.tableKnot = new Query(opt_selector, dom).getKnot();
         this._setOptions(opt_options);
         this._init();
@@ -137,8 +138,6 @@ export class Table<T extends Objekt = Objekt> {
             this._initHeader();
             this._initSearch();
             this._initStructure();
-        } else {
-            // TODO: reinit other components of table
         }
     }
 
@@ -160,21 +159,13 @@ export class Table<T extends Objekt = Objekt> {
             this.options.columns[this.options.columns.length - 1] === 'search'
         ) {
             const searchKnot = new Knot('div');
-            searchKnot.addClass([
-                'mdl-textfield',
-                'mdl-js-textfield',
-                'mdl-textfield--expandable',
-            ]);
+            searchKnot.addClass(['sui-textfield', 'sui-textfield--expandable']);
             this.headerKnots
                 .get(this.headerKnots.size() - 1)!
                 .insert(searchKnot);
 
             const labelKnot = new Knot('label');
-            labelKnot.addClass([
-                'mdl-button',
-                'mdl-js-button',
-                'mdl-button--icon',
-            ]);
+            labelKnot.addClass(['sui-button', 'sui-button--icon']);
             labelKnot.setFor('table-search');
             searchKnot.appendChild(labelKnot);
 
@@ -184,15 +175,15 @@ export class Table<T extends Objekt = Objekt> {
             labelKnot.appendChild(iconKnot);
 
             const inputBlock = new Knot('div');
-            inputBlock.addClass('mdl-textfield__expandable-holder');
+            inputBlock.addClass('sui-textfield__expandable-holder');
             searchKnot.appendChild(inputBlock);
 
             const inputKnot = new Knot<HTMLInputElement>('input');
             inputKnot.setAttribute('type', 'text');
             inputKnot.setId('table-search');
-            inputKnot.addClass('mdl-textfield__input');
+            inputKnot.addClass('sui-textfield__input');
             inputKnot.addEventListener('keypress', (inputKnot, event) => {
-                if (eq(event.keyCode, 13)) {
+                if (event.key === 'Enter') {
                     this.query = inputKnot.getNode().value;
                     this.refresh(1);
                 }
@@ -201,10 +192,10 @@ export class Table<T extends Objekt = Objekt> {
             inputBlock.appendChild(inputKnot);
 
             const subLabelKnot = new Knot('label');
-            subLabelKnot.addClass('mdl-textfield__label');
+            subLabelKnot.addClass('sui-textfield__label');
             inputBlock.appendChild(subLabelKnot);
 
-            mdl(searchKnot);
+            sui(searchKnot);
         }
     }
 
@@ -231,8 +222,7 @@ export class Table<T extends Objekt = Objekt> {
         if (inArray(['search', 'actions'], column)) {
             headerKnot.addClass('actions');
         }
-        // eslint-disable-next-line @typescript-eslint/no-explicit-any
-        const columnsWithOrder = this.options.sorted.filter((sort: any) => {
+        const columnsWithOrder = this.options.sorted.filter((sort: string) => {
             return contain(sort, column);
         });
         if (columnsWithOrder.length === 1) {
@@ -303,13 +293,13 @@ export class Table<T extends Objekt = Objekt> {
             ['.pager', '.pager-statistics'],
             this.options,
         );
-        this.pager.eventAction = (page) => {
+        this.pager.on('action', (page) => {
             this.refresh(page);
-        };
+        });
     }
 
     /**
-     * @description Refreshes the table data by triggering {@link eventAction} with the current
+     * @description Refreshes the table data by emitting the 'action' event with the current
      * query, sorting, and paging parameters.
      *
      * @param {number} [opt_page=-1] - The page number to navigate to. Pass -1 to keep the current page.
@@ -328,15 +318,7 @@ export class Table<T extends Objekt = Objekt> {
             offset: this.pager.offset,
             limit: this.options.row_count,
         });
-        this.eventAction(params);
-    }
-
-    /**
-     * @description Called when the table needs data (on refresh, sort, page, or search). Override to fetch data.
-     * @param {Objekt} params - Contains query, column, order, offset, and limit.
-     */
-    eventAction(params: Objekt): void {
-        consoleDebug('Table.eventAction()', params);
+        this.emit('action', params);
     }
 
     /**
@@ -344,7 +326,10 @@ export class Table<T extends Objekt = Objekt> {
      * @param {string} columnWithOrder - Column name with optional direction (e.g., "name:asc").
      */
     private _toggleSorting(columnWithOrder: string): void {
-        const [column, direction] = columnWithOrder.split(':', 2);
+        const [column, direction] = columnWithOrder.split(':', 2) as [
+            string,
+            string | undefined,
+        ];
         let order = direction || 'desc';
         if (
             eq(this.options.sort.column, column) &&
@@ -520,8 +505,8 @@ export class Table<T extends Objekt = Objekt> {
         column: string,
         parentKnot: Knot,
     ): void {
-        let result = '';
         const calculation = this.options.calculations[column];
+        let result: Knot | string | (Knot | string)[];
         if (isFunction(calculation)) {
             result = calculation(
                 item,
@@ -531,16 +516,8 @@ export class Table<T extends Objekt = Objekt> {
         } else {
             result = item.get(column, '');
         }
-        // eslint-disable-next-line @typescript-eslint/no-explicit-any
-        let items: any[] = [];
-        if (!isArray(result)) {
-            items = [result];
-        } else {
-            // eslint-disable-next-line @typescript-eslint/no-explicit-any
-            items = result as any;
-        }
-        // eslint-disable-next-line @typescript-eslint/no-explicit-any
-        eachArray(items, (item: any) => {
+        const items: (Knot | string)[] = isArray(result) ? result : [result];
+        eachArray(items, (item: Knot | string) => {
             if (!instanceOf(item, Knot)) {
                 const dataKnot = new Knot('span');
                 dataKnot.setHtml(item as string);
@@ -577,7 +554,7 @@ export class Table<T extends Objekt = Objekt> {
         } else {
             const labelKnot = new Knot('span');
             labelKnot.addClass('label');
-            labelKnot.setHtml(this.headerTexts[columnIndex]);
+            labelKnot.setHtml(this.headerTexts[columnIndex] ?? '');
             this._renderHeader(labelKnot, columnIndex);
             this._handleSortingColumn(labelKnot, columnIndex);
             tableDataKnot.appendChild(labelKnot);
@@ -640,10 +617,9 @@ export class Table<T extends Objekt = Objekt> {
             const buttonKnot = new Knot<HTMLButtonElement>('button');
             containerKnot.appendChild(buttonKnot);
             buttonKnot.addClass([
-                'mdl-button',
-                'mdl-js-button',
-                'mdl-button--icon',
-                'mdl-button--primary',
+                'sui-button',
+                'sui-button--icon',
+                'sui-button--primary',
             ]);
             if (disabled) {
                 buttonKnot.setAttribute('disabled');
@@ -720,7 +696,6 @@ export class Table<T extends Objekt = Objekt> {
             this._addHeaderRow(item, rowIndex);
             this._addRow(item, rowIndex);
         });
-        mdl(this.tbody);
     }
 
     /**

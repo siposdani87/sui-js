@@ -89,7 +89,7 @@ describe('Navigation', () => {
             nav.addText('about', 'About', jest.fn());
             nav.setActive('home');
             const homeItem = nav.container.findById('home');
-            const linkKnot = homeItem.get<Knot>('node');
+            const linkKnot = homeItem!.get<Knot>('node');
             expect(linkKnot.hasClass('active')).toBe(true);
         });
     });
@@ -100,7 +100,7 @@ describe('Navigation', () => {
             nav.setActive('home');
             nav.setAllInactive();
             const homeItem = nav.container.findById('home');
-            const linkKnot = homeItem.get<Knot>('node');
+            const linkKnot = homeItem!.get<Knot>('node');
             expect(linkKnot.hasClass('active')).toBe(false);
         });
     });
@@ -110,7 +110,7 @@ describe('Navigation', () => {
             nav.addText('item', 'Item', jest.fn());
             nav.setDisabled('item');
             const item = nav.container.findById('item');
-            const linkKnot = item.get<Knot>('node');
+            const linkKnot = item!.get<Knot>('node');
             expect(linkKnot.hasClass('disabled')).toBe(true);
         });
 
@@ -119,7 +119,7 @@ describe('Navigation', () => {
             nav.setDisabled('item');
             nav.setEnabled('item');
             const item = nav.container.findById('item');
-            const linkKnot = item.get<Knot>('node');
+            const linkKnot = item!.get<Knot>('node');
             expect(linkKnot.hasClass('disabled')).toBe(false);
         });
     });
@@ -129,7 +129,7 @@ describe('Navigation', () => {
             nav.addText('item', 'Item', jest.fn());
             nav.hide('item');
             const item = nav.container.findById('item');
-            const linkKnot = item.get<Knot>('node');
+            const linkKnot = item!.get<Knot>('node');
             expect(linkKnot.hasClass('hidden')).toBe(true);
         });
 
@@ -138,7 +138,7 @@ describe('Navigation', () => {
             nav.hide('item');
             nav.show('item');
             const item = nav.container.findById('item');
-            const linkKnot = item.get<Knot>('node');
+            const linkKnot = item!.get<Knot>('node');
             expect(linkKnot.hasClass('hidden')).toBe(false);
         });
     });
@@ -152,6 +152,114 @@ describe('Navigation', () => {
             nav.bindToContainer(container);
             const children = container.getNode().children;
             expect(children.length).toBe(2);
+        });
+    });
+
+    describe('add with counter', () => {
+        it('should add counter item via Objekt', () => {
+            nav.add(
+                new Objekt({
+                    id: 'notifications',
+                    counter: '5',
+                    title: 'Alerts',
+                    action: jest.fn(),
+                }),
+            );
+            expect(nav.container.size()).toBe(1);
+        });
+    });
+
+    describe('add with image', () => {
+        it('should add non-SVG image item via Objekt', () => {
+            nav.add(
+                new Objekt({
+                    id: 'avatar',
+                    image: '/avatar.png',
+                    title: 'Profile',
+                    action: jest.fn(),
+                }),
+            );
+            expect(nav.container.size()).toBe(1);
+            const item = nav.container.findById('avatar');
+            const linkKnot = item!.get<Knot>('node');
+            const img = linkKnot.getNode().querySelector('img');
+            expect(img).not.toBeNull();
+            expect(img!.getAttribute('src')).toBe('/avatar.png');
+        });
+
+        it('should add non-SVG image without title and omit alt', () => {
+            nav.add(
+                new Objekt({
+                    id: 'logo',
+                    image: '/logo.png',
+                    title: null,
+                    action: jest.fn(),
+                }),
+            );
+            const item = nav.container.findById('logo');
+            const linkKnot = item!.get<Knot>('node');
+            const img = linkKnot.getNode().querySelector('img');
+            expect(img!.hasAttribute('alt')).toBe(false);
+        });
+    });
+
+    describe('setActive with prefix matching', () => {
+        it('should activate items matching prefix with trailing dot', () => {
+            nav.addText('settings.', 'Settings', jest.fn());
+            nav.addText('home', 'Home', jest.fn());
+            nav.setActive('settings.general');
+            const settingsItem = nav.container.findById('settings.');
+            const linkKnot = settingsItem!.get<Knot>('node');
+            expect(linkKnot.hasClass('active')).toBe(true);
+        });
+
+        it('should not activate non-matching prefix items', () => {
+            nav.addText('settings.', 'Settings', jest.fn());
+            nav.setActive('home');
+            const settingsItem = nav.container.findById('settings.');
+            const linkKnot = settingsItem!.get<Knot>('node');
+            expect(linkKnot.hasClass('active')).toBe(false);
+        });
+    });
+
+    describe('_setKnot with null title', () => {
+        it('should create link without title span', () => {
+            nav.addIcon('icon-only', 'star', null, jest.fn());
+            const item = nav.container.findById('icon-only');
+            const linkKnot = item!.get<Knot>('node');
+            const titleSpan = linkKnot.getNode().querySelector('span.title');
+            expect(titleSpan).toBeNull();
+        });
+    });
+
+    describe('setDisabled/setEnabled with non-existent id', () => {
+        it('should not throw when disabling non-existent item', () => {
+            expect(() => nav.setDisabled('nonexistent')).not.toThrow();
+        });
+
+        it('should not throw when enabling non-existent item', () => {
+            expect(() => nav.setEnabled('nonexistent')).not.toThrow();
+        });
+    });
+
+    describe('show/hide with non-existent id', () => {
+        it('should not throw when showing non-existent item', () => {
+            expect(() => nav.show('nonexistent')).not.toThrow();
+        });
+
+        it('should not throw when hiding non-existent item', () => {
+            expect(() => nav.hide('nonexistent')).not.toThrow();
+        });
+    });
+
+    describe('action click handler', () => {
+        it('should call action with href when link is clicked', () => {
+            const action = jest.fn();
+            nav.addText('clickable', 'Click', action, '/path');
+            const item = nav.container.findById('clickable');
+            const linkKnot = item!.get<Knot>('node');
+            linkKnot.getNode().click();
+            expect(action).toHaveBeenCalledWith('/path');
         });
     });
 });

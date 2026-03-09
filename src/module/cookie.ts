@@ -32,7 +32,7 @@ import { Objekt } from '../core/objekt';
  * @category Module
  */
 export class Cookie {
-    options!: Objekt;
+    options!: Objekt<{ prefix: string; hours: number }>;
 
     /**
      * Creates a new Cookie instance with the given options. The default
@@ -117,8 +117,7 @@ export class Cookie {
     set(
         name: string,
         value: string,
-        // eslint-disable-next-line @typescript-eslint/no-explicit-any
-        opt_expires: any = '',
+        opt_expires: string | number | Date = '',
         opt_path: string | undefined = '/',
         opt_domain: string | undefined = '',
         opt_secure: boolean | undefined = false,
@@ -128,22 +127,13 @@ export class Cookie {
             return;
         }
         if (opt_expires) {
-            switch (opt_expires.constructor) {
-                case Number:
-                    opt_expires =
-                        // eslint-disable-next-line @typescript-eslint/no-explicit-any
-                        (opt_expires as any) === Infinity
-                            ? '; expires=Fri, 31 Dec 9999 23:59:59 GMT'
-                            : // eslint-disable-next-line @typescript-eslint/no-explicit-any
-                              '; max-age=' + (opt_expires as any) * 60 * 60;
-                    break;
-                case Date:
-                    opt_expires =
-                        // eslint-disable-next-line @typescript-eslint/no-explicit-any
-                        '; expires=' + (opt_expires as any).toUTCString();
-                    break;
-                default:
-                    break;
+            if (typeof opt_expires === 'number') {
+                opt_expires =
+                    opt_expires === Infinity
+                        ? '; expires=Fri, 31 Dec 9999 23:59:59 GMT'
+                        : '; max-age=' + opt_expires * 60 * 60;
+            } else if (opt_expires instanceof Date) {
+                opt_expires = '; expires=' + opt_expires.toUTCString();
             }
         } else {
             const date = new Date();
@@ -157,6 +147,7 @@ export class Cookie {
             opt_expires +
             (opt_domain ? '; domain=' + opt_domain : '') +
             (opt_path ? '; path=' + opt_path : '') +
+            '; SameSite=Lax' +
             (opt_secure ? '; secure' : '');
     }
 
@@ -263,7 +254,7 @@ export class Cookie {
             )
             .split(/\s*(?:\=[^;]*)?;\s*/);
         for (let i = 0; i < keys.length; i++) {
-            keys[i] = this._getName(decodeURIComponent(keys[i]));
+            keys[i] = this._getName(decodeURIComponent(keys[i]!));
         }
         return keys;
     }

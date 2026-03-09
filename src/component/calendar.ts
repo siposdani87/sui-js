@@ -1,7 +1,7 @@
 import { Objekt } from '../core';
 import { Knot } from '../core/knot';
 import { DateIO } from '../utils';
-import { consoleDebug } from '../utils/log';
+import { Emitter } from '../core/emitter';
 import { Day } from './day';
 import { Month } from './month';
 import { Year } from './year';
@@ -11,7 +11,7 @@ import { Year } from './year';
  * @example
  * const calendarKnot = new Knot('div');
  * const calendar = new Calendar(calendarKnot, { date: new Date(), type: 'date' });
- * calendar.eventClick = (date) => { console.log(date); };
+ * calendar.on('click', (date) => { console.log(date); });
  * calendar.draw();
  * @see {@link Day}
  * @see {@link Month}
@@ -19,7 +19,7 @@ import { Year } from './year';
  * @see {@link DateIO}
  * @category Component
  */
-export class Calendar {
+export class Calendar extends Emitter {
     calendarKnot: Knot;
     options!: Objekt;
     maxDays!: number;
@@ -55,6 +55,7 @@ export class Calendar {
      * const calendar = new Calendar(new Knot('div'), { date: new Date(), type: 'date' });
      */
     constructor(knot: Knot, options: object) {
+        super();
         this.calendarKnot = knot;
         this._setOptions(options);
         this._init();
@@ -78,11 +79,11 @@ export class Calendar {
 
         this.modes = ['YEAR', 'MONTH', 'DAY'];
         this.types = {
-            date: this.modes[2],
-            month: this.modes[1],
-            year: this.modes[0],
-            week: this.modes[2],
-            range: this.modes[2],
+            date: this.modes[2]!,
+            month: this.modes[1]!,
+            year: this.modes[0]!,
+            week: this.modes[2]!,
+            range: this.modes[2]!,
         };
 
         this._initStructure();
@@ -111,13 +112,13 @@ export class Calendar {
         this.headerKnot.addClass('header');
         this.calendarKnot.appendChild(this.headerKnot);
 
-        const previousButton = new Knot('a');
-        previousButton.setAttribute('href', 'javascript:void(0)');
+        const previousButton = new Knot('button');
+        previousButton.setAttribute('type', 'button');
         previousButton.addClass([
             'previous',
-            'mdl-button',
-            'mdl-js-button',
-            'mdl-button--icon',
+            'icon-button',
+            'sui-button',
+            'sui-button--icon',
         ]);
         const prevIconKnot = new Knot('em');
         prevIconKnot.addClass('material-icons');
@@ -134,13 +135,13 @@ export class Calendar {
         });
         this.headerKnot.appendChild(this.currentModeKnot);
 
-        const nextButton = new Knot('a');
-        nextButton.setAttribute('href', 'javascript:void(0)');
+        const nextButton = new Knot('button');
+        nextButton.setAttribute('type', 'button');
         nextButton.addClass([
-            'previous',
-            'mdl-button',
-            'mdl-js-button',
-            'mdl-button--icon',
+            'next',
+            'icon-button',
+            'sui-button',
+            'sui-button--icon',
         ]);
         const nextIconKnot = new Knot('em');
         nextIconKnot.addClass('material-icons');
@@ -178,10 +179,10 @@ export class Calendar {
         if (position !== -1) {
             position += direction;
         }
-        const mode = this.modes[position];
-        return mode
-            ? mode
-            : this.types[this.options.type as keyof typeof this.types];
+        return (
+            this.modes[position] ??
+            this.types[this.options.type as keyof typeof this.types]
+        );
     }
 
     /**
@@ -263,18 +264,11 @@ export class Calendar {
      */
     private _previous(): void {
         const date = this._switchMode(
+            () => this.previous.month,
+            () => this.previous.year,
             () => {
-                return this.previous.month;
-            },
-            () => {
-                return this.previous.year;
-            },
-            () => {
-                let date = DateIO.subYears(this.current.day, this.maxYears);
-                if (DateIO.getYear(date) < 0) {
-                    date = this.current.day;
-                }
-                return date;
+                const date = DateIO.subYears(this.current.day, this.maxYears);
+                return DateIO.getYear(date) < 0 ? this.current.day : date;
             },
         );
         this._setDate(date!);
@@ -286,15 +280,9 @@ export class Calendar {
      */
     private _next(): void {
         const date = this._switchMode(
-            () => {
-                return this.next.month;
-            },
-            () => {
-                return this.next.year;
-            },
-            () => {
-                return DateIO.addYears(this.current.day, this.maxYears);
-            },
+            () => this.next.month,
+            () => this.next.year,
+            () => DateIO.addYears(this.current.day, this.maxYears),
         );
         this._setDate(date!);
         this.draw();
@@ -395,7 +383,7 @@ export class Calendar {
                 this.selectedDate,
                 {},
             );
-            month.eventClick = this._onClick.bind(this);
+            month.on('click', this._onClick.bind(this));
             const monthKnot = month.getKnot();
             this.monthsKnot.appendChild(monthKnot);
         }
@@ -415,7 +403,7 @@ export class Calendar {
                 this.selectedDate,
                 {},
             );
-            year.eventClick = this._onClick.bind(this);
+            year.on('click', this._onClick.bind(this));
             const yearKnot = year.getKnot();
             this.yearsKnot.appendChild(yearKnot);
         }
@@ -444,7 +432,7 @@ export class Calendar {
     private _drawDays(): void {
         this.daysKnot.removeChildren();
         for (let i = 0; i < this.days.length; i++) {
-            const day = this.days[i];
+            const day = this.days[i]!;
             const dayKnot = day.getKnot();
             this.daysKnot.appendChild(dayKnot);
         }
@@ -461,7 +449,7 @@ export class Calendar {
             const day = new Day(date, this.selectedDate, {
                 css_class: 'previous-month',
             });
-            day.eventClick = this._onClick.bind(this);
+            day.on('click', this._onClick.bind(this));
             this.days.push(day);
         }
     }
@@ -476,7 +464,7 @@ export class Calendar {
             const day = new Day(date, this.selectedDate, {
                 css_class: 'current-month',
             });
-            day.eventClick = this._onClick.bind(this);
+            day.on('click', this._onClick.bind(this));
             this.days.push(day);
         }
     }
@@ -491,7 +479,7 @@ export class Calendar {
             const day = new Day(date, this.selectedDate, {
                 css_class: 'next-month',
             });
-            day.eventClick = this._onClick.bind(this);
+            day.on('click', this._onClick.bind(this));
             this.days.push(day);
         }
     }
@@ -530,7 +518,7 @@ export class Calendar {
             this._changeMode(1);
         }
         this.draw();
-        this.eventClick(selectedDate);
+        this.emit('click', selectedDate);
     }
 
     /**
@@ -539,15 +527,5 @@ export class Calendar {
      */
     private _setSelectedDate(date: Date): void {
         this.selectedDate = date;
-    }
-
-    /**
-     * @description Overridable callback fired when a date is selected. Defaults to a debug log.
-     * @param {Date} date - The selected date.
-     * @example
-     * calendar.eventClick = (date) => { console.log('Selected:', date); };
-     */
-    eventClick(date: Date): void {
-        consoleDebug('Calendar.eventClick()', date);
     }
 }

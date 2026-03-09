@@ -40,7 +40,7 @@ describe('Helper', () => {
 
         it('should use default href when not provided', () => {
             const link = helper.createLink('Link', jest.fn());
-            expect(link.getAttribute('href')).toBe('javascript:void(0)');
+            expect(link.getAttribute('href')).toBe('#');
         });
 
         it('should remove element when allowAccess is false', () => {
@@ -65,10 +65,10 @@ describe('Helper', () => {
             expect(button.getHtml()).toContain('Submit');
         });
 
-        it('should add MDL css classes', () => {
+        it('should add SUI css classes', () => {
             const button = helper.createButton('Submit', jest.fn());
-            expect(button.hasClass('mdl-button')).toBe(true);
-            expect(button.hasClass('mdl-js-button')).toBe(true);
+            expect(button.hasClass('sui-button')).toBe(true);
+            expect(button.hasClass('sui-button--raised')).toBe(true);
         });
 
         it('should add custom css classes', () => {
@@ -98,12 +98,12 @@ describe('Helper', () => {
             const button = helper.createIconButton('edit', jest.fn());
             const iconEl = button.getNode().querySelector('em');
             expect(iconEl).not.toBeNull();
-            expect(iconEl.textContent).toBe('edit');
+            expect(iconEl!.textContent).toBe('edit');
         });
 
-        it('should add icon-specific MDL classes', () => {
+        it('should add icon-specific SUI classes', () => {
             const button = helper.createIconButton('edit', jest.fn());
-            expect(button.hasClass('mdl-button--icon')).toBe(true);
+            expect(button.hasClass('sui-button--icon')).toBe(true);
         });
     });
 
@@ -129,7 +129,7 @@ describe('Helper', () => {
             document.body.appendChild(el);
             const knot = new Knot(el);
             helper.linkElement(knot, jest.fn(), '', 'A tooltip', true, []);
-            // _setTooltip creates a Tooltip and calls mdl
+            // _setTooltip creates a Tooltip
             expect(knot.getId()).toContain('link');
         });
 
@@ -143,14 +143,13 @@ describe('Helper', () => {
     });
 
     describe('buttonElement', () => {
-        it('should add MDL css classes to existing button', () => {
+        it('should add SUI css classes to existing button', () => {
             const el = document.createElement('button');
             document.body.appendChild(el);
             const knot = new Knot(el);
             helper.buttonElement(knot, jest.fn());
-            expect(knot.hasClass('mdl-button')).toBe(true);
-            expect(knot.hasClass('mdl-js-button')).toBe(true);
-            expect(knot.hasClass('mdl-button--raised')).toBe(true);
+            expect(knot.hasClass('sui-button')).toBe(true);
+            expect(knot.hasClass('sui-button--raised')).toBe(true);
         });
 
         it('should set id on button without id', () => {
@@ -167,6 +166,150 @@ describe('Helper', () => {
             const knot = new Knot(el);
             helper.buttonElement(knot, jest.fn(), '', false);
             expect(document.body.contains(el)).toBe(false);
+        });
+    });
+
+    describe('multipleLink', () => {
+        it('should enhance all matching link elements', () => {
+            const container = document.createElement('div');
+            const a1 = document.createElement('a');
+            a1.className = 'nav-link';
+            a1.textContent = 'A';
+            const a2 = document.createElement('a');
+            a2.className = 'nav-link';
+            a2.textContent = 'B';
+            container.appendChild(a1);
+            container.appendChild(a2);
+            document.body.appendChild(container);
+            const dom = new Knot(container);
+            const callback = jest.fn();
+            helper.multipleLink('.nav-link', dom, callback);
+            expect(a1.id).toContain('link');
+            expect(a2.id).toContain('link');
+        });
+    });
+
+    describe('link', () => {
+        it('should enhance a single link element by selector', () => {
+            const container = document.createElement('div');
+            const a = document.createElement('a');
+            a.className = 'my-link';
+            a.textContent = 'Click';
+            container.appendChild(a);
+            document.body.appendChild(container);
+            const dom = new Knot(container);
+            const callback = jest.fn();
+            const link = helper.link('.my-link', dom, callback, '/test');
+            expect(link.getAttribute('href')).toBe('/test');
+        });
+
+        it('should invoke callback on click', () => {
+            const container = document.createElement('div');
+            const a = document.createElement('a');
+            a.className = 'click-link';
+            a.setAttribute('href', '/page');
+            a.textContent = 'Go';
+            container.appendChild(a);
+            document.body.appendChild(container);
+            const dom = new Knot(container);
+            const callback = jest.fn();
+            helper.link('.click-link', dom, callback);
+            a.click();
+            expect(callback).toHaveBeenCalledWith('/page', expect.anything());
+        });
+    });
+
+    describe('multipleButton', () => {
+        it('should enhance all matching button elements', () => {
+            const container = document.createElement('div');
+            const b1 = document.createElement('button');
+            b1.className = 'action-btn';
+            b1.textContent = 'A';
+            const b2 = document.createElement('button');
+            b2.className = 'action-btn';
+            b2.textContent = 'B';
+            container.appendChild(b1);
+            container.appendChild(b2);
+            document.body.appendChild(container);
+            const dom = new Knot(container);
+            helper.multipleButton('.action-btn', dom);
+            expect(b1.classList.contains('sui-button')).toBe(true);
+            expect(b2.classList.contains('sui-button')).toBe(true);
+        });
+    });
+
+    describe('button', () => {
+        it('should enhance a single button element by selector', () => {
+            const container = document.createElement('div');
+            const btn = document.createElement('button');
+            btn.className = 'save-btn';
+            btn.textContent = 'Save';
+            container.appendChild(btn);
+            document.body.appendChild(container);
+            const dom = new Knot(container);
+            const callback = jest.fn();
+            const result = helper.button('.save-btn', dom, callback, 'Save it');
+            expect(result.hasClass('sui-button')).toBe(true);
+            expect(result.hasClass('sui-button--raised')).toBe(true);
+        });
+    });
+
+    describe('iconButton', () => {
+        it('should enhance a single icon button by selector', () => {
+            const container = document.createElement('div');
+            const btn = document.createElement('button');
+            btn.className = 'edit-btn';
+            const icon = document.createElement('em');
+            icon.className = 'material-icons';
+            icon.textContent = 'edit';
+            btn.appendChild(icon);
+            container.appendChild(btn);
+            document.body.appendChild(container);
+            const dom = new Knot(container);
+            const callback = jest.fn();
+            const result = helper.iconButton(
+                '.edit-btn',
+                dom,
+                callback,
+                'Edit',
+            );
+            expect(result.hasClass('sui-button--icon')).toBe(true);
+        });
+
+        it('should invoke callback on click', () => {
+            const container = document.createElement('div');
+            const btn = document.createElement('button');
+            btn.className = 'del-btn';
+            const icon = document.createElement('em');
+            icon.className = 'material-icons';
+            icon.textContent = 'delete';
+            btn.appendChild(icon);
+            container.appendChild(btn);
+            document.body.appendChild(container);
+            const dom = new Knot(container);
+            const callback = jest.fn();
+            helper.iconButton('.del-btn', dom, callback);
+            btn.click();
+            expect(callback).toHaveBeenCalled();
+        });
+    });
+
+    describe('multipleIconButton', () => {
+        it('should enhance all matching icon button elements', () => {
+            const container = document.createElement('div');
+            const b1 = document.createElement('button');
+            b1.className = 'icon-act';
+            b1.textContent = 'edit';
+            const b2 = document.createElement('button');
+            b2.className = 'icon-act';
+            b2.textContent = 'delete';
+            container.appendChild(b1);
+            container.appendChild(b2);
+            document.body.appendChild(container);
+            const dom = new Knot(container);
+            helper.multipleIconButton('.icon-act', dom);
+            expect(b1.classList.contains('sui-button--icon')).toBe(true);
+            expect(b2.classList.contains('sui-button--icon')).toBe(true);
         });
     });
 

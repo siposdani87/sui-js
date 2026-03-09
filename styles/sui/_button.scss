@@ -1,0 +1,138 @@
+@use '../core/variables';
+@use '../core/colors';
+
+.sui-button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-width: 64px;
+    height: 36px;
+    padding: 8px 16px;
+    border: none;
+    border-radius: variables.$radius-md;
+    background: transparent;
+    color: var(--sui-on-surface);
+    font-family: variables.$font-family-body;
+    font-size: 14px;
+    font-weight: 500;
+    letter-spacing: 0.2px;
+    cursor: pointer;
+    outline: none;
+    transition:
+        background-color variables.$transition-base,
+        box-shadow variables.$transition-base;
+    appearance: none;
+
+    &:hover {
+        background-color: color-mix(
+            in srgb,
+            var(--sui-on-surface) 6%,
+            transparent
+        );
+    }
+
+    &:focus-visible {
+        outline: 2px solid var(--sui-primary);
+        outline-offset: 2px;
+    }
+
+    &:active {
+        background-color: color-mix(
+            in srgb,
+            var(--sui-on-surface) 12%,
+            transparent
+        );
+    }
+
+    &:disabled {
+        color: color-mix(in srgb, var(--sui-on-surface) 26%, transparent);
+        cursor: default;
+        background: transparent;
+    }
+
+    .icon {
+        margin-inline-end: 10px;
+    }
+}
+
+.sui-button--raised {
+    background-color: colors.$light-grey;
+    box-shadow: variables.$shadow-sm;
+
+    &:hover {
+        box-shadow: variables.$shadow-md;
+    }
+
+    &:active {
+        box-shadow: variables.$shadow-sm;
+    }
+
+    &:disabled {
+        box-shadow: none;
+        background-color: color-mix(
+            in srgb,
+            var(--sui-on-surface) 12%,
+            transparent
+        );
+    }
+}
+
+.sui-button--primary {
+    color: var(--sui-primary);
+
+    &.sui-button--raised {
+        background-color: var(--sui-primary);
+        color: colors.$white;
+
+        &:disabled {
+            background-color: color-mix(
+                in srgb,
+                var(--sui-on-surface) 12%,
+                transparent
+            );
+            color: color-mix(in srgb, var(--sui-on-surface) 26%, transparent);
+        }
+    }
+}
+
+.sui-button--accent {
+    color: var(--sui-accent);
+
+    &.sui-button--raised {
+        background-color: var(--sui-accent);
+        color: colors.$white;
+
+        &:disabled {
+            background-color: color-mix(
+                in srgb,
+                var(--sui-on-surface) 12%,
+                transparent
+            );
+            color: color-mix(in srgb, var(--sui-on-surface) 26%, transparent);
+        }
+    }
+}
+
+.sui-button--icon {
+    min-width: 32px;
+    width: 32px;
+    height: 32px;
+    padding: 0;
+    border-radius: 50%;
+    overflow: hidden;
+}
+
+.sui-button--fab {
+    width: 56px;
+    height: 56px;
+    min-width: 56px;
+    padding: 0;
+    border-radius: 50%;
+    box-shadow: variables.$shadow-md;
+}
+
+.sui-button--mini-fab {
+    width: 40px;
+    height: 40px;
+    min-width: 40px;
+}

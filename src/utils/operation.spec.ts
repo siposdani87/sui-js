@@ -323,6 +323,10 @@ describe('operation', () => {
         expect(result).toEqual(true);
     });
 
+    it('isSame objects with different key count', () => {
+        expect(isSame({ a: 1 }, { a: 1, b: 2 })).toBe(false);
+    });
+
     it('remove', () => {
         const numbers = [2, 4, 7, 1, 3];
         remove(numbers, 7);
@@ -356,8 +360,19 @@ describe('operation', () => {
 
         expect(numbersCopy).toEqual(numbers);
 
-        numbers[0].id = 3;
-        expect(numbersCopy[0].id).not.toEqual(numbers[0].id);
+        numbers[0]!.id = 3;
+        expect(numbersCopy[0]!.id).not.toEqual(numbers[0]!.id);
+    });
+
+    it('copyArray with nested arrays', () => {
+        const nested = [
+            [1, 2],
+            [3, 4],
+        ];
+        const copy = copyArray(nested);
+        expect(copy).toEqual(nested);
+        nested[0]!.push(5);
+        expect(copy[0]).toEqual([1, 2]);
     });
 
     it('copyObject', () => {
@@ -540,5 +555,161 @@ describe('operation', () => {
         copyToClipboard('test string');
 
         expect(document.execCommand).toHaveBeenCalledWith('copy');
+    });
+
+    describe('typeCast edge cases', () => {
+        it('should return empty string for empty string input', () => {
+            expect(typeCast('')).toBe('');
+        });
+
+        it('should cast null string to null', () => {
+            expect(typeCast('null')).toBeNull();
+        });
+
+        it('should cast true string to boolean', () => {
+            expect(typeCast('true')).toBe(true);
+        });
+
+        it('should cast false string to boolean', () => {
+            expect(typeCast('false')).toBe(false);
+        });
+
+        it('should cast Infinity string to Infinity', () => {
+            expect(typeCast('Infinity')).toBe(Infinity);
+        });
+
+        it('should cast numeric string to number', () => {
+            expect(typeCast('42')).toBe(42);
+            expect(typeCast('3.14')).toBe(3.14);
+        });
+
+        it('should return non-numeric string as-is', () => {
+            expect(typeCast('hello')).toBe('hello');
+        });
+    });
+
+    describe('merge edge cases', () => {
+        it('should deep merge nested objects', () => {
+            const result = merge({ a: { x: 1, y: 2 } }, { a: { y: 3, z: 4 } });
+            expect(result).toEqual({ a: { x: 1, y: 3, z: 4 } });
+        });
+
+        it('should add new keys from second object', () => {
+            const result = merge({ a: 1 }, { b: 2, c: 3 });
+            expect(result).toEqual({ a: 1, b: 2, c: 3 });
+        });
+    });
+
+    describe('each edge cases', () => {
+        it('should handle null input without error', () => {
+            const callback = jest.fn();
+            each(null as any, callback);
+            expect(callback).not.toHaveBeenCalled();
+        });
+
+        it('should handle undefined input without error', () => {
+            const callback = jest.fn();
+            each(undefined as any, callback);
+            expect(callback).not.toHaveBeenCalled();
+        });
+    });
+
+    describe('isEmpty edge cases', () => {
+        it('should return false for non-empty array', () => {
+            expect(isEmpty([1])).toBe(false);
+        });
+
+        it('should return false for non-empty object', () => {
+            expect(isEmpty({ a: 1 })).toBe(false);
+        });
+
+        it('should return false for non-collection types', () => {
+            expect(isEmpty(null as any)).toBe(false);
+            expect(isEmpty(42 as any)).toBe(false);
+        });
+    });
+
+    describe('copy edge cases', () => {
+        it('should copy array', () => {
+            const arr = [1, 2, 3];
+            const result = copy(arr);
+            expect(result).toEqual(arr);
+            expect(result).not.toBe(arr);
+        });
+    });
+
+    describe('isNumber edge cases', () => {
+        it('should return true for numeric string', () => {
+            expect(isNumber('42')).toBe(true);
+        });
+
+        it('should return false for non-numeric string', () => {
+            expect(isNumber('abc')).toBe(false);
+        });
+
+        it('should return false for empty string', () => {
+            expect(isNumber('')).toBe(false);
+        });
+
+        it('should return false for NaN', () => {
+            expect(isNumber(NaN)).toBe(false);
+        });
+
+        it('should return false for string starting with 0', () => {
+            expect(isNumber('0x1F')).toBe(false);
+        });
+    });
+
+    describe('debounce edge cases', () => {
+        it('should not call immediate again while timeout is active', () => {
+            jest.useFakeTimers();
+            const func = jest.fn();
+            const debounced = debounce(func, 100, true);
+
+            debounced.call(window, new Event('click'));
+            debounced.call(window, new Event('click'));
+            expect(func).toHaveBeenCalledTimes(1);
+
+            jest.advanceTimersByTime(100);
+            debounced.call(window, new Event('click'));
+            expect(func).toHaveBeenCalledTimes(2);
+            jest.useRealTimers();
+        });
+    });
+
+    describe('format edge cases', () => {
+        it('should handle format without params', () => {
+            expect(format('no params')).toBe('no params');
+        });
+
+        it('should handle multiple placeholders', () => {
+            expect(format('{0} and {1}', ['a', 'b'])).toBe('a and b');
+        });
+    });
+
+    describe('getQueryString edge cases', () => {
+        it('should return empty string for empty object', () => {
+            expect(getQueryString({})).toBe('');
+        });
+    });
+
+    describe('copyToClipboard with modern API', () => {
+        it('should use navigator.clipboard when available', () => {
+            const writeText = jest.fn().mockResolvedValue(undefined);
+            Object.defineProperty(navigator, 'clipboard', {
+                value: { writeText },
+                writable: true,
+                configurable: true,
+            });
+
+            copyToClipboard('modern copy');
+            expect(writeText).toHaveBeenCalledWith('modern copy');
+
+            Object.defineProperty(navigator, 'clipboard', {
+                value: undefined,
+                writable: true,
+                configurable: true,
+            });
+        });
     });
 });

@@ -1,12 +1,12 @@
-import { Knot } from '../core';
-import { mdl } from '../utils/render';
+import type { Knot } from '../core';
+import { sui } from '../utils/render';
 import { BaseField } from './baseField';
 
 /**
- * Form reset button with MDL styling.
+ * Form reset button.
  *
- * @description Extends {@link BaseField} to render a Material Design Lite button
- * used for resetting form fields to their default values.
+ * @description Extends {@link BaseField} to render a button used for resetting
+ * form fields to their default values.
  *
  * @example
  * const resetButton = new ResetButton(inputKnot);
@@ -22,32 +22,27 @@ export class ResetButton extends BaseField<HTMLInputElement> {
      */
     constructor(input: Knot<HTMLInputElement>) {
         super(input);
-        this._init();
     }
 
     /**
      * Sets the reset button name attribute.
      */
-    private _init(): void {
+    protected override _init(): void {
         this.input.setAttribute('name', 'reset');
     }
 
     /**
-     * Renders the reset button with MDL classes.
+     * Renders the reset button with SUI classes.
      */
     override render(): void {
-        this.input.addClass([
-            'mdl-button',
-            'mdl-js-button',
-            'mdl-js-ripple-effect',
-        ]);
+        this.input.addClass(['sui-button']);
         this.refresh();
     }
 
     /**
-     * Refreshes the MDL reset button component.
+     * Refreshes the reset button component.
      */
     override refresh() {
-        mdl(this.input);
+        sui(this.input);
     }
 }

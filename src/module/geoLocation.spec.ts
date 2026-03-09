@@ -37,7 +37,7 @@ describe('GeoLocation', () => {
             expect(mockGeolocation.getCurrentPosition).toHaveBeenCalled();
         });
 
-        it('should resolve with coordinates on success', () => {
+        it('should resolve with coordinates on success', async () => {
             mockGeolocation.getCurrentPosition.mockImplementation(
                 (success: Function) => {
                     success({
@@ -51,10 +51,11 @@ describe('GeoLocation', () => {
 
             const onResolve = jest.fn();
             geo.getPosition().then(onResolve);
+            await new Promise((resolve) => setTimeout(resolve, 0));
             expect(onResolve).toHaveBeenCalledWith(47.4979, 19.0402);
         });
 
-        it('should reject with nulls on error', () => {
+        it('should reject with nulls on error', async () => {
             mockGeolocation.getCurrentPosition.mockImplementation(
                 (_success: Function, error: Function) => {
                     error({
@@ -70,6 +71,7 @@ describe('GeoLocation', () => {
             const onResolve = jest.fn();
             const onReject = jest.fn();
             geo.getPosition().then(onResolve, onReject);
+            await new Promise((resolve) => setTimeout(resolve, 0));
             expect(onReject).toHaveBeenCalledWith(null, null);
         });
     });
@@ -82,7 +84,7 @@ describe('GeoLocation', () => {
             expect(geo.watcherId).toBe(123);
         });
 
-        it('should call eventChange on position update', () => {
+        it('should emit change on position update', () => {
             mockGeolocation.watchPosition.mockImplementation(
                 (success: Function) => {
                     success({
@@ -94,7 +96,8 @@ describe('GeoLocation', () => {
                     return 1;
                 },
             );
-            const spy = jest.spyOn(geo, 'eventChange');
+            const spy = jest.fn();
+            geo.on('change', spy);
             geo.setWatcher();
             expect(spy).toHaveBeenCalledWith(
                 48.0,
@@ -103,7 +106,7 @@ describe('GeoLocation', () => {
             );
         });
 
-        it('should call eventError on permission denied', () => {
+        it('should emit error on permission denied', () => {
             mockGeolocation.watchPosition.mockImplementation(
                 (_success: Function, error: Function) => {
                     error({
@@ -116,11 +119,78 @@ describe('GeoLocation', () => {
                     return 1;
                 },
             );
-            const spy = jest.spyOn(geo, 'eventError');
+            const spy = jest.fn();
+            geo.on('error', spy);
             geo.setWatcher();
             expect(spy).toHaveBeenCalledWith(
                 'User denied the request for GeoLocation.',
                 'permission_denied',
+            );
+        });
+
+        it('should emit error on position unavailable', () => {
+            mockGeolocation.watchPosition.mockImplementation(
+                (_success: Function, error: Function) => {
+                    error({
+                        code: 2,
+                        PERMISSION_DENIED: 1,
+                        POSITION_UNAVAILABLE: 2,
+                        TIMEOUT: 3,
+                        message: 'unavailable',
+                    });
+                    return 1;
+                },
+            );
+            const spy = jest.fn();
+            geo.on('error', spy);
+            geo.setWatcher();
+            expect(spy).toHaveBeenCalledWith(
+                'Location information is unavailable.',
+                'position_unavailable',
+            );
+        });
+
+        it('should emit error on timeout', () => {
+            mockGeolocation.watchPosition.mockImplementation(
+                (_success: Function, error: Function) => {
+                    error({
+                        code: 3,
+                        PERMISSION_DENIED: 1,
+                        POSITION_UNAVAILABLE: 2,
+                        TIMEOUT: 3,
+                        message: 'timeout',
+                    });
+                    return 1;
+                },
+            );
+            const spy = jest.fn();
+            geo.on('error', spy);
+            geo.setWatcher();
+            expect(spy).toHaveBeenCalledWith(
+                'The request to get user location timed out.',
+                'timeout',
+            );
+        });
+
+        it('should emit error on unknown error code', () => {
+            mockGeolocation.watchPosition.mockImplementation(
+                (_success: Function, error: Function) => {
+                    error({
+                        code: 99,
+                        PERMISSION_DENIED: 1,
+                        POSITION_UNAVAILABLE: 2,
+                        TIMEOUT: 3,
+                        message: 'unknown',
+                    });
+                    return 1;
+                },
+            );
+            const spy = jest.fn();
+            geo.on('error', spy);
+            geo.setWatcher();
+            expect(spy).toHaveBeenCalledWith(
+                'An unknown error occurred.',
+                'unknown',
             );
         });
     });
@@ -134,12 +204,14 @@ describe('GeoLocation', () => {
     });
 
     describe('event methods', () => {
-        it('should call eventChange without error', () => {
-            expect(() => geo.eventChange(47.0, 19.0, 'test')).not.toThrow();
+        it('should emit change without error', () => {
+            expect(() => geo.emit('change', 47.0, 19.0, 'test')).not.toThrow();
         });
 
-        it('should call eventError without error', () => {
-            expect(() => geo.eventError('error message', 'code')).not.toThrow();
+        it('should emit error without error', () => {
+            expect(() =>
+                geo.emit('error', 'error message', 'code'),
+            ).not.toThrow();
         });
     });
 });

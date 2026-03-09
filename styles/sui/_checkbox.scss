@@ -1,0 +1,90 @@
+@use '../core/variables';
+
+.sui-checkbox {
+    position: relative;
+    display: inline-flex;
+    align-items: center;
+    cursor: pointer;
+    height: auto;
+
+    .sui-checkbox__input {
+        position: absolute;
+        opacity: 0;
+        width: 0;
+        height: 0;
+    }
+
+    .sui-checkbox__label {
+        position: relative;
+        display: inline-flex;
+        align-items: center;
+        padding-inline-start: 28px;
+
+        &::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            width: 18px;
+            height: 18px;
+            border: 2px solid var(--sui-checkbox);
+            border-radius: 4px;
+        }
+
+        &::after {
+            content: '';
+            position: absolute;
+            left: 6px;
+            top: 50%;
+            width: 5px;
+            height: 10px;
+            border: solid white;
+            border-width: 0 2px 2px 0;
+            transform: translateY(-60%) rotate(45deg);
+            opacity: 0;
+        }
+    }
+
+    .sui-checkbox__input[required] + .sui-checkbox__label::before {
+        border-color: var(--sui-error-text);
+    }
+
+    .sui-checkbox__input:checked + .sui-checkbox__label::before {
+        background-color: var(--sui-primary-action);
+        border-color: var(--sui-primary-action);
+    }
+
+    .sui-checkbox__input:checked + .sui-checkbox__label::after {
+        opacity: 1;
+    }
+
+    .sui-checkbox__input[required]:checked + .sui-checkbox__label::before {
+        border-color: var(--sui-primary-action);
+    }
+
+    .sui-checkbox__input:focus-visible + .sui-checkbox__label::before {
+        box-shadow: 0 0 0 3px
+            color-mix(in srgb, var(--sui-primary-action) 15%, transparent);
+    }
+
+    &.is-disabled {
+        cursor: default;
+
+        .sui-checkbox__label {
+            color: var(--sui-label-disabled);
+        }
+
+        .sui-checkbox__label::before {
+            border-color: var(--sui-checkbox-disabled);
+        }
+
+        .sui-checkbox__input[required] + .sui-checkbox__label::before {
+            border-color: var(--sui-error-text-disabled);
+            border-style: dotted;
+        }
+
+        .sui-checkbox__input:checked + .sui-checkbox__label::before {
+            background-color: var(--sui-primary-action-disabled);
+            border-color: var(--sui-primary-action-disabled);
+        }
+    }
+}

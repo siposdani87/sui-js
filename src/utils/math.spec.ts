@@ -26,7 +26,7 @@ describe('Math utilities', () => {
         });
 
         it('should handle null/NaN gracefully', () => {
-            expect(readableCurrency(null)).toBe('0');
+            expect(readableCurrency(null as unknown as number)).toBe('0');
         });
 
         it('should format with precision', () => {

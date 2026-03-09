@@ -1,0 +1,25 @@
+@use '../core/colors';
+@use '../core/variables';
+
+.sui-spinner {
+    width: 3em;
+    height: 3em;
+    border-radius: 50%;
+    border: 4px solid colors.$primary;
+    border-top-color: colors.$accent;
+    background-color: colors.$primary;
+    box-shadow: variables.$shadow-md;
+    opacity: 0;
+
+    &.is-active {
+        opacity: 1;
+        animation: sui-spinner-rotate 0.8s linear infinite;
+        will-change: transform;
+    }
+}
+
+@keyframes sui-spinner-rotate {
+    to {
+        transform: rotate(360deg);
+    }
+}

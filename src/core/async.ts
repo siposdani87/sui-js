@@ -1,6 +1,6 @@
 import { isUndefined, isFunction, eq, eachArray } from '../utils/operation';
-import { consoleDebug } from '../utils/log';
 import { Deferred } from './deferred';
+import { Emitter } from './emitter';
 
 /**
  * Provides serial and parallel execution of asynchronous function calls
@@ -14,7 +14,7 @@ import { Deferred } from './deferred';
  * The `parallelFunction()` method supports dynamic, incremental additions
  * to an ongoing parallel batch when the total count is known ahead of time
  * (set via the constructor's `opt_sum` parameter). When the batch completes,
- * the overridable `eventComplete()` hook is called.
+ * the 'complete' event is emitted.
  *
  * @example
  * const async = new Async();
@@ -42,7 +42,7 @@ import { Deferred } from './deferred';
  * @see {@link Promize}
  * @category Core
  */
-export class Async {
+export class Async extends Emitter {
     sum: number;
     call!: {
         // eslint-disable-next-line @typescript-eslint/no-explicit-any
@@ -60,6 +60,7 @@ export class Async {
      *     this many functions have finished.
      */
     constructor(opt_sum?: number) {
+        super();
         this.sum = opt_sum || 0;
         this._clear();
     }
@@ -110,7 +111,7 @@ export class Async {
     /**
      * Adds a single function to an ongoing parallel batch. Unlike
      * `parallel()`, this method does not return a promise; instead, the
-     * overridable `eventComplete()` hook is called when all expected
+     * the 'complete' event is emitted when all expected
      * functions (determined by the constructor's `opt_sum`) have finished.
      *
      * This is useful for dynamic, incremental parallel execution where
@@ -123,9 +124,9 @@ export class Async {
      *
      * @example
      * const async = new Async(3);
-     * async.eventComplete = (isError, results) => {
+     * async.on('complete', (isError, results) => {
      *     console.log('Batch complete:', results);
-     * };
+     * });
      *
      * async.parallelFunction(() => loadItem(1));
      * async.parallelFunction(() => loadItem(2));
@@ -150,7 +151,7 @@ export class Async {
      *
      * @param call The function to execute.
      * @param length Total number of expected parallel completions.
-     * @param allowEvent Whether to fire `eventComplete()` instead of
+     * @param allowEvent Whether to fire the 'complete' event instead of
      *     resolving/rejecting the deferred.
      * @param index The result index for this function.
      * @param opt_args Optional arguments passed through to the function.
@@ -219,13 +220,13 @@ export class Async {
     /**
      * Records a single parallel function's result and checks whether all
      * expected functions have completed. When the batch is complete, either
-     * resolves/rejects the deferred or fires `eventComplete()` depending
+     * resolves/rejects the deferred or fires the 'complete' event depending
      * on the `allowEvent` flag.
      *
      * @param length Total number of expected parallel completions.
      * @param isError Whether this function's execution resulted in an error.
      * @param result The result or error value from the function.
-     * @param allowEvent Whether to fire `eventComplete()` instead of
+     * @param allowEvent Whether to fire the 'complete' event instead of
      *     settling the deferred.
      * @param index The result index for this function.
      * @param opt_args Optional arguments used as the results payload when
@@ -253,13 +254,13 @@ export class Async {
             this._clear();
             if (!this.call.isError) {
                 if (allowEvent) {
-                    this.eventComplete(this.call.isError, results);
+                    this.emit('complete', this.call.isError, results);
                 } else {
                     deferred.resolve(results);
                 }
             } else {
                 if (allowEvent) {
-                    this.eventComplete(this.call.isError, results);
+                    this.emit('complete', this.call.isError, results);
                 } else {
                     deferred.reject(results);
                 }
@@ -305,27 +306,6 @@ export class Async {
         this.call.isError = isError;
         this.call.counter = counter;
         this.call.results = results;
-    }
-
-    /**
-     * Overridable hook called when a parallel batch started via
-     * `parallelFunction()` completes (i.e., all expected functions have
-     * finished). Override this method to handle batch completion events.
-     *
-     * @param isError Whether any function in the batch produced an error.
-     * @param results Array of results from all functions in the batch.
-     *
-     * @example
-     * const async = new Async(2);
-     * async.eventComplete = (isError, results) => {
-     *     if (!isError) {
-     *         console.log('All parallel functions completed:', results);
-     *     }
-     * };
-     */
-    // eslint-disable-next-line @typescript-eslint/no-explicit-any
-    eventComplete(isError: boolean, results: Array<any>): void {
-        consoleDebug('Async.eventComplete(isError, results)', isError, results);
     }
 
     /**
@@ -381,7 +361,7 @@ export class Async {
         opt_args?: Array<any>,
     ) {
         const deferred = new Deferred();
-        const call = calls[index];
+        const call = calls[index]!;
         const results = opt_args || this.call.results;
         const args = (opt_args || []).concat(this.call.results);
         const promise = call.apply(this, args);

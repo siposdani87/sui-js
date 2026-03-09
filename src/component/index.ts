@@ -29,6 +29,5 @@ export * from './table';
 export * from './tabPanel';
 export * from './time';
 export * from './tooltip';
-// export * from './treeView';
 export * from './waiter';
 export * from './year';

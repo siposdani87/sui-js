@@ -1,11 +1,10 @@
-import { eq, typeCast, isNull } from '../utils/operation';
+import { typeCast, isNull } from '../utils/operation';
 import { BaseField } from './baseField';
 import { GoogleMap } from '../component/googleMap';
 import { Knot } from '../core/knot';
-import { consoleDebug } from '../utils/log';
 import { generateId } from '../utils/coder';
-import { IconOptions } from '../utils';
-import { mdl } from '../utils/render';
+import type { IconOptions } from '../utils';
+import { sui } from '../utils/render';
 
 /**
  * Location picker field with an embedded {@link GoogleMap}, geocoding search,
@@ -16,7 +15,7 @@ import { mdl } from '../utils/render';
  * const input = new Query<HTMLInputElement>('input.location', formKnot).getKnot();
  * const field = new LocationField(input, label, error, inputBlock);
  * field.render();
- * field.eventSearch = (address) => field.search(address);
+ * field.on('search', (address) => field.search(address));
  *
  * @see {@link BaseField}
  * @see {@link GoogleMap}
@@ -39,25 +38,9 @@ export class LocationField extends BaseField<HTMLInputElement> {
     longitudeInput!: Knot<HTMLInputElement>;
 
     /**
-     * @param input The underlying `<input>` element wrapped in a {@link Knot}.
-     * @param label The associated label element.
-     * @param error The element used to display validation errors.
-     * @param inputBlock The block-level container wrapping the entire field.
-     */
-    constructor(
-        input: Knot<HTMLInputElement>,
-        label: Knot,
-        error: Knot,
-        inputBlock: Knot,
-    ) {
-        super(input, label, error, inputBlock);
-        this._init();
-    }
-
-    /**
      * Initializes buttons, icon options, and address/change event listeners.
      */
-    private _init(): void {
+    protected override _init(): void {
         this.inputBlock.addClass('location-field');
         this._initButtons();
 
@@ -66,8 +49,8 @@ export class LocationField extends BaseField<HTMLInputElement> {
         this.input.addEventListener('keyup', (input, event) => {
             const inputNode = input.getNode();
 
-            if (eq(event.keyCode, 13)) {
-                this.eventSearch(inputNode.value);
+            if (event.key === 'Enter') {
+                this.emit('search', inputNode.value);
             } else {
                 input.trigger('change');
             }
@@ -97,14 +80,18 @@ export class LocationField extends BaseField<HTMLInputElement> {
      * Creates the search button and binds its click to trigger geocoding.
      */
     private _initSearchButton(): void {
-        const searchButton = new Knot('a');
-        searchButton.setAttribute('href', 'javascript:void(0)');
-        searchButton.addClass(['search-button', 'material-icons']);
+        const searchButton = new Knot('button');
+        searchButton.setAttribute('type', 'button');
+        searchButton.addClass([
+            'search-button',
+            'icon-button',
+            'material-icons',
+        ]);
         searchButton.setHtml('pin_drop');
         searchButton.addEventListener('click', () => {
             if (this.isEnabled()) {
                 const inputNode = this.input.getNode();
-                this.eventSearch(inputNode.value);
+                this.emit('search', inputNode.value);
             }
         });
         this.actionContainerKnot.appendChild(searchButton);
@@ -114,9 +101,13 @@ export class LocationField extends BaseField<HTMLInputElement> {
      * Creates the advanced-toggle button that shows/hides lat/lng inputs.
      */
     private _initAdvancedButton(): void {
-        this.advancedButton = new Knot('a');
-        this.advancedButton.setAttribute('href', 'javascript:void(0)');
-        this.advancedButton.addClass(['advanced-button', 'material-icons']);
+        this.advancedButton = new Knot('button');
+        this.advancedButton.setAttribute('type', 'button');
+        this.advancedButton.addClass([
+            'advanced-button',
+            'icon-button',
+            'material-icons',
+        ]);
         this.advancedButton.setHtml('settings');
         this.advancedButton.addEventListener('click', () => {
             if (this.isEnabled()) {
@@ -138,7 +129,7 @@ export class LocationField extends BaseField<HTMLInputElement> {
     search(address: string): void {
         this.map.searchAddress(address).then(
             (locations) => {
-                const position = locations[0];
+                const position = locations[0]!;
                 const location = {
                     address: typeCast(address),
                     latitude: position['latitude'],
@@ -153,21 +144,13 @@ export class LocationField extends BaseField<HTMLInputElement> {
     }
 
     /**
-     * Applies MDL text-field classes, renders the advanced inputs, map, and
+     * Applies SUI text-field classes, renders the advanced inputs, map, and
      * default value, then refreshes the visual state.
      *
      * @override
      */
     override render(): void {
-        this.inputBlock.addClass([
-            'mdl-textfield',
-            'mdl-js-textfield',
-            'mdl-textfield--floating-label',
-        ]);
-        this.input.addClass('mdl-textfield__input');
-        if (this.label && this.label.exists()) {
-            this.label.addClass('mdl-textfield__label');
-        }
+        this._renderTextField();
 
         this._renderAdvancedInputs();
         this._renderMap();
@@ -178,17 +161,19 @@ export class LocationField extends BaseField<HTMLInputElement> {
 
     /**
      * Toggles the map lock overlay based on the disabled state and upgrades
-     * MDL components.
+     * SUI components.
      *
      * @override
      */
     override refresh() {
         if (this.isDisabled()) {
+            this.inputBlock.addClass('is-disabled');
             this.mapLockKnot.addClass('map-lock');
         } else {
+            this.inputBlock.removeClass('is-disabled');
             this.mapLockKnot.removeClass('map-lock');
         }
-        mdl(this.inputBlock);
+        sui(this.inputBlock);
     }
 
     /**
@@ -232,7 +217,7 @@ export class LocationField extends BaseField<HTMLInputElement> {
     }
 
     /**
-     * Creates a single labelled MDL text input for the advanced panel.
+     * Creates a single labelled SUI text input for the advanced panel.
      *
      * @param id Unique DOM id for the input element.
      * @param labelText Display label for the input.
@@ -249,23 +234,19 @@ export class LocationField extends BaseField<HTMLInputElement> {
         this.advancedKnot.appendChild(blockKnot);
 
         const boxKnot = new Knot('div');
-        boxKnot.addClass([
-            'mdl-textfield',
-            'mdl-js-textfield',
-            'mdl-textfield--floating-label',
-        ]);
+        boxKnot.addClass(['sui-textfield', 'input-block']);
         blockKnot.appendChild(boxKnot);
 
         const advancedLabel = new Knot<HTMLLabelElement>('label');
         advancedLabel.setFor(id);
-        advancedLabel.addClass('mdl-textfield__label');
+        advancedLabel.addClass('sui-textfield__label');
         advancedLabel.setHtml(labelText);
         boxKnot.appendChild(advancedLabel);
 
         const advancedInput = new Knot<HTMLInputElement>('input');
         advancedInput.setId(id);
         advancedInput.setAttribute('type', 'text');
-        advancedInput.addClass('mdl-textfield__input');
+        advancedInput.addClass('sui-textfield__input');
         boxKnot.appendChild(advancedInput);
 
         this._setAdditionalLabel(advancedLabel);
@@ -298,15 +279,15 @@ export class LocationField extends BaseField<HTMLInputElement> {
             draggable: true,
         });
         this.map.setMarkerIcon('marker', this.icon);
-        this.map.eventMapClick = (latitude, longitude) => {
+        this.map.on('mapClick', (latitude, longitude) => {
             this.updatePosition(latitude, longitude);
-        };
-        this.map.eventMarkerRightClick = () => {
+        });
+        this.map.on('markerRightClick', () => {
             this.updatePosition(null, null);
-        };
-        this.map.eventMarkerChanged = (_data, latitude, longitude) => {
+        });
+        this.map.on('markerChanged', (_data, latitude, longitude) => {
             this.updatePosition(latitude, longitude);
-        };
+        });
     }
 
     /**
@@ -444,15 +425,5 @@ export class LocationField extends BaseField<HTMLInputElement> {
     override getValue(): any {
         const value = this.input.getData('value');
         return typeCast(value);
-    }
-
-    /**
-     * Overridable event callback invoked when the user triggers an address
-     * search via Enter key or the search button.
-     *
-     * @param address The address string entered by the user.
-     */
-    eventSearch(address: string): void {
-        consoleDebug('Location.eventSearch()', address);
     }
 }

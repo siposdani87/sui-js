@@ -25,7 +25,7 @@ import { BaseModal } from './baseModal';
  * @category Module
  */
 export class Viewer extends BaseModal {
-    options!: Objekt;
+    options!: Objekt<{ id: string }>;
 
     /**
      * Creates a new Viewer instance.
@@ -59,9 +59,12 @@ export class Viewer extends BaseModal {
     private _init(): void {
         this.body = new Query('body').getKnot();
         this.modal = new Query(this.options.id, this.body).getKnot();
+        this.modal.setAttribute('role', 'dialog');
+        this.modal.setAttribute('aria-labelledby', 'viewer-title');
         this.modalWindow = new Query('#viewer-window', this.modal).getKnot();
         this.modalHeader = new Query('.modal-header', this.modal).getKnot();
         this.modalTitle = new Query('.modal-title', this.modalHeader).getKnot();
+        this.modalTitle.setAttribute('id', 'viewer-title');
         this.modalBody = new Query('.modal-body', this.modal).getKnot();
         this.modalFooter = new Query('.modal-footer', this.modal).getKnot();
     }
@@ -85,7 +88,7 @@ export class Viewer extends BaseModal {
     loadImage(imageUrl: string, opt_title: string | undefined = ''): void {
         this._reset();
 
-        this._setImage(imageUrl);
+        this._setImage(imageUrl, opt_title);
         this._setTitle(opt_title);
 
         this.open();
@@ -96,9 +99,13 @@ export class Viewer extends BaseModal {
      *
      * @param imageUrl The URL to set as the image source.
      */
-    private _setImage(imageUrl: string): void {
+    private _setImage(
+        imageUrl: string,
+        opt_title: string | undefined = '',
+    ): void {
         const imageKnot = new Knot<HTMLImageElement>('img');
         imageKnot.setAttribute('src', imageUrl);
+        imageKnot.setAttribute('alt', opt_title || '');
 
         this.modalBody.appendChild(imageKnot);
     }

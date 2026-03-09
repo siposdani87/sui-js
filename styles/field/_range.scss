@@ -1,49 +1,47 @@
-@use '../core/variables';
-
 .range-field {
-    .mdl-slider__container {
+    .sui-slider__container {
         height: 32px;
     }
 
-    .mdl-slider {
-        background-color: variables.$input-default-light;
+    .sui-slider {
+        background-color: var(--sui-input);
         margin: 0;
         width: 100%;
     }
 
-    .mdl-slider::-webkit-slider-thumb,
-    .mdl-slider:active::-webkit-slider-thumb {
-        background: variables.$primary-default-light;
+    .sui-slider::-webkit-slider-thumb,
+    .sui-slider:active::-webkit-slider-thumb {
+        background: var(--sui-primary-action);
     }
 
-    .mdl-slider::-moz-range-thumb,
-    .mdl-slider:active::-moz-range-thumb {
-        background: variables.$primary-default-light;
+    .sui-slider::-moz-range-thumb,
+    .sui-slider:active::-moz-range-thumb {
+        background: var(--sui-primary-action);
     }
 
-    .mdl-slider::-ms-thumb,
-    .mdl-slider:active::-ms-thumb {
-        background: variables.$primary-default-light;
+    .sui-slider::-ms-thumb,
+    .sui-slider:active::-ms-thumb {
+        background: var(--sui-primary-action);
     }
 
     &.is-disabled {
-        .mdl-slider {
-            background-color: variables.$input-disabled-light;
+        .sui-slider {
+            background-color: var(--sui-input-disabled);
         }
 
-        .mdl-slider::-webkit-slider-thumb,
-        .mdl-slider:active::-webkit-slider-thumb {
-            background: variables.$primary-disabled-light;
+        .sui-slider::-webkit-slider-thumb,
+        .sui-slider:active::-webkit-slider-thumb {
+            background: var(--sui-primary-action-disabled);
         }
 
-        .mdl-slider::-moz-range-thumb,
-        .mdl-slider:active::-moz-range-thumb {
-            background: variables.$primary-disabled-light;
+        .sui-slider::-moz-range-thumb,
+        .sui-slider:active::-moz-range-thumb {
+            background: var(--sui-primary-action-disabled);
         }
 
-        .mdl-slider::-ms-thumb,
-        .mdl-slider:active::-ms-thumb {
-            background: variables.$primary-disabled-light;
+        .sui-slider::-ms-thumb,
+        .sui-slider:active::-ms-thumb {
+            background: var(--sui-primary-action-disabled);
         }
     }
 }

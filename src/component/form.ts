@@ -1,11 +1,10 @@
 import { inArray, isSame, isUndefined, remove } from '../utils/operation';
-import { Collection } from '../core/collection';
+import { Collection, type CollectionType } from '../core/collection';
 import { Objekt } from '../core/objekt';
 import { Query } from '../core/query';
 import { FormField } from './formField';
-import { consoleDebug } from '../utils/log';
-import { BaseField } from '../field';
-import { Knot } from '../core';
+import type { BaseField } from '../field';
+import type { Knot } from '../core';
 
 /**
  * @description Manages a collection of form fields with model binding, validation, and
@@ -14,9 +13,9 @@ import { Knot } from '../core';
  * @example
  * const form = new Form(dom, 'form');
  * form.setModel(new Objekt({ name: 'John', email: 'john@example.com' }));
- * form.eventSubmit = (model, knot) => {
+ * form.on('submit', (model, knot) => {
  *     http.post('/api/users', model);
- * };
+ * });
  *
  * @see {@link BaseField} for individual field implementations
  * @see {@link Collection} for the base collection interface
@@ -44,9 +43,13 @@ export class Form extends Collection<BaseField<HTMLInputElement>> {
             dom,
         ).getKnot();
         formKnot.setAttribute('novalidate');
-        super([], FormField, {
-            parent: formKnot,
-        });
+        super(
+            [],
+            FormField as unknown as CollectionType<BaseField<HTMLInputElement>>,
+            {
+                parent: formKnot,
+            },
+        );
         this.formKnot = formKnot;
 
         this._init();
@@ -82,14 +85,9 @@ export class Form extends Collection<BaseField<HTMLInputElement>> {
     private _initFormEvent(): void {
         this.formKnot.addEventListener('keydown', (_knot, event) => {
             const textArea = /textarea/i.test(
-                (event.target || event.srcElement).tagName,
+                (event.target as HTMLElement).tagName,
             );
-            if (
-                !(
-                    textArea ||
-                    (event.keyCode || event.which || event.charCode || 0) !== 13
-                )
-            ) {
+            if (!(textArea || event.key !== 'Enter')) {
                 event.preventDefault();
             }
             return true;
@@ -100,24 +98,24 @@ export class Form extends Collection<BaseField<HTMLInputElement>> {
     }
 
     /**
-     * @description Binds the form submit event, validates, and delegates to {@link eventSubmit}.
+     * @description Binds the form submit event, validates, and emits the 'submit' event.
      */
     private _initSubmitFormEvent(): void {
         this.formKnot.addEventListener('submit', (knot, event) => {
             event.preventDefault();
             if (this.checkValidity(true)) {
-                this.eventSubmit(this.model, knot);
+                this.emit('submit', this.model, knot);
             }
         });
     }
 
     /**
-     * @description Binds the form reset event and delegates to {@link eventReset}.
+     * @description Binds the form reset event and emits the 'reset' event.
      */
     private _initResetFormEvent(): void {
         this.formKnot.addEventListener('reset', (knot, event) => {
             event.preventDefault();
-            this.eventReset(this.model, knot);
+            this.emit('reset', this.model, knot);
         });
     }
 
@@ -149,9 +147,9 @@ export class Form extends Collection<BaseField<HTMLInputElement>> {
                 field.getPreviousValue = () => {
                     this._getPreviousValue(field);
                 };
-                field.eventClick = (knot) => {
-                    this.eventButton(this.model, knot);
-                };
+                field.on('click', (knot) => {
+                    this.emit('button', this.model, knot);
+                });
                 if (!inArray(updatedFields, fieldName)) {
                     this._setValue(fieldName, field.getValue());
                     updatedFields.push(fieldName);
@@ -275,7 +273,7 @@ export class Form extends Collection<BaseField<HTMLInputElement>> {
         const currentValue = this._getValue(fieldName);
         if (!isSame(value, currentValue)) {
             this._setValue(fieldName, value);
-            field.eventChange(value, currentValue);
+            field.emit('change', value, currentValue);
         }
         this.checkValidity(true, false);
     }
@@ -414,29 +412,12 @@ export class Form extends Collection<BaseField<HTMLInputElement>> {
     }
 
     /**
-     * @description Called when the form is submitted and passes validation. Override to handle submission.
-     * @param {Objekt} model - The current form data model.
-     * @param {Knot} knot - The form DOM element.
+     * @description Removes all event listeners from the form element.
+     * Call this method to clean up when the Form instance is no longer needed.
      */
-    eventSubmit(model: Objekt, knot: Knot): void {
-        consoleDebug('Form.eventSubmit()', model, knot);
-    }
-
-    /**
-     * @description Called when the form reset button is clicked. Override to handle reset logic.
-     * @param {Objekt} model - The current form data model.
-     * @param {Knot} knot - The form DOM element.
-     */
-    eventReset(model: Objekt, knot: Knot): void {
-        consoleDebug('Form.eventReset()', model, knot);
-    }
-
-    /**
-     * @description Called when a non-submit/non-reset button inside the form is clicked. Override to handle button actions.
-     * @param {Objekt} model - The current form data model.
-     * @param {Knot} knot - The button DOM element.
-     */
-    eventButton(model: Objekt, knot: Knot): void {
-        consoleDebug('Form.eventButton()', model, knot);
+    destroy(): void {
+        this.formKnot.removeEventListeners('keydown');
+        this.formKnot.removeEventListeners('submit');
+        this.formKnot.removeEventListeners('reset');
     }
 }

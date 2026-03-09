@@ -2,8 +2,8 @@ import { eq, format, isFunction, isPureObject, noop } from '../utils/operation';
 import { Objekt } from '../core/objekt';
 import { Query } from '../core/query';
 import { generateId } from '../utils/coder';
-import { Knot } from '../core';
-import { mdl } from '../utils/render';
+import type { Knot } from '../core';
+import { sui } from '../utils/render';
 
 /**
  * Flash message notification system for displaying temporary, styled
@@ -49,7 +49,7 @@ import { mdl } from '../utils/render';
  */
 export class Flash {
     container!: Knot;
-    options!: Objekt;
+    options!: Objekt<{ id: string; duration: number; closableTypes: string[] }>;
 
     /**
      * Creates a new Flash instance.
@@ -71,6 +71,8 @@ export class Flash {
      */
     private _init(): void {
         this.container = new Query(this.options.id).getKnot();
+        this.container.setAttribute('aria-live', 'polite');
+        this.container.setAttribute('aria-atomic', 'false');
     }
 
     /**
@@ -107,6 +109,7 @@ export class Flash {
     ): Knot {
         const flashKnot = this.container.createElement('div');
         flashKnot.setAttribute('data-id', opt_id || generateId('flash'));
+        flashKnot.setAttribute('role', 'alert');
         flashKnot.addClass(['flash', type]);
         flashKnot.setHtml(message);
         if (
@@ -123,7 +126,7 @@ export class Flash {
     }
 
     /**
-     * Creates an MDL-styled close button for a flash message.
+     * Creates a styled close button for a flash message.
      *
      * @param flashKnot The flash element that this button will close.
      * @param opt_closeCallback Callback invoked when the button is clicked.
@@ -134,11 +137,7 @@ export class Flash {
         opt_closeCallback: ((() => void) | null) | undefined = null,
     ): Knot {
         const buttonKnot = flashKnot.createElement('button');
-        buttonKnot.addClass([
-            'mdl-button',
-            'mdl-js-button',
-            'mdl-button--icon',
-        ]);
+        buttonKnot.addClass(['sui-button', 'sui-button--icon']);
 
         const buttonIcon = buttonKnot.createElement('em');
         buttonIcon.addClass('material-icons');
@@ -150,7 +149,7 @@ export class Flash {
             this.remove(flashKnot, opt_closeCallback);
         });
 
-        mdl(buttonKnot);
+        sui(buttonKnot);
 
         return buttonKnot;
     }
@@ -235,7 +234,7 @@ export class Flash {
         opt_closeCallback: ((() => void) | null) | undefined = null,
     ): boolean {
         return (
-            this.options.closableTypes.indexOf(type) !== -1 ||
+            this.options.closableTypes.includes(type) ||
             isFunction(opt_closeCallback)
         );
     }

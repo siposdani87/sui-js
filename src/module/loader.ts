@@ -1,11 +1,10 @@
 import { eq } from '../utils/operation';
 import { Objekt } from '../core/objekt';
 import { Query } from '../core/query';
-import { Knot } from '../core';
+import type { Knot } from '../core';
 
 /**
- * Full-screen loading spinner overlay using a Material Design Lite spinner
- * component.
+ * Full-screen loading spinner overlay.
  *
  * Display is reference-counted: each {@link show} call increments an internal
  * counter, and each {@link hide} call decrements it. The spinner is only
@@ -22,7 +21,7 @@ import { Knot } from '../core';
  * loader.hide();
  */
 export class Loader {
-    options!: Objekt;
+    options!: Objekt<{ counter: number }>;
     loader!: Knot;
     spinner!: Knot;
 
@@ -51,18 +50,17 @@ export class Loader {
     }
 
     /**
-     * Creates the MDL spinner element and appends it to the `#loader`
+     * Creates the spinner element and appends it to the `#loader`
      * container in the DOM.
      */
     private _init(): void {
         this.loader = new Query('#loader').getKnot();
+        this.loader.setAttribute('role', 'status');
+        this.loader.setAttribute('aria-live', 'polite');
+        this.loader.setAttribute('aria-label', 'Loading');
 
         this.spinner = this.loader.createElement('div');
-        this.spinner.addClass([
-            'mdl-spinner',
-            'mdl-spinner--single-color',
-            'mdl-js-spinner',
-        ]);
+        this.spinner.addClass('sui-spinner');
 
         this.loader.appendChild(this.spinner);
     }

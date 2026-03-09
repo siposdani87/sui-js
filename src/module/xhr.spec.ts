@@ -1,20 +1,26 @@
 import { Xhr } from './xhr';
 import {
-    MockXMLHttpRequest,
-    installXhrMock,
-    uninstallXhrMock,
-    getLastXhr,
+    installFetchMock,
+    uninstallFetchMock,
+    setFetchResponse,
+    setFetchNetworkError,
+    getLastFetchCall,
 } from '../test-helpers';
+
+const flushPromises = async () => {
+    await new Promise((resolve) => setTimeout(resolve, 0));
+    await new Promise((resolve) => setTimeout(resolve, 0));
+};
 
 describe('Xhr', () => {
     let xhr: Xhr;
 
     beforeEach(() => {
-        installXhrMock();
+        installFetchMock();
     });
 
     afterEach(() => {
-        uninstallXhrMock();
+        uninstallFetchMock();
     });
 
     describe('constructor & options', () => {
@@ -52,11 +58,6 @@ describe('Xhr', () => {
             expect(xhr.types['xml']).toBeDefined();
         });
 
-        it('should create an XMLHttpRequest instance', () => {
-            xhr = new Xhr();
-            expect(xhr.httpRequest).toBeDefined();
-        });
-
         it('should create a deferred', () => {
             xhr = new Xhr();
             expect(xhr.deferred).toBeDefined();
@@ -64,259 +65,263 @@ describe('Xhr', () => {
     });
 
     describe('URL construction', () => {
-        it('should prefix backend for URLs starting with /', () => {
+        it('should prefix backend for URLs starting with /', async () => {
             xhr = new Xhr({ backend: 'https://api.example.com' });
+            setFetchResponse(200, { 'Content-Type': 'application/json' }, {});
             xhr.get('/users', undefined);
-            const mock = getLastXhr();
-            expect(mock.url).toBe('https://api.example.com/users');
+            await flushPromises();
+            const call = getLastFetchCall();
+            expect(call.url).toBe('https://api.example.com/users');
         });
 
-        it('should not prefix backend for absolute URLs', () => {
+        it('should not prefix backend for absolute URLs', async () => {
             xhr = new Xhr({ backend: 'https://api.example.com' });
+            setFetchResponse(200, { 'Content-Type': 'application/json' }, {});
             xhr.get('https://other.com/data.json', undefined);
-            const mock = getLastXhr();
-            expect(mock.url).toBe('https://other.com/data.json');
+            await flushPromises();
+            const call = getLastFetchCall();
+            expect(call.url).toBe('https://other.com/data.json');
         });
 
-        it('should append query string params', () => {
+        it('should append query string params', async () => {
             xhr = new Xhr({ backend: 'https://api.example.com' });
+            setFetchResponse(200, { 'Content-Type': 'application/json' }, {});
             xhr.get('/users', { page: 1, limit: 10 });
-            const mock = getLastXhr();
-            expect(mock.url).toContain('/users?');
-            expect(mock.url).toContain('page=1');
-            expect(mock.url).toContain('limit=10');
+            await flushPromises();
+            const call = getLastFetchCall();
+            expect(call.url).toContain('/users?');
+            expect(call.url).toContain('page=1');
+            expect(call.url).toContain('limit=10');
         });
 
-        it('should handle undefined params without query string', () => {
+        it('should handle undefined params without query string', async () => {
             xhr = new Xhr({ backend: 'https://api.example.com' });
+            setFetchResponse(200, { 'Content-Type': 'application/json' }, {});
             xhr.get('/users', undefined);
-            const mock = getLastXhr();
-            expect(mock.url).toBe('https://api.example.com/users');
+            await flushPromises();
+            const call = getLastFetchCall();
+            expect(call.url).toBe('https://api.example.com/users');
         });
     });
 
     describe('request headers', () => {
-        it('should set Content-Type to application/json for .json URLs', () => {
+        it('should set Content-Type to application/json for .json URLs', async () => {
             xhr = new Xhr();
+            setFetchResponse(200, { 'Content-Type': 'application/json' }, {});
             xhr.get('/data.json', undefined);
-            const mock = getLastXhr();
-            expect(mock.requestHeaders['Content-Type']).toBe(
-                'application/json',
+            await flushPromises();
+            const call = getLastFetchCall();
+            expect(call.headers['Content-Type']).toBe('application/json');
+        });
+
+        it('should set Accept to application/json for .json URLs', async () => {
+            xhr = new Xhr();
+            setFetchResponse(200, { 'Content-Type': 'application/json' }, {});
+            xhr.get('/data.json', undefined);
+            await flushPromises();
+            const call = getLastFetchCall();
+            expect(call.headers['Accept']).toBe('application/json');
+        });
+
+        it('should set Accept to text/html for .html URLs', async () => {
+            xhr = new Xhr();
+            setFetchResponse(
+                200,
+                { 'Content-Type': 'text/html' },
+                '<html></html>',
             );
-        });
-
-        it('should set Accept to application/json for .json URLs', () => {
-            xhr = new Xhr();
-            xhr.get('/data.json', undefined);
-            const mock = getLastXhr();
-            expect(mock.requestHeaders['Accept']).toBe('application/json');
-        });
-
-        it('should set Accept to text/html for .html URLs', () => {
-            xhr = new Xhr();
             xhr.get('/page.html', undefined);
-            const mock = getLastXhr();
-            expect(mock.requestHeaders['Accept']).toBe('text/html');
+            await flushPromises();
+            const call = getLastFetchCall();
+            expect(call.headers['Accept']).toBe('text/html');
         });
 
-        it('should set X-Requested-With header', () => {
+        it('should set X-Requested-With header', async () => {
             xhr = new Xhr();
+            setFetchResponse(200, { 'Content-Type': 'application/json' }, {});
             xhr.get('/data.json', undefined);
-            const mock = getLastXhr();
-            expect(mock.requestHeaders['X-Requested-With']).toBe(
-                'XMLHttpRequest',
-            );
+            await flushPromises();
+            const call = getLastFetchCall();
+            expect(call.headers['X-Requested-With']).toBe('XMLHttpRequest');
         });
 
-        it('should set Accept-Language from locale', () => {
+        it('should set Accept-Language from locale', async () => {
             xhr = new Xhr({ locale: 'hu' });
+            setFetchResponse(200, { 'Content-Type': 'application/json' }, {});
             xhr.get('/data.json', undefined);
-            const mock = getLastXhr();
-            expect(mock.requestHeaders['Accept-Language']).toBe('hu');
+            await flushPromises();
+            const call = getLastFetchCall();
+            expect(call.headers['Accept-Language']).toBe('hu');
         });
 
-        it('should allow custom header overrides', () => {
+        it('should allow custom header overrides', async () => {
             xhr = new Xhr();
+            setFetchResponse(200, { 'Content-Type': 'application/json' }, {});
             xhr.get('/data.json', undefined, {
                 Accept: 'text/plain',
             });
-            const mock = getLastXhr();
-            expect(mock.requestHeaders['Accept']).toBe('text/plain');
+            await flushPromises();
+            const call = getLastFetchCall();
+            expect(call.headers['Accept']).toBe('text/plain');
         });
 
-        it('should set Authorization and withCredentials when authorization is set', () => {
+        it('should set Authorization when authorization is set', async () => {
             xhr = new Xhr();
             xhr.setBearerAuthorization('mytoken');
+            setFetchResponse(200, { 'Content-Type': 'application/json' }, {});
             xhr.get('/data.json', undefined);
-            const mock = getLastXhr();
-            expect(mock.requestHeaders['Authorization']).toBe('Bearer mytoken');
-            expect(mock.withCredentials).toBe(true);
+            await flushPromises();
+            const call = getLastFetchCall();
+            expect(call.headers['Authorization']).toBe('Bearer mytoken');
         });
 
-        it('should not set Authorization when authorization is null', () => {
+        it('should set credentials to include when authorization is set', async () => {
             xhr = new Xhr();
+            xhr.setBearerAuthorization('mytoken');
+            setFetchResponse(200, { 'Content-Type': 'application/json' }, {});
             xhr.get('/data.json', undefined);
-            const mock = getLastXhr();
-            expect(mock.requestHeaders['Authorization']).toBeUndefined();
+            await flushPromises();
+            const call = getLastFetchCall();
+            expect(call.credentials).toBe('include');
         });
 
-        it('should handle responseType via opt_headers', () => {
+        it('should not set Authorization when authorization is null', async () => {
             xhr = new Xhr();
-            xhr.get('/file.bin', undefined, { responseType: 'blob' });
-            const mock = getLastXhr();
-            expect(mock.responseType).toBe('blob');
+            setFetchResponse(200, { 'Content-Type': 'application/json' }, {});
+            xhr.get('/data.json', undefined);
+            await flushPromises();
+            const call = getLastFetchCall();
+            expect(call.headers['Authorization']).toBeUndefined();
         });
 
-        it('should use fallback type for unknown extensions', () => {
+        it('should use fallback type for unknown extensions', async () => {
             xhr = new Xhr();
+            setFetchResponse(200, { 'Content-Type': 'text/plain' }, 'hello');
             xhr.get('/data.txt', undefined);
-            const mock = getLastXhr();
-            expect(mock.requestHeaders['Accept']).toBe('*/*');
-        });
-    });
-
-    describe('response type', () => {
-        it('should set responseType to json for .json URLs', () => {
-            xhr = new Xhr();
-            xhr.get('/data.json', undefined);
-            const mock = getLastXhr();
-            expect(mock.responseType).toBe('json');
-        });
-
-        it('should set responseType to document for .html URLs', () => {
-            xhr = new Xhr();
-            xhr.get('/page.html', undefined);
-            const mock = getLastXhr();
-            expect(mock.responseType).toBe('document');
-        });
-
-        it('should set responseType to document for .svg URLs', () => {
-            xhr = new Xhr();
-            xhr.get('/icon.svg', undefined);
-            const mock = getLastXhr();
-            expect(mock.responseType).toBe('document');
-        });
-
-        it('should set responseType to document for .xml URLs', () => {
-            xhr = new Xhr();
-            xhr.get('/data.xml', undefined);
-            const mock = getLastXhr();
-            expect(mock.responseType).toBe('document');
-        });
-
-        it('should set responseType to text for unknown extensions', () => {
-            xhr = new Xhr();
-            xhr.get('/data.csv', undefined);
-            const mock = getLastXhr();
-            expect(mock.responseType).toBe('text');
+            await flushPromises();
+            const call = getLastFetchCall();
+            expect(call.headers['Accept']).toBe('*/*');
         });
     });
 
     describe('request body encoding', () => {
-        it('should JSON.stringify body for json content type', () => {
+        it('should JSON.stringify body for json content type', async () => {
             xhr = new Xhr();
             const data = { name: 'test', value: 42 };
+            setFetchResponse(200, { 'Content-Type': 'application/json' }, {});
             xhr.post('/api/items.json', data, undefined);
-            const mock = getLastXhr();
-            expect(mock.body).toBe(JSON.stringify(data));
+            await flushPromises();
+            const call = getLastFetchCall();
+            expect(call.body).toBe(JSON.stringify(data));
         });
 
-        it('should form-encode body for form content type', () => {
+        it('should form-encode body for form content type', async () => {
             xhr = new Xhr();
             xhr.types[''] = [
                 'application/x-www-form-urlencoded',
-                'json',
                 'application/json',
             ];
             const data = { name: 'test', value: '42' };
+            setFetchResponse(200, { 'Content-Type': 'application/json' }, {});
             xhr.post('/api/items', data, undefined);
-            const mock = getLastXhr();
-            expect(mock.body).toContain('name=test');
-            expect(mock.body).toContain('value=42');
+            await flushPromises();
+            const call = getLastFetchCall();
+            expect(call.body).toContain('name=test');
+            expect(call.body).toContain('value=42');
         });
 
-        it('should form-encode nested objects', () => {
+        it('should form-encode nested objects', async () => {
             xhr = new Xhr();
             xhr.types[''] = [
                 'application/x-www-form-urlencoded',
-                'json',
                 'application/json',
             ];
             const data = { user: { name: 'test', age: 30 } };
+            setFetchResponse(200, { 'Content-Type': 'application/json' }, {});
             xhr.post('/api/items', data, undefined);
-            const mock = getLastXhr();
-            expect(mock.body).toContain('user[name]=test');
-            expect(mock.body).toContain('user[age]=30');
+            await flushPromises();
+            const call = getLastFetchCall();
+            expect(call.body).toContain('user[name]=test');
+            expect(call.body).toContain('user[age]=30');
         });
 
-        it('should form-encode arrays', () => {
+        it('should form-encode arrays', async () => {
             xhr = new Xhr();
             xhr.types[''] = [
                 'application/x-www-form-urlencoded',
-                'json',
                 'application/json',
             ];
             const data = { tags: ['a', 'b'] };
+            setFetchResponse(200, { 'Content-Type': 'application/json' }, {});
             xhr.post('/api/items', data, undefined);
-            const mock = getLastXhr();
-            expect(mock.body).toContain('tags[]=a');
-            expect(mock.body).toContain('tags[]=b');
+            await flushPromises();
+            const call = getLastFetchCall();
+            expect(call.body).toContain('tags[]=a');
+            expect(call.body).toContain('tags[]=b');
         });
 
-        it('should send stringified empty object for GET requests on .json URLs', () => {
+        it('should not send body for GET requests', async () => {
             xhr = new Xhr();
+            setFetchResponse(200, { 'Content-Type': 'application/json' }, {});
             xhr.get('/data.json', undefined);
-            const mock = getLastXhr();
-            expect(mock.body).toBe('{}');
+            await flushPromises();
+            const call = getLastFetchCall();
+            expect(call.body).toBeNull();
         });
 
-        it('should send empty string when data is not provided and content type is empty', () => {
+        it('should send empty string when data is not provided for POST', async () => {
             xhr = new Xhr();
-            xhr.get('/data.html', undefined);
-            const mock = getLastXhr();
-            expect(mock.body).toBe('');
+            setFetchResponse(
+                200,
+                { 'Content-Type': 'text/html' },
+                '<html></html>',
+            );
+            xhr.post('/page.html', undefined, undefined);
+            await flushPromises();
+            const call = getLastFetchCall();
+            expect(call.body).toBe('');
         });
     });
 
     describe('HTTP methods', () => {
         beforeEach(() => {
             xhr = new Xhr({ backend: 'https://api.example.com' });
+            setFetchResponse(200, { 'Content-Type': 'application/json' }, {});
         });
 
-        it('should open GET request with correct method', () => {
+        it('should make GET request with correct method', async () => {
             xhr.get('/data.json', undefined);
-            const mock = getLastXhr();
-            expect(mock.method).toBe('GET');
+            await flushPromises();
+            const call = getLastFetchCall();
+            expect(call.method).toBe('GET');
         });
 
-        it('should open POST request with correct method', () => {
+        it('should make POST request with correct method', async () => {
             xhr.post('/data.json', {}, undefined);
-            const mock = getLastXhr();
-            expect(mock.method).toBe('POST');
+            await flushPromises();
+            const call = getLastFetchCall();
+            expect(call.method).toBe('POST');
         });
 
-        it('should open PUT request with correct method', () => {
+        it('should make PUT request with correct method', async () => {
             xhr.put('/data.json', {}, undefined);
-            const mock = getLastXhr();
-            expect(mock.method).toBe('PUT');
+            await flushPromises();
+            const call = getLastFetchCall();
+            expect(call.method).toBe('PUT');
         });
 
-        it('should open PATCH request with correct method', () => {
+        it('should make PATCH request with correct method', async () => {
             xhr.patch('/data.json', {}, undefined);
-            const mock = getLastXhr();
-            expect(mock.method).toBe('PATCH');
+            await flushPromises();
+            const call = getLastFetchCall();
+            expect(call.method).toBe('PATCH');
         });
 
-        it('should open DELETE request with correct method', () => {
+        it('should make DELETE request with correct method', async () => {
             xhr.delete('/data.json', {}, undefined);
-            const mock = getLastXhr();
-            expect(mock.method).toBe('DELETE');
-        });
-
-        it('should always open with async=true', () => {
-            xhr.get('/data.json', undefined);
-            const mock = getLastXhr();
-            expect(mock.async).toBe(true);
+            await flushPromises();
+            const call = getLastFetchCall();
+            expect(call.method).toBe('DELETE');
         });
 
         it('should return a promise from each method', () => {
@@ -331,110 +336,82 @@ describe('Xhr', () => {
             xhr = new Xhr({ backend: 'https://api.example.com' });
         });
 
-        it('should resolve deferred on status 200 with JSON response', (done) => {
-            const promise = xhr.get('/data.json', undefined);
-            const mock = getLastXhr();
-
-            promise.then(
-                (httpRequest, data, filename) => {
-                    expect(data).toBeDefined();
-                    expect(data.get('name')).toBe('test');
-                    done();
-                },
-                () => {
-                    done.fail('should not reject');
-                },
-            );
-
-            mock.respond(
+        it('should resolve deferred on status 200 with JSON response', async () => {
+            setFetchResponse(
                 200,
                 { 'Content-Type': 'application/json' },
                 { name: 'test' },
             );
+            const onResolve = jest.fn();
+            const onReject = jest.fn();
+            xhr.get('/data.json', undefined).then(onResolve, onReject);
+            await flushPromises();
+            expect(onResolve).toHaveBeenCalled();
+            expect(onReject).not.toHaveBeenCalled();
+            const [httpResponse, data] = onResolve.mock.calls[0];
+            expect(data.get('name')).toBe('test');
         });
 
-        it('should reject deferred on status 400', (done) => {
-            const promise = xhr.get('/data.json', undefined);
-            const mock = getLastXhr();
-
-            promise.then(
-                () => {
-                    done.fail('should not resolve');
-                },
-                (httpRequest, data, filename) => {
-                    expect(data).toBeDefined();
-                    done();
-                },
-            );
-
-            mock.respond(
+        it('should reject deferred on status 400', async () => {
+            setFetchResponse(
                 400,
                 { 'Content-Type': 'application/json' },
                 { error: 'bad request' },
             );
+            const onResolve = jest.fn();
+            const onReject = jest.fn();
+            xhr.get('/data.json', undefined).then(onResolve, onReject);
+            await flushPromises();
+            expect(onResolve).not.toHaveBeenCalled();
+            expect(onReject).toHaveBeenCalled();
+            const [httpResponse, data] = onReject.mock.calls[0];
+            expect(data).toBeDefined();
         });
 
-        it('should reject deferred on status 500', (done) => {
-            const promise = xhr.get('/data.json', undefined);
-            const mock = getLastXhr();
-
-            promise.then(
-                () => {
-                    done.fail('should not resolve');
-                },
-                (httpRequest, data, filename) => {
-                    expect(data).toBeDefined();
-                    done();
-                },
-            );
-
-            mock.respond(
+        it('should reject deferred on status 500', async () => {
+            setFetchResponse(
                 500,
                 { 'Content-Type': 'application/json' },
                 { error: 'server error' },
             );
+            const onResolve = jest.fn();
+            const onReject = jest.fn();
+            xhr.get('/data.json', undefined).then(onResolve, onReject);
+            await flushPromises();
+            expect(onResolve).not.toHaveBeenCalled();
+            expect(onReject).toHaveBeenCalled();
         });
 
-        it('should parse JSON string response into Objekt', (done) => {
-            const promise = xhr.get('/data.json', undefined);
-            const mock = getLastXhr();
-
-            promise.then((httpRequest, data) => {
-                expect(data.get('id')).toBe(1);
-                expect(data.get('title')).toBe('hello');
-                done();
-            });
-
-            mock.respond(
+        it('should parse JSON response into Objekt', async () => {
+            setFetchResponse(
                 200,
                 { 'Content-Type': 'application/json' },
-                JSON.stringify({ id: 1, title: 'hello' }),
+                { id: 1, title: 'hello' },
             );
+            const onResolve = jest.fn();
+            xhr.get('/data.json', undefined).then(onResolve);
+            await flushPromises();
+            const [, data] = onResolve.mock.calls[0];
+            expect(data.get('id')).toBe(1);
+            expect(data.get('title')).toBe('hello');
         });
 
-        it('should wrap non-JSON response as raw property in Objekt', (done) => {
-            const promise = xhr.get('/page.html', undefined);
-            const mock = getLastXhr();
-
-            promise.then((httpRequest, data) => {
-                expect(data.get('raw')).toBe('<html></html>');
-                done();
-            });
-
-            mock.respond(200, { 'Content-Type': 'text/html' }, '<html></html>');
+        it('should wrap non-JSON response as raw property in Objekt', async () => {
+            setFetchResponse(
+                200,
+                { 'Content-Type': 'text/html' },
+                '<html></html>',
+            );
+            const onResolve = jest.fn();
+            xhr.get('/page.html', undefined).then(onResolve);
+            await flushPromises();
+            const [, data] = onResolve.mock.calls[0];
+            expect(data.get('raw')).toBe('<html></html>');
         });
 
-        it('should extract filename from Content-Disposition header', (done) => {
+        it('should extract filename from Content-Disposition header', async () => {
             xhr = new Xhr({ backend: 'https://api.example.com' });
-            const promise = xhr.get('/download.json', undefined);
-            const mock = getLastXhr();
-
-            promise.then((httpRequest, data, filename) => {
-                expect(filename).toBe('report.pdf');
-                done();
-            });
-
-            mock.respond(
+            setFetchResponse(
                 200,
                 {
                     'Content-Type': 'application/json',
@@ -442,39 +419,30 @@ describe('Xhr', () => {
                 },
                 { ok: true },
             );
+            const onResolve = jest.fn();
+            xhr.get('/download.json', undefined).then(onResolve);
+            await flushPromises();
+            const [, , filename] = onResolve.mock.calls[0];
+            expect(filename).toBe('report.pdf');
         });
 
-        it('should return empty filename when no Content-Disposition', (done) => {
+        it('should return empty filename when no Content-Disposition', async () => {
             xhr = new Xhr({ backend: 'https://api.example.com' });
-            const promise = xhr.get('/data.json', undefined);
-            const mock = getLastXhr();
-
-            promise.then((httpRequest, data, filename) => {
-                expect(filename).toBe('');
-                done();
-            });
-
-            mock.respond(
+            setFetchResponse(
                 200,
                 { 'Content-Type': 'application/json' },
                 { ok: true },
             );
+            const onResolve = jest.fn();
+            xhr.get('/data.json', undefined).then(onResolve);
+            await flushPromises();
+            const [, , filename] = onResolve.mock.calls[0];
+            expect(filename).toBe('');
         });
 
-        it('should return empty filename when responseURL does not match backend', (done) => {
+        it('should return empty filename when URL does not match backend', async () => {
             xhr = new Xhr({ backend: 'https://api.example.com' });
-            const promise = xhr.get(
-                'https://other.example.com/data.json',
-                undefined,
-            );
-            const mock = getLastXhr();
-
-            promise.then((httpRequest, data, filename) => {
-                expect(filename).toBe('');
-                done();
-            });
-
-            mock.respond(
+            setFetchResponse(
                 200,
                 {
                     'Content-Type': 'application/json',
@@ -482,22 +450,72 @@ describe('Xhr', () => {
                 },
                 { ok: true },
             );
+            const onResolve = jest.fn();
+            xhr.get('https://other.example.com/data.json', undefined).then(
+                onResolve,
+            );
+            await flushPromises();
+            const [, , filename] = onResolve.mock.calls[0];
+            expect(filename).toBe('');
         });
 
-        it('should handle JSON response with content-type having charset', (done) => {
-            const promise = xhr.get('/data.json', undefined);
-            const mock = getLastXhr();
-
-            promise.then((httpRequest, data) => {
-                expect(data.get('key')).toBe('value');
-                done();
-            });
-
-            mock.respond(
+        it('should handle JSON response with content-type having charset', async () => {
+            setFetchResponse(
                 200,
                 { 'Content-Type': 'application/json; charset=utf-8' },
                 { key: 'value' },
             );
+            const onResolve = jest.fn();
+            xhr.get('/data.json', undefined).then(onResolve);
+            await flushPromises();
+            const [, data] = onResolve.mock.calls[0];
+            expect(data.get('key')).toBe('value');
+        });
+
+        it('should provide HttpResponse with status and statusText', async () => {
+            setFetchResponse(
+                200,
+                { 'Content-Type': 'application/json' },
+                { ok: true },
+            );
+            const onResolve = jest.fn();
+            xhr.get('/data.json', undefined).then(onResolve);
+            await flushPromises();
+            const [httpResponse] = onResolve.mock.calls[0];
+            expect(httpResponse.status).toBe(200);
+            expect(httpResponse.statusText).toBe('OK');
+        });
+
+        it('should provide HttpResponse headers', async () => {
+            setFetchResponse(
+                200,
+                {
+                    'Content-Type': 'application/json',
+                    'X-Custom': 'test',
+                },
+                {},
+            );
+            const onResolve = jest.fn();
+            xhr.get('/data.json', undefined).then(onResolve);
+            await flushPromises();
+            const [httpResponse] = onResolve.mock.calls[0];
+            expect(httpResponse.headers['content-type']).toBe(
+                'application/json',
+            );
+        });
+    });
+
+    describe('network error handling', () => {
+        it('should reject with status 0 on network error', async () => {
+            xhr = new Xhr({ backend: 'https://api.example.com' });
+            setFetchNetworkError();
+            const onReject = jest.fn();
+            xhr.get('/data.json', undefined).then(jest.fn(), onReject);
+            await flushPromises();
+            expect(onReject).toHaveBeenCalled();
+            const [httpResponse] = onReject.mock.calls[0];
+            expect(httpResponse.status).toBe(0);
+            expect(httpResponse.statusText).toBe('Network Error');
         });
     });
 
@@ -533,6 +551,116 @@ describe('Xhr', () => {
             xhr = new Xhr();
             xhr.setBearerAuthorization('');
             expect(xhr.authorization).toBeNull();
+        });
+    });
+
+    describe('response with no Content-Type', () => {
+        it('should handle response with no Content-Type header', async () => {
+            xhr = new Xhr({ backend: 'https://api.example.com' });
+            setFetchResponse(200, {}, 'plain text');
+            const onResolve = jest.fn();
+            xhr.get('/data', undefined).then(onResolve);
+            await flushPromises();
+            expect(onResolve).toHaveBeenCalled();
+            const [, data] = onResolve.mock.calls[0];
+            expect(data.get('raw')).toBe('plain text');
+        });
+
+        it('should reject with no Content-Type on error status', async () => {
+            xhr = new Xhr({ backend: 'https://api.example.com' });
+            setFetchResponse(404, {}, 'not found');
+            const onReject = jest.fn();
+            xhr.get('/missing', undefined).then(jest.fn(), onReject);
+            await flushPromises();
+            expect(onReject).toHaveBeenCalled();
+            const [httpResponse, data] = onReject.mock.calls[0];
+            expect(httpResponse.status).toBe(404);
+            expect(data.get('raw')).toBe('not found');
+        });
+    });
+
+    describe('pre-set headers prevent defaults', () => {
+        it('should not override pre-set Accept header', async () => {
+            xhr = new Xhr();
+            setFetchResponse(200, { 'Content-Type': 'application/json' }, {});
+            xhr.get('/data.json', undefined, { Accept: 'text/xml' });
+            await flushPromises();
+            const call = getLastFetchCall();
+            expect(call.headers['Accept']).toBe('text/xml');
+        });
+
+        it('should not override pre-set Content-Type header', async () => {
+            xhr = new Xhr();
+            setFetchResponse(200, { 'Content-Type': 'application/json' }, {});
+            xhr.get('/data.json', undefined, {
+                'Content-Type': 'text/plain',
+            });
+            await flushPromises();
+            const call = getLastFetchCall();
+            expect(call.headers['Content-Type']).toBe('text/plain');
+        });
+
+        it('should not override pre-set X-Requested-With header', async () => {
+            xhr = new Xhr();
+            setFetchResponse(200, { 'Content-Type': 'application/json' }, {});
+            xhr.get('/data.json', undefined, {
+                'X-Requested-With': 'CustomClient',
+            });
+            await flushPromises();
+            const call = getLastFetchCall();
+            expect(call.headers['X-Requested-With']).toBe('CustomClient');
+        });
+
+        it('should not override pre-set Accept-Language header', async () => {
+            xhr = new Xhr({ locale: 'en' });
+            setFetchResponse(200, { 'Content-Type': 'application/json' }, {});
+            xhr.get('/data.json', undefined, {
+                'Accept-Language': 'fr',
+            });
+            await flushPromises();
+            const call = getLastFetchCall();
+            expect(call.headers['Accept-Language']).toBe('fr');
+        });
+
+        it('should not override pre-set Authorization header', async () => {
+            xhr = new Xhr();
+            xhr.setBearerAuthorization('token123');
+            setFetchResponse(200, { 'Content-Type': 'application/json' }, {});
+            xhr.get('/data.json', undefined, {
+                Authorization: 'Custom abc',
+            });
+            await flushPromises();
+            const call = getLastFetchCall();
+            expect(call.headers['Authorization']).toBe('Custom abc');
+        });
+    });
+
+    describe('filename header error handling', () => {
+        it('should return empty filename when Content-Disposition has no filename match', async () => {
+            xhr = new Xhr({ backend: 'https://api.example.com' });
+            setFetchResponse(
+                200,
+                {
+                    'Content-Type': 'application/json',
+                    'Content-Disposition': 'inline',
+                },
+                { ok: true },
+            );
+            const onResolve = jest.fn();
+            xhr.get('/data.json', undefined).then(onResolve);
+            await flushPromises();
+            const [, , filename] = onResolve.mock.calls[0];
+            expect(filename).toBe('');
+        });
+
+        it('should handle null JSON response string', async () => {
+            xhr = new Xhr({ backend: 'https://api.example.com' });
+            setFetchResponse(200, { 'Content-Type': 'application/json' }, '');
+            const onResolve = jest.fn();
+            xhr.get('/data.json', undefined).then(onResolve);
+            await flushPromises();
+            const [, data] = onResolve.mock.calls[0];
+            expect(data).toBeDefined();
         });
     });
 });

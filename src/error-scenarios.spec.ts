@@ -190,11 +190,12 @@ describe('Error scenarios and failure modes', () => {
             expect(() => deferred.reject('error')).not.toThrow();
         });
 
-        it('should handle resolve with no data', () => {
+        it('should handle resolve with no data', async () => {
             const deferred = new Deferred();
             const spy = jest.fn();
             deferred.promise().then(spy);
             expect(() => deferred.resolve()).not.toThrow();
+            await new Promise((resolve) => setTimeout(resolve, 0));
             expect(spy).toHaveBeenCalled();
         });
     });

@@ -3,7 +3,7 @@ import { Deferred } from '../core/deferred';
 import { Knot } from '../core/knot';
 import { Objekt } from '../core/objekt';
 import { Query } from '../core/query';
-import { ProgressBar } from './progressBar';
+import type { ProgressBar } from './progressBar';
 
 /**
  * Dynamic script loader that appends `<script>` tags to the document
@@ -102,7 +102,6 @@ export class Script {
             const scriptKnot = new Knot<HTMLScriptElement>('script');
             scriptKnot.setId(id);
             scriptKnot.setAttribute('src', urlWithQueryString(url, opt_params));
-            // TODO: check there is a good performance solution for script load
             if (opt_async) {
                 scriptKnot.setAttribute('async');
             }

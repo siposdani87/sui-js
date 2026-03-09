@@ -1,47 +1,50 @@
-@use '../core/variables';
-
 .color-field {
     .preview {
-        margin-right: 10px;
+        margin-inline-end: 10px;
         display: inline-block;
         width: 24px;
         height: 24px;
         vertical-align: middle;
         border-radius: 50%;
-        border: 1px solid variables.$input-default-light;
+        border: 1px solid var(--sui-input);
 
         &:focus {
             outline: none;
         }
     }
 
-    // input[required] ~ .preview {
-    //   border-color: $error-default-light;
-    // }
+    &.is-invalid {
+        .preview {
+            border-color: var(--sui-error-text);
+        }
+    }
 
     canvas {
         vertical-align: middle;
     }
 
     .field-label {
-        color: variables.$label-default-light;
+        color: var(--sui-label);
     }
 
     &.is-disabled {
         .field-label {
-            color: variables.$label-disabled-light;
+            color: var(--sui-label-disabled);
         }
 
         .preview {
-            border: 1px dotted variables.$input-disabled-light;
+            border-style: dotted;
+            border-color: var(--sui-input-disabled);
 
             .color {
                 opacity: 0.3;
             }
         }
 
-        // input[required] ~ .preview {
-        //   border-color: $error-disabled-light;
-        // }
+        &.is-invalid {
+            .preview {
+                border-color: var(--sui-error-text-disabled);
+            }
+        }
     }
 }

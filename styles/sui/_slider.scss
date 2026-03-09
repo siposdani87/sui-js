@@ -1,0 +1,34 @@
+@use '../core/variables';
+
+.sui-sliderfield {
+    .sui-slider {
+        appearance: none;
+        width: 100%;
+        height: 6px;
+        margin: 14px 0;
+        background-color: variables.$input-default-light;
+        border-radius: 3px;
+        outline: none;
+        cursor: pointer;
+
+        &::-webkit-slider-thumb {
+            appearance: none;
+            width: 20px;
+            height: 20px;
+            border-radius: 50%;
+            background: variables.$primary-default-light;
+            box-shadow: variables.$shadow-sm;
+            cursor: pointer;
+        }
+
+        &::-moz-range-thumb {
+            width: 20px;
+            height: 20px;
+            border: none;
+            border-radius: 50%;
+            background: variables.$primary-default-light;
+            box-shadow: variables.$shadow-sm;
+            cursor: pointer;
+        }
+    }
+}

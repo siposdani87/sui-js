@@ -33,4 +33,36 @@ describe('UrlField', () => {
     it('should render without error', () => {
         expect(() => urlField.render()).not.toThrow();
     });
+
+    it('should update value on keyup event', () => {
+        urlField.render();
+        const inputNode = urlField.input.getNode();
+        inputNode.value = 'https://test.com';
+        inputNode.dispatchEvent(new Event('keyup'));
+        expect(urlField.getValue()).toBe('https://test.com');
+    });
+
+    it('should update value on change event', () => {
+        urlField.render();
+        const inputNode = urlField.input.getNode();
+        inputNode.value = 'https://changed.com';
+        inputNode.dispatchEvent(new Event('change'));
+        expect(urlField.getValue()).toBe('https://changed.com');
+    });
+
+    it('should render protocol prefix when data-protocol is set', () => {
+        urlField.input.getNode().setAttribute('data-protocol', 'https://');
+        urlField = new (urlField.constructor as any)(
+            urlField.input,
+            urlField.label,
+            urlField.error,
+            urlField.inputBlock,
+        );
+        urlField.render();
+        const protocolSpan = urlField.inputBlock
+            .getNode()
+            .querySelector('span.protocol');
+        expect(protocolSpan).not.toBeNull();
+        expect(protocolSpan!.innerHTML).toBe('https://');
+    });
 });

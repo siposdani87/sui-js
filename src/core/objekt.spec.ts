@@ -261,4 +261,124 @@ describe('Objekt', () => {
             expect(objekt.isEmpty()).toBe(false);
         });
     });
+
+    describe('each', () => {
+        it('should iterate over leaf values with dot-notation keys', () => {
+            const objekt = new Objekt({
+                a: 1,
+                b: { c: 2, d: { e: 3 } },
+            });
+            const entries: Array<[unknown, string]> = [];
+            objekt.each((value, key) => {
+                entries.push([value, key]);
+            });
+            expect(entries).toContainEqual([1, 'a']);
+            expect(entries).toContainEqual([2, 'b.c']);
+            expect(entries).toContainEqual([3, 'b.d.e']);
+        });
+
+        it('should iterate over array values', () => {
+            const objekt = new Objekt({
+                arr: [10, 20],
+            });
+            const entries: Array<[unknown, string]> = [];
+            objekt.each((value, key) => {
+                entries.push([value, key]);
+            });
+            expect(entries).toContainEqual([10, 'arr.0']);
+            expect(entries).toContainEqual([20, 'arr.1']);
+        });
+    });
+
+    describe('allowKeys', () => {
+        it('should keep only allowed keys', () => {
+            const objekt = new Objekt({
+                name: 'Alice',
+                age: 30,
+                role: 'admin',
+            });
+            const filtered = objekt.allowKeys(['name', 'role']);
+            expect(filtered.get('name')).toBe('Alice');
+            expect(filtered.get('role')).toBe('admin');
+            expect(filtered.get('age')).toBeUndefined();
+        });
+    });
+
+    describe('denyKeys', () => {
+        it('should exclude denied keys', () => {
+            const objekt = new Objekt({
+                name: 'Alice',
+                password: 'secret',
+                role: 'admin',
+            });
+            const safe = objekt.denyKeys(['password']);
+            expect(safe.get('name')).toBe('Alice');
+            expect(safe.get('role')).toBe('admin');
+            expect(safe.get('password')).toBeUndefined();
+        });
+    });
+
+    describe('filterKeys', () => {
+        it('should filter based on condition', () => {
+            const objekt = new Objekt({ a: 1, b: 2, c: 3 });
+            const result = objekt.filterKeys(objekt, (key) => key !== 'b');
+            expect(result.get('a')).toBe(1);
+            expect(result.get('c')).toBe(3);
+            expect(result.get('b')).toBeUndefined();
+        });
+
+        it('should handle nested objects in filtering', () => {
+            const objekt = new Objekt({
+                user: { name: 'Alice', email: 'a@b.com' },
+                role: 'admin',
+            });
+            const result = objekt.filterKeys(objekt, (key) =>
+                key.startsWith('user.'),
+            );
+            expect(result.get('user.name')).toBe('Alice');
+            expect(result.get('user.email')).toBe('a@b.com');
+            expect(result.get('role')).toBeUndefined();
+        });
+    });
+
+    describe('set with array paths', () => {
+        it('should set values in nested arrays', () => {
+            const objekt = new Objekt({
+                items: [{ id: 1 }, { id: 2 }],
+            });
+            objekt.set('items.0.id', 10);
+            expect(objekt.get('items.0.id')).toBe(10);
+        });
+    });
+
+    describe('get edge cases', () => {
+        it('should return undefined for path through primitive', () => {
+            const objekt = new Objekt({ a: 'hello' });
+            expect(objekt.get('a.b.c')).toBeUndefined();
+        });
+    });
+
+    describe('setRaw', () => {
+        it('should set raw value at a dot-notation path', () => {
+            const objekt = new Objekt({});
+            const rawVal = { complex: true };
+            objekt.setRaw('data', rawVal);
+            expect(objekt.get('data')).toBe(rawVal);
+        });
+
+        it('should set raw value without splitting on dots', () => {
+            const objekt = new Objekt({ container: null });
+            const el = document.createElement('div');
+            objekt.setRaw('container', el);
+            expect(objekt.get('container')).toBe(el);
+        });
+    });
+
+    describe('clear', () => {
+        it('should remove all properties', () => {
+            const objekt = new Objekt({ x: 1, y: 2 });
+            objekt.clear();
+            expect(objekt.isEmpty()).toBe(true);
+        });
+    });
 });

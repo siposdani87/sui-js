@@ -3,14 +3,14 @@
 h1 {
     font-size: variables.$font-size-h1;
     // 16 * 2.5rem = 64px
-    font-weight: 300;
+    font-weight: 600;
     margin: 0.5em 0;
     line-height: variables.$line-height;
 }
 
 h2 {
     font-size: variables.$font-size-h2;
-    font-weight: 300;
+    font-weight: 600;
     margin: 0.5em 0;
     line-height: variables.$line-height;
 }
@@ -54,6 +54,6 @@ h6 {
 
     small {
         font-family: variables.$font-family-body;
-        margin-left: 0.5em;
+        margin-inline-start: 0.5em;
     }
 }

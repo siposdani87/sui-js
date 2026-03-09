@@ -9,7 +9,7 @@ keywords: [sui-js, form, fields, validation, input, text-field, select-field]
 
 # Forms & Fields
 
-SUI-JS provides a `Form` class and 20+ field components for building rich forms with Material Design styling.
+SUI-JS provides a `Form` class and 20+ field components for building rich forms with SUI styling.
 
 ## Basic Form
 

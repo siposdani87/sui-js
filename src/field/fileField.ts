@@ -8,7 +8,6 @@ import { BaseField } from './baseField';
 import { Knot } from '../core/knot';
 import { Query } from '../core/query';
 import { encodeBase64 } from '../utils/coder';
-import { mdl } from '../utils/render';
 
 /**
  * File upload field with image preview, document type icons, and remove
@@ -38,26 +37,10 @@ export class FileField extends BaseField<HTMLInputElement> {
     fileTypeSVG!: string;
 
     /**
-     * @param input The underlying `<input type="file">` element wrapped in a {@link Knot}.
-     * @param label The associated label element.
-     * @param error The element used to display validation errors.
-     * @param inputBlock The block-level container wrapping the entire field.
-     */
-    constructor(
-        input: Knot<HTMLInputElement>,
-        label: Knot,
-        error: Knot,
-        inputBlock: Knot,
-    ) {
-        super(input, label, error, inputBlock);
-        this._init();
-    }
-
-    /**
      * Initializes the file field by setting up the file icon map, remove
      * button, browse button, default image, and change listener.
      */
-    private _init(): void {
+    protected override _init(): void {
         this.inputBlock.addClass('file-field');
 
         this._initFileIcon();
@@ -68,8 +51,10 @@ export class FileField extends BaseField<HTMLInputElement> {
 
         this.input.addEventListener('change', (inputKnot) => {
             const inputNode = inputKnot.getNode();
-            const file = inputNode.files![0];
-            this._read(file);
+            const file = inputNode.files?.[0];
+            if (file) {
+                this._read(file);
+            }
             return true;
         });
     }
@@ -121,9 +106,13 @@ export class FileField extends BaseField<HTMLInputElement> {
      * Creates the remove button and binds its click handler.
      */
     private _initRemoveButton(): void {
-        this.removeButton = new Knot('a');
-        this.removeButton.setAttribute('href', 'javascript:void(0)');
-        this.removeButton.addClass(['remove-button', 'material-icons']);
+        this.removeButton = new Knot('button');
+        this.removeButton.setAttribute('type', 'button');
+        this.removeButton.addClass([
+            'remove-button',
+            'icon-button',
+            'material-icons',
+        ]);
         this.removeButton.setHtml('delete');
         this.removeButton.addEventListener('click', () => {
             if (this.isEnabled()) {
@@ -137,9 +126,13 @@ export class FileField extends BaseField<HTMLInputElement> {
      * Creates the browse button that opens the native file dialog.
      */
     private _initButtons(): void {
-        const browseButton = new Knot('a');
-        browseButton.setAttribute('href', 'javascript:void(0)');
-        browseButton.addClass(['browse-button', 'material-icons']);
+        const browseButton = new Knot('button');
+        browseButton.setAttribute('type', 'button');
+        browseButton.addClass([
+            'browse-button',
+            'icon-button',
+            'material-icons',
+        ]);
         if (this._isDocument()) {
             browseButton.setHtml('description');
         } else {
@@ -159,7 +152,7 @@ export class FileField extends BaseField<HTMLInputElement> {
      * @param mimeType The MIME type to look up (e.g. `'application/pdf'`).
      * @returns A tuple of `[extension, color]` or `undefined`.
      */
-    private _lookupByMimeType(mimeType: string): [string, string] {
+    private _lookupByMimeType(mimeType: string): [string, string] | undefined {
         return this.fileTypes[mimeType];
     }
 
@@ -173,7 +166,7 @@ export class FileField extends BaseField<HTMLInputElement> {
         let results: [string, string] | [] = [];
         for (const key in this.fileTypes) {
             if (Object.hasOwn(this.fileTypes, key)) {
-                const fileType = this.fileTypes[key];
+                const fileType = this.fileTypes[key]!;
                 if (fileType[0] === extension) {
                     const color = fileType[1];
                     results = [key, color];
@@ -224,37 +217,24 @@ export class FileField extends BaseField<HTMLInputElement> {
     }
 
     /**
-     * Applies MDL text-field classes and refreshes the visual state.
+     * Applies SUI text-field classes and refreshes the visual state.
      *
      * @override
      */
     override render(): void {
-        this.inputBlock.addClass([
-            'mdl-textfield',
-            'mdl-js-textfield',
-            'mdl-textfield--floating-label',
-        ]);
-        this.input.addClass('mdl-textfield__input');
-        if (this.label && this.label.exists()) {
-            this.label.addClass('mdl-textfield__label');
-        }
+        this._renderTextField();
         this.refresh();
     }
 
     /**
      * Validates required state, toggles the remove button visibility, and
-     * upgrades MDL components.
+     * upgrades SUI components.
      *
      * @override
      */
     override refresh() {
-        if (this.isRequired() && this.getValue() === '') {
-            this.inputBlock.addClass('is-invalid');
-        }
-
+        this._refreshBase();
         this._handleRemoveButton();
-
-        mdl(this.inputBlock);
     }
 
     /**
@@ -275,8 +255,13 @@ export class FileField extends BaseField<HTMLInputElement> {
                 );
                 this.valueSrc = imageSrc;
                 if (!contain(file.type, 'image/')) {
-                    const [type, color] = this._lookupByMimeType(file.type);
-                    imageSrc = this._getFileIconSrc(type, color);
+                    const fileType = this._lookupByMimeType(file.type);
+                    if (fileType) {
+                        imageSrc = this._getFileIconSrc(
+                            fileType[0],
+                            fileType[1],
+                        );
+                    }
                 }
                 this.imageTag.setAttribute('src', imageSrc);
                 this._handleRemoveButton();

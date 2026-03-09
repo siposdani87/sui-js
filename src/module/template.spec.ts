@@ -102,7 +102,7 @@ describe('Template', () => {
             const pageContent = document.createElement('div');
             pageContent.classList.add('page-content');
             pageContent.textContent = 'cached content';
-            const container = document.body.querySelector('.template-view');
+            const container = document.body.querySelector('.template-view')!;
             container.appendChild(pageContent);
             container.setAttribute('data-template-url', '/home.html');
             container.setAttribute('data-locale', 'en');
@@ -120,7 +120,7 @@ describe('Template', () => {
         it('should remove data-locale attribute on cache hit', (done) => {
             const pageContent = document.createElement('div');
             pageContent.classList.add('page-content');
-            const container = document.body.querySelector('.template-view');
+            const container = document.body.querySelector('.template-view')!;
             container.appendChild(pageContent);
             container.setAttribute('data-template-url', '/about.html');
             container.setAttribute('data-locale', 'en');
@@ -156,7 +156,7 @@ describe('Template', () => {
         });
 
         it('should make HTTP GET when force=true even if URL matches', (done) => {
-            const container = document.body.querySelector('.template-view');
+            const container = document.body.querySelector('.template-view')!;
             container.setAttribute('data-template-url', '/home.html');
             container.setAttribute('data-locale', 'en');
 
@@ -182,7 +182,7 @@ describe('Template', () => {
             template = new Template(http, { locale: 'en' });
             template.load('/new-page.html');
 
-            const container = document.body.querySelector('.template-view');
+            const container = document.body.querySelector('.template-view')!;
             expect(container.getAttribute('data-template-url')).toBe(
                 '/new-page.html',
             );
@@ -194,7 +194,8 @@ describe('Template', () => {
 
             template = new Template(http, { locale: 'en' });
             template.load('/page.html').then((knot) => {
-                const container = document.body.querySelector('.template-view');
+                const container =
+                    document.body.querySelector('.template-view')!;
                 expect(container.querySelector('.page-content')).not.toBeNull();
                 done();
             });
@@ -207,12 +208,13 @@ describe('Template', () => {
     });
 
     describe('load — error', () => {
-        it('should call eventError with message content and type on HTTP error', (done) => {
+        it('should emit error with message content and type on HTTP error', (done) => {
             const deferred = new Deferred<[Objekt, string], [Objekt, string]>();
             (http.get as jest.Mock).mockReturnValue(deferred.promise());
 
             template = new Template(http, { locale: 'en' });
-            const spy = jest.spyOn(template, 'eventError');
+            const spy = jest.fn();
+            template.on('error', spy);
 
             template.load('/fail.html').then(
                 () => {
@@ -246,13 +248,14 @@ describe('Template', () => {
             template = new Template(http, { locale: 'en' });
             const responseKnot = createResponseKnot('Success content');
             template._spaNavigate(responseKnot, false);
-            const container = document.body.querySelector('.template-view');
+            const container = document.body.querySelector('.template-view')!;
             expect(container.querySelector('.page-content')).not.toBeNull();
         });
 
-        it('should call eventError on error', () => {
+        it('should emit error on error', () => {
             template = new Template(http, { locale: 'en' });
-            const spy = jest.spyOn(template, 'eventError');
+            const spy = jest.fn();
+            template.on('error', spy);
             const responseKnot = createResponseKnot(
                 'Error occurred',
                 'warning',
@@ -265,11 +268,11 @@ describe('Template', () => {
         });
     });
 
-    describe('eventError', () => {
-        it('should not throw when called', () => {
+    describe('error event', () => {
+        it('should not throw when emitted', () => {
             template = new Template(http, { locale: 'en' });
             expect(() =>
-                template.eventError({
+                template.emit('error', {
                     content: 'test',
                     type: 'error',
                 }),

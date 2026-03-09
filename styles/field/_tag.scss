@@ -4,46 +4,48 @@
 .input-block {
     .field-tag {
         position: relative;
-        display: inline-block;
+        display: inline-flex;
+        align-items: center;
+        min-height: 32px;
         padding: 1px 10px;
         margin: 0 2px 2px 0;
-        background-color: variables.$input-default-light;
-        color: variables.$content-default-light;
-        border-radius: 3px;
+        background-color: var(--sui-input);
+        color: var(--sui-content);
+        border-radius: variables.$radius-sm;
 
         &.tag-with-action {
-            padding-right: 30px;
+            padding-inline-end: 30px;
         }
 
         .close {
             position: absolute;
             right: 5px;
-            top: 4px;
-            color: variables.$content-default-light;
+            top: 7px;
+            color: var(--sui-content);
 
             &:hover {
-                color: variables.$content-default-light;
+                color: var(--sui-content);
             }
         }
     }
 
     .active {
         .field-tag {
-            background-color: variables.$accent-default-light;
+            background-color: var(--sui-accent-action);
             color: colors.$accent-text;
         }
     }
 
     &.is-disabled {
         .field-tag {
-            color: variables.$content-disabled-light;
-            background-color: variables.$input-disabled-light;
+            color: var(--sui-content-disabled);
+            background-color: var(--sui-input-disabled);
 
             .close {
-                color: variables.$content-disabled-light;
+                color: var(--sui-content-disabled);
 
                 &:hover {
-                    color: variables.$content-disabled-light;
+                    color: var(--sui-content-disabled);
                 }
             }
         }

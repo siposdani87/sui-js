@@ -1,4 +1,3 @@
-import { mdl } from '../utils/render';
 import { BaseField } from './baseField';
 import { Knot } from '../core/knot';
 
@@ -17,26 +16,9 @@ export class UrlField extends BaseField<HTMLInputElement> {
     protocol!: string;
 
     /**
-     * @description Creates a new UrlField instance.
-     * @param {Knot<HTMLInputElement>} input - The URL input element.
-     * @param {Knot} label - The label element.
-     * @param {Knot} error - The error message element.
-     * @param {Knot} inputBlock - The container block element.
-     */
-    constructor(
-        input: Knot<HTMLInputElement>,
-        label: Knot,
-        error: Knot,
-        inputBlock: Knot,
-    ) {
-        super(input, label, error, inputBlock);
-        this._init();
-    }
-
-    /**
      * @description Initializes the field by reading the protocol data attribute and attaching input event listeners.
      */
-    private _init(): void {
+    protected override _init(): void {
         this.inputBlock.addClass('url-field');
 
         this.protocol = this.input.getData('protocol');
@@ -55,19 +37,11 @@ export class UrlField extends BaseField<HTMLInputElement> {
     }
 
     /**
-     * @description Applies MDL textfield classes and renders the protocol prefix span if configured.
+     * @description Applies SUI textfield classes and renders the protocol prefix span if configured.
      * @override
      */
     override render(): void {
-        this.inputBlock.addClass([
-            'mdl-textfield',
-            'mdl-js-textfield',
-            'mdl-textfield--floating-label',
-        ]);
-        this.input.addClass(['mdl-textfield__input']);
-        if (this.label && this.label.exists()) {
-            this.label.addClass('mdl-textfield__label');
-        }
+        this._renderTextField();
 
         if (this.protocol) {
             const protocolKnot = new Knot('span');
@@ -80,14 +54,10 @@ export class UrlField extends BaseField<HTMLInputElement> {
     }
 
     /**
-     * @description Marks the field as invalid when required and empty, then upgrades MDL components.
+     * @description Marks the field as invalid when required and empty, then upgrades SUI components.
      * @override
      */
     override refresh() {
-        if (this.isRequired() && this.getValue() === '') {
-            this.inputBlock.addClass('is-invalid');
-        }
-
-        mdl(this.inputBlock);
+        this._refreshBase();
     }
 }

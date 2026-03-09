@@ -1,24 +1,25 @@
-import { Promize } from '../core';
+import type { Promize } from '../core';
 import { Deferred } from '../core/deferred';
 import { Objekt } from '../core/objekt';
-import { consoleDebug } from '../utils/log';
+import { Emitter } from '../core/emitter';
 import { Xhr } from './xhr';
+import type { HttpResponse } from './xhr';
 
 /**
  * High-level HTTP client that wraps {@link Xhr} to provide a simplified
  * request API with built-in authentication management. Http adds an
  * authentication layer (Basic or Bearer) and event hooks on top of the
- * low-level {@link Xhr} transport, stripping the raw `XMLHttpRequest`
- * object from resolved/rejected values so consumers receive only the
+ * low-level {@link Xhr} transport, stripping the {@link HttpResponse}
+ * metadata from resolved/rejected values so consumers receive only the
  * parsed {@link Objekt} response and an optional filename.
  *
  * Each request method (`get`, `post`, `put`, `patch`, `delete`) creates a
- * fresh {@link Xhr} instance, applies the stored credentials, fires the
- * {@link Http.eventBeforeRequest} hook, and returns a
+ * fresh {@link Xhr} instance, applies the stored credentials, emits the
+ * `'beforeRequest'` event, and returns a
  * {@link Promize}<[{@link Objekt}, string], [{@link Objekt}, string]>.
  *
- * Override {@link Http.eventBeforeRequest} and
- * {@link Http.eventAfterRequest} to add cross-cutting concerns such as
+ * Register handlers with `on('beforeRequest', ...)` and
+ * `on('afterRequest', ...)` to add cross-cutting concerns such as
  * loading indicators, error toasts, or request logging.
  *
  * @example
@@ -32,10 +33,11 @@ import { Xhr } from './xhr';
  *
  * @see {@link Xhr}
  * @see {@link Promize}
+ * @see {@link Emitter}
  * @category Module
  */
-export class Http {
-    options!: Objekt;
+export class Http extends Emitter {
+    options!: Objekt<{ backend: string; locale: string }>;
     username!: string | null;
     password!: string | null;
     token!: string | null;
@@ -52,6 +54,7 @@ export class Http {
      * const http = new Http({ backend: '/api/v1', locale: 'hu' });
      */
     constructor(opt_options: object | undefined = {}) {
+        super();
         this._setOptions(opt_options);
         this._init();
     }
@@ -249,7 +252,7 @@ export class Http {
      */
     private _createXhrRequest(): Xhr {
         const xhr = new Xhr(this.options);
-        this.eventBeforeRequest(xhr);
+        this.emit('beforeRequest', xhr);
         xhr.setBasicAuthorization(this.username, this.password);
         xhr.setBearerAuthorization(this.token);
 
@@ -257,8 +260,8 @@ export class Http {
     }
 
     /**
-     * Wraps the raw {@link Xhr} promise to strip the `XMLHttpRequest`
-     * object and fire the {@link Http.eventAfterRequest} hook on both
+     * Wraps the raw {@link Xhr} promise to strip the {@link HttpResponse}
+     * metadata and emit the `'afterRequest'` event on both
      * resolution and rejection.
      *
      * @param {Promize} promise The promise returned by an Xhr request method.
@@ -267,51 +270,23 @@ export class Http {
      */
     private _getPromise(
         promise: Promize<
-            [XMLHttpRequest, Objekt, string],
-            [XMLHttpRequest, Objekt, string]
+            [HttpResponse, Objekt, string],
+            [HttpResponse, Objekt, string]
         >,
     ) {
         const deferred = new Deferred<[Objekt, string], [Objekt, string]>();
         promise.then(
             (...params) => {
-                this.eventAfterRequest(...params);
+                this.emit('afterRequest', ...params);
                 const [, ...rest] = params;
-                deferred.resolve(rest as [Objekt, string]);
+                deferred.resolve(rest);
             },
             (...params) => {
-                this.eventAfterRequest(...params);
+                this.emit('afterRequest', ...params);
                 const [, ...rest] = params;
-                deferred.reject(rest as [Objekt, string]);
+                deferred.reject(rest);
             },
         );
         return deferred.promise();
-    }
-
-    /**
-     * Called before each request is sent. Override this method to inspect or
-     * modify the {@link Xhr} instance (e.g. add custom headers or logging).
-     *
-     * @param {Xhr} xhr The Xhr instance that will execute the request.
-     */
-    eventBeforeRequest(xhr: Xhr): void {
-        consoleDebug('Http.eventBeforeRequest', xhr);
-    }
-
-    /**
-     * Called after each request completes (on both success and failure).
-     * Override this method to implement cross-cutting post-request logic
-     * such as hiding loading indicators or displaying error notifications.
-     *
-     * @param {XMLHttpRequest} http The raw XMLHttpRequest object.
-     * @param {Objekt} response The parsed response body.
-     * @param {string} filename The filename extracted from the
-     *     Content-Disposition header, or an empty string.
-     */
-    eventAfterRequest(
-        http: XMLHttpRequest,
-        response: Objekt,
-        filename: string,
-    ): void {
-        consoleDebug('Http.eventAfterRequest', http, response, filename);
     }
 }

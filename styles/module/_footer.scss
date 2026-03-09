@@ -11,7 +11,7 @@
     flex-flow: row nowrap;
     justify-content: space-between;
     align-items: center;
-    background-color: colors.$black-bright;
+    background-color: var(--sui-surface);
     z-index: variables.$zindex-footer;
 
     @include breakpoints.media-breakpoint-down(sm) {
@@ -25,11 +25,11 @@
         color: colors.$white;
 
         a {
-            color: colors.$accent;
+            color: var(--sui-accent);
 
             &:hover,
             &.active {
-                color: colors.$accent-dark;
+                color: var(--sui-accent-dark);
             }
         }
     }
@@ -47,7 +47,7 @@
             padding: 0 0.5em;
 
             .image {
-                margin-right: 0.5em;
+                margin-inline-end: 0.5em;
                 line-height: 0;
 
                 @include breakpoints.media-breakpoint-down(md) {
@@ -55,7 +55,7 @@
                 }
 
                 @include breakpoints.media-breakpoint-up(lg) {
-                    margin-right: 0;
+                    margin-inline-end: 0;
                 }
 
                 img {
@@ -84,7 +84,7 @@
     #open-bottom-menu,
     #close-bottom-menu {
         display: none;
-        color: colors.$accent;
+        color: var(--sui-accent);
     }
 
     #bottom-menu {
@@ -105,18 +105,18 @@
         a {
             display: flex;
             align-items: center;
-            margin-left: 2em;
+            margin-inline-start: 2em;
             text-decoration: none;
-            color: colors.$accent;
+            color: var(--sui-accent);
             line-height: 1.1;
 
             @include breakpoints.media-breakpoint-down(xs) {
-                margin-left: 0;
+                margin-inline-start: 0;
                 margin-top: 0.5em;
             }
 
             .image {
-                margin-right: 0.5em;
+                margin-inline-end: 0.5em;
                 line-height: 0;
                 display: block;
                 box-shadow: 0 0 5px rgba(colors.$black, 0.75);
@@ -133,7 +133,7 @@
 
             &:hover,
             &.active {
-                color: colors.$accent-dark;
+                color: var(--sui-accent-dark);
             }
         }
     }
@@ -148,11 +148,11 @@
             color: colors.$white;
 
             a {
-                color: colors.$accent;
+                color: var(--sui-accent);
 
                 &:hover,
                 &.active {
-                    color: colors.$accent-dark;
+                    color: var(--sui-accent-dark);
                 }
             }
         }
@@ -175,11 +175,11 @@
                 color: colors.$white;
 
                 a {
-                    color: colors.$accent;
+                    color: var(--sui-accent);
 
                     &:hover,
                     &.active {
-                        color: colors.$accent-dark;
+                        color: var(--sui-accent-dark);
                     }
                 }
             }
@@ -191,17 +191,17 @@
             #close-bottom-menu {
                 @include breakpoints.media-breakpoint-down(sm) {
                     display: inline-block;
-                    color: colors.$accent;
+                    color: var(--sui-accent);
                 }
             }
 
             #bottom-menu {
                 a {
-                    color: colors.$accent;
+                    color: var(--sui-accent);
 
                     &:hover,
                     &.active {
-                        color: colors.$accent-dark;
+                        color: var(--sui-accent-dark);
                     }
                 }
             }
@@ -210,30 +210,30 @@
         &.dark {
             .content,
             .locales {
-                color: colors.$black;
+                color: var(--sui-on-surface);
 
                 a {
-                    color: colors.$primary;
+                    color: var(--sui-primary);
 
                     &:hover,
                     &.active {
-                        color: colors.$primary-dark;
+                        color: var(--sui-primary-dark);
                     }
                 }
             }
 
             #open-bottom-menu,
             #close-bottom-menu {
-                color: colors.$primary;
+                color: var(--sui-primary);
             }
 
             #bottom-menu {
                 a {
-                    color: colors.$primary;
+                    color: var(--sui-primary);
 
                     &:hover,
                     &.active {
-                        color: colors.$primary-dark;
+                        color: var(--sui-primary-dark);
                     }
                 }
             }
@@ -241,7 +241,7 @@
 
         &.open.dark {
             @include breakpoints.media-breakpoint-down(sm) {
-                background-color: colors.$light-grey;
+                background-color: var(--sui-surface-alt);
             }
         }
 

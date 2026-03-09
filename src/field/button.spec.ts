@@ -25,12 +25,12 @@ describe('Button', () => {
         expect(() => button.render()).not.toThrow();
     });
 
-    it('should add MDL classes on render', () => {
+    it('should add SUI classes on render', () => {
         const buttonInput = new Query<HTMLInputElement>(
             'button[name="button"]',
         ).getKnot();
         const button = new Button(buttonInput);
         button.render();
-        expect(buttonInput.hasClass('mdl-button')).toBe(true);
+        expect(buttonInput.hasClass('sui-button')).toBe(true);
     });
 });

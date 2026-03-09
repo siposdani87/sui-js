@@ -1,0 +1,77 @@
+@use '../core/variables';
+
+.sui-textfield {
+    width: 100%;
+    font-size: inherit;
+
+    .sui-textfield__input {
+        width: 100%;
+        font-size: inherit;
+        padding: 8px 12px;
+        border: 1px solid var(--sui-input);
+        border-radius: variables.$radius-md;
+        min-height: 40px;
+        color: var(--sui-content);
+        background-color: transparent;
+        transition:
+            border-color variables.$transition-base,
+            box-shadow variables.$transition-base;
+
+        &:focus-visible {
+            border-color: var(--sui-primary-action);
+            box-shadow: 0 0 0 3px
+                color-mix(in srgb, var(--sui-primary-action) 15%, transparent);
+            outline: none;
+        }
+    }
+
+    &.is-focused {
+        .sui-textfield__input {
+            border-color: var(--sui-primary-action);
+            box-shadow: 0 0 0 3px
+                color-mix(in srgb, var(--sui-primary-action) 15%, transparent);
+        }
+    }
+
+    &.is-invalid {
+        .sui-textfield__input {
+            border-color: var(--sui-error-text);
+        }
+    }
+
+    &.is-disabled .sui-textfield__input,
+    .sui-textfield__input:disabled {
+        color: var(--sui-content-disabled);
+        border-style: dotted;
+        border-color: var(--sui-input-disabled);
+    }
+
+    &.is-disabled.is-invalid .sui-textfield__input,
+    &.is-invalid .sui-textfield__input:disabled,
+    .sui-textfield__input:disabled:required {
+        border-color: var(--sui-error-text-disabled);
+    }
+
+    &.sui-textfield--expandable {
+        display: inline-flex;
+        align-items: center;
+        width: auto;
+        min-width: 40px;
+        min-height: 40px;
+    }
+
+    .sui-textfield__expandable-holder {
+        display: inline-block;
+        position: relative;
+        max-width: 0;
+        overflow: hidden;
+        transition: max-width variables.$transition-slow;
+    }
+
+    &.is-focused,
+    &.is-dirty {
+        .sui-textfield__expandable-holder {
+            max-width: 600px;
+        }
+    }
+}

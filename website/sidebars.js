@@ -17,6 +17,7 @@ const sidebars = {
         'guides/event-system',
         'guides/dom-manipulation',
         'guides/storage',
+        'guides/migration-v1.1-to-v1.2',
       ],
     },
     {

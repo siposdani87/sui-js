@@ -1,12 +1,12 @@
 import { isEmpty, eq } from '../utils/operation';
-import { consoleDebug } from '../utils/log';
+import { Emitter } from '../core/emitter';
 
 /**
  * Detects the current browser type and operating system from the
  * user-agent string and platform properties. Browser also checks for
  * the availability of required browser features (geolocation, history,
- * storage, console) and fires the {@link Browser.eventMissingFeatures}
- * hook when any are absent.
+ * storage, console) and emits a `'missingFeatures'` event when any
+ * are absent.
  *
  * OS detection covers macOS, iOS, Windows, Android, and Linux.
  * Browser detection covers Chrome, Firefox, Safari, Edge (legacy and
@@ -15,7 +15,10 @@ import { consoleDebug } from '../utils/log';
  *
  * @example
  * const browser = new Browser();
- * browser.detect(); // triggers eventMissingFeatures if needed
+ * browser.on('missingFeatures', (features) => {
+ *     console.warn('Missing:', features);
+ * });
+ * browser.detect();
  *
  * if (browser.isChrome()) {
  *     console.log('Running on Chrome');
@@ -25,9 +28,10 @@ import { consoleDebug } from '../utils/log';
  * }
  *
  * @see {@link Application}
+ * @see {@link Emitter}
  * @category Module
  */
-export class Browser {
+export class Browser extends Emitter {
     features!: string[];
     browsers!: {
         [key: string]: boolean;
@@ -39,6 +43,7 @@ export class Browser {
      * browser type, and missing features.
      */
     constructor() {
+        super();
         this._init();
     }
 
@@ -73,7 +78,7 @@ export class Browser {
     }
 
     /**
-     * Triggers the {@link Browser.eventMissingFeatures} hook if one or
+     * Emits the `'missingFeatures'` event if one or
      * more required browser features are unavailable. Call this method
      * after construction to notify the application of missing capabilities.
      *
@@ -83,7 +88,7 @@ export class Browser {
      */
     detect(): void {
         if (!isEmpty(this.features)) {
-            this.eventMissingFeatures(this.features);
+            this.emit('missingFeatures', this.features);
         }
     }
 
@@ -98,17 +103,6 @@ export class Browser {
         if (eq(!!value, false)) {
             this.features.push(name);
         }
-    }
-
-    /**
-     * Called by {@link Browser.detect} when one or more required browser
-     * features are missing. Override this method to display a warning to
-     * the user or degrade functionality gracefully.
-     *
-     * @param {Array<any>} features List of missing feature identifiers.
-     */
-    eventMissingFeatures(features: Array<string>): void {
-        consoleDebug('Browser.eventMissingFeatures()', features);
     }
 
     /**
@@ -152,9 +146,9 @@ export class Browser {
         this.browsers.IE11 =
             '-ms-scroll-limit' in document.documentElement.style &&
             '-ms-ime-align' in document.documentElement.style;
-        this.browsers.edge = userAgent.indexOf('edge') !== -1;
+        this.browsers.edge = userAgent.includes('edge');
         this.browsers.chromiumEdge =
-            userAgent.indexOf('edge') === -1 && userAgent.indexOf('edg') !== -1;
+            !userAgent.includes('edge') && userAgent.includes('edg');
     }
 
     /**
@@ -177,11 +171,11 @@ export class Browser {
         const windowsPlatforms = ['Win32', 'Win64', 'Windows', 'WinCE'];
         const iosPlatforms = ['iPhone', 'iPad', 'iPod'];
 
-        if (macosPlatforms.indexOf(platform) !== -1) {
+        if (macosPlatforms.includes(platform)) {
             this.os = 'macOS';
-        } else if (iosPlatforms.indexOf(platform) !== -1) {
+        } else if (iosPlatforms.includes(platform)) {
             this.os = 'iOS';
-        } else if (windowsPlatforms.indexOf(platform) !== -1) {
+        } else if (windowsPlatforms.includes(platform)) {
             this.os = 'Windows';
         } else if (/Android/.test(userAgent)) {
             this.os = 'Android';
@@ -279,17 +273,19 @@ export class Browser {
      * }
      */
     isInternetExplorer(opt_version: number | undefined): boolean {
-        let result = this.browsers.lteIE10 || this.browsers.gteIE10;
+        let result =
+            (this.browsers.lteIE10 ?? false) ||
+            (this.browsers.gteIE10 ?? false);
         if (opt_version) {
             switch (opt_version) {
                 case 11:
-                    result = this.browsers.IE11;
+                    result = this.browsers.IE11 ?? false;
                     break;
                 case 10:
-                    result = this.browsers.IE10;
+                    result = this.browsers.IE10 ?? false;
                     break;
                 default:
-                    result = this.browsers.lteIE10;
+                    result = this.browsers.lteIE10 ?? false;
                     break;
             }
         }
@@ -307,7 +303,7 @@ export class Browser {
      * }
      */
     isEdge(): boolean {
-        return this.browsers.edge;
+        return this.browsers.edge ?? false;
     }
 
     /**
@@ -321,7 +317,7 @@ export class Browser {
      * }
      */
     isChromiumEdge(): boolean {
-        return this.browsers.chromiumEdge;
+        return this.browsers.chromiumEdge ?? false;
     }
 
     /**
@@ -335,7 +331,7 @@ export class Browser {
      * }
      */
     isFirefox(): boolean {
-        return this.browsers.firefox;
+        return this.browsers.firefox ?? false;
     }
 
     /**
@@ -350,7 +346,7 @@ export class Browser {
      * }
      */
     isChrome(): boolean {
-        return this.browsers.chrome;
+        return this.browsers.chrome ?? false;
     }
 
     /**
@@ -364,7 +360,7 @@ export class Browser {
      * }
      */
     isOpera(): boolean {
-        return this.browsers.opera;
+        return this.browsers.opera ?? false;
     }
 
     /**
@@ -378,7 +374,7 @@ export class Browser {
      * }
      */
     isSafari(): boolean {
-        return this.browsers.safari;
+        return this.browsers.safari ?? false;
     }
 
     /**
@@ -392,7 +388,7 @@ export class Browser {
      * }
      */
     isWebkit(): boolean {
-        return this.browsers.webkit;
+        return this.browsers.webkit ?? false;
     }
 
     /**
@@ -407,6 +403,6 @@ export class Browser {
      * }
      */
     isChromium(): boolean {
-        return this.browsers.chromium;
+        return this.browsers.chromium ?? false;
     }
 }

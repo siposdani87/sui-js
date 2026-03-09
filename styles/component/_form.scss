@@ -1,3 +1,5 @@
+@use '../core/variables';
+
 ::-ms-clear {
     display: none;
 }
@@ -16,7 +18,7 @@
 form {
     .input-block {
         position: relative;
-        padding: 20px 0;
+        padding: 22px 0;
         font-size: 16px;
 
         &.is-disabled {
@@ -27,38 +29,40 @@ form {
             .info-button {
                 cursor: pointer;
             }
+
+            .action-container {
+                a,
+                button,
+                .material-icons {
+                    color: variables.$label-disabled-light;
+                    pointer-events: none;
+                }
+            }
         }
 
         .info-container {
             position: absolute;
             right: 0;
-            top: -4px;
+            top: 0;
             display: flex;
             z-index: 1;
 
-            > a {
-                margin-left: 5px;
+            > .info-button {
+                margin-inline-start: 5px;
+                font-size: 20px;
             }
         }
 
         .action-container {
             position: absolute;
             right: 5px;
-            top: 24px;
+            top: 30px;
             display: flex;
             z-index: 1;
 
-            > a {
-                margin-left: 5px;
-            }
-        }
-
-        label {
-            display: inline-block;
-            font-size: 16px;
-
-            &::first-letter {
-                text-transform: capitalize;
+            > a,
+            > button {
+                margin-inline-start: 5px;
             }
         }
     }
@@ -75,6 +79,16 @@ form {
         button[type='button'],
         button[type='reset'] {
             margin: 0 0 0.5em 1em;
+        }
+    }
+
+    .dark-theme & .input-block.is-disabled {
+        .action-container {
+            a,
+            button,
+            .material-icons {
+                color: variables.$label-disabled-dark;
+            }
         }
     }
 

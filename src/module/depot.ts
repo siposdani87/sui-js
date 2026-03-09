@@ -38,7 +38,12 @@ import { encrypt, decrypt } from '../utils/coder';
  */
 export class Depot {
     type: 'LOCAL' | 'SESSION';
-    options!: Objekt;
+    options!: Objekt<{
+        prefix: string;
+        secret: string;
+        hours: number;
+        interval: number;
+    }>;
     storage!: Storage;
 
     /**
@@ -137,7 +142,7 @@ export class Depot {
         name: string,
         // eslint-disable-next-line @typescript-eslint/no-explicit-any
         value: any,
-        opt_expires?: string | number | boolean | Date,
+        opt_expires?: string | number | Date,
     ): void {
         const expires = this._getExpires(opt_expires);
         const encrypted = expires + ';' + encrypt(value, this.options.secret);
@@ -165,7 +170,7 @@ export class Depot {
         const propertyName = this._getPropertyName(name);
         const item = this.storage.getItem(propertyName);
         let result = null;
-        if (item && item.indexOf(';') !== -1) {
+        if (item && item.includes(';')) {
             const encrypted =
                 item.split(';', 2)[1] || encrypt(null, this.options.secret);
             const decrypted = decrypt(encrypted, this.options.secret);
@@ -242,7 +247,7 @@ export class Depot {
         const propertyName = this._getPropertyName(name);
         const item = this.storage.getItem(propertyName);
         if (item) {
-            const utcString = item.split(';', 2)[0];
+            const utcString = item.split(';', 2)[0]!;
             return new Date(utcString);
         }
         return null;
@@ -256,32 +261,22 @@ export class Depot {
      * @param opt_expires The expiration specification.
      * @returns A UTC date string representing the expiration time.
      */
-    private _getExpires(
-        opt_expires?: string | number | boolean | Date,
-    ): string {
+    private _getExpires(opt_expires?: string | number | Date): string {
         const date = new Date();
         if (opt_expires) {
-            switch (opt_expires.constructor) {
-                case Number:
-                    date.setTime(
-                        date.getTime() +
-                            (opt_expires as number) * 60 * 60 * 1000,
-                    );
-                    opt_expires =
-                        opt_expires === Infinity
-                            ? 'Fri, 31 Dec 9999 23:59:59 GMT'
-                            : date.toUTCString();
-                    break;
-                case Date:
-                    opt_expires = (opt_expires as Date).toUTCString();
-                    break;
-                default:
-                    break;
+            if (typeof opt_expires === 'number') {
+                date.setTime(date.getTime() + opt_expires * 60 * 60 * 1000);
+                opt_expires =
+                    opt_expires === Infinity
+                        ? 'Fri, 31 Dec 9999 23:59:59 GMT'
+                        : date.toUTCString();
+            } else if (opt_expires instanceof Date) {
+                opt_expires = opt_expires.toUTCString();
             }
         } else {
             date.setTime(date.getTime() + this.options.hours * 60 * 60 * 1000);
             opt_expires = date.toUTCString();
         }
-        return opt_expires as string;
+        return opt_expires;
     }
 }

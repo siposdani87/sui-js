@@ -39,4 +39,71 @@ describe('NumberField', () => {
         expect(numberField.isDisabled()).toBe(true);
         numberField.setDisabled(false);
     });
+
+    it('should update value on keyup event', () => {
+        numberField.render();
+        const inputNode = numberField.input.getNode();
+        inputNode.value = '5';
+        inputNode.dispatchEvent(new Event('keyup'));
+        expect(numberField.getValue()).toBe(5);
+    });
+
+    it('should update value on change event', () => {
+        numberField.render();
+        const inputNode = numberField.input.getNode();
+        inputNode.value = '10';
+        inputNode.dispatchEvent(new Event('change'));
+        expect(numberField.getValue()).toBe(10);
+    });
+
+    it('should increment value on up button click', () => {
+        numberField.render();
+        numberField.setValue(5);
+        const upButton = numberField.inputBlock
+            .getNode()
+            .querySelector('button.up-button') as HTMLButtonElement;
+        expect(upButton).not.toBeNull();
+        upButton.click();
+        expect(numberField.getValue()).toBe(6);
+    });
+
+    it('should decrement value on down button click', () => {
+        numberField.render();
+        numberField.setValue(5);
+        const downButton = numberField.inputBlock
+            .getNode()
+            .querySelector('button.down-button') as HTMLButtonElement;
+        expect(downButton).not.toBeNull();
+        downButton.click();
+        expect(numberField.getValue()).toBe(4);
+    });
+
+    it('should clamp value to min on keyup', () => {
+        numberField.render();
+        numberField.input.getNode().setAttribute('min', '0');
+        const inputNode = numberField.input.getNode();
+        inputNode.value = '-5';
+        inputNode.dispatchEvent(new Event('keyup'));
+        expect(numberField.getValue()).toBe(0);
+    });
+
+    it('should clamp value to max on keyup', () => {
+        numberField.render();
+        numberField.input.getNode().setAttribute('max', '10');
+        const inputNode = numberField.input.getNode();
+        inputNode.value = '20';
+        inputNode.dispatchEvent(new Event('keyup'));
+        expect(numberField.getValue()).toBe(10);
+    });
+
+    it('should use step attribute for increment', () => {
+        numberField.render();
+        numberField.input.getNode().setAttribute('step', '5');
+        numberField.setValue(0);
+        const upButton = numberField.inputBlock
+            .getNode()
+            .querySelector('button.up-button') as HTMLButtonElement;
+        upButton.click();
+        expect(numberField.getValue()).toBe(5);
+    });
 });

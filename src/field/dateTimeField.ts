@@ -35,25 +35,9 @@ export class DateTimeField extends BaseField<HTMLInputElement> {
     popup!: Popup;
 
     /**
-     * @param input The underlying `<input>` element wrapped in a {@link Knot}.
-     * @param label The associated label element.
-     * @param error The element used to display validation errors.
-     * @param inputBlock The block-level container wrapping the entire field.
-     */
-    constructor(
-        input: Knot<HTMLInputElement>,
-        label: Knot,
-        error: Knot,
-        inputBlock: Knot,
-    ) {
-        super(input, label, error, inputBlock);
-        this._init();
-    }
-
-    /**
      * Initializes the datetime container, input display, and inner components.
      */
-    private _init(): void {
+    protected override _init(): void {
         this.inputBlock.addClass('datetime-field');
         this.input.addClass('hidden');
 
@@ -83,9 +67,9 @@ export class DateTimeField extends BaseField<HTMLInputElement> {
             value,
             type,
         });
-        this.datetime.eventClick = (value) => {
+        this.datetime.on('click', (value) => {
             this.setValue(value);
-        };
+        });
 
         this.input.addEventListener('change', () => {
             const currentValue = this.getValue().toString();
@@ -95,9 +79,9 @@ export class DateTimeField extends BaseField<HTMLInputElement> {
         });
 
         this.popup = new Popup(this.datetimeKnot, this.inputBlock);
-        this.popup.eventClose = () => {
+        this.popup.on('close', () => {
             this.datetimeInput.removeClass('active');
-        };
+        });
 
         if (value) {
             const formattedValue = this.datetime.getFormattedValue();
@@ -111,13 +95,18 @@ export class DateTimeField extends BaseField<HTMLInputElement> {
      * @override
      */
     override render(): void {
-        if (this.label && this.label.exists()) {
+        if (this.label?.exists()) {
             this.label.addClass('field-label');
         }
 
-        const iconKnot = new Knot('a');
-        iconKnot.setAttribute('href', 'javascript:void(0)');
-        iconKnot.addClass(['material-icons', 'size-24', 'expander']);
+        const iconKnot = new Knot('button');
+        iconKnot.setAttribute('type', 'button');
+        iconKnot.addClass([
+            'icon-button',
+            'material-icons',
+            'size-24',
+            'expander',
+        ]);
         iconKnot.setHtml('date_range');
         iconKnot.addEventListener('click', this._onClick.bind(this));
         this.actionContainerKnot.appendChild(iconKnot);
@@ -177,9 +166,14 @@ export class DateTimeField extends BaseField<HTMLInputElement> {
             this.datetimeInput.appendChild(tagKnot);
 
             if (this.isEnabled()) {
-                const iconKnot = new Knot('a');
-                iconKnot.setAttribute('href', 'javascript:void(0)');
-                iconKnot.addClass(['material-icons', 'size-18', 'close']);
+                const iconKnot = new Knot('button');
+                iconKnot.setAttribute('type', 'button');
+                iconKnot.addClass([
+                    'icon-button',
+                    'material-icons',
+                    'size-18',
+                    'close',
+                ]);
                 iconKnot.setHtml('close');
                 iconKnot.addEventListener('click', () => {
                     this.setValue('');

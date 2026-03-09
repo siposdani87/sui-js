@@ -1,4 +1,3 @@
-import { mdl } from '../utils/render';
 import { BaseField } from './baseField';
 import { Knot } from '../core/knot';
 
@@ -22,26 +21,9 @@ export class TextareaField extends BaseField<HTMLInputElement> {
     htmlMode!: boolean;
 
     /**
-     * @description Creates a new TextareaField instance.
-     * @param {Knot<HTMLInputElement>} input - The textarea input element.
-     * @param {Knot} label - The label element.
-     * @param {Knot} error - The error message element.
-     * @param {Knot} inputBlock - The container block element.
-     */
-    constructor(
-        input: Knot<HTMLInputElement>,
-        label: Knot,
-        error: Knot,
-        inputBlock: Knot,
-    ) {
-        super(input, label, error, inputBlock);
-        this._init();
-    }
-
-    /**
      * @description Initializes the field by adding CSS class and attaching keyup/change event listeners.
      */
-    private _init(): void {
+    protected override _init(): void {
         this.inputBlock.addClass('textarea-field');
 
         this.input.addEventListener('keyup', (input) => {
@@ -61,19 +43,14 @@ export class TextareaField extends BaseField<HTMLInputElement> {
     }
 
     /**
-     * @description Applies MDL textarea classes and renders the rich text editor if configured.
+     * @description Applies SUI textarea classes and renders the rich text editor if configured.
      * @override
      */
     override render(): void {
-        this.inputBlock.addClass([
-            'mdl-textfield',
-            'mdl-js-textfield',
-            'mdl-textfield--floating-label',
-        ]);
-        this.input.addClass(['mdl-textfield__input', 'mdl-textarea__input']);
-        if (this.label && this.label.exists()) {
-            this.label.addClass('mdl-textfield__label');
-        }
+        this._renderTextField(
+            ['sui-textfield'],
+            ['sui-textfield__input', 'sui-textarea__input'],
+        );
 
         if (this._isRichText()) {
             this._renderRichText();
@@ -88,19 +65,18 @@ export class TextareaField extends BaseField<HTMLInputElement> {
         this.input.addClass('hidden');
 
         let value = this.getValue();
-        value =
-            value.indexOf('<p>') === 0 ? value : `<p>${value || '<br />'}</p>`;
+        value = value.startsWith('<p>') ? value : `<p>${value || '<br />'}</p>`;
 
         this.richText = new Knot('div');
         this.richText.addClass([
-            'mdl-textfield__input',
-            'mdl-textarea__input',
+            'sui-textfield__input',
+            'sui-textarea__input',
             'textbox',
         ]);
         this.richText.setHtml(value);
 
         this.richText.addEventListener('keydown', (_knot, event) => {
-            if (event.keyCode === 13) {
+            if (event.key === 'Enter') {
                 document.execCommand('defaultParagraphSeparator', false, 'p');
             }
             return true;
@@ -195,9 +171,9 @@ export class TextareaField extends BaseField<HTMLInputElement> {
      * @param {() => void} action - The callback to execute on click.
      */
     private _renderToolbarButton(iconName: string, action: () => void): void {
-        const boldButtonKnot = new Knot('a');
-        boldButtonKnot.setAttribute('href', 'javascript:void(0)');
-        boldButtonKnot.addClass('material-icons');
+        const boldButtonKnot = new Knot('button');
+        boldButtonKnot.setAttribute('type', 'button');
+        boldButtonKnot.addClass(['icon-button', 'material-icons']);
         boldButtonKnot.setHtml(iconName);
         boldButtonKnot.addEventListener('click', () => {
             action();
@@ -250,19 +226,20 @@ export class TextareaField extends BaseField<HTMLInputElement> {
     }
 
     /**
-     * @description Marks the field as invalid when required and empty, disables contentEditable when disabled, and upgrades MDL components.
+     * @description Marks the field as invalid when required and empty, disables contentEditable when disabled, and upgrades SUI components.
      * @override
      */
     override refresh() {
-        if (this.isRequired() && this.getValue() === '') {
-            this.inputBlock.addClass('is-invalid');
-        }
+        this._refreshBase();
 
-        if (this._isRichText() && this.isDisabled()) {
-            this.richTextKnot.contentEditable = 'false';
+        if (this._isRichText()) {
+            if (this.isDisabled()) {
+                this.richTextKnot.contentEditable = 'false';
+            } else {
+                this.inputBlock.removeClass('is-disabled');
+                this.richTextKnot.contentEditable = 'true';
+            }
         }
-
-        mdl(this.inputBlock);
     }
 
     /**

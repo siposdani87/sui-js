@@ -4,7 +4,7 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 ## Project Overview
 
-SUI-JS is a lightweight TypeScript frontend framework with predefined UI components. Published as `@siposdani87/sui-js` on npm. Uses Material Design Lite for base styling, esbuild for bundling (IIFE format, global name `SUI`), and SCSS for styles.
+SUI-JS is a lightweight TypeScript frontend framework with predefined UI components. Published as `@siposdani87/sui-js` on npm. Uses custom SUI SCSS for styling, esbuild for bundling (IIFE format, global name `SUI`), and SCSS for styles.
 
 ## Commands
 
@@ -30,10 +30,10 @@ npx jest --testNamePattern="should do something"
 
 - **`src/core/`** — Framework primitives: `Objekt` (object wrapper with nested get/merge), `Knot` (DOM element wrapper), `Query` (selector wrapper), `Collection<T>` (typed collection), `State` (state management + routing), `Module` (revealing module pattern base)
 - **`src/component/`** — UI components: `Application` (main entry, manages DI), `Form`, `Table`, `Calendar`, `GoogleMap`, popups, etc.
-- **`src/module/`** — Feature modules: `Http` (XHR client), `Router`, `EventBus` (pub/sub), `Dialog`, `Confirm`, `Cookie`, `Depot` (localStorage/sessionStorage), `Template`, menus
+- **`src/module/`** — Feature modules: `Http` (fetch-based HTTP client), `Router`, `EventBus` (pub/sub), `Dialog`, `Confirm`, `Cookie`, `Depot` (localStorage/sessionStorage), `Template`, menus
 - **`src/field/`** — Form field components extending `BaseField`: text, select, datetime, color, file, location, etc.
-- **`src/utils/`** — Utilities: `operation.ts` (type checking, object/array ops), `dateio.ts` (date-fns wrapper), `coder.ts`, `color.ts`, `math.ts`
-- **`styles/`** — SCSS organized by component/module/field with MDL overrides
+- **`src/utils/`** — Utilities: `operation.ts` (barrel re-export for `comparison.ts`, `typeGuards.ts`, `iteration.ts`, `arrayOps.ts`, `objectOps.ts`, `stringOps.ts`, `domOps.ts`), `dateio.ts` (date-fns wrapper), `coder.ts`, `color.ts`, `math.ts`
+- **`styles/`** — SCSS organized by component/module/field; uses CSS custom properties (`--sui-*`) for theming — dark mode handled via `prefers-color-scheme` media query and `.dark-theme` class, no separate Dark.scss files
 - **`src/index.ts`** — Single entry point, exports all modules
 
 ## Code Patterns
@@ -45,17 +45,21 @@ npx jest --testNamePattern="should do something"
 
 ## TypeScript Configuration
 
-- Target: ES2015, Module: ESNext
-- Incremental strict mode: Phase 1 enabled (strictFunctionTypes, strictBindCallApply, noImplicitThis, alwaysStrict, noImplicitReturns)
-- Phase 2 NOT yet enabled: strictNullChecks, noImplicitAny, strictPropertyInitialization
-- `@typescript-eslint/no-explicit-any` is off — `any` is allowed
+- Target: ES2020, Module: ESNext, moduleResolution: Bundler
+- **`strict: true`** — all strict mode flags enabled (completed in v1.1.0)
+- Additional flags: `noImplicitReturns`, `noFallthroughCasesInSwitch`, `noImplicitOverride`, `allowUnreachableCode: false`, `allowUnusedLabels: false`
+- `@typescript-eslint/no-explicit-any` is `warn` — explicit `any` is allowed but flagged
 
 ## Testing
 
 - Jest with ts-jest and jsdom environment
 - Tests colocated as `*.spec.ts` files
-- `jest.setup.ts` mocks: Material Design Lite `componentHandler`, Google Maps API, console methods
-- Coverage thresholds: statements 50%, branches 33%, functions 42%, lines 50%
+- `jest.setup.ts` mocks: Google Maps API, console methods
+- **2,212 tests** across 112 suites (expanded from 180 tests in v1.0.0)
+- Includes jest-axe automated accessibility tests (Loader, Flash, TabPanel, Viewer, Dropdown, Navigation, BaseField)
+- `tsconfig.spec.json` inherits `strict: true` from base config (strictNullChecks + noImplicitAny enabled)
+- Coverage thresholds: statements 97%, branches 87%, functions 95%, lines 97%
+- Current coverage: statements 97.2%, branches 87.7%, functions 95.7%, lines 97.2%
 
 ## Formatting
 
@@ -65,22 +69,20 @@ npx jest --testNamePattern="should do something"
 
 ## Implementation Roadmap
 
-Three improvement plans exist. Execute in this order:
+### Completed (v2.0.0)
 
-### 1. Testing Improvement (do first)
-- **Full plan:** `TESTING_IMPROVEMENT_PLAN.md`
-- **Claude Code instructions:** `.claude/plans/testing.md`
-- **Why first:** Builds safety net before type-level and doc changes. Coverage 52% → 78%, tests 180 → ~580.
-- **Phases:** Infrastructure → Core → Utils → Module (critical) → Field → Component
+- **Testing** — 180 → 2,212 tests, coverage 97%+. jest-axe a11y tests. Strict null checks in test config.
+- **TypeScript Strict Mode** — `strict: true` in `tsconfig.json` (v1.1.0).
+- **Documentation** — Comprehensive JSDoc. Docusaurus site with guides, API reference, Algolia search.
+- **Automatic DI** — `static inject` for auto-dependency detection on controllers/services.
+- **Native Promise in Promize** — `Promize` backed by native `Promise` (microtask timing).
+- **Fetch Migration** — `Xhr` uses `fetch` API. Exports `HttpResponse` type.
+- **Style Modernization** — Indigo/orange palette, system fonts, CSS custom properties (`--sui-*`), all 42 Dark.scss files eliminated.
+- **Example Page** — Full component showcase across 4 tabs (Form, Components, Modals, Services). MDL dependency removed.
+- **Scheduler** — Implemented `_callRunner()` with 30s interval, `stop()` method.
 
-### 2. TypeScript Strict Mode (do second)
-- **Full plan:** `TYPESCRIPT_STRICT_MODE_PLAN.md`
-- **Claude Code instructions:** `.claude/plans/strict-mode.md`
-- **Why second:** With tests protecting against regressions, type changes are safe. Fixes types before writing docs.
-- **Phases:** Preparation → noImplicitOverride → noImplicitAny → strictNullChecks → strictPropertyInitialization → strict:true
+### Remaining — See `REMAINING_TASKS.md`
 
-### 3. Documentation (do last)
-- **Full plan:** `DOCUMENTATION_PLAN.md`
-- **Claude Code instructions:** `.claude/plans/documentation.md`
-- **Why last:** JSDoc should describe final type signatures (after strict mode). Two tracks: JSDoc + Docusaurus.
-- **Phases:** Core JSDoc → Utils JSDoc → Module JSDoc → Component JSDoc → Field JSDoc + Site enhancements
+- **AdvancedMarkerElement Migration** (P1) — See `ADVANCED_MARKER_MIGRATION.md`
+- **Code-Split Google Maps** (P1) — Dynamic import for lazy loading
+- **Modern CSS / TS / Tooling** (P3) — See `IMPROVEMENT_PLAN.md`

@@ -1,9 +1,11 @@
-import { eq, typeCast } from '../utils/operation';
+import { eq, isArray, typeCast } from '../utils/operation';
 import { Knot } from '../core/knot';
 import { Query } from '../core/query';
 import { Tooltip } from '../component/tooltip';
+import { sui } from '../utils/render';
 import { consoleDebug } from '../utils/log';
-import { Form } from '../component';
+import { Emitter } from '../core/emitter';
+import type { Form } from '../component';
 
 /**
  * @description Abstract base class for all form fields. Handles validation, labeling,
@@ -14,11 +16,17 @@ import { Form } from '../component';
  * const textField = new TextField(inputKnot, labelKnot, errorKnot, inputBlockKnot);
  * textField.setValue('Hello');
  * textField.checkValidity();
+ * textField.on('change', (value, prev) => {
+ *     console.log('Changed from', prev, 'to', value);
+ * });
+ * textField.on('click', (knot) => {
+ *     console.log('Field clicked', knot);
+ * });
  * @see {@link Form}
  * @see {@link Tooltip}
  * @see {@link Knot}
  */
-export class BaseField<T extends HTMLInputElement> {
+export class BaseField<T extends HTMLInputElement> extends Emitter {
     input: Knot<T>;
     label: Knot;
     error: Knot;
@@ -44,6 +52,7 @@ export class BaseField<T extends HTMLInputElement> {
         opt_inputBlock?: Knot | undefined,
         opt_form?: Form | undefined,
     ) {
+        super();
         this.input = input;
         this.label = opt_label!;
         this.error = opt_error!;
@@ -52,42 +61,31 @@ export class BaseField<T extends HTMLInputElement> {
 
         if (this.error) {
             this.errorTooltip = new Tooltip(this.error);
+            if (!this.error.isEmpty()) {
+                const errorId =
+                    (this.input.getAttribute('name') || 'field') + '-error';
+                this.error.setId(errorId);
+                this.input.setAttribute('aria-describedby', errorId);
+            }
         }
 
         this._setInfoContainer();
         this._setActionContainer();
         this._setMutation();
         this._setAdditionalLabel(this.label);
+        this._init();
     }
 
     /**
-     * @description Called when the field value changes. Override in subclasses to handle change events.
-     * @param {*} value - The new field value.
-     * @param {*} previousValue - The previous field value.
-     * @example
-     * field.eventChange = (value, previousValue) => {
-     *     console.log('Changed from', previousValue, 'to', value);
-     * };
+     * @description Initialization hook called at the end of the BaseField constructor.
+     * Override in subclasses to perform field-specific setup without repeating constructor boilerplate.
      */
-    // eslint-disable-next-line @typescript-eslint/no-explicit-any
-    eventChange(value: any, previousValue: any) {
-        consoleDebug('BaseField.eventChange()', value, previousValue);
+    protected _init(): void {
+        // Override in subclasses
     }
 
     /**
-     * @description Called when the field is clicked. Override in subclasses to handle click events.
-     * @param {Knot} knot - The clicked knot element.
-     * @example
-     * field.eventClick = (knot) => {
-     *     console.log('Field clicked', knot);
-     * };
-     */
-    eventClick(knot: Knot): void {
-        consoleDebug('Button.eventClick()', knot);
-    }
-
-    /**
-     * @description Renders the field's DOM structure and applies MDL styling. Override in subclasses to provide specific rendering.
+     * @description Renders the field's DOM structure and applies SUI styling. Override in subclasses to provide specific rendering.
      * @example
      * field.render();
      */
@@ -96,7 +94,7 @@ export class BaseField<T extends HTMLInputElement> {
     }
 
     /**
-     * @description Refreshes the field's visual state. Override in subclasses to update styling or re-apply MDL upgrades.
+     * @description Refreshes the field's visual state. Override in subclasses to update styling or re-apply SUI upgrades.
      * @example
      * field.refresh();
      */
@@ -201,7 +199,11 @@ export class BaseField<T extends HTMLInputElement> {
         opt_force: boolean | undefined = false,
         opt_showMessage: boolean | undefined = true,
     ): void {
-        const isValid = this.isValid();
+        const value = this.getValue();
+        const hasValue = isArray(value) ? value.length > 0 : !!value;
+        const isValid = this.isDisabled()
+            ? !this.isRequired() || hasValue
+            : this.isValid();
         if (isValid) {
             this.setError('');
         } else if (opt_showMessage) {
@@ -209,7 +211,7 @@ export class BaseField<T extends HTMLInputElement> {
         }
         const upgradedKnot = this._getUpgradedKnot();
         if (opt_force && upgradedKnot) {
-            if (this.getValue()) {
+            if (hasValue) {
                 upgradedKnot.addClass('is-dirty');
             }
             if (isValid) {
@@ -247,7 +249,7 @@ export class BaseField<T extends HTMLInputElement> {
     }
 
     /**
-     * @description Returns the upgraded input block knot for MDL styling operations.
+     * @description Returns the upgraded input block knot for SUI styling operations.
      * @returns {Knot} The input block knot.
      */
     private _getUpgradedKnot(): Knot {
@@ -380,6 +382,13 @@ export class BaseField<T extends HTMLInputElement> {
         } else {
             this.input.removeAttribute('disabled');
         }
+        if (this.inputBlock && !this.inputBlock.isEmpty()) {
+            if (state) {
+                this.inputBlock.addClass('is-disabled');
+            } else {
+                this.inputBlock.removeClass('is-disabled');
+            }
+        }
         this.input.getNode().disabled = state;
         this.checkValidity(true, false);
     }
@@ -488,17 +497,21 @@ export class BaseField<T extends HTMLInputElement> {
         const description = label.getAttribute('desc');
         if (title || description) {
             let infoButton = new Query(
-                'a.info-button',
+                'button.info-button',
                 this.infoContainerKnot,
             ).getKnot();
             if (!infoButton.isEmpty()) {
                 infoButton.remove();
             }
-            infoButton = new Knot('a');
+            infoButton = new Knot('button');
+            infoButton.setAttribute('type', 'button');
             infoButton.setAttribute('title', title || '');
             infoButton.setAttribute('desc', description || '');
-            infoButton.setAttribute('href', 'javascript:void(0)');
-            infoButton.addClass(['info-button', 'material-icons']);
+            infoButton.addClass([
+                'info-button',
+                'icon-button',
+                'material-icons',
+            ]);
             infoButton.setHtml('info');
             this.infoContainerKnot.appendChild(infoButton);
             const tooltip = new Tooltip(infoButton, 'LEFT');
@@ -538,6 +551,37 @@ export class BaseField<T extends HTMLInputElement> {
             labelText = labelText.replace(requiredPostfix, '');
         }
         return labelText;
+    }
+
+    /**
+     * @description Applies common textfield SUI classes to the input block, input, and label.
+     * @param {string[]} [opt_inputBlockClasses=['sui-textfield']] - CSS classes for the input block.
+     * @param {string[]} [opt_inputClasses=['sui-textfield__input']] - CSS classes for the input element.
+     * @param {string} [opt_labelClass='sui-textfield__label'] - CSS class for the label.
+     */
+    protected _renderTextField(
+        opt_inputBlockClasses: string[] = ['sui-textfield'],
+        opt_inputClasses: string[] = ['sui-textfield__input'],
+        opt_labelClass: string = 'sui-textfield__label',
+    ): void {
+        this.inputBlock.addClass(opt_inputBlockClasses);
+        this.input.addClass(opt_inputClasses);
+        if (this.label?.exists()) {
+            this.label.addClass(opt_labelClass);
+        }
+    }
+
+    /**
+     * @description Refreshes common field state: marks as invalid when required and empty, marks as disabled, and upgrades SUI.
+     */
+    protected _refreshBase(): void {
+        if (this.isRequired() && this.getValue() === '') {
+            this.inputBlock.addClass('is-invalid');
+        }
+        if (this.isDisabled()) {
+            this.inputBlock.addClass('is-disabled');
+        }
+        sui(this.inputBlock);
     }
 
     /**

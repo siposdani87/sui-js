@@ -2,8 +2,8 @@ import { format, each } from '../utils/operation';
 import { Knot } from '../core/knot';
 import { Objekt } from '../core/objekt';
 import { Query } from '../core/query';
-import { consoleDebug } from '../utils/log';
-import { mdl } from '../utils/render';
+import { Emitter } from '../core/emitter';
+import { sui } from '../utils/render';
 
 /**
  * @description Internal page descriptor representing a single pager button.
@@ -19,7 +19,7 @@ type Page = {
  *
  * @example
  * const pager = new Pager(containerKnot, ['.pager', '.pager-statistics'], { row_count: 25 });
- * pager.eventAction = (page) => fetchData(page);
+ * pager.on('action', (page) => fetchData(page));
  * pager.setCount(100);
  * pager.draw();
  *
@@ -28,7 +28,7 @@ type Page = {
  *
  * @category Component
  */
-export class Pager {
+export class Pager extends Emitter {
     pager: Knot;
     pagerStatistics: Knot;
     options!: Objekt;
@@ -48,8 +48,9 @@ export class Pager {
         opt_selectors: string[] | undefined = ['.pager', '.pager-statistics'],
         opt_options: object | undefined = {},
     ) {
-        this.pager = new Query(opt_selectors[0], dom).getKnot();
-        this.pagerStatistics = new Query(opt_selectors[1], dom).getKnot();
+        super();
+        this.pager = new Query(opt_selectors[0]!, dom).getKnot();
+        this.pagerStatistics = new Query(opt_selectors[1]!, dom).getKnot();
         this._setOptions(opt_options);
         this._init();
     }
@@ -108,11 +109,7 @@ export class Pager {
     private _drawPreviousButton(): void {
         if (this.pageNum > 1) {
             const previousButton = new Knot<HTMLButtonElement>('button');
-            previousButton.addClass([
-                'mdl-button',
-                'mdl-js-button',
-                'mdl-js-ripple-effect',
-            ]);
+            previousButton.addClass(['sui-button']);
             previousButton.addEventListener('click', () => {
                 this._previous();
             });
@@ -120,7 +117,7 @@ export class Pager {
             iconKnot.addClass('material-icons');
             iconKnot.setHtml('chevron_left');
             previousButton.appendChild(iconKnot);
-            mdl(previousButton);
+            sui(previousButton);
             this.pager.appendChild(previousButton);
         }
     }
@@ -131,11 +128,7 @@ export class Pager {
     private _drawNextButton(): void {
         if (this.pageNum > 1) {
             const nextButton = new Knot<HTMLButtonElement>('button');
-            nextButton.addClass([
-                'mdl-button',
-                'mdl-js-button',
-                'mdl-js-ripple-effect',
-            ]);
+            nextButton.addClass(['sui-button']);
             nextButton.addEventListener('click', () => {
                 this._next();
             });
@@ -143,7 +136,7 @@ export class Pager {
             iconKnot.addClass('material-icons');
             iconKnot.setHtml('chevron_right');
             nextButton.appendChild(iconKnot);
-            mdl(nextButton);
+            sui(nextButton);
             this.pager.appendChild(nextButton);
         }
     }
@@ -158,19 +151,15 @@ export class Pager {
                 const pageKnot = new Knot<HTMLButtonElement>('button');
                 pageKnot.setData('page', pager.page);
                 pageKnot.setHtml(pager.text);
-                pageKnot.addClass([
-                    'mdl-button',
-                    'mdl-js-button',
-                    'mdl-js-ripple-effect',
-                ]);
+                pageKnot.addClass(['sui-button']);
                 if (this.page === pager.page) {
-                    pageKnot.addClass('mdl-button--accent');
+                    pageKnot.addClass('sui-button--accent');
                 }
                 pageKnot.addEventListener('click', (knot) => {
                     const page = knot.getData('page');
                     this._go(page);
                 });
-                mdl(pageKnot);
+                sui(pageKnot);
                 this.pager.appendChild(pageKnot);
             });
         }
@@ -251,7 +240,7 @@ export class Pager {
      */
     private _go(page: number): void {
         this.setPage(page);
-        this.eventAction(this.page);
+        this.emit('action', this.page);
     }
 
     /**
@@ -276,18 +265,5 @@ export class Pager {
     draw(): void {
         this._drawStatistics();
         this._drawPager();
-    }
-
-    /**
-     * @description Called when a page navigation action occurs. Override to handle page changes.
-     * @param {number} page - The newly selected page number.
-     *
-     * @example
-     * pager.eventAction = (page) => {
-     *     fetchData({ offset: (page - 1) * rowCount });
-     * };
-     */
-    eventAction(page: number): void {
-        consoleDebug('Pager.eventAction()', page);
     }
 }

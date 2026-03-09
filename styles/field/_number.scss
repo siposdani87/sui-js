@@ -1,22 +1,30 @@
-@use '../core/variables';
-
 .number-field {
+    input[type='number'] {
+        appearance: textfield;
+
+        &::-webkit-inner-spin-button,
+        &::-webkit-outer-spin-button {
+            appearance: none;
+            margin: 0;
+        }
+    }
+
     .step-change {
         position: relative;
         display: inline-block;
         width: 24px;
         height: 24px;
-        margin-left: 5px;
+        margin-inline-start: 5px;
     }
 
     .up-button {
-        color: variables.$primary-default-light;
+        color: var(--sui-primary-action);
         position: absolute;
         top: -7px;
     }
 
     .down-button {
-        color: variables.$primary-default-light;
+        color: var(--sui-primary-action);
         position: absolute;
         top: 7px;
     }
@@ -24,7 +32,7 @@
     &.is-disabled {
         .up-button,
         .down-button {
-            color: variables.$primary-disabled-light;
+            color: var(--sui-primary-action-disabled);
         }
     }
 }

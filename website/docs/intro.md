@@ -9,7 +9,7 @@ keywords: [sui-js, typescript, framework, frontend, ui, components, material-des
 
 # SUI-JS Documentation
 
-SUI-JS is a lightweight frontend framework written in TypeScript with predefined UI components. It uses Material Design Lite for base styling and provides 60+ ready-to-use components for building single-page applications.
+SUI-JS is a lightweight frontend framework written in TypeScript with predefined UI components. It uses custom SUI SCSS for styling and provides 60+ ready-to-use components for building single-page applications.
 
 ## Quick Start
 

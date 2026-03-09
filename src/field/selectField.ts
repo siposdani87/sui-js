@@ -15,7 +15,7 @@ import { Knot } from '../core/knot';
 import { Objekt } from '../core/objekt';
 import { Query } from '../core/query';
 import { generateId } from '../utils/coder';
-import { mdl } from '../utils/render';
+import { sui } from '../utils/render';
 
 /**
  * @description Custom select/dropdown field with search, single/multiple selection, and tag display.
@@ -43,26 +43,9 @@ export class SelectField extends BaseField<HTMLInputElement> {
     searchInputKnot!: Knot<HTMLInputElement>;
 
     /**
-     * @description Creates a new SelectField instance.
-     * @param {Knot<HTMLInputElement>} input - The select input element wrapped in a Knot.
-     * @param {Knot} label - The label element wrapped in a Knot.
-     * @param {Knot} error - The error element wrapped in a Knot.
-     * @param {Knot} inputBlock - The input block container wrapped in a Knot.
-     */
-    constructor(
-        input: Knot<HTMLInputElement>,
-        label: Knot,
-        error: Knot,
-        inputBlock: Knot,
-    ) {
-        super(input, label, error, inputBlock);
-        this._init();
-    }
-
-    /**
      * @description Initializes the select field by hiding the native input, setting up options, events, and the popup.
      */
-    private _init(): void {
+    protected override _init(): void {
         this.input.addClass('hidden');
         this.inputBlock.addClass('select-field');
         this.query = '';
@@ -136,13 +119,18 @@ export class SelectField extends BaseField<HTMLInputElement> {
      * @description Renders the select field by adding the label class, creating the expander icon, and refreshing the display.
      */
     override render(): void {
-        if (this.label && this.label.exists()) {
+        if (this.label?.exists()) {
             this.label.addClass('field-label');
         }
 
-        this.iconKnot = new Knot('a');
-        this.iconKnot.setAttribute('href', 'javascript:void(0)');
-        this.iconKnot.addClass(['material-icons', 'size-24', 'expander']);
+        this.iconKnot = new Knot('button');
+        this.iconKnot.setAttribute('type', 'button');
+        this.iconKnot.addClass([
+            'icon-button',
+            'material-icons',
+            'size-24',
+            'expander',
+        ]);
         this.iconKnot.setHtml('expand_more');
         this.iconKnot.addEventListener('click', () => {
             if (this.isEnabled()) {
@@ -210,10 +198,9 @@ export class SelectField extends BaseField<HTMLInputElement> {
 
     /**
      * @description Returns the selected value(s). Returns a single value for single-select or an array for multi-select.
-     * @returns {*} The selected value(s), or null if nothing is selected.
+     * @returns {string | string[] | null} The selected value(s), or null if nothing is selected.
      */
-    // eslint-disable-next-line @typescript-eslint/no-explicit-any
-    override getValue(): any {
+    override getValue(): string | string[] | null {
         let ids = this._getSelectedIds();
         ids = ids.filter((id) => {
             return !eq(id, '');
@@ -233,7 +220,7 @@ export class SelectField extends BaseField<HTMLInputElement> {
     getOptionValue(opt_attribute?: string): any {
         const value = this.getValue();
         if (value) {
-            const option = this.options.findById(value);
+            const option = this.options.findById(value as string);
             return opt_attribute
                 ? option!.get(format('item.{0}', [opt_attribute]))
                 : option;
@@ -317,17 +304,17 @@ export class SelectField extends BaseField<HTMLInputElement> {
 
     /**
      * @description Renders the selected tags in the select container based on the given IDs.
-     * @param {Array<any>} ids - The selected option IDs.
+     * @param {Array<string>} ids - The selected option IDs.
      */
-    // eslint-disable-next-line @typescript-eslint/no-explicit-any
-    private _setSelectTags(ids: Array<any>): void {
-        if (this.isRequired() && ids.length === 1 && ids[0] === '') {
+    private _setSelectTags(ids: Array<string>): void {
+        const hasValue = ids.some((id) => id !== '');
+        if (this.isRequired() && !hasValue) {
             this.inputBlock.addClass('is-invalid');
         }
         if (this.isMultiple()) {
             this._setMultipleTag(ids);
         } else {
-            this._setSimpleTag(ids[0]);
+            this._setSimpleTag(ids[0] ?? '');
         }
     }
 
@@ -385,9 +372,14 @@ export class SelectField extends BaseField<HTMLInputElement> {
 
             const id = tag.get<string>('id');
             if (neq(id, '') && this.isEnabled()) {
-                const iconKnot = new Knot('a');
-                iconKnot.setAttribute('href', 'javascript:void(0)');
-                iconKnot.addClass(['material-icons', 'size-18', 'close']);
+                const iconKnot = new Knot('button');
+                iconKnot.setAttribute('type', 'button');
+                iconKnot.addClass([
+                    'icon-button',
+                    'material-icons',
+                    'size-18',
+                    'close',
+                ]);
                 iconKnot.setHtml('close');
                 iconKnot.addEventListener('click', () => {
                     this._handleSelectedId(id);
@@ -400,10 +392,9 @@ export class SelectField extends BaseField<HTMLInputElement> {
 
     /**
      * @description Updates the selected attribute on option elements matching the given IDs.
-     * @param {Array<any>} ids - The IDs to mark as selected.
+     * @param {Array<string>} ids - The IDs to mark as selected.
      */
-    // eslint-disable-next-line @typescript-eslint/no-explicit-any
-    private _setSelectedIds(ids: Array<any>): void {
+    private _setSelectedIds(ids: Array<string>): void {
         this.options.each((option) => {
             const id = option.get('id');
             const selected = inArray(ids, id);
@@ -422,18 +413,16 @@ export class SelectField extends BaseField<HTMLInputElement> {
 
     /**
      * @description Collects the IDs of all currently selected options.
-     * @returns {Array<any>} The selected IDs, or [''] if none are selected.
+     * @returns {Array<string>} The selected IDs, or [''] if none are selected.
      */
-    // eslint-disable-next-line @typescript-eslint/no-explicit-any
-    private _getSelectedIds(): Array<any> {
-        // eslint-disable-next-line @typescript-eslint/no-explicit-any
-        const ids: any[] = [];
+    private _getSelectedIds(): Array<string> {
+        const ids: string[] = [];
         this.options.each((option) => {
             const optionKnot =
                 option.get<Knot<HTMLOptionElement>>('option_node');
             const optionNode = optionKnot.getNode();
             if (optionNode.selected) {
-                const id = option.get('id');
+                const id = option.get<string>('id');
                 ids.push(id);
             }
         });
@@ -479,8 +468,9 @@ export class SelectField extends BaseField<HTMLInputElement> {
         const ids = this._getSelectedIds();
         eachArray(items, (item) => {
             const id = item.get<string>('id');
-            const listKnot = new Knot('a');
-            listKnot.setAttribute('href', 'javascript:void(0)');
+            const listKnot = new Knot('button');
+            listKnot.setAttribute('type', 'button');
+            listKnot.addClass('icon-button');
             if (inArray(ids, id)) {
                 listKnot.addClass('selected');
             }
@@ -512,7 +502,7 @@ export class SelectField extends BaseField<HTMLInputElement> {
         this.containerKnot.appendChild(searchParentKnot);
 
         const searchKnot = new Knot('div');
-        searchKnot.addClass(['mdl-textfield', 'mdl-js-textfield']);
+        searchKnot.addClass(['sui-textfield']);
         searchKnot.addEventListener('click', () => {
             // empty function
         });
@@ -523,7 +513,7 @@ export class SelectField extends BaseField<HTMLInputElement> {
         this.searchInputKnot = new Knot<HTMLInputElement>('input');
         this.searchInputKnot.setId(id);
         this.searchInputKnot.setAttribute('type', 'text');
-        this.searchInputKnot.addClass('mdl-textfield__input');
+        this.searchInputKnot.addClass('sui-textfield__input');
         this.searchInputKnot.addEventListener('keyup', (input) => {
             const inputNode = input.getNode();
             this._search(inputNode.value);
@@ -533,10 +523,10 @@ export class SelectField extends BaseField<HTMLInputElement> {
 
         const labelKnot = new Knot('label');
         labelKnot.setFor(id);
-        labelKnot.addClass('mdl-textfield__label');
+        labelKnot.addClass('sui-textfield__label');
         searchKnot.appendChild(labelKnot);
 
-        mdl(searchKnot);
+        sui(searchKnot);
     }
 
     /**

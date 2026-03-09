@@ -31,7 +31,7 @@ export default function Home(): JSX.Element {
   return (
     <Layout
       title={`Hello from ${siteConfig.title}`}
-      description="Description will go into a meta tag in <head />">
+      description="Lightweight frontend framework in TypeScript with 60+ UI components">
       <HomepageHeader />
       <main>
         <HomepageFeatures />

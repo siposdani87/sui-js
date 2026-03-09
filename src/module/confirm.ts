@@ -2,7 +2,7 @@ import { Knot } from '../core/knot';
 import { Objekt } from '../core/objekt';
 import { Query } from '../core/query';
 import { BaseModal } from './baseModal';
-import { mdl } from '../utils/render';
+import { sui } from '../utils/render';
 
 /**
  * Confirmation dialog modal with customizable message, action buttons,
@@ -14,8 +14,9 @@ import { mdl } from '../utils/render';
  * and `'choice'`. The `'choice'` type applies primary styling to the
  * cancel button as well, indicating both options are equally valid.
  *
- * After calling `load()`, set `eventOK` and optionally `eventCancel`
- * callbacks before calling `open()` to display the confirmation.
+ * After calling `load()`, register `on('ok', ...)` and optionally
+ * `on('cancel', ...)` handlers before calling `open()` to display
+ * the confirmation.
  *
  * @example
  * const confirm = new Confirm();
@@ -26,7 +27,7 @@ import { mdl } from '../utils/render';
  *     'Confirm Deletion',
  *     'warning',
  * );
- * confirm.eventOK = () => deleteItem(itemId);
+ * confirm.on('ok', () => deleteItem(itemId));
  * confirm.open();
  *
  * @example
@@ -38,8 +39,8 @@ import { mdl } from '../utils/render';
  *     'Save Options',
  *     'choice',
  * );
- * confirm.eventOK = () => publish();
- * confirm.eventCancel = () => saveDraft();
+ * confirm.on('ok', () => publish());
+ * confirm.on('cancel', () => saveDraft());
  * confirm.open();
  *
  * @see {@link BaseModal}
@@ -47,7 +48,7 @@ import { mdl } from '../utils/render';
  * @category Module
  */
 export class Confirm extends BaseModal {
-    options!: Objekt;
+    options!: Objekt<{ id: string }>;
 
     /**
      * Creates a new Confirm instance.
@@ -81,9 +82,12 @@ export class Confirm extends BaseModal {
     private _init(): void {
         this.body = new Query('body').getKnot();
         this.modal = new Query(this.options.id).getKnot();
+        this.modal.setAttribute('role', 'alertdialog');
+        this.modal.setAttribute('aria-labelledby', 'confirm-title');
         this.modalWindow = new Query('#confirm-window', this.modal).getKnot();
         this.modalHeader = new Query('.modal-header', this.modal).getKnot();
         this.modalTitle = new Query('.modal-title', this.modalHeader).getKnot();
+        this.modalTitle.setId('confirm-title');
         this.modalBody = new Query('.modal-body', this.modal).getKnot();
         this.modalFooter = new Query('.modal-footer', this.modal).getKnot();
     }
@@ -95,8 +99,9 @@ export class Confirm extends BaseModal {
      * in the body, and creates OK and optional Cancel buttons in the
      * footer.
      *
-     * The caller should set `eventOK` and `eventCancel` callbacks after
-     * calling this method, then call `open()` to display the dialog.
+     * The caller should register `on('ok', ...)` and `on('cancel', ...)`
+     * handlers after calling this method, then call `open()` to display
+     * the dialog.
      *
      * @param message The HTML message content to display in the dialog
      *     body.
@@ -111,7 +116,7 @@ export class Confirm extends BaseModal {
      *
      * @example
      * confirm.load('Discard unsaved changes?', 'Discard', 'Keep Editing');
-     * confirm.eventOK = () => discardChanges();
+     * confirm.on('ok', () => discardChanges());
      * confirm.open();
      */
     load(
@@ -139,13 +144,9 @@ export class Confirm extends BaseModal {
         this.modalFooter.removeChildren();
 
         if (opt_cancelText) {
-            const cancelCssClasses = [
-                'mdl-button',
-                'mdl-js-button',
-                'mdl-js-ripple-effect',
-            ];
+            const cancelCssClasses = ['sui-button'];
             if (opt_type === 'choice') {
-                cancelCssClasses.push('mdl-button--primary');
+                cancelCssClasses.push('sui-button--primary');
             }
             const cancelButton = new Knot<HTMLButtonElement>('button');
             cancelButton.setAttribute('type', 'button');
@@ -158,12 +159,7 @@ export class Confirm extends BaseModal {
             this.modalFooter.appendChild(cancelButton);
         }
 
-        const okCssClasses = [
-            'mdl-button',
-            'mdl-js-button',
-            'mdl-js-ripple-effect',
-            'mdl-button--primary',
-        ];
+        const okCssClasses = ['sui-button', 'sui-button--primary'];
         const okButton = new Knot<HTMLButtonElement>('button');
         okButton.setAttribute('type', 'button');
         okButton.setHtml(okText);
@@ -171,6 +167,6 @@ export class Confirm extends BaseModal {
         okButton.addEventListener('click', this._actionOK.bind(this));
         this.modalFooter.appendChild(okButton);
 
-        mdl(this.modalFooter);
+        sui(this.modalFooter);
     }
 }

@@ -1,7 +1,5 @@
-@use '../core/variables';
-
 .textarea-field {
-    .mdl-textarea__input {
+    .sui-textfield__input.sui-textarea__input {
         resize: none;
         min-height: 150px;
     }
@@ -32,7 +30,7 @@
             margin-bottom: 1em;
 
             li {
-                margin-left: 2em;
+                margin-inline-start: 2em;
             }
         }
 
@@ -41,22 +39,23 @@
             margin-bottom: 1em;
 
             li {
-                margin-left: 2em;
+                margin-inline-start: 2em;
             }
         }
     }
 
     .toolbar {
-        a {
+        .icon-button {
             font-size: 20px;
             margin: 0 10px 2px 0;
+            color: var(--sui-primary-action);
         }
     }
 
     &.is-disabled {
         .toolbar {
-            a {
-                color: variables.$label-disabled-light !important;
+            .icon-button {
+                color: var(--sui-label-disabled);
             }
         }
     }

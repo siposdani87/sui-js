@@ -1,6 +1,6 @@
-import { Knot } from '../core';
+import type { Knot } from '../core';
 import { Query } from '../core/query';
-import { Header } from './header';
+import type { Header } from './header';
 
 /**
  * Dropdown menu rendered inside the application {@link Header}. Toggling
@@ -46,7 +46,7 @@ export class TopMenu {
             '#toggle-top-menu',
             this.header.headerKnot,
         ).getKnot();
-        this.toggleTopMenu.setAttribute('href', 'javascript:void(0)');
+        this.toggleTopMenu.setAttribute('href', '#');
         this.toggleTopMenu.addEventListener('click', () => {
             this.toggle();
         });

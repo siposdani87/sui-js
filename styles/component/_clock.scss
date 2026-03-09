@@ -1,14 +1,12 @@
-@use '../core/colors';
-
 .clock {
-    background-color: colors.$light-grey;
+    background-color: var(--sui-outline-variant);
     height: 290px;
     width: 250px;
 
     .header {
         height: 50px;
-        background-color: colors.$primary;
-        color: colors.$deep-grey-bright;
+        background-color: var(--sui-primary-dark);
+        color: var(--sui-on-surface-variant);
         display: flex;
         justify-content: center;
         align-items: center;
@@ -19,7 +17,7 @@
             cursor: pointer;
 
             &.active {
-                color: colors.$primary-text;
+                color: var(--sui-primary-text);
             }
         }
 
@@ -31,13 +29,13 @@
             cursor: pointer;
 
             &.active {
-                color: colors.$primary-text;
+                color: var(--sui-primary-text);
             }
         }
 
         .period {
             cursor: pointer;
-            padding-left: 5px;
+            padding-inline-start: 5px;
             font-size: 0.5em;
             line-height: 1.3em;
             text-transform: uppercase;

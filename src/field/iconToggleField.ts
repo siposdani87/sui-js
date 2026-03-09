@@ -5,7 +5,7 @@ import { BaseCheckboxField } from './baseCheckboxField';
 /**
  * Icon-based toggle field with checked and unchecked icon states.
  *
- * @description Extends {@link BaseCheckboxField} to render a Material Design Lite
+ * @description Extends {@link BaseCheckboxField} to render a SUI
  * icon toggle that switches between two Material Icons based on the checked state.
  * The checked and unchecked icons are read from `data-checked` and `data-unchecked`
  * attributes on the input element.
@@ -27,49 +27,28 @@ export class IconToggleField extends BaseCheckboxField {
     icon!: Knot;
 
     /**
-     * Creates a new IconToggleField instance.
-     *
-     * @param {Knot<HTMLInputElement>} input The checkbox input element with icon data attributes.
-     * @param {Knot} label The label element associated with the toggle.
-     * @param {Knot} error The error message element.
-     * @param {Knot} inputBlock The container block for the input.
-     */
-    constructor(
-        input: Knot<HTMLInputElement>,
-        label: Knot,
-        error: Knot,
-        inputBlock: Knot,
-    ) {
-        super(input, label, error, inputBlock);
-    }
-
-    /**
-     * Renders the icon toggle with MDL classes, icon element, and label span.
+     * Renders the icon toggle with SUI classes, icon element, and label span.
      */
     override render(): void {
-        this.label.addClass([
-            'mdl-icon-toggle',
-            'mdl-js-icon-toggle',
-            'mdl-js-ripple-effect',
-        ]);
+        this.label.addClass('sui-icon-toggle');
 
         this.checkedIcon = this.input.getData('checked');
         this.uncheckedIcon = this.input.getData('unchecked');
 
         this.icon = new Knot('em');
-        this.icon.addClass(['mdl-icon-toggle__label', 'material-icons']);
+        this.icon.addClass(['sui-icon-toggle__label', 'material-icons']);
         this.icon.setHtml(
             this.input.getNode().checked
                 ? this.checkedIcon
                 : this.uncheckedIcon,
         );
 
-        this.input.addClass('mdl-icon-toggle__input');
+        this.input.addClass('sui-icon-toggle__input');
 
         const labelText = this.label.getText();
 
         this.spanLabel = new Knot('span');
-        this.spanLabel.addClass('mdl-icon__label');
+        this.spanLabel.addClass('sui-icon__label');
         this.spanLabel.setHtml(labelText);
 
         this.label.insert(this.input);

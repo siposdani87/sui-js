@@ -1,0 +1,58 @@
+@use '../core/variables';
+
+.sui-progress {
+    position: relative;
+    width: 100%;
+    height: 6px;
+    background-color: var(--sui-surface-alt);
+    border-radius: 3px;
+    overflow: hidden;
+
+    .sui-progress__bar {
+        position: absolute;
+        top: 0;
+        left: 0;
+        height: 100%;
+        width: 0;
+        background-color: var(--sui-primary);
+        border-radius: 3px;
+        transition: width variables.$transition-base;
+    }
+
+    .sui-progress__buffer {
+        position: absolute;
+        top: 0;
+        left: 0;
+        height: 100%;
+        width: 0;
+        background-color: var(--sui-primary);
+        border-radius: 3px;
+        opacity: 0.3;
+        transition: width variables.$transition-base;
+    }
+
+    &.sui-progress--indeterminate {
+        .sui-progress__bar {
+            width: 100%;
+            animation: sui-progress-indeterminate 2s linear infinite;
+            will-change: left;
+        }
+    }
+}
+
+@keyframes sui-progress-indeterminate {
+    0% {
+        left: -100%;
+        width: 100%;
+    }
+
+    50% {
+        left: 0;
+        width: 100%;
+    }
+
+    100% {
+        left: 100%;
+        width: 100%;
+    }
+}

@@ -1,4 +1,4 @@
-import { Id } from '../utils';
+import type { Id } from '../utils';
 import {
     each,
     instanceOf,
@@ -7,7 +7,17 @@ import {
     eq,
     eachArray,
 } from '../utils/operation';
+import { Emitter } from './emitter';
 import { Objekt } from './objekt';
+
+/**
+ * Constructor or factory function type for Collection items.
+ * Accepts both class constructors (`new Class(obj, parent)`) and
+ * factory functions declared with `function` keyword that can be
+ * called with `new`.
+ */
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
+export type CollectionType<T> = new (...args: any[]) => T;
 
 /**
  * Generic typed collection that wraps an array of items with find, delete,
@@ -36,9 +46,8 @@ import { Objekt } from './objekt';
  * @see {@link Objekt}
  * @category Core
  */
-export class Collection<T extends object = object> {
-    // eslint-disable-next-line @typescript-eslint/no-explicit-any
-    Type: any;
+export class Collection<T extends object = object> extends Emitter {
+    Type: CollectionType<T>;
     items: T[];
     options!: Objekt;
 
@@ -49,8 +58,8 @@ export class Collection<T extends object = object> {
      *
      * @param {Array<T>} [opt_items=[]] Initial items to load into the
      *     collection. Plain objects are wrapped via `Type`.
-     * @param {any} [opt_type=Objekt] Constructor used to instantiate plain
-     *     objects added to the collection. Called as
+     * @param {CollectionType<T>} [opt_type=Objekt] Constructor used to
+     *     instantiate plain objects added to the collection. Called as
      *     `new Type(object, parent)`.
      * @param {object} [opt_options={}] Configuration options. Supports `id`
      *     (the attribute name used as the unique identifier, defaults to
@@ -65,11 +74,11 @@ export class Collection<T extends object = object> {
      * const col2 = new Collection([], MyModel, { id: 'uuid' });
      */
     constructor(
-        opt_items: Array<T> | undefined = [],
-        // eslint-disable-next-line @typescript-eslint/no-explicit-any
-        opt_type: any = Objekt,
+        opt_items: Array<object | T> | undefined = [],
+        opt_type: CollectionType<T> = Objekt as unknown as CollectionType<T>,
         opt_options: object = {},
     ) {
+        super();
         this.Type = opt_type;
         this._setOptions(opt_options);
         this.items = [];
@@ -156,7 +165,7 @@ export class Collection<T extends object = object> {
             const parent = !isUndefined(this.options.parent)
                 ? this.options.parent
                 : this;
-            return new this.Type(object, parent) as T;
+            return new this.Type(object, parent);
         }
         return object as T;
     }
@@ -311,7 +320,7 @@ export class Collection<T extends object = object> {
         opt_attribute?: string | undefined,
     ): T | K | null {
         if (index >= 0 && index < this.items.length) {
-            const item = this.items[index];
+            const item = this.items[index]!;
             if (item && opt_attribute && instanceOf(item, Objekt)) {
                 return (item as unknown as Objekt).get<K>(opt_attribute);
             }
@@ -413,10 +422,10 @@ export class Collection<T extends object = object> {
         conditionCallback: (item: T, index: number) => boolean,
     ): T | null {
         let i = 0;
-        while (i < this.items.length && !conditionCallback(this.items[i], i)) {
+        while (i < this.items.length && !conditionCallback(this.items[i]!, i)) {
             i++;
         }
-        return this.get(i) as T | null;
+        return this.get(i);
     }
 
     /**
@@ -518,7 +527,7 @@ export class Collection<T extends object = object> {
      * col.size(); // 1
      */
     deleteBy(attribute: string, value: unknown): T | null {
-        return this.deleteByCondition((item: T, i: number) => {
+        return this.deleteByCondition((_item: T, i: number) => {
             return this.get(i, attribute) === value;
         });
     }
@@ -541,10 +550,10 @@ export class Collection<T extends object = object> {
         conditionCallback: (item: T, index: number) => boolean,
     ): T | null {
         let i = 0;
-        while (i < this.items.length && !conditionCallback(this.items[i], i)) {
+        while (i < this.items.length && !conditionCallback(this.items[i]!, i)) {
             i++;
         }
-        const item = this.get(i) as T | null;
+        const item = this.get(i);
         this.items.splice(i, 1);
         return item;
     }

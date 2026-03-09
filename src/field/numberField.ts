@@ -1,7 +1,6 @@
 import { typeCast } from '../utils/operation';
 import { BaseField } from './baseField';
 import { Knot } from '../core/knot';
-import { mdl } from '../utils/render';
 
 /**
  * @description Numeric input field with step up/down buttons and min/max value constraints.
@@ -16,26 +15,9 @@ import { mdl } from '../utils/render';
  */
 export class NumberField extends BaseField<HTMLInputElement> {
     /**
-     * @description Creates a new NumberField instance.
-     * @param {Knot<HTMLInputElement>} input - The numeric input element.
-     * @param {Knot} label - The label element.
-     * @param {Knot} error - The error message element.
-     * @param {Knot} inputBlock - The container block element.
-     */
-    constructor(
-        input: Knot<HTMLInputElement>,
-        label: Knot,
-        error: Knot,
-        inputBlock: Knot,
-    ) {
-        super(input, label, error, inputBlock);
-        this._init();
-    }
-
-    /**
      * @description Initializes the field by adding CSS class, step buttons, and input event listeners.
      */
-    private _init(): void {
+    protected override _init(): void {
         this.inputBlock.addClass('number-field');
 
         this._initButtons();
@@ -63,9 +45,9 @@ export class NumberField extends BaseField<HTMLInputElement> {
         actionKnot.addClass('step-change');
         this.actionContainerKnot.appendChild(actionKnot);
 
-        const upButton = new Knot('a');
-        upButton.setAttribute('href', 'javascript:void(0)');
-        upButton.addClass(['up-button', 'material-icons']);
+        const upButton = new Knot('button');
+        upButton.setAttribute('type', 'button');
+        upButton.addClass(['up-button', 'icon-button', 'material-icons']);
         upButton.setHtml('keyboard_arrow_up');
         upButton.addEventListener('click', () => {
             if (this.isEnabled()) {
@@ -76,9 +58,9 @@ export class NumberField extends BaseField<HTMLInputElement> {
         });
         actionKnot.appendChild(upButton);
 
-        const downButton = new Knot('a');
-        downButton.setAttribute('href', 'javascript:void(0)');
-        downButton.addClass(['down-button', 'material-icons']);
+        const downButton = new Knot('button');
+        downButton.setAttribute('type', 'button');
+        downButton.addClass(['down-button', 'icon-button', 'material-icons']);
         downButton.setHtml('keyboard_arrow_down');
         downButton.addEventListener('click', () => {
             if (this.isEnabled()) {
@@ -133,31 +115,19 @@ export class NumberField extends BaseField<HTMLInputElement> {
     }
 
     /**
-     * @description Applies MDL textfield classes to the input block, input, and label, then refreshes.
+     * @description Applies SUI textfield classes to the input block, input, and label, then refreshes.
      * @override
      */
     override render(): void {
-        this.inputBlock.addClass([
-            'mdl-textfield',
-            'mdl-js-textfield',
-            'mdl-textfield--floating-label',
-        ]);
-        this.input.addClass(['mdl-textfield__input']);
-        if (this.label && this.label.exists()) {
-            this.label.addClass('mdl-textfield__label');
-        }
+        this._renderTextField();
         this.refresh();
     }
 
     /**
-     * @description Marks the field as invalid when required and empty, then upgrades MDL components.
+     * @description Marks the field as invalid when required and empty, then upgrades SUI components.
      * @override
      */
     override refresh() {
-        if (this.isRequired() && this.getValue() === '') {
-            this.inputBlock.addClass('is-invalid');
-        }
-
-        mdl(this.inputBlock);
+        this._refreshBase();
     }
 }

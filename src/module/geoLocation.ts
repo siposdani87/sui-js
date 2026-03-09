@@ -1,17 +1,17 @@
 import { Deferred } from '../core/deferred';
-import { consoleDebug, consoleError } from '../utils/log';
+import { Emitter } from '../core/emitter';
 
 /**
  * Wrapper around the browser Geolocation API that provides both
  * one-shot position retrieval and continuous position watching. Uses
  * {@link Deferred} for promise-based single position requests and
- * dispatches position updates through overridable event methods.
+ * dispatches position updates through emitted events.
  *
  * High accuracy is enabled by default, with a 5-second timeout and
  * infinite maximum cache age for position data.
  *
- * Override {@link eventChange} to handle successful position updates
- * and {@link eventError} to handle geolocation errors such as
+ * Register handlers with `on('change', ...)` for successful position
+ * updates and `on('error', ...)` for geolocation errors such as
  * permission denial, unavailable position, or timeouts.
  *
  * @example
@@ -24,9 +24,9 @@ import { consoleDebug, consoleError } from '../utils/log';
  * );
  *
  * // Continuous watching
- * geo.eventChange = (lat, lng, message) => {
+ * geo.on('change', (lat, lng, message) => {
  *     console.log(`Moved to: ${lat}, ${lng}`);
- * };
+ * });
  * geo.setWatcher();
  *
  * // Stop watching
@@ -34,9 +34,10 @@ import { consoleDebug, consoleError } from '../utils/log';
  *
  * @see {@link Deferred}
  * @see {@link Promize}
+ * @see {@link Emitter}
  * @category Module
  */
-export class GeoLocation {
+export class GeoLocation extends Emitter {
     options!: {
         enableHighAccuracy: boolean;
         timeout: number;
@@ -49,6 +50,7 @@ export class GeoLocation {
      * options (high accuracy, 5-second timeout, infinite cache age).
      */
     constructor() {
+        super();
         this._init();
     }
 
@@ -66,15 +68,15 @@ export class GeoLocation {
     /**
      * Starts continuous position watching using the browser's
      * `watchPosition` API. Each successful position update triggers
-     * {@link eventChange}, and errors trigger {@link eventError}.
+     * the `'change'` event, and errors emit the `'error'` event.
      * The watcher ID is stored for later cancellation via
      * {@link clearWatcher}.
      *
      * @example
      * const geo = new GeoLocation();
-     * geo.eventChange = (lat, lng, message) => {
+     * geo.on('change', (lat, lng, message) => {
      *     updateMap(lat, lng);
-     * };
+     * });
      * geo.setWatcher();
      */
     setWatcher(): void {
@@ -134,27 +136,15 @@ export class GeoLocation {
     }
 
     /**
-     * Called when a new position is successfully obtained, either from
-     * the watcher or the position handler. Override this method to
-     * implement custom position update behavior.
-     *
-     * @param latitude The latitude coordinate in decimal degrees.
-     * @param longitude The longitude coordinate in decimal degrees.
-     * @param message A descriptive message about the position event.
-     */
-    eventChange(latitude: number, longitude: number, message: string): void {
-        consoleDebug('GeoLocation.eventChange()', latitude, longitude, message);
-    }
-
-    /**
-     * Processes a successful geolocation position result and dispatches
-     * to {@link eventChange}.
+     * Processes a successful geolocation position result and emits
+     * the `'change'` event.
      *
      * @param position The native GeolocationPosition from the browser.
      */
     private _handlePosition(position: GeolocationPosition): void {
         const message = 'User allowed the request for GeoLocation.';
-        this.eventChange(
+        this.emit(
+            'change',
             position.coords.latitude,
             position.coords.longitude,
             message,
@@ -163,46 +153,36 @@ export class GeoLocation {
 
     /**
      * Processes a geolocation error and dispatches a human-readable
-     * message and error code to {@link eventError}.
+     * message and error code via the `'error'` event.
      *
      * @param error The native GeolocationPositionError from the browser.
      */
     private _handleError(error: GeolocationPositionError): void {
         switch (error.code) {
             case error.PERMISSION_DENIED:
-                this.eventError(
+                this.emit(
+                    'error',
                     'User denied the request for GeoLocation.',
                     'permission_denied',
                 );
                 break;
             case error.POSITION_UNAVAILABLE:
-                this.eventError(
+                this.emit(
+                    'error',
                     'Location information is unavailable.',
                     'position_unavailable',
                 );
                 break;
             case error.TIMEOUT:
-                this.eventError(
+                this.emit(
+                    'error',
                     'The request to get user location timed out.',
                     'timeout',
                 );
                 break;
             default:
-                this.eventError('An unknown error occurred.', 'unknown');
+                this.emit('error', 'An unknown error occurred.', 'unknown');
                 break;
         }
-    }
-
-    /**
-     * Called when a geolocation error occurs. Override this method to
-     * implement custom error handling such as showing user notifications
-     * or falling back to IP-based geolocation.
-     *
-     * @param message A human-readable description of the error.
-     * @param code A machine-readable error code: `'permission_denied'`,
-     *     `'position_unavailable'`, `'timeout'`, or `'unknown'`.
-     */
-    eventError(message: string, code: string): void {
-        consoleError('GeoLocation.eventError()', message, code);
     }
 }

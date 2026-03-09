@@ -1,6 +1,6 @@
 import { noop } from '../utils/operation';
 import { Query } from '../core/query';
-import { Knot } from '../core';
+import type { Knot } from '../core';
 
 /**
  * Slide-out left sidebar navigation with a main menu panel and a
@@ -86,7 +86,7 @@ export class LeftMenu {
         });
 
         const openLeftMenu = new Query('#open-left-menu').getKnot();
-        openLeftMenu.setAttribute('href', 'javascript:void(0)');
+        openLeftMenu.setAttribute('href', '#');
         openLeftMenu.addEventListener('click', () => {
             this.open();
         });
@@ -95,7 +95,7 @@ export class LeftMenu {
             '#close-left-menu',
             this.mainMenu,
         ).getKnot();
-        closeLeftMenu.setAttribute('href', 'javascript:void(0)');
+        closeLeftMenu.setAttribute('href', '#');
         closeLeftMenu.addEventListener('click', () => {
             this.close();
         });
@@ -104,7 +104,7 @@ export class LeftMenu {
             '#close-sub-menu',
             this.subMenu,
         ).getKnot();
-        closeSubMenu.setAttribute('href', 'javascript:void(0)');
+        closeSubMenu.setAttribute('href', '#');
         closeSubMenu.addEventListener('click', () => {
             this.closeSubMenu();
         });

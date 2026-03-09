@@ -1,0 +1,36 @@
+@use '../core/colors';
+@use '../core/variables';
+
+.sui-tooltip {
+    position: fixed;
+    z-index: variables.$zindex-tooltip;
+    padding: 6px 10px;
+    font-size: 14px;
+    font-weight: 400;
+    line-height: normal;
+    max-width: 300px;
+    text-transform: initial;
+    text-align: initial;
+    white-space: initial;
+    color: colors.$white;
+    background-color: colors.$black-bright;
+    border-radius: 6px;
+    box-shadow: variables.$shadow-sm;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity variables.$transition-base;
+
+    &.is-active {
+        opacity: 1;
+    }
+}
+
+.sui-tooltip--large {
+    font-size: 16px;
+    line-height: normal;
+    padding: 10px;
+}
+
+.has-tooltip {
+    cursor: pointer;
+}

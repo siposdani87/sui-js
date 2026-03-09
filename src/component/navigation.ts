@@ -3,7 +3,7 @@ import { Collection } from '../core/collection';
 import { Knot } from '../core/knot';
 import { Objekt } from '../core/objekt';
 import { Query } from '../core/query';
-import { Http } from '../module';
+import type { Http } from '../module';
 
 /**
  * Navigation link manager supporting icons, images, counters, and text links.
@@ -193,7 +193,7 @@ export class Navigation {
         const imageSpan = new Knot('span');
         imageSpan.addClass('image');
 
-        if (image.indexOf('.svg') !== -1) {
+        if (image.includes('.svg')) {
             this.http!.get(
                 image,
                 {},
@@ -263,7 +263,7 @@ export class Navigation {
             titleSpan.setHtml(title);
             linkKnot.appendChild(titleSpan);
         }
-        linkKnot.setAttribute('href', opt_href || 'javascript:void(0)');
+        linkKnot.setAttribute('href', opt_href || '#');
         const href = linkKnot.getAttribute('href');
 
         const listener = linkKnot.addEventListener('click', () => {
@@ -310,6 +310,7 @@ export class Navigation {
      * nav.bindToContainer(new Query('.nav-container').getKnot());
      */
     bindToContainer(containerKnot: Knot): void {
+        containerKnot.setAttribute('role', 'navigation');
         containerKnot.removeChildren();
         this.each((item: Objekt) => {
             const linkKnot = item.get<Knot>(this.linkKnotKey);
@@ -340,7 +341,7 @@ export class Navigation {
         const linkKnot = item.get<Knot>(this.linkKnotKey);
         linkKnot.addClass('disabled');
         linkKnot.removeEventListener('click', item.get('listener'));
-        linkKnot.setAttribute('href', 'javascript:void(0)');
+        linkKnot.setAttribute('href', '#');
     }
 
     /**

@@ -3,7 +3,7 @@
 # Project Information
 Name: SUI-JS
 Description: Lightweight frontend framework in TypeScript with 60+ UI components
-Version: 1.1.0
+Version: 2.0.0
 Language: TypeScript
 Repository: https://github.com/siposdani87/sui-js
 Documentation: https://sui-js.siposdani87.com
@@ -14,7 +14,8 @@ Type: Frontend Framework
 Category: UI Library
 Target: Browser/Web Applications
 Build Tool: ESBuild
-Styling: Material Design Lite + Custom SCSS
+Styling: Custom SUI SCSS
+Module Format: IIFE (global name: SUI)
 
 # Key Documentation Pages
 - Overview: /docs/intro
@@ -80,9 +81,7 @@ app.run(routes, ['homeCtrl']);
 - Cookies: cookie.set/get/remove(name, value)
 
 # Dependencies
-- crypto-js: Encryption (AES, MD5, Base64)
 - date-fns: Date handling and formatting
-- material-design-lite: UI styling and component upgrades
 - normalize.css: CSS reset
 
 # Build Output
@@ -92,12 +91,12 @@ app.run(routes, ['homeCtrl']);
 
 # Testing
 - Framework: Jest with ts-jest and jsdom
-- Coverage: 75% statements, 61% branches, 69% functions
-- Test Suites: 108 suites, 1187 tests
+- Coverage: 97% statements, 88% branches, 96% functions, 97% lines
+- Test Suites: 112 suites, 2212 tests
 - Pattern: *.spec.ts co-located with source
 
 # TypeScript
-- Strict Mode: Enabled (noImplicitAny, strictNullChecks, strictPropertyInitialization, etc.)
+- Strict Mode: Enabled (strict: true)
 - Target: ES2015
 - Module: ESNext
 - Declarations: Yes (index.d.ts)
@@ -106,8 +105,8 @@ app.run(routes, ['homeCtrl']);
 1. Always import from '@siposdani87/sui-js'
 2. Application must be initialized first via new Application(config).run(routes, services)
 3. Use Knot for DOM manipulation, not raw DOM APIs
-4. Use Objekt for data objects, not plain objects
-5. Use Material Design Lite classes for styling
+4. Use Objekt for data objects, not plain objects within the framework
+5. Use custom SUI SCSS classes for styling
 6. All async operations return Promize (custom Promise wrapper), not native Promise
 7. Optional parameters use opt_ prefix (e.g., opt_options)
 8. Private members use _ prefix (e.g., _init())
