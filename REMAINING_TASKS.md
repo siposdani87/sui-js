@@ -79,7 +79,7 @@ Screenshot comparison for UI components. Requires new dependency (e.g., Playwrig
 
 | Item | Description |
 | ---- | ----------- |
-| CHANGELOG automation | Conventional commits + auto-changelog (manual CHANGELOG.md exists) |
+| ~~CHANGELOG automation~~ | ~~Done: commitlint + husky + conventional-changelog~~ |
 
 ### 8. Documentation
 
