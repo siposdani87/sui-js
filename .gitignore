@@ -6,6 +6,7 @@ node_modules
 dist
 
 .claude
+.playwright-mcp
 .tsbuildinfo
 
 # Coverage and reports (generated)

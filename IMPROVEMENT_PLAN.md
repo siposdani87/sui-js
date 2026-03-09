@@ -4,21 +4,22 @@ Based on a thorough exploration of the project at v1.2.0, here's a prioritized i
 
 ## Completed Items (across all sections)
 
-- **Build**: ESM bundle output, `exports`/`sideEffects` in package.json, license banner, gzip/brotli size reporting
-- **Package**: Excluded source maps and plan files from npm publish
-- **TypeScript**: Updated target to ES2020, moduleResolution to Bundler
-- **Styles**: CSS custom properties (full theme token system: surface, on-surface, primary-action, error-text, overlay, shadow, etc.), `prefers-color-scheme` (existed), `prefers-reduced-motion`, `focus-visible` on buttons/inputs, logical properties (48+ conversions), dark mode consolidation (42 → 0 Dark.scss files eliminated, CSS ~76 KB from ~90 KB)
+- **Build**: ESM bundle output, `exports`/`sideEffects` in package.json, license banner, gzip/brotli size reporting, bundle visualization (`esbuild:analyze` → `dist/bundle-report.html`)
+- **Package**: Excluded source maps and plan files from npm publish, SRI hash generation (`esbuild:sri`)
+- **TypeScript**: Updated target to ES2020, moduleResolution to Bundler, strict type-checked ESLint rules (5 rules enabled), incremental builds with CI caching
+- **Styles**: CSS custom properties (full theme token system), `prefers-color-scheme`, `prefers-reduced-motion`, `focus-visible` on buttons/inputs, logical properties (48+ conversions), dark mode consolidation (42 → 0 Dark.scss files, CSS ~90 KB → ~76 KB), z-index normalization (16 named tokens), `will-change` on animated elements
 - **Animations**: Dialog/confirm fade+scale, flash slide-in, replaced undefined bounceInDown
-- **Accessibility**: Escape key + focus trap + focus restoration in modals, ARIA on Viewer/Flash/Loader, `setSafeText()` XSS-safe method on Knot, expanded jest-axe tests (Loader/Flash/TabPanel/Viewer), color contrast audit with fixes (`$accent-text` → dark, `$error-default-light` → darker red)
-- **Security**: `npm audit` in CI, cookie `SameSite=Lax`, `SECURITY.md`, XSS audit with `setHtml()` warning docs
-- **Documentation**: README.md rewritten, migration guide (v1.1→v1.2), `CONTRIBUTING.md`
-- **CI/CD**: Enhanced bundle size checks (JS + CSS + gzip + brotli)
+- **Accessibility**: Escape key + focus trap + focus restoration in modals, ARIA on Viewer/Flash/Loader, `setSafeText()` XSS-safe method on Knot, expanded jest-axe tests (Loader/Flash/TabPanel/Viewer), color contrast audit with fixes
+- **Security**: `npm audit` in CI, cookie `SameSite=Lax`, `SECURITY.md`, XSS audit with `setHtml()` warning docs, SRI hashes
+- **Documentation**: README.md rewritten, migration guide (v1.1→v1.2), `CONTRIBUTING.md`, release blog posts (v1.0.0, v1.1.0, v1.2.0)
+- **CI/CD**: Enhanced bundle size checks (JS + CSS + gzip + brotli), bundle size diff on PRs, TypeScript incremental build caching
+- **Code Quality**: Split `operation.ts` (1,108 LOC → 7 focused modules), split `googleMap.ts` (1,359 LOC → 3 files: googleMap.ts 929 LOC + mapMarkerOps.ts 273 LOC + mapPolygonOps.ts 390 LOC)
 
 ---
 
 ## 1. Test Coverage
 
-Coverage **exceeds configured thresholds** (statements 97.2% vs 97%, branches 87.7% vs 87%, functions 95.7% vs 95%, lines 97.2% vs 97%). **2,204 tests** across 112 suites.
+Coverage **exceeds configured thresholds** (statements 97.17% vs 97%, branches 87.67% vs 87%, functions 95.69% vs 95%, lines 97.14% vs 97%). **2,212 tests** across 112 suites.
 
 | Action | Priority | Impact |
 |--------|----------|--------|
@@ -36,12 +37,12 @@ Coverage **exceeds configured thresholds** (statements 97.2% vs 97%, branches 87
 
 ## 2. Bundle Size & Performance
 
-Current: **~223 KB JS + ~76 KB CSS** (limit: 250 KB JS, 100 KB CSS). CSS reduced ~15% via dark mode elimination.
+Current: **222.9 KB JS (IIFE) + 222.2 KB JS (ESM) + 76.5 KB CSS** (limit: 250 KB JS, 100 KB CSS). Gzip: 57.9 KB JS, 11.9 KB CSS. Brotli: 49.3 KB JS, 9.8 KB CSS.
 
 | Action | Priority | Impact |
 |--------|----------|--------|
 | ~~**Tree-shake `date-fns`**~~ — verified: named imports, centralized in `dateio.ts`, only 2 locales — already optimal | P1 | Already optimal |
-| **Code-split Google Maps** — `googleMap.ts` (1,359 LOC) is the largest file; make it lazy/optional | P1 | ~15-20 KB savings for non-map users |
+| **Code-split Google Maps** — Google Maps module is the largest component (~929 LOC + 273 + 390 LOC helpers); make it lazy/optional via dynamic import | P1 | ~15-20 KB savings for non-map users |
 | ~~**Add gzip/brotli size reporting**~~ — `check-bundle-size.cjs` reports raw, gzip, and brotli sizes | P2 | Real-world size visibility |
 | ~~**CSS purge analysis**~~ — dark mode elimination reduced CSS from ~90 KB to ~76 KB | P2 | ~15% CSS reduction |
 | **Consider `terser`** — esbuild minification is fast but terser can squeeze ~5-10% more | P3 | Marginal gains |
@@ -64,11 +65,11 @@ Current: **~223 KB JS + ~76 KB CSS** (limit: 250 KB JS, 100 KB CSS). CSS reduced
 
 | Action | Priority | Impact |
 |--------|----------|--------|
-| ~~**Reduce `any` usage**~~ — 22 `any` usages eliminated in table.ts, selectField.ts, canvas.ts, popupContainer.ts, state.ts; remaining ~151 are genuinely needed in utility/generic code | P2 | Type safety |
+| ~~**Reduce `any` usage**~~ — 22 `any` usages eliminated in table.ts, selectField.ts, canvas.ts, popupContainer.ts, state.ts; remaining ~117 explicit `: any` annotations + ~259 `as any` assertions are genuinely needed in utility/generic code | P2 | Type safety |
 | ~~**Modernize `moduleResolution`**~~ — changed to `Bundler` | P2 | Better module semantics |
 | ~~**Update `target` to ES2020+**~~ — changed to ES2020 | P2 | Cleaner output, smaller bundle |
 | ~~**Split `operation.ts`**~~ — split 1,108 LOC into 7 focused modules: `comparison.ts`, `typeGuards.ts`, `iteration.ts`, `arrayOps.ts`, `objectOps.ts`, `stringOps.ts`, `domOps.ts`; `operation.ts` is now a barrel re-export (zero consumer changes) | P2 | Maintainability |
-| ~~**Split `googleMap.ts`** (1,359 LOC) — extracted `mapMarkerOps.ts` (277 LOC, 10 functions) and `mapPolygonOps.ts` (402 LOC, 16 functions); `googleMap.ts` reduced to ~700 LOC with thin wrapper methods~~ | P2 | Maintainability |
+| ~~**Split `googleMap.ts`** (1,359 LOC) — extracted `mapMarkerOps.ts` (273 LOC, 10 functions) and `mapPolygonOps.ts` (390 LOC, 16 functions); `googleMap.ts` reduced to 929 LOC~~ | P2 | Maintainability |
 | ~~**Add `@typescript-eslint/strict-type-checked`** rules~~ — enabled 5 type-aware rules: `no-floating-promises`, `await-thenable`, `no-unnecessary-type-assertion` (45 auto-fixed), `no-misused-promises`, `restrict-template-expressions`; fixed 3 floating promises with `void` operator | P3 | Catch more issues |
 | **Consider branded types** for IDs, URLs, coordinates | P3 | Domain safety |
 
@@ -104,6 +105,8 @@ Current: **~223 KB JS + ~76 KB CSS** (limit: 250 KB JS, 100 KB CSS). CSS reduced
 
 ## 7. Accessibility
 
+All items complete.
+
 | Action | Priority | Impact |
 |--------|----------|--------|
 | ~~**Audit ARIA roles**~~ — dialog, alertdialog, navigation, tablist/tab/tabpanel, menu/menuitem, status, alert roles added | P1 | Compliance |
@@ -116,6 +119,8 @@ Current: **~223 KB JS + ~76 KB CSS** (limit: 250 KB JS, 100 KB CSS). CSS reduced
 ---
 
 ## 8. Security
+
+All items complete.
 
 | Action | Priority | Impact |
 |--------|----------|--------|
@@ -136,6 +141,7 @@ Current: **~223 KB JS + ~76 KB CSS** (limit: 250 KB JS, 100 KB CSS). CSS reduced
 | ~~**Migration guide**~~ — v1.1→v1.2 migration guide on Docusaurus site | P1 | User retention |
 | ~~**API docs improvements**~~ — all public methods now have `@example` JSDoc tags; added examples to Xhr HTTP methods (post, put, patch, delete) | P2 | Usability |
 | ~~**Add `CONTRIBUTING.md`**~~ — contribution guidelines, PR process | P2 | Community |
+| ~~**Release blog posts**~~ — v1.0.0, v1.1.0, v1.2.0 release posts on Docusaurus blog | P3 | Community |
 | **Blog posts** — write about architecture decisions, modernization journey | P3 | SEO & community |
 
 ---
@@ -148,7 +154,7 @@ Current: **~223 KB JS + ~76 KB CSS** (limit: 250 KB JS, 100 KB CSS). CSS reduced
 | ~~**Exclude plan files from npm**~~ — `files` field limits to dist + src + styles | P1 | Smaller package |
 | ~~**Add `sideEffects: false`**~~ — added to `package.json` | P1 | Smaller consumer bundles |
 | ~~**Publish type declarations as separate entry**~~ — verified: `typings` + `exports["."].types` both point to `dist/index.d.ts` | P2 | TypeScript consumers |
-| **Add `CHANGELOG` automation** — conventional commits + auto-changelog | P3 | Release process |
+| **Add `CHANGELOG` automation** — conventional commits + auto-changelog (manual `CHANGELOG.md` exists with Keep a Changelog format) | P3 | Release process |
 
 ---
 
@@ -173,6 +179,36 @@ Current: **~223 KB JS + ~76 KB CSS** (limit: 250 KB JS, 100 KB CSS). CSS reduced
 
 ---
 
+## 13. Upcoming Work (Separate Plans)
+
+These items have dedicated planning documents and are tracked outside this improvement plan:
+
+| Item | Document | Summary |
+|------|----------|---------|
+| **AdvancedMarkerElement migration** | `ADVANCED_MARKER_MIGRATION.md` | Migrate deprecated `google.maps.Marker` → `google.maps.marker.AdvancedMarkerElement` (4 source + 3 test files) |
+| **Example page expansion** | `EXAMPLE_EXPANSION_PLAN.md` | ✅ Complete — all component/module/service demos implemented across 4 tabs |
+
+---
+
+## Remaining Items Summary
+
+### P1 — High Priority
+1. **Code-split Google Maps** — lazy/optional loading via dynamic import (~15-20 KB savings)
+
+### P2 — Medium Priority
+2. **Add visual regression testing** — screenshot comparison for UI components
+
+### P3 — Low Priority
+3. **CSS layers (`@layer`)** — better cascade control
+5. **Consider branded types** — for IDs, URLs, coordinates
+6. **Container queries** — component-level responsive design
+7. **CSS `@starting-style`** — modern entry animations
+8. **Blog posts** — architecture decisions, modernization journey
+9. **`CHANGELOG` automation** — conventional commits + auto-changelog
+
+
+---
+
 ## Recommended Execution Order
 
 ### Phase 1 — Stabilize & Package (COMPLETE)
@@ -192,15 +228,24 @@ Current: **~223 KB JS + ~76 KB CSS** (limit: 250 KB JS, 100 KB CSS). CSS reduced
 ### Phase 3 — Quality & Polish (COMPLETE)
 
 9. ~~Accessibility audit (ARIA, keyboard, focus trap)~~ — escape key, focus trap, focus restoration in modals; ARIA on Viewer, Flash, Loader; expanded jest-axe tests; color contrast fixes
-10. Reduce `any` usage — deferred (most `any` is genuinely needed in utility/generic code)
+10. ~~Reduce `any` usage~~ — deferred (remaining ~376 `any` usages are genuinely needed in utility/generic code)
 11. ~~Split large files (`googleMap.ts`, `operation.ts`)~~ — `operation.ts` split into 7 modules; `googleMap.ts` split into `mapMarkerOps.ts` + `mapPolygonOps.ts`
 12. ~~Micro-interaction animations~~ — dialog/confirm fade+scale, flash slide-in, replaced undefined bounceInDown
 
 ### Phase 4 — Advanced (COMPLETE)
 
-13. Visual regression tests — deferred (requires new dependency)
+13. ~~Visual regression tests~~ — deferred (requires new dependency)
 14. ~~Bundle size CI checks~~ — enhanced check-bundle-size.cjs to cover JS (IIFE + ESM) and CSS with separate limits
 15. ~~Logical properties~~ — converted 48+ physical margin/padding/border/text-align to logical properties across 27 SCSS files
-16. Obfuscation for IIFE builds — deferred (requires new dependency)
+16. ~~Obfuscation for IIFE builds~~ — deferred (requires new dependency)
 17. ~~Dark mode consolidation~~ — ALL 42 Dark.scss files eliminated via CSS custom property system; CSS ~90 KB → ~76 KB
 18. ~~Color contrast audit~~ — `$accent-text` darkened (7.16:1), `$error-default-light` darkened (≥4.6:1)
+
+### Phase 5 — Next (v1.3.0+)
+
+19. **Code-split Google Maps** — dynamic import for lazy loading (P1)
+20. **AdvancedMarkerElement migration** — replace deprecated Marker API (see `ADVANCED_MARKER_MIGRATION.md`)
+21. ~~**Example page expansion**~~ — COMPLETE (see `EXAMPLE_EXPANSION_PLAN.md`)
+22. Visual regression testing — if needed (P2, requires new dependency)
+23. Modern CSS features — `@layer`, `@container`, `@starting-style` (P3, as browser support matures)
+24. Changelog automation — conventional commits (P3)

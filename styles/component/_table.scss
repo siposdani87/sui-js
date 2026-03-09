@@ -224,6 +224,8 @@ table {
 
         tr {
             td {
+                vertical-align: middle;
+
                 &:not(.pager) {
                     padding: 12px 16px;
                 }
@@ -234,6 +236,10 @@ table {
 
                 &.pager {
                     text-align: end;
+
+                    button {
+                        vertical-align: middle;
+                    }
                 }
             }
         }

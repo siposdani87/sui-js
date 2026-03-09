@@ -57,9 +57,8 @@ export class Scheduler {
             }
             this._lastFiredTime = currentTime;
 
-            const callbacks = this.schedulerStore.get<(() => void)[]>(
-                currentTime,
-            );
+            const callbacks =
+                this.schedulerStore.get<(() => void)[]>(currentTime);
             if (callbacks && callbacks.length > 0) {
                 eachArray(callbacks, (callback) => {
                     callback();
