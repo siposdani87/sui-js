@@ -55,25 +55,6 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Calendar bug
 - `no-useless-assignment` lint error in table.ts for ESLint 10 compatibility
 
-## [1.2.0] - 2026-03-04
-
-### Added
-
-- 128 new tests across phases 14-17 (1187 → 1315 tests, 77% statement coverage)
-- destroy() methods for State, Screen, Page, and Form with proper listener cleanup
-- Comprehensive tests for 6 menu modules (header, footer, topMenu, navBar, leftMenu, bottomMenu)
-
-### Changed
-
-- Upgrade ESLint 9 → 10 with migration (remove --ext flag, add @eslint/js)
-- Upgrade Stylelint 16 → 17, stylelint-config-standard 39 → 40, stylelint-scss 6 → 7
-- Upgrade globals 16 → 17, eslint-plugin-tsdoc 0.5.0 → 0.5.2
-- Bump Node.js engine requirement to >=20.19.0
-
-### Fixed
-
-- no-useless-assignment lint error in table.ts for ESLint 10 compatibility
-
 ## [1.1.0] - 2026-02-18
 
 ### Added
