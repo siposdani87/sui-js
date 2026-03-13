@@ -17,7 +17,7 @@
   "scripts": {
     "prebuild": "npm run clean && npm run lint && npm run format && npm run test && npm run coverage",
     "build": "npm run sass && npm run tsc && npm run esbuild && npm run esbuild:size-check",
-    "clean": "rm -rf dist",
+    "clean": "rm -rf dist .tsbuildinfo",
     "tsc": "npx -p typescript tsc",
     "tsc-test": "npm run tsc -- --noEmit",
     "sass": "npx sass styles/sui.scss dist/sui.min.css --style compressed",
@@ -66,12 +66,14 @@
     "access": "public"
   },
   "files": [
-    "dist/*.js",
-    "dist/*.css",
-    "dist/*.d.ts",
-    "dist/*.d.ts.map",
-    "src/*",
-    "styles/*"
+    "dist/**/*.js",
+    "dist/**/*.js.map",
+    "dist/**/*.css",
+    "dist/**/*.css.map",
+    "dist/**/*.d.ts",
+    "dist/**/*.d.ts.map",
+    "src/**/*",
+    "styles/**/*"
   ],
   "dependencies": {
     "date-fns": "4.1.0",
