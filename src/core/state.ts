@@ -584,7 +584,10 @@ export class State extends Emitter {
      * @example
      * state.setParam('page', 3);
      */
-    setParam(name: string, value: string | number | boolean): void {
+    setParam(
+        name: string,
+        value: string | number | boolean | string[] | number[],
+    ): void {
         const id = this.getCurrent<string>('id');
         const params = this.getParams();
         params.set(name, value);
