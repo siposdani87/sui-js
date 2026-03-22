@@ -3,7 +3,7 @@ import { Objekt } from '../core/objekt';
 import { Query } from '../core/query';
 import { BaseModal } from './baseModal';
 import type { Http } from './http';
-import type { Knot } from '../core';
+import { Knot } from '../core';
 
 /**
  * Full dialog modal that loads its content from a server endpoint via
@@ -118,11 +118,13 @@ export class Dialog extends BaseModal {
         const deferred = new Deferred<Knot, Knot>();
         this.http.get(url).then(
             (data) => {
-                const knot = this._handleDom(data.get('raw'));
+                const dom = this._parseHtml(data.get<string>('raw'));
+                const knot = this._handleDom(dom);
                 deferred.resolve(knot);
             },
             (data) => {
-                const knot = this._handleMessage(data.get('raw'));
+                const dom = this._parseHtml(data.get<string>('raw'));
+                const knot = this._handleMessage(dom);
                 deferred.reject(knot);
                 this.open();
             },
@@ -131,9 +133,18 @@ export class Dialog extends BaseModal {
     }
 
     /**
+     * Parses an HTML string into a Knot wrapping the document body.
+     */
+    private _parseHtml(html: string): Knot {
+        const parser = new DOMParser();
+        const doc = parser.parseFromString(html, 'text/html');
+        return new Knot(doc as unknown as HTMLElement);
+    }
+
+    /**
      * Extracts and displays the error message from a failed HTTP response.
      *
-     * @param dom The raw response DOM containing a `.message` element.
+     * @param dom The parsed response DOM containing a `.message` element.
      * @returns The message Knot inserted into the modal body.
      */
     private _handleMessage(dom: Knot): Knot {

@@ -202,7 +202,13 @@ export class Navigation {
                     'X-Requested-With': '',
                 },
             ).then((data) => {
-                const svgTag = new Query('svg', data.get('raw')).getKnot();
+                const raw = data.get<string>('raw');
+                const parser = new DOMParser();
+                const doc = parser.parseFromString(raw, 'image/svg+xml');
+                const svgTag = new Query(
+                    'svg',
+                    doc as unknown as HTMLElement,
+                ).getKnot();
                 imageSpan.appendChild(svgTag);
             });
         } else {

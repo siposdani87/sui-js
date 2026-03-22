@@ -1,10 +1,9 @@
 import { contain } from '../utils/operation';
 import { Deferred } from '../core/deferred';
 import { Objekt } from '../core/objekt';
-import { Query } from '../core/query';
+import { Knot, Query } from '../core';
 import type { Http } from './http';
 import { Emitter } from '../core/emitter';
-import type { Knot } from '../core';
 
 /**
  * SPA template loader that fetches page content from the server via
@@ -149,10 +148,12 @@ export class Template extends Emitter {
             this.viewKnot.setAttribute('data-template-url', url);
             this.http.get(url).then(
                 (data) => {
-                    deferred.resolve(this._spaNavigate(data.get('raw'), false));
+                    const doc = this._parseHtml(data.get<string>('raw'));
+                    deferred.resolve(this._spaNavigate(doc, false));
                 },
                 (data) => {
-                    deferred.reject(this._spaNavigate(data.get('raw'), true));
+                    const doc = this._parseHtml(data.get<string>('raw'));
+                    deferred.reject(this._spaNavigate(doc, true));
                 },
             );
         }
@@ -160,10 +161,19 @@ export class Template extends Emitter {
     }
 
     /**
+     * Parses an HTML string into a Knot wrapping the document body.
+     */
+    private _parseHtml(html: string): Knot {
+        const parser = new DOMParser();
+        const doc = parser.parseFromString(html, 'text/html');
+        return new Knot(doc as unknown as HTMLElement);
+    }
+
+    /**
      * Extracts the `.page-content` element from the response DOM and
      * delegates to `_updateDOM()` for insertion or error handling.
      *
-     * @param data The raw response DOM from the HTTP request.
+     * @param data The response DOM as a Knot.
      * @param isError Whether the response represents an error.
      * @returns The extracted page content Knot.
      */
