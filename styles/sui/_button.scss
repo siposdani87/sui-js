@@ -1,5 +1,4 @@
 @use '../core/variables';
-@use '../core/colors';
 
 .sui-button {
     display: inline-flex;
@@ -56,7 +55,7 @@
 }
 
 .sui-button--raised {
-    background-color: colors.$light-grey;
+    background-color: var(--sui-surface-alt);
     box-shadow: variables.$shadow-sm;
 
     &:hover {
@@ -82,7 +81,7 @@
 
     &.sui-button--raised {
         background-color: var(--sui-primary);
-        color: colors.$white;
+        color: var(--sui-primary-text);
 
         &:disabled {
             background-color: color-mix(
@@ -100,7 +99,7 @@
 
     &.sui-button--raised {
         background-color: var(--sui-accent);
-        color: colors.$white;
+        color: var(--sui-primary-text);
 
         &:disabled {
             background-color: color-mix(

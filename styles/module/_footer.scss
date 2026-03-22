@@ -22,7 +22,7 @@
 
     .content,
     .locales {
-        color: colors.$white;
+        color: var(--sui-on-surface);
 
         a {
             color: var(--sui-accent);
@@ -145,7 +145,7 @@
 
         .content,
         .locales {
-            color: colors.$white;
+            color: var(--sui-on-surface);
 
             a {
                 color: var(--sui-accent);
@@ -165,14 +165,14 @@
             }
 
             @include breakpoints.media-breakpoint-down(sm) {
-                background-color: colors.$black;
+                background-color: var(--sui-surface-alt);
                 padding-bottom: 1em;
                 flex-flow: column nowrap;
             }
 
             .content,
             .locales {
-                color: colors.$white;
+                color: var(--sui-on-surface);
 
                 a {
                     color: var(--sui-accent);
