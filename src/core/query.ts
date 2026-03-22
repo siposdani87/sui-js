@@ -42,7 +42,9 @@ export class Query<T extends HTMLElement = HTMLElement> extends Collection<
             element = (element as Knot).getNode();
         }
 
-        const items = querySelector(selector, element as HTMLElement);
+        const items = element
+            ? querySelector(selector, element as HTMLElement)
+            : [];
         super(items, Knot, {
             parent: null,
         });

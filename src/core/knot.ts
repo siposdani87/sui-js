@@ -588,7 +588,12 @@ export class Knot<T extends HTMLElement = HTMLElement> {
      * container.appendChild(paragraph);
      */
     appendChild(knot: Knot): void {
-        this.node.appendChild(knot.getNode());
+        const childNode = knot.getNode();
+        if (this.node && childNode) {
+            this.node.appendChild(childNode);
+        } else {
+            consoleWarn('Knot.appendChild(): null node', this.node, childNode);
+        }
     }
 
     /**
@@ -598,6 +603,7 @@ export class Knot<T extends HTMLElement = HTMLElement> {
      * knot.removeChildren(); // clears all inner content
      */
     removeChildren(): void {
+        if (!this.node) return;
         while (this.hasChildren()) {
             this.node.removeChild(this.node.firstChild!);
         }
@@ -611,7 +617,7 @@ export class Knot<T extends HTMLElement = HTMLElement> {
      * if (knot.hasChildren()) { ... }
      */
     hasChildren(): boolean {
-        return this.node.hasChildNodes();
+        return this.node ? this.node.hasChildNodes() : false;
     }
 
     /**
@@ -672,6 +678,7 @@ export class Knot<T extends HTMLElement = HTMLElement> {
      * list.beforeChild(newFirstItem);
      */
     beforeChild(knot: Knot): boolean {
+        if (!this.node) return false;
         const referenceKnot =
             this.node.firstChild || this.node.firstElementChild;
         if (referenceKnot) {
