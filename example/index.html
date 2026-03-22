@@ -14,7 +14,7 @@
 
   <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
   <link rel="stylesheet" href="node_modules/normalize.css/normalize.css">
-  <link rel="stylesheet" href="../dist/sui.min.css">
+  <link rel="stylesheet" href="/dist/sui.min.css">
   <style>
     #form-panel .dark-theme {
       padding: 20px;
@@ -1133,6 +1133,49 @@
               <div id="components-panel" class="panel">
 
                 <div class="demo-section">
+                  <h3>Buttons</h3>
+
+                  <h4>Flat</h4>
+                  <div class="demo-buttons">
+                    <button class="sui-button">Default</button>
+                    <button class="sui-button sui-button--primary">Primary</button>
+                    <button class="sui-button sui-button--accent">Accent</button>
+                    <button class="sui-button" disabled>Disabled</button>
+                  </div>
+
+                  <h4>Raised</h4>
+                  <div class="demo-buttons">
+                    <button class="sui-button sui-button--raised">Default</button>
+                    <button class="sui-button sui-button--raised sui-button--primary">Primary</button>
+                    <button class="sui-button sui-button--raised sui-button--accent">Accent</button>
+                    <button class="sui-button sui-button--raised" disabled>Disabled</button>
+                  </div>
+
+                  <h4>Icon</h4>
+                  <div class="demo-buttons">
+                    <button class="sui-button sui-button--icon"><i class="material-icons">favorite</i></button>
+                    <button class="sui-button sui-button--icon sui-button--primary"><i class="material-icons">edit</i></button>
+                    <button class="sui-button sui-button--icon sui-button--accent"><i class="material-icons">delete</i></button>
+                    <button class="sui-button sui-button--icon" disabled><i class="material-icons">block</i></button>
+                  </div>
+
+                  <h4>FAB</h4>
+                  <div class="demo-buttons">
+                    <button class="sui-button sui-button--fab sui-button--raised sui-button--primary"><i class="material-icons">add</i></button>
+                    <button class="sui-button sui-button--fab sui-button--raised sui-button--accent"><i class="material-icons">edit</i></button>
+                    <button class="sui-button sui-button--fab sui-button--mini-fab sui-button--raised sui-button--primary"><i class="material-icons">add</i></button>
+                    <button class="sui-button sui-button--fab sui-button--mini-fab sui-button--raised sui-button--accent"><i class="material-icons">edit</i></button>
+                  </div>
+
+                  <h4>With Icon</h4>
+                  <div class="demo-buttons">
+                    <button class="sui-button sui-button--raised sui-button--primary"><i class="material-icons icon">send</i>Send</button>
+                    <button class="sui-button sui-button--raised"><i class="material-icons icon">save</i>Save</button>
+                    <button class="sui-button sui-button--raised sui-button--accent"><i class="material-icons icon">delete</i>Delete</button>
+                  </div>
+                </div>
+
+                <div class="demo-section">
                   <h3>Table</h3>
                   <div class="table-responsive">
                     <table class="demo-table">
@@ -1466,7 +1509,7 @@
     </footer>
   </div>
   <script src="https://maps.googleapis.com/maps/api/js?libraries=geometry,visualization"></script>
-  <script src="../dist/sui.min.js"></script>
+  <script src="/dist/sui.min.js"></script>
   <script src="index.js"></script>
 </body>
 
