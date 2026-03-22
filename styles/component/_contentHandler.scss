@@ -15,6 +15,6 @@
     }
 
     p {
-        color: colors.$deep-grey-bright;
+        color: var(--sui-content-disabled);
     }
 }

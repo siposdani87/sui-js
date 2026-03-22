@@ -62,7 +62,7 @@
 
         .icon-button {
             display: block;
-            color: colors.$black;
+            color: var(--sui-on-surface);
             text-decoration: none;
             padding: 8px 12px;
             width: 100%;
