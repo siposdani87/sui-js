@@ -145,7 +145,7 @@
 
         .content,
         .locales {
-            color: var(--sui-on-surface);
+            color: colors.$white;
 
             a {
                 color: var(--sui-accent);
@@ -172,7 +172,7 @@
 
             .content,
             .locales {
-                color: var(--sui-on-surface);
+                color: colors.$white;
 
                 a {
                     color: var(--sui-accent);
