@@ -135,6 +135,16 @@ describe('BaseField', () => {
             expect(field.label.getHtml()).toContain('New Label');
         });
 
+        it('should capitalize first character of label', () => {
+            field.setLabel('email address');
+            expect(field.label.getHtml()).toContain('Email address');
+        });
+
+        it('should keep already capitalized label unchanged', () => {
+            field.setLabel('Phone Number');
+            expect(field.label.getHtml()).toContain('Phone Number');
+        });
+
         it('should check validity', () => {
             field.checkValidity();
         });

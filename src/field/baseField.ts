@@ -525,10 +525,22 @@ export class BaseField<T extends HTMLInputElement> extends Emitter {
      */
     protected _setAdditionalLabel(label: Knot | undefined): void {
         if (label?.exists()) {
-            const labelText = this._getLabelRequiredText(label.getHtml(true));
+            const labelText = this._capitalizeFirst(
+                this._getLabelRequiredText(label.getHtml(true)),
+            );
             label.setHtml(labelText);
             this._setInfo(label);
         }
+    }
+
+    /**
+     * @description Capitalizes the first character of the given text.
+     * @param {string} text - The input text.
+     * @returns {string} The text with the first character uppercased.
+     */
+    private _capitalizeFirst(text: string): string {
+        if (!text) return text;
+        return text.charAt(0).toUpperCase() + text.slice(1);
     }
 
     /**
