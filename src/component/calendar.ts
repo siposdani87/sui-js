@@ -7,7 +7,7 @@ import { Month } from './month';
 import { Year } from './year';
 
 /**
- * @description Date picker calendar with day, month, and year selection modes, navigation, and date selection.
+ * Date picker calendar with day, month, and year selection modes, navigation, and date selection.
  * @example
  * const calendarKnot = new Knot('div');
  * const calendar = new Calendar(calendarKnot, { date: new Date(), type: 'date' });
@@ -48,7 +48,7 @@ export class Calendar extends Emitter {
     selectedDate!: Date;
 
     /**
-     * @description Creates a new Calendar instance.
+     * Creates a new Calendar instance.
      * @param {Knot} knot - The container DOM element wrapper.
      * @param {object} options - Configuration options including `date` and `type` ('date', 'month', 'year', 'week', 'range').
      * @example
@@ -62,7 +62,7 @@ export class Calendar extends Emitter {
     }
 
     /**
-     * @description Merges user options into an {@link Objekt} instance.
+     * Merges user options into an {@link Objekt} instance.
      * @param {object} options - Raw configuration options.
      */
     private _setOptions(options: object): void {
@@ -70,7 +70,7 @@ export class Calendar extends Emitter {
     }
 
     /**
-     * @description Initializes calendar constants, mode definitions, and DOM structure.
+     * Initializes calendar constants, mode definitions, and DOM structure.
      */
     private _init(): void {
         this.maxDays = 7 * 6;
@@ -90,7 +90,7 @@ export class Calendar extends Emitter {
     }
 
     /**
-     * @description Builds the full calendar DOM structure including header, content, and initial mode.
+     * Builds the full calendar DOM structure including header, content, and initial mode.
      */
     private _initStructure(): void {
         this._initHeaderKnot();
@@ -105,7 +105,7 @@ export class Calendar extends Emitter {
     }
 
     /**
-     * @description Creates the header knot with previous/next navigation buttons and the current mode label.
+     * Creates the header knot with previous/next navigation buttons and the current mode label.
      */
     private _initHeaderKnot(): void {
         this.headerKnot = new Knot('div');
@@ -152,7 +152,7 @@ export class Calendar extends Emitter {
     }
 
     /**
-     * @description Creates the main content container knot for calendar cells.
+     * Creates the main content container knot for calendar cells.
      */
     private _initContentKnot(): void {
         this.contentKnot = new Knot('div');
@@ -161,7 +161,7 @@ export class Calendar extends Emitter {
     }
 
     /**
-     * @description Changes the active mode by the given direction offset.
+     * Changes the active mode by the given direction offset.
      * @param {number} direction - Offset to move in the modes array (-1 for broader, +1 for narrower).
      */
     private _changeMode(direction: number): void {
@@ -170,7 +170,7 @@ export class Calendar extends Emitter {
     }
 
     /**
-     * @description Resolves the target mode name by applying the direction offset to the current mode index.
+     * Resolves the target mode name by applying the direction offset to the current mode index.
      * @param {number} direction - Offset to move in the modes array.
      * @returns {string} The resolved mode name, falling back to the option type's default mode.
      */
@@ -186,7 +186,7 @@ export class Calendar extends Emitter {
     }
 
     /**
-     * @description Dispatches to the appropriate callback based on the active mode (DAY, MONTH, or YEAR).
+     * Dispatches to the appropriate callback based on the active mode (DAY, MONTH, or YEAR).
      * @param {() => Date | void} dayFun - Callback for DAY mode.
      * @param {() => Date | void} monthFun - Callback for MONTH mode.
      * @param {() => Date | void} yearFun - Callback for YEAR mode.
@@ -215,7 +215,7 @@ export class Calendar extends Emitter {
     }
 
     /**
-     * @description Clears the content area and initializes the DOM structure for the given mode.
+     * Clears the content area and initializes the DOM structure for the given mode.
      * @param {string} mode - The mode to activate ('DAY', 'MONTH', or 'YEAR').
      */
     private _initMode(mode: string): void {
@@ -229,7 +229,7 @@ export class Calendar extends Emitter {
     }
 
     /**
-     * @description Creates the years container knot for YEAR mode.
+     * Creates the years container knot for YEAR mode.
      */
     private _initYearsMode(): void {
         this.yearsKnot = new Knot('div');
@@ -238,7 +238,7 @@ export class Calendar extends Emitter {
     }
 
     /**
-     * @description Creates the months container knot for MONTH mode.
+     * Creates the months container knot for MONTH mode.
      */
     private _initMonthsMode(): void {
         this.monthsKnot = new Knot('div');
@@ -247,7 +247,7 @@ export class Calendar extends Emitter {
     }
 
     /**
-     * @description Creates the week-days header and days container knots for DAY mode.
+     * Creates the week-days header and days container knots for DAY mode.
      */
     private _initDaysMode(): void {
         this.weekDaysKnot = new Knot('div');
@@ -260,7 +260,7 @@ export class Calendar extends Emitter {
     }
 
     /**
-     * @description Navigates the calendar to the previous period based on the active mode.
+     * Navigates the calendar to the previous period based on the active mode.
      */
     private _previous(): void {
         const date = this._switchMode(
@@ -276,7 +276,7 @@ export class Calendar extends Emitter {
     }
 
     /**
-     * @description Navigates the calendar to the next period based on the active mode.
+     * Navigates the calendar to the next period based on the active mode.
      */
     private _next(): void {
         const date = this._switchMode(
@@ -289,7 +289,7 @@ export class Calendar extends Emitter {
     }
 
     /**
-     * @description Sets the current date, recalculates variables, and populates day cells for all three months.
+     * Sets the current date, recalculates variables, and populates day cells for all three months.
      * @param {Date} date - The date to center the calendar on.
      */
     private _setDate(date: Date): void {
@@ -301,7 +301,7 @@ export class Calendar extends Emitter {
     }
 
     /**
-     * @description Resets the days array and computes previous, current, and next date references.
+     * Resets the days array and computes previous, current, and next date references.
      * @param {Date} date - The reference date for calculations.
      */
     private _setVariables(date: Date): void {
@@ -325,7 +325,7 @@ export class Calendar extends Emitter {
     }
 
     /**
-     * @description Renders the calendar content for the current active mode.
+     * Renders the calendar content for the current active mode.
      * @example
      * calendar.draw();
      */
@@ -338,7 +338,7 @@ export class Calendar extends Emitter {
     }
 
     /**
-     * @description Draws the header, week-day labels, and day cells for DAY mode.
+     * Draws the header, week-day labels, and day cells for DAY mode.
      */
     private _drawDaysStructure(): void {
         this._drawHeader('YYYY MMMM');
@@ -347,7 +347,7 @@ export class Calendar extends Emitter {
     }
 
     /**
-     * @description Draws the header and month cells for MONTH mode.
+     * Draws the header and month cells for MONTH mode.
      */
     private _drawMonthsStructure(): void {
         this._drawHeader('YYYY');
@@ -355,7 +355,7 @@ export class Calendar extends Emitter {
     }
 
     /**
-     * @description Draws the header and year cells for YEAR mode.
+     * Draws the header and year cells for YEAR mode.
      */
     private _drawYearsStructure(): void {
         this._drawHeader(null);
@@ -363,7 +363,7 @@ export class Calendar extends Emitter {
     }
 
     /**
-     * @description Renders the header text using the given date format string.
+     * Renders the header text using the given date format string.
      * @param {string | null} format - The {@link DateIO} format string, or null for empty header.
      */
     private _drawHeader(format: string | null): void {
@@ -373,7 +373,7 @@ export class Calendar extends Emitter {
     }
 
     /**
-     * @description Creates and renders {@link Month} cells for all 12 months of the current year.
+     * Creates and renders {@link Month} cells for all 12 months of the current year.
      */
     private _drawMonths(): void {
         this.monthsKnot.removeChildren();
@@ -390,7 +390,7 @@ export class Calendar extends Emitter {
     }
 
     /**
-     * @description Creates and renders {@link Year} cells for a block of years aligned to maxYears.
+     * Creates and renders {@link Year} cells for a block of years aligned to maxYears.
      */
     private _drawYears(): void {
         this.yearsKnot.removeChildren();
@@ -410,7 +410,7 @@ export class Calendar extends Emitter {
     }
 
     /**
-     * @description Renders the abbreviated week-day labels (e.g., Mo, Tu) in the header row.
+     * Renders the abbreviated week-day labels (e.g., Mo, Tu) in the header row.
      */
     private _drawWeekDays(): void {
         this.weekDaysKnot.removeChildren();
@@ -427,7 +427,7 @@ export class Calendar extends Emitter {
     }
 
     /**
-     * @description Appends all pre-built {@link Day} knots into the days container.
+     * Appends all pre-built {@link Day} knots into the days container.
      */
     private _drawDays(): void {
         this.daysKnot.removeChildren();
@@ -439,7 +439,7 @@ export class Calendar extends Emitter {
     }
 
     /**
-     * @description Populates trailing {@link Day} cells from the previous month to fill the first week row.
+     * Populates trailing {@link Day} cells from the previous month to fill the first week row.
      */
     private _setPreviousMonth(): void {
         const diffDays = DateIO.getDay(DateIO.endOfMonth(this.previous.month));
@@ -455,7 +455,7 @@ export class Calendar extends Emitter {
     }
 
     /**
-     * @description Populates {@link Day} cells for each day in the current month.
+     * Populates {@link Day} cells for each day in the current month.
      */
     private _setCurrentMonth(): void {
         const daysInMonth = DateIO.getDaysInMonth(this.current.day);
@@ -470,7 +470,7 @@ export class Calendar extends Emitter {
     }
 
     /**
-     * @description Populates leading {@link Day} cells from the next month to fill the remaining grid slots.
+     * Populates leading {@link Day} cells from the next month to fill the remaining grid slots.
      */
     private _setNextMonth(): void {
         const diffDays = this.maxDays - this.days.length;
@@ -485,7 +485,7 @@ export class Calendar extends Emitter {
     }
 
     /**
-     * @description Updates the selected and current date based on the active mode's granularity.
+     * Updates the selected and current date based on the active mode's granularity.
      * @param {Date} selectedDate - The date selected by the user.
      */
     private _setModeDate(selectedDate: Date): void {
@@ -507,7 +507,7 @@ export class Calendar extends Emitter {
     }
 
     /**
-     * @description Handles click on a day, month, or year cell; updates state, advances mode, and redraws.
+     * Handles click on a day, month, or year cell; updates state, advances mode, and redraws.
      * @param {Date} selectedDate - The date associated with the clicked cell.
      */
     private _onClick(selectedDate: Date): void {
@@ -522,7 +522,7 @@ export class Calendar extends Emitter {
     }
 
     /**
-     * @description Stores the given date as the currently selected date.
+     * Stores the given date as the currently selected date.
      * @param {Date} date - The date to mark as selected.
      */
     private _setSelectedDate(date: Date): void {

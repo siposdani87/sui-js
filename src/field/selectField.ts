@@ -18,7 +18,7 @@ import { generateId } from '../utils/coder';
 import { sui } from '../utils/render';
 
 /**
- * @description Custom select/dropdown field with search, single/multiple selection, and tag display.
+ * Custom select/dropdown field with search, single/multiple selection, and tag display.
  * Extends {@link BaseField} with popup-based option selection.
  * @category Field
  * @example
@@ -43,7 +43,7 @@ export class SelectField extends BaseField<HTMLInputElement> {
     searchInputKnot!: Knot<HTMLInputElement>;
 
     /**
-     * @description Initializes the select field by hiding the native input, setting up options, events, and the popup.
+     * Initializes the select field by hiding the native input, setting up options, events, and the popup.
      */
     protected override _init(): void {
         this.input.addClass('hidden');
@@ -57,7 +57,7 @@ export class SelectField extends BaseField<HTMLInputElement> {
     }
 
     /**
-     * @description Checks whether the select field allows multiple selections.
+     * Checks whether the select field allows multiple selections.
      * @returns {boolean} True if the input has a multiple attribute.
      * @example
      * if (selectField.isMultiple()) {
@@ -69,7 +69,7 @@ export class SelectField extends BaseField<HTMLInputElement> {
     }
 
     /**
-     * @description Initializes the popup container with a search input and options list.
+     * Initializes the popup container with a search input and options list.
      */
     private _initPopup(): void {
         this.containerKnot = new Knot('div');
@@ -83,7 +83,7 @@ export class SelectField extends BaseField<HTMLInputElement> {
     }
 
     /**
-     * @description Binds the change event listener on the native input element.
+     * Binds the change event listener on the native input element.
      */
     private _initChangeEvent(): void {
         this.input.addEventListener('change', () => {
@@ -93,7 +93,7 @@ export class SelectField extends BaseField<HTMLInputElement> {
     }
 
     /**
-     * @description Parses option elements from the native input and populates the options collection.
+     * Parses option elements from the native input and populates the options collection.
      */
     private _initOptions(): void {
         this.options = new Collection();
@@ -116,7 +116,7 @@ export class SelectField extends BaseField<HTMLInputElement> {
     }
 
     /**
-     * @description Renders the select field by adding the label class, creating the expander icon, and refreshing the display.
+     * Renders the select field by adding the label class, creating the expander icon, and refreshing the display.
      */
     override render(): void {
         if (this.label?.exists()) {
@@ -143,7 +143,7 @@ export class SelectField extends BaseField<HTMLInputElement> {
     }
 
     /**
-     * @description Refreshes the select field by rebuilding the select container and updating the displayed tags.
+     * Refreshes the select field by rebuilding the select container and updating the displayed tags.
      */
     override refresh(): void {
         const selectContainerKnot = new Query(
@@ -176,7 +176,7 @@ export class SelectField extends BaseField<HTMLInputElement> {
     }
 
     /**
-     * @description Sets the selected value(s) by updating the selected state of the underlying option elements.
+     * Sets the selected value(s) by updating the selected state of the underlying option elements.
      * @param {object | Array<unknown> | boolean | number | string | null | undefined} value - The value or array of values to select.
      */
     override setValue(
@@ -197,7 +197,7 @@ export class SelectField extends BaseField<HTMLInputElement> {
     }
 
     /**
-     * @description Returns the selected value(s). Returns a single value for single-select or an array for multi-select.
+     * Returns the selected value(s). Returns a single value for single-select or an array for multi-select.
      * @returns {string | string[] | null} The selected value(s), or null if nothing is selected.
      */
     override getValue(): string | string[] | null {
@@ -209,7 +209,7 @@ export class SelectField extends BaseField<HTMLInputElement> {
     }
 
     /**
-     * @description Returns the selected option object or a specific attribute from its associated item data.
+     * Returns the selected option object or a specific attribute from its associated item data.
      * @param {string} [opt_attribute] - An optional attribute path to retrieve from the option's item data.
      * @returns {*} The option object, the attribute value, or the raw value if no option is found.
      * @example
@@ -229,7 +229,7 @@ export class SelectField extends BaseField<HTMLInputElement> {
     }
 
     /**
-     * @description Shows a loading spinner on the expander icon to indicate options are being loaded.
+     * Shows a loading spinner on the expander icon to indicate options are being loaded.
      * @example
      * selectField.showLoader();
      * fetchOptions().then((items) => {
@@ -242,7 +242,7 @@ export class SelectField extends BaseField<HTMLInputElement> {
     }
 
     /**
-     * @description Hides the loading spinner and restores the expander icon.
+     * Hides the loading spinner and restores the expander icon.
      */
     private _hideLoader(): void {
         this.iconKnot.setHtml('expand_more');
@@ -250,7 +250,7 @@ export class SelectField extends BaseField<HTMLInputElement> {
     }
 
     /**
-     * @description Replaces the current options with new items and refreshes the field.
+     * Replaces the current options with new items and refreshes the field.
      * @param {Array<Objekt>} items - The new option items to set.
      * @param {string} [opt_value='value'] - The attribute name to use as the option value.
      * @param {string} [opt_name='name'] - The attribute name to use as the option display text.
@@ -293,7 +293,7 @@ export class SelectField extends BaseField<HTMLInputElement> {
     }
 
     /**
-     * @description Handles the change event by updating tags and notifying the model.
+     * Handles the change event by updating tags and notifying the model.
      */
     private _change(): void {
         const ids = this._getSelectedIds();
@@ -303,7 +303,7 @@ export class SelectField extends BaseField<HTMLInputElement> {
     }
 
     /**
-     * @description Renders the selected tags in the select container based on the given IDs.
+     * Renders the selected tags in the select container based on the given IDs.
      * @param {Array<string>} ids - The selected option IDs.
      */
     private _setSelectTags(ids: Array<string>): void {
@@ -319,7 +319,7 @@ export class SelectField extends BaseField<HTMLInputElement> {
     }
 
     /**
-     * @description Renders a single tag for single-select mode.
+     * Renders a single tag for single-select mode.
      * @param {string} id - The selected option ID.
      */
     private _setSimpleTag(id: string): void {
@@ -328,7 +328,7 @@ export class SelectField extends BaseField<HTMLInputElement> {
     }
 
     /**
-     * @description Renders multiple tags for multi-select mode.
+     * Renders multiple tags for multi-select mode.
      * @param {Array<string>} ids - The selected option IDs.
      */
     private _setMultipleTag(ids: Array<string>): void {
@@ -350,7 +350,7 @@ export class SelectField extends BaseField<HTMLInputElement> {
     }
 
     /**
-     * @description Renders tag elements in the select knot with optional close buttons for enabled fields.
+     * Renders tag elements in the select knot with optional close buttons for enabled fields.
      * @param {Array<Objekt> | Objekt} tags - The option(s) to render as tags.
      */
     private _setTags(tags: Array<Objekt> | Objekt) {
@@ -391,7 +391,7 @@ export class SelectField extends BaseField<HTMLInputElement> {
     }
 
     /**
-     * @description Updates the selected attribute on option elements matching the given IDs.
+     * Updates the selected attribute on option elements matching the given IDs.
      * @param {Array<string>} ids - The IDs to mark as selected.
      */
     private _setSelectedIds(ids: Array<string>): void {
@@ -412,7 +412,7 @@ export class SelectField extends BaseField<HTMLInputElement> {
     }
 
     /**
-     * @description Collects the IDs of all currently selected options.
+     * Collects the IDs of all currently selected options.
      * @returns {Array<string>} The selected IDs, or [''] if none are selected.
      */
     private _getSelectedIds(): Array<string> {
@@ -430,7 +430,7 @@ export class SelectField extends BaseField<HTMLInputElement> {
     }
 
     /**
-     * @description Toggles the selection of an option by ID, handling both single and multiple selection modes.
+     * Toggles the selection of an option by ID, handling both single and multiple selection modes.
      * @param {string} id - The option ID to toggle.
      */
     private _handleSelectedId(id: string): void {
@@ -460,7 +460,7 @@ export class SelectField extends BaseField<HTMLInputElement> {
     }
 
     /**
-     * @description Draws the option list knots in the popup, highlighting currently selected items.
+     * Draws the option list knots in the popup, highlighting currently selected items.
      * @param {Array<Objekt>} items - The option items to render.
      */
     private _drawKnots(items: Array<Objekt>): void {
@@ -494,7 +494,7 @@ export class SelectField extends BaseField<HTMLInputElement> {
     }
 
     /**
-     * @description Creates the search input box inside the popup container for filtering options.
+     * Creates the search input box inside the popup container for filtering options.
      */
     private _drawSearchInput(): void {
         const searchParentKnot = new Knot('div');
@@ -530,7 +530,7 @@ export class SelectField extends BaseField<HTMLInputElement> {
     }
 
     /**
-     * @description Opens the select popup, executing the current search query and focusing the search input.
+     * Opens the select popup, executing the current search query and focusing the search input.
      * @example
      * selectField.open();
      */
@@ -541,7 +541,7 @@ export class SelectField extends BaseField<HTMLInputElement> {
     }
 
     /**
-     * @description Closes the select popup.
+     * Closes the select popup.
      * @example
      * selectField.close();
      */
@@ -550,7 +550,7 @@ export class SelectField extends BaseField<HTMLInputElement> {
     }
 
     /**
-     * @description Filters the options by a search query and redraws the option list.
+     * Filters the options by a search query and redraws the option list.
      * @param {string} query - The search query string.
      */
     private _search(query: string): void {

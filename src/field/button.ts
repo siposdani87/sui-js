@@ -5,7 +5,7 @@ import { BaseField } from './baseField';
 /**
  * Generic button with click event support.
  *
- * @description Extends {@link BaseField} to render a raised accent button. Click events are forwarded through the `eventClick` handler.
+ * Extends {@link BaseField} to render a raised accent button. Click events are forwarded through the `eventClick` handler.
  *
  * @example
  * const button = new Button(inputKnot);

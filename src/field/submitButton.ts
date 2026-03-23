@@ -5,7 +5,7 @@ import { BaseField } from './baseField';
 /**
  * Form submit button with primary styling.
  *
- * @description Extends {@link BaseField} to render a raised primary button
+ * Extends {@link BaseField} to render a raised primary button
  * used for form submission.
  *
  * @example

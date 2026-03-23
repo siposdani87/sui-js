@@ -4,7 +4,7 @@ import { BaseCheckboxField } from './baseCheckboxField';
 /**
  * SUI checkbox field with label and data label display.
  *
- * @description Extends {@link BaseCheckboxField} to render a SUI
+ * Extends {@link BaseCheckboxField} to render a SUI
  * checkbox input with a span label and a separate data label element.
  *
  * @example

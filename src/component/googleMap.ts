@@ -43,7 +43,7 @@ export type LatLng = {
 /**
  * Google Maps wrapper with support for markers, polygons, heatmaps, geocoding, and custom map styles.
  *
- * @description Provides a high-level API over the Google Maps JavaScript API. Manages
+ * Provides a high-level API over the Google Maps JavaScript API. Manages
  * collections of markers and polygons with associated {@link MapLabel} overlays,
  * heatmap visualization, address geocoding, and custom map styling.
  *

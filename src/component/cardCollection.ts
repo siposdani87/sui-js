@@ -9,7 +9,7 @@ import { consoleWarn } from '../utils/log';
 import { Emitter } from '../core/emitter';
 
 /**
- * @description Card-based data display component with template rendering and pagination.
+ * Card-based data display component with template rendering and pagination.
  * Renders data items as cards using an HTML template element, with built-in
  * paging and empty-content handling.
  *
@@ -40,7 +40,7 @@ export class CardCollection extends Emitter {
     template!: string;
 
     /**
-     * @description Creates a new CardCollection bound to a DOM container with optional controller and options.
+     * Creates a new CardCollection bound to a DOM container with optional controller and options.
      * @param {Knot} dom - The parent DOM element.
      * @param {string} [opt_selector] - CSS selector for the card collection container.
      * @param {object | null} [opt_ctrl] - Controller object for template expression evaluation.
@@ -60,7 +60,7 @@ export class CardCollection extends Emitter {
     }
 
     /**
-     * @description Merges user options with defaults (no_content, row_count, pager_num, sort).
+     * Merges user options with defaults (no_content, row_count, pager_num, sort).
      * @param {object} [opt_options] - Configuration overrides.
      */
     private _setOptions(opt_options: object | undefined = {}): void {
@@ -80,7 +80,7 @@ export class CardCollection extends Emitter {
     }
 
     /**
-     * @description Initializes the collection, content handler, DOM structure, template, and pager.
+     * Initializes the collection, content handler, DOM structure, template, and pager.
      */
     private _init(): void {
         this.collection = new Collection();
@@ -99,7 +99,7 @@ export class CardCollection extends Emitter {
     }
 
     /**
-     * @description Creates the content handler for empty-state display.
+     * Creates the content handler for empty-state display.
      */
     private _initContentHandler(): void {
         this.contentHandler = new ContentHandler(
@@ -109,7 +109,7 @@ export class CardCollection extends Emitter {
     }
 
     /**
-     * @description Builds the card body, footer, and pager DOM structure.
+     * Builds the card body, footer, and pager DOM structure.
      */
     private _initStructure(): void {
         this.cardCollectionKnot.addClass('card-collection');
@@ -132,7 +132,7 @@ export class CardCollection extends Emitter {
     }
 
     /**
-     * @description Extracts and removes the HTML template element for card rendering.
+     * Extracts and removes the HTML template element for card rendering.
      */
     private _initTemplate(): void {
         this.cardTemplate = new Query<HTMLTemplateElement>(
@@ -144,7 +144,7 @@ export class CardCollection extends Emitter {
     }
 
     /**
-     * @description Renders a single card by replacing template expressions with item data and controller methods.
+     * Renders a single card by replacing template expressions with item data and controller methods.
      * @param {Objekt} item - The data item to render.
      * @returns {Knot} The rendered card DOM element.
      */
@@ -188,7 +188,7 @@ export class CardCollection extends Emitter {
     }
 
     /**
-     * @description Refreshes the card collection by emitting the 'action' event with current query, sort, and paging params.
+     * Refreshes the card collection by emitting the 'action' event with current query, sort, and paging params.
      * @param {number} [opt_page] - Page number to navigate to before refreshing (-1 keeps current page).
      *
      * @example
@@ -209,7 +209,7 @@ export class CardCollection extends Emitter {
     }
 
     /**
-     * @description Renders a card for the given item and appends it to the body.
+     * Renders a card for the given item and appends it to the body.
      * @param {Objekt} item - The data item to render as a card.
      */
     private _addCard(item: Objekt): void {
@@ -219,7 +219,7 @@ export class CardCollection extends Emitter {
     }
 
     /**
-     * @description Loads data items into the collection and renders cards, or shows the empty-content placeholder.
+     * Loads data items into the collection and renders cards, or shows the empty-content placeholder.
      * @param {Array<any>} items - Array of data items to display.
      *
      * @example
@@ -237,7 +237,7 @@ export class CardCollection extends Emitter {
     }
 
     /**
-     * @description Sets the total item count and redraws the pager.
+     * Sets the total item count and redraws the pager.
      * @param {number} count - Total number of items across all pages.
      *
      * @example
@@ -249,7 +249,7 @@ export class CardCollection extends Emitter {
     }
 
     /**
-     * @description Returns items for the current page, applying limit when collection exceeds row_count.
+     * Returns items for the current page, applying limit when collection exceeds row_count.
      * @returns {Array<any>} The items to display on the current page.
      */
     // eslint-disable-next-line @typescript-eslint/no-explicit-any
@@ -265,7 +265,7 @@ export class CardCollection extends Emitter {
     }
 
     /**
-     * @description Clears the card body and renders cards for the current page items.
+     * Clears the card body and renders cards for the current page items.
      */
     private _draw(): void {
         this.body.removeChildren();
@@ -275,7 +275,7 @@ export class CardCollection extends Emitter {
     }
 
     /**
-     * @description Initiates the initial data fetch and render cycle.
+     * Initiates the initial data fetch and render cycle.
      *
      * @example
      * cards.render();

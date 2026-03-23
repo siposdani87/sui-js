@@ -4,7 +4,7 @@ import { Emitter } from '../core/emitter';
 import { DateIO } from '../utils';
 
 /**
- * @description Represents a single year cell in the {@link Calendar}'s year-selection mode, with CSS classes for current and now states.
+ * Represents a single year cell in the {@link Calendar}'s year-selection mode, with CSS classes for current and now states.
  * @example
  * const year = new Year(new Date(), selectedDate, {});
  * year.on('click', (date) => { console.log('Clicked:', date); });
@@ -20,7 +20,7 @@ export class Year extends Emitter {
     cssClasses!: string[];
 
     /**
-     * @description Creates a new Year instance.
+     * Creates a new Year instance.
      * @param {Date} date - The date representing this year.
      * @param {Date} currentDate - The currently selected date, used for highlight comparison.
      * @param {object} options - Configuration options including optional `css_class`.
@@ -36,7 +36,7 @@ export class Year extends Emitter {
     }
 
     /**
-     * @description Merges user options into an {@link Objekt} instance.
+     * Merges user options into an {@link Objekt} instance.
      * @param {object} options - Raw configuration options.
      */
     private _setOptions(options: object): void {
@@ -44,7 +44,7 @@ export class Year extends Emitter {
     }
 
     /**
-     * @description Computes CSS classes for 'current' and 'now' states based on year comparison.
+     * Computes CSS classes for 'current' and 'now' states based on year comparison.
      */
     private _init(): void {
         const current =
@@ -61,7 +61,7 @@ export class Year extends Emitter {
     }
 
     /**
-     * @description Creates and returns a styled {@link Knot} element representing this year cell with a click handler.
+     * Creates and returns a styled {@link Knot} element representing this year cell with a click handler.
      * @returns {Knot} The year cell DOM element wrapper.
      * @example
      * const yearKnot = year.getKnot();

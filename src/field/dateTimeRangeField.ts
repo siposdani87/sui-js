@@ -59,7 +59,7 @@ export class DateTimeRangeField extends BaseField<HTMLInputElement> {
     }
 
     /**
-     * @description No-op override; real initialization is deferred to the constructor
+     * No-op override; real initialization is deferred to the constructor
      * so that {@link isStartInput} is available.
      */
     protected override _init(): void {

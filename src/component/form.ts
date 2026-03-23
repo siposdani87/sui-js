@@ -7,7 +7,7 @@ import type { BaseField } from '../field';
 import type { Knot } from '../core';
 
 /**
- * @description Manages a collection of form fields with model binding, validation, and
+ * Manages a collection of form fields with model binding, validation, and
  * event handling. Extends {@link Collection} to provide field iteration, lookup, and lifecycle management.
  *
  * @example
@@ -32,7 +32,7 @@ export class Form extends Collection<BaseField<HTMLInputElement>> {
     fieldClasses!: string[];
 
     /**
-     * @description Creates a new Form instance bound to the form element found within the given DOM node.
+     * Creates a new Form instance bound to the form element found within the given DOM node.
      *
      * @param {Knot} dom - The parent DOM node containing the form element.
      * @param {string} [opt_selector='form'] - CSS selector to locate the form element.
@@ -56,7 +56,7 @@ export class Form extends Collection<BaseField<HTMLInputElement>> {
     }
 
     /**
-     * @description Initializes the form model, field selectors, and event handlers.
+     * Initializes the form model, field selectors, and event handlers.
      */
     private _init(): void {
         this.previousModel = new Objekt();
@@ -80,7 +80,7 @@ export class Form extends Collection<BaseField<HTMLInputElement>> {
     }
 
     /**
-     * @description Binds keydown, submit, and reset event listeners to the form element.
+     * Binds keydown, submit, and reset event listeners to the form element.
      */
     private _initFormEvent(): void {
         this.formKnot.addEventListener('keydown', (_knot, event) => {
@@ -98,7 +98,7 @@ export class Form extends Collection<BaseField<HTMLInputElement>> {
     }
 
     /**
-     * @description Binds the form submit event, validates, and emits the 'submit' event.
+     * Binds the form submit event, validates, and emits the 'submit' event.
      */
     private _initSubmitFormEvent(): void {
         this.formKnot.addEventListener('submit', (knot, event) => {
@@ -110,7 +110,7 @@ export class Form extends Collection<BaseField<HTMLInputElement>> {
     }
 
     /**
-     * @description Binds the form reset event and emits the 'reset' event.
+     * Binds the form reset event and emits the 'reset' event.
      */
     private _initResetFormEvent(): void {
         this.formKnot.addEventListener('reset', (knot, event) => {
@@ -120,7 +120,7 @@ export class Form extends Collection<BaseField<HTMLInputElement>> {
     }
 
     /**
-     * @description Discovers, initializes, and binds form fields and buttons from the DOM.
+     * Discovers, initializes, and binds form fields and buttons from the DOM.
      */
     private _initFields(): void {
         const fields = new Query(
@@ -164,7 +164,7 @@ export class Form extends Collection<BaseField<HTMLInputElement>> {
     }
 
     /**
-     * @description Merges the given model into the form, updates all field values, and runs validation.
+     * Merges the given model into the form, updates all field values, and runs validation.
      *
      * @param {Objekt} model - The data model to merge into the form.
      * @param {boolean} [opt_force=true] - Whether to force validation on all fields.
@@ -191,7 +191,7 @@ export class Form extends Collection<BaseField<HTMLInputElement>> {
     }
 
     /**
-     * @description Returns the current form data model.
+     * Returns the current form data model.
      *
      * @returns {Objekt} The form's data model containing all field values.
      *
@@ -204,7 +204,7 @@ export class Form extends Collection<BaseField<HTMLInputElement>> {
     }
 
     /**
-     * @description Clears all field values and resets the form model.
+     * Clears all field values and resets the form model.
      *
      * @param {boolean} [opt_force=true] - Whether to force validation after reset.
      * @param {boolean} [opt_showMessage=false] - Whether to display validation messages.
@@ -225,7 +225,7 @@ export class Form extends Collection<BaseField<HTMLInputElement>> {
     }
 
     /**
-     * @description Sets a field value in the model and tracks the previous value.
+     * Sets a field value in the model and tracks the previous value.
      * @param {string} name - The field name.
      * @param {*} value - The new value.
      */
@@ -239,7 +239,7 @@ export class Form extends Collection<BaseField<HTMLInputElement>> {
     }
 
     /**
-     * @description Retrieves the current value of a field from the model.
+     * Retrieves the current value of a field from the model.
      * @param {string} name - The field name.
      * @returns {*} The current field value.
      */
@@ -249,7 +249,7 @@ export class Form extends Collection<BaseField<HTMLInputElement>> {
     }
 
     /**
-     * @description Retrieves the previous value of a field from the previous model snapshot.
+     * Retrieves the previous value of a field from the previous model snapshot.
      * @param {BaseField<HTMLInputElement>} field - The field instance.
      * @returns {*} The previous field value.
      */
@@ -260,7 +260,7 @@ export class Form extends Collection<BaseField<HTMLInputElement>> {
     }
 
     /**
-     * @description Handles a field value change by updating the model and triggering validation.
+     * Handles a field value change by updating the model and triggering validation.
      * @param {BaseField<HTMLInputElement>} field - The field that changed.
      * @param {*} value - The new field value.
      */
@@ -279,7 +279,7 @@ export class Form extends Collection<BaseField<HTMLInputElement>> {
     }
 
     /**
-     * @description Applies server-side validation errors to the corresponding form fields.
+     * Applies server-side validation errors to the corresponding form fields.
      *
      * @param {object} data - An object mapping field names to arrays of error messages.
      *
@@ -296,7 +296,7 @@ export class Form extends Collection<BaseField<HTMLInputElement>> {
     }
 
     /**
-     * @description Validates all form fields and returns the overall validity state.
+     * Validates all form fields and returns the overall validity state.
      *
      * @param {boolean} [opt_force=false] - Whether to force re-validation on all fields.
      * @param {boolean} [opt_showMessage=true] - Whether to display validation messages.
@@ -318,7 +318,7 @@ export class Form extends Collection<BaseField<HTMLInputElement>> {
     }
 
     /**
-     * @description Checks whether the form is currently valid by forcing validation on all fields.
+     * Checks whether the form is currently valid by forcing validation on all fields.
      *
      * @returns {boolean} True if the form passes validation.
      *
@@ -332,7 +332,7 @@ export class Form extends Collection<BaseField<HTMLInputElement>> {
     }
 
     /**
-     * @description Checks whether the form is currently invalid.
+     * Checks whether the form is currently invalid.
      *
      * @returns {boolean} True if the form fails validation.
      *
@@ -346,7 +346,7 @@ export class Form extends Collection<BaseField<HTMLInputElement>> {
     }
 
     /**
-     * @description Removes fields that no longer exist in the DOM and re-initializes any new fields.
+     * Removes fields that no longer exist in the DOM and re-initializes any new fields.
      *
      * @example
      * // After dynamically adding fields to the DOM
@@ -367,7 +367,7 @@ export class Form extends Collection<BaseField<HTMLInputElement>> {
     }
 
     /**
-     * @description Finds a form field by its model binding name.
+     * Finds a form field by its model binding name.
      *
      * @typeParam T - The expected field type, defaults to BaseField.
      * @param {string} name - The model property name bound to the field.
@@ -383,7 +383,7 @@ export class Form extends Collection<BaseField<HTMLInputElement>> {
     }
 
     /**
-     * @description Disables all form fields, preserving their original disabled state for later unlock.
+     * Disables all form fields, preserving their original disabled state for later unlock.
      *
      * @example
      * form.lock();
@@ -400,7 +400,7 @@ export class Form extends Collection<BaseField<HTMLInputElement>> {
     }
 
     /**
-     * @description Restores each field's disabled state to what it was before {@link lock} was called.
+     * Restores each field's disabled state to what it was before {@link lock} was called.
      *
      * @example
      * form.unlock();
@@ -412,7 +412,7 @@ export class Form extends Collection<BaseField<HTMLInputElement>> {
     }
 
     /**
-     * @description Removes all event listeners from the form element.
+     * Removes all event listeners from the form element.
      * Call this method to clean up when the Form instance is no longer needed.
      */
     destroy(): void {

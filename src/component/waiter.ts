@@ -1,5 +1,5 @@
 /**
- * @description Debounce/delay utility for input waiting and scheduled callbacks. Provides both
+ * Debounce/delay utility for input waiting and scheduled callbacks. Provides both
  * simple (counter-based) and advanced (floating-point counter) debounce mechanisms
  * with pause/resume support.
  *
@@ -15,7 +15,7 @@ export class Waiter {
     intervall!: number;
 
     /**
-     * @description Creates a new Waiter with zeroed counters.
+     * Creates a new Waiter with zeroed counters.
      */
     constructor() {
         this.timeoutWaiting = 0;
@@ -23,7 +23,7 @@ export class Waiter {
     }
 
     /**
-     * @description Schedules a callback after a debounce delay. Each call resets the timer;
+     * Schedules a callback after a debounce delay. Each call resets the timer;
      * the callback only fires when no new calls arrive within the duration.
      * @param {() => void} callback - The function to execute after the delay.
      * @param {number} [opt_duration] - Delay in milliseconds (defaults to 3000).
@@ -42,7 +42,7 @@ export class Waiter {
     }
 
     /**
-     * @description Internal handler that compares counter snapshots after the delay to determine if the callback should fire.
+     * Internal handler that compares counter snapshots after the delay to determine if the callback should fire.
      * @param {() => void} callback - The function to execute.
      * @param {number} duration - Delay in milliseconds.
      * @param {number} counter - The counter snapshot at the time of scheduling.
@@ -63,7 +63,7 @@ export class Waiter {
     }
 
     /**
-     * @description Pauses the advanced waiting mechanism by continuously incrementing the counter,
+     * Pauses the advanced waiting mechanism by continuously incrementing the counter,
      * preventing any pending callback from firing.
      *
      * @example
@@ -77,7 +77,7 @@ export class Waiter {
     }
 
     /**
-     * @description Resumes the advanced waiting mechanism by stopping the interval and
+     * Resumes the advanced waiting mechanism by stopping the interval and
      * decrementing the counter to allow the pending callback to fire.
      *
      * @example
@@ -89,7 +89,7 @@ export class Waiter {
     }
 
     /**
-     * @description Schedules a callback using a simple integer-counter debounce mechanism.
+     * Schedules a callback using a simple integer-counter debounce mechanism.
      * @param {() => void} callback - The function to execute after the delay.
      * @param {number} [opt_duration] - Delay in milliseconds (defaults to 3000).
      *
@@ -105,7 +105,7 @@ export class Waiter {
     }
 
     /**
-     * @description Internal handler that compares integer counter snapshots to determine if the callback should fire.
+     * Internal handler that compares integer counter snapshots to determine if the callback should fire.
      * @param {() => void} callback - The function to execute.
      * @param {number} duration - Delay in milliseconds.
      * @param {number} counter - The counter snapshot at the time of scheduling.

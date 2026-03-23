@@ -2,7 +2,7 @@ import { BaseField } from './baseField';
 import { Knot } from '../core/knot';
 
 /**
- * @description Expandable search input field with clear button and enter key handling.
+ * Expandable search input field with clear button and enter key handling.
  *
  * @example
  * const searchField = new SearchField(inputKnot, labelKnot, errorKnot, inputBlockKnot);
@@ -17,7 +17,7 @@ export class SearchField extends BaseField<HTMLInputElement> {
     holderKnot!: Knot;
 
     /**
-     * @description Initializes keyup and change event listeners on the input.
+     * Initializes keyup and change event listeners on the input.
      */
     protected override _init(): void {
         this.input.addEventListener('keyup', (input, event) => {
@@ -37,7 +37,7 @@ export class SearchField extends BaseField<HTMLInputElement> {
     }
 
     /**
-     * @description Builds the expandable SUI search field layout with icon, holder, label, and clear button.
+     * Builds the expandable SUI search field layout with icon, holder, label, and clear button.
      * @override
      */
     override render(): void {
@@ -68,7 +68,7 @@ export class SearchField extends BaseField<HTMLInputElement> {
     }
 
     /**
-     * @description Marks the field as invalid when required and empty, then upgrades SUI components.
+     * Marks the field as invalid when required and empty, then upgrades SUI components.
      * @override
      */
     override refresh() {
@@ -76,7 +76,7 @@ export class SearchField extends BaseField<HTMLInputElement> {
     }
 
     /**
-     * @description Creates a clear button that resets the field value and triggers eventEnter.
+     * Creates a clear button that resets the field value and triggers eventEnter.
      */
     private _initClearButton(): void {
         const clearButton = new Knot('button');

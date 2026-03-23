@@ -2,7 +2,7 @@ import { BaseField } from './baseField';
 import { Knot } from '../core/knot';
 
 /**
- * @description Textarea field with optional rich text (contentEditable) editing and formatting toolbar.
+ * Textarea field with optional rich text (contentEditable) editing and formatting toolbar.
  * When the `data-rich-text` attribute is set on the input, a WYSIWYG editor with bold, italic,
  * underline, list, and HTML mode controls is rendered.
  *
@@ -21,7 +21,7 @@ export class TextareaField extends BaseField<HTMLInputElement> {
     htmlMode!: boolean;
 
     /**
-     * @description Initializes the field by adding CSS class and attaching keyup/change event listeners.
+     * Initializes the field by adding CSS class and attaching keyup/change event listeners.
      */
     protected override _init(): void {
         this.inputBlock.addClass('textarea-field');
@@ -43,7 +43,7 @@ export class TextareaField extends BaseField<HTMLInputElement> {
     }
 
     /**
-     * @description Applies SUI textarea classes and renders the rich text editor if configured.
+     * Applies SUI textarea classes and renders the rich text editor if configured.
      * @override
      */
     override render(): void {
@@ -59,7 +59,7 @@ export class TextareaField extends BaseField<HTMLInputElement> {
     }
 
     /**
-     * @description Creates the contentEditable rich text div, attaches keyboard and paste handlers, and renders toolbar buttons.
+     * Creates the contentEditable rich text div, attaches keyboard and paste handlers, and renders toolbar buttons.
      */
     private _renderRichText(): void {
         this.input.addClass('hidden');
@@ -113,7 +113,7 @@ export class TextareaField extends BaseField<HTMLInputElement> {
     }
 
     /**
-     * @description Checks whether the input has the data-rich-text attribute enabled.
+     * Checks whether the input has the data-rich-text attribute enabled.
      * @returns {boolean}
      */
     private _isRichText(): boolean {
@@ -121,7 +121,7 @@ export class TextareaField extends BaseField<HTMLInputElement> {
     }
 
     /**
-     * @description Renders all formatting toolbar buttons (undo, redo, bold, italic, underline, lists, clear, code).
+     * Renders all formatting toolbar buttons (undo, redo, bold, italic, underline, lists, clear, code).
      */
     private _renderToolbarButtons(): void {
         this.toolbarKnot = new Knot('div');
@@ -166,7 +166,7 @@ export class TextareaField extends BaseField<HTMLInputElement> {
     }
 
     /**
-     * @description Creates a single toolbar button with a material icon and click handler.
+     * Creates a single toolbar button with a material icon and click handler.
      * @param {string} iconName - The Material Icons icon name.
      * @param {() => void} action - The callback to execute on click.
      */
@@ -182,7 +182,7 @@ export class TextareaField extends BaseField<HTMLInputElement> {
     }
 
     /**
-     * @description Toggles between rich text editing and raw HTML editing modes.
+     * Toggles between rich text editing and raw HTML editing modes.
      * @param {boolean} value - True to enable HTML mode, false for rich text mode.
      */
     private _setHtmlMode(value: boolean): void {
@@ -191,7 +191,7 @@ export class TextareaField extends BaseField<HTMLInputElement> {
     }
 
     /**
-     * @description Returns whether the editor is currently in raw HTML editing mode.
+     * Returns whether the editor is currently in raw HTML editing mode.
      * @returns {boolean}
      */
     private _isHtmlMode(): boolean {
@@ -199,7 +199,7 @@ export class TextareaField extends BaseField<HTMLInputElement> {
     }
 
     /**
-     * @description Executes a document formatting command on the rich text content.
+     * Executes a document formatting command on the rich text content.
      * @param {string} sCmd - The execCommand command name (e.g., 'bold', 'italic').
      * @param {any} [opt_sValue] - Optional command argument.
      */
@@ -211,7 +211,7 @@ export class TextareaField extends BaseField<HTMLInputElement> {
     }
 
     /**
-     * @description Switches visibility between the rich text div and raw textarea.
+     * Switches visibility between the rich text div and raw textarea.
      * @param {boolean} _isHtmlMode - True to show the raw textarea, false to show the rich text editor.
      */
     private _setDocMode(_isHtmlMode: boolean): void {
@@ -226,7 +226,7 @@ export class TextareaField extends BaseField<HTMLInputElement> {
     }
 
     /**
-     * @description Marks the field as invalid when required and empty, disables contentEditable when disabled, and upgrades SUI components.
+     * Marks the field as invalid when required and empty, disables contentEditable when disabled, and upgrades SUI components.
      * @override
      */
     override refresh() {
@@ -243,7 +243,7 @@ export class TextareaField extends BaseField<HTMLInputElement> {
     }
 
     /**
-     * @description Sets the raw input value and triggers a change event without updating the rich text div.
+     * Sets the raw input value and triggers a change event without updating the rich text div.
      * @param {object | Array<unknown> | boolean | number | string | null | undefined} value - The value to set.
      */
     private _setValue(
@@ -262,7 +262,7 @@ export class TextareaField extends BaseField<HTMLInputElement> {
     }
 
     /**
-     * @description Sets the field value, updating both the rich text div innerHTML and the raw input.
+     * Sets the field value, updating both the rich text div innerHTML and the raw input.
      * @param {object | Array<unknown> | boolean | number | string | null | undefined} value - The value to set.
      * @override
      */
@@ -283,7 +283,7 @@ export class TextareaField extends BaseField<HTMLInputElement> {
     }
 
     /**
-     * @description Returns the raw textarea input value.
+     * Returns the raw textarea input value.
      * @returns {any} The current textarea value.
      * @override
      */

@@ -3,7 +3,7 @@ import { Knot } from '../core/knot';
 import { Emitter } from '../core/emitter';
 
 /**
- * @description Circular time selector that renders numbered circles arranged in a ring for hour or minute selection.
+ * Circular time selector that renders numbered circles arranged in a ring for hour or minute selection.
  * @example
  * const timeKnot = new Knot('div');
  * const time = new Time(timeKnot, { selected: 5 });
@@ -18,7 +18,7 @@ export class Time extends Emitter {
     pointerKnot!: Knot;
 
     /**
-     * @description Creates a new Time instance.
+     * Creates a new Time instance.
      * @param {Knot} knot - The container DOM element wrapper.
      * @param {object} options - Configuration options including `selected` (index) and optional `captions` array.
      * @example
@@ -32,7 +32,7 @@ export class Time extends Emitter {
     }
 
     /**
-     * @description Merges user options into an {@link Objekt} instance.
+     * Merges user options into an {@link Objekt} instance.
      * @param {object} options - Raw configuration options.
      */
     private _setOptions(options: object): void {
@@ -40,7 +40,7 @@ export class Time extends Emitter {
     }
 
     /**
-     * @description Initializes the circle sizing reference and the center pointer elements.
+     * Initializes the circle sizing reference and the center pointer elements.
      */
     private _init(): void {
         this._initCircleKnot();
@@ -48,7 +48,7 @@ export class Time extends Emitter {
     }
 
     /**
-     * @description Creates a temporary circle element to measure its computed dimensions for layout calculations.
+     * Creates a temporary circle element to measure its computed dimensions for layout calculations.
      */
     private _initCircleKnot(): void {
         const circleKnot = new Knot('div');
@@ -62,7 +62,7 @@ export class Time extends Emitter {
     }
 
     /**
-     * @description Computes the available width/height and radius values for circle positioning.
+     * Computes the available width/height and radius values for circle positioning.
      * @param {number} width - The measured width of a single circle element.
      * @param {number} height - The measured height of a single circle element.
      */
@@ -78,7 +78,7 @@ export class Time extends Emitter {
     }
 
     /**
-     * @description Creates the center point and rotating pointer elements for the clock face.
+     * Creates the center point and rotating pointer elements for the clock face.
      */
     private _initPointerKnot(): void {
         const centerPointKnot = new Knot('div');
@@ -91,7 +91,7 @@ export class Time extends Emitter {
     }
 
     /**
-     * @description Renders numbered circles arranged in a ring from start to n.
+     * Renders numbered circles arranged in a ring from start to n.
      * @param {number} start - The starting index value.
      * @param {number} n - The ending index value (inclusive).
      * @param {number} [opt_j=1] - The step interval for displaying captions.
@@ -110,7 +110,7 @@ export class Time extends Emitter {
     }
 
     /**
-     * @description Creates circle elements for each index value, positions them in a ring, and attaches click handlers.
+     * Creates circle elements for each index value, positions them in a ring, and attaches click handlers.
      * @param {number} start - The starting index value.
      * @param {number} n - The ending index value (inclusive).
      * @param {number} [opt_j=1] - The step interval for displaying captions.
@@ -142,7 +142,7 @@ export class Time extends Emitter {
     }
 
     /**
-     * @description Attaches the index data attribute and click event handler to a circle element.
+     * Attaches the index data attribute and click event handler to a circle element.
      * @param {Knot} circle - The circle knot element.
      * @param {number} i - The index value to associate with this circle.
      */
@@ -155,7 +155,7 @@ export class Time extends Emitter {
     }
 
     /**
-     * @description Positions a circle element using trigonometric calculations and applies selection/highlight styles.
+     * Positions a circle element using trigonometric calculations and applies selection/highlight styles.
      * @param {Knot} circle - The circle knot element to style.
      * @param {number} start - The starting index of the range.
      * @param {number} n - The ending index of the range.

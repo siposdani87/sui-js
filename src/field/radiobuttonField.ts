@@ -6,7 +6,7 @@ import type { Form } from '../component';
 import { sui } from '../utils/render';
 
 /**
- * @description Radio button group field with SUI styling. Manages a set of radio inputs sharing the same name,
+ * Radio button group field with SUI styling. Manages a set of radio inputs sharing the same name,
  * handling checked state, disabled state, and label rendering across all buttons in the group.
  *
  * @example
@@ -23,7 +23,7 @@ export class RadiobuttonField extends BaseField<HTMLInputElement> {
     spanLabel!: Knot;
 
     /**
-     * @description Creates a new RadiobuttonField instance.
+     * Creates a new RadiobuttonField instance.
      * @param {Knot<HTMLInputElement>} input - The radio input element.
      * @param {Knot} label - The label element.
      * @param {Knot} error - The error message element.
@@ -41,7 +41,7 @@ export class RadiobuttonField extends BaseField<HTMLInputElement> {
     }
 
     /**
-     * @description Initializes the field by adding CSS class and attaching the change event listener.
+     * Initializes the field by adding CSS class and attaching the change event listener.
      */
     protected override _init(): void {
         this.inputBlock.addClass('radiobutton-field');
@@ -56,7 +56,7 @@ export class RadiobuttonField extends BaseField<HTMLInputElement> {
     }
 
     /**
-     * @description Handles radio button selection by notifying the model and marking sibling inputs as other-checked.
+     * Handles radio button selection by notifying the model and marking sibling inputs as other-checked.
      */
     private _change(): void {
         const value = this.input.getAttribute('value');
@@ -76,7 +76,7 @@ export class RadiobuttonField extends BaseField<HTMLInputElement> {
     }
 
     /**
-     * @description Builds the SUI radio button layout with label, icon, and data-label elements.
+     * Builds the SUI radio button layout with label, icon, and data-label elements.
      * @override
      */
     override render(): void {
@@ -103,7 +103,7 @@ export class RadiobuttonField extends BaseField<HTMLInputElement> {
     }
 
     /**
-     * @description Updates the data-label text, manages the disabled state, and upgrades SUI components.
+     * Updates the data-label text, manages the disabled state, and upgrades SUI components.
      * @override
      */
     override refresh() {
@@ -123,7 +123,7 @@ export class RadiobuttonField extends BaseField<HTMLInputElement> {
     }
 
     /**
-     * @description Checks the radio button whose value attribute matches the given value and triggers a change event.
+     * Checks the radio button whose value attribute matches the given value and triggers a change event.
      * @param {object | Array<unknown> | boolean | number | string | null | undefined} value - The value to select.
      * @override
      */
@@ -144,7 +144,7 @@ export class RadiobuttonField extends BaseField<HTMLInputElement> {
     }
 
     /**
-     * @description Returns the value of the currently checked radio button in the group, or null if none is selected.
+     * Returns the value of the currently checked radio button in the group, or null if none is selected.
      * @returns {any} The type-cast value of the checked radio button.
      * @override
      */
@@ -161,7 +161,7 @@ export class RadiobuttonField extends BaseField<HTMLInputElement> {
     }
 
     /**
-     * @description Sets the disabled state on all radio buttons in the group and their parent elements.
+     * Sets the disabled state on all radio buttons in the group and their parent elements.
      * @param {boolean} state - True to disable, false to enable.
      * @override
      */
@@ -188,7 +188,7 @@ export class RadiobuttonField extends BaseField<HTMLInputElement> {
     }
 
     /**
-     * @description Returns true if any radio button in the group is disabled.
+     * Returns true if any radio button in the group is disabled.
      * @returns {boolean}
      * @override
      */
@@ -203,7 +203,7 @@ export class RadiobuttonField extends BaseField<HTMLInputElement> {
     }
 
     /**
-     * @description Queries the parent form for all radio inputs sharing the same name attribute.
+     * Queries the parent form for all radio inputs sharing the same name attribute.
      * @returns {Query<HTMLInputElement>}
      */
     private _getRadioButtonInputs(): Query<HTMLInputElement> {
@@ -215,7 +215,7 @@ export class RadiobuttonField extends BaseField<HTMLInputElement> {
     }
 
     /**
-     * @description Updates the span label text for this radio button option.
+     * Updates the span label text for this radio button option.
      * @param {string} text - The new label text.
      * @override
      */

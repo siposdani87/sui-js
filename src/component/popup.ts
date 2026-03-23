@@ -4,7 +4,7 @@ import { Emitter } from '../core/emitter';
 import { sui } from '../utils/render';
 
 /**
- * @description Toggleable popup overlay that attaches content to a parent element.
+ * Toggleable popup overlay that attaches content to a parent element.
  * Supports optional close button and integrates with the global {@link PopupContainer}
  * for lifecycle management.
  *
@@ -25,7 +25,7 @@ export class Popup extends Emitter {
     popupKnot!: Knot;
 
     /**
-     * @description Creates a new Popup with content attached to a parent element.
+     * Creates a new Popup with content attached to a parent element.
      * @param {Knot} content - The content to display inside the popup.
      * @param {Knot} parent - The parent element the popup is attached to.
      * @param {boolean} [opt_withClose] - Whether to show a close button.
@@ -43,7 +43,7 @@ export class Popup extends Emitter {
     }
 
     /**
-     * @description Initializes the popup container and draws the popup DOM.
+     * Initializes the popup container and draws the popup DOM.
      */
     private _init(): void {
         this.popupContainer = new PopupContainer();
@@ -51,7 +51,7 @@ export class Popup extends Emitter {
     }
 
     /**
-     * @description Creates the popup DOM structure and appends it to the parent element.
+     * Creates the popup DOM structure and appends it to the parent element.
      */
     private _draw(): void {
         this.popupKnot = new Knot('div');
@@ -66,7 +66,7 @@ export class Popup extends Emitter {
     }
 
     /**
-     * @description Adds a close button to the popup when withClose is enabled.
+     * Adds a close button to the popup when withClose is enabled.
      */
     private _initCloseButton(): void {
         if (this.withClose) {
@@ -88,7 +88,7 @@ export class Popup extends Emitter {
     }
 
     /**
-     * @description Opens the popup, closing all other popups first, and positions it within the container.
+     * Opens the popup, closing all other popups first, and positions it within the container.
      *
      * @example
      * popup.open();
@@ -101,7 +101,7 @@ export class Popup extends Emitter {
     }
 
     /**
-     * @description Closes the popup, removes it from the container, and fires the eventClose callback.
+     * Closes the popup, removes it from the container, and fires the eventClose callback.
      *
      * @example
      * popup.close();
@@ -114,7 +114,7 @@ export class Popup extends Emitter {
     }
 
     /**
-     * @description Toggles the popup between open and closed states.
+     * Toggles the popup between open and closed states.
      *
      * @example
      * button.addEventListener('click', () => popup.toggle());
@@ -128,7 +128,7 @@ export class Popup extends Emitter {
     }
 
     /**
-     * @description Checks whether the popup is currently open.
+     * Checks whether the popup is currently open.
      * @returns {boolean} True if the popup is visible.
      *
      * @example

@@ -5,7 +5,7 @@ import { BaseField } from './baseField';
 /**
  * Form reset button.
  *
- * @description Extends {@link BaseField} to render a button used for resetting
+ * Extends {@link BaseField} to render a button used for resetting
  * form fields to their default values.
  *
  * @example

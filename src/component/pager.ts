@@ -6,7 +6,7 @@ import { Emitter } from '../core/emitter';
 import { sui } from '../utils/render';
 
 /**
- * @description Internal page descriptor representing a single pager button.
+ * Internal page descriptor representing a single pager button.
  */
 type Page = {
     text: string;
@@ -14,7 +14,7 @@ type Page = {
 };
 
 /**
- * @description Pagination control that renders page numbers, previous/next navigation buttons,
+ * Pagination control that renders page numbers, previous/next navigation buttons,
  * and statistics (e.g. "1-10 / 100").
  *
  * @example
@@ -38,7 +38,7 @@ export class Pager extends Emitter {
     offset!: number;
 
     /**
-     * @description Creates a new Pager instance bound to pager and statistics elements within the given DOM.
+     * Creates a new Pager instance bound to pager and statistics elements within the given DOM.
      * @param {Knot} dom - The parent DOM element containing pager selectors.
      * @param {string[]} [opt_selectors] - CSS selectors for the pager and statistics elements.
      * @param {object} [opt_options] - Configuration options (row_count, pager_num).
@@ -56,7 +56,7 @@ export class Pager extends Emitter {
     }
 
     /**
-     * @description Merges user options with defaults (row_count, pager_num).
+     * Merges user options with defaults (row_count, pager_num).
      * @param {object} [opt_options] - Configuration overrides.
      */
     private _setOptions(opt_options: object | undefined = {}): void {
@@ -68,7 +68,7 @@ export class Pager extends Emitter {
     }
 
     /**
-     * @description Initializes count and sets the page to 1.
+     * Initializes count and sets the page to 1.
      */
     private _init(): void {
         this.count = this.options.row_count;
@@ -76,7 +76,7 @@ export class Pager extends Emitter {
     }
 
     /**
-     * @description Rebuilds the pager DOM: clears existing buttons, calculates page count, and renders navigation.
+     * Rebuilds the pager DOM: clears existing buttons, calculates page count, and renders navigation.
      */
     private _drawPager(): void {
         this.pager.removeChildren();
@@ -87,7 +87,7 @@ export class Pager extends Emitter {
     }
 
     /**
-     * @description Renders the "from-to / total" statistics text.
+     * Renders the "from-to / total" statistics text.
      */
     private _drawStatistics(): void {
         const page = this.page - 1;
@@ -104,7 +104,7 @@ export class Pager extends Emitter {
     }
 
     /**
-     * @description Renders the previous-page chevron button when there are multiple pages.
+     * Renders the previous-page chevron button when there are multiple pages.
      */
     private _drawPreviousButton(): void {
         if (this.pageNum > 1) {
@@ -123,7 +123,7 @@ export class Pager extends Emitter {
     }
 
     /**
-     * @description Renders the next-page chevron button when there are multiple pages.
+     * Renders the next-page chevron button when there are multiple pages.
      */
     private _drawNextButton(): void {
         if (this.pageNum > 1) {
@@ -142,7 +142,7 @@ export class Pager extends Emitter {
     }
 
     /**
-     * @description Renders numbered page buttons with ellipsis for overflow ranges.
+     * Renders numbered page buttons with ellipsis for overflow ranges.
      */
     private _drawPageNumbers(): void {
         const pagers = this._getPagers();
@@ -166,7 +166,7 @@ export class Pager extends Emitter {
     }
 
     /**
-     * @description Computes the visible page descriptors for the current page window.
+     * Computes the visible page descriptors for the current page window.
      * @returns {Page[]} Array of page descriptors with text and page number.
      */
     private _getPagers(): Page[] {
@@ -201,7 +201,7 @@ export class Pager extends Emitter {
     }
 
     /**
-     * @description Advances to the next page, wrapping to page 1 after the last page.
+     * Advances to the next page, wrapping to page 1 after the last page.
      */
     private _next(): void {
         let page = this.page + 1;
@@ -212,7 +212,7 @@ export class Pager extends Emitter {
     }
 
     /**
-     * @description Goes to the previous page, wrapping to the last page from page 1.
+     * Goes to the previous page, wrapping to the last page from page 1.
      */
     private _previous(): void {
         let page = this.page - 1;
@@ -223,7 +223,7 @@ export class Pager extends Emitter {
     }
 
     /**
-     * @description Sets the total number of items for pagination calculation.
+     * Sets the total number of items for pagination calculation.
      * @param {number} count - Total item count.
      *
      * @example
@@ -235,7 +235,7 @@ export class Pager extends Emitter {
     }
 
     /**
-     * @description Navigates to the given page and fires the eventAction callback.
+     * Navigates to the given page and fires the eventAction callback.
      * @param {number} page - Target page number.
      */
     private _go(page: number): void {
@@ -244,7 +244,7 @@ export class Pager extends Emitter {
     }
 
     /**
-     * @description Sets the current page number and recalculates the row offset.
+     * Sets the current page number and recalculates the row offset.
      * @param {number} page - The page number to set.
      *
      * @example
@@ -256,7 +256,7 @@ export class Pager extends Emitter {
     }
 
     /**
-     * @description Renders the pager statistics and page navigation buttons.
+     * Renders the pager statistics and page navigation buttons.
      *
      * @example
      * pager.setCount(totalItems);

@@ -2,7 +2,7 @@ import { BaseField } from './baseField';
 import { Knot } from '../core/knot';
 
 /**
- * @description URL input field with optional protocol prefix display (e.g., "https://").
+ * URL input field with optional protocol prefix display (e.g., "https://").
  *
  * @example
  * const urlField = new UrlField(inputKnot, labelKnot, errorKnot, inputBlockKnot);
@@ -16,7 +16,7 @@ export class UrlField extends BaseField<HTMLInputElement> {
     protocol!: string;
 
     /**
-     * @description Initializes the field by reading the protocol data attribute and attaching input event listeners.
+     * Initializes the field by reading the protocol data attribute and attaching input event listeners.
      */
     protected override _init(): void {
         this.inputBlock.addClass('url-field');
@@ -37,7 +37,7 @@ export class UrlField extends BaseField<HTMLInputElement> {
     }
 
     /**
-     * @description Applies SUI textfield classes and renders the protocol prefix span if configured.
+     * Applies SUI textfield classes and renders the protocol prefix span if configured.
      * @override
      */
     override render(): void {
@@ -54,7 +54,7 @@ export class UrlField extends BaseField<HTMLInputElement> {
     }
 
     /**
-     * @description Marks the field as invalid when required and empty, then upgrades SUI components.
+     * Marks the field as invalid when required and empty, then upgrades SUI components.
      * @override
      */
     override refresh() {

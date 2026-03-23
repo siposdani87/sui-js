@@ -3,7 +3,7 @@ import { BaseField } from './baseField';
 /**
  * Placeholder auto-complete field (stub implementation with no custom behavior).
  *
- * @description Extends {@link BaseField} as a stub for future auto-complete
+ * Extends {@link BaseField} as a stub for future auto-complete
  * functionality. Currently provides no additional rendering or behavior
  * beyond what {@link BaseField} offers.
  *

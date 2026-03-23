@@ -3,7 +3,7 @@ import { Objekt } from '../core/objekt';
 import { Query } from '../core/query';
 
 /**
- * @description Placeholder carousel component (stub). Reserved for future image/content
+ * Placeholder carousel component (stub). Reserved for future image/content
  * carousel implementation.
  *
  * @category Component
@@ -13,7 +13,7 @@ export class Carousel {
     options!: Objekt;
 
     /**
-     * @description Creates a new Carousel bound to a DOM container.
+     * Creates a new Carousel bound to a DOM container.
      * @param {Knot} dom - The parent DOM element.
      * @param {string} [opt_selector] - CSS selector for the carousel element.
      * @param {object} [opt_options] - Configuration options.
@@ -29,7 +29,7 @@ export class Carousel {
     }
 
     /**
-     * @description Merges user options with defaults.
+     * Merges user options with defaults.
      * @param {object} [opt_options] - Configuration overrides.
      */
     private _setOptions(opt_options: object | undefined = {}): void {
@@ -38,7 +38,7 @@ export class Carousel {
     }
 
     /**
-     * @description Placeholder initialization (no-op in stub).
+     * Placeholder initialization (no-op in stub).
      */
     private _init(): void {
         // this._initStructure();

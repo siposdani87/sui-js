@@ -1,7 +1,7 @@
 /**
  * Canvas-based text label overlay for Google Maps markers and positions.
  *
- * @description Renders text labels on a Google Maps instance using an HTML5 canvas element
+ * Renders text labels on a Google Maps instance using an HTML5 canvas element
  * as an overlay. Supports configurable font, color, stroke, alignment, and zoom-based visibility.
  * Labels can be bound to marker positions or placed at fixed geographic coordinates.
  *
@@ -101,7 +101,7 @@ export class MapLabel {
     /**
      * Handles property change notifications and triggers the appropriate redraw.
      *
-     * @description Redraws the canvas text for visual property changes (font, color, text)
+     * Redraws the canvas text for visual property changes (font, color, text)
      * and repositions the canvas for spatial property changes (position, zoom constraints).
      *
      * @param prop - The property name that changed.
@@ -169,7 +169,7 @@ export class MapLabel {
     /**
      * Creates the canvas element and appends it to the map overlay pane.
      *
-     * @description Called by the Google Maps API when the overlay is added to the map.
+     * Called by the Google Maps API when the overlay is added to the map.
      * Initializes the canvas with absolute positioning and draws the initial label text.
      *
      * @example
@@ -210,7 +210,7 @@ export class MapLabel {
     /**
      * Positions the canvas element on the map based on the label's geographic coordinates.
      *
-     * @description Called by the Google Maps API during map rendering. Converts the label's
+     * Called by the Google Maps API during map rendering. Converts the label's
      * LatLng position to pixel coordinates and applies visibility based on zoom constraints.
      *
      * @example
@@ -270,7 +270,7 @@ export class MapLabel {
     /**
      * Removes the canvas element from the DOM when the overlay is removed from the map.
      *
-     * @description Called by the Google Maps API when the overlay is removed.
+     * Called by the Google Maps API when the overlay is removed.
      *
      * @example
      * // Typically called automatically by the Maps API, not directly.

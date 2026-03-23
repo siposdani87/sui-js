@@ -6,7 +6,7 @@ import { generateId } from '../utils/coder';
 import type { Action } from '../utils';
 
 /**
- * @description Dropdown action menu that renders a "more" icon button with
+ * Dropdown action menu that renders a "more" icon button with
  * a list of context actions for a data item.
  *
  * @example
@@ -27,7 +27,7 @@ export class Dropdown {
     menuKnot!: Knot;
 
     /**
-     * @description Creates a new Dropdown attached to the given element.
+     * Creates a new Dropdown attached to the given element.
      * @param {Knot} element - The container element for the dropdown.
      * @param {object} [opt_options] - Configuration options (id).
      */
@@ -38,7 +38,7 @@ export class Dropdown {
     }
 
     /**
-     * @description Merges user options with defaults, generating a unique ID.
+     * Merges user options with defaults, generating a unique ID.
      * @param {object} [opt_options] - Configuration overrides.
      */
     private _setOptions(opt_options: object | undefined = {}): void {
@@ -49,7 +49,7 @@ export class Dropdown {
     }
 
     /**
-     * @description Initializes the collection, actions, and appends the button and menu DOM elements.
+     * Initializes the collection, actions, and appends the button and menu DOM elements.
      */
     private _init(): void {
         this.collection = new Collection();
@@ -60,7 +60,7 @@ export class Dropdown {
     }
 
     /**
-     * @description Creates and appends the icon button that triggers the dropdown menu.
+     * Creates and appends the icon button that triggers the dropdown menu.
      */
     private _appendButton(): void {
         this.buttonKnot = new Knot<HTMLButtonElement>('button');
@@ -78,7 +78,7 @@ export class Dropdown {
     }
 
     /**
-     * @description Creates and appends the menu list element.
+     * Creates and appends the menu list element.
      */
     private _appendMenu(): void {
         this.menuKnot = new Knot('ul');
@@ -90,7 +90,7 @@ export class Dropdown {
     }
 
     /**
-     * @description Populates the dropdown menu with actions for the given data item.
+     * Populates the dropdown menu with actions for the given data item.
      * @param {Array<Action>} actions - Array of action definitions with style and click callbacks.
      * @param {Objekt} item - The data item the actions apply to.
      *
@@ -107,7 +107,7 @@ export class Dropdown {
     }
 
     /**
-     * @description Binds click events to toggle menu visibility and close on outside click.
+     * Binds click events to toggle menu visibility and close on outside click.
      */
     private _bindMenuToggle(): void {
         this.buttonKnot.addEventListener('click', () => {
@@ -126,7 +126,7 @@ export class Dropdown {
     }
 
     /**
-     * @description Renders menu items from the actions array, applying style and disabled states.
+     * Renders menu items from the actions array, applying style and disabled states.
      */
     private _renderMenu(): void {
         eachArray(this.actions, (action) => {

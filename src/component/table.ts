@@ -22,7 +22,7 @@ import type { Action } from '../utils';
 import { sui } from '../utils/render';
 
 /**
- * @description Maps column names to calculation functions that produce cell content.
+ * Maps column names to calculation functions that produce cell content.
  * Each function receives the row item, its index, and the parent DOM node,
  * and returns one or more {@link Knot} elements or a plain string.
  *
@@ -39,7 +39,7 @@ export type TableCalculation<T = Objekt> = {
 };
 
 /**
- * @description Data table component with sorting, paging, search, row actions, and custom
+ * Data table component with sorting, paging, search, row actions, and custom
  * column calculations. Renders tabular data from a {@link Collection} with automatic
  * header/footer management.
  *
@@ -83,7 +83,7 @@ export class Table<T extends Objekt = Objekt> extends Emitter {
     pager!: Pager;
 
     /**
-     * @description Creates a new Table instance bound to the table element found within the given DOM node.
+     * Creates a new Table instance bound to the table element found within the given DOM node.
      *
      * @param {Knot} dom - The parent DOM node containing the table element.
      * @param {string} [opt_selector='table'] - CSS selector to locate the table element.
@@ -101,7 +101,7 @@ export class Table<T extends Objekt = Objekt> extends Emitter {
     }
 
     /**
-     * @description Merges user-provided options with table defaults.
+     * Merges user-provided options with table defaults.
      * @param {object} [opt_options={}] - User configuration options.
      */
     private _setOptions(opt_options: object | undefined = {}): void {
@@ -126,7 +126,7 @@ export class Table<T extends Objekt = Objekt> extends Emitter {
     }
 
     /**
-     * @description Initializes the table collection, content handler, header, search, and structure.
+     * Initializes the table collection, content handler, header, search, and structure.
      */
     private _init(): void {
         this.collection = new Collection();
@@ -142,7 +142,7 @@ export class Table<T extends Objekt = Objekt> extends Emitter {
     }
 
     /**
-     * @description Initializes the {@link ContentHandler} for displaying empty-state content.
+     * Initializes the {@link ContentHandler} for displaying empty-state content.
      */
     private _initContentHandler(): void {
         this.contentHandler = new ContentHandler(
@@ -152,7 +152,7 @@ export class Table<T extends Objekt = Objekt> extends Emitter {
     }
 
     /**
-     * @description Creates the search input in the last header column if the column is "search".
+     * Creates the search input in the last header column if the column is "search".
      */
     private _initSearch(): void {
         if (
@@ -200,7 +200,7 @@ export class Table<T extends Objekt = Objekt> extends Emitter {
     }
 
     /**
-     * @description Reads header text and renders sorting controls for each table column.
+     * Reads header text and renders sorting controls for each table column.
      */
     private _initHeader(): void {
         this.headerTexts = [];
@@ -213,7 +213,7 @@ export class Table<T extends Objekt = Objekt> extends Emitter {
     }
 
     /**
-     * @description Renders sorting icons and tooltip for a single header cell.
+     * Renders sorting icons and tooltip for a single header cell.
      * @param {Knot} headerKnot - The header cell element.
      * @param {number} columnIndex - The zero-based column index.
      */
@@ -266,7 +266,7 @@ export class Table<T extends Objekt = Objekt> extends Emitter {
     }
 
     /**
-     * @description Creates the table body, footer, pager statistics, and {@link Pager} component.
+     * Creates the table body, footer, pager statistics, and {@link Pager} component.
      */
     private _initStructure(): void {
         this.tbody = new Knot('tbody');
@@ -299,7 +299,7 @@ export class Table<T extends Objekt = Objekt> extends Emitter {
     }
 
     /**
-     * @description Refreshes the table data by emitting the 'action' event with the current
+     * Refreshes the table data by emitting the 'action' event with the current
      * query, sorting, and paging parameters.
      *
      * @param {number} [opt_page=-1] - The page number to navigate to. Pass -1 to keep the current page.
@@ -322,7 +322,7 @@ export class Table<T extends Objekt = Objekt> extends Emitter {
     }
 
     /**
-     * @description Toggles the sort direction for a column or switches to a new sort column.
+     * Toggles the sort direction for a column or switches to a new sort column.
      * @param {string} columnWithOrder - Column name with optional direction (e.g., "name:asc").
      */
     private _toggleSorting(columnWithOrder: string): void {
@@ -341,7 +341,7 @@ export class Table<T extends Objekt = Objekt> extends Emitter {
     }
 
     /**
-     * @description Activates the sorting icon for the currently sorted column header.
+     * Activates the sorting icon for the currently sorted column header.
      * @param {Knot} head - The header cell element.
      * @param {number} i - The zero-based column index.
      */
@@ -362,7 +362,7 @@ export class Table<T extends Objekt = Objekt> extends Emitter {
     }
 
     /**
-     * @description Resets all sorting indicators and re-applies the active sort state.
+     * Resets all sorting indicators and re-applies the active sort state.
      */
     private _updateSorting(): void {
         this._resetSorting();
@@ -373,7 +373,7 @@ export class Table<T extends Objekt = Objekt> extends Emitter {
     }
 
     /**
-     * @description Sets the sort column and order, then updates the UI and refreshes data.
+     * Sets the sort column and order, then updates the UI and refreshes data.
      * @param {string} column - The column name to sort by.
      * @param {string} [opt_order='asc'] - The sort direction ("asc" or "desc").
      */
@@ -387,7 +387,7 @@ export class Table<T extends Objekt = Objekt> extends Emitter {
     }
 
     /**
-     * @description Removes the "active" class from all sorting icons.
+     * Removes the "active" class from all sorting icons.
      */
     private _resetSorting(): void {
         const icons = new Query('thead th .icons em', this.tableKnot);
@@ -397,7 +397,7 @@ export class Table<T extends Objekt = Objekt> extends Emitter {
     }
 
     /**
-     * @description Returns the primary display column name, falling back to the first column.
+     * Returns the primary display column name, falling back to the first column.
      * @returns {string} The column name.
      */
     private _getColumn(): string {
@@ -405,7 +405,7 @@ export class Table<T extends Objekt = Objekt> extends Emitter {
     }
 
     /**
-     * @description Adds a collapsible header row for an item with the primary column and actions.
+     * Adds a collapsible header row for an item with the primary column and actions.
      * @param {T} item - The row data object.
      * @param {number} rowIndex - The zero-based row index within the current page.
      */
@@ -436,7 +436,7 @@ export class Table<T extends Objekt = Objekt> extends Emitter {
     }
 
     /**
-     * @description Computes CSS class names for a row using the configured rowStyle callback.
+     * Computes CSS class names for a row using the configured rowStyle callback.
      * @param {T} item - The row data object.
      * @param {number} rowIndex - The zero-based row index.
      * @returns {Array<string>} Array of CSS class names.
@@ -455,7 +455,7 @@ export class Table<T extends Objekt = Objekt> extends Emitter {
     }
 
     /**
-     * @description Adds a data row with cells for each configured column.
+     * Adds a data row with cells for each configured column.
      * @param {T} item - The row data object.
      * @param {number} rowIndex - The zero-based row index within the current page.
      */
@@ -478,7 +478,7 @@ export class Table<T extends Objekt = Objekt> extends Emitter {
     }
 
     /**
-     * @description Sets the row action definitions displayed in each row's actions column.
+     * Sets the row action definitions displayed in each row's actions column.
      *
      * @param {Array<Action>} actions - Array of action descriptors with style and click callbacks.
      *
@@ -493,7 +493,7 @@ export class Table<T extends Objekt = Objekt> extends Emitter {
     }
 
     /**
-     * @description Renders cell content using a calculation function or the raw item value.
+     * Renders cell content using a calculation function or the raw item value.
      * @param {T} item - The row data object.
      * @param {number} rowIndex - The zero-based row index.
      * @param {string} column - The column name.
@@ -535,7 +535,7 @@ export class Table<T extends Objekt = Objekt> extends Emitter {
     }
 
     /**
-     * @description Renders a table cell, dispatching to actions or data content as appropriate.
+     * Renders a table cell, dispatching to actions or data content as appropriate.
      * @param {Knot} tableDataKnot - The table cell element.
      * @param {T} item - The row data object.
      * @param {number} rowIndex - The zero-based row index.
@@ -563,7 +563,7 @@ export class Table<T extends Objekt = Objekt> extends Emitter {
     }
 
     /**
-     * @description Renders action buttons or a dropdown menu in the actions cell.
+     * Renders action buttons or a dropdown menu in the actions cell.
      * @param {Knot} tableDataKnot - The table cell element for actions.
      * @param {T} item - The row data object.
      */
@@ -580,7 +580,7 @@ export class Table<T extends Objekt = Objekt> extends Emitter {
     }
 
     /**
-     * @description Renders individual action buttons inline.
+     * Renders individual action buttons inline.
      * @param {Knot} containerKnot - The container element for action buttons.
      * @param {T} item - The row data object.
      */
@@ -591,7 +591,7 @@ export class Table<T extends Objekt = Objekt> extends Emitter {
     }
 
     /**
-     * @description Renders actions inside a {@link Dropdown} menu when there are more than 3 actions.
+     * Renders actions inside a {@link Dropdown} menu when there are more than 3 actions.
      * @param {Knot} dropDownKnot - The dropdown container element.
      * @param {T} item - The row data object.
      */
@@ -601,7 +601,7 @@ export class Table<T extends Objekt = Objekt> extends Emitter {
     }
 
     /**
-     * @description Creates a single action button with icon, tooltip, and click handler.
+     * Creates a single action button with icon, tooltip, and click handler.
      * @param {Knot} containerKnot - The container element for the button.
      * @param {{ style: Function; click: Function }} action - The action descriptor.
      * @param {T} item - The row data object.
@@ -640,7 +640,7 @@ export class Table<T extends Objekt = Objekt> extends Emitter {
     }
 
     /**
-     * @description Loads data items into the table and redraws the body. Shows the empty-state
+     * Loads data items into the table and redraws the body. Shows the empty-state
      * content handler if the collection is empty.
      *
      * @param {Array<any>} items - Array of row data objects to display.
@@ -660,7 +660,7 @@ export class Table<T extends Objekt = Objekt> extends Emitter {
     }
 
     /**
-     * @description Sets the total item count and redraws the pager controls.
+     * Sets the total item count and redraws the pager controls.
      *
      * @param {number} count - The total number of items across all pages.
      *
@@ -673,7 +673,7 @@ export class Table<T extends Objekt = Objekt> extends Emitter {
     }
 
     /**
-     * @description Returns the items for the current page, slicing the collection if needed.
+     * Returns the items for the current page, slicing the collection if needed.
      * @returns {Array<T>} The visible row items.
      */
     private _getItems(): Array<T> {
@@ -688,7 +688,7 @@ export class Table<T extends Objekt = Objekt> extends Emitter {
     }
 
     /**
-     * @description Clears the table body and redraws all visible rows with header and data rows.
+     * Clears the table body and redraws all visible rows with header and data rows.
      */
     private _draw(): void {
         this.tbody.removeChildren();
@@ -699,7 +699,7 @@ export class Table<T extends Objekt = Objekt> extends Emitter {
     }
 
     /**
-     * @description Renders the table by updating the sorting state and triggering a data refresh.
+     * Renders the table by updating the sorting state and triggering a data refresh.
      *
      * @example
      * table.render();

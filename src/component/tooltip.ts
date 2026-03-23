@@ -4,7 +4,7 @@ import { Query } from '../core/query';
 import { generateId } from '../utils/coder';
 
 /**
- * @description SUI tooltip with directional positioning (TOP, BOTTOM, LEFT, RIGHT).
+ * SUI tooltip with directional positioning (TOP, BOTTOM, LEFT, RIGHT).
  * Reads tooltip text from the element's title or desc attribute.
  * Handles show/hide on mouseenter/mouseleave with CSS positioning.
  *
@@ -24,7 +24,7 @@ export class Tooltip {
     private _position: string;
 
     /**
-     * @description Creates a new Tooltip for the given element with directional positioning.
+     * Creates a new Tooltip for the given element with directional positioning.
      * @param {Knot} element - The element to attach the tooltip to.
      * @param {string} [opt_position] - Tooltip direction: 'TOP', 'BOTTOM', 'LEFT', or 'RIGHT'.
      */
@@ -37,7 +37,7 @@ export class Tooltip {
     }
 
     /**
-     * @description Maps the position string to the corresponding SUI CSS class.
+     * Maps the position string to the corresponding SUI CSS class.
      * @param {string} [opt_position] - Direction string.
      */
     private _initPositions(opt_position: string | undefined = ''): void {
@@ -59,14 +59,14 @@ export class Tooltip {
     }
 
     /**
-     * @description Creates the tooltip DOM element.
+     * Creates the tooltip DOM element.
      */
     private _init(): void {
         this._createTooltip();
     }
 
     /**
-     * @description Resolves the tooltip message from the provided string or the element's desc/title attributes.
+     * Resolves the tooltip message from the provided string or the element's desc/title attributes.
      * @param {string} [opt_message] - Explicit message to use.
      * @returns {string} The resolved tooltip message.
      */
@@ -82,7 +82,7 @@ export class Tooltip {
     }
 
     /**
-     * @description Creates the tooltip span element, assigns an ID, and inserts it after the target element.
+     * Creates the tooltip span element, assigns an ID, and inserts it after the target element.
      */
     private _createTooltip(): void {
         let id = this.element.getId();
@@ -105,7 +105,7 @@ export class Tooltip {
     }
 
     /**
-     * @description Renders the tooltip with the given or auto-detected message, and binds hover events.
+     * Renders the tooltip with the given or auto-detected message, and binds hover events.
      * @param {string} [opt_message] - Optional explicit tooltip message.
      *
      * @example
@@ -118,7 +118,7 @@ export class Tooltip {
     }
 
     /**
-     * @description Removes desc/title attributes from the element and binds hover events for show/hide.
+     * Removes desc/title attributes from the element and binds hover events for show/hide.
      */
     private _handleAttributes(): void {
         if (this.valid) {
@@ -129,7 +129,7 @@ export class Tooltip {
     }
 
     /**
-     * @description Binds mouseenter/mouseleave events on the target element to show/hide the tooltip.
+     * Binds mouseenter/mouseleave events on the target element to show/hide the tooltip.
      */
     private _bindHoverEvents(): void {
         const el = this.element.getNode();
@@ -142,7 +142,7 @@ export class Tooltip {
     }
 
     /**
-     * @description Sets the tooltip message content. Hides the tooltip when message is empty.
+     * Sets the tooltip message content. Hides the tooltip when message is empty.
      * @param {string} [opt_message] - The message text to display.
      *
      * @example
@@ -161,7 +161,7 @@ export class Tooltip {
     }
 
     /**
-     * @description Calculates and applies the tooltip position relative to the target element.
+     * Calculates and applies the tooltip position relative to the target element.
      */
     private _updatePosition(): void {
         const elementRect = this.element.getNode().getBoundingClientRect();
@@ -202,7 +202,7 @@ export class Tooltip {
     }
 
     /**
-     * @description Programmatically opens the tooltip by adding the active CSS class.
+     * Programmatically opens the tooltip by adding the active CSS class.
      *
      * @example
      * tooltip.open();
@@ -213,7 +213,7 @@ export class Tooltip {
     }
 
     /**
-     * @description Programmatically closes the tooltip by removing the active CSS class.
+     * Programmatically closes the tooltip by removing the active CSS class.
      *
      * @example
      * tooltip.close();
@@ -223,7 +223,7 @@ export class Tooltip {
     }
 
     /**
-     * @description Checks whether the tooltip is currently visible.
+     * Checks whether the tooltip is currently visible.
      * @returns {boolean} True if the tooltip is active.
      *
      * @example
@@ -234,7 +234,7 @@ export class Tooltip {
     }
 
     /**
-     * @description Toggles the tooltip between open and closed states.
+     * Toggles the tooltip between open and closed states.
      *
      * @example
      * tooltip.toggle();

@@ -6,7 +6,7 @@ import { Emitter } from '../core/emitter';
 import type { Knot } from '../core';
 
 /**
- * @description Tab panel component that manages tab/panel activation with async change events.
+ * Tab panel component that manages tab/panel activation with async change events.
  * Tabs are linked to panels by href attributes, and switching triggers an overridable
  * eventChange callback through the {@link Async} serial pipeline.
  *
@@ -28,7 +28,7 @@ export class TabPanel extends Emitter {
     panels!: Query;
 
     /**
-     * @description Creates a new TabPanel bound to a DOM container.
+     * Creates a new TabPanel bound to a DOM container.
      * @param {Knot} dom - The parent DOM element.
      * @param {string} [opt_selector] - CSS selector for the tab panel container.
      * @param {string} [opt_selectedTab] - ID of the initially selected tab.
@@ -50,7 +50,7 @@ export class TabPanel extends Emitter {
     }
 
     /**
-     * @description Initializes tabs and panels, then activates the selected tab.
+     * Initializes tabs and panels, then activates the selected tab.
      */
     private _init(): void {
         this._initTabs();
@@ -61,7 +61,7 @@ export class TabPanel extends Emitter {
     }
 
     /**
-     * @description Queries tab anchor elements, wires click handlers, and hides single tabs.
+     * Queries tab anchor elements, wires click handlers, and hides single tabs.
      */
     private _initTabs(): void {
         const tabsContainer = new Query('.tabs', this.tabPanel).getKnot();
@@ -85,7 +85,7 @@ export class TabPanel extends Emitter {
     }
 
     /**
-     * @description Queries panel elements within the tab panel container.
+     * Queries panel elements within the tab panel container.
      */
     private _initPanels(): void {
         this.panels = new Query('.panel', this.tabPanel);
@@ -95,7 +95,7 @@ export class TabPanel extends Emitter {
     }
 
     /**
-     * @description Activates the matching panel and tab, deactivating all others.
+     * Activates the matching panel and tab, deactivating all others.
      * @param {string} panelId - The panel ID or class name to activate.
      */
     private _setActive(panelId: string): void {
@@ -122,7 +122,7 @@ export class TabPanel extends Emitter {
     }
 
     /**
-     * @description Activates a tab/panel by ID and fires the eventChange callback asynchronously.
+     * Activates a tab/panel by ID and fires the eventChange callback asynchronously.
      * @param {string} panelId - The panel ID to activate.
      * @returns {Promize} A promise that resolves after the change event completes.
      *
@@ -148,7 +148,7 @@ export class TabPanel extends Emitter {
     }
 
     /**
-     * @description Returns the ID of the currently active tab/panel.
+     * Returns the ID of the currently active tab/panel.
      * @returns {string} The active panel ID.
      *
      * @example

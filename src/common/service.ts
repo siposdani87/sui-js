@@ -1,7 +1,7 @@
 /**
  * Base service class with an `enter()` lifecycle hook.
  *
- * @description Services provide shared business logic and are managed by
+ * Services provide shared business logic and are managed by
  * the {@link Application} dependency injection container. Override `enter()`
  * to initialize the service when it is first activated.
  *

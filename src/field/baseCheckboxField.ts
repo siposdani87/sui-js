@@ -5,7 +5,7 @@ import type { Knot } from '../core/knot';
 import { sui } from '../utils/render';
 
 /**
- * @description Base class for checkbox-like fields (checkbox, switch, icon toggle).
+ * Base class for checkbox-like fields (checkbox, switch, icon toggle).
  * Extends {@link BaseField} with checked state handling and hidden input support.
  * @category Field
  * @example
@@ -22,7 +22,7 @@ export class BaseCheckboxField extends BaseField<HTMLInputElement> {
     dataLabelKnot!: Knot;
 
     /**
-     * @description Initializes the checkbox field by locating the hidden input and binding the change event.
+     * Initializes the checkbox field by locating the hidden input and binding the change event.
      */
     protected override _init(): void {
         this.hiddenInput = new Query(
@@ -38,7 +38,7 @@ export class BaseCheckboxField extends BaseField<HTMLInputElement> {
     }
 
     /**
-     * @description Handles the change event by reading the current value and notifying the model.
+     * Handles the change event by reading the current value and notifying the model.
      */
     protected _change(): void {
         const value = this.getValue();
@@ -46,7 +46,7 @@ export class BaseCheckboxField extends BaseField<HTMLInputElement> {
     }
 
     /**
-     * @description Returns the field's value based on the checked state. Returns the input value if checked, or the hidden input value if unchecked.
+     * Returns the field's value based on the checked state. Returns the input value if checked, or the hidden input value if unchecked.
      * @returns {*} The type-cast value of the checked or hidden input.
      */
     // eslint-disable-next-line @typescript-eslint/no-explicit-any
@@ -60,7 +60,7 @@ export class BaseCheckboxField extends BaseField<HTMLInputElement> {
     }
 
     /**
-     * @description Sets the field's checked state by comparing the value against the input's value attribute.
+     * Sets the field's checked state by comparing the value against the input's value attribute.
      * @param {object | Array<unknown> | boolean | number | string | null | undefined} value - The value to set.
      */
     override setValue(
@@ -82,7 +82,7 @@ export class BaseCheckboxField extends BaseField<HTMLInputElement> {
     }
 
     /**
-     * @description Sets the disabled state, updating both the input and the label/input block styling.
+     * Sets the disabled state, updating both the input and the label/input block styling.
      * @param {boolean} state - True to disable the field, false to enable it.
      */
     override setDisabled(state: boolean): void {
@@ -100,7 +100,7 @@ export class BaseCheckboxField extends BaseField<HTMLInputElement> {
     }
 
     /**
-     * @description Sets the label text on the span label element instead of the main label.
+     * Sets the label text on the span label element instead of the main label.
      * @param {string} text - The new label text.
      */
     override setLabel(text: string): void {
@@ -111,7 +111,7 @@ export class BaseCheckboxField extends BaseField<HTMLInputElement> {
     }
 
     /**
-     * @description Refreshes the field's visual state by updating the data label text and SUI styling.
+     * Refreshes the field's visual state by updating the data label text and SUI styling.
      */
     override refresh() {
         const dataLabelText = this.label.getAttribute('data-label');

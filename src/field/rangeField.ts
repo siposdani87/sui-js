@@ -2,7 +2,7 @@ import { BaseField } from './baseField';
 import { Tooltip } from '../component/tooltip';
 
 /**
- * @description Range slider input field with a tooltip displaying the current value.
+ * Range slider input field with a tooltip displaying the current value.
  *
  * @example
  * const rangeField = new RangeField(inputKnot, labelKnot, errorKnot, inputBlockKnot);
@@ -17,7 +17,7 @@ export class RangeField extends BaseField<HTMLInputElement> {
     tooltip!: Tooltip;
 
     /**
-     * @description Initializes the field by adding CSS class and attaching the input event listener that updates the tooltip.
+     * Initializes the field by adding CSS class and attaching the input event listener that updates the tooltip.
      */
     protected override _init(): void {
         this.inputBlock.addClass('range-field');
@@ -31,7 +31,7 @@ export class RangeField extends BaseField<HTMLInputElement> {
     }
 
     /**
-     * @description Applies SUI slider classes to the input block and input element, then refreshes.
+     * Applies SUI slider classes to the input block and input element, then refreshes.
      * @override
      */
     override render(): void {
@@ -43,7 +43,7 @@ export class RangeField extends BaseField<HTMLInputElement> {
     }
 
     /**
-     * @description Validates the field, manages the disabled state, and renders the value tooltip.
+     * Validates the field, manages the disabled state, and renders the value tooltip.
      * @override
      */
     override refresh() {
@@ -63,7 +63,7 @@ export class RangeField extends BaseField<HTMLInputElement> {
     }
 
     /**
-     * @description Sets the slider value natively and updates the tooltip display.
+     * Sets the slider value natively and updates the tooltip display.
      * @param {object | Array<unknown> | boolean | number | string | null | undefined} value - The value to set.
      * @override
      */

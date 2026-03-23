@@ -8,7 +8,7 @@ import type { Http } from '../module';
 /**
  * Navigation link manager supporting icons, images, counters, and text links.
  *
- * @description Builds and manages a collection of navigation items that can include
+ * Builds and manages a collection of navigation items that can include
  * Material Design icons, SVG/bitmap images, numeric counters, or plain text labels.
  * Each item supports click actions, enable/disable states, active highlighting,
  * and show/hide visibility control.
@@ -62,7 +62,7 @@ export class Navigation {
     /**
      * Adds a navigation item, automatically selecting the appropriate type (image, icon, counter, or text).
      *
-     * @description Inspects the item's properties to determine the rendering type:
+     * Inspects the item's properties to determine the rendering type:
      * image if 'image' is set, icon if 'icon' is set, counter if 'counter' is set,
      * otherwise falls back to plain text. Disables the item if the 'disabled' property is true.
      *
@@ -385,7 +385,7 @@ export class Navigation {
     /**
      * Sets the active state on matching navigation items by ID.
      *
-     * @description Marks items as active if their ID matches exactly, or if the item ID
+     * Marks items as active if their ID matches exactly, or if the item ID
      * ends with '.' and the given ID starts with that prefix (wildcard matching).
      *
      * @param id - The item identifier (or prefix) to activate.

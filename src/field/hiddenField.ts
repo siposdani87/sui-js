@@ -4,7 +4,7 @@ import { BaseField } from './baseField';
 /**
  * Hidden form input field with no visible rendering.
  *
- * @description Extends {@link BaseField} to provide a hidden input that participates
+ * Extends {@link BaseField} to provide a hidden input that participates
  * in form data without rendering any visible UI. Changes to the hidden input
  * value are propagated through the model change mechanism.
  *

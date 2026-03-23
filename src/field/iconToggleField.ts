@@ -5,7 +5,7 @@ import { BaseCheckboxField } from './baseCheckboxField';
 /**
  * Icon-based toggle field with checked and unchecked icon states.
  *
- * @description Extends {@link BaseCheckboxField} to render a SUI
+ * Extends {@link BaseCheckboxField} to render a SUI
  * icon toggle that switches between two Material Icons based on the checked state.
  * The checked and unchecked icons are read from `data-checked` and `data-unchecked`
  * attributes on the input element.
@@ -19,11 +19,11 @@ import { BaseCheckboxField } from './baseCheckboxField';
  * @category Field
  */
 export class IconToggleField extends BaseCheckboxField {
-    /** @description The Material Icon name shown when the toggle is checked. */
+    /** The Material Icon name shown when the toggle is checked. */
     checkedIcon!: string;
-    /** @description The Material Icon name shown when the toggle is unchecked. */
+    /** The Material Icon name shown when the toggle is unchecked. */
     uncheckedIcon!: string;
-    /** @description The icon element rendered inside the toggle label. */
+    /** The icon element rendered inside the toggle label. */
     icon!: Knot;
 
     /**

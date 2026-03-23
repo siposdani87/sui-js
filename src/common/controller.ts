@@ -1,7 +1,7 @@
 /**
  * Base controller class with `enter()` and `exit()` lifecycle hooks.
  *
- * @description Controllers manage page-level logic and are instantiated by
+ * Controllers manage page-level logic and are instantiated by
  * the {@link Application} router. Override `enter()` to set up the page
  * and `exit()` to tear down resources when navigating away.
  *

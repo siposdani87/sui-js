@@ -4,7 +4,7 @@ import { BaseCheckboxField } from './baseCheckboxField';
 /**
  * SUI switch toggle field.
  *
- * @description Extends {@link BaseCheckboxField} to render a SUI
+ * Extends {@link BaseCheckboxField} to render a SUI
  * switch toggle with a span label and data label element.
  *
  * @example

@@ -3,7 +3,7 @@ import { BaseField } from './baseField';
 import { Knot } from '../core/knot';
 
 /**
- * @description Numeric input field with step up/down buttons and min/max value constraints.
+ * Numeric input field with step up/down buttons and min/max value constraints.
  *
  * @example
  * const numberField = new NumberField(inputKnot, labelKnot, errorKnot, inputBlockKnot);
@@ -15,7 +15,7 @@ import { Knot } from '../core/knot';
  */
 export class NumberField extends BaseField<HTMLInputElement> {
     /**
-     * @description Initializes the field by adding CSS class, step buttons, and input event listeners.
+     * Initializes the field by adding CSS class, step buttons, and input event listeners.
      */
     protected override _init(): void {
         this.inputBlock.addClass('number-field');
@@ -38,7 +38,7 @@ export class NumberField extends BaseField<HTMLInputElement> {
     }
 
     /**
-     * @description Creates step up and step down buttons in the action container.
+     * Creates step up and step down buttons in the action container.
      */
     private _initButtons(): void {
         const actionKnot = new Knot('span');
@@ -73,7 +73,7 @@ export class NumberField extends BaseField<HTMLInputElement> {
     }
 
     /**
-     * @description Clamps the current value within the min/max bounds.
+     * Clamps the current value within the min/max bounds.
      */
     private _checkValue(): void {
         const value = this.getValue();
@@ -88,7 +88,7 @@ export class NumberField extends BaseField<HTMLInputElement> {
     }
 
     /**
-     * @description Returns the max attribute value or the default maximum (9999999999).
+     * Returns the max attribute value or the default maximum (9999999999).
      * @returns {number}
      */
     private _getMax(): number {
@@ -97,7 +97,7 @@ export class NumberField extends BaseField<HTMLInputElement> {
     }
 
     /**
-     * @description Returns the min attribute value or the default minimum (0).
+     * Returns the min attribute value or the default minimum (0).
      * @returns {number}
      */
     private _getMin(): number {
@@ -106,7 +106,7 @@ export class NumberField extends BaseField<HTMLInputElement> {
     }
 
     /**
-     * @description Returns the step attribute value or the default step (1).
+     * Returns the step attribute value or the default step (1).
      * @returns {number}
      */
     private _getStep(): number {
@@ -115,7 +115,7 @@ export class NumberField extends BaseField<HTMLInputElement> {
     }
 
     /**
-     * @description Applies SUI textfield classes to the input block, input, and label, then refreshes.
+     * Applies SUI textfield classes to the input block, input, and label, then refreshes.
      * @override
      */
     override render(): void {
@@ -124,7 +124,7 @@ export class NumberField extends BaseField<HTMLInputElement> {
     }
 
     /**
-     * @description Marks the field as invalid when required and empty, then upgrades SUI components.
+     * Marks the field as invalid when required and empty, then upgrades SUI components.
      * @override
      */
     override refresh() {

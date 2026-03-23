@@ -25,7 +25,7 @@ import type { Knot } from '../core/knot';
 import type { Form } from './form';
 
 /**
- * @description Factory function that detects an input element's type and creates the
+ * Factory function that detects an input element's type and creates the
  * appropriate {@link BaseField} subclass instance. Supports all standard HTML input types
  * plus custom data-type attributes for location, switch, and icon-toggle fields.
  *
@@ -52,7 +52,7 @@ export const FormField = function (
 };
 
 /**
- * @description Extracts the input, label, and error elements from a form input block.
+ * Extracts the input, label, and error elements from a form input block.
  * Handles both raw input elements and wrapper div structures, creating error spans as needed.
  *
  * @param {Knot} inputBlock - The input block DOM element to parse.
@@ -113,7 +113,7 @@ export const parseInputBlock = (
 };
 
 /**
- * @description Converts a parsed input element into the appropriate field class based on tag name and input type.
+ * Converts a parsed input element into the appropriate field class based on tag name and input type.
  * @param {Knot} input - The input element.
  * @param {Knot | undefined} label - The associated label element.
  * @param {Knot | undefined} error - The associated error span element.

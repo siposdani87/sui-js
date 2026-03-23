@@ -6,7 +6,7 @@ import { Query } from '../core/query';
 /**
  * HTML5 Canvas wrapper for 2D drawing operations.
  *
- * @description Wraps an HTML5 canvas element providing methods for drawing polygons,
+ * Wraps an HTML5 canvas element providing methods for drawing polygons,
  * rectangles, and images, as well as reading pixel data. Accepts a {@link Knot}, a CSS
  * selector string, or creates a new canvas element when no argument is provided.
  *

@@ -8,7 +8,7 @@ import { Emitter } from '../core/emitter';
 import type { Form } from '../component';
 
 /**
- * @description Abstract base class for all form fields. Handles validation, labeling,
+ * Abstract base class for all form fields. Handles validation, labeling,
  * visibility, enable/disable state, and error display.
  * @category Field
  * @example
@@ -38,7 +38,7 @@ export class BaseField<T extends HTMLInputElement> extends Emitter {
     disabled!: boolean;
 
     /**
-     * @description Creates a new BaseField instance with the given input, label, error, and input block knots.
+     * Creates a new BaseField instance with the given input, label, error, and input block knots.
      * @param {Knot<T>} input - The input element wrapped in a Knot.
      * @param {Knot} [opt_label] - The label element wrapped in a Knot.
      * @param {Knot} [opt_error] - The error element wrapped in a Knot.
@@ -77,7 +77,7 @@ export class BaseField<T extends HTMLInputElement> extends Emitter {
     }
 
     /**
-     * @description Initialization hook called at the end of the BaseField constructor.
+     * Initialization hook called at the end of the BaseField constructor.
      * Override in subclasses to perform field-specific setup without repeating constructor boilerplate.
      */
     protected _init(): void {
@@ -85,7 +85,7 @@ export class BaseField<T extends HTMLInputElement> extends Emitter {
     }
 
     /**
-     * @description Renders the field's DOM structure and applies SUI styling. Override in subclasses to provide specific rendering.
+     * Renders the field's DOM structure and applies SUI styling. Override in subclasses to provide specific rendering.
      * @example
      * field.render();
      */
@@ -94,7 +94,7 @@ export class BaseField<T extends HTMLInputElement> extends Emitter {
     }
 
     /**
-     * @description Refreshes the field's visual state. Override in subclasses to update styling or re-apply SUI upgrades.
+     * Refreshes the field's visual state. Override in subclasses to update styling or re-apply SUI upgrades.
      * @example
      * field.refresh();
      */
@@ -103,7 +103,7 @@ export class BaseField<T extends HTMLInputElement> extends Emitter {
     }
 
     /**
-     * @description Called when the model value changes. Override to synchronize the field with an external data model.
+     * Called when the model value changes. Override to synchronize the field with an external data model.
      * @param {*} value - The new model value.
      * @example
      * field.modelChange = (value) => {
@@ -116,7 +116,7 @@ export class BaseField<T extends HTMLInputElement> extends Emitter {
     }
 
     /**
-     * @description Returns the previous value of the field before the last change. Override in subclasses to track value history.
+     * Returns the previous value of the field before the last change. Override in subclasses to track value history.
      * @returns {*} The previous field value, or undefined by default.
      * @example
      * const prev = field.getPreviousValue();
@@ -128,7 +128,7 @@ export class BaseField<T extends HTMLInputElement> extends Emitter {
     }
 
     /**
-     * @description Returns the field's name derived from the input's name attribute, converted to dot notation.
+     * Returns the field's name derived from the input's name attribute, converted to dot notation.
      * @returns {string} The field name in dot notation (e.g., 'user.address.city').
      * @example
      * // For input with name="user[address][city]"
@@ -140,7 +140,7 @@ export class BaseField<T extends HTMLInputElement> extends Emitter {
     }
 
     /**
-     * @description Returns the current value of the field, type-cast from the input's string value.
+     * Returns the current value of the field, type-cast from the input's string value.
      * @returns {*} The type-cast field value.
      * @example
      * const value = field.getValue();
@@ -152,7 +152,7 @@ export class BaseField<T extends HTMLInputElement> extends Emitter {
     }
 
     /**
-     * @description Converts an HTML input name attribute to dot notation by replacing brackets.
+     * Converts an HTML input name attribute to dot notation by replacing brackets.
      * @param {string} inputName - The raw input name attribute value.
      * @returns {string} The name converted to dot notation.
      */
@@ -167,7 +167,7 @@ export class BaseField<T extends HTMLInputElement> extends Emitter {
     }
 
     /**
-     * @description Sets or clears the validation error message on the field.
+     * Sets or clears the validation error message on the field.
      * @param {string} [opt_message=''] - The error message to display, or empty string to clear.
      * @param {boolean} [opt_isCustomError=false] - Whether this is a custom (server-side) error.
      * @example
@@ -188,7 +188,7 @@ export class BaseField<T extends HTMLInputElement> extends Emitter {
     }
 
     /**
-     * @description Checks the field's validity and optionally displays the validation message.
+     * Checks the field's validity and optionally displays the validation message.
      * @param {boolean} [opt_force=false] - Whether to force visual validity updates on the input block.
      * @param {boolean} [opt_showMessage=true] - Whether to display the validation error message.
      * @example
@@ -223,7 +223,7 @@ export class BaseField<T extends HTMLInputElement> extends Emitter {
     }
 
     /**
-     * @description Checks whether the input element's native validity state is valid.
+     * Checks whether the input element's native validity state is valid.
      * @returns {boolean} True if the input's validity.valid property is true.
      * @example
      * if (field.isValidityValid()) {
@@ -237,7 +237,7 @@ export class BaseField<T extends HTMLInputElement> extends Emitter {
     }
 
     /**
-     * @description Checks whether the field is valid. By default delegates to {@link isValidityValid}. Override for custom validation logic.
+     * Checks whether the field is valid. By default delegates to {@link isValidityValid}. Override for custom validation logic.
      * @returns {boolean} True if the field is valid.
      * @example
      * if (field.isValid()) {
@@ -249,7 +249,7 @@ export class BaseField<T extends HTMLInputElement> extends Emitter {
     }
 
     /**
-     * @description Returns the upgraded input block knot for SUI styling operations.
+     * Returns the upgraded input block knot for SUI styling operations.
      * @returns {Knot} The input block knot.
      */
     private _getUpgradedKnot(): Knot {
@@ -257,7 +257,7 @@ export class BaseField<T extends HTMLInputElement> extends Emitter {
     }
 
     /**
-     * @description Sets the field's value on the underlying input element and triggers a change event.
+     * Sets the field's value on the underlying input element and triggers a change event.
      * @param {*} [value] - The value to set.
      * @example
      * field.setValue('new value');
@@ -270,7 +270,7 @@ export class BaseField<T extends HTMLInputElement> extends Emitter {
     }
 
     /**
-     * @description Checks whether the field exists in the DOM (either the input block or the input itself).
+     * Checks whether the field exists in the DOM (either the input block or the input itself).
      * @returns {boolean} True if the field exists.
      * @example
      * if (field.exists()) {
@@ -282,7 +282,7 @@ export class BaseField<T extends HTMLInputElement> extends Emitter {
     }
 
     /**
-     * @description Checks whether the input element exists in the DOM.
+     * Checks whether the input element exists in the DOM.
      * @returns {boolean} True if the input element exists.
      * @example
      * if (field.existsInput()) {
@@ -294,7 +294,7 @@ export class BaseField<T extends HTMLInputElement> extends Emitter {
     }
 
     /**
-     * @description Checks whether the input block container exists in the DOM.
+     * Checks whether the input block container exists in the DOM.
      * @returns {boolean} True if the input block exists.
      * @example
      * if (field.existsInputBlock()) {
@@ -306,7 +306,7 @@ export class BaseField<T extends HTMLInputElement> extends Emitter {
     }
 
     /**
-     * @description Gets an attribute value from the underlying input element.
+     * Gets an attribute value from the underlying input element.
      * @param {string} attribute - The attribute name to retrieve.
      * @returns {*} The attribute value.
      * @example
@@ -318,7 +318,7 @@ export class BaseField<T extends HTMLInputElement> extends Emitter {
     }
 
     /**
-     * @description Checks whether the field is required.
+     * Checks whether the field is required.
      * @returns {boolean} True if the field is required.
      * @example
      * if (field.isRequired()) {
@@ -330,7 +330,7 @@ export class BaseField<T extends HTMLInputElement> extends Emitter {
     }
 
     /**
-     * @description Sets the required state of the field, updates validation, and refreshes the label.
+     * Sets the required state of the field, updates validation, and refreshes the label.
      * @param {boolean} state - True to make the field required, false to make it optional.
      * @example
      * field.setRequired(true);
@@ -347,7 +347,7 @@ export class BaseField<T extends HTMLInputElement> extends Emitter {
     }
 
     /**
-     * @description Checks whether the field is enabled.
+     * Checks whether the field is enabled.
      * @returns {boolean} True if the field is enabled (not disabled).
      * @example
      * if (field.isEnabled()) {
@@ -359,7 +359,7 @@ export class BaseField<T extends HTMLInputElement> extends Emitter {
     }
 
     /**
-     * @description Checks whether the field is disabled.
+     * Checks whether the field is disabled.
      * @returns {boolean} True if the field is disabled.
      * @example
      * if (field.isDisabled()) {
@@ -371,7 +371,7 @@ export class BaseField<T extends HTMLInputElement> extends Emitter {
     }
 
     /**
-     * @description Sets the disabled state of the field and updates validation.
+     * Sets the disabled state of the field and updates validation.
      * @param {boolean} state - True to disable the field, false to enable it.
      * @example
      * field.setDisabled(true);
@@ -394,7 +394,7 @@ export class BaseField<T extends HTMLInputElement> extends Emitter {
     }
 
     /**
-     * @description Checks whether the field is visible (not hidden).
+     * Checks whether the field is visible (not hidden).
      * @returns {boolean} True if the field is visible.
      * @example
      * if (field.isVisible()) {
@@ -406,7 +406,7 @@ export class BaseField<T extends HTMLInputElement> extends Emitter {
     }
 
     /**
-     * @description Sets the visibility of the field.
+     * Sets the visibility of the field.
      * @param {boolean} state - True to show the field, false to hide it.
      * @example
      * field.setVisibility(false); // hides the field
@@ -420,7 +420,7 @@ export class BaseField<T extends HTMLInputElement> extends Emitter {
     }
 
     /**
-     * @description Shows the field if it is currently hidden.
+     * Shows the field if it is currently hidden.
      * @example
      * field.show();
      */
@@ -431,7 +431,7 @@ export class BaseField<T extends HTMLInputElement> extends Emitter {
     }
 
     /**
-     * @description Hides the field if it is currently visible.
+     * Hides the field if it is currently visible.
      * @example
      * field.hide();
      */
@@ -442,7 +442,7 @@ export class BaseField<T extends HTMLInputElement> extends Emitter {
     }
 
     /**
-     * @description Sets the label text and updates the additional label (required indicator, info tooltip).
+     * Sets the label text and updates the additional label (required indicator, info tooltip).
      * @param {string} text - The new label text.
      * @example
      * field.setLabel('Email Address');
@@ -455,7 +455,7 @@ export class BaseField<T extends HTMLInputElement> extends Emitter {
     }
 
     /**
-     * @description Initializes the info container knot within the input block.
+     * Initializes the info container knot within the input block.
      */
     private _setInfoContainer(): void {
         if (this.inputBlock && !this.inputBlock.isEmpty()) {
@@ -472,7 +472,7 @@ export class BaseField<T extends HTMLInputElement> extends Emitter {
     }
 
     /**
-     * @description Initializes the action container knot within the input block.
+     * Initializes the action container knot within the input block.
      */
     private _setActionContainer(): void {
         if (this.inputBlock && !this.inputBlock.isEmpty()) {
@@ -489,7 +489,7 @@ export class BaseField<T extends HTMLInputElement> extends Emitter {
     }
 
     /**
-     * @description Creates an info button with a tooltip from the label's title and desc attributes.
+     * Creates an info button with a tooltip from the label's title and desc attributes.
      * @param {Knot} label - The label knot containing title and desc attributes.
      */
     private _setInfo(label: Knot): void {
@@ -520,7 +520,7 @@ export class BaseField<T extends HTMLInputElement> extends Emitter {
     }
 
     /**
-     * @description Updates the label text with a required indicator and sets up the info tooltip.
+     * Updates the label text with a required indicator and sets up the info tooltip.
      * @param {Knot | undefined} label - The label knot to update.
      */
     protected _setAdditionalLabel(label: Knot | undefined): void {
@@ -534,7 +534,7 @@ export class BaseField<T extends HTMLInputElement> extends Emitter {
     }
 
     /**
-     * @description Capitalizes the first character of the given text.
+     * Capitalizes the first character of the given text.
      * @param {string} text - The input text.
      * @returns {string} The text with the first character uppercased.
      */
@@ -544,7 +544,7 @@ export class BaseField<T extends HTMLInputElement> extends Emitter {
     }
 
     /**
-     * @description Appends or removes the required asterisk (*) postfix from the label text.
+     * Appends or removes the required asterisk (*) postfix from the label text.
      * @param {string} labelText - The current label text.
      * @returns {string} The label text with or without the required postfix.
      */
@@ -566,7 +566,7 @@ export class BaseField<T extends HTMLInputElement> extends Emitter {
     }
 
     /**
-     * @description Applies common textfield SUI classes to the input block, input, and label.
+     * Applies common textfield SUI classes to the input block, input, and label.
      * @param {string[]} [opt_inputBlockClasses=['sui-textfield']] - CSS classes for the input block.
      * @param {string[]} [opt_inputClasses=['sui-textfield__input']] - CSS classes for the input element.
      * @param {string} [opt_labelClass='sui-textfield__label'] - CSS class for the label.
@@ -584,7 +584,7 @@ export class BaseField<T extends HTMLInputElement> extends Emitter {
     }
 
     /**
-     * @description Refreshes common field state: marks as invalid when required and empty, marks as disabled, and upgrades SUI.
+     * Refreshes common field state: marks as invalid when required and empty, marks as disabled, and upgrades SUI.
      */
     protected _refreshBase(): void {
         if (this.isRequired() && this.getValue() === '') {
@@ -597,7 +597,7 @@ export class BaseField<T extends HTMLInputElement> extends Emitter {
     }
 
     /**
-     * @description Sets up a MutationObserver on the input to refresh the field when disabled or required attributes change.
+     * Sets up a MutationObserver on the input to refresh the field when disabled or required attributes change.
      */
     private _setMutation(): void {
         const observer = new MutationObserver((mutationsList) => {

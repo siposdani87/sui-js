@@ -2,7 +2,7 @@ import { Knot } from '../core/knot';
 import { Objekt } from '../core/objekt';
 
 /**
- * @description "No content" placeholder handler that displays an image and/or text message
+ * "No content" placeholder handler that displays an image and/or text message
  * when a data container is empty, and hides itself when content is present.
  *
  * @example
@@ -21,7 +21,7 @@ export class ContentHandler {
     contentKnot!: Knot;
 
     /**
-     * @description Creates a new ContentHandler attached to a container element.
+     * Creates a new ContentHandler attached to a container element.
      * @param {Knot} containerKnot - The data container element to manage visibility for.
      * @param {object} [opt_options] - Configuration options (image_url, text).
      */
@@ -32,7 +32,7 @@ export class ContentHandler {
     }
 
     /**
-     * @description Merges user options with defaults (image_url, text).
+     * Merges user options with defaults (image_url, text).
      * @param {object} [opt_options] - Configuration overrides.
      */
     private _setOptions(opt_options: object | undefined = {}): void {
@@ -44,7 +44,7 @@ export class ContentHandler {
     }
 
     /**
-     * @description Builds the placeholder DOM with optional image and text, then shows it.
+     * Builds the placeholder DOM with optional image and text, then shows it.
      */
     private _init(): void {
         this.contentKnot = new Knot('div');
@@ -66,7 +66,7 @@ export class ContentHandler {
     }
 
     /**
-     * @description Shows the placeholder and hides the data container.
+     * Shows the placeholder and hides the data container.
      *
      * @example
      * if (items.length === 0) { handler.show(); }
@@ -77,7 +77,7 @@ export class ContentHandler {
     }
 
     /**
-     * @description Hides the placeholder and shows the data container.
+     * Hides the placeholder and shows the data container.
      *
      * @example
      * handler.hide();

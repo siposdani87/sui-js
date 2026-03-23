@@ -5,7 +5,7 @@ import type { Popup } from './popup';
 import type { ClassRef } from '../utils/types';
 
 /**
- * @description Global popup lifecycle manager that tracks all open popups via a window-level
+ * Global popup lifecycle manager that tracks all open popups via a window-level
  * collection. Handles positioning and bulk close operations.
  *
  * @example
@@ -21,7 +21,7 @@ export class PopupContainer {
     container!: Knot;
 
     /**
-     * @description Creates a new PopupContainer bound to a DOM container element.
+     * Creates a new PopupContainer bound to a DOM container element.
      * @param {string} [opt_selector] - CSS selector for the container element.
      */
     constructor(opt_selector: string | undefined = 'body') {
@@ -30,14 +30,14 @@ export class PopupContainer {
     }
 
     /**
-     * @description Resolves the container DOM element from the selector.
+     * Resolves the container DOM element from the selector.
      */
     private _init(): void {
         this.container = new Query(this.selector).getKnot();
     }
 
     /**
-     * @description Returns the window-level popup collection.
+     * Returns the window-level popup collection.
      */
     private _getGlobalCollection(): Collection<Popup> | undefined {
         return (window as unknown as Record<string, unknown>)[
@@ -46,7 +46,7 @@ export class PopupContainer {
     }
 
     /**
-     * @description Sets the window-level popup collection.
+     * Sets the window-level popup collection.
      */
     private _setGlobalCollection(collection: Collection<Popup>): void {
         (window as unknown as Record<string, unknown>)['popup_collection'] =
@@ -54,7 +54,7 @@ export class PopupContainer {
     }
 
     /**
-     * @description Lazily initializes the window-level popup collection if it does not exist.
+     * Lazily initializes the window-level popup collection if it does not exist.
      * @param {Function} type - The constructor type for the collection.
      */
     private _initCollection(type: ClassRef): void {
@@ -64,7 +64,7 @@ export class PopupContainer {
     }
 
     /**
-     * @description Registers a popup in the global collection.
+     * Registers a popup in the global collection.
      * @param {Function} type - The popup constructor type.
      * @param {Popup} popup - The popup instance to register.
      *
@@ -77,7 +77,7 @@ export class PopupContainer {
     }
 
     /**
-     * @description Removes a popup from the global collection.
+     * Removes a popup from the global collection.
      * @param {Popup} popup - The popup instance to remove.
      *
      * @example
@@ -88,7 +88,7 @@ export class PopupContainer {
     }
 
     /**
-     * @description Closes all currently open popups in the global collection.
+     * Closes all currently open popups in the global collection.
      *
      * @example
      * container.closeAll();
@@ -100,7 +100,7 @@ export class PopupContainer {
     }
 
     /**
-     * @description Sets the CSS position of a popup element within the container.
+     * Sets the CSS position of a popup element within the container.
      * @param {Knot} popupKnot - The popup DOM element to position.
      *
      * @example
@@ -119,7 +119,7 @@ export class PopupContainer {
     }
 
     /**
-     * @description Resets all CSS positioning properties of a popup element to auto.
+     * Resets all CSS positioning properties of a popup element to auto.
      * @param {Knot} popupKnot - The popup DOM element to reset.
      *
      * @example

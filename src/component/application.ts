@@ -32,7 +32,7 @@ import type { ClassRef, Injection, Instance, InstanceKey } from '../utils';
 import { setDateIOLocale } from '../utils/dateio';
 
 /**
- * @description Main entry point for the SUI-JS framework. Manages the dependency injection
+ * Main entry point for the SUI-JS framework. Manages the dependency injection
  * container and initializes all framework modules and services.
  *
  * @example
@@ -56,7 +56,7 @@ export class Application {
     private _routeOptions!: Objekt;
 
     /**
-     * @description Creates a new Application instance, merges options with defaults, and
+     * Creates a new Application instance, merges options with defaults, and
      * initializes all framework modules.
      *
      * @param {object} options - Configuration options merged with defaults (app_id, locale, backend, production, secret, theme_color).
@@ -68,7 +68,7 @@ export class Application {
     }
 
     /**
-     * @description Merges user-provided options with framework defaults.
+     * Merges user-provided options with framework defaults.
      * @param {object} options - User configuration options.
      */
     private _setOptions(options: object): void {
@@ -84,7 +84,7 @@ export class Application {
     }
 
     /**
-     * @description Initializes all framework subsystems and loads registered modules.
+     * Initializes all framework subsystems and loads registered modules.
      * @param {Injection} resources - Dependency injection resource map.
      */
     private _init(resources: Injection): void {
@@ -126,7 +126,7 @@ export class Application {
     }
 
     /**
-     * @description Returns the language code extracted from the current locale (e.g., "en" from "en-US").
+     * Returns the language code extracted from the current locale (e.g., "en" from "en-US").
      *
      * @returns {string} The ISO 639-1 language code.
      *
@@ -139,7 +139,7 @@ export class Application {
     }
 
     /**
-     * @description Returns the current locale, falling back to the configured default if none
+     * Returns the current locale, falling back to the configured default if none
      * is stored in local storage.
      *
      * @returns {string} The BCP 47 locale string (e.g., "en-US").
@@ -156,7 +156,7 @@ export class Application {
     }
 
     /**
-     * @description Sets the application locale and persists it to local storage.
+     * Sets the application locale and persists it to local storage.
      *
      * @param {string} locale - The BCP 47 locale string to set (e.g., "hu-HU").
      *
@@ -169,7 +169,7 @@ export class Application {
     }
 
     /**
-     * @description Sets the application locale and reloads the current state to apply it.
+     * Sets the application locale and reloads the current state to apply it.
      *
      * @param {string} locale - The BCP 47 locale string to set.
      *
@@ -182,7 +182,7 @@ export class Application {
     }
 
     /**
-     * @description Reads the persisted locale and configures the date I/O library.
+     * Reads the persisted locale and configures the date I/O library.
      */
     private _initLocale(): void {
         const locale = this.getLocale();
@@ -191,7 +191,7 @@ export class Application {
     }
 
     /**
-     * @description Adds the `sui-js` CSS class to the root HTML element.
+     * Adds the `sui-js` CSS class to the root HTML element.
      */
     private _initCertificate(): void {
         const rootKnot = new Query('html').getKnot();
@@ -199,7 +199,7 @@ export class Application {
     }
 
     /**
-     * @description Initializes the {@link Module} system and wires up lifecycle event callbacks.
+     * Initializes the {@link Module} system and wires up lifecycle event callbacks.
      */
     private _initModule(): void {
         this._module = new Module();
@@ -255,7 +255,7 @@ export class Application {
     }
 
     /**
-     * @description Passes all resolved instances and injections to the module loader.
+     * Passes all resolved instances and injections to the module loader.
      */
     private _loadModules(): void {
         this._instances.instances = this._instances;
@@ -264,35 +264,35 @@ export class Application {
     }
 
     /**
-     * @description Initializes the {@link Script} loader for dynamic script injection.
+     * Initializes the {@link Script} loader for dynamic script injection.
      */
     private _initScript(): void {
         this._instances.script = new Script(this._instances.progressBar);
     }
 
     /**
-     * @description Initializes the {@link Style} loader for dynamic stylesheet injection.
+     * Initializes the {@link Style} loader for dynamic stylesheet injection.
      */
     private _initStyle(): void {
         this._instances.style = new Style(this._instances.progressBar);
     }
 
     /**
-     * @description Exposes the application options as the `config` instance.
+     * Exposes the application options as the `config` instance.
      */
     private _initConfig(): void {
         this._instances.config = this.options;
     }
 
     /**
-     * @description Registers this Application instance in the DI container.
+     * Registers this Application instance in the DI container.
      */
     private _initApp(): void {
         this._instances.app = this;
     }
 
     /**
-     * @description Initializes the {@link GeoLocation} module and wires change/error events.
+     * Initializes the {@link GeoLocation} module and wires change/error events.
      */
     private _initGeoLocation(): void {
         this._instances.geoLocation = new GeoLocation();
@@ -326,7 +326,7 @@ export class Application {
     }
 
     /**
-     * @description Initializes the {@link Cookie} module with the application prefix.
+     * Initializes the {@link Cookie} module with the application prefix.
      */
     private _initCookie(): void {
         this._instances.cookie = new Cookie({
@@ -335,14 +335,14 @@ export class Application {
     }
 
     /**
-     * @description Initializes the {@link Loader} module for loading indicators.
+     * Initializes the {@link Loader} module for loading indicators.
      */
     private _initLoader(): void {
         this._instances.loader = new Loader();
     }
 
     /**
-     * @description Initializes the {@link ProgressBar} module with dialog and confirm references.
+     * Initializes the {@link ProgressBar} module with dialog and confirm references.
      */
     private _initProgressBar(): void {
         this._instances.progressBar = new ProgressBar(
@@ -352,7 +352,7 @@ export class Application {
     }
 
     /**
-     * @description Initializes local and session {@link Depot} instances for persistent storage.
+     * Initializes local and session {@link Depot} instances for persistent storage.
      */
     private _initDepots(): void {
         this._instances.localDepot = new Depot('LOCAL', {
@@ -366,14 +366,14 @@ export class Application {
     }
 
     /**
-     * @description Initializes the {@link Helper} module for miscellaneous DOM utilities.
+     * Initializes the {@link Helper} module for miscellaneous DOM utilities.
      */
     private _initHelper(): void {
         this._instances.helper = new Helper();
     }
 
     /**
-     * @description Initializes the {@link Page} module and connects document click events.
+     * Initializes the {@link Page} module and connects document click events.
      */
     private _initPage(): void {
         const popupContainer = new PopupContainer();
@@ -385,7 +385,7 @@ export class Application {
     }
 
     /**
-     * @description Initializes the {@link Screen} module and wires resize, orientation, scroll, and connectivity events.
+     * Initializes the {@link Screen} module and wires resize, orientation, scroll, and connectivity events.
      */
     private _initScreen(): void {
         this._instances.screen = new Screen();
@@ -460,21 +460,21 @@ export class Application {
     }
 
     /**
-     * @description Initializes the {@link EventBus} for publish/subscribe communication.
+     * Initializes the {@link EventBus} for publish/subscribe communication.
      */
     private _initEventBus(): void {
         this._instances.eventBus = new EventBus();
     }
 
     /**
-     * @description Initializes the {@link Scheduler} for deferred and periodic tasks.
+     * Initializes the {@link Scheduler} for deferred and periodic tasks.
      */
     private _initScheduler(): void {
         this._instances.scheduler = new Scheduler();
     }
 
     /**
-     * @description Initializes the {@link Http} client and wires before/after request events.
+     * Initializes the {@link Http} client and wires before/after request events.
      */
     private _initHttp(): void {
         this._instances.http = new Http(this.options);
@@ -489,7 +489,7 @@ export class Application {
     }
 
     /**
-     * @description Initializes the {@link Template} engine with HTTP client and locale.
+     * Initializes the {@link Template} engine with HTTP client and locale.
      */
     private _initTemplate(): void {
         this._instances.template = new Template(this._instances.http, {
@@ -503,77 +503,77 @@ export class Application {
     }
 
     /**
-     * @description Initializes the {@link Flash} module for transient notifications.
+     * Initializes the {@link Flash} module for transient notifications.
      */
     private _initFlash(): void {
         this._instances.flash = new Flash();
     }
 
     /**
-     * @description Initializes the {@link Dialog} module for modal windows.
+     * Initializes the {@link Dialog} module for modal windows.
      */
     private _initDialog(): void {
         this._instances.dialog = new Dialog(this._instances.http);
     }
 
     /**
-     * @description Initializes the {@link Confirm} module for confirmation dialogs.
+     * Initializes the {@link Confirm} module for confirmation dialogs.
      */
     private _initConfirm(): void {
         this._instances.confirm = new Confirm();
     }
 
     /**
-     * @description Initializes the {@link Viewer} module for image/content previews.
+     * Initializes the {@link Viewer} module for image/content previews.
      */
     private _initViewer(): void {
         this._instances.viewer = new Viewer();
     }
 
     /**
-     * @description Initializes the {@link Header} component.
+     * Initializes the {@link Header} component.
      */
     private _initHeader(): void {
         this._instances.header = new Header();
     }
 
     /**
-     * @description Initializes the {@link TopMenu} navigation component.
+     * Initializes the {@link TopMenu} navigation component.
      */
     private _initTopMenu(): void {
         this._instances.topMenu = new TopMenu(this._instances.header);
     }
 
     /**
-     * @description Initializes the {@link NavBar} breadcrumb/tab navigation component.
+     * Initializes the {@link NavBar} breadcrumb/tab navigation component.
      */
     private _initNavBar(): void {
         this._instances.navBar = new NavBar();
     }
 
     /**
-     * @description Initializes the {@link BottomMenu} navigation component.
+     * Initializes the {@link BottomMenu} navigation component.
      */
     private _initBottomMenu(): void {
         this._instances.bottomMenu = new BottomMenu(this._instances.footer);
     }
 
     /**
-     * @description Initializes the {@link LeftMenu} drawer navigation component.
+     * Initializes the {@link LeftMenu} drawer navigation component.
      */
     private _initLeftMenu(): void {
         this._instances.leftMenu = new LeftMenu();
     }
 
     /**
-     * @description Initializes the {@link Footer} component.
+     * Initializes the {@link Footer} component.
      */
     private _initFooter(): void {
         this._instances.footer = new Footer();
     }
 
     /**
-     * @description Initializes the {@link Browser} module and wires the missing features event.
+     * Initializes the {@link Browser} module and wires the missing features event.
      */
     private _initBrowser(): void {
         this._instances.browser = new Browser();
@@ -583,14 +583,14 @@ export class Application {
     }
 
     /**
-     * @description Initializes the route options container.
+     * Initializes the route options container.
      */
     private _initRoutes(): void {
         this._routeOptions = new Objekt();
     }
 
     /**
-     * @description Sets the root (default) state that the router navigates to initially.
+     * Sets the root (default) state that the router navigates to initially.
      *
      * @param {string} id - The route identifier to use as the root state.
      * @param {object} [opt_params] - Optional route parameters.
@@ -604,7 +604,7 @@ export class Application {
     }
 
     /**
-     * @description Retrieves a service instance from the DI container by name.
+     * Retrieves a service instance from the DI container by name.
      *
      * @param {InstanceKey} name - The key identifying the service instance.
      * @returns {object | null} The resolved service instance, or null if not found.
@@ -617,7 +617,7 @@ export class Application {
     }
 
     /**
-     * @description Returns the currently active controller instance.
+     * Returns the currently active controller instance.
      *
      * @returns {object | null} The active controller, or null if none is loaded.
      *
@@ -629,7 +629,7 @@ export class Application {
     }
 
     /**
-     * @description Starts the application by registering routes and loading services.
+     * Starts the application by registering routes and loading services.
      *
      * @param {Route[]} routes - Array of {@link Route} definitions for the router.
      * @param {string[]} services - Array of service names to initialize at startup.
@@ -657,7 +657,7 @@ export class Application {
     }
 
     /**
-     * @description Registers a controller module with the given name, dependencies, and constructor.
+     * Registers a controller module with the given name, dependencies, and constructor.
      *
      * @param {string} name - Unique name for the controller.
      * @param {string[] | ClassRef} moduleInjections - Array of dependency injection token names, or the class constructor directly (uses `static inject` for auto-detection).
@@ -679,7 +679,7 @@ export class Application {
     }
 
     /**
-     * @description Registers a service module with the given name, dependencies, and constructor.
+     * Registers a service module with the given name, dependencies, and constructor.
      *
      * @param {string} name - Unique name for the service.
      * @param {string[] | ClassRef} moduleInjections - Array of dependency injection token names, or the class constructor directly (uses `static inject` for auto-detection).

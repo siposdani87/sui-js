@@ -1,7 +1,7 @@
 import { Objekt } from '../core/objekt';
 
 /**
- * @description Route configuration value object that extends {@link Objekt}. Stores route
+ * Route configuration value object that extends {@link Objekt}. Stores route
  * metadata including id, title, URL pattern, controller name, and optional template path.
  *
  * @example
@@ -14,7 +14,7 @@ import { Objekt } from '../core/objekt';
  */
 export class Route extends Objekt {
     /**
-     * @description Creates a new Route with the given configuration values.
+     * Creates a new Route with the given configuration values.
      * @param {string} id - Unique route identifier.
      * @param {string} title - Human-readable page title.
      * @param {string} url - URL pattern for route matching.
