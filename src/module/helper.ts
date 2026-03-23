@@ -391,7 +391,41 @@ export class Helper {
         callback: (id: string, button: Knot) => void,
         opt_description: string | undefined = '',
         opt_allowAccess: boolean | undefined = true,
+        opt_cssClasses: string[] | undefined = [],
+    ): Knot {
+        const buttonKnot = new Knot<HTMLButtonElement>('button');
+        this._createIconKnot(iconName, buttonKnot);
+        this.iconButtonElement(
+            buttonKnot,
+            callback,
+            opt_description,
+            opt_allowAccess,
+            opt_cssClasses,
+        );
+        return buttonKnot;
+    }
+
+    /**
+     * Creates a new `<button>` element with a Material icon and enhances
+     * it with FAB (Floating Action Button) styling, click handling,
+     * and a tooltip via {@link iconButtonElement}.
+     *
+     * @param iconName The Material icon name (e.g., `'add'`, `'edit'`).
+     * @param callback Called with the button's ID and the {@link Knot}
+     *     when clicked.
+     * @param opt_description Tooltip text shown on hover.
+     * @param opt_allowAccess When `false`, the element is removed
+     *     from the DOM instead of being enhanced.
+     * @param opt_cssClasses Additional CSS classes for FAB styling.
+     * @returns The created FAB button {@link Knot}.
+     */
+    createFabButton(
+        iconName: string,
+        callback: (id: string, button: Knot) => void,
+        opt_description: string | undefined = '',
+        opt_allowAccess: boolean | undefined = true,
         opt_cssClasses: string[] | undefined = [
+            'sui-button--raised',
             'sui-button--accent',
             'sui-button--fab',
             'sui-button--mini-fab',
@@ -399,6 +433,45 @@ export class Helper {
     ): Knot {
         const buttonKnot = new Knot<HTMLButtonElement>('button');
         this._createIconKnot(iconName, buttonKnot);
+        this.iconButtonElement(
+            buttonKnot,
+            callback,
+            opt_description,
+            opt_allowAccess,
+            opt_cssClasses,
+        );
+        return buttonKnot;
+    }
+
+    /**
+     * Selects a single element matching the CSS selector within the
+     * given DOM container and enhances it as a FAB button via
+     * {@link iconButtonElement}.
+     *
+     * @param selector CSS selector to match the FAB button element.
+     * @param dom The parent {@link Knot} to search within.
+     * @param callback Called with the button's ID and the {@link Knot}
+     *     when clicked.
+     * @param opt_description Tooltip text shown on hover.
+     * @param opt_allowAccess When `false`, the element is removed
+     *     from the DOM instead of being enhanced.
+     * @param opt_cssClasses Additional CSS classes for FAB styling.
+     * @returns The selected and enhanced FAB button {@link Knot}.
+     */
+    fabButton(
+        selector: string,
+        dom: Knot,
+        callback: (id: string, button: Knot) => void,
+        opt_description: string | undefined = '',
+        opt_allowAccess: boolean | undefined = true,
+        opt_cssClasses: string[] | undefined = [
+            'sui-button--raised',
+            'sui-button--accent',
+            'sui-button--fab',
+            'sui-button--mini-fab',
+        ],
+    ): Knot {
+        const buttonKnot = new Query(selector, dom).getKnot();
         this.iconButtonElement(
             buttonKnot,
             callback,
@@ -422,11 +495,7 @@ export class Helper {
     multipleIconButton(
         selector: string,
         dom: Knot,
-        opt_cssClasses: string[] | undefined = [
-            'sui-button--accent',
-            'sui-button--fab',
-            'sui-button--mini-fab',
-        ],
+        opt_cssClasses: string[] | undefined = [],
     ): void {
         const buttonKnots = new Query(selector, dom);
         buttonKnots.each((buttonKnot) => {
@@ -470,11 +539,7 @@ export class Helper {
         callback: (id: string, button: Knot) => void,
         opt_description: string | undefined = '',
         opt_allowAccess: boolean | undefined = true,
-        opt_cssClasses: string[] | undefined = [
-            'sui-button--accent',
-            'sui-button--fab',
-            'sui-button--mini-fab',
-        ],
+        opt_cssClasses: string[] | undefined = [],
     ): Knot {
         const buttonKnot = new Query(selector, dom).getKnot();
         this.iconButtonElement(
@@ -510,11 +575,7 @@ export class Helper {
         opt_callback?: (id: string, button: Knot) => void,
         opt_description: string | undefined = '',
         opt_allowAccess: boolean | undefined = true,
-        opt_cssClasses: string[] | undefined = [
-            'sui-button--accent',
-            'sui-button--fab',
-            'sui-button--mini-fab',
-        ],
+        opt_cssClasses: string[] | undefined = [],
     ): void {
         if (!buttonKnot.isEmpty()) {
             if (opt_allowAccess) {

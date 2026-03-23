@@ -313,6 +313,77 @@ describe('Helper', () => {
         });
     });
 
+    describe('createFabButton', () => {
+        it('should create a button with icon', () => {
+            const button = helper.createFabButton('add', jest.fn());
+            expect(button).toBeInstanceOf(Knot);
+            expect(button.getTagName()).toBe('button');
+        });
+
+        it('should contain icon element', () => {
+            const button = helper.createFabButton('add', jest.fn());
+            const iconEl = button.getNode().querySelector('em');
+            expect(iconEl).not.toBeNull();
+            expect(iconEl!.textContent).toBe('add');
+        });
+
+        it('should add fab-specific SUI classes', () => {
+            const button = helper.createFabButton('add', jest.fn());
+            expect(button.hasClass('sui-button--icon')).toBe(true);
+            expect(button.hasClass('sui-button--raised')).toBe(true);
+            expect(button.hasClass('sui-button--fab')).toBe(true);
+            expect(button.hasClass('sui-button--mini-fab')).toBe(true);
+            expect(button.hasClass('sui-button--accent')).toBe(true);
+        });
+
+        it('should accept custom css classes', () => {
+            const button = helper.createFabButton('add', jest.fn(), '', true, [
+                'sui-button--primary',
+                'sui-button--fab',
+            ]);
+            expect(button.hasClass('sui-button--primary')).toBe(true);
+            expect(button.hasClass('sui-button--fab')).toBe(true);
+        });
+    });
+
+    describe('fabButton', () => {
+        it('should enhance a single element as fab button by selector', () => {
+            const container = document.createElement('div');
+            const btn = document.createElement('button');
+            btn.className = 'fab-btn';
+            const icon = document.createElement('em');
+            icon.className = 'material-icons';
+            icon.textContent = 'add';
+            btn.appendChild(icon);
+            container.appendChild(btn);
+            document.body.appendChild(container);
+            const dom = new Knot(container);
+            const callback = jest.fn();
+            const result = helper.fabButton('.fab-btn', dom, callback, 'Add');
+            expect(result.hasClass('sui-button--icon')).toBe(true);
+            expect(result.hasClass('sui-button--raised')).toBe(true);
+            expect(result.hasClass('sui-button--fab')).toBe(true);
+            expect(result.hasClass('sui-button--mini-fab')).toBe(true);
+        });
+
+        it('should invoke callback on click', () => {
+            const container = document.createElement('div');
+            const btn = document.createElement('button');
+            btn.className = 'fab-btn';
+            const icon = document.createElement('em');
+            icon.className = 'material-icons';
+            icon.textContent = 'add';
+            btn.appendChild(icon);
+            container.appendChild(btn);
+            document.body.appendChild(container);
+            const dom = new Knot(container);
+            const callback = jest.fn();
+            helper.fabButton('.fab-btn', dom, callback);
+            btn.click();
+            expect(callback).toHaveBeenCalled();
+        });
+    });
+
     describe('setGravatar', () => {
         it('should set src with gravatar url', () => {
             const el = document.createElement('img');
