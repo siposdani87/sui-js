@@ -233,9 +233,9 @@ $transition-slow: 300ms !default;
 // of components dependent on the z-axis and are designed to all work together.
 
 $zindex-popup: 10 !default;
-$zindex-progress-bar: 20 !default;
-$zindex-nav-bar: 30 !default;
-$zindex-header: 30 !default;
+$zindex-nav-bar: 20 !default;
+$zindex-header: 20 !default;
+$zindex-progress-bar: 25 !default;
 $zindex-header-open: 35 !default;
 $zindex-fullscreen: 30 !default;
 $zindex-footer: 35 !default;
