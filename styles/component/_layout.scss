@@ -83,9 +83,6 @@
         z-index: variables.$zindex-fullscreen;
         color: var(--sui-on-surface);
 
-        &.light {
-        }
-
         &.column {
             flex-direction: column;
         }
