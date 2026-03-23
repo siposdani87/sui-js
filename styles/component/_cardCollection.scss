@@ -18,7 +18,7 @@
 
     .card {
         border-radius: 12px;
-        background-color: var(--sui-surface);
+        background-color: var(--sui-surface-alt);
         cursor: pointer;
         display: flex;
         flex-flow: column nowrap;
@@ -26,7 +26,7 @@
 
         &:hover {
             box-shadow: var(--sui-shadow-lg);
-            background-color: var(--sui-surface-alt);
+            background-color: var(--sui-surface);
 
             .title,
             .title-with-actions {
