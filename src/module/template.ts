@@ -1,4 +1,4 @@
-import { contain } from '../utils/operation';
+import { contain, parseHtml } from '../utils/operation';
 import { Deferred } from '../core/deferred';
 import { Objekt } from '../core/objekt';
 import { Knot, Query } from '../core';
@@ -148,25 +148,18 @@ export class Template extends Emitter {
             this.viewKnot.setAttribute('data-template-url', url);
             this.http.get(url).then(
                 (data) => {
-                    const doc = this._parseHtml(data.get<string>('raw'));
-                    deferred.resolve(this._spaNavigate(doc, false));
+                    const doc = parseHtml(data.get<string>('raw'));
+                    const knot = new Knot(doc as unknown as HTMLElement);
+                    deferred.resolve(this._spaNavigate(knot, false));
                 },
                 (data) => {
-                    const doc = this._parseHtml(data.get<string>('raw'));
-                    deferred.reject(this._spaNavigate(doc, true));
+                    const doc = parseHtml(data.get<string>('raw'));
+                    const knot = new Knot(doc as unknown as HTMLElement);
+                    deferred.reject(this._spaNavigate(knot, true));
                 },
             );
         }
         return deferred.promise();
-    }
-
-    /**
-     * Parses an HTML string into a Knot wrapping the document body.
-     */
-    private _parseHtml(html: string): Knot {
-        const parser = new DOMParser();
-        const doc = parser.parseFromString(html, 'text/html');
-        return new Knot(doc as unknown as HTMLElement);
     }
 
     /**

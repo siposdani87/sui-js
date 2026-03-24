@@ -1,4 +1,4 @@
-import { isUndefined, contain, eq } from '../utils/operation';
+import { isUndefined, contain, eq, parseHtml } from '../utils/operation';
 import { Collection } from '../core/collection';
 import { Knot } from '../core/knot';
 import { Objekt } from '../core/objekt';
@@ -203,8 +203,7 @@ export class Navigation {
                 },
             ).then((data) => {
                 const raw = data.get<string>('raw');
-                const parser = new DOMParser();
-                const doc = parser.parseFromString(raw, 'image/svg+xml');
+                const doc = parseHtml(raw, 'image/svg+xml');
                 const svgTag = new Query(
                     'svg',
                     doc as unknown as HTMLElement,
@@ -370,8 +369,8 @@ export class Navigation {
      * @param item - The item {@link Objekt} to enable.
      */
     private _enabled(item: Objekt): void {
-        this._disabled(item);
         const linkKnot = item.get<Knot>(this.linkKnotKey);
+        linkKnot.removeEventListener('click', item.get('listener'));
         linkKnot.removeClass('disabled');
         const action = item.get<(href: string) => void>('action');
         const href = item.get<string>('href');

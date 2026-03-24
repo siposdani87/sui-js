@@ -132,6 +132,23 @@ export const debounce = (
     };
 };
 
+const _parser = new DOMParser();
+
+/**
+ * Parses an HTML string into a DOM Document using DOMParser.
+ *
+ * @param {string} html The raw HTML string to parse.
+ * @param {DOMParserSupportedType} [opt_mimeType='text/html'] The MIME type for parsing.
+ * @returns {Document} The parsed DOM Document.
+ * @category Utility
+ */
+export const parseHtml = (
+    html: string,
+    opt_mimeType: DOMParserSupportedType = 'text/html',
+): Document => {
+    return _parser.parseFromString(html, opt_mimeType);
+};
+
 /**
  * Copies text to the system clipboard.
  *

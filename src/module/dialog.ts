@@ -4,6 +4,7 @@ import { Query } from '../core/query';
 import { BaseModal } from './baseModal';
 import type { Http } from './http';
 import { Knot } from '../core';
+import { parseHtml } from '../utils/operation';
 
 /**
  * Full dialog modal that loads its content from a server endpoint via
@@ -118,27 +119,22 @@ export class Dialog extends BaseModal {
         const deferred = new Deferred<Knot, Knot>();
         this.http.get(url).then(
             (data) => {
-                const dom = this._parseHtml(data.get<string>('raw'));
-                const knot = this._handleDom(dom);
+                const doc = parseHtml(data.get<string>('raw'));
+                const knot = this._handleDom(
+                    new Knot(doc as unknown as HTMLElement),
+                );
                 deferred.resolve(knot);
             },
             (data) => {
-                const dom = this._parseHtml(data.get<string>('raw'));
-                const knot = this._handleMessage(dom);
+                const doc = parseHtml(data.get<string>('raw'));
+                const knot = this._handleMessage(
+                    new Knot(doc as unknown as HTMLElement),
+                );
                 deferred.reject(knot);
                 this.open();
             },
         );
         return deferred.promise();
-    }
-
-    /**
-     * Parses an HTML string into a Knot wrapping the document body.
-     */
-    private _parseHtml(html: string): Knot {
-        const parser = new DOMParser();
-        const doc = parser.parseFromString(html, 'text/html');
-        return new Knot(doc as unknown as HTMLElement);
     }
 
     /**

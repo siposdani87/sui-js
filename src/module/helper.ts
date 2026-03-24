@@ -5,6 +5,13 @@ import { Query } from '../core/query';
 import { generateId, md5 } from '../utils/coder';
 import { sui } from '../utils/render';
 
+const FAB_CSS_CLASSES: string[] = [
+    'sui-button--raised',
+    'sui-button--accent',
+    'sui-button--fab',
+    'sui-button--mini-fab',
+];
+
 /**
  * UI element factory for creating and enhancing styled links, buttons,
  * and icon buttons with SUI classes. Helper provides
@@ -424,12 +431,7 @@ export class Helper {
         callback: (id: string, button: Knot) => void,
         opt_description: string | undefined = '',
         opt_allowAccess: boolean | undefined = true,
-        opt_cssClasses: string[] | undefined = [
-            'sui-button--raised',
-            'sui-button--accent',
-            'sui-button--fab',
-            'sui-button--mini-fab',
-        ],
+        opt_cssClasses: string[] | undefined = FAB_CSS_CLASSES,
     ): Knot {
         const buttonKnot = new Knot<HTMLButtonElement>('button');
         this._createIconKnot(iconName, buttonKnot);
@@ -464,12 +466,7 @@ export class Helper {
         callback: (id: string, button: Knot) => void,
         opt_description: string | undefined = '',
         opt_allowAccess: boolean | undefined = true,
-        opt_cssClasses: string[] | undefined = [
-            'sui-button--raised',
-            'sui-button--accent',
-            'sui-button--fab',
-            'sui-button--mini-fab',
-        ],
+        opt_cssClasses: string[] | undefined = FAB_CSS_CLASSES,
     ): Knot {
         const buttonKnot = new Query(selector, dom).getKnot();
         this.iconButtonElement(

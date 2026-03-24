@@ -68,4 +68,5 @@ export {
     scrollIntoView,
     debounce,
     copyToClipboard,
+    parseHtml,
 } from './domOps';
