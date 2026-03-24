@@ -525,6 +525,64 @@ describe('Accessibility', () => {
 
             wrapper.remove();
         });
+
+        it('should pass axe check on table with sorted headers', async () => {
+            const wrapper = document.createElement('div');
+            const table = document.createElement('table');
+            const thead = document.createElement('thead');
+            const tr = document.createElement('tr');
+            const th1 = document.createElement('th');
+            th1.textContent = 'Name';
+            const th2 = document.createElement('th');
+            th2.textContent = 'Email';
+            tr.appendChild(th1);
+            tr.appendChild(th2);
+            thead.appendChild(tr);
+            table.appendChild(thead);
+            wrapper.appendChild(table);
+            document.body.appendChild(wrapper);
+
+            new Table(new Knot(wrapper), 'table', {
+                columns: ['name', 'email'],
+                sorted: ['name'],
+                no_content: { text: 'No data' },
+            });
+
+            const results = await axe(wrapper);
+            expect(results).toHaveNoViolations();
+
+            wrapper.remove();
+        });
+
+        it('should pass axe check on dialog structure', async () => {
+            const http = { get: jest.fn() };
+            // eslint-disable-next-line @typescript-eslint/no-explicit-any
+            const dialog = new Dialog(http as any);
+            const dialogEl = new Query('#dialog').getKnot().getNode();
+            const titleEl = document.getElementById('dialog-title');
+            if (titleEl) titleEl.textContent = 'Dialog Title';
+
+            const results = await axe(dialogEl);
+            expect(results).toHaveNoViolations();
+
+            if (dialog.isOpened()) {
+                dialog.close();
+            }
+        });
+
+        it('should pass axe check on confirm structure', async () => {
+            const confirm = new Confirm();
+            const confirmEl = new Query('#confirm').getKnot().getNode();
+            const titleEl = document.getElementById('confirm-title');
+            if (titleEl) titleEl.textContent = 'Confirm Title';
+
+            const results = await axe(confirmEl);
+            expect(results).toHaveNoViolations();
+
+            if (confirm.isOpened()) {
+                confirm.close();
+            }
+        });
     });
 
     describe('Loader', () => {
