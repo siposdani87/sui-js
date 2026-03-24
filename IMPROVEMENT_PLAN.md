@@ -46,7 +46,6 @@ Current: **224.4 KB JS (IIFE) + 223.7 KB JS (ESM) + 76.9 KB CSS** (limit: 250 KB
 | ~~**Tree-shake `date-fns`**~~ — verified: named imports, centralized in `dateio.ts`, only 2 locales — already optimal | P1 | Already optimal |
 | ~~**Add gzip/brotli size reporting**~~ — `check-bundle-size.cjs` reports raw, gzip, and brotli sizes | P2 | Real-world size visibility |
 | ~~**CSS purge analysis**~~ — dark mode elimination reduced CSS from ~90 KB to ~76 KB | P2 | ~15% CSS reduction |
-| **Consider `terser`** — esbuild minification is fast but terser can squeeze ~5-10% more | P3 | Marginal gains |
 
 ---
 
@@ -56,7 +55,6 @@ Current: **224.4 KB JS (IIFE) + 223.7 KB JS (ESM) + 76.9 KB CSS** (limit: 250 KB
 |--------|----------|--------|
 | ~~**Add ESM bundle output**~~ — `sui.esm.js` alongside `sui.min.js` (IIFE) | P1 | Modern bundler support |
 | ~~**Move esbuild config to file**~~ — `scripts/esbuild.config.cjs` shared config, `scripts/esbuild.cjs` build, `scripts/esbuild-watch.cjs` watch, `scripts/esbuild-analyze.cjs` analyze | P2 | Maintainability |
-| **CSS modules or CSS layers** — consider `@layer` for better cascade control | P3 | Style isolation |
 | ~~**Source map optimization**~~ — already using external source maps (esbuild `sourcemap: true` = linked mode); maps excluded from npm publish via `files` field | P3 | Already optimal |
 | ~~**Add bundle visualization**~~ — `esbuild:analyze` now generates `dist/bundle-report.html` with treemap by group, per-module table with bar charts, and raw esbuild analysis | P3 | Developer experience |
 
@@ -73,8 +71,6 @@ Current: **224.4 KB JS (IIFE) + 223.7 KB JS (ESM) + 76.9 KB CSS** (limit: 250 KB
 | ~~**Split `googleMap.ts`** (1,359 LOC) — extracted `mapMarkerOps.ts` (273 LOC, 10 functions) and `mapPolygonOps.ts` (390 LOC, 16 functions); `googleMap.ts` reduced to 929 LOC~~ | P2 | Maintainability |
 | ~~**Add `@typescript-eslint/strict-type-checked`** rules~~ — enabled 5 type-aware rules: `no-floating-promises`, `await-thenable`, `no-unnecessary-type-assertion` (45 auto-fixed), `no-misused-promises`, `restrict-template-expressions`; fixed 3 floating promises with `void` operator | P3 | Catch more issues |
 | ~~**Remove old explicit DI handlers**~~ — removed `string[]` injection array overload from `Module.add()`, `Application.controller()`, `Application.service()`; only `static inject` auto-detection remains; `Dependency.moduleInjections` field removed from types | P2 | API simplification |
-| **Consider branded types** for IDs, URLs, coordinates | P3 | Domain safety |
-| **Consider `EventTarget` API** — replace custom EventBus pub/sub with native browser `EventTarget` for better alignment with web standards | P3 | Standards alignment |
 
 ---
 
@@ -88,7 +84,6 @@ Current: **224.4 KB JS (IIFE) + 223.7 KB JS (ESM) + 76.9 KB CSS** (limit: 250 KB
 | ~~**Add focus-visible**~~ — `:focus-visible` on buttons, inputs, checkboxes, radios, switches, icon toggles | P2 | Accessibility |
 | ~~**Logical properties**~~ — 48+ conversions across 27 SCSS files | P3 | Internationalization |
 | ~~**Replace remaining hardcoded colors**~~ — select options, contentHandler, menu, button, spinner, slider migrated to CSS custom properties (v2.0.2) | P2 | Dark mode correctness |
-| **Container queries** — for component-level responsive design | P3 | Modern CSS |
 | ~~**Reduce z-index scale**~~ — normalized from 95-150+999 to 10-110 scale with 16 named tokens; eliminated hardcoded `999` values | P3 | Maintainability |
 
 ---
@@ -103,7 +98,6 @@ Current: **224.4 KB JS (IIFE) + 223.7 KB JS (ESM) + 76.9 KB CSS** (limit: 250 KB
 | ~~**Dialog/modal animations**~~ — fade + scale on open/close | P2 | Polish |
 | ~~**Flash/toast animations**~~ — slide-in via `flash-slide-in` keyframes | P2 | Polish |
 | ~~**Use `will-change`** sparingly for known animated elements~~ — dialog/confirm overlays (opacity), dialog/confirm windows (opacity, transform), flash (opacity, transform), spinner (transform), progress indeterminate (left), layout blur (filter), select expander (transform) | P3 | Performance |
-| **Consider CSS `@starting-style`** for entry animations | P3 | Modern CSS |
 
 ---
 
@@ -163,7 +157,7 @@ All items complete.
 | ~~**Exclude plan files from npm**~~ — `files` field limits to dist + src + styles | P1 | Smaller package |
 | ~~**Add `sideEffects: false`**~~ — added to `package.json` | P1 | Smaller consumer bundles |
 | ~~**Publish type declarations as separate entry**~~ — verified: `typings` + `exports["."].types` both point to `dist/index.d.ts` | P2 | TypeScript consumers |
-| **Add `CHANGELOG` automation** — conventional commits + auto-changelog (manual `CHANGELOG.md` exists with Keep a Changelog format) | P3 | Release process |
+| ~~**Add `CHANGELOG` automation**~~ — commitlint + husky + `npm run changelog` via conventional-changelog; `CHANGELOG.md` in Keep a Changelog format | P3 | Release process |
 
 ---
 
@@ -212,13 +206,8 @@ These items have dedicated planning documents and are tracked outside this impro
 7. **Release blog posts v2.0.x** — document recent releases
 
 ### P3 — Low Priority
-8. **CSS layers (`@layer`)** — better cascade control
-9. **Consider branded types** — for IDs, URLs, coordinates
-10. **Consider `EventTarget` API** — replace custom EventBus with native browser API
-11. **Container queries** — component-level responsive design
-12. **CSS `@starting-style`** — modern entry animations
-13. **Blog posts** — architecture decisions, modernization journey
-14. **`CHANGELOG` automation** — conventional commits + auto-changelog
+8. **Blog posts** — architecture decisions, modernization journey
+9. ~~**`CHANGELOG` automation**~~ — COMPLETE (already implemented)
 
 ---
 
@@ -268,5 +257,4 @@ These items have dedicated planning documents and are tracked outside this impro
 28. ~~**Migration guide v1.x→v2.0**~~ — COMPLETE (v2.0.2/v2.0.3 breaking changes)
 29. ~~**Visual regression testing**~~ — COMPLETE (Playwright, 6 tests, baseline screenshots)
 30. **Release blog posts v2.0.x** — document v2.0.0–v2.0.3 (P3)
-31. **Modern CSS features** — `@layer`, `@container`, `@starting-style` (P3, as browser support matures)
-32. **Changelog automation** — conventional commits (P3)
+31. ~~**Changelog automation**~~ — COMPLETE (already implemented)
