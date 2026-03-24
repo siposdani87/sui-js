@@ -13,14 +13,14 @@ Based on a thorough exploration of the project, updated at v2.0.3. Covers all di
 - **Security**: `npm audit` in CI, cookie `SameSite=Lax`, `SECURITY.md`, XSS audit with `setHtml()` warning docs, SRI hashes
 - **Documentation**: README.md rewritten, migration guide (v1.1→v1.2), `CONTRIBUTING.md`, release blog posts (v1.0.0, v1.1.0, v1.2.0), removed `@description` JSDoc tags for TypeDoc compatibility (v2.0.3)
 - **CI/CD**: Enhanced bundle size checks (JS + CSS + gzip + brotli), bundle size diff on PRs, TypeScript incremental build caching
-- **Code Quality**: Split `operation.ts` (1,108 LOC → 7 focused modules), split `googleMap.ts` (1,359 LOC → 3 files: googleMap.ts 929 LOC + mapMarkerOps.ts 273 LOC + mapPolygonOps.ts 390 LOC), migrated HTML parsing to DOMParser (v2.0.2), added null safety to Knot/Query (v2.0.2)
-- **Components**: Added `fabButton` helper (separated from `iconButton`), label auto-capitalization, dialog title SVG alignment (v2.0.2)
+- **Code Quality**: Split `operation.ts` (1,108 LOC → 7 focused modules), split `googleMap.ts` (1,359 LOC → 3 files: googleMap.ts 929 LOC + mapMarkerOps.ts 273 LOC + mapPolygonOps.ts 390 LOC), migrated HTML parsing to DOMParser (v2.0.2), added null safety to Knot/Query (v2.0.2), extracted shared `parseHtml` utility into `domOps.ts` with reused DOMParser instance, removed old explicit DI injection array handlers (only `static inject` auto-detection remains)
+- **Components**: Added `fabButton` helper (separated from `iconButton`), label auto-capitalization, dialog title SVG alignment (v2.0.2), error message absolute positioning
 
 ---
 
 ## 1. Test Coverage
 
-Coverage **exceeds configured thresholds** (statements 97.09% vs 97%, branches 87.55% vs 87%, functions 95.7% vs 95%, lines 97.09% vs 97%). **2,220 tests** across 112 suites.
+Coverage **exceeds configured thresholds** (statements 97.09% vs 97%, branches 87.55% vs 87%, functions 95.7% vs 95%, lines 97.09% vs 97%). **2,217 tests** across 112 suites.
 
 | Action | Priority | Impact |
 |--------|----------|--------|
@@ -73,6 +73,7 @@ Current: **224.0 KB JS (IIFE) + 223.3 KB JS (ESM) + 76.9 KB CSS** (limit: 250 KB
 | ~~**Split `operation.ts`**~~ — split 1,108 LOC into 7 focused modules: `comparison.ts`, `typeGuards.ts`, `iteration.ts`, `arrayOps.ts`, `objectOps.ts`, `stringOps.ts`, `domOps.ts`; `operation.ts` is now a barrel re-export (zero consumer changes) | P2 | Maintainability |
 | ~~**Split `googleMap.ts`** (1,359 LOC) — extracted `mapMarkerOps.ts` (273 LOC, 10 functions) and `mapPolygonOps.ts` (390 LOC, 16 functions); `googleMap.ts` reduced to 929 LOC~~ | P2 | Maintainability |
 | ~~**Add `@typescript-eslint/strict-type-checked`** rules~~ — enabled 5 type-aware rules: `no-floating-promises`, `await-thenable`, `no-unnecessary-type-assertion` (45 auto-fixed), `no-misused-promises`, `restrict-template-expressions`; fixed 3 floating promises with `void` operator | P3 | Catch more issues |
+| ~~**Remove old explicit DI handlers**~~ — removed `string[]` injection array overload from `Module.add()`, `Application.controller()`, `Application.service()`; only `static inject` auto-detection remains; `Dependency.moduleInjections` field removed from types | P2 | API simplification |
 | **Consider branded types** for IDs, URLs, coordinates | P3 | Domain safety |
 | **Consider `EventTarget` API** — replace custom EventBus pub/sub with native browser `EventTarget` for better alignment with web standards | P3 | Standards alignment |
 
@@ -148,6 +149,7 @@ All items complete.
 | ~~**Add `CONTRIBUTING.md`**~~ — contribution guidelines, PR process | P2 | Community |
 | ~~**Release blog posts**~~ — v1.0.0, v1.1.0, v1.2.0 release posts on Docusaurus blog | P3 | Community |
 | ~~**Remove `@description` JSDoc tags**~~ — 473 occurrences removed across 48 files for TypeDoc compatibility (v2.0.3) | P2 | Docusaurus build |
+| **Audit and improve JSDoc/TypeDoc** — review all classes, methods, and functions for missing, outdated, or incomplete JSDoc; ensure `@param`, `@returns`, `@example` tags are accurate; fix TypeDoc warnings; verify generated API docs render correctly on Docusaurus | P2 | API documentation quality |
 | **Migration guide v1.x→v2.0** — document breaking changes: fabButton/iconButton separation, label capitalization, DOMParser migration, CSS variable changes | P2 | User retention |
 | **Release blog posts v2.0.x** — document v2.0.0, v2.0.1, v2.0.2, v2.0.3 releases | P3 | Community |
 | **Blog posts** — write about architecture decisions, modernization journey | P3 | SEO & community |
@@ -207,9 +209,10 @@ These items have dedicated planning documents and are tracked outside this impro
 ### P2 — Medium Priority
 3. **Expand jest-axe tests** — add axe coverage for Table, Dialog, Confirm, SelectField, DateTimeField
 4. **Add ARIA to icon buttons, menu toggles, Table** — improve screen reader support
-5. **Migration guide v1.x→v2.0** — document breaking changes for v2.0
-6. **Add visual regression testing** — screenshot comparison for UI components
-7. **Release blog posts v2.0.x** — document recent releases
+5. **Audit and improve JSDoc/TypeDoc** — ensure all public APIs are fully documented with accurate tags
+6. **Migration guide v1.x→v2.0** — document breaking changes for v2.0
+7. **Add visual regression testing** — screenshot comparison for UI components
+8. **Release blog posts v2.0.x** — document recent releases
 
 ### P3 — Low Priority
 8. **CSS layers (`@layer`)** — better cascade control
@@ -254,14 +257,18 @@ These items have dedicated planning documents and are tracked outside this impro
 17. ~~Replace remaining hardcoded colors with CSS custom properties~~
 18. ~~Remove `@description` JSDoc tags for TypeDoc compatibility~~
 19. ~~DOMParser migration, null safety, helper refactoring~~
+20. ~~Extract shared `parseHtml` utility, reduce code duplication~~
+21. ~~Remove old explicit DI injection array handlers~~
+22. ~~Error message absolute positioning~~
 
 ### Phase 5 — Next (v2.1.0+)
 
-20. **AdvancedMarkerElement migration** — replace deprecated Marker API (P1, see `ADVANCED_MARKER_MIGRATION.md`)
-21. **Code-split Google Maps** — dynamic import for lazy loading (P1, depends on #20)
-22. **Expand ARIA and jest-axe coverage** — Table, Dialog, icon buttons, menu toggles (P2)
-23. **Migration guide v1.x→v2.0** — document breaking changes (P2)
-24. **Visual regression testing** — Playwright screenshot comparison (P2)
-25. **Release blog posts v2.0.x** — document v2.0.0–v2.0.3 (P3)
-26. **Modern CSS features** — `@layer`, `@container`, `@starting-style` (P3, as browser support matures)
-27. **Changelog automation** — conventional commits (P3)
+23. **AdvancedMarkerElement migration** — replace deprecated Marker API (P1, see `ADVANCED_MARKER_MIGRATION.md`)
+24. **Code-split Google Maps** — dynamic import for lazy loading (P1, depends on #23)
+25. **Expand ARIA and jest-axe coverage** — Table, Dialog, icon buttons, menu toggles (P2)
+26. **Audit and improve JSDoc/TypeDoc** — ensure complete, accurate API documentation (P2)
+27. **Migration guide v1.x→v2.0** — document breaking changes (P2)
+28. **Visual regression testing** — Playwright screenshot comparison (P2)
+29. **Release blog posts v2.0.x** — document v2.0.0–v2.0.3 (P3)
+30. **Modern CSS features** — `@layer`, `@container`, `@starting-style` (P3, as browser support matures)
+31. **Changelog automation** — conventional commits (P3)
