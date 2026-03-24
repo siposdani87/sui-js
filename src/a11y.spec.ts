@@ -8,6 +8,7 @@ import { Loader } from './module/loader';
 import { Viewer } from './module/viewer';
 import { Navigation } from './component/navigation';
 import { BaseField } from './field/baseField';
+import { Table } from './component/table';
 import { Knot } from './core/knot';
 import { Objekt } from './core/objekt';
 import { Query } from './core/query';
@@ -571,6 +572,79 @@ describe('Accessibility', () => {
             expect(modal.getNode().getAttribute('aria-labelledby')).toBe(
                 'viewer-title',
             );
+        });
+    });
+
+    describe('Table', () => {
+        let wrapper: HTMLDivElement;
+
+        beforeEach(() => {
+            wrapper = document.createElement('div');
+            const table = document.createElement('table');
+            const thead = document.createElement('thead');
+            const tr = document.createElement('tr');
+            const th1 = document.createElement('th');
+            th1.textContent = 'Name';
+            const th2 = document.createElement('th');
+            th2.textContent = 'Email';
+            tr.appendChild(th1);
+            tr.appendChild(th2);
+            thead.appendChild(tr);
+            table.appendChild(thead);
+            wrapper.appendChild(table);
+            document.body.appendChild(wrapper);
+        });
+
+        afterEach(() => {
+            wrapper.remove();
+        });
+
+        it('should set aria-label on table element', () => {
+            new Table(new Knot(wrapper), 'table', {
+                columns: ['name', 'email'],
+                sorted: ['name'],
+                no_content: { text: 'No data' },
+            });
+            const table = wrapper.querySelector('table');
+            expect(table?.getAttribute('aria-label')).toBe('No data');
+        });
+
+        it('should set aria-sort on sorted column header', () => {
+            const table = new Table(new Knot(wrapper), 'table', {
+                columns: ['name', 'email'],
+                sorted: ['name'],
+            });
+            table.render();
+            const headers = wrapper.querySelectorAll('thead th');
+            expect(headers[0]?.getAttribute('aria-sort')).toBe('descending');
+            expect(headers[1]?.getAttribute('aria-sort')).toBeNull();
+        });
+    });
+
+    describe('Dropdown aria-controls', () => {
+        let container: HTMLDivElement;
+
+        beforeEach(() => {
+            container = document.createElement('div');
+            document.body.appendChild(container);
+        });
+
+        afterEach(() => {
+            container.remove();
+        });
+
+        it('should have aria-controls linking button to menu', () => {
+            const dropdown = new Dropdown(new Knot(container));
+            const buttonEl = dropdown.buttonKnot.getNode();
+            const menuEl = dropdown.menuKnot.getNode();
+            expect(buttonEl.getAttribute('aria-controls')).toBe(menuEl.id);
+        });
+
+        it('should have aria-label on button', () => {
+            const dropdown = new Dropdown(new Knot(container));
+            expect(
+                dropdown.buttonKnot.getNode().getAttribute('aria-label'),
+            ).toBe('Actions');
         });
     });
 });

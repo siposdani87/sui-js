@@ -594,6 +594,9 @@ export class Helper {
                     });
                 }
 
+                if (opt_description) {
+                    buttonKnot.setAttribute('aria-label', opt_description);
+                }
                 this._setTooltip(buttonKnot, opt_description);
             } else {
                 buttonKnot.remove();

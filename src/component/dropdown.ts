@@ -67,6 +67,7 @@ export class Dropdown {
         this.buttonKnot.setId(this.options.id);
         this.buttonKnot.setAttribute('aria-haspopup', 'menu');
         this.buttonKnot.setAttribute('aria-expanded', 'false');
+        this.buttonKnot.setAttribute('aria-label', 'Actions');
         this.buttonKnot.addClass(['sui-button', 'sui-button--icon']);
 
         const iconKnot = new Knot('em');
@@ -81,10 +82,13 @@ export class Dropdown {
      * Creates and appends the menu list element.
      */
     private _appendMenu(): void {
+        const menuId = this.options.id + '-menu';
         this.menuKnot = new Knot('ul');
+        this.menuKnot.setId(menuId);
         this.menuKnot.setAttribute('role', 'menu');
         this.menuKnot.setFor(this.options.id);
         this.menuKnot.addClass(['sui-menu', 'sui-menu--bottom-right']);
+        this.buttonKnot.setAttribute('aria-controls', menuId);
 
         this.dropdown.appendChild(this.menuKnot);
     }

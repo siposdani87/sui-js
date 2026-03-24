@@ -134,6 +134,10 @@ export class Table<T extends Objekt = Objekt> extends Emitter {
         this.actions = [];
         if (!this.tableKnot.getId()) {
             this.tableKnot.setId(generateId('table'));
+            this.tableKnot.setAttribute(
+                'aria-label',
+                this.options.no_content?.text ?? 'Data table',
+            );
             this._initContentHandler();
             this._initHeader();
             this._initSearch();
@@ -347,10 +351,10 @@ export class Table<T extends Objekt = Objekt> extends Emitter {
      */
     private _handleSortingColumn(head: Knot, i: number): void {
         const column = this.options.columns[i];
-        if (
+        const isActive =
             (eq(this.options.sort.column, null) && eq(i, 0)) ||
-            eq(column, this.options.sort.column)
-        ) {
+            eq(column, this.options.sort.column);
+        if (isActive) {
             const iconKnot = new Query(
                 format('.icons em.{0}', [this.options.sort.order]),
                 head,
@@ -358,6 +362,12 @@ export class Table<T extends Objekt = Objekt> extends Emitter {
             if (!iconKnot.isEmpty()) {
                 iconKnot.addClass('active');
             }
+            head.setAttribute(
+                'aria-sort',
+                this.options.sort.order === 'asc' ? 'ascending' : 'descending',
+            );
+        } else {
+            head.removeAttribute('aria-sort');
         }
     }
 
