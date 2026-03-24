@@ -1,25 +1,26 @@
 # SUI-JS Comprehensive Improvement Plan
 
-Based on a thorough exploration of the project at v1.2.0, here's a prioritized improvement plan across all dimensions.
+Based on a thorough exploration of the project, updated at v2.0.3. Covers all dimensions of the framework.
 
 ## Completed Items (across all sections)
 
 - **Build**: ESM bundle output, `exports`/`sideEffects` in package.json, license banner, gzip/brotli size reporting, bundle visualization (`esbuild:analyze` → `dist/bundle-report.html`)
 - **Package**: Excluded source maps and plan files from npm publish, SRI hash generation (`esbuild:sri`)
 - **TypeScript**: Updated target to ES2020, moduleResolution to Bundler, strict type-checked ESLint rules (5 rules enabled), incremental builds with CI caching
-- **Styles**: CSS custom properties (full theme token system), `prefers-color-scheme`, `prefers-reduced-motion`, `focus-visible` on buttons/inputs, logical properties (48+ conversions), dark mode consolidation (42 → 0 Dark.scss files, CSS ~90 KB → ~76 KB), z-index normalization (16 named tokens), `will-change` on animated elements
+- **Styles**: CSS custom properties (full theme token system), `prefers-color-scheme`, `prefers-reduced-motion`, `focus-visible` on buttons/inputs, logical properties (48+ conversions), dark mode consolidation (42 → 0 Dark.scss files, CSS ~90 KB → ~76 KB), z-index normalization (16 named tokens), `will-change` on animated elements, replaced remaining hardcoded colors with CSS custom properties (v2.0.2)
 - **Animations**: Dialog/confirm fade+scale, flash slide-in, replaced undefined bounceInDown
 - **Accessibility**: Escape key + focus trap + focus restoration in modals, ARIA on Viewer/Flash/Loader, `setSafeText()` XSS-safe method on Knot, expanded jest-axe tests (Loader/Flash/TabPanel/Viewer), color contrast audit with fixes
 - **Security**: `npm audit` in CI, cookie `SameSite=Lax`, `SECURITY.md`, XSS audit with `setHtml()` warning docs, SRI hashes
-- **Documentation**: README.md rewritten, migration guide (v1.1→v1.2), `CONTRIBUTING.md`, release blog posts (v1.0.0, v1.1.0, v1.2.0)
+- **Documentation**: README.md rewritten, migration guide (v1.1→v1.2), `CONTRIBUTING.md`, release blog posts (v1.0.0, v1.1.0, v1.2.0), removed `@description` JSDoc tags for TypeDoc compatibility (v2.0.3)
 - **CI/CD**: Enhanced bundle size checks (JS + CSS + gzip + brotli), bundle size diff on PRs, TypeScript incremental build caching
-- **Code Quality**: Split `operation.ts` (1,108 LOC → 7 focused modules), split `googleMap.ts` (1,359 LOC → 3 files: googleMap.ts 929 LOC + mapMarkerOps.ts 273 LOC + mapPolygonOps.ts 390 LOC)
+- **Code Quality**: Split `operation.ts` (1,108 LOC → 7 focused modules), split `googleMap.ts` (1,359 LOC → 3 files: googleMap.ts 929 LOC + mapMarkerOps.ts 273 LOC + mapPolygonOps.ts 390 LOC), migrated HTML parsing to DOMParser (v2.0.2), added null safety to Knot/Query (v2.0.2)
+- **Components**: Added `fabButton` helper (separated from `iconButton`), label auto-capitalization, dialog title SVG alignment (v2.0.2)
 
 ---
 
 ## 1. Test Coverage
 
-Coverage **exceeds configured thresholds** (statements 97.17% vs 97%, branches 87.67% vs 87%, functions 95.69% vs 95%, lines 97.14% vs 97%). **2,212 tests** across 112 suites.
+Coverage **exceeds configured thresholds** (statements 97.09% vs 97%, branches 87.55% vs 87%, functions 95.7% vs 95%, lines 97.09% vs 97%). **2,220 tests** across 112 suites.
 
 | Action | Priority | Impact |
 |--------|----------|--------|
@@ -32,17 +33,18 @@ Coverage **exceeds configured thresholds** (statements 97.17% vs 97%, branches 8
 | ~~Add edge-case tests for `xhr.ts` (fetch error handling, abort, timeouts)~~ — 7 new tests for no Content-Type, pre-set headers | P1 | Security & correctness |
 | ~~Add integration-style tests for `application.ts` DI container~~ — 25 new tests for DI, locale, getInstance, run modes | P1 | Core framework confidence |
 | ~~Enable stricter test config (remove `strictNullChecks: false` from `tsconfig.spec.json`)~~ — removed `strictNullChecks: false` and `noImplicitAny: false` overrides; 21 spec files fixed | P2 | Catch more bugs in tests |
+| **Expand jest-axe tests** — current axe coverage limited to Loader/Flash/TabPanel/Viewer/Dropdown/Navigation/BaseField; add axe tests for Table, Dialog, Confirm, SelectField, DateTimeField, ColorField | P2 | Comprehensive a11y testing |
 
 ---
 
 ## 2. Bundle Size & Performance
 
-Current: **222.9 KB JS (IIFE) + 222.2 KB JS (ESM) + 76.5 KB CSS** (limit: 250 KB JS, 100 KB CSS). Gzip: 57.9 KB JS, 11.9 KB CSS. Brotli: 49.3 KB JS, 9.8 KB CSS.
+Current: **224.0 KB JS (IIFE) + 223.3 KB JS (ESM) + 76.9 KB CSS** (limit: 250 KB JS, 100 KB CSS). Gzip: 58.2 KB JS, 11.9 KB CSS. Brotli: 49.7 KB JS, 9.8 KB CSS.
 
 | Action | Priority | Impact |
 |--------|----------|--------|
 | ~~**Tree-shake `date-fns`**~~ — verified: named imports, centralized in `dateio.ts`, only 2 locales — already optimal | P1 | Already optimal |
-| **Code-split Google Maps** — Google Maps module is the largest component (~929 LOC + 273 + 390 LOC helpers); make it lazy/optional via dynamic import | P1 | ~15-20 KB savings for non-map users |
+| **Code-split Google Maps** — Google Maps module is the largest component (~929 LOC + 273 + 390 LOC helpers); make it lazy/optional via dynamic import. Depends on AdvancedMarkerElement migration completing first | P1 | ~15-20 KB savings for non-map users |
 | ~~**Add gzip/brotli size reporting**~~ — `check-bundle-size.cjs` reports raw, gzip, and brotli sizes | P2 | Real-world size visibility |
 | ~~**CSS purge analysis**~~ — dark mode elimination reduced CSS from ~90 KB to ~76 KB | P2 | ~15% CSS reduction |
 | **Consider `terser`** — esbuild minification is fast but terser can squeeze ~5-10% more | P3 | Marginal gains |
@@ -72,6 +74,7 @@ Current: **222.9 KB JS (IIFE) + 222.2 KB JS (ESM) + 76.5 KB CSS** (limit: 250 KB
 | ~~**Split `googleMap.ts`** (1,359 LOC) — extracted `mapMarkerOps.ts` (273 LOC, 10 functions) and `mapPolygonOps.ts` (390 LOC, 16 functions); `googleMap.ts` reduced to 929 LOC~~ | P2 | Maintainability |
 | ~~**Add `@typescript-eslint/strict-type-checked`** rules~~ — enabled 5 type-aware rules: `no-floating-promises`, `await-thenable`, `no-unnecessary-type-assertion` (45 auto-fixed), `no-misused-promises`, `restrict-template-expressions`; fixed 3 floating promises with `void` operator | P3 | Catch more issues |
 | **Consider branded types** for IDs, URLs, coordinates | P3 | Domain safety |
+| **Consider `EventTarget` API** — replace custom EventBus pub/sub with native browser `EventTarget` for better alignment with web standards | P3 | Standards alignment |
 
 ---
 
@@ -84,6 +87,7 @@ Current: **222.9 KB JS (IIFE) + 222.2 KB JS (ESM) + 76.5 KB CSS** (limit: 250 KB
 | ~~**Reduce dark mode duplication**~~ — ALL 42 Dark.scss files eliminated; CSS custom properties auto-switch light/dark | P1 | 100% fewer Dark files, ~15% CSS reduction |
 | ~~**Add focus-visible**~~ — `:focus-visible` on buttons, inputs, checkboxes, radios, switches, icon toggles | P2 | Accessibility |
 | ~~**Logical properties**~~ — 48+ conversions across 27 SCSS files | P3 | Internationalization |
+| ~~**Replace remaining hardcoded colors**~~ — select options, contentHandler, menu, button, spinner, slider migrated to CSS custom properties (v2.0.2) | P2 | Dark mode correctness |
 | **Container queries** — for component-level responsive design | P3 | Modern CSS |
 | ~~**Reduce z-index scale**~~ — normalized from 95-150+999 to 10-110 scale with 16 named tokens; eliminated hardcoded `999` values | P3 | Maintainability |
 
@@ -105,8 +109,6 @@ Current: **222.9 KB JS (IIFE) + 222.2 KB JS (ESM) + 76.5 KB CSS** (limit: 250 KB
 
 ## 7. Accessibility
 
-All items complete.
-
 | Action | Priority | Impact |
 |--------|----------|--------|
 | ~~**Audit ARIA roles**~~ — dialog, alertdialog, navigation, tablist/tab/tabpanel, menu/menuitem, status, alert roles added | P1 | Compliance |
@@ -115,6 +117,9 @@ All items complete.
 | ~~**Color contrast audit**~~ — `$accent-text` changed to dark (7.16:1), `$error-default-light` uses `$red-dark` (≥4.6:1); remaining palette colors used as borders/backgrounds, not text | P2 | Compliance |
 | ~~**Screen reader testing**~~ — `aria-live` on Flash container and Loader; `aria-modal`, `aria-labelledby` on Dialog/Confirm/Viewer | P2 | Assistive tech |
 | ~~**Focus trap in modals**~~ — dialog, confirm, viewer trap focus with Tab cycling and restore on close | P1 | WCAG requirement |
+| **Add `aria-label` to icon-only buttons** — icon buttons created via Helper lack accessible labels | P2 | Screen reader support |
+| **Add `aria-controls` to menu toggles** — dropdown button should reference its menu panel | P2 | ARIA best practice |
+| **Expand ARIA on Table component** — add `role`, `aria-sort`, `aria-label` for interactive tables | P2 | Data table accessibility |
 
 ---
 
@@ -142,6 +147,9 @@ All items complete.
 | ~~**API docs improvements**~~ — all public methods now have `@example` JSDoc tags; added examples to Xhr HTTP methods (post, put, patch, delete) | P2 | Usability |
 | ~~**Add `CONTRIBUTING.md`**~~ — contribution guidelines, PR process | P2 | Community |
 | ~~**Release blog posts**~~ — v1.0.0, v1.1.0, v1.2.0 release posts on Docusaurus blog | P3 | Community |
+| ~~**Remove `@description` JSDoc tags**~~ — 473 occurrences removed across 48 files for TypeDoc compatibility (v2.0.3) | P2 | Docusaurus build |
+| **Migration guide v1.x→v2.0** — document breaking changes: fabButton/iconButton separation, label capitalization, DOMParser migration, CSS variable changes | P2 | User retention |
+| **Release blog posts v2.0.x** — document v2.0.0, v2.0.1, v2.0.2, v2.0.3 releases | P3 | Community |
 | **Blog posts** — write about architecture decisions, modernization journey | P3 | SEO & community |
 
 ---
@@ -163,7 +171,7 @@ All items complete.
 | Action | Priority | Impact |
 |--------|----------|--------|
 | ~~**Add bundle size diff**~~ — CI comments bundle size report on PRs via `scripts/bundle-size-diff.cjs` | P2 | Prevent bloat |
-| **Add visual regression testing** — screenshot comparison for UI components | P2 | Style confidence |
+| **Add visual regression testing** — screenshot comparison for UI components (Playwright) | P2 | Style confidence |
 | ~~**Cache improvements**~~ — TypeScript incremental builds (`incremental: true` + `.tsbuildinfo`); CI caches `.tsbuildinfo` via `actions/cache@v4` keyed on source hash | P3 | CI speed |
 
 ---
@@ -185,7 +193,7 @@ These items have dedicated planning documents and are tracked outside this impro
 
 | Item | Document | Summary |
 |------|----------|---------|
-| **AdvancedMarkerElement migration** | `ADVANCED_MARKER_MIGRATION.md` | Migrate deprecated `google.maps.Marker` → `google.maps.marker.AdvancedMarkerElement` (4 source + 3 test files) |
+| **AdvancedMarkerElement migration** | `ADVANCED_MARKER_MIGRATION.md` | Migrate deprecated `google.maps.Marker` → `google.maps.marker.AdvancedMarkerElement` (4 source + 3 test files). Blocks code-splitting. |
 | **Example page expansion** | `EXAMPLE_EXPANSION_PLAN.md` | ✅ Complete — all component/module/service demos implemented across 4 tabs |
 
 ---
@@ -193,19 +201,24 @@ These items have dedicated planning documents and are tracked outside this impro
 ## Remaining Items Summary
 
 ### P1 — High Priority
-1. **Code-split Google Maps** — lazy/optional loading via dynamic import (~15-20 KB savings)
+1. **AdvancedMarkerElement migration** — replace deprecated Marker API (blocks code-splitting)
+2. **Code-split Google Maps** — lazy/optional loading via dynamic import (~15-20 KB savings)
 
 ### P2 — Medium Priority
-2. **Add visual regression testing** — screenshot comparison for UI components
+3. **Expand jest-axe tests** — add axe coverage for Table, Dialog, Confirm, SelectField, DateTimeField
+4. **Add ARIA to icon buttons, menu toggles, Table** — improve screen reader support
+5. **Migration guide v1.x→v2.0** — document breaking changes for v2.0
+6. **Add visual regression testing** — screenshot comparison for UI components
+7. **Release blog posts v2.0.x** — document recent releases
 
 ### P3 — Low Priority
-3. **CSS layers (`@layer`)** — better cascade control
-5. **Consider branded types** — for IDs, URLs, coordinates
-6. **Container queries** — component-level responsive design
-7. **CSS `@starting-style`** — modern entry animations
-8. **Blog posts** — architecture decisions, modernization journey
-9. **`CHANGELOG` automation** — conventional commits + auto-changelog
-
+8. **CSS layers (`@layer`)** — better cascade control
+9. **Consider branded types** — for IDs, URLs, coordinates
+10. **Consider `EventTarget` API** — replace custom EventBus with native browser API
+11. **Container queries** — component-level responsive design
+12. **CSS `@starting-style`** — modern entry animations
+13. **Blog posts** — architecture decisions, modernization journey
+14. **`CHANGELOG` automation** — conventional commits + auto-changelog
 
 ---
 
@@ -221,31 +234,34 @@ These items have dedicated planning documents and are tracked outside this impro
 ### Phase 2 — Modernize Output (COMPLETE)
 
 5. ~~Add ESM bundle output~~
-6. ~~CSS custom properties for theming (unify light/dark)~~ (already existed)
+6. ~~CSS custom properties for theming (unify light/dark)~~
 7. ~~`prefers-reduced-motion` support~~
 8. ~~Migration guide documentation~~
 
 ### Phase 3 — Quality & Polish (COMPLETE)
 
-9. ~~Accessibility audit (ARIA, keyboard, focus trap)~~ — escape key, focus trap, focus restoration in modals; ARIA on Viewer, Flash, Loader; expanded jest-axe tests; color contrast fixes
-10. ~~Reduce `any` usage~~ — deferred (remaining ~376 `any` usages are genuinely needed in utility/generic code)
-11. ~~Split large files (`googleMap.ts`, `operation.ts`)~~ — `operation.ts` split into 7 modules; `googleMap.ts` split into `mapMarkerOps.ts` + `mapPolygonOps.ts`
-12. ~~Micro-interaction animations~~ — dialog/confirm fade+scale, flash slide-in, replaced undefined bounceInDown
+9. ~~Accessibility audit (ARIA, keyboard, focus trap)~~
+10. ~~Reduce `any` usage~~
+11. ~~Split large files (`googleMap.ts`, `operation.ts`)~~
+12. ~~Micro-interaction animations~~
 
 ### Phase 4 — Advanced (COMPLETE)
 
-13. ~~Visual regression tests~~ — deferred (requires new dependency)
-14. ~~Bundle size CI checks~~ — enhanced check-bundle-size.cjs to cover JS (IIFE + ESM) and CSS with separate limits
-15. ~~Logical properties~~ — converted 48+ physical margin/padding/border/text-align to logical properties across 27 SCSS files
-16. ~~Obfuscation for IIFE builds~~ — deferred (requires new dependency)
-17. ~~Dark mode consolidation~~ — ALL 42 Dark.scss files eliminated via CSS custom property system; CSS ~90 KB → ~76 KB
-18. ~~Color contrast audit~~ — `$accent-text` darkened (7.16:1), `$error-default-light` darkened (≥4.6:1)
+13. ~~Bundle size CI checks~~
+14. ~~Logical properties~~
+15. ~~Dark mode consolidation~~
+16. ~~Color contrast audit~~
+17. ~~Replace remaining hardcoded colors with CSS custom properties~~
+18. ~~Remove `@description` JSDoc tags for TypeDoc compatibility~~
+19. ~~DOMParser migration, null safety, helper refactoring~~
 
-### Phase 5 — Next (v1.3.0+)
+### Phase 5 — Next (v2.1.0+)
 
-19. **Code-split Google Maps** — dynamic import for lazy loading (P1)
-20. **AdvancedMarkerElement migration** — replace deprecated Marker API (see `ADVANCED_MARKER_MIGRATION.md`)
-21. ~~**Example page expansion**~~ — COMPLETE (see `EXAMPLE_EXPANSION_PLAN.md`)
-22. Visual regression testing — if needed (P2, requires new dependency)
-23. Modern CSS features — `@layer`, `@container`, `@starting-style` (P3, as browser support matures)
-24. Changelog automation — conventional commits (P3)
+20. **AdvancedMarkerElement migration** — replace deprecated Marker API (P1, see `ADVANCED_MARKER_MIGRATION.md`)
+21. **Code-split Google Maps** — dynamic import for lazy loading (P1, depends on #20)
+22. **Expand ARIA and jest-axe coverage** — Table, Dialog, icon buttons, menu toggles (P2)
+23. **Migration guide v1.x→v2.0** — document breaking changes (P2)
+24. **Visual regression testing** — Playwright screenshot comparison (P2)
+25. **Release blog posts v2.0.x** — document v2.0.0–v2.0.3 (P3)
+26. **Modern CSS features** — `@layer`, `@container`, `@starting-style` (P3, as browser support matures)
+27. **Changelog automation** — conventional commits (P3)
