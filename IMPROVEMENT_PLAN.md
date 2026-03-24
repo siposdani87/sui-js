@@ -1,6 +1,6 @@
 # SUI-JS Comprehensive Improvement Plan
 
-Based on a thorough exploration of the project, updated at v2.0.3. Covers all dimensions of the framework.
+Based on a thorough exploration of the project, updated at v2.0.3+. Covers all dimensions of the framework.
 
 ## Completed Items (across all sections)
 
@@ -9,18 +9,18 @@ Based on a thorough exploration of the project, updated at v2.0.3. Covers all di
 - **TypeScript**: Updated target to ES2020, moduleResolution to Bundler, strict type-checked ESLint rules (5 rules enabled), incremental builds with CI caching
 - **Styles**: CSS custom properties (full theme token system), `prefers-color-scheme`, `prefers-reduced-motion`, `focus-visible` on buttons/inputs, logical properties (48+ conversions), dark mode consolidation (42 → 0 Dark.scss files, CSS ~90 KB → ~76 KB), z-index normalization (16 named tokens), `will-change` on animated elements, replaced remaining hardcoded colors with CSS custom properties (v2.0.2)
 - **Animations**: Dialog/confirm fade+scale, flash slide-in, replaced undefined bounceInDown
-- **Accessibility**: Escape key + focus trap + focus restoration in modals, ARIA on Viewer/Flash/Loader, `setSafeText()` XSS-safe method on Knot, expanded jest-axe tests (Loader/Flash/TabPanel/Viewer), color contrast audit with fixes
+- **Accessibility**: Escape key + focus trap + focus restoration in modals, ARIA on Viewer/Flash/Loader/Dropdown/Table/icon buttons, `setSafeText()` XSS-safe method on Knot, expanded jest-axe tests (48 a11y tests: Loader/Flash/TabPanel/Viewer/Table/Dialog/Confirm/Dropdown/Navigation/BaseField), color contrast audit with fixes
 - **Security**: `npm audit` in CI, cookie `SameSite=Lax`, `SECURITY.md`, XSS audit with `setHtml()` warning docs, SRI hashes
-- **Documentation**: README.md rewritten, migration guide (v1.1→v1.2), `CONTRIBUTING.md`, release blog posts (v1.0.0, v1.1.0, v1.2.0), removed `@description` JSDoc tags for TypeDoc compatibility (v2.0.3)
-- **CI/CD**: Enhanced bundle size checks (JS + CSS + gzip + brotli), bundle size diff on PRs, TypeScript incremental build caching
+- **Documentation**: README.md rewritten, migration guide (v1.1→v2.0 with v2.0.2/v2.0.3 breaking changes), `CONTRIBUTING.md`, release blog posts (v1.0.0, v1.1.0, v1.2.0), removed `@description` JSDoc tags for TypeDoc compatibility (v2.0.3), fixed all 20 TypeDoc warnings to 0, exported internal types (MarkerIcon, DateTimeConfig, EventCallback, XhrType)
+- **CI/CD**: Enhanced bundle size checks (JS + CSS + gzip + brotli), bundle size diff on PRs, TypeScript incremental build caching, Playwright visual regression testing (6 tests)
 - **Code Quality**: Split `operation.ts` (1,108 LOC → 7 focused modules), split `googleMap.ts` (1,359 LOC → 3 files: googleMap.ts 929 LOC + mapMarkerOps.ts 273 LOC + mapPolygonOps.ts 390 LOC), migrated HTML parsing to DOMParser (v2.0.2), added null safety to Knot/Query (v2.0.2), extracted shared `parseHtml` utility into `domOps.ts` with reused DOMParser instance, removed old explicit DI injection array handlers (only `static inject` auto-detection remains)
-- **Components**: Added `fabButton` helper (separated from `iconButton`), label auto-capitalization, dialog title SVG alignment (v2.0.2), error message absolute positioning
+- **Components**: Added `fabButton` helper (separated from `iconButton`), label auto-capitalization, dialog title SVG alignment (v2.0.2), error message absolute positioning, AdvancedMarkerElement migration with `mapId` support and `data-map-id` attribute (v2.0.3+)
 
 ---
 
 ## 1. Test Coverage
 
-Coverage **exceeds configured thresholds** (statements 97.09% vs 97%, branches 87.55% vs 87%, functions 95.7% vs 95%, lines 97.09% vs 97%). **2,217 tests** across 112 suites.
+Coverage **exceeds configured thresholds** (statements 97.04% vs 97%, branches 87.37% vs 87%, functions 95.65% vs 95%, lines 97.05% vs 97%). **2,223 tests** across 112 suites + **6 Playwright visual tests**.
 
 | Action | Priority | Impact |
 |--------|----------|--------|
@@ -39,7 +39,7 @@ Coverage **exceeds configured thresholds** (statements 97.09% vs 97%, branches 8
 
 ## 2. Bundle Size & Performance
 
-Current: **224.0 KB JS (IIFE) + 223.3 KB JS (ESM) + 76.9 KB CSS** (limit: 250 KB JS, 100 KB CSS). Gzip: 58.2 KB JS, 11.9 KB CSS. Brotli: 49.7 KB JS, 9.8 KB CSS.
+Current: **224.4 KB JS (IIFE) + 223.7 KB JS (ESM) + 76.9 KB CSS** (limit: 250 KB JS, 100 KB CSS). Gzip: 58.5 KB JS, 11.9 KB CSS. Brotli: 49.8 KB JS, 9.8 KB CSS.
 
 | Action | Priority | Impact |
 |--------|----------|--------|
@@ -268,5 +268,5 @@ These items have dedicated planning documents and are tracked outside this impro
 28. ~~**Migration guide v1.x→v2.0**~~ — COMPLETE (v2.0.2/v2.0.3 breaking changes)
 29. ~~**Visual regression testing**~~ — COMPLETE (Playwright, 6 tests, baseline screenshots)
 30. **Release blog posts v2.0.x** — document v2.0.0–v2.0.3 (P3)
-30. **Modern CSS features** — `@layer`, `@container`, `@starting-style` (P3, as browser support matures)
-31. **Changelog automation** — conventional commits (P3)
+31. **Modern CSS features** — `@layer`, `@container`, `@starting-style` (P3, as browser support matures)
+32. **Changelog automation** — conventional commits (P3)
