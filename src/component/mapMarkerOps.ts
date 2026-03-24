@@ -6,16 +6,21 @@ import type { IconOptions, Id } from '../utils';
 import { MapLabel } from './mapLabel';
 
 /**
- * Internal marker icon configuration containing the icon image and clickable shape.
+ * Internal marker icon configuration containing an HTML element as marker content.
  * @category Component
  */
 export type MarkerIcon = {
-    icon: string | google.maps.Icon | google.maps.Symbol;
-    shape: google.maps.MarkerShape;
+    content: HTMLElement;
+};
+
+type ListenerEntry = {
+    target: EventTarget;
+    event: string;
+    handler: EventListener;
 };
 
 /**
- * Strips internal properties (_marker, _map_label) from marker data.
+ * Strips internal properties (_marker, _map_label, _listeners) from marker data.
  * @param markerData - Raw marker data object.
  * @returns A cleaned {@link Objekt} without internal keys.
  * @category Component
@@ -23,7 +28,7 @@ export type MarkerIcon = {
 export const cleanMarkerData = (markerData: object): Objekt => {
     const cleanData = new Objekt();
     eachObject(markerData, (value, key) => {
-        if (!inArray(['_marker', '_map_label'], key)) {
+        if (!inArray(['_marker', '_map_label', '_listeners'], key)) {
             cleanData.set(key, value);
         }
     });
@@ -31,23 +36,45 @@ export const cleanMarkerData = (markerData: object): Objekt => {
 };
 
 /**
- * Creates a {@link MapLabel} bound to a marker's position and map.
- * @param marker - The Google Maps marker to bind the label to.
+ * Normalizes a LatLng or LatLngLiteral to a plain `{ lat, lng }` object.
+ */
+const getLatLng = (
+    pos:
+        | google.maps.LatLng
+        | google.maps.LatLngLiteral
+        | null
+        | undefined,
+): { lat: number; lng: number } => {
+    if (!pos) return { lat: 0, lng: 0 };
+    if ('lat' in pos && typeof pos.lat === 'function') {
+        return {
+            lat: (pos as google.maps.LatLng).lat(),
+            lng: (pos as google.maps.LatLng).lng(),
+        };
+    }
+    return pos as { lat: number; lng: number };
+};
+
+/**
+ * Creates a {@link MapLabel} positioned at the marker's location.
+ * @param marker - The AdvancedMarkerElement to position the label at.
  * @param title - The text content of the label.
- * @returns A new MapLabel instance bound to the marker.
+ * @param map - The Google Maps instance.
+ * @returns A new MapLabel instance.
  * @category Component
  */
 export const createMapLabelByMarker = (
-    marker: google.maps.Marker,
+    marker: google.maps.marker.AdvancedMarkerElement,
     title: string,
+    map: google.maps.Map,
 ): MapLabel => {
     const mapLabel = new MapLabel({
         text: title,
         strokeWeight: 2,
+        position: marker.position,
     });
 
-    mapLabel.bindTo('position', marker);
-    mapLabel.bindTo('map', marker);
+    mapLabel.setMap(map);
 
     return mapLabel;
 };
@@ -55,55 +82,69 @@ export const createMapLabelByMarker = (
 /**
  * Binds click, double-click, right-click, drag, and dragend events to a marker.
  * @param emitter - The emitter for firing events.
- * @param marker - The Google Maps Marker instance.
+ * @param marker - The AdvancedMarkerElement instance.
  * @param markerData - The associated marker data object.
  * @category Component
  */
 export const bindEventsToMarker = (
     emitter: Emitter,
-    marker: google.maps.Marker,
+    marker: google.maps.marker.AdvancedMarkerElement,
     markerData: Objekt,
 ): void => {
     const clean = cleanMarkerData(markerData);
+    const listeners: ListenerEntry[] = [];
 
-    // eslint-disable-next-line @typescript-eslint/no-explicit-any
-    marker.addListener('click', (event: any) => {
+    const addListener = (
+        target: EventTarget,
+        event: string,
+        handler: EventListener,
+    ) => {
+        target.addEventListener(event, handler);
+        listeners.push({ target, event, handler });
+    };
+
+    addListener(marker, 'gmp-click', ((event: Event) => {
         emitter.emit('markerClick', clean, event);
-    });
+    }) as EventListener);
 
-    // eslint-disable-next-line @typescript-eslint/no-explicit-any
-    marker.addListener('dblclick', (event: any) => {
+    addListener(marker.element, 'dblclick', ((event: Event) => {
         emitter.emit('markerDoubleClick', clean, event);
-    });
+    }) as EventListener);
 
-    // eslint-disable-next-line @typescript-eslint/no-explicit-any
-    marker.addListener('rightclick', (event: any) => {
+    addListener(marker.element, 'contextmenu', ((event: Event) => {
         emitter.emit('markerRightClick', clean, event);
-    });
+    }) as EventListener);
 
-    // eslint-disable-next-line @typescript-eslint/no-explicit-any
-    marker.addListener('drag', (_event: any) => {
-        const vertex = marker.getPosition()!;
+    addListener(marker, 'gmp-drag', ((_event: Event) => {
+        const { lat, lng } = getLatLng(marker.position);
         const mapLabel = markerData.get<MapLabel>('_map_label');
-        mapLabel.set('position', vertex);
-    });
+        mapLabel.set(
+            'position',
+            new google.maps.LatLng(lat, lng),
+        );
+    }) as EventListener);
 
-    // eslint-disable-next-line @typescript-eslint/no-explicit-any
-    marker.addListener('dragend', (event: any) => {
-        const vertex = marker.getPosition()!;
-        const latitude = vertex.lat();
-        const longitude = vertex.lng();
-        emitter.emit('markerChanged', clean, latitude, longitude, event);
-    });
+    addListener(marker, 'gmp-dragend', ((event: Event) => {
+        const { lat, lng } = getLatLng(marker.position);
+        emitter.emit('markerChanged', clean, lat, lng, event);
+    }) as EventListener);
+
+    markerData.setRaw('_listeners', listeners);
 };
 
 /**
  * Removes all event listeners from a marker.
- * @param marker - The Google Maps Marker instance.
+ * @param markerData - The marker data containing stored listeners.
  * @category Component
  */
-export const unbindEventsToMarker = (marker: google.maps.Marker): void => {
-    google.maps.event.clearInstanceListeners(marker);
+export const unbindEventsToMarker = (markerData: Objekt): void => {
+    const listeners = markerData.get<ListenerEntry[]>('_listeners');
+    if (listeners) {
+        listeners.forEach(({ target, event, handler }) => {
+            target.removeEventListener(event, handler);
+        });
+        markerData.setRaw('_listeners', []);
+    }
 };
 
 /**
@@ -119,7 +160,7 @@ export const unbindEventsToMarker = (marker: google.maps.Marker): void => {
  * @param latitude - Latitude position.
  * @param longitude - Longitude position.
  * @param opt_markerData - Additional data.
- * @param opt_options - Google Maps Marker options.
+ * @param opt_options - Marker options.
  * @category Component
  */
 export const createMarker = (
@@ -144,15 +185,17 @@ export const createMarker = (
     options.merge(opt_options);
 
     const text = title.toString();
-    const marker = new google.maps.Marker(options.copyObject());
-    marker.setPosition(new google.maps.LatLng(latitude, longitude));
-    marker.setIcon(markerIcons[iconName]!.icon);
-    marker.setShape(markerIcons[iconName]!.shape);
-    marker.setTitle(text);
-    marker.setMap(map);
+    const markerIcon = markerIcons[iconName]!;
+    const marker = new google.maps.marker.AdvancedMarkerElement({
+        position: new google.maps.LatLng(latitude, longitude),
+        content: markerIcon.content.cloneNode(true) as HTMLElement,
+        title: text,
+        map,
+        gmpDraggable: options.get<boolean>('draggable') ?? false,
+    });
     markerData.setRaw('_marker', marker);
 
-    const mapLabel = createMapLabelByMarker(marker, text);
+    const mapLabel = createMapLabelByMarker(marker, text, map);
     markerData.setRaw('_map_label', mapLabel);
 
     markers.push(markerData);
@@ -170,7 +213,7 @@ export const createMarker = (
  * @param latitude - Updated latitude.
  * @param longitude - Updated longitude.
  * @param opt_markerData - Updated data to merge.
- * @param opt_options - Updated Google Maps Marker options.
+ * @param opt_options - Updated marker options.
  * @category Component
  */
 export const updateMarker = (
@@ -182,21 +225,20 @@ export const updateMarker = (
     latitude: number,
     longitude: number,
     opt_markerData: object,
-    opt_options: object,
+    _opt_options: object,
 ): void => {
     const markerData = markers.findById(id)!;
     eachObject(cleanMarkerData(opt_markerData), (value, key) => {
         markerData.set(key, value);
     });
     const text = title.toString();
-    const marker = markerData.get<google.maps.Marker>('_marker');
-    marker.setOptions(opt_options);
+    const marker =
+        markerData.get<google.maps.marker.AdvancedMarkerElement>('_marker');
 
     const markerIcon = markerIcons[iconName]!;
-    marker.setIcon(markerIcon.icon);
-    marker.setShape(markerIcon.shape);
-    marker.setTitle(text);
-    marker.setPosition(new google.maps.LatLng(latitude, longitude));
+    marker.content = markerIcon.content.cloneNode(true) as HTMLElement;
+    marker.title = text;
+    marker.position = new google.maps.LatLng(latitude, longitude);
 
     const mapLabel = markerData.get<MapLabel>('_map_label');
     mapLabel.set('text', text);
@@ -213,9 +255,12 @@ export const removeMarker = (markers: Collection<Objekt>, id: Id): void => {
     if (markerData) {
         const mapLabel = markerData.get<MapLabel>('_map_label');
         mapLabel.setMap(null);
-        const marker = markerData.get<google.maps.Marker>('_marker');
-        marker.setMap(null);
-        unbindEventsToMarker(marker);
+        const marker =
+            markerData.get<google.maps.marker.AdvancedMarkerElement>(
+                '_marker',
+            );
+        marker.map = null;
+        unbindEventsToMarker(markerData);
         markers.deleteById(id);
     }
 };
@@ -229,9 +274,12 @@ export const removeAllMarkers = (markers: Collection<Objekt>): void => {
     markers.each((markerData) => {
         const mapLabel = markerData.get<MapLabel>('_map_label');
         mapLabel.setMap(null);
-        const marker = markerData.get<google.maps.Marker>('_marker');
-        marker.setMap(null);
-        unbindEventsToMarker(marker);
+        const marker =
+            markerData.get<google.maps.marker.AdvancedMarkerElement>(
+                '_marker',
+            );
+        marker.map = null;
+        unbindEventsToMarker(markerData);
     });
     markers.clear();
 };
@@ -248,26 +296,16 @@ export const setMarkerIcon = (
     name: string,
     iconOptions: IconOptions,
 ): void => {
-    const icon = {
-        url: iconOptions.url,
-        size: new google.maps.Size(iconOptions.size[0], iconOptions.size[1]),
-        origin: new google.maps.Point(
-            iconOptions.origin[0],
-            iconOptions.origin[1],
-        ),
-        anchor: new google.maps.Point(
-            iconOptions.anchor[0],
-            iconOptions.anchor[1],
-        ),
-    };
-
-    const shape: google.maps.MarkerShape = {
-        coords: iconOptions.coords,
-        type: 'poly',
-    };
+    const img = document.createElement('img');
+    img.src = iconOptions.url;
+    img.width = iconOptions.size[0];
+    img.height = iconOptions.size[1];
+    img.style.display = 'block';
+    const tx = -iconOptions.anchor[0];
+    const ty = -iconOptions.anchor[1];
+    img.style.transform = `translate(${tx}px, ${ty}px)`;
 
     markerIcons[name] = {
-        icon: icon,
-        shape: shape,
+        content: img,
     };
 };

@@ -271,8 +271,10 @@ export class LocationField extends BaseField<HTMLInputElement> {
         this.mapLockKnot.addClass('map-lock');
         this.inputBlock.appendChild(this.mapLockKnot);
 
+        const mapId = this.input.getAttribute('data-map-id') || 'DEMO_MAP_ID';
         this.map = new GoogleMap(this.inputBlock, '.map', {
             zoom: 12,
+            mapId,
             scrollwheel: true,
         });
         this.map.setMarkers({

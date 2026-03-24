@@ -107,9 +107,9 @@ describe('GoogleMap', () => {
             const googleMap = createGoogleMap();
             googleMap.setMarkerIcon('default', testIconOptions);
             expect(googleMap.markerIcons['default']!).toBeDefined();
-            expect(googleMap.markerIcons['default']!.icon).toBeDefined();
-            expect(googleMap.markerIcons['default']!.shape).toBeDefined();
-            expect(googleMap.markerIcons['default']!.shape.type).toBe('poly');
+            expect(googleMap.markerIcons['default']!.content).toBeInstanceOf(
+                HTMLImageElement,
+            );
         });
     });
 
@@ -184,13 +184,22 @@ describe('GoogleMap', () => {
                 18.0,
             );
             const markerData = googleMap.getMarker('m1')!;
-            const gMarker = markerData.get<google.maps.Marker>('_marker');
-            expect(gMarker.setTitle).toHaveBeenCalledWith('Updated Title');
-            expect(gMarker.setPosition).toHaveBeenCalled();
+            const gMarker =
+                markerData.get<google.maps.marker.AdvancedMarkerElement>(
+                    '_marker',
+                );
+            expect(gMarker.title).toBe('Updated Title');
         });
 
         it('should fit marker to map', () => {
             googleMap.createMarker('m1', 'Marker 1', 'default', 47.6, 17.5);
+            const markerData = googleMap.getMarker('m1')!;
+            const marker =
+                markerData.get<google.maps.marker.AdvancedMarkerElement>(
+                    '_marker',
+                );
+            // Ensure the mock stores position for fitMarkerToMap
+            (marker as any).position = { lat: 47.6, lng: 17.5 };
             googleMap.fitMarkerToMap('m1');
             expect(googleMap.map.setCenter).toHaveBeenCalled();
         });

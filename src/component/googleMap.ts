@@ -103,6 +103,7 @@ export class GoogleMap extends Emitter {
                 lng: 17.533333,
             },
             zoom: 8,
+            mapId: 'DEMO_MAP_ID',
             scrollwheel: false,
             streetViewControl: false,
             scaleControl: true,
@@ -673,11 +674,14 @@ export class GoogleMap extends Emitter {
     fitMarkerToMap(markerId: string | number): void {
         const markerData = this.getMarker(markerId);
         if (markerData) {
-            const marker = markerData.get<google.maps.Marker>('_marker');
-            const vertex = marker.getPosition()!;
-            const latitude = vertex.lat();
-            const longitude = vertex.lng();
-            this.setCenter(latitude, longitude);
+            const marker =
+                markerData.get<google.maps.marker.AdvancedMarkerElement>(
+                    '_marker',
+                );
+            const pos = marker.position as google.maps.LatLngLiteral;
+            if (pos) {
+                this.setCenter(pos.lat, pos.lng);
+            }
         }
     }
 
@@ -692,11 +696,14 @@ export class GoogleMap extends Emitter {
      */
     openInfoWindow(markerId: string | number, content: string): void {
         const markerData = this.getMarker(markerId)!;
-        const marker = markerData.get<google.maps.Marker>('_marker');
+        const marker =
+            markerData.get<google.maps.marker.AdvancedMarkerElement>(
+                '_marker',
+            );
         const infoWindow = new google.maps.InfoWindow({
             content: content.toString(),
         });
-        infoWindow.open(this.map, marker);
+        infoWindow.open({ map: this.map, anchor: marker });
     }
 
     /**
