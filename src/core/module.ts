@@ -26,12 +26,12 @@ import type { ClassRef, Dependency, Injection, Instance } from '../utils';
  * @example
  * const module = new Module();
  *
- * // Register services with their dependency injections
- * module.add('userService', ['http', 'config'], UserService);
- * module.add('authService', ['http', 'userService'], AuthService);
+ * // Register services (dependencies auto-detected from static inject)
+ * module.add('userService', UserService);
+ * module.add('authService', AuthService);
  *
  * // Register a controller
- * module.add('dashboardCtrl', ['userService', 'dom'], DashboardController);
+ * module.add('dashboardCtrl', DashboardController);
  *
  * // Wire routes and start
  * module.handleRoutes(routes, routeOptions);
@@ -106,35 +106,17 @@ export class Module extends Emitter {
      *
      * @param name Unique name identifying this module. Used as the key
      *     in the instances map after instantiation.
-     * @param moduleInjections Array of dependency names, or the class
-     *     constructor directly (uses `static inject` for auto-detection).
-     * @param opt_moduleCallback The constructor function (class reference)
-     *     to instantiate when resolving this module (required when
-     *     moduleInjections is an array).
+     * @param moduleCallback The class constructor to instantiate. Dependencies
+     *     are auto-detected from `static inject`.
      * @returns The registered module name.
      *
      * @example
-     * // Explicit injection array
-     * module.add('dashboardCtrl', ['http', 'config', 'dom'], DashboardController);
-     * // Auto-detection via static inject
      * module.add('dashboardCtrl', DashboardController);
      */
-    add(
-        name: string,
-        moduleInjections: string[] | ClassRef,
-        opt_moduleCallback?: ClassRef,
-    ): string {
-        if (typeof moduleInjections === 'function') {
-            this._modules[name] = {
-                moduleInjections: [],
-                moduleCallback: moduleInjections,
-            };
-        } else {
-            this._modules[name] = {
-                moduleInjections,
-                moduleCallback: opt_moduleCallback!,
-            };
-        }
+    add(name: string, moduleCallback: ClassRef): string {
+        this._modules[name] = {
+            moduleCallback,
+        };
         return name;
     }
 
@@ -148,9 +130,6 @@ export class Module extends Emitter {
      *     resolved dependencies.
      */
     private _getInjections(dependency: Dependency): string[] {
-        if (dependency.moduleInjections.length > 0) {
-            return dependency.moduleInjections;
-        }
         if (dependency.moduleCallback.inject) {
             return [...dependency.moduleCallback.inject];
         }

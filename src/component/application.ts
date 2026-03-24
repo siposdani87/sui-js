@@ -657,46 +657,32 @@ export class Application {
     }
 
     /**
-     * Registers a controller module with the given name, dependencies, and constructor.
+     * Registers a controller module with the given name and constructor.
+     * Dependencies are auto-detected from `static inject`.
      *
      * @param {string} name - Unique name for the controller.
-     * @param {string[] | ClassRef} moduleInjections - Array of dependency injection token names, or the class constructor directly (uses `static inject` for auto-detection).
-     * @param {ClassRef} [opt_moduleCallback] - The controller class constructor (required when moduleInjections is an array).
+     * @param {ClassRef} moduleCallback - The controller class constructor.
      * @returns {string} The registered module name.
      *
      * @example
-     * // Explicit injection array
-     * app.controller('homeCtrl', ['http', 'template'], HomeController);
-     * // Auto-detection via static inject
      * app.controller('homeCtrl', HomeController);
      */
-    controller(
-        name: string,
-        moduleInjections: string[] | ClassRef,
-        opt_moduleCallback?: ClassRef,
-    ): string {
-        return this._module.add(name, moduleInjections, opt_moduleCallback);
+    controller(name: string, moduleCallback: ClassRef): string {
+        return this._module.add(name, moduleCallback);
     }
 
     /**
-     * Registers a service module with the given name, dependencies, and constructor.
+     * Registers a service module with the given name and constructor.
+     * Dependencies are auto-detected from `static inject`.
      *
      * @param {string} name - Unique name for the service.
-     * @param {string[] | ClassRef} moduleInjections - Array of dependency injection token names, or the class constructor directly (uses `static inject` for auto-detection).
-     * @param {ClassRef} [opt_moduleCallback] - The service class constructor (required when moduleInjections is an array).
+     * @param {ClassRef} moduleCallback - The service class constructor.
      * @returns {string} The registered module name.
      *
      * @example
-     * // Explicit injection array
-     * app.service('authService', ['http', 'localDepot'], AuthService);
-     * // Auto-detection via static inject
      * app.service('authService', AuthService);
      */
-    service(
-        name: string,
-        moduleInjections: string[] | ClassRef,
-        opt_moduleCallback?: ClassRef,
-    ): string {
-        return this._module.add(name, moduleInjections, opt_moduleCallback);
+    service(name: string, moduleCallback: ClassRef): string {
+        return this._module.add(name, moduleCallback);
     }
 }

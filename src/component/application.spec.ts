@@ -176,22 +176,9 @@ describe('application', () => {
     });
 
     describe('controller', () => {
-        it('should register a controller with explicit injections', () => {
-            class TestCtrl {
-                enter() {}
-                exit() {}
-            }
-            const name = application.controller(
-                'testCtrl',
-                ['http', 'flash'],
-                TestCtrl,
-            );
-            expect(name).toBe('testCtrl');
-        });
-
         it('should register a controller with auto-injection via static inject', () => {
             class AutoCtrl {
-                static inject = ['http', 'flash'];
+                static inject = ['http', 'flash'] as const;
                 enter() {}
                 exit() {}
             }
@@ -201,21 +188,9 @@ describe('application', () => {
     });
 
     describe('service', () => {
-        it('should register a service with explicit injections', () => {
-            class TestService {
-                enter() {}
-            }
-            const name = application.service(
-                'testService',
-                ['http'],
-                TestService,
-            );
-            expect(name).toBe('testService');
-        });
-
         it('should register a service with auto-injection via static inject', () => {
             class AutoService {
-                static inject = ['http', 'localDepot'];
+                static inject = ['http', 'localDepot'] as const;
                 enter() {}
             }
             const name = application.service('autoService', AutoService);

@@ -26,21 +26,15 @@ describe('Module', () => {
 
     describe('add', () => {
         it('should register a module and return its name', () => {
-            const name = module.add('testService', [], class TestService {});
+            const name = module.add('testService', class TestService {});
             expect(name).toBe('testService');
         });
 
         it('should register multiple modules', () => {
-            module.add('svcA', [], class A {});
-            module.add('svcB', [], class B {});
+            module.add('svcA', class A {});
+            module.add('svcB', class B {});
             // Both registered without error
             expect(true).toBe(true);
-        });
-
-        it('should register a module with class shorthand (no injection array)', () => {
-            class TestService {}
-            const name = module.add('testService', TestService);
-            expect(name).toBe('testService');
         });
     });
 
@@ -73,8 +67,8 @@ describe('Module', () => {
                 }
             }
 
-            module.add('svcA', [], SvcA);
-            module.add('svcB', [], SvcB);
+            module.add('svcA', SvcA);
+            module.add('svcB', SvcB);
 
             const instances = { state: { run: jest.fn() } } as any;
             module.load(instances, {});
@@ -93,7 +87,7 @@ describe('Module', () => {
                     return noop();
                 }
             }
-            module.add('svc', [], Svc);
+            module.add('svc', Svc);
             const instances = { state: { run: jest.fn() } } as any;
             module.load(instances, {});
             module.handleServices(['svc']);
@@ -108,7 +102,7 @@ describe('Module', () => {
                     return noop();
                 }
             }
-            module.add('svc', [], Svc);
+            module.add('svc', Svc);
             const instances = { state: { run: jest.fn() } } as any;
             module.load(instances, {});
             module.handleServices(['svc']);
@@ -123,7 +117,7 @@ describe('Module', () => {
                     return noop();
                 }
             }
-            module.add('svc', [], Svc);
+            module.add('svc', Svc);
             const instances = { state: { run: runSpy } } as any;
             module.load(instances, {});
             module.handleServices(['svc']);
@@ -142,6 +136,7 @@ describe('Module', () => {
                 }
             }
             class SvcB {
+                static inject = ['svcA'] as const;
                 constructor(_svcA: SvcA) {
                     order.push('B');
                 }
@@ -150,8 +145,8 @@ describe('Module', () => {
                 }
             }
 
-            module.add('svcA', [], SvcA);
-            module.add('svcB', ['svcA'], SvcB);
+            module.add('svcA', SvcA);
+            module.add('svcB', SvcB);
 
             const instances = { state: { run: jest.fn() } } as any;
             module.load(instances, {});
@@ -204,7 +199,7 @@ describe('Module', () => {
                 }
             }
             class SvcB {
-                static inject = ['svcX'] as const;
+                static inject = ['svcA'] as const;
                 constructor(dep: any) {
                     receivedDep = dep;
                 }
@@ -213,9 +208,9 @@ describe('Module', () => {
                 }
             }
 
-            module.add('svcA', [], SvcA);
-            module.add('svcX', [], SvcX);
-            module.add('svcB', ['svcA'], SvcB);
+            module.add('svcA', SvcA);
+            module.add('svcX', SvcX);
+            module.add('svcB', SvcB);
 
             const instances = { state: { run: jest.fn() } } as any;
             module.load(instances, {});
@@ -263,6 +258,7 @@ describe('Module', () => {
                 }
             }
             class SvcB {
+                static inject = ['svcA'] as const;
                 constructor(dep: any) {
                     receivedDep = dep;
                 }
@@ -271,8 +267,8 @@ describe('Module', () => {
                 }
             }
 
-            module.add('svcA', [], SvcA);
-            module.add('svcB', ['svcA'], SvcB);
+            module.add('svcA', SvcA);
+            module.add('svcB', SvcB);
 
             const instances = { state: { run: jest.fn() } } as any;
             module.load(instances, {});
@@ -297,7 +293,7 @@ describe('Module', () => {
             class SvcNoEnter {
                 // no enter method
             }
-            module.add('svcNoEnter', [], SvcNoEnter);
+            module.add('svcNoEnter', SvcNoEnter);
             const instances = { state: { run: jest.fn() } } as any;
             module.load(instances, {});
             module.handleServices(['svcNoEnter']);
@@ -317,7 +313,7 @@ describe('Module', () => {
                     return d.promise();
                 }
             }
-            module.add('failSvc', [], FailingSvc);
+            module.add('failSvc', FailingSvc);
             const instances = { state: { run: jest.fn() } } as any;
             module.load(instances, {});
             module.handleServices(['failSvc']);
@@ -346,7 +342,7 @@ describe('Module', () => {
                     return noop();
                 }
             }
-            module.add('testCtrl', [], TestCtrl);
+            module.add('testCtrl', TestCtrl);
 
             const currentState = new Objekt({
                 controller: 'testCtrl',
@@ -390,7 +386,7 @@ describe('Module', () => {
                     return noop();
                 }
             }
-            module.add('testCtrl', [], TestCtrl);
+            module.add('testCtrl', TestCtrl);
 
             // No stateChange listener -> emit returns undefined -> fallback Deferred used
             const currentState = new Objekt({
@@ -426,7 +422,7 @@ describe('Module', () => {
                     return noop();
                 }
             }
-            module.add('testCtrl', [], TestCtrl);
+            module.add('testCtrl', TestCtrl);
 
             const currentState = new Objekt({
                 controller: 'testCtrl',
@@ -463,7 +459,7 @@ describe('Module', () => {
             module.handleRoutes([], {});
 
             class TestCtrl {}
-            module.add('testCtrl', [], TestCtrl);
+            module.add('testCtrl', TestCtrl);
 
             const currentState = new Objekt({
                 controller: 'testCtrl',
@@ -503,7 +499,7 @@ describe('Module', () => {
             module.handleRoutes([], {});
 
             class TestCtrl {}
-            module.add('testCtrl', [], TestCtrl);
+            module.add('testCtrl', TestCtrl);
 
             const currentState = new Objekt({
                 controller: 'testCtrl',
@@ -561,7 +557,7 @@ describe('Module', () => {
                     return noop();
                 }
             }
-            module.add('testCtrl', [], TestCtrl);
+            module.add('testCtrl', TestCtrl);
 
             const currentState = new Objekt({
                 controller: 'testCtrl',
@@ -591,7 +587,7 @@ describe('Module', () => {
             class TestCtrl {
                 // no enter method
             }
-            module.add('testCtrl', [], TestCtrl);
+            module.add('testCtrl', TestCtrl);
 
             const currentState = new Objekt({
                 controller: 'testCtrl',
@@ -629,7 +625,7 @@ describe('Module', () => {
                     return noop();
                 }
             }
-            module.add('testCtrl', [], TestCtrl);
+            module.add('testCtrl', TestCtrl);
 
             const currentState = new Objekt({
                 controller: 'testCtrl',

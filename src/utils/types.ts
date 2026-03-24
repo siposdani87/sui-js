@@ -233,15 +233,13 @@ export type ClassRef = {
 /**
  * Module dependency descriptor for the DI system.
  *
- * Pairs a list of injection token names with the constructor that
- * requires them. The DI container resolves each token in
- * `moduleInjections` and passes them as arguments to `moduleCallback`.
+ * Wraps a constructor reference whose dependencies are auto-detected
+ * from `static inject`. The DI container resolves each token and
+ * passes them as arguments to `moduleCallback`.
  *
  * @category Utility
  */
 export type Dependency = {
-    /** Ordered list of injection token names to resolve. */
-    moduleInjections: string[];
     /** The module constructor to instantiate with the resolved dependencies. */
     moduleCallback: ClassRef;
 };
