@@ -1,5 +1,7 @@
 # Migration: google.maps.Marker → google.maps.marker.AdvancedMarkerElement
 
+> **Status: ✅ COMPLETE** — Implemented in commit `8bf196da` (v2.0.3+). All steps below have been executed.
+
 As of February 21st, 2024, `google.maps.Marker` is deprecated in favor of `google.maps.marker.AdvancedMarkerElement`.
 
 ## Scope: 4 source files + 3 test files
@@ -99,7 +101,7 @@ export const createMapLabelByMarker = (
 
 ### 3. `src/field/locationField.ts` — Minor changes
 
-- Add `mapId` to embedded map options
+- Read `mapId` from `data-map-id` attribute on the input element, fallback to `'DEMO_MAP_ID'`
 
 ### 4. `src/component/mapLabel.ts` — No class changes needed
 

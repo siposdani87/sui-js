@@ -4,19 +4,9 @@ Consolidated from all plan files. Only incomplete items included.
 
 ## P1 — High Priority
 
-### 1. Code-Split Google Maps
-
-**Source:** `IMPROVEMENT_PLAN.md` §2
-
-Make Google Maps module lazy/optional via dynamic import. Currently the largest component (~1,875 LOC across 4 files: `googleMap.ts`, `mapMarkerOps.ts`, `mapPolygonOps.ts`, `mapLabel.ts`).
-
-**Impact:** ~15-20 KB savings for non-map users.
-
-**Note:** AdvancedMarkerElement migration is complete — ready to implement.
-
 ## P2 — Medium Priority
 
-### 2. Expand Accessibility (ARIA + jest-axe)
+### 1. Expand Accessibility (ARIA + jest-axe)
 
 **Source:** `IMPROVEMENT_PLAN.md` §1, §7
 
@@ -27,25 +17,25 @@ Make Google Maps module lazy/optional via dynamic import. Currently the largest 
 | `aria-controls` on menu toggles | Dropdown button should reference its menu panel |
 | ARIA on Table component | Add `role`, `aria-sort`, `aria-label` for interactive tables |
 
-### 3. Audit and Improve JSDoc/TypeDoc
+### 2. Audit and Improve JSDoc/TypeDoc
 
 **Source:** `IMPROVEMENT_PLAN.md` §9
 
 Review all classes, methods, and functions for missing, outdated, or incomplete JSDoc. Ensure `@param`, `@returns`, `@example` tags are accurate and complete. Fix TypeDoc warnings. Verify generated API docs render correctly on Docusaurus.
 
-### 4. Migration Guide v1.x→v2.0
+### 3. Migration Guide v1.x→v2.0
 
 **Source:** `IMPROVEMENT_PLAN.md` §9
 
 Document breaking changes: `fabButton`/`iconButton` separation, label auto-capitalization, DOMParser migration, CSS custom property changes, `@description` removal, old explicit DI injection array removed (only `static inject` auto-detection).
 
-### 5. Visual Regression Testing
+### 4. Visual Regression Testing
 
 **Source:** `IMPROVEMENT_PLAN.md` §11
 
 Screenshot comparison for UI components. Requires new dependency (e.g., Playwright).
 
-### 6. Release Blog Posts v2.0.x
+### 5. Release Blog Posts v2.0.x
 
 **Source:** `IMPROVEMENT_PLAN.md` §9
 
@@ -53,7 +43,7 @@ Document v2.0.0, v2.0.1, v2.0.2, v2.0.3 releases on Docusaurus blog.
 
 ## P3 — Low Priority / Deferred
 
-### 7. Fetch API Enhancements
+### 6. Fetch API Enhancements
 
 **Source:** `FETCH_MIGRATION_PLAN.md` — Future Enhancements
 
@@ -64,7 +54,7 @@ Document v2.0.0, v2.0.1, v2.0.2, v2.0.3 releases on Docusaurus blog.
 | FormData / file upload | Detect `FormData` body, skip serialization |
 | Streaming | Use `response.body` ReadableStream for large downloads |
 
-### 8. Modern CSS Features
+### 7. Modern CSS Features
 
 **Source:** `IMPROVEMENT_PLAN.md` §3, §5, §6
 
@@ -74,7 +64,7 @@ Document v2.0.0, v2.0.1, v2.0.2, v2.0.3 releases on Docusaurus blog.
 | Container queries (`@container`) | Component-level responsive design |
 | CSS `@starting-style` | Modern entry animations without JS |
 
-### 9. TypeScript & Architecture Improvements
+### 8. TypeScript & Architecture Improvements
 
 **Source:** `IMPROVEMENT_PLAN.md` §4
 
@@ -102,13 +92,12 @@ Document v2.0.0, v2.0.1, v2.0.2, v2.0.3 releases on Docusaurus blog.
 ## Recommended Execution Order
 
 ```
-1. Code-split Google Maps           (P1, bundle size win)
-2. Expand ARIA + jest-axe           (P2, accessibility compliance)
-3. Audit and improve JSDoc/TypeDoc  (P2, API documentation quality)
-4. Migration guide v1.x→v2.0       (P2, user documentation)
-5. Visual regression testing        (P2, requires Playwright)
-6. Fetch API enhancements           (P3, as needed)
-7. Modern CSS / TS / tooling        (P3, as browser support matures)
+1. Expand ARIA + jest-axe           (P2, accessibility compliance)
+2. Audit and improve JSDoc/TypeDoc  (P2, API documentation quality)
+3. Migration guide v1.x→v2.0       (P2, user documentation)
+4. Visual regression testing        (P2, requires Playwright)
+5. Fetch API enhancements           (P3, as needed)
+6. Modern CSS / TS / tooling        (P3, as browser support matures)
 ```
 
 ## Active Plan Files

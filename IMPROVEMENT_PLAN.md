@@ -44,7 +44,6 @@ Current: **224.0 KB JS (IIFE) + 223.3 KB JS (ESM) + 76.9 KB CSS** (limit: 250 KB
 | Action | Priority | Impact |
 |--------|----------|--------|
 | ~~**Tree-shake `date-fns`**~~ — verified: named imports, centralized in `dateio.ts`, only 2 locales — already optimal | P1 | Already optimal |
-| **Code-split Google Maps** — Google Maps module is the largest component (~929 LOC + 273 + 390 LOC helpers); make it lazy/optional via dynamic import | P1 | ~15-20 KB savings for non-map users |
 | ~~**Add gzip/brotli size reporting**~~ — `check-bundle-size.cjs` reports raw, gzip, and brotli sizes | P2 | Real-world size visibility |
 | ~~**CSS purge analysis**~~ — dark mode elimination reduced CSS from ~90 KB to ~76 KB | P2 | ~15% CSS reduction |
 | **Consider `terser`** — esbuild minification is fast but terser can squeeze ~5-10% more | P3 | Marginal gains |
@@ -204,7 +203,6 @@ These items have dedicated planning documents and are tracked outside this impro
 
 ### P1 — High Priority
 1. ~~**AdvancedMarkerElement migration**~~ — COMPLETE
-2. **Code-split Google Maps** — lazy/optional loading via dynamic import (~15-20 KB savings)
 
 ### P2 — Medium Priority
 3. **Expand jest-axe tests** — add axe coverage for Table, Dialog, Confirm, SelectField, DateTimeField
@@ -264,7 +262,7 @@ These items have dedicated planning documents and are tracked outside this impro
 ### Phase 5 — Next (v2.1.0+)
 
 23. ~~**AdvancedMarkerElement migration**~~ — COMPLETE (see `ADVANCED_MARKER_MIGRATION.md`)
-24. **Code-split Google Maps** — dynamic import for lazy loading (P1, depends on #23)
+24. ~~**Code-split Google Maps**~~ — removed (not needed)
 25. **Expand ARIA and jest-axe coverage** — Table, Dialog, icon buttons, menu toggles (P2)
 26. **Audit and improve JSDoc/TypeDoc** — ensure complete, accurate API documentation (P2)
 27. **Migration guide v1.x→v2.0** — document breaking changes (P2)
