@@ -44,7 +44,7 @@ import type {
  * Event listener function type.
  *
  * Represents a callback attached to a DOM element via `addEventListener`.
- * The `this` context is bound to the target {@link Element}.
+ * The `this` context is bound to the target `Element`.
  *
  * @category Utility
  */

@@ -18,6 +18,7 @@ export * from './dropdown';
 export * from './form';
 export * from './formField';
 export * from './googleMap';
+export type { MarkerIcon } from './mapMarkerOps';
 export * from './month';
 export * from './navigation';
 export * from './pager';

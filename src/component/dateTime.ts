@@ -9,7 +9,7 @@ import { Clock } from './clock';
  * Format configuration for a specific input type, defining the date format string and which calendar/clock modes to display.
  * @category Component
  */
-type DateTimeConfig = {
+export type DateTimeConfig = {
     format: string;
     calendar_type: string;
     clock_type: string;

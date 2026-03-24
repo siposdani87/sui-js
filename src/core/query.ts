@@ -6,7 +6,7 @@ import { Knot } from './knot';
  * A DOM query result collection that selects elements matching a CSS selector
  * and wraps them as {@link Knot} instances within a {@link Collection}.
  *
- * Query uses an optimized {@link querySelector} helper that dispatches to the
+ * Query uses an optimized `querySelector` helper that dispatches to the
  * fastest native DOM method available for the given selector string:
  * `getElementById`, `getElementsByClassName`, `getElementsByTagName`, or
  * `querySelectorAll` for complex selectors.

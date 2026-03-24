@@ -147,7 +147,7 @@ const decimalAdjust = (type: string, value: number, exp: number): number => {
 
 /**
  * Precision-safe rounding to a given decimal place using the
- * shift-round-shift-back technique via {@link decimalAdjust}.
+ * shift-round-shift-back technique via `decimalAdjust`.
  *
  * @param {number} value - The number to round.
  * @param {number} exp - The exponent (power of 10) for the decimal place.
@@ -169,7 +169,7 @@ export const round = (value: number, exp: number): number =>
 
 /**
  * Precision-safe floor operation to a given decimal place using the
- * shift-round-shift-back technique via {@link decimalAdjust}.
+ * shift-round-shift-back technique via `decimalAdjust`.
  *
  * @param {number} value - The number to floor.
  * @param {number} exp - The exponent (power of 10) for the decimal place.
@@ -190,7 +190,7 @@ export const floor = (value: number, exp: number): number =>
 
 /**
  * Precision-safe ceil operation to a given decimal place using the
- * shift-round-shift-back technique via {@link decimalAdjust}.
+ * shift-round-shift-back technique via `decimalAdjust`.
  *
  * @param {number} value - The number to ceil.
  * @param {number} exp - The exponent (power of 10) for the decimal place.

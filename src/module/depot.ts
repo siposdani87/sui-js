@@ -13,7 +13,7 @@ import { encrypt, decrypt } from '../utils/coder';
  * are decrypted and type-cast via `typeCast`.
  *
  * A periodic interval (configurable via `interval` option) runs
- * {@link _checkExpires} to automatically remove entries that have passed
+ * `_checkExpires` to automatically remove entries that have passed
  * their expiration time.
  *
  * @example

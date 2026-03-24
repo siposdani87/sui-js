@@ -30,7 +30,7 @@ export type HttpResponse = {
  * Tuple describing a content type configuration for a given URL extension.
  * Elements are: [Content-Type header, Accept header].
  */
-type XhrType = [string, string];
+export type XhrType = [string, string];
 
 /**
  * Low-level fetch API wrapper that manages content-type detection,
@@ -79,11 +79,8 @@ export class Xhr {
     /**
      * Creates a new Xhr instance configured with the given options.
      *
-     * @param {object} [opt_options] Configuration merged with defaults.
-     * @param {string} [opt_options.backend=''] Base URL prepended to
-     *     root-relative request paths (paths starting with `/`).
-     * @param {string} [opt_options.locale=''] Value for the
-     *     Accept-Language request header.
+     * @param {object} [opt_options] Configuration merged with defaults
+     *     (`backend`: base URL for root-relative paths, `locale`: Accept-Language value).
      *
      * @example
      * const xhr = new Xhr({ backend: '/api', locale: 'hu' });

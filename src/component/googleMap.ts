@@ -44,7 +44,7 @@ export type LatLng = {
  * Google Maps wrapper with support for markers, polygons, heatmaps, geocoding, and custom map styles.
  *
  * Provides a high-level API over the Google Maps JavaScript API. Manages
- * collections of markers and polygons with associated {@link MapLabel} overlays,
+ * collections of markers and polygons with associated MapLabel overlays,
  * heatmap visualization, address geocoding, and custom map styling.
  *
  * @example
@@ -55,7 +55,7 @@ export type LatLng = {
  * googleMap.setMarkerIcon('default', iconOptions);
  * googleMap.createMarker('m1', 'My Marker', 'default', 47.6, 17.53);
  *
- * @see {@link MapLabel}
+ * @see MapLabel
  * @see {@link Collection}
  * @see {@link Objekt}
  * @see {@link Deferred}
@@ -519,7 +519,7 @@ export class GoogleMap extends Emitter {
     }
 
     /**
-     * Creates a new marker on the map with an associated {@link MapLabel}.
+     * Creates a new marker on the map with an associated MapLabel.
      *
      * @param id - Unique identifier for the marker.
      * @param title - Display label for the marker.

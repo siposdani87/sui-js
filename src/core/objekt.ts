@@ -234,7 +234,7 @@ export class Objekt<T extends object = object> {
      *
      * Internally, the path is first set to `null` via {@link Objekt.set} to
      * ensure the path exists, then the actual value is written directly with
-     * {@link Objekt._setByAttributes}.
+     * `_setByAttributes`.
      *
      * @template K The type of the value being set.
      * @param {string} attribute Dot-notation path.

@@ -45,10 +45,8 @@ export class Http extends Emitter {
     /**
      * Creates a new Http client instance.
      *
-     * @param {object} [opt_options] Configuration merged with defaults.
-     * @param {string} [opt_options.backend=''] Base URL prepended to
-     *     root-relative request paths.
-     * @param {string} [opt_options.locale=''] Accept-Language header value.
+     * @param {object} [opt_options] Configuration merged with defaults
+     *     (`backend`: base URL for root-relative paths, `locale`: Accept-Language value).
      *
      * @example
      * const http = new Http({ backend: '/api/v1', locale: 'hu' });

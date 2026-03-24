@@ -3,7 +3,7 @@ import { Async } from '../core/async';
 import { Objekt } from '../core/objekt';
 
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
-type EventCallback = (...args: any[]) => any;
+export type EventCallback = (...args: any[]) => any;
 
 /**
  * Publish/subscribe event system that uses an {@link Objekt} as the

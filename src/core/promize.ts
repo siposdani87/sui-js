@@ -44,7 +44,7 @@ export class Promize<T = object, K = object> {
      * Creates a new Promize instance in an unsettled state, backed by
      * a native Promise internally.
      *
-     * @param opt_options Optional configuration object. Kept for backward
+     * @param _opt_options Optional configuration object. Kept for backward
      *     compatibility but ignored internally.
      */
     constructor(_opt_options: object | undefined = {}) {
