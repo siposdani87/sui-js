@@ -4,13 +4,7 @@ Consolidated from all plan files. Only incomplete items included.
 
 ## P1 — High Priority
 
-## P2 — Medium Priority
-
-### 1. Release Blog Posts v2.0.x
-
-**Source:** `IMPROVEMENT_PLAN.md` §9
-
-Document v2.0.0, v2.0.1, v2.0.2, v2.0.3 releases on Docusaurus blog.
+## All tasks complete.
 
 
 
@@ -34,18 +28,19 @@ Document v2.0.0, v2.0.1, v2.0.2, v2.0.3 releases on Docusaurus blog.
 - ~~Expand jest-axe tests~~ — Table, Dialog, Confirm axe checks (48 a11y tests total)
 - ~~Migration guide v1.x→v2.0~~ — updated with v2.0.2/v2.0.3 breaking changes
 - ~~Visual regression testing~~ — Playwright, 6 tests, baseline screenshots
+- ~~Release blog posts v2.0.x~~ — v2.0.1, v2.0.2, v2.0.3 Docusaurus blog posts
 
 ## Recommended Execution Order
 
 ```
-1. Release blog posts v2.0.x        (P2, community)
+All tasks complete.
 ```
 
 ## Active Plan Files
 
 | File | Status |
 | ---- | ------ |
-| `IMPROVEMENT_PLAN.md` | ~99% complete (remaining P2 blog posts) |
+| `IMPROVEMENT_PLAN.md` | ✅ 100% complete |
 | `ADVANCED_MARKER_MIGRATION.md` | ✅ Complete |
 
 Completed plan files (removed): `MODERNIZATION_PRIORITY.md`, `AUTOMATIC_DI_PLAN.md`, `NATIVE_PROMISE_MIGRATION_PLAN.md`, `FETCH_MIGRATION_PLAN.md`, `STYLE_IMPROVEMENT_PLAN.md`, `EXAMPLE_EXPANSION_PLAN.md`.

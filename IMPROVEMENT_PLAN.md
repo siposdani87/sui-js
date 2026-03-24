@@ -144,8 +144,8 @@ All items complete.
 | ~~**Remove `@description` JSDoc tags**~~ — 473 occurrences removed across 48 files for TypeDoc compatibility (v2.0.3) | P2 | Docusaurus build |
 | ~~**Audit and improve JSDoc/TypeDoc**~~ — fixed all 20 TypeDoc warnings to 0: corrected @param names, removed unsupported sub-property syntax, replaced broken {@link} refs, exported internal types (MarkerIcon, DateTimeConfig, EventCallback, XhrType) | P2 | API documentation quality |
 | ~~**Migration guide v1.x→v2.0**~~ — updated with v2.0.2/v2.0.3 breaking changes: AdvancedMarkerElement, DI removal, fabButton/iconButton, label capitalization | P2 | User retention |
-| **Release blog posts v2.0.x** — document v2.0.0, v2.0.1, v2.0.2, v2.0.3 releases | P3 | Community |
-| **Blog posts** — write about architecture decisions, modernization journey | P3 | SEO & community |
+| ~~**Release blog posts v2.0.x**~~ — v2.0.1, v2.0.2, v2.0.3 blog posts added to Docusaurus site | P3 | Community |
+| ~~**Blog posts**~~ — architecture decisions + modernization journey posts already published | P3 | SEO & community |
 
 ---
 
@@ -203,10 +203,8 @@ These items have dedicated planning documents and are tracked outside this impro
 4. ~~**Expand jest-axe tests**~~ — COMPLETE (Table, Dialog, Confirm)
 5. ~~**Migration guide v1.x→v2.0**~~ — COMPLETE (v2.0.2/v2.0.3 breaking changes added)
 6. ~~**Add visual regression testing**~~ — COMPLETE (Playwright, 6 tests)
-7. **Release blog posts v2.0.x** — document recent releases
-
-### P3 — Low Priority
-8. **Blog posts** — architecture decisions, modernization journey
+7. ~~**Release blog posts v2.0.x**~~ — COMPLETE
+8. ~~**Blog posts**~~ — COMPLETE (architecture decisions + modernization journey already exist)
 9. ~~**`CHANGELOG` automation**~~ — COMPLETE (already implemented)
 
 ---
@@ -256,5 +254,5 @@ These items have dedicated planning documents and are tracked outside this impro
 27. ~~**Expand jest-axe tests**~~ — COMPLETE (Table, Dialog, Confirm)
 28. ~~**Migration guide v1.x→v2.0**~~ — COMPLETE (v2.0.2/v2.0.3 breaking changes)
 29. ~~**Visual regression testing**~~ — COMPLETE (Playwright, 6 tests, baseline screenshots)
-30. **Release blog posts v2.0.x** — document v2.0.0–v2.0.3 (P3)
-31. ~~**Changelog automation**~~ — COMPLETE (already implemented)
+30. ~~**Release blog posts v2.0.x**~~ — COMPLETE
+31. ~~**Changelog automation**~~ — COMPLETE
