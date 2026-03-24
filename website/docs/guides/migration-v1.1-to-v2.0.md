@@ -102,7 +102,15 @@ class UserController extends Controller {
 }
 ```
 
-This is optional — the previous convention still works, but `static inject` is recommended for clarity and minification safety.
+As of v2.0.3, **the old explicit injection array is removed**. Only `static inject` is supported:
+
+```typescript
+// Before (v1.1 / v2.0.0–v2.0.2) — explicit injection array
+app.controller('homeCtrl', ['http', 'flash'], HomeController);
+
+// After (v2.0.3+) — static inject only
+app.controller('homeCtrl', HomeController);
+```
 
 ## Style Changes
 
@@ -170,6 +178,67 @@ fix: correct date parsing in DateIO
 chore: upgrade dependencies
 ```
 
+## Google Maps: AdvancedMarkerElement (v2.0.3+)
+
+`google.maps.Marker` has been replaced with `google.maps.marker.AdvancedMarkerElement`.
+
+### mapId required
+
+A `mapId` is now required on GoogleMap options. A default `'DEMO_MAP_ID'` is provided for development:
+
+```typescript
+const map = new GoogleMap(element, '.map', {
+    mapId: 'YOUR_CLOUD_CONSOLE_MAP_ID',
+});
+```
+
+For `LocationField`, set it via the `data-map-id` attribute:
+
+```html
+<input type="hidden" class="location" data-map-id="YOUR_MAP_ID" />
+```
+
+### MarkerIcon type change
+
+```typescript
+// Before — icon + shape
+type MarkerIcon = {
+    icon: string | google.maps.Icon | google.maps.Symbol;
+    shape: google.maps.MarkerShape;
+};
+
+// After — HTMLElement content
+type MarkerIcon = {
+    content: HTMLElement;
+};
+```
+
+### Event changes
+
+Marker event callbacks now receive standard DOM events:
+- `markerClick` → `gmp-click` event
+- `markerDoubleClick` → `dblclick` on `marker.element`
+- `markerRightClick` → `contextmenu` on `marker.element`
+- `markerChanged` → `gmp-dragend` event
+- `draggable` option → `gmpDraggable` (mapped internally)
+
+## Helper: iconButton / fabButton Separation (v2.0.2+)
+
+`iconButton` and `createIconButton` no longer add FAB classes by default. Use `fabButton` / `createFabButton` for floating action buttons:
+
+```typescript
+// Before — iconButton created FAB-style buttons
+helper.createIconButton('add', callback);
+
+// After — iconButton is icon-only, use createFabButton for FAB
+helper.createIconButton('add', callback);     // plain icon button
+helper.createFabButton('add', callback);      // FAB with raised + accent
+```
+
+## Label Auto-Capitalization (v2.0.2+)
+
+Field labels are automatically capitalized (first character uppercased) via `_capitalizeFirst()` in `BaseField._setAdditionalLabel()`. If your labels were already capitalized, no change needed. Lowercase labels like `"email address"` will render as `"Email address"`.
+
 ## Summary of Breaking Changes
 
 | Area | Change | Action |
@@ -183,3 +252,7 @@ chore: upgrade dependencies
 | Styles | Roboto font removed | None (system fonts automatic) |
 | Styles | Dark mode via CSS custom properties | Update if using Dark.scss overrides |
 | Commits | Conventional commit format enforced | Follow `type: description` format |
+| DI | Explicit injection array removed (v2.0.3) | Use `static inject` on classes |
+| Google Maps | `Marker` → `AdvancedMarkerElement` (v2.0.3) | Add `mapId`, update `MarkerIcon` usage |
+| Helper | `iconButton` no longer adds FAB classes (v2.0.2) | Use `createFabButton` for FABs |
+| Labels | Auto-capitalization on field labels (v2.0.2) | None (cosmetic change) |
