@@ -117,9 +117,9 @@ Current: **224.0 KB JS (IIFE) + 223.3 KB JS (ESM) + 76.9 KB CSS** (limit: 250 KB
 | ~~**Color contrast audit**~~ — `$accent-text` changed to dark (7.16:1), `$error-default-light` uses `$red-dark` (≥4.6:1); remaining palette colors used as borders/backgrounds, not text | P2 | Compliance |
 | ~~**Screen reader testing**~~ — `aria-live` on Flash container and Loader; `aria-modal`, `aria-labelledby` on Dialog/Confirm/Viewer | P2 | Assistive tech |
 | ~~**Focus trap in modals**~~ — dialog, confirm, viewer trap focus with Tab cycling and restore on close | P1 | WCAG requirement |
-| **Add `aria-label` to icon-only buttons** — icon buttons created via Helper lack accessible labels | P2 | Screen reader support |
-| **Add `aria-controls` to menu toggles** — dropdown button should reference its menu panel | P2 | ARIA best practice |
-| **Expand ARIA on Table component** — add `role`, `aria-sort`, `aria-label` for interactive tables | P2 | Data table accessibility |
+| ~~**Add `aria-label` to icon-only buttons**~~ — Helper `iconButtonElement` sets `aria-label` from description | P2 | Screen reader support |
+| ~~**Add `aria-controls` to menu toggles**~~ — Dropdown button has `aria-controls` + `aria-label="Actions"` linking to menu | P2 | ARIA best practice |
+| ~~**Expand ARIA on Table component**~~ — `aria-label` on table, `aria-sort` on sorted column headers | P2 | Data table accessibility |
 
 ---
 
@@ -148,7 +148,7 @@ All items complete.
 | ~~**Add `CONTRIBUTING.md`**~~ — contribution guidelines, PR process | P2 | Community |
 | ~~**Release blog posts**~~ — v1.0.0, v1.1.0, v1.2.0 release posts on Docusaurus blog | P3 | Community |
 | ~~**Remove `@description` JSDoc tags**~~ — 473 occurrences removed across 48 files for TypeDoc compatibility (v2.0.3) | P2 | Docusaurus build |
-| **Audit and improve JSDoc/TypeDoc** — review all classes, methods, and functions for missing, outdated, or incomplete JSDoc; ensure `@param`, `@returns`, `@example` tags are accurate; fix TypeDoc warnings; verify generated API docs render correctly on Docusaurus | P2 | API documentation quality |
+| ~~**Audit and improve JSDoc/TypeDoc**~~ — fixed all 20 TypeDoc warnings to 0: corrected @param names, removed unsupported sub-property syntax, replaced broken {@link} refs, exported internal types (MarkerIcon, DateTimeConfig, EventCallback, XhrType) | P2 | API documentation quality |
 | **Migration guide v1.x→v2.0** — document breaking changes: fabButton/iconButton separation, label capitalization, DOMParser migration, CSS variable changes | P2 | User retention |
 | **Release blog posts v2.0.x** — document v2.0.0, v2.0.1, v2.0.2, v2.0.3 releases | P3 | Community |
 | **Blog posts** — write about architecture decisions, modernization journey | P3 | SEO & community |
@@ -205,12 +205,12 @@ These items have dedicated planning documents and are tracked outside this impro
 1. ~~**AdvancedMarkerElement migration**~~ — COMPLETE
 
 ### P2 — Medium Priority
-3. **Expand jest-axe tests** — add axe coverage for Table, Dialog, Confirm, SelectField, DateTimeField
-4. **Add ARIA to icon buttons, menu toggles, Table** — improve screen reader support
-5. **Audit and improve JSDoc/TypeDoc** — ensure all public APIs are fully documented with accurate tags
-6. **Migration guide v1.x→v2.0** — document breaking changes for v2.0
-7. **Add visual regression testing** — screenshot comparison for UI components
-8. **Release blog posts v2.0.x** — document recent releases
+2. ~~**Expand ARIA on Dropdown, Table, icon buttons**~~ — COMPLETE
+3. ~~**Audit and improve JSDoc/TypeDoc**~~ — COMPLETE (20 → 0 TypeDoc warnings)
+4. **Expand jest-axe tests** — add axe coverage for Table, Dialog, Confirm, SelectField, DateTimeField
+5. **Migration guide v1.x→v2.0** — document breaking changes for v2.0
+6. **Add visual regression testing** — screenshot comparison for UI components
+7. **Release blog posts v2.0.x** — document recent releases
 
 ### P3 — Low Priority
 8. **CSS layers (`@layer`)** — better cascade control
@@ -263,8 +263,8 @@ These items have dedicated planning documents and are tracked outside this impro
 
 23. ~~**AdvancedMarkerElement migration**~~ — COMPLETE (see `ADVANCED_MARKER_MIGRATION.md`)
 24. ~~**Code-split Google Maps**~~ — removed (not needed)
-25. **Expand ARIA and jest-axe coverage** — Table, Dialog, icon buttons, menu toggles (P2)
-26. **Audit and improve JSDoc/TypeDoc** — ensure complete, accurate API documentation (P2)
+25. ~~**Expand ARIA on Dropdown, Table, icon buttons**~~ — COMPLETE
+26. ~~**Audit and improve JSDoc/TypeDoc**~~ — COMPLETE (20 → 0 warnings)
 27. **Migration guide v1.x→v2.0** — document breaking changes (P2)
 28. **Visual regression testing** — Playwright screenshot comparison (P2)
 29. **Release blog posts v2.0.x** — document v2.0.0–v2.0.3 (P3)
