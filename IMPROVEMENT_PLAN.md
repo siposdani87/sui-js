@@ -33,7 +33,7 @@ Coverage **exceeds configured thresholds** (statements 97.09% vs 97%, branches 8
 | ~~Add edge-case tests for `xhr.ts` (fetch error handling, abort, timeouts)~~ — 7 new tests for no Content-Type, pre-set headers | P1 | Security & correctness |
 | ~~Add integration-style tests for `application.ts` DI container~~ — 25 new tests for DI, locale, getInstance, run modes | P1 | Core framework confidence |
 | ~~Enable stricter test config (remove `strictNullChecks: false` from `tsconfig.spec.json`)~~ — removed `strictNullChecks: false` and `noImplicitAny: false` overrides; 21 spec files fixed | P2 | Catch more bugs in tests |
-| **Expand jest-axe tests** — current axe coverage limited to Loader/Flash/TabPanel/Viewer/Dropdown/Navigation/BaseField; add axe tests for Table, Dialog, Confirm, SelectField, DateTimeField, ColorField | P2 | Comprehensive a11y testing |
+| ~~**Expand jest-axe tests**~~ — added axe checks for Table, Dialog, Confirm (total 48 a11y tests) | P2 | Comprehensive a11y testing |
 
 ---
 
@@ -149,7 +149,7 @@ All items complete.
 | ~~**Release blog posts**~~ — v1.0.0, v1.1.0, v1.2.0 release posts on Docusaurus blog | P3 | Community |
 | ~~**Remove `@description` JSDoc tags**~~ — 473 occurrences removed across 48 files for TypeDoc compatibility (v2.0.3) | P2 | Docusaurus build |
 | ~~**Audit and improve JSDoc/TypeDoc**~~ — fixed all 20 TypeDoc warnings to 0: corrected @param names, removed unsupported sub-property syntax, replaced broken {@link} refs, exported internal types (MarkerIcon, DateTimeConfig, EventCallback, XhrType) | P2 | API documentation quality |
-| **Migration guide v1.x→v2.0** — document breaking changes: fabButton/iconButton separation, label capitalization, DOMParser migration, CSS variable changes | P2 | User retention |
+| ~~**Migration guide v1.x→v2.0**~~ — updated with v2.0.2/v2.0.3 breaking changes: AdvancedMarkerElement, DI removal, fabButton/iconButton, label capitalization | P2 | User retention |
 | **Release blog posts v2.0.x** — document v2.0.0, v2.0.1, v2.0.2, v2.0.3 releases | P3 | Community |
 | **Blog posts** — write about architecture decisions, modernization journey | P3 | SEO & community |
 
@@ -172,7 +172,7 @@ All items complete.
 | Action | Priority | Impact |
 |--------|----------|--------|
 | ~~**Add bundle size diff**~~ — CI comments bundle size report on PRs via `scripts/bundle-size-diff.cjs` | P2 | Prevent bloat |
-| **Add visual regression testing** — screenshot comparison for UI components (Playwright) | P2 | Style confidence |
+| ~~**Add visual regression testing**~~ — Playwright with 6 visual tests (buttons light/dark, table, form, modals, services); baseline screenshots in `e2e/snapshots/`; `npm run test:visual` | P2 | Style confidence |
 | ~~**Cache improvements**~~ — TypeScript incremental builds (`incremental: true` + `.tsbuildinfo`); CI caches `.tsbuildinfo` via `actions/cache@v4` keyed on source hash | P3 | CI speed |
 
 ---
@@ -182,7 +182,6 @@ All items complete.
 | Action | Priority | Impact |
 |--------|----------|--------|
 | **esbuild already minifies** — variable names mangled, but structure visible | Info | — |
-| **Consider `javascript-obfuscator`** for IIFE build only — adds control flow flattening, string encryption | P3 | IP protection |
 | ~~**Exclude source maps from npm**~~ — `files` field excludes `*.map` | P2 | Don't ship debug info |
 | ~~**License header injection**~~ — esbuild `--banner:js` adds BSD-3-Clause copyright | P3 | Legal |
 
@@ -207,9 +206,9 @@ These items have dedicated planning documents and are tracked outside this impro
 ### P2 — Medium Priority
 2. ~~**Expand ARIA on Dropdown, Table, icon buttons**~~ — COMPLETE
 3. ~~**Audit and improve JSDoc/TypeDoc**~~ — COMPLETE (20 → 0 TypeDoc warnings)
-4. **Expand jest-axe tests** — add axe coverage for Table, Dialog, Confirm, SelectField, DateTimeField
-5. **Migration guide v1.x→v2.0** — document breaking changes for v2.0
-6. **Add visual regression testing** — screenshot comparison for UI components
+4. ~~**Expand jest-axe tests**~~ — COMPLETE (Table, Dialog, Confirm)
+5. ~~**Migration guide v1.x→v2.0**~~ — COMPLETE (v2.0.2/v2.0.3 breaking changes added)
+6. ~~**Add visual regression testing**~~ — COMPLETE (Playwright, 6 tests)
 7. **Release blog posts v2.0.x** — document recent releases
 
 ### P3 — Low Priority
@@ -265,8 +264,9 @@ These items have dedicated planning documents and are tracked outside this impro
 24. ~~**Code-split Google Maps**~~ — removed (not needed)
 25. ~~**Expand ARIA on Dropdown, Table, icon buttons**~~ — COMPLETE
 26. ~~**Audit and improve JSDoc/TypeDoc**~~ — COMPLETE (20 → 0 warnings)
-27. **Migration guide v1.x→v2.0** — document breaking changes (P2)
-28. **Visual regression testing** — Playwright screenshot comparison (P2)
-29. **Release blog posts v2.0.x** — document v2.0.0–v2.0.3 (P3)
+27. ~~**Expand jest-axe tests**~~ — COMPLETE (Table, Dialog, Confirm)
+28. ~~**Migration guide v1.x→v2.0**~~ — COMPLETE (v2.0.2/v2.0.3 breaking changes)
+29. ~~**Visual regression testing**~~ — COMPLETE (Playwright, 6 tests, baseline screenshots)
+30. **Release blog posts v2.0.x** — document v2.0.0–v2.0.3 (P3)
 30. **Modern CSS features** — `@layer`, `@container`, `@starting-style` (P3, as browser support matures)
 31. **Changelog automation** — conventional commits (P3)
