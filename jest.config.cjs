@@ -30,6 +30,7 @@ module.exports = {
     outputName: 'test-reporter.xml',
     reportedFilePath: 'absolute'
   }]],
+  testPathIgnorePatterns: ['/node_modules/', '/e2e/'],
   setupFilesAfterEnv: ['./jest.setup.ts'],
   silent: true,
   forceExit: true

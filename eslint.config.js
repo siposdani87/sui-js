@@ -17,6 +17,8 @@ export default [
             '**/*.spec.ts',
             'src/test-helpers.ts',
             'scripts/*',
+            'playwright.config.ts',
+            'e2e/*',
         ],
     },
     eslint.configs.recommended,
