@@ -39,11 +39,7 @@ export const cleanMarkerData = (markerData: object): Objekt => {
  * Normalizes a LatLng or LatLngLiteral to a plain `{ lat, lng }` object.
  */
 const getLatLng = (
-    pos:
-        | google.maps.LatLng
-        | google.maps.LatLngLiteral
-        | null
-        | undefined,
+    pos: google.maps.LatLng | google.maps.LatLngLiteral | null | undefined,
 ): { lat: number; lng: number } => {
     if (!pos) return { lat: 0, lng: 0 };
     if ('lat' in pos && typeof pos.lat === 'function') {
@@ -118,10 +114,7 @@ export const bindEventsToMarker = (
     addListener(marker, 'gmp-drag', ((_event: Event) => {
         const { lat, lng } = getLatLng(marker.position);
         const mapLabel = markerData.get<MapLabel>('_map_label');
-        mapLabel.set(
-            'position',
-            new google.maps.LatLng(lat, lng),
-        );
+        mapLabel.set('position', new google.maps.LatLng(lat, lng));
     }) as EventListener);
 
     addListener(marker, 'gmp-dragend', ((event: Event) => {
@@ -256,9 +249,7 @@ export const removeMarker = (markers: Collection<Objekt>, id: Id): void => {
         const mapLabel = markerData.get<MapLabel>('_map_label');
         mapLabel.setMap(null);
         const marker =
-            markerData.get<google.maps.marker.AdvancedMarkerElement>(
-                '_marker',
-            );
+            markerData.get<google.maps.marker.AdvancedMarkerElement>('_marker');
         marker.map = null;
         unbindEventsToMarker(markerData);
         markers.deleteById(id);
@@ -275,9 +266,7 @@ export const removeAllMarkers = (markers: Collection<Objekt>): void => {
         const mapLabel = markerData.get<MapLabel>('_map_label');
         mapLabel.setMap(null);
         const marker =
-            markerData.get<google.maps.marker.AdvancedMarkerElement>(
-                '_marker',
-            );
+            markerData.get<google.maps.marker.AdvancedMarkerElement>('_marker');
         marker.map = null;
         unbindEventsToMarker(markerData);
     });

@@ -697,9 +697,7 @@ export class GoogleMap extends Emitter {
     openInfoWindow(markerId: string | number, content: string): void {
         const markerData = this.getMarker(markerId)!;
         const marker =
-            markerData.get<google.maps.marker.AdvancedMarkerElement>(
-                '_marker',
-            );
+            markerData.get<google.maps.marker.AdvancedMarkerElement>('_marker');
         const infoWindow = new google.maps.InfoWindow({
             content: content.toString(),
         });
