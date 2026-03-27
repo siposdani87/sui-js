@@ -74,7 +74,6 @@
     "dist/**/*.css.map",
     "dist/**/*.d.ts",
     "dist/**/*.d.ts.map",
-    "src/**/*",
     "styles/**/*"
   ],
   "dependencies": {
