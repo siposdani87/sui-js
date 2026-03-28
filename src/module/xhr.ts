@@ -373,7 +373,7 @@ export class Xhr {
             headers,
         };
 
-        if (this.authorization) {
+        if (headers['Authorization']) {
             init.credentials = 'include';
         }
 
