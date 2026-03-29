@@ -290,8 +290,8 @@ export const setMarkerIcon = (
     img.width = iconOptions.size[0];
     img.height = iconOptions.size[1];
     img.style.display = 'block';
-    const tx = -iconOptions.anchor[0];
-    const ty = -iconOptions.anchor[1];
+    const tx = iconOptions.size[0] / 2 - iconOptions.anchor[0];
+    const ty = iconOptions.size[1] - iconOptions.anchor[1];
     img.style.transform = `translate(${tx}px, ${ty}px)`;
 
     markerIcons[name] = {
