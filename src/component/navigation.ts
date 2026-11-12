@@ -127,7 +127,7 @@ export class Navigation {
         const item = this._setKnot(id, title, action, opt_href, opt_data);
         const counterSpan = new Knot('span');
         counterSpan.addClass('counter');
-        counterSpan.setHtml(counter);
+        counterSpan.setSafeText(counter);
 
         const linkKnot = item.get<Knot>(this.linkKnotKey);
         linkKnot.beforeChild(counterSpan);
@@ -265,7 +265,7 @@ export class Navigation {
         if (title) {
             const titleSpan = new Knot('span');
             titleSpan.addClass('title');
-            titleSpan.setHtml(title);
+            titleSpan.setSafeText(title);
             linkKnot.appendChild(titleSpan);
         }
         linkKnot.setAttribute('href', opt_href || '#');

@@ -1,5 +1,6 @@
 import { Knot } from '../core';
 import { Objekt } from '../core/objekt';
+import { XSS_PAYLOAD } from '../test-helpers';
 import { Navigation } from './navigation';
 
 describe('Navigation', () => {
@@ -260,6 +261,48 @@ describe('Navigation', () => {
             const linkKnot = item!.get<Knot>('node');
             linkKnot.getNode().click();
             expect(action).toHaveBeenCalledWith('/path');
+        });
+    });
+
+    describe('text-safe labels', () => {
+        function getLinkNode(id: string): HTMLElement {
+            const item = nav.container.findById(id)!;
+            return item.get<Knot>(nav.linkKnotKey).getNode() as HTMLElement;
+        }
+
+        function expectTitleAsText(id: string): void {
+            const linkNode = getLinkNode(id);
+            expect(linkNode.querySelector('.title img')).toBeNull();
+            expect(linkNode.querySelector('.title')!.textContent).toBe(
+                XSS_PAYLOAD,
+            );
+        }
+
+        it('should show an addText title as text', () => {
+            nav.addText('item', XSS_PAYLOAD, jest.fn());
+            expectTitleAsText('item');
+        });
+
+        it('should show an addIcon title as text', () => {
+            nav.addIcon('item', 'home', XSS_PAYLOAD, jest.fn());
+            expectTitleAsText('item');
+        });
+
+        it('should show an addImage title as text', () => {
+            nav.addImage('item', '/avatar.png', XSS_PAYLOAD, jest.fn());
+            expectTitleAsText('item');
+            const imageNode = getLinkNode('item').querySelector('.image img');
+            expect(imageNode!.getAttribute('alt')).toBe(XSS_PAYLOAD);
+        });
+
+        it('should show an addCounter title and counter as text', () => {
+            nav.addCounter('item', XSS_PAYLOAD, XSS_PAYLOAD, jest.fn());
+            expectTitleAsText('item');
+            const linkNode = getLinkNode('item');
+            expect(linkNode.querySelector('.counter img')).toBeNull();
+            expect(linkNode.querySelector('.counter')!.textContent).toBe(
+                XSS_PAYLOAD,
+            );
         });
     });
 });
