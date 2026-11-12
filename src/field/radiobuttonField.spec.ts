@@ -1,5 +1,5 @@
 import { Form, parseInputBlock } from '../component';
-import { Query } from '../core';
+import { Knot, Query } from '../core';
 import { RadiobuttonField } from './radiobuttonField';
 import { XSS_PAYLOAD } from '../test-helpers';
 
@@ -46,5 +46,16 @@ describe('RadiobuttonField', () => {
         const dataLabelNode = radiobuttonField.dataLabelKnot.getNode();
         expect(dataLabelNode.querySelector('img')).toBeNull();
         expect(dataLabelNode.textContent).toBe(XSS_PAYLOAD);
+    });
+
+    it('should show a setLabel label as text', () => {
+        radiobuttonField.spanLabel = new Knot('span');
+        radiobuttonField.inputBlock
+            .getNode()
+            .appendChild(radiobuttonField.spanLabel.getNode());
+        radiobuttonField.setLabel(XSS_PAYLOAD);
+        const spanNode = radiobuttonField.spanLabel.getNode();
+        expect(spanNode.querySelector('img')).toBeNull();
+        expect(spanNode.textContent).toContain(XSS_PAYLOAD);
     });
 });

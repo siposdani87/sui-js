@@ -221,7 +221,7 @@ export class RadiobuttonField extends BaseField<HTMLInputElement> {
      */
     override setLabel(text: string): void {
         if (this.spanLabel && !this.spanLabel.isEmpty()) {
-            this.spanLabel.setHtml(text);
+            this.spanLabel.setSafeText(text);
             this._setAdditionalLabel(this.spanLabel);
         }
     }
