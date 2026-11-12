@@ -75,7 +75,7 @@ export class ProgressStatus {
             this.options.warningStyle,
         ]);
         this.progressStatusKnot.addClass(cssClass);
-        this.textKnot.setHtml(text);
+        this.textKnot.setSafeText(text);
         if (opt_icon) {
             this.iconKnot.setHtml(opt_icon);
         }

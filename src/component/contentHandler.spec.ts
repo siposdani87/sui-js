@@ -1,4 +1,5 @@
 import { Query } from '../core';
+import { XSS_PAYLOAD } from '../test-helpers';
 import { ContentHandler } from './contentHandler';
 
 describe('contentHandler', () => {
@@ -114,5 +115,15 @@ describe('contentHandler', () => {
         contentHandler.hide();
         expect(contentHandler.contentKnot.hasClass('visible-flex')).toBe(false);
         expect(knot.hasClass('hidden')).toBe(false);
+    });
+
+    it('should show the text option as text', () => {
+        const knot = new Query('.template-view').getKnot();
+        const contentHandler = new ContentHandler(knot, { text: XSS_PAYLOAD });
+
+        const contentNode = contentHandler.contentKnot.getNode();
+        expect(contentNode.querySelector('img')).toBeNull();
+        expect(contentNode.querySelector('p')!.textContent).toBe(XSS_PAYLOAD);
+        contentHandler.contentKnot.remove();
     });
 });

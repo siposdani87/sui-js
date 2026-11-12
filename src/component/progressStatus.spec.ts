@@ -1,4 +1,5 @@
 import { Knot } from '../core';
+import { XSS_PAYLOAD } from '../test-helpers';
 import { ProgressStatus } from './progressStatus';
 
 describe('ProgressStatus', () => {
@@ -165,5 +166,12 @@ describe('ProgressStatus', () => {
             expect(node.classList.contains('warning')).toBe(false);
             expect(node.classList.contains('error')).toBe(true);
         });
+    });
+
+    it('should show the status text as text', () => {
+        progressStatus.setError(XSS_PAYLOAD);
+        const textNode = container.querySelector('.text')!;
+        expect(textNode.querySelector('img')).toBeNull();
+        expect(textNode.textContent).toBe(XSS_PAYLOAD);
     });
 });

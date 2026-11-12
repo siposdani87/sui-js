@@ -58,7 +58,7 @@ export class ContentHandler {
         }
         if (this.options.text) {
             const textKnot = new Knot('p');
-            textKnot.setHtml(this.options.text);
+            textKnot.setSafeText(this.options.text);
             this.contentKnot.appendChild(textKnot);
         }
 
