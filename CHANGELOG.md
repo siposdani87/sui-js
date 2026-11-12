@@ -5,6 +5,22 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [2.1.3] - 2026-11-12
+
+### Security
+
+- Render inputs documented as text through `textContent` instead of `innerHTML`, closing stored XSS through label and data strings:
+    - `SelectField` option labels from `setOptions` or `<option>` text, the selected tags and the option list
+    - `Navigation` item titles and counters
+    - `Dialog` template titles and `Viewer` image titles
+    - Field labels: `setLabel`, switch and icon toggle labels, checkbox and radio `data-label`, the URL field `data-protocol` prefix and the location field `data-latitude` / `data-longitude` labels
+    - `LeftMenu` titles from `open` and `openSubMenu`
+    - `ProgressStatus` messages and the `ContentHandler` `text` option
+
+### Changed
+
+- Markup passed to any of the inputs above now shows as literal text. `Confirm`, `Flash`, `Table`, `CardCollection`, `Tooltip`, `Dropdown` action titles, `Helper.createLink` / `createButton`, `Header.setTitle`, `BaseField.setError` and `GoogleMap.openInfoWindow` still render HTML.
+
 ## [2.0.0] - 2026-03-09
 
 ### Added
