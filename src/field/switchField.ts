@@ -24,7 +24,7 @@ export class SwitchField extends BaseCheckboxField {
 
         this.spanLabel = new Knot('span');
         this.spanLabel.addClass('sui-switch__label');
-        this.spanLabel.setHtml(labelText);
+        this.spanLabel.setSafeText(labelText);
 
         this.input.addClass('sui-switch__input');
 

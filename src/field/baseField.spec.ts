@@ -1,6 +1,7 @@
 import { parseInputBlock } from '../component';
 import { Query } from '../core';
 import { BaseField } from './baseField';
+import { XSS_PAYLOAD } from '../test-helpers';
 
 describe('BaseField', () => {
     describe('with hidden input', () => {
@@ -143,6 +144,13 @@ describe('BaseField', () => {
         it('should keep already capitalized label unchanged', () => {
             field.setLabel('Phone Number');
             expect(field.label.getHtml()).toContain('Phone Number');
+        });
+
+        it('should show a setLabel label as text', () => {
+            field.setLabel(XSS_PAYLOAD);
+            const labelNode = field.label.getNode();
+            expect(labelNode.querySelector('img')).toBeNull();
+            expect(labelNode.textContent).toContain(XSS_PAYLOAD);
         });
 
         it('should check validity', () => {

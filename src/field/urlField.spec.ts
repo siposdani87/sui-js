@@ -1,5 +1,6 @@
 import { parseInputBlock } from '../component';
 import { Query } from '../core';
+import { XSS_PAYLOAD } from '../test-helpers';
 import { UrlField } from './urlField';
 
 describe('UrlField', () => {
@@ -64,5 +65,20 @@ describe('UrlField', () => {
             .querySelector('span.protocol');
         expect(protocolSpan).not.toBeNull();
         expect(protocolSpan!.innerHTML).toBe('https://');
+    });
+
+    it('should show a data-protocol prefix as text', () => {
+        urlField.input.getNode().setAttribute('data-protocol', XSS_PAYLOAD);
+        urlField = new (urlField.constructor as any)(
+            urlField.input,
+            urlField.label,
+            urlField.error,
+            urlField.inputBlock,
+        );
+        urlField.render();
+        const blockNode = urlField.inputBlock.getNode();
+        const protocolSpan = blockNode.querySelector('input + span.protocol');
+        expect(blockNode.querySelector('img')).toBeNull();
+        expect(protocolSpan!.textContent).toBe(XSS_PAYLOAD);
     });
 });

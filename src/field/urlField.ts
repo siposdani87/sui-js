@@ -46,7 +46,7 @@ export class UrlField extends BaseField<HTMLInputElement> {
         if (this.protocol) {
             const protocolKnot = new Knot('span');
             protocolKnot.addClass('protocol');
-            protocolKnot.setHtml(this.protocol);
+            protocolKnot.setSafeText(this.protocol);
             this.input.insertAfter(protocolKnot);
         }
 

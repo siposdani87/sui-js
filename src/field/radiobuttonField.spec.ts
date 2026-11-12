@@ -1,6 +1,7 @@
 import { Form, parseInputBlock } from '../component';
 import { Query } from '../core';
 import { RadiobuttonField } from './radiobuttonField';
+import { XSS_PAYLOAD } from '../test-helpers';
 
 describe('RadiobuttonField', () => {
     let radiobuttonField: RadiobuttonField;
@@ -36,5 +37,14 @@ describe('RadiobuttonField', () => {
 
     it('should check disabled state', () => {
         expect(radiobuttonField.isDisabled()).toBe(false);
+    });
+
+    it('should show a data-label attribute as text', () => {
+        radiobuttonField.render();
+        radiobuttonField.label.setAttribute('data-label', XSS_PAYLOAD);
+        radiobuttonField.refresh();
+        const dataLabelNode = radiobuttonField.dataLabelKnot.getNode();
+        expect(dataLabelNode.querySelector('img')).toBeNull();
+        expect(dataLabelNode.textContent).toBe(XSS_PAYLOAD);
     });
 });

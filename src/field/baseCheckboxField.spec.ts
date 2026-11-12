@@ -1,6 +1,7 @@
 import { parseInputBlock } from '../component';
 import { Knot, Query } from '../core';
 import { BaseCheckboxField } from './baseCheckboxField';
+import { XSS_PAYLOAD } from '../test-helpers';
 
 describe('baseCheckboxField', () => {
     let field: BaseCheckboxField;
@@ -71,6 +72,15 @@ describe('baseCheckboxField', () => {
             expect(field.spanLabel.getHtml(true)).toContain('New Label');
         });
 
+        it('should show a setLabel label as text', () => {
+            field.spanLabel = new Knot('span');
+            inputBlock.getNode().appendChild(field.spanLabel.getNode());
+            field.setLabel(XSS_PAYLOAD);
+            const spanNode = field.spanLabel.getNode();
+            expect(spanNode.querySelector('img')).toBeNull();
+            expect(spanNode.textContent).toContain(XSS_PAYLOAD);
+        });
+
         it('should not throw when spanLabel is undefined', () => {
             field.spanLabel = undefined as any;
             expect(() => field.setLabel('Test')).not.toThrow();
@@ -82,6 +92,20 @@ describe('baseCheckboxField', () => {
             field.label.setAttribute('data-label', 'Data Label');
             field.refresh();
             expect(field.dataLabelKnot.getHtml(true)).toContain('Data Label');
+        });
+
+        it('should show a data-label attribute as text', () => {
+            field.label.setAttribute('data-label', XSS_PAYLOAD);
+            field.refresh();
+            const dataLabelNode = field.dataLabelKnot.getNode();
+            expect(dataLabelNode.querySelector('img')).toBeNull();
+            expect(dataLabelNode.textContent).toBe(XSS_PAYLOAD);
+        });
+
+        it('should show a data-label of true as a non-breaking space', () => {
+            field.label.setAttribute('data-label', 'true');
+            field.refresh();
+            expect(field.dataLabelKnot.getNode().textContent).toBe('\u00a0');
         });
 
         it('should clear data label when no data-label attribute', () => {

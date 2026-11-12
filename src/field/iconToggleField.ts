@@ -49,7 +49,7 @@ export class IconToggleField extends BaseCheckboxField {
 
         this.spanLabel = new Knot('span');
         this.spanLabel.addClass('sui-icon__label');
-        this.spanLabel.setHtml(labelText);
+        this.spanLabel.setSafeText(labelText);
 
         this.label.insert(this.input);
         this.label.appendChild(this.icon);

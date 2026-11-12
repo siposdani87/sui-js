@@ -449,7 +449,7 @@ export class BaseField<T extends HTMLInputElement> extends Emitter {
      */
     setLabel(text: string): void {
         if (this.label && !this.label.isEmpty()) {
-            this.label.setHtml(text);
+            this.label.setSafeText(text);
             this._setAdditionalLabel(this.label);
         }
     }
@@ -550,7 +550,7 @@ export class BaseField<T extends HTMLInputElement> extends Emitter {
      */
     protected _getLabelRequiredText(labelText: string): string {
         if (eq(labelText, true)) {
-            return '&nbsp;';
+            return '\u00a0';
         }
         const requiredPostfix = ' *';
         const postfix = labelText.substring(

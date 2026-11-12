@@ -110,9 +110,9 @@ export class RadiobuttonField extends BaseField<HTMLInputElement> {
         const dataLabelText = this.label.getAttribute('data-label');
         if (dataLabelText) {
             const labelText = this._getLabelRequiredText(dataLabelText);
-            this.dataLabelKnot.setHtml(labelText);
+            this.dataLabelKnot.setSafeText(labelText);
         } else {
-            this.dataLabelKnot.setHtml('');
+            this.dataLabelKnot.setSafeText('');
         }
         if (this.isDisabled()) {
             this.label.addClass('is-disabled');

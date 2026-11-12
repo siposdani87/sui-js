@@ -1,7 +1,11 @@
 import { parseInputBlock } from '../component';
 import { Query } from '../core';
 import { LocationField } from './locationField';
-import { installCanvasMock, uninstallCanvasMock } from '../test-helpers';
+import {
+    installCanvasMock,
+    uninstallCanvasMock,
+    XSS_PAYLOAD,
+} from '../test-helpers';
 
 // Supplement @googlemaps/jest-mocks with missing visualization, geometry, and StyledMapType mocks
 function setupSupplementaryMocks(): void {
@@ -84,6 +88,21 @@ describe('locationField', () => {
             expect(locationField.advancedKnot).toBeDefined();
             expect(locationField.latitudeInput).toBeDefined();
             expect(locationField.longitudeInput).toBeDefined();
+        });
+
+        it('should show the advanced input labels as text', () => {
+            document
+                .querySelector('#field-location')!
+                .setAttribute('data-latitude', XSS_PAYLOAD);
+            const locationField = createLocationField();
+            locationField.render();
+
+            const advancedNode = locationField.advancedKnot.getNode();
+            expect(advancedNode.querySelector('img')).toBeNull();
+            const labels = Array.from(
+                advancedNode.querySelectorAll('label'),
+            ).map((label) => label.textContent);
+            expect(labels).toContain(XSS_PAYLOAD);
         });
 
         it('should set default value from data attribute', () => {

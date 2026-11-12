@@ -240,7 +240,7 @@ export class LocationField extends BaseField<HTMLInputElement> {
         const advancedLabel = new Knot<HTMLLabelElement>('label');
         advancedLabel.setFor(id);
         advancedLabel.addClass('sui-textfield__label');
-        advancedLabel.setHtml(labelText);
+        advancedLabel.setSafeText(labelText);
         boxKnot.appendChild(advancedLabel);
 
         const advancedInput = new Knot<HTMLInputElement>('input');
