@@ -45,8 +45,7 @@ jobs:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
     - name: Build website
       run: cd website && npm ci && npm run build
-    - name: SonarCloud Scan
-      uses: SonarSource/sonarcloud-github-action@v3
+    - name: SonarQube Cloud Scan
+      uses: SonarSource/sonarqube-scan-action@v8
       env:
-        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
