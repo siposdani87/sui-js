@@ -185,7 +185,7 @@ export class GoogleMap extends Emitter {
     private _initMap(): void {
         this.map = new google.maps.Map(
             this.mapKnot.getNode(),
-            this.options.copyObject() as google.maps.MapOptions,
+            this.options.copyObject(),
         );
 
         google.maps.event.clearInstanceListeners(this.map);

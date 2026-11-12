@@ -99,28 +99,28 @@ export const bindEventsToMarker = (
         listeners.push({ target, event, handler });
     };
 
-    addListener(marker, 'gmp-click', ((event: Event) => {
+    addListener(marker, 'gmp-click', (event: Event) => {
         emitter.emit('markerClick', clean, event);
-    }) as EventListener);
+    });
 
-    addListener(marker.element, 'dblclick', ((event: Event) => {
+    addListener(marker.element, 'dblclick', (event: Event) => {
         emitter.emit('markerDoubleClick', clean, event);
-    }) as EventListener);
+    });
 
-    addListener(marker.element, 'contextmenu', ((event: Event) => {
+    addListener(marker.element, 'contextmenu', (event: Event) => {
         emitter.emit('markerRightClick', clean, event);
-    }) as EventListener);
+    });
 
-    addListener(marker, 'gmp-drag', ((_event: Event) => {
+    addListener(marker, 'gmp-drag', (_event: Event) => {
         const { lat, lng } = getLatLng(marker.position);
         const mapLabel = markerData.get<MapLabel>('_map_label');
         mapLabel.set('position', new google.maps.LatLng(lat, lng));
-    }) as EventListener);
+    });
 
-    addListener(marker, 'gmp-dragend', ((event: Event) => {
+    addListener(marker, 'gmp-dragend', (event: Event) => {
         const { lat, lng } = getLatLng(marker.position);
         emitter.emit('markerChanged', clean, lat, lng, event);
-    }) as EventListener);
+    });
 
     markerData.setRaw('_listeners', listeners);
 };
@@ -181,7 +181,7 @@ export const createMarker = (
     const markerIcon = markerIcons[iconName]!;
     const marker = new google.maps.marker.AdvancedMarkerElement({
         position: new google.maps.LatLng(latitude, longitude),
-        content: markerIcon.content.cloneNode(true) as HTMLElement,
+        content: markerIcon.content.cloneNode(true),
         title: text,
         map,
         gmpDraggable: options.get<boolean>('draggable') ?? false,
@@ -229,7 +229,7 @@ export const updateMarker = (
         markerData.get<google.maps.marker.AdvancedMarkerElement>('_marker');
 
     const markerIcon = markerIcons[iconName]!;
-    marker.content = markerIcon.content.cloneNode(true) as HTMLElement;
+    marker.content = markerIcon.content.cloneNode(true);
     marker.title = text;
     marker.position = new google.maps.LatLng(latitude, longitude);
 

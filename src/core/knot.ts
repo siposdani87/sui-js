@@ -79,7 +79,7 @@ export class Knot<T extends HTMLElement = HTMLElement> {
                 template.innerHTML = node;
                 node = template.content.firstElementChild as unknown as T;
             } else {
-                node = document.createElement(node) as unknown as T;
+                node = document.createElement(node);
             }
         }
         this.node = node as T;

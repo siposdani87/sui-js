@@ -535,8 +535,7 @@ export class Xhr {
     private _stringifyObject(obj: object): string {
         let results: string[] = [];
         for (const key in obj) {
-            // eslint-disable-next-line @typescript-eslint/no-explicit-any
-            if (Object.hasOwn(obj as Record<string, any>, key)) {
+            if (Object.hasOwn(obj, key)) {
                 const pair = this._parseObject(
                     // eslint-disable-next-line @typescript-eslint/no-explicit-any
                     (obj as Record<string, any>)[key],
