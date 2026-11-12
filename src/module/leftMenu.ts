@@ -126,7 +126,7 @@ export class LeftMenu {
 
         this.leftMenu.addClass('visible-block');
 
-        this.mainMenuTitle.setHtml(opt_title);
+        this.mainMenuTitle.setSafeText(opt_title);
     }
 
     /**
@@ -152,7 +152,7 @@ export class LeftMenu {
     openSubMenu(opt_title: string | undefined = ''): void {
         this.mainMenu.addClass('hidden');
         this.subMenu.removeClass('hidden');
-        this.subMenuTitle.setHtml(opt_title);
+        this.subMenuTitle.setSafeText(opt_title);
     }
 
     /**

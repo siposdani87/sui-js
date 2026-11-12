@@ -1,3 +1,4 @@
+import { XSS_PAYLOAD } from '../test-helpers';
 import { LeftMenu } from './leftMenu';
 
 describe('LeftMenu', () => {
@@ -165,6 +166,24 @@ describe('LeftMenu', () => {
                 .querySelector('#close-sub-menu') as HTMLElement;
             closeSubBtn.click();
             expect(leftMenu.subMenu.hasClass('hidden')).toBe(true);
+        });
+    });
+
+    describe('text-safe titles', () => {
+        it('should show the open title as text', () => {
+            leftMenu.open(XSS_PAYLOAD);
+            const titleNode = leftMenu.mainMenuTitle.getNode();
+            expect(titleNode.querySelector('img')).toBeNull();
+            expect(titleNode.textContent).toBe(XSS_PAYLOAD);
+            leftMenu.close();
+        });
+
+        it('should show the openSubMenu title as text', () => {
+            leftMenu.openSubMenu(XSS_PAYLOAD);
+            const titleNode = leftMenu.subMenuTitle.getNode();
+            expect(titleNode.querySelector('img')).toBeNull();
+            expect(titleNode.textContent).toBe(XSS_PAYLOAD);
+            leftMenu.closeSubMenu();
         });
     });
 });
