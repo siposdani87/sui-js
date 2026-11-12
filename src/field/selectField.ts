@@ -283,7 +283,7 @@ export class SelectField extends BaseField<HTMLInputElement> {
             optionKnot.setAttribute('value', value);
             optionKnot.setAttribute('data-image', image);
             optionKnot.setAttribute('data-item', item);
-            optionKnot.setHtml(name);
+            optionKnot.setSafeText(name);
             this.input.appendChild(optionKnot);
         });
 
@@ -362,7 +362,7 @@ export class SelectField extends BaseField<HTMLInputElement> {
         eachArray(tags, (tag) => {
             const tagKnot = new Knot('div');
             tagKnot.addClass('field-tag');
-            tagKnot.setHtml(tag.get('name'));
+            tagKnot.setSafeText(tag.get('name'));
             if (this.isEnabled()) {
                 tagKnot.addEventListener('click', () => {
                     this.open();
@@ -488,7 +488,7 @@ export class SelectField extends BaseField<HTMLInputElement> {
 
             const name = item.get<string>('name');
             const nameKnot = new Knot('span');
-            nameKnot.setHtml(name);
+            nameKnot.setSafeText(name);
             listKnot.appendChild(nameKnot);
         });
     }

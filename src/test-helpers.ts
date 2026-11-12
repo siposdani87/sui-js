@@ -1,6 +1,12 @@
 import { Knot } from './core/knot';
 import { Objekt } from './core/objekt';
 
+/**
+ * Markup that a label or data string must show as text: rendered as HTML it
+ * creates an `img` element whose error handler runs script.
+ */
+export const XSS_PAYLOAD = '<img src=x onerror="window.__xss=1">';
+
 /** Create a Knot wrapping a fresh DOM element */
 export function createKnot<T extends HTMLElement>(
     tag: string,

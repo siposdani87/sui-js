@@ -1,5 +1,6 @@
 import { parseInputBlock } from '../component';
 import { Query, Objekt } from '../core';
+import { XSS_PAYLOAD } from '../test-helpers';
 import { SelectField } from './selectField';
 
 describe('SelectField', () => {
@@ -786,6 +787,67 @@ describe('SelectField', () => {
             expect(
                 field.listKnot.getNode().querySelectorAll('button').length,
             ).toBe(3);
+        });
+    });
+
+    describe('text-safe labels', () => {
+        let container: HTMLDivElement;
+
+        afterEach(() => {
+            if (container) container.remove();
+        });
+
+        function createPayloadSelectField(): SelectField {
+            container = createSelectDOM();
+            const option = container.querySelector('option[value="a"]')!;
+            option.textContent = XSS_PAYLOAD;
+            const field = createSelectField(container);
+            field.render();
+            return field;
+        }
+
+        it('should keep a setOptions label as option text', () => {
+            container = createSelectDOM();
+            const field = createSelectField(container);
+            field.render();
+            field.setOptions([new Objekt({ value: 'x', name: XSS_PAYLOAD })]);
+            const option = field.input
+                .getNode()
+                .querySelector('option[value="x"]')!;
+            expect(option.querySelector('img')).toBeNull();
+            expect(option.textContent).toBe(XSS_PAYLOAD);
+        });
+
+        it('should show the selected option label as text in the tag', () => {
+            const field = createPayloadSelectField();
+            field.setValue('a');
+            const selectNode = field.selectKnot.getNode();
+            expect(selectNode.querySelector('img')).toBeNull();
+            expect(
+                selectNode.querySelector('.field-tag')!.textContent,
+            ).toContain(XSS_PAYLOAD);
+        });
+
+        it('should show option labels as text in the option list', () => {
+            const field = createPayloadSelectField();
+            field.open();
+            const listNode = field.listKnot.getNode();
+            expect(listNode.querySelector('img')).toBeNull();
+            const names = Array.from(listNode.querySelectorAll('span')).map(
+                (span) => span.textContent,
+            );
+            expect(names).toContain(XSS_PAYLOAD);
+        });
+
+        it('should keep a selected option label from setOptions as text', () => {
+            container = createSelectDOM();
+            const field = createSelectField(container);
+            field.render();
+            field.setOptions([new Objekt({ value: 'x', name: XSS_PAYLOAD })]);
+            field.setValue('x');
+            field.open();
+            expect(container.querySelector('img')).toBeNull();
+            expect(field.listKnot.getNode().textContent).toContain(XSS_PAYLOAD);
         });
     });
 });
