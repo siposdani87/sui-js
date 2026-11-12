@@ -237,14 +237,35 @@ export class BaseModal extends Emitter {
     }
 
     /**
-     * Sets the modal header title text. Shows the header when the title
+     * Sets the modal header title as text. Shows the header when the title
      * is a non-empty string or a number; hides it otherwise.
      *
      * @param opt_title The title text to display in the modal header.
      */
     protected _setTitle(opt_title: string | undefined): void {
-        this.modalTitle.setHtml(opt_title ?? '');
+        this.modalTitle.setSafeText(opt_title ?? '');
+        this._toggleHeader(opt_title);
+    }
 
+    /**
+     * Sets the modal header title as HTML, for a title the caller passes
+     * as trusted markup. Shows or hides the header like
+     * {@link BaseModal._setTitle}.
+     *
+     * @param opt_title The title HTML to display in the modal header.
+     */
+    protected _setTitleHtml(opt_title: string | undefined): void {
+        this.modalTitle.setHtml(opt_title ?? '');
+        this._toggleHeader(opt_title);
+    }
+
+    /**
+     * Shows the modal header when the title is a non-empty string or a
+     * number; hides it otherwise.
+     *
+     * @param opt_title The title shown in the modal header.
+     */
+    private _toggleHeader(opt_title: string | undefined): void {
         if (
             (isString(opt_title) && opt_title.length > 0) ||
             isNumber(opt_title)

@@ -56,6 +56,15 @@ describe('Confirm', () => {
             expect(confirm.modalTitle.getHtml()).toContain('Title');
         });
 
+        it('should render the title as HTML', () => {
+            const confirm = new Confirm();
+            confirm.load('Message', 'OK', '', '<strong>Title</strong>');
+            const titleNode = confirm.modalTitle.getNode();
+            expect(titleNode.querySelector('strong')!.textContent).toBe(
+                'Title',
+            );
+        });
+
         it('should apply type class to modal window', () => {
             const confirm = new Confirm();
             confirm.load('Message', 'OK', '', '', 'warning');

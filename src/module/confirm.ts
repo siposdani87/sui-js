@@ -108,7 +108,7 @@ export class Confirm extends BaseModal {
      * @param okText The label text for the OK/confirm button.
      * @param opt_cancelText The label text for the Cancel button. When
      *     empty or omitted, no cancel button is rendered.
-     * @param opt_title The title text for the dialog header. When empty
+     * @param opt_title The title HTML for the dialog header. When empty
      *     or omitted, the header is hidden.
      * @param opt_type The visual style type for the confirmation window.
      *     One of `'normal'`, `'info'`, `'warning'`, `'error'`,
@@ -127,7 +127,7 @@ export class Confirm extends BaseModal {
         opt_type: string | undefined = 'normal',
     ) {
         this._reset();
-        this._setTitle(opt_title);
+        this._setTitleHtml(opt_title);
 
         this.modalWindow.removeClass([
             'normal',

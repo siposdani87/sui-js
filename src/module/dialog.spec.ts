@@ -1,6 +1,7 @@
 import { Dialog } from './dialog';
 import { Http } from './http';
 import { Knot } from '../core';
+import { XSS_PAYLOAD } from '../test-helpers';
 
 describe('Dialog', () => {
     let http: Http;
@@ -272,6 +273,46 @@ describe('Dialog', () => {
 
             const titleNode = dialog.modalTitle.getNode();
             expect(titleNode.textContent).toBe('Server Error');
+        });
+
+        it('should show a server-escaped #title as text', () => {
+            const dom = createResponseDom([
+                { tag: 'div', id: 'title', text: XSS_PAYLOAD },
+                { tag: 'div', id: 'content', text: 'Body' },
+            ]);
+            const data = {
+                get: (key: string) => (key === 'raw' ? dom : undefined),
+            };
+
+            jest.spyOn(http, 'get').mockReturnValue({
+                then: (ok: Function) => ok(data),
+            } as any);
+
+            dialog.loadTemplate('/api/test');
+
+            const titleNode = dialog.modalTitle.getNode();
+            expect(titleNode.querySelector('img')).toBeNull();
+            expect(titleNode.textContent).toBe(XSS_PAYLOAD);
+        });
+
+        it('should show a server-escaped error <title> as text', () => {
+            const dom = createResponseDom([
+                { tag: 'title', text: XSS_PAYLOAD },
+                { tag: 'div', className: 'message', text: 'Oops' },
+            ]);
+            const data = {
+                get: (key: string) => (key === 'raw' ? dom : undefined),
+            };
+
+            jest.spyOn(http, 'get').mockReturnValue({
+                then: (_ok: Function, err: Function) => err(data),
+            } as any);
+
+            dialog.loadTemplate('/api/error');
+
+            const titleNode = dialog.modalTitle.getNode();
+            expect(titleNode.querySelector('img')).toBeNull();
+            expect(titleNode.textContent).toBe(XSS_PAYLOAD);
         });
     });
 });

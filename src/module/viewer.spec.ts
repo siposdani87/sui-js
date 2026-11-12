@@ -1,3 +1,4 @@
+import { XSS_PAYLOAD } from '../test-helpers';
 import { Viewer } from './viewer';
 
 describe('viewer', () => {
@@ -37,6 +38,14 @@ describe('viewer', () => {
         expect(img).not.toBeNull();
         expect(img.getAttribute('src')).toBe('/test/image.jpg');
         expect(viewer.modalTitle.getNode().textContent).toBe('Test Image');
+    });
+
+    it('should show the image title as text', () => {
+        viewer.loadImage('/test/image.jpg', XSS_PAYLOAD);
+
+        const titleNode = viewer.modalTitle.getNode();
+        expect(titleNode.querySelector('img')).toBeNull();
+        expect(titleNode.textContent).toBe(XSS_PAYLOAD);
     });
 
     it('should load image without title', () => {
