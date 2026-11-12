@@ -13,13 +13,29 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
     - `SelectField` option labels from `setOptions` or `<option>` text, the selected tags and the option list
     - `Navigation` item titles and counters
     - `Dialog` template titles and `Viewer` image titles
-    - Field labels: `setLabel`, switch and icon toggle labels, checkbox and radio `data-label`, the URL field `data-protocol` prefix and the location field `data-latitude` / `data-longitude` labels
+    - Field labels: `setLabel` on `BaseField`, `BaseCheckboxField` and `RadiobuttonField`, switch and icon toggle labels, checkbox and radio `data-label`, the URL field `data-protocol` prefix and the location field `data-latitude` / `data-longitude` labels
     - `LeftMenu` titles from `open` and `openSubMenu`
     - `ProgressStatus` messages and the `ContentHandler` `text` option
 
 ### Changed
 
-- Markup passed to any of the inputs above now shows as literal text. `Confirm`, `Flash`, `Table`, `CardCollection`, `Tooltip`, `Dropdown` action titles, `Helper.createLink` / `createButton`, `Header.setTitle`, `BaseField.setError` and `GoogleMap.openInfoWindow` still render HTML.
+- Markup passed to any of the inputs above now shows as literal text.
+- Pre-escaped entities passed to the inputs above now show literally: `&amp;` renders as `&amp;`, not `&`. Pass plain text instead.
+- `BaseModal._setTitle` sets the title as text. Subclasses that need an HTML title call the new protected `_setTitleHtml`, which `Confirm` uses for its title.
+- These still render HTML and keep their current contract:
+    - Server-rendered field label markup, which `BaseField`, `CheckboxField` and `RadiobuttonField` read with `getHtml(true)` and render again
+    - `Pager` page buttons and statistics
+    - `DateTimeField` and `DateTimeRangeField` tags
+    - `Table` cells and header titles
+    - `CardCollection` values
+    - `Confirm` message, button labels and title
+    - `Flash` messages
+    - `Tooltip` messages
+    - `Dropdown` action titles
+    - `BaseField.setError`
+    - `Helper.createLink` / `createButton`
+    - `Header.setTitle`
+    - `GoogleMap.openInfoWindow`
 
 ## [2.0.0] - 2026-03-09
 
