@@ -806,6 +806,24 @@ describe('SelectField', () => {
             return field;
         }
 
+        it('should show a server-escaped entity once in the tag and the list', () => {
+            container = createSelectDOM();
+            container.querySelector('option[value="a"]')!.innerHTML =
+                'A &amp; B';
+            const field = createSelectField(container);
+            field.render();
+            field.setValue('a');
+            const tagNode = field.selectKnot
+                .getNode()
+                .querySelector('.field-tag')!;
+            expect(tagNode.firstChild!.textContent).toBe('A & B');
+            field.open();
+            const names = Array.from(
+                field.listKnot.getNode().querySelectorAll('span'),
+            ).map((span) => span.textContent);
+            expect(names).toContain('A & B');
+        });
+
         it('should keep a setOptions label as option text', () => {
             container = createSelectDOM();
             const field = createSelectField(container);
