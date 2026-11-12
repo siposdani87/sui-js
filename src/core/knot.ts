@@ -833,7 +833,8 @@ export class Knot<T extends HTMLElement = HTMLElement> {
 
     /**
      * Sets the text content of the node via `nodeValue`. Useful for
-     * text nodes; for element content prefer {@link Knot.setHtml}.
+     * text nodes; on an element it does nothing, so set element text
+     * with {@link Knot.setSafeText}.
      *
      * @param text Plain text string to assign.
      * @example
